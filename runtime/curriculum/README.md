@@ -1,5 +1,9 @@
 # `runtime/curriculum` — the education layer
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 Makes one theorem executable.
 
 > **`notes/ATLAS_OF_N.md` Theorem 4.2(3).** *Positional notation is a chart of

@@ -123,6 +123,8 @@ the law is cleanly linear,
 
 $$\frac{E_W^\circ(\delta)}{2\sum|W|^2} \;\approx\; 2.8\,\delta .$$
 
+**[CORRECTED 2026-08-13 — `ENERGY_CONSTANT_EXACT.md` Theorem E: $c$ is the exact ratio $\int w^2\rho^2/\sum|W|^2=\langle\rho\rangle_{|W|^2}$ (both sums proved absolutely convergent), and it is *cutoff-dependent* with the derived law $c(S)/c_\infty=1-\Theta(S^{-2}\log^4S)$; $2.8$ is $c(s_{\max}{=}300)$ read against the diagonal rather than the $2\sum|W|^2$ printed here (same data: $2.54$), and the limit is $c=4.2$–$4.4$. Valid only for $\delta\ge\delta_0\approx0.03$, the derived resolution floor. The uniform-in-$\delta$ constant needed by §5/D.6(1) is a different, SSH-conditional object and is not $c$.]**
+
 Weighted Poisson check: the prediction $E_W^\circ \approx 2\delta\int
 f_w(s)^2ds$ from the $|W|$-weighted pair-sum density alone reproduces the
 measured off-diagonal to **0.91** at $\delta_*$ — the weighted energy, like the

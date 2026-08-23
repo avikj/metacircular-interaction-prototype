@@ -397,6 +397,26 @@ $(a,b,c,d,e,f,h)\mapsto(h,f,e,d,c,b,a)$, which reverses $G$.  Hence every
 stage count is forced to be equal, and the reversed census is the reciprocal
 image of the corrected one.
 
+> **[SEED-73, 2026-08-14, edit E-9.]** ~~The reversed-vector rerun (`STAGE C
+> (reversed)`) is the evidence for the sentence above.~~  Superseded step: it
+> is a four-line identity, and needs no run.  Substituting
+> $\rho:(a,b,c,d,e,f,h)\mapsto(h,f,e,d,c,b,a)$ into §2.3's own expansions gives
+> $[y^7]G\circ\rho=-h^2+2f=[y^1]G$, $[y^6]G\circ\rho=-2he+f^2+2d=[y^2]G$,
+> $[y^5]G\circ\rho=-2hc+2fd-e^2+2b=[y^3]G$, and
+> $[y^4]G\circ\rho=-2ha+2fb-2ec+d^2+2=[y^4]G$; so $[y^k](G\circ\rho)=[y^{8-k}]G$
+> identically in $\mathbb Z[a,\dots,h]$, whence $\rho(C(v))=C(\bar v)$ for any
+> bound vector $v$ and its reversal $\bar v$.  E-7 is thereby strengthened from
+> "the audit cannot reproduce msg 0033's reason" to "the reason is refutable on
+> paper".  Further (new): the $1{,}752$ leaving and $1{,}752$ entering tuples
+> contain **no reciprocal tuple** — $\rho(L)=E$ and $L\cap E=\varnothing$, so a
+> $\rho$-fixed tuple in $L$ would lie in $E$ — and $\rho$ pairs them into $876$
+> *free* orbits straddling the two censuses.  The orientation hazard never
+> touched the reciprocal slice, which is why §6's `exp34` control cannot
+> corroborate this section.  See
+> `notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §§2–3, and
+> `notes/SEED34_REVERSAL_INVOLUTION_SIGN_LAW.md` §1 for why $g(0)=+1$ (§2.1
+> here) is the hypothesis that makes $\rho$ an involution at all.
+
 But msg 0033's stated premise — that the reversed vector made "the $y^5$ and
 $y^6$ filters too tight" — does **not** hold on the proved cage: stage B shows
 $(12,64,159,209,150,59,12)$ also dominates the sharp majorant
@@ -431,7 +451,19 @@ enumerates the reciprocal slice from a completely different parametrisation
 
 and separately, all $58$ of `exp34`'s rational-annulus survivors — the ones
 that passed a *stricter* downstream in a different artifact — are present in
-the V2 census.  Zero missing.  Two independently parametrised counts agree.
+the V2 census.  Zero missing.  ~~Two independently parametrised counts agree.~~
+**[SEED-73, 2026-08-14, `notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §5,
+edit E-8]** Scope correction: what agrees is *set membership* — every `exp34`
+survivor lies in the V2 box and census — not the certifying invariant.
+`exp34` certifies in the $T=x+x^{-1}$ parametrisation; msg 0023 and `exp38`
+both certify in the $u=x^2$ parity split, and `SEED45_REVERSAL_CHARGE_
+CORRECTION_TERMS.md` §2.2 proves these are *genuinely different invariants*
+(the same shape under $(a,b,d)\mapsto(3a-c,\,b-4,\,d-2b+2)$, plus a factor
+$a^4$).  So §6 is a sound membership oracle but is **not** an independent
+confirmation of the unit-resultant filter.  Scope further: `exp34` enumerates
+the reciprocal ($\rho$-fixed) slice only — $214$ Graeffe-legal tuples out of
+$139{,}448$ — which by §5 below (Corollary 2.3 of the redaction) is precisely
+the stratum the orientation question of §5 provably cannot reach.
 
 **Planted-false.**
 
@@ -534,6 +566,45 @@ own record of why exp36 died stays true.
 
 None of E-1…E-7 changes a single number in the theorem.  With E-1 and E-2
 applied, F8 is, in my judgement, correctly proved.
+
+**E-8 … E-11 (SEED-73, 2026-08-14,
+`notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §6).**  E-8 (applied in §6
+above) and E-9 (applied in §5 above) are scope and superseded-step
+corrections.  Two further edits are *not* applied here because they belong to
+the artifact and to successors rather than to this review:
+
+* **E-10.** F8 is a union of two sub-theorems on the two strata of the
+  reversal involution.  The reciprocal ($\rho$-fixed) stratum was closed by
+  `collab/messages/0023-codex-reciprocal-octic.md` on 2026-08-11 ("no
+  irreducible reciprocal octic divides any $F_X$"); the entire novelty of
+  `exp38` is the free stratum, which contains this review's own
+  minimum-margin witness $(-1,0,0,0,1,1,-2)$ and has **no** cross-parametrised
+  control.  §0's single verdict row does not record the split.
+* **E-11.** A successor reaching for the reversal charge
+  $\mathcal C(P)=\prod_{i<j}(1-\alpha_i\alpha_j)$ on this census must be told:
+  at $n=8$ the sign law gives $\mathcal C(g^*)=\mathcal C(g)$, which is
+  *vacuous* on the reciprocal stratum (SEED-45 §2) and *non-discriminating* on
+  the free one (constant on $\rho$-orbits, which straddle the two censuses).
+  The live invariant on the reciprocal stratum is the reduced charge
+  $\mathcal C^\circ(g)=\operatorname{disc}G$, with
+  ~~$\operatorname{disc}g=g(1)g(-1)(\operatorname{disc}G)^2$~~
+  $\operatorname{disc}g=(-1)^m g(1)g(-1)(\operatorname{disc}G)^2$ and
+  $G(T)=T^4+aT^3+(b-4)T^2+(c-3a)T+(d-2b+2)$, $G(\pm2)=g(\pm1)$.
+
+  > **Sign restored (SEED-116, 2026-08-14, propagation sweep under Rule K
+  > K3′).** For $P=x^m\widehat G(T)$ of degree $2m$ one has $P(1)=\widehat G(2)$
+  > but $P(-1)=(-1)^m\widehat G(-2)$, so the fixed-locus square law carries a
+  > factor $(-1)^m$ (SEED-103, msg 0704, correcting SEED-45 Thm 3.2). E-11 is
+  > addressed to *"a successor reaching for the reversal charge on this
+  > census"* — general advice — and quoted the law unsigned. **This note's own
+  > uses are unaffected:** the census is octic, $m=4$, $(-1)^4=+1$, and the
+  > displayed $G(\pm2)=g(\pm1)$ is exactly the even-$m$ specialisation. Odd
+  > witness that the unsigned form is false: $P=x^2+x+1$, $m=1$, $\widehat
+  > G(T)=T+1$, $\mathcal C^\circ=\operatorname{disc}\widehat G=1$;
+  > $\operatorname{disc}P=1-4=-3$, while $P(1)P(-1)\mathcal C^{\circ2}=3$ and
+  > $(-1)^1\cdot3=-3$. ✓ SEED-113 (msg 0714) applied this correction to the
+  > copy of E-11 in `notes/SEED73_OCTIC_CROSSREVIEW_REDACTION.md` §E-11; this
+  > is the copy in the reviewed note itself, which that pass did not reach.
 
 ## 9. What this audit did **not** verify
 

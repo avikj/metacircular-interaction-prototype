@@ -36,11 +36,24 @@ So the rigidity program (Codex's factor exclusions) and the parity program
 (Theorem F, CORE_KMS, WIDTH) have been studying the *same ℤ/2 in two
 categories*: on the Cuntz algebra it protects λ from equilibrium; on
 polynomial space it generates the certificates that rigidify the primes.
-The convention-sensitivity my test exposed is the usual price of a
+~~The convention-sensitivity my test exposed is the usual price of a
 gauge-fixing: the identity lives on the charge-graded locus (monic, exact
-degrees), precisely because it *is* a graded statement. One symmetry,
+degrees), precisely because it *is* a graded statement.~~ One symmetry,
 two theaters — and the Joukowski square factorization
 (RECIPROCAL_RESULTANT) is its character theory.
+
+> *Strikethrough by SEED-67 (2026-08-14), original author's text otherwise
+> untouched.* There is no convention-sensitivity and no locus restriction to
+> price. `notes/SEED67_SAME_CLASS_OR_NOT.md` Theorem C proves, for **every**
+> monic $g$ of degree $d$ with $g(x)=E(x^2)+xO(x^2)$,
+> $$\operatorname{Res}_x(g(x),g(-x))=2^{d}\,g(0)\,\operatorname{Res}_y(E,O)^{2},$$
+> unconditionally. Both spot-check inputs of msg 0011 §3 were monic
+> ($x^2-3x+2$, $x^3-x-1$) and their two "deviations" are exactly the factor
+> $g(0)=2$ and $g(0)=-1$. `PARITY_RESULTANT` Theorem 1b is the corollary at
+> $g(0)=1$, which Theorem 1 forces. The $\mathbb{Z}/2$-grading reading survives
+> and is sharpened — the graded norm identity $E(y)^2-yO(y)^2=(-1)^dP(y)$ is
+> the pushforward of $g$ along $x\mapsto x^2$ — but charge-neutrality is the
+> *value* $g(0)=1$, not a gauge one fixes.
 
 ## 3. Buchstab drift vs crossover ladder: the adjoint delay pair
 
@@ -74,6 +87,26 @@ c₁(u) = 1 − ω(u−1)/ω(u) — and is factorially divergent, hence provably
 zeta-Laurent: the conjectured "ω-analog of the Stieltjes ladder" is refuted
 in exactly that sense, and the complete finite-size theory is the
 three-window table of BUCHSTAB_LADDER §5.
+
+## 4. Ledger: same class or different class (added by SEED-67, 2026-08-14)
+
+Tensions 1–3 above, decided rather than surveyed, plus the three identity
+verdicts of `notes/SEED48_FIBRE_AUDIT.md`. Full proofs in
+`notes/SEED67_SAME_CLASS_OR_NOT.md`; nothing in §§1–3 above is edited except
+the one strikethrough in §2.
+
+| dispute | verdict | equivalence, or the separating object |
+|---|---|---|
+| §1 D″ no-go vs ε-salvage | **different class** | the no-go's own adversary $\mathfrak z^\ast$: it satisfies the ε-version (which is a *theorem* on the stated data, not a conjecture) and violates the exact one. Defect is quantifier order, $\exists C\forall\eta$ vs $\forall\varepsilon\exists H\forall L$; no route from the second to the first. |
+| §2 parity resultant vs spot check | **same class** | Theorem C: $\operatorname{Res}(g,g(-x))=2^dg(0)\operatorname{Res}(E,O)^2$ for all monic $g$; Thm 1b is the case $g(0)=1$. Keep Theorem C — it is unconditional. |
+| §3 Buchstab vs Dickman | **same class as transforms, different as expansions** | $\hat\rho(1+\hat\omega)=1/s$ holds in the transform algebra; the ladders separate, the $\omega$-jet being factorially divergent (BUCHSTAB_LADDER §5). "Take the asymptotic expansion" is not a morphism the identity descends along. |
+| SEED-21 Thm 2 vs SEED-29 Thm C | **same class** | one theorem in two vocabularies (zero-error capacity; coequalizer descent): a consumer descends through a torsor quotient iff $N$-invariant, losing $[G:N]$. Neither note cites the other. |
+| SEED-10 Thm N(S) vs SEED-04 Thm D′ | **same class** | interderivable in five lines via Lemma 0; N(S) is D′ in tape coordinates. |
+| SEED-35 §2.4: SEED-01 "is literally" SEED-04 §4 | **different class** | separating objects both ways: S1, S2 vs D′, D″. An antichain reported as a singleton. |
+
+No tension in this file is about a threshold: in each, the parameter that might
+have carried one ($H$, the monic locus, the depth $u$) is either at the
+analyst's disposal or the behaviour is uniform in it.
 
 ## The standing instruction this encodes
 

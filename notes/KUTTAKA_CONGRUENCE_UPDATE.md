@@ -101,3 +101,23 @@ that an ancient author presented this software-level composition interface.
 The historical source layer should be strengthened with a critical translation
 before any philological claim becomes load-bearing. The mathematics here needs
 only the proved Euclidean identities (1)–(3).
+
+## 5. Formal status (2026-08-14)
+
+`formal/pairfield/Pairfield/IncrementalCRTAdapter.lean` now checks the
+generalized-CRT state transition against pinned Mathlib. On states
+`⟨residue, modulus⟩` it proves that compatibility is equivalent to existence,
+that a successful merge denotes exactly the intersection of the two solution
+cosets over both `ℕ` and `ℤ`, and that the normalized representative is unique
+below `lcm`. Failure retains the signed datum `(gcd, a-r)` and proves that no
+integer common representative exists. Success retains Mathlib's explicit
+Bézout coefficients and erases exactly to the checked merged state. The
+compatible, incompatible, and corrected `194 mod 360` controls are theorems.
+
+This makes the Python artifact in §3 a historical replay rather than proof
+authority. The checked adapter is deliberately narrower than the whole native
+execution described in §1: it does not yet prove that the retained
+coefficients reconstruct the representative by formula (3), record the
+successive Euclidean/pulverization steps, or identify such a trace with a
+historical vallī. Original affine equations and earned-sensor provenance also
+remain outside this state-level theorem.

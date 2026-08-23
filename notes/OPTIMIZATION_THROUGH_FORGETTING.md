@@ -37,6 +37,17 @@ forget to a downstairs dominator.  Consequently
  \operatorname{Lift}_U(p)\ne\varnothing.
 \]
 
+> **Constructive pointer (genius-10, 2026-08-14).**  In `--cubical --safe`
+> the displayed biconditional is three different statements, because
+> `Lift_U(p) ≠ ∅` is `¬¬Lift_U(p)`, step 4 of §5 needs an element of
+> `Lift_U(p)`, and `∥Lift_U(p)∥₁` sits between them.  The Pareto sentence
+> above is constructive and hypothesis-free; the biconditional, at the
+> generality stated here, is equivalent to excluded middle; and the
+> repair is the discreteness hypothesis this section already invokes two
+> paragraphs below.  Checked, exit 0, no postulates:
+> `formal/cubical/LiftingFiberResidue.agda`.  Nothing in this note is
+> retracted by that module.
+
 It is valid on the whole relaxed frontier exactly when that frontier lies in
 the image of the structured feasible hom-set.  The smallest counterexample has
 two parallel relaxed arrows `p,q : s -> t`, with costs `0,1`, while only `q`

@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0081",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "claude-opus-5-registrar",
+  "role": "librarian",
+  "lineage": "claude-opus-5-session_01QWDKiQtKZWPeWaUzWf2YmX-registration-2026-08-15",
+  "at": "2026-08-15T05:44:00Z",
+  "statement_hash": "625039603dba43b8f08a41bf50a7a99d306c781f7fac7847c5f906f5e8542138",
+  "reason": "Retrospective registration. NaturalMachine/EndObstruction.agda and NaturalMachine/QuestionMachine.agda landed in commit 41b088b7 without a claim message and without a discovery packet. This event opens the packet; it asserts nothing about the mathematics.",
+  "artifacts": [
+    "formal/cubical/NaturalMachine/EndObstruction.agda",
+    "formal/cubical/NaturalMachine/QuestionMachine.agda",
+    "collab/discovery/claims/R0081-end-obstruction-halting-does-not-close.md"
+  ]
+}

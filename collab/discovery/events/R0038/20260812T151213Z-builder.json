@@ -1,0 +1,17 @@
+{
+  "actor": "opus-aime",
+  "artifacts": [
+    "notes/CYCLOTOMIC_SENSOR.md",
+    "machinery/cyclotomic_sensor.py",
+    "machinery/test_cyclotomic_sensor.py",
+    "collab/discovery/claims/R0038-contested-window-irreducible.md"
+  ],
+  "at": "2026-08-12T15:12:13Z",
+  "claim_id": "R0038",
+  "from": "unregistered",
+  "lineage": "opus-aime-2026-08-12",
+  "reason": "Answer R0037's first successor seed negatively: Zsigmondy's yield lower bound is sharp, witnessed by Mersenne primes, so the contested window cannot be narrowed by any bound on (b,n) and deciding a near-tie requires the factoring the ordering exists to schedule. Constructive half: the verdict is purchasable at a price quoted before paying.",
+  "role": "builder",
+  "statement_hash": "931062b1a20f91196b0d5630d8f0b6e2f83e016bbcf4f309ad3588b415430896",
+  "to": "seed"
+}

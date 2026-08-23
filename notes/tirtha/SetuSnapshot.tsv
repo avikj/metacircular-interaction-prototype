@@ -1,0 +1,114 @@
+# सेतु-स्नैपशॉट् — the admitted edge list as of the last तीर्थ run.
+# A ford's identity is its DECLARATION, so this is keyed on module.decl.
+# fordId	bankA	bankB
+AchromaticToy.L₁₂	AchromaticToy.G₁	AchromaticToy.G₂
+AchromaticToy.L₂₁	AchromaticToy.G₂	AchromaticToy.G₁
+AchromaticToy.collageFaithful	AchromaticToy.Collage	AchromaticToy.G₂
+Ankapasa_TheMetreNamesAFiniteSetAndTheLoopsOfThatSetAreTheFactorial.छन्दस्≃π₀FinSet	Pingala.छन्दस्	NaturalMachine.Decategorification.π₀FinSet
+Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.H2≃H4	NaturalMachine.InflationVersusSubgroup.H2	NaturalMachine.InflationVersusSubgroup.H4
+Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGroup.H2≡H4	NaturalMachine.InflationVersusSubgroup.H2	NaturalMachine.InflationVersusSubgroup.H4
+Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis.यत्-तिष्ठति	∥ ⟨lib⟩.A ∥₁	∥ ⟨lib⟩.B ∥₁
+Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree.Col≃Row3	NaturalMachine.SmithPathCountedExecution.Col	NaturalMachine.SmithPathCountedExecution.Row3
+Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree.Col≡Row3	NaturalMachine.SmithPathCountedExecution.Col	NaturalMachine.SmithPathCountedExecution.Row3
+Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree.Mat3≃Nine	NaturalMachine.TypedUnfold.Mat 3 3	NaturalMachine.SmithPathCountedExecution.Nine
+Bhadraganita_TheThreeByThreeSquareIsNineEntriesAndDecidabilityCrossesFree.Mat3≡Nine	NaturalMachine.TypedUnfold.Mat 3 3	NaturalMachine.SmithPathCountedExecution.Nine
+CenterRelative.Pair≃CR	CenterRelative.Pair	CenterRelative.CR
+CenterRelative.Pair≡CR	CenterRelative.Pair	CenterRelative.CR
+Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.अभिज्ञानम्	⟨lib⟩.ΩS¹	⟨lib⟩.ℤ
+Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.पर्याय-दर्शनम्	⟨lib⟩.ΩS¹	⟨lib⟩.ℤ
+EGBSpanWeave.totalComposite≃Bool	(⟨lib⟩.Total ⋈ ⟨lib⟩.Total) true true	⟨lib⟩.Bool
+FinCardinality.control-crt-6	⟨lib⟩.Fin (2 · 3)	⟨lib⟩.Fin 2 × ⟨lib⟩.Fin 3
+Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry.अभिज्ञानम्	fiber शून्य-हरः अनन्त	⟨lib⟩.ℤ
+Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists.अवच्छेदः-योगे	Σ[ n ∈ ⟨lib⟩.ℕ ] fiber योग n	⟨lib⟩.ℕ × ⟨lib⟩.ℕ
+Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants.marga	⟨lib⟩.FactoryVICoolingKill.CoolingCountermodel	⟨lib⟩.Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusΣ
+NaturalMachine.CRTChain.walk8-residues	⟨lib⟩.Fin 840	⟨lib⟩.Vec walk8
+NaturalMachine.ChenTwoChargeProjector.chargeOneFiber≃Unit	NaturalMachine.ChenTwoChargeProjector.chargeOneFiber	⟨lib⟩.Unit
+NaturalMachine.Control.WrongEquivalence.ℕ≃Word	⟨lib⟩.ℕ	⟨ambig⟩.Word
+NaturalMachine.Decategorification.ℕ≃π₀FinSet	⟨lib⟩.ℕ	NaturalMachine.Decategorification.π₀FinSet
+NaturalMachine.Digits.ℕ≃CanWord	⟨lib⟩.ℕ	NaturalMachine.Digits.CanWord
+NaturalMachine.Digits.ℕ≡CanWord	⟨lib⟩.ℕ	NaturalMachine.Digits.CanWord
+NaturalMachine.FreeMonoid.ℕ≃Tally	⟨lib⟩.ℕ	NaturalMachine.FreeMonoid.Tally
+NaturalMachine.FreeMonoid.ℕ≡Tally	⟨lib⟩.ℕ	NaturalMachine.FreeMonoid.Tally
+NaturalMachine.FrontierCount.frontier8-count	⟨lib⟩.Fin 840	⟨lib⟩.VecOf frontier8
+NaturalMachine.FrontierList.count8	⟨lib⟩.Fin (prodOf (frontierList 8))	⟨lib⟩.VecOf (frontierList 8)
+NaturalMachine.HaskellGenericSyntaxAdapter.haskellTermEquiv	NaturalMachine.HaskellDiscoveryBoundary.HaskellTerm	NaturalMachine.HaskellGenericSyntaxAdapter.GenericTerm
+NaturalMachine.LinearOrderFinite.LinOrd′≡	NaturalMachine.Pratyahara.L	⟨ambig⟩.M
+NaturalMachine.PMCokernel.kernelEquiv	NaturalMachine.PMCokernel.Kernel	⟨lib⟩.Fin 4 → ⟨lib⟩.Bool
+NaturalMachine.PMCokernel.twisted-sections≃F₂⁴	NaturalMachine.PMCokernel.TwistedSection	⟨lib⟩.Fin 4 → ⟨lib⟩.Bool
+NaturalMachine.PMTorus.ctxCount	NaturalMachine.PMTorus.Ctx	⟨lib⟩.Fin ⟨ambig⟩.V
+NaturalMachine.PMTorus.ctxEquiv	NaturalMachine.PMTorus.Ctx	NaturalMachine.PMTorus.Vertex
+NaturalMachine.PMTorus.cycleEquiv	NaturalMachine.PMTorus.Cycle	⟨lib⟩.Fin 4 → ⟨lib⟩.Bool
+NaturalMachine.PMTorus.edgeCount	NaturalMachine.PMTorus.Edge	⟨lib⟩.Fin ObligationMinCut.E
+NaturalMachine.PMTorus.evenEquiv	NaturalMachine.PMTorus.Even	⟨lib⟩.Fin 5 → ⟨lib⟩.Bool
+NaturalMachine.PMTorus.obsCount	NaturalMachine.PMTorus.Obs	⟨lib⟩.Fin ObligationMinCut.E
+NaturalMachine.PMTorus.obsEquiv	NaturalMachine.PMTorus.Obs	NaturalMachine.PMTorus.Edge
+NaturalMachine.PMTorus.vertexCount	NaturalMachine.PMTorus.Vertex	⟨lib⟩.Fin ⟨ambig⟩.V
+NaturalMachine.RawWordPaddingNormalForm.rawWord≃canonical×padding	⟨lib⟩.D.Word	⟨lib⟩.D.CanWord × ⟨lib⟩.ℕ
+NaturalMachine.RootedGrothendieck.constant-root-fibers-equivalent	⟨lib⟩.RootFiber constantJewel false	⟨lib⟩.RootFiber constantJewel true
+NaturalMachine.S3FixedPointCharacter.cycleFixedCardinality	⟨lib⟩.Fixed cycle₀₁₂	⟨lib⟩.Fin 0
+NaturalMachine.S3FixedPointCharacter.identityFixedCardinality	⟨lib⟩.Fixed ⟨lib⟩.S.1g	⟨lib⟩.Fin 3
+NaturalMachine.S3FixedPointCharacter.swapFixedCardinality	⟨lib⟩.Fixed s₀₁	⟨lib⟩.Fin 1
+NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual.अलोप-लक्षणम्	⟨lib⟩.A	⟨lib⟩.B
+NaturalMachine.SiteAudit.law-is-laghava	Σ[ g ∈ (NaturalMachine.Laghava.Denotation → ⟨lib⟩.ℕ) ] ((e : NaturalMachine.Laghava.Expr) → ⟨lib⟩.FullLaw eval size g e)	NaturalMachine.Laghava.FactorsThroughMeaning size
+NaturalMachine.TermFreeMonoid.Tm≃List	⟨ambig⟩.Tm	⟨lib⟩.List ⟨ambig⟩.Shape
+NaturalMachine.WalkObservationCount.crt-120-7	⟨lib⟩.Fin 840	⟨lib⟩.Fin 120 × ⟨lib⟩.Fin 7
+NaturalMachine.WalkObservationCount.crt-24-5	⟨lib⟩.Fin 120	⟨lib⟩.Fin 24 × ⟨lib⟩.Fin 5
+NaturalMachine.WalkObservationCount.crt-8-3	⟨lib⟩.Fin 24	⟨lib⟩.Fin 8 × ⟨lib⟩.Fin 3
+NaturalMachine.WalkObservationCount.walk-observation-space	⟨lib⟩.Fin 840	((⟨lib⟩.Fin 8 × ⟨lib⟩.Fin 3) × ⟨lib⟩.Fin 5) × ⟨lib⟩.Fin 7
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.पूर्ण-तन्तुः	fiber पूर्ण tt	⟨lib⟩.Bool ⊎ ⟨lib⟩.Unit
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.प्रवेश-तन्तुः-रिक्तः	fiber प्रवेश (false , true)	⊥
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.प्रवेश-तन्तुः-सत्ये-सत्यम्	fiber प्रवेश (true , true)	⟨lib⟩.Unit
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.मध्यम-तन्तुः-असत्ये	fiber मध्यम false	⟨lib⟩.Unit
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.मध्यम-तन्तुः-सत्ये	fiber मध्यम true	⟨lib⟩.Bool
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.विस्मरण-तन्तुः	fiber विस्मरण tt	⟨lib⟩.Bool
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.शेष-निवृत्तौ	fiber (λ u → विस्मरण (स्थापना u)) tt	Σ[ p ∈ fiber विस्मरण tt ] fiber स्थापना (fst p)
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.हस्त-शेष-असत्ये	Σ[ p ∈ fiber प्रथमांश false ] fiber प्रवेश (fst p)	⟨lib⟩.Unit
+Parampara_TheChainOfThreeIsPricedAndTheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.हस्त-शेष-सत्ये	Σ[ p ∈ fiber प्रथमांश true ] fiber प्रवेश (fst p)	⟨lib⟩.Bool
+Pingala.छन्दस्≃ℕ	Pingala.छन्दस्	⟨lib⟩.ℕ
+Pingala.छन्दस्≡ℕ	Pingala.छन्दस्	⟨lib⟩.ℕ
+ProjectionChargeAudit.localChargeEquiv	ProjectionChargeAudit.State	⟨lib⟩.Bool × ⟨lib⟩.Bool
+Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्≃कुट्टक	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.कुट्टक
+Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्≡कुट्टक	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.त्रिक्	Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.कुट्टक
+Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph.शेष-सर्वैकम्≃Bool	NaturalMachine.SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext.शेष सर्वैकम् tt	⟨lib⟩.Bool
+Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph.हस्ते	⟨ambig⟩.Carrier सर्वैकम्	⟨lib⟩.Bool
+Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.आधार≃स्थानिवत्	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.आधार	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.स्थानिवत्
+Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.आधार≡स्थानिवत्	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.आधार	Punaragamana.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.स्थानिवत्
+Punaragamana.Viveka.युग्म≃विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.Viveka.विवेक
+Punaragamana.Viveka.युग्म≡विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.Viveka.विवेक
+Punaragamana.युग्म≃विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.विवेक
+Punaragamana.युग्म≡विवेक	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamana.विवेक
+Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.विवेक≃वाहकः	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण	Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.Carrier योग
+Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.ℕ×ℕ≡वाहकः	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt.Carrier योग
+Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.त्रिक्≃विवेक	Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.त्रिक्	Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.विवेक
+Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.त्रिक्≡विवेक	Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.त्रिक्	Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.विवेक
+Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.अनेकान्ते-समावेश-भेदः	Saptabhangi.समावेश	Anekanta.सप्तभङ्गी ⊎ ⟨lib⟩.Unit
+Punarukti_TwoOfTheThreeSevenfoldsAreOneTypeAndTheThirdIsADifferentQuestion.सप्तभङ्गी≃सप्तभङ्गी	Anekanta.सप्तभङ्गी	Saptabhangi.सप्तभङ्गी
+Ratri.Nirdharita_Agda-Builtin-Nat_.DETERMINED	FactoryVICoolingKill.CoolingCountermodel	Ratri.Nirdharita_Agda-Builtin-Nat_.CensusBase
+Ratri.Nirdharita_Agda-Builtin-Nat_.censusContract	Ratri.Nirdharita_Agda-Builtin-Nat_.censusΣ	Ratri.Nirdharita_Agda-Builtin-Nat_.CensusBase
+Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA.DETERMINED	FactoryVICoolingKill.CoolingCountermodel	Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA.CensusBase
+Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA.censusContract	Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA.censusΣ	Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA.CensusBase
+Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.DETERMINED	FactoryVICoolingKill.CoolingCountermodel	Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.CensusBase
+Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusContract	Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.censusΣ	Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA.CensusBase
+Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.DETERMINED	⟨ambig⟩.विवेक-प्रमाण	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.CensusBase
+Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.censusContract	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.censusΣ	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_.CensusBase
+Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.DETERMINED	⟨ambig⟩.विवेक-प्रमाण	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.CensusBase
+Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.censusContract	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.censusΣ	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC.CensusBase
+Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC.DETERMINED	⟨ambig⟩.विवेक-प्रमाण	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC.CensusBase
+Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC.censusContract	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC.censusΣ	Ratri.Nirdharita_VivekaPramana_TheRemainderIsLawfulAndTheNetBeats_NirdharanaPoneC_NirdharanaPoneC.CensusBase
+Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose.नष्टिः≃निर्धर्मता	isEquiv (∣_∣₁ {⟨lib⟩.A = ⟨lib⟩.A})	isProp ⟨lib⟩.A
+Saptabhangi.समावेश-भेदः	Saptabhangi.समावेश	Saptabhangi.सप्तभङ्गी ⊎ ⟨lib⟩.Unit
+SaptabhangiNaya.saptabhangi-equiv	SaptabhangiNaya.Bhanga	SaptabhangiNaya.NEBasis
+Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule.CanWord≡Tally	NaturalMachine.Digits.CanWord	NaturalMachine.FreeMonoid.Tally
+Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule.छन्दस्≡CanWord	Pingala.छन्दस्	NaturalMachine.Digits.CanWord
+Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.EvenQuery-is-fibre	NaturalMachine.OracleSeparation.EvenQuery	fiber sgnΩ true
+Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.ThreeKernel-is-fibre	NaturalMachine.S3IntegerRelativeCoordinates.ThreeKernel	fiber triple (pos 0)
+Tantusandhi_TheFourWrittenFibresWereAlreadyTheQueuesOwnMapsAndTwoEdgesTheCensusNeverSaw.chargeOneFiber-is-fibre	NaturalMachine.ChenTwoChargeProjector.chargeOneFiber	fiber chargeOneProjector true
+Tapas.ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue.over-value	fiber oldValue false	NaturalMachine.BatchDepthMemoryBoundary.Old
+Tapas.ConstantFibre_NaturalMachine-DependentOptimizationFibration_semantics.over-value	fiber semantics false	NaturalMachine.DependentOptimizationFibration.Configuration
+VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.ℕ×ℕ≡विवेक-प्रमाण	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	VivekaPramana_TheRemainderIsLawfulAndTheNetBeats.विवेक-प्रमाण
+VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.ℕ×ℕ-≡-विवेक-प्रमाण	⟨lib⟩.ℕ × ⟨lib⟩.ℕ	VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal.विवेक-प्रमाण
+Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.Z2≃H2	⟨ambig⟩.Z2	NaturalMachine.InflationVersusSubgroup.H2
+Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.Z2≡H4	⟨ambig⟩.Z2	NaturalMachine.InflationVersusSubgroup.H4
+Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence.ℕ≡CanWord	⟨lib⟩.ℕ	NaturalMachine.Digits.CanWord
+WallCertificate.quotient≃Bool	WallCertificate.State / Punaragamana.Orbit._≈_	⟨lib⟩.Bool
+WallCertificate.worldSplit	WallCertificate.State	⟨lib⟩.Bool × ⟨lib⟩.Bool

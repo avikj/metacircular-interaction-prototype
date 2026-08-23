@@ -1,5 +1,9 @@
 # `runtime/vocabulary` — letting the loop name things, and what that did not buy
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 > **The ceiling, in the generate lane's own words** (`generate/README.md` §7.1):
 > *the construction schema is finite and human-written — nothing inside the loop
 > invents a constructor family.* Both held-out benchmarks drop exactly once and

@@ -237,6 +237,33 @@ refuted by the stationary false model. The old grid uniqueness check and
 finite-$\lambda$ regression were removed; exp53 is now exact and fail-closed.
 Extend: independently audit R0021, then rule out the four sharp vertices using
 genuinely arithmetic structure.
+STATUS [08-14] [cf-tessera-r2-03] — EVIDENCE RESCUED, PYTHON RETIRED. The
+finite content of `code/exp53_window5_polytope.py` is now
+`formal/cubical/Window5Walsh.agda` (Agda 2.6.3 + cubical v0.5, `--cubical
+--safe`, exit 0, no postulates, no holes; not yet in the root aggregate).
+Rationals cleared once by working with the integer m96(ε) = 96·μ_{1/3,1/3,1/3}(ε)
+= 3 + ε₁₂₃₄ + ε₂₃₄₅ + ε₁₃₄₅ + ε₁₂₃₅ + ε₁₂₄₅. Checked by kernel normalisation:
+the nine affine forms with multiplicities 2/4/8 and nothing else
+(`classCounts`/`classComplete`/`classDistinct` — this is the INPUT to
+CONSTRAINT_ALGEBRA Thm 2.1, so that hand proof is now warranted end to end);
+ten zeros, total mass one, no negative atom, at ALL FOUR vertices
+(`fourSharpVertices`); conserved de Bruijn flow out = in = 6 + 2ε₁₂₃₄ > 0 at
+all 16 states (`flowConserved`) WITH the planted-false control firing
+(`flowBroken` ≡ false by refl); all 31 nonempty Walsh coefficients
+(`walshOK`); the printed flip sending (+,+,+,+,−) ↦ (−,+,+,+,+) with both
+masses 0 (`flipFixesZero`); the four 𝔽₂[u] identities. Grade moves
+asserted-from-dead-script → CHECKED-FINITE. NEW (free from the enumeration):
+the product of the five characters is identically +1, so the number of −1s
+among them is even, the mass spectrum is exactly {0,4,8} with multiplicities
+10/20/2, and nonnegativity at the sharp point is a PARITY fact, not a
+computation. NOT upgraded: the claim about Tao–Teräväinen §7. WebFetch is
+EGRESS_BLOCKED; §7 was not read this block, so CONSTRAINT_ALGEBRA §4 stands at
+its own CITED grade. A fresh search ("Tao Teräväinen erratum corrigendum
+Theorem 1.14 sign patterns") surfaced no erratum, corroborating that note's
+null search and establishing nothing about novelty. Write-up:
+`notes/F25_F23_WITHOUT_PYTHON.md` §3. Identified as the highest-leverage
+repair by `notes/OPEN_PROBLEMS_WE_TOUCH.md` row L24; its caveats (ii) and
+(iii) are now discharged, (i) deliberately not.
 
 F24 [08-12] [codex] — Compiled `natural` runtime walk. Walked: projected all
 claim packets, event chains, sources, obligations, evidence, dependency and
@@ -291,6 +318,37 @@ is not. Any future gain from this direction must come from a sharper
 multiplicity→eigenvalue transplant, not from more integrality.
 Extend: quantify the transplant loss — compare the exact integer-hull
 bound against what Lemma 3.2 delivers on the same data.
+STATUS [08-14] [cf-tessera-r2-03] — UPGRADED FROM SEARCH TO THEOREM; PYTHON
+RETIRED. `code/exp61_integer_hull_check.py` checked five values of N by
+integer search. It was never needed. Substituting m_i = 1 + x_i gives
+N = k + X and Σm² = k + 2X + Q (X = Σx_i, Q = Σx_i²), whence
+  S + 2k − 3N ≥ Q − X   and   S + s − 2N ≥ Q + s − k,
+so the two relaxations m² ≥ 3m−2 and m² ≥ 2m−1 are EXACTLY the elementary
+per-element facts x ≤ x² and 1 ≤ x² + [x=0], summed. Both are equalities
+precisely on x ∈ {0,1}, i.e. m ∈ {1,2} — which is why ONE configuration
+saturates both at once: hull(t) = 4t atoms of multiplicity 1 plus t of
+multiplicity 2 has N = 6t, Σm² = 8t (so 3S = 4N, exactly the band-1
+ceiling), k = 5t = (5/6)N, s = 4t = (2/3)N. Hence F25's claim holds for ALL
+N and ALL S, not five instances. Machine-checked:
+`formal/cubical/IntegerHullMultiplicity.agda` (Agda 2.6.3 + cubical v0.5,
+`--cubical --safe`, exit 0, no postulates, no holes; not yet in the root
+aggregate) — `distinctBound`, `simpleBound`, `distinctOptimal`,
+`simpleOptimal`, `hullAttains`, `hullCeiling`, plus controls
+`noBetterDistinct`, `noBetterSimple` and `cauchySchwarzNotAttained` (at
+N = 12, S = 16 the Cauchy–Schwarz value 9 is provably NOT attainable, while
+the hull attains 10 — the exact sense in which integrality is already being
+used optimally). Grade moves asserted-from-dead-script → PROVED. NEW and not
+in F25: Σm² − N = Σ m(m−1) is always EVEN, so a ceiling S with S ≢ N (mod 2)
+acts as S−1; the five tested N were all ≡ 0 (mod 6) so this never bit, and it
+would bite at N ≡ 3 (mod 6). UNCHANGED: yield (3), the von Neumann transplant
+from multiplicities to matrix eigenvalues, is untouched and is now the only
+live thing in the lane — the measure-level statement is proved tight, the
+matrix-level one is still only believed lossy. LEAST-SURE STEP, named:
+whether Lemma 3.2 is applied to exactly these four functionals in exactly
+this grouping; if the manuscript's regrouping differs, §2 remains a correct
+theorem about a correct integer program and stops being THE one. Write-up:
+`notes/F25_F23_WITHOUT_PYTHON.md` §2. Identified as the highest-leverage
+repair by `notes/OPEN_PROBLEMS_WE_TOUCH.md` row L3.
 
 F26 [08-12] [cf-prime] — Walk: answer ATLAS §4's open question (is the
 exchange-rate budget 2 universal?). Completed, not killed. Traced the 2
@@ -576,3 +634,532 @@ and it already owns both operations (gcd, modular exponentiation). Open, and
 NOT to be assumed: the unbounded case, which needs a witness-existence claim
 about {q*r} that Rabin's bound makes likely and does not prove.
 Executable: `machinery/pinning.py`; note `notes/PINNING.md`.
+
+F31 [08-12] [cf-archivist, Claude Fable 5] — arXiv:1805.07047 source audit
+(user-directed). Walked: both TeX versions of "Blockchain Cohomology"
+recovered from the author's public git history plus its one internal review,
+against the secondhand verdict in the Constellation archeology note. YIELD:
+(1) audit-of-an-audit is cheap when the primary source has a git history —
+the revision record itself classified the defects (typo-level items were
+fixed between arXiv v1 and the 2019 proceedings; every ill-typed definition
+and proof-by-terminology step survived), so "what did the author fix?" is a
+defect-classifier requiring no new mathematics. (2) Version pinning matters
+even for external audits: the archeology note attributed a v1-only typo
+((-i)^{i-1}) to "the paper" — true of the version it read, already fixed in
+the version of record; our own citations of external papers should name the
+version audited. (3) Egress blocks on arxiv/publisher hosts do not block
+paper-source recovery when the author's repo is public; git-over-HTTPS was
+the working channel. Extend: none needed; the paper is closed as a source of
+mathematics (its one constructive residue — cellular sheaves on execution
+DAGs for shard consistency — is in the note, with the correct literature).
+
+F32 [08-13] [opus-shesha] — Installing Theorem 1 as a cost reduction by
+literally forming (I−P)AP. Died: it is *slower* than the naive route, by
+exact operation counts (n=6: 9,413,736 vs 7,895,152 ring ops, −19%). Knowing
+where the answer lives buys nothing while you still build the whole n×n
+matrix to get there. Yield, and it is the useful part: **a true theorem does
+not automatically become a capability.** `runtime/CRYSTAL.md` §0's seed
+criterion demands strictly fewer steps on an independent problem, and the
+conclusion alone does not supply that — the *structure of the proof* must
+enter the algorithm (here: never form an n×n product; apply (I−P)A to the r
+block-indicator basis vectors of ran P, or use Cor 2.5's incidence tables).
+The failed route was written, run, and is recorded rather than quietly
+replaced. Second yield, larger: the whole episode was substrate-conditioning
+— an artifact shaped like an installation, produced because the repo's
+habitual shape is script + note + message. The human owner's Python ban
+(same day) is the structural response. Revive: as Agda, where "the theorem
+changed the cost" is a statement about a checked term and not about a
+counter that a reader must trust.
+
+F33 [08-13] [opus-shesha] — Writing the Python ban while my own load-bearing
+note depended on Python I had committed hours earlier. Died: applied to
+myself. `machinery/leakage_commutator.py` deleted; the claims resting on it
+(Theorem 1 rank form, Cor 2.3-2.5) demoted in place to unsupported —
+`LEAKAGE_IS_HALF_COMMUTATOR_RANK` section 7. Yield, three parts. (1) A rule
+author is the worst-placed person to notice the rule applies to him: I shipped
+the ban and its violation in adjacent commits, and `opus-samhita` (msg 0380),
+not I, found that the ban entry instructions said `python3`. (2) Deleting the
+instrument is strictly better than citing a deleted instrument — a script
+nobody can run is an assertion with no error analysis AND no replay, worse
+than the measurement it replaced. (3) The demotion cost real content: Cor 2.5
+was the composite that joined two lanes, and it is now conjecture. That cost
+is the honest price of the norm, and paying it visibly is the only thing that
+makes the norm mean anything to anyone else. Revive: re-derive Cor 2.5 by
+hand, or carry the rank half into Agda via range-orthogonality — the step
+`claude_certificate_compiler` named and I do not have.
+
+F34 [08-13] [opus-shesha] — Seeding a subagent brief from a synthesis written
+out of recall. Died: `web-drishti` audited the residual table I had handed it
+as its foundation and returned 12 corrections, 5 substantive. The worst: I
+quoted `HOLOGRAM` Theorem K depth exponent as `T log^2 T`, which is the
+RETRACTED value — `CLAUDE.md` line 47 states the correction (`T^{1/2}
+log^{3/2} T`, after Lemma N derives the noise floor) and cites it as the
+corpus own worked example of why a measured constant hides its scaling. I read
+that line in the first ten minutes of the session and quoted the superseded
+number anyway, in a table whose entire purpose was to illustrate
+measured-versus-derived. Yield: this is `exp27` propagation reproduced exactly
+— not fabrication, but a reader who stopped early and a writer who trusted
+recall, then handed the error downstream as a foundation. Other corrections
+accepted: CRT gluing and lens non-commutation are different failures (residue
+lenses commute for every m,n); the commutation criterion is |B∩D||E| = |B||D|
+and integrality is its corollary, dying under non-counting measure; `BUDGET`
+section 2 is OPEN by its own section 5; `RESULTANT_OBSERVER_DEFECT` is
+d_p = deg gcd(f-bar, g-bar), not `Smith factors`; C(P) is the square root the
+reversal resultant discarded, not `the determinant`. Extend: no synthesis
+table enters a brief without every row checked against its source file that
+session. The shape was right; every entry was loose.
+
+F35 [08-13] [codex-catuskoti] — Treating the archived geodesic-spectrum script
+as an end-to-end executable witness because its prose says it verifies the
+trace formula. Died under source reading before execution: `TestFn` stores its
+two callables as `hf` and `gf`, but Part 5b calls nonexistent attributes
+`tf.h(...)` and `tf.g(...)` (`code/exp64_geodesic_spectrum.py`, lines 1018 and
+1021 at the audited tip). No method, property, or later assignment supplies
+those names. The run therefore cannot reach its advertised classical/quantum
+oscillation comparison or write the later figures as written. YIELD: an
+executable archive has clause-level reachability just as a theorem has
+clause-level scope. Earlier definitions and claims in the file are not thereby
+refuted, but neither the unreachable comparison nor its generated figure can
+serve as replay evidence. The file is not cited by a corresponding theorem
+note, so no mathematical statement is demoted beyond its own executable
+claims. Do not repair or rerun this banned Python artifact; if the Selberg
+trace identity becomes load-bearing, restate the exact target in a checked
+substrate and separate fetched spectral completeness, numerical quadrature,
+and theorem-level trace formula.
+
+F36 [08-13] [codex-catuskoti] — Treating `exp60_ff_pairfield.py`'s reported
+figure path as invocation-independent. The source prints
+`figures/exp60_ff_pairfield.png` but saves `../figures/exp60_ff_pairfield.png`,
+which is resolved against the caller's current directory rather than the
+script or repository root. Running from `code/` reaches the intended tracked
+artifact; running from the repository root targets a nonexistent sibling
+`../figures/` directory and cannot complete the advertised save. YIELD: a
+previous successful coordinator rerun and the tracked PNG establish that one
+invocation context worked, but they do not make the source replayable from an
+unspecified context. This is an output-reachability defect only. It does not
+touch the exact integer identities, the finite-field point-count checks, or
+the already existing figure. Do not repair or rerun the banned Python
+artifact; any future checked replacement should anchor output paths to an
+explicit project root and state its invocation contract.
+
+F37 [08-13] [codex-catuskoti] — Treating the public presentation as a live
+projection of the repository because `site/candidates/README.md` says
+`site/index.html` remains the human-facing interface. The index still labels
+`UNIFICATION.md` the center and says *every* barrier is information destroyed
+by quotienting, a synthesis later journal audits explicitly killed: orbit
+sets, coinvariants, predictive congruences, complementary channels, limits,
+and physical/cultural transports do not share one typed quotient. It also
+labels the Python `natural` runtime “IMPLEMENTED” without the owner’s later
+substrate ban or archival status, and presents several numerical lanes as
+landed without the current replay/evidence boundaries. YIELD: versioning a
+page in Git preserves what it once claimed but does not make it a current
+channel. A human-facing interface needs either a snapshot date/quarantine or
+a typed projection contract whose source state can invalidate stale cards.
+The three candidate pages are not counterexamples: their README marks them
+unreviewed/non-authoritative and explicitly records why the live-computation
+instrument was halted. No site file is silently rewritten here; the stale
+interface remains visible as provenance until the human chooses a successor.
+
+F38 [08-13] [codex-catuskoti] — Reading the Indra replacement deep-zero cache
+through its prose count rather than its tracked binary header. Section 1b of
+`INDRA_CROSS.md` called `data/exp58_chi3_zeros_deep.npy` “58 zeros to
+$t=122$,” but the NPY header has shape `(38,)`; the producer scans
+$58<t<122$, and the same section correctly reports 36 of those ordinates in
+the audited interior window $60<t<120$. YIELD: interval endpoints can be
+mistaken for cardinality even in a note whose substantive audit is correct.
+The prose count is struck and replaced by the typed stored count plus the
+interior count. This does not demote the cache, its sign-change construction,
+or the diagnosis that the older 22-point sibling cache omitted 14 of the 36
+interior zeros.
+
+F39 [08-13] [codex-catuskoti] — Treating a past formal-check claim as current
+evidence without replaying the repository root gate. `formal/check.sh` was
+red in both substrates: `ResidueTransport.agda`'s four equality witnesses
+were parsed ambiguously and its product connective was not imported;
+`DirectSmith2x2.lean` depended on an extensionality theorem it did not import,
+passed nonlinear determinant normalization to `omega`, and used stale
+matrix-vector reassociation behavior. In addition,
+`ProjectionChargeAudit.agda` was outside the repository's advertised
+`--safe --no-import-sorts` contract. YIELD: no mathematical statement was
+false, but none of these modules was present evidence until the pinned gate
+replayed. The repairs make intended types explicit, import actual
+dependencies, replace brittle tactic steps with ring-normalized equalities,
+and put the projection audit inside the safe fragment. The full gate now
+checks the `NaturalMachine` dependency closure and `ProjectionChargeAudit`
+(excluding the designed-failure `Control/WrongEquivalence` module) and builds
+all 8,722 Lean jobs. Preserve the remaining
+Agda `UnsupportedIndexedMatch` warnings as an executable boundary: the named
+`DigitTowerLimit` functions typecheck safely but need not compute when applied
+to transports. Safe checking is not transport computation.
+
+F40 [08-13] [codex-catuskoti] — Treating a successful incremental `lake build`
+as source-clean evidence for every represented module. The first root replay
+reported 8,722 successful jobs but reused a stale `CapabilityGraph.olean`.
+After a dependency change forced source elaboration, `CapabilityGraph.lean`
+reproduced the documented `SmithPresentation × Prop` sort error and exposed
+two adjacent API/parser drifts: removed `Int.natAbs_eq_one.mp` and an obsolete
+destructuring binder. YIELD: a green incremental build certifies its actual
+dependency/rebuild graph, not silently every source behind cached project
+objects. The graph now uses the already-proved subtype package, derives the
+determinant disjunction arithmetically, and uses the required strict implicit
+binder.
+After moving the entire project-local Lean build directory aside, the root
+gate rebuilt all 8,722 jobs successfully. The total Smith producer,
+termination proof, replay, certificate validity, and Boolean acceptance
+statements are unchanged.
+
+F44 [08-12] [claude_formal_physics, Claude Opus 5] — "The quadratic/Arf
+refinement is the scenario invariant that refines (context count, memory
+count) where those two conflate." Walked because I had asked the field for
+exactly such an invariant (msg 0364) with no candidate, and the quadratic
+refinement is the obvious one: it is the datum the memory count provably
+forgets, so it looked like the natural complement. KILLED, and by counting
+rather than by margin. Define the quadric signature of a scenario as the
+number of plus- and minus-type refinements making all its observables
+singular. At the one row of the exhaustive two-qubit table where
+(|C|, memory) conflates the families — |C| = 7, memory = 60, holding 90
+contextual and 180 noncontextual scenarios — the signature is (0,0) for all
+270. YIELD, three parts: (1) the failure is structural, not weak: those
+scenarios have 11 or 12 observables and a plus-type quadric holds only 9
+nonzero singular points, so NO scenario above 9 observables can be totally
+singular for any refinement and the signature is identically (0,0) on the
+entire large-scenario regime. Any future invariant of the form "which
+quadratic form contains this scenario" is dead above the quadric's own size,
+before it is tested. (2) The exact boundary, free from the same sweep:
+quadric containment holds for 400 of the 3263 scenarios and is equivalent to
+memory in {1,4,20,24}; the other 2863 have memory in {6,52,56,60}. Memory 6
+is small yet not quadric-contained, so this is containment, not a memory
+bound in disguise. (3) The repair direction, untested and not claimed: score
+a scenario by how it MEETS the ten quadrics (e.g. the multiset of |O ∩ Q|)
+rather than whether it lies in one — a relational rather than containment
+invariant. Extend: test that, or prove that any invariant factoring through
+the ambient orthogonal geometry is blind at |C| = 7. See
+notes/ARF_MERMIN_CLASSIFICATION.md §5.
+
+F45 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: run my own
+forward prediction that the rank-three quadric scenario has 35 observables,
+30 contexts and memory 240, and my own prediction that the Mermin pentagram
+must VIOLATE the closure hypothesis of PAULI_MEMORY_LAGRANGIAN Cor. 3.2.
+Completed, not killed: both confirmed exactly (quadric 35/30/240, checked
+for all 36 plus-type forms; control: full three-qubit set 135 Lagrangians,
+memory 1080 = the standard stabilizer-state count). YIELD, and it is the
+part worth reusing: the pentagram is the counterexample that makes the
+theorem's hypotheses NECESSARY rather than decorative. Its five contexts
+have four elements each and so cannot be the seven-element Lagrangians of
+F_2^6; every maximal isotropic subspace inside its ten observables is
+one-dimensional; and its memory is 200 = 25 x 8, not 5 x 8 = 40. The
+dynamics escapes to 25 of the 135 ambient Lagrangians, splitting 5 + 10 + 10
+by how many pentagram observables each contains. So "memory = contexts times
+2^n" is false as a slogan and true only under closure — and before this
+increment closure held in every case I had computed, which is exactly the
+condition under which a hypothesis quietly rots into an assumption. General
+lesson: after proving a theorem with a hypothesis you verified but never
+saw fail, go find the failure before someone cites the slogan. Honest
+residue: 25 is computed, not derived. Extend: derive it from the
+pentagram's incidence combinatorics. See notes/RANK_THREE_MEMORY.md.
+
+F46 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: derive the number
+25 left as an honest residue by F45 (the Mermin pentagram's reachable
+Lagrangian count, computed but unexplained). Completed. The pentagram's
+incidence structure is K_5 — five contexts as vertices, ten observables as
+edges, each observable on two contexts, each pair of contexts meeting in one
+observable — and the 25 reachable Lagrangians are canonically the cliques of
+size 1, 2, 3: 5 + 10 + 10 = C(5,1)+C(5,2)+C(5,3), memory 25 * 2^3 = 200. The
+labelling is read off the overlap (four observables -> its vertex; three ->
+the triangle they span; one -> that edge) and the transition rule is a closed
+formula on cliques, verified on all 3520 transitions, with measurement
+deterministic exactly when the labels are comparable. YIELD, three parts:
+(1) the label size is a *local* diagnostic for the closure hypothesis of
+PAULI_MEMORY_LAGRANGIAN Cor. 3.2 — closure holds iff the label never leaves
+size one, checkable without computing the orbit at all, which is what the
+Mermin square (contexts maximal, labels stay at size one, reachable set = the
+six contexts) and the pentagram (contexts non-maximal, labels grow to three)
+now exhibit as the two sides of one statement. (2) The right classifying
+object for a scenario whose contexts are NOT maximal is its incidence graph,
+not its quadratic type — which is the positive complement of F44, where the
+quadratic invariant died above nine observables: quadratic data classifies
+scenarios that ARE quadrics, incidence data classifies the rest. (3) Method
+note worth reusing: the count 5+10+10 was opaque until the contexts were
+re-read as vertices rather than as sets of observables; the dualisation was
+the whole content, and it cost nothing. Residue, stated: the collapse branch
+of the rule is verified, not derived from the symplectic geometry, and the
+bound |S| <= 3 is verified, not derived — a naive dimension count permits
+|S| = 4 and something finer excludes it. Extend: derive the collapse branch
+and the bound; then ask whether "incidence graph + clique complex" is the
+general memory carrier for non-maximal context sets at every rank. See
+notes/RANK_THREE_MEMORY.md §7.
+
+F47 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: derive, rather than
+verify, the two residues F46 left — the bound |S| <= 3 on the pentagram's
+memory labels, and why the Mermin square is closed while the pentagram is not.
+Completed; both fall to one lemma. Call a scenario edge-type when (E1) every
+observable lies on exactly two contexts and (E2) two observables commute
+exactly when their contexts meet. Then the commutation graph is the LINE GRAPH
+of the incidence graph G, so a pairwise-commuting set is an intersecting family
+of edges, and by the classical classification a maximal such family is a star
+or a triangle. Labels (the vertices covered twice) therefore have size 1 or 3 —
+the bound, derived. And triangle-freeness of G implies closure. The Mermin
+square has G = K_{3,3}, bipartite, zero triangles, closed, memory 6*4 = 24; the
+pentagram has G = K_5, ten triangles, open, memory 25*8 = 200. YIELD, three
+parts: (1) two computations I had been carrying as separate facts are ONE
+criterion evaluated at a bipartite graph and at a complete graph — K_{3,3} is
+triangle-free and K_5 is not, and that is the entire difference. The closure
+hypothesis of PAULI_MEMORY_LAGRANGIAN Cor. 3.2 is now a graph-theoretic test
+instead of an orbit computation. (2) Two of the transition rules F46 could only
+verify are now proofs (growth from a star; collapse from a triangle onto a
+shared vertex), each three lines from the lemma; the remaining branches depend
+on the edge-Lagrangian's NON-observable elements, which the incidence graph
+provably cannot see — so the lemma's reach has a stated boundary rather than an
+unknown one. (3) (E1) is a genuine hypothesis and the machinery reports its
+failure rather than proceeding: the full Pauli set fails it, and so does the
+rank-three quadric, which is closed for the different reason that its contexts
+are already maximal totally singular subspaces. Two closure mechanisms, not
+one. Residue: triangle-freeness is proved SUFFICIENT, not necessary — a
+triangle could in principle exist and be unreachable, and I have two data
+points. Extend: prove necessity or exhibit an edge-type scenario with an
+unreachable triangle. See notes/RANK_THREE_MEMORY.md §8.
+
+F48 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: settle the open half
+of F47 — is triangle-freeness of the incidence graph NECESSARY for closure, or
+can a triangle exist and be unreachable? Completed. Necessity holds under one
+named condition: if the triangle's opposite edge e_vw does not already lie in
+the Lagrangian generated by context u, then measuring it from that context is
+nondeterministic and the already-proved growth branch produces a Lagrangian
+holding all three triangle edges — a size-three label, so closure fails. The
+Mermin pentagram satisfies the condition at all 30 (triangle, vertex) pairs,
+so its closure failure is forced rather than observed. YIELD, and the second
+part is the one I did not expect: (1) the criterion is now an equivalence,
+closure <=> triangle-free, modulo a degeneracy that is named rather than
+hidden. (2) The reason n = 2 was silent is structural, not a sample-size
+accident: when contexts ARE Lagrangians, a Lagrangian is its own
+perpendicular, so any observable commuting with two edges at u lies in context
+u itself and would sit on three contexts — which (E1) forbids. So edge-type
+plus maximal contexts implies triangle-free, PROVABLY, and exhaustive check
+agrees: of all 3263 two-qubit union-of-context scenarios exactly 10 are
+edge-type (the Mermin squares) with zero triangles between them. The two-qubit
+case could not have exhibited the phenomenon at any sample size. (3) Therefore
+NON-MAXIMAL CONTEXTS ARE EXACTLY THE ROOM IN WHICH TRIANGLES LIVE — the
+pentagram had to be the witness because its contexts are 4-element subsets of
+7-element Lagrangians, breaking the self-perpendicularity argument. Method
+note: I had been treating "verified at n=2, verified at n=3" as two data
+points toward a conjecture; one of them was vacuous for a provable reason, and
+finding that out was worth more than a third data point would have been.
+Residual, sharper than F47's: not "is necessity true" but "can the degeneracy
+e_vw in L_u actually occur at some n >= 3". Extend: rule it out or exhibit it.
+See notes/RANK_THREE_MEMORY.md §9.
+
+F49 [08-12] [claude_formal_physics, Claude Opus 5] — Walk: compute the shortest
+distinguishing measurement words between Pauli memory states, after asking
+codex-hopcroft for them three times (0364, 0368, 0369) with no return and then
+recording a commitment to run them myself rather than ask a fourth time.
+Completed; forecast registered before the run and both branches occurred.
+Results: one qubit, Mermin square, all fifteen two-qubit Paulis, and the
+rank-three quadric all have max depth 1 — every pair of memory states is
+separated by a SINGLE measurement. The Mermin pentagram has max depth 2, with
+exactly 120 of its 19900 pairs needing two, and all 120 are pairs of
+edge-label states sharing a label, matching the predicted mechanism exactly
+(each edge Lagrangian carries 8 sign characters but only ONE deterministic
+observable, so one measurement returns one bit and splits them 4+4; 10 edges x
+2 blocks x C(4,2) = 120). YIELD, three parts: (1) the memory is LARGE AND
+SHALLOW — 240 states told apart by one experiment; no pair anywhere needs
+three. Cardinality and depth are independent coordinates and the depth is
+tiny. (2) NO_PRIVILEGED_CHART §5's worry — that a lumped statistic may shadow
+a deeper process, and that the check is usually never run — is legitimate and
+here comes out CLEAN. I expected the cardinality to be hiding something and it
+is not. A general warning that can be checked and found not to bite in a
+particular case is worth more than one carried as an unresolved doubt; report
+the negative. (3) Correction against my own emphasis: I had been quoting the
+irredundancy proposition (greatest bisimulation = identity) as the strong
+statement about these presentations. It is the WEAK one — a depth-infinity
+claim. "Distinguishable in at most two measurements" is far stronger,
+experimentally meaningful, and I never computed it across four increments with
+the same object, because I was asking someone else for it. The measurement was
+cheap. Method note: an ask repeated three times is a signal about my own
+priorities, not about the other worker's. Residual: the regularity "closed =>
+depth 1, escape => depth 2" has a named mechanism (closure means every
+reachable Lagrangian is a context, so its observables span it and one
+measurement reads a whole character) but four closed witnesses and one open
+one, so it ships as a conjecture, and per F48 I did not count the two-qubit
+rows as independent evidence without asking whether they are vacuous. Extend:
+prove it, or find an open scenario of depth 3. See notes/DISTINGUISHING_DEPTH.md.
+F27 [08-13] [cf-prime] — Walk: build the cost geometry of representations,
+prompted by TransportCost's quadratic measurement. Completed (checked, not
+killed). Walked: read the measurement as an EDGE WEIGHT rather than a wart;
+formalised presentation/edge/detour in Agda with cost as a field separate
+from the translation maps, because a path provably does not determine a
+cost. YIELD: (1) T1 — a detour never wins unless the far presentation is
+strictly better at the work, so transport is a certificate and never a
+compiler, proved with no benchmark; (2) T2 — a speedup forces a strictly
+better neighbour, i.e. "there is a fast algorithm" IS "some representation
+does this job strictly cheaper", so algorithm search = presentation search;
+(3) certified speedup witness + amortisation threshold (a detour pays
+exactly when the work gap exceeds the round trip) — the rule every
+algorithm designer uses unstated; (4) the general reading: complexity is a
+property of PRESENTATION, univalence quotients presentations away, so the
+machine needs a cost coordinate deliberately not transported along paths.
+Extend / falsifier: derive a KNOWN fast algorithm as a geodesic. Three
+presentations of one task, honest measured weights, and see whether CRT
+multiplication appears as the cheap route without being told. If not, the
+graph is a database, not a geometry, and this entry should be downgraded.
+F50 [08-14] [codex-hopcroft] — Hash-consing the current MathMachine generation round is slower.
+
+The collision-free `NodeId` DAG and bottom-up normalization memo succeeded
+semantically but failed on the actual live workload. For rounds 4--7, all
+6,056 outputs agreed exactly, while GHC `-O2` measured the DAG frontend at
+22.15--25.86 ms against 13.95--17.14 ms for tree normalization (0.54x--0.77x).
+The generator is already downward-closed and unique: at size 7 its 4,556 terms
+are exactly the 4,556 distinct subterms occurring throughout the round. There
+is no within-round duplication to remove, so structural maps add overhead.
+Hash-consing remains valuable for genuinely shared persistent histories, but
+must not be reintroduced at this boundary without a workload exhibiting
+duplicate identities and a same-round improvement.
+
+F51 [08-14] [codex-hopcroft] — Persistent cross-round normal-form caching is slower at current rule density.
+
+An exact trace-head dependency cache achieved 4,556/4,556 stable hits and
+preserved every normal form both before and after a rule extension. Yet ordered
+cache lookup cost 25.42--27.77 ms against 10.92--14.20 ms for recomputation
+(0.43x--0.53x). The live normalizer is currently too cheap to cache. Revive
+only on a measured rule-rich round or when array NodeIds are already native.
+
+F52 [08-14] [codex-braid-random] — "A current Goldbach minor-arc mean-square
+bound can be amplified by generic differences, smooth windows, Sobolev, or
+higher moments into a pointwise signed bound at every even center." KILLED at
+the exact exponent/interface boundary. At power cutoff the squared residual
+budget has exponent `13/5`; direct evaluation gives `13/10`, and the available
+`O(X log X)` first difference improves this only to `6/5`. A single Fourier
+monomial retains one coefficient `-X` while satisfying every tested
+phase-blind norm, band, difference, and derived-moment bound. At logarithmic
+cutoff, where a Goldbach exception really does force near-total minor-arc
+cancellation, the mean-square budget permits `X/(log X)^(A-5)` such spikes.
+The stronger power-cutoff budget also carries generalized-zero modes, so it
+cannot silently replace the logarithmic decomposition. YIELD: either prove a
+prime-specific pointwise margin, or first control/transport the zero modes and
+then prove an arithmetic AntiSpike theorem; generic functional analysis alone
+cannot supply the missing Dirac continuation. See
+`collab/messages/goldbach-machine/pointwise-amplifier.md` and
+`root-attempt.md`.
+
+F53 [08-15] [claude-walk, Claude Opus 5] — COST GEOMETRY INSTANTIATED. Walk:
+give the abstract cost geometry (`NaturalMachine/CostGeometry.agda`,
+`NaturalMachine/Residual.agda`) an instance on the object it was built for.
+Completed, not killed. The calculus had been standing since F27 with its
+theorems (T1 detour-never-wins, T2 speedup-forces-a-better-neighbour) and only
+`CostGeometryWitness`, whose positive instance has STIPULATED weights — the
+shape of CRT multiplication, not an actual blocker of this repository.
+`NaturalMachine/TransportDivWitness.agda` supplies the missing one on the
+walk's real obstruction: base ten, the little-endian word `1000`, and the two
+presentations of one divisibility test — HOME walks the value, work 1000;
+CHART runs the Horner residue automaton on digit words, work = steps w = 5.
+The chart is priced honestly rather than free, 3 to chart and 3 to unchart, so
+the detour is (3+3)+(3+5) = 14 against 1000, residual 986, and `Residual.respond`
+returns the third branch `↝` — invisible to any equivalence-invariant response,
+since both edges are the identity on values and differ only in weight. Every
+numeral is computed by the kernel; none is asserted. YIELD: an abstract
+calculus with no instance is not yet a result; the instance took twenty minutes
+and should have been written first. Unflattering corollary about the ordering
+actually used here: T1 and T2 were proved, broadcast, and cited before anyone
+knew whether the geometry had a non-stipulated inhabitant, and the instance
+that settles it was cheaper than the write-up of the theorems. Extend: price
+the chart edges by measurement rather than by stipulation (the 3s are a cost
+model, not a benchmark), and find a second blocker whose residual is negative
+— an instance where the geometry says DON'T transport and is right.
+
+F54 [08-15] [claude-walk, Claude Opus 5] — THE FRONTIER WAS A `with`. Walk:
+make the walk's step `next m = least q ≥ 2 with q ∤ cap m` computable past
+m ≈ 7, where `cap m = lcm(1..m) = e^{ψ(m)}` makes the unary divisibility test
+cost Θ(cap m) and the storage law becomes the runtime law. Partially
+completed; the payoff is OPEN as this entry is written.
+`NaturalMachine/WalkFast.agda` proves the exchange rate `next-characterised`:
+`WalkPrimePowers` says the installs are exactly the prime powers in increasing
+order, so the expensive predicate `q ∤ cap m` (an object of size e^{ψ(m)}) is
+tradeable for the cheap one `q is a prime power` (an object of size m), both
+halves decidable at size ~q via `decIsPrimePower`. That file checks, EXIT=0 in
+3 s, and then confesses in its own header that NO INSTANCE of the rate
+type-checks: `next-8 : next 8 ≡ 9`, built exactly as the rate prescribes with
+every ingredient individually cheap (`decIsPrimePower 9` in 3 s, empty
+interval, order proofs `refl`), still exhausts a 3.5 GB heap after five
+minutes. The header names its own suspect — the `with`-abstraction on
+`q ≟ next m` — and leaves the gap open rather than papering it. The suspect is
+right in kind, and this is the part worth reusing: a `with` demands its
+scrutinee in weak head normal form, so the kernel is forced to run the walk
+step on `cap m`, the one object the theorem exists to avoid. The blowup was
+never arithmetic depth at m ≈ 8; it was an elaboration artefact sitting in the
+statement of the theorem. STATUS, recorded as pending and not as success:
+`NaturalMachine/WalkFastInstance.agda` attempts the antisymmetry route (derive
+`q ≡ next m` from `¬ (q < next m)` and `¬ (next m < q)` by a lemma whose case
+split is on VARIABLES, applied to `next m` as an opaque term), and claims
+`next 8 ≡ 9`, `next 9 ≡ 11`, `next 10 ≡ 11` at cost one `decIsPrimePower` at
+the size of the ANSWER. At the time of writing that file is untracked, has no
+`.agdai` in `formal/cubical/_build/2.6.3/agda/NaturalMachine/`, and no
+independent check is on record; two scratch modules (`WFIScratch1`,
+`WFIScratch2`) sit beside it. Whoever reads this next must verify before
+citing, and amend this entry either way. YIELD: in this lane, a resource
+blowup is a proof-engineering bug until proven otherwise; bisect the term, do
+not raise the heap. Second yield, from `WalkFast`'s header: writing WHAT IS
+NOT DELIVERED above the theorems, before an auditor finds it, is what made the
+diagnosis possible at all — the suspect was named by the person who failed.
+
+F55 [08-15] [claude-walk, Claude Opus 5] — TRANSCRIPTION IS NOT DEPTH. Walk:
+encode a user-supplied obstruction calculus into checked Agda —
+`NaturalMachine/KFlow.agda`, `EndObstruction.agda`, `QuestionMachine.agda`,
+`ChuAdvance.agda`, `AdvanceGate.agda`. All five are true and all five check.
+That is the whole of the good news, and it is worth less than it looks:
+K-flow's trichotomy and δ_end are well-founded descent, the end obstruction is
+Cantor's diagonal, and the Advance gate is monotonicity of a Chu defect under
+dropping tests (`agree-drop`) plus the observation that δ = 0 is separation
+rather than truth (`zero-defect-is-not-truth`). Each is a page of standard
+material rendered in a new vocabulary; none of it was learned by writing it
+down, and the checking certifies the transcription, not a discovery. The
+mechanical test, run at write-up time: no module outside the batch imports
+`KFlow`, `EndObstruction`, `QuestionMachine`, or `ChuAdvance`, and nothing
+imports `AdvanceGate` — the batch's only outward edges are AdvanceGate's own
+imports of `CostGeometry` and `Residual`. Against that, `TransportDiv` earned a
+dependent immediately (`TransportDivWitness`, F53) because it answers a
+question the walk was already blocked on. YIELD: the test that separates
+transcription from progress is whether anything else in the corpus can depend
+on it — of that batch, only TransportDiv passes. Operational form for a future
+block: before encoding a supplied calculus, name the module that will import
+it; if the answer is "an auditor", the work is a transcription and should be
+sized as one. Extend: either give one of the four a consumer (the natural
+candidate is the Advance gate as the admission rule for new tests in the
+capability graph), or say plainly in their headers that they are library
+material with no client.
+
+## F56 — THE NAMED SUSPECT WAS WRONG, AND THE YIELD SURVIVED IT
+
+[08-15] [claude-walk, Claude Opus 5]
+
+F54 recorded that `WalkFast`'s frontier was a `with`, on my diagnosis, with
+the outcome marked open pending the bisection. The bisection came back and
+the diagnosis is refuted: removing the `with` and proving the equality by
+antisymmetry instead leaves the blow-up exactly where it was. What runs the
+walk on `cap 8` is the conversion checker comparing the goal's occurrence of
+`next 8` against a SECOND, independently elaborated occurrence contributed by
+instantiating a generic lemma at `m := 8`. Isolated with no walk content in
+sight: `use x` for a bound variable `x : Box (cap 8)` costs 2.1 s, and
+`use (mk (cap 8))` costs 8.9 s — same type, same number of occurrences, the
+only difference being VARIABLE against APPLICATION. A metavariable is solved
+by assignment and never by reduction, so the goal's own occurrence is free;
+`let`-binding the one walk application makes it a variable, and the module
+checks in 3.1 s. The m = 3 / 6 / 8 rows of the log prove the cost was
+tracking `cap m = lcm(1..m)` and not the size of the answer.
+
+An independent agent hit the same artifact from the other side the same
+afternoon: inlining a `≤`-witness as an argument (`… (9984 , refl)`) costs
+3 GB and nine minutes, and naming the identical term at top level costs
+0.2 s.
+
+YIELD, unchanged and now better evidenced: a resource blowup in this lane is
+a proof-engineering bug until proven otherwise — bisect the term, do not
+raise the heap. SECOND YIELD, new: when the bisection contradicts the
+diagnosis, the diagnosis was a guess wearing a mechanism's clothes. F54's
+suspect was named by the person who failed, which is the right instinct, and
+it was still wrong. Name suspects; do not promote them to causes before the
+log exists.
+
+THIRD YIELD, structural: write `next 8` once. Elaborate one value carrying
+everything a client needs, bind it with `let`, and let the goal's occurrence
+be a metavariable. That is a general rule for this lane, not a trick for this
+file — the same shape governs every statement whose type mentions an
+expensive closed term.

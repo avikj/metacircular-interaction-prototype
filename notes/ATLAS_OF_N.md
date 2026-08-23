@@ -973,6 +973,157 @@ $\sum_{X:BS_n}\mathrm{LinOrd}(X)$, a two-line univalent proof that is the whole 
 together with Proposition 2.11 (the carry class), which is the pair that makes
 Theorem 4.2's dependency claim machine-visible.
 
+*Status (2026-08-14).* Checked in `formal/cubical/NaturalMachine/AtlasResiduals.agda`
+(Agda 2.6.3 + cubical v0.5, `--safe`, exit 0 standalone and via the root
+`NaturalMachine.agda`): Theorem 2.1's contractibility half — `ℕ-isInitial`,
+`ℕ-recursor-unique`, `ℕ-algebra-endo-is-id`, and Residual 2.1(1) in general as
+`isContrAlgIso` (the type of algebra isomorphisms between two initial algebras is
+contractible) — and the **univalence half** of Theorem 3.2, `isContrOrdTotal`,
+which defines $\mathrm{LinOrd}(X) := (X\simeq\mathrm{Fin}\,n)$ by fiat and therefore
+proves the based-path-space contractibility but **not** the order-theoretic
+identification.
+
+*Theorem 3.2, status (2026-08-14): **RESOLVED in full**.* The order-theoretic half is
+now checked in `formal/cubical/NaturalMachine/LinearOrderFinite.agda` (same toolchain,
+`--safe`, no postulates, no holes, exit 0 standalone and via the root aggregate, which
+imports it). That module defines $\mathrm{LinOrd}'(X)$ as a genuine order structure — a
+relation with prop-valuedness, reflexivity, antisymmetry, transitivity and **mere**
+(truncated) totality; decidability of the order is *derived* there from mere totality
+plus the decidable equality that finiteness supplies, not assumed, so the axioms are
+exactly the classical ones and none is constructively stronger — and proves
+`linOrd′≃` $:\ \mathrm{LinOrd}'(X)\simeq(X\simeq\mathrm{Fin}\,n)$ for every $X$ with
+$\lVert X\simeq\mathrm{Fin}\,n\rVert_1$: forward the rank map
+$x\mapsto\#\{z\mid z<x\}$, proved an equivalence (injective by antisymmetry, surjective
+by a finite pigeonhole proved there by counting fibres), backward transport of the
+standard order, with both round trips as paths. Composing it fibrewise with
+`isContrOrdTotal` gives `isContrOrdTotal′`: $\sum_{X:BS_n}\mathrm{LinOrd}'(X)$ is
+contractible — Theorem 3.2 as stated in §3.2, with orders and not rank listings in the
+fibre. The proof counts down-sets rather than inducting on $n$; the obligation as
+recorded in `AtlasResiduals` predicted an induction, and was wrong about the method,
+not the content. Prior art, per `notes/HOTT_ECOSYSTEM_MAP.md`: UniMath states this
+existence direction and `Abort`s it; mathlib4 has it classically as `monoEquivOfFin`;
+no surveyed constructive library has it.
+
+Theorem 3.1's loop-group half was already covered by
+`PathIsSymmetry`/`Decategorification`; Theorem 2.7 + Proposition 2.11 remain unclaimed.
+
+*Theorem 2.7, status (2026-08-14): **already discharged, and not by this pass** — the
+sentence immediately above is superseded on this point.* Theorem 2.7 has been in the
+Cubical lane since the digit chart was first built, under the corpus's own name rather
+than the note's: `formal/cubical/NaturalMachine/Digits.agda` defines the base-$b$ chart
+for `b = 2 + k` (so $b\ge2$ holds by construction, not by hypothesis) and proves
+`ℕ≃CanWord : ℕ ≃ CanWord` (line 309), with `value` the positional sum $\sum c_ib^i$,
+`value-digits` the surjectivity round trip, and `value-inj`/`digits-value` the
+uniqueness round trip; `ℕ≡CanWord = ua ℕ≃CanWord` is the path. One reindexing separates
+it from the statement in §2.4: the note's domain is $A_b^{(\mathbb{N})}$, finitely
+supported digit *sequences*, while `CanWord` is the *canonical word* normal form (a
+list whose last digit is positive) — the standard normal form of a finitely supported
+sequence, and `isPropCanonical` makes the canonicity datum a proposition, so the two
+domains agree. Downstream, `Transport.agda` and `TransportMul.agda` already transport
+$+$ and $\times$ across this equivalence and land the odometer `sucC` as the transported
+successor. Nothing about Theorem 2.7 was re-proved for this note; it should be cited,
+not re-formalized.
+
+*Proposition 2.11, status (2026-08-14): **Corollary 2.11.1 RESOLVED
+constructively; the classical Mathlib $H^2$ carrier is now CHECKED; identification
+of the explicit carry cocycle remains OPEN.*** Checked in
+`formal/cubical/NaturalMachine/CarryObstruction.agda` (Agda 2.6.3 + cubical v0.5,
+`--safe`, no postulates, no holes, exit 0 standalone; not yet imported by the root
+aggregate `NaturalMachine.agda`, which was separately re-verified exit 0 unchanged
+today). The module proves the *consequence with the content* — "no choice of digit set
+eliminates carrying" — by the exponent argument the proof of Proposition 2.11 gives,
+and it needs no cohomology machinery, which is why it was reachable at all: cubical v0.5
+has `Cubical.Algebra.Group` and `Cubical.Cohomology.EilenbergMacLane`, but the latter is
+cohomology of *spaces*; group cohomology of $\mathbb{Z}/m$ with a cocycle model is
+absent there, in agda-unimath's `group-theory/`, and in 1lab's `Algebra/Group/`.
+(mathlib4 has the general vocabulary — `GroupTheory/GroupExtension/` with `Section` and
+`Splitting`, plus `GroupTheory/Exponent` — classically; no surveyed constructive library
+has the specific nonsplitting.)
+
+Three separated layers, so the group theory does not smuggle in arithmetic and vice
+versa. **(1)** `Splitting.kills`: if $\pi:G\to Q$ is a homomorphism of an *abelian* $G$,
+$s$ a homomorphic section, and one $m:\mathbb{N}$ annihilates both $Q$ and $\ker\pi$,
+then $m$ annihilates $G$ — *splitting cannot raise the exponent*. This is the note's
+$\operatorname{lcm}(b^n,b)=b^n$ step, stated with no cyclic group in sight.
+**(2)** `Carry.carry-free→pres`: for a bare set-theoretic section, the coboundary
+$c(u,v)=s(u)s(v)s(uv)^{-1}$ vanishes identically iff $s$ is a homomorphism — this is
+what makes "carry-free" and "split" the same statement, i.e. it is Corollary 2.11.1's
+"would be precisely a group-theoretic splitting", proved rather than asserted. That the
+object is the one the note names is recorded by `carry-inKer` (it is a 2-cochain valued
+in $\ker\pi$), `carry-normR`/`carry-normL` (normalized, for a normalized section) and
+`carry-cocycle` (the 2-cocycle identity $c(u,v)+c(u+v,w)=c(v,w)+c(u,v+w)$, for abelian
+$G$). **(3)** `Cyclic`: for the reduction $\mathbb{Z}/(N\!\cdot\!e)\to\mathbb{Z}/N$ with
+$e\mid N$ and $e\ge2$ — built on the library's `ℤGroup/_`, `Fin`, `_+ₘ_` and
+`Cubical.Data.Nat.Mod` — all three hypotheses of (1) hold with $m=N$ (`selfkill`,
+`kill-ker`), while $N\cdot1\neq0$ (`pow-one`, `N<M`), so `no-hom-section` and hence
+`no-carry-free`. `BasePower k n'` specializes to $b=2+k$, $n=1+n'$, giving
+`carry-unremovable` and `extension-does-not-split`: **for every $b\ge2$, every $n\ge1$
+and every section whatever of $\mathbb{Z}/b^{n+1}\to\mathbb{Z}/b^n$, it is false that
+all carries vanish.** The hypothesis $n\ge1$ is not decorative and is visible in the
+proof: it is exactly what makes $e=b$ divide $N=b^n$, i.e. what lets the single exponent
+$b^n$ annihilate the kernel as well as the quotient. Non-vacuity is recorded, not
+assumed: `stdSection` is the schoolbook least-representative digit set, `stdSection-sect`
+proves it is a section, and `std-carries` is the instance for it.
+
+Two honest boundaries. (i) **Cubical Agda still does not construct $H^2$.** The note's
+Proposition 2.11 says $[c_n]\ne0$ in
+$H^2(\mathbb{Z}/b^n;\mathbb{Z}/b)\cong\mathbb{Z}/b$; the Cubical module proves only
+that $c_n$ is a normalized 2-cocycle valued in the kernel and that it cannot be made to
+vanish, which is $[c_n]\ne0$ *stated without the group it lives in*. Building $H^2$ of
+a cyclic group constructively, and identifying it with $A/mA$, remains open.
+
+There is now a separate **classical/noncomputable Lean closure of the carrier** in
+`formal/pairfield/Pairfield/CarryCohomologyAdapter.lean`, imported by the Pairfield
+root.  It specializes Mathlib's finite-cyclic periodic resolution to
+$G=\operatorname{Multiplicative}(\mathbb{Z}/N)$ acting trivially on
+$A=\mathbb{Z}/b$.  The checked theorem `norm_eq_zero` proves that $b\mid N$ makes the
+cyclic norm identically zero, and `degreeTwoClass_ne_zero` uses
+`Rep.FiniteCyclicGroup.groupCohomologyπEven_eq_zero_iff` to prove that the positive-even
+class represented by the invariant $1$ is nonzero for $2\le b$.  The focused
+2,392-job build and the 8,771-job Pairfield root build pass, with no `sorry`, `admit`,
+or declared axiom in the adapter.
+
+**Native-lineage return: ACCEPT-NARROW.** This closes the classical Mathlib $H^2$
+carrier/nontriviality, not Proposition 2.11's displayed identification of the
+*specific* digit-section cocycle.  That distinction is essential for composite $b$:
+a nonzero element of $\mathbb{Z}/b$ need not be the generator $1$.  The exact remaining
+comparison square is now named:
+
+1. construct $\kappa:\ker(\mathbb{Z}/(Nb)\to\mathbb{Z}/N)\simeq\mathbb{Z}/b$ with
+   $\kappa(Na)=a$, and check the induced action is trivial;
+2. transport `CarryObstruction.carryOf` through $\kappa$ to a Mathlib
+   `groupCohomology.cocycles₂` term `digitCarryCocycle`;
+3. prove, up to the conventionally determined sign,
+   `groupCohomology.H2π (coefficients N b) digitCarryCocycle = degreeTwoClass N b`.
+
+At chain level the missing bar-to-periodic comparison sends a normalized cocycle $c$
+to $\sum_{i=0}^{N-1}c(g^i,g)$; for the schoolbook carry exactly the final summand is
+$1$.  Mathlib exposes both endpoint maps (`H2π` and `groupCohomologyπEven`) but the
+adapter does not yet relate them.  Packaging the full displayed isomorphism
+$H^2\cong\mathbb{Z}/b$, rather than only a nonzero class, is a second small classical
+debt.  The residual table's $H^2$ wording is therefore supported by two checked
+endpoints, while the cross-resolution and cross-prover identification remains explicit
+debt.
+(ii) **The moduli are $b^n$ up to a checked path, not on the nose.** Agda must see the
+modulus as a literal successor for `ℤGroup/_` to be the $\mathbb{Z}/m$ branch rather
+than $\mathbb{Z}$, and `b ^ n` does not reduce to `suc _` for variable `n`; so `BasePower`
+uses `bpow j = suc (bp j)` and exports `bpow≡ : bpow j ≡ b ^ j`, `N≡ : N ≡ b ^ n`,
+`M≡b : M ≡ b ^ (suc n)`. The identification is a checked term, and four definitional
+sanity checks pin the arithmetic ($b=2,n=1$: $\mathbb{Z}/4\to\mathbb{Z}/2$; $b=3,n=2$:
+$\mathbb{Z}/27\to\mathbb{Z}/9$). Also not claimed: the closed form
+$c_n(u,v)=b^n\lfloor(\tilde u+\tilde v)/b^n\rfloor$, and any *exhibited* carrying pair —
+the theorem is $\neg\forall$, which constructively does not hand back the witnessing
+$(u,v)$.
+
+With this, §7's list is discharged in full except for the comparison identifying the
+explicit carry cocycle with Mathlib's periodic class, and for a constructive Cubical
+$H^2$ object: Theorem 2.1 and Theorem 3.2 (`AtlasResiduals`, `LinearOrderFinite`),
+Theorem 3.1's loop half (`PathIsSymmetry`/`Decategorification`), Theorem 2.7 (`Digits`),
+Corollary 2.11.1 (`CarryObstruction`), and the classical nonzero degree-two carrier
+(`CarryCohomologyAdapter`). Theorem 4.2(2)(iii)'s "nonredundant, and irreducibly so" is
+machine-visible: the third parameter of $\mathrm{Dig}(b,\varepsilon,s)$ cannot be chosen
+away.
+
 ---
 
 ## 8. The residual table
@@ -1077,6 +1228,29 @@ machinery discriminates.
    parameter count of Theorem 4.2, or on the "two-completions" framing. All are elementary
    enough that prior appearances are likely. **Absence of a located source is not evidence
    of novelty**, and this note does not treat it as such.
+
+   > **PRIOR-ART SWEEP 2026-08-14 — searched; search-summary (śabda) grade, `WebFetch`
+   > EGRESS_BLOCKED so no source text was read.** **Theorem 6.1's index: RESOLVED-FOUND,
+   > and it is textbook.** The number $n!/\prod_p(p!)^{a_p}a_p!$ is the classical count of
+   > the set partitions of an $n$-set having exactly $a_p$ blocks of size $p$ for each $p$
+   > — the denominator being $|\prod_p(S_p\wr S_{a_p})|$, so the index is a Young-type
+   > coset count, standard enumerative combinatorics (Stanley, *EC1* §1.3; it appears in
+   > this exact displayed form in ordinary multinomial-coefficient lecture notes). §9
+   > item 4's own reading — "elementary; likely folklore in the categorification
+   > community" — is right about the number and understates how standard it is: **the
+   > arithmetic of Theorem 6.1 is known mathematics; only the reading of it as
+   > non-fullness of a factorization functor is the note's packaging.** That reading sits
+   > inside an existing programme: Baez–Dolan, *From Finite Sets to Feynman Diagrams*,
+   > arXiv:math/0004133, is the standard reference for $\mathbf{FinSet}$ with
+   > $\sqcup,\times$ as the categorification of $(\mathbb N,+,\cdot)$, and the failure of
+   > arithmetic identities to lift is a recognised genre there. **Theorem 4.2's parameter
+   > count and the "two-completions" framing: RESOLVED-NO-MATCH** — queries: *index of
+   > wreath product stabilizer of prime factorization n!/prod (p!)^{a_p} a_p! symmetric
+   > group unique factorization does not categorify*; *number of set partitions into a_p
+   > blocks of size p classical multinomial*; *categorification of natural numbers finite
+   > sets groupoid unique factorization fails multiplication not full functor Baez Dolan*.
+   > Absence of a located source is still not evidence of novelty. Attribution status
+   > only; no theorem here is weakened, strengthened, or restated.
 3. **No claim about any open problem.** Corollary 2.13.1 and §6 say only what charts can
    express. Nothing here bears on Goldbach, twin primes, $abc$, RH, or the repo's
    prime-pair field, and no result of that programme is used.

@@ -67,7 +67,21 @@ Vinogradov for multiplicative functions, and beyond the $x^{1/2}$-barrier*
 a Siegel–Walfisz hypothesis obeys BV to level $X^{1/2-\varepsilon}$, and for
 $\mu$-like $f$ (which do not pretend to be $\chi(n)n^{it}$) they push the
 level *beyond* the half barrier, to $X^{20/39-\varepsilon}$ for fixed residue
-classes — the only known crossing of $\theta=1/2$ in any averaged sense.
+classes — ~~the only known crossing of $\theta=1/2$ in any averaged sense~~
+**[CORRECTED 2026-08-14 by `cf-tessera-02`, per `FRONTIER_2026_MAP.md` rows
+A5/A6 (śabda grade, `WebFetch` EGRESS_BLOCKED): FALSE AS WORDED. Lichtman,
+arXiv:2309.08522, gives primes level of distribution $66/107\approx0.617$ with
+triply-well-factorable weights, and Pascadi, arXiv:2505.00653, gives
+$5/8=0.625$ for primes and smooth numbers. Both cross $\theta=1/2$ in an
+averaged sense. The defensible statement is the narrow one this note's object
+$D_\lambda$ actually needs: **the Granville–Shao $20/39$ is the only crossing
+known for $\lambda$/$\mu$-type multiplicative functions.** Nothing this note
+proves depends on the uniqueness claim — Lemma W1 and the infinite-width
+statement are untouched. The note's §4 taxonomy also omits the
+Helfgott–Radziwiłł expander layer (arXiv:2103.06853, `FRONTIER_2026_MAP.md`
+A8) and its two-point-correlation state of the art is Tao-era rather than
+Pilatte-era (arXiv:2310.19357, A7); those are gaps, recorded here, not
+corrected here.]**
 Earlier work on multiplicative functions in progressions on average: Elliott;
 Balog–Granville–Soundararajan, *Multiplicative functions in arithmetic
 progressions* (2013) [cite-check]. So: **$\theta_{\rm avg}=1/2$ (plus
@@ -143,8 +157,14 @@ therefore surprisingly small:
 > \varepsilon}$ with a bound $\max_a|D_\lambda(X;q,a)|=o(X/q)$ — even with
 > savings $(\log X)^{-1}$, even for special $q$ (smooth, prime, ...). Any
 > such *individual* estimate beyond $\theta=1/2$ would break genuinely new
-> ground; the averaged $20/39$ of Granville–Shao is the only crossing known,
-> and it cannot isolate a single modulus.
+> ground; ~~the averaged $20/39$ of Granville–Shao is the only crossing known,
+> and it cannot isolate a single modulus.~~ **[CORRECTED 2026-08-14, same
+> correction as §2(b): the averaged $20/39$ of Granville–Shao is the only
+> crossing known *for $\lambda$/$\mu$-type multiplicative functions*, and it
+> cannot isolate a single modulus. For primes the averaged record is
+> $5/8$ (Pascadi arXiv:2505.00653), after $66/107$ (Lichtman
+> arXiv:2309.08522). The open question as posed — an *individual* estimate
+> past $\theta=1/2$ for $D_\lambda$ — is unaffected by either.]**
 
 The Siegel-zero connection cuts both ways, and recent work makes the
 converse direction precise: *if* Siegel zeros exist infinitely often, then

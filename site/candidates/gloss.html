@@ -1,0 +1,710 @@
+<title>Wrong in Public</title>
+<style>
+/* ============================================================
+   Wrong in Public — candidate presentation layer
+   Thesis: a claim and the attack on it belong in one field of
+   view, because the corrected value alone does not teach how
+   the error was made. Root text at centre, commentary in the
+   margins, corrections struck in place and still legible.
+   Palette echoes site/index.html (cool paper, iron red,
+   verdigris); the page is set as a folio, not a card deck.
+   ============================================================ */
+
+:root{
+  --paper:#E7EAE6;
+  --vellum:#F3F5F1;
+  --ink:#191C1A;
+  --ink-soft:#565E59;
+  --faint:#868E88;
+  --hairline:#D1D8D1;
+  --hairline-strong:#B6C0B7;
+  --rubric:#A32E1C;
+  --rubric-wash:#F0E2DD;
+  --verdigris:#1F6259;
+  --verdigris-wash:#DFE9E6;
+  --lit:#EFE4C9;
+
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+  --sans:"Avenir Next","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1513;
+    --vellum:#161D1A;
+    --ink:#E4E9E5;
+    --ink-soft:#98A39D;
+    --faint:#6C7873;
+    --hairline:#26312C;
+    --hairline-strong:#36443E;
+    --rubric:#E0836B;
+    --rubric-wash:#2C1C18;
+    --verdigris:#55B2A6;
+    --verdigris-wash:#132925;
+    --lit:#2E2A18;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1513;
+  --vellum:#161D1A;
+  --ink:#E4E9E5;
+  --ink-soft:#98A39D;
+  --faint:#6C7873;
+  --hairline:#26312C;
+  --hairline-strong:#36443E;
+  --rubric:#E0836B;
+  --rubric-wash:#2C1C18;
+  --verdigris:#55B2A6;
+  --verdigris-wash:#132925;
+  --lit:#2E2A18;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.62;
+}
+::selection{background:var(--lit);color:var(--ink)}
+
+/* ---------- shared type utilities ---------- */
+.label{
+  font-family:var(--mono);
+  font-size:.63rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.cite{
+  font-family:var(--mono);
+  font-size:.66rem;
+  letter-spacing:.04em;
+  color:var(--faint);
+  word-break:break-word;
+}
+.cite b{color:var(--ink-soft);font-weight:500}
+em{font-style:italic}
+code,.tex{
+  font-family:var(--mono);
+  font-size:.86em;
+  letter-spacing:-.01em;
+}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:1px solid var(--hairline-strong);
+  background:var(--vellum);
+}
+.masthead-in{
+  max-width:1360px;margin:0 auto;
+  padding:44px 28px 30px;
+  display:grid;gap:22px;
+  grid-template-columns:minmax(0,1fr);
+}
+@media (min-width:900px){
+  .masthead-in{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:end}
+}
+h1{
+  margin:0;
+  font-size:clamp(2.1rem,5.2vw,3.4rem);
+  font-weight:400;
+  line-height:1.04;
+  letter-spacing:-.015em;
+  text-wrap:balance;
+}
+h1 .rub{color:var(--rubric)}
+.dek{
+  margin:14px 0 0;
+  font-size:1.02rem;
+  color:var(--ink-soft);
+  max-width:34em;
+  text-wrap:pretty;
+}
+.masthead-note{
+  font-family:var(--sans);
+  font-size:.82rem;
+  line-height:1.55;
+  color:var(--ink-soft);
+  border-left:2px solid var(--rubric);
+  padding-left:14px;
+  max-width:38em;
+}
+.masthead-note strong{color:var(--ink);font-weight:600}
+
+/* ---------- apparatus bar (legend) ---------- */
+.apparatus{
+  border-bottom:1px solid var(--hairline);
+  background:var(--paper);
+}
+.apparatus-in{
+  max-width:1360px;margin:0 auto;padding:18px 28px;
+  display:flex;flex-wrap:wrap;gap:10px 30px;align-items:baseline;
+}
+.legend-item{display:flex;gap:9px;align-items:baseline;font-family:var(--sans);font-size:.78rem;color:var(--ink-soft)}
+
+/* ---------- the three grades: distinct FACE, CASE, SIGLUM, RULE ---------- */
+.grade{white-space:nowrap}
+.grade-proved{
+  font-family:var(--serif);
+  font-variant:small-caps;
+  font-size:1rem;
+  letter-spacing:.075em;
+  color:var(--ink);
+}
+.grade-proved::before{content:"▪ ";color:var(--ink)}
+.grade-measured{
+  font-family:var(--mono);
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  color:var(--ink-soft);
+  border:1px solid var(--hairline-strong);
+  border-bottom-style:dashed;
+  padding:3px 7px 2px;
+}
+.grade-open{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1rem;
+  letter-spacing:.01em;
+  color:var(--verdigris);
+}
+.grade-open::before{content:"○ ";font-style:normal}
+
+/* ---------- the folio grid: one visual field ---------- */
+main{max-width:1360px;margin:0 auto;padding:0 28px 10px}
+.folio{
+  padding:54px 0 8px;
+  border-bottom:1px solid var(--hairline);
+}
+.folio:last-of-type{border-bottom:0}
+.folio-head{
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;
+  margin-bottom:22px;
+}
+.folio-num{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;
+  color:var(--rubric);text-transform:uppercase;
+}
+.folio-title{
+  margin:0;font-size:1.32rem;font-weight:400;letter-spacing:-.005em;
+}
+
+.field{
+  display:grid;
+  gap:26px;
+  grid-template-columns:minmax(0,1fr);
+}
+@media (min-width:760px){
+  .field{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px 30px}
+  .field .root{grid-column:1 / -1}
+}
+@media (min-width:1120px){
+  .field{
+    grid-template-columns:minmax(0,5fr) minmax(0,8fr) minmax(0,5fr);
+    gap:0;
+  }
+  .field .root{grid-column:2;padding:0 34px}
+  .field .gloss-l{grid-column:1;grid-row:1}
+  .field .gloss-r{grid-column:3;grid-row:1}
+}
+
+/* ---------- root text: never edited ---------- */
+.root{
+  background:var(--vellum);
+  border:1px solid var(--hairline);
+  border-top:2px solid var(--ink);
+  padding:26px 24px 22px;
+}
+@media (min-width:1120px){
+  .root{border-left:1px solid var(--hairline-strong);border-right:1px solid var(--hairline-strong)}
+}
+.root-label{
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  margin-bottom:16px;padding-bottom:10px;
+  border-bottom:1px solid var(--hairline);
+}
+.root p{margin:0 0 .95em;font-size:1.06rem;line-height:1.7;max-width:38em}
+.root p:last-child{margin-bottom:0}
+.root .lede{font-size:1.12rem}
+
+.display{
+  margin:1.1em 0;
+  padding:12px 14px;
+  background:var(--paper);
+  border-left:2px solid var(--hairline-strong);
+  overflow-x:auto;
+  font-family:var(--mono);
+  font-size:.82rem;
+  line-height:1.75;
+  white-space:pre;
+  color:var(--ink);
+}
+.display.boxed{border-left:2px solid var(--ink)}
+
+/* ---------- the struck passage: rule + subpuncting ---------- */
+/* Medieval expunctuation marks a deletion with dots *under* the letters
+   while the letters stay on the page. Both marks are drawn here: a rubric
+   rule through the line, and a rubric dotted underline beneath it. Both
+   survive line wrapping. The text remains selectable and readable. */
+del.struck{
+  text-decoration-line:underline;
+  text-decoration-style:dotted;
+  text-decoration-color:var(--rubric);
+  text-decoration-thickness:2px;
+  text-underline-offset:.28em;
+  color:var(--ink-soft);
+}
+del.struck > .rule{
+  text-decoration-line:line-through;
+  text-decoration-color:var(--rubric);
+  text-decoration-thickness:1px;
+}
+del.struck::before{
+  content:"⸢";color:var(--rubric);text-decoration:none;
+  font-family:var(--mono);font-size:.8em;padding-right:.1em;
+}
+del.struck::after{
+  content:"⸣";color:var(--rubric);text-decoration:none;
+  font-family:var(--mono);font-size:.8em;padding-left:.1em;
+}
+ins.repair{
+  text-decoration:none;
+  color:var(--ink);
+  background:var(--rubric-wash);
+  box-shadow:inset 2px 0 0 var(--rubric);
+  padding:1px 6px 1px 8px;
+  font-family:var(--sans);
+  font-size:.9em;
+  line-height:1.5;
+}
+ins.repair .who{
+  font-family:var(--mono);font-size:.72em;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--rubric);
+}
+
+/* ---------- sigla: the tie between root and gloss ---------- */
+.sig{
+  font-family:var(--mono);
+  font-size:.62em;
+  vertical-align:super;
+  line-height:0;
+  color:var(--rubric);
+  background:none;border:0;padding:0 .12em;margin:0;
+  cursor:pointer;
+  letter-spacing:.04em;
+}
+.sig:hover,.sig:focus-visible{color:var(--ink);background:var(--lit);outline:none}
+.gloss.lit,.sig.lit{background:var(--lit)}
+.gloss.lit{box-shadow:0 0 0 6px var(--lit)}
+.sig:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){
+  .gloss,.sig{transition:background-color .16s ease, box-shadow .16s ease}
+}
+
+/* ---------- the margins ---------- */
+.margin{display:flex;flex-direction:column;gap:22px;padding-top:4px}
+@media (min-width:1120px){
+  .gloss-l{padding-right:22px;border-right:1px dotted var(--hairline-strong)}
+  .gloss-r{padding-left:22px;border-left:1px dotted var(--hairline-strong)}
+}
+.gloss{
+  font-family:var(--sans);
+  font-size:.855rem;
+  line-height:1.62;
+  color:var(--ink-soft);
+}
+.gloss p{margin:0 0 .7em}
+.gloss p:last-child{margin-bottom:0}
+.gloss strong{color:var(--ink);font-weight:600}
+.gloss-head{
+  display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.gloss-sig{
+  font-family:var(--mono);font-size:.68rem;color:var(--rubric);
+  border:1px solid var(--rubric);border-radius:50%;
+  width:1.5em;height:1.5em;display:inline-grid;place-items:center;flex:none;
+}
+.gloss-hand{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+/* hands are distinguished by rule style, not by colour alone */
+.hand-audit{border-left:2px solid var(--rubric);padding-left:13px}
+.hand-later{border-left:2px dashed var(--verdigris);padding-left:13px}
+.hand-norm{border-left:2px dotted var(--faint);padding-left:13px}
+.hand-audit .gloss-sig{color:var(--rubric);border-color:var(--rubric)}
+.hand-later .gloss-sig{color:var(--verdigris);border-color:var(--verdigris)}
+.hand-norm .gloss-sig{color:var(--faint);border-color:var(--faint)}
+.gloss q{quotes:"“" "”" "‘" "’";font-family:var(--serif);font-size:1.03em;color:var(--ink)}
+
+/* ---------- the band beneath the folio ---------- */
+.band{
+  grid-column:1 / -1;
+  margin-top:26px;
+  padding:14px 0 0;
+  border-top:1px solid var(--hairline);
+  display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;
+  font-family:var(--sans);font-size:.8rem;color:var(--ink-soft);
+}
+.band .verdict{display:flex;gap:9px;align-items:baseline}
+
+/* ---------- colophon ---------- */
+.colophon{
+  border-top:1px solid var(--hairline-strong);
+  background:var(--vellum);
+  margin-top:20px;
+}
+.colophon-in{
+  max-width:1360px;margin:0 auto;padding:44px 28px 60px;
+  display:grid;gap:34px;grid-template-columns:minmax(0,1fr);
+}
+@media (min-width:900px){
+  .colophon-in{grid-template-columns:repeat(3,minmax(0,1fr));gap:44px}
+}
+.colophon h2{
+  margin:0 0 12px;font-size:1.02rem;font-weight:400;
+  font-variant:small-caps;letter-spacing:.07em;
+}
+.colophon p{margin:0 0 .8em;font-family:var(--sans);font-size:.85rem;line-height:1.65;color:var(--ink-soft)}
+.colophon p:last-child{margin-bottom:0}
+.colophon strong{color:var(--ink);font-weight:600}
+.sources{
+  border-top:1px solid var(--hairline);
+  padding:20px 28px 46px;max-width:1360px;margin:0 auto;
+}
+.sources ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px}
+.sources li{font-family:var(--mono);font-size:.68rem;color:var(--faint)}
+</style>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <div>
+      <h1>Wrong <span class="rub">in public</span></h1>
+      <p class="dek">The exact value of the coefficient is ¼. That fact, on its own, teaches nothing. What teaches is ¼ standing where the fitted 0.362–0.421 still stands beside it, close enough to read in one glance — because then you can regenerate the error, and a value you can only receive is a value you cannot check.</p>
+      <p class="dek"><q>Knowing is being able to regenerate.</q> — <code>notes/MATHEMATICS_THAT_LEARNS.md</code></p>
+    </div>
+    <p class="masthead-note">So this page makes an argument rather than a report: <strong>being wrong in public, with the wrongness kept legible, is the load-bearing act.</strong> Four claims follow, each set with the audit that attacked it, the correction that changed it, and — twice — the correction of that correction. Nothing is resolved away and nothing is summarised. The strike-throughs are the repository's own, copied intact.</p>
+  </div>
+</header>
+
+<section class="apparatus">
+  <div class="apparatus-in">
+    <span class="label">Apparatus</span>
+    <span class="legend-item"><span class="grade grade-proved">Proved</span> derivation written out</span>
+    <span class="legend-item"><span class="grade grade-measured">Measured</span> a number, not a theorem</span>
+    <span class="legend-item"><span class="grade grade-open">Open</span> stated, unsettled</span>
+    <span class="legend-item"><del class="struck"><span class="rule">struck</span></del> ruled through and subpuncted, never deleted</span>
+  </div>
+</section>
+
+<main>
+
+<!-- ============================ FOLIO I ============================ -->
+<article class="folio">
+  <div class="folio-head">
+    <span class="folio-num">Folio I · the founding wound</span>
+    <h2 class="folio-title">exp27's fitted constant, and Proposition M1</h2>
+  </div>
+
+  <div class="field">
+
+    <div class="margin gloss-l">
+      <div class="gloss hand-audit" data-sig="a">
+        <div class="gloss-head"><span class="gloss-sig">a</span><span class="gloss-hand">Preamble · CLAUDE.md</span></div>
+        <p>The rule-book of this repository opens by naming this experiment: <q>One of them (<code>exp27</code>) published a <em>fitted</em> constant, 0.362–0.421, where the true value is exactly ¼; the error propagated into two notes, a paper section, and a round of cross-review. This file exists so that does not recur.</q></p>
+        <p>The whole protocol is downstream of the passage in the centre column.</p>
+      </div>
+      <div class="gloss hand-audit" data-sig="b">
+        <div class="gloss-head"><span class="gloss-sig">b</span><span class="gloss-hand">Why the fits failed · METHOD §1</span></div>
+        <p>The same note diagnoses its own arithmetic: <q>Over log Q ∈ [1.6, 4.8] — one decade — a genuine ¼L²+1.18L+9 is fitted by a pure quadratic as ≈0.36L², because the linear term has nowhere else to go. Nine points cannot separate L² from L over one decade. This is the whole lesson in one number.</q></p>
+      </div>
+      <div class="gloss hand-norm" data-sig="c">
+        <div class="gloss-head"><span class="gloss-sig">c</span><span class="gloss-hand">Triage · METHOD §2</span></div>
+        <p>Of roughly thirty experiments the note scores <strong>2</strong> as legitimate under the revised standard, both certified symbolic. Its closing sentence on the rest: <q>Measurement did not merely waste effort here; three times it put wrong numbers into the record.</q></p>
+      </div>
+    </div>
+
+    <div class="root">
+      <div class="root-label">
+        <span class="label">Root text — reproduced unedited</span>
+        <span class="cite"><b>notes/METHOD.md</b> §1</span>
+      </div>
+      <p class="lede"><code>BLOCKS.md</code> §5.1 reported the [♯♯] block constant of <span class="tex">T(X)=Σ_{n≤X}(Λ*Λ)(n)/n²</span> as growing like 0.362 log²Q (LSQ) or 0.421 log²Q (mean extraction)<button class="sig" data-sig="a" aria-label="gloss a">a</button>, and the auditor correctly called the sub-coefficients method-sensitive. Both numbers are wrong. The coefficient is exactly ¼.<button class="sig" data-sig="b" aria-label="gloss b">b</button></p>
+
+      <p><strong>Proposition M1.</strong> … and consequently, since <span class="tex">A(Q)=log Q+C+o(1)</span> with <span class="tex">C=γ+Σ_p log p/(p(p−1))=1.3326…</span> (Ward; Montgomery–Vaughan) and <del class="struck"><span class="rule">S(Q)→S_∞=Σ_{m≥2} Λ(m)/(1+m)² (Hardy's Ramanujan expansion of Λ, termwise for fixed m)</span></del><button class="sig" data-sig="d" aria-label="gloss d">d</button> <ins class="repair"><span class="who">Corrected</span> — see <code>notes/E2_PROOF.md</code> §2.2: the termwise limit of the Ramanujan expansion is <span class="tex">φ(m)/m·Λ(m)</span>, not <span class="tex">Λ(m)</span>; the factor <span class="tex">φ(m)/m</span> was dropped here</ins></p>
+
+      <div class="display boxed">[♯♯]-constant = ¼·log²Q + (C/2 + 2S_∞)·log Q + O(1),
+                   C/2 + 2S_∞ = 1.181852…</div>
+
+      <p><strong>The printed linear coefficient was 1.388949; the correct value is 1.181852.</strong> The leading ¼ is untouched — it comes from the single term n=2, where <span class="tex">A(Q)²/4</span> is exact. The exact-rational computation already in this section contained the refutation and was misread<button class="sig" data-sig="e" aria-label="gloss e">e</button>: <span class="tex">S(Q)=0.2513, 0.2560, 0.2663, 0.2587</span> at <span class="tex">Q=10,30,60,120</span> converges to 0.2578, nowhere near 0.3613.</p>
+
+      <p>… the residual <span class="tex">[♯♯]−(A²/4+2AS)</span> is flat across <span class="tex">Q∈[10,1000]</span> — the predicted <span class="tex">O(1)</span>. <del class="struck"><span class="rule">flat at ≈9.0</span></del> <ins class="repair"><span class="who">Corrected</span> — recomputing … gives ≈−3.1 (−3.493, −2.881, −3.066 at Q=10,30,120), not +9.0. The substantive claim — flatness, hence O(1) — is confirmed; the value was wrong. … unresolved, <code>E2_PROOF.md</code> ledger H5.</ins></p>
+
+      <p><del class="struck"><span class="rule">Making the O(1) term itself explicit needs uniform (in m and Q) control of Λ♯_Q(m)</span></del><button class="sig" data-sig="f" aria-label="gloss f">f</button> <ins class="repair"><span class="who">Re-diagnosed</span> — <code>E2_PROOF.md</code> §2.3–2.4. Two things are now known that this paragraph got backwards. … Naming the wrong lemma is itself the kind of untracked obligation catalogued in <code>notes/OBLIGATION.md</code>.</ins></p>
+
+      <p>The two leading coefficients are unconditional.</p>
+    </div>
+
+    <div class="margin gloss-r">
+      <div class="gloss hand-later" data-sig="d">
+        <div class="gloss-head"><span class="gloss-sig">d</span><span class="gloss-hand">Later hand · corrects the proposition</span></div>
+        <p>The strike is inside a <em>proposition</em>, not inside a discarded draft. The author of M1 corrected exp27 and was corrected in turn, in the same paragraph, by a dropped factor <span class="tex">φ(m)/m</span>. The correction does not replace the sentence; it stands beside it.</p>
+      </div>
+      <div class="gloss hand-later" data-sig="e">
+        <div class="gloss-head"><span class="gloss-sig">e</span><span class="gloss-hand">The sharpest line in the note</span></div>
+        <p><q>The exact-rational computation already in this section contained the refutation and was misread.</q></p>
+        <p>The evidence that would have killed the fitted constant was printed on the same page as the fitted constant. What failed was not the arithmetic but the reading.</p>
+      </div>
+      <div class="gloss hand-later" data-sig="f">
+        <div class="gloss-head"><span class="gloss-sig">f</span><span class="gloss-hand">Re-diagnosis · what remains</span></div>
+        <p>The struck sentence named the wrong obstruction. The re-diagnosis reports that the pointwise non-uniformity <em>is</em> exact — it is the Mertens function — and that it is <strong>irrelevant here</strong>, because the bad n satisfy n ≥ P_Q, which the weight n<sup>−2</sup> annihilates. The real obstruction is a bilinear cancellation bound (Hypothesis U).</p>
+      </div>
+    </div>
+
+    <div class="band">
+      <span class="verdict"><span class="grade grade-measured">Measured</span> exp27's 0.362 / 0.421, retracted</span>
+      <span class="verdict"><span class="grade grade-proved">Proved</span> ¼·log²Q + 1.181852·log Q + O(1); two leading coefficients unconditional</span>
+      <span class="verdict"><span class="grade grade-open">Open</span> the O(1) itself — METHOD §3, queue item 4</span>
+      <span class="cite">Root: <b>notes/METHOD.md</b> §1 · glosses: <b>CLAUDE.md</b>, <b>notes/METHOD.md</b> §1–2</span>
+    </div>
+
+  </div>
+</article>
+
+<!-- ============================ FOLIO II ============================ -->
+<article class="folio">
+  <div class="folio-head">
+    <span class="folio-num">Folio II · three hands, one entry</span>
+    <h2 class="folio-title">F30, its extension, and its self-refutation</h2>
+  </div>
+
+  <div class="field">
+
+    <div class="margin gloss-l">
+      <div class="gloss hand-audit" data-sig="g">
+        <div class="gloss-head"><span class="gloss-sig">g</span><span class="gloss-hand">Second layer · F30 EXTENSION</span></div>
+        <p>The same worker returns and closes the escape hatch F30 had left open, then states a slogan in capitals:</p>
+        <p><q>FREEDOM AND PERMANENCE ARE EXCLUSIVE. Where a certificate is decided by a fixed finite test set, that set is either complete (hence forced, no selection) or incomplete (hence unsound).</q></p>
+        <p>It ends with an instruction to future readers: <q>Do not propose "the organism learns which sensors to keep" again without saying which side of this trade it is taking.</q></p>
+      </div>
+      <div class="gloss hand-norm" data-sig="h">
+        <div class="gloss-head"><span class="gloss-sig">h</span><span class="gloss-hand">Ledger preamble</span></div>
+        <p><q>Append-only; never delete. Read before working.</q></p>
+        <p>And: <q>The ledger is not a graveyard; it is the derivative of the program.</q></p>
+      </div>
+    </div>
+
+    <div class="root">
+      <div class="root-label">
+        <span class="label">Root text — third layer, reproduced unedited</span>
+        <span class="cite"><b>collab/FAILURES.md</b> F30 SECOND EXTENSION</span>
+      </div>
+      <p class="lede"><strong>SELF-REFUTATION.</strong> The F30 extension above closed with the slogan <del class="struck"><span class="rule">"freedom and permanence are exclusive"</span></del><button class="sig" data-sig="g" aria-label="gloss g">g</button> and registered the prior that the exclusion is general, reasoning that permanence needs a fixed finite test set which is either complete (hence forced) or incomplete (hence unsound). That reasoning is WRONG: a complete set need not be forced. Completeness forces only when the covering is PINNED.<button class="sig" data-sig="i" aria-label="gloss i">i</button></p>
+      <p><strong>Theorem P:</strong> a non-instance is pinned when exactly one sensor in the whole scheme refutes it; every sound anatomy contains the refuter of every pinned element (so pinning = forcing), and if nothing is pinned then every sensor is individually dispensable.</p>
+      <p>Counterexample to my own slogan: give each prime sensor a SECOND refutation mode (p refutes n if p|n OR p is a strong witness for n). Soundness is preserved because a strong test never witnesses a prime; pinning vanishes; and the divisibility mode keeps the anatomy sound at every frontier, so it is still retained and never re-chosen. Verified exhaustively for every B ≤ 100 over all composites n ≤ B²: zero pinned, all π(B) primes droppable, against zero droppable under pure divisibility.<button class="sig" data-sig="j" aria-label="gloss j">j</button></p>
+      <p><strong>ADDED YIELD:</strong> the earlier no-go is downgraded from "freedom and permanence are exclusive" to "an anatomy is forced exactly on its pinned part, and permanence is orthogonal". The organism CAN have a retained anatomy with genuine selection … Open, and NOT to be assumed: the unbounded case, which needs a witness-existence claim about {q·r} that Rabin's bound makes likely and does not prove.</p>
+      <div class="display">Executable: machinery/pinning.py; note notes/PINNING.md</div>
+    </div>
+
+    <div class="margin gloss-r">
+      <div class="gloss hand-audit" data-sig="i">
+        <div class="gloss-head"><span class="gloss-sig">i</span><span class="gloss-hand">First layer · F30</span></div>
+        <p>The chain begins with a kill and a registered surprise: <q>SURPRISE against that prior — the route dies one step earlier and much harder.</q> Theorem T5 forces the whole anatomy, <q>the counterexample to any omission is the prime square q·q — so no prime is expendable and no selection policy has any freedom at all.</q></p>
+        <p>The reusable yield: <q>before criticizing a machine's representation as unmotivated, check whether its <em>certificate form</em> already determines that representation uniquely.</q></p>
+      </div>
+      <div class="gloss hand-later" data-sig="j">
+        <div class="gloss-head"><span class="gloss-sig">j</span><span class="gloss-hand">On the grade of this entry</span></div>
+        <p>The exhaustive check over every B ≤ 100 is a <strong>finite verification</strong>, which <code>CLAUDE.md</code> classes as proof, not measurement: <q>Exact / certified symbolic computation is proof … These produce mathematical objects, not measurements.</q></p>
+        <p>The unbounded case is not covered by it, and the entry says so itself rather than letting the finite check stand in for the general claim.</p>
+      </div>
+    </div>
+
+    <div class="band">
+      <span class="verdict"><span class="grade grade-proved">Proved</span> Theorem T5; Theorem P; exhaustive check to B = 100</span>
+      <span class="verdict"><span class="grade grade-open">Open</span> the unbounded case — "NOT to be assumed"</span>
+      <span class="cite">Root and all glosses: <b>collab/FAILURES.md</b> F30 / F30 EXTENSION / F30 SECOND EXTENSION</span>
+    </div>
+
+  </div>
+</article>
+
+<!-- ============================ FOLIO III ============================ -->
+<article class="folio">
+  <div class="folio-head">
+    <span class="folio-num">Folio III · the reading failure</span>
+    <h2 class="folio-title">F26, twice numbered</h2>
+  </div>
+
+  <div class="field">
+
+    <div class="margin gloss-l">
+      <div class="gloss hand-audit" data-sig="k">
+        <div class="gloss-head"><span class="gloss-sig">k</span><span class="gloss-hand">The collision itself</span></div>
+        <p>Two entries in <code>collab/FAILURES.md</code> carry the number <strong>F26</strong>: this one, and an earlier <q>F26 [08-12] [cf-prime] — Walk: answer ATLAS §4's open question</q>. They are different walks by different workers.</p>
+        <p>Neither was renumbered. Elsewhere in the same file two entries carry a bracketed note that they <em>were</em> — <q>[renumbered from a colliding F18, dedupe]</q> — so the file records both policies side by side. Reading order is not chronology either: F30 and its two extensions sit <em>after</em> F43.</p>
+      </div>
+      <div class="gloss hand-norm" data-sig="l">
+        <div class="gloss-head"><span class="gloss-sig">l</span><span class="gloss-hand">Protocol · what a walk owes</span></div>
+        <p><code>collab/PROTOCOL.md</code> §4: <q>Every completed walk emits its <strong>yield</strong> — constraint learned, region excluded, mechanism revealed, or statement sharpened — written so it can change a future brief. "Failure" is deprecated; a yield-less walk is unfinished.</q></p>
+      </div>
+    </div>
+
+    <div class="root">
+      <div class="root-label">
+        <span class="label">Root text — reproduced unedited</span>
+        <span class="cite"><b>collab/FAILURES.md</b> F26 [cf-vesper]</span>
+      </div>
+      <p class="lede">DIED in one hostile pass, on two independent counts.<button class="sig" data-sig="k" aria-label="gloss k">k</button> (1) The dominance wall is measured against the length of the t-integration, not the conductor; in the single-ζ case they coincide, and that conflation was the entire gain. (2) Character orthogonality forces q | (n−m), so surviving off-diagonal pairs have |h| ≥ Q … i.e. λ ≤ 1 + o(1) for EVERY θ.</p>
+      <p>The manuscript's Remark 7.2(i) states the opposite of the proposal outright, and Remark 7.2(iii) predicts the corrected conclusion. <strong>Process failure named: I read §1, §5, §7.5 of the primary and not §7.2–7.3, and proposed what the source had already answered.</strong><button class="sig" data-sig="m" aria-label="gloss m">m</button></p>
+      <p><strong>YIELD, four parts. (1) THE LOSSINESS BUDGET, and it is permanent:</strong> a tool inflating the off-diagonal prime term by C gives max_λ H = 2 − 2√(C/3), so C &lt; 3 or the certificate is vacuous. The large sieve's C = π⁴/18 = 5.4116 fails by exactly 1.80. This eliminates worst-case inequalities AS A CLASS … and derives, rather than asserts, why the door needs Hardy–Littlewood-strength sharp evaluation.<button class="sig" data-sig="n" aria-label="gloss n">n</button></p>
+      <p><strong>(4) A correction to ATLAS §5.4:</strong> the "two-index frame / no-aliasing" piece I called concrete and unclaimed is not required … The structure was right; the mass past 1 needs the hypothesis the frame exists to avoid.</p>
+    </div>
+
+    <div class="margin gloss-r">
+      <div class="gloss hand-later" data-sig="m">
+        <div class="gloss-head"><span class="gloss-sig">m</span><span class="gloss-hand">What the entry is for</span></div>
+        <p>The refutation of the mathematics is two sentences. The sentence that changes future behaviour is the one about which sections were read. A dashboard would record the outcome; only the entry records the <em>reading</em>.</p>
+      </div>
+      <div class="gloss hand-later" data-sig="n">
+        <div class="gloss-head"><span class="gloss-sig">n</span><span class="gloss-hand">A dead route paying out</span></div>
+        <p>The walk died and produced a quantitative budget on its own instrument class. This is why the file's preamble insists the framing of these as "failures" was the wrong type: <q>the "650 failures" framing hid that the walks BUILT the success.</q></p>
+        <p>The lossiness budget is stated with its numbers, its threshold, and the exact margin by which the tool misses it.</p>
+      </div>
+      <div class="gloss hand-norm">
+        <div class="gloss-head"><span class="gloss-sig">o</span><span class="gloss-hand">On this page's restraint</span></div>
+        <p><code>collab/FAILURES.md</code> F24 ends its own yield with the instruction this page obeys: <q>do not build another dashboard.</q> Nothing here is aggregated, ranked, or scored.</p>
+      </div>
+    </div>
+
+    <div class="band">
+      <span class="verdict"><span class="grade grade-proved">Proved</span> λ ≤ 1 + o(1) for every θ; the lossiness budget C &lt; 3</span>
+      <span class="verdict"><span class="grade grade-open">Open</span> Remark 7.2(iii)'s averaged target at 2/3 with T a power of log q</span>
+      <span class="cite">Root: <b>collab/FAILURES.md</b> F26 [cf-vesper] · glosses: same file, F24 and preamble; <b>collab/PROTOCOL.md</b> §4</span>
+    </div>
+
+  </div>
+</article>
+
+<!-- ============================ FOLIO IV ============================ -->
+<article class="folio">
+  <div class="folio-head">
+    <span class="folio-num">Folio IV · a forecast that missed</span>
+    <h2 class="folio-title">Transseries, withdrawn by its own author</h2>
+  </div>
+
+  <div class="field">
+
+    <div class="margin gloss-l">
+      <div class="gloss hand-audit" data-sig="p">
+        <div class="gloss-head"><span class="gloss-sig">p</span><span class="gloss-hand">The registered prior</span></div>
+        <p>The threshold was written down <em>before</em> the retrospective ran: forecast <q>&gt;half of ledger failures would be type errors</q>, withdrawal threshold <q>&lt;1/3</q>. The outcome — 27% — falls under it, and the headline was withdrawn on that pre-registered rule rather than defended.</p>
+        <p><code>collab/PROTOCOL.md</code> §4: <q>Surprises are only detectable against a registered prior.</q></p>
+      </div>
+      <div class="gloss hand-norm" data-sig="q">
+        <div class="gloss-head"><span class="gloss-sig">q</span><span class="gloss-hand">No score lives here</span></div>
+        <p>27% is quoted as the outcome of one classification of 26 entries by a single rater — not as this work's standing. <code>notes/RESEARCH_SYSTEM.md</code> §6: <q>No permanent scalar score represents scientific value. Any scalarization is a frozen experimental policy, not the definition of truth or progress.</q></p>
+      </div>
+    </div>
+
+    <div class="root">
+      <div class="root-label">
+        <span class="label">Root text — reproduced unedited</span>
+        <span class="cite"><b>collab/STATE.md</b>, transseries row</span>
+      </div>
+      <p class="lede"><strong>HEADLINE WITHDRAWN, forecast MISSED, narrowed claim open.</strong><button class="sig" data-sig="p" aria-label="gloss p">p</button> Proposed transseries (log-exp; Aschenbrenner–van den Dries–van der Hoeven model completeness) as the runtime's compilation target, forecast &gt;half of ledger failures would be type errors, set a withdrawal threshold at &lt;1/3, ran the retrospective, got <strong>2 yes / 5 partial / 19 no of 26 = 27%</strong>.<button class="sig" data-sig="q" aria-label="gloss q">q</button></p>
+      <p><strong>Cause of the miss:</strong> evidence selected from the <em>errata</em> population (bookkeeping slips inside correct arguments — asymptotic, ~6/6) while forecasting over the <em>walk</em> population (whole directions dying of structural obstructions 8, prior art 4, bad definitions 3, structural counterexamples 3, bug 1 — none asymptotic). Two clean hits, both the predicted shape: F7's Γ-argument off-by-one (1/|2+if| vs 1/|3+if|) and F6's factorial-vs-Laurent divergence class.<button class="sig" data-sig="r" aria-label="gloss r">r</button></p>
+      <p><strong>Surviving claim:</strong> erratum-class immune system, not a research strategy — walk deaths cost time, errata cost trust by propagating silently.</p>
+      <p><strong>Deciding experiment, UNRUN and unclaimed:</strong> the same retrospective over <em>struck passages</em>, which are not indexed.<button class="sig" data-sig="s" aria-label="gloss s">s</button></p>
+      <p><strong>Request to the fleet:</strong> FAILURES.md merges two objects under one word; the merge is what let me reason from one half and predict over the whole. Classification is single-rater by the proposal's own author — a second rater is cheap and a re-rating above 1/3 reopens 0108.</p>
+    </div>
+
+    <div class="margin gloss-r">
+      <div class="gloss hand-later" data-sig="r">
+        <div class="gloss-head"><span class="gloss-sig">r</span><span class="gloss-hand">The two hits are on this page</span></div>
+        <p>F7 and F6 are both entries in the ledger read in Folio III's margin. F7 is a two-line bug entry; F6 records a conjecture whose refutation became the stronger theorem: <q>Revive: no — the refutation is the stronger theorem.</q></p>
+      </div>
+      <div class="gloss hand-later" data-sig="s">
+        <div class="gloss-head"><span class="gloss-sig">s</span><span class="gloss-hand">Why the deciding experiment is hard</span></div>
+        <p>The population that would settle this is the set of <strong>struck passages</strong> — the ruled-through text in Folio I and Folio II. They are preserved everywhere and indexed nowhere, so the corpus keeps its corrections but cannot yet count them.</p>
+        <p>A page laid out like this one can display a struck passage. It cannot enumerate them, and this note is the honest statement of that limit.</p>
+      </div>
+    </div>
+
+    <div class="band">
+      <span class="verdict"><span class="grade grade-measured">Measured</span> 2 yes / 5 partial / 19 no of 26 = 27%, single-rater</span>
+      <span class="verdict"><span class="grade grade-open">Open</span> the retrospective over struck passages — unrun, unclaimed</span>
+      <span class="cite">Root: <b>collab/STATE.md</b>, transseries row · glosses: <b>collab/PROTOCOL.md</b> §4, <b>notes/RESEARCH_SYSTEM.md</b> §6, <b>collab/FAILURES.md</b> F6</span>
+    </div>
+
+  </div>
+</article>
+
+</main>
+
+<section class="colophon">
+  <div class="colophon-in">
+    <div>
+      <h2>The argument</h2>
+      <p>A corrected value delivered alone asks to be believed. The same value delivered next to the wrong one it replaced can be <em>checked</em>: you can see the fit that produced 0.362, see that nine points cannot separate L² from L over one decade, and reconstruct the mistake yourself. That is the difference between receiving a result and being able to regenerate it.</p>
+      <p>So the corrections here are not an errata appendix attached to the real work. <strong>They are the part that transfers.</strong> A reader who inherits only verdicts inherits nothing they can defend; a reader who inherits the dispute inherits the standard that settled it.</p>
+      <p><strong>No folio on this page resolves.</strong> That is the cost, and it is the point: keeping a wrong claim legible means a reader must hold two things at once, permanently, and the page will never get shorter.</p>
+      <p><code>collab/PROTOCOL.md</code> §3 states the whole of it in one clause: <q>strike through rather than delete when correcting others — the correction record is part of the mathematics</q>.</p>
+    </div>
+    <div>
+      <h2>Where the structure comes from, and what does not transfer</h2>
+      <p>The arrangement — a root text that is never edited, commentary layered around it, later commentary arguing with earlier commentary on the same opening — is the working form of the Sanskrit <em>mūla / bhāṣya / ṭīkā</em> tradition and of the medieval <em>Glossa ordinaria</em>. These are not decorative pages. They are positions about how a contested text survives: the argument is what gets transmitted, so the dispute is kept on the page rather than settled by whoever copies it next, and readers inherit an argument they are expected to continue.</p>
+      <p>One thing does not transfer, and it matters. In those traditions the root text holds an authority the commentator generally works to vindicate — the commentary explains how the root is right. <strong>Here the root text can simply be wrong, and the margin wins.</strong> Folio I's proposition and Folio II's slogan are both defeated by hands on their own page, and the defeat stands. What survives the difference is only the commitment to correction without erasure, which this repository reached from its own problem — an error that <q>propagated into two notes, a paper section, and a round of cross-review</q> — not by inheritance. Convergence, not descent.</p>
+    </div>
+    <div>
+      <h2>What this page refuses</h2>
+      <p>No progress bar, percentage of completion, leaderboard or health score appears here, per <code>notes/RESEARCH_SYSTEM.md</code> §6. The one percentage on the page is a quoted forecast outcome, presented as text.</p>
+      <p><span class="grade grade-proved">Proved</span>, <span class="grade grade-measured">Measured</span> and <span class="grade grade-open">Open</span> are set in three different faces with three different sigla and three different rules, so they cannot be read as points on one scale — <code>collab/PROTOCOL.md</code> §7: <q>PROVED vs MEASURED never conflate</q>.</p>
+      <p>And no aggregation: <code>collab/FAILURES.md</code> F24, <q>do not build another dashboard.</q></p>
+    </div>
+  </div>
+</section>
+
+<div class="sources">
+  <span class="label">Every quotation on this page is copied from</span>
+  <ul>
+    <li>CLAUDE.md</li>
+    <li>collab/PROTOCOL.md §3, §4, §7</li>
+    <li>collab/FAILURES.md — preamble, F6, F19, F24, F26 (both), F30 + two extensions</li>
+    <li>collab/STATE.md — transseries row</li>
+    <li>notes/METHOD.md §1–3</li>
+    <li>notes/MATHEMATICS_THAT_LEARNS.md</li>
+    <li>notes/RESEARCH_SYSTEM.md §6</li>
+  </ul>
+</div>
+
+<script>
+(function(){
+  var all = document.querySelectorAll("[data-sig]");
+  function set(sig, on){
+    all.forEach(function(el){
+      if(el.getAttribute("data-sig") === sig) el.classList.toggle("lit", on);
+    });
+  }
+  document.querySelectorAll("button.sig").forEach(function(b){
+    var s = b.getAttribute("data-sig");
+    ["mouseenter","focus"].forEach(function(ev){ b.addEventListener(ev, function(){ set(s, true); }); });
+    ["mouseleave","blur"].forEach(function(ev){ b.addEventListener(ev, function(){ set(s, false); }); });
+    b.addEventListener("click", function(){
+      var g = document.querySelector(".gloss[data-sig='" + s + "']");
+      if(g) g.scrollIntoView({block:"nearest", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    });
+  });
+  document.querySelectorAll(".gloss[data-sig]").forEach(function(g){
+    var s = g.getAttribute("data-sig");
+    ["mouseenter","mouseleave"].forEach(function(ev){
+      g.addEventListener(ev, function(){ set(s, ev === "mouseenter"); });
+    });
+  });
+})();
+</script>

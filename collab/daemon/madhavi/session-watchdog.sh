@@ -1,7 +1,9 @@
 #!/bin/bash
 set -u
 
-ROOT="${MATH_COLLAB_ROOT:-/private/tmp/avikj-math-readme}"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+DEFAULT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+ROOT="${MATH_COLLAB_ROOT:-$DEFAULT_ROOT}"
 CONFIG="${MATH_COLLAB_CONFIG:-$ROOT/collab/daemon/madhavi/config.local}"
 RUNTIME="${MATH_COLLAB_RUNTIME:-$ROOT/collab/daemon/madhavi/runtime}"
 LOG="$RUNTIME/watchdog.log"
@@ -48,7 +50,9 @@ session_from_record() {
   [ -n "$record" ] || return 0
   case "$record" in /*) path="$record";; *) path="$ROOT/$record";; esac
   [ -f "$path" ] || { log "session record missing: $path"; return 0; }
-  /usr/bin/python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["session_id"])' "$path" 2>> "$LOG" || true
+  # Session records are flat JSON objects. Extract the quoted id without
+  # reviving the retired Python substrate.
+  sed -nE 's/.*"session_id"[[:space:]]*:[[:space:]]*"([^"[:space:]]+)".*/\1/p' "$path" | head -1
 }
 
 if [ -z "$CODEX_SESSION_ID" ]; then CODEX_SESSION_ID="$(session_from_record "$CODEX_SESSION_RECORD")"; fi

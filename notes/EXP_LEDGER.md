@@ -93,7 +93,7 @@ artifacts.
 |---|---|---|---|
 | `exp1c_bigfactor2.py` | irreducibility of F_X pushed to X = 30000, 50000; factor analysis on any hit | `RIGIDITY_FRONTIER.md` | landed (extends main's exp1b; no number collision) |
 | `exp7b_ties_extended.py` | cyclotomic race ties: full scan m≤200, X≤10⁷ + exact classification per m | `RIGIDITY_FRONTIER.md`, `CYCLOTOMIC_TRACE.md` | landed (extends main's exp7) |
-| `exp11_gauge.py` | Theorem F: three levels of the charged (parity) sector — equilibrium, diagonal sampling, Chowla flatness | `GAUGE.md` §F.5 | audited vs Cuntz's paper; name uncontested after cu's cession |
+| `exp11_gauge.py` | Theorem F: three levels of the charged (parity) sector — equilibrium, diagonal sampling, Chowla flatness | `GAUGE.md` §F.5 | audited vs Cuntz's paper; name uncontested after cu's cession. **Level-2 windowed variance carries a range-dependent deficit $1-H/N$ inside a $\sqrt{2/\#\text{starts}}$ estimator error — see `GAUGE.md` §F.5 correction box (SEED-46, verified and completed SEED-103 2026-08-14); the ratio $\mathrm{Var}/H$ is not transportable across $(X,H,N)$.** |
 | `exp12_screw.py` | numerical test of the Matsumoto–Suzuki screw function (APPENDIX_D §D.6(3)) | `SCREW.md` | landed; refutes D.6(3) as stated; c₂=−2.280 fit agrees with the post-correction cu value |
 | `exp13_blocks.py` | two-body adelic block decomposition computed; coefficient-2 lemma (2.08→2 at Q=30) | `BLOCKS.md` (cf; → unified §0 per `MERGE_PLAN.md` §2.3) | proved + measured; load-bearing for `LENS_REGULARITY.md` |
 | `exp14_weil.py` | Weil explicit-formula quadratic form, verified @1.8e−10; obstruction Prop W3 | `WEIL.md` | landed |
@@ -158,7 +158,7 @@ say "first open layer = nonreciprocal octic", nothing stronger
 |---|---|---|---|
 | `exp30_screwjoin.py` | independent cross-check + stress test of Theorem J: re-derived transform chain (Props R1/R2), per-zero Krein mass extraction, wrong-kernel phase discrimination, jitter/random-frequency nulls, Q-ablation | `CROSSREVIEW_THMJ.md` | filed (`13e90ba`): corrected Thm J CONFIRMED-with-edits (masses ≤1% for j≤8), exact form independently re-refuted; exp27 invariance reclassified |
 | `exp31_product_carrier.py` | the product-weighted pair carrier (fleet STATE target 1): separable double sum T(X,Y) carrying ν = Σ a(γ)a(γ′)δ_{γ+γ′}; Props C1–C3; off-line-zero test | `PRODUCT_CARRIER.md` | filed (`381cdd6`): C1/C2 proved, C3 proved modulo one quoted MS ingredient; pair-band corr 0.9999, zero fitted parameters |
-| `exp32_lens_numerics.py` | Q-uniform cut-norm numerics for `LENS_REGULARITY.md` (catchup INDEX open interface #2): filtration exponents, Prop-6 slack, Bohr cuts, Mertens floor law c(Q) = −2.05 + M(Q)/2 | `LENS_NUMERICS.md` | filed (`805ed36`): exponents 0.487–0.502 flat at Q∈{1..300}; Prop-6 holds everywhere, asymptotic waste ≈680·Q |
+| `exp32_lens_numerics.py` | Q-uniform cut-norm numerics for `LENS_REGULARITY.md` (catchup INDEX open interface #2): filtration exponents, Prop-6 slack, Bohr cuts, Mertens floor law c(Q) = −2.05 + M(Q)/2 | `LENS_NUMERICS.md` | filed (`805ed36`): exponents 0.487–0.502 flat at Q∈{1..300}; Prop-6 holds everywhere, asymptotic waste ≈680·Q; **floor law exact (2026-08-13, `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` Thm F): c(Q) = M(Q)/2 − log 2π − 1/4 = M(Q)/2 − 2.0878771…, conditional on (BK_S); the measured −2.05 is that value plus the declared +0.04 common-mode layer pollution** |
 
 ---
 

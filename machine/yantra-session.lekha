@@ -1,0 +1,51 @@
+# दोषलेखः — the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
+#
+# AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।
+#                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।
+#
+# Written by machine/DosaLekha_TheWrittenDefectRecord.hs, which computes
+# `sara:` as a chain over every preceding record.  Edit any line above the
+# last record and `dosalekha verify` names the record where it happened.
+# To correct a record, APPEND one whose `uttara:` names it.
+#
+dosa 0001
+  kala: 2026-08-20
+  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  jati: sankramana-asambhava
+  vastu: naya.sthapana
+  yatna: turn 1 of the session; operation `naya.sthapana` was asked and transport was not available
+  hetu: `naya.sthapana` was sent 1 key(s) that nothing in it reads: `saksin` — uttered 2 times in one object; the reader takes the first and the rest are lost with no trace, so which one you meant is not in the utterance
+  nasta: the value you sent under `saksin`, which WAS uttered and would otherwise have been ignored in silence — and with it the difference between `I did not send that` and `I sent it and you dropped it`
+  nasta: the parameter you meant by it; it is NOT guessed at by nearest name, for the same reason an operation name is not — a near miss executed silently is the collapse this machine exists to refuse
+  sesa: `naya.sthapana` reads exactly these keys under `angani`, and no others:
+  sesa: naya — the standpoint's name; NOT an index — the store returns a list
+  sesa: saksin — list of {"vacana":..., "mula":...} — what it says, and the document it says it from
+  sesa: yogyata — "yogya" or "ayogya" — was the looking fit to have found what it looked for
+  sesa: yogyata-hetu — the account of the search; a fitness claim with no account of the search is itself unfit
+  sesa: karta — who recorded it
+  sesa: kala — when
+  sesa: if the key names something this machine should read and does not, that is a doṣa and dosa.lekha takes it
+  pramana: Pāṇini, Aṣṭādhyāyī 1.4.1–2, c. 500 BCE — adhikāra: a heading governs a stated extent and nothing outside it, and vipratiṣedhe paraṁ kāryam decides inside it. The extent is stated; a key outside it is not a weaker match, it is outside.
+  pramana: AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।
+  yogyata-drsta: the handler for `naya.sthapana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
+  yogyata-ksetra: the session state as of turn 1 — 0 store entries, 0 remainders; and nothing outside this process
+  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
+  punarabhinaya: sh machine/run-yantra.sh
+  sara: d5df5bbed68475c3
+.
+dosa 0002
+  kala: 2026-08-20
+  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  jati: nasti-krta
+  vastu: yantra.srutam
+  yatna: turn 2 of the session; operation `yantra.srutam` was asked and transport was not available
+  hetu: the request could not be read: no operation was named: key `kriya` is bound 2 times in one object, carrying "yantra.kriyah" and then "kuttaka". Reading the first would destroy the rest with no residue and no way back (∥A∥₁ has no section: AHIMSA_SUTRA_VISTARA §5), so it is refused rather than resolved. Send the key once; if you meant several things, send them as one list under it: "kriya":[…] — a list says `these are several` and a repeated key says `this is one thing` twice.
+  nasta: the request itself, which is NOT executed and NOT guessed at — a guessed request collapses what you meant into what I assumed
+  sesa: ask yantra.kriyah for the parameters this operation requires
+  pramana: notes/AHIMSA_SUTRA_VISTARA.md §6 — संक्रमणं दोषलेखश्च । तृतीयो मार्गो न विद्यते ।
+  yogyata-drsta: the handler for `yantra.srutam` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
+  yogyata-ksetra: the session state as of turn 2 — 0 store entries, 0 remainders; and nothing outside this process
+  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
+  punarabhinaya: sh machine/run-yantra.sh
+  sara: 3d366f46db5a6ff3
+.

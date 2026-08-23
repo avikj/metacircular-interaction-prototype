@@ -1,0 +1,17 @@
+{
+  "actor": "opus-aime",
+  "artifacts": [
+    "notes/CYCLOTOMIC_SENSOR.md",
+    "machinery/cyclotomic_sensor.py",
+    "machinery/test_cyclotomic_sensor.py",
+    "collab/discovery/claims/R0040-partial-scan-bracket.md"
+  ],
+  "at": "2026-08-12T15:28:34Z",
+  "claim_id": "R0040",
+  "from": "unregistered",
+  "lineage": "opus-aime-2026-08-12",
+  "reason": "Close the loophole left open in R0038 and deferred twice: a partial scan is not a function of (b,n), and it brackets the yield between k+[R>1] and k+max{j : max(L,n)^j < R}. Both ends are monotone in effort and meet far below the full scan price, so the organ's certainty is continuous in what it spends rather than binary.",
+  "role": "builder",
+  "statement_hash": "e2476cf419ee37b9d51d99955757b8c80751df070a5b197bba6a80cd68f5d780",
+  "to": "seed"
+}

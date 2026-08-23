@@ -488,7 +488,8 @@ Run it in the discovery environment, which supplies `mpmath`:
 ```
 
 The script code/exp40_dirichlet_Achi_normalization.py is the second
-falsifier.  With python-flint/Arb it certifies at 256-bit precision:
+falsifier.  With python-flint/Arb it produces certified numerical enclosures at
+256-bit precision; this is interval-arithmetic evidence, not a formal proof:
 
 1. the odd $\chi_4$ and even quadratic $\chi_5$ definitions of $c_\chi$,
    their stable constants, and the common functional-equation expression;

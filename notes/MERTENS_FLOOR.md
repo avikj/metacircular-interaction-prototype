@@ -12,6 +12,9 @@ $\langle\{x/d\}\rangle=1/2$") and files the law as measured.
 It is derivable, the coefficient is exactly $\tfrac12$, and the mechanism
 is an identity this branch proved this morning for an entirely different
 reason. §4 records where the derivation and the measurement **disagree**.
+*(2026-08-13: that disagreement is resolved — the §4 prediction was
+incomplete, the measurement stands, and $c_0=-(\log2\pi+\tfrac14)$; see the
+Correction at the end of §4. MF4/MF5 closed.)*
 
 ---
 
@@ -90,6 +93,16 @@ contribute $-at$**, so
 $$C(t)=\tfrac{t^2}{2}-2at+a^2+(\text{mean-zero}),$$
 and $[\sharp\sharp]_Q(X)=\int_0^X C(t)\,dt=\tfrac{X^3}{6}-aX^2+\tfrac{a^2}{2}X+\cdots$
 Substituting $a=\tfrac12M(Q)$ gives the $X^2$ coefficient $-\tfrac12M(Q)$.
+
+> **[Arithmetic slip in the displayed line above, 2026-08-14, SEED-147. The
+> $X$-coefficient is $a^2$, not $\tfrac{a^2}{2}$:** with
+> $C(t)=\tfrac{t^2}{2}-2at+a^2$ as this proof's own previous display gives,
+> $\int_0^X C = \tfrac{X^3}{6}-aX^2+a^2X$. (Only the *quadratic* term picks up
+> the halving from integration; the constant $a^2$ does not.) **Theorem MF is
+> untouched** — its claim is the $X^2$ coefficient, which is $-a=-\tfrac12M(Q)$
+> either way, and $C(t)$ itself is correct: $\int_0^t\Psi^\sharp_Q=\tfrac{t^2}{2}-at$
+> and $-a\Psi^\sharp_Q(t)=-at+a^2$, summing to $\tfrac{t^2}{2}-2at+a^2$ as printed.
+> The claim stands; only the transcribed $X$-coefficient is wrong.]**
 Since $G_1$ does not depend on $Q$, the $X^2$ coefficient of
 $G_1-[\sharp\sharp]_Q$ is (its own, $Q$-free) $+\tfrac12M(Q)$. $\square$
 
@@ -129,8 +142,11 @@ the identical computation with $\psi(x)=x-\log 2\pi+\cdots$ in place of
 Lemma 2, that coefficient is $-\log 2\pi$:
 $$\boxed{c_0=-\log 2\pi=-1.83788\ldots}\quad\text{vs measured } -2.05\pm0.01 .$$
 
-A gap of $0.21$, which the quoted error bars do not cover. It is a sharp
-disagreement and one of the two sides is wrong. Candidates, in the order I
+**[Superseded 2026-08-13 — the boxed prediction is incomplete; correct value
+$c_0=-(\log2\pi+\tfrac14)$. See the Correction at the end of this section.]**
+
+A gap of $0.21$, which the quoted error bars do not cover. ~~It is a sharp
+disagreement and one of the two sides is wrong.~~ Candidates, in the order I
 would check them:
 
 1. **Fit systematics.** The measurement is at $X=10^4$ with stated
@@ -149,7 +165,33 @@ would check them:
 $\tfrac12$ exactly, and it is independent of whatever $c_0$ turns out to
 be, since $c_0$ is $Q$-free and the coefficient is read off the $Q$-variation.
 psvg2m's measured $\tfrac12$ is confirmed and upgraded from a fit to a
-theorem; their $c_0$ is now a testable prediction that currently fails.
+theorem; ~~their $c_0$ is now a testable prediction that currently fails.~~
+their measured $c_0$ is confirmed too (Correction below).
+
+**Correction (2026-08-13; `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §3,
+Theorem F).** Neither side was wrong: the measurement was right, Theorem MF's
+$M(Q)/2$ was right, and the §4 *prediction* was incomplete. What it omitted —
+and what accounts for the observed gap — is the smooth part of the
+**bilinear** term
+$\mathrm{Bil}(X)=\int_0^XE(v)E(X-v)\,dv$ on the $G_1$ side — which the
+prediction above implicitly set to zero — and the Friedlander–Goldston
+singular-series average, pushed through the Cesàro weight $(X-n)n$, evaluates
+it to exactly $-\tfrac{X^2}{4}$ (both the $\log$ terms and the constant $c_1$
+cancel identically). Hence
+$$\boxed{\;c_0=-\Bigl(\log2\pi+\tfrac14\Bigr)=-2.0878771\ldots\;}$$
+conditional on (BK$_S$), the $S$-side mirror of `DSIDE.md` §3.3's
+renormalized-diagonal statement — BK/strong-HL level, *not* implied by RH;
+everything else in the derivation is unconditional. The exact term is
+$-\tfrac14=-0.25$; the measured gap was $0.21$, the difference being the
+*uniform* $+0.04$ offset this leaves against exp32's printed
+floors at all five $Q$ — an order of
+magnitude inside the declared $\pm0.1$ common-mode layer pollution, and the
+$X=10^7$ reading matches too; $-\log2\pi$ alone misses by $0.21\gg$ the
+$Q$-stability. Of the three candidates listed above: (1) and (3) are not
+needed, and (2) named the right *kind* of object on the wrong side — the
+$\varepsilon$-correlation of $[\sharp\sharp]_Q$ is provably $O_Q(X)$, not
+$X^2$ (ibid. §3.3), so no $Q$-free term hides there; the missing bilinear is
+the $E\!\cdot\!E$ one on the $G_1$ side.
 
 ## 5. Honesty ledger
 
@@ -158,7 +200,7 @@ theorem; their $c_0$ is now a testable prediction that currently fails.
 | MF1 | Lemma 1 | **Proved** (= `E2_PROOF.md` U4 + Lemma 1(i) in divisor coordinates), and confirmed in exact rationals at $Q\le100$. |
 | MF2 | Lemma 2 | **Proved.** The sawtooth bound $|\varepsilon_Q|\le\sum_{d\le Q}|A_d|$ is crude; no attempt to make it sharp. |
 | MF3 | Theorem MF, the $M(Q)$ coefficient | **Proved.** This is the claim. |
-| MF4 | Theorem MF, the $Q$-free constant | **Not proved.** §3's handling of $\sum_m f(m)\varepsilon(t-m)$ is a mean-zero wave, adequate for isolating the $Q$-dependence and *not* adequate for $c_0$. §4's $-\log2\pi$ is therefore a prediction from the smooth part of $\psi$ alone. |
-| MF5 | The disagreement | **Open, and flagged to psvg2m.** Cheapest resolution: refit at larger $X$, or extract $c_0$ from $G_1$ directly rather than from the difference. |
-| MF6 | Prior art | Not searched. Mertens-function artifacts in truncated singular series are the kind of thing that is known; the identity $\sum_{d\le Q}A_d=M(Q)$ is elementary enough to be classical. **No novelty claimed for Lemma 1** until searched (`E2_PROOF.md` H6 carries the same open obligation for U4). |
-| MF7 | Numerics | The table in §1 is exact rational arithmetic (sympy `Rational`), not floating point. Nothing in this note rests on a measurement. |
+| MF4 | Theorem MF, the $Q$-free constant | ~~**Not proved.** §3's handling of $\sum_m f(m)\varepsilon(t-m)$ is a mean-zero wave, adequate for isolating the $Q$-dependence and *not* adequate for $c_0$. §4's $-\log2\pi$ is therefore a prediction from the smooth part of $\psi$ alone.~~ **Closed 2026-08-13** (`PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §3.3, ledger T2): the $\varepsilon$-correlation contributes $O_Q(X)$ **unconditionally**, so the $X^2$ coefficient of $[\sharp\sharp]_Q$ is exactly $-\tfrac12M(Q)$ and no $Q$-free term hides in §3. The $Q$-free constant is fixed separately by Theorem F: $c_0=-(\log2\pi+\tfrac14)$, conditional on (BK$_S$) only. |
+| MF5 | The disagreement | ~~**Open, and flagged to psvg2m.** Cheapest resolution: refit at larger $X$, or extract $c_0$ from $G_1$ directly rather than from the difference.~~ **Closed 2026-08-13** (ibid. §3.6): no refit needed and neither side was wrong — the $X=10^4$ and $X=10^7$ readings both already match $c_0=-(\log2\pi+\tfrac14)$ within the declared pollution; it was the §4 prediction that omitted the bilinear smooth part. |
+| MF6 | Prior art | Not searched. Mertens-function artifacts in truncated singular series are the kind of thing that is known; the identity $\sum_{d\le Q}A_d=M(Q)$ is elementary enough to be classical. **No novelty claimed for Lemma 1** until searched (`E2_PROOF.md` H6 carries the same open obligation for U4). — **PRIOR-ART SWEEP 2026-08-14: searched. RESOLVED-NO-MATCH for $\sum_{d\le Q}A_d=M(Q)$ and for the Mertens artifact in truncated singular series** (search-summary grade at best; `WebFetch` EGRESS_BLOCKED, nothing read). Queries: *truncated singular series partial sum Möbius Mertens function M(Q) artifact Hardy–Littlewood singular series truncation error*; *truncated Ramanujan expansion von Mangoldt Mertens function M(Q) extremal value primorial*; *sum_{d≤Q} mu(d) d/phi(d) partial Ramanujan sum equals Mertens function truncation Q-smooth*. Located and adjacent but **not** a match: the tail-of-the-singular-series literature for prime pairs (Funct. Approx. Comment. Math. **56**), and the smooth-summation treatments of Ramanujan expansions (arXiv:2012.11231, arXiv:2407.19759) whose $P$-smooth truncation is structurally the collapse Lemma 1 uses. Row MF6's cross-reference is now asymmetric and worth knowing: `E2_PROOF.md` H6's *other* half — the Hardy attribution for $\Lambda_1=\sum\mu(q)/\varphi(q)c_q$ and for $\frac{\varphi}{\mathrm{id}}\Lambda$ — **is** RESOLVED-FOUND (Hardy 1921); only the $M(Q)$ identification is unlocated on either side. Absence of a located source is not evidence of novelty. Attribution status only; Lemma 1, Lemma 2 and the $\tfrac12$ are untouched. |
+| MF7 | Numerics | The table in §1 is exact rational arithmetic (sympy `Rational`), not floating point. ~~Nothing in this note rests on a measurement.~~ **[Corrected 2026-08-14 by SEED-147, against row MF5 of this same table. Stale since the 2026-08-13 Correction was appended to §4: MF5's closure is grounded *precisely* on a measurement — "the $X=10^4$ and $X=10^7$ readings both already match $c_0=-(\log2\pi+\tfrac14)$ within the declared pollution" — and §4's Correction quotes exp32's printed floors and a $+0.04$ common-mode offset. The true statement, and the one MF7 was written to make: **no theorem in this note rests on a measurement.** MF1–MF3 and Theorem F are unconditional derivations (MF3 modulo nothing, $c_0$ modulo (BK$_S$)); what rests on a measurement is only the *verdict of agreement* recorded in MF5, i.e. that the derived $c_0$ and exp32's fit are consistent. The row's first sentence and every other row are untouched.]** |

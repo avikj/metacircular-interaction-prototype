@@ -135,12 +135,80 @@ Tagged `PROVE`, worked in order before any new computation:
    would convert the depth law from a measured scaling into a barrier
    theorem. Ingredients: explicit formula per factor + absolute convergence
    after one smoothing; the work is uniformity in the window.
-2. **Theorem I1 prior art.** Elementary Laplace/integral-domain argument;
-   almost certainly known for measures. Search before claiming.
-3. **Theorem E2 proof written out.** Currently justified by a correlation of
+
+   **[2026-08-22 — the item does NOT split into a formal half and an analytic
+   half, and this is the session's finding. Tagged THEOREM (the formal
+   statements) + REJECTED (the proposed split).]**
+
+   The proposal was: the analytic half (WL observables *do* factor through the
+   blur) stays open, and the second half (once they do, no refinement recovers
+   the fibre) is already available from
+   `formal/cubical/Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart.agda`,
+   which removed `Bool` from `NaturalMachine.QuotientFiberLaw` and left the
+   negative half over an arbitrary answer type with an arbitrary irreflexive
+   separation.
+
+   **It does not apply.** `Vaidharmya`'s `AllBlind` demands that blind queries
+   return **equal** answers — its own header says "not close, equal" — because
+   the entire proof is `cong decide` applied to an equality of transcripts.
+   The analysis does not deliver equality. `BARRIER.md` Corollary B2 asks only
+   that $\sigma_k-\sigma_k'$ be annihilated at resolution $2\pi/L$, mismatch
+   $O((\delta L)^{2p-1})$; `BARRIER_ERROR_WINDOW.md` Theorem U1 leaves
+   $E=k\,D_a(0)e^{-u/2}\mathcal Z_{k-1}+O(e^{-u})$, configuration-dependent
+   through $\mathcal Z_{k-1}$; `BARRIER_SMOOTH_TERM.md` leaves
+   $\mathrm{Smooth}$ larger still. Transcripts are **close, never equal**, and
+   `cong` fires on nothing.
+
+   **What was proved instead** (`formal/cubical/Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap.agda`,
+   Agda 2.8.0, `--cubical --safe`, no postulates, no holes, EXIT=0, wired into
+   `Everything.agda`):
+
+   - **THEOREM (§२, the near-law).** With equality replaced by an arbitrary
+     tolerance `_≈_`, the obstruction survives **iff** two hypotheses are
+     paid: the decoder *respects* the tolerance, and the tolerance excludes
+     the separation.
+   - **THEOREM (§३).** At `_≈_ := _≡_` the first hypothesis is inhabited for
+     *every* decoder, by `cong`. That is exactly the hypothesis `Vaidharmya`
+     never had to state and the one the analytic setting must now pay for.
+   - **REJECTED (§४, a checked counterexample).** Near-blindness *alone* —
+     with the arbitrary, even non-computable $\Phi$ that `BARRIER.md`
+     Proposition B3 insists on — obstructs **nothing**. Two states, one query,
+     answers 1 and 0, tolerance "differ by at most one": the pair is
+     near-blind and the head decoder separates it.
+
+   **So the analytic barrier lemma must supply exactly one of two things, and
+   there is no third:** (a) *exact* layerwise agreement — B2′ of
+   `BARRIER_SMOOTH_TERM.md`, which is strictly stronger than B2 and is not
+   implied by sub-resolution moment matching; or (b) a **modulus on $\Phi$**,
+   a bound on how far a WL post-processing may amplify a sub-resolution
+   difference. **B3 as written rules out (b) by construction — its generality
+   is what kills the ε-version of its own corollary.** That collision is a
+   missing distinction in the WL *definition*, not a failure to resolve, and
+   naming it is what this item now hands the analytic lane.
+
+   Item 1 therefore stays **open**, with its residual content sharpened to:
+   prove B2′, or add a bandwidth-derived modulus to Definition WL and re-derive
+   B3 with it.
+2. ~~**Theorem I1 prior art.** Elementary Laplace/integral-domain argument;
+   almost certainly known for measures. Search before claiming.~~ —
+   **RESOLVED** (`notes/INVERSE.md` §1): known via Titchmarsh's convolution
+   theorem (integral-domain factorization on a half-line), with full
+   attribution (Titchmarsh 1926; Weiss 1968; Gerth–Hofmann et al. 2014;
+   Gorenflo–Hofmann 1994; Lambek–Moser; Selfridge–Straus 1958). The neither-
+   growth-nor-$c>0$ hypotheses were shown unnecessary. **Off-diagonal
+   sub-item now also closed, negatively** (`notes/OFFDIAGONAL_NO_GO.md`,
+   2026-08-18): the diagonal-free pair layer does *not* determine the
+   configuration — Prouhet/Thue–Morse infinite counterexample.
+3. ~~**Theorem E2 proof written out.** Currently justified by a correlation of
    1.0000; it is a two-line consequence of the block-wise explicit formula.
-   Write the two lines and demote exp11 to illustration.
-4. **The $O(1)$ in M1**, given uniform control of $\Lambda^\sharp_Q(m)$.
+   Write the two lines and demote exp11 to illustration.~~ — **RESOLVED**
+   (`notes/E2_PROOF.md` Part 1; two pole-lemmas, no numerics load-bearing).
+4. ~~**The $O(1)$ in M1**, given uniform control of $\Lambda^\sharp_Q(m)$.~~ —
+   **RESOLVED / RE-DIAGNOSED** (`notes/E2_PROOF.md` §§2.3–2.5): the two
+   leading coefficients are unconditional; the remaining explicit $O(1)$ turns
+   on a bilinear cancellation bound (Hypothesis U), *not* on pointwise
+   uniformity of $\Lambda^\sharp_Q(m)$ (which fails — it is the Mertens
+   function — but is annihilated by $n^{-2}$).
 5. ~~**D″ off-diagonal bound** via Tao–Trudgian–Yang $N^*$~~ — **RESOLVED AND
    RETIRED AS POSED** (`notes/DPP.md`). The limit exists unconditionally, the
    Ω-result is unconditional, $V_\infty\asymp D$ is a theorem, and
@@ -151,3 +219,20 @@ Tagged `PROVE`, worked in order before any new computation:
    concentrates the sum at the *bottom* of the spectrum. Replacement item: a
    certified finite separation check below $Y\approx5\times10^5$, or a
    quantitative separation exponent.
+6. ~~**Name and bound the $\mathrm{Smooth}$ term of B1**~~ — **RESOLVED**
+   (`notes/BARRIER_SMOOTH_TERM.md`, generated by `BARRIER_ERROR_WINDOW.md`
+   ledger V7). $\mathrm{Smooth}$ is not a bucket of smooth functions: it is
+   the $r\ge1$ slice of a ladder graded by level
+   $\nu=r(2\theta_a-1)-m$, whose top is the main term and whose leading
+   *oscillating* layer exceeds the $k$-fold wave layer by
+   $X^{(k-1)(\theta_a-1/2)}$ — for $a=\Lambda$ the $k$-fold signal is buried
+   $X^{(k-1)/2}$ deep, for $\lambda$ it is degenerate at the same scale, for
+   $\mu$ the bucket is empty. Consequences: **Corollary B2 of `BARRIER.md` is
+   false as stated** for $\Lambda$, $k\ge2$ (corrected form B2′ demands every
+   lower-arity layer at precision $\epsilon X^{-r/2}$); **B1″ has no
+   single-endpoint uniform closure** ($E$ is anchored at the window's bottom
+   $X_0$, $\mathrm{Smooth}$ at its top $X$); and the $d$ row of Theorem U1 is
+   wrong, $\alpha=\tfrac12$ failing for $a=d$, $k\ge2$. $\alpha=\tfrac12$
+   survives for $E$ and for $\Lambda,\mu,\lambda$. Remaining sub-item: the $d$
+   case needs the functional equation, not a contour shift — recommend
+   striking $d$ from the scope of B1/B1′/B1″/U1 rather than repairing it.

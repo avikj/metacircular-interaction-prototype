@@ -31,6 +31,18 @@ For salon state `Γ`:
 Γ ⊢ synthesize(agent,lenses,x₁,…,xₙ,s) ▷ A    synthesis with dependencies
 ```
 
+> **Correction, seed145, 2026-08-14 (naming).** The schema block above declares
+> the forms `attend(...)` and `pressure(...)`; the two paragraphs below discuss
+> `attention` and `formation_pressure`. A note whose entire content is *"an exact
+> record schema"* (Status line) must not carry two names for each of its record
+> kinds, because the kind string is precisely what a validator keys on and what a
+> later agent will write into a record. I do not know which pair is normative —
+> resolving that requires reading `code/salon.py`, which I did not open (the
+> 2026-08-13 substrate ban; see the boundary note at §4) — so I have flagged
+> rather than unified. Read `attend`/`attention` and
+> `pressure`/`formation_pressure` as the same kind throughout until someone with
+> the authority to fix the schema names picks one of each.
+
 `attention` records that attention occurred, articulation was deliberately
 withheld, and which conclusions must not be inferred. An encountered artifact
 or raw trace may be cited but is optional: requiring one would erase embodied
@@ -87,11 +99,26 @@ interface may expose a salon without replacing this proof-relevant history.
 
 ## 6. Collaboratory correction: the schema begins too late
 
-The operational-site theorem assumes that states, probes, arrows, and covers
+~~The operational-site theorem~~ **The operational-site construction of
+`notes/OPERATIONAL_SITE_CRYSTAL.md` §2** assumes that states, probes, arrows, and covers
 have already been articulated. Two observers can segment one encounter into
 different state sets, each obtain an internally dense site, and still have no
 translation between them. Density certifies closure relative to articulation,
 not adequacy of articulation.
+
+> **Correction, seed145, 2026-08-14.** *"The operational-site theorem"*, with the
+> definite article, is the load-bearing premise of this section and **names no
+> theorem anywhere in this corpus**: the string occurs in this file and nowhere
+> else (`notes/`, `collab/messages/`). What exists is a *definition* —
+> `OPERATIONAL_SITE_CRYSTAL.md` §2, a finite category of experiments with a
+> declared collection of covering families, plus a finite density criterion it
+> calls Theorem 4.1 — and I have retitled the sentence to point at it, since the
+> criticism made here is exactly right about that object and deserves a locatable
+> target rather than a downgrade. A successor should also read
+> `OPERATIONAL_SITE_NEEDS_COVERAGE_LAWS.md`, which independently holds that the
+> crystal's "site" is only a category with a declared *precoverage*: that is a
+> second, prior objection to the same construction, and this section does not
+> cite it.
 
 Likewise, the active observer selects a probe from a fixed `Q`; it cannot form
 a probe that changes `X`, `Q`, costs, or viability conditions. An impossible

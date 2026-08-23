@@ -246,6 +246,44 @@ class ResidualCycleObstruction:
     residual: int
 
 
+@dataclass(frozen=True)
+class LowerResidualRowAdvance:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    advanced: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    old_pivot: int
+    new_pivot: int
+    reduction: EuclideanColumnReduction
+
+
+@dataclass(frozen=True)
+class SignedActiveNormalization:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    orientation: str
+    normalized: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    pivot_magnitude: int
+
+
+@dataclass(frozen=True)
+class ZeroPivotClassification:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    kind: str
+    transformed: tuple[tuple[int, int], tuple[int, int]]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+    relocated_pivot: int | None
+
+
+@dataclass(frozen=True)
+class RankOneDiagonalNormalization:
+    matrix: tuple[tuple[int, int], tuple[int, int]]
+    diagonal: tuple[int, int]
+    left: tuple[tuple[int, int], tuple[int, int]]
+    right: tuple[tuple[int, int], tuple[int, int]]
+
+
 class ExponentWorld:
     """A persistent arithmetic coordinate chart formed by recursive factoring."""
 
@@ -583,14 +621,36 @@ class ExponentWorld:
         self, diagonal: tuple[int, int], target: tuple[int, int], modulus: int
     ) -> DiagonalSmithSolution | DiagonalSmithObstruction:
         """Solve a diagonal 2x2 modular system as image and kernel coordinates."""
-        if modulus < 2 or min(*diagonal, *target) < 1:
-            raise ValueError("diagonal system currently uses positive integers")
+        if modulus < 2 or min(*diagonal) < 0 or min(*target) < 1:
+            raise ValueError(
+                "diagonal invariants must be nonnegative and normalized targets positive"
+            )
         for value in (*diagonal, *target, modulus):
+            if value == 0:
+                continue
             if value not in self.forms:
                 raise ValueError("diagonal, target, and modulus need earned forms")
         solved: list[LinearCongruenceSolution] = []
         for coordinate, (coefficient, rhs) in enumerate(zip(diagonal, target)):
-            result = self.solve_linear_congruence(coefficient, rhs, modulus)
+            if coefficient == 0:
+                # Targets are represented in 1..m, with m denoting zero mod m.
+                if rhs % modulus:
+                    self.life._record(
+                        "obstruction", (0, rhs, modulus, modulus),
+                        "zero Smith coordinate cannot reach a nonzero target",
+                    )
+                    result = LinearCongruenceObstruction(0, rhs, modulus, modulus)
+                else:
+                    result = LinearCongruenceSolution(
+                        0, rhs, modulus, modulus, (0, 0, 1),
+                        0, 1, tuple(range(modulus)),
+                    )
+                    self.life._record(
+                        "form-operation", (0, rhs, modulus, modulus, 0, 1),
+                        "zero Smith coordinate at zero target forms one free residue",
+                    )
+            else:
+                result = self.solve_linear_congruence(coefficient, rhs, modulus)
             if isinstance(result, LinearCongruenceObstruction):
                 return DiagonalSmithObstruction(
                     diagonal, target, modulus, coordinate, result
@@ -627,6 +687,8 @@ class ExponentWorld:
         transformed_target = _matvec2(left, target)
         normalized_target = tuple(value % modulus or modulus for value in transformed_target)
         for value in (*diagonal, *normalized_target, modulus):
+            if value == 0:
+                continue
             if value not in self.forms:
                 self.form(value)
         solved = self.solve_diagonal_smith_system(
@@ -844,6 +906,148 @@ class ExponentWorld:
         return ResidualCycleClosure(
             advance.matrix, diagonal, left, advance.right, quotient
         )
+
+    def advance_positive_lower_residual(
+        self, obstruction: ResidualCycleObstruction
+    ) -> LowerResidualRowAdvance:
+        """Execute a lower-left residual and rotate it to upper-right form."""
+        matrix = obstruction.matrix
+        pivot = matrix[0][0]
+        lower_left = matrix[1][0]
+        if pivot <= 0 or lower_left <= 0 or matrix[0][1] != 0:
+            raise ValueError(
+                "lower-residual advance requires a positive first column and zero upper-right"
+            )
+        if obstruction.residual == 0 or lower_left % pivot == 0:
+            raise ValueError("lower-residual advance requires failed row divisibility")
+        reduction = self.reduce_positive_column(pivot, lower_left)
+        advanced = _matmul2(reduction.left, matrix)
+        new_pivot = reduction.finish[0]
+        if advanced[1][0] != 0 or advanced[0][0] != new_pivot:
+            raise AssertionError("Euclidean row witness did not restore triangular form")
+        if not 0 < new_pivot < pivot:
+            raise AssertionError("nonzero lower residual did not strictly decrease pivot")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], pivot, new_pivot),
+            "Euclidean row path executes lower residual and rotates orientation",
+        )
+        return LowerResidualRowAdvance(
+            matrix, advanced, reduction.left, pivot, new_pivot, reduction
+        )
+
+    def normalize_signed_active_pair(
+        self,
+        matrix: tuple[tuple[int, int], tuple[int, int]],
+        orientation: str,
+    ) -> SignedActiveNormalization:
+        """Make the two active Euclidean entries positive without changing zero orientation."""
+        if orientation == "upper":
+            if matrix[1][0] != 0:
+                raise ValueError("upper normalization requires zero lower-left")
+            pivot, companion = matrix[0]
+            if pivot == 0 or companion == 0:
+                raise ValueError("sign normalization cannot make a zero active entry positive")
+            pivot_sign = 1 if pivot > 0 else -1
+            companion_after_left = pivot_sign * companion
+            companion_sign = 1 if companion_after_left > 0 else -1
+            left = ((pivot_sign, 0), (0, 1))
+            right = ((1, 0), (0, companion_sign))
+        elif orientation == "lower":
+            if matrix[0][1] != 0:
+                raise ValueError("lower normalization requires zero upper-right")
+            pivot, companion = matrix[0][0], matrix[1][0]
+            if pivot == 0 or companion == 0:
+                raise ValueError("sign normalization cannot make a zero active entry positive")
+            left = ((1 if pivot > 0 else -1, 0),
+                    (0, 1 if companion > 0 else -1))
+            right = ((1, 0), (0, 1))
+        else:
+            raise ValueError("normalization orientation must be upper or lower")
+        normalized = _matmul2(_matmul2(left, matrix), right)
+        active = (normalized[0][0], normalized[0][1] if orientation == "upper"
+                  else normalized[1][0])
+        if active != (abs(pivot), abs(companion)):
+            raise AssertionError("signed active normalization failed")
+        if abs(_det2(left)) != 1 or abs(_det2(right)) != 1:
+            raise AssertionError("signed normalization witness is not unimodular")
+        if abs(normalized[0][0]) != abs(matrix[0][0]):
+            raise AssertionError("sign normalization changed pivot magnitude")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], *active),
+            "canonical sign witnesses expose a positive oriented Euclidean pair",
+        )
+        return SignedActiveNormalization(
+            matrix, orientation, normalized, left, right, abs(pivot)
+        )
+
+    def classify_zero_pivot(
+        self, matrix: tuple[tuple[int, int], tuple[int, int]]
+    ) -> ZeroPivotClassification:
+        """Classify a zero leading pivot without pretending a swap is descent."""
+        if matrix[0][0] != 0:
+            raise ValueError("zero-pivot classification requires a zero leading entry")
+        identity = ((1, 0), (0, 1))
+        swap = ((0, 1), (1, 0))
+        upper_right, lower_left, lower_right = (
+            matrix[0][1], matrix[1][0], matrix[1][1]
+        )
+        if upper_right == 0 and lower_left == 0:
+            kind = "zero-matrix" if lower_right == 0 else "already-diagonal"
+            transformed, left, right, pivot = matrix, identity, identity, None
+        elif lower_left != 0:
+            kind = "row-swap"
+            transformed, left, right = _matmul2(swap, matrix), swap, identity
+            pivot = abs(lower_left)
+        else:
+            kind = "column-swap"
+            transformed, left, right = _matmul2(matrix, swap), identity, swap
+            pivot = abs(upper_right)
+        if _matmul2(_matmul2(left, matrix), right) != transformed:
+            raise AssertionError("zero-pivot classification certificate failed")
+        if abs(_det2(transformed)) != abs(_det2(matrix)):
+            raise AssertionError("zero-pivot classification changed determinant magnitude")
+        if pivot is not None and abs(transformed[0][0]) != pivot:
+            raise AssertionError("zero-pivot swap failed to relocate its declared pivot")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], pivot or 0),
+            "zero pivot is classified as endpoint or relocated by a witnessed swap",
+        )
+        return ZeroPivotClassification(
+            matrix, kind, transformed, left, right, pivot
+        )
+
+    def normalize_rank_one_diagonal(
+        self, matrix: tuple[tuple[int, int], tuple[int, int]]
+    ) -> RankOneDiagonalNormalization:
+        """Move a sole nonzero diagonal entry to the positive leading position."""
+        (a, b), (c, d) = matrix
+        if b != 0 or c != 0:
+            raise ValueError("rank-one diagonal normalization requires a diagonal matrix")
+        nonzero = (a != 0) + (d != 0)
+        if nonzero != 1:
+            raise ValueError("rank-one diagonal normalization requires exactly one nonzero entry")
+        identity = ((1, 0), (0, 1))
+        swap = ((0, 1), (1, 0))
+        if a != 0:
+            left, right = identity, identity
+            transformed = matrix
+        else:
+            left, right = swap, swap
+            transformed = _matmul2(_matmul2(left, matrix), right)
+        if transformed[0][0] < 0:
+            sign = ((-1, 0), (0, 1))
+            transformed = _matmul2(sign, transformed)
+            left = _matmul2(sign, left)
+        diagonal = (transformed[0][0], transformed[1][1])
+        if diagonal[0] <= 0 or diagonal[1] != 0:
+            raise AssertionError("rank-one diagonal normalization failed")
+        if _matmul2(_matmul2(left, matrix), right) != transformed:
+            raise AssertionError("rank-one diagonal certificate failed")
+        self.life._record(
+            "form-operation", (*matrix[0], *matrix[1], *diagonal),
+            "paired swaps and sign place the rank-one invariant canonically",
+        )
+        return RankOneDiagonalNormalization(matrix, diagonal, left, right)
 
 
 def _det2(matrix: tuple[tuple[int, int], tuple[int, int]]) -> int:

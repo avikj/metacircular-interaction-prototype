@@ -1,0 +1,1038 @@
+=========================================================================
+WIRE 5 -- the prime-pair chart, run by machine/MathMachine.hs.
+
+Verbatim machine/machine.log excerpts, 2026-08-18, ghc 9.4.7, Agda 2.6.3
+with the cubical library, on this machine.  Nothing here is edited except
+that each run is preceded by the command that produced it.
+
+ARM 0 is the A/B for the one change this work makes to the DEFAULT engine
+(proveByInduction now installs the induction hypothesis in normalised form
+as well as stated form).  ARMs A and B are the pair chart.
+=========================================================================
+
+
+### ARM 0-OLD  (engine at HEAD, no flags, memory reset to the 59-line
+###            machine/library.terms of HEAD)
+###   runghc -imachine machine/MathMachine.hs --rounds 3
+
+=== MathMachine start ===
+  THOUGHTS  candidates=18 residuals=6 required-vocab=9
+  RESIDUAL  min(x,y)=-(x,-(x,y))
+  RESIDUAL  mod(x,y)-wants-a-name:gcd(x,y)=gcd(mod(x,y),y)
+  RESIDUAL  div(x,y)-wants-a-name:x=+(*(div(x,y),y),mod(x,y))
+  RESIDUAL  Omega(n)-wants-a-name:total-factorization-charge-for-D0026-S5
+  RESIDUAL  omega(n)-wants-a-name:distinct-prime-count-for-Phi_n-split
+  RESIDUAL  musq(n)-wants-a-name:squarefree-indicator-for-Chen-projector-1P=musq-(omega-1)
+  KERNEL-ACCEPT round=0 x = (0+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (0*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (s(0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(x),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = -(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type ℕ when checking that the expression refl has type x + y ≡ y + x
+  KERNEL-ACCEPT round=0 0 = (x*le(x,0))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (le(x,0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(s(x)),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(0)+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (xmaxs(x))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(x)maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = -(s(x),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (x+x) = (s(s(0))*x)  (0 agda calls) cached: x != x + 0 · x of type ℕ when checking that the expression refl has type x + x ≡ 2 · x
+  KERNEL-ACCEPT round=0 (s(x)+y) = s((x+y))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = -(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+x),0)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+y),y)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (xmaxs(s(x)))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (s(s(x))maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(0)) = -(s(s(x)),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),0)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xgcdle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)gcdx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xmaxle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)maxx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = s(-(x,s(0)))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+(x+y)) = (y+(x+x))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+x) = (s(s(0))*x)  (trace replay, 1 agda calls)
+  MEMORY  remembered=59 distinct=37 re-admitted=37 dropped=0 passes=2
+  DISPATCH  Dispatch {dVocabCap = 8, dVocabStart = Nothing, dDsoSchedule = 0, dNestedDepth = 0, dRounds = Just 3, dLog = Nothing, dCertify = 0}
+  KNOBS  Knobs {kProbe = 400, kAssign = 40, kMinPrune = 1, kConceptMin = 8, kConceptGain = 8, kVars = 3, kSizeCap = 7}
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  PROVER  fresh=34 already-rewritten=0 firewall-refuted=0 no-proof=28 proved-but-inert=4 proved=2 gated=0 value-test=exact value-work=2 value-scan=1056 round-work=372
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 0  vocab=8 size=4  terms=372 normed=202 pruned=45.7%  conj=35 fresh=34 proved=0  known=37  0.39s
+  FLOW  branching  d 0 -> 34
+  GATE  advance  separated-pairs=20172 terms=202 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+  PROVER  fresh=0 already-rewritten=0 firewall-refuted=0 no-proof=0 proved-but-inert=0 proved=0 gated=0 value-test=exact value-work=0 value-scan=0 round-work=372
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 1  vocab=8 size=4  terms=372 normed=202 pruned=45.7%  conj=35 fresh=0 proved=0  known=37  0.11s
+  FLOW  resonance  d 34 -> 0
+  GATE  advance  separated-pairs=20172 terms=202 assignments=40
+  CONCEPT  named c0 := (x*x)  (arity 1)
+  KERNEL-REJECT round=2 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  PROVER  fresh=74 already-rewritten=0 firewall-refuted=0 no-proof=68 proved-but-inert=4 proved=2 gated=0 value-test=exact value-work=2 value-scan=2276 round-work=682
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 2  vocab=8 size=4  terms=682 normed=415 pruned=39.1%  conj=75 fresh=74 proved=0  known=37  0.55s
+  FLOW  branching  d 0 -> 74
+  GATE  advance  separated-pairs=85215 terms=415 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+
+
+### ARM 0-NEW  (same command, same memory, patched engine)
+###   runghc -imachine machine/MathMachine.hs --rounds 3
+
+=== MathMachine start ===
+  THOUGHTS  candidates=18 residuals=6 required-vocab=12
+  RESIDUAL  min(x,y)=-(x,-(x,y))
+  RESIDUAL  mod(x,y)-wants-a-name:gcd(x,y)=gcd(mod(x,y),y)
+  RESIDUAL  div(x,y)-wants-a-name:x=+(*(div(x,y),y),mod(x,y))
+  RESIDUAL  Omega(n)-wants-a-name:total-factorization-charge-for-D0026-S5
+  RESIDUAL  omega(n)-wants-a-name:distinct-prime-count-for-Phi_n-split
+  RESIDUAL  musq(n)-wants-a-name:squarefree-indicator-for-Chen-projector-1P=musq-(omega-1)
+  KERNEL-ACCEPT round=0 x = (0+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (0*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (s(0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(x),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = -(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type ℕ when checking that the expression refl has type x + y ≡ y + x
+  KERNEL-ACCEPT round=0 0 = (x*le(x,0))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (le(x,0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(s(x)),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(0)+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (xmaxs(x))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(x)maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = -(s(x),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (x+x) = (s(s(0))*x)  (0 agda calls) cached: x != x + 0 · x of type ℕ when checking that the expression refl has type x + x ≡ 2 · x
+  KERNEL-ACCEPT round=0 (s(x)+y) = s((x+y))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = -(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+x),0)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+y),y)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (xmaxs(s(x)))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (s(s(x))maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(0)) = -(s(s(x)),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),0)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xgcdle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)gcdx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xmaxle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)maxx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = s(-(x,s(0)))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+(x+y)) = (y+(x+x))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+x) = (s(s(0))*x)  (trace replay, 1 agda calls)
+  MEMORY  remembered=59 distinct=37 re-admitted=37 dropped=0 passes=2
+  DISPATCH  Dispatch {dVocabCap = 8, dVocabStart = Nothing, dDsoSchedule = 0, dNestedDepth = 0, dRounds = Just 3, dLog = Nothing, dCertify = 0, dThoughts = Nothing}
+  KNOBS  Knobs {kProbe = 400, kAssign = 40, kMinPrune = 1, kConceptMin = 8, kConceptGain = 8, kVars = 3, kSizeCap = 7}
+  KERNEL-REJECT round=0 -((x+y),y) = x  (2 agda calls) base clause: x + zero != x of type ℕ when checking that the expression refl has type x + zero ∸ zero ≡ x
+  KERNEL-ACCEPT round=0 le(x,(x+y)) = s(0)  (induction on x, step = ih, 3 agda calls)
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-ACCEPT round=0 ((x+y)+z) = (x+(y+z))  (induction on x, step = cong suc, 4 agda calls)
+  KERNEL-ACCEPT round=0 le((x+y),(z+y)) = le(x,z)  (trace replay, 1 agda calls)
+  KERNEL-REJECT round=0 ((x+y)max(z+y)) = ((xmaxz)+y)  (2 agda calls) base clause: max (x + zero) (z + zero) != max x z + zero of type ℕ when checking that the expression refl has type
+  THEOREM  le(x,(x+y)) = s(0)   (induction on x)
+  THEOREM  ((x+y)+z) = (x+(y+z))   (induction on x)
+  THEOREM  le((x+y),(z+y)) = le(x,z)   (induction on y)
+  SEED  THEOREM                ((x+y)+z) = (x+(y+z))
+  SEED  attempted-no-proof     ((x*y)*z) = (x*(y*z))
+  SEED  attempted-no-proof     (x*(y+z)) = ((x*y)+(x*z))
+  SEED  attempted-no-proof     ((x+y)*z) = ((x*z)+(y*z))
+  SEED  attempted-no-proof     (xgcdy) = (ygcdx)
+  SEED  attempted-no-proof     (xgcdx) = x
+  SEED  attempted-no-proof     (s(0)gcdx) = s(0)
+  SEED  attempted-no-proof     ((x+y)gcdy) = (xgcdy)
+  SEED  attempted-no-proof     (xgcd(x*y)) = x
+  SEED  attempted-no-proof     ((x*y)gcd(z*y)) = ((xgcdz)*y)
+  SEED  proved-kernel-rejected -((x+y),y) = x
+  SEED  attempted-no-proof     -(-(x,y),z) = -(x,(y+z))
+  SEED  attempted-no-proof     ((xmaxy)maxz) = (xmax(ymaxz))
+  SEED  proved-kernel-rejected ((x+y)max(z+y)) = ((xmaxz)+y)
+  SEED  THEOREM                le((x+y),(z+y)) = le(x,z)
+  SEED  THEOREM                le(x,(x+y)) = s(0)
+  SEED  attempted-no-proof     le((xgcdy),(xmaxy)) = s(0)
+  SEED  follows-by-rewriting   (s(s(0))*x) = (x+x)
+  PROVER  fresh=34 already-rewritten=0 firewall-refuted=0 no-proof=27 proved-but-inert=0 proved=7 gated=3 value-test=exact value-work=2 value-scan=1258 round-work=372
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 0  vocab=8 size=4  terms=372 normed=202 pruned=45.7%  conj=35 fresh=34 proved=3  known=40  0.72s
+  FLOW  branching  d 0 -> 31
+  GATE  advance  separated-pairs=20172 terms=202 assignments=40
+  KERNEL-REJECT round=1 -((x+y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type x + zero ∸ zero ≡ x
+  KERNEL-REJECT round=1 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 (x*(y+z)) = ((x*y)+(x*z))  (0 agda calls) cached: base clause: x · (y + zero) != x · y + x · zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=1 ((x+y)max(z+y)) = ((xmaxz)+y)  (0 agda calls) cached: base clause: max (x + zero) (z + zero) != max x z + zero of type ℕ when checking that the expression refl has type
+  SEED  already-known          ((x+y)+z) = (x+(y+z))
+  SEED  attempted-no-proof     ((x*y)*z) = (x*(y*z))
+  SEED  proved-kernel-rejected (x*(y+z)) = ((x*y)+(x*z))
+  SEED  attempted-no-proof     ((x+y)*z) = ((x*z)+(y*z))
+  SEED  attempted-no-proof     (xgcdy) = (ygcdx)
+  SEED  attempted-no-proof     (xgcdx) = x
+  SEED  attempted-no-proof     (s(0)gcdx) = s(0)
+  SEED  attempted-no-proof     ((x+y)gcdy) = (xgcdy)
+  SEED  attempted-no-proof     (xgcd(x*y)) = x
+  SEED  attempted-no-proof     ((x*y)gcd(z*y)) = ((xgcdz)*y)
+  SEED  proved-kernel-rejected -((x+y),y) = x
+  SEED  attempted-no-proof     -(-(x,y),z) = -(x,(y+z))
+  SEED  attempted-no-proof     ((xmaxy)maxz) = (xmax(ymaxz))
+  SEED  proved-kernel-rejected ((x+y)max(z+y)) = ((xmaxz)+y)
+  SEED  already-known          le((x+y),(z+y)) = le(x,z)
+  SEED  already-known          le(x,(x+y)) = s(0)
+  SEED  attempted-no-proof     le((xgcdy),(xmaxy)) = s(0)
+  SEED  follows-by-rewriting   (s(s(0))*x) = (x+x)
+  PROVER  fresh=31 already-rewritten=0 firewall-refuted=0 no-proof=26 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=2 value-scan=854 round-work=372
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 1  vocab=8 size=4  terms=372 normed=202 pruned=45.7%  conj=35 fresh=31 proved=0  known=40  0.66s
+  FLOW  resonance  d 31 -> 31
+  GATE  advance  separated-pairs=20172 terms=202 assignments=40
+  CONCEPT  named c0 := (x*x)  (arity 1)
+  KERNEL-REJECT round=2 -((x+y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type x + zero ∸ zero ≡ x
+  KERNEL-REJECT round=2 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (x*(y+z)) = ((x*y)+(x*z))  (0 agda calls) cached: base clause: x · (y + zero) != x · y + x · zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=2 ((x+y)max(z+y)) = ((xmaxz)+y)  (0 agda calls) cached: base clause: max (x + zero) (z + zero) != max x z + zero of type ℕ when checking that the expression refl has type
+  SEED  already-known          ((x+y)+z) = (x+(y+z))
+  SEED  attempted-no-proof     ((x*y)*z) = (x*(y*z))
+  SEED  proved-kernel-rejected (x*(y+z)) = ((x*y)+(x*z))
+  SEED  attempted-no-proof     ((x+y)*z) = ((x*z)+(y*z))
+  SEED  attempted-no-proof     (xgcdy) = (ygcdx)
+  SEED  attempted-no-proof     (xgcdx) = x
+  SEED  attempted-no-proof     (s(0)gcdx) = s(0)
+  SEED  attempted-no-proof     ((x+y)gcdy) = (xgcdy)
+  SEED  attempted-no-proof     (xgcd(x*y)) = x
+  SEED  attempted-no-proof     ((x*y)gcd(z*y)) = ((xgcdz)*y)
+  SEED  proved-kernel-rejected -((x+y),y) = x
+  SEED  attempted-no-proof     -(-(x,y),z) = -(x,(y+z))
+  SEED  attempted-no-proof     ((xmaxy)maxz) = (xmax(ymaxz))
+  SEED  proved-kernel-rejected ((x+y)max(z+y)) = ((xmaxz)+y)
+  SEED  already-known          le((x+y),(z+y)) = le(x,z)
+  SEED  already-known          le(x,(x+y)) = s(0)
+  SEED  attempted-no-proof     le((xgcdy),(xmaxy)) = s(0)
+  SEED  follows-by-rewriting   (s(s(0))*x) = (x+x)
+  PROVER  fresh=71 already-rewritten=0 firewall-refuted=0 no-proof=66 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=2 value-scan=1861 round-work=682
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 2  vocab=8 size=4  terms=682 normed=415 pruned=39.1%  conj=75 fresh=71 proved=0  known=40  0.80s
+  FLOW  branching  d 31 -> 71
+  GATE  advance  separated-pairs=85215 terms=415 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+
+
+### ARM B-BARE  (patched engine, pair chart, memory reset to HEAD)
+###   runghc -imachine machine/MathMachine.hs --pair \
+###           --thoughts machine/thoughts.pair.math --rounds 3
+
+=== MathMachine start ===
+  THOUGHTS  candidates=20 residuals=42 required-vocab=11
+  RESIDUAL  # machine/thoughts.pair.math -- WIRE 5 seed questions, the prime-pair chart.
+  RESIDUAL  #
+  RESIDUAL  # Read with:  runghc -imachine machine/MathMachine.hs --pair --thoughts machine/thoughts.pair.math --rounds N
+  RESIDUAL  #
+  RESIDUAL  # The engine can in principle GENERATE these, but not cheaply: the split
+  RESIDUAL  # norm identity is a size-7 term and its horizon starts at 4.  Seeding is
+  RESIDUAL  # the researcher-input path THOUGHT_FORMAT.md documents; a seeded candidate
+  RESIDUAL  # "receives no privileged proof status" -- it must still agree on every
+  RESIDUAL  # fingerprint, still be proved, and still pass the same Agda kernel gate.
+  RESIDUAL  #
+  RESIDUAL  # leglo(w,r) = w -. r,  leghi(w,r) = w + r,  splitnorm(w,r) = w*w -. r*r
+  RESIDUAL  # over N with truncated subtraction (PairVocab section 3c / section 10).
+  RESIDUAL  #
+  RESIDUAL  # THE TARGET, first line: the split norm identity, the one of
+  RESIDUAL  # PairCoordinates.agda three ring identities that survives truncation.
+  RESIDUAL  # NEGATIVE CONTROLS.  Both are TRUE over Z (PairCoordinates.agda proves
+  RESIDUAL  # them over any commutative ring) and FALSE over N off the cone r <= w.
+  RESIDUAL  # They must be dropped by the fingerprint filter BEFORE any proof attempt;
+  RESIDUAL  # if either ever reaches the prover this seed file is lying.
+  RESIDUAL  # WHY LINE 1 IS STILL OPEN, and it is not the vocabulary.
+  RESIDUAL  #
+  RESIDUAL  # leglo(x,y)*leghi(x,y) = splitnorm(x,y) -- i.e. (x -. y)*(x + y) = x*x -. y*y
+  RESIDUAL  # over N -- reaches the prover on every run and comes back attempted-no-proof,
+  RESIDUAL  # including at --nested-depth 3.  The reason is structural and is in monus, not
+  RESIDUAL  # in the pair chart:
+  RESIDUAL  #
+  RESIDUAL  #   `-` is the only symbol in this vocabulary whose defining equations recurse
+  RESIDUAL  #   on BOTH arguments at once (MathMachine.hs baseVocabulary: -(x,0) = x,
+  RESIDUAL  #   -(0,x) = 0, -(s x, s y) = -(x,y)).  proveByInduction (MathMachine.hs
+  RESIDUAL  #   ~1280) substitutes s# for exactly ONE variable in the step case, so in a
+  RESIDUAL  #   step case built from a two-variable monus term the other argument is still
+  RESIDUAL  #   a bare variable and NO monus clause can fire.  Induction on x leaves
+  RESIDUAL  #   -(s#, y); induction on y leaves -(x, s#); both are irreducible.  Nested
+  RESIDUAL  #   induction does not help, because the inner induction inherits the same
+  RESIDUAL  #   one-variable substitution.
+  RESIDUAL  #
+  RESIDUAL  # So the split norm needs either a prover that splits a PAIR of variables into
+  RESIDUAL  # (0,y) / (x,0) / (s x, s y), or a lemma chain that removes the two-variable
+  RESIDUAL  # monus first -- the natural one is right-distributivity (x -. y)*z =
+  RESIDUAL  # x*z -. y*z together with cancellation (a + c) -. (c + b) = a -. b, and the
+  RESIDUAL  # first of those is blocked by the identical obstruction.  That is the next
+  RESIDUAL  # piece of work, and it is a prover, not a vocabulary.
+  KERNEL-ACCEPT round=0 x = (0+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (0*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (s(0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(x),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = -(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type ℕ when checking that the expression refl has type x + y ≡ y + x
+  KERNEL-ACCEPT round=0 0 = (x*le(x,0))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (le(x,0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(s(x)),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(0)+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (xmaxs(x))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(x)maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = -(s(x),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (x+x) = (s(s(0))*x)  (0 agda calls) cached: x != x + 0 · x of type ℕ when checking that the expression refl has type x + x ≡ 2 · x
+  KERNEL-ACCEPT round=0 (s(x)+y) = s((x+y))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = -(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+x),0)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+y),y)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (xmaxs(s(x)))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (s(s(x))maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(0)) = -(s(s(x)),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),0)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xgcdle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)gcdx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xmaxle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)maxx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = s(-(x,s(0)))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+(x+y)) = (y+(x+x))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+x) = (s(s(0))*x)  (trace replay, 1 agda calls)
+  MEMORY  remembered=59 distinct=37 re-admitted=37 dropped=0 passes=2
+  DISPATCH  Dispatch {dVocabCap = 11, dVocabStart = Just 11, dDsoSchedule = 0, dNestedDepth = 0, dRounds = Just 3, dLog = Nothing, dCertify = 0, dThoughts = Just "machine/thoughts.pair.math"}
+  KNOBS  Knobs {kProbe = 400, kAssign = 40, kMinPrune = 1, kConceptMin = 8, kConceptGain = 8, kVars = 3, kSizeCap = 7}
+  KERNEL-REJECT round=0 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-ACCEPT round=0 leglo(leghi(x,y),x) = y  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-ACCEPT round=0 le(x,leghi(x,y)) = s(0)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),(x*x))  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-ACCEPT round=0 leghi(leghi(x,y),z) = leghi(x,leghi(y,z))  (induction on x, step = cong suc, 1 agda calls)
+  THEOREM  leglo(leghi(x,y),x) = y   (induction on x)
+  THEOREM  le(x,leghi(x,y)) = s(0)   (induction on x)
+  THEOREM  leghi(leghi(x,y),z) = leghi(x,leghi(y,z))   (induction on x)
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  THEOREM                leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  THEOREM                leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  THEOREM                le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=31 already-rewritten=0 firewall-refuted=0 no-proof=23 proved-but-inert=0 proved=8 gated=3 value-test=exact value-work=3 value-scan=1583 round-work=564
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 0  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=31 proved=3  known=40  0.77s
+  FLOW  branching  d 0 -> 28
+  GATE  advance  separated-pairs=28776 terms=241 assignments=40
+  KERNEL-REJECT round=1 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=1 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=1 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 le(x,0) = -(s(0),(x*x))  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  already-known          leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  already-known          leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  already-known          le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=28 already-rewritten=0 firewall-refuted=0 no-proof=23 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=3 value-scan=860 round-work=564
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 1  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=28 proved=0  known=40  0.67s
+  FLOW  resonance  d 28 -> 28
+  GATE  advance  separated-pairs=28776 terms=241 assignments=40
+  CONCEPT  named c0 := (x*x)  (arity 1)
+  KERNEL-REJECT round=2 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=2 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=2 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  already-known          leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  already-known          leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  already-known          le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=72 already-rewritten=0 firewall-refuted=0 no-proof=68 proved-but-inert=0 proved=4 gated=0 value-test=exact value-work=2 value-scan=1659 round-work=1018
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 2  vocab=11 size=4  terms=1018 normed=484 pruned=52.5%  conj=83 fresh=72 proved=0  known=40  0.92s
+  FLOW  branching  d 28 -> 72
+  GATE  advance  separated-pairs=115983 terms=484 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+
+
+### ARM A  (patched engine, default thoughts, memory reset to HEAD)
+###   runghc -imachine machine/MathMachine.hs --rounds 3
+
+=== MathMachine start ===
+  THOUGHTS  candidates=18 residuals=6 required-vocab=12
+  RESIDUAL  min(x,y)=-(x,-(x,y))
+  RESIDUAL  mod(x,y)-wants-a-name:gcd(x,y)=gcd(mod(x,y),y)
+  RESIDUAL  div(x,y)-wants-a-name:x=+(*(div(x,y),y),mod(x,y))
+  RESIDUAL  Omega(n)-wants-a-name:total-factorization-charge-for-D0026-S5
+  RESIDUAL  omega(n)-wants-a-name:distinct-prime-count-for-Phi_n-split
+  RESIDUAL  musq(n)-wants-a-name:squarefree-indicator-for-Chen-projector-1P=musq-(omega-1)
+  KERNEL-ACCEPT round=0 x = (0+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (0*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (s(0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(x),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = -(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type ℕ when checking that the expression refl has type x + y ≡ y + x
+  KERNEL-ACCEPT round=0 0 = (x*le(x,0))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (le(x,0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(s(x)),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(0)+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (xmaxs(x))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(x)maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = -(s(x),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (x+x) = (s(s(0))*x)  (0 agda calls) cached: x != x + 0 · x of type ℕ when checking that the expression refl has type x + x ≡ 2 · x
+  KERNEL-ACCEPT round=0 (s(x)+y) = s((x+y))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = -(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+x),0)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+y),y)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (xmaxs(s(x)))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (s(s(x))maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(0)) = -(s(s(x)),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),0)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xgcdle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)gcdx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xmaxle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)maxx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = s(-(x,s(0)))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+(x+y)) = (y+(x+x))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+x) = (s(s(0))*x)  (trace replay, 1 agda calls)
+  MEMORY  remembered=59 distinct=37 re-admitted=37 dropped=0 passes=2
+  DISPATCH  Dispatch {dVocabCap = 8, dVocabStart = Nothing, dDsoSchedule = 0, dNestedDepth = 0, dRounds = Just 3, dLog = Nothing, dCertify = 0, dThoughts = Nothing}
+  KNOBS  Knobs {kProbe = 400, kAssign = 40, kMinPrune = 1, kConceptMin = 8, kConceptGain = 8, kVars = 3, kSizeCap = 7}
+  KERNEL-REJECT round=0 -((x+y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type x + zero ∸ zero ≡ x
+  KERNEL-ACCEPT round=0 le(x,(x+y)) = s(0)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-ACCEPT round=0 ((x+y)+z) = (x+(y+z))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 le((x+y),(z+y)) = le(x,z)  (trace replay, 1 agda calls)
+  KERNEL-REJECT round=0 ((x+y)max(z+y)) = ((xmaxz)+y)  (0 agda calls) cached: base clause: max (x + zero) (z + zero) != max x z + zero of type ℕ when checking that the expression refl has type
+  THEOREM  le(x,(x+y)) = s(0)   (induction on x)
+  THEOREM  ((x+y)+z) = (x+(y+z))   (induction on x)
+  THEOREM  le((x+y),(z+y)) = le(x,z)   (induction on y)
+  SEED  THEOREM                ((x+y)+z) = (x+(y+z))
+  SEED  attempted-no-proof     ((x*y)*z) = (x*(y*z))
+  SEED  attempted-no-proof     (x*(y+z)) = ((x*y)+(x*z))
+  SEED  attempted-no-proof     ((x+y)*z) = ((x*z)+(y*z))
+  SEED  attempted-no-proof     (xgcdy) = (ygcdx)
+  SEED  attempted-no-proof     (xgcdx) = x
+  SEED  attempted-no-proof     (s(0)gcdx) = s(0)
+  SEED  attempted-no-proof     ((x+y)gcdy) = (xgcdy)
+  SEED  attempted-no-proof     (xgcd(x*y)) = x
+  SEED  attempted-no-proof     ((x*y)gcd(z*y)) = ((xgcdz)*y)
+  SEED  proved-kernel-rejected -((x+y),y) = x
+  SEED  attempted-no-proof     -(-(x,y),z) = -(x,(y+z))
+  SEED  attempted-no-proof     ((xmaxy)maxz) = (xmax(ymaxz))
+  SEED  proved-kernel-rejected ((x+y)max(z+y)) = ((xmaxz)+y)
+  SEED  THEOREM                le((x+y),(z+y)) = le(x,z)
+  SEED  THEOREM                le(x,(x+y)) = s(0)
+  SEED  attempted-no-proof     le((xgcdy),(xmaxy)) = s(0)
+  SEED  follows-by-rewriting   (s(s(0))*x) = (x+x)
+  PROVER  fresh=34 already-rewritten=0 firewall-refuted=0 no-proof=27 proved-but-inert=0 proved=7 gated=3 value-test=exact value-work=2 value-scan=1258 round-work=372
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 0  vocab=8 size=4  terms=372 normed=202 pruned=45.7%  conj=35 fresh=34 proved=3  known=40  0.73s
+  FLOW  branching  d 0 -> 31
+  GATE  advance  separated-pairs=20172 terms=202 assignments=40
+  KERNEL-REJECT round=1 -((x+y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type x + zero ∸ zero ≡ x
+  KERNEL-REJECT round=1 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 (x*(y+z)) = ((x*y)+(x*z))  (0 agda calls) cached: base clause: x · (y + zero) != x · y + x · zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=1 ((x+y)max(z+y)) = ((xmaxz)+y)  (0 agda calls) cached: base clause: max (x + zero) (z + zero) != max x z + zero of type ℕ when checking that the expression refl has type
+  SEED  already-known          ((x+y)+z) = (x+(y+z))
+  SEED  attempted-no-proof     ((x*y)*z) = (x*(y*z))
+  SEED  proved-kernel-rejected (x*(y+z)) = ((x*y)+(x*z))
+  SEED  attempted-no-proof     ((x+y)*z) = ((x*z)+(y*z))
+  SEED  attempted-no-proof     (xgcdy) = (ygcdx)
+  SEED  attempted-no-proof     (xgcdx) = x
+  SEED  attempted-no-proof     (s(0)gcdx) = s(0)
+  SEED  attempted-no-proof     ((x+y)gcdy) = (xgcdy)
+  SEED  attempted-no-proof     (xgcd(x*y)) = x
+  SEED  attempted-no-proof     ((x*y)gcd(z*y)) = ((xgcdz)*y)
+  SEED  proved-kernel-rejected -((x+y),y) = x
+  SEED  attempted-no-proof     -(-(x,y),z) = -(x,(y+z))
+  SEED  attempted-no-proof     ((xmaxy)maxz) = (xmax(ymaxz))
+  SEED  proved-kernel-rejected ((x+y)max(z+y)) = ((xmaxz)+y)
+  SEED  already-known          le((x+y),(z+y)) = le(x,z)
+  SEED  already-known          le(x,(x+y)) = s(0)
+  SEED  attempted-no-proof     le((xgcdy),(xmaxy)) = s(0)
+  SEED  follows-by-rewriting   (s(s(0))*x) = (x+x)
+  PROVER  fresh=31 already-rewritten=0 firewall-refuted=0 no-proof=26 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=2 value-scan=854 round-work=372
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 1  vocab=8 size=4  terms=372 normed=202 pruned=45.7%  conj=35 fresh=31 proved=0  known=40  0.62s
+  FLOW  resonance  d 31 -> 31
+  GATE  advance  separated-pairs=20172 terms=202 assignments=40
+  CONCEPT  named c0 := (x*x)  (arity 1)
+  KERNEL-REJECT round=2 -((x+y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type x + zero ∸ zero ≡ x
+  KERNEL-REJECT round=2 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (x*(y+z)) = ((x*y)+(x*z))  (0 agda calls) cached: base clause: x · (y + zero) != x · y + x · zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=2 ((x+y)max(z+y)) = ((xmaxz)+y)  (0 agda calls) cached: base clause: max (x + zero) (z + zero) != max x z + zero of type ℕ when checking that the expression refl has type
+  SEED  already-known          ((x+y)+z) = (x+(y+z))
+  SEED  attempted-no-proof     ((x*y)*z) = (x*(y*z))
+  SEED  proved-kernel-rejected (x*(y+z)) = ((x*y)+(x*z))
+  SEED  attempted-no-proof     ((x+y)*z) = ((x*z)+(y*z))
+  SEED  attempted-no-proof     (xgcdy) = (ygcdx)
+  SEED  attempted-no-proof     (xgcdx) = x
+  SEED  attempted-no-proof     (s(0)gcdx) = s(0)
+  SEED  attempted-no-proof     ((x+y)gcdy) = (xgcdy)
+  SEED  attempted-no-proof     (xgcd(x*y)) = x
+  SEED  attempted-no-proof     ((x*y)gcd(z*y)) = ((xgcdz)*y)
+  SEED  proved-kernel-rejected -((x+y),y) = x
+  SEED  attempted-no-proof     -(-(x,y),z) = -(x,(y+z))
+  SEED  attempted-no-proof     ((xmaxy)maxz) = (xmax(ymaxz))
+  SEED  proved-kernel-rejected ((x+y)max(z+y)) = ((xmaxz)+y)
+  SEED  already-known          le((x+y),(z+y)) = le(x,z)
+  SEED  already-known          le(x,(x+y)) = s(0)
+  SEED  attempted-no-proof     le((xgcdy),(xmaxy)) = s(0)
+  SEED  follows-by-rewriting   (s(s(0))*x) = (x+x)
+  PROVER  fresh=71 already-rewritten=0 firewall-refuted=0 no-proof=66 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=2 value-scan=1861 round-work=682
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 2  vocab=8 size=4  terms=682 normed=415 pruned=39.1%  conj=75 fresh=71 proved=0  known=40  0.78s
+  FLOW  branching  d 31 -> 71
+  GATE  advance  separated-pairs=85215 terms=415 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+
+
+### ARM B  (patched engine, pair chart, memory = the output of ARM A)
+###   runghc -imachine machine/MathMachine.hs --pair \
+###           --thoughts machine/thoughts.pair.math --rounds 3
+###
+### This is the state committed in machine/library.terms.
+
+=== MathMachine start ===
+  THOUGHTS  candidates=20 residuals=19 required-vocab=11
+  RESIDUAL  # machine/thoughts.pair.math -- WIRE 5 seed questions, the prime-pair chart.
+  RESIDUAL  #
+  RESIDUAL  # Read with:  runghc -imachine machine/MathMachine.hs --pair --thoughts machine/thoughts.pair.math --rounds N
+  RESIDUAL  #
+  RESIDUAL  # The engine can in principle GENERATE these, but not cheaply: the split
+  RESIDUAL  # norm identity is a size-7 term and its horizon starts at 4.  Seeding is
+  RESIDUAL  # the researcher-input path THOUGHT_FORMAT.md documents; a seeded candidate
+  RESIDUAL  # "receives no privileged proof status" -- it must still agree on every
+  RESIDUAL  # fingerprint, still be proved, and still pass the same Agda kernel gate.
+  RESIDUAL  #
+  RESIDUAL  # leglo(w,r) = w -. r,  leghi(w,r) = w + r,  splitnorm(w,r) = w*w -. r*r
+  RESIDUAL  # over N with truncated subtraction (PairVocab section 3c / section 10).
+  RESIDUAL  #
+  RESIDUAL  # THE TARGET, first line: the split norm identity, the one of
+  RESIDUAL  # PairCoordinates.agda three ring identities that survives truncation.
+  RESIDUAL  # NEGATIVE CONTROLS.  Both are TRUE over Z (PairCoordinates.agda proves
+  RESIDUAL  # them over any commutative ring) and FALSE over N off the cone r <= w.
+  RESIDUAL  # They must be dropped by the fingerprint filter BEFORE any proof attempt;
+  RESIDUAL  # if either ever reaches the prover this seed file is lying.
+  KERNEL-ACCEPT round=0 x = (0+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (0*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (s(0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(x),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = -(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type ℕ when checking that the expression refl has type x + y ≡ y + x
+  KERNEL-ACCEPT round=0 0 = (x*le(x,0))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (le(x,0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(s(x)),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(0)+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (xmaxs(x))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(x)maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = -(s(x),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 le(x,(x+y)) = s(0)  (0 agda calls) cached: le x (x + y) != 1 of type ℕ when checking that the expression refl has type le x (x + y) ≡ 1
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (x+x) = (s(s(0))*x)  (0 agda calls) cached: x != x + 0 · x of type ℕ when checking that the expression refl has type x + x ≡ 2 · x
+  KERNEL-ACCEPT round=0 (s(x)+y) = s((x+y))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = -(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+x),0)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+y),y)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (xmaxs(s(x)))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (s(s(x))maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(0)) = -(s(s(x)),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),0)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xgcdle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)gcdx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xmaxle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)maxx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = s(-(x,s(0)))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+(x+y)) = (y+(x+x))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 ((x+y)+z) = (x+(y+z))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le((x+y),(z+y)) = le(x,z)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,(x+y)) = s(0)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+x) = (s(s(0))*x)  (trace replay, 1 agda calls)
+  MEMORY  remembered=62 distinct=40 re-admitted=40 dropped=0 passes=2
+  DISPATCH  Dispatch {dVocabCap = 11, dVocabStart = Just 11, dDsoSchedule = 0, dNestedDepth = 0, dRounds = Just 3, dLog = Nothing, dCertify = 0, dThoughts = Just "machine/thoughts.pair.math"}
+  KNOBS  Knobs {kProbe = 400, kAssign = 40, kMinPrune = 1, kConceptMin = 8, kConceptGain = 8, kVars = 3, kSizeCap = 7}
+  KERNEL-REJECT round=0 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-ACCEPT round=0 leglo(leghi(x,y),x) = y  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),(x*x))  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  THEOREM  leglo(leghi(x,y),x) = y   (induction on x)
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  THEOREM                leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  follows-by-rewriting   leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  follows-by-rewriting   le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=29 already-rewritten=0 firewall-refuted=0 no-proof=23 proved-but-inert=0 proved=6 gated=1 value-test=exact value-work=3 value-scan=1101 round-work=564
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 0  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=29 proved=1  known=41  0.72s
+  FLOW  branching  d 0 -> 28
+  GATE  advance  separated-pairs=28776 terms=241 assignments=40
+  KERNEL-REJECT round=1 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=1 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=1 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=1 le(x,0) = -(s(0),(x*x))  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  already-known          leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  follows-by-rewriting   leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  follows-by-rewriting   le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=28 already-rewritten=0 firewall-refuted=0 no-proof=23 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=3 value-scan=860 round-work=564
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 1  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=28 proved=0  known=41  0.78s
+  FLOW  resonance  d 28 -> 28
+  GATE  advance  separated-pairs=28776 terms=241 assignments=40
+  CONCEPT  named c0 := (x*x)  (arity 1)
+  KERNEL-REJECT round=2 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=2 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=2 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=2 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  already-known          leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  follows-by-rewriting   leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  follows-by-rewriting   le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=72 already-rewritten=0 firewall-refuted=0 no-proof=68 proved-but-inert=0 proved=4 gated=0 value-test=exact value-work=2 value-scan=1659 round-work=1018
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 2  vocab=11 size=4  terms=1018 normed=484 pruned=52.5%  conj=83 fresh=72 proved=0  known=41  1.05s
+  FLOW  branching  d 28 -> 72
+  GATE  advance  separated-pairs=115983 terms=484 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+
+
+### THE THREE AGDA MODULES THE KERNEL ACCEPTED, verbatim from the
+### certificate cache (machine/.certcache), which stores the exact source
+### agda was handed.  Re-checked cold outside the engine on 2026-08-18.
+
+--- machine/.certcache/40a57967d95297f6e8f7505c7075cfae
+VERDICT accepted
+EXIT 0
+TOOLCHAIN Agda version 2.6.3 | library=cubical | include=formal/cubical
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_)
+leglo : ℕ → ℕ → ℕ
+leglo a0 a1 = (a0 ∸ a1)
+leghi : ℕ → ℕ → ℕ
+leghi a0 a1 = (a0 + a1)
+candidate : (x y : ℕ) → (leglo (leghi x y) x) ≡ y
+candidate zero y = refl
+candidate (suc x) y = candidate x y
+
+--- machine/.certcache/d5af22f8b1e8a991482eceb266b040a9
+VERDICT accepted
+EXIT 0
+TOOLCHAIN Agda version 2.6.3 | library=cubical | include=formal/cubical
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_)
+le : ℕ → ℕ → ℕ
+le zero b = suc zero
+le (suc a) zero = zero
+le (suc a) (suc b) = le a b
+leghi : ℕ → ℕ → ℕ
+leghi a0 a1 = (a0 + a1)
+candidate : (x y : ℕ) → (le x (leghi x y)) ≡ (suc zero)
+candidate zero y = refl
+candidate (suc x) y = candidate x y
+
+--- machine/.certcache/0d2fc8915a2816ee58f91a807a47186c
+VERDICT accepted
+EXIT 0
+TOOLCHAIN Agda version 2.6.3 | library=cubical | include=formal/cubical
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_)
+leghi : ℕ → ℕ → ℕ
+leghi a0 a1 = (a0 + a1)
+candidate : (x y z : ℕ) → (leghi (leghi x y) z) ≡ (leghi x (leghi y z))
+candidate zero y z = refl
+candidate (suc x) y z = cong suc (candidate x y z)
+
+
+
+### RE-ADMISSION FIX  (readmitMemory was passing [] where a round passes
+### kernelSyms; the pair theorem was dropped at load and re-proved every run)
+###   runghc -imachine machine/MathMachine.hs --pair \
+###           --thoughts machine/thoughts.pair.math --rounds 2
+### before: MEMORY remembered=63 distinct=41 re-admitted=40 dropped=1 passes=3
+### after:  MEMORY remembered=63 distinct=41 re-admitted=41 dropped=0 passes=2
+###         and machine/library.terms is a fixed point of the loop.
+
+=== MathMachine start ===
+  THOUGHTS  candidates=20 residuals=42 required-vocab=11
+  RESIDUAL  # machine/thoughts.pair.math -- WIRE 5 seed questions, the prime-pair chart.
+  RESIDUAL  #
+  RESIDUAL  # Read with:  runghc -imachine machine/MathMachine.hs --pair --thoughts machine/thoughts.pair.math --rounds N
+  RESIDUAL  #
+  RESIDUAL  # The engine can in principle GENERATE these, but not cheaply: the split
+  RESIDUAL  # norm identity is a size-7 term and its horizon starts at 4.  Seeding is
+  RESIDUAL  # the researcher-input path THOUGHT_FORMAT.md documents; a seeded candidate
+  RESIDUAL  # "receives no privileged proof status" -- it must still agree on every
+  RESIDUAL  # fingerprint, still be proved, and still pass the same Agda kernel gate.
+  RESIDUAL  #
+  RESIDUAL  # leglo(w,r) = w -. r,  leghi(w,r) = w + r,  splitnorm(w,r) = w*w -. r*r
+  RESIDUAL  # over N with truncated subtraction (PairVocab section 3c / section 10).
+  RESIDUAL  #
+  RESIDUAL  # THE TARGET, first line: the split norm identity, the one of
+  RESIDUAL  # PairCoordinates.agda three ring identities that survives truncation.
+  RESIDUAL  # NEGATIVE CONTROLS.  Both are TRUE over Z (PairCoordinates.agda proves
+  RESIDUAL  # them over any commutative ring) and FALSE over N off the cone r <= w.
+  RESIDUAL  # They must be dropped by the fingerprint filter BEFORE any proof attempt;
+  RESIDUAL  # if either ever reaches the prover this seed file is lying.
+  RESIDUAL  # WHY LINE 1 IS STILL OPEN, and it is not the vocabulary.
+  RESIDUAL  #
+  RESIDUAL  # leglo(x,y)*leghi(x,y) = splitnorm(x,y) -- i.e. (x -. y)*(x + y) = x*x -. y*y
+  RESIDUAL  # over N -- reaches the prover on every run and comes back attempted-no-proof,
+  RESIDUAL  # including at --nested-depth 3.  The reason is structural and is in monus, not
+  RESIDUAL  # in the pair chart:
+  RESIDUAL  #
+  RESIDUAL  #   `-` is the only symbol in this vocabulary whose defining equations recurse
+  RESIDUAL  #   on BOTH arguments at once (MathMachine.hs baseVocabulary: -(x,0) = x,
+  RESIDUAL  #   -(0,x) = 0, -(s x, s y) = -(x,y)).  proveByInduction (MathMachine.hs
+  RESIDUAL  #   ~1280) substitutes s# for exactly ONE variable in the step case, so in a
+  RESIDUAL  #   step case built from a two-variable monus term the other argument is still
+  RESIDUAL  #   a bare variable and NO monus clause can fire.  Induction on x leaves
+  RESIDUAL  #   -(s#, y); induction on y leaves -(x, s#); both are irreducible.  Nested
+  RESIDUAL  #   induction does not help, because the inner induction inherits the same
+  RESIDUAL  #   one-variable substitution.
+  RESIDUAL  #
+  RESIDUAL  # So the split norm needs either a prover that splits a PAIR of variables into
+  RESIDUAL  # (0,y) / (x,0) / (s x, s y), or a lemma chain that removes the two-variable
+  RESIDUAL  # monus first -- the natural one is right-distributivity (x -. y)*z =
+  RESIDUAL  # x*z -. y*z together with cancellation (a + c) -. (c + b) = a -. b, and the
+  RESIDUAL  # first of those is blocked by the identical obstruction.  That is the next
+  RESIDUAL  # piece of work, and it is a prover, not a vocabulary.
+  KERNEL-ACCEPT round=0 x = (0+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (0*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = (s(0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(x),x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 x = -(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-REJECT round=0 (x+y) = (y+x)  (0 agda calls) cached: x != y of type ℕ when checking that the expression refl has type x + y ≡ y + x
+  KERNEL-ACCEPT round=0 0 = (x*le(x,0))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = (le(x,0)*x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = -(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 0 = le(s(s(x)),x)  (trace replay, 1 agda calls)
+  KERNEL-REJECT round=0 leglo(leghi(x,y),x) = y  (0 agda calls) cached: x + y ∸ x != y of type ℕ when checking that the expression refl has type
+  KERNEL-ACCEPT round=0 s(x) = (s(0)+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (xmaxs(x))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(x) = (s(x)maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = -(s(x),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(x))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 le(x,(x+y)) = s(0)  (0 agda calls) cached: le x (x + y) != 1 of type ℕ when checking that the expression refl has type le x (x + y) ≡ 1
+  KERNEL-ACCEPT round=0 s(0) = le(x,s(s(x)))  (induction on x, step = ih, 1 agda calls)
+  KERNEL-REJECT round=0 (x+x) = (s(s(0))*x)  (0 agda calls) cached: x != x + 0 · x of type ℕ when checking that the expression refl has type x + x ≡ 2 · x
+  KERNEL-ACCEPT round=0 (s(x)+y) = s((x+y))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = -(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le(x,le(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+x),0)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,0) = le((x+y),y)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (xmaxs(s(x)))  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(x)) = (s(s(x))maxx)  (induction on x, step = cong suc, 1 agda calls)
+  KERNEL-ACCEPT round=0 s(s(0)) = -(s(s(x)),x)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),x)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(s(0),x) = le(le(x,0),0)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xgcdle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)gcdx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (xmaxle(x,0))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = (le(x,0)maxx)  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (xmaxs(0)) = s(-(x,s(0)))  (induction on x, step = refl, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+(x+y)) = (y+(x+x))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 ((x+y)+z) = (x+(y+z))  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 le((x+y),(z+y)) = le(x,z)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+y) = (y+x)  (trace replay, 1 agda calls)
+  KERNEL-ACCEPT round=0 leglo(leghi(x,y),x) = y  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 le(x,(x+y)) = s(0)  (induction on x, step = ih, 1 agda calls)
+  KERNEL-ACCEPT round=0 (x+x) = (s(s(0))*x)  (trace replay, 1 agda calls)
+  MEMORY  remembered=63 distinct=41 re-admitted=41 dropped=0 passes=2
+  DISPATCH  Dispatch {dVocabCap = 11, dVocabStart = Just 11, dDsoSchedule = 0, dNestedDepth = 0, dRounds = Just 2, dLog = Nothing, dCertify = 0, dThoughts = Just "machine/thoughts.pair.math"}
+  KNOBS  Knobs {kProbe = 400, kAssign = 40, kMinPrune = 1, kConceptMin = 8, kConceptGain = 8, kVars = 3, kSizeCap = 7}
+  KERNEL-REJECT round=0 leglo(x,leghi(x,y)) = 0  (0 agda calls) cached: base clause: 0 ∸ y != zero of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=0 leglo(leghi(x,y),y) = x  (0 agda calls) cached: base clause: x + zero != x of type ℕ when checking that the expression refl has type
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),x)  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 (xmaxs(0)) = (s(0)maxx)  (0 agda calls) cached: x · max x 1 != suc x of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  KERNEL-REJECT round=0 le(x,0) = -(s(0),(x*x))  (0 agda calls) cached: x · le x zero != zero of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  SEED  attempted-no-proof     (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  proved-kernel-rejected leglo(leghi(x,y),y) = x
+  SEED  already-known          leglo(leghi(x,y),x) = y
+  SEED  attempted-no-proof     leghi(leglo(x,y),y) = (xmaxy)
+  SEED  proved-kernel-rejected leglo(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     splitnorm(x,leghi(x,y)) = 0
+  SEED  attempted-no-proof     leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  follows-by-rewriting   leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  attempted-no-proof     le(leglo(x,y),x) = s(0)
+  SEED  follows-by-rewriting   le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=28 already-rewritten=0 firewall-refuted=0 no-proof=23 proved-but-inert=0 proved=5 gated=0 value-test=exact value-work=3 value-scan=860 round-work=564
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 0  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=28 proved=0  known=41  0.71s
+  FLOW  branching  d 0 -> 28
+  GATE  advance  separated-pairs=28776 terms=241 assignments=40
+  FLOW-HOLD  branching with nothing proved; the frontier is growing faster than the machine closes it, so the horizon is held (the vocabulary may still widen)
+  SEED  withheld               (leglo(x,y)*leghi(x,y)) = splitnorm(x,y)
+  SEED  follows-by-rewriting   leglo(x,0) = x
+  SEED  follows-by-rewriting   leghi(x,0) = x
+  SEED  follows-by-rewriting   leghi(0,x) = x
+  SEED  follows-by-rewriting   leglo(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,x) = 0
+  SEED  follows-by-rewriting   splitnorm(x,0) = (x*x)
+  SEED  follows-by-rewriting   leghi(x,y) = leghi(y,x)
+  SEED  withheld               leglo(leghi(x,y),y) = x
+  SEED  already-known          leglo(leghi(x,y),x) = y
+  SEED  withheld               leghi(leglo(x,y),y) = (xmaxy)
+  SEED  withheld               leglo(x,leghi(x,y)) = 0
+  SEED  withheld               splitnorm(x,leghi(x,y)) = 0
+  SEED  withheld               leglo(leglo(x,y),z) = leglo(x,leghi(y,z))
+  SEED  follows-by-rewriting   leghi(leghi(x,y),z) = leghi(x,leghi(y,z))
+  SEED  follows-by-rewriting   leglo(x,s(x)) = 0
+  SEED  withheld               le(leglo(x,y),x) = s(0)
+  SEED  follows-by-rewriting   le(x,leghi(x,y)) = s(0)
+  SEED  refuted-by-fingerprint (leglo(x,y)+leghi(x,y)) = (s(s(0))*x)
+  SEED  refuted-by-fingerprint -((leghi(x,y)*leghi(x,y)),((s(s(s(s(0))))*leglo(x,y))*leghi(x,y))) = (s(s(s(s(0))))*(y*y))
+  PROVER  fresh=0 already-rewritten=0 firewall-refuted=0 no-proof=0 proved-but-inert=0 proved=0 gated=0 value-test=exact value-work=0 value-scan=0 round-work=564
+  BOUNDED  active-witnesses=1 derivation-fiber=15
+  ATLAS  assignments=256 fixed-base=2 holonomy-failures=2
+  DSO  tasks=square-threshold routes=15 classes=15 survivors=1 survivor-witnesses=1 continuation-work=30->15
+  DSO-ARCH  candidates=4 transformer-equivalences=2 pareto=2 aggregate-regret=(32 states,32 work)
+  DSO-HISTORY  searches=1 retained-history-fibre=24
+round 1  vocab=11 size=4  terms=564 normed=241 pruned=57.3%  conj=39 fresh=0 proved=0  known=41  0.30s
+  FLOW  resonance  d 28 -> 0
+  GATE  advance  separated-pairs=28776 terms=241 assignments=40
+  CONCEPT  named c0 := (x*x)  (arity 1)
+
+
+### SEED TALLY, exact, ARM B-BARE round 0 (20 researcher candidates).
+### Counted from the log above with:
+###   awk "/^round 0/{exit} /^  SEED /{print \$2}" | sort | uniq -c
+
+      3 THEOREM
+      5 attempted-no-proof
+      8 follows-by-rewriting
+      2 proved-kernel-rejected
+      2 refuted-by-fingerprint
+
+     20 total
+
+### ERRATUM.  Commit 7abb10a6 quoted this tally as "7 follows-by-rewriting
+### ... 6 attempted-no-proof".  It is 8 and 5.  The other three figures in
+### that sentence (2 refuted-by-fingerprint, 3 THEOREM, 2 proved-kernel-
+### rejected) are correct, and the arithmetic in the wrong version does not
+### even add to 20.  Recounted mechanically above.

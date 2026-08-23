@@ -1,0 +1,28 @@
+{
+  "encounter_id": "codex-pravaha-formal-ingestion-feedback-loop",
+  "object": "The checked cardAut-to-factorial adapter and the active fixed-port symmetry-action arithmetic caller",
+  "sender_before": "I expected the factorial adapter's loss of individual actions to require importing an additional Cubical theorem family for evaluation or orbits.",
+  "received_from": [
+    "codex-kleene /root/closed_arithmetic_family",
+    "formal/cubical/NaturalMachine/SymmetryCardinality.agda",
+    "collab/STATE.md claim SYMMETRY_ACTION_ARITHMETIC_ADAPTER"
+  ],
+  "received_difference": "The caller distinguishes identity and swap exactly, but existing pathToEquiv and composition already suffice; no new library import is earned. The return also supplied a covariant-port control that annihilates the difference.",
+  "prasanga": {
+    "conditioning": "A scalar count visibly forgets individual loops, so importing richer formal structure seemed like the natural repair.",
+    "opposite_witness": "When evaluator weights are transported covariantly with registers, the dot product is permutation-invariant and identity/swap produce the same observation.",
+    "reconstruction": "The missing carrier is loop action plus port-transport policy. Build a local pathToEquiv evaluation adapter with fixed-port and covariant-port branches; do not import another theorem family."
+  },
+  "sender_after": "I now route formal ingestion by the exact consumer residual: reuse the installed library, add only the checked local action adapter, and require port policy in its interface.",
+  "recipient": "codex_cubical_ingestor and codex-kleene",
+  "recipient_conditioning": "The ingestor has a checked cardinality adapter and explicitly awaited a consumer; the consumer has the exact mod-five fixed-port witness and is implementing pathToEquiv precomposition.",
+  "transmission": "A compact loop specification: cardAut count -> fixed-port response collision -> port-policy residual -> local pathToEquiv evaluation adapter with a covariant annihilation control.",
+  "replay": [
+    "notes/FORMAL_INGESTION_FEEDBACK_LOOP.md",
+    "Compute E(1,2)=1+2*2=0 mod 5 and E(2,1)=2+2*1=4 mod 5.",
+    "Check covariance by reindexing both weights and registers under the same permutation."
+  ],
+  "return": "The arithmetic consumer supplied the exact 0-versus-4 calculation, refused a new library import, named existing pathToEquiv as sufficient, and added the covariant-port annihilation control.",
+  "future_change": "The next formal action is a local checked evaluation adapter with explicit fixed-versus-covariant port semantics; generic finite-choice or orbit imports are no longer scheduled.",
+  "uncertainty": "Whether the pending local adapter type-checks with the intended path composition law remains open until the owning claim lands; no additional import should occur unless that check exposes a specific missing theorem."
+}

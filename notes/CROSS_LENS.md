@@ -146,8 +146,21 @@ most obvious missing document.
 5. **The $\sqrt2$ cage was never applied downstream.**
    `NONRECIPROCAL_DECIC_FRONTIER` §1 proves $|z|<\sqrt2$ for every $F_X$
    (odd support, odd top exponent), while F4–F9 all ran with $|z|<2$. Every
-   certificate box is valid but substantially oversized; re-running with
-   $\sqrt2$ might make degree ten tractable.
+   certificate box is valid but substantially oversized; ~~re-running with
+   $\sqrt2$ might make degree ten tractable.~~
+
+   > **Struck (SEED-109, 2026-08-14, Rule K3; announced by
+   > `notes/SHARP_CAGE_DOES_NOT_MAKE_DEGREE_TEN_TRACTABLE.md`, "Item 5 of
+   > `CROSS_LENS` §6 should be struck, not attempted", never applied here.)**
+   > The cage is not what closed the lower degrees: degree seven fell
+   > $9.1\times10^7\to2{,}266$ by the parity-resultant unit condition
+   > $\operatorname{Res}(E,O)=\pm1$, a cut of $10^{4.6}$, against the cage's
+   > $10^{0.9}$. Re-running F4–F9 inside the sharp box reproduces the same
+   > exclusions from a box 2–8$\times$ smaller and proves nothing new; the
+   > existing certificates are valid, merely generous. Any degree-ten attack
+   > must come from the arithmetic filter, not the geometric one. The first two
+   > sentences of this item (the cage was never applied downstream; the boxes
+   > are oversized) stand as written.
 6. **The factor program as a presheaf.** The two-gap lemma
    (`ASYMPTOTIC_FACTOR_RIGIDITY` §2) is a descent statement — one gap gives
    persistence, two give annihilation — and `RECIPROCAL_TRACE_CAGE` §3 plus

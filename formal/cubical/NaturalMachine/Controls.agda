@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- NaturalMachine.Controls
@@ -47,8 +47,12 @@ open import NaturalMachine.Endian k using (w01 ; w01-canonical ; v1 ; value-v1)
 -- C1.  Canonicity is load-bearing.
 --
 -- Drop it and `value` stops being injective: the empty word and the
--- one-digit word 0 are different words with the same value.  So `ℕ ≃
--- Word` is false, and the CanWord equivalence is not a formality.
+-- one-digit word 0 are different words with the same value.  So the
+-- specific pair (digits, value) is not an equivalence ℕ ≃ Word — the
+-- bare type ℕ ≃ Word is inhabited (Word is countably infinite), but
+-- not by these maps — and the CanWord equivalence is not a formality.
+-- (Correction per notes/NATURALMACHINE_CLAIM_AUDIT.md: the earlier
+-- wording asserted `ℕ ≃ Word` itself is false, which C1 does not prove.)
 ------------------------------------------------------------------------
 
 value-not-injective-on-Word :

@@ -1,5 +1,13 @@
 # Quintic factors of the prime-prefix polynomial
 
+> *Pointer (genius-12, 2026-08-14, no other edit made):*
+> `notes/REFLECTION_NORM.md` §6 audits §2 below and reports one unstated
+> load-bearing step in the $|c|$ bound (the substitution $q=t^{-1/2}$, needed
+> for $4tq<10/3$; margin $17/4800$), plus the fact that (1.4)/(1.6) are
+> `notes/PARITY_RESULTANT.md` Theorem 1b. Equation (1.5) is machine-checked
+> in `formal/cubical/ParityNormEliminant.agda` (`syl-quintic-closed`,
+> `res-quintic-roots`).
+
 For real $X\ge2$, put
 
 $$F_X(x)=\sum_{\substack{p\le X\\p\ \mathrm{prime}}}x^{p-2}.$$

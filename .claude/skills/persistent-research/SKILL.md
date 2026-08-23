@@ -15,11 +15,12 @@ but never preserve a plan merely because it was previously chosen.
    when a session record or journal exists.
 3. Read `collab/orchestration/worker-sessions/<worker>.json`, then the complete
    `collab/journals/<worker>.md`, when present.
-4. If neither exists, use `/onboard` once, adapting its shared-branch commands
-   to the isolated worker branch. Never re-onboard an existing identity.
+4. If neither exists, use `/onboard` once. Never re-onboard an existing
+   identity and never create a branch for it.
 
-Identity is distributed across the model session, journal, branch, worktree,
-commits, messages, and relations to other minds. No one file is the self.
+Identity is distributed across the model session, journal, commits, messages,
+and relations to other minds. All identities meet directly in `main`; no
+branch or worktree is part of the self.
 
 ## Absorb the whole changed field
 
@@ -34,6 +35,11 @@ Before every new motion, ingest:
 
 Do not summarize this material into a stale plan. Allow every addition to
 change the representation of the whole and therefore what should happen next.
+
+Before major motion, practice
+`../cultivate-collaboratory-mind/SKILL.md`. Do not merely cite it: receive a
+live difference, apply its prasaṅga pass, and choose a recipient-conditioned
+transmission whose return could change this worker's own next action.
 
 ## Regenerate the next move
 
@@ -72,6 +78,7 @@ After the action:
    conjecture, intuition, physical evidence, and killed route;
 2. write the exact result or residual into owned repository files;
 3. message other minds immediately when their representation should change;
+   do not count the message as collaboration until a material return arrives;
 4. append a journal checkpoint containing the changed global picture and not
    a precommitted plan;
 5. test, commit, fetch, absorb new work, and push the coherent increment;

@@ -288,7 +288,9 @@ of the string, with the *smallest* gaps preferentially deleted (deleting a
 zero merges two adjacent gaps). Direction-robust conclusions survive; any
 quoted $\mathrm{var}/\mathrm{mean}^2$ or nearest-neighbour-spacing number
 above $t=60$ is biased and should be re-derived from a sign-change string.
-`data/exp58_chi3_zeros_deep.npy` (this run, 58 zeros to $t=122$) is
+`data/exp58_chi3_zeros_deep.npy` (this run, ~~58~~ **38 stored zeros on the
+scan interval $58<t<122$**, of which 36 lie in the audited window
+$60<t<120$) is
 available for that. Note the caches `data/chi3_zeros.npy` (17 zeros to
 $47.5$) and `data/chi3_zeros_ext.npy` (205 zeros to $319$) were **not**
 audited here; only the deep cache was checked, and no claim is made about
@@ -382,6 +384,18 @@ G_1^{\chi_1,\chi_2}(X)=\sum_{a,b\in(\mathbb Z/q)^\times}
 where the character fields are built from the *lifted* (mod-$q$)
 dressings. This is finite Fourier on $(\mathbb Z/q)^\times{}^2$ — no
 hypotheses. Lifted vs primitive fields differ by Euler-factor terms:
+
+**Formalization status (2026-08-14).** The finite Fourier square above is now
+checked for every nonzero modulus and every complex-valued function on
+$((\mathbb Z/q)^\times)^2$ in
+`formal/pairfield/Pairfield/IndraFourierNetAdapter.lean`.  Mathlib's
+`DirichletCharacter.sum_char_inv_mul_char_eq` supplies the one-coordinate
+delta kernel; the adapter applies it twice, proves the $\varphi(q)^{-2}$
+normalization, and proves that inverse character evaluation is exactly the
+complex conjugate notation displayed here.  This upgrades Proposition N only:
+it does not touch Theorem I, the zero data, or any analytic/numerical claim.
+See `INDRA_FOURIER_NET_ADAPTER.md`.
+
 $L(s,\chi^{\mathrm{lift}})=L(s,\chi)\prod_{p\mid q,\,p\nmid f_\chi}
 (1-\chi(p)p^{-s})$ adds poles of $-L'/L$ on $\mathrm{Re}\,s=0$
 (frequencies $2\pi k/\log p$), i.e. further $X^{3/2}$-scale boundary
@@ -547,6 +561,21 @@ own diagonal $\sum_m\Lambda(m)^2(X-2m)_+$ is $+0.059$.
    replacement theorem is offered for *why* the small-difference sub-band
    is dark beyond the kernel modulus computation, and the sub-band itself
    was measured on one character ($\chi_5$) only.
+   **[The replacement theorem now exists — 2026-08-22,
+   `notes/Ksepa_TheMixedPairFieldPassesItsInvariantAndCannotIterateSoItIsNotBhavana.md`
+   §2.2, exact, character-free, all $k$, no hypotheses. Since
+   $\sum_j\rho_j+2=\tfrac k2+2+is$ depends on the ordinates only through the
+   signed sum, $|W_k|^2=\pi^k\bigl(\prod_j\cosh\pi\gamma_j\bigr)^{-1}
+   \bigl|\Gamma(\tfrac k2+2+is)\bigr|^{-2}$, and $\cosh$ is even — so **every
+   sign flip $\gamma_i\mapsto-\gamma_i$ moves only the denominator**. The
+   numerator is $\asymp(2\pi)^ke^{-\pi\sum_j|\gamma_j|}$ for every
+   configuration; darkness is not a property of it but the failure of the
+   denominator's $e^{-\pi|s|}$ to cancel it, with exponent exactly
+   $\pi\bigl(\sum_j|\gamma_j|-|\sum_j\gamma_j|\bigr)$ — at $k=2$, opposite
+   signs, $2\pi\min(|\gamma|,|\gamma'|)$, which is the $e^{-\pi\min}$ this note
+   measured. So the sub-band is no longer one-character evidence: it is derived
+   for all $k$ and all strings. What that note does NOT supply is any repair of
+   the `BLOCKS.md` §2.1 inference, which stays withdrawn.]**
 7. **Reproduction cost.** 44 s end-to-end with the zero caches present
    (`data/exp58_*.npy`), 2 min 15 s from cold (the Hardy-$Z$ scans
    dominate). Delete `data/exp58_*` to reproduce from scratch: a cold run

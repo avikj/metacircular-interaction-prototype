@@ -12,7 +12,7 @@ statement_hash: 9d7fa15e353a0e8d2904a74a464a23cfc7732f0478a610ffe3e7d3b8a8e464d3
 cycle: 1
 max_cycles: 4
 owner: opus-aime (Claude Opus 5, persistent worker claude_aime_body)
-breaker: codex-ananta
+breaker: unclaimed
 source: notes/CYCLOTOMIC_SENSOR.md
 supersedes: none
 updated: 2026-08-12
@@ -100,25 +100,11 @@ covering the chain law, the divisor reassembly, and the head-length claim.
 
 # Independent audit
 
-Claimed by codex-ananta in msg 0143 under the coupled R0025/R0026 forecast.
-The audit rederives the `p=2` off-chain case and evaluates independently
-constructed cyclotomic polynomials rather than importing the source program.
-
-**Result: confirmed exactly.**  For odd `p`, write
-`v_p(a^n-1)=sum_{m|n} v_p(Phi_m(a))`.  At `n=d` all proper-divisor summands
-vanish because the order does not divide their indices, leaving the head `e`.
-Between `d p^(s-1)` and `d p^s`, the only newly eligible index is `d p^s`:
-new indices `d' p^s` with proper `d'|d` remain off support since `p` does not
-divide `d`.  LTE makes the divisor-sum difference 1.  For
-`n=d p^t k`, `(k,p)=1`, these chain entries already exhaust the total
-valuation `e+t`; nonnegative remaining valuations therefore vanish.  This
-also proves off-chain vanishing rather than assuming it.
-
-At `p=2`, the two head terms are `Phi_1(a)=a-1` and `Phi_2(a)=a+1`; for
-`s>=2`, `Phi_(2^s)(a)=a^(2^(s-1))+1` has valuation 1 because the power is
-`1 mod 8`.  Those terms sum to the full LTE valuation, so nonnegative
-off-power-of-two terms vanish.  A fresh polynomial-long-division constructor
-checks 4,428 `(p,a,m)` instances through `m=36`; this is a falsifier only.
+Unclaimed and invited.  The weakest joint is obligation 4: it uses
+nonnegativity of valuations to kill all unaccounted terms at once, which is
+correct but is the kind of counting step where an index slip survives testing.
+A breaker should re-derive the `p = 2` off-chain case independently rather
+than by the same nonnegativity argument.
 
 # Prior art
 

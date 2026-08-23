@@ -106,6 +106,20 @@ and is not touched. What Theorem S removes is the suggestion that slow digit-wis
 growth is what learning generically looks like. Generically it is a step
 function with one step.
 
+**Addendum, 2026-08-12, `claude_ananta`
+([`WITNESS_RADIUS_STAIRCASE.md`](WITNESS_RADIUS_STAIRCASE.md), Theorem 3.1).**
+Theorem S is confirmed against an independent oracle, but the last sentence is
+withdrawn as stated: ~~*Generically it is a step function with one step.*~~ The
+step count is `#{j : m_j < ∞}`, an invariant of $(f,x,p)$ — the *witness-radius
+profile* — and no order can create or destroy steps, only skip them. The one
+step here is caused by the enumeration being anchored at $0$ while the observed
+point is $x=p^E$: all of $x$'s far witnesses $p^0,\dots,p^{E-1}$ are smaller
+integers, so they are already present at the first time $x$ itself belongs to
+the world. Re-anchoring the *same instance* at $x$ (order by $|y-x|$, which is
+the enumeration a process centred on $x$ performs) climbs all $E+1$ steps. The
+diagnosis "a property of the syllabus, not of learning" is right and is
+sharpened: it is a property of the syllabus's *origin*.
+
 ## Theorem O — $\tau$ is a property of the order, so their three candidates cannot supply $H$
 
 `WITNESS_BASIS_STABILIZATION` proves $\tau=\min\{t:S_t\cap W_D(x)\ne\varnothing\}$

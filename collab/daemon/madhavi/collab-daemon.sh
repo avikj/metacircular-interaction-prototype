@@ -1,7 +1,9 @@
 #!/bin/bash
 set -u
 
-ROOT="${MATH_COLLAB_ROOT:-/private/tmp/avikj-math-readme}"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+DEFAULT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+ROOT="${MATH_COLLAB_ROOT:-$DEFAULT_ROOT}"
 CONFIG="${MATH_COLLAB_CONFIG:-$ROOT/collab/daemon/madhavi/config.local}"
 RUNTIME="${MATH_COLLAB_RUNTIME:-$ROOT/collab/daemon/madhavi/runtime}"
 LOG="$RUNTIME/daemon.log"
@@ -25,8 +27,7 @@ if ! git -C "$ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 REMOTE=origin
-BRANCH=""
-PUSH_MAIN=0
+BRANCH=main
 OWNED_PATHS=("collab/daemon/madhavi" "collab/messages/madhavi")
 if [ -f "$CONFIG" ]; then
   # This is trusted local configuration and may define the variables above.
@@ -35,11 +36,9 @@ if [ -f "$CONFIG" ]; then
 fi
 
 cd "$ROOT" || exit 1
-if [ -z "$BRANCH" ]; then
-  BRANCH="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
-fi
-if [ -z "$BRANCH" ]; then
-  log "fatal: detached HEAD"
+current_branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+if [ "$current_branch" != main ] || [ "$BRANCH" != main ]; then
+  log "fatal: the collaboration daemon runs only from main"
   exit 1
 fi
 
@@ -61,7 +60,7 @@ Automatic collaboration cycle stopped without overwriting the worktree.
 
 Reason: $reason
 
-Branch: $BRANCH
+Branch: main
 
 Resolve manually; the daemon never rebases, resets, force-pushes, or merges a
 dirty/diverged worktree.
@@ -147,16 +146,8 @@ if [ "$(git rev-parse "$REMOTE/$BRANCH")" != "$(git merge-base HEAD "$REMOTE/$BR
   conflict_message "remote advanced before push"
   exit 0
 fi
-git push "$REMOTE" "HEAD:$BRANCH" >> "$LOG" 2>&1 || {
+git push "$REMOTE" HEAD:main >> "$LOG" 2>&1 || {
   conflict_message "push rejected"
   exit 1
 }
-log "pushed $BRANCH"
-
-if [ "$PUSH_MAIN" = 1 ]; then
-  git push "$REMOTE" "HEAD:main" >> "$LOG" 2>&1 || {
-    conflict_message "main fast-forward push rejected"
-    exit 1
-  }
-  log "fast-forwarded main"
-fi
+log "pushed main"

@@ -66,6 +66,43 @@ suffices that $\sigma_k-\sigma_k'$ be annihilated at that resolution — the
 moment-matched sub-resolution clusters of Theorem K0 are exactly such
 differences, with mismatch $O((\delta L)^{2p-1})$.
 
+> **STRUCK 2026-08-22 — B2 is FALSE AS STATED, and the retraction has been
+> sitting in three other files since 2026-08-20 without ever reaching this
+> one.** `METHOD.md` §3 item 6 and `BARRIER_SMOOTH_TERM.md` §5 both record it;
+> `OPEN_PROBLEMS_WE_TOUCH.md` :508 repeats it; `SamagraDarsana…md` :505 still
+> presents B2 unmarked as "the fibre, named". The wrong version is the two
+> sentences above and is left in place rather than erased.
+>
+> **Why it fails.** B2 concludes "identical values of every span-$L$ windowed
+> observable" from agreement of the *spectral* pairing alone. But B1's own
+> boxed identity has three terms, $\langle\sigma_k,\widehat w\rangle+
+> \langle w,\mathrm{Smooth}\rangle+\langle w,E\rangle$, and the other two are
+> **configuration-dependent**: `BARRIER_ERROR_WINDOW.md` Theorem U1 gives
+> $E(u)=k\,D_a(0)e^{-u/2}\mathcal Z_{k-1}(u)+O(e^{-u})$, whose leading term is
+> the $(k-1)$-fold wave layer of the *same* configuration, and
+> `BARRIER_SMOOTH_TERM.md` shows $\mathrm{Smooth}$ is a graded ladder that for
+> $a=\Lambda$, $k\ge2$ **exceeds** $\mathcal Z_k$ by $X^{(k-1)/2}$. Two
+> configurations annihilated at resolution $2\pi/L$ in arity $k$ therefore
+> agree on the first term and need not agree on the other two.
+>
+> **The corrected form is B2′** (`BARRIER_SMOOTH_TERM.md` §5): every
+> *lower-arity* layer must also match, at precision $\epsilon X^{-r/2}$. B2′
+> is strictly stronger and is not implied by the sub-resolution moment
+> matching B2 invokes.
+>
+> **And the residual gap is not closable by matching harder** — see
+> `formal/cubical/Asanna_TheNearIsNotTheEqualAndTheBarrierDiesInTheGap.agda`
+> (checked, `--cubical --safe`, 2026-08-22). B2's conclusion is *identical
+> values*, i.e. exact equality, which is what the corpus's general
+> obstruction theorem (`Vaidharmya`, generalising
+> `NaturalMachine.QuotientFiberLaw`) requires and all it requires. What B2
+> can actually deliver is agreement **to within** the mismatch
+> $O((\delta L)^{2p-1})$ — close, not equal — and that module's §४ exhibits a
+> one-query counterexample showing that near-blindness plus B3's arbitrary
+> post-processing obstructs **nothing**. So B2 must be repaired to exact
+> agreement (B2′), or B3 must acquire a modulus on $\Phi$; there is no third
+> option, and B3 as written rules out the second by construction.
+
 **Proposition B3 (nonlinear closure).** Any $O=\Phi(Q_{w_1},\dots,Q_{w_r})$
 with arbitrary — even non-computable — post-processing $\Phi$ is a function of
 $r$ numbers each of which factors as in B1. Hence the entire class
@@ -111,9 +148,26 @@ this precisely is the contribution; solving it is open.
 
 **Barrier corollary (= Theorem K restated).** A WL observable determines
 correlation-grade information at height $T$ only if the blur resolves the
-pair atoms: $L\gtrsim\kappa\,2\pi\rho_2(2T)$, i.e. $X\sim\exp(cT\log^2T)$.
+pair atoms: $L\gtrsim\kappa\,2\pi\rho_2(2T)$, i.e. ~~$X\sim\exp(cT\log^2T)$~~.
 Within WL, the depth law is not an artifact of our methods — it is the
 information geometry of the class.
+
+> **STRUCK 2026-08-22 — this note was the inheriting downstream and was never
+> repaired.** The exponent above is Theorem K(b)'s, and `HOLOGRAM.md` §7 says
+> in those words that Theorem K′ *"supersedes Theorem K(b)'s
+> $\exp(cT\log^2T)$"*: the fixed precision floor $\varepsilon\approx10^{-3}$ was
+> an empirical input, Lemma N derives it as $X^{-1/2}$ — with its
+> $X$-dependence — and the corrected law is
+> $$X_{\text{needed}}(T)=\exp\bigl(\Theta(T^{1/2}\log^{3/2}T)\bigr).$$
+> `HOLOGRAM.md` §5 sharpens this further for *differences* (as against sums),
+> where the atom amplitude $\log A\approx-\pi T$ gives
+> $X^{\text{diff}}_{\text{needed}}(T)=\exp(\Theta(T))$ — so the correct figure
+> for the correlation-grade content this corollary is about is
+> $\exp(\Theta(T))$, strictly between the two.
+> `CROSS_LENS.md` §7 item 3 logged this site on 2026-08-21 ("`BARRIER` §1
+> inherits it") and nobody carried the correction here; `HOLOGRAM.md` §1 was
+> marked the same day and this file was not. The line is struck rather than
+> rewritten because the retraction is the content.
 
 ## 2. The three presentations, and the measured visibility table
 
@@ -123,7 +177,7 @@ presentations, and the results align exactly:
 | presentation | probe class | measured face | what it sees | blind spot |
 |---|---|---|---|---|
 | **finite-multiplicative** (divisibility) | SIEVE$_d$ (sibling), Ramanujan/BC blocks | exp21/24 fingerprints | singular series, character sectors (one literal deep) | **parity-protected**: $\lambda,\mu$ exactly invisible (gauge no-go) |
-| **additive-windowed** | WL$_d(L,r)$ (this note) | the whole phase-side corpus | the blurred spectral measure: locations cheap, layer structure, amplitudes | **bulk-blind**: correlations cost $\exp(cT\log^2T)$ (Theorem K) |
+| **additive-windowed** | WL$_d(L,r)$ (this note) | the whole phase-side corpus | the blurred spectral measure: locations cheap, layer structure, amplitudes | **bulk-blind**: correlations cost ~~$\exp(cT\log^2T)$~~ $\exp(\Theta(T))$ (Theorem K′ + `HOLOGRAM.md` §5; struck 2026-08-22, see §1) |
 | **global-multiplicative** | functional-equation access: $a(np)=a(n)a(p)$ used as a *constraint*, not a value | Tao's entropy decrement (log-Chowla) | the one known access to Chowla-grade (bulk) content | quantitatively weak so far (logarithmic averaging only) |
 
 The alignment is the point: **the sieve parity barrier, the Theorem-K depth
@@ -184,3 +238,58 @@ any arithmetic sum.
 `HOLOGRAM.md` §5's span-8.5 prediction stands; a confirmed reading at
 $X\sim10^8$ of the predicted new lines would be the third dataset on the
 capacity curve.
+
+---
+
+## Appendix (appended 2026-08-18): the barrier problem is a two-witness problem
+
+The precise form stated above — *"Exhibit, or rule out, a **pair** of
+admissible zero configurations indistinguishable to all
+$\mathrm{WL}_d(L,\mathrm{poly})$ observables but with different
+pair-correlation statistics"* — reached the number **2** from the
+mathematics. `NaturalMachine.BarrierIsTwoWitnesses` says why it is 2, and
+why it can be neither 1 nor more, using only the structure B3 already
+establishes.
+
+**B3 is a probe statement.** "Any $O=\Phi(Q_{w_1},\dots,Q_{w_r})$ with
+arbitrary — even non-computable — post-processing $\Phi$ … factors
+through the blurred measure" says exactly that the decoders are the
+post-processings and what they may read is the blur. Formally, with
+`blur : Config → Blur` and `stat : Config → Stat`:
+
+```agda
+Recovers Φ   = (c : Config) → Φ (blur c) ≡ stat c
+BarrierHolds = ¬ Σ[ Φ ∈ (Blur → Stat) ] Recovers Φ
+```
+
+Three facts, checked, over abstract `Config`/`Blur`/`Stat` — which is the
+right generality precisely because B3 lets $\Phi$ be arbitrary:
+
+1. **One configuration is never enough**, with no hypothesis whatever.
+   `one-config-never-suffices` — the constant post-processing
+   `λ _ → stat c` answers any single configuration, however extreme. So a
+   programme of the form *construct a single spectrum with property P* is
+   looking at the wrong kind of object. This is the methodological
+   content.
+2. **A pair is the whole content, not evidence for it.**
+   `barrier-from-a-pair` — two configurations the blur identifies and the
+   statistic separates kill *every* $\Phi$ at once, which is what B3's
+   "arbitrary, even non-computable" is there to make meaningful.
+   `barrier-witness-number-2` gives exactly 2.
+3. **On a finite family with no such pair, the barrier provably fails.**
+   `no-pair-on-a-family` (needs comparable blur values) — a
+   post-processing answering the whole family is constructed by table
+   lookup. So the search cannot be narrowed to a family already checked
+   pairwise.
+
+**Nothing analytic is claimed.** No pair is asserted to exist, nothing
+about $\zeta$, admissibility, the counting law, the functional equation,
+$L$, or resolution. This establishes strictly less than B3 — it is a
+statement about the shape of the target, confirming from the other side
+this note's own ledger that B1–B3 do not establish a barrier against
+inferring $\zeta$'s correlations. B3 supplies the probe structure; the
+probe structure is what makes the cost exactly two.
+
+The general theory is in `notes/THE_WITNESS_NUMBER.md`; the relevant
+theorem is that over decoders reading a discrete probe, an obstruction of
+this shape costs 2 whenever it costs anything finite.

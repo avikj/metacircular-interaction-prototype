@@ -1,0 +1,814 @@
+==============================================================
+लेखा · LEKHĀ — the census of records
+==============================================================
+  .agda files scanned (formal/cubical + punaragamana/src)   : 935
+  `record … where` declarations found                       : 212
+  ... with a `field` section                                : 212
+  ... with NO `field` line (fieldless, or fields elsewhere) : 0
+  field declarations parsed                                 : 804
+  ... of which implicit {x : A} or instance ⦃ x : A ⦄       : 0
+  field declarations the parser COULD NOT split at `:`      : 0
+  records with a field written on the `field` line itself   : 5
+  records nested inside a module/record (not column 0)      : 28
+  coinductive records                                       : 10
+  no-eta-equality records                                   : 0
+
+  BLIND SPOT, said rather than hidden: anonymous `record { … }`
+  EXPRESSIONS are not declarations and are not counted here; a record
+  inside a `where` block is counted only if its `record` keyword
+  survives the comment scan and its body is indented under it.
+
+==============================================================
+वाहकाकार · CARRIER-SHAPED — the cheap syntactic pass
+==============================================================
+  THE CRITERION IS WHICH SIDE OF  f a ≡ b  IS BOUND.
+     bind b :  Σ[ b ∈ B ] (f a ≡ b)  =  singl (f a).  Contractible
+               ALWAYS — no h-level hypothesis, arbitrary A and B.
+               The datum rides free.
+     bind a :  Σ[ a ∈ A ] (f a ≡ b)  =  the preimage.  Arbitrary.
+               Not free, and usually THE SUBJECT, not a defect.
+  A field whose type is `f (other fields) ≡ thisField` is bind-b, so
+  the list below is SETTLED BY SYNTAX; the Agda run that follows is a
+  confirmation and a check on this program, not the source of the
+  verdict.  A record PARAMETER is bind-a and is not a field: see the
+  bind-a section below.
+
+  records with a WITNESS field (a path mentioning a sibling) : 77
+  ... whose witness type is `L ≡ xⱼ` / `xⱼ ≡ L` for a field xⱼ
+      NOT occurring in L — i.e. a readable Carrier split      : 9
+  (syntax only.  A SHAPE, never a verdict; the verdict is below.)
+
+  Stage   [AchromaticToy:200]
+               Persp₁ : Type ℓ
+               Persp₂ : Type ℓ
+               Persp₃ : Type ℓ
+               certified : Persp₁ ≃ Persp₂
+               relation : Persp₂ → Persp₃ → Type ℓ
+               x₀ : Persp₂
+               y₀ : Persp₂
+               shadow : Persp₃
+               relX : relation x₀ shadow
+               relY : relation y₀ shadow
+      witness  torn : ¬ x₀ ≡ y₀
+      -> no readable split (witness relates two fields, or both sides move)
+  अंश-सत्ययन्त्र   [AmshaSatyayantra:63]
+               चल : ℕ → I → सूचना O
+      witness  साधुता : (f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → शुद्ध i o
+      witness  स्थैर्य : (n f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → चल (n + f) i ≡ उक्त o
+      -> no readable split (witness relates two fields, or both sides move)
+  Sol   [BhavanaGenerative:84]
+               coefA : R
+               coefB : R
+      witness  hasNorm : N D coefA coefB ≡ k
+      -> no readable split (witness relates two fields, or both sides move)
+  पत्र   [BhavanaKrida:107]
+               अङ्कः₁ : ℤ
+               अङ्कः₂ : ℤ
+      witness  नियमः : N D अङ्कः₁ अङ्कः₂ ≡ k
+      -> no readable split (witness relates two fields, or both sides move)
+  CostModel   [CachePathOrder:90]
+               potential : Cache A → ℕ
+               marginal : Cache A → Trace A → ℕ
+      witness  stepLaw : (K : Cache A) (P : Trace A) → potential K + marginal K P ≡ potential (install K P)
+      -> no readable split (witness relates two fields, or both sides move)
+  DosaLekha   [DosaLekha_TheWrittenDefectIsOnePairOneViewAndOneSeparation:108]
+               दृष्टि : A → V
+               वाम : A
+               दक्षिण : A
+      witness  अभेद : दृष्टि वाम ≡ दृष्टि दक्षिण
+      -> no readable split (witness relates two fields, or both sides move)
+  Tear   [EGBTear:119]
+               from : Jewel
+               to : Jewel
+               along : Weave from to
+               gap : ℕ
+      witness  parted : ¬ (trueCentre from ≡ trueCentre to)
+      witness  gapWitness : trueCentre to ≡ trueCentre from + gap
+      -> no readable split (witness relates two fields, or both sides move)
+  CoolingCountermodel   [FactoryVICoolingKill:132]
+               X : ℕ
+               a : ℕ
+               M : ℕ
+      witness  a>1 : (1 < a) ≡ true
+      witness  cube : a ^ 3 ≡ X
+      witness  Z0-nonzero : (0 < M) ≡ true
+      witness  Z0-large : (1 < M) ≡ true
+      witness  Z3-below-1 : (M < a ^ 3) ≡ true
+      witness  unitless : units a M ≡ 0
+      -> split: carried = X, witness = cube, map = a ^ 3
+  Intertwiner   [NaturalMachine.AbstractSpinNetworkKinematics:38]
+               map : X → Y
+      witness  equivariant : (g : ⟨ G ⟩) (x : X) → Action._▸_ B g (map x) ≡ map (Action._▸_ A g x)
+      -> no readable split (witness relates two fields, or both sides move)
+  Advance   [NaturalMachine.AdvanceGate:32]
+               tests : List T
+               obs : Obs X T
+               searchSep : Separates obs tests
+               from : Presentation
+               to : Presentation
+               bridge : Bridge from to
+               wHere : Work
+               wThere : Work
+      witness  usefulEscape : respond (just bridge) wHere wThere ≡ ↝
+               verified : Prov
+               boundary : Boundary
+      -> no readable split (witness relates two fields, or both sides move)
+  Rule   [NaturalMachine.Alopa_TheEngineNeverTouchesTheMeaning:95]
+               lhs : Term
+               rhs : Term
+      witness  प्रमाण : (ρ : Env) → eval ρ lhs ≡ eval ρ rhs
+      -> no readable split (witness relates two fields, or both sides move)
+  WithConstruction   [NaturalMachine.ArityOfRepair:300]
+               Constr : Type ℓ
+               attach : Datum S → Constr
+               ev : Constr → ℕ
+      witness  exact : (x : Datum S) → ev (attach x) ≡ mag S x
+      -> no readable split (witness relates two fields, or both sides move)
+  FutureTransfer   [NaturalMachine.BGRadiusProjectionUnsafe:32]
+               action : BGAction
+      witness  reachesTarget : currentOutput (step state action) ≡ true
+      -> no readable split (witness relates two fields, or both sides move)
+  ObservationalClassCompiler   [NaturalMachine.CapabilityGraph:45]
+               Class : Type₀
+               classOf : (Fin n ≃ Fin n) → Class
+      witness  complete : (e f : Fin n ≃ Fin n) → (classOf e ≡ classOf f) ≃ (e ≈[ observation ] f)
+      -> no readable split (witness relates two fields, or both sides move)
+  ArithmeticPayload   [NaturalMachine.CompileBridge:633]
+               Datum : Shape → Type₀
+               Ans : Type₀
+               Store : Vocab → Type₀
+      witness  atom : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+               installP : {V : Vocab} → Store V → (d : Shape) (b : Tm) → Over V b → Datum d → Store (d ∷ V)
+               combine : Ans → Ans → Ans
+               sem : {V : Vocab} → Store V → (t : Tm) → Over V t → Ans
+      witness  sem-node : {V : Vocab} (st : Store V) (c : Shape) (u : Tm) → (hc : memb c V ≡ true) (hu : Over V u)
+      witness  unfold-preserves : {V : Vocab} (st : Store V) (d : Shape) (b : Tm) (bB : Over V b) (x : Datum d) (t : Tm) (
+               Cost : Type₀
+               vcost : {V : Vocab} → Store V → (t : Tm) → Over V t → Cost
+      witness  payload-separates : Σ[ V ∈ Vocab ] Σ[ t ∈ Tm ] Σ[ h ∈ Over V t ] Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] (¬ (se
+      -> no readable split (witness relates two fields, or both sides move)
+  ArithmeticPayloadOver   [NaturalMachine.CompileBridge:705]
+               Datum : Shape → Type₀
+               Store : Vocab → Type₀
+      witness  atom : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+               installP : {V : Vocab} → Store V → (d : Shape) (b : Tm) → Over V b → Datum d → Store (d ∷ V)
+               combine : Ans → Ans → Ans
+               sem : {V : Vocab} → Store V → (t : Tm) → Over V t → Ans
+      witness  sem-node : {V : Vocab} (st : Store V) (c : Shape) (u : Tm) → (hc : memb c V ≡ true) (hu : Over V u)
+      witness  unfold-preserves : {V : Vocab} (st : Store V) (d : Shape) (b : Tm) (bB : Over V b) (x : Datum d) (t : Tm) (
+               Cost : Type₀
+               vcost : {V : Vocab} → Store V → (t : Tm) → Over V t → Cost
+               carrier : {V : Vocab} → Store V → (t : Tm) → Over V t → ℕ
+               carrier-minimal : {V : Vocab} (st : Store V) (t : Tm) (h : Over V t) → MinCarrier M (sem st t h) (carrier 
+      witness  payload-separates : Σ[ V ∈ Vocab ] Σ[ t ∈ Tm ] Σ[ h ∈ Over V t ] Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] (¬ (se
+      -> no readable split (witness relates two fields, or both sides move)
+  BornDistribution₂   [NaturalMachine.ConstructiveBornNormalization:32]
+               denominator : ℕ
+               positive : Positive denominator
+               numerator₀ : ℕ
+               numerator₁ : ℕ
+      witness  sums-to-one : numerator₀ +ℕ numerator₁ ≡ denominator
+      -> no readable split (witness relates two fields, or both sides move)
+  ActionSimulation   [NaturalMachine.ContextCloneEquivalence:50]
+               compileAction : A → List B
+      witness  realizesAction : (state : X) (action : A) → FB.run targetStep state (compileAction action) ≡ sourceStep s
+      -> no readable split (witness relates two fields, or both sides move)
+  NativeOperation   [NaturalMachine.ControlledGrammar:11]
+               source : Tm
+               target : Tm
+               checked : Derivation source target
+               Control : Tm → Type₀
+      witness  control-sound : {t : Tm} → Control t → t ≡ source
+      -> no readable split (witness relates two fields, or both sides move)
+  Argmin   [NaturalMachine.DSOMinPlusFinite:187]
+               witness : Ix n
+      witness  realizes : bellman R V x ≡ R x witness ⊗ V witness
+      -> no readable split (witness relates two fields, or both sides move)
+  SaturatedMode   [NaturalMachine.DSONucleusFinite:51]
+               left : Bool → ℕ
+               right : Bool → ℕ
+               sound : (a c : Bool) → K a c ≤ (left a + right c)
+      witness  row-tight : (a : Bool) → Σ Bool (λ c → K a c ≡ left a + right c)
+      witness  col-tight : (c : Bool) → Σ Bool (λ a → K a c ≡ left a + right c)
+      -> no readable split (witness relates two fields, or both sides move)
+  DatumSensitivePayloadOver   [NaturalMachine.DatumSensitivePayload:22]
+               Datum : Shape → Type₀
+               Store : Vocab → Type₀
+      witness  atom : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+               installP : {V : Vocab} → Store V → (d : Shape) (b : Tm) → Over V b → Datum d → Store (d ∷ V)
+               combine : Ans → Ans → Ans
+               sem : {V : Vocab} → Store V → (t : Tm) → Over V t → Ans
+      witness  sem-node : {V : Vocab} (st : Store V) (c : Shape) (u : Tm) → (hc : memb c V ≡ true) (hu : Over V u)
+               Realizes : {V : Vocab} → Store V → (d : Shape) (b : Tm) → Over V b → Datum d → Type₀
+      witness  unfold-preserves : {V : Vocab} (st : Store V) (d : Shape) (b : Tm) (bB : Over V b) (x : Datum d) → Realizes
+               Cost : Type₀
+               vcost : {V : Vocab} → Store V → (t : Tm) → Over V t → Cost
+               carrier : {V : Vocab} → Store V → (t : Tm) → Over V t → ℕ
+               carrier-minimal : {V : Vocab} (st : Store V) (t : Tm) (h : Over V t) → MinCarrier M (sem st t h) (carrier 
+      witness  payload-separates : Σ[ V ∈ Vocab ] Σ[ t ∈ Tm ] Σ[ h ∈ Over V t ] Σ[ st ∈ Store V ] Σ[ st' ∈ Store V ] ¬ (sem
+      -> no readable split (witness relates two fields, or both sides move)
+  KernelCertificate   [NaturalMachine.DescentObstructionUnified:308]
+               left : A
+               right : A
+               related : R left right
+      witness  separate : ¬ (c left ≡ c right)
+      -> no readable split (witness relates two fields, or both sides move)
+  ImageCertificate   [NaturalMachine.DescentObstructionUnified:316]
+               point : Y
+      witness  present : Σ[ x′ ∈ X′ ] (r′ x′ ≡ point)
+      witness  absent : ¬ (Σ[ x ∈ X ] (r x ≡ point))
+      -> no readable split (witness relates two fields, or both sides move)
+  FactorState   [NaturalMachine.DiagonalEndpoint:22]
+               factor : ℕ
+      witness  gap : (factor ≡ 1) ⊎ (m⋆ ≤ factor)
+      -> no readable split (witness relates two fields, or both sides move)
+  Separator   [NaturalMachine.EndogenousHorizon:111]
+               below : List ℕ
+               good : ℕ
+               bad : ℕ
+      witness  blind : obs below good ≡ obs below bad
+      -> no readable split (witness relates two fields, or both sides move)
+  Compression   [NaturalMachine.ExcursionReturn:77]
+               _⊕_ : Time → Time → Time
+               T : Time → ⟨ R' ⟩
+      witness  T-hom : (t s : Time) → T t · T s ≡ T (t ⊕ s)
+               incl : ⟨ R' ⟩
+               proj : ⟨ R' ⟩
+      witness  retract : proj · incl ≡ 1r
+      -> no readable split (witness relates two fields, or both sides move)
+  FinBranch   [NaturalMachine.FillabilityCertificate:293]
+               enum : (n : ℕ) (d : Obs S n) → List (Filler S n d)
+      witness  cover : (n : ℕ) (d : Obs S n) (χ : Filler S n d) → Any (λ χ' → χ' ≡ χ) (enum n d)
+      -> no readable split (witness relates two fields, or both sides move)
+  CycleEvaluation   [NaturalMachine.FiniteGraphCohomology:43]
+               evaluate : C¹ → Bool
+      witness  additive : (x y : C¹) → evaluate (x +¹ y) ≡ evaluate x ⊕ evaluate y
+      witness  closed : (gauge : C⁰) → evaluate (δ⁰ gauge) ≡ false
+      -> no readable split (witness relates two fields, or both sides move)
+  Connection   [NaturalMachine.FiniteGraphHolonomyGroupoid:74]
+               hol : {x y : V} → x ≡ y → ⟨ G ⟩
+      witness  hol-id : (x : V) → hol (refl {x = x}) ≡ G.1g
+      witness  hol-comp : {x y z : V} (p : x ≡ y) (q : y ≡ z) → hol (p ∙ q) ≡ hol q G.· hol p
+      witness  hol-reverse : {x y : V} (p : x ≡ y) → hol (sym p) ≡ G.inv (hol p)
+      -> no readable split (witness relates two fields, or both sides move)
+  GaugeNatural   [NaturalMachine.FiniteGraphHolonomyGroupoid:122]
+               gauge : V → ⟨ G ⟩
+      witness  natural : {x y : V} (p : x ≡ y) → hol B p G.· gauge x ≡ gauge y G.· hol A p
+      -> no readable split (witness relates two fields, or both sides move)
+  Tear   [NaturalMachine.FiniteIndraWeave:77]
+               root : Root
+               target : Root
+      witness  failed : ¬ (view anchor target ≡ view root target)
+      -> no readable split (witness relates two fields, or both sides move)
+  FluxDerivation   [NaturalMachine.HolonomyFluxDerivation:28]
+               Carrier : Type ℓ
+               _⋆_ : Carrier → Carrier → Carrier
+               _⊕_ : Carrier → Carrier → Carrier
+               flux : Carrier → Carrier
+      witness  leibniz : (x y : Carrier) → flux (x ⋆ y) ≡ (flux x ⋆ y) ⊕ (x ⋆ flux y)
+      -> no readable split (witness relates two fields, or both sides move)
+  KnowledgeProcess   [NaturalMachine.KnowledgeProcess:68]
+               experiment : Exp.Experiment
+               middle : Amp.State₂
+               observedHistory : Exp.WeightedHistory
+      witness  observation-law : observedHistory ≡ Exp.runExperiment experiment middle
+               continuationCapability : Two.PairedSignature
+      witness  continuation-law : continuationCapability ≡ Two.pairedSignature middle
+               source : Mix.CornerState n
+               sourceCapability : Mix.Cofinal Witness source
+               certifiedTransition : Mix.RankedPath Witness source goal
+      -> split: carried = observedHistory, witness = observation-law, map = Exp.runExperiment experiment middle   (reversed)
+      -> split: carried = continuationCapability, witness = continuation-law, map = Two.pairedSignature middle   (reversed)
+  CoherentSection   [NaturalMachine.LawfulContinuationCore:130]
+               choose : (s : S) → Fiber F s
+      witness  coherent : {s t : S} (edge : Edge F s t) → equivFun (carry F edge) (choose s) ≡ choose t
+      -> no readable split (witness relates two fields, or both sides move)
+  Sadrsya   [NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava:474]
+               anuvada : Laghu → Pada
+      witness  pramana : (t : Laghu) → artha (anuvada t) ≡ artha' t
+      -> no readable split (witness relates two fields, or both sides move)
+  ObservableInterface   [NaturalMachine.ObservableInterface:31]
+               State : Type ℓs
+               Observation : Type ℓo
+               observe : State → Observation
+               Related : State → State → Type ℓr
+      witness  preserves : {left right : State} → Related left right → observe left ≡ observe right
+      -> no readable split (witness relates two fields, or both sides move)
+  Obstruction   [NaturalMachine.Obstruction:311]
+               residual : Shape
+               arg : Tm
+               argBase : Over V arg
+      witness  failed : memb residual V ≡ false
+               witness : Tm
+               witnessBase : Over V witness
+      -> no readable split (witness relates two fields, or both sides move)
+  Extension   [NaturalMachine.Obstruction:333]
+               name : Shape
+      witness  fresh : memb name V ≡ false
+               body : Tm
+               bodyBase : Over V body
+      -> no readable split (witness relates two fields, or both sides move)
+  SignedFluxTarget   [NaturalMachine.OrientedSurfaceFlux:49]
+               Carrier : Type ℓ
+               neutral : Carrier
+               _⊕_ : Carrier → Carrier → Carrier
+               negate : Carrier → Carrier
+               positive : Carrier → Carrier
+      witness  left-neutral : (x : Carrier) → neutral ⊕ x ≡ x
+      witness  right-neutral : (x : Carrier) → x ⊕ neutral ≡ x
+      witness  negate-neutral : negate neutral ≡ neutral
+      witness  negate-involutive : (x : Carrier) → negate (negate x) ≡ x
+      -> no readable split (witness relates two fields, or both sides move)
+  MorphismClass   [NaturalMachine.PayloadMorphism:272]
+               null : Tgt
+               Obj : Type₀
+               rank : Obj → ℕ
+               El : Obj → Type₀
+               zeroEl : (c : Obj) → El c
+               Hom : Obj → Type₀
+               app : {c : Obj} → Hom c → El c → Tgt
+      witness  app-null : {c : Obj} (φ : Hom c) → app φ (zeroEl c) ≡ null
+      witness  rank0-trivial : (c : Obj) → rank c ≡ 0 → (x : El c) → x ≡ zeroEl c
+      -> no readable split (witness relates two fields, or both sides move)
+  ChainHom   [NaturalMachine.PayloadMorphism:635]
+               φ1 : Fin (dim1 C) → ℤ
+               φ0 : Fin (dim0 C) → ℤ
+      witness  chain-law : (x : Fin (dim1 C) → ℤ) → δ ·ℤ dot x φ1 ≡ dot (∂app C x) φ0
+      -> no readable split (witness relates two fields, or both sides move)
+  ProperFactor   [NaturalMachine.RadiusNoGo:12]
+               divisor : ℕ
+               cofactor : ℕ
+               divisor-proper : 1 < divisor
+               cofactor-proper : 1 < cofactor
+      witness  factorization : divisor · cofactor ≡ n
+      -> no readable split (witness relates two fields, or both sides move)
+  CenteredRecipe   [NaturalMachine.RadiusNoGo:93]
+               left : ℕ → ℕ
+               right : ℕ → ℕ
+      witness  centered : (w : ℕ) → left w + right w ≡ w + w
+      -> no readable split (witness relates two fields, or both sides move)
+  CongruenceKill   [NaturalMachine.RadiusNoGo:109]
+               modulus : ℕ
+               quotient : ℕ
+               modulus-proper : 1 < modulus
+               quotient-proper : 1 < quotient
+      witness  zero-congruence : modulus · quotient ≡ n
+      -> no readable split (witness relates two fields, or both sides move)
+  Reflection   [NaturalMachine.ReflectionAttachment:17]
+               reflect : A → A
+      witness  involutive : (x : A) → reflect (reflect x) ≡ x
+      -> no readable split (witness relates two fields, or both sides move)
+  Interaction   [NaturalMachine.RelationalProcessCore:58]
+               path : source ≡ target
+               before : Fact P source
+               after : Fact P target
+      witness  lawful : subst (Fact P) path before ≡ after
+      -> split: carried = after, witness = lawful, map = subst (Fact P) path before
+  RootedRepair   [NaturalMachine.RelationalProcessCore:274]
+               localFactSurvives : RelativeFact base
+               oldGlobalBlocked : ¬ GlobalFact
+               refinedGlobal : (r : RootedLocus) → RootedFact r
+      witness  refinedCoherent : {r r' : RootedLocus} (p : r ≡ r') → subst RootedFact p (refinedGlobal r) ≡ refinedGlobal
+      -> no readable split (witness relates two fields, or both sides move)
+  CertifiedRewrite   [NaturalMachine.SemanticCrystal:112]
+               transform : SemanticCrystal amplitudeChart → SemanticCrystal projectiveChart
+      witness  preservesDefect : (crystal : SemanticCrystal amplitudeChart) → measuredDefect (transform crystal) ≡ measur
+      witness  preservesNucleus : (crystal : SemanticCrystal amplitudeChart) → interface (transform crystal) ≡ interface c
+      witness  preservesObservation : (crystal : SemanticCrystal amplitudeChart) → observe projectiveChart (physicalState (tra
+      -> no readable split (witness relates two fields, or both sides move)
+  TwoLevelCollective   [NaturalMachine.SpectatorPaddingCollapse:19]
+               Unary : Type ℓu
+               Binary : Type ℓb
+               idU : Unary
+               _thenU_ : Unary → Unary → Unary
+               _thenB_ : Binary → Binary → Binary
+               _tensor_ : Unary → Unary → Binary
+      witness  unary-id-left : (u : Unary) → idU thenU u ≡ u
+      witness  unary-id-right : (u : Unary) → u thenU idU ≡ u
+      witness  interchange : (u v x y : Unary) → (u thenU v) tensor (x thenU y) ≡ (u tensor x) thenB (v tensor y)
+      witness  tensor-commutative : (u v : Unary) → u tensor v ≡ v tensor u
+      -> no readable split (witness relates two fields, or both sides move)
+  HasDiagonal   [NaturalMachine.TheDiagonalLemmaDischargesGoedelFix:104]
+               imp : Sent T → Sent T → Sent T
+               mp : (a b : Sent T) → Pf T (imp a b) → Pf T a → Pf T b
+               Form : Type ℓ
+               app : Form → Sent T → Sent T
+               fix : (φ : Form) → Σ[ G ∈ Sent T ] (Pf T (imp G (app φ G)) × Pf T (imp (app φ G) G))
+               negProv : Form
+      witness  negProv-is : (s : Sent T) → app negProv s ≡ neg T (prov T s)
+      -> no readable split (witness relates two fields, or both sides move)
+  CancellationTranslations   [NaturalMachine.TranslationPeakObservability:38]
+               State : Type ℓX
+               isSetState : isSet State
+               origin : State
+               translate : State → State → State
+      witness  self-cancels : (state : State) → translate state state ≡ origin
+      witness  cancel-reflects : (left right : State) → translate left right ≡ origin → left ≡ right
+      -> no readable split (witness relates two fields, or both sides move)
+  LocalCollision   [NaturalMachine.VacuityVerdict:38]
+               left : X
+               right : X
+               left-in : S left
+               right-in : S right
+      witness  same-fiber : q left ≡ q right
+      witness  separated : ¬ (f left ≡ f right)
+      -> no readable split (witness relates two fields, or both sides move)
+  AmbientCollision   [NaturalMachine.VacuityVerdict:47]
+               left : X
+               right : X
+      witness  same-fiber : q left ≡ q right
+      witness  separated : ¬ (f left ≡ f right)
+               outside : ¬ (S left × S right)
+      -> no readable split (witness relates two fields, or both sides move)
+  ScopedFactorization   [NaturalMachine.VacuityVerdict:56]
+               descend : Z → Y
+      witness  agrees : (x : X) → S x → descend (q x) ≡ f x
+      -> no readable split (witness relates two fields, or both sides move)
+  GlobalFactorization   [NaturalMachine.VacuityVerdict:62]
+               descend : Z → Y
+      witness  agrees : (x : X) → descend (q x) ≡ f x
+      -> no readable split (witness relates two fields, or both sides move)
+  विषयः   [Nirnaya_TheVerdictCannotDropItsWitness:105]
+               प्रथमः : E
+               शेषाः : List E
+               योग्यता : योग्य (प्रथमः ∷ शेषाः)
+      witness  शुद्धिः : सर्वे (λ e → वाम c e ≡ दक्षिण c e) (प्रथमः ∷ शेषाः)
+      -> no readable split (witness relates two fields, or both sides move)
+  अवक्तव्यम्   [Nirnaya_TheVerdictCannotDropItsWitness:148]
+               पूर्वः : निर्णयः c
+               अपरः : निर्णयः c
+      witness  विरोधः : ¬ (भङ्गः पूर्वः ≡ भङ्गः अपरः)
+               गर्भः : वाद
+      -> no readable split (witness relates two fields, or both sides move)
+  Carrier   [PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant:76]
+               base : A
+               carried : B
+      witness  witness : f base ≡ carried
+      -> split: carried = carried, witness = witness, map = f base
+  Carrier   [Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt:64]
+               base : A
+               carried : B
+      witness  witness : f base ≡ carried
+      -> split: carried = carried, witness = witness, map = f base
+  CensusBase   [Ratri.Nirdharita_Agda-Builtin-Nat_:16]
+               a : ℕ
+               M : ℕ
+      witness  a>1 : (1 < a) ≡ true
+      witness  Z0-nonzero : (0 < M) ≡ true
+      witness  Z0-large : (1 < M) ≡ true
+      witness  Z3-below-1 : (M < a ^ 3) ≡ true
+      witness  unitless : units a M ≡ 0
+      -> no readable split (witness relates two fields, or both sides move)
+  CensusBase   [Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA:21]
+               a : ℕ
+               M : ℕ
+      witness  a>1 : (1 < a) ≡ true
+      witness  Z0-nonzero : (0 < M) ≡ true
+      witness  Z0-large : (1 < M) ≡ true
+      witness  Z3-below-1 : (M < a ^ 3) ≡ true
+      witness  unitless : units a M ≡ 0
+      -> no readable split (witness relates two fields, or both sides move)
+  CensusBase   [Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA:21]
+               a : ℕ
+               M : ℕ
+      witness  a>1 : (1 < a) ≡ true
+      witness  Z0-nonzero : (0 < M) ≡ true
+      witness  Z0-large : (1 < M) ≡ true
+      witness  Z3-below-1 : (M < a ^ 3) ≡ true
+      witness  unitless : units a M ≡ 0
+      -> no readable split (witness relates two fields, or both sides move)
+  CensusBase   [Ratri.Nirdharita_Swarm-S09SmithKuttaka_:19]
+               u : R
+               ε : R
+               p : R
+               q : R
+               r : R
+               s : R
+      witness  uu : u · u ≡ 1r
+      witness  εε : ε · ε ≡ 1r
+      witness  dV : p · s - q · r ≡ ε
+      witness  eq2 : u · (a · q + m · s) ≡ 0r
+      -> no readable split (witness relates two fields, or both sides move)
+  CensusBase   [Ratri.Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB:24]
+               u : R
+               ε : R
+               p : R
+               q : R
+               r : R
+               s : R
+      witness  uu : u · u ≡ 1r
+      witness  εε : ε · ε ≡ 1r
+      witness  dV : p · s - q · r ≡ ε
+      witness  eq2 : u · (a · q + m · s) ≡ 0r
+      -> no readable split (witness relates two fields, or both sides move)
+  CensusBase   [Ratri.Nirdharita_Swarm-S09SmithKuttaka_NirdharanaPoneB_NirdharanaPoneB:24]
+               u : R
+               ε : R
+               p : R
+               q : R
+               r : R
+               s : R
+      witness  uu : u · u ≡ 1r
+      witness  εε : ε · ε ≡ 1r
+      witness  dV : p · s - q · r ≡ ε
+      witness  eq2 : u · (a · q + m · s) ≡ 0r
+      -> no readable split (witness relates two fields, or both sides move)
+  PhaseSpace   [ResponseCharacterKickback:76]
+               scale : Sign → S → S
+      witness  scale-plus : (x : S) → scale plus x ≡ x
+      witness  scale-mul : (a b : Sign) (x : S) → scale (a ·s b) x ≡ scale a (scale b x)
+      -> no readable split (witness relates two fields, or both sides move)
+  TranslationRepresentation   [ResponseCharacterKickback:83]
+               move : G → S → S
+      witness  move-unit : (x : S) → move e x ≡ x
+      witness  move-mul : (g h : G) (x : S) → move (g ∙ h) x ≡ move g (move h x)
+      witness  move-scale : (g : G) (a : Sign) (x : S) → move g (scale a x) ≡ scale a (move g x)
+      -> no readable split (witness relates two fields, or both sides move)
+  CleanKickback   [ResponseCharacterKickback:95]
+               response-state : S
+               phase : G → Sign
+      witness  eigen : (g : G) → move g response-state ≡ scale (phase g) response-state
+      witness  faithful-at : (a b : Sign) → scale a response-state ≡ scale b response-state → a ≡ b
+      -> no readable split (witness relates two fields, or both sides move)
+  Character   [ResponseCharacterKickback:110]
+               char : G → Sign
+      witness  char-unit : char e ≡ plus
+      witness  char-mul : (g h : G) → char (g ∙ h) ≡ char g ·s char h
+      -> no readable split (witness relates two fields, or both sides move)
+  सत्ययन्त्र   [Satyayantra:63]
+               चल : ℕ → I → सूचना O
+      witness  साधुता : (f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → शुद्ध i o
+      witness  स्थैर्य : (n f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → चल (n + f) i ≡ उक्त o
+      witness  परिपूर्णता : (i : I) → Σ[ f ∈ ℕ ] Σ[ o ∈ O ] (चल f i ≡ उक्त o)
+      -> no readable split (witness relates two fields, or both sides move)
+  Sl2Rep   [Sl2TensorProduct:279]
+               Ix : Type₀
+               eK : Op Ix
+               fK : Op Ix
+               hK : Op Ix
+      witness  he : (v : Mod Ix) → ⟪ ap hK , ap eK ⟫ v ≡ sca (pos 2) (ap eK v)
+      witness  hf : (v : Mod Ix) → ⟪ ap hK , ap fK ⟫ v ≡ sca (- pos 2) (ap fK v)
+      witness  ef : (v : Mod Ix) → ⟪ ap eK , ap fK ⟫ v ≡ ap hK v
+      -> no readable split (witness relates two fields, or both sides move)
+  AbGroupStr   [StagewiseCompositeB:429]
+               _+_ : G → G → G
+               zero : G
+               neg : G → G
+               assoc+ : (x y z : G) → x + (y + z) ≡ (x + y) + z
+      witness  rid : (x : G) → x + zero ≡ x
+      witness  rinv : (x : G) → x + neg x ≡ zero
+               comm+ : (x y : G) → x + y ≡ y + x
+      -> no readable split (witness relates two fields, or both sides move)
+  Cert   [Swarm.S09SmithKuttaka:77]
+               d : R
+               u : R
+               ε : R
+               p : R
+               q : R
+               r : R
+               s : R
+      witness  uu : u · u ≡ 1r
+      witness  εε : ε · ε ≡ 1r
+      witness  dV : p · s - q · r ≡ ε
+      witness  eq1 : u · (a · p + m · r) ≡ d
+      witness  eq2 : u · (a · q + m · s) ≡ 0r
+      -> split: carried = d, witness = eq1, map = u · (a · p + m · r)
+  विवेक-प्रमाण   [VivekaPramana_TheRemainderIsLawfulAndTheNetBeats:64]
+               सम : ℕ
+               वाम : ℕ
+               दक्षिण : ℕ
+      witness  प्रमाण : दक्षिण ≡ (सम + वाम)
+      -> split: carried = दक्षिण, witness = प्रमाण, map = (सम + वाम)   (reversed)
+  विवेक-प्रमाण   [VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal:71]
+               v : विवेक
+      witness  प्रमाण : v ≡ अवतरण (fst (उत्थान v)) (snd (उत्थान v))
+      -> no readable split (witness relates two fields, or both sides move)
+  Carrier   [Punaragamana.Carrier:67]
+               base : A
+               carried : B
+      witness  witness : f base ≡ carried
+      -> split: carried = carried, witness = witness, map = f base
+
+==============================================================
+पक्ष-बन्धः · BIND-A — parameters are INDICES, not fields
+==============================================================
+  A record parameter is the bound `a` side.  A record whose witness
+  relates a field to a PARAMETER is a level set: its fibre is the
+  preimage, arbitrary, and that is the SUBJECT of the module rather
+  than a defect in it.  Reporting these as failures would be wrong,
+  so they are reported here and excluded from the verdict tables.
+
+  records with parameters                         : 144
+  ... whose witness field mentions a parameter    : 31
+      अंश-सत्ययन्त्र            AmshaSatyayantra                            ((I O : Type) (शुद्ध : I → O → Type))
+          साधुता : (f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → शुद्ध i o
+          स्थैर्य : (n f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → चल (n + f) i ≡ उक्त o
+      Sol                       BhavanaGenerative                           ((D k : R))
+          hasNorm : N D coefA coefB ≡ k
+      पत्र                      BhavanaKrida                                ((D k : ℤ))
+          नियमः : N D अङ्कः₁ अङ्कः₂ ≡ k
+      CostModel                 CachePathOrder                              ((A : Type ℓ))
+          stepLaw : (K : Cache A) (P : Trace A) → potential K + marginal K P ≡ potential (install K 
+      WithConstruction          NaturalMachine.ArityOfRepair                ((S : QSlot ℓ))
+          exact : (x : Datum S) → ev (attach x) ≡ mag S x
+      FutureTransfer            NaturalMachine.BGRadiusProjectionUnsafe     ((state : BGCertificateState))
+          reachesTarget : currentOutput (step state action) ≡ true
+      ObservationalClassCompiler NaturalMachine.CapabilityGraph              ((n : ℕ) (observation : Fin n → ℕ))
+          complete : (e f : Fin n ≃ Fin n) → (classOf e ≡ classOf f) ≃ (e ≈[ observation ] f)
+      ArithmeticPayloadOver     NaturalMachine.CompileBridge                ((Ans : Type₀) (M : MorphismClass Ans))
+          atom : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+      DatumSensitivePayloadOver NaturalMachine.DatumSensitivePayload        ((Ans : Type₀) (M : MorphismClass Ans))
+          atom : {V : Vocab} → Store V → (s : Shape) → memb s V ≡ true → Ans
+      FactorState               NaturalMachine.DiagonalEndpoint             ((m⋆ : ℕ))
+          gap : (factor ≡ 1) ⊎ (m⋆ ≤ factor)
+      Compression               NaturalMachine.ExcursionReturn              ((R' : Ring ℓ) (Time : Type ℓ'))
+          T-hom : (t s : Time) → T t · T s ≡ T (t ⊕ s)
+      Connection                NaturalMachine.FiniteGraphHolonomyGroupoid  ((G : Group ℓg) (V : Type ℓv))
+          hol-id : (x : V) → hol (refl {x = x}) ≡ G.1g
+          hol-comp : {x y z : V} (p : x ≡ y) (q : y ≡ z) → hol (p ∙ q) ≡ hol q G.· hol p
+          hol-reverse : {x y : V} (p : x ≡ y) → hol (sym p) ≡ G.inv (hol p)
+      Obstruction               NaturalMachine.Obstruction                  ((V : Vocab))
+          failed : memb residual V ≡ false
+      Extension                 NaturalMachine.Obstruction                  ((V : Vocab))
+          fresh : memb name V ≡ false
+      ChainHom                  NaturalMachine.PayloadMorphism              ((δ : ℤ) (C : ChainCarrier))
+          chain-law : (x : Fin (dim1 C) → ℤ) → δ ·ℤ dot x φ1 ≡ dot (∂app C x) φ0
+      ProperFactor              NaturalMachine.RadiusNoGo                   ((n : ℕ))
+          factorization : divisor · cofactor ≡ n
+      CongruenceKill            NaturalMachine.RadiusNoGo                   ((n : ℕ))
+          zero-congruence : modulus · quotient ≡ n
+      Reflection                NaturalMachine.ReflectionAttachment         ((A : Type₀))
+          involutive : (x : A) → reflect (reflect x) ≡ x
+      HasDiagonal               NaturalMachine.TheDiagonalLemmaDischargesGoedelFix ((T : Theory ℓ))
+          negProv-is : (s : Sent T) → app negProv s ≡ neg T (prov T s)
+      LocalCollision            NaturalMachine.VacuityVerdict               ((S : Scope X) (q : X → Z) (f : X → Y))
+          same-fiber : q left ≡ q right
+          separated : ¬ (f left ≡ f right)
+      AmbientCollision          NaturalMachine.VacuityVerdict               ((S : Scope X) (q : X → Z) (f : X → Y))
+          same-fiber : q left ≡ q right
+          separated : ¬ (f left ≡ f right)
+      ScopedFactorization       NaturalMachine.VacuityVerdict               ((S : Scope X) (q : X → Z) (f : X → Y))
+          agrees : (x : X) → S x → descend (q x) ≡ f x
+      GlobalFactorization       NaturalMachine.VacuityVerdict               ((q : X → Z) (f : X → Y))
+          agrees : (x : X) → descend (q x) ≡ f x
+      विषयः                     Nirnaya_TheVerdictCannotDropItsWitness      ((c : वाद))
+          शुद्धिः : सर्वे (λ e → वाम c e ≡ दक्षिण c e) (प्रथमः ∷ शेषाः)
+      PhaseSpace                ResponseCharacterKickback                   ((S : Type₀))
+          scale-plus : (x : S) → scale plus x ≡ x
+          scale-mul : (a b : Sign) (x : S) → scale (a ·s b) x ≡ scale a (scale b x)
+      TranslationRepresentation ResponseCharacterKickback                   ((G S : Type₀) (_∙_ : G → G → G) (e : G) (P : PhaseSpace S))
+          move-unit : (x : S) → move e x ≡ x
+          move-mul : (g h : G) (x : S) → move (g ∙ h) x ≡ move g (move h x)
+          move-scale : (g : G) (a : Sign) (x : S) → move g (scale a x) ≡ scale a (move g x)
+      CleanKickback             ResponseCharacterKickback                   ((G S : Type₀) (_∙_ : G → G → G) (e : G) (P : PhaseSpace S) (R : TranslationRepresentation G S _∙_ e P))
+          eigen : (g : G) → move g response-state ≡ scale (phase g) response-state
+      Character                 ResponseCharacterKickback                   ((G : Type₀) (_∙_ : G → G → G) (e : G))
+          char-unit : char e ≡ plus
+          char-mul : (g h : G) → char (g ∙ h) ≡ char g ·s char h
+      सत्ययन्त्र                Satyayantra                                 ((I O : Type) (शुद्ध : I → O → Type))
+          साधुता : (f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → शुद्ध i o
+          स्थैर्य : (n f : ℕ) (i : I) (o : O) → चल f i ≡ उक्त o → चल (n + f) i ≡ उक्त o
+          परिपूर्णता : (i : I) → Σ[ f ∈ ℕ ] Σ[ o ∈ O ] (चल f i ≡ उक्त o)
+      AbGroupStr                StagewiseCompositeB                         ((G : Type ℓ))
+          rid : (x : G) → x + zero ≡ x
+          rinv : (x : G) → x + neg x ≡ zero
+      Cert                      Swarm.S09SmithKuttaka                       ((a m : R))
+          eq1 : u · (a · p + m · r) ≡ d
+          eq2 : u · (a · q + m · s) ≡ 0r
+
+==============================================================
+प्रमाण · THE PROBE — the kernel answers, one module per candidate
+==============================================================
+  Carrier splits found                     : 9
+  ... probeable (top-level, eta, Type, …)  : 3
+  ... skipped, with the reason             : 6
+        KnowledgeProcess [NaturalMachine.KnowledgeProcess] — nested (not a top-level record)
+        KnowledgeProcess [NaturalMachine.KnowledgeProcess] — nested (not a top-level record)
+        Interaction [NaturalMachine.RelationalProcessCore] — sort not Type: Type (ℓ-max ℓ ℓ')
+        Carrier [PunaragamanaVartula_TheDatumRidesTheLoopFreeExactlyWhenTheConsumerIsInvariant] — sort not Type: Type ℓ
+        Carrier [Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt] — sort not Type: Type ℓ
+        Carrier [Punaragamana.Carrier] — nested (not a top-level record)
+
+   CoolingCountermodel           FactoryVICoolingKill                          carried X / cube      GREEN   (control fails, as it must)
+   Cert                          Swarm.S09SmithKuttaka                         carried d / eq1       GREEN   (control fails, as it must)
+   विवेक-प्रमाण                  VivekaPramana_TheRemainderIsLawfulAndTheNetBe carried दक्षिण / प्रमाण GREEN   (control fails, as it must)
+
+==============================================================
+भेद · THE SEPARATING PAIR — the negative, equally mechanical
+==============================================================
+  records with NO witness field                    : 135
+  ... every field type known to the prober (ℕ/Bool): 12
+  ... NOT ATTEMPTED (unknown field type, nested,
+      coinductive, parameterised, …)               : 123
+  NOT ATTEMPTED is not a verdict of any kind.
+
+  THE FIBRE HAS THREE CASES, NOT TWO, AND `isContr` MERGES TWO OF
+  THEM.  EMPTY (नष्टि — no Carrier, no ua, nothing to transport),
+  EXACTLY ONE (free), MANY (a Carrier still exists with the extra
+  degrees of freedom recorded; the fibre is data).  A green here is
+  MANY: two inhabitants are exhibited, so the fibre is inhabited and
+  not a point.  THIS INSTRUMENT CANNOT CERTIFY EMPTY at all — it has
+  no emptiness prober — so EMPTY never appears below, and its absence
+  is a gap in the instrument, not a fact about the corpus.
+
+   UT                            EGBDetConservation                            field a               SEPARATED (not determined)
+   UT                            EGBDetConservation                            field b               SEPARATED (not determined)
+   UT                            EGBDetConservation                            field d               SEPARATED (not determined)
+   Jewel                         EGBRootedNet                                  field centre          SEPARATED (not determined)
+   Jewel                         EGBRootedNet                                  field radius          SEPARATED (not determined)
+   ℤ±                            KloostermanExponents                          field up              SEPARATED (not determined)
+   ℤ±                            KloostermanExponents                          field dn              SEPARATED (not determined)
+   Bounds                        NaturalMachine.ArityOfRepair                  field lo              SEPARATED (not determined)
+   Bounds                        NaturalMachine.ArityOfRepair                  field hi              SEPARATED (not determined)
+   Occupancy₄                    NaturalMachine.FiniteOccupancyChannelNoGo     field site₀           SEPARATED (not determined)
+   Occupancy₄                    NaturalMachine.FiniteOccupancyChannelNoGo     field site₁           SEPARATED (not determined)
+   Occupancy₄                    NaturalMachine.FiniteOccupancyChannelNoGo     field site₂           SEPARATED (not determined)
+   Occupancy₄                    NaturalMachine.FiniteOccupancyChannelNoGo     field site₃           SEPARATED (not determined)
+   LoopState                     NaturalMachine.MachineLoop                    field vocab           SEPARATED (not determined)
+   LoopState                     NaturalMachine.MachineLoop                    field horizon         SEPARATED (not determined)
+   LoopState                     NaturalMachine.MachineLoop                    field invented        SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificate             field x               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificate             field y               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificate             field z               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificate             field u               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificate             field v               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificate             field w               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificateMul          field x               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificateMul          field y               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificateMul          field z               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificateMul          field u               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificateMul          field v               SEPARATED (not determined)
+   Env                           NaturalMachine.RewriteCertificateMul          field w               SEPARATED (not determined)
+   CensusBase                    Ratri.Nirdharita_VivekaPramana_TheRemainderIs field सम              SEPARATED (not determined)
+   CensusBase                    Ratri.Nirdharita_VivekaPramana_TheRemainderIs field वाम             SEPARATED (not determined)
+   CensusBase                    Ratri.Nirdharita_VivekaPramana_TheRemainderIs field सम              SEPARATED (not determined)
+   CensusBase                    Ratri.Nirdharita_VivekaPramana_TheRemainderIs field वाम             SEPARATED (not determined)
+   CensusBase                    Ratri.Nirdharita_VivekaPramana_TheRemainderIs field सम              SEPARATED (not determined)
+   CensusBase                    Ratri.Nirdharita_VivekaPramana_TheRemainderIs field वाम             SEPARATED (not determined)
+   विवेक                         VivekaPramana_TheUpadhiIsCarriedAsAFieldSoThe field सम              SEPARATED (not determined)
+   विवेक                         VivekaPramana_TheUpadhiIsCarriedAsAFieldSoThe field वाम             SEPARATED (not determined)
+   विवेक                         VivekaPramana_TheUpadhiIsCarriedAsAFieldSoThe field दक्षिण          SEPARATED (not determined)
+
+==============================================================
+निर्धारक · THE ENUMERATED DETERMINER — NOT RUN
+==============================================================
+  Pass --determine to enumerate candidate maps L for fields that
+  have NO witness, and let the kernel decide each one.  It is off
+  by default because it spawns one Agda process per candidate.
+
+==============================================================
+वाहकानुक्त · THE CARRIER UNSAID — the actionable list
+==============================================================
+  Records the kernel has just confirmed are Carrier-shaped — the
+  field and its witness ride free, R ≃ (the rest) — whose own file
+  never states it: no `Carrier`, no `≃`, no `Iso`, no `ua` in the
+  module at all.  The equivalence is true, checked, and unwritten.
+  READ THE LIMIT: this is NOT the same claim as 'a determined
+  field with no witness'.  That claim is measurement 5's, below,
+  and it needs --determine; this section only says the equivalence
+  the record ALREADY carries is nowhere stated in its own module.
+
+  GREEN Carrier records whose module says nothing about it : 2
+      CoolingCountermodel         FactoryVICoolingKill                          carried X with witness cube
+      Cert                        Swarm.S09SmithKuttaka                         carried d with witness eq1
+
+==============================================================
+सारः · SUMMARY
+==============================================================
+  Carrier probes run                : 3
+    GREEN — fibre EXACTLY ONE, free : 3
+    MATH   RED (a real verdict, and it is the MERGED bucket:
+      EMPTY and MANY are not separated here) : 0
+    ELAB   RED (generator defect)   : 0
+    HOST   RED (toolchain, no verdict): 0
+  Separating-pair probes run        : 37
+    SEPARATED — fibre MANY, ≥2 points, NOT determined : 37
+    EMPTY (नष्टि)                    : not probeable by this tool
+    MATH   RED                      : 0
+    ELAB   RED                      : 0
+    HOST   RED                      : 0
+
+  HOST CHECKS COVER ONLY THE MODULES A PROBE NEEDED.  This is NOT a
+  corpus-wide toolchain audit: modules written against agda/cubical
+  v0.5 names (CakravalaBound's `solve`, VivekaPramana_TheUpadhi…'s
+  `isSetRetract`) fail under v0.9 and are simply not in this set
+  unless a candidate lived in them.
+  host modules checked              : 15
+  host modules that do NOT check under Agda 2.8.0 / cubical v0.9 : 0
+
+
+  निर्धारक (--determine) enumerated probes run  : 0
+    GREEN — DETERMINED, no witness in the record : 0
+    ... SUSPECT (control ALSO passed, NOT counted): 0
+    ... UNCONTROLLED (field type admits no designed
+        failure; NOT counted as a verdict)      : 0
+    MATH   RED (the candidate is NOT the map)    : 0
+    ELAB   RED (generator defect, NOT a verdict) : 0
+    HOST   RED (toolchain, NOT a verdict)        : 0
+    A DETERMINED FIELD THAT CARRIED NO WITNESS is exactly this list.
+    Zero here is a REFUSAL, not an absence of structure: it says the
+    enumerated grammar did not reach the map, and the grammar is NOT
+    widened until something sticks.
+
+  generated modules are in /var/folders/lz/v1w226_d4pgfsxpvrvf2mp580000gn/T//ratri/nirdharana
+  and nothing was written into the corpus.

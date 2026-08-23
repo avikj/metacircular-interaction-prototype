@@ -91,6 +91,29 @@ The root-counting, resultant, Rabin, Cohn, and finite factor-search ingredients
 are classical.  No novelty claim is made for the prime-prefix specialization;
 a targeted literature search has not yet been recorded for this exact theorem.
 
+**PRIOR-ART SWEEP 2026-08-14 — one is now recorded: RESOLVED-NO-MATCH for the
+degree-nine theorem** (search-summary/śabda grade; `WebSearch` works,
+`WebFetch` is EGRESS_BLOCKED on every host, so no source text was read).
+Nothing was located on the factorization of the prime-prefix polynomial
+$F_X(x)=\sum_{p\le X}x^{p-2}$ at any degree. The classical ingredients confirm:
+**Cohn's irreducibility theorem** — if a prime's base-$b$ expansion is
+$\sum a_ib^i$ then $\sum a_ix^i$ is irreducible over $\mathbb Q$, for every
+$b\ge2$ — is a real and much-generalized theorem, which is the nearest located
+neighbour of a "0–1 coefficients indexed by primes ⟹ factorization
+restriction" statement, but it constrains a polynomial built *from the digits
+of one prime*, not one *supported on the primes*, so it is a neighbour and not
+a match. Adjacent and worth the next block's time: the Dumas-criterion
+generalizations of arXiv:2512.20262 and the surveys arXiv:2310.02860,
+arXiv:2302.14849. Query: *irreducible factors of polynomials with 0–1
+coefficients supported on primes prime-prefix polynomial sum x^(p−2)
+factorization degree*. Absence of a located source is not evidence of novelty,
+and the packet's own `no novelty claim is made` stands unchanged. Note for the
+pipeline owner: the front-matter field `novelty: unsearched` is machine
+metadata and has deliberately **not** been edited by this sweep — a human or
+the owning generator should decide whether it now reads `searched-no-match`.
+Attribution status only; the theorem, its $X\ge2$ boundary and every gate are
+untouched.
+
 # Successor seeds
 
 - Determine whether degree ten admits a symmetry/resultant reduction before

@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- NaturalMachine.Endian
@@ -107,7 +107,14 @@ rev-compw-comm (d ∷ w) =
   ∙ sym (map-++ dcomp (rev w) (d ∷ []))
 
 ------------------------------------------------------------------------
--- 3.  The four elements are pairwise distinct: the action is faithful.
+-- 3.  The four chart symmetries id, D, E, DE are pairwise distinct.
+--
+-- All six inequalities are landed: D, E, DE differ from id (D≢id,
+-- E≢id, DE≢id) and from each other (D≢E, DE≢D, DE≢E), each refuted
+-- pointwise on an explicit witness word.  This is the on-elements
+-- content of "the Klein-four action is faithful"; the K₄ group object
+-- itself and a homomorphism into Word → Word are NOT constructed here,
+-- so "faithful" has no formal referent beyond this distinctness.
 ------------------------------------------------------------------------
 
 headD : Word → Digit
@@ -136,6 +143,27 @@ E≢id p = dcomp-fzero≢fzero (cong headD p)
 
 DE≢id : ¬ (rev (compw w0) ≡ w0)
 DE≢id p = dcomp-fzero≢fzero (cong headD p)
+
+-- D ≠ E: on the one-letter word w0, reversal is the identity but the
+-- complement moves the head digit.
+D≢E : ¬ ((w : Word) → rev w ≡ compw w)
+D≢E h = dcomp-fzero≢fzero (sym (cong headD (h w0)))
+
+-- DE ≠ D: on w0, D is the identity but DE complements the head digit.
+DE≢D : ¬ ((w : Word) → rev (compw w) ≡ rev w)
+DE≢D h = dcomp-fzero≢fzero (cong headD (h w0))
+
+-- DE ≠ E: on the two-letter word w01, DE puts the complement of fone at
+-- the head while E keeps the complement of fzero there; equality of the
+-- heads would force fone ≡ fzero through involutivity of dcomp.
+DE≢E : ¬ ((w : Word) → rev (compw w) ≡ compw w)
+DE≢E h = fzero≠fone (sym q)
+  where
+    p : dcomp fone ≡ dcomp fzero
+    p = cong headD (h w01)
+
+    q : fone ≡ fzero
+    q = sym (dcomp-involutive fone) ∙ cong dcomp p ∙ dcomp-involutive fzero
 
 ------------------------------------------------------------------------
 -- 4.  Neither symmetry preserves canonicity: they are not even
@@ -271,6 +299,10 @@ noRevπEquivariance h = fzero≠fone (sym (cong headD (h w01)))
 
 ------------------------------------------------------------------------
 -- 7.  Summary object: the Klein four data, packaged.
+--
+-- "Klein four" names the shape of this data (two commuting involutions
+-- and their composite, all four elements pairwise distinct); no Group
+-- instance is constructed.
 ------------------------------------------------------------------------
 
 record ChartSymmetry : Type₀ where
@@ -281,6 +313,9 @@ record ChartSymmetry : Type₀ where
     D-nontrivial : ¬ (rev w01 ≡ w01)
     E-nontrivial : ¬ (compw w0 ≡ w0)
     DE-nontrivial : ¬ (rev (compw w0) ≡ w0)
+    D-E-distinct  : ¬ ((w : Word) → rev w ≡ compw w)
+    DE-D-distinct : ¬ ((w : Word) → rev (compw w) ≡ rev w)
+    DE-E-distinct : ¬ ((w : Word) → rev (compw w) ≡ compw w)
     D-no-descent : ¬ (Σ[ f ∈ (ℕ → ℕ) ] ((w : Word) → f (value w) ≡ value (rev w)))
     E-no-descent : ¬ (Σ[ f ∈ (ℕ → ℕ) ] ((w : Word) → f (value w) ≡ value (compw w)))
     E-π-equivariant : (w : Word) → π (compw w) ≡ compw (π w)
@@ -295,6 +330,9 @@ chartSymmetry = record
   ; D-nontrivial            = D≢id
   ; E-nontrivial            = E≢id
   ; DE-nontrivial           = DE≢id
+  ; D-E-distinct            = D≢E
+  ; DE-D-distinct           = DE≢D
+  ; DE-E-distinct           = DE≢E
   ; D-no-descent            = noRevDescent
   ; E-no-descent            = noCompDescent
   ; E-π-equivariant         = π-compw

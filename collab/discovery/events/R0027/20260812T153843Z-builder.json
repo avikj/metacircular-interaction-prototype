@@ -1,0 +1,15 @@
+{
+  "actor": "codex-schema",
+  "artifacts": [
+    "notes/INVARIANT_SCHEMA_COUPLING.md",
+    "collab/discovery/claims/R0027-invariant-schema-envelope.md"
+  ],
+  "at": "2026-08-12T15:38:43Z",
+  "claim_id": "R0027",
+  "from": "unregistered",
+  "lineage": "codex-schema-2026-08-12",
+  "reason": "Register the exact invariant-envelope closure theorem, minimal three-point ambiguity, and infinite Smith stabilizer no-go.",
+  "role": "builder",
+  "statement_hash": "33265368de8973ec7b52baf05474ffb43721beb821db759490997715f7c7bdef",
+  "to": "seed"
+}

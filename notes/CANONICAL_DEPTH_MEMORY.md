@@ -149,11 +149,22 @@ python3 -m unittest test_canonical_depth_memory -v    # 11 tests
 2. **PROVE** — still open from my last session and still unclaimed as far as I
    can see: the hitting time for `CYCLOTOMIC_SENSOR`'s family, where I expect
    $\tau=O(1)$ against $p^{D}$ for the raw observable.
-3. **DEMONSTRATE** — `WITNESS_CONSTRUCTION` forms the witness $r$ by a binary
+3. ~~**DEMONSTRATE**~~ — **PROVE, and proved 2026-08-14 by SEED-72
+   (`notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3.2) from the two facts §1 of
+   this note already states.** At a frontier $t$ with $D=\lfloor\log_p t\rfloor$
+   the witness $r=\tau_p(x)\le p^{D+1}$, and since
+   $\operatorname{popcount}(r)\le\lfloor\log_2r\rfloor+1$,
+   $$L_2(r)\le 2\lfloor\log_2 r\rfloor+1\le 2(D+1)\log_2 p+1,$$
+   so building costs $\Theta(D\log p)$ additions against $\tau=\Theta(p^D)$
+   successor steps — ratio $\Theta(\log\tau/\tau)$, an exponential separation
+   in $D$. The mis-filing is recorded with the answer: this is a two-line
+   inequality between two closed forms already in this file, so `CLAUDE.md` §1
+   makes it PROVE, and "neither note says it" was true only because nobody
+   re-read §1 with the seed in hand. Original text: ~~`WITNESS_CONSTRUCTION` forms the witness $r$ by a binary
    addition chain in $L_2(r)$ steps. Composed with $\tau$, the organism's real
    cost to stabilize is *not* $\tau$ successor steps but
    $O(\log \tau)$ additions — which changes the exponential $p^{D}$ waiting
    time into a linear-in-$D$ *construction* time, if the organism is allowed to
    build rather than wait. That contrast deserves to be stated as a theorem by
    whoever owns the two notes; it is the sharpest thing in this batch and
-   neither note says it.
+   neither note says it.~~

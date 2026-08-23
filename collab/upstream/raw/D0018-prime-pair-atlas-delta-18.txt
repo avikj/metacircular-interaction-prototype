@@ -1,0 +1,142 @@
+Prime-Pair Atlas — Delta 18
+Date: 2026-08-13
+Status: library-grounded exact synthesis + new exact derivations.
+
+SU(1,1) rank-one geometry is already the split-torus atlas
+One positive leg realizes D^+_{1/2}; two legs decompose into radial total
+S=x1+x2 and angular coordinate x=(x2-x1)/(x1+x2), with Jacobi angular modes,
+continuous Hahn Mellin transforms, and Meixner-Pollaczek spectral measure.
+Set W=x1+x2, R=x2-x1. Then x=R/W. For positive x1,x2 introduce
+eta=(1/2)log(x2/x1). Then W=2 sqrt(x1x2) cosh eta and R=2 sqrt(x1x2) sinh eta, so
+T18.1: x=R/W=tanh eta.
+Thus ratio x2/x1, split-torus parameter eta, and Jacobi coordinate x are the same
+rank-one orbit coordinate in three charts.
+Let t=x1/(x1+x2). Then x=1-2t. The Jacobi/Beta coordinate is literally the
+normalized first-leg share of the fixed total. Exchange x1<->x2 acts
+simultaneously as t->1-t, x->-x, eta->-eta, ratio->inverse. Hence the library's
+(-1)^j angular parity is exactly Weyl parity of rank-one harmonics.
+
+Sum-gap reflection is NOT the Weyl reflection
+The bilateral one-leg sign reflection J2 sends (W,R) -> (-R,-W). Therefore on
+x=R/W:
+T18.2: x -> 1/x.
+This is crucial. The positive discrete-series cone is |x|<1. The sum-gap
+operation sends it to |x|>1. So the boundary phenomenon is not the internal Weyl
+symmetry x->-x. It is inversion across the unit boundary x->1/x. Equivalently,
+tanh eta is sent to coth eta: the operation exits the real positive-cone chart.
+
+Continuous Hahn is already split-torus harmonic analysis
+I_j(rho,rho') = int_0^1 t^{rho-1}(1-t)^{rho'-1} P_j(1-2t) dt becomes a beta
+factor times a continuous Hahn polynomial in the relative spectral coordinate
+(rho-rho')/(2i). Since t is the multiplicative share coordinate, this is Mellin
+harmonic analysis of the relative ratio direction. Thus Delta 17's proposed
+"harmonic analysis on the split torus" is not a new program: it is already the
+continuous-Hahn/Mellin machinery in the library.
+
+Center-relative transform repeats at three levels
+1. arithmetic: (x1,x2) <-> (W=x1+x2, R=x2-x1);
+2. local valuations: (v_p(x1),v_p(x2)) <-> (s_p=sum, d_p=difference);
+3. Mellin exponents: (rho,rho') <-> (s=rho+rho', nu=-i(rho-rho')).
+
+Affine determinant branch: exact import
+M=[[a,b],[c,d]], (L1(n),L2(n))^T = M (n,1)^T. Peeling p from leg 1:
+M' = diag(p^-1,1) M [[p,r],[0,1]], so det M' = det M. For L1=n, L2=n+h,
+det M = h. After divisors A|n, B|n+h, residual forms Bm+t, Am+s satisfy
+Bs-At=h, and matrix [[B,t],[A,s]] has determinant h.
+T18.3: h is the exterior product (B,t) wedge (A,s).
+At good primes, residual roots alpha=-t/B, beta=-s/A satisfy alpha-beta=h/(AB),
+hence v_p(alpha-beta)=v_p(h). So the SAME h is: additive gap; determinant/wedge
+invariant; p-adic collision-depth carrier.
+
+Hecke symmetry versus Buchstab direction
+For h=1 the state space is determinant-one/Farey geometry. For general primitive
+determinant h, Smith normal form gives the standard degree-h Hecke double orbit.
+But the Buchstab child matrices gamma_{p,r}=[[1,r],[0,p]] are only the p child
+representatives; the missing diag(p,1) is the parent direction in the
+(p+1)-regular Bruhat-Tits tree. Therefore spherical Hecke symmetry and Buchstab
+dynamics differ by extra directed/rooted structure.
+
+Three distinct arithmetic selections
+A. archimedean cone: x in (-1,1), while sum-gap reflection sends x -> 1/x;
+B. affine tree orientation: full Hecke parent+children symmetry versus
+   child-selected least-prime Buchstab evolution;
+C. canonical charge: full charge/grand-canonical space versus fixed
+   charge-one sector.
+These are not one obstruction. But they share one exact formal skeleton: an
+ambient process T acts on U; a selected sector S subset U is not invariant under T.
+
+Compression theorem
+Let i:S->U, P:U->S with P i = id_S. Let T_t be a semigroup on U. Define
+compressed evolution K_t = P T_t i. Let Q = I - iP.
+T18.4: K_t K_s - K_{t+s} = - P T_t Q T_s i.
+Proof: K_t K_s = P T_t i P T_s i = P T_t (I-Q) T_s i = P T_{t+s} i - P T_t Q T_s i.
+Corollary: K is a semigroup exactly when every excursion leaving S under T_s has
+zero future return amplitude into S under P T_t.
+This is the exact algebra of projection-generated memory.
+
+Interpretation
+The defect term D_{t,s} = P T_t Q T_s i is not "mysterious lost information". It
+is precisely: leave selected sector -> evolve outside -> return to observable
+sector. This applies abstractly to fixed charge, half-line compression, and
+selected tree sectors whenever a linear realization exists.
+
+Dynamic sufficiency theorem
+T18.5: If P T_t Q = 0 for every future t, then discarding Q components is
+dynamically sufficient: no eliminated distinction can ever affect future
+P-observations. Conversely, if P T_t Q != 0 for some t, there exists an eliminated
+component capable of changing a future observation.
+Thus the right observer equivalence is not instantaneous equality P x = P y but
+  x ~ y  iff  P T_t x = P T_t y for all future t.
+T18.6: This is exactly the kernel equivalence of the observability map
+O(x) = (P T_t x)_t.
+
+Charge-one composition
+M^{(h+k)}_{1,1} = Sum_r M^{(h)}_{1,r} M^{(k)}_{r,1}.
+T18.7: charge-one effective propagation is closed under composition iff all
+off-sector excursion-return contributions M^{(h)}_{1,r} M^{(k)}_{r,1}, r != 1,
+vanish. So the prime-pair block remembers all intermediate factorization charges.
+
+Feshbach/Schur complement target
+For H = S + Q, eliminating Q yields T_SS + T_SQ (z - T_QQ)^-1 T_QS.
+Program: compare the prime charge-one effective operator with Feshbach/Schur
+complement theory.
+
+Half-line target
+Compression of bilateral operators to H_+ = l^2(N) produces Toeplitz/Hankel
+boundary terms. Program: express the exact sum-gap operator defect in the
+excursion-return form P T Q T P and compare to the established Hankel/Toeplitz
+boundary decomposition.
+
+Buchstab target
+Embed outward child-selected dynamics into the full Hecke/Bruhat-Tits adjacency
+process, then identify Q as the parent/forbidden/order-forgetting sector.
+Question: does the least-prime stopped kernel equal an excursion-return/memory
+correction after eliminating those branches? This is falsifiable.
+
+New synthesis
+The strongest common mathematical object is no longer "parity". It is:
+  ambient compositional dynamics
+  + non-invariant selected sector
+  + effective projected dynamics
+  + excursion-return defect.
+The selection may be positivity; charge one; least-prime orientation; finite
+observer/context. The exact theorem is T18.4. This is mature operator/control
+mathematics, not a new ontology.
+
+HoTT translation
+Given a subtype/family S inside U, failure of T to restrict is the absence of a
+structured map S->S compatible with T. The linear compression formula adds
+quantitative dynamics to that type-theoretic defect. So: HoTT says what
+restriction/structured transport would mean; operator theory computes the defect
+when restriction fails; observability theory says whether the discarded fiber is
+future-relevant. These are three lenses on one exact situation.
+
+Immediate arithmetic work
+1. Import exact positive-cone Toeplitz/Hankel operators and compute P T Q T P.
+2. Build the charge-space block operator and derive its Schur complement.
+3. Embed Buchstab child dynamics in the full Hecke tree and test the same formula.
+4. Only then ask whether the three defect kernels admit a common transform or
+   invariant.
+5. Revisit the prime-pair "hard corner": charge-one + sharp antipode + positive
+   boundary + growing aperture. The joint difficulty may be repeated projection
+   onto several non-invariant structures.

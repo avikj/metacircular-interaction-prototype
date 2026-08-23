@@ -1,0 +1,4 @@
+name: natural-machine
+depend: cubical
+include: .
+flags: --cubical --guardedness --safe --no-import-sorts

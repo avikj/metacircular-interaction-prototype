@@ -1,0 +1,15 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "machinery/total_smith_replay_payload.py",
+    "machinery/test_total_smith_replay_payload.py"
+  ],
+  "at": "2026-08-12T19:26:06Z",
+  "claim_id": "R0035",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Symbolic proof and five-test exact replay over a seven-matrix grid complete; independent audit remains open.",
+  "role": "builder",
+  "statement_hash": "bec7438ac86197e8bb06e528100524c5bdb4d63d44699b5c251ccbcdc2bcaa61",
+  "to": "formalizing"
+}

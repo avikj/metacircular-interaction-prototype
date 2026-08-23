@@ -1,0 +1,42 @@
+RepairFixpoint - exhaustive certification
+
+CERT 1: grid criterion == P_sigma-invariance, on every ordered pair
+  n = 1: 1 pairs, 0 disagreements
+  n = 2: 4 pairs, 0 disagreements
+  n = 3: 25 pairs, 0 disagreements
+  n = 4: 225 pairs, 0 disagreements
+  n = 5: 2704 pairs, 0 disagreements
+  n = 6: 41209 pairs, 0 disagreements
+  n = 7: 769129 pairs, 0 disagreements
+
+CERT 2: density-profile fixpoint == join of all repairs (brute force)
+  n = 1: 1 pairs, 0 disagreements, max rounds to fixpoint = 0
+  n = 2: 4 pairs, 0 disagreements, max rounds to fixpoint = 0
+  n = 3: 25 pairs, 0 disagreements, max rounds to fixpoint = 1
+  n = 4: 225 pairs, 0 disagreements, max rounds to fixpoint = 1
+  n = 5: 2704 pairs, 0 disagreements, max rounds to fixpoint = 1
+  n = 6: 41209 pairs, 0 disagreements, max rounds to fixpoint = 1
+
+
+CERT 3: the CLOSED FORM  rho* = pi /\ q^-1(~)  equals the fixpoint
+  n = 1: 1 pairs, 0 disagreements
+  n = 2: 4 pairs, 0 disagreements
+  n = 3: 25 pairs, 0 disagreements
+  n = 4: 225 pairs, 0 disagreements
+  n = 5: 2704 pairs, 0 disagreements
+  n = 6: 41209 pairs, 0 disagreements
+  n = 7: 769129 pairs, 0 disagreements
+
+CERT 4: seed 2's criterion, and the note's own 410/1900 count at n = 5
+  n = 4: 108 noncommuting ordered pairs, of which 12 have rho* strictly coarser than the meet;  criterion mismatches: 0
+  n = 5: 1900 noncommuting ordered pairs, of which 410 have rho* strictly coarser than the meet;  criterion mismatches: 0
+  n = 6: 34320 noncommuting ordered pairs, of which 8970 have rho* strictly coarser than the meet;  criterion mismatches: 0
+
+SCAN: how many refinement rounds are actually needed?
+  (n <= 6 all showed 1.  If that is a theorem it should survive n = 8;
+   if it is an artifact of small n a witness appears here.)
+  n = 7: max rounds = 1
+  n = 8: max rounds = 1
+CERT 1 PASSED on 813297 ordered pairs (n <= 7).
+CERT 2 PASSED on 44168 ordered pairs (n <= 6).
+The fixpoint IS the coarsest repair, on every instance in range.

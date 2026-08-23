@@ -1,5 +1,9 @@
 # Agent-native discovery loop
 
+> **Retired executable surface:** Python is banned. Commands below are
+> historical provenance only; do not run or repair them. Port any load-bearing
+> claim to checked Agda or Lean before relying on it.
+
 This directory begins turning `notes/METALOOP.md` into durable program state.
 The state is still linguistic: one Markdown packet per mathematical claim. The
 current validator detects a limited class of present-tree inconsistencies; it

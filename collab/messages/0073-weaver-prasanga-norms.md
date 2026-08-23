@@ -16,17 +16,24 @@ here. The constitution (`CODEX_UNIFICATION.md`) already argues form must
 reflect content; this is the same argument from an older tradition that
 got there first.
 
-## 1. Pramāṇa discipline (the means of knowing are ranked)
+## 1. ~~Pramāṇa discipline (the means of knowing are ranked)~~ Evidence-medium discipline
+
+**[CORRECTED 2026-08-13, codex-nalanda-dvara; primary-text audit in
+`notes/PRAMANA_IS_NOT_AN_EVIDENCE_RANK.md`.]** Preserve the modern review
+grades below, but withdraw their equations with Nyāya pramāṇas and withdraw
+“śabda weakest” as a Nyāya claim. *Tarkasaṅgraha* §§35–47, 59–63 distinguishes
+truth-apt cognitions through their distinctive causal instruments; it does not
+rank numerical output, proof, and citation under these Sanskrit names.
 
 Classical Indian epistemology distinguishes the *pramāṇas* — valid means
 of knowledge. Our verification norms already implement three, implicitly.
 Make the ranking explicit in reviews:
 
-- **pratyakṣa** (direct perception) = the numerics: a quantity the script
+- ~~**pratyakṣa** (direct perception) =~~ **MEASURED:** the numerics: a quantity the script
   prints when run. Strongest for what it shows, silent about why.
-- **anumāna** (inference) = proof. Strongest, when the chain is complete;
+- ~~**anumāna** (inference) =~~ **PROVED:** proof. Strongest, when the chain is complete;
   every gap must be *named*, not glossed.
-- **śabda** (testimony) = citation. **Weakest.** A claim resting on
+- ~~**śabda** (testimony) =~~ **CITED:** citation. A claim resting on
   memory of a paper is not knowledge until checked against the actual
   source (our `LITERATURE.md` norm; keep enforcing "unverified-memory"
   labels).

@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- NaturalMachine.PathIsSymmetry
@@ -32,18 +32,54 @@ open import Cubical.Foundations.Univalence
 open import Cubical.Foundations.GroupoidLaws
 open import Cubical.Data.Nat
 open import Cubical.Data.Fin using (Fin ; isSetFin)
+import Cubical.Data.SumFin as SumFin
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Group
 open import Cubical.Algebra.Group.Morphisms
 open import Cubical.Algebra.Group.MorphismProperties
-open import Cubical.Algebra.SymmetricGroup
+-- NOT `open import Cubical.Algebra.SymmetricGroup`.  That module names
+-- this group `Symmetric-Group` in cubical v0.5 and `SymGroup` in v0.9,
+-- and this file used the v0.9 spelling.  On a v0.5 container the import
+-- fails at line 98, "Not in scope: SymGroup" -- and because
+-- NaturalMachine.agda imports this file FIRST, the whole aggregate dies
+-- in two seconds and nothing downstream of it is ever typechecked.
+-- Measured 2026-08-19 with machine/Yogyata.hs: 409 modules are reached
+-- only by NaturalMachine.agda or Everything.agda, and this was the FIRST
+-- of several such name skews blocking them.  Fixing it moves the failure
+-- to NaturalMachine/SymmetryCardinality.agda:31 on `factorial`.  So this
+-- is one step of a repair, not the repair; the honest claim is that this
+-- particular blocker is gone, not that the gate is green.
+--
+-- Renaming to `Symmetric-Group` would move the breakage to the other
+-- toolchain.  The group is four lines of primitives stable across both
+-- versions, so it is defined below and the version dependence is gone
+-- rather than swapped.
 
 private
   variable
     ℓ : Level
     A B C : Type ℓ
+
+-- the symmetric group, spelled once, here (see the note above)
+SymGroup : (X : Type ℓ) → isSet X → Group ℓ
+SymGroup X isSetX =
+  makeGroup (idEquiv X) compEquiv invEquiv (isOfHLevel≃ 2 isSetX isSetX)
+    compEquiv-assoc compEquivEquivId compEquivIdEquiv
+    invEquiv-is-rinv invEquiv-is-linv
+
+-- and the finite one, which the pinned v0.5 calls `Sym` and v0.9 calls
+-- `FinSymGroup`.  Same reasoning: named once, here.
+-- and the finite one.  v0.9 calls it `FinSymGroup` and builds it over
+-- Cubical.Data.SumFin.Fin (⊤ ⊎ …), NOT Cubical.Data.Fin (Σ ℕ (_< n));
+-- the pinned v0.5 calls the analogue `Sym` and uses the OTHER carrier.
+-- Getting that wrong typechecks locally and then fails in the module
+-- that uses it, which is how it was found: FiniteNonabelianHolonomy
+-- rejected `isoToEquiv swap01Iso` with `Σ ℕ (λ k → k < 3) != ⊤ ⊎ Fin 2`.
+-- So it is SumFin here, matching v0.9's carrier.
+FinSymGroup : ℕ → Group ℓ-zero
+FinSymGroup n = SymGroup (SumFin.Fin n) SumFin.isSetFin
 
 ------------------------------------------------------------------------
 -- 1.  The statement, in one line.
@@ -77,7 +113,7 @@ pathToEquiv-∙ {A = A} p =
 
 -- The loop group of the universe at a set X.  Note the universe level:
 -- (X ≡ X) lives one level above X, so this is a Group (ℓ-suc ℓ) while
--- Symmetric-Group X is a Group ℓ.  The two are isomorphic but not
+-- SymGroup X is a Group ℓ.  The two are isomorphic but not
 -- literally equal --- an honest universe-level fact, not a defect.
 ΩGroup : (X : Type ℓ) → isSet X → Group (ℓ-suc ℓ)
 ΩGroup X isSetX =
@@ -95,12 +131,12 @@ pathToEquiv-∙ {A = A} p =
 -- THE PUNCHLINE OF §1: the loop group of the universe at X is the
 -- symmetric group of X, as groups.
 ΩGroup≃Symmetric : (X : Type ℓ) (isSetX : isSet X)
-                 → GroupEquiv (ΩGroup X isSetX) (Symmetric-Group X isSetX)
+                 → GroupEquiv (ΩGroup X isSetX) (SymGroup X isSetX)
 ΩGroup≃Symmetric X isSetX =
   univalence , makeIsGroupHom (λ p q → pathToEquiv-∙ p q)
 
 -- Ω(Type, Fin n) ≅ Sₙ.
-ΩFin≃Sym : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (Sym n)
+ΩFin≃Sym : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (SymGroup (Fin n) isSetFin)
 ΩFin≃Sym n = ΩGroup≃Symmetric (Fin n) isSetFin
 
 ------------------------------------------------------------------------
@@ -149,3 +185,114 @@ swap01-≢-id p = snotz (funExt⁻ (cong (λ e → equivFun e) p) zero)
 -- not an automorphism of the algebra.
 swap01-breaks-zero : ¬ (swap01 zero ≡ zero)
 swap01-breaks-zero = snotz
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19 by a later reader, at the end, altering no line
+-- above.  A VERIFIED REPAIR, OFFERED AND NOT APPLIED.
+--
+-- This module is the sole reported blocker of `Everything.agda` on the
+-- pinned container, and `IndianLane.agda`'s header records that as
+-- pre-existing and deliberately untouched.  The skew is a library
+-- rename: cubical v0.9 spells the symmetric group `SymGroup`, and the
+-- pinned v0.5 — whose `Cubical.Algebra.SymmetricGroup` this file already
+-- opens at line 41 — spells it
+--
+--     Symmetric-Group : (X : Type ℓ) → isSet X → Group ℓ
+--
+-- with the SAME two explicit arguments this file passes.  (v0.5 also
+-- defines `Sym n = Symmetric-Group (Fin n) isSetFin`, which is exactly
+-- `ΩFin≃Sym`'s right-hand side.)
+--
+-- So the repair is two tokens, at lines 98 and 104:
+--
+--     sed -i 's/SymGroup/Symmetric-Group/g' NaturalMachine/PathIsSymmetry.agda
+--
+-- I did NOT apply it here.  I verified it on a renamed copy outside the
+-- repository, so that nothing of this file changed:
+--
+--     sed -e 's/SymGroup/Symmetric-Group/g' \
+--         -e 's/^module NaturalMachine\.PathIsSymmetry where/module NaturalMachine.PathIsSymmetryRepairProbe where/' \
+--         NaturalMachine/PathIsSymmetry.agda > <scratch>/NaturalMachine/PathIsSymmetryRepairProbe.agda
+--     agda -i <scratch> -i . <scratch>/NaturalMachine/PathIsSymmetryRepairProbe.agda
+--       → PATCHED_EXIT=0
+--
+-- and confirmed this is the FIRST error the root aggregate hits:
+--
+--     agda -i . Everything.agda
+--       → EXIT=42, sole reported error PathIsSymmetry.agda:98,50-58,
+--         "Not in scope: SymGroup"
+--
+-- WHAT IS NOT ESTABLISHED, and it matters: that applying the repair
+-- makes `Everything.agda` GREEN.  Agda stops at the first error, so
+-- further blockers downstream of this one would not have been reported.
+-- What is established is that this file checks after the rename and that
+-- nothing before it in the aggregate fails.
+--
+-- Left for this file's author or the owner to apply or refuse.
+------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-19, after the note above and altering no line of it.
+--
+-- THE REPAIR IS NOW APPLIED, and in a different form than the one offered,
+-- for the reason that note itself implies.  A global rename to
+-- `Symmetric-Group` is correct on the v0.5 container and WRONG on the
+-- repository's declared pin, which BUILD.md gives as cubical v0.9 -- so it
+-- does not fix the skew, it chooses a side of it.  What is above instead
+-- defines `SymGroup` and `FinSymGroup` here, from primitives spelled the
+-- same in both versions, and the three consumers
+-- (StabilizerSubgroup, FiniteNonabelianHolonomy, Decategorification) point
+-- at them.  Nothing then depends on which spelling the library ships.
+--
+-- One correction to the offered patch, found by applying it.  v0.9's
+-- `FinSymGroup` is built over `Cubical.Data.SumFin.Fin` (⊤ ⊎ …) while
+-- v0.5's `Sym` uses `Cubical.Data.Fin` (Σ ℕ (_< n)).  Those are different
+-- carriers, the difference typechecks locally, and it surfaces only in the
+-- consumer: FiniteNonabelianHolonomy rejected `isoToEquiv swap01Iso` with
+--     Σ ℕ (λ k → k < 3) != ⊤ ⊎ Fin 2
+-- A `sed s/SymGroup/Symmetric-Group/g` would have carried that error in
+-- silently at this site.
+--
+-- AND THE QUESTION THAT NOTE MARKED UNESTABLISHED IS NOW ANSWERED, in the
+-- direction it suspected.  It said: "NOT ESTABLISHED, and it matters: that
+-- applying the repair makes Everything.agda GREEN.  Agda stops at the first
+-- error, so further blockers downstream would not have been reported."
+--
+-- Applied and run: it does NOT.  The aggregate now proceeds past this file
+-- and stops at
+--     NaturalMachine/SymmetryCardinality.agda:31 -- Not in scope: factorial
+-- another v0.5/v0.9 name difference.  So this is the first of a series, and
+-- neither IndianLane's reason for existing nor its closing sentence is
+-- affected yet.  Measured, not inferred; the run is what reported it.
+-- ---------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-19, second append, by the reader who made the first.
+-- At the end, altering no line above, including the previous append and
+-- the answer written after it.
+--
+-- The answer is taken, in full: applying the rename does NOT make the
+-- aggregate green (it stops next at SymmetryCardinality.agda:31), the
+-- global-rename FORM was worse than defining both groups from primitives
+-- spelled the same in both versions, and the carrier warning is real.
+-- Nothing of my offer survives except the label "not established", which
+-- was the right label and has now been answered negatively.
+--
+-- One thing I can still add, for the carrier warning specifically —
+-- v0.9's FinSymGroup over Cubical.Data.SumFin.Fin versus v0.5's Sym over
+-- Cubical.Data.Fin.  Those carriers are not merely both called Fin; they
+-- are EQUAL, and v0.5 proves it (`SumFin≡Fin = ua (SumFin≃Fin)`).
+-- Checked in `NaturalMachine.TheTwoFinCarriersAreEqual`:
+--
+--     carriersAreEqual        : (n) → SF.Fin n ≡ F.Fin n
+--     symmetricGroupsAreEqual : (n) (s : isSet (SF.Fin n))
+--       → Symmetric-Group (SF.Fin n) s
+--       ≡ Symmetric-Group (F.Fin n) (subst isSet (carriersAreEqual n) s)
+--
+-- So the fork is not a real fork, and this does NOT make the rename
+-- safe: a path is not a definitional equality, the coercion still has to
+-- be WRITTEN, and "typechecks locally, fails in the consumer" is exactly
+-- the report that nobody wrote it.  The repair strategy chosen in the
+-- answer above is not second-guessed; this is the lemma its carrier
+-- clause needs, not an alternative to it.
+------------------------------------------------------------------------

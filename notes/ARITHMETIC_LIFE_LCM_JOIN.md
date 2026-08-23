@@ -41,6 +41,31 @@ where (gcd(a',b')=1). Since (a\mid m), write (m=ga'k). Then
 (b'\mid k). Hence (gab'=(a/g)b\mid m). Thus (1) is the least common
 multiple in the divisibility order.
 
+> **Three hypotheses supplied at the site (SEED-112, Rule K3, 2026-08-14,
+> applying `notes/SEED56_LCM_JOIN_CONSTRUCTED.md` §6 item 1, which listed them
+> as "what should be corrected, concretely" and never landed them here).**
+>
+> 1. **Formula (1) requires $(a,b)\neq(0,0)$.** At $a=b=0$ one has $g=\gcd(0,0)=0$
+>    and $\frac ag b$ is $0/0$ — undefined. The leastness proof above inherits
+>    the restriction: it writes $a=ga'$, $b=gb'$ with $\gcd(a',b')=1$, which
+>    presupposes $g\neq0$. The case is not a gap in the theorem, only in its
+>    statement: $0\vee0=0$ by inspection, since $0$ is the unique common
+>    multiple of $0$ and $0$.
+> 2. **Name the ambient lattice.** "Least common multiple in the divisibility
+>    order" is a statement in $(\mathbb N,\mid)$, whose **top** element is $0$
+>    (every $n$ divides $0$) and whose bottom is $1$. Without this the reader
+>    supplies the numerical order, in which $0$ is least and the join in (1)
+>    reads backwards. The join here is the divisibility join; the topos/subobject
+>    join is the opposite operation (SEED-56 §1).
+> 3. **In a general domain the identity presupposes existence, and the correct
+>    hypothesis is *GCD domain*.** The step "Euclid's lemma and coprimality give
+>    $b'\mid k$" is not available in an arbitrary integral domain; in
+>    $\mathbb Z[\sqrt{-5}]$, $\gcd(6,2+2\sqrt{-5})$ does not exist, so neither
+>    side of (1) is defined. In a GCD domain gcds exist by hypothesis, lcms
+>    follow, and (1) holds up to units. *Untouched:* everything above is exactly
+>    right over $\mathbb N$ and $\mathbb Z$, which is where the process runs, and
+>    the note's own disclaimer of novelty for the classical identity stands.
+
 ## Smallest execution
 
 Encountering 12 and 18 first leaves the causal records

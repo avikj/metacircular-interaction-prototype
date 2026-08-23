@@ -1,0 +1,53 @@
+{
+  "title": "Prime-Pair Cyclic Charge CRT Boundary V2 Report",
+  "checks_total": 8,
+  "checks_passed": 8,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "id": "DIVISOR-POLYNOMIAL-AND-INCIDENCE",
+      "status": "PASS",
+      "range": 1200
+    },
+    {
+      "id": "CYCLIC-CHARGE-PROJECTOR",
+      "status": "PASS",
+      "max_error": 9.036560719766055e-16
+    },
+    {
+      "id": "PHASE-ENERGY-AND-PARITY-NO-GO",
+      "status": "PASS",
+      "parity_example": [
+        6,
+        24
+      ]
+    },
+    {
+      "id": "DIAGONAL-ENDPOINT-SUFFICIENCY",
+      "status": "PASS",
+      "prime_pairs": 19
+    },
+    {
+      "id": "DIAGONAL-BOUNDARY-CURVATURE",
+      "status": "PASS",
+      "delta_02_plus_20": "-88480418729879102125512482044/18812095877952261887750318025"
+    },
+    {
+      "id": "BIVARIATE-PHASE-CRT-BOUNDARY",
+      "status": "PASS",
+      "phase_grid": 36,
+      "max_error": 8.0542929965967e-15
+    },
+    {
+      "id": "INCIDENCE-PHASE-ADDITIVE-TRANSFORM",
+      "status": "PASS",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "id": "CHARACTER-PARITY-ANCHOR",
+      "status": "PASS",
+      "max_error": 0.0
+    }
+  ],
+  "scope_limit": "Finite deterministic identities only; no asymptotic prime-pair estimate."
+}

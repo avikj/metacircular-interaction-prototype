@@ -1,0 +1,15 @@
+{
+  "claim_id": "R0049",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex-formation",
+  "role": "builder",
+  "lineage": "codex-formation-r0049-2026-08-14",
+  "at": "2026-08-14T08:43:54Z",
+  "statement_hash": "1af2fb3e7c6aabd5c4196c31f94f6a9bf11163d55ca20850d8d087f7831da6ea",
+  "reason": "Register the pre-proof forecast that uniform response-window depth and adaptive identification depth differ in a four-state Boolean system.",
+  "artifacts": [
+    "collab/messages/0531-codex-formation-adaptive-gap-claim.md",
+    "collab/discovery/claims/R0049-adaptive-uniform-horizon-gap.md"
+  ]
+}

@@ -12,7 +12,9 @@ Three formalizations, all machine-checked:
 * `sumMarginal_inj`     — the literal Goldbach-marginal statement for
                           finitely supported a b : ℕ →₀ ℕ:
                           (∀ N, ∑_{m+n=N} a m · a n = ∑_{m+n=N} b m · b n) ⟹ a = b.
-* `convSq_inj_nonneg`   — real polynomials with nonnegative coefficients.
+* `convSq_inj_nonneg_ordered` — polynomials over any strictly ordered
+                                 commutative ring, with nonnegative coefficients.
+* `convSq_inj_nonneg`   — the real specialization.
 
 Proof idea (as in REPORT): embed into the integral domain ℤ[X] (resp. work in
 ℝ[X]); A² = B² forces A = B or A = −B, and nonnegativity of the coefficients
@@ -58,9 +60,11 @@ theorem sumMarginal_inj (a b : ℕ →₀ ℕ) (h : ∀ N, sumMarginal a N = sum
   have h2 := convSq_inj_nat ⟨⟨a⟩⟩ ⟨⟨b⟩⟩ hpoly
   exact congrArg (fun p : Polynomial ℕ => p.toFinsupp.coeff) h2
 
-/-- **Theorem A(i), nonnegative-real form.** A real polynomial with nonnegative
-coefficients is determined by its square. -/
-theorem convSq_inj_nonneg (a b : Polynomial ℝ)
+/-- **Theorem A(i), ordered-ring form.** Over any linear ordered ring, the
+nonnegative-coefficient cone of the polynomial ring has injective squaring. -/
+theorem convSq_inj_nonneg_ordered {R : Type*}
+    [CommRing R] [LinearOrder R] [IsStrictOrderedRing R]
+    (a b : Polynomial R)
     (ha : ∀ n, 0 ≤ a.coeff n) (hb : ∀ n, 0 ≤ b.coeff n)
     (h : a * a = b * b) : a = b := by
   rcases mul_self_eq_mul_self_iff.mp h with h3 | h3
@@ -70,5 +74,12 @@ theorem convSq_inj_nonneg (a b : Polynomial ℝ)
     have h1 := ha n
     have h2 := hb n
     linarith
+
+/-- **Theorem A(i), nonnegative-real form.** A real polynomial with nonnegative
+coefficients is determined by its square. -/
+theorem convSq_inj_nonneg (a b : Polynomial ℝ)
+    (ha : ∀ n, 0 ≤ a.coeff n) (hb : ∀ n, 0 ≤ b.coeff n)
+    (h : a * a = b * b) : a = b :=
+  convSq_inj_nonneg_ordered a b ha hb h
 
 end Pairfield

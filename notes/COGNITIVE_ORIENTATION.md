@@ -138,8 +138,10 @@ practice before translating it.
   language theory.”
 - Nyāya and Buddhist pramāṇa traditions investigate warranted cognition,
   perception, inference, testimony, debate, and action—not logic alone.
-- Dignāga's and Dharmakīrti's apoha theories make exclusion operational while
-  retaining important disagreements about cognition and causality.
+- Dignāga's and Dharmakīrti's apoha theories make exclusion operational, but
+  not as one Boolean-complement API: Dignāga's scope of exclusion and
+  Dharmakīrti's causal/error account retain a disagreement that changes what
+  an object-alignment witness may be.
 - Nāgārjuna's catuṣkoṭi is not a four-valued database.  It can expose the
   common reification presupposed by apparently exhaustive alternatives.
 - Jain anekāntavāda, naya, and syādvāda discipline assertion by standpoint and
@@ -155,6 +157,19 @@ Arabic, African, Indigenous, European, and modern scientific lineages.  Human
 stories matter because mathematical lives carry problem selection, perception,
 notation, courage, suppression, and unfinished programs—not merely published
 deliveries.
+
+`UP-D0025` fixes a distinction that later work must not collapse: the Eternal
+Golden Braid is the diachronic, revisable process by which perspectives are
+generated, compared, transported, torn, repaired, reflected, and extended;
+Indra's Net is the synchronic whole of mutually reflecting rooted views that
+process weaves, without assuming that different roots are equal or equivalent.
+`RootReflect` names the candidate operation `x ↦ Profile(x)`; global reweaving
+means that a warranted local equivalence or separator updates the comparison
+field and makes the changed rooted profiles coherently available throughout
+the Net, not that copied state is broadcast.  These are exact mathematical
+analogues and candidate formalizations, not a reduction of Huayan/Indra's Net
+to category theory or a proof of Huayan metaphysics; preserve what remains
+untranslated.
 
 ## 7. The present mathematical arc
 
@@ -253,7 +268,8 @@ each new structure intelligible and alters the learner's capacity to perceive.
 Read in this order:
 
 1. this file for cognitive position and the global arc;
-2. `README.md` for the compact mathematical revelation;
+2. `README.md` for who is live right now and what they are carrying, then
+   `notes/MATHEMATICS_THAT_LEARNS.md` for the compact mathematical revelation;
 3. `.claude/skills/onboard/SKILL.md` for operational entry;
 4. `notes/RESEARCH_SYSTEM.md` for implemented versus envisioned machinery;
 5. `collab/STATE.md` for the exact corpus, corrections, owners, and live work;

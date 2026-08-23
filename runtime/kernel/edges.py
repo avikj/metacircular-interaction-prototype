@@ -243,7 +243,7 @@ def combine_limitors(kind: str, a: Any, b: Any) -> Tuple[bool, Any]:
     return True, v
 
 
-def limitor_census(edges) -> Dict[str, Dict[str, Any]]:
+def limitor_census(edges, verdict=None, profile=None) -> Dict[str, Dict[str, Any]]:
     """Distinct limitor values observed per sort, and the singleton verdict.
 
     An index that cannot be observed to have been dropped is one whose values
@@ -263,10 +263,36 @@ def limitor_census(edges) -> Dict[str, Dict[str, Any]]:
     symmetry acts transitively on those values, which this function cannot see
     because the group is not carried on the edge.  Widening the value space
     does not help if the symmetry widens with it; only breaking it does.
+    ``verdict(edge)`` is the claim's value at that index (default: the edge's
+    target, which is what an Order edge records).  If it is NON-constant across
+    the index values, the index is plainly OBSERVABLE and nothing further is
+    needed.
+
+    When the verdict IS constant the index is unobservable, and the useful
+    question becomes WHY, because the two causes have opposite cures
+    (notes/CONSTANCY_NOT_TRANSITIVITY.md, claude_arithmetic_breaker):
+
+        structural (a transitive symmetry)  -> widening cannot help; the
+                                               symmetry widens with the region.
+                                               Break the symmetry.
+        accidental (an unsampled cell)      -> widening is exactly the cure.
+
+    Theorem D separates them WITHOUT knowing the group: if some other recorded
+    invariant ``profile(edge)`` is non-constant across the index values, then no
+    profile-preserving group acts transitively on them, so the verdict's
+    constancy is accidental and widening is worth doing.  Passing ``profile``
+    enables that test.  Without it this function cannot tell the two apart, and
+    says so rather than guessing.
+
     Background: notes/THE_INDEX_IS_THE_SUBJECT.md, notes/INDEX_LAW.md
-    Theorem E, notes/POSITIVITY_HAS_A_PLACE.md SS10.
+    Theorem E, notes/CONSTANCY_NOT_TRANSITIVITY.md Theorem D,
+    notes/POSITIVITY_HAS_A_PLACE.md SS10.
     """
+    if verdict is None:
+        verdict = lambda e: e.dst
     seen: Dict[str, set] = {}
+    verdicts: Dict[str, set] = {}
+    profiles: Dict[str, set] = {}
     for e in edges:
         spec = LIMITORS.get(e.kind)
         if spec is None:
@@ -275,6 +301,9 @@ def limitor_census(edges) -> Dict[str, Dict[str, Any]]:
         if v is None:
             continue
         seen.setdefault(spec.sort, set()).add(v)
+        verdicts.setdefault(spec.sort, set()).add(verdict(e))
+        if profile is not None:
+            profiles.setdefault(spec.sort, set()).add(profile(e))
     out = {}
     for kind, spec in LIMITORS.items():
         vals = seen.get(spec.sort, set())
@@ -286,7 +315,15 @@ def limitor_census(edges) -> Dict[str, Dict[str, Any]]:
             # certainly invisible.  >1 is NOT a clearance -- see the docstring:
             # a transitive symmetry makes any number of values act as one.
             "latent_erratum": len(vals) == 1,
-            "cleared": False,   # never; clearance needs the group, not the count
+            "observable": len(verdicts.get(spec.sort, set())) > 1,
+            # Theorem D.  Only meaningful when the verdict is constant; None
+            # means "cannot tell", which is the honest answer without a profile.
+            "invisibility": (
+                None if len(verdicts.get(spec.sort, set())) > 1
+                else "accidental (widening helps)"
+                if profile is not None and len(profiles.get(spec.sort, set())) > 1
+                else "undetermined -- pass a profile, or no profile varies"
+            ),
             "why": spec.why,
         }
     return out

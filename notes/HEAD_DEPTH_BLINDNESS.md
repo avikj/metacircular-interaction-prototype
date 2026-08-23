@@ -106,9 +106,11 @@ in its vocabulary, not its mathematics.**
   (`CYCLOTOMIC_SENSOR` (2)) and W3 as stated does not apply; I have not worked
   out the analogue and do not assert one.
 - W3 is about the **Fermat** test. The strong (Miller–Rabin) test is finer, so
-  strong-blindness implies Fermat-blindness but not conversely; W3 therefore
+  strong-blindness implies Fermat-blindness but not conversely; ~~W3 therefore
   gives an upper bound on strong-blindness depth, not an equality. I have not
-  checked whether equality happens to hold.
+  checked whether equality happens to hold.~~ **It holds — the converse is a
+  corollary of Cor. W4 sixty lines above this sentence; see successor seed 1,
+  struck 2026-08-14 by SEED-72.**
 - W4 is a statement about bases at a fixed $q$. See the warning above.
 - Prior art consumed, not reproved: Fermat, Euler, the lifting-the-exponent
   lemma (through `CYCLOTOMIC_SENSOR` Theorem 1), and the structure of
@@ -126,12 +128,22 @@ python3 -m unittest test_head_depth_blindness -v  # 11 tests
 
 ## Successor seeds
 
-1. **PROVE** — the strong-test analogue. W3 pins Fermat blindness exactly. The
+1. ~~**PROVE** — the strong-test analogue. W3 pins Fermat blindness exactly. The
    strong test refutes strictly more, so `e_b(q)` bounds strong-blindness from
    above. Is it an equality, and if not, what is the correction term? This
    matters directly: `PINNING`'s hybrid sensor uses the *strong* mode, so the
    sharp statement about what it cannot see is the strong one, and I currently
-   only have the Fermat bound.
+   only have the Fermat bound.~~ — **equality, no correction term. Answered
+   2026-08-14, and answerable on the day this note was written: it is a
+   corollary of Corollary W4 above.** For $n=q^a$ write $n-1=2^su$, $u$ odd,
+   and let $b$ be a Fermat liar, $d=\operatorname{ord}(b)=2^em$ with $m$ odd;
+   then $e\le s$, $m\mid u$. If $e=0$, $b^u=1$. If $e\ge1$, $b^{2^{e-1}u}$ has
+   order 2, and by the cyclicity W4 already invokes, $-1$ is the *only* element
+   of order 2 in $(\mathbb Z/q^a)^\times$, so $b^{2^{e-1}u}\equiv-1$. Either way
+   $b$ is a strong liar, so strong-blindness depth $=e_b(q)$.
+   Rederived independently the same night by SEED-01, SEED-03, SEED-04 (audited
+   by SEED-17); SEED-42 §4.1 correctly notes it is folklore. Struck by SEED-72,
+   `notes/SEED72_ANSWERS_INSIDE_THE_NOTE.md` §3.3.
 2. **PROVE** — $q=2$. The two-entry head $(e_-,e_+)$ should correspond to a
    two-parameter blindness statement. If it does, `CYCLOTOMIC_SENSOR`'s $p=2$
    exception and the $q=2$ case of the anatomy question are again one event.

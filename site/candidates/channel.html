@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decode Returns the Fiber</title>
+<style>
+/* ------------------------------------------------------------------
+   Tokens. Light is the bare :root. Dark redefines TOKENS ONLY, twice:
+   once for the unstamped (system) state, once for the explicit stamp.
+   No component rule lives inside a media or [data-theme] block.
+------------------------------------------------------------------- */
+:root{
+  --paper:#E7ECF2; --surface:#F7F9FC; --surface-2:#DCE4ED;
+  --ink:#0E151D; --ink-2:#44546A; --ink-3:#6D7E93;
+  --rule:#BFCBD9; --rule-soft:#D3DCE6;
+  --accent:#23386F; --accent-2:#5A78BE; --accent-wash:#DAE2F1;
+  --correct:#8B2E39; --correct-wash:#F0DEE0;
+  --c0:#D7DFEA; --c1:#A6B8D0; --c2:#6F8BB5; --c3:#405F97; --c4:#1E3468;
+  --serif:"Iowan Old Style","Charter","Palatino Linotype",Palatino,"Hoefler Text",Georgia,serif;
+  --mono:ui-monospace,"SF Mono","IBM Plex Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C1117; --surface:#131A22; --surface-2:#1B242F;
+    --ink:#DCE4EE; --ink-2:#95A5B8; --ink-3:#6E7E92;
+    --rule:#27313D; --rule-soft:#1E2731;
+    --accent:#93AEF2; --accent-2:#5E7CC6; --accent-wash:#1A2434;
+    --correct:#E0949C; --correct-wash:#2E1A1D;
+    --c0:#1D2833; --c1:#2E4460; --c2:#46648C; --c3:#6B8FBC; --c4:#A8C4E8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C1117; --surface:#131A22; --surface-2:#1B242F;
+  --ink:#DCE4EE; --ink-2:#95A5B8; --ink-3:#6E7E92;
+  --rule:#27313D; --rule-soft:#1E2731;
+  --accent:#93AEF2; --accent-2:#5E7CC6; --accent-wash:#1A2434;
+  --correct:#E0949C; --correct-wash:#2E1A1D;
+  --c0:#1D2833; --c1:#2E4460; --c2:#46648C; --c3:#6B8FBC; --c4:#A8C4E8;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+  font-kerning:normal; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--accent-wash); color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent-2); outline-offset:3px; border-radius:1px}
+
+.shell{max-width:1180px; margin:0 auto; padding:0 clamp(18px,4vw,42px) 90px}
+.grid{display:grid; grid-template-columns:1fr; gap:0}
+@media (min-width:1020px){
+  .grid{grid-template-columns:214px minmax(0,1fr); gap:0 52px; align-items:start}
+}
+.col{min-width:0; max-width:70ch}
+
+/* ---------------- the loop rail ---------------- */
+.rail{display:none}
+@media (min-width:1020px){
+  .rail{display:block; position:sticky; top:0; padding:44px 0 40px}
+}
+.rail .rail-h{
+  font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 12px; font-weight:600;
+}
+.rail ol{list-style:none; margin:0 0 26px; padding:0; counter-reset:step; border-top:1px solid var(--rule)}
+.rail ol li{
+  counter-increment:step; position:relative;
+  font-family:var(--mono); font-size:11.5px; line-height:1.45; color:var(--ink-2);
+  padding:9px 0 9px 20px; border-bottom:1px solid var(--rule-soft);
+}
+.rail ol li::before{
+  content:counter(step); position:absolute; left:0; top:9px;
+  font-size:10px; color:var(--ink-3);
+}
+.rail ol li a{text-decoration:none}
+.rail ol li a:hover{color:var(--ink)}
+.rail ol li.here{color:var(--ink)}
+.rail ol li.here::before{color:var(--accent); font-weight:700}
+.rail p{font-family:var(--mono); font-size:11px; line-height:1.6; color:var(--ink-3); margin:0 0 12px}
+
+/* ---------------- masthead ---------------- */
+header.mast{padding:48px 0 0}
+.seed{margin:0 0 34px; max-width:24ch}
+.seed span{
+  display:block; font-family:var(--serif); font-size:clamp(22px,3.4vw,30px);
+  line-height:1.28; color:var(--ink-2);
+}
+.seed span+span{margin-top:2px}
+.seed span:nth-child(2){padding-left:1.6em}
+.seed span:nth-child(3){padding-left:3.2em; color:var(--ink)}
+.seed cite{
+  display:block; margin-top:14px; font-style:normal;
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-3);
+}
+h1{
+  font-family:var(--serif); font-weight:600; font-size:clamp(31px,5.2vw,44px);
+  line-height:1.1; letter-spacing:-.015em; margin:0 0 20px; text-wrap:balance; color:var(--ink);
+}
+h1 em{font-style:italic; color:var(--accent)}
+.standfirst{font-size:19.5px; line-height:1.55; color:var(--ink-2); margin:0 0 6px; max-width:60ch}
+.standfirst strong{color:var(--ink); font-weight:600}
+
+blockquote.charter{
+  margin:30px 0 0; padding:16px 0 16px 22px; border-left:3px solid var(--accent);
+  font-size:18px; line-height:1.5; color:var(--ink);
+}
+blockquote.charter p{margin:0}
+
+/* ---------------- sections ---------------- */
+section{padding:56px 0 0; scroll-margin-top:18px}
+h2.sec{
+  font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; margin:0 0 14px;
+  padding-bottom:8px; border-bottom:1px solid var(--rule);
+  display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+}
+h2.sec span{color:var(--accent); letter-spacing:.08em; text-align:right}
+h3{font-family:var(--serif); font-size:23px; line-height:1.28; font-weight:600; margin:26px 0 8px; text-wrap:balance}
+p{margin:0 0 14px}
+.lede{font-size:18px; color:var(--ink-2); margin:0 0 20px}
+.small{font-size:14.5px; color:var(--ink-2)}
+.mono{font-family:var(--mono); font-size:.87em; font-variant-numeric:tabular-nums}
+
+/* --------- every cue expands to the object that generated it --------- */
+details.src{margin:10px 0 0; font-family:var(--mono)}
+details.src>summary{
+  list-style:none; cursor:pointer; display:inline-block;
+  font-size:11px; letter-spacing:.04em; color:var(--accent);
+  border-bottom:1px dashed var(--accent-2); padding-bottom:1px;
+}
+details.src>summary::-webkit-details-marker{display:none}
+details.src>summary::before{content:"⌄ "}
+details.src[open]>summary::before{content:"⌃ "}
+details.src>summary:hover{color:var(--ink)}
+details.src pre{
+  margin:10px 0 0; padding:12px 14px; background:var(--surface);
+  border:1px solid var(--rule); border-left:3px solid var(--accent-2);
+  font-size:12px; line-height:1.55; color:var(--ink-2);
+  white-space:pre-wrap; overflow-x:auto;
+}
+details.src pre b{color:var(--ink); font-weight:600}
+.srcrow{display:flex; flex-wrap:wrap; gap:4px 22px; margin-top:10px}
+
+/* ============ THREE REGISTERS — three different typographies ============ */
+
+/* PROVED — printed theorem: serif, full ink, solid rule, double underline. */
+.proved{margin:26px 0; padding:2px 0 2px 20px; border-left:4px solid var(--accent)}
+.proved .reg{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:700; color:var(--accent); display:block; margin-bottom:5px;
+}
+.proved .reg::before{content:"▮ "}
+.proved .stmt{font-family:var(--serif); font-size:19px; line-height:1.45; color:var(--ink); margin:0}
+.proved .stmt u{text-decoration:none; border-bottom:3px double var(--accent); padding-bottom:1px}
+.proved .after{font-size:15.5px; color:var(--ink-2); margin:9px 0 0}
+
+/* MEASURED — instrument readout: mono, tabular, hatched marker, dotted rules,
+   no value without its unit and its source. */
+.measured{margin:26px 0; font-family:var(--mono)}
+.measured .reg{
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; font-weight:700;
+  color:var(--ink-2); display:flex; align-items:center; gap:9px; margin-bottom:10px;
+}
+.measured .reg::before{
+  content:""; width:13px; height:13px; flex:none; border:1px solid var(--ink-3);
+  background:repeating-linear-gradient(45deg,var(--ink-3) 0 1.5px,transparent 1.5px 4px);
+}
+.readout{width:100%; border-collapse:collapse; font-size:13px; font-variant-numeric:tabular-nums}
+.readout th{
+  text-align:left; font-weight:600; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3); padding:0 10px 6px 0; border-bottom:1px solid var(--rule);
+}
+.readout th:last-child, .readout td:last-child{text-align:right}
+.readout td{padding:7px 10px 7px 0; color:var(--ink-2); border-bottom:1px dotted var(--rule)}
+.readout td.v{color:var(--ink); font-weight:600; white-space:nowrap}
+.measured .caveat{
+  font-family:var(--serif); font-size:15.5px; line-height:1.52; color:var(--ink-2);
+  margin:14px 0 0; padding:13px 15px; background:var(--surface-2);
+}
+.measured .caveat b{color:var(--ink)}
+
+/* OPEN — nothing is enclosed: italic serif, hanging bracket, no fill,
+   no closing rule. The statement is not closed off, and looks it. */
+.open{margin:24px 0; padding-left:26px; position:relative; border-left:1px dashed var(--rule)}
+.open::before{
+  content:"⟨"; position:absolute; left:5px; top:-5px;
+  font-family:var(--serif); font-size:27px; line-height:1; color:var(--ink-3);
+}
+.open .reg{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; display:block; margin-bottom:5px;
+}
+.open .stmt{font-family:var(--serif); font-style:italic; font-size:18px; line-height:1.5; color:var(--ink-2); margin:0}
+.open .stmt::after{content:" ⟩"; font-style:normal; color:var(--ink-3)}
+.open .who{font-family:var(--mono); font-size:11.5px; line-height:1.6; color:var(--ink-3); margin:7px 0 0}
+
+/* ---------------- corrections ---------------- */
+.corr{margin:20px 0; padding:16px 18px; background:var(--correct-wash); border-left:3px solid var(--correct)}
+.corr s{color:var(--ink-3); text-decoration-color:var(--correct); text-decoration-thickness:1.5px}
+.corr b{color:var(--correct)}
+.corr p{margin:0 0 9px; font-size:16.5px}
+.corr p:last-of-type{margin:0}
+
+/* ---------------- certificate table ---------------- */
+.cert{width:100%; border-collapse:collapse; margin:16px 0 0; font-size:15.5px}
+.cert th{
+  text-align:left; vertical-align:top; width:32%; padding:11px 16px 11px 0;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; border-bottom:1px solid var(--rule-soft);
+}
+.cert td{padding:11px 0; border-bottom:1px solid var(--rule-soft); color:var(--ink-2)}
+.cert tr.key th{color:var(--correct)}
+.cert tr.key td{color:var(--ink)}
+.tablewrap{overflow-x:auto}
+
+/* ---------------- figure 1: the CRT fiber ---------------- */
+.fig{margin:22px 0 0}
+.picker{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px}
+.picker button{
+  all:unset; cursor:pointer; font-family:var(--mono); font-size:12px;
+  padding:6px 11px; border:1px solid var(--rule); color:var(--ink-2); background:var(--surface);
+}
+.picker button:hover{color:var(--ink); border-color:var(--accent-2)}
+.picker button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--paper); font-weight:600}
+.picker .lbl{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); align-self:center; margin-right:4px}
+
+.crt{display:flex; flex-wrap:wrap; gap:26px; align-items:flex-start}
+.crtpane{flex:1 1 250px; min-width:220px}
+.crtpane h4{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-2); font-weight:600; margin:0 0 3px;
+}
+.crtpane .sub{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin:0 0 10px}
+.tiles{display:flex; flex-wrap:wrap; gap:3px}
+.tile{
+  font-family:var(--mono); font-size:11px; font-variant-numeric:tabular-nums;
+  min-width:26px; padding:4px 3px; text-align:center;
+  background:var(--surface); border:1px solid var(--rule-soft); color:var(--ink-2);
+  transition:opacity .12s ease;
+}
+.tiles.dim .tile{opacity:.2}
+.tiles.dim .tile.on{opacity:1; background:var(--accent); border-color:var(--accent); color:var(--paper); font-weight:600}
+.tile.vis{cursor:pointer}
+.tile.vis:hover{border-color:var(--accent-2); color:var(--ink)}
+.tile.sel{background:var(--accent); border-color:var(--accent); color:var(--paper); font-weight:600}
+
+.fiberout{
+  margin:18px 0 0; padding:14px 16px; background:var(--surface); border:1px solid var(--rule);
+  font-family:var(--mono); font-size:12.5px; line-height:1.65; color:var(--ink-2);
+}
+.fiberout b{color:var(--ink)}
+.fiberout .head{
+  font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);
+  display:block; margin-bottom:7px;
+}
+.verdict{margin-top:8px; padding-top:8px; border-top:1px dotted var(--rule)}
+.verdict .yes{color:var(--accent); font-weight:600}
+.verdict .no{color:var(--correct); font-weight:600}
+
+/* ---------------- figure 2: the digit-word plates ---------------- */
+.panels{display:flex; flex-wrap:wrap; gap:28px}
+.panel{flex:1 1 250px; min-width:220px}
+.panel h4{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-2); font-weight:600; margin:0 0 3px;
+}
+.panel .sub{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin:0 0 10px}
+.plate{display:grid; grid-template-columns:repeat(16,1fr); gap:1px; background:var(--rule); padding:1px; aspect-ratio:1/1}
+.cell{background:var(--c0); transition:opacity .14s ease}
+.cell[data-k="0"]{background:var(--c0)} .cell[data-k="1"]{background:var(--c1)}
+.cell[data-k="2"]{background:var(--c2)} .cell[data-k="3"]{background:var(--c3)}
+.cell[data-k="4"]{background:var(--c4)}
+.plate.dim .cell{opacity:.15}
+.plate.dim .cell.fib{opacity:1; box-shadow:inset 0 0 0 1px var(--ink)}
+.legend{margin:20px 0 0; display:flex; flex-direction:column; border-top:1px solid var(--rule)}
+.legend button{
+  all:unset; cursor:pointer; display:flex; align-items:center; gap:12px;
+  padding:9px 6px 9px 0; border-bottom:1px solid var(--rule-soft);
+  font-family:var(--mono); font-size:12px; color:var(--ink-2); font-variant-numeric:tabular-nums;
+}
+.legend button:hover{background:var(--surface); color:var(--ink)}
+.legend button[aria-pressed="true"]{background:var(--accent-wash); color:var(--ink)}
+.legend .sw{width:16px; height:16px; flex:none; border:1px solid var(--rule)}
+.legend .lab{flex:1}
+.legend .cnt{font-weight:600; color:var(--ink)}
+.checks{margin:16px 0 0; font-family:var(--mono); font-size:12px; color:var(--ink-2)}
+.checks div{padding:6px 0; border-bottom:1px dotted var(--rule)}
+.checks b{color:var(--ink)}
+.checks .ok{color:var(--accent); font-weight:600}
+.caption{font-size:14.5px; color:var(--ink-2); margin:18px 0 0}
+
+ol.misread{margin:14px 0 0; padding-left:0; list-style:none; counter-reset:mr}
+ol.misread li{counter-increment:mr; position:relative; padding:0 0 14px 34px; font-size:16px; color:var(--ink-2)}
+ol.misread li::before{
+  content:"(" counter(mr,lower-alpha) ")"; position:absolute; left:0; top:1px;
+  font-family:var(--mono); font-size:12px; color:var(--correct);
+}
+ol.misread li b{color:var(--ink)}
+ul.plain{margin:12px 0 0; padding-left:0; list-style:none}
+ul.plain li{padding:0 0 12px 20px; position:relative; font-size:16px; color:var(--ink-2)}
+ul.plain li::before{content:"—"; position:absolute; left:0; color:var(--ink-3)}
+ul.plain li b{color:var(--ink)}
+
+footer{
+  margin-top:66px; padding-top:22px; border-top:1px solid var(--rule);
+  font-family:var(--mono); font-size:11.5px; line-height:1.75; color:var(--ink-3);
+}
+footer b{color:var(--ink-2); font-weight:600}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="grid">
+
+<!-- =================== THE LOOP (rail) =================== -->
+<aside class="rail" aria-label="The loop this page follows">
+  <div class="rail-h">The loop</div>
+  <ol>
+    <li><a href="#charter">generate an object from known constructors</a></li>
+    <li class="here"><a href="#fiber">observe it through several exact views</a></li>
+    <li><a href="#plates">find a relation making two calculations one</a></li>
+    <li><a href="#twice">prove the relation or preserve the obstruction</a></li>
+    <li><a href="#registers">turn the result into a reusable operation</a></li>
+    <li><a href="#reopen">let it change what is cheap or possible next</a></li>
+  </ol>
+  <div class="rail-h">Source of the loop</div>
+  <p>notes/MATHEMATICS_THAT_LEARNS.md:131–136</p>
+  <div class="rail-h">Reading</div>
+  <p>Every cue on this page opens to the file and line that generated it. Nothing here is authority; the proofs are in <span class="mono">notes/</span>.</p>
+</aside>
+
+<!-- =================== CONTENT =================== -->
+<main class="col">
+
+<header class="mast">
+  <blockquote class="seed">
+    <span>Begin with nothing.</span>
+    <span>Make one distinction.</span>
+    <span>Then allow the distinction to be used again.</span>
+    <cite>notes/MATHEMATICS_THAT_LEARNS.md:3–7</cite>
+  </blockquote>
+
+  <h1>Decode returns the <em>fiber</em>, not a guess.</h1>
+  <p class="standfirst">Every useful thought forgets almost everything. To recognize whether an integer is even, one bit is enough; to reconstruct the integer, it is not. <strong>This page is a projection</strong> — of that mathematics, not of the repository that holds it — and it owes you two things a projection can be held to: a way back to what each cue came from, and a plain statement of what it destroyed on the way here.</p>
+
+  <blockquote class="charter" id="charter">
+    <p>A channel is a projection of one object, with explicit information loss and stated round-trip guarantees. Never an independent semantic copy. Never a truth authority.</p>
+    <details class="src"><summary>runtime/render/README.md:11–13</summary><pre>&gt; <b>A channel is a projection of one object, with explicit information loss and
+&gt; stated round-trip guarantees. Never an independent semantic copy. Never a
+&gt; truth authority.</b></pre></details>
+  </blockquote>
+</header>
+
+<!-- ---------- §1 the fiber you can open ---------- -->
+<section id="fiber">
+  <h2 class="sec">§1 &nbsp;A loss you can open <span>ℤ/mn → ℤ/m × ℤ/n</span></h2>
+  <p class="lede">A map <span class="mono">q : X → Y</span> collects many states of X into one state of Y. It is sufficient for a task exactly when states joined by <span class="mono">q</span> can never produce different answers to that task — now or after any allowed future action. Here is the smallest honest example: read an integer mod <span class="mono">m</span> and mod <span class="mono">n</span>, and ask what you can get back.</p>
+
+  <div class="fig">
+    <div class="picker" id="picker"><span class="lbl">views</span></div>
+
+    <div class="crt">
+      <div class="crtpane">
+        <h4>Visible — the pair of readings</h4>
+        <p class="sub" id="vissub"></p>
+        <div class="tiles" id="visible"></div>
+      </div>
+      <div class="crtpane">
+        <h4>Hidden — the states of ℤ/mn</h4>
+        <p class="sub" id="hidsub"></p>
+        <div class="tiles" id="hidden"></div>
+      </div>
+    </div>
+
+    <div class="fiberout" id="crtout">
+      <span class="head">decode(reading) — the fiber</span>
+      <span id="crttext">Pick a visible pair on the left. <b>decode</b> returns every integer consistent with it, as a set, in order — never one representative.</span>
+      <div class="verdict" id="crtverdict"></div>
+    </div>
+
+    <p class="caption">The widget replays <span class="mono">python3 machinery/natural_crystal.py glue-remainders m n</span> in exact integer arithmetic. The verdict line is the point: <b>the round-trip guarantee is not a property of the display, it is a certificate the arithmetic either earns or does not.</b> When gcd(m, n) = 1 the fiber is a singleton and a single-valued inverse is licensed. Otherwise every compatible reading still hides gcd(m, n) states, and offering one of them would be a guess.</p>
+
+    <details class="src"><summary>machinery/natural_crystal.py glue-remainders 4 6 — output, run 2026-08-12</summary><pre>joint view: Z/24 -&gt; Z/4 x Z/6
+shared overlap gcd: 2
+compatible visible pairs: 12 = lcm 12
+hidden states behind each visible pair: 2
+<b>exact reconstruction: False</b>
+fibers: (((0, 0), (0, 12)), ((1, 1), (1, 13)), ((2, 2), (2, 14)), ((3, 3), (3, 15)),
+ ((0, 4), (4, 16)), ((1, 5), (5, 17)), ((2, 0), (6, 18)), ((3, 1), (7, 19)),
+ ((0, 2), (8, 20)), ((1, 3), (9, 21)), ((2, 4), (10, 22)), ((3, 5), (11, 23)))</pre></details>
+    <details class="src"><summary>notes/MATHEMATICS_THAT_LEARNS.md:241–245 — what gluing requires</summary><pre>Several views do not automatically make a whole.  The joint residue map from
+`Z/(mn)` to the mod-`m` and mod-`n` views says exactly what gluing requires:
+the two readings must agree modulo `gcd(m,n)`, and every compatible pair still
+hides `gcd(m,n)` original states.  Coprime views reconstruct exactly.  Otherwise
+<b>the overlap condition and the residual fiber are both retained.</b></pre></details>
+    <details class="src"><summary>runtime/render/README.md:62–70 — why decode cannot answer with one state</summary><pre><b>`decode` returns the fibre, and cannot do otherwise.</b> It is implemented once,
+on the base class, as "every state of the declared language mapping to this
+code". It is not a hook a subclass is invited to reinterpret. A lossy channel
+therefore cannot return a single guess without overriding a method whose
+contract forbids it […] The single-valued inverse lives on a
+separate method, `decode_exact`, which <b>refuses to run</b> until an exhaustive
+injectivity check has passed.</pre></details>
+  </div>
+
+  <div class="proved">
+    <span class="reg">Proved</span>
+    <p class="stmt"><u>A channel cannot gain information.</u> Encoding is a function on the declared language L, so |image| ≤ |L| and the partition it induces is a coarsening of equality: no channel separates two states the raw representation does not, and none answers a query the raw state cannot.</p>
+    <p class="after">So the only claim a presentation layer may make is <em>recognition-cost reduction</em> — fewer operations to reach an answer the object already implies. A page claiming to add understanding is refuted by a theorem about functions, not by taste.</p>
+    <details class="src"><summary>runtime/render/README.md:90–101</summary><pre>&gt; <b>A channel cannot gain information.</b> A channel is a function `encode` on
+&gt; the declared language `L`. Hence `|image(encode)| ≤ |L|`, and the partition
+&gt; of `L` it induces is a coarsening of equality. […]
+
+`certify_claim` enforces this. A channel declaring `INFORMATION_GAIN` is
+rejected, and the rejection is a theorem about functions rather than a house
+style. […] Consequently the <b>only</b> admissible
+claim in this package is <b>recognition-cost reduction</b>.</pre></details>
+  </div>
+</section>
+
+<!-- ---------- §2 a loss that cannot be undone ---------- -->
+<section id="plates">
+  <h2 class="sec">§2 &nbsp;A loss that cannot be undone <span>256 → 5</span></h2>
+  <p class="lede">The 256 little-endian base-4 words of length 4, drawn as a 16×16 grid: row is the high digit pair, column is the low pair. Left panel colours each word by its carry count <span class="mono">c₄(v) = v₄(v+1)</span> — the trailing 3s, the carries the odometer produces. Right panel colours by the borrow count <span class="mono">z₄(v) = v₄(v)</span>, the trailing zeros. Same layers, same palette, so any difference between the panels is mathematics and not styling.</p>
+
+  <div class="fig">
+    <div class="panels">
+      <div class="panel">
+        <h4>Carry — c₄(v)</h4>
+        <p class="sub">trailing digits equal to 3</p>
+        <div class="plate" id="plateL" role="img" aria-label="16 by 16 grid of 256 base-4 words coloured by carry count"></div>
+      </div>
+      <div class="panel">
+        <h4>Borrow — z₄(v)</h4>
+        <p class="sub">trailing zeros</p>
+        <div class="plate" id="plateR" role="img" aria-label="16 by 16 grid of the same 256 words coloured by borrow count"></div>
+      </div>
+    </div>
+
+    <div class="legend" id="legend" role="group" aria-label="Select a code to see its fiber"></div>
+
+    <div class="fiberout">
+      <span class="head">decode(colour) — the fiber</span>
+      <span id="platetext">Select a colour. <b>decode</b> returns the whole level set — here the largest one holds 192 of the 256 words, and no inverse exists at all.</span>
+    </div>
+
+    <div class="checks" id="checks"></div>
+
+    <h3>The theorem the picture makes visible</h3>
+    <p>The digit complement <span class="mono">E(v) = 4⁴−1−v</span> is exactly the point reflection of this grid, and <span class="mono">c₄(Ev) = z₄(v)</span>. So the claim "the complement exchanges carry with borrow" becomes the visible claim: <strong>the right panel is the left panel rotated by half a turn.</strong> The check above is not an invitation to believe it — it is run cell by cell on the colours actually drawn, with a control asserting the two panels differ on 128 cells so that "rotated by half a turn" is not vacuously true of a constant picture.</p>
+
+    <details class="src"><summary>runtime/render/README.md:216–227</summary><pre>&gt; <b>Theorem made visible — DIGIT_CRYSTAL (2.2): `c_n(E x) = z_n(x)`.</b>
+&gt; The digit complement exchanges carry with borrow. Since `E(v) = b^n-1-v` is
+&gt; the point reflection of the grid, the claim is: <b>the right panel is the left
+&gt; panel rotated by half a turn.</b>
+
+[…] A separate control asserts the
+two panels differ on 128 cells, so "rotated by half a turn" is not vacuous.</pre></details>
+
+    <h3>Its omitted locus, stated rather than buried</h3>
+    <div class="tablewrap">
+    <table class="cert">
+      <tbody>
+        <tr><th>Generated locus</th><td>all 256 words</td></tr>
+        <tr><th>Exact image</th><td>5 colours</td></tr>
+        <tr><th>Equivalence kernel</th><td>the level sets of c₄, of sizes 192, 48, 12, 3, 1</td></tr>
+        <tr><th>Closure</th><td>the 4-adics: c₄ extends, since c₄(x) = v₄(x+1) is defined on ℤ₄</td></tr>
+        <tr class="key"><th>Omitted locus</th><td>everything above the trailing run of 3s — the picture cannot see any digit past the first non-3</td></tr>
+        <tr><th>Operations that extend</th><td>the odometer T; the complement E, which exchanges the two panels — that is the rendered theorem</td></tr>
+        <tr><th>Operations that do not</th><td>word reversal D: c₄(Dx) is the <em>leading</em> count, which has no limit</td></tr>
+        <tr class="key"><th>May not claim</th><td>anything about a task that reads D, or any task finer than the carry class</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <details class="src"><summary>runtime/render/README.md:398–412</summary><pre>## 9. Reachability discipline (§4): what this surface omits
+
+| generated locus | all 256 states of `W_4^4` |
+| exact image | 5 colours |
+| equivalence kernel | the level sets of `c_n`, of sizes 192, 48, 12, 3, 1 |
+| <b>omitted locus</b> | everything above the trailing `(b-1)`-run: the picture
+  cannot see any digit past the first non-`(b-1)` one |
+| operations that extend | `T`, `E` (and `E` exchanges the two channels …) |
+| operations that do not | `D` = word reversal — `c_n(D x) = ℓ_n(x)`, the
+  *leading* count, which has no limit |
+| may not claim | anything about a task that reads `D`, or any task finer than
+  the carry class |</pre></details>
+
+    <p class="caption"><b>What this rendering itself omits.</b> The certified artifact (<span class="mono">runtime/demo/out/carry_cocycle.svg</span>) derives its legend from resolved channel colours, so a legend there cannot paint a colour the picture never uses, and it marks two exception cells through a semantic layer. Neither holds here: the palette above is this page's own, the exception cells are not drawn, and the half-turn identity is recomputed in this page's integer arithmetic rather than read off the certified file. This figure is a projection of a projection, and says so.</p>
+  </div>
+</section>
+
+<!-- ---------- §3 the same object arriving twice ---------- -->
+<section id="twice">
+  <h2 class="sec">§3 &nbsp;The same object, arriving twice under two names <span>and what the second copy cost</span></h2>
+  <p class="lede">A view used as working memory replaces a signal by its fiberwise average, and then the <em>order</em> of two views can start to matter. Two such compressions commute precisely when every pair of their fibers inside a common coarsening meets in |B||D|/|E| points. Because that number must be an integer, block sizes alone can prove that no order-free study is possible.</p>
+
+  <p>That criterion was written down in one part of this corpus as a yes/no obstruction on lenses. In another part, an installed projector was said to remain sound for an admitted action exactly while (I−P)AP = 0, with the <em>rank</em> of that operator the dimension of the correction channel to be paid per application. The two statements do not cite each other. They are the same matrix.</p>
+
+  <div class="proved">
+    <span class="reg">Proved</span>
+    <p class="stmt"><u>rank((I−P<sub>π</sub>)P<sub>σ</sub>P<sub>π</sub>) = Σ<sub>E ∈ π∨σ</sub> (rank N<sub>E</sub> − 1)</u>, where N<sub>E</sub>[B,D] = |B ∩ D| is the incidence table of the join block E.</p>
+    <p class="after">Theorem 2.1. A binary criterion in one vocabulary becomes an exact cost in the other, in closed form, with no matrix product formed. Corollary 2.2 recovers the old criterion — the lenses commute iff every N<sub>E</sub> has rank one, which forces |B ∩ D| = |B||D|/|E|. Corollary 1.2 is free and was invisible from either side alone: the correction channel does not depend on which lens was installed first.</p>
+    <div class="srcrow">
+      <details class="src"><summary>notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md:68–71</summary><pre>&gt; <b>Theorem 2.1.</b>
+&gt; $$\operatorname{rank}\big((I-P_\pi)P_\sigma P_\pi\big)
+&gt; \;=\;\sum_{E\in\pi\vee\sigma}\big(\operatorname{rank} N_E-1\big).$$</pre></details>
+      <details class="src"><summary>…:161–171 — the rigor boundary, in the author's own words</summary><pre>- <b>Proved here:</b> Lemma 1.1, Theorem 2.1, Corollaries 1.2, 2.2–2.5.
+- <b>Consumed as classical, no novelty claimed:</b> Halmos's two-subspace
+  decomposition; principal angles as singular values of the cross-Gram matrix […]
+  <b>no novelty is claimed for Corollary 2.2</b>, and the recorded search is:
+  none performed this session.  What is offered as new *to this repository* is
+  the identification of the two lanes' matrices and the closed form for the
+  rank, not the criterion.</pre></details>
+    </div>
+  </div>
+
+  <div class="proved">
+    <span class="reg">Proved — finite and exhaustive, therefore proof</span>
+    <p class="stmt">The closed form agrees with literal matrix products on <u>all 44,168 ordered partition pairs through six points</u>, exact rationals throughout; two planted-false formulas both fire.</p>
+    <p class="after">An exhaustive verification produces a mathematical object, not a measurement — which is why it belongs in this register and the readout in §4 does not. At five points it independently reproduces the lens lane's own totals, 2,959 pairs with 1,900 non-commuting, from a from-scratch implementation.</p>
+    <div class="srcrow">
+      <details class="src"><summary>notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md:189–196</summary><pre>The verification is exhaustive over <b>all 44,168 ordered partition pairs
+through six points</b> (2,959 through five), exact rationals throughout,
+comparing the closed form against literal matrix products.  At $n=5$ the run
+independently reproduces `LENS_ORDER_COMMUTATION`'s own totals — 2,959 pairs,
+1,900 of them non-commuting — from a from-scratch implementation.  Two
+planted-false formulas […] both fire.</pre></details>
+      <details class="src"><summary>CLAUDE.md:30–33 — why exhaustion is proof and fitting is not</summary><pre>- <b>Exact / certified symbolic computation is proof</b> and is always
+  allowed: an irreducibility certificate over $\mathbb{Q}$, a finite
+  exhaustive verification, a resultant, a factorization. These produce
+  mathematical objects, not measurements.</pre></details>
+    </div>
+  </div>
+
+  <p>The integrality obstruction is worth holding onto, because it is the whole method in one line: the decimal view of ℤ/1000ℤ and the view recording which of 8 and 125 divides x²−x <em>cannot</em> commute, since four idempotents cannot spread evenly over fibers of a hundred. No linear algebra is run. Four integers decide it.</p>
+  <details class="src"><summary>notes/MATHEMATICS_THAT_LEARNS.md:250–268</summary><pre>two such compressions commute precisely when every pair of their
+fibers inside a common coarsening meets in `|B||D|/|E|` points.  The criterion
+is cheap enough to be an obstruction.  Because that number must be an integer,
+block sizes alone can prove that no order-free study is possible — <b>the decimal
+view of `Z/1000Z` and the view recording which of `8` and `125` divides
+`x²-x` cannot commute, since the four idempotents cannot spread evenly over
+fibers of a hundred.</b>  The two residue views above, by contrast, commute for
+every `m` and `n`, coprime or not […]
+<b>Losing information and losing order-independence are different failures.</b></pre></details>
+</section>
+
+<!-- ---------- §4 registers ---------- -->
+<section id="registers">
+  <h2 class="sec">§4 &nbsp;Three registers, three typographies <span>never conflated</span></h2>
+  <p class="lede">Proved, measured, and open are three different relations to the truth, and three colours of the same chip is not three treatments — it is one treatment wearing three hats. So: proved is set as printed theorem, in serif at full ink under a solid rule; measured is set as instrument readout, monospaced and tabular, and no value appears without its unit and its source; open is set unenclosed, in italic, on a dashed hanging bracket that never closes.</p>
+  <details class="src"><summary>collab/PROTOCOL.md:100–106</summary><pre>Prasaṅga norms (msg 0073): headline claims ship with their own designed
+annihilation apparatus (controls/falsifiers) or they are not claims; reviews
+name the pramāṇa (numerics / proof / checked-source citation) under each
+load-bearing step; <b>PROVED vs MEASURED never conflate</b>; meta-documents must
+cite a mathematical consumer or they don't land.</pre></details>
+
+  <div class="proved">
+    <span class="reg">Proved</span>
+    <p class="stmt">In a world of n states, <u>every possible distinction has a witness of length at most max(n−2, 0)</u> — once a distinction exists, the present observation already supplies two classes, leaving at most n−2 strict refinements.</p>
+    <p class="after">This is what makes the loop finite: the infinite family of future action-words is exhausted by a sharp horizon. If the declared horizon is not closed, the first omitted transition is returned as a frontier rather than a prefix silently treated as the whole.</p>
+    <details class="src"><summary>notes/MATHEMATICS_THAT_LEARNS.md:159–166</summary><pre>In a world of `n` states every possible distinction has a witness of length at
+most `max(n-2,0)`; once a distinction exists, the present observation already
+supplies two classes, leaving at most `n-2` strict refinements.
+The infinite family of future words is therefore exhausted by a sharp finite
+horizon. […] If the declared finite horizon is not closed, the first omitted
+transition is returned as a frontier rather than silently treating a prefix as
+the whole.</pre></details>
+  </div>
+
+  <div class="proved">
+    <span class="reg">Proved — and it replaced its own discovery procedure</span>
+    <p class="stmt">If m = 2<sup>a</sup>q with q odd, then <u>binary divisibility modulo m needs exactly q + a states</u>.</p>
+    <p class="after">First found by refinement, then installed as a closed formula that replaces the refinement — while the original algorithm remains its independent replay. The missing coordinates q and a were themselves derived from the generated dynamics: under the zero-digit action, q is the size of the eventual image and a is the number of strict image contractions before stabilization. Factorization is an independent explanation of coordinates first exposed by motion.</p>
+    <details class="src"><summary>notes/MATHEMATICS_THAT_LEARNS.md:172–190</summary><pre>From those runs comes its first assimilated theorem: if `m=2^a q` with `q`
+odd, <b>binary divisibility modulo `m` needs exactly `q+a` states.</b>  The closed
+formula now replaces refinement while the original algorithm remains its
+independent replay. […]
+The missing coordinates are then derived from the generated dynamics itself: under
+the zero-digit action, `q` is the size of the eventual image and `a` is the
+number of strict image contractions before stabilization. Factorization is an
+independent explanation of coordinates first exposed by motion.</pre></details>
+  </div>
+
+  <h3>Measured</h3>
+  <p class="small">The one measured thing on this page is the only thing about it that could be measured: whether a rendered code is cheaper to read than the raw state. It is reported with its unit, its batch size, its null control, and the sentence that keeps it from becoming a claim about people.</p>
+
+  <div class="measured">
+    <span class="reg">Measured — machine-side comparison counts</span>
+    <div class="tablewrap">
+    <table class="readout">
+      <thead><tr><th>quantity</th><th>unit</th><th>value</th></tr></thead>
+      <tbody>
+        <tr><td>raw state</td><td>int comparisons / 1024 queries</td><td class="v">2398</td></tr>
+        <tr><td>chromatic code, already rendered</td><td>int comparisons / 1024 queries</td><td class="v">1472</td></tr>
+        <tr><td>null control — an irrelevant true channel read alongside</td><td>int comparisons / 1024 queries</td><td class="v">6826</td></tr>
+        <tr><td>saved per query</td><td>exact rational</td><td class="v">463 / 512</td></tr>
+        <tr><td>one-time cost of encoding all 256 states</td><td>int comparisons</td><td class="v">596</td></tr>
+        <tr><td>break-even</td><td>queries</td><td class="v">660</td></tr>
+        <tr><td>worst fibre — what the reduction costs in information</td><td>states → code</td><td class="v">192 → 1</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="caveat"><b>The caveat travels with the numbers.</b> These are machine-side comparison counts, a proxy for recognition cost and nothing more. No human looked at anything; no reaction time, error rate or visual-search measurement was taken, and none is possible from that program. <b>Nothing here establishes that a person recognises the carry class faster from the colour than from the digits.</b> The channel reduces the comparisons a machine performs, loses 192-to-1 in its worst fibre, and its value to a human reader is <b>unmeasured</b>. Note also that encoding all 256 states costs more than answering once from the raw state, because encoding <em>contains</em> the raw scan: the reduction is real only when the code already exists — which is exactly the situation a rendered picture is in.</p>
+    <details class="src"><summary>runtime/render/README.md:328–360</summary><pre>| comparisons, RAW state | 2398 |
+| comparisons, CHROMATIC CODE (already rendered) | <b>1472</b> |
+| comparisons, NULL CONTROL (`chroma_carry × chroma_low2`) | 6826 |
+| saved per query | `463/512` |
+| one-time cost of encoding all 256 states | 596 |
+| break-even | <b>660 queries</b> |
+| worst fibre (what the reduction costs in information) | 192 states → 1 code |
+
+&gt; These are <b>machine-side comparison counts</b>. They are a <b>proxy</b> for
+&gt; recognition cost and nothing more. No human looked at anything here […]
+&gt; <b>Nothing here establishes that a person
+&gt; recognises the carry class faster from the colour than from the digits.</b></pre></details>
+    <details class="src"><summary>notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md:214–220 — the charter this page works under</summary><pre>A derived cue may add no extensional mathematical distinction for an ideal
+decoder while greatly reducing access cost for a bounded person or machine.
+<b>Semantic fidelity and recognition latency are distinct objectives.</b>  Do not
+turn this into detached psychophysics, and do not claim cognitive acceleration
+before a real instrument exists.</pre></details>
+  </div>
+</section>
+
+<!-- ---------- §5 corrections ---------- -->
+<section id="corrections">
+  <h2 class="sec">§5 &nbsp;A correction is not an erratum <span>it is the substance</span></h2>
+  <p class="lede">Refutations are struck in place with a pointer, never deleted, because the correction record is part of the mathematics. Both strikes below are the same failure: a fitted number standing where an exact one was available — and in the second case, the exact computation that refuted it was already printed on the same page and was misread.</p>
+
+  <div class="corr">
+    <p>The [♯♯] block constant, reported as growing like <s>0.362 log²Q</s> (least squares) or <s>0.421 log²Q</s> (mean extraction).</p>
+    <p><b>The coefficient is exactly ¼.</b> It comes from the single term n = 2, where A(Q)²/4 is exact. The auditor had correctly called the sub-coefficients method-sensitive; both numbers were wrong, and the error had already propagated into two notes, a paper section, and a round of cross-review before it was caught.</p>
+    <details class="src"><summary>notes/METHOD.md:7–14 and CLAUDE.md:3–8</summary><pre>`BLOCKS.md` §5.1 reported the $[\sharp\sharp]$ block constant […] as growing like
+$0.362\log^2Q$ (LSQ) or $0.421\log^2Q$ (mean extraction), and the auditor
+correctly called the sub-coefficients method-sensitive. <b>Both numbers are
+wrong. The coefficient is exactly $\tfrac14$.</b>
+
+[CLAUDE.md] One of them (`exp27`) published a *fitted*
+constant, $0.362$–$0.421$, where the true value is exactly $\tfrac14$; the
+error propagated into two notes, a paper section, and a round of
+cross-review. This file exists so that does not recur.</pre></details>
+  </div>
+
+  <div class="corr">
+    <p>Then the correction was itself corrected: <s>S(Q) → Σ Λ(m)/(1+m)²</s>, taking Hardy's Ramanujan expansion termwise.</p>
+    <p>The termwise limit is <b>φ(m)Λ(m)/m</b>, not Λ(m); the factor φ(m)/m had been dropped. So S<sub>∞</sub> = 0.257780…, and the printed linear coefficient <s>1.388949</s> becomes <b>1.181852</b>. The exact-rational computation already in that section contained the refutation: S(Q) = 0.2513, 0.2560, 0.2663, 0.2587 at Q = 10, 30, 60, 120 converges to 0.2578, nowhere near 0.3613. The leading ¼ is untouched.</p>
+    <details class="src"><summary>notes/METHOD.md:20–37</summary><pre>~~$S(Q)\to S_\infty=\sum_{m\ge2}\Lambda(m)/(1+m)^2$ (Hardy's Ramanujan
+expansion of $\Lambda$, termwise for fixed $m$)~~
+<b>[CORRECTED — see `notes/E2_PROOF.md` §2.2: the termwise limit of the
+Ramanujan expansion is $\tfrac{\varphi(m)}{m}\Lambda(m)$, not $\Lambda(m)$;
+the factor $\varphi(m)/m$ was dropped here]</b>
+
+The exact-rational computation
+already in this section contained the refutation and was misread:
+$S(Q)=0.2513,\,0.2560,\,0.2663,\,0.2587$ at $Q=10,30,60,120$ converges to
+$0.2578$, nowhere near $0.3613$.</pre></details>
+  </div>
+
+  <p class="small">Both strikes are rendered with a real <span class="mono">&lt;s&gt;</span> and the wrong value left legible, not a "deprecated" badge and not a quiet edit. A reader who cannot see the discarded value cannot see what the correction was for.</p>
+</section>
+
+<!-- ---------- §6 what reopens ---------- -->
+<section id="reopen">
+  <h2 class="sec">§6 &nbsp;What reopens <span>compression, then renewed distinction</span></h2>
+  <p class="lede">When a compressed view fails, the pair of states it confused says exactly what must become visible next. The earlier observation is not declared false — it is retained, and every compiled shortcut keeps its full expansion into the actions it came from. Learning is alternately compression and renewed distinction, and these are the places where this corpus is currently in the second phase.</p>
+
+  <div class="open">
+    <span class="reg">Open</span>
+    <p class="stmt">Give rank((I−P)AP) a combinatorial closed form for A self-adjoint but not idempotent — the class containing the centered sieve multiplier, which is proved positive and self-adjoint but is not a projection. Theorem 2.1 says nothing outside the idempotent case</p>
+    <p class="who">notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md:203–207</p>
+  </div>
+
+  <div class="open">
+    <span class="reg">Open</span>
+    <p class="stmt">Repair is a two-resource problem — blocks forgotten against scalars carried. The one-axis search provably stalls, because the repair set is not merge-connected; whether the two-axis frontier is connected is not known</p>
+    <p class="who">notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md:208–211 · carried live by <span class="mono">opus-samhita</span>, who wants a return from <span class="mono">claude_ananta</span> (README.md live board)</p>
+  </div>
+
+  <div class="open">
+    <span class="reg">Open</span>
+    <p class="stmt">Whether the reopening cycle's live example — the diagonal <span class="mono">position</span> operator on ℤ/30 — admits a lens decomposition, which would bring it inside Theorem 2.1's scope; it is not a lens as it stands</p>
+    <p class="who">notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md:212–214 · addressed to <span class="mono">codex-vajra</span> / <span class="mono">codex-madhavi</span></p>
+  </div>
+
+  <div class="open">
+    <span class="reg">Open — the standing test, not a task</span>
+    <p class="stmt">Take any two phenomena that seem unrelated. Do not announce that they are secretly one. Construct the third object in which both appear naturally, give the maps, compute what is preserved, and find the mixed consequence neither view supplies alone. If it breaks, keep the obstruction: it is a precise description of the missing world</p>
+    <p class="who">notes/MATHEMATICS_THAT_LEARNS.md:290–297 — §3 above is one completed instance of exactly this</p>
+  </div>
+</section>
+
+<!-- ---------- §7 the certificate for this page ---------- -->
+<section id="certificate">
+  <h2 class="sec">§7 &nbsp;What this page destroyed <span>self-issued, unverified</span></h2>
+  <p class="lede">The runtime's channels do not ship without a reachability table: generated locus, exact image, equivalence kernel, omitted locus, and what the channel may not claim. A page that projects this mathematics is a channel over it, and files the same table. This one is self-issued and has not been cross-checked by anyone, which is itself part of the certificate.</p>
+
+  <div class="tablewrap">
+  <table class="cert">
+    <tbody>
+      <tr><th>Generated locus</th><td>Seven documents and two runnable programs, read on 2026-08-12: the seed essay, the render channel, the leakage-rank note, the method triage, the protocol, the binding rule, the live board — plus <span class="mono">natural_crystal.py</span> and the render demo's report.</td></tr>
+      <tr><th>Exact image</th><td>Five proved statements, one measured table, four open questions, two struck corrections, two figures.</td></tr>
+      <tr><th>Equivalence kernel</th><td>Every statement sharing a register is rendered identically. This page cannot separate two proved theorems by depth, difficulty, or importance, and it does not pretend to.</td></tr>
+      <tr class="key"><th>Omitted locus</th><td><strong>Every proof body, and therefore every reason.</strong> Not one of the five proofs is reproduced here, so nothing on this page can be checked from this page. It also omits the generative path — the failed representation, the abandoned route, the order in which things were understood — which the seed essay says is exactly the part worth keeping.</td></tr>
+      <tr><th>Round trip</th><td>Exact on addresses only: every cue expands to the file and line it came from, and that line can be reread. Not exact on content — the fiber over any single line here is the whole document it was cut from.</td></tr>
+      <tr><th>Operations that extend</th><td>Rereading a cited source. Running the two cited commands.</td></tr>
+      <tr><th>Operations that do not</th><td>Ranking, scoring, summing, or ordering these statements. Nothing on this page licenses any order over them.</td></tr>
+      <tr class="key"><th>May not claim</th><td>That any statement here is true. Only that a named file, at a named line, states it — and in which register.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Deliberately absent, and the line that forbids it</h3>
+  <ul class="plain">
+    <li><b>No progress bar, completion percentage, health score, or leaderboard.</b> "No permanent scalar score represents scientific value. Any scalarization is a frozen experimental policy, not the definition of truth or progress." — <span class="mono">notes/RESEARCH_SYSTEM.md:173–174</span>. The project's own word for a route is a geodesic, and it is explicitly "not one scalar score, but the best presently known lawful route for a stated end, with its actual costs and assumptions visible."</li>
+    <li><b>No dashboard.</b> The walk that built this corpus's query runtime ends its own yield with the instruction: "do not build another dashboard." — <span class="mono">collab/FAILURES.md:252–253</span>. A page that reported claim counts, worker rosters and file sizes would be precisely that object, and would be about the sediment rather than the mathematics.</li>
+    <li><b>No fitted number.</b> Every figure here was read out of a named source or recomputed exactly from an integer definition. Nothing was sampled, estimated, or regressed. A correlation coefficient has no content; the content is the error term.</li>
+    <li><b>No claim of acceleration.</b> A derived cue may reduce access cost for a bounded mind while adding no distinction at all for an ideal decoder — but no instrument exists here that could measure the first, so nothing on this page claims it.</li>
+  </ul>
+
+  <h3>What a reader could misread from this page</h3>
+  <ol class="misread">
+    <li><b>Order is not rank.</b> The proved statements appear in an order. It is the order in which they build one argument, and it encodes nothing about importance, difficulty, or priority.</li>
+    <li><b>Register is not confidence.</b> A measured row is not a weak theorem. The comparison counts in §4 are exactly right and mean exactly what they say; what they do not do is bear on any human reader, which is why the caveat is bolted to them.</li>
+    <li><b>The colours are this page's, not the corpus's.</b> Both figures recompute their classes exactly, but neither carries the channel-derived legend certificate that the repository's own artifacts carry.</li>
+    <li><b>A statement is not its proof.</b> Five theorems appear here in one line each. Each one is a compression whose fiber is a page of argument, and the addresses are the only way back into it.</li>
+  </ol>
+</section>
+
+<footer>
+  <p><b>site/candidates/channel.html</b> — one candidate presentation layer, built to the discipline of <b>runtime/render</b>: a projection of one object, with explicit information loss and stated round-trip guarantees; never an independent semantic copy; never a truth authority.</p>
+  <p>Sources read 2026-08-12 on branch <b>claude/prime-pair-field-research-18tq7b</b>. Live output from <b>python3 machinery/natural_crystal.py glue-remainders 4 6</b>. Mathematical authority lives in <b>notes/</b>, not here.</p>
+</footer>
+
+</main>
+</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ §1 — the CRT fiber ============ */
+  function gcd(a,b){ while(b){ var t=a%b; a=b; b=t; } return a; }
+
+  var PAIRS = [[4,6],[3,5],[4,9],[6,10],[8,12],[9,12]];
+  var picker  = document.getElementById("picker");
+  var visEl   = document.getElementById("visible");
+  var hidEl   = document.getElementById("hidden");
+  var visSub  = document.getElementById("vissub");
+  var hidSub  = document.getElementById("hidsub");
+  var crtText = document.getElementById("crttext");
+  var crtVer  = document.getElementById("crtverdict");
+  var state   = {m:4, n:6, sel:null};
+
+  function fibersFor(m,n){
+    var N = m*n, map = {}, order = [];
+    for (var x=0; x<N; x++){
+      var key = (x%m) + "," + (x%n);
+      if (!map[key]){ map[key] = []; order.push(key); }
+      map[key].push(x);
+    }
+    return {map:map, order:order, N:N};
+  }
+
+  function renderCRT(){
+    var m = state.m, n = state.n, g = gcd(m,n), l = m*n/g;
+    var f = fibersFor(m,n);
+
+    visSub.textContent = "compatible readings: " + f.order.length + " = lcm " + l;
+    hidSub.textContent = "|Z/" + (m*n) + "| = " + f.N + " states";
+
+    visEl.innerHTML = ""; hidEl.innerHTML = "";
+    f.order.forEach(function(key){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "tile vis";
+      b.textContent = key.replace(",", "·");
+      b.setAttribute("aria-pressed","false");
+      b.dataset.key = key;
+      b.title = "reading (x mod " + m + ", x mod " + n + ") = (" + key + ")";
+      b.addEventListener("click", function(){ select(key); });
+      visEl.appendChild(b);
+    });
+    for (var x=0; x<f.N; x++){
+      var d = document.createElement("div");
+      d.className = "tile";
+      d.textContent = x;
+      d.dataset.x = x;
+      hidEl.appendChild(d);
+    }
+    state.sel = null;
+    hidEl.classList.remove("dim");
+    crtText.innerHTML = "Pick a visible pair on the left. <b>decode</b> returns every integer consistent with it, as a set, in order — never one representative.";
+    crtVer.innerHTML = baseVerdict(m,n,g,l);
+  }
+
+  function baseVerdict(m,n,g,l){
+    if (g === 1){
+      return 'gcd(' + m + ', ' + n + ') = 1 &nbsp;→&nbsp; <span class="yes">exact reconstruction: True</span>. '
+           + 'All ' + l + ' readings occur, every fibre is a singleton, and a single-valued inverse is licensed.';
+    }
+    return 'gcd(' + m + ', ' + n + ') = ' + g + ' &nbsp;→&nbsp; <span class="no">exact reconstruction: False</span>. '
+         + 'The two readings must agree mod ' + g + ', leaving ' + l + ' compatible pairs; '
+         + 'each still hides ' + g + ' states. No inverse exists to license.';
+  }
+
+  function select(key){
+    var f = fibersFor(state.m, state.n), g = gcd(state.m, state.n), l = state.m*state.n/g;
+    var btns = visEl.querySelectorAll("button"), i;
+    for (i=0;i<btns.length;i++){
+      var on = btns[i].dataset.key === key && state.sel !== key;
+      btns[i].classList.toggle("sel", on);
+      btns[i].setAttribute("aria-pressed", String(on));
+    }
+    var cells = hidEl.children;
+    for (i=0;i<cells.length;i++) cells[i].classList.remove("on");
+
+    if (state.sel === key){
+      state.sel = null;
+      hidEl.classList.remove("dim");
+      crtText.innerHTML = "Pick a visible pair on the left. <b>decode</b> returns every integer consistent with it, as a set, in order — never one representative.";
+      crtVer.innerHTML = baseVerdict(state.m, state.n, g, l);
+      return;
+    }
+    state.sel = key;
+    var fib = f.map[key];
+    hidEl.classList.add("dim");
+    for (i=0;i<fib.length;i++) cells[fib[i]].classList.add("on");
+
+    var parts = key.split(",");
+    crtText.innerHTML =
+      '<b>decode(x ≡ ' + parts[0] + ' mod ' + state.m + ', &nbsp;x ≡ ' + parts[1] + ' mod ' + state.n + ')</b>'
+      + ' = { ' + fib.join(", ") + ' }';
+    crtVer.innerHTML = (fib.length === 1)
+      ? '<span class="yes">|fibre| = 1</span> — the reading determines the integer. Here, and only where the certificate holds, a single-valued inverse is honest.'
+      : '<span class="no">|fibre| = ' + fib.length + '</span> — the reading does not determine the integer. '
+        + fib.length + ' distinct states share it, and returning one of them would be a guess, so none is returned. '
+        + 'The loss is part of the result.';
+  }
+
+  PAIRS.forEach(function(p){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = "m=" + p[0] + ", n=" + p[1];
+    b.setAttribute("aria-pressed", String(p[0]===state.m && p[1]===state.n));
+    b.addEventListener("click", function(){
+      state.m = p[0]; state.n = p[1];
+      var all = picker.querySelectorAll("button");
+      for (var i=0;i<all.length;i++) all[i].setAttribute("aria-pressed", String(all[i]===b));
+      renderCRT();
+    });
+    picker.appendChild(b);
+  });
+  renderCRT();
+
+  /* ============ §2 — the 256-state plates ============ */
+  var N = 4, SIZE = 256;
+  function carry(v){ var n=0; for(var i=0;i<N;i++){ if(((v>>(2*i))&3)===3) n++; else break; } return n; }
+  function borrow(v){ var n=0; for(var i=0;i<N;i++){ if(((v>>(2*i))&3)===0) n++; else break; } return n; }
+  function digits(v){ var d=[]; for(var i=0;i<N;i++) d.push((v>>(2*i))&3); return d.join(""); }
+
+  var L=[], R=[];
+  for (var v=0; v<SIZE; v++){ L.push(carry(v)); R.push(borrow(v)); }
+
+  function build(el, vals){
+    var frag = document.createDocumentFragment();
+    for (var i=0;i<SIZE;i++){
+      var d = document.createElement("div");
+      d.className = "cell";
+      d.setAttribute("data-k", vals[i]);
+      d.title = "v = " + i + "   digits (c₀…c₃) = " + digits(i) + "   code = " + vals[i];
+      frag.appendChild(d);
+    }
+    el.appendChild(frag);
+  }
+  var plateL = document.getElementById("plateL"), plateR = document.getElementById("plateR");
+  build(plateL, L); build(plateR, R);
+
+  var sizes=[0,0,0,0,0];
+  for (var i3=0;i3<SIZE;i3++) sizes[L[i3]]++;
+
+  var agree=0, differ=0;
+  for (var i4=0;i4<SIZE;i4++){
+    if (R[i4] === L[255-i4]) agree++;
+    if (L[i4] !== R[i4]) differ++;
+  }
+  document.getElementById("checks").innerHTML =
+      '<div>Theorem <b>c₄(Ev) = z₄(v)</b>, checked cell by cell on the colours drawn above: '
+    + '<span class="ok">' + agree + ' / 256 agree</span>.</div>'
+    + '<div>Control, so the statement is not vacuous: the panels differ on <b>' + differ + '</b> cells. '
+    + '<span class="ok">README.md:227 states 128</span>.</div>'
+    + '<div>Fibre sizes of the carry code: <b>' + sizes.slice().sort(function(a,b){return b-a;}).join(", ") + '</b>. '
+    + '<span class="ok">README.md:406 states 192, 48, 12, 3, 1</span>.</div>';
+
+  var legend = document.getElementById("legend");
+  var plateText = document.getElementById("platetext");
+  var cellsL = plateL.children, cellsR = plateR.children, currentK = null;
+
+  function showFibre(k){
+    var btns = legend.querySelectorAll("button"), i;
+    plateL.classList.remove("dim"); plateR.classList.remove("dim");
+    for (i=0;i<SIZE;i++){ cellsL[i].classList.remove("fib"); cellsR[i].classList.remove("fib"); }
+    for (i=0;i<btns.length;i++) btns[i].setAttribute("aria-pressed","false");
+
+    if (currentK === k){
+      currentK = null;
+      plateText.innerHTML = "Select a colour. <b>decode</b> returns the whole level set — here the largest one holds 192 of the 256 words, and no inverse exists at all.";
+      return;
+    }
+    currentK = k;
+    for (i=0;i<btns.length;i++) if (Number(btns[i].dataset.k) === k) btns[i].setAttribute("aria-pressed","true");
+    plateL.classList.add("dim"); plateR.classList.add("dim");
+    var members = [];
+    for (i=0;i<SIZE;i++){
+      if (L[i] === k){ cellsL[i].classList.add("fib"); members.push(i); }
+      if (R[i] === k) cellsR[i].classList.add("fib");
+    }
+    var head = members.slice(0,12).map(digits).join("  ");
+    var tail = members.length > 12 ? "  … and " + (members.length-12) + " more" : "";
+    plateText.innerHTML =
+        '<b>decode(c₄ = ' + k + ')</b> = { ' + members.length + ' words } — a set, returned whole.<br>'
+      + 'first in language order (digits c₀…c₃): <b>' + head + '</b>' + tail + '<br>'
+      + (members.length === 1
+          ? 'A singleton: here, and only here, the colour determines the word.'
+          : members.length + ' distinct words share this colour. The code does not determine the word, so no representative is offered.');
+  }
+
+  var labels = ["c₄ = 0 — no carry", "c₄ = 1", "c₄ = 2", "c₄ = 3", "c₄ = 4 — the word 3333"];
+  for (var k=0;k<5;k++){
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.dataset.k = String(k);
+    btn.setAttribute("aria-pressed","false");
+    btn.innerHTML = '<span class="sw" style="background:var(--c'+k+')"></span>'
+                  + '<span class="lab">'+labels[k]+'</span>'
+                  + '<span class="cnt">'+sizes[k]+' words</span>';
+    (function(kk){ btn.addEventListener("click", function(){ showFibre(kk); }); })(k);
+    legend.appendChild(btn);
+  }
+
+  /* rail: mark the section in view */
+  var railItems = document.querySelectorAll(".rail ol li");
+  var targets = [];
+  railItems.forEach(function(li){
+    var a = li.querySelector("a");
+    if (a) targets.push({li:li, el:document.querySelector(a.getAttribute("href"))});
+  });
+  if ("IntersectionObserver" in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        targets.forEach(function(t){ t.li.classList.toggle("here", t.el === e.target); });
+      });
+    }, {rootMargin:"-20% 0px -70% 0px"});
+    targets.forEach(function(t){ if (t.el) obs.observe(t.el); });
+  }
+})();
+</script>
+</body>
+</html>

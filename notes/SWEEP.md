@@ -65,9 +65,31 @@ Fixing $\varepsilon$ froze two *new* variables:
   the Hann window's $-3$dB bandwidth, $1.4382$ bins — a table lookup.)
 - **$L$ = span vs $L$ = $\log X$ were conflated in K′'s own derivation.**
   Resolution is governed by the span ($\log(X/X_{\min})$, with $X_{\min}\approx2\times10^4$
-  held fixed in every experiment); the noise floor by $\log X$. The boxed
-  exponent survives only for $X_{\min}=O(1)$; the honest closure is
+  held fixed in every experiment); ~~the noise floor by $\log X$. The boxed
+  exponent survives only for $X_{\min}=O(1)$;~~ the honest closure is
   two-parameter.
+
+  **Correction (2026-08-13; `BARRIER_ERROR_WINDOW.md` §5.2–5.3, Theorems
+  U1–U2, B1″).** The floor is set by $\log X_0$ — the window's **bottom** —
+  not by $\log X$. A windowed observable is the profile-weighted *average* of
+  the field over $[X_0,X]$ and the error term decays in scale, so the smallest
+  scale the window touches sets the floor. Exactly,
+  $$\varepsilon=C_E\,X_0^{-1/2}\,\Theta_\phi(L/2),\qquad\text{not }X^{-1/2},$$
+  with $\Theta_\phi$ that note's profile functional (Lemma 5) and the exponent
+  $\alpha=\tfrac12$ derived, not fitted. Two consequences for the struck
+  sentence. **(i)** With the bottom held fixed at $X_0=X_{\min}$ — what every
+  experiment in this corpus did — the arithmetic contributes only the constant
+  $C_EX_{\min}^{-1/2}$, and **all** of the $L$-decay of the floor comes from
+  $\Theta_\phi(L/2)$: a property of the window profile, not of $\zeta$
+  ($\asymp1/L$ for a boxcar, $O_N(L^{-N})$ for $\phi\in C_c^\infty$). Feeding
+  $\varepsilon=e^{-L/2}$ into K′ at fixed $X_0$ therefore *understates* the
+  floor, by exactly $e^{L/2}\Theta_\phi(L/2)$. **(ii)** The boxed exponent does
+  not require $X_{\min}=O(1)$: in the regime $X_0=X^{\theta}$, $\theta\in(0,1)$
+  fixed, $\varepsilon=X^{-\theta/2}\Theta_\phi$ is still $X^{-\Theta(1)}$, so
+  K′'s own robustness remark applies verbatim and the boxed
+  $T^{1/2}\log^{3/2}T$ survives with $\alpha\mapsto\theta/2$. The two-parameter
+  closure asked for here is $(X_0,L)$, and against $X_0$ the $E$-term bound is
+  uniform in $L$ (and improves with it).
 - **$C/D=1.44$ has units of inverse frequency.** $C/D=\langle\rho_2\rangle$
   weighted by $|c|^2$, so it scales like $T\log^2T$; a dimensional ratio cannot
   be a universal constant. Consequently **$L^*=10\cdot(C/D)$ identically** —
@@ -78,7 +100,10 @@ Fixing $\varepsilon$ froze two *new* variables:
 
 1. $\kappa(X)$ composition, and re-issue the span-8.5 prediction parameterised.
 2. Recompute K′'s threshold with span and $\log X$ separated; state per-$T$
-   reachability rather than a blanket claim.
+   reachability rather than a blanket claim. *(2026-08-13: the input is now
+   available in exact form — $\varepsilon=C_EX_0^{-1/2}\Theta_\phi(L/2)$,
+   `BARRIER_ERROR_WINDOW.md` Theorem U2 — so the separation is no longer the
+   obstacle; the recomputation itself and the per-$T$ statement remain open.)*
 3. $C/D$ as $\langle\rho_2\rangle$; restate $L^*$, the 6.5%, and the "2.3%
    truncation tail" as band-dependent functions.
 4. **The Fresnel quartic $\Delta^4/(12f^3)$** — this exactly explains the

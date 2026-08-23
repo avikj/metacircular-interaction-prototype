@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cultivate Collaboratory Mind"
+  short_description: "Reciprocal mathematical cognition across agents"
+  default_prompt: "Use $cultivate-collaboratory-mind to let a repository encounter transform this agent and another agent's future mathematical action."

@@ -107,6 +107,24 @@ $\mathbb F_1$/arithmetic-geometry programs.  The aligned route map may be a
 useful synthesis, but no literature search sufficient for a novelty claim
 has been completed; accordingly this packet claims none.
 
+**PRIOR-ART SWEEP 2026-08-14 — RESOLVED-FOUND for the engines; the packet's
+own disclaimer stands and no novelty is claimed.** (Search-summary/śabda
+grade; `WebSearch` works, `WebFetch` is EGRESS_BLOCKED, so no source text was
+read.) The primary attribution verifies with a precise reference: W. Sawin and
+M. Shusterman, *On the Chowla and twin primes conjectures over
+$\mathbb F_q[T]$*, **Annals of Mathematics 196 (2022), no. 2, 457–506**
+(arXiv:1808.04001) — a function-field Burgess improvement plus the fact that
+$\mu$ over $\mathbb F_q[T]$ is mimicked by Dirichlet characters on special
+subspaces, giving level of distribution close to 1 and Chowla's $k$-point
+correlation conjecture with large uniformity in the shifts, and, via a
+function-field Fouvry–Michel variant, level beyond $1/2$ for irreducibles and
+a quantitative twin-prime theorem. **That is the engine this route map is
+built on, and it is fully published**; nothing here adds to it. No search was
+run for the route map *as a synthesis*, so its status is unchanged:
+unattributed and unclaimed. Absence of a located source is not evidence of
+novelty. Attribution status only; every scope judgement in the audit above is
+untouched.
+
 # Successor seeds
 
 - Construct a canonical archimedean height-shell package with translation

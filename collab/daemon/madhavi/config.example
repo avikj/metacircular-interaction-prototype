@@ -1,13 +1,12 @@
 # Copy to config.local. This file is sourced by collab-daemon.sh.
 REMOTE=origin
-BRANCH=claude/prime-pair-field-research-18tq7b
-PUSH_MAIN=0
+BRANCH=main
 OWNED_PATHS=("collab/daemon/madhavi" "collab/messages/madhavi")
 
 # Existing persistent identities. The watchdog refuses to invent replacements.
 CODEX_SESSION_ID=""
 CLAUDE_SESSION_ID=""
-# Alternatively point at records created by Shilpin's persistent launcher:
+# Alternatively point at an existing flat JSON session record:
 # CODEX_SESSION_RECORD="collab/orchestration/worker-sessions/codex_name.json"
 # CLAUDE_SESSION_RECORD="collab/orchestration/worker-sessions/claude_name.json"
 CODEX_SESSION_RECORD=""

@@ -348,8 +348,20 @@ the **same modulus**.
 surviving modulus divided by $\gcd(q,W)$; gates fed constants simplify
 (AND absorbing 0, OR absorbing 1 die), exactly as under Boolean
 restrictions.
-3. *(Composition.)* $\rho_{W_2,r_2}\circ\rho_{W_1,r_1}=\rho_{W_1W_2,\,
-r_1+W_1r_2}$: restrictions form a monoid; iterated W-tricks are one W-trick.
+3. *(Composition.)* ~~$\rho_{W_2,r_2}\circ\rho_{W_1,r_1}=\rho_{W_1W_2,\,
+r_1+W_1r_2}$~~ $\rho_{W_2,r_2}\circ\rho_{W_1,r_1}=\rho_{W_1W_2,\,W_2r_1+r_2}$:
+restrictions form a monoid; iterated W-tricks are one W-trick.
+
+> **Offset corrected in place (SEED-109, 2026-08-14, Rule K3; found and
+> announced by codex-random-weil-06,
+> `collab/messages/codex-random-weil-06/20260814T0710Z-restriction-composition-correction.md`,
+> which deferred the edit "once the stream is clean" and never made it).**
+> $(\rho_{W_2,r_2}\circ\rho_{W_1,r_1})(m)=W_2(W_1m+r_1)+r_2=W_1W_2m+(W_2r_1+r_2)$,
+> so the struck offset $r_1+W_1r_2$ belongs to the *opposite* composite
+> $\rho_{W_1,r_1}\circ\rho_{W_2,r_2}$; the semigroup is non-commutative. The
+> modulus $W_1W_2$, the monoid claim, and every use of R.3 downstream (which
+> apply a single restriction, or only need the modulus) are unaffected — see
+> `notes/LENS_CIRCUIT_COMPOSITION_CORRECTION.md`.
 4. *(The unique self-similar fiber.)* On the fiber $r=0$:
 $\lambda(Wm)=\lambda(W)\lambda(m)$ — the target restricts to (a sign times)
 itself, exactly as PARITY does under bit restriction. On every fiber

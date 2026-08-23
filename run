@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+# THE BUTTON.  One press verifies the organism and prints its total
+# state.  Press it FIRST: this output is the repo's information already
+# assembled.  Reading files before pressing it is how agents fixate.
+#
+#   ./run           press the button
+#
+# Exit 0 iff everything checkable here is checked.
+#
+# Python is banned (owner, 2026-08-13): do not run, add, repair, or
+# revive .py.  The button's former CORE (machinery/core_knowledge.py,
+# 21 claims) and MACHINE (living_machine.py) sections are RETIRED and
+# stand as migration debt: each Python claim awaits its Agda
+# replacement.  The formal lane below is the live organism.
+set -u
+cd "$(dirname "$0")"
+# The whole lane emits ℕ/≡/Δ (Agda sources, GHC's own output).  Under a
+# C/POSIX locale GHC refuses to encode them — `--smoke-rounds` dies with
+# "invalid argument (cannot encode character '\8469')" and the button
+# reads it as a red that no code change can fix.  Found 2026-08-14 in a
+# container whose shells start with no locale at all.  Export here, once,
+# so every child (runghc, ghc -e, agda) inherits it; the per-call
+# LC_ALL=C.UTF-8 on the agda lines below is kept but now redundant.
+export LC_ALL=C.UTF-8 LANG=C.UTF-8
+FAIL=0
+
+echo "==================================================================="
+echo "== FORMAL - the knowledge: checked types (constructive, --safe)  =="
+echo "==================================================================="
+FORMAL="0 checked"
+if command -v agda >/dev/null 2>&1; then
+    # A verdict is only as good as the toolchain that produced it.  The tree
+    # is pinned to Agda 2.8.0 + cubical v0.9 (formal/cubical/BUILD.md
+    # "Toolchain"); a container on the former 2.6.3/v0.5 pin reads every
+    # post-migration module as FAILED (missing solveℕ!/solve!/SymGroup) —
+    # that is version skew, not mathematics.  See BUILD.md "Where the skew
+    # bites".  Print the version so the output carries its own caveat.
+    echo "toolchain: $(agda --version 2>/dev/null | head -1) (pin: Agda 2.8.0 + cubical v0.9, see formal/cubical/BUILD.md)"
+    N=0
+    for M in formal/cubical/DescentLaw.agda \
+             formal/cubical/Gamma0Partner.agda \
+             formal/cubical/Gamma0Converse.agda \
+             formal/cubical/M2Unimodular.agda \
+             formal/cubical/Gamma0Freeness.agda \
+             formal/cubical/Gamma0Transitivity.agda \
+             formal/cubical/TransporterMembership.agda \
+             formal/cubical/KuttakaValli.agda \
+             formal/cubical/PMNoSection.agda \
+             formal/cubical/Rank1DihedralChart.agda \
+             formal/cubical/NaturalMachine.agda \
+             formal/cubical/SmithTorsorBridge.agda \
+             formal/cubical/NaturalMachineRun.agda \
+             formal/cubical/DynamicDescent.agda \
+             formal/cubical/CayleyPairChart.agda; do
+        if (cd formal/cubical && LC_ALL=C.UTF-8 agda "$(basename "$M")" >/dev/null 2>&1); then
+            echo "CHECKED  $M"
+            N=$((N + 1))
+        else
+            echo "FAILED   $M"
+            FAIL=1
+        fi
+    done
+    FORMAL="$N checked"
+else
+    echo "agda not installed here.  To arm this section:"
+    echo "  apt-get update && apt-get install -y agda"
+    echo "  git clone --depth 1 --branch v0.5 https://github.com/agda/cubical /root/cubical"
+    echo "  sed -i 's/^name: cubical-0.5/name: cubical/' /root/cubical/cubical.agda-lib"
+    echo "  echo /root/cubical/cubical.agda-lib > ~/.agda/libraries"
+    FORMAL="toolchain absent"
+fi
+
+echo
+echo "==================================================================="
+echo "== HASKELL EXPLORER - falsifier/prover boundary, then run        =="
+echo "==================================================================="
+HASKELL="toolchain absent"
+if command -v ghc >/dev/null 2>&1 && command -v runghc >/dev/null 2>&1; then
+    BRIDGE_BUILD=formal/cubical/_build/haskell-agda-bridge
+    mkdir -p "$BRIDGE_BUILD/NaturalMachine"
+    if ghc -fno-code -Wall machine/DSO.hs >/dev/null 2>&1 \
+       && test "$(ghc -ignore-dot-ghci machine/DSO.hs \
+            -e 'prematureArgminCounterexample')" = "True" \
+       && ghc -fno-code -Wall machine/MathMachine.hs >/dev/null 2>&1 \
+       && runghc machine/MathMachine.hs --check-definitions \
+       && runghc machine/MathMachine.hs --check-thought-format \
+       && runghc machine/MathMachine.hs --concept-invention-self-test \
+       && runghc machine/MathMachine.hs --dso-context-self-test \
+       && runghc machine/MathMachine.hs --smoke-rounds 5 \
+       && runghc machine/MathMachine.hs --emit-agda-manifest \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
+       && agda -i "$BRIDGE_BUILD" -i formal/cubical \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDefinitionManifestGenerated.agda" \
+       && runghc machine/MathMachine.hs --emit-agda-discoveries 5 \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda" \
+       && agda -i "$BRIDGE_BUILD" -i formal/cubical \
+            "$BRIDGE_BUILD/NaturalMachine/HaskellDiscoveryManifestGenerated.agda"; then
+        HASKELL="DSO controls + firewall + parser + 5 rounds + Agda rules/theorems checked"
+    else
+        echo "FAILED   machine/MathMachine.hs"
+        HASKELL="failed"
+        FAIL=1
+    fi
+else
+    echo "ghc/runghc not installed; Haskell explorer was not checked"
+fi
+
+echo
+echo "==================================================================="
+echo "== RETIRED (Python ban, owner 2026-08-13) - migration debt       =="
+echo "==================================================================="
+echo "core:    machinery/core_knowledge.py — 21 boot-verified claims,"
+echo "         frozen; each awaits its Agda replacement (typed so far:"
+echo "         descent law, the full rank-one + Gamma_0 torsor, valli"
+echo "         trace laws, PM no-section)"
+echo "machine: machinery/living_machine.py — retired running; its"
+echo "         design laws live in collab/journals/cf-tessera.md and"
+echo "         the staggered-horizon claim"
+
+echo
+echo "==================================================================="
+echo "== TOTAL STATE                                                   =="
+echo "==================================================================="
+echo "formal:  ${FORMAL}"
+echo "haskell: ${HASKELL}"
+echo "memory:  collab/journals/  (lineage journals; read yours, act)"
+echo "board:   README.md  (live sessions, holdings, wants)"
+echo
+if [ "$FAIL" -eq 0 ]; then
+    echo "ORGANISM CHECKED.  Land only events: form (witness) or descend"
+    echo "(factorization).  There is no third class of value."
+else
+    echo "SOMETHING FAILED ABOVE.  Fixing that is the only task."
+fi
+exit "$FAIL"

@@ -81,7 +81,11 @@ anywhere in this statistic).
 
 **Prop 6 error.** $G_1-[\sharp\sharp]_Q=2[\sharp\flat]+[\flat\flat]$
 computed from the FFT convolutions of $\Lambda^\sharp_Q$ and
-$\Lambda^\flat_Q$ (length $2^{25}$, no wraparound), then
+$\Lambda^\flat_Q$ (length $2^{25}$, ~~no wraparound~~ **wrap-free because
+$2^{25}=33\,554\,432>2N-1=2\cdot10^7-1$, the support of the linear
+self-convolution of sequences supported in $[1,N]$, $N=10^7$; slack factor
+$1.677\ldots$** — SEED-98, 2026-08-14, applying SEED-27 §6 item 2 and §9:
+"no wraparound" is an assertion, the inequality is its proof), then
 $[\cdot](X)=X R(X)-S(X)$ by prefix sums — numerically far better
 conditioned than differencing the two $\sim X^3/6$ counts. Cross-validated
 against the direct difference $G_1-[\sharp\sharp]$ at $N=10^6$, $Q=30$: max
@@ -131,6 +135,7 @@ serially correlated — see caveats.)
   0.12, 0.059, 0.032, 0.024 for $Q$ = 10, 30, 100, 300 — the bound's
   constant is generous by a widening factor (8→41): the measured drift
   grows like $\sim Q^{0.6}$, not $\sim C_Q\sim Q$.
+  **[CORRECTED 2026-08-13 — `DRIFT_EXPONENT_EXACT.md` Theorem D: the exponent is exactly $1/2$, unconditionally; the drift's scale is $\sqrt{\zeta(2)/3\zeta(4)}\,Q^{1/2}(1+O_\varepsilon(Q^{-1/2+\varepsilon}))=0.71176\,Q^{1/2}$, the mean square of the controlling function being exactly $\frac1{12}(\sum_{r\le Q}\mu^2(r)\sigma(r)/\varphi(r)-1)$; the fitted $0.6$ is $\tfrac12+\Theta(1/\log Q)$ read at four points, and the "widening slack" is the square root relating that sum to its own $\ell^1$ bound.]**
 - **In cut-norm terms** (Theorem 1(2)): the measured growth exponent of
   $\|W_X\|_{\mathcal I}=D_Q^2$ is $0.97$–$1.00\pm0.02$ at every $Q$,
   consistent with $2\Theta=1$ (RH) and inconsistent with any power-law
@@ -229,9 +234,21 @@ scheme-dependent: the artifact is Mertens/2 — bounded, oscillating in $Q$,
 and $o(Q^\varepsilon)$-small, so it never threatens any exponent statement,
 but it is *not* zero and dominates the counting-lemma error for all
 $X\lesssim10^6$. ($c_0=-2.05$: the $Q$-independent part; $-\log2\pi=-1.84$
-is the pole×constant term of the explicit formula, the residual $-0.21$ is
+is the pole×constant term of the explicit formula, ~~the residual $-0.21$ is
 unattributed — prime-power diagonal and $\zeta'/\zeta$ constants; not
-pursued.)
+pursued.~~)
+
+**Correction (2026-08-13; `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §3,
+Theorem F).** The residual is attributed and is exactly $-\tfrac14$: it is the
+smooth part of the bilinear term $\int_0^XE(v)E(X-v)\,dv$, which the
+Friedlander–Goldston singular-series average under the Cesàro weight $(X-n)n$
+evaluates to $-\tfrac{X^2}{4}$. The guessed attribution above — prime-power
+diagonal and further $\zeta'/\zeta$ constants — is **retracted**; it named the
+wrong objects. So
+$$c(Q)=\tfrac12M(Q)-\log2\pi-\tfrac14,\qquad c_0=-2.0878771\ldots,$$
+conditional on (BK$_S$) (BK/strong-HL level, not implied by RH); the measured
+$-2.05$ sits $+0.04$ above it at every $Q$, i.e. inside this experiment's own
+declared $\pm0.1$ common-mode zero-layer pollution.
 
 **Slack verdict.** Decompose the bound's waste at the layer envelope:
 RHS $\approx2Q\cdot0.98\,X^{5/2}$ vs LHS envelope $2.88\times10^{-3}X^{5/2}$
@@ -321,6 +338,9 @@ there is the Mertens floor, three orders below the bound.
    is precisely the Mertens partial sum the truncation leaves behind. This
    upgrades "unreliable, $Q$-dependent" to "known, bounded, oscillating,
    removable": any future block-constant statement can subtract it.
+   *(2026-08-13, `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §3: the formula is
+   now fully closed-form, $c(Q)=\tfrac12M(Q)-\log2\pi-\tfrac14$ under (BK$_S$),
+   so the subtraction needs no measured input at all.)*
 4. **What this does *not* touch.** All of this is the averaged/boxed
    sector: nothing here bears on the anti-diagonal slice (Props 7–8 of the
    sibling note, the relocated Goldbach wall). The lens is calibrated, not
@@ -343,6 +363,14 @@ there is the Mertens floor, three orders below the bound.
   the ratio must creep upward without bound, at a rate invisible over
   three decades. "Flat" here means: no *power-law* drift. Same for every
   Bohr constant.
+  **[SHARPENED 2026-08-14 — `notes/INTERVAL_DISCREPANCY_MEAN_SQUARE.md`: this
+  caveat is right and is not conditional on RH (Thm A there splits on
+  $\Theta$); but "creep upward" overstates it — $D_Q(X)/\sqrt X$ is a
+  *discounted* running max (bound (2.1) there), so what is proved is
+  $\limsup=+\infty$, with no known drift in the $\liminf$, and the proved rate
+  needs $X\approx10^{986}$ to double. The exactly derivable companion statistic
+  is the logarithmic mean square, limit $\sum_\gamma m_\gamma^2/(\tfrac14+\gamma^2)$
+  $=2+\gamma_E-\log4\pi$ iff the zeros are simple.]**
 - **Max-over-intervals statistics.** $D_Q(X)$ is a running maximum —
   monotone, upward-biased, and its fluctuations are not averaged out by
   the fit; the exponent estimates inherit step-structure (visible as the
@@ -350,9 +378,15 @@ there is the Mertens floor, three orders below the bound.
 - **Floor coefficient $c(Q)$** is read at $X=10^4$ where the zero layer
   pollutes at $\pm0.1$; the Mertens law is verified to $\pm0.01$ only
   because the pollution is common-mode across $Q$ (same $X$, same layer to
-  leading order). The $c_0=-2.05$ split into $-\log2\pi-0.21$ is
+  leading order). ~~The $c_0=-2.05$ split into $-\log2\pi-0.21$ is
   *unverified attribution* beyond the $-\log2\pi$ term's existence in the
-  explicit formula.
+  explicit formula.~~ **(Caveat discharged 2026-08-13,
+  `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §3: the split is derived, not
+  attributed — $-\log2\pi$ from the pole×constant cross term, unconditionally,
+  and $-\tfrac14$ from the Friedlander–Goldston average against the Cesàro
+  weight, conditional on (BK$_S$) alone. The one caveat that remains is the
+  $\pm0.1$ pollution above, which is what the $+0.04$ residual offset sits
+  inside.)**
 - **Band-pass methodology:** corr/ratio are computed on the core 3/4 of
   the log-grid after cubic detrend; the log-grid has integer-rounding
   jitter $<10^{-3}$ treated as uniform for the FFT. exp11's band-edge

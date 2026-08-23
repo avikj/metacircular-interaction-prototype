@@ -569,6 +569,16 @@ the $X=10^5$ rows are in the script's full output):
  30   10000000      3105.43      0.982            0.00378       0.8952       -2.53
 ```
 
+**[POINTER 2026-08-14 — `notes/INTERVAL_DISCREPANCY_MEAN_SQUARE.md`: the
+paragraph below quotes a constant that does not exist.
+$\limsup_X D_Q(X)X^{-1/2}=+\infty$ unconditionally (Thm A there), so "flat over
+three decades" is the theorem's own prediction and not evidence; the exactly
+derivable statistic is the logarithmic mean square, whose limit is
+$\sum_\gamma m_\gamma^2/(\tfrac14+\gamma^2)$, equal to this corpus's own
+$B=2+\gamma_E-\log4\pi=0.0461914\ldots$ iff the zeros are simple, and whose
+boundedness is itself equivalent to RH (Thm D there). Nothing in §§0–6 is
+affected.]**
+
 Read: $D_Q(X)/\sqrt X\approx0.98$, flat over three decades — square-root
 cancellation of the interval cut norm on the nose (Theorem 1(3), RH regime;
 even the $\log^2$ allowance is invisible at these heights); the measurable

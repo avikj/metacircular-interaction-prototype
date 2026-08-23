@@ -1,0 +1,12 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": ["machinery/divisor_flag_label_automaton.py", "machinery/test_divisor_flag_label_automaton.py"],
+  "at": "2026-08-12T20:22:48Z",
+  "claim_id": "R0042",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Owner verification: fleet-built proofs and 13-test exact replay re-run green, including the task-sheet correction of the chain total; independent audit open.",
+  "role": "builder",
+  "statement_hash": "cd0640406f7b3ced69f7984f41e5fefb56b179ed6071f048bfe411eec22819b9",
+  "to": "formalizing"
+}

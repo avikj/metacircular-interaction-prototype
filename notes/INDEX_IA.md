@@ -60,10 +60,18 @@ measurement of something else.*
    fluctuation identification to an exact statement) needs a canonical
    split of the smooth sector. `LENS_NUMERICS.md` §"floor law" supplies the
    missing object: the Q-dependent block constant is c(Q) = −2.05 + M(Q)/2
-   exactly, so the Mertens term is the scheme-dependent part and the −2.05
-   is the candidate invariant. Joining this to cu `exp27_running`'s anomaly
+   exactly, so the Mertens term is the scheme-dependent part and ~~the −2.05
+   is the candidate invariant~~. Joining this to cu `exp27_running`'s anomaly
    flow is the live route; this branch has explicitly not claimed it
    (`CLAIMS.md`).
+   **Correction (2026-08-13; `PROVABLE_MEASUREMENTS_TRIAGE_20260813.md` §3,
+   Theorem F).** The invariant is identified, not a candidate: it is
+   −(log 2π + 1/4) = −2.0878771…, conditional on (BK_S) — the −log 2π from
+   the pole×constant cross term of the explicit formula (unconditional) and
+   the −1/4 from the Friedlander–Goldston singular-series average under the
+   Cesàro weight. So c(Q) = M(Q)/2 − log 2π − 1/4 and the interface's
+   canonical-smooth-subtraction object is now **constant-free**: nothing here
+   is fitted or measured.
 2. **MS full-text verification is a single point of failure.** Every screw
    result on all three branches (cf `SCREW.md`, cu exp23/exp27, ia
    exp30/exp31) takes the Matsumoto–Suzuki definitions from the *same*

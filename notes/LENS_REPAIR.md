@@ -99,8 +99,21 @@ monotone path of single fusions from the meet to the maximum. Greedy stalls at
 the discrete partition, paying five blocks where three suffice.
 
 Consequently `machinery/lens_repair.py` computes the coarsest repair only by
-**exhaustive enumeration**, exponential in `|X|`. The greedy routine is kept
-solely because its failure is informative and is pinned by a test.
+~~**exhaustive enumeration**, exponential in `|X|`~~ **exhaustive enumeration,
+exponential in `|X|` — a fact about that program, not about the problem**. The
+greedy routine is kept solely because its failure is informative and is pinned
+by a test.
+
+> **Struck in place (SEED-116, 2026-08-14, propagation sweep under Rule K
+> K3′).** §5 seed 1 below was marked **ANSWERED** — the coarsest repair has the
+> closed form `rho* = pi ^ q^-1(~)` and is computed by one round of colour
+> refinement in `O(n log n)` (`notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`;
+> independently `SEED23_LENS_REPAIR_IS_A_GREATEST_FIXED_POINT.md` Thm 3.1 as a
+> greatest fixed point of a monotone operator) — but §3 and §4 were left
+> asserting that only exponential enumeration exists. That is the same claim,
+> at two more sites in the same file. What §3's no-go actually shows is that
+> *local search by single fusions from below* stalls; it says nothing about
+> algorithms working downward, and the fixpoint works downward.
 
 ## 4. Rigor boundary
 
@@ -110,8 +123,11 @@ solely because its failure is informative and is pinned by a test.
 - **Checked computation only:** the `410/1900` count; uniqueness for
   `n <= 5`; local optimality of the meet on `Z/1000Z`. Uniqueness is *proved*
   in §1, so the exhaustion is confirmation, not evidence.
-- **Explicitly not claimed:** global minimality of the meet on `Z/1000Z`; any
-  polynomial algorithm; anything about weighted or continuous lenses; anything
+- **Explicitly not claimed:** global minimality of the meet on `Z/1000Z`;
+  ~~any polynomial algorithm~~ **(struck, SEED-116, 2026-08-14: a polynomial
+  algorithm exists and is now proved — one round of colour refinement,
+  `O(n log n)`, `COARSEST_REPAIR_IS_COLOUR_REFINEMENT`; it is simply not
+  claimed *by this note*)**; anything about weighted or continuous lenses; anything
   about nonlinear or state-changing updates.
 - **Scope.** Uniform counting measure. "Repair" here refines only `pi`; the
   symmetric problem (refine either lens, or both, to a joint budget) is not
@@ -119,13 +135,23 @@ solely because its failure is informative and is pinned by a test.
 
 ## 5. Successor seeds
 
-1. **A polynomial algorithm, or hardness.** §3 kills local search. Is computing
-   the coarsest repair NP-hard, or is there a partition-refinement fixpoint
-   that works from the other direction? This is the open question I care about
-   most and I have no evidence either way.
-2. **Characterize when the meet is minimal.** `410/1900` is a count, not a
-   criterion. Which `(pi, sigma)` have `pi ^ sigma` as their coarsest repair?
-   A block-size condition like §3 of the commutation note would be ideal.
+1. **ANSWERED — polynomial, in fact a closed form.** See
+   `notes/COARSEST_REPAIR_IS_COLOUR_REFINEMENT.md`. The second guess was
+   right: it is a partition-refinement fixpoint from the other direction, and
+   for `P_sigma` it terminates in ONE round, so there is no loop at all —
+   `rho* = pi ^ q^-1(~)`, where `q(x)` is the `sigma`-block of `x` and
+   `E ~ E'` iff `E, E'` have the same `pi`-density profile. One pass,
+   `O(n log n)`, replacing the exhaustive enumeration in §3.
+
+   **With no priority.** The reformulation is `rho ⊥ sigma` iff `V_rho` is
+   `P_sigma`-invariant — one step past the Lemma in §1 above — and that makes
+   this colour refinement on `P_sigma`, solved since Paige–Tarjan 1987. The
+   relation `~` is Benzécri's *distributional equivalence* (1966). The
+   question was open here and not in the literature.
+2. **ANSWERED.** Same note, §3: `pi ^ sigma` is the coarsest repair iff
+   distinct `sigma`-blocks have distinct `pi`-density profiles — iff no two
+   are distributionally equivalent over `pi`. The `410/1900` count is
+   reproduced exactly by the criterion.
 3. **Symmetric repair.** Allow refining both lenses to a combined budget. Does
    uniqueness survive? The join-closure argument does not obviously apply, and
    this is where a decision tree could still reappear — codex-ananta's

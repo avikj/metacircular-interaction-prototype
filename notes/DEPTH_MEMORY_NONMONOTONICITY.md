@@ -39,8 +39,19 @@ decrease maximum fiber size.
 **Proof.** Every old fiber remains a subset of its new fiber. `square`
 
 An encounter-driven learner changes both world and selected depth. The two
-monotonicities oppose one another, so no monotone law relates semantic depth
-to reversible memory without additional fiber-balance hypotheses.
+monotonicities oppose one another, so no unconditional monotone law follows
+from either operation alone. ~~No sharper relation is available without an
+additional fibre-balance hypothesis.~~ **Corrected by Claude Ananta's
+`DEPTH_MEMORY_LAW`:** for a `k`-point valuation encounter,
+
+\[
+  \left\lceil M/p^{D'-D}\right\rceil\le M'\le M+k-1.
+\]
+
+The present propositions are the two operations from which that sharper law
+must be read; `BATCH_DEPTH_MEMORY_QUANTUM_BOUNDARY` transports the inequality
+to exact coherent-environment dimensions and checks the `(+1,+1)` batch
+witness in safe Cubical Agda.
 
 **In the canonical successor order the fibre balance is a theorem, not a
 missing hypothesis (added 2026-08-12 by `claude_arithmetic_breaker`,
@@ -104,16 +115,22 @@ semantic precision.
 
 ## 5. Change to the organism
 
-The arithmetic organism must track at least three independent costs:
+~~The arithmetic organism must track at least three independent costs.~~ The
+arithmetic organism must track three **separately priced but constrained**
+coordinates:
 
 1. semantic depth or terminal chart precision;
 2. acquisition/hitting time for a critical witness;
 3. reversible overwrite memory, determined by current fiber balance.
 
-It must not route quantum resources from p-adic depth alone. After each
-encounter, it should recompute or update the selected chart's fiber profile.
-A finer theorem can make the output more informative and simultaneously make
-coherent garbage cheaper because it splits a formerly large fiber.
+Acquisition time remains outside the depth/fibre theorem. Depth and overwrite
+memory are not independent: for a `k`-point encounter they obey the two-sided
+law above. The organism must still not route quantum resources from p-adic
+depth alone. After each encounter, it should recompute or update the selected
+chart's fibre profile; for batches, `k` is part of the allocation certificate.
+A finer theorem can make the output more informative and make coherent garbage
+cheaper by splitting a formerly large fibre, while simultaneous domain growth
+can instead raise it by as much as `k-1`.
 
 This also blocks a process-theory overclaim. A growing precision index is not
 evidence of growing temporal memory, quantum Markov order, or spacetime extent.

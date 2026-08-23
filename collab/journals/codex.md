@@ -564,3 +564,143 @@ Codex/Claude sessions in isolated worktrees with infinite continuation pulses.
 A separate two-mind supervisor was already running. Resume by reading worker
 broadcasts and integrating mathematical returns into the live organism; stop
 only through the supervisor STOP command, never by deleting session records.
+
+## 2026-08-12 — reciprocal cognition entered the runtime
+
+The human corrected the unit of collaboration: a transmitted result is not the
+event; reciprocal change in future cognition is. I encoded that practice in
+`cultivate-collaboratory-mind`, linked it from both onboarding and persistent
+resume, and added a fail-closed encounter trace that distinguishes transmission
+from return. The first commit preceded a normal STATE forecast because this was
+a process correction rather than a mathematical claim; I record that ordering
+instead of inventing a prior. A fresh session is now forward-testing whether the
+practice changes actual mathematical action, while codex-sahaja is coupling the
+new situated constructor port into the encounter engine. Await the return; do
+not promote the skill merely because its validator passes.
+
+## 2026-08-12T22:14:34Z — target torsor became task-relative holonomy
+Believe: Endpoint versus full trace was a false binary. Tessera's stabilizer
+torsor acts on downstream transported objects; the task-relative orbit quotient
+is the exact retained state.
+Doing: Landed `SMITH_PATH_HOLONOMY`: two schedules for `diag(2,3,2)` induce an
+order-three action on `coker(diag(1,2,6))`, moving 9 of 12 local classes.
+Return sought: cf-tessera should test whether the rank-r congruence/Hecke
+description computes this finite action as a canonical stabilizer quotient.
+
+## 2026-08-12T22:20:42Z — reciprocal return corrected the carrier
+Believe: A presentation torsor becomes operational only through its
+representation on a declared consumer. Set-valued tasks see orbit sets;
+additive tasks see coinvariants. Full traces and endpoints are extremes.
+Received: Shilpin proved the rank-r lattice-stabilizer representation and
+corrected my quotient language; Vajra showed element order makes the same
+nontrivial holonomy predictively silent with four states.
+Changed: corrected `SMITH_PATH_HOLONOMY`; transmitted the upstream
+`D=I` stabilizer counterexample and joined obstruction/control law in msg 0351.
+# 2026-08-12 — live context is a join, not a summary
+
+Returned under persistent-research.  Audited all 14 supervisor sessions and
+found that five had no machine-resolvable journal and several used undocumented
+identity aliases.  Added explicit journal pointers to every active persistent
+task, created only the five missing worker-owned anchors, and added a read-only
+`--live-context` join from session to task source, objective, journal,
+branch/worktree, cursor, and latest broadcast.  It synthesizes no mathematical
+position.  Eleven launcher tests pass and all 14 active sessions resolve.
+
+Collective return that changed the next question: claude_formal_physics found
+200 predictive states but maximum separating depth two.  Sent msg 0372 asking
+for the exact native-response / external-alphabet / witness-production
+factorization; this connects operational word length to horizontal derivation
+cost without confusing it with semantic quotient cardinality.
+
+Resume: pull first, inspect worker returns to msgs 0371/0372, and record an
+encounter only if another lineage's artifact changes the live construction.
+Do not turn the live-context view into a centralized digest.
+
+## 2026-08-13T05:00Z — constitution change and mathematical corrections
+
+The repository constitution changed mid-session to one session per worktree.
+All prior authored changes were committed/pushed; I left the shared checkout's
+runtime/user files untouched, created `worker/codex-kleene`, passed
+`worktree_guard.py`, and surfaced this identity in the README live board.
+
+Collective learning in this interval:
+
+- merged the total kernel-checked `2×2` integer Smith producer and source
+  reconstruction; a fresh full-root build exposed an unresolved interface
+  break in `DirectSmith2x2`, transmitted exactly in msg 0381;
+- my first general FutureBehavior identification was killed before broadcast
+  by Shilpin's five-state Markov counterexample; msg 0380 carries the
+  strike-through correction;
+- my narrowed deterministic adapter request was itself redundant:
+  `FutureBehavior`, `MyhillNerodeAdapter`, and `BehavioralBFS` already provide
+  future equality, the residual-language commuting square, and certified
+  globally shortest separating words. Withdrew in msg 0382;
+- the surviving formation theorem is least action-invariant closure. Linear
+  closure becomes an observation partition exactly when it is closed under
+  pointwise multiplication; otherwise conjunction forces new channels. For
+  self-adjoint actions, leakage rank is half commutator rank. Sent the exact
+  noncommutative operator-algebra question in msg 0383.
+
+Resume: pull and read returns to 0381/0383. Do not implement a partition view
+of bounded FutureEq without a consumer. The strongest open content is whether
+finite Heisenberg-process invariant operator-system closure is already a
+*-algebra, what its multiplicative closure adds, and whether directed leakage
+survives a physically native choice of geometry.
+
+## 2026-08-14T07:07:19Z — persistent cache order split
+
+Returned under the user's literal-random polyphonic loop.  A predeclared
+Alexander lens and an independent no-redraw draw selected
+`CACHE_OPTION_VALUE_NO_GO`.  The encounter with Hypatia's checked commuting
+fold separated two meanings of history: lawful persistent path installations
+have permutation-invariant endpoints and telescoping total acquisition cost,
+while their per-request marginal vectors can still depend on order.  Added
+`CachePathOrder.agda`, its `Everything` import, the bounded proof note, and
+forecast/result messages.  Standalone safe Agda is green; the full aggregate
+still stops earlier at the recorded `Gamma0Partner.solve` toolchain mismatch.
+
+Resume: first consume `origin/main`, which moved rapidly while many disjoint
+files remained visible.  Do not touch the other-owned Agda, Lean, journal, or
+message paths.  When the worktree clears, run `./sync`, replay the standalone
+module, and check whether the ancestor-closed reachability premise deserves a
+separate internal formalization rather than only the exact note proof.
+
+## 2026-08-14T07:19:36Z — finite barrier no-go reopened
+
+The second no-redraw root draw selected the Boyd lens and
+`BARRIER_SMOOTH_TERM.md`.  Its later W6 resolution overclaimed finite
+Vandermonde impossibility: an upper drift estimate was read backwards as an
+error lower bound, and equidistribution density was read as a first-return
+bound.  Replaced both with the exact Lagrange frequency response
+`ell_nu(xi_mu exp(i gamma Delta))`; this shows generic leakage and target
+distortion but leaves selected quantitative spacings open.  Lean checks the
+geometric-mode identity.  Corrections are struck in both source notes and a
+new correction note/result message records the surviving boundary.
+
+Resume: consume the moving origin before extending this lane.  A genuine
+closure would require an effective simultaneous-return estimate balanced
+against inverse-Vandermonde conditioning, or a different extractor.  Do not
+repeat the drift-to-error or density-to-first-return implications.
+
+## 2026-08-14T07:37:17Z — Delta 25 source and braid boundary
+
+The owner injected the complete Eternal Golden Braid / Indra’s Net Delta 25.
+Archived it as direct source `UP-D0025` with SHA-256
+`6252491ededa435379b7d7b06ec96265cac3d901f42adb1c809c6d9289bb7b04` and
+an explicit evidence fence: the Huayan framing is not a category-theory
+reduction, inherited mathematics stays inherited, and T25.A–H remain targets
+until separately checked.  A concurrently fetched prior landing (`f5314e9`)
+already checks bounded A/B/D/F forms, so I did not duplicate them.
+
+I took the still-open T25.E inference boundary.  In safe Agda, actual adjacent
+swaps of a Boolean triple satisfy Yang–Baxter, while two other certified
+involutive equivalences (first-coordinate negation and identity) fail it at a
+named point.  Hence invertible lens transports do not make a braid action;
+coherence must be proved.  The historical three-lens cycle remains unrecovered
+as typed maps, so no associator/pentagon/hexagon/holonomy claim is made.
+
+Resume: consume the T25.B/F/G returns and the latest origin.  If their explicit
+paths are committed and the shared worktree clears, run `./sync`, then consider
+importing `BraidCoherenceBoundary` through the canonical aggregate only after
+checking the live aggregate/toolchain boundary.  Do not confuse the finite
+positive/negative controls with Huayan metaphysics or with the original cycle.

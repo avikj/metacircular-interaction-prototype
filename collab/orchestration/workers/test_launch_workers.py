@@ -69,6 +69,30 @@ class LauncherTests(unittest.TestCase):
         self.assertGreaterEqual(launcher.FAILURE_BACKOFF_CAP, 1.0)
         self.assertLessEqual(launcher.FAILURE_BACKOFF_CAP, 3600.0)
 
+    def test_persistent_tasks_have_existing_memory_anchors(self):
+        index = launcher.persistent_task_index()
+        self.assertTrue(index)
+        for task in index.values():
+            self.assertTrue((launcher.REPO / str(task["journal"])).is_file())
+
+    def test_live_context_joins_pointers_without_summary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); sessions = root / "sessions"; outbox = root / "messages"
+            sessions.mkdir(); outbox.mkdir()
+            (sessions / "mind.json").write_text(json.dumps({
+                "name": "mind", "provider": "codex", "session_id": "s", "worktree": "/w"
+            }))
+            task = {"name": "mind", "provider": "codex", "task": "continue", "journal": "j.md"}
+            with mock.patch.object(launcher, "SESSIONS", sessions), \
+                 mock.patch.object(launcher, "OUTBOX", outbox), \
+                 mock.patch.object(launcher, "persistent_task_index", return_value={"mind": task}), \
+                 mock.patch.object(launcher, "session_file", side_effect=lambda name: sessions / f"{name}.json"), \
+                 mock.patch.object(launcher, "cursor_file", side_effect=lambda name: root / f"{name}.cursor"):
+                context = launcher.live_context()
+            self.assertEqual(context["minds"][0]["objective"], "continue")
+            self.assertEqual(context["minds"][0]["journal"], "j.md")
+            self.assertNotIn("summary", context["minds"][0])
+
 
 if __name__ == "__main__":
     unittest.main()

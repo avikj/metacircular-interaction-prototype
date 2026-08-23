@@ -105,10 +105,24 @@ The **exponent is not touched**, and Theorem K0 says why: parametric methods
 buy resolution $\propto\varepsilon^{1/(2p-1)}$ against noise floor
 $\varepsilon$ and cluster size $p$, so as the atom density grows
 ($\rho_2\sim s\log^2 s$) the required precision blows up super-exponentially
-in the cluster size. The depth law $X\sim\exp(cT\log^2T)$ survives with a
-better constant; the barrier is real but its *stated threshold was too
+in the cluster size. ~~The depth law $X\sim\exp(cT\log^2T)$ survives with a
+better constant;~~ the barrier is real but its *stated threshold was too
 pessimistic by a factor $\sim6$*, and honest bookkeeping now separates the
 Fourier constant from the information exponent.
+
+> **STRUCK 2026-08-22 (lane क्षेप).** Two things are wrong with the struck
+> clause and the second is the serious one. (i) `HOLOGRAM.md` §7's Theorem K′
+> supersedes $\exp(cT\log^2T)$: deriving the noise floor as $\varepsilon=X^{-1/2}$
+> rather than taking it as a fixed empirical $10^{-3}$ gives
+> $X_{\text{needed}}=\exp\Theta(T^{1/2}\log^{3/2}T)$ for **sums**, and
+> `HOLOGRAM.md` §5 gives $\exp\Theta(T)$ for **differences**. (ii) The clause
+> says the law "survives with a better constant" — but K′ moved the
+> **exponent**, by a whole power of $T$, and it moved it *because* the floor's
+> $X$-dependence was the thing a fixed floor could not see. This paragraph's
+> own subject is a constant-vs-exponent bookkeeping separation, so it asserted
+> the exact distinction it then got backwards. The surviving content — that
+> parametric methods buy $\varepsilon^{1/(2p-1)}$ resolution and that the
+> stated threshold was pessimistic by $\sim6$ — is untouched.
 
 Updated capacity statement: readable iff separation $>\kappa(\varepsilon,
 \text{method})\cdot2\pi/L$, with $\kappa\approx1.4$ for band-pass and

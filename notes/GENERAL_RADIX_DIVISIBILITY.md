@@ -124,3 +124,15 @@ first appearing at that length; \(\ell(m,b^\infty)\) counts the final
 eventual-congruence package. Thus (3) counts exactly the nonredundant image of
 our signature (1). For \(b=2\), \(m=2^a q\), each transient level contributes
 one and the eventual package contributes \(q\), giving \(q+a\).
+
+## Pointer: signature (1) is not minimal
+
+`notes/RADIX_SHORTEST_COMPLETION_INVARIANT.md` (2026-08-14) shows that (1)
+factors through a **two-coordinate** invariant
+\(\sigma(r)=(\kappa(r),\,b^{\kappa(r)}r\bmod m)\), where \(\kappa(r)\) is the
+least length of a digit word completing \(r\) to a multiple of \(m\): the
+coordinates \(e_k\) are \(\bot\) exactly for \(k<\kappa(r)\) and are functions
+of \(b^{\kappa(r)}r\bmod m\) thereafter. The two-coordinate form needs no
+\(K\), no interval test and — unlike the proof above — no assumption that the
+digit alphabet is \(\{0,\dots,b-1\}\); it is machine-checked for an arbitrary
+alphabet in `formal/cubical/NaturalMachine/RadixSymptoma.agda`.

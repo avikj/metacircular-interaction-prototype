@@ -1,0 +1,51 @@
+{
+  "title": "Prime\u2013M\u00f6bius Kloosterman Parameter Audit",
+  "date": "2026-08-16",
+  "status": "exact parameter audit and direct-application no-go; no new analytic estimate",
+  "claim_nodes_touched": [
+    "ARITH.CRT_BOUNDARY",
+    "ARITH.KUZNETSOV_NO_FREE_GAIN",
+    "OPEN.ARITH_RIGIDITY"
+  ],
+  "new_nodes_proposed": [
+    "ARITH.QUARTER_SCALE_ADMISSIBILITY",
+    "ARITH.FIXED_FACTOR_RANGE_NO_GO",
+    "OPEN.ARITH.MOVING_FACTOR_KLOOSTERMAN"
+  ],
+  "core_results": {
+    "structural_hypothesis": "R <= D^(1/2)",
+    "direct_bounded_frequency_saving_range": "R < D^(1/5-epsilon)",
+    "uncovered_moving_factor_range": "D^(1/5) <= R <= D^(1/2)",
+    "prime_pair_scale_frontier": "X^(1/10) <= R <= X^(1/4)",
+    "quarter_scale_endpoint_exponents": [
+      "1/16",
+      "0",
+      "3/40",
+      "0",
+      "-3/16"
+    ]
+  },
+  "checks": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "artifacts": {
+    "PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT_2026-08-16.md": {
+      "bytes": 14019,
+      "sha256": "3fdc4864d5f954f90e43cf7960b46aaca57bfcca458ca566b41158110ae99b37"
+    },
+    "prime_mobius_kloosterman_parameter_audit.py": {
+      "bytes": 5321,
+      "sha256": "14f8de1d3702a6208bfb7d8b7af95e817435ea69e2fe617a2f473292bcfdeba9"
+    },
+    "PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT_REPORT_2026-08-16.json": {
+      "bytes": 1810,
+      "sha256": "3379bff4c8b24fb19083fa711797b3cb9709966104722220256e5d0b30cac829"
+    },
+    "PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT_MANIFEST_2026-08-16.json": {
+      "bytes": 1445,
+      "sha256": "d61261ce34a703dc21c830bdd090018e5aca4b8b14fc557af61e34390a3241c8"
+    }
+  }
+}

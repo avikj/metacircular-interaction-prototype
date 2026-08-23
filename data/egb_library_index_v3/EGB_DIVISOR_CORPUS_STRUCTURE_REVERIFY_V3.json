@@ -1,0 +1,42 @@
+{
+  "artifact": "PRIME_PAIR_DIVISOR_GEOMETRY_THEOREM_CORPUS_2026-08-14.md",
+  "sha256": "668bb5824ca94b7db84d18956984810f85edd8b4980a00e648a3aeaa60b0c7ac",
+  "size_bytes": 59212,
+  "verification": "Exact byte-for-byte concatenation reverification in V3",
+  "structure": [
+    {
+      "kind": "fixed_title",
+      "bytes": 46,
+      "text": "# Prime-Pair Divisor Geometry Theorem Corpus\n\n"
+    },
+    {
+      "kind": "source",
+      "name": "DIVISOR_LEFSCHETZ_CHARGE_THEOREMS_2026-08-14.md",
+      "bytes": 23629,
+      "sha256": "3db82ad3ec0febdc146ec278ea06cfa29a033915ca11edb669847d4db0caabba"
+    },
+    {
+      "kind": "separator",
+      "bytes": 7,
+      "repr": "b'\\n\\n---\\n\\n'"
+    },
+    {
+      "kind": "source",
+      "name": "ARITHMETIC_SPLIT_TORUS_PATH_THEOREMS_2026-08-14.md",
+      "bytes": 18495,
+      "sha256": "bc97ed66c86cb58c5eb90e2064b1c97ecd4d84c6b77d1796cc935717892b5884"
+    },
+    {
+      "kind": "separator",
+      "bytes": 7,
+      "repr": "b'\\n\\n---\\n\\n'"
+    },
+    {
+      "kind": "source",
+      "name": "FACTORIZATION_HISTORY_QUOTIENT_THEOREMS_2026-08-14.md",
+      "bytes": 17028,
+      "sha256": "a021d476f8d93682e37ef72e93e8d7247cf2c95c3fbb9ba56848b72955c50d68"
+    }
+  ],
+  "suffix_bytes": 0
+}

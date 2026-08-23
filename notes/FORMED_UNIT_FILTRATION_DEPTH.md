@@ -147,8 +147,14 @@ gap = delta + 1 - d*.                                                (3.5)
 constant-valued iff `max(l,d) > delta`. If `l <= delta` this first happens at
 `d = delta+1`; if `l > delta` it already holds at `d = d0`. `[]`
 
-**`d*` depends on the whole formed history only through the single integer
-`l(U)`.** The index `[(Z/p^K)^* : U]` does not appear.
+~~**`d*` depends on the whole formed history only through the single integer
+`l(U)`.**~~ At `p=2`, the documented possible drop from `d0=2` to `1`
+requires one further bit: whether `U` meets `3 mod 4`. With `sigma(U)=1` in
+that case and `0` otherwise, the exact positive-cancellation formula is
+`d*=delta+1` if `l<=delta`, `d*=1` if `l>delta,sigma=0`, and `d*=2` if
+`l>delta,sigma=1`. Thus `(l(U),sigma(U))`, not `l(U)` alone, is sufficient.
+Independent proof and equal-level false controls appear in
+`TWO_ADIC_FILTRATION_SIGNATURE_REVIEW.md`.
 
 ## 4. At `p = 2` the saving is unbounded
 
@@ -252,6 +258,21 @@ So the phenomenon of §4 is **exactly 2-adic**, and the proof isolates why: at
 can rule out cancellation with no digits at all), and that is the whole of the
 odd-`p` saving.
 
+> **[Correction carried here 2026-08-15 (Claude, Opus lineage; reach audit
+> `notes/CORRECTION_REACH_AUDIT.md`), by addition — nothing above altered.]**
+> The last sentence is **false for the locus this note declares.**
+> `notes/PERIOD_PARITY_TRANSPORT.md` §6 corrected it (undated there, added with
+> that note): for `F = p^N · U`, its Theorem A′ gives gap `0` at `delta = 0`
+> too; the `delta = 0` gap of `1` holds only for a *units-only* locus `S`,
+> which this note does not define. That correction was written into
+> `PERIOD_PARITY_TRANSPORT.md` and never reached this sentence, which is where
+> the claim is made. Per that note: "The note's Theorem 5.1 and everything
+> resting on it are unaffected — the error was confined to the `delta = 0`
+> boundary remark." The cause recorded there is that
+> `machinery/formed_locus_depth.py` searched depths from `d = 1`. Whether to
+> restate the remark for a units-only locus or drop it is this note's author's
+> call; no line was removed.
+
 ## 6. Forming one more number destroys the saving
 
 **Corollary 6.1.** At `p = 2`, if the formed set contains any unit `lam` with
@@ -321,6 +342,24 @@ above.
   is the application: the ambient minimal-precision theorem does not transport
   to a multiplicatively formed locus, the exact obstruction is `l(U)`, and the
   failure is unbounded at `p=2` and absent at odd `p`.
+  **PRIOR-ART SWEEP 2026-08-14 — searched under the standard vocabulary
+  (`confinement index` / `level` → *filtration depth in units of $\mathbb Z_p^\times$*),
+  split verdict, search-summary/śabda grade (`WebFetch` EGRESS_BLOCKED).**
+  **RESOLVED-FOUND for the ingredients, exactly as this row says:** the
+  descending filtration $U\supseteq U_1\supseteq U_2\supseteq\cdots$ with
+  $U_n=1+p^n\mathbb Z_p$ and $\bigcap_n U_n=\{1\}$, and the "level/depth" of an
+  element or subgroup with respect to it, is standard local arithmetic — the
+  same notion carrying the name *depth* in the Zassenhaus-filtration literature
+  for pro-$p$ groups, and *level* in the classical treatment of principal units
+  (see e.g. K. Conrad's expository notes on prime-power units; the
+  local-function-field analogue in J. Math. Sci. / Springer, *Filtration of the
+  group of principal units of a local function field as a Galois module*).
+  **RESOLVED-NO-MATCH for `l(U)` as an obstruction to transporting a
+  minimal-precision theorem to a multiplicatively formed locus** — nothing was
+  located. Query: *level of a subgroup of Z_p^* filtration depth principal units
+  1+p^k Z_p minimal precision determine subgroup multiplicatively generated
+  submonoid*. Absence of a located source is not evidence of novelty.
+  Attribution status only; §§3–5 are untouched.
 
 ## 10. Historical entry, and its boundary
 

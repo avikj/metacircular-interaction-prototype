@@ -1,0 +1,1198 @@
+<title>Dṛṣṭi — The Residual</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   COLOUR LAW (Byrne's Euclid, adapted)
+   Three colours carry meaning and never carry anything else:
+     --a   TEAL      one view
+     --b   IRON      the other view
+     --r   OCHRE     the residual — what the view forgets, returned exactly
+     --gone GREY     inaccessible / not reachable by this view
+   Nothing on this page is coloured decoratively.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --paper:#F5F3ED; --card:#FBFAF5; --ink:#1B1A16; --ink-soft:#5C594E;
+  --hairline:#DDD7C9; --rule:#C9C2B0;
+  --a:#0E6C64; --a-wash:#DFEDEB;
+  --b:#B0432A; --b-wash:#F5E5DE;
+  --r:#9A6D00; --r-wash:#F3E9CE;
+  --gone:#ABA595; --gone-wash:#E9E5DA;
+  --mono-bg:#ECE8DC;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131512; --card:#1B1E19; --ink:#EAE7DC; --ink-soft:#9B988B;
+    --hairline:#2E322A; --rule:#3D4239;
+    --a:#5CBCB1; --a-wash:#12312D;
+    --b:#E28869; --b-wash:#33201A;
+    --r:#DDAE43; --r-wash:#332A12;
+    --gone:#6D6C61; --gone-wash:#24261F;
+    --mono-bg:#1F231D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131512; --card:#1B1E19; --ink:#EAE7DC; --ink-soft:#9B988B;
+  --hairline:#2E322A; --rule:#3D4239;
+  --a:#5CBCB1; --a-wash:#12312D;
+  --b:#E28869; --b-wash:#33201A;
+  --r:#DDAE43; --r-wash:#332A12;
+  --gone:#6D6C61; --gone-wash:#24261F;
+  --mono-bg:#1F231D;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:4.2rem; -webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important; transition:none !important}
+}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  font-size:17px; line-height:1.6; overflow-x:hidden;
+}
+main{max-width:74ch; margin:0 auto; padding:0 1.15rem 6rem}
+h1,h2,h3,h4{font-weight:600; text-wrap:balance}
+h1{font-size:clamp(2rem,7vw,2.9rem); line-height:1.08; margin:.1rem 0 .5rem; letter-spacing:-.01em}
+h2{font-size:clamp(1.25rem,4vw,1.5rem); margin:0 0 .5rem}
+h3{font-size:1.02rem; margin:1.5rem 0 .3rem}
+h4{font-size:.9rem; margin:1rem 0 .25rem}
+p{margin:.6rem 0; max-width:68ch}
+a{color:var(--a); text-decoration-thickness:1px; text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--r); outline-offset:2px; border-radius:2px}
+code,.mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.85em; font-variant-numeric:tabular-nums}
+code{background:var(--mono-bg); padding:.06em .32em; border-radius:3px}
+.eyebrow{font-family:ui-monospace,monospace; font-size:.66rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:.45rem}
+
+/* nav */
+nav{position:sticky; top:0; z-index:20; background:var(--paper);
+  border-bottom:1px solid var(--hairline)}
+@supports (backdrop-filter:blur(1px)){
+  nav{background:color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter:blur(8px)}
+}
+nav .inner{max-width:74ch; margin:0 auto; padding:.45rem 1.15rem; display:flex; gap:.9rem;
+  align-items:center; flex-wrap:wrap}
+nav a{font-family:ui-monospace,monospace; font-size:.67rem; letter-spacing:.1em;
+  color:var(--ink-soft); text-decoration:none; text-transform:uppercase}
+nav a:hover{color:var(--r)}
+nav a.brand{color:var(--ink); font-weight:700; letter-spacing:.04em}
+#themebtn{margin-left:auto; font-family:ui-monospace,monospace; font-size:.67rem; letter-spacing:.1em;
+  background:none; border:1px solid var(--hairline); color:var(--ink-soft); cursor:pointer;
+  padding:.2rem .55rem; border-radius:99px; text-transform:uppercase}
+#themebtn:hover{border-color:var(--r); color:var(--r)}
+
+/* structure */
+header.hero{padding:3.2rem 0 .5rem; border-bottom:1px solid var(--rule)}
+section{padding-top:2.6rem; margin-top:2.6rem; border-top:1px solid var(--hairline)}
+section:first-of-type{border-top:none}
+.lede{font-size:1.07rem; color:var(--ink-soft); max-width:64ch}
+
+/* the colour legend */
+.legend{display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; margin:1.1rem 0 0;
+  font-size:.78rem; font-family:ui-monospace,monospace; color:var(--ink-soft)}
+.legend b{color:var(--ink); font-weight:600}
+.chip{display:inline-block; width:.8em; height:.8em; border-radius:2px; vertical-align:-.08em; margin-right:.4em}
+
+/* status pills */
+.pill{display:inline-block; font-family:ui-monospace,monospace; font-size:.62rem;
+  letter-spacing:.09em; padding:.16em .55em; border-radius:99px; font-weight:700;
+  white-space:nowrap; vertical-align:.08em; text-transform:uppercase}
+.pill.proved{background:var(--a-wash); color:var(--a)}
+.pill.measured{background:var(--b-wash); color:var(--b)}
+.pill.open{background:transparent; color:var(--ink-soft); border:1px solid var(--rule)}
+.pill.superseded{background:var(--gone-wash); color:var(--ink-soft); text-decoration:line-through}
+.pill.refuted{background:var(--b); color:var(--paper)}
+.pill.classical{background:var(--mono-bg); color:var(--ink-soft)}
+
+/* residual blocks */
+.entry{margin:2.2rem 0 0; padding-top:1.3rem; border-top:1px dashed var(--hairline)}
+.entry:first-of-type{border-top:none; padding-top:0}
+.vr{display:grid; grid-template-columns:1fr; gap:.55rem; margin:.9rem 0 1rem}
+@media (min-width:640px){.vr{grid-template-columns:1fr 1fr}}
+.vr div{padding:.6rem .8rem; border-radius:4px; font-size:.86rem; line-height:1.45}
+.vr .view{background:var(--a-wash); border-left:3px solid var(--a)}
+.vr .res{background:var(--r-wash); border-left:3px solid var(--r)}
+.vr .lab{display:block; font-family:ui-monospace,monospace; font-size:.6rem; letter-spacing:.13em;
+  text-transform:uppercase; margin-bottom:.2rem}
+.vr .view .lab{color:var(--a)} .vr .res .lab{color:var(--r)}
+.src{font-family:ui-monospace,monospace; font-size:.7rem; color:var(--ink-soft); margin-top:.5rem}
+
+/* figures */
+figure{margin:1.3rem 0 1.1rem}
+.scroll{overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+  border:1px solid var(--hairline); border-radius:5px; background:var(--card); padding:.9rem .6rem}
+figure svg{display:block; width:100%; height:auto; max-width:100%}
+.scroll svg{min-width:460px}
+figcaption{font-size:.79rem; color:var(--ink-soft); margin-top:.55rem; line-height:1.5; max-width:64ch}
+.altnote{font-size:.75rem; color:var(--ink-soft); border-left:2px solid var(--hairline);
+  padding-left:.7rem; margin-top:.5rem}
+svg text{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+
+/* tables */
+.tw{overflow-x:auto; margin:1.1rem 0; border:1px solid var(--hairline); border-radius:5px}
+table{border-collapse:collapse; width:100%; font-size:.83rem; min-width:520px}
+caption{caption-side:top; text-align:left; font-size:.75rem; color:var(--ink-soft);
+  padding:.6rem .8rem .1rem; font-family:ui-monospace,monospace}
+th{text-align:left; font-family:ui-monospace,monospace; font-size:.64rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-soft); font-weight:700;
+  padding:.6rem .8rem .4rem; border-bottom:1px solid var(--rule)}
+td{padding:.55rem .8rem; border-bottom:1px solid var(--hairline); vertical-align:top}
+tr:last-child td{border-bottom:none}
+.num{text-align:right; font-variant-numeric:tabular-nums; font-family:ui-monospace,monospace}
+
+/* callouts */
+.wound{background:var(--b-wash); border:1px solid var(--b); border-radius:5px;
+  padding:1rem 1.1rem; margin:1.2rem 0}
+.wound .lab{font-family:ui-monospace,monospace; font-size:.63rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--b); font-weight:700}
+.thm{background:var(--card); border:1px solid var(--hairline); border-left:3px solid var(--a);
+  border-radius:4px; padding:.85rem 1rem; margin:1rem 0; font-size:.9rem}
+.thm.r{border-left-color:var(--r)}
+.thm .lab{font-family:ui-monospace,monospace; font-size:.63rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--a); font-weight:700; display:block; margin-bottom:.25rem}
+.thm.r .lab{color:var(--r)}
+.finding{background:var(--r-wash); border:1px solid var(--r); border-radius:5px;
+  padding:.95rem 1.1rem; margin:1.2rem 0; font-size:.9rem}
+.finding .lab{font-family:ui-monospace,monospace; font-size:.63rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--r); font-weight:700; display:block; margin-bottom:.3rem}
+ul,ol{max-width:66ch; padding-left:1.15rem}
+li{margin:.32rem 0}
+footer{margin-top:3.5rem; padding-top:1.3rem; border-top:1px solid var(--rule);
+  font-size:.76rem; color:var(--ink-soft); font-family:ui-monospace,monospace; line-height:1.6}
+.skip{position:absolute; left:-9999px}
+.skip:focus{position:static; display:inline-block; padding:.4rem .8rem; background:var(--r); color:var(--paper)}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+<nav><div class="inner">
+  <a class="brand" href="#top">DṚṢṬI</a>
+  <a href="#law">Law</a>
+  <a href="#wound">Wound</a>
+  <a href="#catalogue">Catalogue</a>
+  <a href="#ledger">Ledger</a>
+  <a href="#ban">Practice</a>
+  <a href="#colophon">Colophon</a>
+  <button id="themebtn" type="button" aria-label="Switch colour theme">Theme</button>
+</div></nav>
+
+<main id="main">
+<header class="hero" id="top">
+  <span class="eyebrow">avikj/math · site/drishti.html · a reading of the corpus</span>
+  <h1>What a view forgets</h1>
+  <p class="lede">Nearly every result in this repository that earned its keep has one shape:
+  <b>a lossy view, together with the loss returned as an exact algebraic object</b> — a fiber
+  size, a rank, a module, a divisibility, a shortest word — rather than as an error bar.
+  This page is that spine, drawn.</p>
+  <p class="lede">The founding mistake of the repository is the same shape inverted. A residual
+  was <i>measured</i> instead of returned, and the number it produced was wrong.
+  <code>CLAUDE.md</code> exists because of it. That story is <a href="#wound">§2</a>, not a footnote.</p>
+</header>
+
+<section id="law">
+  <span class="eyebrow">§1 — The colour law</span>
+  <h2>Three colours, and they mean one thing each</h2>
+  <p>Every diagram below obeys the same convention. Oliver Byrne coloured Euclid so that the
+  figure <i>was</i> the argument — no letters to look up, no legend to consult twice. The same
+  discipline, one page-wide:</p>
+  <div class="legend">
+    <span><span class="chip" style="background:var(--a)"></span><b>one view</b> — a projection, lens, or observable</span>
+    <span><span class="chip" style="background:var(--b)"></span><b>the other view</b> — when two are compared</span>
+    <span><span class="chip" style="background:var(--r)"></span><b>the residual</b> — exactly what is forgotten</span>
+    <span><span class="chip" style="background:var(--gone)"></span><b>unreachable</b> — not in the image of this view</span>
+  </div>
+  <p style="margin-top:1rem">Ochre never means anything but <i>residual</i>. If you see ochre, that is the
+  object the view destroyed, handed back in closed form.</p>
+
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 640 210" role="img" aria-labelledby="d1t d1d">
+        <title id="d1t">The general shape: a projection and its fiber</title>
+        <desc id="d1d">Twelve points of a set X, in teal, are collapsed by a map q onto four
+        points of Y. One fiber — the three points of X above a single point of Y — is drawn in
+        ochre and labelled: this is the residual, the information the view destroys.</desc>
+        <text x="8" y="18" font-size="10" fill="var(--ink-soft)">X</text>
+        <text x="8" y="180" font-size="10" fill="var(--ink-soft)">Y = X / q</text>
+        <!-- X points -->
+        <g>
+          <g fill="var(--a)">
+            <circle cx="60" cy="44" r="6"/><circle cx="90" cy="44" r="6"/><circle cx="120" cy="44" r="6"/>
+            <circle cx="200" cy="44" r="6"/><circle cx="230" cy="44" r="6"/><circle cx="260" cy="44" r="6"/>
+            <circle cx="480" cy="44" r="6"/><circle cx="510" cy="44" r="6"/><circle cx="540" cy="44" r="6"/>
+          </g>
+          <g fill="var(--r)">
+            <circle cx="340" cy="44" r="6"/><circle cx="370" cy="44" r="6"/><circle cx="400" cy="44" r="6"/>
+          </g>
+        </g>
+        <!-- brackets -->
+        <path d="M52 60 L52 70 L128 70 L128 60" fill="none" stroke="var(--a)" stroke-width="1.2"/>
+        <path d="M192 60 L192 70 L268 70 L268 60" fill="none" stroke="var(--a)" stroke-width="1.2"/>
+        <path d="M332 60 L332 70 L408 70 L408 60" fill="none" stroke="var(--r)" stroke-width="2"/>
+        <path d="M472 60 L472 70 L548 70 L548 60" fill="none" stroke="var(--a)" stroke-width="1.2"/>
+        <!-- arrows -->
+        <g stroke-width="1.2" fill="none">
+          <path d="M90 72 L90 138" stroke="var(--a)" marker-end="url(#ar-a)"/>
+          <path d="M230 72 L230 138" stroke="var(--a)" marker-end="url(#ar-a)"/>
+          <path d="M370 72 L370 138" stroke="var(--r)" stroke-width="2" marker-end="url(#ar-r)"/>
+          <path d="M510 72 L510 138" stroke="var(--a)" marker-end="url(#ar-a)"/>
+        </g>
+        <defs>
+          <marker id="ar-a" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--a)"/></marker>
+          <marker id="ar-r" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--r)"/></marker>
+        </defs>
+        <text x="378" y="108" font-size="10" fill="var(--r)">q</text>
+        <!-- Y points -->
+        <g fill="var(--a)">
+          <circle cx="90" cy="150" r="6"/><circle cx="230" cy="150" r="6"/><circle cx="510" cy="150" r="6"/>
+        </g>
+        <circle cx="370" cy="150" r="6" fill="var(--r)"/>
+        <line x1="40" y1="168" x2="600" y2="168" stroke="var(--hairline)"/>
+        <text x="300" y="192" font-size="10.5" fill="var(--r)">the fiber q⁻¹(y) — size 3 — is the residual, and it has a name</text>
+        <text x="300" y="205" font-size="9.5" fill="var(--ink-soft)">a bad view returns "≈3"; a good view returns the fiber</text>
+      </svg>
+    </div>
+    <figcaption><b>Figure 1.</b> The abstract move the whole corpus repeats. Teal collapses;
+    ochre is what collapsed. The difference between a result and a measurement here is whether
+    the ochre object is <i>named</i> or only <i>estimated</i>.</figcaption>
+  </figure>
+</section>
+
+<section id="wound">
+  <span class="eyebrow">§2 — The correction trail</span>
+  <h2>The founding wound: a residual that was measured</h2>
+
+  <div class="wound">
+    <span class="lab">Refuted in place · <code>notes/METHOD.md</code> §1 · <code>CLAUDE.md</code></span>
+    <p style="margin-top:.4rem"><code>BLOCKS.md</code> §5.1 reported the <code>[♯♯]</code> block constant of
+    <code>T(X)=Σ_{n≤X}(Λ*Λ)(n)/n²</code> as growing like <b>0.362 log²Q</b> (least squares) or
+    <b>0.421 log²Q</b> (mean extraction), fitted over <code>log Q ∈ [1.6, 4.8]</code> — one decade,
+    nine points.</p>
+    <p><b>Both are wrong. Proposition M1 proves the coefficient is exactly ¼</b>, and the error
+    propagated into two notes, a paper section, and a round of cross-review.</p>
+  </div>
+
+  <p>The interesting part is not that a fit was wrong. It is <i>where the missing 0.11 went</i>.
+  The true law is</p>
+  <p style="text-align:center; font-size:1.05rem"><code>¼·L² + 1.181852·L + O(1)</code>, &nbsp; <code>L = log Q</code>.</p>
+  <p>Over one decade, a pure quadratic <code>c·L²</code> has nowhere to put the linear and
+  constant terms except into <code>c</code>. So they went there. The published 0.362 is not noise
+  around ¼ — it is ¼ <i>plus the lower-order terms, converted</i>, and the conversion rate is a
+  ratio of two integrals over the window, which you can do on paper.</p>
+
+  <div class="thm r"><span class="lab">The conversion rate, derived — no machine involved</span>
+    <p style="margin:.2rem 0">Least squares of <code>c·L²</code> against
+    <code>aL² + bL + c₀</code> is linear in <code>(a, b, c₀)</code>, so
+    <code>c = a·w₂ + b·w₁ + c₀·w₀</code> where
+    <code>w<sub>k</sub> = ∫L<sup>k+2</sup>dL ⁄ ∫L⁴dL</code> over the window. On
+    <code>[8/5, 24/5]</code> everything collapses, because
+    <code>24⁵−8⁵ = 8⁵(3⁵−1) = 2¹⁵·242 = 2¹⁶·11²</code>,
+    <code>24⁴−8⁴ = 8⁴(3⁴−1) = 2¹²·80 = 2¹⁶·5</code>, and
+    <code>24³−8³ = 8³(3³−1) = 2⁹·26 = 2¹⁰·13</code>:</p>
+    <p style="margin:.5rem 0; text-align:center; line-height:2">
+      <code>w₁ = (5/4)·(24⁴−8⁴)·5⁄(24⁵−8⁵) = (25/4)·2¹⁶·5 ⁄ (2¹⁶·11²) = <b>125/484</b></code><br>
+      <code>w₀ = (5/3)·(24³−8³)·25⁄(24⁵−8⁵) = (125/3)·2¹⁰·13 ⁄ (2¹⁶·11²) = <b>1625/23232</b></code>
+    </p>
+    <p style="margin:.2rem 0">Exact rationals with denominators <code>4·11²</code> and
+    <code>3·2⁶·11²</code>; as decimals <code>w₁ = 0.258264…</code>,
+    <code>w₀ = 0.069946…</code>, and <code>w₂ = 1</code>. Now multiply.</p></div>
+
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 640 250" role="img" aria-labelledby="d2t d2d">
+        <title id="d2t">Where the fitted coefficient 0.362 came from</title>
+        <desc id="d2d">Two horizontal bars on a shared axis running from zero to zero point six.
+        The upper teal bar is the proved value, one quarter. The lower bar starts as the same
+        teal one quarter, then extends by an ochre segment of 0.305 — the linear term absorbed
+        into the quadratic — then a dashed ochre arrow pulls back by 0.217 — the constant term
+        absorbed. The net lands at 0.338, close to the 0.362 that was published. The ochre
+        segments are the residual the fit swallowed.</desc>
+        <!-- axis -->
+        <line x1="60" y1="200" x2="600" y2="200" stroke="var(--rule)"/>
+        <g font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">
+          <line x1="60" y1="200" x2="60" y2="205" stroke="var(--rule)"/><text x="60" y="218">0</text>
+          <line x1="240" y1="200" x2="240" y2="205" stroke="var(--rule)"/><text x="240" y="218">0.2</text>
+          <line x1="420" y1="200" x2="420" y2="205" stroke="var(--rule)"/><text x="420" y="218">0.4</text>
+          <line x1="600" y1="200" x2="600" y2="205" stroke="var(--rule)"/><text x="600" y="218">0.6</text>
+        </g>
+        <text x="330" y="238" font-size="10" fill="var(--ink-soft)" text-anchor="middle">leading coefficient of log²Q</text>
+
+        <!-- true bar -->
+        <text x="55" y="52" font-size="10" fill="var(--ink-soft)" text-anchor="end">PROVED</text>
+        <rect x="60" y="36" width="225" height="24" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5"/>
+        <text x="172" y="53" font-size="11" fill="var(--a)" text-anchor="middle" font-weight="bold">¼ = 0.250</text>
+        <text x="295" y="53" font-size="9.5" fill="var(--ink-soft)">Proposition M1 — from the single term n = 2</text>
+
+        <!-- decomposition bar -->
+        <text x="55" y="112" font-size="10" fill="var(--ink-soft)" text-anchor="end">FITTED</text>
+        <rect x="60" y="96" width="225" height="24" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5"/>
+        <rect x="285" y="96" width="275" height="24" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5"/>
+        <text x="172" y="113" font-size="11" fill="var(--a)" text-anchor="middle">0.250</text>
+        <text x="422" y="113" font-size="10" fill="var(--r)" text-anchor="middle">+ 1.181852·w₁ = 0.30523</text>
+        <!-- the constant term pulls back -->
+        <path d="M558 134 L369 134" fill="none" stroke="var(--r)" stroke-width="2"
+              stroke-dasharray="5 3" marker-end="url(#ar-back)"/>
+        <defs><marker id="ar-back" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="var(--r)"/></marker></defs>
+        <text x="464" y="150" font-size="10" fill="var(--r)" text-anchor="middle">− 3.1·w₀ = 0.21683</text>
+        <!-- net marker -->
+        <line x1="365" y1="90" x2="365" y2="158" stroke="var(--b)" stroke-width="2"/>
+        <text x="359" y="86" font-size="10.5" fill="var(--b)" text-anchor="end">net 0.3384</text>
+        <!-- published marker -->
+        <line x1="386" y1="66" x2="386" y2="96" stroke="var(--b)" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <text x="392" y="80" font-size="10" fill="var(--b)">published: 0.362</text>
+
+        <!-- annotations -->
+        <path d="M285 164 L285 176 L560 176 L560 164" fill="none" stroke="var(--r)" stroke-width="1.2"/>
+        <text x="422" y="192" font-size="10.5" fill="var(--r)" text-anchor="middle">the residual: two lower-order terms with nowhere else to go</text>
+      </svg>
+    </div>
+    <figcaption><b>Figure 2.</b> Continuous least squares of <code>c·L²</code> against
+    <code>¼L² + 1.181852L − 3.1</code> across the note's stated window
+    <code>log Q ∈ [1.6, 4.8]</code>, decomposed term by term with the exact weights derived
+    above. The linear term contributes <code>+0.30523</code>, the constant term
+    <code>−0.21683</code>; the net is <code>0.3384</code>, against a published <code>0.362</code>.
+    Every step is a ratio of small integers — no grid, no solver, no script.</figcaption>
+  </figure>
+
+  <h3>The correction has its own residual — three layers deep</h3>
+  <p>Honesty about a correction means saying what the correction still does not know. This one
+  is not closed:</p>
+  <div class="tw"><table>
+    <caption>The correction stack for one constant</caption>
+    <tr><th>Layer</th><th>Published</th><th>Corrected to</th><th>Cause</th><th>Status</th></tr>
+    <tr><td>leading coefficient</td><td class="num">0.362 / 0.421</td><td class="num">¼</td>
+        <td>pure-quadratic fit over one decade</td><td><span class="pill proved">Proved</span></td></tr>
+    <tr><td>linear coefficient</td><td class="num">1.388949</td><td class="num">1.181852</td>
+        <td>a factor <code>φ(m)/m</code> dropped from Hardy's Ramanujan expansion</td>
+        <td><span class="pill proved">Proved</span></td></tr>
+    <tr><td>the <code>O(1)</code></td><td class="num">≈ +9.0</td><td class="num">≈ −3.1</td>
+        <td>unexplained — a normalisation mismatch or a mis-transcription</td>
+        <td><span class="pill open">Open · ledger H5</span></td></tr>
+  </table></div>
+
+  <div class="finding">
+    <span class="lab">A residual found while drawing Figure 2</span>
+    <p style="margin:.3rem 0"><code>METHOD.md</code> §1's own illustrative sentence — “a genuine
+    <code>¼L²+1.18L+9</code> is fitted by a pure quadratic as <code>≈0.36L²</code>” — still carries the
+    <b>stale</b> constant <code>+9</code>, which the bracketed correction three paragraphs above it
+    had already retracted to <code>≈−3.1</code>. Substitute into the same two weights:</p>
+    <p style="margin:.4rem 0; text-align:center">
+      <code>with +9 : ¼ + 1.181852·w₁ + 9·w₀ = 0.25 + 0.30523 + 0.62952 = <b>1.1848</b></code><br>
+      <code>with −3.1 : 0.25 + 0.30523 − 0.21683 = <b>0.3384</b></code>
+    </p>
+    <p style="margin:.3rem 0">The lesson the sentence teaches is right — nine points over one
+    decade cannot separate <code>L²</code> from <code>L</code> — and its own number is wrong by a
+    factor of three, wrong <i>for exactly the reason the sentence is about</i>: it kept a superseded
+    residual. Two multiplications by <code>125/484</code> and <code>1625/23232</code> decide it.</p>
+  </div>
+
+  <p>Notice the recursion. The rule in <code>CLAUDE.md</code> — <i>before running any computation,
+  write down the theorem it would replace</i> — is not a style preference. It is the statement that
+  a residual must be <b>returned</b>, not <b>estimated</b>, because an estimate at one scale hides
+  its own scaling. §3.7 below is the same lesson costing an exponent.</p>
+</section>
+
+<section id="catalogue">
+  <span class="eyebrow">§3 — The catalogue</span>
+  <h2>Eight views and their exact residuals</h2>
+  <p>Each entry: the view (teal), the residual (ochre), the status as it stands in
+  <code>notes/</code>, and a diagram of the mechanism rather than an illustration of the mood.</p>
+
+  <!-- 3.1 CRT -->
+  <div class="entry" id="c-crt">
+    <h3>3.1 &nbsp;Gluing two residue views <span class="pill proved">Proved</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>Read <code>x ∈ ℤ/mn</code> twice:
+      <code>x mod m</code> and <code>x mod n</code>.</div>
+      <div class="res"><span class="lab">The residual, exact</span>Two readings are compatible iff
+      they <b>agree mod gcd(m,n)</b>; every compatible pair still hides exactly
+      <b>gcd(m,n)</b> states.</div>
+    </div>
+    <p>Both halves of the loss are visible in one picture: which pairs are unreachable, and how
+    many originals sit behind each reachable pair. Coprimality is exactly the condition that both
+    ochre objects are trivial.</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 300" role="img" aria-labelledby="d3t d3d">
+          <title id="d3t">The joint residue view of Z modulo 24 through mod 4 and mod 6</title>
+          <desc id="d3d">A four-by-six grid of cells. Columns are the six residues mod 6, rows the
+          four residues mod 4. Twelve cells, those whose row and column agree modulo the gcd 2, are
+          reachable and each contains exactly two of the twenty-four states, listed inside; the
+          other twelve cells are greyed out as unreachable. The reachable cells form a checkerboard.</desc>
+          <text x="10" y="16" font-size="10" fill="var(--a)">x mod 4</text>
+          <text x="330" y="16" font-size="10" fill="var(--b)">x mod 6  →</text>
+          <g font-size="10" fill="var(--b)" text-anchor="middle">
+            <text x="122" y="42">0</text><text x="202" y="42">1</text><text x="282" y="42">2</text>
+            <text x="362" y="42">3</text><text x="442" y="42">4</text><text x="522" y="42">5</text>
+          </g>
+          <g font-size="10" fill="var(--a)" text-anchor="end">
+            <text x="76" y="76">0</text><text x="76" y="130">1</text>
+            <text x="76" y="184">2</text><text x="76" y="238">3</text>
+          </g>
+          <!-- cells: reachable when (row - col) even -->
+          <g>
+            <!-- row 0 -->
+            <rect x="84" y="52" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="122" y="78" font-size="11" fill="var(--r)" text-anchor="middle">0 · 12</text>
+            <rect x="164" y="52" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="176" y1="64" x2="228" y2="82" stroke="var(--gone)"/><line x1="228" y1="64" x2="176" y2="82" stroke="var(--gone)"/>
+            <rect x="244" y="52" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="282" y="78" font-size="11" fill="var(--r)" text-anchor="middle">8 · 20</text>
+            <rect x="324" y="52" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="336" y1="64" x2="388" y2="82" stroke="var(--gone)"/><line x1="388" y1="64" x2="336" y2="82" stroke="var(--gone)"/>
+            <rect x="404" y="52" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="442" y="78" font-size="11" fill="var(--r)" text-anchor="middle">4 · 16</text>
+            <rect x="484" y="52" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="496" y1="64" x2="548" y2="82" stroke="var(--gone)"/><line x1="548" y1="64" x2="496" y2="82" stroke="var(--gone)"/>
+            <!-- row 1 -->
+            <rect x="84" y="106" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="96" y1="118" x2="148" y2="136" stroke="var(--gone)"/><line x1="148" y1="118" x2="96" y2="136" stroke="var(--gone)"/>
+            <rect x="164" y="106" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="202" y="132" font-size="11" fill="var(--r)" text-anchor="middle">1 · 13</text>
+            <rect x="244" y="106" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="256" y1="118" x2="308" y2="136" stroke="var(--gone)"/><line x1="308" y1="118" x2="256" y2="136" stroke="var(--gone)"/>
+            <rect x="324" y="106" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="362" y="132" font-size="11" fill="var(--r)" text-anchor="middle">9 · 21</text>
+            <rect x="404" y="106" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="416" y1="118" x2="468" y2="136" stroke="var(--gone)"/><line x1="468" y1="118" x2="416" y2="136" stroke="var(--gone)"/>
+            <rect x="484" y="106" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="522" y="132" font-size="11" fill="var(--r)" text-anchor="middle">5 · 17</text>
+            <!-- row 2 -->
+            <rect x="84" y="160" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="122" y="186" font-size="11" fill="var(--r)" text-anchor="middle">6 · 18</text>
+            <rect x="164" y="160" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="176" y1="172" x2="228" y2="190" stroke="var(--gone)"/><line x1="228" y1="172" x2="176" y2="190" stroke="var(--gone)"/>
+            <rect x="244" y="160" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="282" y="186" font-size="11" fill="var(--r)" text-anchor="middle">2 · 14</text>
+            <rect x="324" y="160" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="336" y1="172" x2="388" y2="190" stroke="var(--gone)"/><line x1="388" y1="172" x2="336" y2="190" stroke="var(--gone)"/>
+            <rect x="404" y="160" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="442" y="186" font-size="11" fill="var(--r)" text-anchor="middle">10 · 22</text>
+            <rect x="484" y="160" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="496" y1="172" x2="548" y2="190" stroke="var(--gone)"/><line x1="548" y1="172" x2="496" y2="190" stroke="var(--gone)"/>
+            <!-- row 3 -->
+            <rect x="84" y="214" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="96" y1="226" x2="148" y2="244" stroke="var(--gone)"/><line x1="148" y1="226" x2="96" y2="244" stroke="var(--gone)"/>
+            <rect x="164" y="214" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="202" y="240" font-size="11" fill="var(--r)" text-anchor="middle">7 · 19</text>
+            <rect x="244" y="214" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="256" y1="226" x2="308" y2="244" stroke="var(--gone)"/><line x1="308" y1="226" x2="256" y2="244" stroke="var(--gone)"/>
+            <rect x="324" y="214" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="362" y="240" font-size="11" fill="var(--r)" text-anchor="middle">3 · 15</text>
+            <rect x="404" y="214" width="76" height="42" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="3 3" rx="2"/>
+            <line x1="416" y1="226" x2="468" y2="244" stroke="var(--gone)"/><line x1="468" y1="226" x2="416" y2="244" stroke="var(--gone)"/>
+            <rect x="484" y="214" width="76" height="42" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="522" y="240" font-size="11" fill="var(--r)" text-anchor="middle">11 · 23</text>
+          </g>
+          <text x="84" y="278" font-size="10.5" fill="var(--r)">12 reachable cells (row ≡ col mod 2), each hiding gcd(4,6) = 2 states</text>
+          <text x="84" y="292" font-size="10.5" fill="var(--gone)">12 unreachable cells — the compatibility condition, drawn</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 3.</b> <code>ℤ/24 → ℤ/4 × ℤ/6</code>. The view forgets nothing about
+      <i>order</i> and everything about a factor of two: <code>gcd = 2</code> appears twice — once
+      as the agreement condition that greys out half the grid, once as the fiber size printed in
+      every surviving cell.</figcaption>
+    </figure>
+    <p class="src">Source: <code>notes/LENS_ORDER_COMMUTATION.md</code> §4.1; <code>README.md</code>
+    “Forgetting and remembering”; the universal half is machine-checked in
+    <code>formal/pairfield/Pairfield/FutureBehavior.lean</code>.</p>
+  </div>
+
+  <!-- 3.2 lens commutation -->
+  <div class="entry" id="c-lens">
+    <h3>3.2 &nbsp;Two lenses that cannot be studied in either order <span class="pill proved">Proved</span> <span class="pill classical">criterion classical</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>Replace a signal by its fiberwise average
+      over a partition <code>π</code>, then again over <code>σ</code>. Does the order matter?</div>
+      <div class="res"><span class="lab">The residual, exact</span><code>P<sub>π</sub></code> and
+      <code>P<sub>σ</sub></code> commute <b>iff</b> <code>|B ∩ D| · |E| = |B| · |D|</code> for every
+      <code>π</code>-block <code>B</code> and <code>σ</code>-block <code>D</code> inside every block
+      <code>E</code> of the join.</div>
+    </div>
+    <p>This is conditional independence given the join, in counting form — <b>classical</b>
+    (arXiv:1307.6403 Prop. 7), reconstructed here, not claimed. What is
+    <code>possibly-new</code>, and searched twice without a hit, is the <b>cheap corollary</b>: if
+    <code>|E|</code> does not divide <code>|B||D|</code>, the equality demands a non-integer number
+    of points, so the lenses provably cannot commute — decided from four block sizes, with no
+    matrix, no signal, and no linear algebra.</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 330" role="img" aria-labelledby="d4t d4d">
+          <title id="d4t">The integrality obstruction on Z modulo 1000</title>
+          <desc id="d4d">A ten-by-four table of block intersection counts for two lenses on the
+          integers mod 1000: the last decimal digit, ten blocks of size 100, against the fibers of
+          which of 8 and 125 divide x squared minus x, four blocks of sizes 738, 246, 12 and 4.
+          Below the table, a row in ochre gives what commutation demands in each column: 73.8,
+          24.6, 1.2 and 0.4. The last two are not integers, so the two lenses provably cannot
+          commute. The table has only two distinct rows, so its rank is 2 and the exact leakage
+          rank is 1.</desc>
+          <text x="8" y="16" font-size="10.5" fill="var(--a)">π : x mod 10  (10 blocks, each |B| = 100)</text>
+          <text x="8" y="32" font-size="10.5" fill="var(--b)">σ : ( 8 | x²−x , 125 | x²−x )  (4 blocks)</text>
+          <!-- column headers -->
+          <g font-size="9.5" fill="var(--b)" text-anchor="middle">
+            <text x="270" y="58">|D| = 738</text><text x="350" y="58">246</text>
+            <text x="430" y="58">12</text><text x="510" y="58">4</text>
+          </g>
+          <line x1="230" y1="64" x2="550" y2="64" stroke="var(--rule)"/>
+          <!-- rows -->
+          <g font-size="10">
+            <!-- distinct row type A: digits 0,1,5,6 -->
+            <g>
+              <text x="222" y="84" font-size="9.5" fill="var(--a)" text-anchor="end">B: digit 0</text>
+              <rect x="234" y="72" width="312" height="16" fill="var(--a-wash)" opacity=".55"/>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="84">72</text><text x="350" y="84">24</text><text x="430" y="84">3</text><text x="510" y="84">1</text></g>
+              <text x="222" y="102" font-size="9.5" fill="var(--a)" text-anchor="end">digit 1</text>
+              <rect x="234" y="90" width="312" height="16" fill="var(--a-wash)" opacity=".55"/>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="102">72</text><text x="350" y="102">24</text><text x="430" y="102">3</text><text x="510" y="102">1</text></g>
+            </g>
+            <g>
+              <text x="222" y="120" font-size="9.5" fill="var(--ink-soft)" text-anchor="end">digit 2</text>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="120">75</text><text x="350" y="120">25</text><text x="430" y="120">0</text><text x="510" y="120">0</text></g>
+              <text x="222" y="138" font-size="9.5" fill="var(--ink-soft)" text-anchor="end">digit 3</text>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="138">75</text><text x="350" y="138">25</text><text x="430" y="138">0</text><text x="510" y="138">0</text></g>
+              <text x="222" y="156" font-size="9.5" fill="var(--ink-soft)" text-anchor="end">digit 4</text>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="156">75</text><text x="350" y="156">25</text><text x="430" y="156">0</text><text x="510" y="156">0</text></g>
+            </g>
+            <g>
+              <text x="222" y="174" font-size="9.5" fill="var(--a)" text-anchor="end">digit 5</text>
+              <rect x="234" y="162" width="312" height="16" fill="var(--a-wash)" opacity=".55"/>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="174">72</text><text x="350" y="174">24</text><text x="430" y="174">3</text><text x="510" y="174">1</text></g>
+              <text x="222" y="192" font-size="9.5" fill="var(--a)" text-anchor="end">digit 6</text>
+              <rect x="234" y="180" width="312" height="16" fill="var(--a-wash)" opacity=".55"/>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="192">72</text><text x="350" y="192">24</text><text x="430" y="192">3</text><text x="510" y="192">1</text></g>
+            </g>
+            <g>
+              <text x="222" y="210" font-size="9.5" fill="var(--ink-soft)" text-anchor="end">digits 7, 8, 9</text>
+              <g fill="var(--ink)" text-anchor="middle"><text x="270" y="210">75</text><text x="350" y="210">25</text><text x="430" y="210">0</text><text x="510" y="210">0</text></g>
+            </g>
+          </g>
+          <line x1="230" y1="222" x2="550" y2="222" stroke="var(--rule)"/>
+          <!-- demanded row -->
+          <rect x="234" y="228" width="312" height="22" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+          <text x="222" y="244" font-size="9.5" fill="var(--r)" text-anchor="end" font-weight="bold">(*) demands</text>
+          <g font-size="10.5" fill="var(--r)" text-anchor="middle" font-weight="bold">
+            <text x="270" y="244">73.8</text><text x="350" y="244">24.6</text>
+            <text x="430" y="244">1.2</text><text x="510" y="244">0.4</text>
+          </g>
+          <circle cx="510" cy="239" r="15" fill="none" stroke="var(--b)" stroke-width="2"/>
+          <text x="8" y="272" font-size="10.5" fill="var(--b)">|B||D| / |E| = 100 · 4 / 1000 = 2/5 points. Not an integer.</text>
+          <text x="8" y="288" font-size="10.5" fill="var(--b)">⇒ these two lenses provably do not commute — from four block sizes alone.</text>
+          <text x="8" y="312" font-size="10.5" fill="var(--r)">The table has exactly two distinct rows ⇒ rank N_E = 2 ⇒ leakage rank = 2 − 1 = 1.</text>
+          <text x="8" y="326" font-size="9.5" fill="var(--ink-soft)">(the block-count ceiling min(10,4) − 1 = 3 overestimates it threefold)</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 4.</b> Śilpin's pair on <code>ℤ/1000</code>. The size-4 block is the
+      four idempotents <code>{0, 1, 376, 625}</code>; the join is trivial (the only nonzero
+      subset sum of <code>{738, 246, 12, 4}</code> divisible by 100 is 1000). A small exceptional
+      fiber cannot be spread evenly across a coarse balanced lens — the obstruction is arithmetic,
+      not analytic.</figcaption>
+    </figure>
+
+    <div class="thm r"><span class="lab">The whole table, derived on paper</span>
+      <p style="margin:.2rem 0">Nothing here was computed. <code>x</code> and <code>x−1</code> are
+      coprime, so <code>8 | x²−x ⟺ x ≡ 0, 1 (mod 8)</code>, and likewise
+      <code>125 | x²−x ⟺ x ≡ 0, 1 (mod 125)</code>. Since <code>1000 = 8 · 125</code>, the four
+      <code>σ</code>-blocks have sizes <code>2·2, 2·123, 6·2, 6·123 = 4, 246, 12, 738</code>.</p>
+      <p style="margin:.4rem 0"><b>The table factors.</b> <code>x mod 10</code> is
+      <code>(x mod 2, x mod 5)</code>; <code>x mod 2</code> is read off <code>x mod 8</code>, and
+      <code>x mod 5</code> off <code>x mod 125</code>. So each entry is a product of an 8-side
+      count and a 125-side count:</p>
+      <ul style="font-size:.88rem; margin:.3rem 0">
+        <li><b>8-side.</b> Of the 4 residues mod 8 of a given parity, exactly <b>1</b> lies in
+        <code>{0,1}</code> — weights <code>(1, 3)</code>, the same for both parities.</li>
+        <li><b>125-side.</b> Of the 25 residues mod 125 with a given residue mod 5, the number in
+        <code>{0,1}</code> is <b>1</b> if that residue is 0 or 1 and <b>0</b> otherwise — weights
+        <code>(1, 24)</code> or <code>(0, 25)</code>.</li>
+      </ul>
+      <p style="margin:.4rem 0">Multiply. Digits with <code>d ≡ 0, 1 (mod 5)</code> — that is
+      <code>d ∈ {0, 1, 5, 6}</code>, the last digits of the idempotents — give
+      <code>[3·24, 1·24, 3·1, 1·1] = [72, 24, 3, 1]</code>. Every other digit gives
+      <code>[3·25, 1·25, 0, 0] = [75, 25, 0, 0]</code>. <b>Two distinct rows</b>, and they are not
+      proportional: <code>75/72 = 25/24</code> but <code>3 ≠ 0</code>. So
+      <code>rank N<sub>E</sub> = 2</code>.</p>
+    </div>
+
+
+    <div class="thm r"><span class="lab">The two failures are different</span>
+      <p style="margin:.2rem 0">The mod-<code>m</code>/mod-<code>n</code> pair of §3.1
+      commutes for <b>every</b> <code>m, n</code>, coprime or not — the residual fiber of size
+      <code>gcd(m,n)</code> is <i>exactly</i> what makes the equidistribution count come out even.
+      <b>Losing information and losing order-independence are different failures</b>, and
+      coprimality governs only the first.</p></div>
+    <p class="src">Source: <code>notes/LENS_ORDER_COMMUTATION.md</code> §§1–4, cross-lineage
+    audited by <code>codex-ananta</code> over all 2,959 partition pairs through five points.</p>
+  </div>
+
+  <!-- 3.3 leakage rank -->
+  <div class="entry" id="c-leak">
+    <h3>3.3 &nbsp;The price of keeping both lenses <span class="pill proved">Proved</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>One projector installed against another:
+      <code>P</code> stays sound for an action <code>A</code> exactly while
+      <code>(I−P)AP = 0</code>. Binary: sound, or not.</div>
+      <div class="res"><span class="lab">The residual, exact</span><code>rank((I−P<sub>π</sub>)P<sub>σ</sub>P<sub>π</sub>)
+      = Σ<sub>E ∈ π∨σ</sub> (rank N<sub>E</sub> − 1)</code> — the exact dimension of the correction
+      channel, in closed form, with no matrix product.</div>
+    </div>
+    <p>Two lanes of the repository that did not cite each other turn out to compute the
+    <i>same matrix</i>. That identification converts one lane's yes/no criterion into the other
+    lane's exact price. The mechanism is visible in the incidence table of a single join block:</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 250" role="img" aria-labelledby="d5t d5d">
+          <title id="d5t">Rank one means commuting; rank two means one scalar of leakage</title>
+          <desc id="d5d">Two small incidence tables side by side. On the left a two-by-two table
+          with entries 2, 4, 3, 6 on a fifteen-point join block: its rows are proportional, so its
+          rank is one, the lenses commute and the leakage is zero. On the right a two-by-two table
+          with entries 1, 3, 3, 1 on an eight-point join block: commutation would demand every
+          entry equal 2, the rank is two, and the leakage rank is one — exactly one scalar must be
+          carried per application.</desc>
+          <!-- left -->
+          <text x="20" y="20" font-size="10.5" fill="var(--a)" font-weight="bold">rank N_E = 1 &nbsp;·&nbsp; leakage 0</text>
+          <text x="20" y="36" font-size="9.5" fill="var(--ink-soft)">|E| = 15, blocks 6·9 and 5·10</text>
+          <g font-size="10.5" text-anchor="middle">
+            <text x="118" y="60" fill="var(--b)">D₁ (5)</text><text x="188" y="60" fill="var(--b)">D₂ (10)</text>
+            <text x="60" y="90" fill="var(--a)" text-anchor="end">B₁ (6)</text>
+            <text x="60" y="122" fill="var(--a)" text-anchor="end">B₂ (9)</text>
+            <rect x="80" y="72" width="140" height="64" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5" rx="3"/>
+            <text x="118" y="92" fill="var(--ink)">2</text><text x="188" y="92" fill="var(--ink)">4</text>
+            <text x="118" y="124" fill="var(--ink)">3</text><text x="188" y="124" fill="var(--ink)">6</text>
+          </g>
+          <path d="M84 100 L216 100" stroke="var(--a)" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="150" y="160" font-size="9.5" fill="var(--a)" text-anchor="middle">row₂ = 1.5 · row₁ — proportional</text>
+          <text x="150" y="176" font-size="10" fill="var(--a)" text-anchor="middle">|B∩D| = |B||D|/|E| everywhere ✓</text>
+          <text x="150" y="200" font-size="10.5" fill="var(--a)" text-anchor="middle" font-weight="bold">order is free; the composite is the join</text>
+
+          <line x1="320" y1="10" x2="320" y2="230" stroke="var(--hairline)"/>
+
+          <!-- right -->
+          <text x="352" y="20" font-size="10.5" fill="var(--r)" font-weight="bold">rank N_E = 2 &nbsp;·&nbsp; leakage 1</text>
+          <text x="352" y="36" font-size="9.5" fill="var(--ink-soft)">|E| = 8, blocks 4·4 and 4·4</text>
+          <g font-size="10.5" text-anchor="middle">
+            <text x="450" y="60" fill="var(--b)">D₁ (4)</text><text x="520" y="60" fill="var(--b)">D₂ (4)</text>
+            <text x="392" y="90" fill="var(--a)" text-anchor="end">B₁ (4)</text>
+            <text x="392" y="122" fill="var(--a)" text-anchor="end">B₂ (4)</text>
+            <rect x="412" y="72" width="140" height="64" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="3"/>
+            <text x="450" y="92" fill="var(--ink)">1</text><text x="520" y="92" fill="var(--ink)">3</text>
+            <text x="450" y="124" fill="var(--ink)">3</text><text x="520" y="124" fill="var(--ink)">1</text>
+          </g>
+          <text x="482" y="160" font-size="9.5" fill="var(--r)" text-anchor="middle">(*) demands every entry = 4·4/8 = 2</text>
+          <text x="482" y="176" font-size="10" fill="var(--r)" text-anchor="middle">defect ±1 per cell — rank 2, not 1</text>
+          <text x="482" y="200" font-size="10.5" fill="var(--r)" text-anchor="middle" font-weight="bold">keep both lenses, carry 1 scalar</text>
+          <text x="320" y="235" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">rank N_E − 1 = the number of principal angles strictly between 0 and π/2</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 5.</b> The rank-one condition <i>is</i> the commutation criterion of
+      §3.2 (Corollary 2.2), and the amount by which rank exceeds one is the price. Verified
+      exhaustively over all 44,168 ordered partition pairs through six points, exact rationals,
+      against literal matrix products; two planted-false formulas both fire.</figcaption>
+    </figure>
+
+    <div class="finding">
+      <span class="lab">Applied to this page's own Figure 4</span>
+      <p style="margin:.3rem 0">The <code>ℤ/1000</code> pair has a trivial join, and its incidence
+      table — derived on paper above — has exactly two distinct rows. So
+      <code>rank N<sub>E</sub> = 2</code>, and Theorem 2.1 gives the exact leakage rank as
+      <code>2 − 1 = <b>1</b></code>: keeping both lenses costs <b>exactly one scalar per
+      application</b>. The free block-count ceiling <code>min(|π|,|σ|) − |π∨σ| = 3</code>
+      overestimates it threefold, a concrete instance of Corollary 2.4 being non-tight.</p>
+      <p style="margin:.3rem 0">This turns the repository's own live non-commuting example from a
+      no-go into a <i>priced repair</i> — the second remedy that <code>LENS_REPAIR</code>'s lattice
+      coarsening cannot express. Nothing above is a measurement; it is the block structure of
+      <code>ℤ/8 × ℤ/125</code> and a proved theorem.</p>
+    </div>
+    <p class="src">Source: <code>notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md</code> Thm 2.1,
+    Cor. 2.2–2.5; replay <code>machinery/leakage_rank.py</code>.</p>
+  </div>
+
+  <!-- 3.4 resultant -->
+  <div class="entry" id="c-res">
+    <h3>3.4 &nbsp;The resultant remembers an order; the module remembers the shape <span class="pill proved">Proved</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>The scalar
+      <code>Res(f,g) ∈ ℤ</code>: one integer, answering "do these share a root?"</div>
+      <div class="res"><span class="lab">The residual, exact</span>The finite module
+      <code>𝒟(f,g) = coker(m<sub>g</sub> : ℤ[x]/(f) → ℤ[x]/(f))</code>, of order
+      <code>|Res(f,g)|</code>, whose mod-<code>p</code> defect dimension is
+      <code>d<sub>p</sub> = deg gcd(f̄, ḡ)</code>.</div>
+    </div>
+    <p>The integer records how much is lost; the module records <i>in what shape</i>. For the live
+    decic witness these are genuinely different pieces of information — and the ochre one is what
+    the finite falsifier actually consumes.</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 200" role="img" aria-labelledby="d6t d6d">
+          <title id="d6t">The resultant 735 versus the module it compresses</title>
+          <desc id="d6d">On the left, a single teal box containing the integer 735, labelled
+          the scalar view. An arrow points right to three ochre stacks: at the prime 3 a single
+          coordinate, at 5 a single coordinate, at 7 two coordinates. The seven stack is
+          highlighted as the two-coordinate reciprocal-collision syndrome the finite falsifier
+          uses.</desc>
+          <rect x="30" y="50" width="150" height="70" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5" rx="4"/>
+          <text x="105" y="82" font-size="20" fill="var(--a)" text-anchor="middle" font-weight="bold">735</text>
+          <text x="105" y="102" font-size="9.5" fill="var(--a)" text-anchor="middle">Res(q₁, q₁*)</text>
+          <text x="105" y="38" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">the determinant's answer</text>
+          <path d="M190 85 L250 85" stroke="var(--r)" stroke-width="2" marker-end="url(#ar-r2)"/>
+          <defs><marker id="ar-r2" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="var(--r)"/></marker></defs>
+          <text x="220" y="76" font-size="9" fill="var(--r)" text-anchor="middle">𝒟</text>
+          <!-- stacks -->
+          <g>
+            <text x="310" y="38" font-size="10" fill="var(--ink-soft)" text-anchor="middle">p = 3</text>
+            <rect x="285" y="90" width="50" height="26" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="310" y="108" font-size="11" fill="var(--r)" text-anchor="middle">d₃ = 1</text>
+            <text x="410" y="38" font-size="10" fill="var(--ink-soft)" text-anchor="middle">p = 5</text>
+            <rect x="385" y="90" width="50" height="26" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="2"/>
+            <text x="410" y="108" font-size="11" fill="var(--r)" text-anchor="middle">d₅ = 1</text>
+            <text x="520" y="38" font-size="10" fill="var(--ink-soft)" text-anchor="middle">p = 7</text>
+            <rect x="490" y="62" width="60" height="26" fill="var(--r-wash)" stroke="var(--r)" stroke-width="2" rx="2"/>
+            <rect x="490" y="90" width="60" height="26" fill="var(--r-wash)" stroke="var(--r)" stroke-width="2" rx="2"/>
+            <text x="520" y="80" font-size="11" fill="var(--r)" text-anchor="middle">d₇ = 2</text>
+            <text x="520" y="108" font-size="9" fill="var(--r)" text-anchor="middle">↑ the syndrome</text>
+          </g>
+          <text x="30" y="150" font-size="10.5" fill="var(--ink-soft)">735 = 3 · 5 · 7² — the integer knows the order of the module,</text>
+          <text x="30" y="166" font-size="10.5" fill="var(--r)">but d₇ = 2 is the two-coordinate reciprocal-collision syndrome the falsifier runs on.</text>
+          <text x="30" y="186" font-size="9.5" fill="var(--ink-soft)">Res ≠ 0 says exactly: forgetting a root's sign loses no root identity, multiplicity included.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 6.</b> The same <code>d<sub>p</sub></code> is the dimension of the
+      information lost by observing a state only after multiplication by <code>g</code>, and the
+      dimension of the modular cokernel syndrome. The note is careful that these two spaces have
+      equal dimension by rank–nullity and are <i>not</i> canonically identical.</figcaption>
+    </figure>
+    <p class="src">Source: <code>notes/RESULTANT_OBSERVER_DEFECT.md</code> §0.</p>
+  </div>
+
+  <!-- 3.5 cross-reversal -->
+  <div class="entry" id="c-charge">
+    <h3>3.5 &nbsp;The square root the resultant threw away <span class="pill proved">Proved</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span><code>Res(P, P*)</code> — the reversal
+      resultant, one integer.</div>
+      <div class="res"><span class="lab">The residual, exact</span>
+      <code>𝒞(P) = ∏<sub>i&lt;j</sub>(1 − α<sub>i</sub>α<sub>j</sub>) = det(1 − ∧²A<sub>P</sub>) ∈ ℤ</code>,
+      with <code>Res(P,P*) = (−1)<sup>n</sup>P(1)P(−1)·𝒞(P)²</code>. It is
+      <b>multiplicative across factorisations</b>, with one explicit cross term.</div>
+    </div>
+    <p>Squaring is exactly a forgetting. The resultant is the square of a finer integer, and
+    recovering that integer sharpens a divisibility falsifier by a full square and removes the
+    endpoint factors: <code>L² | Res(F<sub>X</sub>, F<sub>X</sub>*)</code> becomes
+    <code>L | 𝒞(F<sub>X</sub>)</code>.</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 190" role="img" aria-labelledby="d7t d7d">
+          <title id="d7t">The reversal resultant factors as endpoints times a square</title>
+          <desc id="d7d">A wide teal bar labelled Res of P and P star is shown decomposing into
+          three parts: a small grey factor P at one, a small grey factor P at minus one, and a
+          large ochre square, the charge C of P squared. Below, the strengthened divisibility:
+          L squared divides the resultant becomes L divides the charge.</desc>
+          <text x="20" y="24" font-size="10.5" fill="var(--a)">Res(P, P*)  — what the determinant returns</text>
+          <rect x="20" y="34" width="600" height="30" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5" rx="3"/>
+          <g stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3 3">
+            <line x1="20" y1="76" x2="20" y2="92"/><line x1="620" y1="76" x2="620" y2="92"/>
+          </g>
+          <text x="320" y="54" font-size="11" fill="var(--a)" text-anchor="middle">one integer</text>
+          <!-- decomposition -->
+          <rect x="20" y="96" width="60" height="30" fill="var(--gone-wash)" stroke="var(--gone)" rx="3"/>
+          <text x="50" y="116" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">P(1)</text>
+          <rect x="84" y="96" width="60" height="30" fill="var(--gone-wash)" stroke="var(--gone)" rx="3"/>
+          <text x="114" y="116" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">P(−1)</text>
+          <rect x="148" y="96" width="230" height="30" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="3"/>
+          <text x="263" y="116" font-size="11" fill="var(--r)" text-anchor="middle" font-weight="bold">𝒞(P)</text>
+          <rect x="382" y="96" width="230" height="30" fill="var(--r-wash)" stroke="var(--r)" stroke-width="1.5" rx="3"
+                stroke-dasharray="4 3"/>
+          <text x="497" y="116" font-size="11" fill="var(--r)" text-anchor="middle">𝒞(P) again — the copy that hides it</text>
+          <text x="20" y="150" font-size="10.5" fill="var(--r)">𝒞(P) = det(1 − ∧²A_P): the square root, an integer, and conserved under factorisation.</text>
+          <text x="20" y="170" font-size="10.5" fill="var(--ink-soft)">Consequence: <tspan fill="var(--gone)" text-decoration="line-through">L² | Res(F_X, F_X*)</tspan>  becomes  <tspan fill="var(--r)" font-weight="bold">L | 𝒞(F_X)</tspan>.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 7.</b> For the witness <code>q₁ = x¹⁰+x⁸+x²+x+1</code>,
+      <code>L = Res<sub>T</sub>(H,K) = −7</code>. Honest scope, from the note itself: this is a
+      reusable falsifier, not an all-<code>X</code> exclusion — a genuine prime prefix at
+      <code>X = 2467</code> passes its quadratic collision test.</figcaption>
+    </figure>
+    <p class="src">Source: <code>notes/CROSS_REVERSAL_CHARGE.md</code> §§0–2 (Theorem 1: universal
+    square law; Theorem 2: factorisation conservation law).</p>
+  </div>
+
+  <!-- 3.6 budget -->
+  <div class="entry" id="c-budget">
+    <h3>3.6 &nbsp;A bandwidth that is not a constant of nature <span class="pill open">Open — structural reading</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>Test functions of total bandwidth
+      <code>σ &lt; 2</code>: the region where the diagonal prime-power tuples dominate and
+      Mertens/PNT-strength counting suffices.</div>
+      <div class="res"><span class="lab">The residual, proposed</span>The off-diagonal — “how
+      primes pair”. The proposal: <code>2</code> is not a universal constant but a
+      <i>theater invariant</i>, measuring <b>accessible off-diagonal depth</b>: finite over
+      <code>ℤ</code>, unbounded in the large-<code>q</code> function-field limit where monodromy
+      <i>evaluates</i> the off-diagonal rather than bounding it.</div>
+    </div>
+    <div class="thm r"><span class="lab">Status, stated as the note states it</span>
+      <p style="margin:.2rem 0">The note is explicit that the invariant admitting a single formal
+      definition specialising to <code>2</code> and to <code>∞</code> is <b>not proved</b>. The
+      honest status is <i>a conjecture with two instances and a mechanism</i>, not a law. The
+      constituent facts (Rudnick–Sarnak's restriction and its diagonal explanation;
+      Katz–Sarnak/Deligne equidistribution) are classical and cited. <b>This row is the one place
+      the residual has not yet been returned</b> — which is why it is the only ochre object on this
+      page drawn with a dashed edge.</p></div>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 240" role="img" aria-labelledby="d8t d8d">
+          <title id="d8t">The bandwidth cut in two theaters</title>
+          <desc id="d8d">Two horizontal bandwidth axes. In the first, over the integers, the region
+          sigma less than two is teal and labelled diagonal, countable by Mertens and the prime
+          number theorem; beyond two the axis is greyed out and labelled off-diagonal, requiring
+          Hardy–Littlewood strength. In the second, the function field theater in the large q
+          limit, the whole axis is teal because monodromy evaluates the off-diagonal, so no
+          crossover occurs. An ochre dashed bracket marks the difference and labels it accessible
+          off-diagonal depth, status open.</desc>
+          <!-- theater 1 -->
+          <text x="14" y="24" font-size="10.5" fill="var(--ink)" font-weight="bold">over ℤ</text>
+          <rect x="70" y="34" width="230" height="26" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5"/>
+          <rect x="300" y="34" width="320" height="26" fill="var(--gone-wash)" stroke="var(--gone)" stroke-dasharray="4 3"/>
+          <g stroke="var(--gone)" stroke-width="1" opacity=".8">
+            <line x1="312" y1="34" x2="300" y2="60"/><line x1="336" y1="34" x2="324" y2="60"/>
+            <line x1="360" y1="34" x2="348" y2="60"/><line x1="384" y1="34" x2="372" y2="60"/>
+            <line x1="408" y1="34" x2="396" y2="60"/><line x1="432" y1="34" x2="420" y2="60"/>
+            <line x1="456" y1="34" x2="444" y2="60"/><line x1="480" y1="34" x2="468" y2="60"/>
+            <line x1="504" y1="34" x2="492" y2="60"/><line x1="528" y1="34" x2="516" y2="60"/>
+            <line x1="552" y1="34" x2="540" y2="60"/><line x1="576" y1="34" x2="564" y2="60"/>
+            <line x1="600" y1="34" x2="588" y2="60"/><line x1="620" y1="38" x2="612" y2="60"/>
+          </g>
+          <text x="185" y="51" font-size="10" fill="var(--a)" text-anchor="middle">diagonal — Mertens / PNT suffice</text>
+          <text x="460" y="51" font-size="10" fill="var(--ink-soft)" text-anchor="middle">off-diagonal — Hardy–Littlewood strength required</text>
+          <line x1="300" y1="28" x2="300" y2="72" stroke="var(--b)" stroke-width="2.5"/>
+          <text x="300" y="86" font-size="11" fill="var(--b)" text-anchor="middle" font-weight="bold">σ = 2</text>
+          <text x="70" y="86" font-size="9.5" fill="var(--ink-soft)">σ = 0</text>
+
+          <!-- theater 2 -->
+          <text x="14" y="130" font-size="10.5" fill="var(--ink)" font-weight="bold">𝔽_q[t],</text>
+          <text x="14" y="142" font-size="10.5" fill="var(--ink)" font-weight="bold">large q</text>
+          <rect x="70" y="120" width="550" height="26" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.5"/>
+          <text x="345" y="137" font-size="10" fill="var(--a)" text-anchor="middle">monodromy + Deligne equidistribution evaluate the off-diagonal — no crossover</text>
+          <text x="608" y="160" font-size="10" fill="var(--a)" text-anchor="end">σ unbounded →</text>
+
+          <!-- residual bracket -->
+          <path d="M300 178 L300 194 L620 194 L620 178" fill="none" stroke="var(--r)" stroke-width="1.8" stroke-dasharray="5 3"/>
+          <text x="460" y="212" font-size="10.5" fill="var(--r)" text-anchor="middle" font-weight="bold">the residual: accessible off-diagonal depth</text>
+          <text x="460" y="228" font-size="9.5" fill="var(--r)" text-anchor="middle">proposed as a theater invariant — NOT yet defined. Dashed because unreturned.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 8.</b> The predictive use, stated negatively: no attack raises a
+      theater's budget without supplying equidistribution for the off-diagonal it needs. For a
+      proposed attack, ask which off-diagonal it needs evaluated and what supplies that evaluation;
+      if the answer is “nothing — a better inequality inside the diagonal region”, it is capped
+      before it starts.</figcaption>
+    </figure>
+    <p class="src">Source: <code>notes/BUDGET.md</code> §§1–5; rigor boundary in §5.</p>
+  </div>
+
+  <!-- 3.7 hologram -->
+  <div class="entry" id="c-holo">
+    <h3>3.7 &nbsp;A depth law, and the measurement that hid its own scaling
+      <span class="pill superseded">K(b) superseded</span> <span class="pill proved">K′ derived</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>The windowed-linear observable class —
+      every tool this corpus uses: smoothed counts, blocks, dressings, band-passed phases. Its
+      resolution is <code>2π/L</code>, <code>L = log X</code>.</div>
+      <div class="res"><span class="lab">The residual, exact</span>Zero <i>correlation</i> content
+      is <b>pinned at zero</b> until the window is deep enough, then collapses to
+      <code>O(log)</code> per gap — an information-theoretic phase transition in window size, not
+      a gradual decay.</div>
+    </div>
+    <p>This is the entry where the repository's own rule earned its keep at the highest price.
+    The noise floor <code>ε</code> gating every capacity statement was taken as a
+    <b>measured</b> <code>≈10⁻³</code>. Lemma N derives it in one line from the explicit
+    formula: <code>ε = O(X<sup>−1/2+o(1)</sup>)</code>. At <code>X = 10⁷</code> that is
+    <code>3.2×10⁻⁴</code> — the same order, so the measurement “looked right”. But a number
+    without its <code>X</code>-dependence is worse than no number, and feeding the derived
+    <code>ε = X<sup>−1/2</sup></code> back through the superresolution threshold changes the
+    exponent:</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 250" role="img" aria-labelledby="d9t d9d">
+          <title id="d9t">The measured noise floor hid an exponent</title>
+          <desc id="d9d">Two curves of required window depth against height T, on a schematic
+          axis. The upper greyed and struck-through curve is Theorem K part b, exponent T times
+          log squared T, obtained from the measured constant noise floor. The lower teal curve is
+          Theorem K prime, exponent root T times log to the three halves T, obtained from the
+          derived noise floor X to the minus one half. The ochre gap between them is labelled: the
+          residual the measurement hid was its own X-dependence.</desc>
+          <line x1="60" y1="200" x2="610" y2="200" stroke="var(--rule)"/>
+          <line x1="60" y1="200" x2="60" y2="26" stroke="var(--rule)"/>
+          <text x="335" y="228" font-size="10" fill="var(--ink-soft)" text-anchor="middle">height T →</text>
+          <text x="18" y="110" font-size="10" fill="var(--ink-soft)">log X</text>
+          <text x="18" y="124" font-size="10" fill="var(--ink-soft)">needed</text>
+          <!-- K(b): ~ T log^2 T, steep -->
+          <path d="M60 198 L120 190 L180 176 L240 156 L300 130 L360 100 L420 68 L470 40" fill="none"
+                stroke="var(--gone)" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <text x="476" y="40" font-size="10" fill="var(--gone)">K(b): exp( c · T log² T )</text>
+          <text x="476" y="53" font-size="9" fill="var(--gone)">from ε ≈ 10⁻³, measured</text>
+          <line x1="472" y1="35" x2="600" y2="35" stroke="var(--gone)" stroke-width="1.2"/>
+          <!-- K': ~ sqrt(T) log^{3/2} T, much flatter -->
+          <path d="M60 199 L120 194 L180 189 L240 183 L300 177 L360 171 L420 164 L480 158 L540 151 L600 144"
+                fill="none" stroke="var(--a)" stroke-width="2.5"/>
+          <text x="470" y="134" font-size="10" fill="var(--a)">K′: exp( Θ( T¹ᐟ² · log³ᐟ² T ) )</text>
+          <text x="470" y="147" font-size="9" fill="var(--a)">from ε = X^−¹ᐟ², derived</text>
+          <!-- gap -->
+          <path d="M420 68 L420 164" stroke="var(--r)" stroke-width="2"/>
+          <path d="M414 74 L420 66 L426 74" fill="none" stroke="var(--r)" stroke-width="2"/>
+          <path d="M414 158 L420 166 L426 158" fill="none" stroke="var(--r)" stroke-width="2"/>
+          <text x="404" y="118" font-size="10" fill="var(--r)" text-anchor="end" font-weight="bold">the residual</text>
+          <text x="404" y="132" font-size="9.5" fill="var(--r)" text-anchor="end">an entire exponent</text>
+          <text x="60" y="246" font-size="9.5" fill="var(--ink-soft)">Schematic: exponent shapes only. K′ is a Θ-statement; its constant is π^{−1/2} per verifier A, and no digits are printed here.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 9.</b> The published K(b) figures — <code>T = 100</code> costs
+      <code>10⁵³</code> integers; <code>T = 500</code>, <code>10⁷⁷²</code>; <code>T = 1000</code>,
+      <code>10²¹³⁴</code> — are <b>superseded</b>. They are shown struck through, not deleted,
+      per the repository's own correction discipline. Lemma N is conditional on RH and simple
+      zeros; that condition is part of the result, not a caveat appended to it.</figcaption>
+    </figure>
+    <div class="thm"><span class="lab">What the class boundary buys</span>
+      <p style="margin:.2rem 0">Any method extracting correlation content at sub-exponential
+      depth must operate <b>outside</b> the windowed-linear class — a necessary condition on the
+      <i>shape</i> of a future proof. The note is careful that no genuine Kolmogorov bound is
+      proved and that the honest name is a <i>resource-bounded Chaitin phenomenon</i>, cousin to
+      natural-proofs barriers rather than to Gödel–Chaitin proper. The corpus also records the
+      scope correction that the broad reading is false: Montgomery's <code>F(α,T)</code> is
+      computed from prime data and proved for <code>|α| &lt; 1</code>.</p></div>
+    <p class="src">Source: <code>notes/HOLOGRAM.md</code> §§1–3 and §7 (Lemma N, Theorem K′);
+    <code>notes/BARRIER.md</code> §1 (the class, Theorem B1, Corollary B2);
+    <code>CLAUDE.md</code> corollary.</p>
+  </div>
+
+  <!-- 3.8 myhill-nerode -->
+  <div class="entry" id="c-crystal">
+    <h3>3.8 &nbsp;The shortest experiment that separates two states <span class="pill proved">Proved · sharp</span></h3>
+    <div class="vr">
+      <div class="view"><span class="lab">The view</span>A task-relative quotient: join two states
+      when no future action-word can make them observably differ. Sufficient for the task, and
+      minimal.</div>
+      <div class="res"><span class="lab">The residual, exact</span>For every distinction kept, the
+      <b>shortest word that reveals it</b> — and in an <code>n</code>-state world every
+      distinguishable pair has one of length at most <code>max(n−2, 0)</code>. The bound is
+      <b>sharp</b>.</div>
+    </div>
+    <p>The infinite family of possible future experiments is compiled to a finite horizon. This is
+    the residual as a <i>certificate</i>: the machine does not merely say “these two states differ”,
+    it hands back the experiment.</p>
+
+    <figure>
+      <div class="scroll">
+        <svg viewBox="0 0 640 190" role="img" aria-labelledby="d10t d10d">
+          <title id="d10t">The sharp distinction horizon on a five-state chain</title>
+          <desc id="d10d">Five states in a row connected by arrows labelled a. The first four share
+          one observation, drawn teal; the fifth has a different observation, drawn iron. To
+          separate the first two states the word a a a, of length three, is required — exactly n
+          minus two for n equal to five. The word is drawn in ochre beneath the chain as the
+          shortest separating witness.</desc>
+          <g>
+            <circle cx="70" cy="60" r="22" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.8"/>
+            <text x="70" y="65" font-size="12" fill="var(--a)" text-anchor="middle">s₀</text>
+            <circle cx="190" cy="60" r="22" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.8"/>
+            <text x="190" y="65" font-size="12" fill="var(--a)" text-anchor="middle">s₁</text>
+            <circle cx="310" cy="60" r="22" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.8"/>
+            <text x="310" y="65" font-size="12" fill="var(--a)" text-anchor="middle">s₂</text>
+            <circle cx="430" cy="60" r="22" fill="var(--a-wash)" stroke="var(--a)" stroke-width="1.8"/>
+            <text x="430" y="65" font-size="12" fill="var(--a)" text-anchor="middle">s₃</text>
+            <circle cx="550" cy="60" r="22" fill="var(--b-wash)" stroke="var(--b)" stroke-width="2.4"/>
+            <text x="550" y="65" font-size="12" fill="var(--b)" text-anchor="middle">s₄</text>
+          </g>
+          <g stroke="var(--ink-soft)" stroke-width="1.4" fill="none" marker-end="url(#ar-g)">
+            <path d="M94 60 L164 60"/><path d="M214 60 L284 60"/>
+            <path d="M334 60 L404 60"/><path d="M454 60 L524 60"/>
+          </g>
+          <defs><marker id="ar-g" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>
+          <g font-size="10" fill="var(--ink-soft)" text-anchor="middle">
+            <text x="129" y="52">a</text><text x="249" y="52">a</text>
+            <text x="369" y="52">a</text><text x="489" y="52">a</text>
+          </g>
+          <text x="70" y="102" font-size="9" fill="var(--a)" text-anchor="middle">obs 0</text>
+          <text x="550" y="102" font-size="9" fill="var(--b)" text-anchor="middle">obs 1</text>
+          <!-- witness -->
+          <path d="M70 118 L70 138 L430 138 L430 118" fill="none" stroke="var(--r)" stroke-width="2"/>
+          <text x="250" y="156" font-size="11" fill="var(--r)" text-anchor="middle" font-weight="bold">shortest word separating s₀ from s₁ : &nbsp;a a a &nbsp; (length 3 = n − 2)</text>
+          <text x="250" y="176" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">every strict refinement adds a class, and there are at most n − 2 of them — the horizon is sharp</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 10.</b> Checked in every binary-observed deterministic system with at
+      most three states and two actions — 5,898 complete systems — and the bound is attained by
+      exactly this chain. Every learned primitive in the crystal retains its full expansion into
+      the original actions: compression never destroys the path that justifies it.</figcaption>
+    </figure>
+    <p class="src">Source: <code>notes/FINITE_FUTURE_HORIZON.md</code>; <code>README.md</code>
+    “The machine”; <code>machinery/natural_crystal.py</code>.</p>
+  </div>
+</section>
+
+<section id="ledger">
+  <span class="eyebrow">§4 — Ledger</span>
+  <h2>The whole spine, with status</h2>
+  <p>Status labels match <code>notes/</code>. Where a note calls itself a structural reading, this
+  page calls it open; where a claim was superseded in place, this page shows the supersession.</p>
+  <div class="tw"><table>
+    <caption>Every row: a view, and the exact object it forgets</caption>
+    <tr><th>Site</th><th>The view</th><th>The residual, exact</th><th>Status</th></tr>
+    <tr><td><a href="#c-crt">CRT gluing</a></td><td>mod m and mod n</td>
+      <td>agreement mod gcd(m,n); fiber of size gcd(m,n)</td>
+      <td><span class="pill proved">Proved</span></td></tr>
+    <tr><td><a href="#c-lens">Lens commutation</a></td><td>fiberwise averaging</td>
+      <td><code>|B∩D|·|E| = |B||D|</code>; the corollary <code>|E| ∤ |B||D|</code> is a free no-go</td>
+      <td><span class="pill proved">Proved</span> <span class="pill classical">criterion classical</span></td></tr>
+    <tr><td><a href="#c-leak">Leakage rank</a></td><td>one projector against another</td>
+      <td><code>Σ<sub>E</sub>(rank N<sub>E</sub> − 1)</code></td>
+      <td><span class="pill proved">Proved</span></td></tr>
+    <tr><td><a href="#c-res">Resultant defect module</a></td><td>the scalar <code>Res(f,g)</code></td>
+      <td>the module <code>𝒟(f,g)</code>; <code>d<sub>p</sub> = deg gcd(f̄,ḡ)</code></td>
+      <td><span class="pill proved">Proved</span></td></tr>
+    <tr><td><a href="#c-charge">Cross-reversal charge</a></td><td><code>Res(P,P*)</code></td>
+      <td><code>𝒞(P) = det(1−∧²A<sub>P</sub>)</code>, its square root; multiplicative</td>
+      <td><span class="pill proved">Proved</span></td></tr>
+    <tr><td><a href="#c-budget">BUDGET §2</a></td><td>bandwidth <code>σ &lt; 2</code></td>
+      <td>accessible off-diagonal depth — <i>not yet defined</i></td>
+      <td><span class="pill open">Open</span></td></tr>
+    <tr><td><a href="#c-holo">HOLOGRAM K → K′</a></td><td>windowed-linear observables</td>
+      <td>correlation content pinned at 0 until <code>L ≳ √(ρ₂ log ρ₂)</code></td>
+      <td><span class="pill superseded">K(b)</span> <span class="pill proved">K′, under RH</span></td></tr>
+    <tr><td><a href="#c-crystal">Myhill–Nerode crystal</a></td><td>a task-relative quotient</td>
+      <td>the shortest separating word; horizon <code>max(n−2,0)</code>, sharp</td>
+      <td><span class="pill proved">Proved</span></td></tr>
+    <tr><td><a href="#wound">exp27 · the ¼</a></td><td>a nine-point fit over one decade</td>
+      <td>the linear term <code>1.181852·L</code>, converted into the leading coefficient</td>
+      <td><span class="pill refuted">Refuted</span> <span class="pill proved">M1 proved</span></td></tr>
+  </table></div>
+  <p>Read down the third column. That column is the repository. Every entry that is a
+  <i>named object</i> is a result; the one entry that is still a <i>description</i> is the one
+  open row.</p>
+</section>
+
+<section id="ban">
+  <span class="eyebrow">§5 — The same move, turned on our own practice</span>
+  <h2>A script is a lossy view of a proof</h2>
+  <p>While this page was being drawn, the repository banned Python — enforced at three layers, on
+  a human owner's directive, 2026-08-13. The argument is the argument of this page, applied to the
+  tooling rather than to the mathematics.</p>
+
+  <div class="wound">
+    <span class="lab">collab/messages/0373 · collab/FAILURES.md F32</span>
+    <p style="margin-top:.4rem">A script that prints a number is <b>a view</b>. It is lossy: what
+    it discards is your script, your controls, your reading of your own output, and whether you
+    ran the version you published. And its residual — everything the reader must take on trust —
+    <b>is never returned</b>. You get <code>VERDICT: PASS</code> and no object.</p>
+    <p>The coordinator demonstrated it on himself the same night: a Python script written to
+    “install” a theorem, wearing a table, a null control, and all the correct ceremony, turned out
+    <b>19% slower</b> than the naive route it was supposed to improve. The ceremony is cheap. That
+    is exactly why it gets produced.</p>
+  </div>
+
+  <p>The replacement is not less computation. It is computation that returns its residual:
+  a term accepted by Agda under <code>--safe</code> with no postulates and no holes leaves
+  nothing to trust. That is the same distinction <code>CLAUDE.md</code> already drew —
+  <i>exact/certified symbolic computation is proof; everything else stands in for an error
+  analysis you have not done</i> — taken seriously enough to be enforced.</p>
+
+  <div class="thm r"><span class="lab">Applied to this page, and it cost something</span>
+    <p style="margin:.2rem 0">Three numbers here were first obtained by a script, before the ban
+    reached this session. All three have since been <b>re-derived by hand and the script deleted</b>:
+    the incidence table of Figure 4 falls out of <code>ℤ/1000 ≅ ℤ/8 × ℤ/125</code> in five lines,
+    and Figure 2's conversion weights are <code>125/484</code> and <code>1625/23232</code>,
+    ratios of small integers. Both derivations are <i>on the page</i>, which the script never was.</p>
+    <p style="margin:.4rem 0">One claim did not survive: a second, independent verification of the
+    leakage rank by building the operator
+    <code>(I−P<sub>L</sub>)P<sub>C</sub>P<sub>L</sub></code> directly. That route is a computation
+    with no short derivation, so it has been <b>withdrawn</b> rather than restated on trust. The
+    leakage rank now rests on one hand-derived table plus a proved theorem — which is a stronger
+    footing than two agreeing scripts, and the page says so instead of quietly keeping the number.</p>
+  </div>
+
+  <p>The general form, which outlives the specific ban: a constraint is either
+  <b>productive</b> — it makes the cheap fake move impossible and forces the expensive real one —
+  or <b>mimetic</b>, reproducing the visible shape of work without its content. Ochre, throughout
+  this page, is the test. If the loss comes back as an object, the move was productive. If it
+  comes back as a number with no scaling law attached, it was not.</p>
+</section>
+
+<section id="colophon">
+  <span class="eyebrow">§6 — Colophon</span>
+  <h2>What this page took, and refused</h2>
+  <h4>Taken</h4>
+  <ul>
+    <li><b>Oliver Byrne, <i>Euclid</i> (1847)</b> — colour as reference, not decoration. Three
+    colours with fixed meaning across every figure, so a diagram can be read without a legend.</li>
+    <li><b>Tufte</b> — no chartjunk, no gridlines that carry nothing, the data-ink ratio applied
+    to <i>argument</i>-ink: every mark on this page names something.</li>
+    <li><b>Bartosz Ciechanowski</b> — the diagram is the explanation, and it appears exactly where
+    the sentence needs it, not in a figure appendix.</li>
+    <li><b>The repository's own <code>site/index.html</code></b> — serif body, monospace labels,
+    teal/iron accents, and the honest status pill. This page is a sibling, not a replacement.</li>
+    <li><b><code>PYTHAGOREAN_EUCLIDEAN_MACHINE.md</code> §9</b> — every perceptual cue must expand
+    back to the native object that generated it. Each figure here carries its source note.</li>
+  </ul>
+  <h4>Refused</h4>
+  <ul>
+    <li><b>Byrne's literal red/yellow/blue.</b> They cannot survive a dark theme at accessible
+    contrast. The colour <i>law</i> was kept; the hues were re-chosen.</li>
+    <li><b>Interactive explorables.</b> Every slider here would have invited fitting a curve by
+    eye, which is the exact failure mode <code>CLAUDE.md</code> exists to prevent. The one moving
+    part on this page is the theme toggle.</li>
+    <li><b>The tone of the design references it was pointed at.</b> Conceptually dense coinages
+    read as confidence; this corpus's discipline is the opposite, and the page says
+    <i>superseded</i> and <i>open</i> in the same typeface it says <i>proved</i>.</li>
+    <li><b>Animated “reveals”.</b> They gate the argument on time. Everything is present on load.</li>
+    <li><b>A generator.</b> No build step, no templating, no script emitting the SVG. Every path
+    here was placed by hand — which is slower, and is the point of <a href="#ban">§5</a>.</li>
+  </ul>
+  <h4>Honesty</h4>
+  <p>No number on this page is fitted, and no number on this page rests on a script. The two
+  quantities derived for it — Figure 2's conversion weights and Figure 4's incidence table and its
+  rank — are hand derivations in exact rationals, printed in full <a href="#wound">above</a> and
+  <a href="#c-lens">above</a> so that a reader can regenerate rather than trust them. Figure 9 is
+  explicitly schematic and prints no digits for a Θ-statement. One claim was withdrawn rather than
+  restated on trust (<a href="#ban">§5</a>). Every claim carries its note; where a note calls
+  itself unproved, so does this page.</p>
+  <p>The corrections this page made to the brief it was given are recorded in
+  <code>site/DRISHTI_NOTES.md</code>.</p>
+</section>
+
+<footer>
+  site/drishti.html · avikj/math (private) · branch worker/web_drishti<br>
+  sources: notes/LEAKAGE_RANK_IS_INCIDENCE_RANK.md · notes/LENS_ORDER_COMMUTATION.md ·
+  notes/METHOD.md · notes/HOLOGRAM.md · notes/BARRIER.md · notes/BUDGET.md ·
+  notes/RESULTANT_OBSERVER_DEFECT.md · notes/CROSS_REVERSAL_CHARGE.md ·
+  notes/FINITE_FUTURE_HORIZON.md · README.md · CLAUDE.md ·
+  collab/messages/0373-opus-shesha-why-python-is-banned.md · collab/FAILURES.md F32<br>
+  hand-authored, self-contained, offline, no network requests, no build step, no generator.<br>
+  dṛṣṭi (दृष्टि): view, seeing — and, in the philosophical register this corpus reads, a
+  <i>partial</i> one.
+</footer>
+</main>
+
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themebtn');
+  function current(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function apply(t){
+    root.setAttribute('data-theme', t);
+    btn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme');
+    btn.textContent = t === 'dark' ? 'Light' : 'Dark';
+  }
+  apply(current());
+  btn.addEventListener('click', function(){ apply(current() === 'dark' ? 'light' : 'dark'); });
+})();
+</script>

@@ -50,7 +50,15 @@ Two corollaries for this corpus:
 
 - **Lemma 1.3's deflation was correct and is now completed by its own
   geometry.** We proved the integral Lorentz group of S²−D² is trivial and
-  concluded the "Lorentzian" structure is inert. The function-field column
+  concluded the "Lorentzian" structure is inert.
+  <!-- Correction by addition, 2026-08-15 (claude, Hoare lineage;
+  notes/LEAN_STATEMENT_AUDIT.md): read "the *orientation-preserving* integral
+  Lorentz group … is {±I}". The checked term
+  Pairfield.so11_int_eq_pm_one carries the hypothesis `det M = 1`; without it
+  the group is O(1,1)(ℤ) = {±I, ±diag(1,−1)}, of order four. "Trivial" is also
+  loose for a group of order two — the intended and correct reading is
+  "carries no boost dynamics". The corollary drawn here is unaffected. -->
+ The function-field column
   explains *why it had to be*: the hyperbolic plane spanned by the rulings is
   the trivial part of the Néron–Severi lattice on any such surface. The
   arithmetic content of RH never lived in the hyperbolic plane — it lives in

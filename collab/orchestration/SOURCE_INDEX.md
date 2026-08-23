@@ -10,6 +10,14 @@ collab/upstream/catalog.jsonl indexes the exact raw messages available to
 Codex. They include directives, questions, aspirations, and repeated emphasis;
 no blanket authority label is applied. U0001 is explicitly partial.
 
+UP-D0025 is the direct Delta 25 injection, *The Eternal Golden Braid Weaves
+Indra’s Net*. Its Braid/Net reclassification and Huayan non-reduction discipline
+are user-authored framing. Its cited Yoneda, co-Yoneda, dependent-sum, and
+Grothendieck constructions inherit their ordinary mathematical evidence; its
+guarded Indra equation, global section, and T25.A–H items remain a theorem
+program until separately checked. Repository interpretations and formal
+approximants must cite the raw source without upgrading that evidence grade.
+
 ## B. User-relayed agent material
 
 UP-U0006 is the full Cubical Agda proposal pasted by the user and attributed

@@ -171,8 +171,31 @@ The Frobenius norm is Montgomery's second moment: zero-side it reads
 differences; prime-side it is ∫∫ Φ(τ−τ′)²ν_X ν_X, whose diagonal is
 (T/π)Σ_{n≤X} Λ(n)²g(log n)/n → λ³l³/3-type term and whose off-diagonal is
 killed by **Montgomery–Vaughan** — this is Montgomery's F(α) for |α| ≤ λ
-≤ 1, made unconditional exactly as in BGSTB arXiv:2501.14545 Thm 1 /
-GS26 Lemma 2 (also Aryan). The λ ≤ 1 constraint is the visible arithmetic
+≤ 1, made unconditional ~~exactly as in BGSTB arXiv:2501.14545 Thm 1~~ /
+GS26 Lemma 2 (also Aryan). **[seed135, 2026-08-14 — number mismatch, checked
+today at `ar5iv.labs.arxiv.org/html/2501.14545`. Their Theorem 1 reads:
+"Assume that, for all sufficiently large $T$, all the zeros $\rho=\beta+i\gamma$
+of $\zeta(s)$ with $T<\gamma\le2T$ are in $B_b$. Then … $N_1(B_b)\ge(2/3+o(1))
+N(B_b)$ …" — the narrow-band proportions theorem, exactly as this note's own §
+"Pair-correlation-conditional" bullet describes it (standing check: a line
+refuted by its own note). It is not a statement making Montgomery's $F(\alpha)$
+unconditional on $|\alpha|\le1$, which is in any case classical
+(Montgomery 1973; Goldston–Montgomery), so nothing here is lost — only the
+pointer is wrong. Correct reading: *as in the treatment of the off-diagonal in
+BGSTB §2*, un-numbered pending a read of that section. GS26 Lemma 2 was not
+checked.]** **[seed137, 2026-08-14 — §2 has now been read, and the pointer can be
+numbered again.** `ar5iv.labs.arxiv.org/html/2501.14545` renders past §2 (seed135's
+Theorem 1 quote is confirmed verbatim by an independent fetch today). §2 states a
+**"Montgomery Theorem (MT)"** for $\mathcal F(x,T):=\sum_{\rho,\rho'}x^{\rho-\rho'}
+W(\rho-\rho')$, $W(u)=4/(4-u^2)$ — the *complex*-difference form — verbatim: *"For
+$x\ge1$ and $T\ge3$, we have $\mathcal F(x,T)\ge0$, $\mathcal F(x,T)=\mathcal
+F(1/x,T)$, and $\mathcal F(x,T)=\frac{T}{2\pi x^2}\log^2T(1+O(1/\sqrt{\log T}))+
+\frac{T}{2\pi}\log x+O(T\sqrt{\log T})$, uniformly for $1\le x\le T$"* — and it is
+stated **unconditionally**. So the correct pointer for the off-diagonal treatment is
+**BGSTB §2, "Montgomery Theorem (MT)"**, not their Theorem 1. This agrees with
+`L3_SDP.md` §1.2, which recorded the same statement from the PDF in an earlier
+session and which I have now confirmed against the HTML. Still unchecked, and still
+not vouched for: **GS26 Lemma 2**.]** The λ ≤ 1 constraint is the visible arithmetic
 wall: for X ≫ T the off-diagonal needs Hardy–Littlewood prime-pair input.
 [Corpus: `notes/DSIDE.md` §1 measured F(α): slope regime |α|<1 and plateau
 1.001±0.007 on α∈[1.05,3]; the theorem consumes only the |α|≤1 slope
