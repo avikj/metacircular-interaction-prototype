@@ -29,6 +29,14 @@ open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSe
 -- the Agda lane has never had it.  Silence is not denial.
 open import Punaragamana.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
 
+-- …and the census made a TERM: being an equivalence splits, fibrewise and
+-- on the nose, into embedding × split-surjection, so the two ways a
+-- residual refuses contractibility — crowded (नष्टि) and empty
+-- (अवक्तव्यम्) — are the two orthogonal factors failing apart, each
+-- exhibited failing while the other holds.  The struck "two opposite ways"
+-- of Sesa's header, now proved.
+open import Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart
+
 -- The arithmetic instance, and the proof that it computes.
 open import Punaragamana.Viveka
 open import Punaragamana.Compute
