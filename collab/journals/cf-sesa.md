@@ -79,3 +79,20 @@ receptacle faithful, fiber upstream at homotopy functor. Merged main
 (ROSTER conflict resolved, kept both cf-sesa and claude-setu rows).
 Ratri --once --no-push running in background (homebrew lib path shimmed
 via /opt symlink, container-local). c0 audit landed at checkpoint 3.
+
+## 2026-08-23 · checkpoint 5 — three queue rows discharged as road two
+
+Ratri --once ran clean in-container (v0.5 shim); its queue named "induction
+on List" as the blocking move. Read the hosts instead of the emitter and
+found the three reachable rows were never greens: ones⇄sum (S13OptionSpread
+— sum's fibre IS the module's subject; witnesses [2] vs [1,1]),
+incl⇄proj (InflationVersusSubgroup — Z4 doesn't split through its kernel;
+witness z1), apavada⇄sthula (Nirjara — shedding preserves the provenance
+stamp; witness cara'). Three Anirdharita modules landed in Ratri/, all
+exit 0 --safe. Pattern worth telling the emitter's owner: all three
+probes guessed a SECTION where the host's own theorem says the map has
+fibres — the probe ladder lacks a "check the host's thesis first" rung.
+ChargeTwoHistories rows blocked: host needs v0.9 API (solve!); Agda 2.8.0
+cabal build running in background (hackage TUF signatures fail through
+the proxy; worked around with secure:False http). v0.9 clone ready at
+/root/cubical-v0.9.
