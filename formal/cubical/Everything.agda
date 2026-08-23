@@ -1760,6 +1760,12 @@ import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
 -- and their commutator is the whole charge; सह (the fourth bhaṅga) is the
 -- refusal to order, the only position that loses nothing.
 import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+-- क्रम-सह सर्वत्र: the interchange charge is ONE structure across scales —
+-- अवक्तव्यम् (non-commuting observations cannot be uttered as one) proved at
+-- the abstract site, one line for every instance: the loop commutator (ℤ),
+-- the noncommutative quantum boundary, Peres-Mermin contextuality (odd
+-- H¹ℤ/2), and the fourth bhaṅga. Concrete Bool witness; deep instances cited.
+import KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga
 -- Sanmatitarka 1.3-6 in both directions: the dravya census conflates S¹
 -- with Unit (paryāya census separates them); the paryāya census conflates
 -- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
