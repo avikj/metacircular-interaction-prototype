@@ -378,7 +378,14 @@ main = do
           digits = "0123456789" :: String
           isInt s = case s of ('-':d) -> d /= "" && all (`elem` digits) d
                               _        -> s /= "" && all (`elem` digits) s
-          jval val = if isInt val then val else "\"" ++ jesc val ++ "\""
+          -- a filler that is already structured (starts [ or {) passes
+          -- through as JSON; an integer as a number; else a string.  So a
+          -- scene can carry a nested witness (naya.sthapana's saksin)
+          -- without leaving the one grammar.
+          structured s = case dropWhile (== ' ') s of ('[':_) -> True; ('{':_) -> True; _ -> False
+          jval val | isInt val     = val
+                   | structured val = val
+                   | otherwise      = "\"" ++ jesc val ++ "\""
           angani = if null pairs then ""
                    else ",\"angani\":{" ++ intercalate ","
                           [ "\"" ++ k ++ "\":" ++ jval val | (k,val) <- pairs ] ++ "}"
