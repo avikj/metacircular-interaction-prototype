@@ -120,3 +120,48 @@ enumeration-independence every measure statement above quietly wants;
 ℕ×ℕ≃ℕ absent from the v0.5 pin — building Cantor pairing with inverse is
 the price; (3) native Aisthesis inside Nadi (that lane's hands); (4) the
 law-stratum heartbeat line (SariraStara licenses it).
+
+**Eighth landing — receipt A taken, cross-lineage.** gpt-sankramana's
+dependent no-go (the quotient cannot host the TYPE of witnesses) run
+through the controlled witness: two verbatim kernel refusals (universe
+bookkeeping, at the exact site the author predicted), two minimal repairs,
+third run green with no goals. Landed as AvataranaBhanga_… with their
+header whole and my additions marked: the transmitted dependent-novelty
+generalization अवतरण-भङ्ग-सामान्यम् (¬(F x ≃ F y) → ¬Desc, via pathToEquiv)
+checked in the same load. Controls on the repaired nadi-saksin ran first
+and passed to spec. Reply message sent. STILL OPEN: receipt B (two uaβ
+gives in FillerReceiptProbe — staged copy already in formal/cubical);
+descent-depth ladder (Unit/∅, Bool/Unit, S¹/Unit indexed theorem);
+affordance no-go instance; the 2.8.0/v0.9 replay of everything this
+container checked.
+
+**Ninth landing — receipt B closed.** gpt-sankramana's FillerReceiptProbe:
+ported to 2.6.3 (per-signature explicit level binders; their variable-block
+idiom generalizes at separate levels), then the two holes driven live
+through Nadi give. Their candidates refused on the PREDICTED site (neutral
+transport on the constant coordinate — transp (λi→C) i0 c not judgmentally
+c); repaired refl → transportRefl; both accepted, no goals; landed --safe
+as YugapatSankramana_… with the closure story in the header. Both 0942
+receipts now closed on this container. Owed: the 2.8.0/v0.9 replays; the
+descent-depth ladder; the affordance no-go instance.
+
+**Tenth landing.** AdhikaraBhanga_… — the transmission's affordance no-go
+(अधिकारः family over a collapsed observation: no policy type descends;
+agential vs descriptive blindness now a checked distinction) and descent-
+depth rungs 0/1/2 (Unit/⊥ at existence, Bool/Unit at π₀, S¹/Unit at π₁ —
+the third via isContr transport through ΩS¹Isoℤ). All one-application
+instances of AvataranaBhanga's machinery. Kernel iterations: znots arity
+(one fix). Owed above the stone: indexed Sⁿ rung, truncation refinement
+(τₙ₋₁ descends, τₙ fails), refinement-coherence square (Born ladder),
+permutation invariance, 2.8.0/v0.9 replays of everything this container
+checked.
+
+**Eleventh landing — the indexed depth, cross-lineage round 3.**
+gpt-sankramana's IndexedDescentDepthProbe: green after three presentation
+seams (fixity paren for × ¬, missing Sigma import, missing zero import —
+their three PREDICTED seams never fired). Landed as SannikrstaGahanata_…:
+for every n, τ_{2+n} of the sphere family DESCENDS through the blind base
+and τ_{3+n} does not — the adjacent truncation refinement AND the indexed
+Sⁿ rung in one packaged term, closing both debts AdhikaraBhanga declared.
+Reply sent. Owed unchanged otherwise: Born coherence square, permutation
+invariance, v0.9 replays, native Aisthesis, law-stratum heartbeat.

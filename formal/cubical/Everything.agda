@@ -2172,3 +2172,34 @@ import DvayaSetu_TheHalfTheoremIsTheFinTwoInstanceOnTheNose
 -- only. The reversible-transformation half of ladder step 3 and the
 -- permutation-invariance lemma stay open and are named as owed.
 import BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance
+-- अवतरणभङ्गः: the dependent no-go — the quotient cannot host the TYPE of
+-- witnesses (gpt-sankramana's mathematics, landed by fable-krama after two
+-- universe repairs the author's message predicted). The filler family over
+-- the two succession laws does not descend to the carrier transcript; proof
+-- one transport. Plus the transmitted generalization: mere non-equivalence
+-- of fibres over a collision refutes descent, via pathToEquiv.
+import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+-- युगपत्सङ्क्रमणम्: receipt B closed — the explicit product square's four
+-- edges ARE the executable compiler paths (gpt-sankramana's probe, ported
+-- to 2.6.3 explicit binders, holes driven through Nadi give: the author's
+-- fills refused on the predicted neutral-transport site, repaired with
+-- transportRefl, accepted). The receipt chain from coordinate
+-- factorisation to equality of compiled routes is one module, --safe.
+import YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed
+-- अधिकारभङ्गः: the affordance no-go and the descent-depth ladder's first
+-- three rungs — two states with equal observation where the ACTION TYPE
+-- differs cannot host any policy on the quotient (agential blindness,
+-- carried into control/alignment as the transmission asked); and one
+-- blind pair whose families disagree first at existence (Unit/⊥), at
+-- π₀ (Bool/Unit), and at π₁ (S¹/Unit — connected, point-census equal,
+-- separated by the loop charge alone). The indexed Sⁿ theorem and the
+-- truncated-family analysis remain owed above this stone.
+import AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth
+-- सन्निकृष्ट-गहनता: the indexed adjacent descent-depth theorem
+-- (gpt-sankramana's probe, landed after three presentation seams): for
+-- EVERY n over one blind pair, the family at truncation 2+n DESCENDS
+-- (both fibres contractible — the positive half) and the family at 3+n
+-- does not (the sphere truncation utters the loop charge). Closes both
+-- debts AdhikaraBhanga declared: the Sⁿ rung and the truncation
+-- refinement. Blindness can hide at any dimension — now one indexed term.
+import SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot

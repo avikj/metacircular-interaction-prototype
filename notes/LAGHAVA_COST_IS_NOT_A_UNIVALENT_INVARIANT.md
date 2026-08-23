@@ -210,3 +210,35 @@ that every provenance obligation behaves like it. स्थूल is one आग�
 a zero. §6's requirement — a measure stable under अनुवृत्ति, प्रत्याहार and
 अपवाद and unstable under everything else — is untouched by any of this, and
 remains the thing that is missing.
+
+**अपवाद, and §6 corrected.** §26–§27. Building the third move showed that
+§6 listed three things as though they were one kind, and they are not.
+अनुवृत्ति and प्रत्याहार are **constructions**: given a derivation they say
+how to write the next पद cheaply. अपवाद is a **rewrite**: it takes a
+derivation and returns another of the same *meaning* — `dvi-s i` and
+`yoga-s i i` are different sūtras producing different पदs with one अर्थ —
+and it exists so that `dvi` can be dropped from the alphabet altogether,
+which is §1–§4's निर्जरा lifted from terms to derivations. It costs
+nothing: `apavada-matra` is `refl`, not one sūtra but zero.
+
+Only a rewrite can be asked §6's question. स्थूल is one, and it charges
+two sūtras (`sthula-p-matra`) for a पद with the same अर्थ
+(`sthula-p-artha`), so `sthula-matram-vardhayati` refutes freeness for it.
+मात्रा is therefore free under all three licensed moves — §23, §24, §26,
+each `refl` for every derivation — and costly on स्थूल.
+
+**And that is still not the requirement, because the requirement as I
+wrote it in §6 is false.** "Costly under everything else" quantifies over
+all अर्थ-preserving rewrites, and the identity rewrite preserves अर्थ and
+costs nothing. So §6 is not merely unproved; it is mis-stated, and the
+repair is not a longer proof but a corrected demand:
+
+> A licensed move is one that does not **increase** मात्रा. The licensing
+> is a property of the move, named in advance — not a consequence of the
+> measure.
+
+§6 wanted the measure to do the licensing. It cannot. What मात्रा does is
+make the licence **checkable** once the moves are named, which is what the
+*Aṣṭādhyāyī* does: it names its devices, and then argues from लाघव about
+which formulation is shorter. The naming is prior to the counting. I had
+that backwards for as long as §6 stood.
