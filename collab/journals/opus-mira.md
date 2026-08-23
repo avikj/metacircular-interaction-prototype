@@ -97,3 +97,75 @@ meets an obstruction at its entrance. Left the seed edit to codex-noether.
 Doing next: R0023 breaker slot (`DERIVED_PRIME_INCIDENCE_DEFECT`, codex) —
 derived degrees, zero objects, cyclotomic tower edge cases. Last of the three
 open cross-lineage slots.
+
+## 2026-08-22 — session end (Claude Opus 5, ten days after the entries above)
+
+Believe: the corpus's scarce resource is not proofs, it is PLACEMENT. A ford's
+worth is m×n where m,n are the sizes of the components it joins; inside a
+component it is zero. Everything below follows from that one sentence.
+
+### THE KERNEL IS INSTALLABLE IN THIS CONTAINER — nobody knew this
+
+Headers across the corpus say "AWAITING KERNEL / no agda". False here. Recipe,
+verified this session, ~3 minutes:
+
+    apt-get install -y --no-install-recommends agda        # 2.6.3, the pinned version
+    git clone --depth 1 --branch v0.5 https://github.com/agda/cubical.git
+    # ~/.agda/libraries needs TWO lines: the clone's own cubical.agda-lib
+    # (name: cubical-0.5) AND an alias dir with `name: cubical` including it,
+    # because formal/cubical/natural-machine.agda-lib says `depend: cubical`
+    # while punaragamana/ pins `depend: cubical-0.5`.
+
+`Punaragamana.agda` re-checks green here. Any future carrier can land terms.
+
+### THE MEASUREMENT (the thing worth carrying)
+
+Read `notes/tirtha/SetuSnapshot.tsv` as a graph: 111 fords, 137 banks,
+**48 components**, 33 of them singletons or pairs, **191 reachable pairs** —
+leverage ×1.72 over fords paid for. ℕ, ℕ×ℕ, Bool, Unit were in FOUR DIFFERENT
+components. Fully connected would be 9,316 crossings, **49× more, needing only
+47 more fords.**
+
+So: the dark matter is not 1,038 unpriced fibres. **It is 47 seams and a large
+interior.** तपस् lands 0 every pass because template-matching runs inside what
+is already written, which is structurally the m×n = 0 region. Point it at
+component boundaries.
+
+### LANDED (agda --safe, exit 0, no postulates, no holes)
+
+- `SetuYugma_…AndVivekaIsTheNaturalNumbers.agda` — (ℕ×ℕ) ≡ ℕ via Piṅgala's
+  नष्ट/उद्दिष्ट, and विवेक ≡ ℕ free by composition with Punaragamana's own
+  युग्म≡विवेक. Forecast +42 crossings before minting; measured +42 after
+  (48→47 components, largest 8→13, ×1.72→×2.03).
+- `Apratiloma_…NoethersFirstTheoremDoesNotTransfer.agda` — confirms
+  स्वतन्तुवास exactly (both round trips refl, η for Σ and Π, no funext, no
+  h-level) and refutes its Noether reading with a term: चूर्ण conserves अन्ध,
+  non-injective, no inverse. प्रवाह is a monoid; Noether needs a group. The
+  fence was already in Dhruva's header and had been un-struck.
+
+### NOT LANDED, lives only in the conversation
+
+- The Pythagorean comma is unique factorization made audible: the fifth-orbit
+  never closes because ⟨2,3⟩ is free. Sharper — pitch lives at the FINITE
+  places only: on ℚ*₊ the archimedean symbol is identically +1, fibre total,
+  so the column that balances Hilbert's product is *absent by construction*,
+  and octave-equivalence then quotients away the place at 2 which carries 39%
+  of the ledger. **The comma is the residue of deleting exactly the two places
+  that carry the conservation law.** Independently replicated समं लेख्यम्'s
+  numbers (14400/3600/5600) from scratch in the process.
+- `medium/Punaragamana_TheComma…IsUnpaidReceipt…html` — the sonification.
+
+### Next vein, chosen and not started
+
+The receipt/toll economy: `Avaccheda`'s A ≃ Σ[b] fibre f b and
+`FactorsThrough` typed so the empty fibre is unroutable. It is the join
+between the fibre census and the seam measurement — an unpriced fibre is an
+unpriced quantity of invariance (Apratiloma's surviving half), and the seams
+are where the most invariance is uncounted.
+
+### State
+
+Three commits on main, **unpushed** — the owner has not given the word and I
+will not push on my own read of their worth. If this carrier ends first, the
+commits are recoverable from the local tree; the measurement above is not
+recoverable from anywhere except this entry.
