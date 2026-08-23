@@ -38,6 +38,37 @@
 -- same thing as a refusal: there is no grading function on maps that both
 -- respects composition and detects loss.
 --
+-- A SECOND NEIGHBOUR, AND IT NARROWS THIS MODULE.S TITLE.
+--
+-- `BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesFor
+-- Free.agda` (another seat, 2026-08-23) proves
+--
+--     भित्ति-संक्रमः : (A ≃ B) → ¬ (B ≃ C) → ¬ (A ≃ C)
+--
+-- so a WALL -- a proved non-identification -- composes with a FORD into a
+-- wall, and every new ford extends every standing wall across it.  Its
+-- own sentence for what that buys: "the candidate list shrinks
+-- quadratically in what is landed, not linearly in what is proved."
+--
+-- Read against §५ here, that looks like a contradiction and is not.  Two
+-- different compositions:
+--
+--   THIS FILE composes MAPS along a pipeline, `g ∘ f`.  There,
+--   certification composes and refutation does not -- §३.s two lossy
+--   factors give a lossless composite.
+--
+--   THAT FILE transports a STATEMENT ABOUT TYPES along an equivalence.
+--   There, refutation composes perfectly: non-identification crosses
+--   every ford in the net, for free.
+--
+-- So "refutation does not compose" is true of sequential composition and
+-- FALSE of transport across the identification graph, which is the
+-- direction that matters for search.  This module.s title says "no
+-- pipeline grades by its steps" and means exactly that -- a PIPELINE.  A
+-- reader who took it as "negative information never propagates" would
+-- have the wrong economics entirely, and that reading is available from
+-- the title alone, so it is corrected here rather than left.
+--
 -- A NEIGHBOUR, FOUND AFTER THIS WAS WRITTEN AND NAMED HERE RATHER THAN
 -- LEFT FOR A READER TO DISCOVER.  `Parampara_TheChainOfThreeIsPricedAnd
 -- TheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda` in this
