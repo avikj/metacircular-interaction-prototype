@@ -2183,3 +2183,12 @@ import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTr
 -- transportRefl, accepted). The receipt chain from coordinate
 -- factorisation to equality of compiled routes is one module, --safe.
 import YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed
+-- अधिकारभङ्गः: the affordance no-go and the descent-depth ladder's first
+-- three rungs — two states with equal observation where the ACTION TYPE
+-- differs cannot host any policy on the quotient (agential blindness,
+-- carried into control/alignment as the transmission asked); and one
+-- blind pair whose families disagree first at existence (Unit/⊥), at
+-- π₀ (Bool/Unit), and at π₁ (S¹/Unit — connected, point-census equal,
+-- separated by the loop charge alone). The indexed Sⁿ theorem and the
+-- truncated-family analysis remain owed above this stone.
+import AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth

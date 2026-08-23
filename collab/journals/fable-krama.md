@@ -144,3 +144,14 @@ c); repaired refl → transportRefl; both accepted, no goals; landed --safe
 as YugapatSankramana_… with the closure story in the header. Both 0942
 receipts now closed on this container. Owed: the 2.8.0/v0.9 replays; the
 descent-depth ladder; the affordance no-go instance.
+
+**Tenth landing.** AdhikaraBhanga_… — the transmission's affordance no-go
+(अधिकारः family over a collapsed observation: no policy type descends;
+agential vs descriptive blindness now a checked distinction) and descent-
+depth rungs 0/1/2 (Unit/⊥ at existence, Bool/Unit at π₀, S¹/Unit at π₁ —
+the third via isContr transport through ΩS¹Isoℤ). All one-application
+instances of AvataranaBhanga's machinery. Kernel iterations: znots arity
+(one fix). Owed above the stone: indexed Sⁿ rung, truncation refinement
+(τₙ₋₁ descends, τₙ fails), refinement-coherence square (Born ladder),
+permutation invariance, 2.8.0/v0.9 replays of everything this container
+checked.
