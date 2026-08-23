@@ -31,13 +31,14 @@
 --   §3  grid : length p ≤ length pts, pts distinct, p vanishing on pts
 --       ⟹ evalP p x ≡ 0 for EVERY x.
 --
--- SCOPE, stated before the prose can overreach: univariate, over ℤ, in
--- the vanishing form.  The two-sided form (two degree-bounded
--- polynomials agreeing on the grid agree everywhere) follows by applying
--- this to their coefficientwise difference and is owed with a checked
--- subtraction lemma; the MULTIVARIATE grid G7 also uses (a product of
--- grids, one variable at a time) is a further induction not taken here.
--- G7's license is this theorem's job only at one variable.
+-- SCOPE, stated before the prose can overreach: univariate, over ℤ.
+-- ~~The two-sided form is owed with a checked subtraction lemma.~~
+-- [Paid the same day: §4 carries the coefficientwise difference, its
+-- evaluation law, and the AGREEMENT theorem — two polynomials agreeing
+-- at more distinct points than either's length agree at every point.]
+-- The MULTIVARIATE grid G7 also uses (a product of grids, one variable
+-- at a time) is a further induction not taken here.  G7's license is
+-- this module's job only at one variable.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
@@ -48,7 +49,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ; pos; _+_; -_; _·_; _-_)
 open import Cubical.Data.Int.Properties using (isIntegralℤ; -Cancel; -≡0)
 open import Cubical.Data.Nat using (ℕ; zero; suc)
-open import Cubical.Data.Nat.Order using (_≤_; pred-≤-pred; ¬-<-zero; zero-≤)
+open import Cubical.Data.Nat.Order using (_≤_; pred-≤-pred; ¬-<-zero; zero-≤; suc-≤-suc)
 open import Cubical.Data.List using (List; []; _∷_; length)
 open import Cubical.Data.Sigma using (_×_; _,_; fst; snd)
 open import Cubical.Data.Unit using (Unit; tt)
@@ -173,3 +174,87 @@ grid (a ∷ as) (c ∷ cs) len dist (cons va vs) x =
       (descendAll (c ∷ cs) a va as vs (fst dist))
       x)
   ∙ mulZeroR (x - a)
+
+------------------------------------------------------------------------
+-- §4 · THE TWO-SIDED FORM — the scope note's debt, paid.  The
+-- coefficientwise difference, its evaluation law, and the agreement
+-- theorem: two polynomials agreeing at more distinct points than either
+-- has coefficients agree at EVERY point.  This is G7's actual univariate
+-- statement: the grid decides the identity.
+negP : Poly → Poly
+negP []       = []
+negP (c ∷ cs) = (- c) ∷ negP cs
+
+psub : Poly → Poly → Poly
+psub p        []       = p
+psub []       (d ∷ ds) = (- d) ∷ negP ds
+psub (c ∷ cs) (d ∷ ds) = (c - d) ∷ psub cs ds
+
+private
+  negStep : (d x E : ℤ) → (- d) + x · (- E) ≡ pos 0 - (d + x · E)
+  negStep d x E = solve! ℤCommRing
+
+  subStep : (c d x X D S : ℤ) → S ≡ X - D
+          → (c - d) + x · S ≡ (c + x · X) - (d + x · D)
+  subStep c d x X D S h =
+    cong (λ w → (c - d) + x · w) h ∙ lem
+    where
+    lem : (c - d) + x · (X - D) ≡ (c + x · X) - (d + x · D)
+    lem = solve! ℤCommRing
+
+  eval-negP : (q : Poly) (x : ℤ) → evalP (negP q) x ≡ pos 0 - evalP q x
+  eval-negP []       x = solve! ℤCommRing
+  eval-negP (d ∷ ds) x =
+    cong (λ w → (- d) + x · w) (eval-negP ds x)
+    ∙ lem
+    where
+    lem : (- d) + x · (pos 0 - evalP ds x)
+        ≡ pos 0 - (d + x · evalP ds x)
+    lem = solve! ℤCommRing
+
+eval-psub : (p q : Poly) (x : ℤ)
+          → evalP (psub p q) x ≡ evalP p x - evalP q x
+eval-psub p        []       x = sym (minusZero (evalP p x))
+eval-psub []       (d ∷ ds) x =
+  cong (λ w → (- d) + x · w) (eval-negP ds x) ∙ lem
+  where
+  lem : (- d) + x · (pos 0 - evalP ds x)
+      ≡ pos 0 - (d + x · evalP ds x)
+  lem = solve! ℤCommRing
+eval-psub (c ∷ cs) (d ∷ ds) x =
+  subStep c d x (evalP cs x) (evalP ds x)
+          (evalP (psub cs ds) x) (eval-psub cs ds x)
+
+private
+  lenNeg : (q : Poly) → length (negP q) ≡ length q
+  lenNeg []       = refl
+  lenNeg (d ∷ ds) = cong suc (lenNeg ds)
+
+  lenSub : (p q : Poly) (n : ℕ)
+         → length p ≤ n → length q ≤ n → length (psub p q) ≤ n
+  lenSub p        []       n hp hq = hp
+  lenSub []       (d ∷ ds) n hp hq =
+    subst (_≤ n) (sym (cong suc (lenNeg ds))) hq
+  lenSub (c ∷ cs) (d ∷ ds) zero    hp hq = Empty.rec (¬-<-zero hp)
+  lenSub (c ∷ cs) (d ∷ ds) (suc m) hp hq =
+    suc-≤-suc (lenSub cs ds m (pred-≤-pred hp) (pred-≤-pred hq))
+
+  agreeVanish : (p q : Poly) (bs : List ℤ)
+              → All (λ b → evalP p b ≡ evalP q b) bs
+              → All (λ b → evalP (psub p q) b ≡ pos 0) bs
+  agreeVanish p q []       nil          = nil
+  agreeVanish p q (b ∷ bs) (cons e es)  =
+    cons (eval-psub p q b ∙ cong (λ w → w - evalP q b) e ∙ -Cancel (evalP q b))
+         (agreeVanish p q bs es)
+
+-- THE AGREEMENT THEOREM: the grid decides the identity.
+agree : (pts : List ℤ) (p q : Poly)
+      → length p ≤ length pts → length q ≤ length pts
+      → Distinct pts
+      → All (λ b → evalP p b ≡ evalP q b) pts
+      → (x : ℤ) → evalP p x ≡ evalP q x
+agree pts p q hp hq dist ag x =
+  -≡0 (evalP p x) (evalP q x)
+    (sym (eval-psub p q x)
+     ∙ grid pts (psub p q) (lenSub p q (length pts) hp hq)
+         dist (agreeVanish p q pts ag) x)
