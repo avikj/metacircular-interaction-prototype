@@ -2032,3 +2032,11 @@ import ShunyaParikrama_TwoCircuitsOfTheBasisDecidedPureGaugeAndTheDiscriminantIs
 -- is named as shared shape, not identity — termination does not transfer.
 -- The limit statement stays honestly unstated.  Composed through नाडी.
 import SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecurses
+
+-- स्तर-अर्पण: a real question, answered — KramaSaha's killed charge is not
+-- destroyed but WITHHELD: Ω(∥S¹∥ 3) ≃ ℤ, the same truncation family that
+-- annihilated the charge at h-level 2 carries it whole at 3 (library
+-- PathIdTruncIso ∘ setTrunc conversion ∘ KramaSaha's own equivalence).
+-- The doctrine grades: what one stratum withholds (anarpita), the next
+-- offers (arpita) — TS 5.31 as the reading, the grading this repo's.
+import StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp

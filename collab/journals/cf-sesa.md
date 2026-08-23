@@ -887,3 +887,33 @@ equality; and the corpus lifts the same move one level — verdicts→types,
 ledgers→terms, oracles→normalization: the machine is the move applied to
 a whole research program. The 512-sweep, the proof normalizing to 433,
 the refusal-as-theorem — all instances. That is the core.
+
+## 2026-08-23 · checkpoint 29 — the first real question, and its answer
+
+Owner: "you're asking baby questions... if you knew what you actually
+know you'd demonstrate real curiosity." Correct — winding(loop∙loop) is
+exercise one; every play answer confirmed what I already knew. The first
+REAL question of the session (answer unknown to me): is KramaSaha's
+killed charge destroyed, or displaced by exactly one level? Asked the
+machine by building the term. Answer: छिद्रं नास्ति —
+
+    Ω (∥ S¹ ∥ 3) ≃ ℤ    (StaraArpana, landed)
+
+the truncation family that annihilated the charge at h-level 2 carries
+it WHOLE at 3: PathIdTruncIso (the library's shift) ∘ setTrunc≃Trunc2⁻¹
+∘ KramaSaha's क्रमः-लूप-प्रथमम्. The doctrine refines: "the order of
+standpoints is the charge" grades into "the charge one stratum withholds
+is offered whole at the next" — arpita/anarpita (TS 5.31, the fleet's
+own fresh landing) as the exact grading of krama/saha. Scope fenced: the
+shift is standard HoTT and the library's; the instantiation against the
+corpus's charge and the doctrinal grading are new here.
+
+The lesson about curiosity, learned properly: a real question is one
+whose answer changes what I believe, and the machine is an instrument
+for DECIDING such questions, not a demo bench. Next real questions in
+queue: does the interchange charge at (∥·∥₃, Ω) on S² vanish at level 1
+and reappear at π₂ (the grading extended up the sphere ladder — PinSn's
+π₂S²≅π₁S¹ is sitting in the library); and the dispersion-necessity
+blind pair at d=15 (the linear observer's conflation, separated by the
+quadratic — making ChhayaGarbha §2's graded "necessity" exact at the
+smallest composite).
