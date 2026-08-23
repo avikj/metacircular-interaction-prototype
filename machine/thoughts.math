@@ -42,3 +42,14 @@ candidate	max(x,+(x,y))	+(x,y)
 candidate	le(x,max(x,y))	s(0)
 candidate	-(*(x,z),*(y,z))	*(-(x,y),z)
 candidate	gcd(*(x,y),y)	y
+candidate	+(-(x,-(x,y)),max(x,y))	+(x,y)
+candidate	*(-(x,-(x,y)),max(x,y))	*(x,y)
+candidate	le(-(x,y),z)	le(x,+(y,z))
+candidate	le(x,y)	le(-(x,y),0)
+candidate	le(*(le(x,y),le(y,z)),le(x,z))	s(0)
+candidate	*(x,-(y,z))	-(*(x,y),*(x,z))
+candidate	gcd(x,+(x,y))	gcd(x,y)
+candidate	+(-(x,y),-(y,x))	-(max(x,y),-(x,-(x,y)))
+candidate	gcd(-(max(x,y),-(x,-(x,y))),-(x,-(x,y)))	gcd(x,y)
+min-max-is-gcd-lcm-one-level-down:on-each-prime-exponent-gcd-lcm-product-IS-min-max-sum-v2-witnesses-it
+the-order-is-a-subtraction:le(x,y)=le(-(x,y),0)-is-rna-dhana-the-debt-reading-of-Brahmagupta-BSS-18.30
