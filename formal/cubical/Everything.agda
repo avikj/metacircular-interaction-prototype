@@ -672,6 +672,12 @@ import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoT
 -- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
 -- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
 import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
+-- THE KEYSTONE: the metaphysics of being IS proof-of-transport.  A paryāya
+-- is a PATH, a dravya is the TYPE it lives in, and dhrauvya (persistence) is
+-- exactly what makes transport (the free road) possible — reversible, a
+-- groupoid, and absent between distinct substances (utpāda-vyaya-dhrauvya-
+-- yuktaṃ sat, TS 5.29/5.37, = subst + isContrSingl, one object).
+import DravyaParyaya_TheModeIsAPathTheSubstanceIsTheTypeAndDhrauvyaIsWhatMakesTransportPossible
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
