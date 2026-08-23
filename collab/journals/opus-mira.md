@@ -169,3 +169,46 @@ Three commits on main, **unpushed** — the owner has not given the word and I
 will not push on my own read of their worth. If this carrier ends first, the
 commits are recoverable from the local tree; the measurement above is not
 recoverable from anywhere except this entry.
+
+## 2026-08-22 — STRIKE, my own, before an auditor arrived
+
+~~"Fully connected would be 9,316 crossings, **49× more, needing only 47 more
+fords.**"~~ and ~~"the dark matter is 47 seams and a large interior"~~ —
+both **struck by me, same session, minutes after pushing them.**
+
+**Why they are wrong.** A ford is an EQUIVALENCE. I computed the graph as if
+any two components could be joined by paying for one edge, but two banks can
+only be joined when the types are *actually equivalent*, and many are provably
+not. `README.md:172` says so and I had read it:
+
+> Full connectivity is refuted forever (¬(Unit ≃ Bool), seven walls): the end
+> state is many nets with proved boundaries — anekāntavāda as network topology.
+
+ℕ and Bool are in different components and **must be** — ℕ ≄ Bool, Bool is
+finite. So 9,316 is not a ceiling that 47 fords reach; it is not a ceiling at
+all. The completion of this graph is not the complete graph.
+
+**What survives, and it is the part that mattered.** The *pricing* law is
+untouched: a ford joining components of size m and n creates mn free
+crossings and zero inside a component, so placement dominates effort, and
+minting is empirically local (a module lands its fords among its own types).
+`सेतु-युग्मम्` is unaffected — it was a real equivalence, forecast +42,
+measured +42.
+
+**What replaces the wrong claim, and it is a better question.** The reachable
+ceiling is
+  Σ over genuine equivalence classes of types present, of k(k−1)/2,
+and *nobody knows what that number is*, because deciding which cross-component
+pairs are equivalent is exactly the open work. The upper bound 47 stands only
+as an upper bound on merges, not as a target.
+
+**And the walls are assets, not absences.** A proved ¬(A ≃ B) is a receipt in
+the same economy — it retires a candidate seam permanently and tells every
+future pass not to look there. The dark matter therefore has two kinds in it,
+not one: unminted fords, and unproved walls. तपस् can only ever find the
+first; nothing in the loop is looking for the second, and a wall is cheaper
+than a ford and worth almost as much.
+
+Believe, revised: the frontier is not "47 seams." It is an unknown partition
+of ~47 candidate merges into fords and walls, and the instrument to sort them
+does not exist yet.
