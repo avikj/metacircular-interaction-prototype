@@ -154,9 +154,12 @@ parseSpell ctxRef line = do
                       (Just n, Just t) -> pure (Just (Query, wrap f
                         ("Cmd_give WithoutForce " ++ n ++ " noRange \"" ++ esc t ++ "\"")))
                       _ -> pure Nothing
-      -- the push back-channel: the machine's frontier, not a kernel call
+      -- the push back-channel: the machine's frontier / live event stream,
+      -- not kernel calls.  frontier = snapshot; watch = new events since last.
       else if v == "frontier"
-        then pure (Just (Push, ""))
+        then pure (Just (Push, "frontier"))
+      else if v == "watch"
+        then pure (Just (Push, "watch"))
       else pure Nothing
   where
     ctxQ Nothing  _  = pure Nothing
@@ -290,11 +293,12 @@ main = do
       hSetBuffering ain LineBuffering
       hSetEncoding ain utf8; hSetEncoding aout utf8
       ctxRef <- newIORef Nothing
+      watchRef <- newIORef 0
       let loop = do
             eof <- isEOF
             if eof then pure () else do
               line <- getLine
-              resp <- respond ain aout ctxRef line
+              resp <- respond ain aout ctxRef watchRef line
               putStr resp; hFlush stdout
               loop
       loop
@@ -307,23 +311,45 @@ main = do
       hSetBuffering ain LineBuffering
       hSetEncoding ain utf8; hSetEncoding aout utf8
       ctxRef <- newIORef Nothing
+      watchRef <- newIORef 0
       hPutStrLn stderr "नाडी warm; waiting on the request pipe"
       forever $ do
         line <- readOne reqF
-        resp <- respond ain aout ctxRef line
+        resp <- respond ain aout ctxRef watchRef line
         writeOne respF resp
 
     -- one shared responder for both transports: parse the spell, drive the
-    -- kernel (Load/Query) or read the machine's frontier (Push).
-    respond ain aout ctxRef line = do
+    -- kernel (Load/Query) or read the machine's push channel (Push).
+    respond ain aout ctxRef watchRef line = do
       mcmd <- parseSpell ctxRef line
       case mcmd of
-        Nothing            -> pure "✗ unknown or contextless command\n"
-        Just (Push, _)     -> frontier
-        Just (k, iotcm)    -> do
+        Nothing                 -> pure "✗ unknown or contextless command\n"
+        Just (Push, "watch")    -> watchNew watchRef
+        Just (Push, _)          -> frontier
+        Just (k, iotcm)         -> do
           hPutStr ain iotcm; hFlush ain
           vs <- collect aout k
           pure (condense vs)
+
+    -- live stream: the sensorium journal is the shared tape; return the
+    -- events appended since the last watch, condensed to organ + gist.
+    watchNew watchRef = do
+      seen <- readIORef watchRef
+      ls <- lines <$> readUtf8Safe2 ["machine/aisthesis.jsonl", "../../machine/aisthesis.jsonl"]
+      let n = length ls
+          fresh = drop seen ls
+      writeIORef watchRef n
+      if null fresh then pure "मौनम् (no new events)\n"
+        else pure (unlines (map gist fresh))
+      where
+        gist l = "· " ++ field "indriya" l ++ " · " ++ field "kriya" l
+        field k s = case breakOn ("\"" ++ k ++ "\":\"") s of
+                      Just r  -> takeWhile (/= '"') r
+                      Nothing -> "—"
+        breakOn key s
+          | key `isPrefixOf` s = Just (drop (length key) s)
+          | null s             = Nothing
+          | otherwise          = breakOn key (tail s)
 
     -- the push channel: the machine posts where it is stuck.  Fast (no jiva
     -- run): the last engine round from machine.log and the last heartbeat
@@ -350,6 +376,11 @@ main = do
       (do h <- openFile p ReadMode; hSetEncoding h utf8; c <- hGetContents h
           length c `seq` hClose h; pure c)
       (\(_ :: SomeException) -> pure "")
+
+    readUtf8Safe2 []     = pure ""
+    readUtf8Safe2 (p:ps) = do
+      e <- fileExist p
+      if e then readUtf8Safe p else readUtf8Safe2 ps
 
     mkFifo f = do
       e <- fileExist f
