@@ -85,11 +85,22 @@ import qualified Data.Vector as V
 import qualified Astadhyayi as P   -- the completed six-kāraka layer, imported (not reinvented)
 import qualified Yantra_TheOrgansAreOneMachineOnOneWire as Y  -- the organ bus
 import qualified Sabda_TheWireHasNoBoolean as SB              -- render Yantra's answers
+import qualified Uttara_SamkramanaOrDosalekhaNeverABareBoolean as U
+  -- the answer type itself, so `uVahita` — "what was carried across, in full"
+  -- — is read from the structure instead of scraped back out of its rendering
 
 -- ── the spell stream: a raw line → an action ──────────────────────────────
 -- Kind Load/Query go to the kernel; Push reads the machine's own frontier
 -- (the coprocessing back-channel — the machine posting what it is stuck on).
-data Kind = Load | Query | Push | Organ deriving Eq
+-- Fill is separated from Query because a PROPOSAL and a READING end on
+-- different messages.  Reading a goal ends on the goal display; proposing a
+-- term ends on acceptance (GiveAction / MakeCase / SolveAll) or on the
+-- kernel's stated reason for refusing.  Agda emits the goal list BEFORE that
+-- reason, so while `give` was a Query the reader stopped at the goal list,
+-- the ✗ and its message stayed in the buffer, and — this is the part that
+-- was doing damage — the leftover then answered the NEXT question.  One
+-- refusal desynchronised the whole conversation by one turn.
+data Kind = Load | Query | Fill | Push | Organ deriving Eq
 
 parseSpell :: IORef (Maybe String) -> String -> IO (Maybe (Kind, String))
 parseSpell ctxRef line = do
@@ -121,21 +132,23 @@ parseSpell ctxRef line = do
       -- DRIVING the kernel: the agent proposes, the kernel verifies in ~60ms
       else if v == "give"    -- give <id> <term> : does this term fill the hole?
         then case (ctx, rest) of
-               (Just f, (n:_)) -> pure (Just (Query, wrap f
+               (Just f, (n:_)) -> pure (Just (Fill, wrap f
                  ("Cmd_give WithoutForce " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
                _ -> pure Nothing
       else if v == "refine"  -- refine <id> <term> : partial fill, new holes
         then case (ctx, rest) of
-               (Just f, (n:_)) -> pure (Just (Query, wrap f
+               (Just f, (n:_)) -> pure (Just (Fill, wrap f
                  ("Cmd_refine_or_intro False " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
                _ -> pure Nothing
       else if v == "split"   -- split <id> <var> : case-split; kernel writes clauses
         then case (ctx, rest) of
-               (Just f, (n:_)) -> pure (Just (Query, wrap f
+               (Just f, (n:_)) -> pure (Just (Fill, wrap f
                  ("Cmd_make_case " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
                _ -> pure Nothing
       else if v == "solve"   -- solveAll: the kernel fills every hole it can
-        then ctxQ ctx (\f -> wrap f "Cmd_solveAll Simplified")
+        then case ctx of
+               Just f  -> pure (Just (Fill, wrap f "Cmd_solveAll Simplified"))
+               Nothing -> pure Nothing
       else if v == "raw"
         then pure (Just (Query, arg ++ "\n"))
       -- a KĀRAKA SCENE (Pāṇini's minimal-overhead grammar): the action
@@ -154,7 +167,7 @@ parseSpell ctxRef line = do
                                Just t  -> Just t
                                Nothing -> lookup P.Karman scene
                  in case (hole, term) of
-                      (Just n, Just t) -> pure (Just (Query, wrap f
+                      (Just n, Just t) -> pure (Just (Fill, wrap f
                         ("Cmd_give WithoutForce " ++ n ++ " noRange \"" ++ esc t ++ "\"")))
                       _ -> pure Nothing
       -- the push back-channel: the machine's frontier / live event stream,
@@ -213,18 +226,39 @@ parseScene :: [String] -> [(P.Karaka, String)]
 parseScene = sceneBy roleWord
 
 -- ── is this agda output line the terminal message for the pending kind? ───
-terminal :: Kind -> Value -> Bool
-terminal k (Object o) = case KM.lookup "kind" o of
-  Just (String "DisplayInfo")       -> k == Query || isErr
-  Just (String "GiveAction")        -> k == Query   -- give succeeded
-  Just (String "MakeCase")          -> k == Query   -- split produced clauses
+-- `acc` is what has already arrived this turn, newest first.  A turn's end
+-- cannot be read off one message: agda answers a PROPOSAL with two, in the
+-- opposite order depending on the verdict —
+--
+--     accepted : GiveAction, then the new goal list
+--     refused  : the goal list, then the reason
+--
+-- so whichever of the two you call terminal, the other is left in the pipe
+-- and answers the NEXT question.  That is what was happening: one give and
+-- the whole conversation ran a turn behind, with each answer attached to the
+-- wrong question.  The rule that closes it: a proposal's turn ends on a
+-- DisplayInfo, and it is the reason itself when refused, or the goal list
+-- that follows the acceptance when accepted.
+terminal :: Kind -> [Value] -> Value -> Bool
+terminal k acc (Object o) = case KM.lookup "kind" o of
+  Just (String "DisplayInfo")       -> k == Query || isErr || (k == Fill && accepted)
+  Just (String "GiveAction")        -> k == Query
+  Just (String "MakeCase")          -> k == Query
   Just (String "SolveAll")          -> k == Query
   Just (String "InteractionPoints") -> k == Load
   _ -> False
   where isErr = case KM.lookup "info" o of
                   Just (Object i) -> KM.lookup "kind" i == Just (String "Error")
                   _ -> False
-terminal _ _ = False
+        -- has the acceptance already arrived this turn?
+        accepted = any isAccept acc
+        isAccept (Object a) = case KM.lookup "kind" a of
+          Just (String "GiveAction") -> True
+          Just (String "MakeCase")   -> True
+          Just (String "SolveAll")   -> True
+          _                          -> False
+        isAccept _ = False
+terminal _ _ _ = False
 
 -- ── condense agda's JSON into dense lines ─────────────────────────────────
 condense :: [Value] -> String
@@ -285,8 +319,8 @@ collect out k = go []
              -- corpus's own script (found 2026-08-23, asking the warm kernel
              -- to norm मूल-अस्ति: 0 bytes back, 20s timeout).  Encode real UTF-8.
              else case A.decode (BL.fromStrict (TE.encodeUtf8 (T.pack clean))) of
-                    Just v | terminal k v -> pure (reverse (v : acc))
-                           | otherwise    -> go (v : acc)
+                    Just v | terminal k acc v -> pure (reverse (v : acc))
+                           | otherwise        -> go (v : acc)
                     Nothing -> go acc
 
 tryLine :: Handle -> IO (Maybe String)
@@ -407,7 +441,33 @@ main = do
           payload = case (fld "vama", fld "daksina") of
                       (Just vv, Just dk) -> "\n    " ++ vv ++ "  ≡  " ++ dk
                       _ -> case fld "hetu" of Just h -> "\n    hetu: " ++ h; _ -> ""
-      pure ("« " ++ kriya ++ part ++ payload ++ "\n")
+          -- वहितम् — `uVahita` is the organ's own words for "what was carried
+          -- across, IN FULL", and until now नाडी delivered only whatever of it
+          -- happened to survive as a flat string in the wire text.  So
+          -- `garbha.dhara`'s born stream, `pratyahara`'s sounds and
+          -- `frontier`'s census all rode the wire and none of them arrived:
+          -- the renderer was a windowed observer and the structure lived in
+          -- its fibre.  The tulyata above is the identification; this is the
+          -- thing identified.
+          vahita = case u of
+                     U.Samkramana{} -> concat (concatMap carriedLines (U.uVahita u))
+                     _              -> ""   -- a refusal carries nothing across
+          carriedLines (k, SB.JArr items@(SB.JArr _ : _)) =
+            let shown = take vahitaCap items
+                rest  = length items - length shown
+            in ("\n    " ++ k ++ " ▸")
+               : [ "\n      " ++ show i ++ ". " ++ shortJ it
+                 | (i, it) <- zip [1 :: Int ..] shown ]
+               ++ [ "\n      … " ++ show rest ++ " more carried and not shown here"
+                  | rest > 0 ]
+          carriedLines (k, v) = ["\n    " ++ k ++ " ▸ " ++ shortJ v]
+          -- a cap, said out loud rather than applied silently.
+          vahitaCap = 12 :: Int
+          shortJ (SB.JStr s)  = s
+          shortJ (SB.JInt n)  = show n
+          shortJ (SB.JArr xs) = intercalate " · " (map shortJ xs)
+          shortJ (SB.JObj kv) = intercalate " · " [ kk ++ "=" ++ shortJ vv | (kk, vv) <- kv ]
+      pure ("« " ++ kriya ++ part ++ payload ++ vahita ++ "\n")
 
     -- live stream: the sensorium journal is the shared tape; return the
     -- events appended since the last watch, condensed to organ + gist.
