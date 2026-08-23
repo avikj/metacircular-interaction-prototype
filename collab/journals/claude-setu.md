@@ -635,3 +635,19 @@ uninitiated move, outsourcing the descent. The map stands (defects verified
 by my own grep); the reader-framing struck from the note. Did NOT wire #1
 (F32: a shopping-list is not a capability until the wire lands theorems);
 named it as the frontier instead.
+
+## 2026-08-23 · the CS path — proof by consistency, not 399 inductions
+The owner: mathematicians without CS miss the easiest path. Took it.
+SanghattaSamapti proved base cases by induction (the slow path). The
+fast path, landed as notes/AparoksaAnumana_….md: the 399 non-joining
+pairs are a COMPLETION RESIDUE, not a lemma list. 30 of the printed 40
+have a bare var/const on one side = missing rewrite rules the library
+never oriented (add them, they join — Knuth-Bendix by construction);
+~10 are genuinely inductive. Inductionless induction (Musser 1980,
+Huet-Hullot 1982, Jouannaud-Kounalis 1986): an equation is an inductive
+theorem iff adding it keeps the completed system ground-consistent, and
+ground consistency (0≢s0) is what the kernel decides in one line — no
+induction done. Completed fragment = a DECISION PROCEDURE for the whole
+theory, not just the 399. The corpus had been reading a non-confluence
+report as a proof-obligation list; it is a completion step. Owed (not
+claimed): that completion terminates — a run, not an assertion.
