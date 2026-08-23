@@ -1931,6 +1931,13 @@ import Samagri_TheReassociationMovesPreserveEveryAdditiveWeightSoTheAxiomMultise
 -- reading kills, so the positional extension ℤ/2 → ℤ/4 → ℤ/2 never splits.
 import Vahita_TheCarriedUnitIsExactlyWhatEveryCarryFreeReadingKillsSoThePositionalExtensionNeverSplits
 
+-- सङ्ख्या: the general form of Vahita's minimal instance — the b-ary
+-- prastāra count b^n grows a full factor of the base each place, so the
+-- two exponents of ATLAS_OF_N Prop. 2.11 (residual.py's
+-- splitting_exponent_argument) disagree for EVERY (b ≥ 2, n ≥ 1) and the
+-- carry extension never splits.
+import Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceSoTheCarryNeverSplits
+
 -- यमल-युग्मम्: the owner's 4-channel twin transfer (μ⊗μ/κ⊗μ/μ⊗κ/κ⊗κ) as
 -- ℤ[ε₁,ε₂]/(ε₁²,ε₂²) — a commutative monoid whose pair channel obeys the
 -- second-order twisted Leibniz law definitionally, and the two-leg AD
