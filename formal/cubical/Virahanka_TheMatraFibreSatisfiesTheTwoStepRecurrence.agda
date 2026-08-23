@@ -21,6 +21,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd ; Σ≡Prop)
 open import Cubical.Data.Empty as Empty using (⊥)
+open import Cubical.Relation.Nullary using (¬_)
 
 मात्रा : Bool → ℕ
 मात्रा true  = 1
@@ -75,3 +76,34 @@ snd आदि-एकम् ([]           , p) = Empty.rec (znots p)
 snd आदि-एकम् (true  ∷ xs , p) =
   Σ≡Prop तन्तु-साक्षी (cong (true ∷_) (sym (शून्य-रिक्तम् xs (injSuc p))))
 snd आदि-एकम् (false ∷ xs , p) = Empty.rec (snotz (injSuc p))
+
+-- and the dichotomy: prosody is lossless EXACTLY below total 2.
+-- A string of n laghus realises every total, so from 2 upward the fibre
+-- has two distinct points -- laghu-laghu against guru on the same tail --
+-- and by Dvayam that embeds a bit.  Below 2 the fibre is a point.
+लघु-माला : ℕ → List Bool
+लघु-माला zero    = []
+लघु-माला (suc n) = true ∷ लघु-माला n
+
+लघु-माला-भारः : (n : ℕ) → छन्दः (लघु-माला n) ≡ n
+लघु-माला-भारः zero    = refl
+लघु-माला-भारः (suc n) = cong suc (लघु-माला-भारः n)
+
+द्वि-गुरु द्वि-लघु : (n : ℕ) → fiber छन्दः (suc (suc n))
+द्वि-लघु n = (true ∷ true ∷ लघु-माला n) , cong (λ k → suc (suc k)) (लघु-माला-भारः n)
+द्वि-गुरु n = (false ∷ लघु-माला n)       , cong (λ k → suc (suc k)) (लघु-माला-भारः n)
+
+-- two mātrā-sequences of the same total that are not the same sequence
+मात्रा-क्षयः : (n : ℕ) → ¬ (द्वि-लघु n ≡ द्वि-गुरु n)
+मात्रा-क्षयः n p = true≢false (cong शिरः (cong fst p))
+  where
+    शिरः : List Bool → Bool
+    शिरः []      = true
+    शिरः (x ∷ _) = x
+    open import Cubical.Data.Bool using (true≢false)
+
+-- so from total 2 upward the fibre is not a point: the map loses the
+-- SEQUENCE and keeps only the TOTAL, which is what makes the count a
+-- count of something.
+तन्तुः-न-एकः : (n : ℕ) → ¬ (isContr (fiber छन्दः (suc (suc n))))
+तन्तुः-न-एकः n c = मात्रा-क्षयः n (sym (c .snd (द्वि-लघु n)) ∙ c .snd (द्वि-गुरु n))
