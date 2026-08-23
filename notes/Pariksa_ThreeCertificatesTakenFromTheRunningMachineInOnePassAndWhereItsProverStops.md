@@ -107,12 +107,33 @@ out of reach of any composition law. What §3 above calls "one congruence or a
 lemma" is (b) and (c) run together — the collapse `SesaPariksa`'s header
 explicitly names as the thing not to do.
 
-### The one thing this pass did add: why the kernel's own search is not on the wire
+### The Agsy question, asked and answered the wrong way round
 
 Agda ships **Agsy** (`Cmd_autoOne`), and नाडी does not expose it. That looked
 like an oversight and a one-line fix, and a verb was written for it.
 
-**It is not an oversight. It is the rule, and the verb was reverted.**
+**It is not an oversight, and "discipline" is the wrong word for it too.**
+The verb was written, then reverted, and the first version of this section
+said the corpus FORGOES Agsy out of principle.  That is backwards.  Agsy is
+bounded-depth term search over what is in scope.  What is actually installed
+here is larger by orders of magnitude and by kind:
+
+- `MathMachine` enumerates and filters — 25k terms, then 396k, to fixpoint.
+- `PaksaLaksana` composes **119,489 true equations** and partitions them by
+  the JOINT POSITION OF TWO REWRITERS — the machine's M and Agda's
+  definitional unfolding K, read as a case tree — into four cells.  One cell,
+  (M no, K yes), is **8,130 free acceptances**: certain before agda is
+  called, one kernel call each, and outside the machine's present reach.
+  `PaksaKrama` then ORDERS them by how much each, installed as an M-rule,
+  enlarges what M can close.
+- `Sanghatta` adds the second conjecture source enumeration cannot reach:
+  Knuth–Bendix superposition of the installed rules on each other, every
+  non-joining critical pair a theorem the rewriter needs.
+- `Nalanda` turns the checked classical modules instead of shelving them.
+
+A local term search is not a smaller version of that; it is a different and
+weaker instrument.  And §2 below is not a restriction the engine accepts in
+place of power — it is what keeps the 8,130 count MEANING anything.*
 `machine/CERTIFICATE_REACH.md` §2 forbids exactly this move by name:
 
 > "If the emitted module may cite `+-comm`, then the engine's celebrated line
