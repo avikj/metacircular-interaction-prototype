@@ -487,3 +487,16 @@ law as conflict-resolved generative grammar; contextuality as
 saptabhaṅgī exactly) has its foundations landed by other seats — the
 collision of that lane with κ's optics is a successor seed beyond
 this session's reach, named here so it is not lost.
+
+## 2026-08-23 · real CS — the guess killed, the object named
+z=23 exact: 54.70 against the 2^π guess's 66 — dead, retracted in
+notes/GunakaraChhaya_….md. The real identification landed: μ is a
+prime RIESZ PRODUCT; κ ≪ 1 is deterministic better-than-squareroot
+cancellation (Harper 2020, critical multiplicative chaos); the
+discrepancy question is EDP-shaped and EDP fell to entropy decrement
+— the same method Theorem K flags as outside the windowed-linear
+class. THREE lanes now converge on the same door: K's class boundary,
+dispersion's degree-2 exit, EDP's entropy decrement. Honest ledger:
+per-z anything is easy (O(P) scans, FFT spectrum, bounded-window
+variant); uniformity in z is the entire theorem. Owed: the
+bounded-window sequence (the Goldbach-relevant invariant).
