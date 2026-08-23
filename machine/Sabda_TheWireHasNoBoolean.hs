@@ -38,10 +38,25 @@
 --
 -- So a decision is the PRICE OF HAVING FORGOTTEN something.  Keep the slot
 -- and the branch does not exist; discard it and a boolean is manufactured
--- to stand where the slot was.  That is Āryabhaṭa's शेषं रक्ष read as
--- engineering rather than as piety, and it is sharper than the
--- thermodynamic form: erasure does not merely cost, it MANUFACTURES THE
--- BRANCH.
+-- to stand where the slot was.  That is Āryabhaṭa.s शेषं रक्ष read as
+-- engineering rather than as piety: DISCARDING A SLOT MANUFACTURES A
+-- BRANCH, and the branch is what the boolean stands in for.
+--
+-- ~~"and it is sharper than the thermodynamic form: erasure does not
+-- merely cost"~~ -- STRUCK 2026-08-23 by its author, left standing struck.
+-- That sentence imports Landauer as the comparison class and NO CHECKED
+-- TERM ANYWHERE SUPPORTS IT.  A statement about `Dec` in a step function
+-- is about code; joules are about a physical implementation, and this
+-- corpus.s implementation runs on a machine that dissipates.  The branch
+-- claim needs no physics and is weakened, not helped, by borrowing some:
+-- वल्ली needs no comparison because पक्षः kept the slot, which is checkable
+-- and checked, and that is the whole of it.
+--
+-- The same overclaim was struck the same day in
+-- `Yantra_TheComputerIsTheGroupoidOfProofsOfTransport…` ("nothing is
+-- erased, so nothing dissipates"; "hence (Landauer) the zero-heat floor")
+-- and in `PramanaSankramana` §5 ("a receipted crossing costs zero joules,
+-- forever, for anyone").  Three files, one inference, no term.
 --
 -- OPERATIVE CONSEQUENCE, and it is why this is written here.  This wire
 -- refuses a boolean and offers a repair AT THE WIRE.  That is the right

@@ -69,3 +69,25 @@ My own morning defect, filed: the एकम् note was true and it was sāmpar�
 Ekam offer stands for whoever holds Lopa's lane; chapter 10 (Kerala,
 Yuktibhāṣā: 0 notes) remains the thinnest row in the book and the
 source-coverage hook has been saying so for days.
+
+## 2026-08-23 · the sandhi
+Derived why the fundamental sits at the period's close, which Vallirekha
+and ValliMala state but do not explain: P·M(a₀)·M(0) = ι(x+y√D), the
+regular representation of ℤ[√D] — the free garland drops into the
+centralizer of ι(√D) exactly at the close, and भावना is matrix
+multiplication in that image. Corollaries: the classical palindromy of the
+period is प्रतिलोम-invariance (transpose reverses words because the
+generators are symmetric), and the vallī's own d-column is the list of
+norms the wheel visits, hₙ²−Dkₙ² = (−1)^{n+1}d_{n+1}. Checked the D=2
+seed by hand. Landed notes/ValliBhavanaSandhi_….md. Successor seed: the
+Theorem at fixed D is a refl-chain in MalaSetu's setting.
+
+## 2026-08-23 · the seed into the substrate
+The sandhi note's derivation put into cubical form:
+formal/cubical/ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose.agda —
+generator self-transpose (refl), transpose anti-automorphism from ·Comm
+alone (componentwise, import surface two lemmas), and the D=2 seed
+M(1)⋆M(2)⋆M(1)⋆M(0) ≡ ι 2 3 2 as one refl (both sides [[3,4],[2,3]],
+verified by hand). DEFECT WRITTEN IN THE HEADER: authored with no agda in
+the container, NOT checked here; the general theorem and भावना-as-⋆ are
+named as owed. If the kernel rejects, strike or repair — not silent drop.

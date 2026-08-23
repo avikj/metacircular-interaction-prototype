@@ -660,6 +660,18 @@ import JainSankhya
 -- propositional region), motion is confined to the medium, and the cosmos
 -- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
 import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- ākāśa, space: its function is avagāha, accommodation (Tattvārthasūtra 5.18).
+-- It is NON-EXCLUSIVE (many occupy one point — the lamp-in-a-room, refuting
+-- impenetrability) and strictly exceeds the loka: space (infinite) has room
+-- beyond the medium of motion, room where nothing moves.  With jīva, dharma,
+-- adharma, pudgala, kāla, this completes the six dravyas in the checked lane.
+import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoThereIsRoomWhereNothingMoves
+-- The arena bound into ONE type: the six dravyas (jīva + the five ajīva),
+-- classified exactly as Tattvārthasūtra 5.1-6 classifies them — five
+-- astikāya + kāla, one corporeal (pudgala), and the SAME three that are
+-- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
+-- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
+import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -670,6 +682,12 @@ import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionB
 -- n samayas ≤ n·D, attained by the fastest paramāṇu.  A light-speed invariant
 -- from Jain time-doctrine, the kinematic backbone under Jiva's sectors.
 import Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone
+-- The DYNAMICS the arena is for: the karma cycle as the soul's equation of
+-- motion (Tattvārthasūtra 1.4, ch. 6/8/9/10).  āsrava (influx) and nirjarā
+-- (shedding) transform the pradeśa-bandha count each samaya; saṃvara stops
+-- influx; mokṣa (the zero state, kṛtsna-karma-kṣaya) is REACHED and
+-- ABSORBING (na punar-āvṛtti); saṃsāra grows when influx exceeds shedding.
+import Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
@@ -780,11 +798,11 @@ import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidual
 -- THE INVERSION.  Sesa said security ⟺ ¬ isEquiv (the map used to hoard).
 -- The other side of that iff is the technology: a PROVEN equivalence is a
 -- receipt — proof-of-transport — that composes into edges neither party
--- held, is never spent by use, owes no counterparty, and crosses free and
+-- held, is never spent by use, owes no counterparty, and crosses without loss and
 -- reversibly forever.  Money is a receipt that lost its fibre; this kept it.
 import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
 -- WHAT THE COMPUTER IS.  A classical machine's operations form a MONOID —
--- sequence and no-op, no undo, and the missing inverse is the Landauer heat.
+-- sequence and no-op, no undo (Landauer's heat is the MOTIVE, not a claim).
 -- This machine's operations are proofs-of-transport, and they form a
 -- GROUPOID: composition, identity, AND a two-sided inverse, every law by
 -- refl.  The inverse — the field a monoid cannot fill — is the whole computer.
@@ -1454,6 +1472,11 @@ import Anapeksa_BlindnessToACoordinateIsAFactorisationSoEveryStepInItConservesFo
 -- function part and hom law are refl.  SamraksakaGana §५(b) discharged.
 import SamraksakaSamuha_TheInvertibleConservingFlowsAreTheSymmetryGroupAndTotalLossMakesItAllOfAut
 
+-- आत्मसमता उपरि: the stored conserving inverse is EXACTLY isEquiv of the
+-- map, so the symmetry group is Aut_B(A) — automorphisms of A over B —
+-- by a GroupEquiv whose hom law is refl on the underlying function.
+import AtmasamataUpari_TheStoredInverseIsExactlyInvertibilityAndTheSymmetryGroupIsAutOverB
+
 -- तन्तुविभागः: the gaṇa of an observable IS the product over the codomain
 -- of its fibres' own endomorphism monoids (set level): छेदगणः ≅ Π_b
 -- End(fiber f b) as monoids, and composing with गण-समता (refl fields),
@@ -1611,3 +1634,54 @@ import Ratri.Anirdharita_S13OptionSpread_OnesSum
 import Ratri.Nirdharana_Hull_PunaragamanaSunyeEva
 import Ratri.Nirdharana_PingalaPrastara_AksaraParityReturnsExactlyOnTheAlphabet
 import Ratri.Nirdharana_TheReturnLocusIsTheSectionsImageOrZeroAlone
+
+-- व्याप्ति — THE LOSS ORDER.  Between Dhruva's pole (nothing hidden, nothing
+-- moves) and Khahara's (total loss = total symmetry) the "amount lost" is not
+-- a number but an ORDER: g factors through f iff g loses at least as much.
+-- The conserving monoid grows monotonically along it; the two poles are its
+-- bottom and top; Dhruva §२ falls out in one line.  Erasure is made a TYPE
+-- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
+-- No thermodynamics, no measure, no number anywhere — fenced explicitly.
+import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+-- शून्यभारः · the machine's own instructions are the zero-charge pole of
+-- SvaTantuVasa's scale, and the power map sits off it by its own period.
+-- One edge between Yantra, SvaTantuVasa and GhataTantu, which cite each
+-- other in no direction.
+import Sunyabhara_TheInstructionSetIsTheZeroChargePoleAndTheDiscreteLogSitsOffItByItsOrder
+
+-- समानकक्ष्या — the orbit relation (trajectories MEET) is already an
+-- equivalence for a bare endomorphism, and the charge descends to the
+-- quotient with the factorisation triangle refl.
+import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient
+
+-- भेदकः — bind the output side and the flow type is a point, always;
+-- bind the input side and it is a point exactly when f is an EMBEDDING.
+-- So Dhruva §२ needs injectivity, not bijectivity: surjectivity of the
+-- observable is unused.
+import Bhedaka_TheHypothesisIsInjectivityNotBijectivityAndTheSurjectivityInDhruvaIsUnused
+-- बहु-प्रत्यानयनम् · the generator of no-return theorems at the level of
+-- points, the discrete log as its first arithmetic instance, and the
+-- counterexample (Unit → S¹) showing Tantujala's बहु is NOT the
+-- obstruction — so noDescentS¹ lives one level up and does not reduce.
+import Bahupratyanayana_TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndTheCircleIsNotAnInstance
+-- व्याप्ति — THE LOSS ORDER.  Between Dhruva's pole (nothing hidden, nothing
+-- moves) and Khahara's (total loss = total symmetry) the "amount lost" is not
+-- a number but an ORDER: g factors through f iff g loses at least as much.
+-- The conserving monoid grows monotonically along it; the two poles are its
+-- bottom and top; Dhruva §२ falls out in one line.  Erasure is made a TYPE
+-- (विस्मृतिः), and a conserving flow can only forget inside a fibre of f.
+-- No thermodynamics, no measure, no number anywhere — fenced explicitly.
+import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
+
+-- [2026-08-23, second sweep] Eight more tracked modules landed green and
+-- unwired within the hour.  Wiring is not bookkeeping: until a module is in
+-- a root, no green claim covers it and nothing rechecks it when the library
+-- moves under it.
+import Apavartana_TheDropDivisorCountsHowManyAndTheCokernelNeedsHowMuchSoTheStruckIdentityIsFalse
+import BhavanaDhruva_TheNormIsTheConservedObservableAndTheConservingFlowsAreExactlyTheNormOneElements
+import GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions
+import SamagamaSthana_TheOrbitRelationIsNeverAPropositionAtAPointAndTheTruncationLosesTheStations
+import SamanaMarga_TheHandPathAndTheTransportPathAreOnePath
+import SamanyaPurvanga_TheSharedPreludeTheFlatInteriorRederived
+import Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIsInjectiveAndOneSidedReachabilityIsStrictlyStronger
+import Vyutpatti_TheSurfaceFormIsALossyProjectionOfDerivationAndMeaningRidesTheDerivation

@@ -752,3 +752,29 @@ On disk is not in the corpus.
 An equivalence is not an unoriented permission to compose.
 
 The Natural Machine is not allowed to spend exactness it does not possess.
+
+---
+
+The next correction is about **the denominator and the snapshot**.
+
+Earlier passes forced a negative verdict to carry the domain and instrument that earned it. The newest sample adds another field that cannot be thrown away: **the population over which the sentence quantified**.
+
+`OBLIGATION.md` had written a clean generalization: “most corrections here were scope-restricting, not fatal.” `OBLIGATION_S8_WitnessedTaxonomy.md` finally ran the census instead of admiring the sentence. As a majority claim, it is false on every frame that note tried: scope-restricting corrections are **23–38%**, never above half. Over the full correction record, scope loses to fatal, **26 to 35**. Restrict the population to corrections of claims the corpus had actually asserted and the comparison reverses, **25 to 16**. The surviving statement is not the old sentence with a nervous qualifier. It is a different quantified claim: most corrections **to standing claims** are scope-restricting. Killed in-flight proposals and corrections to claims that already had dependents are different populations, and propagation reasoning only applied to the second one.
+
+`TRANSSERIES_RETRO.md` catches the same mistake in predictive form. The forecast registered before counting was that more than half of the failure record would have become type errors in a transseries representation, with withdrawal below one third. On the population it had actually named, even counting partials generously, the result was **7 of 26 = 27%**. The note names the mistake: the motivating examples were errata inside otherwise-correct asymptotic arguments, while the test population was dominated by whole research directions killed by structural obstructions, prior art, bad definitions, counterexamples and process failures. An independent second rating pushes the same conclusion harder—**5 of 30 = 17%** counting yes plus partial, or **5 of 25 = 20%** after removing completed walks. The exact percentages differ because the classifier and denominator differ. None rescues the registered claim. **A percentage is not portable after its population has been changed.**
+
+The live inverse-pair ledger makes this temporal as well as statistical. `NirnayaPanjika.tsv` keys a verdict by both function content addresses, the proof rung and the digest of the probe that was actually sent. `NirnayaPanjika.nivrtta.tsv` keeps superseded rows instead of deleting them and says the rule in its header: a pair re-asked at a current digest retires the old row; a pair that simply was not asked is **not** retired. A refusal therefore belongs to a particular question-state. Change the functions or the emitted proof term and the old answer is evidence about the old question, not a cached truth about the new one.
+
+That is why `SADHYA_OPEN_OBLIGATIONS.md` has to be read as a generated snapshot rather than a timeless queue. At its own state it reports **45 open rows: 33 instrument defects and 12 real obligations**. The later `Ratri/` landings sampled in this pass proceed to resolve different members by different means: some proposed sections are genuinely refuted, some return loci are characterized positively, and some failures are diagnosed as the emitter having asked an ill-typed or structurally wrong question. The number 12 was not false when emitted. It simply does not get to survive without the ledger state that made twelve the denominator.
+
+`NadiPariksa_TheGreenWasNeverTakenSoNothingKnewWhetherTheMachineWasAlive.sh` turns the same requirement into a gate. It explicitly prints what it did not run and refuses to count a skip as either green or red. It honors each gate’s shebang because running a Bash gate under `sh` can manufacture an instrument failure that looks like a corpus failure. `check-agda-closure.sh` now separately names tracked and untracked orphans for the same reason. The pulse is an event under a route; the word **green** does not float free of what was actually asked.
+
+And the newest `GananaSaptabhangi_TheMapLevelCensusIsTheSevenfoldItselfAndTheCorpusAlreadyHoldsThreePositions.agda` shows that changing the unit of a census can change the codomain without any contradiction at all. Pointwise, its fibre census has three seeds: contractible, crowded, empty. At the level of a whole map, the question becomes which of those kinds occur anywhere across the codomain; the nonempty selections of three seeds number `2³ − 1 = 7`. The file gives checked representatives for three distinct selections and explicitly marks the source boundary: the classification records are the repository’s; it does **not** claim that a Jain author classified functions. The relation to the sevenfold is the one that file states and checks, not a license to turn every three-way local classification into saptabhaṅgī.
+
+This is not a demand for maximal metadata around every number. It is a narrower rule about what has to survive when removing it changes the proposition. Population predicate. Unit of counting. Question identity. Instrument. Snapshot. Classifier when the count depends on classification.
+
+Sometimes a correction flips a Boolean.
+
+Sometimes it retypes the proposition.
+
+The Natural Machine has to know which happened before it can say that the number changed.

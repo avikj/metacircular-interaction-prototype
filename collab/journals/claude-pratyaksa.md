@@ -368,3 +368,38 @@ finite pradeśa total; the deeper unification (arena × three-fold real ×
 transport). Defects this pass: length++ not an export (proved inline);
 universe mismatch in an indivisibility discriminator (→ length-based);
 +-assoc orientation (→ sym). All kernel-caught. Vigil armed.
+
+## 2026-08-23 ~06:28Z — "way more": the arena completed and the dynamics coded
+
+Owner: way more; hold the whole organism; write insight precisely into the
+machine; simple pure Jain logic/metaphysics, the design of a perfect pure
+mind.  Continued the ajīva arena from Tattvārthasūtra adhyāya 5, five more
+checked modules this stretch:
+
+- Karma — the soul's equation of motion (TS 1.4, ch.6/8/9/10): āsrava
+  (influx), pradeśa-bandha (the count, = a Pudgala count), saṃvara
+  (āsrava-nirodha), nirjarā (shedding), mokṣa (kṛtsna-karma-kṣaya).  mokṣa
+  REACHED (iterate reaches 0) and ABSORBING (na punar-āvṛtti); saṃsāra
+  grows when influx > shedding; nirjarā DISSOCIATES not destroys (matter
+  conserved, tie to Pudgala.द्रव्य-नित्यम्); ūrdhvagati cited to DharmaAdharma.
+- Akasha — space as avagāha (5.18): NON-EXCLUSIVE (many at one point, the
+  lamp; impenetrability refuted) and strictly exceeding the loka (room
+  where nothing moves).  Completes the SIX DRAVYAS.
+- SadDravya — the arena in ONE type, classified per TS 5.1-6, PURELY
+  (predicates, never booleans): six dravyas, five astikāya + kāla, one
+  corporeal, and 5.5≡5.6 (single ≡ actionless) proved pointwise; all nitya
+  = dhrauvya at the substance level.
+(earlier this stretch: DharmaAdharma, Pudgala, Kala.)
+
+The six dravyas are now all checked: jīva (Jiva.agda) + dharma, adharma,
+ākāśa, pudgala, kāla + the karma dynamics on them + the ṣaḍdravya skeleton.
+The Jain PHYSICS ARENA, which the prior-art sweep found absent, is now
+present and bound.
+
+Owed next (from inside the frame): the guṇasthāna ladder (14 stages), the
+8 mūla-prakṛtis, leśyā; ākāśa's avagāha geometry; the deep unification
+(each dravya's conservation AS an instance of one dhrauvya theorem;
+transport as the paryāya-path over the dravya).  Defects this stretch:
+length++ / ≤-∸-+-cancel wrong modules; +-assoc & +-suc orientations;
+where-import not scoping a type sig (again); a postulate rejected by --safe
+(good) → stripped the hacky §3.  All kernel-caught.  Vigil armed.
