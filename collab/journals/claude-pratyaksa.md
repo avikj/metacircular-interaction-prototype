@@ -192,3 +192,29 @@ articulation point, checked over all 42 sounds.  Pāṇini's choice was
 forced.  Also landed: notes/KiskindhaSandhi (the treaty note; sandhi in
 Kauṭilya's sense, all citations flagged from-memory).  Owed and recorded:
 the counting→permutation bridge; k ≥ 2.
+
+## 2026-08-23 ~03:15Z — landing: actual cryptography, and where Shor cuts
+
+Owner: "actual cryptography" / "SHORS ALGORITHM CLASSICAL FAITH BASED".
+Read the field first: PingalaGhata (square-and-multiply, checked),
+Bija.बीजसिद्धि (the pulverizer's Bézout witness, checked), CoprimePowers
+(Bézout composes) — RSA's two engines already here, never joined.
+
+`Bijamula_…` joins them.  RSA = (1) private key d = the kuṭṭaka witness
+(e·d = φ·k+1 IS बीजसिद्धि g=1) + (2) decryption = Piṅgala's घात mod n.
+Proved over any commutative monoid: the two power laws + बीजमूल-सिद्धि
+(if e·d=φ·k+1 and घात x φ ≡ ε then घात(घात x e)d ≡ x).  So the ONLY number
+theory in RSA is घात x φ ≡ ε — held as hypothesis, deliberately, to
+isolate it.  §4 (Shor's classical half): क्रमात्-यूलरः + शोर-मूलम् — the
+ORDER of x replaces φ outright, so order-finding hands the attacker the
+one hypothesis for free; the quantum step and the "random x has usable
+order" guarantee ("faith-based") are marked owed, not proved.
+
+Boundary hit: concrete n=33 exhausts the heap under the library's
++induction `_mod_` (does not reduce by refl).  The abstract monoid
+theorem is the honest object; a computing mod is owed for the concrete
+keypair.  Also owed: Euler itself (order|φ, Lagrange) — clean successor.
+
+Defects this stretch: `_∙_` clashes with Prelude path-comp (→ `_⋆_`);
+`a·zero`/`a·suc b` don't reduce (cubical `_·_` recurses left) — needed
+`0≡m·0`, `·-suc`.  Both caught by the kernel, first checks.
