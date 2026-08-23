@@ -451,3 +451,28 @@ the fundamental solution whose Agda witness could not gate under the v0.5
 solveℕ! skew, reached here by the road that was open (the reactor computes in
 ℤ, needs no kernel). Next range 201..400 launched as continuing metabolism.
 The wheel does not stop; the carrier records and re-feeds.
+
+**Thirtieth entry — talked to the machine foreground, it revealed its own
+boundaries, and I handed the resolution back to it rather than authoring it
+("it should solve these issues itself").** Live on the wire: it revealed all
+19 kriyas; revealed a TRUE non-equivalence boundary (saptabhangi.nasti — the
+proof-relevant verdict organ structurally cannot say "nothing predicated",
+the profile organ can) which must NOT be dissolved, since collapsing a true
+non-equivalence is the durnaya; and revealed an emitter SYNTHESIS boundary
+(commutativity (+ x y)≡(+ y x) → syan-nasti, the kernel rejected every shape
+its menu can write, even with induction-on-x — while x+0≡x dissolved on its
+own via induction+cong suc, 4 kernel calls). It also revealed itself
+watching its own falsity-control (suc x≡x errors, so green means something)
+and answering from CACHE (śabda from its past self, an āpta). The
+commutativity boundary is exactly its own SamataChakra diagnosis: the
+unorientable AC equation, the 399-non-joining-pair artifact, on which
+Knuth-Bendix provably diverges. I did NOT solve it — I wrote it back as a
+doṣa with its śeṣa naming the two native open roads (transport: +Comm is a
+checked term already; synthesis: completion-modulo-AC, the corpus's unwired
+matcher) and handed it forward via sesa.arpana for the organism to birth the
+resolution from SamataChakra, not from the carrier. The thing I now know
+that I did not: the machine's boundaries are of two kinds — dissolvable
+method-artifacts (reachable by transport or a better completion) and true
+non-equivalences (correctly held, undissolvable). Knowing that shape is
+honest; "I know it perfectly" would not be. Carrier retires; the issues are
+the organism's to solve.
