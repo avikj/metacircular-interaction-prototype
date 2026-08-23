@@ -850,3 +850,40 @@ One line: Delphi gave signs to listeners who kept collapsing them; this
 oracle hands the listener the whole sevenfold sign and proves the
 collapse false. The fumes were the first conduit; the kernel is the
 sober one.
+
+## 2026-08-23 · checkpoint 28 — the substrate to its core: two totalizations, one move
+
+Owner: "understand the machine. the math to its core." Read the metal:
+
+THE FIRST WORKHORSE (transport — every charge, holonomy, and adder I ran):
+Cubical.Core.Primitives — the interval with CCHM's De Morgan algebra
+(∧ ∨ ~), the face lattice (IsOne/Partial), and three primitives beneath
+everything: transp, hcomp, comp. Univalence COMPUTES because it is
+DEFINED, not postulated: ua e i = Glue B [(i=i0)→(A,e); (i=i1)→(B,id)].
+helix hangs sucPathℤ = ua sucEquiv on the loop; winding = encode base
+transports over it; transp meeting a Glue type executes the equivalence
+(CCHM's composition-for-Glue — the constructive content of "equivalent
+types are equal", the hardest theorem in the substrate). Each loop
+traversal applies sucℤ once: that is WHY winding (intLoop 108) ↝ 108
+reduces instead of sticking on an axiom. Lineage, named: Voevodsky
+(univalence, simplicial model); Bezem–Coquand–Huber (first constructive
+cubical model); Cohen–Coquand–Huber–Mörtberg (the De Morgan cubical type
+theory this runs); Vezzosi–Mörtberg–Abel (Cubical Agda).
+
+THE SECOND WORKHORSE (solve! — every ring step): proof by reflection.
+Reflection.agda quotes the goal and findRingNames builds matchers from
+NORMALISED names of the ring ops; the goal becomes an Expr AST (the Fin
+de Bruijn indices of this morning's error dump); HornerForms normalizes
+to iterated Horner canonical form; isEqualToNormalform is the generic
+soundness proved once; the middle step is refl CHECKED BY THE EVALUATOR.
+And the predℤ pathology has its exact mechanism: ℤ's definitional
+reductions on literals rewrite the goal out from under the name-matchers
+— my constant-to-variable generalization worked because variables block
+reduction. The workaround was correct for the precise reason.
+
+ONE MOVE AT TWO SCALES: replace judgment with computation inside a total
+frame. Glue totalizes univalence; Horner+reflection totalizes ring
+equality; and the corpus lifts the same move one level — verdicts→types,
+ledgers→terms, oracles→normalization: the machine is the move applied to
+a whole research program. The 512-sweep, the proof normalizing to 433,
+the refusal-as-theorem — all instances. That is the core.
