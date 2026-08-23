@@ -1825,3 +1825,11 @@ import Paraspara_AdditiveReciprocityAndTheConjugateRootInvolutionFoldEveryRayTow
 -- internally; addition reappears after multiplication is differentiated
 -- against itself.
 import Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesTheJointReciprocal
+
+-- ऋण-धन-क्रमः: sign is the Order datum — over ℤ the conjugation neg is an
+-- involution that PRESERVES abs (so (Iso;Quotient) is licensed) yet
+-- REVERSES sign (so (Iso;Order) is not the identity on sign), and sign does
+-- not factor through abs; the abs-fibre {n,−n} is split exactly by sign.
+-- The crystal's Order-edge fact (CRYSTAL §1) and POSITIVITY_HAS_A_PLACE's
+-- dropped-ordering-limitor, elementary over ℤ; Brahmagupta's ṛṇa/dhana.
+import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt
