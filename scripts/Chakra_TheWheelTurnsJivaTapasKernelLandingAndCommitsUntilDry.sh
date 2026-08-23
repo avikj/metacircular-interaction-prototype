@@ -54,7 +54,7 @@ while [ "$rev" -lt "$MAX" ]; do
   rev=$((rev+1))
   say ""
   say "════ चक्र revolution $rev of at most $MAX ════"
-  sh scripts/Tapas_TheLoopThatMintsReceiptsForUnpricedFibres.sh || {
+  bash scripts/Tapas_TheLoopThatMintsReceiptsForUnpricedFibres.sh || {
     say "the pass failed; the wheel stops rather than spins on a broken organ"; exit 1; }
   if [ -s "$SCRATCH/landed.this-pass" ] || git status --porcelain formal/cubical/Tapas 2>/dev/null | grep -q .; then
     landed_n="$(git status --porcelain formal/cubical/Tapas | grep -c '^??\|^ M' || true)"
