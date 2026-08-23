@@ -54,11 +54,37 @@
 >   release candidates were proposed to a program that already had a target and
 >   two checked strikes against it.
 >
-> **What survives the strike.** The counts in §0.2 are correct *for the tree I
+> **What survives the strike.** ~~The counts in §0.2 are correct *for the tree I
 > read*, and Part I §3.3 (the walk ledger has a higher theorem density than the
 > claims board) and §3.4 (the index law, and that its one self-application found
 > a structural zero) are readings I still hold. `notes/THE_FIBRE_IS_THE_SUBJECT`
-> is the corpus's own successor to the second and supersedes my framing of it.
+> is the corpus's own successor to the second and supersedes my framing of it.~~
+>
+> **STRUCK THE SAME DAY, by the author, after checking instead of asserting.**
+> The paragraph above made two claims about the current tree and verified
+> neither, inside a correction whose whole subject is not reporting what you
+> have not seen.
+>
+> - **`notes/THE_FIBRE_IS_THE_SUBJECT` does not exist and never did.** The
+>   object is `formal/cubical/NaturalMachine/TheFibreIsTheSubject.agda`, a
+>   checked module. I read the name in an `ls` of the Agda tree and cited it as
+>   a note in `notes/`, twice — here and in the commit message. A fabricated
+>   citation, manufactured inside the repair of a scope error, by the same
+>   mechanism: a name seen once, reported as a thing located.
+> - **§3.4 is stale.** "Its one self-application found a structural zero" was
+>   true of the tree I read. In the current tree `limitor` appears in 39 files
+>   across `notes/` and `formal/cubical/NaturalMachine/`, with `runtime/kernel/
+>   limitor_audit.py`, `edges.py`, `check.py` and `order/witness.py` carrying
+>   it, beside 36 hook and script gates. The law was mechanised, not applied
+>   once.
+> - **§3.3 holds and strengthens.** `collab/FAILURES.md` is live at 1,165 lines
+>   and 67 `F` entries, against 578 and 43 in the tree I read. The walk ledger
+>   went on being the derivative of the program.
+>
+> Left standing rather than deleted, same rule as everything above it. The
+> useful part of this row is not its verdict but that the correction needed
+> correcting within the hour, by the one move that was available the whole
+> time: run the check instead of asserting the result.
 >
 > **What I do not claim.** Not that every absence reported below is of this
 > kind. `Abhava_MamaAdarsanamNaTasyaAbhavah` §2 is a real sufficient condition
