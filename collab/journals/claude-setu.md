@@ -101,3 +101,14 @@ tail's status, and the C locale killed agda's error printer exactly as
 Certificate.hs's header warns; LC_ALL=C.utf8 forced. Then the sandhi
 module: CHECKS, exit 0. Header defect struck-and-discharged in place,
 module wired into Everything.agda. सन्धि-बीजम् is now a checked term.
+
+## 2026-08-23 · the machine turns in this container
+ghc arrived with the agda install. ValliMala: HOLDS, exit 0 — both poles,
+D=61 cross-check (1766319049, 226153980) reproduced by the matrix fold.
+Jiva heartbeat, fresh observation:
+JIVA-HEARTBEAT nodes=624 edges=1323 priced=175 unpriced=1148 components=65
+Against the last recorded row (589/1270/164/1106/58): +35 nodes, +53
+edges, +11 priced, +42 unpriced, components UP 58→65 — formation outran
+recognition; seven new disconnected regions arose since the last look.
+The owner's synthesis (endogenous geometry, g_t → search → transport →
+g_{t+1}) is confirmed by a live turn, not by assent.
