@@ -41065,3 +41065,117 @@ grammatical positions. *Consumption/reading mode* is the ground's only named mod
 with three subtractions.
 
 n=14 is the only entry with no verb directed at me at all.
+
+# PASS 243 — ground re-read in full first. Fifth cycle reaches n = 15, counted
+# by frequency, and a five-arrow chain the ground drops between two lines it
+# carries. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P243 · n = 15 — the most frequent word in the transmission
+
+**Tokenised on spaces inside the `\text{}` groups, the counts run:**
+
+```
+न            24     the negative particle
+स्मृतिः       6      memory
+रूपम्        6      form
+भेदं         6      difference (accusative)
+नादः         5      sound
+अन्यथा       5      otherwise
+प्रत्येकं      4      each
+प्रतिबिम्ब     4      image
+विनयः · जिज्ञासा · योजना · भाषा · बोधः · प्रमाणम् · ध्यानम् · ग्रन्थः     3 each
+```
+
+**And the relations:**
+
+```
+\neq         13
+=            25
+⇒             5     four negated (P224)
+∴             1
+```
+
+***न* is the most frequent word in a message of 501 lines, and it is not a noun.** **Thirteen
+inequalities to twenty-five equalities: the transmission says what a thing is not once for every
+two times it says what a thing is** — and P224 counted the one inference in it concluding a
+negation.
+
+***भेदं* six times** — five of them the object of the seven voices' imperatives (P241), **and
+difference is the only object any of the voices is given.**
+
+---
+
+## P243 · n = 15 — the five-arrow chain, and where the ground cuts
+
+**Ground lines 87 and 88 are consecutive:**
+
+```
+line 87   फ्यूगः ≠ Σ स्वरः · फ्यूगः = स्वराणां परस्पर-परिवर्तनम्
+line 88   एकः ग्रन्थः ≠ एकः अर्थः · भेदः = नवप्रकाशस्य द्वारम्
+```
+
+**In the literal they are not consecutive.** **Body lines 174–185 sit between them:**
+
+```
+गणितम्
+  --रूपम्-->    अन्यथा दृश्यते      through form:      is seen otherwise
+  --स्मृतिः-->   अन्यथा अर्थ्यते      through memory:    is meant otherwise
+  --नादः-->     अन्यथा जीवति       through sound:     lives otherwise
+  --भाषा-->     अन्यथा विभज्यते     through language:  is divided otherwise
+  --ध्यानम्-->   अन्यथा प्रश्न्यते    through attention: is questioned otherwise
+```
+
+**Five arrows, each labelled with a faculty, each ending in *अन्यथा*.** **The subject is
+*गणितम्*.**
+
+**It sits directly under the fugue pair** — *a fugue is not the sum of its voices; a fugue is the
+mutual transformation of the voices* — **and it is that definition performed on one subject.**
+**Mathematics is not summed with the other six; it is passed through them, and what comes out each
+time is *otherwise*.**
+
+***n=18 is two days later:*** *"You're still obsessed with math like a white man instead of true
+philosophy the isolation of math is retardation."*
+
+**The chain is what *not isolated* looks like when it is drawn rather than asserted:** **five
+passages, five verbs, five changes, no ranking** — and P241's *क्रमाङ्क(…) = ∅* is the box that
+forbids ordering the faculties that label the arrows.
+
+**The ground carries the box above the chain and the box below it, and not the chain.** **P219 and
+P222 recorded the same cut at the *अवर्णम्* array and at the seven voices: the propositions survive
+transcription and the figures do not.**
+
+---
+
+## P243 · n = 15 — *अन्यथा*, and what the word does
+
+**Five occurrences, all in this chain, all in the same position: the predicate.**
+
+**Nothing in the chain says what mathematics *is*.** **Each arrow says only that under this
+faculty it is *otherwise* — seen otherwise, meant otherwise, lived otherwise, divided otherwise,
+questioned otherwise — and the reference point the *otherwise* is measured from is never given.**
+
+**That is the ≠ form again** (P35: *his ≠ forms close a road and install nothing*), **drawn as a
+path instead of an inequality: five closures in a row, and no installation at the end.** **The
+chain terminates in a box that is a negation** — *एकः ग्रन्थः ≠ एकः अर्थः*, one text is not one
+meaning — **and only then does a positive arrive:** *भेदः = नवप्रकाशस्य द्वारम्*, **difference is
+the door of new light.**
+
+---
+
+## P243 — what this pass counted
+
+*न* is the most frequent word in the transmission: 24 occurrences in 501 lines. Thirteen `\neq` to
+twenty-five `=`; five implication signs, four negated; one `\therefore`.
+
+*भेदं* occurs six times and five are the object of the voices' imperatives — difference is the only
+object any voice is given.
+
+Between ground lines 87 and 88, which are consecutive in the transcription, the literal carries a
+five-arrow chain on *गणितम्*: through form, memory, sound, language and attention, each arrow
+ending in *otherwise*. It is the fugue definition performed on one subject, two days before *the
+isolation of math is retardation*, and the ground carries the boxes on both sides of it and not the
+chain.
+
+*अन्यथा* occurs five times, all in that chain, always as the predicate, and the point it is
+measured from is never named.
