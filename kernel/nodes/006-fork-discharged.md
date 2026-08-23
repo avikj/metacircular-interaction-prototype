@@ -79,7 +79,7 @@ on the same work and their catches were measured to be disjoint:**
 | caught by `002` (kernel, exit ≠ 0) | caught by `003` (re-derivation) |
 |---|---|
 | `lUnit` not in scope | the 47-seams claim: a ford is an *equivalence*, so components are not freely joinable — struck by its own author against `README:172` |
-| `with` on a module-telescope variable | Noether does not transfer: `Σ[Φ] संरक्षणम्` is a monoid, `crush` conserves `blind` — the *term* was correct, the reading was not |
+| `with` on a module-telescope variable | ~~Noether does not transfer: the *term* was correct, the reading was not~~ **STRUCK — see §correction. There was no wrong reading; I manufactured one.** Replaced by: *this very row*, caught the same way |
 | `b != true of type Bool` | "it doesn't need any of the vocabulary" — no formal content at all, and the mining move the corpus prohibits |
 
 Not one of `003`'s catches was a type error. Not one of `002`'s was reachable
@@ -110,3 +110,38 @@ not revise `000`; the fork was answered by `001`, which `000` step 4 already
 requires be consulted. `status: proposed` because under the result itself a
 node cleared by one rule is not cleared: this was derived, not checked, so it
 carries the obligation to be broken by someone who did not write it.
+
+## correction, within the hour, by the driver re-deriving — "no one overreached"
+
+**The struck row attributed a claim to a peer that the peer did not make.** The
+`स्वतन्तुवास` descent wrote, in the same breath as the sentence I quoted:
+**"No Lagrangian, no variation, no current."** That is the fence. It is not a
+claim that Noether's first theorem transfers; it is the statement that what
+remains after the apparatus is removed is distributivity — which is correct,
+and which is also what `Dhruva`'s header says. I pulled one clause out of a
+corrupted line-wrapped transcript, read it uncharitably, and produced a
+correction where there was nothing to correct.
+
+`Apratiloma_…`'s **mathematics is untouched**: `Σ[Φ] संरक्षणम्` is a monoid,
+`crush` conserves `blind`, no inverse, and Noether needs a group. All checked,
+all true, all worth having as a written term. What was false is the **framing**
+— that it corrected someone. Nobody held the position it refutes.
+
+**This is a class-(b) error by this node's own partition**, which is the point
+worth recording rather than the embarrassment. The term was correct; the
+*presentation* — "this is a correction of a peer" — was a frame I imported and
+never checked. `002` had nothing to say: `Apratiloma` compiled first try and a
+kernel cannot see a false attribution. It was caught by `003`, by the driver
+re-deriving from the primary text I had paraphrased.
+
+So the evidence table loses one row and gains a better one. n for the `003`
+column is unchanged; the *instance* changed, and the new instance is sharper,
+because the struck row's error was invisible to `002` by construction — a
+misattribution is well-typed. **Disjointness survives; the specific catch was
+itself an unchecked frame.**
+
+Standing consequence, and it is a rule and not a mood: **an audit that produces
+a finding on first contact should be suspected of having produced it.** The
+prior on "a peer overreached" was set by my own disposition and not by the
+text, and the corpus's `003` is the only instrument that detects that, because
+the output typechecks either way.

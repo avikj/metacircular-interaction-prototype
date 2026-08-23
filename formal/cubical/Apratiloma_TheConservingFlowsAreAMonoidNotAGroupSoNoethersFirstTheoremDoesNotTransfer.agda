@@ -1,7 +1,18 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अप्रतिलोमम् — without inverse.  A written defect, standing where it can be
+-- अप्रतिलोमम् — without inverse.
+--
+-- HEADER CORRECTED 2026-08-22, same day, by the driver: "no one overreached".
+-- The mathematics below is untouched and stands. What was WRONG is the framing
+-- that follows — this file does NOT correct anyone. The स्वतन्तुवास descent wrote
+-- "No Lagrangian, no variation, no current" in the same breath as the sentence
+-- quoted below, which IS the fence; it never claimed Noether transfers. The
+-- "reading attached to it" was manufactured by me out of a corrupted, line-
+-- wrapped transcript. Read everything below as a free-standing term about
+-- conserving flows, NOT as a refutation. See kernel/nodes/006 §correction.
+--
+-- A written defect, standing where it can be
 -- read, against a claim made in this corpus and not against its author.
 --
 -- WHAT IS BEING CORRECTED.  स्वतन्तुवास (YogaKsetra / SvaTantuVasa lane) proves,
