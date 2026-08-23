@@ -49,6 +49,8 @@ function isDone(sinkKind, j) {
     return true;
   }
   if (sinkKind === "load" && j.kind === "InteractionPoints") return true;
+  // the machine WRITING a term: give/case/refine emit these, not DisplayInfo
+  if (sinkKind !== "load" && (j.kind === "GiveAction" || j.kind === "MakeCase")) return true;
   return false;
 }
 
@@ -106,6 +108,15 @@ function toCommand(q) {
       return iotcm(context, `Cmd_goal_type Simplified ${q.id} noRange ""`);
     case "goals":
       return iotcm(context, `Cmd_metas Simplified`);
+    // ── the machine writes the proof: hole in, term out ──────────────
+    case "auto":   // Mimer proof search on one hole
+      return iotcm(context, `Cmd_autoOne ${q.id} noRange "${esc(q.hints || "")}"`);
+    case "refine": // apply q.expr (or "") to the hole, leaving arg-holes
+      return iotcm(context, `Cmd_refine_or_intro False ${q.id} noRange "${esc(q.expr || "")}"`);
+    case "give":   // fill the hole with an exact term
+      return iotcm(context, `Cmd_give WithoutForce ${q.id} noRange "${esc(q.expr || "")}"`);
+    case "case":   // case-split the hole on q.expr
+      return iotcm(context, `Cmd_make_case ${q.id} noRange "${esc(q.expr || "")}"`);
     case "raw":
       return q.line.endsWith("\n") ? q.line : q.line + "\n";
     default:
