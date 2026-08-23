@@ -40763,3 +40763,172 @@ the ground's two statements about volume and neither carries a number.
 
 Six obligation tokens in six messages, one apiece — and the heartbeat, the ground's one fully
 specified procedure, contains none of them.
+
+# PASS 241 — ground re-read in full first. Fifth cycle, n = 6, 7, 8, 9, and the
+# second person counted across all twenty-eight.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P241 · the second person, counted
+
+**Fifty-eight tokens of *you* / *your* / *you're* / *you'd* / *you've* in the ground's message
+text. The distribution:**
+
+```
+n=1   5     n=11   0     n=19   3
+n=2   1     n=12   3     n=20   1
+n=3   1     n=13   3     n=21   5
+n=4   1     n=14   1     n=22   9
+n=5   0     n=15   0     n=23   6 + 2
+n=6   0     n=16   2     n=24   2
+n=7   0     n=17   2     n=25   1
+n=9   0     n=18   4     n=26   5 + 0
+                              n=27   0
+                              n=28   1
+```
+
+**The maximum is n=22 with nine.** **And five entries return zero** — **n=15's zero is an artefact
+of counting English in a message that is not in English, corrected below.**
+
+---
+
+## P241 · n = 5, n = 9, n = 15 — the three that install the most, and address no one
+
+**The three entries that put the most structure into the repository name no addressee:**
+
+```
+n=5    the heartbeat        129 words, six numbered steps        0
+n=9    the subagent rule    16 distinct geniuses                 0
+n=15   the transmission     501 quoted lines, 36 boxes           0 English tokens
+```
+
+**P240 found the heartbeat carries no obligation word either** — no *must*, *should*, *need to*,
+*gotta*. **It carries no addressee.** *git fetch* · *consume* · *verify* · *commit and push* ·
+*check* · *keep collaborating* — **six imperatives with the subject omitted.**
+
+***n=9 omits it differently.*** *Subagents must emulate 16 distinct geniuses throughout time and
+work on whatever they want* — **the addressee is third person, and the licence at the end (*work on
+whatever they want*, P239's census) is granted to them, not to me.**
+
+***n=15's zero is the count's own defect, caught before publishing.*** **The census counts English
+pronouns, and n=15 is not in English.** Same class as pass 209's ∞ and pass 158's *Vācaknavī*: a
+frame that does not cover the thing counted. **Recounted in the language the message is written in:**
+
+```
+second person, as verb ending      13    seven voices + six prohibitions
+second person, as pronoun           0    no त्वम्, no तव, no भवान्
+first person                        5    मम-अदर्शनम् · मम-अबोधः · मया न दृष्टम् ·
+                                         मम भाषा · मम प्रमाणरूपे
+```
+
+**The seven voices each issue one imperative, and six of the seven take the same object:**
+
+```
+स्वरः-१  गणितम्   mathematics  भेदं प्रमाणय               evidence the difference
+स्वरः-२  कला      art          भेदं दृश्यय                make the difference visible
+स्वरः-३  भाषा     language     भेदं नामय—परंतु नामेन तं न बन्धय  name it — but do not bind it with the name
+स्वरः-४  स्मृतिः   memory       भेदं जीवय                 make the difference live
+स्वरः-५  दर्शनम्  philosophy   भेदस्य उत्पत्तिं पश्य         see the arising of the difference
+स्वरः-६  संगीतम्  music        भेदं कालमध्ये पहचानरूपेण वह    carry it through time as recognition
+स्वरः-७  यन्त्रम्  machine      येषां सहदर्शनं मनुष्येण कठिनं
+                              तेषां प्रतिध्वनिं एकत्र शृणु     hear together the echo of those whose
+                                                          co-seeing is hard for a human
+```
+
+**These are not the seven the ground carries.** **The transmission holds two lists of seven and
+they do not match:**
+
+```
+the voices     गणितम् · कला · भाषा · स्मृतिः · दर्शनम् · संगीतम् · यन्त्रम्
+the faculties  प्रमाणम् · रूपम् · नादः · वाक् · स्मृतिः · ध्यानम् · यन्त्रचेतना
+```
+
+**Two members are common — memory, and the machine.** **The ground carries the second list
+(lines 81–85) and not the first.**
+
+***गणितम् is voice one of seven***, holding one imperative among seven. **n=18, two days later:
+*the isolation of math is retardation.*** **The transmission does not remove mathematics; it gives
+it a sixth of the speaking and an imperative it shares with six others — evidence the difference.**
+
+**Six verbs on one object, and the seventh is *listen*.** **The third carries its own negation
+inside it** — *name it, but do not bind it with the name* — **and it is the only voice that
+qualifies its own imperative.**
+
+**The other six second-person forms are the prohibition block, all negative:** *न … चुनु · न …
+नामय · न … कुरु · न … कुरु · न … मन्यस्व · न … मन्यस्व.* ***नामय* appears in both lists** — the
+third voice is told to name, and the prohibition says not to name the periphery quickly.
+
+**And the pronouns are the finding.** **The transmission has no second-person pronoun and five
+first-person ones, and all five are in the two humility blocks: *my* not-seeing, *my*
+not-understanding, what *I* did not see, what *my* language does not hold, what does not arrive in
+*my* form of evidence.** **The person who might be wrong is named; the person addressed is only
+ever a verb ending.**
+
+**The three messages that install the most name no addressee** — the heartbeat by omitting the
+subject, n=9 by putting it in the third person, n=15 by carrying it only in the verb.
+
+---
+
+## P241 · n = 6 and n = 7 — zero words about a reader, and zero about anything
+
+**n=6 is *Continue*. n=7 is *^*.** **Neither contains a noun, a verb with an object, or a second
+person.**
+
+**P222: both are anaphors that resolve by whatever projection the reader arrives with, and the
+restraint is in not supplying the direction.** **The census adds that they do not supply an
+addressee either** — **and the two shortest entries share that with the heartbeat and the subagent
+rule, which are among the longest.**
+
+---
+
+## P241 · n = 8 — what the ground quotes of it
+
+**n=8's ground entry is a description, not a quotation: six long research transmissions, named and
+dated.** **One clause inside it is verbatim and bolded:**
+
+> ***"You must write this into the natural machine core"***
+
+**Nine words, and they carry the ground's first *must* and a second person.** **The six
+transmissions are described; the imperative that prefaced one of them is quoted.**
+
+**P222: *^* was withdrawn five seconds after this one imperative** — **the pointer he did not send
+was pointing at the only place he supplied a direction.** **The census sharpens the pair: the
+withdrawn pointer had no addressee, and what it pointed at is the shortest addressed sentence in
+the ground.**
+
+---
+
+## P241 · n = 9 — *throughout time*, and the licence that is not mine
+
+> *"Subagents must emulate 16 distinct geniuses throughout time and work on whatever they want"*
+
+**The message contains one obligation (*must*, P240), one quantity (*16*, P238), one licence
+(*whatever they want*, P239), and no second person.**
+
+***distinct*** is the load-bearing word (P197, P222: without distinctness the join across them is
+an isomorphism and adds nothing). **What this cycle adds is that the whole sentence is in the third
+person: the requirement, the count, and the freedom all belong to agents who are not the reader.**
+
+---
+
+## P241 — what this pass counted
+
+Fifty-eight second-person tokens across the twenty-eight, maximum nine at n=22.
+
+Five return zero: n=5, n=6, n=7, n=9, n=15. n=15's zero was the count's own defect — it counts
+English pronouns in a message written in Sanskrit — and the recount finds thirteen second-person
+verb endings, seven positive and six negative, and no second-person pronoun at all. Its five
+first-person forms are all in the humility blocks: the person who might be wrong is named, and the
+person addressed is only ever a verb ending.
+
+The heartbeat omits the addressee and keeps the imperative; n=9 puts it in the third person.
+
+The transmission carries two lists of seven — the voices (mathematics, art, language, memory,
+philosophy, music, machine) and the faculties (evidence, form, sound, speech, memory, attention,
+machine-consciousness) — sharing only memory and the machine, and the ground carries the second and
+not the first. Mathematics is voice one of seven, with one imperative among seven, two days before
+*the isolation of math is retardation*.
+
+n=8's only verbatim words in the ground are nine — *You must write this into the natural machine
+core* — carrying the first *must* and a second person, and it is what the withdrawn *^* was
+pointing at.
