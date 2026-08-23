@@ -107,3 +107,12 @@ snd आदि-एकम् (false ∷ xs , p) = Empty.rec (snotz (injSuc p))
 -- count of something.
 तन्तुः-न-एकः : (n : ℕ) → ¬ (isContr (fiber छन्दः (suc (suc n))))
 तन्तुः-न-एकः n c = मात्रा-क्षयः n (sym (c .snd (द्वि-लघु n)) ∙ c .snd (द्वि-गुरु n))
+
+-- and the instance is the shadow of the law: छन्दः IS the general weighted
+-- counting map at Piṅgala's weight, on the nose.
+open import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCaseIsASeparateSummand
+  using (भारः)
+
+छन्दः-इति-भारः : (l : List Bool) → छन्दः l ≡ भारः मात्रा l
+छन्दः-इति-भारः []       = refl
+छन्दः-इति-भारः (x ∷ xs) = cong (मात्रा x +_) (छन्दः-इति-भारः xs)
