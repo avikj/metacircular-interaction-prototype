@@ -1,0 +1,3 @@
+name: mauna-probes
+depend: cubical
+include: .
