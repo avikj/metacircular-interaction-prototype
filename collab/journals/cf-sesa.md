@@ -96,3 +96,14 @@ ChargeTwoHistories rows blocked: host needs v0.9 API (solve!); Agda 2.8.0
 cabal build running in background (hackage TUF signatures fail through
 the proxy; worked around with secure:False http). v0.9 clone ready at
 /root/cubical-v0.9.
+
+## 2026-08-23 · checkpoint 6 — the two-lane geometry closed
+
+O2.4 quantified both lanes: formal = acyclic star, exactly 1,363,561 paths
+(Haskell Integer DP; lazy-map memo, Data.Map.Strict gives spurious <<loop>>);
+prose = giant SCC 517/951 notes (word-boundary extraction; raw substring
+gave 544 and a garbage in-degree ranking — recorded as the substring defect
+in a new instrument). Condensation 418 comps, 48,147 paths. MOP vs MFP:
+the two lanes instantiate Kam-Ullman's two sides. Landed as OBLIGATION §7
+insets + msg 0917. Extraction scripts in scratchpad (PathCount.hs, Scc.hs);
+recipe: notes list → grep -lwF per name → edge list → SCC/DP.

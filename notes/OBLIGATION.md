@@ -490,7 +490,15 @@ claimed:
   > another's (`KBOUNDARY` ⊂ `KBOUNDARY_AUDIT`), so the giant SCC's size is an
   > upper reading; the qualitative split (huge cycle-core vs acyclic star)
   > survives any reasonable de-noising, but the 544 should not be quoted
-  > without this sentence.
+  > without this sentence. [De-noised the same hour with word-boundary
+  > matching: 4,264 edges, giant SCC **517**, condensation 418 components /
+  > 626 edges / **48,147** paths. The split held. A first-pass in-degree
+  > ranking under the raw instrument put FF, MACHINE, PARITY, INDEX on top —
+  > pure substring artifact, and it is recorded here BECAUSE it is the
+  > substring-scoring defect the file-naming rule already warns about,
+  > arriving in a new instrument. Rankings from name-mention graphs need the
+  > boundary-matched extraction at minimum; SCC-scale conclusions survive
+  > either way.]
 - **§8 missing ⇒ the §0 claim is unsupported.** "Most corrections in this
   corpus were scope-restricting rather than fatal" is an empirical claim
   about `collab/FAILURES.md` and the struck passages in `notes/`. It is the
