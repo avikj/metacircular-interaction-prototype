@@ -2,6 +2,7 @@
 id: 005
 kind: rule
 status: rule-active
+cleared-by: 003
 ---
 # the technique library
 

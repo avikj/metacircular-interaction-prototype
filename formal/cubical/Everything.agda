@@ -617,6 +617,31 @@ import Sivasutra
 -- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
 import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
+-- And the bound is NOT tight: an exact five-class family of ⊆-width two
+-- that no recited-once line names with two anubandhas (all 120 arrangements
+-- checked), that three name, and that two name the moment a sound may be
+-- recited twice — ha, in sūtras 5 and 14.  Repetition is the resource the
+-- antichain model does not have.
+import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
+-- The reason under that exhaustion, with no enumeration: one antya names
+-- EVERY suffix of its stretch whose first sound does not recur later in the
+-- stretch (Aṣṭādhyāyī 1.1.71, ādir antyena sahetā).  So a ⊆-chain of any
+-- length costs one marker, and with repetition free the antichain bound is
+-- the answer.  The economy of repetition is the whole of what is left.
+import Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker
+-- And repetition is not an economy at all: three sounds, the three pairs,
+-- and NO recitation order seats them at any anubandha count — while three
+-- anubandhas seat them the moment sounds may be recited twice.  μ₀ = ∞ and
+-- μ_∞ = width.  Pāṇini's own attested aṬ, śaL, yaR restrict to exactly that
+-- cycle on h y ś, which is why h stands in sūtra 5 and again in sūtra 14.
+import Krama_NoRecitationOrderSeatsTheCycleSoRepetitionLiftsAnObstructionAndNotACost
+-- The owed bridge, paid on the real thing: all fourteen Māheśvara-sūtras
+-- encoded (57 tokens), aṬ, śaL, yaR computed by refl, their restrictions to
+-- {h y ś} ARE the cycle — and NO line reciting h y ś once each names three
+-- classes so restricting (proved over all lines, not an enumeration).  So
+-- one of the three must be said twice, and Pāṇini said ha: sūtra 5 before
+-- ya, sūtra 14 after śa, the stretch between them h-free for yaR.
+import Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninisChoiceIsHa
 
 -- Jain epistemology and mathematics: anekāntavāda as a total generator,
 -- the taxonomy of the unbounded (saṃkhyāta / asaṃkhyāta / ananta), and
@@ -707,6 +732,7 @@ import SamasaEkagra
 import SamasaMeru
 import SamasaMeruN
 import SamantaraSankalita_TheGeneralSeriesAtOneAndOneIsTheSankalitaAndTheExampleWasStandingForIt
+import SamaghataSankalita_TheDescentIsExactForEverySequenceAndAryabhatasRulesAreItsFirstInstances
 import SamasaNyuna
 import Samasesha
 import Sankalita
@@ -1330,6 +1356,15 @@ import Bharavrtti_TheWeightedCountingMapsFibreDecomposesByHeadWeightAndTheNilCas
 import Svasthani_TheHypothesisThatClosesSthanivadbhavaFailsAtTheFirstSubstitutionAndReturnsAtTheSecond
 import Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
 
+-- नष्ट — two edges taken off `Lopa … --queue` by exhibiting the recovery
+-- map, which converts a receipt into an address: the one-hole context IS
+-- its action word (`decodeContext ∘ compileContext ≡ id`, the round trip
+-- CompositionalContextAdapter never wrote), and a 3×1 integer matrix IS
+-- its triple of entries (`refl`, the half SmithPathCountedExecution never
+-- stated beside the funext half it did).  §४ states the extent of the
+-- search and names the census defects it found and did not repair.
+import Nasta_TheOneHoleContextAndTheColumnAreRecoveredFromTheirData
+
 -- विरहाङ्क — the mātrā fibre satisfies the two-step recurrence, as an
 -- EQUIVALENCE OF FIBRES rather than a count: fiber (n+2) ≃ fiber (n+1) ⊎
 -- fiber n, prepend-laghu and prepend-guru, with both base cases contractible.
@@ -1374,3 +1409,80 @@ import NarayanaGavampasa_TheCowCompositionFibreSplitsAtTheHeadIntoOneAndThreeYea
 import Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees
 import PravesaTantu_TheInjectionsFibreIsContractibleOnItsImageAndEmptyOffItSoItIsReceiptAndWall
 import Viloma_TheBackwardReadingOfAMatraMetrePreservesItsDurationSoReversalIsAnInvolutionOnEachDurationFibre
+import Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGradesByItsSteps
+
+import Uddista_TheReceiptBecomesAnAddressExactlyWhenTheFibreRankIsCarriedAndItsPriceIsVirahankasNumber
+
+-- अपवर्तनम् — the FOURTH carrier step law, the one the kuṭṭaka instance in
+-- `punaragamana` never states: what the CARRIED PAIR does under the वल्ली step.
+-- क्षेप multiplies, rank succeeds, coarseness scales — and the pair loses the
+-- lesser out of the greater while its common measure stands.  Needs the round
+-- trip भेद∘उत्थान ≡ id, which that module does not have.  Self-contained: the
+-- carrier, the three slots and divisibility are redefined here, and the header
+-- names every duplicate.  Āryabhaṭa, गणितपाद ३२–३३, 499, second-hand.  2026-08-22.
+import Apavartana_TheCarriedPairLosesTheLesserFromTheGreaterAndTheCommonMeasureStands
+
+-- सापेक्ष–निरपेक्ष — the ३/४ criterion this lane proposed yesterday
+-- (`Avacchedaka_…` §३, mine) is refuted by the corpus's own level-२
+-- archetype: `fiber (Bool → Unit) tt ≃ Bool` is the whole source, so
+-- `सर्वहानिः` does not separate ४ from ३ or even from २.  Not a stray
+-- instance — `∥ Bool ∥₁ ≃ Unit`, the triangle commutes, and the two fibre
+-- censuses are pointwise equivalent.  The witness half is vacuous too:
+-- `idfun` separates two fibre points of `∣_∣₁`.  What the collision names
+-- is that recovery is सापेक्ष — one map, two retained contexts, opposite
+-- verdicts — so no property of the map alone carries the level.
+-- Siddhasena Divākara, *Sanmatitarka* 1.21–25, c. 5th c.  2026-08-22.
+import SapeksaNirapeksa_TheLossLevelIsNotAPropertyOfTheMapAloneAndTheFibreCriterionFailsOnItsOwnArchetype
+
+-- शलाका — Vīrasena's cutting operations put to the job the Jaina orders are
+-- for: each cut strips EXACTLY one storey of the tower (एक-छेदः), so k cuts
+-- return a height-k tower to its base and do NOT reach the base of a
+-- height-(k+1) one (असमाप्तिः).  And every śalākā — अर्धच्छेद, वर्गशलाका, and
+-- higher — is अधोगामी in Vrddhiksaya's sense, which that file asserted of
+-- them in prose and never proved.  Digambara, धवला c. 816; verse-level
+-- citation owed, second-hand, and none guessed.
+import Salaka_TheOrdersAreSeparatedByHowManyCutsTheyOutlastAndEachCutStripsExactlyOneStorey
+
+-- दृढम् — the ARITHMETIC half of what `Sarvasthana` deliberately left out.
+-- Every n ≥ 1 is a product of firm numbers (existence, by well-founded
+-- recursion on a decidable bounded search), Euclid VII.30 proved from the
+-- library's gcd, and hence: the SUPPORT of the factorisation is determined
+-- by n — for firm p, p ∣ n ↔ p occurs in the list.  Multiplicities are NOT
+-- shown unique and v_p is not defined; the fibre of D ↦ ∏ p^e over n is
+-- proved INHABITED, not contractible.  2026-08-22.
+import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision
+
+-- भागहारः — the exact division carried as a witness, and the चक्रवाल turn
+-- built out of it.  `भागहारः j n` is division of n by (suc j) presented as
+-- a carrier: base (dividend, divisor), carried the लब्धि, witness
+-- n ≡ suc j · लब्धि; `भागहार-एकः` proves the type is a PROPOSITION, so the
+-- quotient is determined and free to carry — one h-level weaker than the
+-- क्षेप's contractible fibre, and weaker exactly because division is
+-- partial.  `पद-प्रमाणम्` is then the cyclic step in all four sign cases
+-- (Brahmagupta's धन/ऋण, not a Bool), and §५ RUNS it: six turns at D = 61,
+-- Bhāskara's own example, every divisibility discharged by refl in the
+-- kernel, reaching (29718, 3805, −1); one भावना doubling closes it at
+-- 1766319049² − 61·226153980² = 1.  NOT proved: termination, minimality of
+-- Bhāskara's m-choice, existence for general D.  2026-08-22.
+import Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAtSixtyOne
+
+-- पूर्वत्रासिद्धम् (8.2.1) as a tower of maps.  `Asiddhatva` proved the
+-- stratification buys termination; this asks what the blindness IS, and the
+-- answer is a fibre: 8.4.56 maps `ka` and `ga` — which disagree about
+-- whether 8.2.39 still applies — to one form, so 8.2.39's condition has NO
+-- value on the later form (`अवरोहणाभावः`), not merely a different one.  The
+-- converse (`सर्वावरोहणम्`: contractible fibres ⇒ every predicate descends)
+-- makes that content rather than accident, and `असिद्धत्वहेतुः` derives from
+-- the two that the necessity of 8.2.1 at this site IS a later rule
+-- collapsing two forms.  The tower decomposition is `Sesa`'s शेष, imported,
+-- not restated.  Pāṇini, *Aṣṭādhyāyī* 8.2.1 / 8.2.30 / 8.2.39 / 8.4.56,
+-- c. 500 BCE; he proves nothing here.  2026-08-22.
+import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
+
+-- अनुवृत्ति — maps where definitional computation stops for transport, and
+-- CORRECTS punaragamana/README.md finding 3: the Glue is transparent
+-- (transport along a composite of three ua's is refl on neutral input); the
+-- residue is a neutral TYPE, or the top of a Σ where every projection is
+-- already refl.  Non-theorems recorded as non-theorems, with the residual
+-- Agda reports.  Measurement at Agda 2.8.0 / cubical v0.9.
+import Anuvrtti_TheGlueIsTransparentAndTheWholeCostIsTheNeutralTypeNotTheIdentification

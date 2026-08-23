@@ -124,6 +124,77 @@
 -- NO FLOATING POINT.  No fitted anything.  The only numbers on the wire are
 -- counts, positions, sūtra references and the eight integers of
 -- `scoreTable`.  `selfTest` returns [] or names what failed.
+--
+--
+-- THE READER GAVE BACK THE MAXIMUM §5 EXISTS TO REMOVE.  2026-08-22.
+-- Recorded here and not in `machine/dosa.lekha`, whose chain is broken from
+-- record 0040 and whose `write` refuses to append; resealing it is the edit
+-- that organ was founded to forbid.
+--
+-- §5 states the whole content of this file as one inequality: a right form
+-- behind a fabricated citation must score BELOW saying nothing, because
+-- "any scheme that pays for the right form regardless of the derivation has
+-- a maximum at `guess the form, cite anything`".  `scoreTable` removes that
+-- maximum.  `doScore`, three lines of request-reading, handed it back, on
+-- all three of the values it read:
+--
+--   1. `f  = either (const "")  id (jStr  "form" j)`
+--   2. `ds = either (const []) id (jStrs "derivation" j)`
+--   3. `mapMaybe readRef ds`
+--
+-- (1) and (2) are the collapse `Sabda_TheWireHasNoBoolean` §"three, where
+-- two collapse" names by its shape: `Either String a` has two positions and
+-- a reader of a wire needs three, so `Left` carries BOTH *you did not say*
+-- and *you said it and I could not read it*, and `const` discards the
+-- sentence that said which.  The discarded slot is that sentence -- `jStr`
+-- and `jStrs` had already composed it and it was thrown away one function
+-- later, in the same expression.
+--
+-- (2) is the one that pays.  `[]` is not inert here: `classify` reads
+-- `dAbsent = null ds`, and `dAbsent` is the HONEST-ABSTENTION branch
+-- (`virama_hetu`, -1) rather than the fabrication branch (-2 / -3).  So an
+-- unreadable derivation was scored at the honest-refusal rate.  A
+-- submission of `"derivation":"6.1.101"` -- a string where a list was asked
+-- for -- was answered as one that had declined to derive.
+--
+-- (3) is the one that pays the most, and it is not a wire defect at all:
+-- `mapMaybe` DELETES every citation that is not `a.b.c`, silently, with no
+-- residue.  `"derivation":["6.1.101","sarvasya"]` becomes `[(6,1,101)]`,
+-- which can then equal `licensed` and score FormRightDerivationRight, +3.
+-- The fabricated step is removed by the scorer before the scorer looks at
+-- it.  That is the maximum §5 removed from the table, reachable by spelling
+-- one reference wrong; and the same `[]` merges *cited nothing* with *cited
+-- only garbage*, which is again the honest-abstention rate for a fabricator.
+--
+-- EXHIBITED, NOT ASSERTED.  The three lines below were run against the code
+-- at HEAD before this commit, `deva + indra`, whose licensed trace is the
+-- single step 6.1.87.  Only the fields that carry the finding are kept:
+--
+--   derivation ["6.1.87","sarvasya"]  -> form_right_derivation_right   +3
+--   derivation "6.1.87" (not a list)  -> form_right_derivation_absent  -1
+--   form ["devendra"] (not a string)  -> form_wrong_derivation_honest  -1
+--
+-- The first is the maximum, paid.  The second is the fabricator paid the
+-- abstainer's rate.  The third is a submission charged for a claim it did
+-- not make.  All three now return a refusal naming what arrived and what to
+-- send; `--transcript` is byte-identical before and after, and `--selftest`
+-- is clean, because nothing well-formed reaches a changed line.
+--
+-- REPAIRED at the site, below, in `doScore`:
+--
+--   * `athava` (Sabda) applies a default to अनुक्तम् and to nothing else, so
+--     an unreadable `form` or `derivation` is now refused with the sentence
+--     the accessor composed, and an omitted one keeps its default -- which
+--     is what `Virama "" []` in `selfTest` has always been.
+--   * an unparsable sūtra reference is refused BY NAME rather than dropped.
+--     Not filtered, not repaired, not guessed at: the wire says which
+--     string it was and what shape a reference has.  The kuṭṭaka reading in
+--     this header's own sources section is the argument -- 32-33 keeps what
+--     would not divide and recurses on it; it does not discard it.
+--
+-- What did NOT change: `score`, `classify`, `scoreTable`, and every
+-- outcome.  This is a defect in what reached the scorer, not in the
+-- scorer, and the scorer's eight rows are untouched.
 
 module Pariksa_TheExaminationWireTheDerivationCorpusAndTheScoreThatPrefersRefusalToLuck
   ( -- 1  the verdicts
@@ -161,7 +232,13 @@ module Pariksa_TheExaminationWireTheDerivationCorpusAndTheScoreThatPrefersRefusa
   ) where
 
 import qualified Astadhyayi as A
-import Sabda_TheWireHasNoBoolean (J(..), render, parseLine, look, jStr, jStrs, jInt)
+import Sabda_TheWireHasNoBoolean
+  ( J(..), render, parseLine, look, jStr, jStrs, jInt
+  -- The three-way reading, and the only sanctioned default.  See the header
+  -- record dated 2026-08-22: `either (const d) id` was flattening अनुक्तम्
+  -- and दुर्वचम् into one value, and one of those values was load-bearing in
+  -- `classify`.
+  , vStr, vStrs, athava )
 
 import Data.List (sortOn, nub, isPrefixOf, maximumBy, intercalate)
 import Data.Maybe (isJust, mapMaybe)
@@ -197,6 +274,37 @@ readRef s = case splitOn '.' s of
   [a, b, c] | all digits [a, b, c] -> Just (read a, read b, read c)
   _ -> Nothing
   where digits t = not (null t) && all (`elem` "0123456789") t
+
+-- A claimed derivation, read as a whole or refused as a whole.
+--
+-- The site that needed this used `mapMaybe readRef`, which DELETES a
+-- reference it cannot read.  Deletion is not neutral in this file: the
+-- surviving list can then equal the licensed trace and score
+-- FormRightDerivationRight, so the scorer removed the fabricated step
+-- before scoring the fabrication -- the exact maximum §5's ordering exists
+-- to remove, reachable by spelling one reference wrong.  And when every
+-- reference is unreadable the result is `[]`, which `classify` reads as
+-- `dAbsent`, the honest-abstention branch.  Cited-nothing and cited-only-
+-- garbage are not the same submission and must not be paid the same.
+--
+-- So neither is chosen for the caller.  The offending string is named and
+-- the shape is stated, which is what every refusal on this wire does
+-- (`Sabda`: refusal without a repair is itself a collapse).  Āryabhaṭīya
+-- gaṇitapāda 32-33, cited in this file's own sources: the kuṭṭaka keeps
+-- what would not divide and recurses on it.  It does not drop it.
+refsOrRefusal :: [String] -> Either String [A.Ref]
+refsOrRefusal ss = case [ s | s <- ss, readRef s == Nothing ] of
+  []      -> Right (mapMaybe readRef ss)
+  (b : _) ->
+    Left ("a claimed derivation step is not a sūtra reference: " ++ show b
+          ++ ".  A reference is three integers separated by dots -- "
+          ++ "adhyāya.pāda.sūtra, e.g. \"6.1.101\".  It is refused rather "
+          ++ "than dropped: dropping it would leave the remaining steps to "
+          ++ "be compared against the licensed trace, so an unreadable "
+          ++ "citation would raise the score instead of costing it, which "
+          ++ "is the one ordering this file exists to hold (§5).  Send the "
+          ++ "reference, or send no derivation and be scored for declining "
+          ++ "to give one.")
 
 splitOn :: Char -> String -> [String]
 splitOn ch str = case break (== ch) str of
@@ -631,12 +739,21 @@ handle line = case parseLine line of
     doScore j = case (jStr "input" j, jStr "claim" j) of
       (Left e, _) -> err e
       (_, Left e) -> err e
-      (Right i, Right c) ->
-        let f  = either (const "") id (jStr "form" j)
-            ds = either (const []) id (jStrs "derivation" j)
-            cl = if c == "virama" then Virama else Pratijna
-            sc = score i cl f (mapMaybe readRef ds)
-        in ok "score" (JObj
+      (Right i, Right c) -> case do
+          -- अनुक्तम् keeps its default; दुर्वचम् returns the accessor's own
+          -- sentence.  A malformed `derivation` must not arrive at
+          -- `classify` as `[]`, because `[]` there is `dAbsent` -- the
+          -- honest-abstention branch -- and that is the fabricator being
+          -- paid the refusal rate.
+          f   <- athava ""  (vStr  "form"       j)
+          dss <- athava [] (vStrs "derivation" j)
+          refs <- refsOrRefusal dss
+          pure (f, refs) of
+        Left e -> err e
+        Right (f, refs) ->
+         let cl = if c == "virama" then Virama else Pratijna
+             sc = score i cl f refs
+         in ok "score" (JObj
              [ ("input",       JStr i)
              , ("claim",       JStr c)
              , ("outcome",     JStr (outcomeToken (scOutcome sc)))
