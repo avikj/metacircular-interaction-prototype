@@ -147,3 +147,28 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
   नष्टाभावे-कक्ष्या-एकपदा e cons zero    a = refl
   नष्टाभावे-कक्ष्या-एकपदा e cons (suc n) a =
     cong Φ (नष्टाभावे-कक्ष्या-एकपदा e cons n a) ∙ नष्ट-अभावे-गति-अभावः f Φ e cons a
+
+------------------------------------------------------------------------
+-- ६ · कक्ष्या तन्तौ वसति — THE WHOLE ORBIT LIES IN ONE FIBRE.
+--
+-- `Dhruva` §१ proves that `Φ` carries a fibre into itself — one step —
+-- and its prose then reads that as "the gauge orbit IS the fibre".  The
+-- orbit is a set §१ never quantifies over.  This is that set: every
+-- station of the forward orbit of `a` is a point of the fibre over
+-- `f a`, with §२ supplying its membership witness.
+--
+-- So the sentence "the gauge orbit lies in the fibre" now has a term
+-- whose subject is the orbit, and the physics reading of `Dhruva` §१ is
+-- discharged rather than asserted.  What is still NOT claimed is the
+-- converse -- that the fibre is exhausted by one orbit -- which is
+-- transitivity of the flow on the fibre, exactly the hypothesis
+-- `Dhruva`'s header says the second theorem's dichotomy needs and does
+-- not have.
+------------------------------------------------------------------------
+
+open import Cubical.Foundations.Equiv using (fiber)
+
+module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
+
+  कक्ष्या-तन्तौ : संरक्षणम् f Φ → (n : ℕ) (a : A) → fiber f (f a)
+  कक्ष्या-तन्तौ cons n a = कक्ष्या f Φ n a , ध्रुवं-कक्ष्यायाम् f Φ cons n a
