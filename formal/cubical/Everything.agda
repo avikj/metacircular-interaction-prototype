@@ -755,6 +755,12 @@ import Shora_TheClassicalHalfOfFactoringIsAZeroDivisorSplitByThePulverizerAndOnl
 -- period r=3 is visible in the fibre).  Crypto's asymmetry is this repo's
 -- own quotient/fibre law, and Shor's period-finding is its separating query.
 import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+-- The floor beneath the floor: a one-way function is EXACTLY a
+-- non-equivalence.  isEquiv f means every fibre is contractible, so घात
+-- being one-way IS ¬ isEquiv (घात) — proved — and an equivalence would hand
+-- back the discrete log as a total inverse.  Security ⟺ ¬ isEquiv; crypto
+-- is a map outside the image of ua, its secret the śeṣa transport cannot erase.
+import Sesa_TheOneWayFunctionIsExactlyANonEquivalenceAndCryptoLivesInTheResidualUnivalenceCannotErase
 -- नष्टोद्दिष्टम् — रङ्क/अनरङ्क क्रिया, स्थान-पृथक्-छेदेषु ; यन्त्रस्य अन्वेषण-आकाशाः जन्यन्ते, न स्थाप्यन्ते
 import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 import PingalaPrastara
