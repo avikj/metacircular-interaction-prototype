@@ -2137,3 +2137,10 @@ import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOve
 -- so QuotientFiberLaw's collision-obstructs gives: the law of succession
 -- does not factor through the carrier. Checked warm via नाडी before landing.
 import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
+-- समविभागः: term 2 of the 2026-08-23 transmission — the finite transitive
+-- measure theorem. Transitivity + invariance + normalization + unique
+-- n-division force the uniform weight (isContr over a set W, with अस्ति
+-- the uniform inhabitant); the landed ½ (EkatvaMatraDvaya) is its Fin 2
+-- instance. Finding beyond the transmitted statement: the group laws are
+-- never consumed — a bare transitive action already forces uniformity.
+import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure

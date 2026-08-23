@@ -59,3 +59,17 @@ warm-kernel load (= full elaboration) of the module and its import chain
 Nadi, Agda 2.6.3, cubical v0.5 at /root/.cache/punaragamana/cubical,
 2026-08-23. A closure re-run under the declared pin is owed by the next
 carrier on a 2.8.0/v0.9 container.
+
+**Second landing, same session.** Term 2 of the transmission:
+`SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniform
+Measure.agda` — साम्यम् (invariance + transitivity ⟹ constancy, two lines),
+भागः (every rule exhibits w(fzero) as an n-th part of 𝟙), समविभागः (pointwise
+uniqueness under isProp n-division), अस्ति (existence: uniform rule from an
+n-th part), एकाकित्वम् (isContr over a set W). Fin 2 correspondence with
+EkatvaMatraDvaya stated in the header (गुणः 1 y = y +ᵂ y ⟹ divideUniquely =
+halvesUniquely), shim not wired. Finding beyond the transmitted statement,
+recorded in the header: THE GROUP LAWS ARE NEVER CONSUMED — G is a bare type
+with a bare action; only transitivity and invariance are spent. Checked warm
+via Nadi (छिद्रं नास्ति, first load), route: Agda 2.6.3 / cubical v0.5, this
+container. Terms 3 (Aisthesis-wrapped Nadi events) and 4 (Postnikov body)
+remain for the next carrier or next session.
