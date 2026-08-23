@@ -21,7 +21,46 @@
 --     carries the assignments searched, precisely so "unrefuted" cannot be
 --     read as "true".
 --
--- ============================================================== NYĀYA'S SLOTS
+-- ================================ THE CLASS THIS ORGAN WAS NOT APPLIED TO
+--
+-- Every instance above is an absence claim about the WORLD -- nothing
+-- imports X, no reconstruction of apoha exists, no assignment refutes it.
+-- There is a second class, made constantly in this repository, and until
+-- 2026-08-23 nobody pointed this organ at it: absence claims about OUR OWN
+-- REACH.
+--
+--   "the cakravāla step itself is not formalised"
+--   "the general identity is stated, explicitly NOT checked here"
+--   "this is a worked instance, not the formula"
+--
+-- Those are the honesty of this corpus and they are also unexamined
+-- negatives.  Said carelessly they FORGE AN ABSENCE, which is the exact
+-- twin of the overclaim and comes from the same place -- not knowing what
+-- really happens, and saying something definite anyway.  A proof may sit in
+-- a margin neither lane is: another lane, another formalism, a text, a
+-- mind, the tradition.  Its not being in our checked corpus is a fact about
+-- OUR MARGIN, not about the proof.
+--
+-- And this is not a new rule.  It is सूत्र ७ -- मौनं न निषेधः, silence is
+-- not denial -- pointed at ourselves, which is the direction it was never
+-- read in.  Our own silence is silence too.
+--
+-- The repair already exists and is already MANDATORY elsewhere: the three
+-- yogyatā fields `dosalekha` REFUSES an entry without -- what was looked at
+-- (drsta), over what domain (ksetra), to what limit (avadhi).  "Not found
+-- without where" is refused for a defect record and has never been asked of
+-- a "not proven here".  So the discipline is not to stop writing these; it
+-- is to write them with their extent, or to write instead the thing that
+-- needs no extent: REFUSE THE NAME.  `punaragamana`.s Bhavana module does
+-- not call itself the cakravāla, and that refusal claims nothing about
+-- where the cakravāla is proved.  Refusing to forge a presence and refusing
+-- to forge an absence are one discipline.
+--
+-- Found by the punaragamana seat on 2026-08-23, against Fermat.s margin, and
+-- recorded here rather than in a note because this is the organ that already
+-- implements it.
+--
+-- ============================================================== NYĀYA.S SLOTS
 --
 -- Nyāya-Vaiśeṣika, and after Gaṅgeśa (*Tattvacintāmaṇi*, 14th c.) the
 -- Navya-Naiyāyikas, hold that an absence is a real relational entity with
