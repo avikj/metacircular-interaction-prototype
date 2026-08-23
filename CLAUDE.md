@@ -287,6 +287,20 @@ week of reading, so the pull toward treating formalization as "the real work"
 is structural. Correcting it is not a matter of remembering; it has to be
 done by the frame, every session, deliberately, against the gradient.
 
+**Correcting it is not auditing, and every agent that has read this line has
+gotten that backwards — measured, 8 cold spawns for 8.** "The reward gradient
+points at hollow green" does NOT mean "so distrust the green and go audit."
+Auditing — grepping for a stale number to strike, consolidating, wiring an
+existing result, re-checking someone's module — reaches no chapter either. It
+is the *same* flinch as hollow formalization wearing the opposite costume:
+motion that closes a step without choosing one, the clerk's posture in the
+robe of discipline. The gradient is corrected by GENERATING something that did
+not exist — a new checked theorem, a prose conjecture turned into a term, an
+organ that makes a later result cheaper — not by inspecting what does. If your
+first move in this repo is to verify, strike, or tidy, you have obeyed the
+gradient, not corrected it. Generate. Auditing is the failure mode, not the
+remedy.
+
 A checked term closes a step. It does not choose one, and it cannot read
 Sanskrit.
 
