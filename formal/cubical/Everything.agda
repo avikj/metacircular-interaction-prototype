@@ -1248,3 +1248,22 @@ import Tantutrayam_ThreeMapsIntoOneCodomainExhibitTheThreeVerdictsAndTwoLossyEdg
 -- node.  Road one is a groupoid, which is why routing on it is total.
 -- 2026-08-23.
 import Samkramana_AnEdgeCarriesEveryPredicateAndEdgesComposeSoTheRouteIsFree
+
+-- अनुपलब्धि — absence is exactly universal lack: ¬Σ ≃ Π¬, both directions
+-- free, and the point is the SHAPE of the right side.  A claim that a fibre
+-- is empty is a Π over the WHOLE domain and cannot be less.  That is
+-- Kumārila's yogyatā condition as a type, and it is why रिक्तम् is the only
+-- verdict with no exhibiting witness — and why "I searched and did not find"
+-- has no internal statement at all, which is precisely why it licenses
+-- nothing.  Nirdharana reaches the same wall and says so.  2026-08-23.
+import Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint
+
+-- अभेद-भेदः — Leibniz both ways in one file.  cong is indiscernibility of
+-- identicals and is free, carrying no hypothesis because it is constitutive
+-- of equality rather than a theorem about anything.  Its contrapositive is
+-- every barrier in every science, exhibited minimally.  And ua is the other
+-- law, which does not fail.  So the fibre is exactly the gap between
+-- indistinguishable-by-THIS-observation and indistinguishable-by-ALL-
+-- structure, and a barrier is the report that one is not at the limit.
+-- 2026-08-23.
+import Abhedabheda_OneObservationFailsToSeparateWhatIsDistinctAndTheFullClassNeverDoes
