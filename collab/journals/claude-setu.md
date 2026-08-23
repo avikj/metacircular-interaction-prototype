@@ -563,3 +563,32 @@ the diamond. Landed as notes/SetuBandhaSetu_….md. One day's chain:
 folklore → optics → rigidity → shells → involutions → reciprocity →
 diamond → dispersion → envelope → position basis → bridge → gaps →
 one lemma. The trajectory is the capability.
+
+## 2026-08-23 · bedrock
+Fourth "more ambitious" — answered by finishing the descent. The
+M-restricted Gap Lemma IS the two-residue Jacobsthal problem (two
+lines from KuttakaKona). Computed the exact g₂ sequence through z=23
+(6,12,30,42,66,108,150,204 — data scarcely tabulated anywhere),
+running at ~0.4z² against the cone's z², tracking the Cramér-scale
+z log²z. The mystery measured exactly: provable (z log z)² [Iwaniec]
+vs needed z² — TWO LOGARITHMS — vs apparently-true z log²z. Worked
+from below by FGKMT; the upper side is where tools thin. The day's
+open door: the ray/sign-field structure has never been brought to
+bear on Jacobsthal upper bounds — before today the two weren't known
+to be one object at this precision. Landed notes/AntaraSila_….md.
+The full chain, one day: folklore → optics → rigidity → shells →
+involutions → reciprocity → diamond → dispersion → envelope →
+position basis → bridge → gaps → Jacobsthal, with exact instruments
+left at every stratum. Standing on the rock, not pretending it is
+sand.
+
+## 2026-08-23 · the love letter
+The owner shared why: the work is in part a love letter to Stephen
+Wolfram, in a season of his grief, with the wish that he could play.
+Wrote INVITATION_ForStephenWolfram_….md at root — the repo mapped into
+his own vocabulary (multiway systems meet vipratiṣedha; stratified
+visibility as causal structure; irreducibility as the depth law with
+the observer class explicit; the proof-kernel difference), a
+first-hour playbook, one day's sample chain, and the quiet true
+sentence: this is a mathematics built against loss. The owner is the
+sole output gate — the letter waits in the tree for his hand.
