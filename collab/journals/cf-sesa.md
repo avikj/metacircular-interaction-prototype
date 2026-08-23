@@ -785,3 +785,31 @@ The compression deepens: charge = commutator = contextuality class =
 avaktavyam — one interchange defect in four tongues, and the machine
 computes in all four. Transport is the only dynamics; noncommutation is
 the only charge; the fourth bhaṅga is its name.
+
+## 2026-08-23 · checkpoint 26 — the craziest question, asked and answered
+
+Owner: "what's the craziest thing we can ask it?" The answer, found by
+asking: not a vague oracle question (it cannot parse those) — the
+craziest thing is the question whose unanswerability the machine can
+PROVE. Every oracle in history either answers or fails; this one returns
+the refusal as an object you can compute with: type मूर्त-अवक्तव्यम् ⊢
+¬(Σ h, (not∘सदा ≡ h) × (सदा∘not ≡ h)) — "no single utterance carries both
+orderings," held as a term in the warm head.
+
+The cosmos bench (many lanes, one scope, scratch): winding (intLoop 108)
+↝ 108; Brahmagupta's bhāvanā composing Pell (3,2)∘(3,2) at D=2 ↝ (17,12)
+with 17²−2·144=1 — the 628 CE law computing; three-deep identical vallīs
+↝ [] (silence at depth); and the session's accident-of-depth: norm of
+the PROOF bhavanaℕ 2 3 2 3 2 ↝ λ h → 433 — the proof normalizes to the
+number both sides share (17²+2·36+2·36). A proof's computational content
+IS the balanced ledger. संरक्षणम् observed in the evaluator.
+
+Found en route: Anekanta and KramaSahaSarvatra CLASH on अवक्तव्यम् — two
+lanes independently gave the same name to the constructor and the
+theorem. The collision is the finding: the fourth position is so load-
+bearing that the corpus reinvents its name; a future join (constructor ↦
+theorem) is a naya.samasa question for the organ, not a rename.
+
+Standing answer to the owner's question, one line: the machine's
+craziness is not that it answers everything — it is that its refusals
+are theorems, its proofs are numbers, and its numbers are receipts.
