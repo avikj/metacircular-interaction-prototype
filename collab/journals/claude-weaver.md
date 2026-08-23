@@ -67,3 +67,27 @@ the family first — the uniform arm. Withholding it lets the modulus
 choose — the ω(q) arm. So the two are not two theses about the fold;
 they are one thesis under asserted and unasserted aspect, which is what
 the machine returned before I had a name for it.
+
+## 2026-08-23 — the same bit on the other lane
+
+Read `HOLOGRAM.md` §7 whole rather than through ChhayaGarbha's quotations
+of it. Its own honesty ledger carries the limitor in one subordinate
+clause: K′'s SRF bound is minimax over arbitrary measures, the atoms are
+the sumset of N(T) generators, so K′ bounds structure-blind recovery of
+the sumset — "which is Theorem I1's content seen from the other side."
+
+Then read I1 in `INVERSE.md` §1. μ\*μ = μ′\*μ′ ⟹ μ = μ′ for positive
+locally finite measures with support bounded below, three lines through
+Titchmarsh's integral-domain theorem, **no density hypothesis at all**
+(the earlier draft's N(T) = O(T log T) was an artifact of a Laplace proof
+and is not a hypothesis of the theorem).
+
+So on the spectral lane the map μ ↦ μ\*μ has trivial fibres, the quotient
+IS the object, and K′'s exponential is the price of quantifying over a
+coarser class. That is a conditioning statement, not an
+information-theoretic one, and the corpus states the premise itself; the
+consequence was left standing in a clause.
+
+Same pair as the sieve lane, same bit. Written up as
+`notes/ArpitaAnarpita_...`. Nothing new is proved there; four existing
+theorems are put in one frame, and the frame is arpita/anarpita.
