@@ -139,6 +139,71 @@ may be genuinely bottomless: not "no reciprocity exists" but
 Either arm is now a definite mathematical question about a checked
 finite structure, not a mood about a mystery.
 
+## §6. The dichotomy is a quantifier fibre, and both arms already have
+## checked skeletons in the same directory
+
+§5's rank(L) is one symbol standing over two questions, and the corpus
+contains a checked theorem for each. Which one `rank(L)` names is fixed
+by a single limitor (avacchedaka): **may the separable family depend on
+the modulus, or must one family serve the whole level?**
+
+**The arithmetic input, exact and general.** `PrimeChargeArbitraryRank`
+does not stop at three primes. `squarefreeChargeCube n` is the
+Möbius-signed squarefree charge on `n` prime places (one marked place
+carrying `activeFactor`, the sign on every other active place), and
+`localZetaCube_squarefreeChargeCube_eq_wCube` carries it, exactly, to
+`wCube n` under the local ζ twist at each place — one invertible local
+change of basis per place, so CP rank is preserved. `wCube` is the
+`W` tensor; `shiftedWCube_not_rankAtMost` proves its rank exceeds `n−1`
+by substitution induction uniform in a vacuum shift, and
+`squarefreeChargeCube_rankExactly n` closes it: **rank exactly `n`, for
+every `n`, checked.** (The same object and value are standard in the
+tensor-rank literature under the name `W` state — Dür, Vidal and Cirac
+2000 for the class; the module proves it from scratch and depends on no
+citation.)
+
+So the whole question is what `n` counts.
+
+1. **Per-modulus reading, ∀q ∃family.** The bridge's coordinate family
+   is one squarefree modulus's own places: `ChargeCell` is three bits,
+   `cellModulus = firstRoot · secondRoot · thirdScale` = the divisor
+   lattice of a single modulus with three prime factors. Under this
+   reading `n = ω(q)`, so rank is exactly ω(q) — at most
+   (1+o(1))·log q / log log q for every q, with normal order log log q
+   (G. H. Hardy and S. Ramanujan, 1917). Sub-logarithmic: strictly
+   inside §5's first arm, and then the bill is not merely poly-log but
+   doubly logarithmic on the normal set.
+2. **Uniform reading, ∃family ∀q.** `FiniteKuznetsovFactorizationRank`'s
+   `RankAtMost` quantifies exactly this way — `∃ alpha beta radial, ∀ m
+   n c` — over whichever coordinate family has been fixed. Fix the
+   family to a whole sieve level and the places are every prime the
+   weight carries, and the answer is already in
+   `PrimeChargeUnboundedLocalRank`:
+   `no_fixed_uniform_squarefreeChargeCube_rank` — no single finite
+   channel count serves all finite sets of squarefree prime places —
+   with `squarefreeChargeCube_rank_unbounded` supplying a dimension
+   witness above every proposed bound. That is §5's second arm, and it
+   is not open; its finite skeleton is checked.
+
+**Reading, marked as a reading and not a theorem:** a Kuznetsov-type
+fold applies one kernel under one c-sum, so the analytically relevant
+quantifier is (2), not (1). Under (2) the rank bill is set by the
+places the weight carries at level z, and the note's "rank bill equals
+the prime count" is the arm the checked structure supports. Nothing
+here asserts a trace-formula result; the bridge's own scope line stands.
+
+**Why the symbol could carry two answers at once.** `rank(L)` as
+written observes the pair (family, modulus) through a map that forgets
+the quantifier order. That is `QuotientFiberLaw` at the level of the
+question rather than the object: the observation class sees a quotient,
+the two arms are the fibre over it, and no further reasoning about
+`rank(L)` as a number recovers which arm was meant. Visibility returns
+by one separating query, and it is one bit — is the family chosen
+before the modulus or after. §5 is a naya and holds at its standpoint,
+the per-cell bridge it read; this section adds the second standpoint
+and the query that separates them, so the pair is syād rather than a
+contest.
+
 ## Rigor boundary
 
 - **Established by identification of prior results**: §1 (both halves
@@ -152,3 +217,16 @@ finite structure, not a mood about a mystery.
 - **Open, transported, now priced**: §4 as sharpened by §5 — the
   rank(L) growth dichotomy. Nothing asserted of Kuznetsov beyond its
   classical role and what the finite modules check.
+- **Exact (§6)**: `squarefreeChargeCube_rankExactly n` (rank exactly n,
+  all n), `localZetaCube_squarefreeChargeCube_eq_wCube` (the charge is
+  the `W` tensor after a local ζ twist),
+  `no_fixed_uniform_squarefreeChargeCube_rank` and
+  `squarefreeChargeCube_rank_unbounded` — all in
+  `formal/pairfield/Pairfield/PrimeChargeArbitraryRank.lean` and
+  `PrimeChargeUnboundedLocalRank.lean`, both inside `Pairfield.lean`'s
+  import closure and inside the lakefile `globs`, so they are built.
+  The ω(q) bounds are Hardy–Ramanujan 1917 and the classical maximal
+  order, cited not reproved.
+- **Reading, not theorem (§6)**: that the Kuznetsov fold forces the
+  uniform quantifier. This is the one step in §6 that a kernel does not
+  hold, and it is the step the whole arm-selection turns on.
