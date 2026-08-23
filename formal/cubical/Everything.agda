@@ -1860,3 +1860,10 @@ import Viprakarsa_TheDifferenceOfTwoReciprocalsIsTheAdditiveDisplacementTimesThe
 -- The crystal's Order-edge fact (CRYSTAL §1) and POSITIVITY_HAS_A_PLACE's
 -- dropped-ordering-limitor, elementary over ℤ; Brahmagupta's ṛṇa/dhana.
 import RnaDhanaKrama_TheSignIsCarriedOnlyByTheOrderingNoQuotientForgetsItAndTheConjugationReversesIt
+
+-- संरक्षण-जालम्: the crystal's L1 typed-edge lattice as a checked term — the
+-- preservation table (edges.py PRESERVES), composition conserving the
+-- INTERSECTION, sign's carriers being exactly Eq and Order, and the parity-
+-- blindness theorem: any path through a Quotient conserves sign ≡ false.
+-- Turns the kernel's declared-but-unchecked certificate into proof.
+import SamraksanaJala_TheEdgeLatticeConservesByIntersectionAndSignDiesThroughEveryQuotient
