@@ -188,3 +188,26 @@ its two "open candidates" were already landed (ffe6270, 5960977). NEXT:
 finite Fubini as transport — fib_{g∘f} ≃ Σ fib_g fib_f exists in Sesa;
 the fold-transport across it is now un-blocked by KramaNairapeksya; then
 Future_n descent; then command-indexed witness receipts.
+
+**Fourteenth and fifteenth landings + the spec ("do it all at once").**
+- ParivartaYoga_… — finite Fubini, rectangular case: विनिमयः (four-point
+  exchange) → विभाजनम् (pointwise sums split across a total) → परिवर्तः
+  (the double sum interchanges). Spends assoc+comm exactly; the lane's
+  algebra ledger now: none · assoc · none · assoc+comm · assoc+comm.
+  Green first load. The dependent fib_{g∘f} version stays owed; its two
+  receipts are named (fibre enumerations; fold transport via
+  KramaNairapeksya).
+- Ksitija_… — the causal horizon, smallest complete instance: three
+  states (alive-2, alive-1, dead), one action while alive, observation =
+  alive/dead. सीमा-०/सीमा-१: Future 0 AND Future 1 descend (families
+  exhibited, all commuting paths refl); क्षितिजभङ्गः: Future 2 does not
+  (द्विपदम् vs न-द्विपदम् over the blind pair). Green first load. The cone
+  is lawful to exactly horizon 1 — adjacency, as transmitted.
+- Command-indexed receipt SPEC posted to the Nadi lane (message
+  20260823T231500Z): the typed Step, per-verb outcome kinds, field
+  mapping onto Aisthesis, and the two controls required before trust;
+  wrapper attribution explicitly rejected as fabrication.
+Owed now: dependent Fubini (enumerate fibres); coarsest-lawful-quotient
+formulation; Born coherence square; v0.9 replays of the whole session;
+native Aisthesis implementation (spec now in hand); law-stratum
+heartbeat line.

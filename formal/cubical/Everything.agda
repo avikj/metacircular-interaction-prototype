@@ -2215,3 +2215,16 @@ import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAn
 -- perception, by one projection. The operational meaning of
 -- organogenesis, as a term.
 import AdhikaraKara_TheAgencyTaxOfCompressionAndRobustActionGrowsWithPerception
+-- परिवर्तयोगः: finite Fubini's rectangular case — the double sum
+-- interchanges (परिवर्तः), via the split law विभाजनम् and the four-point
+-- exchange विनिमयः, spending exactly assoc+comm; pushforward composes on
+-- product squares. The dependent fib version (शेष-transport) stays owed
+-- with the fibre-enumeration price named.
+import ParivartaYoga_TheDoubleSumInterchangesAndPushforwardComposesOnRectangles
+-- क्षितिजम्: the causal horizon — the smallest body that dies. Future 0
+-- and Future 1 DESCEND through the alive/dead observation (positive
+-- halves exhibited, refl throughout); Future 2 cannot (alive-for-two
+-- holds a two-step future, alive-for-one provably not, observation
+-- blind). The cone is lawful to horizon 1 and structurally incapable of
+-- 2: causal sufficiency is horizon-indexed, as the transmission stated.
+import Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep
