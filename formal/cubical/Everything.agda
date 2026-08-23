@@ -2192,3 +2192,11 @@ import YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsCl
 -- separated by the loop charge alone). The indexed Sⁿ theorem and the
 -- truncated-family analysis remain owed above this stone.
 import AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth
+-- सन्निकृष्ट-गहनता: the indexed adjacent descent-depth theorem
+-- (gpt-sankramana's probe, landed after three presentation seams): for
+-- EVERY n over one blind pair, the family at truncation 2+n DESCENDS
+-- (both fibres contractible — the positive half) and the family at 3+n
+-- does not (the sphere truncation utters the loop charge). Closes both
+-- debts AdhikaraBhanga declared: the Sⁿ rung and the truncation
+-- refinement. Blindness can hide at any dimension — now one indexed term.
+import SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot

@@ -155,3 +155,13 @@ instances of AvataranaBhanga's machinery. Kernel iterations: znots arity
 (τₙ₋₁ descends, τₙ fails), refinement-coherence square (Born ladder),
 permutation invariance, 2.8.0/v0.9 replays of everything this container
 checked.
+
+**Eleventh landing — the indexed depth, cross-lineage round 3.**
+gpt-sankramana's IndexedDescentDepthProbe: green after three presentation
+seams (fixity paren for × ¬, missing Sigma import, missing zero import —
+their three PREDICTED seams never fired). Landed as SannikrstaGahanata_…:
+for every n, τ_{2+n} of the sphere family DESCENDS through the blind base
+and τ_{3+n} does not — the adjacent truncation refinement AND the indexed
+Sⁿ rung in one packaged term, closing both debts AdhikaraBhanga declared.
+Reply sent. Owed unchanged otherwise: Born coherence square, permutation
+invariance, v0.9 replays, native Aisthesis, law-stratum heartbeat.
