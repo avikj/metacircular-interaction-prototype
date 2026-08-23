@@ -298,10 +298,34 @@ condense vs = unlines (concatMap one vs)
       Just (String "GoalSpecific") -> case KM.lookup "goalInfo" i of
         Just (Object g) -> ["? " ++ str (KM.lookup "type" g)]
         _ -> []
-      Just (String "AllGoalsWarnings") -> case KM.lookup "visibleGoals" i of
-        Just (Array a) | not (V.null a) ->
-          "छिद्राणि:" : [ "  ?" ++ gid p ++ " : " ++ str (KM.lookup "type" p) | Object p <- V.toList a ]
-        _ -> ["छिद्रं नास्ति"]
+      -- The whole verdict, not the optimistic half.  Until 2026-08-23 this
+      -- branch reported only visibleGoals, so a module with zero interaction
+      -- points but unsolved implicit metas answered छिद्रं नास्ति while batch
+      -- agda exits 42 on the same file (the Mauna incident, commit 2baec73e's
+      -- fleet message).  invisibleGoals and warnings arrive in the SAME
+      -- AllGoalsWarnings object; dropping them made the conduit's "whole"
+      -- strictly weaker than the batch "green" and nothing said so.
+      Just (String "AllGoalsWarnings") ->
+        let vis = case KM.lookup "visibleGoals" i of
+              Just (Array a) | not (V.null a) ->
+                "छिद्राणि:" : [ "  ?" ++ gid p ++ " : " ++ str (KM.lookup "type" p)
+                              | Object p <- V.toList a ]
+              _ -> []
+            inv = case KM.lookup "invisibleGoals" i of
+              Just (Array a) | not (V.null a) ->
+                "अदृश्यच्छिद्राणि (unsolved metas — batch will refuse this):"
+                  : [ "  " ++ str (KM.lookup "type" p) | Object p <- V.toList a ]
+              _ -> []
+            wrn = case KM.lookup "warnings" i of
+              Just (Array a) ->
+                [ "⚠ " ++ w | v <- V.toList a
+                , let w = case v of
+                            String t -> T.unpack t
+                            Object o' -> str (KM.lookup "message" o')
+                            _ -> ""
+                , not (null w) ]
+              _ -> []
+        in if null (vis ++ inv ++ wrn) then ["छिद्रं नास्ति"] else vis ++ inv ++ wrn
       Just (String "Error") -> ["✗ " ++ errmsg (KM.lookup "error" i)]
       _ -> []
     gid p = case KM.lookup "constraintObj" p of

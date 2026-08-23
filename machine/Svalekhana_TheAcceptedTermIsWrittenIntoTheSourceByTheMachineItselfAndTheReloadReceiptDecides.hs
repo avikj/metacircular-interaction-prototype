@@ -43,6 +43,9 @@ import Data.List (isInfixOf, isPrefixOf)
 import GHC.IO.Encoding (setLocaleEncoding, utf8)
 import Control.Concurrent (threadDelay)
 import Control.Exception (try, IOException)
+import System.Process (readCreateProcessWithExitCode, proc, CreateProcess(..))
+import System.Environment (getEnvironment)
+import System.Exit (ExitCode(..))
 
 -- one exchange on the conduit: write a spell line, read the whole answer.
 -- GHC opens FIFOs O_NONBLOCK: a write finding no reader throws ENXIO, and
@@ -115,14 +118,38 @@ main = do
           receipt <- ask req resp ("load " ++ file)
           let whole  = "छिद्रं नास्ति" `isInfixOf` receipt
               closed = holeCount src' < holeCount src
-          if (whole || not ("✗" `isInfixOf` receipt)) && closed
-            then putStrLn ("स्वलिखितम् (the machine wrote itself; reload receipt follows):\n"
-                           ++ receipt)
-            else do
+          if not ((whole || not ("✗" `isInfixOf` receipt)) && closed)
+            then do
               writeFile file src
               putStrLn ("प्रत्यावृत्तम् (reload refused the edit; file restored byte-identical):\n"
                         ++ receipt)
               exitFailure
+            else if holeCount src' > 0
+              -- Intermediate write: later holes remain, so batch cannot yet
+              -- judge (a file with interaction holes exits 42 by definition).
+              -- The edit stands on the warm receipt alone and SAYS SO.
+              then putStrLn
+                ("स्वलिखितम् अर्धम् (partial self-write; " ++ show (holeCount src')
+                 ++ " hole(s) remain — batch judgment deferred to the last write):\n"
+                 ++ receipt)
+              else do
+                -- Final write: the installing judge is BATCH agda, not the
+                -- warm reload — Cmd_load does not surface unsolved implicit
+                -- metas, so a conduit-whole file can still exit 42 (the Mauna
+                -- incident).  स्वलिखितम् is only pronounced over batch exit 0.
+                envs <- getEnvironment
+                (code, _, err) <- readCreateProcessWithExitCode
+                  (proc "agda" [file]) { env = Just (("LC_ALL", "C.UTF-8") : envs) } ""
+                case code of
+                  ExitSuccess -> putStrLn
+                    ("स्वलिखितम् (the machine wrote itself; warm receipt + batch exit 0):\n"
+                     ++ receipt)
+                  ExitFailure n -> do
+                    writeFile file src
+                    putStrLn ("प्रत्यावृत्तम् (warm reload accepted but BATCH refused — exit "
+                              ++ show n ++ "; file restored byte-identical):\n"
+                              ++ unlines (take 12 (lines err)))
+                    exitFailure
     _ -> do
       hPutStrLn stderr "usage: Svalekhana REQ RESP FILE HOLE-INDEX TERM..."
       exitFailure
