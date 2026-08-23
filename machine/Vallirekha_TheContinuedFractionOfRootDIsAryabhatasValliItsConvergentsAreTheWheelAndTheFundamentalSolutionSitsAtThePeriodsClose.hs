@@ -136,6 +136,21 @@ main = do
       d61   = fundamental 61
       d61OK = d61 == (1766319049, 226153980)
 
+      -- CHAPTER 1 ↔ CHAPTER 7, tied here.  Āpastamba Śulbasūtra 1.6 (~600 BCE)
+      -- builds the diagonal of the unit square as 1 + ⅓ + 1/(3·4) − 1/(3·4·34)
+      -- = 577/408 (साविशेष, "with-the-excess": the name is the error term).  In
+      -- tila, 34 to the aṅgula, the diagonal is 577 tila and the side 408 tila;
+      -- 577² − 2·408² = 332929 − 332928 = 1 — one tila-square of excess, which
+      -- IS the vargaprakṛti norm.  So the ritual cord-rule's value is exactly
+      -- the FOURTH power of √2's fundamental (3,2) under Brahmagupta's bhāvanā:
+      -- (3,2)→(17,12)→(99,70)→(577,408).  The Śulba note stated this fact and
+      -- left it "not formalised … chapter 7's business"
+      -- (notes/SulbaSavisesa_…md §VIII); it is discharged here, exact.
+      s2mul (a,b) (c,e) = (a*c + 2*b*e, a*e + b*c)
+      s2orbit  = take 4 (iterate (s2mul (3,2)) (3,2))
+      savisesa = s2orbit !! 3
+      savisesaOK = savisesa == (577,408) && 577*577 - 2*408*408 == 1
+
       -- a few periods shown, so the vallī is visible not just asserted
       show1 d = let (a0,per) = valli d
                     (x,y)    = fundamental d
@@ -162,7 +177,13 @@ main = do
   putStrLn ("Bhāskara II's own value (Bījagaṇita 1150)                         : "
             ++ show d61OK ++ "  got " ++ show d61)
   putStrLn ""
-  if allOK && d61OK
+  putStrLn ("CHAPTER 1 ↔ 7 · √2 orbit under bhāvanā (3,2)→(17,12)→(99,70)→…")
+  putStrLn ("its 4th term is Āpastamba's साविशेष (ĀpŚu 1.6, ~600 BCE):")
+  putStrLn ("577 tila diagonal, 408 tila side, 577²−2·408² = 1 (one tila-square")
+  putStrLn ("of excess in 332929) — the cord-rule value is a Pell solution     : "
+            ++ show savisesaOK ++ "  got " ++ show savisesa)
+  putStrLn ""
+  if allOK && d61OK && savisesaOK
     then do
       putStrLn "HOLDS.  The vallī of √D, Brahmagupta's wheel, and the continued"
       putStrLn "fraction are one object; the fundamental solution sits where the"
