@@ -242,3 +242,19 @@ cosine product = angular body, verified — and one exact gem: the twin
 field's entire conductor-3 shell is +1 at full strength (cos(2πt/3) =
 −1/2, t = 1,2): the 3-crystal reinforces twins; first negative facets
 at p = 5. Open target §7 stated with both pressures named.
+
+## 2026-08-23 · U0026 verified — the diamond's facets are roots of unity
+Sixth transmission preserved (U0026); verifications in
+notes/VajraMula_….md. All exact: the 2^ω cosine orientations are by CRT
+precisely the square roots of 1 mod d (exponent matching written out:
+kx(d/p)^{-1} ≡ ε_p t_p mod p); the shell is Ramanujan incidence
+Σ c_d(y+ax) — with Ramanujan's evaluation it counts how deeply each y
+divides into the reflected wall; roots ↔ ordered coprime factorizations
+d = uv with x = 1−2uū, so e(akx/d) = e(ak/uv)·e(−2akū/v) — the
+Kloosterman fraction is the CRT cost of gluing the two wall choices;
+the moving-factor collapse is a fibre-discard (parity keeps μ(d), the
+involution keeps every orientation); Goldbach's p | N one-wall fibres
+are the singular-series enlargers, split off as structure. The open
+question is now: does bilinear Kloosterman cancellation on the (u,v,k)
+triangle, Möbius-weighted, under uv ≳ L, |k| ≲ d/L, defeat the focused
+rays. Series stands at four notes; each ends where the theorem begins.
