@@ -2076,3 +2076,8 @@ import AyamaArpana_TheSphereWithholdsOneStratumDeeperPerDimension
 -- or hidden preference can exist within the vows. The Born-standpoint rule
 -- has no rival. Proof: the discrete dichotomy, each law covering one horn.
 import EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
+
+-- सङ्घट्ट-समाप्तिः: a batch of Sanghatta's 399 non-joining critical pairs
+-- closed against the kernel — what the LPO-oriented rewriter cannot reach
+-- without induction, the kernel reaches by induction.
+import SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel
