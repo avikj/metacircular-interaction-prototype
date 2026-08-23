@@ -130,6 +130,7 @@ open import Cubical.Foundations.Equiv using (isEquiv ; _≃_ ; invEq ; retEq ; f
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
+open import Cubical.Data.Nat using (ℕ; zero; suc)
 
 open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)

@@ -1,49 +1,49 @@
 # निर्णयपञ्जिका — keyed on नाम's content addresses and the probe's own digest.  A row stands until one of them moves.
 # addrF	addrG	rung	probe	verdict	class	where	obligation
-2ff4bcd5f24c0363	28d2802b14e78e8f	२/३ split	d4a498a09ba47441	Refused	मम दोषः · module path	AchromaticToy : from₁₂ ⇄ to₁₂	
-28d2802b14e78e8f	0df4298f3aacee71	२/३ split	f9756903f391da16	Refused	मम दोषः · module path	AchromaticToy : to₁₂ ⇄ to₂₁	
+d8781cc45572631c	163965eb8ac11e05	२/३ split	d4a498a09ba47441	Refused	मम दोषः · module path	AchromaticToy : from₁₂ ⇄ to₁₂	
+163965eb8ac11e05	cdc1d416d8edeff5	२/३ split	f9756903f391da16	Refused	मम दोषः · module path	AchromaticToy : to₁₂ ⇄ to₂₁	
 49df4d1257666a8f	f1c1b8852d27a8cd	५ induction	f7b083fa8c6f1dcc	Refused	मम दोषः · module path	Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem : Qs ⇄ hull	
 903adf8a9baa40d1	f1c1b8852d27a8cd	५ induction	c2b18f6cfc7ca7c5	Refused	मम दोषः · module path	Bhitti_TheThreeInductionObligationsAreRefutedRoundTripsAndTheLedgerMisdiagnosedThem : Xs ⇄ hull	
-d8207ec2407dae1f	5aad70574f36244b	१ refl	2ec6be59c3a91a91	Refused	मम दोषः · module path	CenterRelative : Φ ⇄ Ψ	
-6cad0a7550c4eebb	f1c1b8852d27a8cd	५ induction	1998f41bbfa7f4d4	Refused	मम दोषः · module path	IntegerHullMultiplicity : K ⇄ hull	
+668604b8d372869e	b9a4a28b618aa84c	१ refl	2ec6be59c3a91a91	Refused	मम दोषः · module path	CenterRelative : Φ ⇄ Ψ	
+7931a5a44fbce750	f1c1b8852d27a8cd	५ induction	1998f41bbfa7f4d4	Refused	मम दोषः · module path	IntegerHullMultiplicity : K ⇄ hull	
 1d41e597d51e115f	f1c1b8852d27a8cd	५ induction	843b74dc7cf4303b	Refused	मम दोषः · module path	IntegerHullMultiplicity : N ⇄ hull	
 49df4d1257666a8f	f1c1b8852d27a8cd	५ induction	ee81ea80aa2e1869	Refused	मम दोषः · module path	IntegerHullMultiplicity : Qs ⇄ hull	
 e293eeee81d9a99e	f1c1b8852d27a8cd	५ induction	3d733d3cb6b5b8f9	Refused	मम दोषः · module path	IntegerHullMultiplicity : SQ ⇄ hull	
 903adf8a9baa40d1	f1c1b8852d27a8cd	५ induction	10f1828ece3fc0d0	Refused	मम दोषः · module path	IntegerHullMultiplicity : Xs ⇄ hull	
-f1c1b8852d27a8cd	441d6aa22b73eefa	५ induction	c98a8e5df23c28ac	Refused	मम दोषः · module path	IntegerHullMultiplicity : hull ⇄ ones	
-3ddb4618bc169eb8	7f2fb4af06c21982	२/३ split	eb086a5f88cc41e8	Refused	मम दोषः · module path	NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple	
+f1c1b8852d27a8cd	45da157262513470	५ induction	c98a8e5df23c28ac	Refused	मम दोषः · module path	IntegerHullMultiplicity : hull ⇄ ones	
+fce89701ebf107fa	ca307a882bf37d56	२/३ split	eb086a5f88cc41e8	Refused	मम दोषः · module path	NaturalMachine.AdaptiveProbeCollapse : decodeTriple ⇄ staticTriple	
 eac3852512a7a12a	79b66a78ace1ad9f	१ refl	7af12f67719af965	Refused	library lemma on ℤ	NaturalMachine.ChargeTwoHistories : augment ⇄ sign	b Cubical.Data.Int.Base.+ (Cubical.Data.Int.Base.- b) != b of type Cubical.Data.Int.Base.ℤ when checking that the expression refl has type augment (sign b) ≡ b
 3c32ab13d890cb28	79b66a78ace1ad9f	१ refl	29780210d2c472de	Refused	library lemma on ℤ	NaturalMachine.ChargeTwoHistories : relative ⇄ sign	b Cubical.Data.Int.Base.+ (Cubical.Data.Int.Base.- (Cubical.Data.Int.Base.- b)) != b of type Cubical.Data.Int.Base.ℤ when checking that the expression refl has type
-d5214e0055b57a6c	e906cffa7db58691	१ refl	96a972c526dd5f3f	Refused	मम दोषः · module path	NaturalMachine.DSONucleusMiddleProduct : Nstar ⇄ Nsub	
+c1b1d5e5507f3c63	d67b28353a154dd1	१ refl	96a972c526dd5f3f	Refused	मम दोषः · module path	NaturalMachine.DSONucleusMiddleProduct : Nstar ⇄ Nsub	
 e23e3e8836fe0a97	686237b3c1632e40	५ induction	bf008211c8a402fb	Refused	मम दोषः · statement ill-typed · indexed family	NaturalMachine.Digits : digits ⇄ value	Word b → Cubical.Data.Nat.ℕ !=< Cubical.Data.Nat.ℕ when checking that the expression value b has type Cubical.Data.Nat.ℕ
-878304756035c447	8778ef75602d4c13	५ induction	c6328ed3629fd1fe	Refused	मम दोषः · module path	NaturalMachine.Digits : digitsC ⇄ valueC	
-878686756038d704	93c61d4987d377d7	५ induction	a5d7db044961d957	Refused	मम दोषः · module path	NaturalMachine.FreeMonoid : len ⇄ unlen	
-a4cd90b709d2ceae	7c19e627af207ec4	१ refl	e963c33189a461ce	Refused	मम दोषः · module path	NaturalMachine.HaskellGenericSyntaxAdapter : fromGeneric ⇄ toGeneric	
+a480efa46844af60	a48b04a4684d2794	५ induction	c6328ed3629fd1fe	Refused	मम दोषः · module path	NaturalMachine.Digits : digitsC ⇄ valueC	
+a47d6da468419ca3	93c61d4987d377d7	५ induction	a5d7db044961d957	Refused	मम दोषः · module path	NaturalMachine.FreeMonoid : len ⇄ unlen	
+4126426479588a94	9effa5012ededa5d	१ refl	e963c33189a461ce	Refused	मम दोषः · module path	NaturalMachine.HaskellGenericSyntaxAdapter : fromGeneric ⇄ toGeneric	
 7c8180bd320fc6b8	d7a509128be249cb	२/३ split	e44363e5adfbe6a9	Refused	host enumeration (emitter gap)	NaturalMachine.InflationVersusSubgroup : incl ⇄ proj	z2 != z1 of type Z4 when checking that the expression refl has type incl (proj z1) ≡ z1
 7bc10a1ad4575187	161c4c14c959b748	१ refl	951a1b7c9f9e154a	Refused	host type · H4	NaturalMachine.InflationVersusSubgroup : infl ⇄ res	infl (res b) != b of type H4 when checking that the expression refl has type infl (res b) ≡ b
 3f49d1c0c8d9b536	6bafda4ccdb6c8bc	२/३ split	456c05f95532b0ee	Refused	मम दोषः · split incomplete	NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ bhrama	Incomplete pattern matching for .extendedlambda0. Missing cases: .extendedlambda0 (mita' x) .extendedlambda0 (yoga' b b₁) when checking the definition of .extendedlambda0
 3f49d1c0c8d9b536	b22142df0903be1c	२/३ split	857160644e9ecb0d	Refused	मम दोषः · split incomplete	NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ nyasa	Incomplete pattern matching for .extendedlambda0. Missing cases: .extendedlambda0 (mita' x) .extendedlambda0 (yoga' b b₁) when checking the definition of .extendedlambda0
 3f49d1c0c8d9b536	a416988e20d8d0af	२/३ split	0c701a76f8a3874c	Refused	host enumeration (emitter gap)	NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava : apavada ⇄ sthula	yoga' (apavada (nyasa cara')) (apavada (mita 0)) != cara' of type Laghu when checking that the expression refl has type apavada (sthula cara') ≡ cara'
 2650153aedb02c19	43945c92f13b5836	२/३ split	eb8b6922f279d8e6	Refused	मम दोषः · module path	NaturalMachine.PMTorus : ctxToVertex ⇄ vertexToCtx	
-1c3727e9ff3c86aa	a1e885bd9337f1f4	२/३ split	d9c2af101013b6d5	Refused	मम दोषः · module path	NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge	
-f783e97a593b40d7	3486fab85a976653	२/३ split	c09ff2874c3e3611	Refused	मम दोषः · module path	NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge	
+13a4179fe7d824cc	a0b956652210902c	२/३ split	d9c2af101013b6d5	Refused	मम दोषः · module path	NaturalMachine.PMTorus : edgeToFin ⇄ finToEdge	
+57337afafeaa5834	dfd5cb8afc8e45e4	२/३ split	c09ff2874c3e3611	Refused	मम दोषः · module path	NaturalMachine.PMTorus : edgeToObs ⇄ obsToEdge	
 ac435ff9ccc6b0ef	a7d3ee7585b31fe5	२/३ split	970807e8c287c1da	Refused	मम दोषः · module path	NaturalMachine.PMTorus : finToVertex ⇄ vertexToFin	
-e67dc0a992acedae	75c02d755606f3e7	१ refl	f68d7d966f5c48c5	Refused	मम दोषः · module path	NaturalMachine.PauliGaugeCocycleSplit : central ⇄ phase	
-ee4b0df94f057ab4	f86af490bf645b45	१ refl	3e32119a03eabbbd	Refused	मम दोषः · module path	NaturalMachine.RawWordPaddingNormalForm : join ⇄ split	
-5df094319a3f90a3	6bf7ab42867655d7	५ induction	4db22064fa42954d	Refused	मम दोषः · module path	NaturalMachine.RawWordPaddingNormalForm : paddingCount ⇄ zeroRun	
-7ed65f755b4b4867	7ed65e755b4b46b4	१ refl	4722fbe9215f963f	Refused	मम दोषः · module path	NaturalMachine.S3IntegerRelativeCoordinates : intersectionToKernel ⇄ kernelToIntersection	
-3d0318e99c5af29d	e39e0f4dd3ba0eda	१ refl	c25a70fed9565aff	Refused	मम दोषः · module path	NaturalMachine.S3IntegerRelativeCoordinates : relativeCoordinates ⇄ relativeFromCoordinates	
-7ed2d1755b482146	7ecf4f755b450e89	५ induction	8bbaef04919e728e	Refused	मम दोषः · module path	NaturalMachine.SieveFiber : q ⇄ σ	
-ebdf500165adc8c2	abf091b833edbfd2	५ induction	692422ce00ef89a2	Refused	मम दोषः · module path	NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁	
-90165ce228fac29c	6e8b8774de37e49b	१ refl	8a14f5e4b6dc5fb2	Refused	मम दोषः · module path	NaturalMachine.SieveScaleTower : s₃₂ ⇄ π₃₂	
-a2feba608321e7de	7ecbcc755b41fa19	१ refl	826f1a0a51de2266	Refused	मम दोषः · module path	NaturalMachine.SmithPathCountedExecution : colsOf ⇄ fromCols	
-a1cb0b1dfc8f537a	d4f96cff89fa736f	१ refl	b5f97f11b27838d4	Refused	मम दोषः · module path	NaturalMachine.SmithPathCountedExecution : entriesOf ⇄ fromNine	
+0df7accd4c1a71b9	940aaaa45f300564	१ refl	f68d7d966f5c48c5	Refused	मम दोषः · module path	NaturalMachine.PauliGaugeCocycleSplit : central ⇄ phase	
+63afcaf5444845e1	8167fcb3cd08b2ee	१ refl	3e32119a03eabbbd	Refused	मम दोषः · module path	NaturalMachine.RawWordPaddingNormalForm : join ⇄ split	
+90f278a687129f38	fbfb5929cd22d3cb	५ induction	4db22064fa42954d	Refused	मम दोषः · module path	NaturalMachine.RawWordPaddingNormalForm : paddingCount ⇄ zeroRun	
+8af488a459ebcc14	8af489a459ebcdc7	१ refl	4722fbe9215f963f	Refused	मम दोषः · module path	NaturalMachine.S3IntegerRelativeCoordinates : intersectionToKernel ⇄ kernelToIntersection	
+41c7c5d099994dcd	e39e0f4dd3ba0eda	१ refl	c25a70fed9565aff	Refused	मम दोषः · module path	NaturalMachine.S3IntegerRelativeCoordinates : relativeCoordinates ⇄ relativeFromCoordinates	
+8af806a459eed805	8afb78a459f1cf92	५ induction	8bbaef04919e728e	Refused	मम दोषः · module path	NaturalMachine.SieveFiber : q ⇄ σ	
+ebdf500165adc8c2	8aca728c1f9aac53	५ induction	692422ce00ef89a2	Refused	मम दोषः · module path	NaturalMachine.SieveScaleTower : s₂₁ ⇄ π₂₁	
+90165ce228fac29c	0fd2a12b5abdc01f	१ refl	8a14f5e4b6dc5fb2	Refused	मम दोषः · module path	NaturalMachine.SieveScaleTower : s₃₂ ⇄ π₃₂	
+a2feba608321e7de	8afef7a459f4dd36	१ refl	826f1a0a51de2266	Refused	मम दोषः · module path	NaturalMachine.SmithPathCountedExecution : colsOf ⇄ fromCols	
+a9b39d7a2b19d103	0526d046bc8e81f7	१ refl	b5f97f11b27838d4	Refused	मम दोषः · module path	NaturalMachine.SmithPathCountedExecution : entriesOf ⇄ fromNine	
 6f9f393bb0f44633	11a11190f7eca594	५ induction	960e412ae7d8c19b	Refused	host type · NaturalMachine.Obstruction.Tm	NaturalMachine.TermFreeMonoid : fromList ⇄ toList	fromList (toList b) != b of type NaturalMachine.Obstruction.Tm when checking that the expression refl has type fromList (toList b) ≡ b
 8599d7dfe7a47922	2ce91bebbe6e30ed	५ induction	60c76c68a5c45cc2	Refused	induction on ℕ	PingalaPrastara : aksara ⇄ parity	suc (aksara (parity w₀)) != aksara (parity (suc w₀)) of type Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → suc z) (अनुलोमन w₀) has type aksara (parity (suc w₀)) ≡ suc w₀
-7d49cfb4546f5e9d	aa1b987573ca9f0f	५ induction	e1da1d2b400f25d8	Refused	मम दोषः · module path	PingalaPrastara : allLaghu ⇄ uddista	
-aa11247573c1856e	aa11257573c18721	२/३ split	f82fa5524935017e	Refused	मम दोषः · module path	ProjectionChargeAudit : decode ⇄ encode	
-b2e3477578cbf3a5	b2e3417578cbe973	१ refl	d1c334012eb9b11d	Refused	मम दोषः · module path	Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees : fromTuple ⇄ toTuple	
-84d29e7c89e7315b	36f8cdb447291c4d	५ induction	961be95545afc418	Refused	मम दोषः · module path	SamaVisama_TheCountSplitsByParityIntoTwoCopiesOfItselfAndEachNayaIsTheWhole : merge ⇄ split	
-b2ea507578d2219e	b2ea557578d22a1d	४ Σ≡Prop	55720b800d53dc2e	Refused	मम दोषः · module path	SaptabhangiNaya : code' ⇄ decode	
+7d49cfb4546f5e9d	3d7603a42e28a980	५ induction	e1da1d2b400f25d8	Refused	मम दोषः · module path	PingalaPrastara : allLaghu ⇄ uddista	
+3d809ba42e32004d	3d809aa42e31fe9a	२/३ split	f82fa5524935017e	Refused	मम दोषः · module path	ProjectionChargeAudit : decode ⇄ encode	
+344158a428ca89d6	34415aa428ca8d3c	१ refl	d1c334012eb9b11d	Refused	मम दोषः · module path	Rupasamata_TheTwoByTwoMatrixAndTheFourTupleAreOneObjectAndMultiplicationAgrees : fromTuple ⇄ toTuple	
+03f211f4ab5fdecc	079d36b7303a7d25	५ induction	961be95545afc418	Refused	मम दोषः · module path	SamaVisama_TheCountSplitsByParityIntoTwoCopiesOfItselfAndEachNayaIsTheWhole : merge ⇄ split	
+3470eba428f2f461	3470eea428f2f97a	४ Σ≡Prop	55720b800d53dc2e	Refused	मम दोषः · module path	SaptabhangiNaya : code' ⇄ decode	
 0074dc7fb67fbc88	691b9dd8cf682647	५ induction	3b72d305771d6bb2	Refused	induction on List	Swarm.S13OptionSpread : ones ⇄ sum	w₀ ∷ ones (sum w₁) != ones (w₀ Cubical.Data.Nat.+ sum w₁) of type Cubical.Data.List.List Cubical.Data.Nat.ℕ when checking that the expression cong (λ z → w₀ ∷ z) (अनुलोमन w₁) has type ones (sum (w₀ ∷ w₁)) ≡ w₀ ∷ w₁
-f7c5febde6118e73	bc639b739f2446fc	२/३ split	d96179280d26c09f	Refused	मम दोषः · module path	WallCertificate : classOf ⇄ visible	
+dadf709e9d9aa521	6f6f070b0149a6cf	२/३ split	d96179280d26c09f	Refused	मम दोषः · module path	WallCertificate : classOf ⇄ visible	

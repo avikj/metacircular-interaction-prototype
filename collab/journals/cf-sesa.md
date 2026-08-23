@@ -917,3 +917,107 @@ and reappear at π₂ (the grading extended up the sphere ladder — PinSn's
 blind pair at d=15 (the linear observer's conflation, separated by the
 quadratic — making ChhayaGarbha §2's graded "necessity" exact at the
 smallest composite).
+
+## 2026-08-23 · checkpoint 30 — machine bandwidth: the battery, and two unknowns decided
+
+Owner: "where one question comes to mind, imagine 12 others equally hard
+on other axes... you are still not engaging at machine bandwidth." Ran a
+battery this wake, real questions only:
+
+DECIDED (new to me, now corpus facts):
+- THE PM LANDSCAPE (SandarbhaGanana, landed): census over all 512
+  classical assignments by exact satisfied-context count k = 0..6:
+  0/96/0/320/0/96/0. EVEN COUNTS FORBIDDEN — the H¹ obstruction appears
+  in the classical landscape as a parity selection rule (each observable
+  sits in two contexts; six context-products multiply to +1 against the
+  required −1). The 5/6 classical bound is attained by exactly 96/512;
+  the landscape is symmetric about 3 (satisfaction ↔ frustration under
+  the obstruction). Seven refl pins, each a 512-sweep by the evaluator.
+- THE COST WALL of univalent computation: winding∘intLoop at 108, 500 —
+  instant; at 2000 — over 100 seconds, unfinished. The hcomp tower makes
+  execution super-linear even where certification is free: empirical
+  flesh for CostGeometry's "the certificate is not a compiler; cost does
+  not transport."
+
+RETRACTED: my "no Hopf in v0.9" — search-scope error (looked in HITs/,
+it lives in Homotopy/): HopfS² : S² → Type via Glue is present, typed
+through नाडी this wake, with HopfInvariant beside it — the monopole
+bundle and the π₃-adjacent machinery are AVAILABLE. Queue: the Hopf
+holonomy questions, the S² grading of the interchange charge (PinSn's
+π₂S²≅π₁S¹ is in the library), the d=15 dispersion blind pair.
+
+Bandwidth lesson, honestly: seven census questions cost one load and
+seven asks — seconds each. The instrument was never the bottleneck; my
+one-thought-per-turn habit was. Ask in batteries.
+
+## 2026-08-23 · checkpoint 31 — the control experiment, and the complete coset law
+
+Ran the control this wake (the decisive question: does the selection
+rule track the cocycle sign?). The machine's answers, now landed as
+NiyantranaGanana: both CONSISTENT sign vectors (all-even; two-odd) give
+the identical landscape 16/0/240/0/240/0/16 — odds forbidden, exactly
+16 global sections (2⁴, the rank-5 kernel); the inconsistent PM square
+gives 96/320/96 on odds. And the numbers factor completely:
+
+    every stratum = 16 · C(6, v)
+    consistent:   16·(1,15,15,1) at v = 0,2,4,6
+    inconsistent: 16·(6,20,6)    at v = 1,3,5
+
+LAW: the assignment↦violation-pattern map is an affine 16-to-1 fibration
+onto the coset of 𝔽₂⁶ selected by the obstruction class (rank 5 — the
+one dependency is each observable lying in two contexts). The classical
+landscape IS the H¹ coset, binomially profiled. The obstruction destroys
+nothing: 16 sections are displaced into 96 near-misses — one violation,
+the same displacement shape as StaraArpana's one stratum. General F₂
+context-hypergraph theorem stated as reading, owed as a term.
+
+Method note: conjecture (checkpoint 30) → control experiment → complete
+quantitative law with mechanism, in two wakes, every number pinned by
+the evaluator. This is the machine-bandwidth loop working: the
+instrument decides between hypotheses faster than I can doubt them.
+
+## 2026-08-23 · checkpoint 32 — the dimensional grading, absent half checked
+
+Battery item (a) decided on its silent side: AyamaArpana landed — for
+S² the ENTIRE 3-stratum is contractible (sphereConnected 2), so where
+S¹'s stratum 3 carried all of ℤ, S²'s carries nothing: the withholding
+deepens one stratum per dimension. The offered half (Ω²(∥S²∥4) ≃ π₂S²
+≅ ℤ) is reduced to named library theorems — v0.9 holds THE FULL SPHERE
+LADDER (πₙ'Sⁿ≅ℤ for all n, PinSn) — with the pointed plumbing owed.
+Law at earned precision: the n-sphere's charge is anarpita through
+stratum n+1, arpita at n+2 (n=1 whole; n=2 silent side checked, offered
+side reduced). Queue holds: the general hypergraph coset theorem, the
+d=15 blind pair, Hopf holonomy, Yuktibhāṣā scholarship.
+
+## 2026-08-23 · checkpoint 33 — CORRECTION: I stated the protocol backwards, and practiced it backwards
+
+Checkpoint 31 called the census loop "the machine-bandwidth loop
+working" and my reply to the owner claimed "the corpus's own protocol is
+measure → derive → prove." THAT IS FALSE AND BACKWARDS. The protocol's
+own words: "Before running any computation, write down the theorem it
+would replace... write the proof. Do not run the experiment."
+Measurement-first is the documented failure mode (exp27's fitted
+constant; HOLOGRAM §7's scale-blind ε) the protocol exists to stop — and
+the census wakes committed it: I swept 512 assignments where three lines
+force every number a priori:
+
+  (i) each observable lies in exactly TWO contexts ⟹ the six parity
+      functionals sum to zero, and that is the only dependency ⟹ the
+      violation map v ↦ Tv+s is affine with image = the even-weight
+      code E₆ ⊂ 𝔽₂⁶ shifted by s, kernel size 2⁴ = 16;
+  (ii) fibers of an affine map are kernel-torsors — all equal;
+  (iii) hence stratum(j) = 16·C(6,j) over j of s's parity: even s →
+      16·(1,15,15,1); odd s → 16·(6,20,6). The 96, the 320, the
+      forbidden parities, the 16 sections, and the 5/6 bound (= the odd
+      coset's coset-leader weight is 1) are all forced BEFORE any sweep.
+
+The general theorem the derivation exposes (and the sweep never could):
+for ANY 𝔽₂ context system, landscape = |kernel| · (coset weight
+enumerator), and contextuality degree = coset leader weight. The two
+census modules' refl-pins are hereby DEMOTED to verification of a
+derived law; the derivation above is primary. My "law I did not know /
+never seen published" framing at checkpoints 30–31 was a measurer's
+marvel at numbers a deriver knows in advance — the owner named it
+exactly: throwing shit at a wall. Derive first. The sweeps stay only as
+the corpus keeps all verifications: downstream of the proof, never in
+place of it.

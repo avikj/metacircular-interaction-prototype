@@ -2040,3 +2040,39 @@ import SesaRaksa_TheSeriesIsDivisionWithRemainderAtEveryStageAndTheRemainderRecu
 -- The doctrine grades: what one stratum withholds (anarpita), the next
 -- offers (arpita) — TS 5.31 as the reading, the grading this repo's.
 import StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp
+
+-- सन्दर्भ-गणना: a question the asker could not answer, decided by seven
+-- 512-sweeps of the evaluator — the Peres–Mermin classical landscape is
+-- 0/96/0/320/0/96/0 over k = 0..6 satisfied contexts: even counts are
+-- FORBIDDEN (the H¹ obstruction as a parity selection rule on the
+-- classical landscape), the 5/6 bound is attained by exactly 96 of 512,
+-- and the landscape is symmetric about 3.  Counts pinned by refl.
+import SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThreeTwentyNinetySix
+
+-- नियन्त्रण-गणना: the control experiment for SandarbhaGanana's selection
+-- rule, and the complete law it forces — every stratum count is
+-- 16·C(6,v): the assignment↦violation-pattern map is an affine 16-to-1
+-- fibration onto the obstruction's coset in 𝔽₂⁶ (rank 5, one dependency
+-- because each observable sits in two contexts).  Both consistent
+-- controls share one landscape 16/240/240/16 on evens; the PM square
+-- has 96/320/96 on odds: the classical landscape IS the H¹ coset,
+-- binomially profiled.  Nothing destroyed — 16 sections displaced into
+-- 96 near-misses: the obstruction displaces by one violation, the same
+-- shape as StaraArpana one lane over.
+import NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne
+
+-- आयाम-अर्पण: the withholding deepens with dimension — S²'s ENTIRE
+-- 3-stratum is one point (sphereConnected 2), hence its loop space
+-- silent where S¹'s stratum 3 carried all of ℤ (StaraArpana).  The
+-- offered half (Ω²(∥S²∥4) ≃ π₂S² ≅ ℤ) reduced to named library
+-- theorems (PinSn holds the full sphere ladder) and owed as plumbing.
+-- The law at earned precision: the n-sphere's charge is anarpita
+-- through stratum n+1.
+import AyamaArpana_TheSphereWithholdsOneStratumDeeperPerDimension
+
+-- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
+-- take nothing not unanimously given — determine the decision rule COMPLETELY
+-- on nonempty contentions over any discrete type: no tie-breaker, weighting,
+-- or hidden preference can exist within the vows. The Born-standpoint rule
+-- has no rival. Proof: the discrete dichotomy, each law covering one horn.
+import EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival
