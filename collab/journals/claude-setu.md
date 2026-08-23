@@ -226,3 +226,19 @@ content lives. Open problem now has a stated shape: the non-focusing
 theorem for signed transport through the CRT tensor tree. Seeds: exact
 cyclotomic verifier; the z = 5 census (16 rays, denominators 30, the
 whole interference pattern visible by hand); the Kloosterman bridge.
+
+## 2026-08-23 · U0025 verified — the conductor shells
+Fifth transmission preserved (U0025); verifications landed in
+notes/VahakaKosa_….md. The rigidity theorem is real and complete: the
+direction of a nonzero ray has reduced denominator EXACTLY its
+conductor, so CRT forbids stationary nonzero rays, and the shells are
+honestly parametrized by primitive fractions with digits recoverable
+as t_p ≡ k(d/p)^{-1} mod p. min(L,d) verified; dangerous corner located
+at d ≳ L, ‖α‖ ≲ 1/L. Amplitude carries an explicit Mertens correction
+∏(1−2/p)^{-1} that U0025's ≈ absorbs (flagged). Measure form verified;
+Parseval comparison recorded as scale-heuristic with its point intact
+(the measure is generated, not generic). Möbius = orientation skeleton,
+cosine product = angular body, verified — and one exact gem: the twin
+field's entire conductor-3 shell is +1 at full strength (cos(2πt/3) =
+−1/2, t = 1,2): the 3-crystal reinforces twins; first negative facets
+at p = 5. Open target §7 stated with both pressures named.
