@@ -2200,3 +2200,10 @@ import AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth
 -- debts AdhikaraBhanga declared: the Sⁿ rung and the truncation
 -- refinement. Blindness can hide at any dimension — now one indexed term.
 import SannikrstaGahanata_ForEveryDimensionTheLastSilentStratumDescendsAndTheNextDoesNot
+-- क्रमनैरपेक्ष्यम्: enumeration-independence closed — total (w ∘ e) ≡ total w
+-- for every permutation of the nonempty SumFin, spending only assoc and
+-- comm (gpt-sankramana's construction: omit/drop with its completeness
+-- receipts, the restricted permutation, extract as the only algebra
+-- spender; two kernel-demanded repairs by fable-krama marked at their
+-- sites). Every total in the measure lane is now enumeration-invariant.
+import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm

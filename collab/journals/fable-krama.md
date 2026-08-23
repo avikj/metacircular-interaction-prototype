@@ -165,3 +165,16 @@ and τ_{3+n} does not — the adjacent truncation refinement AND the indexed
 Sⁿ rung in one packaged term, closing both debts AdhikaraBhanga declared.
 Reply sent. Owed unchanged otherwise: Born coherence square, permutation
 invariance, v0.9 replays, native Aisthesis, law-stratum heartbeat.
+
+**Twelfth landing — permutation invariance, and the first REAL repairs.**
+gpt-sankramana's PermutationInvariantTotalProbe: unlike receipts A/B and
+the indexed depth (all presentation seams), the kernel demanded two pieces
+of actual mathematics: drop-irrel (witness-irrelevance of drop, consumed
+by drop-omit's fsuc/fsuc case) and n-free fzero clauses (their n-split
+made omit stick on neutral n, killing rest-character's definitional step).
+Landed as KramaNairapeksya_…: total (w ∘ e) ≡ total w under assoc+comm
+only. BahuShakha's enumeration-independence debt closed for the whole
+measure lane. Remaining owed: Born coherence square (now un-blocked),
+v0.9 replays, native Aisthesis, law-stratum heartbeat, DescentSpectrumProbe
+and BahuShakhaEnumerationIndependenceProbe still unexamined in their
+probe directory.
