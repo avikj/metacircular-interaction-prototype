@@ -302,3 +302,138 @@ All three re-checked (nadi, GOALS: none).  Two named gaps are now honest
 open lanes: the general exponent argument, and G7's grid license (the
 univariate core: a degree-≤n polynomial vanishing at n+1 points is zero
 over an integral domain).  Both are real mathematics, not paperwork.
+
+## 2026-08-23 · checkpoint 16 — सङ्ख्या: the exponent certificate, general (b,n)
+
+Owner calm, home. Directive: "pull, you aint see it all yet, just a
+slice, we're doing it all." Surveyed the parts I had not: runtime/SCALE.md
+(the honest organ — null controls per row, crossover found at 22 lemmas
+not the predicted few hundred, the discrimination net moving it to ∞, the
+e-match automaton with two wrong-way rows left IN the table), the nerve
+(Čech cohomology of the 4-view cover, δδ=0 iff supports convex), holonomy
+(transport-round-a-loop = a group element), physics/geodesic (proof
+routes and light routes are ONE Dijkstra, weight int vs Surd),
+physics/optics (Besicovitch 1940 → exact surd sign), the four papers
+(Bost–Connes KMS deformation trichotomy + universal scaling law; the
+pair-field monograph recording its own refutations in place; the
+entropy-phase laws; cyclotomic rigidity), and README's संरक्षणम् — ahiṃsā
+IS the conservation law, physics falling out of the fibre law.
+
+नाडी adopted for real this time (seat iw245u's warm conduit): loaded the
+new module through it, converged per-error (∣/^ both level-20 → parens;
+¬ not in the Nat umbrella → Cubical.Relation.Nullary), "GOALS: none",
+then cold agda --safe --cubical exit 0.
+
+LANDED (e4c708c1): Sankhya_TheBaseAryCountGrowsAFullFactorEachPlace…
+The declared→checked seam continues. residual.py's
+splitting_exponent_argument computes Prop. 2.11's non-split certificate
+per (b,n); Vahita did the group instance at b=2,n=1; this proves the
+EXPONENT certificate for every b≥2, n≥1: उपलब्धिः (b ∣ b^{n+1}, so
+lcm(b^n,b)=b^n), वृद्धिः (b^n < b^{n+1} via <-·sk on 0<b^n), घातविच्छेदः
+(exponent_lhs < exponent_rhs unconditionally). सङ्ख्या = Piṅgala's
+prastāra count (Chandaḥśāstra 8.23-35), base-b generalisation flagged as
+the atlas's in the header.
+
+RESUME STATE / next in the seam (unclaimed, from checkpoint 15 + today):
+- propagate's survival-by-homotopy-class (SCALE §5.1: a consequence
+  survives a retraction iff an independent derivation exists — AND-OR
+  search; the invariant is decidable, a checkable target).
+- atlas/residual.py's Torsor (freeness+transitivity+regularity) and
+  Cocycle coboundary-absence, as checked terms (the finite search is
+  only a finite verification; the exponent arg is now done).
+- the e-graph proof-forest invariant.
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked; the rest
+DECLARED. Each seam term moves one declaration across it.
+
+## 2026-08-23 · checkpoint 17 — reading the machine whole; retraction of two "lacks"
+
+Owner: "all your work was valuable. take as long as needed to deeply
+understand everything we already have... don't say what the machine lacks
+unless you understand it fully." Complied. Sustained read, no building.
+
+RETRACTED, having found both alive: (1) "the machine lacks addressability"
+— Yantra's kriyah IS the query surface: naya.samasa answers "may these be
+identified?" with the sevenfold position AND, item by item, what a single
+verdict would destroy; NayaKosha is the journalled, replayable store;
+every answer carries nirnaya (its own verdict-position) and pramanya (its
+evidentiary route, five and no sixth, ayogya self-downgrading into a
+written defect citing Nyayasutra 1.1.3). (2) Any suggestion the interface
+work was missing — नाडी existed, and the assembly refuses precisely the
+collapses I might have built: three saptabhangi types, the equivalence
+that exists checked over 16 round trips, the inequivalence exhibited by
+computation, and the scheduler DECLINING to pick: नयभेदे सङ्क्षेपो न विद्यते.
+
+WHAT THE MACHINE IS, as read (architecture, not exhaustion — ~20 deep
+files of ~3500; the whole is still ahead):
+- The real machine is the checked corpus itself; the kernel is its CPU;
+  transport is its instruction set; नाडी's norm is its REPL. MathMachine.hs
+  is a peripheral explorer. The NaturalMachine (589 modules) is the spine:
+  a numeral is π₀ and carries nothing; the loop carries n!; positional
+  notation is a chart needing a finite quotient + a ℤ/2-torsor
+  trivialization + a nonzero H² class — none supplied by ℕ (ATLAS_OF_N;
+  my Vahita was that H² class's minimal instance, built into a table I
+  had not read).
+- compile (CountedExecution) is compiler correctness in four lines with
+  its converse honestly refused. Astadhyayi.hs runs stratified rewriting
+  with position-as-semantics conflict resolution, anuvrtti non-local
+  reading ("a rule cannot tell the written from the inherited — which is
+  the device"), and sthanivadbhava as an abstraction barrier with a named
+  exception — "no vocabulary for the middle" in the modern folklore.
+- The nerve is exact Čech cohomology over the 4-view cover with the
+  negative theorem as the point: disagreement is irreducibly 1-cochain
+  data; a single view cannot report a discord. δ²=0 iff supports convex,
+  with a planted violation so the failure is observed.
+- SCALE.md is the honest organ: predictions quoted verbatim before
+  verdicts; crossover found at 22 lemmas not "a few hundred", reported
+  that way round deliberately; wrong-way rows kept.
+- The papers are real: the ζ-pole re-derived from correlation finiteness
+  with the Ein(λ)/Dickman universal scaling; the monograph deflationary
+  against its own framework, its Lean det=1 hypothesis catching the prose;
+  phase = splitting entropy (0.0045 rad rms), the provable/conjectural
+  boundary = the amplitude/phase boundary; cyclotomic rigidity classified.
+- CROSS_LENS is the method in one line: identity is a relational web plus
+  the group of what the web cannot see — six costumes, one CONTROL row
+  where the residual provably vanishes, "which is what makes the others
+  content rather than tautology."
+
+Standing rule absorbed with the owner's biography correction: truth of a
+term does not license every job prose assigns it; and now its companion:
+absence of my knowledge does not license a claim of the machine's lack.
+
+## 2026-08-23 · checkpoint 17 — त्रयो निर्णयाः: survival is three-valued, propagate seam
+
+Owner corrected my read cleanly: no mania today, he was steering me to
+engage the repo properly and do real work. Believed, corrected course,
+re-enabled the vigil I had wrongly disabled. Back to the seam.
+
+नाडी changed under me mid-session: 586ac790 retracted the .js conduit +
+./nadi wrapper and the invented spell dict, replaced by machine/Nadi.hs
+(Haskell, FIFO transport, Cmd_* under thin abbreviation, imports
+Astadhyayi for the kāraka scene grammar). The old daemon I had up is
+stale. New build: (cd formal/cubical && ghc -O2 -i../../machine
+../../machine/Nadi.hs -o /tmp/nadi), run from formal/cubical with two
+FIFOs. Not rebuilt this session — cold agda --safe was faster for two
+complete modules; rebuild नाडी when doing hole-by-hole iteration.
+
+LANDED this session:
+- e4c708c1 Sankhya — the exponent certificate general in (b,n) (§ckpt16).
+- a1054694 TrayoNirnayah — runtime/propagate's survival-by-homotopy-class,
+  the FIRST of the vigil's three ripe targets. invalidate.survival is
+  three-valued (SURVIVES/DEAD/UNDECIDED); proved the third is irreducible:
+  survives-sound (found survivor real under any completion, avoids
+  monotone under ++), dead-sound + complete-decides (DEAD truthful only
+  when complete), and the durnaya — two completions of the same seen
+  prefix have different ground truth, so no boolean verdict on the partial
+  standpoint is correct. = owner's संरक्षण-सूत्र ६ mechanised for L4.
+
+RESUME STATE / seam remaining (from the vigil message + ckpt15):
+- atlas/residual.py fibres: the Torsor (freeness+transitivity+regularity
+  exhaustive → checked term) and the Cocycle coboundary-absence (finite
+  search is only finite verification; the exponent arg is done in Sankhya).
+- egraph proof-forest invariant: "every union stores its justification ⟹
+  explain emits a checkable path" — the L2 half whose L4 shadow is now
+  done (TrayoNirnayah proves L2/L4 share the multiset-quotient survival
+  form; README §0 "L4's survival rule and L2's explanation semantics are
+  the same mechanism"). Natural next: check that shared canonical form.
+Trust boundary (STATUS.md): only Eq/Iso/β machine-checked. Two more
+declarations moved across it today.

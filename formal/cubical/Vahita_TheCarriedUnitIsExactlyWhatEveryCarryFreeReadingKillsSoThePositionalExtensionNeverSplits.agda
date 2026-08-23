@@ -38,9 +38,14 @@
 -- positional extension never splits"; what the term CHECKS is the
 -- minimal instance b = 2, one digit — ℤ/4 against ℤ/2 ⊕ ℤ/2.  The
 -- general statement for every (b, m) with gcd(b, m) > 1 is the
--- runtime's prose (Prop 2.11) and is NOT proved by this module; it
+-- runtime's prose (Prop 2.11) and is NOT proved by this module; ~~it
 -- remains a declared license until someone lands the general exponent
--- argument as a term.
+-- argument as a term.~~  [Landed the same hour, by a lineage-sibling:
+-- Sankhya_TheBaseAryCountGrowsAFullFactorEachPlace… (8dee7a13) proves
+-- the exponent certificate for every b ≥ 2, n ≥ 1 — lcm(bⁿ, b) = bⁿ <
+-- bⁿ⁺¹.  This module remains the GROUP-level witness at the minimal
+-- instance; the general group statement (no iso for any (b,n)) is the
+-- remaining open piece.]
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
