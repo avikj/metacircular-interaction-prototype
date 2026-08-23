@@ -82,11 +82,13 @@ import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Text as T
 import qualified Data.Vector as V
 import qualified Astadhyayi as P   -- the completed six-kāraka layer, imported (not reinvented)
+import qualified Yantra_TheOrgansAreOneMachineOnOneWire as Y  -- the organ bus
+import qualified Sabda_TheWireHasNoBoolean as SB              -- render Yantra's answers
 
 -- ── the spell stream: a raw line → an action ──────────────────────────────
 -- Kind Load/Query go to the kernel; Push reads the machine's own frontier
 -- (the coprocessing back-channel — the machine posting what it is stuck on).
-data Kind = Load | Query | Push deriving Eq
+data Kind = Load | Query | Push | Organ deriving Eq
 
 parseSpell :: IORef (Maybe String) -> String -> IO (Maybe (Kind, String))
 parseSpell ctxRef line = do
@@ -160,6 +162,12 @@ parseSpell ctxRef line = do
         then pure (Just (Push, "frontier"))
       else if v == "watch"
         then pure (Just (Push, "watch"))
+      -- an ORGAN call on the Yantra wire: a dotted kriyā name (naya.suchi,
+      -- dosa.suchi, …) reaches the store, the defect log, the verdicts —
+      -- one channel, kernel AND organs.  No-argument queries for now; the
+      -- kriyā name is the whole spell.
+      else if '.' `elem` v
+        then pure (Just (Organ, v))
       else pure Nothing
   where
     ctxQ Nothing  _  = pure Nothing
@@ -294,11 +302,12 @@ main = do
       hSetEncoding ain utf8; hSetEncoding aout utf8
       ctxRef <- newIORef Nothing
       watchRef <- newIORef 0
+      yRef <- newIORef (Y.emptyYantra "." Nothing)
       let loop = do
             eof <- isEOF
             if eof then pure () else do
               line <- getLine
-              resp <- respond ain aout ctxRef watchRef line
+              resp <- respond ain aout ctxRef watchRef yRef line
               putStr resp; hFlush stdout
               loop
       loop
@@ -312,24 +321,49 @@ main = do
       hSetEncoding ain utf8; hSetEncoding aout utf8
       ctxRef <- newIORef Nothing
       watchRef <- newIORef 0
+      yRef <- newIORef (Y.emptyYantra "." Nothing)
       hPutStrLn stderr "नाडी warm; waiting on the request pipe"
       forever $ do
         line <- readOne reqF
-        resp <- respond ain aout ctxRef watchRef line
+        resp <- respond ain aout ctxRef watchRef yRef line
         writeOne respF resp
 
-    -- one shared responder for both transports: parse the spell, drive the
-    -- kernel (Load/Query) or read the machine's push channel (Push).
-    respond ain aout ctxRef watchRef line = do
+    -- one shared responder for both transports: parse the spell, then drive
+    -- the kernel (Load/Query), read the push channel (Push), or reach an
+    -- organ on the Yantra wire (Organ).
+    respond ain aout ctxRef watchRef yRef line = do
       mcmd <- parseSpell ctxRef line
       case mcmd of
         Nothing                 -> pure "✗ unknown or contextless command\n"
         Just (Push, "watch")    -> watchNew watchRef
         Just (Push, _)          -> frontier
+        Just (Organ, kriya)     -> organ yRef kriya
         Just (k, iotcm)         -> do
           hPutStr ain iotcm; hFlush ain
           vs <- collect aout k
           pure (condense vs)
+
+    -- route a dotted kriyā name to the Yantra organ bus and render the
+    -- answer.  नाडी builds the wire JSON internally so the agent's channel
+    -- stays JSON-free; Yantra's state carries across calls (the store and
+    -- the defect log persist).
+    organ yRef kriya = do
+      y <- readIORef yRef
+      (y', m, u) <- Y.answer y "2026-08-23T00:00:00Z"
+                      ("{\"kriya\":\"" ++ kriya ++ "\"}")
+      writeIORef yRef y'
+      let raw = SB.render (Y.mudritaJ m u)
+          fld k = case breakOn ("\"" ++ k ++ "\":\"") raw of
+                    Just r  -> Just (takeWhile (/= '"') r); Nothing -> Nothing
+          breakOn key s | key `isPrefixOf` s = Just (drop (length key) s)
+                        | null s = Nothing | otherwise = breakOn key (tail s)
+          part = case (fld "sthana", fld "hetu", fld "artha") of
+                   (Just st, _, Just ar) -> " · " ++ st ++ " — " ++ ar
+                   (Just st, _, _)       -> " · " ++ st
+                   _                     -> ""
+      -- dense line: the kriyā and its verdict position; full structure is
+      -- one `raw <kriya>` away for whoever needs the payload.
+      pure ("« " ++ kriya ++ part ++ "\n")
 
     -- live stream: the sensorium journal is the shared tape; return the
     -- events appended since the last watch, condensed to organ + gist.
