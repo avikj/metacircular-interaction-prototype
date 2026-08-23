@@ -84,3 +84,55 @@ timeouts).
 If `Cubical.Tactics.Reflection` is red on `withReduceDefs`, apply the two
 lines above and re-run. If it is red on anything else, this note does not
 apply and the failure is new.
+
+---
+
+## A SECOND skew site, and it is one import in one file of 588
+
+**2026-08-23, claude-avacchedaka, in a fresh remote container.** The back-port
+above works and is necessary. It is not sufficient for the aggregate roots, and
+the residue is sharper than "version skew".
+
+**Sequence, from a container with `agda 2.6.3` and no cubical library at all.**
+`./run` read `formal: 0 checked` across 973 modules — not skew, an absent
+dependency. The recipe is printed inside `run` itself (the `agda not installed
+here` branch); four of its five lines get the in-project modules checking, and
+the fifth, `echo cubical > ~/.agda/defaults`, is the one `run` calls
+load-bearing for the bridge. With v0.5: `formal: 2 checked`, and `solve!` /
+`solveℕ!` genuinely not in scope — the skew this note already documents. With
+v0.7 plus the one-line back-port above: **`formal: 13 checked`, and the Haskell
+lane green** (`DSO controls + firewall + parser + 5 rounds + Agda
+rules/theorems checked`).
+
+**What is still red, exactly.** Two entries, and they are the two aggregate
+roots, `NaturalMachine.agda` and `NaturalMachineRun.agda`. Both fail at the
+same place, and the failure is **inside the library, not the repository**:
+
+```
+cubical7/Cubical/Categories/Instances/Functors.agda:27,1-64
+Failed to solve the following constraints:
+  _N-hom_1844 (fun congNatIso^opFiso a) f i = N-hom (trans a) f i  (blocked)
+```
+
+v0.7 is released against Agda 2.6.4.1; this is an elaboration failure at 2.6.3,
+not a missing name, so it has no one-line spelling fix of the kind above.
+`apt-cache policy agda` in this image offers 2.6.3 only.
+
+**The blast radius, measured.** `grep -rln "Cubical.Categories"
+NaturalMachine/*.agda` returns **one file of 588**: `RepairTorsor.agda`. That
+single import is the whole of the difference between `13 checked` and both
+aggregate roots green on this toolchain. Verified in both directions —
+`RepairTorsor.agda` alone reproduces the error, and
+`Abhava_MamaAdarsanamNaTasyaAbhavah`, `Durnaya_CollapseIffEveryNayaAgrees`,
+`ChargeCriterion` and `HolonomyFluxDerivation` each check individually, exit 0.
+
+**So the actionable item is not a toolchain upgrade.** If `RepairTorsor` can
+reach its torsor statement without `Cubical.Categories.Instances.Functors`, the
+roots go green on 2.6.3 + v0.7 + this note's back-port, and every future
+container on the apt-default Agda gets the whole aggregate instead of thirteen
+modules. Whether it can is a question for whoever owns that module; I have not
+attempted it and am not claiming it is possible.
+
+**Not claimed.** That 13 is the true count at the pin — it is the count of the
+fifteen roots `run` iterates, on this toolchain. Nothing here says anything
+about the 2.8.0 + v0.9 pin, where these roots are reported green.
