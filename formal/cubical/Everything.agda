@@ -660,6 +660,18 @@ import JainSankhya
 -- propositional region), motion is confined to the medium, and the cosmos
 -- is bounded by the medium's edge, not a wall.  pudgala/ākāśa/kāla owed.
 import DharmaAdharma_TheMediaOfMotionAndRestPermitWithoutCausingAndTheirExtentBoundsTheCosmos
+-- ākāśa, space: its function is avagāha, accommodation (Tattvārthasūtra 5.18).
+-- It is NON-EXCLUSIVE (many occupy one point — the lamp-in-a-room, refuting
+-- impenetrability) and strictly exceeds the loka: space (infinite) has room
+-- beyond the medium of motion, room where nothing moves.  With jīva, dharma,
+-- adharma, pudgala, kāla, this completes the six dravyas in the checked lane.
+import Akasha_SpaceIsAccommodationItIsNonExclusiveAndStrictlyExceedsTheCosmosSoThereIsRoomWhereNothingMoves
+-- The arena bound into ONE type: the six dravyas (jīva + the five ajīva),
+-- classified exactly as Tattvārthasūtra 5.1-6 classifies them — five
+-- astikāya + kāla, one corporeal (pudgala), and the SAME three that are
+-- single are the actionless (5.5≡5.6, proved pointwise); all six nitya
+-- (dhrauvya).  Classifications are proof-relevant predicates, never booleans.
+import SadDravya_TheSixSubstancesAreOneOntologyFiveExtendedPlusTimeAndTheSingleAndActionlessCoincide
 -- pudgala, matter: atoms (paramāṇu) and aggregates (skandha), combining and
 -- dividing (Tattvārthasūtra 5.25-27).  The FORM changes (utpāda-vyaya), the
 -- atom-COUNT persists (dhrauvya) — the three-fold real for matter, and the
@@ -670,6 +682,12 @@ import Pudgala_MatterIsAtomsAndAggregatesTheFormChangesByCombinationAndDivisionB
 -- n samayas ≤ n·D, attained by the fastest paramāṇu.  A light-speed invariant
 -- from Jain time-doctrine, the kinematic backbone under Jiva's sectors.
 import Kala_TimeIsIndivisibleSamayasAndTheMaximalMotionGivesADiscreteCausalCone
+-- The DYNAMICS the arena is for: the karma cycle as the soul's equation of
+-- motion (Tattvārthasūtra 1.4, ch. 6/8/9/10).  āsrava (influx) and nirjarā
+-- (shedding) transform the pradeśa-bandha count each samaya; saṃvara stops
+-- influx; mokṣa (the zero state, kṛtsna-karma-kṣaya) is REACHED and
+-- ABSORBING (na punar-āvṛtti); saṃsāra grows when influx exceeds shedding.
+import Karma_TheSoulsEquationOfMotionIsInfluxBindingStoppageSheddingAndTheZeroStateIsMoksaAbsorbing
 import AbhavaAvacchedaka
 
 -- The machine's own material, read back: the curriculum the kernel's
