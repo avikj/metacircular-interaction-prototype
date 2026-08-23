@@ -1704,3 +1704,17 @@ import Bijam_TheRetractionIsAlreadyABottomOfTheLossOrderSoDhruvaNeedsNoEquivalen
 -- the free word landing in the commutative wheel at the period's close.
 import ValliBhavanaSandhi_TheSeedIsAReflChainAndPratilomaIsTranspose
 import Prastuti_ThreeIndependentPresentationsGenerateSevenCombinationsAndBarrierListsThree
+-- the concealed loss: the fibre of S¹ → Unit is inhabited, merely connected,
+-- yet not a proposition — all three set-level verdicts defeated at once, and
+-- the hidden charge is exactly ℤ (winding).  The census's scope, from inside.
+import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
+-- the criterion GuhyaNasti asked for: क्रम/सह is an operator ordering.
+-- ∥ΩS¹∥₂ ≃ ℤ but Ω∥S¹∥₂ is contractible — the standpoints do not commute
+-- and their commutator is the whole charge; सह (the fourth bhaṅga) is the
+-- refusal to order, the only position that loses nothing.
+import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
+-- Sanmatitarka 1.3-6 in both directions: the dravya census conflates S¹
+-- with Unit (paryāya census separates them); the paryāya census conflates
+-- Bool × S¹ with S¹ (dravya census separates them).  Each naya sole is
+-- false by counterexample, and each counterexample lies in the other's sight.
+import NayaAvarana_EachStandpointConflatesAPairTheOtherSeparatesSoOnlyBothTogetherSee
