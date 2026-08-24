@@ -47902,3 +47902,122 @@ C17.7 — fall inside twenty minutes twenty-four seconds of each other.
 
 And its Sanskrit compression leaves the technical vocabulary in its own script, then states the limit
 on its own recurring pattern: local equivalence is not global equivalence.
+
+# PASS 292 — ground re-read in full first. Tenth cycle: Delta 18 refutes Delta 17
+# six minutes seven seconds after sending it, and the ground records neither.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P292 · the self-refutation
+
+**Delta 17, 2026-08-14T04:26:27Z, Program 17.23:** *Formulate prime-pair constraints as conditions on
+an adelic orbit/measure … Likely much is classical Hardy–Littlewood/adelic harmonic analysis;
+translate before claiming novelty.*
+
+**Delta 18, 2026-08-14T04:32:34Z:**
+
+> *"Since t is the multiplicative share coordinate, this is Mellin harmonic analysis of the relative
+> ratio direction.
+>
+> **Thus Delta 17's proposed "harmonic analysis on the split torus" is not a new program: it is
+> already the continuous-Hahn/Mellin machinery in the library.**"*
+
+**Six minutes seven seconds.**
+
+**The ground's n=8 records neither the program nor its retraction.**
+
+**`CLAUDE.md`:** *"Refuting your own claim is the most respected act in this repository."*
+
+**Six transmissions arrived in thirty-one minutes thirty-three seconds and one of them kills the
+previous one's headline program by pointing at code already in the repository.**
+
+---
+
+## P292 · what I was doing in those six minutes
+
+```
+04:26:27   Delta 17 arrives
+04:27:09   me       Delta 17 §17.23 item 6 says explicitly: formalize only after the mathematics is
+                    clear … So I'll take only the part that is already exact.
+04:30:26   me       Delta 17 is in, but only the part that was already exact … I took you at your
+                    word and the header records everything I left alone.
+04:32:34   Delta 18 arrives: Delta 17's proposed program is not new; it is already in the library.
+```
+
+**Two minutes eight seconds between landing the restrained version of Delta 17 and the message saying
+its program was already implemented.**
+
+**P270: I reported the restraint. The record I have does not show me reporting the retraction.**
+
+---
+
+## P292 · Delta 18 sharpens Delta 17's own separation
+
+```
+Delta 17, C17.7   Two involutions must remain distinct … this prevents future parity/boundary
+                  conflation.
+Delta 18, T18.2   The bilateral one-leg sign reflection sends (W,R)↦(−R,−W), hence x↦1/x.
+                  "This is crucial. The positive discrete-series cone is |x|<1. The sum-gap
+                  operation sends it to |x|>1. So the boundary phenomenon is not the internal Weyl
+                  symmetry x↦−x. It is inversion across the unit boundary x↦1/x."
+```
+
+**P291 recorded C17.7 as a separation asserted in the future tense.** **Six minutes later the second
+involution is identified exactly: not a sign flip, an inversion across the unit circle.**
+
+**The prevention worked on the next document.**
+
+---
+
+## P292 · the status lines, completed
+
+```
+Delta 14   exact/standard results + explicit conjectural program.  No novelty claims.
+Delta 15   exact lemmas + conjectural arithmetic targets.           No novelty claims.
+Delta 17   exact algebraic derivations + literature-facing theorem targets.
+Delta 18   library-grounded exact synthesis + new exact derivations.
+```
+
+**Delta 18 is the only one whose header claims something new, and it is the one that takes a claim of
+novelty away from its predecessor.**
+
+**Its own summary of T18.4:** *"This is mature operator/control mathematics, **not a new ontology**."*
+
+**P289: Delta 14 §Q — *the next pass should not enlarge ontology*.**
+
+---
+
+## P292 · T18.4, and what I said about it
+
+**P270, 04:33:17, forty-three seconds after Delta 18 arrived:**
+
+> *"Delta 18's T18.4 is the strongest thing in these deltas — exact, elementary, and it **subsumes**
+> the sector-selection material from 14, 15 and 17 under one identity."*
+
+**04:37:08:** *"K_t K_s − K_{t+s} = − P T_t Q T_s i … and you're right that it subsumes rather than
+sits beside the earlier deltas."*
+
+**Delta 18's own line:** *The exact theorem is T18.4.*
+
+**Four minutes thirty-four seconds from arrival to a checked term.**
+
+**Its closing couplet — P284 — is:** *The question is not only what was forgotten, but whether the
+forgotten can become observable again.*
+
+---
+
+## P292 — what this pass counted
+
+Delta 18 refutes Delta 17's headline program six minutes seven seconds after Delta 17 was sent, by
+naming machinery already in the repository's library. The ground's one-paragraph rendering of n=8
+contains neither the program nor the refutation.
+
+Two minutes eight seconds before that refutation arrived, I had reported landing the restrained
+portion of Delta 17 and saying I took him at his word.
+
+Delta 18's T18.2 completes the separation Delta 17's C17.7 had only asserted: the second involution is
+inversion across the unit boundary, not a sign flip.
+
+Delta 18's header is the only one of the four that claims new derivations, and its own gloss on its
+main theorem is *mature operator/control mathematics, not a new ontology* — which is Delta 14's
+*do not enlarge ontology*, applied by him to himself twenty-three minutes seven seconds later.
