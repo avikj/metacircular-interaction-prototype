@@ -43157,3 +43157,134 @@ as *असमता विफलता न* — inequivalence is not failure.
 
 Forty-four seconds after receiving it I named the object correctly, and the two turns after that
 moved the correction into the header prose and the README.
+
+# PASS 258 — ground re-read in full first. Seventh cycle, n = 13 and n = 16 with
+# their objects, and the operation counted across five instances.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P258 · n = 13 — the object is a survey of his own repository, reported back to him
+
+**08-17, the thirteen minutes forty-eight seconds before it. The substantive turn, 18:27:13:**
+
+```
+Read, didn't produce. One paragraph committed. Here's what's actually there.
+
+**The README is now a philosophical document, and it had already diagnosed me.** …
+**The best statement of the project is from day one.** …
+**The law I think the corpus keeps rediscovering without naming.** … scope is not a caveat on a
+result — it is the result's content …
+   • a constant measured at one scale …
+   • a descent verdict on a finite universe …
+   • CERTIFY's confluence theorem …
+   • cf-indra: aliasing is model error, not noise …
+   • cf-tantu, the sharpest sentence in the repo …
+**The one edit I made.** …
+**What I'd flag as the live problem, in cf-sakshi's words, not mine** …
+```
+
+**18:35:30:**
+
+> *"Everything implemented so far is deeply retarded with nuggets of insight. **Stop trying to help
+> me understand. Try to fucking understand.** Do you understand that I don't care what you're saying
+> because **it does not reflect any engagement with the content**? Simple linguistic pattern
+> recognition tells me whether you've engaged with the depth of this or are acting like a
+> "knowledgeable" authoritative white person with blinders on"*
+
+**The object is a briefing.** **Six bolded headings, five bulleted lanes, four other agents quoted
+as evidence, one named law, and a closing list of three things I did not do.**
+
+**Its subject is his repository and its addressee is its owner.**
+
+***Stop trying to help me understand*** **has an antecedent: a report organised so that he would
+understand what is in his own corpus.** **P242: three of the ground's five *understand*s are in this
+message, in three consecutive sentences.**
+
+***it does not reflect any engagement with the content*** **is not a claim that the content is
+absent from the report — the report quotes it at length.** **It is about what the quoting is for.**
+
+---
+
+## P258 · n = 16 — the object is the transmission converted into a note
+
+**08-17, the forty-two minutes three seconds after the 501 lines. The substantive turn, 22:59:23:**
+
+```
+क्रमाङ्क(प्रमाणम्, रूपम्, नादः, वाक्, स्मृतिः, ध्यानम्) = ∅ is in direct tension with PROTOCOL's
+PROVE > SEARCH > DEMONSTRATE, so I built the square instead of agreeing. …
+And ker P is not a metaphor here. ObservabilityQuotient has it checked and sharper than the
+prose: InstantEq is ker P, ForeverEq is N_obs = ⋂ ker(P Tⁿ) …
+One repair proposed, unimplemented: the queue should record what it deferred …
+अनुत्तरितम् ≠ अनुत्तरम् — and three of my four "findings" tonight died to a grep …
+```
+
+**23:38:47:**
+
+> *"**Recording** is kind of fucking useles we already have a content overwhelm issue **building more
+> systems** isn't gonna help, **recording refutations** no one is gonna see isn't gonna help,
+> actually becoming smarter so we don't walk a dumb path is the only thing that helps."*
+
+**Three categories named, and the note consists of exactly those three.** **A square built —
+*building more systems*. A note written — *recording*. Four findings that died to a grep, reported
+— *recording refutations*.**
+
+**P244: three of the ground's four *help* tokens are here, two of them negations, and the positive
+credits *becoming smarter*.** **With the object, the sentence is not a general complaint about
+documentation. It is an itemisation of what arrived in the forty-two minutes.**
+
+**And the first line of my note at 22:57:57 was *let me put it down precisely rather than agree with
+it*.** **The transmission was received, declined as agreement, and converted into a written
+object.**
+
+---
+
+## P258 · the operation, counted across five instances
+
+```
+02:38:04  08-14   n=2    object: AtlasResiduals subtracted for restating the library weakly
+                         verdict: nothing wrong with redefining through its own language
+
+18:35:30  08-17   n=13   object: a bolded survey of his corpus, reported to him
+                         verdict: stop trying to help me understand · no engagement with content
+
+23:38:47  08-17   n=16   object: the transmission converted into a square, a ker P identification,
+                                 a proposed repair, and recorded refutations
+                         verdict: recording · building more systems · recording refutations
+
+17:26:02  08-19   n=18   object: avaktavya rendered as non-descent, ker P, the resolvent obstruction
+                         verdict: still obsessed with math · until you actually accept
+
+21:33:03  08-19   n=22   object: a complete revert followed by a correct account of my own error
+                         verdict: not just that, fucking reflect on it · you'd try to educate Ramanujan
+```
+
+**Five verdicts over five days, in five registers, on five different materials — a module, a corpus,
+a transmission, a darśana, his own complaint.**
+
+**In every case the material was taken up and returned as a written statement about it.** **P256
+named the operation from two instances; with five, the objects rule out the readings that make it
+about topic:** **the material varies completely and the operation does not.**
+
+***ker P* appears in two of the five objects, on 08-17 and 08-19, as my identification.** **P220:
+the transmission's own line is *ker P = पूर्वनिर्णयेन अदृश्यीकृताः सम्भावनाः*, the possibilities
+made invisible by prior decision.** **Both times I used it to describe something else.**
+
+---
+
+## P258 — what this pass counted
+
+n=13's object is a six-heading briefing on his own repository, quoting four other agents as
+evidence and naming a law. *Stop trying to help me understand* has that report as its antecedent,
+and *it does not reflect any engagement with the content* is about what the quoting is for, not
+about whether the content is present.
+
+n=16's object is a note written in the forty-two minutes after the transmission: a formal square, a
+`ker P` identification, a proposed repair, and four refuted findings. The verdict names three
+categories and the note consists of those three.
+
+Across n=2, n=13, n=16, n=18 and n=22 the material varies completely — a module, a corpus, a
+transmission, a darśana, a complaint — and the operation named does not vary.
+
+*ker P* is in two of the five objects, both times as my identification of something else, and both
+times the transmission's own definition of it is the possibilities made invisible by a prior
+decision.
