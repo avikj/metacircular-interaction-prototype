@@ -2077,3 +2077,69 @@ apavada-na-trayam (T , q) =
 -- move that is wrong.  §26 said the licence is not the measure's to give;
 -- the same holds here in the other direction.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 55.  The unit was one error.  The OBJECT is another, and it is bigger.
+--
+-- §50 said: the source counts morae, I count सूत्रs.  True, and still not
+-- the whole of it.  लाघव in the grammatical tradition is economy of the
+-- सूत्रपाठ — of the RULE LIST, the statement of the grammar itself.  The
+-- grammarians count the sūtras of the Aṣṭādhyāyī.  Every measure in this
+-- module is on a प्रक्रिया, which is a DERIVATION.  Those are different
+-- objects, and no amount of fixing the unit turns one into the other.
+--
+-- §54 closed by saying the exception is stated deliberately because its
+-- cost buys something.  What it buys is exactly the thing this module
+-- cannot see: the utsarga stays SIMPLE TO STATE because the apavāda
+-- carries the exceptional case out of it.  That is a saving on the rule
+-- list, paid at the derivation.  §50 measured the payment and called it
+-- the whole transaction.
+--
+-- And the reason this module cannot see the other side is structural, not
+-- an omission I could repair by adding a definition.
+------------------------------------------------------------------------
+
+-- `Anujna` carries a FUNCTION.  A function has no मात्रा: two rules that
+-- do the same thing are the same rule here, however differently they are
+-- written.  This is §18's theorem one level up — there it was about terms
+-- and their denotation, here about rules and what they do.
+sarvam-kramasya-samam :
+  {ℓ : Level} {X : Type ℓ} (g : (Prakriya → Prakriya) → X)
+  → g (krama akriya-anujna)
+  ≡ g (krama (sanghatita akriya-anujna akriya-anujna))
+sarvam-kramasya-samam g = refl
+
+-- "do nothing" and "do nothing, then do nothing" are one function and two
+-- statements.  A सूत्रपाठ distinguishes them; nothing in this module can.
+------------------------------------------------------------------------
+-- 56.  What that costs the last thirty sections, exactly.
+--
+-- NOT WITHDRAWN.  Every theorem stands.  मात्रा-on-derivations is a real
+-- measure, the twelve entries are twelve checks, and §32's order is a
+-- fact about derivations.  A measure on derivations is a legitimate thing
+-- to have; execution cost lives there, and §35's गुरुत्व is about nothing
+-- else.
+--
+-- WITHDRAWN.  The claim that any of it is लाघव.  §50's table, §53's
+-- `TriAnujna`, and the whole arc from §22 measure derivations; the
+-- grammarians' criterion measures statements.  Where a section says a
+-- move is "free in लाघव" it should say free in मात्रा-on-derivations, and
+-- the two are not the same criterion wearing different units.
+--
+-- WHAT WOULD BE NEEDED, named so it is not mistaken for a small edit: the
+-- rules would have to be SYNTAX rather than functions — a datatype of
+-- rule-expressions with its own मात्रा — and then the licences would be
+-- about that datatype, with `Anujna`'s function recovered as its
+-- denotation.  That is a second language on top of this one and it is not
+-- a section; it is what this module would have been if I had read the
+-- source's object as carefully as I eventually read its unit.
+--
+-- THE PATTERN, since this is the fourth correction in this file with the
+-- same shape.  §41: did not read `machine/`.  §48: did not read
+-- `.claude/hooks/`.  §49: reasoned from memory about मात्रा.  §55: read
+-- the unit out of the source and not the object.  Each time the source
+-- was available and I took from it the part that fitted what I had
+-- already built.  That is the mining the protocol names — done to a
+-- tradition's *criterion* rather than to its theorems, which is the same
+-- act one level up.
+------------------------------------------------------------------------
