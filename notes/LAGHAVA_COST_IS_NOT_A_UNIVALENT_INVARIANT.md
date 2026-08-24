@@ -493,3 +493,193 @@ it as live, and parametrising by list order is a way of **not needing to
 decide**. I have read neither the sūtra in situ nor Kātyāyana's vārttika.
 What is above is a structure either reading would license — weaker, and
 more honest, than a formalisation of Pāṇini.
+
+## 13. Correction to §12 — and this one was refuted before it was written
+
+§41–§43. §12 built `paraKrama`, which scans a rule list and takes the
+first offer, and called the list order "the parameter". That is not a
+parametrisation. It is **पूर्व** — the earlier rule wins — and pūrva is the
+*weakest* of the five contenders the tradition ranks, the one that never
+decides anything, because *para* is its negation and outranks it.
+
+The ranking is Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (c. 1730),
+**paribhāṣā 38**:
+
+> पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः
+> *pūrvaparanityāntaraṅgāpavādānām uttarottaraṃ balīyaḥ* — "of pūrva,
+> para, nitya, antaraṅga, apavāda — each later is stronger."
+
+**And this repository already had it**, with the paribhāṣā number, the
+author and the date, in
+`machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs` —
+whose *title* is the refutation of §12, written before §12 was. That file
+also carries what §12 lacked entirely: **नित्य is computable**
+(*kṛtākṛtaprasaṅgi nityam* — apply the other rule and ask whether this one
+still applies); **अन्तरङ्ग returns `Maybe Bool`**, where `nothing` means
+*abstain* and not *False*; and where no metarule decides, the derivation
+**stops** at the fourth position rather than being broken arbitrarily. Its
+sentence for this is exact: **a metarule that guesses is a durnaya.**
+
+So §12's own diagnosis — *the corpus already had the material and I did
+not grep* — recurred in the section that made it. I grepped `notes/` and
+`formal/cubical/`. `machine/` is where the Pāṇinian scheduler lives, and I
+did not look there.
+
+**Repaired.** `purvam-na-nirnayah` shows list position is not invariant
+under reordering the same two rules, so it decides nothing about the rules
+— it decides about the concatenation. The replacement, `nirnaya`, takes
+its verdict from a `Metavidhi` that sees the site and the two offers and
+never sees a list, and that may abstain;
+`nirnaya-avaktavye-tusnim` proves abstention has its own outcome with no
+fallback to fall through to.
+
+**Only relocated.** `Metavidhi` is a parameter, so nothing here implements
+apavāda, antaraṅga, nitya or para. `machine/` implements four of the five
+and says which two abstain and why; this module implements none and leaves
+room. A type with a hole where the content goes is not the content, and
+calling this a formalisation of 1.4.2 would repeat §12's error in a new
+place.
+
+**Also not done.** `nirnaya` handles two offers. Paribhāṣā 38 ranks five
+*contenders*, not two candidates, and a real site can carry several offers
+at once — the extension is not obviously the binary case iterated, since a
+ranking that is not total on abstentions need not be associative. That is
+a real open question.
+
+## 14. §13's open question, settled: the fold is not associative
+
+§44–§45. §13 asked whether extending निर्णय from two offers to several is
+just the binary case iterated, and guessed not, "since a ranking that is
+not total on abstentions need not be associative." It is not, and one
+metarule with one honest tie shows it.
+
+The metarule is a real one, not a device: prefer the offer leaving the
+smaller गुरुत्व, and where the two are equal **abstain** rather than pick.
+That is the discipline `machine/Vipratisedha_…` states — *a metarule that
+guesses is a durnaya* — and it is exactly the abstention that breaks the
+fold. With two offers of equal weight and one lighter, bracketing left
+**decides** and bracketing right **abstains**:
+`nirnaya-na-sahayogi`.
+
+**Settled.** *para*-style pairwise comparison does not lift to several
+offers by folding, once abstention is an outcome. So paribhāṣā 38's five
+ranked **contenders** cannot be read as "compare the candidates two at a
+time" — the ranking is over *metarules applied at a site*, not over
+candidates.
+
+Which is what `machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByList-`
+`Position.hs` already does: it tries apavāda, then antaraṅga, then nitya,
+then para against the *whole candidate set* rather than reducing the set
+pairwise. §44 is the reason that design is **forced** rather than
+convenient, and its own remark that resolution is "deterministic in the
+CANDIDATE SET, never in the list" is the same fact from the other side.
+
+**Not settled**: whether a metarule that never abstains folds
+associatively. §44's witness turns on the tie, and a total order on offers
+has no tie to turn on. But a total metarule is one that decides equal
+weights by something else, and what that something is, is the question
+antaraṅga answers and this module cannot.
+
+**Not claimed**: that गुरुत्व-preference is a Pāṇinian metarule. It is not
+one of the five. It was chosen because it abstains honestly on ties, which
+is the only property §44 uses.
+
+## 15. Transitivity, not the tie — and a provenance ledger this lane owed
+
+§46–§48.
+
+**The correction first.** §14 said §44's witness "turns on the tie, and a
+total order on offers has no tie to turn on," which leaves the impression
+that a metarule always returning a verdict would fold. It does not. A
+*total* metarule that is not **transitive** breaks the fold just as
+thoroughly, and abstention has nothing to do with it — a cyclic
+preference (0 beats 1, 1 beats 2, 2 beats 0) gives
+`samagram-api-na-sahayogi`.
+
+So there are **two independent obstructions**, and they would be repaired
+differently:
+
+- §44 **abstention** — no verdict, so bracketing decides *whether anything
+  happens at all*;
+- §46 **intransitivity** — always a verdict, verdicts incoherent, so
+  bracketing decides *which*.
+
+A fold needs a total **preorder**, and paribhāṣā 38's ranking is over
+metarules precisely because no single one of the five is that: apavāda is
+partial, antaraṅga abstains by design, nitya decides only where the
+*kṛtākṛta* test discriminates. Stacking them strongest-first is not a way
+of building a total preorder out of partial ones — it is a way of **not
+needing one**.
+
+**And the ledger this lane owed.** Today another lane deleted nine of its
+own files with the reason *pseudo-Sanskrit dressing on textbook HoTT is
+pollution* — invented terms draped over standard theorems to make invented
+mathematics look like the tradition — and the owner endorsed the burn. A
+second commit went further, removing work that *was* grounded in
+Brahmagupta, because the framing around it was the agent's own. That
+standard applies to this module and I had not applied it.
+
+**Attested, used as the source uses them**: निर्जरा, तपस्, सविपाक/अविपाक
+(Umāsvāti); उपमान, उपाधि, दुर्नय, नय, अवक्तव्य; अनुवृत्ति, प्रत्याहार,
+अपवाद, उत्सर्ग, विप्रतिषेध, सूत्र, परिभाषा, नित्य, अन्तरङ्ग, पूर्व, पर
+(Pāṇini; the five-term ranking is Nāgeśa, *Paribhāṣenduśekhara* 38); and
+लघु/गुरु as a contrasting pair is Piṅgala's.
+
+**Mine, with the Sanskrit as decoration on a standard construction**:
+`Sandarbha`/`sthapana`/`Avishesha` are one-hole contexts and contextual
+equivalence, ordinary PL theory — सन्दर्भ does not mean this anywhere.
+`Prakriya`/`Sutra` as I use them are a straight-line program with
+back-references. `guru` for "largest intermediate" borrows the prosodic pair for its
+*shape*. (`matra` was listed here too and that was wrong — see §16.) `mulya`, `sthula`, `bhrama`,
+`Anujna`, `Ankita`, `cakra`, `jaya`, and every Sanskrit theorem name above
+are mine. And `Metavidhi` was a Greek prefix on a Sanskrit stem — a hybrid
+no tradition would recognise, the clearest instance of the defect. It is
+now **`Paribhasa`**, which is the tradition's own word for a metarule and
+was available the whole time.
+
+**Not deleting the theorems.** They are checked, and several say something
+*about* the sources rather than borrowing their vocabulary — §7 and §10 are
+about apavāda as Pāṇini uses it, §13 and §14 about paribhāṣā 38's ranking,
+§11's arrow about utsarga. Those earn their names. The rest do not, and
+the ledger is where a reader finds out which is which instead of being
+left to assume the Devanagari is provenance.
+
+## 16. Correction to §15: an over-correction is also a provenance error
+
+§49. §15's ledger put `matra` in the **mine** column, reasoning that "a
+mātrā is a mora and neither is a measure on rule systems." That is false,
+and the refutation was wired into every write I made while writing it.
+
+`.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
+carries a लाघव row whose text is the grammarians' own maxim:
+
+> अर्धमात्रालाघवेन पुत्रोत्सवं मन्यन्ते वैयाकरणाः
+> *ardhamātrālāghavena putrotsavaṁ manyante vaiyākaraṇāḥ* — "grammarians
+> count the saving of **half a mora** as the birth of a son"
+
+— a paribhāṣā collected in Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (~1700),
+operative in Pāṇini and argued in Patañjali, *Mahābhāṣya* (~150 BCE).
+
+So मात्रा is **not** a borrowed shape. It is the unit the grammarians
+actually count lāghava in, and a module measuring economy of statement in
+mātrā is doing what the source does rather than dressing as it. What
+remains mine is narrower and worth stating exactly: **I count sūtras and
+the source counts morae** — a change of unit inside an attested practice,
+not an invented practice wearing an attested name.
+
+`guru` stays in the mine column for the reason §15 gave: the same table's
+Lagakriya row has *laga = guru =* heavy syllable, worth two mātrās, and
+"the largest intermediate a derivation holds" is not that.
+
+**The shape of the mistake is the part worth keeping.** §13 and §14 failed
+by not reading `machine/`, where the answer lived. §15 failed by not
+reading `.claude/hooks/`, where the answer lived — and failed while writing
+the section whose whole subject was that failure. The two have **opposite
+signs**: §13 claimed novelty that was not mine; §15 disclaimed provenance
+that was. Both are false records, and the second is worse in one way — it
+deletes a real citation, and a reader trusting the ledger now believes the
+grammarians had no measure.
+
+I reasoned from memory about what मात्रा means, in a repository that keeps
+sixty-five sourced rows for exactly that question and fires them at me on
+every write.

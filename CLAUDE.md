@@ -537,10 +537,42 @@ Concretely, and these are load-bearing here rather than decorative:
 - **Nyāya** on *pramāṇa* — what counts as a valid means of knowledge — which
   is the question this entire repository is trying to answer with ad-hoc
   gates.
-- **Pāṇini**, whose *Aṣṭādhyāyī* is a rewriting system with conflict
+- ~~**Pāṇini**, whose *Aṣṭādhyāyī* is a rewriting system with conflict
   resolution (*vipratiṣedhe paraṁ kāryam*), exception-over-general
   (*utsarga*/*apavāda*) and stratification (*asiddhatva*) — machinery the
-  engine in `machine/` does not have.
+  engine in `machine/` does not have.~~
+  **STRUCK 2026-08-24. This bullet committed, inside the section that exists
+  to prevent it, the exact error the section names first — and it stood for
+  five days.** The ranking that makes an exception beat the general rule —
+  **पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः** — is **not a sūtra of
+  the Aṣṭādhyāyī.** It is a *paribhāṣā* of the commentarial tradition,
+  reaching here through **Nāgeśa's *Paribhāṣenduśekhara*, 18th century**.
+  Filing it under "Pāṇini, ~500 BCE" is a **2300-year misattribution**, and
+  it is the same move as "Pell's equation" performed on the tradition's own
+  internal history rather than across it.
+  And *vipratiṣedhe paraṁ kāryam* is not a free-standing conflict resolver.
+  **A 1.4.2 is the second half of a pair**: **A 1.4.1 आ कडाराद् एका संज्ञा**
+  says that where several *saṃjñā*s offer, only **one** applies, and 1.4.2
+  says which. An exclusion rule plus a tiebreak — not "both stand", and not
+  a general rule-ordering principle. Its reading is *live*: traditional
+  *para* against Rajpopat 2022, and the corpus records it as live and
+  declines to adjudicate. Do not adjudicate it here either.
+  What survives unchanged and is genuinely Pāṇini's: **stratification
+  (*asiddhatva*, the tripādī 8.2–8.4)** and **context inheritance
+  (*anuvṛtti*)**.
+  Correction landed by the archivist lane in `60dbafdd` (§39–§40 of
+  `Nirjara_SheddingAPrimitiveCostsLaghava.agda`, and §12 of
+  `notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md`), which reached the
+  module and did not reach this file. **The same error still stands in
+  `ANEKANTA.md` §5** — struck there too, same date.
+  ⚑ **AND THE CHEAP CHECK CATCHES IT ONE LEVEL DOWN, which is why it is
+  worth the space.** This file already prescribes: grep for *the text's
+  name, not the author's*. The sūtra version of that is **grep for the
+  sūtra's WORDS, not its NUMBER** — and measured 2026-08-24, before the
+  correction landed: `1.4.2` in **42 files**, `1.4.1` in **11**, and
+  **`ekā saṃjñā` in ZERO.** The number propagates through citation; the
+  words appear only where someone opened the text. Forty-two files cite a
+  sūtra whose words nobody had written down.
 - **Nāgārjuna's** *catuṣkoṭi*, already checked in `formal/cubical/`.
 
 **STRUCK 2026-08-19 by the owner. The paragraph that stood here is preserved
@@ -686,14 +718,45 @@ deletions always pass, additions and modifications do not.~~
 this paragraph is left standing struck rather than deleted, because striking a
 rule silently is how this repository loses its own history.**
 
-**What is now true.** The CI workflows are deleted (`8e9ee08`). `no-python.sh`
+~~**What is now true.** The CI workflows are deleted (`8e9ee08`). `no-python.sh`
 is removed from both `PreToolUse` matchers in `.claude/settings.json`
 (`991b59b`) and no longer runs; the script is left on disk, unreferenced, so
 the decision is reversible in one line. `.githooks/pre-commit` was **never
 enabled in any clone** — `core.hooksPath` is unset at every scope and
 `.git/hooks/` holds only `*.sample` — which SEED-128 measured on 2026-08-15
 and nobody acted on. **Working mechanical gates on Python in this repository:
-zero**, and there has not been a complete one for some time.
+zero**, and there has not been a complete one for some time.~~
+
+> **STRUCK 2026-08-24. `no-python.sh` IS WIRED AND IT BLOCKS. It refused a
+> `Bash` call of mine this session** — *"BLOCKED: Python is banned in this
+> repository (CLAUDE.md, owner 2026-08-13)"* — so "working mechanical gates on
+> Python: zero" is false, and it was the sentence an arriving agent would have
+> trusted before reaching for a script.
+>
+> **The inventory, read out of `.claude/settings.json` rather than remembered
+> (2026-08-24). Seven hooks on `Bash`, four on `Write|Edit|NotebookEdit`:**
+>
+> | hook | matchers | behaviour |
+> |---|---|---|
+> | `no-python.sh` | Bash | **BLOCKS** |
+> | `no-sweeping-commit.sh` | Bash | **BLOCKS** |
+> | `Nasti_TheIndexIsSharedAndCommitTakesAllOfIt.sh` | Bash | **BLOCKS** |
+> | `source-coverage.sh` | Bash, Write\|Edit | mirror, exit 0 |
+> | `gate-coverage.sh` | Bash, Write\|Edit | mirror, exit 0 |
+> | `struck-claims.sh` | Bash, Write\|Edit | mirror, exit 0 |
+> | `MulaVakya_TheHeaderCarriesItsTextAndDate.sh` | Bash, Write\|Edit | mirror, exit 0 |
+>
+> So **three of the seven block**, and the *"nothing here will stop you"*
+> paragraph below is true of four of them and false of three. `Nasti_…sh` also
+> refused a commit of mine today, correctly, naming the four 2026-08-20 commits
+> that swept other lanes' files — **the blockers are earning their keep, which
+> is a separate question from whether this file describes them accurately.**
+>
+> Not repaired here, because it is a policy call and not a fact: whether the
+> three blockers should become mirrors, per this file's own ruling that *"a
+> blocking guard on a judgement call is an outage wearing enforcement's name"*
+> and *"fire at the moment of the act; do not block."* Struck, not rewritten:
+> the claim above is what was believed, and the table is what is running.
 
 **The ban itself is unchanged and is not what was demolished.** Mathematics
 lands in Agda or Lean because a script that prints a number is an assertion a
@@ -936,6 +999,23 @@ front of whoever is writing.
 > itself a claim about the repository, and nobody was checking it.** Add it to
 > `settings.json`, or strike the paragraph. Not repaired here: the hook
 > inventory is the owner's call, and this file is T0.
+>
+> **RESOLVED 2026-08-24, the first way: it was added.**
+> `MulaVakya_TheHeaderCarriesItsTextAndDate.sh` **is now wired on BOTH
+> matchers** — `Bash` and `Write|Edit|NotebookEdit` — read out of
+> `.claude/settings.json` today, not remembered. It fires, and it exits 0.
+> So the paragraph two above it stands as written and this inset is history
+> rather than a live defect. The full seven-hook inventory, with which three
+> block, is in the table under §"The substrate".
+>
+> ⚑ **The instruction that closed it is the one worth keeping: "a claim about
+> which hooks are wired is itself a claim about the repository, and nobody was
+> checking it."** Nobody was checking it *again* four days later, in the
+> opposite direction — `no-python.sh` came back and the file still said the
+> gates were gone. **Both errors were one `grep` away, four days apart, in the
+> same file, about the same directory.** The prescription that survives is not
+> "check the hooks", it is: *a sentence about the running configuration must
+> quote the configuration, or it is a memory.*
 
 **Four things in this rule cannot be mechanised, said here so the next agent
 does not read unmechanisable as unenforced.** (1) Whether a ledger row is

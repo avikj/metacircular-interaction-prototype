@@ -18,8 +18,8 @@ open import Punaragamana.Nucleus
 open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
--- be contractible in two opposite ways — empty (अवक्तव्यम्, धनात्मकम्,
--- nothing lost) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
+-- be contractible in two opposite ways — empty (नास्ति: no source over b,
+-- धनात्मकम्) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
 open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
@@ -28,22 +28,6 @@ open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSe
 -- and `machine/Obstruction.hs` has carried it in a type all along while
 -- the Agda lane has never had it.  Silence is not denial.
 open import Punaragamana.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
-
--- …and the census made a TERM: being an equivalence splits, fibrewise and
--- on the nose, into embedding × split-surjection, so the two ways a
--- residual refuses contractibility — crowded (नष्टि) and empty
--- (अवक्तव्यम्) — are the two orthogonal factors failing apart, each
--- exhibited failing while the other holds.  The struck "two opposite ways"
--- of Sesa's header, now proved.
-open import Punaragamana.SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionAndTheEmptyAndCrowdedRefusalsAreTheTwoFactorsFailingApart
-
--- …and समता-द्विधा's own two factors are exactly the triviality of the
--- image factorisation A ↠ प्रतिबिम्ब f ↪ B: the first leg unconditionally
--- surjects, the second unconditionally embeds, and f is an equivalence iff
--- both legs are — SamataDvidha's per-point product and this factorisation
--- read as the same theorem at two granularities (§3 of the header bridges
--- the untruncated छादनम् to the truncated isSurjection).
-open import Punaragamana.Pratibimba_TheImageFactorsEveryMapAsSurjectionThenEmbeddingAndSamataDvidhaIsBothLegsTrivial
 
 -- The arithmetic instance, and the proof that it computes.
 open import Punaragamana.Viveka
@@ -61,7 +45,6 @@ open import Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheSte
 -- roots ज्येष्ठ / कनिष्ठ over ℤ, carried = the क्षेप a² − D b², which the
 -- roots determine exactly.
 open import Punaragamana.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt
-open import Punaragamana.VargaPrakrtiVarga_TheNormOneSolutionsAreAMonoidUnderBhavanaSoTheFundamentalUnitGeneratesTheLadder
 
 -- स्थानिवद्भाव (Pāṇini, Aṣṭādhyāyī 1.1.56 स्थानिवदादेशोऽनल्विधौ, ~500 BCE;
 -- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a वर्ण's three fields are mutually

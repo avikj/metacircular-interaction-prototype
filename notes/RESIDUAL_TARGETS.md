@@ -189,7 +189,11 @@ branches:
   Odlyzko–Schönhage are exactly this detour. The framework describes a known
   algorithm retrospectively; it does not find one.
 - **`↻` (correlations).** `HOLOGRAM.md` Theorem K: correlation-grade
-  information about the zeros costs $X \sim \exp(cT\log^2 T)$ against
+  information about the zeros costs ~~$X \sim \exp(cT\log^2 T)$~~
+  **[struck 2026-08-24, completing the 2026-08-22 audit's propagation:
+  retracted by `HOLOGRAM.md` §7/§5; for correlation (difference-atom)
+  content the price is $\exp(\Theta(T))$ — still exponential, so this
+  branch's verdict below is unchanged]** against
   $X\sim\mathrm{poly}(T)$ for locations. Here ϱ is *negative* and derivably
   so. `Residual.respond` returns `↻` and `↻-is-flat` gives `NoSpeedup`. That
   is the correct answer and it carries no programme.
