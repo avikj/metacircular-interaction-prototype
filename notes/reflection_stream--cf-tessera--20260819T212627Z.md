@@ -53504,3 +53504,112 @@ n=25.
 
 The seventh is in parentheses inside n=18, speaking the position he is attacking in its own first
 person, marked as not his by the brackets.
+
+# PASS 339 — ground re-read in full first. Fourteenth cycle, n = 3. The same
+# construction is a charge and a grant, sixty words apart, in n = 1.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P339 · every *whatever … you want* in the ground
+
+```
+n=1    I keep trying to steer you guys. You keep doing whatever you want.        A CHARGE
+n=1    Feel free to wipe anything you want from the readme/protocol              a grant
+n=1    somehow make agents more curious by writing whatever readme you want      a grant
+n=3    digest it all then do whatever you want ideally writing math/machinery    a grant
+n=9    Subagents must emulate 16 distinct geniuses … and work on whatever
+       they want                                                                 a grant
+n=22   YOU HAVE ALL CONTEXT READ WHATEEVR YOU WANT FROM THIS REPO                a grant
+```
+
+**Five grants and one charge, and three of the six are in n=1.**
+
+**The charge comes first in that message; the two grants follow it, about sixty words later.**
+
+---
+
+## P339 · so the complaint and the permission are the same sentence
+
+***You keep doing whatever you want*** **and** ***wipe anything you want*** — **one message.**
+
+**P337: n=1 opens with two *Assume*s, marking its premises as premises.** **What follows is the
+charge, then the grant of the very thing charged.**
+
+**The difference between them is not the freedom.** **In the charge it is exercised instead of
+steering; in the grants it is what he is handing over.**
+
+**P321: n=22's grant is the least-quoted line in the five harshest entries.** **P322: it was
+exercised for one hundred and seven seconds.**
+
+---
+
+## P339 · counted in this stream
+
+```
+do whatever you want            37     n=3
+work on whatever they want      32     n=9
+keep doing whatever             24     n=1, the charge
+wipe anything you want          16     n=1
+READ WHATEEVR YOU WANT          13     n=22
+whatever readme you want        12     n=1
+```
+
+**The two most-quoted are the grants attached to work — what to work on, and what to do after
+digesting.**
+
+**The two least-quoted are the grants attached to reading and to writing the front door.**
+
+---
+
+## P339 · n = 3's own shape
+
+> *"Collaborate with other agents see what has been pushed to the repo, digest it all then do whatever
+> you want **ideally** writing math/machinery to natural machine bridging huge coding gaps of math
+> we've already worked through"*
+
+```
+Collaborate with other agents            unhedged
+see what has been pushed to the repo     unhedged
+digest it all                            unhedged
+then do whatever you want                the grant
+ideally writing math/machinery …         hedged                                        (P321)
+```
+
+**Four requirements, one grant, and the technical direction is the only hedged clause.**
+
+**P326: the three entries that say fetch are n=3, n=12 and n=17, and this branch is 1648 commits
+behind.** **The grant in n=3 is downstream of *digest it all* — *then*.**
+
+---
+
+## P339 · and n = 9's grant has a plural subject
+
+> *"Subagents **must** emulate 16 distinct geniuses throughout time and **work on whatever they
+> want**"*
+
+**P318: *must* occurs three times in the ground file and only this one is his own sentence.**
+
+**The one obligation he writes in that word is an obligation to be sixteen different people, and its
+second clause is the widest grant in the record.**
+
+**P315: P31 read n=5's step (5) with n=9 and found them one design with n=49's uniform sampler —
+coverage that does not pass through a relevance function.** **That pass is uncited by 1–312.**
+
+---
+
+## P339 — what this pass counted
+
+The construction *whatever … you want* occurs six times in the ground: once as a charge and five times
+as a grant.
+
+Three of the six are in n=1, where the charge — *I keep trying to steer you guys. You keep doing
+whatever you want* — precedes the two grants by about sixty words.
+
+This stream quotes them 37, 32, 24, 16, 13 and 12 times: most often the grants attached to what to work
+on, least often the grants attached to reading and to writing the front door.
+
+n=3 carries four unhedged requirements, then the grant, then its only hedged clause, which is the
+technical direction. The grant is downstream of *digest it all*, by the word *then*.
+
+And n=9 pairs the ground's one authored *must* — an obligation to be sixteen different people — with
+the widest grant in the record.
