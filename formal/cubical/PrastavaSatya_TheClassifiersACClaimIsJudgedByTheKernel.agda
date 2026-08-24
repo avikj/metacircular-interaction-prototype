@@ -325,12 +325,85 @@ acCanon-sound e (Bin maxS t t₁) =
   cong₂ max' (acCanon-sound e t) (acCanon-sound e t₁)
 
 ------------------------------------------------------------------------
--- मर्यादा.  What stands: acCanon preserves denotation, so any pair whose
--- canonical forms COINCIDE denotes one function — the content of the
--- classifier's refusal, judged.  The named debt: the bridge from the
--- executable's `eqTm x y ≡ true` to `x ≡ y` (soundness of the flat
--- comparison) is not yet a term, and the two insertBy/leavesOf spellings
--- (with-blocks there, constructor-dispatched helpers here) are one
--- function by clause-for-clause transcription, asserted not checked.
--- Both belong to the same future landing.
+-- the bridge: a comparison verdict of eq IS a syntactic equality.
+-- The executable refuses when eqTm (acCanon l) (acCanon r) = true, i.e.
+-- cmpTm (acCanon l) (acCanon r) ≡ 1.  Below, that numeral is judged to
+-- carry a path — so a classifier hit denotes one function, end to end.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Empty using () renaming (rec to ⊥rec)
+open import Cubical.Data.Nat using (znots ; snotz ; injSuc)
+open import Cubical.Data.Sigma using (_×_ ; fst ; snd)
+
+cmpN-eq : (i j : ℕ) → cmpN i j ≡ 1 → i ≡ j
+cmpN-eq zero zero _ = refl
+cmpN-eq zero (suc j) p = ⊥rec (znots p)
+cmpN-eq (suc i) zero p = ⊥rec (snotz (injSuc p))
+cmpN-eq (suc i) (suc j) p = cong suc (cmpN-eq i j p)
+
+lex2-eq : (c o : ℕ) → lex2 c o ≡ 1 → (c ≡ 1) × (o ≡ 1)
+lex2-eq zero o p = ⊥rec (znots p)
+lex2-eq (suc zero) o p = refl , p
+lex2-eq (suc (suc c)) o p = ⊥rec (snotz (injSuc p))
+
+-- injectivity of the symbol code by decode-roundtrip, five clauses
+symDec : ℕ → Sym
+symDec zero = plus
+symDec (suc zero) = times
+symDec (suc (suc zero)) = monus
+symDec (suc (suc (suc zero))) = leS
+symDec _ = maxS
+
+symDec-code : (s : Sym) → symDec (symCode s) ≡ s
+symDec-code plus = refl
+symDec-code times = refl
+symDec-code monus = refl
+symDec-code leS = refl
+symDec-code maxS = refl
+
+symCode-inj : (s s' : Sym) → symCode s ≡ symCode s' → s ≡ s'
+symCode-inj s s' p = sym (symDec-code s) ∙ cong symDec p ∙ symDec-code s'
+
+cmpTm-eq : (x y : Tm) → cmpTm x y ≡ 1 → x ≡ y
+cmpTm-eq (V i) (V j) p = cong V (cmpN-eq i j p)
+cmpTm-eq (V _) Z p = ⊥rec (znots p)
+cmpTm-eq (V _) (S _) p = ⊥rec (znots p)
+cmpTm-eq (V _) (Bin _ _ _) p = ⊥rec (znots p)
+cmpTm-eq Z (V _) p = ⊥rec (snotz (injSuc p))
+cmpTm-eq Z Z _ = refl
+cmpTm-eq Z (S _) p = ⊥rec (znots p)
+cmpTm-eq Z (Bin _ _ _) p = ⊥rec (znots p)
+cmpTm-eq (S _) (V _) p = ⊥rec (snotz (injSuc p))
+cmpTm-eq (S _) Z p = ⊥rec (snotz (injSuc p))
+cmpTm-eq (S a) (S b) p = cong S (cmpTm-eq a b p)
+cmpTm-eq (S _) (Bin _ _ _) p = ⊥rec (znots p)
+cmpTm-eq (Bin _ _ _) (V _) p = ⊥rec (snotz (injSuc p))
+cmpTm-eq (Bin _ _ _) Z p = ⊥rec (snotz (injSuc p))
+cmpTm-eq (Bin _ _ _) (S _) p = ⊥rec (snotz (injSuc p))
+cmpTm-eq (Bin s a b) (Bin s' a' b') p =
+  let outer = lex2-eq (cmpN (symCode s) (symCode s'))
+                      (lex2 (cmpTm a a') (cmpTm b b')) p
+      inner = lex2-eq (cmpTm a a') (cmpTm b b') (snd outer)
+  in λ i → Bin (symCode-inj s s' (cmpN-eq (symCode s) (symCode s') (fst outer)) i)
+               (cmpTm-eq a a' (fst inner) i)
+               (cmpTm-eq b b' (snd inner) i)
+
+-- the closed loop's refusal, judged end to end: when the classifier
+-- says a pair is a pure AC shuffle, the two sides denote one function.
+acShuffle-sound : (e : ℕ → ℕ) (l r : Tm)
+  → cmpTm (acCanon l) (acCanon r) ≡ 1
+  → eval e l ≡ eval e r
+acShuffle-sound e l r p =
+  sym (acCanon-sound e l)
+  ∙ cong (eval e) (cmpTm-eq (acCanon l) (acCanon r) p)
+  ∙ acCanon-sound e r
+
+------------------------------------------------------------------------
+-- मर्यादा.  What stands: acCanon preserves denotation, and a comparison
+-- verdict of 1 is a path, so a classifier hit means the two sides denote
+-- one function (acShuffle-sound) — the content of the refusal, judged
+-- end to end.  The remaining debt: the two insertBy/leavesOf spellings
+-- (with-blocks in the executable, constructor-dispatched helpers here)
+-- are one function by clause-for-clause transcription, asserted not
+-- checked.
 ------------------------------------------------------------------------
