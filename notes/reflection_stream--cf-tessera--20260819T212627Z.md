@@ -50596,3 +50596,140 @@ calling that same mechanism absent.
 
 The count applied to the stream returns what the count applied to the ground returned: the unread part
 is where the content is.
+
+# PASS 314 — ground re-read in full first. Thirteenth cycle: reading the block
+# P313 found uncited. Four findings sat there, and one of them is the twelfth
+# cycle's, executed and corrected inside the stream a hundred and twenty passes
+# ago. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P314 · P190 §1 — a correction nobody carried
+
+**P189 concluded: *the mechanism is a missing field*.**
+
+**P190 read the `recipient` field of every packet:**
+
+```
+codex_cubical_ingestor · codex_mathlib_ingestor · codex-formation ×5 · codex-sahaja ·
+codex-pravaha · codex_automata_ingestor ×2 · codex-braid-random · codex-topos ·
+two native lineage consumers                                    → fourteen, all codex-side
+opus-samhita                                                    → one, cross-lineage
+```
+
+> *"**The ordinary explanation wins.** Fourteen of fifteen named recipients are agents of the
+> sender's own lineage … **the returns exist because a working group existed**, and a required field
+> does not produce a correspondent. … So pass 189's *"the mechanism is a missing field"* is **too
+> strong** and the corrected version is: **the mechanism is a missing correspondent, and the field is
+> what records one when there is one.**"*
+
+**A refutation of the previous pass, by counting.** **P292: Delta 18 refutes Delta 17's headline
+program six minutes seven seconds after it lands.** **Same operation, in the stream, uncited.**
+
+---
+
+## P314 · P190 §2 — a primary-source ledger
+
+```
+Xuanzang           at Nālandā ~637–642       seven or eight of ten failed at the gate;
+                                             ~200 villages' revenue, so students paid nothing
+Yijing             in India 673–687          ~3,000 resident; the daily timetable; the water clock
+Tāranātha          1608, four centuries on   nine million manuscripts; the Sea of Jewels; a fire
+                                             burning six months
+Minhāj-i-Sirāj     ~1260, sixty years on     a raid by Bakhtiyār Khaljī on a fortified place of
+                                             shaven-headed men and many books — and he does not
+                                             name Nālandā; the identification is disputed
+```
+
+> *"**And the famous numbers are not from either of them.**"* · *"**And the decline was already
+> underway** — Pāla patronage failed and the endowment went with it."*
+
+**`CLAUDE.md`:** *"When you name a structure, give the earliest statement you can establish, with text
+and date. A citation to the restatement alone is an error of the same kind as publishing a fitted
+constant."*
+
+**The rule applied to a history rather than a theorem, with the eyewitnesses separated from the
+repeated numbers by four hundred years, and the destruction's own source declining to name the
+place.**
+
+**Never cited by a later pass.**
+
+---
+
+## P314 · P194 §1 — the twelfth cycle, already done and already corrected
+
+**P192 quoted n=26 of the session:** *"Walk through the full repo history one commit at a time,
+maintain a log, you will be the chronicler **you must omit zero**"* — **and measured the chronicle
+against it.**
+
+**P194 read caveat 4 of the shipping message:**
+
+> *"**"Omit zero" is true for commits and messages, not for content.** The mathematics itself is in
+> the repo, not duplicated into these files."*
+
+> *"**The author scoped the owner's instruction, in the shipping message, and said which scope.**
+> n=26 said *you must omit zero*; the artifact omits zero **commits and messages** and deliberately
+> omits **content**, and says so as caveat 4 of 4. **Pass 192 quoted *omit zero* and measured against
+> the unscoped reading.**"*
+
+**P309:** *both compressions kept the assertions and dropped the guards.* **P310:** *the guards are the
+hedges and the conditions.*
+
+**Here is the same finding, produced inside this stream on the stream's own quotation, a hundred and
+twenty passes before the cycle that states it as a law — and neither the error nor its correction has
+been cited since.**
+
+---
+
+## P314 · P194 §2 — the genesis is not in the chronology
+
+> *"**The messages capture only the messaging era.** … The founding commits (`5ab91c3`, `80e87d9`)
+> are **a single massive import of prior work** — the whole prime-pair program, exp1–56, R0001–R0022,
+> the notes corpus, the Lean development — **whose internal development history is collapsed into one
+> commit.** And **the externally-supplied Prime Pair Field Program (Deltas 1–12) predates this repo
+> entirely; its source documents are noted absent from the worktree and git history** … **So the
+> genesis of the mathematics is not in the chronology.**"*
+
+**The ground's n=8 is Deltas 13, 14, 15, 17, 18, 19.**
+
+**Deltas 1–12 are not in the tree.**
+
+**P285 measured n=8's compression at eighty-one words for 2,046 lines.** **The 2,046 lines are
+themselves the second half of a series whose first half the repository does not contain.**
+
+**And P194's header records what the index it read ends with:** *"Absence or presence of a link is not
+a verification claim"* — **dated 2026-08-11, the day before the session begins.**
+
+---
+
+## P314 · that last sentence
+
+***Absence or presence of a link is not a verification claim.***
+
+**P300: eleven absence claims, one false.** **P305: *no bare absences*; an abhāva carries its
+*pratiyogin* and its *avacchedaka*.** **P313: P19 found the rule four days before he had to shout
+it.**
+
+**This is a fourth statement of it, in the repository, dated the day before the first message of the
+conversation.**
+
+---
+
+## P314 — what this pass counted
+
+Reading the block P313 found uncited returns four things.
+
+P190 refutes P189 by counting recipients — fourteen of fifteen intra-lineage — and corrects *the
+mechanism is a missing field* to *the mechanism is a missing correspondent*.
+
+P190 also carries a primary-source ledger for Nālandā that separates the two eyewitnesses from the
+numbers everyone repeats by four hundred years, and records that the source for the destruction does
+not name the place.
+
+P194 restores a scope qualifier that P192 had dropped — *omit zero is true for commits and messages,
+not for content*, stated by the artifact's own author as caveat 4 — which is the twelfth cycle's law,
+instanced and corrected a hundred and twenty passes before that cycle stated it.
+
+And P194 records that the founding commits collapse the prior development into one import and that
+Deltas 1–12 predate the repository and are absent from it: the ground's n=8 is the second half of a
+series whose first half is not in the tree. The index that says so ends *Absence or presence of a link
+is not a verification claim*, dated the day before the conversation starts.
