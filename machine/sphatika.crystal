@@ -360,3 +360,4 @@ sp285	s(s(s(0)))	+(s(s(0)),le(0,0))	refl
 sp338	+(s(s(s(0))),x)	+(s(x),s(s(0)))	ind 0 refl congsuc
 sp339	0	*(le(x,0),+(+(x,x),+(x,x)))	ind 0 refl refl
 sp340	0	*(le(x,0),+(+(x,0),+(x,0)))	ind 0 refl refl
+sp341	0	*(le(x,0),+(+(x,+(x,x)),x))	ind 0 refl refl
