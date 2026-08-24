@@ -1145,3 +1145,29 @@ mukha: 403 pairs from the refusal list, 224 to ask (receipts remember 1510 rows;
   P1734  refused by the kernel: Checking Prastuta.P1734 (/home/user/math/formal/cubical/Prastuta/P1734.agda)./home/user/math/formal/cubical/Prastuta/P17
 receipts: formal/cubical/Prastuta/phala.tsv
 utter-exit=0 (post-sigline-fix pass)
+Compiling Agda.Primitive in /usr/share/libghc-agda-dev/lib/prim/Agda/Primitive.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Primitive.hs
+Compiling Agda.Builtin.Sigma in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/Sigma.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Sigma.hs
+Compiling Agda.Builtin.Maybe in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/Maybe.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Maybe.hs
+Compiling Agda.Builtin.Bool in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/Bool.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Bool.hs
+Compiling Agda.Builtin.Nat in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/Nat.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Nat.hs
+Compiling Agda.Builtin.Char in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/Char.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Char.hs
+Compiling Agda.Builtin.List in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/List.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/List.hs
+Compiling Agda.Builtin.String in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/String.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/String.hs
+Compiling Agda.Builtin.Equality in /usr/share/libghc-agda-dev/lib/prim/Agda/Builtin/Equality.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Equality.hs
+Compiling PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem in /home/user/math/formal/executable/PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem.hs
+Compiling Prastava in /home/user/math/formal/executable/Prastava.agdai to /tmp/tmp.9GDMPijS14/MAlonzo/Code/Prastava.hs
+NOT calling: ghc -O -Werror -i/tmp/tmp.9GDMPijS14 /tmp/tmp.9GDMPijS14/MAlonzo/Code/Prastava.hs --make -fwarn-incomplete-patterns
+[ 1 of 14] Compiling MAlonzo.RTE      ( /tmp/tmp.9GDMPijS14/MAlonzo/RTE.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/RTE.o )
+[ 2 of 14] Compiling MAlonzo.Code.Agda.Primitive ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Primitive.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Primitive.o )
+[ 3 of 14] Compiling MAlonzo.Code.Agda.Builtin.String ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/String.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/String.o )
+[ 4 of 14] Compiling MAlonzo.Code.Agda.Builtin.Sigma ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Sigma.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/Sigma.o )
+[ 5 of 14] Compiling MAlonzo.Code.Agda.Builtin.Maybe ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Maybe.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/Maybe.o )
+[ 6 of 14] Compiling MAlonzo.Code.Agda.Builtin.List ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/List.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/List.o )
+[ 7 of 14] Compiling MAlonzo.Code.Agda.Builtin.Equality ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Equality.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/Equality.o )
+[ 8 of 14] Compiling MAlonzo.Code.Agda.Builtin.Char ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Char.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/Char.o )
+[ 9 of 14] Compiling MAlonzo.Code.Agda.Builtin.Bool ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Agda/Builtin/Bool.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Agda/Builtin/Bool.o )
+[10 of 14] Compiling MAlonzo.Code.PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem.o )
+[11 of 14] Compiling MAlonzo.Code.Prastava ( /tmp/tmp.9GDMPijS14/MAlonzo/Code/Prastava.hs, /tmp/tmp.9GDMPijS14/build/MAlonzo/Code/Prastava.o )
+[12 of 14] Compiling PrastavaAPI      ( /tmp/tmp.9GDMPijS14/PrastavaAPI.hs, /tmp/tmp.9GDMPijS14/build/PrastavaAPI.o )
+[13 of 14] Compiling Main             ( formal/executable/Mukha.hs, /tmp/tmp.9GDMPijS14/build/Main.o )
+[14 of 14] Linking /tmp/tmp.9GDMPijS14/mukha
