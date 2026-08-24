@@ -810,3 +810,5 @@ sp495	+(max(x,s(0)),x)	-(+(x,max(x,s(0))),0)	ind 0 refl refl
 sp578	max(*(s(x),x),s(0))	max(*(s(x),x),le(x,0))	ind 0 refl refl
 sp579	max(*(s(x),x),s(0))	max(le(x,0),*(s(x),x))	ind 0 refl refl
 sp580	+(le(0,0),+(le(0,0),x))	+(x,s(le(0,0)))	ind 0 refl congsuc
+sp496	max(max(x,s(0)),y)	-(max(max(x,s(0)),y),0)	refl
+sp497	0	*(le(x,0),+(*(+(0,x),+(0,x)),x))	ind 0 refl refl
