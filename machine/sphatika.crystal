@@ -868,3 +868,37 @@ sp598	le(x,0)	-(le(x,0),le(s(0),+(x,*(x,y))))	ind 0 refl refl
 sp533	s(0)	max(le(s(0),max(x,+(s(y),z))),s(0))	ind 0 refl refl
 sp534	s(0)	max(le(s(0),+(x,max(x,s(0)))),s(0))	ind 0 refl refl
 sp599	le(*(x,x),0)	-(le(*(x,x),0),le(s(0),x))	ind 0 refl refl
+sp600	le(s(0),x)	le(le(s(0),le(x,0)),le(s(0),x))	ind 0 refl refl
+sp535	s(0)	max(le(s(0),max(+(s(x),y),z)),s(0))	ind 2 refl refl
+sp601	le(x,0)	le(le(s(0),+(x,*(x,x))),le(x,0))	ind 0 refl refl
+sp536	+(le(0,0),*(le(0,0),le(0,0)))	s(s(0))	refl
+sp602	le(x,0)	le(le(s(0),+(x,*(x,y))),le(x,0))	ind 0 refl refl
+sp537	+(le(x,0),*(le(x,0),+(x,x)))	le(x,0)	ind 0 refl refl
+sp538	le(x,0)	le(+(+(x,x),*(x,s(s(0)))),0)	ind 0 refl refl
+sp603	le(*(x,x),0)	le(le(s(0),x),le(*(x,x),0))	ind 0 refl refl
+sp539	le(x,0)	le(+(+(x,x),*(x,*(y,0))),0)	ind 0 refl refl
+sp604	le(s(0),x)	le(le(x,0),+(+(x,x),+(x,x)))	ind 0 refl refl
+sp540	le(+(*(s(0),0),*(s(0),0)),s(0))	s(0)	refl
+sp605	le(s(0),x)	le(le(x,0),+(+(x,0),+(x,0)))	ind 0 refl refl
+sp541	le(s(0),x)	le(s(0),+(x,+(+(x,x),x)))	ind 0 refl refl
+sp606	le(s(0),x)	le(le(x,0),+(+(x,+(x,x)),x))	ind 0 refl refl
+sp542	le(s(0),le(s(0),max(x,+(s(y),z))))	s(0)	ind 0 refl refl
+sp543	le(s(0),le(s(0),+(x,max(x,s(0)))))	s(0)	ind 0 refl refl
+sp544	le(s(0),le(s(0),max(+(s(x),y),z)))	s(0)	ind 2 refl refl
+sp545	+(max(s(0),s(0)),max(s(0),s(0)))	s(s(0))	refl
+sp546	0	+(*(s(0),0),*(0,s(*(le(0,0),0))))	refl
+sp607	s(max(+(x,y),s(0)))	max(+(s(x),y),s(s(0)))	refl
+sp547	0	+(*(le(0,0),0),*(0,s(*(s(0),0))))	refl
+sp608	s(0)	+(*(max(0,s(0)),max(0,s(0))),*(0,0))	refl
+sp548	0	+(*(s(0),0),*(*(le(0,0),0),s(0)))	refl
+sp549	0	+(*(le(0,0),0),*(*(s(0),0),s(0)))	refl
+sp609	0	+(*(x,+(0,0)),*(0,s(*(+(x,x),0))))	ind 0 refl ih
+sp550	0	+(*(0,0),*(0,s(*(-(0,s(0)),0))))	refl
+sp551	0	+(*(-(0,s(0)),0),*(0,s(*(0,0))))	refl
+sp552	0	+(*(0,0),*(*(-(0,s(0)),0),s(0)))	refl
+sp553	0	+(*(-(0,s(0)),0),*(*(0,0),s(0)))	refl
+sp554	+(*(+(0,0),+(0,0)),s(+(0,0)))	s(0)	refl
+sp610	0	le(+(le(0,0),*(le(0,0),x)),le(s(0),0))	refl
+sp555	+(*(*(x,0),*(x,0)),s(*(x,0)))	s(0)	ind 0 refl ih
+sp611	0	le(+(le(0,0),+(le(0,0),s(le(0,0)))),0)	refl
+sp612	s(0)	le(+(*(x,0),+(*(x,0),*(x,0))),0)	ind 0 refl ih
