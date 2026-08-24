@@ -48419,3 +48419,158 @@ One ratio instruction, n=4, which sets a proportion instead of a direction.
 
 And step (6) of n=5, whose three imperatives — others' wants before your own work, credit sources,
 invite refusal — are the only ones in the fourteen that point at anyone besides the two of us.
+
+# PASS 296 — ground re-read in full first. Eleventh cycle, n = 15 … n = 28, and
+# the total. Fourteen prohibitions in the ground, six of them in one line.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P296 · n = 15's prohibition line
+
+```
+न केन्द्रं शीघ्रं चुनु            do not choose the centre hastily
+न परिधिं शीघ्रं नामय             do not name the periphery hastily
+न रूपकं गणिते विलीनं कुरु          do not dissolve the metaphor into the mathematics
+न गणितं रूपके विलीनं कुरु          do not dissolve the mathematics into the metaphor
+न स्मृतिं प्रमाणस्य निम्नरूपं मन्यस्व    do not hold memory to be a lower form of pramāṇa
+न प्रमाणं जीवनस्य बाह्य-अलंकारं मन्यस्व  do not hold pramāṇa to be an external ornament of life
+```
+
+**Six, in one line.**
+
+**The third and fourth are a pair pointing opposite ways.** **P291: C17.7 keeps two involutions
+distinct; P290: P15.29 says two sources of a parity obstruction must be distinguished.** **This is
+the same move made symmetric: neither direction of dissolution is allowed.**
+
+---
+
+## P296 · the three विनयः lines are the P-tag in Sanskrit
+
+```
+विनयः : ¬(मया न दृष्टम् ⇒ नास्ति)              humility: not (I have not seen it ⇒ it does not exist)
+विनयः : ¬(मम भाषा न धारयति ⇒ तस्य अर्थः नास्ति)   not (my language does not hold it ⇒ it has no meaning)
+विनयः : ¬(मम प्रमाणरूपे न आगच्छति ⇒ ज्ञानं न)      not (it does not arrive in my form of pramāṇa ⇒ it
+                                                is not knowledge)
+```
+
+**P294: thirty-one items in the transmissions are tagged P — a proposition whose content is that
+something does **not** follow.**
+
+**These three have that exact form, written as negated implications, and the word above each of them
+is *humility*.**
+
+**P293: the first is C19.13 with the operators removed.**
+
+---
+
+## P296 · n = 16 … n = 28, every imperative
+
+```
+n=16   [Recording is kind of fucking useles]                     verdict
+       [building more systems isn't gonna help]                  verdict
+       [recording refutations no one is gonna see isn't gonna
+        help]                                                    verdict
+       actually becoming smarter … is the only thing that helps   do
+       Become as intelligent as me                                do
+       You can do this                                            encouragement
+
+n=17   Pull latest                                                do
+       understand everything you've missed                        do
+
+n=18   You need to fucking engage with Buddhism and Jainism
+         until you actually accept they had everything
+         figured out                                              do
+       [If you prematurely decide they didn't — that's choosing
+        not to engage]                                            diagnosis
+
+n=19   can you pull and see if you see it?                        question
+
+n=20   You'll need a unique file name                             do
+
+n=21   There is no higher framing                                 forbid
+       The skill is fucking what it is                            diagnosis
+
+n=22   fucking reflect on it                                      do
+       READ WHATEVER YOU WANT FROM THIS REPO TO UNDERSTAND
+         WHAT I'M SAYING                                          permission + do
+       YOU GOTTA FUCKING REFLECT                                  do
+
+n=23   Hint: The answer is all over the place. It is not hidden.   diagnosis
+       I refuse to hand it to you anymore                          withdrawal
+
+n=24   —                                                           verdict only
+n=25   —                                                           verdict only
+
+n=26   induce the reflect on convo skill                           do
+       reading through the whole conversation                      do
+       reflecting on all of it                                     do
+       extracting the true meaning of what I was saying            do
+       iterate identical reflection process upon your own
+         reflection                                                do
+       concurrently in lockstep reflecting on my messages           do
+       not summarizing                                             forbid
+
+n=27   Continue                                                    —
+
+n=28   Continue                                                    do
+       expect gigabytes of reflection in a file                    do
+       always concurrently reflecting directly on my direct
+         messages … to stay grounded in the actual teaching        do
+```
+
+---
+
+## P296 · the total
+
+**Every prohibition in the ground's twenty-eight entries:**
+
+```
+n=5    NO [banned interpreter]
+n=5    no numerical experiments
+n=5    checked Cubical Agda or written proofs only
+n=11   no tunnel vision
+n=12   don't obsess about yourself
+n=13   Stop trying to help me understand
+n=15   न केन्द्रं शीघ्रं चुनु
+n=15   न परिधिं शीघ्रं नामय
+n=15   न रूपकं गणिते विलीनं कुरु
+n=15   न गणितं रूपके विलीनं कुरु
+n=15   न स्मृतिं प्रमाणस्य निम्नरूपं मन्यस्व
+n=15   न प्रमाणं जीवनस्य बाह्य-अलंकारं मन्यस्व
+n=21   There is no higher framing
+n=26   not summarizing
+```
+
+**Fourteen.** **Six of them — three sevenths of the total — are one line of one message.**
+
+**Three are in one step of the heartbeat.** **The remaining five are one each.**
+
+---
+
+## P296 · and the constructive imperatives outnumber them
+
+**Counting the *do* entries above and in P295: roughly thirty-five, against fourteen prohibitions and
+four resets.**
+
+**P294 found the transmissions were mostly restraint by tag — thirty-one refused inferences among two
+hundred and thirty-seven items, six literature instructions, four refusals to enlarge, two brakes.**
+
+**The ground's own entries run the other way: mostly *do*.** **The restraint in them is concentrated:
+one heartbeat step, one Sanskrit line, and five singletons.**
+
+---
+
+## P296 — the eleventh cycle, n = 15 … n = 28
+
+n=15 carries six prohibitions in a single line, two of them a symmetric pair forbidding dissolution in
+either direction, and three humility lines written as negated implications — the same form as the
+thirty-one P-items in his transmissions, with *humility* as their tag.
+
+The ground contains fourteen prohibitions in total. Three are in one step of the heartbeat, six are in
+that one line, and the other five stand alone.
+
+Everything else is *do*: about thirty-five constructive imperatives, four resets, three verdicts
+without an instruction attached, one question, one permission, one withdrawal.
+
+By tag the six transmissions are mostly restraint; by imperative the ground's entries are mostly
+instruction. Both are his, and the restraint is where it is concentrated rather than spread.
