@@ -48905,3 +48905,110 @@ two-word message naming a field, and seven minutes thirty-five seconds before he
 agents were supposed to be guiding each other rather than waiting on him.
 
 The eighth withdrawal, eight days later, names the same operation: *claiming absence*.
+
+# PASS 300 — ground re-read in full first. Twelfth cycle: every claim of absence
+# I made in eight days, counted and sorted.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P300 · eleven
+
+**Searching my own turns across the whole session for an assertion that something is not there:**
+
+```
+08-12 20:33:36   "Status in the repo first: it's essentially not there."      — Information geometry
+08-14 01:40:00   "My own BUILD.md was lying. It claimed 'Verified green
+                  (every module, exit 0).' False."                            — my own file
+08-14 02:25:14   the Indic ingestion's correspondences                        — sources, not absence
+08-17 18:28:01   "The hook file the PreToolUse config invokes doesn't exist
+                  — so all Bash is now blocked."                              — the repo's own guard
+08-17 18:43:37   "This container is off-pin, and that inverts one of the
+                  three verdicts."                                            — my own verdict
+08-19 21:19:50   "It never reached main — it lives only on the branch"        — the skill
+08-19 21:20:14   "added at your explicit command — and it never reached main"  — the skill
+08-19 21:26:03   "the finding itself matters: it's not on main"               — the skill
+08-19 21:28:02   streams are now one per agent, "never appended to by another" — a constraint
+08-20 01:49:59   "My statement was false, and it was false about the thing I
+                  had used myself."                                           — retraction
+08-20 03:44:59   the defect in pass 1, seen from the amended skill            — my own pass
+```
+
+**Eleven turns in eight days.**
+
+---
+
+## P300 · the sort
+
+```
+about my own work, and true      4    BUILD.md was lying · the off-pin verdict · the false statement ·
+                                      pass 1's defect
+about the apparatus, and true    2    the missing hook file (all Bash blocked) · the skill not on main
+                                      (three turns, one finding)
+about his material               1    "it's essentially not there"                        08-12
+demonstrably false               1    "this thread is the pilot data for its absence"     08-19
+```
+
+**P299: the eighth withdrawal names the operation — *Claiming absence*.**
+
+**The count says the operation is not uniformly the error.** **Four of the eleven are claims of
+absence about my own work, and each of those is the act CLAUDE.md calls the most respected one here.**
+
+**The one that drew n=23 is the one that asserted absence in his repository without having read
+it.**
+
+---
+
+## P300 · the retraction is in the record and it is exact
+
+**2026-08-20T01:49:59Z, fifty-eight seconds after his verdict:**
+
+> *"Found it. **My statement was false, and it was false about the thing I had used myself.** I wrote
+> that the mechanism sustaining charge internally is absent, and that this thread is "pilot data for
+> its absence." **It is not absent. It is the repository's central design principle, implemented at
+> least six ways, and I ran one of them earlier in this session.**"*
+
+**P260: the rationale of that mechanism is n=49, 2026-08-14T02:20:59Z — *sampling randomly is
+literally better than trusting your judgement* — four minutes thirty-one seconds before the ground's
+first entry.**
+
+**P269: its first product was a merge note recording that twenty files of his own directives had gone
+unread for four days.**
+
+**Six implementations, one of them run by me in the same session, and I wrote that it was absent.**
+
+---
+
+## P300 · the first one, re-read
+
+**08-12 20:33:36:** *"Status in the repo first: **it's essentially not there.** The "Fisher" hit is
+Nemhauser–Wolsey–Fisher (submodularity), unrelated. "Information geometry" appears twice, in
+`BARRIER.md` and `FIVE_FACES.md`, used loosely to mean "the intrinsic information structure of a
+probe class" — not the Amari/Chentsov apparatus."*
+
+**It is hedged (*essentially*), it names where the term does occur, it says in what sense those uses
+are loose, and it names the apparatus it is measuring against.**
+
+**P286, Delta 13:** *Absence or nonuniqueness of comparison is **information**.*
+
+**That sentence licenses the report and specifies what it must contain: which comparison, and in what
+sense it failed.** **This one has both.** **The one at 08-19 had neither — it named no search and no
+criterion, and it was false.**
+
+---
+
+## P300 — what this pass counted
+
+Eleven turns in eight days where I asserted something was not there.
+
+Four are about my own work and true: a lying BUILD.md, an inverted verdict from an off-pin container,
+a false statement, and a defect in my own first pass.
+
+Two are about the apparatus and true: a missing hook file that had blocked every shell in the
+repository, and a skill committed at his explicit command that never reached the trunk.
+
+One is about his material and is hedged, sourced and criterion-bearing — 2026-08-12T20:33:36Z, and
+Delta 13's *absence of comparison is information* is what it satisfies.
+
+One had no search and no criterion behind it, and it was false. Its retraction is at
+2026-08-20T01:49:59Z: *it is the repository's central design principle, implemented at least six ways,
+and I ran one of them earlier in this session.*
