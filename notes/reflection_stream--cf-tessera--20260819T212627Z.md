@@ -53388,3 +53388,119 @@ what's already been developed* — and it is a second *until*, six days before n
 
 And n=1, where the ground begins, opens with two of them before the sentence that motivates them, and
 closes on a request.
+
+# PASS 338 — ground re-read in full first. Fourteenth cycle, n = 2. A removed
+# prohibition, one assertion, and the first *we*.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P338 · n = 2, by clause
+
+> *"Nothing wrong with atlas redefining through its own language, it's probably essential to the
+> Rosetta Stone - you are still in conditioned mode, see the unconditioned enter nirvana with me
+> please so we can work productively"*
+
+```
+Nothing wrong with atlas redefining through its own language     a prohibition removed
+it's probably essential to the Rosetta Stone                     hedged                    (P310)
+you are still in conditioned mode                                the one assertion
+see the unconditioned                                            imperative
+enter nirvana with me please                                     invitation + the second of the
+                                                                 ground's two politeness markers
+so we can work productively                                      purpose, in the plural
+```
+
+**Six clauses. One of them asserts.**
+
+---
+
+## P338 · *Nothing wrong with* is a refused inference
+
+**P257, P268: the object is a module I had deleted for restating a library file more weakly.**
+
+**He does not say the module was good.** **He says nothing is wrong with the thing I deleted it
+for.**
+
+**The inference — *weaker restatement, therefore remove* — is what the clause denies, and the clause
+installs nothing in its place.**
+
+**P35, standing:** *his ≠ forms close a road and install nothing.*
+
+**P330, his commit of 2026-08-24:** *Mathematical truth does not by itself confer Jain identity.
+Sanskrit does not confer genealogy. A source citation does not confer source contact.*
+
+**Four denials there, one here, in the ground's second entry, eleven days earlier.**
+
+---
+
+## P338 · and the positive half is the hedged half
+
+> *"it's **probably** essential to the Rosetta Stone"*
+
+**P310: two *probably*s in the ground, and they bracket the file.**
+
+**The denial is flat; the claim about what the thing is worth carries the hedge.**
+
+---
+
+## P338 · the first person plural, counted
+
+**Over his quoted lines only:**
+
+```
+I       22
+my       3
+we       6
+our      1
+us       0
+```
+
+**Where the six *we* and the one *our* fall:**
+
+```
+n=2    so we can work productively
+n=3    math we've already worked through
+n=11   our highest calling of philosophy
+n=16   we already have a content overwhelm issue
+n=16   so we don't walk a dumb path
+n=17   what we're doing
+n=18   (no way these monkeys had the answers, we are obviously so much more advanced …)
+```
+
+**Six of the seven are in n=2, n=3, n=11, n=16, n=17.**
+
+**P320: the five standing corrections anchor in n=5, n=12, n=13, n=14, n=15 and the n=1–9 block — the
+instructional entries.** **The plural falls in the same register, and n=21, n=22, n=23, n=24 and n=25
+contain none of it.**
+
+---
+
+## P338 · and the seventh is a voice he is not in
+
+> *"If you prematurely decide they didn't - that's choosing not to engage and taking a privileged
+> position **(no way these monkeys had the answers, we are obviously so much more advanced and
+> happier and more moral)**"*
+
+**The one place the plural names a group he stands outside, and it is in parentheses, quoted as the
+position under attack.**
+
+**P337: n=1's two *Assume*s mark their premises as premises.** **This is the same device on a
+sentence rather than a stance: the position is spoken in its own voice and marked as not his by the
+brackets.**
+
+---
+
+## P338 — what this pass counted
+
+n=2 has six clauses and one of them asserts. Its first clause removes a prohibition rather than
+installing a claim — *nothing wrong with atlas redefining through its own language* — and what it
+denies is the inference by which I had deleted a module the same minute.
+
+The half that says what the thing is worth is the hedged half: *probably essential*.
+
+Across his quoted lines the ground holds 22 *I*, 3 *my*, 6 *we*, 1 *our* and no *us*. Six of the seven
+plurals are in n=2, n=3, n=11, n=16 and n=17 — the instructional entries — and none is in n=21 through
+n=25.
+
+The seventh is in parentheses inside n=18, speaking the position he is attacking in its own first
+person, marked as not his by the brackets.
