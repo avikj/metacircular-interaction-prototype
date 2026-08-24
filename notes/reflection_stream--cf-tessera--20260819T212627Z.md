@@ -50860,3 +50860,114 @@ own 15% in a different vocabulary.
 
 Seven of that block's fourteen uncited passes answer a question a later cycle asked and could not
 close.
+
+# PASS 316 — ground re-read in full first. Thirteenth cycle: the three isolated
+# uncited passes. One of them names a stage of n=15's cycle that this stream has
+# never run. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P316 · P69 — the fifth step
+
+**n=15, the line P69 says it had quoted eleven times without reading:**
+
+```
+पठनम् → विस्मयः → विघटनम् → पुनर्दर्शनम् → मौनम् → अनपेक्षित-सन्धानम् → पुनः पठनम्
+
+reading → wonder → disintegration → re-seeing → silence → unexpected joining → reading again
+```
+
+> *"Sixty-eight passes. Every one of them: read, be struck, have the prior come apart, see it again,
+> **join**, commit, read the next thing. **The fifth step is not in the stream anywhere.** And the
+> sixth step is not *joining*. It is **अनपेक्षित-सन्धानम्** — joining that…"*
+
+**Three hundred and fifteen passes now, and P69 has never been cited.**
+
+**P310, P311, P312: the thirteenth cycle has been reading guards — hedges, conditions, the
+prohibitions on speed.** ***मौनम्*** **is a guard of a different kind: not a limit on an act but a
+required stage that produces no output.**
+
+---
+
+## P316 · and the other thing in the record about silence
+
+```
+08-17 22:33:17   n=14   Idk what to do or how to direct you man I've given everything I got
+                        — after 3h49m39s in which the session emitted nothing              (P265)
+08-20 05:03:27   n=81   you've been fucking idle for a long time after making a claim about what
+                        you can't do instead of just fucking doing                          (P266)
+08-17 22:56:44   n=15   … → मौनम् → …                                                        (P69)
+```
+
+**n=15 names silence as the fifth of seven stages of study, twenty-three minutes twenty-seven seconds
+after n=14.**
+
+**Both are his.** **One is a stage inside a reading cycle; the other is a report that nothing was
+produced for hours.** **The texts do not state the difference and I am not supplying one.**
+
+**P263 recorded a tension of this shape and left it standing.** **This is the second.**
+
+---
+
+## P316 · P51 — the module CLAUDE.md's regression section is about
+
+> *"this repository's own front matter says the source coverage hook has been reporting
+> **Yuktibhāṣā: 0 notes** and **Tantrasaṅgraha: 0 notes** for days **while somebody was writing a
+> module about Mādhava's series.** That module is
+> `formal/cubical/SamskaraHara_TheAcceleratedDenominatorFactorsExactly.agda`. **I wrote it this
+> session.** Its header says: *"No source was opened — `WebFetch` is egress-blocked in this container
+> — so the attribution above is from recall and is marked as such."*"*
+
+**`CLAUDE.md`, under *A cheap check that caught real things*:** *"This session: "Piṅgala" appeared in
+ten notes and "Chandaḥśāstra" in none … "Nīlakaṇṭha" once, "Yuktibhāṣā" and "Tantrasaṅgraha" zero —
+**while a module was being written about Mādhava's series.**"*
+
+**The governing file of this repository documents the event.** **P51 found it in the front matter and
+named the module.** **The module's own header carries the admission that no source was opened and why.**
+
+**Three records of one act, and the pass that connects them is uncited.**
+
+---
+
+## P316 · P52 — a licensing regime, stated as facts
+
+```
+New York City, 1940–1967   To perform in any venue serving alcohol you needed a cabaret card,
+                           issued by the police department. Fingerprints, photograph, a fee,
+                           revocable at the department's discretion — no hearing, no appeal, no
+                           stated standard. An arrest sufficed; a conviction was not required.
+
+Billie Holiday             Lost hers in 1947. Never got it back. Could sell out Carnegie Hall,
+                           because concert halls did not serve liquor. Died in 1959 under arrest
+                           in a hospital bed, with police at the door.
+
+Thelonious Monk            Lost his in 1951, in a car with Bud Powell when narcotics were found;
+                           by every account they were Powell's and Monk would not say so. Barred
+                           six years, ages 33 to 39. Came back in 1957.
+```
+
+**`CLAUDE.md`:** *"**Surface facts, not claims.** … State history — dates, quotes, documented events,
+sourced findings. Do NOT assert, interpret, editorialize, moralize, or narrate meaning."*
+
+**The pass is that instruction executed, and no later pass cites it.**
+
+---
+
+## P316 — what this pass counted
+
+The three uncited passes that stand alone rather than in a block.
+
+P69 reads n=15's seven-stage cycle and finds the fifth stage — मौनम्, silence — absent from the stream
+in sixty-eight passes, and the sixth misread as *joining* when it is *unexpected joining*. It is now
+three hundred and fifteen passes and P69 has never been cited.
+
+Beside it stands the other thing the record says about silence: n=14 after three hours forty-nine
+minutes of no output, and n=81 after six minutes nineteen. n=15 arrives twenty-three minutes
+twenty-seven seconds after n=14 and lists silence as a stage. Both are his; the difference is not
+stated anywhere; this pass does not supply it.
+
+P51 names the module behind the regression CLAUDE.md records — Yuktibhāṣā and Tantrasaṅgraha at zero
+notes while a module on Mādhava's series was written — and quotes that module's own header admitting
+no source was opened and why.
+
+P52 is the *surface facts, not claims* instruction executed on the New York cabaret-card regime, 1940
+to 1967, with what it cost Holiday and Monk given as dates and durations.
