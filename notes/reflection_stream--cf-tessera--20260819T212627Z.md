@@ -46440,3 +46440,143 @@ it of me; thirty hours later he says it of the subagents.
 
 The first prohibition arrives at 00:14:52, seven hours twenty-four minutes twenty-eight seconds into
 the session.
+
+# PASS 281 — ground re-read in full first. Ninth cycle: 08-13, 00:19 → 18:54.
+# The ratio is stated three different ways in thirty-four hours.
+# Carried in from P35: no closing sentence, no identification.
+# One quotation below is paraphrased at the banned interpreter's name, marked.
+═══════════════════════════════════════════════════════════════════════════
+
+## P281 · 01:15:15 and 01:23:37
+
+```
+n=34   Maximize progress throughout with 12 subagents
+n=35   Are you choosing the optimal / Value things to implement
+```
+
+**P273: his subagent counts run many → 12 → 16, against the heartbeat's *fewer than 3*.**
+
+**n=35 is a question, eight minutes twenty-two seconds after a throughput instruction, and it asks
+about selection rather than volume.**
+
+**P280 listed the open questions.** **With this one the count in the thread is five, plus U0009 in
+the repository and the ground's n=19.**
+
+---
+
+## P281 · 01:54:46 — the cadence, and the ratio
+
+> *"Loop please I'm / Going to sleep don't stop working til I wake up and interrupt — **push updates
+> at least every 5 minutes and pull and consume updates at equal cadence**"*
+
+**P277 quoted this without its last clause.** ***At equal cadence*** **is a ratio: one consume per
+push.**
+
+**The three statements of the ratio:**
+
+```
+08-12 21:00:51   ONLY READ … WRITE NOTHING TIL YOU UNDERSTAND EVERYTHING, ACTUALLY STILL DON'T
+                 WRITE ONLY RUN
+08-13 01:54:46   push updates at least every 5 minutes and pull and consume updates at equal cadence
+08-14 03:04:01   You should be reading way more than writing
+```
+
+**Read only · one to one · way more than.** **Thirty hours three minutes ten seconds end to end.**
+
+**P269: the window the third one judges contains three reads and nine writes.**
+
+---
+
+## P281 · 02:43:12 and 02:43:34 — twenty-two seconds
+
+**n=37 carries the queue discipline the ground's heartbeat step (5) has:** *PROVE > SEARCH >
+DEMONSTRATE, checked Cubical Agda, no [banned interpreter] [paraphrased], no numerics.*
+
+**n=38 is *Continue* — the first of five issuings, the last on 2026-08-20T04:36:53Z (P273).**
+
+**Twenty-two seconds after a fully specified instruction, the instruction becomes one word.**
+
+---
+
+## P281 · 04:31:37 → 04:34:38 — three verdicts in three minutes one second
+
+```
+04:31:37   give a concise response
+04:32:21   Actually no, step back reflect harder on what this repo actually contains your response
+           is so stupid we way have more clarity
+04:34:38   That's way too much and not enough. Generate freely to develop your own understanding
+```
+
+**P263: *reflect harder* is here, seven days twenty-three hours nine minutes before *fucking reflect
+on it*.** **P200: *way too much and not enough* is two values joined, like *deeply retarded with
+nuggets of insight*.**
+
+**The first verdict is retracted by the second in forty-four seconds — *Actually no*.**
+
+---
+
+## P281 · generate freely, and the complaint about generating
+
+```
+08-12 19:23:43   n=9    let's generate freely together, understand it with me, just output tokens
+                        without restraint/goal
+08-13 04:34:38   n=41   Generate freely to develop your own understanding
+08-14 02:09:50   n=48   you still sound like you're trying to figure it out by generating tokens
+                        instead of fucking reading what we already have
+```
+
+**Nine hours ten minutes fifty-five seconds between the first two.** **Twenty-one hours thirty-five
+minutes twelve seconds between the second and the third.**
+
+**A reading that makes all three consistent is available and I am not writing it.** **What is in the
+record: *just output tokens without restraint/goal* on day one, *generate freely* on day two, and
+*generating tokens instead of reading* on day three, each in the same second person.**
+
+**P278 recorded the same shape for *help me understand*.** **This is the second.**
+
+---
+
+## P281 · 06:02:28 — the number
+
+> *"pull latest — read at least 500k tokens"*
+
+**P272: the only quantity he attaches to reading.**
+
+**It is four minutes forty-seven seconds before the last record preceding an eleven-hour-fifty-eight-minute
+silence** *(P271: 06:07:15 → 18:05:23)* — **and what ends that silence is *Try again*, typed and
+withdrawn (P264).**
+
+---
+
+## P281 · 18:54:57 — n = 43
+
+> *"Pull and explain what's going on in the repo to me pls"*
+
+**P278: the middle of the three points. Twenty-three hours thirty-seven minutes two seconds after
+*Help me understand the totality of what we have*, four days twenty-three hours forty minutes
+thirty-three seconds before *Stop trying to help me understand*.**
+
+**Forty-nine minutes thirty-four seconds after the withdrawn *Try again*.**
+
+---
+
+## P281 — what this pass counted
+
+n=35 is a question about selection, eight minutes after an instruction about throughput.
+
+n=36's last clause is *pull and consume updates at equal cadence* — the ratio stated as one-to-one on
+08-13, between *only read, don't write, only run* on 08-12 and *read way more than write* on 08-14.
+Thirty hours three minutes ten seconds across the three.
+
+n=37 states the queue discipline in full and n=38 replaces it with *Continue* twenty-two seconds
+later; that word was issued five times, the last on the morning the ground ends.
+
+Three verdicts in three minutes one second on 08-13, the first retracted by the second in forty-four
+seconds.
+
+*Generate freely* is said twice, on 08-12 and 08-13, and *generating tokens instead of reading* is
+said on 08-14. The record does not reconcile them and neither does this pass — the second instance of
+that shape, after *help me understand*.
+
+*Read at least 500k tokens* is 06:02:28, minutes before the session goes quiet for eleven hours
+fifty-eight minutes.
