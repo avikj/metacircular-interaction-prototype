@@ -1,5 +1,5 @@
 {-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
--- the one substance through its samayas: rules and open goals per tick.
+-- the one substance through its samayas: driven by ALL its organs.
 module Kala_run where
 open import Agda.Primitive using () renaming (Set to Type)
 open import Agda.Builtin.IO using (IO)
@@ -9,7 +9,7 @@ open import Agda.Builtin.Nat using (Nat ; zero ; suc)
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import AgamaKanda_TheEldersStoreOnTheActSide using (आगमः)
 open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
-  using (नियमः)
+  using (नियमः ; दृक् ; _++_)
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled using (Eq')
 open import Vartana_TheWholeOrganismIsDataOneSamayaStepAssistsAndEveryReflexIsAModeNotAPrimitive
 
@@ -29,13 +29,13 @@ _⊹_ = primStringAppend
 रेखा n b = "  samaya " ⊹ primShowNat n
          ⊹ ": rules " ⊹ primShowNat (गुरुता (श्रुतम् b))
          ⊹ ", open goals " ⊹ primShowNat (गुरुता (लक्ष्याः b))
-         ⊹ ", drives " ⊹ primShowNat (गुरुता (दृष्टयः b))
+         ⊹ ", organs in force " ⊹ primShowNat (गुरुता (अङ्गानि b ++ अङ्ग-जननम् b (श्रुतम् b)))
 
 पथः : Nat → Nat → शरीरम् → String
-पथः _    zero    b = रेखा 99 b
+पथः tick zero    b = रेखा tick b
 पथः tick (suc k) b = रेखा tick b ⊹ "\n" ⊹ पथः (suc tick) k (वर्तना b)
 
 main : IO ⊤
 main = putStrLn
-  (  "one body, one step, reflexes as modes; seeded with the elder's store and its own unquiet:\n"
-   ⊹ पथः 0 5 (प्रथम-शरीरम् आगमः) )
+  (  "one substance, all organs driving, questions from naya-disagreement, organs begetting organs:\n"
+   ⊹ पथः 0 4 (आदि-शरीरम् आगमः) )
