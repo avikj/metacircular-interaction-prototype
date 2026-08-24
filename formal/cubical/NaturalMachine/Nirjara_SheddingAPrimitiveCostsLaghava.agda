@@ -46,7 +46,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤Dec ; ¬-<-zero ; ¬m<m)
 open import Cubical.Data.Nat using (discreteℕ)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no)
 open import Cubical.Data.Empty renaming (rec to ⊥rec)
@@ -1660,4 +1660,89 @@ nirnaya-avaktavye-tusnim M k l P q with M P k l
 -- offers at once; the extension is not obviously the binary case iterated,
 -- since a ranking that is not total on abstentions need not be
 -- associative.  That is a real question and it is open here.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 44.  §43's open question, settled: multi-offer resolution is NOT the
+--      binary case folded.
+--
+-- §43 asked whether extending निर्णय from two offers to several is just
+-- the binary case iterated, and guessed not, "since a ranking that is not
+-- total on abstentions need not be associative."  It is not, and one
+-- metarule with one honest tie shows it.
+--
+-- The metarule below is a real one and not a device: it prefers the offer
+-- that leaves the smaller गुरुत्व, and where the two are equal it
+-- ABSTAINS rather than picking.  That is the discipline
+-- `machine/Vipratisedha_…` states — a metarule that guesses is a दुर्नय —
+-- and it is exactly the abstention that breaks the fold.
+------------------------------------------------------------------------
+
+utsarga-anujna : Anujna
+utsarga-anujna = anujnata utsarga-p utsarga-artha utsarga-matra
+
+gurutva-vidhi : Metavidhi
+gurutva-vidhi P k l
+  with ≤Dec (guru (krama (anujna k) P)) (guru (krama (anujna l) P))
+     | ≤Dec (guru (krama (anujna l) P)) (guru (krama (anujna k) P))
+... | yes _ | yes _ = nothing       -- equal weight: abstain, do not guess
+... | yes _ | no  _ = just true
+... | no  _ | yes _ = just false
+... | no  _ | no  _ = nothing
+
+vijeta : Metavidhi → SanujnaKaarya → SanujnaKaarya → Prakriya
+       → Maybe SanujnaKaarya
+vijeta M k l P with M P k l
+... | nothing    = nothing
+... | just true  = just k
+... | just false = just l
+
+vama-krama : Metavidhi → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
+           → Prakriya → Maybe SanujnaKaarya
+vama-krama M a b c P with vijeta M a b P
+... | nothing = nothing
+... | just w  = vijeta M w c P
+
+dakshina-krama : Metavidhi → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
+               → Prakriya → Maybe SanujnaKaarya
+dakshina-krama M a b c P with vijeta M b c P
+... | nothing = nothing
+... | just w  = vijeta M a w P
+
+-- two offers of equal weight and one lighter: bracketing to the left
+-- decides, bracketing to the right abstains
+kApavada' : SanujnaKaarya
+kApavada' = kaaryam sada (sanghatita apavada-anujna akriya-anujna)
+
+nirnaya-na-sahayogi :
+  ¬ ((M : Metavidhi) (a b c : SanujnaKaarya) (P : Prakriya)
+     → vama-krama M a b c P ≡ dakshina-krama M a b c P)
+nirnaya-na-sahayogi h =
+  ¬just≡nothing
+    (h gurutva-vidhi kAkriya kApavada kApavada' (dvi-s zero ∷ cara-s ∷ []))
+
+------------------------------------------------------------------------
+-- 45.  What that settles, and what it vindicates in the other lane.
+--
+-- SETTLED: पर-style pairwise comparison does not lift to several offers by
+-- folding, once abstention is an outcome.  So paribhāṣā 38's five ranked
+-- CONTENDERS cannot be read as "compare the candidates two at a time";
+-- the ranking is over metarules applied at a site, not over candidates.
+--
+-- That is what `machine/Vipratisedha_ConflictIsDecidedByMetaruleNot-
+-- ByListPosition.hs` already does — it tries अपवाद, then अन्तरङ्ग, then
+-- नित्य, then पर against the whole candidate set, rather than reducing the
+-- set pairwise — and §44 is the reason that design is forced rather than
+-- convenient.  Its remark that the resolution is "deterministic in the
+-- CANDIDATE SET, never in the list" is the same fact from the other side.
+--
+-- NOT SETTLED: whether a metarule that never abstains folds associatively.
+-- §44's witness turns on the tie, and a total order on offers would have
+-- no tie to turn on.  But a total metarule is one that decides equal
+-- weights by something else, and what that something is, is the question
+-- अन्तरङ्ग answers and this module cannot.
+--
+-- NOT CLAIMED: that गुरुत्व-preference is a Pāṇinian metarule.  It is not
+-- one of the five.  It was chosen because it abstains honestly on ties,
+-- which is the only property §44 uses.
 ------------------------------------------------------------------------
