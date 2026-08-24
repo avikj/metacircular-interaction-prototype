@@ -674,3 +674,4 @@ sp445	+(*(0,0),+(*(*(0,0),s(0)),x))	x	refl
 sp492	0	-(le(s(0),x),+(le(x,0),s(le(x,0))))	ind 0 refl refl
 sp493	0	-(s(0),+(le(s(0),0),s(le(s(0),0))))	refl
 sp446	+(*(x,0),+(*(0,s(*(x,0))),y))	y	ind 0 refl ih
+sp447	+(*(x,0),+(*(*(x,0),s(0)),y))	y	ind 0 refl ih
