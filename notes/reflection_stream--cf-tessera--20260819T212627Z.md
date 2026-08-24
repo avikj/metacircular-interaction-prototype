@@ -53032,3 +53032,127 @@ only an index into it.
 
 The note names the defect as the old `IO Bool` lesion one layer over, and CLAUDE.md records the same
 lesion in a third instrument, against a tradition that had already counted the positions.
+
+# PASS 335 — ground re-read in full first. Thirteenth cycle: 796877bd. A struck
+# identification, its one-line counterexample, and a fence naming what is a term
+# and what is analogy. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P335 · the strike, with the struck words kept
+
+> **796877bd, 2026-08-23 06:12:20 +0000 — README.md and two new modules.**
+
+> *"~~it is `ℚˣ`, the null cone of the adelic valuation, sitting inside the ideles with total
+> valuation zero since before anyone asked.~~ **[STRUCK 2026-08-23 — THE IDENTIFICATION IS FALSE, AND
+> ITS FAILURE IS THIS MOVEMENT'S OWN SUBJECT.** `ℚˣ` is not the null cone; **it is PROPERLY CONTAINED
+> IN IT.**"*
+
+**P35, standing:** *an identification hands the reader a world.*
+
+**P327: the README's §परिशोधनम् applies corrections by addition, with the strikes quoting the struck
+words.** **This is one of them.**
+
+---
+
+## P335 · the counterexample, one line
+
+> *"the idele `x` with `x₂ = 3` and `x_v = 1` at every other place. `3` is a 2-adic unit, so `|x|₂ =
+> 1`, every other local absolute value is `1`, and `∏_v |x|_v = 1` — `x` lies on the null cone. **It is
+> not principal**: a principal idele carries the SAME rational at every place, and `|3|₃ = 1/3 ≠ 1`.
+> **So the null cone contains ideles that are not rational numbers at all.**"*
+
+**`CLAUDE.md`:** *"a pattern over n instances is a pattern over n instances until something downstream
+of it is computed … the discipline is to generate the next term."*
+
+**One idele, exhibited, and the identification is gone.**
+
+---
+
+## P335 · and the gap is an object with a measure
+
+> *"**AND THE GAP IS EXACTLY THE OBJECT THE NEXT PARAGRAPH IS ABOUT.** `𝔸¹/ℚˣ` is the norm-one idele
+> class group — compact, and for `ℚ` isomorphic to `ℤ̂ˣ` **(standard; NOT checked in this corpus)** —
+> and its VOLUME is exactly the class number formula's constant `2^{r₁}(2π)^{r₂}·h·R / (w√|d_K|)`, the
+> same expression this movement quotes from **Dirichlet 1839** four lines below … **(standard; cited,
+> not checked here).**"*
+
+> *"**The movement wrote `hR` as what ζ cannot split two paragraphs below while asserting here that the
+> thing `h` and `R` measure is trivial.**"*
+
+**P331: a headline that stood a day above its own retraction.** **Here the contradiction is two
+paragraphs apart in the same movement, and the correction names the distance.**
+
+> *"Read correctly the sentence is stronger: **ROAD ONE IS THE NULL CONE, `ℚˣ` IS ITS PRINCIPAL PART,
+> AND `h` AND `R` ARE THE PRICE OF THE DIFFERENCE.**"*
+
+**P332: *what survives is most of it*, in his other strike.** **The correction is not a deletion; it
+is a stronger statement with the false half removed.**
+
+---
+
+## P335 · the fence
+
+> *"**WHAT OF THIS MOVEMENT IS NOW A CHECKED TERM, AND WHAT IS ANALOGY.** Two modules landed against it
+> and **the fence between them is the point of writing them.**"*
+
+```
+CHECKED   BhavanaDhruva_…NormOneElements.agda instantiates Dhruva's संरक्षणम् at
+          Brahmagupta's bhāvanā (ब्राह्मस्फुटसिद्धान्त १८, 628) over any commutative ring —
+          observable N D a b = a² − D b², flow = composition with a fixed pair, and the
+          BICONDITIONAL is proved: a bhāvanā flow conserves the norm iff the element it
+          composes with has norm one. The conserving flows are closed under composition,
+          contain (1,0), and act on `fiber नियम k` — the solution set of x² − D y² = k — for
+          every k at once.
+
+CHECKED   Apavartana_…StruckIdentityIsFalse.agda makes the 2026-08-22 strike a term rather
+          than a sentence: the drop divisor of diag(2,12) is 12, the product of its invariant
+          factors is 24, refuted by `refl` plus one `subst`; diag(2,6) has the same drop
+          divisor with product 12, so the drop divisor is strictly lossier than the
+          determinant. "The strike was re-derived, not trusted."
+
+ANALOGY   "the bhāvanā result is not the product formula." It says a conserved quantity is
+          the value of a monoid map and the conserving flows are its unit set. The product
+          formula is about places, completions and an archimedean term, "none of which occur
+          in that module or anywhere in formal/cubical."
+          Also named as analogy: "physics kept single-entry books"; Ш as the fibre of
+          observe-at-every-place; the parity barrier as the product formula; the second-law
+          reading of the drop divisor.
+```
+
+**`CLAUDE.md`'s naming rule, item 3:** *"State in the header what is and is not being claimed of the
+source. Naming a module for *ṛṇa-dhana* does not say Brahmagupta proved the theorem in it."*
+
+**Here the citation is exact — chapter eighteen, 628 — the theorem is a biconditional over any
+commutative ring, and the sentence *the bhāvanā result is not the product formula* is written so the
+identification cannot be made.**
+
+---
+
+## P335 · and one line about a previous strike
+
+> *"**The strike was re-derived, not trusted, and it is correct and not over-broad.**"*
+
+**P317, P319: two of this cycle's corrections were themselves corrected, and the second was a claim
+drawn from a count rather than from the object.**
+
+**Re-deriving a strike before relying on it is the guard that would have caught both.**
+
+---
+
+## P335 — what this pass counted
+
+796877bd strikes an identification in the README — `ℚˣ` as the null cone — keeps the struck words, and
+kills it with one idele: `x₂ = 3`, `x_v = 1` elsewhere, product of absolute values 1, and not
+principal because `|3|₃ = 1/3`.
+
+It then names the gap as the object of the next paragraph, gives its volume as the class number
+formula's constant, marks two facts *standard; not checked here*, and records that the movement had
+written `hR` as what ζ cannot split two paragraphs below while calling the thing `h` and `R` measure
+trivial. The repaired sentence is stronger than the struck one.
+
+Two modules land with the strike, and the fence between them is stated as the reason they were
+written: Brahmagupta's bhāvanā (ब्राह्मस्फुटसिद्धान्त १८, 628) instantiated over any commutative ring
+with the biconditional proved, a previous strike re-derived as a term rather than trusted — and,
+against them, four things named as analogy and not theorem, first among them *the bhāvanā result is not
+the product formula*.
