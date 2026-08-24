@@ -1248,3 +1248,90 @@ sthulam-anujnaya-na-prapyate A P q =
 -- family, whose expense is manufactured.  The walk's two descriptions are
 -- the case that matters and they are not written as प्रक्रियाs.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 34.  गुरुत्व — and मात्रा turns out not to be the walk's measure.
+--
+-- §31 and §33 both closed by naming the same gap: the walk's two
+-- descriptions are the case that matters and are not written as
+-- प्रक्रियाs.  Naming it a third time would be worse than useless, so here
+-- is what happens when one looks at what the gap actually is.
+--
+-- `WalkFast`'s header states both presentations of `next m` exactly:
+--
+--     A.  next m = least q ≥ 2 with q ∤ cap m,   cap m = lcm(1..m)
+--     B.  next m = least prime power > m
+--
+-- They denote one function.  As RULE SYSTEMS they are about the same
+-- length — A is not a longer grammar than B.  What differs is the size of
+-- the object each rule handles: A's intermediate is cap m = e^{ψ(m)} and
+-- B's is ~m.  So the walk's gap is not a मात्रा gap at all, and five
+-- sections of this module were building the wrong measure for it.
+--
+-- The right one is on the same प्रक्रियाs and is not मात्रा: the weight of
+-- a derivation is the largest पद it ever holds.
+------------------------------------------------------------------------
+
+maha : ℕ → ℕ → ℕ
+maha zero    n       = n
+maha (suc m) zero    = suc m
+maha (suc m) (suc n) = suc (maha m n)
+
+guru : Prakriya → ℕ
+guru []       = 0
+guru (s ∷ ss) = maha (laghava (pada-of s (sadhana ss))) (guru ss)
+
+------------------------------------------------------------------------
+-- 35.  The licensed move is the one that blows the weight up.
+--
+-- अपवाद trades the compact primitive `dvi x` for its expansion
+-- `yoga x x`.  §26 proved that free: `apavada-matra` is `refl`, zero
+-- सूत्रs, and `Anujna` therefore admits it (§28).  But `laghava (dvi x)`
+-- is `suc (laghava x)` and `laghava (yoga x x)` is
+-- `suc (laghava x + laghava x)`.  The exception DOUBLES the object.
+--
+-- So the licence bounds मात्रा and says nothing whatever about गुरुत्व,
+-- and the very move the roots licence is the mechanism by which a
+-- presentation becomes expensive to run.  That is `cap m` exactly:
+-- one rule, an unbounded intermediate.
+------------------------------------------------------------------------
+
+apavada-gurutvam-vardhayati : ¬ ((P : Prakriya) → guru (apavada-p P) ≡ guru P)
+apavada-gurutvam-vardhayati h =
+  snotz (injSuc (injSuc (h (dvi-s zero ∷ cara-s ∷ []))))
+
+-- and प्रत्याहार is the same defect at unbounded scale: §24's
+-- `pratyahara-matra-sthiram` holds मात्रा at 4 for every bound while the
+-- weight climbs with it
+guru-pratyahare-vardhate :
+    (guru (pratyahara 0 trini) ≡ 1)
+  × (guru (pratyahara 1 trini) ≡ 3)
+  × (guru (pratyahara 2 trini) ≡ 5)
+guru-pratyahare-vardhate = refl , refl , refl
+
+------------------------------------------------------------------------
+-- 36.  What this costs the preceding sections, stated plainly.
+--
+-- §22–§33 are not withdrawn: every theorem in them is still checked and
+-- still says what it says.  What is withdrawn is the SCOPE the note's §6
+-- claimed for them.  मात्रा is a measure on presentations, free under the
+-- three root moves and costly on padding, and the order in §32 is real.
+-- It is simply not the quantity that separates the walk's two
+-- descriptions, and the header of `WalkFast` was right to record that
+-- separation as wall-clock rather than as a theorem: no measure in this
+-- module reaches it either.
+--
+-- गुरुत्व is a candidate and only that.  It is not shown to be stable
+-- under anything, it has no licence attached, and §35 shows it is
+-- INCOMPATIBLE with the licence मात्रा carries — a move can be free in one
+-- and ruinous in the other.  Two measures that disagree on the licensed
+-- moves is not a defect to resolve; by this repository's own reading it
+-- is a pair of नयs, and the दुर्नय would be to declare either the cost.
+--
+-- What is now open, and it is a better question than the one §31 asked:
+-- is there a licence bounding BOTH?  §35 says अपवाद is not in it, which
+-- means such a licence forbids a device Pāṇini uses.  Either the licence
+-- does not exist, or लाघव and execution cost are pulling in opposite
+-- directions, and the Aṣṭādhyāyī is optimising the one this module can
+-- measure while the walk needs the other.
+------------------------------------------------------------------------
