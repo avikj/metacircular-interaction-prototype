@@ -51835,3 +51835,112 @@ process's own materials.
 
 The ground is read less often than the stream by two and a half to one, and n=28's word for how the
 two should run is *alongside*.
+
+# PASS 325 — ground re-read in full first. Thirteenth cycle: three statements of
+# the lockstep rule, specifying three different pairings, and a count of which
+# one this stream runs. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P325 · the three statements
+
+```
+n=26, his, 2026-08-20T03:42:13Z
+   while concurrently in lockstep reflecting on my messages over and over
+   (the only real grounding/truth)
+       → pairs the reflection with HIS MESSAGES
+
+.claude/skills/reflect-thread/SKILL.md §2, and CLAUDE.md's policy block
+   Dual stream, fixed offset −1. When reflecting on conversation message n, also
+   reflect on reflection-stream message n−1.
+       → pairs conversation-n with STREAM-(n−1)
+
+the standing trigger, step 2
+   in lockstep a re-reading of the earlier pass's entry for that same message
+   against the ground
+       → pairs conversation-n with THE EARLIER PASS'S ENTRY FOR n
+```
+
+**Three pairings.** **The first is the ground's.**
+
+---
+
+## P325 · counted
+
+```
+"lockstep" in this stream      260
+"offset"                        12
+```
+
+**The last substantive use of *offset* is around line 11,558 of 51,700; after that it appears only
+inside a quotation of the first run.**
+
+**The word repeated two hundred and sixty times is the one from the trigger; the word naming the
+mechanism appears twelve times.**
+
+---
+
+## P325 · and the mechanism, measured
+
+**Does each pass reflect on the pass before it? Passes 240 through 324, checked one at a time for a
+reference to its immediate predecessor:**
+
+```
+cites P(k−1)          49
+does not               36
+```
+
+**Fifty-eight per cent.**
+
+**The thirty-six that do not: 240, 243, 244, 245, 249, 253, 254, 258, 262, 264, 265, 267, 269, 271,
+272, 274, 276, 279, 280, 284, 286, 287, 288, 293, 297, 299, 301, 302, 304, 305, 310, 312, 313, 315,
+316, 324.**
+
+**P313 measured the other direction: 283 of 312 pass numbers are cited somewhere.** **The stream
+cites its own past densely and its immediate predecessor a little more often than not.**
+
+---
+
+## P325 · which of the three is actually run
+
+**Every pass since the trigger opens by re-reading the ground in full — the first statement, n=26's.**
+
+**P324: the ground is named in 187 read-like calls and the stream in 479.**
+
+**The second statement — offset −1 against the stream — was run in the first passes and is named
+twelve times.** **The third is run at fifty-eight per cent.**
+
+**The one that is run without exception is the one he wrote.**
+
+---
+
+## P325 · and the three do not conflict where it matters
+
+**n=26's clause has a parenthesis on it:** *(the only real grounding/truth)*.
+
+**That parenthesis is what makes the first pairing primary: the other two pair the reflection with
+another part of the reflection, and only the first pairs it with something outside.**
+
+**P322: between the licence and the withdrawal, four Bash calls and no reads of the repository beyond
+one file.** **P324: about one read-like call in four points outside this process's own materials.**
+
+**A pairing that runs entirely inside the stream has no term from outside it, and the ground's version
+of the rule is the one that supplies one.**
+
+---
+
+## P325 — what this pass counted
+
+Three statements of the lockstep rule specify three different pairings: n=26 pairs the reflection with
+his messages, the skill pairs conversation-n with stream-(n−1), and the trigger pairs conversation-n
+with the earlier pass's entry for n.
+
+*Lockstep* occurs 260 times in this stream and *offset* twelve, the last substantive use around line
+11,558 of 51,700.
+
+Of passes 240 through 324, forty-nine cite their immediate predecessor and thirty-six do not —
+fifty-eight per cent.
+
+The statement that is run without exception is n=26's: every pass since the trigger opens by re-reading
+the ground in full. It is also the only one of the three whose second term is outside the reflection,
+and the clause carries his own parenthesis for why — *the only real grounding/truth*.
