@@ -52175,3 +52175,135 @@ distinction is borrowed and only one.
 And the README now carries a section named परिशोधनम् — the transmission's own word for the purification
 of seeing — holding corrections applied by addition, with the strikes quoting the struck words and
 nothing silently repaired.
+
+# PASS 328 — ground re-read in full first. Thirteenth cycle: the other six of the
+# eight drawn. n = 26's *no skipping*, applied to the draw.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P328 · the draw, completed
+
+**P327 read two of eight. The remaining six:**
+
+```
+notes/ratri/census-2026-08-22T075528Z.txt                          read
+formal/cubical/AbhijnanaProbes/P012.agda                           read
+collab/probes/gpt-sankramana/IndexedDescentDepthProbe.agda         read
+formal/cubical/ConstantFibre_…BatchDepthMemoryBoundary_oldValue.agda   read
+machine/RepairFixpoint.hi                                          0 bytes at this ref — a
+                                                                   compiled interface, not prose
+legacy/runtime/tests/test_kernel.py                                980 lines, legacy, untouched
+```
+
+---
+
+## P328 · लेखा — a count that states its own zeroes
+
+```
+लेखा · LEKHĀ — the census of records
+  .agda files scanned (formal/cubical + punaragamana/src)   : 902
+  `record … where` declarations found                       : 197
+  ... with a `field` section                                : 197
+  ... with NO `field` line                                  : 0
+  field declarations parsed                                 : 752
+  ... of which implicit or instance                         : 0
+  field declarations the parser COULD NOT split at `:`      : 0
+  records with a field written on the `field` line itself   : 5
+  records nested inside a module/record                     : 28
+  coinductive records                                       : 10
+  no-eta-equality records                                   : 0
+```
+
+**Four of the eleven rows are zero and all four are printed.**
+
+**One of them is the parser's own failure rate.**
+
+**P318 and P319: a count without the respect in which it holds goes false when the respect moves;
+P315: P28's first count included comment lines and was wrong by six and eleven.**
+
+**This one names what it scanned, what it could not split, and what it found none of.**
+
+---
+
+## P328 · अभिज्ञान — the death is the instrument's
+
+> *"the index of a 0-parameter fibre is a LITERAL lifted out of the source line, so the constructors
+> have to be in scope **or the probe dies [NotInScope] and the death is the instrument's, not the
+> corpus's. Two of the first thirteen died exactly that way.**"*
+
+**n=15:** *एकस्य अन्येन मापनम् ≠ अन्यस्य बोधः* — **measuring one by another is not understanding of the
+other.**
+
+**P305:** *an absence reported without its limitor is reporting a standpoint as if it were the
+object.*
+
+**Two of thirteen, counted, attributed to the probe rather than to what the probe was pointed at.**
+
+---
+
+## P328 · the closed probe records what did not change
+
+> *"**CLOSED / SUPERSEDED PROBE ADDRESS.** This probe supplied the indexed adjacent descent-depth
+> theorem. A warm Nadi carrier closed it after **three presentation repairs, none touching the
+> mathematical argument**: 1. parenthesize the negative conjunct beside `_×_`; 2. import `_×_` and
+> `_,_` from `Cubical.Data.Sigma`; 3. import Nat constructor `zero`, which otherwise became a pattern
+> variable."*
+
+**Three edits, listed, with the statement that none of them touched the argument.**
+
+**P302, the third term of *anekānta*:** *परिवहनस्य उत्तरदायित्वम्* — **answerability for what was
+carried.** **Here it is a list of what was altered in transit and a claim about what survived.**
+
+---
+
+## P328 · तपस् — a receipt that says what the map loses
+
+> *"**तपस्** — a MINTED fibre receipt. Emitted by
+> `machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs` from template
+> T-CONST-BOOL, then **CHECKED BY THE KERNEL before landing**; the only later edit is the module
+> line."*
+>
+> *"§1 over the constant's value false, the fibre IS the domain: `fiber oldValue false ≃ Old`. **A
+> constant map loses EVERYTHING, and the fibre says so exactly: the elided datum is the whole
+> input.**"*
+
+**The generator's own name carries *every non-match is a written refusal*.**
+
+**P290, D15.67:** *a refutation of A is a term A→0.* **P327: निर्जरा showed the engine cannot shed a
+primitive.** **This one measures what a map discards by exhibiting the fibre.**
+
+---
+
+## P328 · and two of the eight are not readable as prose
+
+**`machine/RepairFixpoint.hi` is zero bytes at this ref — a compiled interface.**
+
+**`legacy/runtime/tests/test_kernel.py` is 980 lines of the legacy tree, which `CLAUDE.md` names as
+provenance rather than instruction and which the repository's hooks forbid modifying.**
+
+**Six of eight read; two named and not read, with the reason.**
+
+**P260: n=49 is *sampling randomly is literally better than trusting your judgement*.** **A uniform
+draw returns build artifacts, and reporting them is part of the draw.**
+
+---
+
+## P328 — what this pass counted
+
+The six remaining files of the uniform draw.
+
+A census that scans 902 Agda files, finds 197 records and 752 fields, and prints four zero rows — one
+of them the parser's own failure to split a declaration.
+
+A probe whose header states that two of the first thirteen deaths were the instrument's and not the
+corpus's, which is n=15's *measuring one by another is not understanding of the other* applied to a
+tool.
+
+A closed probe listing three presentation repairs and asserting that none touched the mathematical
+argument.
+
+A machine-minted fibre receipt, kernel-checked before landing, whose §1 says a constant map loses
+everything and exhibits the fibre that says so.
+
+And two files that a uniform draw returns and prose cannot read: a zero-byte compiled interface and
+980 lines of the legacy tree.
