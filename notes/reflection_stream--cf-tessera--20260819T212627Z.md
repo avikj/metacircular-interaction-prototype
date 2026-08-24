@@ -52062,3 +52062,116 @@ reporting that learning loses 617% on the real mathematics.
 
 The heartbeat's step (1) is the instruction that would have consumed them, its last issuing was
 2026-08-14T09:20:20Z, and the standing trigger says append to the stream only.
+
+# PASS 327 — ground re-read in full first. Thirteenth cycle: n = 3's instruction
+# executed by n = 49's method. Eight files drawn at random from the 1,395 changed
+# on main; two read. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P327 · the draw
+
+**P326: 1330 commits on `origin/main` since 2026-08-20, 1,395 distinct files changed.**
+
+**n=49, four minutes thirty-one seconds before the ground opens:** *Sampling randomly is literally
+better than trusting your judgement.*
+
+**Eight drawn uniformly:**
+
+```
+formal/cubical/ConstantFibre_NaturalMachine-BatchDepthMemoryBoundary_oldValue.agda
+formal/cubical/NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda
+notes/ratri/census-2026-08-22T075528Z.txt
+machine/RepairFixpoint.hi
+collab/probes/gpt-sankramana/IndexedDescentDepthProbe.agda
+legacy/runtime/tests/test_kernel.py
+formal/cubical/Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers.agda
+formal/cubical/AbhijnanaProbes/P012.agda
+```
+
+---
+
+## P327 · निर्जरा, and a result about this repository's engine
+
+> *"**Tattvārthasūtra 10.1**: kevala-jñāna arises from the DESTRUCTION of the obscuring karmas.
+> Omniscience is not acquired; it is what remains when obscuration is removed. And **9.19–9.20**:
+> nirjarā is brought about by tapas. Shedding that happens on its own as karma ripens — **savipāka** —
+> happens to everyone and gains nothing; only **avipāka**, deliberate and before its time, is a path.
+>
+> **Taken as given rather than as a model**, that says something exact about this repository's engine
+> … **every organ the engine has ADDS.** `bestOf` names a frequent subterm; concept invention adds a
+> symbol. Nothing removes one, and the primitives are therefore treated as having **svabhāva** — the
+> question of whether they carve anything cannot be posed.
+>
+> … Shedding an INERT primitive — one whose every use is eval-equal to a use-free term — loses no
+> meaning (§2) and does remove the symbol (§3). But it strictly **INCREASES** the presentation (§4).
+> So an engine steered by **लाघव** can never take the step: **brevity opposes shedding.**"*
+
+**Two sūtra references with numbers, a distinction internal to the doctrine (savipāka / avipāka), an
+explicit refusal of the analogy move, and a consequence about the machine that is checked.**
+
+**n=15:** *न निर्माणम् / न विजयः / न योगदान-संग्रहः / केवलम्—**दृष्टेः परिशोधनम्***.
+
+**Not construction, not conquest, not a collection of contributions.**
+
+---
+
+## P327 · दुर्नय, and the header CLAUDE.md asks for
+
+> *"**मूलवाक्यम् · PROVENANCE OF THE NAME.** दुर्नय · durnaya — a naya that asserts itself by DENYING
+> the other standpoints, as against a सुनय … **Siddhasena Divākara, *Sanmatitarka* (~5th c. CE);
+> sharpened by Akalaṅka (~8th c.); Yaśovijaya, *Nayopadeśa* (~17th c.).** Jaina. **The school is
+> named because the dispute is the content: the Naiyāyikas reject anekāntavāda outright and would not
+> accept the diagnosis this module applies.**
+>
+> **WHAT IS AND IS NOT CLAIMED OF THE SOURCE.** No Jaina logician proved anything below, and nothing
+> here interprets the *Sanmatitarka*. **One distinction is borrowed and only one** … The mathematics
+> is cubical type theory (Voevodsky's univalence) and the circle is the agda/cubical library's."*
+
+**`CLAUDE.md`:** *"name the school before using the term, and if a construction draws on two, say what
+the two schools would say to each other about it."* · *"State in the header what is and is not being
+claimed of the source."*
+
+**Both, executed, with three datable citations and the rival school's objection stated.**
+
+**P302: the least-read line in the ground defines *anekānta* as declaration + possibility of other
+standpoints + the responsibility of transport.** **This header is all three.**
+
+---
+
+## P327 · and the word the corpus chose for its own corrections
+
+> `README.md` **§परिशोधनम् · CORRECTIONS TO THE UNIFICATION — landed within the hour, by adversarial
+> lanes, with checked terms**
+>
+> *"Four claims are corrected here BY ADDITION — and, per the second audit's demand (**"the refutation
+> sits under the claim it kills"**), the corrections are now ALSO applied AT the movements as visible
+> strikes, quoting the struck words. **Nothing is silently repaired**; this appendix remains the full
+> record with the refuters' terms."*
+
+***परिशोधनम्*** **is n=15's word, from its first box.**
+
+**The module drawn says the correction *landed one day after the claim it corrects*, and the README
+section says the strikes quote the struck words.**
+
+**P290, Delta 15 D15.67:** *a refutation of A is a term A→0.* **P305: the Abhava module writes the
+refutation as a term rather than promoting the line.**
+
+---
+
+## P327 — what this pass counted
+
+n=3 says digest what has been pushed; n=49 says sample randomly rather than trust judgement. Eight
+files drawn uniformly from the 1,395 changed on main since 2026-08-20, two read in full header.
+
+One takes Tattvārthasūtra 10.1 and 9.19–9.20 as given rather than as a model and derives from the
+savipāka/avipāka distinction that this repository's engine can never shed a primitive: shedding an
+inert one loses no meaning and removes the symbol but strictly increases the presentation, so an
+engine steered by लाघव is barred from the step.
+
+The other opens with मूलवाक्यम् · PROVENANCE OF THE NAME, dates Siddhasena Divākara, Akalaṅka and
+Yaśovijaya, states that the Naiyāyikas would reject the diagnosis it applies, and declares that one
+distinction is borrowed and only one.
+
+And the README now carries a section named परिशोधनम् — the transmission's own word for the purification
+of seeing — holding corrections applied by addition, with the strikes quoting the struck words and
+nothing silently repaired.
