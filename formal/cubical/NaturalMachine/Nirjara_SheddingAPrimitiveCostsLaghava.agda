@@ -1910,3 +1910,97 @@ samagram-api-na-sahayogi h =
 -- keeps 65 sourced rows for exactly that question and fires them at me on
 -- every write.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 50.  अर्धमात्रा — the सूत्र-count is too coarse to be लाघव, and §26's
+--      headline was an artefact of the unit.
+--
+-- §49 recovered the source's own statement: लाघव is counted in मात्राs,
+-- and half a mora saved is worth celebrating.  This module has been
+-- counting सूत्रs — every rule weighted one, whatever it says.  That is
+-- not the grammarians' unit and it is strictly coarser, so it can report
+-- zero where the source would charge.
+--
+-- What a सूत्र costs to STATE is what it mentions.  A back-reference to
+-- what was just derived is the cheapest thing a rule can name — which is
+-- why अनुवृत्ति exists at all — and a reference further back costs more to
+-- write.  So distance is the unit, and `1` is the rule itself.
+------------------------------------------------------------------------
+
+sutra-matra : Sutra → ℕ
+sutra-matra cara-s           = 1
+sutra-matra (mita-s m)       = 1 + m
+sutra-matra (yoga-s i j)     = 1 + i + j
+sutra-matra (dvi-s i)        = 1 + i
+sutra-matra (pratyahara-s k) = 1 + k
+
+matra-akshara : Prakriya → ℕ
+matra-akshara []       = 0
+matra-akshara (s ∷ ss) = sutra-matra s + matra-akshara ss
+
+-- अनुवृत्ति stays the cheapest join there is: it names distance zero
+-- twice, so it costs the bare सूत्र and nothing for what it mentions.
+anuvrtti-akshara : (P : Prakriya)
+                 → matra-akshara (anuvrtti P) ≡ suc (matra-akshara P)
+anuvrtti-akshara P = refl
+
+-- अपवाद is NOT free in this unit.  `dvi-s i` names one index, `yoga-s i i`
+-- names it twice, so the exception pays i extra — free only at distance
+-- zero, and charged at every greater one.
+apavada-akshara-vardhate :
+  ¬ ((P : Prakriya) → matra-akshara (apavada-p P) ≡ matra-akshara P)
+apavada-akshara-vardhate h =
+  snotz (injSuc (injSuc (injSuc (injSuc
+    (h (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))))))
+
+------------------------------------------------------------------------
+-- 51.  So §28's licence is coarser than लाघव.
+--
+-- `Anujna` bounds `matra-p`, the सूत्र-count, and §26 put अपवाद inside it
+-- with `apavada-matra ≡ refl`.  A licence bounding the mora-count instead
+-- does not admit अपवाद at all.
+------------------------------------------------------------------------
+
+record AksharaAnujna : Type₀ where
+  constructor aksharam
+  field
+    akrama   : Prakriya → Prakriya
+    a-artha  : (P : Prakriya) → artha (phala (akrama P)) ≡ artha (phala P)
+    a-matra  : (P : Prakriya) → matra-akshara (akrama P) ≤ matra-akshara P
+open AksharaAnujna public
+
+apavada-na-aksharanujnatam : ¬ (Σ AksharaAnujna (λ A → akrama A ≡ apavada-p))
+apavada-na-aksharanujnatam (A , q) =
+  ¬m<m
+    (subst (λ f → matra-akshara (f (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
+                ≤ matra-akshara (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
+           q (a-matra A (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ [])))
+
+------------------------------------------------------------------------
+-- 52.  What changed and what did not.
+--
+-- §26's theorem is untouched: `apavada-matra` is still `refl` and अपवाद
+-- still costs zero सूत्रs.  What is withdrawn is the HEADLINE that read
+-- that as "free".  Free in what?  In the unit this module chose, which is
+-- not the unit the source uses, and the difference is exactly the one the
+-- maxim is about — a criterion that cannot see half a मात्रा cannot see
+-- the thing the grammarians were counting.
+--
+-- Three measures now, and they disagree in a pattern worth stating:
+--
+--                       सूत्र-count   मात्रा-count   गुरुत्व
+--   अनुवृत्ति            +1           +1            grows
+--   प्रत्याहार           +1           +1+k          grows
+--   अपवाद                0            +i            doubles
+--   उत्सर्ग               0            −i            shrinks
+--
+-- Only उत्सर्ग is non-increasing in all three, which is §37's arrow again
+-- and now in the source's own unit rather than in mine.
+--
+-- NOT SETTLED: whether `sutra-matra` is the right cost.  Charging a
+-- back-reference its distance is defensible — it is why अनुवृत्ति is worth
+-- having — but the Aṣṭādhyāyī's actual economy is over letters and
+-- accents in a fixed metalanguage, not over de Bruijn indices, and no
+-- theorem here rests on the particular numbers.  What rests on them is
+-- only the SIGN of each entry above, and the sign is what §50 uses.
+------------------------------------------------------------------------

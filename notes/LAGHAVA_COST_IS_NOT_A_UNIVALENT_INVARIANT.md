@@ -683,3 +683,51 @@ grammarians had no measure.
 I reasoned from memory about what मात्रा means, in a repository that keeps
 sixty-five sourced rows for exactly that question and fires them at me on
 every write.
+
+## 17. अर्धमात्रा — the sūtra-count is too coarse to be lāghava
+
+§50–§52. §16 recovered the source's statement: lāghava is counted in
+**mātrās**, and *half* a mora saved is worth celebrating. This module has
+been counting **sūtras** — every rule weighted one, whatever it says. That
+is not the grammarians' unit and it is strictly coarser, so it can report
+zero where the source would charge.
+
+What a sūtra costs to *state* is what it mentions. A back-reference to
+what was just derived is the cheapest thing a rule can name — which is why
+anuvṛtti exists at all — and a reference further back costs more to write.
+So distance is the unit, and 1 is the rule itself.
+
+Under that measure `anuvrtti-akshara` is still `refl`: anuvṛtti names
+distance zero twice, so it stays the cheapest join there is. But
+
+> `apavada-akshara-vardhate` — **apavāda is not free.** `dvi-s i` names one
+> index; `yoga-s i i` names it twice, so the exception pays *i* extra. Free
+> only at distance zero, charged at every greater one.
+
+**§26's theorem is untouched** — `apavada-matra` is still `refl`, apavāda
+still costs zero sūtras. What is withdrawn is the *headline* that read
+that as "free". Free in which unit? In the one this module chose, which is
+not the source's — and the difference is exactly what the maxim is about.
+A criterion that cannot see half a mātrā cannot see what the grammarians
+were counting. `apavada-na-aksharanujnatam` makes it structural: a licence
+bounding the mora-count does not admit apavāda at all, so §7's licence is
+**coarser than lāghava**.
+
+Three measures now, disagreeing in a pattern:
+
+| | sūtra-count | mātrā-count | गुरुत्व |
+|---|---|---|---|
+| अनुवृत्ति | +1 | +1 | grows |
+| प्रत्याहार | +1 | +1+k | grows |
+| अपवाद | 0 | +i | doubles |
+| **उत्सर्ग** | 0 | −i | shrinks |
+
+Only उत्सर्ग is non-increasing in all three — §11's arrow again, now in the
+source's own unit rather than in mine.
+
+**Not settled**: whether charging a back-reference its distance is the
+right cost. It is defensible — it is *why* anuvṛtti is worth having — but
+the *Aṣṭādhyāyī*'s actual economy is over letters and accents in a fixed
+metalanguage, not over de Bruijn indices. No theorem above rests on the
+particular numbers; what rests on them is only the **sign** of each entry,
+and the sign is all §50 uses.
