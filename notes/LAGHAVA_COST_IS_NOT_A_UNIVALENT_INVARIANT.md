@@ -808,3 +808,41 @@ and not the *object*. Each time the source was available and I took from
 it the part that fitted what I had already built. That is the mining the
 protocol names — done to a tradition's **criterion** rather than to its
 theorems, which is the same act one level up.
+
+## 20. विधि — lāghava's object finally exists in this file
+
+§57–§59. §19 named the repair and called it a second language rather than
+a section: **the rules have to *be* something before their statement can
+be measured.** Here is its core. Not a grammar — a विधि is built from the
+two moves this note has argued about and their composition — but enough
+that both sides of §19's separation are present at once, which they never
+have been.
+
+`vidhi-matra` measures a **statement**; `artha-v` is its denotation, which
+is `Anujna`'s function recovered rather than assumed. And then §5's
+separation becomes a separation between two objects that both exist,
+instead of an absence:
+
+> `vidhi-tulya` — अक्रिया and अक्रिया-then-अक्रिया are **one function**.
+> `sarvam-vidher-arthasya-samam` — so every invariant of what a rule *does*
+> identifies them.
+> `vidhi-matra-bheda` — and the statement-length does not.
+> `vidhi-matra-na-arthasya` — **no function of what a rule does computes
+> what it costs to say.**
+
+That last is the exact form §19 could only gesture at. Everything from §6
+to §18 is about `artha-v`'s side; this is the other one.
+
+**Still owed, and it is the whole reason §19 wanted this: the
+transaction.** §18 claimed the exception is worth its cost because the
+general rule stays simple to state. Checking that needs a विधि that
+*carves* the exception into the general rule — a conditional form this
+datatype does not have — and then a `vidhi-matra` comparison between the
+carved grammar and the utsarga-plus-apavāda one. Four constructors is not
+a grammar; it is the smallest thing on which the separation is statable.
+
+**Also owed**: `Anujna` and `TriAnujna` still carry functions. Nothing
+above rewires them to `Vidhi`, so the licences remain measures on
+derivations with a rule-syntax sitting beside them, unconnected. The
+connection is `artha-v`, and using it is the next thing rather than a
+claim this section makes.
