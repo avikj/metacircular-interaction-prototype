@@ -2295,3 +2295,10 @@ import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcom
 -- [svayam-avatarana 2026-08-24T03:44:33Z] landed by the self-gate: batch green +
 -- importer green under Agda version 2.6.3; route in machine/avatarana.ledger.jsonl.
 import SanghattaPurana_EverySpanOfPathsJoinsSoTheGapWasAFactAboutTheShadowAndTheWombedSquaresAreFilled
+-- [laya sweep 2026-08-24] orphan named by the Everything-closure gate, batch
+-- green under Agda 2.6.3 this container; wired so the closure holds it.
+import VyutpattiVismrti_ThePunInhabitsTheForgettingTypeSoLanguagesSurfaceSitsStrictlyLossyInTheOrder
+-- [laya sweep 2026-08-24] two more orphans named by the closure gate, each
+-- batch green under Agda 2.6.3 this container; wired.
+import SunyaAvesa_TheChargeVanishesExactlyOnTheVacuumSoTheNeutralSectorIsTheEmptyPlaceSet
+import Vyapti_TheLeastCongruenceContainingAPairIsConstructedAndIsTheMinimalSeparatingQuery

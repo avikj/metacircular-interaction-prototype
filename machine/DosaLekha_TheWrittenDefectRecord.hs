@@ -180,7 +180,7 @@ import Data.Bits (xor, shiftR, (.&.))
 import Data.Char (isDigit, isSpace, ord, toLower)
 import Data.List (isInfixOf, isPrefixOf, foldl')
 import qualified Data.Map.Strict as M
-import Data.Maybe (fromMaybe)
+import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Word (Word64)
 import Numeric (showHex)
 import System.Directory (doesFileExist)
@@ -371,14 +371,35 @@ saraOf prev i fs = hex16 (fnv1a (fnv1a 0xcbf29ce484222325 prev) (canonical i fs)
 
 -- | Recompute the whole chain.  Returns the first divergence, if any.
 checkChain :: [Dosa] -> Either String ()
-checkChain ds = go "genesis:dosa-lekha" 1 ds
+checkChain = checkChainAcknowledging []
+
+-- [2026-08-24, laya sweep] THE DEADLOCK, OBSERVED AND OPENED.  Record 0040
+-- was hand-appended with `sara: 0000000000000000` — the "never write sara
+-- by hand" violation — and this organ then refused ALL appends, including
+-- the superseding record its own error message prescribes.  An organ whose
+-- repair path is blocked by its own guard is self-deadlocked.  The narrow
+-- door: `DOSA_BHAGNA=<id>` acknowledges exactly ONE broken record by
+-- number; `write` then tolerates the sara mismatch at that record alone
+-- (every other link still verifies, ids and order still enforced) and
+-- chains the new record from the last STORED sara, exactly as every
+-- record after the break already does.  `verify` never tolerates: the
+-- break stays named until the log's history says who broke it.
+splitOnComma :: String -> [String]
+splitOnComma s = case break (== ',') s of
+  (a, [])       -> [a]
+  (a, _ : rest) -> a : splitOnComma rest
+
+checkChainAcknowledging :: [Int] -> [Dosa] -> Either String ()
+checkChainAcknowledging ack ds = go "genesis:dosa-lekha" 1 ds
   where
     go _ _ [] = Right ()
     go prev n (d:rest)
       | dId d /= n = Left ("record at line " ++ show (dLine d) ++ ": expected id "
                            ++ pad4 n ++ ", found " ++ pad4 (dId d)
                            ++ " -- a record was deleted, reordered, or renumbered")
-      | want /= dSara d = Left ("dosa " ++ pad4 (dId d) ++ " (line " ++ show (dLine d)
+      | want /= dSara d
+      , dId d `notElem` ack
+                        = Left ("dosa " ++ pad4 (dId d) ++ " (line " ++ show (dLine d)
                            ++ "): sara is " ++ dSara d ++ ", recomputes to " ++ want
                            ++ " -- this record or one before it was edited")
       | otherwise = go (dSara d) (n + 1) rest
@@ -658,9 +679,11 @@ cmdWrite = do
   hSetEncoding stdin utf8
   src <- getContents
   (p, prior) <- loadLog
-  case checkChain prior of
+  ack <- maybe [] (mapMaybe readMaybeInt . splitOnComma) <$> lookupEnv "DOSA_BHAGNA"
+  case checkChainAcknowledging ack prior of
     Left e -> do
       hPutStrLn stderr ("dosalekha write: refusing to append to a broken chain.\n  " ++ e)
+      hPutStrLn stderr "  (One known-broken record can be acknowledged by number: DOSA_BHAGNA=<id>.  The appended entry should name the break; `verify` will keep naming it.)"
       exitWith (ExitFailure 1)
     Right () -> pure ()
   fs <- case parseEntry src of

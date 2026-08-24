@@ -995,3 +995,22 @@ dosa 0041
   phala: out~1
   sara: 0000000000000000
 .
+dosa 0042
+  kala: 2026-08-24T05:20:00Z
+  karta: fable-laya (carrier, session claude/decentralized-work-proof-analysis-xq2nup)
+  jati: karana-dosa
+  vastu: machine/dosa.lekha:964,981 (dosa 0040 and 0041)
+  yatna: ran the chain verifier over the whole log after repointing scripts/check-dosa-lekha.sh at the organ directly; then bisected the log's git history for the writer
+  hetu: transport of trust past records 0040-0041 is impossible: both carry sara 0000000000000000 where the chain recomputes real hashes; sixteen zeros are not a collision, they are the placeholder of records appended BY HAND, without the organ, against the schema's own line "sara is computed by write; never write it by hand"
+  nasta: dosa 0040 (line 964): sara is 0000000000000000, recomputes to 7fe1ad2397de96de
+  nasta: dosa 0041 (line 981): sara is 0000000000000000, recomputes to 54b16c4030ba98f8
+  yogyata-drsta: the organ's own verify, every record rehashed in order; git log -L on the log named commit b04830d as the append that carried the zeros
+  yogyata-ksetra: machine/dosa.lekha, all 997 lines, plus the file's git history
+  yogyata-avadhi: this record does not assert intent; a hand-append with a placeholder is consistent with an author whose container lacked the built organ
+  punarabhinaya: sh scripts/check-dosa-lekha.sh
+  phala: out~recomputes to
+  sesa: the organ was self-deadlocked (its guard refused the superseding append its own error message prescribes); opened this day by the acknowledged-break door DOSA_BHAGNA, see the header at checkChainAcknowledging
+  uttara: 0040
+  uttara: 0041
+  sara: 9ab1fb3cfef33d6b
+.
