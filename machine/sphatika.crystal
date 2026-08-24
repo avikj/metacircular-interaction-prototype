@@ -1513,3 +1513,10 @@ sp914	max(le(*(x,x),0),s(0))	max(le(s(0),x),le(*(x,x),0))	ind 0 refl refl
 sp915	s(le(s(0),+(x,s(s(y)))))	s(le(s(0),+(s(s(y)),x)))	ind 0 refl refl
 sp916	0	le(+(+(s(s(0)),s(s(0))),+(+(x,x),+(x,x))),0)	refl
 sp917	le(x,0)	le(+(+(x,x),*(x,+(y,+(y,+(y,y))))),0)	ind 0 refl refl
+sp918	le(x,0)	le(+(+(x,x),*(x,+(+(+(y,z),y),z))),0)	ind 0 refl refl
+sp919	le(x,0)	le(+(+(x,+(0,x)),*(+(0,x),+(y,y))),0)	ind 0 refl refl
+sp920	0	le(s(0),+(*(s(0),0),+(*(s(0),0),*(s(0),0))))	refl
+sp862	+(+(x,x),+(x,x))	-(+(+(x,x),+(x,x)),le(x,0))	ind 0 refl refl
+sp921	+(max(+(0,s(0)),s(0)),max(+(0,s(0)),s(0)))	s(s(0))	refl
+sp863	+(+(x,0),+(x,0))	-(+(+(x,0),+(x,0)),le(x,0))	ind 0 refl refl
+sp922	+(*(s(0),s(0)),s(s(0)))	+(s(s(0)),*(s(0),s(0)))	refl
