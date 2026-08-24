@@ -2396,3 +2396,74 @@ apavada-svavisaya (pratyahara-s k ∷ ss) e = refl
 -- अपवाद domains, I have not checked, and the ledger at §48 is where that
 -- uncertainty belongs.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 64.  §63's question: is a स्वविषय presentation always available?
+--
+-- No, and the characterisation says exactly when — which turns the design
+-- question from one about presentations into one about the BEHAVIOUR.
+-- A behaviour admits a स्वविषय presentation for a निमित्त iff it is
+-- निष्क्रिय — inert — outside that निमित्त.  Nothing about how it is
+-- written enters.
+------------------------------------------------------------------------
+
+Nishkriya : Nimitta → (Prakriya → Prakriya) → Type₀
+Nishkriya c f = (P : Prakriya) → sthiti c P ≡ false → f P ≡ P
+
+svavisayat-nishkriyam :
+  (c : Nimitta) (w : Vidhi)
+  → Σ Vidhi (λ v → (artha-v v ≡ artha-v w) × Svavisaya c v)
+  → Nishkriya c (artha-v w)
+svavisayat-nishkriyam c w (v , p , sv) P e =
+  sym (funExt⁻ p P) ∙ sv P e
+
+nishkriyat-svavisayam :
+  (c : Nimitta) (w : Vidhi)
+  → Nishkriya c (artha-v w)
+  → Σ Vidhi (λ v → (artha-v v ≡ artha-v w) × Svavisaya c v)
+nishkriyat-svavisayam c w hyp = w , refl , hyp
+
+-- the behaviour that does one thing on its निमित्त and another off it
+ubhayatah : Vidhi
+ubhayatah = yadi dviyoge apavada-v utsarga-v
+
+ubhayatah-na-nishkriyam : ¬ (Nishkriya dviyoge (artha-v ubhayatah))
+ubhayatah-na-nishkriyam h =
+  snotz (injSuc (injSuc
+    (cong guru (sym (h (yoga-s zero zero ∷ cara-s ∷ []) refl)))))
+
+-- so carving is FORCED here: no स्वविषय presentation of it exists
+ubhayatah-na-svavisayam :
+  ¬ (Σ Vidhi (λ v → (artha-v v ≡ artha-v ubhayatah) × Svavisaya dviyoge v))
+ubhayatah-na-svavisayam s =
+  ubhayatah-na-nishkriyam (svavisayat-nishkriyam dviyoge ubhayatah s)
+
+------------------------------------------------------------------------
+-- 65.  What the characterisation settles about the design question.
+--
+-- §62 said carving a स्वविषय rule is waste.  §64 says when you have no
+-- choice: exactly when the behaviour ACTS off its निमित्त.  Together they
+-- are a dichotomy on behaviours rather than a preference among notations —
+--
+--   निष्क्रिय outside c  →  a स्वविषय presentation exists, and carving it
+--                           is denotationally idle and strictly longer;
+--   acts outside c       →  no स्वविषय presentation exists at all, and the
+--                           carved form is not a stylistic choice.
+--
+-- That is why an अपवाद and a conditioned rule are different devices rather
+-- than two ways of writing one, and why a grammar carries both.  It also
+-- says what to look for when a rule seems to need carving: whether its
+-- off-domain behaviour is really wanted, or is an artefact of how the
+-- behaviour was specified.  In this language `ubhayatah` genuinely acts
+-- off `dviyoge` — it runs उत्सर्ग there — so its carving is forced.
+--
+-- NOT SHOWN: that the dichotomy is exhaustive in a language with more
+-- निमित्तs.  A behaviour acting off c may be निष्क्रिय off some OTHER
+-- निमित्त c′, and then it has a स्वविषय presentation for c′ and the
+-- question becomes which निमित्त to state it against.  With three
+-- निमित्तs that is a real search and nothing here conducts it.
+--
+-- NOT CLAIMED: निष्क्रिय as a technical term.  It is ordinary Sanskrit
+-- for "inactive"; §48's ledger is where this belongs, and it goes in the
+-- MINE column beside स्वविषय.
+------------------------------------------------------------------------

@@ -921,3 +921,39 @@ term for this predicate. *Sva-viṣaya* is ordinary Sanskrit for "one's own
 province"; whether the commentators use it as a term of art about apavāda
 domains I have not checked, and §15's ledger is where that uncertainty
 belongs.
+
+## 23. निष्क्रिय — when carving is forced, and the dichotomy that follows
+
+§64–§65. §22 left the designer's question: given a behaviour, is a
+svaviṣaya presentation always available? **No** — and the characterisation
+says exactly when, which turns the question from one about *presentations*
+into one about the **behaviour**.
+
+> `svavisayat-nishkriyam` / `nishkriyat-svavisayam` — a behaviour admits a
+> svaviṣaya presentation for a nimitta **iff** it is निष्क्रिय, inert,
+> outside that nimitta. Nothing about how it is written enters.
+> `ubhayatah-na-svavisayam` — and a behaviour that runs utsarga off its
+> nimitta has **no** svaviṣaya presentation at all.
+
+With §22 this is a **dichotomy on behaviours**, not a preference among
+notations:
+
+- **inert outside *c*** → a svaviṣaya presentation exists, and carving it
+  is denotationally idle and strictly longer;
+- **acts outside *c*** → no svaviṣaya presentation exists, and the carved
+  form is not a stylistic choice.
+
+That is why an apavāda and a conditioned rule are **different devices**
+rather than two ways of writing one, and why a grammar carries both. It
+also says what to look for when a rule seems to need carving: whether its
+off-domain behaviour is really wanted, or is an artefact of how the
+behaviour was specified.
+
+**Not shown**: that the dichotomy is exhaustive in a language with more
+nimittas. A behaviour acting off *c* may be inert off some *other* nimitta
+*c′* — then it has a svaviṣaya presentation for *c′*, and the question
+becomes which nimitta to state it against. With three nimittas that is a
+real search and nothing here conducts it.
+
+**Not claimed**: निष्क्रिय as a technical term. Ordinary Sanskrit for
+"inactive"; it goes in §15's **mine** column beside स्वविषय.
