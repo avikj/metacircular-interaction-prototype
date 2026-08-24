@@ -171,3 +171,10 @@ sp170	0	+(*(max(0,s(0)),0),*(*(max(0,s(0)),0),s(*(0,0))))	refl
 sp171	+(max(s(s(0)),s(0)),max(s(s(0)),s(0)))	+(s(s(0)),s(s(0)))	refl
 sp172	*(x,+(+(x,x),+(x,x)))	*(x,+(+(x,max(x,s(0))),+(x,max(x,s(0)))))	ind 0 refl refl
 sp173	*(x,+(+(x,x),+(x,x)))	*(x,+(max(+(x,x),s(0)),max(+(x,x),s(0))))	ind 0 refl refl
+sp174	s(0)	gcd(s(0),0)	refl
+sp175	s(0)	gcd(0,s(0))	refl
+sp176	s(x)	gcd(s(x),0)	refl
+sp177	s(x)	gcd(0,s(x))	refl
+sp178	x	+(x,0)	ind 0 refl congsuc
+sp179	s(s(0))	gcd(s(s(0)),0)	refl
+sp180	s(s(0))	gcd(0,s(s(0)))	refl
