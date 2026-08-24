@@ -602,3 +602,5 @@ sp386	s(0)	gcd(0,le(s(0),+(x,s(s(y)))))	ind 0 refl refl
 sp387	s(0)	gcd(le(s(0),+(x,s(s(y)))),0)	ind 0 refl refl
 sp479	le(x,0)	le(+(+(x,0),+(x,0)),+(0,0))	ind 0 refl refl
 sp388	+(x,x)	+(*(s(s(0)),0),+(x,x))	refl
+sp389	+(+(+(0,0),0),+(+(0,0),0))	0	refl
+sp390	+(s(*(max(0,s(0)),x)),*(0,0))	s(x)	ind 0 refl congsuc
