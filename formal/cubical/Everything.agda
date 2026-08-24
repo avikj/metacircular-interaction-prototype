@@ -1396,6 +1396,12 @@ import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibre
 -- behaves alike under the rule.  2026-08-22.
 import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
 import Vargaprakrtitantu_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness
+-- Brahmagupta's composition commutes (bhA-comm, bhB-comm — ·Comm/+Comm),
+-- the lemma missing beside Bhavana's associativity: the Pell fibre is an
+-- abelian ℤ-torsor, the same abelian charge AkramaBhara reads off π₁(S¹)
+-- and EkaBhara triangulates. Every deep lane strikes the one commutative ℤ;
+-- the nonabelian Casimir √(j(j+1)) is the horn none reach. नाडी: छिद्रं नास्ति.
+import BhavanaVinimaya_BrahmaguptasCompositionIsAbelianSoThePellFibreStrikesTheSameAbelianChargeAsTheWinding
 
 -- कक्ष्या — the conserved quantity is constant along the WHOLE orbit, not
 -- across one step; no two stations of an orbit are separated by the
