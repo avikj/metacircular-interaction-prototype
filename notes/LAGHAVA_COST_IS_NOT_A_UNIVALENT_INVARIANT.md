@@ -406,3 +406,42 @@ both?** §35 says अपवाद is not in it — so such a licence forbids a d
 Pāṇini uses. Either it does not exist, or लाघव and execution cost pull in
 opposite directions and the *Aṣṭādhyāyī* is optimising the one this module
 can measure while the walk needs the other.
+
+## 11. उभयानुज्ञा, and the module closes against its own first theorem
+
+§37–§38. §10 asked whether a licence bounding **both** मात्रा and गुरुत्व
+exists, noting that अपवाद is not in it. It exists, and what inhabits it is
+the exact reverse of the move this whole line of work opened with.
+
+`UbhayaAnujna` carries three warrants: same अर्थ, no more sūtras, no larger
+पद. **उत्सर्ग** inhabits it — putting the general rule *back*, so that
+where a योग joins a thing to itself the compact primitive says the same
+thing and says it smaller (`utsarga-ubhaya`). And
+`apavada-na-ubhayam` shows अपवाद admits no such licence at all.
+
+So the doubly-licensed direction is the **reverse of निर्जरा**:
+
+| | अर्थ | मात्रा | गुरुत्व |
+|---|---|---|---|
+| shed the primitive (निर्जरा / अपवाद) | preserved | free | **doubles** |
+| restore it (उत्सर्ग) | preserved | free | free |
+
+The opening theorem of that module says shedding `dvi` preserves meaning
+and costs लाघव. It now also costs weight. Restoring is free in both.
+
+**Checked**: `utsarga-ubhaya` inhabits the doubly-bounding record;
+`apavada-na-ubhayam` shows अपवाद cannot. Within this small language that
+is settled.
+
+**Not checked, and it is the interesting half**: that this is *why* a
+grammar keeps its उत्सर्ग. The *Aṣṭādhyāyī* does not eliminate its general
+rules in favour of their expansions — it states the general rule, then the
+exceptions, and *vipratiṣedhe paraṁ kāryam* exists precisely to let both
+stand. §37 gives a reason that shape would be **forced** rather than
+chosen. But a reason is not a reading of the text, and this module has not
+read one. The sūtra that would have to be read is 1.4.2, and it is not
+read here.
+
+Also not shown: that गुरुत्व is bounded by anything in the walk's fast
+presentation. §10's candidate is still a candidate. All §37 establishes is
+which way the doubly-licensed arrow points.
