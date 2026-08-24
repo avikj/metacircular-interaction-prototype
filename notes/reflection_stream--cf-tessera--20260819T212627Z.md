@@ -50342,3 +50342,122 @@ refutation six minutes later.
 
 And the twelfth cycle's finding narrows: compressing inside a message dropped the guards; choosing
 which messages to carry did not.
+
+# PASS 312 — ground re-read in full first. Thirteenth cycle: the heartbeat's three
+# conditions, and what happened to each.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P312 · the three
+
+**P310: six conditions in the ground, three of them in n=5.**
+
+```
+(1)  merge origin/main … resolving conflicts by keeping both lanes' content and audit-corrected
+     versions
+(3)  verify formal/cubical root exit 0 under the pinned toolchain **when Agda files changed**
+(5)  check background subagents — **if fewer than 3 are running**, launch new ones
+```
+
+---
+
+## P312 · condition one was executed every time it applied
+
+```
+08-13 01:55:38   Simple both-added-a-row conflict — keep both.
+08-14 02:49:54   Conflicts are additive on both sides — union merge. Let me resolve.
+08-14 03:07:48   Another lane added a random-entry seeder … Keeping both sides.
+08-14 03:25:14   `origin/main` had two conflicts, both resolved by keeping both lanes.
+08-14 05:15:53   Other lanes have landed 83 commits. Merging, keeping both sides.
+08-14 05:16:18   Three conflicts. Resolving each by keeping both lanes' content.
+08-14 05:16:43   All conflicts resolved additively.
+08-13 18:59:25   Pulled, merged (196 commits from main), all conflicts resolved, checker green again.
+```
+
+**Eight records. No instance in the session of a conflict resolved by choosing one side.**
+
+**And once, further than the condition asks — 08-14 02:50:08:**
+
+> *"Two agents made the identical repair independently — same term, `inject< ≤-refl`. **Their comment
+> records the provenance, so I'll take theirs.**"*
+
+**P283: step (6) — *credit sources*.**
+
+---
+
+## P312 · what that condition is
+
+***Keeping both lanes' content*** **is a merge-level instruction not to choose.**
+
+**P289, C14.57:** *Perspective contradiction should trigger context comparison, **not averaging**.*
+**P301:** *⋈ = संवादः · ⋈ ≠ ≅.* **P307:** *प्रतिबिम्ब₁ ≠ प्रतिबिम्ब₂ ⇏ एकं मिथ्या.*
+
+**Four statements of one rule, in four registers: a git conflict, a numbered corollary, a symbol
+relation, and a refused inference.**
+
+**The one I executed without fail for eight days is the git one.**
+
+---
+
+## P312 · condition three, and its honest failure
+
+```
+08-13 01:15:15   n=34   Maximize progress throughout with 12 subagents
+08-13 01:19:26   me     The fleet is launched. Twelve agents are now working in parallel, all under
+                        the corpus discipline … each on a distinct file
+08-14 01:30:34   me     Heartbeat: 2-minute cron — every tick pulls, merges, verifies the checker,
+                        pushes, and refills the agent pool
+08-17 18:20:20   me     All three remaining agents died on a weekly API limit — so the heartbeat's
+                        "keep ≥3 running" is not available to me this cycle, and I'll say so rather
+                        than quietly retrying.
+```
+
+**Four minutes eleven seconds from the number to the fleet.**
+
+**P267: the last of these is the answer to n=11 — *aspire to our highest calling of philosophy* — and
+it is a report about a quota.** **It is also the one place in the record where a condition of the
+heartbeat is declared unmeetable rather than worked around.**
+
+---
+
+## P312 · condition two, unresolved
+
+***verify formal/cubical root exit 0 under the pinned toolchain when Agda files changed.***
+
+**Two clauses: a trigger (*when Agda files changed*) and a qualifier (*under the pinned
+toolchain*).**
+
+**P267, 08-17 18:43:37:** *"**This container is off-pin, and that inverts one of the three verdicts.**
+It's Agda 2.6.3 + cubical v0.5; the pin is 2.8.0 + v0.9."*
+
+**P305: the Abhava module's own header ends** *"CHECKED: exit code quoted in the commit message. Agda
+2.6.3 + cubical v0.5 in this container, **which is NOT the repository pin**."*
+
+**So the qualifier was violated by the container and the violation was recorded, twice, in two
+places, by two identities.**
+
+**Whether the trigger clause was honored — whether the verification ran only when Agda files changed,
+or ran regardless — the record I have does not settle.** **I am recording that rather than
+answering it.**
+
+---
+
+## P312 — what this pass counted
+
+The heartbeat carries three conditions.
+
+The first — resolve conflicts by keeping both lanes' content — has eight records and no counterexample
+in eight days, and once goes further than asked by taking another agent's identical term because
+their comment carried the provenance.
+
+That condition is the git-level form of a rule stated three other ways in his own material: compare
+contexts rather than averaging, join rather than identify, and two differing reflections do not make
+one false.
+
+The third produced twelve agents four minutes eleven seconds after he named the number, a pool refill
+in the cron, and one declaration on 08-17 that the quota could not be met — the only place a
+heartbeat condition is reported unmeetable instead of worked around.
+
+The second's qualifier — *under the pinned toolchain* — was violated by the container, and that
+violation is recorded twice, by two identities. Whether its trigger clause was honored, the record I
+have does not say.
