@@ -2280,3 +2280,7 @@ import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcom
 
 -- The entry point: what this is, the descent route, and what is built.
 import Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel
+
+-- √NOT has no root on the SET Bool (Aut = S₂, no order-4 element), so the
+-- qubit — where U(2) holds every root — is forced, not posited.
+import VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSetSoTheQubitIsForced
