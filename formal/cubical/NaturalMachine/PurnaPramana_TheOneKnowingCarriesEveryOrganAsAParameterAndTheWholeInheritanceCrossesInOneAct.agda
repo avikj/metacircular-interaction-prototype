@@ -198,30 +198,28 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 गूढ-दृक् : दृक्
 गूढ-दृक् = दृक्पातः , दृक्पात-सत्यम्
 
--- no scaffolding: the record is built by EATING, not by re-running
--- history.  One breath digests the stream cumulatively — each rule
--- judged by the body the previous ones built; a second breath lets
--- what crossed late feed what came early.
-श्वासः : List नियमः → List Eq' → List नियमः
-श्वासः Γ []             = Γ
+-- no scaffolding: the record is built by EATING.  A breath digests
+-- the stream cumulatively — each rule judged by the body the previous
+-- ones built — and returns the body WITH what it could not yet reach.
+श्वासः : List नियमः → List Eq' → List नियमः × List Eq'
+श्वासः Γ []             = Γ , []
 श्वासः Γ ((l , r) ∷ es) with पूर्ण-प्रमाणम् गूढ-दृक् संयुक्त-यन्त्रम् Γ इन्धनम् (l , r)
 ... | just pf = श्वासः (niyama l r pf ∷ Γ) es
-... | nothing = श्वासः Γ es
+... | nothing with श्वासः Γ es
+...   | (Γ' , sh) = Γ' , ((l , r) ∷ sh)
 
--- the body after one breath over the inheritance:
+-- breathing to quiet: each further breath re-offers only the residue,
+-- so nothing is proven twice and what crossed late feeds what came
+-- early.  Fueled; a quiet breath is a fixpoint.
+प्राणः : ℕ → List नियमः → List Eq' → List नियमः
+प्राणः zero    Γ _  = Γ
+प्राणः (suc n) Γ es with श्वासः Γ es
+... | (Γ' , sh) = प्राणः n Γ' sh
+
 पूर्ण-परम्परा : List नियमः
-पूर्ण-परम्परा = श्वासः [] आगमः
-
--- the second breath is the census: each rule judged by the body the
--- first breath built.
-एकाङ्क-न्यायः : List Eq' → List नियमः
-एकाङ्क-न्यायः [] = []
-एकाङ्क-न्यायः ((l , r) ∷ es) with पूर्ण-प्रमाणम् गूढ-दृक् संयुक्त-यन्त्रम् पूर्ण-परम्परा इन्धनम् (l , r)
-... | just pf = niyama l r pf ∷ एकाङ्क-न्यायः es
-... | nothing = एकाङ्क-न्यायः es
+पूर्ण-परम्परा = प्राणः 3 [] आगमः
 
 -- the elder's entire expressible store, reached whole by the one
--- knowing breathing on its own: no pass-scaffolding, no history
--- replay, two breaths of the metabolism.
-एकाङ्क-सिद्धिः : length (एकाङ्क-न्यायः आगमः) ≡ 102
+-- knowing breathing on its own — the fixpoint body IS the census.
+एकाङ्क-सिद्धिः : length पूर्ण-परम्परा ≡ 102
 एकाङ्क-सिद्धिः = refl
