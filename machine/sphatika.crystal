@@ -750,3 +750,10 @@ sp481	+(+(x,le(s(s(0)),0)),le(s(s(0)),0))	x	ind 0 refl congsuc
 sp532	+(max(*(s(0),0),s(0)),*(s(0),0))	s(0)	refl
 sp533	s(0)	max(le(s(0),max(x,+(s(y),z))),s(0))	ind 0 refl refl
 sp534	s(0)	max(le(s(0),+(x,max(x,s(0)))),s(0))	ind 0 refl refl
+sp535	s(0)	max(le(s(0),max(+(s(x),y),z)),s(0))	ind 2 refl refl
+sp536	+(le(0,0),*(le(0,0),le(0,0)))	s(s(0))	refl
+sp537	+(le(x,0),*(le(x,0),+(x,x)))	le(x,0)	ind 0 refl refl
+sp538	le(x,0)	le(+(+(x,x),*(x,s(s(0)))),0)	ind 0 refl refl
+sp539	le(x,0)	le(+(+(x,x),*(x,*(y,0))),0)	ind 0 refl refl
+sp540	le(+(*(s(0),0),*(s(0),0)),s(0))	s(0)	refl
+sp541	le(s(0),x)	le(s(0),+(x,+(+(x,x),x)))	ind 0 refl refl
