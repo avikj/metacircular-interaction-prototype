@@ -292,3 +292,20 @@ sp291	0	le(max(x,+(+(s(y),z),u)),0)	ind 0 refl refl
 sp292	0	le(+(+(s(x),y),+(z,u)),0)	refl
 sp293	0	le(+(x,max(+(0,x),s(0))),0)	ind 0 refl refl
 sp294	s(0)	le(le(s(0),x),+(s(y),z))	ind 0 refl refl
+sp295	0	le(+(s(s(x)),x),le(s(x),0))	refl
+sp296	0	-(le(s(0),max(x,s(y))),s(0))	ind 0 refl refl
+sp297	0	-(le(s(0),max(s(x),y)),s(0))	ind 1 refl refl
+sp298	0	-(le(s(0),+(s(x),y)),s(0))	refl
+sp299	0	-(le(s(0),+(x,s(y))),s(0))	ind 0 refl refl
+sp300	s(0)	le(le(x,0),*(s(y),s(z)))	ind 0 refl refl
+sp301	0	-(le(x,0),+(s(*(x,x)),x))	ind 0 refl refl
+sp302	0	+(*(le(0,0),0),*(0,s(0)))	refl
+sp303	0	+(*(-(0,x),0),*(0,s(0)))	ind 0 refl refl
+sp304	+(s(x),y)	max(+(s(x),y),s(0))	refl
+sp305	+(s(s(0)),*(s(0),0))	s(s(0))	refl
+sp306	+(le(0,0),*(le(0,0),x))	s(x)	ind 0 refl congsuc
+sp307	s(0)	le(s(0),+(max(x,s(0)),x))	ind 0 refl refl
+sp308	-(+(*(x,0),*(x,0)),s(0))	0	ind 0 refl ih
+sp309	le(x,0)	le(*(s(x),+(x,x)),0)	ind 0 refl refl
+sp310	le(+(le(0,0),le(0,0)),s(0))	0	refl
+sp311	s(0)	gcd(0,le(s(0),max(x,s(y))))	ind 0 refl refl
