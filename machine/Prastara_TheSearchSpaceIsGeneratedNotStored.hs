@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- Prastara — प्रस्तारः as a first-class capability of the machine: every
 -- search space is addressed by index, never laid out and held.
 --

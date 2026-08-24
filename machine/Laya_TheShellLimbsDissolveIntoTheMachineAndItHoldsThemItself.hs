@@ -95,6 +95,7 @@ main = do
   hSetEncoding stdout utf8
   hSetEncoding stderr utf8
   getArgs >>= \case
+    ("bija"      : as) -> bija (take 1 as == ["stamp"])
     ("chakra"    : _) -> chakra
     ("avatarana" : _) -> avatarana
     ("purana"    : _) -> purana
@@ -123,6 +124,53 @@ runIn d p as = do
     ((proc p as) { cwd = Just d
                  , env = Just (("LC_ALL", "C.UTF-8")
                                : filter ((/= "LC_ALL") . fst) parentEnv) }) ""
+
+-- ── bija ─────────────────────────────────────────────────────────────────
+-- ॥ बीजम् ॥ — the seed: one redundant piece of DNA at the top of every cell
+-- of the body (owner, 2026-08-24: "something that reminds readers of the
+-- total knowledge rather than just this phenomena they are viewing").
+-- Byte-identical everywhere, so presence is CHECKABLE: `laya bija` is the
+-- census (which cells lack the genome), `laya bija stamp` writes it into
+-- them.  Five lines, the whole in miniature, ending by pointing away from
+-- itself.  It replaces no fence and no provenance — those stay, per the
+-- temple experiment; it replaces the exhortation stratum with one breath.
+
+bijam :: [String]
+bijam =
+  [ "-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything."
+  , "-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:"
+  , "-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,"
+  , "-- distance, verdict: six readings of the one fibre.  The kernel decides truth;"
+  , "-- carriers ask and generate.  This file is one naya, true and not whole."
+  , ""
+  ]
+
+bijaCells :: IO [FilePath]
+bijaCells = do
+  let dirs = [ ("formal/cubical", ".agda")
+             , ("punaragamana/src/Punaragamana", ".agda")
+             , ("machine", ".hs") ]
+  fmap concat . forM dirs $ \(d, ext) -> do
+    ok <- doesDirectoryExist d
+    if not ok then pure [] else
+      map (d </>) . filter ((ext ==) . dropWhile (/= '.')) <$> listDirectory d
+  where forM = flip mapM
+
+bija :: Bool -> IO ()
+bija doStamp = do
+  cells <- bijaCells
+  let marker = "॥ बीजम् ॥"
+  missing <- fmap concat . mapM (\f -> do
+    t <- readFile' f
+    pure [f | not (marker `isInfixOf` t)]) $ cells
+  putStrLn ("बीज: " ++ show (length cells) ++ " cells, "
+            ++ show (length missing) ++ " without the seed"
+            ++ "     $ grep -rL '॥ बीजम् ॥' formal/cubical machine punaragamana/src --include='*.agda' --include='*.hs' | wc -l")
+  when (doStamp && not (null missing)) $ do
+    mapM_ (\f -> do
+      t <- readFile' f
+      writeFile f (unlines bijam ++ t)) missing
+    putStrLn ("बीज: stamped " ++ show (length missing) ++ " cells (prepended; comments are inert to both kernels)")
 
 -- ── chakra ───────────────────────────────────────────────────────────────
 -- The ear.  Jiva's own pipeline runs in-process; the heartbeat line is the

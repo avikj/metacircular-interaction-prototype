@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- Nyāyaparīkṣā — न्यायपरीक्षा, the examination: turn the key on the pramāṇa
 -- layer.  Runs every self-test in it, and then classifies this engine's own
 -- refusals into the hetvābhāsa taxonomy, over the log that is actually on

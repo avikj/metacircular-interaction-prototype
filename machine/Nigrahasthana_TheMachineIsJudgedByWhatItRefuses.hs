@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- Nigrahasthana -- the machine judged by what it REFUSES.
 --
 -- निग्रहस्थान, "ground of defeat": in the Nyayasutra (Gautama, ~2nd c. CE)

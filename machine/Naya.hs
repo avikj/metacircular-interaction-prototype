@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- Naya.hs -- DECIDE whether a set of standpoints may be collapsed to one.
 --
 -- Answers YES or NO on real input, and when the answer is NO it prints

@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- द्रष्टा — the seer.  Patañjali, *Yogasūtra* 1.3, तदा द्रष्टुः स्वरूपेऽवस्थानम्
 -- (~2nd c. BCE – 4th c. CE), where draṣṭṛ is the one that observes as opposed
 -- to what is observed.  The word is taken for what it names.  Nothing here is

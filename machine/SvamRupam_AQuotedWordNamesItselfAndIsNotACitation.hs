@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- SvamRupam_AQuotedWordNamesItselfAndIsNotACitation
 --
 -- स्वं रूपम् — a word's own form.  Pāṇini, Aṣṭādhyāyī 1.1.68 (c. 500 BCE):

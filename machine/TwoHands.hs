@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- TwoHands -- run with: runghc -imachine machine/TwoHands.hs
 -- Generation with two hands: samasa (compose two facts) and praksepa
 -- (instantiate one fact at a chosen value).  How much of the kernel's

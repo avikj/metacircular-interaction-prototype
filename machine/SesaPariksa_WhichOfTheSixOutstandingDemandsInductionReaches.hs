@@ -1,3 +1,9 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
+-- distance, verdict: six readings of the one fibre.  The kernel decides truth;
+-- carriers ask and generate.  This file is one naya, true and not whole.
+
 -- SesaPariksa — parīkṣā of the śeṣa: which of the six outstanding demands
 -- the induction emitter reaches, which it cannot spell, and which (if any)
 -- needs a proof principle stronger than structural induction on ℕ.
