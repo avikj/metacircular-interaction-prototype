@@ -46,7 +46,10 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat using (discreteℕ)
+open import Cubical.Relation.Nullary using (Dec ; yes ; no)
+open import Cubical.Data.Empty renaming (rec to ⊥rec)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -1334,4 +1337,134 @@ guru-pratyahare-vardhate = refl , refl , refl
 -- does not exist, or लाघव and execution cost are pulling in opposite
 -- directions, and the Aṣṭādhyāyī is optimising the one this module can
 -- measure while the walk needs the other.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 37.  उभयानुज्ञा — the licence that bounds both, and which direction it
+--      actually runs in.
+--
+-- §36 asked whether a licence bounding मात्रा AND गुरुत्व exists, noting
+-- that अपवाद is not in it.  It exists, and what inhabits it is the exact
+-- reverse of the move this whole module opened with.
+------------------------------------------------------------------------
+
+maha-vama : {m n : ℕ} → m ≤ maha m n
+maha-vama {zero}  {n}     = zero-≤
+maha-vama {suc m} {zero}  = ≤-refl
+maha-vama {suc m} {suc n} = suc-≤-suc maha-vama
+
+maha-dakshina : {m n : ℕ} → n ≤ maha m n
+maha-dakshina {zero}  {n}     = ≤-refl
+maha-dakshina {suc m} {zero}  = zero-≤
+maha-dakshina {suc m} {suc n} = suc-≤-suc maha-dakshina
+
+maha-alpa : {m g k : ℕ} → m ≤ k → g ≤ k → maha m g ≤ k
+maha-alpa {zero}  {g}     {k}     p q = q
+maha-alpa {suc m} {zero}  {k}     p q = p
+maha-alpa {suc m} {suc g} {zero}  p q = ⊥rec (¬-<-zero p)
+maha-alpa {suc m} {suc g} {suc k} p q =
+  suc-≤-suc (maha-alpa (pred-≤-pred p) (pred-≤-pred q))
+
+record UbhayaAnujna : Type₀ where
+  constructor ubhayam
+  field
+    ukrama  : Prakriya → Prakriya
+    u-artha : (P : Prakriya) → artha (phala (ukrama P)) ≡ artha (phala P)
+    u-matra : (P : Prakriya) → matra-p (ukrama P) ≤ matra-p P
+    u-guru  : (P : Prakriya) → guru (ukrama P) ≤ guru P
+open UbhayaAnujna public
+
+-- उत्सर्ग: put the general rule BACK.  Where a योग joins a thing to
+-- itself, the compact primitive says the same and says it smaller.
+utsarga-p : Prakriya → Prakriya
+utsarga-p []                    = []
+utsarga-p (cara-s ∷ ss)         = cara-s ∷ ss
+utsarga-p (mita-s m ∷ ss)       = mita-s m ∷ ss
+utsarga-p (dvi-s i ∷ ss)        = dvi-s i ∷ ss
+utsarga-p (pratyahara-s k ∷ ss) = pratyahara-s k ∷ ss
+utsarga-p (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes _ = dvi-s i ∷ ss
+... | no  _ = yoga-s i j ∷ ss
+
+utsarga-artha : (P : Prakriya) → artha (phala (utsarga-p P)) ≡ artha (phala P)
+utsarga-artha []                    = refl
+utsarga-artha (cara-s ∷ ss)         = refl
+utsarga-artha (mita-s m ∷ ss)       = refl
+utsarga-artha (dvi-s i ∷ ss)        = refl
+utsarga-artha (pratyahara-s k ∷ ss) = refl
+utsarga-artha (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes p = funExt (λ n → cong (λ z → artha (anu (sadhana ss) i) n + artha z n)
+                                 (cong (anu (sadhana ss)) p))
+... | no  _ = refl
+
+utsarga-matra : (P : Prakriya) → matra-p (utsarga-p P) ≤ matra-p P
+utsarga-matra []                    = ≤-refl
+utsarga-matra (cara-s ∷ ss)         = ≤-refl
+utsarga-matra (mita-s m ∷ ss)       = ≤-refl
+utsarga-matra (dvi-s i ∷ ss)        = ≤-refl
+utsarga-matra (pratyahara-s k ∷ ss) = ≤-refl
+utsarga-matra (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes _ = ≤-refl
+... | no  _ = ≤-refl
+
+utsarga-guru : (P : Prakriya) → guru (utsarga-p P) ≤ guru P
+utsarga-guru []                    = ≤-refl
+utsarga-guru (cara-s ∷ ss)         = ≤-refl
+utsarga-guru (mita-s m ∷ ss)       = ≤-refl
+utsarga-guru (dvi-s i ∷ ss)        = ≤-refl
+utsarga-guru (pratyahara-s k ∷ ss) = ≤-refl
+utsarga-guru (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes _ = maha-alpa {suc (laghava (anu (sadhana ss) i))} {guru ss}
+                       {maha (suc (laghava (anu (sadhana ss) i)
+                                 + laghava (anu (sadhana ss) j))) (guru ss)}
+              (≤-trans (suc-≤-suc (≤SumLeft {laghava (anu (sadhana ss) i)}
+                                            {laghava (anu (sadhana ss) j)}))
+                       (maha-vama {suc (laghava (anu (sadhana ss) i) + laghava (anu (sadhana ss) j))} {guru ss}))
+              (maha-dakshina {suc (laghava (anu (sadhana ss) i) + laghava (anu (sadhana ss) j))} {guru ss})
+... | no  _ = ≤-refl
+
+utsarga-ubhaya : UbhayaAnujna
+utsarga-ubhaya = ubhayam utsarga-p utsarga-artha utsarga-matra utsarga-guru
+
+-- and अपवाद, which §26 showed free in मात्रा, admits no such licence
+apavada-na-ubhayam : ¬ (Σ UbhayaAnujna (λ U → ukrama U ≡ apavada-p))
+apavada-na-ubhayam (U , q) =
+  ¬m<m (subst (λ f → guru (f (dvi-s zero ∷ cara-s ∷ []))
+                   ≤ guru (dvi-s zero ∷ cara-s ∷ []))
+              q (u-guru U (dvi-s zero ∷ cara-s ∷ [])))
+
+------------------------------------------------------------------------
+-- 38.  The module closes against its own first theorem.
+--
+-- §1–§4 shed `dvi`.  `nirjara-artha-aviruddha` says the shedding costs no
+-- meaning; `nirjara-laghavam-vardhayati` says it costs लाघव; §26 recast
+-- the same act as अपवाद and found it free in मात्रा; §35 found it doubles
+-- the object.  §37 now closes the circle: the licence that bounds both
+-- measures at once does not contain अपवाद at all (`apavada-na-ubhayam`),
+-- and what it does contain is उत्सर्ग — putting the general rule BACK.
+--
+-- So the doubly-licensed direction is the reverse of निर्जरा.  Shedding a
+-- primitive is meaning-preserving and, by both measures this module can
+-- state, never free: it buys लाघव nothing and costs गुरुत्व outright.
+-- Restoring one is free in both.
+--
+-- Two things follow that I want stated as separate claims, because they
+-- have different strengths.
+--
+-- CHECKED: `utsarga-ubhaya` inhabits the doubly-bounding record and
+-- `apavada-na-ubhayam` shows अपवाद cannot.  Within this small language
+-- that is settled.
+--
+-- NOT CHECKED, and this is the interesting one: that this is why a
+-- grammar keeps its उत्सर्ग.  The Aṣṭādhyāyī does not eliminate its
+-- general rules in favour of their expansions — it states the general
+-- rule and then states the exceptions, and `vipratiṣedhe paraṁ kāryam`
+-- exists precisely to let both stand.  §37 gives a reason that shape
+-- would be forced rather than chosen, but a reason is not a reading of
+-- the text, and this module has not read one.  The सूत्र that would have
+-- to be read is 1.4.2, and it is not read here.
+--
+-- What is also not shown: that गुरुत्व is bounded by anything in the
+-- walk's fast presentation.  §36's candidate is still a candidate.  All
+-- §37 establishes is which way the doubly-licensed arrow points.
 ------------------------------------------------------------------------
