@@ -317,3 +317,17 @@ sp316	s(0)	gcd(le(s(0),max(s(x),y)),0)	ind 1 refl refl
 sp317	s(0)	gcd(le(s(0),+(s(x),y)),0)	refl
 sp318	s(0)	gcd(le(s(0),+(x,s(y))),0)	ind 0 refl refl
 sp319	+(s(x),s(s(0)))	+(x,s(s(s(0))))	ind 0 refl congsuc
+sp320	+(s(s(s(0))),x)	+(s(s(0)),s(x))	refl
+sp321	+(x,s(s(y)))	-(+(x,s(s(y))),0)	refl
+sp322	*(s(x),x)	-(*(s(x),x),le(x,0))	ind 0 refl refl
+sp323	0	*(le(x,0),+(x,+(x,+(x,x))))	ind 0 refl refl
+sp264	*(x,le(0,0))	x	ind 0 refl congsuc
+sp265	+(-(0,x),*(-(0,x),0))	0	ind 0 refl refl
+sp324	+(s(s(0)),s(s(x)))	s(s(s(s(x))))	refl
+sp266	s(0)	le(s(0),+(s(s(x)),y))	refl
+sp267	max(x,s(0))	gcd(max(x,s(0)),0)	ind 0 refl refl
+sp325	+(+(+(0,x),y),z)	+(x,+(y,z))	ind 0 refl congsuc
+sp268	max(x,s(0))	gcd(0,max(x,s(0)))	ind 0 refl refl
+sp326	+(+(x,+(0,y)),z)	+(x,+(y,z))	ind 0 refl congsuc
+sp327	*(s(le(s(0),x)),le(x,0))	le(x,0)	ind 0 refl refl
+sp328	+(+(0,x),y)	max(+(x,y),+(0,x))	ind 0 refl congsuc
