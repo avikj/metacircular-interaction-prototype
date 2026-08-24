@@ -60,6 +60,8 @@ import System.Process (readProcessWithExitCode)
 import System.Directory (getCurrentDirectory)
 import Data.Char (isSpace, isUpper)
 import Data.List (isPrefixOf, isInfixOf, intercalate, nub)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 trim :: String -> String
 trim = f . f where f = reverse . dropWhile isSpace
@@ -106,6 +108,9 @@ emit nm ty laws tests = unlines $
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   args <- getArgs
   case args of
     [path] -> do

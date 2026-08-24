@@ -128,6 +128,8 @@ import System.Directory (doesDirectoryExist, listDirectory)
 import System.Environment (getArgs)
 import System.FilePath ((</>), takeExtension)
 import System.IO (hSetEncoding, stdout, utf8)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 ------------------------------------------------------------------ digest
 
@@ -792,6 +794,9 @@ emitAddresses = forM_ lanes $ \(lang, roots) -> do
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   args <- getArgs
   let full = "--full" `elem` args

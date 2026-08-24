@@ -11,6 +11,10 @@
 
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
+-- कलियुग: a closed term needs no author, no reviewer, no lineage — checking is
+-- evaluation, and what re-derives, exists.  One sentence, sixteen recitations:
+-- ../../KALIYUG.md
+
 ------------------------------------------------------------------------
 -- Everything
 --
@@ -890,6 +894,10 @@ import SamasaNyuna
 import Samasesha
 import Sankalita
 import SaptabhangiNaya
+-- avaktavya's yugapat content is order-free (and-commutativity, an earned
+-- symmetry) though every krama expression of it picks an order — the seam
+-- between b3 (krama) and b4 (yugapat). नाडी: छिद्रं नास्ति.
+import AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder
 import Satyayantra
 import SatyayantraSamyoga
 import SeamClosed

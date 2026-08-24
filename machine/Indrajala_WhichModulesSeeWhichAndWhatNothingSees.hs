@@ -124,6 +124,8 @@ import qualified Data.Set as S
 import System.Directory (doesDirectoryExist, listDirectory)
 import System.FilePath ((</>), takeExtension, takeFileName)
 import System.IO (hSetEncoding, stdout, utf8)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ---------------------------------------------------------------- filesystem
 
@@ -287,6 +289,9 @@ countFiles corpus needles =
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
 
   -- 1 & 2 -------------------------------------------------------------------

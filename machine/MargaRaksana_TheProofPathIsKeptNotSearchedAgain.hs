@@ -109,6 +109,8 @@ import System.Environment (getArgs)
 import System.Exit (ExitCode (..), exitFailure, exitSuccess)
 import System.IO
 import Text.Printf (printf)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ------------------------------------------------------------------ terms
 --
@@ -203,6 +205,9 @@ attempt root proved certs (eq, note) = do
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   hSetBuffering stdout LineBuffering
   argv <- getArgs

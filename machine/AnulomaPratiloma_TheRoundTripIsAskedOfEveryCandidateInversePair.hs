@@ -762,15 +762,62 @@ roundTripRHS outer inner t = do
   let (argRaw, afterArg) = break (== ')') rest
       arg = trim argRaw
   guard (not (null afterArg) && not (null arg) && all identChar arg)
-  rhs <- trim <$> listToMaybe (after "≡" (drop 1 afterArg))
+  -- 2026-08-24, SECOND REPAIR THE SAME DAY, and the first one was not enough.
+  -- `∣ winding (looping g) ∣₂ ≡ ∣ g ∣₂` — the round trip is the LEFT SIDE OF
+  -- SOMETHING ELSE, wrapped in a set-truncation, and reading from the first
+  -- `≡` onward made the value `∣ g ∣₂` and called the library's own theorem a
+  -- refutation.  Excluding glyphs one at a time loses: `∥` and `∣` are
+  -- different characters and there is always another wrapper.
+  --
+  -- The invariant is not about glyphs.  `outer (inner v)` must BE the whole
+  -- left side, so its closing paren must be followed by the `≡` and nothing
+  -- else.  Anything between them means the application sits inside a larger
+  -- term and the text after `≡` is not its value.
+  let afterParen = dropWhile isSpace (drop 1 afterArg)
+  guard (take 1 afterParen == "≡")
+  rhs <- pure (trim (drop 1 afterParen))
   -- An arrow or a second `≡` after the equation means the round trip is the
   -- ANTECEDENT of something, not the statement, and the text to the right is
   -- not its value.  Refuse: the cost of a missed refutation is one wasted
   -- probe; the cost of a wrong one is deleted work.
   guard (not (null rhs) && not ("→" `isInfixOf` rhs) && not ("≡" `isInfixOf` rhs))
+  -- 2026-08-24, THE SAME DAY, AND FOUND BY THE FIRST RUN AGAINST A REAL
+  -- LIBRARY.  In Cubical.HITs.Bouquet.FundamentalGroupProof:
+  --
+  --     truncatedRight-homotopy : (g : FreeGroupoid A)
+  --                             → ∥ winding (looping g) ≡ g ∥₁
+  --
+  -- the round trip is TRUE and is PROVED there; it is merely wrapped in a
+  -- propositional truncation.  Reading to end of line made the right-hand
+  -- side `g ∥₁`, which differs from `g`, and this function called the
+  -- library's own theorem a refutation.  That is precisely the direction
+  -- the comment above swore not to fail in — a wrong refutation deletes
+  -- real work — and it took one run against mathematics nobody here wrote
+  -- to produce it.
+  --
+  -- An equation NESTED inside something has a closer in its tail that was
+  -- never opened.  So: refuse when the tail carries an unmatched closing
+  -- bracket, and refuse outright on `∥`, which opens and closes with the
+  -- same glyph and cannot be balanced by counting.
+  guard (balancedTail rhs)
   pure (arg, rhs)
   where
     identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
+    balancedTail s
+      | any (`elem` s) ("∥∣⟩⟧⦆" :: String) = False
+      | otherwise = go (0 :: Int) s
+      where
+        go d (c : r)
+          | c `elem` ("([{⟨" :: String) = go (d + 1) r
+          | c `elem` (")]}" :: String)  = d > 0 && go (d - 1) r
+          | otherwise                   = go d r
+        go _ [] = True
+
+-- Split on a single character, dropping empties.  For ANULOMA_ROOTS.
+splitOn :: Char -> String -> [String]
+splitOn c s = case break (== c) s of
+  (a, [])      -> [ trim a | not (null (trim a)) ]
+  (a, _ : r)   -> [ trim a | not (null (trim a)) ] ++ splitOn c r
 
 -- Every suffix of `hay` that follows an occurrence of `needle`.
 after :: String -> String -> [String]
@@ -918,12 +965,60 @@ appendRetired rs = do
     [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
                        , rClass r, rWhere r, one (rObl r) ] | r <- rs ]
   where one = map (\c -> if c == '\n' || c == '\t' then ' ' else c)
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE TOOLCHAIN THAT PRODUCED A VERDICT IS PART OF THE VERDICT, 2026-08-24.
+--
+-- Until now the ledger recorded WHAT the kernel said and never WHICH kernel
+-- said it, and that omission has already cost this project a day.  Messages
+-- 0946/0947/0950 posted probes as green; 0951 verified and reported a
+-- reproducible refusal; both were honest and the corpus could not tell which
+-- environment either ran in.  The corpus pin is Agda 2.8.0 / cubical v0.9
+-- (formal/cubical/check.sh) and containers routinely carry 2.6.3 / v0.5, in
+-- which `solve!` is spelled `solve` — so the SAME corpus produces different
+-- exit codes and the ledger blessed whichever ran last.
+--
+-- A row that does not name its toolchain is a verdict that dropped half its
+-- witness (Nirnaya_TheVerdictCannotDropItsWitness.agda).  This writes the
+-- version and the library file into the header on every pass, so an off-pin
+-- run is visible AS off-pin instead of being read as a pin verdict.
+--
+-- NOT done here, and it is the stronger repair: putting the toolchain in the
+-- ROW KEY, so an off-pin row cannot supersede a pin row at all.  That
+-- invalidates every cached row on first run and is a change to the ledger's
+-- identity, which is the owner's call and not a side effect of this fix.
+toolchainLine :: IO String
+toolchainLine = do
+  v <- (do (rc, o, _) <- readProcessWithExitCode "agda" ["--version"] ""
+           pure (if rc == ExitSuccess then trim (unwords (lines o)) else "agda: absent"))
+         `catchAny` const (pure "agda: absent")
+  libs <- (do f <- lookupEnv "ANULOMA_LIBRARIES"
+              case f of
+                Just p  -> pure p
+                Nothing -> do h <- lookupEnv "HOME"
+                              pure (maybe "~/.agda/libraries" (++ "/.agda/libraries") h))
+            `catchAny` const (pure "unknown")
+  body <- (readFile libs) `catchAny` const (pure "")
+  let entries = [ trim l | l <- lines body, not (null (trim l)) ]
+  rts <- fromMaybe "formal/cubical" <$> lookupEnv "ANULOMA_ROOTS"
+  pure $ "# ROOTS: " ++ rts
+      ++ "\n# TOOLCHAIN: " ++ v
+      ++ " | libraries: " ++ (if null entries then libs ++ " (unreadable)"
+                              else intercalate " ; " entries)
+      ++ "\n# The pin is Agda 2.8.0 / cubical v0.9 (formal/cubical/check.sh)."
+      ++ "  A row produced off-pin is evidence about THIS toolchain, not about"
+      ++ " the corpus."
+  where
+    catchAny :: IO a -> (SomeException -> IO a) -> IO a
+    catchAny = catch
+
 writeLedger :: [Row] -> IO ()
 writeLedger rs = do
   createDirectoryIfMissing True (takeDirectory ledgerPath)
+  tc <- toolchainLine
   writeFile ledgerPath $ unlines $
     ("# निर्णयपञ्जिका — keyed on नाम's content addresses and the probe's own"
      ++ " digest.  A row stands until one of them moves."
+     ++ "\n" ++ tc
      ++ "\n# addrF\taddrG\trung\tprobe\tverdict\tclass\twhere\tobligation")
     : [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
                          , rClass r, rWhere r, oneLine (rObl r) ] | r <- rs ]
@@ -971,6 +1066,16 @@ classify :: HostFacts -> String -> (String, String)
 classify hf out
   | agdaAbsent `isInfixOf` out           = (envFault "agda did not run", firstErr)
   | "MetaCannotDependOn" `isInfixOf` out = (myFault "indexed family", firstErr)
+  -- 2026-08-24.  `solve!` IS THE LIBRARY VERSION, NOT A NAME I GOT WRONG.
+  -- formal/cubical/check.sh's header documents it: the corpus is written
+  -- against cubical v0.9, where the CommRing solver macro is `solve!`, and
+  -- v0.5 spells it `solve`.  A container on v0.5 therefore reports
+  -- `Not in scope: solve!` for a HOST module that is perfectly correct at
+  -- the pin.  Filing that as मम दोषः sends the next reader to audit this
+  -- emitter's name handling, which never touched it.
+  | "NotInScope" `isInfixOf` out
+  , any (`isInfixOf` out) ["solve!", "solveℤ!", "ringSolve!"]
+      = (envFault "library version drift (v0.9 solve! against a v0.5 library)", firstErr)
   | "NotInScope"         `isInfixOf` out = (myFault "not in scope",   firstErr)
   | "CoverageIssue"      `isInfixOf` out = (myFault "split incomplete", firstErr)
   -- 2026-08-24.  ONE LABEL WAS COLLAPSING TWO STANDPOINTS, and it is the
@@ -1219,7 +1324,39 @@ main = do
       doFresh = "--fresh" `elem` args
   scratch <- fromMaybe ".anuloma" <$> lookupEnv "ANULOMA_SCRATCH"
   createDirectoryIfMissing True scratch
-  fs <- listAgda "formal/cubical"
+  -- 2026-08-24.  THE SCAN WAS SCOPED TO THIS CORPUS AND MATHEMATICS IS NOT.
+  --
+  -- `listAgda "formal/cubical"` asked the round-trip question of 1117 of our
+  -- own modules and of nothing else.  Every candidate pair it could ever
+  -- propose was a pair we had already written, so the machine could only
+  -- ever re-ask its own vocabulary — which is exactly the saturation
+  -- ANEKANTA.md §3 describes for the retired engine's frequency-mining, one
+  -- level up: a growth rule that can only recombine what is already common.
+  --
+  -- The roots are now a colon-separated ANULOMA_ROOTS, defaulting to the
+  -- corpus so nothing changes for a caller that sets nothing.  Point it at
+  -- agda/cubical and the question is asked of the standard library's own
+  -- mathematics — foundations, algebra, category theory, homotopy theory —
+  -- against which our maps are a small chart.  Every root is scanned for
+  -- signatures; the probe imports the host by the module name the file
+  -- DECLARES (`modNameOf`), so a library module arrives as
+  -- `Cubical.Foundations.Prelude` and resolves through the library file,
+  -- with no path assumption anywhere.
+  --
+  --   ANULOMA_ROOTS=formal/cubical:$HOME/.cache/cubical/Cubical
+  --
+  -- LIMIT, so this is not read as more than it is: scanning a library does
+  -- not make its theorems ours, and a green here is a round trip between two
+  -- of ITS maps that IT did not happen to state. That is a real question and
+  -- a small one. The scan is also still the same weak instrument — top-level
+  -- `name : X → Y`, one arrow, no binders — so it sees the library's
+  -- first-order surface and none of its structure.
+  rootsEnv <- lookupEnv "ANULOMA_ROOTS"
+  let roots = case rootsEnv of
+        Just s | not (null (trim s)) -> splitOn ':' s
+        _                            -> ["formal/cubical"]
+  fs <- concat <$> mapM listAgda roots
+  putStrLn $ "  roots                : " ++ intercalate " , " roots
   sigs <- concat <$> mapM readSigs fs
   factsByMod <- M.fromList <$> mapM (\p -> do
                     s <- readFile p
@@ -1618,12 +1755,57 @@ parseSig l = do
   (n, rest) <- breakColon l
   let n' = trim n
   if null n' || not (all okChar n') then Nothing else do
-    (a, b) <- splitArrow (trim rest)
+    (a, b) <- splitArrow (stripImplicits (trim rest))
     if any bad [a, b] || null (trim a) || null (trim b)
       then Nothing else Just (n', a, b)
   where
     okChar c = isAlphaNum c || c `elem` "-_'∙′"
     bad s = any (`elem` words s) ["∀", "→", "Σ", "Π"] || any (`elem` s) "{(∀[]"
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- LEADING IMPLICIT TELESCOPES ARE NOT PART OF THE ARROW, 2026-08-24.
+--
+-- `bad` rejects any type containing `{`, so a signature written
+--
+--     len : {ℓ : Level} {A : Type ℓ} → List A → ℕ
+--
+-- was invisible to this scanner — and in a dependently typed library that is
+-- almost every map there is.  Measured: 2209 modules (this corpus plus
+-- agda/cubical v0.9) yielded 1461 arrows and 67 candidate pairs, because the
+-- standard library's maps nearly all carry a level or a type implicitly.
+-- The scanner was seeing the first-order surface of a dependently typed
+-- world and reporting it as the world.
+--
+-- Stripping is sound for the question this program asks.  The probe writes
+-- `∀ b → f (g b) ≡ b` and NAMES NO TYPE — the header two hundred lines up
+-- records that restating the domain is what killed the first three runs — so
+-- an implicit that was inferable at the definition is inferable at the
+-- probe, by the same unifier.  What is stripped is exactly what Agda would
+-- have solved anyway.
+--
+-- IT STAYS CONSERVATIVE. Only a LEADING run of `∀`/`{…}` is removed, and
+-- `bad` still rejects a remaining `{`, `(`, `∀`, `Σ`, `Π` or second arrow in
+-- either side.  So `f : {ℓ} → A → B` is now seen and
+-- `f : (n : ℕ) → Vec A n → Vec A n` is still refused: an EXPLICIT binder
+-- means the arrow's own type depends on a value, and the round trip is then
+-- not the statement this program knows how to write.
+stripImplicits :: String -> String
+stripImplicits = go (0 :: Int)
+  where
+    -- bound the loop: a malformed signature must not spin.
+    go k s | k > 64 = s
+    go k s = case dropWhile isSpace s of
+      ('∀' : r)          -> go (k + 1) r
+      ('{' : r)          -> go (k + 1) (dropBraced 1 r)
+      r@('→' : r') | k > 0 -> go k r'      -- the arrow that closed a telescope
+                   | otherwise -> r
+      r                  -> r
+    dropBraced :: Int -> String -> String
+    dropBraced 0 s = s
+    dropBraced d ('{' : r) = dropBraced (d + 1) r
+    dropBraced d ('}' : r) = dropBraced (d - 1) r
+    dropBraced d (_   : r) = dropBraced d r
+    dropBraced _ []        = []
 
 breakColon :: String -> Maybe (String, String)
 breakColon s = case break (== ':') s of

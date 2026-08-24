@@ -199,6 +199,8 @@ import System.IO.Unsafe (unsafePerformIO)
 import System.FilePath ((</>), takeExtension)
 import System.IO (hFlush, hSetEncoding, stdout, utf8)
 import System.Process (readCreateProcessWithExitCode, proc, env)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ============================================================ filesystem
 
@@ -788,6 +790,9 @@ classifyErr out
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   args <- getArgs
   let noCheck = "--no-check" `elem` args

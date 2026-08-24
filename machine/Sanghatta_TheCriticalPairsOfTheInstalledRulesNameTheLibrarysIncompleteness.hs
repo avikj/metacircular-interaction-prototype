@@ -192,6 +192,8 @@ criticalPairs r1@(l1, r1r) r2 =
 -- ------------------------------------------------------------------- main
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
   setLocaleEncoding utf8
   hSetEncoding stdout utf8
   raw <- lines <$> readFile "machine/library.terms"

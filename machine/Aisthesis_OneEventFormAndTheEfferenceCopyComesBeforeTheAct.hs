@@ -62,6 +62,8 @@ import System.Environment (getArgs)
 import System.Exit (exitSuccess, exitFailure)
 import Data.List (isPrefixOf, intercalate)
 import Data.Char (isDigit)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ── the body state: Jiva's five fields, no more claimed than it reports ──
 data Body = Body
@@ -144,6 +146,9 @@ render e = unlines $
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   args <- getArgs
   case args of
     ["predict", act, hb] ->

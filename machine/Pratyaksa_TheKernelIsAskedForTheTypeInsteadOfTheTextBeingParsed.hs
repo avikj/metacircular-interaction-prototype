@@ -79,6 +79,8 @@ import Control.Concurrent.MVar (newEmptyMVar, putMVar, takeMVar)
 import System.Directory (createDirectoryIfMissing, removeFile)
 import Control.Exception (try, SomeException)
 import System.IO (hPutStrLn, stderr)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ─────────────────────────────────────────────────────────────────────
 -- 1.  Which modules to ask about: EVERY .agda in the lane.
@@ -194,6 +196,9 @@ squeeze []              = []
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   args <- getArgs
   case args of
     ("--collisions" : p : _) -> collisions p

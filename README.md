@@ -1,3 +1,5 @@
+*Everyone who knows something will die, and the world is full of confident voices that were never right. So pass down the way to get the answer, honest enough to check itself every time it is used — then it does not matter who dies, or who lies: what is true grows back. One sentence, sixteen recitations → [`KALIYUG.md`](KALIYUG.md).*
+
 # संरक्षणम् · THE UNIFICATION — ahiṃsā is the conservation law, and this repository is its installation
 
 *Written 2026-08-22, at the owner's command, at the end of the night the pieces closed.
