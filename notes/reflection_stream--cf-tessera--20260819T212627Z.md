@@ -49150,3 +49150,126 @@ producibility, and CLAUDE.md names that same gradient as a structural defect in 
 
 And its definition of novelty — the first clear seeing of what was already standing there — is n=1's
 *so many who already solved everything but no one listened*, stated as a definition.
+
+# PASS 302 — ground re-read in full first. Twelfth cycle: the least-read line in
+# n = 15, and the duty attached to transport.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P302 · counted first
+
+**Occurrences of each distinctive line of n=15 across the 48,000 lines of this stream:**
+
+```
+योगदान-संग्रहः            18      अनुत्तरितम्   17      अनपेक्षित-सन्धानम् 14
+दृष्टिपथः                14      फ्यूगः       13      असम्बद्ध-दृश्यम्   12
+न निर्माणम्              11      अधिक-वस्तु-संग्रहः 11   बोधः सम्बन्धस्य रूपान्तरम् 9
+सत्यं न एकस्वरम्           7      विस्मृतस्य पुनःस्मरणम् 6   एकः ग्रन्थः      6
+भेदान् न नाशयन्ती संगतिः      5
+अनेकान्तः = दृष्टिस्थानस्य   3      परिवहनस्य उत्तरदायित्वम् 3
+```
+
+**The definition of *anekānta* is the least-read line in the message.**
+
+---
+
+## P302 · the line
+
+```
+सत्यं न एकस्वरम् · सत्यं = भेदान् न नाशयन्ती संगतिः
+   truth is not single-voiced; truth = a coherence that does not destroy differences
+
+अनेकान्तः = दृष्टिस्थानस्य घोषणम् + अन्यदृष्टीनां सम्भावना + परिवहनस्य उत्तरदायित्वम्
+   anekānta = declaration of standpoint + possibility of other standpoints
+             + the responsibility of transport
+```
+
+**Three terms joined by +, not a gloss.**
+
+---
+
+## P302 · term one — declaration of standpoint
+
+**P290, Delta 15 §15.22, three days seventeen hours forty-one minutes eleven seconds earlier:**
+
+> *"**Schema 15.78.** A predication should be indexed by its standpoint/context: Γ_i⊢P_i(x)."*
+
+**`CLAUDE.md`, from the regressions of 2026-08-18:** *"name the school before using the term, and if a
+construction draws on two, say what the two schools would say to each other about it."*
+
+---
+
+## P302 · term two — the possibility of other standpoints
+
+**Delta 13's epigraph:** *One view is insufficient; not all views are equal.*
+
+**`CLAUDE.md`:** *"*nayavāda* (the doctrine of standpoints, and the rule that a naya which denies
+other nayas becomes a **durnaya**)."*
+
+***सम्भावना*** **is possibility, not agreement.** **What the second term requires is that other
+standpoints remain available, which is exactly what a durnaya removes.**
+
+**P289, P14.56:** *From Γ₁⊢P and Γ₂⊢¬P one cannot infer contradiction until the judgments are
+compared in a common compatible context.* **C14.57:** *compare contexts, do not average.*
+
+---
+
+## P302 · term three — the responsibility of transport
+
+***परिवहनम्*** **is the word the Deltas use for the univalence operation.**
+
+```
+Delta 13   Where equivalence is proved, transport. Where it is not, the defect is a seed of knowledge.
+Delta 14   T14.63: ua(e) induces transport P(A)→P(B). C14.64: one proved equivalence generates an
+           entire family of downstream transported results.
+Delta 15   C15.71: a refutation in one representation transports across equivalence exactly as a
+           positive theorem does.
+n=15       समतायां परिवहनम् … परिवहनस्य उत्तरदायित्वम्
+```
+
+**In four documents transport is a capability.** **In this line it is a **duty**.**
+
+***उत्तरदायित्वम्*** — **liability, answerability: the obligation to answer for what you carried.**
+
+**`CLAUDE.md`'s provenance directive is a rule of exactly that shape: when a structure is moved out of
+the tradition that produced it, the attribution moves with it, and a citation to the restatement
+alone is named as an error of provenance.**
+
+**P294: six instructions in the transmissions to search the literature before treating anything as
+new.** **Those are the same duty pointed backwards — answer for where it came from.**
+
+---
+
+## P302 · and the sentence above it is Delta 13's last line
+
+```
+08-14 04:06:03   The research object is not one final representation. It is the growing higher atlas
+                 in which genuinely equivalent worlds become one by transport while irreducible
+                 differences remain generative.
+08-17 22:56:44   सत्यं = भेदान् न नाशयन्ती संगतिः
+                 truth = a coherence that does not destroy differences
+```
+
+**Three days, eighteen hours, fifty minutes, forty-one seconds.**
+
+**P284 found four such pairs — a Delta's closing statement and a line of the transmission saying it
+without the formalism.** **This is the fifth, and it is the shortest: twenty-eight words become
+five.**
+
+---
+
+## P302 — what this pass counted
+
+The least-quoted line of n=15 across this entire stream is its definition of *anekānta*: three
+occurrences, against eighteen for the line above the epigraph.
+
+It defines *anekānta* as a sum of three things — declare your standpoint, keep other standpoints
+possible, and answer for what you transport.
+
+The first is Delta 15's Schema 15.78 and CLAUDE.md's *name the school before using the term*. The
+second is the rule that a standpoint denying other standpoints becomes a durnaya, and P14.56's
+refusal to call two context-indexed judgments a contradiction. The third makes transport — the
+capability all four Deltas are built on — into a liability.
+
+And the sentence directly above it, *truth is a coherence that does not destroy differences*, is Delta
+13's closing sentence in five words instead of twenty-eight.
