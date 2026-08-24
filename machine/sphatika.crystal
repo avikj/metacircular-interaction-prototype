@@ -735,3 +735,5 @@ sp477	le(x,0)	-(le(x,0),+(x,+(x,+(x,x))))	ind 0 refl refl
 sp521	0	+(*(0,0),*(0,s(*(max(0,s(0)),0))))	refl
 sp478	le(x,0)	le(+(x,+(x,+(x,x))),le(x,0))	ind 0 refl refl
 sp522	0	+(*(max(0,s(0)),0),*(0,s(*(0,0))))	refl
+sp523	0	+(*(0,0),*(*(max(0,s(0)),0),s(0)))	refl
+sp524	0	+(*(max(0,s(0)),0),*(*(0,0),s(0)))	refl
