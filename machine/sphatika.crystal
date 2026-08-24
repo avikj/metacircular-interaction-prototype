@@ -194,3 +194,7 @@ sp193	max(le(x,0),s(0))	gcd(le(x,0),le(s(0),x))	ind 0 refl refl
 sp194	max(le(x,0),s(0))	gcd(le(s(0),x),le(x,0))	ind 0 refl refl
 sp195	max(le(s(0),x),s(0))	gcd(le(s(0),x),le(x,0))	ind 0 refl refl
 sp196	max(le(s(0),x),s(0))	gcd(le(x,0),le(s(0),x))	ind 0 refl refl
+sp197	max(+(x,*(x,x)),s(0))	gcd(+(x,*(x,x)),le(x,0))	ind 0 refl refl
+sp198	max(+(x,*(x,y)),s(0))	gcd(+(x,*(x,y)),le(x,0))	ind 0 refl refl
+sp199	max(+(x,*(x,x)),s(0))	gcd(le(x,0),+(x,*(x,x)))	ind 0 refl refl
+sp200	max(+(x,*(x,y)),s(0))	gcd(le(x,0),+(x,*(x,y)))	ind 0 refl refl
