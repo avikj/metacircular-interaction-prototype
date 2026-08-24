@@ -887,11 +887,6 @@ import SaptabhangiNaya
 -- symmetry) though every krama expression of it picks an order — the seam
 -- between b3 (krama) and b4 (yugapat). नाडी: छिद्रं नास्ति.
 import AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder
--- the avaktavya-bearing compounds (b5,b6,b7) are realised wherever the
--- yugapat content is: joint's conjunction, split, forces asti (rewriter)
--- and nāsti (kernel-refl), so b4 dominates them — closing §8.3's
--- "no instance constructed here" in the profile semantics. नाडी: छिद्रं नास्ति.
-import SamyogajaBhanga_TheAvaktavyaBearingCombinationsAreRealisedWhereverTheYugapatIs
 import Satyayantra
 import SatyayantraSamyoga
 import SeamClosed
@@ -1396,12 +1391,6 @@ import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibre
 -- behaves alike under the rule.  2026-08-22.
 import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
 import Vargaprakrtitantu_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness
--- Brahmagupta's composition commutes (bhA-comm, bhB-comm — ·Comm/+Comm),
--- the lemma missing beside Bhavana's associativity: the Pell fibre is an
--- abelian ℤ-torsor, the same abelian charge AkramaBhara reads off π₁(S¹)
--- and EkaBhara triangulates. Every deep lane strikes the one commutative ℤ;
--- the nonabelian Casimir √(j(j+1)) is the horn none reach. नाडी: छिद्रं नास्ति.
-import BhavanaVinimaya_BrahmaguptasCompositionIsAbelianSoThePellFibreStrikesTheSameAbelianChargeAsTheWinding
 
 -- कक्ष्या — the conserved quantity is constant along the WHOLE orbit, not
 -- across one step; no two stations of an orbit are separated by the
@@ -1868,11 +1857,6 @@ import Sphatika_TheLocalCrystalIsDecidableTheWallsMergeExactlyWhenTwiceTheCenter
 -- one.  The circuit-to-sieve bridge that would make the last link
 -- structural is the named open problem.
 import EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator
--- the loop-charge is abelian (winding-hom ∙ +Comm ∙ sym winding-hom), and
--- that commutativity is exactly the abelian U(1) truncation of LQG
--- discreteness: √(j(j+1)), j∈½ℤ, is a nonabelian SU(2) Casimir fact and
--- π₁(SU(2))=0, so the spinor ½ is the open horn this names. नाडी: छिद्रं नास्ति.
-import AkramaBhara_TheLoopChargeIsAbelianWhichIsExactlyTheAbelianTruncationOfLoopQuantumGravity
 
 -- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
 -- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
@@ -2175,11 +2159,11 @@ import EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInterio
 -- symmetric two-outcome Born weight is forced to ½ exactly over a
 -- uniquely-halving (char-0/archimedean, C5) carrier. Checked.
 import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
--- the Born ½ solves 2x=𝟙 (archimedean, unique — halvesUniquely holds) and
--- the spinor ½ solves 2x=0 with x≠0 (torsion — the ℤ/2 = π₁(SO(3)) generator);
--- over ℤ/2 halvesUniquely fails and the Born forcing collapses (two distinct
--- symmetric weights). halvesUniquely is the fork between them. नाडी: छिद्रं नास्ति.
-import Ardhadvaya_TheBornHalfSolves2x1AndTheSpinorHalfSolves2x0AndHalvesUniquelyIsTheForkBetweenThem
+-- one term, the fibre law at doubling: शेष _+_ c = Σ[x] (x+x ≡ c). Road one
+-- (isProp — the free binding) IS EkatvaMatraDvaya's halvesUniquely, the Born ½;
+-- road two (¬isProp over ℤ/2 at 0) is the torsion generator, the spinor. The
+-- Born and spinor ½s are one map's śeṣa bound two ways. नाडी: छिद्रं नास्ति.
+import DvigunaSesa_TheHalfIsTheSesaOfDoublingSoBornIsRoadOneAndTheSpinorIsRoadTwo
 -- क्रमनियमः: term 1 of the owner's 2026-08-23 transmission ("the fibre of
 -- forgetting") — the torus and Klein laws transported to the ONE carrier
 -- ℤ × ℤ commute and refuse to (समम् refl / विषमम्), the pair is blind to
