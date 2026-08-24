@@ -114,6 +114,7 @@ open import NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheH
   where
   s = साधारणम् (राशिः (गूढ-आम्नायः a)) (राशिः (गूढ-आम्नायः b))
 गूढ-आम्नायः (lq a b) = lq (गूढ-आम्नायः a) (गूढ-आम्नायः b)
+गूढ-आम्नायः (gc a b) = gc (गूढ-आम्नायः a) (गूढ-आम्नायः b)
 
 -- one reusable soundness step: a sorted rebuild of a heap sums it.
 शुद्ध-सुम् : (xs : List Tm) (ρ : ℕ → ℕ)
@@ -165,6 +166,7 @@ open import NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheH
   where
   s = साधारणम् (राशिः (गूढ-आम्नायः a)) (राशिः (गूढ-आम्नायः b))
 गूढ-सत्यम् (lq a b) ρ = cong₂ lqℕ (गूढ-सत्यम् a ρ) (गूढ-सत्यम् b ρ)
+गूढ-सत्यम् (gc a b) ρ = cong₂ गच्छℕ (गूढ-सत्यम् a ρ) (गूढ-सत्यम् b ρ)
 
 ------------------------------------------------------------------------
 -- §4  The fifth examination: the factoring eye over the heap-surgical

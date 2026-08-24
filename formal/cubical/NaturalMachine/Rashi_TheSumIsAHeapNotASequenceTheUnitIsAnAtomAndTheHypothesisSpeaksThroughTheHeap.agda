@@ -87,6 +87,7 @@ open import NaturalMachine.AnulomaShruta_TheRecordSpeaksWithTheGrainAndTheThirdP
 राशि-सत्यम् (a ⊖ b)  ρ = +-zero (sbℕ (eval a ρ) (eval b ρ))
 राशि-सत्यम् (mx a b) ρ = +-zero (mxℕ (eval a ρ) (eval b ρ))
 राशि-सत्यम् (lq a b) ρ = +-zero (lqℕ (eval a ρ) (eval b ρ))
+राशि-सत्यम् (gc a b) ρ = +-zero (गच्छℕ (eval a ρ) (eval b ρ))
 
 ------------------------------------------------------------------------
 -- §2  The deep eye: every sum-cluster rebuilt from its sorted heap.
@@ -102,6 +103,7 @@ open import NaturalMachine.AnulomaShruta_TheRecordSpeaksWithTheGrainAndTheThirdP
 गाढ-आम्नायः (a ⊖ b)  = गाढ-आम्नायः a ⊖ गाढ-आम्नायः b
 गाढ-आम्नायः (mx a b) = mx (गाढ-आम्नायः a) (गाढ-आम्नायः b)
 गाढ-आम्नायः (lq a b) = lq (गाढ-आम्नायः a) (गाढ-आम्नायः b)
+गाढ-आम्नायः (gc a b) = gc (गाढ-आम्नायः a) (गाढ-आम्नायः b)
 
 गाढ-सत्यम् : (t : Tm) (ρ : ℕ → ℕ) → eval (गाढ-आम्नायः t) ρ ≡ eval t ρ
 गाढ-सत्यम् (var i)  ρ = refl
@@ -121,6 +123,7 @@ open import NaturalMachine.AnulomaShruta_TheRecordSpeaksWithTheGrainAndTheThirdP
 गाढ-सत्यम् (a ⊖ b)  ρ = cong₂ sbℕ (गाढ-सत्यम् a ρ) (गाढ-सत्यम् b ρ)
 गाढ-सत्यम् (mx a b) ρ = cong₂ mxℕ (गाढ-सत्यम् a ρ) (गाढ-सत्यम् b ρ)
 गाढ-सत्यम् (lq a b) ρ = cong₂ lqℕ (गाढ-सत्यम् a ρ) (गाढ-सत्यम् b ρ)
+गाढ-सत्यम् (gc a b) ρ = cong₂ गच्छℕ (गाढ-सत्यम् a ρ) (गाढ-सत्यम् b ρ)
 
 ------------------------------------------------------------------------
 -- §3  Deletion with its debt, and the surgery.
@@ -180,6 +183,7 @@ open import NaturalMachine.AnulomaShruta_TheRecordSpeaksWithTheGrainAndTheThirdP
 राशि-विनिमयः p s (a ⊖ b)  | nothing = राशि-विनिमयः p s a ⊖ राशि-विनिमयः p s b
 राशि-विनिमयः p s (mx a b) | nothing = mx (राशि-विनिमयः p s a) (राशि-विनिमयः p s b)
 राशि-विनिमयः p s (lq a b) | nothing = lq (राशि-विनिमयः p s a) (राशि-विनिमयः p s b)
+राशि-विनिमयः p s (gc a b) | nothing = gc (राशि-विनिमयः p s a) (राशि-विनिमयः p s b)
 
 राशि-साक्षी : (p s : Tm) (ρ : ℕ → ℕ) → eval p ρ ≡ eval s ρ
   → (t : Tm) → eval t ρ ≡ eval (राशि-विनिमयः p s t) ρ
@@ -197,6 +201,8 @@ open import NaturalMachine.AnulomaShruta_TheRecordSpeaksWithTheGrainAndTheThirdP
   cong₂ mxℕ (राशि-साक्षी p s ρ h a) (राशि-साक्षी p s ρ h b)
 राशि-साक्षी p s ρ h (lq a b) | nothing =
   cong₂ lqℕ (राशि-साक्षी p s ρ h a) (राशि-साक्षी p s ρ h b)
+राशि-साक्षी p s ρ h (gc a b) | nothing =
+  cong₂ गच्छℕ (राशि-साक्षी p s ρ h a) (राशि-साक्षी p s ρ h b)
 
 ------------------------------------------------------------------------
 -- §4  The examination with the deep eye and the surgical exchange.

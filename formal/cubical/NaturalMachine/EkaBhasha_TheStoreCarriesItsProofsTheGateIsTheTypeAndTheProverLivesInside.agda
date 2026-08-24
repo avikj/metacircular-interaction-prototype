@@ -80,10 +80,13 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 --       le 0 x = 1  ; le (s x) 0 = 0 ; le (s x)(s y) = le x y
 ------------------------------------------------------------------------
 
+import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue as प्र
+import Agda.Builtin.Maybe as निजमा
+open import Cubical.Data.Equality using (eqToPath)
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled public
-  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq
+  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq ; gc
         ; mxℕ ; lqℕ ; sbℕ ; eval
-        ; plus' ; times' ; sub' ; mx' ; lq' ; norm )
+        ; plus' ; times' ; sub' ; mx' ; lq' ; gc' ; norm ; गच्छℕ )
 
 ------------------------------------------------------------------------
 -- §2  Truth over the standard model.
@@ -112,163 +115,12 @@ record नियमः : Type where
 
 -- (the simplifiers and norm are imported from the act-portion in §1)
 
--- soundness of each simplifier, then of norm — the theorem the kernel
--- checks ONCE so that every later mint is born proven.
-plus'-s : ∀ a b ρ → eval (plus' a b) ρ ≡ eval a ρ + eval b ρ
-plus'-s a ze     ρ = sym (+-zero _)
-plus'-s a (su b) ρ = cong suc (plus'-s a b ρ) ∙ sym (+-suc _ _)
-plus'-s a (var i) ρ = refl
-plus'-s a (b ⊕ c) ρ = refl
-plus'-s a (b ⊗ c) ρ = refl
-plus'-s a (b ⊖ c) ρ = refl
-plus'-s a (mx b c) ρ = refl
-plus'-s a (lq b c) ρ = refl
-
-times'-s : ∀ a b ρ → eval (times' a b) ρ ≡ eval a ρ · eval b ρ
-times'-s a ze     ρ = 0≡m·0 (eval a ρ)
-times'-s a (su b) ρ =
-    plus'-s (times' a b) a ρ
-  ∙ cong (_+ eval a ρ) (times'-s a b ρ)
-  ∙ +-comm' (eval a ρ · eval b ρ) (eval a ρ)
-  ∙ sym (·-suc (eval a ρ) (eval b ρ))
-  where
-  +-comm' : ∀ m n → m + n ≡ n + m
-  +-comm' zero n    = sym (+-zero n)
-  +-comm' (suc m) n = cong suc (+-comm' m n) ∙ sym (+-suc n m)
-times'-s a (var i) ρ = refl
-times'-s a (b ⊕ c) ρ = refl
-times'-s a (b ⊗ c) ρ = refl
-times'-s a (b ⊖ c) ρ = refl
-times'-s a (mx b c) ρ = refl
-times'-s a (lq b c) ρ = refl
-
-sub'-s : ∀ a b ρ → eval (sub' a b) ρ ≡ sbℕ (eval a ρ) (eval b ρ)
-sub'-s a      ze     ρ = refl
-sub'-s ze     (su b) ρ = refl
-sub'-s (su a) (su b) ρ = sub'-s a b ρ
-sub'-s (var i) (su b) ρ = refl
-sub'-s (a ⊕ c) (su b) ρ = refl
-sub'-s (a ⊗ c) (su b) ρ = refl
-sub'-s (a ⊖ c) (su b) ρ = refl
-sub'-s (mx a c) (su b) ρ = refl
-sub'-s (lq a c) (su b) ρ = refl
-sub'-s a (var i) ρ = refl
-sub'-s a (b ⊕ c) ρ = refl
-sub'-s a (b ⊗ c) ρ = refl
-sub'-s a (b ⊖ c) ρ = refl
-sub'-s a (mx b c) ρ = refl
-sub'-s a (lq b c) ρ = refl
-
-mx'-s : ∀ a b ρ → eval (mx' a b) ρ ≡ mxℕ (eval a ρ) (eval b ρ)
-mx'-s a      ze     ρ = mxze (eval a ρ)
-  where mxze : ∀ n → n ≡ mxℕ n zero
-        mxze n = refl
-mx'-s ze     (su b) ρ = refl
-mx'-s (su a) (su b) ρ = cong suc (mx'-s a b ρ)
-mx'-s ze (var i) ρ = mz (ρ i) where
-  mz : ∀ n → n ≡ mxℕ zero n
-  mz zero = refl
-  mz (suc n) = refl
-mx'-s ze (b ⊕ c) ρ = mz _ where
-  mz : ∀ n → n ≡ mxℕ zero n
-  mz zero = refl
-  mz (suc n) = refl
-mx'-s ze (b ⊗ c) ρ = mz _ where
-  mz : ∀ n → n ≡ mxℕ zero n
-  mz zero = refl
-  mz (suc n) = refl
-mx'-s ze (b ⊖ c) ρ = mz _ where
-  mz : ∀ n → n ≡ mxℕ zero n
-  mz zero = refl
-  mz (suc n) = refl
-mx'-s ze (mx b c) ρ = mz _ where
-  mz : ∀ n → n ≡ mxℕ zero n
-  mz zero = refl
-  mz (suc n) = refl
-mx'-s ze (lq b c) ρ = mz _ where
-  mz : ∀ n → n ≡ mxℕ zero n
-  mz zero = refl
-  mz (suc n) = refl
-mx'-s (var i) (su b) ρ = refl
-mx'-s (su a) (var j) ρ = refl
-mx'-s (su a) (b ⊕ c) ρ = refl
-mx'-s (su a) (b ⊗ c) ρ = refl
-mx'-s (su a) (b ⊖ c) ρ = refl
-mx'-s (su a) (mx b c) ρ = refl
-mx'-s (su a) (lq b c) ρ = refl
-mx'-s (a ⊕ c) (su b) ρ = refl
-mx'-s (a ⊗ c) (su b) ρ = refl
-mx'-s (a ⊖ c) (su b) ρ = refl
-mx'-s (mx a c) (su b) ρ = refl
-mx'-s (lq a c) (su b) ρ = refl
-mx'-s (var i) (var j) ρ = refl
-mx'-s (var i) (b ⊕ c) ρ = refl
-mx'-s (var i) (b ⊗ c) ρ = refl
-mx'-s (var i) (b ⊖ c) ρ = refl
-mx'-s (var i) (mx b c) ρ = refl
-mx'-s (var i) (lq b c) ρ = refl
-mx'-s (a ⊕ d) (var j) ρ = refl
-mx'-s (a ⊕ d) (b ⊕ c) ρ = refl
-mx'-s (a ⊕ d) (b ⊗ c) ρ = refl
-mx'-s (a ⊕ d) (b ⊖ c) ρ = refl
-mx'-s (a ⊕ d) (mx b c) ρ = refl
-mx'-s (a ⊕ d) (lq b c) ρ = refl
-mx'-s (a ⊗ d) (var j) ρ = refl
-mx'-s (a ⊗ d) (b ⊕ c) ρ = refl
-mx'-s (a ⊗ d) (b ⊗ c) ρ = refl
-mx'-s (a ⊗ d) (b ⊖ c) ρ = refl
-mx'-s (a ⊗ d) (mx b c) ρ = refl
-mx'-s (a ⊗ d) (lq b c) ρ = refl
-mx'-s (a ⊖ d) (var j) ρ = refl
-mx'-s (a ⊖ d) (b ⊕ c) ρ = refl
-mx'-s (a ⊖ d) (b ⊗ c) ρ = refl
-mx'-s (a ⊖ d) (b ⊖ c) ρ = refl
-mx'-s (a ⊖ d) (mx b c) ρ = refl
-mx'-s (a ⊖ d) (lq b c) ρ = refl
-mx'-s (mx a d) (var j) ρ = refl
-mx'-s (mx a d) (b ⊕ c) ρ = refl
-mx'-s (mx a d) (b ⊗ c) ρ = refl
-mx'-s (mx a d) (b ⊖ c) ρ = refl
-mx'-s (mx a d) (mx b c) ρ = refl
-mx'-s (mx a d) (lq b c) ρ = refl
-mx'-s (lq a d) (var j) ρ = refl
-mx'-s (lq a d) (b ⊕ c) ρ = refl
-mx'-s (lq a d) (b ⊗ c) ρ = refl
-mx'-s (lq a d) (b ⊖ c) ρ = refl
-mx'-s (lq a d) (mx b c) ρ = refl
-mx'-s (lq a d) (lq b c) ρ = refl
-
-lq'-s : ∀ a b ρ → eval (lq' a b) ρ ≡ lqℕ (eval a ρ) (eval b ρ)
-lq'-s ze     b      ρ = refl
-lq'-s (su a) ze     ρ = refl
-lq'-s (su a) (su b) ρ = lq'-s a b ρ
-lq'-s (su a) (var j) ρ = refl
-lq'-s (su a) (b ⊕ c) ρ = refl
-lq'-s (su a) (b ⊗ c) ρ = refl
-lq'-s (su a) (b ⊖ c) ρ = refl
-lq'-s (su a) (mx b c) ρ = refl
-lq'-s (su a) (lq b c) ρ = refl
-lq'-s (var i) b ρ = refl
-lq'-s (a ⊕ d) b ρ = refl
-lq'-s (a ⊗ d) b ρ = refl
-lq'-s (a ⊖ d) b ρ = refl
-lq'-s (mx a d) b ρ = refl
-lq'-s (lq a d) b ρ = refl
-
+-- Since 2026-08-24 the soundness of the simplifiers and of norm is
+-- proven ONCE, in the shared tongue (PramanaKanda), where the compiled
+-- mouth runs the same theorem; this body LIFTS it to a path.  One
+-- proof, two worlds — the re-founding the reflection weld promised.
 norm-sound : ∀ t ρ → eval (norm t) ρ ≡ eval t ρ
-norm-sound (var i)  ρ = refl
-norm-sound ze       ρ = refl
-norm-sound (su t)   ρ = cong suc (norm-sound t ρ)
-norm-sound (a ⊕ b)  ρ =
-  plus'-s (norm a) (norm b) ρ ∙ cong₂ _+_ (norm-sound a ρ) (norm-sound b ρ)
-norm-sound (a ⊗ b)  ρ =
-  times'-s (norm a) (norm b) ρ ∙ cong₂ _·_ (norm-sound a ρ) (norm-sound b ρ)
-norm-sound (a ⊖ b)  ρ =
-  sub'-s (norm a) (norm b) ρ ∙ cong₂ sbℕ (norm-sound a ρ) (norm-sound b ρ)
-norm-sound (mx a b) ρ =
-  mx'-s (norm a) (norm b) ρ ∙ cong₂ mxℕ (norm-sound a ρ) (norm-sound b ρ)
-norm-sound (lq a b) ρ =
-  lq'-s (norm a) (norm b) ρ ∙ cong₂ lqℕ (norm-sound a ρ) (norm-sound b ρ)
+norm-sound t ρ = eqToPath (प्र.norm-sound t ρ)
 
 -- syntactic equality that RETURNS THE PATH — no Bool on any wire, no
 -- separate soundness lemma: the test and its witness are one value.
@@ -280,21 +132,16 @@ mmap2 : {A B C : Type} → (A → B → C) → Maybe A → Maybe B → Maybe C
 mmap2 f (just a) (just b) = just (f a b)
 mmap2 f _        _        = nothing
 
+-- the shared-tongue verdict, lifted: same decision, path certificate
+उद्धार-मा : {A : Type} {B : Type} → (A → B) → निजमा.Maybe A → Maybe B
+उद्धार-मा f (निजमा.just a) = just (f a)
+उद्धार-मा f निजमा.nothing  = nothing
+
 _≟ℕ_ : (i j : ℕ) → Maybe (i ≡ j)
-zero  ≟ℕ zero  = just refl
-suc a ≟ℕ suc b = mmap (cong suc) (a ≟ℕ b)
-_     ≟ℕ _     = nothing
+i ≟ℕ j = उद्धार-मा eqToPath (i प्र.≟ℕ j)
 
 _≟T_ : (a b : Tm) → Maybe (a ≡ b)
-var i    ≟T var j    = mmap (cong var) (i ≟ℕ j)
-ze       ≟T ze       = just refl
-su a     ≟T su b     = mmap (cong su) (a ≟T b)
-(a ⊕ b)  ≟T (c ⊕ d)  = mmap2 (λ p q → cong₂ _⊕_ p q) (a ≟T c) (b ≟T d)
-(a ⊗ b)  ≟T (c ⊗ d)  = mmap2 (λ p q → cong₂ _⊗_ p q) (a ≟T c) (b ≟T d)
-(a ⊖ b)  ≟T (c ⊖ d)  = mmap2 (λ p q → cong₂ _⊖_ p q) (a ≟T c) (b ≟T d)
-mx a b   ≟T mx c d   = mmap2 (λ p q → cong₂ mx p q)  (a ≟T c) (b ≟T d)
-lq a b   ≟T lq c d   = mmap2 (λ p q → cong₂ lq p q)  (a ≟T c) (b ≟T d)
-_        ≟T _        = nothing
+a ≟T b = उद्धार-मा eqToPath (a प्र.≟T b)
 
 -- THE PROVER.  Returns a proof or nothing — the two roads, at the type.
 साधनम् : (e : Eq') → Maybe (⊨ e)

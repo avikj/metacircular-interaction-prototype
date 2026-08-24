@@ -68,6 +68,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
 शासन-विनिमयः s (a ⊖ b)  | nothing = शासन-विनिमयः s a ⊖ शासन-विनिमयः s b
 शासन-विनिमयः s (mx a b) | nothing = mx (शासन-विनिमयः s a) (शासन-विनिमयः s b)
 शासन-विनिमयः s (lq a b) | nothing = lq (शासन-विनिमयः s a) (शासन-विनिमयः s b)
+शासन-विनिमयः s (gc a b) | nothing = gc (शासन-विनिमयः s a) (शासन-विनिमयः s b)
 
 शासन-साक्षी : (s : नियमः) (ρ : ℕ → ℕ) (t : Tm)
   → eval t ρ ≡ eval (शासन-विनिमयः s t) ρ
@@ -86,6 +87,8 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
   cong₂ mxℕ (शासन-साक्षी s ρ a) (शासन-साक्षी s ρ b)
 शासन-साक्षी s ρ (lq a b) | nothing =
   cong₂ lqℕ (शासन-साक्षी s ρ a) (शासन-साक्षी s ρ b)
+शासन-साक्षी s ρ (gc a b) | nothing =
+  cong₂ गच्छℕ (शासन-साक्षी s ρ a) (शासन-साक्षी s ρ b)
 
 -- the whole record speaks, entry after entry, witness composing.
 श्रुत-विनिमयः : List नियमः → Tm → Tm

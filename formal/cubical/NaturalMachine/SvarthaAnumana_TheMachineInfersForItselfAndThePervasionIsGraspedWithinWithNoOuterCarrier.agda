@@ -65,6 +65,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 विनिमयः p s (a ⊖ b)  | nothing = विनिमयः p s a ⊖ विनिमयः p s b
 विनिमयः p s (mx a b) | nothing = mx (विनिमयः p s a) (विनिमयः p s b)
 विनिमयः p s (lq a b) | nothing = lq (विनिमयः p s a) (विनिमयः p s b)
+विनिमयः p s (gc a b) | nothing = gc (विनिमयः p s a) (विनिमयः p s b)
 
 विनिमय-साक्षी : (p s : Tm) (ρ : ℕ → ℕ) → eval p ρ ≡ eval s ρ
   → (t : Tm) → eval t ρ ≡ eval (विनिमयः p s t) ρ
@@ -85,6 +86,8 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
   cong₂ mxℕ (विनिमय-साक्षी p s ρ h a) (विनिमय-साक्षी p s ρ h b)
 विनिमय-साक्षी p s ρ h (lq a b) | nothing =
   cong₂ lqℕ (विनिमय-साक्षी p s ρ h a) (विनिमय-साक्षी p s ρ h b)
+विनिमय-साक्षी p s ρ h (gc a b) | nothing =
+  cong₂ गच्छℕ (विनिमय-साक्षी p s ρ h a) (विनिमय-साक्षी p s ρ h b)
 
 ------------------------------------------------------------------------
 -- §2  अन्तर्व्याप्तिः — the step's pervasion, grasped within.
@@ -130,6 +133,7 @@ open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilen
 चराः (a ⊖ b)  = mxℕ (चराः a) (चराः b)
 चराः (mx a b) = mxℕ (चराः a) (चराः b)
 चराः (lq a b) = mxℕ (चराः a) (चराः b)
+चराः (gc a b) = mxℕ (चराः a) (चराः b)
 
 स्वार्थ-साधनम् : ℕ → (e : Eq') → Maybe (⊨ e)
 प्रयत्नः : ℕ → ℕ → (l r : Tm) → Maybe (⊨ (l , r))

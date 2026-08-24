@@ -37,8 +37,8 @@ open import Agda.Builtin.Unit using (⊤ ; tt)
 open import Agda.Builtin.Equality using (_≡_ ; refl)
 
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
-  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq ; Eq'
-        ; mxℕ ; lqℕ ; sbℕ ; eval ; norm ; समℕ )
+  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq ; gc ; Eq'
+        ; mxℕ ; lqℕ ; sbℕ ; गच्छℕ ; eval ; norm ; समℕ )
 
 ------------------------------------------------------------------------
 -- §0  The tongue's own connectives, over builtin equality.
@@ -155,6 +155,7 @@ A × B = Σ A (λ _ → B)
 एव-सम् (a ⊖ b)  ρ σ h = cong₂ sbℕ (एव-सम् a ρ σ h) (एव-सम् b ρ σ h)
 एव-सम् (mx a b) ρ σ h = cong₂ mxℕ (एव-सम् a ρ σ h) (एव-सम् b ρ σ h)
 एव-सम् (lq a b) ρ σ h = cong₂ lqℕ (एव-सम् a ρ σ h) (एव-सम् b ρ σ h)
+एव-सम् (gc a b) ρ σ h = cong₂ गच्छℕ (एव-सम् a ρ σ h) (एव-सम् b ρ σ h)
 
 ------------------------------------------------------------------------
 -- §3  The path-returning tests, and truth over the standard model.
@@ -175,6 +176,7 @@ su a     ≟T su b     = mmap (cong su) (a ≟T b)
 (a ⊖ b)  ≟T (c ⊖ d)  = mmap2 (λ p q → cong₂ _⊖_ p q) (a ≟T c) (b ≟T d)
 mx a b   ≟T mx c d   = mmap2 (λ p q → cong₂ mx p q)  (a ≟T c) (b ≟T d)
 lq a b   ≟T lq c d   = mmap2 (λ p q → cong₂ lq p q)  (a ≟T c) (b ≟T d)
+gc a b   ≟T gc c d   = mmap2 (λ p q → cong₂ gc p q)  (a ≟T c) (b ≟T d)
 _        ≟T _        = nothing
 
 ⊨_ : Eq' → Type
@@ -192,7 +194,7 @@ record नियमः : Type where
 ------------------------------------------------------------------------
 
 open KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
-  using (plus' ; times' ; sub' ; mx' ; lq')
+  using (plus' ; times' ; sub' ; mx' ; lq' ; gc')
 
 plus'-s : (a b : Tm) (ρ : Nat → Nat) → eval (plus' a b) ρ ≡ eval a ρ + eval b ρ
 plus'-s a ze     ρ = sym (+-zero _)
@@ -203,6 +205,7 @@ plus'-s a (b ⊗ c) ρ = refl
 plus'-s a (b ⊖ c) ρ = refl
 plus'-s a (mx b c) ρ = refl
 plus'-s a (lq b c) ρ = refl
+plus'-s a (gc b c) ρ = refl
 
 times'-s : (a b : Tm) (ρ : Nat → Nat) → eval (times' a b) ρ ≡ eval a ρ * eval b ρ
 times'-s a ze     ρ = 0≡m·0 (eval a ρ)
@@ -217,6 +220,7 @@ times'-s a (b ⊗ c) ρ = refl
 times'-s a (b ⊖ c) ρ = refl
 times'-s a (mx b c) ρ = refl
 times'-s a (lq b c) ρ = refl
+times'-s a (gc b c) ρ = refl
 
 sub'-s : (a b : Tm) (ρ : Nat → Nat) → eval (sub' a b) ρ ≡ sbℕ (eval a ρ) (eval b ρ)
 sub'-s a      ze     ρ = refl
@@ -228,12 +232,14 @@ sub'-s (a ⊗ c) (su b) ρ = refl
 sub'-s (a ⊖ c) (su b) ρ = refl
 sub'-s (mx a c) (su b) ρ = refl
 sub'-s (lq a c) (su b) ρ = refl
+sub'-s (gc a c) (su b) ρ = refl
 sub'-s a (var i) ρ = refl
 sub'-s a (b ⊕ c) ρ = refl
 sub'-s a (b ⊗ c) ρ = refl
 sub'-s a (b ⊖ c) ρ = refl
 sub'-s a (mx b c) ρ = refl
 sub'-s a (lq b c) ρ = refl
+sub'-s a (gc b c) ρ = refl
 
 शून्य-ज्येष्ठम् : (y : Nat) → mxℕ zero y ≡ y
 शून्य-ज्येष्ठम् zero    = refl
@@ -248,6 +254,7 @@ mx'-s ze     (b ⊗ c) ρ = sym (शून्य-ज्येष्ठम् _)
 mx'-s ze     (b ⊖ c) ρ = sym (शून्य-ज्येष्ठम् _)
 mx'-s ze     (mx b c) ρ = sym (शून्य-ज्येष्ठम् _)
 mx'-s ze     (lq b c) ρ = sym (शून्य-ज्येष्ठम् _)
+mx'-s ze     (gc b c) ρ = sym (शून्य-ज्येष्ठम् _)
 mx'-s (su a) (su b) ρ = cong suc (mx'-s a b ρ)
 mx'-s (su a) (var j) ρ = refl
 mx'-s (su a) (b ⊕ c) ρ = refl
@@ -255,6 +262,7 @@ mx'-s (su a) (b ⊗ c) ρ = refl
 mx'-s (su a) (b ⊖ c) ρ = refl
 mx'-s (su a) (mx b c) ρ = refl
 mx'-s (su a) (lq b c) ρ = refl
+mx'-s (su a) (gc b c) ρ = refl
 mx'-s (var i) (su b) ρ = refl
 mx'-s (var i) (var j) ρ = refl
 mx'-s (var i) (b ⊕ c) ρ = refl
@@ -262,6 +270,7 @@ mx'-s (var i) (b ⊗ c) ρ = refl
 mx'-s (var i) (b ⊖ c) ρ = refl
 mx'-s (var i) (mx b c) ρ = refl
 mx'-s (var i) (lq b c) ρ = refl
+mx'-s (var i) (gc b c) ρ = refl
 mx'-s (a ⊕ d) (su b) ρ = refl
 mx'-s (a ⊕ d) (var j) ρ = refl
 mx'-s (a ⊕ d) (b ⊕ c) ρ = refl
@@ -269,6 +278,7 @@ mx'-s (a ⊕ d) (b ⊗ c) ρ = refl
 mx'-s (a ⊕ d) (b ⊖ c) ρ = refl
 mx'-s (a ⊕ d) (mx b c) ρ = refl
 mx'-s (a ⊕ d) (lq b c) ρ = refl
+mx'-s (a ⊕ d) (gc b c) ρ = refl
 mx'-s (a ⊗ d) (su b) ρ = refl
 mx'-s (a ⊗ d) (var j) ρ = refl
 mx'-s (a ⊗ d) (b ⊕ c) ρ = refl
@@ -276,6 +286,7 @@ mx'-s (a ⊗ d) (b ⊗ c) ρ = refl
 mx'-s (a ⊗ d) (b ⊖ c) ρ = refl
 mx'-s (a ⊗ d) (mx b c) ρ = refl
 mx'-s (a ⊗ d) (lq b c) ρ = refl
+mx'-s (a ⊗ d) (gc b c) ρ = refl
 mx'-s (a ⊖ d) (su b) ρ = refl
 mx'-s (a ⊖ d) (var j) ρ = refl
 mx'-s (a ⊖ d) (b ⊕ c) ρ = refl
@@ -283,6 +294,7 @@ mx'-s (a ⊖ d) (b ⊗ c) ρ = refl
 mx'-s (a ⊖ d) (b ⊖ c) ρ = refl
 mx'-s (a ⊖ d) (mx b c) ρ = refl
 mx'-s (a ⊖ d) (lq b c) ρ = refl
+mx'-s (a ⊖ d) (gc b c) ρ = refl
 mx'-s (mx a d) (su b) ρ = refl
 mx'-s (mx a d) (var j) ρ = refl
 mx'-s (mx a d) (b ⊕ c) ρ = refl
@@ -290,6 +302,7 @@ mx'-s (mx a d) (b ⊗ c) ρ = refl
 mx'-s (mx a d) (b ⊖ c) ρ = refl
 mx'-s (mx a d) (mx b c) ρ = refl
 mx'-s (mx a d) (lq b c) ρ = refl
+mx'-s (mx a d) (gc b c) ρ = refl
 mx'-s (lq a d) (su b) ρ = refl
 mx'-s (lq a d) (var j) ρ = refl
 mx'-s (lq a d) (b ⊕ c) ρ = refl
@@ -297,6 +310,15 @@ mx'-s (lq a d) (b ⊗ c) ρ = refl
 mx'-s (lq a d) (b ⊖ c) ρ = refl
 mx'-s (lq a d) (mx b c) ρ = refl
 mx'-s (lq a d) (lq b c) ρ = refl
+mx'-s (lq a d) (gc b c) ρ = refl
+mx'-s (gc a d) (su b) ρ = refl
+mx'-s (gc a d) (var j) ρ = refl
+mx'-s (gc a d) (b ⊕ c) ρ = refl
+mx'-s (gc a d) (b ⊗ c) ρ = refl
+mx'-s (gc a d) (b ⊖ c) ρ = refl
+mx'-s (gc a d) (mx b c) ρ = refl
+mx'-s (gc a d) (lq b c) ρ = refl
+mx'-s (gc a d) (gc b c) ρ = refl
 
 lq'-s : (a b : Tm) (ρ : Nat → Nat) → eval (lq' a b) ρ ≡ lqℕ (eval a ρ) (eval b ρ)
 lq'-s ze     b      ρ = refl
@@ -308,12 +330,97 @@ lq'-s (su a) (b ⊗ c) ρ = refl
 lq'-s (su a) (b ⊖ c) ρ = refl
 lq'-s (su a) (mx b c) ρ = refl
 lq'-s (su a) (lq b c) ρ = refl
+lq'-s (su a) (gc b c) ρ = refl
 lq'-s (var i) b ρ = refl
 lq'-s (a ⊕ d) b ρ = refl
 lq'-s (a ⊗ d) b ρ = refl
 lq'-s (a ⊖ d) b ρ = refl
 lq'-s (mx a d) b ρ = refl
 lq'-s (lq a d) b ρ = refl
+lq'-s (gc a d) b ρ = refl
+
+गच्छ-दक्षिणम् : (a : Nat) → गच्छℕ a zero ≡ a
+गच्छ-दक्षिणम् zero    = refl
+गच्छ-दक्षिणम् (suc a) = refl
+
+गच्छ-वामम् : (b : Nat) → गच्छℕ zero b ≡ b
+गच्छ-वामम् zero    = refl
+गच्छ-वामम् (suc b) = refl
+
+gc'-s : (a b : Tm) (ρ : Nat → Nat) → eval (gc' a b) ρ ≡ गच्छℕ (eval a ρ) (eval b ρ)
+gc'-s a      ze     ρ = sym (गच्छ-दक्षिणम् (eval a ρ))
+gc'-s ze     (su b) ρ = sym (गच्छ-वामम् (suc (eval b ρ)))
+gc'-s ze     (var j) ρ = sym (गच्छ-वामम् (ρ j))
+gc'-s ze     (b ⊕ c) ρ = sym (गच्छ-वामम् _)
+gc'-s ze     (b ⊗ c) ρ = sym (गच्छ-वामम् _)
+gc'-s ze     (b ⊖ c) ρ = sym (गच्छ-वामम् _)
+gc'-s ze     (mx b c) ρ = sym (गच्छ-वामम् _)
+gc'-s ze     (lq b c) ρ = sym (गच्छ-वामम् _)
+gc'-s ze     (gc b c) ρ = sym (गच्छ-वामम् _)
+gc'-s (var i) (su b) ρ = refl
+gc'-s (var i) (var j) ρ = refl
+gc'-s (var i) (b ⊕ c) ρ = refl
+gc'-s (var i) (b ⊗ c) ρ = refl
+gc'-s (var i) (b ⊖ c) ρ = refl
+gc'-s (var i) (mx b c) ρ = refl
+gc'-s (var i) (lq b c) ρ = refl
+gc'-s (var i) (gc b c) ρ = refl
+gc'-s (su a) (su b) ρ = refl
+gc'-s (su a) (var j) ρ = refl
+gc'-s (su a) (b ⊕ c) ρ = refl
+gc'-s (su a) (b ⊗ c) ρ = refl
+gc'-s (su a) (b ⊖ c) ρ = refl
+gc'-s (su a) (mx b c) ρ = refl
+gc'-s (su a) (lq b c) ρ = refl
+gc'-s (su a) (gc b c) ρ = refl
+gc'-s (a ⊕ d) (su b) ρ = refl
+gc'-s (a ⊕ d) (var j) ρ = refl
+gc'-s (a ⊕ d) (b ⊕ c) ρ = refl
+gc'-s (a ⊕ d) (b ⊗ c) ρ = refl
+gc'-s (a ⊕ d) (b ⊖ c) ρ = refl
+gc'-s (a ⊕ d) (mx b c) ρ = refl
+gc'-s (a ⊕ d) (lq b c) ρ = refl
+gc'-s (a ⊕ d) (gc b c) ρ = refl
+gc'-s (a ⊗ d) (su b) ρ = refl
+gc'-s (a ⊗ d) (var j) ρ = refl
+gc'-s (a ⊗ d) (b ⊕ c) ρ = refl
+gc'-s (a ⊗ d) (b ⊗ c) ρ = refl
+gc'-s (a ⊗ d) (b ⊖ c) ρ = refl
+gc'-s (a ⊗ d) (mx b c) ρ = refl
+gc'-s (a ⊗ d) (lq b c) ρ = refl
+gc'-s (a ⊗ d) (gc b c) ρ = refl
+gc'-s (a ⊖ d) (su b) ρ = refl
+gc'-s (a ⊖ d) (var j) ρ = refl
+gc'-s (a ⊖ d) (b ⊕ c) ρ = refl
+gc'-s (a ⊖ d) (b ⊗ c) ρ = refl
+gc'-s (a ⊖ d) (b ⊖ c) ρ = refl
+gc'-s (a ⊖ d) (mx b c) ρ = refl
+gc'-s (a ⊖ d) (lq b c) ρ = refl
+gc'-s (a ⊖ d) (gc b c) ρ = refl
+gc'-s (mx a d) (su b) ρ = refl
+gc'-s (mx a d) (var j) ρ = refl
+gc'-s (mx a d) (b ⊕ c) ρ = refl
+gc'-s (mx a d) (b ⊗ c) ρ = refl
+gc'-s (mx a d) (b ⊖ c) ρ = refl
+gc'-s (mx a d) (mx b c) ρ = refl
+gc'-s (mx a d) (lq b c) ρ = refl
+gc'-s (mx a d) (gc b c) ρ = refl
+gc'-s (lq a d) (su b) ρ = refl
+gc'-s (lq a d) (var j) ρ = refl
+gc'-s (lq a d) (b ⊕ c) ρ = refl
+gc'-s (lq a d) (b ⊗ c) ρ = refl
+gc'-s (lq a d) (b ⊖ c) ρ = refl
+gc'-s (lq a d) (mx b c) ρ = refl
+gc'-s (lq a d) (lq b c) ρ = refl
+gc'-s (lq a d) (gc b c) ρ = refl
+gc'-s (gc a d) (su b) ρ = refl
+gc'-s (gc a d) (var j) ρ = refl
+gc'-s (gc a d) (b ⊕ c) ρ = refl
+gc'-s (gc a d) (b ⊗ c) ρ = refl
+gc'-s (gc a d) (b ⊖ c) ρ = refl
+gc'-s (gc a d) (mx b c) ρ = refl
+gc'-s (gc a d) (lq b c) ρ = refl
+gc'-s (gc a d) (gc b c) ρ = refl
 
 norm-sound : (t : Tm) (ρ : Nat → Nat) → eval (norm t) ρ ≡ eval t ρ
 norm-sound (var i)  ρ = refl
@@ -329,6 +436,8 @@ norm-sound (mx a b) ρ =
   mx'-s (norm a) (norm b) ρ ∙ cong₂ mxℕ (norm-sound a ρ) (norm-sound b ρ)
 norm-sound (lq a b) ρ =
   lq'-s (norm a) (norm b) ρ ∙ cong₂ lqℕ (norm-sound a ρ) (norm-sound b ρ)
+norm-sound (gc a b) ρ =
+  gc'-s (norm a) (norm b) ρ ∙ cong₂ गच्छℕ (norm-sound a ρ) (norm-sound b ρ)
 
 साधनम् : (e : Eq') → Maybe (⊨ e)
 साधनम् (l , r) = mmap witness (norm l ≟T norm r)
@@ -351,6 +460,7 @@ norm-sound (lq a b) ρ =
 आदेशनम् σ (a ⊖ b)  = आदेशनम् σ a ⊖ आदेशनम् σ b
 आदेशनम् σ (mx a b) = mx (आदेशनम् σ a) (आदेशनम् σ b)
 आदेशनम् σ (lq a b) = lq (आदेशनम् σ a) (आदेशनम् σ b)
+आदेशनम् σ (gc a b) = gc (आदेशनम् σ a) (आदेशनम् σ b)
 
 स्थानिवत् : (σ : Nat → Tm) (t : Tm) (ρ : Nat → Nat)
   → eval (आदेशनम् σ t) ρ ≡ eval t (λ i → eval (σ i) ρ)
@@ -362,6 +472,7 @@ norm-sound (lq a b) ρ =
 स्थानिवत् σ (a ⊖ b)  ρ = cong₂ sbℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 स्थानिवत् σ (mx a b) ρ = cong₂ mxℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 स्थानिवत् σ (lq a b) ρ = cong₂ lqℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
+स्थानिवत् σ (gc a b) ρ = cong₂ गच्छℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 
 ⊨-आदेशः : {l r : Tm} → ⊨ (l , r) → (σ : Nat → Tm)
   → ⊨ (आदेशनम् σ l , आदेशनम् σ r)
@@ -398,6 +509,7 @@ norm-sound (lq a b) ρ =
 मेलनम् (p ⊖ q)  (t ⊖ u)  b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् (mx p q) (mx t u) b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् (lq p q) (lq t u) b = मेलनम् p t b ≫= मेलनम् q u
+मेलनम् (gc p q) (gc t u) b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् _        _        _ = nothing
 
 पूरणम् : बन्धाः → (Nat → Tm)
@@ -514,6 +626,7 @@ t ⟨ k ≔ u ⟩ = आदेशनम् (एकादेशः k u) t
 विनिमयः p s (a ⊖ b)  | nothing = विनिमयः p s a ⊖ विनिमयः p s b
 विनिमयः p s (mx a b) | nothing = mx (विनिमयः p s a) (विनिमयः p s b)
 विनिमयः p s (lq a b) | nothing = lq (विनिमयः p s a) (विनिमयः p s b)
+विनिमयः p s (gc a b) | nothing = gc (विनिमयः p s a) (विनिमयः p s b)
 
 विनिमय-साक्षी : (p s : Tm) (ρ : Nat → Nat) → eval p ρ ≡ eval s ρ
   → (t : Tm) → eval t ρ ≡ eval (विनिमयः p s t) ρ
@@ -534,6 +647,8 @@ t ⟨ k ≔ u ⟩ = आदेशनम् (एकादेशः k u) t
   cong₂ mxℕ (विनिमय-साक्षी p s ρ h a) (विनिमय-साक्षी p s ρ h b)
 विनिमय-साक्षी p s ρ h (lq a b) | nothing =
   cong₂ lqℕ (विनिमय-साक्षी p s ρ h a) (विनिमय-साक्षी p s ρ h b)
+विनिमय-साक्षी p s ρ h (gc a b) | nothing =
+  cong₂ गच्छℕ (विनिमय-साक्षी p s ρ h a) (विनिमय-साक्षी p s ρ h b)
 
 चराः : Tm → Nat
 चराः (var i)  = suc i
@@ -544,6 +659,7 @@ t ⟨ k ≔ u ⟩ = आदेशनम् (एकादेशः k u) t
 चराः (a ⊖ b)  = mxℕ (चराः a) (चराः b)
 चराः (mx a b) = mxℕ (चराः a) (चराः b)
 चराः (lq a b) = mxℕ (चराः a) (चराः b)
+चराः (gc a b) = mxℕ (चराः a) (चराः b)
 
 इन्धनम् : Nat
 इन्धनम् = suc (suc (suc zero))
@@ -559,6 +675,7 @@ t ⟨ k ≔ u ⟩ = आदेशनम् (एकादेशः k u) t
 शासन-विनिमयः s (a ⊖ b)  | nothing = शासन-विनिमयः s a ⊖ शासन-विनिमयः s b
 शासन-विनिमयः s (mx a b) | nothing = mx (शासन-विनिमयः s a) (शासन-विनिमयः s b)
 शासन-विनिमयः s (lq a b) | nothing = lq (शासन-विनिमयः s a) (शासन-विनिमयः s b)
+शासन-विनिमयः s (gc a b) | nothing = gc (शासन-विनिमयः s a) (शासन-विनिमयः s b)
 
 शासन-साक्षी : (s : नियमः) (ρ : Nat → Nat) (t : Tm)
   → eval t ρ ≡ eval (शासन-विनिमयः s t) ρ
@@ -577,6 +694,8 @@ t ⟨ k ≔ u ⟩ = आदेशनम् (एकादेशः k u) t
   cong₂ mxℕ (शासन-साक्षी s ρ a) (शासन-साक्षी s ρ b)
 शासन-साक्षी s ρ (lq a b) | nothing =
   cong₂ lqℕ (शासन-साक्षी s ρ a) (शासन-साक्षी s ρ b)
+शासन-साक्षी s ρ (gc a b) | nothing =
+  cong₂ गच्छℕ (शासन-साक्षी s ρ a) (शासन-साक्षी s ρ b)
 
 श्रुत-विनिमयः : List नियमः → Tm → Tm
 श्रुत-विनिमयः []       t = t
@@ -622,6 +741,7 @@ suc a ≤? suc b = a ≤? b
 टैगः (_ ⊖ _)  = 5
 टैगः (mx _ _) = 6
 टैगः (lq _ _) = 7
+टैगः (gc _ _) = 8
 
 तुला : Tm → Tm → Bool
 तुला-द्वयोः : Tm → Tm → Tm → Tm → Bool
@@ -633,6 +753,7 @@ suc a ≤? suc b = a ≤? b
 तुला (a ⊖ b)  (c ⊖ d)  = तुला-द्वयोः a b c d
 तुला (mx a b) (mx c d) = तुला-द्वयोः a b c d
 तुला (lq a b) (lq c d) = तुला-द्वयोः a b c d
+तुला (gc a b) (gc c d) = तुला-द्वयोः a b c d
 तुला a        b        = टैगः a ≤? टैगः b
 
 तुला-द्वयोः a b c d = if युज् (a ≟T c) then तुला b d else तुला a c
@@ -697,6 +818,7 @@ suc a ≤? suc b = a ≤? b
 राशि-सत्यम् (a ⊖ b)  ρ = +-zero (sbℕ (eval a ρ) (eval b ρ))
 राशि-सत्यम् (mx a b) ρ = +-zero (mxℕ (eval a ρ) (eval b ρ))
 राशि-सत्यम् (lq a b) ρ = +-zero (lqℕ (eval a ρ) (eval b ρ))
+राशि-सत्यम् (gc a b) ρ = +-zero (गच्छℕ (eval a ρ) (eval b ρ))
 
 निष्कासः : (t : Tm) (xs : List Tm)
   → Maybe (Σ (List Tm) (λ ys → (ρ : Nat → Nat) → सुम् xs ρ ≡ eval t ρ + सुम् ys ρ))
@@ -749,6 +871,7 @@ suc a ≤? suc b = a ≤? b
 राशि-विनिमयः p s (a ⊖ b)  | nothing = राशि-विनिमयः p s a ⊖ राशि-विनिमयः p s b
 राशि-विनिमयः p s (mx a b) | nothing = mx (राशि-विनिमयः p s a) (राशि-विनिमयः p s b)
 राशि-विनिमयः p s (lq a b) | nothing = lq (राशि-विनिमयः p s a) (राशि-विनिमयः p s b)
+राशि-विनिमयः p s (gc a b) | nothing = gc (राशि-विनिमयः p s a) (राशि-विनिमयः p s b)
 
 राशि-साक्षी : (p s : Tm) (ρ : Nat → Nat) → eval p ρ ≡ eval s ρ
   → (t : Tm) → eval t ρ ≡ eval (राशि-विनिमयः p s t) ρ
@@ -766,6 +889,8 @@ suc a ≤? suc b = a ≤? b
   cong₂ mxℕ (राशि-साक्षी p s ρ h a) (राशि-साक्षी p s ρ h b)
 राशि-साक्षी p s ρ h (lq a b) | nothing =
   cong₂ lqℕ (राशि-साक्षी p s ρ h a) (राशि-साक्षी p s ρ h b)
+राशि-साक्षी p s ρ h (gc a b) | nothing =
+  cong₂ गच्छℕ (राशि-साक्षी p s ρ h a) (राशि-साक्षी p s ρ h b)
 
 ------------------------------------------------------------------------
 -- §9  The factoring eye (SadharanaVishesha's lane).
@@ -838,6 +963,7 @@ suc a ≤? suc b = a ≤? b
   where
   s = साधारणम् (राशिः (गूढ-आम्नायः a)) (राशिः (गूढ-आम्नायः b))
 गूढ-आम्नायः (lq a b) = lq (गूढ-आम्नायः a) (गूढ-आम्नायः b)
+गूढ-आम्नायः (gc a b) = gc (गूढ-आम्नायः a) (गूढ-आम्नायः b)
 
 गूढ-सत्यम् : (t : Tm) (ρ : Nat → Nat) → eval (गूढ-आम्नायः t) ρ ≡ eval t ρ
 गूढ-सत्यम् (var i)  ρ = refl
@@ -868,6 +994,7 @@ suc a ≤? suc b = a ≤? b
   where
   s = साधारणम् (राशिः (गूढ-आम्नायः a)) (राशिः (गूढ-आम्नायः b))
 गूढ-सत्यम् (lq a b) ρ = cong₂ lqℕ (गूढ-सत्यम् a ρ) (गूढ-सत्यम् b ρ)
+गूढ-सत्यम् (gc a b) ρ = cong₂ गच्छℕ (गूढ-सत्यम् a ρ) (गूढ-सत्यम् b ρ)
 
 दृक्पातः : Tm → Tm
 दृक्पातः t = गूढ-आम्नायः (norm t)

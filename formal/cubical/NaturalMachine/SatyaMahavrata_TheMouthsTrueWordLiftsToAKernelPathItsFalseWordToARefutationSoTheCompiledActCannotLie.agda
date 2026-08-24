@@ -44,7 +44,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
   using (समℕ ; समः) renaming (_∧_ to _च_)
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
-  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq
+  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq ; gc
         ; eval ; norm ; norm-sound ; Eq' ; ⊨_ )
 
 ------------------------------------------------------------------------
@@ -99,6 +99,9 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (lq a b) (lq c d) p =
   cong₂ lq  (समः-सत्यम् a c (∧-वामम् (समः a c) (समः b d) p))
             (समः-सत्यम् b d (∧-दक्षिणम् (समः a c) (समः b d) p))
+समः-सत्यम् (gc a b) (gc c d) p =
+  cong₂ gc  (समः-सत्यम् a c (∧-वामम् (समः a c) (समः b d) p))
+            (समः-सत्यम् b d (∧-दक्षिणम् (समः a c) (समः b d) p))
 समः-सत्यम् (var i)  ze       p = rec (false≢true p)
 समः-सत्यम् (var i)  (su b)   p = rec (false≢true p)
 समः-सत्यम् (var i)  (b ⊕ c)  p = rec (false≢true p)
@@ -106,6 +109,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (var i)  (b ⊖ c)  p = rec (false≢true p)
 समः-सत्यम् (var i)  (mx b c) p = rec (false≢true p)
 समः-सत्यम् (var i)  (lq b c) p = rec (false≢true p)
+समः-सत्यम् (var i)  (gc b c) p = rec (false≢true p)
 समः-सत्यम् ze       (var j)  p = rec (false≢true p)
 समः-सत्यम् ze       (su b)   p = rec (false≢true p)
 समः-सत्यम् ze       (b ⊕ c)  p = rec (false≢true p)
@@ -113,6 +117,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् ze       (b ⊖ c)  p = rec (false≢true p)
 समः-सत्यम् ze       (mx b c) p = rec (false≢true p)
 समः-सत्यम् ze       (lq b c) p = rec (false≢true p)
+समः-सत्यम् ze       (gc b c) p = rec (false≢true p)
 समः-सत्यम् (su a)   (var j)  p = rec (false≢true p)
 समः-सत्यम् (su a)   ze       p = rec (false≢true p)
 समः-सत्यम् (su a)   (b ⊕ c)  p = rec (false≢true p)
@@ -120,6 +125,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (su a)   (b ⊖ c)  p = rec (false≢true p)
 समः-सत्यम् (su a)   (mx b c) p = rec (false≢true p)
 समः-सत्यम् (su a)   (lq b c) p = rec (false≢true p)
+समः-सत्यम् (su a)   (gc b c) p = rec (false≢true p)
 समः-सत्यम् (a ⊕ b)  (var j)  p = rec (false≢true p)
 समः-सत्यम् (a ⊕ b)  ze       p = rec (false≢true p)
 समः-सत्यम् (a ⊕ b)  (su c)   p = rec (false≢true p)
@@ -127,6 +133,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (a ⊕ b)  (c ⊖ d)  p = rec (false≢true p)
 समः-सत्यम् (a ⊕ b)  (mx c d) p = rec (false≢true p)
 समः-सत्यम् (a ⊕ b)  (lq c d) p = rec (false≢true p)
+समः-सत्यम् (a ⊕ b)  (gc c d) p = rec (false≢true p)
 समः-सत्यम् (a ⊗ b)  (var j)  p = rec (false≢true p)
 समः-सत्यम् (a ⊗ b)  ze       p = rec (false≢true p)
 समः-सत्यम् (a ⊗ b)  (su c)   p = rec (false≢true p)
@@ -134,6 +141,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (a ⊗ b)  (c ⊖ d)  p = rec (false≢true p)
 समः-सत्यम् (a ⊗ b)  (mx c d) p = rec (false≢true p)
 समः-सत्यम् (a ⊗ b)  (lq c d) p = rec (false≢true p)
+समः-सत्यम् (a ⊗ b)  (gc c d) p = rec (false≢true p)
 समः-सत्यम् (a ⊖ b)  (var j)  p = rec (false≢true p)
 समः-सत्यम् (a ⊖ b)  ze       p = rec (false≢true p)
 समः-सत्यम् (a ⊖ b)  (su c)   p = rec (false≢true p)
@@ -141,6 +149,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (a ⊖ b)  (c ⊗ d)  p = rec (false≢true p)
 समः-सत्यम् (a ⊖ b)  (mx c d) p = rec (false≢true p)
 समः-सत्यम् (a ⊖ b)  (lq c d) p = rec (false≢true p)
+समः-सत्यम् (a ⊖ b)  (gc c d) p = rec (false≢true p)
 समः-सत्यम् (mx a b) (var j)  p = rec (false≢true p)
 समः-सत्यम् (mx a b) ze       p = rec (false≢true p)
 समः-सत्यम् (mx a b) (su c)   p = rec (false≢true p)
@@ -148,6 +157,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (mx a b) (c ⊗ d)  p = rec (false≢true p)
 समः-सत्यम् (mx a b) (c ⊖ d)  p = rec (false≢true p)
 समः-सत्यम् (mx a b) (lq c d) p = rec (false≢true p)
+समः-सत्यम् (mx a b) (gc c d) p = rec (false≢true p)
 समः-सत्यम् (lq a b) (var j)  p = rec (false≢true p)
 समः-सत्यम् (lq a b) ze       p = rec (false≢true p)
 समः-सत्यम् (lq a b) (su c)   p = rec (false≢true p)
@@ -155,6 +165,15 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-सत्यम् (lq a b) (c ⊗ d)  p = rec (false≢true p)
 समः-सत्यम् (lq a b) (c ⊖ d)  p = rec (false≢true p)
 समः-सत्यम् (lq a b) (mx c d) p = rec (false≢true p)
+समः-सत्यम् (lq a b) (gc c d) p = rec (false≢true p)
+समः-सत्यम् (gc a b) (var j)  p = rec (false≢true p)
+समः-सत्यम् (gc a b) ze       p = rec (false≢true p)
+समः-सत्यम् (gc a b) (su c)   p = rec (false≢true p)
+समः-सत्यम् (gc a b) (c ⊕ d)  p = rec (false≢true p)
+समः-सत्यम् (gc a b) (c ⊗ d)  p = rec (false≢true p)
+समः-सत्यम् (gc a b) (c ⊖ d)  p = rec (false≢true p)
+समः-सत्यम् (gc a b) (mx c d) p = rec (false≢true p)
+समः-सत्यम् (gc a b) (lq c d) p = rec (false≢true p)
 
 ------------------------------------------------------------------------
 -- §4  Completeness, and the refutation of the false word.
@@ -169,6 +188,7 @@ open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAnd
 समः-आत्मा (a ⊖ b)  = cong₂ _च_ (समः-आत्मा a) (समः-आत्मा b)
 समः-आत्मा (mx a b) = cong₂ _च_ (समः-आत्मा a) (समः-आत्मा b)
 समः-आत्मा (lq a b) = cong₂ _च_ (समः-आत्मा a) (समः-आत्मा b)
+समः-आत्मा (gc a b) = cong₂ _च_ (समः-आत्मा a) (समः-आत्मा b)
 
 समः-पूर्णम् : ∀ a b → a ≡ b → समः a b ≡ true
 समः-पूर्णम् a b p = subst (λ x → समः a x ≡ true) p (समः-आत्मा a)

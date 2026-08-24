@@ -82,6 +82,7 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
 पङ्क्ति-सत्यम् (a ⊖ b)  ρ = +-zero (sbℕ (eval a ρ) (eval b ρ))
 पङ्क्ति-सत्यम् (mx a b) ρ = +-zero (mxℕ (eval a ρ) (eval b ρ))
 पङ्क्ति-सत्यम् (lq a b) ρ = +-zero (lqℕ (eval a ρ) (eval b ρ))
+पङ्क्ति-सत्यम् (gc a b) ρ = +-zero (गच्छℕ (eval a ρ) (eval b ρ))
 
 ------------------------------------------------------------------------
 -- §2  The fixed comparison and the ordering.  The comparison owes no
@@ -107,6 +108,7 @@ suc a ≤? suc b = a ≤? b
 टैगः (_ ⊖ _)  = 5
 टैगः (mx _ _) = 6
 टैगः (lq _ _) = 7
+टैगः (gc _ _) = 8
 
 तुला : Tm → Tm → Bool
 तुला-द्वयोः : Tm → Tm → Tm → Tm → Bool
@@ -118,6 +120,7 @@ suc a ≤? suc b = a ≤? b
 तुला (a ⊖ b)  (c ⊖ d)  = तुला-द्वयोः a b c d
 तुला (mx a b) (mx c d) = तुला-द्वयोः a b c d
 तुला (lq a b) (lq c d) = तुला-द्वयोः a b c d
+तुला (gc a b) (gc c d) = तुला-द्वयोः a b c d
 तुला a        b        = टैगः a ≤? टैगः b
 
 तुला-द्वयोः a b c d = if युज् (a ≟T c) then तुला b d else तुला a c
@@ -171,6 +174,7 @@ suc a ≤? suc b = a ≤? b
 आम्नायः (a ⊖ b)  = आम्नायः a ⊖ आम्नायः b
 आम्नायः (mx a b) = mx (आम्नायः a) (आम्नायः b)
 आम्नायः (lq a b) = lq (आम्नायः a) (आम्नायः b)
+आम्नायः (gc a b) = gc (आम्नायः a) (आम्नायः b)
 
 आम्नाय-सत्यम् : (t : Tm) (ρ : ℕ → ℕ) → eval (आम्नायः t) ρ ≡ eval t ρ
 आम्नाय-सत्यम् (var i)  ρ = refl
@@ -186,6 +190,7 @@ suc a ≤? suc b = a ≤? b
 आम्नाय-सत्यम् (a ⊖ b)  ρ = cong₂ sbℕ (आम्नाय-सत्यम् a ρ) (आम्नाय-सत्यम् b ρ)
 आम्नाय-सत्यम् (mx a b) ρ = cong₂ mxℕ (आम्नाय-सत्यम् a ρ) (आम्नाय-सत्यम् b ρ)
 आम्नाय-सत्यम् (lq a b) ρ = cong₂ lqℕ (आम्नाय-सत्यम् a ρ) (आम्नाय-सत्यम् b ρ)
+आम्नाय-सत्यम् (gc a b) ρ = cong₂ गच्छℕ (आम्नाय-सत्यम् a ρ) (आम्नाय-सत्यम् b ρ)
 
 ------------------------------------------------------------------------
 -- §4  The AC-eyed flat prover, and the joiner.

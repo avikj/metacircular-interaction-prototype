@@ -58,6 +58,7 @@ open import NaturalMachine.ShrutaParampara_TheCrossedRulesBecomeTheRecordAndTheS
 आकारः (a ⊖ b)  = suc (आकारः a + आकारः b)
 आकारः (mx a b) = suc (आकारः a + आकारः b)
 आकारः (lq a b) = suc (आकारः a + आकारः b)
+आकारः (gc a b) = suc (आकारः a + आकारः b)
 
 -- a rule reversed is a rule — the witness reverses with it.
 विपरीतः : नियमः → नियमः

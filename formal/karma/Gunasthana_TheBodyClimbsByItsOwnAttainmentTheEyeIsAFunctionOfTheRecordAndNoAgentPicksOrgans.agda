@@ -44,8 +44,8 @@ open import Agda.Builtin.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Agda.Builtin.Equality using (_≡_ ; refl)
 
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
-  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq ; Eq'
-        ; mxℕ ; lqℕ ; sbℕ ; eval ; norm ; _∧_ )
+  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq ; gc ; Eq'
+        ; mxℕ ; lqℕ ; sbℕ ; गच्छℕ ; eval ; norm ; _∧_ )
 open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
   using ( _∙_ ; sym ; cong ; cong₂ ; subst ; ⊥-rec ; true≢false ; शून्यम्
         ; if_then_else_ ; mmap ; _≫=_ ; _++_ ; _×_ ; _≟T_
@@ -61,7 +61,7 @@ open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAll
 ------------------------------------------------------------------------
 
 data कर्ता : Type where
-  क⊕ क⊗ क⊖ कmx कlq : कर्ता
+  क⊕ क⊗ क⊖ कmx कlq कgc : कर्ता
 
 अर्थः : कर्ता → Nat → Nat → Nat
 अर्थः क⊕  = _+_
@@ -69,6 +69,7 @@ data कर्ता : Type where
 अर्थः क⊖  = sbℕ
 अर्थः कmx = mxℕ
 अर्थः कlq = lqℕ
+अर्थः कgc = गच्छℕ
 
 रचना : कर्ता → Tm → Tm → Tm
 रचना क⊕  a b = a ⊕ b
@@ -76,6 +77,7 @@ data कर्ता : Type where
 रचना क⊖  a b = a ⊖ b
 रचना कmx a b = mx a b
 रचना कlq a b = lq a b
+रचना कgc a b = gc a b
 
 रचना-अर्थः : (o : कर्ता) (a b : Tm) (ρ : Nat → Nat)
   → eval (रचना o a b) ρ ≡ अर्थः o (eval a ρ) (eval b ρ)
@@ -84,6 +86,7 @@ data कर्ता : Type where
 रचना-अर्थः क⊖  a b ρ = refl
 रचना-अर्थः कmx a b ρ = refl
 रचना-अर्थः कlq a b ρ = refl
+रचना-अर्थः कgc a b ρ = refl
 
 कर्ता-≟ : (a b : कर्ता) → Maybe (a ≡ b)
 कर्ता-≟ क⊕  क⊕  = just refl
@@ -91,6 +94,7 @@ data कर्ता : Type where
 कर्ता-≟ क⊖  क⊖  = just refl
 कर्ता-≟ कmx कmx = just refl
 कर्ता-≟ कlq कlq = just refl
+कर्ता-≟ कgc कgc = just refl
 कर्ता-≟ _   _   = nothing
 
 शीर्षम् : (t : Tm) → Maybe (Σ कर्ता (λ o → Σ Tm (λ a → Σ Tm (λ b → t ≡ रचना o a b))))
@@ -99,6 +103,7 @@ data कर्ता : Type where
 शीर्षम् (a ⊖ b)  = just (क⊖  , a , b , refl)
 शीर्षम् (mx a b) = just (कmx , a , b , refl)
 शीर्षम् (lq a b) = just (कlq , a , b , refl)
+शीर्षम् (gc a b) = just (कgc , a , b , refl)
 शीर्षम् _        = nothing
 
 चरम् : (t : Tm) → Maybe (Σ Nat (λ i → t ≡ var i))
@@ -125,6 +130,7 @@ data कर्ता : Type where
 निर्वारः (a ⊖ b)  = निर्वारः a ∧ निर्वारः b
 निर्वारः (mx a b) = निर्वारः a ∧ निर्वारः b
 निर्वारः (lq a b) = निर्वारः a ∧ निर्वारः b
+निर्वारः (gc a b) = निर्वारः a ∧ निर्वारः b
 
 निर्वार-सत्यम् : (t : Tm) → निर्वारः t ≡ true
   → (ρ ρ' : Nat → Nat) → eval t ρ ≡ eval t ρ'
@@ -145,6 +151,9 @@ data कर्ता : Type where
             (निर्वार-सत्यम् b (snd (विभागः (निर्वारः a) (निर्वारः b) p)) ρ ρ')
 निर्वार-सत्यम् (lq a b) p ρ ρ' =
   cong₂ lqℕ (निर्वार-सत्यम् a (fst (विभागः (निर्वारः a) (निर्वारः b) p)) ρ ρ')
+            (निर्वार-सत्यम् b (snd (विभागः (निर्वारः a) (निर्वारः b) p)) ρ ρ')
+निर्वार-सत्यम् (gc a b) p ρ ρ' =
+  cong₂ गच्छℕ (निर्वार-सत्यम् a (fst (विभागः (निर्वारः a) (निर्वारः b) p)) ρ ρ')
             (निर्वार-सत्यम् b (snd (विभागः (निर्वारः a) (निर्वारः b) p)) ρ ρ')
 
 ------------------------------------------------------------------------
@@ -239,7 +248,7 @@ data कर्ता : Type where
 ------------------------------------------------------------------------
 
 module जनकः (o : कर्ता) (u : Tm)
-  (gc : (x y : Nat) → अर्थः o x y ≡ अर्थः o y x)
+  (gsm : (x y : Nat) → अर्थः o x y ≡ अर्थः o y x)
   (ga : (x y z : Nat) → अर्थः o x (अर्थः o y z) ≡ अर्थः o (अर्थः o x y) z)
   (gu : (x : Nat) (ρ : Nat → Nat) → अर्थः o x (eval u ρ) ≡ x)
   where
@@ -260,6 +269,9 @@ module जनकः (o : कर्ता) (u : Tm)
   तति (lq a b) with कर्ता-≟ o कlq
   ... | just _  = तति a ++ तति b
   ... | nothing = lq a b ∷ []
+  तति (gc a b) with कर्ता-≟ o कgc
+  ... | just _  = तति a ++ तति b
+  ... | nothing = gc a b ∷ []
   तति t = t ∷ []
 
   फलितम् : List Tm → (Nat → Nat) → Nat
@@ -267,7 +279,7 @@ module जनकः (o : कर्ता) (u : Tm)
   फलितम् (t ∷ ts) ρ = अर्थः o (eval t ρ) (फलितम् ts ρ)
 
   वाम-एकम् : (m : Nat) (ρ : Nat → Nat) → अर्थः o (eval u ρ) m ≡ m
-  वाम-एकम् m ρ = gc (eval u ρ) m ∙ gu m ρ
+  वाम-एकम् m ρ = gsm (eval u ρ) m ∙ gu m ρ
 
   फल-++ : (xs ys : List Tm) (ρ : Nat → Nat)
     → फलितम् (xs ++ ys) ρ ≡ अर्थः o (फलितम् xs ρ) (फलितम् ys ρ)
@@ -307,6 +319,12 @@ module जनकः (o : कर्ता) (u : Tm)
     ∙ cong₂ (अर्थः o) (तति-सत्यम् a ρ) (तति-सत्यम् b ρ)
     ∙ cong (λ o' → अर्थः o' (eval a ρ) (eval b ρ)) p
   ... | nothing = gu (eval (lq a b) ρ) ρ
+  तति-सत्यम् (gc a b) ρ with कर्ता-≟ o कgc
+  ... | just p  =
+      फल-++ (तति a) (तति b) ρ
+    ∙ cong₂ (अर्थः o) (तति-सत्यम् a ρ) (तति-सत्यम् b ρ)
+    ∙ cong (λ o' → अर्थः o' (eval a ρ) (eval b ρ)) p
+  ... | nothing = gu (eval (gc a b) ρ) ρ
   तति-सत्यम् (var i) ρ = gu (ρ i) ρ
   तति-सत्यम् ze      ρ = gu zero ρ
   तति-सत्यम् (su t)  ρ = gu (suc (eval t ρ)) ρ
@@ -319,7 +337,7 @@ module जनकः (o : कर्ता) (u : Tm)
   ... | false =
       cong (अर्थः o (eval y ρ)) (निवेश-फलम् t ys ρ)
     ∙ ga (eval y ρ) (eval t ρ) (फलितम् ys ρ)
-    ∙ cong (λ m → अर्थः o m (फलितम् ys ρ)) (gc (eval y ρ) (eval t ρ))
+    ∙ cong (λ m → अर्थः o m (फलितम् ys ρ)) (gsm (eval y ρ) (eval t ρ))
     ∙ sym (ga (eval t ρ) (eval y ρ) (फलितम् ys ρ))
 
   क्रम-फलम् : (xs : List Tm) (ρ : Nat → Nat) → फलितम् (क्रमणम् xs) ρ ≡ फलितम् xs ρ
@@ -352,6 +370,9 @@ module जनकः (o : कर्ता) (u : Tm)
   नयनम् (lq a b) with कर्ता-≟ o कlq
   ... | just _  = सज्जा (क्रमणम् (तति (नयनम् a) ++ तति (नयनम् b)))
   ... | nothing = lq (नयनम् a) (नयनम् b)
+  नयनम् (gc a b) with कर्ता-≟ o कgc
+  ... | just _  = सज्जा (क्रमणम् (तति (नयनम् a) ++ तति (नयनम् b)))
+  ... | nothing = gc (नयनम् a) (नयनम् b)
   नयनम् (var i)  = var i
   नयनम् ze       = ze
   नयनम् (su t)   = su (नयनम् t)
@@ -395,6 +416,12 @@ module जनकः (o : कर्ता) (u : Tm)
     ∙ cong₂ (अर्थः o) (नयन-सत्यम् a ρ) (नयन-सत्यम् b ρ)
     ∙ cong (λ o' → अर्थः o' (eval a ρ) (eval b ρ)) p
   ... | nothing = cong₂ lqℕ (नयन-सत्यम् a ρ) (नयन-सत्यम् b ρ)
+  नयन-सत्यम् (gc a b) ρ with कर्ता-≟ o कgc
+  ... | just p  =
+      खण्डः (नयनम् a) (नयनम् b) ρ
+    ∙ cong₂ (अर्थः o) (नयन-सत्यम् a ρ) (नयन-सत्यम् b ρ)
+    ∙ cong (λ o' → अर्थः o' (eval a ρ) (eval b ρ)) p
+  ... | nothing = cong₂ गच्छℕ (नयन-सत्यम् a ρ) (नयन-सत्यम् b ρ)
   नयन-सत्यम् (var i) ρ = refl
   नयन-सत्यम् ze      ρ = refl
   नयन-सत्यम् (su t)  ρ = cong suc (नयन-सत्यम् t ρ)
@@ -468,8 +495,8 @@ module जनकः (o : कर्ता) (u : Tm)
 सम-अन्वेषः o [] = nothing
 सम-अन्वेषः o (s ∷ ss) with सम-लक्षणम् s
 ... | nothing = सम-अन्वेषः o ss
-... | just (o₂ , gc) with कर्ता-≟ o o₂
-...   | just p  = just (subst (λ o' → (x y : Nat) → अर्थः o' x y ≡ अर्थः o' y x) (sym p) gc)
+... | just (o₂ , gsm) with कर्ता-≟ o o₂
+...   | just p  = just (subst (λ o' → (x y : Nat) → अर्थः o' x y ≡ अर्थः o' y x) (sym p) gsm)
 ...   | nothing = सम-अन्वेषः o ss
 
 सह-अन्वेषः : (o : कर्ता) → List नियमः
@@ -505,18 +532,18 @@ module जनकः (o : कर्ता) (u : Tm)
   → ((x y : Nat) → अर्थः o x y ≡ अर्थः o y x)
   → List नियमः
   → Maybe (Σ Tm (λ u → (x : Nat) (ρ : Nat → Nat) → अर्थः o x (eval u ρ) ≡ x))
-उभय-एक-अन्वेषः o gc Γ with एक-अन्वेषः o Γ
+उभय-एक-अन्वेषः o gsm Γ with एक-अन्वेषः o Γ
 ... | just ugu = just ugu
 ... | nothing with वाम-अन्वेषः o Γ
-...   | just (u , gl) = just (u , λ x ρ → gc x (eval u ρ) ∙ gl x ρ)
+...   | just (u , gl) = just (u , λ x ρ → gsm x (eval u ρ) ∙ gl x ρ)
 ...   | nothing = nothing
 
 कर्तृ-जननम् : कर्ता → List नियमः → Maybe दृक्
 कर्तृ-जननम् o Γ =
-  सम-अन्वेषः o Γ ≫= λ gc →
+  सम-अन्वेषः o Γ ≫= λ gsm →
   सह-अन्वेषः o Γ ≫= λ ga →
-  उभय-एक-अन्वेषः o gc Γ ≫= λ ugu →
-  just (जनकः.जात-दृक् o (fst ugu) gc ga (snd ugu))
+  उभय-एक-अन्वेषः o gsm Γ ≫= λ ugu →
+  just (जनकः.जात-दृक् o (fst ugu) gsm ga (snd ugu))
 
 -- eyes compose: see through one, then the other, soundness composing.
 दृक्-योगः : दृक् → दृक् → दृक्
@@ -524,7 +551,7 @@ module जनकः (o : कर्ता) (u : Tm)
   (λ t → f (g t)) , (λ t ρ → fs (g t) ρ ∙ gs t ρ)
 
 सर्व-कर्तारः : List कर्ता
-सर्व-कर्तारः = क⊕ ∷ क⊗ ∷ क⊖ ∷ कmx ∷ कlq ∷ []
+सर्व-कर्तारः = क⊕ ∷ क⊗ ∷ क⊖ ∷ कmx ∷ कlq ∷ कgc ∷ []
 
 -- THE EYE AS A FUNCTION OF THE RECORD: every operator whose laws the
 -- body has attained contributes its born organ; they compose over the
@@ -578,6 +605,7 @@ module जनकः (o : कर्ता) (u : Tm)
 माप (a ⊖ b)  = suc (माप a + माप b)
 माप (mx a b) = suc (माप a + माप b)
 माप (lq a b) = suc (माप a + माप b)
+माप (gc a b) = suc (माप a + माप b)
 
 अनुलोम-श्रुतम् : List नियमः → List नियमः
 अनुलोम-श्रुतम् []       = []

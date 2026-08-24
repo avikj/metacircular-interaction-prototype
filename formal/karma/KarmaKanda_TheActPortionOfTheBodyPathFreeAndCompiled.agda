@@ -31,7 +31,7 @@ data Tm : Type where
   ze         : Tm
   su         : Tm → Tm
   _⊕_ _⊗_ _⊖_ : Tm → Tm → Tm
-  mx lq      : Tm → Tm → Tm
+  mx lq gc   : Tm → Tm → Tm
 
 Eq' : Type
 Eq' = Tm × Tm
@@ -51,6 +51,25 @@ sbℕ x       zero    = x
 sbℕ zero    (suc _) = zero
 sbℕ (suc x) (suc y) = sbℕ x y
 
+-- the kuṭṭaka's own operator, admitted 2026-08-24 so the elder's gcd
+-- lines can cross: subtraction-Euclid ("keep the remainder and recurse"
+-- — Āryabhaṭa, Āryabhaṭīya, kuṭṭaka, 499 CE; the descent, not this
+-- code, is what is claimed of the source), made structural by an exact
+-- fuel: each step strictly shrinks the pair's sum, so fuel a+b always
+-- suffices and the answer is standard gcd.
+गच्छ : Nat → Nat → Nat → Nat
+गच्छ zero    a       b       = a
+गच्छ (suc f) zero    b       = b
+गच्छ (suc f) (suc a) zero    = suc a
+गच्छ (suc f) (suc a) (suc b) = शाखा (lqℕ a b)
+  where
+  शाखा : Nat → Nat
+  शाखा zero    = गच्छ f (sbℕ a b) (suc b)      -- b < a: recurse on a−b, b+1...
+  शाखा (suc _) = गच्छ f (suc a) (sbℕ b a)      -- a ≤ b: recurse on a+1, b−a
+
+गच्छℕ : Nat → Nat → Nat
+गच्छℕ a b = गच्छ (a + b) a b
+
 eval : Tm → (Nat → Nat) → Nat
 eval (var i) ρ = ρ i
 eval ze      ρ = zero
@@ -60,6 +79,7 @@ eval (a ⊗ b) ρ = eval a ρ * eval b ρ
 eval (a ⊖ b) ρ = sbℕ (eval a ρ) (eval b ρ)
 eval (mx a b) ρ = mxℕ (eval a ρ) (eval b ρ)
 eval (lq a b) ρ = lqℕ (eval a ρ) (eval b ρ)
+eval (gc a b) ρ = गच्छℕ (eval a ρ) (eval b ρ)
 
 plus' : Tm → Tm → Tm
 plus' a ze     = a
@@ -89,6 +109,11 @@ lq' (su _) ze     = ze
 lq' (su a) (su b) = lq' a b
 lq' a      b      = lq a b
 
+gc' : Tm → Tm → Tm
+gc' a  ze = a
+gc' ze b  = b
+gc' a  b  = gc a b
+
 norm : Tm → Tm
 norm (var i)  = var i
 norm ze       = ze
@@ -98,6 +123,7 @@ norm (a ⊗ b)  = times' (norm a) (norm b)
 norm (a ⊖ b)  = sub'   (norm a) (norm b)
 norm (mx a b) = mx'    (norm a) (norm b)
 norm (lq a b) = lq'    (norm a) (norm b)
+norm (gc a b) = gc'    (norm a) (norm b)
 
 _∧_ : Bool → Bool → Bool
 true  ∧ b = b
@@ -120,4 +146,5 @@ false ∧ _ = false
 समः (a ⊖ b)  (c ⊖ d)  = समः a c ∧ समः b d
 समः (mx a b) (mx c d) = समः a c ∧ समः b d
 समः (lq a b) (lq c d) = समः a c ∧ समः b d
+समः (gc a b) (gc c d) = समः a c ∧ समः b d
 समः _        _        = false

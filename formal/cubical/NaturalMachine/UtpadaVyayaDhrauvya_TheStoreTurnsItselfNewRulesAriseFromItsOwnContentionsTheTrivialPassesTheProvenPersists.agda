@@ -73,6 +73,7 @@ open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCogn
 मेलः f (a ⊖ b)  (c ⊖ d)  es σ = एकीकरणम् f ((a , c) ∷ (b , d) ∷ es) σ
 मेलः f (mx a b) (mx c d) es σ = एकीकरणम् f ((a , c) ∷ (b , d) ∷ es) σ
 मेलः f (lq a b) (lq c d) es σ = एकीकरणम् f ((a , c) ∷ (b , d) ∷ es) σ
+मेलः f (gc a b) (gc c d) es σ = एकीकरणम् f ((a , c) ∷ (b , d) ∷ es) σ
 मेलः f _        _        es σ = nothing
 
 -- renaming the second parent's voices out of the first's range.

@@ -65,6 +65,7 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
 आदेशनम् σ (a ⊖ b)  = आदेशनम् σ a ⊖ आदेशनम् σ b
 आदेशनम् σ (mx a b) = mx (आदेशनम् σ a) (आदेशनम् σ b)
 आदेशनम् σ (lq a b) = lq (आदेशनम् σ a) (आदेशनम् σ b)
+आदेशनम् σ (gc a b) = gc (आदेशनम् σ a) (आदेशनम् σ b)
 
 -- 1.1.56 as a term: the substitute evaluates as the original does,
 -- read in the environment the substitution induces.
@@ -78,6 +79,7 @@ open import NaturalMachine.EkaTantra_TheSchedulerAndTheProverAreOneContentionStr
 स्थानिवत् σ (a ⊖ b)  ρ = cong₂ sbℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 स्थानिवत् σ (mx a b) ρ = cong₂ mxℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 स्थानिवत् σ (lq a b) ρ = cong₂ lqℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
+स्थानिवत् σ (gc a b) ρ = cong₂ गच्छℕ (स्थानिवत् σ a ρ) (स्थानिवत् σ b ρ)
 
 -- truth is closed under substitution: one साक्षी covers the orbit.
 ⊨-आदेशः : {l r : Tm} → ⊨ (l , r) → (σ : ℕ → Tm)
@@ -127,6 +129,7 @@ nothing ≫= f = nothing
 मेलनम् (p ⊖ q)  (t ⊖ u)  b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् (mx p q) (mx t u) b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् (lq p q) (lq t u) b = मेलनम् p t b ≫= मेलनम् q u
+मेलनम् (gc p q) (gc t u) b = मेलनम् p t b ≫= मेलनम् q u
 मेलनम् _        _        _ = nothing
 
 -- unbound variables stand for themselves — the identity reading.

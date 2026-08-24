@@ -72,7 +72,8 @@ record सिद्ध-नियमः : Type where
 सिद्ध-श्रुतम् : List सिद्ध-नियमः
 सिद्ध-श्रुतम् = श्रुत-गणना आगमः
 
--- the kernel counts the same list the binary prints: the runtime 21
--- and the checked 21 are one computation, witnessed here by refl.
-एकविंशतिः : दैर्घ्यम् सिद्ध-श्रुतम् ≡ 21
-एकविंशतिः = refl
+-- the kernel counts the same list the binary prints: runtime and
+-- checked count are one computation, witnessed here by refl (25 since
+-- gcd crossed: the four base rules close flat through gc').
+पञ्चविंशतिः : दैर्घ्यम् सिद्ध-श्रुतम् ≡ 25
+पञ्चविंशतिः = refl

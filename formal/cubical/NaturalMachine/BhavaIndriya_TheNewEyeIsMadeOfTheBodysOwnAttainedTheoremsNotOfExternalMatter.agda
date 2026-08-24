@@ -100,6 +100,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 ज्येष्ठ-पङ्क्ति-सत्यम् (a ⊗ b)  ρ = refl
 ज्येष्ठ-पङ्क्ति-सत्यम् (a ⊖ b)  ρ = refl
 ज्येष्ठ-पङ्क्ति-सत्यम् (lq a b) ρ = refl
+ज्येष्ठ-पङ्क्ति-सत्यम् (gc a b) ρ = refl
 
 गरिष्ठ-निवेशः : (x : Tm) (ys : List Tm) (ρ : ℕ → ℕ)
   → गरिष्ठम् (निवेशः x ys) ρ ≡ mxℕ (eval x ρ) (गरिष्ठम् ys ρ)
@@ -144,6 +145,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
 पूर्ण-आम्नायः (mx a b) =
   ज्येष्ठ-रचना (क्रमणम् (ज्येष्ठ-पङ्क्तिः (पूर्ण-आम्नायः a) ++ ज्येष्ठ-पङ्क्तिः (पूर्ण-आम्नायः b)))
 पूर्ण-आम्नायः (lq a b) = lq (पूर्ण-आम्नायः a) (पूर्ण-आम्नायः b)
+पूर्ण-आम्नायः (gc a b) = gc (पूर्ण-आम्नायः a) (पूर्ण-आम्नायः b)
 
 पूर्ण-सत्यम् : (t : Tm) (ρ : ℕ → ℕ) → eval (पूर्ण-आम्नायः t) ρ ≡ eval t ρ
 पूर्ण-सत्यम् (var i)  ρ = refl
@@ -164,6 +166,7 @@ open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEac
   ∙ cong₂ mxℕ (ज्येष्ठ-पङ्क्ति-सत्यम् (पूर्ण-आम्नायः a) ρ) (ज्येष्ठ-पङ्क्ति-सत्यम् (पूर्ण-आम्नायः b) ρ)
   ∙ cong₂ mxℕ (पूर्ण-सत्यम् a ρ) (पूर्ण-सत्यम् b ρ)
 पूर्ण-सत्यम् (lq a b) ρ = cong₂ lqℕ (पूर्ण-सत्यम् a ρ) (पूर्ण-सत्यम् b ρ)
+पूर्ण-सत्यम् (gc a b) ρ = cong₂ गच्छℕ (पूर्ण-सत्यम् a ρ) (पूर्ण-सत्यम् b ρ)
 
 -- the bhāvendriya, handed to the one prover as nothing but a दृक्.
 नेत्रम्-पूर्ण : दृक्

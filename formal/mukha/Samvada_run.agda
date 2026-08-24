@@ -34,6 +34,7 @@ _⊹_ = primStringAppend
 दर्शकः (a ⊖ b)  = "(" ⊹ दर्शकः a ⊹ " - " ⊹ दर्शकः b ⊹ ")"
 दर्शकः (mx a b) = "max(" ⊹ दर्शकः a ⊹ ", " ⊹ दर्शकः b ⊹ ")"
 दर्शकः (lq a b) = "le(" ⊹ दर्शकः a ⊹ ", " ⊹ दर्शकः b ⊹ ")"
+दर्शकः (gc a b) = "gcd(" ⊹ दर्शकः a ⊹ ", " ⊹ दर्शकः b ⊹ ")"
 
 -- its whole attainment, breathed by itself
 परम्परा : List नियमः

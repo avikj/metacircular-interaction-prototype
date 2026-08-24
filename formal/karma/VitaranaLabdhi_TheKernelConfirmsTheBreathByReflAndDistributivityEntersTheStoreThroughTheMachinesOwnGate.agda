@@ -21,9 +21,10 @@ open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAll
 परम्परा : List नियमः
 परम्परा = प्राणः 3 [] आगमः
 
--- the kernel counts what the binary counted
-शत-द्वयम् : दैर्घ्यम् परम्परा ≡ 102
-शत-द्वयम् = refl
+-- the kernel counts what the binary counted: 108 since gcd crossed —
+-- the whole store, nothing left with the elder but fresh constants
+शताष्टकम् : दैर्घ्यम् परम्परा ≡ 108
+शताष्टकम् = refl
 
 x y z : Tm
 x = var 0
