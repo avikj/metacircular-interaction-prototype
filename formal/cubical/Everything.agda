@@ -887,6 +887,11 @@ import SaptabhangiNaya
 -- symmetry) though every krama expression of it picks an order — the seam
 -- between b3 (krama) and b4 (yugapat). नाडी: छिद्रं नास्ति.
 import AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder
+-- the avaktavya-bearing compounds (b5,b6,b7) are realised wherever the
+-- yugapat content is: joint's conjunction, split, forces asti (rewriter)
+-- and nāsti (kernel-refl), so b4 dominates them — closing §8.3's
+-- "no instance constructed here" in the profile semantics. नाडी: छिद्रं नास्ति.
+import SamyogajaBhanga_TheAvaktavyaBearingCombinationsAreRealisedWhereverTheYugapatIs
 import Satyayantra
 import SatyayantraSamyoga
 import SeamClosed
