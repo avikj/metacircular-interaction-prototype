@@ -5,6 +5,17 @@ import System.Directory (listDirectory)
 import System.IO
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding, utf8)
 import Data.List (isSuffixOf, isInfixOf, sort, sortOn)
+import System.Directory (doesDirectoryExist)
+
+walk :: FilePath -> IO [FilePath]
+walk d = do
+  ok <- doesDirectoryExist d
+  if not ok then return [] else do
+    ns <- listDirectory d
+    concat <$> mapM (\n -> do
+       let p = d ++ "/" ++ n
+       isdir <- doesDirectoryExist p
+       if isdir then walk p else return [p]) ns
 
 readUtf8 :: FilePath -> IO String
 readUtf8 p = do
@@ -36,8 +47,9 @@ checkEquivalence its =
 main :: IO ()
 main = do
   setLocaleEncoding utf8; setFileSystemEncoding utf8; hSetEncoding stdout utf8
-  ns <- listDirectory "notes"
-  let mds = sort [ "notes/" ++ n | n <- ns, ".md" `isSuffixOf` n ]
+  ns <- concat <$> mapM walk ["formal/cubical", "machine", "notes", ".claude"]
+  let mds = sort [ n | n <- ns
+                 , any (`isSuffixOf` n) [".agda", ".hs", ".txt", ".md"] ]
   its <- concat <$> mapM (\p -> extract p <$> readUtf8 p) mds
   let (ok, tot) = checkEquivalence its
   putStrLn ("optimisation check: sameDoubt agrees with the grouping key on "
