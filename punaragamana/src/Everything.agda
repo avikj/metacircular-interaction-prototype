@@ -67,3 +67,12 @@ open import Punaragamana.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAn
 -- orbit: at rung n it is योग of the n-th state, never a stale payload.
 -- पुनरागमन read forward into infinity — losslessness as उपयोग at every rung.
 open import Punaragamana.JivitaSmrti
+
+-- लब्धि — the quotient slot.  `Bhavana_` wrote its own defect down: the
+-- cakravāla's exact division "needs a divisibility witness carried
+-- alongside and is not done here".  This settles which of the census's
+-- three arms that division can land in: for k ≠ 0 the fibre of (k ·_) is
+-- a proposition, so विकलादेश is UNINHABITABLE and the division can fail
+-- only by being unposed, never by being ambiguous.  Choosing m makes the
+-- fibre inhabited; nothing has to make it single.
+open import Punaragamana.Labdhi_TheQuotientSlotIsNeverCrowdedSoExactDivisionCanOnlyFailByBeingUnposed
