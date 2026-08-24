@@ -2277,3 +2277,6 @@ import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 -- refinement is reversible" now has its finite carrier statement.
 import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch
 
+
+-- The entry point: what this is, the descent route, and what is built.
+import Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel
