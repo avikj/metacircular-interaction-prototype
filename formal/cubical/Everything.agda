@@ -879,6 +879,10 @@ import SamasaNyuna
 import Samasesha
 import Sankalita
 import SaptabhangiNaya
+-- avaktavya's yugapat content is order-free (and-commutativity, an earned
+-- symmetry) though every krama expression of it picks an order — the seam
+-- between b3 (krama) and b4 (yugapat). नाडी: छिद्रं नास्ति.
+import AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder
 import Satyayantra
 import SatyayantraSamyoga
 import SeamClosed
