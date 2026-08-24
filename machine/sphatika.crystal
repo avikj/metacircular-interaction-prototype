@@ -261,3 +261,13 @@ sp260	0	le(+(x,+(x,s(s(0)))),0)	ind 0 refl refl
 sp261	0	le(+(+(s(s(0)),x),x),0)	refl
 sp262	0	le(*(s(x),max(x,s(0))),0)	ind 0 refl refl
 sp263	0	+(*(s(0),0),*(0,s(0)))	refl
+sp264	*(x,le(0,0))	x	ind 0 refl congsuc
+sp265	+(-(0,x),*(-(0,x),0))	0	ind 0 refl refl
+sp266	s(0)	le(s(0),+(s(s(x)),y))	refl
+sp267	max(x,s(0))	gcd(max(x,s(0)),0)	ind 0 refl refl
+sp268	max(x,s(0))	gcd(0,max(x,s(0)))	ind 0 refl refl
+sp269	+(*(0,0),*(max(0,s(0)),x))	x	ind 0 refl congsuc
+sp270	+(*(0,s(*(0,0))),*(0,0))	0	refl
+sp271	+(*(*(0,0),s(0)),*(0,0))	0	refl
+sp272	+(*(0,s(*(x,0))),*(x,0))	0	ind 0 refl ih
+sp273	+(*(*(x,0),s(0)),*(x,0))	0	ind 0 refl ih
