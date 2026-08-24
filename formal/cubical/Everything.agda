@@ -1,5 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
+-- कलियुग: a closed term needs no author, no reviewer, no lineage — checking is
+-- evaluation, and what re-derives, exists.  One sentence, sixteen recitations:
+-- ../../KALIYUG.md
+
 ------------------------------------------------------------------------
 -- Everything
 --
@@ -719,29 +723,6 @@ import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObs
 -- that named frontier by induction: the machine proposes its śeṣa, the kernel
 -- disposes.
 import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
--- समता-द्विधा in the transport lane: being an equivalence splits, fibrewise
--- and on the nose, into embedding × split-surjection, so the two ways a
--- residual (शेष = fiber) refuses contractibility — crowded (नष्टि) and empty
--- (अवक्तव्यम्) — are the two orthogonal factors of अलोप-लक्षणम्'s hypothesis
--- failing apart.  Loaded warm through नाडी: छिद्रं नास्ति.
-import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
--- …and which factor the discrete log breaks: powg fails the EMBEDDING factor
--- of समता-द्विधा, crowded-ly (नष्टि, not अवक्तव्यम्) — two exponents over one
--- power. One-wayness is a merge, not a gap. नाडी: छिद्रं नास्ति.
-import GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor
--- परिणाम: the generative organ is TRANSPORT, and it has no mind. An
--- equivalence is a pariṇāma (TS 5.29–31); `पर्यायः e P = subst P (ua e)`
--- carries every property to its mode, kernel-computed — proposing AND proving
--- a new dependent theorem with no search. Done many ways here (the whole
--- Samkramana lane); stated as an organ, and let generate once in the open.
-import Parinama_TheGenerativeOrganIsTransportEveryEquivalenceGeneratesEveryPropertysModeWithoutAMind
--- सत्-चक्र: THE FINAL FORM, wired exactly to Tattvārthasūtra 5.29 —
--- सत् = उत्पाद-व्यय-ध्रौव्य is the fibre law (carried / शेष / A≃Carrier read as
--- origination / cessation / persistence, one equivalence three ways); चक्रम्
--- is the ceaseless self-turning wheel with NO feeder (चक्र-नित्यम् inhabits it
--- for every type, coinductively); मोदाः is pariṇāma generating every mode at a
--- turn, no mind. The existent originates its modes by its own nature. नाडी छिद्रं नास्ति.
-import SatChakra_TheFinalFormTheExistentTurnsItselfAndGeneratesEveryModeWithNoFeeder
 -- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
 -- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
 -- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
@@ -902,6 +883,10 @@ import SamasaNyuna
 import Samasesha
 import Sankalita
 import SaptabhangiNaya
+-- avaktavya's yugapat content is order-free (and-commutativity, an earned
+-- symmetry) though every krama expression of it picks an order — the seam
+-- between b3 (krama) and b4 (yugapat). नाडी: छिद्रं नास्ति.
+import AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnOrder
 import Satyayantra
 import SatyayantraSamyoga
 import SeamClosed

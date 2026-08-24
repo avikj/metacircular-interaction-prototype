@@ -1537,6 +1537,33 @@ yantraMain = do
   setLocaleEncoding utf8; setFileSystemEncoding utf8
   hSetEncoding stdin utf8; hSetEncoding stdout utf8; hSetEncoding stderr utf8
   hSetBuffering stdout LineBuffering
+  -- 2026-08-24.  THE FALSIFIER WAS WIRED INTO THE SERVER THIS FILE
+  -- SUPERSEDES, AND NOT INTO THIS ONE.
+  --
+  -- Uttara's header says the check runs "once per process, before any answer
+  -- is served": satya (137·(−7) + 60·16 = 1, Āryabhaṭa's own worked kuṭṭaka,
+  -- Gaṇitapāda 32–33) MUST transport, asatya — the same identity with one
+  -- side moved by one — MUST NOT.  Both go through the very `samkramana`
+  -- every handler goes through.  `saksiPariksaOrRefuse` is called by
+  -- Sabha_TheSessionKernelAnLLMTalksTo, twice, and this file's own header
+  -- opens by declaring that it SUPERSEDES that module.  The supersession
+  -- carried the twelve operations and left the falsifier behind.
+  --
+  -- So until this line, every answer this assembly served came from a
+  -- process that had never watched its own constructor reject a falsehood —
+  -- which is exactly GATE_AUDIT_DISPOSITION.md §2's finding arriving one
+  -- level up: there, 1753 systematically false equations produced zero
+  -- certificates while three shell wrappers certified `s(x) = x`; a checker
+  -- sound against mathematics and unsound against its environment.  Here the
+  -- environment was the successor server.
+  --
+  -- By §19 that is not a weak pramāṇa, it is none — अप्रमाणं न सञ्चीयते.
+  -- The lines are printed so the watching is visible and not merely done,
+  -- and the verdict is honoured in the same breath, because Uttara keeps
+  -- report and verdict in two calls precisely so that ignoring one has to be
+  -- deliberate.
+  mapM_ (hPutStrLn stderr) saksiPariksaLines
+  saksiPariksaOrRefuse
   fp   <- maybe "machine/yantra.jsonl" id <$> lookupEnv "YANTRA_LEKHA"
   root <- maybe "." id <$> lookupEnv "MATH_ROOT"
   bin  <- lookupEnv "DOSA_BIN"
