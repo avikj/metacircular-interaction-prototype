@@ -46,7 +46,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; suc-≤-suc ; ¬-<-zero)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; ¬-<-zero ; ¬m<m)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -1191,4 +1191,60 @@ mulyam-aparimitam b = bahu-sthula-sadrsyam b , n<bahu b
 -- adding zeros, which is a degenerate way to be expensive.  The real
 -- question — whether the walk's two presentations differ by a bounded or
 -- unbounded मात्रा — needs both written as प्रक्रियाs, and neither is.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 32.  The price is not a number you pay.  It is a direction you cannot
+--      go.
+--
+-- §30 leaves an obvious complaint: unbounded ABOVE is cheap news, since
+-- one can always waste.  The complaint is right and the answer is that
+-- waste is exactly the point — the expensive presentations are legitimate
+-- translations (§30), indistinguishable in every context (§20), and
+-- UNREACHABLE from the cheap one.
+--
+-- `Anujna` is what makes this a theorem rather than an observation.  A
+-- licence carries `matra-p (krama A P) ≤ matra-p P`, so no licensed move
+-- lengthens a derivation; and because licences COMPOSE (§28), that covers
+-- every finite chain of them at once, with no induction over chains.
+------------------------------------------------------------------------
+
+anujna-na-dirghayati : (A : Anujna) (P : Prakriya)
+                     → ¬ (matra-p P < matra-p (krama A P))
+anujna-na-dirghayati A P h = ¬m<m (≤-trans h (matra-na-vardhate A P))
+
+-- so the padded derivation is not the image of ANY licensed move — nor of
+-- any composite, `sanghatita` having made composites licences too
+sthulam-anujnaya-na-prapyate :
+  (A : Anujna) (P : Prakriya) → ¬ (krama A P ≡ sthula-p P)
+sthulam-anujnaya-na-prapyate A P q =
+  ¬m<m (≤-trans ≤-sucℕ
+         (subst (λ R → matra-p R ≤ matra-p P) q (matra-na-vardhate A P)))
+
+------------------------------------------------------------------------
+-- 33.  What the three sections together say.
+--
+--   §20  the expensive and the cheap presentation agree in every context
+--        the language has;
+--   §30  the licensed translations of one नय have मूल्य cofinal in ℕ;
+--   §32  and no licensed move goes from a cheap presentation to an
+--        expensive one, ever, in any number of steps.
+--
+-- Read together these say that "what does a transport cost" was the wrong
+-- shape of question, because it presumes a scalar to be paid.  The
+-- structure is an ORDER.  A नय's presentations sit above its cheapest
+-- ones, licensed motion runs downward only, and the denotation sees none
+-- of it (§18) — not even after saturating over every context (§21).
+--
+-- This is why the तपस् of §1–§4 had to be an act rather than a fact.
+-- निर्जरा sheds; nothing sheds by itself and nothing licensed adds back.
+-- The asymmetry was already in the Tattvārthasūtra's distinction between
+-- सविपाक and अविपाक — ripening that merely happens against shedding that
+-- is undertaken — and §32 is that distinction with the arrow drawn.
+--
+-- What is still not shown, and it is the same gap §31 named: that any two
+-- presentations arising in this corpus stand in this order rather than
+-- being incomparable.  Unreachability is proved here only for the padded
+-- family, whose expense is manufactured.  The walk's two descriptions are
+-- the case that matters and they are not written as प्रक्रियाs.
 ------------------------------------------------------------------------
