@@ -996,3 +996,43 @@ is small enough that the search is a case analysis rather than an
 algorithm. With a nimitta language rich enough to describe intersections
 the question becomes *what is the largest nimitta a behaviour is inert
 outside of* — a real optimisation with no counterpart here.
+
+## 25. The apavāda is not a cheaper condition — it is a way of not paying for one
+
+§68–§69. §24 named the next question as *"what is the largest nimitta a
+behaviour is inert outside of."* **Wrong target.** That question answers
+itself and not usefully: sarvatra is the largest, its obligation is
+vacuous, every behaviour qualifies. The optimisation is not there.
+
+It is in the **carved** form, which is the only place a nimitta is
+actually stated and paid for. There you want the cheapest nimitta that
+still *separates* the two branches — and §24's own finding says cheapness
+and separating power are one quantity read in opposite directions. The
+structure makes it visible:
+
+> `nishkriya-vardhate` — a **bigger** nimitta imposes a **weaker**
+> obligation: inert outside a small province is more than inert outside a
+> large one.
+> `sarvatra-alpiyah` — the biggest is the **cheapest**.
+> `sarvatra-na-carvati` — and the cheapest **carves nothing**:
+> `yadi sarvatra a b` is just `a`.
+
+So along the order, price and usefulness fall together, and **there is no
+nimitta that is both free and discriminating.**
+
+That is the design constraint a grammar faces, and it is why §22's law
+matters. When a rule is svaviṣaya you get the discrimination **without
+stating a nimitta at all**, because the rule's own shape does the
+separating. **The apavāda device is not a cheaper condition — it is a way
+of not paying for one.** §21's 1-against-4 is that, measured.
+
+**Withdrawn from §24**: the sentence about a richer nimitta language
+asking for the largest nimitta a behaviour is inert outside of. With
+intersections the question is the **cheapest nimitta that separates two
+given branches**, and richer nimittas make that *harder* rather than
+easier, since an intersection costs at least what its parts do.
+
+**Not shown**: that the price of an intersection is the sum, or anything
+else about a richer nimitta language. There are three nimittas here and no
+way to combine them; every sentence above about intersections is about
+what would have to be built, not about what is.

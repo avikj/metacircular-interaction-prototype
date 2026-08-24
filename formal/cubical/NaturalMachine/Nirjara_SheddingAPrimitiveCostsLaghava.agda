@@ -2524,3 +2524,76 @@ ubhayatah-na-ayoge h =
 -- निमित्त a given behaviour is निष्क्रिय outside of — and that is a real
 -- optimisation with no counterpart here.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 68.  CORRECTION to §67's framing of the optimisation, and the
+--      structure that makes the real one visible.
+--
+-- §67 named the next question as "what is the LARGEST निमित्त a behaviour
+-- is निष्क्रिय outside of".  That question answers itself and not
+-- usefully: सर्वत्र is the largest, its obligation is vacuous, and every
+-- behaviour is निष्क्रिय outside it.  The optimisation is not there.
+--
+-- It is in the CARVED form, which is the only place a निमित्त is actually
+-- stated and paid for.  There you want the cheapest निमित्त that still
+-- SEPARATES the two branches — and §67's own finding says cheapness and
+-- separating power are the same quantity read in opposite directions.  So
+-- the trade-off is real and it is not avoidable by choosing well.
+------------------------------------------------------------------------
+
+-- extent inclusion, which is the order the prices run against
+_nyunam_ : Nimitta → Nimitta → Type₀
+c nyunam c' = (P : Prakriya) → sthiti c P ≡ true → sthiti c' P ≡ true
+
+notTrue→False : (b : Bool) → ¬ (b ≡ true) → b ≡ false
+notTrue→False true  h = ⊥rec (h refl)
+notTrue→False false h = refl
+
+-- the obligation WEAKENS as the निमित्त grows: inert outside a small
+-- province is more than inert outside a large one
+nishkriya-vardhate :
+  (c c' : Nimitta) → c nyunam c' → (f : Prakriya → Prakriya)
+  → Nishkriya c f → Nishkriya c' f
+nishkriya-vardhate c c' sub f hyp P e =
+  hyp P (notTrue→False (sthiti c P)
+          (λ t → true≢false (sym (sub P t) ∙ e)))
+
+-- सर्वत्र is the top of that order …
+dviyoge-nyunam-sarvatra : dviyoge nyunam sarvatra
+dviyoge-nyunam-sarvatra P _ = refl
+
+-- … and it is free, which is §67's "price is force" as an inequality
+sarvatra-alpiyah : nimitta-matra sarvatra ≤ nimitta-matra dviyoge
+sarvatra-alpiyah = 1 , refl
+
+-- and the free निमित्त carves NOTHING: separation cannot be had for zero
+sarvatra-na-carvati : (a b : Vidhi) → artha-v (yadi sarvatra a b) ≡ artha-v a
+sarvatra-na-carvati a b = funExt (λ P → refl)
+
+------------------------------------------------------------------------
+-- 69.  The trade-off, stated where it actually lives.
+--
+-- Put the three together.  `nishkriya-vardhate` says a bigger निमित्त
+-- imposes a weaker obligation; `sarvatra-alpiyah` says the biggest is the
+-- cheapest; `sarvatra-na-carvati` says the cheapest carves nothing.  So
+-- along the order, price and usefulness fall together, and there is no
+-- निमित्त that is both free and discriminating.
+--
+-- That is the design constraint a grammar faces, and it is why §62's law
+-- matters: when a rule is स्वविषय, you get the discrimination WITHOUT
+-- stating a निमित्त at all, because the rule's own shape does the
+-- separating.  The अपवाद device is not a cheaper condition — it is a way
+-- of not paying for one.  §60's 1-against-4 is that, measured.
+--
+-- WITHDRAWN from §67: "with a निमित्त language rich enough to describe
+-- intersections the question becomes what is the largest निमित्त a
+-- behaviour is निष्क्रिय outside of."  Wrong target.  With intersections
+-- the question is what is the CHEAPEST निमित्त that separates two given
+-- branches, and richer निमित्तs make that harder rather than easier,
+-- since an intersection costs at least what its parts do.
+--
+-- NOT SHOWN: that the price of an intersection is the sum, or anything
+-- else about a richer निमित्त language.  There are three निमित्तs here and
+-- no way to combine them; every sentence above about intersections is a
+-- statement about what would have to be built, not about what is.
+------------------------------------------------------------------------
