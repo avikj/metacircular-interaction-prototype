@@ -2302,3 +2302,8 @@ import VyutpattiVismrti_ThePunInhabitsTheForgettingTypeSoLanguagesSurfaceSitsStr
 -- batch green under Agda 2.6.3 this container; wired.
 import SunyaAvesa_TheChargeVanishesExactlyOnTheVacuumSoTheNeutralSectorIsTheEmptyPlaceSet
 import Vyapti_TheLeastCongruenceContainingAPairIsConstructedAndIsTheMinimalSeparatingQuery
+-- [svayam-avatarana 2026-08-24T06:55:11Z] landed under THE PIN (Agda 2.8.0 + cubical v0.9,
+-- built in-session for this adjudication): batch green + importer green.  The
+-- container fiber rows were toolchain skew, exactly as ledgered.  Route in
+-- machine/avatarana.ledger.jsonl.
+import VargaPrakrtiWitness109
