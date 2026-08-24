@@ -211,13 +211,41 @@ mutual
   unfT (Bin s x y) (S b) = unfP (Bin s x y) (unfT (Bin s x y) b)
   unfT a b = Bin times a b
 
+-- max, le and monus on two successor-headed arguments unfold by their
+-- defining equations (max' (suc a) (suc b) = suc (max' a b) and so on,
+-- all definitional) — which is what lets a case-split branch, where
+-- the split variable became suc-headed, close by normalisation.
+unfMax : Tm → Tm → Tm
+unfMax (S a) (S b) = S (unfMax a b)
+unfMax a b = Bin maxS a b
+
+unfLe : Tm → Tm → Tm
+unfLe (S a) (S b) = unfLe a b
+unfLe a b = Bin leS a b
+
+unfMon : Tm → Tm → Tm
+unfMon (S a) (S b) = unfMon a b
+unfMon a b = Bin monus a b
+
 unf : Tm → Tm
 unf (V i) = V i
 unf Z = Z
 unf (S t) = S (unf t)
 unf (Bin plus a b) = unfP (unf a) (unf b)
 unf (Bin times a b) = unfT (unf a) (unf b)
+unf (Bin maxS a b) = unfMax (unf a) (unf b)
+unf (Bin leS a b) = unfLe (unf a) (unf b)
+unf (Bin monus a b) = unfMon (unf a) (unf b)
 unf (Bin s a b) = Bin s (unf a) (unf b)
+
+-- substitution of a variable, for the split-then-normalise classifier:
+-- the proposer asks whether BOTH branches of a case split share normal
+-- forms before uttering the split candidate.
+substV : Nat → Tm → Tm → Tm
+substV i u (V j) = if is1 (cmpN i j) then u else V j
+substV i u Z = Z
+substV i u (S t) = S (substV i u t)
+substV i u (Bin s a b) = Bin s (substV i u a) (substV i u b)
 
 -- two rounds of unfold+erase, then the AC canon: each pass is sound on
 -- its own, so any composition is, and two rounds close everything the

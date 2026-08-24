@@ -416,6 +416,55 @@ nfCandidate name l r =
   & envLines n
 
 ------------------------------------------------------------------------
+-- the split-then-normalise rung — the machine acting on its own
+-- vibhaga diagnosis.  When a pair is not nf-equal open but BOTH
+-- branches of a case split on some variable are (the zero branch
+-- erases; the suc branch unfolds max/le/monus/·/+ on the now
+-- suc-headed argument), the candidate is two clauses, each a
+-- reflection proof.  The classifier decides per branch BEFORE
+-- uttering, so a split candidate is emitted exactly when the checked
+-- normaliser says both branches close.
+------------------------------------------------------------------------
+
+filterL : {A : Set} → (A → Bool) → List A → List A
+filterL p [] = []
+filterL p (x ∷ xs) = if p x then (x ∷ filterL p xs) else filterL p xs
+
+splitNfOK : Tm → Tm → Nat → Bool
+splitNfOK l r i =
+  if nfEqual (substV i Z l) (substV i Z r)
+  then nfEqual (substV i (S (V i)) l) (substV i (S (V i)) r)
+  else false
+
+-- env for one branch: the split variable reads as the given pattern's
+-- denotation (zero, or the suc-bound name), the others as themselves
+envLinesAt : Nat → Nat → String → String
+envLinesAt n i patt =
+  concatS (map (λ j → "  env " & showIx j & " = "
+                 & (if j == i then patt else varName j) & "\n")
+               (argRange n))
+  & "  env _ = zero\n"
+
+splitNfCandidate : String → Tm → Tm → Nat → String
+splitNfCandidate name l r i =
+  let n = nVarsOf l r in
+  let l0 = substV i Z l in
+  let r0 = substV i Z r in
+  let l1 = substV i (S (V i)) l in
+  let r1 = substV i (S (V i)) r in
+  nfHeader name & sigLine n l r
+  & "prastava " & argsAt n i "zero" & "=\n"
+  & "  sym (nf-sound env " & quoteTm l0 & ") ∙ nf-sound env " & quoteTm r0 & "\n"
+  & "  where\n"
+  & "  env : ℕ → ℕ\n"
+  & envLinesAt n i "zero"
+  & "prastava " & argsAt n i ("(suc " & varName i & ")") & "=\n"
+  & "  sym (nf-sound env " & quoteTm l1 & ") ∙ nf-sound env " & quoteTm r1 & "\n"
+  & "  where\n"
+  & "  env : ℕ → ℕ\n"
+  & envLinesAt n i (varName i)
+
+------------------------------------------------------------------------
 -- the proposer.  For one report line and a module name: either a list
 -- of candidate module texts (tried in order — the mouth stops at the
 -- first the kernel accepts), or a written refusal with its reason.
@@ -439,7 +488,9 @@ proposeParsed name (just lr) =
   then candidates (reflCandidate name l r ∷ nfCandidate name l r ∷ [])
   else candidates
     (reflCandidate name l r
-      ∷ (map (splitCandidate name l r) (nub (varsOf l ++ varsOf r))
+      ∷ (map (splitNfCandidate name l r)
+             (filterL (splitNfOK l r) (nub (varsOf l ++ varsOf r)))
+         ++ map (splitCandidate name l r) (nub (varsOf l ++ varsOf r))
          ++ map (indCandidate name l r) (nub (varsOf l ++ varsOf r))))
 
 propose : String → String → Uttara

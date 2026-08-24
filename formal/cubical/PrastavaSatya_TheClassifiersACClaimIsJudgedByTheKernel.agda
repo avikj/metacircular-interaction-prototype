@@ -528,6 +528,36 @@ unfT-sound e (Bin s x y) (V j) = refl
 unfT-sound e (Bin s x y) Z = refl
 unfT-sound e (Bin s x y) (Bin s' x' y') = refl
 
+unfMax-sound : (e : ℕ → ℕ) (a b : Tm)
+  → eval e (unfMax a b) ≡ max' (eval e a) (eval e b)
+unfMax-sound e (S a) (S b) = cong suc (unfMax-sound e a b)
+unfMax-sound e (S a) (V j) = refl
+unfMax-sound e (S a) Z = refl
+unfMax-sound e (S a) (Bin s x y) = refl
+unfMax-sound e (V i) b = refl
+unfMax-sound e Z b = refl
+unfMax-sound e (Bin s x y) b = refl
+
+unfLe-sound : (e : ℕ → ℕ) (a b : Tm)
+  → eval e (unfLe a b) ≡ le (eval e a) (eval e b)
+unfLe-sound e (S a) (S b) = unfLe-sound e a b
+unfLe-sound e (S a) (V j) = refl
+unfLe-sound e (S a) Z = refl
+unfLe-sound e (S a) (Bin s x y) = refl
+unfLe-sound e (V i) b = refl
+unfLe-sound e Z b = refl
+unfLe-sound e (Bin s x y) b = refl
+
+unfMon-sound : (e : ℕ → ℕ) (a b : Tm)
+  → eval e (unfMon a b) ≡ eval e a ∸' eval e b
+unfMon-sound e (S a) (S b) = unfMon-sound e a b
+unfMon-sound e (S a) (V j) = refl
+unfMon-sound e (S a) Z = refl
+unfMon-sound e (S a) (Bin s x y) = refl
+unfMon-sound e (V i) b = refl
+unfMon-sound e Z b = refl
+unfMon-sound e (Bin s x y) b = refl
+
 unf-sound : (e : ℕ → ℕ) (t : Tm) → eval e (unf t) ≡ eval e t
 unf-sound e (V i) = refl
 unf-sound e Z = refl
@@ -537,11 +567,14 @@ unf-sound e (Bin plus a b) =
 unf-sound e (Bin times a b) =
   unfT-sound e (unf a) (unf b) ∙ cong₂ _·_ (unf-sound e a) (unf-sound e b)
 unf-sound e (Bin monus a b) =
-  cong₂ _∸'_ (unf-sound e a) (unf-sound e b)
+  unfMon-sound e (unf a) (unf b)
+  ∙ cong₂ _∸'_ (unf-sound e a) (unf-sound e b)
 unf-sound e (Bin leS a b) =
-  cong₂ le (unf-sound e a) (unf-sound e b)
+  unfLe-sound e (unf a) (unf b)
+  ∙ cong₂ le (unf-sound e a) (unf-sound e b)
 unf-sound e (Bin maxS a b) =
-  cong₂ max' (unf-sound e a) (unf-sound e b)
+  unfMax-sound e (unf a) (unf b)
+  ∙ cong₂ max' (unf-sound e a) (unf-sound e b)
 unf-sound e (Bin gcdS a b) =
   cong₂ gcd' (unf-sound e a) (unf-sound e b)
 
