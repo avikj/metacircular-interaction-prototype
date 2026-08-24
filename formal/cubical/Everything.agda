@@ -2524,6 +2524,7 @@ import PrasnaDvaiguni_TheDoubleSpendIsANonContractibleFibre
 import EkantalopaBija_TheInvariantFunctionalVanishesOnEveryCharge
 import GranthiCarya_TheStringCarriesItsIntegerAndThatIntegerIsTheCharge
 import IndrajalaDipa_TheLightInTheOrbIsAWindingAndTheWindingsAddSoNothingIsCreated
+import BahumargaBheda_TheMultiwayDoesNotCollapseDistinctBranchesAreProvablyDistinct
 -- the crystal: the compounding store grown by the completion loop
 -- (machine/Sphatika_*.hs), rendered whole and kernel-checked at every
 -- landing; 200 lemmas at first install (library.terms 201 -> 399)
