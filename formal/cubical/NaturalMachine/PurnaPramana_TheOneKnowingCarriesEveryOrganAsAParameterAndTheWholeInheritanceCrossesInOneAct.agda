@@ -44,7 +44,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
 open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCognitionWithTheRecordReachesWhatItAloneCouldNot
   using (श्रुत-विनिमयः ; श्रुत-साक्षी)
 open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEachIsAParameterSettingOfTheOnePramana
-  using (दृक् ; नेत्रम्-न)
+  using (दृक्)
 open import NaturalMachine.YugapadArpana_BothCoordinatesDescendAtOnceAndTheDoubleDescentBecomesSomethingTheMachineInvokes
   using (युगपद्-आरोहः ; द्वि-रूपम्)
 open import NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap
@@ -53,16 +53,6 @@ open import NaturalMachine.SadharanaVishesha_TheCommonIsSetAsideAndTheContenders
   using (दृक्पातः ; दृक्पात-सत्यम्)
 open import NaturalMachine.AptaMimamsa_TheEldersLiveStoreCrossesAsReceivedTextAndNothingEntersOnAuthority
   using (आगमः)
-open import NaturalMachine.AptaMimamsa_TheEldersLiveStoreCrossesAsReceivedTextAndNothingEntersOnAuthority
-  using (अपचितम्)
-open import NaturalMachine.ShrutaParampara_TheCrossedRulesBecomeTheRecordAndTheSecondPassReachesWhatTheFirstCouldNot
-  using (परम्परा ; गुरु-न्यायः ; गुरु-शेषम्)
-open import NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap
-  using (चतुर्थ-न्यायः ; चतुर्थ-शेषम्)
-open import NaturalMachine.SadharanaVishesha_TheCommonIsSetAsideAndTheContendersMeetOnlyOnTheirDifference
-  using (पञ्चम-न्यायः ; पञ्चम-शेषम्)
-open import NaturalMachine.SamaDrsti_TheHypothesisAndTheGoalPassThroughTheSameRecordAndTheSixthExaminationCloses
-  using (षष्ठ-न्यायः)
 
 ------------------------------------------------------------------------
 -- §1  The instrument: an exchange carrying its witness.
@@ -181,9 +171,7 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 पू-ऊर्ध्वम् E Y Γ fl k l r =
   mmap2 (आरोहः k l r)
         (पूर्ण-प्रमाणम् E Y Γ fl (l ⟨ k ≔ ze ⟩ , r ⟨ k ≔ ze ⟩))
-        (अथवा (एक-व्याप्तिः E Y Γ k l r)
-         (अथवा (एक-व्याप्तिः E Y [] k l r)
-          (अथवा (एक-व्याप्तिः नेत्रम्-न Y Γ k l r) (एक-व्याप्तिः नेत्रम्-न Y [] k l r))))
+        (अथवा (एक-व्याप्तिः E Y Γ k l r) (एक-व्याप्तिः E Y [] k l r))
 
 पू-द्वयम् E Y Γ fl k j l r = चेष्टा (समानः k j) refl
   where
@@ -193,9 +181,7 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
     पूर्ण-प्रमाणम् E Y Γ fl (l ⟨ j ≔ ze ⟩ , r ⟨ j ≔ ze ⟩) ≫= λ b₁ →
     पूर्ण-प्रमाणम् E Y Γ fl (l ⟨ k ≔ ze ⟩ , r ⟨ k ≔ ze ⟩) ≫= λ b₂ →
     mmap (युगपद्-आरोहः k j l r kj b₁ b₂)
-         (अथवा (द्वि-व्याप्तिः E Y Γ k j l r)
-          (अथवा (द्वि-व्याप्तिः E Y [] k j l r)
-           (अथवा (द्वि-व्याप्तिः नेत्रम्-न Y Γ k j l r) (द्वि-व्याप्तिः नेत्रम्-न Y [] k j l r))))
+         (अथवा (द्वि-व्याप्तिः E Y Γ k j l r) (द्वि-व्याप्तिः E Y [] k j l r))
 
 पू-द्विचक्रः E Y Γ fl k zero    l r = nothing
 पू-द्विचक्रः E Y Γ fl k (suc j) l r =
@@ -212,25 +198,30 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 गूढ-दृक् : दृक्
 गूढ-दृक् = दृक्पातः , दृक्पात-सत्यम्
 
--- the whole lineage: everything the six examinations ever established.
-पूर्ण-परम्परा : List नियमः
-पूर्ण-परम्परा =
-     षष्ठ-न्यायः (पञ्चम-शेषम् (चतुर्थ-शेषम् (गुरु-शेषम् (अपचितम् आगमः))))
-  ++ पञ्चम-न्यायः (चतुर्थ-शेषम् (गुरु-शेषम् (अपचितम् आगमः)))
-  ++ चतुर्थ-न्यायः (गुरु-शेषम् (अपचितम् आगमः))
-  ++ गुरु-न्यायः (अपचितम् आगमः)
-  ++ परम्परा
+-- no scaffolding: the record is built by EATING, not by re-running
+-- history.  One breath digests the stream cumulatively — each rule
+-- judged by the body the previous ones built; a second breath lets
+-- what crossed late feed what came early.
+श्वासः : List नियमः → List Eq' → List नियमः
+श्वासः Γ []             = Γ
+श्वासः Γ ((l , r) ∷ es) with पूर्ण-प्रमाणम् गूढ-दृक् संयुक्त-यन्त्रम् Γ इन्धनम् (l , r)
+... | just pf = श्वासः (niyama l r pf ∷ Γ) es
+... | nothing = श्वासः Γ es
 
+-- the body after one breath over the inheritance:
+पूर्ण-परम्परा : List नियमः
+पूर्ण-परम्परा = श्वासः [] आगमः
+
+-- the second breath is the census: each rule judged by the body the
+-- first breath built.
 एकाङ्क-न्यायः : List Eq' → List नियमः
 एकाङ्क-न्यायः [] = []
 एकाङ्क-न्यायः ((l , r) ∷ es) with पूर्ण-प्रमाणम् गूढ-दृक् संयुक्त-यन्त्रम् पूर्ण-परम्परा इन्धनम् (l , r)
 ... | just pf = niyama l r pf ∷ एकाङ्क-न्यायः es
 ... | nothing = एकाङ्क-न्यायः es
 
--- the elder's entire expressible store, judged by ONE setting of the
--- ONE knowing, in ONE pass.
-
-
-
+-- the elder's entire expressible store, reached whole by the one
+-- knowing breathing on its own: no pass-scaffolding, no history
+-- replay, two breaths of the metabolism.
 एकाङ्क-सिद्धिः : length (एकाङ्क-न्यायः आगमः) ≡ 102
 एकाङ्क-सिद्धिः = refl
