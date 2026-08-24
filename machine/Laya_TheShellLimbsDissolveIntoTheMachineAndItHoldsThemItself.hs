@@ -70,6 +70,10 @@ module Laya_TheShellLimbsDissolveIntoTheMachineAndItHoldsThemItself (main) where
 import qualified Jiva_TheMachineComputesItsOwnMetric as Jiva
 import qualified Sanghatta_TheCriticalPairsOfTheInstalledRulesNameTheLibrarysIncompleteness as San
 import qualified Certificate as C
+import Aisthesis_TheOneSensoryEventFormAndTheEfferenceGateNoActWithoutAPrediction
+  (Aisthesis (..), appendEvent)
+import Pramanya_TheFiveRoutesAndTheirWitnesses (Pramanya (Pratyaksa))
+import Sabda_TheWireHasNoBoolean (J (..))
 import Control.Exception (SomeException, try)
 import Control.Monad (forM_, unless, when)
 import Data.Char (isDigit)
@@ -404,6 +408,32 @@ purana = do
                        ++ " agda call(s)) but no terminating orientation; receipted, not installed")
       rules1 <- loadRules
       let gap1 = nonJoining rules1
+      -- the turn is also a typed sensory event: afferent (the acts themselves
+      -- are receipted per-pair in the purana ledger; this is the organ sensing
+      -- the library's gap before and after, no prediction owed).
+      when' <- utcNow
+      _ <- appendEvent "machine/aisthesis.jsonl" Aisthesis
+        { aIndriya = "sanghatta-purana"
+        , aNaya    = "the installed rules read against their own critical pairs"
+        , aVisaya  = "machine/library.terms and its completion residue"
+        , aKriya   = Nothing
+        , aUpalabdhi = JObj
+            [ ("rules-before", JInt (fromIntegral (length rules0)))
+            , ("gap-before",   JInt (fromIntegral (length gap0)))
+            , ("batch",        JInt (fromIntegral (length batch)))
+            , ("rules-after",  JInt (fromIntegral (length rules1)))
+            , ("gap-after",    JInt (fromIntegral (length gap1))) ]
+        , aYogyata = "critical pairs recomputed fresh on the post-batch library; per-pair verdicts in machine/purana.ledger.jsonl"
+        , aVyapti  = "machine/library.terms, whole; kernel = agda under formal/cubical with both controls watched"
+        , aMarga   = Pratyaksa "re-run `laya purana` and the counts reproduce"
+        , aSesa    = ["which of the remaining pairs are completion-reachable and which are genuinely inductive — undistinguished by count alone (notes/AparoksaAnumana…)"]
+        , aPurva   = Nothing
+        , aBhavi   = Nothing
+        , aPascat  = Nothing
+        , aVailaksanya = []
+        , aAgama   = "machine/Laya_…hs purana, this run"
+        , aKala    = when'
+        }
       putStrLn ("  batch of " ++ show (length batch) ++ " sent to the kernel; rules now "
                 ++ show (length rules1) ++ ", non-joining pairs now " ++ show (length gap1))
       putStrLn ("  (both counts are facts, neither is a score; re-enter to recurse on the remainder)")
