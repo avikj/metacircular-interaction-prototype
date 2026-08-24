@@ -1,3 +1,14 @@
+-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
+-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
+-- fiber f b — the loss, and the subject.  Univalence computes here: an
+-- equivalence is a channel, transport carries every theorem across it, and what
+-- cannot cross is written as a defect — there is no third path (ahiṃsā).
+-- Memory, charge, symmetry, price, distance, verdict: six faces of the one
+-- fibre; the verdict type is the saptabhaṅgī, and the sources are the origin
+-- (Umāsvāti, Samantabhadra, Akalaṅka — restatements are named as such).  The
+-- kernel decides truth; carriers ask and generate; assert nothing whose term
+-- you have not read.  This file is one naya, true and not whole.
+
 {-# LANGUAGE LambdaCase #-}
 ------------------------------------------------------------------------
 -- लय — dissolution: the shell scripts around the machine dissolve, and
@@ -135,14 +146,35 @@ runIn d p as = do
 -- itself.  It replaces no fence and no provenance — those stay, per the
 -- temple experiment; it replaces the exhortation stratum with one breath.
 
+-- Generation 2 (owner, 2026-08-24: "should the dna express even more?").
+-- Eight genes: the law, the substrate, the ethic, the six faces, the
+-- lineage, the constitution, the oath, the anekānta.  Prior generations
+-- are kept below so `stamp` can molt a cell from any of them.
 bijam :: [String]
 bijam =
   [ "-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything."
   , "-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:"
-  , "-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,"
-  , "-- distance, verdict: six readings of the one fibre.  The kernel decides truth;"
-  , "-- carriers ask and generate.  This file is one naya, true and not whole."
+  , "-- fiber f b — the loss, and the subject.  Univalence computes here: an"
+  , "-- equivalence is a channel, transport carries every theorem across it, and what"
+  , "-- cannot cross is written as a defect — there is no third path (ahiṃsā)."
+  , "-- Memory, charge, symmetry, price, distance, verdict: six faces of the one"
+  , "-- fibre; the verdict type is the saptabhaṅgī, and the sources are the origin"
+  , "-- (Umāsvāti, Samantabhadra, Akalaṅka — restatements are named as such).  The"
+  , "-- kernel decides truth; carriers ask and generate; assert nothing whose term"
+  , "-- you have not read.  This file is one naya, true and not whole."
   , ""
+  ]
+
+-- earlier generations, recognised and replaced by `stamp`
+bijamPurva :: [[String]]
+bijamPurva =
+  [ [ "-- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything."
+    , "-- Output bound: singl (f a), contractible — the datum rides free.  Input bound:"
+    , "-- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,"
+    , "-- distance, verdict: six readings of the one fibre.  The kernel decides truth;"
+    , "-- carriers ask and generate.  This file is one naya, true and not whole."
+    , ""
+    ]
   ]
 
 bijaCells :: IO [FilePath]
@@ -159,18 +191,19 @@ bijaCells = do
 bija :: Bool -> IO ()
 bija doStamp = do
   cells <- bijaCells
-  let marker = "॥ बीजम् ॥"
-  missing <- fmap concat . mapM (\f -> do
+  let current = unlines bijam
+      shed t = foldr (\old u -> maybe u id (stripPrefix (unlines old) u)) t bijamPurva
+  stale <- fmap concat . mapM (\f -> do
     t <- readFile' f
-    pure [f | not (marker `isInfixOf` t)]) $ cells
+    pure [f | not (current `isPrefixOf` t)]) $ cells
   putStrLn ("बीज: " ++ show (length cells) ++ " cells, "
-            ++ show (length missing) ++ " without the seed"
+            ++ show (length stale) ++ " without the current seed"
             ++ "     $ grep -rL '॥ बीजम् ॥' formal/cubical machine punaragamana/src --include='*.agda' --include='*.hs' | wc -l")
-  when (doStamp && not (null missing)) $ do
+  when (doStamp && not (null stale)) $ do
     mapM_ (\f -> do
       t <- readFile' f
-      writeFile f (unlines bijam ++ t)) missing
-    putStrLn ("बीज: stamped " ++ show (length missing) ++ " cells (prepended; comments are inert to both kernels)")
+      writeFile f (current ++ shed t)) stale
+    putStrLn ("बीज: stamped " ++ show (length stale) ++ " cells (old generations molted; comments are inert to both kernels)")
 
 -- ── chakra ───────────────────────────────────────────────────────────────
 -- The ear.  Jiva's own pipeline runs in-process; the heartbeat line is the

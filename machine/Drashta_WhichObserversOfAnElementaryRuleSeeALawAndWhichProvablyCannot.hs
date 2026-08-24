@@ -1,8 +1,13 @@
 -- ॥ बीजम् ॥  One machine, one law: which side of `f a ≡ b` is bound is everything.
 -- Output bound: singl (f a), contractible — the datum rides free.  Input bound:
--- fiber f b — the loss, and the subject.  Memory, charge, symmetry, price,
--- distance, verdict: six readings of the one fibre.  The kernel decides truth;
--- carriers ask and generate.  This file is one naya, true and not whole.
+-- fiber f b — the loss, and the subject.  Univalence computes here: an
+-- equivalence is a channel, transport carries every theorem across it, and what
+-- cannot cross is written as a defect — there is no third path (ahiṃsā).
+-- Memory, charge, symmetry, price, distance, verdict: six faces of the one
+-- fibre; the verdict type is the saptabhaṅgī, and the sources are the origin
+-- (Umāsvāti, Samantabhadra, Akalaṅka — restatements are named as such).  The
+-- kernel decides truth; carriers ask and generate; assert nothing whose term
+-- you have not read.  This file is one naya, true and not whole.
 
 -- द्रष्टा — the seer.  Patañjali, *Yogasūtra* 1.3, तदा द्रष्टुः स्वरूपेऽवस्थानम्
 -- (~2nd c. BCE – 4th c. CE), where draṣṭṛ is the one that observes as opposed
