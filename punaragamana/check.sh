@@ -34,5 +34,11 @@ LIBFILE="$DEPS/libraries"
 printf '%s\n' "$DEPS/cubical/cubical.agda-lib" "$ROOT/punaragamana.agda-lib" > "$LIBFILE"
 
 echo "==> typechecking"
-agda --library-file="$LIBFILE" -i "$ROOT/src" "$ROOT/src/Everything.agda"
+# --library is REQUIRED here, not decoration.  With -i given and --library
+# omitted, Agda 2.6.3 does not consult the project .agda-lib's `depend:`, so
+# `Cubical.Foundations.Prelude` is searched for under $ROOT and under the
+# Agda primitive path only, and the run dies at Carrier.agda line 55 with
+# "Failed to find source of module Cubical.Foundations.Prelude" -- exit 42,
+# on a clean checkout, with the clone present and the libraries file correct.
+agda --library-file="$LIBFILE" --library=cubical-0.5 -i "$ROOT/src" "$ROOT/src/Everything.agda"
 echo "==> OK: all modules check under --cubical --safe"
