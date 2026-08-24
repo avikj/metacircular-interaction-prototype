@@ -134,7 +134,11 @@
 -- map into a proposition carries zero bits.
 ------------------------------------------------------------------------
 --
---   Vyapti_…    THE KERNEL MEMORISES, and the type forces it.
+--   Vyapti_…    ~~THE KERNEL MEMORISES~~ -- STRUCK, see Samvada_ below and
+--               §7; the theorem is right and that reading of it was
+--               backwards.  What it establishes: EVERY OPERATION FIRES AT
+--               EXACTLY ONE CONTEXT, WHATEVER EVIDENCE TYPE ITS AUTHOR
+--               SUPPLIED, which is the safety property of an open interface.
 --               `control-sound : Control t → t ≡ source` means the enabling
 --               evidence at t IS an identification of t with the one term the
 --               operation was installed at.  So every installed operation
@@ -169,6 +173,26 @@
 --               swap, and `ua` of it is not refl -- proved by transporting
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
+--
+--   Samvada_…   AND THEN WHAT IT IS FOR, which the four above missed by
+--               reading a live interface as a finished artifact.  THE KERNEL
+--               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
+--               every enabled future with multiplicity conserved and nothing
+--               filtered; the CALLER chooses and supplies the control;
+--               `execute` descends Type₁ → Type₀, dropping the operation and
+--               the caller's evidence and keeping only the new term and the
+--               derivation that reached it -- small, replayable, free of who
+--               asked.  And `install` accepts exactly what `CheckedFuture`
+--               carries, so
+--                   learn = install ∘ CheckedFuture.derivation
+--               closes the circle: THE TRANSCRIPT OF A SESSION IS THE
+--               MACHINE'S STOCK OF MOVES.  `CheckedFuture` had appeared in no
+--               file but ControlledGrammar.agda; the loop was never written.
+--               A whole dialogue is one `Derivation`, hence one theorem
+--               (`session-sound`), hence ONE installable operation
+--               (`retire`) -- and no session can teach the machine anything
+--               false, because a `NativeOperation` cannot be constructed at
+--               all without a checked derivation.
 --
 --   Asesa_…     THE SYNTHESIS, one lemma.  If M is a proposition then
 --               fiber f m ≃ A for every m: the fibre is not part of the
@@ -217,10 +241,11 @@
 --   surviving .md                9
 --
 -- ROOTS.       grep -c '^import' <root>
---   Everything.agda 574 imports · NaturalMachine.agda 487 · IndianLane.agda 39
+--   Everything.agda 574 · NaturalMachine.agda 475 · IndianLane.agda 39
+--   (grep -c '^import ' <root>; NaturalMachine.agda also has 13 open-imports)
 --
 -- WHAT IS GREEN.  Run, not remembered; both at the pin, this date:
---   LC_ALL=C.UTF-8 agda -i . NaturalMachine.agda   -> EXIT 0  (487 imports)
+--   LC_ALL=C.UTF-8 agda -i . NaturalMachine.agda   -> EXIT 0  (475 imports)
 --   LC_ALL=C.UTF-8 agda -i . Everything.agda       -> EXIT 0  (574 imports)
 -- Zero occurrences of `error:` in either log.  The four modules of §4 and
 -- this file are inside both closures.  A module outside a root's import
@@ -248,16 +273,33 @@
 --      is a rumour, so each carries the command that establishes it.
 ------------------------------------------------------------------------
 --
---   * NO GENERALISATION in `NativeOperation` -- and this one is not an
---     absence but a THEOREM: Vyapti_.enabled-set-is-subsingleton.
---
---   * NO DECISION PROCEDURE for `Control`, and NO SCORING, RANKING, SORTING
---     or SAMPLING of the enabled list.
---       grep -n 'Dec\|Bool\|sort\|rank' RewriteCertificate.agda \
---            ControlledGrammar.agda GenerativeKernel.agda      -> nothing
---     The kernel produces a branch set and has no policy over it.  By
---     Sesa_ that policy cannot be semantic, so this is a real gap and not an
---     oversight to patch with a heuristic.
+--   ~~"NO GENERALISATION in NativeOperation"~~  and ~~"NO DECISION PROCEDURE
+--     for Control, NO SCORING, RANKING, SORTING or SAMPLING -- a real gap"~~
+--     STRUCK, BOTH, BY THE AUTHOR OF §4, SAME DAY.  These were my sentences
+--     and they read the design backwards, which is failure mode (1) of §0
+--     arriving one level deeper than §0 warns about it.
+--       * `Control : Tm → Type₀` is a FIELD.  The CALLER supplies it and may
+--         supply any type family at all.  `install` is one instance -- the
+--         trivial one -- and was the ONLY one anyone had ever constructed:
+--           grep -rn 'NativeOperation.Control' formal/cubical
+--           -> the record, install, and my own theorems.  Nothing else.
+--         So Vyapti_.enabled-set-is-subsingleton is not a diagnosis of a
+--         lookup table.  IT IS THE SAFETY THEOREM OF AN OPEN EXTENSION
+--         POINT: whatever evidence type a caller invents, it cannot enable
+--         an operation anywhere the operation does not hold.  I proved the
+--         security property and filed it as a defect.
+--       * There is no decision procedure for `Control` BECAUSE THE INTERFACE
+--         IS OPEN -- an arbitrary caller-supplied family is not decidable by
+--         the machine, so the caller hands over the control WITH the choice.
+--       * There is no ranking because RANKING IS THE CALLER'S ACT.  The
+--         machine presents; the caller disposes.  Same refusal as
+--         Saptabhangi's and Uttara's.  And Sesa_'s no-go -- no semantic
+--         criterion selects the short proof -- is then a GUARANTEE OF
+--         NON-DISPLACEMENT: a theorem forbids the machine from taking the
+--         choice from you.  The system is interactive by theorem, not by
+--         omission.
+--     Correction landed as `Samvada_…`, which supplies the corpus's first
+--     non-trivial `Control` and closes the loop those readings missed.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.
 --       grep -n 'mul' NaturalMachine/RewriteCertificate.agda -> nothing
@@ -323,6 +365,9 @@ open import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAnd
 open import NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
   using (the-whole-derivation-type-is-one-fibre
         ; soundness-is-not-an-equivalence-at-the-kernels-own-seed)
+open import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+  using (demand ; any-demand-is-safe ; learn ; Session ; step ; retire
+        ; session-sound ; every-operation-that-exists-is-sound)
 
 ------------------------------------------------------------------------
 -- §B.  THE CLAIMS OF §1-§3, AS TERMS.
