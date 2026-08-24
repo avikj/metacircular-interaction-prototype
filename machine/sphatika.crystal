@@ -817,3 +817,9 @@ sp581	+(+(x,*(s(0),0)),*(0,s(*(s(0),0))))	x	ind 0 refl congsuc
 sp499	0	*(le(x,0),+(+(x,0),*(+(x,0),y)))	ind 0 refl refl
 sp582	+(+(x,*(s(0),0)),*(*(s(0),0),s(0)))	x	ind 0 refl congsuc
 sp500	0	*(le(x,0),+(*(x,+(y,y)),+(x,x)))	ind 0 refl refl
+sp501	le(x,0)	-(le(x,0),+(+(x,x),+(x,x)))	ind 0 refl refl
+sp502	le(x,0)	-(le(x,0),+(+(x,0),+(x,0)))	ind 0 refl refl
+sp503	le(x,0)	-(le(x,0),+(+(x,+(x,x)),x))	ind 0 refl refl
+sp504	s(0)	-(s(0),+(le(s(0),0),le(s(0),0)))	refl
+sp505	le(x,0)	le(+(+(x,x),+(x,x)),le(x,0))	ind 0 refl refl
+sp506	le(x,0)	le(+(+(x,0),+(x,0)),le(x,0))	ind 0 refl refl
