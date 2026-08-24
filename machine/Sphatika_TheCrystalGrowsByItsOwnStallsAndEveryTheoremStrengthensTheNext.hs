@@ -244,7 +244,7 @@ attempt root crystal name mres eq =
     go [] reflMsg = pure (Left reflMsg)
     go (p : ps) reflMsg = do
       let lm = K.Lemma name eq p
-          ctx = K.Context "Sphatika" [] crystal lm
+          ctx = K.Context "SphatikaKarya" [] crystal lm
       r <- K.checkContext root ctx
       case r of
         Right (ExitSuccess, _) -> pure (Right lm)
@@ -326,8 +326,15 @@ main = do
                   go (cr ++ [lm]) True retry rest seen
                 Left reflMsg -> do
                   -- the residual rides with the retried parent: when its
-                  -- lemma lands, the parent's next attempt cites it
-                  let res = case O.classify (toO' g) reflMsg of
+                  -- lemma lands, the parent's next attempt cites it.
+                  -- residualOf reads ONE line (it was built against log
+                  -- lines); agda's message is several, so hand it the
+                  -- line that carries the stall.
+                  let stallLine =
+                        case [ l | l <- lines reflMsg, " != " `isInfixOf` l ] of
+                          (l : _) -> l
+                          [] -> reflMsg
+                      res = case O.classify (toO' g) stallLine of
                         O.Residual p -> harvest p
                         _ -> Nothing
                       fresh rEq =
@@ -344,7 +351,7 @@ main = do
                           go cr landed ((g, d, res) : retry)
                              ((rEq, d + 1, Nothing) : rest) ((rEq, d) : seen)
                     _ -> do
-                      putStrLn ("  " ++ name ++ "  refused; retried when the crystal grows")
+                      putStrLn ("  refused (retried on growth): " ++ K.showPrefixTerm (fst g) ++ " = " ++ K.showPrefixTerm (snd g))
                       go cr landed ((g, d, res) : retry) rest seen
         toO' (l, r) = (convert l, convert r)
         harvest (a, b) = Just (canon (back a, back b))
