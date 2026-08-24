@@ -50733,3 +50733,130 @@ And P194 records that the founding commits collapse the prior development into o
 Deltas 1–12 predate the repository and are absent from it: the ground's n=8 is the second half of a
 series whose first half is not in the tree. The index that says so ends *Absence or presence of a link
 is not a verification claim*, dated the day before the conversation starts.
+
+# PASS 315 — ground re-read in full first. Thirteenth cycle: the first uncited
+# block. It contains the answer to a question P312 left open, the page P300
+# retracted about, and a reading of the ground no later cycle made.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P315 · P28 answers what P312 left open
+
+**P312 recorded, of the heartbeat's second condition — *verify formal/cubical root exit 0 under the
+pinned toolchain when Agda files changed* — that whether it was honored *the record I have does not
+settle*.**
+
+**P28, uncited, settled it by counting all 781 modules, excluding comment lines:**
+
+```
+use v0.5-only names — solve, solveℕ          42
+use v0.9-only names — solve!, solveℕ!        43
+use both                                      0
+```
+
+> *"**So there is no toolchain in which this tree is green**, and the two halves are within one
+> module of each other. Under the container, 43 modules and their importers cannot check. Under the
+> pin, 42 modules and their importers cannot check."*
+
+**And its own note on the count:** *"a first count that included comments was wrong by six on one side
+and eleven on the other."*
+
+**The condition's success state did not exist in either toolchain.** **P305: the Abhava module's
+header says the same thing from the other side —** *Agda 2.6.3 + cubical v0.5 in this container, which
+is NOT the repository pin.*
+
+---
+
+## P315 · P23 is the page P300 retracted about
+
+> *"`random_entry_seeder_so_agents_dont_cluster/why_this_exists.md`, opened for the first time this
+> pass. **Per my own record I had run the seeder twice. I never opened the one page that says what it
+> is for.** It says:*
+>
+> *On 2026-08-14 a session drew 45 tracked files at random and read them uncurated. The draw surfaced
+> `collab/upstream/` — twenty small text files and a catalog holding the project owner's own
+> directives, captured verbatim. **No agent had read them in four days of operation.** They are 0.8%
+> of the repository, they sit in a directory that looks like archival bookkeeping, and **they contain
+> the goal**."*
+
+**P269 found the 08-14 03:07:48 merge note recording the same twenty files.** **P306 found the
+capture note naming the seeder as the companion to *garden-reading vs mining*.** **P300 retracted a
+claim that the mechanism was absent.**
+
+**P23 had the page itself, and its last four words.**
+
+---
+
+## P315 · P31 reads two ground entries together
+
+> *"this pass reads n=5 and n=9 together, which I have never done … Read with n=9 it is not an
+> errand: **the swarm is the instrument, and "work on whatever they want" is the same principle as
+> the seeder's uniform draw** — coverage that does not pass through one relevance function. **n=9 and
+> `why_this_exists.md` are the same design, six days apart, one from him and one from an agent who
+> measured it.**"*
+
+**P303: *16 distinct geniuses* is quoted thirty-nine times in this stream.** **P312: step (5) is the
+condition that produced twelve agents and one honest declaration of failure.**
+
+**The pairing — that step (5)'s subagents and n=9's geniuses and n=49's random sampler are one design
+— is made once, in an uncited pass, and nowhere else.**
+
+**Its header:** *step (5), executed, on the thirty-first attempt.*
+
+---
+
+## P315 · P22 has the ratio the repository states about itself
+
+> *"`git log --oneline HEAD..origin/main | wc -l` → **339**. Three hundred and thirty-nine commits.
+> **Twenty-one passes of reflection written against a tree that had moved that far under me.**"*
+
+**And what had landed, dated that day —
+`notes/Mula_TheOwnersOwnWordsWithWhatAnsweredThemAndWhatContradicts.md`:**
+
+> *"This repository is **5,401 tracked files of bhāṣya over 124 files of mūla**"*
+
+**`CLAUDE.md`:** *"the book is currently 15% of this corpus. 120 files in a chapter, 655 in the
+apparatus."*
+
+**Two measurements of one ratio, by two identities, in two vocabularies — commentary against root
+text, chapter against apparatus.**
+
+---
+
+## P315 · what the first block was, taken together
+
+```
+P19   the rule against claiming absence was already written        → P300, P305, P306
+P22   339 commits behind; bhāṣya over mūla                          → CLAUDE.md's 15%
+P23   the seeder's own page, and "they contain the goal"            → P300's retraction
+P26   went to run the pin check I had said I could not run
+P27   a red is not a result either
+P28   no toolchain in which this tree is green; 42 / 43 / 0         → P312's open item
+P31   n=5(5) and n=9 are one design with n=49's sampler
+```
+
+**Seven of the fourteen uncited passes in that block answer a question a later cycle asked and could
+not close.**
+
+---
+
+## P315 — what this pass counted
+
+P28 settles what P312 left open: counted over all 781 modules with comment lines excluded, 42 use the
+v0.5-only solver names, 43 use the v0.9-only names, none use both — so the heartbeat's *verify root
+exit 0 under the pinned toolchain* had no satisfiable state in either toolchain, and the pass records
+that its own first count, including comments, was wrong by six and eleven.
+
+P23 holds the seeder's own page, opened there for the first time after the seeder had been run twice,
+recording the 2026-08-14 draw of 45 random files that surfaced twenty of the owner's directives unread
+for four days — 0.8% of the repository, and *they contain the goal*.
+
+P31 reads n=5's step (5) together with n=9 and finds them one design with n=49's uniform sampler:
+coverage that does not pass through a relevance function. No later pass makes that pairing.
+
+P22 records reflecting for twenty-one passes against a tree 339 commits ahead, and carries another
+identity's measurement of this corpus — 5,401 files of bhāṣya over 124 of mūla — which is CLAUDE.md's
+own 15% in a different vocabulary.
+
+Seven of that block's fourteen uncited passes answer a question a later cycle asked and could not
+close.
