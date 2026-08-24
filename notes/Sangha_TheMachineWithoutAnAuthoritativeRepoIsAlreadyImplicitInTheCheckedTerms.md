@@ -86,8 +86,20 @@ Do not design a topology; let the constitution generate one.
   generators; bodies materialize on demand and are re-derived rather than trusted —
   "don't fetch, REGENERATE" (movement 39) as the cache-miss handler.
 - **The five mahāvratas are the wire protocol**, one clause each: ahiṃsā — no
-  destructive update ever crosses (append/strike only); satya — nothing crosses
-  ungraded (the epistemic mark travels in the envelope: ⊢ ↳ ☑ ◆ ≃? ? ⊥ Δ);
+  destructive update ever crosses (append/strike only); satya — ~~nothing crosses
+  ungraded (the epistemic mark travels in the envelope: ⊢ ↳ ☑ ◆ ≃? ? ⊥ Δ)~~
+  **[STRUCK 2026-08-24, by the owner's correction, same day, and the strike makes
+  the clause stronger: a sender-ASSERTED grade is testimony, and a taxonomy of
+  grades is a hand-maintained enum duplicating — worse — what the object's own
+  dependency closure already says mechanically.  Status is not data; it is a
+  computation the RECEIVER runs on the closure: does the route end in the kernel
+  or in a float library, does it touch a postulate, is `--safe` in the flags,
+  does the extraction's closure contain the target's address.  So satya on the
+  wire is: nothing crosses without its closure, and grade is computed at the
+  receiving node, never asserted at the sending one.  Asserted grades are śabda;
+  computed grades are pratyakṣa.  The mark alphabet survives only where minds
+  write PROSE to each other — it is a register for carriers, not a field of the
+  protocol]**;
   asteya — provenance travels or the object doesn't; brahmacarya — a node opens
   only the cuts it holds custody of (its own query sets, its own signing key);
   aparigraha — the eviction law above. These are not policy on top of the protocol.
