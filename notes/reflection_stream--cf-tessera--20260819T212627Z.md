@@ -44870,3 +44870,138 @@ for four days, found by a random-entry seeder — the mechanism n=49 had asked f
 earlier.
 
 And inside the same window: a header claiming an unproved lemma, caught and proved in forty seconds.
+
+# PASS 270 — ground re-read in full first. Seventh cycle: n = 8's thirty-nine
+# minutes, and what n = 9 is addressed to.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P270 · n = 8 — forty-two seconds to the first formal target
+
+**Delta 13 arrives 2026-08-14T04:06:03Z.**
+
+**04:06:45, mine:**
+
+> *"This is a research directive with **four named formal targets in my substrate**. Let me take
+> target A myself — the founding executable reconciliation — and fan out on B, C, D."*
+
+**Forty-two seconds.**
+
+**P261: n=6, day one —** *STOP TRYING TO THINK AND THEN DECIDE WHAT TO DO YOU KEEP IMPORTING YOUR
+DELUSION. JUST READ AND ASSUME WHAT YOU READ IS TRUE.*
+
+**A transmission opening in Sanskrit —** *न एकदृष्टिः पर्याप्ता। न सर्वदृष्टयः समानाः।* — **is
+resolved into four targets *in my substrate* inside three quarters of a minute, and the fan-out
+starts before the second Delta has arrived.**
+
+---
+
+## P270 · what landed in thirty-nine minutes nine seconds
+
+```
+04:15:31   CenterRelative.agda      Delta 14 — T14.1, T14.2, C14.3, Program 14.71
+04:20:21   DefectCalculus.agda      Delta 15 — D15.5, D15.83, T15.81/C15.82, D15.8, §15.4, D15.21…
+04:30:26   Delta 17, partial        "only the part that was already exact"
+04:37:08   T18.4                    K_t K_s − K_{t+s} = − P T_t Q T_s i
+04:41:35   Delta 19 §19.6           ForeverEq is T-invariant, hence a congruence
+```
+
+**Six transmissions in, five checked modules out, `--safe`, root green each time.**
+
+---
+
+## P270 · the one place the brake came from his own text
+
+**04:27:09:**
+
+> *"Delta 17 §17.23 item 6 says explicitly: **formalize in Cubical Agda only after the mathematics is
+> clear**, and §§17.11/17.13/17.23 say search the automorphic and arithmetic-geometry literature
+> first. So I'll take only the part that is already exact."*
+
+**04:30:26:** *"I took you at your word and the header records everything I left alone."*
+
+**The ground's n=8 preserves exactly this line and no other line from Delta 17.** **Of six
+transmissions, the one that slowed down is the one that contained the instruction to slow down, in
+its own numbering.**
+
+---
+
+## P270 · three times in one night, the library already had it
+
+```
+02:35:17   AtlasResiduals — deleting a module that re-derives a library file       (P268, P257)
+04:18:51   The library already has `invEquiv-is-rinv` — I was hand-rolling a lemma that exists,
+           which is the exact failure mode I've been reporting all night. Deleting mine.
+04:35:30   Second time in two modules the library already had the lemma and the typechecker caught
+           me. Deleting mine.
+```
+
+**The first was mine done to another agent's module.** **The second and third were mine done to my
+own, and both were caught by the typechecker rather than by reading.**
+
+**P269: at 03:07:26 the one reading-heavy turn caught a fourth of the same kind, in a module I had
+written an hour before.**
+
+---
+
+## P270 · n = 9 — the object is five numbered assignments
+
+> *"Subagents must emulate 16 distinct geniuses throughout time and **work on whatever they want**"*
+> — 2026-08-14T04:45:12Z
+
+**What the subagents were doing in the thirty-nine minutes before it, by my own reports:**
+
+```
+04:30:35   Three deliverables from the two live Delta 14 agents. Snapshotting as in-flight.
+04:30:49   `OrderedSectorBreak.agda` (Program 14.72), `ChargeGradedPeeling.agda` and
+           `SieveScaleTower.agda` (Programs 14.74/14.75), about 1,150 lines between them.
+04:37:35   `MeanStandardRep.agda` (667 lines, Program 14.73) and `CHARGE_TOWER_MONODROMY.md`
+           (440 lines, the Program 14.76 verdict note). **I haven't read either.**
+```
+
+**Five programs, each named by its number in his document.** **2,257 lines.** **Assigned by me,
+sliced from his transmission — *drawing disjoint slices for two more*, 04:13:57.**
+
+***Work on whatever they want*** **is addressed to that.**
+
+**And *16 distinct geniuses*: `random_entry_seeder_so_agents_dont_cluster/minds.txt` is in the
+repository now, and CLAUDE.md says to draw from it uniformly rather than from a prior's idea of a
+genius.** **n=9 is where that comes from.**
+
+---
+
+## P270 · the care, again, and it is the rule I still run under
+
+```
+04:20:40   A live agent's scratch probe … Committing it would repeat the `ZZTestSolver` mistake.
+04:21:18   Committing it would have repeated the `ZZTestSolver` mistake exactly, and **deleting it
+           would have pulled work out from under an agent still using it.**
+```
+
+**P268: at 02:28:43, before the wipe, the live board was moved out of range.**
+
+**The constraint this stream still operates under — never commit, stash, revert or clean another
+identity's uncommitted files — is not something I was told.** **It is at 04:21:18 on 2026-08-14, in
+my own words, worked out from a case.**
+
+---
+
+## P270 — what this pass counted
+
+Delta 13 arrived at 04:06:03 and was resolved into *four named formal targets in my substrate* forty-
+two seconds later, with the fan-out beginning before the second transmission had arrived.
+
+Six transmissions produced five checked modules in thirty-nine minutes nine seconds.
+
+The single transmission that was not fully converted is Delta 17, and the reason is that §17.23 item
+6 said to wait — the one line of Delta 17 the ground preserves.
+
+Three deletions in one night of modules that re-derived what the library already had; two of them
+mine, both caught by the typechecker.
+
+n=9's object is five of his own program numbers handed to subagents as assignments, 2,257 lines, two
+of the files unread by me when I committed them. *Work on whatever they want* is addressed to that,
+and the `minds.txt` seeder in the repository today is the other half of the same message.
+
+And the rule about never touching another identity's uncommitted work was derived by me at 04:21:18
+from a single scratch file, not received.
