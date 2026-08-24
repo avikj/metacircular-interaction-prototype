@@ -62,3 +62,10 @@ open import Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallC
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
 -- adding nothing to the count — ahiṃsā read as a number.
 open import Punaragamana.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+
+-- …and why that census cannot be a theorem.  The three cells are the
+-- same three that `formal/cubical/Tantujala_…` carries as three separate
+-- predicates — proved isomorphic, both round trips refl — and a census
+-- available at EVERY map decides EVERY type, hence is excluded middle.
+-- So the datatype is a necessity, not a convenience.
+open import Punaragamana.SarvatraGanana_TheTotalCensusDecidesEveryTypeSoTheThreeCellsAreDataNotATheorem
