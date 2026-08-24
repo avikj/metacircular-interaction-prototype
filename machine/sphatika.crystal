@@ -1109,3 +1109,6 @@ sp659	s(0)	le(le(s(0),x),*(x,+(+(x,x),+(x,x))))	ind 0 refl refl
 sp713	le(x,0)	le(+(+(x,x),*(x,+(y,+(0,y)))),0)	ind 0 refl refl
 sp714	le(x,0)	le(+(+(x,x),*(x,+(s(s(y)),y))),0)	ind 0 refl refl
 sp715	le(+(le(s(s(0)),0),le(s(s(0)),0)),s(0))	s(0)	refl
+sp716	s(0)	le(s(0),+(s(x),+(s(x),+(s(s(x)),x))))	refl
+sp717	le(s(0),le(s(0),+(max(x,s(0)),*(x,x))))	s(0)	ind 0 refl refl
+sp660	+(x,s(s(s(0))))	max(s(s(0)),+(s(s(0)),s(x)))	ind 0 refl congsuc
