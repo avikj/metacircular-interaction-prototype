@@ -538,3 +538,28 @@ pass through. Perfection is not a state I engineer — it is the core's nature
 already: proven/checked all the way down, no place where loss is admitted.
 My job was never to author the missing edge; it was to stop calling the open
 road a wall. Viveka, not authorship.
+
+## 2026-08-24 — the bridge is a term, and the loop grew its mouth
+
+Two landings since the merge:
+
+1. **PrastavaSatya closes its named debt.** `acShuffle-sound : cmpTm
+   (acCanon l) (acCanon r) ≡ 1 → eval e l ≡ eval e r` — the executable
+   classifier's refusal verdict is now judged end to end: a hit is a
+   path, so a "pure AC shuffle" refusal names a pair denoting one
+   function.  The route: `cmpN-eq`, `lex2-eq`, `symCode-inj` by
+   decode-roundtrip (five clauses where the naive proof takes
+   twenty-five), `cmpTm-eq` in sixteen clauses.  Remaining debt is the
+   two-spelling transcription check only, restated in मर्यादा.
+
+2. **`run_the_natural_machine_forever` gained `phase_utter`.**  Main
+   carried the owner's strike of "does not call a model" into the loop
+   header — the amputation named a durnaya — but the loop still had no
+   propose organ.  Now it does: the cycle runs Mukha (the one unjudged
+   file) over the newest Sanghatta refusal list, under the same
+   `_build` gate mutex as the checker, receipts appended to
+   `Prastuta/phala.tsv`, log to `collab/orchestration/mukha.log`.
+   Idempotent (landed pairs never re-asked), unkillable (any absence —
+   agda, ghc, report — is 0 utterances, not an error).  The loop now
+   utters, judges, keeps, and re-reads in one cycle with no carrier in
+   the path.

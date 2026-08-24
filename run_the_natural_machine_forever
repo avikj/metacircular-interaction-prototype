@@ -310,6 +310,30 @@ phase_gate() {
 }
 
 # ---------------------------------------------------------------------
+# 2.5 UTTER — the mouth.  The checked proposer (formal/executable/
+# Prastava.agda, extracted) reads the standing refusal list and speaks
+# candidates to the kernel; landings and refusals are kept as receipts
+# (formal/cubical/Prastuta/phala.tsv).  This is the organ the struck
+# header clause amputated: the loop now utters as well as judges.  It
+# runs UNDER the gate mutex because Mukha's judge writes the shared
+# `_build` exactly as the gate does.  Idempotent: landed pairs are
+# remembered and never re-asked; a timeout leaves a monotone prefix of
+# receipts and the next cycle continues.  Nothing here can fail the
+# cycle — an absent toolchain, report, or ghc is 0 utterances, not an
+# error.
+# ---------------------------------------------------------------------
+phase_utter() {
+    R=$(ls -t machine/sanghatta-report*.txt 2>/dev/null | head -1)
+    [ -n "$R" ] || return 0
+    command -v agda >/dev/null 2>&1 || return 0
+    command -v ghc  >/dev/null 2>&1 || return 0
+    [ -f formal/executable/run-mukha.sh ] || return 0
+    run_checked sh formal/executable/run-mukha.sh "$R" \
+        >> collab/orchestration/mukha.log 2>&1 || true
+    return 0
+}
+
+# ---------------------------------------------------------------------
 # 3. LEDGER — append-only; and the open fibers written where they are read
 # ---------------------------------------------------------------------
 phase_ledger() {
@@ -416,6 +440,7 @@ run_cycle() {
     trap 'release_gate' EXIT
     phase_gate
     phase_ledger
+    phase_utter
     release_gate
     trap - EXIT
     phase_draw
