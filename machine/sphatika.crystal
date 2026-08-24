@@ -211,3 +211,7 @@ sp210	0	+(*(x,0),*(x,0))	ind 0 refl ih
 sp211	0	+(*(0,0),*(0,0))	refl
 sp212	+(x,*(x,+(0,0)))	x	ind 0 refl congsuc
 sp213	+(s(le(0,0)),x)	s(s(x))	refl
+sp214	+(s(x),*(s(0),0))	s(x)	ind 0 refl congsuc
+sp215	0	*(le(x,0),*(s(x),x))	ind 0 refl refl
+sp216	le(s(0),+(s(x),y))	s(0)	refl
+sp217	le(s(0),+(x,s(y)))	s(0)	ind 0 refl refl
