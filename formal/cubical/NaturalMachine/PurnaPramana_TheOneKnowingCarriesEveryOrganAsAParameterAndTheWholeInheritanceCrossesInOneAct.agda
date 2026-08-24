@@ -32,7 +32,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; just)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
-open import Cubical.Data.Sigma using (_,_)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
 open import NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
