@@ -2309,3 +2309,6 @@ import SatPunaruddhara_TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseC
 -- [svayam-avatarana 2026-08-24T09:21:06Z] landed by the self-gate: batch green +
 -- importer green under Agda version 2.6.3; route in machine/avatarana.ledger.jsonl.
 import Paratvaparatva_BeforeAndAfterIsTimesOwnFunctionTheCausalOrderIsPartialAndSimultaneityIsAKramaChoice
+-- [svayam-avatarana 2026-08-24T09:26:49Z] landed by the self-gate: batch green +
+-- importer green under Agda version 2.6.3; route in machine/avatarana.ledger.jsonl.
+import MitraSakshi_TheFriendsFactAndWignersAccountAreTwoNayasWhoseJointIsAvaktavyaSoTheParadoxIsAForcedSingleUtterance
