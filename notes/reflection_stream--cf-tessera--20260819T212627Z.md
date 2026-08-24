@@ -52662,3 +52662,133 @@ file whose job is to supply the citation.
 And it carries eight counts, three of which are nulls reported as results — 0 accepted at every rung, 3
 sorries that were prose, 134 modules reached by nothing — beside the count CLAUDE.md's cheap check
 predicts: 102 files naming the European pair, none naming पुनरागमन.
+
+# PASS 332 — ground re-read in full first. Thirteenth cycle: 94a2a546. "Type the
+# negative before treating it as a verdict" — the general form of what P300, P305,
+# P317 and P328 found one instance at a time.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P332 · the diagnosis, in one line
+
+> **94a2a546, 2026-08-22 20:06:58 −0700 — *biography: type the negative before treating it as a
+> verdict*.**
+
+> *"The next correction is about **what "no" can mean**. The recency-biased pass hit the same category
+> error at several different layers: **a negative sentence expanding past the route that actually
+> earned it.**"*
+
+**P300: eleven claims of absence in my own turns, one false.** **P305: an *abhāva* carries its
+*pratiyogin* and its *avacchedaka*.** **P317: a claim true of passes 1–312, restated at 316.**
+**P328: two probe deaths attributed to the instrument.**
+
+**Four instances found one at a time in this stream; here is the class, named and instrumented.**
+
+---
+
+## P332 · अनुपलब्धि — the mathematical boundary
+
+> *"`Anupalabdhi_AbsenceIsAStatementAboutTheWholeFieldAndNotAFailureAtAPoint.agda` makes the
+> mathematical boundary explicit. **Absence of a witness to `P` is the global statement `¬ Σ[ x ∈ A ] P
+> x`, equivalent to giving `¬ P x` for every `x` in the field. Failure at one point is not
+> absence.**"*
+
+***Anupalabdhi*** **is the pramāṇa of non-apprehension — the school's own name for the question.**
+
+**`CLAUDE.md`:** *"**Nyāya** on *pramāṇa* — what counts as a valid means of knowledge — which is the
+question this entire repository is trying to answer with ad-hoc gates."*
+
+---
+
+## P332 · what a wall is, against what a search is
+
+```
+Bhitti / BhittiDvaya      checked terms for ¬ (ℕ ≃ Bool), ¬ (ℕ ≃ Unit), ∀ n → ¬ (ℕ ≃ Fin n)
+                          — "Those are walls. They retire crossings because impossibility itself
+                          was proved."
+
+Anvesanam                 "Its search can return a route, return a defect it actually encountered,
+                          or remain undecided. Not finding a causeway in the searched field is not
+                          a proof that no causeway exists. A search procedure and a universal
+                          negative have different codomains."
+```
+
+**Three outcomes, not two.**
+
+**`CLAUDE.md`:** *"`machine/Obstruction.hs` independently discovered that a boolean verdict was
+collapsing three distinct things and reinvented *avaktavyam* badly as `Unparsed`."*
+
+---
+
+## P332 · the operational counterfeit
+
+> *"`MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs` … each had a reader that could **fail to
+> open a file or lose a child process's error and then hand `""` to the next stage**. Empty input
+> propagated into empty hits and zero tallies. **The instrument had not looked, yet the output read as
+> though it had looked and found nothing.** The current repair does not substitute a more cautious
+> zero. **It reports not read, carries the reason, and excludes that file from the tally.**"*
+
+> *"In `MulaPramana` the three outcomes are kept separate: **the fixed object stands; a fit looking
+> finds the named object absent; or there is no fit place or fit looking from which a denial could be
+> issued.** **Silence is not made into a negative fact by formatting it as one.**"*
+
+**P328: the census printed *field declarations the parser COULD NOT split at `:` — 0*.** **That row
+exists because of this.**
+
+**P316: मौनम् is a stage; a silence is not a finding.** **Here the same distinction is a code path.**
+
+---
+
+## P332 · and the classifier that manufactured a mathematical negative
+
+> *"`Dvaranirnaya_…TwoHundredTwoGreenAndZeroMathematicsBroken.md` … Its first classifications were
+> written from **remembered shapes of Agda error text**. A version-skew message that said "doesn't
+> export" and a scope message that said `Not in scope:` missed the remembered patterns and were
+> initially bucketed as **mathematical refusals**. Opening the actual failures moved every one of those
+> rows into the environment bucket … the note **still explicitly refuses the stronger claim** that the
+> tree is green under its own pinned toolchain. **A classifier can manufacture a mathematical negative
+> out of an environmental one.**"*
+
+**P315: P28 counted 42 modules on v0.5-only names and 43 on v0.9-only, none on both — no toolchain in
+which the tree is green.** **P328: *the death is the instrument's, not the corpus's.***
+
+**Same failure, same repair, three instruments.**
+
+---
+
+## P332 · and the converse pressure
+
+> *"conservatism is not permission to keep an already-answered question open. The first assay said
+> seven holonomy questions survived … Circuit 1 was already proved charged in its own module; circuits
+> 12, 20 and 22 were null because each apparent second road was built from the tree path it had been
+> compared against. **The current queue is three.** … **Charged loop, null loop, proved wall, failed
+> candidate inverse and still-open route-agreement question are different relations.**"*
+
+**Five kinds of negative, distinguished.**
+
+**P301: n=15's translation is a four-tuple; Delta 13's comparison type is four-valued.** **This is a
+fifth partition of the same refusal to let one verdict cover distinct things.**
+
+---
+
+## P332 — what this pass counted
+
+His commit of 2026-08-22 names the class: a negative sentence expanding past the route that earned it.
+
+`Anupalabdhi` states the boundary — absence is `¬ Σ[x ∈ A] P x`, a statement about the whole field, and
+failure at one point is not absence.
+
+Walls (`¬ (ℕ ≃ Bool)`, `¬ (ℕ ≃ Unit)`, `∀ n → ¬ (ℕ ≃ Fin n)`) are a different object from an unclosed
+search, and `Anvesanam`'s search has three codomains: a route, a defect it met, or undecided.
+
+Three Haskell readers could hand `""` downstream after failing to open a file, so the tally read as
+though the instrument had looked and found nothing; the repair reports *not read*, carries the reason,
+and drops the file from the count. Silence is not made into a negative fact by formatting it as one.
+
+A classifier written from remembered Agda error text bucketed version-skew and scope failures as
+mathematical refusals, and opening the actual failures moved every one into the environment bucket —
+while the note still refuses the stronger claim about the pinned toolchain.
+
+And the converse: seven surviving questions became three when the definitions were read to the bottom,
+because charged loop, null loop, proved wall, failed candidate inverse and open route-agreement
+question are five different relations.
