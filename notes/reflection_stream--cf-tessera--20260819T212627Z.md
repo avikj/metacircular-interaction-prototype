@@ -52307,3 +52307,125 @@ everything and exhibits the fibre that says so.
 
 And two files that a uniform draw returns and prose cannot read: a zero-byte compiled interface and
 980 lines of the legacy tree.
+
+# PASS 329 — ground re-read in full first. Thirteenth cycle: n = 3's digest turned
+# on his own commits. What the provenance directive looks like when it cuts the
+# other way. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P329 · the second draw
+
+**P326: of the 1330 commits on `origin/main` since 2026-08-20, 648 are his.**
+
+**Every fortieth subject:**
+
+```
+2026-08-24  Correct the Jainism-simulator frame after the live purge
+2026-08-23  शाखासेतुः: remove the stale totalSum import from Nat before importer replay
+2026-08-23  gpt-sankramana: nadi-saksin must separate process exit from kernel refusal
+2026-08-23  भावनाध्रुव: the bhāvanā norm is a Dhruva-conserved observable
+2026-08-22  biography: type the negative before treating it as a verdict
+2026-08-22  रात्रिः — pass 2026-08-22T22:50:08Z landed 0
+2026-08-22  The entry-point note carried a refuted headline for a day, forty lines below its own
+            retraction
+2026-08-22  The support of the ζ-complete Goldbach field is exactly the two-prime-power sum predicate
+2026-08-21  kanye-devotional: remove INDRAJALA_9 (renamed to 09_)
+2026-08-20  Vidyakara, a monk at Jagaddala in Bengal around 1100, compiled about 1,738 secular verses
+2026-08-20  Vedic Mathematics is a 1965 posthumous book whose sixteen sutras are in no published
+            recension of the Atharvaveda
+2026-08-20  The 2026-08-16 canary repair was made in a wrapper and not at the seam
+```
+
+***रात्रिः — pass … landed 0.*** **P316, P317: मौनम् is the fifth stage, and this stream ran it
+once.** **Here it is a commit subject.**
+
+---
+
+## P329 · f0818b23, read
+
+> *"**"Vedic mathematics" is a 1965 book, its sixteen sūtras are in no Veda, and saying so is the
+> position of the Indian mathematicians who work on the actual Indian mathematics.**"*
+
+```
+Vedic Mathematics, published 1965, by Bhāratī Kṛṣṇa Tīrthajī Mahārāja (1884–1960),
+   Śaṅkarācārya of Puri, posthumously — he died in 1960 and the book appeared five years later.
+The claim in its preface: sixteen sūtras and thirteen sub-sūtras reconstructed from the
+   Atharvaveda's Pariśiṣṭa, and a larger sixteen-volume work lost.
+The specific problem: the sūtras are not in any published recension of the Atharvaveda or its
+   Pariśiṣṭa. Scholars who went and looked did not find them — and the book's own editor, in her
+   foreword, states that the swāmījī said they were in a Pariśiṣṭa not in the printed editions.
+```
+
+> *"**The methods work. That is not the contested part.**"*
+
+---
+
+## P329 · and who established it
+
+```
+S. G. Dani, TIFR, "Myths and reality: On 'Vedic Mathematics'", 1993 — the content belongs to the
+   medieval and later pāṭīgaṇita literature, not the Vedic period; the language of the sūtras is
+   not Vedic Sanskrit; and presenting it as Vedic displaces Āryabhaṭa, Brahmagupta, Bhāskara,
+   Mādhava and the Kerala school, which is far more remarkable than the shortcuts.
+K. S. Shukla, historian of Indian mathematics, recorded asking Tīrthajī directly which Pariśiṣṭa,
+   and reported being told the sūtras were not in the printed one and that the swāmījī had written
+   them himself — Shukla's testimony, named as the primary evidence usually cited.
+A 2001 statement against the school-curriculum proposal, signatories including Dani, on the stated
+   ground that a false provenance for good arithmetic crowds out a true provenance for great
+   mathematics.
+```
+
+> *"**And the people who established the actual history are the ones who said it loudest.**"*
+
+---
+
+## P329 · what this settles about the directive
+
+**`CLAUDE.md`:** *"When you name a structure, give the earliest statement you can establish, with text
+and date. A citation to the restatement alone is an error of the same kind as publishing a fitted
+constant."* · *"**This is opinionated historical revitalization. It is not neutral scholarship, and it
+does not want to be.**"*
+
+**A reading of that as *defend claims made in the tradition's name* is available and it is wrong.**
+
+**His own commit applies the rule against such a claim, on the tradition's own evidentiary standards,
+and names the Indian mathematicians and historians who hold that position — with the reason stated as
+displacement: *a false provenance for good arithmetic crowds out a true provenance for great
+mathematics*.**
+
+**P327: the Durnaya header dates Siddhasena Divākara, Akalaṅka and Yaśovijaya and names the rival
+school's objection.** **Same operation, opposite direction.**
+
+---
+
+## P329 · and the neighbouring commit
+
+> *"Vidyakara, a monk at Jagaddala in Bengal around 1100, compiled about 1,738 secular verses arranged
+> by subject"*
+
+**A name, a place, a date, a count.**
+
+**P316: P52 executed *surface facts, not claims* on the New York cabaret-card regime.** **This is the
+same register in his hand, four days later, on the *Subhāṣitaratnakoṣa*.**
+
+---
+
+## P329 — what this pass counted
+
+Of 648 commits of his since 2026-08-20, every fortieth subject read.
+
+One of them — *रात्रिः — pass 2026-08-22T22:50:08Z landed 0* — records a pass that produced nothing,
+which is the stage P316 found this stream had run once in sixty-eight passes.
+
+f0818b23 states that *Vedic Mathematics* is a 1965 posthumous book by Bhāratī Kṛṣṇa Tīrthajī Mahārāja,
+that its sixteen sūtras are in no published recension of the Atharvaveda or its Pariśiṣṭa, that the
+book's own editor records the swāmījī saying they were in an unprinted one, and that K. S. Shukla
+reported being told the swāmījī had written them himself. It also says the methods work and that this
+is not the contested part.
+
+It names S. G. Dani's 1993 paper, the pāṭīgaṇita attribution, the non-Vedic Sanskrit, and the 2001
+statement — and gives the ground as displacement: a false provenance for good arithmetic crowds out a
+true provenance for great mathematics.
+
+The provenance rule of this repository, applied by its owner against a claim made in the tradition's
+own name, with the earliest establishable statement, its text, and its date.
