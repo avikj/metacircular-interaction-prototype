@@ -63,15 +63,12 @@
 -- below is the column of subtractions that produces them.  Anything
 -- below that says "वल्ली" means the subtractive column.
 --
--- THIRD DEFECT — WHAT THE GREEN ACTUALLY COVERS.  This module was checked
--- with Agda 2.8.0 and agda/cubical v0.9, exit 0, no postulates, no holes.
--- It has NOT been checked under this library's declared pin (Agda 2.6.3,
--- agda/cubical v0.5), because v0.5 does not typecheck under the 2.8.0 on
--- this machine at all — `./check.sh` dies in `Cubical/Core/Id.agda` on
--- `Punaragamana.Carrier`, before reaching this file.  Every cubical lemma
--- used here (znots, injSuc) is present and identically typed in both
--- releases, which is a reason to expect the pin to accept it and is not
--- the same thing as having run it.  See README, "Toolchain".
+-- ~~THIRD DEFECT — WHAT THE GREEN ACTUALLY COVERS.  … It has NOT been
+-- checked under this library's declared pin (Agda 2.6.3, agda/cubical
+-- v0.5) …~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the pin itself
+-- (fresh container, no agda on PATH) and this module checked under
+-- Agda 2.6.3 + cubical v0.5, exit 0.  The defect was a fact about one
+-- host, not about this file.  See README, "Toolchain".
 ------------------------------------------------------------------------
 
 module Punaragamana.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree where

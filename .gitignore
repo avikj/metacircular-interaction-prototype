@@ -84,3 +84,8 @@ machine/sabha.jsonl
 machine/karana
 machine/abhyasa.jsonl
 **/.certcache/
+
+# compiled binaries — build output, rebuilt in place by machine/check-*.sh; never track
+machine/math-machine
+machine/repairfixpoint
+machine/question-machine

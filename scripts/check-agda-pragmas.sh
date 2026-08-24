@@ -82,7 +82,18 @@ BAD_CONSTRUCTS='postulate|\{!|\{-# *(TERMINATING|NON_TERMINATING|NON_COVERING|NO
 #     the `--cubical` check by directory scope, not by allowlist: check 3   #
 #     applies only under formal/cubical/.                                   #
 # ---------------------------------------------------------------------- #
+# First entry, 2026-08-23, found by ./nitya's second-ever performance:     #
+#                                                                          #
+#   * AsiddhaCatustayam_… — NOT --safe BY DESIGN, its own header's first    #
+#     line: the module states four open problems (Goldbach, twin primes,   #
+#     Collatz, RH) as types and leaves every proof a HOLE — the kernel's   #
+#     located refusal IS the artifact, and --safe forbids holes.  Held     #
+#     out of Everything.agda's closure deliberately (verified: no import). #
+#     If this file ever gains a proof term, delete this entry and let the  #
+#     gate demand --safe for what it now actually claims.                  #
+# ---------------------------------------------------------------------- #
 ALLOWLIST=$(cat <<'EOF'
+formal/cubical/AsiddhaCatustayam_TheFourUnestablishedHeldAtOnceAndRefusedByTheKernel.agda	no-safe
 EOF
 )
 

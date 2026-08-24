@@ -719,6 +719,16 @@ import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObs
 -- that named frontier by induction: the machine proposes its śeṣa, the kernel
 -- disposes.
 import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
+-- समता-द्विधा in the transport lane: being an equivalence splits, fibrewise
+-- and on the nose, into embedding × split-surjection, so the two ways a
+-- residual (शेष = fiber) refuses contractibility — crowded (नष्टि) and empty
+-- (अवक्तव्यम्) — are the two orthogonal factors of अलोप-लक्षणम्'s hypothesis
+-- failing apart.  Loaded warm through नाडी: छिद्रं नास्ति.
+import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
+-- …and which factor the discrete log breaks: powg fails the EMBEDDING factor
+-- of समता-द्विधा, crowded-ly (नष्टि, not अवक्तव्यम्) — two exponents over one
+-- power. One-wayness is a merge, not a gap. नाडी: छिद्रं नास्ति.
+import GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor
 -- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
 -- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
 -- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
@@ -2112,6 +2122,27 @@ import VakraValaya_TheSameCarrierTwoLawsOfSuccessionTheKramaDistinguishesWhatThe
 import Mauna_TheTwistedRingUttersOnceAndAboveTheKramaEveryStratumIsSilent
 import SarvaMauna_TheLadderOfATruncatedSpaceEndsExactlyAtItsOwnLevelAndTheUntwistedRingJoinsTheBell
 import NihsabdaSima_OneBreathDeeperThanTheChargeEveryStratumOfEverySpaceIsSilent
+
+-- vakra-valaya-sanketa: the answer to the question VakraValaya leaves
+-- open (is the krama-difference invisible to EVERY type-level
+-- utterance?).  No: H² utters it, and what it utters is exactly one
+-- bit — H²(K²) ≅ Bool against H²(T²) ≅ ℤ, both library terms, joined
+-- by a Bool-cannot-hold-three-points pigeonhole.  The forgotten
+-- succession precipitates as the smallest possible type-level charge:
+-- the first veil is the fee.  Checked standalone under the bootstrap
+-- pin (2.6.3/v0.5), exit 0; both H² names grep-verified identical in
+-- v0.9 (the Bhavana precedent).
+import VakraValayaSanketa_TheForgottenSuccessionPrecipitatesTypeLevelAsOneBitAndTheFirstVeilIsItsFee
+
+-- अग्रयोग-सङ्घातः: Fubini's master form on the Type carrier.  Receipt (1)
+-- of the measure lane's named next theorem was already checked as
+-- SankramanaSesa's शेष-सङ्घातः; this cashes it — pushforward
+-- अग्रयोगः f F y = Σ[u ∈ शेष f y] F (fst u) composes up to equivalence
+-- (Σ-cong-equiv-fst over सङ्घातः + Σ-assoc, the family congruence
+-- definitional), with the identity law via Σ-contractFst.  Every
+-- W-valued finite Fubini is this equivalence read through an
+-- enumeration-invariant fold (msg 0945: the join offered at the seam).
+import AgrayogaSanghata_ThePushforwardComposesOnTheTypeCarrierAndFiniteFubiniIsItsShadow
 
 -- एकत्व-निर्णयः (program ४): the two vows of the birth — decide on unanimity,
 -- take nothing not unanimously given — determine the decision rule COMPLETELY
