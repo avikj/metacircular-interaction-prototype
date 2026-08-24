@@ -260,3 +260,4 @@ sp259	s(0)	le(s(0),+(x,s(s(x))))	ind 0 refl refl
 sp260	0	le(+(x,+(x,s(s(0)))),0)	ind 0 refl refl
 sp261	0	le(+(+(s(s(0)),x),x),0)	refl
 sp262	0	le(*(s(x),max(x,s(0))),0)	ind 0 refl refl
+sp263	0	+(*(s(0),0),*(0,s(0)))	refl
