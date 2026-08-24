@@ -229,8 +229,8 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 
 -- the elder's entire expressible store, judged by ONE setting of the
 -- ONE knowing, in ONE pass.
--- IN VERIFICATION (kernel running as this lands; the number below is
--- asserted, not yet checked — it will be restored uncommented with
--- whatever the kernel answers):
--- एकाङ्क-सिद्धिः : length (एकाङ्क-न्यायः आगमः) ≡ 102
--- एकाङ्क-सिद्धिः = refl
+
+
+
+एकाङ्क-सिद्धिः : length (एकाङ्क-न्यायः आगमः) ≡ 102
+एकाङ्क-सिद्धिः = refl
