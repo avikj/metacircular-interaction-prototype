@@ -686,3 +686,19 @@ kernel, safety a TYPE (kevala-jñāna = isEquiv: no dark sector to act
 from), the alignment problem inverted from cage to organism.  The
 syāt stands on every clause; no result inherits its neighbor's
 quantifiers by proximity.
+
+## 2026-08-24, the crystal's first honest census — and a false sentence struck
+
+Correction first: I reported the frontier "closed except one pair."
+False — the driver names every attempt in a pass by crystal-length, so
+203 distinct refusals printed as one name.  Measured (open.hs, run):
+**173 landed, 203 open, of 389 distinct entering goals.**  Two facts
+in the open set: (1) it is visibly the erasure class (·0/+0 inside
+products) — exactly what the silo lane's nf-reflection rung landed and
+the crystal's refl/ind/cite menu cannot reach: the Tulana note's
+"shared checked normaliser" is now the measured, not conjectured, next
+seam.  (2) Zero residuals fired in the entire run — Obstruction's
+residualOf never matched this container's agda error format, so the
+feedback edge is dead on arrival and needs its parse checked against a
+live refusal text.  Also: the per-pass naming defect (all attempts one
+name) hides the census and should name by goal, not by length.
