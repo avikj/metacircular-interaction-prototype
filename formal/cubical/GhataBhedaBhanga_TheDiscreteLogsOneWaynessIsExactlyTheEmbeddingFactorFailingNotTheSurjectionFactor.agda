@@ -32,10 +32,10 @@
 -- paragraph named `नष्टि`/`हिंसा`, and it is the arm `शेष-द्वयम्→न-समता`
 -- was built for, now stated against the crypto instance.
 --
--- The COMPLEMENT — that powg also satisfies छादनम् (is surjective onto C₃),
--- so it fails the embedding factor ALONE — is the expected next step and is
--- NOT proved here; the नष्टि-not-अवक्तव्यम् dichotomy above stands on the
--- inhabitation witness alone and does not need it.
+-- The COMPLEMENT is now proved too (घात-छादनम्): powg IS surjective onto C₃,
+-- because powg reduces on the nose (powg 0 = e₀, powg 1 = g, powg 2 = g²), so
+-- it fails the embedding factor ALONE.  The kernel gave those three
+-- reductions on the wire; the section only records them.
 --
 -- WHAT IS NOT CLAIMED: nothing of any source; the mathematics is the two
 -- exhibited fibre points of `GhataTantu` read through `SamataDvidha`'s split.
@@ -51,11 +51,14 @@ open import Cubical.Data.Nat using (znots)
 open import Cubical.Data.Sigma using (fst ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
+open import Cubical.Foundations.Equiv using (isEquiv ; equivFun)
 open import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
-  using (भेदः)
+  using (भेदः ; छादनम् ; समता≃भेद×छादन)
 open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (शेष)
 open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; εC ; शून्यः ; त्रयः)
+open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
+  using (C₃ ; e₀ ; g ; g²)
 
 -- The residual over ε is INHABITED: exponent 0 lands on ε.  So this is not
 -- the empty (अवक्तव्यम्) arm.
@@ -66,3 +69,20 @@ open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQuer
 -- 3) sit over ε, so the residual there is not a proposition.
 घात-भेदः-भङ्गः : ¬ (भेदः powg)
 घात-भेदः-भङ्गः pr = znots (cong fst (pr εC शून्यः त्रयः))
+
+-- …and the SURJECTION factor HOLDS: every element of C₃ has a preimage,
+-- because powg reduces on the nose — powg 0 = e₀, powg 1 = g, powg 2 = g² —
+-- so `refl` witnesses each.  (The kernel gave these three reductions; the
+-- section only writes them down.)  So powg fails the embedding factor ALONE.
+घात-छादनम् : छादनम् powg
+घात-छादनम् e₀ = 0 , refl
+घात-छादनम् g  = 1 , refl
+घात-छादनम् g² = 2 , refl
+
+-- THE ORGAN REGENERATES THE CRYPTO THEOREM.  Sesa proved ¬ isEquiv powg the
+-- hard way (GhataTantu's non-contractible fibre).  समता-द्विधा makes it a
+-- mode: isEquiv powg ≃ (भेदः powg × छादनम् powg), so an equivalence would
+-- hand back भेदः powg — which घात-भेदः-भङ्गः refutes.  No re-derivation; the
+-- non-equivalence is the embedding-failure carried across the split.
+घात-न-तुल्यता-जनितम् : ¬ isEquiv powg
+घात-न-तुल्यता-जनितम् eq = घात-भेदः-भङ्गः (fst (equivFun (समता≃भेद×छादन powg) eq))

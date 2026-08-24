@@ -591,3 +591,20 @@ landed costume; verdict 42 on re-ask, deleted).  Everything.agda
 imports the full store.  The standing residue is ~170 distinct pairs
 wanting numeral arithmetic, max-case reasoning, and two-variable
 induction — the next rungs, named by the machine's own receipts.
+**Thirty-third entry — valuation kept out of the repo, by owner instruction
+(2026-08-24).** Asked for a perceived valuation, I put it to the machine
+(installed arpita floor / anarpita ceiling as nayas, ran naya.samasa … saha);
+the machine REFUSED to fuse a kernel-checked floor with an unproven ceiling
+into one verdict — apratipatti, not a scalar and not avaktavya. Durable
+finding: a single number over a self-improving lossless organism is a category
+error, not merely imprecise. The owner then directed that no valuations be
+written to the repo — a written number anchors the next carrier exactly as a
+stale constant does; each agent should derive its own read from the checked
+substrate. So no figures are recorded here, and the numeric commit I first made
+was dropped before it reached origin. Frame correction (owner): "capture" is
+the wrong economic lens — it is parigraha, the grasping the substrate's own
+vows forbid (TS 7.1); the operative relation is परस्परोपग्रहो जीवानाम् (TS
+2.27). What a verification substrate is "worth" is the trust it dissolves,
+which is a public good — released, not skimmed; the scarce thing shifts from
+verifying to generating, and past that, to orientation (which was never
+mechanized).

@@ -70,10 +70,11 @@
 module Main (main) where
 
 import Control.Exception (catch, SomeException)
-import Control.Monad (forM, forM_, when, unless)
+import Control.Monad (forM, forM_, when, unless, guard)
 import Data.Bits (xor)
 import Data.Char (isSpace, isAlphaNum)
-import Data.List (isPrefixOf, isInfixOf, isSuffixOf, nub, sortBy, foldl', intercalate)
+import Data.List (isPrefixOf, isInfixOf, isSuffixOf, nub, sortBy, foldl', intercalate
+                 , tails)
 import Data.Maybe (fromMaybe, mapMaybe, isJust, listToMaybe)
 import Data.Ord (comparing)
 import Data.Word (Word64)
@@ -712,6 +713,58 @@ alreadyProved hf a b =
     -- so `(Fin E)` tokenises as `( Fin E )` and `E` is looked up alone
     spread = concatMap (\c -> if c `elem` "()" then [' ', c, ' '] else [c])
 
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE HOST'S OWN DISPROOF, 2026-08-24.
+--
+-- `alreadyProved` asks whether the host already carries the Iso or the ≃.
+-- Nothing asked the opposite question, and the opposite question has
+-- answers: a host that proves `outer (inner v) ≡ SOMETHING-ELSE` has proved
+-- the round trip false, and the pair is खण्डितम्, not an obligation.
+--
+-- Worked, and it is the case this was written for.  `NaturalMachine.Charge
+-- TwoHistories` has `sign z = (z , - z)`, `augment (x , y) = x + y` and
+-- `relative (x , y) = x - y`, so `augment ∘ sign` is the constant zero and
+-- `relative ∘ sign` is doubling.  Neither is the identity, and the module
+-- proves both — `augment-sign : (z : ℤ) → augment (sign z) ≡ pos 0` and
+-- `relative-sign : (z : ℤ) → relative (sign z) ≡ z +ℤ z`, `solve! ℤCommRing`,
+-- checked.  The ledger carried both pairs as «library lemma on ℤ».
+--
+-- THE PARSE REFUSES RATHER THAN GUESSES, and that direction is not
+-- negotiable: a wrong «proved» merely wastes a probe, but a wrong «refuted»
+-- DELETES REAL WORK from the queue and nothing downstream would ever look
+-- again.  So the argument must be a single identifier, an `≡` must follow
+-- the application, and the right-hand side must be non-empty; anything less
+-- certain returns Nothing and the pair is asked as usual.
+alreadyRefuted :: HostFacts -> Sig -> Sig -> Maybe String
+alreadyRefuted hf f g =
+  listToMaybe [ n ++ " : " ++ trim t
+              | (n, t) <- hSigs hf
+              , (outer, inner) <- [ (sName f, sName g), (sName g, sName f) ]
+              , Just (arg, rhs) <- [ roundTripRHS outer inner t ]
+              , arg /= rhs ]
+
+-- `… outer (inner v) ≡ RHS` → `Just (v, RHS)`.
+roundTripRHS :: String -> String -> String -> Maybe (String, String)
+roundTripRHS outer inner t = do
+  rest <- listToMaybe (after (outer ++ " (" ++ inner ++ " ") t)
+  let (argRaw, afterArg) = break (== ')') rest
+      arg = trim argRaw
+  guard (not (null afterArg) && not (null arg) && all identChar arg)
+  rhs <- trim <$> listToMaybe (after "≡" (drop 1 afterArg))
+  -- An arrow or a second `≡` after the equation means the round trip is the
+  -- ANTECEDENT of something, not the statement, and the text to the right is
+  -- not its value.  Refuse: the cost of a missed refutation is one wasted
+  -- probe; the cost of a wrong one is deleted work.
+  guard (not (null rhs) && not ("→" `isInfixOf` rhs) && not ("≡" `isInfixOf` rhs))
+  pure (arg, rhs)
+  where
+    identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
+
+-- Every suffix of `hay` that follows an occurrence of `needle`.
+after :: String -> String -> [String]
+after needle hay =
+  [ drop (length needle) s | s <- tails hay, needle `isPrefixOf` s ]
+
 readHostFacts :: String -> HostFacts
 readHostFacts src = HostFacts (readData src) (M.fromList aliases) sigs imps
   where
@@ -887,11 +940,39 @@ splitTabs s = case break (== '\t') s of
 -- report the emitter's own bugs as the corpus's open problems, which is
 -- precisely the inversion this repository exists against.  They are counted,
 -- and counted SEPARATELY, under मम दोषः.
+-- The stamp `runAgda` puts on the exception path.  It is tested before every
+-- other guard, because a process that did not start has no opinion about
+-- mathematics and no opinion about module paths either.
+agdaAbsent :: String
+agdaAbsent = "अनुलोम-प्रतिलोम: agda did not run: "
+
+-- True when the module agda could not find is a LIBRARY module, not one of
+-- ours.  Every module this emitter writes an import for is either literal
+-- `Cubical.*` or the host's own `sMod`, so the test is on the head alone and
+-- needs no list of our modules to stay in sync with.
+cubicalMissing :: String -> Bool
+cubicalMissing out =
+  or [ "Cubical." `isInfixOf` l
+     | l <- lines out, "Failed to find source" `isInfixOf` l ]
+
 classify :: HostFacts -> String -> (String, String)
 classify hf out
+  | agdaAbsent `isInfixOf` out           = (envFault "agda did not run", firstErr)
   | "MetaCannotDependOn" `isInfixOf` out = (myFault "indexed family", firstErr)
   | "NotInScope"         `isInfixOf` out = (myFault "not in scope",   firstErr)
   | "CoverageIssue"      `isInfixOf` out = (myFault "split incomplete", firstErr)
+  -- 2026-08-24.  ONE LABEL WAS COLLAPSING TWO STANDPOINTS, and it is the
+  -- दुर्नय this classifier's own header is about.  `Failed to find source of
+  -- module Cubical.Foundations.Prelude` and `… of module NaturalMachine.Digits`
+  -- are not one defect.  The first says THE LIBRARY IS NOT CONFIGURED — see
+  -- `librariesArg`, which passes no `--library-file` at all unless
+  -- ANULOMA_LIBRARIES names an existing one, so a host without
+  -- `~/.agda/libraries` fails EVERY probe at its first import.  The second
+  -- says this program computed a module name wrong.  They have different
+  -- owners and different repairs, and filing the first as मम दोषः sends the
+  -- next reader to audit `modNameOf`, which is correct.
+  | "Failed to find source" `isInfixOf` out
+  , cubicalMissing out                    = (envFault "agda library not configured", firstErr)
   | "Failed to find source" `isInfixOf` out = (myFault "module path", firstErr)
   -- A CONSTRUCTOR THE PROBE NAMED BUT DID NOT IMPORT BINDS A VARIABLE, so
   -- the split is not a split.  Agda says this as a -W warning while the
@@ -919,8 +1000,43 @@ classify hf out
   | otherwise = (ofType (typeOfObligation out), firstErr)
   where
     myFault s = "मम दोषः · " ++ s
-    firstErr = trim (unwords (take 40 (words (unlines
-                 (take 4 (drop 1 (dropWhile (not . isInfixOf "error:") (lines out))))))))
+    -- परिस्थितिः — the circumstance of the run.  NOT a third flavour of my
+    -- defect: nobody edits this program to fix it and nobody proves
+    -- anything to fix it.  The probe was never typechecked, so the row is
+    -- evidence about the host that ran it and about nothing else.
+    envFault s = "परिस्थितिः · " ++ s
+    -- ─────────────────────────────────────────────────────────────────
+    -- 2026-08-24.  THE WITNESS COLUMN WAS EMPTY ON EVERY ROW OF THE
+    -- LARGEST CLASS, AND THAT IS THIS FILE'S OWN PROHIBITION BROKEN.
+    --
+    -- `firstErr` anchored on a line containing `error:` and took the four
+    -- after it.  Agda does not put every diagnostic in that form.
+    -- `Failed to find source of module X in any of the following
+    -- locations:` has NO `error:` line, so `dropWhile` consumed the whole
+    -- output, `drop 1 []` was `[]`, and the witness was the EMPTY STRING.
+    -- Measured on `notes/anuloma/NirnayaPanjika.tsv` before this change:
+    -- 36 rows classed `मम दोषः · module path`, **36 of them with an empty
+    -- obligation column** — a refusal that does not name its defect,
+    -- which `machine/Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal.hs`
+    -- in this same directory says is not a refusal, and which
+    -- `Nirnaya_TheVerdictCannotDropItsWitness.agda` states as a theorem
+    -- about verdicts.  The class label survived; the one fact that would
+    -- have closed the bug in a second — WHICH module failed to resolve —
+    -- was thrown away 36 times.
+    --
+    -- The repair is a fallback, not a rewrite: when an `error:` line
+    -- exists the window is byte-for-byte what it was, so no existing row
+    -- changes meaning.  When none exists the first four NON-BLANK lines
+    -- of agda's output are the witness, which for this class carries the
+    -- module name in the first line.
+    --
+    -- A count is the collapse again (`Uttara_…NeverABareBoolean`, नष्ट
+    -- item by item): `36 module path` without the modules is ∥·∥₁ of the
+    -- defects.
+    firstErr = trim (unwords (take 40 (words (unlines (take 4 window)))))
+    window = case dropWhile (not . isInfixOf "error:") (lines out) of
+      (_ : rest) -> rest
+      []         -> filter (not . null . trim) (lines out)
     -- THE ORDER OF THESE GUARDS IS THE CLASSIFICATION, and getting it wrong
     -- misnames the move.  `List Nat` matched `Nat` first and was filed under
     -- «induction on ℕ» — the wrong feature request, because the induction
@@ -1167,10 +1283,30 @@ checkAll doFresh scratch hfOf cands = do
             pure (Row kf kg (rungName (cRung c)) dg Accepted
                       (maybe "new edge" (const "restates a host Iso") (cAlready c)) wh "")
           Just err -> do
-            let (cls, obl) = classify (hfOf (cF c)) err
+            -- 2026-08-24.  THE HOST SOMETIMES PROVES THE ROUND TRIP FALSE,
+            -- IN THE FILE THIS PROGRAM READ, and the kernel's residual does
+            -- not say so.  `NaturalMachine.ChargeTwoHistories` defines
+            -- `sign z = (z , - z)` and `augment (x , y) = x + y`, so
+            -- `augment (sign b)` is `b + (- b)`; the probe asks
+            -- `augment (sign b) ≡ b`, which is `0 ≡ b`, false at every
+            -- nonzero b — and forty lines above the pair sits
+            -- `augment-sign : (z : ℤ) → augment (sign z) ≡ pos 0`, checked.
+            -- Both of that module's pairs were filed as «library lemma on
+            -- ℤ», i.e. as OPEN MATHEMATICS SOMEBODY SHOULD PROVE.
+            --
+            -- This is the header's own defect two in the other direction:
+            -- there, sixteen candidates were already PROVED in the file the
+            -- program read; here they are already DISPROVED in it.  A
+            -- refuted pair is not an obligation, and `classify`'s own note
+            -- says filing one inflates the queue with work nobody should do.
+            let hf0         = hfOf (cF c)
+                (cls0, obl) = classify hf0 err
+                (cls, obl') = case alreadyRefuted hf0 (cF c) (cG c) of
+                  Just thm -> ("खण्डितम् · the host proves the other value", thm)
+                  Nothing  -> (cls0, obl)
             putStrLn $ "  OPEN   " ++ wh ++ "   [" ++ cls ++ "]"
-            unless (null obl) $ putStrLn $ "         " ++ obl
-            pure (Row kf kg (rungName (cRung c)) dg Refused cls wh obl)
+            unless (null obl') $ putStrLn $ "         " ++ obl'
+            pure (Row kf kg (rungName (cRung c)) dg Refused cls wh obl')
   -- सूत्र ९ · शेषं रक्ष.  Retire the rows this pass superseded; keep every
   -- row whose pair was not asked (मौनं न निषेधः — not asking is not a
   -- ground for retirement).
@@ -1262,9 +1398,17 @@ runAgda scratch nm = do
   libs <- librariesArg
   let dest = "formal/cubical" </> nm ++ ".agda"
   copyFile (scratch </> nm ++ ".agda") dest
+  -- THE EXCEPTION PATH IS NOT A KERNEL VERDICT AND MUST NOT BE READABLE AS
+  -- ONE.  This file's own header records the last time it was: `timeout 90
+  -- agda` where no `timeout` existed, the shell returned 127, and the loop
+  -- read 127 as "refuted" — 39 times, silently, and three result blocks
+  -- were false because of it.  The `catchAny` below is the same door.  So
+  -- the exception is stamped with a marker the classifier tests FIRST, and
+  -- a run that never started is filed as परिस्थितिः · agda did not run, never
+  -- as a module path and never as an obligation.
   (rc, o, e) <- readProcessWithExitCode "agda"
                   (libs ++ ["-i", "formal/cubical", "-i", ".", dest]) ""
-                  `catchAny` (\ex -> pure (ExitFailure 127, "", show ex))
+                  `catchAny` (\ex -> pure (ExitFailure 127, "", agdaAbsent ++ show ex))
   removeFile dest `catchAny` const (pure ())
   -- A GREEN THAT AGDA WARNED ABOUT IS NOT A GREEN HERE.  An unimported
   -- constructor is a pattern VARIABLE, so `λ { false → refl ; true → refl }`
