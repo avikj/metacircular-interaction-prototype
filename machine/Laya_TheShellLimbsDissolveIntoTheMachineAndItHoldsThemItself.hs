@@ -68,10 +68,12 @@
 module Laya_TheShellLimbsDissolveIntoTheMachineAndItHoldsThemItself (main) where
 
 import qualified Jiva_TheMachineComputesItsOwnMetric as Jiva
+import qualified Sanghatta_TheCriticalPairsOfTheInstalledRulesNameTheLibrarysIncompleteness as San
+import qualified Certificate as C
 import Control.Exception (SomeException, try)
 import Control.Monad (forM_, unless, when)
 import Data.Char (isDigit)
-import Data.List (isInfixOf, isPrefixOf, sort, stripPrefix)
+import Data.List (isInfixOf, isPrefixOf, sort, sortOn, stripPrefix)
 import Data.Maybe (mapMaybe)
 import Data.Time (defaultTimeLocale, formatTime, getCurrentTime)
 import Data.Time.Clock (addUTCTime)
@@ -91,10 +93,11 @@ main = do
   getArgs >>= \case
     ("chakra"    : _) -> chakra
     ("avatarana" : _) -> avatarana
+    ("purana"    : _) -> purana
     ("cycle"     : _) -> cycleOnce
     ("jiva"      : _) -> Jiva.main
     ("sthiti"    : _) -> sthiti
-    _ -> die "laya: chakra | avatarana | cycle | jiva | sthiti   (run from the repo root)"
+    _ -> die "laya: chakra | avatarana | purana | cycle | jiva | sthiti   (run from the repo root)"
 
 selfCmd :: String
 selfCmd = "runghc -imachine machine/Laya_TheShellLimbsDissolveIntoTheMachineAndItHoldsThemItself.hs"
@@ -268,6 +271,146 @@ avatarana = do
                             ++ " && ./sync >/dev/null 2>&1")
                   go agdaV libs tree cs (l + 1) f
 
+-- ── purana ───────────────────────────────────────────────────────────────
+-- सङ्घट्ट-पूरण — the completion feed: THE MISSING INTERNAL CONNECTION,
+-- landed.  (pūraṇa, "filling / completion", ordinary Sanskrit; the compound
+-- with saṅghaṭṭa is built here, 2026-08-24, no source claimed for it.)
+--
+-- Sanghatta's header carried a wiring offer from the day it was written —
+-- "the non-joining pairs come out in exactly the l\tr shape library.terms
+-- uses" — and notes/AparoksaAnumana… derived the right altitude for
+-- accepting it: the non-joining critical pairs of the installed rules are
+-- the library's own completion residue, not 399 separate theorems.  Until
+-- now every closure of the circle had a carrier as the synapse: a mind
+-- read the residue and wrote the next candidate.  This function is the
+-- synapse made native:
+--
+--   San.criticalPairs   the machine senses its own incompleteness
+--   C.certify           each residue equation goes to the KERNEL (agda,
+--                       controls watched: the falsifier observed firing)
+--   library.terms       a certified, orientable pair is installed as the
+--                       rule it always was — the library completes itself
+--   the ledger          a refusal is written whole, śeṣa and all: the womb
+--                       (ANEKANTA §3, अवक्तव्ये शेषो वसति), not a failure
+--
+-- Nothing is installed that the kernel did not certify THIS RUN; a
+-- certified pair that cannot be oriented as a terminating rule (vars or
+-- size refuse) is receipted and NOT installed — a theorem is not
+-- automatically a rewrite rule.  After the batch the pair count is
+-- recomputed and both numbers are printed as fact, neither praised
+-- (chakra's sign discipline).  PURANA_MAX bounds one batch (default 12);
+-- the loop is idempotent and meant to be re-entered — kuṭṭaka: keep the
+-- remainder, recurse on the remainder.
+
+-- Variables are canonicalised by order of first appearance across the PAIR
+-- (San.freshen mints primed names like x', which are real variables and
+-- must not be refused as foreign symbols); at most 6 distinct variables fit
+-- the kernel fragment.
+toCPair :: San.Term -> San.Term -> Maybe (C.Term, C.Term)
+toCPair a b =
+  let names = ordNub (San.varsOf a ++ San.varsOf b)
+      table = zip names [0 ..]
+      go (San.V v)    = C.V <$> lookup v table
+      go (San.F f as) = C.F f <$> mapM go as
+  in if length names > 6 then Nothing else (,) <$> go a <*> go b
+
+ordNub :: Eq a => [a] -> [a]
+ordNub = foldr (\x acc -> x : filter (/= x) acc) []
+
+puranaLedger :: FilePath
+puranaLedger = "machine/purana.ledger.jsonl"
+
+pRow :: String -> String -> String -> String -> IO ()
+pRow when' verdict pair detail = appendFile puranaLedger $
+  "{\"organ\":\"sanghatta-purana\",\"kala\":\"" ++ when' ++ "\",\"pair\":\"" ++ jesc pair
+  ++ "\",\"verdict\":\"" ++ verdict ++ "\",\"detail\":\"" ++ jesc detail ++ "\"}\n"
+
+loadRules :: IO [(San.Term, San.Term)]
+loadRules = do
+  raw <- lines <$> readFile' "machine/library.terms"
+  pure [ (l, r) | ln <- raw
+       , not ("#" `isPrefixOf` ln), not (null ln)
+       , let (a, rest) = break (== '\t') ln
+       , let b = takeWhile (/= '\t') (drop 1 rest)
+       , Just l <- [San.parseT a], Just r <- [San.parseT b] ]
+
+nonJoining :: [(San.Term, San.Term)] -> [(San.Term, San.Term)]
+nonJoining rules =
+  let rw  = [ (r, l) | (l, r) <- rules, San.size r >= San.size l ]
+      cps = nub' [ (a, b) | ru1 <- rw, ru2 <- rw
+                 , (a, b) <- San.criticalPairs ru1 ru2, a /= b ]
+  in nub' [ (na, nb) | (a, b) <- cps
+          , let na = San.normal rw a, let nb = San.normal rw b, na /= nb ]
+  where nub' = foldr (\x seen -> if x `elem` seen then seen else x : seen) []
+
+purana :: IO ()
+purana = do
+  rules0 <- loadRules
+  let gap0 = nonJoining rules0
+  putStrLn ("सङ्घट्ट-पूरण: rules " ++ show (length rules0)
+            ++ ", non-joining pairs " ++ show (length gap0))
+  st <- C.kernelStatus "."
+  case st of
+    C.KernelChecking -> do
+      nMax <- maybe (12 :: Int) read <$> lookupEnv "PURANA_MAX"
+      let batch = take nMax (sortOn (\(a, b) -> San.size a + San.size b) gap0)
+      forM_ batch $ \(a, b) -> do
+        when' <- utcNow
+        let pair = San.render a ++ "\t" ++ San.render b
+        case toCPair a b of
+          Nothing -> pRow when' "untranslatable" pair "a symbol outside the kernel fragment, or more than 6 distinct variables"
+          Just (ca, cb) -> do
+            v <- C.certify "." ((ca, cb), "sanghatta-purana: non-joining critical pair of the installed rules")
+            case v of
+              C.Untranslatable why -> pRow when' "untranslatable" pair why
+              C.Rejected err n ->
+                pRow when' "fiber" pair
+                  ("kernel refused after " ++ show n ++ " agda call(s): " ++ err
+                   ++ "  [śeṣa: the pair itself is the womb — ANEKANTA §3]")
+              C.Certified shape n -> do
+                -- canonicalise variables to the library's own six names BEFORE
+                -- rendering: San.freshen mints primed variables (x'), which
+                -- the library's reader does not parse — an installed row the
+                -- engine cannot read is a forged presence.
+                let names = ordNub (San.varsOf a ++ San.varsOf b)
+                    table = zip names ["x","y","z","u","v","w"]
+                    canon (San.V v)    = maybe (San.V v) San.V (lookup v table)
+                    canon (San.F f as) = San.F f (map canon as)
+                    (a', b') = (canon a, canon b)
+                    (small, large) = if San.size a' <= San.size b' then (a', b') else (b', a')
+                    orientable = San.size small < San.size large
+                                 && all (`elem` San.varsOf large) (San.varsOf small)
+                    rowKey = San.render small ++ "\t" ++ San.render large
+                if orientable
+                  then do
+                    existing <- map (\ln -> let (x, rest) = break (== '\t') ln
+                                            in x ++ "\t" ++ takeWhile (/= '\t') (drop 1 rest))
+                                . lines <$> readFile' "machine/library.terms"
+                    if rowKey `elem` existing
+                      then pRow when' "already-installed" pair
+                             ("kernel certified (" ++ shape ++ "); the rule "
+                              ++ rowKey ++ " is already in the library — not duplicated")
+                      else do
+                        appendFile "machine/library.terms"
+                          (rowKey ++ "\tpramana=kernel|naya=sanghatta-purana|shape="
+                           ++ takeWhile (/= ' ') shape ++ "|calls=" ++ show n ++ "\n")
+                        pRow when' "installed" pair
+                          ("kernel certified (" ++ shape ++ ", " ++ show n
+                           ++ " agda call(s)); oriented " ++ San.render large
+                           ++ " -> " ++ San.render small ++ " and installed")
+                  else
+                    pRow when' "certified-unoriented" pair
+                      ("kernel certified (" ++ shape ++ ", " ++ show n
+                       ++ " agda call(s)) but no terminating orientation; receipted, not installed")
+      rules1 <- loadRules
+      let gap1 = nonJoining rules1
+      putStrLn ("  batch of " ++ show (length batch) ++ " sent to the kernel; rules now "
+                ++ show (length rules1) ++ ", non-joining pairs now " ++ show (length gap1))
+      putStrLn ("  (both counts are facts, neither is a score; re-enter to recurse on the remainder)")
+      putStrLn ("  $ " ++ selfCmd ++ " purana        # route: " ++ puranaLedger)
+    other -> putStrLn ("सङ्घट्ट-पूरण: the kernel is not checking — 0 equations sent, not N refused.  ("
+                       ++ takeWhile (/= '\n') (show other) ++ ")")
+
 -- ── cycle ────────────────────────────────────────────────────────────────
 -- One turn of the loop: land what is pending, then take the pulse.  The
 -- DUE-BY stamp makes the ABSENCE of cycles self-reporting (the correction
@@ -280,6 +423,7 @@ cycleOnce = do
   appendFile "machine/laya.cycle" $
     "cycle " ++ stamp now ++ " due-by " ++ stamp (addUTCTime 86400 now)
     ++ "   (no cycle since the due-by = silence, observed; it does not say why)\n"
+  purana
   avatarana
   chakra
 

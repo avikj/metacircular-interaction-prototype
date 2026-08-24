@@ -27,13 +27,20 @@
 -- no novelty claimed for the algorithm, only for the report.
 
 {-# LANGUAGE LambdaCase #-}
-module Main (main) where
+-- [2026-08-24, laya] `module Main` renamed to the file's own name so the
+-- machine can import this instrument as an organ (the wiring offer in the
+-- header, accepted at last — see Laya's `purana`).  `main` is unchanged;
+-- run it with -main-is as before.
+module Sanghatta_TheCriticalPairsOfTheInstalledRulesNameTheLibrarysIncompleteness
+  ( main, Term(..), Rule, parseT, render, size, varsOf, normal, criticalPairs
+  ) where
 
 import qualified Data.Map.Strict as M
 import Data.List (nub, sortOn, isPrefixOf)
 import Data.Maybe (mapMaybe, fromMaybe, catMaybes)
 import Data.Char (isAlphaNum)
 import System.IO
+import GHC.IO.Encoding (setLocaleEncoding)
 import qualified Data.Set as S
 
 -- ------------------------------------------------------------------ terms
@@ -174,6 +181,7 @@ criticalPairs r1@(l1, r1r) r2 =
 -- ------------------------------------------------------------------- main
 main :: IO ()
 main = do
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   raw <- lines <$> readFile "machine/library.terms"
   let rules = [ (l, r)

@@ -199,3 +199,21 @@ le(+(x,y),+(z,y))	le(x,z)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|voca
 0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 c0(x)	-(+(y,c0(x)),y)	pramana=anumana|naya=induction on y, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
+x	max(x,0)
+0	le(s(x),0)
+x	*(x,s(0))	pramana=kernel|naya=sanghatta-purana|shape=solver:|calls=2
+s(0)	le(0,y)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(y)	-(s(y),0)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(y)	gcd(s(y),0)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(0)	gcd(0,s(0))	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(y)	gcd(0,s(y))	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(0)	gcd(s(0),0)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(0)	le(0,s(y))	pramana=kernel|naya=sanghatta-purana|shape=cached,|calls=0
+s(0)	le(s(0),s(y))	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(x)	max(s(x),s(0))	pramana=kernel|naya=sanghatta-purana|shape=cached,|calls=0
+le(0,y)	le(0,s(y))	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
++(y,z)	+(+(0,y),z)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+0	+(+(0,0),+(0,0))	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(s(0))	gcd(s(s(0)),0)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+s(s(0))	gcd(0,s(s(0)))	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
++(x,x)	+(x,+(x,0))	pramana=kernel|naya=sanghatta-purana|shape=solver:|calls=2
