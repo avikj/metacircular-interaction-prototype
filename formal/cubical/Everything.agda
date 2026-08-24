@@ -2520,3 +2520,7 @@ import Prastuta.P1727
 -- predictions clause by clause, mechanical lemma chains judged at each link.
 import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem
 import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel
+-- the crystal: the compounding store grown by the completion loop
+-- (machine/Sphatika_*.hs), rendered whole and kernel-checked at every
+-- landing; 200 lemmas at first install (library.terms 201 -> 399)
+import Sphatika
