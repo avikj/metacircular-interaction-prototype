@@ -3,3 +3,48 @@ sp002	0	le(s(x),0)	refl
 sp003	s(0)	le(0,x)	refl
 sp004	x	*(x,s(0))	ind 0 refl congsuc
 sp005	s(x)	-(s(x),0)	refl
+sp006	0	le(s(s(x)),0)	refl
+sp007	s(x)	max(s(x),0)	refl
+sp008	s(0)	le(0,s(x))	refl
+sp009	x	+(x,*(x,0))	ind 0 refl congsuc
+sp010	le(s(0),s(x))	s(0)	refl
+sp011	max(s(x),s(0))	s(x)	refl
+sp012	s(x)	+(le(0,0),x)	refl
+sp013	0	-(s(0),s(s(x)))	refl
+sp014	0	-(x,+(s(x),y))	ind 0 refl ih
+sp015	0	-(x,+(x,s(y)))	ind 0 refl ih
+sp016	0	le(s(s(s(x))),0)	refl
+sp017	0	le(+(s(x),y),0)	refl
+sp018	0	le(+(x,s(y)),0)	ind 0 refl refl
+sp019	0	le(s(s(x)),s(0))	refl
+sp020	0	le(+(s(x),y),x)	ind 0 refl ih
+sp021	0	le(s(*(x,y)),0)	refl
+sp022	s(0)	le(0,s(s(x)))	refl
+sp023	le(0,s(x))	le(0,x)	refl
+sp024	x	+(x,*(s(0),0))	ind 0 refl congsuc
+sp025	+(x,y)	+(+(0,x),y)	refl
+sp026	+(s(s(0)),x)	s(s(x))	refl
+sp027	+(s(x),y)	+(x,s(y))	ind 0 refl congsuc
+sp028	0	*(le(x,0),+(x,x))	ind 0 refl refl
+sp029	+(+(0,0),+(0,0))	0	refl
+sp030	+(+(x,0),y)	+(x,y)	ind 0 refl congsuc
+sp031	0	le(+(x,s(s(y))),0)	ind 0 refl refl
+sp032	0	le(s(s(s(s(x)))),0)	refl
+sp033	s(0)	le(s(0),s(s(x)))	refl
+sp034	s(0)	le(x,+(s(x),y))	ind 0 refl ih
+sp035	s(0)	le(x,+(x,s(y)))	ind 0 refl ih
+sp036	le(+(x,s(s(0))),0)	0	ind 0 refl refl
+sp037	le(s(s(s(s(0)))),0)	0	refl
+sp038	le(*(x,x),0)	le(x,0)	ind 0 refl refl
+sp039	le(s(0),s(x))	le(0,x)	refl
+sp040	+(x,max(0,s(0)))	s(x)	ind 0 refl congsuc
+sp041	0	*(le(x,0),le(s(0),x))	ind 0 refl refl
+sp042	0	*(le(s(0),x),le(x,0))	ind 0 refl refl
+sp043	le(s(0),s(x))	le(0,s(x))	refl
+sp044	le(s(0),le(x,0))	le(x,0)	ind 0 refl refl
+sp045	le(s(0),max(x,s(y)))	s(0)	ind 0 refl refl
+sp046	le(s(0),max(s(x),y))	s(0)	ind 1 refl refl
+sp047	0	-(le(x,0),+(x,s(x)))	ind 0 refl refl
+sp048	0	le(max(x,+(s(y),z)),0)	ind 0 refl refl
+sp049	0	le(+(x,max(x,s(0))),0)	ind 0 refl refl
+sp050	0	le(max(+(s(x),y),z),0)	ind 2 refl refl
