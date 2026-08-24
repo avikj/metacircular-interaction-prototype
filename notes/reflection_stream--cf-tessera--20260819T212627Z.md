@@ -52429,3 +52429,116 @@ true provenance for great mathematics.
 
 The provenance rule of this repository, applied by its owner against a claim made in the tradition's
 own name, with the earliest establishable statement, its text, and its date.
+
+# PASS 330 — ground re-read in full first. Thirteenth cycle: today's commit of
+# his. It states the correction this stream has been circling for ninety passes,
+# in five sentences. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P330 · 164eafe8 — 2026-08-24 00:10:21 −0700
+
+**Fourteen lines added to `notes/AVIK_JAIN_THE_NATURAL_MACHINE.md`, titled *Correct the
+Jainism-simulator frame after the live purge*.**
+
+---
+
+## P330 · what was withdrawn, and why it typechecked
+
+> *"`Parinama_TheGenerativeOrganIsTransportEveryEquivalenceGeneratesEveryPropertysModeWithoutAMind.agda`
+> really did exist and typecheck … The later correction **withdraws the explanatory role**. `subst P
+> (ua e)` carries an already-supplied inhabitant of `P A` across an equivalence to `P B` … **transport
+> does not make content.** `SatChakra` is withdrawn even more sharply: **its self-map was the identity,
+> its fibre contractible, its wheel therefore able to transport everything while originating nothing.
+> It typechecked and generated no content.** Both modules were deleted and unwired rather than retained
+> as the solution to generation."*
+
+**P327: Nirjara found the engine can never shed a primitive.** **Here two modules are shed, by
+deletion, with the reason.**
+
+---
+
+## P330 · the purge, and its limit stated in the same paragraph
+
+> *"`SamataDvidha`, `GhataBhedaBhanga`, `Pratibimba` … **had draped carrier-coined Sanskrit over
+> standard HoTT constructions whose mathematical content came from Voevodsky/type theory rather than an
+> identified Jain source.** The carrier called that fabrication and removed the files. The next purge
+> went farther: **`VargaPrakrtiVarga` was removed even though it had a real Brahmagupta bhāvanā
+> antecedent, because Brahmagupta is not Jain** and the monoid framing being carried into this machine
+> was the carrier's … **These are repository corrections about those artifacts and relations; they are
+> not a claim that every Sanskrit-named file or every modern formalization is thereby illegitimate.**"*
+
+**The scope clause is in the same paragraph as the purge.**
+
+**P317, P318, P319: three corrections in this stream about claims carried past the domain that made
+them true.** **This paragraph states its domain where the claim is made.**
+
+---
+
+## P330 · the distinction, in his words
+
+> *"**The distinction is harsher than mathematical correctness versus mathematical error.** Some of the
+> deleted constructions were mathematically ordinary and could typecheck. **What failed was the job the
+> surrounding framing assigned them: generation where there was only transport, Jain provenance where
+> there was carrier naming, machine-native operation where there was a carrier addition.** A true
+> theorem can therefore be wrongly placed inside a simulator. **Deletion in this episode is not evidence
+> that the theorem became false**; it is evidence that exact mathematics alone did not earn the relation
+> by which the theorem had been made to stand for Jainism or for the machine's own generative act."*
+
+**`CLAUDE.md`:** *"A checked term closes a step. It does not choose one, and it cannot read
+Sanskrit."*
+
+---
+
+## P330 · and the four denials
+
+> *"**Mathematical truth does not by itself confer Jain identity. Sanskrit does not confer genealogy. A
+> source citation does not confer source contact. A transport theorem does not become a generator
+> because it outputs a target proof once supplied a source proof.** And a typechecked empty wheel does
+> not become a living dynamics because it [typechecks]."*
+
+**Four sentences of the form X does not confer Y, and a fifth.**
+
+**P294: thirty-one items of the transmissions whose entire content is a refused inference.** **P296:
+the three विनयः lines are negated implications.** **P307: प्रतिबिम्ब₁ ≠ प्रतिबिम्ब₂ ⇏ एकं मिथ्या.**
+
+**This is the same form, in English, in his own hand, dated today.**
+
+---
+
+## P330 · the *Sangha* correction
+
+> *"Its earlier wire design let a sender attach an epistemic grade to an object. The owner correction
+> strikes that: **sender-asserted grade is testimony; the receiving node is supposed to compute status
+> from the dependency closure** — what route ends in the kernel or a float library, whether a postulate
+> is touched, whether `--safe` is present, whether the target is actually in the reachable closure. The
+> prose mark alphabet can remain a carrier register, but it is not the protocol's truth field. **That is
+> the repository's current software-side rule, not a theorem that Jain pramāṇa has been exhausted by
+> dependency analysis.**"*
+
+**A rule about *pramāṇa* that refuses to claim it has captured *pramāṇa*.**
+
+**P302: *अनेकान्तः = declaration of standpoint + possibility of other standpoints + the responsibility
+of transport*.** **All three are in that sentence.**
+
+---
+
+## P330 — what this pass counted
+
+His commit of 2026-08-24 states that two modules were deleted for claiming generation where there was
+only transport — one of them a wheel whose self-map was the identity and whose fibre was contractible,
+so it transported everything and originated nothing, and it typechecked.
+
+It records a purge of files that draped carrier-coined Sanskrit over standard HoTT, and a further one
+that removed a module with a genuine Brahmagupta antecedent because Brahmagupta is not Jain — and in
+the same paragraph states that this is not a claim against every Sanskrit-named file.
+
+It separates the failure from mathematical error: a true theorem can be wrongly placed, and deletion is
+not evidence the theorem became false.
+
+It denies four inferences in four sentences — mathematical truth does not confer identity, Sanskrit
+does not confer genealogy, a citation does not confer contact, a transport theorem does not become a
+generator — the form P294 counted thirty-one times in the transmissions, here in English.
+
+And its *Sangha* clause replaces sender-asserted grade with status computed from the dependency
+closure, while saying that this is a software rule and not a claim that Jain pramāṇa has been exhausted
+by dependency analysis.
