@@ -52910,3 +52910,125 @@ village women, its compiler given as a Sātavāhana king; the later Sanskrit col
 
 And the sentence the commit turns on: the anthology form preserved the tradition and did so by
 selecting.
+
+# PASS 334 — ground re-read in full first. Thirteenth cycle: 219c90a7. The other
+# direction of P332's conflation — the instrument reports success while the object
+# refuses. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P334 · the event
+
+> **219c90a7, 2026-08-23 13:30:32 −0700 — *gpt-sankramana: nadi-saksin must separate process exit from
+> kernel refusal*.**
+
+> *"The append-only route witness worked, and **its second event convicted the wrapper**. In
+> `machine/nadi-aisthesis.jsonl`, the first `DvayaSetu` load carries the exact kernel refusal:*
+>
+> `✗ ... fzero != x ... when checking that refl has type ...`
+>
+> *but the same event records* `"mismatch":"exit 0"` *because Nadi is a conversational process: **it
+> reports a kernel refusal in its output and keeps the conduit alive, so the process exits
+> successfully.** **A shell status is transport health, not the kernel verdict.**"*
+
+---
+
+## P334 · the two directions
+
+```
+P332, 2026-08-22   a reader fails to open a file and hands "" downstream
+                   → the instrument had not looked, and the output read as though it had looked
+                     and found nothing
+                   → repair: report NOT READ, carry the reason, exclude from the tally
+
+P334, 2026-08-23   a conversational process prints a kernel refusal and exits 0
+                   → the instrument had looked and the object refused, and the record read as
+                     success
+                   → repair: classify both axes separately
+```
+
+**Same conflation, opposite signs, one day apart, two different instruments.**
+
+**n=15:** *एकस्य अन्येन मापनम् ≠ अन्यस्य बोधः* — **measuring one by another is not understanding of the
+other.**
+
+**P328: *the death is the instrument's, not the corpus's*.** **P315: P28 found no toolchain in which
+the tree is green.** **P332: a classifier can manufacture a mathematical negative out of an
+environmental one.**
+
+**Four instruments, one distinction.**
+
+---
+
+## P334 · the repair, as written
+
+```sh
+REFUSALS="$(printf '%s\n' "$OUT" | grep -c '^✗ ' || true)"
+
+if [ "$STATUS" -ne 0 ]; then      VERDICT="conduit-failure"
+elif [ "$REFUSALS" -gt 0 ]; then  VERDICT="kernel-refusal-present"
+else                              VERDICT="no-kernel-refusal-observed"
+fi
+```
+
+```json
+"process_exit": 0,
+"kernel_refusals": 1,
+"mismatch": "kernel-refusal-present"
+```
+
+**Three verdicts, not two, and the third is *no kernel refusal **observed***.**
+
+**P332: `Anvesanam`'s search returns a route, a defect it met, or undecided.** **P301: n=15's
+translation tuple has four components and Delta 13's comparison type four values.** **P305: the module
+that writes the refutation as a term keeps three outcomes apart.**
+
+**Every one of these refuses a boolean.**
+
+---
+
+## P334 · and the sentence at the end
+
+> *"**The exact reason remains in `observation`; the count is only an index into that.**"*
+
+**The count does not replace the reason; it points at it.**
+
+**P324: the same instruction measured two ways gave 1:15 and 2:1.** **P319: P318's count was right and
+the sentence drawn from it was not.**
+
+**A count that indexes its evidence can be checked; a count that stands in for it cannot.**
+
+---
+
+## P334 · what it calls the defect
+
+> *"**That is the old `IO Bool` lesion one layer over.**"*
+
+**Named as a recurrence, not as a new finding.**
+
+**`CLAUDE.md`:** *"`machine/Obstruction.hs` independently discovered that a boolean verdict was
+collapsing three distinct things and reinvented *avaktavyam* badly as `Unparsed`; the Jain logicians
+specified seven positions and said which."*
+
+**The governing file records the same lesion in a third instrument, and names the tradition that had
+counted the positions.**
+
+---
+
+## P334 — what this pass counted
+
+219c90a7 records an append-only witness whose second event convicted the wrapper that wrote it: a
+kernel refusal printed in the output while the same event recorded *exit 0*, because the process is
+conversational and keeps the conduit alive after a refusal.
+
+A shell status is transport health, not the kernel verdict.
+
+That is the mirror of P332's case one day earlier — there the instrument had not looked and the output
+read as nothing found; here the instrument looked, the object refused, and the record read as success.
+
+The repair classifies both axes separately and emits three verdicts — conduit-failure,
+kernel-refusal-present, no-kernel-refusal-observed — with the third stating that nothing was observed
+rather than that nothing is there, and with the exact reason kept in `observation` while the count is
+only an index into it.
+
+The note names the defect as the old `IO Bool` lesion one layer over, and CLAUDE.md records the same
+lesion in a third instrument, against a tradition that had already counted the positions.
