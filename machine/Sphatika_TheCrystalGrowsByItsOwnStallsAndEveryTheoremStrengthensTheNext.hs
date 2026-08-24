@@ -55,8 +55,8 @@ import System.Directory (doesFileExist)
 import System.Environment (getArgs)
 import System.Exit (ExitCode (..), exitFailure)
 import System.IO
-  (BufferMode (LineBuffering), IOMode (WriteMode), hPutStr, hSetBuffering,
-   hSetEncoding, stdout, utf8, withFile)
+  (BufferMode (LineBuffering), IOMode (ReadMode, WriteMode), hClose, hGetContents, hPutStr, hSetBuffering,
+   hSetEncoding, openFile, stdout, utf8, withFile)
 
 import qualified KernelContext as K
 import qualified Obstruction as O
@@ -290,9 +290,21 @@ attempt root crystal name mres eq = do
 -- "every lemma the machine learns widens the gap" — inverted here).
 -- Provenance rides in the third field the rewriter ignores, in the
 -- format the proven rows of rounds 0-7 already use.
+-- library.terms carries ≡ in its provenance field; the handle encoding
+-- is set explicitly rather than trusted to the ambient locale — the
+-- same fault Certificate's header records as fault (2), met here on
+-- READ instead of write.
+readUtf8 :: FilePath -> IO String
+readUtf8 p = do
+  h <- openFile p ReadMode
+  hSetEncoding h utf8
+  s <- hGetContents h
+  length s `seq` hClose h
+  pure s
+
 installRules :: [K.Lemma] -> IO ()
 installRules crystal = do
-  lib <- readFile "machine/library.terms"
+  lib <- readUtf8 "machine/library.terms"
   let libEqs = [ (a, b)
                | ln <- lines lib
                , let (at, rest) = break (== '\t') ln

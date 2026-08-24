@@ -31,7 +31,7 @@ while [ "$n" -lt "$ROUNDS" ]; do
        && ! ps aux | grep -v grep | grep -q "sphatika.*sanghatta-report"; then
         rm -rf machine/sphatika.crystal.lock
     fi
-    "$BIN" machine/sanghatta-report-current.txt >>"$LOG" 2>&1
+    LC_ALL=C.UTF-8 "$BIN" machine/sanghatta-report-current.txt >>"$LOG" 2>&1
     rm -rf machine/sphatika.crystal.lock
     echo "== round $n: sense ==" >>"$LOG"
     LC_ALL=C.UTF-8 runghc -imachine \
