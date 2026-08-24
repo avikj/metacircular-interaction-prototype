@@ -347,3 +347,5 @@ sp280	max(s(*(x,y)),s(0))	s(*(x,y))	refl
 sp330	le(s(0),x)	le(s(0),+(x,+(0,x)))	ind 0 refl refl
 sp281	+(+(x,le(0,0)),y)	+(x,s(y))	ind 0 refl congsuc
 sp282	*(s(x),y)	+(y,*(x,+(0,y)))	refl
+sp331	s(s(s(s(0))))	+(s(s(0)),s(s(0)))	refl
+sp332	s(x)	+(s(*(x,s(0))),*(s(x),0))	ind 0 refl congsuc
