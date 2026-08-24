@@ -53,7 +53,7 @@ open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAll
         ; समानः ; समान-आत्मनि ; उपस्थापनम् ; आत्म-मूल्यम् ; सम-विपर्ययः
         ; तुला ; निवेशः ; क्रमणम्
         ; दृक् ; नेत्रम्-न ; यन्त्रम् ; सूक्ष्म-यन्त्रम्
-        ; नय-प्राणः ; इन्धनम् ; पूर्ण-प्रमाणम् )
+        ; नय-प्राणः ; इन्धनम् ; पूर्ण-प्रमाणम् ; _≤?_ )
 
 ------------------------------------------------------------------------
 -- §1  Operator symbols, meanings, constructors (SvayamBhavendriya's
@@ -558,6 +558,38 @@ module जनकः (o : कर्ता) (u : Tm)
 उभय-श्रुतम् []       = []
 उभय-श्रुतम् (s ∷ ss) = s ∷ प्रतिलोमः s ∷ उभय-श्रुतम् ss
 
+-- THE THIRD VEIL, measured at runtime after the second was lifted: a
+-- record speaking both hands UNCONDITIONALLY lets its expanding rules
+-- speak (distributivity unfolds a term into a larger one), and the
+-- pervasion's exchanges then grow terms down the recursion — the
+-- breath drowns in its own voice (minutes-to-hours where milliseconds
+-- stood).  The repair is the corpus's own word: ANULOMA, with the
+-- grain — and the grain is computable, no agent chooses.  A direction
+-- speaks only if it does not grow the term: equal-size rules (comm,
+-- the su-slide) keep both hands, which is exactly what the ascent
+-- needed; an expansion keeps only its folding hand.
+
+माप : Tm → Nat
+माप (var _)  = suc zero
+माप ze       = suc zero
+माप (su t)   = suc (माप t)
+माप (a ⊕ b)  = suc (माप a + माप b)
+माप (a ⊗ b)  = suc (माप a + माप b)
+माप (a ⊖ b)  = suc (माप a + माप b)
+माप (mx a b) = suc (माप a + माप b)
+माप (lq a b) = suc (माप a + माप b)
+
+अनुलोम-श्रुतम् : List नियमः → List नियमः
+अनुलोम-श्रुतम् []       = []
+अनुलोम-श्रुतम् (s ∷ ss) =
+  अग्रे (माप (नियमः.rhs s) ≤? माप (नियमः.lhs s))
+       (माप (नियमः.lhs s) ≤? माप (नियमः.rhs s))
+  where
+  अग्रे : Bool → Bool → List नियमः
+  अग्रे true  true  = s ∷ प्रतिलोमः s ∷ अनुलोम-श्रुतम् ss
+  अग्रे true  false = s ∷ अनुलोम-श्रुतम् ss
+  अग्रे false _     = प्रतिलोमः s ∷ अनुलोम-श्रुतम् ss
+
 ------------------------------------------------------------------------
 -- §7  The climb.  Each mint: the eye recomputed from the record, the
 --     record speaking with both hands, the primal instrument.  The
@@ -569,7 +601,7 @@ module जनकः (o : कर्ता) (u : Tm)
 गुण-श्वासः : List नियमः → List Eq' → List नियमः × List Eq'
 गुण-श्वासः Γ []             = Γ , []
 गुण-श्वासः Γ ((l , r) ∷ es)
-  with पूर्ण-प्रमाणम् (जात-चक्षुः Γ) सूक्ष्म-यन्त्रम् (उभय-श्रुतम् Γ) इन्धनम् (l , r)
+  with पूर्ण-प्रमाणम् (जात-चक्षुः Γ) सूक्ष्म-यन्त्रम् (अनुलोम-श्रुतम् Γ) इन्धनम् (l , r)
 गुण-श्वासः Γ ((l , r) ∷ es) | just pf = गुण-श्वासः (niyama l r pf ∷ Γ) es
 गुण-श्वासः Γ ((l , r) ∷ es) | nothing with गुण-श्वासः Γ es
 गुण-श्वासः Γ ((l , r) ∷ es) | nothing | (Γ' , sh) = Γ' , ((l , r) ∷ sh)

@@ -15,7 +15,7 @@ open import AgamaKanda_TheEldersStoreOnTheActSide using (आगमः)
 open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
   using (नियमः ; niyama ; गूढ-दृक् ; संयुक्त-यन्त्रम् ; पूर्ण-प्रमाणम् ; प्राणः ; इन्धनम् ; ⊨_)
 open import Gunasthana_TheBodyClimbsByItsOwnAttainmentTheEyeIsAFunctionOfTheRecordAndNoAgentPicksOrgans
-  using (उभय-श्रुतम् ; जात-चक्षुः)
+  using (अनुलोम-श्रुतम् ; जात-चक्षुः)
 
 postulate putStrLn : String → IO ⊤
 {-# FOREIGN GHC import qualified Data.Text.IO as T #-}
@@ -69,7 +69,7 @@ z = var 2
 गभीरम् = suc (suc इन्धनम्)
 
 उत्तरम् : String → List नियमः → Nat → Eq' → String
-उत्तरम् tag Γ fl (l , r) with पूर्ण-प्रमाणम् (जात-चक्षुः Γ) संयुक्त-यन्त्रम् (उभय-श्रुतम् Γ) fl (l , r)
+उत्तरम् tag Γ fl (l , r) with पूर्ण-प्रमाणम् (जात-चक्षुः Γ) संयुक्त-यन्त्रम् (अनुलोम-श्रुतम् Γ) fl (l , r)
 ... | just _  = "  [" ⊹ tag ⊹ "] " ⊹ दर्शकः l ⊹ " = " ⊹ दर्शकः r ⊹ "   -- SIDDHAM"
 ... | nothing = "  [" ⊹ tag ⊹ "] " ⊹ दर्शकः l ⊹ " = " ⊹ दर्शकः r ⊹ "   -- maunam"
 
