@@ -455,6 +455,17 @@ receiptA receiptB : Z
 receiptA = mkZ true 7
 receiptB = mkZ true 15
 
+allHold : Bool
+allHold = (lengthL unbalanced ==N 0) && (brokenNoInf ==N doublyNegative)
+          && (lengthL recipBad ==N 0) && (lengthL supBad ==N 0)
+
+finalBlock : Bool → String
+finalBlock true =
+  "ALL CHECKS HOLD.  Loss is always local; globally the books" +s nl
+  +s "have always balanced; and the column physics forgets is the" +s nl
+  +s "one that pays for all the others.   समं लेख्यम् ॥" +s nl
+finalBlock false = "A CHECK FAILED — the failing objects are the finding:" +s nl
+
 report : String
 report =
   "═══ समं लेख्यम् · the Hilbert product balances at every place ═══" +s nl
@@ -487,10 +498,4 @@ report =
      +s " supplements (-1|p),(2|p): " +s primShowNat (lengthL supBad)
      +s " violations." +s nl
   +s nl
-  +s (if (lengthL unbalanced ==N 0) && (brokenNoInf ==N doublyNegative)
-         && (lengthL recipBad ==N 0) && (lengthL supBad ==N 0)
-      then "ALL CHECKS HOLD.  Loss is always local; globally the books" +s nl
-           +s "have always balanced; and the column physics forgets is the" +s nl
-           +s "one that pays for all the others.   समं लेख्यम् ॥"
-      else "A CHECK FAILED — the failing objects are the finding:")
-  +s nl
+  +s finalBlock allHold
