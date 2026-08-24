@@ -206,7 +206,7 @@ data कर्ता : Type where
 ------------------------------------------------------------------------
 
 module जनकः (o : कर्ता) (u : Tm)
-  (gc : (x y : ℕ) → अर्थः o x y ≡ अर्थः o y x)
+  (gsm : (x y : ℕ) → अर्थः o x y ≡ अर्थः o y x)
   (ga : (x y z : ℕ) → अर्थः o x (अर्थः o y z) ≡ अर्थः o (अर्थः o x y) z)
   (gu : (x : ℕ) (ρ : ℕ → ℕ) → अर्थः o x (eval u ρ) ≡ x)
   where
@@ -234,7 +234,7 @@ module जनकः (o : कर्ता) (u : Tm)
   फलितम् (t ∷ ts) ρ = अर्थः o (eval t ρ) (फलितम् ts ρ)
 
   वाम-एकम् : (m : ℕ) (ρ : ℕ → ℕ) → अर्थः o (eval u ρ) m ≡ m
-  वाम-एकम् m ρ = gc (eval u ρ) m ∙ gu m ρ
+  वाम-एकम् m ρ = gsm (eval u ρ) m ∙ gu m ρ
 
   फल-++ : (xs ys : List Tm) (ρ : ℕ → ℕ)
     → फलितम् (xs ++ ys) ρ ≡ अर्थः o (फलितम् xs ρ) (फलितम् ys ρ)
@@ -286,7 +286,7 @@ module जनकः (o : कर्ता) (u : Tm)
   ... | false =
       cong (अर्थः o (eval y ρ)) (निवेश-फलम् t ys ρ)
     ∙ ga (eval y ρ) (eval t ρ) (फलितम् ys ρ)
-    ∙ cong (λ m → अर्थः o m (फलितम् ys ρ)) (gc (eval y ρ) (eval t ρ))
+    ∙ cong (λ m → अर्थः o m (फलितम् ys ρ)) (gsm (eval y ρ) (eval t ρ))
     ∙ sym (ga (eval t ρ) (eval y ρ) (फलितम् ys ρ))
 
   क्रम-फलम् : (xs : List Tm) (ρ : ℕ → ℕ) → फलितम् (क्रमणम् xs) ρ ≡ फलितम् xs ρ
@@ -449,11 +449,11 @@ module जनकः (o : कर्ता) (u : Tm)
   go [] = nothing
   go (s ∷ ss) with सम-लक्षणम् s
   ... | nothing = go ss
-  ... | just (o , gc) with सह-अन्वेषः o Γ
+  ... | just (o , gsm) with सह-अन्वेषः o Γ
   ...   | nothing = go ss
   ...   | just ga with एक-अन्वेषः o Γ
   ...     | nothing = go ss
-  ...     | just (u , gu) = just (जनकः.दृग्जन्म o u gc ga gu)
+  ...     | just (u , gu) = just (जनकः.दृग्जन्म o u gsm ga gu)
 
 निष्पत्तिः : Maybe दृक् → दृक्
 निष्पत्तिः (just E) = E
