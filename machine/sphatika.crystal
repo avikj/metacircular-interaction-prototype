@@ -349,3 +349,4 @@ sp281	+(+(x,le(0,0)),y)	+(x,s(y))	ind 0 refl congsuc
 sp282	*(s(x),y)	+(y,*(x,+(0,y)))	refl
 sp331	s(s(s(s(0))))	+(s(s(0)),s(s(0)))	refl
 sp332	s(x)	+(s(*(x,s(0))),*(s(x),0))	ind 0 refl congsuc
+sp333	s(s(0))	+(*(s(s(0)),0),s(s(0)))	refl
