@@ -2513,6 +2513,9 @@ import BahumargaBheda_TheMultiwayDoesNotCollapseDistinctBranchesAreProvablyDisti
 import Advaya_ThereIsNoOtherAndDualityIsJustWhichSideYouBind
 import Sthiti_RestIsTheGroundReflIsTheCenterAndAllMotionReturnsToIt
 import CaryaNivrtti_TheStringsChargeIsRetiredIntoIntegerStructureByTheOneLine
+-- exclusive-resource frontier, local half: the merge of two spends is
+-- decidably one-or-a-named-distinct-pair, never a silent double-spend
+import DviVyaya_TwoSpendsOfOneSourceMergeToOneOrToANamedConflictNeverSilent
 -- the crystal: the compounding store grown by the completion loop
 -- (machine/Sphatika_*.hs), rendered whole and kernel-checked at every
 -- landing; 200 lemmas at first install (library.terms 201 -> 399)
