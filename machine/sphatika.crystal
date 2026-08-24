@@ -962,3 +962,11 @@ sp647	0	+(*(s(s(0)),0),*(*(s(s(0)),0),s(0)))	refl
 sp648	s(0)	le(+(+(0,0),*(0,+(0,+(0,0)))),0)	refl
 sp649	s(0)	le(+(+(0,0),*(0,+(+(0,0),0))),0)	refl
 sp578	max(*(s(x),x),s(0))	max(*(s(x),x),le(x,0))	ind 0 refl refl
+sp650	+(max(s(x),s(0)),s(x))	gcd(+(s(x),s(x)),0)	refl
+sp579	max(*(s(x),x),s(0))	max(le(x,0),*(s(x),x))	ind 0 refl refl
+sp651	+(max(s(x),s(0)),s(x))	gcd(0,+(s(x),s(x)))	refl
+sp580	+(le(0,0),+(le(0,0),x))	+(x,s(le(0,0)))	ind 0 refl congsuc
+sp652	s(0)	gcd(0,le(s(0),+(max(x,s(0)),*(x,x))))	ind 0 refl refl
+sp653	s(0)	gcd(le(s(0),+(max(x,s(0)),*(x,x))),0)	ind 0 refl refl
+sp581	+(+(x,*(s(0),0)),*(0,s(*(s(0),0))))	x	ind 0 refl congsuc
+sp582	+(+(x,*(s(0),0)),*(*(s(0),0),s(0)))	x	ind 0 refl congsuc
