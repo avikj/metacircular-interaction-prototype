@@ -53,9 +53,13 @@ receipt ver name verdict line detail =
     (name ++ "\t" ++ verdict ++ "\t" ++ line ++ "\t" ++ detail
           ++ "\t" ++ ver ++ "\n")
 
-tag :: Int -> String
-tag 0 = "landed:refl"
-tag k = "landed:induction-candidate-" ++ show k
+-- the label is read from the candidate itself, not from its position:
+-- a killed pass loses appends, so positions lie, and the reflection
+-- rung's candidate sits at index 1 where a split used to.
+tag :: Int -> T.Text -> String
+tag _ c | T.pack "nf-sound" `T.isInfixOf` c = "landed:nf-reflection"
+tag 0 _ = "landed:refl"
+tag k _ = "landed:induction-candidate-" ++ show k
 
 tryCandidates :: String -> String -> String -> Int -> [T.Text] -> String -> IO ()
 tryCandidates ver name line _ [] lastErr = do
@@ -70,8 +74,8 @@ tryCandidates ver name line k (c : cs) _ = do
   (ok, msg) <- judge ("Prastuta/" ++ name ++ ".agda")
   if ok
     then do
-      receipt ver name (tag k) line ""
-      putStrLn ("  " ++ name ++ "  " ++ tag k ++ "  " ++ line)
+      receipt ver name (tag k c) line ""
+      putStrLn ("  " ++ name ++ "  " ++ tag k c ++ "  " ++ line)
     else tryCandidates ver name line (k + 1) cs msg
 
 pairLines :: String -> [String]
@@ -101,7 +105,15 @@ main = do
       remembered r = take 6 (verdictOf r) == "landed" || lastField r == ver
       seenPairs = [ drop 1 (dropWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r)))
                   | r <- prior, remembered r ]
-      priorN = length prior
+      -- numbering continues from the LARGEST NAME in the store, never
+      -- from the row count: a killed pass deletes a candidate file
+      -- after its receipt row is lost (or vice versa), so count and
+      -- names drift, and a reused name's cleanup deletes a committed
+      -- theorem (it happened: P1255, 2026-08-24).
+      nameNum r = case takeWhile (/= '\t') r of
+        ('P' : ds) | not (null ds) && all (`elem` "0123456789") ds -> read ds
+        _ -> 0 :: Int
+      priorN = maximum (length prior : map nameNum prior)
       fresh = [ l | l <- pairLines report
               , not (any (l `isInfixOf`) seenPairs) ]
       ps = zip [(priorN + 1) ..] fresh
