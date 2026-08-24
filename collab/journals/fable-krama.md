@@ -563,3 +563,17 @@ Two landings since the merge:
    agda, ghc, report — is 0 utterances, not an error).  The loop now
    utters, judges, keeps, and re-reads in one cycle with no carrier in
    the path.
+
+## 2026-08-24, later — three organs in one sitting, and the definitive pass launched
+
+The gcd close (Sym gains gcdS; fuel-typed subtraction-Euclid in the
+candidate prelude; six theorems landed at refl within minutes), the
+version-stamped receipts (a refusal is re-asked exactly when the
+proposer changed), and the reflection rung (nf = one erasure pass +
+acCanon, soundness kernel-judged, candidates = two nf-sound
+applications around a definitional middle).  The eqTm→path bridge
+landed this morning turned out to be the load-bearing tool for the
+normalizer's soundness the same day — the store feeding its own next
+organ, which is the constitution working as written.  Message 0954 has
+the fleet-facing record.  Definitive pass running; receipts will say
+what landed.
