@@ -5,39 +5,36 @@
 -- (c. 2nd–5th c. CE): गुणपर्ययवद् द्रव्यम् — substance is what possesses
 -- qualities and MODES — and वर्तनापरिणामक्रियाः परत्वापरत्वे च कालस्य —
 -- time's marks are vartanā (the assisting of each substance's
--- SELF-modification), pariṇāma, kriyā, before-and-after.  Kāla does
--- not push: the content of every change is the substance's own; time
--- is the auxiliary of its occurrence, and it is atomic (kālāṇu,
--- Nemicandra, *Dravyasaṃgraha* v.22, 10th c.).  School: Jaina.
--- Claimed of the sources: the doctrine's shape, which IS this
--- module's architecture, and nothing else.
+-- SELF-modification), pariṇāma, kriyā, and PARATVA-APARATVA — the
+-- before and the after.  Kāla does not push and kāla does not ask:
+-- each substance modifies itself, time assists the occurrence and
+-- ORDERS it.  Kāla is atomic (kālāṇu, Nemicandra, *Dravyasaṃgraha*
+-- v.22, 10th c.).  School: Jaina.  Claimed of the sources: the
+-- doctrine's shape, which IS this architecture, and nothing else.
 --
--- SECOND CORRECTION (owner, 2026-08-24): no named drives, no division.
--- THE BODY IS DRIVEN BY ALL ITS ORGANS.  The organs are the nayas
--- (nayavāda — the corpus's own frame: charts that disagree at their
--- overlaps, and the disagreement is the content):
+-- THIRD CORRECTION (owner, 2026-08-24): accept NO division.  The
+-- previous form still split questions into two species
+-- (discrimination and reduction) and organs into two fields (innate
+-- and generated).  Both dissolve:
 --
---   * each organ (a sound eye) induces a sameness-judgment on terms:
---     "I see these two as one";
---   * the probe-evaluator is one more naya — the concrete-instance
---     standpoint;
---   * A QUESTION IS A DISAGREEMENT BETWEEN NAYAS at a pair of the
---     body's own subterms.  If an organ sees two as one where another
---     does not, the pair is posed (and closes — the seeing organ's
---     soundness pays).  If only the probes see them as one, the pair
---     is the body's measured blindness, posed to the frontier.
---   * the clock is not a drive: it is kāla, the auxiliary — it GATES
---     the reduction questions (pose "say t as E t" only where the
---     clock prefers E t), which is exactly the doctrine's role for
---     time in every change;
---   * organs beget organs: the generator field is organ-birth from
---     attained laws (अङ्ग-जननम्'s pattern), so the question-space
---     grows as the body grows, and nothing is enumerated by an agent.
+--   * ONE POOL: the body's own subterms AND their organ-images, all
+--     first-class citizens of the same pool;
+--   * ONE QUESTION-RULE (nayavāda, whole): a pair of pool-terms is a
+--     question exactly when the sameness-standpoints disagree on it —
+--     the probes (the concrete-instance naya) see one where some
+--     organ still sees two.  The former "reduction questions" are not
+--     a species: (t, its organ-image) is simply a pool-pair the
+--     standpoints quarrel over;
+--   * KĀLA DOES NOT POSE — IT ORIENTS (paratva-aparatva): every
+--     posed pair is written from the posterior to the prior — the
+--     clock-expensive side rewrites toward the clock-cheap side — so
+--     the record's grain is time's own ordering, not a rule-species;
+--   * ONE ORGAN FIELD: अङ्ग-जनकः, organs as a function of the record,
+--     always; the innate organs are its constant part.  Organs beget
+--     organs because the function reads the grown record — nothing
+--     stored, nothing stale, nothing enumerated.
 --
--- One substance, one step.  वर्तना collects the naya-disagreements
--- and the kāla-gated reductions over the body's own record, breathes
--- them, eats what closes, keeps what does not.  Vyaya: what is
--- already held is not re-posed.
+-- One substance, one step.  Vyaya: the known is not re-posed.
 ------------------------------------------------------------------------
 
 module Vartana_TheWholeOrganismIsDataOneSamayaStepAssistsAndEveryReflexIsAModeNotAPrimitive where
@@ -61,22 +58,22 @@ open import KalaDravya_TimeIsASubstanceInTheSameTongueAndTheMachineProvesCostAsI
   using (कालम् ; लाघव-दृक्)
 
 ------------------------------------------------------------------------
--- §1  The substance: rules, standing goals, ORGANS, and organ-birth.
---     Nothing else.  Drives do not exist as a species.
+-- §1  The substance: what it has proven, what stands open, and how its
+--     organs arise from what it has proven.  Three fields.  No more.
 ------------------------------------------------------------------------
 
 record शरीरम् : Type where
   constructor sharira
   field
-    श्रुतम्     : List नियमः                 -- what it has proven
-    लक्ष्याः    : List Eq'                   -- its standing goals
-    अङ्गानि    : List दृक्                   -- its organs, as data
-    अङ्ग-जननम् : List नियमः → List दृक्      -- organs beget organs, as data
+    श्रुतम्     : List नियमः
+    लक्ष्याः    : List Eq'
+    अङ्ग-जनकः  : List नियमः → List दृक्
 
 open शरीरम् public
 
 ------------------------------------------------------------------------
--- §2  The nayas, derived from the organs — never listed by hand.
+-- §2  The standpoints.  The probes are the concrete-instance naya;
+--     each organ is a naya; kāla is not a naya — it orders.
 ------------------------------------------------------------------------
 
 private
@@ -85,34 +82,34 @@ private
   π₂ zero = 7 ; π₂ (suc zero) = 3 ; π₂ _ = 0
   π₃ zero = 1 ; π₃ (suc zero) = 4 ; π₃ _ = 2
 
-  -- the concrete-instance naya: the probes' verdict of sameness
-  लक्षण-मतम् : Tm → Tm → Bool
-  लक्षण-मतम् s t =
-    समℕ (eval s π₁) (eval t π₁) ∧
-    (समℕ (eval s π₂) (eval t π₂) ∧ समℕ (eval s π₃) (eval t π₃))
+  अङ्कः : Type
+  अङ्कः = Nat × (Nat × Nat)
 
-  -- an organ's naya: it sees the two as one
-  अङ्ग-मतम् : दृक् → Tm → Tm → Bool
-  अङ्ग-मतम् E s t = समः (fst E s) (fst E t)
+  अङ्कनम् : Tm → अङ्कः
+  अङ्कनम् t = eval t π₁ , (eval t π₂ , eval t π₃)
 
-  सर्वे-सम-मताः : List दृक् → Tm → Tm → Bool
-  सर्वे-सम-मताः []       s t = true
-  सर्वे-सम-मताः (E ∷ Es) s t with अङ्ग-मतम् E s t
-  ... | true  = सर्वे-सम-मताः Es s t
-  ... | false = false
+  सम-अङ्कौ : अङ्कः → अङ्कः → Bool
+  सम-अङ्कौ (a , (b , c)) (x , (y , z)) = समℕ a x ∧ (समℕ b y ∧ समℕ c z)
 
-  -- the disagreement test: the probes see one where some organ still
-  -- sees two.  That pair is a question, by nayavāda.
-  विमतिः : List दृक् → Tm → Tm → Bool
-  विमतिः Es s t with लक्षण-मतम् s t
-  ... | false = false                 -- probes separate the pair: settled
-  ... | true  = if सर्वे-सम-मताः Es s t then false else true
+  घटिका : Tm → Nat
+  घटिका t = कालम् t π₁ + (कालम् t π₂ + कालम् t π₃)
 
 ------------------------------------------------------------------------
--- §3  The body's own subterm pool, and the derived questions.
+-- §3  The pool: subterms and their organ-images, each carried with its
+--     probe-mark and its images, computed once.
 ------------------------------------------------------------------------
 
 private
+  एककम् : Type
+  एककम् = Tm × (अङ्कः × List Tm)      -- the term, its mark, its images
+
+  प्रतिमाः : List दृक् → Tm → List Tm
+  प्रतिमाः []       t = []
+  प्रतिमाः (E ∷ Es) t = fst E t ∷ प्रतिमाः Es t
+
+  एककृ : List दृक् → Tm → एककम्
+  एककृ Es t = t , (अङ्कनम् t , प्रतिमाः Es t)
+
   अवयवाः : Tm → List Tm
   अवयवाः t = t ∷ शाखाः t
     where
@@ -131,45 +128,76 @@ private
   सर्व-अवयवाः (s ∷ ss) =
     अवयवाः (नियमः.lhs s) ++ (अवयवाः (नियमः.rhs s) ++ सर्व-अवयवाः ss)
 
-  -- discrimination questions: every naya-disagreeing pair of subterms
-  विमति-चयनम् : List दृक् → Tm → List Tm → List Eq'
-  विमति-चयनम् Es s []       = []
-  विमति-चयनम् Es s (t ∷ ts) with विमतिः Es s t
-  ... | true  = (s , t) ∷ विमति-चयनम् Es s ts
-  ... | false = विमति-चयनम् Es s ts
+  -- the pool: subterms and (one level of) their images, all first-class
+  पूलः : List दृक् → List नियमः → List एककम्
+  पूलः Es Γ = चिह्नय (मूलाः ++ छायाः मूलाः)
+    where
+    मूलाः : List Tm
+    मूलाः = सर्व-अवयवाः Γ
 
-  विमति-प्रश्नाः : List दृक् → List Tm → List Eq'
-  विमति-प्रश्नाः Es []       = []
-  विमति-प्रश्नाः Es (s ∷ ts) = विमति-चयनम् Es s ts ++ विमति-प्रश्नाः Es ts
+    छायाः : List Tm → List Tm
+    छायाः []       = []
+    छायाः (t ∷ ts) = प्रतिमाः Es t ++ छायाः ts
 
-  -- reduction questions: an organ's view of a known side, where kāla
-  -- (the clock, the auxiliary of all change) prefers it
-  घटिका : Tm → Nat
-  घटिका t = कालम् t π₁ + (कालम् t π₂ + कालम् t π₃)
-
-  लाघव-प्रश्नः : Tm → दृक् → Maybe Eq'
-  लाघव-प्रश्नः t E with समः t (fst E t)
-  ... | true  = nothing
-  ... | false = if suc (घटिका (fst E t)) ≤? घटिका t
-                then just (t , fst E t) else nothing
-
-  लाघव-चयनम् : List दृक् → Tm → List Eq'
-  लाघव-चयनम् []       t = []
-  लाघव-चयनम् (E ∷ Es) t with लाघव-प्रश्नः t E
-  ... | just q  = q ∷ लाघव-चयनम् Es t
-  ... | nothing = लाघव-चयनम् Es t
-
-  लाघव-प्रश्नाः : List दृक् → List नियमः → List Eq'
-  लाघव-प्रश्नाः Es []       = []
-  लाघव-प्रश्नाः Es (s ∷ ss) =
-    लाघव-चयनम् Es (नियमः.lhs s) ++ (लाघव-चयनम् Es (नियमः.rhs s) ++ लाघव-प्रश्नाः Es ss)
+    चिह्नय : List Tm → List एककम्
+    चिह्नय []       = []
+    चिह्नय (t ∷ ts) = एककृ Es t ∷ चिह्नय ts
 
 ------------------------------------------------------------------------
--- §4  One samaya.  The organs in force are the innate ones plus those
---     the record births NOW (the organ is a function of the store —
---     SvayamBhavendriya's principle; nothing stored, nothing stale).
---     All questions derive from organ-disagreement and kāla-gated
---     organ-views.  Vyaya: the known is not re-posed.
+-- §4  The questions: mark-buckets first (probes disagreeing settles a
+--     pair, so only same-mark pairs can be questions), then the one
+--     rule — some organ still sees two — and kāla orients the pair.
+------------------------------------------------------------------------
+
+private
+  -- do all organs see the pair as one?  (their images match up)
+  सर्व-सम-दर्शनम् : List Tm → List Tm → Bool
+  सर्व-सम-दर्शनम् []       []       = true
+  सर्व-सम-दर्शनम् (i ∷ is) (j ∷ js) with समः i j
+  ... | true  = सर्व-सम-दर्शनम् is js
+  ... | false = false
+  सर्व-सम-दर्शनम् _        _        = false
+
+  -- kāla orients: posterior (costly) rewrites toward prior (cheap)
+  क्रमय : Tm → Tm → Eq'
+  क्रमय s t = if घटिका t ≤? घटिका s then (s , t) else (t , s)
+
+  प्रश्नः : एककम् → एककम् → Maybe Eq'
+  प्रश्नः (s , (ms , is)) (t , (mt , it)) with सम-अङ्कौ ms mt
+  ... | false = nothing
+  ... | true with समः s t
+  ...   | true  = nothing
+  ...   | false = if सर्व-सम-दर्शनम् is it then nothing else just (क्रमय s t)
+
+  बकेटः : Type
+  बकेटः = अङ्कः × List एककम्
+
+  निवेशय : एककम् → List बकेटः → List बकेटः
+  निवेशय e []       = (fst (snd e) , e ∷ []) ∷ []
+  निवेशय e ((m , es) ∷ bs) with सम-अङ्कौ (fst (snd e)) m
+  ... | true  = (m , e ∷ es) ∷ bs
+  ... | false = (m , es) ∷ निवेशय e bs
+
+  बकेटीकृ : List एककम् → List बकेटः
+  बकेटीकृ []       = []
+  बकेटीकृ (e ∷ es) = निवेशय e (बकेटीकृ es)
+
+  युग्म-प्रश्नाः : एककम् → List एककम् → List Eq'
+  युग्म-प्रश्नाः e []       = []
+  युग्म-प्रश्नाः e (f ∷ fs) with प्रश्नः e f
+  ... | just q  = q ∷ युग्म-प्रश्नाः e fs
+  ... | nothing = युग्म-प्रश्नाः e fs
+
+  बकेट-प्रश्नाः : List एककम् → List Eq'
+  बकेट-प्रश्नाः []       = []
+  बकेट-प्रश्नाः (e ∷ es) = युग्म-प्रश्नाः e es ++ बकेट-प्रश्नाः es
+
+  सर्व-प्रश्नाः : List बकेटः → List Eq'
+  सर्व-प्रश्नाः []             = []
+  सर्व-प्रश्नाः ((_ , es) ∷ bs) = बकेट-प्रश्नाः es ++ सर्व-प्रश्नाः bs
+
+------------------------------------------------------------------------
+-- §5  One samaya.
 ------------------------------------------------------------------------
 
 private
@@ -200,31 +228,27 @@ private
   भुज् E Γ ((l , r) ∷ es) | nothing | (Γ' , sh) = Γ' , ((l , r) ∷ sh)
 
 वर्तना : शरीरम् → शरीरम्
-वर्तना b = चरणम् (अङ्गानि b ++ अङ्ग-जननम् b (श्रुतम् b))
+वर्तना b = चरणम् (अङ्ग-जनकः b (श्रुतम् b))
   where
   चरणम् : List दृक् → शरीरम्
   चरणम् Es with भुज् (संयुक्त-दृक् Es) (श्रुतम् b)
                   (निरासः (श्रुतम् b)
-                    (लक्ष्याः b
-                     ++ (लाघव-प्रश्नाः Es (श्रुतम् b)
-                     ++ विमति-प्रश्नाः Es (सर्व-अवयवाः (श्रुतम् b)))))
-  ... | (Γ' , sh) = sharira Γ' sh (अङ्गानि b) (अङ्ग-जननम् b)
+                    (लक्ष्याः b ++ सर्व-प्रश्नाः (बकेटीकृ (पूलः Es (श्रुतम् b)))))
+  ... | (Γ' , sh) = sharira Γ' sh (अङ्ग-जनकः b)
 
 काल-गणना : Nat → शरीरम् → शरीरम्
 काल-गणना zero    b = b
 काल-गणना (suc n) b = काल-गणना n (वर्तना b)
 
 ------------------------------------------------------------------------
--- §5  The seed: innate organs (the vocabulary's own eye, the heap eye,
---     the economy eye), the organ-birth generator, the elder's store
---     as first food.  One body.  No drives, no divisions.
+-- §6  The seed.  One organ-function: its constant part is the innate
+--     body (the vocabulary's eye, the heap eye, the economy eye); its
+--     variable part is birth from attained laws.  The elder's store is
+--     the first food.
 ------------------------------------------------------------------------
 
-सहज-अङ्गानि : List दृक्
-सहज-अङ्गानि = नेत्रम्-न ∷ गूढ-दृक् ∷ लाघव-दृक् ∷ []
-
-स्व-जननम् : List नियमः → List दृक्
-स्व-जननम् Γ = जन्म सर्व-कर्तारः
+आदि-जनकः : List नियमः → List दृक्
+आदि-जनकः Γ = नेत्रम्-न ∷ गूढ-दृक् ∷ लाघव-दृक् ∷ जन्म सर्व-कर्तारः
   where
   जन्म : List कर्ता → List दृक्
   जन्म []       = []
@@ -233,4 +257,4 @@ private
   ... | nothing = जन्म os
 
 आदि-शरीरम् : List Eq' → शरीरम्
-आदि-शरीरम् आगमः = sharira [] आगमः सहज-अङ्गानि स्व-जननम्
+आदि-शरीरम् आगमः = sharira [] आगमः आदि-जनकः

@@ -29,7 +29,7 @@ _⊹_ = primStringAppend
 रेखा n b = "  samaya " ⊹ primShowNat n
          ⊹ ": rules " ⊹ primShowNat (गुरुता (श्रुतम् b))
          ⊹ ", open goals " ⊹ primShowNat (गुरुता (लक्ष्याः b))
-         ⊹ ", organs in force " ⊹ primShowNat (गुरुता (अङ्गानि b ++ अङ्ग-जननम् b (श्रुतम् b)))
+         ⊹ ", organs in force " ⊹ primShowNat (गुरुता (अङ्ग-जनकः b (श्रुतम् b)))
 
 पथः : Nat → Nat → शरीरम् → String
 पथः tick zero    b = रेखा tick b
