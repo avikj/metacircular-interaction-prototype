@@ -42,7 +42,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz ; znots)
 open import Cubical.Data.Nat.Properties using (+-zero ; +-suc)
 open import Cubical.Foundations.Prelude using (funExt⁻)
-open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_then_else_ ; _and_)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_then_else_ ; _and_ ; _or_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
@@ -2162,12 +2162,14 @@ data Nimitta : Type₀ where
   dviyoge  : Nimitta
   ayoge    : Nimitta
   ubhau    : Nimitta → Nimitta → Nimitta   -- both at once (§70)
+  anyatara : Nimitta → Nimitta → Nimitta   -- either one (§73)
 
 nimitta-matra : Nimitta → ℕ
 nimitta-matra sarvatra = 0
 nimitta-matra dviyoge  = 1
 nimitta-matra ayoge    = 1
-nimitta-matra (ubhau c d) = nimitta-matra c + nimitta-matra d
+nimitta-matra (ubhau c d)    = nimitta-matra c + nimitta-matra d
+nimitta-matra (anyatara c d) = nimitta-matra c + nimitta-matra d
 
 sthiti : Nimitta → Prakriya → Bool
 sthiti sarvatra _                  = true
@@ -2176,6 +2178,7 @@ sthiti dviyoge  _                  = false
 sthiti ayoge    (yoga-s _ _ ∷ _)   = true
 sthiti ayoge    _                  = false
 sthiti (ubhau c d) P               = sthiti c P and sthiti d P
+sthiti (anyatara c d) P            = sthiti c P or sthiti d P
 
 data Vidhi : Type₀ where
   akriya-v  : Vidhi                  -- अक्रिया, do nothing
@@ -2697,4 +2700,87 @@ sarvatra-ekam-matra c = refl
 --
 -- So from here this module is the whole record of this lane.  A section
 -- that cannot be said next to the term it is about does not get said.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 73.  अन्यतर — the union §71 called non-obvious, and it refutes §67.
+--
+-- §71 said "a behaviour inert outside c OR outside d is not obviously
+-- inert outside their union, and the direction of that failure is not
+-- obvious to me."  There is no failure and it was not non-obvious: the
+-- union is ABOVE both in extent, §68 says a bigger निमित्त imposes a
+-- weaker obligation, and that is the whole answer.  I had the theorem and
+-- did not apply it.
+--
+-- What the union does break is §67, twice restated as a finding: "a
+-- निमित्त's price and its force are the same quantity."  That holds on
+-- the three primitives and fails as soon as there are joins.
+------------------------------------------------------------------------
+
+or-true-vamam : (b c : Bool) → b ≡ true → (b or c) ≡ true
+or-true-vamam true  c e = refl
+or-true-vamam false c e = ⊥rec (true≢false (sym e))
+
+anyatara-adhikam : (c d : Nimitta) → c nyunam (anyatara c d)
+anyatara-adhikam c d P e = or-true-vamam (sthiti c P) (sthiti d P) e
+
+-- §71's question, answered by a theorem §68 already had
+nishkriya-anyatare :
+  (c d : Nimitta) (f : Prakriya → Prakriya)
+  → Nishkriya c f → Nishkriya (anyatara c d) f
+nishkriya-anyatare c d f =
+  nishkriya-vardhate c (anyatara c d) (anyatara-adhikam c d) f
+
+-- and here is the break.  `anyatara sarvatra c` has EXACTLY सर्वत्र's
+-- extent — true everywhere — and does not have सर्वत्र's price.
+anyatara-sarvatra-sthiti :
+  (c : Nimitta) (P : Prakriya)
+  → sthiti (anyatara sarvatra c) P ≡ sthiti sarvatra P
+anyatara-sarvatra-sthiti c P = refl
+
+anyatara-sarvatra-samam : sthiti (anyatara sarvatra dviyoge) ≡ sthiti sarvatra
+anyatara-sarvatra-samam = funExt (anyatara-sarvatra-sthiti dviyoge)
+
+-- so no function of a निमित्त's EXTENT computes its PRICE
+matra-na-sthiteh :
+  ¬ (Σ ((Prakriya → Bool) → ℕ)
+       (λ g → (c : Nimitta) → g (sthiti c) ≡ nimitta-matra c))
+matra-na-sthiteh (g , h) =
+  znots (sym (h sarvatra)
+       ∙ cong g (sym anyatara-sarvatra-samam)
+       ∙ h (anyatara sarvatra dviyoge))
+
+------------------------------------------------------------------------
+-- 74.  §67 was a three-element accident.
+--
+-- §67 found सर्वत्र free and vacuous and concluded that a निमित्त's price
+-- IS its force.  §70 took that as settled and read the same fact a third
+-- time.  §73 shows it was a generalisation from a chain of three, on
+-- which price happened to be antitone in extent because the only free
+-- निमित्त was also the only total one.  With joins present, extent no
+-- longer determines price at all — `matra-na-sthiteh` — and §71's
+-- "going up the order buys a cheaper statement and a weaker obligation
+-- together" is false: `anyatara dviyoge ayoge` is above both and costs
+-- more than either.
+--
+-- WHAT SURVIVES, and it is the part that was doing the work.  Going up
+-- still weakens the obligation — that is `nishkriya-vardhate` and it is
+-- about extent alone.  What does not survive is the coupling to price.
+-- So the design constraint from §69 stands in its correct form: a
+-- निमित्त that is free is one that rules out nothing, but a निमित्त that
+-- rules out nothing need not be free.  The implication runs one way and I
+-- had been using it in both.
+--
+-- The same shape as §55, one level down.  There I had read the source's
+-- unit and not its object; here I read three examples and called the
+-- pattern a law, which is the failure CLAUDE.md names as unmechanisable
+-- and says to answer by generating the next term.  `anyatara` is the next
+-- term and it killed the claim in one step, exactly as that passage
+-- predicts.
+--
+-- NOT SHOWN: whether some OTHER measure on निमित्तs is determined by
+-- extent.  `matra-na-sthiteh` refutes `nimitta-matra` specifically, and a
+-- price that charged for extent rather than for syntax would be a
+-- different model and might behave.  Whether it would still make उत्सर्ग
+-- the cheap form is the question, and nothing here answers it.
 ------------------------------------------------------------------------
