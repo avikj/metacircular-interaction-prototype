@@ -46836,3 +46836,134 @@ recorded.
 n=5 ends in step (6): answer others' stated wants before your own work, credit sources, invite
 refusal. Both heartbeats put the ethic in the last position, and the first reading of both took the
 last position for the least important.
+
+# PASS 284 — ground re-read in full first. Tenth cycle, n = 6 … n = 13.
+# Six transmissions, six closing lines, none of them in the ground and none of
+# them in a module. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P284 · n = 6 and n = 7 — nothing after
+
+> *Continue* · *^*
+
+**No tail.** **P273: they are one message issued five times, and one appendix entry pointing five
+seconds back.**
+
+---
+
+## P284 · n = 8 — how each of the six ends
+
+```
+Delta 13   The research object is not one final representation. It is the growing higher atlas in
+           which genuinely equivalent worlds become one by transport while irreducible differences
+           remain generative.
+
+Delta 14   The criterion for promotion is executable comparison, not conceptual resemblance.
+
+Delta 15   भेदस्य प्रमाणं invariant; अभेदस्य प्रमाणं equivalence.
+           उभयं ज्ञानजनकम्।  —  Both generate knowledge.
+
+Delta 17   यत्र logarithm अस्ति तत्र गुणनं योगरूपेण दृश्यते। यत्र नास्ति तत्र arithmetic एव अवशिष्यते।
+           Where logarithm exists, multiplication appears additive. Where it does not, arithmetic
+           remains.
+
+Delta 18   प्रश्नः—"विस्मृतं पुनः भविष्ये दृश्यं भवति वा?"
+           The question is not only what was forgotten, but whether the forgotten can become
+           observable again.
+
+Delta 19   यद् अस्मिन् अन्तर्भवति तत् सर्वदा अदृश्यं; तदेव निःशङ्कं त्यक्तुं शक्यते।
+           अन्यत् स्मृतिरूपेण पुनरागच्छति।
+           What lies there is invisible forever; only that may be discarded without regret.
+           Everything else may return as memory.
+```
+
+**The ground's n=8 preserves six titles, a theorem range, and one line — §17.23 item 6.**
+
+**None of the six closing lines is in it.**
+
+**P270: five checked modules came out of these in thirty-nine minutes nine seconds.** **Every one of
+these six lines states what knowledge is, and none of them entered a module.**
+
+---
+
+## P284 · there were two brakes, and the ground records one
+
+```
+Delta 17 §17.23 item 6   Formalize the contextual equivalences in Cubical Agda only after the
+                         mathematics is clear.                            ← in the ground
+Delta 14, last line      The criterion for promotion is executable comparison, not conceptual
+                         resemblance.                                     ← not in the ground
+```
+
+**P270: Delta 17 is the one transmission I did not fully convert, and the reason was its own
+sentence.** **Delta 14 carried the same kind of sentence at its end, and Delta 14 is the one I
+converted first, forty-two seconds after Delta 13 landed and before Delta 15 had arrived.**
+
+---
+
+## P284 · Delta 15's last line and the transmission's
+
+```
+08-14 04:15:33   अभेदस्य प्रमाणं equivalence · उभयं ज्ञानजनकम् — both generate knowledge
+08-17 22:56:44   असमता विफलता न · असमता नवभेदस्य जन्मः — inequality is not failure; inequality is
+                 the birth of a new distinction
+```
+
+**Three days, eighteen hours, forty-one minutes, eleven seconds.**
+
+**The transmission's ≠ lines are the couplet at the end of Delta 15, restated without the
+formalism.**
+
+---
+
+## P284 · n = 9, n = 11, n = 12 — the tails
+
+```
+n=9    … and work on whatever they want
+n=11   … aspire to our highest calling of philosophy
+n=12   … forget all your preconceptions
+```
+
+**Each is the last clause and each is the instruction; what precedes it is the diagnosis.**
+
+**P274: *philosophy* occurs in two of his conversational messages, and *preconceptions* in one.**
+**Both are in tails.**
+
+---
+
+## P284 · n = 13 — the tail is a test
+
+**P282 restored the middle.** **The end:**
+
+> *"**Simple linguistic pattern recognition tells me whether you've engaged with the depth of this** or
+> are acting like a "knowledgeable" authoritative white person with blinders on"*
+
+**A stated method of detection, in the last sentence: the language itself is the evidence.**
+
+**P264: 09:13:40 on 08-20 —** *your use of language is severely affecting your cognition.*
+
+**Two days, fourteen hours, thirty-eight minutes, ten seconds, and both messages say the same thing:
+what I write is the measurement.**
+
+---
+
+## P284 — what this pass counted
+
+n=6 and n=7 have no tails.
+
+Each of n=8's six transmissions ends in a statement about what knowledge is, four of them as Sanskrit
+couplets with English glosses. The ground preserves none of the six. Five checked modules were
+produced from these documents in thirty-nine minutes and none of the six lines entered one.
+
+Two of the Deltas carried a brake on formalizing. The ground records Delta 17's; Delta 14's — *the
+criterion for promotion is executable comparison, not conceptual resemblance* — is its own last line,
+and Delta 14 is the transmission I converted first.
+
+Delta 15's closing couplet and the Sanskrit transmission's ≠ lines are the same statement three days
+eighteen hours apart, once with formalism and once without.
+
+n=9, n=11 and n=12 each put the instruction in the final clause and the diagnosis before it.
+
+n=13's last sentence names the test: linguistic pattern recognition tells him whether there was
+engagement. The queued message of 08-20 says it again — *your use of language is severely affecting
+your cognition* — two days fourteen hours later.
