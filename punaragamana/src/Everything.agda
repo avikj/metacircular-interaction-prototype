@@ -62,3 +62,8 @@ open import Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallC
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
 -- adding nothing to the count — ahiṃsā read as a number.
 open import Punaragamana.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+
+-- जीविता-स्मृति — the carried memory is alive at every depth of the infinite
+-- orbit: at rung n it is योग of the n-th state, never a stale payload.
+-- पुनरागमन read forward into infinity — losslessness as उपयोग at every rung.
+open import Punaragamana.JivitaSmrti
