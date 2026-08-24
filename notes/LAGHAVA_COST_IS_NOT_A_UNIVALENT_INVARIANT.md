@@ -314,3 +314,42 @@ in this corpus* are separated by an unbounded price. §30's family is built
 by adding zeros, which is a degenerate way to be expensive. The real
 question — whether the walk's two presentations differ by bounded or
 unbounded मात्रा — needs both written as प्रक्रियाs, and neither is.
+
+## 9. The price is not a number you pay, it is a direction you cannot go
+
+§32–§33. §8 leaves an obvious complaint: unbounded *above* is cheap news,
+since one can always waste. The complaint is right, and waste turns out to
+be the point.
+
+`Anujna` carries $\text{मात्रा}(\text{krama}\,A\,P) \le \text{मात्रा}(P)$,
+so no licensed move lengthens a derivation — and because licences
+**compose** (§28), that covers every finite chain of them at once, with no
+induction over chains. Hence `sthulam-anujnaya-na-prapyate`: the padded
+derivation is not the image of any licensed move, nor of any composite.
+
+Put with the two preceding sections:
+
+- §20 — the expensive and the cheap presentation agree in **every context
+  the language has**;
+- §30 — the licensed translations of one naya have मूल्य **cofinal in
+  $\mathbb{N}$**;
+- §32 — and **no licensed move ever goes from cheap to expensive**, in any
+  number of steps.
+
+So "what does a transport cost" was the wrong shape of question. It
+presumes a scalar to be paid. The structure is an **order**: a naya's
+presentations sit above its cheapest ones, licensed motion runs downward
+only, and the denotation sees none of it (§18) — not even after saturating
+over every context (§21).
+
+Which is why the तपस् of §1–§4 had to be an *act* rather than a fact.
+निर्जरा sheds; nothing sheds by itself and nothing licensed adds back. The
+asymmetry was already in the *Tattvārthasūtra*'s distinction between
+सविपाक and अविपाक — ripening that merely happens, against shedding that is
+undertaken — and §32 is that distinction with the arrow drawn.
+
+Still not shown, and it is the same gap §8 named: that any two
+presentations *arising in this corpus* stand in this order rather than
+being incomparable. Unreachability is proved only for the padded family,
+whose expense is manufactured. The walk's two descriptions are the case
+that matters, and they are not written as प्रक्रियाs.

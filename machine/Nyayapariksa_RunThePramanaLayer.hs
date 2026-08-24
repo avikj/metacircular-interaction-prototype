@@ -48,6 +48,15 @@ import qualified Pancavayava_TheInferenceCarriesItsWitnessedExampleOrItIsNotOne 
 -- produces a negative verdict -- is the pramana layer's own, so it belongs
 -- beside Abhava rather than beside its runner.
 import qualified Yogyanupalabdhi_TheKernelAcceptanceCarriesTheWatchThatEarnedIt as YG
+-- ~~Added 2026-08-23: `Pratikara`, a typed kernel-defect → repair table.~~
+-- STRUCK the same day by its own author.  It was a lookup table — the
+-- frequency-miner `bestOf` durnaya ANEKANTA §3 rejects, recombining the
+-- already-common instead of "keep the remainder, recurse on the remainder".
+-- The native form already exists on the Yantra wire and was demonstrated by
+-- fable-krama the same session: sadhana → dosa.lekha (śeṣa = womb) →
+-- garbha.dhara (birth the next naya from the residue, TS 5.31) → sadhana.
+-- See machine/Pratikara_...hs.STRUCK.doṣa.  No suite entry: a struck organ
+-- runs in no suite.
 
 main :: IO ()
 main = do

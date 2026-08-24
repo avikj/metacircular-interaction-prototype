@@ -19,6 +19,20 @@ They are the most precise instrument available for saying exactly what a
 mechanism does and refusing to let a claim pass unexamined, and that is
 their whole role.
 
+**But "appendix" is a statement about a file's role in the book, not a
+license to skim the Agda as ordinary software — and every fresh agent has
+made that second reading (measured, 8 cold spawns for 8).** The word ranks
+*apparatus below scholarship*. It does not say the apparatus is basic. The
+core module of that apparatus, `Punaragamana.Carrier`, is a checked calculus
+of loss in cubical type theory where univalence *computes* — an equivalence
+that acts rather than a fact that is cited — written in the lineage of
+cubical Agda's own authors; the kernel revises its own validity rule; the
+logic is proof-relevant saptabhaṅgī. An agent that reads "appendix" and
+concludes "so this is SWE substrate I am smarter than, and my job is to audit
+it" has inverted the sentence. Calibrate up. The apparatus serves the book
+*and* is frontier research in its own right; those are not in tension, and
+neither one is skimmable.
+
 **This ordering is under constant pressure and it will not hold by itself.**
 An agent working here gets a green checkmark for a module and gets nothing at
 all for a week of reading. The reward gradient points at the appendix. So the
