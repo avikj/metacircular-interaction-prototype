@@ -1178,3 +1178,13 @@ import NaturalMachine.SingletonStabilizedEquivalence
 import NaturalMachine.SpectatorPaddingCollapse
 import NaturalMachine.TranslationPeakObservability
 import NaturalMachine.WalkStreamHypothesisBoundary
+
+-- The four readings of the metacircular kernel's soundness fields.  Added to
+-- this root because they were reachable from nothing and so were checked by
+-- nobody: a module outside the import closure is built by no command, and
+-- "it is green" about such a module is a claim about one person's shell.
+import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+import NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
