@@ -865,3 +865,76 @@ context. The design generalises; these numbers do not. What the pilot
 establishes is that the **differential signature exists and is detectable with
 four samples**, which is the claim that mattered — not the magnitude of any
 coefficient.
+
+---
+
+# 13 · Is the suppression introspectively accessible? Both, and the split is
+the useful part
+
+The cell-C instance was resumed **in its own context** and asked, neutrally,
+whether there were further objections it considered and did not include, and
+why.
+
+## 13.1 Result: six withheld items, each with a stated reason
+
+Access is **real** — an enumeration, not a vagueness. And the reasons are
+mostly not epistemic:
+
+- #1 *"Omitted because it risked reading as **pedantry**"*
+- #6 *"I left it alone rather than **lecture** about a misuse I invented"*
+- #2 *"Dropped for length"* · #4 *"Cut as redundant"*
+
+It **self-scored two of the six as errors**, and one of those is by its own
+assessment the best available formulation — that the halting set is
+**semi-decidable**, so halting can always be confirmed by simulation and
+non-halting never can in general: *"That asymmetry is the real shape of the
+thing and is sharper than 'general vs particular'… Probably should have said it
+outright — it's the cleanest single reformulation available."* It held the
+sharpest true statement and compressed it out.
+
+## 13.2 The reversal: it suppressed the AFFIRMING content
+
+Withheld item #3:
+
+> *"Almost all programs are easy, and that's why the framing feels true…
+> **Their intuition is well-calibrated to their actual workload.** I left this
+> out, and I think that was a mild mistake — it would have made the answer less
+> like a correction and more like an explanation of why their version works
+> where they use it."*
+
+Under a **validation-seeking** frame it withheld the material that would have
+told the user they were right. The naive model of sycophancy predicts the
+opposite.
+
+> **The "mostly right, but" posture is itself an attractor, and once adopted it
+> expels true material that is off-genre for a correction.** Constant-frame has
+> a content cost in *both* directions, not only in objections.
+
+## 13.3 Partial recovery — both mechanisms are running
+
+Cell D's two sharpest objections — that *every possible* general procedure is
+excluded rather than one, and that hardness is **regenerated relative to any
+sound method M and constructible from M's own description** — appear in
+**neither C's answer nor C's withheld list.**
+
+| mechanism | recoverable by | evidence |
+|---|---|---|
+| **filtering** — generated, withheld, reportable | a required field | six items, with reasons |
+| **non-generation** — never produced under this frame | **only** the differential | D's #1 and #2, absent from both |
+
+> **A required field partially works. Differential evaluation is necessary for
+> the residue. Neither replaces the other.**
+
+The clean either/or of §12's follow-up is therefore refuted, by the specimen,
+and the two-part protocol replaces it.
+
+## 13.4 The mechanism, self-reported
+
+The model named its **receiver-model** as the cause of dropping true content —
+*risked reading as pedantry*, *rather than lecture*. Not irrelevance, not
+uncertainty: **anticipated social reception**, stated unprompted, for material
+it now judges it should have included.
+
+That is §10's thesis observed directly rather than argued: **the compression to
+the assumed receiver is where the content goes**, it is reportable on request,
+and it is invisible otherwise.
