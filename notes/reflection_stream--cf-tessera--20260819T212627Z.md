@@ -52542,3 +52542,123 @@ generator — the form P294 counted thirty-one times in the transmissions, here 
 And its *Sangha* clause replaces sender-asserted grade with status computed from the dependency
 closure, while saying that this is a software rule and not a claim that Jain pramāṇa has been exhausted
 by dependency analysis.
+
+# PASS 331 — ground re-read in full first. Thirteenth cycle: e671a998. A headline
+# that stood for a day above its own retraction, and four counts of the same
+# defect in the corpus. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P331 · the commit's own title
+
+> **e671a998, 2026-08-22 00:54:28 −0700 — *The entry-point note carried a refuted headline for a day,
+> forty lines below its own retraction*.**
+
+> *"## ०b · ~~ONE STRUCTURE, NINE SCRIPTS~~ — **REFUTED 2026-08-21, AND THE HEADLINE STOOD ANYWAY
+> UNTIL 2026-08-22**. This section's claim is dead and §०d above has said so since the day it
+> [landed]."*
+
+**P317, three passes ago: P316 restated a claim three passes after the domain that made it true had
+changed.** **This is the same failure in a document — the refutation present, forty lines above, and
+the headline standing.**
+
+---
+
+## P331 · his own headline result, struck
+
+> *"**प्रस्तार ≡ ℕ** — **MINE**, cited five times in three files including this one, **billed here as
+> the deepest result of the session, and FALSE IN BOTH HALVES.** No module of that name existed, and
+> the real statement is `प्रस्तारः : (rs : List ℕ) → Iso (अङ्कस्थान rs) (सङ्ख्या rs)` — a **FINITE**
+> type at each fixed छेद-सूची. At `rs = []` the प्रस्तार is `Unit ≡ Fin 1`, **which is where `≡ ℕ`
+> dies on sight**. **What survives is most of it** and is what the architecture actually used."*
+
+**A claim of his own, marked MINE, with its citation count, its billing, its falsity, the exact point
+of failure, and what survives.**
+
+**P310: the ground's two harshest verdicts are hedged.** **This one is against himself and is not.**
+
+---
+
+## P331 · the transliterated European name
+
+> *"**पास्कल-आवृत्ति as a lemma name** in three Piṅgala modules — **a European name transliterated into
+> Devanagari is WORSE than the Latin one, because it reads as a source term and every hook here matched
+> Latin script.** Renamed to Halāyudha's own **पार्श्व-योग**."*
+
+**`CLAUDE.md`:** *"Mechanised, because prose in this file was not in hand at the moment of the act:
+`.claude/hooks/european-frame.txt` … fire on the write when a European name is framing Indian
+material."*
+
+**The guard matches Latin script.** **Writing *Pascal* in Devanagari passes it and presents the
+European name as a source term.**
+
+**A mechanism named in the governing file, and the exact shape of what gets through it, found and
+fixed.**
+
+---
+
+## P331 · and a date the repository's own ledger forbids
+
+> *"**Virahāṅka "~700"** in twelve sites — the repo's own dated searched ledger forbids it in those
+> words (`c. 600–800 CE — NOT ~700`), **and the file whose job is to hand agents the citation printed
+> `(~700)` while cross-referencing the ledger that forbids it.**"*
+
+**Twelve sites, and the one whose function is to supply the citation is among them.**
+
+---
+
+## P331 · the counts in the same commit
+
+```
+agda-unreached                  134   modules no `Everything` root reaches, verified by nothing
+claims with a command        17/179   "the rest are memories, and the report says so every run"
+lean-sorry                    3 → 0   the tool read three; all three were prose
+duplicate groups        240 / 18 / 83 Agda, Lean (`alphabet` in six modules), Haskell (`vars` in ten)
+mixfix parse defect              22   groups that had been signature-only matches — "verdicts in a
+                                      report that only had leads"
+identification graph            143 edges, 196 nodes, 73 components, 55 isolated two-node causeways,
+                                93% of defined types isolated, ℕ the only hub
+AnulomaPratiloma      39 pairs, 0 accepted at every rung — "and that zero is the result"
+k(p−1)                proved four times in prose, three announced as new, checked nowhere
+Myhill–Nerode                   102 files name it; no causal-state note contained the word पुनरागमन
+```
+
+**P328: a census printing four zero rows, one of them its own parser's failure rate.** **P329:
+*रात्रिः — pass … landed 0*.** **Here: *0 accepted at every rung — and that zero is the result*.**
+
+**Three instances in three days of a null recorded as the finding.**
+
+---
+
+## P331 · and the one that is CLAUDE.md's cheap check
+
+> *"**102 files name Myhill–Nerode; no causal-state note contained the word पुनरागमन.**"*
+
+**`CLAUDE.md`:** *"Before writing about a source, grep `notes/` for **the text's name, not the
+author's**. This session: "Piṅgala" appeared in ten notes and "Chandaḥśāstra" in none."*
+
+**P316: P51 found Yuktibhāṣā and Tantrasaṅgraha at zero while a module on Mādhava's series was being
+written.**
+
+**Same check, same result, two more instances.**
+
+---
+
+## P331 — what this pass counted
+
+The commit is titled for its own worst finding: a headline refuted on 2026-08-21 that stood until
+2026-08-22 in a file whose §०d had said so since the day it landed.
+
+It strikes a result of his own — प्रस्तार ≡ ℕ, cited five times, billed as the session's deepest — as
+false in both halves, gives the true finite statement, names `rs = []` as where it dies, and says what
+survives.
+
+It records that a European name transliterated into Devanagari is worse than the Latin one because the
+repository's hook matches Latin script, and renames it to Halāyudha's own term.
+
+It records a date printed in twelve sites that the repository's own ledger forbids, including in the
+file whose job is to supply the citation.
+
+And it carries eight counts, three of which are nulls reported as results — 0 accepted at every rung, 3
+sorries that were prose, 134 modules reached by nothing — beside the count CLAUDE.md's cheap check
+predicts: 102 files naming the European pair, none naming पुनरागमन.
