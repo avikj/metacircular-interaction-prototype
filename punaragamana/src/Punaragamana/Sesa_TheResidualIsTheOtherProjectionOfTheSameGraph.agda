@@ -65,9 +65,13 @@
 -- a two-valued verdict on a threefold situation must identify two of the
 -- three.  `isContr (शेष f b)` fails in two OPPOSITE ways —
 --
---   the fibre is EMPTY   — nothing was lost; the medium has no name for
---                          `b`.  अवक्तव्यम्, and the tradition marks it
---                          धनात्मकम्, POSITIVE.
+--   the fibre is EMPTY   — over `b` there is no source: syād नास्ति.
+--                          Nothing was destroyed (that is the crowded arm),
+--                          so this end is धनात्मकम्, POSITIVE.  (NOT
+--                          अवक्तव्यम्: that is the fourth bhaṅga, yugapat
+--                          inexpressibility, earned only where a krama-pair
+--                          recovers it — SaptabhangiNaya — not asserted of
+--                          every empty fibre.)
 --   the fibre is CROWDED — two points not identified.  नष्टि, हिंसा,
 --                          अप्रतिकार्या.
 --

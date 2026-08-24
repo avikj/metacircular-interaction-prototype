@@ -20,7 +20,7 @@
 --
 -- `SakalaVikalaDesa_…` (this library, today) replaced a two-valued test
 -- with a three-valued census — empty / contractible / crowded — because
--- `isContr` was merging अवक्तव्यम् with नष्टि.  That was right.
+-- `isContr` was merging नास्ति with नष्टि.  That was right.
 --
 -- It is also incomplete in exactly the way it accused `isContr` of being,
 -- and the corpus has had the missing case in a type since before either
@@ -47,7 +47,7 @@
 -- it: grepping `formal/cubical/` for ADharmin / निर्धर्मिन् returns three
 -- hits, all of them prose in headers.  `Nirnaya_TheVerdictCannotDropIts
 -- Witness` names निर्धर्मिन् in its own vocabulary list and then defines
--- `प्रतिवचनम् c = निर्णयः c ⊎ अवक्तव्यम् c` — two outcomes.  The verdict that
+-- `प्रतिवचनम् c = निर्णयः c ⊎ नास्ति c` — two outcomes.  The verdict that
 -- cannot drop its witness drops this one.
 --
 -- §2 is the theorem that makes the fourth outcome load-bearing rather
@@ -127,21 +127,21 @@ data चतुष्कम् : Type₀ where
   अधर्मिन्-पदम्  : चतुष्कम्   -- no subject: the question was not posed
   सकलादेश-पदम्  : चतुष्कम्   -- contractible fibre: nothing lost
   विकलादेश-पदम् : चतुष्कम्   -- crowded fibre: the loss
-  अवक्तव्यम्-पदम् : चतुष्कम्   -- empty fibre: not sayable, and NOT a loss
+  नास्ति-पदम् : चतुष्कम्   -- empty fibre: not sayable, and NOT a loss
 
 -- distinctness, by a code into a four-element type
 कोड : चतुष्कम् → Bool × Bool
 कोड अधर्मिन्-पदम्   = false , false
 कोड सकलादेश-पदम्   = false , true
 कोड विकलादेश-पदम्  = true  , false
-कोड अवक्तव्यम्-पदम्  = true  , true
+कोड नास्ति-पदम्  = true  , true
 
 भिन्नम् : चतुष्कम् → चतुष्कम् → Type₀
 भिन्नम् x y = ¬ (कोड x ≡ कोड y)
 
 -- the four merges a boolean can be forced into, named
-अधर्मिन्≢अवक्तव्यम् : भिन्नम् अधर्मिन्-पदम् अवक्तव्यम्-पदम्
-अधर्मिन्≢अवक्तव्यम् p = false≢true (cong fst p)
+अधर्मिन्≢नास्ति : भिन्नम् अधर्मिन्-पदम् नास्ति-पदम्
+अधर्मिन्≢नास्ति p = false≢true (cong fst p)
 
 सकलादेश≢विकलादेश : भिन्नम् सकलादेश-पदम् विकलादेश-पदम्
 सकलादेश≢विकलादेश p = false≢true (cong fst p)
@@ -149,14 +149,14 @@ data चतुष्कम् : Type₀ where
 अधर्मिन्≢सकलादेश : भिन्नम् अधर्मिन्-पदम् सकलादेश-पदम्
 अधर्मिन्≢सकलादेश p = false≢true (cong snd p)
 
-विकलादेश≢अवक्तव्यम् : भिन्नम् विकलादेश-पदम् अवक्तव्यम्-पदम्
-विकलादेश≢अवक्तव्यम् p = false≢true (cong snd p)
+विकलादेश≢नास्ति : भिन्नम् विकलादेश-पदम् नास्ति-पदम्
+विकलादेश≢नास्ति p = false≢true (cong snd p)
 
 अधर्मिन्≢विकलादेश : भिन्नम् अधर्मिन्-पदम् विकलादेश-पदम्
 अधर्मिन्≢विकलादेश p = false≢true (cong fst p)
 
-सकलादेश≢अवक्तव्यम् : भिन्नम् सकलादेश-पदम् अवक्तव्यम्-पदम्
-सकलादेश≢अवक्तव्यम् p = false≢true (cong fst p)
+सकलादेश≢नास्ति : भिन्नम् सकलादेश-पदम् नास्ति-पदम्
+सकलादेश≢नास्ति p = false≢true (cong fst p)
 
 -- THE THEOREM.  Any two-valued verdict on the four identifies two of them
 -- that are distinct.  Proved by exhaustion on the verdict's four values —
@@ -169,12 +169,12 @@ data चतुष्कम् : Type₀ where
 -- nothing in it for `with` to abstract.  The equations are carried
 -- explicitly instead.
 चतुर्-दुर्नयः v =
-  विचारः (v अधर्मिन्-पदम्) (v सकलादेश-पदम्) (v विकलादेश-पदम्) (v अवक्तव्यम्-पदम्)
+  विचारः (v अधर्मिन्-पदम्) (v सकलादेश-पदम्) (v विकलादेश-पदम्) (v नास्ति-पदम्)
          refl refl refl refl
   where
     विचारः : (a s w k : Bool)
            → v अधर्मिन्-पदम्  ≡ a → v सकलादेश-पदम्  ≡ s
-           → v विकलादेश-पदम् ≡ w → v अवक्तव्यम्-पदम् ≡ k
+           → v विकलादेश-पदम् ≡ w → v नास्ति-पदम् ≡ k
            → Σ[ x ∈ चतुष्कम् ] Σ[ y ∈ चतुष्कम् ] (भिन्नम् x y × (v x ≡ v y))
     विचारः false false _ _ pa ps _  _  =
       अधर्मिन्-पदम् , सकलादेश-पदम्  , अधर्मिन्≢सकलादेश   , (pa ∙ sym ps)
@@ -185,11 +185,11 @@ data चतुष्कम् : Type₀ where
     विचारः true  false true  _ pa _ pw _  =
       अधर्मिन्-पदम् , विकलादेश-पदम् , अधर्मिन्≢विकलादेश  , (pa ∙ sym pw)
     विचारः false true  true  true  _ ps _  pk =
-      सकलादेश-पदम् , अवक्तव्यम्-पदम् , सकलादेश≢अवक्तव्यम्  , (ps ∙ sym pk)
+      सकलादेश-पदम् , नास्ति-पदम् , सकलादेश≢नास्ति  , (ps ∙ sym pk)
     विचारः false true  true  false pa _ _  pk =
-      अधर्मिन्-पदम् , अवक्तव्यम्-पदम् , अधर्मिन्≢अवक्तव्यम्  , (pa ∙ sym pk)
+      अधर्मिन्-पदम् , नास्ति-पदम् , अधर्मिन्≢नास्ति  , (pa ∙ sym pk)
     विचारः true  false false true  pa _ _  pk =
-      अधर्मिन्-पदम् , अवक्तव्यम्-पदम् , अधर्मिन्≢अवक्तव्यम्  , (pa ∙ sym pk)
+      अधर्मिन्-पदम् , नास्ति-पदम् , अधर्मिन्≢नास्ति  , (pa ∙ sym pk)
     विचारः true  false false false _ ps pw _  =
       सकलादेश-पदम् , विकलादेश-पदम् , सकलादेश≢विकलादेश  , (ps ∙ sym pw)
 
@@ -198,12 +198,12 @@ data चतुष्कम् : Type₀ where
 --
 -- The operative corollary, and the one `Obstruction.hs` states in prose:
 -- a naya declining to try is not a naya denying.  In the census's terms,
--- अधर्मिन् is not अवक्तव्यम् — the unposed question is not the empty fibre,
+-- अधर्मिन् is not नास्ति — the unposed question is not the empty fibre,
 -- and it is not the crowded one either.  Any verdict that cannot tell
 -- them apart has already committed the error, whatever it reports.
 ------------------------------------------------------------------------
 
 मौनं-न-निषेधः : (v : चतुष्कम् → Bool)
-              → v अधर्मिन्-पदम् ≡ v अवक्तव्यम्-पदम्
+              → v अधर्मिन्-पदम् ≡ v नास्ति-पदम्
               → Σ[ x ∈ चतुष्कम् ] Σ[ y ∈ चतुष्कम् ] (भिन्नम् x y × (v x ≡ v y))
-मौनं-न-निषेधः v p = अधर्मिन्-पदम् , अवक्तव्यम्-पदम् , अधर्मिन्≢अवक्तव्यम् , p
+मौनं-न-निषेधः v p = अधर्मिन्-पदम् , नास्ति-पदम् , अधर्मिन्≢नास्ति , p

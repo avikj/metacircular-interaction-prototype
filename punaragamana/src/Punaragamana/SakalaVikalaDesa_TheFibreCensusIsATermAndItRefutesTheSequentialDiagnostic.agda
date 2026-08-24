@@ -31,14 +31,27 @@
 --
 -- The two it identified are the two ENDS of the scale:
 --
---   * the fibre is **empty** — nothing was lost.  The medium simply has
---     no name for `b`.  This is अवक्तव्यम्, the fourth position, and the
---     tradition marks it धनात्मकम् — POSITIVE.
+--   * the fibre is **empty** — over `b` there is simply no source: syād
+--     **नास्ति**, the second bhaṅga.  Nothing is destroyed on the source
+--     side (that is the crowded arm), so this end is धनात्मकम्, positive.
 --   * the fibre is **crowded** — two or more points, not identified.
 --     This is नष्टि, हिंसा, अप्रतिकार्या.
 --
 -- `isContr` returns `false` for both.  The tradition held them apart for
 -- a millennium before there was a fibre to hang the distinction on.
+--
+-- A CORRECTION IN THE NAMING (2026-08-24).  This constructor was called
+-- अवक्तव्यम्.  That is wrong for the GENERAL empty fibre.  अवक्तव्यम् (the
+-- fourth bhaṅga) is not mere absence — it is the SIMULTANEOUS (yugapat)
+-- assertion of asti and nāsti, inexpressible by a single word precisely
+-- because a word is sequential, and it is EARNED only where a pair
+-- recovers in krama what one utterance cannot say: `SaptabhangiNaya`'s
+-- `avaktavya-does-not-factor` (the fibre of `denotes` over `joint` is
+-- empty, and a krama-pair expresses it — R → R×R).  A plain non-surjective
+-- point like `सत्`'s `false` below has none of that structure: no
+-- simultaneity, no pair-recovery, just `false` unreached.  That is नास्ति,
+-- not अवक्तव्यम्.  The genuine अवक्तव्यम् stays where it is proved; here the
+-- honest name for an empty fibre is नास्ति.
 --
 -- THE REPAIR, and it is the one code change that note argues for and
 -- explicitly declines to make (its §४): make the CENSUS a term.  `देश`
@@ -88,7 +101,7 @@ private
 -- ITS CODOMAIN, whose constructors carry the evidence the corpus already
 -- exhibits by hand:
 --
---   अवक्तव्यम्  the fibre is empty        — level ०, धनात्मकम्, nothing lost
+--   नास्ति     the fibre is empty        — syād nāsti: no source over b; धनात्मकम्
 --   सकलादेश   the fibre is contractible  — level १, one utterance carries all
 --   विकलादेश   two points, not identified — level २+, the loss, exhibited
 --
@@ -98,7 +111,7 @@ private
 ------------------------------------------------------------------------
 
 data देश {A B : Type ℓ} (f : A → B) (b : B) : Type ℓ where
-  अवक्तव्यम् : (¬ शेष f b)                            → देश f b
+  नास्ति   : (¬ शेष f b)                            → देश f b
   सकलादेश  : isContr (शेष f b)                       → देश f b
   विकलादेश  : (x y : शेष f b) → (¬ (x ≡ y))          → देश f b
 
@@ -114,16 +127,16 @@ data देश {A B : Type ℓ} (f : A → B) (b : B) : Type ℓ where
 module _ {A B : Type ℓ} (f : A → B) (b : B) where
 
   -- an empty fibre is not a contractible one
-  अवक्तव्य-न-सकल : (¬ शेष f b) → ¬ (isContr (शेष f b))
-  अवक्तव्य-न-सकल e c = e (fst c)
+  नास्ति-न-सकल : (¬ शेष f b) → ¬ (isContr (शेष f b))
+  नास्ति-न-सकल e c = e (fst c)
 
   -- a contractible fibre has no two distinct points
   सकल-न-विकल : isContr (शेष f b) → (x y : शेष f b) → x ≡ y
   सकल-न-विकल c = isContr→isProp c
 
   -- and an empty fibre has no points at all, so a fortiori no two
-  अवक्तव्य-न-विकल : (¬ शेष f b) → शेष f b → ⊥
-  अवक्तव्य-न-विकल e = e
+  नास्ति-न-विकल : (¬ शेष f b) → शेष f b → ⊥
+  नास्ति-न-विकल e = e
 
 ------------------------------------------------------------------------
 -- 3.  THE REFUTATION, computed.
@@ -133,7 +146,7 @@ module _ {A B : Type ℓ} (f : A → B) (b : B) where
 --
 -- Read the note's §४ off the censuses below:
 --
---   * `f`'s census is सकलादेश at `true` and अवक्तव्यम् at `false`.  Step one
+--   * `f`'s census is सकलादेश at `true` and नास्ति at `false`.  Step one
 --     has a NON-CONTRACTIBLE fibre and loses NOTHING — `Bool` merely has
 --     a name `Unit` cannot utter.  So "the first non-contractible fibre
 --     is where the information went" is false in one direction.
@@ -146,7 +159,7 @@ module _ {A B : Type ℓ} (f : A → B) (b : B) where
 --     cancel.  False in the other direction too.
 --
 -- A binary test cannot state this, because it must call step one and step
--- two by the same name.  The census calls them अवक्तव्यम् and विकलादेश.
+-- two by the same name.  The census calls them नास्ति and विकलादेश.
 ------------------------------------------------------------------------
 
 सत् : Unit → Bool
@@ -169,7 +182,7 @@ snd सत्-गणना-सत्य (u , p) i = tt , isSetBool true true ref
 
 सत्-गणना : गणना सत्
 सत्-गणना true  = सकलादेश सत्-गणना-सत्य
-सत्-गणना false = अवक्तव्यम् सत्-गणना-असत्य
+सत्-गणना false = नास्ति सत्-गणना-असत्य
 
 -- step two, over the single point: CROWDED.  Exactly one bit is lost.
 -- The two inhabitants are named, because `विकलादेश` requires them as
