@@ -1468,3 +1468,98 @@ apavada-na-ubhayam (U , q) =
 -- walk's fast presentation.  §36's candidate is still a candidate.  All
 -- §37 establishes is which way the doubly-licensed arrow points.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 39.  CORRECTION to §38, and it is a provenance error of the kind this
+--      repository's protocol names first.
+--
+-- §38 wrote that "vipratiṣedhe paraṁ kāryam exists precisely to let both
+-- stand".  That is wrong twice.
+--
+-- First, 1.4.2 does not let both stand — it CHOOSES.  It is the second
+-- half of a pair: A 1.4.1 आ कडारादेका संज्ञा, "up to *kaḍārāḥ karmadhāraye*
+-- (2.2.38), ONE designation", says that where several saṃjñās offer, only
+-- one applies; 1.4.2 विप्रतिषेधे परं कार्यम् then says which.  The pair is
+-- an exclusion rule plus a tiebreak, which is the opposite of both
+-- standing.
+--
+-- Second, and worse: "the exception beats the general rule" is not 1.4.2
+-- at all.  That ranking — पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः,
+-- of prior / posterior / nitya / antaraṅga / apavāda each later is
+-- stronger — is a परिभाषा of the commentarial tradition, and reaches this
+-- repository through Nāgeśa's *Paribhāṣenduśekhara*, eighteenth century.
+-- Attributing it to a सूत्र of the Aṣṭādhyāyī is exactly the error the
+-- protocol here names: letting a later systematiser's statement stand as
+-- the root citation.  I made it while writing a section about Pāṇinian
+-- practice.
+--
+-- The corpus already had the material.  `1.4.2` appears in forty-one
+-- files, several of them recording Kātyāyana's vārttika on it and
+-- Rajpopat's 2022 reinterpretation, and explicitly declining to say which
+-- reading is right.  The cheap grep the protocol prescribes would have
+-- caught this before the section was written, and I did not run it.
+--
+-- What the pair actually names is the thing §28's licence does NOT have:
+-- CONFLICT.  `sanghatita` composes two moves in sequence.  Nothing so far
+-- says what happens when two moves offer at the same site.
+------------------------------------------------------------------------
+
+record SanujnaKaarya : Type₀ where
+  constructor kaaryam
+  field
+    ksetra : Prakriya → Bool       -- where this कार्य offers to apply
+    anujna : Anujna
+open SanujnaKaarya public
+
+-- The scan takes the first offer in the list.  The LIST ORDER is the
+-- parameter, so this models the traditional reading and Rajpopat's alike
+-- by ordering the same rules differently; nothing below adjudicates
+-- between them, and nothing below needs to.
+paraKrama : List SanujnaKaarya → Prakriya → Prakriya
+paraKrama []       P = P
+paraKrama (k ∷ ks) P with ksetra k P
+... | true  = krama (anujna k) P
+... | false = paraKrama ks P
+
+para-artha : (ks : List SanujnaKaarya) (P : Prakriya)
+           → artha (phala (paraKrama ks P)) ≡ artha (phala P)
+para-artha []       P = refl
+para-artha (k ∷ ks) P with ksetra k P
+... | true  = artha-sthiram (anujna k) P
+... | false = para-artha ks P
+
+para-matra : (ks : List SanujnaKaarya) (P : Prakriya)
+           → matra-p (paraKrama ks P) ≤ matra-p P
+para-matra []       P = ≤-refl
+para-matra (k ∷ ks) P with ksetra k P
+... | true  = matra-na-vardhate (anujna k) P
+... | false = para-matra ks P
+
+-- 1.4.1's content, as far as this language can carry it: after the
+-- tiebreak the result is still ONE licensed move.
+para-anujna : List SanujnaKaarya → Anujna
+para-anujna ks = anujnata (paraKrama ks) (para-artha ks) (para-matra ks)
+
+------------------------------------------------------------------------
+-- 40.  What that theorem is and is not.
+--
+-- IS: the licence survives conflict resolution, for any rule list and any
+-- order on it.  So a grammar may state overlapping rules freely — the
+-- overlap costs nothing in अर्थ or मात्रा — provided each rule is licensed
+-- on its own.  That is a real reason 1.4.1/1.4.2 can be cheap metarules
+-- rather than a repair bolted on: they do not have to preserve anything
+-- the individual rules did not already preserve.
+--
+-- IS NOT: any claim that the tiebreak is NEEDED.  `paraKrama` takes one
+-- branch of an `if`, so "only one designation applies" is enforced by the
+-- construction rather than proved about it.  A language where two rules
+-- could fire together is a different construction and this is not it.
+--
+-- IS NOT, either: a reading of A 1.4.2.  The dispute between the
+-- traditional *para* = later-in-the-text and Rajpopat's reading is live,
+-- the corpus records it as live, and §39's parametrisation is a way of
+-- not needing to decide rather than a way of deciding.  I have read
+-- neither the sūtra in situ nor Kātyāyana's vārttika on it; what is above
+-- is a structure that either reading would license, which is a weaker
+-- and more honest thing than a formalisation of Pāṇini.
+------------------------------------------------------------------------

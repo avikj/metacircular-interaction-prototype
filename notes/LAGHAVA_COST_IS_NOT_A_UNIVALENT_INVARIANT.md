@@ -436,12 +436,60 @@ is settled.
 **Not checked, and it is the interesting half**: that this is *why* a
 grammar keeps its उत्सर्ग. The *Aṣṭādhyāyī* does not eliminate its general
 rules in favour of their expansions — it states the general rule, then the
-exceptions, and *vipratiṣedhe paraṁ kāryam* exists precisely to let both
-stand. §37 gives a reason that shape would be **forced** rather than
-chosen. But a reason is not a reading of the text, and this module has not
+exceptions, and *vipratiṣedhe paraṁ kāryam* resolves which of several offers applies —
+see §12, which corrects this sentence. §37 gives a reason that shape would
+be **forced** rather than chosen. But a reason is not a reading of the text, and this module has not
 read one. The sūtra that would have to be read is 1.4.2, and it is not
 read here.
 
 Also not shown: that गुरुत्व is bounded by anything in the walk's fast
 presentation. §10's candidate is still a candidate. All §37 establishes is
 which way the doubly-licensed arrow points.
+
+## 12. Correction to §11, and it is a provenance error
+
+§39–§40. §11 wrote that *vipratiṣedhe paraṁ kāryam* "exists precisely to
+let both stand". That is wrong twice.
+
+**First**, A 1.4.2 does not let both stand — it **chooses**. It is the
+second half of a pair. A 1.4.1 *ā kaḍārād ekā saṃjñā*, "up to *kaḍārāḥ
+karmadhāraye* (2.2.38), **one** designation", says that where several
+saṃjñās offer, only one applies; 1.4.2 then says which. An exclusion rule
+plus a tiebreak is the opposite of both standing.
+
+**Second, and worse**: "the exception beats the general rule" is not 1.4.2
+at all. That ranking — *pūrva-para-nitya-antaraṅga-apavādānām
+uttarottaraṁ balīyaḥ*, of prior / posterior / nitya / antaraṅga / apavāda
+each later is stronger — is a **paribhāṣā of the commentarial tradition**,
+reaching this repository through Nāgeśa's *Paribhāṣenduśekhara*,
+eighteenth century. Attributing it to a sūtra of the *Aṣṭādhyāyī* is
+exactly the error this repository's protocol names first: letting a later
+systematiser's statement stand as the root citation. I made it in a
+paragraph about Pāṇinian practice.
+
+**And the corpus already had the material.** `1.4.2` appears in
+forty-one files, several recording Kātyāyana's vārttika on it and
+Rajpopat's 2022 reinterpretation, and explicitly declining to say which
+reading is right. The cheap grep the protocol prescribes — search for the
+*text*, not the author — would have caught this before §11 was written,
+and I did not run it. Running it now also turned up that `ekā saṃjñā`
+appears in **no** file while `1.4.1` appears in forty-five: the sūtra's
+number propagates through citation, its words do not.
+
+**What the pair actually names** is the thing §7's licence does not have:
+**conflict**. `sanghatita` composes two moves in sequence; nothing said
+what happens when two offer at the same site. `para-anujna` now does —
+a conflict-resolved rule list is itself a licence, for any rule list and
+any order on it. So a grammar may state overlapping rules freely: the
+overlap costs nothing in अर्थ or मात्रा, provided each rule is licensed
+alone. That is a reason 1.4.1/1.4.2 can be cheap metarules rather than a
+repair bolted on.
+
+**Not claimed**: that the tiebreak is *needed* — `paraKrama` takes one
+branch of an `if`, so "only one applies" is enforced by the construction,
+not proved about it. **Nor** a reading of 1.4.2: the traditional *para* =
+later-in-the-text against Rajpopat's reading is live, the corpus records
+it as live, and parametrising by list order is a way of **not needing to
+decide**. I have read neither the sūtra in situ nor Kātyāyana's vārttika.
+What is above is a structure either reading would license — weaker, and
+more honest, than a formalisation of Pāṇini.
