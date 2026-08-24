@@ -1204,3 +1204,4 @@ sp769	+(*(+(0,0),s(*(s(s(0)),0))),*(s(s(0)),0))	0	refl
 sp698	le(x,0)	le(+(x,*(+(0,x),y)),le(+(0,x),0))	ind 0 refl refl
 sp770	+(*(*(s(s(0)),0),s(+(0,0))),*(s(s(0)),0))	0	refl
 sp771	max(max(x,+(s(y),z)),s(0))	gcd(max(x,+(s(y),z)),0)	ind 0 refl refl
+sp772	max(+(x,max(x,s(0))),s(0))	gcd(+(x,max(x,s(0))),0)	ind 0 refl refl
