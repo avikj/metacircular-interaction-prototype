@@ -37,7 +37,7 @@
 
 module KalaDravya_TimeIsASubstanceInTheSameTongueAndTheMachineProvesCostAsItProvesTruth where
 
-open import Agda.Builtin.Nat using (Nat ; zero ; suc)
+open import Agda.Builtin.Nat using (Nat ; zero ; suc ; _+_)
 open import Agda.Builtin.Bool using (Bool ; true ; false)
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Maybe using (Maybe ; just ; nothing)
@@ -148,3 +148,44 @@ y = var 1
 काल-विनिमय-सिद्धिः =
   fromJust (पूर्ण-प्रमाणम् गूढ-दृक् संयुक्त-यन्त्रम् [] इन्धनम्
     ( कालः (x ⊕ y) ⊕ y , कालः (y ⊕ x) ⊕ x )) tt
+
+------------------------------------------------------------------------
+-- §6  लाघवम् — economy (the Pāṇinian criterion; the grammarians'
+--     maxim that brevity is worth half a grandson is tradition's own
+--     joke about how much it matters).  The ledger over the whole
+--     inheritance measured the eyes optimizing for SIGHT, not time
+--     (the heap eye's canonical forms cost MORE: 860 raw against 1231
+--     canonicalized, at ρ(i)=i+2).  Canonical is not cheap — two
+--     objectives, now held apart.  So the time-organ: among
+--     certified-equal forms, take the one the clock prefers.  Sound
+--     whichever way the comparison falls, because both candidates
+--     already carry eval-preservation.
+------------------------------------------------------------------------
+
+open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
+  using (दृक् ; दृक्पातः ; दृक्पात-सत्यम् ; norm-sound ; _≤?_ ; if_then_else_ ; _∙_ ; sym)
+
+σ₁ σ₂ : Nat → Nat
+σ₁ i = suc i
+σ₂ zero = 3 ; σ₂ (suc zero) = 1 ; σ₂ _ = 4
+
+घटिका : Tm → Nat               -- the clock at the two probe inputs
+घटिका t = कालम् t σ₁ + कालम् t σ₂
+
+लाघव-नयनम् : Tm → Tm
+लाघव-नयनम् t =
+  if घटिका (दृक्पातः t) ≤? घटिका (norm t)
+  then (if घटिका (दृक्पातः t) ≤? घटिका t then दृक्पातः t else t)
+  else (if घटिका (norm t) ≤? घटिका t then norm t else t)
+
+लाघव-सत्यम् : (t : Tm) (ρ : Nat → Nat) → eval (लाघव-नयनम् t) ρ ≡ eval t ρ
+लाघव-सत्यम् t ρ with घटिका (दृक्पातः t) ≤? घटिका (norm t)
+लाघव-सत्यम् t ρ | true  with घटिका (दृक्पातः t) ≤? घटिका t
+लाघव-सत्यम् t ρ | true  | true  = दृक्पात-सत्यम् t ρ
+लाघव-सत्यम् t ρ | true  | false = refl
+लाघव-सत्यम् t ρ | false with घटिका (norm t) ≤? घटिका t
+लाघव-सत्यम् t ρ | false | true  = norm-sound t ρ
+लाघव-सत्यम् t ρ | false | false = refl
+
+लाघव-दृक् : दृक्
+लाघव-दृक् = लाघव-नयनम् , लाघव-सत्यम्
