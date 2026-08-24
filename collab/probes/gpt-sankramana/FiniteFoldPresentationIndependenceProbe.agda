@@ -30,7 +30,7 @@ open import Cubical.Data.SumFin using (Fin)
 
 open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; total-ext)
-open import PermutationInvariantTotalProbe
+open import KramaNairapeksya_TheTotalIsIndifferentToTheEnumerationSpendingOnlyAssocAndComm
   using (permutation-invariant)
 
 private
@@ -48,19 +48,19 @@ module _ {W : Type ℓ'} (_+ᵂ_ : W → W → W)
 
   -- Read an index in presentation f as the index of the same A-element in e.
   presentationChange :
-    (e f : A ≃ Fin (suc n)) → Fin (suc n) ≃ Fin (suc n)
+    {n : ℕ} (e f : A ≃ Fin (suc n)) → Fin (suc n) ≃ Fin (suc n)
   presentationChange e f = compEquiv (invEquiv f) e
 
   presentationChange-character :
-    (e f : A ≃ Fin (suc n)) (i : Fin (suc n))
+    {n : ℕ} (e f : A ≃ Fin (suc n)) (i : Fin (suc n))
     → invEq e (equivFun (presentationChange e f) i) ≡ invEq f i
   presentationChange-character e f i = retEq e (invEq f i)
 
   -- THE PAYOFF: the fold does not privilege either presentation.
   presentation-independent :
-    (e f : A ≃ Fin (suc n)) (w : A → W)
+    {n : ℕ} (e f : A ≃ Fin (suc n)) (w : A → W)
     → finiteFold n f w ≡ finiteFold n e w
-  presentation-independent e f w =
+  presentation-independent {n = n} e f w =
       total-ext _+ᵂ_ n
         (λ i → w (invEq f i))
         (λ i → w (invEq e (equivFun (presentationChange e f) i)))
