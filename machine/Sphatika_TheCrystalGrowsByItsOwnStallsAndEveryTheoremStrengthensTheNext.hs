@@ -44,7 +44,9 @@
 -- full context, never a lemma alone.
 module Main (main) where
 
-import Control.Monad (foldM, forM_, unless, when)
+import Control.Monad (unless)
+import Control.Exception (try)
+import System.Directory (createDirectory)
 import Data.Char (isSpace)
 import Data.List (isInfixOf, isPrefixOf, nub)
 import Data.Maybe (fromMaybe, mapMaybe)
@@ -60,6 +62,12 @@ import qualified Obstruction as O
 
 crystalFile :: FilePath
 crystalFile = "machine/sphatika.crystal"
+
+lockCrystal :: IO Bool
+lockCrystal = do
+  r <- try (createDirectory (crystalFile ++ ".lock"))
+         :: IO (Either IOError ())
+  pure (either (const False) (const True) r)
 
 renderedFile :: FilePath
 renderedFile = "formal/cubical/Sphatika.agda"
@@ -248,6 +256,14 @@ main = do
     _ -> putStrLn "usage: sphatika REPORT" >> exitFailure >> pure ""
   mroot <- K.findRepoRoot
   root <- maybe (putStrLn "no repo root" >> exitFailure >> pure ".") pure mroot
+  -- ONE writer.  Two concurrent drivers interleave the crystal and the
+  -- render gate refuses the whole (DuplicateName) — measured 2026-08-24,
+  -- first day, by exactly that mistake.  Same discipline as the loop's
+  -- gate mutex: a second driver turns back instead of racing.
+  locked <- lockCrystal
+  unless locked $ do
+    putStrLn "sphatika: another driver holds the crystal; turning back"
+    exitFailure
   crystal0 <- loadCrystal
   putStrLn ("sphatika: crystal holds " ++ show (length crystal0) ++ " lemmas")
   let goals0 = [ g | g <- goalsFromReport report
