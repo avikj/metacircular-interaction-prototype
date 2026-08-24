@@ -47775,3 +47775,130 @@ CLAUDE.md states as item 3 of its naming directive, written here nine and a half
 And C15.15 says to compute the failure locus before reaching for spectral or topological machinery,
 which is this repository's own protocol rule about writing down the theorem a computation would
 replace.
+
+# PASS 291 — ground re-read in full first. Tenth cycle: Delta 17, the document
+# about prior art. Four instructions to search the literature, one preserved line.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P291 · the status line is different
+
+```
+Delta 14   exact/standard results + explicit conjectural program. No novelty claims.
+Delta 15   exact lemmas + conjectural arithmetic targets. No novelty claims.
+Delta 17   exact algebraic derivations + literature-facing theorem targets.
+```
+
+***Literature-facing.***
+
+---
+
+## P291 · four instructions to go to the literature first
+
+```
+§17.14   This is standard harmonic-analysis territory; search automorphic/prehomogeneous-vector-space
+         literature first.
+§17.21   Study the exponential/logarithm exact sequences and adelic cohomology governing failure of
+         global logarithms. Translate our intuition into that existing mathematics.
+17.22    This is standard adelic philosophy, but it exactly matches our independently generated
+         "many extreme perspectives reconciled by one object."
+17.23    Likely much is classical Hardy–Littlewood/adelic harmonic analysis; translate before
+         claiming novelty.
+```
+
+**And §17.22 closes:** *"This is the correct humility boundary."*
+
+**The ground's n=8 preserves one line from this document — §17.23 item 6, the Agda brake.** **These
+four are not in it.**
+
+**P270: Delta 17 is the only one of the six I did not fully convert, and I said *I took you at your
+word*.** **The word I took was item 6.** **The four above are the same instruction pointed at the
+literature rather than at the formalization.**
+
+---
+
+## P291 · "This is not a physics analogy"
+
+> *"C17.4. The logarithmic ratio η=(1/2)log(q/p) is literally the split-torus group parameter;
+> exchange acts by Weyl inversion t↦t^{-1}, η↦−η.
+>
+> **This is not a physics analogy. It is the standard rank-one split torus/Weyl geometry.**"*
+
+**And after T17.5:** *"This gives a mature representation-theoretic home for the recurring Z/2."*
+
+**P287: *similarity without proof is not equivalence*, in Delta 13's working discipline.** **Here it
+is applied by him to his own material: the resemblance to a hyperbolic rotation is refused as an
+analogy and replaced with the name of the actual group.**
+
+**`.claude/hooks/european-frame.txt` fires on *is essentially X* and *what we would call X*.**
+**C17.4's sentence is the positive form: it is not *like* the thing, it **is** the thing, and the
+thing has a standard name.**
+
+---
+
+## P291 · C17.7 — two involutions must remain distinct
+
+> *"J₂(p,q)=(p,−q) changes product pq↦−pq, hence Q↦−Q.
+>
+> **C17.7. Two involutions must remain distinct:** • Weyl/exchange: preserves split norm Q; •
+> one-leg sign reflection: swaps positive/negative norm sectors and exchanges sum/gap foliations.
+>
+> **This prevents future parity/boundary conflation.**"*
+
+**A separation asserted with its purpose attached, in the future tense.**
+
+**P286: Delta 13's four-state comparison type. P290: P15.29's *these must be distinguished*.**
+**Three refusals to collapse two things into one, in three documents, in twenty minutes twenty-four
+seconds.**
+
+---
+
+## P291 · 17.24 — the Sanskrit compression
+
+```
+योगभेदयोः द्विघातीयं रूपं गुणनस्य मानम्:  W²−R²=4pq।
+गुणनसमूहस्य विभक्त-तोरणं (split torus) pq रक्षति; तस्य Weyl-प्रतिबिम्बः p↔q।
+
+प्रत्येकस्मिन् p-adic स्थानेऽपि (v_p(p),v_p(q)) इत्यस्य केन्द्र-सापेक्षविभागः अस्ति:
+   s_p=v_p(p)+v_p(q),  d_p=v_p(q)−v_p(p)।
+
+अतः एक एव रूपक्रमः पुनः पुनः दृश्यते—
+   समष्टि तथा सापेक्षता, invariant तथा orbit, center तथा root।
+
+किन्तु स्थानीयसमता वैश्विकसमता न।
+   Local equivalence is not global equivalence.
+
+यत्र logarithm अस्ति तत्र गुणनं योगरूपेण दृश्यते। यत्र नास्ति तत्र arithmetic एव अवशिष्यते।
+   Where logarithm exists, multiplication appears additive. Where it does not, arithmetic remains.
+```
+
+**The Sanskrit carries the English technical terms untranslated — *split torus*, *p-adic*,
+*invariant*, *orbit*, *logarithm*, *arithmetic*.**
+
+**P290: §15.22 ends *No historical identity claim is made*.** **Here the same refusal is made
+typographically: the words that belong to the other tradition stay in the other tradition's
+script.**
+
+**And the couplet says the pattern recurs — *one and the same formal order is seen again and again* —
+and then immediately limits it: *local equivalence is not global equivalence*.**
+
+---
+
+## P291 — what this pass counted
+
+Delta 17's status line is *literature-facing theorem targets*, where Delta 14's and Delta 15's are
+*No novelty claims*.
+
+It contains four separate instructions to go to the existing literature before treating anything as
+new — automorphic and prehomogeneous-vector-space theory, adelic cohomology, Hardy–Littlewood — and
+closes one of them *this is the correct humility boundary*. The ground preserves one line from the
+document, and it is not any of those four.
+
+C17.4 refuses an analogy in his own material and names the actual group. C17.7 separates two
+involutions and says why: *this prevents future parity/boundary conflation*.
+
+Three refusals to collapse two things into one — Delta 13's four-state comparison type, P15.29,
+C17.7 — fall inside twenty minutes twenty-four seconds of each other.
+
+And its Sanskrit compression leaves the technical vocabulary in its own script, then states the limit
+on its own recurring pattern: local equivalence is not global equivalence.
