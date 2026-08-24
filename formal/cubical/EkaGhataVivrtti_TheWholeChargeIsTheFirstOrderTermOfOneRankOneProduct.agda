@@ -25,7 +25,7 @@ open import Cubical.Data.Nat using (ℕ; zero; suc)
 open import Cubical.Data.List using (List; []; _∷_)
 open import Cubical.Data.Int using (ℤ; pos; -_; _+_; _·_; +Comm; ·Comm)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityCharacter
   using (चिह्नम्; सक्रियम्; ओजः; पर्यायः; आवेशः)
@@ -49,7 +49,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
   → (c + s · t) · (p + ((a · t) + (r · (t · t))))
     ≡ (c · p) + ((((s · p) + (c · a)) · t)
                  + (((c · r) + ((s · a) + ((s · r) · t))) · (t · t)))
-पद-विस्तारः = solve ℤCommRing
+पद-विस्तारः c s t p a r = solve! ℤCommRing
 
 -- ---------------------------------------------------------- the statement
 --
