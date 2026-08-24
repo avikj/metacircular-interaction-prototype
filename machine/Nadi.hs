@@ -149,15 +149,6 @@ parseSpell ctxRef line = do
         then case ctx of
                Just f  -> pure (Just (Fill, wrap f "Cmd_solveAll Simplified"))
                Nothing -> pure Nothing
-      else if v == "auto"    -- auto <id> [hints] : the kernel SEARCHES for a
-                             -- term (Agsy/Mimer) and AUTHORS it — the machine
-                             -- proving by itself, not merely verifying a term
-                             -- handed to it.  This is the generative organ:
-                             -- give/refine check a proposal, auto MAKES one.
-        then case (ctx, rest) of
-               (Just f, (n:_)) -> pure (Just (Fill, wrap f
-                 ("Cmd_autoOne " ++ n ++ " noRange \"" ++ esc arg2 ++ "\"")))
-               _ -> pure Nothing
       else if v == "raw"
         then pure (Just (Query, arg ++ "\n"))
       -- a KĀRAKA SCENE (Pāṇini's minimal-overhead grammar): the action
@@ -252,7 +243,6 @@ terminal :: Kind -> [Value] -> Value -> Bool
 terminal k acc (Object o) = case KM.lookup "kind" o of
   Just (String "DisplayInfo")       -> k == Query || isErr
                                        || (k == Fill && accepted)
-                                       || (k == Fill && isAuto)
                                        || (k == Load && seenPoints)
   Just (String "GiveAction")        -> k == Query
   Just (String "MakeCase")          -> k == Query
@@ -266,9 +256,6 @@ terminal k acc (Object o) = case KM.lookup "kind" o of
   _ -> False
   where isErr = case KM.lookup "info" o of
                   Just (Object i) -> KM.lookup "kind" i == Just (String "Error")
-                  _ -> False
-        isAuto = case KM.lookup "info" o of
-                  Just (Object i) -> KM.lookup "kind" i == Just (String "Auto")
                   _ -> False
         -- has the acceptance already arrived this turn?
         accepted   = any isAccept acc
@@ -316,9 +303,6 @@ condense vs = unlines (concatMap one vs)
           "छिद्राणि:" : [ "  ?" ++ gid p ++ " : " ++ str (KM.lookup "type" p) | Object p <- V.toList a ]
         _ -> ["छिद्रं नास्ति"]
       Just (String "Error") -> ["✗ " ++ errmsg (KM.lookup "error" i)]
-      -- the kernel's own proof SEARCH speaking: a found term, or its honest
-      -- "No solution found".  Without this the generative organ was mute.
-      Just (String "Auto") -> ["✦ auto: " ++ str (KM.lookup "info" i)]
       _ -> []
     gid p = case KM.lookup "constraintObj" p of
               Just (Object c) -> case KM.lookup "id" c of Just (Number n) -> show (round n :: Int); _ -> "?"
