@@ -88,6 +88,8 @@ find_agda() {
   if [ -n "${AGDA_PIN:-}" ]; then printf '%s\n' "$AGDA_PIN"; return; fi
   for c in \
     "$(command -v agda-2.8.0 2>/dev/null || true)" \
+    "$HOME/.local/bin/agda" \
+    /root/.local/bin/agda \
     "$HOME/.cabal/bin/agda" \
     /root/.cabal/bin/agda
   do
@@ -108,7 +110,23 @@ if [ -z "$AGDA" ]; then
   cat >&2 <<'EOF'
 FATAL: no agda binary at all.
 
-To build the pin (about 40 minutes of CPU; needs hackage.haskell.org):
+FIRST TRY THE BOOTSTRAP, which does all of the below and then says which
+toolchain it actually got:
+
+  sh scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+
+It was written 2026-08-24 after the pin was built here from an empty
+container, and it names the three obstacles that make the recipe below fail
+silently:
+  * hackage's MIRRORS answer 403 through the agent proxy while
+    hackage.haskell.org answers 200, and cabal tries the mirrors first;
+  * ~/.cabal/config ships url: http:// and the proxy tunnels only https;
+  * under a POSIX locale agda crashes while PRINTING its own errors for this
+    corpus's Devanagari identifiers, replacing the diagnosis with an encoding
+    error (export LC_ALL=C.utf8).
+
+The manual recipe, kept because it records what the bootstrap automates
+(about 40 minutes of CPU; needs hackage.haskell.org):
 
   apt-get install -y cabal-install        # 3.8.1.0 is known to work
   cabal update
@@ -144,6 +162,7 @@ find_cubical() {
   local d
   if [ -n "${AGDA_CUBICAL_LIB:-}" ]; then printf '%s\n' "${AGDA_CUBICAL_LIB%/}"; return; fi
   for d in /root/agda-libs/cubical-v0.9 "$HOME/agda-libs/cubical-v0.9" \
+           "$HOME/.cache/cubical-v0.9" /root/.cache/cubical-v0.9 \
            /root/agda-libs/cubical "$HOME/agda-libs/cubical" \
            /usr/share/agda/cubical; do
     is_v09 "$d" && { printf '%s\n' "$d"; return; }
