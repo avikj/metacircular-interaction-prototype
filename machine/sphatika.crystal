@@ -480,3 +480,8 @@ sp413	+(*(*(x,0),s(0)),s(*(x,0)))	s(0)	ind 0 refl ih
 sp330	le(s(0),x)	le(s(0),+(x,+(0,x)))	ind 0 refl refl
 sp414	+(le(0,0),max(le(0,0),s(0)))	s(s(0))	refl
 sp415	+(le(0,0),max(x,s(0)))	s(max(x,s(0)))	refl
+sp331	s(s(s(s(0))))	+(s(s(0)),s(s(0)))	refl
+sp332	s(x)	+(s(*(x,s(0))),*(s(x),0))	ind 0 refl congsuc
+sp416	0	*(le(s(0),x),+(le(x,0),le(x,0)))	ind 0 refl refl
+sp417	0	*(le(x,0),le(s(0),+(x,*(x,x))))	ind 0 refl refl
+sp418	0	*(le(x,0),le(s(0),+(x,*(x,y))))	ind 0 refl refl
