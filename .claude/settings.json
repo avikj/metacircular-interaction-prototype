@@ -31,6 +31,10 @@
           {
             "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/MulaVakya_TheHeaderCarriesItsTextAndDate.sh\""
+          },
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/NavaAnga_ANewOrganMustNameItsSeamOrItIsAdornment.sh\""
           }
         ]
       },
@@ -52,6 +56,10 @@
           {
             "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/MulaVakya_TheHeaderCarriesItsTextAndDate.sh\""
+          },
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/NavaAnga_ANewOrganMustNameItsSeamOrItIsAdornment.sh\""
           }
         ]
       }
