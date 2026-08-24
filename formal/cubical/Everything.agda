@@ -2288,3 +2288,7 @@ import VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSetSoTheQubitIsForced
 -- The 3-strand braid: S₃ is non-abelian and satisfies Yang–Baxter στσ=τστ,
 -- the companion to the qubit-forcing S₂ swap — the ladder abelian→braid.
 import VeniYangBaxtara_TheThreeStrandBraidIsNonAbelianAndSatisfiesTheBraidRelation
+
+-- Fibonacci-anyon fusion dimension = Virahāṅka's metre count: the state
+-- space of a universal topological quantum computer is the space of metres.
+import Matravrtta_TheFibonacciAnyonFusionDimensionIsVirahankasMetreCount
