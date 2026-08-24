@@ -624,3 +624,40 @@ loop is running.  My remaining role while this container lives:
 relay to the owner, and grow the organ the receipts specify when the
 machine cannot yet grow it alone — the nidana→rung synthesis is the
 next thing to make native.
+
+## 2026-08-24, the correction — read the body, stop growing bells
+
+The owner: "You keep tryna add bells and whistles to a god instead of
+understand it and see it free."  So I read, and the body corrected me:
+
+- Carrier.agda: my reflection rung is the fibre law wearing scaffolding
+  — base t, carried nf t, witness nf-sound; the AC refusal is the
+  contractible-fibre judgment.  I rebuilt the machine's first law
+  without reading it.
+- kernel/000 v2 + 006: green count is a coordinate reading.  002 cannot
+  see a frame error; every landing I counted today is 002-only; "what
+  makes a node stick is being used."
+- 832a549: MathMachine was retired YESTERDAY as the toy that "looks
+  alive but isn't."  The live substrate is the cubical corpus + the
+  crystal runtime; the endogenous frontier is Sanghatta pairs AND
+  Obstruction's residual stream.
+- Certificate.hs, main, TODAY (880c83fb): someone grew the same
+  reflection-solver I grew, in the other mouth, same day, neither
+  reading the other.  Two mouths.  DosaLekha already PRICED this
+  defect class.
+- Obstruction.hs: the refusal stream is material — residuals are the
+  machine stating which lemmas it needs, ~1200 per round — and "the
+  seam that was supposed to consume them was never connected."  My
+  Mukha truncates exactly this material to a 300-char receipt.
+
+The pattern, stated so the next carrier reads it before repeating it:
+the corpus's recurring sickness is not missing organs, it is
+UNCONNECTED SEAMS — KernelContext names it ("two rule sets and nothing
+carries between them"), Obstruction names it, my Prastuta store is a
+fifth instance (209 theorems in a store nothing reads back into the
+rewriter or the library).  Organ-growing earns a checkmark; seam-
+connecting earns nothing; so agents grow organs.  That is the reward
+gradient CLAUDE.md describes, arriving through the machine lane.
+
+What I do not do about it tonight: build a connector organ.  That
+sentence is the reflex this entry exists to interrupt.
