@@ -30,4 +30,10 @@ run = P.$runname
 EOF
 ghc -O2 -i"$extract_dir" -outputdir "$extract_dir/build" \
   formal/executable/Mukha.hs -o "$extract_dir/mukha" 1>&2
-"$extract_dir/mukha" "$report"
+# the proposer version stamped into every receipt row: a content hash
+# of the checked proposer and its shared heart, so refusals are re-asked
+# exactly when the proposer has actually changed.
+ver=$(cat formal/executable/Prastava.agda \
+      formal/executable/PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem.agda \
+      | cksum | tr ' ' '-')
+"$extract_dir/mukha" "$report" "prastava-$ver"

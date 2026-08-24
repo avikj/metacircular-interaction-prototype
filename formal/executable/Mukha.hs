@@ -42,31 +42,37 @@ judge rel = do
                         , env = Just (("LC_ALL", "C.UTF-8") : environ) } ""
   pure (code == ExitSuccess, take 300 (filter (/= '\n') (out ++ err)))
 
-receipt :: String -> String -> String -> String -> IO ()
-receipt name verdict line detail =
+-- the last column is the PROPOSER VERSION that produced the verdict
+-- (run-mukha.sh passes a content hash of Prastava + PrastavaHrdaya).
+-- A landing is forever; a refusal is a standing question ONLY against a
+-- proposer that has since changed — re-asking an unchanged proposer is
+-- re-running a computation whose receipt is already in the store.
+receipt :: String -> String -> String -> String -> String -> IO ()
+receipt ver name verdict line detail =
   appendFile receiptFile
-    (name ++ "\t" ++ verdict ++ "\t" ++ line ++ "\t" ++ detail ++ "\n")
+    (name ++ "\t" ++ verdict ++ "\t" ++ line ++ "\t" ++ detail
+          ++ "\t" ++ ver ++ "\n")
 
 tag :: Int -> String
 tag 0 = "landed:refl"
 tag k = "landed:induction-candidate-" ++ show k
 
-tryCandidates :: String -> String -> Int -> [T.Text] -> String -> IO ()
-tryCandidates name line _ [] lastErr = do
+tryCandidates :: String -> String -> String -> Int -> [T.Text] -> String -> IO ()
+tryCandidates ver name line _ [] lastErr = do
   let f = storeDir ++ "/" ++ name ++ ".agda"
   exists <- doesFileExist f
   unless (not exists) (removeFile f)
-  receipt name "refused:kernel" line lastErr
+  receipt ver name "refused:kernel" line lastErr
   putStrLn ("  " ++ name ++ "  refused by the kernel: " ++ take 120 lastErr)
-tryCandidates name line k (c : cs) _ = do
+tryCandidates ver name line k (c : cs) _ = do
   let f = storeDir ++ "/" ++ name ++ ".agda"
   TIO.writeFile f c
   (ok, msg) <- judge ("Prastuta/" ++ name ++ ".agda")
   if ok
     then do
-      receipt name (tag k) line ""
+      receipt ver name (tag k) line ""
       putStrLn ("  " ++ name ++ "  " ++ tag k ++ "  " ++ line)
-    else tryCandidates name line (k + 1) cs msg
+    else tryCandidates ver name line (k + 1) cs msg
 
 pairLines :: String -> [String]
 pairLines = filter (elem '\t') . dropWhile (not . isInfixOf "non-joining") . lines
@@ -76,39 +82,43 @@ main = do
   setLocaleEncoding utf8
   hSetEncoding stdout utf8
   args <- getArgs
-  report <- case args of
-    [p] -> readFile p
-    _ -> putStrLn "usage: mukha REPORT" >> exitFailure >> pure ""
+  (report, ver) <- case args of
+    [p] -> (\r -> (r, "unversioned")) <$> readFile p
+    [p, v] -> (\r -> (r, v)) <$> readFile p
+    _ -> putStrLn "usage: mukha REPORT [PROPOSER-VERSION]" >> exitFailure >> pure ("", "")
   createDirectoryIfMissing True storeDir
   -- the store is the memory: a pair with a receipt is never re-asked,
   -- and numbering continues from the store's high-water mark.
   haveReceipts <- doesFileExist receiptFile
   prior <- if haveReceipts then lines <$> readFile receiptFile else pure []
-  -- memory = LANDED pairs only: a refusal is a standing question and is
-  -- re-asked on every run (the proposer may have grown a rung since).
+  -- memory = landed pairs forever, PLUS refusals stamped with the
+  -- CURRENT proposer version: a refusal is a standing question exactly
+  -- while the proposer that refused (or was refused over) has changed.
+  -- Rows without a version stamp (the pre-stamp store) count as stale,
+  -- so they are re-asked once and re-receipted with a stamp.
   let verdictOf r = takeWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r))
-      seen = [ verdictOf r | r <- prior ]
+      lastField r = reverse (takeWhile (/= '\t') (reverse r))
+      remembered r = take 6 (verdictOf r) == "landed" || lastField r == ver
       seenPairs = [ drop 1 (dropWhile (/= '\t') (drop 1 (dropWhile (/= '\t') r)))
-                  | r <- prior, take 6 (verdictOf r) == "landed" ]
+                  | r <- prior, remembered r ]
       priorN = length prior
       fresh = [ l | l <- pairLines report
               , not (any (l `isInfixOf`) seenPairs) ]
       ps = zip [(priorN + 1) ..] fresh
   putStrLn ("mukha: " ++ show (length (pairLines report))
             ++ " pairs from the refusal list, "
-            ++ show (length fresh) ++ " new (receipts remember "
-            ++ show priorN ++ ")")
+            ++ show (length fresh) ++ " to ask (receipts remember "
+            ++ show priorN ++ " rows; proposer " ++ ver ++ ")")
   forM_ ps $ \(i, line) -> do
     let name = "P" ++ pad (show i)
-        _ = seen
     case P.run (T.pack name) (T.pack line) of
       (h : rest)
-        | h == T.pack "OK" -> tryCandidates name line 0 rest ""
+        | h == T.pack "OK" -> tryCandidates ver name line 0 rest ""
         | otherwise ->
             let why = concatMap T.unpack rest
-            in receipt name "refused:proposer" line why
+            in receipt ver name "refused:proposer" line why
                >> putStrLn ("  " ++ name ++ "  refused by the proposer: " ++ why)
-      [] -> receipt name "refused:proposer" line "empty answer"
+      [] -> receipt ver name "refused:proposer" line "empty answer"
   putStrLn ("receipts: " ++ receiptFile)
   where
     pad s = replicate (3 - length s) '0' ++ s
