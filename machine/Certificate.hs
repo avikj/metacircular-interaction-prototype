@@ -259,8 +259,10 @@ module Certificate
   , agdaCertificate
   , agdaCertificateWith
   , agdaInductionCertificate
+  , agdaSolverCertificate
   , inductionVariable
   , stepShapes
+  , solverShapes
     -- * policy
   , kMaxAgdaCalls
   , kMaxAgdaCallsUnannotated
@@ -683,6 +685,51 @@ agdaInductionCertificate defs eq@(l, r) v step = do
         baseLine = length pre + 2
     pure (unlines (pre ++ [sig, baseC, stepC]), baseLine)
 
+-- A NON-INDUCTIVE certificate: hand the whole telescoped equation to a
+-- reflection semiring solver (Cubical.Tactics.NatSolver), used point-free
+-- as `candidate = <macro>`.  This closes the commutativity/associativity/
+-- distributivity class that Certificate.hs:238-240 named as needing "a lemma
+-- environment ... not more step shapes": those thirteen rejections are all
+-- ℕ-semiring identities whose base case is itself a lemma (y ≢ y + zero
+-- definitionally), and a semiring solver is the decision procedure for
+-- exactly that class.  It is SOUND because the macro emits a proof term the
+-- kernel checks under the candidate's own pragmas — probed 2026-08-24: it
+-- discharges (x + y) ≡ (y + x) (rc 0) and REFUSES (x + y) ≡ (x · y) (rc 1) —
+-- so it is not a trusted oracle, and the two watched controls in the caller
+-- are unaffected.  `imp` and `body` are supplied by `solverShapes` because
+-- the macro's import path and name differ by cubical version.
+agdaSolverCertificate :: [Definition] -> Equation -> String -> String
+                      -> Maybe String
+agdaSolverCertificate defs _ _ _ | not (definitionsSafe defs) = Nothing
+agdaSolverCertificate defs eq@(l, r) imp body = do
+  lhs <- agdaTermWith defs l
+  rhs <- agdaTermWith defs r
+  names <- mapM agdaVar (equationVars eq)
+  pure $ unlines $
+    preambleWith defs (equationSymbols eq)
+    ++ [ imp
+       , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
+       , "candidate = " ++ body
+       ]
+
+-- The solver shapes, in order, each an (label, import line, macro name).
+-- Both cubical versions the corpus meets are covered so the shape survives
+-- the toolchain skew that fibered VargaPrakrtiWitness109: v0.5 exposes the
+-- hole macro as `Cubical.Tactics.NatSolver.Reflection.solve`; v0.9 renamed
+-- it `solveℕ!` and re-exported it from the aggregator `Cubical.Tactics
+-- .NatSolver`.  Only one import resolves per toolchain; the other fails with
+-- "Failed to find source of module" — an ordinary rejection, not an
+-- environment fault — so the search simply moves to the next shape.
+solverShapes :: [(String, String, String)]
+solverShapes =
+  [ ( "solve"
+    , "open import Cubical.Tactics.NatSolver.Reflection using (solve)"
+    , "solve" )
+  , ( "solveℕ!"
+    , "open import Cubical.Tactics.NatSolver using (solveℕ!)"
+    , "solveℕ!" )
+  ]
+
 -- The induction hypothesis, as a term: `candidate` applied to the same
 -- variables, with the induction variable at its (now smaller) name.
 inductionHypothesis :: Equation -> Int -> Maybe String
@@ -737,7 +784,8 @@ kMaxCongArguments = 2
 -- budget for an ANNOTATED candidate — one whose proof note names the
 -- induction variable — and it is unchanged by the fallback below.
 kMaxAgdaCalls :: Int
-kMaxAgdaCalls = 1 + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
+kMaxAgdaCalls = 1 + length solverShapes
+             + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
 
 -- How many variables get tried when the caller's proof note names none.
 -- `equationVars` returns at most the six universe variables, so this is a
@@ -753,7 +801,8 @@ kMaxInductionVariables = 3
 -- the base clause fails and `blamedLine` stops each variable's search at 2
 -- calls — but the bound is what is guaranteed and it is what is stated.
 kMaxAgdaCallsUnannotated :: Int
-kMaxAgdaCallsUnannotated = 1 + kMaxInductionVariables * (kMaxAgdaCalls - 1)
+kMaxAgdaCallsUnannotated = 1 + length solverShapes
+  + kMaxInductionVariables * (kMaxAgdaCalls - 1 - length solverShapes)
 
 -- The cubical library, by name as registered in ~/.agda/libraries.
 -- Without this the engine's invocation cannot resolve Cubical.* at all;
@@ -1561,8 +1610,28 @@ certifyWith defs root (eq, proofNote) =
         ExitFailure _ | environmentFault out ->
           pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
-          tryVariables (inductionCandidates proofNote eq) n0 (firstErrorLine out)
+          trySolvers solverShapes n0 (firstErrorLine out)
   where
+    -- The reflection-solver shapes are tried after the definitional `refl`
+    -- module and before the induction search: one call closes the whole
+    -- ℕ-semiring class, and for an equation the solver does not handle (monus,
+    -- le, gcd) it fails fast and the induction search runs exactly as before.
+    -- Exhausting the solver shapes falls through to `tryVariables`, so no
+    -- candidate the old emitter certified can be lost.
+    trySolvers [] used lastErr =
+      tryVariables (inductionCandidates proofNote eq) used lastErr
+    trySolvers ((label, imp, body) : more) used lastErr =
+      case agdaSolverCertificate defs eq imp body of
+        Nothing -> tryVariables (inductionCandidates proofNote eq) used lastErr
+        Just source -> do
+          (code, out, n) <- runAgdaCached root source
+          let used' = used + n
+          case code of
+            ExitSuccess ->
+              pure (Certified (cachedShape used' ("solver: " ++ label)) used')
+            ExitFailure _
+              | environmentFault out -> pure (Rejected (firstErrorLine out) used')
+              | otherwise -> trySolvers more used' (firstErrorLine out)
     -- WHEN THE CALLER NAMES NO VARIABLE, CHOOSE ONE (2026-08-20).
     --
     -- `inductionVariable` reads the induction variable off the caller's proof
