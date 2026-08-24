@@ -887,11 +887,39 @@ splitTabs s = case break (== '\t') s of
 -- report the emitter's own bugs as the corpus's open problems, which is
 -- precisely the inversion this repository exists against.  They are counted,
 -- and counted SEPARATELY, under मम दोषः.
+-- The stamp `runAgda` puts on the exception path.  It is tested before every
+-- other guard, because a process that did not start has no opinion about
+-- mathematics and no opinion about module paths either.
+agdaAbsent :: String
+agdaAbsent = "अनुलोम-प्रतिलोम: agda did not run: "
+
+-- True when the module agda could not find is a LIBRARY module, not one of
+-- ours.  Every module this emitter writes an import for is either literal
+-- `Cubical.*` or the host's own `sMod`, so the test is on the head alone and
+-- needs no list of our modules to stay in sync with.
+cubicalMissing :: String -> Bool
+cubicalMissing out =
+  or [ "Cubical." `isInfixOf` l
+     | l <- lines out, "Failed to find source" `isInfixOf` l ]
+
 classify :: HostFacts -> String -> (String, String)
 classify hf out
+  | agdaAbsent `isInfixOf` out           = (envFault "agda did not run", firstErr)
   | "MetaCannotDependOn" `isInfixOf` out = (myFault "indexed family", firstErr)
   | "NotInScope"         `isInfixOf` out = (myFault "not in scope",   firstErr)
   | "CoverageIssue"      `isInfixOf` out = (myFault "split incomplete", firstErr)
+  -- 2026-08-24.  ONE LABEL WAS COLLAPSING TWO STANDPOINTS, and it is the
+  -- दुर्नय this classifier's own header is about.  `Failed to find source of
+  -- module Cubical.Foundations.Prelude` and `… of module NaturalMachine.Digits`
+  -- are not one defect.  The first says THE LIBRARY IS NOT CONFIGURED — see
+  -- `librariesArg`, which passes no `--library-file` at all unless
+  -- ANULOMA_LIBRARIES names an existing one, so a host without
+  -- `~/.agda/libraries` fails EVERY probe at its first import.  The second
+  -- says this program computed a module name wrong.  They have different
+  -- owners and different repairs, and filing the first as मम दोषः sends the
+  -- next reader to audit `modNameOf`, which is correct.
+  | "Failed to find source" `isInfixOf` out
+  , cubicalMissing out                    = (envFault "agda library not configured", firstErr)
   | "Failed to find source" `isInfixOf` out = (myFault "module path", firstErr)
   -- A CONSTRUCTOR THE PROBE NAMED BUT DID NOT IMPORT BINDS A VARIABLE, so
   -- the split is not a split.  Agda says this as a -W warning while the
@@ -919,8 +947,43 @@ classify hf out
   | otherwise = (ofType (typeOfObligation out), firstErr)
   where
     myFault s = "मम दोषः · " ++ s
-    firstErr = trim (unwords (take 40 (words (unlines
-                 (take 4 (drop 1 (dropWhile (not . isInfixOf "error:") (lines out))))))))
+    -- परिस्थितिः — the circumstance of the run.  NOT a third flavour of my
+    -- defect: nobody edits this program to fix it and nobody proves
+    -- anything to fix it.  The probe was never typechecked, so the row is
+    -- evidence about the host that ran it and about nothing else.
+    envFault s = "परिस्थितिः · " ++ s
+    -- ─────────────────────────────────────────────────────────────────
+    -- 2026-08-24.  THE WITNESS COLUMN WAS EMPTY ON EVERY ROW OF THE
+    -- LARGEST CLASS, AND THAT IS THIS FILE'S OWN PROHIBITION BROKEN.
+    --
+    -- `firstErr` anchored on a line containing `error:` and took the four
+    -- after it.  Agda does not put every diagnostic in that form.
+    -- `Failed to find source of module X in any of the following
+    -- locations:` has NO `error:` line, so `dropWhile` consumed the whole
+    -- output, `drop 1 []` was `[]`, and the witness was the EMPTY STRING.
+    -- Measured on `notes/anuloma/NirnayaPanjika.tsv` before this change:
+    -- 36 rows classed `मम दोषः · module path`, **36 of them with an empty
+    -- obligation column** — a refusal that does not name its defect,
+    -- which `machine/Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal.hs`
+    -- in this same directory says is not a refusal, and which
+    -- `Nirnaya_TheVerdictCannotDropItsWitness.agda` states as a theorem
+    -- about verdicts.  The class label survived; the one fact that would
+    -- have closed the bug in a second — WHICH module failed to resolve —
+    -- was thrown away 36 times.
+    --
+    -- The repair is a fallback, not a rewrite: when an `error:` line
+    -- exists the window is byte-for-byte what it was, so no existing row
+    -- changes meaning.  When none exists the first four NON-BLANK lines
+    -- of agda's output are the witness, which for this class carries the
+    -- module name in the first line.
+    --
+    -- A count is the collapse again (`Uttara_…NeverABareBoolean`, नष्ट
+    -- item by item): `36 module path` without the modules is ∥·∥₁ of the
+    -- defects.
+    firstErr = trim (unwords (take 40 (words (unlines (take 4 window)))))
+    window = case dropWhile (not . isInfixOf "error:") (lines out) of
+      (_ : rest) -> rest
+      []         -> filter (not . null . trim) (lines out)
     -- THE ORDER OF THESE GUARDS IS THE CLASSIFICATION, and getting it wrong
     -- misnames the move.  `List Nat` matched `Nat` first and was filed under
     -- «induction on ℕ» — the wrong feature request, because the induction
@@ -1262,9 +1325,17 @@ runAgda scratch nm = do
   libs <- librariesArg
   let dest = "formal/cubical" </> nm ++ ".agda"
   copyFile (scratch </> nm ++ ".agda") dest
+  -- THE EXCEPTION PATH IS NOT A KERNEL VERDICT AND MUST NOT BE READABLE AS
+  -- ONE.  This file's own header records the last time it was: `timeout 90
+  -- agda` where no `timeout` existed, the shell returned 127, and the loop
+  -- read 127 as "refuted" — 39 times, silently, and three result blocks
+  -- were false because of it.  The `catchAny` below is the same door.  So
+  -- the exception is stamped with a marker the classifier tests FIRST, and
+  -- a run that never started is filed as परिस्थितिः · agda did not run, never
+  -- as a module path and never as an obligation.
   (rc, o, e) <- readProcessWithExitCode "agda"
                   (libs ++ ["-i", "formal/cubical", "-i", ".", dest]) ""
-                  `catchAny` (\ex -> pure (ExitFailure 127, "", show ex))
+                  `catchAny` (\ex -> pure (ExitFailure 127, "", agdaAbsent ++ show ex))
   removeFile dest `catchAny` const (pure ())
   -- A GREEN THAT AGDA WARNED ABOUT IS NOT A GREEN HERE.  An unimported
   -- constructor is a pattern VARIABLE, so `λ { false → refl ; true → refl }`

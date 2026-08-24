@@ -35,8 +35,21 @@ OUT=notes/SADHYA_OPEN_OBLIGATIONS.md
 
 TOTAL=$(grep -vc '^#' "$LEDGER")
 OPEN=$(awk -F"\t" '!/^#/ && $5 == "Refused" {n++} END{print n+0}' "$LEDGER")
-MINE=$(awk -F"\t" '!/^#/ && $6 ~ /^मम दोषः/ {n++} END{print n+0}' "$LEDGER")
-REAL=$((OPEN - MINE))
+# 2026-08-24: both counters now carry the SAME `Refused` condition.  MINE did
+# not, so a row that was mine and not open subtracted from REAL anyway and the
+# headline could read fewer obligations than there are.  Every row is Refused
+# today, so the number does not move; the arithmetic was wrong regardless of
+# whether the data happened to exercise it.
+MINE=$(awk -F"\t" '!/^#/ && $5 == "Refused" && $6 ~ /^मम दोषः/ {n++} END{print n+0}' "$LEDGER")
+# THE THIRD BUCKET, and it is not a refinement of the second.  मम दोषः is a
+# defect in the emitter's CODE — the next reader edits Haskell.  परिस्थितिः is
+# the run's environment: no agda on PATH, or no `--library-file`, so every
+# probe dies at its first `open import Cubical.…` having said nothing about
+# either the corpus or the emitter.  Folding those into मम दोषः sends a reader
+# to audit correct code; folding them into REAL reports a missing library as
+# open mathematics.  Both are the दुर्नय this file's own note names.
+PARISTHITI=$(awk -F"\t" '!/^#/ && $5 == "Refused" && $6 ~ /^परिस्थितिः/ {n++} END{print n+0}' "$LEDGER")
+REAL=$((OPEN - MINE - PARISTHITI))
 
 {
 printf '# साध्य — the open obligations, and each carries the shape of its own proof\n\n'
@@ -49,12 +62,33 @@ printf '| | |\n|---|---|\n'
 printf '| rows in the ledger | %s |\n' "$TOTAL"
 printf '| open | %s |\n' "$OPEN"
 printf '| of those, the instrument'"'"'s own defects (`मम दोषः`) | %s |\n' "$MINE"
+printf '| of those, the run'"'"'s environment (`परिस्थितिः`) | %s |\n' "$PARISTHITI"
 printf '| **real obligations** | **%s** |\n\n' "$REAL"
 printf 'The instrument'"'"'s defects are listed separately and last. A census that files\n'
 printf 'its own bugs as the corpus'"'"'s refusals is the दुर्नय one level up, and this\n'
-printf 'one did exactly that and had to be retracted.\n\n---\n\n'
+printf 'one did exactly that and had to be retracted.\n\n'
 
-awk -F"\t" '!/^#/ && $5 == "Refused" && $6 !~ /^मम दोषः/ {print $6}' "$LEDGER" \
+# A ROW WHOSE WITNESS IS EMPTY IS NOT EVIDENCE, AND THE COUNT IS COMPUTED HERE
+# RATHER THAN ASSERTED, so it goes to zero by itself the moment the emitter
+# re-runs and cannot be left behind as prose.  `Hetvabhasa_TheRefusalNamesIts
+# DefectOrItIsNotARefusal.hs`; `Nirnaya_TheVerdictCannotDropItsWitness.agda`.
+MUTE=$(awk -F"\t" '!/^#/ && $5 == "Refused" && $8 == "" {n++} END{print n+0}' "$LEDGER")
+if [ "$MUTE" -gt 0 ]; then
+  printf '> **%s of the %s open rows carry an EMPTY witness column** — a class label\n' "$MUTE" "$OPEN"
+  printf '> with no kernel output under it. Until 2026-08-24 the classifier read the\n'
+  printf '> witness by anchoring on a line containing `error:` and taking the four\n'
+  printf '> after it; agda'"'"'s `Failed to find source of module X in any of the\n'
+  printf '> following locations:` has no such line, so the window was empty and the\n'
+  printf '> one fact that identifies the defect — WHICH module — was discarded on\n'
+  printf '> every one of them. **Do not read these rows as findings.** They are\n'
+  printf '> repaired by re-running the emitter, which now records the module name\n'
+  printf '> and separates `परिस्थितिः` (no agda, or no library file — the probe was\n'
+  printf '> never typechecked) from `मम दोषः` (this program computed a name wrong).\n'
+  printf '> A refusal that does not name its defect is not a refusal.\n\n'
+fi
+printf -- '---\n\n'
+
+awk -F"\t" '!/^#/ && $5 == "Refused" && $6 !~ /^मम दोषः/ && $6 !~ /^परिस्थितिः/ {print $6}' "$LEDGER" \
   | sort | uniq -c | sort -rn | while read -r n cls; do
     printf '## %s — %s obligation(s)\n\n' "$cls" "$n"
     awk -F"\t" -v c="$cls" '!/^#/ && $6 == c && $5 == "Refused" {
@@ -65,7 +99,15 @@ printf '\n---\n\n## मम दोषः — the instrument'"'"'s own, not the co
 awk -F"\t" '!/^#/ && $6 ~ /^मम दोषः/ {printf "- **%s** — %s\n", $7, $6}' "$LEDGER"
 printf '\nThese are probes this emitter cannot state correctly. They are NOT evidence\n'
 printf 'about the corpus and must never be counted as refusals.\n'
+
+printf '\n---\n\n## परिस्थितिः — the run, not the code and not the corpus\n\n'
+awk -F"\t" '!/^#/ && $6 ~ /^परिस्थितिः/ {printf "- **%s** — %s  \n  `%s`\n", $7, $6, $8}' "$LEDGER"
+printf '\nThese probes were never typechecked. The row records that the run could not\n'
+printf 'ask the question — no `agda` on PATH, or no library file, so the probe died\n'
+printf 'at its first `open import Cubical.…`. It says nothing about the emitter and\n'
+printf 'nothing about the corpus, and it closes by fixing the environment and\n'
+printf 're-running, not by editing Haskell and not by proving anything.\n'
 } > "$OUT"
 
-printf '  साध्य: %s open, %s real obligations, %s of the instrument'"'"'s own → %s\n' \
-  "$OPEN" "$REAL" "$MINE" "$OUT"
+printf '  साध्य: %s open, %s real obligations, %s the instrument'"'"'s own, %s the environment → %s\n' \
+  "$OPEN" "$REAL" "$MINE" "$PARISTHITI" "$OUT"
