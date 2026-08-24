@@ -76,6 +76,17 @@ else
   command -v ghc    >/dev/null 2>&1 || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ghc; }
   command -v cabal  >/dev/null 2>&1 || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq cabal-install; }
 
+  # obstacle 0, found 2026-08-24 by running this script in a fresh
+  # container: cabal writes ~/.cabal/config LAZILY, on first use.  So on a
+  # machine where cabal has never run, the file does not exist when the two
+  # guards below test for it, BOTH PATCHES SILENTLY NO-OP, and `cabal
+  # update` then creates a pristine default and dies on obstacle 1 —
+  # `curl: (56) CONNECT tunnel failed, response 403` — which is the exact
+  # failure this script's header documents and exists to prevent.  A guard
+  # that skips its repair when the thing to repair is absent is worse than
+  # no guard: it reports success.  Materialise the file first.
+  [ -f "$HOME/.cabal/config" ] || cabal user-config init >/dev/null 2>&1 || true
+
   # obstacle 2: the shipped scheme is http and the proxy will not tunnel it.
   if [ -f "$HOME/.cabal/config" ]; then
     sed -i 's|url: http://hackage.haskell.org/|url: https://hackage.haskell.org/|' "$HOME/.cabal/config"
