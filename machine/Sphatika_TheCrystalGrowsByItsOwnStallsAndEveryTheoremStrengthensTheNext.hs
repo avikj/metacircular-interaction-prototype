@@ -201,13 +201,26 @@ goalsFromReport txt =
 -- Cheapest first, exactly the recorded tactic vocabulary plus the cite —
 -- nothing here that Certificate's shape menu and the historical naya
 -- census do not already name.
-shapes :: [K.Lemma] -> K.Equation -> [K.Proof]
-shapes crystal eq =
+-- `mres` is the goal's recorded residual, when a refl attempt has
+-- stalled before: the goal REDUCES to its residual, so a lemma stating
+-- the residual closes the parent by citation — the compounding move the
+-- whole loop exists for.  The cite is emitted at the residual lemma's
+-- own argument spelling (identity variables) and also flipped, because
+-- Agda's stall text does not promise the parent's orientation.
+shapes :: [K.Lemma] -> Maybe K.Equation -> K.Equation -> [K.Proof]
+shapes crystal mres eq =
   [ K.PRefl ]
   ++ [ K.PCite (K.lemName lm) (idArgs eq)
      | lm <- crystal, sameEq (K.lemEq lm) eq ]
   ++ [ K.PSym (K.PCite (K.lemName lm) (idArgs eq))
      | lm <- crystal, flippedEq (K.lemEq lm) eq ]
+  ++ concat
+     [ [ K.PCite (K.lemName lm) (idArgs (K.lemEq lm))
+       , K.PSym (K.PCite (K.lemName lm) (idArgs (K.lemEq lm)))
+       ]
+     | res <- maybe [] (: []) mres
+     , lm <- crystal
+     , sameEq (K.lemEq lm) res || flippedEq (K.lemEq lm) res ]
   ++ concat
      [ [ K.PInduction v K.PRefl K.PRefl
        , K.PInduction v K.PRefl K.PIh
@@ -223,9 +236,10 @@ kCallBudget = 10
 --
 -- Returns the landed lemma, or the refl attempt's kernel text (the one
 -- whose stall carries the residual — Obstruction reads refl stalls).
-attempt :: FilePath -> [K.Lemma] -> String -> K.Equation
+attempt :: FilePath -> [K.Lemma] -> String -> Maybe K.Equation -> K.Equation
         -> IO (Either String K.Lemma)
-attempt root crystal name eq = go (take kCallBudget (shapes crystal eq)) ""
+attempt root crystal name mres eq =
+  go (take kCallBudget (shapes crystal mres eq)) ""
   where
     go [] reflMsg = pure (Left reflMsg)
     go (p : ps) reflMsg = do
@@ -271,7 +285,7 @@ main = do
                                   || flippedEq (K.lemEq lm) g) crystal0)
                , enters g ]
   putStrLn ("sphatika: " ++ show (length goals0) ++ " goals enter")
-  crystalN <- passes root crystal0 (map (\g -> (g, 0)) goals0)
+  crystalN <- passes root crystal0 (map (\g -> (g, 0, Nothing)) goals0)
   writeRendering root crystalN
   putStrLn ("sphatika: crystal holds " ++ show (length crystalN)
             ++ " lemmas; rendering " ++ renderedFile)
@@ -296,12 +310,12 @@ main = do
     onePass root crystal agenda = go crystal False [] agenda ([] :: [(K.Equation, Int)])
       where
         go cr landed retry [] _ = pure (cr, landed, reverse retry)
-        go cr landed retry ((g, d) : rest) seen
+        go cr landed retry ((g, d, mres) : rest) seen
           | any (\lm -> sameEq (K.lemEq lm) g || flippedEq (K.lemEq lm) g) cr =
               go cr landed retry rest seen
           | otherwise = do
               let name = "sp" ++ pad (length cr + 1)
-              r <- attempt root cr name g
+              r <- attempt root cr name mres g
               case r of
                 Right lm -> do
                   appendCrystal lm
@@ -311,22 +325,27 @@ main = do
                             ++ "  [" ++ showProof (K.lemProof lm) ++ "]")
                   go (cr ++ [lm]) True retry rest seen
                 Left reflMsg -> do
+                  -- the residual rides with the retried parent: when its
+                  -- lemma lands, the parent's next attempt cites it
                   let res = case O.classify (toO' g) reflMsg of
-                        O.Residual p | d < kDepthBound -> harvest p
+                        O.Residual p -> harvest p
                         _ -> Nothing
+                      fresh rEq =
+                        d < kDepthBound
+                        && not (any (sameEq rEq . fst) seen)
+                        && not (any (\lm -> sameEq (K.lemEq lm) rEq) cr)
+                        && enters rEq
                   case res of
                     Just rEq
-                      | not (any (sameEq rEq . fst) seen)
-                        && not (any (\lm -> sameEq (K.lemEq lm) rEq) cr)
-                        && enters rEq -> do
+                      | fresh rEq -> do
                           putStrLn ("  " ++ name ++ "  stalls; residual enters: "
                                     ++ K.showPrefixTerm (fst rEq) ++ " = "
                                     ++ K.showPrefixTerm (snd rEq))
-                          go cr landed ((g, d) : retry)
-                             ((rEq, d + 1) : rest) ((rEq, d) : seen)
+                          go cr landed ((g, d, res) : retry)
+                             ((rEq, d + 1, Nothing) : rest) ((rEq, d) : seen)
                     _ -> do
                       putStrLn ("  " ++ name ++ "  refused; retried when the crystal grows")
-                      go cr landed ((g, d) : retry) rest seen
+                      go cr landed ((g, d, res) : retry) rest seen
         toO' (l, r) = (convert l, convert r)
         harvest (a, b) = Just (canon (back a, back b))
         back (O.V i) = K.V i
