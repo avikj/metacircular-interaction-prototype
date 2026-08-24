@@ -46,6 +46,7 @@ module Main (main) where
 
 import Control.Monad (unless)
 import Control.Exception (try)
+import Control.Concurrent (forkIO, newEmptyMVar, putMVar, takeMVar)
 import System.Directory (createDirectory)
 import Data.Char (isSpace)
 import Data.List (isInfixOf, isPrefixOf, nub)
@@ -236,21 +237,46 @@ kCallBudget = 10
 --
 -- Returns the landed lemma, or the refl attempt's kernel text (the one
 -- whose stall carries the residual — Obstruction reads refl stalls).
+-- All shapes for a goal are judged CONCURRENTLY, in chunks of the
+-- machine's cores: each checkContext runs in its own temp dir, so the
+-- only shared state is the kernel's interface cache, which agda locks
+-- per file.  Selection stays deterministic — the first shape in menu
+-- order that landed wins — so parallelism changes wall-clock, never
+-- which proof the crystal keeps.
+kWorkers :: Int
+kWorkers = 4
+
 attempt :: FilePath -> [K.Lemma] -> String -> Maybe K.Equation -> K.Equation
         -> IO (Either String K.Lemma)
-attempt root crystal name mres eq =
-  go (take kCallBudget (shapes crystal mres eq)) ""
+attempt root crystal name mres eq = do
+  let ss = take kCallBudget (shapes crystal mres eq)
+  results <- chunked kWorkers ss
+  let landed = [ K.Lemma name eq p
+               | (p, Right (ExitSuccess, _)) <- results ]
+      reflMsg = concat [ out | (K.PRefl, Right (_, out)) <- results ]
+  pure $ case landed of
+    (lm : _) -> Right lm
+    [] -> Left reflMsg
   where
-    go [] reflMsg = pure (Left reflMsg)
-    go (p : ps) reflMsg = do
-      let lm = K.Lemma name eq p
-          ctx = K.Context "SphatikaKarya" [] crystal lm
-      r <- K.checkContext root ctx
-      case r of
-        Right (ExitSuccess, _) -> pure (Right lm)
-        Right (_, out) ->
-          go ps (if p == K.PRefl then out else reflMsg)
-        Left _ -> go ps reflMsg
+    chunked _ [] = pure []
+    chunked k ps = do
+      let (now, later) = splitAt k ps
+      mvs <- mapM (\p -> do
+               mv <- newEmptyMVar
+               _ <- forkIO $ do
+                 r <- K.checkContext root
+                        (K.Context "SphatikaKarya" [] crystal
+                          (K.Lemma name eq p))
+                 putMVar mv (p, r)
+               pure mv) now
+      here <- mapM takeMVar mvs
+      -- a landing in this chunk ends the search: menu order still wins
+      -- within the chunk, and later chunks cannot outrank earlier ones
+      if any isLanding here
+        then pure here
+        else (here ++) <$> chunked k later
+    isLanding (_, Right (ExitSuccess, _)) = True
+    isLanding _ = False
 
 -- ------------------------------------------------------- the return edge
 --
