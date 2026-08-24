@@ -93,3 +93,4 @@ machine/question-machine
 # the supervised loop's runtime traces (phase_keep commits the report when it lands; the log and tmp are breath, not body)
 collab/orchestration/machine-loop.log
 machine/sanghatta-report-current.txt.tmp
+collab/orchestration/sphatika.log
