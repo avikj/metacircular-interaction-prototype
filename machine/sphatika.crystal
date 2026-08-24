@@ -797,3 +797,13 @@ sp571	le(s(0),*(s(x),x))	le(le(x,0),*(s(x),x))	ind 0 refl refl
 sp489	+(+(*(x,0),y),z)	+(*(x,0),+(y,z))	ind 0 refl ih
 sp572	le(s(0),x)	le(le(x,0),+(x,+(x,+(x,x))))	ind 0 refl refl
 sp573	max(+(x,s(s(y))),s(0))	gcd(+(x,s(s(y))),0)	ind 0 refl refl
+sp574	max(*(s(x),x),s(0))	gcd(*(s(x),x),le(x,0))	ind 0 refl refl
+sp490	0	*(le(x,0),+(le(s(0),x),le(s(0),x)))	ind 0 refl refl
+sp491	0	*(le(x,0),+(*(s(x),x),*(s(x),x)))	ind 0 refl refl
+sp575	max(+(x,s(s(y))),s(0))	gcd(0,+(x,s(s(y))))	ind 0 refl refl
+sp492	0	-(le(s(0),x),+(le(x,0),s(le(x,0))))	ind 0 refl refl
+sp576	max(*(s(x),x),s(0))	gcd(le(x,0),*(s(x),x))	ind 0 refl refl
+sp493	0	-(s(0),+(le(s(0),0),s(le(s(0),0))))	refl
+sp577	max(+(x,max(x,s(0))),s(0))	+(max(x,s(0)),x)	ind 0 refl refl
+sp494	max(x,max(y,s(0)))	-(max(x,max(y,s(0))),0)	refl
+sp495	+(max(x,s(0)),x)	-(+(x,max(x,s(0))),0)	ind 0 refl refl
