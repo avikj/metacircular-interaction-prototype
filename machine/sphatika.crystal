@@ -745,3 +745,4 @@ sp528	0	le(+(s(s(0)),+(x,x)),le(s(s(0)),0))	refl
 sp529	s(0)	le(+(*(x,0),*(*(x,0),y)),s(0))	ind 0 refl ih
 sp530	0	le(+(s(x),s(*(x,s(0)))),le(s(x),0))	refl
 sp480	+(le(s(s(0)),0),+(le(s(s(0)),0),x))	x	refl
+sp531	+(x,+(s(y),z))	max(+(+(s(x),y),z),x)	ind 0 refl congsuc
