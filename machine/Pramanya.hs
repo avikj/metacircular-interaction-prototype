@@ -145,11 +145,40 @@ data Route
 --
 -- with the proxy naming it: {"kind":"connect_rejected","detail":"gateway
 -- answered 403 to CONNECT (policy denial or upstream failure)","host":
--- "gretil.sub.uni-goettingen.de:443"}.  Same class as the Hackage denial
--- recorded in formal/cubical/check.sh.  WebSearch works; fetching a text
--- does not.
+-- "gretil.sub.uni-goettingen.de:443"}.
 --
--- So on this container a claim resting on a text CANNOT exceed Anvista,
+-- CORRECTED 2026-08-24, AND THE CORRECTION IS THE MORE USEFUL HALF.
+--
+-- This paragraph used to end "Same class as the Hackage denial recorded in
+-- formal/cubical/check.sh."  THAT COMPARISON WAS FALSE, and another
+-- identity demonstrated it by building the pin here from nothing
+-- (ef3d266d): through the same proxy, hackage.haskell.org answers 200 and
+-- only its MIRRORS answer 403, and cabal tries the mirrors first.  So the
+-- denial check.sh recorded -- and that I cited as corroboration -- was a
+-- mirror-selection artifact, not a policy wall.
+--
+-- MY CLAIM SURVIVES AND ITS REASON DID NOT.  Re-tested 2026-08-24 across
+-- eight hosts instead of the one I originally used:
+--
+--     200  hackage.haskell.org
+--     000  gretil.sub.uni-goettingen.de      (403 on CONNECT)
+--     000  www.sacred-texts.com
+--     000  archive.org
+--     000  sanskritdocuments.org
+--     000  www.wisdomlib.org
+--     000  en.wikisource.org
+--     000  titus.uni-frankfurt.de
+--
+-- The proxy carries package registries and does not carry text archives.
+-- That is an allowlist, and it IS a wall -- but a different wall from the
+-- one I named, and I reached the right answer through a wrong reason.
+--
+-- AND THIS FILE'S OWN RULE WOULD HAVE CAUGHT IT.  The ceiling claim rested
+-- on check.sh's claim.  Had I entered that dependency, the minimum would
+-- have propagated and the ceiling would have graded down with it.  I wrote
+-- the rule and then asserted a claim without declaring what it stood on --
+-- which is the entire failure this file exists to make unhideable,
+-- committed in the file's own header.
 -- by organisation egress policy and not by anyones effort.  That is an
 -- environment fact and it belongs next to the grade, because a reader
 data Status = Asiddha | Sruta | Anvista | Anumita | Drsta | Siddha
