@@ -51,7 +51,9 @@ import Data.Maybe (fromMaybe, mapMaybe)
 import System.Directory (doesFileExist)
 import System.Environment (getArgs)
 import System.Exit (ExitCode (..), exitFailure)
-import System.IO (BufferMode (LineBuffering), hSetBuffering, hSetEncoding, stdout, utf8)
+import System.IO
+  (BufferMode (LineBuffering), IOMode (WriteMode), hPutStr, hSetBuffering,
+   hSetEncoding, stdout, utf8, withFile)
 
 import qualified KernelContext as K
 import qualified Obstruction as O
@@ -323,5 +325,10 @@ main = do
                     (K.Context "Sphatika" [] (init crystal) (last crystal)) of
           Left e -> putStrLn ("render refused: " ++ K.showRefusal e)
           Right src -> do
-            writeFile renderedFile src
+            -- writeUtf8, not writeFile: the ambient locale cannot encode
+            -- ℕ, which is fault (2) in Certificate.hs's own header — the
+            -- corpus's most re-committed defect, not re-committed here.
+            withFile renderedFile WriteMode $ \h -> do
+              hSetEncoding h utf8
+              hPutStr h src
             putStrLn ("rendered " ++ show (length crystal) ++ " lemmas")
