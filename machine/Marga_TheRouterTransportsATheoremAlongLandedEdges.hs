@@ -117,6 +117,8 @@ import System.Exit (die)
 import System.FilePath ((</>))
 import System.IO
 import System.Process (readProcess)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ─────────────────────────────────────────────────────────────────────────
 -- 1.  The edge list, obtained from the corpus's own extractors
@@ -355,6 +357,9 @@ emitModule root modName src tgt steps prelude predName proofName extraHeader = d
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   hSetEncoding stderr utf8
   args <- getArgs

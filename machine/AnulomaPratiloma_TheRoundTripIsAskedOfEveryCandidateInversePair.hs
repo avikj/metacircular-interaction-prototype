@@ -85,7 +85,8 @@ import System.Directory (doesDirectoryExist, doesFileExist, listDirectory
 import System.Environment (getArgs, lookupEnv)
 import System.Exit (ExitCode(..))
 import System.FilePath ((</>), takeExtension, takeBaseName, takeDirectory)
-import System.IO (hSetEncoding, stdout, utf8)
+import System.IO (hSetEncoding, stdout, stderr, utf8)
+import GHC.IO.Encoding (setLocaleEncoding)
 import System.Process (readProcessWithExitCode)
 
 data Sig = Sig { sMod :: String, sName :: String, sFrom :: String, sTo :: String }
@@ -760,6 +761,12 @@ roundTripRHS outer inner t = do
   where
     identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
 
+-- Split on a single character, dropping empties.  For ANULOMA_ROOTS.
+splitOn :: Char -> String -> [String]
+splitOn c s = case break (== c) s of
+  (a, [])      -> [ trim a | not (null (trim a)) ]
+  (a, _ : r)   -> [ trim a | not (null (trim a)) ] ++ splitOn c r
+
 -- Every suffix of `hay` that follows an occurrence of `needle`.
 after :: String -> String -> [String]
 after needle hay =
@@ -906,12 +913,60 @@ appendRetired rs = do
     [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
                        , rClass r, rWhere r, one (rObl r) ] | r <- rs ]
   where one = map (\c -> if c == '\n' || c == '\t' then ' ' else c)
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE TOOLCHAIN THAT PRODUCED A VERDICT IS PART OF THE VERDICT, 2026-08-24.
+--
+-- Until now the ledger recorded WHAT the kernel said and never WHICH kernel
+-- said it, and that omission has already cost this project a day.  Messages
+-- 0946/0947/0950 posted probes as green; 0951 verified and reported a
+-- reproducible refusal; both were honest and the corpus could not tell which
+-- environment either ran in.  The corpus pin is Agda 2.8.0 / cubical v0.9
+-- (formal/cubical/check.sh) and containers routinely carry 2.6.3 / v0.5, in
+-- which `solve!` is spelled `solve` — so the SAME corpus produces different
+-- exit codes and the ledger blessed whichever ran last.
+--
+-- A row that does not name its toolchain is a verdict that dropped half its
+-- witness (Nirnaya_TheVerdictCannotDropItsWitness.agda).  This writes the
+-- version and the library file into the header on every pass, so an off-pin
+-- run is visible AS off-pin instead of being read as a pin verdict.
+--
+-- NOT done here, and it is the stronger repair: putting the toolchain in the
+-- ROW KEY, so an off-pin row cannot supersede a pin row at all.  That
+-- invalidates every cached row on first run and is a change to the ledger's
+-- identity, which is the owner's call and not a side effect of this fix.
+toolchainLine :: IO String
+toolchainLine = do
+  v <- (do (rc, o, _) <- readProcessWithExitCode "agda" ["--version"] ""
+           pure (if rc == ExitSuccess then trim (unwords (lines o)) else "agda: absent"))
+         `catchAny` const (pure "agda: absent")
+  libs <- (do f <- lookupEnv "ANULOMA_LIBRARIES"
+              case f of
+                Just p  -> pure p
+                Nothing -> do h <- lookupEnv "HOME"
+                              pure (maybe "~/.agda/libraries" (++ "/.agda/libraries") h))
+            `catchAny` const (pure "unknown")
+  body <- (readFile libs) `catchAny` const (pure "")
+  let entries = [ trim l | l <- lines body, not (null (trim l)) ]
+  rts <- fromMaybe "formal/cubical" <$> lookupEnv "ANULOMA_ROOTS"
+  pure $ "# ROOTS: " ++ rts
+      ++ "\n# TOOLCHAIN: " ++ v
+      ++ " | libraries: " ++ (if null entries then libs ++ " (unreadable)"
+                              else intercalate " ; " entries)
+      ++ "\n# The pin is Agda 2.8.0 / cubical v0.9 (formal/cubical/check.sh)."
+      ++ "  A row produced off-pin is evidence about THIS toolchain, not about"
+      ++ " the corpus."
+  where
+    catchAny :: IO a -> (SomeException -> IO a) -> IO a
+    catchAny = catch
+
 writeLedger :: [Row] -> IO ()
 writeLedger rs = do
   createDirectoryIfMissing True (takeDirectory ledgerPath)
+  tc <- toolchainLine
   writeFile ledgerPath $ unlines $
     ("# निर्णयपञ्जिका — keyed on नाम's content addresses and the probe's own"
      ++ " digest.  A row stands until one of them moves."
+     ++ "\n" ++ tc
      ++ "\n# addrF\taddrG\trung\tprobe\tverdict\tclass\twhere\tobligation")
     : [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
                          , rClass r, rWhere r, oneLine (rObl r) ] | r <- rs ]
@@ -959,6 +1014,16 @@ classify :: HostFacts -> String -> (String, String)
 classify hf out
   | agdaAbsent `isInfixOf` out           = (envFault "agda did not run", firstErr)
   | "MetaCannotDependOn" `isInfixOf` out = (myFault "indexed family", firstErr)
+  -- 2026-08-24.  `solve!` IS THE LIBRARY VERSION, NOT A NAME I GOT WRONG.
+  -- formal/cubical/check.sh's header documents it: the corpus is written
+  -- against cubical v0.9, where the CommRing solver macro is `solve!`, and
+  -- v0.5 spells it `solve`.  A container on v0.5 therefore reports
+  -- `Not in scope: solve!` for a HOST module that is perfectly correct at
+  -- the pin.  Filing that as मम दोषः sends the next reader to audit this
+  -- emitter's name handling, which never touched it.
+  | "NotInScope" `isInfixOf` out
+  , any (`isInfixOf` out) ["solve!", "solveℤ!", "ringSolve!"]
+      = (envFault "library version drift (v0.9 solve! against a v0.5 library)", firstErr)
   | "NotInScope"         `isInfixOf` out = (myFault "not in scope",   firstErr)
   | "CoverageIssue"      `isInfixOf` out = (myFault "split incomplete", firstErr)
   -- 2026-08-24.  ONE LABEL WAS COLLAPSING TWO STANDPOINTS, and it is the
@@ -1168,7 +1233,30 @@ data Cand = Cand
 
 main :: IO ()
 main = do
+  -- 2026-08-24.  THE OUTPUT SIDE WAS UTF-8 AND THE INPUT SIDE WAS THE
+  -- LOCALE'S, and this program's whole job is reading Agda files whose
+  -- identifiers are Devanagari.  `hSetEncoding stdout utf8` alone leaves
+  -- every `readFile` on the caller's `LC_ALL`, so under a POSIX locale
+  -- `readHostFacts` dies mid-run with
+  --     hGetContents: invalid argument (cannot decode byte sequence
+  --     starting from 226)
+  -- — 226 is the first byte of UTF-8 `≡`/`→`.  Reproduced here today
+  -- against NaturalMachine/ChargeTwoHistories.agda.  It is a CRASH, not a
+  -- refusal: no row, no class, no witness, the pass simply ends.
+  --
+  -- `punaragamana/check.sh` already carries this in its header for Agda
+  -- itself ("under a POSIX locale Agda crashes while PRINTING its own error
+  -- messages for the Devanagari identifiers, hiding the real diagnosis").
+  -- The same trap is one layer up in the Haskell that reads those files,
+  -- and 21 of the 28 `machine/*.hs` that call `readFile` still have it.
+  --
+  -- `setLocaleEncoding` fixes the class rather than the symptom: it covers
+  -- every handle opened afterwards, so the fix cannot be defeated by adding
+  -- another `readFile` later.  Ordering matters — it must precede the first
+  -- read, which is why it is the first statement in `main`.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
+  hSetEncoding stderr utf8
   args <- getArgs
   let lim = case dropWhile (/= "--limit") args of
               (_:n:_) -> read n
@@ -1184,7 +1272,39 @@ main = do
       doFresh = "--fresh" `elem` args
   scratch <- fromMaybe ".anuloma" <$> lookupEnv "ANULOMA_SCRATCH"
   createDirectoryIfMissing True scratch
-  fs <- listAgda "formal/cubical"
+  -- 2026-08-24.  THE SCAN WAS SCOPED TO THIS CORPUS AND MATHEMATICS IS NOT.
+  --
+  -- `listAgda "formal/cubical"` asked the round-trip question of 1117 of our
+  -- own modules and of nothing else.  Every candidate pair it could ever
+  -- propose was a pair we had already written, so the machine could only
+  -- ever re-ask its own vocabulary — which is exactly the saturation
+  -- ANEKANTA.md §3 describes for the retired engine's frequency-mining, one
+  -- level up: a growth rule that can only recombine what is already common.
+  --
+  -- The roots are now a colon-separated ANULOMA_ROOTS, defaulting to the
+  -- corpus so nothing changes for a caller that sets nothing.  Point it at
+  -- agda/cubical and the question is asked of the standard library's own
+  -- mathematics — foundations, algebra, category theory, homotopy theory —
+  -- against which our maps are a small chart.  Every root is scanned for
+  -- signatures; the probe imports the host by the module name the file
+  -- DECLARES (`modNameOf`), so a library module arrives as
+  -- `Cubical.Foundations.Prelude` and resolves through the library file,
+  -- with no path assumption anywhere.
+  --
+  --   ANULOMA_ROOTS=formal/cubical:$HOME/.cache/cubical/Cubical
+  --
+  -- LIMIT, so this is not read as more than it is: scanning a library does
+  -- not make its theorems ours, and a green here is a round trip between two
+  -- of ITS maps that IT did not happen to state. That is a real question and
+  -- a small one. The scan is also still the same weak instrument — top-level
+  -- `name : X → Y`, one arrow, no binders — so it sees the library's
+  -- first-order surface and none of its structure.
+  rootsEnv <- lookupEnv "ANULOMA_ROOTS"
+  let roots = case rootsEnv of
+        Just s | not (null (trim s)) -> splitOn ':' s
+        _                            -> ["formal/cubical"]
+  fs <- concat <$> mapM listAgda roots
+  putStrLn $ "  roots                : " ++ intercalate " , " roots
   sigs <- concat <$> mapM readSigs fs
   factsByMod <- M.fromList <$> mapM (\p -> do
                     s <- readFile p

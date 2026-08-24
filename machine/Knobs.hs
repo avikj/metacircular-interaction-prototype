@@ -67,6 +67,8 @@ import System.Directory (doesFileExist, getTemporaryDirectory, removeFile)
 import System.Environment (getArgs)
 import System.Exit (exitFailure, exitSuccess)
 import System.IO (hClose, hPutStrLn, openTempFile, stderr)
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ------------------------------------------------------------------ the set
 
@@ -481,6 +483,9 @@ usage = unlines
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   args <- getArgs
   case args of
     []              -> runSelfTest

@@ -1,3 +1,5 @@
+*A proof is not a claim awaiting a judge — it is a normalization trace, and checking is evaluation. A closed term needs no author, no reviewer, no lineage: trust is not extended, it is compiled away → [`../KALIYUG.md`](../KALIYUG.md).*
+
 # punarāgamana — पुनरागमन
 
 A machine-checked cubical Agda development about **carrying derived data

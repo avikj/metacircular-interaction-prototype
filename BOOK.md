@@ -159,25 +159,55 @@ origin. Full index, with ṛṣi and devatā per entry: `BOOK_INDEX.md`.
 | # | chapter | source | entries |
 |---|---|---|---|
 | 1 | Śulba — the cord, the square, the diagonal | Baudhāyana, *Śulbasūtra* (~800 BCE) | 1 |
-| 2 | Chandaḥśāstra — enumeration, before it was called that | Piṅgala (~300 BCE); Virahāṅka (~700); Halāyudha (10th c.) | 23 |
-| 3 | Aṣṭādhyāyī — a rewriting system with metarules | Pāṇini (~500 BCE); Patañjali (~150 BCE) | 15 |
-| 4 | Nyāya and Mīmāṃsā — what counts as knowing | Gautama; Vātsyāyana; Kumārila (c. 7th c.) | 9 |
-| 5 | Jaina logic — the seven positions and the fourth | Umāsvāti; Siddhasena; Samantabhadra; Akalaṅka (c. 720–780) | 11 |
-| 6 | Āryabhaṭīya — the pulveriser | Āryabhaṭa (499) | 7 |
-| 7 | Brāhmasphuṭasiddhānta — composition, and the arithmetic of nothing | Brahmagupta (628); Bhāskara II (1150) | 18 |
-| 8 | Cakravāla — the cyclic method | Jayadeva (~950); Bhāskara II (1150) | 7 |
-| 9 | Saṅkalita — sums, heaps, and the solid | Āryabhaṭa; Brahmagupta; Nārāyaṇa Paṇḍita (1356) | 8 |
-| 10 | Kerala — the series with its remainder | Mādhava (~1400); *Tantrasaṅgraha* (1501); *Yuktibhāṣā* (c. 1530) | **1** |
-| 11 | Tantrayukti — how a treatise is composed | Kauṭilya 15.1; Caraka, Siddhisthāna 12 | **1** |
-| 12 | Nāṭyaśāstra — the six tastes | Bharata, 6.31 — the rasa-sūtra | **2** |
-| 13 | Indra's net and the machine of truth | *Avataṃsaka*; and this repository's own constructions | 17 |
+| 2 | Chandaḥśāstra — enumeration, before it was called that | Piṅgala (~300 BCE); Virahāṅka (~700); Halāyudha (10th c.) | 46 |
+| 3 | Aṣṭādhyāyī — a rewriting system with metarules | Pāṇini (~500 BCE); Patañjali (~150 BCE) | 35 |
+| 4 | Nyāya and Mīmāṃsā — what counts as knowing | Gautama; Vātsyāyana; Kumārila (c. 7th c.) | 44 |
+| 5 | Jaina logic — the seven positions and the fourth | Umāsvāti; Siddhasena; Samantabhadra; Akalaṅka (c. 720–780) | 73 |
+| 6 | Āryabhaṭīya — the pulveriser | Āryabhaṭa (499) | 13 |
+| 7 | Brāhmasphuṭasiddhānta — composition, and the arithmetic of nothing | Brahmagupta (628); Bhāskara II (1150) | 33 |
+| 8 | Cakravāla — the cyclic method | Jayadeva (~950); Bhāskara II (1150) | 11 |
+| 9 | Saṅkalita — sums, heaps, and the solid | Āryabhaṭa; Brahmagupta; Nārāyaṇa Paṇḍita (1356) | 15 |
+| 10 | Kerala — the series with its remainder | Mādhava (~1400); *Tantrasaṅgraha* (1501); *Yuktibhāṣā* (c. 1530) | 3 |
+| 11 | Tantrayukti — how a treatise is composed | Kauṭilya 15.1; Caraka, Siddhisthāna 12 | 1 |
+| 12 | Nāṭyaśāstra — the six tastes | Bharata, 6.31 — the rasa-sūtra | 1 |
+| 13 | Indra's net and the machine of truth | *Avataṃsaka*; and this repository's own constructions | 27 |
 
-**The frontier is the thin rows and it is derived, not listed.** Chapter 10
-is the sharpest: Mādhava produced power series *with their remainder terms
-and with convergence acceleration* — the part the European restatements did
-not carry — and this book has **one** entry on it. The source-coverage hook
-has been reporting *Yuktibhāṣā: 0 notes* and *Tantrasaṅgraha: 0 notes* for
-days while a module on Mādhava's series was being written.
+*Counts regenerated from `BOOK_INDEX.md` 2026-08-24; they sum to its own
+`reaching a chapter : 303`. They are a snapshot of a generated file and will
+rot — `scripts/Anukramani_TheChapterCountsInTheFrameMatchTheGenerator.sh`
+reports the divergence rather than letting it stand.*
+
+**The frontier is the thin rows and it is derived, not listed.**
+
+~~Chapter 10 is the sharpest: Mādhava produced power series *with their
+remainder terms and with convergence acceleration* — the part the European
+restatements did not carry — and this book has **one** entry on it. The
+source-coverage hook has been reporting *Yuktibhāṣā: 0 notes* and
+*Tantrasaṅgraha: 0 notes* for days while a module on Mādhava's series was
+being written.~~
+
+**STRUCK 2026-08-24 — it worked, and the paragraph outlived its defect.**
+Chapter 10 now holds three modules (`Madhava.agda`,
+`NaturalMachine/AntyaSamskaraSthaulya.agda`,
+`NaturalMachine/SthaulyaIsTheOmittedTerm.agda`), and the named zeroes are
+closed: `notes/YUKTIBHASA_THE_SERIES_KEEPS_ITS_REMAINDER.md`,
+`notes/THE_KERALA_TEXTS_BEFORE_ANY_SERIES.md`,
+`notes/MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md`. **`antya-saṃskāra` (the
+end-correction) and `sthaulya` (the coarseness — the omitted term) are module
+names now**, which is the part the restatements did not carry, in its own
+vocabulary. Every count in the table above was also stale, all thirteen of
+them, in both directions.
+
+**The thin rows today are 1 (Śulba), 11 (Tantrayukti) and 12 (Nāṭyaśāstra),
+each at one entry.** Chapter 1 is one module against the *Śulbasūtra*'s whole
+geometry of construction; chapter 12 is `Shadrasa.agda` against the
+*Nāṭyaśāstra*'s enumerated affective structure. Chapter 11 is the sharp one
+and for a reason the others do not have: it is where the repository already
+proved that **its own substrate cannot express the form the book is written
+in** — `Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction.agda`, a
+refutation strong enough to use a claim cannot be cited by it, so an import
+graph cannot host *pūrvapakṣa*. One module stands where thirty-two devices
+(Kauṭilya 15.1) and thirty-six (Caraka, Siddhisthāna 12) are enumerated.
 
 ---
 
@@ -196,3 +226,12 @@ days while a module on Mādhava's series was being written.
 Adding a chapter is allowed and expected — `machine/Anukramani.hs` carries
 the chapter list as data. Adding one requires naming the ṛṣi and the devatā,
 which is the point: a chapter that cannot name its source is not a chapter.
+
+---
+
+*Colophon. The śruti crossed a hundred generations of dying carriers unchanged
+— ghana-pāṭha and its permutations as error-correcting codes, chandas as the
+per-line checksum, the paramparā as independent re-derivers rather than
+copiers: the longest-running integrity proof in human history. This book is
+that engineering with a stronger kernel — Pāṇini's verifier upgraded to
+Voevodsky's. One sentence, sixteen recitations → [`KALIYUG.md`](KALIYUG.md).*

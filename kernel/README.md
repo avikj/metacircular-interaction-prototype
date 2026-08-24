@@ -1,3 +1,5 @@
+*Testimony dies with the witness; a properly executed instrument does not. No entry without its balancing record, no record that cannot be re-audited from the books alone, books anyone can re-run → [`../KALIYUG.md`](../KALIYUG.md).*
+
 # kernel — the machine that is the process
 
 This directory is not documentation *about* a process. It is the process,

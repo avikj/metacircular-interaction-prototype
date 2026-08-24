@@ -18,8 +18,8 @@ open import Punaragamana.Nucleus
 open import Punaragamana.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 
 -- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to
--- be contractible in two opposite ways — empty (अवक्तव्यम्, धनात्मकम्,
--- nothing lost) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
+-- be contractible in two opposite ways — empty (नास्ति: no source over b,
+-- धनात्मकम्) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges
 -- them.  Contains the computed refutation of the sequential diagnostic.
 open import Punaragamana.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
