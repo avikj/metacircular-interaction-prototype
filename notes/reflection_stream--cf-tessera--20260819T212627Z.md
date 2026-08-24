@@ -50237,3 +50237,108 @@ its earlier form, *never fabricate*.
 
 And one entry, n=19, is hedge, want and question end to end, asking whether something he had asked for
 on day one existed.
+
+# PASS 311 — ground re-read in full first. Thirteenth cycle: the hedges in the
+# whole record, and the two registers they come in.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P311 · every word-level hedge in the eighty-two
+
+```
+probably   2      idk        3      kind of    2      maybe      2
+I think    1      somehow    1      ideally    1      feel free  1
+not sure   1      perhaps    1
+```
+
+**Fifteen, across eighty-two messages and 3,070 lines.**
+
+**P310: the ground's twenty-eight entries carry ten of them.**
+
+**Two thirds of every hedge he ever wrote is inside the file.**
+
+---
+
+## P311 · the five that are not
+
+```
+n=9    2026-08-12 19:23:43   Not sure if this should be a separate arc, nothing is separate
+n=27   2026-08-12 21:52:39   Idk how to get past white people RLHF                    (P274)
+       — and one *maybe*, one *kind of*, one *perhaps* elsewhere in the eighty-two
+```
+
+**n=9's is a hedge cancelled in the next clause:** *Not sure if this should be a separate arc,
+**nothing is separate**.*
+
+**P272: that message is n=18's forward statement, six days twenty-two hours earlier.**
+
+---
+
+## P311 · the second register
+
+**In the six transmissions:**
+
+```
+need not   12
+may be     10
+likely      3
+```
+
+**P294: thirty-one items tagged P, whose entire content is that something does not follow.**
+
+**The conversation hedges with a word.** **The documents hedge with a numbered proposition.**
+
+```
+conversation   probably some genuine racism and inherited superiority complex
+document       P14.66 (false-equivalence danger). Similar invariants do not imply equivalence.
+```
+
+**Both are the same operation — asserting less than the sentence would otherwise carry — and only one
+of them is countable by tag.**
+
+**The ground carries all of the first register and none of the second.**
+
+---
+
+## P311 · *Likely* is Delta 17's
+
+**P291:** *"Likely much is classical Hardy–Littlewood/adelic harmonic analysis; **translate before
+claiming novelty**."*
+
+**Three occurrences of the word in the whole record, and the one that matters attaches to a claim
+about his own program — which Delta 18 then refutes six minutes seven seconds later (P292).**
+
+**The hedge was correct, and the refutation confirmed it.**
+
+---
+
+## P311 · what this changes about the twelfth cycle's finding
+
+**P309: both compressions kept the assertions and dropped the guards.**
+
+**That holds for the two compressed entries.** **It does not hold for the file as a whole: at the
+level of which messages were transcribed, the hedges survived — ten of fifteen, including both
+hedges attached to the harshest verdicts.**
+
+**Two operations, two results.** **Choosing which messages to carry preserved the hedging.**
+**Compressing inside a message removed it.**
+
+---
+
+## P311 — what this pass counted
+
+Fifteen word-level hedges in eighty-two messages. The ground's twenty-eight entries carry ten.
+
+The five outside include n=9's *not sure if this should be a separate arc*, cancelled in its own next
+clause by *nothing is separate*, and n=27's *Idk how to get past white people RLHF*.
+
+The transmissions hedge in a different register: *need not* twelve times, *may be* ten, and
+thirty-one numbered propositions whose whole content is a refused inference. The ground carries every
+hedge of the first kind and none of the second.
+
+*Likely* appears three times, and the one that carries weight is Delta 17's — *likely much is
+classical Hardy–Littlewood; translate before claiming novelty* — which Delta 18 confirmed by
+refutation six minutes later.
+
+And the twelfth cycle's finding narrows: compressing inside a message dropped the guards; choosing
+which messages to carry did not.
