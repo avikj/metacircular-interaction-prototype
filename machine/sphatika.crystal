@@ -994,3 +994,5 @@ sp596	le(s(0),x)	-(le(s(0),x),le(s(0),le(x,0)))	ind 0 refl refl
 sp597	le(x,0)	-(le(x,0),le(s(0),+(x,*(x,x))))	ind 0 refl refl
 sp598	le(x,0)	-(le(x,0),le(s(0),+(x,*(x,y))))	ind 0 refl refl
 sp599	le(*(x,x),0)	-(le(*(x,x),0),le(s(0),x))	ind 0 refl refl
+sp600	le(s(0),x)	le(le(s(0),le(x,0)),le(s(0),x))	ind 0 refl refl
+sp661	+(+(0,x),max(+(0,x),s(0)))	+(x,max(x,s(0)))	refl
