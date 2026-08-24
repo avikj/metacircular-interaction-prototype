@@ -32,14 +32,26 @@ transport-roundtrip {A = A} r a =
     (transportRefl (transport refl a) ∙ transportRefl a)
     r
 
+-- 2026-08-24, repair from outside this lane (see the STATUS note at the head
+-- of the file).  `q`, `F` and `D` were IMPLICIT here, and they are not
+-- inferable from `comparison` at any Agda version: its type mentions
+-- `D (q x)`, so solving it means solving `_D (_q x) ≡ D (q x)` — a
+-- metavariable applied to another metavariable's output, outside Miller's
+-- pattern fragment, which Agda leaves as an unsolved constraint rather than
+-- guessing.  The kernel said so verbatim:
+--
+--     _D_246 (_q_244 x) = D (q x) : Type ℓ'' (blocked on _D_246)
+--
+-- Made explicit and passed at the one call site.  Nothing about the
+-- mathematics changes — the J-elimination below is untouched.
 transport-naturality :
   {X : Type ℓ} {O : Type ℓ'}
-  {q : X → O} {F : X → Type ℓ''} {D : O → Type ℓ''}
+  (q : X → O) (F : X → Type ℓ'') (D : O → Type ℓ'')
   (comparison : (x : X) → F x ≡ D (q x))
   {x y : X} (p : x ≡ y) (a : F x)
   → transport (comparison y) (transport (cong F p) a)
     ≡ transport (cong D (cong q p)) (transport (comparison x) a)
-transport-naturality {q = q} {F = F} {D = D}
+transport-naturality q F D
                      comparison {x = x} p a =
   J (λ y p → (a : F x) →
        transport (comparison y) (transport (cong F p) a)
@@ -64,7 +76,7 @@ descent-kills-kernel-holonomy q F x p a killed (D , comparison) = fixed
   same-after-comparison :
     transport (comparison x) moved ≡ transport (comparison x) a
   same-after-comparison =
-      transport-naturality comparison p a
+      transport-naturality q F D comparison p a
     ∙ cong (λ r → transport (cong D r) (transport (comparison x) a)) killed
     ∙ transportRefl (transport (comparison x) a)
 
