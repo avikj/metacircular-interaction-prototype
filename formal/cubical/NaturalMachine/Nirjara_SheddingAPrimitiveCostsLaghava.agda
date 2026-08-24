@@ -36,6 +36,71 @@
 -- v0.5 in this container, which is NOT the repository pin.
 ------------------------------------------------------------------------
 
+------------------------------------------------------------------------
+-- MAP, added at §79.  The header above was written for §1–§4 and is still
+-- true of them.  The file then ran to §78 and became something else: a
+-- study of what लाघव actually measures.  Under the markdown ban
+-- (`5b91be79`, `9701c423`) this module is the whole record of the lane,
+-- so it needs one.
+--
+-- THE SPINE, in what it says rather than in order.
+--
+--   §1–§4    shedding an inert primitive keeps the meaning, removes the
+--            symbol, and lengthens the presentation.  तपस् is the step
+--            against the gradient.
+--   §16      उपमान as a record: a translation carrying its own
+--            preservation proof, so no bare translation can sit where a
+--            comparison is drawn.
+--   §18–§21  no invariant of the denotation sees the presentation, and
+--            no amount of saturating over CONTEXTS reaches it either.
+--            Zero projection curvature does not license forgetting.
+--   §22–§26  अनुवृत्ति, प्रत्याहार, अपवाद on प्रक्रियाs; each free in
+--            सूत्र-count, and अपवाद free at zero.
+--   §28      अनुज्ञा: the licence as a record, so an unlicensed move
+--            cannot be presented as a move.  Licences compose.
+--   §30–§32  the price of a licensed translation is cofinal in ℕ, and no
+--            licensed move ever goes from cheap to expensive.  Price is a
+--            direction, not a scalar.
+--   §35–§37  गुरुत्व, and उत्सर्ग is the only move non-increasing in every
+--            measure this file has.  §53 makes that one object.
+--   §41–§46  conflict: पूर्व is not a decision procedure; a metarule
+--            decides and may abstain; the binary case does not fold, and
+--            abstention and intransitivity break it independently.
+--   §57–§63  विधि as syntax.  No function of what a rule DOES computes
+--            what it costs to SAY.  स्वविषय: a rule carrying its own
+--            domain need not have that domain stated again.
+--   §64–§74  the निमित्त lattice, and extent does not determine price.
+--   §75–§78  a chain of quotients, an incomparable pair, and the two
+--            different disciplines they call for.
+--
+-- THE CORRECTIONS, because they are the load-bearing part and each one
+-- found the answer already in the repository.
+--
+--   §39, §41  1.4.2 CHOOSES; apavāda-strength is Nāgeśa's परिभाषा 38, not
+--             Pāṇini's सूत्र.  `machine/Vipratisedha_…` had it first, in
+--             its title.  I had not read `machine/`.
+--   §48       the provenance ledger: which names here are attested and
+--             which are mine.  `Metavidhi` was a Greek prefix on a
+--             Sanskrit stem; it is `Paribhasa` now.
+--   §49       and the ledger over-corrected — मात्रा IS the grammarians'
+--             unit, अर्धमात्रालाघवेन, and I struck it from my own record.
+--             `.claude/hooks/MulaVakya_…txt` carried the row.
+--   §55       the unit was one error, the OBJECT another: लाघव is on the
+--             सूत्रपाठ, not on a derivation.
+--   §73       "price is force" was a three-element accident, killed by
+--             generating the next term.
+--   §72       and the companion note is gone.  A .md asserts.
+--
+-- OPEN, and named rather than implied: whether the walk's fast
+-- presentation is गुरुत्व-bounded (§36); whether anything natural refines
+-- both गुरुत्व and मात्रा (§78); whether स्वविषय and निष्क्रिय are terms of
+-- art or my Sanskrit (§48's MINE column).
+--
+-- THE ONE RULE WORTH CARRYING OUT OF HERE: name the rung.  On a chain,
+-- the coarsest at which the claim holds.  Off one, every measure — there
+-- is no ordering to inherit along.
+------------------------------------------------------------------------
+
 module NaturalMachine.Nirjara_SheddingAPrimitiveCostsLaghava where
 
 open import Cubical.Foundations.Prelude
