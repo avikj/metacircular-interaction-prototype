@@ -64,6 +64,7 @@ module Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAr
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
+open import Cubical.Foundations.Univalence using (pathToEquiv)
 open import Cubical.Foundations.GroupoidLaws
 open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.HLevels
@@ -105,3 +106,55 @@ module _ {X : Type ℓ} {Y : Type ℓ'} {Z : Type ℓ''}
   शून्यशेष cf cg z =
     isOfHLevelRespectEquiv 0 (invEquiv (शेष z))
       (isOfHLevelΣ 0 (cg z) (λ p → cf (fst p)))
+
+
+  -- §४  right cancellation: the first leg's own remainder is silent, and the
+  -- whole chain's remainder is silent too, forces the SECOND leg's remainder
+  -- silent — with no hypothesis on g beyond what the chain already gives it.
+  -- (शून्यशेष only ever composed two silences forward; this recovers the
+  -- second from the outer two, and needs no new machinery — शेष already
+  -- carries it, once the Σ is contracted from its OTHER side.)
+  शेष-दक्षिण-रद्दीकरण :
+    ((y : Y) → isContr (fiber f y)) →
+    ((z : Z) → isContr (fiber (λ x → g (f x)) z)) →
+    (z : Z) → isContr (fiber g z)
+  शेष-दक्षिण-रद्दीकरण cf ch z = step2
+    where
+      Σशेष : Type (ℓ-max ℓ (ℓ-max ℓ' ℓ''))
+      Σशेष = Σ[ p ∈ fiber g z ] fiber f (fst p)
+
+      step1 : isContr Σशेष
+      step1 = isOfHLevelRespectEquiv 0 (शेष z) (ch z)
+
+      step2 : isContr (fiber g z)
+      step2 = isOfHLevelRespectEquiv 0 (Σ-contractSnd (λ p → cf (fst p))) step1
+
+  -- §५  left cancellation: the SECOND leg's remainder silent, and the whole
+  -- chain's remainder silent, forces the FIRST leg's remainder silent too.
+  -- The center of the (contractible) remainder over g's own point is
+  -- provably (y , refl) — the fibre is a proposition, so any two of its
+  -- points agree — and that identification is what lets शेष's Σ collapse
+  -- from the OTHER end, over fst rather than over the whole pair.
+  शेष-वाम-रद्दीकरण :
+    ((z : Z) → isContr (fiber g z)) →
+    ((z : Z) → isContr (fiber (λ x → g (f x)) z)) →
+    (y : Y) → isContr (fiber f y)
+  शेष-वाम-रद्दीकरण cg ch y =
+    isOfHLevelRespectEquiv 0 (pathToEquiv (cong (fiber f) yeq)) step2
+    where
+      Σशेष : Type (ℓ-max ℓ (ℓ-max ℓ' ℓ''))
+      Σशेष = Σ[ p ∈ fiber g (g y) ] fiber f (fst p)
+
+      step1 : isContr Σशेष
+      step1 = isOfHLevelRespectEquiv 0 (शेष (g y)) (ch (g y))
+
+      ctr : fiber g (g y)
+      ctr = cg (g y) .fst
+
+      step2 : isContr (fiber f (fst ctr))
+      step2 = isOfHLevelRespectEquiv 0 (Σ-contractFst (cg (g y))) step1
+
+      eq  : ctr ≡ (y , refl)
+      eq  = isContr→isProp (cg (g y)) ctr (y , refl)
+      yeq : fst ctr ≡ y
+      yeq = cong fst eq
