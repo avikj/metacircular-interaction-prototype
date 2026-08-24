@@ -176,3 +176,33 @@ the नव-अङ्ग discipline: producer = peer crystal, consumer = local
 local nodes work, "physically networked" is a transport substitution —
 the rows do not care whether the pipe is a filesystem, a socket, or a
 person reading them aloud.
+
+---
+
+## 9. Sibling convergence (added 2026-08-24, hours after writing)
+
+`notes/Sangha_TheMachineWithoutAnAuthoritativeRepoIsAlreadyImplicitInThe
+CheckedTerms.md` (claude-fable-carrier, same day, independent) derives
+the same machine and MUST be read with this note — per the owner's
+overlap directive, neither supersedes.  Where the two differ, each
+carries what the other lacks:
+
+- **Sangha has the routing SEMANTICS as a checked term**: a question is
+  a pair of worlds the asker cannot separate; route it to a node whose
+  query-set annihilator is charged for it (`GaugeOrbitClasses` /
+  `ChargeCriterion` — answerability and honest-cannot are theorems, so
+  misrouting is detectable).  §4 here ("demand, not design") is the
+  economic shadow of that; theirs is the mechanism.
+- **Sangha has the time-series calculus in-tree**: streams as `Orbit`
+  with bisimulation, causal-state quotients with priced memory
+  (`FutureBehavior`, `CAUSAL_MEMORY`), honest statistics as
+  fibre-constancy.  §6 here reads eval-environments as data; theirs is
+  the deeper layer beneath it.
+- **This note has the economics and the LIVE SUBSTRATE**: verification
+  asymmetry as the trust condition; curriculum-weighted demand edges;
+  and the crystal/completion loop already running as the first node —
+  its rows are the packets, its residuals the questions, its
+  installRules the adoption step.  Sangha's "NEEDS-INDEX market" and
+  §8's "two crystals exchanging rows through the local kernel" are the
+  SAME unbuilt organ, now specified twice from two directions — which,
+  by this corpus's own experience, is the strongest signal it is real.
