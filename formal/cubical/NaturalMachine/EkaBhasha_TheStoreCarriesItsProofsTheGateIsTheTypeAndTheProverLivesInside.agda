@@ -64,44 +64,26 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 ------------------------------------------------------------------------
--- §1  The vocabulary, one datatype.  Variables are names over ℕ; an
---     environment is total, so no finite-context bureaucracy.
+-- §1  The vocabulary, one datatype — IMPORTED, not restated.  Since
+--     2026-08-24 the machine's vocabulary, evaluator and normalizer
+--     live ONCE, in the act-portion (formal/karma/KarmaKanda…, checked
+--     --cubical-compatible --safe), which both worlds import with full
+--     use: this --cubical body proves paths about the very definitions
+--     the compiled mouth runs.  The Veda's two portions read one text.
+--     (Cubical's _·_ is Agda's builtin _*_ renamed, so the act-side
+--     eval and the one that stood here are the same function symbol
+--     for symbol; the kernel accepted every downstream proof unchanged.)
+--     Variables are names over ℕ; an environment is total, so no
+--     finite-context bureaucracy.  The machine's own max and le, ITS
+--     clause order (library.terms' world):
+--       max x 0 = x ; max 0 x = x ; max (s x)(s y) = s (max x y)
+--       le 0 x = 1  ; le (s x) 0 = 0 ; le (s x)(s y) = le x y
 ------------------------------------------------------------------------
 
-data Tm : Type where
-  var        : ℕ → Tm
-  ze         : Tm
-  su         : Tm → Tm
-  _⊕_ _⊗_ _⊖_ : Tm → Tm → Tm
-  mx lq      : Tm → Tm → Tm
-
--- the machine's own max and le, ITS clause order (library.terms' world):
---   max x 0 = x ; max 0 x = x ; max (s x)(s y) = s (max x y)
---   le 0 x = 1  ; le (s x) 0 = 0 ; le (s x)(s y) = le x y
-mxℕ : ℕ → ℕ → ℕ
-mxℕ x       zero    = x
-mxℕ zero    y       = y
-mxℕ (suc x) (suc y) = suc (mxℕ x y)
-
-lqℕ : ℕ → ℕ → ℕ
-lqℕ zero    _       = suc zero
-lqℕ (suc _) zero    = zero
-lqℕ (suc x) (suc y) = lqℕ x y
-
-sbℕ : ℕ → ℕ → ℕ     -- the machine's monus: -x0=x, -0x=0, -(sx)(sy)=-xy
-sbℕ x       zero    = x
-sbℕ zero    (suc _) = zero
-sbℕ (suc x) (suc y) = sbℕ x y
-
-eval : Tm → (ℕ → ℕ) → ℕ
-eval (var i) ρ = ρ i
-eval ze      ρ = zero
-eval (su t)  ρ = suc (eval t ρ)
-eval (a ⊕ b) ρ = eval a ρ + eval b ρ
-eval (a ⊗ b) ρ = eval a ρ · eval b ρ
-eval (a ⊖ b) ρ = sbℕ (eval a ρ) (eval b ρ)
-eval (mx a b) ρ = mxℕ (eval a ρ) (eval b ρ)
-eval (lq a b) ρ = lqℕ (eval a ρ) (eval b ρ)
+open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled public
+  using ( Tm ; var ; ze ; su ; _⊕_ ; _⊗_ ; _⊖_ ; mx ; lq
+        ; mxℕ ; lqℕ ; sbℕ ; eval
+        ; plus' ; times' ; sub' ; mx' ; lq' ; norm )
 
 ------------------------------------------------------------------------
 -- §2  Truth over the standard model.
@@ -128,43 +110,7 @@ record नियमः : Type where
 --     clause order, each simplifier WITH its soundness, then compare.
 ------------------------------------------------------------------------
 
-plus' : Tm → Tm → Tm
-plus' a ze     = a
-plus' a (su b) = su (plus' a b)
-plus' a b      = a ⊕ b
-
-times' : Tm → Tm → Tm
-times' a ze     = ze
-times' a (su b) = plus' (times' a b) a
-times' a b      = a ⊗ b
-
-sub' : Tm → Tm → Tm
-sub' a      ze     = a
-sub' ze     (su _) = ze
-sub' (su a) (su b) = sub' a b
-sub' a      b      = a ⊖ b
-
-mx' : Tm → Tm → Tm
-mx' a      ze     = a
-mx' ze     b      = b
-mx' (su a) (su b) = su (mx' a b)
-mx' a      b      = mx a b
-
-lq' : Tm → Tm → Tm
-lq' ze     _      = su ze
-lq' (su _) ze     = ze
-lq' (su a) (su b) = lq' a b
-lq' a      b      = lq a b
-
-norm : Tm → Tm
-norm (var i)  = var i
-norm ze       = ze
-norm (su t)   = su (norm t)
-norm (a ⊕ b)  = plus'  (norm a) (norm b)
-norm (a ⊗ b)  = times' (norm a) (norm b)
-norm (a ⊖ b)  = sub'   (norm a) (norm b)
-norm (mx a b) = mx'    (norm a) (norm b)
-norm (lq a b) = lq'    (norm a) (norm b)
+-- (the simplifiers and norm are imported from the act-portion in §1)
 
 -- soundness of each simplifier, then of norm — the theorem the kernel
 -- checks ONCE so that every later mint is born proven.

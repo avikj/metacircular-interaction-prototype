@@ -1,4 +1,4 @@
-{-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
+{-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- कर्मकाण्डम् — the act-portion.  The division is the tradition's own:

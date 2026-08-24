@@ -1,4 +1,4 @@
-{-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
+{-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
 -- The elder's store, emitted on the act side so the compiled mouth can

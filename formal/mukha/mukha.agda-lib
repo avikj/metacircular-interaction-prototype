@@ -1,4 +1,4 @@
 name: mukha
-depend: cubical natural-machine
+depend: cubical natural-machine karma
 include: .
 flags: --erased-cubical --erasure --guardedness --no-import-sorts
