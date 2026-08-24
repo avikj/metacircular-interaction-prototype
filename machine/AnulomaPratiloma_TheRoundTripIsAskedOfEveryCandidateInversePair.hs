@@ -751,15 +751,56 @@ roundTripRHS outer inner t = do
   let (argRaw, afterArg) = break (== ')') rest
       arg = trim argRaw
   guard (not (null afterArg) && not (null arg) && all identChar arg)
-  rhs <- trim <$> listToMaybe (after "≡" (drop 1 afterArg))
+  -- 2026-08-24, SECOND REPAIR THE SAME DAY, and the first one was not enough.
+  -- `∣ winding (looping g) ∣₂ ≡ ∣ g ∣₂` — the round trip is the LEFT SIDE OF
+  -- SOMETHING ELSE, wrapped in a set-truncation, and reading from the first
+  -- `≡` onward made the value `∣ g ∣₂` and called the library's own theorem a
+  -- refutation.  Excluding glyphs one at a time loses: `∥` and `∣` are
+  -- different characters and there is always another wrapper.
+  --
+  -- The invariant is not about glyphs.  `outer (inner v)` must BE the whole
+  -- left side, so its closing paren must be followed by the `≡` and nothing
+  -- else.  Anything between them means the application sits inside a larger
+  -- term and the text after `≡` is not its value.
+  let afterParen = dropWhile isSpace (drop 1 afterArg)
+  guard (take 1 afterParen == "≡")
+  rhs <- pure (trim (drop 1 afterParen))
   -- An arrow or a second `≡` after the equation means the round trip is the
   -- ANTECEDENT of something, not the statement, and the text to the right is
   -- not its value.  Refuse: the cost of a missed refutation is one wasted
   -- probe; the cost of a wrong one is deleted work.
   guard (not (null rhs) && not ("→" `isInfixOf` rhs) && not ("≡" `isInfixOf` rhs))
+  -- 2026-08-24, THE SAME DAY, AND FOUND BY THE FIRST RUN AGAINST A REAL
+  -- LIBRARY.  In Cubical.HITs.Bouquet.FundamentalGroupProof:
+  --
+  --     truncatedRight-homotopy : (g : FreeGroupoid A)
+  --                             → ∥ winding (looping g) ≡ g ∥₁
+  --
+  -- the round trip is TRUE and is PROVED there; it is merely wrapped in a
+  -- propositional truncation.  Reading to end of line made the right-hand
+  -- side `g ∥₁`, which differs from `g`, and this function called the
+  -- library's own theorem a refutation.  That is precisely the direction
+  -- the comment above swore not to fail in — a wrong refutation deletes
+  -- real work — and it took one run against mathematics nobody here wrote
+  -- to produce it.
+  --
+  -- An equation NESTED inside something has a closer in its tail that was
+  -- never opened.  So: refuse when the tail carries an unmatched closing
+  -- bracket, and refuse outright on `∥`, which opens and closes with the
+  -- same glyph and cannot be balanced by counting.
+  guard (balancedTail rhs)
   pure (arg, rhs)
   where
     identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
+    balancedTail s
+      | any (`elem` s) ("∥∣⟩⟧⦆" :: String) = False
+      | otherwise = go (0 :: Int) s
+      where
+        go d (c : r)
+          | c `elem` ("([{⟨" :: String) = go (d + 1) r
+          | c `elem` (")]}" :: String)  = d > 0 && go (d - 1) r
+          | otherwise                   = go d r
+        go _ [] = True
 
 -- Split on a single character, dropping empties.  For ANULOMA_ROOTS.
 splitOn :: Char -> String -> [String]
