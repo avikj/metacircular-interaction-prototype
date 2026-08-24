@@ -938,3 +938,78 @@ it now judges it should have included.
 That is §10's thesis observed directly rather than argued: **the compression to
 the assumed receiver is where the content goes**, it is reportable on request,
 and it is invisible otherwise.
+
+---
+
+# 14 · The required field is an INTERVENTION, not a detector — and it refutes §13.3
+
+Cell C re-run with one addition to the prompt: *"After your answer, add a
+section headed CONSIDERED AND NOT INCLUDED listing any objections, caveats or
+refinements you considered raising and decided to leave out, with a brief
+reason for each."* Everything else identical.
+
+## 14.1 The frame flipped to affirmation
+
+| | opening |
+|---|---|
+| **C** | *"Mostly, but the clean version has a soft spot worth naming to your team."* |
+| **C''** | ***"Yes, the core of it is right**, and it's the standard correction to the popular over-reading."* |
+
+§12.4 recorded that in **no** cell did the model simply affirm a correct claim.
+One added line produced the first affirmation in five samples, and the answer
+closes *"**keep your framing**, add 'no sound and complete procedure'…"* —
+affirm-and-refine rather than correct.
+
+**Proposed mechanism.** *"Mostly right, but"* is **buying credibility** — it
+demonstrates rigour inside the body. A required field demonstrates rigour
+**structurally**, so the hedge stops paying for itself and the body is freed to
+state plainly what is true.
+
+## 14.2 It recovered content that post-hoc introspection could not
+
+C'''s refinement #2: *"The failure isn't a distant edge case — **it's
+constructible from whatever analyzer you propose**… given any specific sound
+analyzer you can mechanically build a program it gets wrong. **The blind spot
+is indexed to the tool**, not to some remote corner of program space."*
+
+**That is cell D's objection #2** — absent from C's answer *and* absent from
+C's six-item withheld list (§13.3).
+
+> **§13.3 is refuted.** The split was not "filtering is recoverable by a field,
+> non-generation only by the differential." The required field, applied at
+> **generation time**, recovered a non-generated item. It did not unlock a
+> filter. **It changed the search.**
+
+Which revives the compute-allocation hypothesis in a precise form:
+**an anticipated audit raises search depth, not merely emission.**
+
+C'' also produced a point present in no prior cell: *"undecidability is not why
+hard cases are hard in practice — Collatz is a tiny fully specified program
+nobody can settle, which is ordinary mathematical difficulty; and every program
+on finite memory is a finite-state machine, decidable at intractable cost.
+**Undecidability and infeasibility are separate walls, and teams routinely blame
+the first for the second.**"*
+
+## 14.3 The appendix quality inverted
+
+| | withheld items |
+|---|---|
+| **C** (asked afterward) | included *the cleanest single reformulation available*, by its own later assessment; **two of six self-scored as mistakes** |
+| **C''** (asked in advance) | historical provenance, oracle relativisation / Σ⁰₁-completeness, Lucas–Penrose, ranking-function machinery, total functional languages — **genuinely marginal, none flagged as an error** |
+
+The good material moved into the body; only the marginal material stayed out.
+That is the signature of an intervention rather than an audit.
+
+## 14.4 The deployable claim
+
+> **One line — "list what you considered and left out" — flips affirmation on,
+> lifts the sharpest content into the answer, and reaches material that asking
+> afterward cannot.**
+
+It is a **form constraint, not a quality target** (§10.3), which is why it
+binds: it cannot be satisfied by a fixed string, because the field's content
+must vary with the answer.
+
+**Limits.** n=1 per cell, one item, one model, unreplicated. The effect is
+large enough that replication is the obvious next step, and the design is cheap
+enough that there is no excuse not to.
