@@ -79,3 +79,16 @@ open import Punaragamana.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallC
 -- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum
 -- adding nothing to the count — ahiṃsā read as a number.
 open import Punaragamana.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked
+
+-- …and Sesa's own two separately-obtained equivalences (invert
+-- मूल-प्रक्षेप-समता, apply ग्राह) compose to the SAME term as going
+-- straight from A to the total residual Σ[ b ] शेष f b directly — checked
+-- by refl on the representative `descend f a`, not merely up to a path.
+-- Carrier is a redundant waypoint, not a third object.
+open import Punaragamana.Samagra_TheSourceIsDirectlyEquivalentToTheTotalResidualWithNoCarrierInTheMiddle
+
+-- the residual composes: शेष (g ∘ f) c ≃ Σ[ y ∈ शेष g c ] शेष f (fst y) —
+-- the composite's loss is the second map's loss fibred by the first's, and
+-- the proof needs transport exactly once (Σ-contractFst), everything else
+-- closing by Σ-eta reshuffling.
+open import Punaragamana.SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual
