@@ -47358,3 +47358,118 @@ translation-move hook, four days before it was written.
 
 And target D, the one he called the smallest convincing prototype of the actual machine, is transport
 instead of reproving. The record I have does not say whether it was done.
+
+# PASS 288 — ground re-read in full first. Tenth cycle: Delta 14, read as a
+# document rather than as a source of targets. Its status line, its "Known"
+# tags, and the fact that its warnings caught me.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P288 · the status line
+
+> *"Theorem factory I / Date: 2026-08-13 / Status: exact/standard results + explicit conjectural
+> program. **No novelty claims.**"*
+
+**Three words, at the top, before T14.1.**
+
+**`CLAUDE.md`'s provenance apparatus — earliest statement with text and date, a restatement named as a
+restatement, a mechanised hook on the translation move — is a system for enforcing what this line
+declares.**
+
+---
+
+## P288 · the tags are an honesty ledger, item by item
+
+**Delta 14 labels every item by what kind of claim it is:**
+
+```
+T      theorem, proved or standard
+C      corollary of the item above it
+P      proposition that refutes a tempting inference
+Known  prior art, marked as such:  Known T14.13 · Known T14.19 · Known T14.22 · Known T14.26
+```
+
+**`CLAUDE.md`:** *"Honesty ledgers stay, but they are not a substitute: labelling a heuristic as
+heuristic does not license leaving it heuristic when a proof is a page away."*
+
+**The document does both — it labels, and the labelled items are proved or attributed.**
+
+---
+
+## P288 · the P-items are refutations, and one of them caught me
+
+```
+P14.18   Syntax-relative irreducibility need not survive equivalence: an efficiently decodable
+         obfuscation can make trivial dynamics look syntactically difficult.
+P14.24   A two-point fiber alone implies no nontrivial monodromy: B×2→B is the counterexample.
+P14.30   Useful abstractions need not be functional: simulation/bisimulation may be many-to-many.
+P14.32   Quotienting by this relation can erase proof-relevant information about why contexts agree.
+```
+
+**P270, 2026-08-14T04:12:43Z, mine:**
+
+> *"`fiber pr` isn't a constant family, so `transportRefl` doesn't apply — **my statement was sloppier
+> than P14.24 actually is.** Restating it on the family where it's true."*
+
+**The document's own counterexample was tighter than my formalization of it, and the typechecker
+found that six minutes forty seconds after the document arrived.**
+
+**CLAUDE.md: *refuting your own claim is the most respected act in this repository.*** **Delta 14
+carries four such items, numbered alongside the theorems and not in a separate section.**
+
+---
+
+## P288 · the corollaries are mostly ≠
+
+```
+C14.7    Ambient equivalence can fail after sector selection precisely because the sector predicate
+         is not invariant.
+C14.20   Exact reconstruction is contractibility of ambiguity fibers, not merely singleton
+         cardinality in a set shadow.
+C14.25   A binary arithmetic obstruction requires nontrivial transport/sheet exchange, not merely a
+         residual bit.
+C14.27   Information lost through successive observations is nested/dependent and need not decompose
+         into independent lost bits.
+C14.38   Full dynamics can be computationally irreducible while a localized observable dynamics is
+         reducible.
+```
+
+**P241, P244: the Sanskrit transmission has thirteen ≠ and twenty-five =, and P35's standing
+correction is that his ≠ forms close a road and install nothing.**
+
+**Delta 14's corollaries have the same shape in English: *not merely*, *need not*, *can fail*.**
+**Three days seventeen hours before the transmission.**
+
+---
+
+## P288 · the descent square
+
+> *"T14.37. If q,r and g are cheap while f is expensive, the descent square yields **observer-relative
+> computational reduction without full reconstruction**.
+> C14.38. Full dynamics can be computationally irreducible while a localized observable dynamics is
+> reducible."*
+
+**Reduction without reconstruction — the observer's law can be cheap while the underlying dynamics is
+not, and neither fact settles the other.**
+
+**T14.16 and C14.17 charge for the change of representation and require any irreducibility claim to
+survive it, which is P286's *representation gain* stated as a theorem and a corollary.**
+
+---
+
+## P288 — what this pass counted
+
+Delta 14's status line is *No novelty claims*, and the document keeps that by tagging four items
+*Known* and marking every other as theorem, corollary, or refuting proposition.
+
+Four of its items are refutations of tempting inferences, numbered in sequence with the theorems
+rather than set aside.
+
+One of them, P14.24, was tighter than my own formalization of it, and I said so six minutes forty
+seconds after the document arrived.
+
+Its corollaries take the form *not merely*, *need not*, *can fail* — the ≠ shape of the Sanskrit
+transmission three days seventeen hours later, in English and numbered.
+
+And T14.37/C14.38 state reduction without reconstruction: a cheap observable law over an expensive
+dynamics, with neither settling the other.
