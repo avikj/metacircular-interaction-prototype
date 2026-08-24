@@ -199,3 +199,201 @@ le(+(x,y),+(z,y))	le(x,z)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|voca
 0	le(s(+(x,y)),y)	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 c0(x)	-(+(y,c0(x)),y)	pramana=anumana|naya=induction on y, step = ih|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
 le(x,s(0))	le(+(x,y),s(y))	pramana=anumana|naya=trace replay|eq=_≡_ on ℕ|vocab=0.s.+.*.max.-.gcd.le|vars=3|size=7|round=7|calls=1
+x	max(x,0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	le(s(x),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+x	*(x,s(0))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+s(x)	-(s(x),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	le(s(s(x)),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(x)	max(s(x),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,s(x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+x	+(x,*(x,0))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+le(s(0),s(x))	s(0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+max(s(x),s(0))	s(x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(x)	+(le(0,0),x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	-(s(0),s(s(x)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	-(x,+(s(x),y))	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+0	-(x,+(x,s(y)))	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+0	le(s(s(s(x))),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(s(x),y),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(x,s(y)),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(s(s(x)),s(0))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(s(x),y),x)	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+0	le(s(*(x,y)),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,s(s(x)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(0,s(x))	le(0,x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+x	+(x,*(s(0),0))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
++(x,y)	+(+(0,x),y)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(s(s(0)),x)	s(s(x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(s(x),y)	+(x,s(y))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+0	*(le(x,0),+(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(+(0,0),+(0,0))	0	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(+(x,0),y)	+(x,y)	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+0	le(+(x,s(s(y))),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(s(s(s(s(x)))),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(s(0),s(s(x)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(x,+(s(x),y))	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(x,+(x,s(y)))	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+le(+(x,s(s(0))),0)	0	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(s(s(s(0)))),0)	0	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(*(x,x),0)	le(x,0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),s(x))	le(0,x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(x,max(0,s(0)))	s(x)	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+0	*(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	*(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),s(x))	le(0,s(x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),le(x,0))	le(x,0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),max(x,s(y)))	s(0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),max(s(x),y))	s(0)	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	-(le(x,0),+(x,s(x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(max(x,+(s(y),z)),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(x,max(x,s(0))),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(max(+(s(x),y),z),0)	pramana=anumana|naya=sphatika ind 2 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(x)	max(s(x),le(s(0),y))	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,s(max(x,s(y))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,s(max(s(x),y)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,+(s(s(0)),x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(0,s(s(s(s(0)))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(le(s(0),x),s(y))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(*(s(x),x),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(*(x,s(0)))	*(s(x),s(0))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(x,x)	-(+(x,x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(x,s(y))	-(max(x,s(y)),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+max(s(x),y)	-(max(s(x),y),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	*(le(x,0),+(x,*(x,x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	*(le(x,0),+(x,*(x,y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(le(0,0),le(0,0))	s(s(0))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	-(le(x,0),+(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(+(x,x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(s(s(0)),x)	+(x,s(s(0)))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
++(+(x,s(0)),y)	+(x,s(y))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+0	-(le(s(0),x),s(le(x,0)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	-(le(x,0),s(le(s(0),x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(le(x,0),+(s(y),z))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(le(s(0),x),*(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(le(s(0),x),+(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(s(s(0)),+(x,x)),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(s(s(0)),s(x))	le(s(0),x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+*(x,+(+(0,0),+(0,0)))	0	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
++(s(x),*(y,x))	s(*(s(y),x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	-(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),x)	le(le(x,0),+(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),le(s(0),x))	le(s(0),x)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(x,s(y)),s(0))	max(x,s(y))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(s(x),y),s(0))	max(s(x),y)	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
+*(x,x)	max(*(x,x),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(x,x)	max(+(x,x),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	-(le(x,0),+(*(x,x),s(x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	le(le(s(0),x),s(le(x,0)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(max(x,s(0)),*(x,x)),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(x,s(s(0)))	max(s(0),s(s(x)))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
++(x,s(s(0)))	max(s(s(x)),s(0))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+s(max(x,s(0)))	max(s(x),s(s(0)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+x	+(*(max(0,s(0)),x),*(0,0))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+0	+(*(0,0),*(0,s(*(0,0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(0,0),*(*(0,0),s(0)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(x,0),*(0,s(*(x,0))))	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+0	+(*(x,0),*(*(x,0),s(0)))	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+le(s(0),x)	-(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	+(le(s(s(0)),0),le(s(s(0)),0))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	-(le(x,0),+(x,*(x,x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	-(le(x,0),+(x,*(x,y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),x)	le(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(+(x,*(x,x)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(+(x,*(x,y)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(+(x,+(x,+(x,x))),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),+(x,*(x,x)))	le(s(0),x)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),+(x,*(x,y)))	le(s(0),x)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+*(s(max(x,s(0))),x)	+(x,*(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(x,+(y,z))	max(+(+(x,y),z),x)	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
++(x,s(x))	max(le(x,0),+(x,s(x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(max(x,s(y)))	max(s(max(x,s(y))),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(max(s(x),y))	max(s(max(s(x),y)),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(s(s(0)),x)	max(+(s(s(0)),x),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(s(s(s(0))))	max(s(s(s(s(0)))),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(s(s(s(0))),s(x))	le(s(s(0)),x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(x,max(x,s(0)))	+(max(x,s(0)),x)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(*(x,0),max(*(x,0),s(0)))	s(0)	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
++(*(*(x,0),s(*(x,0))),*(x,0))	0	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+le(s(0),max(x,s(y)))	le(0,max(x,s(y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),max(s(x),y))	le(0,max(s(x),y))	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
++(max(x,s(0)),x)	max(+(x,x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(x,s(y)),s(0))	max(max(x,s(y)),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(s(x),y),s(0))	max(max(s(x),y),0)	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
++(max(x,s(0)),x)	max(le(x,0),+(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(+(x,y),*(z,y))	+(x,*(s(z),y))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+s(le(x,0))	max(le(s(0),x),s(le(x,0)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(le(x,0))	max(s(le(x,0)),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(s(0),0),*(0,s(*(s(0),0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(s(0),0),*(*(s(0),0),s(0)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(x,*(x,x))	-(+(x,*(x,x)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(x,*(x,y))	-(+(x,*(x,y)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),le(x,0))	le(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(x,0),s(0))	max(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(x,0),s(0))	max(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(le(s(0),x))	max(le(x,0),s(le(s(0),x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+-(*(x,x),s(0))	-(*(x,x),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+-(+(x,x),s(0))	-(+(x,x),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	le(+(s(s(0)),+(s(s(0)),s(s(0)))),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(+(+(x,x),*(x,+(y,y))),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(s(s(s(0)))),s(x))	le(s(s(s(0))),x)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(*(x,x),s(0))	le(*(x,x),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(+(x,x),s(0))	le(+(x,x),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),x)	le(s(0),+(x,+(x,+(x,x))))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(s(*(x,0)),*(*(x,0),s(*(x,0))))	s(0)	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+le(s(0),le(s(0),x))	le(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(s(0),x),s(0))	max(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(s(0),x),s(0))	max(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+*(s(x),max(x,s(0)))	+(max(x,s(0)),*(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(*(*(x,0),s(*(x,0))),s(*(x,0)))	s(0)	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+0	+(*(le(0,0),0),*(0,s(*(le(0,0),0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(le(0,0),0),*(*(le(0,0),0),s(0)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(-(0,x),0),*(0,s(*(-(0,x),0))))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(-(0,x),0),*(*(-(0,x),0),s(0)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(*(x,x),s(x))	max(le(x,0),+(*(x,x),s(x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),x)	le(s(0),*(x,+(+(x,x),+(x,x))))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(x,max(+(y,z),s(0)))	max(+(+(x,y),z),s(x))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+le(s(0),+(x,*(x,x)))	le(le(x,0),+(x,*(x,x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+le(s(0),+(x,*(x,y)))	le(le(x,0),+(x,*(x,y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,x)),s(0))	max(+(x,*(x,x)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,y)),s(0))	max(+(x,*(x,y)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,x)),s(0))	max(le(x,0),+(x,*(x,x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,y)),s(0))	max(le(x,0),+(x,*(x,y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
++(*(x,0),max(*(*(x,0),s(*(x,0))),s(0)))	s(0)	pramana=anumana|naya=sphatika ind 0 refl ih|eq=_≡_ on ℕ|round=sphatika
+0	+(+(0,0),*(*(s(s(0)),0),s(*(s(s(0)),0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(s(s(0)),0),*(+(0,0),s(*(s(s(0)),0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(s(s(0)),0),*(*(s(s(0)),0),s(+(0,0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+le(x,0)	le(+(+(x,x),*(x,+(+(x,x),+(x,x)))),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(0,0),*(*(max(0,s(0)),0),s(*(max(0,s(0)),0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(max(0,s(0)),0),*(*(0,0),s(*(max(0,s(0)),0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+0	+(*(max(0,s(0)),0),*(*(max(0,s(0)),0),s(*(0,0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(max(s(s(0)),s(0)),max(s(s(0)),s(0)))	+(s(s(0)),s(s(0)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+*(x,+(+(x,x),+(x,x)))	*(x,+(+(x,max(x,s(0))),+(x,max(x,s(0)))))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+*(x,+(+(x,x),+(x,x)))	*(x,+(max(+(x,x),s(0)),max(+(x,x),s(0))))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	gcd(s(0),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(0)	gcd(0,s(0))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(x)	gcd(s(x),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(x)	gcd(0,s(x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(s(0))	gcd(s(s(0)),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(s(0))	gcd(0,s(s(0)))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+max(s(x),s(0))	gcd(s(x),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+max(s(x),s(0))	gcd(0,s(x))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(x)	+(x,s(0))	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
+s(s(s(0)))	gcd(s(s(s(0))),0)	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
+s(s(s(0)))	gcd(0,s(s(s(0))))	pramana=anumana|naya=sphatika refl|eq=_≡_ on ℕ|round=sphatika
++(x,*(0,x))	x	pramana=anumana|naya=sphatika ind 0 refl congsuc|eq=_≡_ on ℕ|round=sphatika
++(max(x,s(0)),x)	gcd(+(x,x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(x,s(y)),s(0))	gcd(max(x,s(y)),0)	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(s(x),y),s(0))	gcd(max(s(x),y),0)	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
++(max(x,s(0)),x)	gcd(le(x,0),+(x,x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(x,s(y)),s(0))	gcd(0,max(x,s(y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(max(s(x),y),s(0))	gcd(0,max(s(x),y))	pramana=anumana|naya=sphatika ind 1 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(x,0),s(0))	gcd(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(x,0),s(0))	gcd(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(s(0),x),s(0))	gcd(le(s(0),x),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(le(s(0),x),s(0))	gcd(le(x,0),le(s(0),x))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,x)),s(0))	gcd(+(x,*(x,x)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,y)),s(0))	gcd(+(x,*(x,y)),le(x,0))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,x)),s(0))	gcd(le(x,0),+(x,*(x,x)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika
+max(+(x,*(x,y)),s(0))	gcd(le(x,0),+(x,*(x,y)))	pramana=anumana|naya=sphatika ind 0 refl refl|eq=_≡_ on ℕ|round=sphatika

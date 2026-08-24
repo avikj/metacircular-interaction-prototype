@@ -53,7 +53,7 @@ import Data.List (isInfixOf, isPrefixOf, nub)
 import Data.Maybe (fromMaybe, mapMaybe)
 import System.Directory (doesFileExist)
 import System.Environment (getArgs)
-import System.Exit (ExitCode (..), exitFailure)
+import System.Exit (ExitCode (..), exitFailure, exitSuccess)
 import System.IO
   (BufferMode (LineBuffering), IOMode (ReadMode, WriteMode), hClose, hGetContents, hPutStr, hSetBuffering,
    hSetEncoding, openFile, stdout, utf8, withFile)
@@ -332,14 +332,96 @@ installRules crystal = do
 kDepthBound :: Int
 kDepthBound = 4
 
+-- ------------------------------------------------------------ the exchange
+--
+-- जाल-विनिमय: one crystal's light on another, through the receiving
+-- kernel.  A peer row is a candidate whose proof is already written —
+-- the receiver does not trust it, it RE-JUDGES it (आहार-परिणाम: the
+-- organism metabolizes the encounter; proposalhood is conferred by the
+-- receiver).  Peer citations are remapped name-by-name as their targets
+-- are adopted — peer files cite only earlier rows, so one ordered pass
+-- suffices.  A row the local kernel refuses is receipted and skipped:
+-- a false or untranslatable claim costs one refusal, which is the whole
+-- trust model of notes/IndraJala (and Sangha's receipt discipline).
+-- Both notes specified this organ independently on the same day; this
+-- is that organ.  Seam: producer = the peer's crystal file; consumer =
+-- the local crystal via checkContext.
+exchange :: FilePath -> FilePath -> IO ()
+exchange root peerFile = do
+  crystal0 <- loadCrystal
+  peerTxt <- readUtf8 peerFile
+  let peerRows = [ r | Just r <- map peerRow (lines peerTxt) ]
+      peerRow ln = case splitTabs ln of
+        [n, lt, rt, p] -> do
+          l <- K.parsePrefixTerm lt
+          r <- K.parsePrefixTerm rt
+          pure (n, (l, r), p)
+        _ -> Nothing
+  putStrLn ("jala: peer offers " ++ show (length peerRows) ++ " rows; local crystal "
+            ++ show (length crystal0))
+  final <- adoptAll crystal0 [] peerRows
+  putStrLn ("jala: local crystal now " ++ show (length final))
+  writeRendering' root final
+  where
+    adoptAll cr _ [] = pure cr
+    adoptAll cr nameMap ((pn, eq, ptxt) : rest)
+      | any (\lm -> sameEq (K.lemEq lm) eq) cr =
+          -- already ours: record the name correspondence and move on
+          let ln = head [ K.lemName lm | lm <- cr, sameEq (K.lemEq lm) eq ]
+          in adoptAll cr ((pn, ln) : nameMap) rest
+      | otherwise = do
+          let name = "sp" ++ pad' (length cr + 1)
+              remap p = case p of
+                K.PCite n as -> K.PCite (fromMaybe n (lookup n nameMap)) as
+                K.PSym q -> K.PSym (remap q)
+                K.PTrans a b -> K.PTrans (remap a) (remap b)
+                K.PCong t q -> K.PCong t (remap q)
+                K.PInduction v b s -> K.PInduction v (remap b) (remap s)
+                q -> q
+          case readProof eq ptxt of
+            Nothing -> do
+              putStrLn ("  refused (untranslatable proof): " ++ pn)
+              adoptAll cr nameMap rest
+            Just p0 -> do
+              let lm = K.Lemma name eq (remap p0)
+              r <- K.checkContext root (K.Context "SphatikaKarya" [] cr lm)
+              case r of
+                Right (ExitSuccess, _) -> do
+                  appendCrystal lm
+                  putStrLn ("  adopted " ++ pn ++ " as " ++ name ++ "  "
+                            ++ K.showPrefixTerm (fst eq) ++ " = "
+                            ++ K.showPrefixTerm (snd eq))
+                  adoptAll (cr ++ [lm]) ((pn, name) : nameMap) rest
+                _ -> do
+                  putStrLn ("  refused by the local kernel: " ++ pn)
+                  adoptAll cr nameMap rest
+    pad' s = let t = show s in replicate (3 - length t) '0' ++ t
+    writeRendering' root' crystal = case crystal of
+      [] -> pure ()
+      _ -> case K.renderContext
+                  (K.Context "Sphatika" [] (init crystal) (last crystal)) of
+        Left e -> putStrLn ("render refused: " ++ K.showRefusal e)
+        Right src -> withFile renderedFile WriteMode $ \h ->
+          hSetEncoding h utf8 >> hPutStr h src
+
 main :: IO ()
 main = do
   hSetEncoding stdout utf8
   hSetBuffering stdout LineBuffering
   args <- getArgs
+  case args of
+    ["--exchange", peer] -> do
+      mroot0 <- K.findRepoRoot
+      root0 <- maybe (exitFailure >> pure ".") pure mroot0
+      locked0 <- lockCrystal
+      unless locked0 $ putStrLn "sphatika: another driver holds the crystal" >> exitFailure
+      exchange root0 peer
+      exitSuccess
+    _ -> pure ()
   report <- case args of
     [p] -> readFile p
-    _ -> putStrLn "usage: sphatika REPORT" >> exitFailure >> pure ""
+    _ -> putStrLn "usage: sphatika REPORT | sphatika --exchange PEER-CRYSTAL"
+         >> exitFailure >> pure ""
   mroot <- K.findRepoRoot
   root <- maybe (putStrLn "no repo root" >> exitFailure >> pure ".") pure mroot
   -- ONE writer.  Two concurrent drivers interleave the crystal and the

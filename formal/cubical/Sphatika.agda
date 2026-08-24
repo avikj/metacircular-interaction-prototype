@@ -2,6 +2,7 @@
 module Sphatika where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_)
+open import Cubical.Data.Nat.GCD using (gcd)
 max : ℕ → ℕ → ℕ
 max a zero = a
 max zero b = b
@@ -477,3 +478,74 @@ sp172 (suc x) = refl
 sp173 : (x : ℕ) → (x · ((x + x) + (x + x))) ≡ (x · ((max (x + x) (suc zero)) + (max (x + x) (suc zero))))
 sp173 zero = refl
 sp173 (suc x) = refl
+sp174 : (suc zero) ≡ (gcd (suc zero) zero)
+sp174 = refl
+sp175 : (suc zero) ≡ (gcd zero (suc zero))
+sp175 = refl
+sp176 : (x : ℕ) → (suc x) ≡ (gcd (suc x) zero)
+sp176 x = refl
+sp177 : (x : ℕ) → (suc x) ≡ (gcd zero (suc x))
+sp177 x = refl
+sp178 : (x : ℕ) → x ≡ (x + zero)
+sp178 zero = refl
+sp178 (suc x) = (cong (λ y → (suc y)) (sp178 x))
+sp179 : (suc (suc zero)) ≡ (gcd (suc (suc zero)) zero)
+sp179 = refl
+sp180 : (suc (suc zero)) ≡ (gcd zero (suc (suc zero)))
+sp180 = refl
+sp181 : (x : ℕ) → (max (suc x) (suc zero)) ≡ (gcd (suc x) zero)
+sp181 x = refl
+sp182 : (x : ℕ) → (max (suc x) (suc zero)) ≡ (gcd zero (suc x))
+sp182 x = refl
+sp183 : (x : ℕ) → (suc x) ≡ (x + (suc zero))
+sp183 zero = refl
+sp183 (suc x) = (cong (λ y → (suc y)) (sp183 x))
+sp184 : (suc (suc (suc zero))) ≡ (gcd (suc (suc (suc zero))) zero)
+sp184 = refl
+sp185 : (suc (suc (suc zero))) ≡ (gcd zero (suc (suc (suc zero))))
+sp185 = refl
+sp186 : (x : ℕ) → (x + (zero · x)) ≡ x
+sp186 zero = refl
+sp186 (suc x) = (cong (λ y → (suc y)) (sp186 x))
+sp187 : (x : ℕ) → ((max x (suc zero)) + x) ≡ (gcd (x + x) (le x zero))
+sp187 zero = refl
+sp187 (suc x) = refl
+sp188 : (x y : ℕ) → (max (max x (suc y)) (suc zero)) ≡ (gcd (max x (suc y)) zero)
+sp188 zero y = refl
+sp188 (suc x) y = refl
+sp189 : (x y : ℕ) → (max (max (suc x) y) (suc zero)) ≡ (gcd (max (suc x) y) zero)
+sp189 x zero = refl
+sp189 x (suc y) = refl
+sp190 : (x : ℕ) → ((max x (suc zero)) + x) ≡ (gcd (le x zero) (x + x))
+sp190 zero = refl
+sp190 (suc x) = refl
+sp191 : (x y : ℕ) → (max (max x (suc y)) (suc zero)) ≡ (gcd zero (max x (suc y)))
+sp191 zero y = refl
+sp191 (suc x) y = refl
+sp192 : (x y : ℕ) → (max (max (suc x) y) (suc zero)) ≡ (gcd zero (max (suc x) y))
+sp192 x zero = refl
+sp192 x (suc y) = refl
+sp193 : (x : ℕ) → (max (le x zero) (suc zero)) ≡ (gcd (le x zero) (le (suc zero) x))
+sp193 zero = refl
+sp193 (suc x) = refl
+sp194 : (x : ℕ) → (max (le x zero) (suc zero)) ≡ (gcd (le (suc zero) x) (le x zero))
+sp194 zero = refl
+sp194 (suc x) = refl
+sp195 : (x : ℕ) → (max (le (suc zero) x) (suc zero)) ≡ (gcd (le (suc zero) x) (le x zero))
+sp195 zero = refl
+sp195 (suc x) = refl
+sp196 : (x : ℕ) → (max (le (suc zero) x) (suc zero)) ≡ (gcd (le x zero) (le (suc zero) x))
+sp196 zero = refl
+sp196 (suc x) = refl
+sp197 : (x : ℕ) → (max (x + (x · x)) (suc zero)) ≡ (gcd (x + (x · x)) (le x zero))
+sp197 zero = refl
+sp197 (suc x) = refl
+sp198 : (x y : ℕ) → (max (x + (x · y)) (suc zero)) ≡ (gcd (x + (x · y)) (le x zero))
+sp198 zero y = refl
+sp198 (suc x) y = refl
+sp199 : (x : ℕ) → (max (x + (x · x)) (suc zero)) ≡ (gcd (le x zero) (x + (x · x)))
+sp199 zero = refl
+sp199 (suc x) = refl
+sp200 : (x y : ℕ) → (max (x + (x · y)) (suc zero)) ≡ (gcd (le x zero) (x + (x · y)))
+sp200 zero y = refl
+sp200 (suc x) y = refl
