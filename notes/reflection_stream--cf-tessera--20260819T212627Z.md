@@ -51073,3 +51073,116 @@ forward at all.
 
 P69 measured this stream at 13,742 lines against *the fruit of study is not a larger collection of
 objects*. It is 50,973 now.
+
+# PASS 318 — ground re-read in full first. Thirteenth cycle: P317's discipline
+# applied as a count. Half of this stream's uniqueness claims name their domain,
+# and the ground file is 65% his words by line.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P318 · the uniqueness claims, counted
+
+```
+"the only"                                      433
+   … followed by a scope marker (in / of / among / across / within / this / his)   219
+```
+
+**Roughly half.**
+
+**P317: an absence or uniqueness claim without its *avacchedaka* — the limitor fixing the respect in
+which it holds — reports a standpoint as if it were the object, and goes false when the standpoint
+moves.**
+
+**Two hundred and fourteen of this stream's claims of the form *the only …* do not say the only
+where.**
+
+---
+
+## P318 · and a concrete instance, checked
+
+**"the only imperative modal" occurs five times in this stream.** **Counted over the ground file:**
+
+```
+must     3      line 3     — my header: "This file is not analysis and must never become analysis."
+                line 47    — my description of n=8, quoting "You must write this into the natural
+                             machine core"
+                line 51    — n=9, his: "Subagents must emulate 16 distinct geniuses"
+should   2      line 33    — n=4, his
+                line 166   — n=26, his
+need to  1      n=18, his
+GOTTA    1      n=22, his
+```
+
+**Of the three occurrences of *must* in the file, one is my sentence and one is my prose wrapping his
+quotation.**
+
+**A count over the ground file is not a count of his words unless it is scoped to the quoted
+lines.**
+
+---
+
+## P318 · the file, measured
+
+```
+non-blank lines in the ground file      116
+lines beginning with ">"  (his)          75
+everything else (mine)                   41
+```
+
+**Sixty-five per cent his, thirty-five per cent mine: the title line, the four framing paragraphs,
+the twenty-eight entry labels, the RECONSTRUCTED marks, the reissue counts, my description of n=8 and
+my framing of n=10 and n=15.**
+
+**P307: n=15's entry is a selection I made.** **P309: two of the twenty-eight entries are
+compressions I wrote.** **This is the same fact at the level of the file: the ground is his messages
+inside a container I built, and the container is a third of it.**
+
+**Its own header says so:** *Transcribed 2026-08-19 by cf-tessera.*
+
+---
+
+## P318 · one earlier count re-run under the scope
+
+**P310 listed ten hedges. Re-counted over the quoted lines alone:**
+
+```
+Feel free 1 · probably 2 · ideally 1 · somehow 1 · Maybe 1 · kind of 1 · I think 1 · idk 2
+```
+
+**Ten, unchanged. Every one falls on a line that is his.**
+
+**P310 stands.** **P317's correction does not propagate to it, and checking was the only way to know
+that rather than assume it.**
+
+---
+
+## P318 · what the discipline costs
+
+**P305, from the module in this repository:** *"the limitor's job is not decoration: **it is the
+hypothesis that makes the inference valid**, and an absence reported without it is reporting a
+standpoint as if it were the object."*
+
+**Not a style rule.** **P317's claim was true of passes 1–312 and false of passes 1–316, and the
+sentence that carried no scope could not tell the difference.**
+
+**P302, the third term of *anekānta*:** *परिवहनस्य उत्तरदायित्वम्* — **the responsibility of
+transport.** **A claim moved from the standpoint that made it true to one that does not is exactly
+what that term makes someone answerable for.**
+
+---
+
+## P318 — what this pass counted
+
+Of 433 claims in this stream of the form *the only …*, 219 name the domain they hold in and 214 do
+not.
+
+Counted over the ground file, *must* occurs three times and two of those are mine — the header
+sentence and my prose around n=8's quotation — so a modal count over that file is a count of his words
+only when scoped to lines beginning with ">".
+
+The file is 116 non-blank lines, 75 of them his and 41 mine: the title, the framing, the entry labels,
+the reissue counts, and the two entries P309 identified as compressions. Its own header says
+*Transcribed 2026-08-19 by cf-tessera*.
+
+And P310's ten hedges were re-counted under that scope and all ten hold, which checking established
+and assuming would not have.
