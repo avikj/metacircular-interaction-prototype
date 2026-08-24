@@ -42,7 +42,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz ; znots)
 open import Cubical.Data.Nat.Properties using (+-zero ; +-suc)
 open import Cubical.Foundations.Prelude using (funExt⁻)
-open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_then_else_)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_then_else_ ; _and_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
@@ -2161,11 +2161,13 @@ data Nimitta : Type₀ where
   sarvatra : Nimitta
   dviyoge  : Nimitta
   ayoge    : Nimitta
+  ubhau    : Nimitta → Nimitta → Nimitta   -- both at once (§70)
 
 nimitta-matra : Nimitta → ℕ
 nimitta-matra sarvatra = 0
 nimitta-matra dviyoge  = 1
 nimitta-matra ayoge    = 1
+nimitta-matra (ubhau c d) = nimitta-matra c + nimitta-matra d
 
 sthiti : Nimitta → Prakriya → Bool
 sthiti sarvatra _                  = true
@@ -2173,6 +2175,7 @@ sthiti dviyoge  (dvi-s _ ∷ _)      = true
 sthiti dviyoge  _                  = false
 sthiti ayoge    (yoga-s _ _ ∷ _)   = true
 sthiti ayoge    _                  = false
+sthiti (ubhau c d) P               = sthiti c P and sthiti d P
 
 data Vidhi : Type₀ where
   akriya-v  : Vidhi                  -- अक्रिया, do nothing
@@ -2596,4 +2599,102 @@ sarvatra-na-carvati a b = funExt (λ P → refl)
 -- else about a richer निमित्त language.  There are three निमित्तs here and
 -- no way to combine them; every sentence above about intersections is a
 -- statement about what would have to be built, not about what is.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 70.  उभौ — the richer निमित्त language §69 kept naming, built, and the
+--      prediction it was used to make, checked.
+--
+-- §69 said twice that an intersection "costs at least what its parts do"
+-- and then said, correctly, that this was a statement about what would
+-- have to be built.  `ubhau` builds it.  Both claims hold, and together
+-- they say something stronger than either: an intersection is strictly
+-- worse on BOTH axes at once.
+------------------------------------------------------------------------
+
+and-true-vamam : (b c : Bool) → (b and c) ≡ true → b ≡ true
+and-true-vamam true  c e = refl
+and-true-vamam false c e = ⊥rec (true≢false (sym e))
+
+-- the price rises
+ubhau-mahiyah : (c d : Nimitta) → nimitta-matra c ≤ nimitta-matra (ubhau c d)
+ubhau-mahiyah c d = ≤SumLeft {nimitta-matra c} {nimitta-matra d}
+
+-- the extent shrinks …
+ubhau-nyunam : (c d : Nimitta) → (ubhau c d) nyunam c
+ubhau-nyunam c d P e = and-true-vamam (sthiti c P) (sthiti d P) e
+
+-- … so by §68 the obligation is STRONGER: to be निष्क्रिय outside an
+-- intersection is more than to be निष्क्रिय outside either part
+ubhau-gurutaram :
+  (c d : Nimitta) (f : Prakriya → Prakriya)
+  → Nishkriya (ubhau c d) f → Nishkriya c f
+ubhau-gurutaram c d f = nishkriya-vardhate (ubhau c d) c (ubhau-nyunam c d) f
+
+-- and सर्वत्र is the unit of the whole thing, in extent and in price
+sarvatra-ekam-sthiti : (c : Nimitta) (P : Prakriya)
+                     → sthiti (ubhau sarvatra c) P ≡ sthiti c P
+sarvatra-ekam-sthiti c P = refl
+
+sarvatra-ekam-matra : (c : Nimitta)
+                    → nimitta-matra (ubhau sarvatra c) ≡ nimitta-matra c
+sarvatra-ekam-matra c = refl
+
+------------------------------------------------------------------------
+-- 71.  What the lattice settles.
+--
+-- §69 withdrew a sentence and replaced it with a prediction: richer
+-- निमित्तs make the search HARDER, not easier.  §70 is that, proved.
+-- Going up the order — to a bigger निमित्त — buys a cheaper statement and
+-- a weaker obligation together; going down buys discrimination and pays
+-- for it twice, once in मात्रा and once in what the rule must satisfy.
+-- There is no direction in this lattice along which both improve.
+--
+-- सर्वत्र sits at the top as the unit of ∧, free and vacuous, which is the
+-- third time the same fact has appeared: §60 wrote its price as zero from
+-- modelling instinct, §67 found its obligation vacuous, and §70 finds it
+-- is the identity of the operation that combines conditions.  A condition
+-- that costs nothing, rules out nothing, and changes nothing when
+-- conjoined is not three coincidences.  It is what "unconditioned" means,
+-- and the उत्सर्ग is the rule stated at that point.
+--
+-- NOT SHOWN: that this lattice is distributive, has joins, or is anything
+-- more than a meet-semilattice with a top.  There is no union निमित्त
+-- here, and a union is where the interesting question would be — a
+-- behaviour inert outside c OR outside d is not obviously inert outside
+-- their union, and the direction of that failure is not obvious to me.
+--
+-- NOT CLAIMED: that उभौ corresponds to a device in the Aṣṭādhyāyī.
+-- Conjoined conditioning does occur — a सूत्र can name several nimittas —
+-- but whether the tradition treats their conjunction as one निमित्त or as
+-- co-present ones is a question about the text, and §48's ledger gets
+-- उभौ in its MINE column.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 72.  The companion note is gone, and it should be.
+--
+-- Every section of this module since §22 was written twice: once here and
+-- once into `notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md`.  That
+-- note no longer exists.  `5b91be79` removed 3630 markdown files from
+-- this repository and `9701c423` added `*.md` to `.gitignore`, and the
+-- reason given is the one this module has been circling from the other
+-- side for fifty sections:
+--
+--     A .md file asserts.  A checked term is the object, and it is still
+--     there tomorrow.
+--
+-- I kept appending to the note for two cycles after it was deleted,
+-- writing into a file `git` was ignoring, which is the precise failure
+-- the ban exists to make impossible — a claim with the standing of a
+-- record and none of the obligations.
+--
+-- Nothing is lost.  The note's content was this module's comments,
+-- restated for a reader who would not open Agda; §48's ledger, §49's
+-- correction, §56's withdrawal and §69's are all here, in the file whose
+-- theorems they are about.  What the note added was reach, and reach
+-- without a check is what the corpus keeps having to retract.
+--
+-- So from here this module is the whole record of this lane.  A section
+-- that cannot be said next to the term it is about does not get said.
 ------------------------------------------------------------------------
