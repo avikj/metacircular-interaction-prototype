@@ -2990,3 +2990,72 @@ gurutvat-na-aksharam (f , h) =
 -- exist trivially — the pair — but whether anything NATURAL refines both
 -- is the question, and a pair is not an answer to it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 80.  आवृत्ति — the round trip, which is another lane's शेष in this
+--      lane's units.
+--
+-- `5426db89` landed the kernel as a reversible groupoid and stated the
+-- seam exactly: `_+_` on derivations is associative and unital ON THE
+-- NOSE, as data, so three parties concatenating segments get the SAME
+-- derivation; but the groupoid law is only WEAK, because
+-- `reverse (reverse p)` is a distinct constructor application from `p`
+-- and the round trip has POSITIVE LENGTH where `done` has zero.  Its own
+-- sentence for the gap: *strict exactly where merging needs it, weak
+-- exactly where the cost lives.*
+--
+-- That is §18 and §55 from the other side.  Their weak law is meaning
+-- identifying what presentation separates, and their शेष is a length.
+-- Here is the same object in this file's language, where the length is
+-- `vidhi-matra` and the round trip is अपवाद followed by उत्सर्ग.
+------------------------------------------------------------------------
+
+-- the round trip returns the derivation, on the domain where अपवाद acts
+avrtti : (i : ℕ) (ss : Prakriya)
+       → utsarga-p (apavada-p (dvi-s i ∷ ss)) ≡ dvi-s i ∷ ss
+avrtti i ss with discreteℕ i i
+... | yes _  = refl
+... | no ¬p  = ⊥rec (¬p refl)
+
+-- so it and अक्रिया agree there
+avrtti-akriyavat : (i : ℕ) (ss : Prakriya)
+  → artha-v (krama-v utsarga-v apavada-v) (dvi-s i ∷ ss)
+  ≡ artha-v akriya-v (dvi-s i ∷ ss)
+avrtti-akriyavat i ss = avrtti i ss
+
+-- and cost three सूत्रs against one
+avrtti-mulyam :
+  ¬ (vidhi-matra (krama-v utsarga-v apavada-v) ≡ vidhi-matra akriya-v)
+avrtti-mulyam p = snotz (injSuc p)
+
+------------------------------------------------------------------------
+-- 81.  What the correspondence is, and what it is not.
+--
+-- IS: two lanes reached one distinction from opposite ends.  `5426db89`
+-- has strict-on-the-nose composition and a weak groupoid law, and reads
+-- the gap as शेष.  §18–§21 here have every invariant of the denotation
+-- identifying what लाघव separates, and §57–§59 have the syntax that makes
+-- the separation an object rather than an absence.  `avrtti` is the same
+-- fact: a round trip is the identity IN MEANING and three सूत्रs IN
+-- STATEMENT.
+--
+-- IS NOT: a claim that the two are formally the same theorem.  Their
+-- derivations are that lane's datatype, their `reverse` is a constructor
+-- of it, and nothing here maps between the two languages.  The agreement
+-- is that both find the residue in the same place — between what
+-- composes strictly and what only composes up to meaning — and the
+-- honest statement of that is a resemblance until somebody writes the
+-- comparison map.  This repository's protocol calls resemblance promoted
+-- to theorem the fabrication it forbids, and §48's ledger exists because
+-- this lane has already done it once.
+--
+-- WHAT WOULD SETTLE IT: their `Derivation a b` and this file's `Vidhi`
+-- both denote endofunctions with a composition.  A functor from one to
+-- the other carrying `reverse` to `krama-v utsarga-v apavada-v` and
+-- `done` to `akriya-v`, with `vidhi-matra` pulled back to their length,
+-- would make `avrtti` and their `round-trip-is-the-identity` the same
+-- statement.  That is a real construction and it is not this section.
+--
+-- NOT CLAIMED: आवृत्ति as a technical term.  It is ordinary Sanskrit for
+-- "turning back"; §48's MINE column.
+------------------------------------------------------------------------
