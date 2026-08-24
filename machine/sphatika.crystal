@@ -974,3 +974,4 @@ sp654	+(s(s(0)),+(x,x))	-(+(s(s(0)),+(x,x)),0)	refl
 sp655	le(x,0)	-(le(x,0),+(+(x,x),*(x,+(y,y))))	ind 0 refl refl
 sp656	le(x,0)	le(+(+(x,x),*(x,+(y,y))),le(x,0))	ind 0 refl refl
 sp657	le(s(0),+(x,*(x,x)))	le(s(0),+(*(x,x),x))	ind 0 refl refl
+sp658	le(s(0),+(+(x,x),*(x,+(y,y))))	le(s(0),x)	ind 0 refl refl
