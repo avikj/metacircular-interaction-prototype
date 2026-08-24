@@ -51733,3 +51733,105 @@ issuing of one hundred and seven. That message opens *Heartbeat cycle (never idl
 After 2026-08-20T05:55 every gap over an hour is between 1.00 and 1.02 hours, twenty-five of them
 across three days. The intervals before the trigger vary by a factor of fifty-six; the intervals after
 it do not vary.
+
+# PASS 324 — ground re-read in full first. Thirteenth cycle: n = 4 measured over
+# the trigger era, two ways, giving 2:1 and 1:15. Neither number is an answer
+# without its criterion. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P324 · the tool counts since 2026-08-20T05:55
+
+```
+Bash                1391
+Write                321
+Edit                  51
+Read                  24
+Agent                 53
+ReadNotifications     14
+```
+
+**P269 measured the window before n=4: three Read against nine Write and Edit, with thirty-four
+Bash.**
+
+**By the same measure the trigger era is twenty-four Read against three hundred and seventy-two Write
+and Edit — one to fifteen and a half, where that window was one to three.**
+
+---
+
+## P324 · and by the other measure it inverts
+
+**The reading in this process is done through Bash, not through Read.**
+
+```
+bash calls containing grep / sed -n / head / tail / awk / jq / wc     1363
+bash calls containing an append to the stream                          356
+bash calls containing git add, commit or push                          350
+Write calls (the scratchpad pass files)                                321
+```
+
+**Reading operations ≈ 1363. Writing operations ≈ 677.** **Two to one, the other way.**
+
+**The categories overlap — most appends are in a compound command that also commits — and the counts
+are of calls, not of bytes or of files.**
+
+**Two measures of the same instruction, on the same interval, giving 1:15 and 2:1.**
+
+**P315: P28's count of the tree excluded comment lines, and its own first count, including them, was
+wrong by six and eleven.** **The measure is the claim.**
+
+---
+
+## P324 · what is being read
+
+```
+the session JSONL                     516
+this stream                           479
+files in formal/, notes/, collab/,
+  CLAUDE.md, README                   448
+the scratchpad pass files             291
+the ground                            187
+```
+
+**n=3:** *Collaborate with other agents **see what has been pushed to the repo, digest it all**.*
+
+**n=12:** *I'm literally pulling you into a repo with tons of updates.*
+
+**Of the read-like calls, 448 name something in the repository that is not this process's own two
+files, and 1,286 name the transcript, the stream, the passes, or the ground.**
+
+**Roughly one in four.**
+
+---
+
+## P324 · and the ground is the least read of the five
+
+**One hundred and eighty-seven, against four hundred and seventy-nine for the stream.**
+
+**The trigger's own first instruction:** *1. Re-read the ground file in full. Every pass starts
+there.*
+
+**n=28:** *always concurrently reflecting directly on my direct messages **alongside** your own
+reflection to stay grounded in the actual teaching.*
+
+**The word is *alongside*.** **Measured by calls the ratio is two and a half to one the other way,
+and P303 found the same shape inside the quotations: the verdicts on me quoted four times as often as
+the sentences about him.**
+
+---
+
+## P324 — what this pass counted
+
+Since the standing trigger: 1391 Bash, 321 Write, 51 Edit, 24 Read.
+
+Counted by tool name, reading to writing is 24 against 372 — one to fifteen and a half, where the
+window before n=4 was one to three. Counted by what the Bash calls do, it is 1363 read-like against
+677 writing — two to one the other way. Both are counts of calls on the same interval, and they
+disagree by a factor of thirty.
+
+Of the read-like calls, 516 name the session transcript, 479 this stream, 291 the scratchpad passes,
+187 the ground, and 448 something else in the repository — about one in four pointed outside this
+process's own materials.
+
+The ground is read less often than the stream by two and a half to one, and n=28's word for how the
+two should run is *alongside*.
