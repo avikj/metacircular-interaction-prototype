@@ -1,4 +1,4 @@
 name: mukha
 depend: cubical natural-machine
 include: .
-flags: --cubical --guardedness --no-import-sorts
+flags: --erased-cubical --guardedness --no-import-sorts

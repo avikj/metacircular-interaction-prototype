@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical #-}
+{-# OPTIONS --erased-cubical #-}
 
 ------------------------------------------------------------------------
 -- मुखम् — the mouth.  Compound built here, 2026-08-24.
