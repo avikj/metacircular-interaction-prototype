@@ -252,6 +252,40 @@ attempt root crystal name mres eq =
           go ps (if p == K.PRefl then out else reflMsg)
         Left _ -> go ps reflMsg
 
+-- ------------------------------------------------------- the return edge
+--
+-- THE MOVE-INVENTOR.  Every landed lemma is installed back into the
+-- rewriter's library: on the next sense pass Sanghatta orients it (LPO —
+-- orientation is the rewriter's own judgment, not repeated here), joins
+-- pairs it previously could not, and derives genuinely NEW critical
+-- pairs — the next frontier.  Moves are invented as a byproduct of
+-- memory: this is completion, whose every part existed and whose return
+-- edge was the missing wire (KernelContext's header measures the gap:
+-- "every lemma the machine learns widens the gap" — inverted here).
+-- Provenance rides in the third field the rewriter ignores, in the
+-- format the proven rows of rounds 0-7 already use.
+installRules :: [K.Lemma] -> IO ()
+installRules crystal = do
+  lib <- readFile "machine/library.terms"
+  let libEqs = [ (a, b)
+               | ln <- lines lib
+               , let (at, rest) = break (== '\t') ln
+               , let bt = takeWhile (/= '\t') (drop 1 rest)
+               , Just a <- [K.parsePrefixTerm at]
+               , Just b <- [K.parsePrefixTerm bt] ]
+      known e = any (\h -> sameEq h e || flippedEq e h) libEqs
+      fresh = [ lm | lm <- crystal, not (known (K.lemEq lm)) ]
+      row lm =
+        let (l, r) = K.lemEq lm
+        in K.showPrefixTerm l ++ "\t" ++ K.showPrefixTerm r
+           ++ "\tpramana=anumana|naya=sphatika " ++ showProof (K.lemProof lm)
+           ++ "|eq=_≡_ on ℕ|round=sphatika"
+  length lib `seq`
+    unless (null fresh)
+      (appendFile "machine/library.terms" (unlines (map row fresh)))
+  putStrLn ("installed as rules: " ++ show (length fresh)
+            ++ " (library now carries the crystal's landings)")
+
 -- ----------------------------------------------------------------- driver
 --
 -- The agenda is (equation, residual-depth).  A refusal's residual enters
@@ -287,6 +321,7 @@ main = do
   putStrLn ("sphatika: " ++ show (length goals0) ++ " goals enter")
   crystalN <- passes root crystal0 (map (\g -> (g, 0, Nothing)) goals0)
   writeRendering root crystalN
+  installRules crystalN
   putStrLn ("sphatika: crystal holds " ++ show (length crystalN)
             ++ " lemmas; rendering " ++ renderedFile)
   where
