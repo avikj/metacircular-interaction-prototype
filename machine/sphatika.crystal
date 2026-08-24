@@ -1288,3 +1288,12 @@ sp741	le(s(0),+(max(s(x),y),*(max(s(x),y),z)))	s(0)	ind 1 refl refl
 sp810	+(*(-(0,x),0),+(*(0,s(*(-(0,x),0))),y))	y	ind 0 refl refl
 sp742	le(s(0),+(s(+(0,x)),*(s(+(0,x)),y)))	s(0)	refl
 sp811	+(*(-(0,x),0),+(*(*(-(0,x),0),s(0)),y))	y	ind 0 refl refl
+sp743	le(s(0),+(s(+(x,0)),*(s(+(x,0)),y)))	s(0)	refl
+sp812	+(max(le(0,0),s(0)),le(0,0))	+(le(0,0),le(0,0))	refl
+sp744	le(s(0),+(s(s(s(0))),*(s(s(s(0))),x)))	s(0)	refl
+sp813	s(le(s(0),x))	max(le(s(0),le(x,0)),s(le(s(0),x)))	ind 0 refl refl
+sp745	le(s(0),+(max(x,s(0)),*(max(x,s(0)),x)))	s(0)	ind 0 refl refl
+sp814	s(le(x,0))	max(le(s(0),+(x,*(x,x))),s(le(x,0)))	ind 0 refl refl
+sp746	le(s(0),+(*(x,0),*(*(x,0),s(*(x,0)))))	0	ind 0 refl ih
+sp815	s(le(x,0))	max(le(s(0),+(x,*(x,y))),s(le(x,0)))	ind 0 refl refl
+sp747	le(s(0),+(s(s(s(x))),*(s(s(s(x))),y)))	s(0)	refl
