@@ -2398,3 +2398,12 @@ import Prastuta.P362
 import Prastuta.P366
 import Prastuta.P367
 import Prastuta.P384
+
+-- प्रस्ताव-सत्य: the AC classifier's semantic claim, judged — acCanon
+-- preserves denotation over every environment (insertion-sort sum and
+-- product invariance, spine flattening, rebuild, Σ-transported
+-- nonemptiness), so the proposer's typed AC-refusals assert only what
+-- the kernel has said.  Closed through the conduit: machine-generated
+-- case skeletons, a refl walk where the kernel corrected the carrier's
+-- predictions clause by clause, mechanical lemma chains judged at each link.
+import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel
