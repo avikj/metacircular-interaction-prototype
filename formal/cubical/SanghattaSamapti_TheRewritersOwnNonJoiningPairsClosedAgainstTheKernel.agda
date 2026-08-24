@@ -12,7 +12,8 @@
 -- machine/sanghatta-report-2026-08-23.txt.  The machine named exactly
 -- what it needs.  This module takes the batch and closes it against the
 -- kernel: each non-joining pair, over the same ℕ signature (s/0, +, ·,
--- monus, le, max; gcd owes a fuel-typed def, a separate close), proved as a theorem.  What the rewriter cannot
+-- monus, le, max; gcd owed a fuel-typed def, PAID 2026-08-24 — the
+-- candidate prelude carries gcdF and the loop lands gcd pairs), proved as a theorem.  What the rewriter cannot
 -- reach because the LPO orientation gives it no induction, the kernel
 -- reaches by induction.  The shopping list, discharged — not enumerated
 -- for, PROVED.
