@@ -52792,3 +52792,121 @@ while the note still refuses the stronger claim about the pinned toolchain.
 And the converse: seven surviving questions became three when the definitions were read to the bottom,
 because charged loop, null loop, proved wall, failed candidate inverse and open route-agreement
 question are five different relations.
+
+# PASS 333 — ground re-read in full first. Thirteenth cycle: be852aeb. The
+# anthology as a transmission mechanism, and what survives of a poet is a name
+# and one verse. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P333 · the commit
+
+> **be852aeb, 2026-08-20 11:20:26 −0700 — 73 lines added to a file whose name ends
+> *…the_gates_with_names_dates_and_court_cases.txt*.**
+
+> *"**A Buddhist monk in eleventh-century Bengal compiled 1,738 secular Sanskrit poems into an
+> anthology and recorded the author's name against most of them, and that is how those poets are known
+> at all.**"*
+
+---
+
+## P333 · the facts, as given
+
+```
+Subhāṣitaratnakoṣa    "treasury of well-turned verse"
+compiler              Vidyākara, a monk at the Jagaddala monastery in Bengal
+date                  around 1100
+manuscript            a palm-leaf in the Nepal collections
+                      — and a second, earlier recension, so the compiler's own two passes are visible
+extent                about 1,738 verses in the larger recension
+arrangement           vrajyās — sections by subject
+the subjects          the seasons · dawn · the village · the ascetic · the lamp · the elephant ·
+                      the young wife · the go-between · the quarrel · the courtesan · the poor man ·
+                      the good man · and the poet who is not paid
+ascription            about half the verses carry one
+```
+
+> *"**And that is the entire surviving trace of many of the named poets — a name and one verse** — and
+> some of them are women, and **Vidyā, Śīlābhaṭṭārikā and Vikaṭanitambā** are the names that recur
+> across the anthologies."*
+
+---
+
+## P333 · Śīlābhaṭṭārikā's verse, as recorded
+
+> *"he is the same man who carried me off, and these are the same nights of the month of Caitra, and
+> the same jasmine scent, and the same wind from the Vindhya hills — and the closing line is that her
+> heart is not the same, and she longs for those riverside hours."*
+>
+> *"**Same everything, and the person changed.**"*
+
+**Seven words of commentary on a verse quoted in full.**
+
+**`CLAUDE.md`:** *"**Surface facts, not claims.** … The human mind builds the story from the facts."*
+
+---
+
+## P333 · the other collections, dated
+
+```
+Saptaśatī of Hāla           Māhārāṣṭrī Prakrit, traditionally seven hundred single verses,
+                            first or second century CE onward; speakers are village women;
+                            subjects adultery, the absent husband, the harvest, the mother-in-law;
+                            compiler given as a Sātavāhana king
+Saduktikarṇāmṛta            Bengal, 1205
+Sūktimuktāvalī              1258
+Śārṅgadhara-paddhati        1363
+Amaru                       a hundred verses; Ānandavardhana quotes him as the example that a single
+                            verse can carry the rasa of a whole work
+```
+
+> *"**A king's anthology of village women's verses, in Prakrit and not Sanskrit.**"*
+
+---
+
+## P333 · what the commit is about
+
+> *"**And the anthology form is what preserved the tradition and it did so by selecting.**"*
+
+**P307, P309: the ground's n=15 is a selection of seventeen blocks from thirty-six, and n=8 is
+eighty-one words for 2,046 lines — both mine, both compressions that kept the assertions and dropped
+the guards.**
+
+**Here the same operation is the reason anything survives at all, and the commit says both halves:
+preservation and selection, in one sentence.**
+
+**Half the verses carry an ascription.** **P302, the third term:** *परिवहनस्य उत्तरदायित्वम्* —
+**answerability for what is carried.** **A compiler who wrote the names down is why the names
+exist.**
+
+---
+
+## P333 · and n = 1
+
+> *"so many who already solved **everything** but no one listened"*
+
+**A name and one verse is what listening leaves behind when it happens.**
+
+**P327: the corpus's README now carries §परिशोधनम्, where corrections are made by addition and the
+strikes quote the struck words — the same choice at the level of a repository.**
+
+---
+
+## P333 — what this pass counted
+
+be852aeb records the *Subhāṣitaratnakoṣa*: Vidyākara, a monk at Jagaddala in Bengal, around 1100; a
+palm-leaf manuscript in Nepal with an earlier recension beside it so both of the compiler's passes are
+visible; about 1,738 verses in vrajyās, the subject list running from the seasons to the poet who is
+not paid; and about half the verses ascribed.
+
+For many of those poets a name and one verse is the whole surviving trace, and some of them are
+women — Vidyā, Śīlābhaṭṭārikā, Vikaṭanitambā.
+
+Śīlābhaṭṭārikā's verse is quoted whole: the same man, the same nights of Caitra, the same jasmine, the
+same wind off the Vindhyas, and her heart is not the same. The commentary is seven words.
+
+Hāla's *Saptaśatī* is dated first or second century CE onward, in Māhārāṣṭrī Prakrit, its speakers
+village women, its compiler given as a Sātavāhana king; the later Sanskrit collections are dated 1205,
+1258 and 1363.
+
+And the sentence the commit turns on: the anthology form preserved the tradition and did so by
+selecting.
