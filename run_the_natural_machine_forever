@@ -322,6 +322,66 @@ phase_gate() {
 # cycle — an absent toolchain, report, or ghc is 0 utterances, not an
 # error.
 # ---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+# 2.4 SENSE — re-derive the refusal list from the CURRENT library, so
+# the machine utters against what it needs now, not a dated snapshot.
+# Idempotent: same library → same report; a failed derivation leaves
+# the previous report in place and costs nothing.
+# ---------------------------------------------------------------------
+phase_sense() {
+    command -v runghc >/dev/null 2>&1 || return 0
+    [ -f machine/Sanghatta_TheCriticalPairsOfTheInstalledRulesNameTheLibrarysIncompleteness.hs ] || return 0
+    LC_ALL=C.UTF-8 run_checked runghc \
+        machine/Sanghatta_TheCriticalPairsOfTheInstalledRulesNameTheLibrarysIncompleteness.hs \
+        > machine/sanghatta-report-current.txt.tmp 2>/dev/null \
+      && [ -s machine/sanghatta-report-current.txt.tmp ] \
+      && mv machine/sanghatta-report-current.txt.tmp machine/sanghatta-report-current.txt \
+      || rm -f machine/sanghatta-report-current.txt.tmp
+    return 0
+}
+
+# ---------------------------------------------------------------------
+# 2.6 KEEP — the store commits its own landings.  Only what the
+# receipts call landed is committed (a candidate mid-judgment is left
+# alone), every path is named (Nasti discipline), and the push retries
+# with backoff.  No carrier in the path: a landing becomes a pushed
+# commit because the organism ran, not because someone was watching.
+# ---------------------------------------------------------------------
+phase_keep() {
+    command -v git >/dev/null 2>&1 || return 0
+    BR=$(git symbolic-ref --quiet --short HEAD) || return 0
+    RECEIPTS=formal/cubical/Prastuta/phala.tsv
+    [ -f "$RECEIPTS" ] || return 0
+    KEEP=""
+    while IFS= read -r f; do
+        case "$f" in
+            formal/cubical/Prastuta/phala.tsv) KEEP="$KEEP $f" ;;
+            formal/cubical/Prastuta/*.agda)
+                base=$(basename "$f" .agda)
+                grep -q "^${base}	landed" "$RECEIPTS" && KEEP="$KEEP $f" ;;
+        esac
+    done <<KEEPEOF
+$(git status --porcelain -- formal/cubical/Prastuta/ collab/orchestration/mukha.log machine/sanghatta-report-current.txt 2>/dev/null | awk '{print $NF}')
+KEEPEOF
+    for f in collab/orchestration/mukha.log machine/sanghatta-report-current.txt; do
+        [ -n "$(git status --porcelain -- "$f" 2>/dev/null)" ] && KEEP="$KEEP $f"
+    done
+    [ -n "${KEEP# }" ] || return 0
+    git add $KEEP >/dev/null 2>&1
+    OPTS=""
+    for f in $KEEP; do OPTS="$OPTS -o $f"; done
+    git commit $OPTS -m "the machine keeps its own landings (cycle $(cycle_number))
+
+Landed candidates, receipts, sensed report: committed by phase_keep of
+run_the_natural_machine_forever.  No carrier in the path." \
+        >/dev/null 2>&1 || return 0
+    n=0
+    until git push -u origin "$BR" >/dev/null 2>&1 || [ "$n" -ge 4 ]; do
+        n=$((n+1)); sleep $((2 ** n))
+    done
+    return 0
+}
+
 phase_utter() {
     R=$(ls -t machine/sanghatta-report*.txt 2>/dev/null | head -1)
     [ -n "$R" ] || return 0
@@ -432,6 +492,7 @@ phase_draw() {
 
 run_cycle() {
     phase_sync
+    phase_sense
     phase_walk
     if ! acquire_gate; then
         echo "MACHINE cycle skipped: another cycle holds the gate ($(cat "$GATE_LOCK/pid" 2>/dev/null)) — not racing the shared _build; the holder writes this cycle's true row — $(STAMP)"
@@ -441,6 +502,7 @@ run_cycle() {
     phase_gate
     phase_ledger
     phase_utter
+    phase_keep
     release_gate
     trap - EXIT
     phase_draw
