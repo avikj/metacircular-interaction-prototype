@@ -251,3 +251,8 @@ s(0)	le(s(0),max(s(x),y))	pramana=kernel|naya=sanghatta-purana|shape=induction|c
 0	le(+(x,max(x,s(0))),0)	pramana=kernel|naya=sanghatta-purana|shape=induction|calls=4
 x	+(*(x,0),x)	pramana=kernel|naya=sanghatta-purana|shape=solver:|calls=2
 x	+(*(0,0),x)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+x	+(x,*(0,0))	pramana=kernel|naya=sanghatta-purana|shape=solver:|calls=2
+s(x)	+(x,le(0,0))	pramana=kernel|naya=sanghatta-purana|shape=induction|calls=6
+x	+(*(s(0),0),x)	pramana=kernel|naya=sanghatta-purana|shape=refl|calls=1
+0	-(le(x,0),s(0))	pramana=kernel|naya=sanghatta-purana|shape=induction|calls=4
+s(x)	+(s(x),*(x,0))	pramana=kernel|naya=sanghatta-purana|shape=induction|calls=6
