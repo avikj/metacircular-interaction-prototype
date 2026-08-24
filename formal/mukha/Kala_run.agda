@@ -1,5 +1,5 @@
 {-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
--- the one substance through its samayas: driven by ALL its organs.
+-- the jiva through its samayas, at three degrees of restraint.
 module Kala_run where
 open import Agda.Primitive using () renaming (Set to Type)
 open import Agda.Builtin.IO using (IO)
@@ -9,7 +9,7 @@ open import Agda.Builtin.Nat using (Nat ; zero ; suc)
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import AgamaKanda_TheEldersStoreOnTheActSide using (आगमः)
 open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
-  using (नियमः ; दृक् ; _++_)
+  using (नियमः)
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled using (Eq')
 open import Vartana_TheWholeOrganismIsDataOneSamayaStepAssistsAndEveryReflexIsAModeNotAPrimitive
 
@@ -25,17 +25,21 @@ _⊹_ = primStringAppend
 गुरुता []       = zero
 गुरुता (_ ∷ ns) = suc (गुरुता ns)
 
-रेखा : Nat → शरीरम् → String
-रेखा n b = "  samaya " ⊹ primShowNat n
-         ⊹ ": rules " ⊹ primShowNat (गुरुता (श्रुतम् b))
-         ⊹ ", open goals " ⊹ primShowNat (गुरुता (लक्ष्याः b))
-         ⊹ ", organs in force " ⊹ primShowNat (गुरुता (अङ्ग-जनकः b (श्रुतम् b)))
+रेखा : Nat → जीवः → String
+रेखा n j = "  samaya " ⊹ primShowNat n
+         ⊹ ": shed " ⊹ primShowNat (गुरुता (निर्जीर्णम् j))
+         ⊹ ", bound veils " ⊹ primShowNat (गुरुता (आवरणम् j))
 
-पथः : Nat → Nat → शरीरम् → String
-पथः tick zero    b = रेखा tick b
-पथः tick (suc k) b = रेखा tick b ⊹ "\n" ⊹ पथः (suc tick) k (वर्तना b)
+पथः : Nat → Nat → जीवः → String
+पथः tick zero    j = रेखा tick j
+पथः tick (suc k) j = रेखा tick j ⊹ "\n" ⊹ पथः (suc tick) k (वर्तना j)
 
 main : IO ⊤
 main = putStrLn
-  (  "one substance, all organs driving, questions from naya-disagreement, organs begetting organs:\n"
-   ⊹ पथः 0 4 (आदि-शरीरम् आगमः) )
+  (  "the jiva: yoga -> samvara -> gupti -> bandha -> tapas -> nirjara, one samaya:\n"
+   ⊹ "gupti 0 (full restraint, only the received veils):\n"
+   ⊹ पथः 0 3 (आदि-जीवः 0 आगमः)
+   ⊹ "\ngupti 12:\n"
+   ⊹ पथः 0 3 (आदि-जीवः 12 आगमः)
+   ⊹ "\ngupti 60:\n"
+   ⊹ पथः 0 3 (आदि-जीवः 60 आगमः) )
