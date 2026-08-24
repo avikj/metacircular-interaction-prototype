@@ -846,3 +846,40 @@ above rewires them to `Vidhi`, so the licences remain measures on
 derivations with a rule-syntax sitting beside them, unconnected. The
 connection is `artha-v`, and using it is the next thing rather than a
 claim this section makes.
+
+## 21. सङ्क्षेप — the transaction, checked
+
+§60–§61. §18 claimed the exception is worth its cost because the general
+rule stays simple to state; §19 and §20 both said checking that needs a
+विधि that **carves** the exception into the general rule. `yadi` is that
+form, and the comparison is now available.
+
+The economy is not subtle once both forms exist, and it is the actual
+Pāṇinian one. **An apavāda's domain is given by its own statement** — it
+fires where its own shape matches and is inert elsewhere, so nothing extra
+is written. A carved rule must state the domain separately, as a निमित्त,
+and then state both branches.
+
+> `sankshepa` — the carved rule and the apavāda **do the same thing**.
+> `laghutaram` — the apavāda **says it in a quarter of the statement**
+> (1 mātrā against 4).
+
+So §17's finding and §18's claim are both true and are about **different
+objects**, which is why they looked like a tension:
+
+**apavāda costs mātrā at the derivation, and saves mātrā in the grammar.**
+The grammarians pay the first to get the second, and lāghava — economy of
+the सूत्रपाठ — is the name of the second only.
+
+**Still not shown, and not small.** `laghutaram` compares one pair of
+विधिs, and 1 against 4 is a fact about two terms, not a law about
+grammars. A law would say: *for every carved rule there is an apavāda form
+no longer than it* — which needs a translation between the two shapes and
+an induction, and neither is here. §21 is the smallest instance on which
+the claim is even statable, which was §20's own description of itself, one
+level further along.
+
+**Not claimed**: that `nimitta-matra dviyoge = 1` is what stating that
+condition costs in the *Aṣṭādhyāyī*. Nothing rests on the number. What
+rests on the model is that a carved rule states a condition and an apavāda
+does not — and that asymmetry is the source's, not mine.

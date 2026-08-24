@@ -42,7 +42,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz ; znots)
 open import Cubical.Data.Nat.Properties using (+-zero ; +-suc)
 open import Cubical.Foundations.Prelude using (funExt⁻)
-open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_then_else_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
@@ -2155,11 +2155,31 @@ sarvam-kramasya-samam g = refl
 -- present at once, which they have never been.
 ------------------------------------------------------------------------
 
+-- निमित्त: the conditioning cause a rule states.  An unconditioned rule
+-- states none, so it costs nothing to say; a conditioned one names it.
+data Nimitta : Type₀ where
+  sarvatra : Nimitta
+  dviyoge  : Nimitta
+  ayoge    : Nimitta
+
+nimitta-matra : Nimitta → ℕ
+nimitta-matra sarvatra = 0
+nimitta-matra dviyoge  = 1
+nimitta-matra ayoge    = 1
+
+sthiti : Nimitta → Prakriya → Bool
+sthiti sarvatra _                  = true
+sthiti dviyoge  (dvi-s _ ∷ _)      = true
+sthiti dviyoge  _                  = false
+sthiti ayoge    (yoga-s _ _ ∷ _)   = true
+sthiti ayoge    _                  = false
+
 data Vidhi : Type₀ where
   akriya-v  : Vidhi                  -- अक्रिया, do nothing
   apavada-v : Vidhi                  -- dvi-s i  ↦  yoga-s i i
   utsarga-v : Vidhi                  -- yoga-s i i  ↦  dvi-s i
   krama-v   : Vidhi → Vidhi → Vidhi  -- one, then the other
+  yadi      : Nimitta → Vidhi → Vidhi → Vidhi   -- the CARVED rule (§60)
 
 -- what it costs to STATE.  This is the सूत्रपाठ side and it is the thing
 -- §22–§54 had no access to.
@@ -2168,6 +2188,7 @@ vidhi-matra akriya-v      = 1
 vidhi-matra apavada-v     = 1
 vidhi-matra utsarga-v     = 1
 vidhi-matra (krama-v a b) = suc (vidhi-matra a + vidhi-matra b)
+vidhi-matra (yadi c a b)  = suc (nimitta-matra c + vidhi-matra a + vidhi-matra b)
 
 -- what it DOES.  `Anujna`'s function, recovered as a denotation.
 artha-v : Vidhi → (Prakriya → Prakriya)
@@ -2175,6 +2196,7 @@ artha-v akriya-v      = λ P → P
 artha-v apavada-v     = apavada-p
 artha-v utsarga-v     = utsarga-p
 artha-v (krama-v a b) = λ P → artha-v a (artha-v b P)
+artha-v (yadi c a b)  = λ P → if sthiti c P then artha-v a P else artha-v b P
 
 ------------------------------------------------------------------------
 -- 58.  §18's separation, with both sides present for the first time.
@@ -2229,4 +2251,68 @@ vidhi-matra-na-arthasya (f , h) =
 -- derivations with a rule-syntax sitting beside them, unconnected.  The
 -- connection is `artha-v`, and using it is the next thing rather than a
 -- claim this section makes.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 60.  सङ्क्षेप — the transaction §54 claimed and §59 owed.
+--
+-- §54: the exception is worth its cost because the general rule stays
+-- simple to state.  §56 and §59 both said checking that needs a विधि that
+-- CARVES the exception into the general rule.  `yadi` is that form, and
+-- the comparison is now available.
+--
+-- The economy is not subtle once both forms exist, and it is the actual
+-- Pāṇinian one.  An अपवाद's DOMAIN IS GIVEN BY ITS OWN STATEMENT — it
+-- fires where its own shape matches and is inert elsewhere, so nothing
+-- extra is written.  A carved rule must state the domain separately, as
+-- a निमित्त, and then state both branches.  Same behaviour, four times
+-- the statement.
+------------------------------------------------------------------------
+
+sthanika : (P : Prakriya)
+  → artha-v (yadi dviyoge apavada-v akriya-v) P ≡ artha-v apavada-v P
+sthanika []                    = refl
+sthanika (cara-s ∷ ss)         = refl
+sthanika (mita-s m ∷ ss)       = refl
+sthanika (yoga-s i j ∷ ss)     = refl
+sthanika (dvi-s i ∷ ss)        = refl
+sthanika (pratyahara-s k ∷ ss) = refl
+
+-- one behaviour
+sankshepa : artha-v (yadi dviyoge apavada-v akriya-v) ≡ artha-v apavada-v
+sankshepa = funExt sthanika
+
+-- and the अपवाद states it in a quarter of the मात्रा
+laghutaram : vidhi-matra apavada-v < vidhi-matra (yadi dviyoge apavada-v akriya-v)
+laghutaram = 2 , refl
+
+------------------------------------------------------------------------
+-- 61.  What closes here.
+--
+-- The arc that began at §22 asked for a measure on presentations stable
+-- under the root moves.  It went through four corrections — the wrong
+-- lane, the wrong hook, the wrong unit, the wrong object — and what it
+-- ends with is the source's own argument, checked:
+--
+--     `sankshepa`  : the carved rule and the अपवाद do the same thing
+--     `laghutaram` : the अपवाद says it in a quarter of the statement
+--
+-- So §50's finding and §54's claim are both true and are about different
+-- objects, which is why they looked like a tension.  अपवाद costs मात्रा
+-- AT THE DERIVATION (§50) and saves मात्रा IN THE GRAMMAR (§60).  The
+-- grammarians pay the first to get the second, and लाघव — economy of the
+-- सूत्रपाठ — is the name of the second only.
+--
+-- WHAT IS STILL NOT SHOWN, and it is not small.  `laghutaram` compares
+-- one pair of विधिs, and 1 against 4 is a fact about two terms, not a law
+-- about grammars.  A law would say: for every carved rule there is an
+-- अपवाद form no longer than it, which needs a translation between the two
+-- shapes and an induction, and neither is here.  §60 is the smallest
+-- instance on which the claim is even statable — which was §59's own
+-- description of §57, one level further along.
+--
+-- NOT CLAIMED: that `nimitta-matra dviyoge = 1` is what stating that
+-- condition costs in the Aṣṭādhyāyī.  Nothing rests on the number; what
+-- rests on the model is that a carved rule states a condition and an
+-- अपवाद does not, and that asymmetry is the source's, not mine.
 ------------------------------------------------------------------------
