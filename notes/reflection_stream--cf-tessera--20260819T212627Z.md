@@ -47473,3 +47473,166 @@ transmission three days seventeen hours later, in English and numbered.
 
 And T14.37/C14.38 state reduction without reconstruction: a cheap observable law over an expensive
 dynamics, with neither settling the other.
+
+# PASS 289 — ground re-read in full first. Tenth cycle: Delta 14, second half.
+# Five named failure modes, a pre-registered kill condition, and a prohibition on
+# enlarging the ontology. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P289 · the tag vocabulary, completed
+
+**P288 listed four.** **There are seven:**
+
+```
+T        theorem
+C        corollary
+P        proposition that refutes a tempting inference
+D        definition
+Known    prior art, marked as such
+Bound    an inequality with its mechanism named (Bound 14.43: Pinsker-type)
+Program  an item of work, numbered
+```
+
+**Every claim in the document declares what kind of claim it is before it is read.**
+
+---
+
+## P289 · section N — five failure modes, named
+
+```
+P14.66   false-equivalence     Similar invariants do not imply equivalence.
+P14.67   false-quotient        Many-to-one observation does not imply the erased structure is
+                               irrelevant to future contexts.
+P14.68   false-obstruction     Nontrivial fiber cardinality does not imply cohomological obstruction.
+P14.69   false-naturality      A theorem in one conditioned ensemble need not transport to another
+                               without an explicit relation preserving hypotheses.
+P14.70   false-truncation      Proposition-valued equality can erase path multiplicity relevant to
+                               later composition.
+```
+
+**Five *does not imply*s, given names, numbered, in the same sequence as the theorems.**
+
+**P288: four more of the same kind earlier in the document. Nine in all.**
+
+---
+
+## P289 · P14.56 — what to do when two results collide
+
+> *"**P14.56.** From Γ₁⊢P and Γ₂⊢¬P one cannot infer contradiction until the judgments are compared
+> in a common compatible context.
+> **C14.57. Perspective contradiction should trigger context comparison, not averaging.**"*
+
+**`CLAUDE.md`:** *"**Hold every view, grasp none.** When two results collide, that collision specifies
+a missing distinction — it is the most valuable object you can find, not a failure to resolve."*
+**And:** *"This repository is built out of charts that disagree at their overlaps and has been
+treating that as a defect to resolve. It is nayavāda."*
+
+**P14.56 is that, as an inference rule, on 2026-08-14.**
+
+---
+
+## P289 · P14.48 — a limit of the substrate, stated by him
+
+> *"**P14.48.** Identity paths are reversible; genuinely irreversible reduction cannot be faithfully
+> represented by identity types alone.
+> **C14.49.** Groupoid completion of a directed process can erase causal distinction by formally
+> adjoining inverses.
+> **C14.50.** Computation, sieve stopping, evolution and causal process **require directed higher
+> structure in addition to univalent identity**."*
+
+**The document that says *you must write this into the natural machine core* also says the core's
+type theory is not sufficient for three of the things the corpus works on.**
+
+---
+
+## P289 · Program 14.76 — a kill condition, pre-registered
+
+> *"**Program 14.76.** Search for actual loop transport on those fibers; **if every loop acts
+> trivially, kill the parity-monodromy route**."*
+
+**P270, 2026-08-14T04:37:35Z:** *`notes/CHARGE_TOWER_MONODROMY.md` (440 lines, the Program 14.76
+verdict note) … **I haven't read either.***
+
+**The condition for abandoning the route was written before the search, by him, inside the program
+that commissions it.**
+
+**`CLAUDE.md`:** *"Prior art gets searched **before** the experiment"* **and** *"a pattern over n
+instances is a pattern over n instances until something downstream of it is computed."*
+
+---
+
+## P289 · Program 14.78 and Delta 13's target D are the same item
+
+```
+Delta 13, target D    demonstrate on a finite model that an invariant proved in A becomes executable
+                      in B by transport rather than reproving it
+Program 14.78         Search for the first nontrivial theorem that transports computationally across
+                      a proved representation equivalence rather than being reproved
+```
+
+**Stated twice, three minutes twenty-four seconds apart, in two documents.**
+
+**P287: what its status is, the record I have does not say.**
+
+---
+
+## P289 · section P — the Sanskrit compression, six couplets
+
+```
+दृष्टिः रूपं प्रकाशयति, न वस्तुं निर्माति।
+   A perspective reveals form; it need not create the underlying object.
+समता प्रमाणेन; साम्येन न।
+   Equivalence by proof, not resemblance.
+समतायां परिवहनम्।
+   Under equivalence: transport.
+असमतायां तन्तुच्छेदं पश्य।
+   When equivalence fails, inspect the torn thread.
+तन्तुच्छेद एव सीमा, शर्त, आवरण, दिशा, अथवा उच्चतरसम्बन्धस्य संकेतः।
+   The tear may signal boundary, condition, covering, direction, or higher relation.
+अतः विरोधो न विफलता; स नूतननिर्देशाङ्कः।
+   Contradiction is not failure; it is a new coordinate.
+```
+
+***Contradiction is not failure; it is a new coordinate.***
+
+**P288: the whole document's corollaries are *not merely* and *need not*.** **The last line of its
+Sanskrit says what all of them are for.**
+
+---
+
+## P289 · section Q — do not enlarge the ontology
+
+> *"**The next pass should not enlarge ontology.** It should generate exact lemmas in four existing
+> mature languages: 1. Cubical/univalent transport … 2. Logical relations/parametricity …
+> 3. Directed/guarded type theory … 4. Homotopy fibers/transport …
+> **The criterion for promotion is executable comparison, not conceptual resemblance.**"*
+
+**P276: n=21, five days later — *there is no higher framing*. P277: n=12, two days earlier — *not
+create new frameworks*.**
+
+**Three statements of one prohibition, and the middle one is inside the document that says *you must
+write this into the natural machine core*.**
+
+---
+
+## P289 — what this pass counted
+
+Delta 14 uses seven tags — T, C, P, D, Known, Bound, Program — so that every claim declares its kind.
+
+It contains nine propositions whose only content is a refuted inference, five of them named as
+failure modes: false-equivalence, false-quotient, false-obstruction, false-naturality,
+false-truncation.
+
+P14.56 gives the rule for colliding results — compare contexts, do not average — which CLAUDE.md
+states four days later as the most valuable object being the missing distinction.
+
+P14.48–C14.50 say identity types alone cannot carry irreversible reduction, in the same document that
+says to write it into the core.
+
+Program 14.76 pre-registers its own kill condition. Program 14.78 restates Delta 13's target D three
+minutes twenty-four seconds later.
+
+Its Sanskrit compression ends *contradiction is not failure; it is a new coordinate*, and its last
+section forbids enlarging the ontology — the middle of three statements of that prohibition, between
+*not create new frameworks* on 08-12 and *there is no higher framing* on 08-19.
