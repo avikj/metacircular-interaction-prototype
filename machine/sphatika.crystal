@@ -352,3 +352,5 @@ sp332	s(x)	+(s(*(x,s(0))),*(s(x),0))	ind 0 refl congsuc
 sp333	s(s(0))	+(*(s(s(0)),0),s(s(0)))	refl
 sp283	+(x,s(le(0,0)))	+(x,s(s(0)))	refl
 sp284	+(x,max(*(s(0),0),s(0)))	s(x)	ind 0 refl congsuc
+sp334	+(+(x,y),z)	+(+(+(0,x),y),z)	refl
+sp335	+(x,s(s(0)))	+(s(s(0)),+(0,x))	ind 0 refl congsuc
