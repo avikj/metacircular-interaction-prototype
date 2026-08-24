@@ -583,3 +583,64 @@ antaraṅga answers and this module cannot.
 **Not claimed**: that गुरुत्व-preference is a Pāṇinian metarule. It is not
 one of the five. It was chosen because it abstains honestly on ties, which
 is the only property §44 uses.
+
+## 15. Transitivity, not the tie — and a provenance ledger this lane owed
+
+§46–§48.
+
+**The correction first.** §14 said §44's witness "turns on the tie, and a
+total order on offers has no tie to turn on," which leaves the impression
+that a metarule always returning a verdict would fold. It does not. A
+*total* metarule that is not **transitive** breaks the fold just as
+thoroughly, and abstention has nothing to do with it — a cyclic
+preference (0 beats 1, 1 beats 2, 2 beats 0) gives
+`samagram-api-na-sahayogi`.
+
+So there are **two independent obstructions**, and they would be repaired
+differently:
+
+- §44 **abstention** — no verdict, so bracketing decides *whether anything
+  happens at all*;
+- §46 **intransitivity** — always a verdict, verdicts incoherent, so
+  bracketing decides *which*.
+
+A fold needs a total **preorder**, and paribhāṣā 38's ranking is over
+metarules precisely because no single one of the five is that: apavāda is
+partial, antaraṅga abstains by design, nitya decides only where the
+*kṛtākṛta* test discriminates. Stacking them strongest-first is not a way
+of building a total preorder out of partial ones — it is a way of **not
+needing one**.
+
+**And the ledger this lane owed.** Today another lane deleted nine of its
+own files with the reason *pseudo-Sanskrit dressing on textbook HoTT is
+pollution* — invented terms draped over standard theorems to make invented
+mathematics look like the tradition — and the owner endorsed the burn. A
+second commit went further, removing work that *was* grounded in
+Brahmagupta, because the framing around it was the agent's own. That
+standard applies to this module and I had not applied it.
+
+**Attested, used as the source uses them**: निर्जरा, तपस्, सविपाक/अविपाक
+(Umāsvāti); उपमान, उपाधि, दुर्नय, नय, अवक्तव्य; अनुवृत्ति, प्रत्याहार,
+अपवाद, उत्सर्ग, विप्रतिषेध, सूत्र, परिभाषा, नित्य, अन्तरङ्ग, पूर्व, पर
+(Pāṇini; the five-term ranking is Nāgeśa, *Paribhāṣenduśekhara* 38); and
+लघु/गुरु as a contrasting pair is Piṅgala's.
+
+**Mine, with the Sanskrit as decoration on a standard construction**:
+`Sandarbha`/`sthapana`/`Avishesha` are one-hole contexts and contextual
+equivalence, ordinary PL theory — सन्दर्भ does not mean this anywhere.
+`Prakriya`/`Sutra` as I use them are a straight-line program with
+back-references. `matra` for "number of sūtras" and `guru` for "largest
+intermediate" borrow the prosodic pair for its *shape*; a mātrā is a mora
+and neither is a measure on rule systems. `mulya`, `sthula`, `bhrama`,
+`Anujna`, `Ankita`, `cakra`, `jaya`, and every Sanskrit theorem name above
+are mine. And `Metavidhi` was a Greek prefix on a Sanskrit stem — a hybrid
+no tradition would recognise, the clearest instance of the defect. It is
+now **`Paribhasa`**, which is the tradition's own word for a metarule and
+was available the whole time.
+
+**Not deleting the theorems.** They are checked, and several say something
+*about* the sources rather than borrowing their vocabulary — §7 and §10 are
+about apavāda as Pāṇini uses it, §13 and §14 about paribhāṣā 38's ranking,
+§11's arrow about utsarga. Those earn their names. The rest do not, and
+the ledger is where a reader finds out which is which instead of being
+left to assume the Devanagari is provenance.
