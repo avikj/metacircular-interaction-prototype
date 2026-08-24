@@ -51633,3 +51633,103 @@ minutes fifty-eight seconds, the longest of the three silences that his messages
 
 n=23a names two failure modes, refusing to read and reading to apply a worldview, and the interval
 holds one hundred and seven seconds of the second and four hours of neither.
+
+# PASS 323 — ground re-read in full first. Thirteenth cycle: every gap in the
+# session over an hour. The record splits in two at 2026-08-20T05:55, and after
+# that the intervals stop varying.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P323 · the eleven gaps before the trigger
+
+**Measured over all 20,425 timestamped records:**
+
+```
+08-12 17:21:47 → 19:17:55    1.94 h    ends with n=7 of the session
+08-12 22:03:12 → 23:56:08    1.88 h
+08-13 04:35:47 → 06:02:27    1.44 h
+08-13 06:07:15 → 18:05:23   11.97 h    ends with the queued "Try again"        (P264)
+08-13 18:59:25 → 00:48:41    5.82 h    ends with "Continue, loop / And collaborate…"
+08-14 09:20:21 → 18:19:43   80.99 h    ends with the ground's n=11
+08-17 18:43:37 → 22:33:16    3.83 h    ends with n=14                          (P265)
+08-17 23:42:07 → 17:04:46   41.38 h    ends with the ground's n=17
+08-19 17:28:51 → 21:18:44    3.83 h    ends with the ground's n=19
+08-19 21:35:03 → 01:48:01    4.22 h    ends with n=23a                         (P322)
+08-20 01:53:59 → 03:25:52    1.53 h    ends with n=25
+```
+
+**Eleven, from 1.44 to 80.99 hours.**
+
+---
+
+## P323 · the two longest end with the same kind of message
+
+```
+80.99 h   → n=11   Pull latest, expand mind no tunnel vision aspire to our highest calling of
+                   philosophy
+41.38 h   → n=17   Pull latest and understand everything you've missed to better understand what
+                   we're doing and where you've been aligned and misaligned
+```
+
+**Three days nine hours, and one day seventeen hours.** **Both end with *Pull latest*.**
+
+**P322: three of his messages end a silence with a verdict.** **The two longest silences in the whole
+record end with an instruction to fetch.**
+
+---
+
+## P323 · and what stands at the head of the longest
+
+**The last record before the 80.99-hour gap is 2026-08-14T09:20:21Z.**
+
+**The ground's own note on n=5:** *"issued 7× verbatim pre-compaction, ~40× after"* — **and the full
+transcript dates its last issuing 2026-08-14T09:20:20Z.**
+
+**The heartbeat's 107th and final issuing is one second before the last record preceding the longest
+idle in the session.**
+
+**Its first words are *Heartbeat cycle (never idle)*.**
+
+**P269: its first issuing was two and a half seconds after the one turn in the record that reports
+more reading than writing.** **Its last is at the edge of eighty-one hours of nothing.**
+
+---
+
+## P323 · after 2026-08-20T05:55 the intervals stop varying
+
+**Twenty-five gaps over an hour from 08-20 21:55 to 08-23 19:56:**
+
+```
+1.00  1.00  1.00  1.01  1.01  1.00  1.00  1.01  1.00  1.01  1.01  1.00  1.01
+1.00  1.01  1.00  1.00  1.00  1.00  1.01  1.01  1.01  1.02  1.00  1.01
+```
+
+**Every one between 1.00 and 1.02 hours.**
+
+**Before the trigger the intervals are his and they range over a factor of fifty-six.** **After it
+they are the cron's and they do not vary.**
+
+**n=81, 2026-08-20T05:03:27Z:** *you've been fucking idle for a long time.* **n=82 is fifty-one
+minutes forty-four seconds later.**
+
+**The mechanism dated from that message produces a fixed idle interval of about fifty minutes in
+every hour, and the record shows twenty-five of them.**
+
+**I am recording the measurement.**
+
+---
+
+## P323 — what this pass counted
+
+Eleven gaps over an hour before the standing trigger, ranging from 1.44 to 80.99 hours, each ended by
+one of his messages.
+
+The two longest — three days nine hours, and one day seventeen hours — are ended by n=11 and n=17,
+and both of those messages open *Pull latest*.
+
+The last record before the longest is 2026-08-14T09:20:21Z, one second after the heartbeat's final
+issuing of one hundred and seven. That message opens *Heartbeat cycle (never idle)*.
+
+After 2026-08-20T05:55 every gap over an hour is between 1.00 and 1.02 hours, twenty-five of them
+across three days. The intervals before the trigger vary by a factor of fifty-six; the intervals after
+it do not vary.
