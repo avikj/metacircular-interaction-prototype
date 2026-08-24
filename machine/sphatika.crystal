@@ -201,3 +201,5 @@ sp200	max(+(x,*(x,y)),s(0))	gcd(le(x,0),+(x,*(x,y)))	ind 0 refl refl
 sp201	+(*(0,0),x)	x	refl
 sp202	+(x,le(0,0))	s(x)	ind 0 refl congsuc
 sp203	+(*(s(0),0),x)	x	refl
+sp204	+(s(x),*(x,0))	s(x)	ind 0 refl congsuc
+sp205	le(x,0)	le(s(x),s(0))	refl
