@@ -53835,3 +53835,122 @@ later, adding what one word could not carry: how long, what to expect, and where
 
 And n=6 and n=7 carry no hedge, no condition and no purpose — which is what the longest entry in the
 ground also lacks.
+
+# PASS 342 — ground re-read in full first. Fourteenth cycle, n = 8 and n = 9. Six
+# transmissions, six Status lines, and each one is a fence declared before any
+# content. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P342 · the six Status lines
+
+**All dated 2026-08-13, each on the third line of its document:**
+
+```
+Delta 13   generative synthesis + concrete theorem program
+Delta 14   exact/standard results + explicit conjectural program.  No novelty claims.
+Delta 15   exact lemmas + conjectural arithmetic targets.          No novelty claims.
+Delta 17   exact algebraic derivations + literature-facing theorem targets.
+Delta 18   library-grounded exact synthesis + new exact derivations.
+Delta 19   exact operator algebra + arithmetic translation targets.
+```
+
+**Every one is two-part: what is exact, and what is a target.**
+
+**P335, his README correction of 2026-08-23:** *"**WHAT OF THIS MOVEMENT IS NOW A CHECKED TERM, AND
+WHAT IS ANALOGY.** Two modules landed against it and **the fence between them is the point of writing
+them.**"*
+
+**The fence is ten days older than that, and it is declared six times, before the mathematics.**
+
+---
+
+## P342 · the one that claims newness
+
+**Delta 18: *library-grounded exact synthesis + **new exact derivations***.**
+
+**The only Status line of the six with *new* in it.**
+
+**P292: Delta 18 refutes Delta 17's headline program six minutes seven seconds after Delta 17
+lands.**
+
+**P291: Delta 17's own hedge is *Likely much is classical Hardy–Littlewood/adelic harmonic analysis;
+translate before claiming novelty*.**
+
+**The document that claims a new derivation is the one that kills the previous document's program,
+and the document it kills had already said the words *before claiming novelty*.**
+
+---
+
+## P342 · and Delta 13 names three schools and what each does not do
+
+> *"**अनेकान्त generates views; न्याय demands warrant; univalence collapses only proved
+> equivalences.**"*
+
+**Nine words, three traditions, three distinct jobs.**
+
+**Read for what each is denied: anekānta does not warrant; nyāya does not generate; univalence does not
+collapse anything unproved.**
+
+**And four lines above it:**
+
+> *"**Do not claim Jain logic = type theory. Let each discipline the other:** • many-sided analysis
+> resists absolutizing one contextual presentation; • type theory demands exact contexts and
+> transformation rules."*
+
+**`CLAUDE.md`, from the regressions of 2026-08-18:** *"name the school before using the term, and if a
+construction draws on two, say what the two schools would say to each other about it."*
+
+**Written into the transmission five days before the rule was written into the governing file.**
+
+---
+
+## P342 · and the section that supplies the warrant list
+
+> *"**Nyāya counterweight.** Extreme perspectival generation risks uncontrolled analogy. **For each
+> comparison ask what warrants it: construction, inference, exact computation, formal proof, empirical
+> analogy, testimony/prior literature.**"*
+
+**Six kinds of warrant, listed.**
+
+**P332: `Anvesanam` returns a route, a defect it met, or undecided; `MulaPramana` keeps three outcomes
+apart; the nadi repair emits three verdicts.** **P334: five kinds of negative distinguished.**
+
+**Every one of those is this list applied, and the list is his, on 2026-08-13.**
+
+---
+
+## P342 · n = 9's guard
+
+> *"Subagents **must** emulate 16 distinct geniuses throughout time and work on whatever they want"*
+
+**P339: the ground's one authored *must*, paired with the widest grant in the record.**
+
+**Read for what it does not say: it does not name the sixteen.**
+
+**`CLAUDE.md`:** *"Draw perspectives uniformly from
+`random_entry_seeder_so_agents_dont_cluster/minds.txt`, **never from your prior's idea of "a
+genius."**"*
+
+**The instruction fixes the number and refuses the list, and the repository later supplies a file to
+draw from rather than a roster to obey.**
+
+---
+
+## P342 — what this pass counted
+
+Six transmissions, six Status lines, all dated 2026-08-13, and every one splits what is exact from
+what is a target before any mathematics is stated. Two say *No novelty claims* in those words.
+
+The one that claims *new exact derivations* is Delta 18, which six minutes seven seconds after Delta
+17 refutes Delta 17's headline program — and Delta 17's own hedge had said *translate before claiming
+novelty*.
+
+Delta 13 states *Do not claim Jain logic = type theory*, gives each side a job the other does not do,
+and compresses it to nine words: anekānta generates views, nyāya demands warrant, univalence collapses
+only proved equivalences. That is CLAUDE.md's naming rule, five days before it was written there.
+
+Its Nyāya counterweight lists six kinds of warrant — construction, inference, exact computation, formal
+proof, empirical analogy, testimony/prior literature — and the three-and-five-way verdict splits this
+cycle has been reading in the repository's instruments are that list applied.
+
+And n=9 fixes the number sixteen and names none of them.
