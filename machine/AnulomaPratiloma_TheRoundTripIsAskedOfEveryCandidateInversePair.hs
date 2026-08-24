@@ -761,6 +761,12 @@ roundTripRHS outer inner t = do
   where
     identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
 
+-- Split on a single character, dropping empties.  For ANULOMA_ROOTS.
+splitOn :: Char -> String -> [String]
+splitOn c s = case break (== c) s of
+  (a, [])      -> [ trim a | not (null (trim a)) ]
+  (a, _ : r)   -> [ trim a | not (null (trim a)) ] ++ splitOn c r
+
 -- Every suffix of `hay` that follows an occurrence of `needle`.
 after :: String -> String -> [String]
 after needle hay =
@@ -941,7 +947,9 @@ toolchainLine = do
             `catchAny` const (pure "unknown")
   body <- (readFile libs) `catchAny` const (pure "")
   let entries = [ trim l | l <- lines body, not (null (trim l)) ]
-  pure $ "# TOOLCHAIN: " ++ v
+  rts <- fromMaybe "formal/cubical" <$> lookupEnv "ANULOMA_ROOTS"
+  pure $ "# ROOTS: " ++ rts
+      ++ "\n# TOOLCHAIN: " ++ v
       ++ " | libraries: " ++ (if null entries then libs ++ " (unreadable)"
                               else intercalate " ; " entries)
       ++ "\n# The pin is Agda 2.8.0 / cubical v0.9 (formal/cubical/check.sh)."
@@ -1264,7 +1272,39 @@ main = do
       doFresh = "--fresh" `elem` args
   scratch <- fromMaybe ".anuloma" <$> lookupEnv "ANULOMA_SCRATCH"
   createDirectoryIfMissing True scratch
-  fs <- listAgda "formal/cubical"
+  -- 2026-08-24.  THE SCAN WAS SCOPED TO THIS CORPUS AND MATHEMATICS IS NOT.
+  --
+  -- `listAgda "formal/cubical"` asked the round-trip question of 1117 of our
+  -- own modules and of nothing else.  Every candidate pair it could ever
+  -- propose was a pair we had already written, so the machine could only
+  -- ever re-ask its own vocabulary — which is exactly the saturation
+  -- ANEKANTA.md §3 describes for the retired engine's frequency-mining, one
+  -- level up: a growth rule that can only recombine what is already common.
+  --
+  -- The roots are now a colon-separated ANULOMA_ROOTS, defaulting to the
+  -- corpus so nothing changes for a caller that sets nothing.  Point it at
+  -- agda/cubical and the question is asked of the standard library's own
+  -- mathematics — foundations, algebra, category theory, homotopy theory —
+  -- against which our maps are a small chart.  Every root is scanned for
+  -- signatures; the probe imports the host by the module name the file
+  -- DECLARES (`modNameOf`), so a library module arrives as
+  -- `Cubical.Foundations.Prelude` and resolves through the library file,
+  -- with no path assumption anywhere.
+  --
+  --   ANULOMA_ROOTS=formal/cubical:$HOME/.cache/cubical/Cubical
+  --
+  -- LIMIT, so this is not read as more than it is: scanning a library does
+  -- not make its theorems ours, and a green here is a round trip between two
+  -- of ITS maps that IT did not happen to state. That is a real question and
+  -- a small one. The scan is also still the same weak instrument — top-level
+  -- `name : X → Y`, one arrow, no binders — so it sees the library's
+  -- first-order surface and none of its structure.
+  rootsEnv <- lookupEnv "ANULOMA_ROOTS"
+  let roots = case rootsEnv of
+        Just s | not (null (trim s)) -> splitOn ':' s
+        _                            -> ["formal/cubical"]
+  fs <- concat <$> mapM listAgda roots
+  putStrLn $ "  roots                : " ++ intercalate " , " roots
   sigs <- concat <$> mapM readSigs fs
   factsByMod <- M.fromList <$> mapM (\p -> do
                     s <- readFile p
