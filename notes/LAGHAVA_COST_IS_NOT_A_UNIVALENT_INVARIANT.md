@@ -493,3 +493,55 @@ it as live, and parametrising by list order is a way of **not needing to
 decide**. I have read neither the sūtra in situ nor Kātyāyana's vārttika.
 What is above is a structure either reading would license — weaker, and
 more honest, than a formalisation of Pāṇini.
+
+## 13. Correction to §12 — and this one was refuted before it was written
+
+§41–§43. §12 built `paraKrama`, which scans a rule list and takes the
+first offer, and called the list order "the parameter". That is not a
+parametrisation. It is **पूर्व** — the earlier rule wins — and pūrva is the
+*weakest* of the five contenders the tradition ranks, the one that never
+decides anything, because *para* is its negation and outranks it.
+
+The ranking is Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (c. 1730),
+**paribhāṣā 38**:
+
+> पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः
+> *pūrvaparanityāntaraṅgāpavādānām uttarottaraṃ balīyaḥ* — "of pūrva,
+> para, nitya, antaraṅga, apavāda — each later is stronger."
+
+**And this repository already had it**, with the paribhāṣā number, the
+author and the date, in
+`machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition.hs` —
+whose *title* is the refutation of §12, written before §12 was. That file
+also carries what §12 lacked entirely: **नित्य is computable**
+(*kṛtākṛtaprasaṅgi nityam* — apply the other rule and ask whether this one
+still applies); **अन्तरङ्ग returns `Maybe Bool`**, where `nothing` means
+*abstain* and not *False*; and where no metarule decides, the derivation
+**stops** at the fourth position rather than being broken arbitrarily. Its
+sentence for this is exact: **a metarule that guesses is a durnaya.**
+
+So §12's own diagnosis — *the corpus already had the material and I did
+not grep* — recurred in the section that made it. I grepped `notes/` and
+`formal/cubical/`. `machine/` is where the Pāṇinian scheduler lives, and I
+did not look there.
+
+**Repaired.** `purvam-na-nirnayah` shows list position is not invariant
+under reordering the same two rules, so it decides nothing about the rules
+— it decides about the concatenation. The replacement, `nirnaya`, takes
+its verdict from a `Metavidhi` that sees the site and the two offers and
+never sees a list, and that may abstain;
+`nirnaya-avaktavye-tusnim` proves abstention has its own outcome with no
+fallback to fall through to.
+
+**Only relocated.** `Metavidhi` is a parameter, so nothing here implements
+apavāda, antaraṅga, nitya or para. `machine/` implements four of the five
+and says which two abstain and why; this module implements none and leaves
+room. A type with a hole where the content goes is not the content, and
+calling this a formalisation of 1.4.2 would repeat §12's error in a new
+place.
+
+**Also not done.** `nirnaya` handles two offers. Paribhāṣā 38 ranks five
+*contenders*, not two candidates, and a real site can carry several offers
+at once — the extension is not obviously the binary case iterated, since a
+ranking that is not total on abstentions need not be associative. That is
+a real open question.

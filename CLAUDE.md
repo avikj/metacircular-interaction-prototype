@@ -537,10 +537,42 @@ Concretely, and these are load-bearing here rather than decorative:
 - **Nyāya** on *pramāṇa* — what counts as a valid means of knowledge — which
   is the question this entire repository is trying to answer with ad-hoc
   gates.
-- **Pāṇini**, whose *Aṣṭādhyāyī* is a rewriting system with conflict
+- ~~**Pāṇini**, whose *Aṣṭādhyāyī* is a rewriting system with conflict
   resolution (*vipratiṣedhe paraṁ kāryam*), exception-over-general
   (*utsarga*/*apavāda*) and stratification (*asiddhatva*) — machinery the
-  engine in `machine/` does not have.
+  engine in `machine/` does not have.~~
+  **STRUCK 2026-08-24. This bullet committed, inside the section that exists
+  to prevent it, the exact error the section names first — and it stood for
+  five days.** The ranking that makes an exception beat the general rule —
+  **पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः** — is **not a sūtra of
+  the Aṣṭādhyāyī.** It is a *paribhāṣā* of the commentarial tradition,
+  reaching here through **Nāgeśa's *Paribhāṣenduśekhara*, 18th century**.
+  Filing it under "Pāṇini, ~500 BCE" is a **2300-year misattribution**, and
+  it is the same move as "Pell's equation" performed on the tradition's own
+  internal history rather than across it.
+  And *vipratiṣedhe paraṁ kāryam* is not a free-standing conflict resolver.
+  **A 1.4.2 is the second half of a pair**: **A 1.4.1 आ कडाराद् एका संज्ञा**
+  says that where several *saṃjñā*s offer, only **one** applies, and 1.4.2
+  says which. An exclusion rule plus a tiebreak — not "both stand", and not
+  a general rule-ordering principle. Its reading is *live*: traditional
+  *para* against Rajpopat 2022, and the corpus records it as live and
+  declines to adjudicate. Do not adjudicate it here either.
+  What survives unchanged and is genuinely Pāṇini's: **stratification
+  (*asiddhatva*, the tripādī 8.2–8.4)** and **context inheritance
+  (*anuvṛtti*)**.
+  Correction landed by the archivist lane in `60dbafdd` (§39–§40 of
+  `Nirjara_SheddingAPrimitiveCostsLaghava.agda`, and §12 of
+  `notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md`), which reached the
+  module and did not reach this file. **The same error still stands in
+  `ANEKANTA.md` §5** — struck there too, same date.
+  ⚑ **AND THE CHEAP CHECK CATCHES IT ONE LEVEL DOWN, which is why it is
+  worth the space.** This file already prescribes: grep for *the text's
+  name, not the author's*. The sūtra version of that is **grep for the
+  sūtra's WORDS, not its NUMBER** — and measured 2026-08-24, before the
+  correction landed: `1.4.2` in **42 files**, `1.4.1` in **11**, and
+  **`ekā saṃjñā` in ZERO.** The number propagates through citation; the
+  words appear only where someone opened the text. Forty-two files cite a
+  sūtra whose words nobody had written down.
 - **Nāgārjuna's** *catuṣkoṭi*, already checked in `formal/cubical/`.
 
 **STRUCK 2026-08-19 by the owner. The paragraph that stood here is preserved

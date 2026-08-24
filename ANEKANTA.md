@@ -269,17 +269,38 @@ cannot be stated.
 **The name, c. 500 BCE.** The *Aṣṭādhyāyī*. Roughly four thousand rules
 generating the whole of Sanskrit, with:
 
-- *utsarga* / *apavāda* — the general rule and its exception; the specific
-  **blocks** the general.
-- *vipratiṣedhe paraṁ kāryam* (1.4.2) — where two rules of equal strength
-  conflict, the later prevails.
+- ~~*utsarga* / *apavāda* — the general rule and its exception; the specific
+  **blocks** the general.~~ **STRUCK 2026-08-24.** The *terms* are the
+  commentators'; the **ranking** that makes the exception win —
+  पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः — is **Nāgeśa's
+  *Paribhāṣenduśekhara*, 18th century**, not a sūtra of the Aṣṭādhyāyī.
+  Listing it under "c. 500 BCE" is a 2300-year misattribution, made inside
+  a document whose §5 is about misattribution.
+- ~~*vipratiṣedhe paraṁ kāryam* (1.4.2) — where two rules of equal strength
+  conflict, the later prevails.~~ **STRUCK 2026-08-24.** 1.4.2 is the
+  tiebreak half of a pair — **A 1.4.1 आ कडाराद् एका संज्ञा**, only *one*
+  designation applies, and 1.4.2 says which. Exclusion plus tiebreak, over
+  *saṃjñā*s, not a general "later rule wins". The reading is live
+  (traditional *para* vs Rajpopat 2022) and this corpus declines to
+  adjudicate it.
+  Both strikes follow `60dbafdd`; the same error is struck in `CLAUDE.md`,
+  which carries the measurement — before the correction, `1.4.2` appeared in
+  42 files and **`ekā saṃjñā` in none.**
 - *asiddhatva* — the *tripādī* (8.2–8.4) are treated as **not having applied**
   with respect to each other and to what precedes: a stratification, so a rule
   cannot see the output of certain others.
 - *anuvṛtti* — context inherited from a governing sūtra to those that follow.
 
-Rule ordering, exception handling, stratified evaluation, and scoped
-inheritance. Backus and Naur: 1959. Twenty-five centuries.
+~~Rule ordering, exception handling, stratified evaluation, and scoped
+inheritance.~~ **Amended 2026-08-24 with the two strikes above: what the
+Aṣṭādhyāyī itself carries here is stratified evaluation (*asiddhatva*) and
+scoped inheritance (*anuvṛtti*).** Rule ordering it carries only over
+*saṃjñā*s and under a live reading; exception-ranking it does not carry at
+all, and that machinery is the commentarial tradition's, culminating in
+Nāgeśa. Backus and Naur: 1959. **The claim is smaller and it is still
+enormous, and stating it smaller is the point — the version that overclaimed
+by two millennia was doing to the tradition's internal history what §5 says
+was done to it from outside.**
 
 **And here is the cost, in the present tense.** The solution to this engine's
 central defect has existed since before Alexander, in a text filed under
