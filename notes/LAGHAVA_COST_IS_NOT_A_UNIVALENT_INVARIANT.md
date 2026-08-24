@@ -731,3 +731,33 @@ the *Aṣṭādhyāyī*'s actual economy is over letters and accents in a fixed
 metalanguage, not over de Bruijn indices. No theorem above rests on the
 particular numbers; what rests on them is only the **sign** of each entry,
 and the sign is all §50 uses.
+
+## 18. The row of §17's table that was asserted, now checked
+
+§53–§54. §17 published a table with four moves against three measures, and
+**eleven of its twelve entries were proved**. उत्सर्ग's mātrā entry — that
+restoring the general rule *saves* morae — was written from inspection of
+the definition and nothing else. That is the fitted-row habit this
+repository's protocol forbids, in a section whose subject was a measure I
+had just got wrong.
+
+It holds, and the saving is exactly the index: `yoga-s i i` names *i*
+twice, `dvi-s i` names it once (`utsarga-akshara`). So the table is twelve
+for twelve, and `utsarga-trayam` puts it in one object: **उत्सर्ग is
+non-increasing under all three measures at once**, and
+`apavada-na-trayam` shows apavāda inhabits no such licence, refuted at
+distance one by the mātrā field alone.
+
+Three units, one arrow, and it points **away from निर्जरा**. §1–§4 opened
+by shedding a primitive and proving the shedding costs lāghava; §10 found
+it doubles the object; §17 found it costs morae too.
+
+**What the table does not say**, and it is what a reader would take from it
+if I stopped here: that a grammar should therefore never shed. That does
+not follow and it is not true of the source. The *Aṣṭādhyāyī* states
+apavādas constantly. What §11 and §53 show is that the exception is not
+free under any of these measures — which is a reason to state it
+**deliberately**, as the tradition does, with a metarule to say when it
+wins, rather than a reason to avoid it. **A move that costs is not a move
+that is wrong.** §7 said the licence is not the measure's to give; the
+same holds here in the other direction.

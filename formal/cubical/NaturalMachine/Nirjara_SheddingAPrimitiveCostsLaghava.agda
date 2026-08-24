@@ -46,7 +46,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤Dec ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤-+k ; ≤Dec ; ¬-<-zero ; ¬m<m)
 open import Cubical.Data.Nat using (discreteℕ)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no)
 open import Cubical.Data.Empty renaming (rec to ⊥rec)
@@ -2003,4 +2003,77 @@ apavada-na-aksharanujnatam (A , q) =
 -- accents in a fixed metalanguage, not over de Bruijn indices, and no
 -- theorem here rests on the particular numbers.  What rests on them is
 -- only the SIGN of each entry above, and the sign is what §50 uses.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 53.  The one row of §52's table that was asserted, now checked.
+--
+-- §52 published a table with four moves against three measures and only
+-- eleven of its twelve entries were proved.  उत्सर्ग's मात्रा entry — the
+-- claim that restoring the general rule SAVES morae — was written from
+-- inspection of the definition and nothing else.  That is the fitted-row
+-- habit this repository's protocol forbids, in a section whose subject
+-- was a measure I had just got wrong.
+--
+-- It holds, and the saving is exactly the index: `yoga-s i i` names i
+-- twice and `dvi-s i` names it once.
+------------------------------------------------------------------------
+
+utsarga-akshara : (P : Prakriya) → matra-akshara (utsarga-p P) ≤ matra-akshara P
+utsarga-akshara []                    = ≤-refl
+utsarga-akshara (cara-s ∷ ss)         = ≤-refl
+utsarga-akshara (mita-s m ∷ ss)       = ≤-refl
+utsarga-akshara (dvi-s i ∷ ss)        = ≤-refl
+utsarga-akshara (pratyahara-s k ∷ ss) = ≤-refl
+utsarga-akshara (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes p = subst (λ z → ((1 + i) + matra-akshara ss)
+                         ≤ (((1 + i) + z) + matra-akshara ss))
+                    p (≤-+k {k = matra-akshara ss} (≤SumLeft {1 + i} {i}))
+... | no  _ = ≤-refl
+
+-- so उत्सर्ग is licensed under every measure this module has
+record TriAnujna : Type₀ where
+  constructor trayam
+  field
+    tkrama   : Prakriya → Prakriya
+    t-artha  : (P : Prakriya) → artha (phala (tkrama P)) ≡ artha (phala P)
+    t-sutra  : (P : Prakriya) → matra-p (tkrama P) ≤ matra-p P
+    t-matra  : (P : Prakriya) → matra-akshara (tkrama P) ≤ matra-akshara P
+    t-guru   : (P : Prakriya) → guru (tkrama P) ≤ guru P
+open TriAnujna public
+
+utsarga-trayam : TriAnujna
+utsarga-trayam = trayam utsarga-p utsarga-artha utsarga-matra
+                        utsarga-akshara utsarga-guru
+
+-- and अपवाद is licensed under none of the two finer ones; either field
+-- refutes it, and the मात्रा field does so at distance one
+apavada-na-trayam : ¬ (Σ TriAnujna (λ T → tkrama T ≡ apavada-p))
+apavada-na-trayam (T , q) =
+  ¬m<m (subst (λ f → matra-akshara (f (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
+                   ≤ matra-akshara (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ []))
+              q (t-matra T (dvi-s (suc zero) ∷ cara-s ∷ cara-s ∷ [])))
+
+------------------------------------------------------------------------
+-- 54.  What the completed table says, and the one thing it does not.
+--
+-- Twelve entries, twelve checks.  Of the four moves only उत्सर्ग is
+-- non-increasing under all three measures, and `utsarga-trayam` is that
+-- fact as a single object rather than three separate observations.
+--
+-- The direction that survives every measure is the one that puts the
+-- general rule BACK.  §1–§4 opened this module by shedding a primitive
+-- and proving the shedding costs लाघव; §35 found it doubles the object;
+-- §50 found it costs morae as well.  Three units, one arrow, and it
+-- points away from निर्जरा.
+--
+-- WHAT THE TABLE DOES NOT SAY, and it is the thing a reader would take
+-- from it if I stopped here: that a grammar should therefore never shed.
+-- It does not follow and it is not true of the source.  The Aṣṭādhyāyī
+-- states अपवादs constantly; what §37 and §53 show is that the exception
+-- is not free under any of these measures, which is a reason to state it
+-- deliberately — as the tradition does, with a metarule to say when it
+-- wins — rather than a reason to avoid it.  A move that costs is not a
+-- move that is wrong.  §26 said the licence is not the measure's to give;
+-- the same holds here in the other direction.
 ------------------------------------------------------------------------
