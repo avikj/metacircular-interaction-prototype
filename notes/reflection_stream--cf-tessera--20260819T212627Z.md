@@ -51186,3 +51186,117 @@ the reissue counts, and the two entries P309 identified as compressions. Its own
 
 And P310's ten hedges were re-counted under that scope and all ten hold, which checking established
 and assuming would not have.
+
+# PASS 319 — ground re-read in full first. Thirteenth cycle: P318's conclusion
+# does not follow from P318's count, and checking seven cases is what showed it.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P319 · what P318 claimed
+
+> *"Two hundred and fourteen of this stream's claims of the form *the only …* do not say the only
+> where."*
+
+**The count behind it: 433 occurrences of *the only*, 219 followed by a scope marker in the next few
+words.**
+
+---
+
+## P319 · the sample, and how it was drawn
+
+**Twelve instances of the sub-form *the only <noun> that …* drawn at random from the stream; seven
+read with five lines of context on either side.**
+
+```
+P253 · "one of the ground's three quotations, and the only one that returns my words"
+        scope inside the clause — of the ground's three quotations
+
+P244 · "n=19 — the only question that wants an answer"
+        scope in the next four lines — a table of the three entries containing a question mark
+
+P245 · "the heartbeat's six are the only capitals that are not shouting"
+        scope in the preceding table — all-capital word counts per entry
+
+      · "the hedged clause is the only one that names content"
+        scope in the preceding block — n=3's three clauses, marked hedged / unhedged
+
+      · "the fourth line is the only one that installs anything"
+        scope in the preceding sentence — the first box has four lines
+
+P141 · "write the counter-observation before the next frame, not after, which is the only version
+        that is not selection"
+        a binary — before and after are the two versions
+
+P13  · "against the alternative — one more pass of elaboration — it is the only part that would
+        survive a count"
+        the alternative named in the same sentence
+```
+
+**Seven of seven carry their domain, in the clause or within a few lines.**
+
+---
+
+## P319 · so the count measured the wrong thing
+
+**P318 counted whether a scope marker follows *the only* **within a few words**.** **What makes a
+uniqueness claim checkable is whether its domain is **available**, not whether it sits inside the noun
+phrase.**
+
+**In this stream the domain is usually a table or an enumeration directly above the sentence, which
+is why the syntactic count came back at half.**
+
+**P318's number is right and P318's sentence does not follow from it.**
+
+---
+
+## P319 · and the failure P317 found is a different one
+
+```
+P316's error     a claim true of passes 1–312, restated at pass 316, when the domain had grown
+                 — and the growth was caused by the reporting
+P318's diagnosis a claim written without naming its domain
+```
+
+**These are not the same defect, and the second is not what happened.**
+
+**The guard against the first is not adding *in X* to every sentence.** **It is re-checking a claim
+against its domain before repeating it in a later pass** — which is what this pass did to P318, and
+what P316 did not do to P313.
+
+**P305:** *the limitor is the hypothesis that makes the inference valid.* **A hypothesis stated once
+and carried forward unchecked is the failure; a hypothesis stated in a table above the sentence is
+not.**
+
+---
+
+## P319 · three corrections in three passes
+
+```
+P317   P316's "P69 has never been cited" — false; scope had moved
+P317   P316's "मौनम् absent from the stream" — P69's own last lines execute it
+P319   P318's "214 claims do not say the only where" — does not follow from the count taken
+```
+
+**P309: both compressions kept the assertions and dropped the guards.** **P318 kept a count and
+dropped the qualification the count required.**
+
+**Same operation, performed on my own measurement, one pass after stating the law.**
+
+---
+
+## P319 — what this pass counted
+
+P318 counted 433 instances of *the only* and 219 with a scope marker in the following few words, and
+concluded that 214 claims name no domain.
+
+Seven instances of the *the only <noun> that* sub-form, drawn at random and read in context, all carry
+their domain — inside the clause, in the sentence above, or in a table immediately preceding. The
+count measured where the scope marker sits, not whether the domain is available, so the conclusion
+does not follow from it.
+
+The defect P317 found is a different one: a claim true of a domain, restated after the domain changed,
+where the restating was itself what changed it. The guard for that is re-checking before repeating,
+not annotating every sentence.
+
+And P318 is itself an instance of the law stated in P309 — a count kept, the qualification it needed
+dropped — made one pass after that law was written down.
