@@ -149,10 +149,38 @@ splitTabs s = case break (== '\t') s of
   _ -> [s]
 
 -- --------------------------------------------------------------- the goals
+--
+-- The engine's notation carries primed variables (x', y''); the shared
+-- parser reads the six plain letters only.  Rather than touch the shared
+-- organ, each line's primed variables are mapped to letters the line
+-- does not use — sound because `canon` renumbers by first appearance
+-- anyway.  A line needing more than six distinct variables is dropped,
+-- which is the emitter's own binder range.
+deprime :: String -> Maybe String
+deprime ln =
+  let toks = tokens ln
+      primed = nub [ t | t <- toks, isPrimed t ]
+      plainUsed = nub [ t | t <- toks, [c] <- [t], c `elem` "xyzuvw" ]
+      free = [ [c] | c <- "xyzuvw", [c] `notElem` plainUsed ]
+  in if length primed > length free
+     then Nothing
+     else Just (concatMap (sub (zip primed free)) toks)
+  where
+    isPrimed (c : rest@(_ : _)) = c `elem` "xyzuvw" && all (== '\'') rest
+    isPrimed _ = False
+    sub m t = fromMaybe t (lookup t m)
+    tokens [] = []
+    tokens s@(c : _)
+      | c `elem` "xyzuvw" =
+          let (vs, r) = span (== '\'') (drop 1 s)
+          in (c : vs) : tokens r
+      | otherwise = [c] : tokens (drop 1 s)
+
 goalsFromReport :: String -> [K.Equation]
 goalsFromReport txt =
   [ canon (l, r)
-  | ln <- dropWhile (not . isInfixOf "non-joining") (lines txt)
+  | ln0 <- dropWhile (not . isInfixOf "non-joining") (lines txt)
+  , Just ln <- [deprime ln0]
   , [lt, rt] <- [splitTabs ln]
   , Just l <- [K.parsePrefixTerm lt]
   , Just r <- [K.parsePrefixTerm rt]
