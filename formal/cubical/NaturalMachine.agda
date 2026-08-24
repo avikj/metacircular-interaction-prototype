@@ -1324,3 +1324,12 @@ import NaturalMachine.WalkUnconditional
 import NaturalMachine.WhichThresholdStatementsDescendToTheRate
 import NaturalMachine.WitnessNumberIsTwo
 import NaturalMachine.YugapadArpana_BothCoordinatesDescendAtOnceAndTheDoubleDescentBecomesSomethingTheMachineInvokes
+
+-- the shared-tongue (karma) lane, importable here with full use since
+-- the boundary crossing of 2026-08-24: a green on this root now speaks
+-- for the act-portion, the crossed prover, the net, and the climb too
+import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
+import AgamaKanda_TheEldersStoreOnTheActSide
+import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
+import PararthaAnumana_TheWarrantedExchangeLiftsTheWeakerStandpointAndTheMeasuredStoreHasADominatingEye
+import Gunasthana_TheBodyClimbsByItsOwnAttainmentTheEyeIsAFunctionOfTheRecordAndNoAgentPicksOrgans
