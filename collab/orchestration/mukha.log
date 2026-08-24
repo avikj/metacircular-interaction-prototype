@@ -918,3 +918,64 @@ NOT calling: ghc -O -Werror -i/tmp/tmp.5xDLvYYVN1 /tmp/tmp.5xDLvYYVN1/MAlonzo/Co
 [12 of 14] Compiling PrastavaAPI      ( /tmp/tmp.5xDLvYYVN1/PrastavaAPI.hs, /tmp/tmp.5xDLvYYVN1/build/PrastavaAPI.o )
 [13 of 14] Compiling Main             ( formal/executable/Mukha.hs, /tmp/tmp.5xDLvYYVN1/build/Main.o )
 [14 of 14] Linking /tmp/tmp.5xDLvYYVN1/mukha
+mukha: 403 pairs from the refusal list, 224 to ask (receipts remember 1510 rows; proposer prastava-3457221485-26787)
+  P1511  landed:refl  s(0)	gcd(s(0),0)
+  P1512  landed:refl  s(0)	gcd(0,s(0))
+  P1513  refused by the proposer: unparsed: outside the closed signature {0,s,+,*,-,le,max,gcd} over x..w with primes
+  P1514  refused by the kernel: Checking Prastuta.P1514 (/home/user/math/formal/cubical/Prastuta/P1514.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1515  refused by the kernel: Checking Prastuta.P1515 (/home/user/math/formal/cubical/Prastuta/P1515.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1516  refused by the kernel: Checking Prastuta.P1516 (/home/user/math/formal/cubical/Prastuta/P1516.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1517  refused by the kernel: Checking Prastuta.P1517 (/home/user/math/formal/cubical/Prastuta/P1517.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1518  refused by the kernel: Checking Prastuta.P1518 (/home/user/math/formal/cubical/Prastuta/P1518.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1519  landed:refl  +(+(0,0),+(0,0))	0
+  P1520  landed:refl  s(s(0))	gcd(s(s(0)),0)
+  P1521  landed:refl  s(s(0))	gcd(0,s(s(0)))
+  P1522  refused by the kernel: Checking Prastuta.P1522 (/home/user/math/formal/cubical/Prastuta/P1522.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1523  refused by the kernel: Checking Prastuta.P1523 (/home/user/math/formal/cubical/Prastuta/P1523.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1524  refused by the proposer: AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle
+  P1525  refused by the kernel: Checking Prastuta.P1525 (/home/user/math/formal/cubical/Prastuta/P1525.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1526  refused by the kernel: Checking Prastuta.P1526 (/home/user/math/formal/cubical/Prastuta/P1526.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1527  landed:refl  le(s(s(s(s(0)))),0)	0
+  P1528  refused by the kernel: Checking Prastuta.P1528 (/home/user/math/formal/cubical/Prastuta/P1528.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1529  landed:refl  0	+(+(0,0),+(0,0))
+  P1530  refused by the proposer: unparsed: outside the closed signature {0,s,+,*,-,le,max,gcd} over x..w with primes
+  P1531  refused by the kernel: Checking Prastuta.P1531 (/home/user/math/formal/cubical/Prastuta/P1531.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1532  refused by the kernel: Checking Prastuta.P1532 (/home/user/math/formal/cubical/Prastuta/P1532.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1533  refused by the kernel: Checking Prastuta.P1533 (/home/user/math/formal/cubical/Prastuta/P1533.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1534  refused by the kernel: Checking Prastuta.P1534 (/home/user/math/formal/cubical/Prastuta/P1534.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1535  refused by the kernel: Checking Prastuta.P1535 (/home/user/math/formal/cubical/Prastuta/P1535.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1536  refused by the kernel: Checking Prastuta.P1536 (/home/user/math/formal/cubical/Prastuta/P1536.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1537  refused by the kernel: Checking Prastuta.P1537 (/home/user/math/formal/cubical/Prastuta/P1537.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1538  refused by the kernel: Checking Prastuta.P1538 (/home/user/math/formal/cubical/Prastuta/P1538.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1539  refused by the kernel: Checking Prastuta.P1539 (/home/user/math/formal/cubical/Prastuta/P1539.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1540  refused by the kernel: Checking Prastuta.P1540 (/home/user/math/formal/cubical/Prastuta/P1540.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1541  refused by the kernel: Checking Prastuta.P1541 (/home/user/math/formal/cubical/Prastuta/P1541.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1542  refused by the kernel: Checking Prastuta.P1542 (/home/user/math/formal/cubical/Prastuta/P1542.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1543  refused by the kernel: Checking Prastuta.P1543 (/home/user/math/formal/cubical/Prastuta/P1543.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1544  refused by the kernel: Checking Prastuta.P1544 (/home/user/math/formal/cubical/Prastuta/P1544.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1545  refused by the kernel: Checking Prastuta.P1545 (/home/user/math/formal/cubical/Prastuta/P1545.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1546  refused by the kernel: Checking Prastuta.P1546 (/home/user/math/formal/cubical/Prastuta/P1546.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1547  landed:refl  s(0)	le(0,s(s(s(s(0)))))
+  P1548  refused by the kernel: Checking Prastuta.P1548 (/home/user/math/formal/cubical/Prastuta/P1548.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1549  refused by the kernel: Checking Prastuta.P1549 (/home/user/math/formal/cubical/Prastuta/P1549.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1550  refused by the kernel: Checking Prastuta.P1550 (/home/user/math/formal/cubical/Prastuta/P1550.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1551  refused by the kernel: Checking Prastuta.P1551 (/home/user/math/formal/cubical/Prastuta/P1551.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1552  refused by the kernel: Checking Prastuta.P1552 (/home/user/math/formal/cubical/Prastuta/P1552.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1553  refused by the kernel: Checking Prastuta.P1553 (/home/user/math/formal/cubical/Prastuta/P1553.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1554  refused by the kernel: Checking Prastuta.P1554 (/home/user/math/formal/cubical/Prastuta/P1554.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1555  refused by the kernel: Checking Prastuta.P1555 (/home/user/math/formal/cubical/Prastuta/P1555.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1556  refused by the proposer: AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle
+  P1557  refused by the proposer: AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle
+  P1558  refused by the kernel: Checking Prastuta.P1558 (/home/user/math/formal/cubical/Prastuta/P1558.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1559  refused by the kernel: Checking Prastuta.P1559 (/home/user/math/formal/cubical/Prastuta/P1559.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1560  refused by the kernel: Checking Prastuta.P1560 (/home/user/math/formal/cubical/Prastuta/P1560.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1561  refused by the kernel: Checking Prastuta.P1561 (/home/user/math/formal/cubical/Prastuta/P1561.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1562  refused by the kernel: Checking Prastuta.P1562 (/home/user/math/formal/cubical/Prastuta/P1562.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1563  refused by the kernel: Checking Prastuta.P1563 (/home/user/math/formal/cubical/Prastuta/P1563.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1564  refused by the kernel: Checking Prastuta.P1564 (/home/user/math/formal/cubical/Prastuta/P1564.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1565  refused by the kernel: Checking Prastuta.P1565 (/home/user/math/formal/cubical/Prastuta/P1565.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1566  landed:refl  +(le(0,0),le(0,0))	s(s(0))
+  P1567  landed:refl  s(s(s(0)))	gcd(s(s(s(0))),0)
+  P1568  landed:refl  s(s(s(0)))	gcd(0,s(s(s(0))))
+  P1569  refused by the kernel: Checking Prastuta.P1569 (/home/user/math/formal/cubical/Prastuta/P1569.agda)./home/user/math/formal/cubical/Prastuta/P15
+  P1570  refused by the proposer: AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the 
