@@ -7,11 +7,11 @@
 --     runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs --write
 --
 -- Every .agda file under formal/cubical/ is imported here except the
--- 10 row(s) declared with a reason in
--- formal/cubical/SAMUCCAYA_EXCLUSIONS.txt.  `Everything.agda` remains the
--- hand-kept, ANNOTATED index and is imported by this file like any other
--- module; this file is the one that cannot omit anything, because it is
--- not written by anybody.
+-- rows declared with a reason in
+-- formal/cubical/SAMUCCAYA_EXCLUSIONS.txt.  This file is the one that
+-- cannot omit anything, because it is not written by anybody.  The
+-- hand-kept annotated index `Everything.agda` was deleted 2026-08-24: it
+-- reached nothing this root does not reach directly, and a hand list rots.
 --
 -- Being inside this root means something WOULD recheck the module.  It
 -- does not mean the module typechecks.  Run agda on this file to learn
@@ -91,7 +91,6 @@ import EGBTear
 import EGBThreadYoneda
 import EGBTwoFibrations
 import ElsewhereCondition
-import Everything
 import ExclusionScope
 import ExtremalDescription
 import FactoryVICoolingKill
