@@ -328,6 +328,173 @@ acShuffle-sound e l r p =
   ∙ acCanon-sound e r
 
 ------------------------------------------------------------------------
+-- the normalizer, judged: nf (one erasure pass + AC canonicalisation)
+-- preserves denotation.  The syntactic tests inside simpB are eqTm,
+-- and their truth becomes a path through the bridge above — the
+-- machine's earlier landing is the tool that checks its next organ.
+-- With nf-sound, a pair whose sides share a normal form is provable by
+-- two soundness applications around a definitional middle; the checked
+-- proposer emits exactly that term (the reflection rung).
+------------------------------------------------------------------------
+
+open import Cubical.Data.Bool using (Bool ; true ; false ; false≢true)
+
+is1-≡ : (n : ℕ) → is1 n ≡ true → n ≡ 1
+is1-≡ zero p = ⊥rec (false≢true p)
+is1-≡ (suc zero) _ = refl
+is1-≡ (suc (suc n)) p = ⊥rec (false≢true p)
+
+eqTm-≡ : (x y : Tm) → eqTm x y ≡ true → x ≡ y
+eqTm-≡ x y p = cmpTm-eq x y (is1-≡ (cmpTm x y) p)
+
+private
+  mul0 : (n : ℕ) → n · zero ≡ zero
+  mul0 zero = refl
+  mul0 (suc n) = mul0 n
+
+  monus0 : (n : ℕ) → zero ∸' n ≡ zero
+  monus0 zero = refl
+  monus0 (suc n) = refl
+
+  max0 : (n : ℕ) → max' n zero ≡ n
+  max0 zero = refl
+  max0 (suc n) = refl
+
+  gcd0r : (n : ℕ) → gcd' n zero ≡ n
+  gcd0r zero = refl
+  gcd0r (suc n) = refl
+
+  gcd0l : (n : ℕ) → gcd' zero n ≡ n
+  gcd0l zero = refl
+  gcd0l (suc n) = refl
+
+-- `with … in eq` desugars through builtin REFL, unavailable under
+-- --cubical (2.6.3), so each if-ladder is walked by a helper that
+-- carries the scrutinised Bool NEXT TO its own equation, instantiated
+-- with refl at the call site.
+private
+  plusGo2 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm b Z ≡ c
+    → eval e (if c then a else Bin plus a b) ≡ eval e (Bin plus a b)
+  plusGo2 e a b true p =
+    sym (cong (λ u → eval e a + eval e u) (eqTm-≡ b Z p) ∙ +-zero (eval e a))
+  plusGo2 e a b false p = refl
+
+  plusGo1 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a Z ≡ c
+    → eval e (if c then b else if eqTm b Z then a else Bin plus a b)
+      ≡ eval e (Bin plus a b)
+  plusGo1 e a b true p = sym (cong (λ u → eval e u + eval e b) (eqTm-≡ a Z p))
+  plusGo1 e a b false p = plusGo2 e a b (eqTm b Z) refl
+
+  timesGo4 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm b one ≡ c
+    → eval e (if c then a else Bin times a b) ≡ eval e (Bin times a b)
+  timesGo4 e a b true p =
+    sym (cong (λ u → eval e a · eval e u) (eqTm-≡ b one p)
+         ∙ ·-identityʳ (eval e a))
+  timesGo4 e a b false p = refl
+
+  timesGo3 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a one ≡ c
+    → eval e (if c then b else if eqTm b one then a else Bin times a b)
+      ≡ eval e (Bin times a b)
+  timesGo3 e a b true p =
+    sym (cong (λ u → eval e u · eval e b) (eqTm-≡ a one p)
+         ∙ +-zero (eval e b))
+  timesGo3 e a b false p = timesGo4 e a b (eqTm b one) refl
+
+  timesGo2 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm b Z ≡ c
+    → eval e (if c then Z else
+              if eqTm a one then b else
+              if eqTm b one then a else Bin times a b)
+      ≡ eval e (Bin times a b)
+  timesGo2 e a b true p =
+    sym (cong (λ u → eval e a · eval e u) (eqTm-≡ b Z p) ∙ mul0 (eval e a))
+  timesGo2 e a b false p = timesGo3 e a b (eqTm a one) refl
+
+  timesGo1 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a Z ≡ c
+    → eval e (if c then Z else
+              if eqTm b Z then Z else
+              if eqTm a one then b else
+              if eqTm b one then a else Bin times a b)
+      ≡ eval e (Bin times a b)
+  timesGo1 e a b true p = sym (cong (λ u → eval e u · eval e b) (eqTm-≡ a Z p))
+  timesGo1 e a b false p = timesGo2 e a b (eqTm b Z) refl
+
+  monusGo2 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a Z ≡ c
+    → eval e (if c then Z else Bin monus a b) ≡ eval e (Bin monus a b)
+  monusGo2 e a b true p =
+    sym (cong (λ u → eval e u ∸' eval e b) (eqTm-≡ a Z p) ∙ monus0 (eval e b))
+  monusGo2 e a b false p = refl
+
+  monusGo1 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm b Z ≡ c
+    → eval e (if c then a else if eqTm a Z then Z else Bin monus a b)
+      ≡ eval e (Bin monus a b)
+  monusGo1 e a b true p = sym (cong (λ u → eval e a ∸' eval e u) (eqTm-≡ b Z p))
+  monusGo1 e a b false p = monusGo2 e a b (eqTm a Z) refl
+
+  leGo1 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a Z ≡ c
+    → eval e (if c then one else Bin leS a b) ≡ eval e (Bin leS a b)
+  leGo1 e a b true p = sym (cong (λ u → le (eval e u) (eval e b)) (eqTm-≡ a Z p))
+  leGo1 e a b false p = refl
+
+  maxGo2 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm b Z ≡ c
+    → eval e (if c then a else Bin maxS a b) ≡ eval e (Bin maxS a b)
+  maxGo2 e a b true p =
+    sym (cong (λ u → max' (eval e a) (eval e u)) (eqTm-≡ b Z p)
+         ∙ max0 (eval e a))
+  maxGo2 e a b false p = refl
+
+  maxGo1 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a Z ≡ c
+    → eval e (if c then b else if eqTm b Z then a else Bin maxS a b)
+      ≡ eval e (Bin maxS a b)
+  maxGo1 e a b true p =
+    sym (cong (λ u → max' (eval e u) (eval e b)) (eqTm-≡ a Z p))
+  maxGo1 e a b false p = maxGo2 e a b (eqTm b Z) refl
+
+  gcdGo2 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm a Z ≡ c
+    → eval e (if c then b else Bin gcdS a b) ≡ eval e (Bin gcdS a b)
+  gcdGo2 e a b true p =
+    sym (cong (λ u → gcd' (eval e u) (eval e b)) (eqTm-≡ a Z p)
+         ∙ gcd0l (eval e b))
+  gcdGo2 e a b false p = refl
+
+  gcdGo1 : (e : ℕ → ℕ) (a b : Tm) (c : Bool) → eqTm b Z ≡ c
+    → eval e (if c then a else if eqTm a Z then b else Bin gcdS a b)
+      ≡ eval e (Bin gcdS a b)
+  gcdGo1 e a b true p =
+    sym (cong (λ u → gcd' (eval e a) (eval e u)) (eqTm-≡ b Z p)
+         ∙ gcd0r (eval e a))
+  gcdGo1 e a b false p = gcdGo2 e a b (eqTm a Z) refl
+
+simpB-sound : (e : ℕ → ℕ) (s : Sym) (a b : Tm)
+  → eval e (simpB s a b) ≡ eval e (Bin s a b)
+simpB-sound e plus a b  = plusGo1 e a b (eqTm a Z) refl
+simpB-sound e times a b = timesGo1 e a b (eqTm a Z) refl
+simpB-sound e monus a b = monusGo1 e a b (eqTm b Z) refl
+simpB-sound e leS a b   = leGo1 e a b (eqTm a Z) refl
+simpB-sound e maxS a b  = maxGo1 e a b (eqTm a Z) refl
+simpB-sound e gcdS a b  = gcdGo1 e a b (eqTm b Z) refl
+
+binCong : (e : ℕ → ℕ) (s : Sym) {a a' b b' : Tm}
+  → eval e a ≡ eval e a' → eval e b ≡ eval e b'
+  → eval e (Bin s a b) ≡ eval e (Bin s a' b')
+binCong e plus p q  = cong₂ _+_ p q
+binCong e times p q = cong₂ _·_ p q
+binCong e monus p q = cong₂ _∸'_ p q
+binCong e leS p q   = cong₂ le p q
+binCong e maxS p q  = cong₂ max' p q
+binCong e gcdS p q  = cong₂ gcd' p q
+
+simp-sound : (e : ℕ → ℕ) (t : Tm) → eval e (simp t) ≡ eval e t
+simp-sound e (V i) = refl
+simp-sound e Z = refl
+simp-sound e (S t) = cong suc (simp-sound e t)
+simp-sound e (Bin s a b) =
+  simpB-sound e s (simp a) (simp b)
+  ∙ binCong e s (simp-sound e a) (simp-sound e b)
+
+nf-sound : (e : ℕ → ℕ) (t : Tm) → eval e (nf t) ≡ eval e t
+nf-sound e t = acCanon-sound e (simp t) ∙ simp-sound e t
+
+------------------------------------------------------------------------
 -- मर्यादा.  What stands: acCanon preserves denotation, and a comparison
 -- verdict of 1 is a path, so a classifier hit means the two sides denote
 -- one function (acShuffle-sound) — the content of the refusal, judged

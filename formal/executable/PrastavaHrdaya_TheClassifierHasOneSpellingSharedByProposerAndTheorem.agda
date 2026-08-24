@@ -149,3 +149,49 @@ eqTm a b = is1 (cmpTm a b)
 
 acShuffle : Tm → Tm → Bool
 acShuffle l r = eqTm (acCanon l) (acCanon r)
+
+------------------------------------------------------------------------
+-- the normalizer: one bottom-up pass of the definitional zero/one laws
+-- (x+0, 0+x, x·0, 0·x, x·1, 1·x, x∸0, 0∸x, le 0 x, max/gcd with 0),
+-- then AC canonicalisation.  Erasure rules only, children first, so a
+-- single pass reaches the fixpoint of the erasure fragment.  The tests
+-- are eqTm, whose truth IS a syntactic path (cmpTm-eq, PrastavaSatya),
+-- so the soundness proofs ride the landed bridge.
+------------------------------------------------------------------------
+
+if_then_else_ : {A : Set} → Bool → A → A → A
+if true then t else _ = t
+if false then _ else e = e
+
+one : Tm
+one = S Z
+
+simpB : Sym → Tm → Tm → Tm
+simpB plus a b =
+  if eqTm a Z then b else if eqTm b Z then a else Bin plus a b
+simpB times a b =
+  if eqTm a Z then Z else if eqTm b Z then Z else
+  if eqTm a one then b else if eqTm b one then a else Bin times a b
+simpB monus a b =
+  if eqTm b Z then a else if eqTm a Z then Z else Bin monus a b
+simpB leS a b =
+  if eqTm a Z then one else Bin leS a b
+simpB maxS a b =
+  if eqTm a Z then b else if eqTm b Z then a else Bin maxS a b
+simpB gcdS a b =
+  if eqTm b Z then a else if eqTm a Z then b else Bin gcdS a b
+
+simp : Tm → Tm
+simp (V i) = V i
+simp Z = Z
+simp (S t) = S (simp t)
+simp (Bin s a b) = simpB s (simp a) (simp b)
+
+nf : Tm → Tm
+nf t = acCanon (simp t)
+
+-- the reflection classifier: a pair whose sides share a normal form is
+-- provable by two applications of nf-sound (PrastavaSatya) around a
+-- definitional middle — the proposer emits exactly that term.
+nfEqual : Tm → Tm → Bool
+nfEqual l r = eqTm (nf l) (nf r)

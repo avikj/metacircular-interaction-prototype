@@ -69,10 +69,7 @@ length : {A : Set} → List A → Nat
 length [] = 0
 length (x ∷ xs) = suc (length xs)
 
-if_then_else_ : {A : Set} → Bool → A → A → A
-if true then t else e = t
-if false then t else e = e
-
+-- if_then_else_ comes from the heart module
 elem : Nat → List Nat → Bool
 elem n [] = false
 elem n (m ∷ ms) = if n == m then true else elem n ms
@@ -352,6 +349,69 @@ indCandidate name l r i =
   & "= cong suc (prastava " & argsPlain n & ")\n"
 
 ------------------------------------------------------------------------
+-- the reflection rung: when the two sides share a normal form (nf,
+-- the heart), the candidate is not a schema but a PROOF — two
+-- applications of the kernel-judged nf-sound (PrastavaSatya) around a
+-- definitional middle.  The quoted terms are closed, so the kernel
+-- normalises both nf applications itself; the middle holds exactly
+-- when the classifier's nfEqual said yes, and if the classifier were
+-- wrong the candidate is refused and costs one receipt.
+------------------------------------------------------------------------
+
+showIx : Nat → String
+showIx 0 = "0"
+showIx 1 = "1"
+showIx 2 = "2"
+showIx 3 = "3"
+showIx 4 = "4"
+showIx 5 = "5"
+showIx _ = "0"
+
+symName : Sym → String
+symName plus = "plus"
+symName times = "times"
+symName monus = "monus"
+symName leS = "leS"
+symName maxS = "maxS"
+symName gcdS = "gcdS"
+
+quoteTm : Tm → String
+quoteTm (V i) = "(V " & showIx i & ")"
+quoteTm Z = "Z"
+quoteTm (S t) = "(S " & quoteTm t & ")"
+quoteTm (Bin s a b) =
+  "(Bin " & symName s & " " & quoteTm a & " " & quoteTm b & ")"
+
+envLines : Nat → String
+envLines n =
+  concatS (map (λ i → "  env " & showIx i & " = " & varName i & "\n")
+               (argRange n))
+  & "  env _ = zero\n"
+
+nfHeader : String → String
+nfHeader name =
+  "{-# OPTIONS --cubical --safe #-}\n"
+  & "-- uttered by the checked proposer: the sides share a normal form\n"
+  & "-- (nf, PrastavaHrdaya), so the proof is two applications of the\n"
+  & "-- kernel-judged nf-sound (PrastavaSatya) around a definitional middle.\n"
+  & "module Prastuta." & name & " where\n"
+  & "open import Cubical.Foundations.Prelude\n"
+  & "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)\n"
+  & "open import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem\n"
+  & "open import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel\n"
+  & "  using (eval ; nf-sound ; _∸'_ ; le ; max' ; gcd')\n\n"
+
+nfCandidate : String → Tm → Tm → String
+nfCandidate name l r =
+  let n = nVarsOf l r in
+  nfHeader name & sigLine n l r
+  & "prastava " & argsPlain n & "=\n"
+  & "  sym (nf-sound env " & quoteTm l & ") ∙ nf-sound env " & quoteTm r & "\n"
+  & "  where\n"
+  & "  env : ℕ → ℕ\n"
+  & envLines n
+
+------------------------------------------------------------------------
 -- the proposer.  For one report line and a module name: either a list
 -- of candidate module texts (tried in order — the mouth stops at the
 -- first the kernel accepts), or a written refusal with its reason.
@@ -371,6 +431,8 @@ proposeParsed name (just lr) =
   then refusal "more than six variables: outside the emitter's binder range"
   else if acShuffle l r
   then refusal "AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle"
+  else if nfEqual l r
+  then candidates (reflCandidate name l r ∷ nfCandidate name l r ∷ [])
   else candidates
     (reflCandidate name l r
       ∷ (map (splitCandidate name l r) (nub (varsOf l ++ varsOf r))
