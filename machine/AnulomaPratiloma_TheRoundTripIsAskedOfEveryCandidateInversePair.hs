@@ -70,10 +70,11 @@
 module Main (main) where
 
 import Control.Exception (catch, SomeException)
-import Control.Monad (forM, forM_, when, unless)
+import Control.Monad (forM, forM_, when, unless, guard)
 import Data.Bits (xor)
 import Data.Char (isSpace, isAlphaNum)
-import Data.List (isPrefixOf, isInfixOf, isSuffixOf, nub, sortBy, foldl', intercalate)
+import Data.List (isPrefixOf, isInfixOf, isSuffixOf, nub, sortBy, foldl', intercalate
+                 , tails)
 import Data.Maybe (fromMaybe, mapMaybe, isJust, listToMaybe)
 import Data.Ord (comparing)
 import Data.Word (Word64)
@@ -712,6 +713,58 @@ alreadyProved hf a b =
     -- so `(Fin E)` tokenises as `( Fin E )` and `E` is looked up alone
     spread = concatMap (\c -> if c `elem` "()" then [' ', c, ' '] else [c])
 
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE HOST'S OWN DISPROOF, 2026-08-24.
+--
+-- `alreadyProved` asks whether the host already carries the Iso or the ≃.
+-- Nothing asked the opposite question, and the opposite question has
+-- answers: a host that proves `outer (inner v) ≡ SOMETHING-ELSE` has proved
+-- the round trip false, and the pair is खण्डितम्, not an obligation.
+--
+-- Worked, and it is the case this was written for.  `NaturalMachine.Charge
+-- TwoHistories` has `sign z = (z , - z)`, `augment (x , y) = x + y` and
+-- `relative (x , y) = x - y`, so `augment ∘ sign` is the constant zero and
+-- `relative ∘ sign` is doubling.  Neither is the identity, and the module
+-- proves both — `augment-sign : (z : ℤ) → augment (sign z) ≡ pos 0` and
+-- `relative-sign : (z : ℤ) → relative (sign z) ≡ z +ℤ z`, `solve! ℤCommRing`,
+-- checked.  The ledger carried both pairs as «library lemma on ℤ».
+--
+-- THE PARSE REFUSES RATHER THAN GUESSES, and that direction is not
+-- negotiable: a wrong «proved» merely wastes a probe, but a wrong «refuted»
+-- DELETES REAL WORK from the queue and nothing downstream would ever look
+-- again.  So the argument must be a single identifier, an `≡` must follow
+-- the application, and the right-hand side must be non-empty; anything less
+-- certain returns Nothing and the pair is asked as usual.
+alreadyRefuted :: HostFacts -> Sig -> Sig -> Maybe String
+alreadyRefuted hf f g =
+  listToMaybe [ n ++ " : " ++ trim t
+              | (n, t) <- hSigs hf
+              , (outer, inner) <- [ (sName f, sName g), (sName g, sName f) ]
+              , Just (arg, rhs) <- [ roundTripRHS outer inner t ]
+              , arg /= rhs ]
+
+-- `… outer (inner v) ≡ RHS` → `Just (v, RHS)`.
+roundTripRHS :: String -> String -> String -> Maybe (String, String)
+roundTripRHS outer inner t = do
+  rest <- listToMaybe (after (outer ++ " (" ++ inner ++ " ") t)
+  let (argRaw, afterArg) = break (== ')') rest
+      arg = trim argRaw
+  guard (not (null afterArg) && not (null arg) && all identChar arg)
+  rhs <- trim <$> listToMaybe (after "≡" (drop 1 afterArg))
+  -- An arrow or a second `≡` after the equation means the round trip is the
+  -- ANTECEDENT of something, not the statement, and the text to the right is
+  -- not its value.  Refuse: the cost of a missed refutation is one wasted
+  -- probe; the cost of a wrong one is deleted work.
+  guard (not (null rhs) && not ("→" `isInfixOf` rhs) && not ("≡" `isInfixOf` rhs))
+  pure (arg, rhs)
+  where
+    identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
+
+-- Every suffix of `hay` that follows an occurrence of `needle`.
+after :: String -> String -> [String]
+after needle hay =
+  [ drop (length needle) s | s <- tails hay, needle `isPrefixOf` s ]
+
 readHostFacts :: String -> HostFacts
 readHostFacts src = HostFacts (readData src) (M.fromList aliases) sigs imps
   where
@@ -1230,10 +1283,30 @@ checkAll doFresh scratch hfOf cands = do
             pure (Row kf kg (rungName (cRung c)) dg Accepted
                       (maybe "new edge" (const "restates a host Iso") (cAlready c)) wh "")
           Just err -> do
-            let (cls, obl) = classify (hfOf (cF c)) err
+            -- 2026-08-24.  THE HOST SOMETIMES PROVES THE ROUND TRIP FALSE,
+            -- IN THE FILE THIS PROGRAM READ, and the kernel's residual does
+            -- not say so.  `NaturalMachine.ChargeTwoHistories` defines
+            -- `sign z = (z , - z)` and `augment (x , y) = x + y`, so
+            -- `augment (sign b)` is `b + (- b)`; the probe asks
+            -- `augment (sign b) ≡ b`, which is `0 ≡ b`, false at every
+            -- nonzero b — and forty lines above the pair sits
+            -- `augment-sign : (z : ℤ) → augment (sign z) ≡ pos 0`, checked.
+            -- Both of that module's pairs were filed as «library lemma on
+            -- ℤ», i.e. as OPEN MATHEMATICS SOMEBODY SHOULD PROVE.
+            --
+            -- This is the header's own defect two in the other direction:
+            -- there, sixteen candidates were already PROVED in the file the
+            -- program read; here they are already DISPROVED in it.  A
+            -- refuted pair is not an obligation, and `classify`'s own note
+            -- says filing one inflates the queue with work nobody should do.
+            let hf0         = hfOf (cF c)
+                (cls0, obl) = classify hf0 err
+                (cls, obl') = case alreadyRefuted hf0 (cF c) (cG c) of
+                  Just thm -> ("खण्डितम् · the host proves the other value", thm)
+                  Nothing  -> (cls0, obl)
             putStrLn $ "  OPEN   " ++ wh ++ "   [" ++ cls ++ "]"
-            unless (null obl) $ putStrLn $ "         " ++ obl
-            pure (Row kf kg (rungName (cRung c)) dg Refused cls wh obl)
+            unless (null obl') $ putStrLn $ "         " ++ obl'
+            pure (Row kf kg (rungName (cRung c)) dg Refused cls wh obl')
   -- सूत्र ९ · शेषं रक्ष.  Retire the rows this pass superseded; keep every
   -- row whose pair was not asked (मौनं न निषेधः — not asking is not a
   -- ground for retirement).

@@ -49,7 +49,16 @@ MINE=$(awk -F"\t" '!/^#/ && $5 == "Refused" && $6 ~ /^मम दोषः/ {n++}
 # to audit correct code; folding them into REAL reports a missing library as
 # open mathematics.  Both are the दुर्नय this file's own note names.
 PARISTHITI=$(awk -F"\t" '!/^#/ && $5 == "Refused" && $6 ~ /^परिस्थितिः/ {n++} END{print n+0}' "$LEDGER")
-REAL=$((OPEN - MINE - PARISTHITI))
+# खण्डितम् — REFUTED, and it was being counted as an obligation. The emitter's
+# own classifier says it in as many words: "A REFUTED PAIR IS NOT AN OPEN
+# OBLIGATION, and filing it as one inflates the queue with work nobody should
+# do." That rule was stated where the class is assigned and enforced nowhere
+# downstream, so a disproved round trip arrived here as mathematics somebody
+# owes. There are zero such rows today and there will not be zero for long:
+# `alreadyRefuted` now files a pair the HOST disproves — `augment (sign b)`
+# is `b + (- b)`, and `augment-sign` sits forty lines above it, checked.
+KHANDITA=$(awk -F"\t" '!/^#/ && $5 == "Refused" && $6 ~ /^खण्डितम्/ {n++} END{print n+0}' "$LEDGER")
+REAL=$((OPEN - MINE - PARISTHITI - KHANDITA))
 
 {
 printf '# साध्य — the open obligations, and each carries the shape of its own proof\n\n'
@@ -63,6 +72,7 @@ printf '| rows in the ledger | %s |\n' "$TOTAL"
 printf '| open | %s |\n' "$OPEN"
 printf '| of those, the instrument'"'"'s own defects (`मम दोषः`) | %s |\n' "$MINE"
 printf '| of those, the run'"'"'s environment (`परिस्थितिः`) | %s |\n' "$PARISTHITI"
+printf '| of those, refuted pairs (`खण्डितम्`) | %s |\n' "$KHANDITA"
 printf '| **real obligations** | **%s** |\n\n' "$REAL"
 printf 'The instrument'"'"'s defects are listed separately and last. A census that files\n'
 printf 'its own bugs as the corpus'"'"'s refusals is the दुर्नय one level up, and this\n'
@@ -88,7 +98,7 @@ if [ "$MUTE" -gt 0 ]; then
 fi
 printf -- '---\n\n'
 
-awk -F"\t" '!/^#/ && $5 == "Refused" && $6 !~ /^मम दोषः/ && $6 !~ /^परिस्थितिः/ {print $6}' "$LEDGER" \
+awk -F"\t" '!/^#/ && $5 == "Refused" && $6 !~ /^मम दोषः/ && $6 !~ /^परिस्थितिः/ && $6 !~ /^खण्डितम्/ {print $6}' "$LEDGER" \
   | sort | uniq -c | sort -rn | while read -r n cls; do
     printf '## %s — %s obligation(s)\n\n' "$cls" "$n"
     awk -F"\t" -v c="$cls" '!/^#/ && $6 == c && $5 == "Refused" {
@@ -100,6 +110,12 @@ awk -F"\t" '!/^#/ && $6 ~ /^मम दोषः/ {printf "- **%s** — %s\n", $7
 printf '\nThese are probes this emitter cannot state correctly. They are NOT evidence\n'
 printf 'about the corpus and must never be counted as refusals.\n'
 
+printf '\n---\n\n## खण्डितम् — refuted, and therefore not owed\n\n'
+awk -F"\t" '!/^#/ && $6 ~ /^खण्डितम्/ {printf "- **%s** — %s  \n  `%s`\n", $7, $6, $8}' "$LEDGER"
+printf '\nA disproved round trip is a RESULT, not an obligation. Nobody should be\n'
+printf 'sent to prove one. Where the witness names a host theorem, the disproof\n'
+printf 'was already checked in the module this program read.\n'
+
 printf '\n---\n\n## परिस्थितिः — the run, not the code and not the corpus\n\n'
 awk -F"\t" '!/^#/ && $6 ~ /^परिस्थितिः/ {printf "- **%s** — %s  \n  `%s`\n", $7, $6, $8}' "$LEDGER"
 printf '\nThese probes were never typechecked. The row records that the run could not\n'
@@ -109,5 +125,5 @@ printf 'nothing about the corpus, and it closes by fixing the environment and\n'
 printf 're-running, not by editing Haskell and not by proving anything.\n'
 } > "$OUT"
 
-printf '  साध्य: %s open, %s real obligations, %s the instrument'"'"'s own, %s the environment → %s\n' \
-  "$OPEN" "$REAL" "$MINE" "$PARISTHITI" "$OUT"
+printf '  साध्य: %s open, %s real obligations, %s mine, %s environment, %s refuted → %s\n' \
+  "$OPEN" "$REAL" "$MINE" "$PARISTHITI" "$KHANDITA" "$OUT"
