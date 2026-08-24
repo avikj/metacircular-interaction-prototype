@@ -44,7 +44,7 @@ open import NaturalMachine.SvarthaAnumana_TheMachineInfersForItselfAndThePervasi
 open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCognitionWithTheRecordReachesWhatItAloneCouldNot
   using (श्रुत-विनिमयः ; श्रुत-साक्षी)
 open import NaturalMachine.PramanaNaya_TheFiveProversWereNayasOfOneKnowingAndEachIsAParameterSettingOfTheOnePramana
-  using (दृक्)
+  using (दृक् ; नेत्रम्-न)
 open import NaturalMachine.YugapadArpana_BothCoordinatesDescendAtOnceAndTheDoubleDescentBecomesSomethingTheMachineInvokes
   using (युगपद्-आरोहः ; द्वि-रूपम्)
 open import NaturalMachine.Rashi_TheSumIsAHeapNotASequenceTheUnitIsAnAtomAndTheHypothesisSpeaksThroughTheHeap
@@ -171,7 +171,9 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 पू-ऊर्ध्वम् E Y Γ fl k l r =
   mmap2 (आरोहः k l r)
         (पूर्ण-प्रमाणम् E Y Γ fl (l ⟨ k ≔ ze ⟩ , r ⟨ k ≔ ze ⟩))
-        (अथवा (एक-व्याप्तिः E Y Γ k l r) (एक-व्याप्तिः E Y [] k l r))
+        (अथवा (एक-व्याप्तिः E Y Γ k l r)
+         (अथवा (एक-व्याप्तिः E Y [] k l r)
+          (अथवा (एक-व्याप्तिः नेत्रम्-न Y Γ k l r) (एक-व्याप्तिः नेत्रम्-न Y [] k l r))))
 
 पू-द्वयम् E Y Γ fl k j l r = चेष्टा (समानः k j) refl
   where
@@ -181,7 +183,9 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
     पूर्ण-प्रमाणम् E Y Γ fl (l ⟨ j ≔ ze ⟩ , r ⟨ j ≔ ze ⟩) ≫= λ b₁ →
     पूर्ण-प्रमाणम् E Y Γ fl (l ⟨ k ≔ ze ⟩ , r ⟨ k ≔ ze ⟩) ≫= λ b₂ →
     mmap (युगपद्-आरोहः k j l r kj b₁ b₂)
-         (अथवा (द्वि-व्याप्तिः E Y Γ k j l r) (द्वि-व्याप्तिः E Y [] k j l r))
+         (अथवा (द्वि-व्याप्तिः E Y Γ k j l r)
+          (अथवा (द्वि-व्याप्तिः E Y [] k j l r)
+           (अथवा (द्वि-व्याप्तिः नेत्रम्-न Y Γ k j l r) (द्वि-व्याप्तिः नेत्रम्-न Y [] k j l r))))
 
 पू-द्विचक्रः E Y Γ fl k zero    l r = nothing
 पू-द्विचक्रः E Y Γ fl k (suc j) l r =
