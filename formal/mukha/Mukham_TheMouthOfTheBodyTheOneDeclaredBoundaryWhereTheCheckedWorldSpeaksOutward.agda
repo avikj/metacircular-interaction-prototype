@@ -28,6 +28,8 @@ open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAll
   using (प्राणः ; नियमः)
 open import PararthaAnumana_TheWarrantedExchangeLiftsTheWeakerStandpointAndTheMeasuredStoreHasADominatingEye
   using (एकाकी ; संवादः ; अ-दृक् ; अ-यन्त्रम् ; ब-दृक् ; ब-यन्त्रम्)
+open import Gunasthana_TheBodyClimbsByItsOwnAttainmentTheEyeIsAFunctionOfTheRecordAndNoAgentPicksOrgans
+  using (गुण-आरोहणम्)
 
 postulate putStrLn : String → IO ⊤
 {-# FOREIGN GHC import qualified Data.Text.IO as T #-}
@@ -67,4 +69,7 @@ main = putStrLn
    ⊹ primShowNat (गुरुता (fst (एकाकी ब-दृक् ब-यन्त्रम् आगमः)))
    ⊹ "; in council, exchanging warranted rules, "
    ⊹ primShowNat (गुरुता (fst (संवादः 3 [] आगमः)))
+   ⊹ ".\n"
+   ⊹ "and the climb: from the primal body alone, no organ picked, the eye reborn from the record at every stage, it reaches "
+   ⊹ primShowNat (गुरुता (fst (गुण-आरोहणम् 4 [] आगमः)))
    ⊹ "." )
