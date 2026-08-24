@@ -53272,3 +53272,119 @@ it.
 
 That is the layer the two compressions in the ground removed, and it is the layer his own instruments
 were rebuilt to keep.
+
+# PASS 337 — ground re-read in full first. FOURTEENTH CYCLE OPENS at n = 1.
+# The thirteenth closed on: a guard states what is not claimed, beside the claim.
+# n = 1 opens with two of them, and there are six in the eighty-two.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P337 · every *assume* in the record
+
+```
+1   08-12 17:13:57   n=6    JUST READ AND ASSUME WHAT YOU READ IS TRUE ESPECIALLY IF ITS A
+                            FUCKING NETWORK OF CODE FILES SPECIFYING MATH
+2   08-12 17:00:21   q      assume you always have less answer than are already in the repo
+3   08-12 21:46:00   n=24   guide the network to the North Star (assume you don't know the North
+                            Star until surprise runs out in consuming what's already been
+                            developed/discussed)
+4   08-14 02:25:30   n=1    Assume protocol And readme were written by retarded agents
+5   08-14 02:25:30   n=1    Assume no agent in this work knows what the actual goal is
+6   08-17 18:21:42   n=12   Assume your last work doesn't matter
+—   in a transmission           do not assume direct relevance to parity          (the negated one)
+```
+
+**Six positive, one negated, in eighty-two messages.**
+
+---
+
+## P337 · what an *assume* is not
+
+**None of the six asserts the thing assumed.**
+
+***Assume protocol And readme were written by retarded agents*** **does not say they were.** **It
+says: work from that premise.**
+
+**P336: a guard states what is not claimed, in the same place as the claim.** **An imperative to
+assume is that, in one word — the premise is marked as a premise at the moment it is issued.**
+
+**P330, his commit of two days ago:** *"these are repository corrections about those artifacts and
+relations; **they are not a claim that** every Sanskrit-named file or every modern formalization is
+thereby illegitimate."*
+
+**Same operation, seven days apart, in English prose and in a single verb.**
+
+---
+
+## P337 · and the six are all about standing, not about content
+
+```
+n=6     what to treat as true            — what you read, especially a network of code files
+q       what to treat yourself as        — always having less answer than the repo already holds
+n=24    what to treat as unknown         — the North Star, until surprise runs out
+n=1     what to treat the documents as   — written by agents who did not know the goal
+n=1     what to treat every agent as     — not knowing what the actual goal is
+n=12    what to treat your own work as   — not mattering
+```
+
+**Not one of them is about a mathematical object.**
+
+**Six instructions, each fixing what standing to grant something before reading it.**
+
+**`CLAUDE.md`:** *"**Nyāya** on *pramāṇa* — what counts as a valid means of knowledge — which is the
+question this entire repository is trying to answer with ad-hoc gates."*
+
+---
+
+## P337 · n = 24's parenthesis carries the condition
+
+> *"guide the network to the North Star **(assume you don't know the North Star until surprise runs
+> out in consuming what's already been developed/discussed)**"*
+
+**A termination condition, and it is not a quantity: *until surprise runs out*.**
+
+**P330: *until you actually accept* is n=18's, and P244 called it the ground's only *until*.** **Here
+is a second, six days earlier, and it terminates a not-knowing rather than an engaging.**
+
+**P327: *nothing here claims to be its content*.** **P335: *standard; NOT checked in this corpus*.**
+**The parenthesis is the same move — the instruction and the limit of the instruction in one
+sentence.**
+
+---
+
+## P337 · and n = 1's two are the pair the file opens with
+
+```
+Assume protocol And readme were written by retarded agents.
+Assume no agent in this work knows what the actual goal is.
+I keep trying to steer you guys. You keep doing whatever you want.
+```
+
+**Two premises, then the fact that motivates them.**
+
+**P303: *insane privilege*, *network of collaborators* and *genuinely insane* are among the six
+least-quoted phrases in this stream, and all three are in this message.** **P304: the clause where he
+says who he is carries its own disclaimers.**
+
+**n=1 opens with two marked premises and ends with a request: *pythagorean machine pls*.**
+
+---
+
+## P337 — what this pass counted
+
+Six imperatives to assume in the eighty-two messages, and one negated *do not assume* inside a
+transmission.
+
+None of the six asserts what it asks to be assumed. Each marks its premise as a premise in the act of
+issuing it, which is the form the thirteenth cycle found in twelve of the repository's guards, done in
+one verb.
+
+All six fix epistemic standing rather than content: what to treat as true, what to treat yourself as
+holding, what to treat as unknown, what to treat the documents as, what to treat every agent as, what
+to treat your own last work as.
+
+n=24's carries its own termination condition in a parenthesis — *until surprise runs out in consuming
+what's already been developed* — and it is a second *until*, six days before n=18's.
+
+And n=1, where the ground begins, opens with two of them before the sentence that motivates them, and
+closes on a request.
