@@ -1091,3 +1091,7 @@ sp698	le(x,0)	le(+(x,*(+(0,x),y)),le(+(0,x),0))	ind 0 refl refl
 sp656	le(x,0)	le(+(+(x,x),*(x,+(y,y))),le(x,0))	ind 0 refl refl
 sp657	le(s(0),+(x,*(x,x)))	le(s(0),+(*(x,x),x))	ind 0 refl refl
 sp658	le(s(0),+(+(x,x),*(x,+(y,y))))	le(s(0),x)	ind 0 refl refl
+sp699	+(x,+(+(y,z),u))	max(+(+(+(x,y),z),u),x)	ind 0 refl congsuc
+sp700	+(+(0,x),+(y,z))	max(+(+(x,y),z),+(0,x))	ind 0 refl congsuc
+sp701	+(x,+(s(s(0)),y))	max(+(+(s(s(0)),x),y),x)	ind 0 refl congsuc
+sp702	+(s(s(0)),s(s(s(0))))	+(s(s(s(0))),s(s(0)))	refl
