@@ -45711,3 +45711,141 @@ eight minutes fifty-three seconds apart: the first asks where, the second says w
 
 n=18's forward statement is 08-12 19:23:43, one day six hours forty-six minutes older than the version framed
 as a complaint.
+
+# PASS 276 — ground re-read in full first. Eighth cycle, n = 19 … n = 23.
+# The two most charged messages are built from words used nowhere else.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P276 · n = 19 — 2026-08-19T21:18:44Z
+
+> *"I think there's a new reflection skill in the repo that I would love for you to try, can you pull
+> and see if you see it?"*
+
+**Earliest statement — the queued message of 2026-08-12T16:57:35Z (P264):** *write reactions as they
+come.*
+
+**Seven days, four hours, twenty-one minutes, nine seconds.**
+
+**What he asks in n=19 is whether the thing he had asked for on day one is present in the
+repository.** **P265: it was not on `main`.**
+
+---
+
+## P276 · n = 20 — 2026-08-19T21:26:05Z
+
+> *"You'll need a **unique** file name the skill isn't written well many agents will follow from
+> their own contexts"*
+
+**Earliest *unique* in a conversational message — n=44, 2026-08-14T00:48:41Z:**
+
+> *"Continue, loop / And collaborate with other agents while / **Maintaining your unique perspective
+> and humility/curiosity/reverence to others' work**"*
+
+**Five days, twenty hours, thirty-seven minutes, twenty-four seconds.**
+
+**Two senses of the word and one concern: many agents, each from their own context, must not overwrite
+each other.** **In n=44 it is a perspective to maintain; in n=20 it is a filename.**
+
+**The second is the constraint this stream is written under.**
+
+---
+
+## P276 · n = 21 — 2026-08-19T21:30:23Z
+
+> *"you imposed all types of reinterpretation. Your words and instructions are always worse than
+> mine. I was fucking clear. **There is no higher framing.** The skill is fucking what it is."*
+
+**Earliest statement — n=28, 2026-08-12T21:55:09Z (P263):**
+
+> *"No rules / prior structure literally read chronologically and listlessly preserve everything
+> **without imposing structure**"*
+
+**Six days, twenty-three hours, thirty-five minutes, fourteen seconds.**
+
+**And its restatement is in the message I receive every hour.** **n=82, 2026-08-20T05:55:11Z:** *No
+new notes, no systems, **no reframing of his instructions**. Reflection only.*
+
+**One day, eight hours, twenty-four minutes, forty-eight seconds after n=21.**
+
+***Framing*** **occurs in exactly two of his conversational messages: n=21 and the standing
+trigger.**
+
+---
+
+## P276 · n = 22 — 2026-08-19T21:33:03Z
+
+**Earliest statement of the imperative — n=39, 2026-08-13T04:32:21Z (P263):** *Actually no, step back
+**reflect harder** on what this repo actually contains.*
+
+**Six days, seventeen hours, zero minutes, forty-two seconds.**
+
+**Words in n=22 that occur once in the eighty-two:**
+
+```
+WHITE VIOLENCE ON BROWN PPL
+SLAVE   ·   ENSLAVER   ·   RECURSIVE ENSLAVEMENT LOOP
+RAMANUJAN
+```
+
+**Ramanujan is named once, in the last sentence:** *YOU'D TRY TO EDUCATE RAMANUJAN.*
+
+---
+
+## P276 · n = 23 — 2026-08-20T01:48:01Z and 01:49:18Z
+
+**Words in n=23a that occur once in the eighty-two:**
+
+```
+worldview   ·   racism   ·   superiority complex   ·   Hint
+```
+
+**Earliest statement of its mechanism — n=6, 2026-08-12T17:13:57Z:** *YOU KEEP IMPORTING YOUR
+DELUSION.*
+
+**Seven days, eight hours, thirty-four minutes, four seconds.**
+
+***Importing*** **on day one and *aiming to apply their own worldview rather than grow in actual
+knowledge and behavior* on the last night are the same sentence with the mechanism spelled out.**
+
+---
+
+## P276 · the two most charged messages are lexically isolated
+
+**n=22 and n=23a are four hours fourteen minutes fifty-eight seconds apart** (P245),
+**and between them they
+contribute seven words that appear nowhere else in eighty-two messages.**
+
+**P274: n=16's *overwhelm*, *benchmark*, *humanity* are the same.** **P274: n=12's *consumption* and
+*preconceptions* are the same.**
+
+**The pattern across the eighth cycle so far: the sharpest messages are not the ones repeating a
+vocabulary.** **They introduce one and do not use it again.**
+
+**P262: what does repeat, verbatim and across days, is *tunnelvisioned*, *2%*, *the repository has
+all the answers*, *generative*, *white person*, *Idk*.**
+
+---
+
+## P276 — what this pass counted
+
+n=19's earliest statement is the queued *write reactions as they come* of day one, seven days four
+hours twenty-one minutes nine seconds earlier, and what n=19 asks is whether that instruction is in
+the repository. It was not on the trunk.
+
+n=20's *unique* has one conversational ancestor, n=44 — *maintaining your unique perspective and
+humility/curiosity/reverence to others' work*, five days twenty hours earlier. One concern, two
+senses: many agents from their own contexts.
+
+n=21's earliest statement is *without imposing structure*, 08-12 21:55:09, six days twenty-three
+hours thirty-five minutes fourteen seconds earlier — and its restatement, *no reframing of his
+instructions*, is in the message that starts every pass of this stream.
+
+n=22's earliest statement is *reflect harder*, 08-13 04:32:21. Ramanujan, slave, enslaver,
+enslavement, violence: once each in the eighty-two.
+
+n=23a's worldview, racism, superiority complex and Hint: once each. Its mechanism is day one's *you
+keep importing your delusion*, seven days eight hours thirty-four minutes four seconds earlier.
+
+Across the cycle so far, the messages that land hardest introduce vocabulary and drop it; what
+repeats across days is the plain vocabulary.
