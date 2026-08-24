@@ -85,7 +85,8 @@ import System.Directory (doesDirectoryExist, doesFileExist, listDirectory
 import System.Environment (getArgs, lookupEnv)
 import System.Exit (ExitCode(..))
 import System.FilePath ((</>), takeExtension, takeBaseName, takeDirectory)
-import System.IO (hSetEncoding, stdout, utf8)
+import System.IO (hSetEncoding, stdout, stderr, utf8)
+import GHC.IO.Encoding (setLocaleEncoding)
 import System.Process (readProcessWithExitCode)
 
 data Sig = Sig { sMod :: String, sName :: String, sFrom :: String, sTo :: String }
@@ -1168,7 +1169,30 @@ data Cand = Cand
 
 main :: IO ()
 main = do
+  -- 2026-08-24.  THE OUTPUT SIDE WAS UTF-8 AND THE INPUT SIDE WAS THE
+  -- LOCALE'S, and this program's whole job is reading Agda files whose
+  -- identifiers are Devanagari.  `hSetEncoding stdout utf8` alone leaves
+  -- every `readFile` on the caller's `LC_ALL`, so under a POSIX locale
+  -- `readHostFacts` dies mid-run with
+  --     hGetContents: invalid argument (cannot decode byte sequence
+  --     starting from 226)
+  -- — 226 is the first byte of UTF-8 `≡`/`→`.  Reproduced here today
+  -- against NaturalMachine/ChargeTwoHistories.agda.  It is a CRASH, not a
+  -- refusal: no row, no class, no witness, the pass simply ends.
+  --
+  -- `punaragamana/check.sh` already carries this in its header for Agda
+  -- itself ("under a POSIX locale Agda crashes while PRINTING its own error
+  -- messages for the Devanagari identifiers, hiding the real diagnosis").
+  -- The same trap is one layer up in the Haskell that reads those files,
+  -- and 21 of the 28 `machine/*.hs` that call `readFile` still have it.
+  --
+  -- `setLocaleEncoding` fixes the class rather than the symptom: it covers
+  -- every handle opened afterwards, so the fix cannot be defeated by adding
+  -- another `readFile` later.  Ordering matters — it must precede the first
+  -- read, which is why it is the first statement in `main`.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
+  hSetEncoding stderr utf8
   args <- getArgs
   let lim = case dropWhile (/= "--limit") args of
               (_:n:_) -> read n
