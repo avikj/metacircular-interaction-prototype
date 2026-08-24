@@ -72,6 +72,8 @@ import System.Directory (doesFileExist, createDirectoryIfMissing)
 import System.Environment (getArgs)
 import System.FilePath (takeDirectory)
 
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 import Marga_TheRouterTransportsATheoremAlongLandedEdges
   ( Edge(..), eFull, landedEdges, componentsOf )
 
@@ -158,6 +160,9 @@ compOf comps n = lookup True [ (S.member n c, i) | (i, c) <- zip [0 ..] comps ]
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   args <- getArgs
   let root = case [ a | a <- args, take 2 a /= "--" ] of { (r:_) -> r ; _ -> "." }
       decideMode = "--decide" `elem` args

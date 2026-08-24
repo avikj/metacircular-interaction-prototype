@@ -195,6 +195,8 @@ import Control.Monad (forM_, when, unless)
 import System.Exit (exitFailure)
 import System.IO
 import Text.ParserCombinators.ReadP
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ==================================================================
 -- ==================== TRANSCRIBED FROM MathMachine.hs =============
@@ -746,6 +748,9 @@ parseRoundLine ln = case words ln of
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   hSetBuffering stdout LineBuffering
   putStrLn "==================================================================="

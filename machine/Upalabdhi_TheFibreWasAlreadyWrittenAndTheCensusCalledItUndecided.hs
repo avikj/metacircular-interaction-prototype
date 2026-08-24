@@ -67,6 +67,8 @@ import System.Directory (doesDirectoryExist, listDirectory, doesFileExist)
 import System.Environment (getArgs)
 import System.FilePath ((</>), takeExtension, takeBaseName)
 import System.IO
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ─────────────────────────────────────────────────────────── file walking
 
@@ -380,6 +382,9 @@ readFileUtf8 fp = do
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   args <- getArgs
   let flags = filter ("--" `isPrefixOf`) args
