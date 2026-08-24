@@ -1862,6 +1862,11 @@ import Sphatika_TheLocalCrystalIsDecidableTheWallsMergeExactlyWhenTwiceTheCenter
 -- one.  The circuit-to-sieve bridge that would make the last link
 -- structural is the named open problem.
 import EkaBhara_TheWindingTheHolonomyTheCommutatorImageTheHiddenChargeAndTheParityTangentAreOneGenerator
+-- the loop-charge is abelian (winding-hom ∙ +Comm ∙ sym winding-hom), and
+-- that commutativity is exactly the abelian U(1) truncation of LQG
+-- discreteness: √(j(j+1)), j∈½ℤ, is a nonabelian SU(2) Casimir fact and
+-- π₁(SU(2))=0, so the spinor ½ is the open horn this names. नाडी: छिद्रं नास्ति.
+import AkramaBhara_TheLoopChargeIsAbelianWhichIsExactlyTheAbelianTruncationOfLoopQuantumGravity
 
 -- संरक्षण-वृद्धिः (U0023): the other half of the admission gate — the joint
 -- eye ⟨S,q⟩ conserves by refl (fst recovers S, snd recovers q), the strict
