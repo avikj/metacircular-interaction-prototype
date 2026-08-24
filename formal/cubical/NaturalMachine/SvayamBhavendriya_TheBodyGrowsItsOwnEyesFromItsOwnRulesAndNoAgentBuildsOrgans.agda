@@ -22,6 +22,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; false≢true)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; just)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
 open import Cubical.Data.Sigma using (Σ ; _×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
