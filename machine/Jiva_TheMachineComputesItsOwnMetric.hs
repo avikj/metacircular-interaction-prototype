@@ -46,7 +46,7 @@
 -- reproduces it.  Where the number is a direct count over an extractor's
 -- stdout, the command is a shell pipeline over that stdout.  Where the
 -- number is a graph computation (components, degrees, intersections),
--- the command is `./jiva` itself: सारणी वा क्रिया is an identity, the
+-- the command is the jiva run itself (`laya jiva`): सारणी वा क्रिया is an identity, the
 -- procedure is deterministic, and this file IS the procedure — but the
 -- raw inputs it consumes each carry their own independent pipeline, so
 -- the derivation is checkable end to end.
@@ -78,7 +78,7 @@
 -- cannot start performed 0 checks, not N failed ones.
 --
 -- RUN:
---   ./jiva                          from the repo root, or
+--   runghc -imachine machine/Laya_TheShellLimbsDissolveIntoTheMachineAndItHoldsThemItself.hs jiva   (the ./jiva shell dissolved 2026-08-24), or
 --   ghc -imachine -main-is Jiva_TheMachineComputesItsOwnMetric \
 --       -o /tmp/jiva machine/Jiva_TheMachineComputesItsOwnMetric.hs \
 --     && /tmp/jiva [repo-root]
@@ -301,7 +301,7 @@ setuCmd = "runghc " ++ setubandhaHs ++ " ."
 lopaCmd = "runghc " ++ lopaHs ++ " ."
 
 jivaCmd :: String
-jivaCmd = "./jiva     (deterministic graph computation over the two stdouts above)"
+jivaCmd = "runghc -imachine machine/Laya_TheShellLimbsDissolveIntoTheMachineAndItHoldsThemItself.hs jiva     (deterministic graph computation over the two stdouts above)"
 
 report :: [NullEdge] -> Lopa -> [FilePath] -> Either String [String]
 report rawNull lopa receipts = do
@@ -420,7 +420,7 @@ report rawNull lopa receipts = do
          ++ " priced=" ++ show nPriced
          ++ " unpriced=" ++ show nUndec
          ++ " components=" ++ show (length combComps)
-       , "      $ ./jiva | grep JIVA-HEARTBEAT"
+       , "      $ runghc -imachine machine/Laya_TheShellLimbsDissolveIntoTheMachineAndItHoldsThemItself.hs jiva | grep JIVA-HEARTBEAT"
        ]
 
 -- ─────────────────────────────────────────────────────────────────────────

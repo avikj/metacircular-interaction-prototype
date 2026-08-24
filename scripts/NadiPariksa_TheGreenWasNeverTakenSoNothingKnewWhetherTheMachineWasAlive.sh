@@ -100,9 +100,32 @@ run_gate "lean · globs"                                     scripts/check-lean-
 run_gate "lean · example oracles"                           scripts/check-lean-example-oracles.sh
 
 # ── the assembly, which nothing ran until this file ──────────────────
-run_gate "yantra · the organs on one wire, TURNED"          machine/run-yantra.sh slow
-run_gate "sabha · the session kernel"                       machine/check-sabha.sh slow
-run_gate "yantra · pariksa, the five roads exercised"       machine/check-yantra-pariksa.sh slow
+# [2026-08-24, laya] the machine's shell wrappers dissolved by the owner's
+# order; the assembly is gated by invoking its Haskell mains directly.
+run_gate_cmd () {   # name, command-string, [slow]
+  _n="$1"; _c="$2"; _slow="${3:-}"
+  if [ "$QUICK" = "--quick" ] && [ -n "$_slow" ]; then
+    SKIP="$SKIP
+  $_n — skipped by --quick; it is slow, not absent"
+    return
+  fi
+  _out=$(eval "$_c" 2>&1); _rc=$?
+  _last=$(printf '%s\n' "$_out" | grep -v '^[[:space:]]*$' | tail -1 | cut -c1-120)
+  if [ "$_rc" -eq 0 ]; then
+    PASS="$PASS
+  $_n — $_last"
+  else
+    FAIL="$FAIL
+  $_n — EXIT $_rc — $_last"
+  fi
+}
+NADI_OUT="${TMPDIR:-/tmp}/nadi-gates-$(id -u)"; mkdir -p "$NADI_OUT"
+run_gate_cmd "yantra · the wire session (the contract is in the types: Uttara has no third constructor)" \
+  "ghc -O0 -imachine -outputdir $NADI_OUT/yantra -o $NADI_OUT/yantra-bin machine/YantraRun.hs && $NADI_OUT/yantra-bin" slow
+run_gate_cmd "sabha · the session kernel, selftest" \
+  "ghc -O0 -imachine -outputdir $NADI_OUT/sabha -o $NADI_OUT/sabha-bin machine/SabhaRun.hs && SABHA_LEKHA=$NADI_OUT/selftest.jsonl $NADI_OUT/sabha-bin --selftest" slow
+run_gate_cmd "yantra · pariksa, the five roads exercised" \
+  "ghc -O0 -Wall -Werror -imachine -outputdir $NADI_OUT/yp -o $NADI_OUT/yp-bin machine/YantraPariksaRun_TheFiveRoadsExercisedNotDescribed.hs && $NADI_OUT/yp-bin" slow
 
 # ── the records that are supposed to be append-only ──────────────────
 run_gate "dosa · the written defect chain"                  scripts/check-dosa-lekha.sh

@@ -133,7 +133,7 @@ import qualified Astadhyayi as P
 -- ============================================================ प्रामाण्य
 --
 -- Moved to Pramanya_TheFiveRoutesAndTheirWitnesses, 2026-08-23, so that
--- Aisthesis and the runghc organs (./jiva) can speak the route vocabulary
+-- Aisthesis and the runghc organs (laya jiva) can speak the route vocabulary
 -- without interpreting this whole assembly.  Imported and re-exported:
 -- the wire interface of this module is unchanged.
 import Pramanya_TheFiveRoutesAndTheirWitnesses

@@ -21,4 +21,9 @@ ROOT=$(cd "$(dirname "$0")/.." && pwd)
 LOG="${DOSA_LEKHA:-$ROOT/machine/dosa.lekha}"
 [ -f "$LOG" ] || { echo "check-dosa-lekha: no log at $LOG yet — nothing to verify."; exit 0; }
 command -v ghc >/dev/null 2>&1 || { echo "check-dosa-lekha: no ghc; not verified (this is not a pass)."; exit 0; }
-sh "$ROOT/machine/run-dosa-lekha.sh" verify
+# [2026-08-24, laya] run-dosa-lekha.sh dissolved; the organ is invoked directly.
+DOSA_OUT="${TMPDIR:-/tmp}/dosalekha-$(id -u)"
+ghc -O0 -i"$ROOT/machine" -main-is DosaLekha_TheWrittenDefectRecord.main \
+    -outputdir "$DOSA_OUT-build" -o "$DOSA_OUT" \
+    "$ROOT/machine/DosaLekha_TheWrittenDefectRecord.hs" >/dev/null \
+  && ( cd "$ROOT" && "$DOSA_OUT" verify )
