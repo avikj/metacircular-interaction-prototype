@@ -577,3 +577,17 @@ normalizer's soundness the same day — the store feeding its own next
 organ, which is the constitution working as written.  Message 0954 has
 the fleet-facing record.  Definitive pass running; receipts will say
 what landed.
+
+## 2026-08-24, closing census — 209 of 403, and a lie in the receipts caught twice
+
+The corrected passes finished: 209 landed of the rewriter's 403
+non-joining pairs (141 this morning).  Two receipt lies surfaced and
+died: the zero-variable emitter bug (precedence put the arrow outside
+the conditional, so every closed pair parse-failed and was filed as
+refused:kernel since the emitter's first day — 30 theorems recovered
+once fixed, the closed signature now refl-pinned), and P1255 (a
+kernel-refused candidate that outlived its killed pass wearing a
+landed costume; verdict 42 on re-ask, deleted).  Everything.agda
+imports the full store.  The standing residue is ~170 distinct pairs
+wanting numeral arithmetic, max-case reasoning, and two-variable
+induction — the next rungs, named by the machine's own receipts.
