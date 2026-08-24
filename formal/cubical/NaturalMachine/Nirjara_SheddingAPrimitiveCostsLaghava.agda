@@ -2863,3 +2863,65 @@ matra-na-vakyasya (f , h) =
 -- §49's maxim counts मात्राs — morae — and a symbol is not a mora.  The
 -- rung above `nimitta-akshara` is real and this module does not reach it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 77.  The ladder is not the shape of §52's table, and this checks which
+--      of its three measures are on a chain and which is off it.
+--
+-- §76 read the निमित्त measures as a ladder — each a quotient of the next
+-- — and said the same holds of the last twenty sections.  That is too
+-- fast.  A ladder is a CHAIN of quotients, and §52's three derivation
+-- measures are not one.  Two of them are; the third is not comparable to
+-- either.
+------------------------------------------------------------------------
+
+-- सूत्र-count is coarser than मात्रा: one सूत्र can be long to state
+sutrat-na-aksharam :
+  ¬ (Σ (ℕ → ℕ) (λ f → (P : Prakriya) → f (matra-p P) ≡ matra-akshara P))
+sutrat-na-aksharam (f , h) =
+  znots (injSuc (sym (h (cara-s ∷ [])) ∙ h (mita-s 5 ∷ [])))
+
+-- but मात्रा does NOT determine गुरुत्व: same statement-length, different
+-- largest intermediate
+aksharat-na-gurutvam :
+  ¬ (Σ (ℕ → ℕ) (λ f → (P : Prakriya) → f (matra-akshara P) ≡ guru P))
+aksharat-na-gurutvam (f , h) =
+  snotz (injSuc (sym (h (dvi-s zero ∷ cara-s ∷ []))
+               ∙ h (cara-s ∷ cara-s ∷ [])))
+
+-- nor गुरुत्व मात्रा: same largest intermediate, different length
+gurutvat-na-aksharam :
+  ¬ (Σ (ℕ → ℕ) (λ f → (P : Prakriya) → f (guru P) ≡ matra-akshara P))
+gurutvat-na-aksharam (f , h) =
+  znots (injSuc (sym (h (cara-s ∷ [])) ∙ h (mita-s 5 ∷ [])))
+
+------------------------------------------------------------------------
+-- 78.  Two shapes, and §76 named only one of them.
+--
+--   A CHAIN, where each measure is a quotient of the next:
+--       extent  ←  nimitta-matra  ←  nimitta-akshara      (§73, §75)
+--       matra-p ←  matra-akshara                           (§77)
+--
+--   AN INCOMPARABLE PAIR, where neither determines the other:
+--       matra-akshara  ⊥  guru                             (§77, both ways)
+--
+-- The difference matters because the two shapes call for different
+-- discipline.  On a chain, "name the rung" is enough — the measures agree
+-- about everything the coarse one can see, and a claim true at one rung
+-- is true at every finer one.  Between incomparables it is not: गुरुत्व
+-- and मात्रा can move in opposite directions on the same move, which is
+-- exactly what §35 found for अपवाद (free in one, doubling in the other)
+-- and §53 for उत्सर्ग (down in both, and that had to be checked twice
+-- because it did not follow).
+--
+-- So §76's "name the rung" splits into two rules.  On a chain: name the
+-- coarsest rung at which the claim holds, and it holds below.  Off one:
+-- name EVERY measure, because there is no ordering to inherit along.
+-- §52's table is the second kind, which is why it needed twelve entries
+-- and not four, and why it is the section that never needed correcting.
+--
+-- NOT SHOWN: where गुरुत्व sits relative to extent, or whether some
+-- measure refines both गुरुत्व and मात्रा.  A common refinement would
+-- exist trivially — the pair — but whether anything NATURAL refines both
+-- is the question, and a pair is not an answer to it.
+------------------------------------------------------------------------
