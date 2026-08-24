@@ -2784,3 +2784,82 @@ matra-na-sthiteh (g , h) =
 -- different model and might behave.  Whether it would still make उत्सर्ग
 -- the cheap form is the question, and nothing here answers it.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 75.  §74's question, and the ladder does not stop.
+--
+-- §74 asked whether a price charged for EXTENT rather than for syntax
+-- would still make उत्सर्ग the cheap form.  It would, and vacuously: an
+-- extent-price is a function of `sthiti` alone, and `sthiti sarvatra` is
+-- `sthiti (anyatara sarvatra dviyoge)` (§73).  So every such price
+-- identifies a condition with a strictly longer condition of the same
+-- reach.  उत्सर्ग comes out cheapest not because of anything about
+-- उत्सर्ग but because everything of full extent does.
+--
+-- That is §55's object error again — a measure on what a thing DENOTES
+-- rather than on what it SAYS — now inside the निमित्त lattice.  And the
+-- more useful discovery is that `nimitta-matra`, the fix, has the same
+-- defect one rung further up.
+------------------------------------------------------------------------
+
+sarva-visayasya-samam :
+  {ℓ : Level} {X : Type ℓ} (g : (Prakriya → Bool) → X)
+  → g (sthiti sarvatra) ≡ g (sthiti (anyatara sarvatra dviyoge))
+sarva-visayasya-samam g = cong g (sym anyatara-sarvatra-samam)
+
+-- what a statement actually costs to write: every connective too
+nimitta-akshara : Nimitta → ℕ
+nimitta-akshara sarvatra       = 1
+nimitta-akshara dviyoge        = 1
+nimitta-akshara ayoge          = 1
+nimitta-akshara (ubhau c d)    = suc (nimitta-akshara c + nimitta-akshara d)
+nimitta-akshara (anyatara c d) = suc (nimitta-akshara c + nimitta-akshara d)
+
+-- `nimitta-matra` charges for CONDITIONS NAMED and not for connectives,
+-- so conjoining the free condition to itself is free under it …
+sarvatra-ubhau-matra : nimitta-matra (ubhau sarvatra sarvatra)
+                     ≡ nimitta-matra sarvatra
+sarvatra-ubhau-matra = refl
+
+-- … and is not free to write
+matra-na-vakyasya :
+  ¬ (Σ (ℕ → ℕ) (λ f → (c : Nimitta) → f (nimitta-matra c) ≡ nimitta-akshara c))
+matra-na-vakyasya (f , h) =
+  znots (injSuc (sym (h sarvatra) ∙ h (ubhau sarvatra sarvatra)))
+
+------------------------------------------------------------------------
+-- 76.  Three rungs, and the same step between each pair.
+--
+--   extent            what the condition RULES OUT
+--   nimitta-matra     what conditions it NAMES
+--   nimitta-akshara   what it takes to WRITE
+--
+-- §73: extent does not determine `nimitta-matra`.
+-- §75: `nimitta-matra` does not determine `nimitta-akshara`.
+--
+-- Both by the same move — exhibit two objects the coarser measure
+-- identifies and the finer one separates — and there is no reason the
+-- ladder stops at three.  A price charging per symbol still says nothing
+-- about how long the symbols take to utter, and Piṅgala's मात्रा is
+-- exactly that next rung, which is where §49 found the grammarians
+-- standing.
+--
+-- WHAT THIS MAKES OF THE LAST TWENTY SECTIONS.  §55 read as a single
+-- mistake — I measured derivations when लाघव measures statements.  §75
+-- says it is not a mistake with a bottom.  Every measure is a quotient of
+-- a finer one, each is blind to what the next distinguishes, and the
+-- question "is this the right measure" has no answer without saying what
+-- it is being asked to separate.  §69's design constraint, §71's
+-- monotonicity, §67's identification — each was true of one rung and
+-- stated as though of the object.
+--
+-- SO THE DISCIPLINE, and it is the one thing here worth carrying: name
+-- the rung.  Not "अपवाद is free" but "free in conditions-named, charged
+-- in symbols-written, and untouched in extent".  §52's table did this for
+-- three measures on derivations and it is the only section of this module
+-- that has never needed correcting.
+--
+-- NOT SHOWN: that `nimitta-akshara` is where the grammarians' count sits.
+-- §49's maxim counts मात्राs — morae — and a symbol is not a mora.  The
+-- rung above `nimitta-akshara` is real and this module does not reach it.
+------------------------------------------------------------------------
