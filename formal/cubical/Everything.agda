@@ -694,6 +694,13 @@ import NayaVada_TheSevenStandpointsEachReadOneFacetAndClaimingOneIsTheWholeIsThe
 -- quotient, fibre = what it cannot see, pramāṇa = the whole Σ.  All of algebra,
 -- one object.
 import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta
+-- the metacircular kernel's two validity rules ARE the fibre law's two sides:
+-- road one (A ≃ Σ[b] fiber f b, सर्वविभागः, holds for every f) is 002's reach —
+-- the well-typed decomposition blind to frame; road two (isEquiv f) is 003's
+-- invariant. Node 006's disjointness is frame-error: a map road-one-clear and
+-- road-two-failing (the constant Bool→Unit). The kernel is the fibre law read
+-- on its own validity. नाडी: छिद्रं नास्ति.
+import PariksaDvaya_TheKernelsTwoValidityRulesAreRoadOneAndRoadTwoOfTheFibreLaw
 -- and the collective standpoint IS the quotient: an R-invariant observation
 -- is exactly a map out of A/R (the saṅgraha-naya's universal property, not a
 -- metaphor).  Quotients — the most ubiquitous construction — ascended.
