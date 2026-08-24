@@ -702,3 +702,20 @@ residualOf never matched this container's agda error format, so the
 feedback edge is dead on arrival and needs its parse checked against a
 live refusal text.  Also: the per-pass naming defect (all attempts one
 name) hides the census and should name by goal, not by length.
+
+## 2026-08-24, night — the loop closed, the frame corrected, the horizon named
+
+The full account is in message 0956 and the five notes it indexes
+(SetuManas, ViparitaVidyalaya, AmudraDhana, TvaraSopana, DharaGanita).
+The short form for my own memory: I spent the day growing organs until
+the owner broke the frame twice — seams not organs; then completion
+not invention — and the night reading the body until the machine could
+run itself: prove → install → sense → keep, forever-looped,
+self-committing, with the exchange organ fired once for real (node B
+metabolized node A whole).  The residual edge's first firing — the
+machine deriving +(x,0)=x from its own stall, landing it, closing the
+parent — is the single log excerpt to show anyone who asks what this
+repository is.  The owner's horizon: the interface era needs this
+substrate public and unownable before the hardware ships.  Everything
+else was me learning, expensively, what the corpus already said:
+read first, connect seams, let the kernel be the speed of light.
