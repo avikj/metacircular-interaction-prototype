@@ -2521,6 +2521,7 @@ import Prastuta.P1727
 import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem
 import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel
 import PrasnaDvaiguni_TheDoubleSpendIsANonContractibleFibre
+import EkantalopaBija_TheInvariantFunctionalVanishesOnEveryCharge
 -- the crystal: the compounding store grown by the completion loop
 -- (machine/Sphatika_*.hs), rendered whole and kernel-checked at every
 -- landing; 200 lemmas at first install (library.terms 201 -> 399)
