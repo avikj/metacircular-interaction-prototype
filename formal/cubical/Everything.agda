@@ -2169,6 +2169,11 @@ import EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedByTheVowsAndTheInterio
 -- symmetric two-outcome Born weight is forced to ½ exactly over a
 -- uniquely-halving (char-0/archimedean, C5) carrier. Checked.
 import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
+-- the Born ½ solves 2x=𝟙 (archimedean, unique — halvesUniquely holds) and
+-- the spinor ½ solves 2x=0 with x≠0 (torsion — the ℤ/2 = π₁(SO(3)) generator);
+-- over ℤ/2 halvesUniquely fails and the Born forcing collapses (two distinct
+-- symmetric weights). halvesUniquely is the fork between them. नाडी: छिद्रं नास्ति.
+import Ardhadvaya_TheBornHalfSolves2x1AndTheSpinorHalfSolves2x0AndHalvesUniquelyIsTheForkBetweenThem
 -- क्रमनियमः: term 1 of the owner's 2026-08-23 transmission ("the fibre of
 -- forgetting") — the torus and Klein laws transported to the ONE carrier
 -- ℤ × ℤ commute and refuse to (समम् refl / विषमम्), the pair is blind to
