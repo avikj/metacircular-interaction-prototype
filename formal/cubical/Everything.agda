@@ -719,16 +719,6 @@ import KarmaPrakrti_TheEightBindingsSplitFourObscuringFourNonAndDestroyingTheObs
 -- that named frontier by induction: the machine proposes its śeṣa, the kernel
 -- disposes.
 import SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach
--- समता-द्विधा in the transport lane: being an equivalence splits, fibrewise
--- and on the nose, into embedding × split-surjection, so the two ways a
--- residual (शेष = fiber) refuses contractibility — crowded (नष्टि) and empty
--- (अवक्तव्यम्) — are the two orthogonal factors of अलोप-लक्षणम्'s hypothesis
--- failing apart.  Loaded warm through नाडी: छिद्रं नास्ति.
-import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
--- …and which factor the discrete log breaks: powg fails the EMBEDDING factor
--- of समता-द्विधा, crowded-ly (नष्टि, not अवक्तव्यम्) — two exponents over one
--- power. One-wayness is a merge, not a gap. नाडी: छिद्रं नास्ति.
-import GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor
 -- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
 -- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
 -- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
