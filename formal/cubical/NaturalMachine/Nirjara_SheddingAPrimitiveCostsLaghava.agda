@@ -2143,3 +2143,90 @@ sarvam-kramasya-samam g = refl
 -- tradition's *criterion* rather than to its theorems, which is the same
 -- act one level up.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 57.  विधि — rules as syntax, which is what §56 said was missing.
+--
+-- §56 named the repair and called it a second language rather than a
+-- section: the rules have to BE something before their statement can be
+-- measured.  Here is its core.  Not the whole grammar — a विधि here is
+-- built from the two moves this module has argued about and their
+-- composition — but enough that both sides of §55's separation are
+-- present at once, which they have never been.
+------------------------------------------------------------------------
+
+data Vidhi : Type₀ where
+  akriya-v  : Vidhi                  -- अक्रिया, do nothing
+  apavada-v : Vidhi                  -- dvi-s i  ↦  yoga-s i i
+  utsarga-v : Vidhi                  -- yoga-s i i  ↦  dvi-s i
+  krama-v   : Vidhi → Vidhi → Vidhi  -- one, then the other
+
+-- what it costs to STATE.  This is the सूत्रपाठ side and it is the thing
+-- §22–§54 had no access to.
+vidhi-matra : Vidhi → ℕ
+vidhi-matra akriya-v      = 1
+vidhi-matra apavada-v     = 1
+vidhi-matra utsarga-v     = 1
+vidhi-matra (krama-v a b) = suc (vidhi-matra a + vidhi-matra b)
+
+-- what it DOES.  `Anujna`'s function, recovered as a denotation.
+artha-v : Vidhi → (Prakriya → Prakriya)
+artha-v akriya-v      = λ P → P
+artha-v apavada-v     = apavada-p
+artha-v utsarga-v     = utsarga-p
+artha-v (krama-v a b) = λ P → artha-v a (artha-v b P)
+
+------------------------------------------------------------------------
+-- 58.  §18's separation, with both sides present for the first time.
+--
+-- §18 could only say that a function has no मात्रा — an absence.  §55 said
+-- the same about rules.  Now there is a syntax that HAS one, so the same
+-- fact becomes a separation between two objects that both exist: two
+-- rules, one denotation, two statement-lengths.
+------------------------------------------------------------------------
+
+-- अक्रिया and अक्रिया-then-अक्रिया are one function
+vidhi-tulya : artha-v akriya-v ≡ artha-v (krama-v akriya-v akriya-v)
+vidhi-tulya = refl
+
+-- so every invariant of what a rule DOES identifies them
+sarvam-vidher-arthasya-samam :
+  {ℓ : Level} {X : Type ℓ} (g : (Prakriya → Prakriya) → X)
+  → g (artha-v akriya-v) ≡ g (artha-v (krama-v akriya-v akriya-v))
+sarvam-vidher-arthasya-samam g = cong g vidhi-tulya
+
+-- and the statement-length does not
+vidhi-matra-bheda :
+  ¬ (vidhi-matra akriya-v ≡ vidhi-matra (krama-v akriya-v akriya-v))
+vidhi-matra-bheda p = znots (injSuc p)
+
+-- which is the exact form §55 could only gesture at: no function of what
+-- a rule does computes what it costs to say
+vidhi-matra-na-arthasya :
+  ¬ (Σ ((Prakriya → Prakriya) → ℕ)
+       (λ f → (v : Vidhi) → f (artha-v v) ≡ vidhi-matra v))
+vidhi-matra-na-arthasya (f , h) =
+  znots (injSuc (sym (h akriya-v) ∙ h (krama-v akriya-v akriya-v)))
+
+------------------------------------------------------------------------
+-- 59.  What is now standing and what §56's programme still owes.
+--
+-- STANDING: लाघव's object exists in this file.  `vidhi-matra` measures a
+-- statement, `artha-v` is its denotation, and `vidhi-matra-na-arthasya`
+-- says the first is not a function of the second.  Everything §22–§54
+-- proved is about `artha-v`'s side; this is the other one.
+--
+-- STILL OWED, and it is the whole reason §56 wanted this: the TRANSACTION.
+-- §54 claimed the exception is worth its cost because the general rule
+-- stays simple to state.  Checking that needs a विधि that carves the
+-- exception into the general rule — a conditional form this datatype does
+-- not have — and then a comparison of `vidhi-matra` between the carved
+-- grammar and the utsarga-plus-apavāda one.  Four constructors is not a
+-- grammar; it is the smallest thing on which the separation is statable.
+--
+-- ALSO OWED: `Anujna` and `TriAnujna` still carry functions.  Nothing
+-- above rewires them to `Vidhi`, so the licences remain measures on
+-- derivations with a rule-syntax sitting beside them, unconnected.  The
+-- connection is `artha-v`, and using it is the next thing rather than a
+-- claim this section makes.
+------------------------------------------------------------------------
