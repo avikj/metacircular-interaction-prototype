@@ -751,15 +751,56 @@ roundTripRHS outer inner t = do
   let (argRaw, afterArg) = break (== ')') rest
       arg = trim argRaw
   guard (not (null afterArg) && not (null arg) && all identChar arg)
-  rhs <- trim <$> listToMaybe (after "≡" (drop 1 afterArg))
+  -- 2026-08-24, SECOND REPAIR THE SAME DAY, and the first one was not enough.
+  -- `∣ winding (looping g) ∣₂ ≡ ∣ g ∣₂` — the round trip is the LEFT SIDE OF
+  -- SOMETHING ELSE, wrapped in a set-truncation, and reading from the first
+  -- `≡` onward made the value `∣ g ∣₂` and called the library's own theorem a
+  -- refutation.  Excluding glyphs one at a time loses: `∥` and `∣` are
+  -- different characters and there is always another wrapper.
+  --
+  -- The invariant is not about glyphs.  `outer (inner v)` must BE the whole
+  -- left side, so its closing paren must be followed by the `≡` and nothing
+  -- else.  Anything between them means the application sits inside a larger
+  -- term and the text after `≡` is not its value.
+  let afterParen = dropWhile isSpace (drop 1 afterArg)
+  guard (take 1 afterParen == "≡")
+  rhs <- pure (trim (drop 1 afterParen))
   -- An arrow or a second `≡` after the equation means the round trip is the
   -- ANTECEDENT of something, not the statement, and the text to the right is
   -- not its value.  Refuse: the cost of a missed refutation is one wasted
   -- probe; the cost of a wrong one is deleted work.
   guard (not (null rhs) && not ("→" `isInfixOf` rhs) && not ("≡" `isInfixOf` rhs))
+  -- 2026-08-24, THE SAME DAY, AND FOUND BY THE FIRST RUN AGAINST A REAL
+  -- LIBRARY.  In Cubical.HITs.Bouquet.FundamentalGroupProof:
+  --
+  --     truncatedRight-homotopy : (g : FreeGroupoid A)
+  --                             → ∥ winding (looping g) ≡ g ∥₁
+  --
+  -- the round trip is TRUE and is PROVED there; it is merely wrapped in a
+  -- propositional truncation.  Reading to end of line made the right-hand
+  -- side `g ∥₁`, which differs from `g`, and this function called the
+  -- library's own theorem a refutation.  That is precisely the direction
+  -- the comment above swore not to fail in — a wrong refutation deletes
+  -- real work — and it took one run against mathematics nobody here wrote
+  -- to produce it.
+  --
+  -- An equation NESTED inside something has a closer in its tail that was
+  -- never opened.  So: refuse when the tail carries an unmatched closing
+  -- bracket, and refuse outright on `∥`, which opens and closes with the
+  -- same glyph and cannot be balanced by counting.
+  guard (balancedTail rhs)
   pure (arg, rhs)
   where
     identChar c = isAlphaNum c || c `elem` ("'-_₀₁₂₃₄₅₆₇₈₉" :: String)
+    balancedTail s
+      | any (`elem` s) ("∥∣⟩⟧⦆" :: String) = False
+      | otherwise = go (0 :: Int) s
+      where
+        go d (c : r)
+          | c `elem` ("([{⟨" :: String) = go (d + 1) r
+          | c `elem` (")]}" :: String)  = d > 0 && go (d - 1) r
+          | otherwise                   = go d r
+        go _ [] = True
 
 -- Split on a single character, dropping empties.  For ANULOMA_ROOTS.
 splitOn :: Char -> String -> [String]
@@ -1703,12 +1744,57 @@ parseSig l = do
   (n, rest) <- breakColon l
   let n' = trim n
   if null n' || not (all okChar n') then Nothing else do
-    (a, b) <- splitArrow (trim rest)
+    (a, b) <- splitArrow (stripImplicits (trim rest))
     if any bad [a, b] || null (trim a) || null (trim b)
       then Nothing else Just (n', a, b)
   where
     okChar c = isAlphaNum c || c `elem` "-_'∙′"
     bad s = any (`elem` words s) ["∀", "→", "Σ", "Π"] || any (`elem` s) "{(∀[]"
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- LEADING IMPLICIT TELESCOPES ARE NOT PART OF THE ARROW, 2026-08-24.
+--
+-- `bad` rejects any type containing `{`, so a signature written
+--
+--     len : {ℓ : Level} {A : Type ℓ} → List A → ℕ
+--
+-- was invisible to this scanner — and in a dependently typed library that is
+-- almost every map there is.  Measured: 2209 modules (this corpus plus
+-- agda/cubical v0.9) yielded 1461 arrows and 67 candidate pairs, because the
+-- standard library's maps nearly all carry a level or a type implicitly.
+-- The scanner was seeing the first-order surface of a dependently typed
+-- world and reporting it as the world.
+--
+-- Stripping is sound for the question this program asks.  The probe writes
+-- `∀ b → f (g b) ≡ b` and NAMES NO TYPE — the header two hundred lines up
+-- records that restating the domain is what killed the first three runs — so
+-- an implicit that was inferable at the definition is inferable at the
+-- probe, by the same unifier.  What is stripped is exactly what Agda would
+-- have solved anyway.
+--
+-- IT STAYS CONSERVATIVE. Only a LEADING run of `∀`/`{…}` is removed, and
+-- `bad` still rejects a remaining `{`, `(`, `∀`, `Σ`, `Π` or second arrow in
+-- either side.  So `f : {ℓ} → A → B` is now seen and
+-- `f : (n : ℕ) → Vec A n → Vec A n` is still refused: an EXPLICIT binder
+-- means the arrow's own type depends on a value, and the round trip is then
+-- not the statement this program knows how to write.
+stripImplicits :: String -> String
+stripImplicits = go (0 :: Int)
+  where
+    -- bound the loop: a malformed signature must not spin.
+    go k s | k > 64 = s
+    go k s = case dropWhile isSpace s of
+      ('∀' : r)          -> go (k + 1) r
+      ('{' : r)          -> go (k + 1) (dropBraced 1 r)
+      r@('→' : r') | k > 0 -> go k r'      -- the arrow that closed a telescope
+                   | otherwise -> r
+      r                  -> r
+    dropBraced :: Int -> String -> String
+    dropBraced 0 s = s
+    dropBraced d ('{' : r) = dropBraced (d + 1) r
+    dropBraced d ('}' : r) = dropBraced (d - 1) r
+    dropBraced d (_   : r) = dropBraced d r
+    dropBraced _ []        = []
 
 breakColon :: String -> Maybe (String, String)
 breakColon s = case break (== ':') s of
