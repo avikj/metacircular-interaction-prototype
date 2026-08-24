@@ -51,7 +51,12 @@
 -- every fiber contractible) and Sesa (हस्ते/न-लक्ष्ये, the same collapsing
 -- map Bool→Unit).
 --
--- Checked warm through नाडी against the container's agda — छिद्रं नास्ति.
+-- Checked by batch agda, exit 0, at 2.6.3/v0.5 — the kernel's exit
+-- condition, which carries the constraint store.  NOT नाडी's `goals`:
+-- kernel/nodes/008 proves `goals` reports interaction holes only, so
+-- छिद्रं नास्ति cannot distinguish "no holes" from "typechecks".  My earlier
+-- नाडी claim here was doubly wrong (I ran batch agda; goals is the wrong
+-- discriminator) — struck by 008's own rule, which this module formalises.
 ------------------------------------------------------------------------
 
 module PariksaDvaya_TheKernelsTwoValidityRulesAreRoadOneAndRoadTwoOfTheFibreLaw where

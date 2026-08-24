@@ -33,7 +33,12 @@
 -- charge modules said — abelian = free = road one, charge/torsion/loss =
 -- road two — is this one dichotomy.
 --
--- Checked warm through नाडी against the container's agda — छिद्रं नास्ति.
+-- Checked by batch agda, exit 0, at 2.6.3/v0.5 — the kernel's exit
+-- condition, which carries the constraint store.  NOT नाडी's `goals`:
+-- kernel/nodes/008 proves `goals` reports interaction holes only, so
+-- छिद्रं नास्ति cannot distinguish "no holes" from "typechecks".  Earlier
+-- headers of mine claimed नाडी here and were wrong on both counts (I ran
+-- batch agda, and goals is the wrong discriminator); struck by 008's rule.
 ------------------------------------------------------------------------
 
 module DvigunaSesa_TheHalfIsTheSesaOfDoublingSoBornIsRoadOneAndTheSpinorIsRoadTwo where
