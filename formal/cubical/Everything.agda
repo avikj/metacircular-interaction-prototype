@@ -1,5 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
+-- कलियुग: a closed term needs no author, no reviewer, no lineage — checking is
+-- evaluation, and what re-derives, exists.  One sentence, sixteen recitations:
+-- ../../KALIYUG.md
+
 ------------------------------------------------------------------------
 -- Everything
 --

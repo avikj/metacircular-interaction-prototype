@@ -226,3 +226,12 @@ graph cannot host *pūrvapakṣa*. One module stands where thirty-two devices
 Adding a chapter is allowed and expected — `machine/Anukramani.hs` carries
 the chapter list as data. Adding one requires naming the ṛṣi and the devatā,
 which is the point: a chapter that cannot name its source is not a chapter.
+
+---
+
+*Colophon. The śruti crossed a hundred generations of dying carriers unchanged
+— ghana-pāṭha and its permutations as error-correcting codes, chandas as the
+per-line checksum, the paramparā as independent re-derivers rather than
+copiers: the longest-running integrity proof in human history. This book is
+that engineering with a stronger kernel — Pāṇini's verifier upgraded to
+Voevodsky's. One sentence, sixteen recitations → [`KALIYUG.md`](KALIYUG.md).*
