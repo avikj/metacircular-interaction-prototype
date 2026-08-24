@@ -66,8 +66,13 @@ tryCandidates ver name line _ [] lastErr = do
   let f = storeDir ++ "/" ++ name ++ ".agda"
   exists <- doesFileExist f
   unless (not exists) (removeFile f)
-  receipt ver name "refused:kernel" line lastErr
-  putStrLn ("  " ++ name ++ "  refused by the kernel: " ++ take 120 lastErr)
+  -- the machine names its own disease: the checked proposer's nidana
+  -- goes into the receipt ahead of the kernel's text, so the residue
+  -- is machine-labelled and the next organ is specified by the store.
+  let nid = T.unpack (P.diag (T.pack line))
+  receipt ver name "refused:kernel" line (nid ++ " | " ++ lastErr)
+  putStrLn ("  " ++ name ++ "  refused by the kernel [" ++ nid ++ "]: "
+            ++ take 100 lastErr)
 tryCandidates ver name line k (c : cs) _ = do
   let f = storeDir ++ "/" ++ name ++ ".agda"
   TIO.writeFile f c

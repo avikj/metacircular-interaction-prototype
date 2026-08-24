@@ -491,8 +491,70 @@ simp-sound e (Bin s a b) =
   simpB-sound e s (simp a) (simp b)
   ∙ binCong e s (simp-sound e a) (simp-sound e b)
 
+-- the unfolding pass.  suc a + b and suc a · b unfold definitionally;
+-- a · suc b needs the lemma the library does not carry:
+mulSuc : (m n : ℕ) → m · suc n ≡ m + m · n
+mulSuc zero n = refl
+mulSuc (suc m) n = cong suc
+  (cong (n +_) (mulSuc m n)
+   ∙ +-assoc n m (m · n)
+   ∙ cong (_+ m · n) (+-comm n m)
+   ∙ sym (+-assoc m n (m · n)))
+
+unfP-sound : (e : ℕ → ℕ) (a b : Tm)
+  → eval e (unfP a b) ≡ eval e a + eval e b
+unfP-sound e (S a) b = cong suc (unfP-sound e a b)
+unfP-sound e (V i) b = refl
+unfP-sound e Z b = refl
+unfP-sound e (Bin s x y) b = refl
+
+unfT-sound : (e : ℕ → ℕ) (a b : Tm)
+  → eval e (unfT a b) ≡ eval e a · eval e b
+unfT-sound e (S a) b =
+  unfP-sound e b (unfT a b) ∙ cong (eval e b +_) (unfT-sound e a b)
+unfT-sound e (V i) (S b) =
+  unfP-sound e (V i) (unfT (V i) b)
+  ∙ cong (e i +_) (unfT-sound e (V i) b)
+  ∙ sym (mulSuc (e i) (eval e b))
+unfT-sound e (V i) (V j) = refl
+unfT-sound e (V i) Z = refl
+unfT-sound e (V i) (Bin s x y) = refl
+unfT-sound e Z b = refl
+unfT-sound e (Bin s x y) (S b) =
+  unfP-sound e (Bin s x y) (unfT (Bin s x y) b)
+  ∙ cong (eval e (Bin s x y) +_) (unfT-sound e (Bin s x y) b)
+  ∙ sym (mulSuc (eval e (Bin s x y)) (eval e b))
+unfT-sound e (Bin s x y) (V j) = refl
+unfT-sound e (Bin s x y) Z = refl
+unfT-sound e (Bin s x y) (Bin s' x' y') = refl
+
+unf-sound : (e : ℕ → ℕ) (t : Tm) → eval e (unf t) ≡ eval e t
+unf-sound e (V i) = refl
+unf-sound e Z = refl
+unf-sound e (S t) = cong suc (unf-sound e t)
+unf-sound e (Bin plus a b) =
+  unfP-sound e (unf a) (unf b) ∙ cong₂ _+_ (unf-sound e a) (unf-sound e b)
+unf-sound e (Bin times a b) =
+  unfT-sound e (unf a) (unf b) ∙ cong₂ _·_ (unf-sound e a) (unf-sound e b)
+unf-sound e (Bin monus a b) =
+  cong₂ _∸'_ (unf-sound e a) (unf-sound e b)
+unf-sound e (Bin leS a b) =
+  cong₂ le (unf-sound e a) (unf-sound e b)
+unf-sound e (Bin maxS a b) =
+  cong₂ max' (unf-sound e a) (unf-sound e b)
+unf-sound e (Bin gcdS a b) =
+  cong₂ gcd' (unf-sound e a) (unf-sound e b)
+
+-- one sound round, then nf = canon ∘ round ∘ canon ∘ round
+round-sound : (e : ℕ → ℕ) (t : Tm) → eval e (simp (unf t)) ≡ eval e t
+round-sound e t = simp-sound e (unf t) ∙ unf-sound e t
+
 nf-sound : (e : ℕ → ℕ) (t : Tm) → eval e (nf t) ≡ eval e t
-nf-sound e t = acCanon-sound e (simp t) ∙ simp-sound e t
+nf-sound e t =
+  acCanon-sound e (simp (unf (acCanon (simp (unf t)))))
+  ∙ round-sound e (acCanon (simp (unf t)))
+  ∙ acCanon-sound e (simp (unf t))
+  ∙ round-sound e t
 
 ------------------------------------------------------------------------
 -- मर्यादा.  What stands: acCanon preserves denotation, and a comparison

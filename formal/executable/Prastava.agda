@@ -46,7 +46,7 @@ open import Agda.Builtin.Bool using (Bool ; true ; false)
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Char using (Char ; primCharEquality)
 open import Agda.Builtin.String
-  using (String ; primStringToList ; primStringAppend)
+  using (String ; primStringToList ; primStringAppend ; primStringEquality)
 open import Agda.Builtin.Maybe using (Maybe ; just ; nothing)
 open import Agda.Builtin.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Agda.Builtin.Equality using (_≡_ ; refl)
@@ -457,6 +457,53 @@ run : String → String → List String
 run name line with propose name line
 ... | candidates cs = "OK" ∷ cs
 ... | refusal why   = "NO" ∷ why ∷ []
+
+------------------------------------------------------------------------
+-- निदान — the machine names its own disease.  When every candidate for
+-- a pair is refused by the kernel, the mouth asks THIS function what
+-- transformation the refusal wants, and writes the answer into the
+-- receipt.  The residue is thereby machine-labelled: the next organ is
+-- specified by the store itself, not by a carrier reading it.
+------------------------------------------------------------------------
+
+hasVar : Tm → Bool
+hasVar (V _) = true
+hasVar Z = false
+hasVar (S t) = hasVar t
+hasVar (Bin _ a b) = if hasVar a then true else hasVar b
+
+symEq : Sym → Sym → Bool
+symEq s s' = is1 (cmpN (symCode s) (symCode s'))
+
+-- an s-node applied to an argument containing a variable: the class of
+-- pairs wanting a CASE organ (compare, then split) for that symbol
+openUnder : Sym → Tm → Bool
+openUnder s (Bin s' a b) =
+  if (if symEq s s' then (if hasVar a then true else hasVar b) else false)
+  then true
+  else (if openUnder s a then true else openUnder s b)
+openUnder s (S t) = openUnder s t
+openUnder s _ = false
+
+mark : Bool → String → String
+mark true tag = tag & " "
+mark false _ = ""
+
+diagTm : Tm → Tm → String
+diagTm l r =
+  let vs = length (nub (varsOf l ++ varsOf r)) in
+  let both = λ (s : Sym) → if openUnder s l then true else openUnder s r in
+  let d = mark (ltN 1 vs) "dvi-cara:wants-induction-generalised-over-a-second-variable"
+        & mark (both maxS) "vibhaga-max:wants-a-case-organ-comparing-the-arguments"
+        & mark (both leS) "vibhaga-le:wants-a-case-organ-comparing-the-arguments"
+        & mark (both monus) "vibhaga-monus:wants-a-case-organ-comparing-the-arguments"
+        & mark (both gcdS) "vibhaga-gcd:wants-the-euclidean-descent-as-a-lemma"
+  in if primStringEquality d "" then "ajnata:a-genuinely-new-transformation-is-owed" else d
+
+diag : String → String
+diag line with parseLine line
+... | nothing = "aparsita:outside-the-signature"
+... | just lr = diagTm (fst (canon lr)) (snd (canon lr))
 
 ------------------------------------------------------------------------
 -- executable specification, pinned by refl: the parser reads the

@@ -187,8 +187,44 @@ simp Z = Z
 simp (S t) = S (simp t)
 simp (Bin s a b) = simpB s (simp a) (simp b)
 
+------------------------------------------------------------------------
+-- the unfolding pass: successor-headed sums and products unfold by the
+-- defining equations of + and · (suc a + b = suc (a + b) definitional;
+-- suc a · b = b + a · b definitional; a · suc b = a + a · b by mulSuc,
+-- proved in PrastavaSatya).  This is what makes numeral coefficients
+-- compute — *(s(s(s(0))),x) unfolds to x + (x + (x + 0)) and the
+-- erasure pass plus AC canonicalisation finish the job — so the
+-- numeral-arithmetic residue class falls to the SAME reflection rung,
+-- no new candidate shape.
+------------------------------------------------------------------------
+
+mutual
+  unfP : Tm → Tm → Tm
+  unfP (S a) b = S (unfP a b)
+  unfP (V i) b = Bin plus (V i) b
+  unfP Z b = Bin plus Z b
+  unfP (Bin s x y) b = Bin plus (Bin s x y) b
+
+  unfT : Tm → Tm → Tm
+  unfT (S a) b = unfP b (unfT a b)
+  unfT (V i) (S b) = unfP (V i) (unfT (V i) b)
+  unfT (Bin s x y) (S b) = unfP (Bin s x y) (unfT (Bin s x y) b)
+  unfT a b = Bin times a b
+
+unf : Tm → Tm
+unf (V i) = V i
+unf Z = Z
+unf (S t) = S (unf t)
+unf (Bin plus a b) = unfP (unf a) (unf b)
+unf (Bin times a b) = unfT (unf a) (unf b)
+unf (Bin s a b) = Bin s (unf a) (unf b)
+
+-- two rounds of unfold+erase, then the AC canon: each pass is sound on
+-- its own, so any composition is, and two rounds close everything the
+-- residue exhibited (erasure exposes an unfold, or an unfold exposes an
+-- erasure, at most once each before the AC pass).
 nf : Tm → Tm
-nf t = acCanon (simp t)
+nf t = acCanon (simp (unf (acCanon (simp (unf t)))))
 
 -- the reflection classifier: a pair whose sides share a normal form is
 -- provable by two applications of nf-sound (PrastavaSatya) around a

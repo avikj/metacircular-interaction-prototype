@@ -21,12 +21,15 @@ mkdir -p "$extract_dir/build"
 # MAlonzo suffixes drift as the checked module grows; derive the current
 # name of `run` and shim it, so the mouth never hardcodes a suffix.
 runname=$(grep -o 'd_run_[0-9]*' "$extract_dir/MAlonzo/Code/Prastava.hs" | head -1)
+diagname=$(grep -o 'd_diag_[0-9]*' "$extract_dir/MAlonzo/Code/Prastava.hs" | head -1)
 cat > "$extract_dir/PrastavaAPI.hs" <<EOF
-module PrastavaAPI (run) where
+module PrastavaAPI (run, diag) where
 import qualified MAlonzo.Code.Prastava as P
 import qualified Data.Text as T
 run :: T.Text -> T.Text -> [T.Text]
 run = P.$runname
+diag :: T.Text -> T.Text
+diag = P.$diagname
 EOF
 ghc -O2 -i"$extract_dir" -outputdir "$extract_dir/build" \
   formal/executable/Mukha.hs -o "$extract_dir/mukha" 1>&2
