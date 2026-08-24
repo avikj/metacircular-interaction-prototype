@@ -274,6 +274,7 @@ module जनकः (o : कर्ता) (u : Tm)
     ∙ cong₂ (अर्थः o) (तति-सत्यम् a ρ) (तति-सत्यम् b ρ)
     ∙ cong (λ o' → अर्थः o' (eval a ρ) (eval b ρ)) p
   ... | nothing = gu (eval (lq a b) ρ) ρ
+  तति-सत्यम् (gc a b) ρ = gu (eval (gc a b) ρ) ρ
   तति-सत्यम् (var i) ρ = gu (ρ i) ρ
   तति-सत्यम् ze      ρ = gu zero ρ
   तति-सत्यम् (su t)  ρ = gu (suc (eval t ρ)) ρ
