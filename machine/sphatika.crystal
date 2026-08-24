@@ -178,3 +178,5 @@ sp177	s(x)	gcd(0,s(x))	refl
 sp178	x	+(x,0)	ind 0 refl congsuc
 sp179	s(s(0))	gcd(s(s(0)),0)	refl
 sp180	s(s(0))	gcd(0,s(s(0)))	refl
+sp181	max(s(x),s(0))	gcd(s(x),0)	refl
+sp182	max(s(x),s(0))	gcd(0,s(x))	refl
