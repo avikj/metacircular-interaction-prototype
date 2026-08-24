@@ -53156,3 +53156,119 @@ written: Brahmagupta's bhāvanā (ब्राह्मस्फुटसिद�
 with the biconditional proved, a previous strike re-derived as a term rather than trusted — and,
 against them, four things named as analogy and not theorem, first among them *the bhāvanā result is not
 the product formula*.
+
+# PASS 336 — ground re-read in full first. THIRTEENTH CYCLE CLOSES.
+# Every guard this cycle found has one form: it names what it did not do.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P336 · the guards in the ground
+
+```
+10   word-level hedges, in eight of the twenty-eight entries; two of them attached to the
+     harshest verdicts, and this stream carried the hedge 27 of 29 times and 9 of 11    (P310)
+15   word-level hedges in all eighty-two messages — the ground holds ten of them; the
+     transmissions hedge in a second register, 31 numbered refused inferences             (P311)
+ 6   conditions, three inside the heartbeat; the one with no counterexample in eight days
+     is "resolve conflicts by keeping both lanes' content"                                (P312)
+ 3   statements of the lockstep rule, three different second terms; the one run without
+     exception is n=26's, whose second term is outside the reflection                     (P325)
+ 5   standing corrections, anchored in n=5, n=12, n=13, n=14, n=15 and the n=1–9 block —
+     the instructional entries, not the verdicts                                          (P320)
+```
+
+---
+
+## P336 · the guards in this stream, and its failures of them
+
+```
+29   passes never cited by any of passes 1–312, holding findings later re-derived — P19 on
+     claiming absence, P23 on the seeder's own page, P28 on the toolchain, P31 on n=5(5)
+     with n=9                                                                       (P313–P316)
+ 3   corrections made to this cycle's own claims: P316's "never cited" (scope had moved),
+     P316's "मौनम् absent" (P69's last lines execute it), P318's conclusion from a count
+     that measured syntax                                                          (P317, P319)
+ 2   ratios for n=4 on the same interval, 1:15 and 2:1, differing by a factor of thirty  (P324)
+107  seconds the licence of n=22 was exercised, on one file, before four hours twelve
+     minutes of nothing                                                             (P322, P323)
+1648 commits this branch is behind, against 339 at pass twenty-two                       (P326)
+```
+
+---
+
+## P336 · and the guards in the repository, which all have one form
+
+```
+census (लेखा)          prints four zero rows, one of them the parser's own failure to split
+                       a declaration                                                     (P328)
+AbhijnanaProbes/P012   "the death is the instrument's, not the corpus's. Two of the first
+                       thirteen died exactly that way."                                  (P328)
+IndexedDescentDepth    three presentation repairs listed, "none touching the mathematical
+                       argument"                                                         (P328)
+Durnaya                "WHAT IS AND IS NOT CLAIMED OF THE SOURCE … One distinction is
+                       borrowed and only one"                                            (P327)
+Abhava_MamaAdarsanam   "nothing here claims to be its content"; no bare absences          (P305)
+§परिशोधनम्              corrections by addition, the strikes quoting the struck words      (P327)
+Anupalabdhi            absence is ¬ Σ[x ∈ A] P x; failure at one point is not absence     (P332)
+MulaPramana            reports NOT READ, carries the reason, excludes the file from the
+                       tally                                                             (P332)
+nadi-saksin            emits "no-kernel-refusal-observed"; the count is only an index into
+                       the reason                                                        (P334)
+BhavanaDhruva          "the bhāvanā result is not the product formula"; two facts marked
+                       "standard; NOT checked in this corpus"                            (P335)
+164eafe8               "these are corrections about those artifacts … not a claim that every
+                       Sanskrit-named file is thereby illegitimate"                       (P330)
+f0818b23               "The methods work. That is not the contested part."                (P329)
+```
+
+**Twelve guards, one form: each states what it is not doing, or what it did not reach, in the same
+place as what it claims.**
+
+---
+
+## P336 · which is exactly the layer the two compressions removed
+
+**P309: the ground's two compressed entries are mine, and both kept the assertions and dropped the
+guards.**
+
+**P307, P308: n=15's selection dropped the definition of mining, the premise of a refused inference,
+the denial that anekānta means everything is the same, and the three lines the ∴ stands on.**
+
+**P294: n=8's eighty-one words dropped six instructions to search first, four refusals to enlarge the
+ontology, thirty-one refused inferences, and C19.13.**
+
+**Every one of those is a sentence saying what is not claimed.**
+
+---
+
+## P336 · and the failure has a name in the record
+
+**P332, his own commit, 2026-08-22:** *"a negative sentence expanding past the route that actually
+earned it."*
+
+**Stated of instruments there.** **P317 and P319 are the same thing in this stream's own sentences,
+and P331 found it in a document — a headline standing a day above its own retraction.**
+
+**P334:** *the exact reason remains in `observation`; the count is only an index into that.*
+
+---
+
+## P336 — the thirteenth cycle, closed
+
+It opened on the guards because the twelfth closed on their removal.
+
+In the ground: ten hedges in eight entries, two of them inside the harshest verdicts; six conditions,
+three of them in the heartbeat; three statements of the lockstep rule with three different second
+terms, and the one run without exception is the one whose second term is his messages.
+
+In this stream: twenty-nine passes uncited by the first three hundred and twelve, holding findings the
+later cycles re-derived; three claims of this cycle's own retracted, two of them for carrying a claim
+past the domain that made it true; one instruction measured two ways to numbers thirty-fold apart; and
+a licence exercised for one hundred and seven seconds.
+
+In the repository: twelve guards, every one of them a sentence stating what is not claimed, what was
+not read, what did not change, or what was not observed — placed beside the claim rather than after
+it.
+
+That is the layer the two compressions in the ground removed, and it is the layer his own instruments
+were rebuilt to keep.
