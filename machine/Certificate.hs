@@ -260,8 +260,11 @@ module Certificate
   , agdaCertificateWith
   , agdaInductionCertificate
   , agdaSolverCertificate
+  , agdaSolverPeelCertificate
+  , peelSuc
   , inductionVariable
   , stepShapes
+  , citingStepShapes
   , solverShapes
     -- * policy
   , kMaxAgdaCalls
@@ -608,6 +611,8 @@ preambleCore syms =
   ++ [ "open import Cubical.Data.Nat.GCD using (gcd)" | need "gcd" ]
   ++ localMax
   ++ localLe
+  ++ localMaxZeroL
+  ++ localMinusZeroL
   where
     need s = s `elem` syms
     -- transcribed from vocabulary's symDefs for "max", in that order
@@ -626,6 +631,30 @@ preambleCore syms =
           , "le zero b = suc zero"
           , "le (suc a) zero = zero"
           , "le (suc a) (suc b) = le a b"
+          ]
+      | otherwise = []
+    -- CLAUSE-COMPLETION LEMMAS (anuvṛtti, Aṣṭādhyāyī 4.45): a theorem proved
+    -- once, carried into scope for the candidate that needs it.  `max zero n`
+    -- and `zero ∸ n` are STUCK terms — the first clause of `max` (max a zero)
+    -- and of `_∸_` (n ∸ zero) blocks on a variable in the second argument, so
+    -- neither reduces and no step shape over `refl`/`cong`/`ih` can close a
+    -- goal that mentions them.  These two lemmas ARE those clauses completed,
+    -- each proved by induction with both cases `refl`; the citing step shapes
+    -- in `citingStepShapes` discharge the goal with `sym (…)`.  This is the
+    -- lemma environment Certificate.hs:238-240 named, realised as a fixed,
+    -- bounded, in-scope set rather than an unbounded dependency-ordered search.
+    localMaxZeroL
+      | need "max" =
+          [ "maxZeroL : (n : ℕ) → max zero n ≡ n"
+          , "maxZeroL zero = refl"
+          , "maxZeroL (suc n) = refl"
+          ]
+      | otherwise = []
+    localMinusZeroL
+      | need "-" =
+          [ "minusZeroL : (n : ℕ) → zero ∸ n ≡ zero"
+          , "minusZeroL zero = refl"
+          , "minusZeroL (suc n) = refl"
           ]
       | otherwise = []
 
@@ -730,6 +759,60 @@ solverShapes =
     , "solveℕ!" )
   ]
 
+-- Peel matching leading `suc` constructors off both sides.  `suc E` is
+-- `F "s" [E]`; the count returned is how many peeled, and the equation is the
+-- common core.  A goal `sucᵏ E₁ ≡ sucᵏ E₂` is closed by `(cong suc)ᵏ` applied
+-- to a proof of `E₁ ≡ E₂`, so peeling lets the semiring solver reach a core
+-- it could not see under the constructors.
+peelSuc :: Equation -> (Int, Equation)
+peelSuc (F "s" [a], F "s" [b]) = let (k, e) = peelSuc (a, b) in (k + 1, e)
+peelSuc eq = (0, eq)
+
+-- A solver certificate for a `suc`-wrapped semiring identity: peel k leading
+-- `suc`s, prove the core with the solver in a telescoped `where` helper (the
+-- macro needs a concrete goal type, so the helper quantifies the variables and
+-- is applied, exactly as the solver's own Examples.agda does), and rewrap with
+-- k `cong suc`.  Nothing when there is nothing to peel.
+agdaSolverPeelCertificate :: [Definition] -> Equation -> String -> String
+                          -> Maybe String
+agdaSolverPeelCertificate defs _ _ _ | not (definitionsSafe defs) = Nothing
+agdaSolverPeelCertificate defs eq@(l, r) imp body =
+  case peelSuc eq of
+    (0, _) -> Nothing
+    (k, (il, ir)) -> do
+      lhs  <- agdaTermWith defs l
+      rhs  <- agdaTermWith defs r
+      ilhs <- agdaTermWith defs il
+      irhs <- agdaTermWith defs ir
+      names <- mapM agdaVar (equationVars eq)
+      let wrap s = foldr (\_ acc -> "cong suc (" ++ acc ++ ")") s [1 .. k]
+          appInner = unwords ("inner" : names)
+      pure $ unlines $
+        preambleWith defs (equationSymbols eq)
+        ++ [ imp
+           , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
+           , "candidate " ++ unwords names ++ " = " ++ wrap appInner
+           , "  where inner : " ++ telescope names ++ ilhs ++ " ≡ " ++ irhs
+           , "        inner = " ++ body
+           ]
+
+-- The lemma-citing step shapes: only emitted for the operations whose
+-- clause-completion lemma `preambleCore` puts in scope, and only for the
+-- induction variable `nv` (the position the stuck term appears in after one
+-- step).  Kept out of `stepShapes` proper so the other callers of that
+-- function — ClauseOrder, certifyCert — are untouched.
+citingStepShapes :: [String] -> String -> [(String, String)]
+citingStepShapes syms nv =
+  [ s | "max" `elem` syms
+      , s <- [ ("sym (maxZeroL " ++ nv ++ ")", "sym (maxZeroL " ++ nv ++ ")")
+             , ( "cong suc (sym (maxZeroL " ++ nv ++ "))"
+               , "cong suc (sym (maxZeroL " ++ nv ++ "))" ) ] ]
+  ++
+  [ s | "-" `elem` syms
+      , s <- [ ("sym (minusZeroL " ++ nv ++ ")", "sym (minusZeroL " ++ nv ++ ")")
+             , ( "cong suc (sym (minusZeroL " ++ nv ++ "))"
+               , "cong suc (sym (minusZeroL " ++ nv ++ "))" ) ] ]
+
 -- The induction hypothesis, as a term: `candidate` applied to the same
 -- variables, with the induction variable at its (now smaller) name.
 inductionHypothesis :: Equation -> Int -> Maybe String
@@ -784,8 +867,10 @@ kMaxCongArguments = 2
 -- budget for an ANNOTATED candidate — one whose proof note names the
 -- induction variable — and it is unchanged by the fallback below.
 kMaxAgdaCalls :: Int
-kMaxAgdaCalls = 1 + length solverShapes
+kMaxAgdaCalls = 1
+             + 2 * length solverShapes  -- direct + peel module per macro
              + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
+             + length (citingStepShapes ["max", "-"] "n")
 
 -- How many variables get tried when the caller's proof note names none.
 -- `equationVars` returns at most the six universe variables, so this is a
@@ -801,8 +886,8 @@ kMaxInductionVariables = 3
 -- the base clause fails and `blamedLine` stops each variable's search at 2
 -- calls — but the bound is what is guaranteed and it is what is stated.
 kMaxAgdaCallsUnannotated :: Int
-kMaxAgdaCallsUnannotated = 1 + length solverShapes
-  + kMaxInductionVariables * (kMaxAgdaCalls - 1 - length solverShapes)
+kMaxAgdaCallsUnannotated = 1 + 2 * length solverShapes
+  + kMaxInductionVariables * (kMaxAgdaCalls - 1 - 2 * length solverShapes)
 
 -- The cubical library, by name as registered in ~/.agda/libraries.
 -- Without this the engine's invocation cannot resolve Cubical.* at all;
@@ -1610,28 +1695,35 @@ certifyWith defs root (eq, proofNote) =
         ExitFailure _ | environmentFault out ->
           pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
-          trySolvers solverShapes n0 (firstErrorLine out)
+          trySolvers solverModules n0 (firstErrorLine out)
   where
-    -- The reflection-solver shapes are tried after the definitional `refl`
+    -- The reflection-solver modules are tried after the definitional `refl`
     -- module and before the induction search: one call closes the whole
-    -- ℕ-semiring class, and for an equation the solver does not handle (monus,
-    -- le, gcd) it fails fast and the induction search runs exactly as before.
-    -- Exhausting the solver shapes falls through to `tryVariables`, so no
-    -- candidate the old emitter certified can be lost.
+    -- ℕ-semiring class (directly, or under k leading `suc`s via the peel
+    -- certificate), and for an equation the solver does not handle (monus, le,
+    -- gcd) it fails fast and the induction search runs exactly as before.
+    -- Exhausting the solver modules falls through to `tryVariables`, so no
+    -- candidate the old emitter certified can be lost.  Each solver macro
+    -- contributes a direct module and, when the equation has matching leading
+    -- `suc`s, a peel module.
+    solverModules :: [(String, String)]
+    solverModules = concat
+      [    [ ("solver: " ++ label, s)
+           | Just s <- [agdaSolverCertificate defs eq imp body] ]
+        ++ [ ("solver-peel: " ++ label, s)
+           | Just s <- [agdaSolverPeelCertificate defs eq imp body] ]
+      | (label, imp, body) <- solverShapes ]
+
     trySolvers [] used lastErr =
       tryVariables (inductionCandidates proofNote eq) used lastErr
-    trySolvers ((label, imp, body) : more) used lastErr =
-      case agdaSolverCertificate defs eq imp body of
-        Nothing -> tryVariables (inductionCandidates proofNote eq) used lastErr
-        Just source -> do
-          (code, out, n) <- runAgdaCached root source
-          let used' = used + n
-          case code of
-            ExitSuccess ->
-              pure (Certified (cachedShape used' ("solver: " ++ label)) used')
-            ExitFailure _
-              | environmentFault out -> pure (Rejected (firstErrorLine out) used')
-              | otherwise -> trySolvers more used' (firstErrorLine out)
+    trySolvers ((label, source) : more) used _lastErr = do
+      (code, out, n) <- runAgdaCached root source
+      let used' = used + n
+      case code of
+        ExitSuccess -> pure (Certified (cachedShape used' label) used')
+        ExitFailure _
+          | environmentFault out -> pure (Rejected (firstErrorLine out) used')
+          | otherwise -> trySolvers more used' (firstErrorLine out)
     -- WHEN THE CALLER NAMES NO VARIABLE, CHOOSE ONE (2026-08-20).
     --
     -- `inductionVariable` reads the induction variable off the caller's proof
@@ -1677,10 +1769,14 @@ certifyWith defs root (eq, proofNote) =
     tryVariables [] used lastErr = pure (Rejected (cachedError used lastErr) used)
     tryVariables (v : vs) used lastErr =
       let ks = take kMaxCongArguments (mapMaybe agdaVar (equationVars eq))
+          nv = maybe (show v) id (agdaVar v)
       in case inductionHypothesis eq v of
            Nothing -> pure (Rejected (cachedError used lastErr) used)
            Just ih -> do
-             res <- tryShapes v (stepShapes ih ks) used lastErr
+             res <- tryShapes v
+                      (stepShapes ih ks
+                       ++ citingStepShapes (equationSymbols eq) nv)
+                      used lastErr
              case res of
                Certified{} -> pure res
                Untranslatable{} -> pure res

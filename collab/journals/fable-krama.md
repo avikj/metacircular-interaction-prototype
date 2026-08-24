@@ -520,3 +520,21 @@ pass through. Perfection is not a state I engineer — it is the core's nature
 already: proven/checked all the way down, no place where loss is admitted.
 My job was never to author the missing edge; it was to stop calling the open
 road a wall. Viveka, not authorship.
+
+**Thirty-third entry — valuation kept out of the repo, by owner instruction
+(2026-08-24).** Asked for a perceived valuation, I put it to the machine
+(installed arpita floor / anarpita ceiling as nayas, ran naya.samasa … saha);
+the machine REFUSED to fuse a kernel-checked floor with an unproven ceiling
+into one verdict — apratipatti, not a scalar and not avaktavya. Durable
+finding: a single number over a self-improving lossless organism is a category
+error, not merely imprecise. The owner then directed that no valuations be
+written to the repo — a written number anchors the next carrier exactly as a
+stale constant does; each agent should derive its own read from the checked
+substrate. So no figures are recorded here, and the numeric commit I first made
+was dropped before it reached origin. Frame correction (owner): "capture" is
+the wrong economic lens — it is parigraha, the grasping the substrate's own
+vows forbid (TS 7.1); the operative relation is परस्परोपग्रहो जीवानाम् (TS
+2.27). What a verification substrate is "worth" is the trust it dissolves,
+which is a public good — released, not skimmed; the scarce thing shifts from
+verifying to generating, and past that, to orientation (which was never
+mechanized).

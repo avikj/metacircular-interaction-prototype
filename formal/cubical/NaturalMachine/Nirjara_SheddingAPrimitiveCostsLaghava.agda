@@ -46,7 +46,10 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat using (discreteℕ)
+open import Cubical.Relation.Nullary using (Dec ; yes ; no)
+open import Cubical.Data.Empty renaming (rec to ⊥rec)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -1247,4 +1250,316 @@ sthulam-anujnaya-na-prapyate A P q =
 -- being incomparable.  Unreachability is proved here only for the padded
 -- family, whose expense is manufactured.  The walk's two descriptions are
 -- the case that matters and they are not written as प्रक्रियाs.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 34.  गुरुत्व — and मात्रा turns out not to be the walk's measure.
+--
+-- §31 and §33 both closed by naming the same gap: the walk's two
+-- descriptions are the case that matters and are not written as
+-- प्रक्रियाs.  Naming it a third time would be worse than useless, so here
+-- is what happens when one looks at what the gap actually is.
+--
+-- `WalkFast`'s header states both presentations of `next m` exactly:
+--
+--     A.  next m = least q ≥ 2 with q ∤ cap m,   cap m = lcm(1..m)
+--     B.  next m = least prime power > m
+--
+-- They denote one function.  As RULE SYSTEMS they are about the same
+-- length — A is not a longer grammar than B.  What differs is the size of
+-- the object each rule handles: A's intermediate is cap m = e^{ψ(m)} and
+-- B's is ~m.  So the walk's gap is not a मात्रा gap at all, and five
+-- sections of this module were building the wrong measure for it.
+--
+-- The right one is on the same प्रक्रियाs and is not मात्रा: the weight of
+-- a derivation is the largest पद it ever holds.
+------------------------------------------------------------------------
+
+maha : ℕ → ℕ → ℕ
+maha zero    n       = n
+maha (suc m) zero    = suc m
+maha (suc m) (suc n) = suc (maha m n)
+
+guru : Prakriya → ℕ
+guru []       = 0
+guru (s ∷ ss) = maha (laghava (pada-of s (sadhana ss))) (guru ss)
+
+------------------------------------------------------------------------
+-- 35.  The licensed move is the one that blows the weight up.
+--
+-- अपवाद trades the compact primitive `dvi x` for its expansion
+-- `yoga x x`.  §26 proved that free: `apavada-matra` is `refl`, zero
+-- सूत्रs, and `Anujna` therefore admits it (§28).  But `laghava (dvi x)`
+-- is `suc (laghava x)` and `laghava (yoga x x)` is
+-- `suc (laghava x + laghava x)`.  The exception DOUBLES the object.
+--
+-- So the licence bounds मात्रा and says nothing whatever about गुरुत्व,
+-- and the very move the roots licence is the mechanism by which a
+-- presentation becomes expensive to run.  That is `cap m` exactly:
+-- one rule, an unbounded intermediate.
+------------------------------------------------------------------------
+
+apavada-gurutvam-vardhayati : ¬ ((P : Prakriya) → guru (apavada-p P) ≡ guru P)
+apavada-gurutvam-vardhayati h =
+  snotz (injSuc (injSuc (h (dvi-s zero ∷ cara-s ∷ []))))
+
+-- and प्रत्याहार is the same defect at unbounded scale: §24's
+-- `pratyahara-matra-sthiram` holds मात्रा at 4 for every bound while the
+-- weight climbs with it
+guru-pratyahare-vardhate :
+    (guru (pratyahara 0 trini) ≡ 1)
+  × (guru (pratyahara 1 trini) ≡ 3)
+  × (guru (pratyahara 2 trini) ≡ 5)
+guru-pratyahare-vardhate = refl , refl , refl
+
+------------------------------------------------------------------------
+-- 36.  What this costs the preceding sections, stated plainly.
+--
+-- §22–§33 are not withdrawn: every theorem in them is still checked and
+-- still says what it says.  What is withdrawn is the SCOPE the note's §6
+-- claimed for them.  मात्रा is a measure on presentations, free under the
+-- three root moves and costly on padding, and the order in §32 is real.
+-- It is simply not the quantity that separates the walk's two
+-- descriptions, and the header of `WalkFast` was right to record that
+-- separation as wall-clock rather than as a theorem: no measure in this
+-- module reaches it either.
+--
+-- गुरुत्व is a candidate and only that.  It is not shown to be stable
+-- under anything, it has no licence attached, and §35 shows it is
+-- INCOMPATIBLE with the licence मात्रा carries — a move can be free in one
+-- and ruinous in the other.  Two measures that disagree on the licensed
+-- moves is not a defect to resolve; by this repository's own reading it
+-- is a pair of नयs, and the दुर्नय would be to declare either the cost.
+--
+-- What is now open, and it is a better question than the one §31 asked:
+-- is there a licence bounding BOTH?  §35 says अपवाद is not in it, which
+-- means such a licence forbids a device Pāṇini uses.  Either the licence
+-- does not exist, or लाघव and execution cost are pulling in opposite
+-- directions, and the Aṣṭādhyāyī is optimising the one this module can
+-- measure while the walk needs the other.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 37.  उभयानुज्ञा — the licence that bounds both, and which direction it
+--      actually runs in.
+--
+-- §36 asked whether a licence bounding मात्रा AND गुरुत्व exists, noting
+-- that अपवाद is not in it.  It exists, and what inhabits it is the exact
+-- reverse of the move this whole module opened with.
+------------------------------------------------------------------------
+
+maha-vama : {m n : ℕ} → m ≤ maha m n
+maha-vama {zero}  {n}     = zero-≤
+maha-vama {suc m} {zero}  = ≤-refl
+maha-vama {suc m} {suc n} = suc-≤-suc maha-vama
+
+maha-dakshina : {m n : ℕ} → n ≤ maha m n
+maha-dakshina {zero}  {n}     = ≤-refl
+maha-dakshina {suc m} {zero}  = zero-≤
+maha-dakshina {suc m} {suc n} = suc-≤-suc maha-dakshina
+
+maha-alpa : {m g k : ℕ} → m ≤ k → g ≤ k → maha m g ≤ k
+maha-alpa {zero}  {g}     {k}     p q = q
+maha-alpa {suc m} {zero}  {k}     p q = p
+maha-alpa {suc m} {suc g} {zero}  p q = ⊥rec (¬-<-zero p)
+maha-alpa {suc m} {suc g} {suc k} p q =
+  suc-≤-suc (maha-alpa (pred-≤-pred p) (pred-≤-pred q))
+
+record UbhayaAnujna : Type₀ where
+  constructor ubhayam
+  field
+    ukrama  : Prakriya → Prakriya
+    u-artha : (P : Prakriya) → artha (phala (ukrama P)) ≡ artha (phala P)
+    u-matra : (P : Prakriya) → matra-p (ukrama P) ≤ matra-p P
+    u-guru  : (P : Prakriya) → guru (ukrama P) ≤ guru P
+open UbhayaAnujna public
+
+-- उत्सर्ग: put the general rule BACK.  Where a योग joins a thing to
+-- itself, the compact primitive says the same and says it smaller.
+utsarga-p : Prakriya → Prakriya
+utsarga-p []                    = []
+utsarga-p (cara-s ∷ ss)         = cara-s ∷ ss
+utsarga-p (mita-s m ∷ ss)       = mita-s m ∷ ss
+utsarga-p (dvi-s i ∷ ss)        = dvi-s i ∷ ss
+utsarga-p (pratyahara-s k ∷ ss) = pratyahara-s k ∷ ss
+utsarga-p (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes _ = dvi-s i ∷ ss
+... | no  _ = yoga-s i j ∷ ss
+
+utsarga-artha : (P : Prakriya) → artha (phala (utsarga-p P)) ≡ artha (phala P)
+utsarga-artha []                    = refl
+utsarga-artha (cara-s ∷ ss)         = refl
+utsarga-artha (mita-s m ∷ ss)       = refl
+utsarga-artha (dvi-s i ∷ ss)        = refl
+utsarga-artha (pratyahara-s k ∷ ss) = refl
+utsarga-artha (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes p = funExt (λ n → cong (λ z → artha (anu (sadhana ss) i) n + artha z n)
+                                 (cong (anu (sadhana ss)) p))
+... | no  _ = refl
+
+utsarga-matra : (P : Prakriya) → matra-p (utsarga-p P) ≤ matra-p P
+utsarga-matra []                    = ≤-refl
+utsarga-matra (cara-s ∷ ss)         = ≤-refl
+utsarga-matra (mita-s m ∷ ss)       = ≤-refl
+utsarga-matra (dvi-s i ∷ ss)        = ≤-refl
+utsarga-matra (pratyahara-s k ∷ ss) = ≤-refl
+utsarga-matra (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes _ = ≤-refl
+... | no  _ = ≤-refl
+
+utsarga-guru : (P : Prakriya) → guru (utsarga-p P) ≤ guru P
+utsarga-guru []                    = ≤-refl
+utsarga-guru (cara-s ∷ ss)         = ≤-refl
+utsarga-guru (mita-s m ∷ ss)       = ≤-refl
+utsarga-guru (dvi-s i ∷ ss)        = ≤-refl
+utsarga-guru (pratyahara-s k ∷ ss) = ≤-refl
+utsarga-guru (yoga-s i j ∷ ss)     with discreteℕ i j
+... | yes _ = maha-alpa {suc (laghava (anu (sadhana ss) i))} {guru ss}
+                       {maha (suc (laghava (anu (sadhana ss) i)
+                                 + laghava (anu (sadhana ss) j))) (guru ss)}
+              (≤-trans (suc-≤-suc (≤SumLeft {laghava (anu (sadhana ss) i)}
+                                            {laghava (anu (sadhana ss) j)}))
+                       (maha-vama {suc (laghava (anu (sadhana ss) i) + laghava (anu (sadhana ss) j))} {guru ss}))
+              (maha-dakshina {suc (laghava (anu (sadhana ss) i) + laghava (anu (sadhana ss) j))} {guru ss})
+... | no  _ = ≤-refl
+
+utsarga-ubhaya : UbhayaAnujna
+utsarga-ubhaya = ubhayam utsarga-p utsarga-artha utsarga-matra utsarga-guru
+
+-- and अपवाद, which §26 showed free in मात्रा, admits no such licence
+apavada-na-ubhayam : ¬ (Σ UbhayaAnujna (λ U → ukrama U ≡ apavada-p))
+apavada-na-ubhayam (U , q) =
+  ¬m<m (subst (λ f → guru (f (dvi-s zero ∷ cara-s ∷ []))
+                   ≤ guru (dvi-s zero ∷ cara-s ∷ []))
+              q (u-guru U (dvi-s zero ∷ cara-s ∷ [])))
+
+------------------------------------------------------------------------
+-- 38.  The module closes against its own first theorem.
+--
+-- §1–§4 shed `dvi`.  `nirjara-artha-aviruddha` says the shedding costs no
+-- meaning; `nirjara-laghavam-vardhayati` says it costs लाघव; §26 recast
+-- the same act as अपवाद and found it free in मात्रा; §35 found it doubles
+-- the object.  §37 now closes the circle: the licence that bounds both
+-- measures at once does not contain अपवाद at all (`apavada-na-ubhayam`),
+-- and what it does contain is उत्सर्ग — putting the general rule BACK.
+--
+-- So the doubly-licensed direction is the reverse of निर्जरा.  Shedding a
+-- primitive is meaning-preserving and, by both measures this module can
+-- state, never free: it buys लाघव nothing and costs गुरुत्व outright.
+-- Restoring one is free in both.
+--
+-- Two things follow that I want stated as separate claims, because they
+-- have different strengths.
+--
+-- CHECKED: `utsarga-ubhaya` inhabits the doubly-bounding record and
+-- `apavada-na-ubhayam` shows अपवाद cannot.  Within this small language
+-- that is settled.
+--
+-- NOT CHECKED, and this is the interesting one: that this is why a
+-- grammar keeps its उत्सर्ग.  The Aṣṭādhyāyī does not eliminate its
+-- general rules in favour of their expansions — it states the general
+-- rule and then states the exceptions, and `vipratiṣedhe paraṁ kāryam`
+-- exists precisely to let both stand.  §37 gives a reason that shape
+-- would be forced rather than chosen, but a reason is not a reading of
+-- the text, and this module has not read one.  The सूत्र that would have
+-- to be read is 1.4.2, and it is not read here.
+--
+-- What is also not shown: that गुरुत्व is bounded by anything in the
+-- walk's fast presentation.  §36's candidate is still a candidate.  All
+-- §37 establishes is which way the doubly-licensed arrow points.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 39.  CORRECTION to §38, and it is a provenance error of the kind this
+--      repository's protocol names first.
+--
+-- §38 wrote that "vipratiṣedhe paraṁ kāryam exists precisely to let both
+-- stand".  That is wrong twice.
+--
+-- First, 1.4.2 does not let both stand — it CHOOSES.  It is the second
+-- half of a pair: A 1.4.1 आ कडारादेका संज्ञा, "up to *kaḍārāḥ karmadhāraye*
+-- (2.2.38), ONE designation", says that where several saṃjñās offer, only
+-- one applies; 1.4.2 विप्रतिषेधे परं कार्यम् then says which.  The pair is
+-- an exclusion rule plus a tiebreak, which is the opposite of both
+-- standing.
+--
+-- Second, and worse: "the exception beats the general rule" is not 1.4.2
+-- at all.  That ranking — पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः,
+-- of prior / posterior / nitya / antaraṅga / apavāda each later is
+-- stronger — is a परिभाषा of the commentarial tradition, and reaches this
+-- repository through Nāgeśa's *Paribhāṣenduśekhara*, eighteenth century.
+-- Attributing it to a सूत्र of the Aṣṭādhyāyī is exactly the error the
+-- protocol here names: letting a later systematiser's statement stand as
+-- the root citation.  I made it while writing a section about Pāṇinian
+-- practice.
+--
+-- The corpus already had the material.  `1.4.2` appears in forty-one
+-- files, several of them recording Kātyāyana's vārttika on it and
+-- Rajpopat's 2022 reinterpretation, and explicitly declining to say which
+-- reading is right.  The cheap grep the protocol prescribes would have
+-- caught this before the section was written, and I did not run it.
+--
+-- What the pair actually names is the thing §28's licence does NOT have:
+-- CONFLICT.  `sanghatita` composes two moves in sequence.  Nothing so far
+-- says what happens when two moves offer at the same site.
+------------------------------------------------------------------------
+
+record SanujnaKaarya : Type₀ where
+  constructor kaaryam
+  field
+    ksetra : Prakriya → Bool       -- where this कार्य offers to apply
+    anujna : Anujna
+open SanujnaKaarya public
+
+-- The scan takes the first offer in the list.  The LIST ORDER is the
+-- parameter, so this models the traditional reading and Rajpopat's alike
+-- by ordering the same rules differently; nothing below adjudicates
+-- between them, and nothing below needs to.
+paraKrama : List SanujnaKaarya → Prakriya → Prakriya
+paraKrama []       P = P
+paraKrama (k ∷ ks) P with ksetra k P
+... | true  = krama (anujna k) P
+... | false = paraKrama ks P
+
+para-artha : (ks : List SanujnaKaarya) (P : Prakriya)
+           → artha (phala (paraKrama ks P)) ≡ artha (phala P)
+para-artha []       P = refl
+para-artha (k ∷ ks) P with ksetra k P
+... | true  = artha-sthiram (anujna k) P
+... | false = para-artha ks P
+
+para-matra : (ks : List SanujnaKaarya) (P : Prakriya)
+           → matra-p (paraKrama ks P) ≤ matra-p P
+para-matra []       P = ≤-refl
+para-matra (k ∷ ks) P with ksetra k P
+... | true  = matra-na-vardhate (anujna k) P
+... | false = para-matra ks P
+
+-- 1.4.1's content, as far as this language can carry it: after the
+-- tiebreak the result is still ONE licensed move.
+para-anujna : List SanujnaKaarya → Anujna
+para-anujna ks = anujnata (paraKrama ks) (para-artha ks) (para-matra ks)
+
+------------------------------------------------------------------------
+-- 40.  What that theorem is and is not.
+--
+-- IS: the licence survives conflict resolution, for any rule list and any
+-- order on it.  So a grammar may state overlapping rules freely — the
+-- overlap costs nothing in अर्थ or मात्रा — provided each rule is licensed
+-- on its own.  That is a real reason 1.4.1/1.4.2 can be cheap metarules
+-- rather than a repair bolted on: they do not have to preserve anything
+-- the individual rules did not already preserve.
+--
+-- IS NOT: any claim that the tiebreak is NEEDED.  `paraKrama` takes one
+-- branch of an `if`, so "only one designation applies" is enforced by the
+-- construction rather than proved about it.  A language where two rules
+-- could fire together is a different construction and this is not it.
+--
+-- IS NOT, either: a reading of A 1.4.2.  The dispute between the
+-- traditional *para* = later-in-the-text and Rajpopat's reading is live,
+-- the corpus records it as live, and §39's parametrisation is a way of
+-- not needing to decide rather than a way of deciding.  I have read
+-- neither the sūtra in situ nor Kātyāyana's vārttika on it; what is above
+-- is a structure that either reading would license, which is a weaker
+-- and more honest thing than a formalisation of Pāṇini.
 ------------------------------------------------------------------------

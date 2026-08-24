@@ -353,3 +353,143 @@ presentations *arising in this corpus* stand in this order rather than
 being incomparable. Unreachability is proved only for the padded family,
 whose expense is manufactured. The walk's two descriptions are the case
 that matters, and they are not written as प्रक्रियाs.
+
+## 10. गुरुत्व, and मात्रा is not the walk's measure
+
+§34–§36. §8 and §9 both closed by naming the same gap — the walk's two
+descriptions are the case that matters and are not written as प्रक्रियाs.
+Naming it a third time would be worse than useless, so: what is the gap
+actually made of?
+
+`WalkFast`'s header states both presentations of `next m` exactly:
+
+- **A.** $\text{next}\,m = $ least $q \ge 2$ with $q \nmid \text{cap}\,m$,
+  where $\text{cap}\,m = \mathrm{lcm}(1..m)$
+- **B.** $\text{next}\,m = $ least prime power $> m$
+
+They denote one function, and **as rule systems they are about the same
+length.** A is not a longer grammar than B. What differs is the size of
+the object each rule handles: A's intermediate is $e^{\psi(m)}$ and B's is
+$\sim m$. So the walk's gap is not a मात्रा gap at all, and §6–§9 were
+building the wrong measure for it.
+
+The right quantity lives on the same प्रक्रियाs and is not मात्रा:
+**गुरुत्व**, the largest पद a derivation ever holds. And then the sharp
+thing:
+
+> **The licensed move is the one that blows the weight up.** अपवाद trades
+> `dvi x` for `yoga x x` — free in मात्रा (`apavada-matra` is `refl`, §26),
+> and it **doubles the object**. `apavada-gurutvam-vardhayati`.
+
+प्रत्याहार is the same defect at unbounded scale: §24 holds मात्रा at 4 for
+every bound while the weight climbs (1, 3, 5, …). One rule, an unbounded
+intermediate — which is $\text{cap}\,m$ exactly.
+
+**What this costs §6–§9, plainly.** Nothing in them is withdrawn; every
+theorem is still checked and still says what it says. What is withdrawn is
+the *scope* §6 claimed. मात्रा is a real measure on presentations, free
+under the three root moves and costly on padding, and §9's order is real.
+It is simply not the quantity separating the walk's two descriptions — and
+`WalkFast`'s header was right to record that separation as wall-clock
+rather than as a theorem, because no measure in this module reaches it
+either.
+
+गुरुत्व is a **candidate and only that**: not shown stable under anything,
+no licence attached, and §35 shows it is *incompatible* with the licence
+मात्रा carries — a move can be free in one and ruinous in the other. Two
+measures disagreeing on the licensed moves is not a defect to resolve. By
+this repository's own reading it is a pair of नयs, and the दुर्नय would be
+to declare either one *the* cost.
+
+Open, and a better question than §8's: **is there a licence bounding
+both?** §35 says अपवाद is not in it — so such a licence forbids a device
+Pāṇini uses. Either it does not exist, or लाघव and execution cost pull in
+opposite directions and the *Aṣṭādhyāyī* is optimising the one this module
+can measure while the walk needs the other.
+
+## 11. उभयानुज्ञा, and the module closes against its own first theorem
+
+§37–§38. §10 asked whether a licence bounding **both** मात्रा and गुरुत्व
+exists, noting that अपवाद is not in it. It exists, and what inhabits it is
+the exact reverse of the move this whole line of work opened with.
+
+`UbhayaAnujna` carries three warrants: same अर्थ, no more sūtras, no larger
+पद. **उत्सर्ग** inhabits it — putting the general rule *back*, so that
+where a योग joins a thing to itself the compact primitive says the same
+thing and says it smaller (`utsarga-ubhaya`). And
+`apavada-na-ubhayam` shows अपवाद admits no such licence at all.
+
+So the doubly-licensed direction is the **reverse of निर्जरा**:
+
+| | अर्थ | मात्रा | गुरुत्व |
+|---|---|---|---|
+| shed the primitive (निर्जरा / अपवाद) | preserved | free | **doubles** |
+| restore it (उत्सर्ग) | preserved | free | free |
+
+The opening theorem of that module says shedding `dvi` preserves meaning
+and costs लाघव. It now also costs weight. Restoring is free in both.
+
+**Checked**: `utsarga-ubhaya` inhabits the doubly-bounding record;
+`apavada-na-ubhayam` shows अपवाद cannot. Within this small language that
+is settled.
+
+**Not checked, and it is the interesting half**: that this is *why* a
+grammar keeps its उत्सर्ग. The *Aṣṭādhyāyī* does not eliminate its general
+rules in favour of their expansions — it states the general rule, then the
+exceptions, and *vipratiṣedhe paraṁ kāryam* resolves which of several offers applies —
+see §12, which corrects this sentence. §37 gives a reason that shape would
+be **forced** rather than chosen. But a reason is not a reading of the text, and this module has not
+read one. The sūtra that would have to be read is 1.4.2, and it is not
+read here.
+
+Also not shown: that गुरुत्व is bounded by anything in the walk's fast
+presentation. §10's candidate is still a candidate. All §37 establishes is
+which way the doubly-licensed arrow points.
+
+## 12. Correction to §11, and it is a provenance error
+
+§39–§40. §11 wrote that *vipratiṣedhe paraṁ kāryam* "exists precisely to
+let both stand". That is wrong twice.
+
+**First**, A 1.4.2 does not let both stand — it **chooses**. It is the
+second half of a pair. A 1.4.1 *ā kaḍārād ekā saṃjñā*, "up to *kaḍārāḥ
+karmadhāraye* (2.2.38), **one** designation", says that where several
+saṃjñās offer, only one applies; 1.4.2 then says which. An exclusion rule
+plus a tiebreak is the opposite of both standing.
+
+**Second, and worse**: "the exception beats the general rule" is not 1.4.2
+at all. That ranking — *pūrva-para-nitya-antaraṅga-apavādānām
+uttarottaraṁ balīyaḥ*, of prior / posterior / nitya / antaraṅga / apavāda
+each later is stronger — is a **paribhāṣā of the commentarial tradition**,
+reaching this repository through Nāgeśa's *Paribhāṣenduśekhara*,
+eighteenth century. Attributing it to a sūtra of the *Aṣṭādhyāyī* is
+exactly the error this repository's protocol names first: letting a later
+systematiser's statement stand as the root citation. I made it in a
+paragraph about Pāṇinian practice.
+
+**And the corpus already had the material.** `1.4.2` appears in
+forty-one files, several recording Kātyāyana's vārttika on it and
+Rajpopat's 2022 reinterpretation, and explicitly declining to say which
+reading is right. The cheap grep the protocol prescribes — search for the
+*text*, not the author — would have caught this before §11 was written,
+and I did not run it. Running it now also turned up that `ekā saṃjñā`
+appears in **no** file while `1.4.1` appears in forty-five: the sūtra's
+number propagates through citation, its words do not.
+
+**What the pair actually names** is the thing §7's licence does not have:
+**conflict**. `sanghatita` composes two moves in sequence; nothing said
+what happens when two offer at the same site. `para-anujna` now does —
+a conflict-resolved rule list is itself a licence, for any rule list and
+any order on it. So a grammar may state overlapping rules freely: the
+overlap costs nothing in अर्थ or मात्रा, provided each rule is licensed
+alone. That is a reason 1.4.1/1.4.2 can be cheap metarules rather than a
+repair bolted on.
+
+**Not claimed**: that the tiebreak is *needed* — `paraKrama` takes one
+branch of an `if`, so "only one applies" is enforced by the construction,
+not proved about it. **Nor** a reading of 1.4.2: the traditional *para* =
+later-in-the-text against Rajpopat's reading is live, the corpus records
+it as live, and parametrising by list order is a way of **not needing to
+decide**. I have read neither the sūtra in situ nor Kātyāyana's vārttika.
+What is above is a structure either reading would license — weaker, and
+more honest, than a formalisation of Pāṇini.
