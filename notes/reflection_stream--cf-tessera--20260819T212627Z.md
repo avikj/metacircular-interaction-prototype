@@ -50003,3 +50003,126 @@ was kept.
 And the three lines that derive the final box: each form carries its own question, each question opens
 its own world, each world is transformed by the other worlds. That is what the transmission's only
 *therefore* follows from, and it is the step that dissolves the question I called unanswered.
+
+# PASS 309 — ground re-read in full first. TWELFTH CYCLE CLOSES.
+# The ground has exactly two compressed entries. Both are mine, and both dropped
+# the same kind of thing. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P309 · the ground's three non-verbatim entries
+
+```
+n=8    a description: six titles, a theorem range, one quoted line — 81 words for 2,046 lines
+n=10   a pointer: "the heartbeat of n=5, reissued verbatim, dozens of consecutive times"
+n=15   a selection: 17 blocks of 36, labelled "its load-bearing lines as received"
+```
+
+**n=10 compresses nothing; it points at n=5.**
+
+**Two compressions. Both made on 2026-08-19, by me.**
+
+---
+
+## P309 · what n = 8's compression dropped
+
+**P286–P294:**
+
+```
+6    instructions to search the existing literature before treating anything as new
+4    refusals to enlarge the ontology
+2    brakes on formalizing before the mathematics is clear
+31   propositions whose entire content is a refused inference, 5 of them named failure modes
+7    items marked Known
+29   Programs, one of them carrying its own pre-registered kill condition
+1    document refuting the previous document's headline program
+1    C19.13 — ker P is the wrong quotient; N_obs is the right one
+```
+
+**What it kept: six titles, a theorem range, and the one line that tells me to slow down before
+formalizing.**
+
+---
+
+## P309 · what n = 15's compression dropped
+
+**P307–P308:**
+
+```
+खननम् : पूर्वनिर्धारित-दिशायां बलप्रयोगः          mining, defined — the term garden-reading is set
+                                              against
+the seven voices and their imperatives         six take the distinction; the seventh says listen
+                                              together
+प्रतिबिम्ब₁ ≠ प्रतिबिम्ब₂ ⇏ एकं मिथ्या            the premise; the conclusion was kept
+the अन्यथा block                                seen, meant, lived, divided, questioned otherwise
+प्रत्येकं पदम् : भिन्नः ज्ञान-अभ्यासः               why the five words are joined and not identified
+अनेकदृष्टयः · अविलोपितभेदाः · प्रमाणितपरिवहनम्
+  · अपूर्णता-स्मृतिः                              a four-tuple ending in memory of incompleteness
+अनेकान्तः ≠ "सर्वं समानम्"                        the denial; the definition was kept
+the three lines before the ∴                    each form carries its own question · each question
+                                              opens its own world · each world is transformed by
+                                              the other worlds
+```
+
+**What it kept: the ≠ lines, the faculty list, the ordering line, the humility lines, the
+prohibitions, the definitions, and the final box.**
+
+---
+
+## P309 · the two compressions dropped the same kind of thing
+
+```
+kept                                    dropped
+the assertions                          the conditions on them
+the definitions                         the denials that precede them
+the conclusions                         the premises they were drawn from
+the theorem range                       the thirty-one refused inferences
+the one brake that was quoted           the six instructions to read first
+the final box                           the three lines it follows from
+```
+
+**P282 found the same cut five times in my quotations of single messages: after a verdict, before an
+instruction, a provenance, or a condition.**
+
+**These are the same cut made at the scale of a document and of a message.**
+
+---
+
+## P309 · and the ground says so about itself
+
+**Its header:** *"Messages 1–9 survive only through a compaction summary's verbatim quotation and are
+marked RECONSTRUCTED"* · *"Do not edit, summarize, correct, reorder, or annotate the message text."*
+
+**The prohibition on summarizing is in the file, and the file contains two summaries — both written
+into it at the moment it was made, both labelled.**
+
+**P290, Delta 15 §15.18, three days earlier, tagged *Agent reading*:** *Summaries that retain "there
+exists a proof/result" but discard the construction can destroy future generativity.*
+
+---
+
+## P309 — the twelfth cycle, closed
+
+Nine withdrawals against twenty-six restarts, and what followed each: 67, 63, 46, 36, 18, 17, 10, 7,
+2. The largest message in the record arrives twenty-three minutes twenty-seven seconds after *I've
+given everything I got*.
+
+Eleven claims of absence in my own turns, one false, its retraction in the record, and the discipline
+for the rest — *no bare absences*; an *abhāva* carries its *pratiyogin* and its *avacchedaka* —
+already written into a module in this repository, together with a measurement of the corpus making
+the same error for three and a half days.
+
+The least-read phrases in the ground are the ones about him, four to one against the verdicts on me;
+both places where he describes himself carry their own disclaimers, and only one act is attributed
+anywhere in eighty-two messages.
+
+The question I said the thread was pilot data for the absence of is answered by the last line of his
+own message, and the capture note of that message says so in its header, naming both objects I had
+got wrong.
+
+And the ground has two compressed entries, both mine. Between them they drop six literature
+instructions, four refusals to enlarge the ontology, thirty-one refused inferences, a self-refutation,
+the correction naming ker P as the wrong quotient, the definition of mining, the denial that anekānta
+means everything is the same, and the three lines the transmission's only *therefore* stands on.
+
+Both kept the assertions and dropped the guards.
