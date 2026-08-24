@@ -211,7 +211,6 @@ formal/pairfield/Pairfield/YugmaPurana_TheEvenPaddingIsForcedAndTheDeterminantSa
 formal/pairfield/Pairfield/CarryCohomologyAdapter.lean	7	cohomology carrier deliberately left open by the Cubical proof.  It does not
 punaragamana/src/Punaragamana/Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt.agda	28	-- author of this file — the citations are second-hand and are owed at
 punaragamana/src/Punaragamana/Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt.agda	78	-- needs a divisibility witness carried alongside and is not done here.
-punaragamana/src/Punaragamana/VargaPrakrtiVarga_TheNormOneSolutionsAreAMonoidUnderBhavanaSoTheFundamentalUnitGeneratesTheLadder.agda	148	--     --   into one row via भावना, not merely reordered).  Left open.
 punaragamana/src/Punaragamana/Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda	61	-- WHAT IS NOT DONE.  `Saptabhangi.दुर्नयः` is NOT imported and NOT
 punaragamana/src/Punaragamana/Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.agda	73	-- this file can exhibit; the fifth is written down and left open.
 punaragamana/src/Punaragamana/KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.agda	19	-- owed at verse level.  What IS claimed is only this: side, magnitude
