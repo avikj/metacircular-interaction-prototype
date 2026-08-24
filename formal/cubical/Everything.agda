@@ -2437,4 +2437,5 @@ import Prastuta.P384
 -- the kernel has said.  Closed through the conduit: machine-generated
 -- case skeletons, a refl walk where the kernel corrected the carrier's
 -- predictions clause by clause, mechanical lemma chains judged at each link.
+import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem
 import PrastavaSatya_TheClassifiersACClaimIsJudgedByTheKernel

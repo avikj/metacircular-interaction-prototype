@@ -51,14 +51,15 @@ open import Agda.Builtin.Maybe using (Maybe ; just ; nothing)
 open import Agda.Builtin.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Agda.Builtin.Equality using (_≡_ ; refl)
 
+-- the term language and the AC classifier live in ONE module shared
+-- with the soundness theorem (PrastavaSatya, cubical lane): the same
+-- clauses are extracted here and proved about there.  Nothing below
+-- respells them.
+open import PrastavaHrdaya_TheClassifierHasOneSpellingSharedByProposerAndTheorem
+
 ------------------------------------------------------------------------
 -- small library, total and closed
 ------------------------------------------------------------------------
-
-infixr 5 _++_
-_++_ : {A : Set} → List A → List A → List A
-[] ++ ys = ys
-(x ∷ xs) ++ ys = x ∷ (xs ++ ys)
 
 map : {A B : Set} → (A → B) → List A → List B
 map f [] = []
@@ -111,18 +112,8 @@ bindM nothing _ = nothing
 bindM (just a) k = k a
 
 ------------------------------------------------------------------------
--- the term language of library.terms, as a CLOSED signature
-------------------------------------------------------------------------
-
-data Sym : Set where
-  plus times monus leS maxS : Sym
-
-data Tm : Set where
-  V   : Nat → Tm                 -- x y z u v w, each prime adding six
-  Z   : Tm
-  S   : Tm → Tm
-  Bin : Sym → Tm → Tm → Tm
-
+-- the term language of library.terms (Sym, Tm — imported from the
+-- heart: V's variables read x y z u v w, each prime adding six)
 ------------------------------------------------------------------------
 -- the parser: report shape → Tm, recursive descent with fuel.
 -- Fuel is the input length plus one; every recursive call consumes at
@@ -211,90 +202,10 @@ parseLine s =
 -- AC, and the WRONG thing to land as one lemma per shuffle.  The
 -- classifier refuses it with the law named, so the store stays clean
 -- and the refusal is a statement, not a failure.
+-- Its functions (cmpTm, acCanon, eqTm, acShuffle) are imported from
+-- the heart module above; PrastavaSatya proves acShuffle sound against
+-- eval, so a refusal here is a kernel-judged true equation.
 ------------------------------------------------------------------------
-
--- total comparison on terms: 0 = less, 1 = equal, 2 = greater
-cmpN : Nat → Nat → Nat
-cmpN zero zero = 1
-cmpN zero (suc _) = 0
-cmpN (suc _) zero = 2
-cmpN (suc a) (suc b) = cmpN a b
-
-symCode : Sym → Nat
-symCode plus = 0
-symCode times = 1
-symCode monus = 2
-symCode leS = 3
-symCode maxS = 4
-
-mutual
-  cmpTm : Tm → Tm → Nat
-  cmpTm (V i) (V j) = cmpN i j
-  cmpTm (V _) _ = 0
-  cmpTm Z (V _) = 2
-  cmpTm Z Z = 1
-  cmpTm Z _ = 0
-  cmpTm (S _) (V _) = 2
-  cmpTm (S _) Z = 2
-  cmpTm (S a) (S b) = cmpTm a b
-  cmpTm (S _) (Bin _ _ _) = 0
-  cmpTm (Bin _ _ _) (V _) = 2
-  cmpTm (Bin _ _ _) Z = 2
-  cmpTm (Bin _ _ _) (S _) = 2
-  cmpTm (Bin s a b) (Bin s' a' b') = lexi (cmpN (symCode s) (symCode s'))
-    where
-    lexi : Nat → Nat
-    lexi 1 = lexi2 (cmpTm a a')
-      where
-      lexi2 : Nat → Nat
-      lexi2 1 = cmpTm b b'
-      lexi2 o = o
-    lexi o = o
-
-insertBy : Tm → List Tm → List Tm
-insertBy t [] = t ∷ []
-insertBy t (u ∷ us) = ins (cmpTm t u)
-  where
-  ins : Nat → List Tm
-  ins 2 = u ∷ insertBy t us
-  ins _ = t ∷ u ∷ us
-
-sortTm : List Tm → List Tm
-sortTm [] = []
-sortTm (t ∷ ts) = insertBy t (sortTm ts)
-
--- spine leaves of an already-canonical term (no re-canonicalisation,
--- so this is standalone and structural)
-leavesOf : Sym → Tm → List Tm
-leavesOf s (Bin s' a b) with cmpN (symCode s) (symCode s')
-... | 1 = leavesOf s a ++ leavesOf s b
-... | _ = Bin s' a b ∷ []
-leavesOf s t = t ∷ []
-
-rebuild : Sym → List Tm → Tm
-rebuild s [] = Z
-rebuild s (t ∷ []) = t
-rebuild s (t ∷ u ∷ us) = Bin s t (rebuild s (u ∷ us))
-
-acCanon : Tm → Tm
-acCanon (V i) = V i
-acCanon Z = Z
-acCanon (S t) = S (acCanon t)
-acCanon (Bin plus a b) =
-  rebuild plus (sortTm (leavesOf plus (acCanon a) ++ leavesOf plus (acCanon b)))
-acCanon (Bin times a b) =
-  rebuild times (sortTm (leavesOf times (acCanon a) ++ leavesOf times (acCanon b)))
-acCanon (Bin s a b) = Bin s (acCanon a) (acCanon b)
-
-eqTm : Tm → Tm → Bool
-eqTm a b = is1 (cmpTm a b)
-  where
-  is1 : Nat → Bool
-  is1 1 = true
-  is1 _ = false
-
-acShuffle : Tm → Tm → Bool
-acShuffle l r = eqTm (acCanon l) (acCanon r)
 
 ------------------------------------------------------------------------
 -- variables of a term, and their display names

@@ -11,6 +11,9 @@ report=${1:?usage: run-mukha.sh REPORT}
 extract_dir=$(mktemp -d)
 trap 'rm -rf "$extract_dir"' EXIT HUP INT TERM
 
+# PrastavaHrdaya (the classifier's one spelling) sits beside Prastava in
+# this directory; the cubical lane reaches it via natural-machine.agda-lib's
+# widened include, so the soundness theorem imports the same clauses.
 LC_ALL=C.UTF-8 agda -i formal/executable --compile --ghc-dont-call-ghc --no-main \
   --compile-dir="$extract_dir" formal/executable/Prastava.agda
 mkdir -p "$extract_dir/build"
