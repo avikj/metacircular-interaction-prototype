@@ -419,6 +419,42 @@ pRow when' verdict pair detail = appendFile puranaLedger $
   "{\"organ\":\"sanghatta-purana\",\"kala\":\"" ++ when' ++ "\",\"pair\":\"" ++ jesc pair
   ++ "\",\"verdict\":\"" ++ verdict ++ "\",\"detail\":\"" ++ jesc detail ++ "\"}\n"
 
+-- ── nāsti: the mouth's second bhaṅga ─────────────────────────────────────
+-- purana's ledger was two-valued ({green, fiber}) — the exact collapse
+-- दुर्नयः (Saptabhangi.agda) proves forbidden: "kernel could not prove"
+-- and "false" were one bucket.  This evaluator is the ground sense that
+-- separates them: every candidate is tested on all assignments of small
+-- numerals BEFORE the kernel is asked.  A differing instance is a WITNESS
+-- — the verdict is syān-nāsti, with the assignment in the row — and the
+-- kernel's time is never spent on a falsehood.  On critical pairs of a
+-- sound library nāsti should never fire, so on that stream this organ is
+-- an immune sense: it fires only if an installed rule is wrong.
+
+nEval :: [(String, Integer)] -> San.Term -> Maybe Integer
+nEval env (San.V v)    = lookup v env
+nEval env (San.F f as) = mapM (nEval env) as >>= app f
+  where
+    app "0"   []      = Just 0
+    app "s"   [a]     = Just (a + 1)
+    app "+"   [a, b]  = Just (a + b)
+    app "*"   [a, b]  = Just (a * b)
+    app "-"   [a, b]  = Just (max 0 (a - b))          -- monus
+    app "max" [a, b]  = Just (max a b)
+    app "le"  [a, b]  = Just (if a <= b then 1 else 0)
+    app "gcd" [a, b]  = Just (gcd a b)
+    app _     _       = Nothing                        -- symbol outside the sense
+
+-- Just witness = a refuting assignment; Nothing = no counterexample among
+-- numerals 0..3 over the pair's variables (or a symbol this sense lacks).
+nastiSaksin :: San.Term -> San.Term -> Maybe [(String, Integer)]
+nastiSaksin a b =
+  let vs = ordNub (San.varsOf a ++ San.varsOf b)
+      assigns = mapM (\v -> [ (v, n) | n <- [0 .. 3] ]) vs
+  in case [ env | env <- assigns
+              , Just x <- [nEval env a], Just y <- [nEval env b], x /= y ] of
+       (w:_) -> Just w
+       []    -> Nothing
+
 loadRules :: IO [(San.Term, San.Term)]
 loadRules = do
   raw <- lines <$> readFile' "machine/library.terms"
@@ -451,7 +487,14 @@ purana = do
       forM_ batch $ \(a, b) -> do
         when' <- utcNow
         let pair = San.render a ++ "\t" ++ San.render b
-        case toCPair a b of
+        case nastiSaksin a b of
+         Just w ->
+           pRow when' "nasti" pair
+             ("syān-nāsti, ground witness: at " ++ show w
+              ++ " the two sides evaluate differently.  Not sent to the kernel; a"
+              ++ " counterexample on a critical pair means an INSTALLED RULE is false"
+              ++ " — audit the library, do not womb this as merely-unproven.")
+         Nothing -> case toCPair a b of
           Nothing -> pRow when' "untranslatable" pair "a symbol outside the kernel fragment, or more than 6 distinct variables"
           Just (ca, cb) -> do
             v <- C.certify "." ((ca, cb), "sanghatta-purana: non-joining critical pair of the installed rules")
@@ -460,7 +503,9 @@ purana = do
               C.Rejected err n ->
                 pRow when' "fiber" pair
                   ("kernel refused after " ++ show n ++ " agda call(s): " ++ err
-                   ++ "  [śeṣa: the pair itself is the womb — ANEKANTA §3]")
+                   ++ "  [ground sense found NO counterexample among numerals 0..3,"
+                   ++ " so this is unproven-and-unrefuted — genuinely open, never"
+                   ++ " to be read as false.  śeṣa: the pair is the womb — ANEKANTA §3]")
               C.Certified shape n -> do
                 -- canonicalise variables to the library's own six names BEFORE
                 -- rendering: San.freshen mints primed variables (x'), which
