@@ -2467,3 +2467,60 @@ ubhayatah-na-svavisayam s =
 -- for "inactive"; §48's ledger is where this belongs, and it goes in the
 -- MINE column beside स्वविषय.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 66.  §65's search, conducted: which निमित्त can a behaviour be stated
+--      against?
+--
+-- §65 said a behaviour acting off c might be निष्क्रिय off some other c′,
+-- and that with three निमित्तs this is a real search.  It is, and it has
+-- an answer, and the answer is more interesting than either outcome I
+-- expected.
+--
+-- सर्वत्र makes the condition VACUOUS.  `sthiti sarvatra P` is `true` for
+-- every P, so "inert wherever the निमित्त fails" quantifies over nothing
+-- and every behaviour qualifies.  So the search never comes back empty —
+-- but the निमित्त it always finds is the one that conditions nothing.
+------------------------------------------------------------------------
+
+sarvatra-sarvam-svavisayam : (v : Vidhi) → Svavisaya sarvatra v
+sarvatra-sarvam-svavisayam v P e = ⊥rec (true≢false e)
+
+-- and for the two निमित्तs that condition anything, `ubhayatah` fails
+-- both: it acts on yoga-heads (§64) and it acts on dvi-heads too
+ubhayatah-na-ayoge : ¬ (Nishkriya ayoge (artha-v ubhayatah))
+ubhayatah-na-ayoge h =
+  snotz (injSuc (injSuc
+    (cong guru (h (dvi-s zero ∷ cara-s ∷ []) refl))))
+
+------------------------------------------------------------------------
+-- 67.  Why सर्वत्र costs zero, seen twice.
+--
+-- `nimitta-matra sarvatra = 0` was written in §60 as an obvious modelling
+-- choice: an unconditioned rule states no condition, so it costs nothing
+-- to say.  §66 shows the same fact from the other side — सर्वत्र's
+-- निष्क्रिय obligation is vacuous, so it constrains nothing either.  A
+-- निमित्त's price and its force are the same quantity: what it costs to
+-- state is what it rules out, and सर्वत्र rules out nothing and costs
+-- nothing.
+--
+-- That is why the उत्सर्ग is the cheap form and not a coincidence of the
+-- model.  The general rule is general BECAUSE its province is everything,
+-- and its province being everything is why it needs no words to fix it.
+-- §62's law then reads: an अपवाद buys a smaller province at the price of
+-- naming it, and the purchase is worth making exactly when the rule was
+-- going to be inert outside that province anyway.
+--
+-- SO THE SEARCH'S ANSWER, for `ubhayatah` among the three निमित्तs: only
+-- सर्वत्र.  It acts on yoga-heads (§64) and on dvi-heads (§66), so neither
+-- conditioned निमित्त can carry it, and it can be stated only as what it
+-- is — an unconditioned rule.  A behaviour that acts everywhere can be
+-- "its own province" only if its province is everything.
+--
+-- NOT SHOWN: that this is the general shape.  Three निमित्तs, one of them
+-- vacuous, is a small enough space that the search is a case analysis
+-- rather than an algorithm.  With a निमित्त language rich enough to
+-- describe intersections the question becomes: what is the LARGEST
+-- निमित्त a given behaviour is निष्क्रिय outside of — and that is a real
+-- optimisation with no counterpart here.
+------------------------------------------------------------------------
