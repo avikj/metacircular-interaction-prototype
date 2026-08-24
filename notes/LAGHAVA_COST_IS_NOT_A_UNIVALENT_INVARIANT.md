@@ -957,3 +957,42 @@ real search and nothing here conducts it.
 
 **Not claimed**: निष्क्रिय as a technical term. Ordinary Sanskrit for
 "inactive"; it goes in §15's **mine** column beside स्वविषय.
+
+## 24. सर्वत्र costs zero because it rules out nothing — the same fact twice
+
+§66–§67. §23 said a behaviour acting off *c* might be inert off some other
+*c′*, and that with three nimittas this is a real search. It is, it has an
+answer, and the answer is better than either outcome I expected.
+
+**सर्वत्र makes the condition vacuous.** `sthiti sarvatra P` is `true` for
+every *P*, so "inert wherever the nimitta fails" quantifies over nothing
+and every behaviour qualifies (`sarvatra-sarvam-svavisayam`). The search
+never comes back empty — but the nimitta it always finds is the one that
+conditions nothing. And for the two nimittas that condition anything,
+`ubhayatah` fails both: it acts on yoga-heads (§23) and on dvi-heads
+(`ubhayatah-na-ayoge`).
+
+**So `nimitta-matra sarvatra = 0` is not a modelling convenience.** §21
+wrote it as an obvious choice — an unconditioned rule states no condition.
+§66 shows the same fact from the other side: sarvatra's inertness
+obligation is *vacuous*, so it constrains nothing either. **A nimitta's
+price and its force are the same quantity**: what it costs to state is
+what it rules out, and sarvatra rules out nothing and costs nothing.
+
+That is why the utsarga is the cheap form, and not a coincidence of the
+model. The general rule is general **because** its province is everything,
+and its province being everything is why it needs no words to fix it. §22's
+law then reads: *an apavāda buys a smaller province at the price of naming
+it, and the purchase is worth making exactly when the rule was going to be
+inert outside that province anyway.*
+
+**The search's answer** for `ubhayatah` among the three nimittas: only
+sarvatra. It can be stated only as what it is — an unconditioned rule. **A
+behaviour that acts everywhere can be "its own province" only if its
+province is everything.**
+
+**Not shown**: that this is the general shape. Three nimittas, one vacuous,
+is small enough that the search is a case analysis rather than an
+algorithm. With a nimitta language rich enough to describe intersections
+the question becomes *what is the largest nimitta a behaviour is inert
+outside of* — a real optimisation with no counterpart here.
