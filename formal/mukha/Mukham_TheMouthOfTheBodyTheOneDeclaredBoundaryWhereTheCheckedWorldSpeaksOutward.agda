@@ -22,18 +22,19 @@ open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Sigma using (_,_ ; fst ; snd)
 open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
 open import AgamaKanda_TheEldersStoreOnTheActSide
+open import DravyaShruta_TheCompiledWordCarriesItsKnowingErasedSoTheBinaryIsScripture
+  using (सिद्ध-श्रुतम् ; दैर्घ्यम्)
 
 postulate putStrLn : String → IO ⊤
 {-# FOREIGN GHC import qualified Data.Text.IO as T #-}
 {-# COMPILE GHC putStrLn = T.putStrLn #-}
 
--- how many of the elder's rules the flat act (norm, then the boolean
--- mirror of the test) closes at runtime.
-समतल-गणना : List Eq' → Nat
-समतल-गणना [] = zero
-समतल-गणना ((l , r) ∷ es) with समः (norm l) (norm r)
-... | true  = suc (समतल-गणना es)
-... | false = समतल-गणना es
+-- Since the reflection weld (SatyaMahavrata → DravyaShruta) the count
+-- is no longer a with-branch tally: it is the LENGTH OF THE CERTIFIED
+-- LIST, each element of which carries its kernel warrant — semantic
+-- truth over every environment — as an erased field.  A record of that
+-- type cannot be built for a rule the act did not truly close, so the
+-- number below cannot be wrong without the kernel having lied.
 
 दीर्घता : List Eq' → Nat
 दीर्घता []       = zero
@@ -47,6 +48,6 @@ main : IO ⊤
 main = putStrLn
   (  "the act-portion, compiled, speaks: of the elder's "
    ⊹ primShowNat (दीर्घता आगमः)
-   ⊹ " rules, the flat act closes "
-   ⊹ primShowNat (समतल-गणना आगमः)
-   ⊹ " at runtime; the knowledge-portion holds the rest, and the mouth adds nothing." )
+   ⊹ " rules, the act closes "
+   ⊹ primShowNat (दैर्घ्यम् सिद्ध-श्रुतम्)
+   ⊹ ", each carrying its warrant erased; the mouth adds nothing." )
