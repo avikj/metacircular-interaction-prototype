@@ -180,6 +180,7 @@ bijamPurva =
 bijaCells :: IO [FilePath]
 bijaCells = do
   let dirs = [ ("formal/cubical", ".agda")
+             , ("formal/cubical/NaturalMachine", ".agda")
              , ("punaragamana/src/Punaragamana", ".agda")
              , ("machine", ".hs") ]
   fmap concat . forM dirs $ \(d, ext) -> do
