@@ -319,7 +319,11 @@ nVarsOf l r =
 
 sigLine : Nat → Tm → Tm → String
 sigLine n l r =
-  "prastava : " & (if n == 0 then "" else binder n & " → ")
+  -- parenthesised: if_then_else_ binds tighter than _&_, so without
+  -- them the " → " rode OUTSIDE the conditional and every zero-variable
+  -- candidate emitted "prastava :  → ..." — a parse error the receipts
+  -- recorded as refused:kernel since the emitter's first day.
+  "prastava : " & (if n == 0 then "" else (binder n & " → "))
   & emit l & " ≡ " & emit r & "\n"
 
 reflCandidate : String → Tm → Tm → String
@@ -475,6 +479,11 @@ spec-parse-4 = refl
 
 spec-vars : nub (varsOf (Bin plus (V 0) (Bin times (V 0) Z)) ++ []) ≡ (0 ∷ [])
 spec-vars = refl
+
+-- the zero-variable signature is pinned whole, because precedence ate
+-- it once: a closed pair's line carries no binder and no arrow.
+spec-sig-0 : sigLine 0 Z (S Z) ≡ "prastava : zero ≡ suc (zero)\n"
+spec-sig-0 = refl
 
 -- the gcd close: the standing refusal is replaced by a parse.  The
 -- fuel-typed definition lives in the candidate prelude (gcdF/gcd'),
