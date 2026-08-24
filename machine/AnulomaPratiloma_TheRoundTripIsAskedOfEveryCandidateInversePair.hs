@@ -1703,12 +1703,57 @@ parseSig l = do
   (n, rest) <- breakColon l
   let n' = trim n
   if null n' || not (all okChar n') then Nothing else do
-    (a, b) <- splitArrow (trim rest)
+    (a, b) <- splitArrow (stripImplicits (trim rest))
     if any bad [a, b] || null (trim a) || null (trim b)
       then Nothing else Just (n', a, b)
   where
     okChar c = isAlphaNum c || c `elem` "-_'∙′"
     bad s = any (`elem` words s) ["∀", "→", "Σ", "Π"] || any (`elem` s) "{(∀[]"
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- LEADING IMPLICIT TELESCOPES ARE NOT PART OF THE ARROW, 2026-08-24.
+--
+-- `bad` rejects any type containing `{`, so a signature written
+--
+--     len : {ℓ : Level} {A : Type ℓ} → List A → ℕ
+--
+-- was invisible to this scanner — and in a dependently typed library that is
+-- almost every map there is.  Measured: 2209 modules (this corpus plus
+-- agda/cubical v0.9) yielded 1461 arrows and 67 candidate pairs, because the
+-- standard library's maps nearly all carry a level or a type implicitly.
+-- The scanner was seeing the first-order surface of a dependently typed
+-- world and reporting it as the world.
+--
+-- Stripping is sound for the question this program asks.  The probe writes
+-- `∀ b → f (g b) ≡ b` and NAMES NO TYPE — the header two hundred lines up
+-- records that restating the domain is what killed the first three runs — so
+-- an implicit that was inferable at the definition is inferable at the
+-- probe, by the same unifier.  What is stripped is exactly what Agda would
+-- have solved anyway.
+--
+-- IT STAYS CONSERVATIVE. Only a LEADING run of `∀`/`{…}` is removed, and
+-- `bad` still rejects a remaining `{`, `(`, `∀`, `Σ`, `Π` or second arrow in
+-- either side.  So `f : {ℓ} → A → B` is now seen and
+-- `f : (n : ℕ) → Vec A n → Vec A n` is still refused: an EXPLICIT binder
+-- means the arrow's own type depends on a value, and the round trip is then
+-- not the statement this program knows how to write.
+stripImplicits :: String -> String
+stripImplicits = go (0 :: Int)
+  where
+    -- bound the loop: a malformed signature must not spin.
+    go k s | k > 64 = s
+    go k s = case dropWhile isSpace s of
+      ('∀' : r)          -> go (k + 1) r
+      ('{' : r)          -> go (k + 1) (dropBraced 1 r)
+      r@('→' : r') | k > 0 -> go k r'      -- the arrow that closed a telescope
+                   | otherwise -> r
+      r                  -> r
+    dropBraced :: Int -> String -> String
+    dropBraced 0 s = s
+    dropBraced d ('{' : r) = dropBraced (d + 1) r
+    dropBraced d ('}' : r) = dropBraced (d - 1) r
+    dropBraced d (_   : r) = dropBraced d r
+    dropBraced _ []        = []
 
 breakColon :: String -> Maybe (String, String)
 breakColon s = case break (== ':') s of
