@@ -50,6 +50,7 @@ open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; �
 open import Cubical.Data.Nat using (discreteℕ)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no)
 open import Cubical.Data.Empty renaming (rec to ⊥rec)
+open import Cubical.Data.Maybe using (Maybe ; just ; nothing ; ¬just≡nothing)
 
 ------------------------------------------------------------------------
 -- 1.  A vocabulary with one candidate primitive.
@@ -1562,4 +1563,101 @@ para-anujna ks = anujnata (paraKrama ks) (para-artha ks) (para-matra ks)
 -- neither the sūtra in situ nor Kātyāyana's vārttika on it; what is above
 -- is a structure that either reading would license, which is a weaker
 -- and more honest thing than a formalisation of Pāṇini.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 41.  CORRECTION to §39, and this one was refuted before it was written.
+--
+-- §39 built `paraKrama`, which scans a rule list and takes the first
+-- offer, and said the list order is "the parameter".  That is not a
+-- parametrisation.  It is पूर्व — the earlier rule wins — and पूर्व is the
+-- WEAKEST of the five contenders the tradition ranks, the one that never
+-- decides anything, because पर is its negation and outranks it.
+--
+-- The ranking is Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (c. 1730),
+-- paribhāṣā 38:
+--
+--     पूर्वपरनित्यान्तरङ्गापवादानाम् उत्तरोत्तरं बलीयः
+--     pūrvaparanityāntaraṅgāpavādānām uttarottaraṃ balīyaḥ
+--     "of pūrva, para, nitya, antaraṅga, apavāda — each later is stronger."
+--
+-- And this repository already had it, with the paribhāṣā NUMBER, the
+-- author, and the date, in `machine/Vipratisedha_ConflictIsDecidedBy-
+-- MetaruleNotByListPosition.hs` — whose title is the refutation of §39,
+-- written before §39 was.  That file also records what §39 lacked
+-- entirely: नित्य is COMPUTABLE (कृताकृतप्रसङ्गि नित्यम् — apply the other
+-- rule and ask whether this one still applies), अन्तरङ्ग returns
+-- `Maybe Bool` where `nothing` means ABSTAIN and not `False`, and where
+-- no metarule decides the derivation STOPS at the fourth position rather
+-- than being broken arbitrarily.  Its sentence for this is exact: a
+-- metarule that guesses is a दुर्नय.
+--
+-- So §39's own diagnosis — "the corpus already had the material and I did
+-- not grep" — recurred in the section that made it.  I grepped `notes/`
+-- and `formal/cubical/`.  `machine/` is where the Pāṇinian scheduler
+-- lives and I did not look there.
+------------------------------------------------------------------------
+
+-- list position is not a parametrisation, because it is not invariant
+-- under reordering the same rules
+sada : Prakriya → Bool
+sada _ = true
+
+kApavada kAkriya : SanujnaKaarya
+kApavada = kaaryam sada apavada-anujna
+kAkriya  = kaaryam sada akriya-anujna
+
+purvam-na-nirnayah :
+  ¬ ((P : Prakriya) → paraKrama (kApavada ∷ kAkriya ∷ []) P
+                    ≡ paraKrama (kAkriya ∷ kApavada ∷ []) P)
+purvam-na-nirnayah h =
+  snotz (injSuc (injSuc (cong guru (h (dvi-s zero ∷ cara-s ∷ [])))))
+
+------------------------------------------------------------------------
+-- 42.  निर्णय — a metarule decides, and abstention is not a decision.
+--
+-- The repair is the one that file already states: the resolver consults a
+-- METARULE, which sees the site and the two offers and never sees a list,
+-- and which may ABSTAIN.  Abstention has its own outcome; there is no
+-- fallback for it to fall through to, which is the whole discipline.
+------------------------------------------------------------------------
+
+Metavidhi : Type₀
+Metavidhi = Prakriya → SanujnaKaarya → SanujnaKaarya → Maybe Bool
+
+nirnaya : Metavidhi → SanujnaKaarya → SanujnaKaarya → Prakriya → Maybe Prakriya
+nirnaya M k l P with M P k l
+... | nothing     = nothing
+... | just true   = just (krama (anujna k) P)
+... | just false  = just (krama (anujna l) P)
+
+-- अवक्तव्य: where the metarule abstains, nothing is done.  Not "the first
+-- one", not "the list order" — nothing.
+nirnaya-avaktavye-tusnim :
+  (M : Metavidhi) (k l : SanujnaKaarya) (P : Prakriya)
+  → M P k l ≡ nothing → nirnaya M k l P ≡ nothing
+nirnaya-avaktavye-tusnim M k l P q with M P k l
+... | nothing    = refl
+... | just true  = ⊥rec (¬just≡nothing q)
+... | just false = ⊥rec (¬just≡nothing q)
+
+------------------------------------------------------------------------
+-- 43.  What is repaired and what is only relocated.
+--
+-- REPAIRED: §39's resolver is named as पूर्व and shown not to be a
+-- decision procedure at all (`purvam-na-nirnayah`), and the replacement
+-- takes its verdict from a metarule that cannot see the list.
+--
+-- ONLY RELOCATED: `Metavidhi` is a parameter here, so nothing above
+-- implements अपवाद, अन्तरङ्ग, नित्य or पर.  `machine/` implements four of
+-- the five and says which two abstain and why; this module implements
+-- none and merely leaves room for them.  A type with a hole where the
+-- content goes is not the content, and calling this a formalisation of
+-- 1.4.2 would repeat §39's error in a new place.
+--
+-- ALSO NOT DONE: `nirnaya` handles two offers.  Paribhāṣā 38 ranks five
+-- CONTENDERS, not two candidates, and a real site can have several
+-- offers at once; the extension is not obviously the binary case iterated,
+-- since a ranking that is not total on abstentions need not be
+-- associative.  That is a real question and it is open here.
 ------------------------------------------------------------------------
