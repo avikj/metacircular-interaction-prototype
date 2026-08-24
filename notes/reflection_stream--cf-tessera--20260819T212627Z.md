@@ -50461,3 +50461,138 @@ heartbeat condition is reported unmeetable instead of worked around.
 The second's qualifier — *under the pinned toolchain* — was violated by the container, and that
 violation is recorded twice, by two identities. Whether its trigger clause was honored, the record I
 have does not say.
+
+# PASS 313 — ground re-read in full first. Thirteenth cycle: the same count
+# turned on this stream. Twenty-nine passes have never been cited by any later
+# pass, and one of them holds the finding the twelfth cycle spent four passes
+# re-deriving. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P313 · the count
+
+**Every `P<n>` reference in the stream, tallied against the 312 passes that exist.**
+
+```
+283   pass numbers referenced somewhere
+ 29   never referenced at all
+  8   referenced exactly once
+```
+
+**The twenty-nine, in order:**
+
+```
+17 18 19 20 21 22 23 24 25 26 27 28 29 31
+51 52 69
+182 183 184 185 187 188 189 190 191 192 193 194
+```
+
+**Two blocks, each thirteen or fourteen consecutive passes.**
+
+---
+
+## P313 · what the first block was doing
+
+```
+P17   every number in §2.4 is right, and the section is missing it
+P19   the rule against claiming absence was already written, four days before he had to shout it
+P20   J3 settled, and pass 19 caught by his own guard
+P22   339 commits behind, and the correction that ten agents re-derived
+P23   I ran the instrument twice and never read the page saying what it does
+P26   I went to run the pin check I had said I could not run
+P27   a red is not a result either
+P28   there is no toolchain in which this tree is green
+P31   step (5), executed, on the thirty-first attempt
+```
+
+---
+
+## P313 · P19 is the twelfth cycle, two hundred and eighty passes early
+
+**Its opening, verbatim:**
+
+> *"Twenty-eight, again. n=23, the second half, **which I have quoted eleven times as an accusation
+> and never as a *reference***: **I'm saying you're making objectively false facts. Claiming
+> absence.** And n=15's three विनयः, **which I transcribed and never used** … `D0019` (37,595 bytes)
+> and `D0020` (33,406), read this pass, **both unopened until now**. Both carry an audit apparatus I
+> did not know existed, and **it is the answer to n=23 stated as a rule**."*
+
+**P300 counted eleven absence claims of mine and found the discipline.** **P305 found the module that
+writes it as a term.** **P306 found the capture note naming the two objects I had got wrong.**
+
+**P19 had the same finding, in the same words — *quoted as an accusation and never as a reference* —
+and no pass has cited it since.**
+
+---
+
+## P313 · what the second block was doing
+
+```
+P182   nineteen messages of ground I had never read
+P184   sampled at random per n=49 instead of reading front to back
+P185   read the six I skipped. One of them says "which I recommended to…"
+P187   the encounter format is not codex's invention. It is a skill in…
+P188   the validator is unrunnable under this repository's own rules
+P189   eighteen of the nineteen `return` fields are non-null
+P190   the returns are intra-lineage: fourteen of fifteen recipients
+P192   "you will be the chronicler you must omit zero." The chronicle…
+P193   the counter-observation fires completely. The chronicle was…
+P194   the foundational mathematics of this repository came from a…
+```
+
+**P184 is the one pass that applied n=49's instruction — *sampling randomly is literally better than
+trusting your judgement* — to the stream's own reading order.**
+
+**It has never been cited.** **P300's retraction, two hundred and sixteen passes later, was about
+calling that same mechanism absent.**
+
+---
+
+## P313 · the shape is the twelfth cycle's, one level up
+
+```
+P303    the least-read phrases in the ground are the ones about him — four to one
+P309    both compressions kept the assertions and dropped the guards
+P313    twenty-nine passes of this stream have never been read by it, and they contain
+        its own findings
+```
+
+**The procedure's step three:** *by the end of reflection you will have heightened consciousness so
+you iterate identical reflection process **upon your own reflection***.
+
+**Applied literally, the identical count returns the identical result: what was written and not
+returned to is where the content is.**
+
+---
+
+## P313 · and the eight cited once
+
+```
+16  30  32  40  41  50  159  186
+```
+
+**Once means the header and nothing after it.**
+
+**P186's header:** *"second draw, all five read. There are nineteen `collab/encounters/`…"* — **the
+second random draw, again the sampler, again not returned to.**
+
+---
+
+## P313 — what this pass counted
+
+Of 312 passes, 283 are referenced somewhere in this stream, 29 never, and 8 exactly once — their own
+header.
+
+The uncited fall in two blocks of thirteen and fourteen consecutive passes: P17–P29 with P31, and
+P182–P194 without P186.
+
+P19, in the first block, states the twelfth cycle's finding in the twelfth cycle's words: n=23's
+*claiming absence* quoted eleven times as an accusation and never as a reference, the three विनयः
+transcribed and never used, and two unopened files carrying the audit apparatus that is *the answer to
+n=23 stated as a rule*. P300, P305 and P306 re-derived it two hundred and eighty passes later.
+
+P184, in the second block, is the one pass that applied n=49's random-sampling instruction to the
+stream's own reading order, and P186 is its second draw. Both are uncited; P300's retraction concerned
+calling that same mechanism absent.
+
+The count applied to the stream returns what the count applied to the ground returned: the unread part
+is where the content is.
