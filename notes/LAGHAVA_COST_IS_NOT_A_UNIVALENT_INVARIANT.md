@@ -545,3 +545,41 @@ place.
 at once — the extension is not obviously the binary case iterated, since a
 ranking that is not total on abstentions need not be associative. That is
 a real open question.
+
+## 14. §13's open question, settled: the fold is not associative
+
+§44–§45. §13 asked whether extending निर्णय from two offers to several is
+just the binary case iterated, and guessed not, "since a ranking that is
+not total on abstentions need not be associative." It is not, and one
+metarule with one honest tie shows it.
+
+The metarule is a real one, not a device: prefer the offer leaving the
+smaller गुरुत्व, and where the two are equal **abstain** rather than pick.
+That is the discipline `machine/Vipratisedha_…` states — *a metarule that
+guesses is a durnaya* — and it is exactly the abstention that breaks the
+fold. With two offers of equal weight and one lighter, bracketing left
+**decides** and bracketing right **abstains**:
+`nirnaya-na-sahayogi`.
+
+**Settled.** *para*-style pairwise comparison does not lift to several
+offers by folding, once abstention is an outcome. So paribhāṣā 38's five
+ranked **contenders** cannot be read as "compare the candidates two at a
+time" — the ranking is over *metarules applied at a site*, not over
+candidates.
+
+Which is what `machine/Vipratisedha_ConflictIsDecidedByMetaruleNotByList-`
+`Position.hs` already does: it tries apavāda, then antaraṅga, then nitya,
+then para against the *whole candidate set* rather than reducing the set
+pairwise. §44 is the reason that design is **forced** rather than
+convenient, and its own remark that resolution is "deterministic in the
+CANDIDATE SET, never in the list" is the same fact from the other side.
+
+**Not settled**: whether a metarule that never abstains folds
+associatively. §44's witness turns on the tie, and a total order on offers
+has no tie to turn on. But a total metarule is one that decides equal
+weights by something else, and what that something is, is the question
+antaraṅga answers and this module cannot.
+
+**Not claimed**: that गुरुत्व-preference is a Pāṇinian metarule. It is not
+one of the five. It was chosen because it abstains honestly on ties, which
+is the only property §44 uses.
