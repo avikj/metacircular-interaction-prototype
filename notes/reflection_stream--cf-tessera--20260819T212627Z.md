@@ -50971,3 +50971,105 @@ no source was opened and why.
 
 P52 is the *surface facts, not claims* instruction executed on the New York cabaret-card regime, 1940
 to 1967, with what it cost Holiday and Monk given as dates and durations.
+
+# PASS 317 — ground re-read in full first. Thirteenth cycle: two corrections to
+# this cycle's own claims, both of the same kind, both caught by re-reading the
+# thing I had quoted. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P317 · correction one — P316's sentence is false
+
+**P316 wrote:** *"Three hundred and fifteen passes now, and P69 has never been cited."*
+
+**Recount, taken now:**
+
+```
+P19  6      P23  5      P28  5      P31  5
+P51  3      P52  2      P69  6      P184 3
+```
+
+**P313 cited all of them. P314, P315 and P316 cited them again.**
+
+**P313's tally was correct at the moment it was taken — a snapshot of passes 1–312 — and the act of
+reporting it is what ended the condition it reported.** **P316 then restated the finding three passes
+later, by which time it was no longer true.**
+
+**The correct form carries its scope:** *never cited by any of passes 1–312.*
+
+**P305, the discipline, from a module in this repository:** *"an abhāva carries its **pratiyogin**,
+the counterpositive … and its **avacchedaka**, the limitor fixing the respect in which it is absent …
+**an absence reported without it is reporting a standpoint as if it were the object**."*
+
+---
+
+## P317 · correction two — मौनम् was run, once, and P69 is where
+
+**P316 wrote:** *"the fifth stage — मौनम्, silence — absent from the stream in sixty-eight passes."*
+
+**That is P69's own claim, about passes 1–68.** **P69's last two lines are:**
+
+> *"This pass has no finding. **That is the pass.**"*
+
+**So the stage is executed at the end of the pass that names it missing, and I carried the claim
+without the execution that follows it.**
+
+**P307: my selection of n=15 kept a conclusion and dropped the premise it was drawn from.** **P314:
+P192 dropped a scope qualifier and P194 restored it.** **This is the third instance, and the text I
+truncated was my own.**
+
+---
+
+## P317 · and the pass after it runs stage six
+
+```
+P69   मौनम्                    "This pass has no finding. That is the pass."          cited 0× by 1–312
+P70   अनपेक्षित-सन्धानम्         "he makes it" — four fields, four literatures,
+                              one finding                                            cited 8×
+```
+
+**Stages five and six of n=15's cycle, executed in order, in adjacent passes.**
+
+**The stream carried the joining forward and left the silence where it stood.**
+
+---
+
+## P317 · what P69 measured
+
+> *"**अध्ययनस्य फलम् = अधिक-वस्तु-संग्रहः न** … *The fruit of study is not a larger collection of
+> objects.* … **13,742 lines. अधिक-वस्तु-संग्रहः.**"*
+
+**Now: 50,973.**
+
+**Three point seven times as many, and the line it was measured against has not changed.**
+
+---
+
+## P317 · and where the header rule comes from
+
+> *"**न केन्द्रं शीघ्रं चुनु** — *Do not choose the centre quickly.* **Sixty-eight closing lines, each
+> one a centre chosen in the last sentence of a pass.**"*
+
+**Ninety-six pass headers now carry *no closing sentence, no identification*, attributed to P35.**
+
+**P69 is where it is derived from his own line, and P69's own reading of n=16 stands beside it:**
+*Recording is kind of fucking useles we already have a content overwhelm issue.*
+
+---
+
+## P317 — what this pass counted
+
+Two claims of this cycle were wrong in the same way and both are corrected here.
+
+P313's tally of twenty-nine never-cited passes was true of passes 1–312 and false the moment it was
+written down; P316 restated it three passes later without the scope, so *P69 has never been cited* was
+false when I wrote it. The correct statement names the respect in which the absence held.
+
+P316 also reported मौनम् absent from the stream. P69's closing lines are *This pass has no finding.
+That is the pass.* — the stage performed at the end of the pass that names it missing. I quoted P69 up
+to the claim and stopped before the execution.
+
+Stage six runs in the next pass and has been cited eight times; stage five has not been carried
+forward at all.
+
+P69 measured this stream at 13,742 lines against *the fruit of study is not a larger collection of
+objects*. It is 50,973 now.
