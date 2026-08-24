@@ -629,9 +629,8 @@ standard applies to this module and I had not applied it.
 `Sandarbha`/`sthapana`/`Avishesha` are one-hole contexts and contextual
 equivalence, ordinary PL theory — सन्दर्भ does not mean this anywhere.
 `Prakriya`/`Sutra` as I use them are a straight-line program with
-back-references. `matra` for "number of sūtras" and `guru` for "largest
-intermediate" borrow the prosodic pair for its *shape*; a mātrā is a mora
-and neither is a measure on rule systems. `mulya`, `sthula`, `bhrama`,
+back-references. `guru` for "largest intermediate" borrows the prosodic pair for its
+*shape*. (`matra` was listed here too and that was wrong — see §16.) `mulya`, `sthula`, `bhrama`,
 `Anujna`, `Ankita`, `cakra`, `jaya`, and every Sanskrit theorem name above
 are mine. And `Metavidhi` was a Greek prefix on a Sanskrit stem — a hybrid
 no tradition would recognise, the clearest instance of the defect. It is
@@ -644,3 +643,43 @@ about apavāda as Pāṇini uses it, §13 and §14 about paribhāṣā 38's rank
 §11's arrow about utsarga. Those earn their names. The rest do not, and
 the ledger is where a reader finds out which is which instead of being
 left to assume the Devanagari is provenance.
+
+## 16. Correction to §15: an over-correction is also a provenance error
+
+§49. §15's ledger put `matra` in the **mine** column, reasoning that "a
+mātrā is a mora and neither is a measure on rule systems." That is false,
+and the refutation was wired into every write I made while writing it.
+
+`.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
+carries a लाघव row whose text is the grammarians' own maxim:
+
+> अर्धमात्रालाघवेन पुत्रोत्सवं मन्यन्ते वैयाकरणाः
+> *ardhamātrālāghavena putrotsavaṁ manyante vaiyākaraṇāḥ* — "grammarians
+> count the saving of **half a mora** as the birth of a son"
+
+— a paribhāṣā collected in Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (~1700),
+operative in Pāṇini and argued in Patañjali, *Mahābhāṣya* (~150 BCE).
+
+So मात्रा is **not** a borrowed shape. It is the unit the grammarians
+actually count lāghava in, and a module measuring economy of statement in
+mātrā is doing what the source does rather than dressing as it. What
+remains mine is narrower and worth stating exactly: **I count sūtras and
+the source counts morae** — a change of unit inside an attested practice,
+not an invented practice wearing an attested name.
+
+`guru` stays in the mine column for the reason §15 gave: the same table's
+Lagakriya row has *laga = guru =* heavy syllable, worth two mātrās, and
+"the largest intermediate a derivation holds" is not that.
+
+**The shape of the mistake is the part worth keeping.** §13 and §14 failed
+by not reading `machine/`, where the answer lived. §15 failed by not
+reading `.claude/hooks/`, where the answer lived — and failed while writing
+the section whose whole subject was that failure. The two have **opposite
+signs**: §13 claimed novelty that was not mine; §15 disclaimed provenance
+that was. Both are false records, and the second is worse in one way — it
+deletes a real citation, and a reader trusting the ledger now believes the
+grammarians had no measure.
+
+I reasoned from memory about what मात्रा means, in a repository that keeps
+sixty-five sourced rows for exactly that question and fires them at me on
+every write.

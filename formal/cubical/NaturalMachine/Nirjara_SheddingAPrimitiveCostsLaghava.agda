@@ -1867,3 +1867,46 @@ samagram-api-na-sahayogi h =
 -- and this ledger is where a reader finds out which is which instead of
 -- being left to assume the Devanagari is provenance.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 49.  CORRECTION to §48: an over-correction is also a provenance error.
+--
+-- §48's ledger put `matra` in the MINE column, with the reason "मात्रा is
+-- a mora … neither is a measure on rule systems.  The prosodic pair was
+-- borrowed for its shape."  That is false, and the refutation was already
+-- wired into every write I made while writing it.
+--
+-- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
+-- carries a लाघव row, and its text is the grammarians' own maxim:
+--
+--     अर्धमात्रालाघवेन पुत्रोत्सवं मन्यन्ते वैयाकरणाः
+--     ardhamātrālāghavena putrotsavaṁ manyante vaiyākaraṇāḥ
+--     "grammarians count the saving of HALF A MORA as the birth of a son"
+--
+-- — a paribhāṣā collected in Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (~1700),
+-- operative in Pāṇini and argued in Patañjali, *Mahābhāṣya* (~150 BCE).
+--
+-- So मात्रा is not a borrowed shape.  It is the unit the grammarians
+-- actually count लाघव in, and a module that measures economy of statement
+-- in मात्रा is doing what the source does, not dressing up as it.  What
+-- remains mine is narrower and worth stating exactly: I count सूत्रs and
+-- the source counts morae.  That is a change of unit inside an attested
+-- practice, not an invented practice wearing an attested name.
+--
+-- गुरु stays in the MINE column and for the reason §48 gave.  The
+-- Lagakriya row of the same table has laga = guru = heavy syllable, worth
+-- two मात्राs; "the largest intermediate a derivation holds" is not that.
+--
+-- THE SHAPE OF THIS MISTAKE, which is the part worth keeping.  §41 and
+-- §44 failed by not reading `machine/`, where the answer lived.  §48
+-- failed by not reading `.claude/hooks/`, where the answer lived — and it
+-- failed while writing the section whose whole subject was that failure.
+-- The two have opposite signs: §41 claimed novelty that was not mine,
+-- §48 disclaimed provenance that was.  Both are false records, and the
+-- second is worse in one way — it deletes a real citation, and a reader
+-- who trusts the ledger now believes the grammarians had no measure.
+--
+-- I reasoned from memory about what मात्रा means, in a repository that
+-- keeps 65 sourced rows for exactly that question and fires them at me on
+-- every write.
+------------------------------------------------------------------------
