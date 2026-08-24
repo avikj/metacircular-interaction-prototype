@@ -1,4 +1,18 @@
-# Theorem F: the parity barrier as a protected gauge sector of the critical affine equilibrium
+# एकान्तलोप (Ekāntalopa): the parity barrier as a protected gauge sector of the critical affine equilibrium
+
+*Renamed 2026-08-24 at the owner's order: "Theorem F" was a placeholder
+letter — the white-speak the naming directive forbids, a name that says
+nothing about the object. **एकान्तलोप** = ekānta (one-sidedness, the
+absolutist single standpoint) + lopa (elision, erasure — the same lopa
+whose negation अलोपः names uaβ's no-loss). The theorem's content in one
+compound: **the one-sided equilibrium elides every charge.** It is one
+object in three registers — physics (the unique KMS state annihilates
+every charged sector), number theory (the sieve parity barrier), and the
+darśana (a single equilibrium is a durnaya; ekānta erases the charged
+content, which is exactly why anekānta — many nets, no center — is the
+corpus's answer, and why a canonical store is structurally blind). All
+prior references to "Theorem F" name this; the letter is retained in the
+body once, in parentheses, so the citation graph still resolves.*
 
 Companion to `PARITY.md` (which posed the graded-KMS question) and `ADELIC.md`.
 This document answers it. The answer is a no-go theorem with a two-line proof
@@ -43,7 +57,8 @@ $Q_{\mathbb N}=Q^0\oplus Q^1$ by parity of $\Omega$.
 
 ## F.2 The no-go theorem
 
-**Theorem F.** Let $\omega$ be the unique KMS state of $(Q_{\mathbb N},\sigma)$
+**एकान्तलोप (Ekāntalopa; formerly "Theorem F").** Let $\omega$ be the unique
+KMS state of $(Q_{\mathbb N},\sigma)$
 (Cuntz: it exists only at $\beta=1$ and is unique). Then:
 
 1. $\omega\circ\alpha_g=\omega$ for every $g\in G$;
