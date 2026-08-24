@@ -396,3 +396,8 @@ sp362	s(0)	le(le(s(0),x),+(+(0,x),x))	ind 0 refl refl
 sp363	le(x,0)	le(+(x,+(+(x,x),x)),0)	ind 0 refl refl
 sp297	0	-(le(s(0),max(s(x),y)),s(0))	ind 1 refl refl
 sp298	0	-(le(s(0),+(s(x),y)),s(0))	refl
+sp299	0	-(le(s(0),+(x,s(y))),s(0))	ind 0 refl refl
+sp300	s(0)	le(le(x,0),*(s(y),s(z)))	ind 0 refl refl
+sp364	+(x,+(s(0),y))	max(+(s(x),y),x)	ind 0 refl congsuc
+sp301	0	-(le(x,0),+(s(*(x,x)),x))	ind 0 refl refl
+sp302	0	+(*(le(0,0),0),*(0,s(0)))	refl
