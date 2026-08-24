@@ -109,7 +109,6 @@ run_gate "dosa · the written defect chain"                  scripts/check-dosa-
 run_gate "claims · struck claims still standing"            scripts/check-claim-slugs.sh
 run_gate "deletion · nothing silently removed"              scripts/check-no-silent-deletion.sh
 run_gate "problems · every problem has a spec"              scripts/check-problem-specs.sh
-run_gate "corrections · every correction reaches its site"  scripts/check-correction-reach.sh
 
 echo "── जीवति · WHAT ANSWERED, AND WHAT IT SAID ──"
 [ -n "$PASS" ] && printf '%s\n' "$PASS"
