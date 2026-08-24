@@ -33,10 +33,10 @@
 -- report's own lines to exactly the intended pairs.  The MATHEMATICAL
 -- soundness gate is not here and needs not be: every candidate this
 -- module utters is judged by the cubical kernel before it can land, so
--- a wrong proposal costs one refusal and nothing else.  A pair naming
--- gcd is refused with its reason (the fuel-typed definition is owed,
--- per SanghattaSamapti); a pair over more than six variables is
--- refused with its reason.  तृतीयो मार्गो न विद्यते ।
+-- a wrong proposal costs one refusal and nothing else.  A pair over
+-- more than six variables is refused with its reason.  (The gcd
+-- refusal that stood here is closed: the candidate prelude carries the
+-- fuel-typed gcd, so gcd pairs ride the ladder.)  तृतीयो मार्गो न विद्यते ।
 ------------------------------------------------------------------------
 
 module Prastava where
@@ -159,6 +159,7 @@ mutual
     just (S (fst p) , rest)
   parseTm (suc f) ('l' ∷ 'e' ∷ '(' ∷ cs) = parseBin f leS cs
   parseTm (suc f) ('m' ∷ 'a' ∷ 'x' ∷ '(' ∷ cs) = parseBin f maxS cs
+  parseTm (suc f) ('g' ∷ 'c' ∷ 'd' ∷ '(' ∷ cs) = parseBin f gcdS cs
   parseTm (suc f) ('+' ∷ '(' ∷ cs) = parseBin f plus cs
   parseTm (suc f) ('*' ∷ '(' ∷ cs) = parseBin f times cs
   parseTm (suc f) ('-' ∷ '(' ∷ cs) = parseBin f monus cs
@@ -258,6 +259,7 @@ emit (Bin times a b) = "(" & emit a & " · " & emit b & ")"
 emit (Bin monus a b) = "(" & emit a & " ∸' " & emit b & ")"
 emit (Bin leS a b)   = "le (" & emit a & ") (" & emit b & ")"
 emit (Bin maxS a b)  = "max' (" & emit a & ") (" & emit b & ")"
+emit (Bin gcdS a b)  = "gcd' (" & emit a & ") (" & emit b & ")"
 
 argRange : Nat → List Nat
 argRange zero = []
@@ -289,6 +291,20 @@ prelude =
   & "max' zero n = n\n"
   & "max' (suc m) zero = suc m\n"
   & "max' (suc m) (suc n) = suc (max' m n)\n\n"
+  & "-- Euclidean gcd by subtraction, fuel-typed (the close SanghattaSamapti\n"
+  & "-- named as owed): fuel a + b bounds the descent, since each step\n"
+  & "-- strictly shrinks the sum while both sides are positive.\n"
+  & "mutual\n"
+  & "  gcdGo : ℕ → ℕ → ℕ → ℕ → ℕ\n"
+  & "  gcdGo f (suc zero) a b = gcdF f a (b ∸' a)\n"
+  & "  gcdGo f _ a b = gcdF f (a ∸' b) b\n\n"
+  & "  gcdF : ℕ → ℕ → ℕ → ℕ\n"
+  & "  gcdF zero a _ = a\n"
+  & "  gcdF (suc f) a zero = a\n"
+  & "  gcdF (suc f) zero b = b\n"
+  & "  gcdF (suc f) (suc a) (suc b) = gcdGo f (le (suc a) (suc b)) (suc a) (suc b)\n\n"
+  & "gcd' : ℕ → ℕ → ℕ\n"
+  & "gcd' a b = gcdF (a + b) a b\n\n"
 
 header : String → String
 header name =
@@ -345,14 +361,9 @@ data Uttara : Set where
   candidates : List String → Uttara
   refusal    : String → Uttara
 
-mentionsGcd : List Char → Bool
-mentionsGcd [] = false
-mentionsGcd ('g' ∷ 'c' ∷ 'd' ∷ _) = true
-mentionsGcd (_ ∷ cs) = mentionsGcd cs
-
 proposeParsed : String → Maybe (Pair Tm Tm) → Uttara
 proposeParsed name nothing =
-  refusal "unparsed: outside the closed signature {0,s,+,*,-,le,max} over x..w with primes"
+  refusal "unparsed: outside the closed signature {0,s,+,*,-,le,max,gcd} over x..w with primes"
 proposeParsed name (just lr) =
   let l = fst (canon lr) in
   let r = snd (canon lr) in
@@ -366,10 +377,7 @@ proposeParsed name (just lr) =
          ++ map (indCandidate name l r) (nub (varsOf l ++ varsOf r))))
 
 propose : String → String → Uttara
-propose name line =
-  if mentionsGcd (primStringToList line)
-  then refusal "gcd: the fuel-typed definition is owed (SanghattaSamapti names this close as separate work)"
-  else proposeParsed name (parseLine line)
+propose name line = proposeParsed name (parseLine line)
 
 ------------------------------------------------------------------------
 -- the extraction surface: one flat function the mouth consumes.
@@ -406,8 +414,12 @@ spec-parse-4 = refl
 spec-vars : nub (varsOf (Bin plus (V 0) (Bin times (V 0) Z)) ++ []) ≡ (0 ∷ [])
 spec-vars = refl
 
-spec-gcd-refused : mentionsGcd (primStringToList "s(0)\tgcd(s(0),0)") ≡ true
-spec-gcd-refused = refl
+-- the gcd close: the standing refusal is replaced by a parse.  The
+-- fuel-typed definition lives in the candidate prelude (gcdF/gcd'),
+-- so gcd pairs now ride the same ladder as every other symbol.
+spec-gcd-parsed : parseLine "s(y)\tgcd(s(y),0)"
+                ≡ just (S (V 1) , Bin gcdS (S (V 1)) Z)
+spec-gcd-parsed = refl
 
 -- the AC classifier's receipts: a genuine +-shuffle is recognised, and a
 -- pair that differs by real content (an absorbed ·0) is NOT — so the

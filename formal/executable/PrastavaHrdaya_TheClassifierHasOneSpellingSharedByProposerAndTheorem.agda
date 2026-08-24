@@ -41,7 +41,7 @@ _++_ : {A : Set} → List A → List A → List A
 (x ∷ xs) ++ ys = x ∷ (xs ++ ys)
 
 data Sym : Set where
-  plus times monus leS maxS : Sym
+  plus times monus leS maxS gcdS : Sym
 
 data Tm : Set where
   V   : Nat → Tm
@@ -62,6 +62,7 @@ symCode times = 1
 symCode monus = 2
 symCode leS = 3
 symCode maxS = 4
+symCode gcdS = 5
 
 lex2 : Nat → Nat → Nat
 lex2 1 o = o
@@ -137,6 +138,7 @@ acCanon (Bin times a b) =
 acCanon (Bin monus a b) = Bin monus (acCanon a) (acCanon b)
 acCanon (Bin leS a b)   = Bin leS (acCanon a) (acCanon b)
 acCanon (Bin maxS a b)  = Bin maxS (acCanon a) (acCanon b)
+acCanon (Bin gcdS a b)  = Bin gcdS (acCanon a) (acCanon b)
 
 is1 : Nat → Bool
 is1 1 = true

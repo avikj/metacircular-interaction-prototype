@@ -46,6 +46,20 @@ max' zero n = n
 max' (suc m) zero = suc m
 max' (suc m) (suc n) = suc (max' m n)
 
+mutual
+  gcdGo : ℕ → ℕ → ℕ → ℕ → ℕ
+  gcdGo f (suc zero) a b = gcdF f a (b ∸' a)
+  gcdGo f _ a b = gcdF f (a ∸' b) b
+
+  gcdF : ℕ → ℕ → ℕ → ℕ
+  gcdF zero a _ = a
+  gcdF (suc f) a zero = a
+  gcdF (suc f) zero b = b
+  gcdF (suc f) (suc a) (suc b) = gcdGo f (le (suc a) (suc b)) (suc a) (suc b)
+
+gcd' : ℕ → ℕ → ℕ
+gcd' a b = gcdF (a + b) a b
+
 eval : (ℕ → ℕ) → Tm → ℕ
 eval e (V i) = e i
 eval e Z = zero
@@ -55,6 +69,7 @@ eval e (Bin times a b) = eval e a · eval e b
 eval e (Bin monus a b) = eval e a ∸' eval e b
 eval e (Bin leS a b)   = le (eval e a) (eval e b)
 eval e (Bin maxS a b)  = max' (eval e a) (eval e b)
+eval e (Bin gcdS a b)  = gcd' (eval e a) (eval e b)
 
 
 ------------------------------------------------------------------------
@@ -107,6 +122,7 @@ sum-leaves e (Bin times t t₁) = +-zero _
 sum-leaves e (Bin monus t t₁) = +-zero _
 sum-leaves e (Bin leS t t₁) = +-zero _
 sum-leaves e (Bin maxS t t₁) = +-zero _
+sum-leaves e (Bin gcdS t t₁) = +-zero _
 
 ------------------------------------------------------------------------
 -- multiplicative chain
@@ -157,6 +173,7 @@ prod-leaves e (Bin plus t t₁) = ·-identityʳ _
 prod-leaves e (Bin monus t t₁) = ·-identityʳ _
 prod-leaves e (Bin leS t t₁) = ·-identityʳ _
 prod-leaves e (Bin maxS t t₁) = ·-identityʳ _
+prod-leaves e (Bin gcdS t t₁) = ·-identityʳ _
 
 -- insertBy never returns [], so sortTm of a cons never does: the shape
 -- the times chain rides through
@@ -206,6 +223,7 @@ acCanon-sound e (Bin times t t₁) = timesCase (leavesOf times (acCanon t))
   leaves-shape (Bin monus a b) = Bin monus a b , ([] , refl)
   leaves-shape (Bin leS a b) = Bin leS a b , ([] , refl)
   leaves-shape (Bin maxS a b) = Bin maxS a b , ([] , refl)
+  leaves-shape (Bin gcdS a b) = Bin gcdS a b , ([] , refl)
   leaves-shape (Bin times a b) with leaves-shape a
   ... | h , (rest , p) =
     h , ((rest ++ leavesOf times b) , cong (_++ leavesOf times b) p)
@@ -230,6 +248,8 @@ acCanon-sound e (Bin leS t t₁) =
   cong₂ le (acCanon-sound e t) (acCanon-sound e t₁)
 acCanon-sound e (Bin maxS t t₁) =
   cong₂ max' (acCanon-sound e t) (acCanon-sound e t₁)
+acCanon-sound e (Bin gcdS t t₁) =
+  cong₂ gcd' (acCanon-sound e t) (acCanon-sound e t₁)
 
 ------------------------------------------------------------------------
 -- the bridge: a comparison verdict of eq IS a syntactic equality.
@@ -259,7 +279,8 @@ symDec zero = plus
 symDec (suc zero) = times
 symDec (suc (suc zero)) = monus
 symDec (suc (suc (suc zero))) = leS
-symDec _ = maxS
+symDec (suc (suc (suc (suc zero)))) = maxS
+symDec _ = gcdS
 
 symDec-code : (s : Sym) → symDec (symCode s) ≡ s
 symDec-code plus = refl
@@ -267,6 +288,7 @@ symDec-code times = refl
 symDec-code monus = refl
 symDec-code leS = refl
 symDec-code maxS = refl
+symDec-code gcdS = refl
 
 symCode-inj : (s s' : Sym) → symCode s ≡ symCode s' → s ≡ s'
 symCode-inj s s' p = sym (symDec-code s) ∙ cong symDec p ∙ symDec-code s'
