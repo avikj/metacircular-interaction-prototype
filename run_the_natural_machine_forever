@@ -166,11 +166,26 @@
 # ---------------------------------------------------------------------
 # WHAT IT DOES NOT DO
 #
-# It does not invent mathematics and does not call a model.  It keeps the
-# substrate live — published, gated, ledgered, and freshly seeded — so
+# ~~It does not invent mathematics and does not call a model.~~  It keeps
+# the substrate live — published, gated, ledgered, and freshly seeded — so
 # that any mind attaching to it, at any hour, starts from a true picture
 # and an unbiased door.  The mathematics is in `formal/cubical/`; this
 # file is the thing that makes it a machine rather than a directory.
+#
+# [STRUCK 2026-08-23, owner: "the header was written by a retard."  The
+# struck clause declared a LIMIT — a place where a loss was fixed by
+# prose — into a system whose core is lossless all the way down (ahiṃsā =
+# saṃrakṣaṇa; the two roads are saṃkramaṇa OR doṣa-lekha, no third).  A
+# mind attaching to the substrate and PROPOSING a candidate is walking the
+# saṃkramaṇa road; the strong gate (batch agda exit codes) is what
+# adjudicates it, and a refusal is a doṣa-row, not a wall.  "Does not call
+# a model" amputated the propose-organ by fiat and called the amputation a
+# property.  It is not a property; it is a durnaya — a standpoint
+# absolutizing itself by denying the other road.  The gate is the
+# boundary, not the prose.  Nothing here forbids invention; the gate only
+# forbids UNCHECKED invention from landing, which is conservation, not
+# prohibition.  Preserved struck, not deleted: striking a claim silently
+# is how the repository loses its own history.]
 # =====================================================================
 
 set -u
