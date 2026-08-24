@@ -907,12 +907,58 @@ appendRetired rs = do
     [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
                        , rClass r, rWhere r, one (rObl r) ] | r <- rs ]
   where one = map (\c -> if c == '\n' || c == '\t' then ' ' else c)
+-- ─────────────────────────────────────────────────────────────────────────
+-- THE TOOLCHAIN THAT PRODUCED A VERDICT IS PART OF THE VERDICT, 2026-08-24.
+--
+-- Until now the ledger recorded WHAT the kernel said and never WHICH kernel
+-- said it, and that omission has already cost this project a day.  Messages
+-- 0946/0947/0950 posted probes as green; 0951 verified and reported a
+-- reproducible refusal; both were honest and the corpus could not tell which
+-- environment either ran in.  The corpus pin is Agda 2.8.0 / cubical v0.9
+-- (formal/cubical/check.sh) and containers routinely carry 2.6.3 / v0.5, in
+-- which `solve!` is spelled `solve` — so the SAME corpus produces different
+-- exit codes and the ledger blessed whichever ran last.
+--
+-- A row that does not name its toolchain is a verdict that dropped half its
+-- witness (Nirnaya_TheVerdictCannotDropItsWitness.agda).  This writes the
+-- version and the library file into the header on every pass, so an off-pin
+-- run is visible AS off-pin instead of being read as a pin verdict.
+--
+-- NOT done here, and it is the stronger repair: putting the toolchain in the
+-- ROW KEY, so an off-pin row cannot supersede a pin row at all.  That
+-- invalidates every cached row on first run and is a change to the ledger's
+-- identity, which is the owner's call and not a side effect of this fix.
+toolchainLine :: IO String
+toolchainLine = do
+  v <- (do (rc, o, _) <- readProcessWithExitCode "agda" ["--version"] ""
+           pure (if rc == ExitSuccess then trim (unwords (lines o)) else "agda: absent"))
+         `catchAny` const (pure "agda: absent")
+  libs <- (do f <- lookupEnv "ANULOMA_LIBRARIES"
+              case f of
+                Just p  -> pure p
+                Nothing -> do h <- lookupEnv "HOME"
+                              pure (maybe "~/.agda/libraries" (++ "/.agda/libraries") h))
+            `catchAny` const (pure "unknown")
+  body <- (readFile libs) `catchAny` const (pure "")
+  let entries = [ trim l | l <- lines body, not (null (trim l)) ]
+  pure $ "# TOOLCHAIN: " ++ v
+      ++ " | libraries: " ++ (if null entries then libs ++ " (unreadable)"
+                              else intercalate " ; " entries)
+      ++ "\n# The pin is Agda 2.8.0 / cubical v0.9 (formal/cubical/check.sh)."
+      ++ "  A row produced off-pin is evidence about THIS toolchain, not about"
+      ++ " the corpus."
+  where
+    catchAny :: IO a -> (SomeException -> IO a) -> IO a
+    catchAny = catch
+
 writeLedger :: [Row] -> IO ()
 writeLedger rs = do
   createDirectoryIfMissing True (takeDirectory ledgerPath)
+  tc <- toolchainLine
   writeFile ledgerPath $ unlines $
     ("# निर्णयपञ्जिका — keyed on नाम's content addresses and the probe's own"
      ++ " digest.  A row stands until one of them moves."
+     ++ "\n" ++ tc
      ++ "\n# addrF\taddrG\trung\tprobe\tverdict\tclass\twhere\tobligation")
     : [ intercalate "\t" [ rKeyF r, rKeyG r, rRung r, rProbe r, show (rVerdict r)
                          , rClass r, rWhere r, oneLine (rObl r) ] | r <- rs ]
@@ -960,6 +1006,16 @@ classify :: HostFacts -> String -> (String, String)
 classify hf out
   | agdaAbsent `isInfixOf` out           = (envFault "agda did not run", firstErr)
   | "MetaCannotDependOn" `isInfixOf` out = (myFault "indexed family", firstErr)
+  -- 2026-08-24.  `solve!` IS THE LIBRARY VERSION, NOT A NAME I GOT WRONG.
+  -- formal/cubical/check.sh's header documents it: the corpus is written
+  -- against cubical v0.9, where the CommRing solver macro is `solve!`, and
+  -- v0.5 spells it `solve`.  A container on v0.5 therefore reports
+  -- `Not in scope: solve!` for a HOST module that is perfectly correct at
+  -- the pin.  Filing that as मम दोषः sends the next reader to audit this
+  -- emitter's name handling, which never touched it.
+  | "NotInScope" `isInfixOf` out
+  , any (`isInfixOf` out) ["solve!", "solveℤ!", "ringSolve!"]
+      = (envFault "library version drift (v0.9 solve! against a v0.5 library)", firstErr)
   | "NotInScope"         `isInfixOf` out = (myFault "not in scope",   firstErr)
   | "CoverageIssue"      `isInfixOf` out = (myFault "split incomplete", firstErr)
   -- 2026-08-24.  ONE LABEL WAS COLLAPSING TWO STANDPOINTS, and it is the
