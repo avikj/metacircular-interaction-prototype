@@ -1133,3 +1133,5 @@ sp664	+(+(0,x),max(y,s(0)))	max(+(x,y),s(+(0,x)))	ind 0 refl congsuc
 sp732	0	+(*(-(0,+(s(0),x)),0),*(*(0,0),s(0)))	refl
 sp733	0	+(*(0,0),*(*(-(0,+(0,s(x))),0),s(0)))	refl
 sp734	0	+(*(-(0,+(0,s(x))),0),*(*(0,0),s(0)))	refl
+sp735	le(s(0),x)	le(s(0),*(x,+(x,+(x,+(x,x)))))	ind 0 refl refl
+sp736	le(s(0),x)	le(s(0),*(x,+(+(+(x,x),x),x)))	ind 0 refl refl
