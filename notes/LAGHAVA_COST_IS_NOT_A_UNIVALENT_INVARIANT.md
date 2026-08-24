@@ -883,3 +883,41 @@ level further along.
 condition costs in the *Aṣṭādhyāyī*. Nothing rests on the number. What
 rests on the model is that a carved rule states a condition and an apavāda
 does not — and that asymmetry is the source's, not mine.
+
+## 22. स्वविषय — the law §21 owed, and the law §21 named was false
+
+§62–§63. §21 said what was missing: *"for every carved rule there is an
+apavāda form no longer than it."* **That is not true and cannot be made
+true.** A carved rule whose two branches genuinely differ has no
+shape-matched apavāda equivalent — carving is how you say something an
+apavāda cannot.
+
+The law runs the other way, and the tradition supplies its hypothesis. An
+apavāda works because **its own statement fixes its domain** — it is
+स्वविषय, *having its own province*, inert wherever its nimitta fails. For
+a rule like that, carving is pure waste:
+
+> `svavisaye-carvanam-vyartham` — for **every** nimitta and **every** rule
+> inert outside it, the carved form is denotationally identical.
+> `carvanam-dirgham` — and strictly longer, for every nimitta and every
+> rule whatever.
+> `apavada-svavisaya` — apavāda is svaviṣaya for its own nimitta, so §21
+> is this law's instance rather than a fact about two terms.
+
+**The hypothesis is also the content.** It says exactly when Pāṇini's
+device applies — not "exceptions are cheaper than conditionals", which is
+false, but **"a rule that carries its own domain need not have that domain
+stated again."** The economy is in the *overlap* between what a rule does
+and where it applies, and a rule whose shape does not fix its province
+gets no discount.
+
+**Still not shown**: the converse, which is the direction a grammar
+designer actually faces. Given a behaviour, is there always a svaviṣaya
+presentation of it? If not, carving is sometimes forced, and *when* is the
+real design question. §62 says nothing about rules that are not svaviṣaya.
+
+**Not claimed**: that स्वविषय is the grammatical literature's technical
+term for this predicate. *Sva-viṣaya* is ordinary Sanskrit for "one's own
+province"; whether the commentators use it as a term of art about apavāda
+domains I have not checked, and §15's ledger is where that uncertainty
+belongs.

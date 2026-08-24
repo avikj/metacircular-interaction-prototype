@@ -46,7 +46,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_the
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤-+k ; ≤Dec ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤SumRight ; ≤-+k ; ≤Dec ; ¬-<-zero ; ¬m<m)
 open import Cubical.Data.Nat using (discreteℕ)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no)
 open import Cubical.Data.Empty renaming (rec to ⊥rec)
@@ -2315,4 +2315,84 @@ laghutaram = 2 , refl
 -- condition costs in the Aṣṭādhyāyī.  Nothing rests on the number; what
 -- rests on the model is that a carved rule states a condition and an
 -- अपवाद does not, and that asymmetry is the source's, not mine.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 62.  स्वविषय — the law §61 owed, and the law §61 named was false.
+--
+-- §61 said what was missing: "for every carved rule there is an अपवाद
+-- form no longer than it".  That is not true and cannot be made true.  A
+-- carved rule whose two branches genuinely differ has no shape-matched
+-- अपवाद equivalent; carving is how you say something an अपवाद cannot.
+--
+-- The law runs the other way, and the tradition supplies its hypothesis.
+-- An अपवाद works because its own statement fixes its domain — it is
+-- स्वविषय, "having its own province", inert wherever its निमित्त fails.
+-- For a rule like that, carving is pure waste: it does nothing and costs
+-- strictly more.  That is universally quantified and is the general
+-- statement §60 had only an instance of.
+------------------------------------------------------------------------
+
+Svavisaya : Nimitta → Vidhi → Type₀
+Svavisaya c v = (P : Prakriya) → sthiti c P ≡ false → artha-v v P ≡ P
+
+carvana-lemma :
+  (c : Nimitta) (v : Vidhi) → Svavisaya c v
+  → (P : Prakriya) (b : Bool) → sthiti c P ≡ b
+  → (if b then artha-v v P else artha-v akriya-v P) ≡ artha-v v P
+carvana-lemma c v hyp P true  e = refl
+carvana-lemma c v hyp P false e = sym (hyp P e)
+
+-- carving a स्वविषय rule changes nothing …
+svavisaye-carvanam-vyartham :
+  (c : Nimitta) (v : Vidhi) → Svavisaya c v
+  → artha-v (yadi c v akriya-v) ≡ artha-v v
+svavisaye-carvanam-vyartham c v hyp =
+  funExt (λ P → carvana-lemma c v hyp P (sthiti c P) refl)
+
+-- … and always costs, for every निमित्त and every विधि whatever
+carvanam-dirgham :
+  (c : Nimitta) (v : Vidhi)
+  → vidhi-matra v < vidhi-matra (yadi c v akriya-v)
+carvanam-dirgham c v =
+  suc-≤-suc (≤-trans (≤SumRight {vidhi-matra v} {nimitta-matra c})
+                     (≤SumLeft {nimitta-matra c + vidhi-matra v} {1}))
+
+-- and अपवाद is स्वविषय for its own निमित्त, so §60 is this law's instance
+-- rather than a fact about two terms
+apavada-svavisaya : Svavisaya dviyoge apavada-v
+apavada-svavisaya []                    e = refl
+apavada-svavisaya (cara-s ∷ ss)         e = refl
+apavada-svavisaya (mita-s m ∷ ss)       e = refl
+apavada-svavisaya (yoga-s i j ∷ ss)     e = refl
+apavada-svavisaya (dvi-s i ∷ ss)        e = ⊥rec (true≢false e)
+apavada-svavisaya (pratyahara-s k ∷ ss) e = refl
+
+------------------------------------------------------------------------
+-- 63.  What the law says that the instance did not.
+--
+-- §60 showed one अपवाद beating one carved rule, 1 against 4, and §61 was
+-- right that this is a fact about two terms.  §62 is the law: for EVERY
+-- निमित्त and EVERY rule inert outside it, the carved form is
+-- denotationally identical and strictly longer.  The quantifier is what
+-- was missing and the hypothesis — स्वविषय — is what makes it true.
+--
+-- The hypothesis is also the content.  It says exactly when Pāṇini's
+-- device applies: not "exceptions are cheaper than conditionals", which
+-- is false, but "a rule that carries its own domain need not have that
+-- domain stated again".  The economy is in the OVERLAP between what a
+-- rule does and where it applies, and a रूल whose shape does not fix its
+-- province gets no discount.
+--
+-- STILL NOT SHOWN: the converse direction, which is the one a grammar
+-- designer actually faces.  Given a behaviour, is there always a
+-- स्वविषय presentation of it?  If not, carving is sometimes forced, and
+-- the question of when is the real design question.  Nothing here touches
+-- it, and §62's law says nothing about rules that are not स्वविषय.
+--
+-- NOT CLAIMED: that स्वविषय is used in the grammatical literature for
+-- this predicate.  स्व-विषय is ordinary Sanskrit for "one's own
+-- province"; whether the commentators use it as a technical term about
+-- अपवाद domains, I have not checked, and the ledger at §48 is where that
+-- uncertainty belongs.
 ------------------------------------------------------------------------
