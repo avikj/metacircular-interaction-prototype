@@ -16,8 +16,25 @@
 -- it cannot carry nontrivial holonomy.  To retain the law of transport, the
 -- observer itself must live above h-level 2.
 --
--- STATUS.  Complete and hole-free; warm Nadi verdict owed.  It imports the
+-- STATUS.  ~~Complete and hole-free; warm Nadi verdict owed.~~  It imports the
 -- corrected generic probe from the same staging/include root.
+--
+-- STRUCK 2026-08-24, AND THE STRIKE IS THE POINT.  "Hole-free" was true and
+-- was not a green: this module exited 42, and so did the corrected generic
+-- probe it imports, on unsolved metavariables in `transport-naturality` whose
+-- `q`, `F`, `D` were implicit and outside Miller's pattern fragment.  A module
+-- with unsolved metas has ZERO holes and a nonzero exit code, so `goals`
+-- cannot see this class and neither could the two lanes that reported on it
+-- (collab/messages/0946 and 0951, both honest, both wrong).  That measurement
+-- is kernel/nodes/008.
+--
+-- NOW GREEN, and stated with the toolchain because a green without one is a
+-- coordinate reading (kernel/nodes/001):
+--   Agda 2.8.0 / cubical v0.9 -- THE PIN -- EXIT 0
+--   Agda 2.6.3 / cubical v0.5                EXIT 0
+-- The whole holonomy set is green at both: this module, the corrected generic
+-- probe, DescentRequiresTheObserverToRetainHolonomy, SetMetadataCannotRepair
+-- LostHolonomy, SetTruncationCannotCarryNontrivialHolonomy, DescentSpectrum.
 ------------------------------------------------------------------------
 
 module SetValuedObservationCannotCarryHolonomyProbe where
