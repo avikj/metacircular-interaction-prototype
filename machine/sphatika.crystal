@@ -638,3 +638,12 @@ sp485	le(x,0)	le(+(x,*(+(0,x),+(0,x))),0)	ind 0 refl refl
 sp416	0	*(le(s(0),x),+(le(x,0),le(x,0)))	ind 0 refl refl
 sp417	0	*(le(x,0),le(s(0),+(x,*(x,x))))	ind 0 refl refl
 sp418	0	*(le(x,0),le(s(0),+(x,*(x,y))))	ind 0 refl refl
+sp419	0	*(le(s(0),+(x,*(x,x))),le(x,0))	ind 0 refl refl
+sp420	0	*(le(s(0),+(x,*(x,y))),le(x,0))	ind 0 refl refl
+sp421	0	-(le(x,0),+(+(x,x),s(+(x,x))))	ind 0 refl refl
+sp422	0	-(le(x,0),+(+(x,0),s(+(x,0))))	ind 0 refl refl
+sp486	+(s(s(0)),s(x))	max(x,+(x,s(s(s(0)))))	ind 0 refl congsuc
+sp423	0	le(+(le(s(0),0),max(s(0),s(0))),0)	refl
+sp487	+(le(s(s(0)),0),s(le(s(s(0)),0)))	s(0)	refl
+sp424	0	le(+(+(x,x),+(x,max(x,s(0)))),0)	ind 0 refl refl
+sp425	0	le(+(+(0,x),+(0,max(x,s(0)))),0)	ind 0 refl refl
