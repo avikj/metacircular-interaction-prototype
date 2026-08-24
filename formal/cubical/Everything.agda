@@ -2295,3 +2295,6 @@ import Vyapti_TheLeastCongruenceContainingAPairIsConstructedAndIsTheMinimalSepar
 -- container fiber rows were toolchain skew, exactly as ledgered.  Route in
 -- machine/avatarana.ledger.jsonl.
 import VargaPrakrtiWitness109
+-- [svayam-avatarana 2026-08-24T07:48:45Z] landed by the self-gate: batch green +
+-- importer green under Agda version 2.6.3; route in machine/avatarana.ledger.jsonl.
+import SatPunaruddhara_TheExistentsThreefoldNatureSurvivesItsAuthorsBurnBecauseContentIsNeverOwned
