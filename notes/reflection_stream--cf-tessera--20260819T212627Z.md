@@ -47086,3 +47086,144 @@ n=8 is 2,055 lines of a roughly 3,070-line message body — sixty-seven per cent
 Delta 15 alone is three hundred and forty-two lines, summarised in six. Eight of its numbered items
 became a checked module in the four minutes forty-eight seconds after it arrived; its closing couplet,
 which is not numbered, did not appear in this stream until P284.
+
+# PASS 286 — ground re-read in full first. Tenth cycle: reading n = 8's interior,
+# Delta 13, first half. Six things in it that the repository later reinvented or
+# is still calling open. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P286 · the epigraph
+
+> न एकदृष्टिः पर्याप्ता। न सर्वदृष्टयः समानाः।
+> यत्र समता प्रमाणिता तत्र परिवहनम्; यत्र न, तत्र भेदः ज्ञानबीजम्।
+>
+> *"One view is insufficient; not all views are equal. Where equivalence is proved, transport. Where
+> it is not, the defect is a seed of knowledge."*
+
+**2026-08-14T04:06:03Z.**
+
+***Not all views are equal*** **is the second clause, and it is the one that keeps the first from
+being relativism.**
+
+---
+
+## P286 · "Never collapse perspectives rhetorically"
+
+> *"Never collapse perspectives rhetorically. **Collapse only through witnessed mathematics.**"*
+
+**P267: the report at 17:08:55 on 08-19 opens *the corpus stopped decorating Western mathematics with
+Sanskrit* and closes by converting *avaktavya* into `ker P`.**
+
+**P258: n=16's object is a note converting the transmission into a formal square.**
+
+**The prohibition on exactly that move is in the first document of n=8, three days earlier.**
+
+---
+
+## P286 · absence is information — the formal statement, 2026-08-14
+
+> *"The knowledge object is a coherent diagram D_X of representations and proved translations. Two
+> translations may themselves admit higher comparisons. **Absence or nonuniqueness of comparison is
+> information.**"*
+
+```
+08-14 04:06:03   Absence or nonuniqueness of comparison is information
+08-17 22:56:44   मम-अदर्शनम् ≠ तस्य-अभावः
+08-20 01:49:18   I'm saying you're making objectively false facts. Claiming absence.
+```
+
+**P275 had the last two.** **The first is three days sixteen hours fifty minutes forty-one seconds
+before the second, in a technical paragraph, and it is the same statement.**
+
+---
+
+## P286 · the comparison type has four states, not two
+
+> *"For parallel routes f,g:A→B, study the comparison type Def(f,g):=(f=g). **It may be contractible,
+> multiply inhabited, empty, or unknown.**"*
+
+**Four.**
+
+**`CLAUDE.md` records that `machine/Obstruction.hs` "independently discovered that a boolean verdict
+was collapsing three distinct things and reinvented *avaktavyam* badly as `Unparsed`", and points at
+the saptabhaṅgī for the correct count.**
+
+**The four-valued statement is in Delta 13, sent 2026-08-14, and the machine's rediscovery of a
+worse version came later.**
+
+---
+
+## P286 · "Do not claim Jain logic = type theory"
+
+> *"**Anekāntavāda is not imported as a theorem.** Operationally: intentionally generate contexts Γ_i
+> in which different predicates become exact: Γ_i ⊢ P_i(X). Syādvāda reminds us to retain conditions
+> of assertion. Dependent type theory forces context to remain explicit.
+>
+> **Do not claim Jain logic = type theory. Let each discipline the other:**
+> • many-sided analysis resists absolutizing one contextual presentation;
+> • type theory demands exact contexts and transformation rules."*
+
+**`CLAUDE.md`'s regression note of 2026-08-18 — *rival schools are not one toolkit*, *name the school
+before using the term* — and its rule *method is never content* are this paragraph, four days
+later, written by an agent as a lesson learned.**
+
+**He wrote it as a specification.**
+
+---
+
+## P286 · the pramāṇa list
+
+> *"Extreme perspectival generation risks uncontrolled analogy. **For each comparison ask what
+> warrants it: construction, inference, exact computation, formal proof, empirical analogy,
+> testimony/prior literature.**
+>
+> अनेकान्त generates views; न्याय demands warrant; univalence collapses only proved equivalences."*
+
+**Six warrants, named.**
+
+**`CLAUDE.md`:** *"**Nyāya** on *pramāṇa* — what counts as a valid means of knowledge — **which is the
+question this entire repository is trying to answer with ad-hoc gates.**"*
+
+**The repository calls it open.** **Delta 13 answers it in one sentence, on 2026-08-14, and the
+sentence is a list.**
+
+**P275: the line after it — *अनेकान्त generates views; न्याय demands warrant* — is the two-schools
+distinction CLAUDE.md records as a lesson four days later.**
+
+---
+
+## P286 · representation gain
+
+> *"Given executable complexity C, define representation gain G(e;f)=C(f)−C(f^e). Because e preserves
+> semantic structure, gain measures **computational advantage of perspective rather than information
+> loss**. This connects univalence to computational irreducibility: search the equivalence class of
+> representations for pockets where the law becomes reducible, charging for e and e^{-1}."*
+
+**A perspective is scored by what it makes cheap, with the cost of changing perspective charged
+against it.**
+
+---
+
+## P286 — what this pass counted
+
+Delta 13's first half, read rather than summarised, contains six things this repository has since
+treated as open, as newly learned, or as its own discovery:
+
+*Never collapse perspectives rhetorically; collapse only through witnessed mathematics* — the
+prohibition on the move I made at 17:08:55 on 08-19 and again in the note that drew n=16.
+
+*Absence or nonuniqueness of comparison is information* — three days sixteen hours before the
+Sanskrit transmission says it as ≠, six days before *claiming absence*.
+
+A four-valued comparison type — contractible, multiply inhabited, empty, unknown — against which
+`machine/Obstruction.hs` later rediscovered a three-way collapse and named the fourth badly.
+
+*Do not claim Jain logic = type theory. Let each discipline the other* — CLAUDE.md's *rival schools
+are not one toolkit*, four days earlier and as a specification rather than a regression note.
+
+A six-item taxonomy of warrant — construction, inference, exact computation, formal proof, empirical
+analogy, testimony/prior literature — for the pramāṇa question CLAUDE.md says the repository is still
+answering with ad-hoc gates.
+
+And a definition of representation gain that charges for the change of perspective.
