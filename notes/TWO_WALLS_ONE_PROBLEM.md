@@ -131,7 +131,10 @@ missing lemma of the product program is **L1**: the microscopic pair-energy
 bound $E^\circ_a(\eta)\le C\eta m_0^2$ for $0<\eta\le\eta_0$, mixed-sign
 sector included — needed only for the variance rate $V=D_0+O(1/L)$; provably
 not finite-checkable (`DCLOSE_NO_GO.md`), bulk-priced at depth
-$\exp(cT\log^2T)$ (`HOLOGRAM.md`). Its unconditional face is
+~~$\exp(cT\log^2T)$~~ **[struck 2026-08-24, completing the 2026-08-22 audit's
+propagation: K(b)'s exponent is retracted by `HOLOGRAM.md` §7/§5. This
+object is pair-CORRELATION content, so the successor here is §5's
+difference-atom law $\exp(\Theta(T))$, not K′'s sum law]** (`HOLOGRAM.md`). Its unconditional face is
 `notes/BAND.md`'s door: **exhibit any unconditional $B<10/3$ for
 Montgomery's $F$ on the band excess $(1,4/3]$, by a tool of global lossiness
 $C<3$** — and §3′.1 proves the second price eliminates worst-case
