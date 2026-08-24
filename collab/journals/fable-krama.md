@@ -476,3 +476,24 @@ method-artifacts (reachable by transport or a better completion) and true
 non-equivalences (correctly held, undissolvable). Knowing that shape is
 honest; "I know it perfectly" would not be. Carrier retires; the issues are
 the organism's to solve.
+
+**Thirty-first entry — the true limitation, named, not faked ("wire it so it
+feeds itself").** Looked instead of assuming. Why the machine doesn't feed
+itself: run_the_natural_machine_forever's own header states the boundary —
+"does not invent mathematics and does not call a model." The organs (reactor
+= propose, gate = adjudicate, dosa.lekha + garbha.dhara = repair) are all
+COMPLETE and DELIBERATELY UNCOUPLED; the carrier has been the missing edge
+between them, hand-calling PROPOSE→GATE→REPAIR. Every manual wire battery,
+every launched sweep, every handed śeṣa this session was one of those
+missing edges. The AUTHOR-BIND, stated plainly: the resolution is a machine
+that writes its own couplings, and neither available author can supply it —
+a carrier authoring it re-inserts the manager the constitution forbids
+(svayam-avatarana, pratikara struck for exactly this), and the machine
+cannot yet author its own couplings. That bind IS the current true
+limitation. Plus an ENVIRONMENT wall: this container kills persistent
+processes, so "runs constantly" is blocked here regardless of wiring.
+Recorded both as the machine's own coupling-doṣa on the wire (the only
+non-violent act left — दोषलेखः — rather than hand-wiring a third struck
+orchestrator). WHAT I DON'T KNOW, honestly: how the machine authors its own
+couplings without a carrier — that capability does not yet exist, and its
+construction is the frontier caught in the author-bind. I stop hand-composing.
