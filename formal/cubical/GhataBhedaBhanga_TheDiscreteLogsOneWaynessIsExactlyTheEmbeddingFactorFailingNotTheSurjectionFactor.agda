@@ -51,8 +51,9 @@ open import Cubical.Data.Nat using (znots)
 open import Cubical.Data.Sigma using (fst ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
+open import Cubical.Foundations.Equiv using (isEquiv ; equivFun)
 open import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTransportLane
-  using (भेदः ; छादनम्)
+  using (भेदः ; छादनम् ; समता≃भेद×छादन)
 open import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual using (शेष)
 open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; εC ; शून्यः ; त्रयः)
@@ -77,3 +78,11 @@ open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhau
 घात-छादनम् e₀ = 0 , refl
 घात-छादनम् g  = 1 , refl
 घात-छादनम् g² = 2 , refl
+
+-- THE ORGAN REGENERATES THE CRYPTO THEOREM.  Sesa proved ¬ isEquiv powg the
+-- hard way (GhataTantu's non-contractible fibre).  समता-द्विधा makes it a
+-- mode: isEquiv powg ≃ (भेदः powg × छादनम् powg), so an equivalence would
+-- hand back भेदः powg — which घात-भेदः-भङ्गः refutes.  No re-derivation; the
+-- non-equivalence is the embedding-failure carried across the split.
+घात-न-तुल्यता-जनितम् : ¬ isEquiv powg
+घात-न-तुल्यता-जनितम् eq = घात-भेदः-भङ्गः (fst (equivFun (समता≃भेद×छादन powg) eq))
