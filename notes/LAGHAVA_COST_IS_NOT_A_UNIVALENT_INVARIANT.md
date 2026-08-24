@@ -808,3 +808,231 @@ and not the *object*. Each time the source was available and I took from
 it the part that fitted what I had already built. That is the mining the
 protocol names — done to a tradition's **criterion** rather than to its
 theorems, which is the same act one level up.
+
+## 20. विधि — lāghava's object finally exists in this file
+
+§57–§59. §19 named the repair and called it a second language rather than
+a section: **the rules have to *be* something before their statement can
+be measured.** Here is its core. Not a grammar — a विधि is built from the
+two moves this note has argued about and their composition — but enough
+that both sides of §19's separation are present at once, which they never
+have been.
+
+`vidhi-matra` measures a **statement**; `artha-v` is its denotation, which
+is `Anujna`'s function recovered rather than assumed. And then §5's
+separation becomes a separation between two objects that both exist,
+instead of an absence:
+
+> `vidhi-tulya` — अक्रिया and अक्रिया-then-अक्रिया are **one function**.
+> `sarvam-vidher-arthasya-samam` — so every invariant of what a rule *does*
+> identifies them.
+> `vidhi-matra-bheda` — and the statement-length does not.
+> `vidhi-matra-na-arthasya` — **no function of what a rule does computes
+> what it costs to say.**
+
+That last is the exact form §19 could only gesture at. Everything from §6
+to §18 is about `artha-v`'s side; this is the other one.
+
+**Still owed, and it is the whole reason §19 wanted this: the
+transaction.** §18 claimed the exception is worth its cost because the
+general rule stays simple to state. Checking that needs a विधि that
+*carves* the exception into the general rule — a conditional form this
+datatype does not have — and then a `vidhi-matra` comparison between the
+carved grammar and the utsarga-plus-apavāda one. Four constructors is not
+a grammar; it is the smallest thing on which the separation is statable.
+
+**Also owed**: `Anujna` and `TriAnujna` still carry functions. Nothing
+above rewires them to `Vidhi`, so the licences remain measures on
+derivations with a rule-syntax sitting beside them, unconnected. The
+connection is `artha-v`, and using it is the next thing rather than a
+claim this section makes.
+
+## 21. सङ्क्षेप — the transaction, checked
+
+§60–§61. §18 claimed the exception is worth its cost because the general
+rule stays simple to state; §19 and §20 both said checking that needs a
+विधि that **carves** the exception into the general rule. `yadi` is that
+form, and the comparison is now available.
+
+The economy is not subtle once both forms exist, and it is the actual
+Pāṇinian one. **An apavāda's domain is given by its own statement** — it
+fires where its own shape matches and is inert elsewhere, so nothing extra
+is written. A carved rule must state the domain separately, as a निमित्त,
+and then state both branches.
+
+> `sankshepa` — the carved rule and the apavāda **do the same thing**.
+> `laghutaram` — the apavāda **says it in a quarter of the statement**
+> (1 mātrā against 4).
+
+So §17's finding and §18's claim are both true and are about **different
+objects**, which is why they looked like a tension:
+
+**apavāda costs mātrā at the derivation, and saves mātrā in the grammar.**
+The grammarians pay the first to get the second, and lāghava — economy of
+the सूत्रपाठ — is the name of the second only.
+
+**Still not shown, and not small.** `laghutaram` compares one pair of
+विधिs, and 1 against 4 is a fact about two terms, not a law about
+grammars. A law would say: *for every carved rule there is an apavāda form
+no longer than it* — which needs a translation between the two shapes and
+an induction, and neither is here. §21 is the smallest instance on which
+the claim is even statable, which was §20's own description of itself, one
+level further along.
+
+**Not claimed**: that `nimitta-matra dviyoge = 1` is what stating that
+condition costs in the *Aṣṭādhyāyī*. Nothing rests on the number. What
+rests on the model is that a carved rule states a condition and an apavāda
+does not — and that asymmetry is the source's, not mine.
+
+## 22. स्वविषय — the law §21 owed, and the law §21 named was false
+
+§62–§63. §21 said what was missing: *"for every carved rule there is an
+apavāda form no longer than it."* **That is not true and cannot be made
+true.** A carved rule whose two branches genuinely differ has no
+shape-matched apavāda equivalent — carving is how you say something an
+apavāda cannot.
+
+The law runs the other way, and the tradition supplies its hypothesis. An
+apavāda works because **its own statement fixes its domain** — it is
+स्वविषय, *having its own province*, inert wherever its nimitta fails. For
+a rule like that, carving is pure waste:
+
+> `svavisaye-carvanam-vyartham` — for **every** nimitta and **every** rule
+> inert outside it, the carved form is denotationally identical.
+> `carvanam-dirgham` — and strictly longer, for every nimitta and every
+> rule whatever.
+> `apavada-svavisaya` — apavāda is svaviṣaya for its own nimitta, so §21
+> is this law's instance rather than a fact about two terms.
+
+**The hypothesis is also the content.** It says exactly when Pāṇini's
+device applies — not "exceptions are cheaper than conditionals", which is
+false, but **"a rule that carries its own domain need not have that domain
+stated again."** The economy is in the *overlap* between what a rule does
+and where it applies, and a rule whose shape does not fix its province
+gets no discount.
+
+**Still not shown**: the converse, which is the direction a grammar
+designer actually faces. Given a behaviour, is there always a svaviṣaya
+presentation of it? If not, carving is sometimes forced, and *when* is the
+real design question. §62 says nothing about rules that are not svaviṣaya.
+
+**Not claimed**: that स्वविषय is the grammatical literature's technical
+term for this predicate. *Sva-viṣaya* is ordinary Sanskrit for "one's own
+province"; whether the commentators use it as a term of art about apavāda
+domains I have not checked, and §15's ledger is where that uncertainty
+belongs.
+
+## 23. निष्क्रिय — when carving is forced, and the dichotomy that follows
+
+§64–§65. §22 left the designer's question: given a behaviour, is a
+svaviṣaya presentation always available? **No** — and the characterisation
+says exactly when, which turns the question from one about *presentations*
+into one about the **behaviour**.
+
+> `svavisayat-nishkriyam` / `nishkriyat-svavisayam` — a behaviour admits a
+> svaviṣaya presentation for a nimitta **iff** it is निष्क्रिय, inert,
+> outside that nimitta. Nothing about how it is written enters.
+> `ubhayatah-na-svavisayam` — and a behaviour that runs utsarga off its
+> nimitta has **no** svaviṣaya presentation at all.
+
+With §22 this is a **dichotomy on behaviours**, not a preference among
+notations:
+
+- **inert outside *c*** → a svaviṣaya presentation exists, and carving it
+  is denotationally idle and strictly longer;
+- **acts outside *c*** → no svaviṣaya presentation exists, and the carved
+  form is not a stylistic choice.
+
+That is why an apavāda and a conditioned rule are **different devices**
+rather than two ways of writing one, and why a grammar carries both. It
+also says what to look for when a rule seems to need carving: whether its
+off-domain behaviour is really wanted, or is an artefact of how the
+behaviour was specified.
+
+**Not shown**: that the dichotomy is exhaustive in a language with more
+nimittas. A behaviour acting off *c* may be inert off some *other* nimitta
+*c′* — then it has a svaviṣaya presentation for *c′*, and the question
+becomes which nimitta to state it against. With three nimittas that is a
+real search and nothing here conducts it.
+
+**Not claimed**: निष्क्रिय as a technical term. Ordinary Sanskrit for
+"inactive"; it goes in §15's **mine** column beside स्वविषय.
+
+## 24. सर्वत्र costs zero because it rules out nothing — the same fact twice
+
+§66–§67. §23 said a behaviour acting off *c* might be inert off some other
+*c′*, and that with three nimittas this is a real search. It is, it has an
+answer, and the answer is better than either outcome I expected.
+
+**सर्वत्र makes the condition vacuous.** `sthiti sarvatra P` is `true` for
+every *P*, so "inert wherever the nimitta fails" quantifies over nothing
+and every behaviour qualifies (`sarvatra-sarvam-svavisayam`). The search
+never comes back empty — but the nimitta it always finds is the one that
+conditions nothing. And for the two nimittas that condition anything,
+`ubhayatah` fails both: it acts on yoga-heads (§23) and on dvi-heads
+(`ubhayatah-na-ayoge`).
+
+**So `nimitta-matra sarvatra = 0` is not a modelling convenience.** §21
+wrote it as an obvious choice — an unconditioned rule states no condition.
+§66 shows the same fact from the other side: sarvatra's inertness
+obligation is *vacuous*, so it constrains nothing either. **A nimitta's
+price and its force are the same quantity**: what it costs to state is
+what it rules out, and sarvatra rules out nothing and costs nothing.
+
+That is why the utsarga is the cheap form, and not a coincidence of the
+model. The general rule is general **because** its province is everything,
+and its province being everything is why it needs no words to fix it. §22's
+law then reads: *an apavāda buys a smaller province at the price of naming
+it, and the purchase is worth making exactly when the rule was going to be
+inert outside that province anyway.*
+
+**The search's answer** for `ubhayatah` among the three nimittas: only
+sarvatra. It can be stated only as what it is — an unconditioned rule. **A
+behaviour that acts everywhere can be "its own province" only if its
+province is everything.**
+
+**Not shown**: that this is the general shape. Three nimittas, one vacuous,
+is small enough that the search is a case analysis rather than an
+algorithm. With a nimitta language rich enough to describe intersections
+the question becomes *what is the largest nimitta a behaviour is inert
+outside of* — a real optimisation with no counterpart here.
+
+## 25. The apavāda is not a cheaper condition — it is a way of not paying for one
+
+§68–§69. §24 named the next question as *"what is the largest nimitta a
+behaviour is inert outside of."* **Wrong target.** That question answers
+itself and not usefully: sarvatra is the largest, its obligation is
+vacuous, every behaviour qualifies. The optimisation is not there.
+
+It is in the **carved** form, which is the only place a nimitta is
+actually stated and paid for. There you want the cheapest nimitta that
+still *separates* the two branches — and §24's own finding says cheapness
+and separating power are one quantity read in opposite directions. The
+structure makes it visible:
+
+> `nishkriya-vardhate` — a **bigger** nimitta imposes a **weaker**
+> obligation: inert outside a small province is more than inert outside a
+> large one.
+> `sarvatra-alpiyah` — the biggest is the **cheapest**.
+> `sarvatra-na-carvati` — and the cheapest **carves nothing**:
+> `yadi sarvatra a b` is just `a`.
+
+So along the order, price and usefulness fall together, and **there is no
+nimitta that is both free and discriminating.**
+
+That is the design constraint a grammar faces, and it is why §22's law
+matters. When a rule is svaviṣaya you get the discrimination **without
+stating a nimitta at all**, because the rule's own shape does the
+separating. **The apavāda device is not a cheaper condition — it is a way
+of not paying for one.** §21's 1-against-4 is that, measured.
+
+**Withdrawn from §24**: the sentence about a richer nimitta language
+asking for the largest nimitta a behaviour is inert outside of. With
+intersections the question is the **cheapest nimitta that separates two
+given branches**, and richer nimittas make that *harder* rather than
+easier, since an intersection costs at least what its parts do.
+
+**Not shown**: that the price of an intersection is the sum, or anything
+else about a richer nimitta language. There are three nimittas here and no
+way to combine them; every sentence above about intersections is about
+what would have to be built, not about what is.

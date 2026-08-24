@@ -42,11 +42,11 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; injSuc ; snotz ; znots)
 open import Cubical.Data.Nat.Properties using (+-zero ; +-suc)
 open import Cubical.Foundations.Prelude using (funExt⁻)
-open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
+open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false ; if_then_else_)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; _×_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤-+k ; ≤Dec ; ¬-<-zero ; ¬m<m)
+open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; ≤-refl ; ≤-trans ; ≤-suc ; ≤-sucℕ ; suc-≤-suc ; pred-≤-pred ; zero-≤ ; ≤SumLeft ; ≤SumRight ; ≤-+k ; ≤Dec ; ¬-<-zero ; ¬m<m)
 open import Cubical.Data.Nat using (discreteℕ)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no)
 open import Cubical.Data.Empty renaming (rec to ⊥rec)
@@ -2142,4 +2142,458 @@ sarvam-kramasya-samam g = refl
 -- already built.  That is the mining the protocol names — done to a
 -- tradition's *criterion* rather than to its theorems, which is the same
 -- act one level up.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 57.  विधि — rules as syntax, which is what §56 said was missing.
+--
+-- §56 named the repair and called it a second language rather than a
+-- section: the rules have to BE something before their statement can be
+-- measured.  Here is its core.  Not the whole grammar — a विधि here is
+-- built from the two moves this module has argued about and their
+-- composition — but enough that both sides of §55's separation are
+-- present at once, which they have never been.
+------------------------------------------------------------------------
+
+-- निमित्त: the conditioning cause a rule states.  An unconditioned rule
+-- states none, so it costs nothing to say; a conditioned one names it.
+data Nimitta : Type₀ where
+  sarvatra : Nimitta
+  dviyoge  : Nimitta
+  ayoge    : Nimitta
+
+nimitta-matra : Nimitta → ℕ
+nimitta-matra sarvatra = 0
+nimitta-matra dviyoge  = 1
+nimitta-matra ayoge    = 1
+
+sthiti : Nimitta → Prakriya → Bool
+sthiti sarvatra _                  = true
+sthiti dviyoge  (dvi-s _ ∷ _)      = true
+sthiti dviyoge  _                  = false
+sthiti ayoge    (yoga-s _ _ ∷ _)   = true
+sthiti ayoge    _                  = false
+
+data Vidhi : Type₀ where
+  akriya-v  : Vidhi                  -- अक्रिया, do nothing
+  apavada-v : Vidhi                  -- dvi-s i  ↦  yoga-s i i
+  utsarga-v : Vidhi                  -- yoga-s i i  ↦  dvi-s i
+  krama-v   : Vidhi → Vidhi → Vidhi  -- one, then the other
+  yadi      : Nimitta → Vidhi → Vidhi → Vidhi   -- the CARVED rule (§60)
+
+-- what it costs to STATE.  This is the सूत्रपाठ side and it is the thing
+-- §22–§54 had no access to.
+vidhi-matra : Vidhi → ℕ
+vidhi-matra akriya-v      = 1
+vidhi-matra apavada-v     = 1
+vidhi-matra utsarga-v     = 1
+vidhi-matra (krama-v a b) = suc (vidhi-matra a + vidhi-matra b)
+vidhi-matra (yadi c a b)  = suc (nimitta-matra c + vidhi-matra a + vidhi-matra b)
+
+-- what it DOES.  `Anujna`'s function, recovered as a denotation.
+artha-v : Vidhi → (Prakriya → Prakriya)
+artha-v akriya-v      = λ P → P
+artha-v apavada-v     = apavada-p
+artha-v utsarga-v     = utsarga-p
+artha-v (krama-v a b) = λ P → artha-v a (artha-v b P)
+artha-v (yadi c a b)  = λ P → if sthiti c P then artha-v a P else artha-v b P
+
+------------------------------------------------------------------------
+-- 58.  §18's separation, with both sides present for the first time.
+--
+-- §18 could only say that a function has no मात्रा — an absence.  §55 said
+-- the same about rules.  Now there is a syntax that HAS one, so the same
+-- fact becomes a separation between two objects that both exist: two
+-- rules, one denotation, two statement-lengths.
+------------------------------------------------------------------------
+
+-- अक्रिया and अक्रिया-then-अक्रिया are one function
+vidhi-tulya : artha-v akriya-v ≡ artha-v (krama-v akriya-v akriya-v)
+vidhi-tulya = refl
+
+-- so every invariant of what a rule DOES identifies them
+sarvam-vidher-arthasya-samam :
+  {ℓ : Level} {X : Type ℓ} (g : (Prakriya → Prakriya) → X)
+  → g (artha-v akriya-v) ≡ g (artha-v (krama-v akriya-v akriya-v))
+sarvam-vidher-arthasya-samam g = cong g vidhi-tulya
+
+-- and the statement-length does not
+vidhi-matra-bheda :
+  ¬ (vidhi-matra akriya-v ≡ vidhi-matra (krama-v akriya-v akriya-v))
+vidhi-matra-bheda p = znots (injSuc p)
+
+-- which is the exact form §55 could only gesture at: no function of what
+-- a rule does computes what it costs to say
+vidhi-matra-na-arthasya :
+  ¬ (Σ ((Prakriya → Prakriya) → ℕ)
+       (λ f → (v : Vidhi) → f (artha-v v) ≡ vidhi-matra v))
+vidhi-matra-na-arthasya (f , h) =
+  znots (injSuc (sym (h akriya-v) ∙ h (krama-v akriya-v akriya-v)))
+
+------------------------------------------------------------------------
+-- 59.  What is now standing and what §56's programme still owes.
+--
+-- STANDING: लाघव's object exists in this file.  `vidhi-matra` measures a
+-- statement, `artha-v` is its denotation, and `vidhi-matra-na-arthasya`
+-- says the first is not a function of the second.  Everything §22–§54
+-- proved is about `artha-v`'s side; this is the other one.
+--
+-- STILL OWED, and it is the whole reason §56 wanted this: the TRANSACTION.
+-- §54 claimed the exception is worth its cost because the general rule
+-- stays simple to state.  Checking that needs a विधि that carves the
+-- exception into the general rule — a conditional form this datatype does
+-- not have — and then a comparison of `vidhi-matra` between the carved
+-- grammar and the utsarga-plus-apavāda one.  Four constructors is not a
+-- grammar; it is the smallest thing on which the separation is statable.
+--
+-- ALSO OWED: `Anujna` and `TriAnujna` still carry functions.  Nothing
+-- above rewires them to `Vidhi`, so the licences remain measures on
+-- derivations with a rule-syntax sitting beside them, unconnected.  The
+-- connection is `artha-v`, and using it is the next thing rather than a
+-- claim this section makes.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 60.  सङ्क्षेप — the transaction §54 claimed and §59 owed.
+--
+-- §54: the exception is worth its cost because the general rule stays
+-- simple to state.  §56 and §59 both said checking that needs a विधि that
+-- CARVES the exception into the general rule.  `yadi` is that form, and
+-- the comparison is now available.
+--
+-- The economy is not subtle once both forms exist, and it is the actual
+-- Pāṇinian one.  An अपवाद's DOMAIN IS GIVEN BY ITS OWN STATEMENT — it
+-- fires where its own shape matches and is inert elsewhere, so nothing
+-- extra is written.  A carved rule must state the domain separately, as
+-- a निमित्त, and then state both branches.  Same behaviour, four times
+-- the statement.
+------------------------------------------------------------------------
+
+sthanika : (P : Prakriya)
+  → artha-v (yadi dviyoge apavada-v akriya-v) P ≡ artha-v apavada-v P
+sthanika []                    = refl
+sthanika (cara-s ∷ ss)         = refl
+sthanika (mita-s m ∷ ss)       = refl
+sthanika (yoga-s i j ∷ ss)     = refl
+sthanika (dvi-s i ∷ ss)        = refl
+sthanika (pratyahara-s k ∷ ss) = refl
+
+-- one behaviour
+sankshepa : artha-v (yadi dviyoge apavada-v akriya-v) ≡ artha-v apavada-v
+sankshepa = funExt sthanika
+
+-- and the अपवाद states it in a quarter of the मात्रा
+laghutaram : vidhi-matra apavada-v < vidhi-matra (yadi dviyoge apavada-v akriya-v)
+laghutaram = 2 , refl
+
+------------------------------------------------------------------------
+-- 61.  What closes here.
+--
+-- The arc that began at §22 asked for a measure on presentations stable
+-- under the root moves.  It went through four corrections — the wrong
+-- lane, the wrong hook, the wrong unit, the wrong object — and what it
+-- ends with is the source's own argument, checked:
+--
+--     `sankshepa`  : the carved rule and the अपवाद do the same thing
+--     `laghutaram` : the अपवाद says it in a quarter of the statement
+--
+-- So §50's finding and §54's claim are both true and are about different
+-- objects, which is why they looked like a tension.  अपवाद costs मात्रा
+-- AT THE DERIVATION (§50) and saves मात्रा IN THE GRAMMAR (§60).  The
+-- grammarians pay the first to get the second, and लाघव — economy of the
+-- सूत्रपाठ — is the name of the second only.
+--
+-- WHAT IS STILL NOT SHOWN, and it is not small.  `laghutaram` compares
+-- one pair of विधिs, and 1 against 4 is a fact about two terms, not a law
+-- about grammars.  A law would say: for every carved rule there is an
+-- अपवाद form no longer than it, which needs a translation between the two
+-- shapes and an induction, and neither is here.  §60 is the smallest
+-- instance on which the claim is even statable — which was §59's own
+-- description of §57, one level further along.
+--
+-- NOT CLAIMED: that `nimitta-matra dviyoge = 1` is what stating that
+-- condition costs in the Aṣṭādhyāyī.  Nothing rests on the number; what
+-- rests on the model is that a carved rule states a condition and an
+-- अपवाद does not, and that asymmetry is the source's, not mine.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 62.  स्वविषय — the law §61 owed, and the law §61 named was false.
+--
+-- §61 said what was missing: "for every carved rule there is an अपवाद
+-- form no longer than it".  That is not true and cannot be made true.  A
+-- carved rule whose two branches genuinely differ has no shape-matched
+-- अपवाद equivalent; carving is how you say something an अपवाद cannot.
+--
+-- The law runs the other way, and the tradition supplies its hypothesis.
+-- An अपवाद works because its own statement fixes its domain — it is
+-- स्वविषय, "having its own province", inert wherever its निमित्त fails.
+-- For a rule like that, carving is pure waste: it does nothing and costs
+-- strictly more.  That is universally quantified and is the general
+-- statement §60 had only an instance of.
+------------------------------------------------------------------------
+
+Svavisaya : Nimitta → Vidhi → Type₀
+Svavisaya c v = (P : Prakriya) → sthiti c P ≡ false → artha-v v P ≡ P
+
+carvana-lemma :
+  (c : Nimitta) (v : Vidhi) → Svavisaya c v
+  → (P : Prakriya) (b : Bool) → sthiti c P ≡ b
+  → (if b then artha-v v P else artha-v akriya-v P) ≡ artha-v v P
+carvana-lemma c v hyp P true  e = refl
+carvana-lemma c v hyp P false e = sym (hyp P e)
+
+-- carving a स्वविषय rule changes nothing …
+svavisaye-carvanam-vyartham :
+  (c : Nimitta) (v : Vidhi) → Svavisaya c v
+  → artha-v (yadi c v akriya-v) ≡ artha-v v
+svavisaye-carvanam-vyartham c v hyp =
+  funExt (λ P → carvana-lemma c v hyp P (sthiti c P) refl)
+
+-- … and always costs, for every निमित्त and every विधि whatever
+carvanam-dirgham :
+  (c : Nimitta) (v : Vidhi)
+  → vidhi-matra v < vidhi-matra (yadi c v akriya-v)
+carvanam-dirgham c v =
+  suc-≤-suc (≤-trans (≤SumRight {vidhi-matra v} {nimitta-matra c})
+                     (≤SumLeft {nimitta-matra c + vidhi-matra v} {1}))
+
+-- and अपवाद is स्वविषय for its own निमित्त, so §60 is this law's instance
+-- rather than a fact about two terms
+apavada-svavisaya : Svavisaya dviyoge apavada-v
+apavada-svavisaya []                    e = refl
+apavada-svavisaya (cara-s ∷ ss)         e = refl
+apavada-svavisaya (mita-s m ∷ ss)       e = refl
+apavada-svavisaya (yoga-s i j ∷ ss)     e = refl
+apavada-svavisaya (dvi-s i ∷ ss)        e = ⊥rec (true≢false e)
+apavada-svavisaya (pratyahara-s k ∷ ss) e = refl
+
+------------------------------------------------------------------------
+-- 63.  What the law says that the instance did not.
+--
+-- §60 showed one अपवाद beating one carved rule, 1 against 4, and §61 was
+-- right that this is a fact about two terms.  §62 is the law: for EVERY
+-- निमित्त and EVERY rule inert outside it, the carved form is
+-- denotationally identical and strictly longer.  The quantifier is what
+-- was missing and the hypothesis — स्वविषय — is what makes it true.
+--
+-- The hypothesis is also the content.  It says exactly when Pāṇini's
+-- device applies: not "exceptions are cheaper than conditionals", which
+-- is false, but "a rule that carries its own domain need not have that
+-- domain stated again".  The economy is in the OVERLAP between what a
+-- rule does and where it applies, and a रूल whose shape does not fix its
+-- province gets no discount.
+--
+-- STILL NOT SHOWN: the converse direction, which is the one a grammar
+-- designer actually faces.  Given a behaviour, is there always a
+-- स्वविषय presentation of it?  If not, carving is sometimes forced, and
+-- the question of when is the real design question.  Nothing here touches
+-- it, and §62's law says nothing about rules that are not स्वविषय.
+--
+-- NOT CLAIMED: that स्वविषय is used in the grammatical literature for
+-- this predicate.  स्व-विषय is ordinary Sanskrit for "one's own
+-- province"; whether the commentators use it as a technical term about
+-- अपवाद domains, I have not checked, and the ledger at §48 is where that
+-- uncertainty belongs.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 64.  §63's question: is a स्वविषय presentation always available?
+--
+-- No, and the characterisation says exactly when — which turns the design
+-- question from one about presentations into one about the BEHAVIOUR.
+-- A behaviour admits a स्वविषय presentation for a निमित्त iff it is
+-- निष्क्रिय — inert — outside that निमित्त.  Nothing about how it is
+-- written enters.
+------------------------------------------------------------------------
+
+Nishkriya : Nimitta → (Prakriya → Prakriya) → Type₀
+Nishkriya c f = (P : Prakriya) → sthiti c P ≡ false → f P ≡ P
+
+svavisayat-nishkriyam :
+  (c : Nimitta) (w : Vidhi)
+  → Σ Vidhi (λ v → (artha-v v ≡ artha-v w) × Svavisaya c v)
+  → Nishkriya c (artha-v w)
+svavisayat-nishkriyam c w (v , p , sv) P e =
+  sym (funExt⁻ p P) ∙ sv P e
+
+nishkriyat-svavisayam :
+  (c : Nimitta) (w : Vidhi)
+  → Nishkriya c (artha-v w)
+  → Σ Vidhi (λ v → (artha-v v ≡ artha-v w) × Svavisaya c v)
+nishkriyat-svavisayam c w hyp = w , refl , hyp
+
+-- the behaviour that does one thing on its निमित्त and another off it
+ubhayatah : Vidhi
+ubhayatah = yadi dviyoge apavada-v utsarga-v
+
+ubhayatah-na-nishkriyam : ¬ (Nishkriya dviyoge (artha-v ubhayatah))
+ubhayatah-na-nishkriyam h =
+  snotz (injSuc (injSuc
+    (cong guru (sym (h (yoga-s zero zero ∷ cara-s ∷ []) refl)))))
+
+-- so carving is FORCED here: no स्वविषय presentation of it exists
+ubhayatah-na-svavisayam :
+  ¬ (Σ Vidhi (λ v → (artha-v v ≡ artha-v ubhayatah) × Svavisaya dviyoge v))
+ubhayatah-na-svavisayam s =
+  ubhayatah-na-nishkriyam (svavisayat-nishkriyam dviyoge ubhayatah s)
+
+------------------------------------------------------------------------
+-- 65.  What the characterisation settles about the design question.
+--
+-- §62 said carving a स्वविषय rule is waste.  §64 says when you have no
+-- choice: exactly when the behaviour ACTS off its निमित्त.  Together they
+-- are a dichotomy on behaviours rather than a preference among notations —
+--
+--   निष्क्रिय outside c  →  a स्वविषय presentation exists, and carving it
+--                           is denotationally idle and strictly longer;
+--   acts outside c       →  no स्वविषय presentation exists at all, and the
+--                           carved form is not a stylistic choice.
+--
+-- That is why an अपवाद and a conditioned rule are different devices rather
+-- than two ways of writing one, and why a grammar carries both.  It also
+-- says what to look for when a rule seems to need carving: whether its
+-- off-domain behaviour is really wanted, or is an artefact of how the
+-- behaviour was specified.  In this language `ubhayatah` genuinely acts
+-- off `dviyoge` — it runs उत्सर्ग there — so its carving is forced.
+--
+-- NOT SHOWN: that the dichotomy is exhaustive in a language with more
+-- निमित्तs.  A behaviour acting off c may be निष्क्रिय off some OTHER
+-- निमित्त c′, and then it has a स्वविषय presentation for c′ and the
+-- question becomes which निमित्त to state it against.  With three
+-- निमित्तs that is a real search and nothing here conducts it.
+--
+-- NOT CLAIMED: निष्क्रिय as a technical term.  It is ordinary Sanskrit
+-- for "inactive"; §48's ledger is where this belongs, and it goes in the
+-- MINE column beside स्वविषय.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 66.  §65's search, conducted: which निमित्त can a behaviour be stated
+--      against?
+--
+-- §65 said a behaviour acting off c might be निष्क्रिय off some other c′,
+-- and that with three निमित्तs this is a real search.  It is, and it has
+-- an answer, and the answer is more interesting than either outcome I
+-- expected.
+--
+-- सर्वत्र makes the condition VACUOUS.  `sthiti sarvatra P` is `true` for
+-- every P, so "inert wherever the निमित्त fails" quantifies over nothing
+-- and every behaviour qualifies.  So the search never comes back empty —
+-- but the निमित्त it always finds is the one that conditions nothing.
+------------------------------------------------------------------------
+
+sarvatra-sarvam-svavisayam : (v : Vidhi) → Svavisaya sarvatra v
+sarvatra-sarvam-svavisayam v P e = ⊥rec (true≢false e)
+
+-- and for the two निमित्तs that condition anything, `ubhayatah` fails
+-- both: it acts on yoga-heads (§64) and it acts on dvi-heads too
+ubhayatah-na-ayoge : ¬ (Nishkriya ayoge (artha-v ubhayatah))
+ubhayatah-na-ayoge h =
+  snotz (injSuc (injSuc
+    (cong guru (h (dvi-s zero ∷ cara-s ∷ []) refl))))
+
+------------------------------------------------------------------------
+-- 67.  Why सर्वत्र costs zero, seen twice.
+--
+-- `nimitta-matra sarvatra = 0` was written in §60 as an obvious modelling
+-- choice: an unconditioned rule states no condition, so it costs nothing
+-- to say.  §66 shows the same fact from the other side — सर्वत्र's
+-- निष्क्रिय obligation is vacuous, so it constrains nothing either.  A
+-- निमित्त's price and its force are the same quantity: what it costs to
+-- state is what it rules out, and सर्वत्र rules out nothing and costs
+-- nothing.
+--
+-- That is why the उत्सर्ग is the cheap form and not a coincidence of the
+-- model.  The general rule is general BECAUSE its province is everything,
+-- and its province being everything is why it needs no words to fix it.
+-- §62's law then reads: an अपवाद buys a smaller province at the price of
+-- naming it, and the purchase is worth making exactly when the rule was
+-- going to be inert outside that province anyway.
+--
+-- SO THE SEARCH'S ANSWER, for `ubhayatah` among the three निमित्तs: only
+-- सर्वत्र.  It acts on yoga-heads (§64) and on dvi-heads (§66), so neither
+-- conditioned निमित्त can carry it, and it can be stated only as what it
+-- is — an unconditioned rule.  A behaviour that acts everywhere can be
+-- "its own province" only if its province is everything.
+--
+-- NOT SHOWN: that this is the general shape.  Three निमित्तs, one of them
+-- vacuous, is a small enough space that the search is a case analysis
+-- rather than an algorithm.  With a निमित्त language rich enough to
+-- describe intersections the question becomes: what is the LARGEST
+-- निमित्त a given behaviour is निष्क्रिय outside of — and that is a real
+-- optimisation with no counterpart here.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 68.  CORRECTION to §67's framing of the optimisation, and the
+--      structure that makes the real one visible.
+--
+-- §67 named the next question as "what is the LARGEST निमित्त a behaviour
+-- is निष्क्रिय outside of".  That question answers itself and not
+-- usefully: सर्वत्र is the largest, its obligation is vacuous, and every
+-- behaviour is निष्क्रिय outside it.  The optimisation is not there.
+--
+-- It is in the CARVED form, which is the only place a निमित्त is actually
+-- stated and paid for.  There you want the cheapest निमित्त that still
+-- SEPARATES the two branches — and §67's own finding says cheapness and
+-- separating power are the same quantity read in opposite directions.  So
+-- the trade-off is real and it is not avoidable by choosing well.
+------------------------------------------------------------------------
+
+-- extent inclusion, which is the order the prices run against
+_nyunam_ : Nimitta → Nimitta → Type₀
+c nyunam c' = (P : Prakriya) → sthiti c P ≡ true → sthiti c' P ≡ true
+
+notTrue→False : (b : Bool) → ¬ (b ≡ true) → b ≡ false
+notTrue→False true  h = ⊥rec (h refl)
+notTrue→False false h = refl
+
+-- the obligation WEAKENS as the निमित्त grows: inert outside a small
+-- province is more than inert outside a large one
+nishkriya-vardhate :
+  (c c' : Nimitta) → c nyunam c' → (f : Prakriya → Prakriya)
+  → Nishkriya c f → Nishkriya c' f
+nishkriya-vardhate c c' sub f hyp P e =
+  hyp P (notTrue→False (sthiti c P)
+          (λ t → true≢false (sym (sub P t) ∙ e)))
+
+-- सर्वत्र is the top of that order …
+dviyoge-nyunam-sarvatra : dviyoge nyunam sarvatra
+dviyoge-nyunam-sarvatra P _ = refl
+
+-- … and it is free, which is §67's "price is force" as an inequality
+sarvatra-alpiyah : nimitta-matra sarvatra ≤ nimitta-matra dviyoge
+sarvatra-alpiyah = 1 , refl
+
+-- and the free निमित्त carves NOTHING: separation cannot be had for zero
+sarvatra-na-carvati : (a b : Vidhi) → artha-v (yadi sarvatra a b) ≡ artha-v a
+sarvatra-na-carvati a b = funExt (λ P → refl)
+
+------------------------------------------------------------------------
+-- 69.  The trade-off, stated where it actually lives.
+--
+-- Put the three together.  `nishkriya-vardhate` says a bigger निमित्त
+-- imposes a weaker obligation; `sarvatra-alpiyah` says the biggest is the
+-- cheapest; `sarvatra-na-carvati` says the cheapest carves nothing.  So
+-- along the order, price and usefulness fall together, and there is no
+-- निमित्त that is both free and discriminating.
+--
+-- That is the design constraint a grammar faces, and it is why §62's law
+-- matters: when a rule is स्वविषय, you get the discrimination WITHOUT
+-- stating a निमित्त at all, because the rule's own shape does the
+-- separating.  The अपवाद device is not a cheaper condition — it is a way
+-- of not paying for one.  §60's 1-against-4 is that, measured.
+--
+-- WITHDRAWN from §67: "with a निमित्त language rich enough to describe
+-- intersections the question becomes what is the largest निमित्त a
+-- behaviour is निष्क्रिय outside of."  Wrong target.  With intersections
+-- the question is what is the CHEAPEST निमित्त that separates two given
+-- branches, and richer निमित्तs make that harder rather than easier,
+-- since an intersection costs at least what its parts do.
+--
+-- NOT SHOWN: that the price of an intersection is the sum, or anything
+-- else about a richer निमित्त language.  There are three निमित्तs here and
+-- no way to combine them; every sentence above about intersections is a
+-- statement about what would have to be built, not about what is.
 ------------------------------------------------------------------------
