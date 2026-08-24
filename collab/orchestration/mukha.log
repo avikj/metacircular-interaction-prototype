@@ -798,4 +798,62 @@ mukha: 403 pairs from the refusal list, 256 to ask (receipts remember 1254 rows;
   P1416  landed:induction-candidate-1  +(*(x',0),*(*(x',0),s(*(x',0))))	0
   P1417  refused by the kernel: Checking Prastuta.P1417 (/home/user/math/formal/cubical/Prastuta/P1417.agda)./home/user/math/formal/cubical/Prastuta/P14
   P1418  refused by the kernel: Checking Prastuta.P1418 (/home/user/math/formal/cubical/Prastuta/P1418.agda)./home/user/math/formal/cubical/Prastuta/P14
-  P1419  refused by the ker
+  P1419  refused by the kernel: Checking Prastuta.P1419 (/home/user/math/formal/cubical/Prastuta/P1419.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1420  refused by the kernel: Checking Prastuta.P1420 (/home/user/math/formal/cubical/Prastuta/P1420.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1421  refused by the kernel: Checking Prastuta.P1421 (/home/user/math/formal/cubical/Prastuta/P1421.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1422  landed:induction-candidate-1  *(x',x')	+(*(x',x'),*(max(x',s(0)),0))
+  P1423  refused by the kernel: /home/user/math/formal/cubical/Prastuta/P1423.agda:12,13-13/home/user/math/formal/cubical/Prastuta/P1423.agda:12,13: Par
+  P1424  refused by the kernel: /home/user/math/formal/cubical/Prastuta/P1424.agda:12,13-13/home/user/math/formal/cubical/Prastuta/P1424.agda:12,13: Par
+  P1425  landed:induction-candidate-1  0	+(*(*(x,0),s(*(x,0))),*(x,0))
+  P1426  refused by the kernel: Checking Prastuta.P1426 (/home/user/math/formal/cubical/Prastuta/P1426.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1427  refused by the kernel: Checking Prastuta.P1427 (/home/user/math/formal/cubical/Prastuta/P1427.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1428  refused by the kernel: Checking Prastuta.P1428 (/home/user/math/formal/cubical/Prastuta/P1428.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1429  refused by the kernel: Checking Prastuta.P1429 (/home/user/math/formal/cubical/Prastuta/P1429.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1430  refused by the proposer: AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle
+  P1431  refused by the proposer: AC rearrangement: the sides are equal modulo associativity-commutativity of +/·; the close is completion modulo AC (Peterson-Stickel; notes/SamataChakra), not one lemma per shuffle
+  P1432  refused by the kernel: Checking Prastuta.P1432 (/home/user/math/formal/cubical/Prastuta/P1432.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1433  refused by the kernel: Checking Prastuta.P1433 (/home/user/math/formal/cubical/Prastuta/P1433.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1434  refused by the kernel: /home/user/math/formal/cubical/Prastuta/P1434.agda:41,13-13/home/user/math/formal/cubical/Prastuta/P1434.agda:41,13: Par
+  P1435  refused by the kernel: Checking Prastuta.P1435 (/home/user/math/formal/cubical/Prastuta/P1435.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1436  refused by the kernel: Checking Prastuta.P1436 (/home/user/math/formal/cubical/Prastuta/P1436.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1437  refused by the kernel: Checking Prastuta.P1437 (/home/user/math/formal/cubical/Prastuta/P1437.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1438  refused by the kernel: Checking Prastuta.P1438 (/home/user/math/formal/cubical/Prastuta/P1438.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1439  refused by the kernel: Checking Prastuta.P1439 (/home/user/math/formal/cubical/Prastuta/P1439.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1440  refused by the kernel: Checking Prastuta.P1440 (/home/user/math/formal/cubical/Prastuta/P1440.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1441  refused by the kernel: Checking Prastuta.P1441 (/home/user/math/formal/cubical/Prastuta/P1441.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1442  refused by the kernel: Checking Prastuta.P1442 (/home/user/math/formal/cubical/Prastuta/P1442.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1443  refused by the kernel: Checking Prastuta.P1443 (/home/user/math/formal/cubical/Prastuta/P1443.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1444  refused by the kernel: Checking Prastuta.P1444 (/home/user/math/formal/cubical/Prastuta/P1444.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1445  landed:induction-candidate-1  +(s(*(x',0)),*(*(x',0),s(*(x',0))))	s(0)
+  P1446  refused by the kernel: Checking Prastuta.P1446 (/home/user/math/formal/cubical/Prastuta/P1446.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1447  refused by the kernel: Checking Prastuta.P1447 (/home/user/math/formal/cubical/Prastuta/P1447.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1448  landed:induction-candidate-1  max(le(s(0),x'),s(0))	gcd(le(s(0),x'),le(x',0))
+  P1449  landed:induction-candidate-1  max(le(s(0),x'),s(0))	gcd(le(x',0),le(s(0),x'))
+  P1450  landed:induction-candidate-1  +(+(x,*(x',0)),*(*(x',0),s(*(x',0))))	x
+  P1451  refused by the kernel: Checking Prastuta.P1451 (/home/user/math/formal/cubical/Prastuta/P1451.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1452  refused by the kernel: Checking Prastuta.P1452 (/home/user/math/formal/cubical/Prastuta/P1452.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1453  refused by the kernel: Checking Prastuta.P1453 (/home/user/math/formal/cubical/Prastuta/P1453.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1454  refused by the kernel: Checking Prastuta.P1454 (/home/user/math/formal/cubical/Prastuta/P1454.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1455  landed:induction-candidate-1  +(*(*(x',0),s(*(x',0))),s(*(x',0)))	s(0)
+  P1456  refused by the kernel: Checking Prastuta.P1456 (/home/user/math/formal/cubical/Prastuta/P1456.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1457  refused by the kernel: Checking Prastuta.P1457 (/home/user/math/formal/cubical/Prastuta/P1457.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1458  refused by the kernel: /home/user/math/formal/cubical/Prastuta/P1458.agda:12,13-13/home/user/math/formal/cubical/Prastuta/P1458.agda:12,13: Par
+  P1459  refused by the kernel: /home/user/math/formal/cubical/Prastuta/P1459.agda:12,13-13/home/user/math/formal/cubical/Prastuta/P1459.agda:12,13: Par
+  P1460  landed:induction-candidate-1  0	+(*(*(x',y),0),*(0,s(*(*(x',y),0))))
+  P1461  landed:induction-candidate-1  0	+(*(*(x',y),0),*(*(*(x',y),0),s(0)))
+  P1462  refused by the kernel: Checking Prastuta.P1462 (/home/user/math/formal/cubical/Prastuta/P1462.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1463  refused by the kernel: Checking Prastuta.P1463 (/home/user/math/formal/cubical/Prastuta/P1463.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1464  refused by the kernel: Checking Prastuta.P1464 (/home/user/math/formal/cubical/Prastuta/P1464.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1465  refused by the kernel: Checking Prastuta.P1465 (/home/user/math/formal/cubical/Prastuta/P1465.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1466  refused by the kernel: Checking Prastuta.P1466 (/home/user/math/formal/cubical/Prastuta/P1466.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1467  landed:induction-candidate-1  +(*(x',0),+(*(x',0),y))	+(y,*(x',+(0,0)))
+  P1468  landed:induction-candidate-1  +(+(x,*(x',y')),*(x',0))	+(x,*(x',+(y',0)))
+  P1469  refused by the kernel: Checking Prastuta.P1469 (/home/user/math/formal/cubical/Prastuta/P1469.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1470  refused by the kernel: Checking Prastuta.P1470 (/home/user/math/formal/cubical/Prastuta/P1470.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1471  refused by the kernel: Checking Prastuta.P1471 (/home/user/math/formal/cubical/Prastuta/P1471.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1472  refused by the kernel: Checking Prastuta.P1472 (/home/user/math/formal/cubical/Prastuta/P1472.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1473  landed:induction-candidate-1  +(+(x',0),+(x',0))	+(+(x',x'),*(s(s(0)),0))
+  P1474  refused by the kernel: Checking Prastuta.P1474 (/home/user/math/formal/cubical/Prastuta/P1474.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1475  refused by the kernel: Checking Prastuta.P1475 (/home/user/math/formal/cubical/Prastuta/P1475.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1476  refused by the kernel: Checking Prastuta.P1476 (/home/user/math/formal/cubical/Prastuta/P1476.agda)./home/user/math/formal/cubical/Prastuta/P14
+  P1477  refused by the kernel: Checking Prastuta.P1477 (/home/user/math/formal/cubical/Pr
