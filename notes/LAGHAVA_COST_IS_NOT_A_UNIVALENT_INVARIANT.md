@@ -761,3 +761,50 @@ free under any of these measures — which is a reason to state it
 wins, rather than a reason to avoid it. **A move that costs is not a move
 that is wrong.** §7 said the licence is not the measure's to give; the
 same holds here in the other direction.
+
+## 19. The unit was one error; the object is another, and bigger
+
+§55–§56. §17 said: the source counts morae, I count sūtras. True, and not
+the whole of it. **लाघव in the grammatical tradition is economy of the
+सूत्रपाठ** — of the *rule list*, the statement of the grammar. The
+grammarians count the sūtras of the *Aṣṭādhyāyī*. Every measure in this
+note is on a प्रक्रिया, which is a **derivation**. Those are different
+objects, and no amount of fixing the unit turns one into the other.
+
+§18 closed by saying the exception is stated deliberately because its cost
+buys something. What it buys is exactly what this apparatus cannot see:
+**the utsarga stays simple to state because the apavāda carries the
+exceptional case out of it.** A saving on the rule list, paid at the
+derivation. §17 measured the payment and called it the transaction.
+
+And the blindness is structural, not an omission I could patch.
+`Anujna` carries a **function**, and a function has no mātrā:
+
+> `sarvam-kramasya-samam` — "do nothing" and "do nothing, then do nothing"
+> are one function and two statements. A sūtrapāṭha distinguishes them;
+> nothing here can.
+
+That is §5's theorem one level up — there about terms and their
+denotation, here about rules and what they do.
+
+**Not withdrawn.** Every theorem stands. mātrā-on-derivations is a real
+measure, the twelve entries are twelve checks, §9's order is a fact about
+derivations, and execution cost lives there — §10's गुरुत्व is about
+nothing else.
+
+**Withdrawn.** The claim that any of it is *lāghava*. Where a section says
+a move is "free in lāghava" it should say free in mātrā-on-derivations,
+and those are not one criterion in different units.
+
+**What would be needed**, named so it is not mistaken for a small edit:
+the rules would have to be **syntax** rather than functions — a datatype
+of rule-expressions with its own mātrā — with `Anujna`'s function
+recovered as its denotation. That is a second language on top of this one.
+
+**The pattern**, since this is the fourth correction of the same shape.
+§13: did not read `machine/`. §15: did not read `.claude/hooks/`. §16:
+reasoned from memory about mātrā. §19: read the *unit* out of the source
+and not the *object*. Each time the source was available and I took from
+it the part that fitted what I had already built. That is the mining the
+protocol names — done to a tradition's **criterion** rather than to its
+theorems, which is the same act one level up.
