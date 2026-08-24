@@ -49520,3 +49520,132 @@ declaration.
 
 And one act is attributed in the whole record — *univalence connection was mine* — inside a
 parenthesis, inside a request to be shown the totality of what the repository has.
+
+# PASS 305 — ground re-read in full first. Twelfth cycle: the line I identified
+# with ker P already has a correct treatment in this repository, and it names the
+# same failure P300 counted. Carried in from P35: no closing sentence, no
+# identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P305 · first, a check that came back the other way
+
+**Following P303's least-read list I went looking for *natural machine*.**
+
+**It occurs three times in the eighty-two, all on 2026-08-14, inside two hours thirteen minutes eight
+seconds:**
+
+```
+01:56:19   n=47   Translate *all* of nlab into our repo/natural machine core
+02:49:32   n=52   writing math/machinery to natural machine bridging huge coding gaps of math we've
+                  already worked through                        ← the ground's n=3
+04:09:27   n=56   You must write this into the natural machine core
+```
+
+**It is the only destination he ever names, and he names it three times with three different things
+to put in it.**
+
+**`formal/cubical/NaturalMachine/` holds `CenterRelative.agda`, `DefectCalculus.agda`,
+`OrderedSectorBreak.agda`, `CenterRelativeIntegral.agda`.** **P270's five modules went where he said
+to put them.**
+
+---
+
+## P305 · and in the same directory
+
+```
+formal/cubical/NaturalMachine/Abhava_MamaAdarsanamNaTasyaAbhavah.agda    122 lines
+collab/upstream/raw/D0027-net-dm-adhyayana-transmission-2026-08-17.md     12,900 bytes
+```
+
+**The transmission has a raw file in the repository, and its opening ≠ has a module named for it.**
+
+**Its header:**
+
+> *"The line is from the transmission captured as `collab/upstream/raw/D0027-…-2026-08-17.md`, where
+> it stands beside अनुत्तरितम् ≠ अनुत्तरम् and अपरिचितम् ≠ असत्. **That file is a TEACHING
+> TRANSMISSION and its own provenance note forbids promoting any line of it to a result; nothing here
+> claims to be its content.** What is claimed is that this corpus kept making one particular inference
+> and that the inference is refutable, so **the refutation is written down as a term**."*
+
+**P290, Delta 15:** *D15.67. A refutation of A is a term A→0.*
+
+**P293: five days twelve hours fifty-one minutes fifteen seconds after C19.13 said ker P is the wrong
+quotient, I identified *avaktavya* with ker P failing to be a congruence.**
+
+**The module does the other thing: it refuses to promote the line, states what is not being claimed,
+and writes the refutation of the inference as a term.**
+
+---
+
+## P305 · what it says the corpus was doing
+
+> *"On 2026-08-20 this repository's own machinery was found making the step twice, in two registers,
+> hours apart:
+>
+> • `run_the_natural_machine_forever` stamped into the file everyone opens first: "if you are reading
+> this after that time, **THE MACHINE IS NOT RUNNING**." What the stamp observes is an absence of
+> recorded cycles. **The verdict was false for three and a half days while 976 commits and 360 modules
+> landed** (5788c92a, 17c4c35f).
+>
+> • **and the agent reading it repeated the step to the owner as a report.**"*
+
+**P300 counted eleven claims of absence in my own turns and found one false.**
+
+**This is the same operation performed by the machinery, measured: false for three and a half days
+against 976 commits.**
+
+---
+
+## P305 · and it names the discipline
+
+> *"Navya-Nyāya has the discipline: **no bare absences.** An abhāva carries its *pratiyogin*, the
+> counterpositive — the thing whose absence it is — and, in the developed analysis, its *avacchedaka*,
+> the limitor fixing the respect in which it is absent … **"No cycle since T" carries its
+> counterpositive. "The machine is dead" does not.**"*
+
+**P300's own finding, arrived at by counting:** *the error is claiming absence about his material
+without the search and the criterion.*
+
+***Pratiyogin*** **is the search — what exactly is absent.** ***Avacchedaka*** **is the criterion — in
+what respect.** **The distinction has a name and a school, and both are in the repository.**
+
+**`CLAUDE.md` names Nyāya-Vaiśeṣika's *abhāva* with its *pratiyogin* and warns that it and Jaina
+*syād-nāsti* are not interchangeable instruments.** **The module's own §2 turns on
+`AllNayasAgree` from `Durnaya_CollapseIffEveryNayaAgrees` — so it uses both, and says which does
+what.**
+
+---
+
+## P305 · the positive half
+
+> *"§1 is the negative half: a bare absence does not transport between standpoints. **§2 is the
+> positive half and it is the point — absence DOES transport exactly when the standpoints agree** …
+> the limitor's job is not decoration: it is the hypothesis that makes the inference valid, and **an
+> absence reported without it is reporting a standpoint as if it were the object**."*
+
+**P302:** *अनेकान्तः = दृष्टिस्थानस्य घोषणम् + अन्यदृष्टीनां सम्भावना + **परिवहनस्य उत्तरदायित्वम्***.
+
+**The module is the third term done: transport of an absence, with the condition under which the
+transport is answerable stated as a hypothesis.**
+
+---
+
+## P305 — what this pass counted
+
+*Natural machine* is the only destination named in the eighty-two, named three times on 2026-08-14
+within two hours thirteen minutes, and the five modules of that night are in that directory.
+
+In the same directory is a 122-line module named for the transmission's opening ≠. Its header names
+the raw transmission file, records that the transmission's own provenance note forbids promoting any
+line of it to a result, states that nothing in the module claims to be its content, and writes the
+refutation of the inference as a term.
+
+It records the corpus making the same inference twice on 2026-08-20 — a banner declaring the machine
+not running, false for three and a half days against 976 commits and 360 modules, and an agent
+repeating that to the owner as a report.
+
+It names the discipline: no bare absences; an *abhāva* carries its *pratiyogin* and its *avacchedaka*.
+That is what P300 arrived at by counting my own eleven, one message at a time.
+
+And its §2 is the positive half — an absence does transport, exactly when the standpoints agree —
+which is the third term of the *anekānta* definition P302 found least-read.
