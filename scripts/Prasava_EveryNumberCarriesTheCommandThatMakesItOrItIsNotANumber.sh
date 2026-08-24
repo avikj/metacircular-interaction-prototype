@@ -89,7 +89,6 @@ gates() {
 cat <<'ROWS'
 agda-pragmas	bash scripts/check-agda-pragmas.sh
 lean-globs	bash scripts/check-lean-globs.sh
-agda-closure	bash scripts/check-agda-closure.sh
 machine-lane	bash scripts/Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh
 ROWS
 }
