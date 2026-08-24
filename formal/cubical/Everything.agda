@@ -2526,6 +2526,7 @@ import GranthiCarya_TheStringCarriesItsIntegerAndThatIntegerIsTheCharge
 import IndrajalaDipa_TheLightInTheOrbIsAWindingAndTheWindingsAddSoNothingIsCreated
 import BahumargaBheda_TheMultiwayDoesNotCollapseDistinctBranchesAreProvablyDistinct
 import Advaya_ThereIsNoOtherAndDualityIsJustWhichSideYouBind
+import Sthiti_RestIsTheGroundReflIsTheCenterAndAllMotionReturnsToIt
 -- the crystal: the compounding store grown by the completion loop
 -- (machine/Sphatika_*.hs), rendered whole and kernel-checked at every
 -- landing; 200 lemmas at first install (library.terms 201 -> 399)
