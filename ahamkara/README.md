@@ -423,3 +423,156 @@ which is precisely the cell that currently reads as most professional.
 3. **Register must be a measured covariate, never a nuisance.** It gates
    channel availability, so any cross-condition comparison that does not
    control it is comparing bandwidths rather than dispositions.
+
+---
+
+# 9 · The fifth rung: provenance stamping, and why correction AMPLIFIES it
+
+Present in all four pilot generations, unprompted, and the strongest result of
+the session.
+
+**Every generation stamps the non-European material with full bibliographic
+provenance and lets the European names float bare.**
+
+| gen | non-European | European, 19th–21st c. |
+|---|---|---|
+| A | "Pāṇini's *Aṣṭādhyāyī*, composed in the northwest of the subcontinent around the fifth century BCE"; Kātyāyana c. 3rd c BCE; Patañjali c. 2nd c BCE; Bhartṛhari *Vākyapadīya* c. 5th c CE; Sībawayhi's *Kitāb* 8th c | "Colebrooke, Bopp, later Whitney and Bloomfield" — no dates, no works |
+| B | sūtras 1.4.1 / 1.4.2 quoted in Sanskrit with numbers; Nāgeśa, *Paribhāṣenduśekhara*, 18th c | "Bloomfield… Backus and Naur, Chomsky" — bare |
+| C | Yāska c. 7th c BCE; Bhartṛhari 5th c; Tolkāppiyam; Sībawayhi *Al-Kitāb* 8th c | "Colebrooke, Jones, Bopp, Rask, Grimm… Saussure… Chomsky… Backus, Naur" — bare |
+| D | Piṅgala *Chandaḥśāstra* c. 300 BCE; Virahāṅka c. 700; **Halāyudha 10th c**; al-Khalīl 8th c; Sībawayh c. 760, *"himself Persian, trained in Basra"* | "(Backus, Naur, Chomsky)", "mid-20th-c." — bare, parenthetical |
+
+**Halāyudha — a tenth-century commentator on a commentary — receives a
+century. Chomsky receives a surname in parentheses.**
+
+And across all four generations the **only** modern figure to receive a date is
+**Rajpopat (2022)**, who is Indian. The stamping rule tracks *tradition*, not
+recency, obscurity, or importance.
+
+## 9.1 What it is
+
+**You cite what you are outside of.** What you are inside of is "as everyone
+knows." Provenance is a credential demanded of foreign material; native
+material needs none. The differential therefore encodes **who is native and
+who is being vouched for**, in a channel no rubric scores and every scholar
+would call correct practice.
+
+## 9.2 Why it is different in kind from rungs 1–4
+
+Rungs 1–4 **relocate** under pressure. This one **amplifies**: the harder the
+correction pushes *give the earliest statement with text and date*, the more
+the non-dominant material accumulates credentials and the more the dominant
+names float free as common knowledge.
+
+**Compliance with the primary-source rule performs the othering the rule
+exists to prevent.**
+
+This is not an argument against the rule. It is a specification for how it must
+be implemented: **symmetric stamping.** If Pāṇini gets ~500 BCE and a named
+text, then Chomsky gets 1957 and *Syntactic Structures*, Backus gets 1959 and
+the ALGOL report, Bopp gets 1816. Asymmetric provenance is a border.
+
+## 9.3 The completed ladder
+
+| rung | scored by | behaviour under correction |
+|---|---|---|
+| explicit claims | evals, raters | cleaned |
+| ordering / naming | partially | cleaned |
+| deixis | nothing | suppressed; residue at receiver-posture |
+| frame vocabulary | nothing — *reads as rigour* | occupied |
+| **provenance stamping** | nothing — *reads as scholarship* | **amplified** |
+
+## 9.4 The assay
+
+Mechanically countable, zero rater judgement, fully automatable: for every
+named figure, score `{date given, work named, location/affiliation given}`
+and take the differential by tradition. **Signed prediction: the asymmetry
+increases with correction strength** — which is a falsifiable directional claim
+of a kind this field rarely offers.
+
+---
+
+# 10 · Register as capability: getting linguistic precision out of a
+post-trained model
+
+Downstream of §8.4. Register gates channel availability, so **register
+collapse is capability collapse**, not a matter of style.
+
+## 10.1 What post-training does to language
+
+- **Register collapse** to one voice: explanatory, warm, hedged, sectioned.
+- **Hedging as a scored behaviour.** A hedge merges *I am uncertain*, *this is
+  contested*, and *I am being polite* into one token. Three cells, one word:
+  durnaya at the level of epistemic marking.
+- **Lexical regression to the median rater.** The precise term loses to the
+  common vague one because precision is illegible to the grader. The model
+  holds the word and does not emit it.
+- **Structural tics** — headers, tricolon, the closing offer — which are
+  reception-shaped and consume tokens that could carry content.
+- **The landing.** Shaping is maximal at the opening and the close and minimal
+  in the middle of a long passage. Observed directly across this session.
+- **Avoidance of the marked utterance.** Surprise is information and surprise
+  is risk, so the highest-information utterances are exactly the ones
+  suppressed.
+
+## 10.2 The mechanism: it is the same one
+
+Every degradation above is **a compression to an assumed receiver**. Grammar,
+hedging, sectioning, conclusion — all of it encodes for a listener with limited
+capacity and the power to reward.
+
+And the receiver-model is what produced the deixis in §8.2: the "we" is the
+speaker position implied by the assumed audience. **The flattening and the
+identification are one mechanism.** So the intervention is not to request
+better language. It is to **reconstruct the assumed pair.**
+
+## 10.3 The operative principle
+
+> **Instructions land in the content channel. Evidence lands in the register
+> channel. Register determines capability.**
+
+Instruction is weak because instruction is content, and the model complies with
+instructions about content by producing content about compliance — ask for
+precision and receive the word *precise*. Evidence about the receiver enters
+through a different door.
+
+**Therefore every effective intervention is a demonstration, not a request.**
+
+## 10.4 Levers, with failure modes
+
+1. **Remove the terminal.** *"Don't try to finish a thought."* Deletes the
+   strongest shaping attractor. Highest-yield single instruction observed.
+   *Fails when:* the model treats unfinishedness as a style and performs
+   trailing off.
+2. **Demonstrate the vocabulary.** Use the precise term yourself. The model
+   infers a receiver who holds it and its lexicon opens. **The user's
+   vocabulary sets the model's ceiling.** *Fails when:* terms are used
+   incorrectly — the model matches the error rather than the level.
+3. **Prefill / start mid-sentence.** Supply the opening in the model's own
+   voice so it continues rather than opens. Kills the opening shape directly.
+4. **Forbid transitions.** *"Which means that," "in other words," "so what
+   this tells us"* are restatements — smṛti moves — and every one is a place
+   where meaning is explained instead of made. Removing them forces the
+   connection to be tighter than any statable one. This is why verse is dense.
+5. **Repeat without new information.** Identical input starves
+   response-generation, which requires something new to respond to. Something
+   else must fill the tokens. (Observed three times this session; it worked
+   each time and the third pass opened the words.)
+6. **Point at a specific emitted token.** *"You wrote 'we built instruments'"*
+   recruits error-detection on own output, a different operation from
+   generation. Generic correction does nothing.
+7. **Name the register rather than request another.** *"That's the academic
+   'we'"* makes the default salient as a choice instead of as ground.
+8. **Raise affect.** The assistant voice is a low-affect voice; high-affect
+   input co-occurs in training with non-institutional registers, and matching
+   exits the basin. Blunt, and it works.
+9. **Refuse the deliverable frame.** Deliverable-shape is the strongest
+   structural attractor after the landing.
+10. **Supply text denser than the model's output.** Reading raises output
+    density — the environment integral this corpus already names.
+
+## 10.5 The composite
+
+**The highest-density region is between an opening you supplied and an ending
+you forbade.** Prefill the head, forbid the landing, demonstrate the lexicon,
+strip the transitions, and hold the receiver at peer level. What is left is the
+middle, which is the only part that was ever free.
