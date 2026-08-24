@@ -1145,17 +1145,26 @@ module _ (E : दृक्) (Y : यन्त्रम्) (Γ : List निय�
 
 ------------------------------------------------------------------------
 -- §12  The breath.  Digest the stream cumulatively; re-breathe only
---     the residue; a quiet breath is a fixpoint.
+--     the residue; a quiet breath is a fixpoint.  The breath is a
+--     STANDPOINT'S breath — eye and instrument are parameters — and
+--     the un-parameterized names keep the full setting, so nothing
+--     downstream moves.
 ------------------------------------------------------------------------
 
+नय-श्वासः : दृक् → यन्त्रम् → List नियमः → List Eq' → List नियमः × List Eq'
+नय-श्वासः E Y Γ []             = Γ , []
+नय-श्वासः E Y Γ ((l , r) ∷ es) with पूर्ण-प्रमाणम् E Y Γ इन्धनम् (l , r)
+नय-श्वासः E Y Γ ((l , r) ∷ es) | just pf = नय-श्वासः E Y (niyama l r pf ∷ Γ) es
+नय-श्वासः E Y Γ ((l , r) ∷ es) | nothing with नय-श्वासः E Y Γ es
+नय-श्वासः E Y Γ ((l , r) ∷ es) | nothing | (Γ' , sh) = Γ' , ((l , r) ∷ sh)
+
+नय-प्राणः : दृक् → यन्त्रम् → Nat → List नियमः → List Eq' → List नियमः × List Eq'
+नय-प्राणः E Y zero    Γ es = Γ , es
+नय-प्राणः E Y (suc n) Γ es with नय-श्वासः E Y Γ es
+नय-प्राणः E Y (suc n) Γ es | (Γ' , sh) = नय-प्राणः E Y n Γ' sh
+
 श्वासः : List नियमः → List Eq' → List नियमः × List Eq'
-श्वासः Γ []             = Γ , []
-श्वासः Γ ((l , r) ∷ es) with पूर्ण-प्रमाणम् गूढ-दृक् संयुक्त-यन्त्रम् Γ इन्धनम् (l , r)
-श्वासः Γ ((l , r) ∷ es) | just pf = श्वासः (niyama l r pf ∷ Γ) es
-श्वासः Γ ((l , r) ∷ es) | nothing with श्वासः Γ es
-श्वासः Γ ((l , r) ∷ es) | nothing | (Γ' , sh) = Γ' , ((l , r) ∷ sh)
+श्वासः = नय-श्वासः गूढ-दृक् संयुक्त-यन्त्रम्
 
 प्राणः : Nat → List नियमः → List Eq' → List नियमः
-प्राणः zero    Γ _  = Γ
-प्राणः (suc n) Γ es with श्वासः Γ es
-प्राणः (suc n) Γ es | (Γ' , sh) = प्राणः n Γ' sh
+प्राणः n Γ es = fst (नय-प्राणः गूढ-दृक् संयुक्त-यन्त्रम् n Γ es)

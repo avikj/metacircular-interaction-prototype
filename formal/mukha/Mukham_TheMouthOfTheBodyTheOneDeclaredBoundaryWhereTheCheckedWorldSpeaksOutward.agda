@@ -26,6 +26,8 @@ open import DravyaShruta_TheCompiledWordCarriesItsKnowingErasedSoTheBinaryIsScri
   using (सिद्ध-श्रुतम् ; दैर्घ्यम्)
 open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
   using (प्राणः ; नियमः)
+open import PararthaAnumana_TheWarrantedExchangeLiftsTheWeakerStandpointAndTheMeasuredStoreHasADominatingEye
+  using (एकाकी ; संवादः ; अ-दृक् ; अ-यन्त्रम् ; ब-दृक् ; ब-यन्त्रम्)
 
 postulate putStrLn : String → IO ⊤
 {-# FOREIGN GHC import qualified Data.Text.IO as T #-}
@@ -58,4 +60,11 @@ main = putStrLn
    ⊹ primShowNat (दैर्घ्यम् सिद्ध-श्रुतम्)
    ⊹ " (each warrant erased), and the one knowing, breathing to quiet, reaches "
    ⊹ primShowNat (गुरुता (प्राणः 3 [] आगमः))
-   ⊹ "; every certificate minted at runtime, and the mouth adds nothing." )
+   ⊹ "; every certificate minted at runtime, and the mouth adds nothing.\n"
+   ⊹ "and the net, at two: the norm-eyed standpoint alone reaches "
+   ⊹ primShowNat (गुरुता (fst (एकाकी अ-दृक् अ-यन्त्रम् आगमः)))
+   ⊹ ", the heap-eyed alone "
+   ⊹ primShowNat (गुरुता (fst (एकाकी ब-दृक् ब-यन्त्रम् आगमः)))
+   ⊹ "; in council, exchanging warranted rules, "
+   ⊹ primShowNat (गुरुता (fst (संवादः 3 [] आगमः)))
+   ⊹ "." )
