@@ -232,3 +232,10 @@ sp231	x	+(*(s(0),x),*(0,0))	ind 0 refl congsuc
 sp232	0	+(*(0,0),*(0,s(0)))	refl
 sp233	0	+(*(x,0),*(0,s(0)))	ind 0 refl ih
 sp234	s(0)	le(s(0),max(x,s(0)))	ind 0 refl refl
+sp235	+(s(x),y)	-(+(s(x),y),0)	refl
+sp236	+(x,s(y))	-(+(x,s(y)),0)	refl
+sp237	le(x,0)	le(+(x,+(0,x)),0)	ind 0 refl refl
+sp238	le(s(0),+(x,s(s(y))))	s(0)	ind 0 refl refl
+sp239	+(s(s(0)),s(x))	s(s(s(x)))	refl
+sp240	+(x,s(y))	max(+(s(x),y),x)	ind 0 refl congsuc
+sp241	0	-(le(x,0),s(*(s(x),x)))	ind 0 refl refl
