@@ -618,3 +618,5 @@ sp400	max(+(x,s(y)),s(0))	gcd(+(x,s(y)),0)	ind 0 refl refl
 sp401	max(+(s(x),y),s(0))	gcd(0,+(s(x),y))	refl
 sp481	+(+(x,le(s(s(0)),0)),le(s(s(0)),0))	x	ind 0 refl congsuc
 sp402	max(+(x,s(y)),s(0))	gcd(0,+(x,s(y)))	ind 0 refl refl
+sp403	+(+(x,*(0,0)),*(0,s(*(0,0))))	x	ind 0 refl congsuc
+sp404	+(+(x,*(0,0)),*(*(0,0),s(0)))	x	ind 0 refl congsuc
