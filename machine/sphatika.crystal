@@ -183,3 +183,4 @@ sp182	max(s(x),s(0))	gcd(0,s(x))	refl
 sp183	s(x)	+(x,s(0))	ind 0 refl congsuc
 sp184	s(s(s(0)))	gcd(s(s(s(0))),0)	refl
 sp185	s(s(s(0)))	gcd(0,s(s(s(0))))	refl
+sp186	+(x,*(0,x))	x	ind 0 refl congsuc
