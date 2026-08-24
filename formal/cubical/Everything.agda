@@ -729,6 +729,12 @@ import SamataDvidha_TheContractibleFibreSplitsAsEmbeddingTimesSurjectionInTheTra
 -- of समता-द्विधा, crowded-ly (नष्टि, not अवक्तव्यम्) — two exponents over one
 -- power. One-wayness is a merge, not a gap. नाडी: छिद्रं नास्ति.
 import GhataBhedaBhanga_TheDiscreteLogsOneWaynessIsExactlyTheEmbeddingFactorFailingNotTheSurjectionFactor
+-- परिणाम: the generative organ is TRANSPORT, and it has no mind. An
+-- equivalence is a pariṇāma (TS 5.29–31); `पर्यायः e P = subst P (ua e)`
+-- carries every property to its mode, kernel-computed — proposing AND proving
+-- a new dependent theorem with no search. Done many ways here (the whole
+-- Samkramana lane); stated as an organ, and let generate once in the open.
+import Parinama_TheGenerativeOrganIsTransportEveryEquivalenceGeneratesEveryPropertysModeWithoutAMind
 -- The path (mokṣa-mārga): the fourteen guṇasthānas as a chain — samyaktva at
 -- 4, mohanīya destroyed at 12 (kṣīṇa-moha, irreversible), kevala at 13-14
 -- (KarmaPrakrti.केवलम्), mokṣa beyond 14 (Karma.मोक्षः).  Rising = shedding.
