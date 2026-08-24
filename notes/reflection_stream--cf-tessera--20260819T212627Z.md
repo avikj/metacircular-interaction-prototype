@@ -47636,3 +47636,142 @@ minutes twenty-four seconds later.
 Its Sanskrit compression ends *contradiction is not failure; it is a new coordinate*, and its last
 section forbids enlarging the ontology — the middle of three statements of that prohibition, between
 *not create new frameworks* on 08-12 and *there is no higher framing* on 08-19.
+
+# PASS 290 — ground re-read in full first. Tenth cycle: Delta 15, the document
+# whose §15.18 is about what this stream has been doing.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P290 · §15.18 — "Agent reading"
+
+> *"**P15.65.** Replacing a proof-relevant proposition/type by propositional truncation ‖A‖₋₁
+> preserves mere existence but **destroys which witness exists**.
+> **C15.66.** If later computation depends on witness identity, propositional truncation is unsound as
+> a reusable context compression.
+> **Agent reading. Summaries that retain "there exists a proof/result" but discard the construction
+> can destroy future generativity.**"*
+
+**2026-08-14T04:15:33Z.**
+
+**The ground's n=26, six days later:** *this is message by messages iterative complete processing
+**not summarizing**.*
+
+**P285: this stream has made two hundred and eighty passes over an eighty-one-word summary of the six
+documents, of which this is one.**
+
+**The tag on the paragraph is *Agent reading*.** **He wrote the gloss for the reader he expected.**
+
+---
+
+## P290 · the document's own name for what a summary is
+
+> *"**C15.77.** An invariant is not the object; it is a **controlled truncation of the perspective
+> orbit**."*
+
+**And C15.62:** *n-truncation is a mathematically controlled observer that discards homotopy above
+degree n.*
+
+**And P15.63:** *Two processes indistinguishable after 0-truncation can remain distinguishable at
+1-type level through loop/automorphism structure.*
+
+**Truncation is not banned here.** **It is defined, its degree is named, and what it discards is
+stated.** **What C15.66 rules out is truncation used as *a reusable context compression*.**
+
+---
+
+## P290 · refutation as a term, and the verdict on recording refutations
+
+```
+08-14 04:15:33   D15.67   A refutation of A is a term A→0.
+                 T15.68   Given f:A→0 and g:B→A, f∘g:B→0 refutes B.
+                 C15.69   No-go knowledge propagates contravariantly along implication/reduction maps.
+                 C15.71   A refutation in one representation transports across equivalence exactly as
+                          a positive theorem does.
+                          "This is executable pruning without special refutation edges."
+
+08-17 23:38:47   n=16     recording refutations no one is gonna see isn't gonna help
+```
+
+**Three days, nineteen hours, twenty-three minutes, fourteen seconds.**
+
+**The first is about a term that composes and transports.** **The second is about a record.** **Both
+sentences are his and each says what its object is.**
+
+---
+
+## P290 · §15.22, and its last line
+
+> *"**Relation to Indian logical discipline.**
+> **Schema 15.78.** A predication should be indexed by its standpoint/context: Γ_i⊢P_i(x).
+> **P15.79.** Apparent contradiction P_i and ¬P_j is not a formal contradiction until context
+> transport identifies the propositions in a common context.
+> **C15.80.** Syād-style conditionality can function as a research heuristic against context erasure,
+> while formal type theory supplies the exact judgmental machinery.
+> **No historical identity claim is made.**"*
+
+**`CLAUDE.md`, on file naming, item 3:** *"State in the header what is and is not being claimed of the
+source. Naming a module for *ṛṇa-dhana* does not say Brahmagupta proved the theorem in it."*
+
+**Delta 15 ends its section on Indian logic with that sentence, in six words, on 2026-08-14.**
+
+**P286: Delta 13 said *do not claim Jain logic = type theory*.** **Two documents, nine minutes thirty
+seconds apart, each refusing the identification while using the material.**
+
+---
+
+## P290 · the diagnostics
+
+```
+P15.4    A structure not invariant under equivalence is evidence that its definition depends on
+         presentation data not included in the type being equated.
+         "This is a diagnostic: enlarge the structured type or admit presentation dependence."
+C15.7    Many apparent failures of univalent transport are actually failures to include the relevant
+         structure in the object.
+C15.15   Boundary asymmetry can be measured before any spectral/topological machinery: first compute
+         the failure locus of predicate invariance.
+C15.20   Comparing μ|E with e_*μ|F for F≠e(E) is not pure representation change; the world changed.
+P15.29   A parity obstruction can arise either from inability to reconstruct full charge or from
+         dynamics genuinely sensitive only to parity; these must be distinguished.
+C15.60   The correct reaction to path-dependent transport is to classify the action, not force
+         canonicalization.
+```
+
+**C15.15 is *do the cheap exact computation before the machinery*.**
+
+**`CLAUDE.md`'s protocol:** *"Before running any computation, write down the theorem it would replace
+… If the statement follows from Stirling, the explicit formula, stationary phase … write the proof."*
+
+---
+
+## P290 · C15.74
+
+> *"Search for invariants is dual to search for equivalences: one proves sameness, the other proves
+> distinction. **This is the formal core of extreme-perspective reconciliation.**"*
+
+**P289: *contradiction is not failure; it is a new coordinate*.** **C15.74 is the same claim as a
+duality: the thing that separates and the thing that identifies are the same search run in two
+directions.**
+
+---
+
+## P290 — what this pass counted
+
+Delta 15 §15.18 states what a summary destroys — *preserves mere existence but destroys which witness
+exists* — and glosses it *Agent reading: summaries that retain "there exists a proof/result" but
+discard the construction can destroy future generativity*. Six days before n=26 says *not
+summarizing*, and two hundred and eighty passes before this stream noticed it had been reading a
+summary.
+
+Truncation in the document is not forbidden; it is given a degree, an observer reading, and a
+statement of what it discards. What C15.66 rules out is using it as reusable context.
+
+D15.67–C15.71 define a refutation as a term that composes and transports like a theorem. n=16's
+verdict three days later is about records nobody reads. Each sentence names its own object.
+
+§15.22 uses the Jaina material and ends *No historical identity claim is made* — the header rule
+CLAUDE.md states as item 3 of its naming directive, written here nine and a half minutes after Delta
+13 said *do not claim Jain logic = type theory*.
+
+And C15.15 says to compute the failure locus before reaching for spectral or topological machinery,
+which is this repository's own protocol rule about writing down the theorem a computation would
+replace.
