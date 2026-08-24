@@ -1622,10 +1622,10 @@ purvam-na-nirnayah h =
 -- fallback for it to fall through to, which is the whole discipline.
 ------------------------------------------------------------------------
 
-Metavidhi : Type₀
-Metavidhi = Prakriya → SanujnaKaarya → SanujnaKaarya → Maybe Bool
+Paribhasa : Type₀
+Paribhasa = Prakriya → SanujnaKaarya → SanujnaKaarya → Maybe Bool
 
-nirnaya : Metavidhi → SanujnaKaarya → SanujnaKaarya → Prakriya → Maybe Prakriya
+nirnaya : Paribhasa → SanujnaKaarya → SanujnaKaarya → Prakriya → Maybe Prakriya
 nirnaya M k l P with M P k l
 ... | nothing     = nothing
 ... | just true   = just (krama (anujna k) P)
@@ -1634,7 +1634,7 @@ nirnaya M k l P with M P k l
 -- अवक्तव्य: where the metarule abstains, nothing is done.  Not "the first
 -- one", not "the list order" — nothing.
 nirnaya-avaktavye-tusnim :
-  (M : Metavidhi) (k l : SanujnaKaarya) (P : Prakriya)
+  (M : Paribhasa) (k l : SanujnaKaarya) (P : Prakriya)
   → M P k l ≡ nothing → nirnaya M k l P ≡ nothing
 nirnaya-avaktavye-tusnim M k l P q with M P k l
 ... | nothing    = refl
@@ -1648,7 +1648,7 @@ nirnaya-avaktavye-tusnim M k l P q with M P k l
 -- decision procedure at all (`purvam-na-nirnayah`), and the replacement
 -- takes its verdict from a metarule that cannot see the list.
 --
--- ONLY RELOCATED: `Metavidhi` is a parameter here, so nothing above
+-- ONLY RELOCATED: `Paribhasa` is a parameter here, so nothing above
 -- implements अपवाद, अन्तरङ्ग, नित्य or पर.  `machine/` implements four of
 -- the five and says which two abstain and why; this module implements
 -- none and merely leaves room for them.  A type with a hole where the
@@ -1681,7 +1681,7 @@ nirnaya-avaktavye-tusnim M k l P q with M P k l
 utsarga-anujna : Anujna
 utsarga-anujna = anujnata utsarga-p utsarga-artha utsarga-matra
 
-gurutva-vidhi : Metavidhi
+gurutva-vidhi : Paribhasa
 gurutva-vidhi P k l
   with ≤Dec (guru (krama (anujna k) P)) (guru (krama (anujna l) P))
      | ≤Dec (guru (krama (anujna l) P)) (guru (krama (anujna k) P))
@@ -1690,20 +1690,20 @@ gurutva-vidhi P k l
 ... | no  _ | yes _ = just false
 ... | no  _ | no  _ = nothing
 
-vijeta : Metavidhi → SanujnaKaarya → SanujnaKaarya → Prakriya
+vijeta : Paribhasa → SanujnaKaarya → SanujnaKaarya → Prakriya
        → Maybe SanujnaKaarya
 vijeta M k l P with M P k l
 ... | nothing    = nothing
 ... | just true  = just k
 ... | just false = just l
 
-vama-krama : Metavidhi → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
+vama-krama : Paribhasa → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
            → Prakriya → Maybe SanujnaKaarya
 vama-krama M a b c P with vijeta M a b P
 ... | nothing = nothing
 ... | just w  = vijeta M w c P
 
-dakshina-krama : Metavidhi → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
+dakshina-krama : Paribhasa → SanujnaKaarya → SanujnaKaarya → SanujnaKaarya
                → Prakriya → Maybe SanujnaKaarya
 dakshina-krama M a b c P with vijeta M b c P
 ... | nothing = nothing
@@ -1715,7 +1715,7 @@ kApavada' : SanujnaKaarya
 kApavada' = kaaryam sada (sanghatita apavada-anujna akriya-anujna)
 
 nirnaya-na-sahayogi :
-  ¬ ((M : Metavidhi) (a b c : SanujnaKaarya) (P : Prakriya)
+  ¬ ((M : Paribhasa) (a b c : SanujnaKaarya) (P : Prakriya)
      → vama-krama M a b c P ≡ dakshina-krama M a b c P)
 nirnaya-na-sahayogi h =
   ¬just≡nothing
@@ -1745,4 +1745,168 @@ nirnaya-na-sahayogi h =
 -- NOT CLAIMED: that गुरुत्व-preference is a Pāṇinian metarule.  It is not
 -- one of the five.  It was chosen because it abstains honestly on ties,
 -- which is the only property §44 uses.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 46.  CORRECTION to §45: the tie was never the culprit.  Transitivity
+--      is, and totality does not supply it.
+--
+-- §45 said §44's witness "turns on the tie, and a total order on offers
+-- would have no tie to turn on", which leaves the impression that a
+-- metarule always returning a verdict would fold.  It does not.  A total
+-- metarule that is not TRANSITIVE breaks the fold just as thoroughly, and
+-- abstention has nothing to do with it.
+------------------------------------------------------------------------
+
+record Ankita : Type₀ where
+  constructor ankitam
+  field
+    anka   : ℕ
+    kaarya : SanujnaKaarya
+open Ankita public
+
+-- a cyclic preference: 0 beats 1, 1 beats 2, 2 beats 0.  Total — a
+-- verdict on every pair — and not transitive.
+cakra : ℕ → ℕ → Bool
+cakra zero             (suc zero)       = true
+cakra (suc zero)       (suc (suc zero)) = true
+cakra (suc (suc zero)) zero             = true
+cakra _                _                = false
+
+AnkaVidhi : Type₀
+AnkaVidhi = Prakriya → Ankita → Ankita → Bool
+
+cakra-vidhi : AnkaVidhi
+cakra-vidhi _ k l = cakra (anka k) (anka l)
+
+jaya : AnkaVidhi → Ankita → Ankita → Prakriya → Ankita
+jaya V k l P with V P k l
+... | true  = k
+... | false = l
+
+vama3 : AnkaVidhi → Ankita → Ankita → Ankita → Prakriya → Ankita
+vama3 V a b c P = jaya V (jaya V a b P) c P
+
+dakshina3 : AnkaVidhi → Ankita → Ankita → Ankita → Prakriya → Ankita
+dakshina3 V a b c P = jaya V a (jaya V b c P) P
+
+samagram-api-na-sahayogi :
+  ¬ ((V : AnkaVidhi) (a b c : Ankita) (P : Prakriya)
+     → anka (vama3 V a b c P) ≡ anka (dakshina3 V a b c P))
+samagram-api-na-sahayogi h =
+  snotz (h cakra-vidhi (ankitam 0 kAkriya) (ankitam 1 kAkriya)
+           (ankitam 2 kAkriya) (dvi-s zero ∷ cara-s ∷ []))
+
+------------------------------------------------------------------------
+-- 47.  Two independent obstructions, and what a fold actually needs.
+--
+--   §44  ABSTENTION: the metarule sometimes returns no verdict, and where
+--        it does, bracketing decides whether anything happens at all.
+--   §46  INTRANSITIVITY: the metarule always returns a verdict, and the
+--        verdicts do not cohere, so bracketing decides WHICH.
+--
+-- Neither is fixed by fixing the other: a total metarule can be cyclic,
+-- an abstaining one can be a genuine partial order.  A fold needs a total
+-- PREORDER, and paribhāṣā 38's ranking is over metarules precisely
+-- because no single one of the five is that — अपवाद is partial (most
+-- pairs are not exception-and-general), अन्तरङ्ग abstains by design, नित्य
+-- decides only where the कृताकृत test discriminates.  Stacking them
+-- strongest-first is not a way of building a total preorder out of
+-- partial ones; it is a way of not needing one.
+--
+-- NOT PROVED, named rather than implied: that a metarule induced by ≤ on
+-- the numeral does fold.  It should — ≤ on ℕ is a total preorder — but
+-- "should" is not a check and min-associativity is not in this module.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 48.  प्रामाण्य-लेखा — which of this module's names are attested and
+--      which I coined.  Written because another lane burned its own work
+--      today for exactly the defect this ledger is looking for.
+--
+-- `167f5374` deleted nine files with the reason: *pseudo-Sanskrit
+-- dressing on textbook HoTT is pollution* — invented terms draped over
+-- standard theorems "to make invented math LOOK like the tradition", and
+-- the owner endorsed the burn.  `23b02c19` went further and removed work
+-- that WAS grounded in Brahmagupta, because the framing around it was the
+-- agent's own.  That standard applies here and I have not applied it.
+--
+-- ATTESTED, and used for what the source uses them for:
+--   निर्जरा, तपस्, सविपाक/अविपाक (Umāsvāti, *Tattvārthasūtra*)
+--   उपमान, उपाधि, दुर्नय, नय, अवक्तव्य (Nyāya / Jaina epistemology)
+--   अनुवृत्ति, प्रत्याहार, अपवाद, उत्सर्ग, विप्रतिषेध, सूत्र, प्रक्रिया,
+--     परिभाषा, नित्य, अन्तरङ्ग, पूर्व, पर (Pāṇini; the five-term ranking
+--     is Nāgeśa, *Paribhāṣenduśekhara* 38, c. 1730 — §41)
+--   लघु/गुरु as a contrasting pair is prosodic and old (Piṅgala,
+--     *Chandaḥśāstra*), and लाघव is the grammarians' own criterion.
+--
+-- MINE, and the Sanskrit is decoration on a standard construction:
+--   `Sandarbha`/`sthapana`/`Avishesha` — one-hole contexts, plugging, and
+--     contextual equivalence.  Ordinary programming-language theory.  The
+--     word सन्दर्भ does not mean this anywhere.
+--   `Prakriya`/`Sutra` as I use them — a straight-line program with
+--     back-references.  प्रक्रिया is a real term for a derivation, but a
+--     DAG-shared term representation is not what it names.
+--   `matra` for "number of sūtras" and `guru` for "largest intermediate":
+--     मात्रा is a mora and गुरु a heavy syllable.  Neither is a measure on
+--     rule systems.  The prosodic pair was borrowed for its shape.
+--   `mulya`, `sthula`, `bhrama`, `Anujna`, `Ankita`, `cakra`, `jaya`,
+--     `vama3`/`dakshina3`, and every theorem name in Sanskrit above:
+--     mine.  The words exist; these uses do not.
+--   `Metavidhi`, until this commit, was a Greek prefix on a Sanskrit
+--     stem — a hybrid no tradition would recognise, and the clearest
+--     instance of the defect.  It is now `Paribhasa`, which is the
+--     tradition's actual word for a metarule and was available the whole
+--     time.
+--
+-- WHAT I AM NOT DOING, and why.  The theorems are not deleted.  They are
+-- checked, and several of them say something about the sources rather
+-- than merely borrowing their vocabulary — §26 and §35 are about अपवाद
+-- as Pāṇini uses it, §41 and §44 are about paribhāṣā 38's ranking, and
+-- §37's arrow is about उत्सर्ग.  Those earn their names.  The rest do not,
+-- and this ledger is where a reader finds out which is which instead of
+-- being left to assume the Devanagari is provenance.
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- 49.  CORRECTION to §48: an over-correction is also a provenance error.
+--
+-- §48's ledger put `matra` in the MINE column, with the reason "मात्रा is
+-- a mora … neither is a measure on rule systems.  The prosodic pair was
+-- borrowed for its shape."  That is false, and the refutation was already
+-- wired into every write I made while writing it.
+--
+-- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
+-- carries a लाघव row, and its text is the grammarians' own maxim:
+--
+--     अर्धमात्रालाघवेन पुत्रोत्सवं मन्यन्ते वैयाकरणाः
+--     ardhamātrālāghavena putrotsavaṁ manyante vaiyākaraṇāḥ
+--     "grammarians count the saving of HALF A MORA as the birth of a son"
+--
+-- — a paribhāṣā collected in Nāgeśa Bhaṭṭa, *Paribhāṣenduśekhara* (~1700),
+-- operative in Pāṇini and argued in Patañjali, *Mahābhāṣya* (~150 BCE).
+--
+-- So मात्रा is not a borrowed shape.  It is the unit the grammarians
+-- actually count लाघव in, and a module that measures economy of statement
+-- in मात्रा is doing what the source does, not dressing up as it.  What
+-- remains mine is narrower and worth stating exactly: I count सूत्रs and
+-- the source counts morae.  That is a change of unit inside an attested
+-- practice, not an invented practice wearing an attested name.
+--
+-- गुरु stays in the MINE column and for the reason §48 gave.  The
+-- Lagakriya row of the same table has laga = guru = heavy syllable, worth
+-- two मात्राs; "the largest intermediate a derivation holds" is not that.
+--
+-- THE SHAPE OF THIS MISTAKE, which is the part worth keeping.  §41 and
+-- §44 failed by not reading `machine/`, where the answer lived.  §48
+-- failed by not reading `.claude/hooks/`, where the answer lived — and it
+-- failed while writing the section whose whole subject was that failure.
+-- The two have opposite signs: §41 claimed novelty that was not mine,
+-- §48 disclaimed provenance that was.  Both are false records, and the
+-- second is worse in one way — it deletes a real citation, and a reader
+-- who trusts the ledger now believes the grammarians had no measure.
+--
+-- I reasoned from memory about what मात्रा means, in a repository that
+-- keeps 65 sourced rows for exactly that question and fires them at me on
+-- every write.
 ------------------------------------------------------------------------
