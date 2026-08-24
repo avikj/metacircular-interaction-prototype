@@ -614,3 +614,7 @@ sp396	+(*(*(s(0),0),s(0)),*(s(0),0))	0	refl
 sp397	le(s(0),+(max(x,s(0)),*(x,x)))	s(0)	ind 0 refl refl
 sp398	max(le(s(0),x),s(0))	max(le(x,0),s(0))	ind 0 refl refl
 sp399	max(+(s(x),y),s(0))	gcd(+(s(x),y),0)	refl
+sp400	max(+(x,s(y)),s(0))	gcd(+(x,s(y)),0)	ind 0 refl refl
+sp401	max(+(s(x),y),s(0))	gcd(0,+(s(x),y))	refl
+sp481	+(+(x,le(s(s(0)),0)),le(s(s(0)),0))	x	ind 0 refl congsuc
+sp402	max(+(x,s(y)),s(0))	gcd(0,+(x,s(y)))	ind 0 refl refl
