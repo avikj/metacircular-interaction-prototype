@@ -2284,3 +2284,7 @@ import Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel
 -- √NOT has no root on the SET Bool (Aut = S₂, no order-4 element), so the
 -- qubit — where U(2) holds every root — is forced, not posited.
 import VargamulaViparyaya_TheSwapHasNoSquareRootOnTheSetSoTheQubitIsForced
+
+-- The 3-strand braid: S₃ is non-abelian and satisfies Yang–Baxter στσ=τστ,
+-- the companion to the qubit-forcing S₂ swap — the ladder abelian→braid.
+import VeniYangBaxtara_TheThreeStrandBraidIsNonAbelianAndSatisfiesTheBraidRelation
