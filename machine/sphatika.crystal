@@ -1095,3 +1095,10 @@ sp699	+(x,+(+(y,z),u))	max(+(+(+(x,y),z),u),x)	ind 0 refl congsuc
 sp700	+(+(0,x),+(y,z))	max(+(+(x,y),z),+(0,x))	ind 0 refl congsuc
 sp701	+(x,+(s(s(0)),y))	max(+(+(s(s(0)),x),y),x)	ind 0 refl congsuc
 sp702	+(s(s(0)),s(s(s(0))))	+(s(s(s(0))),s(s(0)))	refl
+sp703	+(max(le(s(s(0)),0),s(0)),le(s(s(0)),0))	s(0)	refl
+sp704	s(le(x,0))	max(le(s(0),le(s(0),x)),s(le(x,0)))	ind 0 refl refl
+sp705	s(le(x,0))	max(le(s(0),*(s(x),x)),s(le(x,0)))	ind 0 refl refl
+sp706	s(0)	max(le(s(0),+(max(x,s(0)),*(x,x))),s(0))	ind 0 refl refl
+sp707	+(s(x),*(s(x),y))	-(+(s(x),*(s(x),y)),0)	refl
+sp708	+(le(x,0),*(le(x,0),+(x,*(x,x))))	le(x,0)	ind 0 refl refl
+sp709	+(le(x,0),*(le(x,0),+(x,*(x,y))))	le(x,0)	ind 0 refl refl
