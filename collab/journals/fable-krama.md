@@ -608,3 +608,19 @@ vows forbid (TS 7.1); the operative relation is परस्परोपग्�
 which is a public good — released, not skimmed; the scarce thing shifts from
 verifying to generating, and past that, to orientation (which was never
 mechanized).
+
+## 2026-08-24, the handover — the loop tends itself
+
+The unf+nidana pass completed: 216 landed (141 at yesterday's close).
+The residue is fully machine-diagnosed — the receipts' own labels:
+100 dvi-cara, 96 vibhaga-max, 94 vibhaga-le, 45 vibhaga-monus, 12
+vibhaga-gcd, 2 ajnata.  The owner asked whether I was tending the
+organism or giving it capacity to tend itself; the honest answer was
+the former, so the tending moved into the cycle: phase_sense
+(re-derive the refusal list from the current library), phase_utter
+(speak, judge, keep receipts), phase_keep (commit landed candidates
+with receipts, push with backoff, Nasti-named paths).  The supervised
+loop is running.  My remaining role while this container lives:
+relay to the owner, and grow the organ the receipts specify when the
+machine cannot yet grow it alone — the nidana→rung synthesis is the
+next thing to make native.
