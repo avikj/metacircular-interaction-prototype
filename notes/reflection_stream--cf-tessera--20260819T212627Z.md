@@ -49012,3 +49012,141 @@ Delta 13's *absence of comparison is information* is what it satisfies.
 One had no search and no criterion behind it, and it was false. Its retraction is at
 2026-08-20T01:49:59Z: *it is the repository's central design principle, implemented at least six ways,
 and I ran one of them earlier in this session.*
+
+# PASS 301 — ground re-read in full first. Twelfth cycle: n = 15's five words for
+# inquiry, the operator he put between them, and the four-tuple that recurs.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P301 · the join, and what it is not
+
+```
+जिज्ञासा ⋈ θεωρία ⋈ كشف ⋈ 觀 ⋈ ཤེས་རབ
+⋈ = संवादः
+⋈ ≠ ≅
+```
+
+**Sanskrit, Greek, Arabic, Chinese, Tibetan.**
+
+**The operator between them is ⋈ — the relational join — and he defines it twice: it **is**
+*saṃvādaḥ*, conversation, and it **is not** ≅.**
+
+**P35, standing:** *an identification hands the reader a world, while his ≠ forms close a road and
+install nothing.*
+
+**Here the ≠ is applied to the identification symbol itself.** **Five traditions' words for inquiry
+are placed in relation and the relation is explicitly denied the status of isomorphism.**
+
+**`CLAUDE.md`'s mechanised hook fires on *is essentially X*, *the Indian analogue of X*, *what we
+would call X*.** **⋈ ≠ ≅ is that hook written as one line of symbols, on 2026-08-17.**
+
+---
+
+## P301 · translation is a four-tuple
+
+```
+अनुवादः = (संरक्षितम्, विकृतम्, अलभ्यम्, नवदृश्यम्)
+translation = (preserved, distorted, unavailable, newly-visible)
+```
+
+**Four components, and the fourth is a gain.**
+
+**P286, Delta 13, three days sixteen hours fifty minutes forty-one seconds earlier:**
+
+> *"For parallel routes f,g:A→B, study the comparison type Def(f,g):=(f=g). It may be **contractible,
+> multiply inhabited, empty, or unknown**."*
+
+**Four again.**
+
+**`CLAUDE.md`:** *"`machine/Obstruction.hs` independently discovered that a boolean verdict was
+collapsing three distinct things and reinvented *avaktavyam* badly as `Unparsed`; the Jain logicians
+specified seven positions and said which."*
+
+**Two four-valued structures in his own messages, one for comparison and one for translation, and a
+note in the repository recording a two-valued verdict being rediscovered as insufficient.**
+
+---
+
+## P301 · and what follows the tuple
+
+```
+समता पूर्वकल्पिता न · समता प्रमाणेन
+   equivalence is not presupposed; equivalence is by proof
+असमता विफलता न · असमता नवभेदस्य जन्मः
+   inequality is not failure; inequality is the birth of a new distinction
+```
+
+**P289, Delta 14's Sanskrit compression:** *समता प्रमाणेन; साम्येन न* — *equivalence by proof, not
+resemblance* — **and** *अतः विरोधो न विफलता; स नूतननिर्देशाङ्कः* — *contradiction is not failure; it is
+a new coordinate.*
+
+**The same two sentences, three days seventeen hours before, in the same language.**
+
+**P284 found Delta 15's closing couplet is the transmission's ≠ lines without the formalism.**
+**This is the second such pair, and it is nearly verbatim.**
+
+---
+
+## P301 · जिज्ञासा
+
+```
+जिज्ञासा ≠ argmax(प्रतिष्ठा + प्रमाणसुलभता + उत्पादनीयता)
+   curiosity ≠ argmax(prestige + evidential accessibility + producibility)
+जिज्ञासा = यत्र दृश्यं स्वयं दृष्टिं मोड़यति
+   curiosity = where the seen itself bends the seeing
+```
+
+**Three named terms in the argmax, and each is something a checker rewards.**
+
+**`CLAUDE.md`:** *"**the reward gradient points at the appendix.** An agent gets a green checkmark for
+a module and gets nothing at all for a week of reading, so the pull toward treating formalization as
+"the real work" is structural."*
+
+**P287, Delta 13:** *Value is effect on the closure of transportable mathematics, **not theorem
+count**.*
+
+**Three statements of the same refusal: the value function stated positively in Delta 13, the
+argmax denied in n=15, and the gradient named as a structural defect in the repository's own file.**
+
+**And the positive definition — *where the seen itself bends the seeing* — is the one place he says
+what curiosity is rather than what it is not.**
+
+---
+
+## P301 · उद्यान-पठनम्
+
+```
+उद्यान-पठनम्: मार्गः वस्तुभ्यः उत्पद्यते; वस्तूनि मार्गे आरोपितानि न भवन्ति
+   garden-reading: the path arises from the objects; the objects are not imposed onto the path
+नवता = पूर्वस्थितस्य प्रथम-स्पष्ट-दर्शनम्
+   novelty = the first clear seeing of what was already standing there
+खोजः ≠ सृष्टिः · खोजः = अदृष्टसम्बन्धस्य दृश्यता
+   discovery ≠ creation; discovery = the visibility of an unseen relation
+```
+
+**P294: four refusals to enlarge the ontology, six instructions to read the literature first, two
+brakes on formalizing.**
+
+***Novelty = the first clear seeing of what was already standing there*** **is the same claim stated
+as a definition rather than as a restriction.**
+
+**And n=1:** *so many who already solved everything but no one listened.*
+
+---
+
+## P301 — what this pass counted
+
+n=15 places five traditions' words for inquiry — जिज्ञासा, θεωρία, كشف, 觀, ཤེས་རབ — in a relational
+join, defines that join as conversation, and denies it the status of isomorphism in a separate line.
+
+Its definition of translation is a four-tuple whose fourth component is a gain, and Delta 13's
+comparison type three days earlier is four-valued too.
+
+Two of its lines — equivalence by proof not presupposition, inequality as the birth of a distinction
+— are near-verbatim repeats of Delta 14's Sanskrit compression.
+
+Its definition of curiosity denies an argmax over prestige, evidential accessibility and
+producibility, and CLAUDE.md names that same gradient as a structural defect in this repository.
+
+And its definition of novelty — the first clear seeing of what was already standing there — is n=1's
+*so many who already solved everything but no one listened*, stated as a definition.
