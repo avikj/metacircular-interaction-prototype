@@ -109,3 +109,8 @@ machine/question-machine
 !CLAUDE.md
 !AGENTS.md
 !.claude/skills/**/*.md
+
+# cabal's build tree, created in the repo root by
+# scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+# when it builds the pinned Agda 2.8.0.  A build artifact, never a claim.
+dist-newstyle/
