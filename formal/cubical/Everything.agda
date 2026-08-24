@@ -2279,3 +2279,6 @@ import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
 -- refinement is reversible" now has its finite carrier statement.
 import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch
 
+-- [svayam-avatarana 2026-08-24T03:44:33Z] landed by the self-gate: batch green +
+-- importer green under Agda version 2.6.3; route in machine/avatarana.ledger.jsonl.
+import SanghattaPurana_EverySpanOfPathsJoinsSoTheGapWasAFactAboutTheShadowAndTheWombedSquaresAreFilled
