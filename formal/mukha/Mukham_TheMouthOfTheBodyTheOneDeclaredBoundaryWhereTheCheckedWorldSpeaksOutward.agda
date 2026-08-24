@@ -24,6 +24,8 @@ open import KarmaKanda_TheActPortionOfTheBodyPathFreeAndCompiled
 open import AgamaKanda_TheEldersStoreOnTheActSide
 open import DravyaShruta_TheCompiledWordCarriesItsKnowingErasedSoTheBinaryIsScripture
   using (सिद्ध-श्रुतम् ; दैर्घ्यम्)
+open import PramanaKanda_TheOneKnowingItselfCrossesTheBoundaryCertificatesAndAllInTheSharedTongue
+  using (प्राणः ; नियमः)
 
 postulate putStrLn : String → IO ⊤
 {-# FOREIGN GHC import qualified Data.Text.IO as T #-}
@@ -40,14 +42,20 @@ postulate putStrLn : String → IO ⊤
 दीर्घता []       = zero
 दीर्घता (_ ∷ es) = suc (दीर्घता es)
 
+गुरुता : List नियमः → Nat
+गुरुता []       = zero
+गुरुता (_ ∷ ns) = suc (गुरुता ns)
+
 infixr 5 _⊹_
 _⊹_ : String → String → String
 _⊹_ = primStringAppend
 
 main : IO ⊤
 main = putStrLn
-  (  "the act-portion, compiled, speaks: of the elder's "
+  (  "the body, compiled, speaks: of the elder's "
    ⊹ primShowNat (दीर्घता आगमः)
-   ⊹ " rules, the act closes "
+   ⊹ " rules, the flat act closes "
    ⊹ primShowNat (दैर्घ्यम् सिद्ध-श्रुतम्)
-   ⊹ ", each carrying its warrant erased; the mouth adds nothing." )
+   ⊹ " (each warrant erased), and the one knowing, breathing to quiet, reaches "
+   ⊹ primShowNat (गुरुता (प्राणः 3 [] आगमः))
+   ⊹ "; every certificate minted at runtime, and the mouth adds nothing." )
