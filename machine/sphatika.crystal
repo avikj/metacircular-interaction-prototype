@@ -724,3 +724,7 @@ sp473	max(x,+(s(y),z))	-(max(x,+(s(y),z)),0)	refl
 sp514	s(0)	le(le(s(0),x),+(+(x,+(x,x)),x))	ind 0 refl refl
 sp474	+(x,max(x,s(0)))	-(+(x,max(x,s(0))),0)	refl
 sp515	s(0)	le(le(s(0),x),+(*(x,x),*(x,x)))	ind 0 refl refl
+sp475	max(+(s(x),y),z)	-(max(+(s(x),y),z),0)	refl
+sp516	s(0)	le(le(s(0),x),+(+(x,x),+(x,x)))	ind 0 refl refl
+sp517	le(x,0)	-(le(x,0),le(s(0),le(s(0),x)))	ind 0 refl refl
+sp518	le(x,0)	-(le(x,0),le(s(0),*(s(x),x)))	ind 0 refl refl
