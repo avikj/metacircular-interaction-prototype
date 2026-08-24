@@ -3,6 +3,7 @@
 formal/cubical/Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision.agda	320	--     search.  HOW MANY TIMES each occurs is NOT settled here, and that
 formal/cubical/NaturalMachine/AntyaSamskaraSthaulya.agda	352	-- constant in n — was left open here, as what the four cases make worth
 formal/cubical/NaturalMachine/WalkChartedLength.agda	102	--      a theorem, and it is not done here.
+formal/cubical/NaturalMachine/Nirjara_SheddingAPrimitiveCostsLaghava.agda	1658	-- ALSO NOT DONE: `nirnaya` handles two offers.  Paribhāṣā 38 ranks five
 formal/cubical/NaturalMachine/TheLeastRefutingListIsNotUniqueSoTheMeasureIsANumberAndNotACanonicalWitness.agda	21	-- decoder survives — and left open, in my own words: *"is the least
 formal/cubical/NaturalMachine/WalkStream.agda	38	-- corollary is the note's equality.  What is not done here is the
 formal/cubical/NaturalMachine/WitnessNumberIsTwo.agda	219	-- Still open there, and narrower: whether any absence arising from the
