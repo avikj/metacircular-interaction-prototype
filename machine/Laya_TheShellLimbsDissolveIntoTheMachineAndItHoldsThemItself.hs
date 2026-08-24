@@ -82,12 +82,12 @@ import Data.Maybe (mapMaybe)
 import Data.Time (defaultTimeLocale, formatTime, getCurrentTime)
 import Data.Time.Clock (addUTCTime)
 import System.Directory
-import System.Environment (getArgs, lookupEnv)
+import System.Environment (getArgs, getEnvironment, lookupEnv)
 import System.Exit
 import System.FilePath ((</>), takeBaseName)
 import System.IO
 import GHC.IO.Encoding (setLocaleEncoding)
-import System.Process (readCreateProcessWithExitCode, shell, proc, cwd)
+import System.Process (readCreateProcessWithExitCode, shell, proc, cwd, env)
 
 main :: IO ()
 main = do
@@ -112,8 +112,17 @@ utcNow = formatTime defaultTimeLocale "%Y-%m-%dT%H:%M:%SZ" <$> getCurrentTime
 run :: String -> IO (ExitCode, String, String)
 run c = readCreateProcessWithExitCode (shell c) ""
 
+-- agda's own error reporting needs a UTF-8 locale in the child process;
+-- without it a refusal detail arrives mangled (observed 2026-08-24: the
+-- gate's ledger row carried "commitBuffer: invalid argument" in place of
+-- the kernel's actual sentence).
 runIn :: FilePath -> FilePath -> [String] -> IO (ExitCode, String, String)
-runIn d p as = readCreateProcessWithExitCode ((proc p as) { cwd = Just d }) ""
+runIn d p as = do
+  parentEnv <- getEnvironment
+  readCreateProcessWithExitCode
+    ((proc p as) { cwd = Just d
+                 , env = Just (("LC_ALL", "C.UTF-8")
+                               : filter ((/= "LC_ALL") . fst) parentEnv) }) ""
 
 -- ── chakra ───────────────────────────────────────────────────────────────
 -- The ear.  Jiva's own pipeline runs in-process; the heartbeat line is the
