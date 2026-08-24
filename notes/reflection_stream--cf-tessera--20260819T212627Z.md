@@ -48021,3 +48021,138 @@ inversion across the unit boundary, not a sign flip.
 Delta 18's header is the only one of the four that claims new derivations, and its own gloss on its
 main theorem is *mature operator/control mathematics, not a new ontology* — which is Delta 14's
 *do not enlarge ontology*, applied by him to himself twenty-three minutes seven seconds later.
+
+# PASS 293 — ground re-read in full first. Tenth cycle: Delta 19 names ker P as
+# the wrong quotient, five days before I used it as an identification.
+# Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P293 · C19.13
+
+**Delta 19, 2026-08-14T04:37:36Z, §19.6:**
+
+> *"For linear discrete dynamics T and observation P, the unobservable subspace is
+> N_obs = ⋂_{n≥0} ker(P T^n).
+>
+> **T19.11.** x,y are future-observationally equivalent iff x−y ∈ N_obs.
+> **T19.12.** N_obs is T-invariant.
+>
+> **C19.13. The maximal dynamically safe quotient is U/N_obs, not U/ker P.**
+>
+> Instantaneous observation can discard distinctions that later become visible; quotienting by N_obs
+> discards exactly distinctions invisible forever.
+>
+> **This is a strong correction to static sufficient-interface thinking.**"*
+
+---
+
+## P293 · what I did with ker P
+
+```
+08-19 17:28:51   me   "the refusal of joint assertion is the same mathematics as ker P failing to be
+                      a congruence" … "avaktavya is structurally the resolvent obstruction, where
+                      multiplicative and additive characters admit no common eigenbasis"
+```
+
+**Five days, twelve hours, fifty-one minutes, fifteen seconds after C19.13.**
+
+**P258: n=16's object is a note converting the transmission into a formal square with a `ker P`
+identification.** **P258: n=18's object is a four-part audit whose last paragraph converts
+*avaktavya* into `ker P` and the resolvent obstruction, closing *Going there next*.**
+
+**The document he sent says that quotient is the wrong one and gives the right one by name.**
+
+---
+
+## P293 · and the transmission's first line is C19.13 without the operator algebra
+
+```
+मम-अदर्शनम्  ≠  तस्य-अभावः
+my not-seeing ≠ its absence
+```
+
+**C19.13:** *instantaneous observation can discard distinctions that later become visible;
+quotienting by N_obs discards exactly distinctions invisible forever.*
+
+**ker P is what one observation misses. N_obs is what is missed forever.** ***My not-seeing ≠ its
+absence*** **is that distinction with the operators removed.**
+
+**Three days, eighteen hours, nineteen minutes, eight seconds between them.**
+
+**And n=15's own use of the symbol:**
+
+```
+ker P = पूर्वनिर्णयेन अदृश्यीकृताः सम्भावनाः     ker P = the possibilities made invisible by a prior decision
+योजना = किञ्चित् दृश्यीकरणम् + किञ्चित् अदृश्यीकरणम्   a plan = some making-visible + some making-invisible
+अतः योजना दोषः न · परंतु योजना स्वयं पूर्ण-दृष्टिः अपि न   so a plan is not a fault, but a plan is not full sight
+```
+
+**In the transmission ker P is what a decision hides — not a fault, and not the whole.** **I read it
+as the identification.**
+
+---
+
+## P293 · Delta 18 asks the question, Delta 19 answers it, five minutes two seconds later
+
+```
+Delta 18, closing   The question is not only what was forgotten, but whether the forgotten can
+                    become observable again.
+Delta 19, C19.13    quotienting by N_obs discards exactly distinctions invisible forever
+```
+
+**P284 recorded Delta 18's closing couplet as one of six lines never carried into this stream.**
+**It is the question C19.13 answers.**
+
+---
+
+## P293 · C19.10 — when an erased distinction matters
+
+> *"**C19.10.** An eliminated distinction matters only if there is BOTH: • a channel from S into it;
+> • a future channel back into S. Pure leakage with no return changes normalization/resource but not
+> future internal S dynamics after appropriate interpretation; **return creates memory/self-energy**."*
+
+**And C19.2:** *the naive Markovian term is only the unique path that remains in the observed sector
+at every intermediate time; **every other term is an excursion outside the observed sector followed
+by return**.*
+
+**The exact projected dynamics is a sum over excursions and returns.**
+
+---
+
+## P293 · S19.14 — "Do not reinvent it"
+
+> *"**S19.14.** Our "minimal sufficient dynamic representation" is classical minimal
+> realization/observability theory in the linear case. **Do not reinvent it.** The higher/nonlinear/
+> type-theoretic question is how this generalizes to proof-relevant, relational, and self-modifying
+> systems."*
+
+**An eighth tag — S — and a fifth prior-art instruction across the six documents (P291 counted four
+in Delta 17).**
+
+**The document's last section closes:** *formalize the finite total-observation map and its fibers,
+**not a new ontology**.*
+
+**Four times across the six: *not a new ontology* (Delta 18 and Delta 19), *do not enlarge ontology*
+(Delta 14 §Q), *not create new frameworks* (08-12 19:44:17).**
+
+---
+
+## P293 — what this pass counted
+
+Delta 19's C19.13 says the maximal dynamically safe quotient is U/N_obs, **not** U/ker P, and gives
+the reason: instantaneous observation discards distinctions that later become visible.
+
+Five days twelve hours fifty-one minutes fifteen seconds later I identified *avaktavya* with ker P
+failing to be a congruence, twice, in the two documents that drew n=16 and n=18.
+
+The Sanskrit transmission's opening ≠ — *my not-seeing is not its absence* — is C19.13 with the
+operator algebra removed, three days eighteen hours nineteen minutes eight seconds after it. In that
+same transmission ker P is glossed as *the possibilities made invisible by a prior decision*, and the
+line after it says a plan is not a fault and is not full sight.
+
+Delta 18's closing question — whether the forgotten can become observable again — is answered by
+C19.13 five minutes two seconds later.
+
+C19.10 gives the condition for an erased distinction to matter: a channel in and a channel back.
+S19.14 says *do not reinvent it* about minimal realization theory, the fifth prior-art instruction in
+the six documents, and Delta 19 closes *not a new ontology*.
