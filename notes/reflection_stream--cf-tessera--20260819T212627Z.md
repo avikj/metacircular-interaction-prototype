@@ -47227,3 +47227,134 @@ analogy, testimony/prior literature — for the pramāṇa question CLAUDE.md sa
 answering with ad-hoc gates.
 
 And a definition of representation gain that charges for the change of perspective.
+
+# PASS 287 — ground re-read in full first. Tenth cycle: Delta 13, second half.
+# A growth law the repository says it never had, and a metric against theorem
+# count. Carried in from P35: no closing sentence, no identification.
+═══════════════════════════════════════════════════════════════════════════
+
+## P287 · "Prior art must be checked before treating this as a new invariant"
+
+**One sentence, standing alone, 2026-08-14T04:06:03Z.**
+
+**`CLAUDE.md`:** *"Prior art gets searched **before** the experiment, not after the write-up (three
+results here were rediscoveries found only at audit time)."*
+
+**P267: at 18:24:17 on 08-17 I wrote *Before I write a word, PROTOCOL §0 — searching whether this
+synthesis already exists*, and two notes already owned it.**
+
+---
+
+## P287 · "Agents should inhabit mathematical worlds, not shallow roles"
+
+> *"Agents should inhabit mathematical worlds, not shallow roles. Each outputs native definitions,
+> strongest exact formulation, invariants, conjectures and explicit comparison candidates.
+> **Reconciliation acts on mathematical constructions, not prose**: equivalences, functors, logical
+> relations, adjunctions, transforms, counterexamples, failed squares. Successful comparisons become
+> objects available to later agents."*
+
+**P280: n=24, 08-12 21:46:00 —** *They have stepped into a self-ascribed role description.*
+
+**P270: n=9, 08-14 04:45:12 —** *Subagents must emulate 16 distinct geniuses throughout time and work
+on whatever they want.*
+
+**Thirty-nine minutes nine seconds after this paragraph.** ***Inhabit mathematical worlds*** **is what
+*emulate 16 distinct geniuses* means, written out.**
+
+---
+
+## P287 · the growth law
+
+> *"At time t let A_t be the higher diagram of perspectives and proved translations. Research can:
+> 1. add a perspective; 2. add a translation; 3. prove equivalence and enable transport; 4. discover a
+> quotient/fiber; 5. discover higher comparison data; 6. refute a proposed comparison; 7. construct a
+> larger object in which earlier views become projections.
+>
+> **Value is effect on the closure of transportable mathematics, not theorem count.**"*
+
+**`CLAUDE.md`, on the kuṭṭaka:** *"which is **the growth rule the machine spent this corpus's whole
+history failing to have**. That was available in 499."*
+
+**A growth rule is stated here, in seven clauses, on 2026-08-14, with a value function attached.**
+
+**And the value function is against counting:** *not theorem count.* **`CLAUDE.md`: *nothing here is
+counted, ranked, or rewarded by volume*; and *the reward gradient points at the appendix — an agent
+gets a green checkmark for a module and gets nothing at all for a week of reading*.**
+
+**P262: *count the enumerator*, 08-12 19:44:17.**
+
+---
+
+## P287 · the pipeline for anything, including altered states
+
+> *"Altered states can generate unusual partitions of conceptual space or weaken habitual equivalence
+> classes. **They are perspective generators, not proof systems.** Their output enters the same
+> pipeline: generate → formalize → compare → prove/refute → retain/kill. The mathematically useful
+> operation is **deliberate de-automatization of the current representation**."*
+
+**One pipeline, and the source of a perspective does not exempt it or disqualify it.**
+
+---
+
+## P287 · the working discipline, four couplets
+
+```
+सम्बन्धो न पश्चात् स्थाप्यते; सम्बन्धेन रूपं प्रकाशते।
+   Relation is not merely appended afterward; through relation, form becomes manifest.
+
+दृष्टिभेदः वस्तुभेदो न आवश्यकः।
+   Difference of viewpoint need not imply difference of object.
+
+प्रमाणरहितसाम्यं समता न।
+   Similarity without proof is not equivalence.
+
+परिवहनं विफलं चेत् सीमा-शर्त-आवरणेषु दोषमन्विष्य।
+   If transport fails, seek the defect in boundary, condition, covering, or context.
+```
+
+***Similarity without proof is not equivalence.***
+
+**`.claude/hooks/european-frame.txt` fires on *is essentially X*, *the Indian analogue of X*, *what we
+would call X*.** **The hook is that couplet, mechanised, four days later.**
+
+---
+
+## P287 · the four targets, and what he called D
+
+```
+A   Φ, Ψ over a setting where 2 is invertible; ΦΨ=id, ΨΦ=id; ua gives PairSpace = CenterRelativeSpace;
+    Φ∘τ = ρ∘Φ.                                  "the founding executable reconciliation"
+B   positive-cone subtypes; failure represented as absence of an inhabitant of the restricted
+    equivalence type.                            "equivalence upstairs, inequivalent effective
+                                                  subspaces downstairs"
+C   A^k ≃ A×V_k, internalize the S_k action; sign rep at k=2, standard 2D rep at k=3
+D   given e:A≃B and P:A→U, demonstrate on a finite model that an invariant proved in A becomes
+    executable in B **by transport rather than reproving it**
+                                                 "the smallest convincing prototype of the actual
+                                                  mathematical machine"
+```
+
+**P270: forty-two seconds after the document arrived, *let me take target A myself and fan out on B,
+C, D*.**
+
+**P270's landing list names `CenterRelative.agda` for A and the Delta 14/15 cores.** **What D's status
+is, the record I have does not say.** **I am recording that and not turning it into a task.**
+
+---
+
+## P287 — what this pass counted
+
+Delta 13's second half contains: a one-line prior-art rule that PROTOCOL §0 later carries; a
+specification of what agents are for — *inhabit mathematical worlds, not shallow roles*,
+*reconciliation acts on mathematical constructions, not prose* — thirty-nine minutes before n=9 says
+it in nine words; a seven-clause growth law for the atlas; and the value function *effect on the
+closure of transportable mathematics, not theorem count*.
+
+`CLAUDE.md` says the machine spent the corpus's whole history failing to have a growth rule, and says
+the reward gradient points at the checkmark. Both were specified here on 2026-08-14.
+
+The working discipline's third couplet — *similarity without proof is not equivalence* — is the
+translation-move hook, four days before it was written.
+
+And target D, the one he called the smallest convincing prototype of the actual machine, is transport
+instead of reproving. The record I have does not say whether it was done.
