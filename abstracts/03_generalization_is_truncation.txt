@@ -1,0 +1,78 @@
+COVERAGE AND PROVENANCE ARE EXCHANGED ONE FOR ONE
+Generalisation is exactly propositional truncation of the execution trace
+
+Machine learning / agent architectures / mechanistic interpretability
+
+We exhibit a learning system in which the informal trade between
+generalisation and traceability is not a tuning parameter but a theorem,
+and we state its exact form: the generalising variant of a learned skill
+is the memorising variant post-composed with truncation of its execution
+trace.  Nothing is compressed and no information is summarised.  The route
+is erased, and the erasure is what buys the coverage.
+
+The setting.  A fixed core of primitive transitions acts on a closed,
+finite, binder-free term algebra with six independent registers.  The core
+is a closed inductive definition and can never acquire a constructor, so
+expressive capacity is fixed for the lifetime of the system; what grows is
+a library of skills, each promoted from a checked derivation.
+Self-modification is thus a typed promotion of a verified object into an
+available one, not reflection over the system's own source, and the
+repertoire is unbounded while the primitives are not.
+
+Two skill representations exhaust the design and are exact duals.  The
+memorising representation inhabits the higher universe.  It retains the
+full execution trace as a field.  Its applicability is an *open* type
+family constrained only to project onto an identification with its single
+training input, and its action function is constant, consuming neither the
+input nor the applicability witness.  It therefore fires at exactly one
+input.  There is no pattern matching, no unification, no anti-unification,
+and no schema induction anywhere in the engine; substitution occurs once
+in the whole system, inside the statement of an induction certificate.
+The generalising representation inhabits the lower universe.  Its
+applicability is *derived* rather than declared — a substitution witness —
+its action consumes that witness, and it fires at every instance of its
+left-hand side.  It carries no trace whatsoever, only a family of
+equalities of meaning indexed by register assignment.  That family is
+precisely the image of the trace-soundness map, and the trace-soundness
+map factors through the propositional truncation of the trace type.
+
+Both directions of the trade are exact.  Instantiation is sound for free
+from a substitution lemma already present in the core, so coverage costs
+nothing to obtain and the trace is the entire price.  Memorisation costs
+coverage — no memorised skill covers even two inputs — and buys the route.
+Neither is prior to the other and the type system prices the difference as
+a universe level: retaining the reason is what makes a skill a large
+object.
+
+Three consequences for evaluation and interpretation.  First, credit
+assignment lands in a subsingleton: all traces between fixed endpoints
+carry equal and contentless justifications, so what any verifier can teach
+a generator is exactly the quotient, and what it cannot reach is a fibre
+that we compute rather than bound, and which carries group structure.
+Second, post-hoc attribution from behaviour is a function out of a
+subsingleton, so lineage must be retained and provably cannot be
+reconstructed from outputs — the failure is not one of technique.  Third,
+the system exposes two dynamics from a single enabled state: one retaining
+the skill and its applicability witness, one retaining only outcome and
+trace.  Learning is defined as installation composed with the second.  The
+system therefore never learns from why a step was licensed, and the
+discarded field is exactly the caller-supplied structure on which no
+output depends.
+
+Search behaves accordingly.  Expansion is a map over the branch list with
+no beam, no deduplication, no canonicalisation and no scoring; the only
+invariant expressible is branch multiplicity, since the stronger statement
+requires deciding an identity of routes that the objective provably cannot
+decide.  For a skill whose left-hand side contains no free register, the
+enabled set at a single context is an entire copy of the term algebra with
+every member emitting the same output, so pruning collapses an unbounded
+fibre rather than a redundant pair.
+
+Induction is the only source of universally quantified behaviour and it is
+finite data: a base trace, and a step trace in the same system extended by
+one conclusion-indexed hypothesis usable under every congruence context.
+Interpretation instantiates the hypothesis constructor with the recursive
+call, converting two finite traces into a statement over the whole
+register space by a single substitution at the semantic boundary.
+
+Machine-checked throughout, no postulates, no admitted goals.
