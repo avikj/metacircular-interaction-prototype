@@ -1,0 +1,112 @@
+शेष · STATUS — what is true in this tree right now
+==================================================
+Measured 2026-08-25 by static audit at HEAD.  No Agda was run: no toolchain
+is installed in the container this was measured in.  Every line below carries
+the command that produced it, because an absence without a command is a rumour.
+
+READ THIS BEFORE READING README.rst.  README.rst says what the corpus MEANS.
+This file says what the corpus DOES, and the two currently disagree.
+
+
+THE ONE-LINE ANSWER
+-------------------
+The mathematics is real and the build is broken.  Nothing in this tree is
+checked by any command today.  Treat every "green", "EXIT 0" and "checked"
+claim in any header as dated 2026-08-19..24 and pre-reorganisation.
+
+
+WHAT IS SOLID  (static, reproducible, no toolchain needed)
+----------------------------------------------------------
+  0 postulates      grep -rl '^\s*postulate\b' --include=*.agda formal/cubical
+  0 holes           grep -rl '{!'              --include=*.agda formal/cubical
+  1147/1148 --safe  grep -rL '^{-#[^#]*--safe' --include=*.agda formal/cubical
+                    the one exception states itself in its own header:
+                    theorems/number/AsiddhaCatustayam_TheFourUnestablished...agda
+
+That combination is the load-bearing integrity fact about this repository and
+it is nowhere in README.rst.  Under --safe with no postulates and no holes,
+anything that typechecks is proved.  What follows is why nothing typechecks.
+
+
+WHAT IS RED
+-----------
+1. THE FRONTIER DOES NOT COMPILE.  The six newest modules -- the last six
+   commits, formal/cubical/Kernel/ -- open import Kernel.RewriteCertificate,
+   Kernel.GenerativeKernel and Kernel.Sesa_TheDerivationCarriesNoMeaning...
+   None of the three is declared anywhere.  Commit 581938e moved the kernel to
+   lowercase kernel/ with UNQUALIFIED module names (module RewriteCertificate).
+       grep -h '^module' formal/cubical/kernel/RewriteCertificate.agda
+       grep -rl '^module Kernel.RewriteCertificate' --include=*.agda .   # 0
+
+2. AMBIGUOUS MODULE NAME.  theorems/number/Cakravala.agda and
+   theorems/historical_proofs/Cakravala.agda BOTH declare `module Cakravala`,
+   both directories are on the include: path, and theorems/number/Jiva.agda:143
+   does `import Cakravala`.  Agda will reject this.
+       grep -rn '^module Cakravala$' --include=*.agda formal/cubical
+
+3. THREE DANGLING IMPORTS.  SourcedProofs.Brahmagupta (theorems/number/
+   Cakravala.agda:27), Setubandha_ThePrastarasNextRow... (theorems/
+   historical_proofs/Sthana_...agda:93), and Kernel.Sesa_... above.
+
+4. NO AGGREGATE ROOT.  Everything.agda no longer exists under formal/cubical;
+   b2fc3b0 dissolved NaturalMachine/ into buckets and took it.  321 of 1147
+   modules are imported by nothing.  By this repo's own standard -- "a module
+   outside a root's import closure is built by NO command" -- those 321 are
+   unbuilt.
+
+5. THE TWO FILES THE REPO NOMINATES AS ITS AUTHORITY ARE ORPHANS.
+       theorems/residue/Ekavakyata_FiveCollapses...agda   imported by 0 modules
+       kernel/WhatThisIsAndHowToDescend...agda            imported by 0 modules
+   README.rst stakes its authority on the first: "If one of the five theorems
+   is renamed, weakened, or stops checking, that file goes red."  It cannot go
+   red.  It is in no build closure.  The mechanism is right and unwired.
+
+6. EVERY CHECK SCRIPT IS STALE.  formal/check.sh names five targets, all gone.
+   formal/cubical/check.sh defaults to NaturalMachine.agda, Everything.agda,
+   IndianLane.agda -- the first two gone from that directory.
+   formal/cubical/check-controls.sh scans NaturalMachine/Control/, gone; the
+   must-fail gate guards nothing.  .claude/hooks/agda-ready.sh tells every
+   arriving session to run `agda Everything.agda`, which does not exist.
+
+7. README.rst's TWO EXECUTABLE PROMISES.
+   `sh fibre/check.sh` runs, but fibre/ is a SEPARATE lane at a DIFFERENT pin
+   (Agda 2.6.3 + cubical v0.5) and contains NONE of the five theorems, which
+   live in formal/cubical at Agda 2.8.0 + cubical v0.9.
+   `sh interactive/run-yantra.sh --wire` cannot build: DefectLog.hs,
+   Phonology.hs and Obstruction.hs are all absent.
+
+8. ./sesa, the only executable at the repo root, prints a NEGATIVE count
+   ("-4 fence lines indexed"), cannot write to the deleted notes/, and exits 0
+   by design.  Three of its five source paths no longer exist.
+
+
+DEAD POINTERS — DO NOT CHASE THESE
+-----------------------------------
+notes/ and every notes/*.md, CLAUDE.md, AGENTS.md, BUILD.md, docs/,
+NaturalMachine/, machine/, punaragamana/, SourcedProofs/, fibre/src/Loss/.
+All deleted or renamed on 2026-08-24/25.  They are still cited as live
+authority in 403 of 1185 .agda files (34%): notes/ in 327, CLAUDE.md in 101.
+       grep -rlF -e 'notes/' -e 'CLAUDE.md' --include=*.agda . | wc -l
+MEASURED: of every repo-relative path named in a comment across all .agda,
+.sh and .rst files, 1023 of 1092 are dead -- 94%.  Only 69 resolve.
+       sh scripts/check-path-freshness.sh
+These citations are rot, not leads.  Eight independent cold readers each
+burned multiple tool calls on them before learning to ignore them.
+
+The kernel entry file also asserts "Markdown is banned in this repository
+(owner, 2026-08-24)".  That ban was lifted the next day by 99bb416, which
+deleted the hook that enforced it.  Readers have repeated the stale ban as
+current fact.
+
+
+SCOPE NOTE
+----------
+This file reports.  It repairs nothing.  Items 1-3 are mechanical fixes and
+are deliberately left to the owner: the kernel entry file's §0(4) names
+"correctly recognising the work as advanced, then proposing to verify,
+consolidate or tidy something" as this repository's measured failure mode for
+arriving agents, and it is right that repair is not the work.  But §0(4) is
+about substituting tidying for creation.  It is not a licence to publish
+"every claim is a term a typechecker accepts or refuses" over a tree where no
+typechecker runs.  Verification is not the work; it is the precondition for
+believing the work, and it is currently unavailable to every reader.

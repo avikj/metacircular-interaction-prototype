@@ -6,9 +6,32 @@
   Indian mathematics and philosophy, c. 1200 BCE to c. 1600 CE, read on its
   own terms and written down as machine-checked terms rather than as prose
   about them.  The substrate is cubical Agda, in which univalence computes.
-  Every claim below is a term a typechecker accepts or refuses::
+  Every claim below is a term a typechecker accepts or refuses.
 
-      sh fibre/check.sh            # installs its own Agda, checks, exit 0
+  WHAT THAT IS WORTH TODAY, MEASURED.  Across the 1148 modules of
+  formal/cubical: zero postulates, zero holes, and 1147 of 1148 carrying
+  --safe, the exception stating itself in its own header.  Under --safe with
+  no postulates and no holes, anything that typechecks is proved::
+
+      grep -rl '^\s*postulate\b' --include=*.agda formal/cubical   # 0
+      grep -rl '{!'               --include=*.agda formal/cubical   # 0
+
+  And what it is NOT worth today: no command in this repository currently
+  checks the five theorems below.  The 2026-08-24/25 reorganisation moved the
+  files and left every check script pointed at the old paths; the six newest
+  modules do not compile; and the companion named in the next paragraph is in
+  no build closure, so it cannot in fact go red.  See ``STATUS`` at the repo
+  root, which carries the command behind each of those claims.  Read it before
+  believing this file.
+
+      sh fibre/check.sh            # runs -- but checks the fibre/ lane only,
+                                   # at Agda 2.6.3 + cubical v0.5.  NONE of
+                                   # the five theorems is in that lane; they
+                                   # are in formal/cubical at 2.8.0 + v0.9.
+
+  FOR THE RESULTS WITHOUT THE SANSKRIT APPARATUS, in ordinary journal English,
+  one result per file: abstracts/ -- 24 of them.  That is the fastest way into
+  this corpus and most readers do not find it.
 
 
 
