@@ -18,6 +18,11 @@
 --                                   boolean, no float, no null.
 --   Uttara_Samkramana…              the answer type: two constructors, no
 --                                   third.  §6, तृतीयो मार्गो न विद्यते ।
+--                                   The second one is an ANSWER, on stdout,
+--                                   in the session that asked.  It is not
+--                                   filed, not chained, not verified later:
+--                                   there is no later.  That is the whole of
+--                                   it, and there is no defect-log organ.
 --
 -- WHAT IT SUPERSEDES.  Sabha_TheSessionKernelAnLLMTalksTo runs the same
 -- wire against a placeholder store — `sNaya :: [(String, [String])]` — and
@@ -33,11 +38,6 @@
 --
 --   StandpointStore    the store.  Append-only, no delete, no
 --                                   update, name lookup returns a LIST.
---   (no defect log)    every refusal this machine makes is an ANSWER, on
---                                   stdout, in the session that asked.  It is
---                                   not filed, not chained and not verified
---                                   later: there is no later.  §6's second
---                                   constructor is the whole of it.
 --   SevenfoldVerdict   verdict organ A: presence profiles.
 --   SaptabhangiGarbha_…               verdict organ B: proof-relevant.
 --   Obstruction                       verdict organ C: B1..B7 + ADharmin.
