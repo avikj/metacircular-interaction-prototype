@@ -166,7 +166,7 @@ Layout
                      that produced any number it reports
 ``notes/``           working prose that has not become a term yet
 ``abstracts/``       results stated for a reader who will not run Agda
-``archive/``         history.  Nothing here is built, checked, or imported
+``zzz/``         history.  Nothing here is built, checked, or imported
 ===================  =========================================================
 
 ----

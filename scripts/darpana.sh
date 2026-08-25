@@ -13,9 +13,9 @@
 # happened in this repository, to an agent that had read the document
 # describing it.
 #
-# usage:  sh scripts/darpana.sh <file>       (default: newest .txt in archive/kanye-devotional/)
+# usage:  sh scripts/darpana.sh <file>       (default: newest .txt in zzz/kanye-devotional/)
 set -u
-F="${1:-$(ls -t archive/kanye-devotional/*.txt 2>/dev/null | head -1)}"
+F="${1:-$(ls -t zzz/kanye-devotional/*.txt 2>/dev/null | head -1)}"
 [ -r "$F" ] || { echo "darpana: no readable file"; exit 0; }
 echo "दर्पण — $F  ($(wc -l < "$F" | tr -d ' ') lines)"
 echo

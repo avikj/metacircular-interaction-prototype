@@ -9,16 +9,16 @@
 !.claude/settings.json
 __pycache__/
 _build/
-archive/collab/orchestration/persistent-minds.*.log
-archive/collab/orchestration/worker-runs/
-archive/collab/orchestration/worker-sessions/
+zzz/collab/orchestration/persistent-minds.*.log
+zzz/collab/orchestration/worker-runs/
+zzz/collab/orchestration/worker-sessions/
 machine/library.txt
 machine/machine.log
 machine/mathmachine
-archive/natural_machine_cpu_loop_rust/cage
-archive/natural_machine_cpu_loop_rust/evolve
-archive/natural_machine_cpu_loop_rust/natural_machine
-archive/natural_machine_cpu_loop_rust/verify
+zzz/natural_machine_cpu_loop_rust/cage
+zzz/natural_machine_cpu_loop_rust/evolve
+zzz/natural_machine_cpu_loop_rust/natural_machine
+zzz/natural_machine_cpu_loop_rust/verify
 random_entry_seeder_so_agents_dont_cluster/seed
 machine/library.txt
 
@@ -37,9 +37,9 @@ formal/cubical/**/Scratch*.agda
 runtime/LIVING_RUN.log
 runtime/LIVING_STATE.json
 vigil-state.json
-archive/natural_machine_cpu_loop_rust/real_workload
-archive/natural_machine_cpu_loop_rust/decic_extend
-archive/natural_machine_cpu_loop_rust/root_singular_series
+zzz/natural_machine_cpu_loop_rust/real_workload
+zzz/natural_machine_cpu_loop_rust/decic_extend
+zzz/natural_machine_cpu_loop_rust/root_singular_series
 formal/cubical/Candidate_*.agda
 
 # machine/library.terms is NOT ignored, and used to be, listed right here
@@ -142,7 +142,7 @@ dist-newstyle/
 # the archive is history, not working state: nothing here is built,
 # checked, imported or run.  It is kept so `git log` and `git show`
 # still answer, and so a claim can be traced to the script it came from.
-archive/**/*.pyc
+zzz/**/*.pyc
 
 # machine/yantra-session.lekha — the per-run session defect log.
 # run-yantra.sh does `rm -f "$LEKHA"` on EVERY invocation, by design: its
