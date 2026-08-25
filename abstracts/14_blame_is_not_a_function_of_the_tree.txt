@@ -1,0 +1,78 @@
+BLAME IS NOT A FUNCTION OF THE WORKING TREE
+A patch algebra with no conflicts, no rebase, and no canonical history,
+and the exact price
+
+Version control / patch theory
+
+Attribution — which change is responsible for the line you are reading —
+is universally implemented as a reconstruction from the current tree
+together with a linearised history.  We prove it cannot be one.  The map
+sending a sequence of patches to the tree it produces lands in a discrete
+type, so it factors through the propositional truncation of the patch
+sequence; the preimage of a tree is the entire space of sequences
+producing it, and no function of the tree recovers any part of the
+sequence.  Attribution is not a hard inference problem, it is a function
+out of a subsingleton.  It must be carried on the patch, or it is gone.
+
+We give a patch algebra that carries it.  A patch is an operation record
+over a closed, finite, binder-free term algebra with six independent
+registers, whose fields include the derivation licensing the change, and
+whose type admits no inhabitant without such a derivation in hand.  An
+ill-formed patch is therefore not a patch that fails validation; it is a
+value that does not exist.  There is no fsck pass, no quarantine, and no
+repair path.
+
+Merge is concatenation.  It never drops a change contributed by either
+side, never manufactures one absent from both, is idempotent, and merging
+the same pair of repositories in opposite orders leaves them able to do
+exactly the same things.  There are no timestamps, no clocks, no ancestry
+computation, no three-way merge base, no rename detection heuristic, and no
+conflict resolution policy anywhere in the system.  Merge is total: there
+is no failure case, because there is nothing an incoming patch could be
+that would require rejecting.
+
+Patches commute, and this is structural rather than case-analysed.  The
+transition relation is generated with reversal as a *constructor*, so patch
+sequences form a groupoid over trees: every patch has an inverse by
+construction, there is no direction, no normal form, no canonical
+ordering, and no notion of one history superseding another.  Rebase and
+cherry-pick are not implemented differently here — they have no statement,
+because there is no linear order to rebase onto.  Concatenation is strictly
+associative and unital as data, so trees and patch sequences form a strict
+category; inversion is derived and double inversion yields a syntactically
+distinct sequence, so the groupoid is weak, and that asymmetry is where
+every remaining unit of cost sits.
+
+Two sequences producing the same tree and differing in length have equal
+effects and neither is incorrect.  The advance path is a map over the
+patch list with no deduplication, no squashing, no canonicalisation and no
+quotient; the only invariant expressible is multiplicity, because the
+stronger law would require deciding that two identically-terminating
+sequences coincide, which is precisely the judgement the first paragraph
+shows the tree cannot make.  A divergence is therefore two carriers of one
+state and not a conflict awaiting resolution, and there is nothing for a
+merge driver to arbitrate.  We ship the minimal witness: a direct sequence
+and a detour that applies a patch, applies its inverse, and proceeds, whose
+resulting trees are equal by reduction rather than by comparison, so no
+tree-level predicate separates them.
+
+The design's cost is stated exactly and it is the same cost throughout:
+because every patch retains its derivation and nothing may be
+deduplicated, the repository is monotone in the strongest sense — no
+squash, no history rewriting, no shallow clone, no garbage collection, and
+no safe pruning rule.  Where a patch's precondition contains no free
+register, the sequences applicable at a single state form an entire copy
+of the term algebra with every one producing the same tree, so any
+compaction heuristic collapses an unbounded fibre rather than a redundant
+pair.  Repositories under this algebra trade unbounded growth for the
+elimination of the entire conflict, ordering and attribution stack.
+
+Two operational notes.  The complete lineage of a chain of patches costs
+no more to transport than a single link, absorbs later reversal without
+rewriting, and provably cannot be carried by any summary in a discrete
+type.  And the sole information-discarding transition in the system is the
+application step, which retains the resulting sequence and forgets which
+patch object licensed it, so the repository records what happened and never
+why it was permitted.
+
+Machine-checked, no postulates, no admitted goals.
