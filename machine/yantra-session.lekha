@@ -9,7 +9,7 @@
 # To correct a record, APPEND one whose `uttara:` names it.
 #
 dosa 0001
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: avaktavya
   vastu: naya.samasa
@@ -42,10 +42,10 @@ dosa 0001
   yogyata-ksetra: the session state as of turn 9 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: c230374a63c3e724
+  sara: e3046e44f2d1ed97
 .
 dosa 0002
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: ayogya-darsana
   vastu: naya.samasa
@@ -60,10 +60,10 @@ dosa 0002
   yogyata-ksetra: the session state as of turn 10 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: b2b1d16ff07d8559
+  sara: 0ff46a100cfdcbf9
 .
 dosa 0003
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: avaktavya
   vastu: nirnaya.saptabhangi
@@ -125,10 +125,10 @@ dosa 0003
   yogyata-ksetra: the session state as of turn 11 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 52709e2fe39f90eb
+  sara: da4b126102557c45
 .
 dosa 0004
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: avaktavya
   vastu: saptabhangi.nasti
@@ -150,10 +150,10 @@ dosa 0004
   yogyata-ksetra: the session state as of turn 13 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 501ce20d87fddd7d
+  sara: 575a62c3325acc5f
 .
 dosa 0005
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: sadhana
@@ -169,10 +169,10 @@ dosa 0005
   yogyata-ksetra: the session state as of turn 17 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 3f97c1e09f411114
+  sara: 44f45f6cde347bd5
 .
 dosa 0006
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: sadhana
@@ -195,10 +195,10 @@ dosa 0006
   yogyata-ksetra: the session state as of turn 18 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 8b0b99deedce456a
+  sara: 85b29dbd08b5333e
 .
 dosa 0007
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: kuttaka
@@ -213,10 +213,10 @@ dosa 0007
   yogyata-ksetra: the session state as of turn 20 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 491ae3b58cd04efc
+  sara: 9f664ca2d5c56492
 .
 dosa 0008
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: vargaprakrti
@@ -232,10 +232,10 @@ dosa 0008
   yogyata-ksetra: the session state as of turn 22 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: ce9bd2a6312b06a5
+  sara: 389d78ccf465b5fc
 .
 dosa 0009
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: nasti-krta
   vastu: yantra.srutam
@@ -248,10 +248,10 @@ dosa 0009
   yogyata-ksetra: the session state as of turn 24 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 75a21e9cdda1d86e
+  sara: 166f0487e11d3fd5
 .
 dosa 0010
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: yantra.srutam
@@ -264,10 +264,10 @@ dosa 0010
   yogyata-ksetra: the session state as of turn 25 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 9eb9e17e1305c86c
+  sara: cf3a9fdfd3d310fa
 .
 dosa 0011
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: yantra.srutam
@@ -299,10 +299,10 @@ dosa 0011
   yogyata-ksetra: the session state as of turn 26 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 7e503d36435e6519
+  sara: 9dddcc6b0db77cbe
 .
 dosa 0012
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: yantra.srutam
@@ -315,10 +315,10 @@ dosa 0012
   yogyata-ksetra: the session state as of turn 27 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 6c5566fe38ec12ca
+  sara: 34e1fe442f8e9aa7
 .
 dosa 0013
-  kala: 2026-08-24
+  kala: 2026-08-25
   karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
   jati: sankramana-asambhava
   vastu: translating avaktavya
@@ -332,5 +332,5 @@ dosa 0013
   yogyata-ksetra: the session state as of turn 28 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 00b05d312d4cf5f5
+  sara: a3119ed6ecbef33b
 .
