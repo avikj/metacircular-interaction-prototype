@@ -85,7 +85,6 @@ import SeamClosed
 -- The WHOLE trace corpus in one module, generated: TraceLibrary reads the
 -- machine's own discarded trace-replay proofs back, deduplicates them by
 -- declaration, and makes them citable by name.
-import TraceCorpus
 
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka (~700) and Halāyudha
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
@@ -224,7 +223,6 @@ import Saptabhangi
 
 -- The machine's own material read back: the curriculum its refusals
 -- demand, descent by distinction, and return.
-import MachineCurriculum
 import BhedaAvatarana
 import Punaragamana
 
