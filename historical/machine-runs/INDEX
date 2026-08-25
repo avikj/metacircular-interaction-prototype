@@ -1,0 +1,62 @@
+historical/machine-runs — OUTPUTS OF RUNS OF THE MACHINE, KEPT AS PROVENANCE.
+
+WHAT THESE ARE.  Not historical sources: those are texts, and the README's
+`historical/` sentence is about them.  These are the other kind of
+provenance — files a run of interactive/ WROTE, which a checked module then
+cites because the module's content came out of that run.  The theorem is
+the Agda; this is the evidence that a machine, not a person, named it.
+
+WHY THEY ARE TRACKED.  A citation to a file no clone carries is not a
+citation.  Each line below is a live claim: the module says the file says
+something, and the file is here to be read.  They were briefly untracked on
+2026-08-25 as lane-era data and put back the same day, because reading the
+citations showed they are not session state — they are what the run found.
+
+  library.terms
+      the engine's rule memory.  interactive/Sanghatta ran Knuth-Bendix
+      over it: 174 rules, 829 critical pairs, 399 NON-JOINING.
+      cited by  formal/cubical/theorems/number/
+                  SanghattaSamapti_TheRewritersOwnNonJoiningPairsClosedAgainstTheKernel.agda
+                formal/cubical/theorems/logic/
+                  SesaSiddhi_TheKernelProvesByInductionTheFrontierLemmasTheEnginesCompositionCouldNotReach.agda
+
+  sanghatta-report-2026-08-23.txt
+      those 399 non-joining pairs as the run printed them.  The module
+      takes the batch and closes each one against the kernel.
+      cited by  SanghattaSamapti_… (above)
+
+  replay.traces
+      17 records of a three-round run, kept since 2026-08-18 because the
+      engine used to write the words "trace replay" and DISCARD the source
+      — 820 of 2362 KERNEL-ACCEPT lines.  SeamClosed's `addZero` is
+      transcribed VERBATIM from record 1, lines 6-8: the lemma below the
+      fold in that module is the machine's own text, not a restatement.
+      cited by  formal/cubical/theorems/logic/SeamClosed.agda
+                formal/cubical/theorems/physics/
+                  TheSharedPreambleIsACommonPrefixNotACommonSet.agda  (the 16-of-17 count)
+
+  thoughts.bhavana.math
+      an exhaustive search.  It found the witness that bhāvanā AS STATED
+      IS FALSE over ℕ, monus being truncated: (x1,y1,x2,y2) = (0,1,0,1).
+      cited by  formal/cubical/theorems/historical_proofs/BhavanaSemiring.agda
+
+  thoughts.math
+      the demands the machine left standing — mod, div, Omega, omega, musq
+      — each of which would be a new trusted input to the certificate
+      vocabulary and is refused on that ground.
+      cited by  formal/cubical/kernel/RewriteCertificateMul.agda
+
+  mula.pramana
+      the citation registry.  SaptabhangiNaya is registered here as
+      `uddhrta`, a citation naming a fixed object rather than a
+      HEAD-relative position.
+      cited by  formal/cubical/theorems/historical_proofs/SaptabhangiNaya.agda
+
+PATHS.  Four of the nine citations said `machine/…`, a directory that has
+held no sources since the rename to interactive/, so they were dangling
+before this move and resolve now.  Repointed 2026-08-25.
+
+NOT HERE.  interactive/dosa.lekha is cited twice and did NOT move: both
+citations are incidental (one records that its own hash chain is broken
+from record 0040), neither says a theorem came from a run.  It stays
+untracked lane-era state.

@@ -180,6 +180,17 @@ interactive/yantra-session.lekha
 # untracking it does not change what the machine does; it stops a 181 KB
 # multi-agent transcript from being part of what the repository presents.
 #
+# SIX OF THESE MOVED OUT INSTEAD, on 2026-08-25, and are TRACKED at
+# historical/machine-runs/: library.terms, sanghatta-report-2026-08-23.txt,
+# replay.traces, thoughts.bhavana.math, thoughts.math, mula.pramana.  They
+# are cited by checked Agda modules whose CONTENT came out of a run that
+# wrote them -- SeamClosed's `addZero` is transcribed verbatim from
+# replay.traces record 1 -- so they are provenance, not session state, and a
+# citation to a file no clone carries is not a citation.  See
+# historical/machine-runs/INDEX.  interactive/thoughts.*.math below still
+# catches thoughts.pair.math and the two thoughts.upamana.* files, which no
+# module cites.
+#
 # Kept on disk rather than deleted: `git log` still answers for all of them,
 # and interactive/scripts that predate this still find them in a working
 # container.  A fresh clone will not have them -- scripts/check-dosa-lekha.sh
@@ -187,18 +198,13 @@ interactive/yantra-session.lekha
 # ---------------------------------------------------------------------------
 interactive/dosa.lekha
 interactive/naya.kosha
-interactive/library.terms
 interactive/library.gen1.txt
 interactive/library.snapshot.txt
-interactive/replay.traces
 interactive/machine.log.gen1
-interactive/mula.pramana
 interactive/nadi-saksin
 interactive/repairfixpoint.cert.txt
-interactive/sanghatta-report-2026-08-23.txt
 interactive/knobs.conf
 interactive/svayam-avatarana
 interactive/pratikara.STRUCK
 interactive/pratikara.STRUCK.*
 interactive/thoughts.*.math
-interactive/thoughts.math
