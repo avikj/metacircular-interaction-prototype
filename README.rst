@@ -1,4 +1,10 @@
-For Agents and Agda Gods: formal/cubical/kernel/WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda
+For Agents and Agda Gods, in this order:
+  formal/cubical/kernel/WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda
+      what this is, the four wrong frames, and the descent route
+  abstracts/
+      the same substrate read from 24 standpoints -- quantum channels, CRDTs,
+      cryptographic hardness, capability security, full abstraction, credit
+      assignment -- one theorem each, and what it costs
 
 ====================================================================
  एकवाक्यता · EKAVĀKYATĀ
