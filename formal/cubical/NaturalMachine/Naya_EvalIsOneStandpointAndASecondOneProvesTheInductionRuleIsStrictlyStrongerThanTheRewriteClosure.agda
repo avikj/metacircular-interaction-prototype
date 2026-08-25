@@ -29,14 +29,40 @@
 -- nayas are standpoints on a real object, not interpretations of a formal
 -- syntax, and no Jaina proved anything below.
 --
--- What the frame contributes is a DIAGNOSIS, and it is the reason this
--- file exists: this corpus has been treating `eval` as THE semantics.
--- `Sesa_…` says "the executable meaning", `Alopa_…` says "the meaning",
--- and every soundness theorem in the kernel is stated against ℕ alone.  ℕ
--- is one standpoint.  Held as the only one it is a durnaya, and §3 shows
--- exactly what that costs: TWO INDEPENDENCE RESULTS THAT ℕ CANNOT SEE,
--- because both statements are TRUE in ℕ at every environment.  The second
--- standpoint is three lines of definition and it decides them.
+-- ~~"this corpus has been treating `eval` as THE semantics … every
+-- soundness theorem in the kernel is stated against ℕ alone."~~
+--
+-- STRUCK BY ITS OWN AUTHOR, and left standing struck.  IT IS FALSE, AND IT
+-- WAS FALSE WHEN I WROTE IT.  `Ankapasa_…` builds
+--
+--     ⟦_⟧ : Tm → TEnv → Type₀     zero ↦ ⊥, suc ↦ Unit ⊎ −, add ↦ ⊎
+--
+-- a UNIVERSE-valued semantics of this same calculus, in which every `Step`
+-- constructor becomes an equivalence and `reverse` becomes `invEquiv`; it
+-- proves `counting-semantics-cannot-see-it` against
+-- `univalent-semantics-does-see-it`, and names the diagnosis नय-निरोधः.
+-- It got there first and from the aṅkapāśa side.  I asserted an absence
+-- without running the command that would have found it -- `grep -rlE ': *Tm
+-- *→' formal/cubical` returns twenty files -- which is the exact failure
+-- CLAUDE.md names: an absence without a command is a rumor.
+--
+-- WHAT SURVIVES, and it is the whole mathematical content:
+--   * `Ankapasa_`'s model VALIDATES commutativity -- `add ↦ ⊎` and
+--     `⊎-swap-≃` -- and separates it from the identity.  §3 below REFUTES
+--     it: no derivation exists at all.  Non-triviality and underivability
+--     are different theorems and neither implies the other.
+--   * Nothing in `Ankapasa_` bears on left-unitality or on induction, and
+--     §4 is untouched by it.
+--   * TOGETHER the two bracket the fact, which neither does alone:
+--     commutativity of `add` IS NOT DERIVABLE, and once added IT IS NOT
+--     TRIVIAL.  That is two nayas on one object, arrived at separately,
+--     neither reducible to the other -- which is the doctrine, not a
+--     consolation.
+--
+-- So the diagnosis this file offers is narrower than the struck sentence:
+-- not that the corpus had one standpoint, but that ℕ was the standpoint
+-- from which the questions in §3 and §4 had not been asked, and that a
+-- second one three lines long decides them.
 --
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
