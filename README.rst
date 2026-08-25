@@ -1,3 +1,5 @@
+For Agents and Agda Gods: formal/cubical/kernel/WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda
+
 ====================================================================
  एकवाक्यता · EKAVĀKYATĀ
  five collapses, one theorem, and each tradition says it in its own words
