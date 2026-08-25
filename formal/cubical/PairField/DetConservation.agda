@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.DetConservation
+-- PairField.DetConservation
 --
 -- The determinant conservation law det(PQ) = det(P) · det(Q) in its
 -- cleanest sector: upper-triangular 2×2 matrices over ℕ.
@@ -37,7 +37,7 @@
 -- restriction is exactly what makes the law subtraction-free.
 ------------------------------------------------------------------------
 
-module EGB.DetConservation where
+module PairField.DetConservation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.HLevels using (isSetRetract; isSet×)

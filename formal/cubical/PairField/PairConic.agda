@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.PairConic
+-- PairField.PairConic
 --
 -- One conic, two readings.  The identity
 --
@@ -26,7 +26,7 @@
 -- the conic and its two projections.
 ------------------------------------------------------------------------
 
-module EGB.PairConic where
+module PairField.PairConic where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

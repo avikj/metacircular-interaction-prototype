@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- EGB.TwoFibrations: the pair field's shape as ONE total space with TWO
+-- PairField.TwoFibrations: the pair field's shape as ONE total space with TWO
 -- structure maps.
 --
 -- For an abstract predicate P : ℕ → ℕ → Type (one day "both legs of the
@@ -18,7 +18,7 @@
 --
 -- Everything below is checked; nothing about primes is asserted.
 
-module EGB.TwoFibrations where
+module PairField.TwoFibrations where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

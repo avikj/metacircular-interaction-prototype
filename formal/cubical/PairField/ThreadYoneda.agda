@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.ThreadYoneda
+-- PairField.ThreadYoneda
 --
 -- D0025 §4 and T25.A, made a theorem about this net rather than a
 -- picture about categories in general.
@@ -16,10 +16,10 @@
 --
 -- and T25.A asks for `Map(x,y) ≃ Nat(y x, y y)` in the chosen setting.
 -- This file proves both directions of that correspondence for the
--- prime-pair net of `EGB.RootedNet`, with the naturality condition
+-- prime-pair net of `PairField.RootedNet`, with the naturality condition
 -- written out rather than inherited.
 --
--- THE PREREQUISITE, and why it was not free.  `EGB.RootedNet.Thread` is
+-- THE PREREQUISITE, and why it was not free.  `PairField.RootedNet.Thread` is
 -- the sum of two exact relations (shared centre, shared radius).
 -- Neither is closed under composition with the other: a shared-centre
 -- thread followed by a shared-radius thread is in general neither.  So
@@ -52,11 +52,11 @@
 -- this file is where it stops being a word.
 ------------------------------------------------------------------------
 
-module EGB.ThreadYoneda where
+module PairField.ThreadYoneda where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
-open import EGB.RootedNet
+open import PairField.RootedNet
 
 ------------------------------------------------------------------------
 -- §1  Thread-paths: the free category on the two exact relations

@@ -43,7 +43,7 @@
 --   are recorded in the note, not claimed here.
 ------------------------------------------------------------------------
 
-module EGB.IndraNet where
+module PairField.IndraNet where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

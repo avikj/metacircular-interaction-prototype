@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.Tear
+-- PairField.Tear
 --
 -- D0025 §16 and §18, D0016 §B and §C: the tear as an OBJECT, and Γ as
 -- the operation that makes the next stage's material out of it.
@@ -35,14 +35,14 @@
 -- and saying otherwise would be dressing a definition as a theorem.
 ------------------------------------------------------------------------
 
-module EGB.Tear where
+module PairField.Tear where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Properties
 open import Cubical.Relation.Nullary
-open import EGB.RootedNet
-open import EGB.ThreadYoneda
+open import PairField.RootedNet
+open import PairField.ThreadYoneda
 
 ------------------------------------------------------------------------
 -- §1  What each thread family carries, and what it does not
@@ -113,7 +113,7 @@ mixed = step₁ ◃ step₂ ◃ idPath
 -- defect δ_σ = 𝔥_σ ⊖ 1 is a difference, and a difference has a size.
 --
 -- The gap is written additively (`gapWitness`) so that no truncated
--- subtraction enters, the discipline `EGB.PairConic` fixed for this net.
+-- subtraction enters, the discipline `PairField.PairConic` fixed for this net.
 ------------------------------------------------------------------------
 
 record Tear : Type where

@@ -12,7 +12,7 @@
 -- T24.3 inside a three-perspective toy); here the statement is
 -- isolated on the smallest possible carrier.
 
-module EGB.CycleHolonomy where
+module PairField.CycleHolonomy where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

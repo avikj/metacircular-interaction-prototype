@@ -63,7 +63,7 @@
 -- here proves twins; T110 proves which strategy CANNOT.
 ------------------------------------------------------------------------
 
-module EGB.FactoryVICoolingKill where
+module PairField.FactoryVICoolingKill where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _·_)

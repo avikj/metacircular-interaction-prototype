@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.ResidueGlue
+-- PairField.ResidueGlue
 --
 -- The non-coprime gluing law of notes/MATHEMATICS_THAT_LEARNS.md
 -- (`glue-remainders 4 6`, retired Python) made checkable at its
@@ -53,7 +53,7 @@
 -- which is unindexed.  The pattern synonyms fz/fs keep the notation.
 ------------------------------------------------------------------------
 
-module EGB.ResidueGlue where
+module PairField.ResidueGlue where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

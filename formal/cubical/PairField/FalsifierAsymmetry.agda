@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.FalsifierAsymmetry
+-- PairField.FalsifierAsymmetry
 --
 -- The collaboration's constitution says "numerics are falsifiers only"
 -- (AGENTS.md line 64) and "headline claims ship with their own
@@ -47,7 +47,7 @@
 -- asymmetry is now a term, not a slogan.
 ------------------------------------------------------------------------
 
-module EGB.FalsifierAsymmetry where
+module PairField.FalsifierAsymmetry where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat

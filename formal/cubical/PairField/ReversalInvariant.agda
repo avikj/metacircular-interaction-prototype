@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.ReversalInvariant
+-- PairField.ReversalInvariant
 --
 -- Reversal as an involution whose invariants are exactly the
 -- achromatic data.
@@ -37,7 +37,7 @@
 --   inductions this file performs.
 ------------------------------------------------------------------------
 
-module EGB.ReversalInvariant where
+module PairField.ReversalInvariant where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

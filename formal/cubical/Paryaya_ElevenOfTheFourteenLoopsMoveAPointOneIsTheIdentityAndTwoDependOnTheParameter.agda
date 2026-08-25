@@ -96,9 +96,9 @@ open import Cubical.Data.Sigma using (_×_; _,_; fst; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
 -- the fourteen rows, each in the module that checked it
-import EGB.CycleHolonomy                                as CY
+import PairField.CycleHolonomy                                as CY
 import AchromaticToy                                   as AT
-import EGB.ReversalInvariant                            as RV
+import PairField.ReversalInvariant                            as RV
 import NaturalMachine.ExactTwoStateInstrument          as EI
 import NaturalMachine.StructuredDefect                 as SD
 import NaturalMachine.TheArithmeticCircleIsFourPeriodic as AC
@@ -129,7 +129,7 @@ private variable ℓ : Level
 -- १ ── ELEVEN THAT MOVE A POINT.  Real charge, one row at a time.
 ------------------------------------------------------------------------
 
--- १.१  EGB.CycleHolonomy.holBool : Bool ≃ Bool — three `not`s, so `not`.
+-- १.१  PairField.CycleHolonomy.holBool : Bool ≃ Bool — three `not`s, so `not`.
 १-holBool : ¬ (ua CY.holBool ≡ refl)
 १-holBool = चलनम् CY.holBool true
   (λ q → false≢true (sym (CY.holBoolIsNot true) ∙ q))
@@ -192,7 +192,7 @@ private variable ℓ : Level
 शून्य-पर्यायः : ua BR.identityCrossingEquiv ≡ refl
 शून्य-पर्यायः = cong ua (equivEq refl) ∙ uaIdEquiv
 
--- २.२  EGB.CycleHolonomy.hol is not a loop: it is a FAMILY over three
+-- २.२  PairField.CycleHolonomy.hol is not a loop: it is a FAMILY over three
 --      equivalences, and the census matched its conclusion.  At the
 --      identity arguments it is the identity …
 हेतु-सापेक्षः-तुच्छः : (A : Type ℓ)
@@ -202,7 +202,7 @@ private variable ℓ : Level
 -- … and at `notEquiv` it is not (that instantiation IS `holBool`, §१.१).
 -- So the family has no answer; only its instances do.
 
--- २.३  EGB.ReversalInvariant.revEquiv is likewise a family, over the
+-- २.३  PairField.ReversalInvariant.revEquiv is likewise a family, over the
 --      letter type.  Over an empty alphabet reversal is the identity …
 शून्याक्षरे : (xs : List ⊥) → rev xs ≡ xs
 शून्याक्षरे []       = refl

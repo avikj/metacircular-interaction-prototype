@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.RootedNet
+-- PairField.RootedNet
 --
 -- D0025 §T25.B, on D0025 §19's objects.
 --
@@ -22,7 +22,7 @@
 --
 -- WHAT IT IS NOT.  No primality statement, and therefore no Goldbach or
 -- twin statement — the jewel type below carries the centre/radius
--- geometry only, exactly as `EGB.PairConic` carries the conic only.  The
+-- geometry only, exactly as `PairField.PairConic` carries the conic only.  The
 -- Net whose jewels are *witnesses* needs Prime as a predicate and that
 -- is a separate obligation, named in §5 below and not discharged here.
 --
@@ -35,7 +35,7 @@
 -- where a local event reweaves the whole rather than lengthening a list.
 ------------------------------------------------------------------------
 
-module EGB.RootedNet where
+module PairField.RootedNet where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
@@ -81,7 +81,7 @@ module Rooted {ℓ ℓ'} (U : Type ℓ) (View : U → Type ℓ') where
 -- A jewel is a centre w and a radius r.  Its legs are the two numbers
 -- the centre is equidistant from; over ℕ they are written additively so
 -- that no truncated subtraction enters the primary statements, which is
--- the discipline `EGB.PairConic` §1 already fixed for this conic.
+-- the discipline `PairField.PairConic` §1 already fixed for this conic.
 ------------------------------------------------------------------------
 
 record Jewel : Type where

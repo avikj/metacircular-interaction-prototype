@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.PhiIdempotent
+-- PairField.PhiIdempotent
 --
 -- The achromatic component of the EGB reflection operator Φ is a
 -- genuine reflector: it stabilizes after one application.
@@ -37,7 +37,7 @@
 -- repeats; the defect is the loop that develops.
 ------------------------------------------------------------------------
 
-module EGB.PhiIdempotent where
+module PairField.PhiIdempotent where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

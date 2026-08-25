@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.SuccessorCost
+-- PairField.SuccessorCost
 --
 -- The Rust natural machine's REOPEN scan on ℤ/12 printed "persistent 7"
 -- for the successor action r ↦ r + 1.  Seven is not a measurement; it is
@@ -37,7 +37,7 @@
 -- certify.  This module is the arithmetic identity only.
 ------------------------------------------------------------------------
 
-module EGB.SuccessorCost where
+module PairField.SuccessorCost where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

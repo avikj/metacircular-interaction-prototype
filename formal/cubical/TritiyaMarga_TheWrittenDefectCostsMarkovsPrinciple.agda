@@ -153,7 +153,7 @@ defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 --  AND THE EXACTNESS IS EARNED NEXT DOOR, FOR A DIFFERENT STATEMENT,
 --  which is very likely what the word was reaching for: `Swarm.S04Apoha`
 --  carries `MP→Witnessed` AND `Witnessed→MP`, both checked, and
---  `EGB.FalsifierAsymmetry` cites that pair for exactly this purpose.  So
+--  `PairField.FalsifierAsymmetry` cites that pair for exactly this purpose.  So
 --  "precisely Markov.s Principle" is a true sentence about `Witnessed`.
 --  `Writable` is not `Witnessed`: it quantifies over all types and all
 --  maps and returns a defect SITE, where the biconditional next door is

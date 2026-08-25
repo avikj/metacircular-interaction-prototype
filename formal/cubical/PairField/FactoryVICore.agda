@@ -57,7 +57,7 @@
 -- no postulates, no holes.
 ------------------------------------------------------------------------
 
-module EGB.FactoryVICore where
+module PairField.FactoryVICore where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _·_; _^_; injSuc; snotz)

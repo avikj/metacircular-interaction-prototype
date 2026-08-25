@@ -69,7 +69,7 @@ open import Cubical.Data.Empty renaming (rec to absurd)
 open import Cubical.Data.Sum
 open import Cubical.Relation.Nullary
 
-open import EGB.LawvereDiagonal
+open import PairField.LawvereDiagonal
 
 private
   variable

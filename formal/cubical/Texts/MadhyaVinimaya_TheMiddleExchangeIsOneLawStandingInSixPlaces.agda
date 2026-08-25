@@ -8,7 +8,7 @@
 --
 --   (a · b) · (c · d) ≡ (a · c) · (b · d)
 --     Vargana.चतुर्-विनिमयः                    (Jaina घात-गुण, third index law)
---     EGB.PairComposition.interchange           (Brahmagupta's bhāvanā, split legs)
+--     PairField.PairComposition.interchange           (Brahmagupta's bhāvanā, split legs)
 --
 --   (a + b) + (c + d) ≡ (a + c) + (b + d)
 --     MeruKarna.मध्य-विनिमयः                   (Halāyudha's shallow diagonal)
@@ -47,7 +47,7 @@
 -- as a map A × A → A, is a homomorphism for its own componentwise extension
 -- to A × A.  Brahmagupta's composition of pairs and the Jaina (a·b)ᵐ = aᵐ·bᵐ
 -- are that one homomorphism fact, at one operation, entered from two sides.
--- §3 makes this exact: EGB.PairComposition.prodComp — the module's statement
+-- §3 makes this exact: PairField.PairComposition.prodComp — the module's statement
 -- of the composed pair carrying the product of the products — IS the medial
 -- instance that Vargana's घात-गुण consumes, on the nose.
 --
@@ -63,7 +63,7 @@
 --     to.
 --   · भावना is Brahmagupta, ब्राह्मस्फुटसिद्धान्तः 18, 628 — the composition
 --     of two solutions of a quadratic form.  What is claimed here is that in
---     the split (leg) coordinates EGB.PairComposition works in, the surviving
+--     the split (leg) coordinates PairField.PairComposition works in, the surviving
 --     content of the composition is the medial law.  Brahmagupta composed
 --     over the norm, not over legs; the leg presentation is this corpus's.
 --   · Voevodsky's univalence is the substrate (§६'s first road), and isSetℕ
@@ -80,7 +80,7 @@ open import Cubical.Data.Nat.Properties
   using (isSetℕ ; +-assoc ; +-comm ; ·-assoc ; ·-comm)
 
 import Vargana
-import EGB.PairComposition
+import PairField.PairComposition
 import MeruKarna
 import Vargacitighana
 import CachePathOrder
@@ -158,7 +158,7 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 वर्गणा-तादात्म्यम् a b c d = isSetℕ _ _ _ _
 
 भावना-तादात्म्यम्
-  : (a b c d : ℕ) → EGB.PairComposition.interchange a b c d ≡ मध्य-विनिमयः-गुणे a b c d
+  : (a b c d : ℕ) → PairField.PairComposition.interchange a b c d ≡ मध्य-विनिमयः-गुणे a b c d
 भावना-तादात्म्यम् a b c d = isSetℕ _ _ _ _
 
 -- The link the audit was after, stated directly and without the abstract
@@ -166,26 +166,26 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 -- law and the hand proof inside Brahmagupta's straight composition are one
 -- path.
 घातगुण-भावना-तादात्म्यम्
-  : (a b c d : ℕ) → Vargana.चतुर्-विनिमयः a b c d ≡ EGB.PairComposition.interchange a b c d
+  : (a b c d : ℕ) → Vargana.चतुर्-विनिमयः a b c d ≡ PairField.PairComposition.interchange a b c d
 घातगुण-भावना-तादात्म्यम् a b c d = isSetℕ _ _ _ _
 
 -- And the same identification one level up, at the statements the two
--- modules actually use.  EGB.PairComposition.prodComp p q — "the composed
+-- modules actually use.  PairField.PairComposition.prodComp p q — "the composed
 -- pair carries the product of the products" — is definitionally the medial
 -- instance that Vargana.घात-गुण consumes at its successor step, since prod
 -- and compose both reduce.
 भावना-प्रयोगः-तादात्म्यम्
   : (u₁ v₁ u₂ v₂ : ℕ)
-  → EGB.PairComposition.prodComp (u₁ , v₁) (u₂ , v₂)
+  → PairField.PairComposition.prodComp (u₁ , v₁) (u₂ , v₂)
   ≡ Vargana.चतुर्-विनिमयः u₁ u₂ v₁ v₂
 भावना-प्रयोगः-तादात्म्यम् u₁ v₁ u₂ v₂ = isSetℕ _ _ _ _
 
 -- §2's homomorphism reading, checked against the module that discovered it
--- independently: सङ्घातः at (ℕ,·) IS EGB.PairComposition.prod, ⊛ IS its
+-- independently: सङ्घातः at (ℕ,·) IS PairField.PairComposition.prod, ⊛ IS its
 -- compose, and युग्म-धर्मः IS prodComp.
 युग्म-धर्मः-भावना-तादात्म्यम्
   : (p q : ℕ × ℕ)
-  → युग्म-धर्मः _·_ ·-assoc ·-comm p q ≡ EGB.PairComposition.prodComp p q
+  → युग्म-धर्मः _·_ ·-assoc ·-comm p q ≡ PairField.PairComposition.prodComp p q
 युग्म-धर्मः-भावना-तादात्म्यम् p q = isSetℕ _ _ _ _
 
 -- योग-पक्षः — the four additive restatements, including the two that carry
@@ -226,7 +226,7 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 --     once per unit of m.  Its proof is solveℕ! — deliberately, because at
 --     that site the identity is a bare-variable polynomial fact and the
 --     module's content is the exponent recursion, not the shuffle.
---   · EGB.PairComposition enters from भावना, where the medial step is used
+--   · PairField.PairComposition enters from भावना, where the medial step is used
 --     ONCE, at the top, and is the whole content of the multiplicativity of
 --     the composition.  It is proved by hand there for the same reason:
 --     what the module is about is the shuffle itself.
@@ -257,7 +257,7 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 -- reading is stated here at one operation.  The composition Brahmagupta
 -- actually wrote is not medial in one operation; it is the norm form, where
 -- the two operations interact and the medial law alone does not suffice.
--- EGB.PairComposition says as much in its own header when it records that in
+-- PairField.PairComposition says as much in its own header when it records that in
 -- split coordinates the identity "degenerates to the interchange law".  So:
 -- the six-fold coincidence is the SHADOW of भावना cast by the split
 -- coordinates, and the question the coincidence raises is what the medial

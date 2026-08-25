@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.SpanWeave
+-- PairField.SpanWeave
 --
 -- Relation composition as span composition, with both middles kept.
 --
@@ -36,7 +36,7 @@
 -- collab/messages/genius-braid/1-15-fazang.md.
 ------------------------------------------------------------------------
 
-module EGB.SpanWeave where
+module PairField.SpanWeave where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

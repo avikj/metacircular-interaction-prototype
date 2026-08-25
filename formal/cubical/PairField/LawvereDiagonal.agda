@@ -27,7 +27,7 @@
 -- is the term AchromaticToy imports to drive its reflection step.
 ------------------------------------------------------------------------
 
-module EGB.LawvereDiagonal where
+module PairField.LawvereDiagonal where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma

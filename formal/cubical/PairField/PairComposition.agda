@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- EGB.PairComposition
+-- PairField.PairComposition
 --
 -- Brahmagupta's law, in the split (leg) coordinates of the pair field.
 --
@@ -42,7 +42,7 @@
 -- the primes are precisely what escapes it.
 ------------------------------------------------------------------------
 
-module EGB.PairComposition where
+module PairField.PairComposition where
 
 -- `comp` is the cubical homogeneous-composition primitive, re-exported
 -- along several import paths (hiding it at one site does not clear the

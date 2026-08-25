@@ -11,7 +11,7 @@
 -- COULD NOT FIND.
 --
 -- `Bhedanirnaya_TwoTestersForSamenessOnNumberAndTheTransportThatMoves
--- TheoremsBetweenThem.agda` identified `EGB.ResidueGlue.eqℕ` with
+-- TheoremsBetweenThem.agda` identified `PairField.ResidueGlue.eqℕ` with
 -- `NaturalMachine.Obstruction.eqℕ` — two modules that had each written
 -- the same four clauses, whose theorems PRINT alike and are NOT the same
 -- type, since the two `eqℕ` do not reduce to a common form at variable
@@ -53,9 +53,9 @@
 -- WHAT IS NOT DONE, said so silence is not read as denial.
 --
 --   · The triangle is not closed here.  Bhedanirnaya identifies
---     EGB.ResidueGlue with Obstruction and this identifies Alopa with
---     Obstruction, so Alopa ≡ EGB.ResidueGlue follows by composing the two
---     paths — and is NOT stated below, because EGB.ResidueGlue is not
+--     PairField.ResidueGlue with Obstruction and this identifies Alopa with
+--     Obstruction, so Alopa ≡ PairField.ResidueGlue follows by composing the two
+--     paths — and is NOT stated below, because PairField.ResidueGlue is not
 --     imported here and importing it to state a corollary that costs one
 --     `∙` is not worth the dependency.  Named as available, not claimed.
 --   · NONE of the three should exist.  `Cubical.Relation.Nullary.Discrete`
