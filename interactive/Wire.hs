@@ -460,6 +460,48 @@ athava _ (Durvacam e) = Left e
 -- Aṣṭādhyāyī 1.4.2 exists to refuse.  An undeclared doubled key still lands
 -- here, by the extent branch below; a declared one reaches `look`.
 --
+-- THE PARAGRAPH ABOVE WAS TRUE AS INTENT AND FALSE AS DESCRIPTION FOR THE
+-- LIFE OF THIS FILE, and both halves of that are load-bearing.  2026-08-25,
+-- found by a session on the wire and not by reading:
+--
+--   (i) THE BRANCH WAS NOT GONE.  `| count n > 1 =` stood right below, and
+--       `Server.hs` runs `anadhikrta` BEFORE `kRun`, so a DECLARED doubled
+--       key got the worse sentence and `look`'s was never composed.  Sending
+--       `adi` twice to `pratyahara` produced the count sentence; sending
+--       `kriya` twice at the top level, where `anadhikrta` does not run,
+--       produced `look`'s.  Both in one session, the same run.
+--
+--  (ii) THE SENTENCE IT EMITTED HAD BECOME FALSE.  It said *the reader takes
+--       the first and the rest are lost with no trace*.  After doṣa 0015 the
+--       reader does not take the first: it refuses.  The branch described a
+--       reader that had been repaired away one function above it.
+--
+-- (iii) AND DELETING IT ALONE WOULD HAVE RE-OPENED DOṢA 0015, WORSE THAN
+--       WHERE IT WAS FILED.  Exhibited, not reasoned: with the branch removed
+--       and nothing else changed, `{"kriya":"kuttaka","angani":{"a":137,
+--       "b":60,"c":13,"c":26}}` answered SAṂKRAMAṆA — transport, nothing lost
+--       — carrying the plain Bézout pair, with no `x`, no `modulus`, no
+--       `sarve`, and no trace that a residue had been asked for.  Because
+--       `kKuttaka` read its optional `c` as `case look "c" j of Left _ ->`,
+--       and after 0015 that `Left` carries `you sent it twice` as well as
+--       `you did not send it`.  The mask was load-bearing: the shadowing this
+--       comment condemns was the only thing holding the collapse shut.
+--
+-- So the repair went to the sites first and the branch second.  `kKuttaka`'s
+-- `c` and `kVargaprakrti`'s `n` — the two this file's own §"three, where two
+-- collapse" names as THE CORRECT PATTERN, and the last two readers still
+-- doing the two-way reading it exists to refuse — now read through `vacana`,
+-- so `Durvacam` is refused with the sentence `look` composed and `Anuktam`
+-- alone takes the default.  Only then was the count branch removed, and this
+-- paragraph's first sentence became true of the code as well as of the plan.
+--
+-- WHAT IS STILL OPEN, named rather than inferred: a declared key that the
+-- handler does not read ON THE PATH TAKEN is now unremarked when doubled —
+-- e.g. `c` when `kuttaka` refuses first on `b ≤ 0`.  Nothing is silently
+-- executed there, because the request is already refused, so it is a
+-- remainder and not the collapse; closing it needs the set of keys each path
+-- actually reads, which no operation states.
+--
 -- THIS IS WHAT THIS WIRE SAYS INSTEAD OF `additionalProperties:false`,
 -- WHICH IT CANNOT EMIT.  A schema rendered by this module cannot carry that
 -- keyword: its value is literally `false` and `J` has four constructors and
@@ -504,14 +546,9 @@ anadhikrta :: [String] -> J -> [(String, String)]
 anadhikrta declared (JObj kvs) =
   [ (n, why n) | n <- nub' [ n | (n, _) <- kvs ], why n /= "" ]
   where
-    count n = length [ () | (m, _) <- kvs, m == n ]
     why n
       | n `notElem` declared =
           "this operation declares no parameter of that name, so nothing reads it"
-      | count n > 1 =
-          "uttered " ++ show (count n) ++ " times in one object; the reader takes "
-          ++ "the first and the rest are lost with no trace, so which one you meant "
-          ++ "is not in the utterance"
       | otherwise = ""
     nub' [] = []
     nub' (x:xs) = x : nub' [ z | z <- xs, z /= x ]

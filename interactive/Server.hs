@@ -1028,8 +1028,22 @@ kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
             base = [ ("valli", JArr (map JInt vl))
                    , ("bezout", JObj [("x", JInt x), ("y", JInt yy), ("gcd", JInt g)]) ]
             src = [ "Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32–33, 499 — kuṭṭaka/vallī, the procedure step by step in Bhāskara I's bhāṣya, 629.  The restatement usually cited instead is the 'extended Euclidean algorithm'." ]
-        in case look "c" j of
-             Left _ ->
+        -- अनुक्तम् / उक्तम् / दुर्वचम्, at the optional residue.  This site and
+        -- `n` below are the two Wire.hs's own §"three, where two collapse"
+        -- names as the CORRECT pattern, and they were the two that still had
+        -- the two-way reading: `Left _` carried BOTH `you did not send c` and
+        -- `you sent it and I could not read it`, and the second was executed
+        -- as the first.  Doubled `c` is the reachable instance -- `look` was
+        -- repaired for doṣa 0015 to REFUSE a doubled key, so after that repair
+        -- this branch answered the plain Bézout question, omitted x, modulus
+        -- and sarve, and called it saṃkramaṇa: transport, nothing lost.  It
+        -- was masked only by `anadhikrta`'s count branch running earlier in
+        -- the pipeline, which is the shadowing Aṣṭādhyāyī 1.4.2 refuses and
+        -- which Wire.hs:452 already reports as removed.  Held here instead,
+        -- at the site, so the mask is no longer load-bearing.
+        in case vacana look "c" j of
+             Durvacam e -> refused y "kuttaka" e
+             Anuktam ->
                ( y, Mudra (S.Position S.SyadAsti) (Ganita wit)
                , samkramana "kuttaka"
                    (tulyata "the vallī, read upward, identified with the Bézout pair"
@@ -1039,7 +1053,7 @@ kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
                    [ "the remainders are implicit in the quotients: recoverable, not carried"
                    , "the reason the descent terminates — यत् न विभजते तत् रक्ष्यते, proved elsewhere and not re-proved by this answer" ]
                    src )
-             Right (JInt c)
+             Uktam (JInt c)
                | c `mod` g /= 0 ->
                    ( y, Mudra (S.Position S.SyadNasti)
                           (Ganita ("gcd(" ++ show a ++ ", " ++ show b ++ ") = " ++ show g
@@ -1071,7 +1085,7 @@ kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
                           [ "the other solutions are given as a class, not enumerated"
                           , "the vallī's intermediate remainders" ]
                           src )
-             Right other -> refused y "kuttaka" ("`c` must be an integer, got " ++ render other)
+             Uktam other -> refused y "kuttaka" ("`c` must be an integer, got " ++ render other)
 
 kVargaprakrti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kVargaprakrti y j = pure $ case jInt "D" j of
@@ -1094,8 +1108,13 @@ kVargaprakrti y j = pure $ case jInt "D" j of
                                           | (n, v) <- spec ]) ]
             src = [ "Brahmagupta, Brāhmasphuṭasiddhānta 18, 628 — bhāvanā, the composition law, stated for ARBITRARY norms and not the N = 1 special case"
                   , "Jayadeva c. 950; Bhāskara II, Bījagaṇita, 1150 — cakravāla.  The name usually cited instead is 'Pell's equation'; Pell did not solve it and Euler misattributed it." ]
-        in case look "n" j of
-             Left _ ->
+        -- The same three-way reading as `c` above, for the same reason: a
+        -- doubled `n` was answered with the norm-one solution and called
+        -- transport.  The two sites are named together in Wire.hs's §"three,
+        -- where two collapse" and they are repaired together.
+        in case vacana look "n" j of
+             Durvacam e -> refused y "vargaprakrti" e
+             Anuktam ->
                ( y, Mudra (S.Position S.SyadAsti) (Ganita wit)
                , samkramana "vargaprakrti"
                    (tulyata "the composition law as a VALUE, turned by the reactor, identified with a solution of the form"
@@ -1106,7 +1125,7 @@ kVargaprakrti y j = pure $ case jInt "D" j of
                    , "the proof that the descent terminates; the tradition asserted it and used it from 628, and the general theorem is not re-proved by this answer"
                    , "the infinite families over each visited norm are generable (familyFor) and are not expanded here" ]
                    src )
-             Right (JInt n) -> case [ v | (k, v) <- spec, k == n ] of
+             Uktam (JInt n) -> case [ v | (k, v) <- spec, k == n ] of
                (v:_) ->
                  ( y, Mudra (S.Position S.SyadAsti)
                         (Ganita ("N" ++ VP.lawShow law v ++ " = " ++ show n ++ ", computed in ℤ"))
@@ -1131,7 +1150,7 @@ kVargaprakrti y j = pure $ case jInt "D" j of
                        ++ intercalate ", " [ show k | (k, _) <- spec ]
                      , "compose a visited norm with the norm-one unit to move within a norm class (bhāvanā: k₁·k₂)" ]
                      src )
-             Right other -> refused y "vargaprakrti" ("`n` must be an integer, got " ++ render other)
+             Uktam other -> refused y "vargaprakrti" ("`n` must be an integer, got " ++ render other)
   where
     lawDefect d df = dosalekha "vargaprakrti"
       ("the law for D = " ++ show d ++ " does not close: " ++ VP.defWhy df)
