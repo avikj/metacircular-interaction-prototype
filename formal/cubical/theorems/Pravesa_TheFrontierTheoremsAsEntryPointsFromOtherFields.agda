@@ -85,3 +85,11 @@ open import Trika_TheAxisQuarterWavesAreQuaternionsNonAbelianAndTheQubitIsASpino
   using (ij≢ji ; full-turn-is-minus-one ; double-turn-returns) public
 open import Bandha_TheEntanglingGateIsLosslessButDoesNotFactorIntoSingleQubitGates
   using (cnotEq ; entangling ; bell-diagonal) public
+
+-- ── THE BRIDGE INTO THE EXISTING HOLONOMY LANE ────────────────────────
+-- The orb/QC reading is not a parallel annex: yang-baxter-S₃ proves the
+-- physics lane's own nonabelian holonomy S₃ is a braid-group rep, and
+-- orb-holonomy-is-the-circuit identifies the whispering-gallery winding with
+-- Pradakshina's circuit holonomy.
+open import SetuHolonomya_TheNonabelianHolonomyS3IsABraidRepAndTheOrbWindingIsTheCircuit
+  using (yang-baxter-S₃ ; orb-holonomy-is-the-circuit) public
