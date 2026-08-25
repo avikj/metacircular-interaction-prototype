@@ -6,7 +6,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_ ; map ; length)
 open import Cubical.Data.Nat using (suc)
 
-open import NaturalMachine.RewriteCertificate using (Tm ; Derivation)
+open import Kernel.RewriteCertificate using (Tm ; Derivation)
 
 record NativeOperation : Type₁ where
   field

@@ -6,8 +6,8 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (List ; [] ; _∷_ ; map ; length)
 open import Cubical.Data.Nat using (ℕ)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.ControlledGrammar
+open import Kernel.RewriteCertificate
+open import Kernel.ControlledGrammar
 
 -- This is both formation state and executable branch. No certificate is
 -- exported to a second language: operation, applicability, result, and the

@@ -140,7 +140,7 @@ open import NaturalMachine.SignIsNotAccumulable
 -- inefficiency of a bag-of-counts score; it is provably absent from it.
 ------------------------------------------------------------------------
 
-open import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+open import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (no-counting-criterion-separates ; comm-loop-is-a-nontrivial-loop-in-the-universe)
 
 ------------------------------------------------------------------------
@@ -170,7 +170,7 @@ open import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAnd
 -- guarantee.
 ------------------------------------------------------------------------
 
-open import NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+open import Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
   using (two-nodes-cannot-disagree ; merge-is-idempotent)
 
 ------------------------------------------------------------------------

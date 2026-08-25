@@ -85,9 +85,9 @@ open import Cubical.Data.Nat using (ℕ ; isSetℕ)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma using (Σ-contractSnd)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.GenerativeKernel using (seed ; target₀)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import Kernel.RewriteCertificate
+open import Kernel.GenerativeKernel using (seed ; target₀)
+open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (direct≢detour)
 
 private

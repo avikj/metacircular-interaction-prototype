@@ -104,8 +104,8 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Data.Unit using (Unit ; tt)
 
-open import NaturalMachine.RewriteCertificate using (Tm ; Derivation ; done ; then-step)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import Kernel.RewriteCertificate using (Tm ; Derivation ; done ; then-step)
+open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (len)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)

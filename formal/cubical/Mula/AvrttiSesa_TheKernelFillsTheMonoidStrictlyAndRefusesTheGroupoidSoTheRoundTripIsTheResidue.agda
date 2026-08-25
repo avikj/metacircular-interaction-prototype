@@ -79,14 +79,14 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.RewriteCertificate
+open import Kernel.RewriteCertificate
   using (Tm ; var ; zero ; add ; Step ; add-zero ; reverse
         ; Derivation ; done ; then-step)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (len)
-open import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (_⊕_)
-open import NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+open import Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
   using (⊕-assoc ; ⊕-unitˡ ; ⊕-unitʳ)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)

@@ -90,9 +90,9 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; map)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.ControlledGrammar
-open import NaturalMachine.GenerativeKernel
+open import Kernel.RewriteCertificate
+open import Kernel.ControlledGrammar
+open import Kernel.GenerativeKernel
   using (direct-operation ; detour-operation)
 
 ------------------------------------------------------------------------

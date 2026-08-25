@@ -93,14 +93,14 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr) renaming (rec to ⊎rec)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.ControlledGrammar
-open import NaturalMachine.GenerativeKernel using (direct-history ; detour-history)
-open import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+open import Kernel.RewriteCertificate
+open import Kernel.ControlledGrammar
+open import Kernel.GenerativeKernel using (direct-history ; detour-history)
+open import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
   using (SomeEnabled)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (meanings-are-equal ; len ; direct≢detour)
-open import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (_⊕_ ; every-operation-that-exists-is-sound)
 
 ------------------------------------------------------------------------

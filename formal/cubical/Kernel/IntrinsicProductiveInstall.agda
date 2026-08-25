@@ -6,9 +6,9 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; false ; true ; true≢false)
 open import Cubical.Data.List using ([] ; _∷_)
 
-open import NaturalMachine.RewriteCertificate using
+open import Kernel.RewriteCertificate using
   (Tm ; var ; zero ; suc ; add)
-import NaturalMachine.IntrinsicRewrite as IR
+import Kernel.IntrinsicRewrite as IR
 open import NaturalMachine.FiniteIndraWeave using
   (TotalView ; LocalAction ; reweave ; Tear ; tear)
 open import NaturalMachine.ProductiveIndraNet

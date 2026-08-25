@@ -96,8 +96,8 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.HITs.PropositionalTruncation
   using (∥_∥₁ ; ∣_∣₁ ; squash₁ ; rec)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.GenerativeKernel
+open import Kernel.RewriteCertificate
+open import Kernel.GenerativeKernel
   using (seed ; target₀ ; direct-history ; detour-history)
 
 private

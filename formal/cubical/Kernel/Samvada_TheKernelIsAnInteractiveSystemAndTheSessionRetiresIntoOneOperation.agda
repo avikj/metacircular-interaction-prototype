@@ -108,9 +108,9 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.ControlledGrammar
-open import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+open import Kernel.RewriteCertificate
+open import Kernel.ControlledGrammar
+open import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
   using (enabled-set-is-subsingleton)
 
 ------------------------------------------------------------------------

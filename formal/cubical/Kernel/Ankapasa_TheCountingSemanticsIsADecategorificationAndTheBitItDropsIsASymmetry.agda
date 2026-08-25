@@ -99,7 +99,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sum.Properties
   using (⊎-equiv ; ⊎-swap-≃ ; ⊎-assoc-≃ ; ⊎-IdR-⊥-≃)
 
-open import NaturalMachine.RewriteCertificate
+open import Kernel.RewriteCertificate
 
 private
   variable

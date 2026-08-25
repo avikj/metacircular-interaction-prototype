@@ -237,7 +237,7 @@ import NaturalMachine.HaskellDiscoveryBoundary
 import NaturalMachine.DatumSensitivePayload
 import NaturalMachine.RealizedPayloadCapability
 import NaturalMachine.ProofLabelNoGo
-import NaturalMachine.RewriteCertificate
+import Kernel.RewriteCertificate
 -- S4 (D0026_BUILD_QUEUE §4): the same certificate language widened to
 -- multiplication, as a conservative MIRROR of the module above rather than
 -- an edit to it — the gate lane owns the live perimeter.  Listed here on
@@ -246,12 +246,12 @@ import NaturalMachine.RewriteCertificate
 -- AWAITING KERNEL: written in a container with no agda (2026-08-16).  If it
 -- does not check, the finding outranks the module; fix or drop this line and
 -- record it, do not leave the root red.
-import NaturalMachine.RewriteCertificateMul
+import Kernel.RewriteCertificateMul
 -- Execution and semantic preservation are eliminations of one intrinsically
 -- indexed rewrite run; no external candidate/validation seam is involved.
-import NaturalMachine.IntrinsicRewrite
-import NaturalMachine.ControlledGrammar
-import NaturalMachine.GenerativeKernel
+import Kernel.IntrinsicRewrite
+import Kernel.ControlledGrammar
+import Kernel.GenerativeKernel
 import NaturalMachine.FiniteIndraWeave
 import NaturalMachine.ProductiveIndraNet
 import NaturalMachine.RootedIndraTotal
@@ -292,7 +292,7 @@ import NaturalMachine.DSOMinPlusFinite
 -- residual permutation fibers, refinement, and continuation-sensitive choice.
 import NaturalMachine.DivisorHistoryDSO
 import NaturalMachine.ProductiveTear
-import NaturalMachine.IntrinsicProductiveInstall
+import Kernel.IntrinsicProductiveInstall
 import NaturalMachine.PolynomialRewrite
 -- Endogenous names are conservative signature extensions: the generated
 -- evaluator equals elimination back into the previous language for every
@@ -1183,9 +1183,9 @@ import NaturalMachine.WalkStreamHypothesisBoundary
 -- this root because they were reachable from nothing and so were checked by
 -- nobody: a module outside the import closure is built by no command, and
 -- "it is green" about such a module is a claim about one person's shell.
-import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
-import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
-import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
-import NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
-import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
-import NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+import Kernel.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+import Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+import Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous

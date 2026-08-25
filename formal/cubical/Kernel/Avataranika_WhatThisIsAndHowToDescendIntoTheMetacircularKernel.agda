@@ -350,22 +350,22 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; notEquiv)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.List using (List ; length)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.ControlledGrammar
+open import Kernel.RewriteCertificate
+open import Kernel.ControlledGrammar
 
-open import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+open import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
   using (enabled-set-is-subsingleton ; no-native-operation-does-this
         ; SchematicOperation ; kernel-cannot-reach-a-tower)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (every-semantic-criterion-is-blind ; cost-does-not-factor
         ; derivations-are-not-a-proposition)
-open import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+open import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (comm-loop-is-a-nontrivial-loop-in-the-universe
         ; no-counting-criterion-separates ; derivation-equiv)
-open import NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+open import Kernel.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
   using (the-whole-derivation-type-is-one-fibre
         ; soundness-is-not-an-equivalence-at-the-kernels-own-seed)
-open import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (demand ; any-demand-is-safe ; learn ; Session ; step ; retire
         ; session-sound ; every-operation-that-exists-is-sound)
 
