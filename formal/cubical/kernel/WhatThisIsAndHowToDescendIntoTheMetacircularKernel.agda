@@ -73,7 +73,7 @@
 -- §2.  THE ONE PRIMITIVE: THE FIBRE LAW.  (atemporal)
 ------------------------------------------------------------------------
 --
---   fibre/src/Loss/Carrier.agda   (153 lines)
+--   fibre/src/Fibre/Carrier.agda   (154 lines)
 --
 -- For f : A → B, the question is WHICH SIDE OF `f a ≡ b` IS BOUND.
 --
@@ -92,11 +92,11 @@
 -- §3.  THE METACIRCULAR KERNEL.  296 LINES, THREE FILES.  (atemporal)
 ------------------------------------------------------------------------
 --
---   NaturalMachine/RewriteCertificate.agda   156   the calculus + semantics
---   NaturalMachine/ControlledGrammar.agda     63   operations + the forward pass
---   NaturalMachine/GenerativeKernel.agda      77   branches, and one example
+--   kernel/RewriteCertificate.agda   157   the calculus + semantics
+--   kernel/ControlledGrammar.agda     64   operations + the forward pass
+--   kernel/GenerativeKernel.agda      78   branches, and one example
 --
--- Everything else under NaturalMachine/ is beside this, not inside it.
+-- Everything else under kernel/ is beside this, not inside it.
 --
 -- THE CALCULUS.  `Tm` is terms over six variable coordinates, zero, suc,
 -- add.  `Step a b` is one rewrite, INCLUDING `reverse`, which is what makes
@@ -215,10 +215,10 @@
 --      the surface.  In this order, reading terms and not headers.
 ------------------------------------------------------------------------
 --
---   1. fibre/src/Loss/Carrier.agda        -- to the bottom
---   2. NaturalMachine/RewriteCertificate.agda            -- to the bottom
---   3. NaturalMachine/ControlledGrammar.agda             -- 63 lines
---   4. NaturalMachine/GenerativeKernel.agda              -- 77 lines
+--   1. fibre/src/Fibre/Carrier.agda       -- to the bottom
+--   2. kernel/RewriteCertificate.agda                    -- to the bottom
+--   3. kernel/ControlledGrammar.agda                     -- 64 lines
+--   4. kernel/GenerativeKernel.agda                      -- 78 lines
 --   5. the four modules of §4, in that order
 --   6. then put your own claim on the wire and let the checker refuse it.
 --      A refused claim teaches more in one line than a page of your prose.
@@ -302,7 +302,7 @@
 --     non-trivial `Control` and closes the loop those readings missed.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.
---       grep -n 'mul' NaturalMachine/RewriteCertificate.agda -> nothing
+--       grep -n 'mul' kernel/RewriteCertificate.agda -> nothing (re-run 2026-08-25)
 --
 --   * THE GENERATIVE LOOP DOES NOT DRIVE THE KERNEL, and this is the largest
 --     structural gap in the corpus.  `GenerativeLoop` proves a real thing --
@@ -315,6 +315,34 @@
 --       files importing BOTH Obstruction and RewriteCertificate -> ZERO
 --     So the corpus contains a proved-terminating learner and a metacircular
 --     kernel, and no morphism between their term languages.
+--
+--     RE-RUN 2026-08-25, AND THE COMMAND AND THE CLAIM CAME APART.  §7's own
+--     rule is that an absence without a command is a rumour; the converse
+--     obligation is that when the command's output moves, the claim it was
+--     evidence for is re-established or struck, and not left standing on a
+--     number that no longer says what it said.  Both moved, differently:
+--
+--       * `Obstruction.agda` is now `theorems/physics/ObstructionSubstrate.agda`.
+--         The count is unchanged: still exactly 3 files declare `data Tm :`.
+--       * The co-import count is NO LONGER ZERO.  It is 1 —
+--         `theorems/residue/NaturalMachine.agda`, at its lines 143 and 238.
+--
+--     THE GAP IS NOT CLOSED, and the count is not what establishes that.
+--     Both lines are bare `import`, not `open import`, and the file makes
+--     ZERO qualified uses of either module:
+--         grep -cE 'ObstructionSubstrate\.|RewriteCertificate\.' \
+--             formal/cubical/theorems/residue/NaturalMachine.agda   -> 0
+--     So that file makes both term languages BUILD and relates neither to the
+--     other.  Aggregation is not a morphism, and a root that imports
+--     everything will co-import any two things in the corpus eventually — which
+--     means this particular command was never able to distinguish `a bridge
+--     exists` from `one file imports the world`, and reads today as though it
+--     had.  §8(a) stands, undiminished.
+--
+--     The replacement command says what the old one meant, and it is the one
+--     to re-run:
+--         for f in $(grep -rl 'RewriteCertificate' --include=*.agda formal/cubical); do
+--           grep -qE '^open import .*Obstruction' "$f" && echo "$f"; done   -> nothing
 --
 ------------------------------------------------------------------------
 -- §8.  THE FRONTIER, DERIVED FROM §7 RATHER THAN LISTED.
