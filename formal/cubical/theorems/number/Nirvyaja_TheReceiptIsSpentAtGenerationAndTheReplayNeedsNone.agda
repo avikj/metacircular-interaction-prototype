@@ -47,14 +47,14 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186).
 ------------------------------------------------------------------------
 
-module NaturalMachine.Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone where
+module Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
-open import NaturalMachine.RewriteCertificate
-open import NaturalMachine.ControlledGrammar
-open import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import RewriteCertificate
+open import ControlledGrammar
+open import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 
 ------------------------------------------------------------------------
 -- §1.  GENERATION PAYS THE RECEIPT.

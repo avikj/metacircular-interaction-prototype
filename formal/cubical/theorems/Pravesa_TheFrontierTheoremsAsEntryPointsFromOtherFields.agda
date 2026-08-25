@@ -60,7 +60,7 @@
 module Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields where
 
 -- cryptography & economics
-open import NaturalMachine.Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone
+open import Nirvyaja_TheReceiptIsSpentAtGenerationAndTheReplayNeedsNone
   using (replay-needs-no-receipt ; replay-is-sound) public
 open import PramanaSankramana_ProofOfTransportIsTheReceiptThatComposesWithoutBeingSpentAndOwesNoCounterparty
   using (Receipt ; सन्धानम् ; अक्षयः ; अनृणम् ; व्ययरहितः) public
