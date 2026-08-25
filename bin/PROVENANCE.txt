@@ -2,10 +2,10 @@ bin/yantra — what it was built from.
 
   built by     interactive/build-yantra.sh
   from source  interactive/*.hs, entry interactive/Main.hs
-  at commit    d3abaec3242da92b4441d396d1224bce90e8dbd6
+  at commit    2f973e03948082a7baed55fd4a0f729d7eaaf06e
   linkage      static
   compiler     ghc 9.4.7
-  sha256       d6430886f5023b85e1fdd39eaf01d3111c8fa00a58d271dc867d5c036e9d7f1f
+  sha256       bb8da1cde5194ea5a94c995f72053be10ccd4df4791347d06a388a4665542b00
 
 The commit above is the one the working tree was AT when the compiler ran, so
 it is the parent of whichever commit carries this file — a binary cannot

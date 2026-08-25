@@ -179,7 +179,8 @@
 -- collision therefore produces a MISS, never a wrong answer; the hash's job
 -- is to name a file, not to stand in for the content.
 --
--- WHAT IS STORED.  `interactive/.certcache/<key>`, one small UTF-8 file:
+-- WHAT IS STORED.  One small UTF-8 file per key, in `certCacheDir` -- a
+-- cache directory OUTSIDE the repository; see that function for why:
 -- the verdict word, agda's exit code, the toolchain string, agda's output
 -- verbatim, and the module source.  A reader can copy the SOURCE block into
 -- a file and re-run agda on it; that is the point of storing it.
@@ -295,7 +296,7 @@ module ProofGate
   , kAgdaTimeoutMicros
   , agdaTimeoutMicros
     -- * the certificate cache (content-addressed, one file per module)
-  , kCertCacheDir
+  , certCacheDir
   , cacheEnabled
   , cacheKey
   , toolchainIdentity
@@ -1209,9 +1210,47 @@ successHidesAnError out = any (`isInfixOf` out) markers
 -- when agda's message is a genuine type error).  This section is the
 -- mechanism.
 
--- Where entries live, relative to the same `root` the agda child runs in.
-kCertCacheDir :: FilePath
-kCertCacheDir = "machine" </> ".certcache"
+-- Where entries live.  NOT under the repository, and that is the whole point
+-- of this being a resolver instead of the constant it used to be.
+--
+-- It was `root </> "machine" </> ".certcache"`, joined to the same root the
+-- agda child runs in, so every turn of the gate left a directory of cache
+-- files inside the checkout -- under a `machine/` that no longer exists, so
+-- the run created that too.  .gitignore has carried `**/.certcache/` ever
+-- since, and an ignore rule does not delete anything: it stops `git status`
+-- mentioning the files while they sit there.  The report went quiet and the
+-- litter stayed.
+--
+-- A cache is not a record OF this repository.  It is derived, it is
+-- re-derivable, and nothing in it is a claim, so it belongs where the
+-- machine keeps its other derived state and not where the mathematics is.
+--
+--   MATH_CERTCACHE_DIR   used as given
+--   XDG_CACHE_HOME       $XDG_CACHE_HOME/yantra/certcache
+--   HOME                 $HOME/.cache/yantra/certcache
+--   neither              $TMPDIR/yantra-certcache
+--
+-- ONE CACHE ACROSS CHECKOUTS IS CORRECT, and is not a compromise made for
+-- tidiness.  `cacheKey` folds in the toolchain identity, and every hit
+-- re-compares the STORED module source against the source actually being
+-- asked about (`lookupCache`), so an entry written by another tree either
+-- matches byte for byte or is not used.  The cache can only ever cost a
+-- re-derivation, never a wrong verdict -- which is the same property that
+-- made it safe to keep across runs in the first place.
+certCacheDir :: IO FilePath
+certCacheDir = do
+  override <- lookupEnv "MATH_CERTCACHE_DIR"
+  case override of
+    Just d | not (null d) -> pure d
+    _ -> do
+      xdg  <- lookupEnv "XDG_CACHE_HOME"
+      home <- lookupEnv "HOME"
+      case (xdg, home) of
+        (Just x, _) | not (null x) -> pure (x </> "yantra" </> "certcache")
+        (_, Just h) | not (null h) -> pure (h </> ".cache" </> "yantra" </> "certcache")
+        _ -> do
+          tmp <- getTemporaryDirectory
+          pure (tmp </> "yantra-certcache")
 
 -- The one escape hatch.  `MATH_CERTCACHE=0|off|no|false` bypasses the cache
 -- completely: every module is sent to agda and nothing is read or written.
@@ -1357,9 +1396,11 @@ readUtf8 path = withFile path ReadMode $ \h -> do
 -- EXACTLY.  Any change to the emitter, to a concept definition, to the
 -- vocabulary transcriptions, or to agda itself changes one of them and
 -- therefore misses.
-lookupCache :: FilePath -> String -> String -> String
+lookupCache :: String -> String -> String
             -> IO (Maybe (ExitCode, String))
-lookupCache root tc key source = do
+lookupCache tc key source = do
+  dir <- certCacheDir
+  let path = dir </> key
   r <- try (do
          present <- doesFileExist path
          if not present then pure Nothing else decodeEntry <$> readUtf8 path)
@@ -1369,7 +1410,6 @@ lookupCache root tc key source = do
       Just (toExit (ceExit e), ceOutput e)
     _ -> Nothing
   where
-    path = root </> kCertCacheDir </> key
     toExit 0 = ExitSuccess
     toExit n = ExitFailure n
 
@@ -1378,8 +1418,9 @@ lookupCache root tc key source = do
 -- racing on the same key both end up with a complete file.  Any IO failure
 -- here is swallowed: an unwritable cache must slow the gate down, never
 -- break it.
-storeCache :: FilePath -> String -> String -> CacheEntry -> IO ()
-storeCache root tc key entry = do
+storeCache :: String -> String -> CacheEntry -> IO ()
+storeCache tc key entry = do
+  dir <- certCacheDir
   r <- try (do
          createDirectoryIfMissing True dir
          (tmpPath, h) <- openTempFile dir (key ++ ".tmp")
@@ -1389,7 +1430,6 @@ storeCache root tc key entry = do
          renameFile tmpPath (dir </> key))
          :: IO (Either SomeException ())
   either (const (pure ())) pure r
-  where dir = root </> kCertCacheDir
 
 -- Requirement (e), decided: cache a failure only when agda plainly reports a
 -- TYPE error located in the module we emitted.  A non-zero exit otherwise
@@ -1425,7 +1465,7 @@ cacheableFailure out =
       ]
 
 -- ASYMMETRIC TRUST, which is the only kind an unauthenticated store can
--- carry.  `interactive/.certcache` is a directory of files.  Anything that can
+-- carry.  The certificate cache is a directory of files.  Anything that can
 -- write there can write "VERDICT accepted" beside any module it likes, and
 -- `GateAudit --probe poison` does exactly that: one hand-written file turns
 -- `s(x) = x` into a `Certified` for zero agda invocations.  Signing is not
@@ -1553,7 +1593,7 @@ runAgdaCached root source = do
     else do
       tc <- toolchainIdentity
       let key = cacheKey tc source
-      hit <- lookupCache root tc key source
+      hit <- lookupCache tc key source
       case hit of
         -- a cached REJECTION: served, as before.  It can only lose a
         -- theorem, and the stored source is byte-compared, so the worst
@@ -1572,9 +1612,9 @@ runAgdaCached root source = do
                   (code', out'') <- vetSuccess root out'
                   case code' of
                     ExitSuccess -> confirmHere key >> pure (ExitSuccess, out, 1)
-                    _ -> dropEntry root key >> pure (code', out'', 1)
+                    _ -> dropEntry key >> pure (code', out'', 1)
                 _ -> do
-                  dropEntry root key
+                  dropEntry key
                   pure (code, out', 1)
         Nothing -> do
           (code, out) <- runAgdaUnwatched root source
@@ -1584,20 +1624,21 @@ runAgdaCached root source = do
               case code' of
                 ExitSuccess -> do
                   confirmHere key
-                  storeCache root tc key (CacheEntry 0 tc out source)
+                  storeCache tc key (CacheEntry 0 tc out source)
                   pure (ExitSuccess, out, 1)
                 ExitFailure n -> pure (ExitFailure n, out', 1)
             ExitFailure n -> do
               when (cacheableFailure out) $
-                storeCache root tc key (CacheEntry n tc out source)
+                storeCache tc key (CacheEntry n tc out source)
               pure (ExitFailure n, out, 1)
 
 -- An entry the kernel contradicts is removed rather than left to be
 -- re-tested by every future process.  Failure to remove it is not fatal:
 -- the next process re-tests it and reaches the same answer.
-dropEntry :: FilePath -> String -> IO ()
-dropEntry root key = do
-  r <- try (removePathForcibly (root </> kCertCacheDir </> key))
+dropEntry :: String -> IO ()
+dropEntry key = do
+  dir <- certCacheDir
+  r <- try (removePathForcibly (dir </> key))
          :: IO (Either SomeException ())
   either (const (pure ())) pure r
 
@@ -2246,9 +2287,10 @@ main = do
   printf "Certificate self-test (repository root %s).\n" (show root)
   printf "budget = %d agda calls per candidate.\n" kMaxAgdaCalls
   on <- cacheEnabled
+  ccd <- certCacheDir
   printf "certificate cache: %s at %s\n\n"
     (if on then "ON" else "OFF (MATH_CERTCACHE)" :: String)
-    (show (root </> kCertCacheDir))
+    (show ccd)
   t0 <- getCurrentTime
   putStrLn "== interactive/library.snapshot.txt =="
   trues <- mapM (report root) snapshot

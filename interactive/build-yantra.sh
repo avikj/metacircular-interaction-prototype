@@ -104,7 +104,18 @@ cp "$WORK/yantra" "$PROBE/bin/yantra"
 ln -sf yantra "$PROBE/bin/dosalekha"
 cp "$ROOT/formal/cubical/natural-machine.agda-lib" "$PROBE/formal/cubical/"
 
-# The session below is three turns, and each one checks something the other
+# What the probe tree holds BEFORE the machine is turned in it.  Compared
+# again once the session is over; the check is at the end of this section.
+#
+# THE WHOLE TREE, not formal/ alone.  The cache this is watching for used
+# to land at $MATH_ROOT/machine/.certcache -- a sibling of formal/, not a
+# child of it -- so a snapshot narrowed to formal/ would have watched the
+# one place the litter never appeared.  The state directory is deliberately
+# OUTSIDE $PROBE for the same reason: it is where the run is SUPPOSED to
+# write, and having it inside would make the comparison meaningless.
+find "$PROBE" | sort > "$WORK/root-before"
+
+# The session below is four turns, and each one checks something the others
 # two cannot.  It is run with cwd set to NEITHER the binary's directory nor
 # the repository -- if anything still resolves a path against the caller's
 # working directory, this is where it shows -- and against a MATH_ROOT that
@@ -124,46 +135,71 @@ cp "$ROOT/formal/cubical/natural-machine.agda-lib" "$PROBE/formal/cubical/"
     '{"kriya":"yantra.kriyah"}' \
     '{"kriya":"dosa.lekha","angani":{"kriya":"build-yantra self-check","hetu":"this record exists to exercise the organ pair at build time and is about no mathematics","nasta":["nothing: the record is a probe and destroys no distinction"]}}' \
     '{"kriya":"dosa.pramanya"}' \
-  | YANTRA_STATE="$PROBE/state" "$PROBE/bin/yantra" --wire \
-    >"$PROBE/out.jsonl" 2>"$PROBE/out.err" ) || die \
-  "build-yantra: the binary exited non-zero on a three-turn session.
-$(cat "$PROBE/out.err")"
+    '{"kriya":"sadhana","angani":{"vama":"(+ 0 x)","daksina":"x"}}' \
+  | YANTRA_STATE="$WORK/state" "$PROBE/bin/yantra" --wire \
+    >"$WORK/out.jsonl" 2>"$WORK/out.err" ) || die \
+  "build-yantra: the binary exited non-zero on a four-turn session.
+$(cat "$WORK/out.err")"
 
-[ "$(wc -l <"$PROBE/out.jsonl")" -eq 3 ] || die \
-  "build-yantra: asked for three turns, got $(wc -l <"$PROBE/out.jsonl") answers."
+[ "$(wc -l <"$WORK/out.jsonl")" -eq 4 ] || die \
+  "build-yantra: asked for four turns, got $(wc -l <"$WORK/out.jsonl") answers."
 
-sed -n 1p "$PROBE/out.jsonl" | grep -q '"uttara":"samkramana"' || die \
+sed -n 1p "$WORK/out.jsonl" | grep -q '"uttara":"samkramana"' || die \
   "build-yantra: the machine answered yantra.kriyah, and the answer was not a
 saṃkramaṇa.  what it said:
-$(sed -n 1p "$PROBE/out.jsonl" | head -c 600)"
+$(sed -n 1p "$WORK/out.jsonl" | head -c 600)"
 
 # The defect turn must come back a doṣa-lekha.  It is the one answer in this
 # script that is SUPPOSED to be the refusal: `dosa.lekha` writes a defect, so
 # a saṃkramaṇa here would mean the machine transported something instead of
 # recording it.
-sed -n 2p "$PROBE/out.jsonl" | grep -q '"uttara":"dosalekha"' || die \
+sed -n 2p "$WORK/out.jsonl" | grep -q '"uttara":"dosalekha"' || die \
   "build-yantra: writing a defect did not come back as a doṣa-lekha.
-$(sed -n 2p "$PROBE/out.jsonl" | head -c 600)"
+$(sed -n 2p "$WORK/out.jsonl" | head -c 600)"
 
-sed -n 3p "$PROBE/out.jsonl" | grep -q '"uttara":"samkramana"' || die \
+sed -n 3p "$WORK/out.jsonl" | grep -q '"uttara":"samkramana"' || die \
   "build-yantra: the doṣa-lekha chain did not verify from inside the session.
-$(sed -n 3p "$PROBE/out.jsonl" | head -c 600)"
+$(sed -n 3p "$WORK/out.jsonl" | head -c 600)"
 
 # The record actually reached disk, and the standalone organ -- the same image
 # entered under the other name, this time from the outside -- agrees.
-LEKHA="$PROBE/state/session.lekha"
+LEKHA="$WORK/state/session.lekha"
 [ -s "$LEKHA" ] || die \
   "build-yantra: the session reported filing a defect and $LEKHA is empty, so
 the forked organ did not write.  The two organs are one image selecting on
 argv[0] (Main.hs); a symlink that did not survive the build would look
 exactly like this."
 
-DOSA_LEKHA="$LEKHA" "$PROBE/bin/dosalekha" verify >"$PROBE/verify.out" 2>&1 \
+DOSA_LEKHA="$LEKHA" "$PROBE/bin/dosalekha" verify >"$WORK/verify.out" 2>&1 \
   || die "build-yantra: the doṣa-lekha organ did not verify the chain it just
 wrote.
-$(cat "$PROBE/verify.out")"
+$(cat "$WORK/verify.out")"
 
-say "    three turns; forked the other organ; chain verified inside and out"
+# NOTHING THE RUN WROTE IS IN THE TREE IT WAS POINTED AT.
+#
+# MATH_ROOT is a checkout, and a run of the kernel is not an edit to it.
+# Two things used to land there anyway: run-yantra.sh's per-run session log,
+# written into interactive/ and deleted only by the START of the next run;
+# and the gate's certificate cache, which joined `machine/.certcache` to
+# MATH_ROOT and so created the cache AND a `machine/` to hold it.  Neither
+# was ever visible, because .gitignore named both -- and an ignore rule does
+# not delete a file, it deletes the report of the file.
+#
+# The `sadhana` turn above is in this session FOR THIS CHECK.  It is the one
+# operation that reaches the kernel, so it is the only one that can write a
+# cache entry.  Without agda it comes back an environment fault and the
+# check still passes; on a machine that has agda it is the real thing.
+find "$PROBE" | sort > "$WORK/root-after"
+if ! diff -q "$WORK/root-before" "$WORK/root-after" >/dev/null; then
+  say "!! the run left files in the tree it was pointed at:"
+  diff "$WORK/root-before" "$WORK/root-after" | grep '^>' >&2
+  die "build-yantra: turning the machine wrote into MATH_ROOT.  A run is not
+an edit to the repository it is pointed at, and whatever wrote there needs a
+path outside it -- ProofGate certCacheDir, run-yantra.sh LEKHA."
+fi
+
+say "    four turns; forked the other organ; chain verified inside and out"
+say "    MATH_ROOT untouched by the run"
 
 # ------------------------------------------------------------------ install
 
@@ -290,7 +326,7 @@ USAGE
 
 if command -v python3 >/dev/null 2>&1; then
   printf '%s\n' '{"kriya":"yantra.kriyah"}' \
-    | YANTRA_STATE="$PROBE/state" "$PROBE/bin/yantra" --wire 2>/dev/null \
+    | YANTRA_STATE="$WORK/state" "$PROBE/bin/yantra" --wire 2>/dev/null \
     | python3 -c '
 import json, sys, textwrap
 ans = json.loads(sys.stdin.readline())

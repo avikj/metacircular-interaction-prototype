@@ -63,9 +63,13 @@ interactive/library.certs
 interactive/self_architecture.tsv
 interactive/nested-agda/
 
-# Certificate gate cache: re-derivable, and every entry stores the exact
-# module source it certified, so it is a rebuildable artifact not a record.
-interactive/.certcache/
+# Certificate gate cache: NOT ignored any more, because it is no longer
+# written here.  ProofGate `certCacheDir` resolves it to $XDG_CACHE_HOME (see
+# the note there); the gate used to join it to MATH_ROOT and drop a directory
+# of cache files into the checkout on every run, and these rules are what
+# kept that off `git status` for as long as it did.  An ignore rule does not
+# delete a file.  If a .certcache ever appears in this tree again, that is a
+# regression and it should be LOUD.
 formal/cubical/.claude/
 interactive/replay.traces.live
 
@@ -83,8 +87,6 @@ interactive/sabha.jsonl
 # that drifts, which is the thing this lane exists to remove.
 interactive/karana
 interactive/abhyasa.jsonl
-**/.certcache/
-
 # compiled binaries — build output, rebuilt in place by interactive/check-*.sh; never track
 interactive/math-machine
 interactive/repairfixpoint
@@ -144,12 +146,13 @@ dist-newstyle/
 # still answer, and so a claim can be traced to the script it came from.
 zzz/**/*.pyc
 
-# interactive/yantra-session.lekha — the per-run session defect log.
-# run-yantra.sh does `rm -f "$LEKHA"` on EVERY invocation, by design: its
-# own header says the chain must start at genesis so that `dosa.pramanya`
-# verifies THIS run and not a history it did not produce.  So a committed
-# copy is, by construction, always some other container's run — and a
-# `--wire` session deletes it and writes nothing, which is how it showed
-# up as a staged deletion.  interactive/dosa.lekha, the shared append-only
-# log several lanes write to, is a different file and stays tracked.
-interactive/yantra-session.lekha
+# interactive/yantra-session.lekha — NOT ignored any more, because it is no
+# longer written here either.  run-yantra.sh puts the per-run session log in
+# $OUT (under TMPDIR) with the rest of its build output.  It used to write it
+# into interactive/ and `rm -f` it only at the START of the next run, so every
+# run left one behind and this rule is why that was never visible.  Same
+# reasoning as the cache above: turning the machine is not an edit to this
+# repository, and if a session log turns up in the tree again it should show.
+#
+# interactive/dosa.lekha, the shared append-only log several lanes write to,
+# is a different file and stays tracked.

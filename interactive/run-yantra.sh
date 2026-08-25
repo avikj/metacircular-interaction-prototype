@@ -27,12 +27,20 @@
 #     organ's own `write`-on-stdin interface, and the chain verifies from
 #     inside the session (`dosa.pramanya`).
 #
-# THE SESSION LOG IS SESSION-SCOPED, ON PURPOSE.  $DOSA_LEKHA points at
-# interactive/yantra-session.lekha and NOT at interactive/dosa.lekha.  Four lanes are
-# appending to the shared log today (doṣa 0013, 0014); a demonstration that
-# writes twenty records into it would be this file's own first defect.  The
-# organ, the format, the validator and the chain are the same; only the file
-# differs, and `dosa.pramanya` verifies whichever one it is pointed at.
+# THE SESSION LOG IS SESSION-SCOPED, ON PURPOSE, AND IS NOT IN THE CHECKOUT.
+# $DOSA_LEKHA points into $OUT and NOT at interactive/dosa.lekha.  Four lanes
+# are appending to the shared log today (doṣa 0013, 0014); a demonstration
+# that writes twenty records into it would be this file's own first defect.
+# The organ, the format, the validator and the chain are the same; only the
+# file differs, and `dosa.pramanya` verifies whichever one it is pointed at.
+#
+# It used to be $ROOT/interactive/yantra-session.lekha -- session-scoped, and
+# still written INSIDE THE REPOSITORY, where it stayed after every run.  The
+# rm -f below is at the START of a run, not the end, so the file a run leaves
+# behind is deleted by the NEXT run and by nothing else.  .gitignore listed
+# it, which is why nobody saw it: an ignore rule does not remove a file, it
+# removes the report of the file.  Turning the machine is not an edit to this
+# repository and must not leave one.
 #
 # THE SEAM, stated rather than discovered.  This machine imports
 # interactive/RewriteEngine.hs (120 KB) and interactive/RefusalAnalysis.hs, which other
@@ -129,7 +137,7 @@ fi
 # A fresh session log each run: the chain starts at genesis and the whole of
 # it is the session, so `dosa.pramanya` is verifying THIS run and not a
 # history it did not produce.
-LEKHA="${DOSA_LEKHA:-$ROOT/interactive/yantra-session.lekha}"
+LEKHA="${DOSA_LEKHA:-$OUT/yantra-session.lekha}"
 rm -f "$LEKHA"
 TRANSCRIPT="${YANTRA_LEKHA:-$OUT/yantra.jsonl}"
 rm -f "$TRANSCRIPT"
