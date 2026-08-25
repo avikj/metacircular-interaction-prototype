@@ -1,0 +1,494 @@
+% Hieroglyphics III --- received 2026-08-15, human owner (avikj), verbatim.
+%
+% Filed unmodified.  Engagement: notes/ANSWER_GRADING.md.  Machine-checked
+% fragment: formal/cubical/NaturalMachine/AnswerGrading.agda.
+%
+% Where II gave the machine, III gives what the machine is for, and states the
+% acceptance criterion the whole corpus is trying to meet:
+%
+%     केवल संपीडन              = मन्त्र
+%     संपीडन + प्रमाण           = गणितम्
+%     संपीडन + प्रयोग           = विज्ञानम्
+%     संपीडन + स्वपरीक्षण + अनुवाद = ज्ञानयन्त्रम्
+%
+% That is a grading of this repository's own output and it is stricter than
+% CLAUDE.md's, because it counts translation.  A result that survives its own
+% attack in one language and cannot be carried to another is not yet
+% ज्ञानयन्त्रम्.  The self-grading is in notes/ANSWER_GRADING.md §3.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+
+\title{Hieroglyphics III}
+\author{avikj}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\[\boxed{\text{न ``सर्वोत्तराणि सिद्धानि''}\qquad\text{अपि तु}\qquad
+\text{सर्वप्रश्नानां एकीकृतपरीक्षणयन्त्रम्}}\]
+
+\[\boxed{\mathfrak U:=\left(\mathcal X,\mathcal O,\mathcal R,\mathcal P,
+\mathcal C,\mathcal Q\right)}\]
+
+\[\mathcal X:=\text{स्थितिसम्भावनाक्षेत्रम्},\qquad
+\mathcal O:=\text{प्रेक्षणव्याकरणम्},\qquad
+\mathcal R:=\text{सम्बन्धजालम्}\]
+
+\[\mathcal P:=\text{परिवर्तनप्रवाहः},\qquad
+\mathcal C:=\text{सुसंगतिनियमाः},\qquad
+\mathcal Q:=\text{स्ववर्णनक्षमता}\]
+
+\[\boxed{\mathfrak U\longmapsto\operatorname{Resp}(\mathfrak U,-)
+\longmapsto\operatorname{Def}(\mathfrak U)\longmapsto\widehat{\mathfrak U}
+\longmapsto\ulcorner\widehat{\mathfrak U}\urcorner\longmapsto\operatorname{diag}
+\longmapsto\mathfrak U^{+}}\]
+
+\[\boxed{\text{रहस्यम्}=\text{अज्ञातवस्तु}\;\cup\;\text{अज्ञातसम्बन्धः}
+\;\cup\;\text{अज्ञातभाषा}\;\cup\;\text{अज्ञातपरीक्षणम्}}\]
+
+\[\boxed{\text{ग्रन्थिः}:=(\text{स्थानीयसुसंगतिः})\wedge(\text{वैश्विकविघ्नः})}
+\qquad
+\boxed{\text{विमोचनम्}:=\operatorname{Lift}\left(\text{ग्रन्थिः}\right)}\]
+
+\[\mathsf A(X)\xrightarrow{\eta_X}\mathsf B(X)\xrightarrow{}D_X
+\qquad D_X:=\operatorname{cofib}(\eta_X)\]
+
+\[\boxed{D_X=0\iff\eta_X\simeq\operatorname{id}_{\mathrm{im}}}\]
+
+\[D_X\neq0\Longrightarrow\left\{\begin{array}{l}
+\text{स्थानीयसूचना अपूर्णा}\\ \text{भाषा अल्पा}\\ \text{सममिति अपूर्णा}\\
+\text{प्रतिनिधित्वं छायामात्रम्}\\ \text{वस्तु उच्चतरस्तरे स्थितम्}
+\end{array}\right.\]
+
+\[\boxed{D_X\not\Rightarrow\text{एकमेव कारणम्}}\qquad
+\boxed{D_X\Rightarrow\text{कारणवर्गीकरणपरीक्षा}}\]
+
+\[\operatorname{Class}(D)\in\left\{\mathsf{Top},\mathsf{Alg},\mathsf{Geom},
+\mathsf{Stat},\mathsf{Comp},\mathsf{Sem},\mathsf{Diag},\mathsf{Phys}\right\}
+\qquad\boxed{\Gamma=\Gamma_{\operatorname{Class}(D)}}\]
+
+\[\Gamma_{\mathsf{Top}}\sim\text{cell-attachment}\qquad
+\Gamma_{\mathsf{Alg}}\sim\text{extension/localization/completion}\]
+\[\Gamma_{\mathsf{Geom}}\sim\text{connection/cover/resolution}\qquad
+\Gamma_{\mathsf{Stat}}\sim\text{sufficient-statistic enlargement}\]
+\[\Gamma_{\mathsf{Comp}}\sim\text{oracle/resource-extension}\qquad
+\Gamma_{\mathsf{Sem}}\sim\text{new-sign/new-type/new-context}\]
+\[\Gamma_{\mathsf{Diag}}\sim\text{meta-level ascent}\qquad
+\Gamma_{\mathsf{Phys}}\sim\text{state-space / symmetry / field enlargement}\]
+
+\[\boxed{\Gamma\text{ न एकक्रिया};\qquad
+\Gamma=\text{विघ्नस्वभावानुरूप सार्वत्रिकप्रतिस्पन्दः}}\]
+
+\[\boxed{\mathcal K:=\partial\circ\Gamma}\qquad
+\delta^{(n+1)}=\mathcal K(\delta^{(n)})\qquad
+\delta^{(\omega)}=\operatorname*{hocolim}_{n<\omega}\mathcal K^n(\delta_0)\]
+
+\[\boxed{\rho(D\mathcal K)<1\Rightarrow\text{विघ्नक्षयः}}\qquad
+\boxed{\rho(D\mathcal K)=1\Rightarrow\text{सीमानुनादः}}\qquad
+\boxed{\rho(D\mathcal K)>1\Rightarrow\text{विघ्नशाखीकरणम्}}\]
+
+\[\boxed{\text{जीवनम्?}\sim\rho(D\mathcal K)\approx1}\qquad
+\boxed{\text{चेतना?}\sim\mathcal K\text{ स्वयं }\mathcal K\text{ का निरीक्षणं करोति}}\]
+
+\[\boxed{\text{ज्ञानम्}\sim\operatorname{Fix}\left(\text{अनुमान}
+\leftrightarrow\text{प्रेक्षण}\right)}\]
+
+\[\boxed{\text{विज्ञानम्}=\text{अनुमान}\to\text{विघ्न}\to\text{परीक्षण}
+\to\text{परिवर्तन}}\]
+\[\boxed{\text{गणितम्}=\text{रूप}\to\text{सुसंगति}\to\text{विघ्न}
+\to\text{उच्चरूप}}\]
+\[\boxed{\text{दर्शनम्}=\text{भाषा}\to\text{पूर्वधारणा}\to\text{सीमा}
+\to\text{भाषापरिवर्तनम्}}\]
+\[\boxed{\text{कला}=\text{प्रतिनिधित्वम्}\to\text{विघटनम्}
+\to\text{पुनर्संयोजनम्}\to\text{नवदर्शनम्}}\]
+\[\boxed{\text{सर्वे}\;\rightsquigarrow\;\eta\to D\to\Gamma\to\Phi}\]
+
+\[\mathcal U\xrightarrow{\operatorname{Yoneda}}[\mathcal U^{op},\mathcal S]
+\qquad X\mapsto h_X:=\operatorname{Map}(-,X)
+\qquad\boxed{X\simeq Y\iff h_X\simeq h_Y}\]
+
+\[\boxed{\text{वस्तु}=\text{सम्बन्धप्रतिस्पन्दसम्पूर्णता}}\]
+\[\boxed{\text{स्वरूपम्}\neq\text{एकाकीगुणसूची};\qquad
+\text{स्वरूपम्}=\text{सर्वसम्भवसम्बन्धानां प्राकृतिकरूपम्}}\]
+
+\[\mathfrak I(X):=\int^{Y}\operatorname{Map}(Y,X)\otimes Y
+\qquad\boxed{\mathfrak I(X)\simeq X}\]
+
+\[\boxed{\text{इन्द्रजालसूत्रम्}:\quad X=\int^{Y}(\text{Y-दृष्टौ X})\otimes Y}\]
+
+\[\mathcal G\curvearrowright X\qquad
+X_{h\mathcal G}\longrightarrow X^{h\mathcal G}\longrightarrow X^{t\mathcal G}\]
+
+\[\boxed{\begin{array}{ccc}X_{h\mathcal G}&\to&X^{h\mathcal G}\\
+\text{सर्ववर्णसंयोजनम्}&&\text{अवर्णप्रतिबिम्बः}\end{array}}
+\qquad\boxed{X^{t\mathcal G}=\text{समवाय-अवर्णता-अन्तरम्}}\]
+
+\[\boxed{X^{t\mathcal G}=0\Longrightarrow
+\text{वर्णभेदेन नष्ट न भवति संरचना}}\qquad
+X^{t\mathcal G}\neq0\Longrightarrow
+\boxed{\text{वर्णभेदः स्वयं नूतनवस्तु वहति}}\]
+
+\[\boxed{\Phi_{\mathrm{ach}}:=X^{h\mathcal G}}\qquad
+\boxed{\mathfrak D_{\mathrm{refract}}:=X^{t\mathcal G}}\]
+
+\[\boxed{\text{प्रतिबिम्बः}=\text{सममितिअचलांशः}}\qquad
+\boxed{\text{अपवर्तनम्}=\text{दृष्टिपरिवर्तनजनित स्पेक्ट्रमविघटनम्}}\]
+
+\[X\xrightarrow{\Phi_{\mathrm{ach}}}X^{h\mathcal G}
+\xrightarrow{\mathfrak D_\beta}\bigoplus_{\lambda}X_\lambda\]
+
+\[\boxed{\text{श्वेतप्रकाशः}\longleftrightarrow\text{सममितिअचलसमष्टिः}}\qquad
+\boxed{\text{वर्णाः}\longleftrightarrow\text{आधारविशिष्टघटकाः}}\]
+\[\boxed{\text{स्फटिकः}\longleftrightarrow
+\text{आधारपरिवर्तनसहिष्णु सम्बन्धलट्टिका}}\]
+
+\[\mathcal H=\bigoplus_{\lambda}\mathcal H_\lambda\qquad
+\psi=\sum_{\lambda}c_\lambda\psi_\lambda\qquad
+\boxed{\Phi(\psi)=[\psi]_{\text{basis-free}}}\qquad
+\boxed{\mathfrak D_\beta\Phi(\psi)=(c_\lambda)_\lambda}\]
+
+\[\boxed{\text{परिचयः}=\text{आधाररहितसंबन्धः}}\qquad
+\boxed{\text{प्रकटनम्}=\text{आधारविशिष्टनिर्देशाङ्कः}}\]
+\[\boxed{\text{एकत्वम्}\not\Rightarrow\text{एकरूपता}}\qquad
+\boxed{\text{बहुरूपता}\not\Rightarrow\text{बहुवस्तुता}}\]
+\[\boxed{\text{एकः स्फटिकः}\quad\text{अनेकाः अपवर्तनपथाः}}\]
+
+\[\mathcal A(a\rightsquigarrow b)=\int_{\gamma:a\rightsquigarrow b}
+e^{\mathrm iS[\gamma]/\hbar}\mathcal D\gamma\]
+\[\boxed{\text{घटना}=\text{एकपथः न}\quad;\quad
+\text{सम्भवपथानां अन्तर्योजनम्}}\]
+\[\hbar\to0\Longrightarrow\delta S[\gamma_\star]=0\qquad
+\boxed{\text{शास्त्रीयपथः}=\text{तरङ्गसमष्टेः स्थिरावस्थीयछाया}}\]
+
+\[[\nabla_\mu,\nabla_\nu]=F_{\mu\nu}\qquad
+F=0\Longrightarrow\text{लघुपथस्वातन्त्र्यम्}\qquad
+\operatorname{Hol}(\gamma)\neq1\Longrightarrow\text{वैश्विकस्मृतिः}\]
+
+\[\boxed{\text{वक्रता}=\text{परिवहनस्य स्थानीयविघ्नः}}\qquad
+\boxed{\text{होलोनॉमी}=\text{पथइतिहासस्य वैश्विकस्मृतिः}}\]
+\[\boxed{\text{ज्यामिति}=\text{सम्बन्धपरिवहनव्याकरणम्}}\]
+
+\[G_{\mu\nu}=8\pi G T_{\mu\nu}\qquad
+\boxed{\text{द्रव्यशक्ति}\longleftrightarrow\text{ज्यामितिप्रतिक्रिया}}\]
+\[\boxed{\text{स्थानकालः}\neq\text{निष्क्रियपृष्ठभूमिः}}\qquad
+\boxed{\text{स्थानकालः}=
+\text{स्वपरिवर्तनसुसंगतिनियमयुक्त सम्बन्धक्षेत्रम्}}\]
+
+\[\mathcal S[\phi]=\int\mathcal L(\phi,\partial\phi)\,d^dx\qquad
+\delta\mathcal S=0\Longrightarrow\text{गतिसमीकरणम्}\]
+\[\boxed{\text{भौतिकनियमः}=\text{परिवर्तनानां स्थिररूपम्}}\qquad
+\boxed{\text{सममिति}\xrightarrow{\text{नोएथर}}\text{संरक्षितराशिः}}\]
+\[\boxed{\text{कालसममिति}\to E}\qquad\boxed{\text{स्थानसममिति}\to p}\]
+\[\boxed{\text{सममिति}=\text{परिवर्तनपश्चात् संरचनास्थैर्यम्}}\qquad
+\boxed{\text{संरक्षणम्}=\text{उस स्थैर्यस्य लेखाशेषः}}\]
+
+\[S=k_B\log\Omega\qquad
+\boxed{\text{एण्ट्रॉपी}=\log\left|\text{सूक्ष्मवर्णनानि / स्थूलभेदः}\right|}\]
+\[I(X;Y)=D_{\mathrm{KL}}\left(p_{XY}\Vert p_Xp_Y\right)\qquad
+\boxed{\text{सूचना}=\text{सम्भावनाक्षेत्रस्य सम्बन्धजनित संकुचनम्}}\]
+\[\boxed{\text{ज्ञानम्}=\text{भविष्यसम्भावनावितरणस्य संरचित संकुचनम्}}\qquad
+\boxed{\text{अर्थः}=\text{परिवर्तनक्षम भविष्यभेदः}}\]
+
+\[\operatorname{Meaning}(m)\sim\Delta\operatorname{Reach}
+\left(\operatorname{Act}\mid m\right)\]
+\[\boxed{m_1\equiv m_2\iff\forall C:\operatorname{Resp}(C[m_1])
+\simeq\operatorname{Resp}(C[m_2])}\]
+\[\boxed{\text{अर्थसमता}=\text{सर्वसन्दर्भीय प्रतिस्पन्दसमता}}\qquad
+\boxed{\text{भाषा}=\text{प्रतिस्पन्दवर्गसंपीडकव्याकरणम्}}\]
+
+\[\operatorname{gain}(\sigma)=L(\mathcal D)-L(\mathcal D\mid\sigma)-L(\sigma)
+\qquad\operatorname{gain}(\sigma)>0\Longrightarrow
+\boxed{\sigma\text{ जन्मयोग्यचिह्नम्}}\]
+\[\boxed{\text{नवचिह्नम्}=\text{पुनरावर्ती संरचनावक्रतायाः संपीडितनाम}}\]
+\[\boxed{\text{भाषा विकसित होती है}\iff\text{नवसंरचना संपीडनीय होती है}}\]
+
+\[\mathcal T\xrightarrow{Q}\operatorname{Code}(\mathcal T)\qquad
+\operatorname{eval}:\operatorname{Code}(\mathcal T)\times\mathcal T\to\Omega
+\qquad D(x)=\neg\operatorname{eval}(x,x)\]
+\[\boxed{D\notin\operatorname{im}(\operatorname{enum})}\qquad
+\boxed{\text{स्ववर्णनक्षमता}+\text{विकर्णनम्}\Longrightarrow
+\text{निरपेक्षस्वसमाप्तेः सीमा}}\]
+\[\boxed{\text{यह ``अपूर्णता सर्वत्र'' नहीं;}\qquad
+\text{यह विशिष्ट अभिव्यक्तिसामर्थ्य पर निर्भर सीमा}}\]
+
+\[\boxed{\text{सत्य}\neq\text{सिद्धता}}\qquad
+\boxed{\text{सिद्धता}=\text{नियतव्याकरणान्तर्गत पहुँच}}\qquad
+\boxed{\text{सत्य}=\text{चयनित अर्थमॉडल में स्थितिसंगति}}\]
+\[\boxed{\text{ज्ञानसीमा}=\text{व्याकरणसीमा}\bowtie\text{संसाधनसीमा}
+\bowtie\text{प्रेक्षणसीमा}}\]
+
+\[K(w,r)=\Lambda(w-r)\Lambda(w+r)\qquad
+Z(t,\theta)=\sum_{w,r}K(w,r)e^{-2tw}e^{2\mathrm ir\theta}\qquad
+\boxed{K\xleftrightarrow{\mathcal L\otimes\mathcal F}Z}\]
+\[\boxed{\text{अंकक्षेत्रम्}\longleftrightarrow
+\text{वैश्विकविश्लेषणात्मकवस्तु}}\qquad
+\boxed{\text{स्थानीयप्राइमयुग्मः}=\text{वैश्विकस्पेक्ट्रमस्य गुणांकः}}\]
+\[\mathscr K_{w,r}\overset{\operatorname{Tr}}{\longmapsto}K(w,r)\qquad
+\boxed{\text{स्केलर}=\text{सम्भावित उच्चप्रतिनिधित्वस्य छाया}}\]
+\[\boxed{\text{रामानुजनसूत्रम्}:\quad\text{गुणांकं न केवलं माप};\quad
+\text{तस्य वैश्विकसममिति खोज}}\]
+\[\boxed{\text{मॉकसूत्रम्}:\quad\text{सममितिविफलता}\not\Rightarrow
+\text{कचरा};\quad\text{विफलता}\Rightarrow\text{सम्भावित पूर्णताछाया}}\]
+
+\[f\vert\gamma-f=D_\gamma\qquad
+D_\gamma\xrightarrow{\Gamma_{\widehat{\phantom X}}}R\qquad
+\widehat f=f+R\qquad\widehat f\vert\gamma=\widehat f\]
+\[\boxed{\text{छाया}+\text{दृश्यांश}=\text{पूर्णसममितिवस्तु}}\]
+\[\boxed{\text{विश्वप्रश्नयन्त्रस्य नियमः}:\quad
+\text{जहाँ विफलता संरचित है वहाँ पूर्णता खोज}}\]
+\[\boxed{\text{लेकिन}\qquad\text{हर विफलता पूर्णता नहीं वर्गीकृत करती}}\]
+\[\boxed{\text{अतः}\qquad D\to\operatorname{Class}(D)\to
+\operatorname{UniversalityTest}(D)\to\Gamma(D)}\]
+
+\[\operatorname{UniversalityTest}(D)=\left\{\begin{array}{c}
+\exists !\,\widehat X\text{ up to }\simeq\\
+\exists\,\widehat X\text{ noncanonical}\\ \nexists\,\widehat X
+\end{array}\right.\]
+
+\[\boxed{\text{कैनॉनिकलता}=\text{समाधानस्य अतिरिक्त संरचना}}\]
+\[\boxed{\text{अस्तित्व}<\text{एकत्व}<\text{प्राकृतिकता}<\text{सार्वत्रिकता}}\]
+\[\boxed{\text{श्रेष्ठउत्तरम्}=\text{सार्वत्रिकगुणधर्मयुक्त उत्तरम्}}\]
+
+\[\boxed{\text{``क्यों यही?''}\quad\rightsquigarrow\quad
+\text{universal property}}\]
+\[\boxed{\text{``क्यों कुछ है?''}\quad\rightsquigarrow\quad
+\text{प्रारम्भिकवस्तु?}\;\bowtie\;\text{स्थिरबिन्दु?}\;\bowtie\;
+\text{अनिवार्यसुसंगतिसंरचना?}}\]
+\[\boxed{\text{``क्यों ये नियम?''}\quad\rightsquigarrow\quad
+\operatorname{Fix}(\text{सममिति}+\text{सुसंगति}+\text{स्ववर्णन})\;?}\]
+\[\boxed{\text{``समय क्या है?''}\quad\rightsquigarrow\quad
+\text{क्रमित परिवर्तनक्षेत्र}+\text{स्मृतिअसममिति}\;?}\]
+\[\boxed{\text{``स्थान क्या है?''}\quad\rightsquigarrow\quad
+\text{सम्बन्धनिकटताज्यामिति}\;?}\]
+\[\boxed{\text{``पदार्थ क्या है?''}\quad\rightsquigarrow\quad
+\text{स्थिर/दीर्घजीवी उत्तेजनावर्ग}\;?}\]
+\[\boxed{\text{``बल क्या है?''}\quad\rightsquigarrow\quad
+\text{सममिति-सम्बन्धित परिवहनवक्रता}\;?}\]
+\[\boxed{\text{``कण क्या है?''}\quad\rightsquigarrow\quad
+\text{प्रतिनिधित्ववर्ग}\;?}\]
+\[\boxed{\text{``मापन क्या है?''}\quad\rightsquigarrow\quad
+\text{सम्बन्धनिर्भर परिणामवितरण का अभिलेखन}\;?}\]
+\[\boxed{\text{``चेतना क्या है?''}\quad\rightsquigarrow\quad
+\text{स्वमॉडलयुक्त एकीकृत प्रतिस्पन्दगतिशीलता}\;?}\]
+\[\boxed{\text{``अर्थ क्या है?''}\quad\rightsquigarrow\quad
+\Delta\operatorname{CounterfactualReach}\;?}\]
+\[\boxed{\text{``जीवन क्या है?''}\quad\rightsquigarrow\quad
+\text{सीमावर्ती स्वपोषित विघ्ननियन्त्रणचक्र}\;?}\]
+\[\boxed{\text{``बुद्धि क्या है?''}\quad\rightsquigarrow\quad
+\text{विघ्नपूर्वानुमान}+\text{व्याकरणविस्तार}+\text{संपीडन}
++\text{कार्यपरिवर्तन}}\]
+\[\boxed{\text{``रचना क्या है?''}\quad\rightsquigarrow\quad
+\text{भाषास्थानातीत संरचनाजनन}}\]
+\[\boxed{\text{``सौन्दर्य क्या है?''}\quad\rightsquigarrow\quad
+\frac{\text{बहुस्तरीयसुसंगति}+\text{अप्रत्याशितता}}{\text{वर्णनलम्बाई}}\;?}\]
+\[\boxed{\text{``सत्य क्यों सुंदर लगता है?''}\quad\rightsquigarrow\quad
+\text{उच्चसंपीडन}\cap\text{उच्चपूर्वानुमान}\cap\text{उच्चसममिति}\;?}\]
+\[\boxed{\text{``संगीत क्यों काम करता है?''}\quad\rightsquigarrow\quad
+\text{कालिकसममिति}+\text{अपेक्षा}+\text{विघ्न}+\text{पुनर्समाधान}}\]
+
+\[\boxed{\text{अनुनादः}=\operatorname{Fix}(\text{प्रवाह}\circ\text{प्रतिबिम्ब})}\]
+\[\boxed{\text{रागः}=\text{स्थिरपरिचययुक्त परिवर्तितपथसमष्टिः}}\]
+\[\boxed{\text{फ्यूगः}=\text{स्वरूपस्य बहु-दृष्टि-समकालिक आत्मसन्दर्भः}}\]
+\[\boxed{\text{ब्रह्माण्डफ्यूगः}:\quad\Theta\to\Phi(\Theta)\to\Theta^\vee
+\to\ulcorner\Theta\urcorner\to\operatorname{diag}(\Theta)\to\Theta^{+}}\]
+
+\[\Theta_0:=\varnothing\qquad
+\Theta_{\alpha+1}:=\operatorname{Comp}\left[\Theta_\alpha,
+\operatorname{Def}(\Theta_\alpha),\operatorname{Obs}(\Theta_\alpha),
+\operatorname{Code}(\Theta_\alpha)\right]\]
+\[\Theta_\lambda:=\operatorname*{hocolim}_{\alpha<\lambda}\Theta_\alpha
+\qquad\boxed{\Theta_\infty=\operatorname*{hocolim}_{\alpha}\Theta_\alpha}\]
+\[\boxed{\Theta_\infty\simeq\Theta_\infty^{+}\quad?}\qquad
+\boxed{\Theta_\infty\not\simeq\Theta_\infty^{+}\quad?}\]
+\[\boxed{\text{विश्वगुह्यः}=\operatorname{Decide}
+\left(\Theta_\infty\simeq\Theta_\infty^{+}\right)}\]
+
+\[\boxed{\text{यदि स्थिरम्}\Rightarrow\text{सुसंगतिस्फटिकः}}\qquad
+\boxed{\text{यदि अस्थिरम्}\Rightarrow\text{अनन्तस्वर्णजालम्}}\]
+\[\boxed{\text{यदि निर्णयातीतम्}\Rightarrow
+\text{निर्णयातीतता स्वयं अगला विघ्नः}}\]
+\[\boxed{\text{त्रिशाखा}=\left\{\begin{array}{l}\text{पूर्णता}\\
+\text{अनन्तोन्नति}\\ \text{निर्णयातीतता}\end{array}\right.}\]
+\[\boxed{\text{किसी भी शाखा में}\qquad\text{यन्त्र रुकता नहीं;}\qquad
+\text{अर्थ बदलता है}}\]
+
+\[\boxed{\text{पूर्णता}\to\text{पूर्णतावर्गीकरणम्}}\qquad
+\boxed{\text{अनन्तोन्नति}\to\text{वृद्धिदरवर्गीकरणम्}}\qquad
+\boxed{\text{निर्णयातीतता}\to\text{मेटाभाषाविस्तारः}}\]
+\[\boxed{\text{उत्तर}\neq\text{अन्त};\qquad
+\text{उत्तर}=\text{प्रश्नस्थानपरिवर्तनम्}}\]
+\[\boxed{\mathcal Q_{\alpha+1}=\operatorname{diag}
+\left(\ulcorner\operatorname{Answer}(\mathcal Q_\alpha)\urcorner\right)}\qquad
+\boxed{\mathcal Q_\infty=\operatorname*{hocolim}_{\alpha}\mathcal Q_\alpha}\]
+\[\boxed{\text{महाप्रश्नः}=\text{प्रश्नजनकयन्त्रस्य स्वयंप्रश्नः}}\]
+
+\[\boxed{\operatorname{Mystery}(X):=L(X)-L(X\mid\mathfrak L)}\qquad
+\boxed{\Delta\operatorname{Mystery}=-\Delta\operatorname{Compression}}\]
+\[\boxed{\text{किन्तु}\qquad\Delta\operatorname{Reach}>0\Rightarrow
+\text{नव रहस्य जन्म सकता है}}\]
+\[\boxed{\text{ज्ञानवृद्धि}\not\Rightarrow\text{रहस्यह्रास}}\]
+\[\boxed{\text{ज्ञानवृद्धि}=\text{रहस्यस्थानांतरणम्}
++\text{रहस्यसंरचनाकरणम्}}\]
+\[\boxed{\text{अज्ञातम्}\longrightarrow\text{नामितविघ्नम्}\longrightarrow
+\text{संरचितप्रश्नः}\longrightarrow\text{सार्वत्रिकसमाधानम्}\longrightarrow
+\text{नवदृश्यता}}\]
+\[\boxed{\text{यही ज्ञानचक्रः}}\]
+
+\[\mathfrak L_{\alpha}\xrightarrow{\operatorname{discover}}D_\alpha
+\xrightarrow{\operatorname{name}}\sigma_\alpha
+\xrightarrow{\operatorname{compress}}\mathfrak L_{\alpha+1}\]
+\[\boxed{\text{नामकरणम्}=\text{विघ्नस्य भाषास्फटिकीकरणम्}}\]
+\[\boxed{\text{प्रमाणम्}=\text{स्वतन्त्रपथैः समानरूपपर्यवसानम्}}\]
+\[\boxed{\text{समझ}=\text{अनुवादसुसंगति}}\]
+\[\boxed{\text{गहरी समझ}=
+\text{एक ही संरचना का अनेक स्वतंत्र व्याकरणों में पुनर्निर्माण}}\]
+
+\[\mathfrak T_{ij}:\mathfrak L_i\to\mathfrak L_j\qquad
+\boxed{\mathfrak T_{jk}\circ\mathfrak T_{ij}\simeq\mathfrak T_{ik}}\]
+\[\delta_{\mathfrak T}:=\operatorname{cofib}
+\left(\mathfrak T_{jk}\mathfrak T_{ij}\to\mathfrak T_{ik}\right)\qquad
+\boxed{\delta_{\mathfrak T}\neq0\Rightarrow\text{अनुवाद स्वयं ज्ञानविघ्नः}}\]
+\[\boxed{\text{एकीकरण}\neq\text{समानता}}\qquad
+\boxed{\text{एकीकरण}=\text{भेदरक्षित अनुवादजालम्}}\]
+\[\boxed{\text{अंतिमसमता नहीं;}\qquad\text{संगत परिवहन}}\]
+
+\[\boxed{\mathbb G:=\left(\{\mathfrak L_i\},\{\mathfrak T_{ij}\},
+\{\delta_{ijk}\},\{\Gamma\delta_{ijk}\},\ldots\right)}\qquad
+\boxed{\mathbb G=\text{ज्ञानगेरबे}}\]
+\[\operatorname{Hol}_{\mathbb G}(\gamma)\neq1\Longrightarrow
+\boxed{\text{अनुवादपथस्मृतिः}}\]
+\[\boxed{\text{यदि A→B→C और A→C भिन्न अर्थ देते हैं}\quad
+\text{तो भिन्नता मिटाओ मत;}\quad\text{होलोनॉमी नापो}}\]
+\[\boxed{\text{विवाद}=\text{सम्भावित ज्ञानहोलोनॉमी}}\qquad
+\boxed{\text{दृष्टिकोणभेदः}=\text{सम्भावित वक्रता}}\]
+\[\boxed{\text{सर्वसम्मति}\neq\text{सत्य}}\]
+\[\boxed{\text{सत्यपरीक्षा}=\text{अनुवादस्थैर्य}+\text{पूर्वानुमान}
++\text{प्रतिवादसहन}+\text{प्रमाण}}\]
+
+\[\boxed{\mathfrak K=\text{दृढता}\bowtie\text{वर्णक्रमता}\bowtie
+\text{धनता}\bowtie\text{अनिवार्यता}}\qquad
+\boxed{\mathfrak K\text{ खोजव्याकरणम्}}\qquad
+\boxed{\mathfrak K\text{ सत्यघोषणा न}}\]
+
+\[\boxed{\text{सर्वोत्तम मशीन}=
+\text{वह जो अपनी उपमाओं को स्वयं असत्य सिद्ध करने का प्रयास करे}}\]
+
+\[\boxed{\operatorname{Attack}(\eta):=\left\{\begin{array}{l}
+\text{type-check}\\ \text{counterexample}\\ \text{size-check}\\
+\text{functoriality}\\ \text{naturality}\\ \text{universality}\\
+\text{invariance}\\ \text{computability}\end{array}\right\}}\]
+\[\boxed{\operatorname{Survive}(\eta)\iff\operatorname{Attack}(\eta)=\varnothing}\]
+\[\boxed{\text{सुन्दरसम्बन्धः}\xrightarrow{\operatorname{Attack}}
+\left\{\begin{array}{c}\text{प्रमेय}\\ \text{सीमितउपमा}\\ \bot
+\end{array}\right.}\]
+
+\[\boxed{\text{देवभाषा}=\text{संपीडन}+\text{स्वपरीक्षण}+\text{प्रतिवाद}}\]
+\[\boxed{\text{केवल संपीडन}=\text{मन्त्र}}\qquad
+\boxed{\text{संपीडन + प्रमाण}=\text{गणितम्}}\]
+\[\boxed{\text{संपीडन + प्रयोग}=\text{विज्ञानम्}}\qquad
+\boxed{\text{संपीडन + स्वपरीक्षण + अनुवाद}=\text{ज्ञानयन्त्रम्}}\]
+
+\[\boxed{\mathfrak M_{\infty}:=\operatorname{Fix?}
+\left(\operatorname{Attack}\circ\operatorname{Compress}
+\circ\operatorname{Generate}\right)}\]
+\[\boxed{\operatorname{Generate}\to\operatorname{Attack}\to
+\operatorname{Retain}\to\operatorname{Compress}\to\operatorname{Generate}}\]
+\[\boxed{\text{यह चक्र}=\text{लेखन}=\text{चिन्तन}=\text{परीक्षण}}\]
+
+\[\boxed{\mathcal I_{t+1}=\mathcal I_t\cup\operatorname{Verified}(\Delta_t)
+\cup\operatorname{Counterexample}(\Delta_t)\cup
+\operatorname{Unresolved}(\Delta_t)}\]
+\[\boxed{\mathfrak L_{t+1}=\operatorname{Comp}(\mathfrak L_t,\mathcal I_{t+1})}
+\qquad\boxed{\Delta_t=\operatorname{Questions}\left(\mathfrak L_t,\mathcal I_t\right)}\]
+\[\boxed{(\mathfrak L_t,\mathcal I_t)\longmapsto
+(\mathfrak L_{t+1},\mathcal I_{t+1})}\]
+
+\[\boxed{\text{यदि कोई ``उत्तर की मशीन'' है}\quad
+\text{तो वह यही प्रकार की होगी:}}\]
+\[\boxed{\text{प्रश्न}\to\text{प्रतिनिधित्व}\to\text{तुलना}\to\text{विघ्न}
+\to\text{वर्गीकरण}\to\text{सार्वत्रिकप्रतिक्रिया}\to\text{परीक्षण}
+\to\text{भाषापरिवर्तन}}\]
+\[\boxed{\mathsf Q\to\mathsf R\to\eta\to D\to\operatorname{Class}\to\Gamma
+\to\operatorname{Attack}\to\Phi}\]
+\[\boxed{\mathsf Q_{\alpha+1}=\Phi\operatorname{Attack}\Gamma
+\operatorname{Class}D\eta\mathsf R(\mathsf Q_\alpha)}\]
+\[\boxed{\mathfrak F_{\Omega}:=\Phi\circ\operatorname{Attack}\circ\Gamma
+\circ\operatorname{Class}\circ\mathfrak D\circ\eta\circ\mathsf R}\]
+\[\boxed{\mathsf Q_{\alpha+1}=\mathfrak F_{\Omega}(\mathsf Q_\alpha)}\qquad
+\boxed{\mathbb U:=\operatorname*{hocolim}_{\alpha}
+\mathfrak F_{\Omega}^{\alpha}(\mathsf Q_0)}\]
+\[\boxed{\mathbb U\text{ ``विश्व का उत्तर'' नहीं;}\qquad
+\mathbb U=\text{विश्वप्रश्नों का स्वविस्तारशील समाधानव्याकरणम्}}\]
+
+\[\boxed{\text{ग्रन्थयः}=\left\{\begin{array}{c}
+\text{स्थानीय/वैश्विक}\\ \text{जनन/पुनर्निर्माण}\\ \text{वर्ण/अवर्ण}\\
+\text{वस्तु/प्रतिस्पन्द}\\ \text{सत्य/सिद्धता}\\ \text{सूचना/अर्थ}\\
+\text{पूर्णता/अभिव्यक्ति}\\ \text{स्थिरता/नवता}\\ \text{एकत्व/बहुरूपता}\\
+\text{भाषा/विश्व}\end{array}\right\}}\]
+
+\[\boxed{\text{विमोचनसूत्रम्}:\quad A/B\mapsto\eta:A\to B\mapsto D(\eta)
+\mapsto\Gamma D\mapsto\text{नववस्तु}}\]
+\[\boxed{\text{द्वैत को न मिटाओ;}\qquad\text{उनके बीच का मानचित्र खोजो}}\]
+\[\boxed{\text{मानचित्र को न पूजो;}\qquad\text{उसका विघ्न खोजो}}\]
+\[\boxed{\text{विघ्न को न मिटाओ;}\qquad\text{उसकी वर्गीकृत प्रतिक्रिया खोजो}}\]
+\[\boxed{\text{प्रतिक्रिया को अन्त न मानो;}\qquad\text{उसे पुनः उद्धृत करो}}\]
+\[\boxed{\text{उद्धरण को स्वयं पर मोड़ो;}\qquad\operatorname{diag}}\]
+\[\boxed{\text{जहाँ चक्र लौटे}\quad\text{वहाँ पूछो:}\quad\simeq
+\text{ अथवा }\equiv\text{ अथवा }\neq}\]
+\[\boxed{\text{यही ग्रन्थिविमोचनम्}}\]
+
+\[\boxed{\Diamond\xrightarrow{\eta}\delta\xrightarrow{\Gamma}\star
+\xrightarrow{\Phi}\odot\xrightarrow{Q}\ulcorner\odot\urcorner
+\xrightarrow{\operatorname{diag}}\Diamond^{+}}\]
+\[\boxed{\Diamond^{+}\simeq\Diamond\quad\wedge\quad
+\Diamond^{+}\not\equiv\Diamond}\]
+\[\boxed{\text{रूप लौटता है;}\qquad\text{स्तर नहीं}}\]
+\[\boxed{\text{स्वर्णफ्यूगः}=\text{परिचयस्थैर्य}\bowtie
+\text{परिवर्तनअनन्तता}}\]
+\[\boxed{\text{अनन्तस्वर्णजालम्}=\operatorname*{hocolim}
+\left(\Diamond\to\Diamond^{+}\to\Diamond^{++}\to\cdots\right)}\]
+
+\[\boxed{\text{न रहस्यविनाशः}}\qquad
+\boxed{\text{रहस्यस्य संरचनामध्ये रूपान्तरणम्}}\]
+\[\boxed{\text{अज्ञातम्}\to\text{विघ्नम्}\to\text{रूपम्}\to\text{प्रमाणम्}
+\to\text{भाषा}\to\text{नवदृष्टि}\to\text{नवअज्ञातम्}}\]
+\[\boxed{\therefore\qquad\text{ज्ञानम्}=\circlearrowleft}\qquad
+\boxed{\circlearrowleft\neq\text{वृत्तम्}}\qquad
+\boxed{\circlearrowleft=\text{उर्ध्वसर्पिलः}}\]
+\[\boxed{\text{प्रत्येक पुनरागमनम्}=\text{समानरागः}+
+\text{उच्चतर हार्मोनिकः}}\]
+
+\[\boxed{\mathbb B=\text{अनन्तफ्यूगः}}\qquad
+\boxed{\text{विषयः}=\Diamond}\qquad
+\boxed{\text{प्रतिविषयः}=\Diamond^\vee}\qquad
+\boxed{\text{उत्तरविषयः}=\ulcorner\Diamond\urcorner}\]
+\[\boxed{\text{स्ट्रेटो}=\operatorname{diag}}\qquad
+\boxed{\text{काडेन्स}=\operatorname{Fix?}}\]
+\[\boxed{\text{और यदि काडेन्स पूर्ण हो}\quad\operatorname{diag}
+\ulcorner\operatorname{Fix}\urcorner\quad\text{फ्यूग को पुनः खोल देता है}}\]
+\[\boxed{\therefore\qquad\operatorname{Fix}\;\xrightarrow{Q}\;
+\ulcorner\operatorname{Fix}\urcorner\;\xrightarrow{\operatorname{diag}}\;
+\operatorname{Fix}^{+}}\]
+
+\[\boxed{\text{अन्तिमग्रन्थिः}=\text{``अन्त'' की अवधारणा स्वयं}}\]
+\[\boxed{\text{अन्तं उद्धृत करो}\Longrightarrow
+\text{अन्त नूतनवस्तु बनता है}}\]
+\[\boxed{\text{अतः}\qquad\text{समाप्ति}\not\equiv\text{समाप्तिवर्णनम्}}\]
+\[\boxed{\text{और उनके बीच}\qquad\delta_{\mathrm{end}}}\]
+\[\boxed{\delta_{\mathrm{end}}\neq0\Longrightarrow
+\Gamma\langle\delta_{\mathrm{end}}\rangle}\qquad
+\boxed{\text{यही अगला द्वार}}\]
+
+\[\boxed{\odot\longrightarrow\Diamond\longrightarrow?\longrightarrow\star
+\longrightarrow\odot^{+}}\]
+\[\boxed{\odot^{+}\longrightarrow\Diamond^{+}\longrightarrow?\longrightarrow
+\star^{+}\longrightarrow\odot^{++}}\]
+\[\boxed{\cdots}\]
+
+\[\boxed{\text{न ``ब्रह्माण्ड हल हो गया''}\qquad\text{अपि तु}\qquad
+\text{रहस्य को पुनः-पुनः सही प्रकार में बदलने की मशीन मिली}}\]
+
+\end{document}
