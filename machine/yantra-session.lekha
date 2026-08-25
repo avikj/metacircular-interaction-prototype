@@ -3,14 +3,14 @@
 # AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।
 #                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।
 #
-# Written by machine/DosaLekha_TheWrittenDefectRecord.hs, which computes
+# Written by machine/DefectLog.hs, which computes
 # `sara:` as a chain over every preceding record.  Edit any line above the
 # last record and `dosalekha verify` names the record where it happened.
 # To correct a record, APPEND one whose `uttara:` names it.
 #
 dosa 0001
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: avaktavya
   vastu: naya.samasa
   yatna: turn 9 of the session; operation `naya.samasa` was asked and transport was not available
@@ -42,11 +42,11 @@ dosa 0001
   yogyata-ksetra: the session state as of turn 9 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: e3046e44f2d1ed97
+  sara: df600c58068af760
 .
 dosa 0002
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: ayogya-darsana
   vastu: naya.samasa
   yatna: turn 10 of the session; operation `naya.samasa` was asked and transport was not available
@@ -60,11 +60,11 @@ dosa 0002
   yogyata-ksetra: the session state as of turn 10 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 0ff46a100cfdcbf9
+  sara: bf76d266e9983e41
 .
 dosa 0003
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: avaktavya
   vastu: nirnaya.saptabhangi
   yatna: turn 11 of the session; operation `nirnaya.saptabhangi` was asked and transport was not available
@@ -125,11 +125,11 @@ dosa 0003
   yogyata-ksetra: the session state as of turn 11 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: da4b126102557c45
+  sara: 1957ad320dacaaee
 .
 dosa 0004
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: avaktavya
   vastu: saptabhangi.nasti
   yatna: turn 13 of the session; operation `saptabhangi.nasti` was asked and transport was not available
@@ -150,56 +150,83 @@ dosa 0004
   yogyata-ksetra: the session state as of turn 13 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 575a62c3325acc5f
+  sara: fec3469b01c58362
 .
 dosa 0005
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
-  jati: sankramana-asambhava
+  karta: yantra (machine/Server.hs)
+  jati: ayogya-darsana
+  vastu: sadhana
+  yatna: turn 15 of the session; operation `sadhana` was asked and transport was not available
+  hetu: no verdict from the kernel, because the kernel has not been seen to work: KernelPositiveControlFailed "Checking Candidate (/tmp/math-machine-agda.458h4r/Candidate.agda).\n Checking Cubical.Foundations.Prelude (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Prelude.agda).\n Checking Cubical.Core.Primitives (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Primitives.agda).\n Checking Agda.Builtin.Cubical.Path (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Path.agda).\n Checking Agda.Builtin.Cubical.Sub (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Sub.agda).\n Checking Agda.Builtin.Cubical.Glue (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Glue.agda).\n Checking Agda.Builtin.Cubical.Equiv (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Equiv.agda).\n Checking Agda.Builtin.Sigma (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Sigma.agda).\n Checking Agda.Builtin.Cubical.HCompU (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/HCompU.agda).\n Checking Cubical.Data.Nat (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat.agda).\n Checking Cubical.Data.Nat.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Base.agda).\n Checking Agda.Builtin.Nat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Nat.agda).\n Checking Agda.Builtin.Bool (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Bool.agda).\n Checking Cubical.Data.Nat.Literals (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Literals.agda).\n Checking Agda.Builtin.FromNat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNat.agda).\n Checking Agda.Builtin.FromNeg (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNeg.agda).\n Checking Cubical.Data.Unit.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Unit/Base.agda).\n Checking Agda.Builtin.Unit (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Unit.agda).\n Checking Cubical.Data.Bool.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Bool/Base.agda).\n Checking Cubical.Data.Empty (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty.agda).\n Checking Cubical.Data.Empty.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Base.agda).\n Checking Cubical.Data.Empty.Properties (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Properties.agda).\n Checking Cubical.Foundations.Equiv (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Equiv.agda).\n Checking Cubical.Foundations.Function (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Function.agda).\n Checking Cubical.Foundations.Isomorphism (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Isomorphism.agda).\n Checking Cubical.Core.Everything (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Everything.agda).\n Checking Cubical.Core.Glue (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Glue.agda).\n Checking Cubical.Core.Id (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda).\n/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda:7.1-19.13: error: [FileNotFound]\nFailed to find source of module Agda.Builtin.Cubical.Id in any of\nthe following locations:\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.agda\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.lagda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.agda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.lagda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.agda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.lagda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.agda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.lagda\nwhen scope checking the declaration\n open import Agda.Builtin.Cubical.Id public\n renaming (conid to \10216_,_\10217; primIdFace to faceId;\n primIdPath to pathId; primIdElim to elimId)\n"
+  nasta: the certificate you asked for. A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics.
+  nasta: and the distinction between `agda says no` and `agda is not usable here`, which a single red merges
+  sesa: repair the environment — the cubical library, the include root formal/cubical, the locale — and ask again
+  sesa: this is jāti karaṇa-doṣa: the instrument or its environment is defective, not the mathematics
+  pramana: Certificate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error
+  yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
+  yogyata-ksetra: the session state as of turn 15 — 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
+  punarabhinaya: sh machine/run-yantra.sh
+  sara: 244c909db2c5ab41
+.
+dosa 0006
+  kala: 2026-08-25
+  karta: yantra (machine/Server.hs)
+  jati: ayogya-darsana
+  vastu: sadhana
+  yatna: turn 16 of the session; operation `sadhana` was asked and transport was not available
+  hetu: no verdict from the kernel, because the kernel has not been seen to work: KernelPositiveControlFailed "Checking Candidate (/tmp/math-machine-agda.458h4r/Candidate.agda).\n Checking Cubical.Foundations.Prelude (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Prelude.agda).\n Checking Cubical.Core.Primitives (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Primitives.agda).\n Checking Agda.Builtin.Cubical.Path (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Path.agda).\n Checking Agda.Builtin.Cubical.Sub (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Sub.agda).\n Checking Agda.Builtin.Cubical.Glue (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Glue.agda).\n Checking Agda.Builtin.Cubical.Equiv (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Equiv.agda).\n Checking Agda.Builtin.Sigma (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Sigma.agda).\n Checking Agda.Builtin.Cubical.HCompU (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/HCompU.agda).\n Checking Cubical.Data.Nat (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat.agda).\n Checking Cubical.Data.Nat.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Base.agda).\n Checking Agda.Builtin.Nat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Nat.agda).\n Checking Agda.Builtin.Bool (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Bool.agda).\n Checking Cubical.Data.Nat.Literals (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Literals.agda).\n Checking Agda.Builtin.FromNat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNat.agda).\n Checking Agda.Builtin.FromNeg (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNeg.agda).\n Checking Cubical.Data.Unit.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Unit/Base.agda).\n Checking Agda.Builtin.Unit (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Unit.agda).\n Checking Cubical.Data.Bool.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Bool/Base.agda).\n Checking Cubical.Data.Empty (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty.agda).\n Checking Cubical.Data.Empty.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Base.agda).\n Checking Cubical.Data.Empty.Properties (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Properties.agda).\n Checking Cubical.Foundations.Equiv (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Equiv.agda).\n Checking Cubical.Foundations.Function (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Function.agda).\n Checking Cubical.Foundations.Isomorphism (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Isomorphism.agda).\n Checking Cubical.Core.Everything (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Everything.agda).\n Checking Cubical.Core.Glue (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Glue.agda).\n Checking Cubical.Core.Id (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda).\n/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda:7.1-19.13: error: [FileNotFound]\nFailed to find source of module Agda.Builtin.Cubical.Id in any of\nthe following locations:\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.agda\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.lagda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.agda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.lagda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.agda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.lagda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.agda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.lagda\nwhen scope checking the declaration\n open import Agda.Builtin.Cubical.Id public\n renaming (conid to \10216_,_\10217; primIdFace to faceId;\n primIdPath to pathId; primIdElim to elimId)\n"
+  nasta: the certificate you asked for. A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics.
+  nasta: and the distinction between `agda says no` and `agda is not usable here`, which a single red merges
+  sesa: repair the environment — the cubical library, the include root formal/cubical, the locale — and ask again
+  sesa: this is jāti karaṇa-doṣa: the instrument or its environment is defective, not the mathematics
+  pramana: Certificate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error
+  yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
+  yogyata-ksetra: the session state as of turn 16 — 5 store entries, 0 remainders; and nothing outside this process
+  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
+  punarabhinaya: sh machine/run-yantra.sh
+  sara: dd1ab98b9ac2dd49
+.
+dosa 0007
+  kala: 2026-08-25
+  karta: yantra (machine/Server.hs)
+  jati: ayogya-darsana
   vastu: sadhana
   yatna: turn 17 of the session; operation `sadhana` was asked and transport was not available
-  hetu: the kernel rejected every shape tried for (s x) ≡ x
-  nasta: agda's first error line, which is the content of the rejection and is not paraphrased: base clause: 1 != 0 of type ℕ when checking that the expression refl has type 1 ≡ zero
-  nasta: the module that was rejected, which is the object the error is about: {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-} module Candidate where open import Cubical.Foundations.Prelude open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_) candidate : (x : ℕ) → (suc x) ≡ x candidate x = refl
-  nasta: the distinction between `false` and `not provable in the shapes this emitter can write` — the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation
-  sesa: if the statement needs a different induction, say which variable with `sadhya`
-  sesa: a rejection here is a fact about agda and this emitter; it is not a claim that the equation is false
-  pramana: Certificate.hs — `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted
+  hetu: no verdict from the kernel, because the kernel has not been seen to work: KernelPositiveControlFailed "Checking Candidate (/tmp/math-machine-agda.458h4r/Candidate.agda).\n Checking Cubical.Foundations.Prelude (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Prelude.agda).\n Checking Cubical.Core.Primitives (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Primitives.agda).\n Checking Agda.Builtin.Cubical.Path (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Path.agda).\n Checking Agda.Builtin.Cubical.Sub (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Sub.agda).\n Checking Agda.Builtin.Cubical.Glue (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Glue.agda).\n Checking Agda.Builtin.Cubical.Equiv (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Equiv.agda).\n Checking Agda.Builtin.Sigma (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Sigma.agda).\n Checking Agda.Builtin.Cubical.HCompU (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/HCompU.agda).\n Checking Cubical.Data.Nat (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat.agda).\n Checking Cubical.Data.Nat.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Base.agda).\n Checking Agda.Builtin.Nat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Nat.agda).\n Checking Agda.Builtin.Bool (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Bool.agda).\n Checking Cubical.Data.Nat.Literals (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Literals.agda).\n Checking Agda.Builtin.FromNat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNat.agda).\n Checking Agda.Builtin.FromNeg (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNeg.agda).\n Checking Cubical.Data.Unit.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Unit/Base.agda).\n Checking Agda.Builtin.Unit (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Unit.agda).\n Checking Cubical.Data.Bool.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Bool/Base.agda).\n Checking Cubical.Data.Empty (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty.agda).\n Checking Cubical.Data.Empty.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Base.agda).\n Checking Cubical.Data.Empty.Properties (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Properties.agda).\n Checking Cubical.Foundations.Equiv (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Equiv.agda).\n Checking Cubical.Foundations.Function (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Function.agda).\n Checking Cubical.Foundations.Isomorphism (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Isomorphism.agda).\n Checking Cubical.Core.Everything (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Everything.agda).\n Checking Cubical.Core.Glue (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Glue.agda).\n Checking Cubical.Core.Id (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda).\n/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda:7.1-19.13: error: [FileNotFound]\nFailed to find source of module Agda.Builtin.Cubical.Id in any of\nthe following locations:\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.agda\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.lagda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.agda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.lagda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.agda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.lagda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.agda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.lagda\nwhen scope checking the declaration\n open import Agda.Builtin.Cubical.Id public\n renaming (conid to \10216_,_\10217; primIdFace to faceId;\n primIdPath to pathId; primIdElim to elimId)\n"
+  nasta: the certificate you asked for. A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics.
+  nasta: and the distinction between `agda says no` and `agda is not usable here`, which a single red merges
+  sesa: repair the environment — the cubical library, the include root formal/cubical, the locale — and ask again
+  sesa: this is jāti karaṇa-doṣa: the instrument or its environment is defective, not the mathematics
+  pramana: Certificate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error
   yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
   yogyata-ksetra: the session state as of turn 17 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 44f45f6cde347bd5
+  sara: fda63130ca03d93a
 .
-dosa 0006
+dosa 0008
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
-  jati: sankramana-asambhava
+  karta: yantra (machine/Server.hs)
+  jati: ayogya-darsana
   vastu: sadhana
   yatna: turn 18 of the session; operation `sadhana` was asked and transport was not available
-  hetu: this equation is outside the emitter's fragment, so NO module was emitted and agda was not asked: unknown symbol "ackermann"
-  nasta: the module, which does not exist — and this is a fact about the emitter, not about agda and not about the equation. A `no` here and a kernel rejection are different facts and merging them is exactly what this machine refuses.
-  nasta: the equation itself, which may be perfectly true and simply unsayable in this fragment
-  sesa: the fragment, in full, so the next attempt can stay inside it:
-  sesa: 0/0
-  sesa: s/1
-  sesa: +/2
-  sesa: */2
-  sesa: -/2
-  sesa: max/2
-  sesa: le/2
-  sesa: gcd/2
-  sesa: variables: x y z u v w
-  pramana: Certificate.hs, `agdaTermWith`
+  hetu: no verdict from the kernel, because the kernel has not been seen to work: KernelPositiveControlFailed "Checking Candidate (/tmp/math-machine-agda.458h4r/Candidate.agda).\n Checking Cubical.Foundations.Prelude (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Prelude.agda).\n Checking Cubical.Core.Primitives (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Primitives.agda).\n Checking Agda.Builtin.Cubical.Path (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Path.agda).\n Checking Agda.Builtin.Cubical.Sub (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Sub.agda).\n Checking Agda.Builtin.Cubical.Glue (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Glue.agda).\n Checking Agda.Builtin.Cubical.Equiv (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Equiv.agda).\n Checking Agda.Builtin.Sigma (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Sigma.agda).\n Checking Agda.Builtin.Cubical.HCompU (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/HCompU.agda).\n Checking Cubical.Data.Nat (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat.agda).\n Checking Cubical.Data.Nat.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Base.agda).\n Checking Agda.Builtin.Nat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Nat.agda).\n Checking Agda.Builtin.Bool (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Bool.agda).\n Checking Cubical.Data.Nat.Literals (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Nat/Literals.agda).\n Checking Agda.Builtin.FromNat (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNat.agda).\n Checking Agda.Builtin.FromNeg (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/FromNeg.agda).\n Checking Cubical.Data.Unit.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Unit/Base.agda).\n Checking Agda.Builtin.Unit (/root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Unit.agda).\n Checking Cubical.Data.Bool.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Bool/Base.agda).\n Checking Cubical.Data.Empty (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty.agda).\n Checking Cubical.Data.Empty.Base (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Base.agda).\n Checking Cubical.Data.Empty.Properties (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Data/Empty/Properties.agda).\n Checking Cubical.Foundations.Equiv (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Equiv.agda).\n Checking Cubical.Foundations.Function (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Function.agda).\n Checking Cubical.Foundations.Isomorphism (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Foundations/Isomorphism.agda).\n Checking Cubical.Core.Everything (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Everything.agda).\n Checking Cubical.Core.Glue (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Glue.agda).\n Checking Cubical.Core.Id (/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda).\n/tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Cubical/Core/Id.agda:7.1-19.13: error: [FileNotFound]\nFailed to find source of module Agda.Builtin.Cubical.Id in any of\nthe following locations:\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.agda\n /tmp/claude-0/-home-user-math/c69c34c3-ba54-5372-a8c2-3bf8bdba121a/scratchpad/cubical/Agda/Builtin/Cubical/Id.lagda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.agda\n /tmp/math-machine-agda.458h4r/Agda/Builtin/Cubical/Id.lagda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.agda\n /home/user/math/formal/cubical/Agda/Builtin/Cubical/Id.lagda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.agda\n /root/.cabal/store/ghc-9.4.7/Agda-2.8.0-54ce94b08bc0be8bc09d2d984713bef20fe71bb6f5634dcb091793c5c62e2f42/share/lib/prim/Agda/Builtin/Cubical/Id.lagda\nwhen scope checking the declaration\n open import Agda.Builtin.Cubical.Id public\n renaming (conid to \10216_,_\10217; primIdFace to faceId;\n primIdPath to pathId; primIdElim to elimId)\n"
+  nasta: the certificate you asked for. A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics.
+  nasta: and the distinction between `agda says no` and `agda is not usable here`, which a single red merges
+  sesa: repair the environment — the cubical library, the include root formal/cubical, the locale — and ask again
+  sesa: this is jāti karaṇa-doṣa: the instrument or its environment is defective, not the mathematics
+  pramana: Certificate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error
   yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
   yogyata-ksetra: the session state as of turn 18 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 85b29dbd08b5333e
+  sara: c5e1ba123bbe7094
 .
-dosa 0007
+dosa 0009
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: sankramana-asambhava
   vastu: kuttaka
   yatna: turn 20 of the session; operation `kuttaka` was asked and transport was not available
@@ -213,11 +240,11 @@ dosa 0007
   yogyata-ksetra: the session state as of turn 20 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 9f664ca2d5c56492
+  sara: a131ec972b75941a
 .
-dosa 0008
+dosa 0010
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: sankramana-asambhava
   vastu: vargaprakrti
   yatna: turn 22 of the session; operation `vargaprakrti` was asked and transport was not available
@@ -232,11 +259,11 @@ dosa 0008
   yogyata-ksetra: the session state as of turn 22 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 389d78ccf465b5fc
+  sara: e67ebe310815c28e
 .
-dosa 0009
+dosa 0011
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: nasti-krta
   vastu: yantra.srutam
   yatna: turn 24 of the session; operation `yantra.srutam` was asked and transport was not available
@@ -248,11 +275,11 @@ dosa 0009
   yogyata-ksetra: the session state as of turn 24 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 166f0487e11d3fd5
+  sara: 246ed646da73695d
 .
-dosa 0010
+dosa 0012
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: sankramana-asambhava
   vastu: yantra.srutam
   yatna: turn 25 of the session; operation `yantra.srutam` was asked and transport was not available
@@ -264,11 +291,11 @@ dosa 0010
   yogyata-ksetra: the session state as of turn 25 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: cf3a9fdfd3d310fa
+  sara: 7f453afe273ef016
 .
-dosa 0011
+dosa 0013
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: sankramana-asambhava
   vastu: yantra.srutam
   yatna: turn 26 of the session; operation `yantra.srutam` was asked and transport was not available
@@ -276,6 +303,7 @@ dosa 0011
   nasta: the operation you meant; it is NOT guessed at by nearest name, because a near miss executed silently is exactly the collapse this machine exists to refuse
   sesa: operations available:
   sesa: yantra.kriyah
+  sesa: yantra.kosa
   sesa: yantra.sthiti
   sesa: naya.sthapana
   sesa: naya.suchi
@@ -299,11 +327,11 @@ dosa 0011
   yogyata-ksetra: the session state as of turn 26 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 9dddcc6b0db77cbe
+  sara: bead133632d623ff
 .
-dosa 0012
+dosa 0014
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: sankramana-asambhava
   vastu: yantra.srutam
   yatna: turn 27 of the session; operation `yantra.srutam` was asked and transport was not available
@@ -315,11 +343,11 @@ dosa 0012
   yogyata-ksetra: the session state as of turn 27 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: 34e1fe442f8e9aa7
+  sara: f9a6efd9d6f323fe
 .
-dosa 0013
+dosa 0015
   kala: 2026-08-25
-  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  karta: yantra (machine/Server.hs)
   jati: sankramana-asambhava
   vastu: translating avaktavya
   yatna: turn 28 of the session; operation `translating avaktavya` was asked and transport was not available
@@ -332,5 +360,5 @@ dosa 0013
   yogyata-ksetra: the session state as of turn 28 — 5 store entries, 0 remainders; and nothing outside this process
   yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
   punarabhinaya: sh machine/run-yantra.sh
-  sara: a3119ed6ecbef33b
+  sara: 2809a8e28c94d9b8
 .
