@@ -1339,78 +1339,12 @@ logIf _ u y = case u of
   Dosalekha{} -> y { yDosa = (yTurn y, u) : yDosa y }
   Samkramana{} -> y
 
--- | File a written defect into the doṣa-lekha on disk, over its own
---   published `write`-on-stdin interface.  NOT by importing its internals:
---   that module exports `main` and nothing else, and reaching past a
---   lane's published surface to get at its functions is how two lanes come
---   to fail as one.
---
---   The record is refused by the organ unless it carries all ten required
---   fields.  Everything below is filled from what the answer actually knows;
---   nothing is invented to satisfy the validator, and where the yantra does
---   not know a thing it says so IN the field rather than guessing.
-fileDosa :: Yantra -> String -> Uttara -> IO (Either String String)
-fileDosa y kala u@Dosalekha{} = case yDosaBin y of
-  Nothing -> pure (Left "no doṣa-lekha binary was passed to this session (DOSA_BIN unset)")
-  Just bin -> do
-    let ent = unlines
-          ( [ "  kala: " ++ kala
-            , "  karta: yantra (interactive/Server.hs)"
-            , "  jati: " ++ jatiOf u
-            , "  vastu: " ++ oneLine (uKriya u)
-            , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
-              ++ oneLine (uKriya u) ++ "` was asked and transport was not available"
-            , "  hetu: " ++ oneLine (uHetu u) ]
-          -- EVERY naṣṭa reaches the record.  This line used to read
-          -- `length (oneLine n) >= 12`, silently DELETING any naṣṭa under
-          -- twelve characters so that the record would clear the organ's
-          -- validator, which requires each witness to exhibit rather than
-          -- describe.  Turning the machine with the filter removed shows
-          -- what it was covering, and it is not small: the assembly's
-          -- flagship defect — `nirnaya.saptabhangi`, the three-organ
-          -- collision this file's header names as its load-bearing refusal
-          -- — carries a RENDERED BLOCK as its naṣṭa, one naṣṭa per rendered
-          -- line, and five of those lines are short (`{ #0 }`, `{ #1 }`,
-          -- `syad-asti`, `decision.`, `candidates:`).  So for every run in
-          -- this machine's history that record went to disk with five lines
-          -- cut out of the exhibit and nothing said so, which is §5 exactly:
-          -- a summary of a loss is the loss performed a second time.
-          --
-          -- The site of the fault is the flattening, not the length.  A
-          -- rendered block is ONE exhibit whose lines are continuations, and
-          -- `saptabhangi.nasti` one function away already does it right —
-          -- `intercalate " / "` — and its record files without complaint.
-          -- So: rejoin.  A naṣṭa under twelve characters is appended to the
-          -- one before it instead of being dropped, and a leading short line
-          -- opens a group the next line completes.  Nothing is destroyed.
-          --
-          -- WHAT THIS COSTS, stated rather than left to be found: two
-          -- genuinely distinct short witnesses sent by an interlocutor are
-          -- joined into one `nasta:` field, so the record holds both texts
-          -- and loses that they were sent as two.  That is a real loss and
-          -- it is the smaller one.  Where a group is STILL under twelve
-          -- after rejoining, nothing is done: the organ refuses, and its
-          -- refusal names the witness and the reason, which is the true
-          -- diagnosis and is the one the caller should get.
-          ++ [ "  nasta: " ++ n | n <- rejoinNasta (map oneLine (uNasta u)) ]
-          ++ [ "  sesa: " ++ oneLine s | s <- uSesa u, not (null (oneLine s)) ]
-          ++ [ "  pramana: " ++ oneLine p | p <- uPramana u, not (null (oneLine p)) ]
-          ++ [ "  yogyata-drsta: the handler for `" ++ oneLine (uKriya u)
-               ++ "` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction"
-             , "  yogyata-ksetra: the session state as of turn " ++ show (yTurn y)
-               ++ " — " ++ show (length (K.koshaEntries (yKosha y))) ++ " store entries, "
-               ++ show (length (ySesa y)) ++ " remainders; and nothing outside this process"
-             , "  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments"
-             , "  punarabhinaya: sh interactive/run-yantra.sh" ] )
-    (code, out, err) <- readProcessWithExitCode bin ["write"] ent
-    pure $ case code of
-      ExitSuccess -> Right (lastLine out)
-      _ -> Left (oneLine (out ++ " " ++ err))
-  where
-    oneLine = unwords . words
-    lastLine s = case reverse [ l | l <- lines s, not (null l) ] of
-                   (l:_) -> l; [] -> "(filed, no output)"
-fileDosa _ _ _ = pure (Right "(not a defect)")
+-- THE DEFECT IS NOT FILED ANYWHERE.  It is held in `yDosa` for the life of
+-- the session and emitted in full on the wire by dosa.suchi and
+-- yantra.sthiti.  What stood here wrote each record into a chained log on
+-- disk over the doṣa-lekha's `write`-on-stdin interface, and that log
+-- outlived the session that produced it.  A session now leaves nothing
+-- behind: the caller holds the only copy, which is the whole record.
 
 -- | Which of the seven kinds.  Read off what the answer says, not guessed:
 --   each branch below points at a phrase the handler itself wrote.
@@ -1472,12 +1406,12 @@ answer y0 kala line = do
         [] -> pure (y, fst (unknown k), snd (unknown k))
   let (m, u) = mudra m0 u0
       y2 = logIf m u y'
-  y3 <- case u of
-    Dosalekha{} -> do
-      r <- fileDosa y2 kala u
-      pure y2 { yFiled = (yTurn y2, r) : yFiled y2 }
-    _ -> pure y2
-  pure (y3, m, u)
+  -- A defect is held in `yDosa` for the life of the session and emitted in
+  -- full by dosa.suchi and yantra.sthiti.  It is not filed anywhere: the
+  -- record used to be appended to a chained log on disk, which outlived the
+  -- session that wrote it.  `yFiled` therefore stays empty and every entry
+  -- reports itself as `(not filed)`, which is the true statement.
+  pure (y2, m, u)
   where
     heard e = malformed "yantra.srutam" ("the utterance did not parse: " ++ e
                 ++ "  (as sent, unread: " ++ take 160 line ++ ")")
@@ -1505,14 +1439,13 @@ answer y0 kala line = do
           [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2, c. 500 BCE — adhikāra: a heading governs a stated extent and nothing outside it, and vipratiṣedhe paraṁ kāryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
           , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।" ] )
 
-appendLekha :: FilePath -> Int -> String -> Mudra -> Uttara -> IO ()
-appendLekha fp n line m u =
-  appendFile fp (render (JObj [ ("avrtti", JInt (fromIntegral n))
-                              , ("prasna", JStr line)
-                              , ("uttara", mudritaJ m u) ]) ++ "\n")
-
-serve :: FilePath -> String -> Handle -> Handle -> Yantra -> IO Yantra
-serve fp kala hin hout = go
+-- NOTHING IS WRITTEN DOWN.  A turn is answered on the wire and then it is
+-- gone: the session leaves no record of itself on disk.  The transcript that
+-- used to be appended here was a second copy of what the caller already has
+-- in front of them, kept so the session could be harvested as a corpus.  The
+-- state a turn changes lives in `Yantra` and dies with the process.
+serve :: String -> Handle -> Handle -> Yantra -> IO Yantra
+serve kala hin hout = go
   where
     go y = do
       eof <- hIsEOF hin
@@ -1523,7 +1456,6 @@ serve fp kala hin hout = go
           (y', m, u) <- answer y kala line
           hPutStrLn hout (render (mergeId line (mudritaJ m u)))
           hFlush hout
-          appendLekha fp (yTurn y') line m u
           go y'
 
 mergeId :: String -> J -> J
@@ -1565,7 +1497,6 @@ yantraMain = do
   -- deliberate.
   mapM_ (hPutStrLn stderr) saksiPariksaLines
   saksiPariksaOrRefuse
-  fp   <- maybe "interactive/yantra.jsonl" id <$> lookupEnv "YANTRA_LEKHA"
   root <- maybe "." id <$> lookupEnv "MATH_ROOT"
   bin  <- lookupEnv "DOSA_BIN"
   kala <- maybe "2026-08-20" id <$> lookupEnv "YANTRA_KALA"
@@ -1575,10 +1506,10 @@ yantraMain = do
     then do
       hPutStrLn stderr "yantra — one JSON object per line on stdin; one answer per line on stdout."
       hPutStrLn stderr "every answer is a saṃkramaṇa or a doṣa-lekha, and carries its nirṇaya and its pramāṇya."
-      hPutStrLn stderr ("transcript: " ++ fp)
-      _ <- serve fp kala stdin stdout y0
+      hPutStrLn stderr "nothing is written down: this session leaves no record of itself."
+      _ <- serve kala stdin stdout y0
       pure ()
-    else selftest fp kala y0
+    else selftest kala y0
 
 -- ------------------------------------------------------------ the session
 
@@ -1635,8 +1566,8 @@ script =
   , "{\"kriya\":\"yantra.sthiti\"}"
   ]
 
-selftest :: FilePath -> String -> Yantra -> IO ()
-selftest fp kala y0 = do
+selftest :: String -> Yantra -> IO ()
+selftest kala y0 = do
   bad <- newIORef (0 :: Int)
   let note s = modifyIORef bad (+ 1) >> putStrLn ("  !! " ++ s)
       step y line = do
@@ -1673,7 +1604,6 @@ selftest fp kala y0 = do
           Dosalekha _ hetu lost _ _
             | null hetu || null lost -> note "a defect entry naming no loss"
           _ -> pure ()
-        appendLekha fp (yTurn y') line m u
         pure y'
   final <- foldM step y0 script
 
@@ -1711,16 +1641,9 @@ selftest fp kala y0 = do
   putStrLn ("  turns:              " ++ show (yTurn final))
   putStrLn ("  store entries:      " ++ show (length (K.koshaEntries (yKosha final))))
   putStrLn ("  defects written:    " ++ show (length (yDosa final)))
-  putStrLn ("  defects filed:      "
-            ++ show (length [ () | (_, Right _) <- yFiled final ])
-            ++ " accepted by the doṣa-lekha, "
-            ++ show (length [ () | (_, Left _) <- yFiled final ]) ++ " refused")
-  forM_ (reverse (yFiled final)) $ \(i, r) -> case r of
-    Left e -> putStrLn ("      turn " ++ show i ++ " REFUSED: " ++ e)
-    Right _ -> pure ()
+  putStrLn "  defects filed:      none, and none can be: nothing is persisted"
   putStrLn ("  remainders queued:  " ++ show (length (ySesa final)))
   b <- readIORef bad
   putStrLn ("  contract violations: " ++ show b)
-  putStrLn ("  transcript:         " ++ fp)
   if b == 0 && pellOK && aNOK && isoOK && collideOK && roundOK && uniqOK
     then exitSuccess else exitFailure

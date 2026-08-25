@@ -22,17 +22,14 @@
 #   * SaptabhangiGarbha → Saptabhangi has NO section, with the two colliding
 #     objects constructed and compared in the run — the defect the machine
 #     writes rather than resolving;
-#   * replay ∘ journal = id on the store as the session actually left it;
-#   * every defect the machine wrote was filed into the doṣa-lekha over that
-#     organ's own `write`-on-stdin interface, and the chain verifies from
-#     inside the session (`dosa.pramanya`).
+#   * replay ∘ journal = id on the store as the session actually left it.
 #
-# THE SESSION LOG IS SESSION-SCOPED, ON PURPOSE.  $DOSA_LEKHA points at
-# interactive/yantra-session.lekha and NOT at interactive/dosa.lekha.  Four lanes are
-# appending to the shared log today (doṣa 0013, 0014); a demonstration that
-# writes twenty records into it would be this file's own first defect.  The
-# organ, the format, the validator and the chain are the same; only the file
-# differs, and `dosa.pramanya` verifies whichever one it is pointed at.
+# THE SESSION PERSISTS NOTHING.  No transcript, no doṣa-lekha, no store on
+# disk.  A defect lives in `yDosa` for the life of the process and is emitted
+# in full on the wire by dosa.suchi and yantra.sthiti; what the caller has in
+# front of them IS the record.  So `dosa.pramanya` has no chain to verify and
+# says so — that is its correct answer here, not a failure.  Green above no
+# longer includes a filing claim, because nothing is filed.
 #
 # THE SEAM, stated rather than discovered.  This machine imports
 # interactive/RewriteEngine.hs (120 KB) and interactive/RefusalAnalysis.hs, which other
@@ -44,17 +41,6 @@ set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 OUT="${YANTRA_OUT:-${TMPDIR:-/tmp}/yantra-$(id -u)}"
 mkdir -p "$OUT"
-
-# organ 2: the doṣa-lekha, built first, because the machine files into it.
-DOSA_SRC="$ROOT/interactive/DefectRecord.hs"
-DOSA_BIN="$OUT/dosalekha"
-if [ ! -x "$DOSA_BIN" ] || [ "$DOSA_SRC" -nt "$DOSA_BIN" ]; then
-  ghc -O0 -main-is DefectRecord.main \
-      -outputdir "$OUT/dosa-build" -o "$DOSA_BIN" "$DOSA_SRC" >"$OUT/dosa-build.log" 2>&1 || {
-    echo "run-yantra: the doṣa-lekha did not build.  first errors:" >&2
-    grep -E "error" -A6 "$OUT/dosa-build.log" | head -20 >&2
-    exit 2; }
-fi
 
 mine="Server.hs Main.hs"
 BIN="$OUT/yantra"
@@ -126,30 +112,21 @@ NOTE
   echo
 fi
 
-# A fresh session log each run: the chain starts at genesis and the whole of
-# it is the session, so `dosa.pramanya` is verifying THIS run and not a
-# history it did not produce.
-LEKHA="${DOSA_LEKHA:-$ROOT/interactive/yantra-session.lekha}"
-rm -f "$LEKHA"
-TRANSCRIPT="${YANTRA_LEKHA:-$OUT/yantra.jsonl}"
-rm -f "$TRANSCRIPT"
-
+# THE SESSION LEAVES NOTHING BEHIND.  No transcript and no doṣa-lekha: the
+# defects a run writes live in `yDosa` for the life of the process and are
+# emitted in full on the wire by dosa.suchi and yantra.sthiti.  What the
+# caller has in front of them IS the record; a second copy on disk was only
+# ever there so the session could be harvested afterwards.
 cd "$ROOT" || exit 2
-DOSA_LEKHA="$LEKHA" DOSA_BIN="$DOSA_BIN" \
-YANTRA_LEKHA="$TRANSCRIPT" MATH_ROOT="$ROOT" \
+MATH_ROOT="$ROOT" \
 YANTRA_KALA="$(date +%Y-%m-%d)" \
   "$BIN" "$@"
 status=$?
 
 if [ "${1:-}" != "--wire" ]; then
   echo
-  echo "──────────────────────────────── the filed defects, on disk"
-  DOSA_LEKHA="$LEKHA" "$DOSA_BIN" count 2>/dev/null || echo "  (none filed)"
-  echo
   echo "  built from         : $SRCTREE"
-  echo "  session doṣa-lekha : $LEKHA"
-  echo "  wire transcript    : $TRANSCRIPT"
-  echo "  the transcript is the corpus this machine is meant to be post-trained"
-  echo "  against; it is append-only, one line per turn, request and answer."
+  echo "  nothing was written: no transcript, no doṣa-lekha, no session state"
+  echo "  on disk.  The defects this run wrote were emitted above and are gone."
 fi
 exit $status
