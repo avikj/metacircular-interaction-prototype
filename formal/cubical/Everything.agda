@@ -2296,3 +2296,7 @@ import Matravrtta_TheFibonacciAnyonFusionDimensionIsVirahankasMetreCount
 -- The verified front door: the frontier theorems as entry points from
 -- other fields (crypto/economics, quantum computing, foundations).
 import Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields
+
+-- The orb (मणि) gate: an achromatic, lossless √NOT — the quarter-wave plate,
+-- √NOT existing on the enrichment that VargamulaViparyaya forbids on 2 points.
+import Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot
