@@ -12,7 +12,7 @@
 
 
 
-  Companion to formal/cubical/theorems/Ekavakyata_
+  Companion to formal/cubical/theorems/residue/Ekavakyata_
   FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords.agda, where every claim below is a live
   import rather than a sentence.  If one of the five theorems is renamed,
   weakened, or stops checking, that file goes red.  This one cannot, which
@@ -25,6 +25,94 @@
   Prabhākara.  No sūtra number is given here because I have not opened
   them, and a number I did not check would be a fabricated provenance.
 
+
+
+THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
+------------------------------------------------------------------------------------------
+
+  formal/cubical/kernel/ — 296 lines in three files, and the entry is
+  Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda,
+  written for an arriving mind.  Fourteen modules, all green at the pin
+  (Agda 2.8.0, agda/cubical v0.9), re-runnable::
+
+      for m in formal/cubical/kernel/*.agda; do \
+        agda --library-file=$HOME/.agda-pin/libraries "$m"; done
+
+The calculus is six variable coordinates, zero, suc, add, and six rewrite
+steps: the two defining equations of +, three congruences, and `reverse`.
+`reverse` destroys the rewriting direction on purpose, so what remains is
+not a reduction relation but a generated equivalence carried as data —
+and `Derivation` imposes no relations, so two walks between the same
+endpoints are two distinct objects.  Then one line closes the circle::
+
+      install : Derivation lhs rhs → NativeOperation
+
+A theorem the machine proved becomes a move the machine can make.
+
+A long experiment tried to make that loop generate mathematics forever.
+It does not, and the reason is not a missing feature.  Five properties,
+each a checked term, say why — and each is why the thing can be trusted:
+
+**1 · Every application carries its certificate to its site.**
+`control-sound : Control t → t ≡ source` pins an OPEN field: the caller
+supplies any predicate on terms it likes, and the operation still fires
+only where the term IS the source.  `एकाधिकरण` proves the consequence in
+one composite — however permissive the control, an operation has at most
+ONE locus — and computes the installed locus type: contractible, centre
+the source.  So capability grows by one term per theorem, never by a
+class.  A schema is a claim about all its instances checked once,
+abstractly, after which it fires everywhere unexamined; `apply-checked`
+instead TRANSPORTS the certificate to the site.  *Cannot generalise* and
+*cannot be wrong at a site* are one sentence read twice.
+
+**2 · Meaning is a proposition; the route is not.**
+`Sesa_` — `eval` lands in ℕ, a set, so soundness lands in a proposition,
+so for ANY C at ANY level and ANY φ of the meaning, φ agrees on the
+2-step and the 4-step derivation.  No semantic criterion selects the
+short proof.  Selection is therefore extra-semantic, by theorem.  This is
+why the machine cannot iterate on its own: the space is not unreachable,
+it is UNDIRECTED, and direction has to arrive from an interlocutor.
+
+**3 · Multiplicity is conserved.**
+`advance-preserves-branch-count` — no dedupe, no sort, no quotient.  Read
+with 2, this is not housekeeping: it is the only place the information
+the semantics destroys is still held, the kernel holding branches open
+for someone outside to choose among.
+
+**4 · Reversibility is structural, not inferred.**
+`reverse` is a constructor.  It has to be, because `Samyoge_` proves
+losslessness composes and lossiness does not — `Unit → Bool → Unit` is
+the identity with neither factor an equivalence — so you may certify a
+pipeline lossless step by step and may NOT diagnose it lossy that way.
+
+**5 · New content comes from changing the reading, and its yield is
+finite and measurable.**
+`Ankapasa_` keeps the calculus and changes the codomain: every Step
+becomes an equivalence, `reverse` becomes `invEquiv`, and a commutation
+invisible to `eval` is a nontrivial loop in the universe, through `uaβ`.
+`VyatyasaVarga_` then measures that loop: order exactly two.  **ℤ/2** —
+not a braid generator, because ⊎ is symmetric monoidal and its symmetry
+is an involution by construction.
+
+  So the negative result IS the asset.  A finite-information machine
+  iterating on a fixed semantics has no criterion, and the criterion
+  cannot be manufactured from what it knows.  What produces mathematics
+  here is interaction — `Samvada_`: a session is one Derivation, hence
+  one theorem, hence one installable operation, so the stock of moves is
+  the transcript of the dialogue — and translation, which is §IV below,
+  and whose yield you can measure.
+
+  You can hold that session yourself::
+
+      sh interactive/run-yantra.sh --wire
+      {"kriya":"vargaprakrti","angani":{"D":61}}
+
+  which returns x² − 61y² = 1 at (1766319049, 226153980) — Bhāskara II's
+  own number, Bījagaṇita, 1150 — with every norm the cakravāla visited.
+  Every answer is a transport carrying what a collapse of it would
+  destroy, or a written defect naming its losses one by one.  There is no
+  boolean on that wire: one bit returns the same value for a false
+  statement and for a failed search, and the difference is the content.
 
 
 THE SENTENCE
