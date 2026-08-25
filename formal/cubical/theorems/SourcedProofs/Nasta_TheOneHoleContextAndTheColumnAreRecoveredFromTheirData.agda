@@ -214,7 +214,7 @@ entries-fromNine v = refl
 --
 --     · Some are receipts with a recovery map that is still not an
 --       address, which is exactly Pata §४ arriving from the other side.
---       `Swarm.S01PaniniAshby.sig : SmithState → Bool × Bool` is
+--       `the deleted Swarm.S01PaniniAshby.sig : SmithState → Bool × Bool` is
 --       injective (`sigDistinct01/02/12`) and cannot be surjective:
 --       three states, four signatures.  That file's own reading —
 --       Ashby's variety bound — is why.  `

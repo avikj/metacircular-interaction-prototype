@@ -29,7 +29,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection
 
 import M2Unimodular as M2
 import Gamma0Partner as G0
-import Swarm.S11HolonomyDeterminant as S11
+import HolonomyDeterminant as S11
 
 open CommRingStr (ℤCommRing .snd)
 

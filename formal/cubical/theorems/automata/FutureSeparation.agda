@@ -20,7 +20,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_; yes; no)
 open import FutureBehavior
-open import Swarm.S04Apoha
+open import Apoha
   using (MP; eqB; eqB→≡; ≡→eqB; ¬false≡true)
 
 private

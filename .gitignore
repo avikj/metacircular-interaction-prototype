@@ -98,7 +98,7 @@ machine/question-machine
 # history and `git show` returns every one.
 #
 # A .md file asserts.  A checked term is the object, and it is still there
-# tomorrow.  Put it in Agda (formal/cubical/, punaragamana/src/) or Lean
+# tomorrow.  Put it in Agda (formal/cubical/, fibre/src/) or Lean
 # (formal/pairfield/); if it is a header or a struck claim, it belongs in the
 # module it is about.
 #

@@ -73,7 +73,7 @@
 -- §2.  THE ONE PRIMITIVE: THE FIBRE LAW.  (atemporal)
 ------------------------------------------------------------------------
 --
---   loss/src/Loss/Carrier.agda   (153 lines)
+--   fibre/src/Loss/Carrier.agda   (153 lines)
 --
 -- For f : A → B, the question is WHICH SIDE OF `f a ≡ b` IS BOUND.
 --
@@ -215,7 +215,7 @@
 --      the surface.  In this order, reading terms and not headers.
 ------------------------------------------------------------------------
 --
---   1. loss/src/Loss/Carrier.agda        -- to the bottom
+--   1. fibre/src/Loss/Carrier.agda        -- to the bottom
 --   2. NaturalMachine/RewriteCertificate.agda            -- to the bottom
 --   3. NaturalMachine/ControlledGrammar.agda             -- 63 lines
 --   4. NaturalMachine/GenerativeKernel.agda              -- 77 lines

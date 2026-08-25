@@ -44,7 +44,7 @@
 #
 # 3. LC_ALL. Under a POSIX locale Agda crashes while PRINTING its own error
 #    messages for this corpus's Devanagari identifiers, so the real
-#    diagnosis is replaced by an encoding error. loss/check.sh has
+#    diagnosis is replaced by an encoding error. fibre/check.sh has
 #    carried this warning for longer than anyone acted on it.
 #
 # ─────────────────────────────────────────────────────────────────────────

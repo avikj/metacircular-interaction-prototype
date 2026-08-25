@@ -7,7 +7,7 @@
 --
 -- SUCCESSOR TO, AND PARTIAL REFUTATION OF, a reading of
 -- `collab/swarm/2026-08-14/swarm-0814-02-admissible-modes-are-right-adjoints.md`
--- (module `Swarm/S02ModeAdjoint.agda`, which this file IMPORTS and does not
+-- (module `theorems/ModeAdjoint.agda`, which this file IMPORTS and does not
 -- edit).  Both concern OBLIGATION.md's transfer modes: maps t : S -> S on a
 -- meet-semilattice with top that preserve binary meets and TOP ("admissible").
 --
@@ -64,7 +64,7 @@ open import Cubical.Data.Sum using (_⊎_; inl; inr)
 open import Cubical.Data.Sigma using (Σ-syntax; _,_)
 open import Cubical.Data.Bool using (Bool; true; false; if_then_else_)
 
-open import Swarm.S02ModeAdjoint
+open import ModeAdjoint
   using ( module Modes ; _&&_
         ; Three ; bot ; mid ; top
         ; _∧₃_ ; ∧₃-idem ; ∧₃-comm ; ∧₃-assoc ; ∧₃-unit

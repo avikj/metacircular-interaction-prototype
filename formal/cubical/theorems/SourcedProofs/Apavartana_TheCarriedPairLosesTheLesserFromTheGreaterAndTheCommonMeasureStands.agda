@@ -94,7 +94,7 @@
 ------------------------------------------------------------------------
 -- SELF-CONTAINMENT — REDEFINED, AND SAID.
 --
--- This module imports NOTHING from `loss/src` and nothing from this
+-- This module imports NOTHING from `fibre/src` and nothing from this
 -- directory.  `Carrier`, `descend`, `Φ-carrier`, `त्रिक्`, `उत्थान`, `गभीर`,
 -- `भेद`, `उत्थान-भेद`, `वल्ली` and `_∣_` are REDEFINED here, character for
 -- character where that was possible, so that the two lanes' checks are

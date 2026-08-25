@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ModeAdjointFinitenessBoundary
 --
--- Swarm.S02ModeAdjoint defines admissible transfers over an arbitrary
+-- ModeAdjoint defines admissible transfers over an arbitrary
 -- meet-semilattice with top.  Its accompanying prose identifies admissible
 -- transfers with right adjoints only in the finite case.  This leaf checks
 -- the exact boundary:
@@ -23,7 +23,7 @@ open import Cubical.Data.Nat
   using (ℕ ; zero ; suc ; max ; maxComm ; znots ; injSuc)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Swarm.S02ModeAdjoint as S02
+import ModeAdjoint as S02
 
 private
   variable

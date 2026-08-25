@@ -151,7 +151,7 @@ defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 --  `MP` and for `Writable` across formal/cubical/*.agda.
 --
 --  AND THE EXACTNESS IS EARNED NEXT DOOR, FOR A DIFFERENT STATEMENT,
---  which is very likely what the word was reaching for: `Swarm.S04Apoha`
+--  which is very likely what the word was reaching for: `Apoha`
 --  carries `MP→Witnessed` AND `Witnessed→MP`, both checked, and
 --  `Primes.PairField.FalsifierAsymmetry` cites that pair for exactly this purpose.  So
 --  "precisely Markov.s Principle" is a true sentence about `Witnessed`.

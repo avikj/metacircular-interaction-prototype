@@ -62,7 +62,7 @@
 --
 --   (i)   fibre of a RESTRICTED map — five of the nine, and §२ below;
 --   (ii)  the same short name in two modules — `Digits.value`
---         joined `Swarm.S03CarryFiber.Fib` because both end in `value`;
+--         joined `CarryFiber.Fib` because both end in `value`;
 --         different maps out of different `Word`s;
 --   (iii) the queued map is a FACTOR, not the map — `EvenQuery` is the
 --         fibre of `sgn ∘ Ω` and the join saw only `Ω` (Tantusandhi §३
