@@ -9,7 +9,6 @@
 -- This is a build aggregate, not mathematics: it states no theorem and
 -- proves nothing.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
--- and `notes/` grepped first.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS EXISTS, and it is a fact about my own work

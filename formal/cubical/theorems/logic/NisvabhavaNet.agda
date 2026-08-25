@@ -1,6 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- ON THE IDENTIFICATION (see notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md).
 -- `no-own-being := univalence` is examined there and — unlike an earlier
 -- over-refutation of mine — it holds: a type has no identity over its
 -- equivalences, and that emptiness is itself empty up the whole ∞-groupoid

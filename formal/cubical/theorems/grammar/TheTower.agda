@@ -102,8 +102,6 @@ level4←5 = no-order-makes-all-intervals
 -- below.  The fourth is not — it is an exhaustive impossibility, and by
 -- `Pratyahara` §§6–7 its content is a size, four rather than three.
 --
--- `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` predicts exactly this split,
--- and `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md` identifies the first
 -- shape with the analytic lane's flagship open problem.  The tower is
 -- where the two notes meet: every level boundary is either a collision or
 -- a size, and there is no third kind in anything this session touched.

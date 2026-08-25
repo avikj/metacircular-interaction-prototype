@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- ProgressDefinition
 --
--- GAP D of `notes/GENERATIVE_MODULES_AUDIT.md`, closed.
 --
 -- The audit's finding, verbatim:
 --
@@ -318,7 +317,6 @@ install-unfold-agree V d b bB t =
 -- 2.  D1 and D2.  The audit's proposed closing theorem — landed, then
 --     refuted as a SEPARATOR.
 --
--- D1 is exactly `notes/GENERATIVE_MODULES_AUDIT.md` §4-D's
 -- `generative-step-unfolds`.  It checks.  D2 is the reason it does not
 -- close the gap: `unfold-deficit-split` was proved for EVERY base body,
 -- and `var` is a base body, so the null proposer satisfies D1 verbatim.

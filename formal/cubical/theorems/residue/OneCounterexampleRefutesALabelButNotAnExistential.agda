@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- OneCounterexampleRefutesALabelButNotAnExistential
 --
--- `notes/DARWIN_GODEL_MATH.md` §7 ends its pre-registered kill criteria
 -- with one that is different in kind from the others:
 --
 --   "any artifact labeled kernel-checked or independently replayed fails

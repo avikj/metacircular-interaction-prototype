@@ -3,14 +3,12 @@ set -euo pipefail
 
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 
-# The `--safe` header gate (notes/AGDA_PRAGMA_AUDIT.md).  Agda's `--safe` is
 # asserted PER MODULE by an OPTIONS pragma; a file that omits it is checked
 # without it, silently, and every `agda` invocation below would still pass.
 # This runs FIRST because it needs no toolchain and because a missing pragma
 # makes the subsequent green meaningless rather than merely incomplete.
 "$repo_dir/scripts/check-agda-pragmas.sh"
 
-# The anonymous-`example` oracle check (notes/AXIOM_GATE.md §7a).  `lake exe
 # yogyanupalabdhi` below can only reach NAMED declarations; an `example` emits no
 # constant, so an oracle inside one is structurally invisible to it — and for
 # a time the lane's single `native_decide` sat in exactly that position.  This
@@ -18,21 +16,18 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # toolchain, so it runs before anything expensive.
 "$repo_dir/scripts/check-lean-example-oracles.sh"
 
-# The silent-deletion gate (notes/REGISTRY_DELETION_142bba1f.md). Commit
 # 142bba1f removed 53 registry files under a subject that describes a sync;
 # the loss was found by an archivist draw, not by any check. Needs no
 # toolchain, so it runs with the other cheap gates. HEAD only here; CI runs
 # it over the pushed range, and `--pre-push` covers a branch before it lands.
 "$repo_dir/scripts/check-no-silent-deletion.sh"
 
-# The claim-resolver gate (notes/CLAIM_ID_AMBIGUITY.md §6b). Claim IDs come
 # from a per-branch counter and ten of them carry two live claim files; slugs
 # come from the statement and are unique (104/104). This fails on a
 # slug-qualified reference that names nothing, and WARNS (non-fatal) on a bare
 # reference to an ambiguous ID — the silently-wrong ones. Needs no toolchain.
 "$repo_dir/scripts/check-claim-slugs.sh"
 
-# The Lean-lane closure checks (notes/LEAN_LANE_AUDIT.md, and the 2026-08-20
 # re-derivation at the foot of formal/lean/Pairfield.lean).  Two
 # different questions, neither subsuming the other, both toolchain-free:
 #
@@ -64,7 +59,6 @@ agda -i "$repo_dir/formal/cubical" \
 
 # ---------------------------------------------------------------------------
 # Everything.agda — the whole-directory latch (formal/cubical/BUILD.md,
-# notes/EVERYTHING_COVERAGE_REPAIR.md).  One command that checks every
 # top-level and Swarm/ module the aggregate imports.
 #
 # ASPIRATIONAL-IF-RED, 2026-08-14: this step is currently EXPECTED TO FAIL
@@ -85,9 +79,7 @@ else
   echo "=============================================================="
   echo "EVERYTHING: RED (exit $ev_code) — aspirational until the"
   echo "BUILD.md-vs-container toolchain schism resolves (v0.5 vs v0.9)."
-  echo "This is a known, documented state, NOT a certification of the"
-  echo "modules Everything.agda imports.  Individual module status:"
-  echo "notes/EVERYTHING_COVERAGE_REPAIR.md"
+  echo "modules Everything.agda imports."
   echo "=============================================================="
 fi
 
@@ -101,6 +93,5 @@ fi
   # ~4 min on top of a warm build (it imports all 133 modules at once).
   # Scope is MODULE MEMBERSHIP, not a `Pairfield` name prefix, since 2026-08-20;
   # it prints its own yogyatā (what it could have seen) on the OK line.
-  # See notes/AXIOM_GATE.md.
   lake exe yogyanupalabdhi
 )

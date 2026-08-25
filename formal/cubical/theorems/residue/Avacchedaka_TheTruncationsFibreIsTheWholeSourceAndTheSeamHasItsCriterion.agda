@@ -26,7 +26,6 @@
 -- criterion FAILS to separate them: `¬ Σ[ψ] (ψ ∘ collapse ≡ id)` holds of
 -- both.
 --
--- `notes/SakalaVikalaDesa_…md` then names what it believes does separate
 -- them — the SIZE of the fibre relative to the source — and marks the
 -- load-bearing half a CONJECTURE, "one line to check":
 --

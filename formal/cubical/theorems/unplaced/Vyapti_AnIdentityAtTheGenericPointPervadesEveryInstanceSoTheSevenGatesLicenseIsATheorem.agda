@@ -36,7 +36,6 @@
 -- CommRing with the same proof; instantiated at ℤ to stay in the
 -- machine's own semantics.
 --
--- SCOPE CORRECTION (owner, notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
 -- 2026-08-23: "truth of a term does not license every job the
 -- surrounding prose assigns to that term").  The title says "the seven
 -- gates' license"; what is checked is G3's license — pervasion from the

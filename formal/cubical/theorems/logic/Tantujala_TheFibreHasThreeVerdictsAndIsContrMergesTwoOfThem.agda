@@ -66,7 +66,6 @@
 -- stored patterns and the range of indices are equal AS TYPES, so keeping the
 -- सारणी and running the क्रिया are one object.  §४१ is an identity.  What does
 -- not survive is the codomain and the citation.  Grounds:
--- notes/PunaruktiRatrau_…md §६; and AnyatKaranam_…md line २ —
 -- उक्तं पठितं च न भिनत्ति, the instrument does not distinguish having read a
 -- thing from having seen it cited, which is what produced this line.]
 --

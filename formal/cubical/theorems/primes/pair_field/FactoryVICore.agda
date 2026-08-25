@@ -4,7 +4,6 @@
 -- FactoryVICore
 --
 -- The exact integer core of Theorem Factory VI
--- (notes/EGB_THEOREM_FACTORY_VI.md), as checked terms.  The note's
 -- statements are phrased in logs (σ = log a / log n, the exponent
 -- share a ≤ b^{1/m}); this module carries the INTEGER-EXACT forms the
 -- note itself supplies, so no floating point and no log ever enters the

@@ -5,7 +5,6 @@
 --
 -- **अप्रतिकार्यत्व is a compound built HERE and is not a source term.**  It is
 -- assembled from ordinary Sanskrit (प्रतिकार, remedy; the privative and the
--- abstract suffix) to name §५ of notes/AHIMSA_SUTRA_VISTARA.md.  It is
 -- listed in the UNSOURCED block of .claude/hooks/MulaVakya_SourceStatements-
 -- ForTheTermsInOurFileNames.txt for exactly this reason.  Building a
 -- compound is legitimate; letting it pass as a citation is not — "a
@@ -30,7 +29,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS MODULE IS FOR
 --
--- `notes/AHIMSA_SUTRA_VISTARA.md` §४ (नष्टिः) and §५ (अप्रतिकार्यत्वम्)
 -- carry the load-bearing claim of that text: that a collapse is not a
 -- deficiency to be repaired later but a destruction, and that there is
 -- no way back — *न दुर्लभम् — नास्ति*, "not hard to find: does not
@@ -115,7 +113,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS AND IS NOT CLAIMED OF THE SOURCES
 --
--- The Sanskrit here is taken from `notes/AHIMSA_SUTRA_VISTARA.md`, a
 -- document IN THIS REPOSITORY, not from a classical text, and this
 -- header says so rather than letting the Devanāgarī imply an antiquity
 -- it does not have.  The classical grounding behind that document, and

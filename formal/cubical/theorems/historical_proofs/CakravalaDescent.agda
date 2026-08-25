@@ -16,7 +16,6 @@
 -- WHY THIS FILE EXISTS, which is the part worth reading.  `Bhavana.agda`
 -- line 287 says, of the step where coprimality enters: "that step is in
 -- CakravalaDescent".  There was no `CakravalaDescent`.  Line 14 says
--- "See notes/CAKRAVALA.md"; there is no such note.  Two references
 -- pointing at work that was never done, in a form a reader takes as
 -- "it is handled over there" — a claim carrying no evidence, which is the
 -- same defect this repository has spent the day removing from its verdict

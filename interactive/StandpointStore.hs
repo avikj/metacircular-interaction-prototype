@@ -675,7 +675,7 @@ mk n y ws = Entry 0 n y "naya-kosha selfTest" "2026-08-20"
 kTricky :: Kosha
 kTricky = k3
   where
-    (_,_,k1) = insert (mk "tabs\tand=semis;and\\backslash" (Yogya "grep over notes/")
+    (_,_,k1) = insert (mk "tabs\tand=semis;and\\backslash" (Yogya "grep over the tree")
                           [("a\tb=c;d", "source\\with=all;the\tseparators")]) empty
     (_,_,k2) = insert eUnit k1
     (_,_,k3) = insert eBool k2

@@ -1,7 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- The exact commutative-ring algebra used by notes/SEXTIC_OBSTRUCTION.md.
 --
 -- This is deliberately only the sextic parity/eliminant spine.  It does
 -- not certify the root cage, coefficient box, irreducibility census,

@@ -5,7 +5,6 @@
 --
 -- Three displays of the owner's fifth transmission
 -- (`collab/upstream/raw/D0020-owner-fifth-transmission-2026-08-15.md`),
--- adjudicated in `notes/D0020_LEDGER.md` rows 8.5, 1.5 and 0.3, checked
 -- here as terms rather than as one reader's arithmetic.
 --
 -- The ledger says of itself that no row has had a second reader.  This

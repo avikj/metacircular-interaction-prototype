@@ -3,7 +3,6 @@ import Mathlib.Data.Complex.Basic
 /-!
 # The bilinear/Hermitian boundary for a two-site reflection
 
-`notes/DIVISOR_HAHN_INCIDENCE.md` states the Hahn reflection identity with a
 bilinear coefficient product and warns that replacing it by absolute squares
 is valid only for real diagonal signals.  This file checks the smallest hostile
 control: the complex two-site signal `(1, i)`.

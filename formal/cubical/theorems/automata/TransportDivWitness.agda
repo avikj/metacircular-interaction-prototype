@@ -93,7 +93,6 @@ chart-is-better =
 -- the rest of this lane's headers quote: three toolchain states are live in
 -- this repository at once and this file has only seen one of them.
 
--- BREAKER FINDING, 2026-08-15 (notes/BREAKER_R0079_R0081.md), recorded
 -- here because this file is where the numbers live.
 --
 -- Two corrections to what the numbers above support:

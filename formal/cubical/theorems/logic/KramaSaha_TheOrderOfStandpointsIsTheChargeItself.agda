@@ -45,7 +45,6 @@
 -- form) — and this module was built without knowing it.  The polarity
 -- CROSSES between the lanes (the grammar's feeding krama is this module's
 -- untruncated सह); the crossing is worked out in
--- `notes/Triveni_TheGrammarTheCubeAndTheMachineHoldOneDistinction…md`.
 ------------------------------------------------------------------------
 
 module KramaSaha_TheOrderOfStandpointsIsTheChargeItself where

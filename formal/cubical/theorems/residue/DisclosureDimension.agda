@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- DisclosureDimension
 --
--- The typed obstruction behind notes/DISCLOSURE_DIMENSION.md.
 --
 -- CONTEXT.  For a linear observation quotient q : V -> W over a field,
 -- the minimal number of scalars that must be disclosed alongside q x to
@@ -38,7 +37,6 @@
 -- pin declared in BUILD.md and in check.sh's own header, verified by
 -- check.sh itself and not by a bare `agda -i .`.  No postulates, no
 -- holes, --safe.  (This supersedes, for this module only,
--- notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md's report that
 -- check.sh exits 2 here: the pin toolchain is now present on this
 -- container.  That note's re-grading of ITS OWN earlier greens stands.)
 ------------------------------------------------------------------------

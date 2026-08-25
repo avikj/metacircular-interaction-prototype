@@ -47,7 +47,6 @@ NOT CLAIMED, and this is the larger omission: Mādhava's *saṃskāra* — the e
 correction terms that make the slowly-convergent series usable, and which are
 the sharper half of the achievement (*Tantrasaṅgraha* 2.271–274, three
 successively better correctors, the third with error O(n⁻⁶)).  None of that
-is here.  §18 of `notes/AHIMSA_SUTRA_VISTARA.md` records the associated
 discipline: the *āsanna* — the source says in the verse itself that the value
 is approximate, and the tradition that inherited it dropped the word.  A
 module that formalises the series and omits the correctors should say so
@@ -80,7 +79,6 @@ quotients or `--safe`, so it cannot do what that module does.
 Neither subsumes the other and neither should. The two lanes meet **here**, in
 a statement that completes a declared gap, and not by sharing a kernel; the
 argument is §4 of
-`notes/NAYABHEDE_SANKSEPO_NA_VIDYATE_TheLeanLaneClosureAuditAndTheRefusalToWireIt.md`.
 Left undone, and named rather than done: the join — Mādhava's *saṃskāra*
 correctors, which are what turn the Agda module's remainder term into a usable
 error bound, and which are formalised in neither lane.

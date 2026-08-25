@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired
 --
--- `notes/SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §6 asks:
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides
 --    whether its principal object is outside arithmetic, and hence

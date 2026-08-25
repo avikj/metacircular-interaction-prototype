@@ -58,7 +58,6 @@
 --     are supplied concretely in walk-1 and walk-2, which is why those
 --     witnesses are included: they show the hypotheses are satisfiable
 --     and not silently empty.
---   * Statement (2) of notes/WALK_FORCING_LAW.md — that the installs
 --     are exactly the ordered prime powers — is NOT attempted.  It
 --     needs prime-power machinery beyond WalkForcing's "no proper
 --     coprime splitting".

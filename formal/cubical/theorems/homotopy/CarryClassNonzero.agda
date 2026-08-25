@@ -28,7 +28,6 @@
 -- Coefficients are `ker πₙ` as a group in its own right, NOT ℤ/b: the
 -- isomorphism bⁿℤ/bⁿ⁺¹ ≅ ℤ/b is not constructed here and nonvanishing
 -- does not use it.  Neither is H²(ℤ/m;A) ≅ A/mA.  See the status
--- paragraph in notes/ATLAS_OF_N.md §7.
 --
 -- Toolchain: Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------

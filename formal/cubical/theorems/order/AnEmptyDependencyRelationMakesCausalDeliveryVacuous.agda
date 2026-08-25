@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- AnEmptyDependencyRelationMakesCausalDeliveryVacuous
 --
--- `notes/SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §3.2 states,
 -- about this repository's own sync rule read as a consistency model:
 --
 --   "Causal consistency is only as strong as the dependency graph you

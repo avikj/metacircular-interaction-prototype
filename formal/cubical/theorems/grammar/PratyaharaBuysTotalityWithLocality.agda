@@ -215,7 +215,6 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 
 ------------------------------------------------------------------------
 -- 8.  PRIOR ART NOT SEARCHED, recorded on reading
---     `notes/INDIC_FORMAL_TRADITIONS_MAP.md`.
 --
 -- §5 above names as open: "whether some order and naming convention
 -- achieves totality and locality together at three letters", and adds
@@ -229,7 +228,6 @@ the-trade = totality-fails-without-repetition , pratyahara-naming-does-not-facto
 --   diagram of the intersection-closure alone, with no phonological
 --   input.
 --
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` calls this "the one item on
 -- this page that is already a proved statement of the kind this repo
 -- demands", and that map was in the repository before I wrote either
 -- pratyāhāra module.

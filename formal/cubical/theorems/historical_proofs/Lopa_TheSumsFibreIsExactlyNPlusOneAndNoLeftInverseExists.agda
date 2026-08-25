@@ -32,7 +32,6 @@
 --
 -- `machine/Setubandha_…hs` built the graph of the corpus's checked
 -- identifications; every edge in it is invertible, so its gluing defect is
--- identically zero (`notes/CAUSAL_MEMORY_SPACETIME.md` §7).
 -- `machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs`
 -- built the other graph — 1054 one-way edges over 474 nodes, against 88
 -- invertible edges over 120 — and 1036 of those 1054 came back UNDECIDED

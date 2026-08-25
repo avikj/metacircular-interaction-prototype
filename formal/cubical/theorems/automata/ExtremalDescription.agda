@@ -33,7 +33,6 @@
 --                         not soundness, that `ker P` fails.
 --
 --   §3  `certifies→contains` / `contains→certifies`
---                         `notes/OBLIGATION.md` §5 Theorem O5(3) claims
 --                         the minimum number of ORACLE BITS certifying
 --                         soundness of a target set equals the MIN CUT
 --                         of its repair network (Theorem O3).  It does
@@ -153,7 +152,6 @@ instant-not-invariant i =
 ------------------------------------------------------------------------
 -- 3.  The least certifying set of oracle bits.
 --
--- `notes/OBLIGATION.md` §5: `L` is the set of open obligations, an
 -- oracle assignment is `α : L → Bool` ("has this obligation been
 -- discharged?"), and the target set `T` is sound exactly when every
 -- open obligation that REACHES `T` has been discharged.  Write `R` for

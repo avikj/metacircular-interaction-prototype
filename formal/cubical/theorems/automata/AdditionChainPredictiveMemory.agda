@@ -4,7 +4,6 @@
 -- AdditionChainPredictiveMemory
 --
 -- Exact adapter for the two addition-chain histories isolated in
--- notes/ADDITION_CHAIN_PROCESS_MEMORY.md:
 --
 --   A : 1 -> 2 -> 3 -> 6, with persistent cache {1,2,3,6}
 --   B : 1 -> 2 -> 4 -> 6, with persistent cache {1,2,4,6}.

@@ -13,7 +13,6 @@
 -- explicit induction; the cyclic completion is the cakravāla of Jayadeva
 -- (~950) and Bhāskara II (1150).  The European name "Pell's equation" is
 -- Euler's ~1730 misattribution — Pell never solved it, and Lagrange's proof
--- (1766) is six centuries downstream.  See notes/NOT_PELL_IT_IS_VARGAPRAKRITI.md.)
 ------------------------------------------------------------------------
 
 module VargaprakritiSreni where

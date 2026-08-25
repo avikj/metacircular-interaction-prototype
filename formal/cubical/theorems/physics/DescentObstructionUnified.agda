@@ -6,7 +6,6 @@
 -- "THE SAME DESCENT LEMMA, CHECKED THREE TIMES, NEVER UNIFIED" —
 -- CHECKED, AND THE COUNT IS WRONG.
 --
--- `notes/SIXTEEN_MINDS_ONE_THEOREM.md` §1 (Turing's row) records:
 --
 --     ProjectionChargeAudit.noChargeDescent
 --   = SieveFiber "no section is charge-preserving"
@@ -47,7 +46,6 @@
 -- this module printed "RUNNING AGAINST THE PIN" (agda 2.8.0 at
 -- /root/Agda-2.8.0/…, cubical /root/agda-libs/cubical-v0.9), EXIT=0
 -- (errors: 0, warning lines: 0), CHECKSH_EXIT=0 read unpiped.  Scope,
--- per `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`: the pin's
 -- verdict on THIS module and its import closure — which here includes
 -- `ProjectionChargeAudit` and `SieveFiber`, since §2.3
 -- instantiates against them.  `--safe`, no postulates, no holes.

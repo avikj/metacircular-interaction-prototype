@@ -33,7 +33,6 @@
 -- special case that `CakravalaBound.agda` §7 refuted, so the two functions
 -- differed in their CHOICE RULE and not only in their window width, and both
 -- rules reach the fundamental solution because any m satisfying the
--- congruence descends.  See notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md
 -- §6.
 --
 -- So: the theorem, which is shorter than the experiment, as it has been every

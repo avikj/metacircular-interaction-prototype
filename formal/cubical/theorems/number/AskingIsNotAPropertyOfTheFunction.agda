@@ -9,7 +9,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT PROVOKED THIS
 --
--- `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` states a criterion and
 -- calls it mechanical:
 --
 --   "installed cognition reduces to `refl`; description needs a proof
@@ -209,7 +208,6 @@ no-invariant-of-the-function-reports-asking (f , h) =
 ------------------------------------------------------------------------
 -- 6.  The consequence for the decisionless discipline
 --
--- `notes/DECISIONLESS_INDIC_CORPUS_INDEX.md` records that `Anekanta.agda`
 -- "proclaimed 'no checking' yet used `discreteℕ`", was flagged, and was
 -- kept out of the `Jiva` closure.  §5 says why that had to be caught by
 -- reading and could not have been caught by the build: the closure

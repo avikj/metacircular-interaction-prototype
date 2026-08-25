@@ -5,7 +5,6 @@ module DefinitionalExtension where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 
--- A1 of notes/RUNTIME_TO_CUBICAL_MIGRATION.md: in the proof language,
 -- definitional extension is judgmental.  Introducing a named definition
 -- and unfolding it is δ-reduction, so the "unfold and recheck" theorem
 -- is refl and conservativity is the theory's construction — there is no

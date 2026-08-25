@@ -21,7 +21,6 @@ about.  The ban converted a measurement into a theorem, which is what
 Nothing here uses `native_decide`.
 
 One thing this file makes visible, and it is the same boundary
-`notes/GENERAL_SMITH_PRODUCER.md` §5 found: **everything here is written by
 structural recursion on fuel, not by well-founded recursion, precisely so that
 `decide` can reduce it in the kernel.**  A well-founded definition would be
 executable by `#eval` and *not* provable by `decide`.  Choosing fuel is choosing
@@ -91,7 +90,7 @@ def sensorStream : ℕ → List ℕ
 /-- The first ten forced sensors are the first ten prime powers, kernel-reduced. -/
 example : sensorStream 10 = [2, 3, 4, 5, 7, 8, 9, 11, 13, 16] := by decide
 
-/-- `notes/WALK_SENSOR_THEOREM.md` §3, on exact integers:
+/-- On exact integers:
 `(Σ (q − 1)  ,  K − 1  ,  K)` — the scan's big-integer divisions against the
 theorem's small tests, and the frontier they reach. -/
 def costs (n : ℕ) : ℕ × ℕ × ℕ :=

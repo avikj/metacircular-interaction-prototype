@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- CarryObstruction
 --
--- notes/ATLAS_OF_N.md Proposition 2.11 / Corollary 2.11.1, machine-checked:
 -- **carrying cannot be removed by any choice of digit set.**
 --
 -- Statement being formalized (ATLAS_OF_N.md §2.4(iii)).  For b ≥ 2, n ≥ 1

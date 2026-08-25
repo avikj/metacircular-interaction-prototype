@@ -12,7 +12,6 @@
 -- 4.8.1, and the final-coalgebra / domain-equation form of Indra's net),
 -- already checked in this repository as `IndraNet.agda`, whose module
 -- header names them as targets T25.B and T25.D of
--- notes/ETERNAL_GOLDEN_BRAID_DELTA25.md.
 --
 -- THE GAP THIS FILE CLOSES.  `IndraNet.agda` proves two equivalences and
 -- never joins them, though its own `IndraRoot` comment says it is

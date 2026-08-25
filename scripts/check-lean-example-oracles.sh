@@ -3,7 +3,6 @@
 #
 # WHY THIS EXISTS.  `lake exe yogyanupalabdhi`
 # (formal/lean/YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean,
-# notes/AXIOM_GATE.md) is the real soundness gate: it walks the built
 # environment and runs `Lean.collectAxioms` over every named `Pairfield.*`
 # declaration, so it sees oracle use *through imports*, which no grep can.
 # But it can only see NAMED declarations.  An anonymous `example` emits no
@@ -47,7 +46,6 @@ ORACLES='native_decide|ofReduceBool|ofReduceNat|sorryAx|\bsorry\b'
 
 # awk, not grep -A: an example block has no fixed length.  Attribution is the
 # nearest preceding column-0 declaration keyword, the same rule
-# notes/DECIDE_STATEMENT_SWEEP.md §1 used, and it carries the same warning —
 # it counts SITES, not dependencies.
 hits=$(find "$LANE" -name '*.lean' -print0 \
   | xargs -0 awk -v oracles="$ORACLES" '

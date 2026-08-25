@@ -6,7 +6,6 @@
 -- permanently (the term and the economy are BhittiSnapshot.tsv's, this
 -- corpus, 2026-08-22; no external source claimed).
 --
--- WHAT THIS CLOSES.  notes/SADHYA_OPEN_OBLIGATIONS.md (regenerated
 -- 2026-08-23T15:37Z) lists 12 real obligations, THREE of them grouped
 -- under the move "induction on List":
 --

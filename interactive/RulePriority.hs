@@ -38,7 +38,6 @@
 --   4. WHERE NO METARULE DECIDES, NOTHING IS BROKEN.  This is the part with
 --      no counterpart in the engine as it stands.  An arbitrarily broken tie
 --      is a silent collapse -- two standpoints reported as one -- and
---      `notes/AHIMSA_SUTRA_VISTARA.md` §६ allows exactly two paths, transport
 --      or a written defect, and no third.  So `Nirnaya` has a second
 --      constructor, `Avaktavya`, the derivation STOPS there, and the
 --      candidates are written out with what was tried and why each metarule

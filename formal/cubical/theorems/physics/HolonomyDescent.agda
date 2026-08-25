@@ -7,7 +7,6 @@
 --
 -- Rank-2 port from the Lean development `formal/lean/Pairfield/
 -- HolonomyDescent.lean` (129 lines), per the spec in
--- notes/LEAN_TO_CUBICAL_PORT_MAP.md §3.2.  Two halves:
 --
 --   Orbit         a group G acts on a type X of presentations; the
 --                 orbit quotient X / OrbitRel erases the path by which

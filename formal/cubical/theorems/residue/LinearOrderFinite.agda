@@ -4,7 +4,6 @@
 -- LinearOrderFinite
 --
 -- SOURCE OF THE TARGET.  `AtlasResiduals` §4 checks
--- `isContrOrdTotal` — `notes/ATLAS_OF_N.md` Theorem 3.2 — with
 -- `LinOrd n X` DEFINED to be `X ≃ Fin n`.  Its "WHAT IS DELIBERATELY
 -- NOT CLAIMED" states the residue executably: define a genuine order
 -- structure `LinOrd′` and prove `LinOrd′ X ≃ (X ≃ Fin n)` for every
@@ -541,7 +540,6 @@ ordTotal′≃ordTotal : (n : ℕ) → OrdTotal′ n ≃ OrdTotal n
 ordTotal′≃ordTotal n =
   isoToEquiv (Σ-cong-iso-snd′ (λ X → linOrd′Iso n (X .fst) (X .snd)))
 
--- THE THEOREM (notes/ATLAS_OF_N.md Theorem 3.2), with orders, not
 -- rank listings, in the fibre.
 isContrOrdTotal′ : (n : ℕ) → isContr (OrdTotal′ n)
 isContrOrdTotal′ n =

@@ -4,8 +4,6 @@
 --                       proved for EVERY rank and EVERY divisor chain.
 --
 -- Author: Claude (Dedekind lineage), 2026-08-15.
--- Companion notes: notes/GAMMA0_FLAG_INDEX.md (the theorem and its proof),
---                  notes/GAMMA0_INDEX_EXPONENT.md (what this module closes).
 --
 -- THE CLASSICAL BACKGROUND.  For r = 2 and D = diag(1,N) the statement below
 -- specialises to
@@ -20,7 +18,6 @@
 -- particular proposition, so no proposition number is asserted.  The
 -- general-rank version
 -- is the cotype-count of Birkhoff (1935) / Chinta–Kaplan–Koplewitz (2017); see
--- notes/GAMMA0_FLAG_INDEX.md §10.  NO NOVELTY IS CLAIMED FOR ANY NUMBER HERE.
 -- What is claimed is the CERTIFICATE: the fragment below is a checked term
 -- rather than prose or a finite table.
 --

@@ -61,9 +61,7 @@
 -- Cubical Agda flags as not computing under transport.
 --
 -- PRIOR ART IN THIS REPOSITORY, searched before writing:
--- `notes/SEED79_NASTA_UDDISTA_AND_BLINDNESS.md` (naṣṭa/uddiṣṭa as an
 -- abstract indexed enumeration, its Lemma 1.1 asserted in prose) and
--- `notes/PROSODIC_RECURRENCE_LEARNER.md` (the recurrence and the
 -- binomial sum, prose plus a legacy `.py`).  Neither is formalised and
 -- `formal/cubical/` contained no Piṅgala material before this file.
 ------------------------------------------------------------------------
@@ -462,7 +460,6 @@ _ : sankhya 5 ≡ 32
 _ = refl
 
 -- Virahāṅka's list, and the duration-12 count that
--- notes/PROSODIC_RECURRENCE_LEARNER.md states in prose (233).
 _ : matra 6 ≡ 13
 _ = refl
 

@@ -15,7 +15,6 @@
 -- label, introduced by
 -- `GunakaKsepa_TheWheelsStateIsBoundedAndSelfPropagating`, not a source term.
 --
--- WHY THIS FILE EXISTS.  `notes/AvasthaBaddha_TheCakravalaStateBoxIsChecked.md`
 -- §4 names two things standing between the state box and determinism.  The
 -- first, verbatim:
 --
@@ -222,7 +221,6 @@ open Descent ℤCommRing using (_∣_ ; Coprime ; coprimeCancel ; cakravalaStep)
 -- and returning: the next turn's admissible multipliers are EXACTLY the
 -- residue class of −m modulo k'.
 --
--- Read against `notes/AvasthaBaddha_TheCakravalaStateBoxIsChecked.md` §4.1:
 -- that item is closed, and the कुट्टक it asked for is not used.
 ------------------------------------------------------------------------
 

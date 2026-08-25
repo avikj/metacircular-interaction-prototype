@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- EquivalenceHasNoFloor
 --
--- The pressure point of notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md §4.1,
 -- discharged as far as it goes in checked terms.  The worry: univalence makes
 -- identity relational, but does it smuggle an own-being into `≃` itself —
 -- is the *equivalence* a bare positive thing with its own residue?

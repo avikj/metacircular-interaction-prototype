@@ -11,7 +11,6 @@
 -- `README.md:172` already states the end state — "full connectivity is
 -- refuted forever (¬(Unit ≃ Bool), seven walls): many nets with proved
 -- boundaries, anekāntavāda as network topology" — but the walls are not in
--- `notes/tirtha/SetuSnapshot.tsv`, so the graph cannot tell an unmade
 -- crossing from an impossible one.
 --
 -- THIS WALL, and why this one.  On the snapshot (111 fords, 137 banks, 48
@@ -79,7 +78,6 @@ open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 -- ४ · The graph statement.  Recorded as a comment because the ford graph
 -- is data and not a type: the pair (⟨lib⟩.ℕ, ⟨lib⟩.Bool) is now a WALL and
 -- must never again be counted as an unminted seam.  Suggested row shape for
--- a companion `notes/tirtha/BhittiSnapshot.tsv`, keyed like SetuSnapshot:
 --
 --     wallId                        bankA        bankB
 --     Bhitti_…ForEver.भित्तिः        ⟨lib⟩.ℕ      ⟨lib⟩.Bool

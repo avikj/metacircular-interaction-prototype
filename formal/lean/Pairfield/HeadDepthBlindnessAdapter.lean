@@ -1,5 +1,4 @@
 /-
-Checked adapter for `notes/HEAD_DEPTH_BLINDNESS.md` Theorem W3.
 
 The native cyclotomic sensor calls
 

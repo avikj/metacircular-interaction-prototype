@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- ADisjointValidatorMakesAFlagUnusableAndInvisible
 --
--- `notes/DARWIN_GODEL_MATH.md` §2, SEAM 2:
 --
 --   "The command-line `choices` list contains adjacent string literals
 --    `'score_child_prop' 'best'`, which Python concatenates.  The

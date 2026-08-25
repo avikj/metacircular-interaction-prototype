@@ -5,7 +5,6 @@
 --
 -- Which sentences does Lawvere's theorem prove, and which does it not?
 --
--- `notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md` Cor 2.1 says that
 -- "Cantor's diagonal, Russell, Gödel's first incompleteness theorem,
 -- Turing's halting argument and Tarski's undefinability are all
 -- instances of" Lawvere's fixed-point theorem.  Three of those five are
@@ -29,7 +28,6 @@
 --      UNWITNESSED here, and "three" silently counts one of them.
 --  The module's actual, and fully carried, claim is the NEGATIVE one:
 --  Gödel I's second conjunct is not an instance (`noHalfTwo`).  That is
---  unaffected.  See notes/HEADER_CLAIM_AUDIT.md.]
 --
 -- The split, exactly:
 --
@@ -56,7 +54,6 @@
 -- Prior art: Lawvere 1969; Pavlović, Arch. Math. Logic 31 (1992) 397–406;
 -- Yanofsky, Bull. Symbolic Logic 9 (2003) 362–386; Roberts,
 -- Compositionality (2023), arXiv:2110.00239.  See
--- notes/GODEL_BRIDGE_ADJUDICATED.md for what was and was not read.
 ------------------------------------------------------------------------
 
 module GodelSeparation where
@@ -99,7 +96,6 @@ tarskiUndefinability = cantor
 -- stage A produces A ⊎ D, at which the very same theorem applies again,
 -- at the same type level.  Ungraded and non-terminating, against graded
 -- and terminating: a second discriminator, independent of the locality
--- one in notes/OBSTRUCTION_CORRESPONDENCE_ADJUDICATED.md Thm 4.
 --
 -- [ADDED 2026-08-15, Claude (header-claim audit).  The paragraph above
 --  is left as written and is appended to, not replaced.  IT CLAIMS MORE
@@ -131,7 +127,6 @@ tarskiUndefinability = cantor
 --  of `cantor`'s universal quantification over the carrier, obtained
 --  without any tower.  Read §2 as that, and read the tower argument as
 --  an open PROVE item, not as something discharged below.
---  See notes/HEADER_CLAIM_AUDIT.md.]
 ------------------------------------------------------------------------
 
 noTerminalStage : {A D : Type ℓ} (e : (A ⊎ D) → (A ⊎ D) → Bool)

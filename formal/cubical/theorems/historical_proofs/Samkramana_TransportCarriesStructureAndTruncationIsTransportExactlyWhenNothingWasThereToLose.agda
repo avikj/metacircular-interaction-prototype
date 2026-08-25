@@ -20,7 +20,6 @@
 -- corrects: it asserts a provenance nobody checked."
 --
 -- What the name legitimately carries is the READING, from
--- notes/AHIMSA_SUTRA_VISTARA.md §६ — संक्रमणे संरचना वहति, संक्रमणे न किञ्चिन्
 -- नश्यति — which is this repository's own gloss of two paths and no third,
 -- and which is what the module makes precise.  A reading is not a citation.
 --

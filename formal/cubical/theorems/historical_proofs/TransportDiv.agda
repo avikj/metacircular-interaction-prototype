@@ -27,7 +27,6 @@
 -- edge costs stay explicit parameters, discharged with numbers only in
 -- `TransportDivWitness`.
 --
--- PRIOR ART, added after the fact by audit (notes/PRIOR_ART_TRANSPORTDIV.md)
 -- and not discovered by the author, which is the failure this repository's
 -- protocol names first.  The object is classical and has a name: Sutner,
 -- "Divisibility and State Complexity", Mathematica Journal 11:3 (2010),
@@ -41,7 +40,6 @@
 -- REDUCING fold, which is one induction wide.
 --
 -- THAT AUDIT WAS ITSELF INCOMPLETE, and the omission is the interesting
--- one (notes/THE_AUDIT_THAT_CITED_SUTNER_AND_NOT_THE_PULVERISER.md).  It
 -- cited nineteen sources, all northwestern, for three objects with three
 -- different provenances:
 --
@@ -66,7 +64,6 @@
 --
 -- In this repository: `RadixSymptoma` already has the digit
 -- action and its run law (`Radix.step`, `Radix.run≡`) in cubical Agda in
--- this same directory, and `notes/GENERAL_RADIX_DIVISIBILITY.md` already
 -- carries the Alexeev citation.  Note also that `scale-mod` below collides
 -- in NAME with a different `scale-mod` there.  What is this file's own is
 -- the reduce-at-every-digit variant that keeps the state bounded, its
@@ -159,7 +156,6 @@ steps-is-length (d ∷ w) = cong suc (steps-is-length w)
 ------------------------------------------------------------------------
 -- 5.  The count is the algorithm's own recursion.
 --
--- An audit of this file (notes/PRIOR_ART_TRANSPORTDIV.md) observed that
 -- §4 as first written was a definitional identity about a function
 -- connected to `modw` by nothing at all: `steps` counted its own clauses,
 -- and no theorem said those clauses were the automaton's.  That objection

@@ -12,7 +12,6 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 ------------------------------------------------------------------------
 -- ExclusionInstantiatesAbhavaWithALoadBearingLimitor
 --
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §6.3 says the repository runs the
 -- weak version of its own organizing concept in the strong substrate: an
 -- avacchedaka is a type-level BINDER, not an optional field, and the
 -- `weaver` lane's limitor layer is inert.  Its 2026-08-18 CORE SUPPLIED
@@ -73,7 +72,6 @@ open import AbhavaAvacchedaka using (Abhava ; anuyogin ; avacchedaka ; pratiyogi
 -- avacchedaka/abhāva core only. The full Panday–Ghosh simultaneous
 -- treatment adds tādātmya and paramparā-sambandha and is not here.
 --
--- And the standing obligation of `notes/ABHAVA.md` §6 applies unchanged:
 -- arXiv:2605.12548 is the located prior art for typed abhāva in cubical
 -- type theory, arxiv.org is EGRESS_BLOCKED from this environment, and NO
 -- NOVELTY IS CLAIMED for anything below until someone who can read it

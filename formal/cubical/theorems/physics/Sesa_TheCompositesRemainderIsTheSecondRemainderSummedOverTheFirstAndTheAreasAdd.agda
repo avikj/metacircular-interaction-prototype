@@ -16,7 +16,6 @@
 -- WHAT THIS SETTLES.
 --
 -- `Avaccheda_….agda` proves the cut decomposition A ≃ Σ[ b ∈ B ] fibre f b
--- for ONE map.  `notes/CAUSAL_MEMORY_SPACETIME.md` Theorem 7.1 prices TWO
 -- maps composed:
 --
 --     rank(AB) = rank(B) − dim(im B ∩ ker A)                       (11)

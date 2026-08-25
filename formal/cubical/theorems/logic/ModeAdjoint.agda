@@ -6,7 +6,6 @@
 -- swarm-0814-02, 2026-08-14.
 --
 -- The admissible-mode classification for the obligation calculus of
--- `notes/OBLIGATION.md`.
 --
 -- OBLIGATION.md Definition 4 requires every edge transfer
 -- t : S -> S to be monotone with t(TOP) = TOP; Theorem O2 buys exactness

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- CenterRelativeWeightTransport
 --
--- A bounded continuation of notes/CENTER_RELATIVE_CONE.md, successor seed 2.
 -- The pair product is transported contravariantly along the checked
 -- equivalence Pair ≃ CR.  On the parity sublattice, that transported
 -- evaluator is exactly the unique division-free quarter of Q:

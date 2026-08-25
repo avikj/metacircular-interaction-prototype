@@ -120,7 +120,6 @@
 -- character of this module was changed to obtain that: the `let` diagnosis
 -- above is correct under 2.8.0's conversion checker as well as 2.6.3's.
 --
--- The orphan sweep of the same day (notes/TOOLCHAIN_SKEW_AND_COVERAGE.md
 -- §7.2) reported this module as **exit 137**, SIGKILL, and rightly refused
 -- to read that as a typecheck verdict.  It was not one.  388 MB is not a
 -- module that OOMs a 16 GB container; it is a module that was standing next

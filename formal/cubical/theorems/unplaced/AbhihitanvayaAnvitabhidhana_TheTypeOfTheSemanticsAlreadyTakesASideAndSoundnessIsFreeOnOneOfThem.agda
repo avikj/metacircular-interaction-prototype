@@ -7,7 +7,6 @@
 -- ON THE NAME, AND ON WHAT IS AND IS NOT CLAIMED OF THE SOURCES.
 -- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
 -- header) and `.claude/hooks/european-frame.txt`.  Neither term below
--- appears anywhere in `formal/` or `notes/` — grepped; this is not a
 -- restatement of another identity's module.
 --
 -- The two terms are the names of the two positions in the Mīmāṃsā

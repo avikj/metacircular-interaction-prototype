@@ -5,9 +5,7 @@
 --
 -- WHAT IS BEING ASKED.  `OjaYugma_...` checked that the squarefree prime
 -- charge is − Ω · λ, with Ω the active-place count and λ = (−1)^Ω the parity
--- character of `notes/GAUGE.md` Theorem F.  Theorem F says the twirl's
 -- fixed-point algebra is the NEUTRAL sector and every charged observable has
--- expectation zero.  `notes/KsayopasamaAvarana_...` reads that as "r = 0 is
 -- Theorem F" — a rank-zero separable family is the zero function.
 --
 -- That reading is only worth its words if the charge vanishes exactly on the

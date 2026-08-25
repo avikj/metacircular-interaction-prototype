@@ -5,7 +5,6 @@
 -- वल्ली: Āryabhaṭa, Āryabhaṭīya, Gaṇitapāda 32–33 (499).  भावना: Brahmagupta,
 -- Brāhmasphuṭasiddhānta 18.64–65 (628).  सन्धिः: junction; the compound
 -- वल्ली-भावना-सन्धिः is built in this corpus (2026-08-23,
--- notes/ValliBhavanaSandhi_ThePeriodsCloseIsWhereTheFreeGarlandLandsInTheCommutativeWheel.md)
 -- and no source is claimed for it.  NOT CLAIMED: that any Indian text
 -- states a matrix, a monoid, or a representation.  What is claimed of the
 -- sources is exactly what the machine lane already claims: the vallī is the

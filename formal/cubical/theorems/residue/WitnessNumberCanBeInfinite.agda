@@ -226,7 +226,6 @@ no-universal-ℕ = no-universal-standpoint discreteℕ
 -- `NaturalMachine/SiteAudit.agda` was written at 14:36:26 on 2026-08-18,
 -- four minutes after this file (14:32:41), and exists to correct exactly
 -- that sentence where it appears in `WhyTheSitesAreTwo` §6 and in
--- `notes/THE_WITNESS_NUMBER.md` §5.  It corrected both.  It does not
 -- mention this module, and the sentence is still standing here.
 --
 -- WHAT THE AUDIT ESTABLISHED.  Every site is still exactly 2 — the

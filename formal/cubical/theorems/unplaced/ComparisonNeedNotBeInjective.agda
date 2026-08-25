@@ -7,9 +7,7 @@
 -- comparison map is NOT injective and whose satisfaction invariant
 -- holds in full.
 --
--- SOURCE SENTENCES (`notes/FULL_READ_DRAW_6.md` §D3, and §2's chain):
 --
---   `notes/OBSERVER_REVISION_IS_ATOMIC_SATISFACTION.md` §4, line 109:
 --     "For equality-atoms, injectivity of `j_q` is **needed** for the
 --      full biconditional analogue of (4)."
 --   `collab/messages/0469-atomic-satisfaction-is-response-square.md`:

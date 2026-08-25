@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- SaturationAtACutIsIdempotent
 --
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` §31–32 ("Isbell
 -- nucleus at a cut") describes an elimination procedure:
 --
 --   "Nuc(K_e): saturated dual pairs (x, y) with y = K↑x, x = K↓y —

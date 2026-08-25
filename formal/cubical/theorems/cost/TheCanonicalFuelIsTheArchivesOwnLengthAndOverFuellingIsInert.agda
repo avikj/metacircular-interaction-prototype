@@ -10,7 +10,6 @@
 -- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
 -- `.claude/hooks/european-frame.txt`; no row applies, and the frame
 -- check's scope requires Indian material, of which this module has
--- none.  `formal/` and `notes/` grepped first — `fuelIrrelevant`,
 -- `overFuel`, `over-fuel` and `moreFuel` return nothing anywhere.
 --
 -- ────────────────────────────────────────────────────────────────────

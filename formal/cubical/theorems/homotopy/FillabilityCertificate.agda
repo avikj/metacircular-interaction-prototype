@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- FillabilityCertificate
 --
--- The checkable core of notes/FILLABILITY_AS_SUCCESS.md (seed 177):
 -- the CERTIFICATE STRUCTURE of the two fillability predicates of that
 -- note's Def 2.2.2, formalised as datatypes and decision procedures.
 --

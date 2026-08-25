@@ -10,7 +10,6 @@
 # measured it — two agents grew the same reflection solver the same
 # day in different lanes; a third lane's 209 theorems sat in a silo
 # unable to cite each other while the compounding Context type waited
-# unused; the whole story is notes/Tulana_ThreeMouthsOneQuestion…md
 # and the fable-krama journal entry "the correction".
 #
 # Advisory, always exit 0 — a blocking guard on a judgement call is an
@@ -35,7 +34,7 @@ for p in $PATHS; do
   cat >&2 <<'EOF'
 ── नव-अङ्ग: you are creating a NEW file in the machine lane ──────────────
 The corpus's measured recurring failure is agents growing parallel organs
-instead of connecting existing seams (notes/Tulana_ThreeMouthsOneQuestion
+instead of connecting existing seams.
 AndNoneIsDeleted.md; DosaLekha priced the duplication).  Before this file
 exists, answer IN ITS HEADER:
   1. Which existing organ does this extend, and why could it not live

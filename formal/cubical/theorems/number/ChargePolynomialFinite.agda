@@ -7,7 +7,6 @@
 -- agda, no ghc and no python in this container.  A green is an exit code
 -- or it is a rumour.) ***
 --
--- SOURCE NOTE.  `notes/CHEN_PRIMITIVE_BOUNDARY_AND_CHARGE_POLYNOMIAL.md`
 -- (build worker, 2026-08-16), Theorem A §1.1 with the exact instance
 -- tables of §1.5 and the verification inventory of §5; Theorem B §2.1
 -- with the exhaustive three-case table of §2.2 and the SCOPE FENCE of
@@ -188,7 +187,6 @@
 --     They are complementary and neither subsumes the other.
 --   `ChargeGrading` — Ω as the ℕ-grading in the abstract
 --     (Delta 15 §§15.6–15.7).  Disjoint.
---   `notes/DIVISOR_LATTICE_WITNESS_FRONTIER.md` — the divisor lattice as
 --     a lens poset, with ω(N) counting the prime frontier.  Same lattice,
 --     different functional (minimal sufficient charts, not μ * t^Ω).  It
 --     is the closest prior art in the corpus and it does not overlap.

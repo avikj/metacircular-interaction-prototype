@@ -8,7 +8,6 @@
 -- Designed annihilation (collab/PROTOCOL.md §7), companion to
 -- `ConstantBoundNotFunctionBound` (exit 0 under the pin).
 --
--- WHAT IT ASSERTS.  `notes/FULL_READ_DRAW_6.md` §C1: the worker message
 -- `collab/messages/workers/20260812T144712.509661Z--claude_aime_body--
 -- 0003.md` concludes from two Mersenne witnesses that "Y≥1 is sharp,
 -- **no function of (b,n) improves it**".  Asserted below is exactly
@@ -30,7 +29,6 @@
 -- import it, and nothing else may.
 --
 -- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9; see
--- notes/TOOLCHAIN_SKEW_AND_COVERAGE.md §6.1), `LC_ALL=C.UTF-8 agda
 -- --library-file=<v0.9>
 -- NaturalMachine/Control/FunctionBoundFromConstant.agda`, exit code 42,
 -- error verbatim:

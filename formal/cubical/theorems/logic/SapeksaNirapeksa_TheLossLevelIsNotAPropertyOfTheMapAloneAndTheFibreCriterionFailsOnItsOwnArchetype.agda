@@ -19,7 +19,6 @@
 -- this repository's own ledger
 -- (`.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
 -- rows 120 and 121) and from
--- `notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvaktavyamNotNasti.md`,
 -- and are owed at verse level.
 --
 -- WHAT IS NOT CLAIMED OF THE SOURCE.  Nothing below is Siddhasena's, and
@@ -32,7 +31,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS REFUTES, and it is this author's own module from yesterday.
 --
--- `notes/SakalaVikalaDesa_…md` builds a five-level loss scale.  Levels ३
 -- (recoverable only by outside supply) and ४ (नष्टिः, अप्रतिकार्या) are
 -- both crowded fibres; `Loss.SakalaVikalaDesa_…` refuses a fourth
 -- constructor for `देश` because no criterion separated them.  The note

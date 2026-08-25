@@ -161,5 +161,4 @@ pointwise-is-weaker =
   wins-at-true , not-uniform
 
 -- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the back-port in
--- notes/CUBICAL_PATCH.md), --cubical --safe, 2026-08-15.  No postulates,
 -- no holes.  NOT verified against the pin (Agda 2.8.0, cubical v0.9).

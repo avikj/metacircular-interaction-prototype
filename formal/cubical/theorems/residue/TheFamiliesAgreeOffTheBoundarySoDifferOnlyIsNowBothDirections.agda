@@ -5,7 +5,6 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  This is threshold arithmetic over ℕ on this corpus's own
 -- claim-families.  Jaina enumerative mathematics is combinatorially
 -- adjacent and is explicitly NOT claimed as a source — the third time

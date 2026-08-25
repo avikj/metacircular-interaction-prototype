@@ -13,7 +13,6 @@
 --      from Gaussian-integer Pauli matrices.  What is proved is
 --      everything downstream of s."
 --
--- and `notes/PM_SECTION_VS_COCYCLE.md` §"rigor boundary" agrees: the
 -- sign vector is "a datum transcribed from this note", the operator
 -- layer is unformalized, and its Theorem 4 is "not in the checked lane".
 --
@@ -244,7 +243,6 @@ Id = pauli ph0 false false false false
 ------------------------------------------------------------------------
 -- THE COCYCLE IDENTITY, as a page of algebra.
 --
--- `notes/PM_SECTION_VS_COCYCLE.md` records the 2-cocycle condition as
 -- "verified over all 4096 triples" by script.  The obligation is, per
 -- qubit and after cancelling the ℤ₄ part,
 --
@@ -308,7 +306,6 @@ phase-assoc e f g T U V W h =
   ∙ cong (_+₄ W) (+₄-assoc e (f +₄ g) V)
 
 -- THE 2-COCYCLE IDENTITY, in its usable form: the Pauli group is a
--- group.  `notes/PM_SECTION_VS_COCYCLE.md` obtained this by checking
 -- 4096 triples; here it is `bit-cocycle`'s sixteen-row truth table,
 -- twice, plus reassociation.
 ·P-assoc : (p q r : Pauli) → (p ·P q) ·P r ≡ p ·P (q ·P r)

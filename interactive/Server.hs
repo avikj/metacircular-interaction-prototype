@@ -308,7 +308,7 @@ kriyah =
 -- ============================================================ sources
 
 sutra :: String -> [String]
-sutra s = [ "notes/AHIMSA_SUTRA_VISTARA.md " ++ s ]
+sutra s = [ s ]
 
 srcTwoRoads :: [String]
 srcTwoRoads = sutra "§6 — संक्रमणं दोषलेखश्च । तृतीयो मार्गो न विद्यते ।"

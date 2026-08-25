@@ -15,7 +15,6 @@
 -- reader must trust.  This module is the same verdict as PERCEPTION:
 -- a kernel-checked term, for every carrier and every size at once.
 --
--- Per notes/DosaLekha_TheCrystalEngineDuplicatesCheckedTermsAndThe
 -- DefectIsNowPriced.md (receipt R2): one verdict transported converts
 -- the engine from parallel authority to conjecture generator.  This is
 -- that transport.  The engine PROPOSED; the kernel now DISPOSES.

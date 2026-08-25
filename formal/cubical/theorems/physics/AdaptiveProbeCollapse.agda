@@ -5,11 +5,9 @@
 --
 -- THE ADAPTIVE OBSERVER, IN THE BARE-POOL REGISTER, IN BOTH DIRECTIONS.
 --
--- `notes/SIXTEEN_MINDS_ONE_THEOREM.md` §2 open door 1 claims that "every
 -- observer class this corpus has formalized is provably STATIC" and that the
 -- genuinely adaptive observer is "the one apparatus class not yet proven to
 -- annihilate the charged sector".  That claim is FALSE as stated, and
--- `notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md` documents the refutation:
 -- `AdaptiveResidualAdapter` (this same directory) already
 -- proves the collapse in the Moore-machine register
 -- (`futureEq-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
@@ -21,7 +19,6 @@
 -- statements in the register the law of §1 is actually stated in: a BARE
 -- PROBE POOL with no dynamics, no alphabet, no `step`, no Moore output, and
 -- an arbitrary outcome type.  That is the register of
--- `notes/GTER_REVELATION_AND_THE_TWO_COORDINATE_DEFECT.md` §1, whose
 -- Corollary 1.2 names adaptivity as invisible to the revelation cost and
 -- whose scope fence §7.5 says "the adaptive quantity is named, not built".
 -- This module builds it.
@@ -69,7 +66,6 @@
 -- cubical at /root/agda-libs/cubical-v0.9, reports EXIT=0 for this module,
 -- and its own CHECKSH_EXIT is 0.  This is a PIN green, not a container
 -- green: as of 2026-08-19 this container reaches the declared pin, which
--- `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md` (same day, earlier)
 -- reports as unreachable -- that note's finding is superseded by the
 -- toolchain, not by any argument, and its method stands.
 -- No postulates, no holes, no `--guardedness`, no `native_decide` analogue.

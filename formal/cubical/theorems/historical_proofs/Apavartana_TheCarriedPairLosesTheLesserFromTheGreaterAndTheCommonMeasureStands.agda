@@ -441,7 +441,6 @@ _∣_ : ℕ → ℕ → Type
 -- §5 · IT RUNS.
 --
 -- Every equation in this section holds by `refl`, so Agda executes the
--- descent to check it.  (137,60) is §१७ of notes/AHIMSA_SUTRA_VISTARA.md.
 -- The corollaries are for THESE TWO PAIRS and no others — see "WHAT IS NOT
 -- NEW HERE" and DEFECT 3.
 ------------------------------------------------------------------------

@@ -4,7 +4,6 @@
 -- StagewiseComposite
 --
 -- The two-valued composite-defect theorem, and its sharp boundary.
--- Companion prose: notes/STAGEWISE_DETERMINES_COMPOSITE.md (Theorem A).
 --
 -- Setting.  For a type R of response values with decidable equality,
 -- write ind a b : Bool for the indicator of a ≢ b.  A composable pair of

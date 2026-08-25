@@ -79,7 +79,6 @@ import CakravalaBound
 import CakravalaWitness
 
 -- The flagship residual closed by a lemma transcribed from the machine's own
--- discarded trace-replay output. See notes/THE_SEAM_ASKS_THE_WRONG_NAYA.md.
 import SeamClosed
 
 -- The WHOLE trace corpus in one module, generated: TraceLibrary reads the

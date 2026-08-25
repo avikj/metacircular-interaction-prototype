@@ -264,7 +264,6 @@ one-repetition-suffices = repaired-XY , repaired-YZ , repaired-XZ
 --
 --     minimum list length for this family  =  4,  not 3.
 --
--- Which is the form `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` predicts
 -- every obstruction in this corpus takes: not "you cannot", but "not at
 -- that size."
 ------------------------------------------------------------------------

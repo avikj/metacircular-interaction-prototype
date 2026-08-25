@@ -10,7 +10,6 @@
 -- Minimal witness (bare mathlib, `import Mathlib.Data.Int.GCD`):
 --   example : Nat.xgcdAux 3 1 0 5 0 1 = (1, 2, -1) := by decide          -- FAILS
 --   example : Nat.xgcdAux 3 1 0 5 0 1 = (1, 2, -1) := by decide +kernel  -- OK
--- See notes/NATIVE_DECIDE_AUDIT.md §4b.
 import Pairfield.GeneralSmith2x2
 import Pairfield.ComputableSmith2x2Adapter
 

@@ -6,9 +6,7 @@
 -- THE BIRKHOFF POLARITY OF A RELATION, AND THE VACUITY OF THE BOOLEAN
 -- GLOSS.
 --
--- Companion prose: `notes/APOHA_AND_POLARITY.md` (2026-08-15), which
 -- identifies D0020 §5's apoha display and §7's two-sided evaluation
--- with the closure operator of `notes/CHANGING_TESTS_VERSUS_SHRINKING.md`
 -- Prop. 6.3 — the ANTITONE one, A(S) = {t : ∼_S ⊆ ∼_{t}}, the
 -- derivation closure of the formal context (X × X, T, Rᶜ).  It is NOT
 -- Theorem B's monotone redundancy closure C_σ; §3 of that note corrects

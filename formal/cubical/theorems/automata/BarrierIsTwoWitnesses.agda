@@ -8,7 +8,6 @@
 -- is not an analogy — it is the same shape.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT `notes/BARRIER.md` ALREADY SAYS
 --
 -- **Proposition B3 (nonlinear closure).** *Any O = Φ(Q_{w₁},…,Q_{w_r})
 -- with arbitrary — even non-computable — post-processing Φ is a function
@@ -62,7 +61,6 @@
 --
 -- Nothing analytic.  No claim that such a pair exists, that the zeros of
 -- ζ admit one, that the counting law and functional equation can be met,
--- or anything about L, resolution, or admissibility.  `notes/BARRIER.md`
 -- is explicit that B1–B3 do *not* establish a barrier against inferring
 -- ζ's correlations, and this module establishes strictly less than B3.
 --
@@ -203,7 +201,6 @@ module Barrier
 -- 6.  What this does for the barrier programme.
 --
 -- It does not advance it by one inch analytically, and says so.  What it
--- fixes is the LOGICAL COST of the target, which `notes/BARRIER.md` had
 -- already located correctly and without a reason:
 --
 --   * one configuration can never establish a barrier of this shape, no

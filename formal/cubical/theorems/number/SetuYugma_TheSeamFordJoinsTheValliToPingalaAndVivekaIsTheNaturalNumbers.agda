@@ -7,7 +7,6 @@
 --                          विवेक ≡ ℕ .
 --
 -- WHY THIS FILE EXISTS, stated as a measurement rather than a taste.
--- notes/tirtha/SetuSnapshot.tsv holds 111 landed fords over 137 banks.
 -- Read as a graph they fall into 48 components, 33 of them singletons or
 -- pairs, giving 191 reachable pairs — leverage ×1.72 over the fords paid
 -- for.  Minting is local: a module lands its fords among its own types,

@@ -22,7 +22,6 @@ speaks about — `Pairfield.CoefficientWitness`,
 `Pairfield.IncrementalCRTAdapter.MergeCertificate`, `Pairfield.Reduction`,
 `Pairfield.SmithPresentation` and the rest — are left exactly as their authors
 wrote them, and the identifications are stated *from outside*, as `Equiv`s.
-This is §६ of `notes/AHIMSA_SUTRA_VISTARA.md`: two roads may stand; deleting
 another seat's road is the collapse §७ forbids. A structure that is already a
 Carrier does not need to be rewritten into one — it needs someone to say so,
 and the saying is a theorem.

@@ -10,7 +10,6 @@
 --       matrix reduces to a closed integer, so every equation below is
 --       checked by normalization and not by a supplied certificate.  This is
 --       the property the Lean lane's `Int.gcdA`/`Int.gcdB` do *not* have
---       (`notes/RANK_ONE_SMITH_PRODUCER.md`): there, `decide` gets stuck on
 --       `Nat.xgcdAux` and no instance can pass the gate.  Here it does not.
 --
 --   S2  The native normal form is NOT sign-normalized.  `diag(2,3)` has Smith
@@ -53,7 +52,6 @@ open Coefficient ℤCommRing
 -- A 2×2 matrix.  Built with the library eliminator `FinData.rec`, which is
 -- parametric in the bound and so never unifies `suc` with an index: this file
 -- raises no `UnsupportedIndexedMatch` warning, unlike the `mk3` of
--- `SmithPathCountedExecution`.  The diagnosis is `notes/VEC_INDEX_IS_THE_WARNING.md`:
 -- the warning is a property of the presentation, not of the mathematics.
 mk2 : (a b c d : ℤ) → Mat 2 2
 mk2 a b c d i j = rec (rec a b j) (rec c d j) i

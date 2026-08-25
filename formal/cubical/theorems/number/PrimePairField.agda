@@ -5,7 +5,6 @@
 --
 -- Delta 23 §12: the bounded prime-pair dependent type, with Goldbach and
 -- twin primes as the two transverse fibrations of ONE object.
--- Companion prose: notes/TWO_FIBRATIONS_ONE_FIELD.md.
 --
 -- WHAT THIS IS NOT.  Writing Goldbach as a type is not progress on
 -- Goldbach.  `Goldbach` and `Twin` below are DEFINITIONS; they are

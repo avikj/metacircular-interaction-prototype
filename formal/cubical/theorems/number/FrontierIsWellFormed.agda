@@ -12,7 +12,6 @@
 --             → Fin (prodOf (frontierList k)) ≃ VecOf (frontierList k)
 --
 -- Both hypotheses are supplied by `refl` at each concrete `k`.  That is
--- the same arrangement `notes/THE_FUEL_WAS_NEVER_IN_THE_TYPE.md` is
 -- about, one level up: a decision procedure run at one input standing in
 -- for a theorem about all of them.  Here it is the theorem.
 --

@@ -67,7 +67,6 @@
 --     is the conserving set — i.e. the conserved quantity is the value
 --     of a MONOID MAP and the flows are its unit set.  Reading that as
 --     "the product formula" is an ANALOGY; it is stated as one in
---     `notes/Bhavanadhruva_…md` and it is not a theorem here.
 --
 -- 2.  **No classification of conserving flows.**  §१–§२ is a
 --     biconditional about the flows OF BHĀVANĀ FORM `प्रवाह u`.  It does

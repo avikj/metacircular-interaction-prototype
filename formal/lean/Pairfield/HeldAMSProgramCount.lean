@@ -4,7 +4,6 @@ import Mathlib
 # Finite held-memory AM/AMS program count
 
 This file checks the exact finite counting kernel of Theorems I and J in
-`notes/MEMORY_NOT_SUBTRACTION.md`.  At step `i`, a syntax program chooses an
 operation and an unordered pair with repetition from the `free + i` currently
 available slots.  The dependent product of these choices has the advertised
 cardinality, and no endpoint evaluator can have a larger finite image.

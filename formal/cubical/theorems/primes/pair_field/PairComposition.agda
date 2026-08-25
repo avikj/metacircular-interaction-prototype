@@ -35,7 +35,6 @@
 -- composition.  The general lemma is a two-line
 -- ¬isPrime-of-product; only the finite witness is checked below.
 --
--- Adjacent known result (notes/REPORT.md, Lemma 1.3): the integral
 -- isometry group of q(S,D)=S²−D² is {±I} — the pair field has no
 -- symmetries to move pairs around.  This module is the complementary
 -- positive fact: what the pair field DOES have is a composition, and

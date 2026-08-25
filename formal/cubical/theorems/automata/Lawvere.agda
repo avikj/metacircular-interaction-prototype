@@ -55,8 +55,6 @@
 --  Nothing in the TERMS of this module asserts any of the above; this
 --  module typechecks and proves what it says it proves.  The defect was
 --  in the header alone, which is what gets cited.
---  See notes/HEADER_CLAIM_AUDIT.md and
---  notes/LEDGERS_RECONCILED.md §4.1.]
 --
 -- The single content of the theorem is: a point-surjective
 -- φ : A → (A → B) forces EVERY endomap of B to have a fixed point.

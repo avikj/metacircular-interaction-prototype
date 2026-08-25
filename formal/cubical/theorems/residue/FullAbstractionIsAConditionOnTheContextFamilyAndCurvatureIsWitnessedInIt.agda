@@ -11,7 +11,6 @@
 -- the frame check does not fire on a module with no Indian material.
 --
 -- ────────────────────────────────────────────────────────────────────
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` §36–38 states:
 --
 --   "**Theorem 28.14 (flat compression):** fully abstract compression
 --    for all arising contexts preserves semantics for every order.

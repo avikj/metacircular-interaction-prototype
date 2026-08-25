@@ -13,7 +13,6 @@
 -- the one character that in fact inheres in many modules of this corpus.
 --
 -- PROVENANCE.
--- notes/SesaAdjudication_TheFlatInteriorIsSocialOrCompressible.md
 -- (2026-08-23) verified, by direct read at cited lines, ≈640 lines of
 -- verbatim-grade duplication across the 308-module depth-0 stratum and
 -- closed: "if the fleet builds the ~300-line shared prelude...".  This

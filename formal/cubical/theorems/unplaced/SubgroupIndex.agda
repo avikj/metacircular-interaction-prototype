@@ -39,7 +39,6 @@
   ---------------------------------------------------------------------------
 
   Before this module, `formal/` contained NO group order and NO subgroup
-  index in any type (`notes/GAMMA0_INDEX_EXPONENT.md` §3, message 0857 §4).
   `grep -rn "Lagrange\|coset"` over `formal/cubical/` returned only prose
   comments.  Cubical v0.9 has no Lagrange theorem either: the coset space
   of a non-normal subgroup does not appear in the library at all.  What is

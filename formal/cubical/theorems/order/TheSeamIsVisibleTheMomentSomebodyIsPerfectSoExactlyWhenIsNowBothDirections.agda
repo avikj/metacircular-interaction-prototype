@@ -5,9 +5,7 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  The subject is a seam recorded in this corpus's own
--- `notes/DARWIN_GODEL_MATH.md` §2 plus elementary order theory.
 --
 -- **GRADE, INHERITED AND UNCHANGED: I DID NOT READ THE DGM CODE.**  The
 -- audited module says so and this says so again — no request to

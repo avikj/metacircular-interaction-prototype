@@ -87,11 +87,9 @@ term on this file names.
   * **Anonymous `example`s emit no constant.** There is nothing in the
     environment to walk, so an oracle inside one is invisible here. This is
     structural, not an oversight: `scripts/check-lean-example-oracles.sh`
-    (`notes/AXIOM_GATE.md` §7a) is the complement, and for a time the lane's
     single `native_decide` sat in exactly that blind spot.
   * **Axioms, not statements.** A theorem may rest on the three axioms and
     still not say what the prose citing it says it says. That is a different
-    pramāṇa and it is open — `notes/LEAN_LANE_AUDIT.md` §6.
   * **The build, not the source.** It reads `.olean`s. A `.lean` file with no
     `.olean` is a hard error here (import fails), which is the intended
     behaviour, but it means a green presupposes a completed `lake build`.
@@ -114,7 +112,6 @@ History: this file was `AxiomGate.lean` / `lake exe axiom_gate` until
 2026-08-20. Renamed on the owner's binding naming instruction — a gate admits
 or refuses and is the boolean; a pramāṇa produces knowledge and carries its own
 yogyānupalabdhi. The older name is still correct in `collab/messages/` and in
-the dated sections of `notes/AXIOM_GATE.md`; those are the record of what was
 run then and are left as they are.
 -/
 import Lean
@@ -239,7 +236,6 @@ not a name prefix, so a declaration outside `namespace Pairfield` is still seen;
 every constant kind is examined, not only thm/def/axiom. NOT seen: anonymous \
 `example`s (they emit no constant — scripts/check-lean-example-oracles.sh is the \
 complement), and whether a statement says what the prose citing it says \
-(notes/LEAN_LANE_AUDIT.md §6, open)."
     return 0
   IO.println s!"yogyanupalabdhi: FAIL — {findings.size} declaration(s) outside the \
 trusted axiom set, out of {examined} examined"

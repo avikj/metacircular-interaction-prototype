@@ -9,7 +9,6 @@
 -- `Control/QuantifierDrop.agda`, `Control/InflationFlattened.agda` and
 -- `Control/MaximizerWithoutNonvanishing.agda`.
 --
--- WHAT IT ASSERTS.  `notes/FULL_READ_DRAW_6.md` §B1: the message
 -- `collab/messages/0533-codex-automata-adaptive-horizon-red-return.md`
 -- argues "state `0` is fixed by both actions, **so** states `1`, `2`,
 -- `3` are unreachable from the DFA start" — without the premise
@@ -33,7 +32,6 @@
 -- excluded from the root aggregate exactly so its contents may fail.
 --
 -- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9, the owner
--- decision of 2026-08-15; see notes/TOOLCHAIN_SKEW_AND_COVERAGE.md
 -- §6.1), `LC_ALL=C.UTF-8 agda --library-file=<v0.9>
 -- NaturalMachine/Control/ReachabilityWithoutStart.agda`, exit code 42,
 -- error verbatim:

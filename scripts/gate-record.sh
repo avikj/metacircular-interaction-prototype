@@ -10,7 +10,6 @@
 # ---------------------------------------------------------------------
 # WHY THIS FILE EXISTS
 #
-# `notes/THE_GATE_IS_A_CLAIM_ABOUT_A_STATE.md` (2026-08-16) establishes,
 # from the Actions API rather than from a badge, that no CI job in this
 # repository has ever been assigned a runner: every run reachable through
 # the API — 990 of `no-python.yml`, 990 of `epistemic.yml`, all 30 of
@@ -45,11 +44,8 @@
 # 1. ENUMERATE, NEVER LIST.  The module set comes from `find`.  A
 #    hand-written list has rotted in this repository at least four times:
 #    `Everything.agda`'s import list (SEED-81, and again 2026-08-16 —
-#    `notes/AGDA_COVERAGE_INVENTORY.md` claimed 0 non-Control orphans at
 #    03:43 and `scripts/check-agda-closure.sh` reports 21 at HEAD
 #    5d011531, 04:19), `lean_lib Pairfield` without `globs`
-#    (`notes/LEAN_LANE_AUDIT.md`, 21 modules built by nothing), the pin
-#    sweep's 34 Agda orphans (`notes/PIN_SWEEP_NATURALMACHINE.md`), and
 #    the 7-module hand-list inside the stranded `agda.yml`.
 #
 # 2. PER MODULE, NEVER THE AGGREGATE ALONE.  `run_the_natural_machine_forever`
@@ -86,7 +82,6 @@
 # It does not typecheck anything by itself; it invokes Agda and records
 # what Agda returned.  Exit 0 on a module means that module typechecked
 # under the recorded toolchain — it does NOT mean the module says what
-# its comments claim (`notes/LEAN_LANE_AUDIT.md` §6), and it does not
 # extend to any module absent from the run.  It does not touch
 # `open-fibers.md` or `machine-ledger.tsv`; those belong to
 # `run_the_natural_machine_forever` and racing them would corrupt both.
@@ -391,7 +386,6 @@ done < <(list_controls)
 # 6. The Lean lane, per module, opt-in.
 # ---------------------------------------------------------------------
 # `lake build` alone is an aggregate, and the aggregate is exactly what
-# hid 21 orphans (notes/LEAN_LANE_AUDIT.md).  `globs` in lakefile.toml
 # closed the orphan hole at the root, but a whole-lane green still does
 # not say which module contributed it.  Off by default because a cold
 # `lake exe cache get` is ~10 GB.  Enumerated from disk, never from an
@@ -437,7 +431,7 @@ echo "That file, not this console output, is the record. Quote a row."
 echo "A row is an EVENT — this container, carrying this toolchain, invoked"
 echo "these checks at this time and observed these exit codes. It is never"
 echo "a STATE of the mathematics, and it covers only the modules named in"
-echo "it (notes/BUILD_COVERAGE_IS_A_CHANNEL.md: the fibre over an observed"
+echo "it: the fibre over an observed"
 echo "result has size 2^|omitted|, exactly)."
 echo "======================================================================"
 

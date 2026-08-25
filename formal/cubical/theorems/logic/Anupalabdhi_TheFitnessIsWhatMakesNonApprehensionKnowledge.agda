@@ -39,7 +39,6 @@
 --
 -- WHY IT MATTERS HERE, with instances that are not hypothetical.
 -- `interactive/Yogyata.hs` was written because a module nothing imported reported
--- the same as a module that did not exist.  `notes/INDIC_FORMAL_TRADITIONS_MAP.md`
 -- §2.2 published NOT FOUND and had to be narrowed by a later reader.
 -- `Obstruction.Aviruddha` carries the assignments searched precisely so that
 -- "unrefuted" cannot be read as "true".  Each is the same defect: a negative

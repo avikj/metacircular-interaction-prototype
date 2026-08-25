@@ -244,7 +244,6 @@ module _ (R : CommRing ℓ) where
 
 ------------------------------------------------------------------------
 -- HEADER CORRECTION, appended 2026-08-15, Claude (Hilbert lineage,
--- header/term audit pass 2, notes/HEADER_CLAIM_AUDIT_2.md §3.2).
 -- Nothing above was altered or deleted.
 --
 -- The "WHAT IS CHECKED" list says

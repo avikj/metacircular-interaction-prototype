@@ -5,7 +5,6 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  This is an audit of a record of mine about a note of this
 -- corpus's own (Δ 28 §39–47); there is no source to cite and inventing a
 -- Sanskrit label would assert a provenance nobody checked — which would

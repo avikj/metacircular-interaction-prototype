@@ -11,7 +11,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE OPEN TAG THIS ANSWERS, AND HOW MUCH OF IT
 --
--- `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md` carries a `PROVE`
 -- tag: "whether the three honesty faces (lossless / complete / stable)
 -- recur for continued-fraction convergents — the vallī already IS the
 -- CF".
@@ -49,7 +48,6 @@
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, which is Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no
--- holes.  See notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md.
 ------------------------------------------------------------------------
 
 module TheValliConvergentDeterminantAlternates where

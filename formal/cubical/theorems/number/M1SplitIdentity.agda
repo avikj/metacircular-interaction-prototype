@@ -3,11 +3,9 @@
 ------------------------------------------------------------------------------
 -- M1SplitIdentity
 --
--- The ALGEBRAIC CORE of Proposition M1 (`notes/METHOD.md` §1), and the
 -- cancellation core of the identity Λ♯_Q(P_Q) = M(Q) of the same section
 -- §1(i).  Coverage-ledger rows A18 / §6 item 2.
 --
--- WHAT M1 SAYS (notes/METHOD.md §1, quoted, not summarised):
 --
 --     [♯♯](T)-constant = A(Q)²/4 + 2 A(Q) S(Q) + O(1),
 --     A(Q) = Λ♯_Q(1),   S(Q) = Σ_{m≥2} Λ♯_Q(m)/(1+m)²,
@@ -35,7 +33,6 @@
 --   ARBITRARY weight w and an ARBITRARY arithmetic function f in an
 --   arbitrary commutative semiring.  Neither μ, nor φ, nor Λ, nor any
 --   Dirichlet series, nor any zero, appears in any type in this file --
---   consistently with `notes/AGDA_COVERAGE_LEDGER.md` §2's structural
 --   finding.  (b) and (c) are NOT here and are not reachable here: they
 --   need real analysis and Mertens' theorem, neither of which is in the
 --   cubical library.  In particular THIS FILE DOES NOT PROVE

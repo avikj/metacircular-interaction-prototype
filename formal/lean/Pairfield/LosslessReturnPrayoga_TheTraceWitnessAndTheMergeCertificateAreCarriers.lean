@@ -19,7 +19,6 @@ same declaration about the head term.
 `Pairfield/EuclidCoefficientTrace.lean` and
 `Pairfield/IncrementalCRTAdapter.lean` are untouched. Their structures are
 exhibited from outside as instances of `Carrier`, by `Equiv`. §६ of
-`notes/AHIMSA_SUTRA_VISTARA.md`.
 
 One incidental finding worth recording, because it is what made the `Equiv`s
 need `Eq.symm` in one direction and not the other: **the lane spells the

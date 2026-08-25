@@ -95,4 +95,3 @@ compileCosted source = record
 -- ℕ → Type with an observes-within law) before preservation means anything;
 -- that joint is open, exactly as CountedDigits' cost boundary already admits.
 -- (A vacuous `complexity-preserved = refl , refl , refl , refl` formerly stood
--- here; removed per notes/NATURALMACHINE_CLAIM_AUDIT.md G6.)

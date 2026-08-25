@@ -1,7 +1,6 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 -- The walk's INSTALL-STREAM theorem, statement (3) of
--- notes/WALK_FORCING_LAW.md: "after installing q, lcm(S) = lcm(1..q)".
 --
 -- Setting.  The walk's state is a list S of installed sensors.  At a
 -- collision the machine reads L = lcm(S) and installs the least q ≥ 2

@@ -4,7 +4,6 @@
 -- AchromaticToy
 --
 -- The finite Φ toy of the Eternal Golden Braid
--- (notes/ETERNAL_GOLDEN_BRAID_DELTA24.md §19.C), one full cycle of the
 -- achromatic-reflection discipline on the smallest possible material:
 --
 --   G₁ = Bool          the two-valued perspective

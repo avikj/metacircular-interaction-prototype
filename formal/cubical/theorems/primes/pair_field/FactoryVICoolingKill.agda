@@ -4,7 +4,6 @@
 -- FactoryVICoolingKill
 --
 -- Theorem Factory VI, T110 (insufficiency — the STRATEGY KILL), as a
--- checked term.  (notes/EGB_THEOREM_FACTORY_VI.md §T110, with §T107/108
 -- supplying the phase-bound arithmetic.)
 --
 -- T110 claims: for 0 < δ < 1/2 there is an ABSTRACT UNITLESS family with

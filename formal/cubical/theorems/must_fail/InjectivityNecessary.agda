@@ -8,7 +8,6 @@
 -- Designed annihilation (collab/PROTOCOL.md §7), companion to
 -- `ComparisonNeedNotBeInjective` (exit 0 under the pin).
 --
--- WHAT IT ASSERTS.  `notes/FULL_READ_DRAW_6.md` §D3 and §2: the note
 -- `OBSERVER_REVISION_IS_ATOMIC_SATISFACTION.md` §4 writes "injectivity
 -- of `j_q` is **needed**", and
 -- `collab/messages/0469-atomic-satisfaction-is-response-square.md`
@@ -40,7 +39,6 @@
 -- import it, and nothing else may.
 --
 -- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9; see
--- notes/TOOLCHAIN_SKEW_AND_COVERAGE.md §6.1), `LC_ALL=C.UTF-8 agda
 -- --library-file=<v0.9> NaturalMachine/Control/InjectivityNecessary.agda`,
 -- exit code 42, error verbatim:
 --

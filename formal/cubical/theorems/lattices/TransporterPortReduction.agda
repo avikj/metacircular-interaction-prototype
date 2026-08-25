@@ -65,7 +65,6 @@
 --     file's "three-point world" is the LARGEST case in which a single
 --     port suffices for `Sₙ`, not the smallest.  That case exhaustion is
 --     one line of algebra and is written in
---     `notes/PORT_IS_A_BASE_POINT.md` §2, not run.
 --   * No claim of novelty for the torsor theorem, which is R0027's and,
 --     before that, standard.  Nor for the iteration in §5: a tuple of
 --     points with trivial pointwise stabilizer is a BASE of a permutation

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- AtlasResiduals
 --
--- SOURCE OF THE TARGETS.  `notes/ATLAS_OF_N.md` §7, "Formalization
 -- targets for the sibling Cubical lane", lists four statements from that
 -- note as worth machine-checking.  Two of them were unclaimed; this
 -- module lands those two.
@@ -155,7 +154,6 @@
 --    above.  The prediction was wrong about the method, not about the
 --    content.
 --
---    Prior art (from the ecosystem survey, `notes/HOTT_ECOSYSTEM_MAP.md`,
 --    and kept here): UniMath states this existence direction and then
 --    `Abort`s it (`OrderTheory/OrderedSets/OrderedSets.v:360`); no
 --    library surveyed — cubical, agda-unimath, Coq-HoTT, 1lab — has it
@@ -174,7 +172,6 @@
 --    library pinned by this very corpus, and nothing in this file ever
 --    imported it.  `isSetCar` has been deleted from `Alg`; A2 is now
 --    that library theorem, repackaged.  §3 inherits the strengthening.
---    Found by the HoTT/UF ecosystem survey (`notes/HOTT_ECOSYSTEM_MAP.md`),
 --    which reports that 12 of 15 univalent claims in this corpus are
 --    already proved elsewhere, nine of them in libraries already on disk.
 --    Struck rather than deleted: the withdrawn text is a correct record

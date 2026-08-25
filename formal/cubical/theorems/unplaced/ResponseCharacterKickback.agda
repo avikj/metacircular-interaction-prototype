@@ -19,7 +19,6 @@
 -- nonzero complex response vector supplies the faithful sign action, and the
 -- usual translation operators supply the representation laws.  That standard
 -- quantum realization is cited and scoped in
--- notes/RESPONSE_CHARACTER_KICKBACK_BOUNDARY.md.
 ------------------------------------------------------------------------
 
 module ResponseCharacterKickback where

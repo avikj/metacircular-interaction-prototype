@@ -5,7 +5,6 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  The abstract order-theoretic form used here — two
 -- preorders, two antitone maps, one adjunction — is Ore's ("Galois
 -- connexions", *Trans. AMS* 55, 1944), after Birkhoff (*Lattice

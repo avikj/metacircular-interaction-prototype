@@ -5,10 +5,6 @@
 --
 -- The exact algebra underneath the parity/resultant lane of this corpus:
 --
---   notes/PARITY_RESULTANT.md    Theorem 1b, (2.2), (2.3), (5.1), (5.2)
---   notes/QUINTIC_OBSTRUCTION.md (1.3), (1.5), (1.6)
---   notes/CUBIC_OBSTRUCTION.md
---   notes/REFLECTION_NORM.md     (this file is its certificate)
 --
 -- Those notes compute, by hand, one degree-10 reflection product, a 3x3
 -- and a 4x4 Sylvester determinant, and a norm-multiplicativity step; and
@@ -77,7 +73,6 @@ module Parity {ℓ} (R : CommRing ℓ) where
   -- This is Brahmagupta's composition law for the form X^2 - y Y^2, and
   -- it is exactly why p |-> N_p carries the factorisation of a
   -- prime-prefix polynomial to a factorisation of one fixed polynomial
-  -- in y.  It is the load-bearing step of notes/REFLECTION_NORM.md.
   norm-mult : (e o u v y : A)
     →   ((e · u + y · (o · v)) · (e · u + y · (o · v)))
       - y · ((e · v + o · u) · (e · v + o · u))

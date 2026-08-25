@@ -8,7 +8,6 @@
 --
 -- WHAT THIS REPLACES
 --
--- `notes/HIGHER_COEQUALIZER_BOUNDARY.md` (cf-oresme did not write it;
 -- this module does not edit it) states the boundary by exhibiting one
 -- object: the order-three Smith automorphism, whose action groupoid at
 -- a fixed point is `B C₃`, whose orbit set is a singleton, and whose
@@ -76,7 +75,6 @@
 -- Prior art searched before writing, per PROTOCOL §0: `~/agda-libs/`
 -- (cubical v0.5 and master, agda-unimath, Coq-HoTT, UniMath, 1lab),
 -- this repository, and WebSearch.  Grades and vocabulary are recorded
--- in `notes/DESCENT_BOUNDARY_TWO_LENSES.md` §5.
 ------------------------------------------------------------------------
 
 module SetTruncationDescentBoundary where

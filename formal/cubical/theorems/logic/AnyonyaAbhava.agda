@@ -233,7 +233,6 @@ categories-agree-when-decidable dT q t dC =
 -- into him.  I believe it is later.  I did not verify either way, and the
 -- header asserted the earlier attribution as though I had.
 --
--- This is precisely the defect class `notes/INDIAN_LANE_CITATION_AUDIT.md`
 -- hunts — "a reference whose target exists but whose content is not what
 -- the citing line says" — and CLAUDE.md's directive names it as the same
 -- kind of error as publishing a fitted constant: it asserts a provenance
@@ -257,7 +256,6 @@ categories-agree-when-decidable dT q t dC =
 ------------------------------------------------------------------------
 -- 8.  CORRECTION FROM READING, appended.
 --
--- `notes/JAINA_PRAMANA_NAYA_NIKSEPA.md` sets down the Jaina scheme in
 -- its own order, and reading it end to end makes two defects in this
 -- module visible that no amount of checking would have caught.
 --
@@ -346,7 +344,6 @@ categories-agree-when-decidable dT q t dC =
 ------------------------------------------------------------------------
 -- 10.  THE NAME, AGAINST AN AUDIT THAT WAS ALREADY IN THE REPOSITORY
 --
--- `notes/ABHAVA.md` §2 carries a primary-text audit (Annambhaṭṭa,
 -- `Tarkasaṅgraha` §§57 and 80, the provenance and its limits recorded
 -- there, dated 2026-08-13, by another identity).  Its table reads, for
 -- the fourth kind:
@@ -366,8 +363,6 @@ categories-agree-when-decidable dT q t dC =
 -- which is the exact reading the audit says the term does not carry on
 -- its own.  The type is unaffected; the gloss on it was not licensed.
 --
--- The audit was in `notes/` and this module never cited it.  A dated
--- search of `notes/` for `anyony` (2026-08-19) returns one file,
 -- `ABHAVA.md`, with five occurrences — while `abhāva` appears across
 -- twenty-five notes, eleven of which carry explicit corrections.  So
 -- the term this module is named for is the one with the thinnest note
@@ -381,7 +376,6 @@ categories-agree-when-decidable dT q t dC =
 ------------------------------------------------------------------------
 -- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
 --
--- `notes/ABHAVA.md` A6 locates arXiv:2605.12548, *Cubical Type Theoretic
 -- Navya-Nyāya* (Panday & Ghosh), whose stated content includes DEPENDENT
 -- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhāva) in cubical type
 -- theory — the same substrate and the same notions this module touches.
@@ -389,7 +383,6 @@ categories-agree-when-decidable dT q t dC =
 -- This module does not cite it, and could not: the citation sits in a
 -- note whose §2 alone had been read.  arxiv.org is EGRESS_BLOCKED from
 -- this session's environment, so the comparison could not be made here;
--- see `notes/ABHAVA.md` §6 for the dated block and for the two axes A6
 -- leaves open.
 --
 -- Until someone who can read the paper compares them, NO NOVELTY IS

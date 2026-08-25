@@ -58,7 +58,6 @@
 -- non-associativity below is a consequence of their rule, not of my
 -- notation — it says that under saha the grouping is not free, because
 -- collapsing a pair into avaktavya destroys which seeds it was made of.
--- That is हिंसा = सङ्क्षेपः (notes/AHIMSA_SUTRA_VISTARA.md §1) appearing as
 -- a failure of an algebraic law.
 ------------------------------------------------------------------------
 

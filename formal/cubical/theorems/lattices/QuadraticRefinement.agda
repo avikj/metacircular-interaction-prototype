@@ -33,7 +33,6 @@
 -- Scope.  This is the F_2 quadratic/symplectic bookkeeping only.  It
 -- does not formalize operators, measurement, memory, or contextuality;
 -- those live in machinery/pauli_context_memory.py and the notes.  See
--- notes/PAULI_MEMORY_LAGRANGIAN.md and notes/ARF_MERMIN_CLASSIFICATION.md.
 ------------------------------------------------------------------------
 
 module QuadraticRefinement where

@@ -11,7 +11,6 @@
 -- different apparatus for neighbouring cases, and the two schools reject
 -- each other's treatment here.  Name the school before the term.
 --
--- The verse in the title, शब्दे जीवाः वर्तन्ते, is notes/AHIMSA_SUTRA_VISTARA.md
 -- §११ — this repository's own composition, not a quotation from a source.
 --
 -- **No claim is made that any Jaina author proved anything below.**  The

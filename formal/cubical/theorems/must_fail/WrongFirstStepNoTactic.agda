@@ -32,7 +32,6 @@
 -- 2.6.3 with cubical v0.7, `Cubical/Tactics/Reflection.agda:92` does not
 -- scope-check: it uses `withReduceDefs`, which entered
 -- `Agda.Builtin.Reflection` in Agda 2.6.4.  (cubical v0.7 is released
--- against Agda 2.6.4.1; see notes/CUBICAL_SKEW.md category **L**.)
 --
 -- So in such a container `WrongFirstStep.agda` exits 42 — the correct
 -- exit code — having never looked at its own last line.  An exit code

@@ -56,7 +56,6 @@
 --                               from `Over`, and nothing more.  The
 --                               statement with real conservativity
 --                               content is P3 of
---                               notes/OBSTRUCTION_AGDA_PLAN.md (the D3
 --                               counterexample `x*y := x+y`), unproved.
 --   T3 `match-conservative`     installing a head changes matchability
 --                               at no OTHER head.  This is a membership
@@ -110,7 +109,6 @@
 --
 -- WHAT IS DELIBERATELY NOT CLAIMED
 --
---  * Not modelled (see notes/OBSTRUCTION_AGDA_PLAN.md): multi-parameter
 --    bodies, pattern matching below the root, the arity/grouping
 --    structure of the B3 residual, and gates D2–D7.
 --  * "Conservative" is used throughout in the T2 sense — eliminability

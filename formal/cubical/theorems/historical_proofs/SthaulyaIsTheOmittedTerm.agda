@@ -92,7 +92,6 @@
 -- (Jyeṣṭhadeva, c. 1530) and the *Tantrasaṅgraha* tradition (Nīlakaṇṭha,
 -- 1501), attributed there to Mādhava (c. 1340–1425).  The स्थौल्य
 -- criterion is the tradition's; I have it from secondary sources and
--- have read no primary text — `notes/MADHAVA_THE_SERIES_AND_ITS_END_CORRECTION.md`
 -- itemises exactly what was and was not read.  The continued fraction
 -- is Krishna's, who reports that the Kerala texts give no rationale for
 -- the third correction.  The theorem below is not in either place as far

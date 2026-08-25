@@ -6,7 +6,6 @@
 -- THE W2 ADAPTER, AS A TERM — what it buys, and the exact reason it does
 -- not buy the whole of W2 by itself.
 --
--- `notes/SIXTEEN_MINDS_ONE_THEOREM.md` §3 names one obligation as the
 -- smallest of its four: "one Lean/Agda transport; after it, 'is this
 -- probe charged?' is a term, not an audit."  This module is that
 -- transport.  It has three parts, and the middle one is the merge:
@@ -105,7 +104,6 @@
 -- NM_MODULES set to this module printed "RUNNING AGAINST THE PIN"
 -- (agda 2.8.0 at /root/Agda-2.8.0/…, cubical /root/agda-libs/cubical-v0.9),
 -- EXIT=0 (errors: 0, warning lines: 0), CHECKSH_EXIT=0 read unpiped.
--- Scope of that sentence, per `notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`:
 -- it is the pin's verdict on THIS module and its import closure, not on
 -- the whole aggregate.  `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------
@@ -449,7 +447,6 @@ probe-neutral-not-charged (_ , c) = true≢false (τ₋charged→odd (0 ∷ 1 �
 ------------------------------------------------------------------------
 -- §5  THE TYPED LIMIT ON §3.
 --
--- Certificate type T1 (`notes/NEGATIVE_KNOWLEDGE_IS_TYPED.md` §1: a
 -- checked term of ¬P at a stated locus, with the refuting instance
 -- exhibited).  THE WITNESS IS NOT NEW — it is `GaugeOrbitClasses` §6's
 -- τ₀, the single-prime flip, and that module already draws the

@@ -1,6 +1,4 @@
 /-
-# Singleton-parity rigidity (Theorem A′′ of `notes/REPORT.md` §2.1,
-  stated in full in `notes/PARITY_RIGIDITY.md`)
 
 The note's proposition has three layers.  Two of them are checked here; the
 third is identified precisely and is *not*.
@@ -36,7 +34,6 @@ WHAT IS **NOT** FORMALIZED HERE
   to `0` (after an odd translation swapping the names of the parity classes
   if necessary) puts both sets in normalized form.  Each of those is
   routine; none of it is here.  Consequently the general Theorem A′′ as
-  stated in `notes/PARITY_RIGIDITY.md` is **not** a checked term — its two
   substantive layers are.
 * The prime-prefix corollary, and `Conjecture A″_alg` (irreducibility of the
   non-cyclotomic part of `F_X`), which is strictly stronger and separate;
@@ -231,7 +228,7 @@ lemma invert_ind (A : Finset ℤ) :
 
 /-- **The bridge.** The `n`-th coefficient of `ind A * invert (ind A)` is the
 number of ordered pairs of `A` with difference `n`: the autocorrelation
-`c_A(n)` of `notes/PARITY_RIGIDITY.md`. -/
+`c_A(n)`. -/
 theorem coeff_autocorr (A : Finset ℤ) (n : ℤ) :
     (ind A * LaurentPolynomial.invert (ind A)).coeff n
       = (((A ×ˢ A).filter (fun p => p.1 - p.2 = n)).card : ℤ) := by
@@ -275,7 +272,6 @@ lemma oddS_ind_sub_one (S : Finset ℤ) (hS0 : (0 : ℤ) ∈ S)
 /-- **Singleton-parity rigidity, normalized set form.**
 `A` and `B` are finite sets of integers, each containing `0` and otherwise
 consisting of odd numbers — i.e. each has `{0}` as its even parity class,
-after the translation of `notes/PARITY_RIGIDITY.md`.  If they have the same
 full pairwise-difference data, then `B = A` or `B = -A`. -/
 theorem rigidity_normalized (A B : Finset ℤ)
     (hA0 : (0 : ℤ) ∈ A) (hAodd : ∀ a ∈ A, a ≠ 0 → Odd a)
@@ -353,7 +349,6 @@ exhibits the second disjunct rather than a failure of the theorem. -/
 example : ({0, 1, 3} : Finset ℤ).image (fun x => -x) = ({0, -1, -3} : Finset ℤ) := by decide
 
 /-- C4: the normalization hypothesis is genuinely restrictive.  The minimal
-homometric pair of `notes/REPORT.md` §2 — `{0,1,2,6,8,11}` and
 `{0,1,6,7,9,11}`, which are *not* translates or reflections of one another —
 fails it: `{0,1,2,6,8,11}` has three even elements, not one. -/
 example : ¬ (∀ a ∈ ({0, 1, 2, 6, 8, 11} : Finset ℤ), a ≠ 0 → Odd a) := by

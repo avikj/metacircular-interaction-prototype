@@ -11,7 +11,6 @@
 -- that source for a containment between two inductively defined
 -- relations would assert a provenance nobody checked.  Checked before
 -- naming: `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- `.claude/hooks/european-frame.txt`; `formal/` and `notes/` grepped
 -- first.
 --
 -- ────────────────────────────────────────────────────────────────────

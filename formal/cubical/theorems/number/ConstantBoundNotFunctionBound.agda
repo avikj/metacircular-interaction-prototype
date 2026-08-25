@@ -6,7 +6,6 @@
 -- A CONSTANT that cannot be improved by a constant, and a FUNCTION that
 -- improves it.  The quantifier the summary moved, made a type.
 --
--- SOURCE SENTENCE (`notes/FULL_READ_DRAW_6.md` §C1, quoting
 -- `collab/messages/workers/20260812T144712.509661Z--claude_aime_body--
 -- 0003.md`):
 --

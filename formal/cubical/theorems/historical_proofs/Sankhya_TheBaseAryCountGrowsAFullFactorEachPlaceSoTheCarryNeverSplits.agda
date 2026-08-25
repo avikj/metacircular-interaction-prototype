@@ -39,7 +39,6 @@
 -- is not manufacturable by keeping the digits apart.
 --
 -- Sources for the mathematics: runtime/atlas/residual.py
--- (splitting_exponent_argument, carry_cocycle), notes/ATLAS_OF_N.md §8
 -- Prop. 2.11.  Complements Vahita_…  (the b=2,n=1 group instance).
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical library).

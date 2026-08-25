@@ -28,7 +28,6 @@
 --
 --     |ker A| = gcd(d₁,m) gcd(d₂,m),  when U A V = diag(d₁,d₂),
 --
--- is proved in notes/SMITH_KERNEL_QUANTUM_BOUNDARY.md; it is not silently
 -- promoted here to a formal integer-matrix development.
 ------------------------------------------------------------------------
 

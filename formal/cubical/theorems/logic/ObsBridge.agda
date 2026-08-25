@@ -5,7 +5,6 @@
 --
 -- `एकीकरण ≠ समानता;  एकीकरण = भेदरक्षित अनुवादजालम्`
 --
--- `notes/DUPLICATION_LEDGER.md` recorded my `ObstructionCalculus.Obs` as a
 -- duplicate of `ChuAdvance.Obs` and named a refactor that would delete one of
 -- them.  On inspection that verdict was wrong, and the correction is more
 -- interesting than the error:

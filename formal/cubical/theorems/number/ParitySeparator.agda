@@ -6,7 +6,6 @@
 -- The sieve parity barrier, as a behavioural separator — elementary,
 -- finite, and with no operator algebra in it.
 --
--- WHERE THIS COMES FROM.  `notes/GAUGE.md` Theorem F proves that the
 -- unique KMS state of the critical affine system annihilates every
 -- gauge-charged observable, so "sieves cannot see parity" is an exact
 -- invariance rather than a want of technique.  That proof is three lines

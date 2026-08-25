@@ -19,9 +19,7 @@
 #
 # So nothing was unchecked.  What was wrong is that `import Pairfield` handed
 # back 114 of 133 and said nothing about the other 19, fourteen of which are
-# cited by module path in notes/.  A root that silently returns a subset is not
 # a wrong answer, it is an undeclared standpoint -- and per
-# `notes/AHIMSA_SUTRA_VISTARA.md` §2 a concealed naya is worse than a false one,
 # because there is nothing to contradict.
 #
 #     यो नयं न वदति स नयं गोपयति ।  गुप्तो नयो दुर्नयो भवति ।

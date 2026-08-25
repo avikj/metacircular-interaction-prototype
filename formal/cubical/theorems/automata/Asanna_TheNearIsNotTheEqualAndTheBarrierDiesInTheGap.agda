@@ -6,7 +6,6 @@
 -- (this is the APPROXIMATE circumference of a circle.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHY THIS MODULE EXISTS.  `notes/METHOD.md` §3 item 1 — the corpus's
 -- last open PROVE item — asks that the BARRIER Structure Proposition be
 -- made a theorem: WL observables factor through the blurred spectral
 -- measure, hence no post-processing recovers what the blur merged.

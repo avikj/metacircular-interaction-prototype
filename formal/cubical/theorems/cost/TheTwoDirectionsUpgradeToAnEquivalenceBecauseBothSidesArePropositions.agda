@@ -5,7 +5,6 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  Counting how many members of a finite collection satisfy
 -- a predicate is Jaina enumerative territory (*Anuyogadvāra*,
 -- *Sthānāṅga*) and I have NOT established that as the source of

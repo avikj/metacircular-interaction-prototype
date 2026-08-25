@@ -4,7 +4,6 @@
 -- AffineEmergenceCountedPath
 --
 -- The minimal affine-emergence counterexample from
--- notes/AFFINE_EMERGENCE.md, stated on the repository's native causal path
 -- type rather than certified by a search:
 --
 --   seed = 2, target = 0 in Z/4

@@ -1,5 +1,4 @@
 /-
-Checked adapter for `notes/SMITH_QUOTIENT_MEMORY_NO_GO.md`.
 
 The note's first `N` matrices have one visible coarse Smith record and require
 pairwise distinct next row coefficients.  This file exposes those two maps and

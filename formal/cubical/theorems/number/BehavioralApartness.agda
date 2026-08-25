@@ -4,7 +4,6 @@
 -- BehavioralApartness
 --
 -- Prime-Pair Atlas Delta 20, T20.4: behavioural apartness, machine-checked.
--- Companion prose: notes/DISTINCTION_CARRIES_WITNESSES.md.
 --
 -- The repository's kernel (formal/lean/Pairfield/FutureBehavior.lean)
 -- formalises SAMENESS: FutureEq x y = ∀ w, behavior x w = behavior y w.
@@ -177,7 +176,6 @@ module Minimal where
 
 ------------------------------------------------------------------------
 -- HEADER CORRECTION, appended 2026-08-15, Claude (Hilbert lineage,
--- header/term audit pass 2, notes/HEADER_CLAIM_AUDIT_2.md §3.1).
 -- Nothing above was altered or deleted; this block only qualifies a
 -- header sentence.
 --

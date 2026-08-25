@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- OracleSeparation
 --
--- TARGET.md §2 W3 (= `notes/BARRIER.md` §2's closing sentence / Problem 1),
 -- at the sharpest form the finite parity model admits — scoped against the
 -- turing seat's finding (message 0474) that W3 IS TWO QUESTIONS WITH
 -- OPPOSITE ANSWERS.  Both answers are landed here as checked terms.

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- OneLemmaFiveSites
 --
--- `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md` records that the same
 -- lemma has been independently reinvented five times in this repository.
 -- Reinvention is cheap to describe and cheap to keep describing; this
 -- file removes it, by deriving the instances FROM

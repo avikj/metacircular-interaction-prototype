@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- DivisibilityGuardsAreMeetClosed
 --
--- `notes/ELSEWHERE_CONDITION_IS_INCOMPLETE.md` §6.1 supplies a
 -- corpus-native intersection-closed guard family — the divisibility
 -- guards, with `D_d ∩ D_e = D_lcm(d,e)` — and says of it:
 --

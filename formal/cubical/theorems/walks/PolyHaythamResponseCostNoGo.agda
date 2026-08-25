@@ -11,7 +11,6 @@
 --
 --   * machinery/observer_channel.py audits exact response sufficiency only
 --     on its declared finite state rows;
---   * notes/DEFECT_PROBE_REALIZATION.md separates an ideal XOR response from
 --     fabrication, calibration, sampling, and post-action return;
 --   * collab/messages/0415-codex-seshat-tester-statistics-cost-result.md
 --     records equal process statistics with unequal realization cost;

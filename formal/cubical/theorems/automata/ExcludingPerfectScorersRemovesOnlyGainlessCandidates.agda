@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- ExcludingPerfectScorersRemovesOnlyGainlessCandidates
 --
--- `notes/DARWIN_GODEL_MATH.md` §2 lists four paper/code seams.  Seam 3
 -- was checked two cycles ago; this is SEAM 1, and it reads:
 --
 --   "The paper's parent-eligibility set excludes perfect-score agents.

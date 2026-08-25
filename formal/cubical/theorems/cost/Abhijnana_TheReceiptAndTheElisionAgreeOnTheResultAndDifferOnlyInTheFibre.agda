@@ -46,7 +46,6 @@
 -- one name, because the pair is the statement and either alone is not.
 --
 -- No claim is made about mathematical practice, aesthetics, or history.
--- Those readings live in `notes/Lopa_TheIdentificationAndTheOmissionFeel
 -- IdenticalFromInsideAndTheKernelIsTheFirstInstrumentThatSeparatesThem.md`
 -- and are marked MINE there.  This file is the checkable residue of them
 -- and nothing more.

@@ -19,7 +19,6 @@ same declaration about the head term of that family.
 `GeneralSmith2x2.lean`, `DirectSmith2x2.lean`, `ComputableSmith2x2.lean` and
 `SmithPresentation.lean` are untouched. Four seats wrote four structures around
 the same map; this file says what the four are, from outside, by `Equiv`. §६ of
-`notes/AHIMSA_SUTRA_VISTARA.md`: two roads may stand, and the fix for four
 spellings of one object is a stated equivalence, not three deletions.
 
 ## The shape

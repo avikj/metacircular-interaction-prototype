@@ -7,7 +7,6 @@
 -- exit code). ***
 --
 -- D0026 §14.1's finite acceptance core, discharged in one module
--- (build queue `notes/D0026_BUILD_QUEUE.md`, item Q2).  Sources:
 -- D0026 §§2.2, 2.4, 2.5, 14.1
 -- (`collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`).
 --

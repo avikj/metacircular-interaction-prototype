@@ -567,7 +567,6 @@ module _ {T : Type ℓt} (t : Bool → T) where
 ------------------------------------------------------------------------
 -- 11.  THE APOHA GLOSS IS DEFEATED BY A NOTE THAT WAS ALREADY HERE.
 --
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §2.2, read after this module was
 -- written, states the finding:
 --
 --     "Apoha is not Boolean complementation.  The popular gloss is

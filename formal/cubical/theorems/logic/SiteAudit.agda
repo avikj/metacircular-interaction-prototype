@@ -4,7 +4,6 @@
 -- SiteAudit
 --
 -- CORRECTION TO `WhyTheSitesAreTwo` §6 AND TO
--- `notes/THE_WITNESS_NUMBER.md` §5.
 --
 -- Both say: *"Every site in this corpus satisfies both hypotheses:
 -- function-space decoders, and Y one of ℕ, Bool, lists of ℕ.  So 2 was

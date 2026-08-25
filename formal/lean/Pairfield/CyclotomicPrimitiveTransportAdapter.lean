@@ -1,6 +1,5 @@
 /-
 Checked adapter for the held-prime transport operation in
-`notes/CYCLOTOMIC_SENSOR.md` Theorem 11.
 
 The native organ re-expresses an already held prime in the exponent
 coordinates of a new base.  In the branch where the prime characteristic does

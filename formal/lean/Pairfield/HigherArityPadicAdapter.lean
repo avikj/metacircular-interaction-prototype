@@ -1,6 +1,5 @@
 /-
 Checked Mathlib adapter for the load-bearing valuation step in
-`notes/HIGHER_ARITY_CANCELLATION_FORMATION.md` Theorem 2.
 
 The native family has moving proper-subset sums `p^r - k`.  Mathlib's exact
 unequal-depth ultrametric equality lives over `padicValRat`; this file

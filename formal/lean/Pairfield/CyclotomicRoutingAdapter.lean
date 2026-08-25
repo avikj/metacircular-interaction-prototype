@@ -1,6 +1,5 @@
 /-
 Checked adapter for the cyclotomic routing operation in
-`notes/CYCLOTOMIC_SENSOR.md`.
 
 The native organ routes `a^n - 1` through every evaluated cyclotomic piece
 whose index divides `n`.  Mathlib already proves the corresponding polynomial

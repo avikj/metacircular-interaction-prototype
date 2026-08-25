@@ -8,7 +8,6 @@ weighted aggregate exposes the all-ones point.  More quantitatively, a lower
 bound on one coordinate's weight converts its distance from `1` into a lower
 bound on the aggregate's real-part deficit.
 
-This is the finite algebraic kernel of `notes/EXPOSED_POINT_RIGIDITY.md`.  It
 does not formalize an infinite series, a Dirichlet series, complete
 multiplicativity, or analytic continuation.
 -/

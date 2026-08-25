@@ -6,8 +6,6 @@
 -- *** AWAITING KERNEL (authored without local toolchain; a green is an
 -- exit code). ***
 --
--- Source: `notes/SELECTION_RETAINS_WHAT_VALUE_FORGETS.md` §§5.1–5.5
--- (build queue `notes/D0026_BUILD_QUEUE.md` §4b item Q10; D0026 §2.9,
 -- owner Delta 30,
 -- `collab/upstream/raw/D0026-owner-egb-core-transmission-v2-2026-08-16.md`).
 -- §5.5 of that note specifies this module and explicitly does not claim
@@ -25,7 +23,6 @@
 --     * the best-response composite β₂ ∘ π₁ — TWO fibers.
 --
 --   By the corpus's level-set theorem (T)
---   (`notes/OBSERVABLE_DESCENT_COMMON_OBJECT.md` §1: f factors through q
 --   iff f is constant on every q-fiber), a summary with a SINGLE fiber
 --   forces every map factoring through it to be constant.  Hence the
 --   best-response structure descends through NEITHER W NOR pne.  That is

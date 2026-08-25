@@ -25,7 +25,6 @@
   the UPDATE operators and false of the PROTOCOL built from them, because the
   protocol's operator at step i is not fixed in advance: it is intersection
   with phi_i or with NOT phi_i according to the prefix.  `Theorem T2` below
-  is the witness.  Likewise `notes/INCREMENTAL_OBSERVATION_REFINEMENT.md`
   proves ~_{O u N} = ~_O n ~_N -- accumulation commutes -- which is the
   hypothesis of `foldlPermInvariant`, and is exactly NOT sufficient for a
   protocol to be order-free.

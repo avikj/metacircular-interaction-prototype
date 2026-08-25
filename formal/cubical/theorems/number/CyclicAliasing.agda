@@ -4,7 +4,6 @@
 -- CyclicAliasing
 --
 -- The exact aliasing condition of
--- `notes/PRIME_PAIR_CYCLIC_CHARGE_CRT_BOUNDARY_V2.md` §2 ("Cyclic
 -- coefficient extraction and aliasing"), as checked terms.
 --
 -- WHAT THE NOTE SAYS.  For a polynomial A(z) = Σ_{r=0}^{R} A_r z^r and
@@ -18,7 +17,6 @@
 -- iff no other supported charge is congruent to s; M > R is the simple
 -- sufficient condition.
 --
--- WHY IT MATTERS HERE.  `notes/PRIME_ATOM_TOMOGRAPHY_CONDITIONING.md`
 -- Thm 4.3 computes the absolute condition number of the root-of-unity
 -- (DFT) charge-atom extractor and finds κ_DFT = 1 — perfect
 -- conditioning, the best of the three routes it compares, and the basis

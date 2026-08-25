@@ -11,7 +11,6 @@ open import CountedExecution using (run)
 
 -- Signed integer data used by the concrete 3 by 3 certificates below.
 -- `neg n` denotes -n.  The tables in the first half of this file were
--- originally transcribed from notes/SMITH_PATH_HOLONOMY.md; the
 -- certification section at the bottom of this file proves, over the cubical
 -- library's own integer-matrix layer (Cubical.Algebra.IntegerMatrix.Smith),
 -- that they really are Smith certificates for diag(2,3,2) — so nothing
@@ -35,7 +34,6 @@ I3 = mat3 (pos 1) zro zro zro (pos 1) zro zro zro (pos 1)
 
 -- Cumulative left transformations for the two legal adjacent-pair schedules
 -- on diag(2,3,2).  They are the exact certificates Up and Uq from
--- notes/SMITH_PATH_HOLONOMY.md.
 Up : Mat3
 Up = mat3 (neg 1) (pos 1) zro
           zro zro (pos 1)
@@ -505,7 +503,6 @@ actions-differ-real
 actions-differ-real p = negsucNotpos 0 0 (λ t → p t fzero fzero)
 
 -- (4) The transported-class table certified.  H is the relative left
--- transport U_q · U_p⁻¹ of notes/SMITH_PATH_HOLONOMY.md (4); here it is
 -- pinned down by the checked equation H ⋆ Up ≡ Uq plus unimodularity.
 
 matH : Mat 3 3

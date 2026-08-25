@@ -39,7 +39,6 @@
 -- is why barriers are properties of observation classes rather than of
 -- objects, and why the only operation that changes what a mind can see is
 -- acquiring a predicate it did not have — are in
--- `notes/Lopa_…md` §8 and are marked MINE there.
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
 -- postulates, no holes, exit 0.

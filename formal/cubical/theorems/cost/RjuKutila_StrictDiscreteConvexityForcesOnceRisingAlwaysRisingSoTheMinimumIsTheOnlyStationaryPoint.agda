@@ -34,7 +34,6 @@
 -- second difference > 0, exact Surd signs); this term is the implication
 -- it then invokes.  Declared there, proved here.
 --
--- SCOPE CORRECTION (owner, notes/AVIK_JAIN_THE_NATURAL_MACHINE.md,
 -- 2026-08-23: "truth of a term does not license every job the
 -- surrounding prose assigns to that term").  This term proves the
 -- implication for ℕ-VALUED families.  geodesic.py's OPL values are exact

@@ -4,7 +4,6 @@
 -- Window5Walsh
 --
 -- THE LENGTH-FIVE WALSH COUNTERMODEL, WITHOUT PYTHON
---   (rescue of collab/FAILURES.md F23 / notes/CONSTRAINT_ALGEBRA.md)
 --
 -- F23 recorded a stationary false model for the five-window correlation
 -- algebra used in the nonzero-(a,b,c) case of Tao–Teräväinen's Theorem
@@ -90,8 +89,6 @@
 --     addressed here and is exactly the missing premise.
 --   * Nothing about the published paper's §7 is asserted from reading:
 --     this module contains no claim about any text.  The audit of the
---     printed step lives in `notes/CONSTRAINT_ALGEBRA.md` §4 and is
---     CITED-grade there; see `notes/F25_F23_WITHOUT_PYTHON.md` §3.
 --   * The continuous maximum (Theorem 2.1 of CONSTRAINT_ALGEBRA) is a
 --     hand proof over the facet classification.  This module checks its
 --     finite input (§6) and its claimed extremal point (§5), not the

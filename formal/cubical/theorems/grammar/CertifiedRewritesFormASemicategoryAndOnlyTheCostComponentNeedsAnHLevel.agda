@@ -5,7 +5,6 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  A semicategory law over certified rewrites has no Indian
 -- source I have established; the h-level machinery is Voevodsky's
 -- substrate, which this repository declares a tool and not a frame.

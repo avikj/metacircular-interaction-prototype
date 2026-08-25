@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- HomometricPair
 --
--- Theorem A(ii) of notes/REPORT.md §2, item 2, made a checked term.
 --
 -- CLAIM (as stated in REPORT.md §2.2):
 --

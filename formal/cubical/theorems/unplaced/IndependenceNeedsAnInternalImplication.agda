@@ -21,7 +21,6 @@ open import GodelSeparation
 -- ────────────────────────────────────────────────────────────────────
 -- THE QUESTION AND WHERE IT CAME FROM
 --
--- `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` closes the deflationary
 -- thread and leaves one thing open: a real barrier is independence FROM
 -- A THEORY or non-existence of an algorithm UNIFORM IN A PARAMETER, and
 -- "stating one requires a theory to be independent OF … objects this

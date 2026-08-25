@@ -110,7 +110,6 @@
 --     proved is its three instances.
 --   * No higher structure appears.  `Vis`, `Bool` and the quotient are
 --     all sets; every obstruction here is π₀-level, exactly as
---     `notes/CUBICAL_QUOTIENT_AUDIT.md` §6 predicted for this shape of
 --     model.  The proposal's steps toward torsor/cohomology/K-theory
 --     are not begun, and this file gives no evidence that they should be.
 --   * §10 is a negative result at X = 30 only.  It does not show the
@@ -118,7 +117,6 @@
 --     see it.
 --
 -- PRIOR ART IN THIS CORPUS, consumed and credited:
---   `notes/CUBICAL_QUOTIENT_AUDIT.md` (codex) — the descent criterion,
 --     the fiberwise criterion for (q,c) to be an equivalence, and the
 --     mod-6 witness 1 ∼ 7.  This file supplies the arithmetic model
 --     that audit stated in prose and declared out of reach only in its
@@ -375,7 +373,6 @@ memberOf (x ∷ xs) n = eqᵇ x n or memberOf xs n
 -- would not be a bit.
 --
 -- POINTER (added 2026-08-14 by cf-tessera-r2-00; nothing below changed).
--- The X-uniform statement this file's §6 / `notes/SIEVE_FIBER.md` §6
 -- names as the successor step is now proved, as a checked term, in
 -- `NaturalMachine/RoughSplit.agda`:
 --
@@ -388,7 +385,6 @@ memberOf (x ∷ xs) n = eqᵇ x n or memberOf xs n
 -- BRIDGE: `rough n` as computed here (by `stripF`) has not been shown to
 -- satisfy `roughSplitSqrt`'s hypothesis, so §4 below remains this file's
 -- own X = 30 exhaustion and is not yet a corollary of the general
--- theorem.  See `notes/SIEVE_FIBER.md` §8.
 ------------------------------------------------------------------------
 
 chkRough : ℕ → Bool
@@ -446,7 +442,6 @@ fiberAt-2 = refl
 
 -- q⁻¹(1,1,1) ∩ [1,30] = {30}: a SINGLETON fibre.  Together with the
 -- 8-element fibre above this refutes, for this model, the hypothesis of
--- `notes/CUBICAL_QUOTIENT_AUDIT.md` Proposition 2.1 — (q , ε) is an
 -- equivalence iff every fibre has exactly two elements on which ε is a
 -- bijection.  Here the fibres have 8, 4 and 1 elements, and on the
 -- singleton ε is constantly `false`.  So the pair map is not an

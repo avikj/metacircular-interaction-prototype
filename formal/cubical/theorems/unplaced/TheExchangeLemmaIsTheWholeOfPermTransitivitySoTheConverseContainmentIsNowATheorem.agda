@@ -11,7 +11,6 @@
 -- of an inductively defined relation would assert a provenance nobody
 -- checked.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
--- and `notes/` grepped first.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE ITEM, NOW CLOSED.  At 47c200bf I proved `Perm ⊆ ≈`.  At dbbd4be6

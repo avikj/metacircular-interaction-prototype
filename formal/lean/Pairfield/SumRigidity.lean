@@ -1,7 +1,6 @@
 /-
 Theorem A(i) — Sum-marginal rigidity (V3 target 1).
 
-Statement (notes/REPORT.md, Theorem A(1)): for finitely supported nonnegative
 sequences, the additive (sum) convolution square determines the sequence:
 a ∗ a = b ∗ b ⟹ a = b.
 

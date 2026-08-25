@@ -6,7 +6,6 @@ import Mathlib.Data.Int.Basic
 
 `SmithCertificate.lean` supplies the checker and proves it sound and complete;
 `SmithPresentation.lean` supplies composable exact presentation arrows.  What
-was missing (`notes/FORMAL_CAPABILITY_GRAPH.md`, first open typed joint) is the
 **producer**: a total function taking an arbitrary integral `2×2` matrix to a
 Smith presentation, together with a proof that its certificate is accepted.
 
@@ -496,7 +495,6 @@ That spelling does **not** elaborate on a source-clean pinned build: `Prod`
 expects both factors in `Type`, while the side conditions inhabit `Prop`.
 `CapabilityGraph.lean` now uses the subtype below, which preserves exactly a
 presentation together with the four side conditions. See
-`notes/GENERAL_SMITH_PRODUCER.md` section 11.
 -/
 
 /-- The intended open-joint type, repaired. -/
@@ -540,7 +538,6 @@ theorem smithCertificate_check (A : IntMat2) :
 statement that prices the certificate: the *last* elementary operation the
 descent performs is a shear whose quotient is of order `d₂/d₁`, so certificate
 entries are bounded by the determinant's bit-length, not by the input entries'.
-See `notes/GENERAL_SMITH_PRODUCER.md` §4 for the exhibited instance where a
 certificate entry exceeds every input entry by a factor of 9444. -/
 theorem smith_det (A : IntMat2) :
     ((smith A).d₁ * (smith A).d₂).natAbs = A.det.natAbs := by

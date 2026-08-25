@@ -4,7 +4,6 @@
 -- Laghava
 --
 -- लाघव — brevity, the grammarian's governing criterion — as a measure on
--- presentations, and the theorem `notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_
 -- INVARIANT.md` states in prose and proves nowhere.
 --
 -- ────────────────────────────────────────────────────────────────────

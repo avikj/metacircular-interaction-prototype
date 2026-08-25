@@ -5,7 +5,6 @@
 -- ─────────────────────────────────────────────────────────────────────
 -- THE CONTRACT, quoted, because this file is one half of it.
 --
---   notes/AHIMSA_SUTRA_VISTARA.md §६ · द्वौ मार्गौ
 --
 --       अयम् अहिंसा ।
 --       अन्यो मार्गो दोषलेखः ।

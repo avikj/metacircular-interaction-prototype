@@ -8,7 +8,6 @@
 --  instance of it.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHY.  `notes/Yogyanupalabdhi_…md` §५, walking the corpus's directed
 -- sector, found exactly ONE theorem of the form "this loss cannot be
 -- undone" — `SetTruncationDescentBoundary.noDescentS¹` — and closed with
 -- the instruction that the next build should not be a better extractor

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- SimplicialDefectFailure
 --
--- Machine-checked content of notes/OBSTRUCTION_COEND_REPAIR.md §3:
 -- the defect family σ ↦ δ_σ of a charted Chu space is a functor on the
 -- DEGENERACY half of the simplex category and on no more.  The prose
 -- proof is not redone here; this module is its finite kernel-checked
@@ -101,7 +100,6 @@
 -- (note §7.3), and the module converts the ambiguity into a pair of
 -- theorems instead.
 --
--- Companion prose: notes/OBSTRUCTION_COEND_REPAIR.md §§0.3, 1, 3, 5.3,
 -- 7.4, 9.
 ------------------------------------------------------------------------
 

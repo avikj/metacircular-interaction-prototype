@@ -125,7 +125,6 @@
 -- any argument for a reading that runs through krama or saha proves
 -- nothing.  It is a question about what a position IS.
 --
--- notes/AHIMSA_SUTRA_VISTARA.md §6: two paths, transport or a written
 -- defect, and no third.  `krama` is the transport — nothing is lost, and
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys
 -- which two seeds it consumed, which is why it does not associate.

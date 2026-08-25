@@ -11,7 +11,6 @@
 # — but the POSITIVE obligation, that each control still fails *and fails for
 # the reason it was built to catch*, was guarded by nothing.  This script is
 # that guard.  (Named as open work in collab/messages/0850; see
-# notes/CONTROL_MUSTFAIL_GATE.md.)
 #
 # A NAÏVE GATE IS NOT ENOUGH, AND WE HAVE THE COUNTEREXAMPLE.  "nonzero exit
 # ⇒ pass" would green a control that has silently stopped testing its

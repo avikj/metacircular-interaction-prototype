@@ -12,7 +12,6 @@
 --   `Laghava.laghava-is-not-semantic` — लाघव is not a function of the
 --       denotation (Pāṇini's criterion, and why it had to exist).
 --   `TranscriptDescent.collisionObstructsDecoder` — and
---       `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md`: the analytic lane's
 --       flagship open problem is `¬ FactorsThrough`.
 --
 -- All three have the shape
@@ -41,7 +40,6 @@
 -- That is precisely `Laghava`'s situation one domain over: the quantity
 -- is perfectly definite, and invisible at the level where you were
 -- looking.  And it is precisely what
--- `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` predicts, since that note
 -- proves this lane cannot express a barrier in any stronger sense:
 -- avaktavya was the corpus's best candidate for something genuinely
 -- inexpressible, and it is exact.
@@ -101,7 +99,6 @@ avaktavya-does-not-factor (v , agrees) =
 --
 -- One shape, three traditions, and the middle one is the only place this
 -- corpus had noticed it.  `TranscriptDescent.collisionObstructsDecoder`
--- is the general lemma; `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md`
 -- records that it was independently reinvented four times here.  This is
 -- the fifth site and the first outside mathematics proper.
 --

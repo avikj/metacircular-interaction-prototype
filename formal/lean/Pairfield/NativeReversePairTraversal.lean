@@ -36,7 +36,7 @@ deriving Repr, DecidableEq
 `List.insertionSort`, which is *structurally* recursive, where `Multiset.sort`
 is `List.mergeSort`, which is well-founded recursive and therefore opaque to
 the kernel: `decide` (and `decide +kernel`) get stuck on any goal mentioning
-`Finset.sort`.  See `notes/NATIVE_DECIDE_AUDIT.md` §4a. -/
+`Finset.sort`. -/
 def msortLE [LinearOrder X] (s : Multiset X) : List X :=
   Quot.liftOn s (fun l => List.insertionSort (· ≤ ·) l) fun _ _ h =>
     List.Perm.eq_of_pairwise'

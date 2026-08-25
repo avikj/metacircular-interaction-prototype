@@ -41,7 +41,6 @@
 --     stabilizer, and §3b shows its `hε` really is forced.
 --
 --   * §3 `q0` is the exception, and it is nonempty: at q = 0 — the
---     rank-drop stratum diag(d₁,0) that `notes/DIAGONAL_SMITH_CONGRUENCE_TORSOR.md`
 --     §1 sets aside as "degenerate strata for contrast" — the matrix
 --     H = diag(1,5) two-sidedly stabilizes D = diag(1,0) with the
 --     integral partner K = ((1,0),(0,0)), and det H = 5 is not a unit.
