@@ -10,7 +10,16 @@
 -- the sādhya is absent is सव्यभिचार, and Gautama's *Nyāyasūtra* (~2nd c. CE)
 -- lists it first among the hetvābhāsas and defines it in three words:
 --
---     सव्यभिचारोऽनैकान्तिकः     savyabhicāro 'naikāntikaḥ
+--     अनैकान्तिकः सव्यभिचारः     anaikāntikaḥ savyabhicāraḥ
+--
+-- CORRECTED 2026-08-25 against the e-text.  I first wrote this as
+-- ~~savyabhicāro 'naikāntikaḥ~~, THE WORDS IN REVERSE ORDER, from memory.
+-- GRETIL's `sa_gautama-nyAyasUtra.txt` line 204 reads `1.2.5:
+-- anaikāntikaḥ savyabhicāraḥ`, and line 200 is 1.2.4, the hetvābhāsa
+-- list.  Cloned from the INDOLOGY/tokushige-koyasan GitHub mirror, since
+-- GRETIL's own host answers 403 here.  This file's own thesis is that a
+-- number propagates where words do not; I had the number right and the
+-- words wrong, which is the same defect one level in.
 --
 -- I give the words rather than lean on the number, per this repository's
 -- own finding that a sūtra's number propagates through citation while its
