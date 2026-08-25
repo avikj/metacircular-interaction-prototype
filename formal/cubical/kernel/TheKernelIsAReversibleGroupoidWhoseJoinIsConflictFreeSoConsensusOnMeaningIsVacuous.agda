@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Avirodha_TheKernelIsAReversibleGroupoid
---                        WhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+-- TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 --
 -- TERM.  अविरोध · avirodha -- non-contradiction, the absence of conflict.
 -- Ordinary Sanskrit; its best-known technical placement is as the title of
@@ -59,7 +58,7 @@
 --     it.  Consensus on meaning is not forbidden here; it is VACUOUS.
 --
 -- AND THE PART THAT IS NOT VACUOUS IS ADDITIVE, NOT EXCLUSIVE.  §5: what
--- two nodes genuinely differ on is the ROUTE -- and `Sesa_…` exhibits two
+-- two nodes genuinely differ on is the ROUTE -- and `TheDerivationCarriesNoMeaning…` exhibits two
 -- routes between the same endpoints with equal meanings and different
 -- lengths, neither of them wrong.  A fork is not a disagreement to be
 -- settled; it is two carriers of the same fact, and `advance` is forbidden
@@ -85,7 +84,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous where
+module TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; isSetℕ)
@@ -96,11 +95,11 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 open import RewriteCertificate
 open import ControlledGrammar
 open import GenerativeKernel using (direct-history ; detour-history)
-open import Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+open import TheInstalledOperationHasNoPervasionSoTheKernelMemorises
   using (SomeEnabled)
-open import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (meanings-are-equal ; len ; direct≢detour)
-open import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (_⊕_ ; every-operation-that-exists-is-sound)
 
 ------------------------------------------------------------------------
@@ -152,7 +151,7 @@ round-trip-is-the-identity {a} d ρ = isSetℕ (eval a ρ) (eval a ρ) _ _
 -- constructor application from `p`, and the round trip `d ⊕ rev d` is a
 -- derivation of positive length where `done` has length zero.  §1's
 -- strictness is what merging needs; this weakness is where the cost lives,
--- and `Sesa_…` proves no function of the meaning can see it.
+-- and `TheDerivationCarriesNoMeaning…` proves no function of the meaning can see it.
 the-round-trip-is-not-nothing :
   len (then-step (add-suc var zero) (done (suc (add var zero)))) ≡ ℕ.suc ℕ.zero
 the-round-trip-is-not-nothing = refl
@@ -243,7 +242,7 @@ the-merge-decides-nothing {a} {b} mine theirs ρ =
 ------------------------------------------------------------------------
 -- §5.  ANEKĀNTA.  And what DOES differ is kept, not settled.
 --
--- The routes differ and neither is wrong: `Sesa_…` exhibits two derivations
+-- The routes differ and neither is wrong: `TheDerivationCarriesNoMeaning…` exhibits two derivations
 -- of the same fact with equal meanings and lengths 2 and 4.  A fork here is
 -- not a disagreement awaiting a verdict -- it is two carriers of one fact,
 -- and `advance-preserves-branch-count` is the rule that both survive the

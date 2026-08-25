@@ -140,7 +140,7 @@ open import SignIsNotAccumulable
 -- inefficiency of a bag-of-counts score; it is provably absent from it.
 ------------------------------------------------------------------------
 
-open import Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+open import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (no-counting-criterion-separates ; comm-loop-is-a-nontrivial-loop-in-the-universe)
 
 ------------------------------------------------------------------------
@@ -170,7 +170,7 @@ open import Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIs
 -- guarantee.
 ------------------------------------------------------------------------
 
-open import Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
   using (two-nodes-cannot-disagree ; merge-is-idempotent)
 
 ------------------------------------------------------------------------

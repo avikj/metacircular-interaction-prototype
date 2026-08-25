@@ -105,7 +105,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Data.Unit using (Unit ; tt)
 
 open import RewriteCertificate using (Tm ; Derivation ; done ; then-step)
-open import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (len)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)

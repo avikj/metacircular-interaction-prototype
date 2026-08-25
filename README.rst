@@ -31,7 +31,7 @@ THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
 ------------------------------------------------------------------------------------------
 
   formal/cubical/kernel/ — 296 lines in three files, and the entry is
-  Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda,
+  WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda,
   written for an arriving mind.  Fourteen modules, all green at the pin
   (Agda 2.8.0, agda/cubical v0.9), re-runnable::
 

@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sesa_TheDerivationCarriesNoMeaningAtAll
---                     SoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+-- TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
 --
 -- TERM.  शेष · śeṣa -- the remainder that is KEPT and made the material of
 -- the next step, rather than discarded.  Āryabhaṭa, *Āryabhaṭīya*,
@@ -16,9 +15,9 @@
 -- forward it is the remainder or it is nothing.
 --
 ------------------------------------------------------------------------
--- COMPANION TO `Vyapti_…`, AND THE SHARPER HALF.
+-- COMPANION TO `TheInstalledOperationHasNoPervasion…`, AND THE SHARPER HALF.
 --
--- `Vyapti_…` read `NativeOperation.control-sound` and found the kernel
+-- `TheInstalledOperationHasNoPervasion…` read `NativeOperation.control-sound` and found the kernel
 -- cannot generalise.  This module reads the other soundness field --
 -- `RewriteCertificate.derivation-sound` -- and finds something that no
 -- schema repairs, because it is not a defect:
@@ -87,7 +86,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne where
+module TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; isSetℕ ; injSuc ; znots)

@@ -82,11 +82,11 @@ open import Cubical.Relation.Nullary using (¬_)
 open import RewriteCertificate
   using (Tm ; var ; zero ; add ; Step ; add-zero ; reverse
         ; Derivation ; done ; then-step)
-open import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (len)
-open import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (_⊕_)
-open import Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
   using (⊕-assoc ; ⊕-unitˡ ; ⊕-unitʳ)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)

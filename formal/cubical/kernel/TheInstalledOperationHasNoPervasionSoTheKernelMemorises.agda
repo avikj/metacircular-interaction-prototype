@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorises
---                       AndTheSchemaIsWhatMakesItGeneralise
+-- TheInstalledOperationHasNoPervasionSoTheKernelMemorises
 --
 -- TERM.  व्याप्ति · vyāpti -- pervasion: the invariable concomitance that
 -- makes an inference carry from the case at hand to every case of the same
@@ -80,7 +79,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise where
+module TheInstalledOperationHasNoPervasionSoTheKernelMemorises where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ)

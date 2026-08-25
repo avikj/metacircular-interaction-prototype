@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Samvada_TheKernelIsAnInteractiveSystem
---                        AndTheSessionRetiresIntoOneOperation
+-- TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 --
 -- TERM.  संवाद · saṃvāda -- dialogue; and, technically, the CONCORDANCE of a
 -- cognition with what it is about, the corroboration by which a cognition is
@@ -18,7 +17,7 @@
 ------------------------------------------------------------------------
 -- A CORRECTION FIRST, BECAUSE IT IS MINE AND IT IS LOAD-BEARING.
 --
--- `Vyapti_…`, `Sesa_…` and `Avataranika_…` §7 read this kernel as a static
+-- `TheInstalledOperationHasNoPervasion…`, `TheDerivationCarriesNoMeaning…` and `WhatThisIsAndHowToDescend…` §7 read this kernel as a static
 -- artifact and reported its limits.  The theorems there are true and the
 -- READING WAS BACKWARDS.  Three claims are struck here, in place:
 --
@@ -41,7 +40,7 @@
 --    theorem-grade error) and `Uttara`'s (never a bare verdict).
 --
 --  ~~"no semantic criterion selects the short proof -- a no-go"~~  It is a
---    GUARANTEE OF NON-DISPLACEMENT.  `Sesa_…` proves the machine can never
+--    GUARANTEE OF NON-DISPLACEMENT.  `TheDerivationCarriesNoMeaning…` proves the machine can never
 --    take the choice from you on semantic grounds.  The system is
 --    interactive by theorem, not by omission.
 --
@@ -91,7 +90,7 @@
 --
 -- NOT CLAIMED.  No matcher, no search, no decision procedure for `Control` --
 -- §0 explains why there cannot be one for an open interface.  No policy over
--- the offered list; that is the caller's and `Sesa_…` proves it must be.
+-- the offered list; that is the caller's and `TheDerivationCarriesNoMeaning…` proves it must be.
 -- `Session` records a library but nothing here consults it when stepping;
 -- the caller supplies the `EnabledFuture`.  Nothing here is concurrent, and
 -- `step` is a function, not a protocol.
@@ -99,7 +98,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
+module TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; isSetℕ)
@@ -110,7 +109,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 
 open import RewriteCertificate
 open import ControlledGrammar
-open import Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+open import TheInstalledOperationHasNoPervasionSoTheKernelMemorises
   using (enabled-set-is-subsingleton)
 
 ------------------------------------------------------------------------
@@ -177,7 +176,7 @@ then-step p d ⊕ e = then-step p (d ⊕ e)
 
 -- Concatenation means what it should: the composite's meaning is the
 -- composite of the meanings, so a transcript is never re-verified when it is
--- extended.  THE PROOF IS `isSetℕ`, and that is `Sesa_…` PAYING FOR ITSELF --
+-- extended.  THE PROOF IS `isSetℕ`, and that is `TheDerivationCarriesNoMeaning…` PAYING FOR ITSELF --
 -- the meaning type is a proposition, so any two proofs of it agree and this
 -- lemma costs nothing.  The same fact that makes the semantics blind to route
 -- is what makes transcripts free to concatenate.  Read as a limitation it was

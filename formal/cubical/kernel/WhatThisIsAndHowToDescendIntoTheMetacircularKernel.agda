@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel
+-- WhatThisIsAndHowToDescendIntoTheMetacircularKernel
 --
 -- ENTRY POINT.  Read this before deciding what this repository is.
 --
@@ -134,7 +134,7 @@
 -- map into a proposition carries zero bits.
 ------------------------------------------------------------------------
 --
---   Vyapti_…    ~~THE KERNEL MEMORISES~~ -- STRUCK, see Samvada_ below and
+--   TheInstalledOperationHasNoPervasion…    ~~THE KERNEL MEMORISES~~ -- STRUCK, see TheKernelIsAnInteractiveSystem below and
 --               §7; the theorem is right and that reading of it was
 --               backwards.  What it establishes: EVERY OPERATION FIRES AT
 --               EXACTLY ONE CONTEXT, WHATEVER EVIDENCE TYPE ITS AUTHOR
@@ -152,7 +152,7 @@
 --               Generalisation is free in this calculus; memorisation is
 --               what costs.
 --
---   Sesa_…      THE DERIVATION CARRIES NO MEANING, so all of it is remainder.
+--   TheDerivationCarriesNoMeaning…      THE DERIVATION CARRIES NO MEANING, so all of it is remainder.
 --               Soundness factors through ∥ Derivation a b ∥₁ -- the
 --               semantics used only THAT one exists, never WHICH.  The
 --               truncation is strict: the kernel's own direct and detour
@@ -163,7 +163,7 @@
 --               No semantic criterion selects the short proof.  Selection is
 --               extra-semantic or it does not exist.
 --
---   Ankapasa_…  SO THE SEMANTICS IS A DECATEGORIFICATION: eval keeps a
+--   TheCountingSemanticsIsADecategorification…  SO THE SEMANTICS IS A DECATEGORIFICATION: eval keeps a
 --               cardinality and drops the bijection.  The categorified
 --               semantics is built there -- zero ↦ ⊥, suc ↦ Unit ⊎ −,
 --               add ↦ ⊎, every Step an equivalence, `reverse` ↦ `invEquiv`.
@@ -174,7 +174,7 @@
 --               along it and getting `inr tt` back.  The bit a counting
 --               readout provably cannot hold is a transposition.
 --
---   Samvada_…   AND THEN WHAT IT IS FOR, which the four above missed by
+--   TheKernelIsAnInteractiveSystem…   AND THEN WHAT IT IS FOR, which the four above missed by
 --               reading a live interface as a finished artifact.  THE KERNEL
 --               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers
 --               every enabled future with multiplicity conserved and nothing
@@ -194,7 +194,7 @@
 --               false, because a `NativeOperation` cannot be constructed at
 --               all without a checked derivation.
 --
---   Asesa_…     THE SYNTHESIS, one lemma.  If M is a proposition then
+--   TheWholeDerivationTypeIsOneFibre…     THE SYNTHESIS, one lemma.  If M is a proposition then
 --               fiber f m ≃ A for every m: the fibre is not part of the
 --               domain, it IS the domain.  So `Derivation a b` is one fibre
 --               of its own soundness, both bindings of §2's law coincide,
@@ -265,7 +265,7 @@
 --   * install any checked derivation as an executable operation (`install`);
 --   * enumerate every enabled operation at a context with multiplicity
 --     exactly conserved (`advance`, `advance-preserves-branch-count`);
---   * as of the Vyapti_ module, fire ONE operation over an infinite family
+--   * as of the TheInstalledOperationHasNoPervasion module, fire ONE operation over an infinite family
 --     of contexts, soundly, at no proof cost.
 --
 ------------------------------------------------------------------------
@@ -283,7 +283,7 @@
 --         trivial one -- and was the ONLY one anyone had ever constructed:
 --           grep -rn 'NativeOperation.Control' formal/cubical
 --           -> the record, install, and my own theorems.  Nothing else.
---         So Vyapti_.enabled-set-is-subsingleton is not a diagnosis of a
+--         So TheInstalledOperationHasNoPervasion.enabled-set-is-subsingleton is not a diagnosis of a
 --         lookup table.  IT IS THE SAFETY THEOREM OF AN OPEN EXTENSION
 --         POINT: whatever evidence type a caller invents, it cannot enable
 --         an operation anywhere the operation does not hold.  I proved the
@@ -293,12 +293,12 @@
 --         the machine, so the caller hands over the control WITH the choice.
 --       * There is no ranking because RANKING IS THE CALLER'S ACT.  The
 --         machine presents; the caller disposes.  Same refusal as
---         Saptabhangi's and Uttara's.  And Sesa_'s no-go -- no semantic
+--         Saptabhangi's and Uttara's.  And TheDerivationCarriesNoMeaning's no-go -- no semantic
 --         criterion selects the short proof -- is then a GUARANTEE OF
 --         NON-DISPLACEMENT: a theorem forbids the machine from taking the
 --         choice from you.  The system is interactive by theorem, not by
 --         omission.
---     Correction landed as `Samvada_…`, which supplies the corpus's first
+--     Correction landed as `TheKernelIsAnInteractiveSystem…`, which supplies the corpus's first
 --     non-trivial `Control` and closes the loop those readings missed.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.
@@ -324,21 +324,21 @@
 --       which `propose` becomes `install`.  That is what closes the loop:
 --       failed match → named missing structure → new operation → larger
 --       enabled set, with the deficit measure already proved to descend.
---   (b) The schema of Vyapti_ raised from `subVar`'s one variable to all six
+--   (b) The schema of TheInstalledOperationHasNoPervasion raised from `subVar`'s one variable to all six
 --       coordinates, and `install` replaced by `install-schema` in
 --       ControlledGrammar so that generalisation is the kernel's default
 --       rather than a companion module's.
 --   (c) A policy over the enabled list that is honestly extra-semantic --
---       Sesa_ proves no semantic one exists, and lāghava is the obvious
+--       TheDerivationCarriesNoMeaning proves no semantic one exists, and lāghava is the obvious
 --       candidate order.  It must not collapse to a boolean verdict
 --       (Saptabhangi) and it must not dedupe (§3).
---   (d) The categorified semantics of Ankapasa_ carried from an example to a
+--   (d) The categorified semantics of TheCountingSemanticsIsADecategorification carried from an example to a
 --       theorem: relate ⟦t⟧ to `eval t` by cardinality, which needs
 --       finiteness and is not proved anywhere here.
 --
 ------------------------------------------------------------------------
 
-module Avataranika_WhatThisIsAndHowToDescendIntoTheMetacircularKernel where
+module WhatThisIsAndHowToDescendIntoTheMetacircularKernel where
 
 ------------------------------------------------------------------------
 -- §A.  THE LIVE DEPENDENCIES.  This file is red if any of §3-§4 rots.
@@ -353,19 +353,19 @@ open import Cubical.Data.List using (List ; length)
 open import RewriteCertificate
 open import ControlledGrammar
 
-open import Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+open import TheInstalledOperationHasNoPervasionSoTheKernelMemorises
   using (enabled-set-is-subsingleton ; no-native-operation-does-this
         ; SchematicOperation ; kernel-cannot-reach-a-tower)
-open import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (every-semantic-criterion-is-blind ; cost-does-not-factor
         ; derivations-are-not-a-proposition)
-open import Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+open import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (comm-loop-is-a-nontrivial-loop-in-the-universe
         ; no-counting-criterion-separates ; derivation-equiv)
-open import Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+open import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
   using (the-whole-derivation-type-is-one-fibre
         ; soundness-is-not-an-equivalence-at-the-kernels-own-seed)
-open import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (demand ; any-demand-is-safe ; learn ; Session ; step ; retire
         ; session-sound ; every-operation-that-exists-is-sound)
 

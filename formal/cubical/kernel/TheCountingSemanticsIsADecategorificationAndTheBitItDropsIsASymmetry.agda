@@ -1,8 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Ankapasa_TheCountingSemanticsIsADecategorification
---                        AndTheBitItDropsIsASymmetry
+-- TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
 --
 -- TERM.  अङ्कपाश · aṅkapāśa -- "the net of digits", the traditional name for
 -- the combinatorics of PERMUTATIONS: how many arrangements a given multiset
@@ -25,8 +24,8 @@
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
--- `Vyapti_…` read `NativeOperation.control-sound`: the kernel memorises.
--- `Sesa_…`   read `RewriteCertificate.derivation-sound`: the derivation
+-- `TheInstalledOperationHasNoPervasion…` read `NativeOperation.control-sound`: the kernel memorises.
+-- `TheDerivationCarriesNoMeaning…`   read `RewriteCertificate.derivation-sound`: the derivation
 --            carries no meaning, so all of it is remainder.
 --
 -- Both are one fact.  Each soundness field lands in an identity type of a
@@ -53,7 +52,7 @@
 --       commutation.  Then:
 --
 --         counting-semantics-cannot-see-it
---           its ℕ-meaning is equal to `refl`, forced, and by `Sesa_…` §4 NO
+--           its ℕ-meaning is equal to `refl`, forced, and by `TheDerivationCarriesNoMeaning…` §4 NO
 --           function of that meaning distinguishes it from `done⁺`;
 --         univalent-semantics-does-see-it
 --           its interpretation sends `inl tt` to `inr tt`, so it is not the
@@ -86,7 +85,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry where
+module TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; equivFun ; idEquiv ; invEquiv ; compEquiv)
@@ -220,7 +219,7 @@ counting-semantics-cannot-see-it :
 counting-semantics-cannot-see-it ρ =
   isSetℕ (eval (add var var) ρ) (eval (add var var) ρ) _ _
 
--- and therefore, by the general no-go of `Sesa_…` §4 restated here at Step⁺,
+-- and therefore, by the general no-go of `TheDerivationCarriesNoMeaning…` §4 restated here at Step⁺,
 -- no function whatsoever of the counting meaning separates them.
 no-counting-criterion-separates :
   {C : Type ℓ} (φ : ((ρ : Env) → eval (add var var) ρ ≡ eval (add var var) ρ) → C)
