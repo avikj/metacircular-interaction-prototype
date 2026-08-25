@@ -48,7 +48,7 @@
 -- WHAT THIS IS.  Noether's structural half, in three lines, on an object
 -- this corpus has had since its first file and used for something else.
 --
--- `fibre/src/Loss/Carrier.agda:141` opens
+-- `fibre/src/Fibre/Carrier.agda:141` opens
 --
 --     module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 --

@@ -6,7 +6,7 @@
 -- (the whole ledger rides free, not just one step.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- `fibre/src/Loss/Carrier.agda` proves ONE step free: the
+-- `fibre/src/Fibre/Carrier.agda` proves ONE step free: the
 -- datum and its witness contribute zero degrees of freedom, because
 -- `singl (f a)` is contractible.  Everything downstream in this corpus —
 -- that a receipted mathematics is affordable at all, that proof-of-

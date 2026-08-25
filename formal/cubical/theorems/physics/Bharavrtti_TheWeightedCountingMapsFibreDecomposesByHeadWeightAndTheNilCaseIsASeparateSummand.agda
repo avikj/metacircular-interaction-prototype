@@ -28,7 +28,7 @@
 -- because it is the corpus's own law: `Σ[ m ∈ ℕ ] (f xs ≡ m) × …` carries
 -- a `singl (f xs)`, which is contractible, so the `m` and its witness
 -- contract away and the form collapses to §२'s.  The intermediate value
--- rides free — `fibre/src/Loss/Carrier.agda`, and `Lekha_…agda` for the
+-- rides free — `fibre/src/Fibre/Carrier.agda`, and `Lekha_…agda` for the
 -- same fact at length.
 --
 -- WHAT IS NOT CLAIMED.  No Piṅgala content: `PingalaPrastara.matrameruIso`

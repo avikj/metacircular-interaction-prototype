@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS, AND WHY IT IS THE CRITERION AND NOT AN EXAMPLE.
 --
--- `fibre/src/Loss/Bhavana_…` builds वर्गप्रकृति as
+-- `fibre/src/Fibre/Bhavana_…` builds वर्गप्रकृति as
 -- `Carrier (क्षेपः D)`: base = the two roots, carried = the क्षेप, because
 -- the roots DETERMINE it.  Its fibre `Σ[ k ] (क्षेपः D x ≡ k)` is
 -- `singl`, contractible, and (ℤ × ℤ) ≃ वर्गप्रकृति D.  The carried datum
