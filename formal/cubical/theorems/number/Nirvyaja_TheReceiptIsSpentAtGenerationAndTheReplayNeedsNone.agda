@@ -54,7 +54,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 open import RewriteCertificate
 open import ControlledGrammar
-open import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+open import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 
 ------------------------------------------------------------------------
 -- §1.  GENERATION PAYS THE RECEIPT.
