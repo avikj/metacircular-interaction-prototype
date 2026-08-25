@@ -28,7 +28,7 @@ module Ratri.Nirdharana_PingalaPrastara_AksaraParityReturnsExactlyOnTheAlphabet 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ; zero; suc)
 open import Cubical.Data.Sum using (_⊎_; inl; inr)
-open import PingalaPrastara using (Syllable; laghu; guru; aksara; parity)
+open import Mula.PingalaPrastara using (Syllable; laghu; guru; aksara; parity)
 
 -- 1 · two-periodicity, definitional:
 parity-two-periodic : (w : ℕ) → parity (suc (suc w)) ≡ parity w

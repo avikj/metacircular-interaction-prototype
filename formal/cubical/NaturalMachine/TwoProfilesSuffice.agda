@@ -74,7 +74,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import SaptabhangiNaya
+open import Mula.SaptabhangiNaya
   using ( Naya ; rewriter ; kernel-refl ; kernel-ind
         ; Profile ; mk ; Vacana ; asti-from ; nasti-from
         ; denotes ; joint )

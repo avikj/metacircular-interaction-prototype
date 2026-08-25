@@ -86,7 +86,7 @@ open import Cubical.Tactics.CommRingSolver using (solve!)
 open import Gamma0Partner using (R ; M)
 open import M2Unimodular using (det)
 open import KuttakaValli using (Valli ; replay ; sgn ; detReplay)
-open import YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther
+open import Mula.YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther
   using (चिह्नं-दैर्घ्यात्)
 
 -- THE TOLL-GATE PREDICATE, imported from the corpus's own toll office.

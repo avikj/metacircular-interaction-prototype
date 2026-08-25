@@ -39,7 +39,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence using (ua)
 open import Cubical.Foundations.GroupoidLaws using (rCancel)
 
-open import Pingala using (छन्दस् ; छन्दस्≡ℕ)
+open import Mula.Pingala using (छन्दस् ; छन्दस्≡ℕ)
 open import Vyatireka_TheAbsentRoundTripDoesNotEntailTheAbsentEquivalence
   using (ℕ≡CanWord ; Z2≃H2 ; Z2≡H4)
 open import NaturalMachine.InflationVersusSubgroup using (Z2)

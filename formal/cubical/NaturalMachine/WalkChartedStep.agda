@@ -141,7 +141,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; isPropDec)
 open import Cubical.Data.Fin using (toℕ)
 
-open import NaturalMachine.WalkChartedCap using (pos-form ; module Charted)
+open import Mula.WalkChartedCap using (pos-form ; module Charted)
 open import NaturalMachine.WalkUnconditional using (cap)
 open import NaturalMachine.WalkForcing using (LeastNonDivisor)
 open import NaturalMachine.WalkBridge using (cap-pos ; next ; next-2≤ ; next-lnd)

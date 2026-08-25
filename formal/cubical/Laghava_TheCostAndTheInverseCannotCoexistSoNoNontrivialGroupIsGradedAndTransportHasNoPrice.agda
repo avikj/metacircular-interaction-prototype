@@ -109,7 +109,7 @@ open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRem
   using (len)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)
-open import AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue
+open import Mula.AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue
   using (A ; आवृत्तिः ; आवृत्तम् ; आवृत्तस्य-मात्रा ; len-⊕ ; एकत्वम्)
 
 private

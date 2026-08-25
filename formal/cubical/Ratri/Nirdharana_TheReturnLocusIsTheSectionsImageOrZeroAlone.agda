@@ -60,7 +60,7 @@ module Return (q : A → B) (s : B → A) (sect : (b : B) → q (s b) ≡ b) whe
 -- return locus of aksara ∘ parity is the syllable alphabet — the same
 -- fact Nirdharana_PingalaPrastara_… proved from the ℕ side.
 
-open import PingalaPrastara using (Syllable; laghu; guru; aksara; parity)
+open import Mula.PingalaPrastara using (Syllable; laghu; guru; aksara; parity)
 
 parity-sections-aksara : (u : Syllable) → parity (aksara u) ≡ u
 parity-sections-aksara laghu = refl

@@ -10,8 +10,8 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
 open import Cubical.Data.Nat
 open import Cubical.Data.Int
-import PingalaPrastara as M
-import PingalaPrastara as F
+import Mula.PingalaPrastara as M
+import Mula.PingalaPrastara as F
 
 _ : (b : _) → fiber M.matraOf b ≡ F.Metre b
 _ = λ b → refl

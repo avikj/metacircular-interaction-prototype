@@ -57,7 +57,7 @@ import KuttakaCRT
 -- ग्रह-युतिः — पूर्ण-प्रवाहस्य मूर्त-दृष्टान्तः : कुट्टकात् X=8 (refl-सिद्धम्)
 import GrahaYuti
 -- छन्दःशास्त्रम् — तत् एव विचारहीनं प्रतिलोमं क्षेत्रान्तरे (generality)
-import Pingala
+import Mula.Pingala
 import Matramerus
 -- पिङ्गलस्य शून्य-द्वि-विधिः — 2ⁿ log-पदैः (प्रथमा binary exponentiation)
 import PingalaGhata
@@ -70,7 +70,7 @@ import SamanyaGhata
 -- द्वि-घात-वर्गणा-सेतुः — योग-रूप द्वि-घात ≡ गुण-रूप घात 2 ; अतः 2^(m·n)=(2ᵐ)ⁿ द्वि-घाते
 import DviGhataVargana
 -- नारायणस्य गोसर्गः — मेरु-कुलस्य {१,३}-रूपम् (गणितकौमुदी, १३५६)
-import Narayana
+import Mula.Narayana
 -- समास-मेरुः — नारायणस्य समास-भावना, {१,L}-कुलं जनन-सूत्रेण (विरहाङ्कः+नारायणः एकत्र)
 import SamasaMeru
 -- बहु-समास-मेरुः — यथेच्छ-अंश-गणः (त्रि-मेरु {१,२,३} आदि), जनन-सूत्रम्
@@ -92,7 +92,7 @@ import MatraSamasa
 -- नारायण-समास-सेतुः — length(गो-सर्गः n) ≡ length(सर्गः {१,३} n) : त्रि-पद-आगमनम्, द्वे वाहके
 import NarayanaSamasa
 -- ब्रह्मगुप्तस्य भावना — वर्ग-प्रकृतेः संयोगः (चक्रवालस्य बीजम्)
-import Brahmagupta
+import Mula.Brahmagupta
 
 import Satyayantra
 import PingalaSatya
@@ -101,10 +101,10 @@ import Panini
 import SatyayantraSamyoga
 import Setu
 import Vargana
-import Shunya
+import Mula.Shunya
 import Khahara
 import Ananta
-import Sulba
+import Mula.Sulba
 -- वर्ग-गुल्मः — शुल्ब-गुल्म-रचनायाः अङ्कगणितम् : ∑ विषमाः = n² (ओज-योग n ≡ n·n)
 import VargaGulma
 -- द्विकरणी — बौधायनस्य √2 = 577/408 वर्गप्रकृत्या; भावनया (3,2)→(17,12)→(577,408)
@@ -113,7 +113,7 @@ import Dvikarani
 import Trikarani
 -- श्रेढी-फलम् — आर्यभटस्य समान्तर-श्रेढी-योगः (2S = n(2a)+n(n−1)d, गणितपादः १९)
 import Shredhi
-import Sankalita
+import Mula.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum
 -- चितिघनः — आर्यभटस्य वृन्द-सङ्कलितम् (∑ त्रिकोणानि = n(n+1)(n+2)/6, गणितपादः २१)
 import Citighana
 -- चिति-द्विपद-सेतुः — आर्यभटस्य वृन्दम् = तृतीय-मेरु-कर्णः C(n+2,3) (सङ्कलित↔प्रस्तार)
@@ -127,7 +127,7 @@ import Dvipada
 -- पङ्क्ति-योगः — ∑ₖ C(n,k) = 2ⁿ (पिङ्गलस्य सङ्ख्या, द्विपदस्य छन्दो-मूलम्)
 import PanktiYoga
 -- गुणधनम् — महावीरस्य गुणोत्तर-श्रेढी-योगः (आधारे २) : (∑ 2ᵏ) + 1 = 2ⁿ
-import GunaDhana
+import Mula.GunaDhana
 -- मेरु-कर्णः — हलायुधस्य तिर्यक्-कर्णः ∑ₖ C(n−k,k) = विरहाङ्कस्य मात्रा-गणना (फिबोनाची)
 import MeruKarna
 -- नारायण-कर्णः — गभीर-तिर्यक् ∑ₖ C(n−2k,k) = नारायणस्य गो-श्रेढी ({१,३}-समासः, step-२)
@@ -137,10 +137,10 @@ import Ardhaccheda
 -- मेरु-सममितिः — हलायुधस्य सम-पार्श्वः : C(n,k)=C(n,n−k) (गुरु-लघु-दुलम्)
 import MeruSammiti
 -- षड्रस-सङ्कलनम् — भास्करस्य रस-संयोगाः (लीलावती) = मेरु-पङ्क्ति-योगः (2⁶=64)
-import Shadrasa
+import Mula.Shadrasa
 -- घन-बद्धम् — आर्यभटस्य घन-सङ्कलितस्य बद्ध-रूपम् (4·∑k³ = (n(n+1))²)
 import GhanaBaddha
 import Cakravala
 import Meru
 import BhavanaSamuha
-import VargaprakritiSreni
+import Mula.VargaprakritiSreni

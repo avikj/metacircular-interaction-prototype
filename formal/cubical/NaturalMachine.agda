@@ -497,7 +497,7 @@ import NaturalMachine.TransportMulWitness
 -- imported unapplied here and instantiated at base ten in the witness, which
 -- runs the automaton on the word 1000 and discharges the edge costs with
 -- numbers rather than parameters.
-import NaturalMachine.TransportDiv
+import Mula.TransportDiv
 import NaturalMachine.TransportDivWitness
 -- the leakage lane's commutator-rank identity, folded in so that the root
 -- aggregate's green claim and the directory's contents finally coincide.
@@ -705,7 +705,7 @@ import NaturalMachine.WalkResidueBridge
 -- passes and never a unary numeral.  Needed a reconciliation the library
 -- lacked (`%≡mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
 -- _mod_) before the Euclid step could even be stated.
-import NaturalMachine.WalkChartedCap
+import Mula.WalkChartedCap
 -- The walk's frontier, broken: next 8 ≡ 9, next 9 ≡ 11, next 10 ≡ 11, each
 -- checked without running the walk on cap m.  WalkFast guessed the blocker
 -- was its `with`; the bisection in this file's header shows it is the
@@ -955,7 +955,7 @@ import NaturalMachine.Vacuity
 -- laws that keep it from being a tie-breaker (§1 it decides, §2 it can say
 -- only what the contenders already said).  Wired to the running scheduler
 -- in machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs.
-import NaturalMachine.AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
+import Mula.AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
 
 ------------------------------------------------------------------------
 -- ORPHAN FOLD-IN 4, 2026-08-20 (Nālandā build lane) — the subtree's share.
@@ -989,33 +989,33 @@ import NaturalMachine.ASmallTheoryWithAnIndependentSentence
 import NaturalMachine.ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 import NaturalMachine.Abhava
 import NaturalMachine.AnswerabilityIsFreeAtTheFactoringLaw
-import NaturalMachine.AntyaSamskaraSthaulya
+import Mula.AntyaSamskaraSthaulya
 import NaturalMachine.Anuvrtti
 import NaturalMachine.AnuvrttiIsTheSameTrade
 import NaturalMachine.AnyonyaAbhava
 import NaturalMachine.Apavada
 import NaturalMachine.AscendingFirstIsTheWorstUnlessTheArchiveIsConstant
-import NaturalMachine.Asiddha
+import Mula.Asiddha
 import NaturalMachine.AsiddhatvaBreaksFactoring
 import NaturalMachine.AskingIsNotAPropertyOfTheFunction
 import NaturalMachine.AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
-import NaturalMachine.AvaktavyaDoesNotFactor
+import Mula.AvaktavyaDoesNotFactor
 import NaturalMachine.BarrierIsTwoWitnesses
 import NaturalMachine.BezoutIsGCD
 import NaturalMachine.Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain
 import NaturalMachine.BoundedStateNeedsAGroup
 import NaturalMachine.CRTChain
-import NaturalMachine.Cakravala
-import NaturalMachine.CakravalaNeedsKuttaka
+import Mula.Cakravala
+import Mula.CakravalaNeedsKuttaka
 import NaturalMachine.CatuskotiPerspective
-import NaturalMachine.CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
+import Mula.CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
 import NaturalMachine.ConvergentsAreDeterminedByThePrefixOfTheValli
-import NaturalMachine.CoprimePowers
+import Mula.CoprimePowers
 import NaturalMachine.CoprimePowersN
 import NaturalMachine.DeflationaryTest
 import NaturalMachine.DescentCostsTheIntegers
 import NaturalMachine.DescentIsNotInversion
-import NaturalMachine.DiagonalIsMatra
+import Mula.DiagonalIsMatra
 import NaturalMachine.DistinctPrimesAreCoprime
 import NaturalMachine.DivisibilityGuardsAreMeetClosed
 import NaturalMachine.DurationIsSyllablesPlusGuru
@@ -1023,7 +1023,7 @@ import NaturalMachine.EquivalenceHasNoFloor
 import NaturalMachine.EveryCommonDivisorOfAConvergentDividesTheDeterminant
 import NaturalMachine.EveryRemainderMemberIsBeatenByAStratumMember
 import NaturalMachine.EveryThresholdHasABoundaryPopulationOfItsOwnDenominator
-import NaturalMachine.EveryTripleIsARotation
+import Mula.EveryTripleIsARotation
 import NaturalMachine.ExclusionInstantiatesAbhavaWithALoadBearingLimitor
 import NaturalMachine.ExclusionRecoversGroundAtAPrice
 import NaturalMachine.ExhaustionIsSystematic
@@ -1038,7 +1038,7 @@ import NaturalMachine.FrontierList
 import NaturalMachine.FrontierMember
 import NaturalMachine.FuelAdequacyIsACollision
 import NaturalMachine.HypothesesAssumedWhereTheyAreDerivable
-import NaturalMachine.IdempotenceForbidsDescent
+import Mula.IdempotenceForbidsDescent
 import NaturalMachine.IndependenceNeedsAnInternalImplication
 import NaturalMachine.JoinSavesTheMeet
 import NaturalMachine.KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner
@@ -1054,7 +1054,7 @@ import NaturalMachine.MeruDiagonalIsVirahanka
 import NaturalMachine.MigrationNeedsALawAndTheLawIsNotFree
 import NaturalMachine.Moksha
 import NaturalMachine.MokshaYantra
-import NaturalMachine.NamingIsNotAFunctionOfResemblance
+import Mula.NamingIsNotAFunctionOfResemblance
 import NaturalMachine.NegationCompletenessForbidsIndependence
 import NaturalMachine.NisvabhavaNet
 import NaturalMachine.NoNormOnAJoin
@@ -1070,13 +1070,13 @@ import NaturalMachine.OverlapIsTheCost
 import NaturalMachine.PFreePart
 import NaturalMachine.PairsSummingTo
 import NaturalMachine.PermanentUnsaidIsStableAndTemporaryIsASearch
-import NaturalMachine.PingalaIsOptimal
+import Mula.PingalaIsOptimal
 import NaturalMachine.PowModHasTheSameShape
 import NaturalMachine.PratityasamutpadaArising
 import NaturalMachine.Pratyahara
 import NaturalMachine.PratyaharaBuysTotalityWithLocality
 import NaturalMachine.PrimeCofactorCoprime
-import NaturalMachine.PythagoreanTransition
+import Mula.PythagoreanTransition
 import NaturalMachine.QuotientFiberLaw
 import NaturalMachine.RefutingLaghavaIsASearch
 import NaturalMachine.RepresentabilityIsNotEnoughForIndependence
@@ -1085,12 +1085,12 @@ import NaturalMachine.RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
 import NaturalMachine.RnaDhana_TheMixedStratificationTerminatesAndCovers
 import NaturalMachine.RnaDhana_TheWholeMixedStratificationIsTheFlippedOne
 import NaturalMachine.RootsThreadLatch
-import NaturalMachine.Samacchheda_TheUntruncatedTrichotomyOnTheRate
-import NaturalMachine.Sankalita
+import Mula.Samacchheda_TheUntruncatedTrichotomyOnTheRate
+import Mula.Sankalita
 import NaturalMachine.SaturationAtACutIsIdempotent
 import NaturalMachine.SignIsNotAccumulable
 import NaturalMachine.SiteAudit
-import NaturalMachine.SthaulyaIsTheOmittedTerm
+import Mula.SthaulyaIsTheOmittedTerm
 import NaturalMachine.SuccessorIsNotTropical
 import NaturalMachine.SumProductTorus
 import NaturalMachine.TheAbsenceTowerIsThreeUnconditionally
@@ -1139,7 +1139,7 @@ import NaturalMachine.PunaragamanaMulyam_TheReturnTripIsFreeForEveryAdditiveCost
 import NaturalMachine.TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
 import NaturalMachine.TwoTruthsCompute
 import NaturalMachine.UnderExtensionalFlatnessOneCostDifferenceSuffices
-import NaturalMachine.UnivalenceErasesTheAlgorithm
+import Mula.UnivalenceErasesTheAlgorithm
 import NaturalMachine.WhatTheSubstrateArgumentCovers
 import NaturalMachine.WhereTheCircleSplits
 import NaturalMachine.WhereTheTowerCanStillBeThree
