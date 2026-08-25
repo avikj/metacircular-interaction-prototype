@@ -53,8 +53,12 @@ libs_file() {
   # were really found.
   local f="$SCRATCH/libraries"
   { ls /opt/homebrew/Cellar/agda/*/share/agda/stdlib/standard-library.agda-lib 2>/dev/null | head -1
-    ls /opt/homebrew/share/agda/cubical/cubical.agda-lib 2>/dev/null | head -1; } > "$f"
-  [ "$(grep -c . "$f")" -ge 2 ] || { say "  agda libraries not found; cannot check — landing nothing"; exit 2; }
+    ls /opt/homebrew/share/agda/cubical/cubical.agda-lib 2>/dev/null | head -1
+    # container seats (Claude Code web, provisioned by Sthapana): cubical
+    # at /opt/cubical; emitted probes depend only on cubical, so stdlib is
+    # required only where it is actually present (the homebrew seat).
+    ls /opt/cubical/cubical.agda-lib 2>/dev/null | head -1; } > "$f"
+  grep -q 'cubical.agda-lib' "$f" || { say "  cubical library not found; cannot check — landing nothing"; exit 2; }
   printf '%s' "$f"
 }
 
@@ -73,7 +77,7 @@ say "═══ तपस् pass $(date -u +%Y-%m-%dT%H:%M:%SZ)  HEAD $(git rev-
 LF="$(libs_file)"
 
 # 1 · the queue: Lopa's one-way graph
-if ! runghc machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . \
+if ! runghc --ghc-arg=-imachine machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . \
      > "$SCRATCH/lopa.txt" 2>"$SCRATCH/lopa.err"; then
   say "  लोप failed to run; see $SCRATCH/lopa.err — landing nothing"; exit 1
 fi
@@ -84,7 +88,7 @@ awk -F'«' '/^  \[(map|projection)\]/ {
   split($1,a,"⟶"); gsub(/^ +\[[a-z]+\] /,"",a[1]); gsub(/ +$/,"",a[1]);
   gsub(/^ +| +$/,"",a[2]); gsub(/^ +| +$/,"",$2);
   print a[1] "\t" a[2] "\t" $2 }' "$SCRATCH/lopa.txt" > "$SCRATCH/queue.tsv"
-if ! runghc machine/Upalabdhi_TheFibreWasAlreadyWrittenAndTheCensusCalledItUndecided.hs \
+if ! runghc --ghc-arg=-imachine machine/Upalabdhi_TheFibreWasAlreadyWrittenAndTheCensusCalledItUndecided.hs \
      --join "$SCRATCH/queue.tsv" . > "$SCRATCH/join.txt" 2>"$SCRATCH/join.err"; then
   say "  उपलब्धि join failed; continuing WITHOUT shortlist annotations"
   rm -f "$SCRATCH/join.txt"
@@ -93,7 +97,7 @@ fi
 
 # 3 · the matcher and emitter
 rm -f "$SCRATCH/probes"/*.agda 2>/dev/null
-if ! runghc machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs \
+if ! runghc --ghc-arg=-imachine machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs \
      "$SCRATCH/lopa.txt" "$SCRATCH/join.txt" . "$SCRATCH/probes" \
      > "$SCRATCH/ledger.tsv" 2>"$SCRATCH/tapas.err"; then
   say "  तपस् matcher failed; see $SCRATCH/tapas.err — landing nothing"; exit 1
@@ -141,7 +145,14 @@ done
 
 # 5 · wire what landed this pass, then prove Everything still stands
 wired=0
-if [ -s "$SCRATCH/landed.this-pass" ]; then
+if [ -s "$SCRATCH/landed.this-pass" ] && [ "${CHAKRA_SKIP_AGGREGATE:-0}" = "1" ]; then
+  # A carrier where Everything.agda is red for PRE-EXISTING pin-skew reasons
+  # (v0.5/2.6.3 vs the v0.9/2.8.0 pin) cannot use the aggregate as a gate:
+  # it would revert every wiring for causes unrelated to this pass.  The
+  # modules stand individually kernel-checked; the imports are OWED to the
+  # next pinned container, and landed.this-pass is kept for the caller.
+  say "  aggregate wiring SKIPPED (CHAKRA_SKIP_AGGREGATE=1): imports owed to a pinned container; landed list kept"
+elif [ -s "$SCRATCH/landed.this-pass" ]; then
   { printf '\n%s\n' "-- ── तपस्, $(date -u +%Y-%m-%d) ──────────────────────────────────────────────"
     printf '%s\n' "-- Fibre receipts minted from templates against लोप's UNDECIDED queue,"
     printf '%s\n' "-- each checked before landing; the refusal ledger for everything not"

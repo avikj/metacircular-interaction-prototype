@@ -1,0 +1,531 @@
+-- स्फटिक (sphaṭika), crystal — ordinary Sanskrit; the compound title is
+-- built here (2026-08-24) and claimed of no source.
+--
+-- THE DRIVER THE SEAM NEVER GOT.
+--
+-- Three organs were built for one loop and the loop was never closed:
+--
+--   * KernelContext renders an ordered lemma list where EACH LEMMA MAY
+--     CITE ANY EARLIER ONE (`PCite` — "the constructor the whole file
+--     exists for") and asks the kernel about the whole;
+--   * Obstruction reads the kernel's stall text back into terms — the
+--     residual is the machine stating, in its own words, the lemma it
+--     needs next — and carries the triage that keeps false parents from
+--     livelocking the feedback (its header: "the seam that was supposed
+--     to consume them was never connected");
+--   * the endogenous frontier (Sanghatta's non-joining pairs) names the
+--     equations the rewriter cannot close by rewriting alone.
+--
+-- This file is ONLY the loop: no new Term type (the eighth respelling is
+-- a defect, not a contribution — KernelContext.hs:196 names the count),
+-- no new store beyond the crystal itself, no heuristic, no measured
+-- constant.
+--
+--   take a goal → ask the kernel IN THE CRYSTAL'S CONTEXT
+--     landed  → the lemma is appended and is in scope for every later
+--               proof: memory compounds instead of scattering
+--     refused → the residual of the refl attempt, triaged
+--               (Obstruction.pravesha — a refuted or subjectless
+--               residual turns back), becomes the NEXT GOAL, and the
+--               parent is retried only when the crystal has grown
+--               (Obstruction's mFailed doctrine: "a conjecture is not
+--               retried until the machine knows something it did not
+--               know when it failed")
+--
+-- Termination is NOT a descent argument — Obstruction.hs:260 refutes
+-- that reading explicitly (residuals can be larger than their parents).
+-- It is: finiteness of the distinct-residual set (measured, 112 over the
+-- whole historical log), the pass fixpoint (a full pass that lands
+-- nothing ends the run), the per-goal call budget, and the retry gate.
+--
+-- The crystal file (machine/sphatika.crystal) is the memory; the checked
+-- rendering (formal/cubical/Sphatika.agda) is the body, re-verified as a
+-- whole by the kernel at every landing because `checkContext` checks the
+-- full context, never a lemma alone.
+module Main (main) where
+
+import Control.Monad (unless)
+import Control.Exception (try)
+import Control.Concurrent (forkIO, newEmptyMVar, putMVar, takeMVar)
+import System.Directory (createDirectory)
+import Data.Char (isSpace)
+import Data.List (isInfixOf, isPrefixOf, nub)
+import Data.Maybe (fromMaybe, mapMaybe)
+import System.Directory (doesFileExist)
+import System.Environment (getArgs)
+import System.Exit (ExitCode (..), exitFailure, exitSuccess)
+import System.IO
+  (BufferMode (LineBuffering), IOMode (ReadMode, WriteMode), hClose, hGetContents, hPutStr, hSetBuffering,
+   hSetEncoding, openFile, stdout, utf8, withFile)
+
+import qualified KernelContext as K
+import qualified Obstruction as O
+
+crystalFile :: FilePath
+crystalFile = "machine/sphatika.crystal"
+
+lockCrystal :: IO Bool
+lockCrystal = do
+  r <- try (createDirectory (crystalFile ++ ".lock"))
+         :: IO (Either IOError ())
+  pure (either (const False) (const True) r)
+
+renderedFile :: FilePath
+renderedFile = "formal/cubical/Sphatika.agda"
+
+-- ------------------------------------------------------------------ canon
+--
+-- Variables renumbered by first appearance across (lhs, rhs), the same
+-- discipline the engine's canonVars kept, so "the same equation" is a
+-- syntactic test and the crystal never holds one truth twice under two
+-- namings.
+canon :: K.Equation -> K.Equation
+canon (l, r) =
+  let order = nub (K.varsOfT l ++ K.varsOfT r)
+      ren t = case t of
+        K.V i -> K.V (fromMaybe i (lookup i (zip order [0 ..])))
+        K.F f ts -> K.F f (map ren ts)
+  in (ren l, ren r)
+
+sameEq :: K.Equation -> K.Equation -> Bool
+sameEq a b = canon a == canon b
+
+flippedEq :: K.Equation -> K.Equation -> Bool
+flippedEq a (l, r) = canon a == canon (r, l)
+
+-- ------------------------------------------------------- proof (de)notation
+--
+-- Only the shapes this driver can emit are serialised; the reader is
+-- total on what the writer produces and refuses everything else.
+showProof :: K.Proof -> String
+showProof K.PRefl = "refl"
+showProof (K.PCite n _) = "cite " ++ n
+showProof (K.PSym (K.PCite n _)) = "symcite " ++ n
+showProof (K.PInduction v b s) =
+  "ind " ++ show v ++ " " ++ leaf b ++ " " ++ leaf s
+  where
+    leaf K.PRefl = "refl"
+    leaf K.PIh = "ih"
+    leaf (K.PCong (K.F "s" [K.V _]) K.PIh) = "congsuc"
+    leaf _ = "?"
+showProof _ = "?"
+
+readProof :: K.Equation -> String -> Maybe K.Proof
+readProof eq s = case words s of
+  ["refl"] -> Just K.PRefl
+  ["cite", n] -> Just (K.PCite n (idArgs eq))
+  ["symcite", n] -> Just (K.PSym (K.PCite n (idArgs eq)))
+  ["ind", v, b, st] -> do
+    b' <- leaf b
+    s' <- leaf st
+    Just (K.PInduction (read v) b' s')
+  _ -> Nothing
+  where
+    leaf "refl" = Just K.PRefl
+    leaf "ih" = Just K.PIh
+    leaf "congsuc" = do
+      h <- K.holeFor eq
+      Just (K.PCong (K.F "s" [K.V h]) K.PIh)
+    leaf _ = Nothing
+
+idArgs :: K.Equation -> [K.Term]
+idArgs eq = map K.V (K.equationVarsT eq)
+
+-- --------------------------------------------------------------- the store
+loadCrystal :: IO [K.Lemma]
+loadCrystal = do
+  here <- doesFileExist crystalFile
+  if not here then pure [] else do
+    ls <- lines <$> readFile crystalFile
+    pure (mapMaybe row ls)
+  where
+    row ln = case splitTabs ln of
+      [n, lt, rt, p] -> do
+        l <- K.parsePrefixTerm lt
+        r <- K.parsePrefixTerm rt
+        pf <- readProof (l, r) p
+        Just (K.Lemma n (l, r) pf)
+      _ -> Nothing
+
+appendCrystal :: K.Lemma -> IO ()
+appendCrystal (K.Lemma n (l, r) p) =
+  appendFile crystalFile
+    (n ++ "\t" ++ K.showPrefixTerm l ++ "\t" ++ K.showPrefixTerm r
+       ++ "\t" ++ showProof p ++ "\n")
+
+splitTabs :: String -> [String]
+splitTabs s = case break (== '\t') s of
+  (a, '\t' : rest) -> a : splitTabs rest
+  (a, "") -> [a]
+  _ -> [s]
+
+-- --------------------------------------------------------------- the goals
+--
+-- The engine's notation carries primed variables (x', y''); the shared
+-- parser reads the six plain letters only.  Rather than touch the shared
+-- organ, each line's primed variables are mapped to letters the line
+-- does not use — sound because `canon` renumbers by first appearance
+-- anyway.  A line needing more than six distinct variables is dropped,
+-- which is the emitter's own binder range.
+deprime :: String -> Maybe String
+deprime ln =
+  let toks = tokens ln
+      primed = nub [ t | t <- toks, isPrimed t ]
+      plainUsed = nub [ t | t <- toks, [c] <- [t], c `elem` "xyzuvw" ]
+      free = [ [c] | c <- "xyzuvw", [c] `notElem` plainUsed ]
+  in if length primed > length free
+     then Nothing
+     else Just (concatMap (sub (zip primed free)) toks)
+  where
+    isPrimed (c : rest@(_ : _)) = c `elem` "xyzuvw" && all (== '\'') rest
+    isPrimed _ = False
+    sub m t = fromMaybe t (lookup t m)
+    tokens [] = []
+    tokens s@(c : _)
+      | c `elem` "xyzuvw" =
+          let (vs, r) = span (== '\'') (drop 1 s)
+          in (c : vs) : tokens r
+      | otherwise = [c] : tokens (drop 1 s)
+
+goalsFromReport :: String -> [K.Equation]
+goalsFromReport txt =
+  [ canon (l, r)
+  | ln0 <- dropWhile (not . isInfixOf "non-joining") (lines txt)
+  , Just ln <- [deprime ln0]
+  , [lt, rt] <- [splitTabs ln]
+  , Just l <- [K.parsePrefixTerm lt]
+  , Just r <- [K.parsePrefixTerm rt]
+  ]
+
+-- ------------------------------------------------------------- the shapes
+--
+-- Cheapest first, exactly the recorded tactic vocabulary plus the cite —
+-- nothing here that Certificate's shape menu and the historical naya
+-- census do not already name.
+-- `mres` is the goal's recorded residual, when a refl attempt has
+-- stalled before: the goal REDUCES to its residual, so a lemma stating
+-- the residual closes the parent by citation — the compounding move the
+-- whole loop exists for.  The cite is emitted at the residual lemma's
+-- own argument spelling (identity variables) and also flipped, because
+-- Agda's stall text does not promise the parent's orientation.
+shapes :: [K.Lemma] -> Maybe K.Equation -> K.Equation -> [K.Proof]
+shapes crystal mres eq =
+  [ K.PRefl ]
+  ++ [ K.PCite (K.lemName lm) (idArgs eq)
+     | lm <- crystal, sameEq (K.lemEq lm) eq ]
+  ++ [ K.PSym (K.PCite (K.lemName lm) (idArgs eq))
+     | lm <- crystal, flippedEq (K.lemEq lm) eq ]
+  ++ concat
+     [ [ K.PCite (K.lemName lm) (idArgs (K.lemEq lm))
+       , K.PSym (K.PCite (K.lemName lm) (idArgs (K.lemEq lm)))
+       ]
+     | res <- maybe [] (: []) mres
+     , lm <- crystal
+     , sameEq (K.lemEq lm) res || flippedEq (K.lemEq lm) res ]
+  ++ concat
+     [ [ K.PInduction v K.PRefl K.PRefl
+       , K.PInduction v K.PRefl K.PIh
+       ]
+       ++ [ K.PInduction v K.PRefl (K.PCong (K.F "s" [K.V h]) K.PIh)
+          | Just h <- [K.holeFor eq] ]
+     | v <- K.equationVarsT eq ]
+
+kCallBudget :: Int
+kCallBudget = 10
+
+-- ------------------------------------------------------------- one attempt
+--
+-- Returns the landed lemma, or the refl attempt's kernel text (the one
+-- whose stall carries the residual — Obstruction reads refl stalls).
+-- All shapes for a goal are judged CONCURRENTLY, in chunks of the
+-- machine's cores: each checkContext runs in its own temp dir, so the
+-- only shared state is the kernel's interface cache, which agda locks
+-- per file.  Selection stays deterministic — the first shape in menu
+-- order that landed wins — so parallelism changes wall-clock, never
+-- which proof the crystal keeps.
+kWorkers :: Int
+kWorkers = 4
+
+attempt :: FilePath -> [K.Lemma] -> String -> Maybe K.Equation -> K.Equation
+        -> IO (Either String K.Lemma)
+attempt root crystal name mres eq = do
+  let ss = take kCallBudget (shapes crystal mres eq)
+  results <- chunked kWorkers ss
+  let landed = [ K.Lemma name eq p
+               | (p, Right (ExitSuccess, _)) <- results ]
+      reflMsg = concat [ out | (K.PRefl, Right (_, out)) <- results ]
+  pure $ case landed of
+    (lm : _) -> Right lm
+    [] -> Left reflMsg
+  where
+    chunked _ [] = pure []
+    chunked k ps = do
+      let (now, later) = splitAt k ps
+      mvs <- mapM (\p -> do
+               mv <- newEmptyMVar
+               _ <- forkIO $ do
+                 r <- K.checkContext root
+                        (K.Context "SphatikaKarya" [] crystal
+                          (K.Lemma name eq p))
+                 putMVar mv (p, r)
+               pure mv) now
+      here <- mapM takeMVar mvs
+      -- a landing in this chunk ends the search: menu order still wins
+      -- within the chunk, and later chunks cannot outrank earlier ones
+      if any isLanding here
+        then pure here
+        else (here ++) <$> chunked k later
+    isLanding (_, Right (ExitSuccess, _)) = True
+    isLanding _ = False
+
+-- ------------------------------------------------------- the return edge
+--
+-- THE MOVE-INVENTOR.  Every landed lemma is installed back into the
+-- rewriter's library: on the next sense pass Sanghatta orients it (LPO —
+-- orientation is the rewriter's own judgment, not repeated here), joins
+-- pairs it previously could not, and derives genuinely NEW critical
+-- pairs — the next frontier.  Moves are invented as a byproduct of
+-- memory: this is completion, whose every part existed and whose return
+-- edge was the missing wire (KernelContext's header measures the gap:
+-- "every lemma the machine learns widens the gap" — inverted here).
+-- Provenance rides in the third field the rewriter ignores, in the
+-- format the proven rows of rounds 0-7 already use.
+-- library.terms carries ≡ in its provenance field; the handle encoding
+-- is set explicitly rather than trusted to the ambient locale — the
+-- same fault Certificate's header records as fault (2), met here on
+-- READ instead of write.
+readUtf8 :: FilePath -> IO String
+readUtf8 p = do
+  h <- openFile p ReadMode
+  hSetEncoding h utf8
+  s <- hGetContents h
+  length s `seq` hClose h
+  pure s
+
+installRules :: [K.Lemma] -> IO ()
+installRules crystal = do
+  lib <- readUtf8 "machine/library.terms"
+  let libEqs = [ (a, b)
+               | ln <- lines lib
+               , let (at, rest) = break (== '\t') ln
+               , let bt = takeWhile (/= '\t') (drop 1 rest)
+               , Just a <- [K.parsePrefixTerm at]
+               , Just b <- [K.parsePrefixTerm bt] ]
+      known e = any (\h -> sameEq h e || flippedEq e h) libEqs
+      fresh = [ lm | lm <- crystal, not (known (K.lemEq lm)) ]
+      row lm =
+        let (l, r) = K.lemEq lm
+        in K.showPrefixTerm l ++ "\t" ++ K.showPrefixTerm r
+           ++ "\tpramana=anumana|naya=sphatika " ++ showProof (K.lemProof lm)
+           ++ "|eq=_≡_ on ℕ|round=sphatika"
+  length lib `seq`
+    unless (null fresh)
+      (appendFile "machine/library.terms" (unlines (map row fresh)))
+  putStrLn ("installed as rules: " ++ show (length fresh)
+            ++ " (library now carries the crystal's landings)")
+
+-- ----------------------------------------------------------------- driver
+--
+-- The agenda is (equation, residual-depth).  A refusal's residual enters
+-- ahead of its parent, depth-bounded; the parent re-enters behind it and
+-- is skipped until the crystal is larger than it was at the failure.
+kDepthBound :: Int
+kDepthBound = 4
+
+-- ------------------------------------------------------------ the exchange
+--
+-- जाल-विनिमय: one crystal's light on another, through the receiving
+-- kernel.  A peer row is a candidate whose proof is already written —
+-- the receiver does not trust it, it RE-JUDGES it (आहार-परिणाम: the
+-- organism metabolizes the encounter; proposalhood is conferred by the
+-- receiver).  Peer citations are remapped name-by-name as their targets
+-- are adopted — peer files cite only earlier rows, so one ordered pass
+-- suffices.  A row the local kernel refuses is receipted and skipped:
+-- a false or untranslatable claim costs one refusal, which is the whole
+-- trust model of notes/IndraJala (and Sangha's receipt discipline).
+-- Both notes specified this organ independently on the same day; this
+-- is that organ.  Seam: producer = the peer's crystal file; consumer =
+-- the local crystal via checkContext.
+exchange :: FilePath -> FilePath -> IO ()
+exchange root peerFile = do
+  crystal0 <- loadCrystal
+  peerTxt <- readUtf8 peerFile
+  let peerRows = [ r | Just r <- map peerRow (lines peerTxt) ]
+      peerRow ln = case splitTabs ln of
+        [n, lt, rt, p] -> do
+          l <- K.parsePrefixTerm lt
+          r <- K.parsePrefixTerm rt
+          pure (n, (l, r), p)
+        _ -> Nothing
+  putStrLn ("jala: peer offers " ++ show (length peerRows) ++ " rows; local crystal "
+            ++ show (length crystal0))
+  final <- adoptAll crystal0 [] peerRows
+  putStrLn ("jala: local crystal now " ++ show (length final))
+  writeRendering' root final
+  where
+    adoptAll cr _ [] = pure cr
+    adoptAll cr nameMap ((pn, eq, ptxt) : rest)
+      | any (\lm -> sameEq (K.lemEq lm) eq) cr =
+          -- already ours: record the name correspondence and move on
+          let ln = head [ K.lemName lm | lm <- cr, sameEq (K.lemEq lm) eq ]
+          in adoptAll cr ((pn, ln) : nameMap) rest
+      | otherwise = do
+          let name = "sp" ++ pad' (length cr + 1)
+              remap p = case p of
+                K.PCite n as -> K.PCite (fromMaybe n (lookup n nameMap)) as
+                K.PSym q -> K.PSym (remap q)
+                K.PTrans a b -> K.PTrans (remap a) (remap b)
+                K.PCong t q -> K.PCong t (remap q)
+                K.PInduction v b s -> K.PInduction v (remap b) (remap s)
+                q -> q
+          case readProof eq ptxt of
+            Nothing -> do
+              putStrLn ("  refused (untranslatable proof): " ++ pn)
+              adoptAll cr nameMap rest
+            Just p0 -> do
+              let lm = K.Lemma name eq (remap p0)
+              r <- K.checkContext root (K.Context "SphatikaKarya" [] cr lm)
+              case r of
+                Right (ExitSuccess, _) -> do
+                  appendCrystal lm
+                  putStrLn ("  adopted " ++ pn ++ " as " ++ name ++ "  "
+                            ++ K.showPrefixTerm (fst eq) ++ " = "
+                            ++ K.showPrefixTerm (snd eq))
+                  adoptAll (cr ++ [lm]) ((pn, name) : nameMap) rest
+                _ -> do
+                  putStrLn ("  refused by the local kernel: " ++ pn)
+                  adoptAll cr nameMap rest
+    pad' s = let t = show s in replicate (3 - length t) '0' ++ t
+    writeRendering' root' crystal = case crystal of
+      [] -> pure ()
+      _ -> case K.renderContext
+                  (K.Context "Sphatika" [] (init crystal) (last crystal)) of
+        Left e -> putStrLn ("render refused: " ++ K.showRefusal e)
+        Right src -> withFile renderedFile WriteMode $ \h ->
+          hSetEncoding h utf8 >> hPutStr h src
+
+main :: IO ()
+main = do
+  hSetEncoding stdout utf8
+  hSetBuffering stdout LineBuffering
+  args <- getArgs
+  case args of
+    ["--exchange", peer] -> do
+      mroot0 <- K.findRepoRoot
+      root0 <- maybe (exitFailure >> pure ".") pure mroot0
+      locked0 <- lockCrystal
+      unless locked0 $ putStrLn "sphatika: another driver holds the crystal" >> exitFailure
+      exchange root0 peer
+      exitSuccess
+    _ -> pure ()
+  report <- case args of
+    [p] -> readFile p
+    _ -> putStrLn "usage: sphatika REPORT | sphatika --exchange PEER-CRYSTAL"
+         >> exitFailure >> pure ""
+  mroot <- K.findRepoRoot
+  root <- maybe (putStrLn "no repo root" >> exitFailure >> pure ".") pure mroot
+  -- ONE writer.  Two concurrent drivers interleave the crystal and the
+  -- render gate refuses the whole (DuplicateName) — measured 2026-08-24,
+  -- first day, by exactly that mistake.  Same discipline as the loop's
+  -- gate mutex: a second driver turns back instead of racing.
+  locked <- lockCrystal
+  unless locked $ do
+    putStrLn "sphatika: another driver holds the crystal; turning back"
+    exitFailure
+  crystal0 <- loadCrystal
+  putStrLn ("sphatika: crystal holds " ++ show (length crystal0) ++ " lemmas")
+  let goals0 = [ g | g <- goalsFromReport report
+               , not (any (\lm -> sameEq (K.lemEq lm) g
+                                  || flippedEq (K.lemEq lm) g) crystal0)
+               , enters g ]
+  putStrLn ("sphatika: " ++ show (length goals0) ++ " goals enter")
+  crystalN <- passes root crystal0 (map (\g -> (g, 0, Nothing)) goals0)
+  writeRendering root crystalN
+  installRules crystalN
+  putStrLn ("sphatika: crystal holds " ++ show (length crystalN)
+            ++ " lemmas; rendering " ++ renderedFile)
+  where
+    -- Obstruction's gate, held by matching (its own doctrine: no
+    -- `entered :: Bool` helper — the verdict is carried, not collapsed)
+    enters g = case O.pravesha (O.triage (toO g)) of
+      O.Pravishati _ -> True
+      O.Nivartate _ -> False
+    toO (l, r) = (convert l, convert r)
+    convert (K.V i) = O.V i
+    convert (K.F f ts) = O.F f (map convert ts)
+
+    -- full passes to fixpoint: a pass that lands nothing ends the run
+    passes root crystal agenda = do
+      (crystal', landedAny, retry) <- onePass root crystal agenda
+      if landedAny && not (null retry)
+        then passes root crystal' retry
+        else pure crystal'
+
+    onePass _ crystal [] = pure (crystal, False, [])
+    onePass root crystal agenda = go crystal False [] agenda ([] :: [(K.Equation, Int)])
+      where
+        go cr landed retry [] _ = pure (cr, landed, reverse retry)
+        go cr landed retry ((g, d, mres) : rest) seen
+          | any (\lm -> sameEq (K.lemEq lm) g || flippedEq (K.lemEq lm) g) cr =
+              go cr landed retry rest seen
+          | otherwise = do
+              let name = "sp" ++ pad (length cr + 1)
+              r <- attempt root cr name mres g
+              case r of
+                Right lm -> do
+                  appendCrystal lm
+                  putStrLn ("  " ++ name ++ "  landed  "
+                            ++ K.showPrefixTerm (fst g) ++ " = "
+                            ++ K.showPrefixTerm (snd g)
+                            ++ "  [" ++ showProof (K.lemProof lm) ++ "]")
+                  go (cr ++ [lm]) True retry rest seen
+                Left reflMsg -> do
+                  -- the residual rides with the retried parent: when its
+                  -- lemma lands, the parent's next attempt cites it.
+                  -- residualOf reads ONE line (it was built against log
+                  -- lines); agda's message is several, so hand it the
+                  -- line that carries the stall.
+                  let stallLine =
+                        case [ l | l <- lines reflMsg, " != " `isInfixOf` l ] of
+                          (l : _) -> l
+                          [] -> reflMsg
+                      res = case O.classify (toO' g) stallLine of
+                        O.Residual p -> harvest p
+                        _ -> Nothing
+                      fresh rEq =
+                        d < kDepthBound
+                        && not (any (sameEq rEq . fst) seen)
+                        && not (any (\lm -> sameEq (K.lemEq lm) rEq) cr)
+                        && enters rEq
+                  case res of
+                    Just rEq
+                      | fresh rEq -> do
+                          putStrLn ("  " ++ name ++ "  stalls; residual enters: "
+                                    ++ K.showPrefixTerm (fst rEq) ++ " = "
+                                    ++ K.showPrefixTerm (snd rEq))
+                          go cr landed ((g, d, res) : retry)
+                             ((rEq, d + 1, Nothing) : rest) ((rEq, d) : seen)
+                    _ -> do
+                      putStrLn ("  refused (retried on growth): " ++ K.showPrefixTerm (fst g) ++ " = " ++ K.showPrefixTerm (snd g))
+                      go cr landed ((g, d, res) : retry) rest seen
+        toO' (l, r) = (convert l, convert r)
+        harvest (a, b) = Just (canon (back a, back b))
+        back (O.V i) = K.V i
+        back (O.F f ts) = K.F f (map back ts)
+
+    pad s = let t = show s in replicate (3 - length t) '0' ++ t
+
+    writeRendering root crystal =
+      case crystal of
+        [] -> pure ()
+        _ -> case K.renderContext
+                    (K.Context "Sphatika" [] (init crystal) (last crystal)) of
+          Left e -> putStrLn ("render refused: " ++ K.showRefusal e)
+          Right src -> do
+            -- writeUtf8, not writeFile: the ambient locale cannot encode
+            -- ℕ, which is fault (2) in Certificate.hs's own header — the
+            -- corpus's most re-committed defect, not re-committed here.
+            withFile renderedFile WriteMode $ \h -> do
+              hSetEncoding h utf8
+              hPutStr h src
+            putStrLn ("rendered " ++ show (length crystal) ++ " lemmas")
