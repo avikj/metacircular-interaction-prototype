@@ -1,0 +1,60 @@
+IN A PROOF-CARRYING LEARNER, GENERALISATION AND SHAREABILITY ARE
+EXCLUSIVE, AND WE LOCATE THE FIELD THAT SEPARATES THEM
+The skill that fires everywhere cannot be transmitted, and the skill that
+can be transmitted fires at exactly one state
+
+Agent architectures / learned program libraries
+
+We report a separation in a learning architecture where every acquired
+skill carries the trace that licensed it.  Skills come in two forms and
+the informal expectation is that they are duals trading coverage against
+detail.  They are not duals.  One of them cannot enter the library at all,
+and the reason is a single field.
+
+The memorising form is a record containing its endpoints, the full
+execution trace between them, an applicability family, and a proof that
+the family projects onto an identification with its single training state.
+Because of that last field, the operation fires at exactly one state
+whatever family its author supplied - we prove the enabled set is a
+subsingleton and compute it: contractible, centred on the training state.
+We exhibit a two-state instance showing that no such operation covers even
+two states, and we exhibit a library that cannot reach a specific term
+three constructors deep.  So capability grows by one state per skill while
+the state algebra is infinite.
+
+The generalising form is a record containing its endpoints, an
+applicability family that is a substitution witness, and a family of
+outcome equalities.  It fires at every instance of its pattern, and its
+soundness costs nothing: the substitution lemma already present in the
+calculus moves the substitution into the environment, the skill's own
+outcome family holds there because it holds everywhere, and the lemma
+moves it back.  Generalisation is free; memorisation is what costs.
+
+The separation.  The library, the merge, the frontier expansion, the
+session and the retirement step all range over the memorising record.  The
+generalising record is a different type in a lower universe, and it holds
+an outcome family where the other holds a trace.  An outcome family is a
+map into a subsingleton and carries no route; a library entry must carry
+its route, because that is what makes the entry unforgeable.  Therefore
+the form that generalises is exactly the form that cannot be installed,
+merged, offered by the frontier, or retired into a new skill.  This is not
+an engineering gap we intend to close by a refactor; it is the statement
+that transmissible authority and pattern coverage are supported by
+different fields, and we give both records so the trade is inspectable.
+
+Two further measurements.  Where a generalising skill's pattern contains
+no free register, the substitutions enabled at its one state form an
+entire copy of the term algebra and every member emits the same output, so
+the fibre over an emission is unbounded and no deduplication heuristic
+collapses a redundant pair - it collapses that fibre.  And emission does
+not determine the witness: we prove the discarded substitution is not
+recoverable from what the skill produced.
+
+WHAT IS NOT CLAIMED.  There is no Markov decision process, no reward
+signal, no stochasticity, no discounting and no optimisation in this
+development.  "Skill" names a record, "state" names a term, and "fires"
+names inhabitation of an applicability family.  Whether a deployed
+learner's skill representation has this shape is a reading and is not
+proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

@@ -1,0 +1,55 @@
+NON-IDENTIFIABILITY IS A FIBRE, AND WE EXHIBIT TWO READINGS EACH BLIND
+THAT ARE JOINTLY FAITHFUL
+Reconstructibility from a single observable is refuted at named points,
+and recovered exactly by the joint reading
+
+Identifiability / observability of finite systems
+
+Reconstructibility of a hidden state from an observable is the statement
+that the observable admits an inverse - equivalently, that its fibre over
+each reading is contractible.  We give the smallest complete example in
+which two observables are each individually non-reconstructing, the
+failures are exhibited at named points, and the pair is reconstructing;
+and we prove the equivalence between joint faithfulness and existence of
+a reconstruction in both directions.
+
+The system has six states.  One observable reports the residue modulo two,
+the other modulo three.  Each is blind, and the blindness is a named
+identification rather than a counting argument: the first cannot separate
+a specific pair of states, the second cannot separate a different specific
+pair, and we supply disequality of the two pairs by a coding function into
+the naturals so that the two blindnesses are proved distinct rather than
+assumed so.  From each blindness we derive a refutation of
+reconstructibility for that observable alone.
+
+The joint reading pairs the two residues.  It is reconstructing, and the
+reconstruction is a function we exhibit rather than an existence claim.
+The general lemma behind both halves is that a reconstruction of an
+observable rules out any identification the observable induces between
+distinct states - so the presence of one named blind pair is already the
+whole refutation, and no enumeration of the state space is needed.
+
+Why this is the interesting shape rather than a curiosity.  Each
+observable is individually a coarsening whose fibre is nonempty and not a
+singleton.  Their conjunction has singleton fibres.  So non-identifiability
+does not compose in the direction practitioners assume: two measurements
+that each destroy information can jointly destroy none, and the
+cancellation is exact rather than approximate.  The same development
+proves the corresponding statement for maps in general - losslessness
+composes without hypothesis while lossiness does not, with a two-factor
+witness in which an injection into a larger space is followed by a
+collapse and the composite is the identity.
+
+The methodological consequence is the point.  A claim that a quantity is
+unidentifiable from a set of observables is a claim about a fibre, and it
+must be discharged by naming two states the observables cannot separate.
+Absent that witness the claim has not been stated, and a sensitivity study
+is not a substitute for it.
+
+WHAT IS NOT CLAIMED.  There is no probability distribution, no estimator,
+no structural equation model, no do-calculus and no counterfactual in this
+development.  The observables are functions on a six-element type and
+"identifiable" means the fibres are contractible.  Whether a statistical
+identification problem has this shape is a reading and is not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.
