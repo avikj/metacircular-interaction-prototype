@@ -27,7 +27,7 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.Nat.GCD using (isGCD)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
-open import Punaragamana
+open import LosslessReturn
   using (विवेक ; सम ; वाम ; दक्षिण ; अवतरण ; उत्थान ; पुनरागमनम्)
 open import Gati using (गुरुः ; फल ; पद-गति ; गति)
 open import GurutamaSiddha using (सिद्धः)

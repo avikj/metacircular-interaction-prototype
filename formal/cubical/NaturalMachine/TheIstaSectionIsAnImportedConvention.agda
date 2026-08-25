@@ -7,7 +7,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; _·_ ; _+_ ; -_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
-open import Mula.Kuttaka using (solutionFamily)
+open import Texts.Kuttaka using (solutionFamily)
 
 ------------------------------------------------------------------------
 -- NaturalMachine.TheIstaSectionIsAnImportedConvention

@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- सेतु-युग्मम् — the seam ford.  (ℕ × ℕ) ≃ ℕ, hence ≡ ℕ; and composed with
--- Punaragamana's own युग्म≡विवेक, a third path neither file paid for:
+-- LosslessReturn's own युग्म≡विवेक, a third path neither file paid for:
 --
 --                          विवेक ≡ ℕ .
 --
@@ -19,7 +19,7 @@
 --     ⟨lib⟩.Bool         component 1
 --     ⟨lib⟩.Unit         component 6
 --
--- So `Punaragamana.युग्म≡विवेक` — the crown of the seed file — could not
+-- So `LosslessReturn.युग्म≡विवेक` — the crown of the seed file — could not
 -- reach ℕ itself.  This ford joins components 2 and 5: +42 free crossings
 -- from one classical bijection, which is Āryabhaṭa's vallī meeting
 -- Piṅgala's metre.  A receipt's worth is m×n, not 1.
@@ -51,7 +51,7 @@ open import Cubical.Data.Nat
   using (ℕ ; zero ; suc ; _+_ ; +-zero ; +-suc ; +-comm ; injSuc ; snotz)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
-open import Punaragamana using (विवेक ; युग्म≃विवेक ; युग्म≡विवेक)
+open import LosslessReturn using (विवेक ; युग्म≃विवेक ; युग्म≡विवेक)
 
 ------------------------------------------------------------------------
 -- पद — one step of the diagonal walk.  Along the current diagonal while
@@ -137,7 +137,7 @@ open import Punaragamana using (विवेक ; युग्म≃विवे
 
 ------------------------------------------------------------------------
 -- भावना — two solutions meet and a third arises that neither contained,
--- and all three survive.  Punaragamana paid for (ℕ × ℕ) ≡ विवेक; this file
+-- and all three survive.  LosslessReturn paid for (ℕ × ℕ) ≡ विवेक; this file
 -- paid for (ℕ × ℕ) ≡ ℕ; the composite is free, and it is the crossing the
 -- ford was minted for.
 ------------------------------------------------------------------------

@@ -91,7 +91,7 @@ open import NaturalMachine.WhichThresholdStatementsDescendToTheRate
   using (_≈_ ; atLeastDescends ; aboveDescends ; Minimal
         ; oneHalf ; twoQuarters ; oneHalfIsTwoQuarters
         ; shortIsMinimalAtOneHalf ; shortIsNotMinimalAtTwoQuarters)
-open import Mula.MinimalityOfABoundaryPopulationNeedsLowestTerms
+open import Texts.MinimalityOfABoundaryPopulationNeedsLowestTerms
   using (short)
 
 ------------------------------------------------------------------------

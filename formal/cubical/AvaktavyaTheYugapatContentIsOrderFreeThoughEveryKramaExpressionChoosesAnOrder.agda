@@ -32,7 +32,7 @@ module AvaktavyaTheYugapatContentIsOrderFreeThoughEveryKramaExpressionChoosesAnO
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; not)
 
-open import Mula.SaptabhangiNaya
+open import Texts.SaptabhangiNaya
   using (Profile ; joint ; denotes ; asti-from ; nasti-from ; rewriter ; kernel-refl ; krama-expresses)
 
 -- conjunction is symmetric, by the four cases.

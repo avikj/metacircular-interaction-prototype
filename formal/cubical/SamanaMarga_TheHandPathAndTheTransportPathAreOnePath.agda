@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- समानमार्गः — the hand road and the transport road are ONE path.
 --
--- WHAT THIS REPAIRS.  `Punaragamanam_TheHandProofWasUnnecessary…agda` §5
+-- WHAT THIS REPAIRS.  `LosslessReturn_TheHandProofWasUnnecessary…agda` §5
 -- asserts, in prose, that its transport-built path (ℕ×ℕ) ≡ विवेक-प्रमाण
 -- "is the same path the hand proof produced", giving as the reason:
 -- "the two constructions have the same endpoints and there was only ever
@@ -32,7 +32,7 @@
 -- equivalence; the point is that "only one equivalence" is a THEOREM here
 -- (equivEq on judgmentally-equal maps), not a reason one may state and skip.
 --
--- WHAT IS NOT TOUCHED.  Neither `Punaragamanam_…` nor `VivekaPramana_…` is
+-- WHAT IS NOT TOUCHED.  Neither `LosslessReturn_…` nor `VivekaPramana_…` is
 -- edited (नयभेदे सङ्क्षेपो न विद्यते — §7 of the ahiṃsā-sūtra: no collapsing
 -- of a standpoint by deletion).  This is a new road laid beside theirs,
 -- carrying the derivation their road only gestured at.
@@ -59,7 +59,7 @@ open import Cubical.Data.Nat using (ℕ ; _+_)
 open import Cubical.Data.Sigma using (_×_)
 
 import VivekaPramana_TheRemainderIsLawfulAndTheNetBeats as V
-import Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt as P
+import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt as P
 
 ------------------------------------------------------------------------
 -- १ · The two equivalences underneath the two roads are the same map.

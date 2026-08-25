@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS CLOSES, AND WHY IT WAS LEFT OPEN ON PURPOSE.
 --
--- `punaragamana/src/Punaragamana/SakalaVikalaDesa_…` makes the fibre
+-- `loss/src/Loss/SakalaVikalaDesa_…` makes the fibre
 -- diagnosis a TERM — `देश f b` with three constructors, अवक्तव्यम् (empty
 -- fibre: nothing lost, the medium has no name for b, धनात्मकम्),
 -- सकलादेश (contractible: one utterance carries all), विकलादेश (two points

@@ -1,4 +1,4 @@
-import Pairfield.Punaragamana_TheDeterminedFieldRidesFree
+import Pairfield.LosslessReturn_TheDeterminedFieldRidesFree
 import Pairfield.GeneralSmith2x2
 import Pairfield.DirectSmith2x2
 import Pairfield.ComputableSmith2x2
@@ -11,7 +11,7 @@ import Pairfield.ComputableSmith2x2
 *Ekarūpatā* (एकरूपता), "having one form / uniformity of form", is ordinary
 Sanskrit and is used here in its plain sense. **The application of it as a
 module name is made here; no text and no technical sense from any śāstra is
-claimed for it.** See `Punaragamana_TheDeterminedFieldRidesFree.lean` for the
+claimed for it.** See `LosslessReturn_TheDeterminedFieldRidesFree.lean` for the
 same declaration about the head term of that family.
 
 ## Added, not edited
@@ -65,9 +65,9 @@ as a bare `Mat2` factor — full degrees of freedom. This is reported, not
 touched.
 -/
 
-namespace Pairfield.Punaragamana.Smith
+namespace Pairfield.LosslessReturn.Smith
 
-open Pairfield Pairfield.Punaragamana
+open Pairfield Pairfield.LosslessReturn
 
 /-! ## 1. `GeneralSmith2x2.Reduction` -/
 
@@ -198,4 +198,4 @@ def certificateEquiv (A : Mat2) :
 
 end Computable
 
-end Pairfield.Punaragamana.Smith
+end Pairfield.LosslessReturn.Smith

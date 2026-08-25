@@ -73,7 +73,7 @@
 -- §2.  THE ONE PRIMITIVE: THE FIBRE LAW.  (atemporal)
 ------------------------------------------------------------------------
 --
---   punaragamana/src/Punaragamana/Carrier.agda   (153 lines)
+--   loss/src/Loss/Carrier.agda   (153 lines)
 --
 -- For f : A → B, the question is WHICH SIDE OF `f a ≡ b` IS BOUND.
 --
@@ -215,7 +215,7 @@
 --      the surface.  In this order, reading terms and not headers.
 ------------------------------------------------------------------------
 --
---   1. punaragamana/src/Punaragamana/Carrier.agda        -- to the bottom
+--   1. loss/src/Loss/Carrier.agda        -- to the bottom
 --   2. NaturalMachine/RewriteCertificate.agda            -- to the bottom
 --   3. NaturalMachine/ControlledGrammar.agda             -- 63 lines
 --   4. NaturalMachine/GenerativeKernel.agda              -- 77 lines
@@ -237,7 +237,7 @@
 --   formal/cubical           1196 .agda   (601 of them under NaturalMachine/)
 --   formal/pairfield          203 .lean
 --   machine                   160 .hs
---   punaragamana               14 .agda
+--   loss               14 .agda
 --   surviving .md                9
 --
 -- ROOTS.       grep -c '^import' <root>

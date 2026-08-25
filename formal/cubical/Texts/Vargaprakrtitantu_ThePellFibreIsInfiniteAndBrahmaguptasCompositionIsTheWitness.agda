@@ -9,7 +9,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS, AND WHY IT IS THE CRITERION AND NOT AN EXAMPLE.
 --
--- `punaragamana/src/Punaragamana/Bhavana_…` builds वर्गप्रकृति as
+-- `loss/src/Loss/Bhavana_…` builds वर्गप्रकृति as
 -- `Carrier (क्षेपः D)`: base = the two roots, carried = the क्षेप, because
 -- the roots DETERMINE it.  Its fibre `Σ[ k ] (क्षेपः D x ≡ k)` is
 -- `singl`, contractible, and (ℤ × ℤ) ≃ वर्गप्रकृति D.  The carried datum
@@ -31,7 +31,7 @@
 --     क्षेप(compose) = क्षेप · क्षेप.  Hence composing a k=1 row with the
 --     fundamental k=1 row stays at k=1 — the orbit never leaves the
 --     fibre.  §१ below is that invariance, over ℕ and independently.
---   · `Apunaragamana_….वृद्धिः` proves the orbit STRICTLY ASCENDS and so
+--   · `ALosslessReturn_….वृद्धिः` proves the orbit STRICTLY ASCENDS and so
 --     never returns.  §३ below is that, chained.
 --
 --   Invariance alone gives an orbit inside the fibre and says nothing
@@ -100,7 +100,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
-open import Texts.Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
+open import Texts.NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
   using (नव-अंशः ; नव-हरः ; वृद्धिः)
 
 ------------------------------------------------------------------------
@@ -186,7 +186,7 @@ open import Texts.Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndT
 
 ------------------------------------------------------------------------
 -- ४ · वृद्धिः पङ्क्तौ — the second root strictly grows at every step.
---     `Apunaragamana_….वृद्धिः` needs a nonzero first root; §३'s
+--     `ALosslessReturn_….वृद्धिः` needs a nonzero first root; §३'s
 --     ज्येष्ठ-अशून्यम् is what keeps supplying it.
 ------------------------------------------------------------------------
 

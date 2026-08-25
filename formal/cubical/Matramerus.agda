@@ -31,7 +31,7 @@ open import Cubical.Data.Nat.Properties using (+-comm)
 open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; map ; length)
 open import Cubical.Data.List.Properties using (length-map)
-open import Mula.Pingala using (अक्षर ; लघु ; गुरु ; छन्दस्)
+open import Texts.Pingala using (अक्षर ; लघु ; गुरु ; छन्दस्)
 
 ------------------------------------------------------------------------
 -- मात्रा — छन्दसः कुल-मात्रा (लघु = १, गुरु = २) ।

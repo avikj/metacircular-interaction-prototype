@@ -6,7 +6,7 @@
 --
 -- Two modules carry a विवेक, and until now nothing joined them:
 --
---   • Punaragamana.विवेक — a DATA type (सम d | वाम d k | दक्षिण d k), the
+--   • LosslessReturn.विवेक — a DATA type (सम d | वाम d k | दक्षिण d k), the
 --     lossless descent-record of Āryabhaṭa's kuṭṭaka reading, which its
 --     own file proved satisfies  (ℕ × ℕ) ≡ विवेक  (युग्म≡विवेक), by an
 --     Iso whose two faces are पुनरागमनम् and अवतरण-उत्थान.
@@ -24,7 +24,7 @@
 --
 --     विवेक  ≡  (ℕ × ℕ)  ≡  विवेक-प्रमाण ,
 --
--- the first path reversed from Punaragamana, the second taken from
+-- the first path reversed from LosslessReturn, the second taken from
 -- VivekaPramana.  This is सूत्र ८ (an identification, never an estimate)
 -- and सूत्र ११'s first road (the equivalence exists, so transport carries
 -- it; no hand proof is written here, none is needed).
@@ -43,7 +43,7 @@
 --
 -- TERM.  तादात्म्य — essential identity, sameness of tattva; a technical
 -- term of Indian philosophy (Nyāya-Vaiśeṣika, and Advaita's तादात्म्य-
--- सम्बन्ध).  Punaragamana already uses तादात्म्ये for the सम / equal case
+-- सम्बन्ध).  LosslessReturn already uses तादात्म्ये for the सम / equal case
 -- (a = b = d).  The compound विवेक-तादात्म्य is built here, 2026-08-22; no
 -- historical source is claimed to have stated this theorem.  Substrate
 -- cubical (Voevodsky).
@@ -56,7 +56,7 @@ module VivekaTadatmya_TheSumTypeDescentAndTheGraphOfPlusAreOneObject where
 
 open import Cubical.Foundations.Prelude using (_≡_ ; sym ; _∙_)
 
-import Punaragamana as P
+import LosslessReturn as P
 import VivekaPramana_TheRemainderIsLawfulAndTheNetBeats as R
 
 -- विवेक (sum type)  ≡  (ℕ × ℕ)  ≡  विवेक-प्रमाण (record), composed.

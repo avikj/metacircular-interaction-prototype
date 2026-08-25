@@ -21,7 +21,7 @@
   solution), not by self-composition. What is bred below is genuine — each
   named triple IS a solution and the step IS exact — but it is the squares
   subsequence, not the orbit, and the infinitude of the FULL set is proved
-  in the cubical lane (Vargaprakrtitantu / Apunaragamana), not here.
+  in the cubical lane (Vargaprakrtitantu / ALosslessReturn), not here.
 
   SOURCE. The composition law (bhāvanā) is Brahmagupta, Brāhmasphuṭasiddhānta
   (628 CE), which gives the identity underlying the "samāsa-bhāvanā"
@@ -71,7 +71,7 @@ theorem bhavana_step (x y : ℤ) (h : x ^ 2 - 2 * y ^ 2 = 1) :
 /-- The orbit is unbounded because each step strictly grows the first
     coordinate: for a solution with `x ≥ 1` and `y ≥ 1`, the bred first
     coordinate `x² + 2y²` exceeds `x`. (Arithmetic witness that the descent
-    generates ever-larger solutions; Apunaragamana in the cubical lane proves
+    generates ever-larger solutions; ALosslessReturn in the cubical lane proves
     the orbit never returns.) -/
 theorem bhavana_grows (x y : ℤ) (hx : 1 ≤ x) (hy : 1 ≤ y) :
     x < x ^ 2 + 2 * y ^ 2 := by nlinarith [hx, hy]

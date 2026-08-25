@@ -13,7 +13,7 @@
 --
 --   · `Saptabhangi.दुर्नयः` — over सप्तभङ्गी, three seeds into द्विपद, by
 --     `with` on six cases.
---   · `punaragamana/…/Adharmin_….चतुर्-दुर्नयः` — over a four-name type
+--   · `loss/…/Adharmin_….चतुर्-दुर्नयः` — over a four-name type
 --     into Bool, by explicit exhaustion, and its header says the bridge
 --     to दुर्नयः "needs one toolchain that can see both, which this
 --     container does not have".
@@ -56,7 +56,7 @@
 --
 -- NOT DONE: the bridge `Adharmin_…` asks for is only half built here.
 -- §४ recovers `Saptabhangi.दुर्नयः` exactly, by instantiation, because
--- that module is in THIS lane.  `चतुर्-दुर्नयः` lives in the punaragamana
+-- that module is in THIS lane.  `चतुर्-दुर्नयः` lives in the loss
 -- library, whose agda-lib this tree does not include, so §५ RESTATES its
 -- four-name case as an instance rather than importing it.  Two statements
 -- that agree is the channel; an import would be a different claim and is

@@ -30,7 +30,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
 open import Cubical.Data.Int.Properties using (·IdR ; ·Comm ; pos0+)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
-open import Mula.Brahmagupta using (संयोग-प्र ; संयोग-द्वि ; मान)
+open import Texts.Brahmagupta using (संयोग-प्र ; संयोग-द्वि ; मान)
 
 ------------------------------------------------------------------------
 -- साहचर्यम् — भावना साहचर्या, उभयोः निर्देशांकयोः (the group's associativity)।

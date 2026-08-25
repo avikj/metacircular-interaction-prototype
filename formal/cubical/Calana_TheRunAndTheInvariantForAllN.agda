@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 -- the run, executed by the checker.  companion to
--- Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt.
+-- LosslessReturn_TheStepIsAConjugationAndNothingIsTouchedByIt.
 
 module Calana_TheRunAndTheInvariantForAllN where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Mula.Punaragamanam_TheStepIsAConjugationAndNothingIsTouchedByIt
+open import Texts.LosslessReturn_TheStepIsAConjugationAndNothingIsTouchedByIt
 
 आदि : विवेक
 आदि = गभीर 0 0 7          -- शेषः = 7, carried and never touched

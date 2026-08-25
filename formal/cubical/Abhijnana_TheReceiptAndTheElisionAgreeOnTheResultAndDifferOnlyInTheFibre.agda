@@ -20,7 +20,7 @@
 -- and the other is exhibited non-contractible.  §२ is the sentence
 -- above, as a term: the codomain does not determine losslessness.
 --
--- WHY §१'s SECOND HALF IS THE POINT.  `punaragamana/src/Punaragamana/
+-- WHY §१'s SECOND HALF IS THE POINT.  `loss/src/Loss/
 -- Carrier.agda` proves the free half — `fibre a = singl (f a)`,
 -- contractible, "the datum rides free" — and its header states the
 -- converse in prose: "a NON-contractible fibre cannot be declared

@@ -5,7 +5,7 @@
 -- proof is one transport.
 --
 -- TERM.  अवतरण (descent — this library's own word for it, from
--- Punaragamana) and भङ्ग (break, and the word the saptabhaṅgī uses for
+-- LosslessReturn) and भङ्ग (break, and the word the saptabhaṅgī uses for
 -- its positions).  The compound अवतरण-भङ्ग, "the break of descent", is
 -- built here; no source is claimed for it (CLAUDE.md naming rule,
 -- note 2).

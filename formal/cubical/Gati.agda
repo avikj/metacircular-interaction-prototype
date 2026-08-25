@@ -2,13 +2,13 @@
 
 ------------------------------------------------------------------------
 -- गतिः — कुट्टकस्य पूर्णा गतिः, अनुदानेन (grant), न कालेन ।  एकपदम् अवतरणम्
--- (Punaragamana) प्रतिलोमम् आसीत् ; अत्र तत् पुनः पुनः चाल्यते यावत् समाप्तिः
+-- (LosslessReturn) प्रतिलोमम् आसीत् ; अत्र तत् पुनः पुनः चाल्यते यावत् समाप्तिः
 -- (गुरुतमः साधारणः) वा अनुदान-क्षयः ।  क्षये न मिथ्या-वचनम् : अनुक्तम् —
 -- जीवन्तीं स्थितिम् अविकलां धारयत् ।  अतः अलोपः (losslessness) च अनुक्तता
 -- (honesty) एकम् एव धर्म — किमपि न नश्यति, किमपि न मिथ्या ।
 --
 -- (the pulverizer's full gait, on a grant, not a clock.  The single
--- reversible step of Punaragamana is iterated until it resolves — the
+-- reversible step of LosslessReturn is iterated until it resolves — the
 -- greatest common measure — or the grant runs out.  On exhaustion it does
 -- not lie: अनुक्तम्, the un-said, holds its live state whole.  So
 -- losslessness and honesty are one dharma — nothing destroyed, nothing
@@ -26,7 +26,7 @@ module Gati where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
-open import Punaragamana
+open import LosslessReturn
   using (विवेक ; सम ; वाम ; दक्षिण ; अवतरण ; उत्थान ; पुनरागमनम्)
 
 ------------------------------------------------------------------------

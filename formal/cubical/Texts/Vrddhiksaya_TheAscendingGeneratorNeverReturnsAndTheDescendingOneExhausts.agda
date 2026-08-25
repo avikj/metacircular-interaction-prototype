@@ -16,7 +16,7 @@
 --
 -- With them visible, ℕ carries more of them than every other type
 -- together, and they fall into two kinds that this module separates by a
--- single property each.  `Apunaragamana_….अपुनरागमनम्` proved the ascending
+-- single property each.  `ALosslessReturn_….अपुनरागमनम्` proved the ascending
 -- case for ONE generator, Brahmagupta's भावना.  §२ here is that theorem
 -- with the generator abstracted away, so it applies to all of them at
 -- once, and the bhāvanā becomes an instance rather than the subject.
@@ -89,7 +89,7 @@ private variable
 ------------------------------------------------------------------------
 -- २ · अपुनरागमनम् — AN ASCENDING GENERATOR NEVER RETURNS.
 --
---     `Apunaragamana_….अपुनरागमनम्` is this for Brahmagupta's भावना alone.
+--     `ALosslessReturn_….अपुनरागमनम्` is this for Brahmagupta's भावना alone.
 --     Here the generator is a parameter, so the same one line covers every
 --     ascending self-map the extractor can now see.
 ------------------------------------------------------------------------
@@ -122,13 +122,13 @@ private variable
 -- ५ · भावना ऊर्ध्वगामिनी — THE BHĀVANĀ IS ONE OF THESE, so §२ is not an
 --     abstraction floating above the corpus.  Fix any numerator `suc x'`;
 --     then the denominator map y ↦ 2(suc x') + 3y is ascending, and §२
---     gives back exactly `Apunaragamana_….अपुनरागमनम्` — which was proved
+--     gives back exactly `ALosslessReturn_….अपुनरागमनम्` — which was proved
 --     there directly, by a different route, for that one generator.
 --     Two independent statements that agree, which is what a channel
 --     between a general law and its instance means here.
 ------------------------------------------------------------------------
 
-open import Texts.Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
+open import Texts.NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
   using (नव-हरः ; वृद्धिः)
 
 भावना-ऊर्ध्वगामिनी : (x' : ℕ) → ऊर्ध्वगामी (नव-हरः (suc x'))

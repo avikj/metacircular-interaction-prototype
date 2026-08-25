@@ -27,7 +27,7 @@ open import Cubical.Data.Nat
 open import Cubical.Data.Sigma using (_,_ ; fst ; snd)
 open import Cubical.Data.Empty using () renaming (rec to ⊥-rec)
 open import Cubical.Data.Unit using (tt)
-open import Punaragamana
+open import LosslessReturn
   using (विवेक ; सम ; वाम ; दक्षिण ; अवतरण ; उत्थान ; पुनरागमनम्)
 open import Gati using (गुरुः ; फल ; पद-गति ; गति)
 open import Gurutama using (क्षेत्र ; मान)

@@ -24,7 +24,7 @@ module ChitiDvipada where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_)
-open import Mula.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑)
+open import Texts.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑)
 open import Citighana using (चिति)
 open import VaraSankalita using (वार-१ ; वार-२)
 open import Dvipada using (C ; वार-बद्धम्)

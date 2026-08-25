@@ -48,7 +48,7 @@
 -- because a citation is a claim about the repository and silently mending one
 -- loses the fact that it was made.  This header said, twice:
 --
---     `Punaragamana.Prastara_…` proves प्रस्तार ≡ ℕ
+--     `Loss.Prastara_…` proves प्रस्तार ≡ ℕ
 --
 -- There is no module of that name in the tree or anywhere in git history, and
 -- nothing in the corpus proves प्रस्तार ≡ ℕ.  What exists is
@@ -221,7 +221,7 @@ isEquiv.equiv-proof (सकलादेश-प्रत्यागमः f g) =
 -- and when the census comes back एकम् everywhere, base and carried may be
 -- exchanged: `NastaUddista_….प्रस्तारः` gives `अङ्कस्थान rs ≡ Fin (सङ्ख्या rs)`
 -- from exactly this, so at each छेद-सूची storing and generating are one type.
--- (Corrected 2026-08-22 — this line read `Punaragamana.Prastara_… proves
+-- (Corrected 2026-08-22 — this line read `Loss.Prastara_… proves
 -- प्रस्तार ≡ ℕ`, a module that does not exist and a codomain that is wrong;
 -- see the inset in §६ above.)  The identity is the smallest instance.
 समता-मार्गः : {A : Type ℓ} → (b : A) → एकम् (λ (a : A) → a) b
@@ -237,6 +237,6 @@ isEquiv.equiv-proof (सकलादेश-प्रत्यागमः f g) =
 -- types as the `⊎ Unit`: सप्तभङ्गी plus one void profile, अ-प्रतिपादनम्.
 -- A fibre census reads a GIVEN map at a GIVEN point; where there is no
 -- dharmin there is no map to take a fibre of, and this module is silent.
--- `Punaragamana.Adharmin_…` treats that case; the two are complements and
+-- `Loss.Adharmin_…` treats that case; the two are complements and
 -- neither subsumes the other.
 ------------------------------------------------------------------------

@@ -80,7 +80,7 @@
 --
 -- THE LAST ONE IS THE POINT, and it is what places अवक्तव्यम् on the scale
 -- this corpus has been assembling.  A map's fibre being CONTRACTIBLE is
--- `Punaragamana.Carrier`: nothing lost, the datum rides free.  A fibre with
+-- `Loss.Carrier`: nothing lost, the datum rides free.  A fibre with
 -- MORE than one point is नष्टि: the "which" is destroyed (§४), priced when
 -- the fibre is finite and decidable, अप्रतिकार्य when truncated.  A fibre
 -- that is EMPTY is neither: nothing was lost, because nothing was ever
@@ -229,7 +229,7 @@ module _ {S : Type ℓ} where
   --
   -- Placed against the rest of the scale:
   --
-  --   fibre contractible   nothing lost.  `Punaragamana.Carrier`; the datum
+  --   fibre contractible   nothing lost.  `Loss.Carrier`; the datum
   --                        is determined and rides free.
   --   fibre with >1 point  नष्टि: the "which" is destroyed (§४).  Priced
   --                        when finite and decidable — the कुट्टक's side is

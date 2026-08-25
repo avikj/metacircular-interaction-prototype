@@ -7,7 +7,7 @@
 --  which every step conserves it by itself.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHERE THIS COMES FROM.  `punaragamana/…/AntyaSamskara_…` instantiates
+-- WHERE THIS COMES FROM.  `loss/…/AntyaSamskara_…` instantiates
 -- the carrier law at Mādhava's end-correction: base = (index of the
 -- correction , the point it is evaluated at), carried = that convergent's
 -- स्थौल्य, coarseness.  Its finding is the exact mirror of the प्रस्तार
@@ -58,7 +58,7 @@
 -- Nīlakaṇṭha, तन्त्रसङ्ग्रहः २.२७१–२७४ (1501) and Jyeṣṭhadeva,
 -- युक्तिभाषा (c. 1530) — the अन्त्यसंस्कार and स्थौल्य.  NOT CLAIMED: that
 -- any of them proved anything below, or that any text has been opened
--- here; the citation is carried from the punaragamana module named above
+-- here; the citation is carried from the loss module named above
 -- and from `formal/cubical/NaturalMachine/AntyaSamskaraSthaulya.agda`,
 -- is second-hand, and is owed at verse level.  Nothing here is about π,
 -- and there is no limit, no ℝ and no error bound in this file.

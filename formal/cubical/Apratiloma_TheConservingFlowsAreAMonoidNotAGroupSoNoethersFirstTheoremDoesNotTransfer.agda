@@ -56,7 +56,7 @@
 -- invariance and not merely uncounted structure.
 --
 -- No source is claimed for any of the mathematics; अप्रतिलोम is ordinary
--- Sanskrit (प्रतिलोम, inverse/reverse, is Punaragamana's own word for the
+-- Sanskrit (प्रतिलोम, inverse/reverse, is LosslessReturn's own word for the
 -- ascent), and the compound is built here, 2026-08-22.
 ------------------------------------------------------------------------
 

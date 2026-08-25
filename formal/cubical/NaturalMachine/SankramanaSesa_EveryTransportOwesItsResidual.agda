@@ -62,7 +62,7 @@
 -- when a boundary forgets different amounts over different target points,
 -- **the loss cannot be summarised by one object at all** — "the residual"
 -- as a single thing does not exist, and the record must stay pointwise.
--- `Punaragamana` supplies the machine's proved-lossless boundary,
+-- `LosslessReturn` supplies the machine's proved-lossless boundary,
 -- `(ℕ × ℕ) ≃ विवेक`, whose residual §5b computes to be contractible
 -- everywhere — a "no loss" report that did look.
 --
@@ -93,7 +93,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; false≢true)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁ ; ∣_∣₁ ; squash₁)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Punaragamana using (विवेक ; युग्म≃विवेक)
+open import LosslessReturn using (विवेक ; युग्म≃विवेक)
 open import NaturalMachine.Anekanta
   using (syādasti ; syādnāsti ; syādastināsti ; Collapses ;
          plurality-blocks-collapse)
@@ -248,7 +248,7 @@ open सशेषसंक्रमणम् public
 ------------------------------------------------------------------------
 -- 5b. The machine's proved-lossless boundary, and its residual.
 --
--- `Punaragamana` proves the pair of magnitudes and the descent-record are
+-- `LosslessReturn` proves the pair of magnitudes and the descent-record are
 -- equivalent both ways.  Read as a boundary: the residual over every
 -- विवेक is contractible — exactly one (ℕ × ℕ) sits over it, and that is a
 -- fact, not an absence of inspection.  This is what a "no residual" report

@@ -54,7 +54,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-suc ; +-comm)
 open import Cubical.Data.Sigma
 open import Cubical.Data.List using (List ; [] ; _∷_)
 
-open import Mula.PingalaPrastara
+open import Texts.PingalaPrastara
   using ( Pattern ; Syllable ; laghu ; guru ; mora
         ; matraOf ; varna ; guruOf ; Metre ; Chosen )
 

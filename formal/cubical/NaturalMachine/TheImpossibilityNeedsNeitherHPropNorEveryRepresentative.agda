@@ -91,7 +91,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import NaturalMachine.WhichThresholdStatementsDescendToTheRate
   using (_≈_ ; Minimal ; oneHalf ; twoQuarters ; oneHalfIsTwoQuarters
         ; shortIsMinimalAtOneHalf ; shortIsNotMinimalAtTwoQuarters)
-open import Mula.MinimalityOfABoundaryPopulationNeedsLowestTerms
+open import Texts.MinimalityOfABoundaryPopulationNeedsLowestTerms
   using (short)
 open import NaturalMachine.TheRateQuotientExistsAndMinimalityCannotLiveOnIt
   using (Rate)

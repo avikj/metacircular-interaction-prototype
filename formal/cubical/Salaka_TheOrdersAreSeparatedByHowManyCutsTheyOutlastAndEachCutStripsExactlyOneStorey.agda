@@ -87,7 +87,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import PanktiYoga using (द्वि-घात)
 open import Ardhaccheda
   using (अर्ध ; अच्छेद ; अर्धच्छेद ; वर्गशलाका ; लघुगणकः ; द्वि-घात-pos)
-open import Mula.Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts
+open import Texts.Vrddhiksaya_TheAscendingGeneratorNeverReturnsAndTheDescendingOneExhausts
   using (ऊर्ध्वगामी ; अधोगामी ; न-उभयम्)
 
 ------------------------------------------------------------------------

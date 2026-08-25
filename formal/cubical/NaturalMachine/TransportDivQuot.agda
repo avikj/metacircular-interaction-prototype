@@ -96,7 +96,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 
 open import NaturalMachine.Digits k
-open import Mula.TransportDiv k
+open import Texts.TransportDiv k
   using (modw ; value-modw ; steps ; steps-is-length)
 
 ------------------------------------------------------------------------

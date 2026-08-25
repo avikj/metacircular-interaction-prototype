@@ -12,10 +12,10 @@
 --
 --   · `Lekha_…agda` §३ — the full trail of `n` steps, every intermediate
 --     and every witness, is CONTRACTIBLE at every `n`.  Depth is free.
---   · `Punaragamanam_…agda` §२ — out and back in the CODOMAIN is free at
+--   · `LosslessReturn_…agda` §२ — out and back in the CODOMAIN is free at
 --     any loss: take a lossy edge, pick any preimage, return, and you are
 --     exactly where you started.
---   · `Punaragamanam_…agda` §३ — out and back in the DOMAIN is not
+--   · `LosslessReturn_…agda` §३ — out and back in the DOMAIN is not
 --     available at all when a bit is destroyed.
 --
 -- §२ below is the statement those three make together: **an arbitrarily

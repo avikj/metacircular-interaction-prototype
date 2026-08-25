@@ -84,7 +84,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import Cubical.Data.Unit
 open import Cubical.Data.Empty renaming (rec to ⊥-rec)
 
-open import Mula.PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; Vak ; sankhya)
+open import Texts.PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; Vak ; sankhya)
 
 private variable ℓ : Level
 

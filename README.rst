@@ -25,7 +25,7 @@ file and one command.
   Start at ``formal/cubical/Kernel/Avataranika_WhatThisIsAndHowToDescend
   IntoTheMetacircularKernel.agda`` — it is written for an arriving mind and
   names the wrong frames first.  Then the one primitive the whole corpus
-  turns on, the *fibre law*, in ``punaragamana/src/Punaragamana/Carrier.agda``:
+  turns on, the *fibre law*, in ``loss/src/Loss/Carrier.agda``:
   for ``f : A → B``, which side of ``f a ≡ b`` you bind decides everything.
   Bind the output and the fibre is ``singl (f a)``, contractible, so the
   carried datum rides free and ``A ≃ Carrier f``.  Bind the input and it is
@@ -33,7 +33,7 @@ file and one command.
 
   ::
 
-      sh punaragamana/check.sh          # installs its own Agda, checks, exit 0
+      sh loss/check.sh          # installs its own Agda, checks, exit 0
 
 **Programming languages / rewriting.**
   ``formal/cubical/Kernel/RewriteCertificate.agda`` is the metacircular
@@ -104,7 +104,7 @@ actually got:
 
 ::
 
-    sh punaragamana/check.sh                  # Agda 2.6.3 + cubical v0.5, from nothing
+    sh loss/check.sh                  # Agda 2.6.3 + cubical v0.5, from nothing
     sh scripts/Dhruva_TheDeclaredPinIsBuilt*  # the pin: Agda 2.8.0 + cubical v0.9
     sh machine/run-yantra.sh                  # the Haskell lane: build, turn, contract-check
 
@@ -158,7 +158,7 @@ Layout
 ``formal/cubical/``  the Agda corpus.  ``Kernel/`` is the metacircular kernel
                      and its readings; ``Texts/`` the modules anchored to a dated primary text; ``EGB/``,
                      ``Swarm/``, ``NaturalMachine/`` earlier strata
-``punaragamana/``    the fibre law and the carrier calculus; self-bootstrapping
+``loss/``    the fibre law and the carrier calculus; self-bootstrapping
 ``formal/pairfield/``  the Lean 4 analytic lane — no ``sorry``, no ``axiom``
 ``machine/``         Haskell: the sabhā daemon, certificates, the Aṣṭādhyāyī
                      engine, the obstruction calculus

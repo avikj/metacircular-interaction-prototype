@@ -7,7 +7,7 @@
 -- WHAT WAS ALREADY THERE, and is used rather than reproved:
 --   * `शेष-सङ्घातः` (NaturalMachine.SankramanaSesa) — fibres compose:
 --         शेष (g ∘ f) z  ≃  Σ[ w ∈ शेष g z ] शेष f (fst w)
---   * `देश` (Punaragamana.SakalaVikalaDesa) — the census as a TERM, three
+--   * `देश` (Loss.SakalaVikalaDesa) — the census as a TERM, three
 --     constructors carrying their evidence: अवक्तव्यम् (empty fibre, nothing
 --     lost, धनात्मकम्), सकलादेश (contractible), विकलादेश (two points, exhibited).
 --

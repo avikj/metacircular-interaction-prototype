@@ -7,7 +7,7 @@
 --  first substitution and comes back at the second.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHERE THIS COMES FROM.  `punaragamana/…/Sthanivadbhava_…` instantiates
+-- WHERE THIS COMES FROM.  `loss/…/Sthanivadbhava_…` instantiates
 -- the carrier law at the ādeśa operation and finds that 1.1.56's अल्/अनल्
 -- exception IS the base/carried split: the form is the free slot, the
 -- sthānin and the designation are carried, and a designation-reading rule
@@ -115,7 +115,7 @@ open Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.Varna
 -- ४ · What the depth condition buys, at the sites where it holds.
 --
 --     `anal-blind` needs no hypothesis: an अनल्विधि cannot tell an ādeśa
---     from its sthānin, ever.  The gap the punaragamana module names is a
+--     from its sthānin, ever.  The gap the loss module names is a
 --     different comparison — the substitute against the ORIGINAL VARṆA —
 --     and §४ closes it exactly where स्वस्थानी holds, which by §२ and §३ is
 --     before the first substitution and at every repeated one.

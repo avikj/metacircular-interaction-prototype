@@ -34,7 +34,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.HITs.PropositionalTruncation as PT using (∣_∣₁)
-open import Punaragamana
+open import LosslessReturn
   using (विवेक ; सम ; वाम ; दक्षिण ; अवतरण ; उत्थान ; पुनरागमनम्)
 open import Gati
   using (फलम् ; गुरुः ; अनुक्तफलम् ; फल ; पद-गति ; गति)

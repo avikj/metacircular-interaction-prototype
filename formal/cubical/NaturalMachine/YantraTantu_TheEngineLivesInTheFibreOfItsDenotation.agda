@@ -41,7 +41,7 @@
 -- samples are not on the axis.
 --
 -- Every declaration below is an instantiation, a `refl`, or one line.
--- `Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt` records
+-- `LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt` records
 -- the rule this follows: where a joint takes work, the joint is wrong.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the back-port in

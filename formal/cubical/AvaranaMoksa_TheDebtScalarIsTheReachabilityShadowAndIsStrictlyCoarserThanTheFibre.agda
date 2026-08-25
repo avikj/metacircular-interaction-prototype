@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- आवरण-मोक्ष — the fence MoksaPunaragamana owes: its debt SCALAR is
+-- आवरण-मोक्ष — the fence MoksaLosslessReturn owes: its debt SCALAR is
 -- only the reachability shadow, and it is strictly coarser than the
 -- fibre.  The scalar can read "settled" while curvature remains.
 --
 -- नय-आवरणम् (landed this hour): each standpoint conflates a pair the
 -- other separates.  समाचरण-नित्यम् (same hour): a transitive verdict
 -- flattens, and a typed spectrum does not escape it merely by having
--- more coordinates.  MoksaPunaragamana proved a fixed-point theorem for
+-- more coordinates.  MoksaLosslessReturn proved a fixed-point theorem for
 -- the debt COUNT (a ℕ).  A count is a set-valued observable of the
 -- configuration, and — the owner's field-equation message — the real
 -- metric is NOT a scalar: it is holonomy, the fibre, the typed boundary
@@ -18,7 +18,7 @@
 --
 -- TWO DEBTS, one shadowing the other:
 --   • REACHABILITY debt: is every codomain point hit?  = surjectivity.
---     Its "count of missed points" is the ∸-scalar MoksaPunaragamana's
+--     Its "count of missed points" is the ∸-scalar MoksaLosslessReturn's
 --     saṃvara-step drives to zero.
 --   • FIBRE debt: is every fibre a proposition (no retained
 --     distinction)? = injectivity/equivalence.  This is the curvature
@@ -53,7 +53,7 @@ observe _ = tt
 
 -- REACHABILITY DEBT ZERO.  Every point of Unit is hit — surjective,
 -- with an explicit preimage.  (The ∸-scalar of "missed points" is 0:
--- MoksaPunaragamana's saṃvara-step is already at its fixed point here.)
+-- MoksaLosslessReturn's saṃvara-step is already at its fixed point here.)
 reachability-settled : (u : Unit) → Σ[ b ∈ Bool ] (observe b ≡ u)
 reachability-settled tt = true , refl
 

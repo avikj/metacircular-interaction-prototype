@@ -10,7 +10,7 @@
 -- WHY THIS EXISTS, AND IT IS A CORRECTION TO HOW I HAD BEEN READING THE
 -- CARRIER LAW ALL DAY.
 --
--- `punaragamana/…/Carrier.agda` gives `A ≃ Carrier f` for every f because
+-- `loss/…/Carrier.agda` gives `A ≃ Carrier f` for every f because
 -- `singl (f a)` is CONTRACTIBLE, and I had been treating "contractible
 -- fibre = free" as the whole of it.  It is one of three grades, and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAt
@@ -60,7 +60,7 @@
 -- computation.
 --
 -- IT CUTS ACROSS THE CENSUS, and that is worth seeing rather than
--- reconciling.  `punaragamana/…/SakalaVikalaDesa` grades a fibre as
+-- reconciling.  `loss/…/SakalaVikalaDesa` grades a fibre as
 -- अवक्तव्यम् (empty) / सकलादेश (contractible) / विकलादेश (two points, not
 -- identified).  `isProp` is the UNION of its first two constructors — at
 -- most one — so the h-level grading and the census are different cuts of

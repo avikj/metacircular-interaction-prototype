@@ -14,7 +14,7 @@
 -- because the fibre `singl (f a)` is contractible.  That is a RECEIPT.
 --
 -- It does not follow that you may throw the base away.  For that you need
--- to get the base BACK from the datum, and `punaragamana/…/Prastara_…`
+-- to get the base BACK from the datum, and `loss/…/Prastara_…`
 -- is where the difference becomes a theorem rather than a caution.  Two
 -- maps out of the same base behave oppositely:
 --
@@ -51,7 +51,7 @@
 -- मृतसञ्जीवनी (10th c. CE).  NOT CLAIMED: that Piṅgala proved anything
 -- below, or that the छन्दःशास्त्रम् has been opened here — the citation is
 -- carried from `formal/cubical/PingalaPrastara.agda` and from the
--- punaragamana module named above, and is owed at verse level.  What is
+-- loss module named above, and is owed at verse level.  What is
 -- claimed is that मात्रा is the weight his enumeration uses and that two
 -- distinct patterns share a weight, which §४ exhibits rather than
 -- asserts.  पता is ordinary modern Sanskrit/Hindi for an address and no
@@ -79,7 +79,7 @@ private
 ------------------------------------------------------------------------
 -- १ · ग्राह — the graph, and its two readings.  Written with Σ directly
 --     rather than as a record, because this lane has no general Carrier
---     type; the punaragamana library packages the same Σ as one.
+--     type; the loss library packages the same Σ as one.
 ------------------------------------------------------------------------
 
 ग्राह : {A B : Type ℓ} → (A → B) → Type ℓ
@@ -173,7 +173,7 @@ data अक्षर : Type₀ where
 --
 --     It shows मात्रा is not an address.  It does NOT show that the
 --     प्रस्तार's rank map fails to be one — उद्दिष्ट IS an address, and the
---     punaragamana module proves it by exhibiting नष्ट with both round
+--     loss module proves it by exhibiting नष्ट with both round
 --     trips.  That direction is not reproved here and is not claimed;
 --     what is claimed is only the contrast, which needs just one side to
 --     be exhibited to be a distinction rather than a preference.

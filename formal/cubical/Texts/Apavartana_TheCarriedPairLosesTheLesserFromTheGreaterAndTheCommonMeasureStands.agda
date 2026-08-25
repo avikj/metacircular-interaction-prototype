@@ -15,7 +15,7 @@
 -- worked in BHĀSKARA II, *बीजगणितम्* (1150 CE).  This citation is taken from
 -- this repository's own ledger
 -- (.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt,
--- row `Apavartana`) and from the header of `Punaragamana.agda`.  IT IS
+-- row `Apavartana`) and from the header of `LosslessReturn.agda`.  IT IS
 -- SECOND-HAND: no edition of any of the four texts was opened by the author of
 -- this module, and it is owed at verse level.  Not "the extended Euclidean
 -- algorithm" — see priority-ledger.txt.
@@ -27,7 +27,7 @@
 -- गणितपाद ३२–३३ is a DIVISION procedure (quotients written into the वल्ली),
 -- and what is formalised below is the subtractive column that produces those
 -- quotients — the same distinction `KuttakaValli_TheSideIsAFreeSlot…` in the
--- `punaragamana` library records as its SECOND DEFECT.  What IS claimed is
+-- `loss` library records as its SECOND DEFECT.  What IS claimed is
 -- narrow and checkable: that "the greater loses the lesser, the lesser
 -- stands" is the movement their pair undergoes, and that its common measure
 -- is what their procedure keeps.
@@ -35,7 +35,7 @@
 ------------------------------------------------------------------------
 -- WHY THIS FILE EXISTS — THE FOURTH LAW.
 --
--- The `punaragamana` library has three carrier instances, and each says what
+-- The `loss` library has three carrier instances, and each says what
 -- the CARRIED datum DOES under the step, as an equation in the carried datum
 -- alone:
 --
@@ -94,17 +94,17 @@
 ------------------------------------------------------------------------
 -- SELF-CONTAINMENT — REDEFINED, AND SAID.
 --
--- This module imports NOTHING from `punaragamana/src` and nothing from this
+-- This module imports NOTHING from `loss/src` and nothing from this
 -- directory.  `Carrier`, `descend`, `Φ-carrier`, `त्रिक्`, `उत्थान`, `गभीर`,
 -- `भेद`, `उत्थान-भेद`, `वल्ली` and `_∣_` are REDEFINED here, character for
 -- character where that was possible, so that the two lanes' checks are
 -- independent.  They are duplicates and are named as duplicates:
 --
---   Carrier, descend, ascend, Φ-carrier  ← Punaragamana.Carrier
+--   Carrier, descend, ascend, Φ-carrier  ← Loss.Carrier
 --   त्रिक्, उत्थान, गभीर, भेद, उत्थान-भेद, वल्ली
---                                        ← Punaragamana.KuttakaValli_…
+--                                        ← Loss.KuttakaValli_…
 --                                          (and त्रिक् is `विवेक` of this
---                                           directory's `Punaragamana.agda`,
+--                                           directory's `LosslessReturn.agda`,
 --                                           under a different name)
 --   _∣_, ∣-योग                            ← Gurutama (untruncated Σ form; the
 --                                          library's `Cubical.Data.Nat.
@@ -171,8 +171,8 @@ private
 
 ------------------------------------------------------------------------
 -- §0 · THE SUBSTRATE, REDEFINED.  See SELF-CONTAINMENT above: every
--- declaration in this section is a duplicate of one in `Punaragamana.Carrier`
--- or in `Punaragamana.KuttakaValli_…`, and none of them is new.
+-- declaration in this section is a duplicate of one in `Loss.Carrier`
+-- or in `Loss.KuttakaValli_…`, and none of them is new.
 ------------------------------------------------------------------------
 
 record Carrier (f : A → B) : Type where
@@ -187,7 +187,7 @@ open Carrier public
 module _ (f : A → B) where
 
   -- no pattern match: the carrier's square closes by refl only because this
-  -- does not case-split (`Punaragamana.Carrier`, implementation fact 2)
+  -- does not case-split (`Loss.Carrier`, implementation fact 2)
   descend : A → Carrier f
   descend a = carry a (f a) refl
 
@@ -319,7 +319,7 @@ data त्रिक् : Type where
 --
 -- कुट्टक = Carrier उत्थान: base = the row, carried = the pair.  The step lifts
 -- by `Φ-carrier`, and the carrier square is `refl` — that is the law of
--- `Punaragamana.Carrier` and is not re-proved here.  What IS proved here is
+-- `Loss.Carrier` and is not re-proved here.  What IS proved here is
 -- the thing the कुट्टक module never states: the carried pair's next value is a
 -- function OF THE CARRIED PAIR, and the function is `अन्तरकरण`.
 --

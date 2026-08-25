@@ -6,7 +6,7 @@
 -- standpoint this file works in" and this standpoint has never been named.
 --
 -- THE CLAIM BEING INDEXED.  The transport lane's floor is stated as:
--- "reversibility IS ahiṃsā IS losslessness, one equation" (Punaragamana's
+-- "reversibility IS ahiṃsā IS losslessness, one equation" (LosslessReturn's
 -- own header), with the reading that below the fibre lies the interval,
 -- below the interval `hcomp` as "the one operation under all the verbs",
 -- and below that the presheaf topos [□ᵒᵖ, Set] with "no concept beneath it."

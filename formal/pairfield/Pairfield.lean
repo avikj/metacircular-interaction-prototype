@@ -179,8 +179,8 @@ import Pairfield.VandermondeFrequencyResponse
 --  (`lake build Pairfield.<Name>`, exit 0).  The strike-notes above are kept
 --  as the record of the orphan interval; committing the files is what closes
 --  it for every clone.]
-import Pairfield.Punaragamana_TheDeterminedFieldRidesFree
-import Pairfield.PunaragamanaPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
+import Pairfield.LosslessReturn_TheDeterminedFieldRidesFree
+import Pairfield.LosslessReturnPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
 -- [STRUCK 2026-08-22, Punaragama seat: file in NO commit — third Lean-lane orphan.]
 -- [UN-STRUCK 2026-08-22, later session: same as the two above — file on disk, builds green.]
 import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneRefusal

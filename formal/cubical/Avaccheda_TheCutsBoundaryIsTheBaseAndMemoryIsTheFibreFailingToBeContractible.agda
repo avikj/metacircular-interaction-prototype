@@ -7,7 +7,7 @@
 --  memory.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS IS.  `notes/CAUSAL_MEMORY_SPACETIME.md` and `punaragamana/`
+-- WHAT THIS IS.  `notes/CAUSAL_MEMORY_SPACETIME.md` and `loss/`
 -- are the same construction and neither knows it.  102 files in this
 -- corpus name Myhill–Nerode; not one of the causal-state notes contains
 -- the word पुनरागमन.  This module is the identification.
@@ -38,7 +38,7 @@
 --  §१  A ≃ Σ[ b ∈ B ] fibre f b.  The history set decomposes as
 --      (boundary datum, what the boundary did not retain).  This is NOT a
 --      new theorem: it is `Carrier f` with its two Σ's exchanged, and
---      `Punaragamana.Carrier` already proves `A ≃ Carrier f` for every
+--      `Loss.Carrier` already proves `A ≃ Carrier f` for every
 --      `f`, with no h-level hypothesis on either side.  The physics
 --      lane's decomposition and the पुनरागमन law are one line apart.
 --
@@ -92,13 +92,13 @@ private variable ℓ ℓ' : Level
 -- Σ[ b ∈ B ] fibre f b ≃ A.  The left side is (boundary datum, the
 -- histories that datum does not separate); the right is the histories.
 -- Nothing is built: it is Σ-swap composed with the contractibility of
--- singletons, which is the same pair of facts `Punaragamana.Carrier`
+-- singletons, which is the same pair of facts `Loss.Carrier`
 -- uses to prove A ≃ Carrier f.
 ------------------------------------------------------------------------
 
 module _ {A B : Type ℓ} (f : A → B) where
   -- One universe, because an equivalence needs both sides in it.  This is
-  -- the same restriction `Punaragamana.Carrier` carries in its own
+  -- the same restriction `Loss.Carrier` carries in its own
   -- {A B : Type ℓ} — a further sign these are one construction.
 
   -- what the boundary does not retain, at a given boundary datum
@@ -109,7 +109,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   -- is one line of cube: `λ j → p (i ∧ j)` slides the witness along the
   -- very path that says the history lands on that boundary datum.  At
   -- i = 0 the conjunction collapses to `refl`, at i = 1 it is `p` itself.
-  -- This is the same contractible-singleton fact `Punaragamana.Carrier`
+  -- This is the same contractible-singleton fact `Loss.Carrier`
   -- runs on, in the other order — the physics note's decomposition and
   -- the पुनरागमन law are not analogous, they are one construction.
   अवच्छेदः : (Σ[ b ∈ B ] स्मृतिः b) ≃ A

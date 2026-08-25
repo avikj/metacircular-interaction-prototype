@@ -38,16 +38,16 @@
 module NaturalMachine.RootsThreadLatch where
 
 -- the conic: Brahmagupta's composition, and what the line does not have
-import Mula.PythagoreanTransition
+import Texts.PythagoreanTransition
 import NaturalMachine.WhereTheCircleSplits
-import Mula.EveryTripleIsARotation
+import Texts.EveryTripleIsARotation
 import NaturalMachine.TheArithmeticCircleIsFourPeriodic
-import Mula.IdempotenceForbidsDescent
+import Texts.IdempotenceForbidsDescent
 import NaturalMachine.DescentIsNotInversion
 import NaturalMachine.DescentCostsTheIntegers
 import NaturalMachine.BoundedStateNeedsAGroup
-import Mula.Cakravala
-import Mula.CakravalaNeedsKuttaka
+import Texts.Cakravala
+import Texts.CakravalaNeedsKuttaka
 
 -- the deflation, and the tower of description
 import NaturalMachine.DeflationaryTest
@@ -57,7 +57,7 @@ import NaturalMachine.Anuvrtti
 import NaturalMachine.Pratyahara
 import NaturalMachine.TransportPrice
 import NaturalMachine.TheTower
-import Mula.UnivalenceErasesTheAlgorithm
+import Texts.UnivalenceErasesTheAlgorithm
 import NaturalMachine.SignIsNotAccumulable
 
 -- the magnitude sub-thread, every claim of which was corrected or
@@ -73,11 +73,11 @@ import NaturalMachine.TheGapWasAUnitsError
 
 -- optimality, and the arithmetic chain from the kuṭṭaka to the count
 import NaturalMachine.LosslessLowerBound
-import Mula.OptimalObservation
-import Mula.PingalaIsOptimal
+import Texts.OptimalObservation
+import Texts.PingalaIsOptimal
 import NaturalMachine.WalkObservationCount
 import NaturalMachine.CRTChain
-import Mula.CoprimePowers
+import Texts.CoprimePowers
 import NaturalMachine.BezoutIsGCD
 import NaturalMachine.DistinctPrimesAreCoprime
 import NaturalMachine.CoprimePowersN
@@ -114,7 +114,7 @@ import NaturalMachine.PratyaharaBuysTotalityWithLocality
 import NaturalMachine.TheSecondNaIsTheCollision
 import NaturalMachine.MeruDiagonalIsVirahanka
 import NaturalMachine.TheFibreIsTheSubject
-import Mula.AntyaSamskaraSthaulya
+import Texts.AntyaSamskaraSthaulya
 import NaturalMachine.ExclusionRecoversGroundAtAPrice
 import NaturalMachine.TheAbsenceTowerIsThreeUnconditionally
 import NaturalMachine.WhereTheTowerCanStillBeThree
@@ -148,13 +148,13 @@ import NaturalMachine.TheInternalRulesPreserveIndependenceInThisCalculus
 import NaturalMachine.TheOmegaInconsistentExtensionDerivesTheNegation
 
 -- Piṅgala, Virahāṅka, and the Kerala school
-import Mula.Sankalita
+import Texts.Sankalita
 import NaturalMachine.DurationIsSyllablesPlusGuru
 import NaturalMachine.PairsSummingTo
-import Mula.DiagonalIsMatra
+import Texts.DiagonalIsMatra
 
 -- the Jain fourth bhaṅga, in the same shape as लाघव and the barrier
-import Mula.AvaktavyaDoesNotFactor
+import Texts.AvaktavyaDoesNotFactor
 
 -- and the sites derived from the corpus's own lemma rather than beside it
 import NaturalMachine.OneLemmaFiveSites

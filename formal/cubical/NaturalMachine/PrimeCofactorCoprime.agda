@@ -56,7 +56,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 
 open import NaturalMachine.WalkJumps using (IsPrime)
-open import Mula.CoprimePowers using (module Bezout)
+open import Texts.CoprimePowers using (module Bezout)
 open import NaturalMachine.CoprimePowersN using (posPow ; isGCD→Bez ; Bez→isGCD)
 
 open Bezout ℤCommRing using (Bez ; pow ; bez-sym ; bez-pow)

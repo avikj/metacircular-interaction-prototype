@@ -33,7 +33,7 @@
 --       its own soundness.
 --
 --   §3  THE CONTRAST WITH THE ONE PRIMITIVE, which is the point of doing
---       this in this repository.  `punaragamana/src/Punaragamana/Carrier.agda`
+--       this in this repository.  `loss/src/Loss/Carrier.agda`
 --       is the fibre law: for f : A → B, BIND THE OUTPUT and the fibre is
 --       `singl (f a)`, always contractible, so `A ≃ Carrier f` and the datum
 --       rides free; BIND THE INPUT and it is `fiber f b`, the exact loss.
@@ -68,7 +68,7 @@
 -- here computes an h-level for `Derivation a b`.  §4 gives a necessary
 -- condition for `isEquiv` and refutes it at one pair of endpoints; it does
 -- not characterise the endpoints where soundness IS an equivalence, and does
--- not claim there are none.  No import of `Punaragamana.Carrier`: it lives in
+-- not claim there are none.  No import of `Loss.Carrier`: it lives in
 -- a different library root, and §3 states the correspondence in prose rather
 -- than pretending to a dependency it does not have.
 --

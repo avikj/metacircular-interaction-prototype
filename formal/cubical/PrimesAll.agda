@@ -23,4 +23,4 @@ import Primes.Kuttaka
 import Primes.Ganana
 import Primes.Samkramana
 import Primes.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute
-import Primes.PunaragamanaFinal
+import Primes.LosslessReturnFinal

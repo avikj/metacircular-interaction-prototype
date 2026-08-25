@@ -8,7 +8,7 @@
 -- distance 3, joined by no checked edge — two banks the corpus reached from
 -- opposite sides and never bridged.  They are the same object:
 --
---   Carrier योग          binds the OUTPUT — return, पुनरागमन  (Punaragamanam)
+--   Carrier योग          binds the OUTPUT — return, पुनरागमन  (LosslessReturn)
 --   Σ[ n ] fiber योग n    binds the INPUT  — the cut, स्मृति   (Avaccheda)
 --
 -- and both decompose ℕ × ℕ, so composing the two organs' equivalences IS the
@@ -33,7 +33,7 @@ open import Cubical.Foundations.Equiv using (_≃_ ; invEquiv ; compEquiv ; fibe
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_)
 
-open import Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt
+open import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt
   using (Carrier ; योग ; Carrier≃)
 open import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
   using (अवच्छेदः)

@@ -49,7 +49,7 @@
 -- what is checked: the two H² carriers are inequivalent as types.
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5 (bootstrap toolchain of the
--- punaragamana lane, standalone library file), exit 0, no postulates,
+-- loss lane, standalone library file), exit 0, no postulates,
 -- no holes.  H²-𝕂²≅Bool and H²-T²≅ℤ are present with identical names
 -- and statements in v0.5 and v0.9 (grep-verified against a fresh v0.9
 -- clone, 2026-08-23) — the Bhavana precedent: a reason to expect the

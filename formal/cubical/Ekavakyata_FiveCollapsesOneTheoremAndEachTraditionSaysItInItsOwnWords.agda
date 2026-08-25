@@ -65,7 +65,7 @@ module Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords whe
 -- figure of speech for the invisible part: it is that set.
 ------------------------------------------------------------------------
 
-open import Mula.Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
+open import Texts.Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
   using (अवरोहणाभावः ; तन्तुभेदः)
 
 ------------------------------------------------------------------------

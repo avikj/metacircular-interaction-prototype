@@ -24,7 +24,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; ·IdR)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
-open import Mula.Brahmagupta using (मान ; संयोग-प्र ; संयोग-द्वि ; भावना-मान)
+open import Texts.Brahmagupta using (मान ; संयोग-प्र ; संयोग-द्वि ; भावना-मान)
 
 ------------------------------------------------------------------------
 -- चक्रीय-पदम् — अन्तर्वेशकेन (m, 1) भावना : संयोगस्य मानं = k · (m²−N) ।

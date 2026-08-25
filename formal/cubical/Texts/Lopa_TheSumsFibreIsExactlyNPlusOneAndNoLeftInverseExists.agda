@@ -42,7 +42,7 @@
 -- because the naming was ALREADY IN THE CORPUS TWICE and nothing had put
 -- the two together:
 --
---   `Punaragamanam_…TransportGivesIt.योग : ℕ × ℕ → ℕ`, योग x = fst x + snd x
+--   `LosslessReturn_…TransportGivesIt.योग : ℕ × ℕ → ℕ`, योग x = fst x + snd x
 --   `NaturalMachine.PairsSummingTo.Pairs n = Σ[ ab ∈ ℕ × ℕ ] (fst ab + snd ab ≡ n)`
 --   `NaturalMachine.PairsSummingTo.pairsFin : (n : ℕ) → Pairs n ≃ SumFin (suc n)`
 --
@@ -96,7 +96,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.SumFin using () renaming (Fin to SumFin)
 
 open import NaturalMachine.PairsSummingTo using (Pairs ; pairsFin)
-open import Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt using (योग)
+open import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt using (योग)
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible as अव
 
 ------------------------------------------------------------------------

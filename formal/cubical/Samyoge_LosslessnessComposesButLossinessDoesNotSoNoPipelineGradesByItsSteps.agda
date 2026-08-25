@@ -15,7 +15,7 @@
 --   why a route can be free at any length.
 --
 -- §३ · हानिः न संयोगे — a composite of LOSSY maps need not be lossy.
---   `punaragamana/…/SakalaVikalaDesa_…` §3 already computes the witness
+--   `loss/…/SakalaVikalaDesa_…` §3 already computes the witness
 --   and reads it as a refutation of a sequential diagnostic; here it is
 --   read as the composition law it also is:
 --

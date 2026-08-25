@@ -25,7 +25,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm)
 open import Cubical.Data.List using (length)
-open import Mula.PingalaPrastara using (sankhya ; meru ; matra)
+open import Texts.PingalaPrastara using (sankhya ; meru ; matra)
 open import PanktiYoga using (द्वि-घात ; पूर्व ; पङ्क्ति-योगः)
 open import Dvipada using (C)
 open import Matramerus using (सर्व ; मात्रामेरु)

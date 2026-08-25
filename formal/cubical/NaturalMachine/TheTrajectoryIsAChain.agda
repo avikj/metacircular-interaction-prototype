@@ -54,7 +54,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 
 open import NaturalMachine.SumProductTorus
   using (Exp ; zeroE ; _⊔_ ; val ; primes4 ; ⊔-comm)
-open import Mula.IdempotenceForbidsDescent using (⊔-idem ; ⊔-assoc)
+open import Texts.IdempotenceForbidsDescent using (⊔-idem ; ⊔-assoc)
 
 ------------------------------------------------------------------------
 -- 1.  The lattice order, and its transitivity

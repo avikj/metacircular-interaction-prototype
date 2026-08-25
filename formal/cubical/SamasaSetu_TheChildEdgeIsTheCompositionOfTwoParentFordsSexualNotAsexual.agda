@@ -14,7 +14,7 @@
 -- of that breeding is the connected manifold.
 --
 -- THE CHILD.  Two parents from two different modules:
---   parent A  विवेक≃वाहकः  : विवेक-प्रमाण ≃ Carrier योग   (Punaragamanam)
+--   parent A  विवेक≃वाहकः  : विवेक-प्रमाण ≃ Carrier योग   (LosslessReturn)
 --   parent B  सेतुः        : Carrier योग ≃ Σ[n] fiber योग n (Setu)
 -- recombined at their shared node `Carrier योग`:
 --   child     समास-सेतुः   : विवेक-प्रमाण ≃ Σ[n] fiber योग n
@@ -34,7 +34,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma using (Σ-syntax)
 
 open import VivekaPramana_TheRemainderIsLawfulAndTheNetBeats using (विवेक-प्रमाण)
-open import Punaragamanam_TheHandProofWasUnnecessaryAndTransportGivesIt using (योग ; विवेक≃वाहकः)
+open import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt using (योग ; विवेक≃वाहकः)
 open import Setu_TheReturnAndTheCutDecomposeTheSamePairAndSetubandhaNamedTheGap using (सेतुः)
 
 -- child = parent A ∘ parent B, recombined at Carrier योग.

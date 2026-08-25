@@ -59,7 +59,7 @@ open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 
 open import FinCardinality using (crtEquiv)
 open import NaturalMachine.WalkJumps using (IsPrime)
-open import Mula.CoprimePowers using (module Bezout)
+open import Texts.CoprimePowers using (module Bezout)
 open import NaturalMachine.CoprimePowersN
   using (Bez→isGCD ; isGCD→Bez ; primes→coprime-powers)
 

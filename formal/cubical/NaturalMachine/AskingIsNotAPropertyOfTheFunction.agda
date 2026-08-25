@@ -227,7 +227,7 @@ no-invariant-of-the-function-reports-asking (f , h) =
 --
 --   grep -n 'discreteℕ\|\bDec\b\|\bBool\b' M.agda | grep -v '^[0-9]*: *--'
 --
---   BhedaAvatarana 0   Punaragamana 0   Gati 0      Gurutama 0
+--   BhedaAvatarana 0   LosslessReturn 0   Gati 0      Gurutama 0
 --   GurutamaSiddha 0   Sthairya 0       Purnata 0   Bija 0
 --   Yuti 0             Sadhyata 0
 --   Anekanta 5         (lines 90, 227, 328, 361, 368 — the import and

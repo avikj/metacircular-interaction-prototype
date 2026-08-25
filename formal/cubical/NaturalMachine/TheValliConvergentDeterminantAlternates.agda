@@ -137,7 +137,7 @@ standardDeterminantIsAUnit a k =
 ------------------------------------------------------------------------
 -- 5.  Why this is the LOSSLESS face and not a new one
 --
--- `Punaragamana.पुनरागमनम्` proves the kuṭṭaka's descent reversible;
+-- `LosslessReturn.पुनरागमनम्` proves the kuṭṭaka's descent reversible;
 -- `Gati.अलोपः` proves it for the whole algorithm.  §4 is the same
 -- property at the convergents: a determinant that is a unit at every
 -- step is exactly the statement that the 2×2 step matrix is invertible

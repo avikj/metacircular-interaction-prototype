@@ -12,7 +12,7 @@
 -- Two modules in this repository refuse, in identical words, to call
 -- anything "the चक्रवाल", and both name the SAME missing ingredient:
 --
---   `punaragamana/…/Bhavana_TheKsepaIsDeterminedByTheRootsAnd…`:
+--   `loss/…/Bhavana_TheKsepaIsDeterminedByTheRootsAnd…`:
 --     "It requires choosing m with k ∣ (a + b·m), and then dividing the
 --      composed row through by k — exact division in ℤ, which needs a
 --      divisibility witness carried alongside and is not done here."
@@ -179,7 +179,7 @@ open पङ्क्तिः public
 --
 -- `भागहार-एकः`: the type is a PROPOSITION.  The quotient is determined
 -- by the base, so carrying it costs nothing; that is the same statement
--- as `Punaragamana.Carrier`'s contractible fibre, one h-level weaker.
+-- as `Loss.Carrier`'s contractible fibre, one h-level weaker.
 --
 -- And it is exactly one h-level weaker, which is the content: the क्षेप's
 -- fibre is contractible because every pair HAS a क्षेप, and this one is
@@ -197,7 +197,7 @@ record भागहारः (j n : ℕ) : Type₀ where
 open भागहारः public
 
 -- the carried datum is determined: at most one quotient, always.  That is
--- what makes carrying it free, and it is `Punaragamana.Carrier`'s
+-- what makes carrying it free, and it is `Loss.Carrier`'s
 -- contractible fibre one h-level weaker — weaker exactly because the
 -- division is partial.
 भागहार-एकः : (j n : ℕ) → isProp (भागहारः j n)

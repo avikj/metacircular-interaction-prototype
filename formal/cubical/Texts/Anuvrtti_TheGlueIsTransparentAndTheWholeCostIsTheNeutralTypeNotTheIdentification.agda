@@ -14,7 +14,7 @@
 -- Voevodsky's univalence), not in the grammatical tradition.  The compound
 -- names the phenomenon; it does not assert a source for the theorem.
 --
--- WHAT THIS MODULE MEASURES.  `punaragamana/README.md` finding 3 records:
+-- WHAT THIS MODULE MEASURES.  `loss/README.md` finding 3 records:
 --
 --     "transport along `ua` does not reduce on a neutral variable.  It sticks
 --      on prim^unglue; it computes only on canonical form.  So uaβ is
@@ -46,16 +46,16 @@
 --       closes it and no transport lemma is used.  The transported packet is
 --       stuck as a term and free at every observation.  Π does not stop at
 --       all, so this is not "η" in general.
---   §4  Consequently the uaβ in `Punaragamana.Carrier` is removable: the same
+--   §4  Consequently the uaβ in `Loss.Carrier` is removable: the same
 --       law written monomorphically computes by refl, and a NON-THEOREM
 --       records that the module-parameterized form does not.
---   §5  The downstream price, at Punaragamana's own instance: over an
+--   §5  The downstream price, at LosslessReturn's own instance: over an
 --       infinite orbit, every READING is refl at every head and costs
 --       nothing at any depth; only the demand for the whole packet costs one
 --       β, once per head.
 --
 -- NON-THEOREMS ARE RECORDED AS NON-THEOREMS, in comments with the residual
--- Agda actually reports, the way `Punaragamana.Compute` does.  A statement
+-- Agda actually reports, the way `Loss.Compute` does.  A statement
 -- that fails to hold definitionally is a measurement, not a failure.
 --
 -- TOOLCHAIN.  Every claim here, positive and negative, is a measurement at
@@ -222,7 +222,7 @@ module _ {A : Type} where
 प्रत्यय-प्रयोग h a = refl
 
 ------------------------------------------------------------------------
--- §4  The consequence for Punaragamana.Carrier: the uaβ is removable.
+-- §4  The consequence for Loss.Carrier: the uaβ is removable.
 --
 -- Written monomorphically — the record not a family, the map a top-level
 -- definition — the law's transport reduces to `descend` BY refl, on a
@@ -255,7 +255,7 @@ open वाहकः public
 वाहक≡ = ua (isoToEquiv वाहक-Iso)
 
 -- THE POINT.  Neutral variable, univalent transport, closes by refl.
--- Punaragamana's `carry-transport-descend` at this shape is refl.
+-- LosslessReturn's `carry-transport-descend` at this shape is refl.
 अनुवृत्ति-वाहकः : (x : ℕ) → transport वाहक≡ x ≡ अवतरणम् x
 अनुवृत्ति-वाहकः x = refl
 
@@ -280,10 +280,10 @@ open वाहकः public
 -- a measured fact about Agda 2.8.0, recorded here so it can be re-measured.
 
 ------------------------------------------------------------------------
--- §5  What a machine actually pays, at Punaragamana's own instance.
+-- §5  What a machine actually pays, at LosslessReturn's own instance.
 --
 -- Faithful mini-copy of the parameterized law and of the orbit, instantiated
--- at A := ℕ × ℕ, B := ℕ, f := (s , l) ↦ s + l — exactly Punaragamana.Viveka.
+-- at A := ℕ × ℕ, B := ℕ, f := (s , l) ↦ s + l — exactly Loss.Viveka.
 -- There the packet-level identity is stuck (§3's Σ-η, reached through the
 -- Glue), and the price is one β per head of a corecursive proof.
 --
@@ -341,7 +341,7 @@ record _≈_ {X : Type} (o p : Orbit X) : Type where
     ≈next : next o ≈ next p
 open _≈_ public
 
--- Punaragamana.Viveka, verbatim in shape.
+-- Loss.Viveka, verbatim in shape.
 योग : ℕ × ℕ → ℕ
 योग x = fst x + snd x
 
@@ -357,7 +357,7 @@ open _≈_ public
 Φ : ℕ × ℕ → ℕ × ℕ
 Φ x = suc (fst x) , suc (snd x)
 
--- NON-THEOREM, the one Punaragamana.Compute records:
+-- NON-THEOREM, the one Loss.Compute records:
 --
 --   (x : ℕ × ℕ) → परिवहनम् x ≡ अवतरणम्′ x
 --   ✗  transp (λ i → ℕ × ℕ) i0 (prim^unglue x .base) != x
@@ -383,7 +383,7 @@ open _≈_ public
 
 -- AT INFINITE DEPTH.  The orbit of READINGS closes by refl at every head:
 -- corecursive, unbounded, and no β is consumed at any depth.  This is the
--- exact contrast with Punaragamana.Nucleus's `transport-orbit≈`, whose head
+-- exact contrast with Loss.Nucleus's `transport-orbit≈`, whose head
 -- is `carry-transport-descend` — one β per head, forever.
 अनुवृत्ति-जालम् : (x : ℕ × ℕ)
                 → mapO carried (mapO परिवहनम् (unfold Φ x))
