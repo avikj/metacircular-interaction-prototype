@@ -42,9 +42,21 @@ tower : (n : ℕ) → Type
 tower = Sphere
 
 -- any level you name falls out by computation, from the same one seed.
-S¹ : Type
-S¹ = Sphere 1
-S² : Type
-S² = Sphere 2
-S⁷ : Type
-S⁷ = Sphere 7
+example-S¹ : Type
+example-S¹ = Sphere 1
+example-S² : Type
+example-S² = Sphere 2
+example-S⁷ : Type
+example-S⁷ = Sphere 7
+
+-- THE SEED GROWS THE CIRCLE.  Its first nontrivial level is Susp Bool, which
+-- IS the circle S¹ — the object the whole corpus's winding : ΩS¹ → ℤ is read
+-- on.  So the generator produces the very form the fibre law is measured by,
+-- and the content of that form (a ℤ of winding) is itself read by ONE term,
+-- not stored — finite seed, finite reader, infinite family between them.
+open import Cubical.Foundations.Equiv using (_≃_ ; invEquiv)
+open import Cubical.HITs.S1 using (S¹)
+open import Cubical.HITs.Susp using (S¹≃SuspBool)
+
+level1-is-the-circle : Sphere 1 ≃ S¹
+level1-is-the-circle = invEquiv S¹≃SuspBool
