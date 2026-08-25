@@ -61,7 +61,7 @@
 --     witnesses.  Empty under `Yogya` is a denial.  Empty under `Ayogya`
 --     is silence, and silence gets NO truth value at all, so the entry
 --     is residue rather than a nāsti.  (Reading silence as denial is
---     named as the durnaya in `machine/Obstruction.hs` under THE
+--     named as the durnaya in `machine/RefusalAnalysis.hs` under THE
 --     SEVENFOLD POSITIONS.  Both modules are this repository's; the bug
 --     and the warning against it were live at the same time.)
 --
@@ -150,13 +150,13 @@
 -- which.
 --
 -- The `Bhanga` and `Sthana` types are NOT redefined here.  They are
--- another hand's work in `machine/Obstruction.hs` and are imported.
+-- another hand's work in `machine/RefusalAnalysis.hs` and are imported.
 
 module StandpointStore where
 
 import Data.List (sort, nub, sortOn, intercalate, partition, groupBy, isPrefixOf)
 import Data.Function (on)
-import Obstruction (Bhanga(..), Sthana(..))
+import RefusalAnalysis (Bhanga(..), Sthana(..))
 
 -- ─────────────────────────────────────────────────────────── the entry
 

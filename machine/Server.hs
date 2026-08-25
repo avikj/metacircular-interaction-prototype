@@ -108,9 +108,9 @@ import System.IO
 import System.Process (readProcessWithExitCode)
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 
-import Json
-import Lexicon (Register(..), registerOf, toGreek, toSanskrit, lexiconJ)
-import qualified Lexicon
+import Wire
+import WireVocabulary (Register(..), registerOf, toGreek, toSanskrit, lexiconJ)
+import qualified WireVocabulary
 -- `hiding (Ganita)` is a live seam and not a preference.  While this lane was
 -- repairing the readers below, the Uttara lane gave `Saksin` a constructor
 -- `Ganita` — a COMPUTED witness, as against `Likhita`, a written one — and
@@ -124,13 +124,13 @@ import qualified Lexicon
 -- removes: this file reads their witnesses through `tuWitness`.
 import Answer hiding (Ganita)
 import qualified StandpointStore as K
-import qualified SevenfoldVerdict as S
-import qualified ResidueStream as G
-import qualified Obstruction as OB
-import qualified RuleConflict as VS
-import qualified Certificate as C
-import qualified QuadraticForms as VP
-import qualified Phonology as P
+import qualified Verdict as S
+import qualified VerdictResidue as G
+import qualified RefusalAnalysis as OB
+import qualified RulePriority as VS
+import qualified ProofGate as C
+import qualified CompositionLaw as VP
+import qualified RewriteEngine as P
 
 -- ============================================================ प्रामाण्य
 --
@@ -138,7 +138,7 @@ import qualified Phonology as P
 -- Aisthesis and the runghc organs (./jiva) can speak the route vocabulary
 -- without interpreting this whole assembly.  Imported and re-exported:
 -- the wire interface of this module is unchanged.
-import Evidence
+import EvidenceRoute
   (Pramanya(..), pramanyaJ, pramanyaWitness)
 
 -- | The stamp every answer carries.  `mSthana` is Saptabhangi's type and
@@ -356,7 +356,7 @@ kKosa :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kKosa y _ = pure (y, m, u)
   where
     m = Mudra (S.Position S.SyadAsti)
-          (Nihsesa (length Lexicon.entries)
+          (Nihsesa (length WireVocabulary.entries)
              ("every entry of the running translation table, both registers, "
               ++ "with its gloss; the table the wire translates against is "
               ++ "the table you are reading"))
@@ -367,7 +367,7 @@ kKosa y _ = pure (y, m, u)
                    "there is no second copy to fall out of date")
           [ ("kosa", lexiconJ)
           , ("register-vidhi", JStr "GREEK by default; send \"register\":\"sanskrit\" for the Sanskrit register") ]
-          [ "WHY each pair is a map and not a convenience: the argument for it is in Lexicon.hs's header, not on this wire"
+          [ "WHY each pair is a map and not a convenience: the argument for it is in WireVocabulary.hs's header, not on this wire"
           , "the English gloss is a gloss.  It is the register this vocabulary exists to avoid, and it is here to be read, never to be sent"
           , "every term of both traditions that has NO counterpart in the other, which is most of both" ]
           [ "Sextus Empiricus, Outlines of Pyrrhonism — περὶ κριτηρίου, the criterion; and the τρόποι, the modes"
@@ -813,8 +813,8 @@ kSaptaSamkramana y _ = pure result
                           ++ show n ++ " checks, no case omitted, no case sampled"))
           , samkramana "saptabhangi.samkramana"
               (tulyata "a bijection of finite sets with both round trips exhibited — an identification, in Voevodsky's sense: a thing held, not a fact cited"
-                       "SevenfoldVerdict.Sthana (7 bhaṅgas + Apratipatti)"
-                       "Obstruction.Sthana (B1..B7 + ADharmin)"
+                       "Verdict.Sthana (7 bhaṅgas + Apratipatti)"
+                       "RefusalAnalysis.Sthana (B1..B7 + ADharmin)"
                        ("obToS ∘ sToOb = id on all " ++ show (length allS)
                         ++ "; sToOb ∘ obToS = id on all " ++ show (length allOB)))
               [ ("purvatah", JArr [ JObj [ ("saptabhangi", JStr (S.sanskritOf s))
@@ -983,7 +983,7 @@ kSadhana y j = case pieces of
                   , "whether the kernel is honest in general — what was watched is that it rejected ONE falsehood, today, in this container" ]
                   ++ [ "THE MODULE ITSELF.  The accepted shape is `" ++ shape
                        ++ "`, and the module agda accepted is the INDUCTION module, "
-                       ++ "which Certificate.hs builds inside `certifyWith` from an "
+                       ++ "which ProofGate.hs builds inside `certifyWith` from an "
                        ++ "induction hypothesis it does not export.  Carrying the refl "
                        ++ "module here would exhibit a module agda REJECTED as the "
                        ++ "witness for a verdict it did not produce — the collapse this "
@@ -1002,7 +1002,7 @@ kSadhana y j = case pieces of
                 , "the distinction between `false` and `not provable in the shapes this emitter can write` — the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation" ]
                 [ "if the statement needs a different induction, say which variable with `sadhya`"
                 , "a rejection here is a fact about agda and this emitter; it is not a claim that the equation is false" ]
-                [ "Certificate.hs — `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted" ] )
+                [ "ProofGate.hs — `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted" ] )
           C.Untranslatable why ->
             ( y, Mudra S.Apratipatti
                    (Pratyaksa ("no module was emitted and no agda process ran; the fragment is listed in the answer"))
@@ -1013,7 +1013,7 @@ kSadhana y j = case pieces of
                 ( [ "the fragment, in full, so the next attempt can stay inside it:" ]
                   ++ [ "  " ++ f ++ "/" ++ show a | (f, a) <- fragment ]
                   ++ [ "  variables: x y z u v w" ] )
-                [ "Certificate.hs, `agdaTermWith`" ] )
+                [ "ProofGate.hs, `agdaTermWith`" ] )
       other ->
         pure ( y, Mudra S.Apratipatti
                      (Ayogya ("the kernel did not pass its own controls: " ++ show other))
@@ -1023,7 +1023,7 @@ kSadhana y j = case pieces of
                  , "and the distinction between `agda says no` and `agda is not usable here`, which a single red merges" ]
                  [ "repair the environment — the cubical library, the include root " ++ C.kIncludeRoot ++ ", the locale — and ask again"
                  , "this is jāti karaṇa-doṣa: the instrument or its environment is defective, not the mathematics" ]
-                 [ "Certificate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
+                 [ "ProofGate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
   where
     pieces = do
       ls <- jStr "vama" j; rs <- jStr "daksina" j
@@ -1242,7 +1242,7 @@ kDosaPramanya y _ = case yDosaBin y of
                       "the chain cannot be verified: this session has no doṣa-lekha binary"
                       [ "the verification you asked for, and with it the guarantee that this session's filed defects are still the bytes that were filed" ]
                       [ "run this machine through machine/run-yantra.sh, which builds the binary and passes it in DOSA_BIN" ]
-                      [ "machine/DefectLog.hs" ] )
+                      [ "machine/DefectRecord.hs" ] )
   Just bin -> do
     (code, out, err) <- readProcessWithExitCode bin ["verify"] ""
     let txt = out ++ err
@@ -1267,7 +1267,7 @@ kDosaPramanya y _ = case yDosaBin y of
             [ ("phala", JStr (trimS txt)) ]
             [ "the chain is FNV-1a and is not cryptographic and is not claimed to be: the adversary is an accidental edit, a lost rebase, a truncating write.  An adversary with the filesystem also has this file."
             , "who wrote each record, beyond what each record says of itself" ]
-            [ "machine/DefectLog.hs §3 — the chain" ] )
+            [ "machine/DefectRecord.hs §3 — the chain" ] )
       _ ->
         ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the divergence is located by record and by line, and is carried verbatim")
         , dosalekha "dosa.pramanya"
@@ -1275,7 +1275,7 @@ kDosaPramanya y _ = case yDosaBin y of
             [ "the guarantee that this session's filed defects are the bytes that were filed"
             , "the organ's own report, verbatim, which names the record and the line: " ++ trimS txt ]
             [ "do NOT edit the diverging record.  Append one whose `uttara:` names it — that is the only correction an append-only log has." ]
-            [ "machine/DefectLog.hs" ] )
+            [ "machine/DefectRecord.hs" ] )
   where
     -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
     -- read out of the organ's own success line, which is
@@ -1554,7 +1554,7 @@ serve fp kala hin hout = go
           -- configured: GREEK unless the caller says `"register":"sanskrit"`.
           -- The server's internals stay Sanskrit and are never rewritten;
           -- translation happens here, at the two edges, so there is exactly
-          -- one copy of every name and nothing to drift.  See Lexicon.hs.
+          -- one copy of every name and nothing to drift.  See WireVocabulary.hs.
           let reg  = either (const Greek) registerOf (parseLine wireLine)
               line = case parseLine wireLine of
                        Right j -> render (toSanskrit reg j)
@@ -1735,7 +1735,7 @@ selftest fp kala y0 = do
   putStrLn ("  cakravāla D=61, law as a value → " ++ show pell
             ++ (if pellOK then "   (Bhāskara II's own value, Bījagaṇita 1150)" else "   !! WRONG"))
   putStrLn ("  aṆ → " ++ unwords aN ++ (if aNOK then "   (the traditional value)" else "   !! WRONG"))
-  putStrLn ("  Saptabhangi.Sthana ≃ Obstruction.Sthana, both round trips, "
+  putStrLn ("  Saptabhangi.Sthana ≃ RefusalAnalysis.Sthana, both round trips, "
             ++ show (length allS + length allOB) ++ " cases → "
             ++ (if isoOK then "holds" else "!! FAILS"))
   putStrLn ("  Garbha → Saptabhangi has no section (two distinct objects, one image) → "
