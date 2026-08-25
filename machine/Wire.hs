@@ -29,7 +29,7 @@
 -- changes where the repair goes.  '1 above gives the CONSEQUENCE: a
 -- `true` is the terminal object of a collapse with no retraction.  The
 -- CAUSE is in a different library, in
--- `punaragamana/src/Punaragamana/KuttakaValli_…`:
+-- `loss/src/Loss/KuttakaValli_…`:
 --
 --     वल्ली, the step, is a total function त्रिक् → त्रिक् written with NO
 --     comparison, NO `Dec`, NO `Bool` — because पक्षः has already recorded

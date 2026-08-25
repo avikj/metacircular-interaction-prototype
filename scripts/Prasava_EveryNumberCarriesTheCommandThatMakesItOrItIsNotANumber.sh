@@ -52,7 +52,7 @@ TODAY=$(date +%Y-%m-%d)
 rows() {
 cat <<'ROWS'
 agda-modules-toplevel	ls formal/cubical/*.agda | wc -l
-agda-modules-all	find formal/cubical punaragamana/src -name '*.agda' | wc -l
+agda-modules-all	find formal/cubical loss/src -name '*.agda' | wc -l
 agda-root-direct-imports	grep -c '^import ' formal/cubical/Everything.agda
 agda-reached	runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs 2>/dev/null | awk '/reached/{s+=$3} END{print s+0}'
 agda-unreached	sh scripts/.prasava-unreached.sh
@@ -61,12 +61,12 @@ lean-modules	find formal/pairfield/Pairfield -name '*.lean' | wc -l
 lean-root-imports	grep -c '^import ' formal/pairfield/Pairfield.lean
 machine-modules	ls machine/*.hs | wc -l
 notes	ls notes/*.md | wc -l
-punaragamana-modules	find punaragamana/src -name '*.agda' | wc -l
+punaragamana-modules	find loss/src -name '*.agda' | wc -l
 scripts	ls scripts/*.sh | wc -l
 hooks	ls .claude/hooks/* 2>/dev/null | wc -l
 mulavakya-rows	grep -vc '^#' .claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt
-sanskrit-led-modules	find formal/cubical punaragamana/src -name '*_*.agda' | wc -l
-postulates	grep -rl '^ *postulate' formal/cubical punaragamana/src --include=*.agda | wc -l
+sanskrit-led-modules	find formal/cubical loss/src -name '*_*.agda' | wc -l
+postulates	grep -rl '^ *postulate' formal/cubical loss/src --include=*.agda | wc -l
 lean-sorry	find formal/pairfield/Pairfield -name '*.lean' -exec awk -f scripts/.lean-strip.awk {} + | grep -cE '\bsorry\b|\badmit\b'
 python-files	find . -name '*.py' -not -path './.git/*' | wc -l
 commits	git rev-list --count HEAD

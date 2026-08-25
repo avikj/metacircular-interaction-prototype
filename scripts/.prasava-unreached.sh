@@ -24,7 +24,7 @@
 #      `Ratri.Foo` and a top-level `Foo` were the same key.
 #
 #   The old body, verbatim:
-#     find formal/cubical punaragamana/src -name '*.agda' | sed 's|.*/||; s|\.agda$||' | sort -u > $T
+#     find formal/cubical loss/src -name '*.agda' | sed 's|.*/||; s|\.agda$||' | sort -u > $T
 #     for root in .../Everything.agda ...; do sed -n 's/^import  *\([A-Za-z0-9_.]*\).*/\1/p' "$root"; done | sed 's|.*\.||' | sort -u > $R
 #     for m in $(cat $R); do ... one more step ... done >> $R
 #     comm -23 $T $R | wc -l
@@ -41,7 +41,7 @@
 # of rot has a fix and not only a count.
 #
 # NOTE ON SCOPE: samuccaya walks BOTH trees — formal/cubical/ and
-# punaragamana/src/ — as separate closure questions, because they are
+# loss/src/ — as separate closure questions, because they are
 # separate Agda include paths with separate Everything.agda files.  The
 # number printed here is their sum; run the program without --orphans to see
 # the two apart, which is the form you want when the sum moves.
