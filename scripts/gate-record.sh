@@ -322,7 +322,7 @@ check_one() {   # check_one <relpath> ; echoes exit code
     if [ -n "$LIBFILE" ]; then
         ( cd "$CUBICAL" && run_checked "$AGDA" --library-file="$LIBFILE" "$1" ) >/dev/null 2>&1
     else
-        ( cd "$CUBICAL" && run_checked "$AGDA" -i . "$1" ) >/dev/null 2>&1
+        ( cd "$CUBICAL" && run_checked "$AGDA" -i . -i theorems "$1" ) >/dev/null 2>&1
     fi
     echo $?
 }

@@ -60,11 +60,11 @@ file and one command.
   - ``Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOf
     IrreversibleSteps.agda`` — the computer is a groupoid; the field a
     monoid lacks is the undo.
-  - ``Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGrades
+  - ``theorems/Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGrades
     ByItsSteps.agda`` — you may certify a pipeline lossless step by step,
     and you may **not** diagnose it lossy that way: ``Unit → Bool`` then
     ``Bool → Unit`` is the identity, and neither factor is an equivalence.
-  - ``NaturalMachine/BraidCoherenceBoundary.agda`` — and invertibility is
+  - ``theorems/NaturalMachine/BraidCoherenceBoundary.agda`` — and invertibility is
     still not braiding: two involutive self-equivalences of ``Bool³`` that
     fail Yang–Baxter at a named point.
 
@@ -74,7 +74,7 @@ file and one command.
   descent law; ``bhāvanā`` and ``cakravāla`` (Brahmagupta 628, Jayadeva
   ~950, Bhāskara II 1150) solve ``x² − D y² = 1``; ``prastāra`` (Piṅgala,
   ~300 BCE) is proved as a *bijection* rather than a count, in
-  ``formal/cubical/SourcedProofs/PingalaPrastara.agda``:
+  ``formal/cubical/theorems/SourcedProofs/PingalaPrastara.agda``:
   ``matraCount : Iso (Metre n) (Fin (matra n))``, with the Virahāṅka
   recurrence following from it.  Jaina sevenfold predication
   (``saptabhaṅgī``) is given proof-relevant semantics in
@@ -86,7 +86,7 @@ file and one command.
   reader who does not have the term can still tell what the file does.
 
 **Physics / foundations.**
-  ``formal/cubical/EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedBy
+  ``formal/cubical/theorems/EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedBy
   TheVowsAndTheInteriorIsTheNamedConjecture.agda`` forces the support layer
   of the Born weights from the two vows plus normalisation, and
   ``EkatvaMatraDvaya_…agda`` forces the symmetric two-outcome weight to

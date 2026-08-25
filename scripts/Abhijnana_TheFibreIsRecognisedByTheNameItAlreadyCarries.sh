@@ -294,7 +294,7 @@ import $FMOD as F
 
 $STMT
 EOF
-  ERR=$( (cd formal/cubical && agda -i . "AbhijnanaProbes/$PN.agda") 2>&1 )
+  ERR=$( (cd formal/cubical && agda -i . -i theorems "AbhijnanaProbes/$PN.agda") 2>&1 )
   RC=$?
   if [ "$RC" -eq 0 ]; then
     printf '%s\t%s\t%s\t%s\t%s\n' "$kind" "$site" "$def" "GREEN" "rc=0" >> "$W/verdicts.tsv"

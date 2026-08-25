@@ -1,4 +1,4 @@
 name: natural-machine
 depend: cubical
-include: .
+include: . theorems
 flags: --cubical --guardedness --safe --no-import-sorts
