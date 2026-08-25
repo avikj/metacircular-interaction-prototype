@@ -2304,3 +2304,7 @@ import Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot
 -- The three axis quarter-waves are the quaternions: non-abelian (order of
 -- orbs is physical) and the qubit is a spinor (full turn = -1). Companion to मणि.
 import Trika_TheAxisQuarterWavesAreQuaternionsNonAbelianAndTheQubitIsASpinor
+
+-- The entangling two-qubit gate (बन्ध): lossless/reversible but provably not
+-- a product of single-qubit gates — the door to universality single orbs cant open.
+import Bandha_TheEntanglingGateIsLosslessButDoesNotFactorIntoSingleQubitGates
