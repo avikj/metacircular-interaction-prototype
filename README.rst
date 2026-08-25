@@ -1,201 +1,252 @@
-=========================================================
- A book about India, checked in cubical type theory
-=========================================================
+====================================================================
+ एकवाक्यता · EKAVĀKYATĀ
+ five collapses, one theorem, and each tradition says it in its own words
+====================================================================
 
-Indian mathematics and philosophy from c. 1200 BCE to c. 1600 CE, read on
-its own terms and written down as **machine-checked terms** rather than as
-prose about them.  The substrate is cubical Agda, in which univalence
-*computes*: an equivalence is not a fact you cite, it is a channel that
-acts, and ``transp (ua e)`` carries any theorem across it, both ways, on
-the nose.
+  Indian mathematics and philosophy, c. 1200 BCE to c. 1600 CE, read on its
+  own terms and written down as machine-checked terms rather than as prose
+  about them.  The substrate is cubical Agda, in which univalence computes.
+  Every claim below is a term a typechecker accepts or refuses::
 
-Nothing here asks to be believed.  Every claim is a term a typechecker
-either accepts or refuses, and every check below bootstraps its own
-toolchain from an empty container.
+      sh fibre/check.sh            # installs its own Agda, checks, exit 0
 
-----
 
-Where to enter
-==============
 
-Pick the door that matches what you already know.  Each one names a first
-file and one command.
+  Companion to formal/cubical/theorems/Ekavakyata_
+  FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords.agda, where every claim below is a live
+  import rather than a sentence.  If one of the five theorems is renamed,
+  weakened, or stops checking, that file goes red.  This one cannot, which
+  is why that one is the authority and this one is the reading.
 
-**Type theory / HoTT.**
-  Start at ``formal/cubical/Kernel/Avataranika_WhatThisIsAndHowToDescend
-  IntoTheMetacircularKernel.agda`` — it is written for an arriving mind and
-  names the wrong frames first.  Then the one primitive the whole corpus
-  turns on, the *fibre law*, in ``loss/src/Loss/Carrier.agda``:
-  for ``f : A → B``, which side of ``f a ≡ b`` you bind decides everything.
-  Bind the output and the fibre is ``singl (f a)``, contractible, so the
-  carried datum rides free and ``A ≃ Carrier f``.  Bind the input and it is
-  ``fiber f b`` — the exact loss.
+  ekavākyatā, "the state of being one sentence", is the Mīmāṃsā device by
+  which utterances standing apart in a text are shown to constitute a
+  single sentence, so that none of them is complete alone.  Pūrva-Mīmāṃsā:
+  Jaimini's sūtras with Śabara's bhāṣya, developed by Kumārila and
+  Prabhākara.  No sūtra number is given here because I have not opened
+  them, and a number I did not check would be a fabricated provenance.
 
-  ::
 
-      sh loss/check.sh          # installs its own Agda, checks, exit 0
 
-**Programming languages / rewriting.**
-  ``formal/cubical/Kernel/RewriteCertificate.agda`` is the metacircular
-  kernel, entire.  Terms, steps, derivations, an evaluator, soundness, and
-  ``install : Derivation lhs rhs → NativeOperation`` — the metacircular
-  move, where a checked proof becomes an executable operation the machine
-  did not have before.  ``Step`` ships a ``reverse`` constructor, so
-  derivations are a groupoid and not a rewriting order.
+THE SENTENCE
+------------------------------------------------------------------------------------------
 
-**Distributed systems / consensus.**
-  ``Kernel/Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFree
-  SoConsensusOnMeaningIsVacuous.agda``.  Merging libraries of installed
-  operations is ``++``: grow-only, commutative, idempotent, total, with no
-  reconciliation pass and no failure mode — a ``NativeOperation`` cannot be
-  constructed without a checked derivation, so a merge has nothing to
-  validate.  Soundness lands in an identity type of ``ℕ``, hence in a
-  proposition, so two nodes *cannot* disagree about what is true.  A vote
-  would decide nothing.  Consensus here is not forbidden; it is vacuous.
+  A rule, an observer, a sieve, or a score is blind exactly to what its
+  own collapse identifies.  The blindness is FORCED by the collapse — not
+  chosen, not an approximation, not a resolution limit.  The invisible
+  quantity is not small.  It is complementary.  And it is recoverable only
+  by changing place, never by refining the instrument.
 
-**Reversible / topological computation.**
-  Three files, none of which imports another, that fence the same object
-  from three sides:
+Five checked theorems say this.  They were written in five lanes, about
+five subjects, by hands that were not coordinating.  Two of them are
+literally about one object.
 
-  - ``Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOf
-    IrreversibleSteps.agda`` — the computer is a groupoid; the field a
-    monoid lacks is the undo.
-  - ``theorems/Samyoge_LosslessnessComposesButLossinessDoesNotSoNoPipelineGrades
-    ByItsSteps.agda`` — you may certify a pipeline lossless step by step,
-    and you may **not** diagnose it lossy that way: ``Unit → Bool`` then
-    ``Bool → Unit`` is the identity, and neither factor is an equivalence.
-  - ``theorems/NaturalMachine/BraidCoherenceBoundary.agda`` — and invertibility is
-    still not braiding: two involutive self-equivalences of ``Bool³`` that
-    fail Yang–Baxter at a named point.
 
-**History of mathematics / Indology.**
-  The sources are the origin, not a footnote, and the European name is a
-  restatement when it is used at all.  ``Kuṭṭaka`` (Āryabhaṭa, 499) is the
-  descent law; ``bhāvanā`` and ``cakravāla`` (Brahmagupta 628, Jayadeva
-  ~950, Bhāskara II 1150) solve ``x² − D y² = 1``; ``prastāra`` (Piṅgala,
-  ~300 BCE) is proved as a *bijection* rather than a count, in
-  ``formal/cubical/theorems/SourcedProofs/PingalaPrastara.agda``:
-  ``matraCount : Iso (Metre n) (Fin (matra n))``, with the Virahāṅka
-  recurrence following from it.  Jaina sevenfold predication
-  (``saptabhaṅgī``) is given proof-relevant semantics in
-  ``formal/cubical/Saptabhangi.agda``, where a two-valued verdict is a
-  theorem-grade mistake.
 
-  A file is named for the term the tradition uses, then an underscore, then
-  an English gloss.  The Sanskrit is the name; the English is there so a
-  reader who does not have the term can still tell what the file does.
+I.  VYĀKARAṆA          Pāṇini, Aṣṭādhyāyī, c. 500 BCE
+------------------------------------------------------------------------------------------
 
-**Physics / foundations.**
-  ``formal/cubical/theorems/EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedBy
-  TheVowsAndTheInteriorIsTheNamedConjecture.agda`` forces the support layer
-  of the Born weights from the two vows plus normalisation, and
-  ``EkatvaMatraDvaya_…agda`` forces the symmetric two-outcome weight to
-  exactly one half.  The same object read six ways — memory, charge,
-  symmetry, price, distance, verdict — is laid out in the ``Avataranika``
-  entry file above; every reading is the fibre law wearing another face.
+  8.2.1   पूर्वत्रासिद्धम्   from this sūtra to the end of the text, a rule is
+          asiddha — "as if not having taken effect" — with respect to
+          everything that precedes it.  The blindness is one-way, ordered,
+          and stated as a rule of the grammar itself.
 
-----
+  the collapse    8.4.56 वाऽवसाने sends two forms that DISAGREE about
+                  8.2.39's applicability to one and the same form.
+  what goes blind that applicability.
 
-Run it
-======
+अवरोहणाभावः  proves there is no Bool-valued function on the later forms
+agreeing with it.  Not a different answer there — NO VALUE THERE.
 
-Three lanes, each of which installs what it needs and reports what it
-actually got:
+So asiddhatva is not a device against looping.  That is a separate
+theorem, proved separately.  8.2.1 is a DESCENT CONDITION: it registers
+that an earlier rule's condition is a function on a fibre which the later
+rule's collapse destroys.  तन्तुभेदः exhibits the two points of that fibre,
+so the fibre is not a figure of speech for the invisible part.  It is that
+set.
 
-::
+  A predicate descends along a map iff it is constant on its fibres.
+  8.4.56 has a two-point fibre on which 8.2.39's applicability is not
+  constant.  Hence no descent — and the blindness is forced, not
+  stipulated.
 
-    sh loss/check.sh                  # Agda 2.6.3 + cubical v0.5, from nothing
-    sh scripts/Dhruva_TheDeclaredPinIsBuilt*  # the pin: Agda 2.8.0 + cubical v0.9
-    sh machine/run-yantra.sh                  # the Haskell lane: build, turn, contract-check
 
-A verdict that does not name its toolchain has dropped half its witness, so
-``Dhruva`` prints the version it obtained and says plainly when that is not
-the pin.
 
-Talk to it
-==========
+II.  GAUGE THEORY, LOOP QUANTUM GRAVITY
+------------------------------------------------------------------------------------------
 
-There is a running process you can hold a session with — one JSON object per
-line on stdin, one answer per line on stdout.  It audits itself on startup by
-computing a Bézout witness, then a false one, and refusing it; no answer from
-a run that has not been watched rejecting something is honoured.
+  the collapse    an observable invariant under the holonomy.
+  what goes blind the holonomy — exactly, and in both directions.
 
-::
+invisibleExactlyWhenInvariant  —  a semantics is unmoved by transport
+along ua h IFF it is invariant under h.  Invisibility and invariance are
+not two facts about an observable.  They are one condition read from two
+sides.  invisibleIsInvariantAsTypes upgrades it, when the value type is a
+set, to an EQUIVALENCE of the two conditions.
 
-    sh machine/run-yantra.sh --wire        # builds from the working tree, then listens
+And the converse cost nothing.  The reason outlives the theorem:
 
-    {"kriya":"yantra.kriyah"}
-    {"kriya":"vargaprakrti","angani":{"D":61}}
-    {"kriya":"kuttaka","angani":{"a":137,"b":60}}
-    {"kriya":"pratyahara","angani":{"adi":"a","it":"ṇ"}}
+  the two sides are joined by uaβ, which is a PATH, and a path may be
+  walked in either orientation.  One cycle earlier the same audit found a
+  converse costing `Enumerated K` + `Discrete O`, because there the sides
+  were joined by an implication assumed.
 
-``vargaprakrti`` runs Brahmagupta's *bhāvanā* driven by the *cakravāla* with
-the composition law carried as a value rather than baked in, and returns
-``x² − 61 y² = 1`` at ``(1766319049, 226153980)`` — Bhāskara II's own number,
-*Bījagaṇita*, 1150 — with every norm the wheel visited.  ``kuttaka`` is
-Āryabhaṭa's pulverizer: the *vallī*, the Bézout pair, and the congruence.
-``pratyahara`` is Pāṇini's interval notation over the *varṇasamāmnāya*.
+  A PATH HAS AN INVERSE.  AN IMPLICATION DOES NOT.
 
-The rest of the table is the session itself: ``naya.sthapana`` /
-``naya.suchi`` / ``naya.samasa`` install standpoints and ask whether they may
-be collapsed into one verdict; ``saptabhangi.samkramana`` and
-``nirnaya.saptabhangi`` run the sevenfold; ``dosa.lekha`` / ``dosa.suchi`` /
-``dosa.pramanya`` are the defect log and its chain; ``sesa.arpana`` hands a
-remainder forward.
+So "is the converse free?" has an answer readable off the shape of what
+connects the two sides, before either direction is attempted.
 
-Every answer is a ``saṃkramaṇa`` — a transport, carrying its ``vyaya``, what
-a collapse of it would destroy — or a ``doṣa-lekha``, a written defect
-carrying its losses named one by one.  **There is no boolean on that wire**,
-deliberately: one bit returns the same value for a false statement and for a
-failed search, and the difference between those two is the whole content.
-Asking for an operation that does not exist returns *no predication was
-made*, and the name is not guessed at by nearest match.
+The three physics modules together give the representation-independent
+content of LQG kinematics, and it is four things:
 
-Layout
-======
+  · edges are group actions;
+  · vertices are intertwiners, and gauge invariance IS the equivariance
+    square — not a constraint added on top of the label;
+  · flux is a derivation, and subdivision-compatibility is FORCED by
+    multiplicativity and Leibniz alone.  Orientation and intersection
+    sign are chosen afterward and are not needed for it;
+  · an observable is blind to holonomy exactly when it is gauge-invariant.
 
-===================  =========================================================
-``formal/cubical/``  the Agda corpus.  ``Kernel/`` is the metacircular kernel
-                     and its readings; ``SourcedProofs/`` each proof formalises a statement from a dated text; ``Primes/PairField/`` the Goldbach/twin pair field,
-                     ``Swarm/`` one dated batch
-``loss/``    the fibre law and the carrier calculus; self-bootstrapping
-``formal/pairfield/``  the Lean 4 analytic lane — no ``sorry``, no ``axiom``
-``machine/``         Haskell: the sabhā daemon, certificates, the Aṣṭādhyāyī
-                     engine, the obstruction calculus
-``scripts/``         toolchain pin, gates, censuses.  Each prints the command
-                     that produced any number it reports
-``notes/``           working prose that has not become a term yet
-``abstracts/``       results stated for a reader who will not run Agda
-``zzz/``         history.  Nothing here is built, checked, or imported
-===================  =========================================================
+  For a physicist, one sentence: LQG kinematics is the category of actions
+  of the gauge group.  SU(2), tensor products and the Hilbert space are
+  representation-theoretic choices made after the structure is fixed, and
+  the entire physical residue — what no gauge-invariant observable can see
+  — is holonomy, exactly and measurably.
 
-----
 
-House rules
-===========
 
-They are short, and each replaced a specific failure.
+III.  ANALYTIC NUMBER THEORY     the parity barrier, with no sieve in it
+------------------------------------------------------------------------------------------
 
-**Markdown is banned**, and 3630 ``.md`` files were removed in one change.
-A ``.md`` file asserts; a checked term is the object, and it is still there
-tomorrow.  ``CLAUDE.md`` and ``AGENTS.md`` survive because the harness
-*loads* them — deleting those removes a mechanism, not an assertion.
+  the collapse    idempotence.
+  what goes blind sign.
 
-**Python is banned.**  A script that prints a number is an assertion you
-must trust the author and the run for.  Exact and certified symbolic
-computation is proof; a fitted constant is an error analysis nobody did.
-One published constant here was fitted over a single decade where the true
-value is exactly ``1/4``, and it propagated into two notes and a paper
-section before anyone derived it.
+The general reason needs no arithmetic at all:
 
-**A number without a command is a memory, and an absence without a command
-is a rumour.**  Both are checkable in seconds and both went unchecked for
-days at a time; the second cost more.
+  KNOWING SOMETHING TWICE IS KNOWING IT ONCE.
 
-**Cite the source, not the restatement.**  Pell did not solve Pell's
-equation and Euler misattributed it; Piṅgala's array predates Pascal by
-nineteen centuries; Virahāṅka's recurrence predates Fibonacci by five.
-Repeating those names with the history available is a live act, not a
-shorthand.  Where the mathematics genuinely originates elsewhere, the
-header says so rather than inventing a Sanskrit label — a fabricated term
-is the same error in a mirror.
+Any state law that ACCUMULATES — observations, constraints, standpoints,
+congruences, installed primes — is idempotent, because combining a datum
+with itself adds nothing.  lcm is idempotent for that reason, and not for
+a reason about divisibility.
+
+sign-is-not-accumulable  —  there is no accumulative law and no
+multiplicative f into ℤ taking the value −1.  Ever.  Not "hard to
+accumulate."  Over ℤ the units are ±1, so this rules out λ everywhere and
+μ off the squares, FOR EVERY ACCUMULATIVE LAW AT ONCE, with no domain
+hypothesis.
+
+  The parity barrier is not a limitation of sieve technology.  Whatever
+  carries sign, it is not accumulation.  Accumulation and cancellation are
+  incompatible, exactly.
+
+And the companion, from the other end of the same arithmetic: the product
+formula splits into an arithmetic half and an accounting half, and the
+accounting half needs no primes, no unique factorisation, no absolute
+values, and no real numbers.  Leave the weights abstract and it holds for
+any exponents whatsoever.  Its content:
+
+  a defect at one place is not an absolute loss.  It is compensated, and
+  the compensating term lives at a place the local method cannot see.
+
+
+
+IV.  THE KERNEL'S SEMANTICS      and the statement about reward
+------------------------------------------------------------------------------------------
+
+अङ्कपाश, aṅkapāśa, "the net of digits", is Bhāskara II's Līlāvatī section
+on permutations (~1150): the ARRANGEMENT, as against the count of
+arrangements.  No verse number — editions differ in their numbering there.
+
+  the collapse    eval : Tm → Env → ℕ, a readout into a set.
+  what goes blind a transposition.  One ℤ/2 of holonomy.
+
+no-counting-criterion-separates  —  for ANY type C at ANY level and ANY
+function φ of the counting meaning, φ cannot distinguish performing the
+commutation from doing nothing.  Universally quantified over every
+possible readout, not over the ones anyone has tried.
+
+comm-loop-is-a-nontrivial-loop-in-the-universe  —  and the categorified
+semantics DOES see it.  The path is not refl, proved through uaβ, which is
+univalence's β-rule COMPUTING.  Calculated, not asserted.
+
+Commutativity of addition is not free information.  It is a ℤ/2 of
+holonomy, and every readout valued in a set annihilates it.
+
+  THE MACHINE-LEARNING FORM.  `install` makes a proved theorem a
+  next-move, so an operation library is a learned policy.  A policy scored
+  by any function of a numerical readout provably cannot represent WHICH
+  ARRANGEMENT produced the number.  Order information is not an
+  inefficiency of a bag-of-counts score.  It is provably absent from it.
+
+  And with II: an architecture's invariance is exactly its blindness.  A
+  model invariant under a symmetry cannot represent that symmetry's
+  holonomy.  Inductive bias is not free capacity — it is paid for at a
+  measurable rate, one ℤ/2 per independent loop.
+
+
+
+V.  THE KERNEL AS A DISTRIBUTED SYSTEM    the same law, as a capability
+------------------------------------------------------------------------------------------
+
+  the collapse    derivation-sound lands in an identity type of ℕ, and ℕ
+                  is a set, so that type is a PROPOSITION.
+  what goes blind which route was taken.
+
+two-nodes-cannot-disagree  —  any two derivations between the same terms
+have EQUAL meanings.  Not compatible.  Not both acceptable.  Equal, as
+terms.  A consensus protocol over meaning would range over a proposition,
+and a proposition has no second position to elect.
+
+  CONSENSUS ON MEANING IS NOT FORBIDDEN HERE.  IT IS VACUOUS.
+
+merge-is-idempotent  —  the library join is grow-only, commutative and
+idempotent, with no failure mode.  `merge` has no Maybe, no validity
+precondition, no error, because a NativeOperation cannot be constructed
+without a checked derivation.  A merge has nothing to validate.  Validity
+is local to the operation and travels with it.
+
+And what genuinely differs is kept: routes-genuinely-differ exhibits two
+derivations of one fact with equal meanings and lengths 2 and 4, neither
+wrong, and advance-preserves-branch-count is the rule that both survive
+the merge.  A fork is not a disagreement awaiting a verdict.  It is two
+carriers of one fact.
+
+  §IV of that module is the Vedāntin's avirodha — the conflict dissolves.
+  §V is the Jaina's anekānta — the standpoints coexist.  Different
+  schools, kept apart, and the kernel exhibits both because they are about
+  different layers: the meaning, and the route.
+
+READ WITH III, THIS IS ONE OBJECT AND NOT AN ANALOGY.  The library merge
+is an accumulative law in exactly SignIsNotAccumulable's sense.  So the
+parity barrier applies to it verbatim:
+
+  A CRDT CANNOT CARRY SIGN.
+
+The sieve's blindness and the replicated library's freedom from conflict
+are one idempotence, priced once as a loss and once as a guarantee.
+
+
+
+WHAT IS NOT CLAIMED
+------------------------------------------------------------------------------------------
+
+Not that the five are instances of one formal statement.  They are not:
+their types differ, their ambient structures differ, and no functor
+between them is constructed.  What is exhibited is that each is the same
+SENTENCE, and that III and V are literally about one object.  A common
+generalisation would be a real theorem and it is not proved.
+
+Not that Pāṇini, Bhāskara II, Jaimini or any Mīmāṃsaka proved, stated or
+anticipated any of this.  §I quotes sūtras; the fibre reading is not
+Pāṇini's.
+
+Not anything about physical spacetime, quantum states, Hilbert spaces or
+SU(2).  §II is about a semantics and an equivalence.
+
+Not that §IV's machine-learning reading is a theorem about any deployed
+system.  The theorem is about functions of a count-valued semantics; that
+a reward model is such a function is an interpretation, stated as one.
+
+What IS claimed: the named terms exist, are checked, say what is written
+above them, and are imported by the Agda companion — so that file is false
+the moment any of them is.

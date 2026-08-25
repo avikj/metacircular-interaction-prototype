@@ -9,7 +9,7 @@ import Mathlib.Logic.Unique
 
 *Punarāgamana* (पुनरागमन), "coming back again / return", is used here as the
 name of a module family, following `loss/` and
-`loss/src/Loss/Carrier.agda` in this repository. **The compound
+`fibre/src/Fibre/Carrier.agda` in this repository. **The compound
 is chosen here; no text and no source is claimed for it**, and naming a module
 for it asserts nothing about any tradition's authorship of the theorem below.
 The contrast the name is for is नष्टि (destruction), which is अप्रतिकार्य — the

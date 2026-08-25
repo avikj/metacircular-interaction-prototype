@@ -10,7 +10,7 @@
 -- 2026-08-23T15:37Z) lists 12 real obligations, THREE of them grouped
 -- under the move "induction on List":
 --
---     Swarm.S13OptionSpread      : ones ⇄ sum
+--     OptionSpread      : ones ⇄ sum
 --     IntegerHullMultiplicity    : Xs  ⇄ hull
 --     IntegerHullMultiplicity    : Qs  ⇄ hull
 --
@@ -41,7 +41,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Swarm.S13OptionSpread as S13
+import OptionSpread as S13
 
 -- IntegerHullMultiplicity does not import under this container's cubical
 -- v0.5 (it uses solveℕ!, a later library's tactic — the version-skew

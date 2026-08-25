@@ -109,7 +109,7 @@ sub-fresh (n , p) = posNotnegsuc n 1 p
 -- Nothing is assumed about `ε`.  This is the general fact.
 
 -- PRIOR ART, found after writing this and kept because the overlap is the
--- point.  `Swarm.S04Apoha` already carries apoha as *witnessed separation*:
+-- point.  `Apoha` already carries apoha as *witnessed separation*:
 -- `Ind` (every observation agrees) against `Sep` (some observation excludes,
 -- and you hold it), with the constructive gap between them located exactly --
 -- the negative forms always agree, the witnessed one needs finiteness or MP.

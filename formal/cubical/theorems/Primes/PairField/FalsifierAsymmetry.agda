@@ -26,7 +26,7 @@
 --
 -- No no-go theorem is attempted or claimed.  The precise size of the
 -- finite/infinite gap is already isolated in this corpus: it is
--- Markov's Principle.  See formal/cubical/Swarm/S04Apoha.agda,
+-- Markov's Principle.  See formal/cubical/theorems/Apoha.agda,
 -- `MP→Witnessed` / `Witnessed→MP` (checked there, cited here, not
 -- imported): MP is exactly the license to convert a bare negation of
 -- the unbounded Π into the Σ-witness that `falsify` consumes.  Without

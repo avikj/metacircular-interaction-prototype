@@ -15,7 +15,7 @@
 --     Fib n = Σ[ w ∈ Word ] (value w ≡ n)
 --
 -- — and 46 such definitions already exist in `formal/cubical` and
--- `loss/src`.  Joining their SOURCE TYPES against the queue's
+-- `fibre/src`.  Joining their SOURCE TYPES against the queue's
 -- gives leads.  A source-type match is a LEAD AND NOT A VERDICT: eleven
 -- leads were examined and SIX DIED on inspection.  They are listed by
 -- name in §० below, because a method's false-positive rate is what
@@ -43,7 +43,7 @@
 -- THE TWO EDGES THE CENSUS NEVER SAW, which is the finding.
 --
 -- `triple : ℤ → ℤ` (`S3IntegerRelativeCoordinates.agda:83`) and
--- `मात्रा : रूप → ℕ` (`loss/src/…/Prastara_….agda:157`) are
+-- `मात्रा : रूप → ℕ` (`fibre/src/…/Prastara_….agda:157`) are
 -- top-level, total, non-injective maps whose fibres are written 12 and
 -- 95 lines below them respectively.  NEITHER APPEARS among the 1046.
 -- So the queue's number is not an upper bound on the corpus's one-way
@@ -78,7 +78,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Int using (ℤ ; pos)
 
 open import NaturalMachine.ChenTwoChargeProjector using (Charge ; chargeOneProjector ; chargeOneFiber)
-open import Swarm.S03CarryFiber using (Word ; value ; Fib)
+open import CarryFiber using (Word ; value ; Fib)
 open import NaturalMachine.ParitySeparator using (Number ; Ω ; sgn)
 open import NaturalMachine.OracleSeparation using (EvenQuery)
 open import NaturalMachine.S3IntegerRelativeCoordinates using (triple ; ThreeKernel)

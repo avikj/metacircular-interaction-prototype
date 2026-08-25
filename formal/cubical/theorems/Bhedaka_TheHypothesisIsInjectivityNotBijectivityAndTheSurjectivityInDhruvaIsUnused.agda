@@ -28,7 +28,7 @@
 -- true as stated — it is the statement of what makes it true.
 --
 -- WHY THIS IS THE CARRIER LAW AND NOT A LEMMA ABOUT EMBEDDINGS.
--- `loss/src/Loss/Carrier.agda` is built on one line:
+-- `fibre/src/Loss/Carrier.agda` is built on one line:
 -- the fibre `Σ[ b ∈ B ] (f a ≡ b) = singl (f a)` is contractible, always,
 -- for any `f` whatever.  Its header names the converse as "the part that
 -- does work": a NON-contractible fibre cannot be declared equivalent to

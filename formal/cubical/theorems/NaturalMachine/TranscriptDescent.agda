@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- A transcript test produces an executable decoder.
 --
--- Swarm.S00TranscriptComposition proves the exact kernel-pair condition
+-- TranscriptComposition proves the exact kernel-pair condition
 -- under which stagewise transcript preservation survives composition.
 -- NaturalMachine.FiniteInformation proves that a kernel-pair invariant
 -- into a set descends constructively through the image.  Their common
@@ -20,7 +20,7 @@ open import Cubical.Foundations.HLevels using (isSetΣ)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Swarm.S00TranscriptComposition as Transcript
+import TranscriptComposition as Transcript
 open import NaturalMachine.FiniteInformation
   using
     ( FactorsThrough

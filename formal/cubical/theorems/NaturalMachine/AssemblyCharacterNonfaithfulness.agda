@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --safe #-}
 
--- The three components of Swarm.S14AssemblyGrading really are multiplicative
+-- The three components of AssemblyGrading really are multiplicative
 -- characters of word concatenation.  Their product controls determinant but
 -- is not faithful to matrix execution: the quotient carried by a pulverizer
 -- letter is invisible to all three components.
@@ -16,7 +16,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import Gamma0Partner using (R ; M)
 import M2Unimodular as M2
-import Swarm.S14AssemblyGrading as AG
+import AssemblyGrading as AG
 
 open CommRingStr (ℤCommRing .snd)
 open AG using
