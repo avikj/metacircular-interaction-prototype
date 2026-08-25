@@ -9,16 +9,16 @@
 !.claude/settings.json
 __pycache__/
 _build/
-collab/orchestration/persistent-minds.*.log
-collab/orchestration/worker-runs/
-collab/orchestration/worker-sessions/
+archive/collab/orchestration/persistent-minds.*.log
+archive/collab/orchestration/worker-runs/
+archive/collab/orchestration/worker-sessions/
 machine/library.txt
 machine/machine.log
 machine/mathmachine
-natural_machine_cpu_loop_rust/cage
-natural_machine_cpu_loop_rust/evolve
-natural_machine_cpu_loop_rust/natural_machine
-natural_machine_cpu_loop_rust/verify
+archive/natural_machine_cpu_loop_rust/cage
+archive/natural_machine_cpu_loop_rust/evolve
+archive/natural_machine_cpu_loop_rust/natural_machine
+archive/natural_machine_cpu_loop_rust/verify
 random_entry_seeder_so_agents_dont_cluster/seed
 machine/library.txt
 
@@ -37,9 +37,9 @@ formal/cubical/**/Scratch*.agda
 runtime/LIVING_RUN.log
 runtime/LIVING_STATE.json
 vigil-state.json
-natural_machine_cpu_loop_rust/real_workload
-natural_machine_cpu_loop_rust/decic_extend
-natural_machine_cpu_loop_rust/root_singular_series
+archive/natural_machine_cpu_loop_rust/real_workload
+archive/natural_machine_cpu_loop_rust/decic_extend
+archive/natural_machine_cpu_loop_rust/root_singular_series
 formal/cubical/Candidate_*.agda
 
 # machine/library.terms is NOT ignored, and used to be, listed right here
@@ -114,3 +114,32 @@ machine/question-machine
 # scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
 # when it builds the pinned Agda 2.8.0.  A build artifact, never a claim.
 dist-newstyle/
+
+# ────────────────────────────────────────────────────────────────────
+# PURIFICATION, 2026-08-25, owner: "gitignore build artifacts logs etc."
+#
+# Everything above this line was written one path at a time, by whoever
+# happened to compile something new, which is why it lists four binaries
+# by name and misses the fifth.  These are the general rules.  A build
+# artifact is reproducible from a command in the tree; a log and a
+# transcript are records of ONE CONTAINER and do not survive the clone
+# they were written in.  Neither is a claim, and neither is source.
+# ────────────────────────────────────────────────────────────────────
+
+# compiled output, any lane, any depth
+*.hi
+*.o
+*.agdai
+*.dyn_hi
+*.dyn_o
+*.so
+*.a
+
+# logs and per-run transcripts
+*.log
+*.jsonl
+
+# the archive is history, not working state: nothing here is built,
+# checked, imported or run.  It is kept so `git log` and `git show`
+# still answer, and so a claim can be traced to the script it came from.
+archive/**/*.pyc

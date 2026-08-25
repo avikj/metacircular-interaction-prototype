@@ -51,7 +51,7 @@ open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 open import Cubical.Relation.Nullary.Properties using (isProp¬)
 
-open import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
+open import Mula.DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
   using (एक-लोपः ; द्वि-लोपः)
 
 private

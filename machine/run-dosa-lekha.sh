@@ -18,10 +18,10 @@
 # is newer, so `count` is cheap enough to be in anyone's loop.
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-SRC="$ROOT/machine/DosaLekha_TheWrittenDefectRecord.hs"
+SRC="$ROOT/machine/DefectLog.hs"
 OUT="${DOSA_BIN:-/tmp/dosalekha-$(id -u)}"
 if [ ! -x "$OUT" ] || [ "$SRC" -nt "$OUT" ]; then
-  ghc -O0 -Wall -main-is DosaLekha_TheWrittenDefectRecord.main \
+  ghc -O0 -Wall -main-is DefectLog.main \
       -outputdir "$(dirname "$OUT")/dosalekha-build-$(id -u)" \
       -o "$OUT" "$SRC" >/dev/null || {
     echo "run-dosa-lekha: ghc failed on $SRC" >&2; exit 2; }

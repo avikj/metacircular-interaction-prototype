@@ -81,7 +81,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import AnuktaAvaktavya using (सामयिक ; नित्य)
+open import Mula.AnuktaAvaktavya using (सामयिक ; नित्य)
 
 private
   variable

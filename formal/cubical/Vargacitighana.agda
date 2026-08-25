@@ -27,7 +27,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties
   using (·-distribˡ ; ·-assoc ; ·-suc ; +-assoc ; +-comm ; +-zero)
-open import Sankalita  using (∑ ; द्विगुण-सङ्कलितम्)
+open import Mula.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum  using (∑ ; द्विगुण-सङ्कलितम्)
 open import Citighana using (चिति ; चितिघनः)
 
 ------------------------------------------------------------------------
