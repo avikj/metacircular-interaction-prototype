@@ -96,7 +96,7 @@ W="${ABHIJNANA_SCRATCH:-.abhijnana}"; mkdir -p "$W"
 TAB=$(printf '\t')
 
 # ── १ · the queue: every one-way edge the census could not decide ──────
-runghc machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . --queue \
+runghc interactive/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . --queue \
   2>/dev/null | sed -n '/THE UNDECIDED QUEUE/,$p' | sed -n '2,$p' \
   | grep "$TAB" > "$W/queue.tsv"
 
@@ -107,7 +107,7 @@ runghc machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . --
 # both A and B as source candidates rather than silently picking one.
 #
 # columns: srcBase  mapBase  srcRaw  mapRaw  def  nParams  idxRHS  file  line
-# The detector is `machine/Upalabdhi_…hs`, NOT the one-line grep this script
+# The detector is `interactive/Upalabdhi_…hs`, NOT the one-line grep this script
 # shipped with.  That grep matched a single shape at column zero and found 47.
 # Upalabdhi reads seven shapes -- sigma-eq, fiber-alias, record-eq, sigma-neq
 # (the fibre of a SEPARATION, counted apart), data-eq, subtype-eq,
@@ -132,7 +132,7 @@ runghc machine/Lopa_TheIrreversibleEdgesAreTheOtherGraphAndTheyRunOneWay.hs . --
 # neither of them issues a verdict — §५ does, with the kernel.
 #
 # columns: srcBase mapBase srcRaw mapRaw def nParams idxRHS file line shape
-runghc machine/Upalabdhi_TheFibreWasAlreadyWrittenAndTheCensusCalledItUndecided.hs \
+runghc interactive/Upalabdhi_TheFibreWasAlreadyWrittenAndTheCensusCalledItUndecided.hs \
   2>/dev/null \
  | perl -CSDA -Mutf8 -F'\t' -lane '
   next unless @F>=6;
@@ -294,7 +294,7 @@ import $FMOD as F
 
 $STMT
 EOF
-  ERR=$( (cd formal/cubical && agda -i . "AbhijnanaProbes/$PN.agda") 2>&1 )
+  ERR=$( (cd formal/cubical && agda -i . -i theorems "AbhijnanaProbes/$PN.agda") 2>&1 )
   RC=$?
   if [ "$RC" -eq 0 ]; then
     printf '%s\t%s\t%s\t%s\t%s\n' "$kind" "$site" "$def" "GREEN" "rc=0" >> "$W/verdicts.tsv"

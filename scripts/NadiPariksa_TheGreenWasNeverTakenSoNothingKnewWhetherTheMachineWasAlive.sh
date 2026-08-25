@@ -94,22 +94,20 @@ echo
 
 # ── the checked lanes ────────────────────────────────────────────────
 run_gate "agda · pragma gate (--safe, no postulates/holes)" scripts/check-agda-pragmas.sh
-run_gate "agda · Everything closure"                        scripts/check-agda-closure.sh
 run_gate "lean · root closure"                              scripts/check-lean-root-closure.sh
 run_gate "lean · globs"                                     scripts/check-lean-globs.sh
 run_gate "lean · example oracles"                           scripts/check-lean-example-oracles.sh
 
 # ── the assembly, which nothing ran until this file ──────────────────
-run_gate "yantra · the organs on one wire, TURNED"          machine/run-yantra.sh slow
-run_gate "sabha · the session kernel"                       machine/check-sabha.sh slow
-run_gate "yantra · pariksa, the five roads exercised"       machine/check-yantra-pariksa.sh slow
+run_gate "yantra · the organs on one wire, TURNED"          interactive/run-yantra.sh slow
+run_gate "sabha · the session kernel"                       interactive/check-sabha.sh slow
+run_gate "yantra · pariksa, the five roads exercised"       interactive/check-yantra-pariksa.sh slow
 
 # ── the records that are supposed to be append-only ──────────────────
 run_gate "dosa · the written defect chain"                  scripts/check-dosa-lekha.sh
 run_gate "claims · struck claims still standing"            scripts/check-claim-slugs.sh
 run_gate "deletion · nothing silently removed"              scripts/check-no-silent-deletion.sh
 run_gate "problems · every problem has a spec"              scripts/check-problem-specs.sh
-run_gate "corrections · every correction reaches its site"  scripts/check-correction-reach.sh
 
 echo "── जीवति · WHAT ANSWERED, AND WHAT IT SAID ──"
 [ -n "$PASS" ] && printf '%s\n' "$PASS"

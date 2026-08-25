@@ -322,7 +322,7 @@ check_one() {   # check_one <relpath> ; echoes exit code
     if [ -n "$LIBFILE" ]; then
         ( cd "$CUBICAL" && run_checked "$AGDA" --library-file="$LIBFILE" "$1" ) >/dev/null 2>&1
     else
-        ( cd "$CUBICAL" && run_checked "$AGDA" -i . "$1" ) >/dev/null 2>&1
+        ( cd "$CUBICAL" && run_checked "$AGDA" -i . -i theorems "$1" ) >/dev/null 2>&1
     fi
     echo $?
 }
@@ -397,13 +397,13 @@ done < <(list_controls)
 # `lake exe cache get` is ~10 GB.  Enumerated from disk, never from an
 # import list.
 LEAN_GREEN=0; LEAN_RED=0
-if [ "${GATE_LEAN:-0}" = "1" ] && [ -d "$REPO/formal/pairfield/Pairfield" ]; then
+if [ "${GATE_LEAN:-0}" = "1" ] && [ -d "$REPO/formal/lean/Pairfield" ]; then
     if command -v lake >/dev/null 2>&1; then
         echo "---- Lean lane (GATE_LEAN=1) ----"
         while IFS= read -r lm; do
             [ -n "$lm" ] || continue
             t0=$SECONDS
-            ( cd "$REPO/formal/pairfield" && run_checked lake build "$lm" ) >/dev/null 2>&1
+            ( cd "$REPO/formal/lean" && run_checked lake build "$lm" ) >/dev/null 2>&1
             rc=$?
             dt=$(( SECONDS - t0 ))
             if [ "$rc" -eq 0 ]; then v=green; LEAN_GREEN=$((LEAN_GREEN+1))
@@ -411,7 +411,7 @@ if [ "${GATE_LEAN:-0}" = "1" ] && [ -d "$REPO/formal/pairfield/Pairfield" ]; the
             else v=fiber; LEAN_RED=$((LEAN_RED+1)); fi
             emit lean "$lm" "$rc" "$dt" "$v"
             printf '%-9s EXIT=%-4s %5ss  %s\n' "$v" "$rc" "$dt" "$lm"
-        done < <( cd "$REPO/formal/pairfield" && find Pairfield -name '*.lean' \
+        done < <( cd "$REPO/formal/lean" && find Pairfield -name '*.lean' \
                   | sed 's|/|.|g; s|\.lean$||' | sort )
     else
         echo "GATE_LEAN=1 but no lake on PATH; Lean lane skipped, no rows written."

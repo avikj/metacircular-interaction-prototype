@@ -2,7 +2,7 @@
 # check-dosa-lekha.sh — the doṣa-lekha is append-only; this is the mechanism
 # that says so, rather than the paragraph that asks.
 #
-# Every record in machine/dosa.lekha carries `sara:`, a chain value over the
+# Every record in interactive/dosa.lekha carries `sara:`, a chain value over the
 # preceding record and its own canonical text.  Editing a past record,
 # deleting one, or reordering two breaks the chain, and this names the first
 # record where it happened.  Corrections are made by APPENDING a record whose
@@ -18,7 +18,7 @@
 # is a store, not a fault.
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-LOG="${DOSA_LEKHA:-$ROOT/machine/dosa.lekha}"
+LOG="${DOSA_LEKHA:-$ROOT/interactive/dosa.lekha}"
 [ -f "$LOG" ] || { echo "check-dosa-lekha: no log at $LOG yet — nothing to verify."; exit 0; }
 command -v ghc >/dev/null 2>&1 || { echo "check-dosa-lekha: no ghc; not verified (this is not a pass)."; exit 0; }
-sh "$ROOT/machine/run-dosa-lekha.sh" verify
+sh "$ROOT/interactive/run-dosa-lekha.sh" verify

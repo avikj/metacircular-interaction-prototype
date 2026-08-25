@@ -10,7 +10,7 @@
 # WHY IT EXISTS, with the measurement that caused it.  On 2026-08-24 the
 # ledger held 47 open rows, 36 of them classed `मम दोषः · module path`, and
 # ALL 36 had an empty column 8.  The classifier in
-# `machine/AnulomaPratiloma_…hs` read the witness by anchoring on a line
+# `interactive/AnulomaPratiloma_…hs` read the witness by anchoring on a line
 # containing `error:` and taking the four after it; agda's `Failed to find
 # source of module X in any of the following locations:` carries no such
 # line, so `dropWhile` consumed the output, the window was `[]`, and the one
@@ -21,9 +21,9 @@
 #
 # THE RULE IS THE REPOSITORY'S OWN, TWICE OVER, and neither statement was
 # being enforced on the ledger that reports them:
-#   machine/Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal.hs
+#   interactive/Hetvabhasa_TheRefusalNamesItsDefectOrItIsNotARefusal.hs
 #   formal/cubical/Nirnaya_TheVerdictCannotDropItsWitness.agda
-# and `machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs`: a
+# and `interactive/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs`: a
 # doṣalekha carries naṣṭa item by item, because a count is the collapse
 # again — `36 module path` without the modules is ∥·∥₁ of the defects.
 #
@@ -69,6 +69,6 @@ awk -F"\t" '!/^#/ && $5 == "Refused" && $8 == "" {print $6}' "$LEDGER" \
 
 printf '\n  These rows are repaired by RE-RUNNING the emitter, not by editing the\n'
 printf '  ledger: it is keyed on content addresses and a row stands until one of\n'
-printf '  them moves. `runghc -imachine machine/AnulomaPratiloma_…hs --check`\n'
+printf '  them moves. `runghc -iinteractive interactive/AnulomaPratiloma_…hs --check`\n'
 printf '  with agda on PATH and a library file, then re-run scripts/Sadhya_…sh.\n'
 exit 0

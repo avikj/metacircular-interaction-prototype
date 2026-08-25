@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Anonymous-`example` oracle check for formal/pairfield/ — no toolchain required.
+# Anonymous-`example` oracle check for formal/lean/ — no toolchain required.
 #
 # WHY THIS EXISTS.  `lake exe yogyanupalabdhi`
-# (formal/pairfield/YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean,
+# (formal/lean/YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean,
 # notes/AXIOM_GATE.md) is the real soundness gate: it walks the built
 # environment and runs `Lean.collectAxioms` over every named `Pairfield.*`
 # declaration, so it sees oracle use *through imports*, which no grep can.
@@ -27,7 +27,7 @@
 # `sorryAx`.  The remedy for a hit is never to delete this check: it is to
 # NAME the declaration (`theorem`/`def`), which puts it permanently inside
 # the axiom gate, and then either kernel-check it or record it in
-# `formal/pairfield/axiom-allowlist.txt` with the observed reason.
+# `formal/lean/axiom-allowlist.txt` with the observed reason.
 #
 # Exit 0 = no anonymous example in the lane rests on an oracle.
 # This is text analysis, not a build.  It says nothing about whether any
@@ -36,7 +36,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-LANE="${LEAN_LANE_DIR:-formal/pairfield/Pairfield}"
+LANE="${LEAN_LANE_DIR:-formal/lean/Pairfield}"
 
 if [ ! -d "$LANE" ]; then
   echo "check-lean-example-oracles: lane directory $LANE not found" >&2
@@ -76,7 +76,7 @@ if [ -n "$hits" ]; then
   echo
   echo "check-lean-example-oracles: FAIL — $(printf '%s\n' "$hits" | wc -l) anonymous example(s) rest on an oracle the axiom gate cannot see."
   echo "Fix: give the declaration a name (theorem/def) so \`lake exe yogyanupalabdhi\` reaches it,"
-  echo "then kernel-check it or add it to formal/pairfield/axiom-allowlist.txt with the"
+  echo "then kernel-check it or add it to formal/lean/axiom-allowlist.txt with the"
   echo "observed reason and the removal path, and mark its file \`-- TRUSTS-COMPILER:\`."
   exit 1
 fi

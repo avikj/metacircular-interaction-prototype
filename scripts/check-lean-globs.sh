@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Mechanical orphan check for formal/pairfield/ — no Lean, no mathlib required.
+# Mechanical orphan check for formal/lean/ — no Lean, no mathlib required.
 #
 # Why: `lean_lib Pairfield` was declared without `globs`, so `lake build` built
 # `Pairfield.lean`'s import closure only. 21 modules under `Pairfield/` were
@@ -16,7 +16,7 @@
 # Fallback: if the glob is absent, we enumerate the orphans by import closure
 # and fail with the list, so the check is informative either way.
 set -euo pipefail
-cd "$(dirname "$0")/../formal/pairfield"
+cd "$(dirname "$0")/../formal/lean"
 
 LIB=Pairfield
 status=0

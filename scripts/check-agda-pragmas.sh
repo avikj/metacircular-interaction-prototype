@@ -77,7 +77,7 @@ BAD_CONSTRUCTS='postulate|\{!|\{-# *(TERMINATING|NON_TERMINATING|NON_COVERING|NO
 #     be `--safe`; if it ever needs to drop the flag to fail the RIGHT way, #
 #     add it here with that reason spelled out.                            #
 #   * formal/executable/*.agda (8 files) — MAlonzo/GHC extraction targets   #
-#     (machine/run-extracted-rewrite.sh), non-cubical by construction.      #
+#     (interactive/run-extracted-rewrite.sh), non-cubical by construction.      #
 #     They carry `--safe` (one also `--guardedness`) and are exempt from    #
 #     the `--cubical` check by directory scope, not by allowlist: check 3   #
 #     applies only under formal/cubical/.                                   #

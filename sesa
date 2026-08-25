@@ -46,7 +46,7 @@ PAT='left open|is owed|are owed|owed at|NOT DONE|not done here|not attempted|no 
 #     command, so the frontier can never be read as complete.
 # ─────────────────────────────────────────────────────────────────────────
 WIDE='is open$|open question|open problem|conjectur|not proved|unproved|unproven|no proof|TODO|FIXME|we do not (yet )?(know|have)|cannot (yet )?be|is not established|not yet (proved|shown|done|built|wired)|remains to be|future work|would need|is missing'
-SRC="formal/cubical formal/pairfield punaragamana/src machine notes"
+SRC="formal/cubical formal/lean punaragamana/src machine notes"
 INC="--include=*.agda --include=*.hs --include=*.lean --include=*.md"
 
 {
@@ -63,7 +63,7 @@ N=$(($(wc -l < "$OUT") - 4))
 MISSED=$(grep -rniE "$WIDE" $SRC $INC 2>/dev/null | grep -viE "$PAT" | wc -l)
 
 echo "शेष-सूची — $N fence lines indexed → $OUT"
-echo "    \$ grep -rniE <PAT> formal/cubical formal/pairfield punaragamana/src machine notes | wc -l"
+echo "    \$ grep -rniE <PAT> formal/cubical formal/lean punaragamana/src machine notes | wc -l"
 echo "  bound: $MISSED more line(s) matched a SECOND phrasing set and are NOT indexed."
 echo "    \$ grep -rniE <WIDE> <same tree> | grep -viE <PAT> | wc -l"
 echo "  (an entry here is an OFFER, not a queue: a fence is a conjecture"

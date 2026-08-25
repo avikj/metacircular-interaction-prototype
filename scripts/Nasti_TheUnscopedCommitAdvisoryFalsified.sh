@@ -25,8 +25,8 @@ mkdir -p .githooks machine
   awk '/^# --- the unscoped commit takes the shared index/,0' "$SRC"
 } > .githooks/pre-commit
 chmod +x .githooks/pre-commit
-echo a > machine/A.hs
-git add machine/A.hs
+echo a > interactive/A.hs
+git add interactive/A.hs
 git commit -q -m base
 
 run() {  # run <label> <quiet|noisy> <git args...>
@@ -40,30 +40,30 @@ run() {  # run <label> <quiet|noisy> <git args...>
 }
 
 echo "one path staged, unscoped -- nothing foreign is implied, so nothing is said"
-echo m > machine/M1.hs; git add machine/M1.hs
+echo m > interactive/M1.hs; git add interactive/M1.hs
 run "single-path unscoped" quiet git commit -q -m one
 
 echo "two paths staged, unscoped -- the shape of all four sweeps"
-echo m > machine/M2.hs; echo t > machine/T2.hs
-git add machine/M2.hs machine/T2.hs
+echo m > interactive/M2.hs; echo t > interactive/T2.hs
+git add interactive/M2.hs interactive/T2.hs
 run "multi-path unscoped" noisy git commit -q -m two
 
 echo "another lane staged first, this lane commits -o -- the repair"
-echo m > machine/M3.hs; echo t > machine/T3.hs
-git add machine/T3.hs
-git add machine/M3.hs
-run "scoped -o" quiet git commit -q -o machine/M3.hs -m three
+echo m > interactive/M3.hs; echo t > interactive/T3.hs
+git add interactive/T3.hs
+git add interactive/M3.hs
+run "scoped -o" quiet git commit -q -o interactive/M3.hs -m three
 echo "  other lane's file still staged, not taken: [$(git diff --cached --name-only | tr '\n' ' ')]"
 echo "  commit carried: [$(git show --stat --format= HEAD | head -1 | tr -s ' ')]"
 
 echo "mid-merge, where git itself refuses -o -- must not refuse either"
-git commit -q -m clear -- machine/T3.hs 2>/dev/null
+git commit -q -m clear -- interactive/T3.hs 2>/dev/null
 git checkout -q -b side
-echo s > machine/S.hs; git add machine/S.hs; git commit -q -m side
+echo s > interactive/S.hs; git add interactive/S.hs; git commit -q -m side
 git checkout -q main
-echo m > machine/S.hs; git add machine/S.hs; git commit -q -m mainside
+echo m > interactive/S.hs; git add interactive/S.hs; git commit -q -m mainside
 git merge side >/dev/null 2>&1
-echo m > machine/S.hs; git add machine/S.hs
+echo m > interactive/S.hs; git add interactive/S.hs
 run "mid-merge unscoped" quiet git commit -q -m resolve
 echo "  (quiet because the conflict resolution staged one path; the assertion"
 echo "   here is rc=0, since -o is impossible mid-merge and a refusal would"

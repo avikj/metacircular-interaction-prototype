@@ -44,7 +44,7 @@
 #
 # 3. LC_ALL. Under a POSIX locale Agda crashes while PRINTING its own error
 #    messages for this corpus's Devanagari identifiers, so the real
-#    diagnosis is replaced by an encoding error. punaragamana/check.sh has
+#    diagnosis is replaced by an encoding error. fibre/check.sh has
 #    carried this warning for longer than anyone acted on it.
 #
 # ─────────────────────────────────────────────────────────────────────────
@@ -75,6 +75,17 @@ else
   say "building Agda $PIN_AGDA (30-60 min; it is a Haskell compiler's worth of code)"
   command -v ghc    >/dev/null 2>&1 || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ghc; }
   command -v cabal  >/dev/null 2>&1 || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq cabal-install; }
+
+  # obstacle 0, found 2026-08-24 by running this script in a fresh
+  # container: cabal writes ~/.cabal/config LAZILY, on first use.  So on a
+  # machine where cabal has never run, the file does not exist when the two
+  # guards below test for it, BOTH PATCHES SILENTLY NO-OP, and `cabal
+  # update` then creates a pristine default and dies on obstacle 1 —
+  # `curl: (56) CONNECT tunnel failed, response 403` — which is the exact
+  # failure this script's header documents and exists to prevent.  A guard
+  # that skips its repair when the thing to repair is absent is worse than
+  # no guard: it reports success.  Materialise the file first.
+  [ -f "$HOME/.cabal/config" ] || cabal user-config init >/dev/null 2>&1 || true
 
   # obstacle 2: the shipped scheme is http and the proxy will not tunnel it.
   if [ -f "$HOME/.cabal/config" ]; then
@@ -137,5 +148,5 @@ printf '  A green obtained here is evidence about THIS toolchain and not about\n
 printf '  the corpus, and it is not comparable with another container'"'"'s green.\n'
 printf '  Say so in any message, journal entry or ledger row that quotes it.\n'
 printf '  The ledger writer already emits a TOOLCHAIN header for this reason\n'
-printf '  (machine/AnulomaPratiloma_…hs, writeLedger).\n'
+printf '  (interactive/AnulomaPratiloma_…hs, writeLedger).\n'
 exit 0

@@ -78,8 +78,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-LANE="${LEAN_LANE_DIR:-formal/pairfield/Pairfield}"
-ALLOWLIST="${LEAN_ALLOWLIST:-formal/pairfield/axiom-allowlist.txt}"
+LANE="${LEAN_LANE_DIR:-formal/lean/Pairfield}"
+ALLOWLIST="${LEAN_ALLOWLIST:-formal/lean/axiom-allowlist.txt}"
 
 [ -d "$LANE" ] || { echo "GuptaNaya: lane directory $LANE not found" >&2; exit 2; }
 [ -f "$ALLOWLIST" ] || { echo "GuptaNaya: no allowlist at $ALLOWLIST" >&2; exit 2; }
@@ -244,7 +244,7 @@ done
 # both is the exact collapse this file is named after — a verdict presented
 # without the standpoint it was reached from.
 if [ "$n_claims" -eq 0 ]; then
-  echo "    VACUOUS: no prose in notes/ collab/ machine/ formal/ mentions any of these"
+  echo "    VACUOUS: no prose in notes/ collab/ interactive/ formal/ mentions any of these"
   echo "    declarations alongside a claim word.  This check has therefore not been"
   echo "    exercised and today's green says nothing about it."
 elif [ "$found_prose" -eq 0 ]; then

@@ -30,8 +30,8 @@
 # WHAT DRIFTED, MEASURED, 2026-08-20
 #
 # Two Haskell programs emit Agda modules for the kernel to check:
-# `machine/Certificate.hs` (the shape search and the two controls) and
-# `machine/TraceReplay.hs` (the trace transcriber).  Each carried its own copy
+# `interactive/Certificate.hs` (the shape search and the two controls) and
+# `interactive/TraceReplay.hs` (the trace transcriber).  Each carried its own copy
 # of the module's OPTIONS pragma.  The copies drifted by one flag:
 #
 #   Certificate.preambleCore : --cubical --guardedness --safe --no-import-sorts
@@ -63,13 +63,13 @@
 # WHAT THIS CHECKS
 #
 # Every `{-# OPTIONS ... #-}` string literal emitted by any `.hs` file under
-# machine/ must be character-for-character the pragma `Certificate.hs` names
+# interactive/ must be character-for-character the pragma `Certificate.hs` names
 # in `kOptionsPragma`.  That constant is the single statement; everything else
 # is an anuvṛtti of it that the language will not perform.
 #
 # WHAT IT DOES NOT CHECK.  Nothing about whether the flags are the RIGHT ones
 # for the container the emitter will run against — that is a property of the
-# installed cubical library and only `machine/run-kernel-probe.sh` and an
+# installed cubical library and only `interactive/run-kernel-probe.sh` and an
 # actual agda call can answer it.  This check makes the emitters agree; it
 # does not make them correct.  Agreement is what was lost, and agreement is
 # what a text pass can keep.
@@ -79,7 +79,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-SOURCE_FILE="machine/Certificate.hs"
+SOURCE_FILE="interactive/Certificate.hs"
 SOURCE_NAME="kOptionsPragma"
 
 [ -f "$SOURCE_FILE" ] || { echo "Anuvrtti: $SOURCE_FILE not found" >&2; exit 2; }
@@ -96,7 +96,7 @@ if [ -z "$canonical" ]; then
   exit 2
 fi
 
-echo "अनुवृत्ति — one OPTIONS line for every Agda emitter under machine/"
+echo "अनुवृत्ति — one OPTIONS line for every Agda emitter under interactive/"
 echo "stated once in : $SOURCE_FILE ($SOURCE_NAME)"
 echo "the line       : $canonical"
 echo
@@ -117,8 +117,8 @@ echo
 # apostrophe in prose.  A quoted heredoc inside a function body does not.
 cancelled_list() {
   cat <<'EOF'
-machine/KernelProbe.hs:40	the refl-capability probe: builtin modules only, checked with --no-libraries so that a broken cubical registration cannot fail the probe OF THE KERNEL ITSELF. It imports no Cubical module, so --cubical/--guardedness would be flags about nothing.
-machine/KernelProbe.hs:52	the cubical-capability probe: its whole job is to answer whether THIS container checks a plain --cubical --safe module against the registered library. Pinning it to the flag set the emitters use would make it answer a different question than the one it reports.
+interactive/KernelProbe.hs:40	the refl-capability probe: builtin modules only, checked with --no-libraries so that a broken cubical registration cannot fail the probe OF THE KERNEL ITSELF. It imports no Cubical module, so --cubical/--guardedness would be flags about nothing.
+interactive/KernelProbe.hs:52	the cubical-capability probe: its whole job is to answer whether THIS container checks a plain --cubical --safe module against the registered library. Pinning it to the flag set the emitters use would make it answer a different question than the one it reports.
 EOF
 }
 
@@ -186,8 +186,8 @@ if [ "$status" -ne 0 ]; then
   exit 1
 fi
 
-echo "OK: every Agda emitter under machine/ writes the same OPTIONS line."
+echo "OK: every Agda emitter under interactive/ writes the same OPTIONS line."
 echo
 echo "This says nothing about whether that line SUITS the installed cubical"
-echo "library.  Run machine/run-kernel-probe.sh for that; a green here with a"
+echo "library.  Run interactive/run-kernel-probe.sh for that; a green here with a"
 echo "wrong flag is agreement on a mistake, and agreement is all this checks."

@@ -42,7 +42,7 @@ export LC_ALL=C.utf8
 W="${SANDHI1_SCRATCH:-${TMPDIR:-/tmp}/sandhi1}"; mkdir -p "$W"
 MAX="${SANDHI1_MAX:-8}"
 
-marga() { runghc -imachine machine/Marga_TheRouterTransportsATheoremAlongLandedEdges.hs . "$@"; }
+marga() { runghc -iinteractive interactive/Marga_TheRouterTransportsATheoremAlongLandedEdges.hs . "$@"; }
 
 echo "═══ सन्धि-१ · the landing becomes an event that routes ═══"
 
@@ -52,7 +52,7 @@ if [ $# -gt 0 ]; then
   : > "$W/pairs.tsv"
   while [ $# -ge 2 ]; do printf '%s\t%s\n' "$1" "$2" >> "$W/pairs.tsv"; shift 2; done
 else
-  runghc -imachine machine/Tirtha_TheLandedEdgeIsAFordAndTheReportIsWhoCanNowCross.hs . \
+  runghc -iinteractive interactive/Tirtha_TheLandedEdgeIsAFordAndTheReportIsWhoCanNowCross.hs . \
     | tee "$W/tirtha.txt"
   # तीर्थ's marga lines are "marga  S  T" behind leading whitespace, with
   # two-space separators; node names may contain single spaces, so split on
