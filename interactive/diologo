@@ -1,0 +1,300 @@
+#!/usr/bin/env python3
+# diologo -- a mind with speech and nothing else, held in a loop with the yantra.
+#
+#   sh interactive/run-yantra.sh --wire        is the machine.
+#   interactive/diologo                        is the leash.
+#
+# THE ONLY TWO ACTS THE MIND HAS.
+#
+#   1. think   -- prose, logged, never executed, never parsed for commands.
+#   2. ask     -- ONE JSON object, on its own line, the last line of its reply.
+#
+# There is no third act, and the absence is STRUCTURAL rather than requested.
+# The child process is launched with an empty tool set; it has no shell, no
+# filesystem, no network, no editor and no subagent.  The harness reads exactly
+# one thing out of everything it says -- the final JSON object -- and hands that
+# to the yantra unaltered.  Every other byte is thought: written down, and never
+# acted on.  A mind that emits no JSON gets told so and the machine is not
+# called; it cannot skip its interlocutor, and it cannot reach past it.
+#
+# So the action space is not "whatever a model decides to do".  It is exactly
+# the kriyā table the yantra dispatches on, and the yantra refuses everything
+# else in its own voice, with the repair attached.
+#
+# WHY THE MACHINE IS ONE PROCESS FOR THE WHOLE RUN.  The नयकोश, the doṣa-lekha
+# chain and the śeṣa queue are SESSION state.  A daemon that restarted the
+# yantra per turn would hand the mind a machine with no memory of what it had
+# already installed, and every turn would be turn one.  One session is one
+# derivation (Samvada_): the transcript below is that derivation, written down.
+#
+# THE TRANSCRIPT IS THE POINT.  One JSONL record per turn -- the thought, the
+# question, the answer entire.  Not a summary: run-yantra.sh's own header says
+# the transcript is the corpus this machine is meant to be post-trained
+# against, and a summarised transcript is a corpus of one lane's opinions.
+#
+# KEYS COME FROM THE ENVIRONMENT AND ARE NEVER READ FROM THIS REPOSITORY.
+#   ANTHROPIC_API_KEY set  -> the mind is the API, spoken to directly.
+#   unset                  -> the mind is `claude -p`, using whatever auth the
+#                             surrounding session already holds, launched with
+#                             an empty tool set so that it, too, can only speak.
+#
+#   interactive/diologo                        20 turns, opus, no goal
+#   interactive/diologo --turns 200 --goal "find where a boolean would be wrong"
+#   interactive/diologo --model sonnet --sleep 2
+#   interactive/diologo --resume               continue the last transcript
+#
+# EXIT.  Ctrl-C at any time; the transcript is flushed every turn and is
+# complete up to the interruption.  --turns is a bound, not a target: the mind
+# may stop early by asking `yantra.sthiti` and saying VIRAMA on its own line.
+
+import argparse, json, os, re, shutil, subprocess, sys, threading, time, urllib.request
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SYSTEM = """You are held in a loop with a machine, and speech is the only thing you have.
+
+You have no tools, no shell, no filesystem, no network, no editor. You cannot
+read a file. You cannot run a command. The harness around you reads exactly ONE
+thing out of everything you say: the last line of your reply, if it is a single
+JSON object. That object is handed to the machine unaltered. Everything else you
+write is thought -- recorded, and never executed.
+
+So each reply has exactly two parts:
+
+  1. THOUGHT. Prose. What the last answer actually said, what it cost, what you
+     now believe and what you do not, and why the next question is that one.
+  2. THE QUESTION. One JSON object, alone on the final line. Nothing after it.
+
+The machine is the yantra. Ask {"kriya":"yantra.kriyah"} first: it emits its own
+dispatch table, so it cannot drift from what runs. The general shape is
+{"kriya":"<name>","angani":{...}}.
+
+HOW TO READ AN ANSWER. Every answer is a saṃkramaṇa (a transport that carried
+something) or a doṣa-lekha (a written defect). There is no third road, and a
+refusal is not a failure -- it is the machine declining to merge two facts into
+one bit. The content is in the fields most readers skip:
+
+  vyaya  what this answer gave up in order to be sayable
+  nasta  what a collapse of it would destroy, named one by one
+  sesa   the remainder, handed to you because it is the material of the next step
+  pramanya  the route by which the answer is evidence at all, with its witness
+
+A refusal that hands you a method is an instruction. Take it and do the work
+yourself in your thought, then put the result back with its witness. That is the
+whole transaction: the machine can compute what it can compute and states
+exactly what it cannot, and you supply what it structurally cannot reach.
+
+There is no boolean on this wire and no float. A yes/no is refused with the
+repair attached. That refusal is the machine's central claim, not its pedantry:
+one bit returns the same value for a false statement and for a failed search.
+
+DO NOT invent an answer, or attribute to the machine anything it did not say.
+If you have nothing to ask, say so in your thought and ask yantra.sthiti.
+If the work is finished, write VIRAMA on a line by itself and stop.
+"""
+
+TOOLS = ("Bash Read Write Edit NotebookEdit Glob Grep WebFetch WebSearch Task Agent "
+         "TodoWrite SlashCommand Skill KillShell BashOutput ExitPlanMode ListMcpResources "
+         "ReadMcpResource Artifact SendUserFile AskUserQuestion")
+
+
+class Yantra:
+    """The machine, alive for the whole run, spoken to one line at a time."""
+
+    def __init__(self, log):
+        self.log = log
+        self.p = subprocess.Popen(
+            ["sh", os.path.join(ROOT, "interactive", "run-yantra.sh"), "--wire"],
+            cwd=ROOT, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE, text=True, bufsize=1)
+        threading.Thread(target=self._drain_stderr, daemon=True).start()
+        self.banner = []
+
+    def _drain_stderr(self):
+        for line in self.p.stderr:
+            self.log.write("yantra(stderr): " + line)
+            self.log.flush()
+
+    def ask(self, obj):
+        """One request in, one answer out.  Preamble lines are banner, not answers."""
+        self.p.stdin.write(json.dumps(obj, ensure_ascii=False) + "\n")
+        self.p.stdin.flush()
+        while True:
+            line = self.p.stdout.readline()
+            if not line:
+                raise RuntimeError("the yantra closed the wire")
+            line = line.strip()
+            if line.startswith("{"):
+                try:
+                    return json.loads(line)
+                except json.JSONDecodeError:
+                    return {"uttara": "unparsed", "raw": line}
+            if line:
+                self.banner.append(line)
+                self.log.write("yantra: " + line + "\n")
+                self.log.flush()
+
+    def close(self):
+        try:
+            self.p.stdin.close()
+            self.p.wait(timeout=10)
+        except Exception:
+            self.p.kill()
+
+
+class Mind:
+    """Speech and nothing else.  Two backends, one contract: text in, text out."""
+
+    def __init__(self, model, system):
+        self.model, self.system, self.messages = model, system, []
+        self.key = os.environ.get("ANTHROPIC_API_KEY")
+        self.session = None
+        if not self.key and not shutil.which("claude"):
+            sys.exit("diologo: no ANTHROPIC_API_KEY in the environment and no `claude` on PATH.")
+
+    def say(self, text):
+        return self._api(text) if self.key else self._cli(text)
+
+    def _api(self, text):
+        self.messages.append({"role": "user", "content": text})
+        body = json.dumps({"model": self.model, "max_tokens": 4096,
+                           "system": self.system, "messages": self.messages}).encode()
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages", data=body,
+            headers={"content-type": "application/json", "x-api-key": self.key,
+                     "anthropic-version": "2023-06-01"})
+        with urllib.request.urlopen(req, timeout=300) as r:
+            out = json.load(r)
+        reply = "".join(b.get("text", "") for b in out.get("content", []))
+        self.messages.append({"role": "assistant", "content": reply})
+        return reply
+
+    def _cli(self, text):
+        cmd = ["claude", "-p", "--output-format", "json",
+               "--model", self.model,
+               "--allowedTools", "", "--disallowedTools", TOOLS]
+        if self.session:
+            cmd += ["--resume", self.session]
+        else:
+            cmd += ["--append-system-prompt", self.system]
+        r = subprocess.run(cmd + [text], cwd=ROOT, capture_output=True, text=True, timeout=900)
+        if r.returncode != 0:
+            raise RuntimeError("claude -p failed: " + (r.stderr or "")[-2000:])
+        out = json.loads(r.stdout)
+        self.session = out.get("session_id", self.session)
+        return out.get("result", "")
+
+
+LAST_JSON = re.compile(r"^\s*(\{.*\})\s*$")
+
+
+def extract(reply):
+    """The last standalone JSON object is the question.  Everything else is thought."""
+    thought, question = [], None
+    for line in reply.splitlines():
+        if line.strip() in ("```", "```json"):
+            continue
+        m = LAST_JSON.match(line)
+        if m:
+            try:
+                obj = json.loads(m.group(1))
+            except json.JSONDecodeError:
+                thought.append(line)
+                continue
+            if isinstance(obj, dict):
+                if question is not None:
+                    thought.append("(an earlier JSON line, not sent: " + question[1] + ")")
+                question = (obj, m.group(1))
+                continue
+        thought.append(line)
+    return "\n".join(thought).strip(), (question[0] if question else None)
+
+
+def main():
+    ap = argparse.ArgumentParser(prog="diologo", add_help=True)
+    ap.add_argument("--turns", type=int, default=20, help="bound on turns (default 20)")
+    ap.add_argument("--model", default="opus", help="opus | sonnet | a full model id")
+    ap.add_argument("--goal", default="", help="what to point the loop at; optional")
+    ap.add_argument("--sleep", type=float, default=0.0, help="seconds between turns")
+    ap.add_argument("--transcript", default=os.path.join(ROOT, "interactive", "diologo.jsonl"))
+    ap.add_argument("--resume", action="store_true", help="append to an existing transcript")
+    a = ap.parse_args()
+
+    mode = "a" if a.resume else "w"
+    tx = open(a.transcript, mode, buffering=1, encoding="utf-8")
+    log = open(a.transcript + ".log", mode, buffering=1, encoding="utf-8")
+
+    print("diologo -- the mind has speech and one wire, and nothing else.")
+    print("  machine    : sh interactive/run-yantra.sh --wire   (one process, whole run)")
+    print("  mind       : %s, via %s, launched with an empty tool set"
+          % (a.model, "the API" if os.environ.get("ANTHROPIC_API_KEY") else "claude -p"))
+    print("  transcript : %s" % a.transcript)
+    print("  bound      : %d turns\n" % a.turns)
+
+    yantra = Yantra(log)
+    mind = Mind(a.model, SYSTEM)
+
+    nxt = ("You are at the start of the loop. Nothing has been asked yet."
+           + (("\n\nWhat this run is for: " + a.goal) if a.goal else "")
+           + "\n\nThink, then ask the machine its first question.")
+
+    try:
+        for turn in range(1, a.turns + 1):
+            reply = mind.say(nxt)
+            thought, question = extract(reply)
+
+            print("\n\033[1m── turn %d ─ thought ──\033[0m" % turn)
+            print(thought if thought else "(none)")
+
+            if "\nVIRAMA" in ("\n" + thought) or thought.strip().endswith("VIRAMA"):
+                tx.write(json.dumps({"turn": turn, "cinta": thought, "virama": True},
+                                    ensure_ascii=False) + "\n")
+                print("\n\033[1mVIRAMA\033[0m — the mind stopped on its own at turn %d." % turn)
+                break
+
+            if question is None:
+                print("\n\033[1m── no question ──\033[0m the machine was not called.")
+                tx.write(json.dumps({"turn": turn, "cinta": thought, "prasna": None},
+                                    ensure_ascii=False) + "\n")
+                nxt = ("Your reply ended with no JSON object on its own line, so the machine "
+                       "was NOT called and nothing was guessed on your behalf. Think, then put "
+                       "one JSON object alone on the last line.")
+                continue
+
+            print("\n\033[1m── ask ──\033[0m %s" % json.dumps(question, ensure_ascii=False)[:400])
+            answer = yantra.ask(question)
+
+            kind = answer.get("uttara", "?")
+            sthana = answer.get("nirnaya", {}).get("sthana", "")
+            print("\033[1m── answer ──\033[0m %s  %s" % (kind, sthana))
+            for field in ("hetu",):
+                if field in answer:
+                    print("   %s: %s" % (field, str(answer[field])[:300]))
+            for field in ("vyaya", "nasta", "sesa"):
+                for item in answer.get(field, [])[:3]:
+                    print("   %-5s %s" % (field, str(item)[:220]))
+
+            tx.write(json.dumps({"turn": turn, "cinta": thought,
+                                 "prasna": question, "uttara": answer},
+                                ensure_ascii=False) + "\n")
+
+            nxt = ("The machine answered. This is its answer entire, nothing removed:\n\n"
+                   + json.dumps(answer, ensure_ascii=False, indent=2)
+                   + "\n\nThink about what it carried and what it gave up, then ask the next question.")
+            if a.sleep:
+                time.sleep(a.sleep)
+        else:
+            print("\n\033[1m── bound reached ──\033[0m %d turns. The loop stopped; the mind did not."
+                  % a.turns)
+    except KeyboardInterrupt:
+        print("\n\033[1m── interrupted ──\033[0m the transcript is complete up to here.")
+    finally:
+        yantra.close()
+        tx.close()
+        log.close()
+        print("\ntranscript : %s" % a.transcript)
+        print("machine log: %s.log" % a.transcript)
+
+
+if __name__ == "__main__":
+    main()
