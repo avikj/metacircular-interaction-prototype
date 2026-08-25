@@ -322,7 +322,6 @@ data त्रिक् : Type where
 बुन t = unfold वल्ली-कुट्टक (अवतरण t)
 
 ------------------------------------------------------------------------
--- IT RUNS.  §१७ of notes/AHIMSA_SUTRA_VISTARA.md works 137 and 60.
 -- Each holds by refl, so Agda must actually execute the descent.
 --
 --   (137,60) → (77,60) → (17,60) → (17,43) → (17,26) → (17,9)

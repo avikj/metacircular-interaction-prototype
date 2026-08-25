@@ -120,7 +120,6 @@
 --
 ------------------------------------------------------------------------
 -- DEFECTS, WRITTEN RATHER THAN HIDDEN.  (§६ द्वौ मार्गौ of
--- notes/AHIMSA_SUTRA_VISTARA.md: where the transport does not exist the
 -- defect is written; there is no third road.)
 --
 -- 1. `आदेश` IS NOT LITERALLY `descend`, and cannot be — different
@@ -154,7 +153,6 @@
 --
 -- 3. THE RULE IS A FUNCTION वर्ण → वर्णरूप.  Real sūtras read a word, an
 --    environment, and the त्रिपादी's असिद्धत्व stratification (§४६ of
---    notes/AHIMSA_SUTRA_VISTARA.md: what is asiddha is not seen; the
 --    later rule's result is invisible to the earlier).  A one-varṇa rule
 --    has no environment and no stratum, so the orbit below is the
 --    trajectory of ONE site under ONE rule and not a derivation of the

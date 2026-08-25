@@ -87,7 +87,6 @@
 -- the first non-contractible fibre is where the information went"), which
 -- is unsound in both directions.
 --
--- The argument is `notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvaktavyamNotNasti.md`.
 -- What survives untouched: §2's `ग्राह`, and the observation that `Carrier`
 -- and the residual are two projections of one graph.  What does not: the
 -- claim that the two projections exhaust the readings.
