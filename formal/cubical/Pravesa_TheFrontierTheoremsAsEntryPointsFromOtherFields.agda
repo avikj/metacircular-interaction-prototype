@@ -72,3 +72,16 @@ open import VeniYangBaxtara_TheThreeStrandBraidIsNonAbelianAndSatisfiesTheBraidR
   using (braids-dont-commute ; yang-baxter) public
 open import Matravrtta_TheFibonacciAnyonFusionDimensionIsVirahankasMetreCount
   using (anyon-is-metre ; d) public
+
+-- ── FROM OPTICAL / QUANTUM COMPUTING HARDWARE (the orb device) ─────────
+-- The crystal-ball optical computer's universal gate set, every gate a
+-- lossless equivalence: मणि one orb = achromatic √NOT quarter-wave; त्रिक
+-- multi-axis orbs = quaternion SU(2) skeleton, non-abelian, spinor; बन्ध the
+-- entangling two-qubit gate — reversible yet non-factorizable (the door single
+-- orbs cannot open: the two qubits must interact).
+open import Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot
+  using (√NOT-EXISTS-here ; full-turn ; achromatic) public
+open import Trika_TheAxisQuarterWavesAreQuaternionsNonAbelianAndTheQubitIsASpinor
+  using (ij≢ji ; full-turn-is-minus-one ; double-turn-returns) public
+open import Bandha_TheEntanglingGateIsLosslessButDoesNotFactorIntoSingleQubitGates
+  using (cnotEq ; entangling ; bell-diagonal) public
