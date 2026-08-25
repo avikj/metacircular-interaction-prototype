@@ -25,7 +25,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties using (+-zero)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
-open import SourcedProofs.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑ ; ∑³ ; घन-सङ्कलितम् ; द्विगुण-सङ्कलितम्)
+open import Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑ ; ∑³ ; घन-सङ्कलितम् ; द्विगुण-सङ्कलितम्)
 
 ------------------------------------------------------------------------
 -- सहायकौ ।

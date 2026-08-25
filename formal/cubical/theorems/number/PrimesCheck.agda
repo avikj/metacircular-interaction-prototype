@@ -20,7 +20,7 @@
 --               sweep is rebuilt so its output is 49 certified
 --               decompositions instead of the word `true`.
 --
---   Kuttaka-    `Primes.Kuttaka` runs the descent law on a fuel constant
+--   Kuttaka-    `KuttakaConvergents` runs the descent law on a fuel constant
 --   samapti     and proves nothing.  The fuel is removed by well-founded
 --               recursion on the remainder, and the divisor comes back
 --               carrying proofs that it divides both inputs.
@@ -34,7 +34,7 @@
 
 module PrimesCheck where
 
-import Primes.Chaya_TheShadowHasNoSectionThoughItHasAMap
-import Primes.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
-import Primes.KuttakaSamapti_TheValliTerminatesWithoutFuel
-import Primes.Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis
+import Chaya_TheShadowHasNoSectionThoughItHasAMap
+import Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
+import KuttakaSamapti_TheValliTerminatesWithoutFuel
+import Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis

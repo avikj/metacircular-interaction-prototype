@@ -25,7 +25,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties
   using (+-zero ; ·-comm ; ·-assoc ; ·-distribʳ ; ·-distribˡ)
-open import SourcedProofs.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑ ; द्विगुण-सङ्कलितम्)
+open import Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑ ; द्विगुण-सङ्कलितम्)
 
 ------------------------------------------------------------------------
 -- चिति — त्रिकोण-सङ्ख्यानां योगः : ∑_{k=1}^{n} ∑k (वृन्दम्) ।

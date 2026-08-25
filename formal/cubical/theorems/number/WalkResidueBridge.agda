@@ -67,7 +67,7 @@
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 
 import Digits as Dg
-import SourcedProofs.TransportDiv as TD
+import TransportDiv as TD
 import TransportDivWitness as W10
 
 module WalkResidueBridge (k : ℕ) where
@@ -83,7 +83,7 @@ open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬_ ; isPropDec)
 import Cubical.HITs.PropositionalTruncation as PropTrunc
 
 open import Digits k
-open import SourcedProofs.TransportDiv k
+open import TransportDiv k
 open import CoprimeSplitting using (dec∣)
 
 ------------------------------------------------------------------------

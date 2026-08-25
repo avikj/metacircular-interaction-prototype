@@ -174,7 +174,7 @@ open अपवादः public
 -- That is the WIDE claim, and it is false.
 ------------------------------------------------------------------------
 
-open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import AnuktaAvaktavya using (सामयिक ; नित्य)
 open import SamayikaAndNityaAreIndependent
   using (matching ; bothHold ; never ; always
         ; samayikaWithoutNitya ; nityaWithoutSamayika)

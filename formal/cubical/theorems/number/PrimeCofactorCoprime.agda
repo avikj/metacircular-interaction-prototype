@@ -56,7 +56,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 
 open import WalkJumps using (IsPrime)
-open import SourcedProofs.CoprimePowers using (module Bezout)
+open import CoprimePowers using (module Bezout)
 open import CoprimePowersN using (posPow ; isGCD→Bez ; Bez→isGCD)
 
 open Bezout ℤCommRing using (Bez ; pow ; bez-sym ; bez-pow)

@@ -71,7 +71,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import FiniteInformation using (FactorsThrough)
 open import AnyonyaAbhava using (Anyonya ; anyonya→samsarga)
-import SourcedProofs.PythagoreanTransition as PT
+import PythagoreanTransition as PT
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open PT.Circle ℤCommRing using (Pair ; N ; _⊗_ ; rot ; rot-preserves-N)
 open PT using (tri345)

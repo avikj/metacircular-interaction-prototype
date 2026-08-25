@@ -23,7 +23,7 @@
 --
 -- WHAT IS BEING TRANSPORTED.
 --
--- `formal/pairfield/Pairfield/AdaptiveResidualStrictRefinementIff.lean`,
+-- `formal/lean/Pairfield/AdaptiveResidualStrictRefinementIff.lean`,
 -- `insert_strictly_refines_iff_exists_agree_separates`:
 --
 --     experimentPartition M (insert suffix tests)

@@ -35,7 +35,7 @@
 #
 # A module may be legitimately out of the root -- an experiment mid-flight, a
 # module whose import cost is genuinely prohibitive.  So exclusions are
-# allowed, but only NAMED, in `formal/pairfield/root-exclusions.txt`, with a
+# allowed, but only NAMED, in `formal/lean/root-exclusions.txt`, with a
 # reason.  The last time an exclusion carried a reason in this lane, the reason
 # was "that module imports all of Mathlib", and six modules ALREADY in the root
 # carried a bare `import Mathlib` -- `SumRigidity` was line 2.  The ground did
@@ -46,7 +46,7 @@
 # or named in the exclusions file.  Stale exclusions are REPORTED, not fatal
 # (they are self-pruning under anyone who reads the output).
 set -euo pipefail
-cd "$(dirname "$0")/../formal/pairfield"
+cd "$(dirname "$0")/../formal/lean"
 
 ROOT=Pairfield
 EXCLUSIONS=root-exclusions.txt

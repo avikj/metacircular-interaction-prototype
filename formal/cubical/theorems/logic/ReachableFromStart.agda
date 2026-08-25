@@ -16,7 +16,7 @@
 -- The audit's finding: being fixed by both actions makes `{0}` CLOSED;
 -- unreachability of the rest follows only if the start state IS `0`.
 -- The message never says so.  It is true —
--- `formal/pairfield/Pairfield/AdaptiveObservableHorizon.lean:80` reads
+-- `formal/lean/Pairfield/AdaptiveObservableHorizon.lean:80` reads
 -- `start := 0`, which I re-read tonight rather than trusting the audit
 -- — so the verdict stands on a premise the argument omits.  That is the
 -- corpus's dominant genre: a false ground under a true verdict, with NO

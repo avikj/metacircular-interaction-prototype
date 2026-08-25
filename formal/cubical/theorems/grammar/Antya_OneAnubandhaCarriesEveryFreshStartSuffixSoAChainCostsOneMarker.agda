@@ -87,7 +87,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
 open import Cubical.Data.Maybe using (Maybe ; just ; nothing) renaming (rec to mbRec)
 open import Cubical.Data.Empty using () renaming (rec to ⊥rec)
 
-open import SourcedProofs.Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
+open import Dvihpatha_TheAntichainBoundIsAttainedOnlyIfASoundMayBeListedTwice
   using (Sym ; s₁ ; s₂ ; s₃ ; M₁ ; M₂ ; M₃ ; eqSym ; द्विःपाठः)
   renaming ( prefixBefore   to prefixBefore⋆
            ; suffixFromLast to suffixFromLast⋆

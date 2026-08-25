@@ -29,7 +29,7 @@ open import Cubical.Data.Maybe using (just)
 open import Cubical.Data.Sigma
 
 open import Digits 8
-open import SourcedProofs.TransportDiv 8
+open import TransportDiv 8
 open import CostGeometry
 open import Residual
 

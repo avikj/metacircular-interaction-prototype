@@ -6,7 +6,7 @@
 -- Prime-Pair Atlas Delta 20, T20.4: behavioural apartness, machine-checked.
 -- Companion prose: notes/DISTINCTION_CARRIES_WITNESSES.md.
 --
--- The repository's kernel (formal/pairfield/Pairfield/FutureBehavior.lean)
+-- The repository's kernel (formal/lean/Pairfield/FutureBehavior.lean)
 -- formalises SAMENESS: FutureEq x y = ∀ w, behavior x w = behavior y w.
 -- It contains no notion of distinction beyond the negation of that.
 --

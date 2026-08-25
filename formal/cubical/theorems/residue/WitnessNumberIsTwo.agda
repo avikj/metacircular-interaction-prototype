@@ -75,7 +75,7 @@ open import Cubical.Functions.Image using (Image ; restrictToImage)
 open import FiniteInformation
   using (FactorsThrough ; sameObservation→samePoint)
 
-open import SourcedProofs.SaptabhangiNaya using (Profile ; Vacana)
+open import SaptabhangiNaya using (Profile ; Vacana)
 open import TwoProfilesSuffice
   using (Says ; φ₁ ; φ₂ ; pair-separates ; every-profile-is-said)
 

@@ -12,7 +12,7 @@
 -- `notes/ADAPTIVE_OBSERVERS_ARE_ALREADY_FENCED.md` documents the refutation:
 -- `AdaptiveResidualAdapter` (this same directory) already
 -- proves the collapse in the Moore-machine register
--- (`futureEq-adaptiveIso`), and ~22 `formal/pairfield/Pairfield/Adaptive*`
+-- (`futureEq-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
 -- modules already carry the cost side, including two checked strict gaps
 -- (`AdaptiveObservableHorizon.uniform_one_adaptive_two`,
 --  `LinearAdaptiveGap.exact_linear_gap`).

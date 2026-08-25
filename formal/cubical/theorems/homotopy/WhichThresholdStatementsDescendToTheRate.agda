@@ -75,7 +75,7 @@ open import TheThresholdOrderIsTotalAndTheClaimIsAntitone
   using (AtLeast ; _⊑_ ; atLeastAntitone ; ·sk-cancel-≤ ; swapOuter)
 open import TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary
   using (Above ; aboveAntitone)
-open import SourcedProofs.MinimalityOfABoundaryPopulationNeedsLowestTerms
+open import MinimalityOfABoundaryPopulationNeedsLowestTerms
   using (short ; shortIsShorterThanTheDenominator)
 
 ------------------------------------------------------------------------

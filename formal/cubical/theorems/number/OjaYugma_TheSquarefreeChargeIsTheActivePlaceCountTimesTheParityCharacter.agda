@@ -12,7 +12,7 @@
 -- WHAT THIS CHECKS, and where its two halves come from.
 --
 -- The Lean lane carries a tensor `squarefreeChargeCube n`
--- (`formal/pairfield/Pairfield/PrimeChargeArbitraryRank.lean`) on n squarefree
+-- (`formal/lean/Pairfield/PrimeChargeArbitraryRank.lean`) on n squarefree
 -- prime places, whose CP rank is exactly n.  Its definition, transcribed:
 --
 --     signFactor   b = if b then -1 else 1

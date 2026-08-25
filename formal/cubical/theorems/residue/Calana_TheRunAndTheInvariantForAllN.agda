@@ -6,7 +6,7 @@
 module Calana_TheRunAndTheInvariantForAllN where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import SourcedProofs.LosslessReturn_TheStepIsAConjugationAndNothingIsTouchedByIt
+open import LosslessReturn_TheStepIsAConjugationAndNothingIsTouchedByIt
 
 आदि : विवेक
 आदि = गभीर 0 0 7          -- शेषः = 7, carried and never touched

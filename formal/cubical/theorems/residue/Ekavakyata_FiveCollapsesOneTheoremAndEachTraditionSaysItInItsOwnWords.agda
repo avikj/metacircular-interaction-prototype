@@ -65,7 +65,7 @@ module Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords whe
 -- figure of speech for the invisible part: it is that set.
 ------------------------------------------------------------------------
 
-open import SourcedProofs.Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
+open import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
   using (अवरोहणाभावः ; तन्तुभेदः)
 
 ------------------------------------------------------------------------
@@ -140,7 +140,7 @@ open import SignIsNotAccumulable
 -- inefficiency of a bag-of-counts score; it is provably absent from it.
 ------------------------------------------------------------------------
 
-open import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+open import Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (no-counting-criterion-separates ; comm-loop-is-a-nontrivial-loop-in-the-universe)
 
 ------------------------------------------------------------------------
@@ -170,7 +170,7 @@ open import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitIt
 -- guarantee.
 ------------------------------------------------------------------------
 
-open import Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+open import Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
   using (two-nodes-cannot-disagree ; merge-is-idempotent)
 
 ------------------------------------------------------------------------

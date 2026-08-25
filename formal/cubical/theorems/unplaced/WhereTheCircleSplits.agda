@@ -72,7 +72,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection
 
-open import SourcedProofs.PythagoreanTransition using (module Circle)
+open import PythagoreanTransition using (module Circle)
 
 private
   variable

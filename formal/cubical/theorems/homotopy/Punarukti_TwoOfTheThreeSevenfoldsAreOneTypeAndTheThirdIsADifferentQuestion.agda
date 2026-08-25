@@ -80,7 +80,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 import Saptabhangi as S
 import Anekanta as A
-import SourcedProofs.SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
+import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
 
 ------------------------------------------------------------------------
 -- १ · THE CAUSEWAY.  Two declarations, one type.
