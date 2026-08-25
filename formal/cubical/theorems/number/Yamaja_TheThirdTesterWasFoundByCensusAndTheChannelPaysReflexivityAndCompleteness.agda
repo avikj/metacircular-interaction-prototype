@@ -88,7 +88,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Relation.Nullary using (¬_)
 
 import Alopa_TheEngineNeverTouchesTheMeaning as A
-import Obstruction as O
+import ObstructionSubstrate as O
 
 ------------------------------------------------------------------------
 -- १ · समता — the two testers agree, pointwise.  Induction on both

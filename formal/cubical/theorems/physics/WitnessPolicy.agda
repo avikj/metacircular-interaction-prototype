@@ -197,7 +197,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Obstruction
+open import ObstructionSubstrate
 open Obstruction
 open Extension
 

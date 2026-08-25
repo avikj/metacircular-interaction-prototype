@@ -117,7 +117,7 @@ open import Cubical.Foundations.Isomorphism
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 
-open import Obstruction
+open import ObstructionSubstrate
   using (Shape ; Vocab ; Tm ; var ; node ; plug)
 open import WitnessPolicy   using (size)
 open import GenerativeLoop  using (delta ; deficit)

@@ -28,7 +28,7 @@ open import Cubical.Data.List using ([] ; _∷_)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Obstruction using (Shape ; Vocab ; Tm ; var ; Over)
+open import ObstructionSubstrate using (Shape ; Vocab ; Tm ; var ; Over)
 open import PayloadMorphism
   using ( MorphismClass ; Layer ; Uncls ; FactorsAt ; MinCarrier ; r₀ ; r₁
         ; table-row-1 ; U-min-zero )

@@ -141,7 +141,7 @@ import LawfulContinuationCore
 -- Bool-indexed union reaches 0 by the checked path A then B.
 import AffineEmergenceCountedPath
 import AcceptanceTest
-import Obstruction
+import ObstructionSubstrate
 import StructuredDefect
 -- An invariant that kills the zero detects a defect in one direction
 -- only: the certificate "the invariant vanished, so the construction is
@@ -383,7 +383,7 @@ import PerspectiveCore
 -- ambient reflection restricts on negation-invariant fibres, while the
 -- positive cone supplies a literal sector-break witness.
 import PairReflectionSector
-import CenterRelative
+import CenterRelativeExecutable
 -- Delta 15, theorem factory II: the defect calculus -- structured
 -- equivalence, the structured defect type, stabilisers, polarization,
 -- charge shift, kernel-pair descent, and refutation transport.
