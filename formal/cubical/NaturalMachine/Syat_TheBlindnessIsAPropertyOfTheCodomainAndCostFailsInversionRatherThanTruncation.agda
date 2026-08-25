@@ -57,17 +57,41 @@
 -- it is exactly `len d + len d`.
 --
 ------------------------------------------------------------------------
+-- A CORRECTION OF MY OWN, LANDED THE SAME DAY, STRUCK IN PLACE.
+--
+-- ~~"§1 gives sufficiency of `isSet`; that a NON-set codomain separates
+-- the kernel's two histories is not shown here and needs a model landing
+-- in a genuine groupoid."~~  I wrote that as an open item.  IT IS NOT
+-- OPEN AND IT IS NOT AVAILABLE: no such model exists, at any h-level.
+--
+-- §3 proves it.  `detour-history` is `s ; reverse s ; direct-history`, and
+-- EVERY semantics sends `reverse` to `sym`, so that round trip is the
+-- identity in any groupoid whatsoever.  The proof uses `assoc`, `rCancel`
+-- and `lUnit` and mentions no h-level anywhere.
+--
+-- SO THE READING IN §1 IS RIGHT ABOUT THE GENERAL CASE AND WRONG ABOUT
+-- SEṢA_'S OWN WITNESSES.  Truncation is what identifies parallel
+-- derivations in general; it is NOT what identifies THOSE TWO.  Those two
+-- are identified by inversion, which §2 already names as the deeper
+-- obstruction -- and `Sesa_`'s exhibited proof-relevance, `len` 2 against
+-- 4, is therefore visible to no functorial semantics at any level.  The
+-- pair was chosen to differ by a round trip, which is exactly the
+-- difference no semantics can see.
+--
+------------------------------------------------------------------------
 -- WHAT IS PROVED.
 --   §1  blindness-is-a-property-of-the-codomain -- the parametric form.
 --   §2  ⊕-len, rev-len, round-trip -- reversal is free to the law and
 --       costs double to the walker.
+--   §3  no-semantics-separates-them -- and therefore raising h-level buys
+--       nothing on the corpus's own pair.
 --
 -- WHAT IS NOT PROVED, named:
---   * NO converse.  §1 gives sufficiency of `isSet`; that a NON-set
---     codomain actually separates the kernel's two histories is not shown
---     here and needs a model landing in a genuine groupoid.  Until that
---     exists, "0-truncation is why" is a sufficient explanation and not a
---     characterisation, and I do not state it as one.
+--   * NO characterisation.  §1 gives sufficiency of `isSet` for the
+--     general statement, and §3 kills the one route I had proposed for a
+--     converse.  Whether SOME pair of derivations is separated by a
+--     non-set codomain is open; it would have to be a pair not differing
+--     by a round trip, and I exhibit none.
 --   * NO construction of the extra-semantic criterion `Sesa_` says is
 --     necessary.  §2 explains why one class of attempts cannot work.
 --   * nothing about which cost is right; `len` is one, and the round-trip
@@ -83,7 +107,10 @@ module NaturalMachine.Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInver
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-suc ; +-zero)
 
+open import Cubical.Foundations.GroupoidLaws using (assoc ; rCancel ; lUnit)
+
 open import NaturalMachine.RewriteCertificate
+open import NaturalMachine.GenerativeKernel using (direct-history ; detour-history)
 
 private
   variable
@@ -143,3 +170,32 @@ rev-len (then-step p d) =
 -- this to the identity; lāghava sends it to `len d + len d`.
 round-trip : {a b : Tm} (d : Derivation a b) → len (d ⊕ rev d) ≡ len d + len d
 round-trip d = ⊕-len d (rev d) ∙ cong (len d +_) (rev-len d)
+
+------------------------------------------------------------------------
+-- §3.  AND ON THE CORPUS'S OWN PAIR, H-LEVEL BUYS NOTHING.
+--
+-- Take ANY type at ANY h-level, any interpretation of terms in it, and any
+-- assignment of paths to steps that sends `reverse` to `sym` -- which every
+-- semantics must, since that is what makes it a semantics.  Then
+-- `detour-history` and `direct-history` get the SAME path.  They differ by
+-- `s ; reverse s`, and a round trip is the identity in any groupoid.
+--
+-- No `isSet` appears below.  This is the correction recorded in the header.
+------------------------------------------------------------------------
+
+module _ {X : Type ℓ} (P : Tm → X)
+         (st : {a b : Tm} → Step a b → P a ≡ P b)
+         (st-rev : {a b : Tm} (p : Step a b) → st (reverse p) ≡ sym (st p))
+         where
+
+  D : {a b : Tm} → Derivation a b → P a ≡ P b
+  D (done _)        = refl
+  D (then-step p d) = st p ∙ D d
+
+  no-semantics-separates-them : D detour-history ≡ D direct-history
+  no-semantics-separates-them =
+      cong (λ q → st s ∙ (q ∙ D direct-history)) (st-rev s)
+    ∙ assoc (st s) (sym (st s)) (D direct-history)
+    ∙ cong (_∙ D direct-history) (rCancel (st s))
+    ∙ sym (lUnit (D direct-history))
+    where s = add-suc var zero
