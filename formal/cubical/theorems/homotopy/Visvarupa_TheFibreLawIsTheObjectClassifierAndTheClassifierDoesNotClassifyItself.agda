@@ -46,9 +46,15 @@
 --
 --   §0  सर्वविभागः-एव-totalEquiv — the corpus's own decomposition
 --       (`SarvavibhagaH`, every map is the sum of its fibres) and HoTT
---       Lemma 4.8.2 are ONE TERM, `refl`.  So the fibre law was never a
---       reading of the classifier; it is the classifier's second half,
---       written down independently.
+--       Lemma 4.8.2 are the SAME EQUIVALENCE, by `equivEq refl`: their
+--       underlying maps are definitionally identical and only the
+--       packaging of the round-trips differs.  `refl` alone does NOT
+--       typecheck — the two Isos are built by different copattern
+--       clauses and Agda will not identify them — and that failure is
+--       recorded here rather than hidden, because it is the exact size
+--       of the claim.  So the fibre law was never a reading of the
+--       classifier; it is the classifier's second half, written down
+--       independently.
 --
 --   §1  विश्वरूपम् — for every base A,
 --           (Σ[ E ∈ Type ℓ ] (E → A))  ≃  (A → Type ℓ).
@@ -150,20 +156,18 @@
 --
 -- No postulates, no holes, --safe.
 --
--- CHECK STATUS AT THIS COMMIT: **NOT YET CHECKED AT THE PIN.**  The
--- container this was written in had no toolchain; `sh setup` was still
--- building Agda 2.8.0 when this file was committed.  Until `sh check
--- --all` names this module `ok` at Agda 2.8.0 / agda/cubical v0.9,
--- every term below is a CLAIM and not a verdict, and this line is the
--- only honest thing the file can say about itself.  It is here rather
--- than omitted because a file asserting a green it has not been given
--- is the one defect this repository's whole apparatus exists to stop.
+-- CHECKED AT THE PIN: Agda 2.8.0 / agda/cubical v0.9, exit 0, no
+-- warnings and no unsolved metas.  An earlier commit of this file
+-- carried a NOT-YET-CHECKED notice in this position because the
+-- container's toolchain was still building; the notice is replaced by
+-- the verdict it was standing in for, and §0 records the one claim that
+-- did not survive first contact.
 ------------------------------------------------------------------------
 
 module Visvarupa_TheFibreLawIsTheObjectClassifierAndTheClassifierDoesNotClassifyItself where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; equivFun ; equivToIso)
+open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; equivFun ; equivToIso ; equivEq)
 open import Cubical.Foundations.Isomorphism using (Iso ; isoToEquiv)
 open import Cubical.Foundations.Univalence using (ua ; uaβ ; univalence ; pathToEquiv)
 open import Cubical.Foundations.Transport using (substComposite)
@@ -172,11 +176,13 @@ open import Cubical.Foundations.Pointed.Base using (Pointed)
 open import Cubical.Functions.Fibration using (fiberEquiv ; totalEquiv ; fibrationEquiv)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd ; Σ-syntax ; ΣPathP)
 open import Cubical.Data.Nat using (zero)
-open import Cubical.Data.Int using (ℤ ; pos)
-open import Cubical.HITs.S1.Base using (S¹ ; helix ; ΩS¹ ; winding ; ΩS¹Isoℤ)
+open import Cubical.Data.Int using (ℤ ; pos ; sucℤ)
+open import Cubical.HITs.S1.Base using (S¹ ; loop ; helix ; ΩS¹ ; winding ; ΩS¹Isoℤ)
 
 open import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorphismTheoremIsAnekanta
   using (सर्वविभागः)
+open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+  using (सरणिः)
 
 ------------------------------------------------------------------------
 -- §0  The corpus's fibre law and the library's classifier are one term.
@@ -190,7 +196,7 @@ open import SarvavibhagaH_EveryMapIsTheSumOfItsFibresOverItsCodomainSoTheIsomorp
 सर्वविभागः-एव-totalEquiv :
   {ℓ ℓ' : Level} {A : Type ℓ} {B : Type ℓ'} (f : A → B)
   → सर्वविभागः f ≡ totalEquiv f
-सर्वविभागः-एव-totalEquiv f = refl
+सर्वविभागः-एव-totalEquiv f = equivEq refl
 
 ------------------------------------------------------------------------
 -- §1  विश्वरूपम् — the object classifier.  A fibration over A, and a map
@@ -350,3 +356,10 @@ the-universal-fibration-is-classified-one-level-up ℓ = fiber (universal {ℓ})
 
 एकावृत्तिः : Iso ΩS¹ ℤ
 एकावृत्तिः = ΩS¹Isoℤ
+
+-- and the corpus already priced ONE loop of it.  `Pradakshina_` computes
+-- the same family's transport at the generator; §4's `अनुवृत्तिः` at `loop`
+-- IS that map, so the two are one theorem read at one loop and at all of
+-- them.  Imported rather than restated: if it moves, this goes red.
+प्रदक्षिणा-एव-अनुवृत्तिः : (x : ℤ) → अनुवृत्तिः helix loop x ≡ sucℤ x
+प्रदक्षिणा-एव-अनुवृत्तिः = सरणिः

@@ -121,10 +121,8 @@
 --
 -- No postulates, no holes, --safe.
 --
--- CHECK STATUS AT THIS COMMIT: **NOT YET CHECKED AT THE PIN.**  The
--- container had no toolchain; `sh setup` was still building Agda 2.8.0.
--- Until `sh check --all` names this module `ok` at Agda 2.8.0 /
--- agda/cubical v0.9, every term below is a CLAIM and not a verdict.
+-- CHECKED AT THE PIN: Agda 2.8.0 / agda/cubical v0.9, exit 0, no
+-- warnings and no unsolved metas.
 ------------------------------------------------------------------------
 
 module Pula_ThePrincipalBundleIsAFamilyOfTorsorsSoItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt where
@@ -187,7 +185,7 @@ module _ (Grp : Group ℓ) where
 
   -- the action, written infix, at a named torsor
   _▸[_]_ : {ℓ' : Level} → Carrier → (T : Torsor ℓ') → Pts T → Pts T
-  g ▸[ T ] p = Action.act Grp (Pts T) (α T) g p
+  g ▸[ T ] p = Action.act (α T) g p
 
   -- एकः — the translating element is exactly one.  `EkaSankramana`'s
   -- theorem, used rather than restated: if it is renamed or weakened,
@@ -274,7 +272,7 @@ module _ (Grp : Group ℓ) where
     परिक्रमा-रिक्ते : (p : Pts (P b)) → परिक्रमा refl p ≡ e
     परिक्रमा-रिक्ते p =
       sym (परिक्रमा-एका refl p e
-        (Action.act-e Grp (Pts (P b)) (α (P b)) p
+        (Action.act-e (α (P b)) p
           ∙ sym (substRefl {B = तन्तवः P} p)))
 
     -- HOLONOMY IS A HOMOMORPHISM.  Derived from §3 and §1's uniqueness.
@@ -287,7 +285,7 @@ module _ (Grp : Group ℓ) where
       h = परिक्रमा r p
       step : (g · h) ▸[ P b ] p ≡ वहनम् (q ∙ r) p
       step =
-        (g · h) ▸[ P b ] p              ≡⟨ Action.act-· Grp (Pts (P b)) (α (P b)) g h p ⟩
+        (g · h) ▸[ P b ] p              ≡⟨ Action.act-· (α (P b)) g h p ⟩
         g ▸[ P b ] (h ▸[ P b ] p)       ≡⟨ cong (g ▸[ P b ]_) (परिक्रमा-वहति r p) ⟩
         g ▸[ P b ] वहनम् r p             ≡⟨ sym (समवृत्तिः P r g p) ⟩
         वहनम् r (g ▸[ P b ] p)           ≡⟨ cong (वहनम् r) (परिक्रमा-वहति q p) ⟩
@@ -310,12 +308,12 @@ module _ (Grp : Group ℓ) where
       -- both g' · k and k · g carry p to the transported point
       left : (g' · k) ▸[ P b ] p ≡ वहनम् q (k ▸[ P b ] p)
       left =
-        (g' · k) ▸[ P b ] p           ≡⟨ Action.act-· Grp (Pts (P b)) (α (P b)) g' k p ⟩
+        (g' · k) ▸[ P b ] p           ≡⟨ Action.act-· (α (P b)) g' k p ⟩
         g' ▸[ P b ] (k ▸[ P b ] p)    ≡⟨ परिक्रमा-वहति q (k ▸[ P b ] p) ⟩
         वहनम् q (k ▸[ P b ] p) ∎
       right : (k · g) ▸[ P b ] p ≡ वहनम् q (k ▸[ P b ] p)
       right =
-        (k · g) ▸[ P b ] p            ≡⟨ Action.act-· Grp (Pts (P b)) (α (P b)) k g p ⟩
+        (k · g) ▸[ P b ] p            ≡⟨ Action.act-· (α (P b)) k g p ⟩
         k ▸[ P b ] (g ▸[ P b ] p)     ≡⟨ cong (k ▸[ P b ]_) (परिक्रमा-वहति q p) ⟩
         k ▸[ P b ] वहनम् q p           ≡⟨ sym (समवृत्तिः P q k p) ⟩
         वहनम् q (k ▸[ P b ] p) ∎

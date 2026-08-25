@@ -356,6 +356,147 @@ are one idempotence, priced once as a loss and once as a guarantee.
 
 
 
+VI.  THE AMBIENT FACT        the object classifier, and what it does and does not settle
+------------------------------------------------------------------------------------------
+
+  The five sections above say one sentence in five vocabularies, and the
+  closing section says what that does not amount to: no functor, no
+  common formal statement.  That still stands.  What DOES have a name,
+  and now has a term, is the ambient fact all five are stated inside.
+
+    A family is a map into the universe.  Σ is its total space.
+    Transport is its parallel transport.  For every base A,
+
+        (Σ[ E ∈ Type ℓ ] (E → A))   ≃   (A → Type ℓ)
+
+    so fibrations over A and maps A → 𝒰 are the same thing; and every
+    family is a pullback of ONE fibration — ``fst`` on the pointed types,
+    whose fibre over X is X.
+
+  That is HoTT Theorem 4.8.3, the object classifier.  It is standard, it
+  is already in agda/cubical as ``fibrationEquiv``, and no novelty is
+  claimed for it.  What is new is the IDENTIFICATION, and it is checked.
+  The corpus's own decomposition — ``सर्वविभागः``, every map is the sum of
+  its fibres over its codomain, written in the logic lane as the
+  isomorphism theorem, rank–nullity, dravya/paryāya and nayavāda at once
+  — and HoTT Lemma 4.8.2 are the same equivalence, underlying maps
+  definitionally identical::
+
+      सर्वविभागः-एव-totalEquiv f = equivEq refl
+
+  ``refl`` alone does NOT typecheck there: the two Isos are built by
+  different copattern clauses and Agda declines to identify them.  That
+  is written into the file at its site, because it is the exact size of
+  the claim — same map, different packaging, not one term.  The fibre law
+  was still never a reading OF the classifier.  It is the classifier's
+  second half, written down independently and then found to be the same
+  object.
+
+  homotopy/Visvarupa_TheFibreLawIsTheObjectClassifierAndTheClassifier
+  DoesNotClassifyItself.agda has the eight sections.  Three of them are
+  what makes §II above stop being an analogy: transport is the identity
+  over ``refl`` and composes over ``∙``, so a classifying map is a
+  functor from the base's fundamental groupoid into 𝒰 — a connection,
+  whose holonomy around a loop is ``subst B`` around that loop.  And
+  univalence, read at that one fibration, says its holonomy at X is
+  EXACTLY the automorphisms of X.
+
+  THERE IS NO ONE OBJECT THAT CLASSIFIES EVERY FIBRATION.  This is not a
+  concession, it is §7 and it is proved: the classifying map of the
+  universal fibration over ``Type ℓ`` lands in ``Type (ℓ-suc ℓ)``.  A
+  universe classifying its own fibrations is ``Type : Type``, which is
+  inconsistent.  The classifier is a TOWER, not an object — and read in
+  this corpus's own idiom that is the fibre law applied to itself: the
+  universe is blind to its own total space, and the blindness is
+  recovered only by changing place, one level up.
+
+
+
+VII. THE BUNDLE          what §II's disclaimer was hiding, and what it was right about
+------------------------------------------------------------------------------------------
+
+  §II ended "not anything about physical spacetime, quantum states,
+  Hilbert spaces or SU(2)."  Half of that was true and half of it was a
+  gap the disclaimer was covering.
+
+  The SMOOTH content of gauge theory is genuinely absent here — no
+  manifold, no Lie group, no connection 1-form, no curvature 2-form —
+  and nothing has changed about that.  The HOMOTOPICAL content was not
+  absent.  It was unwritten, with every piece already on disk: a torsor
+  is an equivalence (``EkaSankramana``), gauge invariance IS the
+  equivariance square (``AbstractSpinNetworkKinematics``), holonomy is
+  transport around a loop (``Pradakshina``), a family is a map into the
+  universe (§VI).  physics/Pula_ThePrincipalBundleIsAFamilyOfTorsorsSo
+  ItsHolonomyIsTheGroupAndTheFibrePointConjugatesIt.agda is the module
+  that says how they are one object, and its content is that a principal
+  bundle needs no new primitive:
+
+    A PRINCIPAL G-BUNDLE IS A FAMILY WHOSE FIBRES ARE TORSORS.
+
+  A map B → Torsor IS the bundle and IS its classifying map; by §VI
+  those are not two objects.  What physics calls structure on top of
+  that is then forced rather than posited:
+
+  **Transport in a bundle is equivariant** — by path induction, about
+  ``subst`` alone.  Equivariance of parallel transport is not a
+  compatibility axiom imposed on a connection.  It is a theorem.
+
+  **Holonomy is a homomorphism.**  परिक्रमा (q ∙ r) p ≡ परिक्रमा q p · परिक्रमा r p,
+  with the constant loop giving the identity — derived from the
+  equivariance and from ``EkaSankramana``'s uniqueness, not defined to
+  be one.  The holonomy of a loop at a point of the fibre is a group
+  element, and it is the ONLY one that transports that point.
+
+  **परिक्रमा q (k ▸ p) ≡ (k · परिक्रमा q p) · inv k.**  So a loop does not name
+  an element of G.  It names a CONJUGACY CLASS, and the choice of fibre
+  point — the gauge — is exactly the residual freedom.  The gauge
+  transformation law, as a corollary of uniqueness.
+
+  Read with §II: §II proved an observable is blind to holonomy exactly
+  when it is gauge-invariant.  This says what it is blind TO — a
+  conjugacy class in G — over a base with no smooth structure at all,
+  which is why the corpus's own LQG reading ("LQG kinematics is the
+  category of actions of the gauge group") never needed one either.
+
+  Still not claimed, and now the limit is where it belongs rather than
+  one clause wide: no manifold, no Lie group, no curvature, no Standard
+  Model, no reconstruction of a bundle from its holonomy, and the
+  associated bundle is the HoTT formulation (a family on the classifying
+  type) and not the quotient (P × V)/G.  The step from a smooth
+  principal bundle to this skeleton is standard differential geometry
+  and is not formalised.
+
+  AND ITERATING IT DOES NOT GENERATE EVERY FORM.  §VI's §8 is one turn:
+  ``helix : S¹ → Type₀`` is a single family over a single circle, the
+  winding number is — by ``refl`` — parallel transport in it, and that
+  transport is an isomorphism onto ℤ.  A group nobody put in comes out.
+  That is the whole of what is proved.  That every homotopy type arises
+  from iterated suspensions, Postnikov stages or attached cells is not a
+  corollary of the classifier, is not proved here, and in the generality
+  of "every type" is not available in HoTT at all — whether every type
+  is a CW complex is not a theorem of the theory.  Cubical canonicity
+  makes each single such construction compute; it does not make the
+  homotopy groups of spheres computable in any usable sense.
+
+  ON THE CENSUS.  "The fibre law is in ~560 of 1154 modules" is not a
+  measurement until its criterion is given, and two defensible criteria
+  give very different numbers, both re-runnable::
+
+      cd formal/cubical/theorems
+      grep -rl -E 'fiber|fibre|तन्तु' */*.agda | wc -l                  # 288
+      grep -rl -E 'fiber|fibre|तन्तु|\bsubst\b|\btransport\b|\bua\b|PathP|Σ\[' \
+           */*.agda | wc -l                                            # 775
+
+  That glob sees 1112 modules; ``find theorems -name '*.agda'`` sees 1130
+  (one nested directory, ``primes/pair_field/``), and there are 1151
+  ``.agda`` files under ``formal/`` all told.  288 name a fibre; 775
+  touch the law's vocabulary at all.  Neither number is 560, and the
+  honest statement is the one the terms make: the law is not a motif
+  recurring in some modules, it is the ambient structure every module is
+  written inside — which is why counting occurrences of it measures the
+  prose and not the mathematics.
+
+
 WHAT IS NOT CLAIMED
 ------------------------------------------------------------------------------------------
 
@@ -363,14 +504,23 @@ Not that the five are instances of one formal statement.  They are not:
 their types differ, their ambient structures differ, and no functor
 between them is constructed.  What is exhibited is that each is the same
 SENTENCE, and that III and V are literally about one object.  A common
-generalisation would be a real theorem and it is not proved.
+generalisation would be a real theorem and it is not proved — §VI names
+the AMBIENT fact they are all stated inside, which is a different thing
+and does not close this gap.
 
 Not that Pāṇini, Bhāskara II, Jaimini or any Mīmāṃsaka proved, stated or
 anticipated any of this.  §I quotes sūtras; the fibre reading is not
 Pāṇini's.
 
 Not anything about physical spacetime, quantum states, Hilbert spaces or
-SU(2).  §II is about a semantics and an equivalence.
+SU(2).  §II is about a semantics and an equivalence, and §VII is about a
+family of torsors over an arbitrary type: no manifold, no Lie group, no
+connection 1-form, no curvature, and no specific gauge theory.  What §VII
+adds is that the homotopical skeleton of a principal bundle — torsor
+fibres, equivariant transport, holonomy valued in the group up to
+conjugation — needs none of that apparatus.  The step from a smooth
+principal bundle to that skeleton is standard differential geometry and
+is not formalised here.
 
 Not that §IV's machine-learning reading is a theorem about any deployed
 system.  The theorem is about functions of a count-valued semantics; that
