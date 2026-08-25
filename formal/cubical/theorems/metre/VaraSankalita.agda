@@ -26,7 +26,7 @@ module VaraSankalita where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-comm)
-open import SourcedProofs.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum  using (∑)
+open import Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum  using (∑)
 open import Citighana using (चिति)
 
 ------------------------------------------------------------------------

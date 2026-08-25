@@ -27,7 +27,7 @@ module NarayanaSamasa where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
-open import SourcedProofs.Narayana using () renaming (सर्गः to गो-सर्गः ; नारायण-आवृत्तिः to गो-आवृत्तिः)
+open import Narayana using () renaming (सर्गः to गो-सर्गः ; नारायण-आवृत्तिः to गो-आवृत्तिः)
 open import SamasaMeruN using (सर्गः ; नारायण-आवृत्तिः)
 
 ------------------------------------------------------------------------

@@ -96,9 +96,9 @@ open import Cubical.Data.Sigma using (_×_; _,_; fst; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
 -- the fourteen rows, each in the module that checked it
-import Primes.PairField.CycleHolonomy                                as CY
+import CycleHolonomy                                as CY
 import AchromaticToy                                   as AT
-import Primes.PairField.ReversalInvariant                            as RV
+import ReversalInvariant                            as RV
 import ExactTwoStateInstrument          as EI
 import StructuredDefect                 as SD
 import TheArithmeticCircleIsFourPeriodic as AC
@@ -129,7 +129,7 @@ private variable ℓ : Level
 -- १ ── ELEVEN THAT MOVE A POINT.  Real charge, one row at a time.
 ------------------------------------------------------------------------
 
--- १.१  Primes.PairField.CycleHolonomy.holBool : Bool ≃ Bool — three `not`s, so `not`.
+-- १.१  CycleHolonomy.holBool : Bool ≃ Bool — three `not`s, so `not`.
 १-holBool : ¬ (ua CY.holBool ≡ refl)
 १-holBool = चलनम् CY.holBool true
   (λ q → false≢true (sym (CY.holBoolIsNot true) ∙ q))
@@ -192,7 +192,7 @@ private variable ℓ : Level
 शून्य-पर्यायः : ua BR.identityCrossingEquiv ≡ refl
 शून्य-पर्यायः = cong ua (equivEq refl) ∙ uaIdEquiv
 
--- २.२  Primes.PairField.CycleHolonomy.hol is not a loop: it is a FAMILY over three
+-- २.२  CycleHolonomy.hol is not a loop: it is a FAMILY over three
 --      equivalences, and the census matched its conclusion.  At the
 --      identity arguments it is the identity …
 हेतु-सापेक्षः-तुच्छः : (A : Type ℓ)
@@ -202,7 +202,7 @@ private variable ℓ : Level
 -- … and at `notEquiv` it is not (that instantiation IS `holBool`, §१.१).
 -- So the family has no answer; only its instances do.
 
--- २.३  Primes.PairField.ReversalInvariant.revEquiv is likewise a family, over the
+-- २.३  ReversalInvariant.revEquiv is likewise a family, over the
 --      letter type.  Over an empty alphabet reversal is the identity …
 शून्याक्षरे : (xs : List ⊥) → rev xs ≡ xs
 शून्याक्षरे []       = refl

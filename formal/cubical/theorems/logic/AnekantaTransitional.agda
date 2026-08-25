@@ -84,7 +84,7 @@
 -- शून्यबोधः (no bare truth-value anywhere).
 ------------------------------------------------------------------------
 
-module Anekanta where
+module AnekantaTransitional where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; discreteℕ)

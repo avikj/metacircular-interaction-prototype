@@ -99,7 +99,7 @@ interactive/question-machine
 #
 # A .md file asserts.  A checked term is the object, and it is still there
 # tomorrow.  Put it in Agda (formal/cubical/, fibre/src/) or Lean
-# (formal/pairfield/); if it is a header or a struck claim, it belongs in the
+# (formal/lean/); if it is a header or a struck claim, it belongs in the
 # module it is about.
 #
 # The exceptions are not prose.  They are files the HARNESS LOADS as

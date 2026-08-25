@@ -73,7 +73,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import AnuktaAvaktavya using (सामयिक ; नित्य)
 open import SamayikaAndNityaAreIndependent using (UniversalRemedy)
 
 private

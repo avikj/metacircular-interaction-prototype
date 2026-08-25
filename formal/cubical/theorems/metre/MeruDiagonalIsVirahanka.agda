@@ -69,9 +69,9 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.List using (List ; length)
 
 open import Matramerus using (सर्व ; मात्रामेरु)
-open import SourcedProofs.PingalaPrastara using (matra)
-open import SourcedProofs.Sankalita using (antidiag)
-open import SourcedProofs.DiagonalIsMatra using (diagonal-is-matra)
+open import PingalaPrastara using (matra)
+open import Sankalita using (antidiag)
+open import DiagonalIsMatra using (diagonal-is-matra)
 
 ------------------------------------------------------------------------
 -- 1.  Both sides carry the Virahāṅka recurrence

@@ -12,7 +12,7 @@
 -- by that relation is the minimal fully abstract machine with the same
 -- behavior.
 --
--- Ported from the Lean development `formal/pairfield/Pairfield/
+-- Ported from the Lean development `formal/lean/Pairfield/
 -- FutureBehavior.lean` and the statement of `notes/NATURAL_CRYSTAL.md`
 -- (equations (1)–(2)), with the set-quotient realized as the HIT
 -- `Cubical.HITs.SetQuotients._/_` instead of Lean's `Quotient`.

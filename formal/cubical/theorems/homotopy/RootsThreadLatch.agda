@@ -38,16 +38,16 @@
 module RootsThreadLatch where
 
 -- the conic: Brahmagupta's composition, and what the line does not have
-import SourcedProofs.PythagoreanTransition
+import PythagoreanTransition
 import WhereTheCircleSplits
-import SourcedProofs.EveryTripleIsARotation
+import EveryTripleIsARotation
 import TheArithmeticCircleIsFourPeriodic
-import SourcedProofs.IdempotenceForbidsDescent
+import IdempotenceForbidsDescent
 import DescentIsNotInversion
 import DescentCostsTheIntegers
 import BoundedStateNeedsAGroup
-import SourcedProofs.Cakravala
-import SourcedProofs.CakravalaNeedsKuttaka
+import CakravalaStep
+import CakravalaNeedsKuttaka
 
 -- the deflation, and the tower of description
 import DeflationaryTest
@@ -57,7 +57,7 @@ import Anuvrtti
 import Pratyahara
 import TransportPrice
 import TheTower
-import SourcedProofs.UnivalenceErasesTheAlgorithm
+import UnivalenceErasesTheAlgorithm
 import SignIsNotAccumulable
 
 -- the magnitude sub-thread, every claim of which was corrected or
@@ -73,11 +73,11 @@ import TheGapWasAUnitsError
 
 -- optimality, and the arithmetic chain from the kuṭṭaka to the count
 import LosslessLowerBound
-import SourcedProofs.OptimalObservation
-import SourcedProofs.PingalaIsOptimal
+import OptimalObservation
+import PingalaIsOptimal
 import WalkObservationCount
 import CRTChain
-import SourcedProofs.CoprimePowers
+import CoprimePowers
 import BezoutIsGCD
 import DistinctPrimesAreCoprime
 import CoprimePowersN
@@ -114,7 +114,7 @@ import PratyaharaBuysTotalityWithLocality
 import TheSecondNaIsTheCollision
 import MeruDiagonalIsVirahanka
 import TheFibreIsTheSubject
-import SourcedProofs.AntyaSamskaraSthaulya
+import AntyaSamskaraSthaulya
 import ExclusionRecoversGroundAtAPrice
 import TheAbsenceTowerIsThreeUnconditionally
 import WhereTheTowerCanStillBeThree
@@ -148,13 +148,13 @@ import TheInternalRulesPreserveIndependenceInThisCalculus
 import TheOmegaInconsistentExtensionDerivesTheNegation
 
 -- Piṅgala, Virahāṅka, and the Kerala school
-import SourcedProofs.Sankalita
+import Sankalita
 import DurationIsSyllablesPlusGuru
 import PairsSummingTo
-import SourcedProofs.DiagonalIsMatra
+import DiagonalIsMatra
 
 -- the Jain fourth bhaṅga, in the same shape as लाघव and the barrier
-import SourcedProofs.AvaktavyaDoesNotFactor
+import AvaktavyaDoesNotFactor
 
 -- and the sites derived from the corpus's own lemma rather than beside it
 import OneLemmaFiveSites

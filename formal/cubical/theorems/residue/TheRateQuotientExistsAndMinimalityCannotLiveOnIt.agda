@@ -91,7 +91,7 @@ open import WhichThresholdStatementsDescendToTheRate
   using (_≈_ ; atLeastDescends ; aboveDescends ; Minimal
         ; oneHalf ; twoQuarters ; oneHalfIsTwoQuarters
         ; shortIsMinimalAtOneHalf ; shortIsNotMinimalAtTwoQuarters)
-open import SourcedProofs.MinimalityOfABoundaryPopulationNeedsLowestTerms
+open import MinimalityOfABoundaryPopulationNeedsLowestTerms
   using (short)
 
 ------------------------------------------------------------------------

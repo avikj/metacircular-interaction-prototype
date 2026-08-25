@@ -33,7 +33,7 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 "$repo_dir/scripts/check-claim-slugs.sh"
 
 # The Lean-lane closure checks (notes/LEAN_LANE_AUDIT.md, and the 2026-08-20
-# re-derivation at the foot of formal/pairfield/Pairfield.lean).  Two
+# re-derivation at the foot of formal/lean/Pairfield.lean).  Two
 # different questions, neither subsuming the other, both toolchain-free:
 #
 #   check-lean-globs.sh        -- is every module a BUILD TARGET?
@@ -92,7 +92,7 @@ else
 fi
 
 (
-  cd "$repo_dir/formal/pairfield"
+  cd "$repo_dir/formal/lean"
   lake build
   # The axiom check (yogyānupalabdhi): Lean's substitute for Agda's `--safe`.
   # Rejects any lane constant whose `Lean.collectAxioms` set escapes

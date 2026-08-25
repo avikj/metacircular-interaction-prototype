@@ -91,7 +91,7 @@ open import Cubical.Data.Empty as ⊥ using (⊥)
 open import WhichThresholdStatementsDescendToTheRate
   using (_≈_ ; Minimal ; oneHalf ; twoQuarters ; oneHalfIsTwoQuarters
         ; shortIsMinimalAtOneHalf ; shortIsNotMinimalAtTwoQuarters)
-open import SourcedProofs.MinimalityOfABoundaryPopulationNeedsLowestTerms
+open import MinimalityOfABoundaryPopulationNeedsLowestTerms
   using (short)
 open import TheRateQuotientExistsAndMinimalityCannotLiveOnIt
   using (Rate)

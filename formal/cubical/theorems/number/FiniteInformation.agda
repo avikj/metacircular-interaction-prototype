@@ -6,7 +6,7 @@
 -- The finite-information kernel for observer / side-information
 -- arguments, checked in Cubical Agda.
 --
--- Rank-3 port of the Lean development `formal/pairfield/Pairfield/
+-- Rank-3 port of the Lean development `formal/lean/Pairfield/
 -- FiniteInformation.lean` (130 lines), per the spec in
 -- notes/LEAN_TO_CUBICAL_PORT_MAP.md §3.3.  The statements are
 -- deliberately distribution-free: no probability law is chosen, the

@@ -88,7 +88,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import Saptabhangi using (आर्पण ; क्रमः ; सहः)
-open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import AnuktaAvaktavya using (सामयिक ; नित्य)
 open import KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
 

@@ -142,7 +142,7 @@ open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬_ ; isPropDec)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 open import Digits k
-open import SourcedProofs.TransportDiv k
+open import TransportDiv k
 open import WalkResidueBridge k using (∣→modw-zero ; decDivides)
 
 import FutureBehavior as FB

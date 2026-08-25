@@ -237,7 +237,7 @@ import HaskellDiscoveryBoundary
 import DatumSensitivePayload
 import RealizedPayloadCapability
 import ProofLabelNoGo
-import Kernel.RewriteCertificate
+import RewriteCertificate
 -- S4 (D0026_BUILD_QUEUE §4): the same certificate language widened to
 -- multiplication, as a conservative MIRROR of the module above rather than
 -- an edit to it — the gate lane owns the live perimeter.  Listed here on
@@ -246,12 +246,12 @@ import Kernel.RewriteCertificate
 -- AWAITING KERNEL: written in a container with no agda (2026-08-16).  If it
 -- does not check, the finding outranks the module; fix or drop this line and
 -- record it, do not leave the root red.
-import Kernel.RewriteCertificateMul
+import RewriteCertificateMul
 -- Execution and semantic preservation are eliminations of one intrinsically
 -- indexed rewrite run; no external candidate/validation seam is involved.
-import Kernel.IntrinsicRewrite
-import Kernel.ControlledGrammar
-import Kernel.GenerativeKernel
+import IntrinsicRewrite
+import ControlledGrammar
+import GenerativeKernel
 import FiniteIndraWeave
 import ProductiveIndraNet
 import RootedIndraTotal
@@ -292,7 +292,7 @@ import DSOMinPlusFinite
 -- residual permutation fibers, refinement, and continuation-sensitive choice.
 import DivisorHistoryDSO
 import ProductiveTear
-import Kernel.IntrinsicProductiveInstall
+import IntrinsicProductiveInstall
 import PolynomialRewrite
 -- Endogenous names are conservative signature extensions: the generated
 -- evaluator equals elimination back into the previous language for every
@@ -497,7 +497,7 @@ import TransportMulWitness
 -- imported unapplied here and instantiated at base ten in the witness, which
 -- runs the automaton on the word 1000 and discharges the edge costs with
 -- numbers rather than parameters.
-import SourcedProofs.TransportDiv
+import TransportDiv
 import TransportDivWitness
 -- the leakage lane's commutator-rank identity, folded in so that the root
 -- aggregate's green claim and the directory's contents finally coincide.
@@ -705,7 +705,7 @@ import WalkResidueBridge
 -- passes and never a unary numeral.  Needed a reconciliation the library
 -- lacked (`%≡mod`: gcd speaks Fin's _%_, the automaton speaks Nat.Mod's
 -- _mod_) before the Euclid step could even be stated.
-import SourcedProofs.WalkChartedCap
+import WalkChartedCap
 -- The walk's frontier, broken: next 8 ≡ 9, next 9 ≡ 11, next 10 ≡ 11, each
 -- checked without running the walk on cap m.  WalkFast guessed the blocker
 -- was its `with`; the bisection in this file's header shows it is the
@@ -739,7 +739,7 @@ import ChuDefect
 -- homometric pair proves the Bridge alone cannot do that work; a gamed
 -- evaluator's records can be quarantined without touching anything else.
 import SelfImprovement
--- The three decision rules of interactive/MathMachine.hs, modelled and proved:
+-- The three decision rules of machine/MathMachine.hs, modelled and proved:
 -- the flow trichotomy is total, exclusive, and decay closes without growth;
 -- the growth gate must not fire on a collapsed test set, because the defect
 -- is monotone in the assignment list; and the min-plus chooser over growth
@@ -954,8 +954,8 @@ import Vacuity
 -- The birth from the fourth position: what an avaktavya bears, and the two
 -- laws that keep it from being a tie-breaker (§1 it decides, §2 it can say
 -- only what the contenders already said).  Wired to the running scheduler
--- in interactive/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs.
-import SourcedProofs.AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
+-- in machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs.
+import AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
 
 ------------------------------------------------------------------------
 -- ORPHAN FOLD-IN 4, 2026-08-20 (Nālandā build lane) — the subtree's share.
@@ -989,33 +989,33 @@ import ASmallTheoryWithAnIndependentSentence
 import ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
 import Abhava
 import AnswerabilityIsFreeAtTheFactoringLaw
-import SourcedProofs.AntyaSamskaraSthaulya
+import AntyaSamskaraSthaulya
 import Anuvrtti
 import AnuvrttiIsTheSameTrade
 import AnyonyaAbhava
 import Apavada
 import AscendingFirstIsTheWorstUnlessTheArchiveIsConstant
-import SourcedProofs.Asiddha
+import Asiddha
 import AsiddhatvaBreaksFactoring
 import AskingIsNotAPropertyOfTheFunction
 import AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
-import SourcedProofs.AvaktavyaDoesNotFactor
+import AvaktavyaDoesNotFactor
 import BarrierIsTwoWitnesses
 import BezoutIsGCD
 import Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain
 import BoundedStateNeedsAGroup
 import CRTChain
-import SourcedProofs.Cakravala
-import SourcedProofs.CakravalaNeedsKuttaka
+import CakravalaStep
+import CakravalaNeedsKuttaka
 import CatuskotiPerspective
-import SourcedProofs.CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
+import CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
 import ConvergentsAreDeterminedByThePrefixOfTheValli
-import SourcedProofs.CoprimePowers
+import CoprimePowers
 import CoprimePowersN
 import DeflationaryTest
 import DescentCostsTheIntegers
 import DescentIsNotInversion
-import SourcedProofs.DiagonalIsMatra
+import DiagonalIsMatra
 import DistinctPrimesAreCoprime
 import DivisibilityGuardsAreMeetClosed
 import DurationIsSyllablesPlusGuru
@@ -1023,7 +1023,7 @@ import EquivalenceHasNoFloor
 import EveryCommonDivisorOfAConvergentDividesTheDeterminant
 import EveryRemainderMemberIsBeatenByAStratumMember
 import EveryThresholdHasABoundaryPopulationOfItsOwnDenominator
-import SourcedProofs.EveryTripleIsARotation
+import EveryTripleIsARotation
 import ExclusionInstantiatesAbhavaWithALoadBearingLimitor
 import ExclusionRecoversGroundAtAPrice
 import ExhaustionIsSystematic
@@ -1038,7 +1038,7 @@ import FrontierList
 import FrontierMember
 import FuelAdequacyIsACollision
 import HypothesesAssumedWhereTheyAreDerivable
-import SourcedProofs.IdempotenceForbidsDescent
+import IdempotenceForbidsDescent
 import IndependenceNeedsAnInternalImplication
 import JoinSavesTheMeet
 import KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner
@@ -1054,7 +1054,7 @@ import MeruDiagonalIsVirahanka
 import MigrationNeedsALawAndTheLawIsNotFree
 import Moksha
 import MokshaYantra
-import SourcedProofs.NamingIsNotAFunctionOfResemblance
+import NamingIsNotAFunctionOfResemblance
 import NegationCompletenessForbidsIndependence
 import NisvabhavaNet
 import NoNormOnAJoin
@@ -1070,13 +1070,13 @@ import OverlapIsTheCost
 import PFreePart
 import PairsSummingTo
 import PermanentUnsaidIsStableAndTemporaryIsASearch
-import SourcedProofs.PingalaIsOptimal
+import PingalaIsOptimal
 import PowModHasTheSameShape
 import PratityasamutpadaArising
 import Pratyahara
 import PratyaharaBuysTotalityWithLocality
 import PrimeCofactorCoprime
-import SourcedProofs.PythagoreanTransition
+import PythagoreanTransition
 import QuotientFiberLaw
 import RefutingLaghavaIsASearch
 import RepresentabilityIsNotEnoughForIndependence
@@ -1085,12 +1085,12 @@ import RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
 import RnaDhana_TheMixedStratificationTerminatesAndCovers
 import RnaDhana_TheWholeMixedStratificationIsTheFlippedOne
 import RootsThreadLatch
-import SourcedProofs.Samacchheda_TheUntruncatedTrichotomyOnTheRate
-import SourcedProofs.Sankalita
+import Samacchheda_TheUntruncatedTrichotomyOnTheRate
+import Sankalita
 import SaturationAtACutIsIdempotent
 import SignIsNotAccumulable
 import SiteAudit
-import SourcedProofs.SthaulyaIsTheOmittedTerm
+import SthaulyaIsTheOmittedTerm
 import SuccessorIsNotTropical
 import SumProductTorus
 import TheAbsenceTowerIsThreeUnconditionally
@@ -1139,7 +1139,7 @@ import LosslessReturnCost_TheReturnTripIsFreeForEveryAdditiveCost
 import TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
 import TwoTruthsCompute
 import UnderExtensionalFlatnessOneCostDifferenceSuffices
-import SourcedProofs.UnivalenceErasesTheAlgorithm
+import UnivalenceErasesTheAlgorithm
 import WhatTheSubstrateArgumentCovers
 import WhereTheCircleSplits
 import WhereTheTowerCanStillBeThree
@@ -1183,9 +1183,9 @@ import WalkStreamHypothesisBoundary
 -- this root because they were reachable from nothing and so were checked by
 -- nobody: a module outside the import closure is built by no command, and
 -- "it is green" about such a module is a claim about one person's shell.
-import Kernel.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
-import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
-import Kernel.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
-import Kernel.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
-import Kernel.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
-import Kernel.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+import Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+import Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+import Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+import Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous

@@ -82,7 +82,7 @@ open import Cubical.Data.Sigma using (_,_ ; fst ; snd)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import SourcedProofs.PingalaPrastara using (Syllable ; laghu ; guru ; aksara ; parity)
+open import PingalaPrastara using (Syllable ; laghu ; guru ; aksara ; parity)
 open import InflationVersusSubgroup
   using (Z2 ; e0 ; e1 ; Z4 ; z0 ; z1 ; z2 ; z3 ; incl ; proj)
 open import SieveScaleTower using (O₁ ; O₂ ; s₂₁ ; π₂₁)

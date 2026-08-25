@@ -78,8 +78,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-LANE="${LEAN_LANE_DIR:-formal/pairfield/Pairfield}"
-ALLOWLIST="${LEAN_ALLOWLIST:-formal/pairfield/axiom-allowlist.txt}"
+LANE="${LEAN_LANE_DIR:-formal/lean/Pairfield}"
+ALLOWLIST="${LEAN_ALLOWLIST:-formal/lean/axiom-allowlist.txt}"
 
 [ -d "$LANE" ] || { echo "GuptaNaya: lane directory $LANE not found" >&2; exit 2; }
 [ -f "$ALLOWLIST" ] || { echo "GuptaNaya: no allowlist at $ALLOWLIST" >&2; exit 2; }

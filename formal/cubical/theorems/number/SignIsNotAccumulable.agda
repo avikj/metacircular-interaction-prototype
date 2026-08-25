@@ -83,7 +83,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection
 
-open import SourcedProofs.IdempotenceForbidsDescent using (module Mon)
+open import IdempotenceForbidsDescent using (module Mon)
 
 private
   variable

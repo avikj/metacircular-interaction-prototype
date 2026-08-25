@@ -104,12 +104,12 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Data.Unit using (Unit ; tt)
 
-open import Kernel.RewriteCertificate using (Tm ; Derivation ; done ; then-step)
-open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import RewriteCertificate using (Tm ; Derivation ; done ; then-step)
+open import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (len)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)
-open import SourcedProofs.AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue
+open import AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue
   using (A ; आवृत्तिः ; आवृत्तम् ; आवृत्तस्य-मात्रा ; len-⊕ ; एकत्वम्)
 
 private

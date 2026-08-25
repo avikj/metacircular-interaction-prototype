@@ -44,7 +44,7 @@ module CakravalaWitness where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
-open import SourcedProofs.BhavanaSemiring using (cx ; cy ; bhavanaℕ)
+open import BhavanaSemiring using (cx ; cy ; bhavanaℕ)
 open import CakravalaNat using (ca ; cb ; cakravalaℕ)
 
 D : ℕ

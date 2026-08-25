@@ -87,7 +87,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
 
 open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
-open import SourcedProofs.Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
+open import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
   using (सर्व-नाशः)
 open import YogaKsetra_TheConservingFlowsOfAdditionAreExactlyTheShearFields
   using (module क्षेत्रम्)

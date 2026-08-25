@@ -1,4 +1,4 @@
 name: natural-machine
 depend: cubical
-include: . theorems theorems/Primes theorems/SourcedProofs theorems/automata theorems/cost theorems/grammar theorems/homotopy theorems/lattices theorems/logic theorems/metre theorems/must-fail theorems/number theorems/order theorems/physics theorems/residue theorems/unplaced theorems/walks 
+include: . kernel theorems theorems/automata theorems/cost theorems/grammar theorems/historical_proofs theorems/homotopy theorems/lattices theorems/logic theorems/metre theorems/must_fail theorems/number theorems/order theorems/physics theorems/primes theorems/primes/pair_field theorems/residue theorems/unplaced theorems/walks
 flags: --cubical --guardedness --safe --no-import-sorts

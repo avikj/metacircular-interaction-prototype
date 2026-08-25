@@ -149,7 +149,7 @@
 ------------------------------------------------------------------------
 
 import Digits            as Dg
-import SourcedProofs.TransportDiv      as TD
+import TransportDiv      as TD
 import WalkResidueBridge as WRB
 
 module SensorResidueBridge where

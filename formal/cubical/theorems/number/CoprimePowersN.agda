@@ -62,7 +62,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
-open import SourcedProofs.CoprimePowers using (module Bezout)
+open import CoprimePowers using (module Bezout)
 open import WalkJumps using (IsPrime)
 open import DistinctPrimesAreCoprime using (distinct-primes-coprime)
 
