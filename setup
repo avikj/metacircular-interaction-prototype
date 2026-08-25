@@ -95,6 +95,37 @@ if [ "$REPORT_ONLY" = 0 ]; then
   } > "$LIBFILE"
 fi
 
+# ── 3b. and register them where a BARE `agda` will look ──────────────────
+#
+# `sh check` passes --library-file explicitly, so $LIBFILE above serves it
+# and nothing further is needed there.  The interactive lane does NOT: the
+# proof gate spawns a bare `agda` (interactive/ProofGate.hs, `agdaArgs`),
+# and a bare agda reads Agda's OWN default library file, which this script
+# never wrote.  After a clean install `--library=cubical` therefore fails
+# to resolve, the machine cannot watch its positive control, and every
+# `sadhana` returns apratipatti — "the kernel has not been seen to work".
+# That is the machine being right about a container that was never
+# finished, and it is unfixable from inside the machine.
+#
+# MEASURED 2026-08-25, and it is why this step exists: on a container where
+# `sh check` printed ALL GREEN at the pin, `sadhana` could not certify
+# anything.  The two lanes disagreed about whether Agda was installed
+# because they were asking two different files.  One is `sh check`'s
+# explicit pin; the other is Agda's default.  Both now say the same thing.
+#
+# APPENDED, NEVER CLOBBERED.  An existing default file may hold libraries
+# that have nothing to do with this repository, and silently replacing it
+# would be this script's own first defect.
+if [ "$REPORT_ONLY" = 0 ]; then
+  for d in "$HOME/.config/agda" "$HOME/.agda"; do
+    mkdir -p "$d" 2>/dev/null || continue
+    while IFS= read -r lib; do
+      [ -n "$lib" ] || continue
+      grep -qxF "$lib" "$d/libraries" 2>/dev/null || printf '%s\n' "$lib" >> "$d/libraries"
+    done < "$LIBFILE"
+  done
+fi
+
 # ── 4. SAY WHAT WAS ACTUALLY OBTAINED ────────────────────────────────────
 GOT_AGDA="$( { [ -x "$AGDA_BIN" ] && "$AGDA_BIN" --version; } 2>/dev/null | head -1 | sed 's/^Agda version //')"
 [ -n "$GOT_AGDA" ] || GOT_AGDA="$(agda --version 2>/dev/null | head -1 | sed 's/^Agda version //')"
@@ -105,6 +136,7 @@ head_ "toolchain"
 printf '  %-12s %-22s %s\n' "agda"    "$GOT_AGDA" "(want $PIN_AGDA)"
 printf '  %-12s %-22s %s\n' "cubical" "$GOT_CUB"  "(want $PIN_CUBICAL)"
 printf '  %-12s %s\n' "libraries" "$LIBFILE"
+printf '  %-12s %s\n' "bare agda" "$HOME/.config/agda/libraries  (the interactive lane's kernel)"
 
 if printf '%s' "$GOT_AGDA" | grep -q "^$PIN_AGDA" && [ "$GOT_CUB" = "$PIN_CUBICAL" ]; then
   head_ "AT THE PIN"
