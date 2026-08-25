@@ -2292,3 +2292,7 @@ import VeniYangBaxtara_TheThreeStrandBraidIsNonAbelianAndSatisfiesTheBraidRelati
 -- Fibonacci-anyon fusion dimension = Virahāṅka's metre count: the state
 -- space of a universal topological quantum computer is the space of metres.
 import Matravrtta_TheFibonacciAnyonFusionDimensionIsVirahankasMetreCount
+
+-- The verified front door: the frontier theorems as entry points from
+-- other fields (crypto/economics, quantum computing, foundations).
+import Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields
