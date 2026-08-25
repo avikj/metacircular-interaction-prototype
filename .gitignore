@@ -104,8 +104,13 @@ machine/question-machine
 #
 # The exceptions are not prose.  They are files the HARNESS LOADS as
 # configuration -- deleting them removes a mechanism, not an assertion.
-*.md
-*.markdown
+# STRUCK 2026-08-25 by the owner's direct order: "unban markdown and use it."
+# Left commented rather than deleted, because striking a rule silently is how
+# this repository loses its own history.  The no-markdown.sh PreToolUse hook
+# was unwired from .claude/settings.json the same day; the script is left on
+# disk, unreferenced.  Both halves are reversible in one line each.
+# *.md
+# *.markdown
 !CLAUDE.md
 !AGENTS.md
 !.claude/skills/**/*.md
