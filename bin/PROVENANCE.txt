@@ -1,0 +1,21 @@
+bin/yantra — what it was built from.
+
+  built by     interactive/build-yantra.sh
+  from source  interactive/*.hs, entry interactive/Main.hs
+  at commit    d3abaec3242da92b4441d396d1224bce90e8dbd6
+  linkage      static
+  compiler     ghc 9.4.7
+  sha256       d6430886f5023b85e1fdd39eaf01d3111c8fa00a58d271dc867d5c036e9d7f1f
+
+The commit above is the one the working tree was AT when the compiler ran, so
+it is the parent of whichever commit carries this file — a binary cannot
+record the commit that will contain it.  The interactive/ tree had
+uncommitted changes at build time, so the source above is not exact.
+
+To rebuild:  sh interactive/build-yantra.sh
+To repack :  sh interactive/build-yantra.sh --bundle
+
+bin/dosalekha is a symlink to bin/yantra, not a second program.  The image
+carries both organs and selects on the name it was invoked under; Main.hs
+says why, and what that does and does not change about the interface between
+them.

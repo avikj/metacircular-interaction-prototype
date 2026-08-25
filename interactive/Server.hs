@@ -98,11 +98,16 @@ module Server
   , yantraMain
   ) where
 
-import Control.Monad (foldM, forM_)
+import Control.Monad (foldM, forM_, when)
 import Data.Char (isDigit, isSpace)
 import Data.IORef
 import Data.List (intercalate, nub, isInfixOf)
-import System.Environment (getArgs, lookupEnv)
+import Data.Time.Clock (getCurrentTime)
+import Data.Time.Format (defaultTimeLocale, formatTime)
+import System.Directory
+  (createDirectoryIfMissing, doesDirectoryExist, doesFileExist, removeFile)
+import System.Environment (getArgs, getExecutablePath, lookupEnv, setEnv)
+import System.FilePath (takeDirectory, (</>))
 import System.Exit (ExitCode(..), exitFailure, exitSuccess)
 import System.IO
 import System.Process (readProcessWithExitCode)
@@ -1533,10 +1538,126 @@ mergeId line j = case (parseLine line >>= jStr "prasna-id", j) of
 
 -- ============================================================ the entry
 
+-- ------------------------------------------------- standing without a script
+--
+-- WHY THIS EXISTS.  run-yantra.sh exports four variables and then execs this
+-- image, and for a run out of the working tree that is exactly the right
+-- place for them: the script knows the repository it is standing in.  bin/
+-- ships the SAME image with no script in front of it, to be copied onto a
+-- machine that has agda and does not have this repository, and turned by
+-- someone who was handed a tool rather than a source tree.  Every default
+-- below is the value run-yantra.sh would have passed, derived from where the
+-- executable actually is instead of from the caller's working directory --
+-- because the cwd of whoever turned the machine says nothing about where the
+-- kernel's library lives.
+--
+-- NOTHING HERE OVERWRITES A SET VARIABLE.  `setEnvUnset` is the only writer
+-- apart from the one `setEnv` below, whose branch has already established
+-- that the variable is unset.  So run-yantra.sh keeps winning, an operator
+-- who exports one by hand keeps winning, and this is a floor rather than a
+-- policy.  A default that silently replaced a caller's DOSA_LEKHA would send
+-- the session's defects to a file the caller is not reading, which is the
+-- shape of §5: a loss with nothing saying it happened.
+
+-- | Set a variable only if the caller left it unset.
+setEnvUnset :: String -> String -> IO ()
+setEnvUnset k v = do
+  cur <- lookupEnv k
+  case cur of
+    Just _  -> pure ()
+    Nothing -> setEnv k v
+
+-- | The nearest directory at or above `d` -- at most `n` levels -- that has
+--   `formal/cubical` under it, which is what `MATH_ROOT` names: the directory
+--   the kernel gate runs agda from.
+--
+--   Nothing when there is none.  MATH_ROOT then keeps its old default of ".",
+--   and the gate reports a missing library as the environment fault it is
+--   (`kEnvironmentFault`, ProofGate §controls) instead of this function
+--   inventing a path that would make the fault harder to read.
+findMathRoot :: FilePath -> Int -> IO (Maybe FilePath)
+findMathRoot _ 0 = pure Nothing
+findMathRoot d n = do
+  here <- doesDirectoryExist (d </> "formal" </> "cubical")
+  if here
+    then pure (Just d)
+    else let up = takeDirectory d
+         in if up == d then pure Nothing else findMathRoot up (n - 1)
+
+-- | Where a copied tool keeps the two files it writes.  `YANTRA_STATE`
+--   overrides; otherwise the XDG state directory, and /tmp only when the
+--   process has neither that nor a HOME.
+yantraStateDir :: IO FilePath
+yantraStateDir = do
+  mv <- lookupEnv "YANTRA_STATE"
+  case mv of
+    Just v  -> pure v
+    Nothing -> do
+      xdg  <- lookupEnv "XDG_STATE_HOME"
+      home <- lookupEnv "HOME"
+      pure $ case (xdg, home) of
+        (Just x, _) -> x </> "yantra"
+        (_, Just h) -> h </> ".local" </> "state" </> "yantra"
+        _           -> "/tmp" </> "yantra"
+
+-- | Fill in what run-yantra.sh would have exported.  Called first, before
+--   anything in this file reads the environment.
+resolveEnvironment :: IO ()
+resolveEnvironment = do
+  exe <- getExecutablePath
+  let exeDir = takeDirectory exe
+
+  mroot <- findMathRoot exeDir 4
+  forM_ mroot (setEnvUnset "MATH_ROOT")
+
+  -- The doṣa-lekha organ is this same image invoked under the name
+  -- `dosalekha` (Main.hs says why they are one file and what that does and
+  -- does not change).  Point at it only if the link is actually there: an
+  -- unset DOSA_BIN already has a handled meaning downstream, and a path to
+  -- a file that does not exist would turn that into a spawn failure.
+  let dosa = exeDir </> "dosalekha"
+  haveDosa <- doesFileExist dosa
+  when haveDosa (setEnvUnset "DOSA_BIN" dosa)
+
+  state <- yantraStateDir
+  createDirectoryIfMissing True state
+
+  -- A FRESH doṣa-lekha per run, and only on the branch where we are the one
+  -- choosing the path.  run-yantra.sh does the same rm -f for the reason its
+  -- header gives: `dosa.pramanya` recomputes the chain from genesis over the
+  -- whole file, so a log carried over from an earlier run would have this
+  -- session verifying a history it did not produce -- a green about somebody
+  -- else's turn, which is worse than no green.  A DOSA_LEKHA the caller
+  -- exported is theirs; it is neither moved nor truncated.
+  setLekha <- lookupEnv "DOSA_LEKHA"
+  case setLekha of
+    Just _  -> pure ()
+    Nothing -> do
+      let lekha = state </> "session.lekha"
+      stale <- doesFileExist lekha
+      when stale (removeFile lekha)
+      setEnv "DOSA_LEKHA" lekha
+
+  -- The transcript is NOT truncated here, and the asymmetry with the line
+  -- above is the point.  It is append-only by construction -- one line per
+  -- turn, the request and the answer -- and it is the corpus this wire
+  -- exists to produce.  Nothing recomputes anything over it, so accumulating
+  -- across runs costs no claim and throwing it away would cost the corpus.
+  setEnvUnset "YANTRA_LEKHA" (state </> "yantra.jsonl")
+
+  -- The session date.  The literal this file falls back to is the day the
+  -- fallback was written, which is right for a scripted self-test pinned to
+  -- its own transcript and wrong for a tool that is still being turned a
+  -- year later: every record it filed would carry a `kala` naming a day the
+  -- run did not happen on.
+  now <- getCurrentTime
+  setEnvUnset "YANTRA_KALA" (formatTime defaultTimeLocale "%Y-%m-%d" now)
+
 yantraMain :: IO ()
 yantraMain = do
   setLocaleEncoding utf8; setFileSystemEncoding utf8
   hSetEncoding stdin utf8; hSetEncoding stdout utf8; hSetEncoding stderr utf8
+  resolveEnvironment
   hSetBuffering stdout LineBuffering
   -- 2026-08-24.  THE FALSIFIER WAS WIRED INTO THE SERVER THIS FILE
   -- SUPERSEDES, AND NOT INTO THIS ONE.

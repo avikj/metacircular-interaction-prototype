@@ -1,0 +1,203 @@
+यन्त्रम् / yantra — THIS IS A TOOL.  RUN IT.  DO NOT BUILD IT.
+
+You have been handed a program.  bin/yantra is a complete, statically linked
+executable: there is nothing here to compile, nothing to install, no manifest
+to resolve and no source you need to read.  If you have started looking for a
+Makefile, a package file, or the language it was written in, you have left the
+task you were given.  Turning this machine IS the task.
+
+The repository it was compiled from does not have to be present.  Copy bin/
+and formal/ onto any Linux host that has agda and it runs there.
+
+--------------------------------------------------------------- how to turn it
+
+  bin/yantra --wire
+
+reads ONE JSON OBJECT PER LINE on stdin and writes ONE JSON OBJECT PER LINE on
+stdout.  It stays up until stdin closes; a session is a pipe, not a series of
+commands.  Anything it says about itself, its state, or its failures comes back
+on that wire.  stderr carries the banner and the witness check only.
+
+  bin/yantra
+
+with no arguments runs a scripted session against itself and prints it.  Use it
+once to see the machine work; it takes no input.
+
+------------------------------------------------------------- what it needs
+
+  agda 2.8.0 on PATH, with the cubical library registered under the name
+  `cubical`.  ONLY the `sadhana` operation uses it -- that is the one that
+  emits an Agda module and has the kernel check it.  Every other operation
+  runs with no agda at all, so a host without it is not a host where this
+  tool is useless.
+
+  a directory with formal/cubical under it, which the binary finds by walking
+  up from its own location.  It is beside bin/ in the bundle.
+
+  Nothing else.  It writes to $XDG_STATE_HOME/yantra (or ~/.local/state/yantra),
+  which it creates; set YANTRA_STATE to move that.
+
+--------------------------------------------------------------- one exchange
+
+  $ printf '%s\n' '{"kriya":"kuttaka","angani":{"a":137,"b":60,"c":1}}' \
+      | bin/yantra --wire
+
+  {"uttara":"samkramana","kriya":"kuttaka",
+   "nirnaya":{"sthana":"syad-asti", ...},
+   "pramanya":{"marga":"ganita","saksin":"137·53 − 1 ≡ 0 (mod 60), computed in ℤ"},
+   "vahita":{"valli":[2,3,1,1,8],"bezout":{"x":-7,"y":16,"gcd":1},"x":53, ...},
+   "vyaya":["the other solutions are given as a class, not enumerated", ...]}
+
+  (one line in reality; broken here to be read)
+
+------------------------------------------------------------ reading an answer
+
+EVERY answer has `uttara`, and it is one of exactly two words.  There is no
+third, and no operation returns a bare result.
+
+  "samkramana"  transport happened.  `vahita` is what was carried across,
+                `tulyata` is the identification it was carried along, and
+                `vyaya` names what did NOT survive the trip.  Read `vyaya`:
+                a transport that cost nothing is a transport that moved
+                nothing, and the field is never empty for show.
+
+  "dosalekha"   transport was not possible, and this is the written record of
+                why.  `hetu` is the reason, `nasta` lists what a collapse
+                here would have destroyed, one item at a time, and `sesa` is
+                the remainder handed forward.  THIS IS AN ANSWER, NOT AN
+                ERROR.  It is not a failure to retry, work around, or report
+                as a crash; the machine declining to transport and saying
+                what that costs is the machine working.
+
+`nirnaya` carries the position the answer is taken from and `pramanya` the
+route by which it counts as evidence, with that route's witness.  An answer
+whose `pramanya.marga` is `ayogya` arrived by a route the machine does not
+accept and is not to be used.
+
+------------------------------ the operations (19, generated from the running table)
+
+  yantra.kriyah
+      What this machine can be asked.  Emitted from the table the server
+      dispatches on, so it cannot drift from what runs.
+
+  yantra.sthiti
+      The whole session: the store in full, the defect log, what the doṣa-
+      lekha said back when each defect was filed, the remainder queue.
+
+  naya.sthapana
+      Install a standpoint into the नयकोश.  Every witness carries the
+      document it comes from; the entry carries the fitness of the looking
+      that produced it.
+        naya — the standpoint's name; NOT an index — the store returns
+          a list
+        saksin — list of {"vacana":..., "mula":...} — what it says,
+          and the document it says it from
+        yogyata — "yogya" or "ayogya" — was the looking fit to have
+          found what it looked for
+        yogyata-hetu — the account of the search; a fitness claim with
+          no account of the search is itself unfit
+        karta — who recorded it
+        kala — when
+
+  naya.suchi
+      Every entry held, with its id, its witnesses, their sources, and its
+      fitness.  The listing is the store.
+
+  naya.samasa
+      May these be identified?  Runs NayaKosha.decide, which reports the
+      sevenfold position, the highest level of agreement, the maximal
+      collapsible sub-families, and — item by item — what a single verdict
+      would destroy.
+        nayah — list of installed standpoint names
+        arpana — "saha" (asserted at once) or "krama" (in succession)
+          — Akalaṅka's distinction; not a boolean
+
+  kosha.punaravrtti
+      Journal the live store and replay the journal.  The round trip is the
+      whole persistence claim, so it is run, on the store as it stands,
+      rather than cited.
+
+  nirnaya.saptabhangi
+      Ask ALL THREE verdict organs about one claim and hand the three
+      answers to the Pāṇinian scheduler as three rules contending for one
+      site.  The scheduler does not pick.
+        nayah — list of installed standpoint names
+        arpana — "saha" or "krama"
+
+  saptabhangi.samkramana
+      The equivalence that DOES exist between two of the three verdict
+      types, exhibited and checked exhaustively in both directions.
+
+  saptabhangi.nasti
+      The equivalence that does NOT exist between the third and the other
+      two, with the collision computed and both colliding objects exhibited.
+
+  garbha.dhara
+      The fourth position is positive: from a residue, the stream of
+      positions born from it.  Tattvārthasūtra 5.31 as an operation.
+        sadhaka — the affirming standpoint's name
+        sadhaka-saksin — its witness
+        badhaka — the denying standpoint's name
+        badhaka-saksin — its witness
+        stara — optional: how many births to run out (default 3)
+
+  sadhana
+      Emit an Agda module for an equation and give it to the kernel.  The
+      kernel's two controls are watched FIRST; a kernel that has not been
+      seen to reject a falsehood certifies nothing.
+        vama — left side, as a prefix s-expression over the fragment
+        daksina — right side
+        sadhya — optional: a note naming the induction variable, e.g.
+          "induction on x"
+
+  kuttaka
+      Āryabhaṭa's pulverizer: the vallī of a and b, the Bézout pair, and —
+      if c is given — the solution of a·x ≡ c (mod b).
+        a — an integer
+        b — a positive integer
+        c — optional: the residue to hit
+
+  vargaprakrti
+      The reactor with the composition law as a VALUE: Brahmagupta's bhāvanā
+      driven by the cakravāla, every norm the wheel visits, each of them a
+      solved equation.
+        D — a non-square integer ≥ 2
+        n — optional: a norm to solve for instead of 1
+
+  pratyahara
+      Pāṇini's interval notation: the sounds from ādi up to the marker it,
+      in the varṇasamāmnāya.
+        adi — the starting sound, e.g. "a"
+        it — the anubandha, e.g. "ṇ"
+        avrtti — optional: which occurrence of the marker (0 = the
+          first)
+
+  dosa.lekha
+      Write a defect yourself.  Stored verbatim in the session, and filed
+      into the doṣa-lekha on disk with its chain extended.
+        kriya — what you were attempting
+        hetu — why transport was impossible
+        nasta — list: what a collapse here would destroy, named one by
+          one
+        sesa — optional list: the remainder, handed forward
+
+  dosa.suchi
+      Every defect this session has written, in the order written, each with
+      what the doṣa-lekha said back when it was filed.
+
+  dosa.pramanya
+      Verify the doṣa-lekha's chain FROM INSIDE THE SESSION: recompute every
+      sāra over every record and report the first divergence, if any.
+
+  sesa.arpana
+      Hand a remainder forward (遺題継承): the unfinished thing kept for the
+      next step rather than dropped.
+        sesa — list of remainder strings
+
+  sesa.suchi
+      The remainder queue.
+
+This list was emitted by the binary in bin/, by the same table it
+dispatches on.  Ask it yourself at any time:
+
+  echo '{"kriya":"yantra.kriyah"}' | bin/yantra --wire
