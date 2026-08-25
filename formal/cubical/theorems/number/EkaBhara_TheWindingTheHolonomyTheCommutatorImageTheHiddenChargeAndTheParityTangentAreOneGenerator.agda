@@ -92,13 +92,3 @@ open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJe
        × (गुह्य-भारः (λ i → loop i , refl)     ≡ equivFun क्रमः-लूप-प्रथमम् ∣ loop ∣₂)
        × (equivFun क्रमः-लूप-प्रथमम् ∣ loop ∣₂  ≡ κ (suc zero))
 एकभारः = refl , refl , refl , मुखम्-क्रमः ∙ sym मुखम्-गतिः
-
-------------------------------------------------------------------------
--- दोषलेखः.  The first three links are refl: those instruments were one
--- term wearing three names, and saying so costs nothing — that is what
--- makes it worth saying.  The last link crosses from the loop space to
--- the parity jet through the VALUE pos 1 only: no functor from circuits
--- to sieve weights is claimed, and building one — the bridge that would
--- make the fourth equality structural rather than numerical — is named
--- as open.  One charge, four refl, one crossing, one open bridge.
-------------------------------------------------------------------------
