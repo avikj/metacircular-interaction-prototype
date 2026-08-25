@@ -14,7 +14,7 @@
 --     MeruKarna.मध्य-विनिमयः                   (Halāyudha's shallow diagonal)
 --     Vargacitighana.मध्य-विनिमयः              (Āryabhaṭa's वर्ग-सङ्कलितम्)
 --     CachePathOrder.shuffle+                  (cache-install step law)
---     NaturalMachine.DSOFactorRankFinite.rearrange  (additive 2×2 minor)
+--     DSOFactorRankFinite.rearrange  (additive 2×2 minor)
 --
 -- Each was proved locally, by hand or by solver, and NO ONE OF THE SIX
 -- MODULES IMPORTS ANY OTHER.  Two of them even carry the same Sanskrit name
@@ -84,7 +84,7 @@ import Primes.PairField.PairComposition
 import MeruKarna
 import Vargacitighana
 import CachePathOrder
-import NaturalMachine.DSOFactorRankFinite
+import DSOFactorRankFinite
 
 private
   variable
@@ -211,7 +211,7 @@ module _ {A : Type ℓ} (_⊕_ : A → A → A)
 
 अल्पांश-तादात्म्यम्
   : (a b c d : ℕ)
-  → NaturalMachine.DSOFactorRankFinite.rearrange a b c d ≡ मध्य-विनिमयः-योगे a b c d
+  → DSOFactorRankFinite.rearrange a b c d ≡ मध्य-विनिमयः-योगे a b c d
 अल्पांश-तादात्म्यम् a b c d = isSetℕ _ _ _ _
 
 ------------------------------------------------------------------------

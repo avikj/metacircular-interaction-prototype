@@ -45,7 +45,7 @@
 -- of "negligible", and a limit; ℕ has none of the three.  This is the
 -- same declaration `Madhava.agda` makes about the geometric remainder —
 -- अनुक्तम्, न मिथ्या-सिद्धम्, un-said, not falsely proved — and the same
--- wall `NaturalMachine.SthaulyaIsTheOmittedTerm` records at its foot,
+-- wall `SthaulyaIsTheOmittedTerm` records at its foot,
 -- where an order statement about degree is unavailable in a lane whose
 -- objects are ring elements.
 --

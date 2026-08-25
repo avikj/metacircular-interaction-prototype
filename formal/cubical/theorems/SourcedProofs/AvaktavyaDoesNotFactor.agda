@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.AvaktavyaDoesNotFactor
+-- AvaktavyaDoesNotFactor
 --
 -- Three things in this repository turn out to be one thing, and none of
 -- the three files says so.

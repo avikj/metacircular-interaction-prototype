@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibre
+-- Asesa_TheWholeDerivationTypeIsOneFibre
 --                      SoSoundnessIsNeverAnEquivalence
 --
 -- TERM.  अशेष · aśeṣa -- "without remainder", hence entire, complete, the

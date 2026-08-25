@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAll
+-- Sesa_TheDerivationCarriesNoMeaningAtAll
 --                     SoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
 --
 -- TERM.  शेष · śeṣa -- the remainder that is KEPT and made the material of

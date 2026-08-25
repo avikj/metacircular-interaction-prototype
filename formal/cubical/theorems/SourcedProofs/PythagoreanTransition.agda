@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.PythagoreanTransition
+-- PythagoreanTransition
 --
 -- `SuccessorIsNotTropical` ends with a sentence this corpus never acted
 -- on:  "The object to build is the transition itself."

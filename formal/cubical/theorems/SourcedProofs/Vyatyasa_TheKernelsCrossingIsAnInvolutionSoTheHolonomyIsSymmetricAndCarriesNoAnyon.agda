@@ -9,7 +9,7 @@
 -- author is credited with anything below.  The one source-borrowing in the
 -- neighbourhood is Bhāskara II's aṅkapāśa section of the *Līlāvatī*
 -- (~1150), and that borrowing is already made, with its own limits stated,
--- in `NaturalMachine.Ankapasa_…`, which this file continues.
+-- in `Ankapasa_…`, which this file continues.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS ANSWERS, AND WHOSE QUESTION IT IS.
@@ -18,7 +18,7 @@
 -- other.  Both check at the pin (Agda 2.8.0 / agda-cubical v0.9, exit 0,
 -- run 2026-08-24):
 --
---   `NaturalMachine.Ankapasa_…` gives the kernel a UNIVALENT semantics.
+--   `Ankapasa_…` gives the kernel a UNIVALENT semantics.
 --     Every constructor of `Step` becomes an equivalence; `reverse` becomes
 --     `invEquiv`; `add` becomes `⊎`.  It then extends the calculus by one
 --     constructor, `add-comm : Step⁺ (add x y) (add y x)`, interprets it as
@@ -27,7 +27,7 @@
 --     `eval : Tm → Env → ℕ` provably cannot see — its ℕ-meaning is `refl`,
 --     forced, because `isSetℕ`.  Holonomy with no set-valued observable.
 --
---   `NaturalMachine.BraidCoherenceBoundary` proves that this is not yet a
+--   `BraidCoherenceBoundary` proves that this is not yet a
 --     braid: it exhibits two self-EQUIVALENCES of `Bool × Bool × Bool`,
 --     both involutive, that fail
 --       σ₁ (σ₂ (σ₁ x)) ≡ σ₂ (σ₁ (σ₂ x))
@@ -153,7 +153,7 @@ Tri A = A ⊎ (A ⊎ A)
 
 ------------------------------------------------------------------------
 -- §3.  YANG–BAXTER HOLDS.  Same statement as
--- `NaturalMachine.BraidCoherenceBoundary.YangBaxter`, composition written
+-- `BraidCoherenceBoundary.YangBaxter`, composition written
 -- out so no diagram-order convention is in play.  Three cases, each by
 -- computation, for an arbitrary `A`.
 ------------------------------------------------------------------------

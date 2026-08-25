@@ -241,11 +241,11 @@
 --   surviving .md                9
 --
 -- ROOTS.       grep -c '^import' <root>
---   Everything.agda 574 · NaturalMachine.agda 475 · IndianLane.agda 39
---   (grep -c '^import ' <root>; NaturalMachine.agda also has 13 open-imports)
+--   Everything.agda 574 · agda 475 · IndianLane.agda 39
+--   (grep -c '^import ' <root>; agda also has 13 open-imports)
 --
 -- WHAT IS GREEN.  Run, not remembered; both at the pin, this date:
---   LC_ALL=C.UTF-8 agda -i . NaturalMachine.agda   -> EXIT 0  (475 imports)
+--   LC_ALL=C.UTF-8 agda -i . agda   -> EXIT 0  (475 imports)
 --   LC_ALL=C.UTF-8 agda -i . Everything.agda       -> EXIT 0  (574 imports)
 -- Zero occurrences of `error:` in either log.  The four modules of §4 and
 -- this file are inside both closures.  A module outside a root's import
@@ -308,7 +308,7 @@
 --     structural gap in the corpus.  `GenerativeLoop` proves a real thing --
 --     an obstruction-indexed proposer that reads the residual of a FAILED
 --     match, names the missing head, strictly decreases a deficit, and
---     terminates unconditionally.  It runs on `NaturalMachine.Obstruction`'s
+--     terminates unconditionally.  It runs on `Obstruction`'s
 --     `Tm`, which is a DIFFERENT datatype from the kernel's.
 --       grep -rln '^data Tm *:' formal/cubical  -> 3 files:
 --            Obstruction.agda, RewriteCertificate.agda, RewriteCertificateMul.agda

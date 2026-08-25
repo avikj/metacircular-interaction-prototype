@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoid
+-- Avirodha_TheKernelIsAReversibleGroupoid
 --                        WhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 --
 -- TERM.  अविरोध · avirodha -- non-contradiction, the absence of conflict.

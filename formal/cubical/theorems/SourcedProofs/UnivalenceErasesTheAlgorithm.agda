@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.UnivalenceErasesTheAlgorithm
+-- UnivalenceErasesTheAlgorithm
 --
 -- What univalence does to `OptimalObservation`'s three instances, and
 -- what it costs.

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.MinimalityOfABoundaryPopulationNeedsLowestTerms
+-- MinimalityOfABoundaryPopulationNeedsLowestTerms
 --
 -- `EveryThresholdHasABoundaryPopulationOfItsOwnDenominator` produced a
 -- boundary population of length `suc q` for every threshold p/(suc q)
@@ -86,7 +86,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.RateOneIsExactlyTheUniversalClaim
+open import RateOneIsExactlyTheUniversalClaim
   using (count ; length ; countIsAtMostLength)
 
 ------------------------------------------------------------------------

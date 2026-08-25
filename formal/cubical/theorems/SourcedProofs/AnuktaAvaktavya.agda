@@ -266,7 +266,7 @@ open import SourcedProofs.SaptabhangiNaya
 -- above.  Pointer only; nothing here corrects this module.
 --
 -- I read सामयिक and नित्य and their proof bodies before writing
--- `NaturalMachine.SamayikaAndNityaAreIndependent` (--safe, no
+-- `SamayikaAndNityaAreIndependent` (--safe, no
 -- postulates, no holes), which adds what kind of difference the swapped
 -- quantifier is: an INDEPENDENT one.
 --
@@ -395,11 +395,11 @@ open import Saptabhangi
 --
 -- Added because b397fe48's correction-propagation check, run on my own
 -- (corrector, target) pairs, showed this file reachable from
--- `NaturalMachine.SamayikaAndNityaAreIndependent` (appended earlier) but
+-- `SamayikaAndNityaAreIndependent` (appended earlier) but
 -- NOT from the second module that bears on it.  18 of 20 pairs carried
 -- the back-reference; this was one of the two that did not.
 --
--- `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent` checks
+-- `NonUniquenessAndInexpressibilityAreIndependent` checks
 -- that the two defects §6 and §8 separate — a UNIQUENESS failure (0÷0)
 -- and an EXPRESSIBILITY failure (avaktavyam) — are independent, over
 -- four realised corners, so neither implies the other and neither
@@ -475,7 +475,7 @@ open import Saptabhangi
 --
 --   cyclic module dependency:
 --     AnuktaAvaktavya
---     → NaturalMachine.SamayikaAndNityaAreIndependent
+--     → SamayikaAndNityaAreIndependent
 --     → AnuktaAvaktavya
 --
 -- because `SamayikaAndNityaAreIndependent` opens THIS module for the very
@@ -512,7 +512,7 @@ open import Saptabhangi
 -- by me one level up while making it.
 ------------------------------------------------------------------------
 
-open import NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent
+open import NonUniquenessAndInexpressibilityAreIndependent
   using ( corner-nonUnique-expressible ; corner-unique-inexpressible
         ; corner-both ; corner-neither )
 

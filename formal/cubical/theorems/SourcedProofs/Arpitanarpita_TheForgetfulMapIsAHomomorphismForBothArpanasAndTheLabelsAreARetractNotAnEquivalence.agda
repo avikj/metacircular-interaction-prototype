@@ -31,7 +31,7 @@
 --     — a position is a LABEL and its presence-profile in {आम्, न}³ is all
 --       there is.  There क्रम-योग is commutative and सह-योग destroys which
 --       two seeds it consumed.
---   `NaturalMachine.SaptabhangiGarbha_ThePositionsCarryTheirNayasAnd…`
+--   `SaptabhangiGarbha_ThePositionsCarryTheirNayasAnd…`
 --     — a position is a RECORD carrying the standpoints and their
 --       witnesses.  There the fourth position destroys nothing
 --       (`अवक्तव्यम्-अ-लुप्तम्`) and क्रमार्पणम् is NOT commutative, which that
@@ -133,7 +133,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Data.Sigma using (Σ ; Σ-syntax ; _,_ ; fst ; snd ; _×_)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.Anekanta using (syādasti ; syādnāsti ; syādastināsti)
+open import Anekanta using (syādasti ; syādnāsti ; syādastināsti)
 
 import Saptabhangi as L
 import SourcedProofs.SaptabhangiSamyoga_TheCompositionOfVerdicts as LA
@@ -291,7 +291,7 @@ private
 -- The other direction of 5.31.  A label carries no witness, so to read it
 -- as a record one must SUPPLY the aspect: one affirming standpoint, one
 -- denying standpoint — which is exactly `syādastināsti P`, Anekāntavāda's
--- own non-vacuity hypothesis (NaturalMachine.Anekanta §4).  Nothing is
+-- own non-vacuity hypothesis (Anekanta §4).  Nothing is
 -- invented: the pair is a hypothesis of the theorem, not a default.
 ------------------------------------------------------------------------
 
@@ -568,7 +568,7 @@ private
 -- १० · अरिक्तता — the hypotheses are inhabited, so none of this is vacuous.
 --
 -- §६ and §९ need TWO standpoints that affirm and one that denies.
--- `NaturalMachine.Anekanta.Two` will not do — over Bool with P b = (b ≡
+-- `Anekanta.Two` will not do — over Bool with P b = (b ≡
 -- true) the affirming standpoint is unique — so a three-standpoint family
 -- is given.  This is the same non-vacuity obligation Anekānta §4 accepts
 -- for itself, discharged for the sharper claim.

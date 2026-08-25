@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Asiddha
+-- Asiddha
 --
 -- असिद्धत्व — Pāṇini's device for controlled blindness BETWEEN RULES, and
 -- the discovery that it is the Jain judgment structure one level down.
@@ -66,11 +66,11 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 
-open import NaturalMachine.Anekanta
+open import Anekanta
   using (syādasti ; syādnāsti ; syādastināsti ; Collapses
         ; plurality-blocks-collapse)
-open import NaturalMachine.WalkJumps using (IsPrime ; isPrime2)
-open import NaturalMachine.SuccessorIsNotTropical using (disjoint-support)
+open import WalkJumps using (IsPrime ; isPrime2)
+open import SuccessorIsNotTropical using (disjoint-support)
 
 private
   variable

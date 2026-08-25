@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.AntyaSamskaraSthaulya
+-- AntyaSamskaraSthaulya
 --
 -- अन्त्यसंस्कार and its स्थौल्य — Mādhava's end-correction, and the exact
 -- coarseness of each one.
@@ -353,7 +353,7 @@ open Correction ℤCommRing
 -- proving, with the note that a proof would have to come from the
 -- continued fraction's determinant recurrence and not from the list.
 --
--- It is now proved, in `NaturalMachine.SthaulyaIsTheOmittedTerm`, from
+-- It is now proved, in `SthaulyaIsTheOmittedTerm`, from
 -- that recurrence.  For every k and every n in every commutative ring,
 -- the unreduced convergents satisfy
 --

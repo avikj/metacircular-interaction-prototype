@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.EveryTripleIsARotation
+-- EveryTripleIsARotation
 --
 -- The capstone of the conic thread, and a repair of something §5 of
 -- `notes/THE_BARRIER_BELONGS_TO_THE_LINE.md` oversold.
@@ -74,7 +74,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection
 
 open import SourcedProofs.PythagoreanTransition using (module Circle)
-open import NaturalMachine.DescentIsNotInversion using (module Descent)
+open import DescentIsNotInversion using (module Descent)
 
 private
   variable

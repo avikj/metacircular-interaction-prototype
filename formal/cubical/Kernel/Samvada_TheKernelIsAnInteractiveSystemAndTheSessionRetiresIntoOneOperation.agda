@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Samvada_TheKernelIsAnInteractiveSystem
+-- Samvada_TheKernelIsAnInteractiveSystem
 --                        AndTheSessionRetiresIntoOneOperation
 --
 -- TERM.  संवाद · saṃvāda -- dialogue; and, technically, the CONCORDANCE of a

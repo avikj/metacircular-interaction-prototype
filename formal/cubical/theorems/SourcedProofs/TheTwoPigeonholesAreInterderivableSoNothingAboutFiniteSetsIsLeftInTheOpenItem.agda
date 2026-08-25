@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.TheTwoPigeonholesAreInterderivableSoNothingAboutFiniteSetsIsLeftInTheOpenItem
+-- TheTwoPigeonholesAreInterderivableSoNothingAboutFiniteSetsIsLeftInTheOpenItem
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Both statements here are ones I wrote about `OptimalObservation`'s own
@@ -18,7 +18,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- 0.  A THIRD UPSTREAM BREAKAGE, and why this cycle's target changed
 --
--- The intended target was `NaturalMachine.GterTwoCoordinate`, whose
+-- The intended target was `GterTwoCoordinate`, whose
 -- header claims *"Nothing here is measured, fitted, or floating-point"*
 -- — a claim worth checking rather than trusting.  It cannot be checked
 -- here:

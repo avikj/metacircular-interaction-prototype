@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.TheCardinalityHalfOfOptimalIsExactlyAMereEquivalenceAndItSaysNothingAboutTheSchemeItself
+-- TheCardinalityHalfOfOptimalIsExactlyAMereEquivalenceAndItSaysNothingAboutTheSchemeItself
 --
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
--- The object audited here is `NaturalMachine.OptimalObservation`'s
+-- The object audited here is `OptimalObservation`'s
 -- DEFINITION of `Optimal`, which is that module's own construction.
 -- Its three INSTANCES are Piṅgala's *Chandaḥśāstra* uddiṣṭa (c. 300
 -- BCE), Virahāṅka's mātrāmeru (c. 600–800), and a CRT residue decode;

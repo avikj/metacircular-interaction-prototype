@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.CakravalaNeedsKuttaka
+-- CakravalaNeedsKuttaka
 --
 -- `Cakravala` proves the cyclic method's step preserves the form and then
 -- lists what it does not prove, first item: *that a suitable m exists*.

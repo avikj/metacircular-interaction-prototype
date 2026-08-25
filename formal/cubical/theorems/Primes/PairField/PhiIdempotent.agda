@@ -7,7 +7,7 @@
 -- genuine reflector: it stabilizes after one application.
 --
 -- The corpus's one honest, checked Φ-component is the set-quotient of
--- NaturalMachine.FutureBehavior (Meaning = X / FutureEq, realized by
+-- FutureBehavior (Meaning = X / FutureEq, realized by
 -- the HIT Cubical.HITs.SetQuotients._/_).  This module proves that any
 -- such quotient component is IDEMPOTENT: quotienting A / R a second
 -- time, by the only relation the first pass leaves available — its own

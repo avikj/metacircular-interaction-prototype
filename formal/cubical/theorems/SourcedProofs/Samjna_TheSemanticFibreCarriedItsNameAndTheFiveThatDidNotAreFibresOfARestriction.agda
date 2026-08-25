@@ -61,7 +61,7 @@
 -- deaths sort into four kinds and none of them is noise:
 --
 --   (i)   fibre of a RESTRICTED map — five of the nine, and §२ below;
---   (ii)  the same short name in two modules — `NaturalMachine.Digits.value`
+--   (ii)  the same short name in two modules — `Digits.value`
 --         joined `Swarm.S03CarryFiber.Fib` because both end in `value`;
 --         different maps out of different `Word`s;
 --   (iii) the queued map is a FACTOR, not the map — `EvenQuery` is the
@@ -72,7 +72,7 @@
 --         is a different thing spelled the same.
 --
 -- Three leads were SKIPPED, not refuted: `PingalaPrastara.Chosen`,
--- `NaturalMachine.TypedUnfold.Lang` and `Gurutama.म` are JOINT fibres of
+-- `TypedUnfold.Lang` and `Gurutama.म` are JOINT fibres of
 -- two or more observables, and a pair of equations is not an equation of
 -- pairs until `ΣPath≃PathΣ` says so — छन्दोमुद्रा §३ performs exactly that
 -- passage for `Chosen`; the other two are open.
@@ -89,16 +89,16 @@ open import Cubical.Data.Bool using (Bool ; false)
 open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma
 
-open import NaturalMachine.DependentOptimizationFibration
+open import DependentOptimizationFibration
   using (semantics ; SemanticFiber ; left-point ; right-point)
-open import NaturalMachine.SieveFiber
+open import SieveFiber
   using (Vis ; q ; domain ; _∈_ ; Fibre)
 
 ------------------------------------------------------------------------
 -- १ · अर्थतन्तुः — the semantic fibre IS the fibre of the semantics map.
 --
 -- queue edge:  Configuration ⟶ Bool
---              « NaturalMachine.DependentOptimizationFibration.semantics
+--              « DependentOptimizationFibration.semantics
 -- written at:  DependentOptimizationFibration.agda:36–38, as
 --              `SemanticFiber output = Σ[ configuration ∈ Configuration ]
 --               semantics configuration ≡ output`.
@@ -121,7 +121,7 @@ open import NaturalMachine.SieveFiber
 ------------------------------------------------------------------------
 -- २ · सावच्छेदतन्तुः — the fibre of a map cut down to a domain.
 --
--- `NaturalMachine.SieveFiber` writes, at line 465,
+-- `SieveFiber` writes, at line 465,
 --
 --     Fibre v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (q n ≡ v))
 --

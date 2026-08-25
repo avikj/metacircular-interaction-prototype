@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.CoprimePowers
+-- CoprimePowers
 --
 -- `CRTChain` names the one missing piece: that the walk's installed prime
 -- powers are pairwise coprime.  This is that piece's algebra, and the

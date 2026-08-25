@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorises
+-- Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorises
 --                       AndTheSchemaIsWhatMakesItGeneralise
 --
 -- TERM.  व्याप्ति · vyāpti -- pervasion: the invariable concomitance that

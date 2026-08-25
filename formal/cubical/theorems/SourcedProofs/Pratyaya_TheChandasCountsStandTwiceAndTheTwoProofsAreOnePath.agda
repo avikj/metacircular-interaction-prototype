@@ -9,11 +9,11 @@
 --
 --   (n : ℕ) → matra n ≡ length (सर्व n)
 --     PrastaraPankti.मात्रा-सर्वः
---     NaturalMachine.MeruDiagonalIsVirahanka.matra-is-sarva
+--     MeruDiagonalIsVirahanka.matra-is-sarva
 --
 --   (p : Pattern) → matraOf p ≡ varna p + guruOf p
 --     MatraVarnaGuru.मात्रा-वर्ण-गुरु
---     NaturalMachine.DurationIsSyllablesPlusGuru.matra-split
+--     DurationIsSyllablesPlusGuru.matra-split
 --
 -- In both pairs the two modules share the SAME definitions — matra, Pattern,
 -- matraOf, varna and guruOf all come from PingalaPrastara, and सर्व from
@@ -60,9 +60,9 @@ open import SourcedProofs.PingalaPrastara using (matra ; Pattern ; matraOf ; var
 open import Matramerus using (सर्व)
 
 import PrastaraPankti
-import NaturalMachine.MeruDiagonalIsVirahanka
+import MeruDiagonalIsVirahanka
 import MatraVarnaGuru
-import NaturalMachine.DurationIsSyllablesPlusGuru
+import DurationIsSyllablesPlusGuru
 
 ------------------------------------------------------------------------
 -- §1 · मात्रा-प्रत्ययः — Piṅgala's mātrā count is Virahāṅka's enumeration.
@@ -88,14 +88,14 @@ import NaturalMachine.DurationIsSyllablesPlusGuru
 सर्व-तादात्म्यम्
   : (n : ℕ)
   → PrastaraPankti.मात्रा-सर्वः n
-  ≡ NaturalMachine.MeruDiagonalIsVirahanka.matra-is-sarva n
+  ≡ MeruDiagonalIsVirahanka.matra-is-sarva n
 सर्व-तादात्म्यम् n = isSetℕ _ _ _ _
 
 -- Piṅgala's split of duration into syllables plus heavies: likewise.
 वर्ण-गुरु-तादात्म्यम्
   : (p : Pattern)
   → MatraVarnaGuru.मात्रा-वर्ण-गुरु p
-  ≡ NaturalMachine.DurationIsSyllablesPlusGuru.matra-split p
+  ≡ DurationIsSyllablesPlusGuru.matra-split p
 वर्ण-गुरु-तादात्म्यम् p = isSetℕ _ _ _ _
 
 -- Stated in the other direction as well, because "A equals B" and "B equals A"
@@ -103,13 +103,13 @@ import NaturalMachine.DurationIsSyllablesPlusGuru
 -- lanes that the mathematics does not have.
 सर्व-तादात्म्यम्-व्यत्ययेन
   : (n : ℕ)
-  → NaturalMachine.MeruDiagonalIsVirahanka.matra-is-sarva n
+  → MeruDiagonalIsVirahanka.matra-is-sarva n
   ≡ PrastaraPankti.मात्रा-सर्वः n
 सर्व-तादात्म्यम्-व्यत्ययेन n = sym (सर्व-तादात्म्यम् n)
 
 वर्ण-गुरु-तादात्म्यम्-व्यत्ययेन
   : (p : Pattern)
-  → NaturalMachine.DurationIsSyllablesPlusGuru.matra-split p
+  → DurationIsSyllablesPlusGuru.matra-split p
   ≡ MatraVarnaGuru.मात्रा-वर्ण-गुरु p
 वर्ण-गुरु-तादात्म्यम्-व्यत्ययेन p = sym (वर्ण-गुरु-तादात्म्यम् p)
 
@@ -137,14 +137,14 @@ import NaturalMachine.DurationIsSyllablesPlusGuru
 --     MeruKarna.समता-कर्णः to reach Halāyudha's shallow diagonal.  The
 --     question there is a question about Piṅgala's मेरु: do three different
 --     प्रत्यय readings of the same array agree.
---   · NaturalMachine.MeruDiagonalIsVirahanka sits in the machine lane.
+--   · MeruDiagonalIsVirahanka sits in the machine lane.
 --     matra-is-sarva is consumed by virahanka-is-the-diagonal, composed with
---     NaturalMachine.DiagonalIsMatra, and the question there is whether the
+--     DiagonalIsMatra, and the question there is whether the
 --     machine's antidiagonal construction computes what the prosody says.
 --     One lane is asking about a text; the other is asking about a machine.
 --   · MatraVarnaGuru consumes मात्रा-वर्ण-गुरु into छन्दो-मात्रा, मात्रा-अधः
 --     and a लघु-सङ्ख्या decomposition — the arithmetic of the metre itself.
---   · NaturalMachine.DurationIsSyllablesPlusGuru consumes matra-split into a
+--   · DurationIsSyllablesPlusGuru consumes matra-split into a
 --     Σ-type factorisation and an Iso, i.e. into a statement about what a
 --     duration determines: the module is about information, not about metre.
 --

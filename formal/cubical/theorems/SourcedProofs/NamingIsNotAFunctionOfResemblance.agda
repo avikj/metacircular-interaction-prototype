@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.NamingIsNotAFunctionOfResemblance
+-- NamingIsNotAFunctionOfResemblance
 --
 -- `machine/Upamana.hs` states an operative test and builds its whole
 -- design on it.  The test's core is checkable, and this is it: no
@@ -69,8 +69,8 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.FiniteInformation using (FactorsThrough)
-open import NaturalMachine.TranscriptDescent using (collisionObstructsDecoder)
+open import FiniteInformation using (FactorsThrough)
+open import TranscriptDescent using (collisionObstructsDecoder)
 
 ------------------------------------------------------------------------
 -- 1.  A situation: what resembles the exemplar, and what the word names

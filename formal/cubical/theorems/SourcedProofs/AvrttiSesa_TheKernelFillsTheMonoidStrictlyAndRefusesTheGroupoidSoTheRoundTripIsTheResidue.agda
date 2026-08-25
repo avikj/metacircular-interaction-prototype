@@ -57,7 +57,7 @@
 --
 -- WHAT IS **NOT** CLAIMED.  No braiding.  A groupoid whose inverse fails
 -- to be strict is not thereby a braid group action:
--- `NaturalMachine.BraidCoherenceBoundary` exhibits two involutive
+-- `BraidCoherenceBoundary` exhibits two involutive
 -- self-EQUIVALENCES of `Bool × Bool × Bool` that fail Yang–Baxter at
 -- (false , false , false), so invertibility does not entail the
 -- coherence, and nothing here supplies it.  No thermodynamics, no

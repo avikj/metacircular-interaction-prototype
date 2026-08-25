@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Cakravala
+-- Cakravala
 --
 -- The cyclic method's step, as a checked term.
 --

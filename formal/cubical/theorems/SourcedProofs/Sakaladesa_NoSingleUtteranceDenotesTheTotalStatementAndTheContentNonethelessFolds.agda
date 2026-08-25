@@ -30,7 +30,7 @@
 -- WHY THIS MODULE EXISTS, AND WHAT IT CORRECTS.
 --
 -- `SaptabhangiNaya` fixes THREE standpoints and SIX utterances, and proves
--- `no-single-vacana` by listing all six.  `NaturalMachine.AvaktavyaDoesNotFactor`
+-- `no-single-vacana` by listing all six.  `AvaktavyaDoesNotFactor`
 -- turns that list into the shape it really has:
 --
 --     ¬ Σ[ v ] (∀ φ → denotes v φ ≡ joint φ)
@@ -208,7 +208,7 @@ module _ {S : Type ℓ} where
   ----------------------------------------------------------------------
   -- ४ · सकलादेशो न सङ्गच्छते — the same, as a factorisation obstruction.
   --
-  -- The shape `NaturalMachine.AvaktavyaDoesNotFactor` names, here at
+  -- The shape `AvaktavyaDoesNotFactor` names, here at
   -- arbitrary S and arbitrary demand length.
   ----------------------------------------------------------------------
 

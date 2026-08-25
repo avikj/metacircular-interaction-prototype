@@ -274,7 +274,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 --
 -- (c) The 0÷0 case is untouched.  Khahara.agda's CORRECTED block of
 --     2026-08-19 separates it from अवक्तव्यम् as a UNIQUENESS failure,
---     and `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent`
+--     and `NonUniquenessAndInexpressibilityAreIndependent`
 --     checks the independence.  Nothing here bears on that dispute; the
 --     map priced above is the n÷0 branch only, and it is total on ℤ
 --     precisely because `Khahara.शून्य-हरः` ignores its argument — which

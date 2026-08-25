@@ -6,7 +6,7 @@
 -- STATUS: AWAITING KERNEL.  This container has no agda.  Nothing below is
 -- claimed green; a green is an exit code or it is a rumour.
 --
--- WHY THIS IS A SEPARATE MODULE.  `NaturalMachine.RewriteCertificate` is
+-- WHY THIS IS A SEPARATE MODULE.  `RewriteCertificate` is
 -- the live soundness perimeter of the Haskell gate: `MathMachine.hs` →
 -- `Certificate.hs` → (S1) `InductionSearch.hs` emit modules that import it,
 -- and `induction-sound` there is the semantic warrant for installing a
@@ -40,7 +40,7 @@
 --     x * 0     = 0                x * s(y)  = (x * y) + x
 --
 -- — and both are already checked against ℕ in
--- `NaturalMachine.HaskellDefinitionBoundary` (`haskell-mul-zero`,
+-- `HaskellDefinitionBoundary` (`haskell-mul-zero`,
 -- `haskell-mul-suc`).  So `mul-zero`/`mul-suc` below introduce NO new
 -- trusted input: they are the machine's own axioms, re-indexed by their
 -- endpoints.  `mod`, `div`, `Omega`, `omega`, `musq` — the demands standing
@@ -181,7 +181,7 @@ eval (mul l r) ρ = eval l ρ · eval r ρ
 -- writes `x * 0 = 0`, `x * s y = x * y + x`.  The whole cost of that is one
 -- `sym` and one `∙ +-comm`, and it is paid here, once, in the perimeter —
 -- never inside a certificate.  (These are `haskell-mul-zero` and
--- `haskell-mul-suc` of `NaturalMachine.HaskellDefinitionBoundary`, reused
+-- `haskell-mul-suc` of `HaskellDefinitionBoundary`, reused
 -- pointwise rather than re-derived.)
 ------------------------------------------------------------------------
 

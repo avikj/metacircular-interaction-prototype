@@ -52,14 +52,14 @@
 -- them: a proof that is not a signature is not visible to a parser.
 --
 -- §२  `compileContext : OneHoleContext X → List (ContextAction X)`
---     « NaturalMachine.CompositionalContextAdapter.
+--     « CompositionalContextAdapter.
 --     That module proves `compile-decode` (one round trip) and uses it
 --     to route SyntacticContextEq → ContextEq.  The other round trip is
 --     absent from the file, and with it the fact that the one-hole term
 --     grammar IS its action word: the syntax may be dropped.
 --
 -- §३  `colsOf : Col → ℤ × ℤ × ℤ` and `entriesOf : Mat 3 3 → Nine`
---     « NaturalMachine.SmithPathCountedExecution.
+--     « SmithPathCountedExecution.
 --     That module proves `fromCols-entries` and `fromNine-entries` (the
 --     hard halves, by funext over the index) and uses them only to
 --     derive `col≡` / `mat≡`, equality-reflection helpers.  The easy
@@ -96,11 +96,11 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import SourcedProofs.Pata_CarryingIsUnconditionalButAddressingNeedsTheMapToBeAnIdentification
   using (पता ; पता→समता ; वहनम् ; ग्राह)
 
-open import NaturalMachine.CompositionalContextAdapter
+open import CompositionalContextAdapter
   using ( OneHoleContext ; hole ; leftHole ; rightHole
         ; ContextAction ; compileContext ; decodeContext ; compile-decode )
 
-open import NaturalMachine.SmithPathCountedExecution
+open import SmithPathCountedExecution
   using ( Col ; Nine
         ; colsOf ; fromCols ; fromCols-entries
         ; entriesOf ; fromNine ; fromNine-entries )
@@ -202,12 +202,12 @@ entries-fromNine v = refl
 --       site and are on the queue because the census's parser matches
 --       `_≃_` and `_≡_` conclusions and not `Iso`, or because the two
 --       sides are written with different aliases for one type.
---       `NaturalMachine.PMTorus.vertexToFin` is the clearest instance:
+--       `PMTorus.vertexToFin` is the clearest instance:
 --       `vertexIso : Iso Vertex (Fin V)` and `vertexCount : Vertex ≃
 --       Fin V` are both in that file, and the map's signature says
 --       `Fin 6`, with `V = 6` a definition the resolver does not unfold.
 --       Same for `edgeToFin`, and for
---       `NaturalMachine.S3IntegerRelativeCoordinates.relativeCoordinates`
+--       `S3IntegerRelativeCoordinates.relativeCoordinates`
 --       (`relativeCoordinateIso` is in the file).  These are census
 --       defects, not mathematics, and are NOT repaired here — the
 --       instrument is another seat's file.
@@ -217,7 +217,7 @@ entries-fromNine v = refl
 --       `Swarm.S01PaniniAshby.sig : SmithState → Bool × Bool` is
 --       injective (`sigDistinct01/02/12`) and cannot be surjective:
 --       three states, four signatures.  That file's own reading —
---       Ashby's variety bound — is why.  `NaturalMachine.
+--       Ashby's variety bound — is why.  `
 --       AdaptiveProbeCollapse.staticTriple : St → Bool × Bool × Bool`
 --       has its retraction proved (`static-budget-3-identifies`) and the
 --       same obstruction.  Neither is proved non-invertible here.
@@ -229,7 +229,7 @@ entries-fromNine v = refl
 --     mathematical — `सन्दर्भ-समता` is stated over a bound `X`, and the
 --     census discards any conclusion mentioning a binder, while it
 --     resolves the adapter's own implicit `X` to the unrelated
---     definition `NaturalMachine.TwoProjections.X`.  So the queue will
+--     definition `TwoProjections.X`.  So the queue will
 --     keep printing that edge.  The theorem is §२ and the queue entry
 --     is the instrument, and they disagree; the instrument is another
 --     seat's file and is not touched here.

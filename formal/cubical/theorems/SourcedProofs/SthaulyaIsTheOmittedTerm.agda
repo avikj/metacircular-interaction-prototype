@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.SthaulyaIsTheOmittedTerm
+-- SthaulyaIsTheOmittedTerm
 --
 -- स्थौल्य — the coarseness of an अन्त्यसंस्कार — in closed form, for every
 -- correction in the hierarchy at once.

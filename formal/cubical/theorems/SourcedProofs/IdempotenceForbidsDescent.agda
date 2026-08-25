@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.IdempotenceForbidsDescent
+-- IdempotenceForbidsDescent
 --
 -- Why the walk's capacity is e^ψ(k) and could never have been anything
 -- else.  Two lines of monoid theory, and they close a question this
@@ -81,7 +81,7 @@ open import Cubical.Data.Int using (ℤ ; pos ; negsuc)
 open import Cubical.Data.Int.Properties using (injPos)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.SumProductTorus
+open import SumProductTorus
   using (Exp ; zeroE ; _⊔_ ; _⊔ℕ_ ; val ; primes4)
 
 private

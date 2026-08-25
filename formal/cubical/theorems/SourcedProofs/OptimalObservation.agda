@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.OptimalObservation
+-- OptimalObservation
 --
 -- "Optimal" has been a word in three module headers.  Here it is a
 -- definition, with the three instances proved against it.
@@ -60,7 +60,7 @@ open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.SumFin using () renaming (SumFin≃Fin to sumFin≃Fin)
 
 open import SourcedProofs.PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount)
-open import NaturalMachine.WalkObservationCount using (walk-observation-space)
+open import WalkObservationCount using (walk-observation-space)
 
 ------------------------------------------------------------------------
 -- 1.  Losslessness and optimality

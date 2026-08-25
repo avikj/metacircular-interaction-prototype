@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.PingalaIsOptimal
+-- PingalaIsOptimal
 --
 -- The same two theorems that make the walk optimal make Piṅgala's
 -- naṣṭa/uddiṣṭa optimal, and they were separated by about 2300 years.
@@ -21,7 +21,7 @@
 -- the idiom `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md` identifies,
 -- written down around 300 BCE.
 --
--- `NaturalMachine.LosslessLowerBound` carries the other half: any lossless
+-- `LosslessLowerBound` carries the other half: any lossless
 -- observation needs at least as many outcomes as it has inputs.
 --
 -- Neither module knows about the other.  This one is the sentence.

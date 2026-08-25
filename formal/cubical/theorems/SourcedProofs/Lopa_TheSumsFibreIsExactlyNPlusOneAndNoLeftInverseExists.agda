@@ -43,8 +43,8 @@
 -- the two together:
 --
 --   `LosslessReturn_…TransportGivesIt.योग : ℕ × ℕ → ℕ`, योग x = fst x + snd x
---   `NaturalMachine.PairsSummingTo.Pairs n = Σ[ ab ∈ ℕ × ℕ ] (fst ab + snd ab ≡ n)`
---   `NaturalMachine.PairsSummingTo.pairsFin : (n : ℕ) → Pairs n ≃ SumFin (suc n)`
+--   `PairsSummingTo.Pairs n = Σ[ ab ∈ ℕ × ℕ ] (fst ab + snd ab ≡ n)`
+--   `PairsSummingTo.pairsFin : (n : ℕ) → Pairs n ≃ SumFin (suc n)`
 --
 -- `Pairs n` IS `fiber योग n`, on the nose (§१, and it is `refl`).  So the
 -- elision performed by addition already had its fibre counted, exactly, in
@@ -95,7 +95,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.SumFin using () renaming (Fin to SumFin)
 
-open import NaturalMachine.PairsSummingTo using (Pairs ; pairsFin)
+open import PairsSummingTo using (Pairs ; pairsFin)
 open import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt using (योग)
 import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible as अव
 
@@ -117,7 +117,7 @@ import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContracti
 --
 -- This is `pairsFin`, which is NOT proved here.  It is a structural
 -- induction with no truncated subtraction, in
--- `NaturalMachine.PairsSummingTo`, written for the metrical antidiagonal.
+-- `PairsSummingTo`, written for the metrical antidiagonal.
 -- All this module does is point it at the map.
 --
 -- THE MEASUREMENT ROAD ONE CANNOT MAKE.  Setubandha's edges all have

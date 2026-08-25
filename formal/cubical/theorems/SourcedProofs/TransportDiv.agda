@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.TransportDiv
+-- TransportDiv
 --
 -- DIVISION ON THE CHART.  `Transport` carries `+`, `TransportMul` carries
 -- `·`, and both end with the same open remark: the walk
--- (`NaturalMachine.WalkBridge`) stalls at frontier m ≈ 8 because its
+-- (`WalkBridge`) stalls at frontier m ≈ 8 because its
 -- divisibility test is UNARY, costing Θ(cap m) with cap m = e^{ψ(m)}.
 -- The test is the blocker, not the arithmetic around it.
 --
@@ -19,7 +19,7 @@
 -- COST.  `steps w ≡ suc (length w)`: the automaton visits each digit
 -- once.  The unary test walks the value.  That gap is the whole content
 -- of the frontier — and it is the third branch of
--- `NaturalMachine.Residual`: the two presentations are bridged (δ ≡ 0,
+-- `Residual`: the two presentations are bridged (δ ≡ 0,
 -- by `Digits`' equivalence) and the residual ϱ is nonzero, so no
 -- equivalence-invariant response could have found it.
 --
@@ -64,7 +64,7 @@
 -- this very directory.  The audit searched the web and found a 2010 paper;
 -- it did not search one directory up.
 --
--- In this repository: `NaturalMachine.RadixSymptoma` already has the digit
+-- In this repository: `RadixSymptoma` already has the digit
 -- action and its run law (`Radix.step`, `Radix.run≡`) in cubical Agda in
 -- this same directory, and `notes/GENERAL_RADIX_DIVISIBILITY.md` already
 -- carries the Alexeev citation.  Note also that `scale-mod` below collides
@@ -89,7 +89,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 
-open import NaturalMachine.Digits k
+open import Digits k
 
 ------------------------------------------------------------------------
 -- 1.  The residue automaton.  One state, one pass, no value.

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.WalkChartedCap
+-- WalkChartedCap
 --
 -- THE CAPACITY, IN THE CHART.  `WalkResidueBridge` closed the walk's
 -- divisibility test: `decDividesℕ-agrees` proves the digit automaton's
@@ -114,7 +114,7 @@
 -- ON THE DUPLICATED MULTIPLIER.  The natural move is to reuse
 -- `TransportMul.mulw`.  It cannot be imported: under the toolchain this
 -- file was checked with (Agda 2.6.3, cubical v0.7 in /tmp/cubical),
--- `NaturalMachine.Transport` and `NaturalMachine.TransportMul` do not
+-- `Transport` and `TransportMul` do not
 -- typecheck at all -- `Cubical.Tactics.Reflection` fails to scope-check
 -- (`withReduceDefs` not in scope), so `solveℕ!` is unavailable and both
 -- modules are red before their own content is reached.  `scale` here is
@@ -154,9 +154,9 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 import Cubical.Data.Fin.Properties as FinP
 
-open import NaturalMachine.WalkUnconditional using (cap)
-open import NaturalMachine.WalkBridge using (cap-pos ; 0<-from-≢0)
-open import NaturalMachine.LCMExists using (lcm ; lcm-isLCM₂)
+open import WalkUnconditional using (cap)
+open import WalkBridge using (cap-pos ; 0<-from-≢0)
+open import LCMExists using (lcm ; lcm-isLCM₂)
 
 ------------------------------------------------------------------------
 -- 0.  Two shapes used throughout.
@@ -413,9 +413,9 @@ quotient-< B t Q t<QB = <Stable _ _ nn
 
 module Charted (k : ℕ) where
 
-  open import NaturalMachine.Digits k
-  open import NaturalMachine.TransportDiv k
-  open import NaturalMachine.WalkResidueBridge k using (usteps ; usteps-is-value)
+  open import Digits k
+  open import TransportDiv k
+  open import WalkResidueBridge k using (usteps ; usteps-is-value)
   open import Cubical.Data.Fin using (toℕ)
   open import Cubical.Data.List using (List ; [] ; _∷_ ; length)
 

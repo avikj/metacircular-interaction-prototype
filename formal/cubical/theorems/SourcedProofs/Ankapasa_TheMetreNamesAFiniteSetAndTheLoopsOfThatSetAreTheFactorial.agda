@@ -26,7 +26,7 @@
 -- WHAT THIS MODULE IS.  THE LAST UNROUTED NODE OF THE COMPONENT.
 --
 -- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
--- AreTheFrontier.hs` reports `NaturalMachine.Decategorification.π₀FinSet`
+-- AreTheFrontier.hs` reports `Decategorification.π₀FinSet`
 -- at degree 1: joined to the hub `ℕ` and to nothing else.  Every other
 -- pair in the largest component that lies inside `formal/cubical/` has
 -- now been routed; this one had not, and it is at distance 2 from
@@ -83,9 +83,9 @@ open import Cubical.Data.FinSet using (FinSet ; card)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁)
 
 open import SourcedProofs.Pingala using (छन्दस् ; मूल्य ; अनुक्रम ; मूल्य-एकैकम् ; छन्दस्≃ℕ)
-open import NaturalMachine.Decategorification
+open import Decategorification
   using (𝔽 ; card-Fin ; card≡MereEq ; FinSetLoop≃Sym ; π₀FinSet ; ℕ≃π₀FinSet)
-open import NaturalMachine.SymmetryEnumeration using (symmetryEnum)
+open import SymmetryEnumeration using (symmetryEnum)
 
 ------------------------------------------------------------------------
 -- ० · THE ROUTE.  Two checked equivalences, composed.  `compEquiv` and

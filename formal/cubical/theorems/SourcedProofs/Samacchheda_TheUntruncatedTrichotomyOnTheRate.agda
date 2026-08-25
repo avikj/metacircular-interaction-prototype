@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Samacchheda_TheUntruncatedTrichotomyOnTheRate
+-- Samacchheda_TheUntruncatedTrichotomyOnTheRate
 --
 -- समच्छेद · samacchheda — "equal divisor": bringing two fractions to a
 -- common denominator, which is how the Sanskrit arithmetic tradition
@@ -73,15 +73,15 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.TheRateQuotientExistsAndMinimalityCannotLiveOnIt
+open import TheRateQuotientExistsAndMinimalityCannotLiveOnIt
   using (Rate)
-open import NaturalMachine.TheRatesAreDenseAndTheMediantSurvivesTheQuotient
+open import TheRatesAreDenseAndTheMediantSurvivesTheQuotient
   using (_⊏R_)
-open import NaturalMachine.TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt
+open import TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt
   using (⊏R-irrefl)
-open import NaturalMachine.AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
+open import AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
   using (⊏R-asym)
-open import NaturalMachine.TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
+open import TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
   using (rateTrichotomyTruncated)
 
 ------------------------------------------------------------------------

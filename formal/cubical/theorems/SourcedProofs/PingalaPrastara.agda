@@ -513,7 +513,7 @@ _ = refl
 --     UnivalenceErasesTheAlgorithm, OptimalObservation, Sankalita,
 --     PingalaIsOptimal, DurationIsSyllablesPlusGuru, DiagonalIsMatra
 --
--- — and `NaturalMachine.RootsThreadLatch` went red.  The repository's
+-- — and `RootsThreadLatch` went red.  The repository's
 -- norm is not to revert or overwrite another identity's visible work, so
 -- the removed definitions are restored HERE, under a name that does not
 -- collide, and the six importers repointed.  Nothing of the new

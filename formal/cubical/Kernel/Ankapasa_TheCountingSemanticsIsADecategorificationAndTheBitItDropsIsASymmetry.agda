@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorification
+-- Ankapasa_TheCountingSemanticsIsADecategorification
 --                        AndTheBitItDropsIsASymmetry
 --
 -- TERM.  अङ्कपाश · aṅkapāśa -- "the net of digits", the traditional name for

@@ -17,7 +17,7 @@
 --     SourcedProofs.CakravalaDescent.Descent.cakravalaScaled
 --       (added 2026-08-18 19:27 UTC, a1e105bd)
 --   and
---     NaturalMachine.Cakravala.Cycle.cakravala-step
+--     Cakravala.Cycle.cakravala-step
 --       (added 2026-08-18 10:00 UTC, 230030a1)
 --
 -- are ONE THEOREM over an arbitrary commutative ring: same hypotheses
@@ -38,7 +38,7 @@
 -- and asserts nothing about any pair of them.  A mechanical root cannot
 -- notice that two of its rows are one theorem.
 --
--- The private lemma `NaturalMachine.Cakravala.Cycle.bhavana-trivial`
+-- The private lemma `Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `SourcedProofs.Bhavana.Form.cakravalaCleared` again, and
 -- `Cakravala.चक्रीय-पद-रूपम्` is that same identity a third time over ℤ
 -- from `Brahmagupta.भावना-मान`.  Those are named here and NOT bridged:

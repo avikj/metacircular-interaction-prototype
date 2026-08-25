@@ -9,10 +9,10 @@ open import Cubical.Data.List using ([] ; _∷_)
 open import Kernel.RewriteCertificate using
   (Tm ; var ; zero ; suc ; add)
 import Kernel.IntrinsicRewrite as IR
-open import NaturalMachine.FiniteIndraWeave using
+open import FiniteIndraWeave using
   (TotalView ; LocalAction ; reweave ; Tear ; tear)
-open import NaturalMachine.ProductiveIndraNet
-open import NaturalMachine.ProductiveTear using
+open import ProductiveIndraNet
+open import ProductiveTear using
   (EarliestTear ; now-tear ; PrefixAudit ; prefix-torn)
 
 locus : Bool → IR.Locus

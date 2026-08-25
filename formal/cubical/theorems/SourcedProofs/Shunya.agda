@@ -97,7 +97,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 -- corpus exists to fight, one level up.
 --
 -- The independence is now checked, over four realised corners, in
--- `NaturalMachine.NonUniquenessAndInexpressibilityAreIndependent`
+-- `NonUniquenessAndInexpressibilityAreIndependent`
 -- (--safe, no postulates, no holes):
 --
 --   nonUnique ∧ expressible     all,  constants

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
+-- CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
 --
 -- ON THE NAME.  The enumeration of permutations is an Indian subject —
 -- प्रस्तार (prastāra) in Piṅgala's *Chandaḥśāstra* (~300 BCE) and its
@@ -68,13 +68,13 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; Discrete)
 
-open import NaturalMachine.KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
-open import NaturalMachine.TheParetoStratumIsDecidableAndTheFilterIsExact using (All)
-open import NaturalMachine.TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure
+open import TheParetoStratumIsDecidableAndTheFilterIsExact using (All)
+open import TheRemainderIsStrictlyShorterSoTheStratificationHasAMeasure
   using (lengthL)
-open import NaturalMachine.OrderIndependenceTransfersAlongAnyNumberOfSteps using (Step)
-open import NaturalMachine.PairwiseCommutationGivesEveryOrder
+open import OrderIndependenceTransfersAlongAnyNumberOfSteps using (Step)
+open import PairwiseCommutationGivesEveryOrder
   using (_~_ ; ~nil ; ~cons ; ~swap ; ~trans)
 
 ------------------------------------------------------------------------

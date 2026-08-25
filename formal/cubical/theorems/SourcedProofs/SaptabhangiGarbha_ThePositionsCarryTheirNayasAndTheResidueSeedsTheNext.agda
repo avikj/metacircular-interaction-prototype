@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext
+-- SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext
 --
 -- सप्तभङ्गी — the sevenfold predication, as the machine's return type, with
 -- every position carrying the standpoints that produced it.
@@ -79,7 +79,7 @@
 --
 -- AGAINST COLLAPSE.  A शेष is exactly a syādastināsti, so it is a
 -- certificate that the standpoint index cannot be dropped — via
--- `NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees`, which corrected
+-- `Durnaya_CollapseIffEveryNayaAgrees`, which corrected
 -- `Anekanta.agda` §5: collapse is available exactly when EVERY pair of
 -- fibres agrees, and a denial is merely the cheapest way to prove that
 -- permission absent.  §5 below carries the शेष into that theorem, so the
@@ -100,9 +100,9 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import NaturalMachine.Anekanta
+open import Anekanta
   using (syādasti ; syādnāsti ; syādastināsti ; Collapses ; plurality-blocks-collapse)
-open import NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees
+open import Durnaya_CollapseIffEveryNayaAgrees
   using (AllNayasAgree)
 
 private
@@ -310,7 +310,7 @@ data सप्तभङ्गी {S : Type ℓ} (P : S → Type ℓ') : Type (�
 --
 -- Nothing was destroyed: the third position is recovered from the fourth
 -- by refl.  And the शेष is a certificate against collapse — via
--- `NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees`, collapse is
+-- `Durnaya_CollapseIffEveryNayaAgrees`, collapse is
 -- available exactly when every pair of standpoints agrees, and a शेष
 -- exhibits a pair that does not.
 ------------------------------------------------------------------------

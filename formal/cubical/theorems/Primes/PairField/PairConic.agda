@@ -18,7 +18,7 @@
 -- that makes it true; the mathematically honest primary statement is
 -- the addition form conic⁺, from which the ∸ form is derived.
 --
--- NaturalMachine.PairCoordinates proves the ring version of the same
+-- PairCoordinates proves the ring version of the same
 -- algebra (splitNorm, over an arbitrary commutative ring).  This file
 -- is deliberately NOT importing it: same conic, different carrier.
 --

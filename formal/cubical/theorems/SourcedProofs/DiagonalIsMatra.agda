@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.DiagonalIsMatra
+-- DiagonalIsMatra
 --
 -- The identity the Sankalita thread left open:
 --
@@ -60,8 +60,8 @@ open import Cubical.Data.SumFin using (SumFin⊎≃ ; SumFin≃Fin) renaming (Fi
 
 open import SourcedProofs.PingalaPrastara using (Chosen ; meru ; meruCount ; Metre ; matra ; matraCount)
 open import SourcedProofs.Sankalita using (AD ; antidiag)
-open import NaturalMachine.PairsSummingTo using (Pairs ; pairsSuc-Iso ; pairs0-Iso)
-open import NaturalMachine.DurationIsSyllablesPlusGuru using (Sorted ; metre-sorts)
+open import PairsSummingTo using (Pairs ; pairsSuc-Iso ; pairs0-Iso)
+open import DurationIsSyllablesPlusGuru using (Sorted ; metre-sorts)
 
 ------------------------------------------------------------------------
 -- 1.  Chosen, as a SumFin

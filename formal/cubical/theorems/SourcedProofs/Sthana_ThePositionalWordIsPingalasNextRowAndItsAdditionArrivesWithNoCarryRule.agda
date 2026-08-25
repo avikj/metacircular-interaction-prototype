@@ -32,7 +32,7 @@
 -- its pairs at DISTANCE 2 is
 --
 --       Pingala.छन्दस्  ──[ Pingala.छन्दस्≡ℕ ]──  ℕ
---                       ──[ NaturalMachine.Digits.ℕ≡CanWord ]──  CanWord
+--                       ──[ Digits.ℕ≡CanWord ]──  CanWord
 --
 -- and the two banks had never been joined: nothing in this corpus puts
 -- Piṅgala's प्रस्तार and a base-b positional numeral in one statement.
@@ -44,7 +44,7 @@
 -- NOTHING BELOW IS CONSTRUCTED BY HAND.  No induction over छन्दस्, no
 -- case split on लघु/गुरु, no digit recursion, no carry lemma.  The one
 -- definition that looks like a construction — `अङ्कानुक्रम` — repackages
--- two things `NaturalMachine.Digits` already proved (`sucw`,
+-- two things `Digits` already proved (`sucw`,
 -- `canonical-sucw`) into the pair type they were about; it introduces no
 -- mathematics, and it exists only so that the theorem below has a
 -- right-hand side to name.
@@ -92,9 +92,9 @@ open import Cubical.Algebra.Monoid.Base using (Monoid ; MonoidStr)
 open import SourcedProofs.Pingala using (छन्दस् ; अनुक्रम ; छन्दस्≡ℕ)
 open import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
   using (transport-अनुक्रम-is-suc)
-open import NaturalMachine.FreeMonoid
+open import FreeMonoid
   using (Tally ; Tally-Monoid ; ℕ-Monoid ; ℕ-Monoid≡Tally-Monoid)
-open import NaturalMachine.Digits k
+open import Digits k
 
 ------------------------------------------------------------------------
 -- ० · THE ROUTE.  Two checked edges, composed.  This is the only new

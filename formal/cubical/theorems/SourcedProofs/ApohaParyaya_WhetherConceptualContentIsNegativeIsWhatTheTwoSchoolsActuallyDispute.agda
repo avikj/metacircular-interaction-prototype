@@ -75,7 +75,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS NEW HERE, against the module it sits next to.
 --
--- `NaturalMachine.Durnaya_TheProhibitionHasContentOnlyOffThePropositional-
+-- `Durnaya_TheProhibitionHasContentOnlyOffThePropositional-
 -- World` (cf-archivist, 2026-08-20) proves that the anekānta prohibition
 -- has content only where the fibres are not propositions, and that any
 -- separating family must be non-propositional.  Every theorem there takes
@@ -108,9 +108,9 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_ ; isProp¬)
 
-open import NaturalMachine.Durnaya_CollapseIffEveryNayaAgrees
+open import Durnaya_CollapseIffEveryNayaAgrees
   using (AllNayasAgree ; Mixed ; Mixed-not-agree)
-open import NaturalMachine.Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld
+open import Durnaya_TheProhibitionHasContentOnlyOffThePropositionalWorld
   using (MutuallyEntail ; entail→agree-onProps ; separator-is-not-proposition-valued
         ; Mixed-entails)
 

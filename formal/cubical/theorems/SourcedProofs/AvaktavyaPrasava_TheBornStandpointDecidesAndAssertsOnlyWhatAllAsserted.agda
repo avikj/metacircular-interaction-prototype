@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.AvaktavyaPrasava_TheBornStandpointDecidesAndAsserts-
+-- AvaktavyaPrasava_TheBornStandpointDecidesAndAsserts-
 -- OnlyWhatAllAsserted
 --
 -- The two laws of the birth in
