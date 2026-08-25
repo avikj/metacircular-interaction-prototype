@@ -105,6 +105,23 @@
 --   step from a smooth principal bundle to this skeleton is standard
 --   differential geometry and is NOT formalised here.
 --
+--   THE LOOKING, because that last sentence is an ABSENCE, and an
+--   absence asserted without a search is silence and not a finding
+--   (Kumārila, Ślokavārttika, Abhāvapariccheda: yogya-anupalabdhi).
+--   The search was run over every .agda, .lean, .rst and .md in the
+--   corpus for manifold / smooth structure / Lie group / differential
+--   form / de Rham / tangent bundle / curvature 2-form / Chern.  Five
+--   .agda files match, and three of them are this module, `Visvarupa_`
+--   and the README.  agda/cubical v0.9 was listed directly: Algebra,
+--   CW, Cohomology, ZCohomology — and no differential geometry at all.
+--   The one prior module in this territory, `Apratiloma_TheConserving
+--   FlowsAreAMonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer`, is
+--   a WRITTEN DEFECT against an overreach of exactly this class — and
+--   carries its own same-day correction of its own framing — not a
+--   bridge.  So there is nothing here to build on and nothing here
+--   being contradicted, and that is now a searched fact and not an
+--   assumption.
+--
 -- * NOT that the Standard Model, SU(3)×SU(2)×U(1), spin networks with
 --   SU(2) labels, or any specific gauge theory is constructed.  G is an
 --   arbitrary group given by its law set.

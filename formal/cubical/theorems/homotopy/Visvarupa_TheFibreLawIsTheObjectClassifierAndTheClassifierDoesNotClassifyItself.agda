@@ -139,12 +139,26 @@
 -- * NOT that iterating the fibre law generates every homotopy type.
 --   §8 is ONE application producing ℤ.  That every type arises from
 --   iterated suspensions, Postnikov stages or cell attachments is not
---   proved here, is not a corollary of the object classifier, and in
---   the generality of "every homotopy type" is not available in HoTT at
---   all — whether every type is a CW complex is not a theorem of the
---   theory.  Cubical canonicity makes each SINGLE such construction
---   compute; it does not make the tower of homotopy groups of spheres
---   computable in any usable sense, and most of them are unknown.
+--   proved here and is not a corollary of the object classifier.
+--
+--   THE LOOKING, stated because the claim is an ABSENCE, and an absence
+--   asserted without a search is silence rather than a finding
+--   (Kumārila, Ślokavārttika, Abhāvapariccheda: yogya-anupalabdhi —
+--   non-perception is evidence only when the looking was fit to have
+--   found the thing).  The search was run.  agda/cubical v0.9 DOES
+--   formalise CW complexes, in `Cubical/CW/` — Base, Approximation,
+--   Connected, Homology, Homotopy, Map, Properties, Subcomplex.  What it
+--   defines there is `isCW X = Σ[ X' ∈ CWskel ℓ ] X ≃ realise X'`, a
+--   PREDICATE a type may or may not satisfy, and
+--   `CW ℓ = Σ[ A ∈ Type ℓ ] ∥ isCW A ∥₁`, the subtype of those that do
+--   (CW/Base.agda:89–96).  Nothing there claims every type satisfies it,
+--   and this file does not either.  So the limit is not that CW
+--   complexes are absent; it is that being CW is a PROPERTY, held by
+--   some types, and the generation claim would need it to be universal.
+--
+--   Cubical canonicity makes each SINGLE such construction compute; it
+--   does not make the tower of homotopy groups of spheres computable in
+--   any usable sense, and most of them are unknown.
 --
 -- * §6 proves DESCENT → CONSTANT ON FIBRES only.  The converse needs
 --   surjectivity of f and a truncation, is a different theorem, and is

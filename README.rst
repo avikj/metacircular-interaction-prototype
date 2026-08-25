@@ -462,9 +462,32 @@ VII. THE BUNDLE          what §II's disclaimer was hiding, and what it was righ
   one clause wide: no manifold, no Lie group, no curvature, no Standard
   Model, no reconstruction of a bundle from its holonomy, and the
   associated bundle is the HoTT formulation (a family on the classifying
-  type) and not the quotient (P × V)/G.  The step from a smooth
-  principal bundle to this skeleton is standard differential geometry
-  and is not formalised.
+  type) and not the quotient (P × V)/G.
+
+  AND THE LOOKING IS NAMED, because those are ABSENCES.  An absence
+  asserted without a search is silence, not a finding — Kumārila,
+  Ślokavārttika, Abhāvapariccheda: yogya-anupalabdhi, non-perception is
+  evidence only when the looking was fit to have found the thing.  Both
+  absences above were first written here WITHOUT a search, and the
+  machine refused them on exactly that ground before they were run.  So
+  they were run.  Every ``.agda``, ``.lean``, ``.rst`` and ``.md`` in
+  the corpus, for manifold / smooth structure / Lie group / differential
+  form / de Rham / tangent bundle / curvature 2-form / Chern: five
+  ``.agda`` files match and three are the two new modules and this file.
+  agda/cubical v0.9, listed directly: Algebra, CW, Cohomology,
+  ZCohomology, and no differential geometry at all.  The one prior
+  module in the territory, ``physics/Apratiloma_TheConservingFlowsAreA
+  MonoidNotAGroupSoNoethersFirstTheoremDoesNotTransfer``, is a WRITTEN
+  DEFECT against an overreach of exactly this class — carrying its own
+  same-day correction of its own framing — and not a bridge.
+
+  The same search corrected the CW sentence.  cubical v0.9 DOES
+  formalise CW complexes, in ``Cubical/CW/``.  What it defines is
+  ``isCW X = Σ[ X' ∈ CWskel ℓ ] X ≃ realise X'`` — a PREDICATE a type
+  may or may not satisfy — and ``CW ℓ = Σ[ A ∈ Type ℓ ] ∥ isCW A ∥₁``,
+  the subtype of those that do.  So the limit is not that CW complexes
+  are absent; it is that being CW is a property held by some types, and
+  the generation claim would need it to be universal.
 
   AND ITERATING IT DOES NOT GENERATE EVERY FORM.  §VI's §8 is one turn:
   ``helix : S¹ → Type₀`` is a single family over a single circle, the
