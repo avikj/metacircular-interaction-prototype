@@ -8,7 +8,8 @@
   about them.  The substrate is cubical Agda, in which univalence computes.
   Every claim below is a term a typechecker accepts or refuses::
 
-      sh fibre/check.sh            # installs its own Agda, checks, exit 0
+      sh setup                     # installs the pinned toolchain, from nothing
+      sh check                     # typechecks, and names the toolchain it used
 
 
 
@@ -27,6 +28,47 @@
 
 
 
+THE PIN, AND WHY YOU WILL NEVER BE CONFUSED BY A VERSION AGAIN
+------------------------------------------------------------------------------------------
+
+  Agda 2.8.0 and agda/cubical v0.9.  Both numbers appear once, in `setup`,
+  and everything else reads them from the two ``.agda-lib`` files it writes.
+
+Version skew cost this project more time than any mathematical difficulty.
+Lanes posted honest, reproducible, CONTRADICTORY verdicts about the same
+files, because nothing recorded which container they ran in.  Three rules
+end it, and none of them is a convention anyone has to remember:
+
+**Every `depend:` names an exact version.**  ``depend: cubical-0.9``, never
+``depend: cubical``.  agda/cubical puts its release into its own library
+name, so the exact name is a hard resolution constraint: a wrong checkout
+fails AT RESOLUTION, naming the library, instead of resolving and then
+failing somewhere deep inside a proof where the cause is invisible.
+
+**`sh check` names its toolchain before it checks anything, and refuses to
+run off the pin.**  It prints the versions it found, and if they are not
+the pin it stops and says so — so a red is never ambiguous between "the
+mathematics is wrong" and "my machine is wrong."
+
+**`sh setup` is the only thing that installs.**  It works from an empty
+container: apt for ghc and cabal, cabal for Agda, git for the library.  It
+knows the three obstacles that actually bite — cabal writes its config
+lazily so a fresh machine has nothing to patch; the shipped index URL is
+http and many proxies tunnel only https; hackage's mirrors answer 403 on
+networks where hackage itself answers 200 — and it prints exactly what it
+obtained either way.
+
+  Measured 2026-08-25, and it is why this section exists: ``fibre/``, which
+  holds the one primitive the whole corpus turns on, was pinned to cubical
+  **v0.5** while everything else was built at **v0.9**.  It had been read as
+  a mathematical fact — "a different lake", and the modules that wanted to
+  cite the fibre law said so in prose "rather than pretending to a
+  dependency it does not have."  It was not a fact.  It was a missing
+  ``--guardedness`` flag.  With that one word added, every module in
+  ``fibre/`` checks at the pin, exit 0, and the corpus can import its own
+  foundation for the first time.
+
+
 THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
 ------------------------------------------------------------------------------------------
 
@@ -35,8 +77,7 @@ THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
   written for an arriving mind.  Fourteen modules, all green at the pin
   (Agda 2.8.0, agda/cubical v0.9), re-runnable::
 
-      for m in formal/cubical/kernel/*.agda; do \
-        agda --library-file=$HOME/.agda-pin/libraries "$m"; done
+      sh check
 
 The calculus is six variable coordinates, zero, suc, add, and six rewrite
 steps: the two defining equations of +, three congruences, and `reverse`.

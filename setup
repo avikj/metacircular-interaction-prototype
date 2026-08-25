@@ -1,0 +1,123 @@
+#!/bin/sh
+# setup — install the pinned toolchain, from nothing, and say what you got.
+#
+#   sh setup            install if missing, then report
+#   sh setup --report   report only, install nothing
+#
+# THE PIN.  Agda 2.8.0 and agda/cubical v0.9.  Both numbers appear ONCE, in
+# the two lines below, and everything else in the repository reads them from
+# the .agda-lib files this writes.
+#
+# WHY THIS FILE EXISTS.  Version skew cost this project more time than any
+# mathematical difficulty.  Two libraries pinned to two different cubical
+# releases, one of them unpinned entirely (`depend: cubical`), and lanes
+# reporting honest, reproducible, CONTRADICTORY verdicts about the same
+# files because nothing recorded which container they ran in.  The rules
+# that end it are three, and they are enforced by construction:
+#
+#   1. `depend:` names the EXACT library version (`cubical-0.9`), never
+#      `cubical`.  A wrong checkout then fails at resolution, naming the
+#      library, instead of failing deep inside a proof.
+#   2. Every check prints the version it actually obtained, and refuses to
+#      call itself green when that is not the pin.
+#   3. This script is the only thing that installs.  If it did not run, you
+#      are not set up, and `sh check` will tell you so in one line.
+set -u
+
+PIN_AGDA="2.8.0"
+PIN_CUBICAL="v0.9"
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+PREFIX="${MATH_PREFIX:-$HOME}"
+AGDA_BIN="$PREFIX/.local/bin/agda"
+CUBICAL="$PREFIX/.cache/cubical-$PIN_CUBICAL"
+LIBFILE="$PREFIX/.agda-pin/libraries"
+
+# Agda crashes while PRINTING its own error messages for this corpus's
+# Devanagari identifiers under a POSIX locale, so the real diagnosis is
+# replaced by an encoding error.  Set it once here; every child inherits.
+export LC_ALL=C.utf8
+
+say()  { printf '  %s\n' "$1"; }
+head_() { printf '\n%s\n' "$1"; printf '%s\n' "------------------------------------------------------------"; }
+
+REPORT_ONLY=0
+[ "${1:-}" = "--report" ] && REPORT_ONLY=1
+
+# ── 1. Agda ──────────────────────────────────────────────────────────────
+if [ -x "$AGDA_BIN" ] && "$AGDA_BIN" --version 2>/dev/null | grep -q "$PIN_AGDA"; then
+  :
+elif [ "$REPORT_ONLY" = 1 ]; then
+  :
+else
+  head_ "building Agda $PIN_AGDA"
+  say "this takes 30-60 minutes: it is a Haskell compiler's worth of code."
+  command -v ghc   >/dev/null 2>&1 || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ghc; }
+  command -v cabal >/dev/null 2>&1 || { apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq cabal-install; }
+
+  # cabal writes ~/.cabal/config LAZILY, on first use.  On a machine where
+  # cabal has never run the file does not exist, both repairs below silently
+  # no-op, and `cabal update` then dies on the mirror 403.  Materialise it.
+  [ -f "$HOME/.cabal/config" ] || cabal user-config init >/dev/null 2>&1 || true
+
+  if [ -f "$HOME/.cabal/config" ]; then
+    # the shipped scheme is http and many proxies tunnel CONNECT for https only
+    sed -i 's|url: http://hackage.haskell.org/|url: https://hackage.haskell.org/|' "$HOME/.cabal/config"
+    # cabal tries hackage's MIRRORS first and some networks answer 403 on
+    # them while hackage itself answers 200.  `secure: False` uses the
+    # primary's legacy index and never consults the mirror list.  This
+    # lowers cabal's own signature checking, which is a real cost and is
+    # stated rather than hidden: tarballs still arrive over TLS from
+    # hackage, and the resulting binary is verified by --version below.
+    grep -q "^  secure: False" "$HOME/.cabal/config" || \
+      sed -i 's|^  url: https://hackage.haskell.org/|  url: https://hackage.haskell.org/\n  secure: False|' "$HOME/.cabal/config"
+  fi
+
+  cabal update || { say "cabal update failed; see the network notes in this file"; }
+  cabal install "Agda-$PIN_AGDA" --overwrite-policy=always --install-method=copy \
+       --installdir="$PREFIX/.local/bin" || say "cabal install failed"
+fi
+
+# ── 2. the library ───────────────────────────────────────────────────────
+if [ ! -f "$CUBICAL/cubical.agda-lib" ] && [ "$REPORT_ONLY" = 0 ]; then
+  head_ "fetching agda/cubical $PIN_CUBICAL"
+  mkdir -p "$(dirname "$CUBICAL")"
+  git clone --depth 1 --branch "$PIN_CUBICAL" -q https://github.com/agda/cubical.git "$CUBICAL" \
+    || say "clone failed"
+fi
+
+# ── 3. register every library in this repository ─────────────────────────
+if [ "$REPORT_ONLY" = 0 ]; then
+  mkdir -p "$(dirname "$LIBFILE")"
+  { [ -f "$CUBICAL/cubical.agda-lib" ] && printf '%s\n' "$CUBICAL/cubical.agda-lib"
+    printf '%s\n' "$ROOT/formal/cubical/natural-machine.agda-lib"
+    printf '%s\n' "$ROOT/fibre/fibre.agda-lib"
+  } > "$LIBFILE"
+fi
+
+# ── 4. SAY WHAT WAS ACTUALLY OBTAINED ────────────────────────────────────
+GOT_AGDA="$( { [ -x "$AGDA_BIN" ] && "$AGDA_BIN" --version; } 2>/dev/null | head -1 | sed 's/^Agda version //')"
+[ -n "$GOT_AGDA" ] || GOT_AGDA="$(agda --version 2>/dev/null | head -1 | sed 's/^Agda version //')"
+[ -n "$GOT_AGDA" ] || GOT_AGDA="(none on PATH)"
+GOT_CUB="$(git -C "$CUBICAL" describe --tags 2>/dev/null || echo '(absent)')"
+
+head_ "toolchain"
+printf '  %-12s %-22s %s\n' "agda"    "$GOT_AGDA" "(want $PIN_AGDA)"
+printf '  %-12s %-22s %s\n' "cubical" "$GOT_CUB"  "(want $PIN_CUBICAL)"
+printf '  %-12s %s\n' "libraries" "$LIBFILE"
+
+if printf '%s' "$GOT_AGDA" | grep -q "^$PIN_AGDA" && [ "$GOT_CUB" = "$PIN_CUBICAL" ]; then
+  head_ "AT THE PIN"
+  say "Verdicts from this machine are comparable with every other at the pin."
+  say ""
+  say "next:  sh check"
+  exit 0
+fi
+
+head_ "NOT AT THE PIN"
+say "A green obtained here is evidence about THIS machine and not about the"
+say "corpus, and it is not comparable with another container's green."
+say "Say so in anything that quotes it."
+say ""
+say "  run:  sh setup            (installs the pin; 30-60 min from nothing)"
+exit 1
