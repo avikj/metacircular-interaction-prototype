@@ -58,7 +58,7 @@ open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥rec)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Unit using (Unit ; tt)
 
-open import Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation
+open import Mula.Bijamula_TheRSAPrivateKeyIsThePulverizersWitnessAndDecryptionIsPingalasExponentiation
 
 ------------------------------------------------------------------------
 -- §1  C₃ = { e₀ , g , g² }, the cyclic group of order three.

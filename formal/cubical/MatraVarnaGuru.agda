@@ -29,7 +29,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)
 open import Cubical.Data.Nat.Properties using (+-suc ; +-assoc ; +-comm)
 open import Cubical.Data.Nat.Order using (_≤_)
 open import Cubical.Data.List using (_∷_ ; [])
-open import PingalaPrastara
+open import Mula.PingalaPrastara
   using (Syllable ; laghu ; guru ; Pattern ; matraOf ; varna ; guruOf)
 
 ------------------------------------------------------------------------

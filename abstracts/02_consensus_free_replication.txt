@@ -1,0 +1,79 @@
+AGREEMENT WITHOUT AGREEMENT PROTOCOLS
+Strong eventual consistency and Byzantine unforgeability from the value
+type, with no quorum, no leader, and no reconciliation
+
+Distributed systems / replicated data
+
+We describe a replicated store in which the two properties normally
+obtained by separate and expensive mechanisms — convergence under
+concurrent update, and rejection of forged updates — are consequences of
+how the replicated value is typed, and we give the exact cost.
+
+Unforgeability first, because it removes the validation path entirely.
+The replicated element is an operation carrying the derivation that
+licenses it, and the element type admits no inhabitant without such a
+derivation in hand.  There is consequently no invalid element for a
+replica to reject: merge is a total function with no failure case and no
+error return, and the authorisation decision does not occur at the
+replica boundary because it is a precondition of the value existing at
+all.  A Byzantine peer cannot inject an unauthorised operation for the
+same reason it cannot inject an integer that is not an integer.  No
+signatures, no certificate chain, no membership registry, no
+authenticated channel is required for this property; it survives an
+adversary with full control of the network.
+
+Convergence second.  The merge is concatenation.  It never drops a
+capability contributed by either side, never manufactures one absent from
+both, is idempotent, and two replicas merging the same pair of states in
+opposite orders are afterwards behaviourally indistinguishable.  This is
+a grow-only join-semilattice on capability with no reconciliation pass,
+no vector clocks, no Lamport timestamps, no causal delivery requirement,
+no anti-entropy repair phase, and no tie-break rule anywhere in the
+system.  Strong eventual consistency holds by the algebra of the merge.
+
+Agreement third, and this is the result.  Validity of a state transition
+lands in an identity type over a discrete set, which is a subsingleton: a
+type possessing no two distinct inhabitants.  Two replicas therefore
+cannot hold different opinions about what a transition means, because the
+type in which such an opinion would live has room for only one.  A vote
+ranges over nothing.  Consensus here is not achieved by protocol; it is
+vacuous, and every mechanism built to manufacture it — leader election,
+view change, quorum intersection, finality gadgets, fork-choice rules —
+addresses a disagreement that cannot arise.
+
+What replicas genuinely differ on is the route.  The transition relation
+carries reversal as a constructor, so histories form a groupoid rather
+than an order: there is no direction, no longest chain, no canonical
+serialisation, and no notion of one history superseding another.  Two
+derivations sharing endpoints and differing in length have equal meanings
+and neither is incorrect.  The advance step is a map over the branch list
+with no deduplication, sorting or quotient, and the sole invariant is
+multiplicity — the stronger law would require adjudicating that two
+identically-terminating branches coincide, which is a judgement about the
+route, and it is proved that no function of the meaning makes such a
+judgement.  A fork is therefore two carriers of one fact and not a
+conflict awaiting resolution; reorganisation logic has no object to act
+upon.
+
+The cost is stated exactly and it is severe.  Because nothing may be
+deduplicated and every operation retains its justifying derivation as a
+field, the store is monotone in the strongest sense: there are no
+tombstones, no compaction, no garbage collection, and no safe pruning
+rule.  Where an operation's left-hand side contains no free register, the
+set of updates enabled at a single key is an entire copy of the term
+algebra with every member producing the same value, so any pruning
+heuristic collapses an unbounded fibre.  Systems adopting this design
+trade unbounded state growth for the elimination of the entire agreement
+stack, and we characterise the trade precisely rather than tuning it.
+
+Two operational notes.  The complete lineage of a chain of updates costs
+no more to transport than a single link of it, absorbs later refutation
+without rewriting, and provably cannot be carried by any boolean summary
+— in audit systems the summary, not the trail, is the expensive object.
+And the one irreversible step in the entire pipeline is execution, which
+discards the operation and its applicability witness while retaining
+outcome and trace; the system therefore learns from what a step did and
+never from why it was permitted.
+
+All properties are machine-checked with no postulates and no admitted
+goals.

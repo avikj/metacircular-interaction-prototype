@@ -55,7 +55,7 @@ open import Cubical.Data.Unit
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary
 
-open import LawvereDiagonal
+open import EGB.LawvereDiagonal
 
 ------------------------------------------------------------------------
 -- The three perspectives

@@ -29,7 +29,7 @@ open import Cubical.Data.Maybe using (just)
 open import Cubical.Data.Sigma
 
 open import NaturalMachine.Digits 8
-open import NaturalMachine.TransportDiv 8
+open import Mula.TransportDiv 8
 open import NaturalMachine.CostGeometry
 open import NaturalMachine.Residual
 

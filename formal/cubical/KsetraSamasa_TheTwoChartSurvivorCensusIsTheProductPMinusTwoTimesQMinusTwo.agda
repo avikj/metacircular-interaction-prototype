@@ -45,7 +45,7 @@ open import Cubical.Data.Fin using (Fin ; factorEquiv)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; ≃-×)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
+open import Mula.DviLopa_TheTwoWallsElideTwoResiduesAndTheSurvivorsAreExactlyCounted
   using (द्वि-लोपः)
 
 private

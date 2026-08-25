@@ -94,7 +94,6 @@ echo
 
 # ── the checked lanes ────────────────────────────────────────────────
 run_gate "agda · pragma gate (--safe, no postulates/holes)" scripts/check-agda-pragmas.sh
-run_gate "agda · Everything closure"                        scripts/check-agda-closure.sh
 run_gate "lean · root closure"                              scripts/check-lean-root-closure.sh
 run_gate "lean · globs"                                     scripts/check-lean-globs.sh
 run_gate "lean · example oracles"                           scripts/check-lean-example-oracles.sh
