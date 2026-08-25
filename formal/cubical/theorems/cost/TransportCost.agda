@@ -11,7 +11,6 @@
 --   (1) does the transported term compute at all?
 --   (2) if so, does it compute at the native algorithm's complexity?
 --
--- Answers, measured (see notes/TRANSPORT_IS_NOT_A_COMPILER.md):
 --   (1) YES.  Every `refl` below forces evaluation and typechecks.
 --   (2) NO.  Native is flat in the number of chained operations; the
 --       transported term is quadratic, because transport across `ua e`

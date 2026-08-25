@@ -13,7 +13,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT PROVOKED THIS, AND THE GREP THAT CONFIRMED IT WAS STILL OPEN
 --
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §3.3 states a two-part gap:
 --
 --   "the limitor is a *dependent binder over the relatum* — and,
 --    separately, that the avacchedaka of the `pratiyogitā` and the
@@ -54,7 +53,6 @@
 --
 -- SOURCING LIMIT, stated and not evaded.  No primary Sanskrit text was
 -- opened.  The slot doctrine is carried from this repository's own
--- `notes/ABHAVA.md` and from `INDIC_FORMAL_TRADITIONS_MAP.md` §3.1,
 -- exactly as `AbhavaAvacchedaka.agda`'s own header records for itself.
 -- Verse-level sourcing is OWED AND NOT CLAIMED.  The concrete example in
 -- §3 is MINE — a two-point locus, not a tradition example — and it is
@@ -81,7 +79,6 @@
 --   abhāva, dependent delimitation, tādātmya AND paramparā-sambandha
 --   together; arxiv.org is unreachable from here, so NO NOVELTY is
 --   claimed for anything below until someone who can read it compares.
---   `notes/ABHAVA.md` A6 carries that obligation and it stays open.
 -- * NOT tādātmya, NOT paramparā-sambandha.  Two slots only.
 -- * NOT that two slots are the tradition's final count.  Navya-Nyāya
 --   iterates `-tva`/`-tā` abstraction and chains sambandhas without a

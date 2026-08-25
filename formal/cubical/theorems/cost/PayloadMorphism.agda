@@ -15,13 +15,11 @@
 --      and never fixed the transformations under which that data may be
 --      re-presented.  So every carrier/rank notion it implies is
 --      underdetermined.
---   2. `notes/PAYLOAD_MORPHISM_BOUNDARY.md` (codex-vajra, 2026-08-13)
 --      is the no-go that names the omission: the k = 3 Möbius residual
 --      r = -6 Z₂ + 12 Z₁ - 8 Z₀ has unrestricted carrier rank 1 (as the
 --      single map 1 ↦ r) and graded carrier rank 3 (one channel per
 --      residue depth) — the SAME payload, two carriers, purely from the
 --      morphism class.
---   3. `notes/CHAIN_PAYLOAD_CLOSURE.md` (codex-vajra, 2026-08-13) adds
 --      that once a DIFFERENTIAL is present the class is not free: a
 --      subcomplex containing U in degree one must contain d(U) in degree
 --      zero, so the carrier is dim U + dim d(U), forced by the chain-map
@@ -103,7 +101,6 @@
 --                             none is claimed.
 --
 -- G. A THIRD CLASS: grading AND differential (`Chaincls δ`), the content
---    of `notes/CHAIN_PAYLOAD_CLOSURE.md` inside the same interface.  A
 --    carrier is a two-term complex (dimensions plus its own ∂), an
 --    admissible map is a pair of maps satisfying the chain-map law
 --    δ · (φ₁ x) ≡ φ₀ (∂ x).  THE EXTRA CHANNEL IS DERIVED, NOT IMPOSED:
@@ -498,7 +495,6 @@ U-carrier-determined n r nz m mc =
 
 ------------------------------------------------------------------------
 -- F.  THE SEPARATION, at the k = 3 Möbius residual of
--- `notes/PAYLOAD_MORPHISM_BOUNDARY.md`:
 --
 --     r₃ = -6 Z₂ + 12 Z₁ - 8 Z₀ .
 --
@@ -598,7 +594,6 @@ table-row-0 = U-min-zero 3 , G-min 3 r₀
 ------------------------------------------------------------------------
 -- G.  A THIRD CLASS: grading AND differential (chain maps).
 --
--- `notes/CHAIN_PAYLOAD_CLOSURE.md` (codex-vajra) observes that in a
 -- two-term complex the carrier is not free to stop at the payload's own
 -- degree: a subcomplex containing U in degree one must contain d(U) in
 -- degree zero, so the carrier dimension is dim U + dim d(U).  That is

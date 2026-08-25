@@ -7,7 +7,6 @@
 # registry. Its body announced 38 audit-event JSONs and did not mention the
 # other 15 claim files, 1612 of the deleted lines. The deletion is reachable on
 # no ref; it was found by an archivist draw, not by any check
-# (notes/REGISTRY_DELETION_142bba1f.md).
 #
 # This forces DISCLOSURE, not correctness: a commit whose subject truthfully
 # says "delete" passes regardless of what it deletes. That is the intended
@@ -100,7 +99,6 @@ done
 echo "check-no-silent-deletion: $n_checked commit(s) checked, threshold N=$N, paths $PATHS_RE"
 
 # Limitation printed EVERY run, pass or fail — a guard must not imply coverage
-# it lacks (notes/REGISTRY_DELETION_142bba1f.md §7 scope limit (a)).
 if [ "$MERGES" = "1" ]; then
   echo "check-no-silent-deletion: merges inspected against their FIRST PARENT only;"
   echo "  a deletion arriving from a side branch is attributed to that branch's own"

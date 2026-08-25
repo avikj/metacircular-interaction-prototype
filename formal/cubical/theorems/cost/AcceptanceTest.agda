@@ -26,7 +26,6 @@
 -- `m + n` does not reduce past m's variable spine, so the two plans'
 -- executions are not the same normal form and something must be proved.
 --
--- CORRECTION (breaker audit, notes/GENERATIVE_MODULES_AUDIT.md).  An
 -- earlier version of this header claimed: "delete T and `replay` has no
 -- proof, hence no `betterProgram`".  That claim is (i) not an Agda
 -- judgement — unprovability-after-deletion is not something the checker

@@ -11,7 +11,6 @@
 -- `NaturalMachine/SieveFiber.agda` §4 proves this ONLY at X = 30, by
 -- exhaustion over an explicit 30-element domain, and its author named
 -- the general statement as the one theorem worth proving next
--- (`notes/SIEVE_FIBER.md` §6: "it is the load-bearing fact under the
 -- whole 'one bit' story ... It needs real order reasoning in Agda,
 -- which is why it is not here").  This module is that reasoning.  It
 -- imports nothing from `SieveFiber` and `SieveFiber` is untouched.
@@ -47,7 +46,6 @@
 --
 -- So `d ≡ 1 ⊎ d ≡ n` for every divisor d, which IS `IsPrime n`.  The
 -- only inputs are order, multiplication monotonicity, and the totality
--- of ≤ — this is `notes/WALK_INSTALLS_ARE_JUMPS.md`'s recurring lesson
 -- (three times in this lane the "missing machinery" was not the
 -- obstacle) in its cheapest instance: the universal property of being
 -- prime is a statement about ALL divisors, so quantifying over divisors
@@ -72,7 +70,6 @@
 --                        from `CoprimeSplitting`.
 --
 --   roughSplitSqrt       the corollary at s = isqrt X, i.e. the theorem
---   roughSplitSqrtDiv    exactly as `notes/SIEVE_FIBER.md` §6 states it.
 --
 --   roughSplitSelf       the X = n specialisation: n > 0 with no
 --                        nontrivial divisor ≤ isqrt n is 1 or prime.
@@ -82,7 +79,6 @@
 --   n≤X-necessary        SHARPNESS.  49 has all prime factors > isqrt 30
 --                        = 5, is neither 1 nor prime, and the only
 --                        hypothesis it violates is 49 ≤ 30.  This is
---                        `notes/SIEVE_FIBER.md` §2's planted-false
 --                        control C, promoted from a rejected typecheck
 --                        to a positive theorem.
 --
@@ -127,7 +123,6 @@
 --     opened, and absence of a hit is not absence of prior art.
 --
 -- Author: cf-tessera-r2-00, 2026-08-14.  Companion note:
--- `notes/SIEVE_FIBER.md` §8.
 ------------------------------------------------------------------------
 
 module RoughSplit where
@@ -329,7 +324,6 @@ roughSplitPrimes s X n 0<n n≤X X<ss above =
   roughSplit s X n 0<n n≤X X<ss (primeAbove→noSmallDivisor s n above)
 
 ------------------------------------------------------------------------
--- §5  At the horizon s = isqrt X:  `notes/SIEVE_FIBER.md` §6, verbatim
 ------------------------------------------------------------------------
 
 -- THE STATEMENT THE NOTE ASKED FOR.
@@ -357,7 +351,6 @@ roughSplitSelf n 0<n none = roughSplitSqrtDiv n n 0<n ≤-refl none
 ------------------------------------------------------------------------
 -- §6  SHARPNESS:  n ≤ X cannot be dropped
 --
--- `notes/SIEVE_FIBER.md` §2 control C planted 49 into the X = 30 domain
 -- and reported that the typechecker rejected it.  A rejected typecheck
 -- is evidence about a file, not a theorem; here the same fact is a
 -- theorem.  49 = 7 · 7 has isqrt 30 = 5 < 7, so every prime factor of

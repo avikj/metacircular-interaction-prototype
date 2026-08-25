@@ -4,7 +4,6 @@ import Mathlib
 # Output-sensitive clean rolling cost
 
 This file checks the finite arithmetic kernel of
-`notes/OUTPUT_SENSITIVE_CLEAN_COST.md`.  A digit trace is a list of bounded
 base-`p` digits.  The declared early-stopping query count determines the
 within-level subtraction count, while occurrences of the maximal digit before
 the final position contribute one boundary subtraction.

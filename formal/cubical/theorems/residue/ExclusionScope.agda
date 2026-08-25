@@ -5,7 +5,6 @@
 --
 -- WHAT IS AN EXCLUSION OPERATOR, AND ON WHICH LATTICE DOES IT EXIST?
 --
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §2.2 records a conjecture,
 -- explicitly flagged `[MINE]` and unsourced there: that the shape
 -- nearest to Dignāga's `anyāpoha` is "a relative pseudo-complement in a
 -- lattice" rather than `¬` in a Boolean algebra.  This module settles
@@ -17,7 +16,6 @@
 -- declared language, and its content is the PARTITION it induces
 -- ("the partition of L induced by encode is a coarsening of equality").
 -- Probes in `machinery/active_observer_design.py` and the objects of
--- `notes/LEAKAGE_BOUND_ATTAINMENT.md` are the same: partitions of a
 -- finite set, i.e. equivalence relations.  So the ambient lattice here
 -- is Eq(X), not the powerset P(X).
 --
@@ -58,7 +56,6 @@
 -- lattice is the standard M₃).  What is done here is the identification
 -- of the right lattice for this repository's objects, the negation-free
 -- positive form of the obstruction, and the scope theorem.
--- See `notes/EXCLUSION_IS_NOT_AN_OPERATOR.md` for the prior-art sweep,
 -- which located David Ellerman's partition-logic implication and did
 -- not read it.
 --

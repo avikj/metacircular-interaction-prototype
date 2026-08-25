@@ -10,7 +10,6 @@
 -- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
 -- header) and `.claude/hooks/european-frame.txt`; no row applies and
 -- the frame check's scope requires Indian material, of which this
--- module has none.  `formal/` and `notes/` grepped first.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE ITEM, AND WHY IT WAS MIS-POSED

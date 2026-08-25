@@ -4,7 +4,6 @@
 -- StagewiseCompositeB
 --
 -- Theorem B, Corollary B.1 and Corollary B.2 of
--- notes/STAGEWISE_DETERMINES_COMPOSITE.md.  Companion to
 -- StagewiseComposite.agda, which proves Theorem A (determination over
 -- ALL of R³ holds iff R has at most two values) and is imported here
 -- rather than duplicated.

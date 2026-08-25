@@ -13,7 +13,6 @@
 -- order and before any later name; **nothing below is a claim about
 -- their mathematics.**  Checked before naming:
 -- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- `.claude/hooks/european-frame.txt`; `formal/` and `notes/` grepped
 -- first.  `--guardedness` carried; infective.
 --
 -- ────────────────────────────────────────────────────────────────────

@@ -5,7 +5,6 @@
 --
 -- The general (multi-index) 𝔰𝔩₂ action on the divisor lattice:
 --   B_n = k[ξ₁,…,ξ_m]/(ξ₁^{α₁+1},…,ξ_m^{α_m+1}) = ⨂_i V_{α_i},
--- the module of notes/SL2_DIVISOR_LATTICE.md §1, whose rank-one factor
 -- V_α is the content of Sl2DivisorLattice.agda (imported, not redone).
 --
 -- WHAT IS PROVED HERE (all --safe, no postulates, no holes):

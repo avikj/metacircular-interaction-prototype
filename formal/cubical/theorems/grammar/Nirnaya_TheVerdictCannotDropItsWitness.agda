@@ -6,7 +6,6 @@
 -- हिंसा सङ्क्षेपः ।  A bare verdict is a truncation.  ∥ A ∥₁ keeps THAT A is
 -- inhabited and destroys WHICH inhabitant and every path between
 -- inhabitants, and there is no section, so the loss is not repairable
--- downstream (notes/AHIMSA_SUTRA_VISTARA.md §४ नष्टिः, §५ अप्रतिकार्यत्वम्,
 -- §६ द्वौ मार्गौ).  अविशेषः, below, is that in one line.
 --
 -- The four positions are the ones interactive/Obstruction.hs arrived at on

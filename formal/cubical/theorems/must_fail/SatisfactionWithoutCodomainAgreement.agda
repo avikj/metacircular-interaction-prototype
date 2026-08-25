@@ -9,8 +9,6 @@
 -- hypothesis-carrying module `AtomicSatisfaction`
 -- (module `SameResponses`, which exits 0 under the pin).
 --
--- WHAT IT ASSERTS.  `notes/FULL_READ_DRAW_6.md` §D2: the Theorem of
--- `notes/OBSERVER_REVISION_IS_ATOMIC_SATISFACTION.md` is stated without
 -- the standing hypothesis `Y'_{τ(q)} = Y_q`, which appears once in §1
 -- prose (line 29) and in neither the Theorem (line 59), the title, nor
 -- the Status line.  §2 of the draw traces the drop one artifact
@@ -42,7 +40,6 @@
 -- import it, and nothing else may.
 --
 -- OBSERVED, 2026-08-15, THE PIN (Agda 2.8.0 + cubical v0.9; see
--- notes/TOOLCHAIN_SKEW_AND_COVERAGE.md §6.1), `LC_ALL=C.UTF-8 agda
 -- --library-file=<v0.9>
 -- NaturalMachine/Control/SatisfactionWithoutCodomainAgreement.agda`,
 -- exit code 42, error verbatim:

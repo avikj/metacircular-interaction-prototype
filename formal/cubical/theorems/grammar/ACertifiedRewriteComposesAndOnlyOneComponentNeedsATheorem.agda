@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem
 --
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` §39–47 opens:
 --
 --   "A certified rewrite carries: boundary-semantics preservation,
 --    complexity improvement (peak semantic width / Pareto), state

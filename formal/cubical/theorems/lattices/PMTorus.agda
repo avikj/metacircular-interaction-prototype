@@ -7,7 +7,6 @@
 --
 -- Source of the claims: `machinery/pm_torus.py`, whose four assertions
 -- were established by exact finite computation in Python, i.e. as a
--- trusted printout.  Mathematical context: `notes/PM_SECTION_VS_COCYCLE.md`
 -- (the 9 observables of the Peres-Mermin square, the 6 contexts, and the
 -- incidence map δ : F₂⁹ → F₂⁶ whose cokernel carries the obstruction).
 -- This module re-establishes them as kernel-checked terms.  Nothing here
@@ -79,7 +78,6 @@
 --      component" — connectedness of the graph is nowhere stated here.
 --      dim coker = 1 is delivered as the pair (image = ker parity,
 --      parity onto) plus dim ker parity = 5, which is what the
---      cokernel computation of `notes/PM_SECTION_VS_COCYCLE.md` uses.
 --
 -- No floating point, no search, no printout: every finite check below is
 -- a closed term the type-checker reduced.
@@ -626,7 +624,6 @@ slot-count = refl
 --
 --   ∂ : 𝔽₂^E → 𝔽₂^V  sends an edge to the sum of its two endpoints;
 --   here, in coordinates, a 3 × 3 Bool matrix to its row and column
---   sums.  This is the map δ of notes/PM_SECTION_VS_COCYCLE.md.
 ------------------------------------------------------------------------
 
 ∂ : (Edge → Bool) → (Vertex → Bool)

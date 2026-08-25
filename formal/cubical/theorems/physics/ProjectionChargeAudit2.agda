@@ -8,7 +8,6 @@
 --       (`noChargeDescent`, the eliminator-level form of the sieve witness
 --       1 ~ 7 with opposite Liouville charges).
 --
--- The source note `notes/CUBICAL_QUOTIENT_AUDIT.md` §1 states, but does not
 -- machine-check, the boxed criterion
 --
 --     (∃ c̄, c̄ ∘ [_] = c)  ⟺  (∀ x y, R x y → c x = c y)

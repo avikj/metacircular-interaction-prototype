@@ -118,7 +118,6 @@
 --
 -- PRIOR ART, searched before writing.  That sthānivadbhāva has the shape
 -- of an abstraction barrier is stated in this repository's own
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §6.1, which is where the
 -- reading came from and which flags it as unimplemented; the reading of
 -- 1.1.56 as opacity-with-an-exception is standard in the commentarial
 -- literature (the Kāśikā's treatment of anal-vidhi; Kiparsky on the

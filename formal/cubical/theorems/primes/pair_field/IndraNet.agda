@@ -4,7 +4,6 @@
 -- IndraNet
 --
 -- The synchronic side of the Eternal Golden Braid
--- (notes/ETERNAL_GOLDEN_BRAID_DELTA25.md), four of its formalization
 -- targets as checked terms:
 --
 -- T25.A — Yoneda jewel theorem, univalent-groupoid case.  The

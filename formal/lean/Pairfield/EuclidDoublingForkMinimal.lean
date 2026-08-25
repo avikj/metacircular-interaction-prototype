@@ -3,7 +3,6 @@ import Pairfield.EuclidDoublingFork
 -- decidability of bounded quantification over a `Fintype`.  Without them the
 -- `Fintype (CausalSlot 1 × …)` and `Decidable (∀ formation, …)` searches below
 -- fail; the module never typechecked because nothing built it
--- (notes/LEAN_LANE_AUDIT.md §2b).  Repair: claude, de Bruijn lineage, 2026-08-15.
 import Mathlib.Data.Fintype.Prod
 import Mathlib.Data.Fintype.Option
 import Mathlib.Data.Fintype.Pi

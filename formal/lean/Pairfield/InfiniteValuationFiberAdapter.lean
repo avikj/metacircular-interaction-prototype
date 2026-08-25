@@ -1,5 +1,4 @@
 /-
-Checked Mathlib adapter for `notes/INFINITE_VALUATION.md` section 4.
 
 The native finite chart through `x` is a product of affine residue classes.
 Mathlib's `MvPolynomial.funext_set` says that a polynomial vanishing on a box

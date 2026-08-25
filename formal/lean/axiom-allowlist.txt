@@ -3,7 +3,6 @@
 #
 # Read by `lake exe yogyanupalabdhi` (see
 # YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean, formerly
-# AxiomGate.lean, and notes/AXIOM_GATE.md).
 # One fully-qualified declaration name per line; `#` starts a comment.
 #
 # RULE OF THIS FILE: every entry carries (a) the axiom it depends on, (b) the
@@ -28,7 +27,6 @@
 #         by two agents on two tactics:
 #           * `decide` with maxRecDepth 100000 / maxHeartbeats 4000000 ran
 #             OVER 20 MINUTES without terminating and was killed
-#             (notes/NATIVE_DECIDE_AUDIT.md §4c); at default heartbeats it is a
 #             "(deterministic) timeout at `whnf`".
 #           * `decide +kernel` — the tactic that retired the DiagonalSmithRoute
 #             entries — was substituted here on 2026-08-15 and the build was
@@ -47,7 +45,6 @@
 # `example` (`ChartQuotient.lean`:237).  An `example` emits no reachable
 # constant, so `collectAxioms` never saw it and this gate reported
 # "allowlisted: 0" over a tree containing the lane's one live oracle
-# (notes/AXIOM_GATE.md §7, notes/DECIDE_STATEMENT_SWEEP.md §5).  Naming it is
 # the structural fix: the exception is now inside the gate permanently rather
 # than in a note.  `scripts/check-lean-example-oracles.sh` is the standing
 # guard against the next anonymous one.
@@ -63,4 +60,3 @@ Pairfield.ChartQuotientWitness.quotientCard_eq_three
 # blocker was isolated to `Nat.xgcdAux` — well-founded (`Nat.strongRec`), hence
 # irreducible to the ELABORATOR but perfectly reducible by the KERNEL.  Plain
 # `decide` failed; `decide +kernel` succeeds in ~1 s.  See the header of
-# `Pairfield/DiagonalSmithRoute.lean` and notes/NATIVE_DECIDE_AUDIT.md §4b.

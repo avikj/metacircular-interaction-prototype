@@ -18,7 +18,6 @@
 -- number), whose inverse is the explicit naṣṭa halving algorithm (row
 -- number ↦ pattern), and whose round trips are both proved.  That is a
 -- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE — the positive pole of
--- the idiom `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md` identifies,
 -- written down around 300 BCE.
 --
 -- `LosslessLowerBound` carries the other half: any lossless

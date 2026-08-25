@@ -5,7 +5,6 @@
 --
 -- utsarga / apavāda -- the narrower rule blocks the wider -- as an exact
 -- predicate over a guarded rule system, with the theorem
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §1.5 asked for: *which normal
 -- form the priority order reaches*, and not a measured contest.
 --
 -- The Elsewhere Condition (Kiparsky 1973, who coined the term reading

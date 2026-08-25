@@ -101,7 +101,6 @@
 -- requires the OTHER coefficient to vanish; e.g. a = ±1/2, b = 0,
 -- c = 0 attains 8 — checked at §7's m64).  If neither, ≤ 4.  Hence at
 -- most TEN, with equality iff c = 1/3, |a| = |b| = 1/3.  ∎  (Agrees
--- with notes/CONSTRAINT_ALGEBRA.md Thm 2.1; derived independently.)
 --
 -- What the kernel checks of (B):  the nine-form class table is already
 -- Window5Walsh §6; here §4 pins the per-class zero counts (2,4,4,0) at

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- UnderExtensionalFlatnessOneCostDifferenceSuffices
 --
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` pairs two sections:
 --
 --   §4  "Theorem 28.2: any two elimination orders of I give the same
 --        boundary factor.  Exact dependency elimination is extensionally

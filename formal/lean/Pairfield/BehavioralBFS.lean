@@ -240,7 +240,7 @@ hour, because doing it surfaced the evidence against it:
   binders in theory that is not about `Bool` at all.
 
 So: same text, different question. See
-`notes/NAMA_LEAN_LANE_DUPLICATE_VERDICTS.md`. -/
+-/
 
 def alphabet : List Bool := [false, true]
 

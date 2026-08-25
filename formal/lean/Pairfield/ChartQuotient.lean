@@ -249,7 +249,6 @@ theorem quotientCard_eq_three :
   -- NATIVE-BECAUSE: the kernel route was tried twice and MEASURED to fail,
   -- not assumed to.  `decide` with maxRecDepth 100000 / maxHeartbeats 4000000
   -- ran over 20 minutes without terminating and was killed
-  -- (notes/NATIVE_DECIDE_AUDIT.md §4c); `decide +kernel` — the tactic that
   -- retired the five DiagonalSmithRoute sites — was substituted here on
   -- 2026-08-15 and the build was killed with exit 137 (OOM) after 123 s, so
   -- this is a genuine COST case and not the elaborator-irreducibility case

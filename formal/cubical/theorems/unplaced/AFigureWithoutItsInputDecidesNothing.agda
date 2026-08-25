@@ -27,7 +27,6 @@
 -- statement it is already acting on.
 --
 -- NOT the container-versus-pin finding again
--- (`notes/MY_GREENS_THIS_SESSION_ARE_CONTAINER_GREENS.md`).  That was
 -- about which TOOLCHAIN produced an exit code.  This is about an INPUT
 -- the reader does not have, which is a different failure: there the
 -- verifier was wrong, here the verifier is fine and the datum is

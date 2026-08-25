@@ -10,9 +10,7 @@
 # postulate, use `{-# TERMINATING #-}`, `primTrustMe`, `--rewriting`, or
 # leave metas unsolved, and `formal/check.sh` will still print nothing.
 # Agda has no lane-wide assertion; the convention was a repeated header and
-# a prose claim.  notes/AXIOM_GATE.md §6.1 identified this as the one
 # remaining asymmetry between the two lanes and declined to gate on it,
-# correctly, for want of a measurement.  notes/AGDA_PRAGMA_AUDIT.md is the
 # measurement; this is the gate.
 #
 # WHAT IT CHECKS, purely textually, over every *.agda under formal/:
@@ -58,7 +56,6 @@ BAD_CONSTRUCTS='postulate|\{!|\{-# *(TERMINATING|NON_TERMINATING|NON_COVERING|NO
 # ---------------------------------------------------------------------- #
 # ALLOWLIST.  Every entry names its file and its reason.  An allowlist      #
 # without reasons rots into a rubber stamp within one shift                 #
-# (notes/AXIOM_GATE.md §4); if an entry loses its reason, delete the entry, #
 # let the gate go red, and make someone look.                              #
 #                                                                          #
 # Format: one "path<TAB>check" pair per line, where check is one of        #

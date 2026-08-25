@@ -11,11 +11,9 @@
 -- THE CONVERGENCE (owner's directive; the reading, not re-proved here).
 -- One theorem in six vocabularies, each a face of "sign is preserved by no
 -- averaging":
---   • parity differs only in the cone at ∞           (notes/FIVE_FACES.md)
 --   • positivity is a point of Sper K, chart-free only because |Sper ℚ|=1
 --                          (POSITIVITY_HAS_A_PLACE; Artin–Schreier 1927)
 --   • Galois conjugation swaps the orderings ⟹ (Iso;Order) unlicensed
---                                              (notes/INDEX_LAW.md Thm E)
 --   • the runtime carries sign on exactly one of eleven edges, Order, and
 --     no path through a Quotient delivers it        (runtime/CRYSTAL.md §1)
 --   • the sieve's parity charge (−1,…,−1) is invisible to every averaging
@@ -40,7 +38,6 @@
 -- ordering, so this is the minimal faithful model of the Order edge, not
 -- the fork.  Sources: Brahmagupta, Brāhmasphuṭasiddhānta 18 (628), the
 -- ṛṇa/dhana sign rules; Artin–Schreier 1927 (formally real fields), via
--- notes/POSITIVITY_HAS_A_PLACE.md.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------

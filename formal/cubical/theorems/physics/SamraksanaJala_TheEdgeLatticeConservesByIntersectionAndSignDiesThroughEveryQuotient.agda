@@ -37,7 +37,6 @@
 -- FENCE.  This models the licensing/preservation lattice, not the edges'
 -- witnesses; that an Iso genuinely loses sign (not vacuously) is the ℤ
 -- witness in RnaDhanaKrama and the ℚ(√2) certificate in
--- machinery/orderings.py / notes/POSITIVITY_HAS_A_PLACE.md.  Source of the
 -- table: runtime/kernel/edges.py, runtime/CRYSTAL.md §1.
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).

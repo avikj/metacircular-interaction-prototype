@@ -1,6 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- §(b) OF notes/WALK_INSTALLS_ARE_JUMPS.md: the walk installs exactly the
 -- jump points of the capacity function, in increasing order.
 --
 -- This was the last gap in the walk lane.  §(c) is closed in both

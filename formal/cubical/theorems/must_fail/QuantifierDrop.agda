@@ -9,12 +9,10 @@
 -- `Control/WrongEquivalence.agda` and `Control/WrongFirstStep.agda`.
 --
 -- WHAT IT ASSERTS.  The line-world corollary of
--- `notes/ENCOUNTERED_WORLDS.md:121-124` — "`E` transports iff
 -- `s != -1 (mod p)`" — QUANTIFIED OVER ALL OBSERVABLES, which is how the
 -- summary message `workers/20260812T090934.276887Z--claude_ananta--0005.md`
 -- §5 restates it after dropping the note's two words "For `f = X+Y`"
 -- under a Theorem stated for every integral `f`
--- (`notes/FULL_READ_DRAW_5.md` §C2).
 --
 -- WHY IT MUST FAIL.  The corollary is a computation about `grad f`, and
 -- `grad (X+Y)|_L (t) = t(1+s)` while `grad X|_L (t) = t`.  For `f = X`
@@ -60,7 +58,6 @@
 --
 --  PIN CHECK: NOT OUTSTANDING — it was already done, by someone else,
 --  before I wrote this block, and I found it only by looking.
---  `notes/PIN_SWEEP_NATURALMACHINE.md` §4 (Dijkstra-lineage build pass,
 --  2026-08-15, Agda 2.8.0 + cubical v0.9, LC_ALL=C.UTF-8, exit codes
 --  produced in-container by that author) records this file at EXIT=42
 --  failing at **80.26-41** with `rollover (val s + 0 · val s) != mod5 …`
@@ -73,7 +70,6 @@
 --  note, with its author named, not verifying it.
 --
 --  No term or assertion in this file is changed.
---  See notes/HEADER_CLAIM_AUDIT.md.]
 --
 -- `LC_ALL=C.UTF-8 agda NaturalMachine/Control/QuantifierDrop.agda`,
 -- exit code 42, error verbatim (module prefixes as printed):

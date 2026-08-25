@@ -387,7 +387,6 @@ data Definition = Definition
 
 -- ------------------------------------------------- identifier validation
 --
--- THE HOLE THIS CLOSES (notes/TRUTH_GATE_AUDIT.md §1, interactive/GateAudit.hs
 -- §(1), both 2026-08-16).
 --
 -- `defName` is the ONLY candidate-supplied string that reaches the emitted
@@ -959,7 +958,6 @@ runAgda root source = do
 -- The raw launch: the child's own exit status, unexamined.  Everything the
 -- old `runAgda` was, under the name that says so.  A zero from here is a
 -- number a process returned and is not evidence about mathematics — see
--- `vetSuccess`, and `notes/AHIMSA_SUTRA_VISTARA.md` §19.
 runAgdaUnwatched :: FilePath -> String -> IO (ExitCode, String)
 runAgdaUnwatched root source = do
   micros <- agdaTimeoutMicros
@@ -1128,7 +1126,6 @@ data KernelStatus
     --   kernel was not observed rejecting a falsehood, and it was not observed
     --   accepting one either.  Both are asserted at once and the pair has no
     --   single verdict: *avaktavyam*, the fourth position of the saptabhaṅgī
-    --   (`notes/AHIMSA_SUTRA_VISTARA.md` §3), which is a place in the scheme
     --   and not an absence.  Refused, like the others.
   deriving (Eq, Show)
 
@@ -1477,7 +1474,6 @@ confirmHere key = modifyIORef' confirmedRef (key :)
 -- carry the observation that produced them, which is the whole of the repair
 -- of 2026-08-20.  A refusal that does not say what was looked at, and found
 -- unfit, is a verdict asserting itself while concealing its standpoint —
--- exactly the durnaya of `notes/AHIMSA_SUTRA_VISTARA.md` §2 ("गुप्तो नयो
 -- दुर्नयो भवति").  The older Mīmāṃsā name for the requirement is
 -- *yogyānupalabdhi*: a non-apprehension is evidence only when the looking was
 -- FIT to have apprehended (Kumārila, *Ślokavārttika*, Abhāvapariccheda,
@@ -1739,7 +1735,6 @@ certifyWith defs root (eq, proofNote) =
     --
     -- Measured on the six lemmas the kernel demanded and no composition law
     -- reaches (interactive/SesaPariksa_...hs, and §9 of
-    -- notes/SamasaBhavana_...md for where the six come from): asking each
     -- variable in turn moves THREE of the six from open to certified with the
     -- shape menu completely unchanged —
     --

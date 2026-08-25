@@ -12,7 +12,6 @@
 -- and **nothing below is a claim about them** — the instances are
 -- untouched.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/`
--- and `notes/` grepped first.  `--guardedness` carried; infective.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- 0.  HOW THIS WAS FOUND — the standing proxy heuristic

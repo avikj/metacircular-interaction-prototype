@@ -55,7 +55,6 @@
 -- checked terms by refl — finite exhaustive verification is proof
 -- (CLAUDE.md).  Style and helpers mirror HeadDepthMerge.agda; the
 -- general statements are the one-liners above and in
--- notes/HEAD_DEPTH_TWO.md, the kernel certifies the declared range.
 -- --safe throughout; no postulates, no holes.
 ------------------------------------------------------------------------
 

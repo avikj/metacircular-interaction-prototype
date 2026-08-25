@@ -1,7 +1,6 @@
 -- Root of the Lean lane.  Since 2026-08-20 this file imports EVERY module
 -- under `Pairfield/` (133 of 133), so `import Pairfield` and the module tree
 -- agree.  It began as "the V3 ledger root: machine-checked targets from
--- notes/VV.md" and stopped being that by accretion long before it was renamed;
 -- see the note at the foot of the file for what the drift cost and what it
 -- did not.  The BUILD gate is `globs` in `lakefile.toml`, not this list.
 import Pairfield.SumRigidity
@@ -137,7 +136,6 @@ import Pairfield.HaarNullProcess
 -- closure has been all of Mathlib since long before those exclusions were
 -- written, so the stated ground did not distinguish the excluded modules from
 -- the included ones.  A reason that does not discriminate is not a reason; it
--- is a concealed standpoint (`notes/AHIMSA_SUTRA_VISTARA.md` §2), and it is
 -- worse than a wrong reason because it reads as diligence.
 --
 -- Adding them changes nothing about what is BUILT (the glob already decided

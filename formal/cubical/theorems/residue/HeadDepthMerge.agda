@@ -39,7 +39,6 @@
 -- is a strong liar: strong blindness = Fermat blindness = (a ≤ e_b(q)).
 -- (Known-shaped: this is Monier/Rabin-era liar bookkeeping; SEARCH
 -- before any novelty claim.  The prose proof lives in
--- notes/HEAD_DEPTH_MERGE.md; the kernel certificate over the full
 -- 1048-triple range is `strongTheorem` below.)
 --
 -- Wieferich becomes an instance: the only known Wieferich primes 1093

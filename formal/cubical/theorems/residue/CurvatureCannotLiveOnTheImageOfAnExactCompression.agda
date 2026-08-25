@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- CurvatureCannotLiveOnTheImageOfAnExactCompression
 --
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` §36–38 opens:
 --
 --   "Exact elimination commutes; compression C can make orders differ:
 --    Δ^C_{ij} > 0 is architecture curvature. … Curvature arises only

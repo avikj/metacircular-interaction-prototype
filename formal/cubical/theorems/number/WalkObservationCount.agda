@@ -139,5 +139,4 @@ walk-observation-space =
 -- carry Bézout certificates, which is what the pulveriser returns.
 --
 -- Nothing mathematical changes.  The citation does.  See
--- notes/DID_THE_THREE_ROOTS_SUFFICE.md.
 ------------------------------------------------------------------------

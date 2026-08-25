@@ -31,7 +31,6 @@ open import Kuttaka using (solutionFamily)
 -- still solves the equation.
 --
 -- That is the *convention* half, and it is the half
--- `notes/KUTTAKA_SOLUTION_FAMILY.md` says belongs to the tradition:
 -- "the section is a declared convention".  Declared, not derived — so the
 -- honest formalisation makes it a parameter and proves the equation is
 -- indifferent to it.

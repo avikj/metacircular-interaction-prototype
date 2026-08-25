@@ -129,7 +129,6 @@ private
 --
 -- That is the whole reason the earlier text rotted: until 2026-08-18 this
 -- block read 663 / 480 / 420 / 255 / 43 in the present tense with no log
--- size attached, and `notes/INDIAN_LANE_CITATION_AUDIT.md` F2 read
 -- 778 / 566 / 490 / 305 off the same named file at audit time — a third
 -- set of figures for the same "fact".  Substituting today's would only
 -- re-arm the trap, so what is recorded is the pair (count, log size), and
@@ -540,7 +539,6 @@ sapeksa = machine-profile , refl , refl
 --    this repository is empirical — some claims in `machine/machine.log`
 --    appear in BOTH the accept and the reject stream — and it is recorded
 --    where empirical facts belong, in the census and in
---    `notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md`.
 --
 --    AS OF 2026-08-18, at `wc -l machine/machine.log` = 10700 lines, that
 --    overlap is 40 claims, out of 98 distinct accepted and 432 distinct
@@ -549,7 +547,6 @@ sapeksa = machine-profile , refl , refl
 --    agree with `Obstruction.hs`'s `claimOfAcceptLine`, which is the
 --    authority; it is quoted here only to say the overlap is non-empty.
 --    Until 2026-08-18 this line said "35 claims" in the present tense with
---    no as-of and no log size; `notes/INDIAN_LANE_CITATION_AUDIT.md` F15
 --    measured 40 by the same extraction at a smaller log.  The number is a
 --    monotone reading of a gitignored (`.gitignore`:16), append-only, and
 --    currently LIVE file — absent from a fresh clone, hence NOT

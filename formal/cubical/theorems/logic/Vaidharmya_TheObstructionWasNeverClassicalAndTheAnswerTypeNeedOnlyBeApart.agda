@@ -64,7 +64,6 @@
 -- out of, and `Tantujala` proves `isContr` merges the two ends.
 --
 -- Nothing below computes a rank, a PSD dimension, or an entropy.  The
--- quantum separation of `notes/QUANTUM_CUT_RANK_NO_GO.md` (two Born
 -- tables, ordinary rank 4 both, PSD dimensions 2 and 4) is NOT derived
 -- here and is not a consequence of this module.  What this removes is
 -- only the excuse that the obstruction was about bits.

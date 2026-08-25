@@ -10,8 +10,6 @@
 -- broken into successively smaller ones by repeated division — and the
 -- solution is recovered by back-substitution up the resulting column,
 -- the vallī.  It is the first solution of ax − by = c on record, six
--- centuries before Bézout.  See notes/KUTTAKA_SOLUTION_FAMILY.md and the
--- naming audit in notes/INDIC_FORMAL_TRADITIONS_MAP.md §5.2, which asks
 -- for exactly this: the module `KuttakaValli.agda` earns "vallī" (the
 -- trace-as-syntax) but not "kuṭṭaka" — it has no gcd, no Bézout, no
 -- back-substitution.  This module supplies the missing theorem.
@@ -20,7 +18,6 @@
 -- SINCE 2026-08-20.  It was written against a v0.5 container and carried the
 -- v0.5 spellings `solve` and `·Rid`, which the DECLARED pin — Agda 2.8.0 +
 -- cubical v0.9, `BUILD.md` — does not have.  It was therefore one of the 24
--- modules notes/ORPHAN_SWEEP_3.md §5 lists as red under the pin, and one of
 -- the two that made `Everything.agda` itself red.  The repair is the one this
 -- header already predicted: `solve` → `solve!` — applied to the arguments,
 -- since v0.9's `solve!` is a macro on an equational goal and not on a Π-type

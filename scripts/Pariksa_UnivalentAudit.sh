@@ -12,7 +12,6 @@
 # `scripts/check-agda-pragmas.sh` guarantees every module ASSERTS
 # `--safe`.  `scripts/check-agda-closure.sh` guarantees every module is
 # REACHED by an aggregate root.  Neither says anything about the thing
-# `notes/AHIMSA_SUTRA_VISTARA.md` calls हिंसा: a COLLAPSE — two things
 # identified without an exhibited equivalence, or an h-level assumed
 # where it was not earned.  `--safe` does not forbid a collapse.  It is
 # perfectly safe, perfectly total, and perfectly irreversible (§५:

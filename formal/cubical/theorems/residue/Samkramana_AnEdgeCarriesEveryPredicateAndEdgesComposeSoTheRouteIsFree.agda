@@ -20,7 +20,6 @@
 --
 -- §२ · संयोगः — edges compose, and the composite is an edge.  So a route
 -- is an edge, and a route of routes is an edge, and the toll of a
--- road-one route is zero at any length (which is `notes/Sulka_…md`'s
 -- point about `Marga` calling a proof-length a toll).
 --
 -- §३ · पुनरागमनम् — and an edge inverts, so transport is two-way and the

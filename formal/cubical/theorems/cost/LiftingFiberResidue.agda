@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- LiftingFiberResidue
 --
--- A constructive audit of `notes/OPTIMIZATION_THROUGH_FORGETTING.md` §1.
 --
 -- THE SENTENCE UNDER AUDIT.  That note fixes a forgetful functor
 -- `U : C -> D`, relaxed candidates `p` downstairs, and defines the exact

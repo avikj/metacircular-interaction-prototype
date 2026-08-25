@@ -20,7 +20,6 @@
 --   C3 (separate, and deliberately NOT part of the checked build)
 --              `NaturalMachine/Control/WrongEquivalence.agda` asserts
 --              the equivalence ℕ ≃ Word without canonicity.  It must
---              FAIL to type-check.  See notes/NATURAL_MACHINE.md for the
 --              verbatim error the checker produces.
 --
 -- A fourth control is the type-checker itself: every module carries
@@ -51,7 +50,6 @@ open import Endian k using (w01 ; w01-canonical ; v1 ; value-v1)
 -- specific pair (digits, value) is not an equivalence ℕ ≃ Word — the
 -- bare type ℕ ≃ Word is inhabited (Word is countably infinite), but
 -- not by these maps — and the CanWord equivalence is not a formality.
--- (Correction per notes/NATURALMACHINE_CLAIM_AUDIT.md: the earlier
 -- wording asserted `ℕ ≃ Word` itself is false, which C1 does not prove.)
 ------------------------------------------------------------------------
 

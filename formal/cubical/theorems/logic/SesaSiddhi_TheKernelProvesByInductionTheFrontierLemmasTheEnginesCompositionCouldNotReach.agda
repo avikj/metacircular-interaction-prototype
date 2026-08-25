@@ -9,7 +9,6 @@
 -- `interactive/library.terms`) discovers true equations over ℕ by enumeration
 -- and composition, tagging each with its pramāṇa (anumāna) and its naya
 -- (trace replay, or induction).  Its own instruments name what it cannot
--- reach: `interactive/SesaPariksa_…` and `notes/SamasaBhavana_…` §9 report a
 -- handful of equations that are TRUE, survive all refutation, and are
 -- **not equational consequences of the base facts at all** — they need
 -- structural induction, "a proof principle from outside the equational

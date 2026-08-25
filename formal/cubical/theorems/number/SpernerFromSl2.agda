@@ -21,7 +21,6 @@
 -- SIAM J. Alg. Disc. Meth. 3 (1982), 275–280; products of chains are
 -- Proctor–Saks–Sturtevant, Discrete Math. 30 (1980), 173–180.  The
 -- rank-one content is textbook (Humphreys, §7).  Companion prose, with
--- the full attribution audit: notes/SL2_DIVISOR_LATTICE.md.  This file
 -- formalizes; it does not discover.
 --
 -- ---------------------------------------------------------------------
@@ -93,7 +92,6 @@
 -- — indeed to whether there are any p_i.  Nothing here says anything
 -- about the distribution of Ω or ω, and it is NOT a bridge to the
 -- Goldbach / critical-line material of the transmission.  See
--- notes/SL2_DIVISOR_LATTICE.md §5 ("What it does not give").
 ------------------------------------------------------------------------
 
 module SpernerFromSl2 where

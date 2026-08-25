@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- TheScoreOrderAndTheWeightOrderDisagree
 --
--- `notes/DARWIN_GODEL_MATH.md` §1 records the parent-selection weight of
 -- the Darwin Gödel Machine (Zhang, Hu, Lu, Lange, Clune,
 -- arXiv:2505.22954) as
 --

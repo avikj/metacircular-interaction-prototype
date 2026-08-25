@@ -25,7 +25,6 @@
 # Consequently the last sentence of the CONSEQUENCE paragraph below -- that the
 # ~409 modules "cannot be checked on this container by anybody" -- no longer
 # holds; they have since been swept module-by-module against the pin
-# (notes/ORPHAN_SWEEP_3.md).  Three separate agents found this header stale and
 # each declined to touch it as another lane's file; leaving a false sentence
 # standing out of courtesy is its own defect, so this correction is by addition,
 # dated, and the original text is preserved verbatim below.

@@ -13,7 +13,6 @@
 -- existing `ProjectionChargeAudit.agda`.
 --
 -- The sharp difference between D and E, which is the residual isolated
--- in `notes/DIGIT_CRYSTAL.md`, is *endianness*:
 --
 --   * E commutes with π = "delete the most significant digit";
 --   * D does not; instead D exchanges π with ς = "delete the least
@@ -22,7 +21,6 @@
 --
 -- Everything below is at the level of finite words.  The profinite
 -- statements of DIGIT_CRYSTAL §4.3 (Thm 4.4, Cor 4.5) are NOT
--- formalized here; see notes/NATURAL_MACHINE.md for the exact ledger.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

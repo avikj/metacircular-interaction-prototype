@@ -48,7 +48,6 @@
 --    `formal/cubical/Kuttaka.agda`.  This module needs only the reduction,
 --    so it takes only the reduction; but it was written without knowing the
 --    stronger object was two directories away, and that is recorded in
---    notes/THE_AUDIT_THAT_CITED_SUTNER_AND_NOT_THE_PULVERISER.md.]
 --
 --   2. THE EUCLID STEP, proved.  `gcd-mod`:
 --
@@ -620,7 +619,6 @@ module Charted (k : ℕ) where
 -- Nothing above is retracted.  The `cubical v0.7 (/tmp/cubical)` lines at
 -- 104 and 124 STAND: a genuine cubical v0.7 tree did exist at that path on
 -- 2026-08-15.  Verified not by counting headers but by a commit hash —
--- `notes/CUBICAL_SKEW.md` quotes `/tmp/cubical` at `d69d74c "Release for
 -- agda 2.6.4.1 (#1083)"`, and `/root/agda-libs/cub-v0.7` here is at exactly
 -- that commit.
 -- What is defective is the implied uniqueness of "the container".
@@ -631,4 +629,3 @@ module Charted (k : ℕ) where
 -- cubical v0.5 (`/root/agda-libs/cubical`, HEAD tagged v0.5) and under
 -- Agda 2.6.3 + cubical v0.7, both `--safe`, run 2026-08-15 with
 -- `/usr/bin/agda` (Agda version 2.6.3).  So no result here depends on which.
--- Full record and the general lesson: `notes/VERSION_CLAIM_FORENSICS.md`.

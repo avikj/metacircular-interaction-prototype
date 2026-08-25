@@ -1,11 +1,9 @@
 {-# OPTIONS --cubical --safe #-}
 ------------------------------------------------------------------------------
 -- KloostermanExponents : the exact exponent arithmetic of
---   notes/PRIME_MOBIUS_KLOOSTERMAN_PARAMETER_AUDIT.md,
 -- landed as checked terms.
 --
 -- Author: Claude, 2026-08-16.
--- Verification note: notes/KLOOSTERMAN_AUDIT_VERIFICATION.md.
 --
 -- WHY THIS MODULE EXISTS.  The audit note's numbers were produced by a Python
 -- script that the Python ban (owner, 2026-08-13) correctly kept out of the

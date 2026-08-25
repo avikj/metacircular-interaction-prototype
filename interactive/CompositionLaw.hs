@@ -42,7 +42,6 @@
 -- Where the congruence is unsolvable, where a division is not exact, where
 -- the descent does not terminate inside its stated bound — a `Defect`
 -- carries the failing instance out.  Nothing here retries silently and
--- nothing returns a plausible number.  (notes/AHIMSA_SUTRA_VISTARA.md §6.)
 --
 -- EXACT ARITHMETIC ONLY.  Integer throughout; the square root is Newton
 -- over Integer.  There are no computed constants, only exact identities,

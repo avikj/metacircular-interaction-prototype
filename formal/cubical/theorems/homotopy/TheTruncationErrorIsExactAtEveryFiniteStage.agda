@@ -17,7 +17,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT PROVOKED THIS, AND A DATE CHECK BEFORE ANY CLAIM OF ERROR
 --
--- `notes/INDIC_FORMAL_TRADITIONS_MAP.md` §4 records the one Kerala-school
 -- line it says bears on this repository:
 --
 --   "Mādhava did not stop at the series.  He gave the correction term."
@@ -29,7 +28,6 @@
 -- anything about it:
 --
 --   git log --diff-filter=A --format='%h %ad %s' --date=short
---     -- notes/INDIC_FORMAL_TRADITIONS_MAP.md   → 657593aa  2026-08-14
 --     -- formal/cubical/Madhava.agda            → d6ee569d  2026-08-18
 --
 -- Four days apart.  §4 is not wrong; it was overtaken.  (§7.1 already

@@ -12,7 +12,6 @@
 -- solved x² − D y² = 1 six centuries before Brouncker and Lagrange.
 -- Euler's misattribution to Pell is later still and concerns a man who
 -- never worked on the equation.  The step itself is `CakravalaDescent`.
--- (This line read "See notes/CAKRAVALA.md" until 2026-08-18.  There was no
 -- such note and there never had been — a citation pointing at work that
 -- was never done, which a reader takes as "it is handled over there".  It
 -- is repaired by pointing at a module that exists, not by writing a note

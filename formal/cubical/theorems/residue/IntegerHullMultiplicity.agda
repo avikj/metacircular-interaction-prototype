@@ -55,7 +55,6 @@
 -- It says nothing about zeta zeros, and nothing about the step F25
 -- itself identified as the genuinely lossy one — the von Neumann
 -- transplant from multiplicities to matrix eigenvalues.  See
--- `notes/F25_F23_WITHOUT_PYTHON.md` §2.
 --
 -- Idiom copied from `NaturalMachine/SieveFiber.agda` and
 -- `Gamma0Freeness.agda` (solver-assisted commutative rearrangement,

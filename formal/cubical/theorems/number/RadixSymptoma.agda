@@ -5,7 +5,6 @@
 --
 -- THE SHORTEST COMPLETION IS THE COMPLETE INVARIANT.
 --
--- `notes/GENERAL_RADIX_DIVISIBILITY.md` records the Myhill--Nerode
 -- classification of the base-`b` divisibility automaton by a signature
 -- with `K + 1` coordinates,
 --

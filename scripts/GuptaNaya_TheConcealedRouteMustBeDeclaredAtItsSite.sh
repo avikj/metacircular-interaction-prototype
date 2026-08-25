@@ -10,7 +10,6 @@
 # standpoint, a *naya*.  A naya is not a defect — it is the only way knowledge
 # comes.  What makes it a **durnaya** is CONCEALMENT: a standpoint that does
 # not declare itself and so presents a partial warrant as the whole.
-# `notes/AHIMSA_SUTRA_VISTARA.md` §2 states it in four lines —
 #
 #     सर्वं ज्ञानं सनयम् । निर्नयं ज्ञानं नास्ति ।
 #     यो नयं न वदति स नयं गोपयति ।
@@ -46,7 +45,6 @@
 #   3. IN `axiom-allowlist.txt` — for whoever audits the lane, WITH the
 #      observed reason kernel `decide` does not work and what would remove it.
 #
-# 2 and 3 were recommended by `notes/NATIVE_DECIDE_AUDIT.md` §5 and adopted;
 # 3 is enforced by `lake exe yogyanupalabdhi` and 2 by nothing.  1 did not exist.
 # This repository's own rule (CLAUDE.md, "Regressions observed in one long
 # session") is that when a rule is repeatedly stated and not mechanised, the
@@ -117,7 +115,6 @@ strip_comments() {
 }
 
 # The nearest preceding column-0 declaration keyword, and its name.  Same
-# attribution rule notes/DECIDE_STATEMENT_SWEEP.md §1 used, and it carries the
 # same warning: it names SITES, not dependencies.
 sites_in() { # sites_in <file> -> "LINE<TAB>KIND<TAB>NAME<TAB>TOKEN"
   local f="$1"
@@ -244,7 +241,7 @@ done
 # both is the exact collapse this file is named after — a verdict presented
 # without the standpoint it was reached from.
 if [ "$n_claims" -eq 0 ]; then
-  echo "    VACUOUS: no prose in notes/ collab/ interactive/ formal/ mentions any of these"
+  echo "    VACUOUS: no prose in interactive/ formal/ mentions any of these"
   echo "    declarations alongside a claim word.  This check has therefore not been"
   echo "    exercised and today's green says nothing about it."
 elif [ "$found_prose" -eq 0 ]; then

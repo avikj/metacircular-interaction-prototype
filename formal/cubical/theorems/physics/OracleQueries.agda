@@ -7,7 +7,6 @@
 --
 -- THE QUESTION.  `ChargeCriterion` proves: a query set separates the
 -- all-plus sign assignment from its gauge flip IFF it contains a query
--- of odd Ω.  `notes/BARRIER.md` §3 Problem 2 asks for an oracle model
 -- distinguishing VALUE queries ("what is a(n)?") from FUNCTIONAL-EQUATION
 -- queries ("a(mn)=a(m)a(n), used as a constraint and not as a value").
 -- TARGET.md §6 predicts these are "the same distinction stated twice",

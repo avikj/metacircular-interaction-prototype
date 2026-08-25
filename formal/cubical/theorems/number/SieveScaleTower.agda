@@ -65,7 +65,6 @@
 --                                    "ε ∈ Bool" is horizon-relative, in
 --                                    exactly the way `CLAUDE.md`'s
 --                                    HOLOGRAM §7 corollary warns about.
---                                    `notes/SIEVE_FIBER.md` §4 records
 --                                    the same relativity in X at fixed
 --                                    z; this is the z-direction of it,
 --                                    at fixed X.

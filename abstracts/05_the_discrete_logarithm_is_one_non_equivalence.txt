@@ -1,0 +1,60 @@
+HARDNESS IS THE NON-CONTRACTIBILITY OF ONE FIBRE, AND FOR ONE DEPLOYED
+ASSUMPTION WE PROVE IT
+The forward direction is free by a theorem; the assumption is the exact
+failure of the other binding, and inverting it is shown to break the secret
+
+Cryptography / foundations of hardness assumptions
+
+For any function whatsoever, fixing the output and asking which values
+could accompany it yields a contractible space: evaluation carries its own
+result and the witness that it is the result at no cost, and this is a
+theorem with no hypothesis on the function.  Fixing the input instead
+yields the fibre, and that space is contractible exactly when the function
+is an equivalence.  The two bindings of one equation are the whole of the
+accounting, and every cryptographic construction sits at the second.
+
+We instantiate rather than gesture.  For an explicit modular power map we
+prove that it is not an equivalence, constructively.  From the hypothesis
+that it were, we construct the inversion function and prove it inverts -
+so the hypothetical equivalence is not an abstract possibility but a
+concrete solver, and the refutation is the statement that this solver
+cannot exist.  We then discharge the security direction: possession of the
+equivalence yields recovery of the hidden exponent, so the assumption and
+the non-contractibility are interderivable rather than merely analogous.
+This is one assumption, stated exactly, with its inverse constructed.
+
+The framing pays off in three ways that do not require the reader to
+accept any analogy.
+
+Locating the work.  The forward map costs nothing by the first binding, so
+no construction that prices effort by evaluation is measuring the
+assumption.  Anything asserting hardness must name the fibre it claims is
+non-contractible; where a proposal does not name it, it has not stated an
+assumption, and this is now a syntactic criterion rather than a stylistic
+one.
+
+Unforgeability without keys.  In the accompanying kernel an installed
+operation is a record that cannot be constructed without a checked
+derivation between its endpoints in hand.  An unauthorised operation is
+therefore not a value that is rejected but a value that does not exist,
+merging two libraries is a total function with no validation step and no
+failure case, and the property survives an adversary with full control of
+the channel.  No signature scheme, certificate chain or membership
+registry participates.
+
+Hiding by typing.  Soundness of a transition factors through the
+propositional truncation of the derivation type, so a recipient learns
+that a transition is licensed and never which derivation produced it -
+with no blinding, no commitment and no simulator, as a consequence of how
+the soundness map is typed.  We also prove the accompanying negative
+result: no function of the transmitted meaning recovers the route, for
+every target type at every level.
+
+WHAT IS NOT CLAIMED.  No statement is made about hardness assumptions in
+general, about any deployed protocol, or about quantum algorithms.  One
+modular power map is treated and one non-equivalence is proved.  The
+factoring literature is not addressed here; the classical reduction of
+factoring to a zero-divisor split appears elsewhere in the development and
+the order-finding step does not.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

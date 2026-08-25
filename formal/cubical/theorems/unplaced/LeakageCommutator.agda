@@ -5,7 +5,6 @@
 --
 -- The commutator is the antisymmetrization of the leakage.
 --
--- Companion prose: notes/LEAKAGE_IS_HALF_COMMUTATOR_RANK.md, which states
 -- the linear-algebra form
 --
 --     rank ((I - P) A P)  =  (1/2) · rank [P , A]

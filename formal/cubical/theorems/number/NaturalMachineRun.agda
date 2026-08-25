@@ -90,7 +90,6 @@ run-univalence = refl
 -- trace of the pair (153,112).  Replaying it — one matrix step per
 -- row of the vallī, KuttakaValli.replay — must rebuild the pair.  The
 -- value below was computed independently in the trace-macro lane
--- (notes/KUTTAKA_TRACE_MACRO.md) by a different lineage; the kernel
 -- now reproduces it from the typed definition.
 ------------------------------------------------------------------------
 
@@ -111,7 +110,6 @@ run-valli-det = refl
 -- The block (1,2) repeated four times is the same trace, compiled.
 -- `macroSound` proves the two agree; here the kernel EVALUATES both
 -- and finds one matrix.  This is the compression of
--- notes/KUTTAKA_TRACE_MACRO.md executing: 8 symbols of vallī become
 -- the definition of a 2-symbol block plus 4 invocations.
 ------------------------------------------------------------------------
 

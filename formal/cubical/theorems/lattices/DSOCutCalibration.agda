@@ -4,7 +4,6 @@
 -- DSOCutCalibration
 --
 -- The executable calibration of Delta 28
--- (notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md §62), as checked
 -- terms.  The delta's "attached demo" cannot exist here (Python is
 -- banned), so the demo IS this module — kernel facts, not stdout.
 --

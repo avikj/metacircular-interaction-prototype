@@ -17,7 +17,6 @@
 --    checked transport theorem between the full and compiled executions
 --    would discharge RESEARCH_SYSTEM.md's still-open 'one witnessed
 --    equivalence and theorem transport end to end' more honestly than
---    another runtime wrapper."  notes/RESEARCH_SYSTEM.md §9 item 3
 --    names the same gap.
 --
 -- The five stations, in order.  Stations 1-2 are citations; only 3-5

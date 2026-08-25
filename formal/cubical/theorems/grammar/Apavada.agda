@@ -29,7 +29,6 @@
 -- ekānta and anekānta as COMPOSITION devices — a rule stated without
 -- exceptions, or with them.  Read in that sense the row belongs with
 -- apavāda after all, for a reason this header did not give.  No edition
--- has been consulted; see notes/TANTRAYUKTI_THE_TREATISE_THAT_DESCRIBES_ITS_OWN_DEVICES.md §4.
 --
 -- THE DISTINCTION THIS MODULE FORCES, and this corpus has been eliding it.
 -- Two situations wear the same shape and are not the same:
@@ -47,7 +46,6 @@
 -- "least q with q ∤ cap m" — it *agrees* with it, everywhere, provably
 -- (`next-characterised`).  The exchange is not an exception.  It is the
 -- same rule said in fewer words and run at a fraction of the price, which
--- is precisely the quantity `notes/LAGHAVA_COST_IS_NOT_A_UNIVALENT_INVARIANT.md`
 -- says univalence cannot see.
 --
 -- So the two kinds are separated by exactly the dichotomy: disagreement

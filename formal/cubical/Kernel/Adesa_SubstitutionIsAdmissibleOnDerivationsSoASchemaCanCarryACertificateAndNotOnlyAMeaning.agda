@@ -76,7 +76,7 @@
 module Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning where
 
 open import Cubical.Foundations.Prelude
-open import Kernel.RewriteCertificate
+open import RewriteCertificate
 
 ------------------------------------------------------------------------
 -- §1.  One rewrite survives substitution, structurally, all six

@@ -2,8 +2,6 @@
 
 -- StabilizerTorsor: the checked core of R0027
 -- (collab/discovery/claims/R0027-invariant-schema-envelope.md, eq (3) of
--- notes/INVARIANT_SCHEMA_COUPLING.md, audited in
--- notes/INVARIANT_SCHEMA_ENVELOPE_AUDIT.md §3-§4, joined to the Smith
 -- thread in collab/messages/0342 and corrected in
 -- collab/messages/shilpin/smith_certificate_canonicality_correction.md).
 --

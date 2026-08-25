@@ -1,0 +1,56 @@
+THE INDISTINGUISHABILITY RELATION OF A MODULAR SENSOR FAMILY IS
+DIVISIBILITY BY ITS LEAST COMMON MULTIPLE, AS AN EQUALITY OF TYPES
+The Nerode congruence computed rather than characterised, and the exact
+condition under which two sensor families are observationally identical
+
+Automata and algebraic language theory / observability
+
+Given a finite family of moduli, each sensor reporting a residue, call two
+naturals indistinguishable when every sensor in the family agrees on them.
+We prove that this relation is not merely equivalent to, but *equal as a
+type* to, divisibility of their difference by the least common multiple of
+the family.  The Nerode congruence is therefore computed, not bounded and
+not characterised up to isomorphism, and the minimal observable state is
+the residue modulo that single number.
+
+The development is small and each step is exact.  The difference is taken
+inside the naturals as the sum of the two truncated subtractions, one of
+which is zero.  Indistinguishability under a family unfolds, definitionally,
+to the statement that this difference is a common multiple of the family -
+that unfolding is the whole mechanism and it requires no lemma.  Passing
+between common multiples and the least common multiple in both directions
+then gives the congruence, and we prove the relation is a proposition, so
+two proofs of indistinguishability are equal and the quotient is a set.
+
+Three results follow that are stated for families rather than for automata.
+
+Same multiple, same observations.  Two families with equal least common
+multiples induce the same indistinguishability relation, so the observable
+behaviour of a sensor array depends on its family only through that one
+number.  Adding a sensor whose modulus already divides the current least
+common multiple changes nothing observable, and we prove it rather than
+argue it.
+
+Uniqueness.  The least common multiple is recovered from the relation: if
+two families induce the same indistinguishability then their least common
+multiples agree.  So the map from families to observable behaviour factors
+through the least common multiple and is injective on it - the invariant is
+complete, not merely sound.
+
+Self-blindness.  A family cannot see its own least common multiple: that
+value is indistinguishable from zero under the family.  This is the
+concrete statement of what the array's collapse destroys, and it is the
+first element of the fibre.
+
+Read as automata theory: the minimal deterministic acceptor for a modular
+sensor array is the cyclic group of order the least common multiple, and
+the two directions above are that the minimisation is complete and that it
+is faithful.  The residue is the Nerode class.
+
+WHAT IS NOT CLAIMED.  There is no automaton, no alphabet, no regular
+language and no Myhill-Nerode theorem in the development.  The object is
+a family of moduli over the naturals and the theorems are about its
+indistinguishability relation.  The automata-theoretic reading in the
+previous paragraph is a reading and is not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

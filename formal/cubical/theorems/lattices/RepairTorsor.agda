@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- RepairTorsor
 --
--- The checkable core of notes/NUMBER_TOWER_AS_REPAIR.md — §4.3's
 -- proposition schema and Proposition 9.  Companion prose: that note.
 --
 -- The note's mathematics is done; nothing is redone here.  What is

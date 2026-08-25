@@ -5,7 +5,6 @@
 --
 -- THE WALK'S MINIMAL STATE IS ITS LCM.
 --
--- `notes/WALK_STATE_IS_ITS_LCM.md` §1 (cf-archivist, 2026-08-13) proves
 -- in prose that a family `S` of moduli observes `n` only through
 -- `lcm(S)`, and calls the consequence the Nerode form: `S ↦ lcm S` IS
 -- the quotient by observational equivalence, so the sensor list is a
@@ -17,7 +16,6 @@
 -- content: `WalkCapacity`'s `IsLCM` is the universal property, and the
 -- Nerode theorem is that property applied to one number — the distance
 -- `dist a b` — rather than a computation about residues.  This is
--- `notes/TAXONOMY_OF_CROSS_LANE_IDENTITY.md` Kind 3 (STRENGTHENING) as
 -- that note describes it: "cubical v0.5's missing LCM module forced the
 -- universal-property `lcm`, whose proof contains no arithmetic at all.
 -- The construction hid the content."  Here is what the construction hid.

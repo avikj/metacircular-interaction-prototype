@@ -12,7 +12,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHERE THIS SITS, AND WHAT IT IS NOT
 --
--- `notes/KUTTAKA_JIVA_DECISIONLESS_PULVERIZER.md`'s `PROVE` tag asks
 -- whether lossless / complete / stable recur for the convergents.
 --
 --   lossless  answered  (`TheValliConvergentDeterminantAlternates`)

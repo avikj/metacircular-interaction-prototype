@@ -120,7 +120,6 @@ extend-⊒ O f .keep _ _ = refl
 
 -- C1.  The live instance, and the reason this module exists.
 --
--- `notes/SMITH_SIGN_CONVENTION.md`: the cubical Smith normalizer returns
 -- `diag(1,-6)` where the Lean gate demands nonnegative invariants.  Under the
 -- field the divisibility theory actually uses -- absolute value, because `∣`
 -- over ℤ factors through `abs` -- the two answers are indistinguishable.  Add
@@ -157,7 +156,6 @@ sign-seen = inr tt , posNotnegsuc 6 5
 -- vanishing defect is a statement about 𝒯, never about X".  It carries
 -- `Shrink(𝒯) ⇒ δ↓` and the base-flat/fibre-curved separation, neither of which
 -- is here.  I did not check the directory before writing this and only found
--- it afterwards; `notes/DUPLICATION_LEDGER.md` records that.
 --
 -- What `break-blindness` adds is small and worth keeping distinct: `ChuAdvance`
 -- shows the empty test list makes every pair agree, so `δ = 0` is uninformative

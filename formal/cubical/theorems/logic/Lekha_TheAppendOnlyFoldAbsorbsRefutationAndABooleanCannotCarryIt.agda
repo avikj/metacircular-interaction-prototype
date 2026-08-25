@@ -5,7 +5,6 @@
 -- repository's own — जीवो लेखा-धरः, saṃrakṣaṇa-sūtra २१ — chosen over a
 -- Nyāya attribution DELIBERATELY, see the provenance fence below.)
 --
--- notes/ABHAVA.md §2.1 proposed a lifecycle algebra for the append-only
 -- organism and mapped it onto the Vaiśeṣika fourfold of absence.  A
 -- later audit STRUCK that mapping — "these four struck equations were
 -- modern constructions, not consequences of the fourfold … the four

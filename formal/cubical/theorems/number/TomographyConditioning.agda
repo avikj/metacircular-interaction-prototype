@@ -4,7 +4,6 @@
 -- TomographyConditioning
 --
 -- The exact conditioning constants of
--- notes/PRIME_ATOM_TOMOGRAPHY_CONDITIONING.md §0, as checked terms.
 --
 -- THE SETTING (the note's model, not proved here).  B a normed space,
 -- G(z) = Σ_{j=0}^R a_j z^j with a_j ∈ B; in the arithmetic application

@@ -11,7 +11,6 @@
 -- ELEMENT inside a list.  Claiming that source here would assert a
 -- provenance nobody checked.  Checked before naming:
 -- `.claude/hooks/priority-ledger.txt` (CURRENT header) and
--- `.claude/hooks/european-frame.txt`; `formal/` and `notes/` grepped
 -- first.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -27,10 +26,8 @@
 --   DeflationaryTest
 --   TheDeflationaryTestWasAlreadyRun
 --   TheDeflationaryTestIsVacuous
---   notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md, notes/NO_BARE_ABSENCES.md
 --
 -- listed by `ls NaturalMachine/ | grep -i "abhava\|absence"` and
--- `grep -rln "¬¬¬\|pratiyogin" formal/ notes/`.  **Recording that
 -- instead of manufacturing a finding is the rule (111), and it is why
 -- this module is about something else.**  Nothing of theirs is touched.
 --

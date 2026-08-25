@@ -10,7 +10,6 @@
 --     x != x + 0 · x  of type ℕ   when checking that refl has type x ≡ 1 · x
 --
 -- That residual — `x ≡ x + 0 · x` — was harvested 27 times across 239 rounds
--- and never once submitted to the kernel.  `notes/THE_SEAM_ASKS_THE_WRONG_NAYA.md`
 -- traces why: it reduces, modulo `0 · x = 0`, to `x + 0 ≡ x`, which is a
 -- DEFINING EQUATION of the machine's `+` (which recurses on the second
 -- argument) and a non-trivial induction for Agda's (which recurses on the

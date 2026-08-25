@@ -38,7 +38,6 @@
 -- अवक्तव्यं च अनुक्तम्-प्रमाणं वहति (साझा उपसर्गः, एकस्याः क्षयः) ।
 -- सर्वे पूर्वसिद्धान्ताः रक्षिताः ; द्वौ नूतनौ योजितौ (साक्षित्व-प्रमाणे) ।
 --
--- (Repair, 2026-08-18, from `notes/INDIAN_LANE_CITATION_AUDIT.md` F1.
 -- Until today `अस्ति`'s `p, q` were unconstrained by `a`, `b` or `n`, so
 -- `भङ्ग a b` was inhabited for EVERY pair and its "witness" was a
 -- disequality between two arbitrary naturals.  That is exactly the bare
@@ -318,7 +317,6 @@ data सप्तभङ्गी : Type where
 -- generation itself produces, which is exhibited rather than hidden.)
 --
 -- [the `380` is the one number in this header with no source line; it is
---  flagged as F14 in `notes/INDIAN_LANE_CITATION_AUDIT.md` and is not
 --  repaired here — a fix belongs in the note, not in a claim of fixing.]
 ------------------------------------------------------------------------
 

@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- AscendingFirstIsTheWorstUnlessTheArchiveIsConstant
 --
--- `notes/DARWIN_GODEL_MATH.md` §2 lists four paper/code seams "that a
 -- derivative must not silently inherit".  Seam 3 reads:
 --
 --   "The otherwise unreachable/programmatic `best` branch sorts accuracy

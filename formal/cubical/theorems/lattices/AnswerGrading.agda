@@ -13,7 +13,6 @@
 --
 --   B.  `अस्तित्व < एकत्व < प्राकृतिकता < सार्वत्रिकता`, with
 --       `श्रेष्ठउत्तरम् = सार्वत्रिकगुणधर्मयुक्त उत्तरम्`.  The sign repair of
---       `notes/SMITH_SIGN_CONVENTION.md` is placed on that ladder: `absℤ` is
 --       not merely *a* map resolving the defect -- `crush` is that too -- it
 --       is the universal sign-blind map, and every sign-blind observation
 --       factors through it, uniquely on representatives.

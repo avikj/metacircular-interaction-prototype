@@ -236,12 +236,10 @@ both-are-non-local = anuvrtti-does-not-factor , asiddha-does-not-factor
 
 ------------------------------------------------------------------------
 -- 7.  PRIOR-ART CORRECTION, appended after reading
---     `notes/INDIC_FORMAL_TRADITIONS_MAP.md`.
 --
 -- CLAUDE.md requires prior art to be searched BEFORE the write-up, and
 -- names three rediscoveries in this corpus caught only at audit time.  I
 -- did not search it for this thread.  A 616-line map of exactly this
--- material was already in `notes/`, and it contains two entries that bear
 -- on what I wrote.
 --
 -- FIRST, AND IT IS A LIVE ERROR UPSTREAM OF THIS FILE.

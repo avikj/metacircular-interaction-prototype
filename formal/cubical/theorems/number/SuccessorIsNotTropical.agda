@@ -193,5 +193,4 @@ join-does-not-follow p =
 -- parametrisation IS the transition, with no defect.
 --
 -- Everything proved in §§1–3 stands unchanged.  See
--- notes/THE_BARRIER_BELONGS_TO_THE_LINE.md.
 ------------------------------------------------------------------------

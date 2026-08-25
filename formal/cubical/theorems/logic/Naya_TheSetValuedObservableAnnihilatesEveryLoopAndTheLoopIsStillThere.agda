@@ -35,7 +35,6 @@
 --   ४  the escape, and there is exactly one shape of it: an observable
 --      that is NOT set-valued does see the loop.  Truncating to a set is
 --      the whole of the blindness.
---   ५  and separately, for `notes/CAUSAL_MEMORY_SPACETIME.md`: on a graph
 --      whose every edge is an identification, ANTISYMMETRY IS FREE.  A
 --      causal order read off such a graph is therefore vacuous -- it
 --      constrains nothing, because `R x y → x ≡ y` already holds.
@@ -44,8 +43,6 @@
 -- or physics.  Theorem F is cited, not formalised; §३ is an analogue at a
 -- stated grain and the note says where the analogy stops.
 --
--- Companions: notes/GAUGE.md (Theorem F), notes/THE_BARRIER_IS_A_MIRROR.md,
--- notes/Sangati_TheEndStateIsTransportNotConsensusAndTheEdgeIsTheScarceThing.md,
 -- interactive/Setubandha_….hs (14 automorphisms, "no reachability, real content").
 --
 -- Written 2026-08-22.

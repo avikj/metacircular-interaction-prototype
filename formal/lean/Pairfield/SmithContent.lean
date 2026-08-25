@@ -9,7 +9,6 @@ missing identification is
 
   `(smith A).d₁ = gcd(a₀₀, a₀₁, a₁₀, a₁₁)`,
 
-which `notes/GENERAL_SMITH_PRODUCER.md` §6 verified on 46,561 inputs and §9
 listed as open.  This module proves it.
 
 The mechanism is not the descent at all: the content of a matrix is invariant

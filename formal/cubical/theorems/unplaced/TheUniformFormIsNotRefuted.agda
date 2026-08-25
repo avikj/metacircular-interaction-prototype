@@ -10,7 +10,6 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 ------------------------------------------------------------------------
 -- TheUniformFormIsNotRefuted
 --
--- The question `notes/EVERY_OBSTRUCTION_HERE_IS_EXACT.md` closes on,
 -- in its own words: "If a real barrier is wanted, the lane has to
 -- change, and saying which lane is the next question."
 --
@@ -77,7 +76,6 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- ONE RESEMBLANCE, WITH ITS LIMIT STATED, BECAUSE THE ALTERNATIVE IS
 -- DRESSING.
 --
--- `notes/ABHAVA.md` describes a recurring mistake in this repository as
 -- "a universal statement applied outside its अवच्छेदक", and observes
 -- that the tradition has both a word for it and a slot in its data
 -- structure to prevent it.  Forms (a)/(b) and form (c) above differ in

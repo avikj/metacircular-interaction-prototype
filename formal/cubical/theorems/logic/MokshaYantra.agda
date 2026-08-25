@@ -1,6 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
--- THIN MODEL (see notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md §5).
 -- avidyā/mokṣa are not "which `Sight : Type → Bool` meets the pair"; this is
 -- a small fact about sights on `Bool`.  The live identity is univalence ↔
 -- niḥsvabhāva (that note), not this wheel.

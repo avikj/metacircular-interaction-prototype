@@ -1,6 +1,5 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
--- Direction (⇒) of notes/WALK_INSTALLS_ARE_JUMPS.md §(c), CLOSED.
 --
 -- WalkForcing proves that a least non-divisor admits NO
 -- proper coprime splitting.  Reading that as "a least non-divisor is a

@@ -17,7 +17,6 @@
 # Scope, stated so nobody reads more into a green than it carries: this
 # checks the three JSON specs.  It does NOT replace `discovery_loop.py
 # validate` or the 282 machinery/test_*.py unit tests, which tested the
-# legacy Python machinery itself.  See notes/CI_FORMAL_GATES.md §4.
 #
 # Exit 0 = every spec valid.  Exit 1 = at least one invalid or unreadable.
 

@@ -4,7 +4,6 @@
 -- EveryTripleIsARotation
 --
 -- The capstone of the conic thread, and a repair of something §5 of
--- `notes/THE_BARRIER_BELONGS_TO_THE_LINE.md` oversold.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE OVERSELL

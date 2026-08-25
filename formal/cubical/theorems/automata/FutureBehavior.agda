@@ -13,12 +13,10 @@
 -- behavior.
 --
 -- Ported from the Lean development `formal/lean/Pairfield/
--- FutureBehavior.lean` and the statement of `notes/NATURAL_CRYSTAL.md`
 -- (equations (1)–(2)), with the set-quotient realized as the HIT
 -- `Cubical.HITs.SetQuotients._/_` instead of Lean's `Quotient`.
 --
 -- This module also absorbs the parallel port that briefly lived in
--- `NaturalMachine/PortQueue.agda` (see notes/LEAN_TO_CUBICAL_PORT_MAP.md
 -- §4; the two landed the same day from two directions).  Everything
 -- PortQueue proved is here under this module's names — its liftQ is
 -- `factor`, its runQ ledger is `run quotStep` / `quotRun-[]`, its
@@ -63,7 +61,6 @@
 --                                  the same behavior on every word
 --
 -- The descent obligations are exactly those audited in
--- `notes/CUBICAL_QUOTIENT_AUDIT.md` §1: a function leaves the quotient
 -- only through a proof that it respects the relation.
 ------------------------------------------------------------------------
 
@@ -419,7 +416,6 @@ module MachineFutureBehavior {ℓX ℓA ℓO : Level} (M : Machine ℓX ℓA ℓ
   open Machine M
   open FutureQuotient step isSetObs observe public
 
-  -- The behavioral crystal of M (notes/NATURAL_CRYSTAL.md, eq. (2)).
   crystal : Machine (ℓ-max ℓX (ℓ-max ℓA ℓO)) ℓA ℓO
   crystal = record
     { State    = Meaning

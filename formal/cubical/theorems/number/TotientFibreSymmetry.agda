@@ -1,7 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 -- Two theorems about the open item in
--- `notes/LEAKAGE_LANDINGS_WERE_ALREADY_NAMED.md` §4 / ledger row B4: whether the
 -- totient-fibre collapse arises from a *transitive* group action (Theorem E,
 -- msg 0250), with the group on the divisors "exhibited by nobody yet".
 --
@@ -12,10 +11,8 @@
 --
 --   Theorem R (§4).  Pin the group to the chart the compressed object lives in
 --   — the multiplicative chart, whose automorphism group is the permutation
---   group of the prime generators (`notes/ATLAS_OF_N.md` Thm 2.13(1), CITED) —
 --   and the totient's stabilizer is TRIVIAL.  Not "not transitive": trivial.
 --
--- §6 exhibits the obstruction at the point `notes/ATLAS_OF_N.md` predicts: the
 -- unit is a fixed point of every chart automorphism, while φ(1) = φ(2), so the
 -- fibre {1,2} is not contained in any chart orbit.
 --

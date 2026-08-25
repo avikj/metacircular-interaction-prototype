@@ -5,7 +5,6 @@
 # (*Śeṣa* is the remainder: what the kuṭṭaka keeps and recurses on rather
 # than discards — Āryabhaṭa, *Āryabhaṭīya*, gaṇitapāda 32–33, 499 CE; and
 # the fourth position of the saptabhaṅgī, *avaktavya*, is where
-# `notes/AHIMSA_SUTRA_VISTARA.md` §३ puts it: अवक्तव्ये शेषो वसति — the
 # remainder dwells in the inexpressible, and it is a गर्भ, a womb, not a
 # failure.  The word is the corpus's; no claim is made that anyone in
 # 499 wrote a shell script.)

@@ -126,7 +126,6 @@ open अपवादः public
 -- live retraction blocks in sequence is asserting a contradiction, and
 -- the reader who stops at the second block is reading a claim its own
 -- author has abandoned.  That is exactly the failure recorded at
--- `notes/BRAHMASPHUTASIDDHANTA_IN_ITS_OWN_ORDER.md` §IV, where a
 -- correction sat at the end of the note and §IV kept the retracted
 -- sentence unmarked.
 ------------------------------------------------------------------------

@@ -39,7 +39,6 @@
 -- answer about a submitted object, and the Buddhist objection (the two
 -- presentations are two, and sameness is imposed) is precisely the
 -- objection to letting one digest mean mathematical sameness that
--- notes/CONTENT_ADDRESSED_MATHEMATICAL_IDENTITY.md §1 states in its
 -- own words.
 --
 -- ─────────────────────────────────────────────────────────────────────
@@ -58,7 +57,6 @@
 --     stake-weighting, reputation, a second round, an appeal.
 --
 --     This is the checked form of the sentence asserted but not proved
---     at notes/NATURAL_MACHINE_NETWORK_WHITEPAPER.md §10, "no consensus
 --     protocol can vote a theorem true", narrowed to the case where the
 --     theorem in question is an identity: is this the same as that.
 --
@@ -79,7 +77,6 @@
 --     implies the other and their conjunction is exactly `isContr`.
 --
 --     The empty / one / many trichotomy this exposes is NOT graded here
---     — notes/SakalaVikalaDesa_TheFibreIsTheLossAndAnEmptyFibreIsAvakta
 --     vyamNotNasti.md already grades it in five levels and shows that
 --     `isContr`'s two-valued verdict merges the two ENDS.  This module
 --     supplies only the network instance of its rows ० and १.

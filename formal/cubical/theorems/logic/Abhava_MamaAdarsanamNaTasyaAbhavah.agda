@@ -21,7 +21,6 @@
 -- content.  Name the school before the term.
 --
 -- **No claim is made that any of them proved anything below**, and see
--- notes/ABHAVA.md, a primary-text audit against *Tarkasaṅgraha* which
 -- CORRECTS a reading of अन्योन्याभाव used elsewhere in this corpus: it is
 -- non-identity, NOT observational separation by itself.
 --

@@ -32,7 +32,6 @@
 -- This proves the finite-place transport, including equality of local
 -- counts.  It proves no prime-pair asymptotic: the passage from the local
 -- Euler product to Goldbach or twin-prime counts contains the global
--- minor-arc/parity obstruction.  No novelty is claimed; `notes/ADELIC.md`
 -- section 2 already states the signed-space reflection in prose.  The
 -- contribution here is its executable contact with the Natural Machine's
 -- restriction/boundary API.

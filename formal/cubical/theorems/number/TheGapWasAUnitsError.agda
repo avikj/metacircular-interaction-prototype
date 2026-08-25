@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- TheGapWasAUnitsError
 --
--- §§15–18 of `notes/THE_BARRIER_BELONGS_TO_THE_LINE.md`, and the four
 -- modules behind them, chase a gap that does not exist.  This file
 -- records the dissolution, and the dissolution came from reading a note
 -- that has been in this repository since 2026-08-12.
@@ -20,7 +19,6 @@
 -- FRONTIER — the sensor value it has reached — and is not the number of
 -- inputs it has processed.
 --
--- `notes/WALK_FORCING_LAW.md` states the invariant, and it is CRT
 -- injectivity: the observation n ↦ (n mod m)_{m∈S} is lossless on the
 -- prefix [0,n] exactly when
 --

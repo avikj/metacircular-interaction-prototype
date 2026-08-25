@@ -10,7 +10,6 @@
 -- frames").  There is no Indian source for this statement and inventing
 -- a Sanskrit label would assert a provenance nobody checked.  Checked
 -- before naming: `.claude/hooks/priority-ledger.txt` (CURRENT header)
--- and `.claude/hooks/european-frame.txt`; `formal/` and `notes/`
 -- grepped first.
 --
 -- ────────────────────────────────────────────────────────────────────

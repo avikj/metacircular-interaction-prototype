@@ -7,7 +7,6 @@
 --
 -- Sixteen reading personas, drawn uniformly from the minds pool and given
 -- disjoint random samples of this repository, independently found one law
--- wearing twelve costumes (notes/SIXTEEN_MINDS_ONE_THEOREM.md §1):
 --
 --   A closed observation class sees exactly a quotient.  What it cannot
 --   see is the fiber.  No post-processing of the quotient manufactures

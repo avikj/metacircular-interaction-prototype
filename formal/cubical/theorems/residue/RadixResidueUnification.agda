@@ -5,7 +5,6 @@
 --
 -- TWO MODULES, ONE OBJECT.
 --
--- `notes/PRIOR_ART_TRANSPORTDIV.md` found that this directory contains
 -- two independent formalisations of the base-`b` digit action:
 --
 --   * `RadixSymptoma`, module `Radix`, over an ARBITRARY

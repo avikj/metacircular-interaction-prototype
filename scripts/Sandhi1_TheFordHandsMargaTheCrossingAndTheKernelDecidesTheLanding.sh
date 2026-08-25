@@ -2,7 +2,6 @@
 # सन्धि-१ — the ford hands मार्ग the crossing, and the kernel decides the landing.
 #
 # THE TERM.  सन्धि, ordinary Sanskrit for junction (the compound declared
-# built here — notes/Sandhi_TheTwoJoinsTheAssemblyOwesAndBothSidesAlreadyNameThem.md,
 # जोड़ १).  No text is claimed.
 #
 # WHAT THIS IS.  तीर्थ's header names the assembly's defect: "मार्ग routes on

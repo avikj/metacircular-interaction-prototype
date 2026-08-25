@@ -51,7 +51,6 @@
 --
 -- ---------------------------------------------------------------- --
 -- TOOLCHAIN CAVEAT — THIS CONTROL NEEDS THE PIN.  Read before trusting
--- its exit code.  (Added 2026-08-15; notes/CUBICAL_SKEW.md category L.)
 --
 -- A control's pass condition is not "agda exits nonzero".  It is "agda
 -- rejects THIS file's statement, at THIS file's line, for the stated

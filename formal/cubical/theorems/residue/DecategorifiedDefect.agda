@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- DecategorifiedDefect
 --
--- The checkable core of notes/SPLICING_DEFECT_ADJUDICATED.md §4:
 -- an invariant that detects a defect in ONE DIRECTION ONLY, and the
 -- resulting unsoundness of the certificate "the invariant vanished,
 -- therefore the construction is sufficient".

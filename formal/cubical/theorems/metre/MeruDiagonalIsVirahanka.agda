@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- MeruDiagonalIsVirahanka
 --
--- `notes/INDIC_CORPUS_OPEN_FRONTIER.md` lists as genuinely open:
 --
 --   > **2. Meru diagonal = Fibonacci.** Halāyudha's observation that the
 --   > shallow diagonals of the meru-prastāra (`Meru`) sum to the

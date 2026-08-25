@@ -9,7 +9,6 @@
 -- `Residual.no-invariant-response-sees-ϱ : ¬ Invariant respondB` is about
 -- ONE response.  Its name says "no invariant response sees ϱ", which is a
 -- statement about all of them, and a breaker audit (2026-08-15,
--- notes/BREAKER_R0079_R0081.md) pointed out that the universal reading is
 -- FALSE as stated: a constant response factors through ϱ and is
 -- `Invariant`, so "no invariant response reads the residual" cannot be
 -- right.  What is true, and what the name was reaching for, is that an
@@ -80,5 +79,4 @@ recover inv = branchOf-nonconstant (invariant-read-is-constant branchOf inv 0 1)
 
 -- CHECKED: Agda 2.6.3, cubical v0.7 (/tmp/cubical, with the 2.6.3
 -- back-port of Cubical.Tactics.Reflection recorded in
--- notes/CUBICAL_PATCH.md), --cubical --safe, 2026-08-15.  No postulates,
 -- no holes.  NOT verified against the pin (Agda 2.8.0, cubical v0.9).

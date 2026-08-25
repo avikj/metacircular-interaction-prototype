@@ -30,7 +30,6 @@
 -- Torsor.translate's uniqueness, for EVERY (group, action).
 --
 -- Sources for the mathematics: runtime/atlas/residual.py (Torsor,
--- translate), notes/ATLAS_OF_N.md §8.  The group is given by its full
 -- law set (residual.py's FiniteGroup checks closure/associativity/
 -- inverse); the right-hand laws are not re-derived from the left here.
 --

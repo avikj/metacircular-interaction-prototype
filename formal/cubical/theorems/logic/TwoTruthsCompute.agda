@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- TwoTruthsCompute
 --
--- The path of notes/UNIVALENCE_IS_NISVABHAVA_COMPUTATIONAL.md §3, made a
 -- checked, computing term.
 --
 -- Interpretation (marked as interpretation, per the note's discipline —

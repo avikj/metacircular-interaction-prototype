@@ -71,7 +71,6 @@
 -- **if `f` loses nothing, conservation forces the flow to be the
 -- identity.**  No fibre, no symmetry.  A symmetry needs somewhere to
 -- live, and the only place it can live is what the observable cannot
--- see.  That is why `notes/GAUGE.md`'s Theorem F and this are the same
 -- shape: a system with nothing hidden has nothing conserved either,
 -- because it has no room to move.
 --
@@ -158,7 +157,6 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 -- Read at the physics: a system whose observables see everything has no
 -- symmetry, because a symmetry needs somewhere to live and the only
 -- place available is what the observable cannot distinguish.  Gauge
--- freedom IS the fibre.  This is `notes/GAUGE.md`'s Theorem F in its
 -- smallest form — nothing hidden, nothing conserved, nothing to move.
 ------------------------------------------------------------------------
 

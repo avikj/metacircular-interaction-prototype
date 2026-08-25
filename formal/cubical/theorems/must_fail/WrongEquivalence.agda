@@ -13,7 +13,6 @@
 --
 -- It is NOT part of the checked build.  `agda` does not
 -- import it.  The verbatim error the checker produces is quoted in
--- notes/NATURAL_MACHINE.md; if a future edit makes this file compile,
 -- the development's main claim is broken and the note is wrong.
 ------------------------------------------------------------------------
 

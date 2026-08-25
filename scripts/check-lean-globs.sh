@@ -4,7 +4,6 @@
 # Why: `lean_lib Pairfield` was declared without `globs`, so `lake build` built
 # `Pairfield.lean`'s import closure only. 21 modules under `Pairfield/` were
 # built by nothing and 3 of them did not typecheck
-# (notes/LEAN_LANE_AUDIT.md §1). Earlier counts were 16, then 13, then 21 —
 # the list does not converge, which is the argument for a gate rather than a
 # recount.
 #

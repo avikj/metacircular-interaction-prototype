@@ -34,7 +34,6 @@
 -- *Vaiśeṣikasūtra* 9.1 (~2nd c. BCE – 2nd c. CE), systematised in
 -- Praśastapāda's *Padārthadharmasaṃgraha* (~6th c.) and stated compactly
 -- at Annaṃbhaṭṭa, *Tarkasaṅgraha* §§57, 80 (~1600).  The one feature of
--- it that is load-bearing here is the one `notes/ABHAVA.md` §1 insists
 -- on: an absence is a RELATION with named slots, never a bare negative
 -- verdict — it is the absence OF something (its **pratiyogin**,
 -- counterpositive) IN something (its **anuyogin**, locus).  §७ names both
@@ -115,7 +114,6 @@
 -- and more tempting thing: that the per-step fibres determine the
 -- composite's fibre.  They do not; the alignment term does, and §७ names
 -- it.  Nothing here is about rank, dimension, entropy, area or
--- spacetime: `notes/CAUSAL_MEMORY_SPACETIME.md` (11) is the linear
 -- shadow of §५ and is not used.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical, --cubical --safe, no postulates,

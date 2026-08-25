@@ -1,7 +1,6 @@
 -- Answer — the shape of every
 -- answer this machine gives, with no third case.
 --
--- THE SPECIFICATION, from notes/AHIMSA_SUTRA_VISTARA.md §6:
 --
 --     संक्रमणम् e = transport (ua e)     -- ua: तुल्यं तादात्म्यं भवितुम् अर्हति
 --     संक्रमणे न किञ्चिन् नश्यति ।        -- in transport nothing is lost

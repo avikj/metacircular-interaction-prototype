@@ -1,6 +1,5 @@
 /-
 The finite cardinality kernel behind the concept-gate argument in
-`notes/THE_CONCEPT_GATE_WAS_UNSATISFIABLE.md`.
 
 This file deliberately does not model the repository's Haskell rewrite
 engine.  Its load-bearing premise is an explicit decoder on the selected

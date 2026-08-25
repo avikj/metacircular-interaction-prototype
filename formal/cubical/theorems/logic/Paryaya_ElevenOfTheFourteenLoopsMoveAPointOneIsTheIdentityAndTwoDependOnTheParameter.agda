@@ -73,8 +73,6 @@
 -- have no charged instantiation — they do (§२), the point is that the
 -- FAMILY has no answer.
 --
--- Companions: notes/Yogyanupalabdhi_….md,
--- notes/GAUGE.md, notes/THE_BARRIER_IS_A_MIRROR.md,
 -- interactive/Setubandha_….hs (the census this decides).
 --
 -- Written 2026-08-22.

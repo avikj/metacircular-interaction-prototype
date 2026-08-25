@@ -3,7 +3,6 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 The exact affine-semigroup law for the W-trick restrictions sampled from
-`notes/LENS_CIRCUIT.md`.  Composition is standard right-to-left function
 composition; retaining its order is load-bearing because the offsets need not
 commute even though the scale factors do.
 -/

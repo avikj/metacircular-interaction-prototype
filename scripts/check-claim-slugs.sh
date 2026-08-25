@@ -2,7 +2,6 @@
 # check-claim-slugs.sh — claim references must resolve, and bare IDs that are
 # ambiguous must be visible.
 #
-# Why this exists (notes/CLAIM_ID_AMBIGUITY.md §6b):
 #
 #   Claim IDs are allocated by a per-branch counter, so two branches racing
 #   hand out the same next ID. TEN IDs carry more than one claim file in the
@@ -19,7 +18,6 @@
 #     collab/discovery/, live or quarantined. Nothing is recoverable; the
 #     reference is dead. This is the check that would have caught the 17
 #     dangling Smith slug references the day they were written, and the
-#     invented `R0038` in notes/SEED31_TORSORS_*.md.
 #
 #   WARN, mismatch — the slug resolves, but under a DIFFERENT ID than the one
 #     written. The meaning is recoverable (slugs are unique), the number has
@@ -35,7 +33,6 @@
 #   CLAIM_SLUG_STRICT=1 makes either WARN fatal (exit 3).
 #
 # Usage:
-#   scripts/check-claim-slugs.sh              # notes/ collab/ papers/
 #   scripts/check-claim-slugs.sh PATH...      # those paths instead
 #
 # Env:
@@ -203,7 +200,7 @@ if [ "$n_warn" -gt 0 ]; then
   echo
   echo "WARN check-claim-slugs: $n_warn bare reference(s) to an ID with >1 live claim file."
   echo "  These RESOLVE — to whichever claim the reader's tooling picks first."
-  echo "  They are the silently-wrong ones; see notes/CLAIM_ID_AMBIGUITY.md §3."
+  echo "  They are the silently-wrong ones."
   if [ "$QUIET" != "1" ]; then
     awk -F'\t' '{ c[$2]++ } END { for (i in c) print "    " i ": " c[i] " bare ref(s)" }' \
       "$tmp/warn" | sort
@@ -215,8 +212,8 @@ if [ "$n_warn" -gt 0 ]; then
     done < "$tmp/ambig"
   fi
   echo "  New prose should cite ID-and-slug. Existing references are NOT to be"
-  echo "  bulk-rewritten: no oracle says which lineage each meant"
-  echo "  (notes/CLAIM_ID_AMBIGUITY.md §5)."
+  echo "  New prose should cite ID-and-slug. Existing references are NOT to be"
+  echo "  bulk-rewritten: no oracle says which lineage each meant."
   warned=1
 fi
 

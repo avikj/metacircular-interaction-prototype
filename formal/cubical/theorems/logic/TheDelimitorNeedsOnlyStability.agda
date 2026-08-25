@@ -189,7 +189,6 @@ categories-agree-on-two-points dY dT q t =
 ------------------------------------------------------------------------
 -- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
 --
--- `notes/ABHAVA.md` A6 locates arXiv:2605.12548, *Cubical Type Theoretic
 -- Navya-Nyāya* (Panday & Ghosh), whose stated content includes DEPENDENT
 -- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhāva) in cubical type
 -- theory — the same substrate and the same notions this module touches.
@@ -197,7 +196,6 @@ categories-agree-on-two-points dY dT q t =
 -- This module does not cite it, and could not: the citation sits in a
 -- note whose §2 alone had been read.  arxiv.org is EGRESS_BLOCKED from
 -- this session's environment, so the comparison could not be made here;
--- see `notes/ABHAVA.md` §6 for the dated block and for the two axes A6
 -- leaves open.
 --
 -- Until someone who can read the paper compares them, NO NOVELTY IS

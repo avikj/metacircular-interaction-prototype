@@ -30,7 +30,6 @@
 --      `isContrPartner` — given a witness the partner type is
 --      contractible: the partner is not a choice.
 --
--- What this upgrades in the corpus.  `notes/DIAGONAL_SMITH_CONGRUENCE_
 -- TORSOR.md` Theorem 1 gets uniqueness from "over ℚ, HDK = D forces
 -- K = D⁻¹H⁻¹D".  That step leaves ℤ, inverts D and inverts H.  §2 below
 -- reaches the same conclusion with NO division, NO inverse and NO

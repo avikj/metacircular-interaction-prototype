@@ -6,7 +6,6 @@
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
 -- header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped first.  This corpus's established attribution for
 -- permutation work — Nārāyaṇa Paṇḍita, *Gaṇitakaumudī* (1356) — is for
 -- the ENUMERATION line, which is another identity's and is NOT what
 -- this module does: nothing here counts arrangements or generates them

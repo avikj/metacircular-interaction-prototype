@@ -77,14 +77,13 @@ AGDA=$(find formal/cubical -name '*.agda' 2>/dev/null | wc -l)
 # and disbelieving it, which is the only check a census gets.
 LEAN=$(find formal/lean -name '*.lean' -not -path '*/.lake/*' 2>/dev/null | wc -l)
 VENDORED=$(find formal/lean -name '*.lean' -path '*/.lake/*' 2>/dev/null | wc -l)
-HS=$(find machine -name '*.hs' 2>/dev/null | wc -l)
+HS=$(find interactive -name '*.hs' 2>/dev/null | wc -l)
 NOTES=$(find notes -name '*.md' 2>/dev/null | wc -l)
-SH=$(find scripts machine -name '*.sh' 2>/dev/null | wc -l)
+SH=$(find scripts interactive -name '*.sh' 2>/dev/null | wc -l)
 printf '   %-34s %6s\n' "agda modules (formal/cubical)" "$(n "$AGDA")"
 printf '   %-34s %6s\n' "lean modules (formal/lean)" "$(n "$LEAN")"
 printf '   %-34s %6s\n' "vendored, excluded (.lake/ Mathlib)" "$(n "$VENDORED")"
 printf '   %-34s %6s\n' "haskell modules (interactive/)" "$(n "$HS")"
-printf '   %-34s %6s\n' "prose (notes/*.md)" "$(n "$NOTES")"
 printf '   %-34s %6s\n' "checks and helpers (*.sh)" "$(n "$SH")"
 echo "   These are file counts. CLAUDE.md's headline ratio (book vs apparatus)"
 echo "   is BOOK_INDEX.md's to compute: runghc -iinteractive interactive/AnukramaniRun.hs"
@@ -191,10 +190,17 @@ if [ -x "$AST" ] && [ -s "$OUT/r_Astadhyayi.log" ]; then
 else
   # The program did not run.  Say what can still be counted from source,
   # and say plainly that it is a source count and not a run.
-  SRC_SUTRAS=$(awk '/^sutras :: \[Sutra\]/,/^$/' interactive/Phonology.hs 2>/dev/null | grep -c '^  *[,[] *Sutra')
+  # The range END matters and the first version got it wrong.  `/^$/` closes
+  # the awk range at the FIRST BLANK LINE, and the sutras list has a blank
+  # line between every entry -- so it counted one and printed "1" against
+  # ~3983, which reads as "this grammar is a stub".  Close the range at the
+  # list's own `]` instead, and count constructor applications carrying a
+  # rule number.  Measured against the whole file: 32 in the list, 34 in the
+  # file, so two `Sutra` mentions live outside it.
+  SRC_SUTRAS=$(awk '/^sutras :: \[Sutra\]/{f=1} f&&/^\]/{f=0} f' interactive/RewriteEngine.hs 2>/dev/null | grep -cE 'Sutra \([0-9]+,[0-9]+,[0-9]+\)')
   echo "   the Aṣṭādhyāyī program did not run in this pass (see §3)."
   printf '   %-40s %5s   <- counted from SOURCE, not from a run\n' \
-     "Sutra constructors in Phonology.hs" "${SRC_SUTRAS:-?}"
+     "Sutra constructors in RewriteEngine.hs" "${SRC_SUTRAS:-?}"
   echo "   Against ~3983 sūtras in the text (recensions differ: 3959-3996)."
 fi
 

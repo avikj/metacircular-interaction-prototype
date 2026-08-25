@@ -241,4 +241,3 @@ gap-1000-same-number = W10.value-thousand
 -- later, says cubical v0.7 at `/tmp/cubical` — and is ALSO correct, of a
 -- different, concurrently running container (evidence: a commit-hash match,
 -- see the note).  Neither header is wrong; the word "the container" is.
--- Full record and the general lesson: `notes/VERSION_CLAIM_FORENSICS.md`.

@@ -165,7 +165,6 @@ saturated-factors = decode , law
 ------------------------------------------------------------------------
 -- 5.  What the sixth site adds to the other five.
 --
--- The five in `notes/THE_BARRIER_PROBLEM_IS_A_COLLISION.md` are all
 -- about representations of mathematical objects: लाघव over expressions,
 -- अनुवृत्ति over rule lists, carry/borrow over digit strings, the
 -- transcript over machine states, the Jain सप्तभङ्गी over standpoints.

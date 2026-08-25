@@ -4,7 +4,6 @@
 -- LawvereDiagonal
 --
 -- The diagonal engine of the Eternal Golden Braid
--- (notes/ETERNAL_GOLDEN_BRAID_DELTA24.md §9–§10, work item §19.D).
 --
 -- Lawvere's fixed-point theorem, constructively and in full: if
 -- e : A → (A → Y) weakly enumerates the Y-valued behaviours on A, then

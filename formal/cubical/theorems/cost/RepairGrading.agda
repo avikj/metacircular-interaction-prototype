@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- RepairGrading
 --
--- Retraction of two hedges made in `notes/OBSTRUCTION_CALCULUS.md` §2.
 --
 -- There I wrote that of the four repair kinds of `papers/hieroglyphics_ii.tex`
 -- only `Γ∅` and `Γ^` are distinguishable, "after 0-truncation", and that

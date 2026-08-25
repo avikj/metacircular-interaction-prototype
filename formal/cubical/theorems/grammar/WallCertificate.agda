@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- WallCertificate
 --
--- The CERTIFY step of `notes/THE_MACHINE.md`, in the live substrate.
 --
 -- The machine's loop is CLOSE / CERTIFY / PORT / GROW, and CERTIFY is the
 -- step that was described but never carried: "prove the wall: grammar

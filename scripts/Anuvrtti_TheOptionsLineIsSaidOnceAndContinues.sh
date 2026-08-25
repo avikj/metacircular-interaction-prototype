@@ -6,7 +6,6 @@
 #
 # Pāṇini, *Aṣṭādhyāyī* (c. 500 BCE), is built on *anuvṛtti*: a term stated in
 # one sūtra CONTINUES into the following sūtras and is not restated, until
-# something cancels it.  `notes/AHIMSA_SUTRA_VISTARA.md` §45 states the rule
 # and, more to the point, states its reason —
 #
 #     पदम् एकवारम् उक्तम् अग्रिमेषु सूत्रेषु अनुवर्तते । यावत् न निवर्त्यते ।

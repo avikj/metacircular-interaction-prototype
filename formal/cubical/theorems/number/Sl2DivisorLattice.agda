@@ -4,7 +4,6 @@
 -- Sl2DivisorLattice
 --
 -- The 𝔰𝔩₂-triple on a chain of the divisor lattice, machine-checked.
--- Companion prose: notes/SL2_DIVISOR_LATTICE.md (which also records the
 -- verdict: the mathematics is CLASSICAL — Stanley 1980, Proctor 1982,
 -- and for the rank-one content textbook 𝔰𝔩₂ theory, Humphreys §7).
 -- Nothing here is claimed as new mathematics; what is new is that the
@@ -433,7 +432,6 @@ private
 -- §6  Scope limit, stated because it would otherwise be papered over.
 --
 -- The multi-index module B_n = k[ξ₁,…,ξ_m]/(ξ_i^{α_i+1}) = ⨂_i V_{α_i}
--- of notes/SL2_DIVISOR_LATTICE.md §1 is NOT formalized here, and neither
 -- is the note's §2(c) off-diagonal cancellation (which is the step that
 -- only exists when m ≥ 2).  What is above is the rank-one case in full.
 -- The structural route to the general case is the note's §3(ii): a sum

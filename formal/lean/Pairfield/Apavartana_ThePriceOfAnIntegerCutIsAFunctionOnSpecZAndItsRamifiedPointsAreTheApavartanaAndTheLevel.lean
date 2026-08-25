@@ -49,10 +49,8 @@ Here the drop is 2 at one bad prime and 1 at another.  A non-constant function
 on the ramification locus is not a number, and that is the whole content of
 "over ℤ the price of a cut is a function on Spec ℤ."
 
-Cited, not re-derived: `notes/SESA_THE_ALIGNMENT_DEFECT_IS_A_FIBRE_AND_WHEN_IT_IS_MUTUAL_INFORMATION.md`
 (the defect is a fibre dimension; and the fence — linear ranks satisfy
 Ingleton, entropies do not, so this does not read as entropy),
-`notes/SMITH_TORSION_BOUNDARY_MEMORY.md`,
 `formal/cubical/Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd.agda`.
 
 ## What is checked here and what is prose

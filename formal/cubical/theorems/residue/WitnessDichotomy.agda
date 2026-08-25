@@ -153,7 +153,6 @@ collisionKills obs val read x x' same differ d at-x at-x' =
 --                 both occur.
 --
 --   Every site in this corpus passes both, which is why every site costs
---   2, and `notes/BARRIER.md`'s open problem is on the same line.
 --
 -- OPEN, named and not estimated.  Whether "reading" admits a converse:
 -- these modules show a discrete probe SUFFICES for the ceiling and that

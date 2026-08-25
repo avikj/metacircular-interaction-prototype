@@ -11,7 +11,6 @@
 -- naming: `.claude/hooks/priority-ledger.txt` (CURRENT header) and
 -- `.claude/hooks/european-frame.txt`; no row applies, and the frame
 -- check's scope requires Indian material, which this module has none
--- of.  `formal/` and `notes/` grepped for the terms first.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE LINE, AND WHAT IT DECLARED IT WAS NOT DOING

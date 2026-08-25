@@ -5,8 +5,6 @@
 --
 -- The exact chart depth of the labelled subset-sum valuation response.
 --
--- Context (credit): `notes/CANCELLATION_OBSERVABLE_FORMATION.md` forms the
--- binary residual `kappa_p`, `notes/HIGHER_ARITY_CANCELLATION_FORMATION.md`
 -- lifts it to arity `n`, and `collab/messages/0161-codex-formation-subset-
 -- sum-carrier-result.md` closes with the hostile question
 --
@@ -26,7 +24,6 @@
 -- argument is divisibility in ℤ and the module stays `--safe` with no
 -- postulates and no holes.
 --
--- Prose, corrections and ledger: `notes/CANCELLATION_CONTEXTS_ARE_FLAGS.md`.
 -- This module is standalone: it is NOT imported by `agda`
 -- and is not covered by the root aggregate's green claim (`BUILD.md`).
 --

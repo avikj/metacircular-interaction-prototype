@@ -7,7 +7,6 @@ import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 /-!
 # Exact finite Fourier reconstruction for the Indra residue-pair net
 
-`notes/INDRA_CROSS.md` Proposition N changes coordinates between a function on
 two reduced residue classes and its complete grid of Dirichlet-character
 components.  Mathlib already provides the one-leg delta kernel
 `DirichletCharacter.sum_char_inv_mul_char_eq`.  This adapter applies that

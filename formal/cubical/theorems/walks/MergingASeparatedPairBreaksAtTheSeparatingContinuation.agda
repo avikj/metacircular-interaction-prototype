@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- MergingASeparatedPairBreaksAtTheSeparatingContinuation
 --
--- `notes/DEPENDENT_SYSTEM_OPTIMIZATION_DELTA_28.md` §28–30 states
 --
 --   "Theorem 28.10 (no free compression): merging projectively distinct
 --    states admits a separating continuation — the global optimum

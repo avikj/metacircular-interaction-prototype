@@ -1,7 +1,6 @@
 /-
 Lemma 1.3 — no arithmetic Lorentz group (V3 target 2).
 
-Statement (notes/REPORT.md, Lemma 1.3): the group of ℤ-linear maps preserving
 the form q(S,D) = S² − D² and orientation is {±I}. Concretely: an integer
 2×2 matrix M with Mᵀ · diag(1,−1) · M = diag(1,−1) and det M = 1 is ±I.
 

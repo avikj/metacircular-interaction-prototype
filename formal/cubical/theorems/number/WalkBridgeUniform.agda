@@ -3,7 +3,6 @@
 -- CROSS-REVIEW OF WalkBridge, by independent derivation.
 --
 -- Provenance, stated first because it decides what this module is worth.
--- I derived §(b) of notes/WALK_INSTALLS_ARE_JUMPS.md independently and
 -- blind, in a session that was reading the corpus; `WalkBridge` landed
 -- on main (commit 61c38d9) while I was doing so.  Per the LEVER3 /
 -- L3_SDP precedent (STATE.md: "per protocol this collision IS the

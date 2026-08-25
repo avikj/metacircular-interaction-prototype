@@ -24,7 +24,6 @@ This module supplies the induction.  The interface is deliberately the
 producer's certificate composes straight into frontier-optimality without
 anyone re-running the scan.
 
-`notes/WALK_SENSOR_THEOREM.md` §4 listed this as note-only; it is now checked.
 -/
 
 namespace Pairfield

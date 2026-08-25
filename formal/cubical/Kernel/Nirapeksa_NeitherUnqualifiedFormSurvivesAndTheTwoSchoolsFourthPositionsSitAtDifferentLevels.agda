@@ -102,7 +102,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 import Cubical.Data.Empty as E
 
-open import Kernel.RewriteCertificate
+open import RewriteCertificate
 
 private
   variable

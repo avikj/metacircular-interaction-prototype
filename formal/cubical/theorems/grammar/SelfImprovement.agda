@@ -7,7 +7,6 @@
 --
 -- These are small statements.  Every proof below is a page of pattern
 -- matching and none of them is deep.  Their value is not depth: it is that
--- the design discipline of `notes/ECOLOGY.md` -- "performance must never
 -- contaminate identity", "fitness does not automatically transport",
 -- "a gamed evaluator's observations are quarantinable without touching the
 -- genotypes it scored" -- stops being prose that a reader must trust and
@@ -58,7 +57,6 @@
 --   * Content addressing itself.  `Genotype` is abstract and its identity
 --     is a supplied `Discrete`; nothing here is a hash, a canonicalizer, or
 --     a collision argument, and the I0-I3 strata of
---     notes/CONTENT_ADDRESSED_MATHEMATICAL_IDENTITY.md §3 are untouched.
 --     "identity is the content hash" is exactly the part left to prose.
 --   * The Merkle-DAG: inheritance by hash reuse, recombination of
 --     subgraphs, phylogeny, and gene-level fitness attribution ("#84ab ...

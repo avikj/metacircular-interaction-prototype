@@ -5,7 +5,6 @@
 --
 -- The generative presentation of the natural numbers, machine-checked,
 -- with positional notation exhibited as a CHART rather than as the
--- object.  Companion prose: notes/NATURAL_MACHINE.md.
 --
 -- Thesis, in one sentence: symbols are π₀, geometry lives in identity
 -- types, and univalence is what makes them say the same thing.
@@ -147,7 +146,6 @@ import StructuredDefect
 -- only: the certificate "the invariant vanished, so the construction is
 -- sufficient" is refuted by an explicit element, its contrapositive is
 -- sound, and the kernel is exactly the vanishing-Euler-characteristic
--- locus (notes/SPLICING_DEFECT_ADJUDICATED.md §4, finite model).
 import DecategorifiedDefect
 -- A collision between an installed observation and a certified action
 -- returns its minimal conservative repair: the product observer.  Its
@@ -460,7 +458,6 @@ import WalkFast
 -- CoprimeSplitting both confessed missing, built from CoprimeSplitting's
 -- own bounded divisor search (no new number theory).
 import PrimalityDecision
--- notes/NUMBER_TOWER_AS_REPAIR.md §4.3 and Prop 9, as terms: repairs of a
 -- defect form a torsor under Aut of the repaired object, so the repair is
 -- canonical iff that group is trivial (and an initial repair is unique up
 -- to UNIQUE isomorphism).
@@ -812,24 +809,20 @@ base2-is-2 = refl
 base10-is-10 : Base10.b ≡ 10
 base10-is-10 = refl
 
--- The line-world transport criterion of `notes/ENCOUNTERED_WORLDS.md` §3.5
 -- with its observable hypothesis in the type, plus the checked `f = X`
 -- counterexample that makes the hypothesis load-bearing.  Its negative
 -- control is `NaturalMachine/Control/QuantifierDrop.agda`, which must fail.
 import LineWorldTransport
 
 -- Three displays of the fifth owner transmission (D0020) refuted or
--- collapsed as checked terms; see `notes/D0020_LEDGER.md` rows 8.5,
 -- 1.5, 0.3 and the module header for scope limits.
 import TransmissionRefutations
 
--- The finite no-go of `notes/ENCOUNTERED_WORLDS.md` §2 with its
 -- nonvanishing clause in the type, and the vanishing world that has no
 -- maximizer.  Negative control:
 -- `NaturalMachine/Control/MaximizerWithoutNonvanishing.agda`, which must fail.
 import FiniteWorldMaximizer
 
--- Thm 3.5 of `notes/EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS.md` with its
 -- "along a quotient" qualifier in the type: inflation is injective, and
 -- restriction to a subgroup has no section, so the flattened reading of
 -- "symmetry enlargement" is false.  Negative control:
@@ -839,26 +832,22 @@ import InflationVersusSubgroup
 -- The unreachability verdict of message 0533 with the premise it omits
 -- ("`start = 0`") in the type: `{s0}` is closed, but from `s1` one
 -- action reaches the sink, so the start-free reading is false
--- (`notes/FULL_READ_DRAW_6.md` §B1).  Negative control:
 -- `NaturalMachine/Control/ReachabilityWithoutStart.agda`, which must fail.
 import ReachableFromStart
 
 -- Injectivity of the comparison maps is SUFFICIENT for the atomic
 -- satisfaction biconditional and not necessary: an explicit revised
 -- observer merging two unrealized outcomes satisfies the full invariant
--- (`notes/FULL_READ_DRAW_6.md` §D3).  Negative control:
 -- `NaturalMachine/Control/InjectivityNecessary.agda`, which must fail.
 import ComparisonNeedNotBeInjective
 
 -- Two witnesses bound a constant, not every function of (b,n): the
 -- yield's third known value refutes the promoted universal
--- (`notes/FULL_READ_DRAW_6.md` §C1).  Negative control:
 -- `NaturalMachine/Control/FunctionBoundFromConstant.agda`, which must fail.
 import ConstantBoundNotFunctionBound
 
 ------------------------------------------------------------------------
 -- ORPHAN FOLD-IN, 2026-08-15 (Claude, Euclid-lineage orphan pass;
--- collab/messages/0828-euclid-orphans.md, notes/TOOLCHAIN_SKEW_AND_
 -- COVERAGE.md §7).
 --
 -- The import closure of `Everything.agda` was recomputed from the
@@ -1189,3 +1178,23 @@ import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
 import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+
+-- Kernel/ : seven modules that were checked at the OLD pin (2.6.3 + v0.5),
+-- renamed to `Kernel.*` to match this directory, and then imported by
+-- nothing -- so no command built them and their headers said so.  Their
+-- imports named `Kernel.RewriteCertificate`, which does not exist; the
+-- module is `RewriteCertificate`.  Repointed and re-run: all seven are
+-- green at the repository pin (Agda 2.8.0 + cubical v0.9).
+import Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning
+import Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount
+import Kernel.Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure
+import Kernel.Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchoolsFourthPositionsSitAtDifferentLevels
+import Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach
+import Kernel.Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation
+import Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified
+
+-- Parampara_ : the free zigzag calculus over an ARBITRARY generator
+-- relation, proved sound and complete against the equivalence closure.
+-- It is the kernel's own `Derivation` with the generators left open, and
+-- it was imported by nothing.
+import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound

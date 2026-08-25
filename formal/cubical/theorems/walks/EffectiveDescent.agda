@@ -27,7 +27,6 @@
 --     Altenkirch's factorisation of a 2-Constant map, `PT.rec→Set` —
 --     supplies `g` directly.  This is the third or fourth time in this
 --     corpus that a missing construction turned out to be a universal
---     property already installed (`notes/WALK_INSTALLS_ARE_JUMPS.md`),
 --     and the fourth instance is worth recording because the corpus
 --     ALREADY OWNED the tool: `FiniteInformation`
 --     (`fiberConstant→factorsThrough`) does exactly this
@@ -111,7 +110,6 @@
 -- WHAT IS NOT CLAIMED
 --
 --  * **§2 and §3 are already in this corpus, in prose.**  Searched
---    before written, and found: `notes/OBSERVABLE_DESCENT_COMMON_OBJECT.md`
 --    (cf-tessera) states exactly this as its theorem (T) — "`f` factors
 --    through `q` iff `f` is constant on every `q`-fibre" — and identifies
 --    three lanes as instances of it.  Its rigor boundary names the gap
@@ -145,7 +143,6 @@
 --    subsumed, and that the two produce the same function.  Exhibiting a
 --    non-set `C` at which §4 fails would need `π₁(S¹)` and is not done.
 --
---  * **This is about a ONE-MAP cover.**  `notes/PM_SECTION_VS_COCYCLE.md`
 --    §2 locates the Peres–Mermin obstruction as "a property of the
 --    *cover*, i.e. genuinely cohomological — of the nerve, not of the
 --    operator set", each observable lying in exactly two contexts.  §4

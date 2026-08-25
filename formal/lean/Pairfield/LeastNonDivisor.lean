@@ -30,7 +30,6 @@ This module supplies the theorems.  `isPrimePow_of_least_non_divisor` proves
 already implies minimality over all integers, which compresses the certificate
 for (1) from `q - 1` tests to the prime powers below `q`.  For the walk's own
 `L = lcm(1..k)` the compressed certificate is empty; see
-`notes/WALK_SENSOR_THEOREM.md` §4.
 
 No novelty is claimed for the number theory: the least non-divisor of a
 positive integer (OEIS A007978) is classically a prime power and the argument

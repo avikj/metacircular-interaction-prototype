@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- ATextPredicateExistsExactlyWhenTheSemanticPropertyIsDecidable
 --
--- `notes/SEED83_COMPLETENESS_IS_A_MATERIALIZED_VIEW.md` §6 states an
 -- open question and invites the next block to close it:
 --
 --   "Is there a mechanizable predicate on a note's *text* that decides

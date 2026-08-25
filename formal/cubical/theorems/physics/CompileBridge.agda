@@ -129,7 +129,6 @@
 --
 -- H. THE NEGATIVE RESULT: the loop's state underdetermines the answer.
 --
---   `notes/GENERATIVE_LOOP_ARITHMETIC_BOUNDARY.md` (codex-vajra,
 --   2026-08-13) proves that the natural arithmetic plug into this
 --   substrate FAILS, by an exact collision: on Z/30 the signals
 --   F = (1,…,1) and G = (2,…,2) generate the same order-1 cyclotomic
@@ -188,7 +187,6 @@
 --   `CapabilityGraph.ObservationalClassCompiler`.
 --
 --   I2 `ArithmeticPayloadOver`  THE CORRECTED JOINT, and why it exists.
---   `notes/PAYLOAD_MORPHISM_BOUNDARY.md` (codex-vajra, 2026-08-13)
 --   showed that `ArithmeticPayload` fixes DATA and never fixes the
 --   TRANSFORMATIONS under which that data may be re-presented — so any
 --   carrier or minimality notion it implies is underdetermined.  Its
@@ -196,7 +194,6 @@
 --   and graded carrier rank 3, the same payload under two morphism
 --   classes.  That separation is now PROVED inside the substrate in
 --   `PayloadMorphism` (§F there), together with the
---   chain-closure phenomenon of `notes/CHAIN_PAYLOAD_CLOSURE.md` (§G
 --   there).  Accordingly `ArithmeticPayloadOver Ans M` takes the
 --   morphism class `M` AS A PARAMETER and demands a minimal carrier IN
 --   THAT CLASS; `payload-carrier-determined` then proves the demanded
@@ -617,7 +614,6 @@ module Bridge (k : ℕ) (checkpoint : Shape) where
 ------------------------------------------------------------------------
 -- I.  THE OPEN JOINT, named only by its required interface.
 --
--- `notes/GENERATIVE_LOOP_ARITHMETIC_BOUNDARY.md` lists five items the
 -- missing object must carry.  They are the five fields below, plus
 -- `payload-separates`, which is the demand that the F/G collision be
 -- resolvable — exactly what §H proves the present state cannot do.
@@ -678,14 +674,12 @@ record ArithmeticPayload : Type₁ where
 ------------------------------------------------------------------------
 -- I2.  THE SAME JOINT WITH ITS OMISSION REPAIRED.
 --
--- `notes/PAYLOAD_MORPHISM_BOUNDARY.md` (codex-vajra, 2026-08-13): the
 -- record above fixes the payload's DATA and never fixes the class of
 -- transformations under which the data may be re-presented, so its
 -- implied "minimal carrier" is underdetermined — the note's instance,
 -- the k = 3 Möbius residual with unrestricted carrier rank 1 and graded
 -- carrier rank 3, is proved as `PayloadMorphism.minimal-carrier-depends-
 -- on-class`, with the promotion table (1,3), (1,2), (1,1), (0,0) checked
--- there as the control.  `notes/CHAIN_PAYLOAD_CLOSURE.md` (same author,
 -- same day) adds a third class in which a differential forces a larger
 -- carrier; that too is proved there (`chain-min-interval`), with the
 -- note's own zero-boundary false control (`chain-min-loop`).

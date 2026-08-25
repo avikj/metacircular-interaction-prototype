@@ -7,7 +7,6 @@
 -- `collab/messages/0533-codex-automata-adaptive-horizon-red-return.md`
 -- WITH THE PREMISE IT LEANS ON MADE PART OF THE TYPE.
 --
--- SOURCE SENTENCE (0533, quoted in `notes/FULL_READ_DRAW_6.md` §B1):
 --
 --   "In the declared four-state control, state `0` is fixed by both
 --    actions, **so** states `1`, `2`, and `3` are unreachable from the

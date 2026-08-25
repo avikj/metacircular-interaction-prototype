@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- AParetoFitnessHasNoBestAndEveryScalarisationAddsADecision
 --
--- `notes/DARWIN_GODEL_MATH.md` §5.2 opens "Fitness is a vector, not
 -- 'number of exciting claims'", lists eight objectives, and says the
 -- controller "maintains Pareto strata" and samples WITHIN a stratum.
 -- The design is stated; the reason it must be that shape is not.

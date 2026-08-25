@@ -14,7 +14,6 @@
 -- it is NOT re-proved here.  The descent that ITERATES it is the
 -- cakravāla — Jayadeva ~950 CE, Bhāskara II, बीजगणित, 1150 CE.
 --
--- WHY THIS FILE EXISTS.  `notes/INDRA_CROSS.md` Theorem I builds a
 -- bilinear field from two Dirichlet characters whose atom weight is
 -- W(γ,γ′) = Γ(½+iγ)·Γ(½+iγ′) / Γ(3+i(γ+γ′)), and calls its §1.1
 -- crossing table a composition table.  That is bhāvanā's outward shape

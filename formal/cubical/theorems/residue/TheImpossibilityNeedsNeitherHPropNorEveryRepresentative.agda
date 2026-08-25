@@ -5,7 +5,6 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  Set-quotients and transport along `eq/` are Voevodsky's
 -- substrate, which this repository declares as a tool and not a frame;
 -- the threshold predicates are this corpus's own.

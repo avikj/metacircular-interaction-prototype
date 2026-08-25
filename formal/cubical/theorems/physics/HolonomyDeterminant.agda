@@ -5,9 +5,7 @@
 --
 -- THE CONSERVED QUANTITY OF SMITH PATH HOLONOMY.
 --
--- notes/SMITH_PATH_HOLONOMY.md §3 lets `G` be the group of
 -- automorphisms of coker(D) induced by target holonomies U_p U_{p₀}⁻¹
--- and asks which cokernel data descend.  notes/RANK_R_PAYLOAD_NORMAL_-
 -- FORM.md §3 proves the events form a REGULAR torsor: the payload
 -- ranges over the whole stabilizer, "invisible to the endpoint".
 -- Read together they suggest that on the cokernel nothing at all is

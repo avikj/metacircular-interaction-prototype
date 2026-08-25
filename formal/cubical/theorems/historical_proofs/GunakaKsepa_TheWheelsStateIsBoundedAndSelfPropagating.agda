@@ -10,7 +10,6 @@
 -- What is claimed is that these are the two quantities their algorithm
 -- carries from turn to turn, and this file is about that pair.)
 --
--- WHY THIS FILE EXISTS.  `notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md`
 -- §5 names, verbatim, the piece that is missing:
 --
 --     "A checked bound on the turn count.  The `2·D` default rests on
@@ -94,7 +93,6 @@
 --     that module does not typecheck — its `Cubical.Tactics.NatSolver`
 --     import uses the v0.5 name `solve` where v0.9 has `solveℕ!`.  That
 --     is a live defect in a module this one depends on for its input, it
---     is recorded in `notes/`, and it is NOT repaired here because
 --     another lane's working tree is mid-repair across the whole
 --     directory.  `Varana_TheChoiceWindowIsDerivedNotFitted` declines the
 --     same import for the same reason and restates its lemmas; this file

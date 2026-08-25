@@ -1,0 +1,53 @@
+PRUNING BY OBSERVATIONAL EQUIVALENCE COLLAPSES A FIBRE WE CONSTRUCT AND
+SHOW IS UNBOUNDED
+The specification does not determine the program, the gap is exhibited,
+and no scoring function of behaviour selects within it
+
+Program synthesis / search over candidate programs
+
+Synthesisers prune by observational equivalence: two candidates agreeing
+on the specification are treated as one.  We prove what that step
+discards, and it is not a redundant duplicate.
+
+The setting is a rewriting calculus over a finite binder-free term algebra
+whose transitions include a constructor for reversal, so histories are
+freely generated composites with no normal form and no reduction order.
+Behaviour is an interpreter into a discrete domain.  Because an equality
+in a discrete domain is a subsingleton, any two histories with the same
+endpoints have equal behaviour - as terms, not merely in value - and every
+function of behaviour agrees on both, quantified over all target types at
+all universe levels.  Observational equivalence therefore identifies
+everything the specification could ever have distinguished, by
+construction.
+
+The gap is constructed, not estimated.  For a rule whose left-hand side contains no free variable, the candidates enabled at
+a single input form an entire copy of the term algebra with every member
+emitting the same output.  A hash-based or beam-based dedup does not
+remove a duplicate; it selects one representative of an unbounded fibre
+and destroys the rest, and it does so by a criterion that provably is not
+a function of behaviour.
+
+Two consequences for synthesis practice.  First, any ranking used inside
+the search is extra-semantic by theorem: it cannot be justified by the
+specification, because no functional of the specification separates the
+candidates it is ranking.  Size, cost and structural heuristics are
+therefore choices about the residue and should be reported as such, not as
+approximations to a semantic optimum that does not exist.  Second, we
+prove that length does not factor through the truncation of the history
+type, so even a synthesiser that retains only "some program was found"
+cannot afterwards recover the cost of what it found.
+
+The positive form.  A frontier expansion that maps over candidates with no
+deduplication, canonicalisation or sorting conserves multiplicity exactly,
+and we prove that invariant.  It is the only place the collapsed
+information remains, which is why the stronger law is not available: it
+would require adjudicating an identity of histories that behaviour cannot
+supply.
+
+WHAT IS NOT CLAIMED.  There is no specification language, no example-based
+synthesis, no version space and no enumerative search procedure here.  The
+object is a rewriting calculus with an interpreter, and "candidate" names a
+history.  The reading as a statement about synthesisers is a reading and is
+not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

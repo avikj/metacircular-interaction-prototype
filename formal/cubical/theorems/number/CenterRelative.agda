@@ -4,7 +4,6 @@
 -- CenterRelative
 --
 -- Prime-Pair Atlas Delta 16, formalisation targets 1-4, machine-checked.
--- Companion prose: notes/CENTER_RELATIVE_CONE.md.
 --
 -- Delta 16 asks for four things in Cubical Agda:
 --

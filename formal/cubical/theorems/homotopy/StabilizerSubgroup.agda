@@ -45,7 +45,6 @@
 -- Type ℓ'`) at which "subgroup" is not yet well-posed.*  That is a
 -- sharper statement than the one recorded, and it is the corpus's own
 -- recurring lesson: the obstruction was an h-level, not a missing
--- library.  Compare `notes/WALK_INSTALLS_ARE_JUMPS.md` ("the library's
 -- missing machinery was never the obstacle").
 --
 -- The restriction `ℓ' = ℓ` below is cubical's `ℙ X = X → hProp _` at

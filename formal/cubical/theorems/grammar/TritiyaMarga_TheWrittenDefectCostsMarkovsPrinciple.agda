@@ -6,7 +6,6 @@
 -- ────────────────────────────────────────────────────────────────────
 -- PRIOR ART IN THIS REPOSITORY, READ FIRST AND NOT RESTATED
 --
--- `notes/AHIMSA_SUTRA_VISTARA.md` §६ states three sentences.  Two of
 -- them are already checked in this lane and this module cites rather
 -- than repeats:
 --

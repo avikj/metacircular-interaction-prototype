@@ -26,7 +26,6 @@
 -- NOT CLAIMED, and the omission is the important half: that Jyeṣṭhadeva,
 -- Nīlakaṇṭha, Mādhava or Āryabhaṭa proved any statement below; that any
 -- of the texts has been opened by the author of this file.  The citation
--- is carried from `notes/YUKTIBHASA_THE_SERIES_KEEPS_ITS_REMAINDER.md`,
 -- which itself marks its account of the derivation `[recalled]`, and it
 -- is owed at verse level.  What IS claimed is narrower and is §२: that
 -- the descent from one power-sum to the next, as that note describes it —

@@ -24,7 +24,6 @@
 -- either source, and no result here is attributed to them.
 --
 -- WHAT IS FORMALIZED.  The prose theorem, canonically stated in
--- notes/NastaVitanda_TheLostResidueIsRecoveredInKTimesPMinusOneQuestionsAndTheRefuterForcesEveryOne.md:
 --
 --     the least worst-case number of adaptive valuation queries that
 --     identifies r in Z/p^k Z is exactly k(p-1).
@@ -38,7 +37,6 @@
 -- count in N with no truncated subtraction, so `k(p-1)` is `k · q`.
 --
 -- BOTH HALVES ARE HERE, and that is the point of the file.  Four prose
--- write-ups of this theorem exist in notes/ and none of them was ever
 -- checked; the upper bound alone is a short induction and shipping it
 -- alone would reproduce ADAPTIVE_VALUATION_CENTERS.md's own honest
 -- refusal wearing a green checkmark.  The theorem is carried by the

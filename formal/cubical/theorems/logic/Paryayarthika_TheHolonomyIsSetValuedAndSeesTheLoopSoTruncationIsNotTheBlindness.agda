@@ -31,7 +31,6 @@
 --
 --       "Truncating to a set is THE WHOLE of the blindness."
 --
--- `notes/GAUGE.md` and the unification built on it carry that gloss
 -- further: set-truncation is offered as the type-theoretic form of
 -- Theorem F's gauge-invariance, with the escape being an observable
 -- that is not set-valued.

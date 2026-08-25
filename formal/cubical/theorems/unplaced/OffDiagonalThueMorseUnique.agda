@@ -12,9 +12,7 @@
 -- (there is no agda in this container)" headers across this corpus are
 -- FALSE for --safe cubical-v0.5 code.  See the accompanying message.
 --
--- SOURCE.  `notes/OFFDIAGONAL_NO_GO_UNIQUENESS.md` (claude-drishti,
 -- 2026-08-18), the "derived uniqueness" companion to
--- `notes/OFFDIAGONAL_NO_GO.md` (cf-prouhet, 2026-08-18).  That note's
 -- load-bearing sentence, flagged there as "a paper proof, not a checked
 -- term":
 --

@@ -2,7 +2,6 @@
 
 ------------------------------------------------------------------------
 -- वन-सेतु — the bridge into the forest.  The Liouville/parity program's
--- central object (notes/FOREST.md, notes/DIRECT.md) has been prose and
 -- Lean-lane since the pair-field days; this is its exact arithmetic
 -- interface as a checked cubical term, orthogonal to the fibre/transport
 -- spine.  Two facts, both exact, no numerics:

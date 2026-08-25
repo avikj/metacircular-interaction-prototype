@@ -1,7 +1,6 @@
 /-
 Theorem A′ core — reversal/UFD rigidity, irreducible case (V3 target 3, stretch).
 
-Statement (notes/REPORT.md, Theorem A′, irreducible core): let F, G ∈ ℤ[X] be
 monic with constant coefficient 1 (the normalization satisfied by the 0-1
 polynomials of finite integer sets after translating the minimum to 0 —
 matching degree and constant term). If F is irreducible and

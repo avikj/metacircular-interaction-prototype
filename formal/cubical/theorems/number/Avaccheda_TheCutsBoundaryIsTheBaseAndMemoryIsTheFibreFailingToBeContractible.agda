@@ -7,7 +7,6 @@
 --  memory.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS IS.  `notes/CAUSAL_MEMORY_SPACETIME.md` and `loss/`
 -- are the same construction and neither knows it.  102 files in this
 -- corpus name Myhill–Nerode; not one of the causal-state notes contains
 -- the word पुनरागमन.  This module is the identification.

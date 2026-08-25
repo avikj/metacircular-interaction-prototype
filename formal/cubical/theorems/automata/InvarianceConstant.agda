@@ -6,7 +6,6 @@
 -- The invariance theorem of Kolmogorov complexity, and the comparison
 -- rule it forces, as checked terms.
 --
--- WHY THIS MODULE EXISTS.  `notes/MYSTERY_AND_DESCRIPTION_LENGTH.md`
 -- adjudicates an MDL layer by repeatedly applying one fact: a complexity
 -- function is defined only up to an additive constant depending on the
 -- machine, so no *absolute* description length and no *narrow*

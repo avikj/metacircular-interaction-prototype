@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------
 -- सेतु-प्रमाणम् — the second seam ford: विवेक-प्रमाण ≡ ℕ.
 --
--- WHY, measured.  In notes/tirtha/SetuSnapshot.tsv the bank
 -- `⟨ambig⟩.विवेक-प्रमाण` heads a 7-bank component (the रात्रि census bases)
 -- SEPARATE from the 13-bank component holding ℕ, विवेक, छन्दस् — even though
 -- `VivekaPramana…ℕ×ℕ≡विवेक-प्रमाण` was already landed.  The split is partly

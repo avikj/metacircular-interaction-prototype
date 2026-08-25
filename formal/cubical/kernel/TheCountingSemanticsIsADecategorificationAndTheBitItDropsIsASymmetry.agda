@@ -88,7 +88,7 @@
 module TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Foundations.Equiv using (_≃_ ; equivFun ; idEquiv ; invEquiv ; compEquiv)
+open import Cubical.Foundations.Equiv using (_≃_ ; equivFun ; idEquiv ; invEquiv ; compEquiv ; equivEq ; retEq)
 open import Cubical.Foundations.Univalence using (ua ; uaβ)
 open import Cubical.Data.Nat using (ℕ ; isSetℕ ; +-comm)
 open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
@@ -99,6 +99,7 @@ open import Cubical.Data.Sum.Properties
   using (⊎-equiv ; ⊎-swap-≃ ; ⊎-assoc-≃ ; ⊎-IdR-⊥-≃)
 
 open import RewriteCertificate
+open import GenerativeKernel using (direct-history ; detour-history)
 
 private
   variable
@@ -259,3 +260,64 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
     chain = sym (uaβ (derivation⁺-equiv comm-loop σ₁) (inl tt))
           ∙ cong (λ q → transport q (inl tt)) p
           ∙ transportRefl (inl tt)
+
+------------------------------------------------------------------------
+-- §5.  THE OTHER HALF OF THE LINE.  ADDED 2026-08-25.
+--
+-- §4 shows the categorified semantics SEES something the counting one
+-- cannot: a transposition.  It does not follow that it sees everything,
+-- and the question it leaves is the one that decides what any policy over
+-- this kernel could ever be scored by.
+--
+-- `TheDerivationCarriesNoMeaning…` exhibits the kernel's own separable-
+-- looking pair — `direct-history` (2 steps) and `detour-history` (4:
+-- forward, the reverse of that same step, then the direct route) — and
+-- proves no function of their ℕ-MEANING tells them apart.  The natural
+-- suspicion is that categorifying repairs this and makes length visible.
+--
+-- IT DOES NOT, and the reason is structural rather than accidental.  A
+-- step immediately followed by its own reverse interprets as `e` then
+-- `invEquiv e`.  `isEquiv` is a proposition, so two equivalences are equal
+-- exactly when their functions are; and `retEq` cancels that pair
+-- pointwise.  So the detour is annihilated by the categorified semantics
+-- TOO — not because ⟦_⟧ is coarse, but because `reverse` was put into
+-- `Step` on purpose, and a groupoid cannot remember that you went and came
+-- back.
+--
+-- THE LINE, therefore, and it is exact for these two examples:
+--
+--     length     invisible to ℕ, invisible to Type   (§5)
+--     symmetry   invisible to ℕ, VISIBLE to Type     (§4)
+--
+-- Read as the design constraint it is: categorifying the readout buys the
+-- arrangement and does not buy the route.  A lāghava order over derivations
+-- is not a measure awaiting discovery at a higher level — it is extra-
+-- semantic at every level of this hierarchy, which is `TheDerivation
+-- CarriesNoMeaning…`'s no-go surviving the obvious repair.
+--
+-- WHAT IS STILL NOT CLAIMED.  This does NOT supply the coherence theorem
+-- the module's own NOT CLAIMED asks for.  §5 settles ONE pair — the one
+-- the corpus already exhibits — and says nothing about whether some other
+-- pair of `Derivation`s with equal endpoints is separated by ⟦_⟧.  A
+-- general statement would have to rule out every pair, and that is a
+-- coherence result about the whole calculus which is not proved anywhere
+-- here.  The `add-comm` extension shows such pairs DO exist once the
+-- constructor is added, so any general claim must be about `Step` and not
+-- `Step⁺`.
+------------------------------------------------------------------------
+
+-- Going and coming back is invisible, for EVERY step and every derivation.
+detour-cancels :
+  {a b c : Tm} (p : Step a b) (d : Derivation a c) (σ : TEnv)
+  → derivation-equiv (then-step p (then-step (reverse p) d)) σ
+  ≡ derivation-equiv d σ
+detour-cancels p d σ =
+  equivEq (funExt (λ x → cong (equivFun (derivation-equiv d σ))
+                              (retEq (step-equiv p σ) x)))
+
+-- and the kernel's own two histories are one instance of it: the pair the
+-- ℕ-semantics cannot separate is not separated by the type semantics either.
+the-detour-is-invisible-after-categorification-too :
+  (σ : TEnv) → derivation-equiv detour-history σ ≡ derivation-equiv direct-history σ
+the-detour-is-invisible-after-categorification-too =
+  detour-cancels (add-suc var zero) direct-history

@@ -17,7 +17,6 @@ of the upstream type used `SmithPresentation A (.diagonal d₁ d₂) ×
 (0 ≤ d₁ ∧ …)`. On a source-clean replay this fails because the second
 factor is a `Prop` where `Prod` expects a `Type`. The capability graph now uses
 the subtype form already carried by `Pairfield.arbitrarySmithPresentation'` in
-`GeneralSmith2x2.lean`. See `notes/GENERAL_SMITH_PRODUCER.md` §11.
 -/
 
 namespace Pairfield.CapabilityGraph

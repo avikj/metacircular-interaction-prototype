@@ -5,7 +5,6 @@
   ===============
 
   The kernel-checked core of the "singleton + orbit" condition described in
-  `notes/SEPARATING_POINT_COLLAPSE.md` (genius-13 / Sophie Germain block,
   2026-08-14).
 
   Setting.  A type `X` of states, an *invertible* admitted action `α : X ≃ X`,
@@ -16,8 +15,6 @@
 
   is the coarsest α-invariant relation refining the fibres of `P`; that is the
   Myhill–Nerode / persistent-carrier relation which
-  `notes/NATURAL_MACHINE_CPU_LOOP.md` §4 computes by Moore refinement and
-  `notes/UNASSEMBLED_RESULTS_HARVEST.md` E1 studies for divisibility crystals.
   `~-refines`, `~-invariant` and `~-coarsest` below prove that characterisation,
   so the object is defined rather than asserted.
 
