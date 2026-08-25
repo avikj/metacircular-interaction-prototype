@@ -101,6 +101,8 @@ import Cubical.Data.Nat as N
 open import Cubical.Data.Bool using (Bool ; true ; false ; notEquiv ; false≢true)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥rec)
 open import Cubical.Relation.Nullary using (¬_)
+open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
+open import Cubical.Data.Unit using (Unit ; tt)
 
 open import NaturalMachine.RewriteCertificate using (Tm ; Derivation ; done ; then-step)
 open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
@@ -331,3 +333,87 @@ record Laghava {Op : Type ℓ} (M : MonoidMachine Op) : Type ℓ where
 -- provenance must carry the DERIVATION, because §3 says those quantities
 -- do not exist on the other side of `ua`.
 ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- §7  AND THEREFORE: NO FUNCTION OF THE IMAGE RECOVERS THE COST.
+--
+--     §3 refuses a cost ON a group.  This refuses something stronger and
+--     more useful: given ANY map out of a graded structure onto a group
+--     — not `ua`, not soundness, any monoid homomorphism with a section —
+--     there is NO function whatsoever of the target that agrees with the
+--     cost on the source.
+--
+--     `NaturalMachine.Laghava` has this as a two-point witness: it
+--     exhibits `short` and `long`, equal in meaning, of sizes 3 and 5,
+--     and concludes `laghava-does-not-factor` for THAT `size`.  A witness
+--     refutes one candidate.  This refutes the type.
+--
+--     The proof is §3 run on the image: the section pushes the source's
+--     additivity forward, so `f` is a grading on the target; the target
+--     is a group, so §3's argument makes `f` identically zero; so the
+--     cost it was supposed to reproduce is zero, and one costly element
+--     ends it.
+------------------------------------------------------------------------
+
+मात्रा-न-प्रतिबिम्बात् :
+  {Op : Type ℓ} {G : Type ℓ}
+  (M : MonoidMachine Op) (MG : MonoidMachine G) (L : Matra M)
+  (φ : Op → G)
+  (hom  : (a b : Op) → φ (MonoidMachine.seq M a b)
+                     ≡ MonoidMachine.seq MG (φ a) (φ b))
+  (unit : φ (MonoidMachine.noop M) ≡ MonoidMachine.noop MG)
+  (inv  : G → G)
+  (rinv : (g : G) → MonoidMachine.seq MG g (inv g) ≡ MonoidMachine.noop MG)
+  (ψ    : G → Op) (sec : (g : G) → φ (ψ g) ≡ g)
+  (x    : Op) (costly : ¬ (Matra.मात्रा L x ≡ N.zero))
+  → ¬ (Σ[ f ∈ (G → ℕ) ] ((z : Op) → Matra.मात्रा L z ≡ f (φ z)))
+मात्रा-न-प्रतिबिम्बात् {G = G} M MG L φ hom unit inv rinv ψ sec x costly (f , eq) =
+  costly (eq x ∙ f-शून्यम् (φ x))
+  where
+  -- the unit of the target is free, because the unit of the source is
+  f-नोपः : f (MonoidMachine.noop MG) ≡ N.zero
+  f-नोपः = cong f (sym unit)
+         ∙ sym (eq (MonoidMachine.noop M))
+         ∙ अनोपस्य-मात्रा-शून्या M L
+
+  -- and the target is ADDITIVE, pushed forward along the section
+  f-संयोगे : (g h : G) → f (MonoidMachine.seq MG g h) ≡ f g + f h
+  f-संयोगे g h =
+      cong f (cong₂ (MonoidMachine.seq MG) (sym (sec g)) (sym (sec h)))
+    ∙ cong f (sym (hom (ψ g) (ψ h)))
+    ∙ sym (eq (MonoidMachine.seq M (ψ g) (ψ h)))
+    ∙ Matra.संयोगे L (ψ g) (ψ h)
+    ∙ cong₂ _+_ (eq (ψ g)) (eq (ψ h))
+    ∙ cong₂ _+_ (cong f (sec g)) (cong f (sec h))
+
+  -- so f is a grading on a group, and §3's argument flattens it
+  f-शून्यम् : (g : G) → f g ≡ N.zero
+  f-शून्यम् g =
+    वाम-शून्यम् (f g) (f (inv g))
+      ( sym (f-संयोगे g (inv g)) ∙ cong f (rinv g) ∙ f-नोपः )
+
+------------------------------------------------------------------------
+-- §8  THE INSTANCE THE KERNEL IS.
+--
+--     `sound : Derivation a b → Meaning a b` lands in a PROPOSITION
+--     (`Asesa_…`, `isPropMeaning`), and an inhabited proposition is the
+--     trivial group: one element, its own inverse, seq and noop forced.
+--     So §7 applies with `G = Unit`, and says exactly this — NOTHING
+--     COMPUTED FROM THE MEANING SEES THE ROUTE.  Not "no obvious
+--     function": no function.
+------------------------------------------------------------------------
+
+एकः : MonoidMachine Unit
+एकः = record
+  { seq = λ _ _ → tt ; noop = tt
+  ; unitL = λ _ → refl ; unitR = λ _ → refl ; assoc = λ _ _ _ → refl }
+
+अर्थात्-न-मात्रा :
+  ¬ (Σ[ f ∈ (Unit → ℕ) ] ((d : Derivation A A) → len d ≡ f tt))
+अर्थात्-न-मात्रा (f , eq) =
+  मात्रा-न-प्रतिबिम्बात् आवृत्तिः एकः कर्णस्य-मात्रा
+    (λ _ → tt) (λ _ _ → refl) refl
+    (λ _ → tt) (λ _ → refl)
+    (λ _ → done A) (λ { tt → refl })
+    आवृत्तम् (λ p → snotz (sym आवृत्तस्य-मात्रा ∙ p))
+    (f , eq)
