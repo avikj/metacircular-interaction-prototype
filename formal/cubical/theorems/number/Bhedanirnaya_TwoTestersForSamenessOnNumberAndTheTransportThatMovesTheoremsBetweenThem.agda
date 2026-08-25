@@ -59,7 +59,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 
 import ResidueGlue
-import Obstruction
+import ObstructionSubstrate
 
 ------------------------------------------------------------------------
 -- §1 · समता — the two testers agree, pointwise.

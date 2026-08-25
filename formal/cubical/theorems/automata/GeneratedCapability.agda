@@ -32,7 +32,7 @@ open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import FutureBehavior using (FutureEq)
-open import Obstruction
+open import ObstructionSubstrate
   using (Vocab ; Obstruction ; Tm ; Over ; extend ; unfold ; unfold-elim)
 open Obstruction
 open import CompileBridge

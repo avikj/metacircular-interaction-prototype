@@ -141,7 +141,7 @@ import LawfulContinuationCore
 -- Bool-indexed union reaches 0 by the checked path A then B.
 import AffineEmergenceCountedPath
 import AcceptanceTest
-import Obstruction
+import ObstructionSubstrate
 import StructuredDefect
 -- An invariant that kills the zero detects a defect in one direction
 -- only: the certificate "the invariant vanished, so the construction is
@@ -383,7 +383,7 @@ import PerspectiveCore
 -- ambient reflection restricts on negation-invariant fibres, while the
 -- positive cone supplies a literal sector-break witness.
 import PairReflectionSector
-import CenterRelative
+import CenterRelativeExecutable
 -- Delta 15, theorem factory II: the defect calculus -- structured
 -- equivalence, the structured defect type, stabilisers, polarization,
 -- charge shift, kernel-pair descent, and refutation transport.
@@ -1183,9 +1183,9 @@ import WalkStreamHypothesisBoundary
 -- this root because they were reachable from nothing and so were checked by
 -- nobody: a module outside the import closure is built by no command, and
 -- "it is green" about such a module is a claim about one person's shell.
-import Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
-import Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
-import Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
-import Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
-import Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
-import Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+import TheInstalledOperationHasNoPervasionSoTheKernelMemorises
+import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
+import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous

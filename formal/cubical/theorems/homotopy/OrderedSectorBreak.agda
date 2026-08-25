@@ -122,7 +122,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
-open import CenterRelative
+open import CenterRelativeExecutable
   using (Pair ; Centre ; Φ ; Ψ ; ΦEquiv ; ΨΦ)
 open import PerspectiveCore
   using (SectorBreak ; sector-not-inv ; restricts-suff)

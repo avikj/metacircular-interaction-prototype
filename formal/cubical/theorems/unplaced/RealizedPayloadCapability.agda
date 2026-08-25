@@ -6,7 +6,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.List using (_∷_)
 open import Cubical.Data.Sigma
 
-open import Obstruction using
+open import ObstructionSubstrate using
   (Shape ; Vocab ; Tm ; Over ; unfold ; unfold-elim)
 open import PayloadMorphism using (MorphismClass)
 open import DatumSensitivePayload

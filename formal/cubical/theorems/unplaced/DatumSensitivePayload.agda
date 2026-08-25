@@ -13,7 +13,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Monoid.Base
 
-open import Obstruction
+open import ObstructionSubstrate
 open import PayloadMorphism using (MorphismClass ; MinCarrier)
 
 -- The smallest repair of CompileBridge.ArithmeticPayloadOver's semantic

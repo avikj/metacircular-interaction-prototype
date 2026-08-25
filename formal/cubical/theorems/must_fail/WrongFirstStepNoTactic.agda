@@ -122,7 +122,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥)
 
-open import Obstruction
+open import ObstructionSubstrate
 open Obstruction
 
 ------------------------------------------------------------------------

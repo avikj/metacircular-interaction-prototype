@@ -146,7 +146,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.BigOps using (module Sum)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
-open import CenterRelative using (Pair ; Φ)
+open import CenterRelativeExecutable using (Pair ; Φ)
 
 private
   variable

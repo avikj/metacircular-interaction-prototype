@@ -49,7 +49,7 @@
 -- and the fibre is `fiber f b`, the exact loss — one proof, one site, and
 -- you pay again to move.  §2 computes the locus type of an installed
 -- operation and it is literally a `singl`: contractible, one point, the
--- source.  The kernel is at the lossy binding on purpose.  `Asesa_…`
+-- source.  The kernel is at the lossy binding on purpose.  `TheWholeDerivationTypeIsOneFibre…`
 -- reports the same position from the soundness side.
 --
 -- WHAT IS PROVED
@@ -73,7 +73,7 @@
 -- under iterated advance.
 ------------------------------------------------------------------------
 
-module Ekadhikarana_TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass where
+module TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass where
 
 open import Cubical.Foundations.Prelude
 
