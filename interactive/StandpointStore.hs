@@ -546,61 +546,16 @@ splitOn c s = case break (== c) s of
 
 -- | One entry, one line.  Deterministic: the same store always writes the
 --   same bytes, which is what makes a transcript replayable.
-lineOf :: Entry -> String
-lineOf e = intercalate "\t"
-  [ "NAYA"
-  , show (entId e)
-  , esc (entName e)
-  , case entYogyata e of
-      Yogya  r -> "yogya:"  ++ esc r
-      Ayogya r -> "ayogya:" ++ esc r
-  , esc (entRecorder e)
-  , esc (entWhen e)
-  , intercalate ";" [ esc (sakLabel w) ++ "=" ++ esc (sakSource w)
-                    | w <- entWitness e ]
-  ]
-
-parseLine :: String -> Either String Entry
-parseLine ln = case splitOn '\t' ln of
-  ["NAYA", i, nm, y, rec, wh, ws] -> do
-    y' <- parseYogyata y
-    pure Entry { entId = read i, entName = unesc nm, entYogyata = y'
-               , entRecorder = unesc rec, entWhen = unesc wh
-               , entWitness = parseWits ws }
-  _ -> Left ("malformed journal line: " ++ take 120 ln)
-  where
-    parseYogyata s
-      | "yogya:"  `isPrefixOf` s = Right (Yogya  (unesc (drop 6 s)))
-      | "ayogya:" `isPrefixOf` s = Right (Ayogya (unesc (drop 7 s)))
-      | otherwise = Left ("unknown yogyata field: " ++ s)
-    parseWits "" = []
-    parseWits s  = [ case break (== '=') w of
-                       (a, '=':b) -> Sakshin (unesc a) (unesc b)
-                       (a, _)     -> Sakshin (unesc a) ""
-                   | w <- splitOn ';' s ]
-
-journal :: Kosha -> [String]
-journal = map lineOf . koshaEntries
-
 -- | Replay.  Journal lines that are not entries (questions, verdicts,
 --   comments) are skipped, so the same file can carry the transcript.
-replay :: [String] -> Either String Kosha
-replay lns = do
-  es <- mapM parseLine [ l | l <- lns, "NAYA\t" `isPrefixOf` l ]
-  pure (Kosha es (if null es then 0 else maximum (map entId es) + 1))
-
 -- | The round trip is the whole persistence claim, so it is checked
 --   rather than asserted.  Exhaustive over the store it is given.
-prop_roundtrip :: Kosha -> Bool
-prop_roundtrip k = replay (journal k) == Right k
-
 -- ─────────────────────────────────────────────────────────── self-test
 
 -- Finite, exhaustive, and it is the reason the module may be believed.
 selfTest :: [(String, Bool)]
 selfTest =
-  [ ("round trip through the journal, separators and all", prop_roundtrip kTricky)
-  , ("truth-equal, content-distinct is NOT identifiable (Unit/Bool)",
+  [ ("truth-equal, content-distinct is NOT identifiable (Unit/Bool)",
       case decide False [eUnit, eBool] of
         Nirnaya{nirSamata = Just SatyaSama, nirSthana = Position B2Nasti} -> True
         _ -> False)

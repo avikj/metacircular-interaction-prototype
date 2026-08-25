@@ -295,11 +295,7 @@ module ProofGate
   , kAgdaTimeoutMicros
   , agdaTimeoutMicros
     -- * the certificate cache (content-addressed, one file per module)
-  , kCertCacheDir
-  , cacheEnabled
-  , cacheKey
   , toolchainIdentity
-  , cacheableFailure
   , runAgdaCached
     -- * serialisable certificates + replay (the re-checkable ledger)
   , ProofWitness(..)
@@ -334,7 +330,7 @@ import System.IO
 import System.IO.Unsafe (unsafePerformIO)
 import System.Directory
   ( createDirectoryIfMissing, doesFileExist, getTemporaryDirectory
-  , removePathForcibly, renameFile )
+  , removePathForcibly )
 import System.Timeout (timeout)
 import System.Process
   (CreateProcess(..), proc, readProcess, readCreateProcessWithExitCode)
@@ -1173,10 +1169,44 @@ kernelStatus root = do
             pure $ case negCode of
               ExitSuccess -> KernelAcceptedAFalsehood
               ExitFailure _
-                | cacheableFailure negOut -> KernelChecking
+                | locatedTypeError negOut -> KernelChecking
                 | otherwise -> KernelNegativeControlInconclusive negOut
       writeIORef kernelChecksRef (Just status)
       pure status
+
+-- Does agda plainly report a TYPE error LOCATED in the module we emitted?
+-- A non-zero exit otherwise carries no mathematical content — a missing
+-- library, a locale fault, a vanished include root or a killed process all
+-- produce one.  The falsifier demands this: `KernelChecking` is returned
+-- only by a process that watched the kernel produce a located `1 != 0`,
+-- not by one that merely failed to succeed.  (This was named
+-- `cacheableFailure` while a persistent certificate cache existed here.
+-- The cache is gone; the test was never about caching.)
+locatedTypeError :: String -> Bool
+locatedTypeError out =
+  not (null (dropWhile isSpace out))
+    && "Candidate.agda:" `isInfixOf` out
+    && isJust (blamedLine out)
+    && not (any (`isInfixOf` out) environmentMarkers)
+    && any (`isInfixOf` out) typeErrorMarkers
+  where
+    environmentMarkers =
+      [ "Failed to find source of module"
+      , "No such file or directory"
+      , "does not exist"
+      , "cannot be found"
+      , "not found"
+      , "Cannot find"
+      , "internal error"
+      , "Interrupted"
+      , "cannot encode character"
+      , "invalid argument"
+      , kEnvironmentFault      -- timeout, or an exception out of `runAgda`
+      ]
+    typeErrorMarkers =
+      [ " != "
+      , "when checking"
+      ]
 
 -- The boolean face, kept because `KernelContext` and `ClauseOrder` ask the
 -- question in that form and only need the true fibre.  `KernelStatus` is where
@@ -1211,22 +1241,6 @@ successHidesAnError out = any (`isInfixOf` out) markers
 -- honesty decisions (never cache Untranslatable; cache a rejection only
 -- when agda's message is a genuine type error).  This section is the
 -- mechanism.
-
--- Where entries live, relative to the same `root` the agda child runs in.
-kCertCacheDir :: FilePath
-kCertCacheDir = "machine" </> ".certcache"
-
--- The one escape hatch.  `MATH_CERTCACHE=0|off|no|false` bypasses the cache
--- completely: every module is sent to agda and nothing is read or written.
--- It exists so a measurement can be taken against a cold kernel, and so a
--- change to the cubical library (which is NOT in the key) can be recovered
--- from without deleting files by hand.
-cacheEnabled :: IO Bool
-cacheEnabled = do
-  mv <- lookupEnv "MATH_CERTCACHE"
-  pure $ case fmap (map toLower) mv of
-    Just v | v `elem` ["0", "off", "no", "false"] -> False
-    _ -> True
 
 -- The checker's identity, folded into every key.  Queried once per process
 -- and memoised: `agda --version` is itself a process launch and the whole
@@ -1284,33 +1298,9 @@ hex64 :: Word64 -> String
 hex64 w = [ hexDigit (fromIntegral (shiftR w k .&. 0xF)) | k <- [60, 56 .. 0] ]
   where hexDigit i = "0123456789abcdef" !! i
 
-cacheKey :: String -> String -> String
-cacheKey toolchain source = hex64 h1 ++ hex64 h2
-  where
-    bs = concatMap utf8Bytes (toolchain ++ "\NUL" ++ source)
-    h1 = fnv1a 14695981039346656037 1099511628211 bs
-    h2 = fnv1a 0xcbf29ce484222325 0x100000001b3f (reverse bs)
-
 -- One stored verdict.  `ceSource` is the whole point of the format: it is
 -- what makes the entry re-runnable by a reader and what makes a hash
 -- collision harmless.
-data CacheEntry = CacheEntry
-  { ceExit :: Int
-  , ceToolchain :: String
-  , ceOutput :: String
-  , ceSource :: String
-  } deriving (Eq, Show)
-
-encodeEntry :: CacheEntry -> String
-encodeEntry e = unlines $
-  [ "CERTCACHE 1"
-  , "VERDICT " ++ (if ceExit e == 0 then "accepted" else "rejected")
-  , "EXIT " ++ show (ceExit e)
-  , "TOOLCHAIN " ++ ceToolchain e
-  ]
-  ++ block "AGDA-OUTPUT" (ceOutput e)
-  ++ block "SOURCE" (ceSource e)
-
 -- A length-and-trailing-newline delimited block, so encode/decode is an
 -- exact inverse on arbitrary text (agda's output ends without a newline
 -- often enough to matter, and an inexact round trip would make every
@@ -1320,21 +1310,6 @@ block tag s = (tag ++ " " ++ show (length ls) ++ " " ++ flag) : ls
   where
     ls = lines s
     flag = if not (null s) && last s == '\n' then "nl" else "nonl"
-
-decodeEntry :: String -> Maybe CacheEntry
-decodeEntry txt = case lines txt of
-  (hdr : rest0) | hdr == "CERTCACHE 1" -> do
-    (_verd, rest1) <- takeP "VERDICT " rest0
-    (exitS, rest2) <- takeP "EXIT " rest1
-    ec <- readMaybeInt exitS
-    (tc, rest3) <- takeP "TOOLCHAIN " rest2
-    (out, rest4) <- readBlock "AGDA-OUTPUT" rest3
-    (src, _) <- readBlock "SOURCE" rest4
-    pure (CacheEntry ec tc out src)
-  _ -> Nothing
-  where
-    takeP pfx (l : more) | pfx `isPrefixOf` l = Just (drop (length pfx) l, more)
-    takeP _ _ = Nothing
 
 readBlock :: String -> [String] -> Maybe (String, [String])
 readBlock tag ls = case ls of
@@ -1349,83 +1324,6 @@ readBlock tag ls = case ls of
   where
     rebuild body "nl" = unlines body
     rebuild body _ = intercalate "\n" body
-
-readUtf8 :: FilePath -> IO String
-readUtf8 path = withFile path ReadMode $ \h -> do
-  hSetEncoding h utf8
-  s <- hGetContents h
-  length s `seq` pure s
-
--- A hit requires the stored source and the stored toolchain to match
--- EXACTLY.  Any change to the emitter, to a concept definition, to the
--- vocabulary transcriptions, or to agda itself changes one of them and
--- therefore misses.
-lookupCache :: FilePath -> String -> String -> String
-            -> IO (Maybe (ExitCode, String))
-lookupCache root tc key source = do
-  r <- try (do
-         present <- doesFileExist path
-         if not present then pure Nothing else decodeEntry <$> readUtf8 path)
-         :: IO (Either SomeException (Maybe CacheEntry))
-  pure $ case r of
-    Right (Just e) | ceSource e == source, ceToolchain e == tc ->
-      Just (toExit (ceExit e), ceOutput e)
-    _ -> Nothing
-  where
-    path = root </> kCertCacheDir </> key
-    toExit 0 = ExitSuccess
-    toExit n = ExitFailure n
-
--- Written to a unique temporary name in the same directory and renamed, so
--- a concurrent reader never sees a half-written entry and two engines
--- racing on the same key both end up with a complete file.  Any IO failure
--- here is swallowed: an unwritable cache must slow the gate down, never
--- break it.
-storeCache :: FilePath -> String -> String -> CacheEntry -> IO ()
-storeCache root tc key entry = do
-  r <- try (do
-         createDirectoryIfMissing True dir
-         (tmpPath, h) <- openTempFile dir (key ++ ".tmp")
-         hSetEncoding h utf8
-         hPutStr h (encodeEntry entry { ceToolchain = tc })
-         hClose h
-         renameFile tmpPath (dir </> key))
-         :: IO (Either SomeException ())
-  either (const (pure ())) pure r
-  where dir = root </> kCertCacheDir
-
--- Requirement (e), decided: cache a failure only when agda plainly reports a
--- TYPE error located in the module we emitted.  A non-zero exit otherwise
--- carries no mathematical content — a missing library, a locale fault, a
--- vanished include root or a killed process all produce one, and freezing
--- any of those into a persistent "rejected" would recreate exactly the bug
--- described as fault (1) in the header, where a path error was recorded as a
--- rejection indistinguishable from a false statement.
-cacheableFailure :: String -> Bool
-cacheableFailure out =
-  not (null (dropWhile isSpace out))
-    && "Candidate.agda:" `isInfixOf` out
-    && isJust (blamedLine out)
-    && not (any (`isInfixOf` out) environmentMarkers)
-    && any (`isInfixOf` out) typeErrorMarkers
-  where
-    environmentMarkers =
-      [ "Failed to find source of module"
-      , "No such file or directory"
-      , "does not exist"
-      , "cannot be found"
-      , "not found"
-      , "Cannot find"
-      , "internal error"
-      , "Interrupted"
-      , "cannot encode character"
-      , "invalid argument"
-      , kEnvironmentFault      -- timeout, or an exception out of `runAgda`
-      ]
-    typeErrorMarkers =
-      [ " != "
-      , "when checking"
-      ]
 
 -- ASYMMETRIC TRUST, which is the only kind an unauthenticated store can
 -- carry.  `interactive/.certcache` is a directory of files.  Anything that can
@@ -1460,12 +1358,6 @@ cacheableFailure out =
 {-# NOINLINE confirmedRef #-}
 confirmedRef :: IORef [String]
 confirmedRef = unsafePerformIO (newIORef [])
-
-confirmedHere :: String -> IO Bool
-confirmedHere key = elem key <$> readIORef confirmedRef
-
-confirmHere :: String -> IO ()
-confirmHere key = modifyIORef' confirmedRef (key :)
 
 -- Every route by which a success leaves this module passes through here.
 -- A zero exit is upgraded to an acceptance only if agda's own output is
@@ -1543,67 +1435,17 @@ vetForeignRun root code out = case code of
 -- reports an invocation count counts this, so a cache hit can never be
 -- mistaken for kernel work.  (The two control modules are not counted:
 -- they are paid once per process and belong to no candidate.)
+-- No cache.  Every candidate is put to the kernel in this process, in
+-- this turn.  A verdict served from disk is a record of a past run
+-- reported as a present one, and this is an interactive system.
 runAgdaCached :: FilePath -> String -> IO (ExitCode, String, Int)
 runAgdaCached root source = do
-  on <- cacheEnabled
-  if not on
-    then do
-      (code, out) <- runAgdaUnwatched root source
-      case code of
-        ExitSuccess -> do
-          (code', out') <- vetSuccess root out
-          pure (code', out', 1)
-        _ -> pure (code, out, 1)
-    else do
-      tc <- toolchainIdentity
-      let key = cacheKey tc source
-      hit <- lookupCache root tc key source
-      case hit of
-        -- a cached REJECTION: served, as before.  It can only lose a
-        -- theorem, and the stored source is byte-compared, so the worst
-        -- case is a candidate re-derived later at full price.
-        Just (ExitFailure n, out) -> pure (ExitFailure n, out, 0)
-        -- a cached ACCEPTANCE: free only after this process has confirmed
-        -- it against the kernel itself.
-        Just (ExitSuccess, out) -> do
-          seen <- confirmedHere key
-          if seen
-            then pure (ExitSuccess, out, 0)
-            else do
-              (code, out') <- runAgdaUnwatched root source
-              case code of
-                ExitSuccess -> do
-                  (code', out'') <- vetSuccess root out'
-                  case code' of
-                    ExitSuccess -> confirmHere key >> pure (ExitSuccess, out, 1)
-                    _ -> dropEntry root key >> pure (code', out'', 1)
-                _ -> do
-                  dropEntry root key
-                  pure (code, out', 1)
-        Nothing -> do
-          (code, out) <- runAgdaUnwatched root source
-          case code of
-            ExitSuccess -> do
-              (code', out') <- vetSuccess root out
-              case code' of
-                ExitSuccess -> do
-                  confirmHere key
-                  storeCache root tc key (CacheEntry 0 tc out source)
-                  pure (ExitSuccess, out, 1)
-                ExitFailure n -> pure (ExitFailure n, out', 1)
-            ExitFailure n -> do
-              when (cacheableFailure out) $
-                storeCache root tc key (CacheEntry n tc out source)
-              pure (ExitFailure n, out, 1)
-
--- An entry the kernel contradicts is removed rather than left to be
--- re-tested by every future process.  Failure to remove it is not fatal:
--- the next process re-tests it and reaches the same answer.
-dropEntry :: FilePath -> String -> IO ()
-dropEntry root key = do
-  r <- try (removePathForcibly (root </> kCertCacheDir </> key))
-         :: IO (Either SomeException ())
-  either (const (pure ())) pure r
+  (code, out) <- runAgdaUnwatched root source
+  case code of
+    ExitSuccess -> do
+      (code', out') <- vetSuccess root out
+      pure (code', out', 1)
+    _ -> pure (code, out, 1)
 
 -- How a verdict announces provenance.  0 fresh agda calls => the whole
 -- result came out of the cache and says so; any fresh call at all and the
@@ -2250,10 +2092,6 @@ main = do
   let root = case argv of { (p : _) -> p ; [] -> "." }
   printf "Certificate self-test (repository root %s).\n" (show root)
   printf "budget = %d agda calls per candidate.\n" kMaxAgdaCalls
-  on <- cacheEnabled
-  printf "certificate cache: %s at %s\n\n"
-    (if on then "ON" else "OFF (MATH_CERTCACHE)" :: String)
-    (show (root </> kCertCacheDir))
   t0 <- getCurrentTime
   putStrLn "== interactive/library.snapshot.txt =="
   trues <- mapM (report root) snapshot

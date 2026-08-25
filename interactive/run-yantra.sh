@@ -106,22 +106,17 @@ NOTE
   echo
 fi
 
-TRANSCRIPT="${YANTRA_LEKHA:-$OUT/yantra.jsonl}"
-rm -f "$TRANSCRIPT"
 
 cd "$ROOT" || exit 2
-YANTRA_LEKHA="$TRANSCRIPT" MATH_ROOT="$ROOT" \
+MATH_ROOT="$ROOT" \
 YANTRA_KALA="$(date +%Y-%m-%d)" \
   "$BIN" "$@"
 status=$?
 
 if [ "${1:-}" != "--wire" ]; then
   echo
-  echo "──────────────────────────────── the transcript"
+  echo "──────────────────────────────── the session"
   echo
   echo "  built from         : $SRCTREE"
-  echo "  wire transcript    : $TRANSCRIPT"
-  echo "  the transcript is the corpus this machine is meant to be post-trained"
-  echo "  against; it is append-only, one line per turn, request and answer."
 fi
 exit $status

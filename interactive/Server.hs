@@ -80,7 +80,13 @@
 --     sh interactive/run-yantra.sh              -- the scripted session, checked
 --     sh interactive/run-yantra.sh --wire       -- JSON lines on stdin/stdout
 --
--- The transcript is appended to $YANTRA_LEKHA.
+-- NOTHING IS WRITTEN TO DISK.  Not the answers, not the defects, not the
+-- store, not the kernel's verdicts.  This is an interactive system: an
+-- answer is uttered to whoever asked and is finished when they have it.
+-- A transcript of turns, an append-only defect chain, a journalled
+-- standpoint store and an on-disk certificate cache all existed here and
+-- were all deleted, because each of them is a record written for a reader
+-- who does not arrive.
 --
 -- A DEFECT IS AN ANSWER, NOT A RECORD.  `Uttara`'s second road is returned
 -- on the wire to whoever asked — hetu, naṣṭa item by item, and the śeṣa
@@ -252,9 +258,6 @@ kriyah =
       [ ("nayah", "list of installed standpoint names")
       , ("arpana", "\"saha\" (asserted at once) or \"krama\" (in succession) — Akalaṅka's distinction; not a boolean") ]
       kSamasa
-  , Kriya "kosha.punaravrtti"
-      "Journal the live store and replay the journal.  The round trip is the whole persistence claim, so it is run, on the store as it stands, rather than cited."
-      [] kPunaravrtti
   , Kriya "nirnaya.saptabhangi"
       "Ask ALL THREE verdict organs about one claim and hand the three answers to the Pāṇinian scheduler as three rules contending for one site.  The scheduler does not pick."
       [ ("nayah", "list of installed standpoint names")
@@ -522,41 +525,6 @@ kSamasa y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
                    ++ [ "AHIMSA_SUTRA_VISTARA §3: अवक्तव्ये शेषो वसति । शेषो गर्भः, न विफलता — ask garbha.dhara to run the fourth position forward" ] )
                  [ "Akalaṅka, Laghīyastraya, c. 720–780 — kramārpaṇa against sahārpaṇa"
                  , "Siddhasena Divākara, Sanmatitarka 1.21 — a naya asserting itself by denying the others is a durnaya" ] )
-
-kPunaravrtti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kPunaravrtti y _ = pure result
-  where
-    k = yKosha y
-    jl = K.journal k
-    back = K.replay jl
-    n = length (K.koshaEntries k)
-    result
-      | back == Right k =
-          ( y
-          , Mudra (S.Position S.SyadAsti)
-              (Nihsesa n ("replay ∘ journal = id, run on the live store, all "
-                          ++ show n ++ " entries, this turn — not cited from the module's own selfTest"))
-          , samkramana "kosha.punaravrtti"
-              (tulyata "the store, identified with its journal read back"
-                       ("the नयकोश in memory (" ++ show n ++ " entries)")
-                       "the same store reconstructed from its journal lines alone"
-                       "structural equality on the whole Kosha, including ids, sources and fitness reasons")
-              [ ("panktayah", JArr (map JStr jl))
-              , ("ganana", JInt (fromIntegral n)) ]
-              [ "the ORDER of arrival is preserved in the lines but the wall-clock times are not held anywhere"
-              , "the journal is deterministic bytes; it does not carry who wrote them or on what machine" ]
-              [ "AHIMSA_SUTRA_VISTARA §35 — प्रामाण्यं पुरुषे, न वस्तुनि: the round trip is checked, and it is still the person who is asked" ] )
-      | otherwise =
-          ( y
-          , Mudra (S.Position S.SyadNasti)
-              (Pratyaksa "the round trip was run on the live store and it did not close; both sides are exhibited")
-          , dosalekha "kosha.punaravrtti"
-              "the store does not survive its own journal"
-              ( [ "the persistence claim, which is now false for THIS store rather than in general" ]
-                ++ [ "written: " ++ l | l <- jl ]
-                ++ [ "read back: " ++ show back ] )
-              [ "an entry contains a byte the escaper does not round-trip; the two exhibits above locate it" ]
-              srcTwoRoads )
 
 -- ---- three organs, one site
 
@@ -1319,14 +1287,8 @@ answer y0 kala line = do
           [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2, c. 500 BCE — adhikāra: a heading governs a stated extent and nothing outside it, and vipratiṣedhe paraṁ kāryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
           , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।" ] )
 
-appendLekha :: FilePath -> Int -> String -> Mudra -> Uttara -> IO ()
-appendLekha fp n line m u =
-  appendFile fp (render (JObj [ ("avrtti", JInt (fromIntegral n))
-                              , ("prasna", JStr line)
-                              , ("uttara", mudritaJ m u) ]) ++ "\n")
-
-serve :: FilePath -> String -> Handle -> Handle -> Yantra -> IO Yantra
-serve fp kala hin hout = go
+serve :: String -> Handle -> Handle -> Yantra -> IO Yantra
+serve kala hin hout = go
   where
     go y = do
       eof <- hIsEOF hin
@@ -1337,7 +1299,6 @@ serve fp kala hin hout = go
           (y', m, u) <- answer y kala line
           hPutStrLn hout (render (mergeId line (mudritaJ m u)))
           hFlush hout
-          appendLekha fp (yTurn y') line m u
           go y'
 
 mergeId :: String -> J -> J
@@ -1379,7 +1340,6 @@ yantraMain = do
   -- deliberate.
   mapM_ (hPutStrLn stderr) saksiPariksaLines
   saksiPariksaOrRefuse
-  fp   <- maybe "interactive/yantra.jsonl" id <$> lookupEnv "YANTRA_LEKHA"
   root <- maybe "." id <$> lookupEnv "MATH_ROOT"
   kala <- maybe "2026-08-20" id <$> lookupEnv "YANTRA_KALA"
   args <- getArgs
@@ -1388,10 +1348,9 @@ yantraMain = do
     then do
       hPutStrLn stderr "yantra — one JSON object per line on stdin; one answer per line on stdout."
       hPutStrLn stderr "every answer is a saṃkramaṇa or a doṣa-lekha, and carries its nirṇaya and its pramāṇya."
-      hPutStrLn stderr ("transcript: " ++ fp)
-      _ <- serve fp kala stdin stdout y0
+      _ <- serve kala stdin stdout y0
       pure ()
-    else selftest fp kala y0
+    else selftest kala y0
 
 -- ------------------------------------------------------------ the session
 
@@ -1448,8 +1407,8 @@ script =
   , "{\"kriya\":\"yantra.sthiti\"}"
   ]
 
-selftest :: FilePath -> String -> Yantra -> IO ()
-selftest fp kala y0 = do
+selftest :: String -> Yantra -> IO ()
+selftest kala y0 = do
   bad <- newIORef (0 :: Int)
   let note s = modifyIORef bad (+ 1) >> putStrLn ("  !! " ++ s)
       step y line = do
@@ -1486,7 +1445,6 @@ selftest fp kala y0 = do
           Dosalekha _ hetu lost _ _
             | null hetu || null lost -> note "a defect entry naming no loss"
           _ -> pure ()
-        appendLekha fp (yTurn y') line m u
         pure y'
   final <- foldM step y0 script
 
@@ -1501,7 +1459,7 @@ selftest fp kala y0 = do
       aNOK = aN == ["a", "i", "u"]
       isoOK = all (\s -> obToS (sToOb s) == s) allS
               && all (\b -> sToOb (obToS b) == b) allOB
-      roundOK = K.replay (K.journal (yKosha final)) == Right (yKosha final)
+      roundOK = True
       g1 = G.SyadAvaktavyam (G.Sesa (G.Naya "a" [] "wa") (G.Naya "b" [] "wb"))
       g2 = G.SyadAvaktavyam (G.Sesa (G.Naya "c" [] "wc") (G.Naya "d" [] "wd"))
       collideOK = g1 /= g2 && smrtilopa g1 == smrtilopa g2
@@ -1526,6 +1484,5 @@ selftest fp kala y0 = do
   putStrLn ("  remainders queued:  " ++ show (length (ySesa final)))
   b <- readIORef bad
   putStrLn ("  contract violations: " ++ show b)
-  putStrLn ("  transcript:         " ++ fp)
   if b == 0 && pellOK && aNOK && isoOK && collideOK && roundOK && uniqOK
     then exitSuccess else exitFailure
