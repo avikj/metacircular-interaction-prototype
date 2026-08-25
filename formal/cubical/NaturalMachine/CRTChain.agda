@@ -53,7 +53,7 @@ open import Cubical.Data.Fin.Properties using (isContrFin1)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma using (_×_ ; ≃-×)
 open import Cubical.Data.Unit using (Unit ; isContrUnit)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 open import FinCardinality using (crtEquiv)
 
@@ -71,7 +71,7 @@ prodStep : (m p : ℕ) → suc m · suc p ≡ suc ((m + p) + m · p)
 prodStep m p = cong (suc p +_) (·-suc m p) ∙ cong suc (rearr m p)
   where
   rearr : (a b : ℕ) → b + (a + a · b) ≡ (a + b) + a · b
-  rearr = solve
+  rearr a b = solveℕ!
 
 -- the residue vector against the moduli
 Vec : List ℕ → Type

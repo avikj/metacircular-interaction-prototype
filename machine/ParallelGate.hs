@@ -78,6 +78,7 @@
 
 module Main (main) where
 
+import qualified Certificate as C
 import Control.Concurrent (forkIO, setNumCapabilities, threadDelay)
 import Control.Concurrent.MVar
 import Control.Concurrent.QSemN
@@ -296,7 +297,15 @@ runAgda root timeoutSecs args = do
   let code' = case code of
         ExitFailure 124 -> ExitFailure 124  -- timeout's own signal
         c               -> c
-  pure (code', out ++ err)
+  -- THE FITNESS, ADDED 2026-08-20.  What was copied from Certificate.runAgda
+  -- was the locale discipline; what was left behind is the falsifier watch,
+  -- and both call sites read `code == ExitSuccess` alone.  This wrapper is
+  -- ALREADY a pipeline of the shape the attack uses — `timeout N agda …` —
+  -- so the difference between "agda refused" and "something between agda and
+  -- this process returned 0" is exactly the distinction that has to be made
+  -- here and was not.  `C.vetForeignRun` reads agda's own words on this call
+  -- and, once per process, watches the kernel reject `(suc x) ≡ x`.
+  C.vetForeignRun root code' (out ++ err)
 
 agdaArgsFor :: FilePath -> FilePath -> [String]
 agdaArgsFor dir file =

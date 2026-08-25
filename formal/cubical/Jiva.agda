@@ -122,7 +122,7 @@ import ChitiDvipada
 import Vargacitighana
 -- वार-सङ्कलितम् — नारायणस्य पुनः-सङ्कलनम् : V₀=n, V₁=∑k, V₂=चिति (आयत-सङ्ख्याः)
 import VaraSankalita
--- द्विपदः — मेरु-सङ्ख्या C(n,k) पास्कल-आवृत्त्या; वार-बद्धम् : V_r(n)=C(n+r,r+1) (hockey-stick)
+-- द्विपदः — मेरु-सङ्ख्या C(n,k) पार्श्वयोग-आवृत्त्या; वार-बद्धम् : V_r(n)=C(n+r,r+1) (hockey-stick)
 import Dvipada
 -- पङ्क्ति-योगः — ∑ₖ C(n,k) = 2ⁿ (पिङ्गलस्य सङ्ख्या, द्विपदस्य छन्दो-मूलम्)
 import PanktiYoga

@@ -1,0 +1,5 @@
+#!/bin/sh
+# जीव — the machine computes its own metric.  One command, one report.
+# See machine/Jiva_TheMachineComputesItsOwnMetric.hs for what the numbers
+# are and are NOT.  Runs from the repo root; pass a root to override.
+cd "$(dirname "$0")" && exec runghc --ghc-arg=-imachine --ghc-arg=-main-is --ghc-arg=Jiva_TheMachineComputesItsOwnMetric machine/Jiva_TheMachineComputesItsOwnMetric.hs "${1:-.}"

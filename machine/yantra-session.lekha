@@ -1,0 +1,29 @@
+# दोषलेखः — the written defect.  APPEND ONLY.  NEVER EDIT.  NEVER DELETE.
+#
+# AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।
+#                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।
+#
+# Written by machine/DosaLekha_TheWrittenDefectRecord.hs, which computes
+# `sara:` as a chain over every preceding record.  Edit any line above the
+# last record and `dosalekha verify` names the record where it happened.
+# To correct a record, APPEND one whose `uttara:` names it.
+#
+dosa 0001
+  kala: 2026-08-23
+  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)
+  jati: sankramana-asambhava
+  vastu: sadhana
+  yatna: turn 1 of the session; operation `sadhana` was asked and transport was not available
+  hetu: the kernel rejected every shape tried for (+ x (max x 0)) ≡ (* (s (s 0)) x)
+  nasta: agda's first error line, which is the content of the rejection and is not paraphrased: x · (x + max x zero) != suc (x + max (suc x) zero) of type ℕ when checking that the expression cong (x ·_) (candidate x) has
+  nasta: the module that was rejected, which is the object the error is about: {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-} module Candidate where open import Cubical.Foundations.Prelude open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_ ; _∸_) max : ℕ → ℕ → ℕ max a zero = a max zero b = b max (suc a) (suc b) = suc (max a b) candidate : (x : ℕ) → (x + (max x zero)) ≡ ((suc (suc zero)) · x) candidate x = refl
+  nasta: the distinction between `false` and `not provable in the shapes this emitter can write` — the emitter tries refl and then a fixed list of induction step shapes, and exhausting them is not a refutation
+  sesa: if the statement needs a different induction, say which variable with `sadhya`
+  sesa: a rejection here is a fact about agda and this emitter; it is not a claim that the equation is false
+  pramana: Certificate.hs — `Rejected` after n>0 agda calls means agda examined a module; `Untranslatable` with 0 means none was emitted
+  yogyata-drsta: the handler for `sadhana` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction
+  yogyata-ksetra: the session state as of turn 1 — 0 store entries, 0 remainders; and nothing outside this process
+  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments
+  punarabhinaya: sh machine/run-yantra.sh
+  sara: 36bae3ac30093b7d
+.

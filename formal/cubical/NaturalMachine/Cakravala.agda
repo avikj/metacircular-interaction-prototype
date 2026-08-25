@@ -99,7 +99,7 @@ module Cycle (R : CommRing ℓ) where
     homog : (D k a' b' : A) →
       (k · k) · ((a' · a') - (D · (b' · b')))
       ≡ ((k · a') · (k · a')) - (D · ((k · b') · (k · b')))
-    homog = solve R
+    homog D k a' b' = solve! R
 
     -- BRAHMAGUPTA, at the trivial triple (m, 1, m² − D).  This is the
     -- whole engine of the cyclic method.
@@ -107,10 +107,10 @@ module Cycle (R : CommRing ℓ) where
       (((a · m) + (D · b)) · ((a · m) + (D · b)))
       - (D · ((a + (b · m)) · (a + (b · m))))
       ≡ ((a · a) - (D · (b · b))) · ((m · m) - D)
-    bhavana-trivial = solve R
+    bhavana-trivial D a b m = solve! R
 
     regroup : (k k' : A) → k · (k · k') ≡ (k · k) · k'
-    regroup = solve R
+    regroup k k' = solve! R
 
   ----------------------------------------------------------------------
   -- THE STEP.  Cleared of denominators, so no division appears.

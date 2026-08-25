@@ -11,11 +11,15 @@
 -- Verdict line (machine-readable, one line, always printed unless agda is
 -- absent from PATH):
 --
---   KERNEL-PROBE agda=<version|ABSENT> refl=<OK|FAIL> cubical=<OK|FAIL>
+--   KERNEL-PROBE agda=<version|ABSENT> refl=<OK|FAIL> cubical=<OK|FAIL> refutes=<OK|FAIL>
 --
--- Exit 0 iff refl-capable; exit 2 otherwise (fail-closed: an ungraded or
--- refl-incapable kernel must not be trusted, so absence and failure share
--- the same grade).
+-- Exit 0 iff refl-capable AND the falsifier was watched failing; exit 2
+-- otherwise (fail-closed: an ungraded or refl-incapable kernel must not be
+-- trusted, so absence and failure share the same grade).
+--
+-- `refutes` is the negative control, added 2026-08-20; see `refutedModule`.
+-- Before it, this program's two controls were both TRUE claims, so a checker
+-- answering 0 to everything passed the probe outright.
 module Main (main) where
 
 import Control.Exception (finally)
@@ -42,6 +46,35 @@ reflModule = unlines
   , "open import Agda.Builtin.Nat"
   , "open import Agda.Builtin.Equality"
   , "probe : 2 + 2 \8801 4"
+  , "probe = refl"
+  ]
+
+-- THE NEGATIVE CONTROL, ADDED 2026-08-20.  `2 + 2 ≡ 5` closed by `refl`,
+-- builtins only, so it asks nothing of any library.  Agda MUST refuse it.
+--
+-- Until today this program had two positive controls and no negative one:
+-- both `reflModule` and `cubicalModule` are true claims, so a checker that
+-- answered 0 to everything passed the probe completely.  Under a wrapper of
+-- the shape `agda "$@" 2>&1 | cat` — whose exit status is `cat`'s — this
+-- printed `refl=OK cubical=OK` and exited 0 from a kernel that was not being
+-- consulted at all.  A truth watched to check establishes that the container
+-- can compile; only a falsehood watched to FAIL establishes that the far side
+-- is grading.  (Kumārila, *Ślokavārttika*, Abhāvapariccheda, c. 7th c.: a
+-- non-apprehension is evidence of an absence only from a looking fit to have
+-- apprehended.  `notes/AHIMSA_SUTRA_VISTARA.md` §19.)
+--
+-- This does NOT make the probe a soundness grader, and the header's limit
+-- above stands unamended: a kernel that refuses `2 + 2 ≡ 5` may still have
+-- any axioms whatever in a registered library.  What the falsifier settles is
+-- narrower and was the thing actually missing — that the exit statuses this
+-- program reads are being produced by something that discriminates.
+refutedModule :: String
+refutedModule = unlines
+  [ "{-# OPTIONS --safe #-}"
+  , "module Probe3 where"
+  , "open import Agda.Builtin.Nat"
+  , "open import Agda.Builtin.Equality"
+  , "probe : 2 + 2 \8801 5"
   , "probe = refl"
   ]
 
@@ -93,10 +126,18 @@ main = do
       version <- probeVersion
       reflOk <- checkModule ["--no-libraries"] "Probe1.agda" reflModule
       cubicalOk <- checkModule [] "Probe2.agda" cubicalModule
+      -- The falsifier: `refutes=OK` means agda REFUSED `2 + 2 ≡ 5`, so the
+      -- grades beside it were produced by something that discriminates.
+      refutesOk <- not <$> checkModule ["--no-libraries"] "Probe3.agda" refutedModule
       putStrLn ("KERNEL-PROBE agda=" ++ version
         ++ " refl=" ++ grade reflOk
-        ++ " cubical=" ++ grade cubicalOk)
-      exitWith (if reflOk then ExitSuccess else ExitFailure 2)
+        ++ " cubical=" ++ grade cubicalOk
+        ++ " refutes=" ++ grade refutesOk)
+      -- Fail-closed on the falsifier too, and for the same reason absence and
+      -- incapability already share a grade: a kernel that accepts `2 + 2 ≡ 5`
+      -- is not refl-capable in any sense this program is entitled to report,
+      -- and `refl=OK` from it is a number, not a capability.
+      exitWith (if reflOk && refutesOk then ExitSuccess else ExitFailure 2)
 
 -- ---------------------------------------------------------------------
 -- APPENDED 2026-08-19 by a later reader, at the end, altering no line
@@ -129,3 +170,47 @@ main = do
 -- NOT modelled there: the present/refl-capable/cubical-incapable state,
 -- which this program's verdict line records separately.
 -- ---------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------
+-- APPENDED 2026-08-20 by the certificate lane, at the end, altering no
+-- line above.  A written defect, not a repair: the behaviour below is
+-- someone else's decision and this only records what it collapses.
+--
+-- MEASURED.  On Agda 2.8.0 with the Homebrew cubical build registered,
+-- this program reports
+--
+--     KERNEL-PROBE agda=2.8.0 refl=OK cubical=FAIL
+--
+-- and `cubical=FAIL` is TRUE of the question the header states — this
+-- container does not check a plain `--cubical --safe` module against the
+-- registered library.  It is also, read as anyone will read it, wrong:
+-- the library is present, registered, and perfectly usable.  It is
+-- compiled with `--guardedness`, and Agda's `[InfectiveImport]` rule makes
+-- that flag propagate, so `open import Cubical.Foundations.Prelude` from a
+-- module without it fails at SCOPE-CHECKING:
+--
+--     error: [InfectiveImport]
+--     Importing module Cubical.Foundations.Prelude using the
+--     --guardedness flag from a module which does not.
+--
+-- So `cubical=FAIL` collapses two states the reader needs apart:
+--
+--     (a) no cubical library is reachable            -> nothing can be done
+--     (b) a cubical library is reachable and wants    -> add one flag
+--         a flag this probe did not pass
+--
+-- This is the same collapse the same day found in `Certificate`'s own
+-- controls, where it cost the whole lane its reach (machine/CERTIFICATE_
+-- REACH.md §10.1): a refusal that does not carry the observation that
+-- produced it sends the reader to the wrong repair.  The appended note
+-- already at the top of this section says the fail-closed collapse is
+-- deliberate and CHECKED for the `trusted` fibre — and it is right that
+-- a GUARD loses nothing by it.  The reader diagnosing a red probe is the
+-- other fibre, and this is what that reader loses here, concretely.
+--
+-- NOT FIXED, deliberately.  The obvious repair — pass `--guardedness` —
+-- would change what the probe MEASURES, and this program's whole value is
+-- that it grades a capability rather than assuming one.  The repair that
+-- would not is a third grade (`cubical=NEEDS-GUARDEDNESS`, or simply
+-- printing agda's first error line beside the verdict), and that is a
+-- change to another identity's program, offered here rather than taken.

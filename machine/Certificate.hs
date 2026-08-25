@@ -1,11 +1,21 @@
--- Certificate.hs — the Agda emitter for MathMachine's kernel gate.
+-- Certificate.hs — the Agda emitter for the kernel gate.
 --
--- WHAT THIS REPLACES, AND WHY
+-- LEGACY POINTER (2026-08-23).  MathMachine.hs — "the CLOSE-lane
+-- ℕ-equation spinner", 239 rounds / ZERO theorems installed — was RETIRED
+-- at commit 832a549 as a toy that "looks alive but isn't".  Certificate.hs
+-- is one of the four organs the commit records as SURVIVING it (with
+-- Certify.hs, ArithVocab.hs, library.terms); the live substrate is the
+-- cubical corpus + the crystal runtime, and candidate generation is now
+-- the endogenous frontier (Sanghatta critical pairs, Obstruction's kernel
+-- refusal stream). The MathMachine references below are the historical
+-- record of what this emitter was built against; read them past tense.
 --
--- MathMachine.hs proves equations with its own rewriting + structural
--- induction, then submits each one to `kernelAccept`, which emits a
--- candidate Agda module and typechecks it.  The emitter it currently uses
--- (`agdaCertificate`, MathMachine.hs ~1193) is
+-- WHAT THIS REPLACES, AND WHY (retained as the emitter's design record)
+--
+-- MathMachine.hs [RETIRED, 832a549] proved equations with its own
+-- rewriting + structural induction, then submitted each one to
+-- `kernelAccept`, which emits a candidate Agda module and typechecks it.
+-- The emitter it used (`agdaCertificate`, MathMachine.hs ~1193) was
 --
 --     candidate : (x y z u v w : ℕ) → LHS ≡ RHS
 --     candidate x y z u v w = refl
@@ -113,6 +123,27 @@
 -- clause is what agda rejects, the remaining step shapes cannot help, so
 -- the search stops there (`baseClauseFailed`); a false equation therefore
 -- costs 2 calls, not `kMaxAgdaCalls`.
+--
+-- A candidate whose proof note names NO induction variable used to cost 1
+-- call and be rejected, always — the emitter emitted no induction module for
+-- it at all.  That is the traffic the engine's residual seam carries, since a
+-- subgoal harvested from the kernel's own stall arrives unannotated.  Such a
+-- candidate now gets the same shape menu once per variable, bounded by
+-- `kMaxAgdaCallsUnannotated`, and the annotated case is unchanged in reach,
+-- in shape and in budget.  Measured on `machine/library.snapshot.txt` with
+-- every note stripped — which is exactly the shape a residual arrives in —
+-- by `machine/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
+-- on 2026-08-20:
+--
+--     note-less, before:  5/28 certified, 28 agda calls   (derived, exactly:
+--                         only the `refl` lines could close)
+--     note-less, after : 15/28 certified, 144 agda calls  (measured)
+--     annotated, after : 15/28 certified, 123 agda calls  (measured,
+--                        byte-identical to the run before the change)
+--
+-- So the annotation is no longer load-bearing for REACH; it is worth 21 agda
+-- calls over the snapshot, and the whole of the difference is search the note
+-- would have skipped.
 --
 -- THE CERTIFICATE CACHE (added 2026-08-16)
 --
@@ -228,11 +259,18 @@ module Certificate
   , agdaCertificate
   , agdaCertificateWith
   , agdaInductionCertificate
+  , agdaSolverCertificate
+  , agdaSolverPeelCertificate
+  , peelSuc
   , inductionVariable
   , stepShapes
+  , citingStepShapes
+  , solverShapes
     -- * policy
   , kMaxAgdaCalls
+  , kMaxAgdaCallsUnannotated
   , kMaxCongArguments
+  , kMaxInductionVariables
   , kAgdaLibrary
   , kIncludeRoot
   , agdaArgs
@@ -241,9 +279,15 @@ module Certificate
   , certify
   , certifyWith
   , runAgda
+  , runAgdaUnwatched
+  , vetSuccess
+  , vetForeignRun
   , main
     -- * the two controls (a kernel that accepts a falsehood is not a kernel)
   , kernelIsChecking
+  , KernelStatus(..)
+  , kernelStatus
+  , kOptionsPragma
   , canaryTrue
   , canaryFalse
   , successHidesAnError
@@ -522,9 +566,37 @@ preambleWith defs syms =
       where
         params = mapMaybe defVar [0 .. defArity d - 1]
 
+-- THE OPTIONS LINE, WRITTEN ONCE.
+--
+-- It was written twice — here and in `canaryModule` — and the two copies
+-- drifted: the candidate modules carried `--guardedness`, the controls did
+-- not.  That is not a cosmetic difference.  Agda's `[InfectiveImport]` rule
+-- makes `--guardedness` propagate through imports, so under a cubical library
+-- compiled with it (Agda 2.8.0 + the Homebrew cubical build, measured
+-- 2026-08-20) a module that opens `Cubical.Foundations.Prelude` WITHOUT
+-- `--guardedness` fails at scope-checking, before any proof term is looked at:
+--
+--     error: [InfectiveImport]
+--     Importing module Cubical.Foundations.Prelude using the
+--     --guardedness flag from a module which does not.
+--
+-- `canaryTrue` therefore failed for a reason that has nothing to do with the
+-- kernel's ability to check proofs, `kernelIsChecking` returned False, and
+-- `vetSuccess` downgraded EVERY acceptance to an environment fault.  Measured
+-- reach on that container: 0/28, where the same binary with the pragmas
+-- agreeing gets 15/28.  The refusal was correct and the reason given for it
+-- was invented, which is not.
+--
+-- Sharing the string is the mechanism.  A control module that is not compiled
+-- the way the candidate modules are compiled is not a control for them, and
+-- the only way to keep that true under future edits is for there to be one
+-- string.
+kOptionsPragma :: String
+kOptionsPragma = "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+
 preambleCore :: [String] -> [String]
 preambleCore syms =
-  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
+  [ kOptionsPragma
   , "module Candidate where"
   , "open import Cubical.Foundations.Prelude"
   -- _+_, _·_ and _∸_ come in unconditionally even when the equation does
@@ -539,6 +611,8 @@ preambleCore syms =
   ++ [ "open import Cubical.Data.Nat.GCD using (gcd)" | need "gcd" ]
   ++ localMax
   ++ localLe
+  ++ localMaxZeroL
+  ++ localMinusZeroL
   where
     need s = s `elem` syms
     -- transcribed from vocabulary's symDefs for "max", in that order
@@ -557,6 +631,30 @@ preambleCore syms =
           , "le zero b = suc zero"
           , "le (suc a) zero = zero"
           , "le (suc a) (suc b) = le a b"
+          ]
+      | otherwise = []
+    -- CLAUSE-COMPLETION LEMMAS (anuvṛtti, Aṣṭādhyāyī 4.45): a theorem proved
+    -- once, carried into scope for the candidate that needs it.  `max zero n`
+    -- and `zero ∸ n` are STUCK terms — the first clause of `max` (max a zero)
+    -- and of `_∸_` (n ∸ zero) blocks on a variable in the second argument, so
+    -- neither reduces and no step shape over `refl`/`cong`/`ih` can close a
+    -- goal that mentions them.  These two lemmas ARE those clauses completed,
+    -- each proved by induction with both cases `refl`; the citing step shapes
+    -- in `citingStepShapes` discharge the goal with `sym (…)`.  This is the
+    -- lemma environment Certificate.hs:238-240 named, realised as a fixed,
+    -- bounded, in-scope set rather than an unbounded dependency-ordered search.
+    localMaxZeroL
+      | need "max" =
+          [ "maxZeroL : (n : ℕ) → max zero n ≡ n"
+          , "maxZeroL zero = refl"
+          , "maxZeroL (suc n) = refl"
+          ]
+      | otherwise = []
+    localMinusZeroL
+      | need "-" =
+          [ "minusZeroL : (n : ℕ) → zero ∸ n ≡ zero"
+          , "minusZeroL zero = refl"
+          , "minusZeroL (suc n) = refl"
           ]
       | otherwise = []
 
@@ -616,6 +714,105 @@ agdaInductionCertificate defs eq@(l, r) v step = do
         baseLine = length pre + 2
     pure (unlines (pre ++ [sig, baseC, stepC]), baseLine)
 
+-- A NON-INDUCTIVE certificate: hand the whole telescoped equation to a
+-- reflection semiring solver (Cubical.Tactics.NatSolver), used point-free
+-- as `candidate = <macro>`.  This closes the commutativity/associativity/
+-- distributivity class that Certificate.hs:238-240 named as needing "a lemma
+-- environment ... not more step shapes": those thirteen rejections are all
+-- ℕ-semiring identities whose base case is itself a lemma (y ≢ y + zero
+-- definitionally), and a semiring solver is the decision procedure for
+-- exactly that class.  It is SOUND because the macro emits a proof term the
+-- kernel checks under the candidate's own pragmas — probed 2026-08-24: it
+-- discharges (x + y) ≡ (y + x) (rc 0) and REFUSES (x + y) ≡ (x · y) (rc 1) —
+-- so it is not a trusted oracle, and the two watched controls in the caller
+-- are unaffected.  `imp` and `body` are supplied by `solverShapes` because
+-- the macro's import path and name differ by cubical version.
+agdaSolverCertificate :: [Definition] -> Equation -> String -> String
+                      -> Maybe String
+agdaSolverCertificate defs _ _ _ | not (definitionsSafe defs) = Nothing
+agdaSolverCertificate defs eq@(l, r) imp body = do
+  lhs <- agdaTermWith defs l
+  rhs <- agdaTermWith defs r
+  names <- mapM agdaVar (equationVars eq)
+  pure $ unlines $
+    preambleWith defs (equationSymbols eq)
+    ++ [ imp
+       , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
+       , "candidate = " ++ body
+       ]
+
+-- The solver shapes, in order, each an (label, import line, macro name).
+-- Both cubical versions the corpus meets are covered so the shape survives
+-- the toolchain skew that fibered VargaPrakrtiWitness109: v0.5 exposes the
+-- hole macro as `Cubical.Tactics.NatSolver.Reflection.solve`; v0.9 renamed
+-- it `solveℕ!` and re-exported it from the aggregator `Cubical.Tactics
+-- .NatSolver`.  Only one import resolves per toolchain; the other fails with
+-- "Failed to find source of module" — an ordinary rejection, not an
+-- environment fault — so the search simply moves to the next shape.
+solverShapes :: [(String, String, String)]
+solverShapes =
+  [ ( "solve"
+    , "open import Cubical.Tactics.NatSolver.Reflection using (solve)"
+    , "solve" )
+  , ( "solveℕ!"
+    , "open import Cubical.Tactics.NatSolver using (solveℕ!)"
+    , "solveℕ!" )
+  ]
+
+-- Peel matching leading `suc` constructors off both sides.  `suc E` is
+-- `F "s" [E]`; the count returned is how many peeled, and the equation is the
+-- common core.  A goal `sucᵏ E₁ ≡ sucᵏ E₂` is closed by `(cong suc)ᵏ` applied
+-- to a proof of `E₁ ≡ E₂`, so peeling lets the semiring solver reach a core
+-- it could not see under the constructors.
+peelSuc :: Equation -> (Int, Equation)
+peelSuc (F "s" [a], F "s" [b]) = let (k, e) = peelSuc (a, b) in (k + 1, e)
+peelSuc eq = (0, eq)
+
+-- A solver certificate for a `suc`-wrapped semiring identity: peel k leading
+-- `suc`s, prove the core with the solver in a telescoped `where` helper (the
+-- macro needs a concrete goal type, so the helper quantifies the variables and
+-- is applied, exactly as the solver's own Examples.agda does), and rewrap with
+-- k `cong suc`.  Nothing when there is nothing to peel.
+agdaSolverPeelCertificate :: [Definition] -> Equation -> String -> String
+                          -> Maybe String
+agdaSolverPeelCertificate defs _ _ _ | not (definitionsSafe defs) = Nothing
+agdaSolverPeelCertificate defs eq@(l, r) imp body =
+  case peelSuc eq of
+    (0, _) -> Nothing
+    (k, (il, ir)) -> do
+      lhs  <- agdaTermWith defs l
+      rhs  <- agdaTermWith defs r
+      ilhs <- agdaTermWith defs il
+      irhs <- agdaTermWith defs ir
+      names <- mapM agdaVar (equationVars eq)
+      let wrap s = foldr (\_ acc -> "cong suc (" ++ acc ++ ")") s [1 .. k]
+          appInner = unwords ("inner" : names)
+      pure $ unlines $
+        preambleWith defs (equationSymbols eq)
+        ++ [ imp
+           , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
+           , "candidate " ++ unwords names ++ " = " ++ wrap appInner
+           , "  where inner : " ++ telescope names ++ ilhs ++ " ≡ " ++ irhs
+           , "        inner = " ++ body
+           ]
+
+-- The lemma-citing step shapes: only emitted for the operations whose
+-- clause-completion lemma `preambleCore` puts in scope, and only for the
+-- induction variable `nv` (the position the stuck term appears in after one
+-- step).  Kept out of `stepShapes` proper so the other callers of that
+-- function — ClauseOrder, certifyCert — are untouched.
+citingStepShapes :: [String] -> String -> [(String, String)]
+citingStepShapes syms nv =
+  [ s | "max" `elem` syms
+      , s <- [ ("sym (maxZeroL " ++ nv ++ ")", "sym (maxZeroL " ++ nv ++ ")")
+             , ( "cong suc (sym (maxZeroL " ++ nv ++ "))"
+               , "cong suc (sym (maxZeroL " ++ nv ++ "))" ) ] ]
+  ++
+  [ s | "-" `elem` syms
+      , s <- [ ("sym (minusZeroL " ++ nv ++ ")", "sym (minusZeroL " ++ nv ++ ")")
+             , ( "cong suc (sym (minusZeroL " ++ nv ++ "))"
+               , "cong suc (sym (minusZeroL " ++ nv ++ "))" ) ] ]
+
 -- The induction hypothesis, as a term: `candidate` applied to the same
 -- variables, with the induction variable at its (now smaller) name.
 inductionHypothesis :: Equation -> Int -> Maybe String
@@ -666,9 +863,31 @@ kMaxCongArguments :: Int
 kMaxCongArguments = 2
 
 -- The invocation budget per candidate, stated once and derived, not
--- guessed: one refl module plus one module per step shape.
+-- guessed: one refl module plus one module per step shape.  This is the
+-- budget for an ANNOTATED candidate — one whose proof note names the
+-- induction variable — and it is unchanged by the fallback below.
 kMaxAgdaCalls :: Int
-kMaxAgdaCalls = 1 + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
+kMaxAgdaCalls = 1
+             + 2 * length solverShapes  -- direct + peel module per macro
+             + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
+             + length (citingStepShapes ["max", "-"] "n")
+
+-- How many variables get tried when the caller's proof note names none.
+-- `equationVars` returns at most the six universe variables, so this is a
+-- cap and not a formality; three covers every equation MathMachine has ever
+-- written, and the demands in machine/SesaPariksa_...hs certify on the
+-- FIRST variable in all three cases that certify.
+kMaxInductionVariables :: Int
+kMaxInductionVariables = 3
+
+-- The budget for a candidate whose note names no variable, derived rather
+-- than guessed: the shared refl module, then the step menu once per
+-- variable tried.  A false equation costs far less than this in practice —
+-- the base clause fails and `blamedLine` stops each variable's search at 2
+-- calls — but the bound is what is guaranteed and it is what is stated.
+kMaxAgdaCallsUnannotated :: Int
+kMaxAgdaCallsUnannotated = 1 + 2 * length solverShapes
+  + kMaxInductionVariables * (kMaxAgdaCalls - 1 - 2 * length solverShapes)
 
 -- The cubical library, by name as registered in ~/.agda/libraries.
 -- Without this the engine's invocation cannot resolve Cubical.* at all;
@@ -709,8 +928,40 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 --   hGetContents: invalid argument (cannot decode byte sequence ...)
 -- which is fault (2) again, on the way back.  This is idempotent global
 -- state and is set on every call so the seam cannot forget it.
+--
+-- THE SEAM, CLOSED 2026-08-20.  Until today this function returned the
+-- child's exit status untouched, and `vetSuccess` — the falsifier watch of
+-- 2026-08-16 — was reached from exactly ONE caller, `runAgdaCached`.  So the
+-- repair lived in a wrapper and the seam itself was open: `ClauseOrder`
+-- calls `runAgda` directly, and under `agda "$@" 2>&1 | cat`
+-- `ClauseOrder.certifyUnder` returned `Accepted "refl"` for `s(x) ≡ x`, in
+-- ONE call, from a real agda that had just printed `1 != 0` (measured, this
+-- container, Agda 2.8.0, `MATH_CERTCACHE=0`).
+--
+-- A repair that has to be remembered at each call site is not a repair; it
+-- is a note.  So the WATCH IS NOW THE DEFAULT and the unwatched launch has
+-- to be asked for by name (`runAgdaUnwatched`), which is the only ordering
+-- under which forgetting is safe.  The two callers that must stay unwatched
+-- are the controls themselves — `kernelStatus`, which would otherwise
+-- recurse — and `GateAudit`'s PROBE-RAW, whose whole purpose is to print
+-- what the child returned before anyone judged it.
+--
+-- The cost is one memoised `kernelStatus` per process (two agda runs), paid
+-- on the first SUCCESS only; a run in which nothing checks pays nothing,
+-- because a non-zero exit is passed straight through.
 runAgda :: FilePath -> String -> IO (ExitCode, String)
 runAgda root source = do
+  (code, out) <- runAgdaUnwatched root source
+  case code of
+    ExitSuccess -> vetSuccess root out
+    _ -> pure (code, out)
+
+-- The raw launch: the child's own exit status, unexamined.  Everything the
+-- old `runAgda` was, under the name that says so.  A zero from here is a
+-- number a process returned and is not evidence about mathematics — see
+-- `vetSuccess`, and `notes/AHIMSA_SUTRA_VISTARA.md` §19.
+runAgdaUnwatched :: FilePath -> String -> IO (ExitCode, String)
+runAgdaUnwatched root source = do
   micros <- agdaTimeoutMicros
   r <- try (timeout micros (runAgdaRaw root source))
          :: IO (Either SomeException (Maybe (ExitCode, String)))
@@ -818,7 +1069,7 @@ runAgdaRaw root source = do
 
 canaryModule :: String -> String
 canaryModule claim = unlines
-  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  [ kOptionsPragma
   , "module Candidate where"
   , "open import Cubical.Foundations.Prelude"
   , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_)"
@@ -836,27 +1087,103 @@ canaryTrue = canaryModule "(zero + x) ≡ x"
 canaryFalse :: String
 canaryFalse = canaryModule "(suc x) ≡ x"
 
+-- WHY THIS IS FOUR VALUES AND NOT A BOOLEAN.
+--
+-- The two controls fail for opposite reasons and the old code folded them
+-- into one `Bool`, so `vetSuccess` printed ONE sentence for BOTH:
+--
+--     the kernel accepted `suc x ≡ x` by refl.  It is not checking proofs
+--
+-- On 2026-08-20 that sentence was printed 33 times by a container in which
+-- the kernel had rejected `suc x ≡ x` exactly as it should, and in which the
+-- POSITIVE control was the thing that failed — for an `[InfectiveImport]`
+-- scope error (see `kOptionsPragma`).  The verdict was right and the reason
+-- was invented, and a reader who believed the reason would have gone looking
+-- for a broken agda instead of a drifted pragma.  Two distinct observations
+-- reported under one name is the collapse this repository's own contract
+-- forbids: a written defect must state WHICH.
+--
+-- Fail-closed is unchanged.  Only `KernelChecking` licenses an acceptance;
+-- the other three are refusals.  What changes is that the refusal now names
+-- the control that actually failed and carries agda's own words for it.
+--
+-- The fourth constructor exists for the same reason as the split: a negative
+-- control that merely EXITED NONZERO has not been watched rejecting anything,
+-- and reporting that as "accepted a falsehood" would repeat the invented
+-- reason one level down.  Not-observed and observed-false stay apart.
+data KernelStatus
+  = KernelChecking
+    -- ^ positive control checked; negative control produced a located type
+    --   error.  The falsifier was watched firing.
+  | KernelPositiveControlFailed String
+    -- ^ `(zero + x) ≡ x` did NOT check.  agda's output.  Says nothing about
+    --   whether the kernel is honest — it says this container cannot compile
+    --   the modules this emitter produces, so no verdict from it means anything.
+  | KernelAcceptedAFalsehood
+    -- ^ `(suc x) ≡ x` checked.  The kernel is not checking proofs, and
+    --   nothing it accepts is one.
+  | KernelNegativeControlInconclusive String
+    -- ^ the negative control failed, but not with a type error located in the
+    --   module — a missing include root, a timeout, a killed process.  The
+    --   kernel was not observed rejecting a falsehood, and it was not observed
+    --   accepting one either.  Both are asserted at once and the pair has no
+    --   single verdict: *avaktavyam*, the fourth position of the saptabhaṅgī
+    --   (`notes/AHIMSA_SUTRA_VISTARA.md` §3), which is a place in the scheme
+    --   and not an absence.  Refused, like the others.
+  deriving (Eq, Show)
+
 {-# NOINLINE kernelChecksRef #-}
-kernelChecksRef :: IORef (Maybe Bool)
+kernelChecksRef :: IORef (Maybe KernelStatus)
 kernelChecksRef = unsafePerformIO (newIORef Nothing)
 
--- Does the thing on the far side of this seam actually check proofs?
--- Memoised per process: the answer is a property of the toolchain, and a
--- toolchain that changes under a running engine is not a threat this can
--- address (nor one the cache key can, which is the same admission).
-kernelIsChecking :: FilePath -> IO Bool
-kernelIsChecking root = do
+-- Does the thing on the far side of this seam actually check proofs, and if
+-- not, which of the two controls said so?  Memoised per process: the answer is
+-- a property of the toolchain, and a toolchain that changes under a running
+-- engine is not a threat this can address (nor one the cache key can, which is
+-- the same admission).
+--
+-- Order matters.  The positive control is examined FIRST, because a container
+-- that cannot compile this emitter's own preamble cannot be asked anything about
+-- the negative one either: under `[InfectiveImport]` both canaries fail to
+-- scope-check, `negCode /= ExitSuccess` holds vacuously, and reading that as
+-- "the kernel rejected a falsehood" credits the kernel with a rejection it
+-- never performed.
+kernelStatus :: FilePath -> IO KernelStatus
+kernelStatus root = do
   cached <- readIORef kernelChecksRef
   case cached of
-    Just b -> pure b
+    Just s -> pure s
     Nothing -> do
-      (posCode, posOut) <- runAgda root canaryTrue
-      (negCode, _) <- runAgda root canaryFalse
-      let positiveHolds = posCode == ExitSuccess && not (successHidesAnError posOut)
-          negativeHolds = negCode /= ExitSuccess
-          ok = positiveHolds && negativeHolds
-      writeIORef kernelChecksRef (Just ok)
-      pure ok
+      (posCode, posOut) <- runAgdaUnwatched root canaryTrue
+      let positiveHolds =
+            posCode == ExitSuccess && not (successHidesAnError posOut)
+      status <-
+        if not positiveHolds
+          then pure (KernelPositiveControlFailed posOut)
+          else do
+            (negCode, negOut) <- runAgdaUnwatched root canaryFalse
+            -- A nonzero exit is not by itself a rejection: a vanished include
+            -- root produces one too.  `cacheableFailure` is exactly the
+            -- predicate "agda located a genuine TYPE error inside the module
+            -- we emitted, with no environment marker", and the canary module
+            -- is named `Candidate` for the same reason the candidates are, so
+            -- it applies verbatim.  Demanding it means `KernelChecking` is
+            -- only ever returned by a process that WATCHED the kernel produce
+            -- `1 != 0` — the falsifier, not merely the absence of a success.
+            pure $ case negCode of
+              ExitSuccess -> KernelAcceptedAFalsehood
+              ExitFailure _
+                | cacheableFailure negOut -> KernelChecking
+                | otherwise -> KernelNegativeControlInconclusive negOut
+      writeIORef kernelChecksRef (Just status)
+      pure status
+
+-- The boolean face, kept because `KernelContext` and `ClauseOrder` ask the
+-- question in that form and only need the true fibre.  `KernelStatus` is where
+-- the two false fibres are kept apart; collapsing them HERE is safe precisely
+-- because a caller of this function consumes only `True`.
+kernelIsChecking :: FilePath -> IO Bool
+kernelIsChecking root = (== KernelChecking) <$> kernelStatus root
 
 -- The per-call form of the same suspicion, and the one that catches the
 -- `| cat` shim on the very first candidate rather than on the first
@@ -1144,7 +1471,20 @@ confirmHere key = modifyIORef' confirmedRef (key :)
 -- A zero exit is upgraded to an acceptance only if agda's own output is
 -- free of complaints AND this process has seen the kernel reject a false
 -- module.  Otherwise the zero exit is reported as what it is: a fault in
--- the environment, uncacheable, and a rejection at the gate.
+-- the environment, uncacheable, and a refusal.
+--
+-- THE ACCOUNTABILITY OF A NEGATIVE VERDICT.  This function's refusals now
+-- carry the observation that produced them, which is the whole of the repair
+-- of 2026-08-20.  A refusal that does not say what was looked at, and found
+-- unfit, is a verdict asserting itself while concealing its standpoint —
+-- exactly the durnaya of `notes/AHIMSA_SUTRA_VISTARA.md` §2 ("गुप्तो नयो
+-- दुर्नयो भवति").  The older Mīmāṃsā name for the requirement is
+-- *yogyānupalabdhi*: a non-apprehension is evidence only when the looking was
+-- FIT to have apprehended (Kumārila, *Ślokavārttika*, Abhāvapariccheda,
+-- c. 7th c.; sūtra §19, "यत्र दृश्येत तत्र न दृष्टम् इति प्रमाणम्").  A
+-- container that cannot compile the emitter's own preamble is not fit
+-- looking, and reporting its silence as "the kernel accepted a falsehood" is
+-- the precise failure that doctrine names.
 vetSuccess :: FilePath -> String -> IO (ExitCode, String)
 vetSuccess root out
   | successHidesAnError out =
@@ -1153,13 +1493,50 @@ vetSuccess root out
                ++ ": agda exited 0 while reporting an error; the exit status\n"
                ++ "of this invocation is not agda's.  Original output:\n" ++ out )
   | otherwise = do
-      checking <- kernelIsChecking root
-      pure $ if checking
-        then (ExitSuccess, out)
-        else ( ExitFailure 126
-             , kEnvironmentFault
-                 ++ ": the kernel accepted `suc x ≡ x` by refl.  It is not\n"
-                 ++ "checking proofs, so nothing it accepts is one.\n" )
+      status <- kernelStatus root
+      pure $ case status of
+        KernelChecking -> (ExitSuccess, out)
+        KernelPositiveControlFailed posOut ->
+          ( ExitFailure 126
+          , kEnvironmentFault
+              ++ ": the POSITIVE control did not check.  `(zero + x) ≡ x` by\n"
+              ++ "refl was refused by this container, so it cannot compile the\n"
+              ++ "modules this emitter produces and no verdict of its is about\n"
+              ++ "mathematics.  This is NOT a claim that the kernel is\n"
+              ++ "dishonest -- the negative control was never reached.\n"
+              ++ "agda's words:\n" ++ posOut )
+        KernelAcceptedAFalsehood ->
+          ( ExitFailure 126
+          , kEnvironmentFault
+              ++ ": the NEGATIVE control checked.  The kernel accepted\n"
+              ++ "`suc x ≡ x` by refl, so it is not checking proofs and\n"
+              ++ "nothing it accepts is one.\n" )
+        KernelNegativeControlInconclusive negOut ->
+          ( ExitFailure 126
+          , kEnvironmentFault
+              ++ ": the NEGATIVE control neither checked nor produced a type\n"
+              ++ "error.  This container was not watched rejecting a falsehood,\n"
+              ++ "and was not watched accepting one; no acceptance is honoured\n"
+              ++ "on that evidence.  agda's words:\n" ++ negOut )
+
+-- The same watch, for a caller that launched agda ITSELF.
+--
+-- Eight modules under `machine/` do not call `runAgda` at all: they build
+-- their own `CreateProcess` and read the exit status, having copied the
+-- LOCALE discipline out of `runAgdaRaw` and left the fitness behind.  Closing
+-- the seam at `runAgda` does nothing for them, because they never cross it.
+-- This is the one line each of them needs, and it takes what they already
+-- have in hand — the code and the captured output — rather than asking them
+-- to re-plumb their invocation through this module's temp-directory and
+-- argument conventions, which are not theirs.
+--
+-- A non-zero exit is returned untouched: a refusal needs no watch, because
+-- the failure mode being guarded against is a FALSE ACCEPTANCE.  Only a zero
+-- is asked to earn itself.
+vetForeignRun :: FilePath -> ExitCode -> String -> IO (ExitCode, String)
+vetForeignRun root code out = case code of
+  ExitSuccess -> vetSuccess root out
+  _ -> pure (code, out)
 
 -- The cached invocation.  The third component is the number of agda
 -- PROCESSES actually launched: 0 on a hit, 1 on a miss.  Everything that
@@ -1171,7 +1548,7 @@ runAgdaCached root source = do
   on <- cacheEnabled
   if not on
     then do
-      (code, out) <- runAgda root source
+      (code, out) <- runAgdaUnwatched root source
       case code of
         ExitSuccess -> do
           (code', out') <- vetSuccess root out
@@ -1193,7 +1570,7 @@ runAgdaCached root source = do
           if seen
             then pure (ExitSuccess, out, 0)
             else do
-              (code, out') <- runAgda root source
+              (code, out') <- runAgdaUnwatched root source
               case code of
                 ExitSuccess -> do
                   (code', out'') <- vetSuccess root out'
@@ -1204,7 +1581,7 @@ runAgdaCached root source = do
                   dropEntry root key
                   pure (code, out', 1)
         Nothing -> do
-          (code, out) <- runAgda root source
+          (code, out) <- runAgdaUnwatched root source
           case code of
             ExitSuccess -> do
               (code', out') <- vetSuccess root out
@@ -1254,14 +1631,41 @@ firstErrorLine out =
         || "Checking " `isPrefixOf` dropWhile isSpace ln
         || ".agda:" `isInfixOf` ln
 
--- The line agda blamed, if it named one: "<path>:LINE,COL-..." .
+-- The line agda blamed, if it named one.
+--
+-- TWO SPELLINGS, AND WHY BOTH ARE HERE (2026-08-20).  Agda 2.6.3 prints a
+-- range as `<path>:LINE,COL-COL`; Agda 2.8.0 prints `<path>:LINE.COL-COL`.
+-- This function accepted only the comma, so under 2.8 it returned `Nothing`
+-- on every diagnostic agda has ever produced, and three separate things
+-- downstream quietly stopped working:
+--
+--   1. `certifyWith`'s base-clause early exit (`blamedLine out == Just
+--      baseLine`) never fired, so every candidate whose BASE clause was the
+--      problem still paid all eleven remaining step shapes.  That is the
+--      whole of the observed "worst-case 12 (bound 12)": not a hard search,
+--      a dead comparison.
+--   2. `cacheableFailure` requires `isJust (blamedLine out)`, so NO rejection
+--      was cacheable and every run re-paid for every rejection.
+--   3. `kernelStatus`'s negative control, which reuses `cacheableFailure`,
+--      could not recognise `suc x != x` as a located type error — so the
+--      falsifier fired, correctly, and was not credited with firing.
+--
+-- The separator is required to be one of `,.` AND to be followed by a digit,
+-- so `Prelude.agda:` (no line) and prose containing a colon still yield
+-- `Nothing` rather than a fabricated line number.  Fabricating one is worse
+-- than declining: it would make the base-clause exit fire on the wrong
+-- clause.
 blamedLine :: String -> Maybe Int
 blamedLine out = case mapMaybe grab (lines out) of
   (n : _) -> Just n
   [] -> Nothing
   where
     grab ln = case break (== ':') (dropWhile isSpace ln) of
-      (_, ':' : rest) | (ds@(_ : _), ',' : _) <- span isDigit rest -> Just (read ds)
+      (_, ':' : rest)
+        | (ds@(_ : _), sep : more) <- span isDigit rest
+        , sep `elem` (",." :: String)
+        , (_ : _) <- takeWhile isDigit more
+        -> Just (read ds)
       _ -> Nothing
 
 -- The gate.  Fast path first, then the induction skeleton if the machine's
@@ -1291,15 +1695,98 @@ certifyWith defs root (eq, proofNote) =
         ExitFailure _ | environmentFault out ->
           pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
-          case inductionVariable proofNote of
-            Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
-            Just v -> do
-              let ks = take kMaxCongArguments
-                         (mapMaybe agdaVar (equationVars eq))
-              case inductionHypothesis eq v of
-                Nothing -> pure (Rejected (cachedError n0 (firstErrorLine out)) n0)
-                Just ih -> tryShapes v (stepShapes ih ks) n0 (firstErrorLine out)
+          trySolvers solverModules n0 (firstErrorLine out)
   where
+    -- The reflection-solver modules are tried after the definitional `refl`
+    -- module and before the induction search: one call closes the whole
+    -- ℕ-semiring class (directly, or under k leading `suc`s via the peel
+    -- certificate), and for an equation the solver does not handle (monus, le,
+    -- gcd) it fails fast and the induction search runs exactly as before.
+    -- Exhausting the solver modules falls through to `tryVariables`, so no
+    -- candidate the old emitter certified can be lost.  Each solver macro
+    -- contributes a direct module and, when the equation has matching leading
+    -- `suc`s, a peel module.
+    solverModules :: [(String, String)]
+    solverModules = concat
+      [    [ ("solver: " ++ label, s)
+           | Just s <- [agdaSolverCertificate defs eq imp body] ]
+        ++ [ ("solver-peel: " ++ label, s)
+           | Just s <- [agdaSolverPeelCertificate defs eq imp body] ]
+      | (label, imp, body) <- solverShapes ]
+
+    trySolvers [] used lastErr =
+      tryVariables (inductionCandidates proofNote eq) used lastErr
+    trySolvers ((label, source) : more) used _lastErr = do
+      (code, out, n) <- runAgdaCached root source
+      let used' = used + n
+      case code of
+        ExitSuccess -> pure (Certified (cachedShape used' label) used')
+        ExitFailure _
+          | environmentFault out -> pure (Rejected (firstErrorLine out) used')
+          | otherwise -> trySolvers more used' (firstErrorLine out)
+    -- WHEN THE CALLER NAMES NO VARIABLE, CHOOSE ONE (2026-08-20).
+    --
+    -- `inductionVariable` reads the induction variable off the caller's proof
+    -- note.  The engine annotates its OWN proofs, so a theorem it derived
+    -- arrives with "[induction on x]" and gets the eleven step shapes.  A
+    -- RESIDUAL — a subgoal harvested from the kernel's own stall and asked
+    -- back — has no such note, and the `Nothing` branch that used to stand
+    -- here refused it after ONE agda call, having emitted no induction module
+    -- at all.  `MathMachine.koNaya` already records the consequence: the naya
+    -- attempted is `NRefl` exactly when the note named no variable, and over
+    -- the committed log 541 of 1457 refusals are refusals of claims the same
+    -- log accepts elsewhere.
+    --
+    -- Measured on the six lemmas the kernel demanded and no composition law
+    -- reaches (machine/SesaPariksa_...hs, and §9 of
+    -- notes/SamasaBhavana_...md for where the six come from): asking each
+    -- variable in turn moves THREE of the six from open to certified with the
+    -- shape menu completely unchanged —
+    --
+    --     x = x + (0 * x)                  induction on x, step = cong suc
+    --     max(0,x) + 0 = max(0 + 0, x + 0) induction on x, step = refl
+    --     0 = le(s(s(s(x))), x)            induction on x, step = ih
+    --
+    -- the first of which is the flagship residual this engine circled for 239
+    -- rounds.  None of the three needed a new shape; they needed to be asked.
+    --
+    -- THIS IS NOT THE PROOF SEARCH §3a OF CERTIFICATE_REACH.md REFUSES.  That
+    -- refusal is about searching over COMPOSITIONS of proof shapes, where the
+    -- space is unbounded and the search is a prover in another process.  This
+    -- searches over the ≤ 6 VARIABLES OF THE EQUATION with the shape menu
+    -- fixed, and the bound is stated below and derived rather than guessed.
+    --
+    -- An ANNOTATED candidate is unaffected in every respect, including its
+    -- budget: the note names one variable and one variable is tried, exactly
+    -- as before.  Only the note-less case changes, and it changes from
+    -- "1 call, always rejected" to "at most kMaxAgdaCallsUnannotated calls,
+    -- sometimes certified".
+    inductionCandidates :: String -> Equation -> [Int]
+    inductionCandidates note e = case inductionVariable note of
+      Just v  -> [v]
+      Nothing -> take kMaxInductionVariables (equationVars e)
+
+    tryVariables [] used lastErr = pure (Rejected (cachedError used lastErr) used)
+    tryVariables (v : vs) used lastErr =
+      let ks = take kMaxCongArguments (mapMaybe agdaVar (equationVars eq))
+          nv = maybe (show v) id (agdaVar v)
+      in case inductionHypothesis eq v of
+           Nothing -> pure (Rejected (cachedError used lastErr) used)
+           Just ih -> do
+             res <- tryShapes v
+                      (stepShapes ih ks
+                       ++ citingStepShapes (equationSymbols eq) nv)
+                      used lastErr
+             case res of
+               Certified{} -> pure res
+               Untranslatable{} -> pure res
+               -- An environment fault says nothing about this equation, and
+               -- the next variable would hit the same fault; fail closed
+               -- rather than spend the rest of the budget on it.
+               Rejected err n
+                 | null vs || kEnvironmentFault `isInfixOf` err -> pure res
+                 | otherwise -> tryVariables vs n err
+
     tryShapes _ [] used lastErr = pure (Rejected (cachedError used lastErr) used)
     tryShapes v ((label, step) : more) used _lastErr =
       case agdaInductionCertificate defs eq v step of
@@ -1598,11 +2085,43 @@ pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf
   []      -> Nothing
 
 -- A prefix head / atom name: alphanumerics plus `_ #`, or a bare `-` (monus).
+--
+-- THE WORD-OPERATOR AMBIGUITY, AND WHY THE GREEDY SCAN WAS WRONG (2026-08-20).
+--
+-- MathMachine's `Show` renders `max` and `gcd` INFIX AND WITHOUT SPACES, so
+-- `x max x` is written `(xmaxx)` and `s(0) max x` is written `(s(0)maxx)`.
+-- A scan that takes the longest run of identifier characters swallows the
+-- operator: it read `xmaxx` as one nullary symbol, then looked for an infix
+-- operator, found `)`, and returned `Nothing`.  `parseLibraryLine` therefore
+-- failed on EVERY `max` line the machine has ever written — four of the 28
+-- lines of `machine/library.snapshot.txt` — and failed by returning "this
+-- line did not parse", which reads as a malformed file rather than as a
+-- defect in the reader.  `Certificate.main` never saw it because its
+-- `snapshot` is transcribed by hand in Haskell; anything that reads the FILE
+-- (`CertReplay`, and the combined-reach harness) lost those lines silently.
+--
+-- The repair is to stop the run at any position after the first where one of
+-- the word operators begins.  `showInfixOps` is the same list `pShowOp`
+-- consults, so the scanner and the operator reader cannot disagree about what
+-- an operator is.  Position 0 is exempt, so the PREFIX spellings `gcd(x,0)`
+-- and the nullary `max` still read as names; and the guard `not (null taken)`
+-- means the stop can never produce an empty name.
+--
+-- This is a parser repair only.  It changes no verdict about any equation: a
+-- line that did not parse produced no candidate at all.
 pShowName :: String -> Maybe (String, String)
 pShowName ('-' : rest) = Just ("-", rest)
-pShowName s = case span (\c -> isAlphaNum c || c == '_' || c == '#') s of
+pShowName s = case scan 0 s of
   ("", _)     -> Nothing
   (nm, rest)  -> Just (nm, rest)
+  where
+    identChar c = isAlphaNum c || c == '_' || c == '#'
+    scan :: Int -> String -> (String, String)
+    scan _ [] = ("", [])
+    scan i t@(c : cs)
+      | not (identChar c) = ("", t)
+      | i > 0, any (`isPrefixOf` t) showInfixOps = ("", t)
+      | otherwise = let (nm, rest) = scan (i + 1) cs in (c : nm, rest)
 
 pShowArgs :: String -> Maybe ([Term], String)
 pShowArgs s = case dropWhile isSpace s of

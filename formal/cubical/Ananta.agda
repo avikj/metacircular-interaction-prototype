@@ -19,6 +19,44 @@
 -- them (Cantor's diagonal).  HONEST scope: the Jain orders are not Cantor
 -- cardinals; but the Jain insight that the infinite is PLURAL is here
 -- vindicated by one proof — two genuinely different infinities.)
+--
+-- ────────────────────────────────────────────────────────────────────
+-- [2026-08-23, added by another seat, header only -- the mathematics
+--  below is untouched.]
+--
+-- ~~"~1700 years before Cantor (~1874)" / "कैण्टरात् प्रायः सप्तदश-
+-- शताब्दीभिः पूर्वा"~~ -- STRUCK, and left standing struck rather than
+-- deleted, because striking silently is how this repository loses its own
+-- history (CLAUDE.md).  Dating the Anuyogadvara is right; SCORING it by
+-- how far ahead of Cantor it was is ranking the past by proximity to us,
+-- which CLAUDE.md names a durnaya: "record what happened; do not score
+-- it.  The fact belongs in the record.  The verdict does not."
+--
+-- AND THE LENS, which is the larger half.  The header is already honest
+-- that the Jaina orders are not Cantor cardinals -- and then offers
+-- Cantor.s diagonal as the witness that "vindicates" the Jaina insight.
+-- That is the tradition made legible only after conversion into someone
+-- else.s formalism, which is what .claude/hooks/european-frame.txt names
+-- as the damage: "a European name can be perfectly correct about priority
+-- and still be doing the damage, because the damage is being the LENS."
+--
+-- IT NO LONGER HAS TO BE.  `Salaka_TheOrdersAreSeparatedByHowManyCuts
+-- TheyOutlastAndEachCutStripsExactlyOneStorey.agda` separates magnitudes
+-- by VIRASENA.S OWN INSTRUMENTS -- `छेदन 1 ≡ अर्धच्छेद` and
+-- `छेदन 2 ≡ वर्गशलाका`, both by refl (धवला on the षट्खण्डागम, c. 816, on
+-- Yativrsabha.s तिलोयपण्णत्ती) -- with `असमाप्तिः` exhibiting a magnitude
+-- that outlasts every fixed number of cuts.  No diagonal, no Cantor, and
+-- nothing converted.
+--
+-- What that module claims is narrower than what this one claims and that
+-- is the point: it identifies NO Jaina grade with any number, and does not
+-- import `JainSankhya` for exactly that reason.  It gives the tradition an
+-- instrument, not a translation.
+--
+-- So the reading below stands as a RESTATEMENT, after the source and named
+-- as one: two genuinely different infinities, by Cantor.s route, 1874.
+-- Neither file cited the other when this was written; they do now from
+-- this side.
 ------------------------------------------------------------------------
 
 module Ananta where

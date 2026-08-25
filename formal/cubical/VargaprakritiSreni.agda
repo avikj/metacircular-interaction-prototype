@@ -23,7 +23,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Brahmagupta
   using (मान ; संयोग-प्र ; संयोग-द्वि ; चक्रवाल-संयोगः)
 
@@ -74,4 +74,4 @@ open import Brahmagupta
 ------------------------------------------------------------------------
 
 वर्ग-N-अपकर्षः : (k x y : ℤ) → x · x - (k · k) · (y · y) ≡ (x - k · y) · (x + k · y)
-वर्ग-N-अपकर्षः = solve ℤCommRing
+वर्ग-N-अपकर्षः k x y = solve! ℤCommRing

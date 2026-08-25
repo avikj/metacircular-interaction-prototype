@@ -26,7 +26,7 @@ module Dvikarani where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- वर्गप्रकृति-समाधानानि — x² = 2y² + 1 (√2-सन्निकर्ष-अंश-हराः) ।
@@ -82,4 +82,4 @@ open import Cubical.Tactics.NatSolver.Reflection using (solve)
 वृद्धि-मानम् : (x y : ℕ)
             → भावना-अंश x y 3 2 · भावना-अंश x y 3 2 + 2 · (y · y)
             ≡ 2 · (भावना-हर x y 3 2 · भावना-हर x y 3 2) + x · x
-वृद्धि-मानम् = solve
+वृद्धि-मानम् x y = solveℕ!

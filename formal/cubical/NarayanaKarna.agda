@@ -7,14 +7,14 @@
 -- गभीरतरः कर्णः (step २) : ∑ₖ C(n−2k, k) — नारायणस्य गो-श्रेढी (१,१,१,२,३,४,६,…) ,
 -- यत्र {१,३}-समासाः (एकैक-वा-त्रिक-अंशाः) गण्यन्ते ।  विचारहीनः, ∸-रहितः :
 --   कर्ण3 t b : t द्वि-अवरोहति, b एक-आरोहति (गभीर-तिर्यक्) ।
--- मूल-सिद्धिः (कर्ण3-पास्कल) : कर्ण3(t+2)(b+1) = कर्ण3(t+1) b + कर्ण3(t+1)(b+1) —
+-- मूल-सिद्धिः (कर्ण3-पार्श्वयोग) : कर्ण3(t+2)(b+1) = कर्ण3(t+1) b + कर्ण3(t+1)(b+1) —
 -- step-२-आवृत्तेः द्वि-पद-आगमनं (त्रि-स्थिति : ०,१,त+2) अपेक्षते , न एक-पदम् ।
 -- ततः नारायण-आवृत्तिः a(n+3)=a(n+2)+a(n) , ततः समता-नारायणः : मेरु-कर्ण3 n ≡
 -- length(सर्गः{१,३} n) — मेरु-कर्णस्य {१,३}-नयः नारायणस्य समास-गणना एव ।
 --
 -- (The steeper diagonal of the meru (step 2): ∑ₖ C(n−2k,k) = Nārāyaṇa's cow
 -- sequence 1,1,1,2,3,4,6,…, counting {1,3}-compositions.  Decision-free, ∸-free:
--- कर्ण3 descends the top by 2, ascends the bottom by 1.  The key lemma कर्ण3-पास्कल
+-- कर्ण3 descends the top by 2, ascends the bottom by 1.  The key lemma कर्ण3-पार्श्वयोग
 -- needs a TWO-STEP induction (bases 0,1; step t+2) because the recursion skips a
 -- row, so a single Pascal split lands one row above the recursive tail.  It
 -- yields the Nārāyaṇa recurrence a(n+3)=a(n+2)+a(n) and then मेरु-कर्ण3 n ≡
@@ -47,19 +47,19 @@ open import SamasaMeruN using (सर्गः ; नारायण-आवृत
 मेरु-कर्ण3 n = कर्ण3 n 0
 
 ------------------------------------------------------------------------
--- कर्ण3-पास्कल — गभीर-तिर्यक्-पास्कल (सर्वयोः t b) , द्वि-पद-आगमनेन ।
+-- कर्ण3-पार्श्वयोग — गभीर-तिर्यक्-पार्श्वयोग (सर्वयोः t b) , द्वि-पद-आगमनेन ।
 --   कर्ण3(t+2)(b+1) ≡ कर्ण3(t+1) b + कर्ण3(t+1)(b+1) ।
 ------------------------------------------------------------------------
 
-कर्ण3-पास्कल : (t b : ℕ)
+कर्ण3-पार्श्वयोग : (t b : ℕ)
            → कर्ण3 (suc (suc t)) (suc b) ≡ कर्ण3 (suc t) b + कर्ण3 (suc t) (suc b)
-कर्ण3-पास्कल zero          b = +-zero (C (suc (suc zero)) (suc b))
-कर्ण3-पास्कल (suc zero)    b =
+कर्ण3-पार्श्वयोग zero          b = +-zero (C (suc (suc zero)) (suc b))
+कर्ण3-पार्श्वयोग (suc zero)    b =
     +-zero (C (suc (suc zero)) b + C (suc (suc zero)) (suc b))
   ∙ sym (cong₂ _+_ (+-zero (C (suc (suc zero)) b))
                    (+-zero (C (suc (suc zero)) (suc b))))
-कर्ण3-पास्कल (suc (suc t)) b =
-    cong (C (suc (suc (suc (suc t)))) (suc b) +_) (कर्ण3-पास्कल t (suc b))
+कर्ण3-पार्श्वयोग (suc (suc t)) b =
+    cong (C (suc (suc (suc (suc t)))) (suc b) +_) (कर्ण3-पार्श्वयोग t (suc b))
   ∙ मध्य-विनिमयः (C (suc (suc (suc t))) b) (C (suc (suc (suc t))) (suc b))
                 (कर्ण3 (suc t) (suc b)) (कर्ण3 (suc t) (suc (suc b)))
 
@@ -71,7 +71,7 @@ open import SamasaMeruN using (सर्गः ; नारायण-आवृत
     → मेरु-कर्ण3 (suc (suc (suc n))) ≡ मेरु-कर्ण3 (suc (suc n)) + मेरु-कर्ण3 n
 नारायण-आवृत्तिः-कर्ण zero     = refl
 नारायण-आवृत्तिः-कर्ण (suc n') =
-  cong suc (कर्ण3-पास्कल n' 0 ∙ +-comm (कर्ण3 (suc n') 0) (कर्ण3 (suc n') 1))
+  cong suc (कर्ण3-पार्श्वयोग n' 0 ∙ +-comm (कर्ण3 (suc n') 0) (कर्ण3 (suc n') 1))
 
 ------------------------------------------------------------------------
 -- समता-नारायणः — मेरोः {१,३}-कर्णः = नारायणस्य समास-गणना (एकं तत्त्वम्) ।

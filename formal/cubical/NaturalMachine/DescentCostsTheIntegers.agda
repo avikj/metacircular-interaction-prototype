@@ -119,7 +119,7 @@ open CommRingStr (snd ℤCommRing) using () renaming (_+_ to _+ℤ_ ; -_ to -ℤ
 
 private
   +inv : (x : ℤ) → x +ℤ (-ℤ x) ≡ 0ℤ
-  +inv = solve ℤCommRing
+  +inv x = solve! ℤCommRing
 
 ExpZ : List ℕ → Type
 ExpZ []       = Unit

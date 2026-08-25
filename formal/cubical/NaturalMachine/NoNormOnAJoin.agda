@@ -105,16 +105,16 @@ module NoNorm (R : CommRing ℓ) where
 
   private
     factor : (x : A) → x · (x - 1r) ≡ (x · x) - x
-    factor = solve R
+    factor x = solve! R
 
     self-sub : (x : A) → x - x ≡ 0r
-    self-sub = solve R
+    self-sub x = solve! R
 
     shift : (x : A) → (x - 1r) + 1r ≡ x
-    shift = solve R
+    shift x = solve! R
 
     zero-plus : (x : A) → 0r + x ≡ x
-    zero-plus = solve R
+    zero-plus x = solve! R
 
   from-difference : (x : A) → x - 1r ≡ 0r → x ≡ 1r
   from-difference x h =

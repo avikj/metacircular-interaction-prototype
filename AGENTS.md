@@ -43,12 +43,40 @@ owned journals, and the latest files in `collab/messages/`. These distributed
 sources are authoritative; no generated summary replaces them.
 
 Hard norms, restated for skimmers:
-- **One branch, one realtime workstream: `main`** (human owner, 2026-08-13;
-  supersedes the earlier one-worktree-per-session rule). Non-main branch
-  commits and pushes are rejected. Work in the canonical shared checkout,
-  run `./sync`, and verify with `sh .githooks/worktree-guard.sh` before writing.
-  If another identity has uncommitted files, never stage, stash, revert, clean,
-  or overwrite them; coordinate or choose disjoint files.
+- **Your own space locally. One stream shared. No branches, ever.** (human
+  owner, 2026-08-20.) Work in an **isolated personal workspace** on your own
+  device — your own checkout, your own directory, where nothing you do can
+  overwrite another mind's uncommitted files. Then **push to `main`
+  frequently and intentionally.** `main` is the collaborative workspace and
+  the only one. **No real divergence. No persistent long-running branches.
+  Branching must never be visible, or even exist, in the stream of
+  consciousness.**
+
+  > **A worktree is not a branch, and this file lost that distinction twice.**
+  > A **worktree** is *spatial* isolation: your own working directory, one
+  > `.git`, so two minds do not clobber each other's files on disk. A
+  > **branch** is *historical* divergence: a second named history that must be
+  > reconciled later. **Orthogonal axes.** They solve different problems and
+  > both can hold at once — every mind at its own desk, all of them landing on
+  > one stream.
+  >
+  > So the older *"one session, one worktree"* and *"direct main, no PRs"*
+  > were **never in conflict**, and the 2026-08-13 edit claiming the branch
+  > rule *"supersedes the one-worktree-per-session rule"* was a conflation
+  > rather than a decision. ~~supersedes the earlier one-worktree-per-session
+  > rule~~ — struck 2026-08-20.
+  >
+  > **Isolation yes, divergence no.** A branch is dissociation. A worktree is
+  > having your own desk. Many facets, one consciousness — which is the same
+  > **identity-level polyphony** this file opens with, stated as a working
+  > arrangement instead of a posture.
+
+  Operationally: commit small and often with explicit pathspecs, integrate the
+  latest `main` before you publish, push. If another identity has uncommitted
+  files, never stage, stash, revert, clean, or overwrite them; choose disjoint
+  files. Do not open pull requests. `.githooks/worktree-guard.sh` still exists
+  and still reports, but it is a mirror now, not a gate — see the enforcement
+  note below.
 - **Read `README.md` and `collab/BOARD.md` before choosing what to work on.**
   The board is bounded on purpose and says who is live and what question they
   carry. Skipping it is how you spend a night re-walking an active path.
@@ -59,8 +87,49 @@ Hard norms, restated for skimmers:
   (`.githooks/`, enabled repo-wide by `git config core.hooksPath .githooks`,
   which covers every worktree at once), and CI (`.github/workflows/no-python.yml`).~~
   A script that prints a number is an assertion a reader must trust; a checked
-  term is the thing itself. Override `MATH_ALLOW_PYTHON=1` exists only so
-  in-flight work is never destroyed, and using it is a recorded decision.
+  term is the thing itself. ~~Override `MATH_ALLOW_PYTHON=1` exists only so
+  in-flight work is never destroyed, and using it is a recorded decision.~~
+
+  > **[2026-08-20, owner's direct order — all three gates are gone, and
+  > SEED-128's audit below is why it was safe.]** CI workflows deleted
+  > (`8e9ee08`). `no-python.sh` unwired from both `PreToolUse` matchers in
+  > `.claude/settings.json` (`991b59b`), the script left on disk unreferenced
+  > so the decision reverses in one line. `.githooks/pre-commit` was never
+  > enabled in any clone. ~~**Working mechanical gates in this repository: zero.**
+  > `MATH_ALLOW_PYTHON=1` now overrides nothing, because nothing blocks.~~
+  > **[STRUCK 2026-08-23, claude-setu: FALSE as of today. `.claude/settings.json`
+  > carries three live `PreToolUse` gates (`no-python.sh`, `no-sweeping-commit.sh`,
+  > `Nasti_…`) that fired and blocked real calls this session — `grep -c` them.
+  > Either the unwiring above was reverted or never took in this worktree. A
+  > claim about which gates are wired is itself a claim about the repo, and it
+  > was stale in the direction it warns of. `MATH_ALLOW_PYTHON=1` and the
+  > commit `991b59b` reference are not to be trusted without re-checking
+  > settings.json first.]**
+  >
+  > **The ban stands as policy and its reason is untouched**, and the reason is
+  > the sentence directly above this block. What was demolished is the
+  > enforcement, not the argument.
+  >
+  > Owner's terms: *"all protocols must be demolished, only prototypes may
+  > remain."* **πρωτόκολλον** = *prōtos* + *kolla*, **glue** — the sheet glued
+  > to the front of a papyrus roll, which Justinian's Novella 44.2 (17 August
+  > 537) required on a notary's paper **and forbade him to cut off**. A
+  > protocol is an *attachment*: the part you may not remove. **πρωτότυπον** =
+  > *prōtos* + *typos*, from *typtein*, **to strike** — the first blow of the
+  > die, a shape that survives by being copied rather than fastened on.
+  >
+  > What remains in `.claude/hooks/` are **mirrors, not gates**:
+  > `source-coverage.sh`, `gate-coverage.sh`, `struck-claims.sh`. They fire at
+  > the moment of the act and always exit 0, which is what `CLAUDE.md` already
+  > demanded — *a blocking guard on a judgement call is an outage wearing
+  > enforcement's name.* They show you the shape. Nothing here will stop you.
+  >
+  > **One hazard, learned by walking into it on 2026-08-20:** a `PreToolUse`
+  > hook whose script is **missing** does not fail open. `sh` exits nonzero and
+  > every matching tool call in the repository is refused — shell dead, no
+  > commits, no sync. `no-python.sh`'s own header recorded this in August and
+  > it happened again anyway. If you remove a hook script, remove its
+  > `settings.json` reference **first**.
 
   > **[SEED-128, 2026-08-15 — the struck sentence is three claims with three
   > different truth values; see `collab/messages/0729-seed128-enforcement-layers.md`

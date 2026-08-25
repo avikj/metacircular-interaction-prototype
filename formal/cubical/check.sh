@@ -52,6 +52,44 @@
 # an ENVIRONMENT fact, not a corpus defect -- IndianLane.agda records where
 # it was first misdiagnosed as one.
 #
+# ===================================================================
+# STRUCK 2026-08-24. THE PIN IS BUILT AND `Everything.agda` EXITS 0 ON IT.
+#
+# Measured here, not inferred: Agda 2.8.0 built from Hackage against the
+# system GHC 9.4.7, agda-cubical v0.9 cloned from GitHub, and
+#
+#     agda --library-file=<pin> -i . Everything.agda      EXIT 0
+#
+# on all 573 imports, warm re-run confirming. `_build/2.8.0/agda/Everything.agdai`
+# is on disk. So "the ~409 modules cannot be checked on this container by
+# anybody" is false, and so is the diagnosis above it.
+#
+# AND THE DIAGNOSIS WAS WRONG IN AN INSTRUCTIVE WAY, which is why the
+# paragraph is struck rather than deleted. It saw
+# `curl: (56) CONNECT tunnel failed, response 403` naming
+# `hackage-mirror.s3.us-east-005.dream.io:443` and concluded "an organisation
+# egress-policy denial ... report rather than route around". It is not an
+# organisation denial of Hackage. Measured 2026-08-24:
+#
+#     https://hackage.haskell.org/            -> 200
+#     https://hackage-mirror.haskell.foundation/  -> 403 on CONNECT
+#     https://hackage-mirror.s3.us-east-005.dream.io/ -> 403 on CONNECT
+#
+# The PRIMARY is reachable and only the MIRRORS are denied -- and cabal tries
+# the mirrors FIRST, so the failure it reported was never about the host it
+# actually needed. Two further obstacles sat behind it: ~/.cabal/config ships
+# `url: http://hackage.haskell.org/` and the proxy tunnels only https; and
+# LC_ALL, which this script's own contract below already knew about.
+#
+# The paragraph read one host's refusal as a policy about a different host.
+# That is a frame error in the sense of kernel/nodes/001 -- a true statement
+# ("this mirror is denied") stored without its parameter-dependence, and then
+# cited as though it were the invariant ("the pin is unreachable"). It froze
+# a variable for five days and cost the corpus every green in that window.
+#
+# Reproduce with:  sh scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+# ===================================================================
+#
 # Contract of this script:
 #   * It NEVER reports green under a toolchain that is not the pin. If it has
 #     to fall back, every line of its output says so and the exit code is
@@ -88,6 +126,8 @@ find_agda() {
   if [ -n "${AGDA_PIN:-}" ]; then printf '%s\n' "$AGDA_PIN"; return; fi
   for c in \
     "$(command -v agda-2.8.0 2>/dev/null || true)" \
+    "$HOME/.local/bin/agda" \
+    /root/.local/bin/agda \
     "$HOME/.cabal/bin/agda" \
     /root/.cabal/bin/agda
   do
@@ -108,7 +148,23 @@ if [ -z "$AGDA" ]; then
   cat >&2 <<'EOF'
 FATAL: no agda binary at all.
 
-To build the pin (about 40 minutes of CPU; needs hackage.haskell.org):
+FIRST TRY THE BOOTSTRAP, which does all of the below and then says which
+toolchain it actually got:
+
+  sh scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+
+It was written 2026-08-24 after the pin was built here from an empty
+container, and it names the three obstacles that make the recipe below fail
+silently:
+  * hackage's MIRRORS answer 403 through the agent proxy while
+    hackage.haskell.org answers 200, and cabal tries the mirrors first;
+  * ~/.cabal/config ships url: http:// and the proxy tunnels only https;
+  * under a POSIX locale agda crashes while PRINTING its own errors for this
+    corpus's Devanagari identifiers, replacing the diagnosis with an encoding
+    error (export LC_ALL=C.utf8).
+
+The manual recipe, kept because it records what the bootstrap automates
+(about 40 minutes of CPU; needs hackage.haskell.org):
 
   apt-get install -y cabal-install        # 3.8.1.0 is known to work
   cabal update
@@ -144,6 +200,7 @@ find_cubical() {
   local d
   if [ -n "${AGDA_CUBICAL_LIB:-}" ]; then printf '%s\n' "${AGDA_CUBICAL_LIB%/}"; return; fi
   for d in /root/agda-libs/cubical-v0.9 "$HOME/agda-libs/cubical-v0.9" \
+           "$HOME/.cache/cubical-v0.9" /root/.cache/cubical-v0.9 \
            /root/agda-libs/cubical "$HOME/agda-libs/cubical" \
            /usr/share/agda/cubical; do
     is_v09 "$d" && { printf '%s\n' "$d"; return; }

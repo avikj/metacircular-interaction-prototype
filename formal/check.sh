@@ -10,8 +10,8 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # makes the subsequent green meaningless rather than merely incomplete.
 "$repo_dir/scripts/check-agda-pragmas.sh"
 
-# The anonymous-`example` oracle gate (notes/AXIOM_GATE.md §7a).  `lake exe
-# axiom_gate` below can only reach NAMED declarations; an `example` emits no
+# The anonymous-`example` oracle check (notes/AXIOM_GATE.md §7a).  `lake exe
+# yogyanupalabdhi` below can only reach NAMED declarations; an `example` emits no
 # constant, so an oracle inside one is structurally invisible to it — and for
 # a time the lane's single `native_decide` sat in exactly that position.  This
 # is the complement, not a replacement, and like the pragma check it needs no
@@ -31,6 +31,25 @@ repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 # slug-qualified reference that names nothing, and WARNS (non-fatal) on a bare
 # reference to an ambiguous ID — the silently-wrong ones. Needs no toolchain.
 "$repo_dir/scripts/check-claim-slugs.sh"
+
+# The Lean-lane closure checks (notes/LEAN_LANE_AUDIT.md, and the 2026-08-20
+# re-derivation at the foot of formal/pairfield/Pairfield.lean).  Two
+# different questions, neither subsuming the other, both toolchain-free:
+#
+#   check-lean-globs.sh        -- is every module a BUILD TARGET?
+#                                 (`globs` in lakefile.toml; the soundness one)
+#   check-lean-root-closure.sh -- is every module REACHABLE from the root?
+#                                 (`import Pairfield`; 114 of 133 until today)
+#
+# Both existed unwired before now, which is the failure the audit named: the
+# check that nothing runs is indistinguishable from the check that does not
+# exist.
+"$repo_dir/scripts/check-lean-globs.sh"
+"$repo_dir/scripts/check-lean-root-closure.sh"
+
+# The declared-route check on the lane's oracle sites (Jaina nayavāda; see the
+# script's own header).  Also unwired until now.
+"$repo_dir/scripts/GuptaNaya_TheConcealedRouteMustBeDeclaredAtItsSite.sh"
 
 agda -i "$repo_dir/formal/cubical" \
   "$repo_dir/formal/cubical/NaturalMachine.agda"
@@ -75,11 +94,13 @@ fi
 (
   cd "$repo_dir/formal/pairfield"
   lake build
-  # The axiom gate: Lean's substitute for Agda's `--safe`.  Rejects any
-  # Pairfield theorem/def/axiom whose `Lean.collectAxioms` set escapes
+  # The axiom check (yogyānupalabdhi): Lean's substitute for Agda's `--safe`.
+  # Rejects any lane constant whose `Lean.collectAxioms` set escapes
   # {propext, Classical.choice, Quot.sound} plus the commented allowlist in
   # axiom-allowlist.txt.  Sees taint through imports, which a grep cannot.
   # ~4 min on top of a warm build (it imports all 133 modules at once).
+  # Scope is MODULE MEMBERSHIP, not a `Pairfield` name prefix, since 2026-08-20;
+  # it prints its own yogyatā (what it could have seen) on the OK line.
   # See notes/AXIOM_GATE.md.
-  lake exe axiom_gate
+  lake exe yogyanupalabdhi
 )

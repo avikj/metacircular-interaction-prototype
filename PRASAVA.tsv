@@ -1,0 +1,24 @@
+# PRASAVA.tsv — regenerated 2026-08-22 by scripts/Prasava_…sh --write
+# key	value	the command that makes it.  A number without a command is a memory.
+agda-modules-toplevel	234	ls formal/cubical/*.agda | wc -l
+agda-modules-all	923	find formal/cubical punaragamana/src -name '*.agda' | wc -l
+agda-root-direct-imports	320	grep -c '^import ' formal/cubical/Everything.agda
+agda-reached	910	runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs 2>/dev/null | awk '/reached/{s+=$3} END{print s+0}'
+agda-unreached	0	sh scripts/.prasava-unreached.sh
+agda-generated-root-imports	897	grep -c '^import ' formal/cubical/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.agda
+lean-modules	149	find formal/pairfield/Pairfield -name '*.lean' | wc -l
+lean-root-imports	133	grep -c '^import ' formal/pairfield/Pairfield.lean
+machine-modules	135	ls machine/*.hs | wc -l
+notes	1020	ls notes/*.md | wc -l
+punaragamana-modules	14	find punaragamana/src -name '*.agda' | wc -l
+scripts	22	ls scripts/*.sh | wc -l
+hooks	16	ls .claude/hooks/* 2>/dev/null | wc -l
+mulavakya-rows	84	grep -vc '^#' .claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt
+sanskrit-led-modules	149	find formal/cubical punaragamana/src -name '*_*.agda' | wc -l
+postulates	0	grep -rl '^ *postulate' formal/cubical punaragamana/src --include=*.agda | wc -l
+lean-sorry	0	find formal/pairfield/Pairfield -name '*.lean' -exec awk -f scripts/.lean-strip.awk {} + | grep -cE '\bsorry\b|\badmit\b'
+python-files	839	find . -name '*.py' -not -path './.git/*' | wc -l
+commits	5568	git rev-list --count HEAD
+lean-lane-green	0	(cd formal/pairfield && lake build Pairfield >/dev/null 2>&1 && echo 0 || echo 1)
+receipt-modules	6	find formal/cubical formal/pairfield/Pairfield -not -path '*_build*' \( -name 'Lopa_TheSums*' -o -name 'YugmaPurana*' -o -name 'SthiraBindu*' -o -name 'GoldbachSupport*' -o -name 'Marga1*' \) | wc -l
+readme-movements	56	grep -cE '^### [0-9]' README.md

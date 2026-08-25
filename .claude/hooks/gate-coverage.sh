@@ -139,7 +139,12 @@ GATE COVERAGE: $mod is reached only by a gate that does not run here.
   A gate that cannot go green does not guard what it reaches -- that is
   IndianLane.agda's founding argument.  This is not a defect in $mod and
   not something to fix by editing it; see formal/cubical/check.sh, which
-  records that the pin is unreachable here by organisation egress policy.
+  records the toolchain question. CORRECTED 2026-08-24: that line used to
+  say "the pin is unreachable here by organisation egress policy". It is
+  reachable -- ef3d266d built Agda 2.8.0 + cubical v0.9 here from nothing.
+  hackage.haskell.org answers 200 through the proxy; only its MIRRORS answer
+  403, and cabal tries the mirrors first. The denial was a mirror-selection
+  artifact and I repeated it as a policy wall.
 EOF
     elif [ "$in_all" = no ]; then
       cat >&2 <<EOF

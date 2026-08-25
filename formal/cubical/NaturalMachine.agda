@@ -939,6 +939,7 @@ import NaturalMachine.PolynomialAttachmentGrowth
 import NaturalMachine.QuadraticRefinement
 import NaturalMachine.QuotientUnitSourceCutBoundary
 import NaturalMachine.RootedGrothendieck
+import NaturalMachine.SankramanaSesa_EveryTransportOwesItsResidual
 import NaturalMachine.SpernerFromSl2
 import NaturalMachine.StructuredSymmetryTransport
 -- NB: NaturalMachine.TransportCost is NOT here.  It `open import`s this
@@ -958,3 +959,242 @@ import NaturalMachine.Vacuity
 -- `SymGroup` the pinned library does not export), so membership here would
 -- build nothing.  Their own closing aggregate is `NaturalMachine/Moksha.agda`,
 -- which checks green on its own — that is where the organism is sealed.
+--
+-- The birth from the fourth position: what an avaktavya bears, and the two
+-- laws that keep it from being a tie-breaker (§1 it decides, §2 it can say
+-- only what the contenders already said).  Wired to the running scheduler
+-- in machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs.
+import NaturalMachine.AvaktavyaPrasava_TheBornStandpointDecidesAndAssertsOnlyWhatAllAsserted
+
+------------------------------------------------------------------------
+-- ORPHAN FOLD-IN 4, 2026-08-20 (Nālandā build lane) — the subtree's share.
+--
+-- 170 modules under `NaturalMachine/` were outside the import closure of
+-- both aggregate roots, so nothing rechecked them: BUILD.md's claim at the
+-- top of this subtree — "the root aggregate now transitively reaches every
+-- module in NaturalMachine/" — had rotted for the fourth time.  The
+-- mechanical check that was supposed to catch that
+-- (`scripts/check-agda-closure.sh`) was itself dead on macOS at a GNU-only
+-- `sed -i '1d'`, exiting on a sed message before computing any closure.
+--
+-- All 170 were run INDIVIDUALLY, `LC_ALL=C.UTF-8 agda <file>`, Agda 2.8.0
+-- + cubical v0.9 (the declared pin, which IS this container's default
+-- `agda`): **170 exit 0, 0 exit 42.**  Nothing red or unrun is folded in.
+--
+-- `NaturalMachine.TransportCost` is still absent and must stay absent: it
+-- `open import`s this root, so listing it here is a
+-- [CyclicModuleDependency].  It is the ONLY module in the subtree with
+-- that property — checked, not assumed, by resolving every import line in
+-- the subtree against this root's name.  `Everything.agda` imports it.
+--
+-- `NaturalMachine/Control/*` stays out permanently: those are deliberately
+-- ill-typed controls that MUST fail to typecheck.
+------------------------------------------------------------------------
+import NaturalMachine.ADiagonalSentenceIndependentInAConcreteTheory
+import NaturalMachine.ADisjointValidatorMakesAFlagUnusableAndInvisible
+import NaturalMachine.AFigureWithoutItsInputDecidesNothing
+import NaturalMachine.AProvabilityDeterminedImplicationForbidsIndependence
+import NaturalMachine.ASmallTheoryWithAnIndependentSentence
+import NaturalMachine.ATruthFunctionalProvabilityFalsifiesTheDiagonalSentence
+import NaturalMachine.Abhava
+import NaturalMachine.AnswerabilityIsFreeAtTheFactoringLaw
+import NaturalMachine.AntyaSamskaraSthaulya
+import NaturalMachine.Anuvrtti
+import NaturalMachine.AnuvrttiIsTheSameTrade
+import NaturalMachine.AnyonyaAbhava
+import NaturalMachine.Apavada
+import NaturalMachine.AscendingFirstIsTheWorstUnlessTheArchiveIsConstant
+import NaturalMachine.Asiddha
+import NaturalMachine.AsiddhatvaBreaksFactoring
+import NaturalMachine.AskingIsNotAPropertyOfTheFunction
+import NaturalMachine.AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
+import NaturalMachine.AvaktavyaDoesNotFactor
+import NaturalMachine.BarrierIsTwoWitnesses
+import NaturalMachine.BezoutIsGCD
+import NaturalMachine.Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain
+import NaturalMachine.BoundedStateNeedsAGroup
+import NaturalMachine.CRTChain
+import NaturalMachine.Cakravala
+import NaturalMachine.CakravalaNeedsKuttaka
+import NaturalMachine.CatuskotiPerspective
+import NaturalMachine.CommutationPreservesEveryPredicateAndMultiplicityWhereItIsStatable
+import NaturalMachine.ConvergentsAreDeterminedByThePrefixOfTheValli
+import NaturalMachine.CoprimePowers
+import NaturalMachine.CoprimePowersN
+import NaturalMachine.DeflationaryTest
+import NaturalMachine.DescentCostsTheIntegers
+import NaturalMachine.DescentIsNotInversion
+import NaturalMachine.DiagonalIsMatra
+import NaturalMachine.DistinctPrimesAreCoprime
+import NaturalMachine.DivisibilityGuardsAreMeetClosed
+import NaturalMachine.DurationIsSyllablesPlusGuru
+import NaturalMachine.EquivalenceHasNoFloor
+import NaturalMachine.EveryCommonDivisorOfAConvergentDividesTheDeterminant
+import NaturalMachine.EveryRemainderMemberIsBeatenByAStratumMember
+import NaturalMachine.EveryThresholdHasABoundaryPopulationOfItsOwnDenominator
+import NaturalMachine.EveryTripleIsARotation
+import NaturalMachine.ExclusionInstantiatesAbhavaWithALoadBearingLimitor
+import NaturalMachine.ExclusionRecoversGroundAtAPrice
+import NaturalMachine.ExhaustionIsSystematic
+import NaturalMachine.ExponentBound
+import NaturalMachine.Factorisation
+import NaturalMachine.FitnessIsNecessaryUpToDoubleNegation
+import NaturalMachine.FrontierCount
+import NaturalMachine.FrontierDivides
+import NaturalMachine.FrontierDividesHard
+import NaturalMachine.FrontierIsWellFormed
+import NaturalMachine.FrontierList
+import NaturalMachine.FrontierMember
+import NaturalMachine.FuelAdequacyIsACollision
+import NaturalMachine.HypothesesAssumedWhereTheyAreDerivable
+import NaturalMachine.IdempotenceForbidsDescent
+import NaturalMachine.IndependenceNeedsAnInternalImplication
+import NaturalMachine.JoinSavesTheMeet
+import NaturalMachine.KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner
+import NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+import NaturalMachine.KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
+import NaturalMachine.Laghava
+import NaturalMachine.LaghavaUnderdeterminesSoTheMetarulesAreNotOptional
+import NaturalMachine.ListKit_OneImportPointAndNoNewDefinitions
+import NaturalMachine.LocatingIsEnough
+import NaturalMachine.LosslessLowerBound
+import NaturalMachine.MergingASeparatedPairBreaksAtTheSeparatingContinuation
+import NaturalMachine.MeruDiagonalIsVirahanka
+import NaturalMachine.MigrationNeedsALawAndTheLawIsNotFree
+import NaturalMachine.Moksha
+import NaturalMachine.MokshaYantra
+import NaturalMachine.NamingIsNotAFunctionOfResemblance
+import NaturalMachine.NegationCompletenessForbidsIndependence
+import NaturalMachine.NisvabhavaNet
+import NaturalMachine.NoNormOnAJoin
+import NaturalMachine.NoObservationDepthDeterminesTheNet
+import NaturalMachine.NonInitialPratyaharasAndOneIntersectionInstance
+import NaturalMachine.NumberIsExponentialInDerivation
+import NaturalMachine.OffDiagonalThueMorseUnique
+import NaturalMachine.OneCounterexampleRefutesALabelButNotAnExistential
+import NaturalMachine.OneLemmaFiveSites
+import NaturalMachine.OneStepDecidesResonanceAndNoPrefixDecidesDecay
+import NaturalMachine.OracleCharge
+import NaturalMachine.OverlapIsTheCost
+import NaturalMachine.PFreePart
+import NaturalMachine.PairsSummingTo
+import NaturalMachine.PermanentUnsaidIsStableAndTemporaryIsASearch
+import NaturalMachine.PingalaIsOptimal
+import NaturalMachine.PowModHasTheSameShape
+import NaturalMachine.PratityasamutpadaArising
+import NaturalMachine.Pratyahara
+import NaturalMachine.PratyaharaBuysTotalityWithLocality
+import NaturalMachine.PrimeCofactorCoprime
+import NaturalMachine.PythagoreanTransition
+import NaturalMachine.QuotientFiberLaw
+import NaturalMachine.RefutingLaghavaIsASearch
+import NaturalMachine.RepresentabilityIsNotEnoughForIndependence
+import NaturalMachine.RnaDhana_TheMixedLayerCoversAndBeatsTheMixedRemainder
+import NaturalMachine.RnaDhana_TheMixedStrataArePairwiseDisjointAndOrdered
+import NaturalMachine.RnaDhana_TheMixedStratificationTerminatesAndCovers
+import NaturalMachine.RnaDhana_TheWholeMixedStratificationIsTheFlippedOne
+import NaturalMachine.RootsThreadLatch
+import NaturalMachine.Samacchheda_TheUntruncatedTrichotomyOnTheRate
+import NaturalMachine.Sankalita
+import NaturalMachine.SaturationAtACutIsIdempotent
+import NaturalMachine.SignIsNotAccumulable
+import NaturalMachine.SiteAudit
+import NaturalMachine.SthaulyaIsTheOmittedTerm
+import NaturalMachine.SuccessorIsNotTropical
+import NaturalMachine.SumProductTorus
+import NaturalMachine.TheAbsenceTowerIsThreeUnconditionally
+import NaturalMachine.TheAnuyogitaAvacchedakaIsADistinctSlot
+import NaturalMachine.TheArithmeticCircleIsFourPeriodic
+import NaturalMachine.TheCeilingIsAboutReading
+import NaturalMachine.TheDeflationaryTestIsVacuous
+import NaturalMachine.TheDeflationaryTestWasAlreadyRun
+import NaturalMachine.TheDelimitorNeedsOnlyStability
+import NaturalMachine.TheDerivationIsDenseToo
+import NaturalMachine.TheDiagonalLemmaDischargesGoedelFix
+import NaturalMachine.TheDomainThatIsAnAbsence
+import NaturalMachine.TheFibreIsTheSubject
+import NaturalMachine.TheFloorIsAnswerability
+import NaturalMachine.TheGapWasAUnitsError
+import NaturalMachine.TheInternalRulesPreserveIndependenceInThisCalculus
+import NaturalMachine.TheIstaSectionIsAnImportedConvention
+import NaturalMachine.TheLastCutHasOneRowWhenItsSeparatorIsInhabited
+import NaturalMachine.TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain
+import NaturalMachine.TheMediantDoesNotDescendToTheRate
+import NaturalMachine.TheOmegaInconsistentExtensionDerivesTheNegation
+import NaturalMachine.TheRatesAreDenseAndTheMediantSurvivesTheQuotient
+import NaturalMachine.TheReachableLawDoesNotComposeWithoutPreservation
+import NaturalMachine.TheRefutingModelAlreadyGivesTheFirstConjunct
+import NaturalMachine.TheScoreOrderAndTheWeightOrderDisagree
+import NaturalMachine.TheSecondNaIsTheCollision
+import NaturalMachine.TheSecondUpadhiConditionDoesAllTheWork
+import NaturalMachine.TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired
+import NaturalMachine.TheSharedPreambleIsACommonPrefixNotACommonSet
+import NaturalMachine.TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose
+import NaturalMachine.TheStrataAreOrderedByDominationAndTheProofNeedsNoNewLemma
+import NaturalMachine.TheStratumRankExistsAndDominationStrictlyLowersIt
+import NaturalMachine.TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt
+import NaturalMachine.TheThresholdChainIsDenseAndTheMediantWitnessesIt
+import NaturalMachine.TheTower
+import NaturalMachine.TheTrajectoryIsAChain
+import NaturalMachine.TheTruncationErrorIsExactAtEveryFiniteStage
+import NaturalMachine.TheTwoCollisionsAreOneInstantiation
+import NaturalMachine.TheTwoFinCarriersAreEqual
+import NaturalMachine.TheUniformFormIsNotRefuted
+import NaturalMachine.TheUnstableGroundCannotBeExhibited
+import NaturalMachine.TheValliConvergentDeterminantAlternates
+import NaturalMachine.TransportPrice
+import NaturalMachine.TransportPrice_AgreementDoesNotDetermineTheTransport
+import NaturalMachine.PunaragamanaMulyam_TheReturnTripIsFreeForEveryAdditiveCost
+import NaturalMachine.TrichotomyIsCheapOnPairsAndTheLiftCostsATruncation
+import NaturalMachine.TwoTruthsCompute
+import NaturalMachine.UnderExtensionalFlatnessOneCostDifferenceSuffices
+import NaturalMachine.UnivalenceErasesTheAlgorithm
+import NaturalMachine.WhatTheSubstrateArgumentCovers
+import NaturalMachine.WhereTheCircleSplits
+import NaturalMachine.WhereTheTowerCanStillBeThree
+import NaturalMachine.WhyTheSamePriceKeepsAppearing
+import NaturalMachine.WhyTheSitesAreTwo
+import NaturalMachine.WitSatisfiesEveryHypothesisButOmegaConsistency
+import NaturalMachine.WitnessDichotomy
+import NaturalMachine.WitnessNumberCanBeInfinite
+import NaturalMachine.WitnessNumberIsInvariant
+import NaturalMachine.WitnessNumberIsThePotential
+import NaturalMachine.WitnessNumberIsUnbounded
+import NaturalMachine.Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
+
+-- ── समुच्चयः, 2026-08-22 ─────────────────────────────────────────────────
+-- Two NaturalMachine/ modules outside every root's closure.  Both run
+-- individually at EXIT 0 on the pin; wired here rather than in Everything
+-- because this file is the root of the NaturalMachine/ subtree.
+import NaturalMachine.Alopa_TheEngineNeverTouchesTheMeaning
+import NaturalMachine.YantraTantu_TheEngineLivesInTheFibreOfItsDenotation
+
+-- ── समुच्चयः, 2026-08-22 (second pass) ────────────────────────────────────
+-- Fourteen NaturalMachine/ modules that arrived by merge from origin already
+-- committed and outside every root's closure.  All fourteen run individually
+-- at EXIT 0 on the pin; none had ever been rechecked by anything.
+import NaturalMachine.ActionResidualCoordinateFibers
+import NaturalMachine.CompositionalMagmaFactorization
+import NaturalMachine.CostGeometryEdgeBoundary
+import NaturalMachine.DeclaredRootProofRelevance
+import NaturalMachine.HaskellGenericSyntaxAdapter
+import NaturalMachine.PauliGaugeCocycleSplit
+import NaturalMachine.PointedReindexOrbitObstruction
+import NaturalMachine.RawWordPaddingNormalForm
+import NaturalMachine.ReachableActionRefinement
+import NaturalMachine.RelativeInstrumentAssociativity
+import NaturalMachine.SingletonStabilizedEquivalence
+import NaturalMachine.SpectatorPaddingCollapse
+import NaturalMachine.TranslationPeakObservability
+import NaturalMachine.WalkStreamHypothesisBoundary
+
+-- The four readings of the metacircular kernel's soundness fields.  Added to
+-- this root because they were reachable from nothing and so were checked by
+-- nobody: a module outside the import closure is built by no command, and
+-- "it is green" about such a module is a claim about one person's shell.
+import NaturalMachine.Vyapti_TheInstalledOperationHasNoneSoTheKernelMemorisesAndTheSchemaIsWhatMakesItGeneralise
+import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+import NaturalMachine.Ankapasa_TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
+import NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+import NaturalMachine.Samvada_TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
+import NaturalMachine.Avirodha_TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous

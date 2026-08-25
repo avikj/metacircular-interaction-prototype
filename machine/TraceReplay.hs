@@ -50,6 +50,11 @@ module TraceReplay
   , Rule
   , TraceStep(..)
   , Deriv(..)
+  , dHyp
+  , dEnds
+  , dBaseMet
+  , dStepMet
+  , endOfTrace
   , rewriteTrace
   , normalizeTrace
   , LemmaEnv(..)
@@ -65,11 +70,40 @@ module TraceReplay
   , reflProvable
   , libRules
   , deriveByInduction
+  -- Exported 2026-08-21: `renderGoal`'s own comment already said it was
+  -- exported "because a control needs it" -- and it was not.  The control is
+  -- Pratilipi_TheThreeSesasAreTranscribedNotSearched, whose `falseStatement`
+  -- must render a FALSE goal on THIS renderer; building the signature in the
+  -- caller would be a second copy of the renderer, which is the drift this
+  -- module already paid for once.
+  , renderGoal
   , peanoRules
+  -- Exported 2026-08-20 (additive; no definition changed).  A caller that
+  -- wants to REWRITE with the same defining equations this module is willing
+  -- to CITE needs the environment, not just the +/* half of it: `peanoRules`
+  -- omits max and le, so a derivation over those symbols cannot fire and
+  -- replay declines a proof that was in fact available.  Re-deriving the list
+  -- in the caller is the two-copies defect that cost this file its whole
+  -- reach on 2026-08-20 (see `moduleHeader`), so it is exported instead.
+  , vocabEnv
+  -- Added 2026-08-20 (additive; no existing definition changed).  Two of the
+  -- three śeṣas handed forward by
+  -- `notes/SesaPariksa_TheSixLemmasBehindTheInductionWallAreNotAMathematicalGap.md`
+  -- §4 need NO induction on the goal at all: both sides normalise to a common
+  -- term under the engine's own defining equations, and the whole proof is the
+  -- two traces composed.  `replayModule` could only ever emit an induction, so
+  -- the only way to transcribe those was to induct on a variable the proof
+  -- does not use and let both clauses repeat the same path.  These emit the
+  -- path itself.
+  , transcribeDirect
+  , directClauses
+  , symbolsUsedGoal
+  , noHypothesis
   , replayContract
   , main
   ) where
 
+import qualified Certificate as C
 import Data.List (intercalate, isPrefixOf)
 import qualified Data.Map.Strict as M
 import Control.Exception (finally)
@@ -205,21 +239,112 @@ data TraceStep = TraceStep
 data Deriv = Deriv
   { dGoal  :: (Term, Term)
   , dVar   :: Int
-  , dHyp   :: (Term, Term)
   , dBaseL :: [TraceStep]
   , dBaseR :: [TraceStep]
   , dStepL :: [TraceStep]
   , dStepR :: [TraceStep]
-    -- DID THE TWO SIDES ACTUALLY MEET.  `L ∙ sym R` is a path from the
-    -- clause's left side to its right side ONLY if both traces end at the
-    -- same term.  Nothing checked that: a derivation against a rule set
-    -- that does not close the clause produced two paths to two different
-    -- places, `replayClause` composed them anyway, and agda reported
-    -- `y != x` at a column deep inside a 400-character line.  A trace that
-    -- does not close is not a proof and must not be emitted as one.
-  , dBaseMet :: Bool
-  , dStepMet :: Bool
   } deriving (Eq, Show)
+
+-- DID THE TWO SIDES ACTUALLY MEET.  `L ∙ sym R` is a path from the clause's
+-- left side to its right side ONLY if both traces end at the same term.
+-- Nothing checked that: a derivation against a rule set that does not close
+-- the clause produced two paths to two different places, `replayClause`
+-- composed them anyway, and agda reported `y != x` at a column deep inside a
+-- 400-character line.  A trace that does not close is not a proof and must
+-- not be emitted as one.
+--
+-- पुनरागमन, 2026-08-21.  UNTIL TODAY THIS WAS TWO STORED `Bool` FIELDS,
+-- `dBaseMet` and `dStepMet`, written by `deriveByInduction` and read by
+-- `inductionClauses`.  The comment above argued for KEEPING the derived
+-- value, and it was right to; what it never noticed is that it kept the
+-- TRUNCATION and threw away the PATH.  The datum the emitter actually needs
+-- is WHERE the two traces end; `Bool` is that pair of terms squashed to one
+-- bit, and the bit was then free — `Deriv{…, dBaseMet = True}` against traces
+-- that end nowhere near each other typechecked and emitted an unsound module.
+-- In this lane's own vocabulary that is हिंसा committed in the middle of an
+-- argument against it.
+--
+-- The endpoints are not new data.  A `TraceStep` holds `tsBefore` (the WHOLE
+-- term the step acted on) and `tsPos` (the path from its root to the redex),
+-- so the term a step lands on is `replaceAt tsBefore tsPos (applySub tsSub
+-- rhs)`; and where a trace is empty, the endpoint is its start, which
+-- `dGoal` and `dVar` fix.  So
+--
+--     base    : the traces, the goal, the induction variable
+--     carried : the two endpoints, and the bit
+--     witness : endOfTrace (start …) (dBaseL d) ≡ …
+--
+-- is `Punaragamana.Carrier`, its fibre `singl` and contractible
+-- (`punaragamana/src/Punaragamana/Carrier.agda`, `fibre-isContr`), so the
+-- fields carried nothing and cost two degrees of freedom.  They are gone and
+-- `dBaseMet`/`dStepMet` are functions of the same name, so every read site is
+-- unchanged and no caller can now write the answer it wants.
+--
+-- WHAT HASKELL CANNOT DO, said rather than faked: `witness` is a PATH and
+-- there is no type here to hold one.  Deleting the field is the strongest
+-- move the language offers — with nothing stored the value cannot disagree
+-- with what determines it — but that is `∥ witness ∥`, not `witness`.
+-- `dEnds` below is the honest half that Haskell CAN keep: the pair of terms,
+-- rather than the bit.
+--
+-- FALSIFIED BEFORE IT WAS BELIEVED.  The reconstruction was run against the
+-- old stored definition on all eleven members of `snapshotFragment`, under
+-- the same accumulating rule set `measureSnapshot` uses: eleven of eleven
+-- agree on both clause endpoint pairs, including the two whose step clause
+-- does NOT meet (`(x+y)+z = x+(y+z)` and `x*y = y*x`), which is where a
+-- reconstruction that silently returned the start term would have shown up
+-- as a false `True`.  The comparison is not kept in the tree because the
+-- definition it compared against no longer exists; what remains checkable is
+-- that `replay reaches n/m` in `main` is unchanged.
+
+-- Where one trace lands, given the term it started from.
+endOfTrace :: Term -> [TraceStep] -> Term
+endOfTrace t0 [] = t0
+endOfTrace t0 sts = case reverse sts of
+  []       -> t0
+  (st : _) -> replaceAt (tsBefore st) (tsPos st)
+                        (applySub (tsSub st) (snd (tsRule st)))
+
+-- Substitute a term for the induction variable throughout.  The same
+-- three lines `deriveByInduction` uses; shared so the two cannot drift.
+substVar :: Int -> Term -> Term -> Term
+substVar i u (V j)    = if i == j then u else V j
+substVar i u (F f ts) = F f (map (substVar i u) ts)
+
+-- The four terms each clause's two traces start from: base clause with the
+-- variable at `zero`, step clause with it at `suc #`.  Determined by `dGoal`
+-- and `dVar` alone.
+clauseStarts :: Deriv -> ((Term, Term), (Term, Term))
+clauseStarts d = ((sub zeroT l, sub zeroT r), (sub (sucT eig) l, sub (sucT eig) r))
+  where (l, r) = dGoal d
+        eig     = F "#" []
+        sub u t = substVar (dVar d) u t
+
+-- The induction hypothesis: the goal with the variable frozen at the
+-- eigenvariable.  Determined too — this was `dHyp :: (Term, Term)`, a third
+-- stored field of the same kind, removed with the two Bools.
+dHyp :: Deriv -> (Term, Term)
+dHyp d = (sub l, sub r)
+  where (l, r) = dGoal d
+        sub    = substVar (dVar d) (F "#" [])
+
+-- WHERE the two traces of each clause land: the pair of terms, kept whole.
+dEnds :: Deriv -> ((Term, Term), (Term, Term))
+dEnds d = ( (endOfTrace bl (dBaseL d), endOfTrace br (dBaseR d))
+          , (endOfTrace sl (dStepL d), endOfTrace sr (dStepR d)) )
+  where ((bl, br), (sl, sr)) = clauseStarts d
+
+-- MET, BUT UP TO THE LIBRARY'S OWN COMPUTATION.  Syntactic equality of the
+-- engine's two normal forms is sufficient and NOT necessary: the ends may
+-- differ as terms and still be the same type in agda, because Cubical's `_+_`
+-- and `_·_` compute.  Requiring syntactic equality cost two theorems that had
+-- been certifying (measured: 7/13 -> 5/13, with `(x+y) = (y+x)` among the
+-- losses).  So the endpoints are compared under `libRules` -- this module's
+-- model of what agda will unfold on its own -- which is the same test that
+-- decides whether a cited lemma may be discharged by `refl`.
+dBaseMet, dStepMet :: Deriv -> Bool
+dBaseMet = reflProvable . fst . dEnds
+dStepMet = reflProvable . snd . dEnds
 
 -- One innermost-leftmost rewrite that strictly decreases the term, paired
 -- with the record of what it did.  The decrease condition is what makes
@@ -461,6 +586,101 @@ inductionClauses lenv self d = do
          , unwords (self : stepPat) ++ " = " ++ stepPf
          ] )
 
+-- ------------------------------------------------- transcription, no induction
+--
+-- A goal whose two sides normalise to a common term needs no induction and
+-- has no hypothesis.  Its proof is exactly what the two traces already say:
+-- the left trace forward, the right trace backwards, composed.  That is the
+-- same act `replayClause` performs for one clause of an induction, with the
+-- clause being the whole theorem.
+--
+-- Why this is worth its own entry point rather than "induct on x and ignore
+-- the hypothesis".  Inducting on an unused variable does typecheck for these
+-- goals — both clauses re-derive the same path with `x` instantiated — but it
+-- emits a case split the derivation never performed, and a certificate that
+-- claims a proof structure the engine did not use is a written record of
+-- something that did not happen.  The transcription is supposed to BE the
+-- derivation.
+--
+-- `noHypothesis` is the rule handed to `stepPath` in place of the induction
+-- hypothesis.  Its symbol is not in the renderer's vocabulary and not in any
+-- rule set the engine builds, so no fired rule can equal it and no step can
+-- be mistaken for a recursive call; `transcribeDirect` also refuses outright
+-- if a caller has somehow put it in `rs`.
+noHypothesis :: Rule
+noHypothesis = (F "no-hypothesis" [], F "no-hypothesis" [])
+
+-- Every symbol a directly transcribed module will mention: the goal's, plus
+-- each citable lemma's, since the lemma declarations are emitted into the
+-- same file.  Same accounting as `symbolsUsed`, against a goal rather than a
+-- Deriv.
+symbolsUsedGoal :: LemmaEnv -> (Term, Term) -> [String]
+symbolsUsedGoal lenv (gl, gr) = nubStr (concatMap symsT terms)
+  where
+    terms = [gl, gr] ++ concat [ [a, b] | ((a, b), _) <- leLemmas lenv ]
+    symsT (V _) = []
+    symsT (F f ts) = f : concatMap symsT ts
+    nubStr = foldl (\acc s -> if s `elem` acc then acc else acc ++ [s]) []
+
+-- The signature and the single clause, under a chosen name — the direct
+-- analogue of `inductionClauses`, and returning the same (parameter order,
+-- lines) pair so a directly transcribed theorem can be CITED by a later one
+-- exactly as an inducted one is.
+directClauses :: LemmaEnv -> [Rule] -> String -> (Term, Term)
+              -> Maybe ([Int], [String])
+directClauses lenv rs self goal@(gl, gr) = do
+  if noHypothesis `elem` rs then Nothing else pure ()
+  let (lnf, ltr) = normalizeTrace rs gl
+      (rnf, rtr) = normalizeTrace rs gr
+  -- The two sides must MEET, under the same test `deriveByInduction` uses:
+  -- syntactic equality of the engine's normal forms is sufficient and not
+  -- necessary, because Cubical's `_+_` and `_·_` compute on their own.
+  if not (reflProvable (lnf, rnf)) then Nothing else pure ()
+  let ivs = varsOfT gl `unionT` varsOfT gr
+  vns <- mapM agdaVar ivs
+  let e = M.fromList (zip ivs vns)
+  sigL <- render e gl
+  sigR <- render e gr
+  body <- replayClause lenv e self ivs (-1) noHypothesis ltr rtr
+  let quant = if null vns then "" else "(" ++ unwords vns ++ " : ℕ) → "
+  pure ( ivs
+       , [ self ++ " : " ++ quant ++ sigL ++ " ≡ " ++ sigR
+         , unwords (self : vns) ++ " = " ++ body
+         ] )
+
+-- The complete module for one directly transcribed goal.
+transcribeDirect :: LemmaEnv -> [Rule] -> String -> (Term, Term) -> Maybe String
+transcribeDirect lenv rs modName goal = do
+  (_, clauses) <- directClauses lenv rs "candidate" goal
+  pure (unlines (blockFor lenv modName goal ++ clauses))
+
+-- Everything a module for this goal carries ABOVE its statement: the OPTIONS
+-- line, the imports, the local `max`/`le` case trees, and the lemma block.
+--
+-- Exported because a control needs it.  A false equation cannot be
+-- transcribed — the two traces do not meet, so no module is emitted and no
+-- agda process starts — and "the route declined it" is a much weaker
+-- statement than "the kernel refused it".  To get the second, the control has
+-- to submit the false STATEMENT on the same block, and a control that builds
+-- that block for itself is a second copy of the block, which is the thing that
+-- is quietly allowed to drift.
+blockFor :: LemmaEnv -> String -> (Term, Term) -> [String]
+blockFor lenv modName goal =
+  moduleHeader modName (symbolsUsedGoal lenv goal) ++ lePreamble lenv
+
+-- The goal as an Agda statement: the variable names it binds, and the
+-- quantified equation.  Same renderer `directClauses` and `inductionClauses`
+-- use, for the same reason `blockFor` is exported.
+renderGoal :: (Term, Term) -> Maybe ([String], String)
+renderGoal (gl, gr) = do
+  let ivs = varsOfT gl `unionT` varsOfT gr
+  vns <- mapM agdaVar ivs
+  let e = M.fromList (zip ivs vns)
+  sl <- render e gl
+  sr <- render e gr
+  let quant = if null vns then "" else "(" ++ unwords vns ++ " : ℕ) → "
+  pure (vns, quant ++ sl ++ " ≡ " ++ sr)
+
 -- WHICH rule had no name.  "A fired rule has no name" is a true report and
 -- an unactionable one: it says a lemma is missing without saying which, so
 -- the reader's next step is to reconstruct the derivation by hand.  This
@@ -502,9 +722,21 @@ symbolsUsed lenv d = nubStr (concatMap symsT terms)
 -- `Cubical.Data.Nat.GCD`, which roughly triples the cost of the call.  The
 -- local `max` and `le` are transcribed from the same place, in the same
 -- clause order, so a module that renders here renders there.
+-- 2026-08-20.  `--guardedness` was added.  This module is deliberately
+-- self-contained (see STATUS above) and therefore carries its own copy of the
+-- OPTIONS line, which is exactly why it drifted: the copy in
+-- `Certificate.preambleCore` had `--guardedness` and this one did not.  Under
+-- a cubical library compiled with that flag, Agda's `[InfectiveImport]` rule
+-- refuses `open import Cubical.Foundations.Prelude` from a module without it,
+-- so EVERY module this file emitted failed at scope-checking and the measured
+-- replay reach on Agda 2.8.0 was 0/13 — for a reason with no mathematics in
+-- it.  Self-containment is worth its cost and the cost is real: the copy is
+-- now checked against `Certificate.kOptionsPragma` by
+-- `scripts/EkarupaVikalpa_OneOptionsLineForEveryEmitter.sh`, which fires on
+-- the write rather than after the measurement.
 moduleHeader :: String -> [String] -> [String]
 moduleHeader modName syms =
-  [ "{-# OPTIONS --cubical --safe --no-import-sorts #-}"
+  [ "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}"
   , "module " ++ modName ++ " where"
   , "open import Cubical.Foundations.Prelude"
   , "open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_"
@@ -710,6 +942,30 @@ replayWithRules certs rs goal v modName =
 -- forced `peanoEnv` to prove `addZero` and friends by induction does not
 -- arise here.
 --
+-- ONE OF THEM DID NOT, and it had never been submitted to agda.  `max`'s
+-- clauses are
+--
+--     max a zero = a ; max zero b = b ; max (suc a) (suc b) = suc (max a b)
+--
+-- and agda compiles them to a case tree that splits on the SECOND argument
+-- first, because the first clause is the one that constrains it.  So
+-- `max zero b` with `b` neutral does not reduce, and `maxZeroL b = refl` is
+-- refused: `max zero b != b of type ℕ`.  The EQUATION is true — it is the
+-- engine's own defining rule and it holds in every instance — and only its
+-- one-line proof was wrong.  Splitting `b` gives both instances back
+-- (`max zero zero` takes clause one, `max zero (suc b)` takes clause two), so
+-- the repair is a case split and not an import, and `maxZeroL` stays a lemma
+-- this module proved rather than one it cited.
+--
+-- Nothing had caught it because nothing had asked: `main`'s snapshot fragment
+-- is {0,s,+,*} and emits no `max` block at all, and the shape search cannot
+-- close a `max` theorem, so this declaration had been emitted only into
+-- modules that were failing for another reason.  Found 2026-08-20 by
+-- transcribing `max(x,y) + 0 = max(x + 0, y + 0)`, whose proof does not use
+-- `maxZeroL` — the block is emitted whole, so one bad declaration in it
+-- refuses every module that mentions `max`.  Note B in `Certificate.hs`
+-- records the same case tree from the other side.
+--
 -- Gated on the goal's symbols, because the declarations mention `max` and
 -- `le`, and those are only in scope when `moduleHeader` emitted them.
 vocabEnv :: [String] -> LemmaEnv
@@ -741,7 +997,11 @@ vocabEnv syms = LemmaEnv
         [ "maxZeroR : (a : ℕ) → (max (a) (zero)) ≡ a"
         , "maxZeroR a = refl"
         , "maxZeroL : (b : ℕ) → (max (zero) (b)) ≡ b"
-        , "maxZeroL b = refl"
+          -- NOT `maxZeroL b = refl`; see the note above this function.  The
+          -- case tree splits on the second argument, so the two instances
+          -- reduce and the general term does not.
+        , "maxZeroL zero = refl"
+        , "maxZeroL (suc b) = refl"
         , "maxSuc : (a b : ℕ) → (max (suc (a)) (suc (b))) ≡ suc ((max (a) (b)))"
         , "maxSuc a b = refl"
         ]
@@ -815,38 +1075,33 @@ runAgda root source = do
                             , "--library=cubical", file ])
                  { cwd = Just root, env = Just env' }
       (code, out, err) <- readCreateProcessWithExitCode cp ""
-      pure (code, out ++ err))
+      -- AND THE FOURTH DETAIL, ADDED 2026-08-20.  The three above are what
+      -- this copy carried across; what it left behind is the FITNESS.  Both
+      -- callers read `ExitSuccess` and nothing else, so under a wrapper of
+      -- the shape `agda "$@" 2>&1 | cat` this module reported a replayed
+      -- derivation as checked while agda's own `1 != 0` sat in `out`.
+      -- `Certificate.vetForeignRun` is the per-call output scan and the
+      -- per-process falsifier, for a caller that launched agda itself.
+      C.vetForeignRun root code (out ++ err))
     `finally` removePathForcibly dir
 
 -- Build a Deriv the way the engine does: substitute, normalise both sides
 -- of each clause with the tracing rewriter, and keep the traces.
 deriveByInduction :: [Rule] -> (Term,Term) -> Int -> Deriv
 deriveByInduction rs goal@(l,r) v =
+  -- Four traces and two indices, and nothing else.  `dHyp`, `dBaseMet` and
+  -- `dStepMet` used to be written here; all three are functions of what is
+  -- left, so they are read off the record now instead (see `dEnds`).
   Deriv { dGoal = goal
         , dVar = v
-        , dHyp = (hypL, hypR)
         , dBaseL = snd (normalizeTrace rs bl)
         , dBaseR = snd (normalizeTrace rs br)
         , dStepL = snd (normalizeTrace (hyps ++ rs) gl)
         , dStepR = snd (normalizeTrace (hyps ++ rs) gr)
-        -- MET, BUT UP TO THE LIBRARY'S OWN COMPUTATION.  Syntactic equality
-        -- of the engine's two normal forms is sufficient and NOT necessary:
-        -- the ends may differ as terms and still be the same type in agda,
-        -- because Cubical's `_+_` and `_·_` compute.  Requiring syntactic
-        -- equality cost two theorems that had been certifying (measured:
-        -- 7/13 -> 5/13, with `(x+y) = (y+x)` among the losses).  So the
-        -- endpoints are compared under `libRules` -- this module's model of
-        -- what agda will unfold on its own -- which is the same test that
-        -- decides whether a cited lemma may be discharged by `refl`.
-        , dBaseMet = reflProvable (fst (normalizeTrace rs bl)
-                                  , fst (normalizeTrace rs br))
-        , dStepMet = reflProvable (fst (normalizeTrace (hyps ++ rs) gl)
-                                  , fst (normalizeTrace (hyps ++ rs) gr))
         }
   where
     eig = F "#" []
-    subst i u (V j) = if i == j then u else V j
-    subst i u (F f ts) = F f (map (subst i u) ts)
+    subst = substVar
     (bl, br) = (subst v zeroT l, subst v zeroT r)
     hypL = subst v eig l
     hypR = subst v eig r

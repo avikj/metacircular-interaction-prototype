@@ -1,0 +1,10 @@
+# SAMUCCAYA_EXCLUSIONS.txt — modules the generated aggregate root must NOT import.
+#
+# Format:  <module-name-or-prefix*>\t<reason>
+# A row with no reason is a FAIL (see machine/Samuccaya_…hs).  This file is
+# not the place to hide a module that does not build; it is only for modules
+# whose obligation is NEGATIVE — being unimported is the point.
+#
+# Read by: runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs
+
+NaturalMachine.Control.*	designed-annihilation controls (collab/PROTOCOL.md §7): each asserts a FALSE statement and MUST fail to typecheck. Importing one turns the aggregate red for a reason that is not a defect. Their positive obligation — that each still fails, and fails for the reason it was built to catch — is guarded by formal/cubical/check-controls.sh, not by any aggregate root.

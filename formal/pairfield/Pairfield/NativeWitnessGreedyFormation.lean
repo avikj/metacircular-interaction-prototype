@@ -223,7 +223,13 @@ theorem greedyScheduledWords_card_le_and_partition_discrete
 namespace Control
 
 /-- The action label is intentionally ignored.  Both one-step words therefore
-have identical responses, providing a planted redundant candidate. -/
+have identical responses, providing a planted redundant candidate.
+
+`NativeDemandRestrictedFormation.Control` runs a different formation policy on
+this same automaton and proves the identification by `rfl`
+(`automaton_eq_greedy_control`); the two texts are kept separate so each
+control stays readable where it stands, and the sameness is checked instead of
+merged. -/
 def step (state : Fin 3) (_action : Bool) : Fin 3 :=
   if state = 1 then 2 else state
 

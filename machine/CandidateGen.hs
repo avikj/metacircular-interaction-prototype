@@ -54,6 +54,7 @@
 
 module Main (main) where
 
+import qualified Certificate as C
 import Control.Monad (forM, forM_, unless, when)
 import Data.List (intercalate, isSuffixOf, sort)
 import GHC.IO.Encoding (setLocaleEncoding)
@@ -410,6 +411,18 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
   hSetEncoding h utf8
   hPutStr h s
 
+-- THE WATCH, ADDED 2026-08-20.  This function was `Certificate.runAgda`
+-- copied here — the locale discipline carried across and the FITNESS left
+-- behind.  Both callers (`gateCandidate`, `regenerateEverything`) read
+-- `code == ExitSuccess` and nothing else, so under a wrapper of the shape
+-- `agda "$@" 2>&1 | cat` a minted candidate agda had rejected was
+-- `Installed`, and an accepted CONTROL — the module whose whole job is to be
+-- refused — was reported as the alarm firing rather than as the kernel being
+-- gone.  `C.vetForeignRun` applies the same per-call output scan and
+-- per-process falsifier `Certificate.runAgda` now carries.  It is applied
+-- HERE rather than at the two call sites so that a third caller cannot
+-- inherit the old behaviour by forgetting — which is how this copy was made
+-- in the first place.
 runAgda :: FilePath -> FilePath -> IO (ExitCode, String)
 runAgda root file = do
   setLocaleEncoding utf8
@@ -420,7 +433,7 @@ runAgda root file = do
       cp = (proc "agda" ["-i", "formal/cubical", "--library=cubical", file])
              { cwd = Just root, env = Just env' }
   (code, out, err) <- readCreateProcessWithExitCode cp ""
-  pure (code, out ++ err)
+  C.vetForeignRun root code (out ++ err)
 
 firstErrorLine :: String -> String
 firstErrorLine out =

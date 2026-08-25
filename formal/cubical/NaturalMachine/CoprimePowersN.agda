@@ -60,7 +60,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 open import NaturalMachine.CoprimePowers using (module Bezout)
 open import NaturalMachine.WalkJumps using (IsPrime)
@@ -75,11 +75,11 @@ open Cubical.Data.Int.Divisibility using () renaming (_∣_ to _∣ℤ_)
 
 private
   flip : (a b x y : ℤ) → (a · x) + (b · y) ≡ (x · a) + (y · b)
-  flip = solve ℤCommRing
+  flip a b x y = solve! ℤCommRing
 
   negBoth : (a b x y : ℤ) →
     (a · (- x)) + (b · (- y)) ≡ - ((x · a) + (y · b))
-  negBoth = solve ℤCommRing
+  negBoth a b x y = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- 1.  ℤ certificate ⟹ ℕ coprimality.  Three lines and a transfer.

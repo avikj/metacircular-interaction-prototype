@@ -62,6 +62,7 @@
 -- ===================================================================
 module Main (main) where
 
+import qualified Certificate as C
 import Control.Exception (finally)
 import Control.Monad (unless)
 import Data.Char (isSpace)
@@ -416,7 +417,14 @@ validateWithAgda repo certificate = do
       writeUtf8 gate (renderModule certificate)
       (code, output, errors) <- readCreateProcessWithExitCode
         (proc "agda" arguments) { env = Just environment } ""
-      pure (code == ExitSuccess, output ++ errors))
+      -- THE FITNESS, ADDED 2026-08-20.  `code == ExitSuccess` is a number a
+      -- process returned; the output was captured and then examined by
+      -- nobody, so under `agda "$@" 2>&1 | cat` this returned True with
+      -- agda's `1 != 0` in the very string it was returning alongside.
+      -- `C.vetForeignRun` reads it, and once per process watches the kernel
+      -- reject `(suc x) ≡ x`.
+      (code', vetted) <- C.vetForeignRun repo code (output ++ errors)
+      pure (code' == ExitSuccess, vetted))
     `finally` removePathForcibly private
 
 writeUtf8 :: FilePath -> String -> IO ()

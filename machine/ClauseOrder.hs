@@ -140,6 +140,8 @@ import System.IO
 
 import qualified Certificate as C
 import qualified KernelContext as K
+import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (utf8)
 
 -- ------------------------------------------------------------ the two arms
 
@@ -451,6 +453,9 @@ mirrorEq (l, r) = (mirrorTerm l, mirrorTerm r)
 
 main :: IO ()
 main = do
+  -- 2026-08-24: reads of this corpus are UTF-8 (Devanagari identifiers);
+  -- without this, readFile throws under a POSIX locale mid-run.
+  setLocaleEncoding utf8
   hSetEncoding stdout utf8
   hSetBuffering stdout LineBuffering
   argv <- getArgs

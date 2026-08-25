@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- चक्रवालम् — जयदेव-भास्करयोः चक्रीय-विधिः (~९५० / ११५० ई.) : पेल्ल-समीकरणस्य
+-- चक्रवालम् — जयदेव-भास्करयोः चक्रीय-विधिः (~९५० / ११५० ई.) : वर्ग-प्रकृतेः
 -- साधनम्, यत् यूरोपः लाग्रांज-पर्यन्तम् (१७६६) न अशक्नोत् ।  अस्य केन्द्रं :
 -- चक्रीय-पदम् एव ब्रह्मगुप्तस्य भावना, (m, 1)-साधनेन विशेषिता ।
 --
@@ -21,9 +21,9 @@
 module Cakravala where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; ·Rid)
+open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_ ; ·IdR)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Brahmagupta using (मान ; संयोग-प्र ; संयोग-द्वि ; भावना-मान)
 
 ------------------------------------------------------------------------
@@ -47,8 +47,8 @@ open import Brahmagupta using (मान ; संयोग-प्र ; संय
 
 अन्तर्वेशक-मानम् : (N m : ℤ) → मान N m (pos 1) ≡ (m · m) - N
 अन्तर्वेशक-मानम् N m =
-    cong (λ z → (m · m) - (N · z)) (·Rid (pos 1))
-  ∙ cong (λ z → (m · m) - z) (·Rid N)
+    cong (λ z → (m · m) - (N · z)) (·IdR (pos 1))
+  ∙ cong (λ z → (m · m) - z) (·IdR N)
 
 ------------------------------------------------------------------------
 -- चक्रीय-पद-रूपम् — चक्रवालस्य हृदयम्, बद्ध-रूपे : संयोगस्य मानम् = k·(m²−N) ,

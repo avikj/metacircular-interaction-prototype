@@ -68,3 +68,49 @@ machine/nested-agda/
 machine/.certcache/
 formal/cubical/.claude/
 machine/replay.traces.live
+
+# The sabhā: the compiled process and its transcript.  The binary is
+# rebuildable from machine/check-sabha.sh; the transcript is a session
+# record, kept locally and never rewritten in place (append-only), and it
+# is the corpus this wire exists to produce.
+machine/sabha
+machine/sabha.jsonl
+
+# The interface the other carrier is handed: the compiled binary, rebuildable
+# from machine/check-karana.sh.  Its outputs (the tool schema, the training
+# records) are regenerated from the running dispatch table and a transcript,
+# so neither is committed either -- a committed copy would be the second copy
+# that drifts, which is the thing this lane exists to remove.
+machine/karana
+machine/abhyasa.jsonl
+**/.certcache/
+
+# compiled binaries — build output, rebuilt in place by machine/check-*.sh; never track
+machine/math-machine
+machine/repairfixpoint
+machine/question-machine
+
+# Markdown is banned in this repository (owner, 2026-08-24).  The hook
+# .claude/hooks/no-markdown.sh refuses the write; this is the second layer,
+# for whatever the hook fails open on -- it fails open by design, because a
+# guard that blocks what it cannot parse is an outage wearing enforcement's
+# name.  3630 .md files were removed in the same change; they are in the
+# history and `git show` returns every one.
+#
+# A .md file asserts.  A checked term is the object, and it is still there
+# tomorrow.  Put it in Agda (formal/cubical/, punaragamana/src/) or Lean
+# (formal/pairfield/); if it is a header or a struck claim, it belongs in the
+# module it is about.
+#
+# The exceptions are not prose.  They are files the HARNESS LOADS as
+# configuration -- deleting them removes a mechanism, not an assertion.
+*.md
+*.markdown
+!CLAUDE.md
+!AGENTS.md
+!.claude/skills/**/*.md
+
+# cabal's build tree, created in the repo root by
+# scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+# when it builds the pinned Agda 2.8.0.  A build artifact, never a claim.
+dist-newstyle/

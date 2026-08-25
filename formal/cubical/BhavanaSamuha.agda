@@ -27,9 +27,9 @@ module BhavanaSamuha where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
-open import Cubical.Data.Int.Properties using (·Rid ; ·Comm ; pos0+)
+open import Cubical.Data.Int.Properties using (·IdR ; ·Comm ; pos0+)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Brahmagupta using (संयोग-प्र ; संयोग-द्वि ; मान)
 
 ------------------------------------------------------------------------
@@ -39,12 +39,12 @@ open import Brahmagupta using (संयोग-प्र ; संयोग-द�
 साहचर्य-प्र : (N a b c d e f : ℤ)
            → संयोग-प्र N (संयोग-प्र N a b c d) (संयोग-द्वि a b c d) e f
            ≡ संयोग-प्र N a b (संयोग-प्र N c d e f) (संयोग-द्वि c d e f)
-साहचर्य-प्र = solve ℤCommRing
+साहचर्य-प्र N a b c d e f = solve! ℤCommRing
 
 साहचर्य-द्वि : (N a b c d e f : ℤ)
            → संयोग-द्वि (संयोग-प्र N a b c d) (संयोग-द्वि a b c d) e f
            ≡ संयोग-द्वि a b (संयोग-प्र N c d e f) (संयोग-द्वि c d e f)
-साहचर्य-द्वि = solve ℤCommRing
+साहचर्य-द्वि N a b c d e f = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- तत्समता — एककम् (1, 0) : संयोगः प्रति निर्देशांकं अपरिवर्तितः (दक्षिणे वामे च) ।
@@ -62,7 +62,7 @@ open import Brahmagupta using (संयोग-प्र ; संयोग-द�
 
 दक्षिण-तत्समता-प्र : (N a b : ℤ) → संयोग-प्र N a b (pos 1) (pos 0) ≡ a
 दक्षिण-तत्समता-प्र N a b =
-  cong₂ _+_ (·Rid a) (cong (N ·_) (शून्य-गुणः b) ∙ शून्य-गुणः N)
+  cong₂ _+_ (·IdR a) (cong (N ·_) (शून्य-गुणः b) ∙ शून्य-गुणः N)
 
 दक्षिण-तत्समता-द्वि : (N a b : ℤ) → संयोग-द्वि a b (pos 1) (pos 0) ≡ b
 दक्षिण-तत्समता-द्वि N a b =
@@ -82,7 +82,7 @@ open import Brahmagupta using (संयोग-प्र ; संयोग-द�
 ------------------------------------------------------------------------
 
 व्युत्क्रम-प्र : (N a b : ℤ) → संयोग-प्र N a b a (pos 0 - b) ≡ मान N a b
-व्युत्क्रम-प्र = solve ℤCommRing
+व्युत्क्रम-प्र N a b = solve! ℤCommRing
 
 व्युत्क्रम-द्वि : (N a b : ℤ) → संयोग-द्वि a b a (pos 0 - b) ≡ pos 0
-व्युत्क्रम-द्वि = solve ℤCommRing
+व्युत्क्रम-द्वि N a b = solve! ℤCommRing

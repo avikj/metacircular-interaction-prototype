@@ -1,0 +1,6 @@
+name: Yoga
+type: List ℕ → ℕ
+law: Yoga [] = zero
+law: Yoga (x ∷ xs) = x + Yoga xs
+test: Yoga (1 ∷ 2 ∷ 3 ∷ []) ≡ 6
+test: Yoga [] ≡ 0

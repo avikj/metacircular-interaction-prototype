@@ -23,7 +23,7 @@ module Trikarani where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 ------------------------------------------------------------------------
 -- भावना (N=3) — (a,b)*(c,d) = (ac+3bd, ad+cb) ।
@@ -68,4 +68,4 @@ open import Cubical.Tactics.NatSolver.Reflection using (solve)
 वृद्धि-मानम् : (x y : ℕ)
             → भावना-अंश x y 2 1 · भावना-अंश x y 2 1 + 3 · (y · y)
             ≡ 3 · (भावना-हर x y 2 1 · भावना-हर x y 2 1) + x · x
-वृद्धि-मानम् = solve
+वृद्धि-मानम् x y = solveℕ!

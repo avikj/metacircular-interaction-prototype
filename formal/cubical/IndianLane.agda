@@ -96,6 +96,10 @@ import Pingala
 -- condition, asiddhatva, anuvṛtti.  Green, and until now gated only by
 -- Everything.agda, which cannot go green on this container.
 import Sivasutra
+-- The optimality Sivasutra.agda records as OWED, part paid: classes sharing
+-- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
+-- markers, in ANY order.  Four for the vowel classes; the order attains four.
+import PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
 import Panini
 import ElsewhereCondition
 
@@ -177,6 +181,9 @@ import AbhavaAvacchedaka
 -- recurrences are FORCED by the counting problem for an arbitrary counting
 -- function, not read off a definition.
 import PingalaPrastara
+-- नष्टोद्दिष्टम् — पिङ्गलस्य नष्ट/उद्दिष्ट स्थान-पृथक्-छेदेषु विस्तारितौ, परस्पर-प्रतिलोमौ (अङ्कस्थान rs ≃ Fin (सङ्ख्या rs)) ;
+-- मेरु-पङ्क्तिः एक-पङ्क्त्या जन्यते, मात्रामेरुः युगलेन ।  एतत् machine/Prastara_*.hs-मध्ये चलति ।
+import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 -- संख्या-पङ्क्ति-सेतुः — पिङ्गलस्य संख्या-प्रत्ययः = मेरु-पङ्क्ति-योगः (sankhya n = ∑ₖ C(n,k))
 import PrastaraPankti
 
@@ -349,3 +356,25 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 ------------------------------------------------------------------------
 
 import ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
+
+------------------------------------------------------------------------
+-- APPENDED 2026-08-20, seventh append: the fitness condition on absence.
+--
+-- Anupalabdhi_… adds the slot the corpus's absence machinery did not have.
+-- `AbhavaAvacchedaka` and `NaturalMachine.TheAnuyogitaAvacchedakaIsADistinctSlot`
+-- carry the Navya-Nyāya slots — pratiyogin, anuyogin, avacchedaka — and none
+-- of them carries the EXTENT SEARCHED, which is what makes non-apprehension a
+-- pramāṇa instead of an excuse.  The theorem is one line and the
+-- counterexample is the content: a search that is clean over a real, non-empty
+-- examined region while the absence is false.
+--
+-- Kumārila Bhaṭṭa, Ślokavārttika, Abhāvapariccheda (c. 7th c.), for
+-- anupalabdhi as a separate pramāṇa; Prabhākara refuses it as separate and
+-- folds it into perception; both impose yogyānupalabdhi, and it is the
+-- condition and not the count of pramāṇas that this file formalises.  Nothing
+-- in it is Jaina, and it says so: syād-nāsti with its fourfold ground is a
+-- different construction and the exchange between the two schools is exhibited
+-- rather than settled, in the Haskell lane.
+------------------------------------------------------------------------
+
+import Anupalabdhi_TheFitnessIsWhatMakesNonApprehensionKnowledge

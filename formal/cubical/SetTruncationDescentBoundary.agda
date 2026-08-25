@@ -225,9 +225,11 @@ noDescentS¹ r = S¹NotSet (retract→isSet r)
 insideViewS¹ : (a : S¹) → isContr (Σ[ x ∈ S¹ ] (a ≡ x))
 insideViewS¹ = insideView
 
--- The two are compatible and both are checked.  The disagreement is
--- real and it is a disagreement about the QUESTION: `Retracts₀` is a
--- global section of a bundle of contractible fibres, and §3 says the
--- fibres are contractible while §4 says the section does not exist.
--- That is a nontrivial bundle, stated in the only vocabulary in which
--- "nontrivial" is not a metaphor.
+-- RETIRED CLAIM (false, corrected 2026-08-14): this comment formerly called
+-- `Retracts₀` a global section of the contractible `insideView` fibres and
+-- inferred that the section fails for S¹.  Those are different data types.
+-- The actual dependent section space `(a : A) → Σ[ x ∈ A ] (a ≡ x)` is
+-- contractible for every A; `Retracts₀ A` is left-inverse data for the
+-- set-truncation unit.  `ContractibleFiberSectionBoundary.agda` checks the
+-- distinction and the S¹ no-equivalence control.  The theorems above remain
+-- unchanged.

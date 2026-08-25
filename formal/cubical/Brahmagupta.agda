@@ -23,7 +23,7 @@ module Brahmagupta where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; _·_ ; _-_)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
-open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
 -- मानम् — वर्ग-प्रकृति-मानम् N(x, y) = x² − N·y² ।
@@ -44,7 +44,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 अन्तर-भावना-मान : (N x1 y1 x2 y2 : ℤ)
                 → मान N (अन्तर-प्र N x1 y1 x2 y2) (अन्तर-द्वि x1 y1 x2 y2)
                 ≡ (मान N x1 y1) · (मान N x2 y2)
-अन्तर-भावना-मान = solve ℤCommRing
+अन्तर-भावना-मान N x1 y1 x2 y2 = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- संयोग-प्रथमम्, संयोग-द्वितीयम् — भावनायाः द्वे अङ्गे ।
@@ -65,17 +65,17 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 भावना-मान : (N x1 y1 x2 y2 : ℤ)
           → मान N (संयोग-प्र N x1 y1 x2 y2) (संयोग-द्वि x1 y1 x2 y2)
           ≡ (मान N x1 y1) · (मान N x2 y2)
-भावना-मान = solve ℤCommRing
+भावना-मान N x1 y1 x2 y2 = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- एक· — १ · n ≡ n (वलयतः) ।
 ------------------------------------------------------------------------
 
 एक· : (n : ℤ) → (pos 1 · n) ≡ n
-एक· = solve ℤCommRing
+एक· n = solve! ℤCommRing
 
 ------------------------------------------------------------------------
--- चक्रवाल-द्वारम् — पेल्ल-समीकरणस्य समूह-नियमः : यदि उभे साधने मानं १,
+-- चक्रवाल-द्वारम् — वर्ग-प्रकृतेः समूह-नियमः : यदि उभे साधने मानं १,
 -- तर्हि संयोगः अपि मानं १ ।  (x² − N·y² = 1 इति साधनानां संयोगः पुनः साधनम् —
 -- अनन्तानि साधनानि एकस्मात्, ब्रह्मगुप्तस्य दृष्टिः, चक्रवालस्य बीजम् ।)
 --
@@ -117,7 +117,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
                               मूल-साधनम् मूल-साधनम्
 
 ------------------------------------------------------------------------
--- ऋण-भावना — ब्रह्मगुप्तस्य पेल्ल-कुञ्जिका : मानं (−1) यत् साधनम्, तत्
+-- ऋण-भावना — ब्रह्मगुप्तस्य वर्ग-प्रकृति-कुञ्जिका : मानं (−1) यत् साधनम्, तत्
 -- स्वेन भावितं मानं (+1) साधनं ददाति (यतः (−1)·(−1) = 1) ।  अतः x²−N·y²=−1
 -- इति साधनात् x²−N·y²=1 साधनं जायते ।  (Brahmagupta's key: a norm −1
 -- solution composed with itself gives a norm +1 solution — the bridge
@@ -125,7 +125,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 ------------------------------------------------------------------------
 
 वर्ग-ऋण : (n : ℤ) → (pos 0 - n) · (pos 0 - n) ≡ n · n
-वर्ग-ऋण = solve ℤCommRing
+वर्ग-ऋण n = solve! ℤCommRing
 
 ऋण-भावना : (N x1 y1 x2 y2 : ℤ)
          → मान N x1 y1 ≡ (pos 0 - pos 1)
@@ -160,7 +160,7 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 द्विवर्ग-गुणः : (a b c d : ℤ)
              → (a · a + b · b) · (c · c + d · d)
              ≡ (a · c - b · d) · (a · c - b · d) + (a · d + b · c) · (a · d + b · c)
-द्विवर्ग-गुणः = solve ℤCommRing
+द्विवर्ग-गुणः a b c d = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- मान-संयुग्म — मानं y-मध्ये सम-रूपम् : N(x, −y) = N(x, y) ।  संयुग्म-रचना
@@ -194,11 +194,11 @@ open import Cubical.Tactics.CommRingSolver.Reflection using (solve)
 
 अन्तर-संयुग्म-प्र : (N x1 y1 x2 y2 : ℤ)
                  → अन्तर-प्र N x1 y1 x2 y2 ≡ संयोग-प्र N x1 y1 x2 (pos 0 - y2)
-अन्तर-संयुग्म-प्र = solve ℤCommRing
+अन्तर-संयुग्म-प्र N x1 y1 x2 y2 = solve! ℤCommRing
 
 अन्तर-संयुग्म-द्वि : (N x1 y1 x2 y2 : ℤ)
                  → अन्तर-द्वि x1 y1 x2 y2 ≡ (pos 0 - संयोग-द्वि x1 y1 x2 (pos 0 - y2))
-अन्तर-संयुग्म-द्वि = solve ℤCommRing
+अन्तर-संयुग्म-द्वि N x1 y1 x2 y2 = solve! ℤCommRing
 
 ------------------------------------------------------------------------
 -- अन्तर-मानः-भावनातः — अन्तर-भावना-मानः न स्वतन्त्रः , अपि तु समास-भावना-मानात्

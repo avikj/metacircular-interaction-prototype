@@ -46,7 +46,7 @@ module BhavanaSemiring where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; _+_ ; _·_)
-open import Cubical.Tactics.NatSolver.Reflection using (solve)
+open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
 -- the two composed coordinates, exactly as Brahmagupta gives them
 cx : ℕ → ℕ → ℕ → ℕ → ℕ → ℕ
@@ -66,7 +66,7 @@ bhavanaℕ : (D x₁ y₁ x₂ y₂ : ℕ)
          ≡ x₁ · x₁ · (x₂ · x₂)
              + (D · D · (y₁ · y₁ · (y₂ · y₂))
                 + D · (cy x₁ y₁ x₂ y₂ · cy x₁ y₁ x₂ y₂))
-bhavanaℕ = solve
+bhavanaℕ D x₁ y₁ x₂ y₂ = solveℕ!
 
 -- The two specialisations the engine was handed, so the general theorem and
 -- the machine's own candidates are visibly the same object.
@@ -76,7 +76,7 @@ bhavana₁ : (x₁ y₁ x₂ y₂ : ℕ)
              + (x₁ · x₁ · (y₂ · y₂) + x₂ · x₂ · (y₁ · y₁))
          ≡ x₁ · x₁ · (x₂ · x₂)
              + (y₁ · y₁ · (y₂ · y₂) + cy x₁ y₁ x₂ y₂ · cy x₁ y₁ x₂ y₂)
-bhavana₁ = solve
+bhavana₁ x₁ y₁ x₂ y₂ = solveℕ!
 
 bhavana₂ : (x₁ y₁ x₂ y₂ : ℕ)
          → cx 2 x₁ y₁ x₂ y₂ · cx 2 x₁ y₁ x₂ y₂
@@ -84,21 +84,21 @@ bhavana₂ : (x₁ y₁ x₂ y₂ : ℕ)
          ≡ x₁ · x₁ · (x₂ · x₂)
              + (4 · (y₁ · y₁ · (y₂ · y₂))
                 + 2 · (cy x₁ y₁ x₂ y₂ · cy x₁ y₁ x₂ y₂))
-bhavana₂ = solve
+bhavana₂ x₁ y₁ x₂ y₂ = solveℕ!
 
 -- COMMUTATIVITY OF THE COMPOSITION — samāsa-bhāvanā is symmetric in the two
 -- composed pairs, which is what makes the solutions a monoid rather than
 -- merely a set closed under an operation.  This is the structural half of
 -- what cakravāla stands on.
 cxComm : (D x₁ y₁ x₂ y₂ : ℕ) → cx D x₁ y₁ x₂ y₂ ≡ cx D x₂ y₂ x₁ y₁
-cxComm = solve
+cxComm D x₁ y₁ x₂ y₂ = solveℕ!
 
 cyComm : (x₁ y₁ x₂ y₂ : ℕ) → cy x₁ y₁ x₂ y₂ ≡ cy x₂ y₂ x₁ y₁
-cyComm = solve
+cyComm x₁ y₁ x₂ y₂ = solveℕ!
 
 -- COMPOSITION WITH THE UNIT (1,0) fixes the pair: the Pell identity element.
 cxUnit : (D x y : ℕ) → cx D x y 1 0 ≡ x
-cxUnit = solve
+cxUnit D x y = solveℕ!
 
 cyUnit : (x y : ℕ) → cy x y 1 0 ≡ y
-cyUnit = solve
+cyUnit x y = solveℕ!
