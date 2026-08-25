@@ -1178,3 +1178,23 @@ import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
 import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
+
+-- Kernel/ : seven modules that were checked at the OLD pin (2.6.3 + v0.5),
+-- renamed to `Kernel.*` to match this directory, and then imported by
+-- nothing -- so no command built them and their headers said so.  Their
+-- imports named `Kernel.RewriteCertificate`, which does not exist; the
+-- module is `RewriteCertificate`.  Repointed and re-run: all seven are
+-- green at the repository pin (Agda 2.8.0 + cubical v0.9).
+import Kernel.Adesa_SubstitutionIsAdmissibleOnDerivationsSoASchemaCanCarryACertificateAndNotOnlyAMeaning
+import Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEveryBoundWhileEveryOfferingHasADefiniteCount
+import Kernel.Naya_EvalIsOneStandpointAndASecondOneProvesTheInductionRuleIsStrictlyStrongerThanTheRewriteClosure
+import Kernel.Nirapeksa_NeitherUnqualifiedFormSurvivesAndTheTwoSchoolsFourthPositionsSitAtDifferentLevels
+import Kernel.Siddhasadhana_InstallingWhatYouCanAlreadyReachIsAPlateauSoTheKernelsOwnLibraryCannotGrowItsReach
+import Kernel.Syat_TheBlindnessIsAPropertyOfTheCodomainAndCostFailsInversionRatherThanTruncation
+import Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelySoTheSixCoordinatesAreNeverIdentified
+
+-- Parampara_ : the free zigzag calculus over an ARBITRARY generator
+-- relation, proved sound and complete against the equivalence closure.
+-- It is the kernel's own `Derivation` with the generators left open, and
+-- it was imported by nothing.
+import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound

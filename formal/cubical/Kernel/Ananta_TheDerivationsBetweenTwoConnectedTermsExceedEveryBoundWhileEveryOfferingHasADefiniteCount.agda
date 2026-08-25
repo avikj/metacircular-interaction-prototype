@@ -91,8 +91,8 @@ open import Cubical.Data.Nat
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 import Cubical.Data.Empty as E
 
-open import Kernel.RewriteCertificate
-open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import RewriteCertificate
+open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (len ; soundness-is-constant)
 
 ------------------------------------------------------------------------
