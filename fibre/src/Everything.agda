@@ -76,3 +76,12 @@ open import Fibre.JivitaSmrti
 -- only by being unposed, never by being ambiguous.  Choosing m makes the
 -- fibre inhabited; nothing has to make it single.
 open import Fibre.Labdhi_TheQuotientSlotIsNeverCrowdedSoExactDivisionCanOnlyFailByBeingUnposed
+
+-- विश्वरूप — the law's universal form.  One fibration, π : Σ[ X ∈ 𝒰 ] X → 𝒰,
+-- has every family as a pullback along its classifying map, and the fibre
+-- law is that pullback with the classifying map landing in the contractible
+-- codes.  Contains the converse `Carrier`'s header states in prose —
+-- invisible over the base IFF contractible fibre — the counterexample
+-- showing it is about the PROJECTION and not about some equivalence, and
+-- the flattening of a tower of any finite height into one family.
+open import Fibre.Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne

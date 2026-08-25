@@ -356,6 +356,61 @@ are one idempotence, priced once as a loss and once as a guarantee.
 
 
 
+THE LAW'S UNIVERSAL FORM
+------------------------------------------------------------------------------------------
+
+  fibre/src/Fibre/Visvarupa_
+  EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda,
+  reachable from ``fibre/src/Everything.agda``, so ``sh check`` runs it.
+
+The fibre law has a universal form, and it is one object.  In a univalent
+universe a family ``B : A → 𝒰`` IS a map into 𝒰, ``Σ A B`` is its total
+space, and every family whatsoever is the pullback of the SAME fibration
+
+    π : Σ[ X ∈ 𝒰 ] X → 𝒰,      π = fst
+
+along its own classifying map.  `pullback` says that, and
+`pullback-canonical` says the equivalence IS the canonical comparison map,
+by refl — which is not decoration; see the third bullet.  The classifier as
+an equivalence of types, (Σ[ E ∈ 𝒰 ] (E → A)) ≃ (A → 𝒰), is HoTT 4.8.3 and
+was already installed in agda/cubical; its proof is ``ua`` twice.  So the
+classifier is a theorem OF univalence, not a fact about Σ, and the corpus
+cites it rather than re-proving it.
+
+Three sentences that were prose in this repository are now terms:
+
+  **invisible ⟺ contractible.**  A family is invisible over its base — its
+  projection is an equivalence — exactly when every fibre is contractible.
+  ``Fibre/Carrier.agda``'s header has asserted the converse in prose since
+  it was written ("a NON-contractible fibre cannot be declared equivalent to
+  its base").  `invisible≃contractible` is that sentence, both ways, at the
+  locus that owns the law.  The two directions are joined by a PATH between
+  propositions, which is again why the converse cost nothing (§II).
+
+  **…and it is about the PROJECTION.**  Over ``Bool``, take the family that
+  is ⊥ over one point and ``Bool`` over the other.  Its total space IS
+  equivalent to its base, and neither fibre is contractible: one नास्ति,
+  one नष्टि.  The census's two failures cancel numerically and an abstract
+  equivalence reports neither.  So "the fibre law holds here" is never
+  established by exhibiting SOME equivalence between total space and base —
+  only over the base, by the projection.  `CensusCancels` is that
+  counterexample, computed.
+
+  **The tower flattens.**  A tower of families of any finite height over A —
+  each storey a family over the previous total space — is ONE family over A,
+  and `flatten` computes it rather than asserting it exists.  Iterating the
+  fibre law does not leave the universe at any finite stage.
+
+WHAT THAT DOES NOT DO is make the five collapses instances of one formal
+statement.  The paragraph below stands unchanged: no functor is constructed,
+and reading a lane as a pullback of π is still reading.  Nor does anything
+here prove that iterating the law generates every form — suspension, cell
+attachment and Postnikov towers are the statements that would say so, and
+none of them is in this repository.  What is proved is closure, which is
+that claim's premise and not that claim.
+
+
+
 WHAT IS NOT CLAIMED
 ------------------------------------------------------------------------------------------
 
