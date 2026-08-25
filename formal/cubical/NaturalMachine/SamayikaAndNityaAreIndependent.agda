@@ -57,7 +57,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Texts.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
 
 ------------------------------------------------------------------------
 -- 1.  Both at once — so the swap is not a negation

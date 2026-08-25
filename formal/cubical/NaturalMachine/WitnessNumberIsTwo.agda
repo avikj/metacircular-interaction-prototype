@@ -75,7 +75,7 @@ open import Cubical.Functions.Image using (Image ; restrictToImage)
 open import NaturalMachine.FiniteInformation
   using (FactorsThrough ; sameObservation→samePoint)
 
-open import Texts.SaptabhangiNaya using (Profile ; Vacana)
+open import SourcedProofs.SaptabhangiNaya using (Profile ; Vacana)
 open import NaturalMachine.TwoProfilesSuffice
   using (Says ; φ₁ ; φ₂ ; pair-separates ; every-profile-is-said)
 

@@ -102,7 +102,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no ; Dec→Stable)
 
-open import Texts.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
 open import NaturalMachine.KramaAstiNasti_TheFourthCornerIsRefutedUnderPointwiseStability
   using (fourthCornerRefutedUnderPointwiseStability)
 

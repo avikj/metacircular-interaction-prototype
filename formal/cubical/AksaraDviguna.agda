@@ -34,7 +34,7 @@ open import Cubical.Data.List using (_∷_ ; [])
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_,_ ; Σ≡Prop)
 open import Cubical.Data.Empty using (rec)
-open import Texts.PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; Vak)
+open import SourcedProofs.PingalaPrastara using (Syllable ; laghu ; guru ; Pattern ; varna ; Vak)
 
 ------------------------------------------------------------------------
 -- अग्रे — आदि-अक्षरेण विभागः : लघुः → वामम् (inl), गुरुः → दक्षिणम् (inr) ।

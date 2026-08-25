@@ -73,7 +73,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 
 open import NaturalMachine.SumProductTorus
   using (Exp ; zeroE ; _⊕_ ; _⊔_ ; _⊔ℕ_ ; val ; val-⊕ ; primes4)
-open import Texts.IdempotenceForbidsDescent using (⊔ℕ-idr)
+open import SourcedProofs.IdempotenceForbidsDescent using (⊔ℕ-idr)
 
 ------------------------------------------------------------------------
 -- 1.  Disjoint support = coprime

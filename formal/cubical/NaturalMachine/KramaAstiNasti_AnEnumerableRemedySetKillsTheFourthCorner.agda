@@ -97,7 +97,7 @@ open import Cubical.Data.Sum using (inl ; inr)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Texts.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
 open import NaturalMachine.KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any ; Enumerated)
 open import NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift

@@ -126,7 +126,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import NaturalMachine.WalkUnconditional using (cap)
 open import NaturalMachine.WalkBridge using (cap-pos)
 open import NaturalMachine.TransportDivScale using (module Scaling)
-open import Texts.WalkChartedCap using (module Charted)
+open import SourcedProofs.WalkChartedCap using (module Charted)
 
 module Lengths (k : ℕ) where
 
@@ -400,7 +400,7 @@ module Lengths (k : ℕ) where
 ------------------------------------------------------------------------
 
 open import NaturalMachine.Digits 8 using (value)
-open import Texts.TransportDiv 8 using (steps)
+open import SourcedProofs.TransportDiv 8 using (steps)
 open import NaturalMachine.WalkResidueBridge 8 using (usteps)
 open Charted 8
 open Lengths 8

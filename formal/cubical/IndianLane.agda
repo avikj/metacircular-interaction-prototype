@@ -46,21 +46,21 @@ module IndianLane where
 
 -- ĀRYABHAṬA, Āryabhaṭīya, Gaṇitapāda 32-33 (499); Bhāskara I's bhāṣya
 -- (629).  The pulverizer, and the descent as a vallī of quotients.
-import Texts.Kuttaka
+import SourcedProofs.Kuttaka
 
 -- BRAHMAGUPTA, Brāhmasphuṭasiddhānta 18 (628).  Bhāvanā over an arbitrary
 -- commutative ring; subtraction-free over ℕ as a semiring identity; and as
 -- a typed OPERATION on solutions, which is what "production" names.
-import Texts.Bhavana
+import SourcedProofs.Bhavana
 -- The same composition made into an OBJECT rather than restated as a law:
 -- the invariant lives in the type, so an unlawful card is not rejected but
 -- UNSAYABLE, and the single move भावना carries the norm in its own type.
 -- Eight moves from the one obvious card at D = 2 reach (577, 408), which is
 -- Baudhāyana's √2 -- Śulbasūtra 1.61–62, c. 800 BCE, older than the
 -- composition law it is reached by.
-import Texts.BhavanaKrida
-import Texts.BhavanaSemiring
-import Texts.BhavanaGenerative
+import SourcedProofs.BhavanaKrida
+import SourcedProofs.BhavanaSemiring
+import SourcedProofs.BhavanaGenerative
 
 -- The cycle's step with every subtraction cleared, so a concrete run is
 -- certifiable in arithmetic the kernel actually computes.
@@ -68,11 +68,11 @@ import CakravalaNat
 
 -- JAYADEVA (~950, via Udayadivākara 1073); BHĀSKARA II, Bījagaṇita (1150):
 -- the cakravāla step, and why Bhāskara needs only ONE congruence.
-import Texts.CakravalaDescent
+import SourcedProofs.CakravalaDescent
 
 -- The choice rule's PAYLOAD: |k| ≤ 2√D is preserved by the step, so the
 -- wheel turns inside a fixed window.  Termination itself stays open.
-import Texts.CakravalaBound
+import SourcedProofs.CakravalaBound
 
 -- EMITTED BY THE REACTOR (machine/NalandaEmit.hs) and checked here: the
 -- cakravala's answer for D = 61 as a term, not a printed number.
@@ -88,7 +88,7 @@ import SeamClosed
 
 -- PIṄGALA, Chandaḥśāstra (~300 BCE), with Virahāṅka (~700) and Halāyudha
 -- (10th c.): the mātrā recurrence, binary enumeration of metres.
-import Texts.Pingala
+import SourcedProofs.Pingala
 
 -- PĀṆINI, Aṣṭādhyāyī (~500 BCE): the Śivasūtras as a pratyāhāra machine,
 -- and the rule-conflict machinery -- utsarga/apavāda, the elsewhere
@@ -98,7 +98,7 @@ import Sivasutra
 -- The optimality Sivasutra.agda records as OWED, part paid: classes sharing
 -- one anubandha are a ⊆-chain, so a ⊆-antichain of classes forces that many
 -- markers, in ANY order.  Four for the vowel classes; the order attains four.
-import Texts.PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
+import SourcedProofs.PratyaharaLaghava_TheMarkerCountIsForcedByTheAntichain
 import Panini
 import ElsewhereCondition
 
@@ -110,7 +110,7 @@ import ElsewhereCondition
 -- rules may OBSERVE which outputs rather than by a decreasing measure.
 -- The witness is not invented: it is what machine/Astadhyayi.hs does
 -- deriving vāk from vāc, and what its asiddhaAudit refuses.
-import Texts.Asiddhatva
+import SourcedProofs.Asiddhatva
 
 -- The OTHER device, 6.4.22 असिद्धवदत्राभात् (mutual invisibility inside
 -- 6.4.22–6.4.129, rules applying as if simultaneously), against 8.2.1's
@@ -120,11 +120,11 @@ import Texts.Asiddhatva
 -- Both regimes COMPUTED from one act table.  So पूर्वत्रासिद्धम् is
 -- load-bearing and is the ordered device -- evidence reached from the
 -- rules, not from the sūtra text.
-import Texts.AsiddhavatRegime
+import SourcedProofs.AsiddhavatRegime
 
 -- UMĀSVĀTI, Tattvārthasūtra 1.5: नामस्थापनाद्रव्यभावतस्तन्न्यासः -- the
 -- fourfold placing, as an indexed sameness relation.
-import Texts.Niksepa
+import SourcedProofs.Niksepa
 
 -- Jain epistemology and mathematics.  Anekāntavāda as a TOTAL generator
 -- (no rejection path); the taxonomy of the unbounded, saṃkhyāta /
@@ -179,10 +179,10 @@ import AbhavaAvacchedaka
 -- independently rather than one transported along the other; and the
 -- recurrences are FORCED by the counting problem for an arbitrary counting
 -- function, not read off a definition.
-import Texts.PingalaPrastara
+import SourcedProofs.PingalaPrastara
 -- नष्टोद्दिष्टम् — पिङ्गलस्य नष्ट/उद्दिष्ट स्थान-पृथक्-छेदेषु विस्तारितौ, परस्पर-प्रतिलोमौ (अङ्कस्थान rs ≃ Fin (सङ्ख्या rs)) ;
 -- मेरु-पङ्क्तिः एक-पङ्क्त्या जन्यते, मात्रामेरुः युगलेन ।  एतत् machine/Prastara_*.hs-मध्ये चलति ।
-import Texts.NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
+import SourcedProofs.NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 -- संख्या-पङ्क्ति-सेतुः — पिङ्गलस्य संख्या-प्रत्ययः = मेरु-पङ्क्ति-योगः (sankhya n = ∑ₖ C(n,k))
 import PrastaraPankti
 
@@ -196,7 +196,7 @@ import PrastaraPankti
 -- utterance -- which is what machine/Obstruction.hs was groping toward
 -- when it invented `Unparsed`, and what I cited the weaker version of
 -- earlier today.
-import Texts.SaptabhangiNaya
+import SourcedProofs.SaptabhangiNaya
 
 -- MĀDHAVA of Saṅgamagrāma (c. 1340–1425) and the Kerala school; jīva
 -- (the sine-chord); the aṃśa reading of the truth-instrument.
@@ -210,13 +210,13 @@ import AmshaSatyayantra
 -- it) and SaptabhangiNaya proves the fourth bhaṅga नित्य (for every
 -- single utterance SOME profile survives it).  Dual shapes, one word.
 -- Akalaṅka's kramārpaṇa against sahārpaṇa, Laghīyastraya c. 720–780.
-import Texts.AnuktaAvaktavya
+import SourcedProofs.AnuktaAvaktavya
 
 -- The two saptabhaṅgī modules, which had no gate and no link to each
 -- other: Saptabhangi.agda (क्रम-सह-भेदः, that the sequential bhaṅga is
 -- not the simultaneous one, and दुर्नयः, that ANY two-valued verdict
 -- identifies two of the three seeds by pigeonhole) and
--- Texts.SaptabhangiNaya.agda.  AnuktaAvaktavya §7 now holds both and draws
+-- SourcedProofs.SaptabhangiNaya.agda.  AnuktaAvaktavya §7 now holds both and draws
 -- the distinction that keeps them from contradicting: content is
 -- reachable by a pair, position is not reachable by sequencing.
 import Saptabhangi
@@ -301,7 +301,7 @@ import LosslessReturn
 --
 -- Adding them here is not bookkeeping.  It is the ONLY mechanism by which
 -- `SamayikaAndNityaAreIndependent` can be made load-bearing at all.  It
--- refutes a claim in `Texts.AnuktaAvaktavya.agda`, and to do that it must open
+-- refutes a claim in `SourcedProofs.AnuktaAvaktavya.agda`, and to do that it must open
 -- AnuktaAvaktavya for the very definitions it corrects
 -- (`using (सामयिक ; नित्य)`) -- so AnuktaAvaktavya CANNOT import it back.
 -- Agda says so:
@@ -313,7 +313,7 @@ import LosslessReturn
 -- A correction strong enough to use the object it corrects is, for that
 -- same reason, unable to be cited by it.  The gate is where the two meet:
 -- the aggregate imports both, so both are checked, and neither imports the
--- other.  `Texts.AnuktaAvaktavya.agda` §9 records the same fact from the other
+-- other.  `SourcedProofs.AnuktaAvaktavya.agda` §9 records the same fact from the other
 -- side and keeps a pointer there, which is the strongest mechanism
 -- available IN that direction.
 --
@@ -353,7 +353,7 @@ import Tantrayukti_ARetractionThatIsNotStrictIsNotARetraction
 -- Aṣṭasahasrī (c. 850); Prabhācandra, Prameyakamalamārtaṇḍa (c. 1000).
 ------------------------------------------------------------------------
 
-import Texts.ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
+import SourcedProofs.ApohaParyaya_WhetherConceptualContentIsNegativeIsWhatTheTwoSchoolsActuallyDispute
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-20, seventh append: the fitness condition on absence.

@@ -23,7 +23,7 @@
 --   Family A  eqℕ with refl/soundness/completeness/neq — 9 modules,
 --             e.g. NaturalMachine/Obstruction.agda:162 (eqℕ-refl :168,
 --             eqℕ→≡ :172), CyclicAliasing.agda:153 (eqℕ-neq :163),
---             PairField.ResidueGlue.agda:90 (eqℕ-sound :100).  No one of the
+--             Primes.PairField.ResidueGlue.agda:90 (eqℕ-sound :100).  No one of the
 --             nine has all four companion lemmas; this file does.
 --   Family B  the Bool equality decider — 10 modules, three names
 --             (eqBool/eqb/eqB), three presentations; one table here.

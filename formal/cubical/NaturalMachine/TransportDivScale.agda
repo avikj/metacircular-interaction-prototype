@@ -48,7 +48,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Data.Empty as Empty using (⊥)
 
 import NaturalMachine.Digits as Dig
-import Texts.TransportDiv as TD
+import SourcedProofs.TransportDiv as TD
 
 open import NaturalMachine.CostGeometry
 open import NaturalMachine.Residual

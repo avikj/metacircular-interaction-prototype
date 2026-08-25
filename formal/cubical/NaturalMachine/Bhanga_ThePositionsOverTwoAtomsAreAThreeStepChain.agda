@@ -75,7 +75,7 @@ open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Texts.AnuktaAvaktavya using (सामयिक ; नित्य)
+open import SourcedProofs.AnuktaAvaktavya using (सामयिक ; नित्य)
 open import NaturalMachine.KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
   using (one)
 open import NaturalMachine.KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition

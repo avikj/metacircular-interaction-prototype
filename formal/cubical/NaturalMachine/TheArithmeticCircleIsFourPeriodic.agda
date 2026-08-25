@@ -65,7 +65,7 @@ open import Cubical.Data.Int.Properties using (negsucNotpos)
 open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
-open import Texts.PythagoreanTransition using (module Circle)
+open import SourcedProofs.PythagoreanTransition using (module Circle)
 
 open Circle ℤCommRing using (Pair ; N ; one ; _⊗_ ; rot ; rotEquiv ; rotPath ; ⊗-assoc ; ⊗-idʳ)
 

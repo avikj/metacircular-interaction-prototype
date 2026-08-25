@@ -77,7 +77,7 @@ open import Cubical.Data.Sigma
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection
 
-open import Texts.PythagoreanTransition using (module Circle)
+open import SourcedProofs.PythagoreanTransition using (module Circle)
 
 private
   variable

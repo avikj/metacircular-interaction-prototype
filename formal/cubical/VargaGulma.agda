@@ -23,7 +23,7 @@ module VargaGulma where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 open import Cubical.Data.Nat.Properties using (+-assoc ; +-comm ; +-suc ; ·-suc ; +-zero ; ·-distribˡ)
-open import Texts.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑ ; ∑³ ; घन-सङ्कलितम्)
+open import SourcedProofs.Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using (∑ ; ∑³ ; घन-सङ्कलितम्)
 
 ------------------------------------------------------------------------
 -- ओज — k-तमः विषमः (0-आदिः) : ओज k = 2k+1 = suc(k+k) ।

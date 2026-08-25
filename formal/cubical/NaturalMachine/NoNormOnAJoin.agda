@@ -83,7 +83,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver.Reflection
 
 open import NaturalMachine.SumProductTorus using (Exp ; zeroE ; _⊔_)
-open import Texts.IdempotenceForbidsDescent using (⊔-idem)
+open import SourcedProofs.IdempotenceForbidsDescent using (⊔-idem)
 
 private
   variable

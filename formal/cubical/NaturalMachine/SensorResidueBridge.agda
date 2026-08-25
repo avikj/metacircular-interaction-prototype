@@ -149,7 +149,7 @@
 ------------------------------------------------------------------------
 
 import NaturalMachine.Digits            as Dg
-import Texts.TransportDiv      as TD
+import SourcedProofs.TransportDiv      as TD
 import NaturalMachine.WalkResidueBridge as WRB
 
 module NaturalMachine.SensorResidueBridge where
