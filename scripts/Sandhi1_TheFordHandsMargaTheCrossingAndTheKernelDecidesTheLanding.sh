@@ -60,7 +60,7 @@ else
   # under this script within minutes of its first commit (27ee0101 moved one
   # emission site to an eight-space indent), and a guard pinned to the old
   # indent would have silently dropped every pair from the new site — the
-  # exact defect class dosa.lekha exists for.  Fields, not margins.
+  # exact defect class a written defect exists for.  Fields, not margins.
   awk -F'  +' '$2 == "marga" && NF >= 4 { printf "%s\t%s\n", $3, $4 }' \
     "$W/tirtha.txt" | sort -u > "$W/pairs.tsv"
 fi

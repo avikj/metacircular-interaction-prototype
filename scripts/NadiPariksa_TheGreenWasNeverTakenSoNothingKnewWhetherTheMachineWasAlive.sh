@@ -104,7 +104,6 @@ run_gate "sabha · the session kernel"                       interactive/check-s
 run_gate "yantra · pariksa, the five roads exercised"       interactive/check-yantra-pariksa.sh slow
 
 # ── the records that are supposed to be append-only ──────────────────
-run_gate "dosa · the written defect chain"                  scripts/check-dosa-lekha.sh
 run_gate "claims · struck claims still standing"            scripts/check-claim-slugs.sh
 run_gate "deletion · nothing silently removed"              scripts/check-no-silent-deletion.sh
 run_gate "problems · every problem has a spec"              scripts/check-problem-specs.sh
