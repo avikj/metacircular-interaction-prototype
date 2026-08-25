@@ -1,10 +1,10 @@
-historical/machine-runs — OUTPUTS OF RUNS OF THE MACHINE, KEPT AS PROVENANCE.
+zzz/machine-runs — OUTPUTS OF RUNS OF THE MACHINE, KEPT AS PROVENANCE.
 
-WHAT THESE ARE.  Not historical sources: those are texts, and the README's
-`historical/` sentence is about them.  These are the other kind of
-provenance — files a run of interactive/ WROTE, which a checked module then
-cites because the module's content came out of that run.  The theorem is
-the Agda; this is the evidence that a machine, not a person, named it.
+WHAT THESE ARE.  Files a run of interactive/ WROTE, which a checked module
+then cites because the module's content came out of that run.  The theorem
+is the Agda; this is the evidence that a machine, not a person, named it.
+They sit under zzz/ with the rest of the archive, and unlike the rest of
+zzz/ they are LOAD-BEARING: nine live citations from formal/ point here.
 
 WHY THEY ARE TRACKED.  A citation to a file no clone carries is not a
 citation.  Each line below is a live claim: the module says the file says

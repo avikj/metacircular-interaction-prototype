@@ -21,7 +21,7 @@
 -- `TraceReplay.replayWithRules`, which returns a complete Agda module; the
 -- kernel checks it; the machine writes the words "trace replay" to the log and
 -- DISCARDS THE SOURCE.  That path is 820 of 2362 `KERNEL-ACCEPT` lines.  As of
--- 2026-08-18 the source is kept (`historical/machine-runs/replay.traces`), and every one of
+-- 2026-08-18 the source is kept (`zzz/machine-runs/replay.traces`), and every one of
 -- the 17 records a three-round run produced contains, verbatim:
 --
 --     addZero : (a : ℕ) → (a + zero) ≡ a
@@ -32,7 +32,7 @@
 -- inside every replayed module, and throwing it away — while a different part
 -- of the same program recorded a demand for it, 27 times.
 --
--- WHAT IS BELOW.  `addZero` transcribed verbatim from `historical/machine-runs/replay.traces`
+-- WHAT IS BELOW.  `addZero` transcribed verbatim from `zzz/machine-runs/replay.traces`
 -- (record 1, lines 6–8), and then the flagship residual discharged with it.
 -- Nothing here is invented: the lemma is the machine's own text, and the
 -- residual is the kernel's own words.
@@ -50,7 +50,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 
 ------------------------------------------------------------------------
--- 1.  Transcribed verbatim from historical/machine-runs/replay.traces, record 1, lines 6–8.
+-- 1.  Transcribed verbatim from zzz/machine-runs/replay.traces, record 1, lines 6–8.
 --     Not rewritten, not tidied: this is what the machine emitted and the
 --     kernel accepted, 820 times, before anyone kept a copy.
 ------------------------------------------------------------------------

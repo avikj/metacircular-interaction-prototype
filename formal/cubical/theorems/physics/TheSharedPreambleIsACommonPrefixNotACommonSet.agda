@@ -39,7 +39,7 @@
 -- through `asSet`; §3 is about a common set failing to BE a preamble.
 --
 -- WHAT IS NOT CLAIMED.  Nothing about the 16-of-17 figure — that is a
--- count over `historical/machine-runs/replay.traces` and is that module's, not restated
+-- count over `zzz/machine-runs/replay.traces` and is that module's, not restated
 -- here.  Nothing about whether `lcp` finds the LARGEST useful preamble
 -- in practice; §2 is about the order, not about how much is shared.
 --

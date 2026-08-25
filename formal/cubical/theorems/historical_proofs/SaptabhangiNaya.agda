@@ -152,7 +152,7 @@ private
 --     invariant.  Never a position, never a quantity the record is inside,
 --     never a HEAD-relative query.
 --
--- Registered as `uddhrta` in `historical/machine-runs/mula.pramana` and checked by
+-- Registered as `uddhrta` in `zzz/machine-runs/mula.pramana` and checked by
 -- `machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`, which
 -- does not export the constructors of its designation type, so a citation
 -- naming a position cannot be built at any call site.

@@ -44,7 +44,7 @@
 -- `haskell-mul-suc`).  So `mul-zero`/`mul-suc` below introduce NO new
 -- trusted input: they are the machine's own axioms, re-indexed by their
 -- endpoints.  `mod`, `div`, `Omega`, `omega`, `musq` — the demands standing
--- in `historical/machine-runs/thoughts.math` — have no `symSem` and no `symDefs` at all;
+-- in `zzz/machine-runs/thoughts.math` — have no `symSem` and no `symDefs` at all;
 -- each would be a new trusted input, and each is strictly downstream of a
 -- comparison/remainder primitive.  See `machine/patches/S4-certificate-
 -- vocabulary.md` §3 for the dependency chain.

@@ -6,7 +6,7 @@
 -- śeṣa; the kernel disposes.
 --
 -- WHAT THIS IS.  The live engine (`interactive/MathMachine.hs`, its memory in
--- `historical/machine-runs/library.terms`) discovers true equations over ℕ by enumeration
+-- `zzz/machine-runs/library.terms`) discovers true equations over ℕ by enumeration
 -- and composition, tagging each with its pramāṇa (anumāna) and its naya
 -- (trace replay, or induction).  Its own instruments name what it cannot
 -- handful of equations that are TRUE, survive all refutation, and are

@@ -181,13 +181,13 @@ interactive/yantra-session.lekha
 # multi-agent transcript from being part of what the repository presents.
 #
 # SIX OF THESE MOVED OUT INSTEAD, on 2026-08-25, and are TRACKED at
-# historical/machine-runs/: library.terms, sanghatta-report-2026-08-23.txt,
+# zzz/machine-runs/: library.terms, sanghatta-report-2026-08-23.txt,
 # replay.traces, thoughts.bhavana.math, thoughts.math, mula.pramana.  They
 # are cited by checked Agda modules whose CONTENT came out of a run that
 # wrote them -- SeamClosed's `addZero` is transcribed verbatim from
 # replay.traces record 1 -- so they are provenance, not session state, and a
 # citation to a file no clone carries is not a citation.  See
-# historical/machine-runs/INDEX.  interactive/thoughts.*.math below still
+# zzz/machine-runs/INDEX.  interactive/thoughts.*.math below still
 # catches thoughts.pair.math and the two thoughts.upamana.* files, which no
 # module cites.
 #
