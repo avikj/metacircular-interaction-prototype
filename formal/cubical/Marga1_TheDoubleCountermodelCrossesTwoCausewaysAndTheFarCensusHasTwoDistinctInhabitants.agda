@@ -68,7 +68,7 @@ open import Cubical.Foundations.Equiv
 open import Cubical.Foundations.Univalence
 
 import Ratri.Nirdharita_Agda-Builtin-Nat_NirdharanaPoneA_NirdharanaPoneA
-import FactoryVICoolingKill
+import EGB.FactoryVICoolingKill
 
 open import Cubical.Data.Sigma
 open import Cubical.Data.Bool using (true; false; false≢true)

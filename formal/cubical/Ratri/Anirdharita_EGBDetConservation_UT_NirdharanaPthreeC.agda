@@ -5,7 +5,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Bool
 open import Cubical.Data.Empty
-open import EGBDetConservation
+open import EGB.DetConservation
 
 censusR0 censusR1 : UT
 censusR0 = record { a = 0 ; b = 0 ; d = 0 }

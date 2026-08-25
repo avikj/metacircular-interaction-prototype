@@ -5,7 +5,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.Equiv
 open import Cubical.Data.Sigma
-open import FactoryVICoolingKill
+open import EGB.FactoryVICoolingKill
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _·_)
 open import Cubical.Data.Nat.Properties using (·-assoc; ·-identityˡ; ·-identityʳ; +-suc)
