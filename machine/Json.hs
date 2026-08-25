@@ -1,4 +1,4 @@
--- Sabda_TheWireHasNoBoolean — the transport layer of the sabhā, and the
+-- Json — the transport layer of the sabhā, and the
 -- first place the contract is enforced rather than described.
 --
 -- śabda is the fourth pramāṇa: what reaches you as an utterance from
@@ -82,7 +82,7 @@
 -- unaccepted route is not weak evidence but no evidence (§19 of the
 -- sūtra: अप्रमाणं न सञ्चीयते — what is not a pramāṇa does not accumulate).
 
-module Sabda_TheWireHasNoBoolean
+module Json
   ( J(..)
   , render
   , parseJ

@@ -1,6 +1,6 @@
 -- प्रामाण्य — the five routes an answer arrives by, each with its witness.
 --
--- EXTRACTED FROM Yantra_TheOrgansAreOneMachineOnOneWire, 2026-08-23, moved
+-- EXTRACTED FROM Server, 2026-08-23, moved
 -- not copied: Yantra imports and re-exports this module, so its wire
 -- interface is unchanged, and Aisthesis imports it directly — the light
 -- dependency that lets the heartbeat (./jiva, runghc) speak the same route
@@ -16,13 +16,13 @@
 --
 -- Five, and each carries its witness rather than a name alone.
 
-module Pramanya_TheFiveRoutesAndTheirWitnesses
+module Evidence
   ( Pramanya(..)
   , pramanyaJ
   , pramanyaWitness
   ) where
 
-import Sabda_TheWireHasNoBoolean (J(..))
+import Json (J(..))
 
 data Pramanya
   = Pratyaksa String

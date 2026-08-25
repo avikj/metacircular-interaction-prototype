@@ -1,7 +1,7 @@
 -- Vipratiṣedha -- the Aṣṭādhyāyī's conflict-resolution and stratification
 -- layer, lifted off Sanskrit sandhi and made general.
 --
--- WHAT THIS IS FOR.  `machine/Astadhyayi.hs` already runs sūtras, and its
+-- WHAT THIS IS FOR.  `machine/Phonology.hs` already runs sūtras, and its
 -- `resolve` already carries two metarules (utsarga/apavāda, then 1.4.2
 -- paratva).  But that `resolve` is welded to `[Item]`, to `Ref`, and to the
 -- fourteen śivasūtras.  Meanwhile `machine/MathMachine.hs` -- 5599 lines, the
@@ -68,7 +68,7 @@
 -- Five contenders, ranked.  So the scheduler tries them strongest-first:
 -- apavāda, then antaraṅga, then nitya, then para (1.4.2), and pūrva -- the
 -- earlier rule -- is the weakest and is never used to decide anything here,
--- because para is its negation and outranks it.  Astadhyayi.hs implements
+-- because para is its negation and outranks it.  Phonology.hs implements
 -- two of these five.  This implements four, and says which two of them can
 -- abstain and why.
 --
@@ -92,10 +92,10 @@
 --
 -- WHAT IS NOT CLAIMED.  This module encodes FOUR METARULES.  It does not
 -- encode sūtras, and it is not a count against the ~3983 of the Aṣṭādhyāyī
--- (recensions differ: 3959-3996).  `Astadhyayi.coverage` is where that number
+-- (recensions differ: 3959-3996).  `Phonology.coverage` is where that number
 -- lives and this file does not move it.
 
-module Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition
+module RuleConflict
   ( -- position
     Sthana
   , showSthana
@@ -257,7 +257,7 @@ showDosa d =
 -- WRITING of the undecided site: rendered strings, for a reader.  It is not
 -- the site.  A caller handed only a `Dosa` can print the fourth position and
 -- can do nothing else with it, which is exactly the collapse
--- `machine/SaptabhangiGarbha_TheResidueIsTheSeed.hs` names in its own header:
+-- `machine/ResidueStream.hs` names in its own header:
 -- "after the collapse the fourth position does not record which two seeds
 -- produced it".  It did not here either, until this type existed.
 --

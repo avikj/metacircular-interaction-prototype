@@ -1,6 +1,6 @@
--- Astadhyayi -- Panini's grammar as a running machine, not a description of one.
+-- Phonology -- Panini's grammar as a running machine, not a description of one.
 --
--- WHAT THIS IS.  The Astadhyayi (Panini, ~500 BCE) is a rewriting system with
+-- WHAT THIS IS.  The Phonology (Panini, ~500 BCE) is a rewriting system with
 -- ~3983 rules.  It is not a description of Sanskrit.  It is a device that,
 -- given a root and an affix, COMPUTES the surface form -- and it was built
 -- twenty-four centuries before anyone in Europe wrote down what a rewriting
@@ -101,7 +101,7 @@
 -- is correct because it does not.
 --
 -- HOW MUCH OF PANINI IS HERE.  `coverage` prints it and does not round up.
--- The Astadhyayi has ~3983 sutras (counts vary by recension, 3959-3996).  This
+-- The Phonology has ~3983 sutras (counts vary by recension, 3959-3996).  This
 -- file encodes the number given by `length sutras` -- read it there, not here,
 -- so it cannot go stale.  What is complete is the siva-sutra table, the
 -- pratyahara extractor, the savarna relation of 1.1.9/1.1.10, and the four
@@ -109,7 +109,7 @@
 -- (vowel sandhi) and 8.2-8.4 (the tripadi) to run real derivations end to end
 -- and to exhibit each mechanism doing work.
 --
--- SOURCES.  Panini, Astadhyayi, ~500 BCE (Katyayana's varttikas ~250 BCE,
+-- SOURCES.  Panini, Phonology, ~500 BCE (Katyayana's varttikas ~250 BCE,
 -- Patanjali's Mahabhasya ~150 BCE).  Sutra text and numbering follow the
 -- vulgate; the siva-sutra order and the savarna definition follow 1.1.9
 -- `tulyasyaprayatnam savarnam` and 1.1.10 `najjhalau`, and the extension of a
@@ -122,7 +122,7 @@
 -- file makes is a finite exhaustive check in `selfTest`, which either returns
 -- [] or names what failed.
 
-module Astadhyayi
+module Phonology
   ( -- the sound system
     Slot(..)
   , sivasutraTable
@@ -544,7 +544,7 @@ data Sutra = Sutra
 ------------------------------------------------------------------------
 -- 3a.  ANUVRTTI AND ADHIKARA -- what a sutra does not say.
 --
--- A sutra of the Astadhyayi is NOT LOCALLY READABLE.  `coh kuh` is two
+-- A sutra of the Phonology is NOT LOCALLY READABLE.  `coh kuh` is two
 -- words -- "of cU, kU" -- and it does not say where, or when, or what
 -- kind of substitute.  The restriction it actually carries, `padasya`
 -- ("of a pada"), is stated at 8.1.16, more than a hundred sutras earlier,
@@ -587,11 +587,11 @@ data Sutra = Sutra
 --
 -- WHAT IS ENCODED, and the limit.  Four continuations, listed below, each
 -- one standard and checkable against the shape of the rules that inherit
--- it.  The Astadhyayi's real anuvrtti graph runs to thousands of edges
+-- it.  The Phonology's real anuvrtti graph runs to thousands of edges
 -- and no source carrying it is reachable from this container (see the
 -- 6.4.22 note in section 7a for the same egress limit).  So the laghava
 -- figure in section 8a is a figure FOR THIS SAMPLE and a floor for the
--- text; it is not an estimate of the Astadhyayi's compression, and
+-- text; it is not an estimate of the Phonology's compression, and
 -- nothing here extrapolates to one.
 ------------------------------------------------------------------------
 
@@ -1273,7 +1273,7 @@ sutras =
 --
 -- Everything above this is phonology: forms meeting forms.  `coverage`
 -- has been saying "nothing of the karaka system" since this file was
--- written, and that is the half where the Astadhyayi stops describing
+-- written, and that is the half where the Phonology stops describing
 -- sound and starts computing FROM MEANING.
 --
 -- THE ARCHITECTURE, which is not the Western one.  Panini does not go
@@ -1361,7 +1361,7 @@ vibhaktiOf v k
   | otherwise       = (Sasthi,    "2.3.50 षष्ठी शेषे")
 
 -- a scene: which participants fill which roles.  This is the INPUT to the
--- Astadhyayi, and it is not a string.
+-- Phonology, and it is not a string.
 type Drshya = [(Karaka, String)]
 
 pacatiScene :: Drshya
@@ -1870,7 +1870,7 @@ deriveLekhaV vd nv start =
 -- of one another.  This engine had only the first:
 --
 --   8.2.1  purvatrasiddham       any SUBSEQUENT rule is asiddha with
---          (Astadhyayi 8.2.1)    respect to any rule that PRECEDES it, so
+--          (Phonology 8.2.1)    respect to any rule that PRECEDES it, so
 --                                the tripadi applies strictly in the order
 --                                enumerated.  One-way, backwards blindness.
 --                                `deriveTrace`'s phaseB, above.
@@ -2398,7 +2398,7 @@ sesaKosha =
 -- 8.  HONESTY
 ------------------------------------------------------------------------
 
--- The Astadhyayi has about 3983 sutras (recensions differ: 3959-3996).  This
+-- The Phonology has about 3983 sutras (recensions differ: 3959-3996).  This
 -- reports what is actually here, split by whether the sutra performs a
 -- substitution or supplies the meaning of one.  It does not round up.
 coverage :: [String]
@@ -2508,7 +2508,7 @@ coverage =
 -- exactly, in any additive symbol-measure whatsoever, with no
 -- cross-terms, because expansion adds text and changes nothing else.  The
 -- saving is LINEAR IN CHAIN LENGTH and the constant is the word.  That is
--- the whole content of the device, and it is why the real Astadhyayi --
+-- the whole content of the device, and it is why the real Phonology --
 -- where a heading can govern several hundred sutras -- gets a factor and
 -- not a discount.  `laghavaIdentity` in `selfTest` checks the identity
 -- holds of the tables here rather than trusting the derivation of it.
@@ -2525,7 +2525,7 @@ coverage =
 -- WHAT THIS FIGURE IS AND IS NOT.  It is the figure for the 26 sutras and
 -- 4 continuations encoded in this file, and it is stated as such by
 -- `laghavaReport`, which prints the sample size beside every number.  It
--- is NOT an estimate for the Astadhyayi: the real anuvrtti graph is not
+-- is NOT an estimate for the Phonology: the real anuvrtti graph is not
 -- reachable from this container (same egress limit recorded at 6.4.22),
 -- and a figure extrapolated from four continuations to several thousand
 -- would be exactly the fitted constant this repository's protocol exists
@@ -2650,7 +2650,7 @@ laghavaReport =
 -- restate it.  What is added here is exactly what
 -- `AnuvrttiIsTheSameTrade` names in its own NOT CLAIMED paragraph --
 -- "the real anuvrtti chains run many words deep with their own
--- nivrtti", and "the saving in §2 is not the Astadhyayi's actual
+-- nivrtti", and "the saving in §2 is not the Phonology's actual
 -- economy":
 --
 --   * CHAINS, not one edge.  Four words, in force over 8, 6, 5 and 6

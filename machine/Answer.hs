@@ -1,4 +1,4 @@
--- Uttara_SamkramanaOrDosalekhaNeverABareBoolean — the shape of every
+-- Answer — the shape of every
 -- answer this machine gives, with no third case.
 --
 -- THE SPECIFICATION, from notes/AHIMSA_SUTRA_VISTARA.md §6:
@@ -50,7 +50,7 @@
 -- NOT CLAIMED: that any source wrote this datatype.  What is taken is the
 -- two-road structure and the obligation each road carries.
 
-module Uttara_SamkramanaOrDosalekhaNeverABareBoolean
+module Answer
   ( Saksin(..)
   , saksinPada
   , saksinPrakara
@@ -70,7 +70,7 @@ module Uttara_SamkramanaOrDosalekhaNeverABareBoolean
   , saksiPariksaOrRefuse
   ) where
 
-import Sabda_TheWireHasNoBoolean (J(..), render)
+import Json (J(..), render)
 import System.Exit (exitFailure)
 import System.IO (hPutStrLn, stderr)
 

@@ -1,4 +1,4 @@
--- Saptabhangi_TheSevenfoldVerdict — the type that replaces the boolean.
+-- SevenfoldVerdict — the type that replaces the boolean.
 --
 -- WHAT THIS IS FOR.  `machine/MathMachine.hs` decides, and its decision is
 -- `koAccepted :: Bool`.  A census over `machine/machine.log` (ANEKANTA.md §1)
@@ -71,7 +71,7 @@
 --
 -- A SIBLING TYPE DISAGREES WITH THIS ONE, AND THE DISAGREEMENT STANDS.
 --
--- `machine/SaptabhangiGarbha_TheResidueIsTheSeed.hs` (another lane, same
+-- `machine/ResidueStream.hs` (another lane, same
 -- day) gives the seven positions as constructors CARRYING the nayas and
 -- witnesses that produced them, so its fourth position remembers which two
 -- seeds it was made of and `caturthatTritiya` recovers the third from it.
@@ -130,7 +130,7 @@
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys
 -- which two seeds it consumed, which is why it does not associate.
 
-module Saptabhangi_TheSevenfoldVerdict
+module SevenfoldVerdict
   ( Bhanga(..), Sthana(..), Upasthiti(..), Samavesa
   , profile, unprofile, isVerdict
   , krama, saha, kramaS, sahaS, nyuna

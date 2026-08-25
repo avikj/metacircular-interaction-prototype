@@ -1,4 +1,4 @@
--- DosaLekha_TheWrittenDefectRecord.hs
+-- DefectLog.hs
 --
 -- दोषलेखः — the written defect.  The machine's SECOND organ.
 --
@@ -150,9 +150,9 @@
 -- ─────────────────────────────────────────────────────────────────────
 -- USE.  Build and run through machine/run-dosa-lekha.sh, or directly:
 --
---   ghc -O0 -Wall -main-is DosaLekha_TheWrittenDefectRecord.main \
+--   ghc -O0 -Wall -main-is DefectLog.main \
 --       -outputdir /tmp/dl -o /tmp/dosalekha \
---       machine/DosaLekha_TheWrittenDefectRecord.hs
+--       machine/DefectLog.hs
 --
 --   dosalekha schema              the field grammar and the kinds, for an
 --                                 LLM about to write an entry
@@ -173,7 +173,7 @@
 -- wrote a log format.  What is taken from each is the DISTINCTION named
 -- beside it, and the rule for when it applies.
 
-module DosaLekha_TheWrittenDefectRecord (main) where
+module DefectLog (main) where
 
 import Control.Monad (forM_, unless, when)
 import Data.Bits (xor, shiftR, (.&.))
@@ -243,7 +243,7 @@ required =
 
 -- | Optional fields.  `sesa` and `pramana` are here because a sibling lane
 --   had already got them right and this record had nowhere to put them.
---   machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs builds the
+--   machine/Answer.hs builds the
 --   IN-MEMORY answer type for the same sutra Â§6, and its `Dosalekha`
 --   constructor carries `uSesa` -- the REMAINDER, handed forward.  Â§3:
 --   à¤à¤µà¤à¥à¤¤à¤µà¥à¤¯à¥ à¤¶à¥à¤·à¥ à¤µà¤¸à¤¤à¤¿ à¥¤ à¤¶à¥à¤·à¥ à¤à¤°à¥à¤­à¤, à¤¨ à¤µà¤¿à¤«à¤²à¤¤à¤¾ â the remainder lives in the
@@ -497,7 +497,7 @@ schema = mapM_ putStrLn $
   [ ""
   , "FROM THE IN-MEMORY ANSWER TYPE"
   , ""
-  , "  machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs is the same"
+  , "  machine/Answer.hs is the same"
   , "  sutra section 6 as a value: two roads, no third.  Its Dosalekha"
   , "  constructor serialises here field for field --"
   , ""
@@ -705,7 +705,7 @@ header = unlines
   , "# AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।"
   , "#                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।"
   , "#"
-  , "# Written by machine/DosaLekha_TheWrittenDefectRecord.hs, which computes"
+  , "# Written by machine/DefectLog.hs, which computes"
   , "# `sara:` as a chain over every preceding record.  Edit any line above the"
   , "# last record and `dosalekha verify` names the record where it happened."
   , "# To correct a record, APPEND one whose `uttara:` names it."

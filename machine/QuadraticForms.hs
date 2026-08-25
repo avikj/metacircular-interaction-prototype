@@ -58,7 +58,7 @@
 -- are never abs'd; the pair is normalised only by negating BOTH, which the
 -- norm is invariant under because it is homogeneous of degree two.
 
-module VargaPrakrti_CompositionLawAsParameter
+module QuadraticForms
   ( Defect(..)
   , renderDefect
   , Law(..)

@@ -1,4 +1,4 @@
--- Yantra_TheOrgansAreOneMachineOnOneWire — the assembly.
+-- Server — the assembly.
 --
 -- यन्त्रम् — an instrument.  Bhāskara II gives the Siddhāntaśiromaṇi a
 -- Yantrādhyāya (1150): a chapter of instruments, each described by what it
@@ -14,7 +14,7 @@
 --
 -- WHAT IT INHERITS, verbatim, and does not restate:
 --
---   Sabda_TheWireHasNoBoolean       the grammar: four constructors, no
+--   Json       the grammar: four constructors, no
 --                                   boolean, no float, no null.
 --   Uttara_Samkramana…              the answer type: two constructors, no
 --                                   third.  §6, तृतीयो मार्गो न विद्यते ।
@@ -24,28 +24,28 @@
 -- says so in its own header: *a real naya store → replace `sNaya` and the
 -- two ops touching it*.  This is that replacement.  The sabhā's twelve
 -- operations all survive here, and the store under `naya.*` is
--- NayaKosha_TheStandpointStore: journalled, replayable, with every witness
+-- StandpointStore: journalled, replayable, with every witness
 -- carrying its source and every entry carrying the fitness of the looking
 -- that produced it.  A (name, [String]) pair cannot carry either, and both
 -- are things a later reader needs and a caller does not (§14, §15).
 --
 -- THE ORGANS WIRED IN, with what each one is here for:
 --
---   NayaKosha_TheStandpointStore    the store.  Append-only, no delete, no
+--   StandpointStore    the store.  Append-only, no delete, no
 --                                   update, name lookup returns a LIST.
---   DosaLekha_TheWrittenDefectRecord  every refusal this machine makes is
+--   DefectLog  every refusal this machine makes is
 --                                   filed into it, over its own published
 --                                   `write`-on-stdin interface, and the
 --                                   chain is verified from inside the
 --                                   session by `dosa.pramanya`.
---   Saptabhangi_TheSevenfoldVerdict   verdict organ A: presence profiles.
+--   SevenfoldVerdict   verdict organ A: presence profiles.
 --   SaptabhangiGarbha_…               verdict organ B: proof-relevant.
 --   Obstruction                       verdict organ C: B1..B7 + ADharmin.
 --   Vipratisedha_…                    the Pāṇinian scheduler.  Its live use
 --                                   here is the three-organ collision.
 --   Certificate                       the Agda kernel, with its two controls.
---   VargaPrakrti_CompositionLawAsParameter  the reactor, law as a value.
---   Astadhyayi                        the śivasūtra interval procedure.
+--   QuadraticForms  the reactor, law as a value.
+--   Phonology                        the śivasūtra interval procedure.
 --
 -- THE ADDED CONTRACT, over and above the sabhā's.  Every answer on this
 -- wire carries, at the top level of the object, two more fields:
@@ -85,7 +85,7 @@
 -- that a demonstration does not append to machine/dosa.lekha, which is
 -- shared and which four lanes are writing to today.
 
-module Yantra_TheOrgansAreOneMachineOnOneWire
+module Server
   ( Yantra(..)
   , emptyYantra
   , Kriya(..)
@@ -108,7 +108,9 @@ import System.IO
 import System.Process (readProcessWithExitCode)
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 
-import Sabda_TheWireHasNoBoolean
+import Json
+import Lexicon (Register(..), registerOf, toGreek, toSanskrit, lexiconJ)
+import qualified Lexicon
 -- `hiding (Ganita)` is a live seam and not a preference.  While this lane was
 -- repairing the readers below, the Uttara lane gave `Saksin` a constructor
 -- `Ganita` — a COMPUTED witness, as against `Likhita`, a written one — and
@@ -120,23 +122,23 @@ import Sabda_TheWireHasNoBoolean
 -- नाम्नि जीवनम् — a name taken away from a lane that chose it is a loss in one
 -- word.  Nothing of theirs is used through this import that the hiding
 -- removes: this file reads their witnesses through `tuWitness`.
-import Uttara_SamkramanaOrDosalekhaNeverABareBoolean hiding (Ganita)
-import qualified NayaKosha_TheStandpointStore as K
-import qualified Saptabhangi_TheSevenfoldVerdict as S
-import qualified SaptabhangiGarbha_TheResidueIsTheSeed as G
+import Answer hiding (Ganita)
+import qualified StandpointStore as K
+import qualified SevenfoldVerdict as S
+import qualified ResidueStream as G
 import qualified Obstruction as OB
-import qualified Vipratisedha_ConflictIsDecidedByMetaruleNotByListPosition as VS
+import qualified RuleConflict as VS
 import qualified Certificate as C
-import qualified VargaPrakrti_CompositionLawAsParameter as VP
-import qualified Astadhyayi as P
+import qualified QuadraticForms as VP
+import qualified Phonology as P
 
 -- ============================================================ प्रामाण्य
 --
--- Moved to Pramanya_TheFiveRoutesAndTheirWitnesses, 2026-08-23, so that
+-- Moved to Evidence, 2026-08-23, so that
 -- Aisthesis and the runghc organs (./jiva) can speak the route vocabulary
 -- without interpreting this whole assembly.  Imported and re-exported:
 -- the wire interface of this module is unchanged.
-import Pramanya_TheFiveRoutesAndTheirWitnesses
+import Evidence
   (Pramanya(..), pramanyaJ, pramanyaWitness)
 
 -- | The stamp every answer carries.  `mSthana` is Saptabhangi's type and
@@ -229,6 +231,9 @@ kriyah =
   [ Kriya "yantra.kriyah"
       "What this machine can be asked.  Emitted from the table the server dispatches on, so it cannot drift from what runs."
       [] kKriyah
+  , Kriya "yantra.kosa"
+      "The wire's own dictionary: every name it uses, in Greek and in Sanskrit, with a gloss.  Emitted from the same table the translation runs on, so it cannot drift from what the wire actually says.  The default register is GREEK; send \"register\":\"sanskrit\" for the other."
+      [] kKosa
   , Kriya "yantra.sthiti"
       "The whole session: the store in full, the defect log, what the doṣa-lekha said back when each defect was filed, the remainder queue."
       [] kSthiti
@@ -343,6 +348,32 @@ kKriyah y _ = pure (y, m, u)
           , "who asked, and why they asked now" ]
           [ "Pāṇini, Aṣṭādhyāyī 1.4.2, c. 500 BCE — conflict is settled by a stated principle; where no conflict arises there is nothing to settle" ]
 
+-- THE DICTIONARY, as an answer.  A caller who does not recognise a word
+-- asks for the table instead of guessing, and the table is emitted from
+-- the same list `toGreek`/`toSanskrit` translate against — there is one
+-- copy of every name and no second one to go stale.
+kKosa :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
+kKosa y _ = pure (y, m, u)
+  where
+    m = Mudra (S.Position S.SyadAsti)
+          (Nihsesa (length Lexicon.entries)
+             ("every entry of the running translation table, both registers, "
+              ++ "with its gloss; the table the wire translates against is "
+              ++ "the table you are reading"))
+    u = samkramana "yantra.kosa"
+          (tulyata "refl — the identity equivalence, the one transport always available"
+                   "the translation table as it runs"
+                   "the dictionary you are reading"
+                   "there is no second copy to fall out of date")
+          [ ("kosa", lexiconJ)
+          , ("register-vidhi", JStr "GREEK by default; send \"register\":\"sanskrit\" for the Sanskrit register") ]
+          [ "WHY each pair is a map and not a convenience: the argument for it is in Lexicon.hs's header, not on this wire"
+          , "the English gloss is a gloss.  It is the register this vocabulary exists to avoid, and it is here to be read, never to be sent"
+          , "every term of both traditions that has NO counterpart in the other, which is most of both" ]
+          [ "Sextus Empiricus, Outlines of Pyrrhonism — περὶ κριτηρίου, the criterion; and the τρόποι, the modes"
+          , "Akalaṅka, Laghīyastraya, c. 720–780 — the sevenfold position and krama against saha"
+          , "Umāsvāti, Tattvārthasūtra 5.31, c. 2nd–5th c. — arpita/anarpita, what is asserted and what withheld" ]
+
 kSthiti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSthiti y _ = pure (y, m, u)
   where
@@ -438,7 +469,7 @@ kSthapana y j = pure $ case pieces of
       [ "an empty label is a witness whose identity was dropped before it arrived; the store would hold something that stands for something and cannot say what"
       , "and every later decision about this standpoint, which would silently rest on it" ]
       [ "name the witness: a document, a date, a statement, a computation — and give its `mula`" ]
-      [ "NayaKosha_TheStandpointStore refuses the same input at `decide`, for the same reason" ]
+      [ "StandpointStore refuses the same input at `decide`, for the same reason" ]
 
 kSuchi :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSuchi y _
@@ -782,7 +813,7 @@ kSaptaSamkramana y _ = pure result
                           ++ show n ++ " checks, no case omitted, no case sampled"))
           , samkramana "saptabhangi.samkramana"
               (tulyata "a bijection of finite sets with both round trips exhibited — an identification, in Voevodsky's sense: a thing held, not a fact cited"
-                       "Saptabhangi_TheSevenfoldVerdict.Sthana (7 bhaṅgas + Apratipatti)"
+                       "SevenfoldVerdict.Sthana (7 bhaṅgas + Apratipatti)"
                        "Obstruction.Sthana (B1..B7 + ADharmin)"
                        ("obToS ∘ sToOb = id on all " ++ show (length allS)
                         ++ "; sToOb ∘ obToS = id on all " ++ show (length allOB)))
@@ -859,7 +890,7 @@ kGarbhaDhara y j = pure $ case pieces of
             ("both standpoints have the same adhiṣṭhāna `" ++ sn ++ "`, so there is no residue")
             [ "the residue you asked to run forward.  A Sesa whose two nayas are one fails viveka — in the Agda that is a THEOREM (vivekah): if the two standpoints were one, the residue's own proof would refute it.  Here it is checked, and named for the theorem it stands in for." ]
             [ "give two distinct standpoints; the fourth position is what arises when two DIFFERENT nayas are asserted at once" ]
-            [ "SaptabhangiGarbha_TheResidueIsTheSeed, `viveka`" ] )
+            [ "ResidueStream, `viveka`" ] )
     | otherwise ->
         let v = G.Sesa (G.Naya sn [] sw) (G.Naya bn [] bw)
             stream = take k (G.garbhaDhara v)
@@ -1211,7 +1242,7 @@ kDosaPramanya y _ = case yDosaBin y of
                       "the chain cannot be verified: this session has no doṣa-lekha binary"
                       [ "the verification you asked for, and with it the guarantee that this session's filed defects are still the bytes that were filed" ]
                       [ "run this machine through machine/run-yantra.sh, which builds the binary and passes it in DOSA_BIN" ]
-                      [ "machine/DosaLekha_TheWrittenDefectRecord.hs" ] )
+                      [ "machine/DefectLog.hs" ] )
   Just bin -> do
     (code, out, err) <- readProcessWithExitCode bin ["verify"] ""
     let txt = out ++ err
@@ -1236,7 +1267,7 @@ kDosaPramanya y _ = case yDosaBin y of
             [ ("phala", JStr (trimS txt)) ]
             [ "the chain is FNV-1a and is not cryptographic and is not claimed to be: the adversary is an accidental edit, a lost rebase, a truncating write.  An adversary with the filesystem also has this file."
             , "who wrote each record, beyond what each record says of itself" ]
-            [ "machine/DosaLekha_TheWrittenDefectRecord.hs §3 — the chain" ] )
+            [ "machine/DefectLog.hs §3 — the chain" ] )
       _ ->
         ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the divergence is located by record and by line, and is carried verbatim")
         , dosalekha "dosa.pramanya"
@@ -1244,7 +1275,7 @@ kDosaPramanya y _ = case yDosaBin y of
             [ "the guarantee that this session's filed defects are the bytes that were filed"
             , "the organ's own report, verbatim, which names the record and the line: " ++ trimS txt ]
             [ "do NOT edit the diverging record.  Append one whose `uttara:` names it — that is the only correction an append-only log has." ]
-            [ "machine/DosaLekha_TheWrittenDefectRecord.hs" ] )
+            [ "machine/DefectLog.hs" ] )
   where
     -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
     -- read out of the organ's own success line, which is
@@ -1355,7 +1386,7 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
   Just bin -> do
     let ent = unlines
           ( [ "  kala: " ++ kala
-            , "  karta: yantra (machine/Yantra_TheOrgansAreOneMachineOnOneWire.hs)"
+            , "  karta: yantra (machine/Server.hs)"
             , "  jati: " ++ jatiOf u
             , "  vastu: " ++ oneLine (uKriya u)
             , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
@@ -1517,10 +1548,19 @@ serve fp kala hin hout = go
     go y = do
       eof <- hIsEOF hin
       if eof then pure y else do
-        line <- hGetLine hin
-        if all (`elem` " \t\r") line then go y else do
+        wireLine <- hGetLine hin
+        if all (`elem` " \t\r") wireLine then go y else do
+          -- THE REGISTER, and it is read off the request rather than
+          -- configured: GREEK unless the caller says `"register":"sanskrit"`.
+          -- The server's internals stay Sanskrit and are never rewritten;
+          -- translation happens here, at the two edges, so there is exactly
+          -- one copy of every name and nothing to drift.  See Lexicon.hs.
+          let reg  = either (const Greek) registerOf (parseLine wireLine)
+              line = case parseLine wireLine of
+                       Right j -> render (toSanskrit reg j)
+                       Left _  -> wireLine
           (y', m, u) <- answer y kala line
-          hPutStrLn hout (render (mergeId line (mudritaJ m u)))
+          hPutStrLn hout (render (toGreek reg (mergeId line (mudritaJ m u))))
           hFlush hout
           appendLekha fp (yTurn y') line m u
           go y'

@@ -1,4 +1,4 @@
--- NayaKosha_TheStandpointStore -- नयकोश, a live store of standpoints.
+-- StandpointStore -- नयकोश, a live store of standpoints.
 --
 -- WHAT THIS IS.  `machine/Naya.hs` DECIDES, on a fragment, whether a set
 -- of standpoints may be collapsed into one verdict, and prints what the
@@ -152,7 +152,7 @@
 -- The `Bhanga` and `Sthana` types are NOT redefined here.  They are
 -- another hand's work in `machine/Obstruction.hs` and are imported.
 
-module NayaKosha_TheStandpointStore where
+module StandpointStore where
 
 import Data.List (sort, nub, sortOn, intercalate, partition, groupBy, isPrefixOf)
 import Data.Function (on)
