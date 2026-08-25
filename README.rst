@@ -362,6 +362,8 @@ THE LAW'S UNIVERSAL FORM
   fibre/src/Fibre/Visvarupa_
   EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda,
   reachable from ``fibre/src/Everything.agda``, so ``sh check`` runs it.
+  Green at the pin, measured 2026-08-25: Agda 2.8.0 / agda/cubical v0.9,
+  ``sh check`` ALL GREEN, the module itself in two seconds.
 
 The fibre law has a universal form, and it is one object.  In a univalent
 universe a family ``B : A → 𝒰`` IS a map into 𝒰, ``Σ A B`` is its total
