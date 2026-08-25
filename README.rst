@@ -125,27 +125,31 @@ a run that has not been watched rejecting something is honoured.
     sh machine/run-yantra.sh --wire        # builds from the working tree, then listens
 
     {"kriya":"yantra.kriyah"}
-    {"kriya":"organon.lexikon"}
-    {"kriya":"kyklos","angani":{"D":61}}
-    {"kriya":"anthyphairesis","angani":{"a":137,"b":60}}
+    {"kriya":"vargaprakrti","angani":{"D":61}}
+    {"kriya":"kuttaka","angani":{"a":137,"b":60}}
+    {"kriya":"pratyahara","angani":{"adi":"a","it":"ṇ"}}
 
-``kyklos`` runs Brahmagupta's *bhāvanā* driven by the *cakravāla* with the
-composition law carried as a value rather than baked in, and returns
+``vargaprakrti`` runs Brahmagupta's *bhāvanā* driven by the *cakravāla* with
+the composition law carried as a value rather than baked in, and returns
 ``x² − 61 y² = 1`` at ``(1766319049, 226153980)`` — Bhāskara II's own number,
-*Bījagaṇita*, 1150 — with every norm the wheel visited.  ``anthyphairesis``
-is Āryabhaṭa's *kuṭṭaka*: the *vallī*, the Bézout pair, and the congruence.
+*Bījagaṇita*, 1150 — with every norm the wheel visited.  ``kuttaka`` is
+Āryabhaṭa's pulverizer: the *vallī*, the Bézout pair, and the congruence.
+``pratyahara`` is Pāṇini's interval notation over the *varṇasamāmnāya*.
 
-``organon.lexikon`` is the wire's own dictionary — every name it uses, in
-Greek and in Sanskrit, with a gloss, emitted from the same table the
-translation runs on, so the two registers cannot drift apart.
+The rest of the table is the session itself: ``naya.sthapana`` /
+``naya.suchi`` / ``naya.samasa`` install standpoints and ask whether they may
+be collapsed into one verdict; ``saptabhangi.samkramana`` and
+``nirnaya.saptabhangi`` run the sevenfold; ``dosa.lekha`` / ``dosa.suchi`` /
+``dosa.pramanya`` are the defect log and its chain; ``sesa.arpana`` hands a
+remainder forward.
 
-Every answer is a ``diabasis`` — a crossing, carrying what it moved and what
-a collapse of it would destroy — or an ``elenchos``, a written refutation
+Every answer is a ``saṃkramaṇa`` — a transport, carrying its ``vyaya``, what
+a collapse of it would destroy — or a ``doṣa-lekha``, a written defect
 carrying its losses named one by one.  **There is no boolean on that wire**,
 deliberately: one bit returns the same value for a false statement and for a
 failed search, and the difference between those two is the whole content.
-Asking for an operation that does not exist returns ``aporia`` — *no
-predication was made* — and the name is not guessed at by nearest match.
+Asking for an operation that does not exist returns *no predication was
+made*, and the name is not guessed at by nearest match.
 
 Layout
 ======
