@@ -131,7 +131,7 @@
 --     SetTruncationDescentBoundary.agda — the retraction-form and the
 --     ∥_∥₂/isSet members of the family §3 belongs to.  Concurrent lanes,
 --     read before §3 was cut down; see §3.
---   machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs — the
+--   interactive/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs — the
 --     operational lane, another agent's, which §5 is the Agda side of.
 ------------------------------------------------------------------------
 
@@ -364,7 +364,7 @@ private variable
 -- लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।
 --
 -- THIS IS THE CHECKED COUNTERPART OF A HASKELL TYPE ANOTHER LANE IS
--- BUILDING RIGHT NOW: `machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs`,
+-- BUILDING RIGHT NOW: `interactive/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs`,
 -- whose `Uttara` has these same two constructors, whose `Tulyata` is the
 -- exhibited identification, and whose `uVahita` is the carried structure.
 -- §2 above is the theorem that record is entitled to cite: given the

@@ -8,7 +8,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- HOW THIS WAS FOUND, because the method is the point.
 --
--- `machine/Lopa_…hs` grades every irreversible edge in this corpus and
+-- `interactive/Lopa_…hs` grades every irreversible edge in this corpus and
 -- reports 1045 of them UNDECIDED — no syntactic rule names a fibre.
 -- Three of those undecided edges are
 --

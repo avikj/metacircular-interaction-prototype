@@ -34,7 +34,7 @@
 --
 -- WHAT THIS FILE CHANGES, against `Saptabhangi.agda`,
 -- `SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`, and
--- `machine/Saptabhangi_TheSevenfoldVerdict.hs`, all of which are label
+-- `interactive/Saptabhangi_TheSevenfoldVerdict.hs`, all of which are label
 -- types — seven nullary constructors and a presence-profile in {आम्, न}³.
 --
 --   1.  Here no position is a label.  स्यात्-अस्ति carries the standpoint that
@@ -43,7 +43,7 @@
 --       holding BOTH, so the fourth position is informative and not an
 --       error code.
 --
---   2.  `machine/Saptabhangi_TheSevenfoldVerdict.hs` says of its सह:
+--   2.  `interactive/Saptabhangi_TheSevenfoldVerdict.hs` says of its सह:
 --       "after the collapse the fourth position does not record which two
 --       seeds produced it, and that is not a modelling artefact but the
 --       doctrine's claim."  The first half was true of that type.  The
@@ -395,7 +395,7 @@ data अर्पणा : Type where
 -- §7  The price, checked.
 --
 -- क्रम-विनिमयः (`SaptabhangiSamyoga_TheCompositionOfVerdicts.agda`, and
--- `krama commutative` in `machine/Saptabhangi_TheSevenfoldVerdict.hs`)
+-- `krama commutative` in `interactive/Saptabhangi_TheSevenfoldVerdict.hs`)
 -- holds of the label type and FAILS here.  Two nayas affirming the same
 -- claim by different terms are two nayas; succession keeps the first, and
 -- that is not symmetric.  The commutativity was the erasure's law.

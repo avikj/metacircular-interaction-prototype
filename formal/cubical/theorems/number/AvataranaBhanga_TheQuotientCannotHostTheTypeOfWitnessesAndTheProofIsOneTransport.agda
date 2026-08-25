@@ -19,7 +19,7 @@
 -- DependentFactorsThrough's signature; (2) {ℓ'' = ℓ''} bound on its
 -- LHS, because the body's ℓ'' was otherwise a generalizable variable
 -- in a position 2.6.3 refuses ("Generalizable variable not supported
--- here", verbatim, twice — carried in machine/nadi-aisthesis.jsonl).
+-- here", verbatim, twice — carried in interactive/nadi-aisthesis.jsonl).
 -- The author's message predicted the failure site: "likely failure
 -- sites, if any, are universe inference in DependentFactorsThrough."
 -- It was.  Verified green (छिद्रं नास्ति, no goals) under Agda 2.6.3 /

@@ -8,7 +8,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS EXISTS: A CLASS, NOT AN INSTANCE.
 --
--- `machine/Lopa_…hs` grades 1062 one-way edges in this corpus, and their
+-- `interactive/Lopa_…hs` grades 1062 one-way edges in this corpus, and their
 -- mass is concentrated: **237 have source ℕ**, and their maps are
 -- overwhelmingly decision procedures and arithmetic level sets —
 -- `eqb`, `chkPos`, `gtAll`, `res4`, `rangeB`, `hull`, `kron`.

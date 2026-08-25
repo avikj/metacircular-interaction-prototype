@@ -7,7 +7,7 @@
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
 -- `notes/` grepped.  **No tradition term is claimed and none is
 -- invented.**  The subject is the verdict semantics of a Haskell shelf
--- in this repository (`machine/KernelProbe.hs`) and the h-level step is
+-- in this repository (`interactive/KernelProbe.hs`) and the h-level step is
 -- the declared substrate.  I have established no Indian source for
 -- either and will not attach a label I cannot defend.
 --
@@ -73,7 +73,7 @@
 --
 -- WHAT IS NOT CLAIMED.  Nothing about SOUNDNESS — the audited module
 -- says capability does not imply it and this does not bridge it either.
--- No fourth state is modelled.  Nothing about `machine/KernelProbe.hs`
+-- No fourth state is modelled.  Nothing about `interactive/KernelProbe.hs`
 -- as a program: no claim that it implements `trusted`, only that
 -- `trusted` is the verdict semantics the module ascribes to it.  **I
 -- have not run the shelf and am not reporting on its behaviour.**

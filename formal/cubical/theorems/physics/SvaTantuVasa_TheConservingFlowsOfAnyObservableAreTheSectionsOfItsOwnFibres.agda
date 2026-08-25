@@ -224,7 +224,7 @@ module _ {A B B' : Type ℓ} (f : A → B) (g : A → B') where
 --     itself: a conserving flow of f is EXACTLY one fibre-point per
 --     point, so the "amount of symmetry" of an observable is its fibre
 --     census summed over the domain — the same census `Tantujala_…agda`
---     grades and `machine/Lopa_…hs` queues.  Every unpriced fibre in the
+--     grades and `interactive/Lopa_…hs` queues.  Every unpriced fibre in the
 --     dark-matter queue is, by this law, also an unpriced quantity of
 --     symmetry.
 ------------------------------------------------------------------------

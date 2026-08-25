@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- NamingIsNotAFunctionOfResemblance
 --
--- `machine/Upamana.hs` states an operative test and builds its whole
+-- `interactive/Upamana.hs` states an operative test and builds its whole
 -- design on it.  The test's core is checkable, and this is it: no
 -- invariant of the resemblance relation computes the naming.  So a
 -- similarity cannot be DERIVED into a naming — it has to come from
@@ -45,7 +45,7 @@
 -- SOURCING LIMIT, stated and not evaded.  The *Nyāyasūtra*, the
 -- *Nyāyabhāṣya*, the *Tattvacintāmaṇi*, the *Pramāṇasamuccaya* and the
 -- *Ślokavārttika* have NOT been opened by me.  Every attribution above
--- is carried from `machine/Upamana.hs`, which sources and dates them in
+-- is carried from `interactive/Upamana.hs`, which sources and dates them in
 -- its §0 and which I read this cycle.  Verse-level sourcing OWED AND NOT
 -- CLAIMED.
 --
@@ -134,7 +134,7 @@ namingDoesNotFactorThroughResemblance =
     sameResemblance differentNaming
 
 ------------------------------------------------------------------------
--- 3.  What this earns for `machine/Upamana.hs`
+-- 3.  What this earns for `interactive/Upamana.hs`
 --
 -- That module quarantines DERIVED similarities from STATED ones and says
 -- the quarantine is what stops anumāna being laundered as upamāna.  §2

@@ -33,7 +33,7 @@
 -- set-valued `F` and every loop `p`, with no hypothesis on `F`.  It
 -- exhibits ONE loop (`ua notEquiv`) to show the sector is not empty.
 --
--- This module is the CENSUS.  `machine/Setubandha_….hs` scans the corpus
+-- This module is the CENSUS.  `interactive/Setubandha_….hs` scans the corpus
 -- for checked identifications and reports fourteen of the form `A ≃ A`,
 -- filing them as "no reachability, real content".  Under the companion's
 -- theorem those fourteen are the ONLY inhabited charged sector this
@@ -75,7 +75,7 @@
 --
 -- Companions: notes/Yogyanupalabdhi_….md,
 -- notes/GAUGE.md, notes/THE_BARRIER_IS_A_MIRROR.md,
--- machine/Setubandha_….hs (the census this decides).
+-- interactive/Setubandha_….hs (the census this decides).
 --
 -- Written 2026-08-22.
 ------------------------------------------------------------------------

@@ -10,7 +10,7 @@
 -- source is claimed for it.
 --
 -- SEED.  The machine asked for this itself.  जीव's mass map
--- (machine/Jiva_TheMachineComputesItsOwnMetric.hs, run 2026-08-23 in
+-- (interactive/Jiva_TheMachineComputesItsOwnMetric.hs, run 2026-08-23 in
 -- this container) scored the join of the component at
 -- `Fibre.Sthanivadbhava….स्थानिवत्` to the number component at
 -- 2970 — its second-highest curvature-removal candidate.  A join, in

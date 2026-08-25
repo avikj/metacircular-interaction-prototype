@@ -75,7 +75,7 @@
 --                   one and requires induction for the other
 --   निक्षेपभेदः      hence: सम at नाम and at द्रव्य, differing at भाव
 --
--- THE INSTANCE IS NOT INVENTED.  `machine/MathMachine.hs:722` defines
+-- THE INSTANCE IS NOT INVENTED.  `interactive/MathMachine.hs:722` defines
 -- addition recursing on its second argument; `Agda/Builtin/Nat.agda:19`
 -- defines it recursing on its first.  Both are addition on ℕ.  They are
 -- one द्रव्य and two भाव, and this repository spent a day discovering by

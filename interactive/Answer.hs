@@ -248,7 +248,7 @@ raw = Dosalekha
 
 -- ------------------------------------------------- the watched rejection
 --
--- machine/GATE_AUDIT_DISPOSITION.md §2 states the discipline this lane had
+-- interactive/GATE_AUDIT_DISPOSITION.md §2 states the discipline this lane had
 -- the words for and not the mechanism: *no acceptance is honoured by a
 -- process that has not watched its kernel reject a falsehood.*  There, 1753
 -- systematically false equations produced zero certificates while three

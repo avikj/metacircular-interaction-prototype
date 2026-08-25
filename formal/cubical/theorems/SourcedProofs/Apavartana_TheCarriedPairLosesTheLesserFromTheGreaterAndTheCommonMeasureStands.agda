@@ -120,7 +120,7 @@
 --
 ------------------------------------------------------------------------
 -- DEFECTS, WRITTEN HERE BECAUSE THEY CANNOT BE WRITTEN WHERE THEY BELONG.
--- `machine/dosa.lekha`'s hash chain is broken from record 0040 and
+-- `interactive/dosa.lekha`'s hash chain is broken from record 0040 and
 -- `dosalekha write` refuses to append, so this header is the defect record.
 --
 -- 1. THE STEP IS SUBTRACTIVE, NOT DIVISIVE.  `वल्ली` below is anthyphairesis:

@@ -42,7 +42,7 @@
 -- evidence for the attribution corrected in AsiddhatvaBreaksFactoring,
 -- reached from the rules rather than from the sūtra text.
 --
--- This is the checked form of the measurement in `machine/Astadhyayi.hs`
+-- This is the checked form of the measurement in `interactive/Astadhyayi.hs`
 -- (`regimeTests`), whose `asiddhavatPass` found it first.
 --
 -- No postulates, no holes, --safe.  Both regimes are folds over one

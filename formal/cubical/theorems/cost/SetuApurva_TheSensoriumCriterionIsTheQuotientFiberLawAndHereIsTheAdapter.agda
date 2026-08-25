@@ -43,7 +43,7 @@
 --
 -- HOW IT WAS BUILT, because the method is the point.  Not by writing the
 -- module and spawning a cold `agda --safe` for a one-bit verdict.  Through
--- `machine/Nadi.hs`, the warm conduit: load the skeleton with `?`, the kernel
+-- `interactive/Nadi.hs`, the warm conduit: load the skeleton with `?`, the kernel
 -- answers `holes: 0 1`, `goal 0` answers `प्रवहति (obs os) t`, fill, reload,
 -- `छिद्रं नास्ति`.  Four exchanges against one warm elaborator.  The batch
 -- interface is a boolean verdict on a many-valued state — the corpus's own

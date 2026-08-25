@@ -12,7 +12,7 @@
 -- observe.  Pāṇini, ~500 BCE; Kātyāyana's vārttikas ~250 BCE; Patañjali's
 -- Mahābhāṣya ~150 BCE.
 --
--- THE WITNESS IS NOT INVENTED.  It is what the engine in `machine/
+-- THE WITNESS IS NOT INVENTED.  It is what the engine in `interactive/
 -- Astadhyayi.hs` actually does when it derives `vāk` ("speech") from the
 -- stem `vāc`, and its `asiddhaAudit` prints the refusal:
 --

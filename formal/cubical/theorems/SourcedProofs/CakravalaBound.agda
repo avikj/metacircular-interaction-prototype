@@ -74,9 +74,9 @@
 --
 -- AND ONE REFUTATION, §7.  The bound is sharp enough to catch a false
 -- claim already in this repository.  `CakravalaWitness.agda` and
--- `machine/NalandaEmit.hs` both state that every m in the D = 61 run is
+-- `interactive/NalandaEmit.hs` both state that every m in the D = 61 run is
 -- the one Bhāskara's rule selects.  At turn 7 (|k| = 1, m = 7) it is not:
--- |8² − 61| = 3 beats |7² − 61| = 12, and `machine/Nalanda.hs` line 167
+-- |8² − 61| = 3 beats |7² − 61| = 12, and `interactive/Nalanda.hs` line 167
 -- special-cases |k| = 1 to return ⌊√D⌋ instead of minimising.  §7 checks
 -- both candidates in the kernel and proves 16·12² > 36·61, so no
 -- rule-obeying m could have produced that turn's |k'|.  The run is still
@@ -709,7 +709,7 @@ seed61 = seedBound 61 7 12 (12 , refl) (2 , refl) refl
 --
 -- `CakravalaWitness.agda` says, of every turn it certifies: "The m on
 -- each line is the one BHĀSKARA'S CHOICE RULE selects: among the m with
--- k | (a + bm), the one minimising |m² − D|."  `machine/NalandaEmit.hs`
+-- k | (a + bm), the one minimising |m² − D|."  `interactive/NalandaEmit.hs`
 -- prints the same sentence into the file it generates.
 --
 -- At turn 7 that is false, and this file's theorem is what makes it
@@ -720,7 +720,7 @@ seed61 = seedBound 61 7 12 (12 , refl) (2 , refl) refl
 --        |8² − 61| = 3        <        12 = |7² − 61|.
 --
 -- So the rule selects m = 8, not m = 7.  Both are checked below by the
--- kernel.  The generator's source says why: `machine/Nalanda.hs`,
+-- kernel.  The generator's source says why: `interactive/Nalanda.hs`,
 -- `chooseM`, line 167 — `if n == 1 then Just (isqrt d)` — special-cases
 -- |k| = 1 to return ⌊√D⌋ = 7 instead of minimising.  That is a different
 -- rule, and for D = 61 the two differ.
@@ -735,7 +735,7 @@ seed61 = seedBound 61 7 12 (12 , refl) (2 , refl) refl
 -- obeying Bhāskara's rule can produce |k'| = 12 here — a proof, not an
 -- observation, that the rule was not obeyed.
 --
--- (This file changes nothing in `CakravalaWitness.agda` or in `machine/`;
+-- (This file changes nothing in `CakravalaWitness.agda` or in `interactive/`;
 -- the refutation is recorded, the repair is someone's else's commit.)
 ------------------------------------------------------------------------
 

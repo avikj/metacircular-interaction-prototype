@@ -12,15 +12,15 @@ _build/
 zzz/collab/orchestration/persistent-minds.*.log
 zzz/collab/orchestration/worker-runs/
 zzz/collab/orchestration/worker-sessions/
-machine/library.txt
-machine/machine.log
-machine/mathmachine
+interactive/library.txt
+interactive/machine.log
+interactive/mathmachine
 zzz/natural_machine_cpu_loop_rust/cage
 zzz/natural_machine_cpu_loop_rust/evolve
 zzz/natural_machine_cpu_loop_rust/natural_machine
 zzz/natural_machine_cpu_loop_rust/verify
 random_entry_seeder_so_agents_dont_cluster/seed
-machine/library.txt
+interactive/library.txt
 
 # Agda scratch probes.  Agents testing whether something reduces on the nose
 # write throwaway modules; two of these (`ZZTestSolver.agda`, `Probe1.agda`)
@@ -42,7 +42,7 @@ zzz/natural_machine_cpu_loop_rust/decic_extend
 zzz/natural_machine_cpu_loop_rust/root_singular_series
 formal/cubical/Candidate_*.agda
 
-# machine/library.terms is NOT ignored, and used to be, listed right here
+# interactive/library.terms is NOT ignored, and used to be, listed right here
 # among the reproducible artifacts.  It is the opposite of one: it is the
 # machine's MEMORY, the file MathMachine reads at startup to re-admit what
 # earlier runs proved.  Ignored, it never left the container that wrote it,
@@ -53,42 +53,42 @@ formal/cubical/Candidate_*.agda
 # clone that does not carry the file.  Tracked as of 2026-08-17.
 
 # Machine build artifacts (reproducible; never source of truth)
-machine/*.hi
-machine/*.o
-machine/arithvocab
-machine/bench-head-depth
-machine/cyclotomic-vocab
-machine/parallel-gate
-machine/library.certs
-machine/self_architecture.tsv
-machine/nested-agda/
+interactive/*.hi
+interactive/*.o
+interactive/arithvocab
+interactive/bench-head-depth
+interactive/cyclotomic-vocab
+interactive/parallel-gate
+interactive/library.certs
+interactive/self_architecture.tsv
+interactive/nested-agda/
 
 # Certificate gate cache: re-derivable, and every entry stores the exact
 # module source it certified, so it is a rebuildable artifact not a record.
-machine/.certcache/
+interactive/.certcache/
 formal/cubical/.claude/
-machine/replay.traces.live
+interactive/replay.traces.live
 
 # The sabhā: the compiled process and its transcript.  The binary is
-# rebuildable from machine/check-sabha.sh; the transcript is a session
+# rebuildable from interactive/check-sabha.sh; the transcript is a session
 # record, kept locally and never rewritten in place (append-only), and it
 # is the corpus this wire exists to produce.
-machine/sabha
-machine/sabha.jsonl
+interactive/sabha
+interactive/sabha.jsonl
 
 # The interface the other carrier is handed: the compiled binary, rebuildable
-# from machine/check-karana.sh.  Its outputs (the tool schema, the training
+# from interactive/check-karana.sh.  Its outputs (the tool schema, the training
 # records) are regenerated from the running dispatch table and a transcript,
 # so neither is committed either -- a committed copy would be the second copy
 # that drifts, which is the thing this lane exists to remove.
-machine/karana
-machine/abhyasa.jsonl
+interactive/karana
+interactive/abhyasa.jsonl
 **/.certcache/
 
-# compiled binaries — build output, rebuilt in place by machine/check-*.sh; never track
-machine/math-machine
-machine/repairfixpoint
-machine/question-machine
+# compiled binaries — build output, rebuilt in place by interactive/check-*.sh; never track
+interactive/math-machine
+interactive/repairfixpoint
+interactive/question-machine
 
 # Markdown is banned in this repository (owner, 2026-08-24).  The hook
 # .claude/hooks/no-markdown.sh refuses the write; this is the second layer,
@@ -144,12 +144,12 @@ dist-newstyle/
 # still answer, and so a claim can be traced to the script it came from.
 zzz/**/*.pyc
 
-# machine/yantra-session.lekha — the per-run session defect log.
+# interactive/yantra-session.lekha — the per-run session defect log.
 # run-yantra.sh does `rm -f "$LEKHA"` on EVERY invocation, by design: its
 # own header says the chain must start at genesis so that `dosa.pramanya`
 # verifies THIS run and not a history it did not produce.  So a committed
 # copy is, by construction, always some other container's run — and a
 # `--wire` session deletes it and writes nothing, which is how it showed
-# up as a staged deletion.  machine/dosa.lekha, the shared append-only
+# up as a staged deletion.  interactive/dosa.lekha, the shared append-only
 # log several lanes write to, is a different file and stays tracked.
-machine/yantra-session.lekha
+interactive/yantra-session.lekha

@@ -6,7 +6,7 @@
 -- compound built here, 2026-08-23, for Parikrama's kernel queue; no
 -- source claimed.
 --
--- WHAT THIS DECIDES.  machine/Parikrama enumerated the complete cycle
+-- WHAT THIS DECIDES.  interactive/Parikrama enumerated the complete cycle
 -- basis of road one this session: dimension E − V + C = 36, every
 -- circuit emitted as a kernel probe, none decided (मौनं न निषेधः — an
 -- unprobed circuit is undecided, not null).  This module decides TWO:

@@ -45,7 +45,7 @@ import OptionSpread as S13
 
 -- IntegerHullMultiplicity does not import under this container's cubical
 -- v0.5 (it uses solveℕ!, a later library's tactic — the version-skew
--- fault machine/dosa.lekha's newest entries measure).  So its three
+-- fault interactive/dosa.lekha's newest entries measure).  So its three
 -- functions are REDEFINED here verbatim, each duplicate named, per the
 -- corpus's self-contained-by-redefinition discipline: Config, Xs, Qs
 -- from IntegerHullMultiplicity.agda lines 87–104 and hull from lines

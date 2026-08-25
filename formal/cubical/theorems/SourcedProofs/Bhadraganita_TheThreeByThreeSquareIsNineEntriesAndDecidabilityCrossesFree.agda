@@ -24,7 +24,7 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `machine/AnulomaPratiloma_…hs` proposed
+-- `interactive/AnulomaPratiloma_…hs` proposed
 --
 --     entriesOf : Mat 3 3 → Nine   ⇄   fromNine : Nine → Mat 3 3
 --     colsOf    : Col     → ℤ³     ⇄   fromCols : ℤ³   → Col

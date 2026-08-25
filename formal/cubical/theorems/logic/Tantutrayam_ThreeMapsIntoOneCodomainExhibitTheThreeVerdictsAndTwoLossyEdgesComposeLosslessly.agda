@@ -10,7 +10,7 @@
 -- verdict -- "is this an equivalence?" -- answers NO to the first and the
 -- third alike, and §१.४ proves those two are not the same situation.
 -- That is `Saptabhangi.दुर्नयः`'s pigeonhole at the minimum instance, and
--- it is what `machine/Lopa_…hs` withholds a verdict for rather than guess.
+-- it is what `interactive/Lopa_…hs` withholds a verdict for rather than guess.
 --
 -- §२ · TWO LOSSY EDGES COMPOSING LOSSLESSLY.  `Unit → Bool → Unit`: the
 -- second factor loses a bit (§१.३), and the composite loses nothing.  So

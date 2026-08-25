@@ -26,7 +26,7 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `machine/AnulomaPratiloma_…hs` proposed 39 candidate inverse pairs and
+-- `interactive/AnulomaPratiloma_…hs` proposed 39 candidate inverse pairs and
 -- reported 0 accepted at every rung of its ladder, concluding that "every
 -- causeway costs a real proof".  Two things are wrong with the conclusion
 -- and this module fixes the second; the first is recorded here because

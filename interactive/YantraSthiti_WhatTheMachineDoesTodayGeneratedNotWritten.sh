@@ -2,7 +2,7 @@
 # =====================================================================
 # यन्त्रस्थिति — yantra-sthiti, the standing of the machine.
 #
-#   machine/YantraSthiti_WhatTheMachineDoesTodayGeneratedNotWritten.sh
+#   interactive/YantraSthiti_WhatTheMachineDoesTodayGeneratedNotWritten.sh
 #   ... --quick     skip the builds; filesystem and persistent state only
 #   ... --secs N    per-program watchdog, default 90
 #
@@ -13,7 +13,7 @@
 #
 # ---------------------------------------------------------------------
 # EVERY FIGURE BELOW IS COMPUTED AT RUN TIME.  Nothing is stored.  The
-# form is `machine/Anukramani.hs`'s and its reason is the same one, in
+# form is `interactive/Anukramani.hs`'s and its reason is the same one, in
 # that file's words: "a hand-written table of contents is true on the day
 # it is written."  This repository has the receipts on that -- CLAUDE.md
 # records a fitted constant that propagated into two notes, a paper
@@ -83,11 +83,11 @@ SH=$(find scripts machine -name '*.sh' 2>/dev/null | wc -l)
 printf '   %-34s %6s\n' "agda modules (formal/cubical)" "$(n "$AGDA")"
 printf '   %-34s %6s\n' "lean modules (formal/pairfield)" "$(n "$LEAN")"
 printf '   %-34s %6s\n' "vendored, excluded (.lake/ Mathlib)" "$(n "$VENDORED")"
-printf '   %-34s %6s\n' "haskell modules (machine/)" "$(n "$HS")"
+printf '   %-34s %6s\n' "haskell modules (interactive/)" "$(n "$HS")"
 printf '   %-34s %6s\n' "prose (notes/*.md)" "$(n "$NOTES")"
 printf '   %-34s %6s\n' "checks and helpers (*.sh)" "$(n "$SH")"
 echo "   These are file counts. CLAUDE.md's headline ratio (book vs apparatus)"
-echo "   is BOOK_INDEX.md's to compute: runghc -imachine machine/AnukramaniRun.hs"
+echo "   is BOOK_INDEX.md's to compute: runghc -iinteractive interactive/AnukramaniRun.hs"
 
 # =====================================================================
 # 2. IN-FLIGHT WORK — who else is mid-edit in this one checkout
@@ -124,14 +124,14 @@ if [ "$QUICK" -eq 1 ]; then
   echo "   --quick: not built. Re-run without --quick for the real answer."
 else
   sec "3. haskell entry points: built from source, then run"
-  echo "   ghc -O0 per machine/*Run.hs, then run at its own self-test entry"
+  echo "   ghc -O0 per interactive/*Run.hs, then run at its own self-test entry"
   echo "   (no arguments for all but Nalanda, which takes --self-test)."
   echo "   ${SECS}s watchdog; this host has neither timeout(1) nor gtimeout(1)."
   echo
-  for src in machine/*Run.hs; do
+  for src in interactive/*Run.hs; do
     name=$(basename "$src" Run.hs)
     bin="$OUT/$name"
-    if ! ghc -O0 -imachine -outputdir "$OUT/o_$name" -o "$bin" "$src" >"$OUT/b_$name.log" 2>&1; then
+    if ! ghc -O0 -iinteractive -outputdir "$OUT/o_$name" -o "$bin" "$src" >"$OUT/b_$name.log" 2>&1; then
       BROKE=$(( BROKE + 1 )); BROKEN_LIST+=("$name")
       first=$(grep -m1 -E '^[^ ]+\.hs:[0-9]+:[0-9]+: error' "$OUT/b_$name.log" | cut -c1-64)
       printf '   %-22s BUILD FAILS  %s\n' "$name" "${first:-see log}"
@@ -191,7 +191,7 @@ if [ -x "$AST" ] && [ -s "$OUT/r_Astadhyayi.log" ]; then
 else
   # The program did not run.  Say what can still be counted from source,
   # and say plainly that it is a source count and not a run.
-  SRC_SUTRAS=$(awk '/^sutras :: \[Sutra\]/,/^$/' machine/Phonology.hs 2>/dev/null | grep -c '^  *[,[] *Sutra')
+  SRC_SUTRAS=$(awk '/^sutras :: \[Sutra\]/,/^$/' interactive/Phonology.hs 2>/dev/null | grep -c '^  *[,[] *Sutra')
   echo "   the Aṣṭādhyāyī program did not run in this pass (see §3)."
   printf '   %-40s %5s   <- counted from SOURCE, not from a run\n' \
      "Sutra constructors in Phonology.hs" "${SRC_SUTRAS:-?}"
@@ -213,8 +213,8 @@ for lg in "$OUT"/r_*.log; do
 done
 [ "$FALS" -eq 0 ] && echo "   no refusal line observed in this pass — either nothing ran (§3) or"
 [ "$FALS" -eq 0 ] && echo "   no gate was exercised against a case it is required to reject."
-echo "   source-side: $(grep -ril falsif machine/*.hs 2>/dev/null | wc -l | tr -d ' ') machine modules mention a falsifier;"
-echo "   machine/CERTIFICATE_REACH.md records the kernel refusing 13 of 28"
+echo "   source-side: $(grep -ril falsif interactive/*.hs 2>/dev/null | wc -l | tr -d ' ') machine modules mention a falsifier;"
+echo "   interactive/CERTIFICATE_REACH.md records the kernel refusing 13 of 28"
 echo "   certificates at the time that file was written — read it, not this."
 
 # =====================================================================
@@ -229,7 +229,7 @@ if [ -f "$FIB" ]; then
   head -8 "$FIB" | grep -E 'Cycle|Modules|fibers|exit' | sed 's/^/   /'
   DUE=$(grep -oE 'due by [0-9T:-]+Z' "$FIB" | head -1 | awk '{print $3}')
   echo "   next cycle due: ${DUE:-unstamped}"
-  echo "   liveness verdict is machine/machine-state-report.sh's job, and it"
+  echo "   liveness verdict is interactive/machine-state-report.sh's job, and it"
   echo "   exits nonzero when that stamp has expired. This line only reports."
   echo "   listed fibers: $(grep -c '^- `' "$FIB") module(s) named as reconstruction questions"
 else

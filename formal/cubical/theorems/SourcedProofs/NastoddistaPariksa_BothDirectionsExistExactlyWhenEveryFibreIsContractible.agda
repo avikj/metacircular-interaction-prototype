@@ -30,7 +30,7 @@
 -- point".  The vocabulary is his; the theorem is this repository's.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHY THIS MODULE EXISTS.  `machine/Lopa_…hs` grades every edge in this
+-- WHY THIS MODULE EXISTS.  `interactive/Lopa_…hs` grades every edge in this
 -- corpus into two roads — 88 edges with defect identically zero, and
 -- 1046 one-way edges.  The discriminant between the two roads was
 -- carried in the census as a flag computed by the grader.  It is not a

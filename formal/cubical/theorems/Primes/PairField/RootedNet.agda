@@ -26,7 +26,7 @@
 -- Net whose jewels are *witnesses* needs Prime as a predicate and that
 -- is a separate obligation, named in §5 below and not discharged here.
 --
--- WHY IT IS SEPARATE FROM THE MACHINE.  `machine/MathMachine.hs`
+-- WHY IT IS SEPARATE FROM THE MACHINE.  `interactive/MathMachine.hs`
 -- generates its own term algebra over {0,s,+,*,∸,max,le,gcd} and proves
 -- theorems inside it.  That is a closed toy universe: its jewels are
 -- things it invented, and no result in this repository can enter it.

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- सेतुः — the causeway सेतुबन्ध named.
 --
--- The machine read its own graph (machine/Setubandha_…hs, run 2026-08-23)
+-- The machine read its own graph (interactive/Setubandha_…hs, run 2026-08-23)
 -- and placed `Carrier योग` and `Σ[ n ∈ ℕ ] fiber योग n` in ONE component at
 -- distance 3, joined by no checked edge — two banks the corpus reached from
 -- opposite sides and never bridged.  They are the same object:

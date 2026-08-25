@@ -50,10 +50,10 @@
 --
 -- WHY IT IS IN THIS REPOSITORY.
 --
--- `machine/Obstruction.hs` opens by observing that the kernel's verdict was
+-- `interactive/Obstruction.hs` opens by observing that the kernel's verdict was
 -- a Bool collapsing at least three distinct things, and replaces it with a
 -- three-valued type.  The doctrine says the collapse goes further than
--- that, and says by how much.  Two facts from `machine/machine.log`, both
+-- that, and says by how much.  Two facts from `interactive/machine.log`, both
 -- at round 0, QUOTED VERBATIM AND NOT POINTED AT — that file is gitignored
 -- and is rewritten by every engine run, so no commit fixes its bytes and no
 -- position in it names anything.  The quotations below ARE the object:
@@ -101,9 +101,9 @@ private
 --
 -- Not the seven nayas of Tattvārthasūtra 1.33.  Those classify ways of
 -- REFERRING; these are the three provers the machine actually runs, read
--- off `machine/machine.log`'s own tactic vocabulary.
+-- off `interactive/machine.log`'s own tactic vocabulary.
 --
--- AS OF 2026-08-18, at `wc -l machine/machine.log` = 10700 lines
+-- AS OF 2026-08-18, at `wc -l interactive/machine.log` = 10700 lines
 -- (`grep -cF` on each tactic string, whole log, all rounds, on a snapshot
 -- taken at that line count):
 --
@@ -117,7 +117,7 @@ private
 -- all.  Three things make every figure above perishable, and all three
 -- were observed, not assumed:
 --
---   * `machine/machine.log` is gitignored (`.gitignore`:16).  It is absent
+--   * `interactive/machine.log` is gitignored (`.gitignore`:16).  It is absent
 --     from a fresh clone, so NOTHING here is reproducible from one.
 --   * It is append-only across runs — 61 `DISPATCH` blocks are in it at
 --     this size — so `round=N` is not a unique event and every count is a
@@ -153,8 +153,8 @@ private
 --     invariant.  Never a position, never a quantity the record is inside,
 --     never a HEAD-relative query.
 --
--- Registered as `uddhrta` in `machine/mula.pramana` and checked by
--- `machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`, which
+-- Registered as `uddhrta` in `interactive/mula.pramana` and checked by
+-- `interactive/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs`, which
 -- does not export the constructors of its designation type, so a citation
 -- naming a position cannot be built at any call site.
 --
@@ -523,7 +523,7 @@ sapeksa = machine-profile , refl , refl
 --
 -- 3. Bhaṅgas 5 and 7 are DEFINABLE (they are in `saptabhangi-iso`) but no
 --    instance of either is constructed here, and none was found in the
---    machine's data — see the census in `machine/Obstruction.hs`.  They
+--    machine's data — see the census in `interactive/Obstruction.hs`.  They
 --    would need a claim simultaneously affirmed, denied, and inexpressible.
 --    Their emptiness in the data is reported there as a measured fact and
 --    is not evidence that they are incoherent.
@@ -537,12 +537,12 @@ sapeksa = machine-profile , refl , refl
 -- 5. Utpāda-vyaya-dhrauvya (TS 5.29) is NOT formalised here.  A type-level
 --    statement of it would be a function ℕ → Profile that is non-constant,
 --    which is trivially inhabited and would prove nothing.  Its content in
---    this repository is empirical — some claims in `machine/machine.log`
+--    this repository is empirical — some claims in `interactive/machine.log`
 --    appear in BOTH the accept and the reject stream — and it is recorded
 --    where empirical facts belong, in the census and in
 --    `notes/ANEKANTA_THE_MACHINE_HAS_THREE_STANDPOINTS.md`.
 --
---    AS OF 2026-08-18, at `wc -l machine/machine.log` = 10700 lines, that
+--    AS OF 2026-08-18, at `wc -l interactive/machine.log` = 10700 lines, that
 --    overlap is 40 claims, out of 98 distinct accepted and 432 distinct
 --    rejected.  Extraction: the claim text between `round=N ` and the two
 --    spaces before `(`, `sort -u` per stream, `comm -12`.  This need not

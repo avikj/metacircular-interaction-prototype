@@ -26,7 +26,7 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.  A SECOND CAUSEWAY, ROUTED, NOT BUILT.
 --
--- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
+-- `interactive/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
 -- AreTheFrontier.hs` reports the largest component of this corpus's
 -- identification graph: 10 nodes, diameter 3, hub `ℕ` at degree 7.  Among
 -- its pairs at DISTANCE 2 is

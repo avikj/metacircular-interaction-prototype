@@ -45,7 +45,7 @@
 --       output side has no room to hold anything.
 --
 --   §4  isEquiv IS THE MEASURE, and the kernel fails it on its own seed.
---       `machine/AtmaJnana…` reads `isEquiv f` as perfect self-knowledge:
+--       `interactive/AtmaJnana…` reads `isEquiv f` as perfect self-knowledge:
 --       every fibre contractible, nothing lost either way.  Here:
 --       soundness-is-an-equivalence-only-if-the-route-was-unique -- if
 --       `derivation-sound` were an equivalence, any two derivations with the

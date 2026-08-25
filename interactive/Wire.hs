@@ -314,7 +314,7 @@ pobject s = go s []
 -- with Data.List.lookup, which returns the FIRST binding and discards the rest
 -- with no error and no residue — so the parser preserved the multiplicity and
 -- the accessor destroyed it, one function later, in the same lane.  Recorded
--- as doṣa 0015 in machine/dosa.lekha, and repaired here rather than argued
+-- as doṣa 0015 in interactive/dosa.lekha, and repaired here rather than argued
 -- about: `look` has the same two roads as everything else (§6), and a key
 -- bound twice takes the second.
 --

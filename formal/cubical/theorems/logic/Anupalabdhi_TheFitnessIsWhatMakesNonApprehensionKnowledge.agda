@@ -23,7 +23,7 @@
 -- FITNESS, which is not in either, and which is Mīmāṃsā's rather than Nyāya's.
 --
 -- GRADE.  No critical edition was opened.  The attributions above are carried
--- from this repository's own `ANEKANTA.md` §4 and `machine/Yogyata.hs`, and
+-- from this repository's own `ANEKANTA.md` §4 and `interactive/Yogyata.hs`, and
 -- are śabda at that grade, stated as such.  What is NOT carried from anywhere
 -- is the formalisation; it is argued here.
 --
@@ -35,10 +35,10 @@
 -- durnaya — a standpoint mistaken for a thing.  The two constructions and the
 -- exchange between them are kept apart, and the collision is exhibited rather
 -- than settled, in
--- `machine/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain.hs`.
+-- `interactive/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearchedDomain.hs`.
 --
 -- WHY IT MATTERS HERE, with instances that are not hypothetical.
--- `machine/Yogyata.hs` was written because a module nothing imported reported
+-- `interactive/Yogyata.hs` was written because a module nothing imported reported
 -- the same as a module that did not exist.  `notes/INDIC_FORMAL_TRADITIONS_MAP.md`
 -- §2.2 published NOT FOUND and had to be narrowed by a later reader.
 -- `Obstruction.Aviruddha` carries the assignments searched precisely so that

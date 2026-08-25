@@ -4,7 +4,7 @@
 -- SeamClosed — the flagship residual, proved, from the machine's own
 -- discarded work.
 --
--- THE CLAIM THIS FILE SETTLES.  `machine/Obstruction.hs` opens by quoting the
+-- THE CLAIM THIS FILE SETTLES.  `interactive/Obstruction.hs` opens by quoting the
 -- refusal that the whole obstruction seam was built around:
 --
 --     x != x + 0 · x  of type ℕ   when checking that refl has type x ≡ 1 · x
@@ -22,7 +22,7 @@
 -- `TraceReplay.replayWithRules`, which returns a complete Agda module; the
 -- kernel checks it; the machine writes the words "trace replay" to the log and
 -- DISCARDS THE SOURCE.  That path is 820 of 2362 `KERNEL-ACCEPT` lines.  As of
--- 2026-08-18 the source is kept (`machine/replay.traces`), and every one of
+-- 2026-08-18 the source is kept (`interactive/replay.traces`), and every one of
 -- the 17 records a three-round run produced contains, verbatim:
 --
 --     addZero : (a : ℕ) → (a + zero) ≡ a
@@ -33,13 +33,13 @@
 -- inside every replayed module, and throwing it away — while a different part
 -- of the same program recorded a demand for it, 27 times.
 --
--- WHAT IS BELOW.  `addZero` transcribed verbatim from `machine/replay.traces`
+-- WHAT IS BELOW.  `addZero` transcribed verbatim from `interactive/replay.traces`
 -- (record 1, lines 6–8), and then the flagship residual discharged with it.
 -- Nothing here is invented: the lemma is the machine's own text, and the
 -- residual is the kernel's own words.
 --
 -- WHAT THIS IS NOT.  It is not the seam repaired.  Repairing it means wiring
--- `machine/KernelContext.hs` to read `replay.traces` so that EVERY goal can
+-- `interactive/KernelContext.hs` to read `replay.traces` so that EVERY goal can
 -- cite these lemmas, and that is not done here.  This file shows the gap is
 -- one of plumbing rather than of mathematics: the proof exists, on disk, in
 -- the machine's own hand.
@@ -51,7 +51,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
 
 ------------------------------------------------------------------------
--- 1.  Transcribed verbatim from machine/replay.traces, record 1, lines 6–8.
+-- 1.  Transcribed verbatim from interactive/replay.traces, record 1, lines 6–8.
 --     Not rewritten, not tidied: this is what the machine emitted and the
 --     kernel accepted, 820 times, before anyone kept a copy.
 ------------------------------------------------------------------------

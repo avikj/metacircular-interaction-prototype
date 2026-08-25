@@ -30,7 +30,7 @@
 -- order, each an improvement on the last and each still wrong:
 --
 --   (1) "agentic orchestration with a formal appendix" -- from the Haskell
---       under machine/ and the shell scripts.  False: the Haskell is a
+--       under interactive/ and the shell scripts.  False: the Haskell is a
 --       harness, the mathematics is the Agda.
 --   (2) "a book about India with an Agda appendix" -- from the Sanskrit file
 --       names and the citation apparatus.  Inverted: the naming discipline

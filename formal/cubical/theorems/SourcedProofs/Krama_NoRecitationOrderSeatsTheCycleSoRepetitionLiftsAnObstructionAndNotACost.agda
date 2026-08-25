@@ -68,9 +68,9 @@
 --        śaL = ś ṣ s h                          ↾ {h y ś} = {ś h}
 --        yaR = y v r l … k p ś ṣ s              ↾ {h y ś} = {y ś}
 --
---     (sets recomputed from the fourteen sūtras, `machine/Astadhyayi.hs`
+--     (sets recomputed from the fourteen sūtras, `interactive/Astadhyayi.hs`
 --     sivasutraTable; names from the attested list in
---     `machine/Pratyahara_TheIntervalDecisionProcedure.hs`.)  h stands in
+--     `interactive/Pratyahara_TheIntervalDecisionProcedure.hs`.)  h stands in
 --     sūtra 5 (ha ya va ra Ṭ) and again in sūtra 14 (ha L) — before y, and
 --     after ś — which is precisely the seat no single order provides.  So
 --     the second h is not economy.  It is what makes the list nameable at

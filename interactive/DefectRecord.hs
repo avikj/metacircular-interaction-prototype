@@ -27,7 +27,7 @@
 -- WHY A SILENCE IS THE THING BEING PREVENTED, with the repository's own
 -- measurement rather than an argument.
 --
---   ANEKANTA.md §1.  machine/MathMachine.hs:1743 answered every kernel
+--   ANEKANTA.md §1.  interactive/MathMachine.hs:1743 answered every kernel
 --   refusal with 160 characters into a log and a `False`.  A census over
 --   that log found the single bit carrying at least four unrelated
 --   situations across 1457 refusals, 455 of them claims the SAME LOG
@@ -102,8 +102,8 @@
 -- not incur, and force every dosa into a narrative of progress it does not
 -- have.  The refusal is itself entry 0007 in the log, with its witnesses.
 --
--- Nor is this machine/GATE_AUDIT_DISPOSITION.md (what was DONE about six
--- findings against one gate) or machine/CertReplay.hs (whether a proved
+-- Nor is this interactive/GATE_AUDIT_DISPOSITION.md (what was DONE about six
+-- findings against one gate) or interactive/CertReplay.hs (whether a proved
 -- equation survives a ledger round-trip).  Those are records of repair and
 -- of re-checking.  This is the record of REFUSAL.
 --
@@ -121,7 +121,7 @@
 --   durnaya-nirodha       a collapse of standpoints was attempted and
 --                         REFUSED.  Siddhasena Divakara, Sanmatitarka 1.21:
 --                         a naya asserting itself by denying the others is
---                         a durnaya.  machine/Naya.hs decides this case and
+--                         a durnaya.  interactive/Naya.hs decides this case and
 --                         prints the loss; this records it.
 --   avaktavya             two standpoints asserted SIMULTANEOUSLY (saha /
 --                         yugapat), where no single utterance carries them.
@@ -145,14 +145,14 @@
 --                         the gate read an exit status, the kernel was
 --                         absent, the cache was unauthenticated.  Sound
 --                         about mathematics, unsound about its own
---                         environment.  machine/GATE_AUDIT_DISPOSITION.md.
+--                         environment.  interactive/GATE_AUDIT_DISPOSITION.md.
 --
 -- ─────────────────────────────────────────────────────────────────────
--- USE.  Build and run through machine/run-dosa-lekha.sh, or directly:
+-- USE.  Build and run through interactive/run-dosa-lekha.sh, or directly:
 --
 --   ghc -O0 -Wall -main-is DefectRecord.main \
 --       -outputdir /tmp/dl -o /tmp/dosalekha \
---       machine/DefectRecord.hs
+--       interactive/DefectRecord.hs
 --
 --   dosalekha schema              the field grammar and the kinds, for an
 --                                 LLM about to write an entry
@@ -243,7 +243,7 @@ required =
 
 -- | Optional fields.  `sesa` and `pramana` are here because a sibling lane
 --   had already got them right and this record had nowhere to put them.
---   machine/Answer.hs builds the
+--   interactive/Answer.hs builds the
 --   IN-MEMORY answer type for the same sutra Â§6, and its `Dosalekha`
 --   constructor carries `uSesa` -- the REMAINDER, handed forward.  Â§3:
 --   à¤à¤µà¤à¥à¤¤à¤µà¥à¤¯à¥ à¤¶à¥à¤·à¥ à¤µà¤¸à¤¤à¤¿ à¥¤ à¤¶à¥à¤·à¥ à¤à¤°à¥à¤­à¤, à¤¨ à¤µà¤¿à¤«à¤²à¤¤à¤¾ â the remainder lives in the
@@ -290,7 +290,7 @@ knownField k = k `elem` map fst required ++ map fst optional_ ++ ["sara"]
 ------------------------------------------------------------------------
 
 logPath :: IO FilePath
-logPath = fromMaybe "machine/dosa.lekha" <$> lookupEnv "DOSA_LEKHA"
+logPath = fromMaybe "interactive/dosa.lekha" <$> lookupEnv "DOSA_LEKHA"
 
 trim :: String -> String
 trim = dropWhile isSpace . reverse . dropWhile isSpace . reverse
@@ -471,7 +471,7 @@ usage = mapM_ putStrLn
   , "  filters: --jati K  --karta W  --vastu S  --grep S  --id N"
   , "           --answered  --unanswered"
   , ""
-  , "  log file: $DOSA_LEKHA, default machine/dosa.lekha (run from repo root)"
+  , "  log file: $DOSA_LEKHA, default interactive/dosa.lekha (run from repo root)"
   ]
 
 schema :: IO ()
@@ -497,7 +497,7 @@ schema = mapM_ putStrLn $
   [ ""
   , "FROM THE IN-MEMORY ANSWER TYPE"
   , ""
-  , "  machine/Answer.hs is the same"
+  , "  interactive/Answer.hs is the same"
   , "  sutra section 6 as a value: two roads, no third.  Its Dosalekha"
   , "  constructor serialises here field for field --"
   , ""
@@ -705,7 +705,7 @@ header = unlines
   , "# AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।"
   , "#                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।"
   , "#"
-  , "# Written by machine/DefectRecord.hs, which computes"
+  , "# Written by interactive/DefectRecord.hs, which computes"
   , "# `sara:` as a chain over every preceding record.  Edit any line above the"
   , "# last record and `dosalekha verify` names the record where it happened."
   , "# To correct a record, APPEND one whose `uttara:` names it."

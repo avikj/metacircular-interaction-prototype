@@ -46,7 +46,7 @@
 --
 -- Companions: notes/GAUGE.md (Theorem F), notes/THE_BARRIER_IS_A_MIRROR.md,
 -- notes/Sangati_TheEndStateIsTransportNotConsensusAndTheEdgeIsTheScarceThing.md,
--- machine/Setubandha_….hs (14 automorphisms, "no reachability, real content").
+-- interactive/Setubandha_….hs (14 automorphisms, "no reachability, real content").
 --
 -- Written 2026-08-22.
 ------------------------------------------------------------------------

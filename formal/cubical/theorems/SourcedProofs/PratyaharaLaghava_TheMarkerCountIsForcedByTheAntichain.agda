@@ -52,7 +52,7 @@
 --   * That the antichain bound is TIGHT in general.  `markersDistinct` gives
 --     markers ≥ width(F) and no more.  Where it stands for the full inventory
 --     is a finite computation, and it is done rather than guessed:
---     `machine/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
+--     `interactive/Pratyahara_TheIntervalDecisionProcedure.hs` runs Dilworth (via
 --     bipartite matching and König, antichain returned and re-checked) on the
 --     classes of all fourteen sūtras and reports —
 --        all 294 classes the line can name : width 14, the anubandha count

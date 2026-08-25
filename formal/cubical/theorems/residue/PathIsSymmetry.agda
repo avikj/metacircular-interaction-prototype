@@ -45,7 +45,7 @@ open import Cubical.Algebra.Group.MorphismProperties
 -- fails at line 98, "Not in scope: SymGroup" -- and because
 -- agda imports this file FIRST, the whole aggregate dies
 -- in two seconds and nothing downstream of it is ever typechecked.
--- Measured 2026-08-19 with machine/Yogyata.hs: 409 modules are reached
+-- Measured 2026-08-19 with interactive/Yogyata.hs: 409 modules are reached
 -- only by agda or Everything.agda, and this was the FIRST
 -- of several such name skews blocking them.  Fixing it moves the failure
 -- to NaturalMachine/SymmetryCardinality.agda:31 on `factorial`.  So this

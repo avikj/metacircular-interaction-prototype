@@ -18,7 +18,7 @@
 -- equivalence, and nothing below is attributed to him.  What is borrowed
 -- is one discipline of the सञ्ज्ञा-sūtra and nothing else: **a class that
 -- has been named is thereafter referred to by that name.**  This corpus
--- assigns names to fibres and then, in `machine/Lopa_…hs`, goes back to
+-- assigns names to fibres and then, in `interactive/Lopa_…hs`, goes back to
 -- re-describing the class — which is why one-way edges sit UNDECIDED
 -- while their fibres are written out in the very files the census read.
 -- The compound `Samjna_…` is this repository's own file title; the word

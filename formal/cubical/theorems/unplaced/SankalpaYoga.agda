@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --safe #-}
--- emitted by machine/Sankalpa_… from a .sankalpa specification;
+-- emitted by interactive/Sankalpa_… from a .sankalpa specification;
 -- the laws below ARE the input spec, read as an algorithm.
 module SankalpaYoga where
 open import Cubical.Foundations.Prelude

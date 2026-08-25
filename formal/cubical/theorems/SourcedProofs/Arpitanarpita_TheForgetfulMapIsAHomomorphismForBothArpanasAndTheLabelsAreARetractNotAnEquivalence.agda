@@ -654,16 +654,16 @@ private
 --       2026-08-20, NOT reconciled here, and named so the next reader
 --       does not think this file covered them.
 --
--- The two lanes above are not the only saptabhaṅgī in `machine/`.  Two
+-- The two lanes above are not the only saptabhaṅgī in `interactive/`.  Two
 -- further shapes are live, and they are not the record/label difference
 -- this file settled:
 --
---   `machine/Obstruction.hs`  — a SECOND label type, `Bhanga` = B1…B7,
+--   `interactive/Obstruction.hs`  — a SECOND label type, `Bhanga` = B1…B7,
 --     with `Sthana = Position Bhanga | ADharmin`.  Seven positions and an
---     eighth, exactly as `machine/Saptabhangi_TheSevenfoldVerdict.hs`, and
+--     eighth, exactly as `interactive/Saptabhangi_TheSevenfoldVerdict.hs`, and
 --     a DIFFERENT TYPE with a differently-named eighth (`ADharmin`, no
 --     subject to predicate of, against `Apratipatti`, nothing predicated).
---     `machine/NayaKosha_TheStandpointStore.hs` imports Obstruction's and
+--     `interactive/NayaKosha_TheStandpointStore.hs` imports Obstruction's and
 --     therefore agrees with it, so the split is two-against-one.  The two
 --     lanes already disagree, in writing, at the INTERPRETATION function
 --     and not at the algebra: `Obstruction.sthana` sets nāsti on every
@@ -674,7 +674,7 @@ private
 --     over what a given refusal IS.  A homomorphism argument cannot
 --     settle it, for the same reason §११ gives about Malliṣeṇa.
 --
---   `machine/Naya.hs` — a fifth carving, `Verdict` = Ekartha | Durnaya |
+--   `interactive/Naya.hs` — a fifth carving, `Verdict` = Ekartha | Durnaya |
 --     KramaBhanga | Avaktavya | Abhinna.  It is NOT the seven: it drops
 --     positions five, six and seven, and adds two that are not bhaṅgas at
 --     all (Ekartha, "collapse permitted, you said one thing twice", and

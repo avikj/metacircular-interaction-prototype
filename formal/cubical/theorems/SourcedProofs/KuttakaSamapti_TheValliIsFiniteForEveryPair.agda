@@ -79,7 +79,7 @@
 --   पर्याप्तम्        THE FUEL IS ENOUGH.  With f = b the bounded run always
 --                   lands in the finished constructor.  A cap with a proof
 --                   that it is never reached is a bound; a cap without one is
---                   an unwritten defect.  (`machine/Nalanda.hs`'s `n > 400`
+--                   an unwritten defect.  (`interactive/Nalanda.hs`'s `n > 400`
 --                   is the second kind — notes/DosaLekha_TheCakravalaTurnCapIsNotABound.md.)
 --   सेतुः            THE BRIDGE.  A ℕ vallī IS a `Kuttaka.Run` over ℤ, so
 --                   every theorem in `Kuttaka.agda` becomes unconditional:
@@ -263,7 +263,7 @@ private
 -- With f ≥ b the bounded run always finishes.  So `b` is a BOUND — a number
 -- carrying a proof that it is never reached — and not a GUESS, a number
 -- carrying a hope.  That distinction is the whole difference between this
--- and `machine/Nalanda.hs`'s `n > 400`.
+-- and `interactive/Nalanda.hs`'s `n > 400`.
 ------------------------------------------------------------------------
 
 समाप्तम्? : {a b : ℕ} → शेष-वल्ली a b → Type

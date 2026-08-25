@@ -25,7 +25,7 @@ open import Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentia
 
 -- …and the census's own collapse, one level up.  A fourth outcome exists
 -- that `देश` structurally cannot express — the question with no subject —
--- and `machine/Obstruction.hs` has carried it in a type all along while
+-- and `interactive/Obstruction.hs` has carried it in a type all along while
 -- the Agda lane has never had it.  Silence is not denial.
 open import Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt
 

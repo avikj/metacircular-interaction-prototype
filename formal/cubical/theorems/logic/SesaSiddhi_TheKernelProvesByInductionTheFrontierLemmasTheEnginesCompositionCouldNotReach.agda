@@ -5,11 +5,11 @@
 -- engine's composition could not reach.  The machine proposes its own
 -- śeṣa; the kernel disposes.
 --
--- WHAT THIS IS.  The live engine (`machine/MathMachine.hs`, its memory in
--- `machine/library.terms`) discovers true equations over ℕ by enumeration
+-- WHAT THIS IS.  The live engine (`interactive/MathMachine.hs`, its memory in
+-- `interactive/library.terms`) discovers true equations over ℕ by enumeration
 -- and composition, tagging each with its pramāṇa (anumāna) and its naya
 -- (trace replay, or induction).  Its own instruments name what it cannot
--- reach: `machine/SesaPariksa_…` and `notes/SamasaBhavana_…` §9 report a
+-- reach: `interactive/SesaPariksa_…` and `notes/SamasaBhavana_…` §9 report a
 -- handful of equations that are TRUE, survive all refutation, and are
 -- **not equational consequences of the base facts at all** — they need
 -- structural induction, "a proof principle from outside the equational

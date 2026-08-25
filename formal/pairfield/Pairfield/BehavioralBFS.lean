@@ -219,7 +219,7 @@ def observe (state : Fin 3) : Bool := decide (state = 2)
 
 /-! `alphabet` and `alphabet_complete` below are this lane's **role names**, not
 one shared object, and the census of 2026-08-22
-(`machine/Nama_TheNameIsCarriedAndTheHashIsTheBase.hs`) flags them in its two
+(`interactive/Nama_TheNameIsCarriedAndTheHashIsTheBase.hs`) flags them in its two
 largest groups — six copies each, in `BehavioralBFS`, `ReachableChart`,
 `ResidualBFS`, `ChartQuotient`, `AdaptiveObservableHorizon` and
 `ReachableAdaptiveObservableHorizon`.

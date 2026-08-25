@@ -8,7 +8,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE CLASS THIS PRICES, AND WHY IT NEEDED A DIFFERENT MACHINE.
 --
--- `machine/Lopa_…hs` grades 1062 one-way edges; **237 have source ℕ or a
+-- `interactive/Lopa_…hs` grades 1062 one-way edges; **237 have source ℕ or a
 -- list-like type** and no case table will ever reach them, because their
 -- domains are infinite.  A finite source is swept by enumeration.  An
 -- infinite one has to be priced by an IDENTIFICATION, and the only

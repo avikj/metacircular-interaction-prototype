@@ -2,7 +2,7 @@
 # =====================================================================
 # machine-state-report.sh — "Is the machine alive right now?"
 #
-#   ./machine/machine-state-report.sh
+#   ./interactive/machine-state-report.sh
 #
 # Answers that question from PERSISTENT STATE ALONE — the ledger, the
 # open-fibers stamp, and the library file. It never inspects a process,
@@ -22,9 +22,9 @@
 # STATE sources (read-only, all persistent):
 #   collab/orchestration/machine-ledger.tsv   last event: cycle, utc, counts
 #   collab/orchestration/open-fibers.md       the DUE-BY presence stamp
-#   machine/library.txt                       proved-theorem count
+#   interactive/library.txt                       proved-theorem count
 # EVENT source, clearly labelled as such, never mistaken for state:
-#   machine/machine.log                       pruning trend (informational)
+#   interactive/machine.log                       pruning trend (informational)
 # =====================================================================
 
 set -u
@@ -33,8 +33,8 @@ cd "$(dirname "$0")/.." 2>/dev/null || cd "$(dirname "$0")" || exit 2
 
 LEDGER=collab/orchestration/machine-ledger.tsv
 FIBERS=collab/orchestration/open-fibers.md
-LIBRARY=machine/library.txt
-MLOG=machine/machine.log
+LIBRARY=interactive/library.txt
+MLOG=interactive/machine.log
 
 NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 NOW_EPOCH=$(date -u +%s)
@@ -182,14 +182,14 @@ echo "   life. Whether that happened is read, not measured."
 echo
 echo "-- Library ----------------------------------------------------------"
 # CORRECTION, 2026-08-20.  This block used to print "library.txt MISSING"
-# and stop.  machine/library.txt has not existed for some time; the engine's
+# and stop.  interactive/library.txt has not existed for some time; the engine's
 # proved terms live in library.terms, with library.snapshot.txt and
 # library.gen1.txt beside them.  So the report announced an absence while
 # 138 theorems sat in the same directory under another name -- which is the
 # same defect as the struck verdict in §3, one register down: my not-seeing
 # reported as its non-existence.  It now looks for each file it might be.
 found=0
-for lib in "$LIBRARY" machine/library.terms machine/library.snapshot.txt machine/library.gen1.txt; do
+for lib in "$LIBRARY" interactive/library.terms interactive/library.snapshot.txt interactive/library.gen1.txt; do
     [ -f "$lib" ] || continue
     found=1
     THMS=$(sed '/^[[:space:]]*$/d' "$lib" | wc -l | tr -d ' ')
@@ -197,7 +197,7 @@ for lib in "$LIBRARY" machine/library.terms machine/library.snapshot.txt machine
 done
 if [ "$found" -eq 0 ]; then
     echo "   no library file found (looked for library.txt, library.terms,"
-    echo "   library.snapshot.txt, library.gen1.txt under machine/)"
+    echo "   library.snapshot.txt, library.gen1.txt under interactive/)"
 else
     echo
     echo "   A line count is not a theorem count and neither is a verdict:"

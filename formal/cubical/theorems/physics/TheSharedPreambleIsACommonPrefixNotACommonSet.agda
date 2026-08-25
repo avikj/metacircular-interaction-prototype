@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- TheSharedPreambleIsACommonPrefixNotACommonSet
 --
--- `machine/TraceLibrary.hs` computes the shared helper preamble of its
+-- `interactive/TraceLibrary.hs` computes the shared helper preamble of its
 -- trace records as `foldr1 lcp` — the longest common PREFIX — after its
 -- own `selfTest` refuted the first version, which had assumed the whole
 -- preamble was shared ("records disagree on the helper preamble: 16 of
@@ -25,7 +25,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT I READ FIRST
 --
--- `machine/TraceLibrary.hs` end to end, including
+-- `interactive/TraceLibrary.hs` end to end, including
 -- `sharedPreamble recs = Right (foldr1 lcp (map (fst . splitAtCandidate
 -- . recBody) recs))` and its `selfTest`.  The declaration names below —
 -- `addZero`, `addSuc` — are that file's own, and `addZero : (a : ℕ) →
@@ -39,7 +39,7 @@
 -- through `asSet`; §3 is about a common set failing to BE a preamble.
 --
 -- WHAT IS NOT CLAIMED.  Nothing about the 16-of-17 figure — that is a
--- count over `machine/replay.traces` and is that module's, not restated
+-- count over `interactive/replay.traces` and is that module's, not restated
 -- here.  Nothing about whether `lcp` finds the LARGEST useful preamble
 -- in practice; §2 is about the order, not about how much is shared.
 --

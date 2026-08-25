@@ -148,5 +148,5 @@ printf '  A green obtained here is evidence about THIS toolchain and not about\n
 printf '  the corpus, and it is not comparable with another container'"'"'s green.\n'
 printf '  Say so in any message, journal entry or ledger row that quotes it.\n'
 printf '  The ledger writer already emits a TOOLCHAIN header for this reason\n'
-printf '  (machine/AnulomaPratiloma_…hs, writeLedger).\n'
+printf '  (interactive/AnulomaPratiloma_…hs, writeLedger).\n'
 exit 0

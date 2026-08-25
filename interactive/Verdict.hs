@@ -1,7 +1,7 @@
 -- SevenfoldVerdict — the type that replaces the boolean.
 --
--- WHAT THIS IS FOR.  `machine/MathMachine.hs` decides, and its decision is
--- `koAccepted :: Bool`.  A census over `machine/machine.log` (ANEKANTA.md §1)
+-- WHAT THIS IS FOR.  `interactive/MathMachine.hs` decides, and its decision is
+-- `koAccepted :: Bool`.  A census over `interactive/machine.log` (ANEKANTA.md §1)
 -- found that single bit carrying at least four unrelated situations across
 -- 1457 refusals:
 --
@@ -71,7 +71,7 @@
 --
 -- A SIBLING TYPE DISAGREES WITH THIS ONE, AND THE DISAGREEMENT STANDS.
 --
--- `machine/VerdictResidue.hs` (another lane, same
+-- `interactive/VerdictResidue.hs` (another lane, same
 -- day) gives the seven positions as constructors CARRYING the nayas and
 -- witnesses that produced them, so its fourth position remembers which two
 -- seeds it was made of and `caturthatTritiya` recovers the third from it.

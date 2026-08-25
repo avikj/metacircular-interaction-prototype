@@ -44,7 +44,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT PROVOKED THIS
 --
--- `machine/Upadhi.hs`, read this cycle.  It reports that the engine's
+-- `interactive/Upadhi.hs`, read this cycle.  It reports that the engine's
 -- sampler draws 40 assignments reduced `mod 9` and declares two terms
 -- equal when their 40 values agree, and it records — in its own words —
 -- "the risk is real and the failure is unobserved, and those are
@@ -206,7 +206,7 @@ probeAgreementDoesNotPervadeEquality =
 ------------------------------------------------------------------------
 -- 5.  What §2–§3 change about how the shelf's sentence should be read
 --
--- `machine/Upadhi.hs` distinguishes "the risk is real" from "the failure
+-- `interactive/Upadhi.hs` distinguishes "the risk is real" from "the failure
 -- is unobserved".  §3 says why that distinction is forced rather than
 -- cautious: `Σ U. Upadhi U` is interderivable with `¬ Vyapti`, so
 -- asserting that SOME defeating condition exists is not weaker evidence

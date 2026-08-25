@@ -1,12 +1,12 @@
 #!/bin/sh
 # run-dosa-lekha.sh — build and run the doṣa-lekha, the machine's second organ.
 #
-#   sh machine/run-dosa-lekha.sh schema
-#   sh machine/run-dosa-lekha.sh count
-#   sh machine/run-dosa-lekha.sh verify
-#   sh machine/run-dosa-lekha.sh query --jati avaktavya
-#   sh machine/run-dosa-lekha.sh replay 3 --run
-#   sh machine/run-dosa-lekha.sh write < entry.txt
+#   sh interactive/run-dosa-lekha.sh schema
+#   sh interactive/run-dosa-lekha.sh count
+#   sh interactive/run-dosa-lekha.sh verify
+#   sh interactive/run-dosa-lekha.sh query --jati avaktavya
+#   sh interactive/run-dosa-lekha.sh replay 3 --run
+#   sh interactive/run-dosa-lekha.sh write < entry.txt
 #
 # AHIMSA_SUTRA_VISTARA §6: where transport is not possible the defect is
 # written; a written defect lives, an unwritten defect is hiṃsā, and there
@@ -18,7 +18,7 @@
 # is newer, so `count` is cheap enough to be in anyone's loop.
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-SRC="$ROOT/machine/DefectLog.hs"
+SRC="$ROOT/interactive/DefectLog.hs"
 OUT="${DOSA_BIN:-/tmp/dosalekha-$(id -u)}"
 if [ ! -x "$OUT" ] || [ "$SRC" -nt "$OUT" ]; then
   ghc -O0 -Wall -main-is DefectLog.main \

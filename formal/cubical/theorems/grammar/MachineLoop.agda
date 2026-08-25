@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- MachineLoop
 --
--- A MODEL OF `machine/MathMachine.hs`'s ROUND LOOP.  Not the loop.
+-- A MODEL OF `interactive/MathMachine.hs`'s ROUND LOOP.  Not the loop.
 --
 -- The Haskell engine generates terms up to a size bound, normalises them
 -- with everything already proved, fingerprints them against a finite list
@@ -572,7 +572,7 @@ chooseMoves-exhibits-listed-move s wHere ms lt' =
 ------------------------------------------------------------------------
 -- §4.  WHAT IS AND IS NOT CLAIMED
 --
--- Claimed.  Three decision rules of `machine/MathMachine.hs` now name a
+-- Claimed.  Three decision rules of `interactive/MathMachine.hs` now name a
 -- checked statement rather than a comment:
 --
 --   round classification / "need not grow"

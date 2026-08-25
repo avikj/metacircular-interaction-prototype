@@ -1,10 +1,10 @@
 -- Vipratiṣedha -- the Aṣṭādhyāyī's conflict-resolution and stratification
 -- layer, lifted off Sanskrit sandhi and made general.
 --
--- WHAT THIS IS FOR.  `machine/RewriteEngine.hs` already runs sūtras, and its
+-- WHAT THIS IS FOR.  `interactive/RewriteEngine.hs` already runs sūtras, and its
 -- `resolve` already carries two metarules (utsarga/apavāda, then 1.4.2
 -- paratva).  But that `resolve` is welded to `[Item]`, to `Ref`, and to the
--- fourteen śivasūtras.  Meanwhile `machine/MathMachine.hs` -- 5599 lines, the
+-- fourteen śivasūtras.  Meanwhile `interactive/MathMachine.hs` -- 5599 lines, the
 -- engine this repository actually computes with -- resolves every rewrite
 -- conflict by `(x:_)`: the FIRST rule in the list that matches and decreases.
 -- The list order is `definitionsOf ... ++ mRules m ++ lemmaRules ...`, i.e.
@@ -53,7 +53,7 @@
 --      one can print the fourth position and do nothing else with it.  So
 --      `Avaktavya` now carries a `Sesa` as well: the object and the
 --      contending OFFERS, entire.  What is born from it is
---      `machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`,
+--      `interactive/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`,
 --      and none of it is computable from the `Dosa` alone.  `prakriya` below
 --      still stops -- it is the scheduler and it decides nothing it has no
 --      fact for; `prakriyaPrasava` there does not.
@@ -257,7 +257,7 @@ showDosa d =
 -- WRITING of the undecided site: rendered strings, for a reader.  It is not
 -- the site.  A caller handed only a `Dosa` can print the fourth position and
 -- can do nothing else with it, which is exactly the collapse
--- `machine/VerdictResidue.hs` names in its own header:
+-- `interactive/VerdictResidue.hs` names in its own header:
 -- "after the collapse the fourth position does not record which two seeds
 -- produced it".  It did not here either, until this type existed.
 --
@@ -265,7 +265,7 @@ showDosa d =
 -- standpoints contended over, and each standpoint's own result under it.
 -- AHIMSA_SUTRA_VISTARA §३: अवक्तव्ये शेषो वसति । शेषो गर्भः, न विफलता ।
 -- Everything born from an avaktavya in
--- `machine/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`
+-- `interactive/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`
 -- is computed from this record, and none of it is computable from `Dosa`.
 data Sesa o = Sesa
   { sesaVastu  :: o          -- the object both standpoints are speaking about

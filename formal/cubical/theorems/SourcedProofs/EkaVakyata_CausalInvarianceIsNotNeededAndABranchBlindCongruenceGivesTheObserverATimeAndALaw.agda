@@ -101,7 +101,7 @@ module _ {X : Type ℓ} (R : X → X → Type ℓ') where
 -- --------------------------------------------------------------- मर्यादा
 --
 -- WHAT IS NOT CLAIMED.  Nothing here says a branch-blind observer exists for
--- a given rule, nor that one is easy to find; `machine/DrshtiJala_...`
+-- a given rule, nor that one is easy to find; `interactive/DrshtiJala_...`
 -- computes them for a deterministic rule and the multiway case is not done.
 -- Nor is anything claimed about what such an observer's time is PHYSICALLY —
 -- `मार्गः n` counts steps, and calling that a time is a reading, not a
@@ -122,7 +122,7 @@ module _ {X : Type ℓ} (R : X → X → Type ℓ') where
   --
   -- and g is a FUNCTION.  So the tower of worlds a branching rule can present
   -- is the congruence structure of the single deterministic system living on
-  -- its finest frame.  `machine/DrshtiJala_...` computes congruence lattices
+  -- its finest frame.  `interactive/DrshtiJala_...` computes congruence lattices
   -- of deterministic systems; by this, the same machinery reaches multiway
   -- systems with nothing added.
   --

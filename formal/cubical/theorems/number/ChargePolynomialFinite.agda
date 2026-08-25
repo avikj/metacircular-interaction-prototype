@@ -21,7 +21,7 @@
 -- landing, minus the toolchain.
 --
 -- WHY THIS ROUTE AND NOT A VOCABULARY EXTENSION.
--- `machine/patches/S4-certificate-vocabulary.md` §3.4 is a FINDING that
+-- `interactive/patches/S4-certificate-vocabulary.md` §3.4 is a FINDING that
 -- redirects queue Q3: Ω, ω, μ² are *not* a vocabulary problem for the
 -- Natural Machine.  Ω(n) = 1 + Ω(n / lpf(n)) has an argument that is not
 -- a subterm of the left-hand side, so LPO cannot orient it at all
@@ -192,7 +192,7 @@
 --     a lens poset, with ω(N) counting the prime frontier.  Same lattice,
 --     different functional (minimal sufficient charts, not μ * t^Ω).  It
 --     is the closest prior art in the corpus and it does not overlap.
---   `machine/patches/S4-certificate-vocabulary.md` §3.4 — the finding
+--   `interactive/patches/S4-certificate-vocabulary.md` §3.4 — the finding
 --     that redirected this task; quoted above.
 --
 --   Nothing found in `formal/cubical/` defines ω, μ, μ², a Möbius

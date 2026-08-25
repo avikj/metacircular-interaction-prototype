@@ -1,7 +1,7 @@
 #!/bin/sh
 # The simultaneous regime, from the repository root:
 #
-#   sh machine/run-asiddhavat.sh
+#   sh interactive/run-asiddhavat.sh
 #
 # 6.4.22 असिद्धवदत्राभात् -- inside the block a rule's effect counts as not
 # having taken place for every OTHER rule of the block, so the rules apply at
@@ -20,8 +20,8 @@ set -eu
 build_dir=$(mktemp -d "${TMPDIR:-/tmp}/asiddhavat.XXXXXX")
 trap 'rm -rf "$build_dir"' EXIT HUP INT TERM
 
-ghc -O0 -imachine -outputdir "$build_dir/obj" \
-  -o "$build_dir/asiddhavat" machine/AsiddhavatRun.hs > "$build_dir/log" 2>&1 \
+ghc -O0 -iinteractive -outputdir "$build_dir/obj" \
+  -o "$build_dir/asiddhavat" interactive/AsiddhavatRun.hs > "$build_dir/log" 2>&1 \
   || { cat "$build_dir/log"; exit 1; }
 
 "$build_dir/asiddhavat"

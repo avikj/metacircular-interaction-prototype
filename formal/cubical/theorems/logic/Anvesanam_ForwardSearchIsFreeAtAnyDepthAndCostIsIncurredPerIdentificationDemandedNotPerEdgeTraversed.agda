@@ -29,7 +29,7 @@
 -- not find a route has produced no term.  Absence of a route is a Π over
 -- the whole field, not a failed traversal, so the only verdicts a search
 -- may return are a route, a written defect, or UNDECIDED.  That is what
--- `machine/Lopa_…hs` already does by counting UNDECIDED separately rather
+-- `interactive/Lopa_…hs` already does by counting UNDECIDED separately rather
 -- than guessing, on the stated ground that a verdict guessed is worse
 -- than a verdict withheld.
 --

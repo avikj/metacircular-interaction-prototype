@@ -7,7 +7,7 @@
 -- predicated.  Nyāya's term, and the thing an inference must have before
 -- it can have a पक्ष at all.  अधर्मिन् / निर्धर्मिन्, as used here, is not a
 -- term I can source to a text: it is this repository's own compound,
--- introduced in `machine/Obstruction.hs` (`data Sthana = Position Bhanga
+-- introduced in `interactive/Obstruction.hs` (`data Sthana = Position Bhanga
 -- | ADharmin`, and `Nirdharmin` in its `Verdict`) for the case where the
 -- question has no subject, so no bhaṅga is available and none is forced.
 -- Per CLAUDE.md's naming rule note 2, that is stated rather than
@@ -24,7 +24,7 @@
 --
 -- It is also incomplete in exactly the way it accused `isContr` of being,
 -- and the corpus has had the missing case in a type since before either
--- module was written.  `machine/Obstruction.hs` carries FOUR outcomes:
+-- module was written.  `interactive/Obstruction.hs` carries FOUR outcomes:
 --
 --     asti · nāsti · avaktavya · ADharmin
 --

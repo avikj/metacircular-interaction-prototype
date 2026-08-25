@@ -20,7 +20,7 @@
 #                        2.6.3, which pairs with v0.5.  Modules written
 #                        against v0.9-only names may refuse under this
 #                        container; the refusal will name them.
-#   3. the conduit     — नाडी built to /opt/nadi from machine/Nadi.hs, so an
+#   3. the conduit     — नाडी built to /opt/nadi from interactive/Nadi.hs, so an
 #                        agent's first act can be `/opt/nadi REQ RESP` and a
 #                        warm conversation, not a toolchain excavation.
 set -euo pipefail
@@ -54,7 +54,7 @@ grep -qxF '/opt/cubical/cubical.agda-lib' ~/.agda/libraries 2>/dev/null \
 # 3. the conduit, built once into the cached layer
 if [ ! -x /opt/nadi ]; then
   ( cd "$CLAUDE_PROJECT_DIR/formal/cubical" \
-    && ghc -O2 -i../../machine ../../machine/Nadi.hs -o /tmp/nadi-build >/dev/null )
+    && ghc -O2 -i../../interactive ../../interactive/Nadi.hs -o /tmp/nadi-build >/dev/null )
   sudo mv /tmp/nadi-build /opt/nadi 2>/dev/null || mv /tmp/nadi-build /opt/nadi
 fi
 

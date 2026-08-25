@@ -18,17 +18,17 @@
 # the outage).  This fires at the moment of the act and hands the
 # writer the three questions; keeping the discipline is theirs.
 #
-# Fires when a Write/Edit/Bash creates a NEW file under machine/*.hs
+# Fires when a Write/Edit/Bash creates a NEW file under interactive/*.hs
 # or a new driver anywhere.  Existing-file edits pass silently: the
 # defect is new parallel mass, not maintenance.
 
 INPUT=$(cat 2>/dev/null)
 PATHS=$(printf '%s' "$INPUT" | grep -o '"file_path"[^,}]*' | cut -d'"' -f4)
-[ -z "$PATHS" ] && PATHS=$(printf '%s' "$INPUT" | grep -o '[A-Za-z0-9_./-]*machine/[A-Za-z0-9_]*\.hs')
+[ -z "$PATHS" ] && PATHS=$(printf '%s' "$INPUT" | grep -o '[A-Za-z0-9_./-]*interactive/[A-Za-z0-9_]*\.hs')
 
 for p in $PATHS; do
   case "$p" in
-    *machine/*.hs|*machine/*.sh) ;;
+    *interactive/*.hs|*interactive/*.sh) ;;
     *) continue ;;
   esac
   [ -e "$p" ] && continue     # maintenance of an existing organ: silent

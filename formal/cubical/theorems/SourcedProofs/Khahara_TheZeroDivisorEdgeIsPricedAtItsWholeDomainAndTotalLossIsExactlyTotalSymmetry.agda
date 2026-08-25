@@ -38,7 +38,7 @@
 -- one admitted non-Indian frame.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHY THIS FILE EXISTS.  `machine/Lopa_…hs`, run 2026-08-22 against the
+-- WHY THIS FILE EXISTS.  `interactive/Lopa_…hs`, run 2026-08-22 against the
 -- tree at this commit, prints
 --
 --     1062  UNDECIDED       16  बहु       4  रिक्तम्
@@ -236,7 +236,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 ------------------------------------------------------------------------
 -- ६ · शेषः — what this opens, and one thing it hands to another lane.
 --
--- (a) A CENSUS RULE, offered to `machine/Lopa_…hs` and not applied here,
+-- (a) A CENSUS RULE, offered to `interactive/Lopa_…hs` and not applied here,
 --     because that file is another lane's and an audit that rewrites its
 --     subject is not an audit:
 --

@@ -8,7 +8,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- THE METHOD, and its false-positive rate, which is the point.
 --
--- `machine/Lopa_…hs` grades 1046 one-way edges in this corpus UNDECIDED:
+-- `interactive/Lopa_…hs` grades 1046 one-way edges in this corpus UNDECIDED:
 -- no syntactic rule names a fibre.  But a fibre WRITTEN OUT is a Σ ending
 -- in an equation into the index —
 --

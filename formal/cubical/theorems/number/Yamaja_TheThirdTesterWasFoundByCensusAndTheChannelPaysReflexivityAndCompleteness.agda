@@ -25,7 +25,7 @@
 -- only same-PRINTED-type groups and would miss a pair whose definitions
 -- agree under different names."
 --
--- That audit now exists — `machine/Pratyaksa_…hs --twins`, which erases
+-- That audit now exists — `interactive/Pratyaksa_…hs --twins`, which erases
 -- each declaration's own module prefix from its KERNEL-ELABORATED type and
 -- groups — and the first thing it returned was a THIRD `eqℕ`:
 --

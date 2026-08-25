@@ -93,7 +93,7 @@ reweave-all-roots action view root = refl
 -- proves the opposite half for the object rather than the invariant:
 -- for EVERY depth there are two nets agreeing at every depth below it
 -- and differing at it, so no finite observation depth determines the
--- net.  That is `machine/IndraNet.hs`'s own disclaimer, checked.
+-- net.  That is `interactive/IndraNet.hs`'s own disclaimer, checked.
 --
 -- The remaining direction -- agreement at ALL depths gives equality --
 -- is a bisimulation principle, is what that Haskell file's `Bisim` type

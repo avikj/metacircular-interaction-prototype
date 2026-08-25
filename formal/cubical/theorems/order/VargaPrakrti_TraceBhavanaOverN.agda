@@ -85,9 +85,9 @@ open import Cubical.Tactics.NatSolver using (solveℕ!)
 --
 --     cd formal/cubical && agda BhavanaSemiring.agda
 --
--- The consequence reaches further than this file: `machine/NalandaEmit.hs`
+-- The consequence reaches further than this file: `interactive/NalandaEmit.hs`
 -- emits a witness importing `BhavanaSemiring` and `CakravalaNat`, and
--- `machine/NalandaCertify.hs` hands that witness to the kernel and reports
+-- `interactive/NalandaCertify.hs` hands that witness to the kernel and reports
 -- the verdict.  Under the pinned toolchain that pipeline cannot return a
 -- green, because its dependencies do not check.  BUILD.md §"Where the skew
 -- bites" catalogues the 2.6.3 → 2.8.0 migration and says the tree "is not

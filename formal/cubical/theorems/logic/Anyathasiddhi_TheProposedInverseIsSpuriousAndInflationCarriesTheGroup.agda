@@ -34,7 +34,7 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `machine/AnulomaPratiloma_…hs` proposes candidate inverse pairs by
+-- `interactive/AnulomaPratiloma_…hs` proposes candidate inverse pairs by
 -- matching type signatures inside one module and puts the round trip to
 -- the kernel.  On `InflationVersusSubgroup` it proposed
 --

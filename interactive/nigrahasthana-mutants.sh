@@ -2,12 +2,12 @@
 # nigrahasthana-mutants.sh -- mutation testing on the Phonology's rule table.
 #
 # A suite that only ever runs against a correct machine measures nothing.
-# This perturbs ONE thing at a time in a COPY of machine/Phonology.hs -- one
+# This perturbs ONE thing at a time in a COPY of interactive/Phonology.hs -- one
 # Ref, one condition, one order, one class, one map -- rebuilds, and reports
 # which of the two suites notices:
 #
 #   selfTest    Phonology's own, all success cases
-#   nigraha     machine/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs,
+#   nigraha     interactive/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs,
 #               all refusal cases
 #
 # The number that matters is the last line: mutations no test caught.  Those
@@ -17,9 +17,9 @@
 #
 # Nothing here writes to the repository.  Usage:
 #
-#   sh machine/nigrahasthana-mutants.sh [path-to-Phonology.hs]
+#   sh interactive/nigrahasthana-mutants.sh [path-to-Phonology.hs]
 #
-# with the default being machine/Phonology.hs.  A second argument is a work
+# with the default being interactive/Phonology.hs.  A second argument is a work
 # directory (default: a fresh mktemp -d).
 #
 # NO PYTHON -- banned repo-wide, hook-enforced.  This is sh and ghc.
@@ -27,12 +27,12 @@
 set -u
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-SRC=${1:-$ROOT/machine/Phonology.hs}
+SRC=${1:-$ROOT/interactive/Phonology.hs}
 WORK=${2:-$(mktemp -d)}
 
 mkdir -p "$WORK"
 cp "$SRC" "$WORK/Phonology.hs.orig"
-cp "$ROOT/machine/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs" "$WORK/"
+cp "$ROOT/interactive/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs" "$WORK/"
 
 cat > "$WORK/Driver.hs" <<'EOF'
 import Phonology (selfTest)

@@ -2,7 +2,7 @@
 -- the standpoints that produced them, and the birth that takes the fourth
 -- position on to the next derivation.
 --
--- WHAT IT REPLACES.  `machine/Verdict.hs` gives the
+-- WHAT IT REPLACES.  `interactive/Verdict.hs` gives the
 -- seven as seven nullary constructors and a presence-profile in {Aam, Na}^3.
 -- Its `saha` is a function on those labels, and its own comment says:
 --

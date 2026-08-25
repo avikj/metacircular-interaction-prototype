@@ -30,10 +30,10 @@
 -- search, not about the domain, which is precisely why it licenses
 -- nothing.
 --
--- `machine/Nirdharana_…hs` reaches the same wall from the engineering
+-- `interactive/Nirdharana_…hs` reaches the same wall from the engineering
 -- side and says so: EMPTY "is a case this instrument cannot certify at
 -- all".  It cannot, because certifying it is §१'s Π and a census only
--- visits points.  `machine/Lopa_…hs` therefore reports UNDECIDED by count
+-- visits points.  `interactive/Lopa_…hs` therefore reports UNDECIDED by count
 -- rather than guessing, on the stated ground that a verdict guessed is
 -- worse than a verdict withheld.
 --

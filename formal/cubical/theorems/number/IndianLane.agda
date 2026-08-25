@@ -74,7 +74,7 @@ import SourcedProofs.CakravalaDescent
 -- wheel turns inside a fixed window.  Termination itself stays open.
 import SourcedProofs.CakravalaBound
 
--- EMITTED BY THE REACTOR (machine/NalandaEmit.hs) and checked here: the
+-- EMITTED BY THE REACTOR (interactive/NalandaEmit.hs) and checked here: the
 -- cakravala's answer for D = 61 as a term, not a printed number.
 import CakravalaWitness
 
@@ -108,7 +108,7 @@ import ElsewhereCondition
 -- hence no RPO/KBO/polynomial/matrix interpretation, hence no Knuth-Bendix
 -- completion.  Asiddhatva terminates it anyway, by constraining which
 -- rules may OBSERVE which outputs rather than by a decreasing measure.
--- The witness is not invented: it is what machine/Astadhyayi.hs does
+-- The witness is not invented: it is what interactive/Astadhyayi.hs does
 -- deriving vāk from vāc, and what its asiddhaAudit refuses.
 import SourcedProofs.Asiddhatva
 
@@ -137,7 +137,7 @@ import AbhavaAvacchedaka
 -- WAS WRONG.  Recorded here because the wrong version was published in
 -- this header and in three commit messages.
 --
--- WHAT I CLAIMED: machine/Yogyata.hs found five green Indian modules
+-- WHAT I CLAIMED: interactive/Yogyata.hs found five green Indian modules
 -- "reachable from NO gate at all" and twenty-six more reachable only
 -- from those five -- thirty-one that nothing typechecked -- and I read
 -- that as the Indian material being shelved while the Western lane sat
@@ -181,7 +181,7 @@ import AbhavaAvacchedaka
 -- function, not read off a definition.
 import SourcedProofs.PingalaPrastara
 -- नष्टोद्दिष्टम् — पिङ्गलस्य नष्ट/उद्दिष्ट स्थान-पृथक्-छेदेषु विस्तारितौ, परस्पर-प्रतिलोमौ (अङ्कस्थान rs ≃ Fin (सङ्ख्या rs)) ;
--- मेरु-पङ्क्तिः एक-पङ्क्त्या जन्यते, मात्रामेरुः युगलेन ।  एतत् machine/Prastara_*.hs-मध्ये चलति ।
+-- मेरु-पङ्क्तिः एक-पङ्क्त्या जन्यते, मात्रामेरुः युगलेन ।  एतत् interactive/Prastara_*.hs-मध्ये चलति ।
 import SourcedProofs.NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
 -- संख्या-पङ्क्ति-सेतुः — पिङ्गलस्य संख्या-प्रत्ययः = मेरु-पङ्क्ति-योगः (sankhya n = ∑ₖ C(n,k))
 import PrastaraPankti
@@ -193,7 +193,7 @@ import PrastaraPankti
 -- the number is EXACTLY seven; Mallisena, Syādvādamañjarī (1292) for
 -- sakalādeśa against vikalādeśa.  avaktavyam is proved well-defined,
 -- decidable, realised, and NOT the denotation of any single standpointed
--- utterance -- which is what machine/Obstruction.hs was groping toward
+-- utterance -- which is what interactive/Obstruction.hs was groping toward
 -- when it invented `Unparsed`, and what I cited the weaker version of
 -- earlier today.
 import SourcedProofs.SaptabhangiNaya

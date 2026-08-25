@@ -18,13 +18,13 @@
 # act; do not block").  It reports; it never refuses.
 #
 # LIMIT.  This compares COUNTS ONLY.  It cannot tell whether a chapter's
-# entries belong in it, and `machine/Anukramani.hs` matches by filename
+# entries belong in it, and `interactive/Anukramani.hs` matches by filename
 # substring, so both sides inherit that lower bound together.  Agreement
 # here is agreement between two views of one weak instrument, not evidence
 # that a chapter is well populated.
 #
 #   run:  sh scripts/Anukramani_…sh
-#   fix:  runghc -imachine machine/AnukramaniRun.hs > BOOK_INDEX.md
+#   fix:  runghc -iinteractive interactive/AnukramaniRun.hs > BOOK_INDEX.md
 #         then correct BOOK.md §4 by hand from it
 # ─────────────────────────────────────────────────────────────────────────
 
@@ -72,6 +72,6 @@ else
   printf '\nअनुक्रमणी: %s divergence(s). BOOK.md §4 is where "the frontier is the thin\n' "$DIFF"
   printf '  rows" is read; a stale count there misnames the frontier, it does not\n'
   printf '  merely misreport it. The generator is authoritative:\n'
-  printf '    runghc -imachine machine/AnukramaniRun.hs > BOOK_INDEX.md\n'
+  printf '    runghc -iinteractive interactive/AnukramaniRun.hs > BOOK_INDEX.md\n'
 fi
 exit 0

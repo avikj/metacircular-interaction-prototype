@@ -167,7 +167,7 @@ yoneda-to-from η nat k p =
 -- For jewels the identification is a path in `Jewel`, and the statement
 -- that the profile follows it is `subst`.  It is one line, and that is
 -- the point: in this setting propagation is not machinery to be built,
--- it is what an identification MEANS.  The machine in `machine/` has no
+-- it is what an identification MEANS.  The machine in `interactive/` has no
 -- such structure, so a proved theorem there can change nothing except
 -- the normaliser -- which is the concrete form of §27's complaint.
 ------------------------------------------------------------------------

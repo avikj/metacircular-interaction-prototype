@@ -1,8 +1,8 @@
 #!/bin/sh
 # run-yantra.sh — THE ONE COMMAND.  Build the machine, turn it, show what it did.
 #
-#   sh machine/run-yantra.sh              the scripted session, contract checked
-#   sh machine/run-yantra.sh --wire       JSON lines on stdin/stdout, for an LLM
+#   sh interactive/run-yantra.sh              the scripted session, contract checked
+#   sh interactive/run-yantra.sh --wire       JSON lines on stdin/stdout, for an LLM
 #
 # यन्त्रम् is judged by being turned.  Green here means, and means only:
 #
@@ -28,14 +28,14 @@
 #     inside the session (`dosa.pramanya`).
 #
 # THE SESSION LOG IS SESSION-SCOPED, ON PURPOSE.  $DOSA_LEKHA points at
-# machine/yantra-session.lekha and NOT at machine/dosa.lekha.  Four lanes are
+# interactive/yantra-session.lekha and NOT at interactive/dosa.lekha.  Four lanes are
 # appending to the shared log today (doṣa 0013, 0014); a demonstration that
 # writes twenty records into it would be this file's own first defect.  The
 # organ, the format, the validator and the chain are the same; only the file
 # differs, and `dosa.pramanya` verifies whichever one it is pointed at.
 #
 # THE SEAM, stated rather than discovered.  This machine imports
-# machine/Phonology.hs (120 KB) and machine/Obstruction.hs, which other
+# interactive/Phonology.hs (120 KB) and interactive/Obstruction.hs, which other
 # lanes edit.  A grammar file mid-surgery does not typecheck, and failing the
 # whole check then would report `the machine is broken` when the true
 # statement is `another lane is mid-edit`.  Those are two facts and a single
@@ -46,7 +46,7 @@ OUT="${YANTRA_OUT:-${TMPDIR:-/tmp}/yantra-$(id -u)}"
 mkdir -p "$OUT"
 
 # organ 2: the doṣa-lekha, built first, because the machine files into it.
-DOSA_SRC="$ROOT/machine/DefectLog.hs"
+DOSA_SRC="$ROOT/interactive/DefectLog.hs"
 DOSA_BIN="$OUT/dosalekha"
 if [ ! -x "$DOSA_BIN" ] || [ "$DOSA_SRC" -nt "$DOSA_BIN" ]; then
   ghc -O0 -main-is DefectLog.main \
@@ -60,8 +60,8 @@ mine="Server.hs Main.hs"
 BIN="$OUT/yantra"
 SRCTREE="the working tree"
 
-if ghc -O0 -i"$ROOT/machine" -outputdir "$OUT/build" -o "$BIN" \
-       "$ROOT/machine/Main.hs" >"$OUT/build.log" 2>&1; then
+if ghc -O0 -i"$ROOT/interactive" -outputdir "$OUT/build" -o "$BIN" \
+       "$ROOT/interactive/Main.hs" >"$OUT/build.log" 2>&1; then
   echo "built from the working tree."
 else
   echo "the working tree did not build.  first errors:" >&2
@@ -80,12 +80,12 @@ else
   # broken` with `another lane is mid-edit`, and those are two facts.
   ISO="$OUT/iso"
   rm -rf "$ISO"; mkdir -p "$ISO"
-  ( cd "$ROOT" && git ls-tree --name-only HEAD machine/ ) \
-    | grep '\.hs$' | sed 's|^machine/||' > "$OUT/head-files"
+  ( cd "$ROOT" && git ls-tree --name-only HEAD interactive/ ) \
+    | grep '\.hs$' | sed 's|^interactive/||' > "$OUT/head-files"
   while read -r f; do
-    ( cd "$ROOT" && git show "HEAD:machine/$f" ) > "$ISO/$f" 2>/dev/null
+    ( cd "$ROOT" && git show "HEAD:interactive/$f" ) > "$ISO/$f" 2>/dev/null
   done < "$OUT/head-files"
-  for f in $mine; do cp "$ROOT/machine/$f" "$ISO/$f"; done
+  for f in $mine; do cp "$ROOT/interactive/$f" "$ISO/$f"; done
 
   if ! ghc -O0 -i"$ISO" -outputdir "$ISO/out" -o "$BIN" "$ISO/Main.hs" \
           >"$ISO/build.log" 2>&1; then
@@ -113,13 +113,13 @@ DOṢA-LEKHA (run-yantra, jāti: karaṇa-doṣa)
         except this lane's own two files, which ARE the working-tree ones.
   naṣṭa (what the green below does NOT cover):
 NOTE
-  ( cd "$ROOT" && git diff --name-only -- machine/ ) | grep '\.hs$' | while read -r f; do
+  ( cd "$ROOT" && git diff --name-only -- interactive/ ) | grep '\.hs$' | while read -r f; do
     echo "    − $f as it stands in the working tree, uncompiled and unrun here"
   done
   cat <<'NOTE'
   śeṣa:
     → rerun once that lane commits; the fallback disappears by itself
-    → this is the same seam machine/check-sabha.sh records, and the same
+    → this is the same seam interactive/check-sabha.sh records, and the same
       repair.  Two lanes reaching it independently is evidence the repair is
       right and stronger evidence that the missing thing is a mechanism.
 NOTE
@@ -129,7 +129,7 @@ fi
 # A fresh session log each run: the chain starts at genesis and the whole of
 # it is the session, so `dosa.pramanya` is verifying THIS run and not a
 # history it did not produce.
-LEKHA="${DOSA_LEKHA:-$ROOT/machine/yantra-session.lekha}"
+LEKHA="${DOSA_LEKHA:-$ROOT/interactive/yantra-session.lekha}"
 rm -f "$LEKHA"
 TRANSCRIPT="${YANTRA_LEKHA:-$OUT/yantra.jsonl}"
 rm -f "$TRANSCRIPT"

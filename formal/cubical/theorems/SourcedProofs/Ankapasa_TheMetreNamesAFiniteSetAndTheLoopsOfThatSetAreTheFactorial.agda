@@ -25,7 +25,7 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.  THE LAST UNROUTED NODE OF THE COMPONENT.
 --
--- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
+-- `interactive/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
 -- AreTheFrontier.hs` reports `Decategorification.π₀FinSet`
 -- at degree 1: joined to the hub `ℕ` and to nothing else.  Every other
 -- pair in the largest component that lies inside `formal/cubical/` has

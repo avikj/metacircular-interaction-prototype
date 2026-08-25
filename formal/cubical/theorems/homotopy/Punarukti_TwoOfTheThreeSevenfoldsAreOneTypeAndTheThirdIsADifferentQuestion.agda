@@ -27,7 +27,7 @@
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `machine/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
+-- `interactive/Setubandha_TheCheckedIdentificationsAreEdgesAndTheIsolatedNodes
 -- AreTheFrontier.hs` reports, among its isolated nodes, THREE separate
 -- types named `सप्तभङ्गी` with nothing identifying any two of them:
 --

@@ -10,7 +10,7 @@
 -- `singl`, एकम् always and free.  Bind a and you have `fiber`, which is
 -- any of the three — रिक्तम्, एकम्, बहु.
 --
--- `machine/MathMachine.hs` is a fibre navigator and did not know it.  Its
+-- `interactive/MathMachine.hs` is a fibre navigator and did not know it.  Its
 -- denotation map is ⟦_⟧, terms to meanings, and every organ it has is a
 -- response to one of the three verdicts on that map's fibres:
 --

@@ -9,7 +9,7 @@
 -- downstream (notes/AHIMSA_SUTRA_VISTARA.md §४ नष्टिः, §५ अप्रतिकार्यत्वम्,
 -- §६ द्वौ मार्गौ).  अविशेषः, below, is that in one line.
 --
--- The four positions are the ones machine/Obstruction.hs arrived at on
+-- The four positions are the ones interactive/Obstruction.hs arrived at on
 -- 2026-08-18 (ANEKANTA.md §19) and this file adds the two the machine did
 -- not have: सिद्ध, which carries its derivation, and अवक्तव्यम्, which is
 -- what a disagreement of standpoints returns instead of an error or an
@@ -246,7 +246,7 @@ open सन्दर्भ ℕ (λ _ → Unit) (λ _ → Unit)
 -- takes: ANY report computed from the label alone gives the same answer to
 -- two different refutations.  This is not a bug in some report; it is what
 -- the type says.  A tally row that means to stay honest must therefore
--- carry a verdict, not a कोटिः — which is what machine/ does.
+-- carry a verdict, not a कोटिः — which is what interactive/ does.
 लेखो-अन्धः : {B : Type} (f : कोटिः → B)
            → f (भङ्गः एकेन) ≡ f (भङ्गः द्वाभ्याम्)
 लेखो-अन्धः f = cong f समभङ्गौ

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- शेष-पूर्ति — the filling of a remainder the machine asked for itself.
 --
--- PROVENANCE OF THE ASK.  machine/sanghatta-report-latest.txt, regenerated
+-- PROVENANCE OF THE ASK.  interactive/sanghatta-report-latest.txt, regenerated
 -- 2026-08-23: 403 non-joining critical pairs of the installed rules, the
 -- library's own incompleteness, smallest first — and the top row is
 --     x    max(x,0)

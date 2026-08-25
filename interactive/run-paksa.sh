@@ -15,23 +15,23 @@ set -e
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 SNAP=${PAKSA_SNAP:-$(mktemp -d "${TMPDIR:-/tmp}/paksa.XXXXXX")}
 mkdir -p "$SNAP/machine"
-cp "$ROOT"/machine/*.hs "$SNAP/machine/"
-cp "$ROOT"/machine/library.terms "$SNAP/machine/"
-cp "$ROOT"/machine/machine.log   "$SNAP/machine/"
+cp "$ROOT"/interactive/*.hs "$SNAP/interactive/"
+cp "$ROOT"/interactive/library.terms "$SNAP/interactive/"
+cp "$ROOT"/interactive/machine.log   "$SNAP/interactive/"
 ln -sfn "$ROOT/formal" "$SNAP/formal"
 
-MAIN=machine/PaksaLaksana_WhatIsWorthHandingTheKernelIsWhereTheTwoRewritersDisagree.hs
+MAIN=interactive/PaksaLaksana_WhatIsWorthHandingTheKernelIsWhereTheTwoRewritersDisagree.hs
 
 echo "SNAPSHOT $SNAP"
 echo "  the bytes both arms are built and run from:"
-for f in "$MAIN" machine/BhavanaTheorem.hs machine/Obstruction.hs \
-         machine/Certificate.hs machine/library.terms machine/machine.log ; do
+for f in "$MAIN" interactive/BhavanaTheorem.hs interactive/Obstruction.hs \
+         interactive/Certificate.hs interactive/library.terms interactive/machine.log ; do
   printf '    %s  %s\n' "$(shasum -a 256 "$SNAP/$f" | cut -c1-16)" "$f"
 done
 echo
 
 cd "$SNAP"
-ghc -O1 -imachine -outputdir "$SNAP/build" -o "$SNAP/paksa" "$MAIN" > "$SNAP/ghc.log" 2>&1 \
+ghc -O1 -iinteractive -outputdir "$SNAP/build" -o "$SNAP/paksa" "$MAIN" > "$SNAP/ghc.log" 2>&1 \
   || { echo "BUILD FAILED, see $SNAP/ghc.log" ; exit 1 ; }
 printf '  binary  %s\n\n' "$(shasum -a 256 "$SNAP/paksa" | cut -c1-16)"
 
@@ -44,5 +44,5 @@ echo
 if [ "$1" = "--kernel" ] ; then
   "$SNAP/paksa" --kernel "${2:-8}"
 else
-  echo "  (the kernel falsifier was not run; add:  sh machine/run-paksa.sh --kernel 8)"
+  echo "  (the kernel falsifier was not run; add:  sh interactive/run-paksa.sh --kernel 8)"
 fi

@@ -64,7 +64,7 @@
 -- THE TERM.  अवच्छेदक — Nyāya's "delimitor", the property that fixes the
 -- exact extent of a relation or an absence (Gaṅgeśa, तत्त्वचिन्तामणि,
 -- 14th c., and the Navya-Nyāya technical apparatus after him; the
--- corpus's own `machine/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearched
+-- corpus's own `interactive/Abhava_TheAbsenceCarriesItsPratiyoginAndItsSearched
 -- Domain.hs` and `AbhavaAvacchedaka.agda` use it in that sense).  LIMIT:
 -- nothing below is attributed to any Naiyāyika, and the citation is
 -- second-hand.  The word is taken for one property — that a relation is

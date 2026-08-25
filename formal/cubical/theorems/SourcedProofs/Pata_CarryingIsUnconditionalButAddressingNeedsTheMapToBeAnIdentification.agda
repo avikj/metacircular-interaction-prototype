@@ -35,7 +35,7 @@
 -- distinction is a theorem here and not a style note.
 --
 -- WHY IT MATTERS OUTSIDE THE MATHEMATICS.  This machine is
--- content-addressed: `machine/Nama_…` names a definition by a digest over
+-- content-addressed: `interactive/Nama_…` names a definition by a digest over
 -- it AND its dependencies, and things are dropped and recomputed on that
 -- basis.  Every such scheme is a bet that the naming map is an address
 -- and not merely a receipt, and §४ is the shape of the bet going wrong —

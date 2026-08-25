@@ -154,7 +154,7 @@ aC = refl
 -- theorem — that the order is essentially UNIQUE for the full family, and 14
 -- markers minimal — is still not proved and Petersen is still unread.  What
 -- is now proved is a lower bound and its attainment on the vowel subfamily.
--- `machine/Pratyahara_TheIntervalDecisionProcedure.hs` decides nameability
+-- `interactive/Pratyahara_TheIntervalDecisionProcedure.hs` decides nameability
 -- against the line (no table) and computes the bound over all fourteen
 -- sūtras: width 14 over the 294 classes the line can name, width 11 over the
 -- ~30 the grammar uses.

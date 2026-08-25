@@ -77,12 +77,12 @@
 -- genuinely differ the collapse is not forbidden, it does not exist.
 --
 -- RUN IT:
---     sh machine/run-yantra.sh              -- the scripted session, checked
---     sh machine/run-yantra.sh --wire       -- JSON lines on stdin/stdout
+--     sh interactive/run-yantra.sh              -- the scripted session, checked
+--     sh interactive/run-yantra.sh --wire       -- JSON lines on stdin/stdout
 --
 -- The transcript is appended to $YANTRA_LEKHA; the session's filed defects
 -- go to $DOSA_LEKHA, which run-yantra.sh points at a session-scoped log so
--- that a demonstration does not append to machine/dosa.lekha, which is
+-- that a demonstration does not append to interactive/dosa.lekha, which is
 -- shared and which four lanes are writing to today.
 
 module Server
@@ -1210,8 +1210,8 @@ kDosaPramanya y _ = case yDosaBin y of
                   , dosalekha "dosa.pramanya"
                       "the chain cannot be verified: this session has no doṣa-lekha binary"
                       [ "the verification you asked for, and with it the guarantee that this session's filed defects are still the bytes that were filed" ]
-                      [ "run this machine through machine/run-yantra.sh, which builds the binary and passes it in DOSA_BIN" ]
-                      [ "machine/DefectRecord.hs" ] )
+                      [ "run this machine through interactive/run-yantra.sh, which builds the binary and passes it in DOSA_BIN" ]
+                      [ "interactive/DefectRecord.hs" ] )
   Just bin -> do
     (code, out, err) <- readProcessWithExitCode bin ["verify"] ""
     let txt = out ++ err
@@ -1236,7 +1236,7 @@ kDosaPramanya y _ = case yDosaBin y of
             [ ("phala", JStr (trimS txt)) ]
             [ "the chain is FNV-1a and is not cryptographic and is not claimed to be: the adversary is an accidental edit, a lost rebase, a truncating write.  An adversary with the filesystem also has this file."
             , "who wrote each record, beyond what each record says of itself" ]
-            [ "machine/DefectRecord.hs §3 — the chain" ] )
+            [ "interactive/DefectRecord.hs §3 — the chain" ] )
       _ ->
         ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the divergence is located by record and by line, and is carried verbatim")
         , dosalekha "dosa.pramanya"
@@ -1244,7 +1244,7 @@ kDosaPramanya y _ = case yDosaBin y of
             [ "the guarantee that this session's filed defects are the bytes that were filed"
             , "the organ's own report, verbatim, which names the record and the line: " ++ trimS txt ]
             [ "do NOT edit the diverging record.  Append one whose `uttara:` names it — that is the only correction an append-only log has." ]
-            [ "machine/DefectRecord.hs" ] )
+            [ "interactive/DefectRecord.hs" ] )
   where
     -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
     -- read out of the organ's own success line, which is
@@ -1355,7 +1355,7 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
   Just bin -> do
     let ent = unlines
           ( [ "  kala: " ++ kala
-            , "  karta: yantra (machine/Server.hs)"
+            , "  karta: yantra (interactive/Server.hs)"
             , "  jati: " ++ jatiOf u
             , "  vastu: " ++ oneLine (uKriya u)
             , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
@@ -1401,7 +1401,7 @@ fileDosa y kala u@Dosalekha{} = case yDosaBin y of
                ++ " — " ++ show (length (K.koshaEntries (yKosha y))) ++ " store entries, "
                ++ show (length (ySesa y)) ++ " remainders; and nothing outside this process"
              , "  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments"
-             , "  punarabhinaya: sh machine/run-yantra.sh" ] )
+             , "  punarabhinaya: sh interactive/run-yantra.sh" ] )
     (code, out, err) <- readProcessWithExitCode bin ["write"] ent
     pure $ case code of
       ExitSuccess -> Right (lastLine out)
@@ -1565,7 +1565,7 @@ yantraMain = do
   -- deliberate.
   mapM_ (hPutStrLn stderr) saksiPariksaLines
   saksiPariksaOrRefuse
-  fp   <- maybe "machine/yantra.jsonl" id <$> lookupEnv "YANTRA_LEKHA"
+  fp   <- maybe "interactive/yantra.jsonl" id <$> lookupEnv "YANTRA_LEKHA"
   root <- maybe "." id <$> lookupEnv "MATH_ROOT"
   bin  <- lookupEnv "DOSA_BIN"
   kala <- maybe "2026-08-20" id <$> lookupEnv "YANTRA_KALA"

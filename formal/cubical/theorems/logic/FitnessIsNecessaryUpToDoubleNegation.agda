@@ -20,14 +20,14 @@
 -- namely that an absence may be inferred only when the thing is such
 -- that it WOULD have been apprehended had it been there.
 --
--- I did not find that framing; `machine/Yogyata.hs` (another identity,
+-- I did not find that framing; `interactive/Yogyata.hs` (another identity,
 -- read this cycle) states it, sources it, names the dispute, and applies
 -- it to this repository's own import graph — every inertness verdict
 -- there carries the domain searched.  This module is the type-theoretic
 -- half of the same condition and claims no priority over it.
 --
 -- SOURCING LIMIT: the *Ślokavārttika* has NOT been opened.  The
--- attribution above is carried from `machine/Yogyata.hs`, which carries
+-- attribution above is carried from `interactive/Yogyata.hs`, which carries
 -- it from its own sources.  Verse-level sourcing OWED AND NOT CLAIMED.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -147,7 +147,7 @@ stableDomainMakesItTotal D stab licenses x =
 -- is what is proved, not the impossibility of a better converse.
 --
 -- NOT CLAIMED: any verdict about this repository's import graph.  That
--- is `machine/Yogyata.hs`'s object and its three states (Reactor, Shelf,
+-- is `interactive/Yogyata.hs`'s object and its three states (Reactor, Shelf,
 -- Orphan) are its own; §1–§3 are about the CONDITION, and instantiating
 -- them at the import graph is not done here.
 --

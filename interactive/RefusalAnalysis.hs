@@ -13,7 +13,7 @@
 -- statement of WHY it did not close — and that statement is truncated to 160
 -- characters, written to a log nothing reads, and collapsed to `False`.
 --
--- Read three of them from machine/machine.log:
+-- Read three of them from interactive/machine.log:
 --
 --   x    != max x x      of type ℕ   when checking that refl has type x ≡ max x x
 --   zero != x ∸ x        of type ℕ   when checking that refl has type zero ≡ x ∸ x
@@ -270,9 +270,9 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- something false.
 --
 -- The argument that DOES hold is finiteness, measured over the whole of
--- machine/machine.log.
+-- interactive/machine.log.
 --
--- FIGURES RE-MEASURED 2026-08-18 by `machine/ObstructionCensus.hs`.  The log
+-- FIGURES RE-MEASURED 2026-08-18 by `interactive/ObstructionCensus.hs`.  The log
 -- has grown since they were first written and two of them were stale; both
 -- are corrected here rather than left standing, and the originals are kept
 -- so the drift is visible:
@@ -305,7 +305,7 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 
 -- ---------------------------------------------------------------- triage
 --
--- The census over machine/machine.log found 112 distinct residuals ("107"
+-- The census over interactive/machine.log found 112 distinct residuals ("107"
 -- stood here until 2026-08-18 and disagreed with the header's 112 on the
 -- same log; 112 is the re-measured figure), and they are NOT one kind of
 -- thing.  Three classes are tangled together, and
@@ -509,7 +509,7 @@ worthQueueing obs =
 -- occurrence count — which over-weights a goal retried across many rounds —
 -- but: HOW MANY DISTINCT PARENT GOALS WOULD THIS ONE LEMMA UNBLOCK.
 --
--- Measured over machine/machine.log (re-measured 2026-08-18, all three
+-- Measured over interactive/machine.log (re-measured 2026-08-18, all three
 -- unchanged; the first is disambiguated because the raw count of distinct
 -- goals on rejection lines is 238 and a reader could take "130" for that):
 --
@@ -582,7 +582,7 @@ curriculum ls =
 -- this that are theorems (Agda 2.6.3, --safe, no postulates, no holes,
 -- EXIT=0).  What follows is the measurement.
 --
--- THE OBSERVATION THAT FORCED THIS.  Two lines of machine/machine.log,
+-- THE OBSERVATION THAT FORCED THIS.  Two lines of interactive/machine.log,
 -- verbatim, both round 0.  QUOTED, NOT POINTED AT: that file is gitignored
 -- and is rewritten by every engine run, so no commit fixes its bytes and
 -- no line number names anything in it.  The quotations below ARE the
@@ -590,8 +590,8 @@ curriculum ls =
 -- "146 ... / 174 ...".  Both numbers rotted -- position 146 today is a
 -- KERNEL-SKIP of a different claim -- and the citation went on resolving
 -- after the object had gone, which is exactly the failure the sevenfold
--- below is about.  Registered as `uddhrta` in machine/mula.pramana and
--- checked by machine/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs.)
+-- below is about.  Registered as `uddhrta` in interactive/mula.pramana and
+-- checked by interactive/MulaPramana_ACitationNamesAFixedObjectOrItIsNotOne.hs.)
 --
 --   as quoted 2026-08-18:
 --     KERNEL-REJECT  x = (xmaxx)  ... refl has type x ≡ max x x
@@ -825,7 +825,7 @@ censusReport ls = unlines $
 
 -- ---------------------------------------------------------------- selftest
 --
--- Every string below is copied verbatim out of machine/machine.log.  A test
+-- Every string below is copied verbatim out of interactive/machine.log.  A test
 -- written against invented input would prove only that the parser parses its
 -- author's imagination.
 
@@ -909,7 +909,7 @@ selfTest = do
       ]
 
     -- SAPTABHANGI.  Every line below is copied verbatim out of
-    -- machine/machine.log at the line number named, and the accept-set is
+    -- interactive/machine.log at the line number named, and the accept-set is
     -- the two real ACCEPT lines the cases turn on rather than an invented
     -- one.  The point of testing against the real log twice over is that
     -- the sevenfold's ONE new axis — asti, "some naya affirmed this" — is

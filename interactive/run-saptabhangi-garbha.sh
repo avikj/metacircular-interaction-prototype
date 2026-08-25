@@ -1,7 +1,7 @@
 #!/bin/sh
 # run-saptabhangi-garbha.sh -- the machine returns the seven positions.
 #
-#   sh machine/run-saptabhangi-garbha.sh
+#   sh interactive/run-saptabhangi-garbha.sh
 #
 # Needs ghc and nothing else: no network, no Agda, no Lean, no Python.
 # The specification is checked in
@@ -9,4 +9,4 @@
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 cd "$ROOT" || exit 2
-exec runghc -imachine machine/SaptabhangiGarbhaRun.hs "$@"
+exec runghc -iinteractive interactive/SaptabhangiGarbhaRun.hs "$@"

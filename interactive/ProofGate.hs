@@ -130,9 +130,9 @@
 -- subgoal harvested from the kernel's own stall arrives unannotated.  Such a
 -- candidate now gets the same shape menu once per variable, bounded by
 -- `kMaxAgdaCallsUnannotated`, and the annotated case is unchanged in reach,
--- in shape and in budget.  Measured on `machine/library.snapshot.txt` with
+-- in shape and in budget.  Measured on `interactive/library.snapshot.txt` with
 -- every note stripped — which is exactly the shape a residual arrives in —
--- by `machine/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
+-- by `interactive/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
 -- on 2026-08-20:
 --
 --     note-less, before:  5/28 certified, 28 agda calls   (derived, exactly:
@@ -179,7 +179,7 @@
 -- collision therefore produces a MISS, never a wrong answer; the hash's job
 -- is to name a file, not to stand in for the content.
 --
--- WHAT IS STORED.  `machine/.certcache/<key>`, one small UTF-8 file:
+-- WHAT IS STORED.  `interactive/.certcache/<key>`, one small UTF-8 file:
 -- the verdict word, agda's exit code, the toolchain string, agda's output
 -- verbatim, and the module source.  A reader can copy the SOURCE block into
 -- a file and re-run agda on it; that is the point of storing it.
@@ -227,11 +227,11 @@
 -- its own.  `main` is that test.  From the repository root:
 --
 --     ghc -O0 -Wall -main-is ProofGate.main \
---         -outputdir /tmp/cert-build -o /tmp/cert machine/ProofGate.hs
+--         -outputdir /tmp/cert-build -o /tmp/cert interactive/ProofGate.hs
 --     /tmp/cert            # or: /tmp/cert <repository-root>
 --
 -- It takes about 100 seconds and prints one line per equation.  Result at
--- the time of writing: 15 of the 28 lines of machine/library.snapshot.txt
+-- the time of writing: 15 of the 28 lines of interactive/library.snapshot.txt
 -- certify, 13 are rejected with agda's reason, none are untranslatable,
 -- and four deliberate falsehoods are all rejected.  Every one of the 13
 -- rejections is a commutativity- or associativity-shaped statement whose
@@ -312,7 +312,7 @@ module ProofGate
   , reconstructModule
   , certifyCert
   , replayCert
-    -- * reading machine/library.txt
+    -- * reading interactive/library.txt
   , parseShowTerm
   , parseLibraryLine
   ) where
@@ -387,7 +387,7 @@ data Definition = Definition
 
 -- ------------------------------------------------- identifier validation
 --
--- THE HOLE THIS CLOSES (notes/TRUTH_GATE_AUDIT.md §1, machine/GateAudit.hs
+-- THE HOLE THIS CLOSES (notes/TRUTH_GATE_AUDIT.md §1, interactive/GateAudit.hs
 -- §(1), both 2026-08-16).
 --
 -- `defName` is the ONLY candidate-supplied string that reaches the emitted
@@ -875,7 +875,7 @@ kMaxAgdaCalls = 1
 -- How many variables get tried when the caller's proof note names none.
 -- `equationVars` returns at most the six universe variables, so this is a
 -- cap and not a formality; three covers every equation MathMachine has ever
--- written, and the demands in machine/SesaPariksa_...hs certify on the
+-- written, and the demands in interactive/SesaPariksa_...hs certify on the
 -- FIRST variable in all three cases that certify.
 kMaxInductionVariables :: Int
 kMaxInductionVariables = 3
@@ -1034,7 +1034,7 @@ runAgdaRaw root source = do
 -- WHAT AN EXIT STATUS IS WORTH.  Until 2026-08-16 the gate's entire evidence
 -- that a candidate had been PROVED was `code == ExitSuccess`.  That is not
 -- evidence about mathematics, it is evidence about a number a process
--- returned, and `machine/GateAudit.hs` section C exhibited three ways to
+-- returned, and `interactive/GateAudit.hs` section C exhibited three ways to
 -- separate the two.  The cheapest is not exotic: a wrapper of the shape
 --
 --     agda "$@" 2>&1 | cat
@@ -1428,7 +1428,7 @@ cacheableFailure out =
       ]
 
 -- ASYMMETRIC TRUST, which is the only kind an unauthenticated store can
--- carry.  `machine/.certcache` is a directory of files.  Anything that can
+-- carry.  `interactive/.certcache` is a directory of files.  Anything that can
 -- write there can write "VERDICT accepted" beside any module it likes, and
 -- `GateAudit --probe poison` does exactly that: one hand-written file turns
 -- `s(x) = x` into a `Certified` for zero agda invocations.  Signing is not
@@ -1521,7 +1521,7 @@ vetSuccess root out
 
 -- The same watch, for a caller that launched agda ITSELF.
 --
--- Eight modules under `machine/` do not call `runAgda` at all: they build
+-- Eight modules under `interactive/` do not call `runAgda` at all: they build
 -- their own `CreateProcess` and read the exit status, having copied the
 -- LOCALE discipline out of `runAgdaRaw` and left the fitness behind.  Closing
 -- the seam at `runAgda` does nothing for them, because they never cross it.
@@ -1738,7 +1738,7 @@ certifyWith defs root (eq, proofNote) =
     -- log accepts elsewhere.
     --
     -- Measured on the six lemmas the kernel demanded and no composition law
-    -- reaches (machine/SesaPariksa_...hs, and §9 of
+    -- reaches (interactive/SesaPariksa_...hs, and §9 of
     -- notes/SamasaBhavana_...md for where the six come from): asking each
     -- variable in turn moves THREE of the six from open to certified with the
     -- shape menu completely unchanged —
@@ -1842,7 +1842,7 @@ untranslatableReason defs eq@(l, r) =
 
 -- --------------------------------------------- serialisable certificates
 --
--- The corpus wants machine/library.txt to be a re-checkable LEDGER, not a
+-- The corpus wants interactive/library.txt to be a re-checkable LEDGER, not a
 -- trust-me list.  `certify` above proves a library equation once, inside
 -- this process, and then the proof term is gone: the file records only the
 -- equation and a prose note ("[induction on x]").  Re-reading the file
@@ -2094,7 +2094,7 @@ pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf
 -- operator: it read `xmaxx` as one nullary symbol, then looked for an infix
 -- operator, found `)`, and returned `Nothing`.  `parseLibraryLine` therefore
 -- failed on EVERY `max` line the machine has ever written — four of the 28
--- lines of `machine/library.snapshot.txt` — and failed by returning "this
+-- lines of `interactive/library.snapshot.txt` — and failed by returning "this
 -- line did not parse", which reads as a malformed file rather than as a
 -- defect in the reader.  `ProofGate.main` never saw it because its
 -- `snapshot` is transcribed by hand in Haskell; anything that reads the FILE
@@ -2191,7 +2191,7 @@ c0 t = F "c0" [t]
 selfTestDefs :: [Definition]
 selfTestDefs = [ Definition "c0" 1 (bin "+" (V 0) (V 0)) ]
 
--- machine/library.snapshot.txt, transcribed exactly, in order.
+-- interactive/library.snapshot.txt, transcribed exactly, in order.
 snapshot :: [(String, Equation, String)]
 snapshot =
   [ ("x = (0+x)", (x_, bin "+" zero_ x_), "[induction on x]")
@@ -2255,7 +2255,7 @@ main = do
     (if on then "ON" else "OFF (MATH_CERTCACHE)" :: String)
     (show (root </> kCertCacheDir))
   t0 <- getCurrentTime
-  putStrLn "== machine/library.snapshot.txt =="
+  putStrLn "== interactive/library.snapshot.txt =="
   trues <- mapM (report root) snapshot
   putStrLn ""
   putStrLn "== beyond the snapshot =="

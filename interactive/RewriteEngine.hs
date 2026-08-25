@@ -1445,7 +1445,7 @@ render = concatMap f
 -- WHAT WAS HERE BEFORE.  Nothing.  `Item` was `P String` and a rewrite
 -- overwrote it, so the moment 8.2.30 turned `c` into `k` the `c` was gone
 -- from the machine and no later rule could have read it even if 1.1.56
--- told it to.  `machine/Nigrahasthana_...hs` recorded exactly this gap:
+-- told it to.  `interactive/Nigrahasthana_...hs` recorded exactly this gap:
 -- "the al-vidhi direction is asserted; the designation direction is
 -- recorded as absent."  The channel below is the missing half.
 --
@@ -2073,7 +2073,7 @@ asiddhaAudit start =
 -- false.  What is taken from Āryabhaṭa is the DISPOSAL RULE (keep the
 -- remainder, it is the material) and not the termination proof.
 --
--- THE PRECEDENT IN THIS REPOSITORY.  `machine/RefusalAnalysis.hs` did this for
+-- THE PRECEDENT IN THIS REPOSITORY.  `interactive/RefusalAnalysis.hs` did this for
 -- the theorem engine: the kernel's refusals carried the exact pair of terms
 -- at which computation stalled, and every one of them was truncated to 160
 -- characters and collapsed to `False`.  1303 residuals recovered, 112

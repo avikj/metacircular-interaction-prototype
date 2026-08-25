@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- AFigureWithoutItsInputDecidesNothing
 --
--- `machine/ObstructionCensus.hs` prints published figures next to
+-- `interactive/ObstructionCensus.hs` prints published figures next to
 -- recomputed ones as a regression guard, and then says exactly why that
 -- guard is weaker than it looks:
 --
@@ -12,7 +12,7 @@
 --    a count without its input is the same defect as a constant without
 --    its scaling."
 --
--- Its input, `machine/machine.log`, is excluded by `.gitignore:16` — no
+-- Its input, `interactive/machine.log`, is excluded by `.gitignore:16` — no
 -- clone has it, no reader reproduces it, and it grows whenever the
 -- engine runs.  §2 is that sentence as a theorem, and §3 is the exact
 -- amount the guard recovers once the input IS shared, which is less than

@@ -13,7 +13,7 @@
 -- the theorem in this file; he stated the rule, and this is what the rule
 -- costs to execute.
 --
--- WHY THIS FILE EXISTS.  `machine/Nalanda.hs`, `chooseM`, enumerates the
+-- WHY THIS FILE EXISTS.  `interactive/Nalanda.hs`, `chooseM`, enumerates the
 -- residue class m = r + t·n only over
 --
 --     t ∈ [t₀ − 2 .. t₀ + 2],       t₀ = (⌊√D⌋ − r) div n
@@ -64,7 +64,7 @@
 --
 --   * That `t₀ = (⌊√D⌋ − r) div n` DOES bracket, i.e. that
 --     (r + t₀·n)² ≤ D ≤ (r + (t₀+1)·n)².  That is a fact about `div` and
---     `isqrt` in `machine/Nalanda.hs`, not about the choice rule, and it is
+--     `isqrt` in `interactive/Nalanda.hs`, not about the choice rule, and it is
 --     taken here as the hypothesis `lo ≤ hi`-with-costs rather than derived.
 --     Naming it is the point: the window argument is complete GIVEN a
 --     bracket, and producing the bracket is a separate obligation on the
