@@ -35,7 +35,7 @@
 # differs, and `dosa.pramanya` verifies whichever one it is pointed at.
 #
 # THE SEAM, stated rather than discovered.  This machine imports
-# interactive/Phonology.hs (120 KB) and interactive/Obstruction.hs, which other
+# interactive/RewriteEngine.hs (120 KB) and interactive/RefusalAnalysis.hs, which other
 # lanes edit.  A grammar file mid-surgery does not typecheck, and failing the
 # whole check then would report `the machine is broken` when the true
 # statement is `another lane is mid-edit`.  Those are two facts and a single
@@ -46,10 +46,10 @@ OUT="${YANTRA_OUT:-${TMPDIR:-/tmp}/yantra-$(id -u)}"
 mkdir -p "$OUT"
 
 # organ 2: the doṣa-lekha, built first, because the machine files into it.
-DOSA_SRC="$ROOT/interactive/DefectLog.hs"
+DOSA_SRC="$ROOT/interactive/DefectRecord.hs"
 DOSA_BIN="$OUT/dosalekha"
 if [ ! -x "$DOSA_BIN" ] || [ "$DOSA_SRC" -nt "$DOSA_BIN" ]; then
-  ghc -O0 -main-is DefectLog.main \
+  ghc -O0 -main-is DefectRecord.main \
       -outputdir "$OUT/dosa-build" -o "$DOSA_BIN" "$DOSA_SRC" >"$OUT/dosa-build.log" 2>&1 || {
     echo "run-yantra: the doṣa-lekha did not build.  first errors:" >&2
     grep -E "error" -A6 "$OUT/dosa-build.log" | head -20 >&2
