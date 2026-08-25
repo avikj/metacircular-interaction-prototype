@@ -1,4 +1,4 @@
--- DefectLog.hs
+-- DefectRecord.hs
 --
 -- दोषलेखः — the written defect.  The machine's SECOND organ.
 --
@@ -150,9 +150,9 @@
 -- ─────────────────────────────────────────────────────────────────────
 -- USE.  Build and run through machine/run-dosa-lekha.sh, or directly:
 --
---   ghc -O0 -Wall -main-is DefectLog.main \
+--   ghc -O0 -Wall -main-is DefectRecord.main \
 --       -outputdir /tmp/dl -o /tmp/dosalekha \
---       machine/DefectLog.hs
+--       machine/DefectRecord.hs
 --
 --   dosalekha schema              the field grammar and the kinds, for an
 --                                 LLM about to write an entry
@@ -173,7 +173,7 @@
 -- wrote a log format.  What is taken from each is the DISTINCTION named
 -- beside it, and the rule for when it applies.
 
-module DefectLog (main) where
+module DefectRecord (main) where
 
 import Control.Monad (forM_, unless, when)
 import Data.Bits (xor, shiftR, (.&.))
@@ -705,7 +705,7 @@ header = unlines
   , "# AHIMSA_SUTRA_VISTARA §6: यत्र संक्रमणं न सम्भवति तत्र दोषो लिख्यते ।"
   , "#                          लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।"
   , "#"
-  , "# Written by machine/DefectLog.hs, which computes"
+  , "# Written by machine/DefectRecord.hs, which computes"
   , "# `sara:` as a chain over every preceding record.  Edit any line above the"
   , "# last record and `dosalekha verify` names the record where it happened."
   , "# To correct a record, APPEND one whose `uttara:` names it."

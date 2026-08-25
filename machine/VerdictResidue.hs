@@ -2,7 +2,7 @@
 -- the standpoints that produced them, and the birth that takes the fourth
 -- position on to the next derivation.
 --
--- WHAT IT REPLACES.  `machine/SevenfoldVerdict.hs` gives the
+-- WHAT IT REPLACES.  `machine/Verdict.hs` gives the
 -- seven as seven nullary constructors and a presence-profile in {Aam, Na}^3.
 -- Its `saha` is a function on those labels, and its own comment says:
 --
@@ -72,7 +72,7 @@
 -- NOT CLAIMED: that any of them wrote a composition operator, a residue
 -- record, or an iterated aspect refinement.
 
-module ResidueStream
+module VerdictResidue
   ( Arpana(..), Naya(..), Sesa(..), Bhanga(..)
   , nayaAdhisthana, stara, viveka
   , astyamsa, nastyamsa, sesamsa
@@ -86,7 +86,7 @@ module ResidueStream
 
 import Data.List (intercalate)
 import Data.Maybe (isNothing)
-import qualified SevenfoldVerdict as L
+import qualified Verdict as L
 
 -- ------------------------------------------------------------------ 1 naya
 
@@ -277,7 +277,7 @@ renderBhanga b = case b of
 
 -- ------------------------------------------- 7b anarpana: the label lane
 --
--- The forgetful map into `SevenfoldVerdict.Bhanga` -- this
+-- The forgetful map into `Verdict.Bhanga` -- this
 -- module's positions read with the naya UNASSERTED (Umasvati,
 -- Tattvarthasutra 5.31, arpitanarpita-siddheh: the aspect not made primary
 -- in this utterance, which is NOT a claim that there was none).

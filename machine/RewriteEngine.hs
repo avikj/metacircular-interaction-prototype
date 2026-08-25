@@ -122,7 +122,7 @@
 -- file makes is a finite exhaustive check in `selfTest`, which either returns
 -- [] or names what failed.
 
-module Phonology
+module RewriteEngine
   ( -- the sound system
     Slot(..)
   , sivasutraTable
@@ -2073,7 +2073,7 @@ asiddhaAudit start =
 -- false.  What is taken from Āryabhaṭa is the DISPOSAL RULE (keep the
 -- remainder, it is the material) and not the termination proof.
 --
--- THE PRECEDENT IN THIS REPOSITORY.  `machine/Obstruction.hs` did this for
+-- THE PRECEDENT IN THIS REPOSITORY.  `machine/RefusalAnalysis.hs` did this for
 -- the theorem engine: the kernel's refusals carried the exact pair of terms
 -- at which computation stalled, and every one of them was truncated to 160
 -- characters and collapsed to `False`.  1303 residuals recovered, 112
@@ -2106,7 +2106,7 @@ asiddhaAudit start =
 -- position, the juncture, the competing refs, and the parent input that
 -- demanded it -- so the debt is traceable to what asked for it.  Then
 -- `nirnaya` triages WITH EVIDENCE, `pravesha` admits or turns back WITH ITS
--- GROUND (the discipline of Obstruction.hs: नकारः खण्डनं ददाति, स्वीकारः
+-- GROUND (the discipline of RefusalAnalysis.hs: नकारः खण्डनं ददाति, स्वीकारः
 -- साक्षिणम् -- nowhere a bare truth-value), and `sesaPrasna` ranks what
 -- entered by HOW MANY DISTINCT PARENTS demand it.  That ranking is the
 -- machine stating which sūtra it needs next, derived from where its own work
@@ -2186,7 +2186,7 @@ sesaPada s = case sSandhi s of
   _ -> ""
 
 -- निर्णयः -- the verdict on one residual, and every constructor carries the
--- evidence that put it there.  This is `Obstruction.hs`'s `Verdict`, the same
+-- evidence that put it there.  This is `RefusalAnalysis.hs`'s `Verdict`, the same
 -- four positions for the same reason: a verdict without its ground arrives
 -- downstream stripped of why, and nothing downstream can ask.
 -- नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् -- क्वापि न शून्यबोधः ।
@@ -2224,7 +2224,7 @@ vidhiRefs :: [Ref]
 vidhiRefs = [ num s | s <- sutras, styp s == Vidhi ]
 
 -- प्रवेशः -- admission, WITH ITS GROUND on both sides.  The extension is
--- Obstruction.hs's, deliberately: अविरुद्ध and तूष्णीम् enter, खण्डित and
+-- RefusalAnalysis.hs's, deliberately: अविरुद्ध and तूष्णीम् enter, खण्डित and
 -- निर्धर्मिन् turn back.  तूष्णीम् entering is not an oversight -- a token the
 -- sound system does not contain is a debt against the INVENTORY, and it is
 -- the one debt no sūtra can ever discharge.
@@ -2243,7 +2243,7 @@ pravesha v@(Tusnim _)     = Pravishati v
 pravesha v@(Khandita _)   = Nivartate v
 pravesha v@(Nirdharmin _) = Nivartate v
 
--- DELIBERATELY ABSENT, as in Obstruction.hs: `entered :: Pravesha -> Bool`.
+-- DELIBERATELY ABSENT, as in RefusalAnalysis.hs: `entered :: Pravesha -> Bool`.
 -- One line of that shape restores the bare label for every caller at once and
 -- reads as a convenience while doing it.  Callers match, and in matching they
 -- hold the reason.
@@ -2318,7 +2318,7 @@ sesah src = alien ++ undecided ++ unfinished ++ gaps
 ------------------------------------------------------------------------
 
 -- What entered, ranked by HOW MANY DISTINCT PARENTS demand it -- the ranking
--- `Obstruction.curriculum` uses, for the same reason.  A raw occurrence count
+-- `RefusalAnalysis.curriculum` uses, for the same reason.  A raw occurrence count
 -- over-weights one input retried across rounds; what a queue is actually
 -- being asked is which single missing rule unblocks the most derivations.
 --
@@ -3225,7 +3225,7 @@ selfTest = concat
       , chk "f is not a sound of the varṇasamāmnāya"     (phoneOf "f") Nothing
       , chk "so the residual is तूष्णीम्, carrying the token"
           (map nirnaya alien) [Tusnim "f"]
-      , chk "and तूष्णीम् enters, as it does in Obstruction.hs"
+      , chk "and तूष्णीम् enters, as it does in RefusalAnalysis.hs"
           (map (pravesha . nirnaya) alien) [Pravishati (Tusnim "f")]
       -- the conflict the metarules do not decide.  ARMED, NOT EXERCISED:
       -- the sūtras encoded here never produce two contenders at one locus

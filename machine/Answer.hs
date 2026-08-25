@@ -70,7 +70,7 @@ module Answer
   , saksiPariksaOrRefuse
   ) where
 
-import Json (J(..), render)
+import Wire (J(..), render)
 import System.Exit (exitFailure)
 import System.IO (hPutStrLn, stderr)
 

@@ -71,7 +71,7 @@
 --
 -- A SIBLING TYPE DISAGREES WITH THIS ONE, AND THE DISAGREEMENT STANDS.
 --
--- `machine/ResidueStream.hs` (another lane, same
+-- `machine/VerdictResidue.hs` (another lane, same
 -- day) gives the seven positions as constructors CARRYING the nayas and
 -- witnesses that produced them, so its fourth position remembers which two
 -- seeds it was made of and `caturthatTritiya` recovers the third from it.
@@ -130,7 +130,7 @@
 -- that is why it is a semilattice.  `saha` writes the defect: it destroys
 -- which two seeds it consumed, which is why it does not associate.
 
-module SevenfoldVerdict
+module Verdict
   ( Bhanga(..), Sthana(..), Upasthiti(..), Samavesa
   , profile, unprofile, isVerdict
   , krama, saha, kramaS, sahaS, nyuna
@@ -141,7 +141,7 @@ module SevenfoldVerdict
   ) where
 
 import Data.List (nub, sort)
-import qualified Obstruction as OB
+import qualified RefusalAnalysis as OB
 import Data.Maybe (isJust, mapMaybe)
 
 -- ------------------------------------------------------------------ १ seeds
@@ -253,7 +253,7 @@ nyuna x y = krama x y == y
 -- --------------------------------------------------- ४ live evidence
 
 -- The standpoint, carried explicitly, with WITNESSES rather than flags.  A
--- `Maybe String` and not a `Bool` for the same reason `Obstruction.Evidence`
+-- `Maybe String` and not a `Bool` for the same reason `RefusalAnalysis.Evidence`
 -- keeps `evSakshin` as the accept line itself: affirmation may not be
 -- asserted without producing the thing that affirms.
 --
@@ -419,7 +419,7 @@ selfTest =
 -- utterance carries both.  The process fact "that tactic exited non-zero" is
 -- a fact about the ATTEMPT and is already in `koNaya`.
 --
--- This differs from `Obstruction.sthana`, which sets `nasti = True` on every
+-- This differs from `RefusalAnalysis.sthana`, which sets `nasti = True` on every
 -- refusal by construction.  The disagreement is written down here rather
 -- than silently reconciled (AHIMSA_SUTRA_VISTARA §6: transport, or a WRITTEN
 -- defect, and no third path).

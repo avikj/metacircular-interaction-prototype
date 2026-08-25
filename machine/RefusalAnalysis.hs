@@ -47,7 +47,7 @@
 -- from the day it lands, and `selfTest` runs against the real log strings
 -- above rather than against invented ones.
 
-module Obstruction
+module RefusalAnalysis
   ( Term(..)
   , Obstruction(..)
   , parseAgdaTerm

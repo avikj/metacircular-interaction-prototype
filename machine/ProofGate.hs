@@ -1,8 +1,8 @@
--- Certificate.hs — the Agda emitter for the kernel gate.
+-- ProofGate.hs — the Agda emitter for the kernel gate.
 --
 -- LEGACY POINTER (2026-08-23).  MathMachine.hs — "the CLOSE-lane
 -- ℕ-equation spinner", 239 rounds / ZERO theorems installed — was RETIRED
--- at commit 832a549 as a toy that "looks alive but isn't".  Certificate.hs
+-- at commit 832a549 as a toy that "looks alive but isn't".  ProofGate.hs
 -- is one of the four organs the commit records as SURVIVING it (with
 -- Certify.hs, ArithVocab.hs, library.terms); the live substrate is the
 -- cubical corpus + the crystal runtime, and candidate generation is now
@@ -226,8 +226,8 @@
 -- its own copy of the Term type so it can be compiled, run and tested on
 -- its own.  `main` is that test.  From the repository root:
 --
---     ghc -O0 -Wall -main-is Certificate.main \
---         -outputdir /tmp/cert-build -o /tmp/cert machine/Certificate.hs
+--     ghc -O0 -Wall -main-is ProofGate.main \
+--         -outputdir /tmp/cert-build -o /tmp/cert machine/ProofGate.hs
 --     /tmp/cert            # or: /tmp/cert <repository-root>
 --
 -- It takes about 100 seconds and prints one line per equation.  Result at
@@ -239,7 +239,7 @@
 -- needs a lemma environment — certificates emitted in dependency order,
 -- with earlier theorems in scope for later ones — not more step shapes.
 
-module Certificate
+module ProofGate
   ( -- * terms
     Term(..)
   , Equation
@@ -641,7 +641,7 @@ preambleCore syms =
     -- goal that mentions them.  These two lemmas ARE those clauses completed,
     -- each proved by induction with both cases `refl`; the citing step shapes
     -- in `citingStepShapes` discharge the goal with `sym (…)`.  This is the
-    -- lemma environment Certificate.hs:238-240 named, realised as a fixed,
+    -- lemma environment ProofGate.hs:238-240 named, realised as a fixed,
     -- bounded, in-scope set rather than an unbounded dependency-ordered search.
     localMaxZeroL
       | need "max" =
@@ -717,7 +717,7 @@ agdaInductionCertificate defs eq@(l, r) v step = do
 -- A NON-INDUCTIVE certificate: hand the whole telescoped equation to a
 -- reflection semiring solver (Cubical.Tactics.NatSolver), used point-free
 -- as `candidate = <macro>`.  This closes the commutativity/associativity/
--- distributivity class that Certificate.hs:238-240 named as needing "a lemma
+-- distributivity class that ProofGate.hs:238-240 named as needing "a lemma
 -- environment ... not more step shapes": those thirteen rejections are all
 -- ℕ-semiring identities whose base case is itself a lemma (y ≢ y + zero
 -- definitionally), and a semiring solver is the decision procedure for
@@ -1433,7 +1433,7 @@ cacheableFailure out =
 -- `GateAudit --probe poison` does exactly that: one hand-written file turns
 -- `s(x) = x` into a `Certified` for zero agda invocations.  Signing is not
 -- available (there is no secret here, and an adversary with the filesystem
--- has `Certificate.hs` too), so the answer is not to authenticate the store
+-- has `ProofGate.hs` too), so the answer is not to authenticate the store
 -- but to stop asking it the question that matters.
 --
 -- The two directions are not symmetric:
@@ -2096,7 +2096,7 @@ pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf
 -- failed on EVERY `max` line the machine has ever written — four of the 28
 -- lines of `machine/library.snapshot.txt` — and failed by returning "this
 -- line did not parse", which reads as a malformed file rather than as a
--- defect in the reader.  `Certificate.main` never saw it because its
+-- defect in the reader.  `ProofGate.main` never saw it because its
 -- `snapshot` is transcribed by hand in Haskell; anything that reads the FILE
 -- (`CertReplay`, and the combined-reach harness) lost those lines silently.
 --

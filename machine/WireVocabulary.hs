@@ -42,7 +42,7 @@
 -- position.  The Greek is a second door onto the same room, opened
 -- because more people can find it.  It is not the room.
 
-module Lexicon
+module WireVocabulary
   ( Register(..)
   , registerOf
   , Entry(..)
@@ -52,7 +52,7 @@ module Lexicon
   , lexiconJ
   ) where
 
-import Json (J(..))
+import Wire (J(..))
 
 data Register = Greek | Sanskrit deriving (Eq, Show)
 

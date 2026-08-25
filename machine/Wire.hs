@@ -82,7 +82,7 @@
 -- unaccepted route is not weak evidence but no evidence (§19 of the
 -- sūtra: अप्रमाणं न सञ्चीयते — what is not a pramāṇa does not accumulate).
 
-module Json
+module Wire
   ( J(..)
   , render
   , parseJ

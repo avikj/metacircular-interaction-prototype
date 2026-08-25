@@ -16,13 +16,13 @@
 --
 -- Five, and each carries its witness rather than a name alone.
 
-module Evidence
+module EvidenceRoute
   ( Pramanya(..)
   , pramanyaJ
   , pramanyaWitness
   ) where
 
-import Json (J(..))
+import Wire (J(..))
 
 data Pramanya
   = Pratyaksa String
@@ -37,7 +37,7 @@ data Pramanya
     --   measurement: there is no error term because there is no error.
   | Kernel String
     -- ^ agda typechecked an emitted module, with the two controls having
-    --   been watched first (Certificate.kernelStatus).
+    --   been watched first (ProofGate.kernelStatus).
   | Ayogya String
     -- ^ NO route.  Legal only on a doṣa-lekha; Yantra's `mudra` turns a
     --   transport carrying it into a defect about itself.
