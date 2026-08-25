@@ -1,5 +1,44 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
+-- ────────────────────────────────────────────────────────────────────
+-- ⚑ STRUCK 2026-08-25, and the strike is against this file's OWN slogan,
+-- not against its term.  Salvaged from PR #23, which wrote it into a
+-- README.md main has since deleted; it belongs here, in the module it is
+-- about.
+--
+-- ~~"The lossless world is frozen: motion requires hiding."~~
+-- ~~"In a world where everything is seen, nothing can happen that keeps
+--   the books."~~  ~~"The universe has dynamics BECAUSE it has cuts."~~
+--
+-- READ THE TYPE.  `नष्ट-अभावे-गति-अभावः : isEquiv f → संरक्षणम् → (a : A)
+-- → Φ a ≡ a` quantifies over the Φ that satisfy `संरक्षणम्` AND OVER NO
+-- OTHERS.  Φ is a bare self-map — no inverse, no group — and the theorem
+-- kills exactly the conservative ones.  **A lossless world still has every
+-- non-conservative Φ available to it and is NOT frozen.  What it lacks is
+-- conservative dynamics, not dynamics.**  Motion does not require hiding;
+-- CONSERVATION requires hiding, which is the weaker sentence this file
+-- already had and which needed no strengthening.
+--
+-- AND THE HYPOTHESIS IS ONE PHYSICS NEVER OCCUPIES.  `isEquiv f` says the
+-- observable is a COMPLETE state description.  No conserved quantity is
+-- one: energy is a map from phase space to ℝ, enormously lossy, and so is
+-- every Noether charge — which is precisely this file's own content, "the
+-- conserved quantity is the fibre index."  So the `isEquiv` branch is not
+-- a statement about worlds that have conservation laws.  It is the
+-- degenerate case where there is no index left to carry, and reading it
+-- as a cosmological necessity imports what the term cannot carry.
+--
+-- WHAT SURVIVES, smaller and still worth it: `isEquiv f → संरक्षणम् →
+-- Φ ≡ id` forces stillness only for flows conserving a LOSSLESS
+-- observable.  Nothing conservative remains at the apex.  That is a
+-- different sentence from *omniscience is stillness*.
+--
+-- THE TERM IS SOUND AND IS NOT TOUCHED.  §२'s proof is correct as
+-- written: `c : isContr (fiber f (f a))` from `equiv-proof`, the two
+-- inhabitants `(Φ a , cons a)` and `(a , refl)`, `cong fst` on the
+-- composite.  What was struck above was written AROUND the term, not in
+-- it.
+-- ────────────────────────────────────────────────────────────────────
 ------------------------------------------------------------------------
 -- ध्रुव — यत्र न किञ्चित् नश्यति तत्र गतिः अपि न अस्ति ।
 --
