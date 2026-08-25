@@ -42,15 +42,23 @@ zzz/natural_machine_cpu_loop_rust/decic_extend
 zzz/natural_machine_cpu_loop_rust/root_singular_series
 formal/cubical/Candidate_*.agda
 
-# interactive/library.terms is NOT ignored, and used to be, listed right here
-# among the reproducible artifacts.  It is the opposite of one: it is the
-# machine's MEMORY, the file MathMachine reads at startup to re-admit what
-# earlier runs proved.  Ignored, it never left the container that wrote it,
-# so every fresh checkout — every CI job, every new session, every future
-# scheduled run — started the machine from mRules = [] and re-derived the
-# same theorems forever.  The engine's own comment says the architecture
-# "rests on installed theorems compounding"; nothing can compound across a
-# clone that does not carry the file.  Tracked as of 2026-08-17.
+# interactive/library.terms WAS tracked, on the reasoning kept below, and is
+# ignored again as of 2026-08-25.  The reasoning was sound and its premise is
+# gone: it named MathMachine as the reader that loads this file at startup, and
+# MathMachine.hs no longer exists in this repository.  The current machine
+# (Main -> Server -> ProofGate/DefectRecord) reads no repository data file at
+# all except the defect log named by $DOSA_LEKHA; every other name below
+# appears in the Haskell only inside comments.  Verified 2026-08-25 by
+# grepping every readFile/openFile/withFile/hGetContents in interactive/*.hs.
+# Nothing can compound across a clone that does not carry the file -- and
+# nothing reads it, so nothing compounds either way.  The superseded note,
+# kept because it records why it was tracked for eight days:
+#
+#   > It is the machine's MEMORY, the file MathMachine reads at startup to
+#   > re-admit what earlier runs proved.  Ignored, it never left the container
+#   > that wrote it, so every fresh checkout started the machine from
+#   > mRules = [] and re-derived the same theorems forever.  Tracked as of
+#   > 2026-08-17.
 
 # Machine build artifacts (reproducible; never source of truth)
 interactive/*.hi
@@ -150,6 +158,47 @@ zzz/**/*.pyc
 # verifies THIS run and not a history it did not produce.  So a committed
 # copy is, by construction, always some other container's run — and a
 # `--wire` session deletes it and writes nothing, which is how it showed
-# up as a staged deletion.  interactive/dosa.lekha, the shared append-only
-# log several lanes write to, is a different file and stays tracked.
+# up as a staged deletion.
 interactive/yantra-session.lekha
+
+# ---------------------------------------------------------------------------
+# THE LANE-ERA DATA FILES.  Untracked 2026-08-25, kept on disk.
+#
+# These are session state from the period when several lanes ran against one
+# working tree: a shared defect log, a standpoint store, engine memory,
+# replay traces, scratch notes.  They are records of runs, not sources.  None
+# of them is read by the machine that exists now -- see the note above on
+# library.terms for the check that establishes it -- and none is an input to
+# `sh check`, which typechecks only formal/, fibre/ and the Lean root closure.
+#
+# interactive/dosa.lekha is the largest of them: 41 append-only records
+# written 2026-08-20..23 by twelve different lane authors, hash-chained, each
+# naming what a collapse at that site would have destroyed.  It was tracked
+# because several lanes appended to it concurrently and the chain had to
+# survive a clone.  There are no longer several lanes.  run-yantra.sh points
+# $DOSA_LEKHA at the per-run session log above and never reads this file, so
+# untracking it does not change what the machine does; it stops a 181 KB
+# multi-agent transcript from being part of what the repository presents.
+#
+# Kept on disk rather than deleted: `git log` still answers for all of them,
+# and interactive/scripts that predate this still find them in a working
+# container.  A fresh clone will not have them -- scripts/check-dosa-lekha.sh
+# and the other lane runners are the ones that will notice.
+# ---------------------------------------------------------------------------
+interactive/dosa.lekha
+interactive/naya.kosha
+interactive/library.terms
+interactive/library.gen1.txt
+interactive/library.snapshot.txt
+interactive/replay.traces
+interactive/machine.log.gen1
+interactive/mula.pramana
+interactive/nadi-saksin
+interactive/repairfixpoint.cert.txt
+interactive/sanghatta-report-2026-08-23.txt
+interactive/knobs.conf
+interactive/svayam-avatarana
+interactive/pratikara.STRUCK
+interactive/pratikara.STRUCK.*
+interactive/thoughts.*.math
+interactive/thoughts.math
