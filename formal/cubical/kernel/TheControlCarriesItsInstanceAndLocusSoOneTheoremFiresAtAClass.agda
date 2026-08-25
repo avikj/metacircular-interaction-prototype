@@ -95,6 +95,11 @@
 -- `advance` only, and the rest is named and left.  The substitution is for
 -- ONE variable (`var`, via `subVar`), the only one `RewriteCertificate`
 -- defines; the other five `Env` coordinates are not schematic.
+--
+-- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- `sh check` EXIT 0,
+-- 2026-08-25, every kernel module and the fibre law green in the same run.
+-- The commit that introduced this file said NOT YET CHECKED AT THE PIN and
+-- meant it; this is the discharge, added rather than amended into history.
 ------------------------------------------------------------------------
 
 module TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass where
