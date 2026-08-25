@@ -11,7 +11,7 @@
 -- the extent of the search; an inference with an undetected upādhi is not
 -- knowledge, however many instances stand behind it.
 --
--- SCOPE.  `Yantra.Shodhita` and `Yantra.Ekam` in 944676e4 hold a gate at
+-- SCOPE.  `Primes.Shodhita` and `Primes.Ekam` in 944676e4 hold a gate at
 -- every step of a Mertens walk, `|M(k)|² ≤ k`, and report it as
 -- "the mertens fragment of RH" and "RH-fragment: |M(k)| ≤ √k for all
 -- k ≤ 400".  Two things are wrong with that label and one thing is right.
@@ -54,11 +54,11 @@
 -- epistemic defect and is not offered as a source for the mathematics.
 ------------------------------------------------------------------------
 
-module Yantra.Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis where
+module Primes.Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis where
 
-open import Yantra.Shodhita using (μ̂)
-open import Yantra.Parisodhana using (dec≤)
-open import Yantra.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
+open import Primes.Shodhita using (μ̂)
+open import Primes.Parisodhana using (dec≤)
+open import Primes.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
   using (True; toWitness)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
@@ -115,7 +115,7 @@ restrict mc zero    = tt
 restrict mc (suc k) = mc (suc k) , restrict mc k
 
 -- and there is no term in the other direction, on purpose.  the walk in
--- `Yantra.Shodhita` and `Yantra.Ekam` establishes the RIGHT-HAND side for
+-- `Primes.Shodhita` and `Primes.Ekam` establishes the RIGHT-HAND side for
 -- one n and was reported as though it bore on the left.
 
 -- ═══ the finite fact, as a proof object rather than a flag ═══

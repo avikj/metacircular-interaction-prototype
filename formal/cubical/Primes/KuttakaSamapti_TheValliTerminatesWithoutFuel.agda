@@ -9,7 +9,7 @@
 -- The instruction the method is named for is *śeṣaṃ rakṣa* — keep the
 -- remainder — and recurse on it.
 --
--- SCOPE.  `Yantra.Kuttaka` in 944676e4 generates the vallī with a fuel
+-- SCOPE.  `Primes.Kuttaka` in 944676e4 generates the vallī with a fuel
 -- constant (`valli 200 137 60`) and proves nothing about it; every claim
 -- in that module is `refl` on closed numerals.  It is the one module in
 -- the machine named for a descent law and the one module whose descent is
@@ -32,10 +32,10 @@
 -- strictly decrease and for no other reason.
 ------------------------------------------------------------------------
 
-module Yantra.KuttakaSamapti_TheValliTerminatesWithoutFuel where
+module Primes.KuttakaSamapti_TheValliTerminatesWithoutFuel where
 
-open import Yantra.Prakriti using (divides)
-open import Yantra.Bhaga using (eucl)
+open import Primes.Prakriti using (divides)
+open import Primes.Bhaga using (eucl)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

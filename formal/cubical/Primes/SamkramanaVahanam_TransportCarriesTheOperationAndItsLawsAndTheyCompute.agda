@@ -4,7 +4,7 @@
 -- संक्रमण-वहनम् — the concurrence carries the WHOLE structure, and the
 -- carried structure COMPUTES.
 --
--- `Yantra.Samkramana` identified the pair ℕ × ℕ with the triple
+-- `Primes.Samkramana` identified the pair ℕ × ℕ with the triple
 -- rāśi-traya by univalence — `yugma≡rāśi-traya = ua (anuloma , viloma)` —
 -- and carried the successor `Φ` across it.  A point rode the return.
 --
@@ -39,14 +39,14 @@
 -- no holes.
 ------------------------------------------------------------------------
 
-module Yantra.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
+module Primes.SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Transport using (transport⁻Transport)
 open import Cubical.Data.Nat using (ℕ ; zero ; _+_ ; +-assoc ; +-comm ; +-zero)
 open import Cubical.Data.Sigma using (ΣPathP)
 
-open import Yantra.Samkramana
+open import Primes.Samkramana
   using ( rāśi-traya ; anuloma ; viloma ; yugma≡rāśi-traya ; _×_ )
 
 private

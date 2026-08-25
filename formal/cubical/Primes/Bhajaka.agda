@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Bhajaka where
+module Primes.Bhajaka where
 -- भाजक: euclid's lemma from the gcd, and a prime dividing a product
 -- divides one of its factors.  The uniqueness pillar.
 
-open import Yantra.Prakriti
-open import Yantra.Vibhajana using (Prati; product)
+open import Primes.Prakriti
+open import Primes.Vibhajana using (Prati; product)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

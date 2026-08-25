@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Vada where
+module Primes.Vada where
 -- वाद: the disputed propositions stated INSIDE the machine, with
 -- per-instance deciders.  The ∀ is open; every instance is closable.
 
-open import Yantra.Prakriti
+open import Primes.Prakriti
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

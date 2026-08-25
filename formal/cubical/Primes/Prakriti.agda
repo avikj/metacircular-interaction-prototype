@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Prakriti where
+module Primes.Prakriti where
 -- प्रकृति: EVERY n > 1 has a prime divisor.  Universal, no fuel, no sweep.
 
 open import Cubical.Foundations.Prelude

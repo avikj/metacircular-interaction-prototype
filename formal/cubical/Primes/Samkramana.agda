@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
-module Yantra.Samkramana where
+module Primes.Samkramana where
 
 open import Cubical.Foundations.Prelude     using (Type; _≡_; PathP; refl; sym; cong; _∙_; transport; transport-filler; ~_; _∨_)
 open import Cubical.Foundations.Isomorphism using (Iso; iso; isoToEquiv)

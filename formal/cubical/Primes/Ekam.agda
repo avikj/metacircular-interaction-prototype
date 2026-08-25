@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Ekam where
+module Primes.Ekam where
 -- एकम्: one button.  goldbach + twins + the mertens fragment of RH, one run.
 
 open import Cubical.Foundations.Prelude using (Type; _≡_; refl)

@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
-module Yantra.PunaragamanaFinal where
+module Primes.PunaragamanaFinal where
 
 open import Cubical.Foundations.Prelude     using (Type; _≡_; PathP; refl; sym; cong; _∙_; transport; transport-filler; ~_; _∨_)
 open import Cubical.Foundations.Isomorphism using (Iso; iso; isoToEquiv)

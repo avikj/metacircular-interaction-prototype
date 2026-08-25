@@ -1,5 +1,5 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Ganana where
+module Primes.Ganana where
 
 open import Cubical.Foundations.Prelude using (Type; _≡_; refl)
 open import Cubical.Data.Nat using (ℕ; zero; suc; _+_; _∸_; _·_)

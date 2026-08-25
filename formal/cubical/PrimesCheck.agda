@@ -5,7 +5,7 @@
 -- a review.  Four objections, each turned into something the kernel can
 -- reject.
 --
--- `YantraAll.agda` is the machine's own root and is left untouched; this
+-- `PrimesAll.agda` is the machine's own root and is left untouched; this
 -- is a second root so the corrections can be checked as a unit and so
 -- nothing here is mistaken for part of the original commit.
 --
@@ -20,7 +20,7 @@
 --               sweep is rebuilt so its output is 49 certified
 --               decompositions instead of the word `true`.
 --
---   Kuttaka-    `Yantra.Kuttaka` runs the descent law on a fuel constant
+--   Kuttaka-    `Primes.Kuttaka` runs the descent law on a fuel constant
 --   samapti     and proves nothing.  The fuel is removed by well-founded
 --               recursion on the remainder, and the divisor comes back
 --               carrying proofs that it divides both inputs.
@@ -32,9 +32,9 @@
 --               one direction only.
 ------------------------------------------------------------------------
 
-module YantraPariksa where
+module PrimesCheck where
 
-import Yantra.Chaya_TheShadowHasNoSectionThoughItHasAMap
-import Yantra.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
-import Yantra.KuttakaSamapti_TheValliTerminatesWithoutFuel
-import Yantra.Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis
+import Primes.Chaya_TheShadowHasNoSectionThoughItHasAMap
+import Primes.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof
+import Primes.KuttakaSamapti_TheValliTerminatesWithoutFuel
+import Primes.Upadhi_TheMertensGateIsTheDisprovedConjectureNotTheHypothesis

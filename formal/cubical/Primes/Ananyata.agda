@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Ananyata where
+module Primes.Ananyata where
 -- अनन्यता: uniqueness.  The multiplicity of every prime in every
 -- certified factorization equals the p-adic valuation — so any two
 -- factorizations of n agree at every prime.  FTA, whole.
 
-open import Yantra.Prakriti
-open import Yantra.Vibhajana using (Prati; product)
-open import Yantra.Bhajaka using (euclidLemma)
+open import Primes.Prakriti
+open import Primes.Vibhajana using (Prati; product)
+open import Primes.Bhajaka using (euclidLemma)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

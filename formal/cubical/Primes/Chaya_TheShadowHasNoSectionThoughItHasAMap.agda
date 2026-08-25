@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- छाया — the shadow, and what is actually impossible about it.
 --
--- SCOPE.  This module supplies the term that `Yantra.Prakasha` asserts in
+-- SCOPE.  This module supplies the term that `Primes.Prakasha` asserts in
 -- prose and does not contain, and it corrects the assertion in the same
 -- act.  944676e4's message says, of the collapse from the witnessed
 -- statement to the truncated one: "the collapse ... exists while the
@@ -14,7 +14,7 @@
 -- two distinct elements, and then instantiated at the Goldbach fibre of
 -- 10, which carries 3+7 and 5+5.
 --
--- TERM.  छाया / *chāyā*, shadow, is `Yantra.Prakasha`'s own coinage in
+-- TERM.  छाया / *chāyā*, shadow, is `Primes.Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for
 -- continuity.  It is NOT a sourced technical term and nothing in any
 -- tradition is cited for it.  The mathematics is propositional
@@ -27,10 +27,10 @@
 -- the whole of the hypothesis.
 ------------------------------------------------------------------------
 
-module Yantra.Chaya_TheShadowHasNoSectionThoughItHasAMap where
+module Primes.Chaya_TheShadowHasNoSectionThoughItHasAMap where
 
-open import Yantra.Prakriti using (IsPrime)
-open import Yantra.Vada using (primeDec)
+open import Primes.Prakriti using (IsPrime)
+open import Primes.Vada using (primeDec)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Sigma

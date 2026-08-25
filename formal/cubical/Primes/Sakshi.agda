@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Sakshi where
+module Primes.Sakshi where
 -- साक्षी: the witnessed census.  Every step of the count is a Dec object —
 -- each twin carries its Σ-certificate, each non-twin its refutation.
 -- No boolean is trusted anywhere in this count.
 
-open import Yantra.Prakriti
-open import Yantra.Vada using (primeDec; dec×)
+open import Primes.Prakriti
+open import Primes.Vada using (primeDec; dec×)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Sigma

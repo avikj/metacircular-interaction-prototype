@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Prakasha where
+module Primes.Prakasha where
 -- प्रकाश: the problems as instruments.  One conjecture, its strata as
 -- types, the maps that exist, and the map that provably does not.
 
-open import Yantra.Prakriti
-open import Yantra.Anantata using (euclid)
+open import Primes.Prakriti
+open import Primes.Anantata using (euclid)
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.HITs.PropositionalTruncation using (∥_∥₁; ∣_∣₁; squash₁)

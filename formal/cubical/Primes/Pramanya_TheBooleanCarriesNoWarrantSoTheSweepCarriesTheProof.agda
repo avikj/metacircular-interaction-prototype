@@ -4,10 +4,10 @@
 -- प्रामाण्य — whether a verdict carries its own warrant.
 --
 -- SCOPE.  944676e4 ships two lanes that compute the same numbers and are
--- joined by nothing.  `Yantra.Ganana` and `Yantra.Ekam` decide primality
+-- joined by nothing.  `Primes.Ganana` and `Primes.Ekam` decide primality
 -- with `prime : ℕ → Bool`, fuelled trial division, and report
--- `fastsweep 500 4 ≡ true`, `tcount 200 ≡ 15`.  `Yantra.Purna` and
--- `Yantra.Sakshi` compute the same 15 and the same sweep through `Dec`
+-- `fastsweep 500 4 ≡ true`, `tcount 200 ≡ 15`.  `Primes.Purna` and
+-- `Primes.Sakshi` compute the same 15 and the same sweep through `Dec`
 -- objects.  The two agree, and nothing in the module set can see that
 -- they agree: there is no term of type `prime n ≡ true → IsPrime n`, and
 -- a `Bool` that is not the image of a decision asserts a verdict whose
@@ -34,14 +34,14 @@
 -- with `Dec`, or with anything proved below; the mathematics is Agda's
 -- and the parallel is mine, drawn because the corpus already ran the same
 -- audit against *pramāṇa* elsewhere.  Nothing here shows the fuelled
--- `prime` of `Yantra.Ganana` is wrong — it is very probably right, and it
+-- `prime` of `Primes.Ganana` is wrong — it is very probably right, and it
 -- is still unbridged, and that is the whole complaint.
 ------------------------------------------------------------------------
 
-module Yantra.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof where
+module Primes.Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof where
 
-open import Yantra.Prakriti using (IsPrime; divides)
-open import Yantra.Purna using (gdec; primeDecAll)
+open import Primes.Prakriti using (IsPrime; divides)
+open import Primes.Purna using (gdec; primeDecAll)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

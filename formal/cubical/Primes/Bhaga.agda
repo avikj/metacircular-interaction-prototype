@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Bhaga where
+module Primes.Bhaga where
 -- भाग: proven euclidean division, then the SHAPE of every twin pair:
 -- beyond (3,5), twins are (6k+5, 6k+7).  Universal theorem, not census.
 
-open import Yantra.Prakriti
+open import Primes.Prakriti
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

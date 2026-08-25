@@ -1,8 +1,8 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Anantata where
+module Primes.Anantata where
 -- अनन्तता: there is no largest prime.  ∀ n, a prime above n.
 
-open import Yantra.Prakriti
+open import Primes.Prakriti
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order

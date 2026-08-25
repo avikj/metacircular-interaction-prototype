@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
-module Yantra.Parisodhana where
+module Primes.Parisodhana where
 -- परिशोधन: factor pairing.  If n has any nontrivial divisor, it has one
 -- with square ≤ n.  So the √-bounded search is COMPLETE — proved, and the
 -- certified prime decision drops to √-cost.
 
-open import Yantra.Prakriti
-open import Yantra.Vada using (noNTD→prime; prime→noNTD; dec×)
+open import Primes.Prakriti
+open import Primes.Vada using (noNTD→prime; prime→noNTD; dec×)
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order
