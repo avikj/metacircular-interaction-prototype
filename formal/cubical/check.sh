@@ -87,7 +87,7 @@
 # cited as though it were the invariant ("the pin is unreachable"). It froze
 # a variable for five days and cost the corpus every green in that window.
 #
-# Reproduce with:  sh scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+# Reproduce with:  sh setup
 # ===================================================================
 #
 # Contract of this script:
@@ -151,7 +151,7 @@ FATAL: no agda binary at all.
 FIRST TRY THE BOOTSTRAP, which does all of the below and then says which
 toolchain it actually got:
 
-  sh scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+  sh setup
 
 It was written 2026-08-24 after the pin was built here from an empty
 container, and it names the three obstacles that make the recipe below fail

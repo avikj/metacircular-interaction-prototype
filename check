@@ -1,0 +1,88 @@
+#!/bin/sh
+# check — typecheck the repository, and never report a green off the pin.
+#
+#   sh check           the kernel, the fibre law, and the Lean root closure
+#   sh check --all     everything under formal/cubical/theorems too (slow)
+#
+# THE ONE RULE.  A verdict that does not name its toolchain has dropped half
+# its witness.  This script names it first, and if it is not the pin it says
+# so and exits nonzero BEFORE checking anything -- so nobody is ever left
+# wondering whether a red is theirs or their container's.
+set -u
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+PREFIX="${MATH_PREFIX:-$HOME}"
+PIN_AGDA="2.8.0"
+PIN_CUBICAL="v0.9"
+AGDA="$PREFIX/.local/bin/agda"
+CUBICAL="$PREFIX/.cache/cubical-$PIN_CUBICAL"
+LIBFILE="$PREFIX/.agda-pin/libraries"
+export LC_ALL=C.utf8
+
+[ -x "$AGDA" ] || AGDA="$(command -v agda 2>/dev/null || true)"
+
+GOT_AGDA="$( { [ -n "$AGDA" ] && [ -x "$AGDA" ] && "$AGDA" --version; } 2>/dev/null | head -1 | sed 's/^Agda version //')"
+GOT_CUB="$(git -C "$CUBICAL" describe --tags 2>/dev/null || echo '(absent)')"
+
+printf 'toolchain:  agda %s / cubical %s      (pin: %s / %s)\n' \
+       "${GOT_AGDA:-(none)}" "$GOT_CUB" "$PIN_AGDA" "$PIN_CUBICAL"
+
+if ! printf '%s' "${GOT_AGDA:-}" | grep -q "^$PIN_AGDA" || [ "$GOT_CUB" != "$PIN_CUBICAL" ]; then
+  cat <<'MSG'
+
+NOT AT THE PIN — nothing was checked, on purpose.
+
+You are not confused and nothing is broken: this machine simply does not
+have the toolchain this corpus is checked against, so any verdict it gave
+would be about the machine.  One command fixes it:
+
+    sh setup
+
+MSG
+  exit 1
+fi
+
+[ -f "$LIBFILE" ] || { printf '\nno %s -- run: sh setup\n' "$LIBFILE"; exit 1; }
+
+fail=0
+run() {  # run <label> <dir> <file>
+  printf '  %-58s ' "$1"
+  if ( cd "$2" && "$AGDA" --library-file="$LIBFILE" "$3" ) >/tmp/mathcheck.$$ 2>&1
+  then printf 'ok\n'
+  else printf 'RED\n'; sed -n '1,6p' /tmp/mathcheck.$$ | sed 's/^/      /'; fail=1
+  fi
+  rm -f /tmp/mathcheck.$$
+}
+
+printf '\nkernel — the 296 lines and their readings\n'
+for m in "$ROOT"/formal/cubical/kernel/*.agda; do
+  run "$(basename "$m" .agda | cut -c1-56)" "$ROOT/formal/cubical" "kernel/$(basename "$m")"
+done
+
+printf '\nfibre — the one primitive the corpus turns on\n'
+run "Fibre.Carrier"     "$ROOT/fibre" "src/Fibre/Carrier.agda"
+run "Fibre (everything)" "$ROOT/fibre" "src/Everything.agda"
+
+if [ "${1:-}" = "--all" ]; then
+  printf '\ntheorems — every module (slow)\n'
+  for m in "$ROOT"/formal/cubical/theorems/*/*.agda; do
+    rel="${m#"$ROOT"/formal/cubical/}"
+    run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT/formal/cubical" "$rel"
+  done
+fi
+
+printf '\nlean — every module under Pairfield/ reachable from the root\n'
+if [ -x "$ROOT/scripts/check-lean-root-closure.sh" ] || [ -f "$ROOT/scripts/check-lean-root-closure.sh" ]; then
+  if out="$(bash "$ROOT/scripts/check-lean-root-closure.sh" 2>&1)"; then
+    printf '  %s\n' "$(printf '%s' "$out" | tail -1)"
+  else
+    printf '  RED\n%s\n' "$out"; fail=1
+  fi
+fi
+
+if [ "$fail" = 0 ]; then
+  printf '\nALL GREEN at Agda %s / agda-cubical %s.\n' "$GOT_AGDA" "$GOT_CUB"
+  exit 0
+fi
+printf '\nSOMETHING IS RED, and the toolchain above IS the pin — so it is the\nmathematics or the code, not your machine.\n'
+exit 1
