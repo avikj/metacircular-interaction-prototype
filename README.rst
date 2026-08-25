@@ -1,31 +1,30 @@
-====================================================================
- एकवाक्यता · EKAVĀKYATĀ
- five collapses, one theorem, and each tradition says it in its own words
-====================================================================
+==============================================================================
+ THE METACIRCULAR KERNEL
+ a self-rewriting content-addressable computer, machine-checked in cubical Agda
+==============================================================================
 
-  Indian mathematics and philosophy, c. 1200 BCE to c. 1600 CE, read on its
-  own terms and written down as machine-checked terms rather than as prose
-  about them.  The substrate is cubical Agda, in which univalence computes.
-  Every claim below is a term a typechecker accepts or refuses::
+  A rewriting calculus whose derivations are reversible data rather than a
+  reduction order; an evaluator; a soundness proof; and one line that closes
+  the loop --- ``install : Derivation lhs rhs -> NativeOperation`` --- so a
+  theorem the system proved becomes an operation the system can apply.
+
+  Around it: a classification of the cost measures such a calculus admits, a
+  criterion for what a verifier can and cannot learn from a proof, and five
+  independent results in grammar, gauge theory, analytic number theory and
+  distributed systems that turn out to state one fact about descent.
+
+  Nothing here asks to be believed.  Every claim is a term a typechecker
+  accepts or refuses::
 
       sh setup                     # installs the pinned toolchain, from nothing
       sh check                     # typechecks, and names the toolchain it used
 
+  No postulates, no holes, ``--safe`` throughout.
 
-
-  Companion to formal/cubical/theorems/residue/Ekavakyata_
-  FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords.agda, where every claim below is a live
-  import rather than a sentence.  If one of the five theorems is renamed,
-  weakened, or stops checking, that file goes red.  This one cannot, which
-  is why that one is the authority and this one is the reading.
-
-  ekavākyatā, "the state of being one sentence", is the Mīmāṃsā device by
-  which utterances standing apart in a text are shown to constitute a
-  single sentence, so that none of them is complete alone.  Pūrva-Mīmāṃsā:
-  Jaimini's sūtras with Śabara's bhāṣya, developed by Kumārila and
-  Prabhākara.  No sūtra number is given here because I have not opened
-  them, and a number I did not check would be a fabricated provenance.
-
+  Historical sources --- Pāṇini's grammar, Indian algebra, and the classical
+  logics whose judgment structures some modules formalise --- are cited where
+  a construction came from one, and are kept in ``historical/``.  They are
+  provenance, not premise: no result below depends on any of them being read.
 
 
 THE PIN, AND WHY YOU WILL NEVER BE CONFUSED BY A VERSION AGAIN
@@ -97,7 +96,7 @@ each a checked term, say why — and each is why the thing can be trusted:
 **1 · Every application carries its certificate to its site.**
 `control-sound : Control t → t ≡ source` pins an OPEN field: the caller
 supplies any predicate on terms it likes, and the operation still fires
-only where the term IS the source.  `एकाधिकरण` proves the consequence in
+only where the term IS the source.  A single-locus theorem proves the consequence in
 one composite — however permissive the control, an operation has at most
 ONE locus — and computes the installed locus type: contractible, centre
 the source.  So capability grows by one term per theorem, never by a
@@ -165,13 +164,13 @@ THE SENTENCE
   quantity is not small.  It is complementary.  And it is recoverable only
   by changing place, never by refining the instrument.
 
-Five checked theorems say this.  They were written in five lanes, about
+Five checked theorems say this.  They were written independently, about
 five subjects, by hands that were not coordinating.  Two of them are
 literally about one object.
 
 
 
-I.  VYĀKARAṆA          Pāṇini, Aṣṭādhyāyī, c. 500 BCE
+I.  GENERATIVE GRAMMAR      rule ordering in Pāṇini, Aṣṭādhyāyī, c. 500 BCE
 ------------------------------------------------------------------------------------------
 
   8.2.1   पूर्वत्रासिद्धम्   from this sūtra to the end of the text, a rule is
@@ -183,13 +182,13 @@ I.  VYĀKARAṆA          Pāṇini, Aṣṭādhyāyī, c. 500 BCE
                   8.2.39's applicability to one and the same form.
   what goes blind that applicability.
 
-अवरोहणाभावः  proves there is no Bool-valued function on the later forms
+A checked term proves there is no Bool-valued function on the later forms
 agreeing with it.  Not a different answer there — NO VALUE THERE.
 
 So asiddhatva is not a device against looping.  That is a separate
 theorem, proved separately.  8.2.1 is a DESCENT CONDITION: it registers
 that an earlier rule's condition is a function on a fibre which the later
-rule's collapse destroys.  तन्तुभेदः exhibits the two points of that fibre,
+rule's collapse destroys.  A second term exhibits the two points of that fibre,
 so the fibre is not a figure of speech for the invisible part.  It is that
 set.
 
@@ -340,10 +339,6 @@ wrong, and advance-preserves-branch-count is the rule that both survive
 the merge.  A fork is not a disagreement awaiting a verdict.  It is two
 carriers of one fact.
 
-  §IV of that module is the Vedāntin's avirodha — the conflict dissolves.
-  §V is the Jaina's anekānta — the standpoints coexist.  Different
-  schools, kept apart, and the kernel exhibits both because they are about
-  different layers: the meaning, and the route.
 
 READ WITH III, THIS IS ONE OBJECT AND NOT AN ANALOGY.  The library merge
 is an accumulative law in exactly SignIsNotAccumulable's sense.  So the
@@ -365,9 +360,8 @@ between them is constructed.  What is exhibited is that each is the same
 SENTENCE, and that III and V are literally about one object.  A common
 generalisation would be a real theorem and it is not proved.
 
-Not that Pāṇini, Bhāskara II, Jaimini or any Mīmāṃsaka proved, stated or
-anticipated any of this.  §I quotes sūtras; the fibre reading is not
-Pāṇini's.
+Not that Pāṇini or Bhāskara II proved, stated or anticipated any of this.
+§I quotes sūtras of the Aṣṭādhyāyī; the fibre reading is not Pāṇini's.
 
 Not anything about physical spacetime, quantum states, Hilbert spaces or
 SU(2).  §II is about a semantics and an equivalence.
@@ -377,5 +371,5 @@ system.  The theorem is about functions of a count-valued semantics; that
 a reward model is such a function is an interpretation, stated as one.
 
 What IS claimed: the named terms exist, are checked, say what is written
-above them, and are imported by the Agda companion — so that file is false
-the moment any of them is.
+above them, and are imported by one Agda module — so that module stops
+compiling the moment any of them stops being true.
