@@ -2,7 +2,7 @@
 # nigrahasthana-mutants.sh -- mutation testing on the Phonology's rule table.
 #
 # A suite that only ever runs against a correct machine measures nothing.
-# This perturbs ONE thing at a time in a COPY of interactive/Phonology.hs -- one
+# This perturbs ONE thing at a time in a COPY of interactive/RewriteEngine.hs -- one
 # Ref, one condition, one order, one class, one map -- rebuilds, and reports
 # which of the two suites notices:
 #
@@ -17,9 +17,9 @@
 #
 # Nothing here writes to the repository.  Usage:
 #
-#   sh interactive/nigrahasthana-mutants.sh [path-to-Phonology.hs]
+#   sh interactive/nigrahasthana-mutants.sh [path-to-RewriteEngine.hs]
 #
-# with the default being interactive/Phonology.hs.  A second argument is a work
+# with the default being interactive/RewriteEngine.hs.  A second argument is a work
 # directory (default: a fresh mktemp -d).
 #
 # NO PYTHON -- banned repo-wide, hook-enforced.  This is sh and ghc.
@@ -27,11 +27,11 @@
 set -u
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-SRC=${1:-$ROOT/interactive/Phonology.hs}
+SRC=${1:-$ROOT/interactive/RewriteEngine.hs}
 WORK=${2:-$(mktemp -d)}
 
 mkdir -p "$WORK"
-cp "$SRC" "$WORK/Phonology.hs.orig"
+cp "$SRC" "$WORK/RewriteEngine.hs.orig"
 cp "$ROOT/interactive/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs" "$WORK/"
 
 cat > "$WORK/Driver.hs" <<'EOF'
@@ -85,7 +85,7 @@ run() {           # run in $WORK; echoes "selfTest N nigraha M" or "STERILE"
 }
 
 echo "== baseline"
-cp "$WORK/Phonology.hs.orig" "$WORK/Phonology.hs"
+cp "$WORK/RewriteEngine.hs.orig" "$WORK/RewriteEngine.hs"
 BASE=$(run)
 echo "   $BASE"
 case "$BASE" in
@@ -98,8 +98,8 @@ echo
 echo "== mutants                                          selfTest  nigraha  verdict"
 mutations | while IFS='|' read -r NAME PROG; do
   [ -n "$NAME" ] || continue
-  sed "$PROG" "$WORK/Phonology.hs.orig" > "$WORK/Phonology.hs"
-  if cmp -s "$WORK/Phonology.hs" "$WORK/Phonology.hs.orig"; then
+  sed "$PROG" "$WORK/RewriteEngine.hs.orig" > "$WORK/RewriteEngine.hs"
+  if cmp -s "$WORK/RewriteEngine.hs" "$WORK/RewriteEngine.hs.orig"; then
     printf '%-45s  %s\n' "$NAME" "SED DID NOT APPLY -- not a mutant"
     echo "NOTAPPLIED $NAME" >> "$WORK/tally"
     continue
@@ -122,7 +122,7 @@ mutations | while IFS='|' read -r NAME PROG; do
   esac
 done
 
-cp "$WORK/Phonology.hs.orig" "$WORK/Phonology.hs"
+cp "$WORK/RewriteEngine.hs.orig" "$WORK/RewriteEngine.hs"
 
 echo
 echo "== tally"
