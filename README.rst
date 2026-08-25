@@ -74,7 +74,7 @@ file and one command.
   descent law; ``bhāvanā`` and ``cakravāla`` (Brahmagupta 628, Jayadeva
   ~950, Bhāskara II 1150) solve ``x² − D y² = 1``; ``prastāra`` (Piṅgala,
   ~300 BCE) is proved as a *bijection* rather than a count, in
-  ``formal/cubical/Mula/PingalaPrastara.agda``:
+  ``formal/cubical/Texts/PingalaPrastara.agda``:
   ``matraCount : Iso (Metre n) (Fin (matra n))``, with the Virahāṅka
   recurrence following from it.  Jaina sevenfold predication
   (``saptabhaṅgī``) is given proof-relevant semantics in
@@ -156,7 +156,7 @@ Layout
 
 ===================  =========================================================
 ``formal/cubical/``  the Agda corpus.  ``Kernel/`` is the metacircular kernel
-                     and its readings; ``Mula/`` the roots; ``EGB/``,
+                     and its readings; ``Texts/`` the modules anchored to a dated primary text; ``EGB/``,
                      ``Swarm/``, ``NaturalMachine/`` earlier strata
 ``punaragamana/``    the fibre law and the carrier calculus; self-bootstrapping
 ``formal/pairfield/``  the Lean 4 analytic lane — no ``sorry``, no ``axiom``
