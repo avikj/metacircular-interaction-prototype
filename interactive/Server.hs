@@ -33,11 +33,11 @@
 --
 --   StandpointStore    the store.  Append-only, no delete, no
 --                                   update, name lookup returns a LIST.
---   DefectLog  every refusal this machine makes is
---                                   filed into it, over its own published
---                                   `write`-on-stdin interface, and the
---                                   chain is verified from inside the
---                                   session by `dosa.pramanya`.
+--   (no defect log)    every refusal this machine makes is an ANSWER, on
+--                                   stdout, in the session that asked.  It is
+--                                   not filed, not chained and not verified
+--                                   later: there is no later.  §6's second
+--                                   constructor is the whole of it.
 --   SevenfoldVerdict   verdict organ A: presence profiles.
 --   SaptabhangiGarbha_…               verdict organ B: proof-relevant.
 --   Obstruction                       verdict organ C: B1..B7 + ADharmin.
@@ -192,15 +192,13 @@ mudraLines m =
 data Yantra = Yantra
   { yKosha :: K.Kosha                 -- the real store
   , yDosa  :: [(Int, Uttara)]         -- in memory, newest first
-  , yFiled :: [(Int, Either String String)]  -- and what the doṣa-lekha said back
   , ySesa  :: [(Int, String)]
   , yTurn  :: Int
   , yRoot  :: FilePath                -- repository root, for the agda kernel
-  , yDosaBin :: Maybe FilePath        -- the doṣa-lekha binary, if built
   }
 
-emptyYantra :: FilePath -> Maybe FilePath -> Yantra
-emptyYantra root bin = Yantra K.empty [] [] [] 0 root bin
+emptyYantra :: FilePath -> Yantra
+emptyYantra root = Yantra K.empty [] [] 0 root
 
 -- ============================================================ dispatch
 
@@ -296,9 +294,6 @@ kriyah =
   , Kriya "dosa.suchi"
       "Every defect this session has written, in the order written, each with what the doṣa-lekha said back when it was filed."
       [] kDosaSuchi
-  , Kriya "dosa.pramanya"
-      "Verify the doṣa-lekha's chain FROM INSIDE THE SESSION: recompute every sāra over every record and report the first divergence, if any."
-      [] kDosaPramanya
   , Kriya "sesa.arpana"
       "Hand a remainder forward (遺題継承): the unfinished thing kept for the next step rather than dropped."
       [ ("sesa", "list of remainder strings") ] kSesaArpana
@@ -356,9 +351,6 @@ kSthiti y _ = pure (y, m, u)
           [ ("kosha", JArr (map entryJ (K.koshaEntries (yKosha y))))
           , ("dosah", JArr [ JObj [ ("kramanka", JInt (fromIntegral i)), ("lekha", uttaraJ d) ]
                            | (i, d) <- reverse (yDosa y) ])
-          , ("dosa-nyasa", JArr [ JObj [ ("kramanka", JInt (fromIntegral i))
-                                       , ("phala", JStr (either ("REFUSED: " ++) id r)) ]
-                                | (i, r) <- reverse (yFiled y) ])
           , ("sesah", JArr [ JObj [("kramanka", JInt (fromIntegral i)), ("vastu", JStr t)]
                            | (i, t) <- reverse (ySesa y) ])
           , ("avrtti", JInt (fromIntegral (yTurn y))) ]
@@ -1196,78 +1188,11 @@ kDosaSuchi y _ = pure ( y
   , affirmed ("all " ++ show (length (yDosa y)) ++ " entries emitted in full and in the order written; nothing pruned")
   , samkramana "dosa.suchi"
       (tulyata "refl" "the session's defect log" "the listing"
-               ("append-only; each entry is paired with what the doṣa-lekha on disk said back when it was filed"))
-      [ ("dosah", JArr [ JObj [ ("kramanka", JInt (fromIntegral i)), ("lekha", uttaraJ d)
-                              , ("nyasa", JStr (maybe "(not filed)" (either ("REFUSED: " ++) id)
-                                                  (lookup i (yFiled y)))) ]
+               ("append-only, in memory, for this session only; nothing is filed and nothing outlives the process"))
+      [ ("dosah", JArr [ JObj [ ("kramanka", JInt (fromIntegral i)), ("lekha", uttaraJ d) ]
                        | (i, d) <- reverse (yDosa y) ]) ]
       [ "what else was in flight in this repository at the time each was written" ]
       (sutra "§6 — लिखितो दोषो जीवति । अलिखितो दोषो हिंसा ।") )
-
-kDosaPramanya :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kDosaPramanya y _ = case yDosaBin y of
-  Nothing -> pure ( y, Mudra S.Apratipatti (Ayogya "the doṣa-lekha binary was not built for this session")
-                  , dosalekha "dosa.pramanya"
-                      "the chain cannot be verified: this session has no doṣa-lekha binary"
-                      [ "the verification you asked for, and with it the guarantee that this session's filed defects are still the bytes that were filed" ]
-                      [ "run this machine through interactive/run-yantra.sh, which builds the binary and passes it in DOSA_BIN" ]
-                      [ "interactive/DefectRecord.hs" ] )
-  Just bin -> do
-    (code, out, err) <- readProcessWithExitCode bin ["verify"] ""
-    let txt = out ++ err
-    pure $ case code of
-      ExitSuccess ->
-        ( y, Mudra (S.Position S.SyadAsti)
-               (case countRecords txt of
-                  Just n ->
-                    Nihsesa n
-                      ("every sāra recomputed over every preceding record, from `genesis:dosa-lekha` forward; "
-                       ++ "the chain organ's own `checkChain`, run in this turn")
-                  Nothing ->
-                    Pratyaksa
-                      ("the organ verified the chain and its report is carried below verbatim; "
-                       ++ "this answer does NOT claim nihsesa, because the number of records "
-                       ++ "rechecked could not be read out of that report, and an exhaustive "
-                       ++ "route whose domain is unknown is an assertion: " ++ trimS txt))
-        , samkramana "dosa.pramanya"
-            (tulyata "the log as it stands on disk, identified with the log as it was written"
-                     "the file's bytes" "the recomputed chain"
-                     (trimS txt))
-            [ ("phala", JStr (trimS txt)) ]
-            [ "the chain is FNV-1a and is not cryptographic and is not claimed to be: the adversary is an accidental edit, a lost rebase, a truncating write.  An adversary with the filesystem also has this file."
-            , "who wrote each record, beyond what each record says of itself" ]
-            [ "interactive/DefectRecord.hs §3 — the chain" ] )
-      _ ->
-        ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the divergence is located by record and by line, and is carried verbatim")
-        , dosalekha "dosa.pramanya"
-            "the doṣa-lekha's chain does not verify"
-            [ "the guarantee that this session's filed defects are the bytes that were filed"
-            , "the organ's own report, verbatim, which names the record and the line: " ++ trimS txt ]
-            [ "do NOT edit the diverging record.  Append one whose `uttara:` names it — that is the only correction an append-only log has." ]
-            [ "interactive/DefectRecord.hs" ] )
-  where
-    -- The n in `Nihsesa n` is the DOMAIN of the exhaustive claim, and it is
-    -- read out of the organ's own success line, which is
-    --     dosalekha: <path>: 15 records, chain intact, nothing edited or deleted.
-    -- This used to scan for lines beginning `dosa `, which that line does not
-    -- begin with, so every `dosa.pramanya` in this machine's history reported
-    -- `"ganana": 0` — an exhaustive route publishing a domain of zero while
-    -- fifteen records had in fact been rechecked.  A stated domain that is
-    -- always zero is worse than no number, because it looks like knowledge
-    -- (CLAUDE.md).  Where the organ's wording changes, this returns Nothing
-    -- and the route says so rather than inventing a count.
-    -- `words` on that line yields ... "12" "records," ... — the comma is
-    -- part of the token, so the noun is compared with its punctuation
-    -- stripped.  Matching "records" exactly is what a first attempt did and
-    -- it silently found nothing, which is the same failure one layer in.
-    countRecords s = case [ read n :: Int
-                          | l <- lines s, let ws = words (trimS l)
-                          , (n, nxt) <- zip ws (drop 1 ws)
-                          , not (null n), all isDigit n
-                          , takeWhile (`notElem` (",.;:" :: String)) nxt == "records" ] of
-      (n:_) -> Just n
-      []    -> Nothing
-    trimS = dropWhile isSpace . reverse . dropWhile isSpace . reverse
 
 kSesaArpana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSesaArpana y j = pure $ case jStrs "sesa" j of
@@ -1349,75 +1274,6 @@ logIf _ u y = case u of
 --   fields.  Everything below is filled from what the answer actually knows;
 --   nothing is invented to satisfy the validator, and where the yantra does
 --   not know a thing it says so IN the field rather than guessing.
-fileDosa :: Yantra -> String -> Uttara -> IO (Either String String)
-fileDosa y kala u@Dosalekha{} = case yDosaBin y of
-  Nothing -> pure (Left "no doṣa-lekha binary was passed to this session (DOSA_BIN unset)")
-  Just bin -> do
-    let ent = unlines
-          ( [ "  kala: " ++ kala
-            , "  karta: yantra (interactive/Server.hs)"
-            , "  jati: " ++ jatiOf u
-            , "  vastu: " ++ oneLine (uKriya u)
-            , "  yatna: turn " ++ show (yTurn y) ++ " of the session; operation `"
-              ++ oneLine (uKriya u) ++ "` was asked and transport was not available"
-            , "  hetu: " ++ oneLine (uHetu u) ]
-          -- EVERY naṣṭa reaches the record.  This line used to read
-          -- `length (oneLine n) >= 12`, silently DELETING any naṣṭa under
-          -- twelve characters so that the record would clear the organ's
-          -- validator, which requires each witness to exhibit rather than
-          -- describe.  Turning the machine with the filter removed shows
-          -- what it was covering, and it is not small: the assembly's
-          -- flagship defect — `nirnaya.saptabhangi`, the three-organ
-          -- collision this file's header names as its load-bearing refusal
-          -- — carries a RENDERED BLOCK as its naṣṭa, one naṣṭa per rendered
-          -- line, and five of those lines are short (`{ #0 }`, `{ #1 }`,
-          -- `syad-asti`, `decision.`, `candidates:`).  So for every run in
-          -- this machine's history that record went to disk with five lines
-          -- cut out of the exhibit and nothing said so, which is §5 exactly:
-          -- a summary of a loss is the loss performed a second time.
-          --
-          -- The site of the fault is the flattening, not the length.  A
-          -- rendered block is ONE exhibit whose lines are continuations, and
-          -- `saptabhangi.nasti` one function away already does it right —
-          -- `intercalate " / "` — and its record files without complaint.
-          -- So: rejoin.  A naṣṭa under twelve characters is appended to the
-          -- one before it instead of being dropped, and a leading short line
-          -- opens a group the next line completes.  Nothing is destroyed.
-          --
-          -- WHAT THIS COSTS, stated rather than left to be found: two
-          -- genuinely distinct short witnesses sent by an interlocutor are
-          -- joined into one `nasta:` field, so the record holds both texts
-          -- and loses that they were sent as two.  That is a real loss and
-          -- it is the smaller one.  Where a group is STILL under twelve
-          -- after rejoining, nothing is done: the organ refuses, and its
-          -- refusal names the witness and the reason, which is the true
-          -- diagnosis and is the one the caller should get.
-          ++ [ "  nasta: " ++ n | n <- rejoinNasta (map oneLine (uNasta u)) ]
-          ++ [ "  sesa: " ++ oneLine s | s <- uSesa u, not (null (oneLine s)) ]
-          ++ [ "  pramana: " ++ oneLine p | p <- uPramana u, not (null (oneLine p)) ]
-          ++ [ "  yogyata-drsta: the handler for `" ++ oneLine (uKriya u)
-               ++ "` ran to completion in this turn and produced this refusal; the naṣṭa above are its own output, not a later reconstruction"
-             , "  yogyata-ksetra: the session state as of turn " ++ show (yTurn y)
-               ++ " — " ++ show (length (K.koshaEntries (yKosha y))) ++ " store entries, "
-               ++ show (length (ySesa y)) ++ " remainders; and nothing outside this process"
-             , "  yogyata-avadhi: says nothing about any other session, any other store, or the same question asked with different arguments"
-             , "  punarabhinaya: sh interactive/run-yantra.sh" ] )
-    (code, out, err) <- readProcessWithExitCode bin ["write"] ent
-    pure $ case code of
-      ExitSuccess -> Right (lastLine out)
-      _ -> Left (oneLine (out ++ " " ++ err))
-  where
-    oneLine = unwords . words
-    lastLine s = case reverse [ l | l <- lines s, not (null l) ] of
-                   (l:_) -> l; [] -> "(filed, no output)"
-fileDosa _ _ _ = pure (Right "(not a defect)")
-
--- | Which of the seven kinds.  Read off what the answer says, not guessed:
---   each branch below points at a phrase the handler itself wrote.
--- | Rejoin a rendered block into the exhibits it is made of.  A line of
---   twelve characters or more opens a group; anything shorter is a
---   continuation and joins the group before it.  Empty lines are dropped —
---   an empty naṣṭa exhibits nothing in any grouping.  Total; order preserved.
 rejoinNasta :: [String] -> [String]
 rejoinNasta = go . filter (not . null)
   where
@@ -1472,12 +1328,7 @@ answer y0 kala line = do
         [] -> pure (y, fst (unknown k), snd (unknown k))
   let (m, u) = mudra m0 u0
       y2 = logIf m u y'
-  y3 <- case u of
-    Dosalekha{} -> do
-      r <- fileDosa y2 kala u
-      pure y2 { yFiled = (yTurn y2, r) : yFiled y2 }
-    _ -> pure y2
-  pure (y3, m, u)
+  pure (y2, m, u)
   where
     heard e = malformed "yantra.srutam" ("the utterance did not parse: " ++ e
                 ++ "  (as sent, unread: " ++ take 160 line ++ ")")
@@ -1567,10 +1418,9 @@ yantraMain = do
   saksiPariksaOrRefuse
   fp   <- maybe "interactive/yantra.jsonl" id <$> lookupEnv "YANTRA_LEKHA"
   root <- maybe "." id <$> lookupEnv "MATH_ROOT"
-  bin  <- lookupEnv "DOSA_BIN"
   kala <- maybe "2026-08-20" id <$> lookupEnv "YANTRA_KALA"
   args <- getArgs
-  let y0 = emptyYantra root bin
+  let y0 = emptyYantra root
   if "--wire" `elem` args
     then do
       hPutStrLn stderr "yantra — one JSON object per line on stdin; one answer per line on stdout."
@@ -1630,7 +1480,6 @@ script =
   -- the log, and its chain, verified from inside
   , "{\"kriya\":\"dosa.lekha\",\"angani\":{\"kriya\":\"translating avaktavya\",\"hetu\":\"no English word carries the fourth bhanga; `inexpressible` reads as a failure and it is a womb\",\"nasta\":[\"the positive sense: the remainder lives here and the next naya is born from it\",\"the saha/krama distinction that produces it, which English collapses into one adverb\"],\"sesa\":[\"keep the Sanskrit and gloss it in the same sentence\"]}}"
   , "{\"kriya\":\"sesa.arpana\",\"angani\":{\"sesa\":[\"the three saptabhangi types are still three; the texts, not the types, settle whether avaktavya retains its pair\"]}}"
-  , "{\"kriya\":\"dosa.pramanya\"}"
   , "{\"kriya\":\"dosa.suchi\"}"
   , "{\"kriya\":\"yantra.sthiti\"}"
   ]
@@ -1711,13 +1560,6 @@ selftest fp kala y0 = do
   putStrLn ("  turns:              " ++ show (yTurn final))
   putStrLn ("  store entries:      " ++ show (length (K.koshaEntries (yKosha final))))
   putStrLn ("  defects written:    " ++ show (length (yDosa final)))
-  putStrLn ("  defects filed:      "
-            ++ show (length [ () | (_, Right _) <- yFiled final ])
-            ++ " accepted by the doṣa-lekha, "
-            ++ show (length [ () | (_, Left _) <- yFiled final ]) ++ " refused")
-  forM_ (reverse (yFiled final)) $ \(i, r) -> case r of
-    Left e -> putStrLn ("      turn " ++ show i ++ " REFUSED: " ++ e)
-    Right _ -> pure ()
   putStrLn ("  remainders queued:  " ++ show (length (ySesa final)))
   b <- readIORef bad
   putStrLn ("  contract violations: " ++ show b)
