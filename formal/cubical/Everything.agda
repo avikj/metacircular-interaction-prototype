@@ -2300,3 +2300,7 @@ import Pravesa_TheFrontierTheoremsAsEntryPointsFromOtherFields
 -- The orb (मणि) gate: an achromatic, lossless √NOT — the quarter-wave plate,
 -- √NOT existing on the enrichment that VargamulaViparyaya forbids on 2 points.
 import Mani_TheOrbGateIsTheAchromaticLosslessSquareRootOfNot
+
+-- The three axis quarter-waves are the quaternions: non-abelian (order of
+-- orbs is physical) and the qubit is a spinor (full turn = -1). Companion to मणि.
+import Trika_TheAxisQuarterWavesAreQuaternionsNonAbelianAndTheQubitIsASpinor
