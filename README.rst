@@ -74,7 +74,7 @@ file and one command.
   descent law; ``bhāvanā`` and ``cakravāla`` (Brahmagupta 628, Jayadeva
   ~950, Bhāskara II 1150) solve ``x² − D y² = 1``; ``prastāra`` (Piṅgala,
   ~300 BCE) is proved as a *bijection* rather than a count, in
-  ``formal/cubical/PingalaPrastara.agda``:
+  ``formal/cubical/Mula/PingalaPrastara.agda``:
   ``matraCount : Iso (Metre n) (Fin (matra n))``, with the Virahāṅka
   recurrence following from it.  Jaina sevenfold predication
   (``saptabhaṅgī``) is given proof-relevant semantics in
@@ -86,10 +86,13 @@ file and one command.
   reader who does not have the term can still tell what the file does.
 
 **Physics / foundations.**
-  ``EkatvaMatra_…`` forces the Born weights from non-violence plus
-  normalisation.  ``machine/AtmaJnana…`` reads one object six ways —
-  memory, charge, symmetry, price, distance, verdict — all of them the
-  fibre law wearing a different face.
+  ``formal/cubical/EkatvaMatra_TheSupportLayerOfTheBornWeightsIsForcedBy
+  TheVowsAndTheInteriorIsTheNamedConjecture.agda`` forces the support layer
+  of the Born weights from the two vows plus normalisation, and
+  ``EkatvaMatraDvaya_…agda`` forces the symmetric two-outcome weight to
+  exactly one half.  The same object read six ways — memory, charge,
+  symmetry, price, distance, verdict — is laid out in the ``Avataranika``
+  entry file above; every reading is the fibre law wearing another face.
 
 ----
 
@@ -103,7 +106,7 @@ actually got:
 
     sh punaragamana/check.sh                  # Agda 2.6.3 + cubical v0.5, from nothing
     sh scripts/Dhruva_TheDeclaredPinIsBuilt*  # the pin: Agda 2.8.0 + cubical v0.9
-    sh machine/check-natural-machine.sh       # the Haskell lane
+    sh machine/run-yantra.sh                  # the Haskell lane: build, turn, contract-check
 
 A verdict that does not name its toolchain has dropped half its witness, so
 ``Dhruva`` prints the version it obtained and says plainly when that is not
@@ -112,25 +115,37 @@ the pin.
 Talk to it
 ==========
 
-``machine/sabha`` is a session kernel you speak to over stdin — one JSON
-object per line, one answer per line.  It audits itself on startup by
-computing a Bézout witness, then a false one, and refusing it; nothing it
-says is honoured by a run that has not watched a rejection.
+There is a running process you can hold a session with — one JSON object per
+line on stdin, one answer per line on stdout.  It audits itself on startup by
+computing a Bézout witness, then a false one, and refusing it; no answer from
+a run that has not been watched rejecting something is honoured.
 
 ::
 
-    echo '{"kriya":"sabha.kriyah"}' | ./machine/sabha     # what it can be asked
-    echo '{"kriya":"vargaprakrti","D":61}' | ./machine/sabha
-    echo '{"kriya":"yantra.pariksa","vama":"+(x,s(0))","daksina":"s(x)"}' | ./machine/sabha
+    sh machine/run-yantra.sh --wire        # builds from the working tree, then listens
 
-Every answer is a ``saṃkramaṇa`` — a transport, carrying the ``vyaya``, what
-a collapse of it would destroy — or a ``doṣa-lekha``, a written defect
-carrying what was lost and what is handed forward.  **There is no boolean on
-that wire**, deliberately: a single bit returns the same value for a false
-statement and for a failed search, and the difference between those two is
-the entire content.
+    {"kriya":"yantra.kriyah"}
+    {"kriya":"organon.lexikon"}
+    {"kriya":"kyklos","angani":{"D":61}}
+    {"kriya":"anthyphairesis","angani":{"a":137,"b":60}}
 
-----
+``kyklos`` runs Brahmagupta's *bhāvanā* driven by the *cakravāla* with the
+composition law carried as a value rather than baked in, and returns
+``x² − 61 y² = 1`` at ``(1766319049, 226153980)`` — Bhāskara II's own number,
+*Bījagaṇita*, 1150 — with every norm the wheel visited.  ``anthyphairesis``
+is Āryabhaṭa's *kuṭṭaka*: the *vallī*, the Bézout pair, and the congruence.
+
+``organon.lexikon`` is the wire's own dictionary — every name it uses, in
+Greek and in Sanskrit, with a gloss, emitted from the same table the
+translation runs on, so the two registers cannot drift apart.
+
+Every answer is a ``diabasis`` — a crossing, carrying what it moved and what
+a collapse of it would destroy — or an ``elenchos``, a written refutation
+carrying its losses named one by one.  **There is no boolean on that wire**,
+deliberately: one bit returns the same value for a false statement and for a
+failed search, and the difference between those two is the whole content.
+Asking for an operation that does not exist returns ``aporia`` — *no
+predication was made* — and the name is not guessed at by nearest match.
 
 Layout
 ======
