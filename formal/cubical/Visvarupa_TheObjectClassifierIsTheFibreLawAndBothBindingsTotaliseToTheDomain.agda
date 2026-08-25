@@ -77,14 +77,30 @@
 -- is already classified.  That is what makes "iterate the fibre law" a
 -- construction rather than a circle.
 --
--- WHAT IS **NOT** CLAIMED, and this is where the owner's third sentence
--- outruns what is checked.  That every homotopy type is reached by
--- iterating pushouts, that Postnikov and Whitehead towers exist, that cell
--- complexes exhaust the types — all true, all standard, NONE of it below.
--- §4 checks well-foundedness of the iteration, not its completeness.  A
--- statement of the form "one iterated construction, all forms" is a
--- citation to the literature and must be given as one; it is not a theorem
--- of this file and this file does not gesture at it.
+-- ~~WHAT IS NOT CLAIMED, and this is where the owner's third sentence
+-- outruns what is checked.~~  **STRUCK WITHIN THE HOUR, BY ME, AND IT WAS
+-- AN ABSENCE ASSERTED WITHOUT A COMMAND — the error CLAUDE.md names first.**
+-- The corpus checks the iteration, graded, for EVERY sphere, and I had not
+-- looked:
+--
+--   `StaraArpana_…`     S¹: Ω(∥S¹∥₃) ≃ ℤ — the charge uttered whole one
+--                       stratum above the silence.
+--   `AyamaArpana_…`     S²: ∥S²∥₃ is contractible (sphereConnected 2), so
+--                       the withholding deepens one stratum per dimension.
+--   `AnantaraArpana_…`  EVERY sphere, and it is sharper than the textbook
+--                       tower: ∥Sⁿ⁺¹∥₍₂₊ₙ₎ contractible, and
+--                       Ωⁿ⁺¹(∥Sⁿ⁺¹∥₍₃₊ₙ₎) ≃ ℤ.  The first stratum above
+--                       the last silent one already carries every winding
+--                       number.  THERE IS NO STRATUM OF PARTIAL SPEECH.
+--
+-- So the corpus does not merely have the tower; it has the tower's GRADING,
+-- which is a statement the "iterate pushouts and you get every type"
+-- formulation does not make.  What remains true of THIS file is only that
+-- §4 checks well-foundedness and no more — a statement about these lines,
+-- not about the corpus, and the original wording failed to distinguish
+-- those.  Completeness of the cell-complex construction is still a
+-- citation, but it is a citation the corpus has already cashed on the
+-- sphere family.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
 -- Agda 2.6.3 + agda/cubical v0.5 -- which is NOT the corpus pin (2.8.0 +
