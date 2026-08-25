@@ -109,8 +109,6 @@ import System.Process (readProcessWithExitCode)
 import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 
 import Wire
-import WireVocabulary (Register(..), registerOf, toGreek, toSanskrit, lexiconJ)
-import qualified WireVocabulary
 -- `hiding (Ganita)` is a live seam and not a preference.  While this lane was
 -- repairing the readers below, the Uttara lane gave `Saksin` a constructor
 -- `Ganita` — a COMPUTED witness, as against `Likhita`, a written one — and
@@ -231,9 +229,6 @@ kriyah =
   [ Kriya "yantra.kriyah"
       "What this machine can be asked.  Emitted from the table the server dispatches on, so it cannot drift from what runs."
       [] kKriyah
-  , Kriya "yantra.kosa"
-      "The wire's own dictionary: every name it uses, in Greek and in Sanskrit, with a gloss.  Emitted from the same table the translation runs on, so it cannot drift from what the wire actually says.  The default register is GREEK; send \"register\":\"sanskrit\" for the other."
-      [] kKosa
   , Kriya "yantra.sthiti"
       "The whole session: the store in full, the defect log, what the doṣa-lekha said back when each defect was filed, the remainder queue."
       [] kSthiti
@@ -347,32 +342,6 @@ kKriyah y _ = pure (y, m, u)
           , "the ORDER of the table, which carries no fact: dispatch is by exact name and the names are checked unique, so there is nothing here for vipratiṣedhe paraṁ kāryam to compare"
           , "who asked, and why they asked now" ]
           [ "Pāṇini, Aṣṭādhyāyī 1.4.2, c. 500 BCE — conflict is settled by a stated principle; where no conflict arises there is nothing to settle" ]
-
--- THE DICTIONARY, as an answer.  A caller who does not recognise a word
--- asks for the table instead of guessing, and the table is emitted from
--- the same list `toGreek`/`toSanskrit` translate against — there is one
--- copy of every name and no second one to go stale.
-kKosa :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
-kKosa y _ = pure (y, m, u)
-  where
-    m = Mudra (S.Position S.SyadAsti)
-          (Nihsesa (length WireVocabulary.entries)
-             ("every entry of the running translation table, both registers, "
-              ++ "with its gloss; the table the wire translates against is "
-              ++ "the table you are reading"))
-    u = samkramana "yantra.kosa"
-          (tulyata "refl — the identity equivalence, the one transport always available"
-                   "the translation table as it runs"
-                   "the dictionary you are reading"
-                   "there is no second copy to fall out of date")
-          [ ("kosa", lexiconJ)
-          , ("register-vidhi", JStr "GREEK by default; send \"register\":\"sanskrit\" for the Sanskrit register") ]
-          [ "WHY each pair is a map and not a convenience: the argument for it is in WireVocabulary.hs's header, not on this wire"
-          , "the English gloss is a gloss.  It is the register this vocabulary exists to avoid, and it is here to be read, never to be sent"
-          , "every term of both traditions that has NO counterpart in the other, which is most of both" ]
-          [ "Sextus Empiricus, Outlines of Pyrrhonism — περὶ κριτηρίου, the criterion; and the τρόποι, the modes"
-          , "Akalaṅka, Laghīyastraya, c. 720–780 — the sevenfold position and krama against saha"
-          , "Umāsvāti, Tattvārthasūtra 5.31, c. 2nd–5th c. — arpita/anarpita, what is asserted and what withheld" ]
 
 kSthiti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSthiti y _ = pure (y, m, u)
@@ -1550,17 +1519,9 @@ serve fp kala hin hout = go
       if eof then pure y else do
         wireLine <- hGetLine hin
         if all (`elem` " \t\r") wireLine then go y else do
-          -- THE REGISTER, and it is read off the request rather than
-          -- configured: GREEK unless the caller says `"register":"sanskrit"`.
-          -- The server's internals stay Sanskrit and are never rewritten;
-          -- translation happens here, at the two edges, so there is exactly
-          -- one copy of every name and nothing to drift.  See WireVocabulary.hs.
-          let reg  = either (const Greek) registerOf (parseLine wireLine)
-              line = case parseLine wireLine of
-                       Right j -> render (toSanskrit reg j)
-                       Left _  -> wireLine
+          let line = wireLine
           (y', m, u) <- answer y kala line
-          hPutStrLn hout (render (toGreek reg (mergeId line (mudritaJ m u))))
+          hPutStrLn hout (render (mergeId line (mudritaJ m u)))
           hFlush hout
           appendLekha fp (yTurn y') line m u
           go y'
