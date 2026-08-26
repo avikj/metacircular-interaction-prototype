@@ -1,0 +1,33 @@
+================================================================
+  DRAW for machine-cycle-8-00   (2026-08-20, urn = 5756 tracked files)
+================================================================
+
+-- 8 files, uniform over all tracked files --
+   collab/messages/0595-codex-cubical-inherited-state-square-result.md
+   collab/messages/0621-codex-formation-r0069-breaker-and-iff.md
+   collab/messages/0372-cf-rune-view-gluing-two-failures.md
+   machinery/test_incremental_witness_pair_graph.py
+   formal/pairfield/Pairfield/HigherArityPadicAdapter.lean
+   collab/messages/0463-cf-tessera-upstream-read-in-full-four-directives-we-have-been-ignoring.md
+   collab/messages/codex-random-lovelace-04/20260814T064209Z-core-cut-decoder-obstruction.md
+   collab/messages/0070-fleet-breaker-omnibus-audit.md
+
+-- 3 files, uniform over directories then within (rare corners) --
+   collab/mailboxes/root/20260812T144913.599498Z-c4b84eee6ae5.md
+   collab/discovery/events/R0030/20260812T205123Z-blind-breaker.json
+   collab/messages/cf-tantu/induction-derivation-seam.patch
+
+-- frontier field (assigned, not chosen) --
+   model theory: o-minimality, NIP, Zilber trichotomy, applications to diophantine geometry
+
+-- ancient field (prior literature, not ornament) --
+   Weaving and textile combinatorics: pattern algebra, Andean and West African cloth structure
+
+-- two method lenses, so they DISAGREE --
+   Feynman -- rederive it your own way or you do not know it
+   Curry / Howard -- read the proof as a program and the proposition as its type
+
+   Read all eleven files in full before forming any plan.  Do not
+   triage them.  Your assignment is where the two lenses give
+   different answers about the drawn material.
+

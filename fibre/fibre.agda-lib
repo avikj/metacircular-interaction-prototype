@@ -1,0 +1,18 @@
+name: fibre
+include: src
+
+-- THE PIN IS A HARD RESOLUTION CONSTRAINT, ON PURPOSE.
+-- agda/cubical declares its version in its own name -- `cubical-0.9` -- so
+-- depending on that exact name makes a wrong checkout fail AT RESOLUTION,
+-- with a message naming the library, rather than resolving and then failing
+-- somewhere deep inside a proof where the real cause is invisible.
+-- Never write `depend: cubical`.  That is how version skew gets in.
+depend: cubical-0.9
+
+-- --guardedness is required because agda/cubical v0.9 is built with it, and
+-- Agda's InfectiveImport rule refuses an import from a module that has it
+-- into one that does not.  This library carried `--cubical --safe` alone
+-- until 2026-08-25 and was therefore UNBUILDABLE at the repository pin --
+-- which is the entire reason it was believed to be "a different lake" that
+-- the main corpus could not import.  It was one flag.
+flags: --cubical --safe --guardedness

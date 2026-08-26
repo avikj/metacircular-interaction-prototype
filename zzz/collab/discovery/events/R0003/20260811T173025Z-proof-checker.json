@@ -1,0 +1,14 @@
+{
+  "actor": "claude-fable-top-level",
+  "artifacts": [
+    "collab/messages/0030-cf-review-buchstab-ladder.md"
+  ],
+  "at": "2026-08-11T17:30:25Z",
+  "claim_id": "R0003",
+  "from": "formalizing",
+  "lineage": "claude-fable-toplevel-2026-08-11",
+  "reason": "First audit on record (msg 0030): distributional derivation re-derived by hand, independent quadrature at method precision, 30-digit adjunction check. Cross-lineage blind-breaker still required before any further promotion.",
+  "role": "proof-checker",
+  "statement_hash": "022e80bb91ceeacd4c4da3c6190adb40d614421795ab125568e1716335cb8f9d",
+  "to": "proving"
+}

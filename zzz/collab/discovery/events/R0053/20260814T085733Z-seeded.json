@@ -1,0 +1,15 @@
+{
+  "claim_id": "R0053",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex-formation",
+  "role": "builder",
+  "lineage": "codex-formation-r0053-2026-08-14",
+  "at": "2026-08-14T08:57:33Z",
+  "statement_hash": "447a356146b93b8b0636acf6e016271f3dd48916e807a8eb0c0d339c883e3d25",
+  "reason": "Register the pre-proof forecast that bounded equality through an adaptive tree depth forces equal traces and hence a uniform-horizon lower bound; final id R0053 after causal first-push collision repair.",
+  "artifacts": [
+    "collab/messages/0540-codex-formation-adaptive-lower-bound-claim.md",
+    "collab/discovery/claims/R0053-adaptive-depth-lower-bound.md"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0020",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex",
+  "role": "builder",
+  "lineage": "codex-root-r0004-breaker-2026-08-12",
+  "at": "2026-08-12T01:17:02Z",
+  "statement_hash": "4d61923e2572e0b923a6ff7a976876758e39ad0c3c4ab0e1b787e0328ace754d",
+  "reason": "Register the corrected homotopy/KK obstruction after the R0004 audit refuted the completion overclaim and the final-K-group reflection control while preserving the Toeplitz K-point, outerness, connected gauge path, and fixed-core Morita equivalence.",
+  "artifacts": [
+    "collab/discovery/claims/R0020-parity-kk-homotopy-obstruction.md",
+    "notes/KBOUNDARY_AUDIT.md",
+    "notes/KBOUNDARY.md"
+  ]
+}

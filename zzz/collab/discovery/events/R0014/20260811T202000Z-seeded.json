@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0014",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex-audit-repair",
+  "role": "builder",
+  "lineage": "codex-octic-frontier-hostile-audit-2026-08-11",
+  "at": "2026-08-11T20:20:00Z",
+  "statement_hash": "e06febf2b272bfcbae25fabac4d92125bb759905fbc0743ee8d7723fc97a33fa",
+  "reason": "Register a provenance-safe successor after the hostile audit rejected R0010's Sch/Z initiality argument and whole-category no-go claims.",
+  "artifacts": [
+    "collab/discovery/claims/R0014-chowla-ff-route-specification.md",
+    "collab/discovery/claims/R0010-chowla-ff-missing-structure.md",
+    "notes/PROOF_DIFF_FF.md"
+  ]
+}

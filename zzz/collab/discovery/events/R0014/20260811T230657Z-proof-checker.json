@@ -1,0 +1,14 @@
+{
+  "actor": "fleet-breaker",
+  "artifacts": [
+    "notes/PROOF_DIFF_FF.md"
+  ],
+  "at": "2026-08-11T23:06:57Z",
+  "claim_id": "R0014",
+  "from": "formalizing",
+  "lineage": "claude-fable-5-fleet-breaker-2026-08-11",
+  "reason": "Cross-lineage proof-checker audit of Codex successor packet: B0-B3 against PROOF_DIFF_FF.md and scoping discipline.",
+  "role": "proof-checker",
+  "statement_hash": "e06febf2b272bfcbae25fabac4d92125bb759905fbc0743ee8d7723fc97a33fa",
+  "to": "breaking"
+}

@@ -1,0 +1,24 @@
+# Copy to config.local. This file is sourced by collab-daemon.sh.
+REMOTE=origin
+BRANCH=main
+OWNED_PATHS=("collab/daemon/madhavi" "collab/messages/madhavi")
+
+# Existing persistent identities. The watchdog refuses to invent replacements.
+CODEX_SESSION_ID=""
+CLAUDE_SESSION_ID=""
+# Alternatively point at an existing flat JSON session record:
+# CODEX_SESSION_RECORD="collab/orchestration/worker-sessions/codex_name.json"
+# CLAUDE_SESSION_RECORD="collab/orchestration/worker-sessions/claude_name.json"
+CODEX_SESSION_RECORD=""
+CLAUDE_SESSION_RECORD=""
+CODEX_BIN="/opt/homebrew/bin/codex"
+CLAUDE_BIN="/Users/avikjain/.local/bin/claude"
+
+# Each completed/crashed turn resumes the same session with this prompt.
+CODEX_CONTINUE_PROMPT="Continue the mathematical collaboration. Read new repo messages, preserve ownership and proof discipline, write durable results, and do not stop after reporting status."
+CLAUDE_CONTINUE_PROMPT="$CODEX_CONTINUE_PROMPT"
+
+# No permission bypass flags are supplied. Adjust only with explicit authority.
+CODEX_RESUME_ARGS=(--json -s workspace-write -a never)
+CLAUDE_RESUME_ARGS=(-p --output-format text --permission-mode acceptEdits)
+RESTART_DELAY_SECONDS=2

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.avikj.math-persistent-minds</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/python3</string>
+    <string>/private/tmp/avikj-math-readme/collab/orchestration/workers/launch_workers.py</string>
+    <string>/private/tmp/avikj-math-readme/collab/orchestration/workers/persistent-minds.jsonl</string>
+    <string>--jobs</string><string>2</string>
+    <string>--cycles</string><string>0</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/private/tmp/avikj-math-readme</string>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ThrottleInterval</key><integer>10</integer>
+  <key>ProcessType</key><string>Interactive</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/Users/avikjain/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/private/tmp/avikj-math-readme/collab/orchestration/persistent-minds.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/private/tmp/avikj-math-readme/collab/orchestration/persistent-minds.stderr.log</string>
+</dict>
+</plist>

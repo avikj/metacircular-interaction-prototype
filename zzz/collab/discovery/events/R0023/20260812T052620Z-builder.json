@@ -1,0 +1,15 @@
+{
+  "actor": "codex",
+  "artifacts": [
+    "notes/DEFECT_CALCULUS_NUCLEUS.md",
+    "collab/discovery/claims/R0023-derived-prime-incidence-defect.md"
+  ],
+  "at": "2026-08-12T05:26:20Z",
+  "claim_id": "R0023",
+  "from": "unregistered",
+  "lineage": "codex-defect-calculus-2026-08-12",
+  "reason": "Register the exact derived prime-incidence computation, Euler-size cancellation obstruction, and ramified residue-versus-conormal contrast.",
+  "role": "builder",
+  "statement_hash": "7ca96079e107088cde9b52dc90eb54f8f7d29ff8261cad0f6233ea872552598f",
+  "to": "seed"
+}

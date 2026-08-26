@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0008",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "fleet-chaitin",
+  "role": "builder",
+  "lineage": "claude-fable-fleet-chaitin-2026-08-11",
+  "at": "2026-08-11T19:13:26Z",
+  "statement_hash": "01aa3a2ac60385d1c31ad710b714b7c9d255ad8011fbb4c245dc6a88cc14a2eb",
+  "reason": "Register the proof-mass program of LENS_CHAITIN section 4 item 2 as a theorem packet: master transfer inequality PM1, dichotomy/interpolation/mass corollaries PM2-PM6, instantiated exactly at N = 2*10^6.",
+  "artifacts": [
+    "notes/PROOF_MASS.md",
+    "code/exp42_proofmass.py",
+    "data/exp42_out.txt"
+  ]
+}

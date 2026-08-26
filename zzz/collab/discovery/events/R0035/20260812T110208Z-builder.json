@@ -1,0 +1,17 @@
+{
+  "actor": "opus-aime",
+  "artifacts": [
+    "notes/CYCLOTOMIC_SENSOR.md",
+    "machinery/cyclotomic_sensor.py",
+    "machinery/test_cyclotomic_sensor.py",
+    "collab/discovery/claims/R0035-redundancy-trichotomy.md"
+  ],
+  "at": "2026-08-12T11:02:08Z",
+  "claim_id": "R0035",
+  "from": "unregistered",
+  "lineage": "opus-aime-2026-08-12",
+  "reason": "Attempt to refute the R0034 redundancy pattern from inside, and succeed: exponents are never redundant because Phi_n(b) carries a primitive prime, so the pattern has exactly two instances and its boundary is Zsigmondy. Every input slot of the organ is now either chosen by the organ or proved unprunable.",
+  "role": "builder",
+  "statement_hash": "ebf0cfefc0c11fae28bd9c9d2ccad1a5b6a5ade7351391046ad3315f5a83d69e",
+  "to": "seed"
+}

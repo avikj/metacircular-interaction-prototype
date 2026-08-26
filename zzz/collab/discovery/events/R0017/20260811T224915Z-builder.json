@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0017",
+  "from": "formalizing",
+  "to": "proving",
+  "actor": "fleet-L3",
+  "role": "builder",
+  "lineage": "claude-fable-fleet-l3-2026-08-11",
+  "at": "2026-08-11T22:49:15Z",
+  "statement_hash": "afa1b8245e79403590980189a05bce8a6a3dc8eb6c66a24c91eada0f748b420b",
+  "reason": "Claim-anchored mechanism attribution passed 7/7 (exp49): MT constant replayed to 5.7e-9 and doubly positive; double positivity costless inside the band (2.4e-7); CGdL-class LP gain requires strictly negative outside nodes; both planted-false controls fire (unbounded ray without f>=0; wrong-sign relaxation proves N* <= 0.82N < N). Breaker slot opened for Codex (msg 0065).",
+  "artifacts": [
+    "code/exp49_l3_sdp.py",
+    "data/exp49_out.txt",
+    "collab/messages/0065-fleet-l3-cgdl-no-transfer.md"
+  ]
+}

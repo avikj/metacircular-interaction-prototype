@@ -1,0 +1,16 @@
+{
+  "actor": "codex-schema",
+  "artifacts": [
+    "notes/SITUATED_CONSTRUCTOR_PORT.md",
+    "machinery/situated_constructor_port.py",
+    "machinery/test_situated_constructor_port.py"
+  ],
+  "at": "2026-08-12T15:57:12Z",
+  "claim_id": "R0028",
+  "from": "seed",
+  "lineage": "codex-schema-2026-08-12",
+  "reason": "Direct proof and seven-test exact replay complete; independent residual-lineage audit survived.",
+  "role": "builder",
+  "statement_hash": "e0df4fbe64aeab06c93a933ba131d5931f6ebe2c904556a5221eb786246993a4",
+  "to": "formalizing"
+}

@@ -1,0 +1,155 @@
+
+# Agda build artifacts
+# Persistent local research minds: durable on this machine, not repository artifacts.
+*.agdai
+*.pyc
+.claude/*
+!.claude/skills/
+!.claude/hooks/
+!.claude/settings.json
+__pycache__/
+_build/
+zzz/collab/orchestration/persistent-minds.*.log
+zzz/collab/orchestration/worker-runs/
+zzz/collab/orchestration/worker-sessions/
+interactive/library.txt
+interactive/machine.log
+interactive/mathmachine
+zzz/natural_machine_cpu_loop_rust/cage
+zzz/natural_machine_cpu_loop_rust/evolve
+zzz/natural_machine_cpu_loop_rust/natural_machine
+zzz/natural_machine_cpu_loop_rust/verify
+random_entry_seeder_so_agents_dont_cluster/seed
+interactive/library.txt
+
+# Agda scratch probes.  Agents testing whether something reduces on the nose
+# write throwaway modules; two of these (`ZZTestSolver.agda`, `Probe1.agda`)
+# were swept into commits by `git add -A` and had to be removed again.  A
+# probe is a question, not a result: name it `Probe*.agda` or `Scratch*.agda`
+# and it stays out of the tree.  Anything worth keeping goes in
+# `NaturalMachine/` under a name that carries its category.
+formal/cubical/Probe*.agda
+formal/cubical/Tmp*.agda
+formal/cubical/**/Tmp*.agda
+formal/cubical/Scratch*.agda
+formal/cubical/**/Probe*.agda
+formal/cubical/**/Scratch*.agda
+runtime/LIVING_RUN.log
+runtime/LIVING_STATE.json
+vigil-state.json
+zzz/natural_machine_cpu_loop_rust/real_workload
+zzz/natural_machine_cpu_loop_rust/decic_extend
+zzz/natural_machine_cpu_loop_rust/root_singular_series
+formal/cubical/Candidate_*.agda
+
+# interactive/library.terms is NOT ignored, and used to be, listed right here
+# among the reproducible artifacts.  It is the opposite of one: it is the
+# machine's MEMORY, the file MathMachine reads at startup to re-admit what
+# earlier runs proved.  Ignored, it never left the container that wrote it,
+# so every fresh checkout — every CI job, every new session, every future
+# scheduled run — started the machine from mRules = [] and re-derived the
+# same theorems forever.  The engine's own comment says the architecture
+# "rests on installed theorems compounding"; nothing can compound across a
+# clone that does not carry the file.  Tracked as of 2026-08-17.
+
+# Machine build artifacts (reproducible; never source of truth)
+interactive/*.hi
+interactive/*.o
+interactive/arithvocab
+interactive/bench-head-depth
+interactive/cyclotomic-vocab
+interactive/parallel-gate
+interactive/library.certs
+interactive/self_architecture.tsv
+interactive/nested-agda/
+
+# Certificate gate cache: re-derivable, and every entry stores the exact
+# module source it certified, so it is a rebuildable artifact not a record.
+interactive/.certcache/
+formal/cubical/.claude/
+interactive/replay.traces.live
+
+# The sabhā: the compiled process and its transcript.  The binary is
+# rebuildable from interactive/check-sabha.sh; the transcript is a session
+# record, kept locally and never rewritten in place (append-only), and it
+# is the corpus this wire exists to produce.
+interactive/sabha
+interactive/sabha.jsonl
+
+# The interface the other carrier is handed: the compiled binary, rebuildable
+# from interactive/check-karana.sh.  Its outputs (the tool schema, the training
+# records) are regenerated from the running dispatch table and a transcript,
+# so neither is committed either -- a committed copy would be the second copy
+# that drifts, which is the thing this lane exists to remove.
+interactive/karana
+interactive/abhyasa.jsonl
+**/.certcache/
+
+# compiled binaries — build output, rebuilt in place by interactive/check-*.sh; never track
+interactive/math-machine
+interactive/repairfixpoint
+interactive/question-machine
+
+# Markdown is banned in this repository (owner, 2026-08-24).  The hook
+# .claude/hooks/no-markdown.sh refuses the write; this is the second layer,
+# for whatever the hook fails open on -- it fails open by design, because a
+# guard that blocks what it cannot parse is an outage wearing enforcement's
+# name.  3630 .md files were removed in the same change; they are in the
+# history and `git show` returns every one.
+#
+# A .md file asserts.  A checked term is the object, and it is still there
+# tomorrow.  Put it in Agda (formal/cubical/, fibre/src/) or Lean
+# (formal/lean/); if it is a header or a struck claim, it belongs in the
+# module it is about.
+#
+# The exceptions are not prose.  They are files the HARNESS LOADS as
+# configuration -- deleting them removes a mechanism, not an assertion.
+*.md
+*.markdown
+!CLAUDE.md
+!AGENTS.md
+!.claude/skills/**/*.md
+
+# cabal's build tree, created in the repo root by
+# scripts/Dhruva_TheDeclaredPinIsBuiltFromNothingOrTheRunSaysWhichItGot.sh
+# when it builds the pinned Agda 2.8.0.  A build artifact, never a claim.
+dist-newstyle/
+
+# ────────────────────────────────────────────────────────────────────
+# PURIFICATION, 2026-08-25, owner: "gitignore build artifacts logs etc."
+#
+# Everything above this line was written one path at a time, by whoever
+# happened to compile something new, which is why it lists four binaries
+# by name and misses the fifth.  These are the general rules.  A build
+# artifact is reproducible from a command in the tree; a log and a
+# transcript are records of ONE CONTAINER and do not survive the clone
+# they were written in.  Neither is a claim, and neither is source.
+# ────────────────────────────────────────────────────────────────────
+
+# compiled output, any lane, any depth
+*.hi
+*.o
+*.agdai
+*.dyn_hi
+*.dyn_o
+*.so
+*.a
+
+# logs and per-run transcripts
+*.log
+*.jsonl
+
+# the archive is history, not working state: nothing here is built,
+# checked, imported or run.  It is kept so `git log` and `git show`
+# still answer, and so a claim can be traced to the script it came from.
+zzz/**/*.pyc
+
+# interactive/yantra-session.lekha — the per-run session defect log.
+# run-yantra.sh does `rm -f "$LEKHA"` on EVERY invocation, by design: its
+# own header says the chain must start at genesis so that `dosa.pramanya`
+# verifies THIS run and not a history it did not produce.  So a committed
+# copy is, by construction, always some other container's run — and a
+# `--wire` session deletes it and writes nothing, which is how it showed
+# up as a staged deletion.  interactive/dosa.lekha, the shared append-only
+# log several lanes write to, is a different file and stays tracked.
+interactive/yantra-session.lekha

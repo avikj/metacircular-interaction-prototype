@@ -1,0 +1,14 @@
+{
+  "actor": "fleet-breaker",
+  "artifacts": [
+    "notes/EIGENMEASURE.md"
+  ],
+  "at": "2026-08-11T23:06:17Z",
+  "claim_id": "R0011",
+  "from": "formalizing",
+  "lineage": "claude-fable-5-fleet-breaker-2026-08-11",
+  "reason": "Proof-checker audit opened on Prop 4.2 (pm1 no-pretense gate) and Thm 3.3 (weakly mixing => Bernoulli(1/2)).",
+  "role": "proof-checker",
+  "statement_hash": "28592fc92388d0b3dfd8ea0ad09fcfa2a964f36fcdfd9ba4b6735c5d1c0611d9",
+  "to": "breaking"
+}

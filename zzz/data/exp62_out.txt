@@ -1,0 +1,323 @@
+exp62_digit_crystal.py -- The reversal/complement duality crystal of the
+positional digit action.
+
+Companion note: notes/DIGIT_CRYSTAL.md.
+Executes notes/PYTHAGOREAN_EUCLIDEAN_MACHINE.md section 8 (duality crystals) on
+the crystal that note names as native: word-reversal / opposite-endomorphism in
+positional digit actions.  Section 4 (chart vs completion) is the crossing.
+
+CONVENTIONS (fixed once, used everywhere)
+  b >= 2, digit alphabet A = {0,...,b-1}.
+  A word w = (c_0,...,c_{n-1}) is LITTLE-ENDIAN: L_n(w) = sum_i c_i b^i.
+  rho(w) = (c_{n-1},...,c_0)                    [reversal, D]
+  eps(w) = (b-1-c_0,...,b-1-c_{n-1})            [digit complement, E]
+  Affine element [a,c] is the map x |-> a x + c; [a1,c1]o[a2,c2] = [a1a2, a1c2+c1].
+  Digit generator gamma_d = [b,d].  Phi(w) = gamma_{c_0} o ... o gamma_{c_{n-1}}
+    = [b^n, L_n(w)]; Phi is a MONOID HOMOMORPHISM (concatenation appends
+    higher-order digits on the right).
+  On Z/b^n:  R_n = L_n rho L_n^{-1},  E_n(v) = b^n - 1 - v,
+             T_n(v) = v+1 (odometer), pi_n(v) = v mod b^n  (Z/b^{n+1} -> Z/b^n),
+             sig_n(v) = floor(v/b)              (Z/b^{n+1} -> Z/b^n).
+==============================================================================
+PART 1  word level: involutivity, commutator, group law, fixed points
+==============================================================================
+
+  base b = 2
+      n           b^n     |FixD|   |FixE|    |FixDE|  |FixAll|     orbits  mode
+      0             1          1        1          1         1          1  exhaustive
+      1             2          2        0          0         0          1  exhaustive
+      2             4          2        0          2         0          2  exhaustive
+      3             8          4        0          0         0          3  exhaustive
+      4            16          4        0          4         0          6  exhaustive
+      5            32          8        0          0         0         10  exhaustive
+      6            64          8        0          8         0         20  exhaustive
+      7           128         16        0          0         0         36  exhaustive
+      8           256         16        0         16         0         72  exhaustive
+      9           512         32        0          0         0        136  exhaustive
+     10          1024         32        0         32         0        272  exhaustive
+     11          2048         64        0          0         0        528  exhaustive
+     12          4096         64        0         64         0       1056  exhaustive
+
+  base b = 3
+      n           b^n     |FixD|   |FixE|    |FixDE|  |FixAll|     orbits  mode
+      0             1          1        1          1         1          1  exhaustive
+      1             3          3        1          1         1          2  exhaustive
+      2             9          3        1          3         1          4  exhaustive
+      3            27          9        1          3         1         10  exhaustive
+      4            81          9        1          9         1         25  exhaustive
+      5           243         27        1          9         1         70  exhaustive
+      6           729         27        1         27         1        196  exhaustive
+      7          2187         81        1         27         1        574  exhaustive
+      8          6561         81        1         81         1       1681  exhaustive
+      9         19683        243        1         81         1       5002  exhaustive
+     10         59049        243        1        243         1      14884  exhaustive
+     11        177147        729        1        243         1      44530  exhaustive
+     12        531441        729        1        729         1     133225  exhaustive
+
+  base b = 10
+      n           b^n     |FixD|   |FixE|    |FixDE|  |FixAll|     orbits  mode
+      0             1          1        1          1         1          1  exhaustive
+      1            10         10        0          0         0          5  exhaustive
+      2           100         10        0         10         0         30  exhaustive
+      3          1000        100        0          0         0        275  exhaustive
+      4         10000        100        0        100         0       2550  exhaustive
+      5        100000       1000        0          0         0      25250  exhaustive
+      6       1000000       1000        0       1000         0     250500  closed+sampled
+      7      10000000      10000        0          0         0    2502500  closed+sampled
+      8     100000000      10000        0      10000         0   25005000  closed+sampled
+      9    1000000000     100000        0          0         0  250025000  closed+sampled
+     10   10000000000     100000        0     100000         0 2500050000  closed+sampled
+     11  100000000000    1000000        0          0         0 25000250000  closed+sampled
+     12 1000000000000    1000000        0    1000000         0 250000500000  closed+sampled
+
+  -- group law of <D,E> on words of length n (explicit tables) --
+    b= 2 n= 0: |<D,E>| = 1, element orders [1]  ==>  trivial
+    b= 2 n= 1: |<D,E>| = 2, element orders [1, 2]  ==>  Z/2
+    b= 2 n= 2: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 2 n= 3: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 2 n= 4: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 2 n= 5: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 2 n= 6: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 2 n= 7: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 2 n= 8: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 0: |<D,E>| = 1, element orders [1]  ==>  trivial
+    b= 3 n= 1: |<D,E>| = 2, element orders [1, 2]  ==>  Z/2
+    b= 3 n= 2: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 3: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 4: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 5: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 6: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 7: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b= 3 n= 8: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b=10 n= 0: |<D,E>| = 1, element orders [1]  ==>  trivial
+    b=10 n= 1: |<D,E>| = 2, element orders [1, 2]  ==>  Z/2
+    b=10 n= 2: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+    b=10 n= 3: |<D,E>| = 4, element orders [1, 2, 2, 2]  ==>  V4 = Z/2 x Z/2
+
+==============================================================================
+PART 2  the action: four corners in Aff(Z), D anti-auto, E = conjugation
+==============================================================================
+
+  b=2: sigma gamma_d sigma = gamma_(b-1-d) verified for all d in 0..1
+       Phi hom, D anti-auto (Phi(D(uv)) = Phi(Dv)Phi(Du)), E auto = conj_sigma: 4000/4000 random word pairs exact
+       four corners at w=(1, 1, 1, 0) (n=4):
+         X   = w            word=(1, 1, 1, 0)             affine=[a,c]=[16,7]  = [b^4, 7]
+         D X = rev w        word=(0, 1, 1, 1)             affine=[a,c]=[16,14]  = [b^4, 14]
+         E X = comp w       word=(0, 0, 0, 1)             affine=[a,c]=[16,8]  = [b^4, 8]
+         DEX = rev comp w   word=(1, 0, 0, 0)             affine=[a,c]=[16,1]  = [b^4, 1]
+         corner identities  D:v->R_n(v),  E:v->b^n-1-v,  DE:v->b^n-1-R_n(v)  exact
+
+  b=3: sigma gamma_d sigma = gamma_(b-1-d) verified for all d in 0..2
+       Phi hom, D anti-auto (Phi(D(uv)) = Phi(Dv)Phi(Du)), E auto = conj_sigma: 4000/4000 random word pairs exact
+       four corners at w=(1, 1, 1, 2) (n=4):
+         X   = w            word=(1, 1, 1, 2)             affine=[a,c]=[81,67]  = [b^4, 67]
+         D X = rev w        word=(2, 1, 1, 1)             affine=[a,c]=[81,41]  = [b^4, 41]
+         E X = comp w       word=(1, 1, 1, 0)             affine=[a,c]=[81,13]  = [b^4, 13]
+         DEX = rev comp w   word=(0, 1, 1, 1)             affine=[a,c]=[81,39]  = [b^4, 39]
+         corner identities  D:v->R_n(v),  E:v->b^n-1-v,  DE:v->b^n-1-R_n(v)  exact
+
+  b=10: sigma gamma_d sigma = gamma_(b-1-d) verified for all d in 0..9
+       Phi hom, D anti-auto (Phi(D(uv)) = Phi(Dv)Phi(Du)), E auto = conj_sigma: 4000/4000 random word pairs exact
+       four corners at w=(5, 6, 8, 4) (n=4):
+         X   = w            word=(5, 6, 8, 4)             affine=[a,c]=[10000,4865]  = [b^4, 4865]
+         D X = rev w        word=(4, 8, 6, 5)             affine=[a,c]=[10000,5684]  = [b^4, 5684]
+         E X = comp w       word=(4, 3, 1, 5)             affine=[a,c]=[10000,5134]  = [b^4, 5134]
+         DEX = rev comp w   word=(5, 1, 3, 4)             affine=[a,c]=[10000,4315]  = [b^4, 4315]
+         corner identities  D:v->R_n(v),  E:v->b^n-1-v,  DE:v->b^n-1-R_n(v)  exact
+
+  canonicity of E (search over affine conjugators a=+-1, c in Z):
+    b= 2: induced digit permutations = ['id via [a,c]=[1,0]', 'E via [a,c]=[-1,-1]']
+    b= 3: induced digit permutations = ['id via [a,c]=[1,0]', 'E via [a,c]=[-1,-1]']
+    b=10: induced digit permutations = ['id via [a,c]=[1,0]', 'E via [a,c]=[-1,-1]']
+
+==============================================================================
+PART 3  inverse systems: (E_n) completes, (R_n) does not (as a self-map)
+==============================================================================
+
+  b = 2
+      n  #x in Z/b^(n+1)  #{pi R != R pi}  pi R = R sig  sig R = R pi  pi E = E pi
+      1                4                2          True          True         True
+      2                8                6          True          True         True
+      3               16               14          True          True         True
+      4               32               30          True          True         True
+      5               64               62          True          True         True
+      6              128              126          True          True         True
+      7              256              254          True          True         True
+      8              512              510          True          True         True
+      9             1024             1022          True          True         True
+     10             2048             2046          True          True         True
+     11             4096             4094          True          True         True
+     12             8192             8190          True          True         True
+
+  b = 3
+      n  #x in Z/b^(n+1)  #{pi R != R pi}  pi R = R sig  sig R = R pi  pi E = E pi
+      1                9                6          True          True         True
+      2               27               24          True          True         True
+      3               81               78          True          True         True
+      4              243              240          True          True         True
+      5              729              726          True          True         True
+      6             2187             2184          True          True         True
+      7             6561             6558          True          True         True
+      8            19683            19680          True          True         True
+      9            59049            59046          True          True         True
+     10           177147           177144          True          True         True
+     11           531441           531438          True          True         True
+     12            50000            50000          True          True         True  (sampled)
+
+  b = 10
+      n  #x in Z/b^(n+1)  #{pi R != R pi}  pi R = R sig  sig R = R pi  pi E = E pi
+      1              100               90          True          True         True
+      2             1000              990          True          True         True
+      3            10000             9990          True          True         True
+      4           100000            99990          True          True         True
+      5            50000            49998          True          True         True  (sampled)
+      6            50000            50000          True          True         True  (sampled)
+      7            50000            50000          True          True         True  (sampled)
+      8            50000            50000          True          True         True  (sampled)
+      9            50000            50000          True          True         True  (sampled)
+     10            50000            50000          True          True         True  (sampled)
+     11            50000            50000          True          True         True  (sampled)
+     12            50000            50000          True          True         True  (sampled)
+
+  smallest explicit witness of pi-incompatibility, per base:
+    b=2: n=1, x=1 (digits (1, 0)): pi_1(R_2(x))=0 != R_1(pi_1(x))=1; and R_1(sig_1(x))=0 = 0 OK
+    b=3: n=1, x=1 (digits (1, 0)): pi_1(R_2(x))=0 != R_1(pi_1(x))=1; and R_1(sig_1(x))=0 = 0 OK
+    b=10: n=1, x=1 (digits (1, 0)): pi_1(R_2(x))=0 != R_1(pi_1(x))=1; and R_1(sig_1(x))=0 = 0 OK
+
+  sig_n is not additive (so lim<-(sig) carries no compatible group law):
+    b=2: sig_1(1+1) = sig_1(2) = 1  vs  sig_1(1)+sig_1(1) = 0   ==> not a homomorphism
+    b=3: sig_1(1+2) = sig_1(3) = 1  vs  sig_1(1)+sig_1(2) = 0   ==> not a homomorphism
+    b=10: sig_1(1+9) = sig_1(10) = 1  vs  sig_1(1)+sig_1(9) = 0   ==> not a homomorphism
+
+==============================================================================
+PART 4  odometer: E reverses it; D-conjugate is off the dihedral group
+==============================================================================
+
+  b = 2
+    n= 1 N=    2: ETE=T^-1 True; Ttil affine mod b^n: True; Ttil in <T,E> (|.|=4): True; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 2 N=    4: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=8): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 3 N=    8: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=16): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 4 N=   16: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=32): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 5 N=   32: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=64): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 6 N=   64: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=128): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    |<T_2, R_2>| on 4 points = 24   (N! = 24)  = S_N
+    |<T_3, R_3>| on 8 points = 40320   (N! = 40320)  = S_N
+    |<T_4, R_4>| on 16 points = 20922789888000   (N! = 20922789888000)  = S_N
+    |<T_5, R_5>| on 32 points = 263130836933693530167218012160000000   (N! = 263130836933693530167218012160000000)  = S_N
+
+  b = 3
+    n= 1 N=    3: ETE=T^-1 True; Ttil affine mod b^n: True; Ttil in <T,E> (|.|=6): True; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 2 N=    9: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=18): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 3 N=   27: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=54): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 4 N=   81: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=162): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 5 N=  243: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=486): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 6 N=  729: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=1458): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    |<T_2, R_2>| on 9 points = 362880   (N! = 362880)  = S_N
+    |<T_3, R_3>| on 27 points = 10888869450418352160768000000   (N! = 10888869450418352160768000000)  = S_N
+
+  b = 10
+    n= 1 N=   10: ETE=T^-1 True; Ttil affine mod b^n: True; Ttil in <T,E> (|.|=20): True; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 2 N=  100: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=200): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    n= 3 N= 1000: ETE=T^-1 True; Ttil affine mod b^n: False; Ttil in <T,E> (|.|=2000): False; c(Ex)=z(x): True; digit-sum cocycle: True
+    |<T_n, R_n>|: NOT COMPUTED for b=10 (every b^n with n>=2 exceeds the degree-32 Schreier-Sims cap)
+
+==============================================================================
+PART 5  no continuous extension: b-adically close words, far reversals
+==============================================================================
+
+  b = 2   (|y|_b = b^-val_b(y);  witnesses u = x+b^k, v = x+b^k+b^(k+1),
+             x = 1 has m = 1 digit, so the theorem needs k >= m+1 = 2)
+      k                  u                  v  val(u-v)             Rmin u             Rmin v  val(RmU-RmV)
+      2                  5                 13         3                  5                 11             1
+      3                  9                 25         4                  9                 19             1
+      4                 17                 49         5                 17                 35             1
+      5                 33                 97         6                 33                 67             1
+      6                 65                193         7                 65                131             1
+      7                129                385         8                129                259             1
+      8                257                769         9                257                515             1
+      9                513               1537        10                513               1027             1
+     10               1025               3073        11               1025               2051             1
+     11               2049               6145        12               2049               4099             1
+     12               4097              12289        13               4097               8195             1
+     13               8193              24577        14               8193              16387             1
+    sharp search (u,v positive, |u-v|_b <= b^-k, k=1..5): min val(Rmin u - Rmin v) = 1  ==> sup |.|_b = b^-1   (predicted b^-1)
+       k=1: val=1 at (u,v)=(1,3)
+       k=2: val=1 at (u,v)=(2,6)
+       k=3: val=1 at (u,v)=(3,11)
+       k=4: val=1 at (u,v)=(3,19)
+       k=5: val=1 at (u,v)=(3,35)
+    nowhere-continuity: for x = 1 and k -> oo, u_k -> x and v_k -> x b-adically, but |Rmin(u_k) - Rmin(v_k)|_b = b^-1 for every k.
+
+  b = 3   (|y|_b = b^-val_b(y);  witnesses u = x+b^k, v = x+b^k+b^(k+1),
+             x = 1 has m = 1 digit, so the theorem needs k >= m+1 = 2)
+      k                  u                  v  val(u-v)             Rmin u             Rmin v  val(RmU-RmV)
+      2                 10                 37         3                 10                 31             1
+      3                 28                109         4                 28                 85             1
+      4                 82                325         5                 82                247             1
+      5                244                973         6                244                733             1
+      6                730               2917         7                730               2191             1
+      7               2188               8749         8               2188               6565             1
+      8               6562              26245         9               6562              19687             1
+      9              19684              78733        10              19684              59053             1
+     10              59050             236197        11              59050             177151             1
+     11             177148             708589        12             177148             531445             1
+     12             531442            2125765        13             531442            1594327             1
+     13            1594324            6377293        14            1594324            4782973             1
+    sharp search (u,v positive, |u-v|_b <= b^-k, k=1..5): min val(Rmin u - Rmin v) = 0  ==> sup |.|_b = b^-0   (predicted b^-0)
+       k=1: val=0 at (u,v)=(1,7)
+       k=2: val=0 at (u,v)=(1,19)
+       k=3: val=0 at (u,v)=(1,55)
+       k=4: val=0 at (u,v)=(1,163)
+       k=5: val=0 at (u,v)=(1,487)
+    nowhere-continuity: for x = 1 and k -> oo, u_k -> x and v_k -> x b-adically, but |Rmin(u_k) - Rmin(v_k)|_b = b^-1 for every k.
+
+  b = 10   (|y|_b = b^-val_b(y);  witnesses u = x+b^k, v = x+b^k+b^(k+1),
+             x = 1 has m = 1 digit, so the theorem needs k >= m+1 = 2)
+      k                  u                  v  val(u-v)             Rmin u             Rmin v  val(RmU-RmV)
+      2                101               1101         3                101               1011             1
+      3               1001              11001         4               1001              10011             1
+      4              10001             110001         5              10001             100011             1
+      5             100001            1100001         6             100001            1000011             1
+      6            1000001           11000001         7            1000001           10000011             1
+      7           10000001          110000001         8           10000001          100000011             1
+      8          100000001         1100000001         9          100000001         1000000011             1
+      9         1000000001        11000000001        10         1000000001        10000000011             1
+     10        10000000001       110000000001        11        10000000001       100000000011             1
+     11       100000000001      1100000000001        12       100000000001      1000000000011             1
+     12      1000000000001     11000000000001        13      1000000000001     10000000000011             1
+     13     10000000000001    110000000000001        14     10000000000001    100000000000011             1
+    sharp search (u,v positive, |u-v|_b <= b^-k, k=1..5): min val(Rmin u - Rmin v) = 0  ==> sup |.|_b = b^-0   (predicted b^-0)
+       k=1: val=0 at (u,v)=(1,21)
+       k=2: val=0 at (u,v)=(1,201)
+       k=3: val=0 at (u,v)=(1,2001)
+       k=4: val=0 at (u,v)=(1,20001)
+       k=5: val=0 at (u,v)=(1,200001)
+    nowhere-continuity: for x = 1 and k -> oo, u_k -> x and v_k -> x b-adically, but |Rmin(u_k) - Rmin(v_k)|_b = b^-1 for every k.
+
+==============================================================================
+PART 6  designed annihilation: controls the verifier must reject
+==============================================================================
+
+  verifier inputs: b=2, n=4; explicit permutation group <D,E>
+    element-order multiset = [1, 2, 2, 2]
+    [CLAIM           ] <D,E> is Klein four V4 (orders {1,2,2,2})                  ACCEPTED
+    [CONTROL(false)  ] CONTROL A: <D,E> is cyclic Z/4 (orders {1,2,4,4})          REJECTED (correct)
+    [CLAIM           ] <D,E> is abelian (DE = ED)                                 ACCEPTED
+    [CONTROL(false)  ] CONTROL B: pi_n o R_{n+1} = R_n o pi_n                     REJECTED (correct)
+    [CLAIM           ] pi_n o R_{n+1} = R_n o sig_n                               ACCEPTED
+    [CONTROL(true)   ] CONTROL D: pi_n o E_{n+1} = E_n o pi_n                     ACCEPTED
+    [CONTROL(false)  ] CONTROL C: |Fix E| = b^{n/2}  (b=3, n=4 -> 9)              REJECTED (correct)
+    [CLAIM           ] |Fix E| = 1 for b odd  (b=3, n=4)                          ACCEPTED
+    [CLAIM           ] brute force == closed form at EVERY exhaustive (b,n) [32 rows] ACCEPTED
+    [CONTROL(false)  ] CONTROL E: brute force == closed form with |Fix D| := b^floor(n/2) REJECTED (correct)
+    [CLAIM           ] |<T_n,R_n>| != 2 b^n for every computed (b,n)              ACCEPTED
+
+  LEDGER: 4/4 planted-false controls REJECTED; 7/7 true statements ACCEPTED.
+
+  wrote figures/exp62_crystal_fixed_and_defect.png
+  wrote figures/exp62_no_continuous_extension.png
+
+==============================================================================
+ALL ASSERTIONS PASSED.  Forecast items F1-F7 confirmed; F8 measured.
+==============================================================================
+EXIT=0

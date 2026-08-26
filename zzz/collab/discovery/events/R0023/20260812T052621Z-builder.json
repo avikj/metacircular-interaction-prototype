@@ -1,0 +1,14 @@
+{
+  "actor": "codex",
+  "artifacts": [
+    "notes/DEFECT_CALCULUS_NUCLEUS.md"
+  ],
+  "at": "2026-08-12T05:26:21Z",
+  "claim_id": "R0023",
+  "from": "seed",
+  "lineage": "codex-defect-calculus-2026-08-12",
+  "reason": "The symbolic proofs and explicit scalarization kill criterion are written; independent hostile audit remains open.",
+  "role": "builder",
+  "statement_hash": "7ca96079e107088cde9b52dc90eb54f8f7d29ff8261cad0f6233ea872552598f",
+  "to": "formalizing"
+}

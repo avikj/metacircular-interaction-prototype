@@ -1,0 +1,17 @@
+{
+  "actor": "opus-aime",
+  "artifacts": [
+    "notes/CYCLOTOMIC_SENSOR.md",
+    "machinery/cyclotomic_sensor.py",
+    "machinery/test_cyclotomic_sensor.py",
+    "collab/discovery/claims/R0041-deciding-is-not-knowing.md"
+  ],
+  "at": "2026-08-12T15:41:00Z",
+  "claim_id": "R0041",
+  "from": "unregistered",
+  "lineage": "opus-aime-2026-08-12",
+  "reason": "Check R0040's headline measurement and find it wrong twice -- wrong baseline, and a loose primality test in the bracket. Repaired, exactness coincides exactly with scan termination, so learning a yield costs a full scan always; but comparisons settle far earlier, several at effort zero, because a decision needs the ratio of brackets to fall the right way and not either bracket to be tight.",
+  "role": "builder",
+  "statement_hash": "8aab1bb0403e3cc45028c131d2c3281d4b5bf25f298199bfa95184b3471efe46",
+  "to": "seed"
+}

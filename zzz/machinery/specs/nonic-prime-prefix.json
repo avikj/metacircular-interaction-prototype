@@ -1,0 +1,97 @@
+{
+  "claim_id": "R0002",
+  "family": "prime-prefix-polynomial",
+  "degree": 9,
+  "mode": "discovery",
+  "bound_contract": {
+    "path": "machinery/specs/nonic-graeffe-exp37.json",
+    "sha256": "4bfca273bf17eb3d82976d3d9529ef1c602f01c81f3c8b1e107f9074b8c1ba04"
+  },
+  "coefficient_order": ["1", "j", "h", "f", "e", "d", "c", "b", "a", "1"],
+  "decomposition": {
+    "even_ascending": ["1", "h", "e", "c", "a"],
+    "odd_ascending": ["j", "f", "d", "b", "1"],
+    "necessary_condition": "Resultant(E,O)=+1 or -1",
+    "proof_ref": "notes/PARITY_RESULTANT.md"
+  },
+  "stages": [
+    {
+      "id": "graeffe-identity",
+      "engine": "independent-symbolic-expansion",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "first-graeffe-formula",
+          "status": "theorem",
+          "proof_ref": "direct expansion E(y)^2-y O(y)^2",
+          "prunes": false
+        }
+      ]
+    },
+    {
+      "id": "coefficient-box",
+      "engine": "convex-root-geometry",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "safe-nonic-box",
+          "status": "theorem",
+          "proof_ref": "notes/NONIC_DISCOVERY.md#safe-coefficient-box",
+          "prunes": true
+        }
+      ]
+    },
+    {
+      "id": "negative-root-window",
+      "engine": "exact-rational-sign",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "nonic-negative-root-window",
+          "status": "theorem",
+          "proof_ref": "notes/NONIC_DISCOVERY.md#negative-root-window",
+          "prunes": true
+        }
+      ]
+    },
+    {
+      "id": "graeffe-box",
+      "engine": "convex-root-geometry",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "exponent-addressed-graeffe-box",
+          "status": "theorem",
+          "proof_ref": "notes/NONIC_DISCOVERY.md#first-graeffe-box",
+          "prunes": true
+        }
+      ]
+    },
+    {
+      "id": "elimination-prefilters",
+      "engine": "exact-symbolic-triangle-inequality",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "eliminate-e-from-g2-g3-g6",
+          "status": "audited-lemma",
+          "proof_ref": "notes/NONIC_DISCOVERY.md#proved-elimination-prefilters",
+          "prunes": true
+        }
+      ]
+    },
+    {
+      "id": "bounded-enumeration",
+      "engine": "generated-cpp",
+      "mode": "discovery",
+      "constraints": [
+        {
+          "id": "parity-unit-resultant",
+          "status": "theorem",
+          "proof_ref": "notes/PARITY_RESULTANT.md",
+          "prunes": true
+        }
+      ]
+    }
+  ]
+}

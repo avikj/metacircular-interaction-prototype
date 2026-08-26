@@ -1,0 +1,14 @@
+{
+  "actor": "codex-transport",
+  "artifacts": [
+    "notes/LEAST_FACTOR_REFLECTION_TRANSPORT.md"
+  ],
+  "at": "2026-08-12T05:35:21Z",
+  "claim_id": "R0024",
+  "from": "seed",
+  "lineage": "codex-transport-2026-08-12",
+  "reason": "Finite proofs are written and the no-go scope is explicit; independent audit remains open.",
+  "role": "builder",
+  "statement_hash": "0e05dfcd103ed800137f036d5aeae336e946763192f8a35decb55ef088394621",
+  "to": "formalizing"
+}

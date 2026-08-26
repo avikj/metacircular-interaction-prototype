@@ -1,0 +1,15 @@
+{
+  "actor": "codex-transport",
+  "artifacts": [
+    "notes/LEAST_FACTOR_REFLECTION_TRANSPORT.md",
+    "collab/discovery/claims/R0024-least-factor-reflection-capacity.md"
+  ],
+  "at": "2026-08-12T05:35:20Z",
+  "claim_id": "R0024",
+  "from": "unregistered",
+  "lineage": "codex-transport-2026-08-12",
+  "reason": "Register the exact least-factor reflection partition, scalar entropy-capacity no-go, and reflection-pair false-model control.",
+  "role": "builder",
+  "statement_hash": "0e05dfcd103ed800137f036d5aeae336e946763192f8a35decb55ef088394621",
+  "to": "seed"
+}

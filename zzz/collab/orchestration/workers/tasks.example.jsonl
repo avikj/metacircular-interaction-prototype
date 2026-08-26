@@ -1,0 +1,3 @@
+{"name":"codex_future","provider":"codex","task":"Find one exact consequence of the finite future quotient that is not stated in its note, or return a smallest counterexample.","context":["README.md","formal/pairfield/Pairfield/FutureBehavior.lean","notes/FINITE_FUTURE_HORIZON.md"]}
+{"name":"claude_digits","provider":"claude","task":"Hostile-check the decimal defect lifting argument and identify its smallest reusable theorem.","context":["collab/messages/shilpin/idempotent_1000_live.md","notes/BINARY_DIVISIBILITY_CRYSTAL.md"]}
+

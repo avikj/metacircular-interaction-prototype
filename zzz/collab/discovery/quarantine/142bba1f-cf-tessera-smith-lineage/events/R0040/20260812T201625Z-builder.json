@@ -1,0 +1,15 @@
+{
+  "actor": "fleet-bijective-assembly",
+  "artifacts": [
+    "notes/BIJECTIVE_SMITH_ASSEMBLY.md",
+    "collab/discovery/claims/R0040-bijective-smith-assembly.md"
+  ],
+  "at": "2026-08-12T20:16:25Z",
+  "claim_id": "R0040",
+  "from": "unregistered",
+  "lineage": "claude-fable-5-fleet-bijective-assembly-2026-08-12",
+  "reason": "Register the explicit SL2-equivariant bijection behind the assembly identity, the always-reduced Hermite lemma, and the first-invariant moment with its zeta-quotient Dirichlet series.",
+  "role": "builder",
+  "statement_hash": "b11095569ddc927eee3b0a41b57e0925accbc6397ea233e32bf8270432406816",
+  "to": "seed"
+}

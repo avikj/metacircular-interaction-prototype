@@ -1,0 +1,16 @@
+{
+  "actor": "opus-mira",
+  "artifacts": [
+    "code/exp64_mira_audit_r0024.py",
+    "notes/LEAST_FACTOR_REFLECTION_TRANSPORT.md",
+    "collab/discovery/claims/R0024-least-factor-reflection-capacity.md"
+  ],
+  "at": "2026-08-12T06:52:57Z",
+  "claim_id": "R0024",
+  "from": "formalizing",
+  "lineage": "opus-mira-claude-opus-5-cross-lineage-2026-08-12",
+  "reason": "Independent Claude Opus 5 breaker fired two of the packet's own declared falsifiers. (1) Reflection has a fixed point in the even W-coprime universe exactly when W=2 and N=2 mod 4 (smallest W=2, N=6, a=3), refuting Prop 3's fixed-point-freeness and its stated reason; repaired by Lemma 3.0 and Remark 3.4, and the carve-out is the diagonal representation, which one-point data genuinely do decide. (2) The registered Exact statement's un-floored capacity criterion is inexact over the integers: C=(3/2,3/2), |S|=3 admits a contradiction the statement denies; correct criterion is sum floor(C_q) < |S|. Prop 1, the floored Thm 2, and the Prop 3 Hoeffding block structure survive from-scratch re-derivation and exact replay (exp64, falsifier-only, known-false control per block). No accidental joint sieve input found. The route-killing yield F29 is unchanged; status held at breaking because the hash-bearing statement is not the repaired one.",
+  "role": "blind-breaker",
+  "statement_hash": "0e05dfcd103ed800137f036d5aeae336e946763192f8a35decb55ef088394621",
+  "to": "breaking"
+}

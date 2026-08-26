@@ -1,0 +1,15 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "machinery/flag_congruence_smith_stabilizer.py",
+    "machinery/test_flag_congruence_smith_stabilizer.py"
+  ],
+  "at": "2026-08-12T19:30:14Z",
+  "claim_id": "R0036",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Symbolic proofs and five-test exact replay at n=3 complete, including description equivalence over the full unimodular window and the n=2 consistency check; independent audit remains open.",
+  "role": "builder",
+  "statement_hash": "77e60eda77de0623cf11d43e465ed9bd3ec0c4b97b43a8e5466b0b8a0d05714f",
+  "to": "formalizing"
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1130" height="504" viewBox="0 0 1130 504" version="1.1">
+  <title>layer precedence: semantic beats lexical</title>
+  <rect x="0" y="0" width="1130" height="504" fill="#ffffff" shape-rendering="crispEdges"/>
+  <text x="30" y="40" fill="#111111" font-family="monospace" font-size="20" font-weight="bold" text-anchor="start" xml:space="preserve">Layer precedence: the semantic override beats the lexical layer</text>
+  <text x="30" y="62" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">ancestry (lexical) maps the letter b to yellow; &apos;beta&apos; renders yellow, &apos;blue&apos; renders blue</text>
+  <text x="30" y="80" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">composition is component-wise in ascending precedence; a layer may decline and let lower ones show</text>
+  <text x="30" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">token</text>
+  <text x="140" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">sort</text>
+  <text x="210" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">ancestry</text>
+  <text x="360" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">sort</text>
+  <text x="510" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">semantic</text>
+  <text x="660" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">resolved</text>
+  <text x="810" y="140" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">winners</text>
+  <line x1="30" y1="148" x2="1100" y2="148" stroke="#cccccc" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="30" y="184" fill="#111111" font-family="monospace" font-size="13" font-weight="normal" text-anchor="start" xml:space="preserve">beta</text>
+  <text x="140" y="184" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Word</text>
+  <rect x="210" y="170" width="20" height="20" fill="#ffcc00" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="236" y="184" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#ffcc00</text>
+  <text x="360" y="184" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <text x="510" y="184" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <rect x="660" y="170" width="20" height="20" fill="#ffcc00" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="686" y="184" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">#ffcc00</text>
+  <text x="810" y="184" fill="#444444" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Y=ancestry,Co=ancestry,Cg=ancestry</text>
+  <text x="30" y="214" fill="#111111" font-family="monospace" font-size="13" font-weight="normal" text-anchor="start" xml:space="preserve">blue</text>
+  <text x="140" y="214" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Word</text>
+  <rect x="210" y="200" width="20" height="20" fill="#ffcc00" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="236" y="214" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#ffcc00</text>
+  <text x="360" y="214" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <rect x="510" y="200" width="20" height="20" fill="#0000ff" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="536" y="214" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#0000ff</text>
+  <rect x="660" y="200" width="20" height="20" fill="#0000ff" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="686" y="214" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">#0000ff</text>
+  <text x="810" y="214" fill="#444444" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Y=semantic,Co=semantic,Cg=semantic</text>
+  <text x="30" y="244" fill="#111111" font-family="monospace" font-size="13" font-weight="normal" text-anchor="start" xml:space="preserve">delta</text>
+  <text x="140" y="244" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Word</text>
+  <rect x="210" y="230" width="20" height="20" fill="#ff6600" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="236" y="244" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#ff6600</text>
+  <text x="360" y="244" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <text x="510" y="244" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <rect x="660" y="230" width="20" height="20" fill="#ff6600" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="686" y="244" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">#ff6600</text>
+  <text x="810" y="244" fill="#444444" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Y=ancestry,Co=ancestry,Cg=ancestry</text>
+  <text x="30" y="274" fill="#111111" font-family="monospace" font-size="13" font-weight="normal" text-anchor="start" xml:space="preserve">gamma_3</text>
+  <text x="140" y="274" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Digit</text>
+  <rect x="210" y="260" width="20" height="20" fill="#cc00cc" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="236" y="274" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#cc00cc</text>
+  <rect x="360" y="260" width="20" height="20" fill="#404040" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="386" y="274" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#404040</text>
+  <text x="510" y="274" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <rect x="660" y="260" width="20" height="20" fill="#b800b8" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="686" y="274" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">#b800b8</text>
+  <text x="810" y="274" fill="#444444" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Y=sort,Co=ancestry,Cg=ancestry</text>
+  <text x="30" y="304" fill="#111111" font-family="monospace" font-size="13" font-weight="normal" text-anchor="start" xml:space="preserve">green</text>
+  <text x="140" y="304" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Word</text>
+  <rect x="210" y="290" width="20" height="20" fill="#cc00cc" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="236" y="304" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#cc00cc</text>
+  <text x="360" y="304" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <rect x="510" y="290" width="20" height="20" fill="#009900" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="536" y="304" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#009900</text>
+  <rect x="660" y="290" width="20" height="20" fill="#009900" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="686" y="304" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">#009900</text>
+  <text x="810" y="304" fill="#444444" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Y=semantic,Co=semantic,Cg=semantic</text>
+  <text x="30" y="334" fill="#111111" font-family="monospace" font-size="13" font-weight="normal" text-anchor="start" xml:space="preserve">red</text>
+  <text x="140" y="334" fill="#888888" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Word</text>
+  <rect x="210" y="320" width="20" height="20" fill="#00cccc" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="236" y="334" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#00cccc</text>
+  <text x="360" y="334" fill="#888888" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">declines</text>
+  <rect x="510" y="320" width="20" height="20" fill="#ff0000" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="536" y="334" fill="#444444" font-family="monospace" font-size="11" font-weight="normal" text-anchor="start" xml:space="preserve">#ff0000</text>
+  <rect x="660" y="320" width="20" height="20" fill="#ff0000" stroke="#111111" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="686" y="334" fill="#111111" font-family="monospace" font-size="11" font-weight="bold" text-anchor="start" xml:space="preserve">#ff0000</text>
+  <text x="810" y="334" fill="#444444" font-family="monospace" font-size="10" font-weight="normal" text-anchor="start" xml:space="preserve">Y=semantic,Co=semantic,Cg=semantic</text>
+  <line x1="30" y1="350" x2="1100" y2="350" stroke="#cccccc" stroke-width="1" shape-rendering="crispEdges"/>
+  <g id="caption">
+    <line x1="30" y1="362" x2="1100" y2="362" stroke="#cccccc" stroke-width="1" shape-rendering="crispEdges"/>
+    <text x="30" y="376" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">PRECEDENCE, ascending:  ancestry (lexical) &lt; sort &lt; family &lt; symmetry &lt; semantic.</text>
+    <text x="30" y="394" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">Each layer proposes a whole colour and contributes only the opponent components it claims.</text>
+    <text x="30" y="412" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">The sort layer claims Y alone and declines on Word, so &apos;gamma_3&apos; keeps its lexical hue at the Digit</text>
+    <text x="30" y="430" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">sort&apos;s lightness -- a partial layer tinting without repainting.  The semantic layer claims all three</text>
+    <text x="30" y="448" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">components, so wherever it fires it wins outright; that is the &apos;blue is blue&apos; rule, and it is checked</text>
+    <text x="30" y="466" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">on every state by an independent descending-precedence recomputation, not by inspection.</text>
+  </g>
+</svg>

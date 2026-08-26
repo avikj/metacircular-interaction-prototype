@@ -1,0 +1,17 @@
+{
+  "claim_id": "R0015",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "fleet-kappa",
+  "role": "builder",
+  "lineage": "claude-fable-fleet-kappa-2026-08-11",
+  "at": "2026-08-11T21:04:26Z",
+  "statement_hash": "e01353b18fa34b08a85ad5ee2cd580b23f5d44bcf0f9d646d56737e37f17953d",
+  "reason": "Register the independent verification of the 2026-08-10 Anthropic/Claude two-thirds critical-line theorem: primaries fetched and hashed, Lean repo cloned at 3635e74, from-source rebuild launched, trusted-statement alignment audited, constants replayed exactly (exp47, 19/19).",
+  "artifacts": [
+    "collab/discovery/claims/R0015-zeta23-two-thirds-verification.md",
+    "notes/KAPPA.md",
+    "code/exp47_kappa_constants.py",
+    "data/exp47_out.txt"
+  ]
+}

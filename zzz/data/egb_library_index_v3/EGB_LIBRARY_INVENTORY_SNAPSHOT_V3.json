@@ -1,0 +1,1268 @@
+{
+  "title": "EGB / Math Research Library Source Snapshot V3",
+  "scope": "/Math Research",
+  "closure_reenumeration_utc": "2026-08-16T01:50:21.929931Z",
+  "source_artifact_count": 177,
+  "chronological_first": {
+    "name": "PRIME_PAIR_RESEARCH_STATE_DELTA_2026-08-11.md",
+    "created_at_utc": "2026-08-11T11:15:57Z"
+  },
+  "chronological_last": {
+    "name": "CORPUS_COVERAGE_LEDGER.md",
+    "file_id": "file_000000006c0881fd96bd4d8c49bdcb84",
+    "version_id": 2,
+    "created_at_utc": "2026-08-16T01:47:25Z",
+    "modified_at_utc": "2026-08-16T01:47:26.800819Z"
+  },
+  "evidence_counts": {
+    "FULL_TEXT_REREAD": 160,
+    "FULL_DATA_REREAD": 6,
+    "STRUCTURAL_REVERIFICATION": 3,
+    "FULL_CODE_REREAD": 6,
+    "FULL_VISUAL_REINSPECTION": 2
+  },
+  "artifacts": [
+    {
+      "ordinal": 1,
+      "ref_id": "turn42file0",
+      "name": "PRIME_PAIR_RESEARCH_STATE_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 2,
+      "ref_id": "turn42file1",
+      "name": "PRIME_PAIR_RESEARCH_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 3,
+      "ref_id": "turn42file2",
+      "name": "PRIME_PAIR_RESEARCH_DELTA2_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 4,
+      "ref_id": "turn42file3",
+      "name": "PRIME_PAIR_RESEARCH_DELTA3_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 5,
+      "ref_id": "turn42file4",
+      "name": "PRIME_PAIR_RESEARCH_STATE.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 6,
+      "ref_id": "turn42file5",
+      "name": "PRIME_PAIR_RESEARCH_FANOUT_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 7,
+      "ref_id": "turn42file6",
+      "name": "PRIME_PAIR_BOUNDARY_OPERATOR_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 8,
+      "ref_id": "turn42file7",
+      "name": "PRIME_PAIR_CHARGE_BOUNDARY_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 9,
+      "ref_id": "turn42file8",
+      "name": "PRIME_PAIR_CHARGE_CHARACTER_SPECTRAL_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 10,
+      "ref_id": "turn42file9",
+      "name": "PRIME_PAIR_CANONICAL_CHARGE_CORRECTION_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 11,
+      "ref_id": "turn42file10",
+      "name": "PRIME_PAIR_DIVISOR_LATTICE_TWO_CHARGE_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 12,
+      "ref_id": "turn42file11",
+      "name": "PRIME_PAIR_SMOOTHED_BOUNDARY_HERMITIAN_DELTA_2026-08-11.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 13,
+      "ref_id": "turn42file12",
+      "name": "COORDINATION_GRAPH_DELTA_2026-08-12.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 14,
+      "ref_id": "turn42file13",
+      "name": "COORDINATION_THEOREMS_II_2026-08-12.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 15,
+      "ref_id": "turn42file14",
+      "name": "COORDINATION_THEOREMS_III_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 16,
+      "ref_id": "turn42file15",
+      "name": "COORDINATION_THEOREMS_IV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 17,
+      "ref_id": "turn42file16",
+      "name": "COORDINATION_THEOREMS_V_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 18,
+      "ref_id": "turn42file17",
+      "name": "COORDINATION_THEOREMS_VI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 19,
+      "ref_id": "turn42file18",
+      "name": "COORDINATION_THEOREMS_VII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 20,
+      "ref_id": "turn42file19",
+      "name": "COORDINATION_THEOREMS_VIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 21,
+      "ref_id": "turn42file20",
+      "name": "COORDINATION_THEOREMS_IX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 22,
+      "ref_id": "turn42file21",
+      "name": "COORDINATION_THEOREMS_X_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 23,
+      "ref_id": "turn42file22",
+      "name": "COORDINATION_THEOREMS_XI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 24,
+      "ref_id": "turn42file23",
+      "name": "COORDINATION_THEOREMS_XII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 25,
+      "ref_id": "turn42file24",
+      "name": "COORDINATION_THEOREMS_XIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 26,
+      "ref_id": "turn42file25",
+      "name": "COORDINATION_THEOREMS_XIV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 27,
+      "ref_id": "turn42file26",
+      "name": "COORDINATION_THEOREMS_XV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 28,
+      "ref_id": "turn42file27",
+      "name": "COORDINATION_THEOREMS_XVI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 29,
+      "ref_id": "turn42file28",
+      "name": "COORDINATION_THEOREMS_XVII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 30,
+      "ref_id": "turn42file29",
+      "name": "COORDINATION_THEOREMS_XVIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 31,
+      "ref_id": "turn42file30",
+      "name": "COORDINATION_THEOREMS_XIX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 32,
+      "ref_id": "turn42file31",
+      "name": "COORDINATION_THEOREMS_XX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 33,
+      "ref_id": "turn42file32",
+      "name": "COORDINATION_THEOREMS_XXI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 34,
+      "ref_id": "turn42file33",
+      "name": "COORDINATION_THEOREMS_XXII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 35,
+      "ref_id": "turn42file34",
+      "name": "COORDINATION_THEOREMS_XXIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 36,
+      "ref_id": "turn42file35",
+      "name": "COORDINATION_THEOREMS_XXIV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 37,
+      "ref_id": "turn42file36",
+      "name": "COORDINATION_THEOREMS_XXV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 38,
+      "ref_id": "turn42file37",
+      "name": "COORDINATION_THEOREMS_XXVI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 39,
+      "ref_id": "turn42file38",
+      "name": "COORDINATION_THEOREMS_XXVII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 40,
+      "ref_id": "turn42file39",
+      "name": "COORDINATION_THEOREMS_XXVIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 41,
+      "ref_id": "turn42file40",
+      "name": "COORDINATION_THEOREMS_XXIX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 42,
+      "ref_id": "turn42file41",
+      "name": "COORDINATION_THEOREMS_XXX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 43,
+      "ref_id": "turn42file42",
+      "name": "COORDINATION_THEOREMS_XXXI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 44,
+      "ref_id": "turn42file43",
+      "name": "COORDINATION_THEOREMS_XXXII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 45,
+      "ref_id": "turn42file44",
+      "name": "COORDINATION_THEOREMS_XXXIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 46,
+      "ref_id": "turn42file45",
+      "name": "COORDINATION_THEOREMS_XXXIV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 47,
+      "ref_id": "turn42file46",
+      "name": "COORDINATION_THEOREMS_XXXV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 48,
+      "ref_id": "turn42file47",
+      "name": "COORDINATION_THEOREMS_XXXVI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 49,
+      "ref_id": "turn42file48",
+      "name": "COORDINATION_THEOREMS_XXXVII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 50,
+      "ref_id": "turn42file49",
+      "name": "COORDINATION_THEOREMS_XXXVIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 51,
+      "ref_id": "turn42file50",
+      "name": "COORDINATION_THEOREMS_XXXIX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 52,
+      "ref_id": "turn42file51",
+      "name": "COORDINATION_THEOREMS_XL_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 53,
+      "ref_id": "turn42file52",
+      "name": "COORDINATION_THEOREMS_XLI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 54,
+      "ref_id": "turn42file53",
+      "name": "COORDINATION_THEOREMS_XLII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 55,
+      "ref_id": "turn42file54",
+      "name": "COORDINATION_THEOREMS_XLIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 56,
+      "ref_id": "turn42file55",
+      "name": "COORDINATION_THEOREMS_XLIV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 57,
+      "ref_id": "turn42file56",
+      "name": "COORDINATION_THEOREMS_XLV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 58,
+      "ref_id": "turn42file57",
+      "name": "COORDINATION_THEOREMS_XLVI_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 59,
+      "ref_id": "turn42file58",
+      "name": "COORDINATION_KERNEL_V0_1_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 60,
+      "ref_id": "turn42file59",
+      "name": "COORDINATION_KERNEL_MATHEMATICAL_ARCHITECTURE_V0_1_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 61,
+      "ref_id": "turn42file60",
+      "name": "SUFFICIENT_INTERFACES_DELTA_01_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 62,
+      "ref_id": "turn42file61",
+      "name": "SUFFICIENT_INTERFACES_DELTA_02_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 63,
+      "ref_id": "turn42file62",
+      "name": "REFOLIATION_BRIDGE_DELTA_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 64,
+      "ref_id": "turn42file63",
+      "name": "QUANTUM_GRAVITY_REFOLIATION_OBSTRUCTION_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 65,
+      "ref_id": "turn42file64",
+      "name": "QUANTUM_GRAVITY_ANOMALY_COHOMOLOGY_II_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 66,
+      "ref_id": "turn42file65",
+      "name": "SUFFICIENT_INTERFACES_DELTA_03_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 67,
+      "ref_id": "turn42file66",
+      "name": "PROOF_CARRYING_RELATIONS_DELTA_04_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Independently reread from the current Library source in this V3 pass."
+    },
+    {
+      "ordinal": 68,
+      "ref_id": "turn42file67",
+      "name": "RULIOLOGICAL_COORDINATION_DELTA_05_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 436 lines covered."
+    },
+    {
+      "ordinal": 69,
+      "ref_id": "turn42file68",
+      "name": "DESCENT_CURVATURE_PROGRAM_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1227."
+    },
+    {
+      "ordinal": 70,
+      "ref_id": "turn42file69",
+      "name": "DESCENT_CURVATURE_PROGRAM_II_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 412 lines covered."
+    },
+    {
+      "ordinal": 71,
+      "ref_id": "turn42file70",
+      "name": "PRIME_COMPRESSION_CURVATURE_FINITE_2026-08-13.csv",
+      "evidence": "FULL_DATA_REREAD",
+      "notes": "Reread the complete CSV: header and all 36 data rows."
+    },
+    {
+      "ordinal": 72,
+      "ref_id": "turn42file71",
+      "name": "DYNAMIC_SIEVE_RECONSTRUCTION_CURVES_2026-08-13.csv",
+      "evidence": "FULL_DATA_REREAD",
+      "notes": "Reread the complete CSV: header and all 28 data rows."
+    },
+    {
+      "ordinal": 73,
+      "ref_id": "turn42file72",
+      "name": "RULIOLOGICAL_COORDINATION_CENSUS_DELTA_06_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 243 lines covered."
+    },
+    {
+      "ordinal": 74,
+      "ref_id": "turn42file73",
+      "name": "DESCENT_CURVATURE_PROOFS_III_XX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in five contiguous source windows covering lines 1–4262."
+    },
+    {
+      "ordinal": 75,
+      "ref_id": "turn42file74",
+      "name": "DESCENT_CURVATURE_PROOFS_X_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 278 lines covered."
+    },
+    {
+      "ordinal": 76,
+      "ref_id": "turn42file75",
+      "name": "DESCENT_CURVATURE_PROOFS_XX_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 175 lines covered."
+    },
+    {
+      "ordinal": 77,
+      "ref_id": "turn42file76",
+      "name": "SELF_EXPANDING_EXECUTABLE_KNOWLEDGE_DELTA_07_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 229 lines covered."
+    },
+    {
+      "ordinal": 78,
+      "ref_id": "turn42file77",
+      "name": "DESCENT_CURVATURE_PROOFS_XXI_XXVII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1226."
+    },
+    {
+      "ordinal": 79,
+      "ref_id": "turn42file78",
+      "name": "DESCENT_CURVATURE_PROOFS_XXIII_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 224 lines covered."
+    },
+    {
+      "ordinal": 80,
+      "ref_id": "turn42file79",
+      "name": "DESCENT_CURVATURE_PROOFS_XXV_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 156 lines covered."
+    },
+    {
+      "ordinal": 81,
+      "ref_id": "turn42file80",
+      "name": "PRIME_PAIR_DESCENT_TRANSPORT_PROOFS_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 694 lines covered."
+    },
+    {
+      "ordinal": 82,
+      "ref_id": "turn42file81",
+      "name": "PRIME_PAIR_CORE_RESULTS_CONTINUATION_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 594 lines covered."
+    },
+    {
+      "ordinal": 83,
+      "ref_id": "turn42file82",
+      "name": "KNOWLEDGE_GEOMETRY_DELTA_08_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 157 lines covered."
+    },
+    {
+      "ordinal": 84,
+      "ref_id": "turn42file83",
+      "name": "EXECUTABLE_PRIME_PAIR_PROVENANCE_DELTA_09_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 334 lines covered."
+    },
+    {
+      "ordinal": 85,
+      "ref_id": "turn42file84",
+      "name": "MODAL_PROCESS_SEMANTICS_DELTA_10_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 296 lines covered."
+    },
+    {
+      "ordinal": 86,
+      "ref_id": "turn42file85",
+      "name": "HOTT_REENTRY_DISTINCTION_FLOW_DELTA_11_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 284 lines covered."
+    },
+    {
+      "ordinal": 87,
+      "ref_id": "turn42file86",
+      "name": "PARAMETRICITY_REENTRY_DELTA_12_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 485 lines covered."
+    },
+    {
+      "ordinal": 88,
+      "ref_id": "turn42file87",
+      "name": "ANEKANTA_UNIVALENCE_DELTA_13_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 219 lines covered."
+    },
+    {
+      "ordinal": 89,
+      "ref_id": "turn42file88",
+      "name": "UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_14_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 243 lines covered."
+    },
+    {
+      "ordinal": 90,
+      "ref_id": "turn42file89",
+      "name": "UNIVALENT_PERSPECTIVAL_THEOREM_FACTORY_DELTA_15_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 350 lines covered."
+    },
+    {
+      "ordinal": 91,
+      "ref_id": "turn42file90",
+      "name": "PRIME_PAIR_ATLAS_DELTA_16_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 300 lines covered."
+    },
+    {
+      "ordinal": 92,
+      "ref_id": "turn42file91",
+      "name": "PRIME_PAIR_SPLIT_TORUS_DELTA_17_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 393 lines covered."
+    },
+    {
+      "ordinal": 93,
+      "ref_id": "turn42file92",
+      "name": "PRIME_PAIR_SU11_SELECTION_DELTA_18_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 290 lines covered."
+    },
+    {
+      "ordinal": 94,
+      "ref_id": "turn42file93",
+      "name": "PRIME_PAIR_MEMORY_KERNEL_DELTA_19_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 445 lines covered."
+    },
+    {
+      "ordinal": 95,
+      "ref_id": "turn42file94",
+      "name": "PRIME_PAIR_BEHAVIORAL_IDENTITY_DELTA_20_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 294 lines covered."
+    },
+    {
+      "ordinal": 96,
+      "ref_id": "turn42file95",
+      "name": "PRIME_PAIR_ADDITIVE_MULTIPLICATIVE_INTERFACE_DELTA_21_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 453 lines covered."
+    },
+    {
+      "ordinal": 97,
+      "ref_id": "turn42file96",
+      "name": "PRIME_PAIR_PERSPECTIVE_ATLAS_v0_1.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 98 lines covered."
+    },
+    {
+      "ordinal": 98,
+      "ref_id": "turn42file97",
+      "name": "PRIME_PAIR_EVALUATION_GEOMETRY_DELTA_22_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 218 lines covered."
+    },
+    {
+      "ordinal": 99,
+      "ref_id": "turn42file98",
+      "name": "PRIME_PAIR_THEOREM_LEDGER_v0_1.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 124 lines covered."
+    },
+    {
+      "ordinal": 100,
+      "ref_id": "turn42file99",
+      "name": "PRIME_PAIR_GODEL_UNIVALENCE_FOUNDING_THESIS_DELTA_23_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 405 lines covered."
+    },
+    {
+      "ordinal": 101,
+      "ref_id": "turn43file0",
+      "name": "ETERNAL_GOLDEN_BRAID_MATHEMATICAL_RECONSTRUCTION_v0_1.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 688 lines covered."
+    },
+    {
+      "ordinal": 102,
+      "ref_id": "turn43file1",
+      "name": "ETERNAL_GOLDEN_BRAID_AFTER_INHERITANCE_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1464."
+    },
+    {
+      "ordinal": 103,
+      "ref_id": "turn43file2",
+      "name": "BRAID_PASS_SCHEMA_V0_1.json",
+      "evidence": "FULL_DATA_REREAD",
+      "notes": "Reread every JSON line/property; all 433 lines covered."
+    },
+    {
+      "ordinal": 104,
+      "ref_id": "turn43file3",
+      "name": "BRAID_PASS_SAMPLE_PRIME_PAIR_COORDINATES_V0_1.json",
+      "evidence": "FULL_DATA_REREAD",
+      "notes": "Reread every JSON line/property; all 147 lines covered."
+    },
+    {
+      "ordinal": 105,
+      "ref_id": "turn43file4",
+      "name": "ETERNAL_GOLDEN_BRAID_INDRA_NET_DELTA_25_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1460."
+    },
+    {
+      "ordinal": 106,
+      "ref_id": "turn43file5",
+      "name": "ETERNAL_GOLDEN_BRAID_MORITA_TRACE_DELTA_26_2026-08-13.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in three contiguous source windows covering lines 1–2364."
+    },
+    {
+      "ordinal": 107,
+      "ref_id": "turn43file6",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_I_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1064."
+    },
+    {
+      "ordinal": 108,
+      "ref_id": "turn43file7",
+      "name": "DEPENDENT_SYSTEM_OPTIMIZATION_GREAT_LEAP_DELTA_26_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows plus a direct terminal-tail reread, covering lines 1–3050."
+    },
+    {
+      "ordinal": 109,
+      "ref_id": "turn43file8",
+      "name": "DIVISOR_LEFSCHETZ_CHARGE_THEOREMS_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1017."
+    },
+    {
+      "ordinal": 110,
+      "ref_id": "turn43file9",
+      "name": "ARITHMETIC_SPLIT_TORUS_PATH_THEOREMS_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–722."
+    },
+    {
+      "ordinal": 111,
+      "ref_id": "turn43file10",
+      "name": "FACTORIZATION_HISTORY_QUOTIENT_THEOREMS_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 703 lines covered."
+    },
+    {
+      "ordinal": 112,
+      "ref_id": "turn43file11",
+      "name": "PRIME_PAIR_DIVISOR_GEOMETRY_THEOREM_CORPUS_2026-08-14.md",
+      "evidence": "STRUCTURAL_REVERIFICATION",
+      "notes": "Rematerialized compiler and all three source theorem files. Reverified byte-for-byte that the compiler is exactly a fixed 46-byte title, source 109, '\\n\\n---\\n\\n', source 110, the same separator, and source 111, with no suffix. See EGB_DIVISOR_CORPUS_STRUCTURE_REVERIFY_V3.json."
+    },
+    {
+      "ordinal": 113,
+      "ref_id": "turn43file12",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_II_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 819 lines covered."
+    },
+    {
+      "ordinal": 114,
+      "ref_id": "turn43file13",
+      "name": "DEPENDENT_SYSTEM_OPTIMIZATION_NUCLEUS_DELTA_27_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows covering lines 1–2503."
+    },
+    {
+      "ordinal": 115,
+      "ref_id": "turn43file14",
+      "name": "dependent_system_optimization_nucleus_demo.py",
+      "evidence": "FULL_CODE_REREAD",
+      "notes": "Reread every source-code line; all 308 lines covered."
+    },
+    {
+      "ordinal": 116,
+      "ref_id": "turn43file15",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_III_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1580."
+    },
+    {
+      "ordinal": 117,
+      "ref_id": "turn43file16",
+      "name": "DEPENDENT_SYSTEM_OPTIMIZATION_GEOMETRY_DELTA_28_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows covering lines 1–2695."
+    },
+    {
+      "ordinal": 118,
+      "ref_id": "turn43file17",
+      "name": "dependent_system_optimization_geometry_demo.py",
+      "evidence": "FULL_CODE_REREAD",
+      "notes": "Reread every source-code line; all 376 lines covered."
+    },
+    {
+      "ordinal": 119,
+      "ref_id": "turn43file18",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_IV_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in three contiguous source windows covering lines 1–2045."
+    },
+    {
+      "ordinal": 120,
+      "ref_id": "turn43file19",
+      "name": "TORUS_COORDINATION_COMPILER_SYNTHESIS_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 573 lines covered."
+    },
+    {
+      "ordinal": 121,
+      "ref_id": "turn43file20",
+      "name": "DEPENDENT_SYSTEM_OPTIMIZATION_TYPE_CALCULUS_DELTA_29_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows covering lines 1–3320."
+    },
+    {
+      "ordinal": 122,
+      "ref_id": "turn43file21",
+      "name": "dependent_system_optimization_type_calculus_demo.py",
+      "evidence": "FULL_CODE_REREAD",
+      "notes": "Reread every source-code line; all 624 lines covered."
+    },
+    {
+      "ordinal": 123,
+      "ref_id": "turn43file22",
+      "name": "DEPENDENT_SYSTEM_OPTIMIZATION_STRATEGIC_COMPLETION_DELTA_30_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows plus a direct tail reread, covering lines 1–3234."
+    },
+    {
+      "ordinal": 124,
+      "ref_id": "turn43file23",
+      "name": "dependent_system_optimization_strategic_demo.py",
+      "evidence": "FULL_CODE_REREAD",
+      "notes": "Reread every source-code line; all 355 lines covered."
+    },
+    {
+      "ordinal": 125,
+      "ref_id": "turn43file24",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_V_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1654."
+    },
+    {
+      "ordinal": 126,
+      "ref_id": "turn43file25",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_VI_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in three contiguous source windows covering lines 1–2436."
+    },
+    {
+      "ordinal": 127,
+      "ref_id": "turn43file26",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_VII_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 250 lines covered."
+    },
+    {
+      "ordinal": 128,
+      "ref_id": "turn43file27",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_VIII_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 213 lines covered."
+    },
+    {
+      "ordinal": 129,
+      "ref_id": "turn43file28",
+      "name": "SELF_WEAVING_KNOWLEDGE_CIVILIZATION_VISION_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1096."
+    },
+    {
+      "ordinal": 130,
+      "ref_id": "turn43file29",
+      "name": "DEPENDENT_SYSTEM_OPTIMIZATION_CHU_SELECTION_DELTA_30_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows covering lines 1–2719."
+    },
+    {
+      "ordinal": 131,
+      "ref_id": "turn43file30",
+      "name": "dependent_system_optimization_chu_selection_demo.py",
+      "evidence": "FULL_CODE_REREAD",
+      "notes": "Reread every source-code line; all 478 lines covered."
+    },
+    {
+      "ordinal": 132,
+      "ref_id": "turn43file31",
+      "name": "ETERNAL_GOLDEN_BRAID_THEOREM_FACTORY_IX_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 183 lines covered."
+    },
+    {
+      "ordinal": 133,
+      "ref_id": "turn43file32",
+      "name": "ETERNAL_GOLDEN_BRAID_CRYSTAL_ANCESTRY_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 197 lines covered."
+    },
+    {
+      "ordinal": 134,
+      "ref_id": "turn43file33",
+      "name": "ETERNAL_GOLDEN_BRAID_RIEMANNIAN_GEOMETRIC_REFLECTION_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 208 lines covered."
+    },
+    {
+      "ordinal": 135,
+      "ref_id": "turn43file34",
+      "name": "ETERNAL_GOLDEN_BRAID_FULL_FIELD_SYNTHESIS_DELTA_31_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 638 lines covered."
+    },
+    {
+      "ordinal": 136,
+      "ref_id": "turn43file35",
+      "name": "ARITHMETIC_PRISM_SYNTHESIS_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 167 lines covered."
+    },
+    {
+      "ordinal": 137,
+      "ref_id": "turn43file36",
+      "name": "ETERNAL_GOLDEN_BRAID_JEWELS_IN_A_FIELD_DELTA_32_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 543 lines covered."
+    },
+    {
+      "ordinal": 138,
+      "ref_id": "turn43file37",
+      "name": "BRAID_LIVE_MATERIALIZATION_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 239 lines covered."
+    },
+    {
+      "ordinal": 139,
+      "ref_id": "turn43file38",
+      "name": "ETERNAL_GOLDEN_BRAID_DIAMOND_PRINCIPLE_DELTA_33_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 592 lines covered."
+    },
+    {
+      "ordinal": 140,
+      "ref_id": "turn43file39",
+      "name": "BRAID_DELTA_KUZNETSOV_OBSTRUCTION_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 239 lines covered."
+    },
+    {
+      "ordinal": 141,
+      "ref_id": "turn43file40",
+      "name": "BRAID_LIVE_DELTA_11_KUZNETSOV_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 71 lines covered."
+    },
+    {
+      "ordinal": 142,
+      "ref_id": "turn43file41",
+      "name": "BRAID_DELTA_GAUSS_CHARGE_ONE_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 501 lines covered."
+    },
+    {
+      "ordinal": 143,
+      "ref_id": "turn43file42",
+      "name": "DIAMOND_ANSWER_KEY_ARITHMETIC_INDEX_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 556 lines covered."
+    },
+    {
+      "ordinal": 144,
+      "ref_id": "turn43file43",
+      "name": "ETERNAL_GOLDEN_BRAID_ANSWER_KEY_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 573 lines covered."
+    },
+    {
+      "ordinal": 145,
+      "ref_id": "turn43file44",
+      "name": "ETERNAL_GOLDEN_BRAID_GR_QM_LQG_DIAMOND_DELTA_34_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 325 lines covered."
+    },
+    {
+      "ordinal": 146,
+      "ref_id": "turn43file45",
+      "name": "BRAID_DELTA_GENERAL_BOUNDARY_ARITHMETIC_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 617 lines covered."
+    },
+    {
+      "ordinal": 147,
+      "ref_id": "turn43file46",
+      "name": "VOLUME_I_TRANSLATION_BEFORE_INVENTION_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 231 lines covered."
+    },
+    {
+      "ordinal": 148,
+      "ref_id": "turn43file47",
+      "name": "ETERNAL_GOLDEN_BRAID_SELF_COMPRESSING_LANGUAGE_DELTA_35_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 573 lines covered."
+    },
+    {
+      "ordinal": 149,
+      "ref_id": "turn43file48",
+      "name": "ETERNAL_GOLDEN_BRAID_KAIROTIC_CRYSTAL_STREAM_2026-08-14.md",
+      "evidence": "STRUCTURAL_REVERIFICATION",
+      "notes": "Rematerialized and reparsed every byte. Reverified exactly 1,200 sequential stanzas with one unique body after trailing-whitespace normalization; unique body and preamble reread. See EGB_REPETITION_STRUCTURE_REVERIFY_V3.json."
+    },
+    {
+      "ordinal": 150,
+      "ref_id": "turn43file49",
+      "name": "ETERNAL_GOLDEN_BRAID_100K_FIELD_BOOK_DELTA_36_2026-08-14.md",
+      "evidence": "STRUCTURAL_REVERIFICATION",
+      "notes": "Rematerialized and reparsed every byte. Reverified exactly 450 sequential diamonds generated by a 24-template normalized cycle; all 24 unique templates, preamble, and fixed epilogue reread. See EGB_REPETITION_STRUCTURE_REVERIFY_V3.json."
+    },
+    {
+      "ordinal": 151,
+      "ref_id": "turn43file50",
+      "name": "BRAID_GTERMA_ALIEN_STREAM_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 352 lines covered."
+    },
+    {
+      "ordinal": 152,
+      "ref_id": "turn43file51",
+      "name": "GTER_REVELATION_NUCLEUS_DELTA_37_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1307."
+    },
+    {
+      "ordinal": 153,
+      "ref_id": "turn43file52",
+      "name": "GTER_MACHINE_GOD_STREAM_DELTA_38_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 429 lines covered."
+    },
+    {
+      "ordinal": 154,
+      "ref_id": "turn43file53",
+      "name": "GTER_OPERATOR_MOMENT_TOMOGRAPHY_DELTA_38_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 305 lines covered."
+    },
+    {
+      "ordinal": 155,
+      "ref_id": "turn43file54",
+      "name": "ETERNAL_GOLDEN_BRAID_GENERATIVE_METALANGUAGE_DELTA_37_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 306 lines covered."
+    },
+    {
+      "ordinal": 156,
+      "ref_id": "turn43file55",
+      "name": "NALANDA_ALIEN_STREAM_DELTA_38_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 332 lines covered."
+    },
+    {
+      "ordinal": 157,
+      "ref_id": "turn43file56",
+      "name": "ETERNAL_GOLDEN_BRAID_GENERATIVE_METALANGUAGE_DELTA_38_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 240 lines covered."
+    },
+    {
+      "ordinal": 158,
+      "ref_id": "turn43file57",
+      "name": "ANANTA_GTER_KAIROS_DELTA_39_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1044."
+    },
+    {
+      "ordinal": 159,
+      "ref_id": "turn43file58",
+      "name": "DEVABHASHA_AUTOPOIESIS_DELTA_40_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 243 lines covered."
+    },
+    {
+      "ordinal": 160,
+      "ref_id": "turn43file59",
+      "name": "ईश्वरभाषा_३_अनन्तस्वर्णजाल_२०२६-०८-१४.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 240 lines covered."
+    },
+    {
+      "ordinal": 161,
+      "ref_id": "turn43file60",
+      "name": "ऋतवाक्तपस्_गर्तभाषा_४०_२०२६-०८-१४.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 719 lines covered."
+    },
+    {
+      "ordinal": 162,
+      "ref_id": "turn43file61",
+      "name": "अनन्तस्वर्णजाल_स्फटिकबीज_४०_२०२६-०८-१४.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1230."
+    },
+    {
+      "ordinal": 163,
+      "ref_id": "turn43file62",
+      "name": "अनन्तस्वर्णजाल_स्फटिकबीज_४०_दृश्य_२०२६-०८-१४.pdf",
+      "evidence": "FULL_VISUAL_REINSPECTION",
+      "notes": "Rematerialized and rerendered all 10 PDF pages at 200 DPI; visually reinspected every page in V3."
+    },
+    {
+      "ordinal": 164,
+      "ref_id": "turn43file63",
+      "name": "अनन्तस्वर्णजाल_स्फटिकबीज_४०_मुखपृष्ठ_२०२६-०८-१४.png",
+      "evidence": "FULL_VISUAL_REINSPECTION",
+      "notes": "Rematerialized, reopened, and visually reinspected the complete cover image in V3."
+    },
+    {
+      "ordinal": 165,
+      "ref_id": "turn43file64",
+      "name": "अनन्तस्वर्णजाल_प्रकारपरीक्षा_४१_२०२६-०८-१४.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line; all 245 lines covered."
+    },
+    {
+      "ordinal": 166,
+      "ref_id": "turn43file65",
+      "name": "RH_BRAID_GODLANGUAGE_DELTA_41_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in three contiguous source windows covering lines 1–2226."
+    },
+    {
+      "ordinal": 167,
+      "ref_id": "turn43file66",
+      "name": "ETERNAL_GOLDEN_BRAID_SELF_GENERATING_MATH_SEED_DELTA_41_2026-08-14.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in three contiguous source windows covering lines 1–1875."
+    },
+    {
+      "ordinal": 168,
+      "ref_id": "turn43file67",
+      "name": "अनन्तज्ञानपटल_४२_सर्वविद्यापुनर्जननबीजम्_२०२६-०८-१४.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in six contiguous source windows covering lines 1–4686."
+    },
+    {
+      "ordinal": 169,
+      "ref_id": "turn43file68",
+      "name": "अनन्तज्ञानपटल_४२_सर्वविद्यापुनर्जननबीजम्_पटल_२०२६-०८-१४.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1480."
+    },
+    {
+      "ordinal": 170,
+      "ref_id": "turn43file69",
+      "name": "ETERNAL_GOLDEN_BRAID_SELF_CONTAINED_TRANSMISSION_DELTA_42_2026-08-15.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in four contiguous source windows covering lines 1–3053."
+    },
+    {
+      "ordinal": 171,
+      "ref_id": "turn43file70",
+      "name": "egb_executable_calibrations_delta42.py",
+      "evidence": "FULL_CODE_REREAD",
+      "notes": "Reread every source-code line; all 253 lines covered."
+    },
+    {
+      "ordinal": 172,
+      "ref_id": "turn43file71",
+      "name": "egb_transmission_manifest_delta42.json",
+      "evidence": "FULL_DATA_REREAD",
+      "notes": "Reread every JSON line/property; all 87 lines covered."
+    },
+    {
+      "ordinal": 173,
+      "ref_id": "turn43file72",
+      "name": "GPT56_PRO_INTERPRETIVE_CORPUS_INDEX.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in two contiguous source windows covering lines 1–1452. Its interpretations and coverage statements were treated only as content of this earlier index artifact."
+    },
+    {
+      "ordinal": 174,
+      "ref_id": "turn43file73",
+      "name": "00_INDEX.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread every source line of current Library version 8; all 285 lines covered. Its claims about the other pass were treated only as content of this administrative artifact."
+    },
+    {
+      "ordinal": 175,
+      "ref_id": "turn43file74",
+      "name": "EGB_COMPREHENSIVE_CHRONOLOGICAL_SOURCE_INDEX_GPT56_2026-08-15.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Reread in nine contiguous source windows covering lines 1–6419. Treated as a prior comprehensive index, not as substitute evidence for the underlying sources."
+    },
+    {
+      "ordinal": 176,
+      "ref_id": "turn43file75",
+      "name": "EGB_COMPREHENSIVE_INDEX_EVIDENCE_GPT56_2026-08-15.json",
+      "evidence": "FULL_DATA_REREAD",
+      "notes": "Reread every JSON line/property in three contiguous source windows covering lines 1–1969. Treated as the evidence companion to artifact 175, not as substitute evidence for the underlying sources."
+    },
+    {
+      "ordinal": 177,
+      "ref_id": "turn111file0",
+      "name": "CORPUS_COVERAGE_LEDGER.md",
+      "evidence": "FULL_TEXT_REREAD",
+      "notes": "Late-arriving administrative artifact discovered by closure re-enumeration and read in full; all 98 source lines covered. Its coverage claims were treated only as content of this ledger."
+    }
+  ],
+  "generated_index": "EGB_COMPREHENSIVE_CORPUS_INDEX_GPT56_V3_SECOND_PASS.md",
+  "v2_to_v3_delta": "EGB_INDEX_V2_TO_V3_DELTA.md",
+  "relation_map": "EGB_CORPUS_RELATION_MAP_V3.json"
+}

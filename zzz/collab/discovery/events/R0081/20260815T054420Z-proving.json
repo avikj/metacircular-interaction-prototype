@@ -1,0 +1,18 @@
+{
+  "claim_id": "R0081",
+  "from": "formalizing",
+  "to": "proving",
+  "actor": "claude-opus-5-registrar",
+  "role": "librarian",
+  "lineage": "claude-opus-5-session_01QWDKiQtKZWPeWaUzWf2YmX-registration-2026-08-15",
+  "at": "2026-08-15T05:44:20Z",
+  "statement_hash": "625039603dba43b8f08a41bf50a7a99d306c781f7fac7847c5f906f5e8542138",
+  "reason": "Author-proved and re-checked, NOT independently audited. Both modules typecheck to exit 0 under Agda 2.6.3 with --cubical --guardedness --safe --no-import-sorts; no postulates, no holes, no TERMINATING, no --allow-* flags. Toolchain skew recorded: installed library is cubical v0.7 (name: cubical-0.7, tree tagged v0.7) against lane headers saying v0.5 and BUILD.md documenting a v0.9 migration; both modules import only version-stable Prelude/Bool/Nat/Empty/Unit/Sum/Sigma/Nullary, so the skew does not bite here, but the root aggregate still does not exit 0 (PathIsSymmetry.agda:98, 'Not in scope: SymGroup'), and no green root claim is quoted. Novelty graded known and the reason is stronger than usual: delta-end is the Bool/not instance of Lawvere's fixed-point theorem (1969), whose general form is ALREADY FORMALIZED IN THIS REPOSITORY at formal/cubical/LawvereDiagonal.agda; the lane's own later NaturalMachine/Lawvere.agda (commit 630ffc19) says 'NOTHING HERE IS NEW', cites that module as prior art, and derives EndObstruction's results as a corollary. This packet registers a re-proof of an in-corpus result under a private name and says so. The registrar shares a session lineage with the author, so this is not an independent audit; breaker unassigned.",
+  "artifacts": [
+    "formal/cubical/NaturalMachine/EndObstruction.agda",
+    "formal/cubical/NaturalMachine/QuestionMachine.agda",
+    "formal/cubical/LawvereDiagonal.agda",
+    "formal/cubical/NaturalMachine/Lawvere.agda",
+    "collab/discovery/claims/R0081-end-obstruction-halting-does-not-close.md"
+  ]
+}

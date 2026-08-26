@@ -1,0 +1,167 @@
+==========================================================================
+exp61  rational circle atlas   CMAX = 100000
+==========================================================================
+
+[0] Chart 1 (primitive triples) and chart 2 (t = n/m), Euclid enumeration
+  primitive triples with c <= 100000: 15919
+  Lehmer 1900 asymptotic  c_max/(2*pi) = 15915.5   ratio measured/predicted = 1.00022
+  [OK]     all triples satisfy a^2+b^2=c^2, gcd=1, a odd, b even
+  [OK]     triples pairwise distinct
+  [OK]     chart1 <-> chart2 round trip on all triples (Euclid branch)  15919 triples
+  [OK]     chart2 both-odd branch t -> (1-t)/(1+t) recovers the same triple  leg-swap involution, 20000 triples
+  [REJECTED-AS-DESIGNED] CONTROL-A  'Euclid domain = all reduced fractions in (0,1)'  both-odd fractions omitted, e.g. [(1, 3), (1, 5), (1, 7)]
+
+[1] Chart 3 (Z[i]) and the residual group
+  [OK]     chart3 -> chart1:  z = m+in  =>  z^2 = a+ib  exactly
+  rational points with height c <= 100000: 127356
+  [OK]     fiber identity  |S^1(Q)_{<=H}| = 8*|PT_{<=H}| + 4  127356 == 8*15919+4 = 127356
+  D4 orbit size census: {8: 15919, 4: 1}
+  [OK]     exactly one non-free D4 orbit, of size 4 (= mu_4)
+  [OK]     number of free orbits equals number of primitive triples
+  [OK]     stabilizer orders are 1 (generic) and 2 (on mu_4 only)  {1: 127352, 2: 4}
+  [REJECTED-AS-DESIGNED] CONTROL-B  'the fiber of PT <- S^1(Q) has size 4'  true count 127356 != 63680
+  [OK]     multiplication by the ramified prime (1+i) on Z[i] induces w -> i*w  20000 triples
+  [OK]     Gaussian conjugation induces w -> w^{-1}
+
+[2] Chart 4 (Barning--Hall ternary words)
+  A(3,4,5) = (5, 12, 13)
+  B(3,4,5) = (21, 20, 29)
+  C(3,4,5) = (15, 8, 17)
+  (label convention differs across sources; ours is fixed by these images)
+  [OK]     Barning--Hall: descent word re-evaluates to the triple  15919 triples
+  [OK]     Barning--Hall words are pairwise distinct (injectivity)
+  [OK]     word set is prefix-closed (tree completeness on the range)
+  depth census (levels 0..12): [1, 3, 9, 27, 81, 243, 725, 1715, 2192, 1931, 1507, 1157, 918]  ... max depth 222
+  [OK]     levels 0..5 are complete ternary (3^k nodes); deeper levels are truncated by the c<=CMAX window  complete through level 5; level 6 has 725/729
+  [OK]     (m,n)-form of the three moves agrees with the 3x3 matrices
+  [REJECTED-AS-DESIGNED] CONTROL-C  'A' = A with entry (3,3)=2 also generates triples'  2000/2000 images are not Pythagorean; e.g. A'(3,4,5) = (5, 12, 8)
+
+[3] Chart 5 (continued fraction / Stern--Brocot address)
+  [OK]     CF round trip  t -> [a1..ak] -> t  15919 fractions
+  [OK]     BH word -> CF dictionary  A:[1,1,a1-1,..]  B:[2,a1,..]  C:[a1+2,..]  15919 triples
+  [REJECTED-AS-DESIGNED] CONTROL-D  'A acts on the CF by prepending [1,1] verbatim'  2692/3000 mismatches
+  [OK]     Stern--Brocot address = run-length encoding of the CF  8000 fractions
+  SL2(F_2) classes on the Euclid (opposite-parity) domain: 4
+  SL2(F_2) classes on the both-odd domain:                2
+  [OK]     parity of m+n is a function of the SB word's SL2(F_2) monodromy  4 vs 2 of the 6 elements of SL2(F_2)
+
+[4] Group structure of S^1(Q) via Z[i] unique factorisation
+  canonical Gaussian primes pi_p stored for 4783 primes p = 1 mod 4
+  [OK]     every hypotenuse c factors into primes = 1 mod 4
+  [OK]     Z[i] factorisation of every primitive z has unit in {1,i,-1,-i}
+  [OK]     height law  c(w) = prod_p p^{|e_p|}  exactly  15919 points
+  [OK]     reconstruction  w = (u/ubar) * prod_p g_p^{e_p}  exactly
+  [OK]     group law: exponent vectors add under multiplication (4000 random pairs)
+  [OK]     height of the product = prod p^{|e_p+e'_p|} (cancellation only within p)
+  [OK]     no primitive point of height>1 has finite order <= 12 (Niven)  torsion = mu_4 only
+  [REJECTED-AS-DESIGNED] CONTROL-E  '(4/5,3/5) generates the p=5 component'  (4/5,3/5) = i * conj(g_5); not a power of g_5
+
+[5] Chart vs ambient: intrinsic Diophantine approximation on S^1
+  median over 3000 random angles of dist to points of height <= H
+    H =      10   median delta = 1.302e-01   delta*H = 1.3020
+    H =      16   median delta = 8.108e-02   delta*H = 1.2973
+    H =      24   median delta = 6.000e-02   delta*H = 1.4401
+    H =      37   median delta = 3.224e-02   delta*H = 1.1929
+    H =      58   median delta = 2.282e-02   delta*H = 1.3237
+    H =      90   median delta = 1.301e-02   delta*H = 1.1708
+    H =     139   median delta = 9.011e-03   delta*H = 1.2525
+    H =     215   median delta = 5.812e-03   delta*H = 1.2497
+    H =     334   median delta = 3.755e-03   delta*H = 1.2541
+    H =     518   median delta = 2.411e-03   delta*H = 1.2492
+    H =     803   median delta = 1.569e-03   delta*H = 1.2596
+    H =    1245   median delta = 1.019e-03   delta*H = 1.2690
+    H =    1931   median delta = 6.729e-04   delta*H = 1.2995
+    H =    2994   median delta = 4.269e-04   delta*H = 1.2781
+    H =    4642   median delta = 2.761e-04   delta*H = 1.2816
+    H =    7197   median delta = 1.756e-04   delta*H = 1.2641
+    H =   11159   median delta = 1.168e-04   delta*H = 1.3034
+    H =   17302   median delta = 7.485e-05   delta*H = 1.2950
+    H =   26827   median delta = 4.725e-05   delta*H = 1.2676
+    H =   41596   median delta = 2.998e-05   delta*H = 1.2470
+    H =   64495   median delta = 2.003e-05   delta*H = 1.2917
+    H =  100000   median delta = 1.294e-05   delta*H = 1.2941
+  fitted exponent (median, H>=300):  -0.9965   (predicted -1)
+  fitted exponent (median, all H):   -1.0005
+  [OK]     measured approximation exponent is -1 to within 0.06  slope = -0.9965
+  rms residual: free 0.0132 | exponent -1 0.0146 | -1/2 0.8778 | -2 1.7743
+  [REJECTED-AS-DESIGNED] CONTROL-F  'the approximation exponent is -1/2'  rms 0.878 vs 0.015
+  [REJECTED-AS-DESIGNED] CONTROL-G  'the approximation exponent is -2'  rms 1.774 vs 0.015
+
+  badly-approximable vs Liouville direction, product delta * H:
+    H =      10   golden: delta*H =   1.7985    Liouville: delta*H =     2.191210
+    H =      16   golden: delta*H =   1.1017    Liouville: delta*H =     2.810721
+    H =      24   golden: delta*H =   0.6314    Liouville: delta*H =     4.216082
+    H =      37   golden: delta*H =   0.9735    Liouville: delta*H =     2.392904
+    H =      58   golden: delta*H =   1.5260    Liouville: delta*H =     0.127218
+    H =      90   golden: delta*H =   0.9045    Liouville: delta*H =     0.197407
+    H =     139   golden: delta*H =   1.3969    Liouville: delta*H =     0.304884
+    H =     215   golden: delta*H =   2.1607    Liouville: delta*H =     0.471584
+    H =     334   golden: delta*H =   0.4897    Liouville: delta*H =     0.732600
+    H =     518   golden: delta*H =   0.7595    Liouville: delta*H =     1.136188
+    H =     803   golden: delta*H =   1.1774    Liouville: delta*H =     1.761310
+    H =    1245   golden: delta*H =   1.8255    Liouville: delta*H =     2.730799
+    H =    1931   golden: delta*H =   1.0815    Liouville: delta*H =     4.235480
+    H =    2994   golden: delta*H =   1.6768    Liouville: delta*H =     6.567078
+    H =    4642   golden: delta*H =   0.9930    Liouville: delta*H =     5.742691
+    H =    7197   golden: delta*H =   0.5881    Liouville: delta*H =     3.483074
+    H =   11159   golden: delta*H =   0.9118    Liouville: delta*H =     0.022051
+    H =   17302   golden: delta*H =   1.4138    Liouville: delta*H =     0.034190
+    H =   26827   golden: delta*H =   2.1921    Liouville: delta*H =     0.053013
+    H =   41596   golden: delta*H =   1.2983    Liouville: delta*H =     0.082197
+    H =   64495   golden: delta*H =   2.0130    Liouville: delta*H =     0.127448
+    H =  100000   golden: delta*H =   0.4554    Liouville: delta*H =     0.197609
+  [OK]     golden direction: delta*H stays bounded (badly approximable)  max = 2.192
+  [OK]     Liouville direction: delta*H dips far below the golden floor  min = 2.205e-02 vs golden min 0.455
+
+  uniform / covering exponent: sup over theta of the distance
+    H =      10   sup_theta delta = 3.2175e-01   delta*sqrt(H) = 1.0175
+    H =      16   sup_theta delta = 1.9740e-01   delta*sqrt(H) = 0.7896
+    H =      24   sup_theta delta = 1.9740e-01   delta*sqrt(H) = 0.9670
+    H =      37   sup_theta delta = 1.4190e-01   delta*sqrt(H) = 0.8631
+    H =      58   sup_theta delta = 1.1066e-01   delta*sqrt(H) = 0.8427
+    H =      90   sup_theta delta = 7.6772e-02   delta*sqrt(H) = 0.7283
+    H =     139   sup_theta delta = 6.6568e-02   delta*sqrt(H) = 0.7848
+    H =     215   sup_theta delta = 5.2583e-02   delta*sqrt(H) = 0.7710
+    H =     334   sup_theta delta = 3.9979e-02   delta*sqrt(H) = 0.7306
+    H =     518   sup_theta delta = 3.2247e-02   delta*sqrt(H) = 0.7339
+    H =     803   sup_theta delta = 2.5635e-02   delta*sqrt(H) = 0.7264
+    H =    1245   sup_theta delta = 2.0405e-02   delta*sqrt(H) = 0.7200
+    H =    1931   sup_theta delta = 1.6392e-02   delta*sqrt(H) = 0.7203
+    H =    2994   sup_theta delta = 1.2986e-02   delta*sqrt(H) = 0.7106
+    H =    4642   sup_theta delta = 1.0526e-02   delta*sqrt(H) = 0.7172
+    H =    7197   sup_theta delta = 8.4032e-03   delta*sqrt(H) = 0.7129
+    H =   11159   sup_theta delta = 6.7113e-03   delta*sqrt(H) = 0.7090
+    H =   17302   sup_theta delta = 5.4054e-03   delta*sqrt(H) = 0.7110
+    H =   26827   sup_theta delta = 4.3290e-03   delta*sqrt(H) = 0.7090
+    H =   41596   sup_theta delta = 3.4843e-03   delta*sqrt(H) = 0.7106
+    H =   64495   sup_theta delta = 2.7855e-03   delta*sqrt(H) = 0.7074
+    H =  100000   sup_theta delta = 2.2371e-03   delta*sqrt(H) = 0.7074
+  fitted covering exponent (all H): -0.5283   (predicted -1/2)
+  fitted covering exponent (H>=1000): -0.5038
+  [OK]     measured covering exponent is -1/2 to within 0.01 on H>=1000  slope = -0.5038
+  sharp constant:  sup_theta delta * sqrt(H) -> 1/sqrt(2) = 0.707107;  measured at H=100000: 0.707443
+  [OK]     covering constant matches the predicted 1/sqrt(2) to 3 decimals  0.707443 vs 0.707107
+  [REJECTED-AS-DESIGNED] CONTROL-H  'the covering constant is 1 (i.e. sup delta ~ 1/sqrt(H))'  measured 0.707443
+  median constant: median_theta delta * H -> 1.2736;  perfectly equispaced points of the same count would give pi^2/8 = 1.2337
+  worst gap at H = 100000 is the arc starting at 1.570796 rad (= 0.5000 pi), i.e. anchored at a cusp
+  [OK]     for every H in the grid the widest gap has a cusp of mu_4 as an endpoint  22/22
+  exact cusp exclusion:  min over all 127352 non-cusp points of 2 c sin^2(delta/2) = 1.000000000000   (predicted exactly 1)
+  equality cases (t = 1/q, q odd): 1784
+  [OK]     cusp-exclusion inequality  c >= 1/(2 sin^2(delta/2))  holds, sharp  min ratio 1.000000000000, 1784 equality cases
+  [REJECTED-AS-DESIGNED] CONTROL-I  'the sharp cusp bound is c >= 1/sin^2(delta/2)'  factor 2 is not removable: t=1/q with q odd attains equality
+
+[6] Rank-r subgroups of S^1(Q): approximation rate vs group rank
+  primes [5, 13, 17], generator angles ['0.927295', '1.176005', '0.489957']
+  rank 1: fitted exponent of delta vs log(H) = -1.046   (predicted -1)
+  rank 2: fitted exponent of delta vs log(H) = -1.975   (predicted -2)
+  rank 3: fitted exponent of delta vs log(H) = -3.056   (predicted -3)
+  [OK]     rank-1 subgroup gives rate ~ (log H)^{-1}  -1.046
+  [OK]     rank-2 subgroup gives rate ~ (log H)^{-2}  -1.975
+  [OK]     rank-3 subgroup gives rate ~ (log H)^{-3}  -3.056
+  => full rank gives delta ~ H^{-1}; finite rank r gives only delta ~ (log H)^{-r}.
+
+==========================================================================
+ALL CHECKS PASSED; ALL PLANTED-FALSE CONTROLS REJECTED.
+==========================================================================
+wrote data/exp61_out.txt, data/exp61_atlas.json, data/exp61_diophantine.npz
+wrote figures/exp61_approx_exponent.png, exp61_covering.png, exp61_rank_rate.png, exp61_circle_chart.png

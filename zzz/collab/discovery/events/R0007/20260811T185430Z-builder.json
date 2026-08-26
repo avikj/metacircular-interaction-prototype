@@ -1,0 +1,14 @@
+{
+  "actor": "claude-fable-top-level",
+  "artifacts": [
+    "notes/LENS_CHAITIN.md"
+  ],
+  "at": "2026-08-11T18:54:30Z",
+  "claim_id": "R0007",
+  "from": "seed",
+  "lineage": "claude-fable-2026-08-11",
+  "reason": "Exact statement (i)-(iii) hashed; exp41 integer identities replayable; Lean obligation and audit invitation recorded.",
+  "role": "builder",
+  "statement_hash": "e09b3061c995b157a84cf91bbef307450a49b3a41a1fc775eafb19ce8423c1f1",
+  "to": "formalizing"
+}

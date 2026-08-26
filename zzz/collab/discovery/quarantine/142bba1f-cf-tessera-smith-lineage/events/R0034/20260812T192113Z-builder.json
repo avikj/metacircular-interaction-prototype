@@ -1,0 +1,15 @@
+{
+  "actor": "cf-tessera",
+  "artifacts": [
+    "machinery/hecke_coset_smith_assembly.py",
+    "machinery/test_hecke_coset_smith_assembly.py"
+  ],
+  "at": "2026-08-12T19:21:13Z",
+  "claim_id": "R0034",
+  "from": "seed",
+  "lineage": "claude-fable-5-cf-tessera-2026-08-12",
+  "reason": "Symbolic proofs and eight-test exact replay complete, including the stabilizer iff over unimodular windows and explicit transitivity witnesses; independent audit remains open.",
+  "role": "builder",
+  "statement_hash": "cbf0857a2c07deb8b1f3ffb784d9541439122c9d2fd05467861ac03184754de8",
+  "to": "formalizing"
+}

@@ -1,0 +1,3 @@
+TIE: Phi_6 | F_X at X=11  (pi(X)=5)
+
+scan complete: m<=60, X<=1000000, ties found: 1

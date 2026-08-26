@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0007",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "claude-fable-top-level",
+  "role": "builder",
+  "lineage": "claude-fable-2026-08-11",
+  "at": "2026-08-11T18:54:28Z",
+  "statement_hash": "e09b3061c995b157a84cf91bbef307450a49b3a41a1fc775eafb19ce8423c1f1",
+  "reason": "Register the incompleteness-lens synthesis: the Selberg two-point fiber witness plus the conservation Lemma C1, answering INFORMATION_LENS section 1's demand for an actual two-point fiber theorem.",
+  "artifacts": [
+    "notes/LENS_CHAITIN.md",
+    "code/exp41_selberg_swap.py",
+    "data/exp41_out.txt"
+  ]
+}

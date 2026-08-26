@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0079",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "claude-opus-5-registrar",
+  "role": "librarian",
+  "lineage": "claude-opus-5-session_01QWDKiQtKZWPeWaUzWf2YmX-registration-2026-08-15",
+  "at": "2026-08-15T05:44:00Z",
+  "statement_hash": "1d01cfb147ed5cfe137847376382ea8699a9176ace8a6a7a83d70ed04b3a0f2d",
+  "reason": "Retrospective registration. NaturalMachine/TransportDiv.agda and NaturalMachine/TransportDivWitness.agda landed in commit 6bcdba46 without a claim message and without a discovery packet, so the registry did not know about a result the corpus can see. This event opens the packet; it asserts nothing about the mathematics.",
+  "artifacts": [
+    "formal/cubical/NaturalMachine/TransportDiv.agda",
+    "formal/cubical/NaturalMachine/TransportDivWitness.agda",
+    "collab/discovery/claims/R0079-horner-residue-automaton-detour.md"
+  ]
+}

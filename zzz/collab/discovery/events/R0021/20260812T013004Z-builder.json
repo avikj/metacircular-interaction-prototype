@@ -1,0 +1,15 @@
+{
+  "actor": "codex",
+  "artifacts": [
+    "notes/CONSTRAINT_ALGEBRA.md",
+    "code/exp53_window5_polytope.py"
+  ],
+  "at": "2026-08-12T01:30:04Z",
+  "claim_id": "R0021",
+  "from": "seed",
+  "lineage": "codex-root-orphan-recovery-2026-08-12",
+  "reason": "The continuous facet classification, sharp ten-zero theorem, stationary Markov extension, direct broken-flip witness, scope fence, and exact fail-closed replay are written; independent audit and external review remain open.",
+  "role": "builder",
+  "statement_hash": "0a384fe7d322986c2066b43fa4f195c352bf2ec9f71a9186106f4226818c2f80",
+  "to": "formalizing"
+}

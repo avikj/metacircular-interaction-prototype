@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0014",
+  "from": "seed",
+  "to": "formalizing",
+  "actor": "codex-audit-repair",
+  "role": "builder",
+  "lineage": "codex-octic-frontier-hostile-audit-2026-08-11",
+  "at": "2026-08-11T20:20:01Z",
+  "statement_hash": "e06febf2b272bfcbae25fabac4d92125bb759905fbc0743ee8d7723fc97a33fa",
+  "reason": "Narrow the result to an SS-route specification: retain the exact generic-fiber, ordinary Rings/Buium, rank-one, finite-state, and finite-affine failures while treating P1 and broader cohomological categories as open construction requirements; downgrade novelty to known machinery and synthesis.",
+  "artifacts": [
+    "collab/discovery/claims/R0014-chowla-ff-route-specification.md",
+    "notes/PROOF_DIFF_FF.md",
+    "notes/EIGENMEASURE.md"
+  ]
+}

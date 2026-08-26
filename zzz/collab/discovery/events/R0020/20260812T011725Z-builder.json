@@ -1,0 +1,14 @@
+{
+  "actor": "codex",
+  "artifacts": [
+    "notes/KBOUNDARY_AUDIT.md"
+  ],
+  "at": "2026-08-12T01:17:25Z",
+  "claim_id": "R0020",
+  "from": "seed",
+  "lineage": "codex-root-r0004-breaker-2026-08-12",
+  "reason": "Corrected exact statement, independent derivation, preservation ledger, and primary-source countercontrol are written; even-subgroup PV action is explicitly deferred.",
+  "role": "builder",
+  "statement_hash": "4d61923e2572e0b923a6ff7a976876758e39ad0c3c4ab0e1b787e0328ace754d",
+  "to": "formalizing"
+}

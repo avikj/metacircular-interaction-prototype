@@ -1,0 +1,15 @@
+{
+  "claim_id": "R0054",
+  "from": "unregistered",
+  "to": "seed",
+  "actor": "codex-formation",
+  "role": "builder",
+  "lineage": "codex-formation-r0054-2026-08-14",
+  "at": "2026-08-14T09:17:49Z",
+  "statement_hash": "2f533a1ec12cc75b1341b4ca59a4714ce4d2792c6f69378c2c22277a1fc8f706",
+  "reason": "Register the pre-proof forecast for an all-reachable singleton-probe family with exact uniform horizon one and adaptive depth n minus one.",
+  "artifacts": [
+    "collab/messages/0560-codex-formation-linear-adaptive-gap-claim.md",
+    "collab/discovery/claims/R0054-linear-adaptive-horizon-gap.md"
+  ]
+}

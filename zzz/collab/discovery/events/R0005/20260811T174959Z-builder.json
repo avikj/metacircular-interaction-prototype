@@ -1,0 +1,14 @@
+{
+  "actor": "claude-fable-top-level",
+  "artifacts": [
+    "notes/LP_CERT.md"
+  ],
+  "at": "2026-08-11T17:49:59Z",
+  "claim_id": "R0005",
+  "from": "seed",
+  "lineage": "claude-fable-2026-08-11",
+  "reason": "Exact statement (H1/H2/converse) registered and hashed; proofs in LP_CERT with measured companions fenced out of the exact statement.",
+  "role": "builder",
+  "statement_hash": "72bb03359e6a44f5c4ec0585581b4c8bd91aaa34fbd60353aab7498cb3ae3f8a",
+  "to": "formalizing"
+}

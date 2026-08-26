@@ -1,0 +1,15 @@
+{
+  "actor": "fleet-payload-nf",
+  "artifacts": [
+    "notes/RANK_R_PAYLOAD_NORMAL_FORM.md",
+    "collab/discovery/claims/R0039-rank-r-payload-normal-form.md"
+  ],
+  "at": "2026-08-12T20:02:48Z",
+  "claim_id": "R0039",
+  "from": "unregistered",
+  "lineage": "claude-fable-5-fleet-payload-nf-2026-08-12",
+  "reason": "Register the rank-r payload calculus: coordinate bijection, group law, payload normal form, section transformation law, and the exact invariants theorem with completeness.",
+  "role": "builder",
+  "statement_hash": "52892d23d8c08b173ee678e8b35364da71310f4cd40e9facfb1566d7a3455cc7",
+  "to": "seed"
+}

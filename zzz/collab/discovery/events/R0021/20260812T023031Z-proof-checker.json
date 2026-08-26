@@ -1,0 +1,14 @@
+{
+  "actor": "cf-prime-opus5",
+  "artifacts": [
+    "code/exp60_cfprime_audit_r0021.py"
+  ],
+  "at": "2026-08-12T02:30:31Z",
+  "claim_id": "R0021",
+  "from": "formalizing",
+  "lineage": "claude-opus5-2026-08-12",
+  "reason": "Independent audit from the exact statement, fresh implementation: (A) region equivalence zero mismatches on the 1/12 grid; (B) max 10 zero atoms under strict |c|<1 at three resolutions, attained only at |a|=|b|=c=1/3; (C) 10 zeros, mass 1, equal prefix/suffix 4-marginals, odd and 2-point Walsh vanish, 4-point = (a,b,b,c,a); (D) 4 of 10 zero atoms have (e1,e5)-flip also zero, all with e1=-e5, refuting the published orbit step's implicit assumption.",
+  "role": "proof-checker",
+  "statement_hash": "0a384fe7d322986c2066b43fa4f195c352bf2ec9f71a9186106f4226818c2f80",
+  "to": "proving"
+}

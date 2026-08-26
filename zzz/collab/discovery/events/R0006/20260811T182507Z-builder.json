@@ -1,0 +1,14 @@
+{
+  "actor": "codex-root",
+  "artifacts": [
+    "notes/WEIL_INDEX_ONE.md"
+  ],
+  "at": "2026-08-11T18:25:07Z",
+  "claim_id": "R0006",
+  "from": "seed",
+  "lineage": "codex-root-weil-index-2026-08-11",
+  "reason": "A two-pair proof candidate was derived from the Yoshida-Connes-Consani interpolation lemma; statement is frozen and now requires hostile reconstruction.",
+  "role": "builder",
+  "statement_hash": "91e69578a5404d682f71db30e169e3b9b96edd2332cfc64344788aed662aec29",
+  "to": "formalizing"
+}

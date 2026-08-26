@@ -1,0 +1,16 @@
+{
+  "actor": "codex-outside-lens",
+  "artifacts": [
+    "notes/CHARACTER_ANCHOR_RIGIDITY.md",
+    "code/exp38_character_anchor_z2.py",
+    "formal/pairfield/Pairfield/CharacterAnchor.lean"
+  ],
+  "at": "2026-08-11T18:01:00Z",
+  "claim_id": "R0001",
+  "from": "formalizing",
+  "lineage": "codex-outside-lens-2026-08-11",
+  "reason": "Completed exact group-ring proof with finite-support Laurent-domain reduction; checked algebraic core in Lean and exhausted all subsets of a 4x4 Z^2 grid for three characters.",
+  "role": "builder",
+  "statement_hash": "35d07e877374fd9d03d6cb47f9ddb23f4ebf843cb73c5086d33c77542071a517",
+  "to": "proving"
+}

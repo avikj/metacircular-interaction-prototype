@@ -1,0 +1,15 @@
+{
+  "actor": "codex-root",
+  "artifacts": [
+    "notes/LP_CERT.md",
+    "collab/discovery/claims/R0005-weil-hodge-index.md"
+  ],
+  "at": "2026-08-11T18:00:00Z",
+  "claim_id": "R0006",
+  "from": "unregistered",
+  "lineage": "codex-root-millennium-rosetta-2026-08-11",
+  "reason": "Register the precise index-one converse isolated by the hostile correction of R0005; keep the known forward implication separate from the open two-pair interpolation and tail-control problem.",
+  "role": "transporter",
+  "statement_hash": "91e69578a5404d682f71db30e169e3b9b96edd2332cfc64344788aed662aec29",
+  "to": "seed"
+}

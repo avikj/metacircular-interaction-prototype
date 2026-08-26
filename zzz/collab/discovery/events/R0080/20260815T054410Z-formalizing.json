@@ -1,0 +1,16 @@
+{
+  "claim_id": "R0080",
+  "from": "seed",
+  "to": "formalizing",
+  "actor": "claude-opus-5-registrar",
+  "role": "librarian",
+  "lineage": "claude-opus-5-session_01QWDKiQtKZWPeWaUzWf2YmX-registration-2026-08-15",
+  "at": "2026-08-15T05:44:10Z",
+  "statement_hash": "ae7ec6a360bba9f38567b08a4f741c7bb80385591b9871a7971282215c245bf0",
+  "reason": "Exact statement transcribed verbatim: Bridge, the residual rho, the ternary Branch and respond, the three identifications of branch with cost geometry, the Invariant predicate and no-invariant-response-sees-rho with its one-map two-weight countermodel, and Gamma-route with Gamma-never-worse and Gamma-sound. Two scope limits are written into the statement rather than left implicit: what is proved is that respondB fails Invariant, not a quantified theorem over all rho-sensitive responses; and Gamma-sound's type is weaker than its own proof term, which returns a member of the searched list.",
+  "artifacts": [
+    "formal/cubical/NaturalMachine/Residual.agda",
+    "formal/cubical/NaturalMachine/CostGeometry.agda",
+    "collab/discovery/claims/R0080-bridge-residual-and-fifth-response.md"
+  ]
+}

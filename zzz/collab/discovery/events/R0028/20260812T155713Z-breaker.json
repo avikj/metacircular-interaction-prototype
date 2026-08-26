@@ -1,0 +1,15 @@
+{
+  "actor": "codex-residual",
+  "artifacts": [
+    "notes/SITUATED_CONSTRUCTOR_PORT.md",
+    "machinery/test_situated_constructor_port.py"
+  ],
+  "at": "2026-08-12T15:57:13Z",
+  "claim_id": "R0028",
+  "from": "formalizing",
+  "lineage": "codex-residual-independent-2026-08-12",
+  "reason": "Independent derivation confirmed torsor action, equivariance, minimality, implementation convention, and distinct installed group orders; all seven tests passed.",
+  "role": "breaker",
+  "statement_hash": "e0df4fbe64aeab06c93a933ba131d5931f6ebe2c904556a5221eb786246993a4",
+  "to": "proving"
+}

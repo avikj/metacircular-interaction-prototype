@@ -1,0 +1,58 @@
+THE ANSWER DOES NOT DETERMINE THE DERIVATION, AND THE FAILURE IS NOT A
+MATTER OF DEGREE
+Soundness factors through the truncation of the derivation type, so
+lineage must be carried and cannot be reconstructed
+
+Query evaluation / lineage and audit
+
+A recurring engineering hope is that lineage can be recovered after the
+fact from an answer plus the rule set - reconstructed on demand rather
+than logged.  We prove it cannot, in a form that does not depend on the
+size of the rule set, on the query, or on how much is retained.
+
+Take a derivation system whose transitions are indexed by both endpoints
+and whose evaluation sends a derivation to an equality of values in a
+discrete domain.  An equality in a discrete domain is a subsingleton.  So
+evaluation factors through the propositional truncation of the derivation
+type - it used only that a derivation exists, never which - and the
+factorisation triangle commutes definitionally.  A recipient of the answer
+therefore holds the existence and nothing else, and this is a property of
+how evaluation is typed rather than of any implementation choice.
+
+The truncation is strict, and we prove it rather than assert it.  We
+exhibit two derivations with the same endpoints and lengths two and four,
+prove them distinct by their lengths, and conclude the derivation type is
+not a subsingleton.  Then the sharper statement, which is the one that
+kills reconstruction: there is no function from the truncation to the
+naturals agreeing with length.  Length is not a function of what the
+answer carries even in principle, so no amount of retained metadata short
+of the derivation recovers it.  And the fully general form: for every
+target type at every universe level, every function of the evaluation
+agrees on both derivations.
+
+Two design consequences follow directly and both cut against common
+practice.  Lineage must be recorded online, at the moment a step is taken,
+because after the step the information is not present anywhere in the
+system to be recovered.  And a boolean or numeric summary of a derivation
+cannot serve as a compressed lineage: we prove the whole chain costs no
+more to transport than a single link of it and absorbs later refutation
+without rewriting, while provably no boolean summary carries it - so the
+summary, not the trail, is the expensive object.
+
+Finally, the cost, stated exactly.  Because the derivation must be carried
+as a field of the value and cannot be deduplicated - deduplication would
+require deciding an identity of derivations that the evaluation provably
+cannot supply - the store is monotone: no tombstones, no compaction, no
+safe pruning rule.  Where a rule's left-hand side contains no free
+variable, the derivations enabled at a single value form an entire copy of
+the term algebra with every member producing the same answer, so a pruning
+heuristic collapses an unbounded fibre rather than a redundant pair.  We
+characterise the trade rather than tune it.
+
+WHAT IS NOT CLAIMED.  There is no provenance semiring in this development,
+no forgetful homomorphism to the boolean semiring, no relational algebra
+and no query language.  The object is a term rewriting calculus with an
+interpreter into the naturals.  The reading of these results as statements
+about how-provenance is a reading and is not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

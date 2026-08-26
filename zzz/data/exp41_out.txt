@@ -1,0 +1,15 @@
+# exp41: Selberg two-model swap, X=2000000
+sum lambda = -1234  (|.|/sqrt(X) = 0.873)
+exact masses: mass(nu+) = 1998766, mass(nu-) = 2001234
+(A) AP discrepancy (nonzero means AP counts are not an exact common shadow):
+    q=     3     1.936
+    q=     7     1.328
+    q=    30     3.098
+    q=   101     2.970
+    q=   997     3.528
+    q=  9973     3.601
+    q= 99991     4.025
+(B) prime target: sum w+ over primes = 0, sum w- over primes = 297866 = 2*pi(X) = 297866
+(C) twin target: sum(1+c2) over twin n = 29742 = 2*pi2 = 29742, sum(1-c2) over twin n = 0
+    mean c2 over all n = -0.000470  (Chowla-2 scale: known o(1) only log-averaged)
+integral identity residual: nu+(g) - nu-(g) - 2<lambda,g> = 1.1e-11 (identity: difference = 2<lam,g>; charged part carries ALL separation)

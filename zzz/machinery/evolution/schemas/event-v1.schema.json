@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "private:math-dgm-event-v1",
+  "title": "MathDGM event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "event_id",
+    "sequence",
+    "at",
+    "genome_id",
+    "evaluation_id",
+    "from_state",
+    "to_state",
+    "kind",
+    "reason_sha256",
+    "previous_event_id"
+  ],
+  "properties": {
+    "format": {"const": "math-dgm-event-v1"},
+    "event_id": {"$ref": "#/$defs/hash"},
+    "sequence": {"type": "integer", "minimum": 0, "maximum": 9223372036854775807},
+    "at": {"$ref": "#/$defs/timestamp"},
+    "genome_id": {"$ref": "#/$defs/hash"},
+    "evaluation_id": {"oneOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]},
+    "from_state": {
+      "oneOf": [
+        {"enum": ["proposed", "evaluating", "evaluated", "retained", "rejected"]},
+        {"type": "null"}
+      ]
+    },
+    "to_state": {"enum": ["proposed", "evaluating", "evaluated", "retained", "rejected", "retired"]},
+    "kind": {"enum": ["propose", "begin_evaluation", "finish_evaluation", "retain", "reject", "retire"]},
+    "reason_sha256": {"$ref": "#/$defs/hash"},
+    "previous_event_id": {"oneOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

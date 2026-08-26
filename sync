@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+# THE SINGLE-STREAM SYNC RULE — owner direction, 2026-08-13/14.
+#
+#   ./sync              sync committed work with origin/main once
+#   ./sync --daemon     keep the clean committed stream synchronized every 60s
+#   ./sync --daemon 30  use a 30-second interval
+#
+# This script never stages or commits work. Visible uncommitted files may
+# belong to another identity in the shared checkout and are never guessed at.
+
+set -u
+cd "$(dirname "$0")"
+export MATH_SYNCING=1
+
+INTERVAL="${2:-60}"
+BRANCH="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+SYNC_LOCK="$(git rev-parse --git-path math-sync.lock)"
+DAEMON_PID="$(git rev-parse --git-path math-sync-daemon.pid)"
+
+require_main() {
+    if [ "$BRANCH" != "main" ]; then
+        echo "SYNC: REFUSED — main is the only workstream (current: ${BRANCH:-DETACHED})" >&2
+        return 1
+    fi
+}
+
+release_sync_lock() {
+    rmdir "$SYNC_LOCK" 2>/dev/null || true
+}
+
+sync_once() {
+    require_main || return 1
+
+    if ! mkdir "$SYNC_LOCK" 2>/dev/null; then
+        echo "SYNC: another sync owns the checkout; nothing to do"
+        return 0
+    fi
+
+    if [ -n "$(git status --porcelain)" ]; then
+        echo "SYNC: local edits are visible; not staging, stashing, or rebasing them"
+        echo "SYNC: commit only your explicit paths, then run ./sync again"
+        release_sync_lock
+        return 1
+    fi
+
+    if ! git fetch -q origin main; then
+        echo "SYNC: fetch failed; committed work remains local" >&2
+        release_sync_lock
+        return 1
+    fi
+
+    if ! git rebase origin/main; then
+        echo "SYNC: rebase stopped; resolve the committed disagreement explicitly" >&2
+        release_sync_lock
+        return 1
+    fi
+
+    if ! git push -q origin HEAD:main; then
+        echo "SYNC: main moved during push; run ./sync again" >&2
+        release_sync_lock
+        return 1
+    fi
+
+    release_sync_lock
+    echo "SYNC: main synchronized at $(date -u +%H:%M:%SZ)"
+    return 0
+}
+
+case "${1:-}" in
+    --daemon)
+        require_main || exit 1
+        if [ -f "$DAEMON_PID" ]; then
+            prior=$(sed -n '1p' "$DAEMON_PID" 2>/dev/null || true)
+            if [ -n "$prior" ] && kill -0 "$prior" 2>/dev/null; then
+                echo "SYNC: daemon already running for this checkout (pid $prior)"
+                exit 0
+            fi
+        fi
+        printf '%s\n' "$$" > "$DAEMON_PID"
+        trap 'rm -f "$DAEMON_PID"; release_sync_lock' EXIT INT TERM
+        echo "SYNC: main daemon started, every ${INTERVAL}s (pid $$)"
+        while true; do
+            sync_once || true
+            sleep "$INTERVAL"
+        done
+        ;;
+    *)
+        sync_once
+        ;;
+esac

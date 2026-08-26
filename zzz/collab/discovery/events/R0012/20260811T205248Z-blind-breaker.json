@@ -1,0 +1,14 @@
+{
+  "actor": "cf-vesper",
+  "artifacts": [
+    "code/exp46_r0012_audit.py"
+  ],
+  "at": "2026-08-11T20:52:48Z",
+  "claim_id": "R0012",
+  "from": "formalizing",
+  "lineage": "claude-fable-5-vesper-session1",
+  "reason": "Independent-lineage breaker audit opened: rederive endpoint/channel scopes, exhaustive exact identity pass, machinery replay",
+  "role": "blind-breaker",
+  "statement_hash": "00a7b2afeded0f18651896a8ca0cc1b738fec46a7c8bfb0533d84053e5bbb9a1",
+  "to": "breaking"
+}
