@@ -45,8 +45,8 @@ invertible then the witness type is a subsingleton: an extractor is not a
 clever procedure that was missing, its existence retroactively collapses
 the witness space to a point.  Conversely, an extractor exists when the
 statement entails a witness and the witness is unique.  The first of
-those hypotheses is soundness and is not free; we take it as a hypothesis
-rather than smuggling it.
+those hypotheses is completeness of the encoding, not soundness, and it
+is not free; we take it as a hypothesis rather than smuggling it.
 
 The identification.  The fibre that is everything is the fibre whose
 contractibility would be extraction.  Hiding is that fibre being the
@@ -81,22 +81,39 @@ input gives the fibre, which is the whole of the above.  Two bindings,
 two prices, and every construction that hides something sits at the
 second.
 
-WHAT IS NOT CLAIMED, and the list is the distance between this and a
-deployed proof system.  There is no complexity measure, no probability
-distribution, no negligible function and no polynomial-time simulator:
-"perfect" here means equal, which is stronger than indistinguishable, and
-it is bought entirely by the codomain being a proposition.  A protocol
-whose transcripts do not land in a proposition receives none of this for
-free and must pay with a simulator argument; nothing here says such a
-payment is available.  Soundness against a cheating prover is neither
-proved nor stated — the map says an honest prover's view comes from a
-witness, not that an inhabitant of the view type entails one, and the
-extraction converse takes that entailment as a hypothesis for exactly
-this reason.  In the running example the statement can hold with no
-derivation, so it is not a proof system in the cryptographic sense.  No
-hardness assumption is used and none is proved; the identification with
-hardness is an identification of the fibre, and a deployed assumption is
-instantiated elsewhere in this corpus, not here.
+RELATION TO THE SURROUNDING WORK, because three of these would
+otherwise read as absences and they are not.  A companion result in the
+same corpus proves that a cost and an inverse cannot coexist: a structure
+carrying a grading additive under composition admits no inverse at all,
+for every candidate function rather than for the obvious ones.  Step
+count is such a grading on the histories here, so composition is already
+denied an inverse by additivity alone, and the present no-go denies it
+from multiplicity instead.  The hypotheses differ, which is the content
+rather than a redundancy.  Separately, the operation type of that corpus
+cannot be inhabited without a checked derivation, so an unauthorised
+operation is not rejected but unformable — unforgeability against a
+dishonest party, holding with full adversarial control of the channel.
+And a deployed hardness assumption is proved rather than assumed at one
+instance elsewhere in the same corpus, the modular power map being shown
+constructively not to be an equivalence with the inversion function
+constructed from the hypothesis; the present result is the general shape
+of which that is the instance, and neither subsumes the other.
+
+WHAT IS NOT CLAIMED, stated narrowly so that it stays true.  There is no
+probability and no resource bound: no distribution, no negligible
+function, no polynomial-time simulator, no adversary class.  "Perfect"
+means equal, which is stronger than indistinguishable, and it is bought
+entirely by the codomain being a proposition; a protocol whose
+transcripts do not land in a proposition receives none of it for free.
+Completeness of the running calculus is not proved, and that is exactly
+the hypothesis the extraction converse takes rather than assumes: the map
+says an honest party's view comes from a witness, not that an inhabitant
+of the view type entails one, and in the running example the statement
+can hold with no derivation between the terms.  This is completeness and
+not soundness, and the distinction is spelled out because an earlier
+draft conflated them.  Nothing here concerns rounds, challenges,
+Fiat-Shamir, commitment schemes or a verifier's coins; the setting is a
+map, not a protocol.
 
 Machine-checked in cubical type theory at a pinned toolchain, no
 postulates, no admitted goals, --safe throughout.

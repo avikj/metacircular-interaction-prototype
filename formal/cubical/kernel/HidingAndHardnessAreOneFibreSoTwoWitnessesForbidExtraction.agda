@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TheHidingIsTheFibreAndTheHardnessIsTheSameFibreSoPerfectSimulationCostsOnlyIsProp
+-- HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction
 --
 -- TERM.  गुप्ति · gupti -- guarding, concealment; from गुप्, to hide.  In
 -- Jaina usage it is one of the means of saṃvara -- the three guptis, the
@@ -76,36 +76,76 @@
 -- the amount it fails to hold is all of it.  Hiding is not achieved.  It is
 -- what is left when a codomain has no capacity.
 --
--- NOT CLAIMED, and the list is long on purpose because the gap between this
--- and a deployed proof system is exactly the list.
+-- PRIOR ART IN THIS REPOSITORY, CITED AND NOT RESTATED.  Three of these
+-- answer questions this file would otherwise have listed as absences, and
+-- listing them as absences is how the first draft of this header got them
+-- wrong.  None is imported: the kernel is kept self-contained on purpose,
+-- and a citation that is checked elsewhere is not weaker for being cited.
 --
---   * NO COMPLEXITY AND NO PROBABILITY.  There is no cost measure, no
---     distribution, no negligible function and no polynomial-time
---     simulator anywhere below.  "Perfect" here means EQUAL, which is
---     stronger than indistinguishable -- and it is bought entirely by the
---     codomain being a proposition.  A protocol whose transcripts land in
---     something that is NOT a proposition gets none of this for free and
---     must pay with a simulator argument; nothing here says such a payment
---     is available, and §2 is not evidence that it is.
---   * NO SOUNDNESS AGAINST A CHEATING PROVER.  It is not proved and it is
---     not stated.  `view : W → V` says an honest prover's view comes from a
---     witness; it does NOT say that an inhabitant of `V` entails one.  §4's
---     `uniqueness-gives-extraction` takes `V → W` as a HYPOTHESIS for
---     precisely this reason.  At the kernel: `Meaning a b` can hold with no
---     `Derivation a b` -- that direction is completeness of the calculus and
---     is proved nowhere -- so the kernel is NOT a proof system in the
---     cryptographic sense, and §7 should not be read as saying it is.
---   * NO HARDNESS ASSUMPTION IS USED AND NONE IS PROVED.  §5's "hardness"
---     is non-invertibility of one map, which is the same reading abstracts/05
---     gives of the fibre law; the DEPLOYED assumption is instantiated there,
---     at modular exponentiation, and not here.
---   * NOTHING ABOUT ROUNDS, challenges, Fiat-Shamir, commitment schemes,
---     a verifier's coins, or any protocol whatsoever.  §1 is a map.
+--   `Laghava_TheCostAndTheInverseCannotCoexist…`  A COST AND AN INVERSE
+--     CANNOT COEXIST, and §2 of it is this file's §5 arrived at from the
+--     other side: a structure carrying a grading admits NO inverse -- not
+--     no obvious one, no function whatsoever.  `len` is such a grading on
+--     `Derivation` (`the-scalar-is-additive`, in `TheEncounterOfTwoPeers…`,
+--     is exactly the `Matra` law), so derivation composition is already
+--     forbidden an inverse by additivity alone.  §5 below forbids
+--     extraction from MULTIPLICITY instead.  Two independent routes to one
+--     no-go, and the hypotheses are different -- which is the interesting
+--     part, not a redundancy.  Read together they also say why `rev` can
+--     exist here at all: it is an inverse up to MEANING and not on the
+--     nose, and `the-round-trip-costs-four` is the grading refusing to be
+--     zero.
+--
+--   abstracts/02, `every-operation-that-exists-is-sound`  UNFORGEABILITY
+--     BY CONSTRUCTION.  A `NativeOperation` cannot be built without a
+--     checked derivation, so an operation carrying a falsehood is not
+--     rejected -- it cannot be formed.  That IS soundness against a
+--     dishonest party at the level the kernel accepts things, and it holds
+--     against an adversary with full control of the channel.  What §4
+--     below takes as a hypothesis is a DIFFERENT direction and is named
+--     precisely in NOT CLAIMED.
+--
+--   abstracts/05, `Bijamula`  A DEPLOYED HARDNESS ASSUMPTION, PROVED NOT
+--     ASSUMED at one instance: the modular power map is shown constructively
+--     not to be an equivalence, with the inversion function built from the
+--     hypothesis and the recovery of the hidden exponent discharged, so the
+--     assumption and the non-contractibility are interderivable rather than
+--     analogous.  §5 below is the GENERAL form of that shape; that file is
+--     the instance.  Neither subsumes the other and this one proves no
+--     arithmetic.
+--
+-- NOT CLAIMED.  What is left after the citations above, stated narrowly so
+-- it stays true.
+--
+--   * NO PROBABILITY AND NO RESOURCE BOUND.  There is no distribution, no
+--     negligible function, no polynomial-time simulator and no adversary
+--     class below.  "Perfect" here means EQUAL, which is stronger than
+--     indistinguishable, and it is bought entirely by the codomain being a
+--     proposition.  A protocol whose transcripts do NOT land in a
+--     proposition receives none of this for free and must pay with a
+--     simulator argument; nothing here says such a payment is available.
+--     (Cost in the graded sense is NOT absent from the corpus -- see
+--     `Laghava_` above.  It is absent from THIS file.)
+--
+--   * COMPLETENESS OF THE CALCULUS IS NOT PROVED, and that is the exact
+--     hypothesis §4 takes rather than assumes.  `view : W → V` says an
+--     honest party's view comes from a witness; it does not say an
+--     inhabitant of `V` entails one.  At the kernel, `Meaning a b` can hold
+--     with no `Derivation a b` -- two terms may be pointwise equal with no
+--     route between them -- so `uniqueness-gives-extraction` demands
+--     `V → W` explicitly.  This is COMPLETENESS, not soundness; the first
+--     draft of this header called it soundness and that was wrong, and the
+--     correction is the reason the distinction is spelled out here.
+--
+--   * NOTHING ABOUT ROUNDS, challenges, Fiat-Shamir, commitment schemes or
+--     a verifier's coins.  §1 is a map, not a protocol.  (The corpus does
+--     have interaction structure -- `Session`, `step`, `Encounter` -- but
+--     none of it is a round in the protocol sense and none is used here.)
 --
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
 
-module TheHidingIsTheFibreAndTheHardnessIsTheSameFibreSoPerfectSimulationCostsOnlyIsProp where
+module HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber ; isEquiv ; invEquiv)

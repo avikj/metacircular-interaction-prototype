@@ -423,7 +423,7 @@ the-induction-rule = induction-sound
 --
 -- (2) WHAT DOES THE VERIFIER LEARN?  §3's answer -- that the derivation is
 --     entirely remainder -- read from the other side is a HIDING statement,
---     and `TheHidingIsTheFibre…` says what it costs: perfect simulation
+--     and `HidingAndHardnessAreOneFibre…` says what it costs: perfect simulation
 --     costs `isProp` on the view and nothing else, the view shrinks the
 --     witness space by nothing, and extraction is invertibility, which two
 --     distinct witnesses forbid outright.  Hiding and hardness are one
@@ -439,7 +439,7 @@ open import TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection
         ; the-scalar-is-additive ; no-section-for-any-order-blind-projection
         ; the-scalar-cannot-be-inverted ; the-meaning-cannot-be-inverted
         ; the-receipt-does-not-cross ; nothing-a-peer-could-do-is-lost)
-open import TheHidingIsTheFibreAndTheHardnessIsTheSameFibreSoPerfectSimulationCostsOnlyIsProp
+open import HidingAndHardnessAreOneFibreSoTwoWitnessesForbidExtraction
   using (simulation-is-perfect ; the-view-shrinks-nothing
         ; extraction-forces-uniqueness ; uniqueness-gives-extraction
         ; two-witnesses-forbid-extraction

@@ -274,6 +274,8 @@ module ProofGate
   , kAgdaLibrary
   , kIncludeRoot
   , agdaArgs
+  , agdaArgsWith
+  , pinnedLibraryFile
     -- * running
   , Verdict(..)
   , certify
@@ -891,16 +893,65 @@ kMaxAgdaCallsUnannotated = 1 + 2 * length solverShapes
 -- The cubical library, by name as registered in ~/.agda/libraries.
 -- Without this the engine's invocation cannot resolve Cubical.* at all;
 -- see fault (1) in the header.
+-- 2026-08-26.  THE GATE COULD NOT REACH THE KERNEL AND SAID SO CORRECTLY.
+-- `sh interactive/run-yantra.sh` filed five ayogya-darsana defects in one
+-- session, every one of them
+--
+--     Library 'cubical' not found. ... Installed libraries: (none)
+--
+-- and the diagnosis it printed -- "the instrument or its environment is
+-- defective, not the mathematics" -- was exactly right and exactly useless
+-- to act on, because two separate things were wrong and one message merged
+-- them.  Both are fixed here and neither was the mathematics.
+--
+--   1. THE NAME WAS UNPINNED.  `--library=cubical` is the spelling the
+--      repository's own pin rule forbids: agda/cubical puts its release into
+--      its library NAME, so the resolvable name at the pin is `cubical-0.9`.
+--      The fix is NOT to write "0.9" here -- README's rule is that the
+--      version appears once, in `setup` -- it is to ask for THIS
+--      repository's library, `natural-machine`, whose .agda-lib carries
+--      `depend: cubical-0.9` and is the one place that number belongs.
+--
+--   2. THE REGISTRY WAS THE WRONG ONE.  `setup` writes its library list to
+--      $PREFIX/.agda-pin/libraries, deliberately, so that a container's
+--      ambient ~/.config/agda/libraries cannot silently supply a different
+--      cubical.  Passing no --library-file sent agda to that ambient file,
+--      which on a clean container is empty -- hence "(none)", which is the
+--      truth about the file agda read and not about the machine.
+--
+-- So the gate now reads the same registry `sh check` reads, and asks for the
+-- same library `sh check` builds against.  If the pin file is absent the
+-- flag is omitted rather than pointed at a guess, and the canary then fails
+-- with agda's own message, which is the behaviour that was already correct.
 kAgdaLibrary :: String
-kAgdaLibrary = "cubical"
+kAgdaLibrary = "natural-machine"
+
+-- The registry `setup` writes.  Nothing is invented if it is not there: a
+-- gate that guessed a library path could certify against a library nobody
+-- chose, which is the failure the pin exists to prevent.
+pinnedLibraryFile :: IO (Maybe FilePath)
+pinnedLibraryFile = do
+  prefix <- lookupEnv "MATH_PREFIX"
+  home <- lookupEnv "HOME"
+  case maybe home Just prefix of
+    Nothing -> pure Nothing
+    Just base -> do
+      let f = base </> ".agda-pin" </> "libraries"
+      ok <- doesFileExist f
+      pure (if ok then Just f else Nothing)
 
 -- The engine's include root, kept so NaturalMachine.* stays reachable.
 kIncludeRoot :: FilePath
 kIncludeRoot = "formal/cubical"
 
 agdaArgs :: FilePath -> FilePath -> [String]
-agdaArgs dir file =
-  ["-i", kIncludeRoot, "-i", dir, "--library=" ++ kAgdaLibrary, file]
+agdaArgs = agdaArgsWith Nothing
+
+agdaArgsWith :: Maybe FilePath -> FilePath -> FilePath -> [String]
+agdaArgsWith libFile dir file =
+  ["-i", kIncludeRoot, "-i", dir]
+    ++ maybe [] (\f -> ["--library-file=" ++ f]) libFile
+    ++ ["--library=" ++ kAgdaLibrary, file]
 
 -- --------------------------------------------------------------- running
 
@@ -1021,7 +1072,8 @@ runAgdaRaw root source = do
       let env' = ("LC_ALL", "C.UTF-8")
                  : ("LANG", "C.UTF-8")
                  : [ kv | kv@(k, _) <- base, k /= "LC_ALL", k /= "LANG" ]
-          cp = (proc "agda" (agdaArgs dir file))
+      libFile <- pinnedLibraryFile
+      let cp = (proc "agda" (agdaArgsWith libFile dir file))
                  { cwd = Just root, env = Just env' }
       (code, out, err) <- readCreateProcessWithExitCode cp ""
       pure (code, out ++ err))
@@ -1243,10 +1295,12 @@ toolchainIdentity = do
     Nothing -> do
       r <- try (readProcess "agda" ["--version"] "")
              :: IO (Either SomeException String)
+      libFile <- pinnedLibraryFile
       let ver = either (const "agda:version-unknown") id r
           s = unwords (words ver)
                 ++ " | library=" ++ kAgdaLibrary
                 ++ " | include=" ++ kIncludeRoot
+                ++ " | registry=" ++ maybe "(ambient)" id libFile
       writeIORef toolchainRef (Just s)
       pure s
 

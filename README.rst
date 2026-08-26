@@ -406,7 +406,7 @@ and never uses the phrase, so a search for the phrase finds nothing and
 concludes, wrongly, that the mathematics is absent.  That is the durnaya of
 §I read as a research method, and the correction is a theorem.
 
-`TheHidingIsTheFibre…` puts the two readings of one fibre side by side:
+`HidingAndHardnessAreOneFibre…` puts the two readings of one fibre side by side:
 
 **Perfect simulation costs `isProp` on the view and nothing else.**  The
 simulator holds the statement and emits the statement; the honest transcript
