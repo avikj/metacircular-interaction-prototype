@@ -1,0 +1,79 @@
+# CI for the corpus: `sh check` at the pin, on every push.
+#
+# machine.yml states that wiring `sh check` in is "a separate decision"
+# because a cold Agda build is 30-60 minutes.  This is that decision, taken
+# the only way that keeps it affordable: the toolchain is built ONCE and
+# restored from cache thereafter, so the cold cost is paid on the first run
+# and on a pin bump, not on every push.
+#
+# The gate is `sh check` itself, unmodified.  That script already refuses to
+# report green off the pin and exits nonzero, so a cache miss that somehow
+# produced the wrong Agda fails loudly instead of passing quietly -- there is
+# no separate "is it the pin" step here because the check IS that step.
+#
+# Scope: the default `sh check` -- the Kernel modules, the fiber law, and the
+# Lean root closure (text analysis, no toolchain).  NOT `--all`, which sweeps
+# every module under theorems/ and additionally needs `lake` for the Lean
+# build and axiom gate.  Widening to --all is again a separate decision, and
+# the line to change is one.
+name: corpus
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: sh check at the pin
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      # Agda dies while PRINTING its own errors for this repo's Devanagari
+      # identifiers under a POSIX locale, which replaces the real diagnosis
+      # with an encoding error.  setup exports this too; it is set here so
+      # the cache and toolchain steps inherit it as well.
+      LC_ALL: C.UTF-8
+    steps:
+      - uses: actions/checkout@v4
+
+      # The pin, read from `setup`, which is the only place the two version
+      # numbers live.  Nothing below hardcodes them; a pin bump in `setup`
+      # changes the cache key here automatically and forces a rebuild.
+      - name: read the pin from setup
+        id: pin
+        run: |
+          agda=$(sed -n 's/^PIN_AGDA="\(.*\)"$/\1/p' setup)
+          cubical=$(sed -n 's/^PIN_CUBICAL="\(.*\)"$/\1/p' setup)
+          [ -n "$agda" ] && [ -n "$cubical" ] || { echo "could not read the pin from setup"; exit 1; }
+          echo "agda=$agda"       >> "$GITHUB_OUTPUT"
+          echo "cubical=$cubical" >> "$GITHUB_OUTPUT"
+          echo "pin: agda $agda / cubical $cubical"
+
+      # ~/.cabal carries Agda's data files (the Agda.Primitive sources it
+      # loads at startup), not just build artefacts, so caching the binary
+      # in ~/.local/bin alone would restore an agda that cannot start.
+      - name: restore the toolchain
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/bin
+            ~/.cabal
+            ~/.cache/cubical-${{ steps.pin.outputs.cubical }}
+          key: agda-${{ steps.pin.outputs.agda }}-cubical-${{ steps.pin.outputs.cubical }}-${{ runner.os }}
+
+      - uses: haskell-actions/setup@v2
+        if: steps.cache.outputs.cache-hit != 'true'
+        with:
+          # The pin is documented as built against this GHC (see the header
+          # of formal/cubical/check.sh).
+          ghc-version: '9.4.7'
+          cabal-version: '3.10'
+
+      - name: install the pin
+        run: sh setup
+
+      - name: sh check
+        run: sh check
