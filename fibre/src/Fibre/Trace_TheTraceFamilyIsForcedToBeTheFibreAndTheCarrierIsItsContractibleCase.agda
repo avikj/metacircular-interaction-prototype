@@ -72,6 +72,10 @@
 -- to publish, or authorised to exist.  The record has two fields and both
 -- are mathematics.  Effects, capability, disclosure and admissibility are
 -- separate obligations and are not smuggled in by naming them.
+--
+-- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
+-- --cubical --safe --guardedness, no postulates, no holes; reachable
+-- from fibre/src/Everything.agda, so `sh check` drives it.
 ------------------------------------------------------------------------
 
 module Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase where

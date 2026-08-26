@@ -50,6 +50,10 @@
 -- not of the history; O and E are families, not a protocol; and nothing
 -- about authority, disclosure, or resources is expressed by the shape of
 -- this record.  Those are separate obligations.
+--
+-- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
+-- --cubical --safe --guardedness, no postulates, no holes; reachable
+-- from fibre/src/Everything.agda, so `sh check` drives it.
 ------------------------------------------------------------------------
 
 module Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers where
