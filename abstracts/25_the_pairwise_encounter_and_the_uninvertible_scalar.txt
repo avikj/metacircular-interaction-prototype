@@ -1,0 +1,104 @@
+THE PAIRWISE ENCOUNTER IS THE PRIMITIVE, AND NO ADDITIVE SCALAR
+PROJECTION OF IT ADMITS A SECTION
+Two-party certified interaction over partial local knowledge, with the
+cost of summarising an interaction by a number computed exactly
+
+Distributed systems / local-first computation / provenance
+
+We give a two-party transition over local states in which the transition
+itself is a first-class value, and then price the standard practice of
+replacing that value by a number.
+
+The setting is a reversible rewriting calculus over a binder-free term
+algebra whose derivations are freely generated data rather than a
+reduction order, with an evaluator into a discrete set, and an
+installation map sending a checked derivation to an applicable operation.
+A local state is a term where the party currently stands, the derivation
+by which it arrived, and a list of installed operations.  Nothing in the
+state names a server, a clock, a version vector or a quorum, and no
+completeness of either party's knowledge is required anywhere.
+
+The primitive.  An encounter is two such states together with a single
+shared term each can certify a route to.  It yields two new local states
+and one derivation between the two parties' positions.  That derivation
+is simultaneously the execution (constructing it performs the transport),
+the provenance (its type names both endpoints), the proof (soundness
+reads it), the transport (concatenation and reversal move along it), and
+the program (installation makes it an applicable move).  These are not
+five artefacts to be kept consistent; they are five projections of one
+typed object, and the transition is a total function with no failure
+case, no protocol and no third party.
+
+Four properties of the transition, each a checked term.
+
+The two results need not agree, and nothing is pending.  After one
+certified encounter the parties stand at provably distinct terms, each
+with a certificate for how it arrived.  Companion work in the same
+calculus shows that agreement about MEANING is vacuous because meaning
+lands in a subsingleton; the present statement is about position, and it
+is the part an agreement protocol is built for and this transition does
+not need.
+
+Revelation and generation are separated.  One party acquires a capability
+that was the other's, exhibited with a before-state in which the enabling
+type is empty rather than merely unproved.  The pair additionally
+acquires an operation whose endpoints are the OUTER pair of positions,
+which is neither party's; we prove the structural half in general and
+discriminate the endpoints at a witness.
+
+Conservativity is three obligations and they are discharged separately.
+The prior trace survives as a syntactic prefix, not merely as something
+recoverable.  The prior position is recoverable because reversal is a
+constructor, so the return route is a term and not a promise.  The prior
+capability set is still enabled at everything it was enabled at.
+
+Losslessness is not unchangedness, and both halves are checked as
+different statements about one term: a round trip's meaning is
+reflexivity, and the round trip is not the empty derivation.  A design
+that conflates the two either forbids rewriting or forgets what it
+rewrote.
+
+The result.  Two encounters at disjoint sites, performed in the two
+orders, have the same endpoints, the same meaning, the same cost, and are
+provably different objects.  The step count is additive over
+concatenation — the value of a composite encounter is the sum of the
+values of its parts — and it is exactly that additivity which assigns
+both orders the same number.  We therefore prove: for any projection of
+the interaction, at any universe level, that the crossing does not move,
+the type of sections of that projection is empty.  The step count is such
+a projection, as is every function of the meaning.  The map from
+interaction to summary exists and is exhibited; the converse is not hard,
+not lossy in practice, and not a matter of how much a number can hold —
+it does not exist.
+
+The reading we take from this, stated as a reading.  A ledger of node
+weights and edge sums is not an approximation of a ledger of the
+interactions that produced them.  Where a system's stored value is a
+scalar and its generating process is an interaction, the stored side is
+provably not invertible to the generating side, and the recoverable
+object is the interaction.
+
+One boundary note.  The party's control over what permits an operation is
+an arbitrary user-supplied type family, so a party may demand any
+evidence at all before its operation fires; what crosses to the other
+party is a strictly smaller universe-level object mentioning neither the
+operation nor the evidence.  Two parties holding different receipts with
+the same identification produce the same crossing object.  Authorisation
+is therefore local to the step and leaves no residue in the result, which
+is what makes a result replayable by someone who was not present.
+
+WHAT IS NOT CLAIMED.  There is no network, no message, no failure model,
+no adversary and nothing concurrent: the transition is a function and not
+a protocol, and the operational half of a distributed system is absent.
+The generation claim — that neither party previously held the generated
+operation — is exhibited at a witness with empty capability sets and is
+not proved for arbitrary ones, which would require a decidable
+membership the operation type does not admit.  The no-section result is
+quantified over projections that agree on the two crossings and does not
+claim every scalar does; a projection reading the first step apart from
+the second separates them and is then neither order-blind nor a cost.
+The economic reading is named as a reading and is not a theorem about any
+deployed system.
+
+Machine-checked in cubical type theory at a pinned toolchain, no
+postulates, no admitted goals, --safe throughout.
