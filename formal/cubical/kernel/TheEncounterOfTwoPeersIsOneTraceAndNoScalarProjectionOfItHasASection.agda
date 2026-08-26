@@ -93,9 +93,7 @@
 -- dispositions offered, not a policy: which one a peer takes is the peer's,
 -- for the reason `TheDerivationCarriesNoMeaning…` proves it must be.
 --
--- Written against the pin: Agda 2.8.0, agda/cubical v0.9.  NOT YET
--- TYPECHECKED IN THIS CONTAINER -- the toolchain is still building, and
--- this line will say EXIT 0 only when `sh check` has said it.
+-- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 -- EXIT 0.
 ------------------------------------------------------------------------
 
 module TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection where

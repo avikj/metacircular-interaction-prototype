@@ -403,3 +403,52 @@ the-conservation-law = advance-preserves-branch-count
 the-induction-rule :
   {lhs rhs : Tm} → InductionCertificate lhs rhs → (ρ : Env) → eval lhs ρ ≡ eval rhs ρ
 the-induction-rule = induction-sound
+
+------------------------------------------------------------------------
+-- §C.  TWO LATER RESULTS, IMPORTED SO THIS FILE GOES RED IF THEY ROT.
+--
+-- Both are downstream of §3-§4 and neither is an independent witness; they
+-- are here because they are the two questions an arriving mind asks next.
+--
+-- (1) WHO IS THE OTHER PARTY?  §B's `Session` has one caller and this
+--     machine.  `TheEncounterOfTwoPeers…` supplies the two-sided
+--     transition -- (state_A , state_B) ⟶ (state′_A , state′_B , τ) -- as a
+--     total function with no protocol and no authoritative copy, and prices
+--     the habit of summarising an interaction by a number: `len` is
+--     additive over `⊕`, and that additivity is exactly what gives both
+--     orders of two independent encounters the same value, while the two
+--     orders are provably different objects.  So the type of sections of
+--     any order-blind projection is EMPTY.  Trace → score is a function;
+--     score → trace is not a hard problem, it is an empty type.
+--
+-- (2) WHAT DOES THE VERIFIER LEARN?  §3's answer -- that the derivation is
+--     entirely remainder -- read from the other side is a HIDING statement,
+--     and `TheHidingIsTheFibre…` says what it costs: perfect simulation
+--     costs `isProp` on the view and nothing else, the view shrinks the
+--     witness space by nothing, and extraction is invertibility, which two
+--     distinct witnesses forbid outright.  Hiding and hardness are one
+--     fibre read twice.  This is the corpus\'s zero-knowledge content, which
+--     was proved in five places under none of its names.
+--
+-- The `using` lists ARE the obligation.  No signature is restated below,
+-- because restating one here would be a second place for it to drift.
+------------------------------------------------------------------------
+
+open import TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection
+  using (interact ; receive ; the-two-results-need-not-agree
+        ; the-scalar-is-additive ; no-section-for-any-order-blind-projection
+        ; the-scalar-cannot-be-inverted ; the-meaning-cannot-be-inverted
+        ; the-receipt-does-not-cross ; nothing-a-peer-could-do-is-lost)
+open import TheHidingIsTheFibreAndTheHardnessIsTheSameFibreSoPerfectSimulationCostsOnlyIsProp
+  using (simulation-is-perfect ; the-view-shrinks-nothing
+        ; extraction-forces-uniqueness ; uniqueness-gives-extraction
+        ; two-witnesses-forbid-extraction
+        ; the-kernel-forbids-extraction-at-its-own-seed)
+
+-- §C(1).  The pairwise transition, and the price of collapsing it.
+the-two-party-step = interact
+the-two-results-can-differ = the-two-results-need-not-agree
+the-scalar-has-no-inverse = the-scalar-cannot-be-inverted
+
+-- §C(2).  What hiding costs, at the kernel's own seed.
+the-kernel-cannot-be-extracted-from = the-kernel-forbids-extraction-at-its-own-seed

@@ -73,7 +73,7 @@ THE KERNEL, AND WHY IT DOES NOT GENERATE FOREVER
 
   formal/cubical/kernel/ — 296 lines in three files, and the entry is
   WhatThisIsAndHowToDescendIntoTheMetacircularKernel.agda,
-  written for an arriving mind.  Fourteen modules, all green at the pin
+  written for an arriving mind.  Sixteen modules, all green at the pin
   (Agda 2.8.0, agda/cubical v0.9), re-runnable::
 
       sh check
@@ -348,6 +348,99 @@ parity barrier applies to it verbatim:
 
 The sieve's blindness and the replicated library's freedom from conflict
 are one idempotence, priced once as a loss and once as a guarantee.
+
+
+AND THE PRIMITIVE UNDERNEATH IS PAIRWISE.  Not a sixth independent witness:
+it was written after the five, on top of §V's own machinery, and it is here
+because it is the same object one level down.  `TheEncounterOfTwoPeers…`
+supplies the transition the `Session` above only ever had one side of::
+
+      (state_A , state_B)  -->  (state'_A , state'_B , tau)
+
+  a total function -- no protocol, no third party, no authoritative copy.
+  Each state is a peer's own, and neither peer needs the other's history or
+  any completeness of its own.  `tau` is one object in five roles at once:
+  execution, provenance, proof, transport, and program.
+
+  the collapse    a number.  Any additive summary of an interaction.
+  what goes blind which of two independent interactions came first.
+
+`the-scalar-is-additive` says the cost of a composite encounter is the sum
+of the costs of its parts.  That additivity is exactly what hands both
+orders of two independent encounters the same number -- and
+`the-two-orders-differ` is a term, so the two orders are two objects.
+Hence `no-section-for-any-order-blind-projection`: for ANY projection at ANY
+level that the crossing does not move, the type of its sections is EMPTY.
+`len` is one.  Every function of the meaning is another.
+
+  TRACE -> SCORE IS A FUNCTION.  SCORE -> TRACE IS NOT A HARD PROBLEM.
+  IT IS AN EMPTY TYPE.
+
+This is not `cost-does-not-factor` restated.  `len` is NOT a function of the
+meaning and it DOES separate direct from detour; it is still not invertible,
+because two independent encounters commute.  The blindness is not the
+semantics'.  It is the SCALAR'S, and it survives every refinement that stays
+scalar.
+
+Four more terms in the same file, because a two-party primitive is worth
+little without them: the two peers end at PROVABLY DISTINCT terms with
+nothing pending (§4 above is about meaning; position is the part an
+agreement protocol exists for, and this transition does not need one);
+revelation and generation are separated, with a before-state in which the
+enabling type is bottom rather than merely unproved; conservativity is three
+obligations discharged separately -- the prior trace survives as a syntactic
+PREFIX, the prior position is recoverable because `reverse` is a
+constructor, and the prior library still enables everything it enabled; and
+losslessness is not unchangedness, the round trip's meaning being `refl`
+while the round trip is not `done`.
+
+
+AND WHAT THE OTHER PARTY LEARNS HAS A PRICE, WHICH IS `isProp`.
+------------------------------------------------------------------------------------------
+
+  the collapse    a view that is a proposition.
+  what goes blind which witness produced it -- all of it.
+
+This corpus proves the structural content of zero-knowledge in five places
+and never uses the phrase, so a search for the phrase finds nothing and
+concludes, wrongly, that the mathematics is absent.  That is the durnaya of
+§I read as a research method, and the correction is a theorem.
+
+`TheHidingIsTheFibre…` puts the two readings of one fibre side by side:
+
+**Perfect simulation costs `isProp` on the view and nothing else.**  The
+simulator holds the statement and emits the statement; the honest transcript
+and the simulated one are EQUAL, as terms, for every witness -- not
+indistinguishable to a bounded distinguisher.  One line.
+
+**And the view shrinks the witness space by nothing.**  `fiber view v` is
+equivalent to the whole witness type.  A verifier that has seen everything
+it will ever see has not eliminated one candidate.  That is where the word
+ZERO is earned, and it is a strictly stronger statement than the first.
+
+**Extraction is exactly uniqueness, both ways.**  If the view inverts, the
+witness was unique -- an extractor is not a procedure that was missing, its
+existence retroactively collapses the witness space to a point.  Conversely
+an extractor exists when the statement entails a witness AND the witness is
+unique.  Both hypotheses are named because both are needed.
+
+  SO TWO DISTINCT WITNESSES FORBID EXTRACTION.  Not make it expensive --
+  forbid, with the extractor type empty and no complexity assumption
+  anywhere in the argument.  Hiding is that fibre being everything;
+  hardness is that same fibre failing to be a point.  ONE OBJECT, TWO
+  READINGS.
+
+Both halves are then discharged at the kernel with no assumption: `sound` is
+a perfect-hiding view because `eval` lands in a set, and at the kernel's own
+seed extraction is impossible because two routes there are a term.
+
+What this is NOT is the whole of a proof system, and the file's NOT CLAIMED
+list is long on purpose: no complexity, no probability, no polynomial-time
+simulator, and no soundness against a cheating prover -- the statement type
+being inhabited does not entail a witness, which is why the extraction
+converse takes that entailment as a hypothesis.  The hardness reading is a
+reading of the fibre; the one DEPLOYED assumption is instantiated in
+`Bijamula`/§05, at modular exponentiation, and not here.
 
 
 

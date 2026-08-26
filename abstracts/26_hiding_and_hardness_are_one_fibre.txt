@@ -1,0 +1,102 @@
+PERFECT HIDING COSTS ONLY THAT THE VIEW IS A PROPOSITION, AND EXTRACTION
+IS EXACTLY WITNESS UNIQUENESS
+Hiding and hardness identified as two readings of one fibre, with the
+simulator constructed in one line and the no-go discharged by exhibiting
+two witnesses
+
+Foundations of cryptography / information flow / type theory
+
+The two properties a proof system is asked for — that the verifier learn
+nothing beyond the statement, and that the witness not be recoverable
+from what it learned — are normally established by separate arguments
+resting on separate assumptions: a simulator construction for the first,
+a hardness assumption for the second.  We show that in the setting where
+the verifier's view lands in a subsingleton the two are one statement
+about one fibre, read from two sides, and we give both readings as
+checked terms.
+
+The setting is three lines and contains no protocol.  A witness type, a
+view type, a map from the first to the second, and one hypothesis: the
+view type is a proposition.  There are no rounds, no challenges, no
+coins, no commitment scheme and no adversary.  Every result below follows
+from that hypothesis alone, with no structure on the witness type — no
+decidability, no finiteness, no group.
+
+Hiding, first, and it is one line.  The simulator is the identity on the
+statement: given the statement and no witness whatsoever, emit the
+statement.  The honest transcript and the simulated transcript are then
+EQUAL, as terms, for every witness and every statement, because the view
+type is a proposition.  Not indistinguishable to a bounded distinguisher
+— equal.  Consequently no function of the view at any type and any
+universe level separates two provers holding different witnesses, which
+is the form the statement actually takes and which no sampling argument
+can weaken.
+
+Hiding, second, in the stronger form that earns the word "zero".  The
+fibre of the view over any statement is equivalent to the entire witness
+type.  A verifier that has seen everything it will ever see has not
+narrowed the space of witnesses consistent with what it saw by a single
+element.  This is not implied by equality of transcripts and is proved
+separately.
+
+Extraction, third, and it is exactly uniqueness — in both directions,
+with both hypotheses named because both are needed.  If the view is
+invertible then the witness type is a subsingleton: an extractor is not a
+clever procedure that was missing, its existence retroactively collapses
+the witness space to a point.  Conversely, an extractor exists when the
+statement entails a witness and the witness is unique.  The first of
+those hypotheses is soundness and is not free; we take it as a hypothesis
+rather than smuggling it.
+
+The identification.  The fibre that is everything is the fibre whose
+contractibility would be extraction.  Hiding is that fibre being the
+whole domain; hardness is that same fibre failing to be a point.  Hence
+the operative form: TWO DISTINCT WITNESSES FORBID EXTRACTION — not make
+it expensive, not require more samples, forbid, with the type of
+extractors empty and no complexity assumption anywhere in the argument.
+Read the other way, a system with a unique witness hides nothing at all,
+because the view determines it.  Hiding and uniqueness are exactly
+complementary.
+
+The canonical instance is the propositional truncation, which is not
+merely a device for stating that something is hidden but is the maximal
+hiding view: its constructor satisfies every hypothesis above with
+nothing supplied, and it is an equivalence exactly when the witness is
+unique.
+
+We then discharge both halves at a running example that assumes nothing.
+For a reversible rewriting calculus whose evaluator lands in a discrete
+set, soundness is a map into a proposition, hence a perfect-hiding view
+of the derivation — obtained free, because the payment was already made
+by the outcome type being a set.  And at the calculus's own seed two
+derivations with the same endpoints are exhibited and separated by step
+count, so extraction there is impossible outright.  Both halves hold with
+no hardness assumption, and the second is a witness rather than a
+conjecture.
+
+Finally the asymmetry that explains where all the price sits.  Fixing a
+map's output at any argument gives a contractible space: the datum and
+the witness that it is the datum ride together at no cost.  Fixing the
+input gives the fibre, which is the whole of the above.  Two bindings,
+two prices, and every construction that hides something sits at the
+second.
+
+WHAT IS NOT CLAIMED, and the list is the distance between this and a
+deployed proof system.  There is no complexity measure, no probability
+distribution, no negligible function and no polynomial-time simulator:
+"perfect" here means equal, which is stronger than indistinguishable, and
+it is bought entirely by the codomain being a proposition.  A protocol
+whose transcripts do not land in a proposition receives none of this for
+free and must pay with a simulator argument; nothing here says such a
+payment is available.  Soundness against a cheating prover is neither
+proved nor stated — the map says an honest prover's view comes from a
+witness, not that an inhabitant of the view type entails one, and the
+extraction converse takes that entailment as a hypothesis for exactly
+this reason.  In the running example the statement can hold with no
+derivation, so it is not a proof system in the cryptographic sense.  No
+hardness assumption is used and none is proved; the identification with
+hardness is an identification of the fibre, and a deployed assumption is
+instantiated elsewhere in this corpus, not here.
+
+Machine-checked in cubical type theory at a pinned toolchain, no
+postulates, no admitted goals, --safe throughout.
