@@ -452,3 +452,39 @@ the-scalar-has-no-inverse = the-scalar-cannot-be-inverted
 
 -- §C(2).  What hiding costs, at the kernel's own seed.
 the-kernel-cannot-be-extracted-from = the-kernel-forbids-extraction-at-its-own-seed
+
+------------------------------------------------------------------------
+-- §D.  AND WHAT A TRANSPORT BETWEEN TWO REPRESENTATIONS DOES NOT CARRY.
+--
+-- §C(1)'s `Encounter` fixes both peers at `Tm`, so its transport is the
+-- identity and its cost is invisible.  `AnEquivalenceIdentifiesTheCarriers…`
+-- removes that assumption and finds the cost: identification is GRADED --
+-- inhabited-or-not, then content, then the same content FROM THE SAME
+-- SOURCES -- `ua` delivers the middle grade, and the top one is strictly
+-- above it.  One equivalence, two peers recording different sources, and no
+-- transport between them can see the disagreement.  So provenance is not
+-- carried, it is carried ALONGSIDE or it is gone, which is why the retained
+-- object is the triple and not the value.
+--
+-- The three grades are not this file's invention and not the task text's:
+-- they were read off `interactive/`'s running machine, which reports them
+-- as satya ⊂ artha ⊂ mūla and says of the coarsest that truth-value
+-- agreement is "nearly universal and therefore nearly contentless".
+------------------------------------------------------------------------
+
+open import AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel
+  using (Satya ; Artha ; Mula ; cross ; the-crossing-computes
+        ; there-and-back ; back-and-there ; satya-does-not-give-artha
+        ; artha-does-not-give-mula ; provenance-must-be-carried-alongside
+        ; the-existence-of-a-route-does-not-give-the-route
+        ; Uttara ; answer ; no-third-road
+        ; the-shared-representation-is-the-identity)
+
+-- The crossing is univalence computing, not univalence cited.
+the-representation-crossing = the-crossing-computes
+
+-- and the grade above it is strictly above it: provenance does not travel.
+provenance-does-not-travel = artha-does-not-give-mula
+
+-- An answer is a transport or a written defect naming what did not cross.
+transport-or-a-written-defect = no-third-road
