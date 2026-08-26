@@ -1,0 +1,171 @@
+#!/bin/sh
+# nalanda-gate — the entry point.  Clone the repository and run this.
+#
+#     ./nalanda-gate            a scripted session against itself, printed
+#     ./nalanda-gate --wire     one JSON object per line, stdin to stdout
+#
+# There is nothing to install and nothing to build.  This script finds the
+# published binary, verifies it against the checksum pinned in RELEASE, and
+# runs it.  Agda is NOT required: only the `sadhana` operation reaches a
+# kernel, and without agda that one turn returns an environment fault while
+# the other eighteen operations are unaffected.
+#
+# The gate is the entry.  Anyone may approach it; what passes through is what
+# can show itself to be true.
+#
+# Where the binary comes from, in order, and it says which one it took:
+#   1. $NALANDA_GATE_BIN, if set          (yours; not checksummed)
+#   2. the cache, if the checksum matches
+#   3. the GitHub release named in RELEASE (gh, then curl)
+#   4. built from source, if ghc is here   (then it is not the pinned build)
+# If none of those, it says exactly what is missing instead of failing
+# somewhere further in.
+set -eu
+
+ROOT=$(cd "$(dirname "$0")" && pwd)
+REPO=${NALANDA_GATE_REPO:-avikj/math}
+ASSET=nalanda-gate
+
+[ -f "$ROOT/RELEASE" ] || {
+  echo 'nalanda-gate: no RELEASE file beside this script.' >&2
+  echo 'It pins the version and checksum of the published binary.' >&2
+  exit 1
+}
+# shellcheck disable=SC1091
+. "$ROOT/RELEASE"
+
+VERSION=${NALANDA_GATE_VERSION:?RELEASE does not set NALANDA_GATE_VERSION}
+WANT=${NALANDA_GATE_SHA256:?RELEASE does not set NALANDA_GATE_SHA256}
+
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/nalanda-gate"
+BIN="$CACHE/$VERSION/nalanda-gate"
+
+note()   { [ -n "${NALANDA_GATE_QUIET:-}" ] || echo "nalanda-gate: $*" >&2; }
+sha_of() { sha256sum "$1" 2>/dev/null | cut -d' ' -f1; }
+
+# The binary forks its other organ by name and finds formal/cubical by walking
+# up from wherever it lives — which, from the cache, is not this repository.
+# Both are handed over explicitly instead, and the transcript is pointed out
+# of the tree: a run is not an edit to the checkout.
+run() {
+  b=$1; shift
+  STATE="${XDG_STATE_HOME:-$HOME/.local/state}/nalanda-gate"
+  mkdir -p "$STATE"
+  exec env \
+    MATH_ROOT="$ROOT" \
+    DOSA_BIN="$(dirname "$b")/dosalekha" \
+    DOSA_LEKHA="${DOSA_LEKHA:-$STATE/dosa.lekha}" \
+    YANTRA_LEKHA="${YANTRA_LEKHA:-$STATE/transcript.jsonl}" \
+    "$b" "$@"
+}
+
+build_here() {
+  command -v ghc >/dev/null 2>&1 || return 1
+  [ -f "$ROOT/interactive/Main.hs" ] || return 1
+  NALANDA_DIST="$CACHE/src" sh "$ROOT/interactive/build-nalanda-gate.sh" >&2
+  run "$CACHE/src/nalanda-gate" "$@"
+}
+
+# 1 ---------------------------------------------------------------- override
+if [ -n "${NALANDA_GATE_BIN:-}" ]; then
+  [ -x "$NALANDA_GATE_BIN" ] || {
+    echo "nalanda-gate: NALANDA_GATE_BIN=$NALANDA_GATE_BIN is not executable" >&2
+    exit 1; }
+  note "using \$NALANDA_GATE_BIN, unverified, because you asked for it"
+  run "$NALANDA_GATE_BIN" "$@"
+fi
+
+# 2 ------------------------------------------------------------- not yet cut
+if [ "$WANT" = unpublished ]; then
+  note "RELEASE says unpublished: no release has been cut yet"
+  build_here "$@" || true
+  cat >&2 <<'NOPE'
+nalanda-gate: no release has been published, and there is no ghc here to
+build one.  This is the repository saying so, rather than sending you to a
+URL that is not there.
+
+  cut one:  Actions -> release -> Run workflow, or push a tag:
+            git tag v0.1.0 && git push origin v0.1.0
+            the workflow builds it, publishes it, and rewrites RELEASE
+  or build: apt-get install ghc   and run this again
+NOPE
+  exit 1
+fi
+
+# 3 ------------------------------------------------------------------- cache
+if [ -x "$BIN" ] && [ "$(sha_of "$BIN")" = "$WANT" ]; then
+  run "$BIN" "$@"
+fi
+
+mkdir -p "$CACHE/$VERSION"
+TMP="$CACHE/$VERSION/.download.$$"
+got=
+
+# 4 ----------------------------------------------------------------- release
+if command -v gh >/dev/null 2>&1; then
+  note "fetching $VERSION with gh"
+  gh release download "$VERSION" --repo "$REPO" --pattern "$ASSET" \
+     --output "$TMP" --clobber >/dev/null 2>&1 && got=gh
+fi
+
+if [ -z "$got" ] && command -v curl >/dev/null 2>&1; then
+  note "fetching $VERSION with curl"
+  AUTH=${GH_TOKEN:-${GITHUB_TOKEN:-}}
+  # A private repository serves release assets from the API, by asset id, not
+  # from the browser download URL — so the id has to be looked up first.
+  ID=$(curl -sSL ${AUTH:+-H "Authorization: Bearer $AUTH"} \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/releases/tags/$VERSION" 2>/dev/null \
+       | awk -v want="\"name\": \"$ASSET\"" '
+           /"id":/ { id = $2; sub(/,$/, "", id) }
+           index($0, want) { print id; exit }')
+  if [ -n "${ID:-}" ]; then
+    curl -sSL -o "$TMP" ${AUTH:+-H "Authorization: Bearer $AUTH"} \
+         -H "Accept: application/octet-stream" \
+         "https://api.github.com/repos/$REPO/releases/assets/$ID" && got=curl
+  fi
+fi
+
+if [ -n "$got" ] && [ -s "$TMP" ]; then
+  HAVE=$(sha_of "$TMP")
+  if [ "$HAVE" != "$WANT" ]; then
+    rm -f "$TMP"
+    echo "nalanda-gate: checksum mismatch on the $VERSION download." >&2
+    echo "  RELEASE pins $WANT" >&2
+    echo "  the file is  $HAVE" >&2
+    echo "Refusing to run it.  Nothing is guessed at here." >&2
+    exit 1
+  fi
+  chmod 755 "$TMP"
+  mv -f "$TMP" "$BIN"
+  ln -sf nalanda-gate "$CACHE/$VERSION/dosalekha"
+  note "verified $WANT"
+  run "$BIN" "$@"
+fi
+rm -f "$TMP"
+
+# 5 ------------------------------------------------------------ from source
+note "no published binary reached"
+build_here "$@" || true
+
+# ---------------------------------------------------------------- and if not
+cat >&2 <<EOF
+nalanda-gate: could not get the binary, and will not pretend otherwise.
+
+  wanted   $VERSION from $REPO
+  cache    $BIN (absent or wrong checksum)
+  gh       $(command -v gh >/dev/null 2>&1 && echo present || echo absent)
+  curl     $(command -v curl >/dev/null 2>&1 && echo present || echo absent)
+  ghc      $(command -v ghc >/dev/null 2>&1 && echo present || echo absent)
+
+This repository is private, so its releases are not public either.  Any ONE
+of these is enough:
+
+  gh auth login                    then run this again
+  export GH_TOKEN=<a token with read access to $REPO>
+  apt-get install ghc              and it builds from source instead
+
+Or point it at a binary you already have:
+  NALANDA_GATE_BIN=/path/to/nalanda-gate ./nalanda-gate
+EOF
+exit 1

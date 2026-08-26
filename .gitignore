@@ -153,3 +153,7 @@ zzz/**/*.pyc
 # up as a staged deletion.  interactive/dosa.lekha, the shared append-only
 # log several lanes write to, is a different file and stays tracked.
 interactive/yantra-session.lekha
+
+# build output of interactive/build-nalanda-gate.sh; the release carries the
+# binary, the repository does not.
+dist/

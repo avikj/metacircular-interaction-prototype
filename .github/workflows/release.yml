@@ -1,0 +1,109 @@
+# Build nalanda-gate and publish it as a GitHub release asset.
+#
+# No binary is committed to this repository.  The tree carries the source and
+# a RELEASE file pinning the version and checksum; ./nalanda-gate reads that
+# pin, fetches the asset this workflow uploads, verifies it, and runs it.  So
+# a clone plus `./nalanda-gate` is the whole install, and the pin is what
+# makes that safe rather than merely convenient.
+#
+# After publishing, this workflow writes the new version and checksum back to
+# RELEASE on the default branch.  Without that step a fresh clone would keep
+# pointing at the previous release.
+
+name: release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'version to build and publish, e.g. v0.1.0'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: resolve the version
+        id: v
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ghc from apt is enough: the build depends on nothing outside base,
+      # containers, time, directory, filepath and process.  The -dev packages
+      # carry the .a files the static link needs; without them the build
+      # script falls back to a dynamic binary and says so, and a dynamic
+      # binary is not portable enough to publish.
+      - name: install ghc and the static libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ghc libgmp-dev libffi-dev zlib1g-dev
+          ghc --numeric-version
+
+      # The build script runs a four-turn session against the binary it just
+      # produced -- in a tree that is not this checkout -- and fails if the
+      # machine does not come up, does not fork its other organ, cannot
+      # verify its own chain, or writes into the directory it was pointed at.
+      # A release that fails here is not published.
+      - name: build and self-check
+        run: sh interactive/build-nalanda-gate.sh
+
+      - name: refuse a dynamic binary
+        run: |
+          if ! grep -q '^  linkage      static$' dist/PROVENANCE.txt; then
+            echo "the build linked dynamically; that binary is not portable" >&2
+            sed -n '1,10p' dist/PROVENANCE.txt >&2
+            exit 1
+          fi
+
+      - name: publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V='${{ steps.v.outputs.version }}'
+          gh release create "$V" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$V" \
+            --notes-file dist/PROVENANCE.txt \
+            dist/nalanda-gate dist/SHA256SUMS dist/USAGE.txt dist/PROVENANCE.txt \
+          || gh release upload "$V" --repo "$GITHUB_REPOSITORY" --clobber \
+            dist/nalanda-gate dist/SHA256SUMS dist/USAGE.txt dist/PROVENANCE.txt
+
+      # The pin, written back so that a fresh clone runs THIS release.
+      - name: update the pin on the default branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V='${{ steps.v.outputs.version }}'
+          SHA=$(cut -d' ' -f1 dist/SHA256SUMS)
+          DEFAULT=$(gh repo view "$GITHUB_REPOSITORY" --json defaultBranchRef -q .defaultBranchRef.name)
+          git fetch origin "$DEFAULT"
+          git checkout "$DEFAULT"
+          cat > RELEASE <<EOF
+          # The published binary ./nalanda-gate runs.  Written by
+          # .github/workflows/release.yml when the release is published; a
+          # clone reads this and needs nothing else.
+          NALANDA_GATE_VERSION=$V
+          NALANDA_GATE_SHA256=$SHA
+          EOF
+          if git diff --quiet -- RELEASE; then
+            echo "RELEASE already names $V/$SHA"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add RELEASE
+          git commit -m "release: pin nalanda-gate $V"
+          git push origin "$DEFAULT"

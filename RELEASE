@@ -1,0 +1,13 @@
+# The published build of ./nalanda-gate.
+#
+# .github/workflows/release.yml writes this file when it publishes a release:
+# the version it tagged and the sha256 of the binary it uploaded.  ./nalanda-gate
+# reads it, fetches that asset, verifies it against this checksum, and runs it.
+# A clone plus ./nalanda-gate is the whole install, and this pin is what makes
+# that safe rather than only convenient.
+#
+# NALANDA_GATE_SHA256=unpublished means no release has been cut yet.  Run the
+# release workflow (Actions -> release -> Run workflow, or push a v* tag) and
+# this file updates itself.
+NALANDA_GATE_VERSION=v0.1.0
+NALANDA_GATE_SHA256=unpublished
