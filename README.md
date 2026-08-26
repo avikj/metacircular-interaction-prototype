@@ -1,4 +1,4 @@
-# Interactive Symbolic Computer
+# Interactive Metacircular Kernel
 
 **A local-first computational substrate for partial knowledge, certified transport, and compositional interaction**
 
