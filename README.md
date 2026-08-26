@@ -1,4 +1,4 @@
-# Interactive Metacircular Kernel
+# Metacircular Interaction Kernel
 
 **A local-first computational substrate for partial knowledge, certified transport, and compositional interaction**
 
