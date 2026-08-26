@@ -1,0 +1,46 @@
+# CI for the one runnable: the yantra builds and answers, on every push.
+#
+# Two gates, and they are the machine's own:
+#   1. the scripted session — run-yantra.sh with no arguments IS the contract
+#      check (every answer a saṃkramaṇa or a doṣa-lekha, cakravāla D=61,
+#      aṆ → a i u, both Saptabhaṅgī round trips, replay ∘ journal = id,
+#      chain intact).  Its exit code is the verdict.
+#   2. a wire probe — one JSON query on --wire must return Bhāskara II's
+#      exact pair for x² − 61y² = 1.  This checks the mode an LLM actually
+#      talks to, which the scripted session does not exercise.
+#
+# NOT here: `sh check` (the Agda corpus).  That needs the pinned toolchain
+# (30–60 min cold build); wiring it into CI is a separate decision.
+name: machine
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  yantra:
+    name: the machine builds and answers
+    runs-on: ubuntu-latest
+    env:
+      # Agda-adjacent lesson that applies to ghc too: under a POSIX locale the
+      # toolchain dies printing this repo's Devanagari identifiers.
+      LC_ALL: C.UTF-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.12.2'   # matches the version the lane is developed on
+
+      - name: scripted session — the contract check
+        run: sh interactive/run-yantra.sh
+
+      - name: wire probe — cakravāla D=61 answers Bhāskara's pair
+        run: |
+          out=$(printf '{"kriya":"vargaprakrti","angani":{"D":61}}\n' | sh interactive/run-yantra.sh --wire)
+          printf '%s\n' "$out" | tail -1
+          printf '%s\n' "$out" | grep -q '"uttara":"samkramana"'
+          printf '%s\n' "$out" | grep -q '1766319049'
+          printf '%s\n' "$out" | grep -q '226153980'
