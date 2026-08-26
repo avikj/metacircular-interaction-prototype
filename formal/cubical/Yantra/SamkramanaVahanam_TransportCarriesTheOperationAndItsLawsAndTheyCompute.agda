@@ -163,3 +163,22 @@ _ = ⊞ᵣ-lunit (anuloma (5 , 6))
 
 ⊞-return : transport (λ i → Op (P (~ i))) _⊞ᵣ_ ≡ _⊞_
 ⊞-return = transport⁻Transport (λ i → Op (P i)) _⊞_
+
+------------------------------------------------------------------------
+-- The identification is a STRICT monoid isomorphism — on the nose.
+--
+-- Because `_⊞ᵣ_` is the conjugate DEFINITIONALLY, `anuloma` and `viloma`
+-- are monoid homomorphisms with `refl` proofs: they do not merely respect
+-- the operation up to a path, they respect it up to nothing.  So ℕ × ℕ
+-- and rāśi-traya are not two isomorphic monoids — they are the SAME
+-- commutative monoid in two presentations (सूत्र २८: everything is proven
+-- somewhere, and import is identity).  This is the structure identity
+-- principle at zero altitude: the equivalence carried the algebra, and
+-- the carry left no residue to correct.
+------------------------------------------------------------------------
+
+anuloma-hom : (x y : ℕ × ℕ) → anuloma (x ⊞ y) ≡ (anuloma x ⊞ᵣ anuloma y)
+anuloma-hom x y = refl
+
+viloma-hom : (u v : rāśi-traya) → viloma (u ⊞ᵣ v) ≡ (viloma u ⊞ viloma v)
+viloma-hom u v = refl
