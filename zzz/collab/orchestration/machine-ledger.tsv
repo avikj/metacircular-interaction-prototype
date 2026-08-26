@@ -1,9 +1,0 @@
-utc	cycle	toolchain	modules	green	fiber	fiber_env	aggregate	walk_frontier
-2026-08-14T04:32:17Z	0	-	84	84	0	0	0	next5≡7
-2026-08-14T04:37:33Z	1	-	85	85	0	0	0	next5≡7
-2026-08-14T04:55:11Z	2	-	86	86	0	0	0	next5≡7
-2026-08-14T05:06:10Z	3	-	87	87	0	0	0	next5≡7
-2026-08-14T17:19:14Z	4	absent	315	0	0	315	127	next5≡7
-2026-08-16T04:31:36Z	5	agda-2.6.3	396	292	104	0	42	next5≡7
-2026-08-16T17:06:28Z	6	agda-2.6.3	400	295	105	0	42	next5≡7
-2026-08-20T03:52:31Z	7	agda-2.6.3	761	672	89	0	42	next5≡7

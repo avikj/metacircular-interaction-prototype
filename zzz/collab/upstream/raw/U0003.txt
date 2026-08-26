@@ -1,1 +1,0 @@
-maximize throughput with subagents, automate math creatively - pull max inspiration from all of stephen wolframs work in the domain i mean we should probably be plugged into wolframalpha/mathematica right? im not a professional mathematician so i cant picture the state of the art system integrating all state of the art technologies
