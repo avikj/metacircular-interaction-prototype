@@ -145,7 +145,7 @@ private
 -- does not, and the log is not append-only across runs — it is regenerated,
 -- and it is gitignored, so nothing can pin it at all.  Both numbers have
 -- since rotted: position 146 today is a KERNEL-SKIP of a different claim,
--- and the refl-typed refusal that was quoted is no longer anywhere in the
+-- and the refl-typed obligation that was quoted is no longer anywhere in the
 -- file.  Quoting the line was right; naming where the line sits was not.
 --
 --     A REPLAY MUST NAME A FIXED OBJECT: a commit hash, a text pattern, an

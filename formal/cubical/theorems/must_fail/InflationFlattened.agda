@@ -50,9 +50,9 @@
 --   k0 != kι of type H2
 --   when checking that the expression refl has type res (infl kι) ≡ kι
 --
--- Read it: the checker refuses to identify the restriction to the
--- SUBGROUP of the inflated class (`k0`, zero — restriction along
--- N ↪ ℤ/4 kills everything) with the class itself (`kι`).  The dropped
+-- Read it: the checker holds the restriction to the SUBGROUP of the
+-- inflated class (`k0`, zero — restriction along N ↪ ℤ/4 kills
+-- everything) apart from the class itself (`kι`).  The dropped
 -- qualifier "along a quotient" is what the machine names, by exhibiting
 -- the two things the flat word "enlargement" runs together.  The `k0`
 -- case one line above type-checks, which is why the flattened reading

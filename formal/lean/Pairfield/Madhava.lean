@@ -73,7 +73,7 @@ unstated, not falsely proved."*
 That is the fourth position, *avaktavyam*, used correctly: not "unknown", not
 "undefined", a declared standpoint with the residue named. This module is the
 other half. It has the ℝ analytic base (mathlib), so it can state the limit the
-Agda module correctly refused to assert — and it does not have univalence, set
+Agda module correctly left unstated — and it does not have univalence, set
 quotients or `--safe`, so it cannot do what that module does.
 
 Neither subsumes the other and neither should. The two lanes meet **here**, in

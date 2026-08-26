@@ -90,8 +90,8 @@
 --   when checking that the expression line-world-XY s has type
 --   transports f s ≡ crit s
 --
--- Read it: the checker refuses to identify the gradient of an ARBITRARY
--- observable, `c₁ f + c₂ f · s`, with the gradient of `X+Y`, `1 + s`.
+-- Read it: the checker holds the gradient of an ARBITRARY observable,
+-- `c₁ f + c₂ f · s`, apart from the gradient of `X+Y`, `1 + s`.
 -- That is the dropped hypothesis, named by the machine.  (Agda stops at
 -- the first error, so the second assertion,
 -- `quantifier-dropped-by-computation`, is not reached; it fails the same

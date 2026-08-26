@@ -1140,7 +1140,7 @@ import WitnessNumberCanBeInfinite
 import WitnessNumberIsInvariant
 import WitnessNumberIsThePotential
 import WitnessNumberIsUnbounded
-import Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
+import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
 
 -- ── समुच्चयः, 2026-08-22 ─────────────────────────────────────────────────
 -- Two NaturalMachine/ modules outside every root's closure.  Both run

@@ -70,13 +70,13 @@ e : A \simeq B,
 univalence produces
 
 ```math
-\operatorname{ua}(e) : A = B.
+\mathrm{ua}(e) : A = B.
 ```
 
 Transport along this path computes according to the equivalence:
 
 ```math
-\operatorname{transport}(\operatorname{ua}(e)) : A \to B.
+\mathrm{transport}(\mathrm{ua}(e)) : A \to B.
 ```
 
 A proof of equivalence therefore participates directly in execution.
@@ -92,7 +92,7 @@ The transformation is not merely justified by a proof external to it.
 The primitive operation is
 
 ```math
-\operatorname{transport} :
+\mathrm{transport} :
 (A = B) \to A \to B.
 ```
 
@@ -120,7 +120,7 @@ A value crosses the representation boundary as
 
 ```math
 a:A
-\quad\xrightarrow{\operatorname{transport}(\operatorname{ua}(e))}
+\quad\xrightarrow{\mathrm{transport}(\mathrm{ua}(e))}
 \quad b:B.
 ```
 
@@ -916,7 +916,7 @@ An interaction between machines
 produces
 
 ```math
-\operatorname{Interact}
+\mathrm{Interact}
 (
 \mathcal{M}_A,
 \mathcal{M}_B
@@ -1464,7 +1464,7 @@ A proposition is not accepted as a context-free scalar bit when its truth depend
 Instead:
 
 ```math
-\operatorname{Assert}(P,R,t,l,m,\ldots)
+\mathrm{Assert}(P,R,t,l,m,\ldots)
 ```
 
 binds the relevant index structure.
@@ -1888,7 +1888,7 @@ The universal certificate is a proof that an object moved across a boundary whil
 Abstractly:
 
 ```math
-\operatorname{PoT}(A,B,I)
+\mathrm{PoT}(A,B,I)
 =
 \Sigma(p:A=B).\;I(p)
 ```
@@ -1896,7 +1896,7 @@ Abstractly:
 or, for weaker relations,
 
 ```math
-\operatorname{PoT}(A,B,I)
+\mathrm{PoT}(A,B,I)
 =
 \Sigma(f:A\to B).\;I(f).
 ```
@@ -1910,7 +1910,7 @@ This is the computational kernel shared by data migration, program transformatio
 The complete primitive can be written:
 
 ```math
-\operatorname{Interact}
+\mathrm{Interact}
 :
 (A,B,\mathcal{B}_A,\mathcal{B}_B)
 \to
@@ -1921,7 +1921,7 @@ subject to
 
 ```math
 \tau :
-\operatorname{PoT}
+\mathrm{PoT}
 (
 (A,B),
 (A',B'),

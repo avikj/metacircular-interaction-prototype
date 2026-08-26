@@ -350,7 +350,7 @@ vargaPrakrti t c
       mt <- case inverseMod b n of
         Nothing -> Left (Defect
           ("leg 3 (descent), Δ = " ++ show disc)
-          ("kuṭṭaka refuses: gcd(b, |k|) = " ++ show (gcd b n)
+          ("kuṭṭaka: gcd(b, |k|) = " ++ show (gcd b n)
             ++ " ≠ 1, so the congruence k | (a + b(m+T)) has no solution class")
           (show q ++ "   k = " ++ show k))
         Just bi -> Right (((- a) * bi) `mod` n)
@@ -416,7 +416,8 @@ pellLaw d = vargaPrakrti 0 d
 
 -- the MAXIMAL order of discriminant Δ.  Δ ≡ 1 (mod 4) gives T = 1,
 -- C = (Δ−1)/4 and ω = (1 + √Δ)/2; Δ ≡ 0 (mod 4) gives T = 0, C = Δ/4.
--- Δ ≡ 2, 3 (mod 4) is not a discriminant and is refused, with the reason.
+-- Δ ≡ 2, 3 (mod 4) is not a discriminant and is answered with a defect
+-- naming the reason.
 maximalOrderLaw :: Integer -> Either Defect (Law Quad)
 maximalOrderLaw disc = case disc `mod` 4 of
   1 -> vargaPrakrti 1 ((disc - 1) `div` 4)
@@ -657,7 +658,7 @@ vargaPrakrtiWide t c w
     go q@(Quad a b) = do
       let k = nrm q
           n = abs k
-      bi <- maybe (Left (Defect "leg 3" "kuṭṭaka refuses" (show q)))
+      bi <- maybe (Left (Defect "leg 3" "kuṭṭaka: no solution class" (show q)))
                   Right (inverseMod b n)
       let mt = ((- a) * bi) `mod` n
           r0 = (mt - t) `mod` n

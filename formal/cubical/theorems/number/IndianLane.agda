@@ -220,7 +220,7 @@ import AnuktaAvaktavya
 -- reachable by a pair, position is not reachable by sequencing.
 import Saptabhangi
 
--- The machine's own material read back: the curriculum its refusals
+-- The machine's own material read back: the curriculum its obligations
 -- demand, descent by distinction, and return.
 import BhedaAvatarana
 import LosslessReturn

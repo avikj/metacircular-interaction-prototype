@@ -33,7 +33,7 @@
 --
 --   StandpointStore    the store.  Append-only, no delete, no
 --                                   update, name lookup returns a LIST.
---   DefectLog  every refusal this machine makes is
+--   DefectLog  every negative answer this machine gives is
 --                                   filed into it, over its own published
 --                                   `write`-on-stdin interface, and the
 --                                   chain is verified from inside the
@@ -61,7 +61,7 @@
 --               आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् — what arrives by an
 --               unaccepted route is not weak evidence, it is not evidence.
 --
--- WHAT IS REFUSED HERE, and this is the load-bearing refusal of the whole
+-- WHAT DOES NOT EXIST HERE, and this absence is load-bearing for the whole
 -- assembly.  There are three saptabhaṅgī types in this machine and they do
 -- not agree.  Two of them (Saptabhangi's and Obstruction's) ARE equivalent,
 -- and the equivalence is exhibited and checked exhaustively over all
@@ -124,7 +124,7 @@ import Answer hiding (Ganita)
 import qualified StandpointStore as K
 import qualified Verdict as S
 import qualified VerdictResidue as G
-import qualified RefusalAnalysis as OB
+import qualified ObligationAnalysis as OB
 import qualified RulePriority as VS
 import qualified ProofGate as C
 import qualified CompositionLaw as VP
@@ -393,7 +393,7 @@ jSaksinah o = look "saksin" o >>= \v -> case v of
 
 kSthapana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSthapana y j = pure $ case pieces of
-  Left e -> refused y "naya.sthapana" e
+  Left e -> turnedBack y "naya.sthapana" e
   Right (nm, ws, yg, rec_, wh)
     | any (null . K.sakLabel) ws -> (y, denied "an empty witness label", emptyLabel nm)
     | otherwise ->
@@ -438,7 +438,7 @@ kSthapana y j = pure $ case pieces of
       [ "an empty label is a witness whose identity was dropped before it arrived; the store would hold something that stands for something and cannot say what"
       , "and every later decision about this standpoint, which would silently rest on it" ]
       [ "name the witness: a document, a date, a statement, a computation — and give its `mula`" ]
-      [ "StandpointStore refuses the same input at `decide`, for the same reason" ]
+      [ "StandpointStore declines the same input at `decide`, for the same reason" ]
 
 kSuchi :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSuchi y _
@@ -476,7 +476,7 @@ arpanaOf j = jStr "arpana" j >>= \a -> case a of
 
 kSamasa :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSamasa y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
-  Left e -> refused y "naya.samasa" e
+  Left e -> turnedBack y "naya.samasa" e
   Right (names, saha)
     | (miss@(_:_), _) <- lookupNames y names -> (y, unfit "standpoints not held", notHeld miss)
     | otherwise ->
@@ -495,7 +495,7 @@ kSamasa y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
       ( y, unfit msg
       , dosalekha "naya.samasa" ("no verdict issued (abhinna): " ++ msg)
           [ "the decision you asked for, which this store's looking is not fit to make"
-          , "and the distinction between `no` and `I cannot see`: an unfit looking's silence is NOT a denial, and this answer is NOT the fourth bhaṅga — avaktavyam is positive and this is a refusal" ]
+          , "and the distinction between `no` and `I cannot see`: an unfit looking's silence is NOT a denial, and this answer is NOT the fourth bhaṅga — avaktavyam is positive and this is a verdict withheld" ]
           [ "supply witnesses, or state a fit looking, or extend the fragment"
           , "Kumārila, Ślokavārttika, Abhāvapariccheda, c. 7th c. — yogya-anupalabdhi" ]
           [ "Kumārila, Ślokavārttika, Abhāvapariccheda" ] )
@@ -695,7 +695,7 @@ trayaTantra offers = VS.Tantra
 
 kTrayaNirnaya :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kTrayaNirnaya y j = pure $ case (,) <$> jStrs "nayah" j <*> arpanaOf j of
-  Left e -> refused y "nirnaya.saptabhangi" e
+  Left e -> turnedBack y "nirnaya.saptabhangi" e
   Right (names, saha)
     | (miss@(_:_), _) <- lookupNames y names ->
         (y, unfit "standpoints not held", dosalekha "nirnaya.saptabhangi"
@@ -783,7 +783,7 @@ kSaptaSamkramana y _ = pure result
           , samkramana "saptabhangi.samkramana"
               (tulyata "a bijection of finite sets with both round trips exhibited — an identification, in Voevodsky's sense: a thing held, not a fact cited"
                        "Verdict.Sthana (7 bhaṅgas + Apratipatti)"
-                       "RefusalAnalysis.Sthana (B1..B7 + ADharmin)"
+                       "ObligationAnalysis.Sthana (B1..B7 + ADharmin)"
                        ("obToS ∘ sToOb = id on all " ++ show (length allS)
                         ++ "; sToOb ∘ obToS = id on all " ++ show (length allOB)))
               [ ("purvatah", JArr [ JObj [ ("saptabhangi", JStr (S.sanskritOf s))
@@ -850,7 +850,7 @@ kSaptaNasti y _ = pure (y, m, u)
 
 kGarbhaDhara :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kGarbhaDhara y j = pure $ case pieces of
-  Left e -> refused y "garbha.dhara" e
+  Left e -> turnedBack y "garbha.dhara" e
   Right (sn, sw, bn, bw, k)
     | sn == bn ->
         ( y, Mudra (S.Position S.SyadNasti)
@@ -925,7 +925,7 @@ parseWhole s = do
 
 kSadhana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSadhana y j = case pieces of
-  Left e -> pure (refused y "sadhana" e)
+  Left e -> pure (turnedBack y "sadhana" e)
   Right (l, r, note) -> do
     st <- C.kernelStatus (yRoot y)
     case st of
@@ -1011,7 +1011,7 @@ kSadhana y j = case pieces of
 
 kKuttaka :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
-  Left e -> refused y "kuttaka" e
+  Left e -> turnedBack y "kuttaka" e
   Right (a, b)
     | b <= 0 ->
         ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa ("b = " ++ show b ++ ", exhibited"))
@@ -1071,11 +1071,11 @@ kKuttaka y j = pure $ case (,) <$> jInt "a" j <*> jInt "b" j of
                           [ "the other solutions are given as a class, not enumerated"
                           , "the vallī's intermediate remainders" ]
                           src )
-             Right other -> refused y "kuttaka" ("`c` must be an integer, got " ++ render other)
+             Right other -> turnedBack y "kuttaka" ("`c` must be an integer, got " ++ render other)
 
 kVargaprakrti :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kVargaprakrti y j = pure $ case jInt "D" j of
-  Left e -> refused y "vargaprakrti" e
+  Left e -> turnedBack y "vargaprakrti" e
   Right d -> case VP.pellLaw d of
     Left df -> (y, Mudra (S.Position S.SyadNasti) (Pratyaksa (VP.renderDefect df)), lawDefect d df)
     Right law -> case (VP.normOneSolution law, VP.spectrum law) of
@@ -1131,19 +1131,19 @@ kVargaprakrti y j = pure $ case jInt "D" j of
                        ++ intercalate ", " [ show k | (k, _) <- spec ]
                      , "compose a visited norm with the norm-one unit to move within a norm class (bhāvanā: k₁·k₂)" ]
                      src )
-             Right other -> refused y "vargaprakrti" ("`n` must be an integer, got " ++ render other)
+             Right other -> turnedBack y "vargaprakrti" ("`n` must be an integer, got " ++ render other)
   where
     lawDefect d df = dosalekha "vargaprakrti"
       ("the law for D = " ++ show d ++ " does not close: " ++ VP.defWhy df)
       [ "the fundamental solution you asked for"
-      , "the failing leg, verbatim, so the refusal names its own site: " ++ VP.renderDefect df ]
+      , "the failing leg, verbatim, so the answer names its own site: " ++ VP.renderDefect df ]
       [ "ask with a non-square D ≥ 2" ]
       [ "Brahmagupta, Brāhmasphuṭasiddhānta 18, 628" ]
 
 kPratyahara :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
                                    <*> (fromIntegral <$> athava 0 (vInt "avrtti" j)) of
-  Left e -> refused y "pratyahara" e
+  Left e -> turnedBack y "pratyahara" e
   Right (adi, it, occ0) ->
     let occ = occ0 :: Int
         sounds = P.pratyaharaOcc adi it occ
@@ -1183,7 +1183,7 @@ kPratyahara y j = pure $ case (,,) <$> jStr "adi" j <*> jStr "it" j
 kDosaLekha :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kDosaLekha y j = pure $ case (,,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j
                                    <*> athava [] (vStrs "sesa" j) of
-  Left e -> refused y "dosa.lekha" e
+  Left e -> turnedBack y "dosa.lekha" e
   Right (k, hetu, lost, rest) ->
     let entry = dosalekha k hetu lost rest [ "written by the interlocutor, not by the engine" ]
     in ( y
@@ -1271,7 +1271,7 @@ kDosaPramanya y _ = case yDosaBin y of
 
 kSesaArpana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
 kSesaArpana y j = pure $ case jStrs "sesa" j of
-  Left e -> refused y "sesa.arpana" e
+  Left e -> turnedBack y "sesa.arpana" e
   Right [] ->
     ( y, Mudra (S.Position S.SyadNasti) (Pratyaksa "the empty hand-off is recorded as one")
     , dosalekha "sesa.arpana"
@@ -1319,8 +1319,8 @@ unfit why = Mudra S.Apratipatti (Pratyaksa ("no verdict was formed; the reason i
 denied :: String -> Mudra
 denied why = Mudra (S.Position S.SyadNasti) (Pratyaksa why)
 
-refused :: Yantra -> String -> String -> (Yantra, Mudra, Uttara)
-refused y k e = let (m, u) = malformed k e in (y, m, u)
+turnedBack :: Yantra -> String -> String -> (Yantra, Mudra, Uttara)
+turnedBack y k e = let (m, u) = malformed k e in (y, m, u)
 
 
 malformed :: String -> String -> (Mudra, Uttara)
@@ -1621,7 +1621,7 @@ script =
   , "{\"kriya\":\"vargaprakrti\",\"angani\":{\"D\":61,\"n\":7}}"
   , "{\"kriya\":\"pratyahara\",\"angani\":{\"adi\":\"a\",\"it\":\"ṇ\"}}"
 
-  -- what the wire refuses, and what it hands back instead of refusing
+  -- what the wire turns back, and what it hands back instead
   , "{\"kriya\":\"naya.samasa\",\"angani\":{\"nayah\":[\"harm-is-real\"],\"arpana\":true}}"
   , "{\"kriya\":\"kuttaka\",\"angani\":{\"a\":1.5,\"b\":2}}"
   , "{\"kriya\":\"nirnaya\",\"angani\":{\"prasna\":\"is it true\"}}"
@@ -1696,7 +1696,7 @@ selftest fp kala y0 = do
   putStrLn ("  cakravāla D=61, law as a value → " ++ show pell
             ++ (if pellOK then "   (Bhāskara II's own value, Bījagaṇita 1150)" else "   !! WRONG"))
   putStrLn ("  aṆ → " ++ unwords aN ++ (if aNOK then "   (the traditional value)" else "   !! WRONG"))
-  putStrLn ("  Saptabhangi.Sthana ≃ RefusalAnalysis.Sthana, both round trips, "
+  putStrLn ("  Saptabhangi.Sthana ≃ ObligationAnalysis.Sthana, both round trips, "
             ++ show (length allS + length allOB) ++ " cases → "
             ++ (if isoOK then "holds" else "!! FAILS"))
   putStrLn ("  Garbha → Saptabhangi has no section (two distinct objects, one image) → "

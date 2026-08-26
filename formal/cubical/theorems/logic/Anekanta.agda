@@ -151,8 +151,8 @@ many-sided = (true , refl) , (false , false≢true)
 
 -- so this proposition admits no collapse, by §3, and the type of that
 -- refusal is inhabited:
-Two-refuses-collapse : (Q : Type₀) → ¬ (Collapses Two Q)
-Two-refuses-collapse = plurality-blocks-collapse Two many-sided
+Two-denies-collapse : (Q : Type₀) → ¬ (Collapses Two Q)
+Two-denies-collapse = plurality-blocks-collapse Two many-sided
 
 -- while excluded middle is untouched at each standpoint, which is what
 -- separates स्याद्वाद from paraconsistency: the index carries the

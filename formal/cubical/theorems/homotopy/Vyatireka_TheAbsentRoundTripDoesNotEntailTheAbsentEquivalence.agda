@@ -212,8 +212,8 @@ incl-proj-fails h = true≢false (cong z4b (sym (h z1)))
 --     `value` is not injective on raw words: `fzero ∷ []` and `[]` both
 --     evaluate to 0, which is the leading-zero ambiguity of positional
 --     notation and is why `Digits` defines `Canonical` at all.  The
---     proposer refused the pair and its refusal reads, in the log, exactly
---     like the refusals in §१–२.  It is a different verdict: `Digits`
+--     proposer denied the pair and its line in the log reads exactly
+--     like those of §१–२.  It is a different verdict: `Digits`
 --     proves `ℕ ≃ CanWord` sixty lines further down, and that equivalence
 --     is imported here so the two claims stand on the same page.
 ------------------------------------------------------------------------
@@ -247,7 +247,7 @@ s₂₁-π₂₁-fails h = znots (cong snd (h (0 , 1)))
 -- ५ · A SEPARATION CROSSES A CAUSEWAY.
 --
 --     `Anyathasiddhi_…agda` built H2 ≡ H4 out of the pair the machine
---     refused.  H2 = H¹(ℤ/2, ℤ/2) is a two-element enumeration and so is
+--     denied.  H2 = H¹(ℤ/2, ℤ/2) is a two-element enumeration and so is
 --     Z2; §२ separated Z2 from Z4.  Composing, H4 = H¹(ℤ/4, ℤ/2) is not
 --     ℤ/4 — a non-equivalence obtained by ONE `subst` along a path, with
 --     no case analysis on H4 anywhere.  That is what the edge was for.

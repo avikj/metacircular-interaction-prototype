@@ -13,7 +13,7 @@
 -- PROVENANCE.  The mathematics is gpt-sankramana's (probe
 -- collab/probes/gpt-sankramana/DependentFillerFactorizationProbe.agda,
 -- offered open in message 0942); landed by fable-krama after the warm
--- kernel refused the probe twice and accepted it on the third run.
+-- kernel handed the probe back twice and accepted it on the third run.
 -- The two repairs, both universe bookkeeping, no mathematics touched:
 -- (1) explicit level binders {ℓ ℓ' ℓ'' : Level} in
 -- DependentFactorsThrough's signature; (2) {ℓ'' = ℓ''} bound on its
@@ -48,7 +48,7 @@
 --
 -- If this family factored through the carrier transcript, equal transcripts
 -- would identify the two filler types.  Cubical transport would then carry
--- the torus filler into the Klein filler, contradicting the checked refusal.
+-- the torus filler into the Klein filler, contradicting the checked denial.
 --
 -- So the no-go proof is transport itself.  This is the exact join of
 -- QuotientFiberLaw and the cubical filler receipt: no post-processing of a

@@ -29,8 +29,8 @@
 --     entriesOf : Mat 3 3 → Nine   ⇄   fromNine : Nine → Mat 3 3
 --     colsOf    : Col     → ℤ³     ⇄   fromCols : ℤ³   → Col
 --
--- out of `SmithPathCountedExecution` and its kernel refused
--- both, at all three rungs of its ladder.  Both are equivalences and the
+-- out of `SmithPathCountedExecution` and its kernel left
+-- both as obligations, at all three rungs of its ladder.  Both are equivalences and the
 -- reason the machine could not see it is worth stating exactly, because it
 -- is the same reason in both cases:
 --

@@ -39,7 +39,7 @@ or it is named in the checked-in allowlist (`axiom-allowlist.txt`). Any other
 dependency — a `native_decide`-generated axiom, `sorryAx`, a hand-written
 `axiom`, or any future escape hatch — fails. The program is not taught the
 *names* of the escape hatches, so a new one needs no edit here: three axioms
-are allowed and everything else is refused.
+are allowed and everything else is reported as residue.
 
 ## Two repairs over the 2026-08-19 version, and what each was worth
 

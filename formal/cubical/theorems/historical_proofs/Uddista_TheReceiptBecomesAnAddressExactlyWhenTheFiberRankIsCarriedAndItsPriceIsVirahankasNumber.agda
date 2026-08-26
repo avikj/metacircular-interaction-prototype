@@ -26,13 +26,13 @@
 -- So "the mātrā fiber's recurrence, as an equivalence and not a count"
 -- is DONE, twice, and was done before this file was opened.  What was
 -- NOT anywhere is the statement those files jointly set up and none of
--- them makes: the exact repair of `Pata_…`'s refusal.
+-- them makes: the exact repair of `Pata_…`'s denial.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED HERE.
 --
--- `Pata_…` §४ proves `¬ पता मात्रा`: the weight is a receipt and refuses
--- to be an address, because लघु लघु and गुरु both weigh 2.  It stops
+-- `Pata_…` §४ proves `¬ पता मात्रा`: the weight is a receipt and cannot
+-- be an address, because लघु लघु and गुरु both weigh 2.  It stops
 -- there.  It does not say what is missing, and "what is missing" is a
 -- theorem, not a gloss:
 --
@@ -190,7 +190,7 @@ rightInv समष्टिः (n , (p , e)) =
 ------------------------------------------------------------------------
 -- ५ · The arc, both signs over one weight function.
 --
---     `Pata_…` proved the refusal on its own copy of the alphabet.  It
+--     `Pata_…` proved the denial on its own copy of the alphabet.  It
 --     is proved again here on `PingalaPrastara.Pattern`, three lines,
 --     rather than moved across an identification nobody has written —
 --     the same choice `Avrtti_…` §३ made for `varna` against `length`,
@@ -213,7 +213,7 @@ rightInv समष्टिः (n , (p , e)) =
 भिन्न-रूपे : ¬ (द्विलघु ≡ एकगुरु)
 भिन्न-रूपे p = true≢false (cong शिरः p)
 
--- THE REFUSAL: the weight alone is a receipt and no more.
+-- THE DENIAL: the weight alone is a receipt and no more.
 मात्रा-न-पता : ¬ (पता matraOf)
 मात्रा-न-पता q =
   भिन्न-रूपे (sym (पुनरुद्धारः matraOf q द्विलघु)
@@ -221,7 +221,7 @@ rightInv समष्टिः (n , (p , e)) =
               ∙ पुनरुद्धारः matraOf q एकगुरु)
 
 -- THE REPAIR: the weight together with the in-fiber rank is an address,
--- in exactly the sense the refusal denied of the weight alone.
+-- in exactly the sense denied of the weight alone.
 उद्दिष्ट-पता : पता (fun मात्रोद्दिष्टम्)
 उद्दिष्ट-पता = inv मात्रोद्दिष्टम् , leftInv मात्रोद्दिष्टम् , rightInv मात्रोद्दिष्टम्
 

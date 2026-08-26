@@ -14,7 +14,7 @@
   distributed systems that turn out to state one fact about descent.
 
   Nothing here asks to be believed.  Every claim is a term a typechecker
-  accepts or refuses::
+  accepts or leaves as an obligation::
 
       sh setup                     # installs the pinned toolchain, from nothing
       sh check                     # typechecks, and names the toolchain it used

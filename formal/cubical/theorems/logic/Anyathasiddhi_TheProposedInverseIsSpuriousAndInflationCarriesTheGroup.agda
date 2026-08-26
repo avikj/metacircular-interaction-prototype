@@ -40,7 +40,7 @@
 --
 --     infl : H2 → H4      ⇄      res : H4 → H2
 --
--- and the kernel refused it.  This module says what the refusal is worth,
+-- and the kernel denied it.  This module says what the denial is worth,
 -- in three parts.
 --
 --   १  THE PAIR IS REFUTED, AND THE HOST ALREADY PROVED WHY.  `res` is

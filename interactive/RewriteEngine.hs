@@ -44,7 +44,7 @@
 --      visible, and then the tripadi runs ONCE, in order, each rule seeing only
 --      what precedes it.  `derive` implements exactly this, and `asiddhaAudit`
 --      reports which earlier rules WOULD have fired on tripadi output and were
---      correctly refused.
+--      correctly blocked.
 --
 --   5. ANUVRTTI and ADHIKARA (section 3a, added 2026-08-20).  A term stated
 --      once RUNS FORWARD into subsequent sutras until cancelled, and a
@@ -965,13 +965,13 @@ sutras =
   , Sutra (1,1,3) "iko guṇavṛddhī"
       "guṇa/vṛddhi named without a locus operate on iK" Paribhasa [] (\_ _ -> [])
 
-  -- 1.1.5 kniti ca.  A NISEDHA: it performs no substitution, it REFUSES
+  -- 1.1.5 kniti ca.  A NISEDHA: it performs no substitution, it BLOCKS
   -- one.  What it reads is a DESIGNATION -- kit, ngit -- conferred on the
   -- affix by 1.3.8 and erased from the affix by 1.3.9 before this rule is
   -- ever consulted.  So the whole content of 1.1.60 `adarsanam lopah` is
   -- here: the marker is gone from the surface and present to this
   -- condition.  Encoded as `knitPratyaya`, read by 7.3.84's guard, and
-  -- audited by `knitAudit` -- which prints it as a refusal, because a
+  -- audited by `knitAudit` -- which prints the blocked application, because a
   -- prohibition that leaves no trace is indistinguishable from a rule that
   -- never applied.
   , Sutra (1,1,5) "kṅiti ca"
@@ -1149,8 +1149,8 @@ sutras =
   --     upadesa, and 1.3.2's `upadese` puts the it-rules before any anga
   --     rule.  Without this the leftmost-first scheduler would guna the
   --     stem before 1.3.8 had marked the k of kta, and 1.1.5 would arrive
-  --     too late to refuse it.
-  --   * `knitPratyaya`: 1.1.5 kniti ca.  This is the refusal, and it is
+  --     too late to block it.
+  --   * `knitPratyaya`: 1.1.5 kniti ca.  This is the prohibition, and it is
   --     made on a marker that 1.3.9 has already erased.
   , Sutra (7,3,84) "sārvadhātukārdhadhātukayoḥ"
       "before a sārvadhātuka or ārdhadhātuka affix: guṇa of the aṅga's final iK" Vidhi []
@@ -1159,7 +1159,7 @@ sutras =
             ("aṅga-final iK " ++ s ++ " -> guṇa "
              ++ concat [ c | P c <- guna s ] ++ " before the pratyaya")
         | not (itPending xs)
-        , not (knitPratyaya xs)                    -- 1.1.5 kṅiti ca refuses
+        , not (knitPratyaya xs)                    -- 1.1.5 kṅiti ca blocks
         , Just (i, s) <- [angaAntya xs]
         , s `elem` iK ])
 
@@ -1816,7 +1816,7 @@ deriveLekhaV vd nv start =
     -- every offer against this configuration, from EVERY sūtra in the table.
     -- Not only the section whose turn it is: the question section 7b asks is
     -- "did anything in the grammar ever reach for this juncture", and a rule
-    -- refused by asiddhatva still reached for it.
+    -- blocked by asiddhatva still reached for it.
     note wp@(xs, _) lg = lg { lVrtta = lVrtta lg ++
                         [ (xs, [ (num s, rPos r, rLen r)
                                | s <- sutras, r <- firesV vd s (reading s) wp ]) ] }
@@ -2010,14 +2010,14 @@ barrierAudit start =
   | st <- fst (deriveTrace start), stThroughBarrier st ]
 
 -- 1.1.60, doing visible work.  Every configuration of the real derivation at
--- which 7.3.84's guna is refused by 1.1.5 reading a marker 1.3.9 erased.  The
--- reason carries the counterfactual, because a refusal whose consequence is
+-- which 7.3.84's guna is blocked by 1.1.5 reading a marker 1.3.9 erased.  The
+-- reason carries the counterfactual, because a prohibition whose consequence is
 -- not shown is indistinguishable from a rule that never applied.
 knitAudit :: [Item] -> [(Ref, String)]
 knitAudit start =
   nub [ ( (1,1,5)
         , "the affix bears " ++ marks cfg ++ ", elided by 1.3.9 and read here: "
-          ++ "guṇa of the aṅga-final " ++ s ++ " by 7.3.84 is refused, and the "
+          ++ "guṇa of the aṅga-final " ++ s ++ " by 7.3.84 is blocked, and the "
           ++ "form is " ++ render final ++ ".  Delete the marker instead of "
           ++ "eliding it and the same sūtras give " ++ render noLopa )
       | (cfg, _) <- lVrtta lg
@@ -2039,11 +2039,11 @@ knitAudit start =
 --
 -- The derived form is deliberately NOT a global fixpoint of the rule set.
 -- Rules that precede the one which created the final context would happily
--- fire on it, and are refused, because for them that context does not exist.
+-- fire on it, and are blocked, because for them that context does not exist.
 -- `vac` is the case: 8.2.30 gives k, 8.2.39 gives g, 8.4.56 gives k again --
 -- and 8.2.39 would now turn that k back into g, forever.  Asiddhatva is what
 -- makes the grammar terminate, not a bookkeeping nicety.  This lists every
--- such refusal.
+-- such prohibition.
 asiddhaAudit :: [Item] -> [(Ref, String)]
 asiddhaAudit start =
   let (_, final) = deriveTrace start
@@ -2073,8 +2073,8 @@ asiddhaAudit start =
 -- false.  What is taken from Āryabhaṭa is the DISPOSAL RULE (keep the
 -- remainder, it is the material) and not the termination proof.
 --
--- THE PRECEDENT IN THIS REPOSITORY.  `interactive/RefusalAnalysis.hs` did this for
--- the theorem engine: the kernel's refusals carried the exact pair of terms
+-- THE PRECEDENT IN THIS REPOSITORY.  `interactive/ObligationAnalysis.hs` did this for
+-- the theorem engine: the kernel's obligations carried the exact pair of terms
 -- at which computation stalled, and every one of them was truncated to 160
 -- characters and collapsed to `False`.  1303 residuals recovered, 112
 -- distinct, ranked by how many parent goals each would unblock (`0 = y·0`
@@ -2106,7 +2106,7 @@ asiddhaAudit start =
 -- position, the juncture, the competing refs, and the parent input that
 -- demanded it -- so the debt is traceable to what asked for it.  Then
 -- `nirnaya` triages WITH EVIDENCE, `pravesha` admits or turns back WITH ITS
--- GROUND (the discipline of RefusalAnalysis.hs: नकारः खण्डनं ददाति, स्वीकारः
+-- GROUND (the discipline of ObligationAnalysis.hs: नकारः खण्डनं ददाति, स्वीकारः
 -- साक्षिणम् -- nowhere a bare truth-value), and `sesaPrasna` ranks what
 -- entered by HOW MANY DISTINCT PARENTS demand it.  That ranking is the
 -- machine stating which sūtra it needs next, derived from where its own work
@@ -2186,7 +2186,7 @@ sesaPada s = case sSandhi s of
   _ -> ""
 
 -- निर्णयः -- the verdict on one residual, and every constructor carries the
--- evidence that put it there.  This is `RefusalAnalysis.hs`'s `Verdict`, the same
+-- evidence that put it there.  This is `ObligationAnalysis.hs`'s `Verdict`, the same
 -- four positions for the same reason: a verdict without its ground arrives
 -- downstream stripped of why, and nothing downstream can ask.
 -- नकारः खण्डनं ददाति, स्वीकारः साक्षिणम् -- क्वापि न शून्यबोधः ।
@@ -2224,7 +2224,7 @@ vidhiRefs :: [Ref]
 vidhiRefs = [ num s | s <- sutras, styp s == Vidhi ]
 
 -- प्रवेशः -- admission, WITH ITS GROUND on both sides.  The extension is
--- RefusalAnalysis.hs's, deliberately: अविरुद्ध and तूष्णीम् enter, खण्डित and
+-- ObligationAnalysis.hs's, deliberately: अविरुद्ध and तूष्णीम् enter, खण्डित and
 -- निर्धर्मिन् turn back.  तूष्णीम् entering is not an oversight -- a token the
 -- sound system does not contain is a debt against the INVENTORY, and it is
 -- the one debt no sūtra can ever discharge.
@@ -2243,7 +2243,7 @@ pravesha v@(Tusnim _)     = Pravishati v
 pravesha v@(Khandita _)   = Nivartate v
 pravesha v@(Nirdharmin _) = Nivartate v
 
--- DELIBERATELY ABSENT, as in RefusalAnalysis.hs: `entered :: Pravesha -> Bool`.
+-- DELIBERATELY ABSENT, as in ObligationAnalysis.hs: `entered :: Pravesha -> Bool`.
 -- One line of that shape restores the bare label for every caller at once and
 -- reads as a convenience while doing it.  Callers match, and in matching they
 -- hold the reason.
@@ -2318,7 +2318,7 @@ sesah src = alien ++ undecided ++ unfinished ++ gaps
 ------------------------------------------------------------------------
 
 -- What entered, ranked by HOW MANY DISTINCT PARENTS demand it -- the ranking
--- `RefusalAnalysis.curriculum` uses, for the same reason.  A raw occurrence count
+-- `ObligationAnalysis.curriculum` uses, for the same reason.  A raw occurrence count
 -- over-weights one input retried across rounds; what a queue is actually
 -- being asked is which single missing rule unblocks the most derivations.
 --
@@ -2934,9 +2934,9 @@ selfTest = concat
     asiddhaTests = concat
       [ chk "the tripādī's output is NOT a global fixpoint"
           (null (asiddhaAudit (parseInput "vāc"))) False
-      , chk "and it is 8.2.39 that is refused"
+      , chk "and it is 8.2.39 that is blocked"
           (map fst (asiddhaAudit (parseInput "vāc"))) [(8,2,39)]
-      , chk "where nothing is refused, the audit is empty"
+      , chk "where nothing is blocked, the audit is empty"
           (asiddhaAudit (parseInput "deva + indra")) []
       ]
 
@@ -3135,7 +3135,7 @@ selfTest = concat
       -- 1.1.60: lopa is not deletion, and the difference is a derived form
       , chk "ci ~ kta: 1.1.5 reads the k that 1.3.9 erased"
           (map fst (knitAudit (parseInput "ci ~ kta"))) [(1,1,5)]
-      , chk "and the refusal decides the word"
+      , chk "and the prohibition decides the word"
           (derive "ci ~ kta", deriveWithoutLopa "ci ~ kta") ("cita", "ceta")
       , chk "where no affix is marked there is nothing to read"
           (knitAudit (parseInput "nī ~ lyuṭ"), knitAudit (parseInput "vāc")) ([], [])
@@ -3225,7 +3225,7 @@ selfTest = concat
       , chk "f is not a sound of the varṇasamāmnāya"     (phoneOf "f") Nothing
       , chk "so the residual is तूष्णीम्, carrying the token"
           (map nirnaya alien) [Tusnim "f"]
-      , chk "and तूष्णीम् enters, as it does in RefusalAnalysis.hs"
+      , chk "and तूष्णीम् enters, as it does in ObligationAnalysis.hs"
           (map (pravesha . nirnaya) alien) [Pravishati (Tusnim "f")]
       -- the conflict the metarules do not decide.  ARMED, NOT EXERCISED:
       -- the sūtras encoded here never produce two contenders at one locus

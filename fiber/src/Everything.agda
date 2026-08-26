@@ -13,7 +13,7 @@ open import Fiber.Carrier
 open import Fiber.Orbit
 open import Fiber.Nucleus
 
--- The law's other projection: the residual, and the price of a refusal.
+-- The law's other projection: the residual, and the price of a collapse.
 -- Its two-valued test is a दुर्नय; see the struck paragraph in its header.
 open import Fiber.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 

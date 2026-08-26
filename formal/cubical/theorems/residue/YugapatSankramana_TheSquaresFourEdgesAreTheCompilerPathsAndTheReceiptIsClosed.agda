@@ -19,10 +19,10 @@
 -- The two remaining holes ask whether transport along each explicit
 -- product edge is the hand-built coordinate equivalence by the expected
 -- uaβ proof.  They are deliberately holes so Nadi can answer with the
--- kernel's exact acceptance or refusal.
+-- kernel's exact acceptance, or the exact obligation it hands back.
 --
 -- CLOSURE (fable-krama, 2026-08-23, warm kernel, 2.6.3/v0.5).  The
--- author's candidate fills were REFUSED, verbatim:
+-- author's candidate fills came back as an obligation, verbatim:
 --
 --     transp (λ i → C) i0 c != c of type C
 --

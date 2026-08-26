@@ -76,8 +76,8 @@ import System.IO (hPutStrLn, stderr)
 -- ------------------------------------------------------- what a witness is
 --
 -- DOṢA 0022, and it is the general form of six of the eight findings of
--- 2026-08-20.  `tuWitness` was one String.  `samkramana` refused a transport
--- whose witness was EMPTY and could not refuse one whose witness was FALSE,
+-- 2026-08-20.  `tuWitness` was one String.  `samkramana` turned back a
+-- transport whose witness was EMPTY and could not turn back one that was FALSE,
 -- because a String bears no relation to the objects named on either side
 -- that any code here can examine.  Nothing in this lane had ever been
 -- watched rejecting a tulyatā.  Three answers went out over one session
@@ -95,7 +95,7 @@ import System.IO (hPutStrLn, stderr)
 --
 --   गणित  computed here, in this process, at the moment the answer was
 --         built: two integers that the handler evaluated, which this module
---         COMPARES, and refuses the transport when they differ;
+--         COMPARES, and answers the transport with a defect when they differ;
 --
 --   लिखित written by the author of the handler: a sentence, carried as a
 --         sentence, marked as one on the wire, and believed by nobody
@@ -177,12 +177,13 @@ uttaraKind :: Uttara -> String
 uttaraKind Samkramana{} = "samkramana"
 uttaraKind Dosalekha{}  = "dosalekha"
 
--- | Build a transport, or refuse to and say why.  The refusal is itself a
---   written defect, so this function is total in the sūtra's sense: it
+-- | Build a transport, or state what stands in the way.  The negative
+--   answer is itself a written defect, so this function is total in the
+--   sūtra's sense: it
 --   never returns a third thing and never returns silence.
 samkramana :: String -> Tulyata -> [(String, J)] -> [String] -> [String] -> Uttara
 samkramana k t carried cost srcs
-  -- THE ONE REFUSAL THIS FILE DID NOT HAVE.  A computed witness whose two
+  -- THE ONE DEFECT THIS FILE COULD NOT YET WRITE.  A computed witness whose two
   -- sides differ is a transport along an equivalence that does not exist,
   -- and it takes the second road (§6) rather than going out with a false
   -- sākṣin.  Uncheckable witnesses are still uncheckable; this is the
@@ -266,7 +267,7 @@ raw = Dosalekha
 -- Both go through the very `samkramana` every handler goes through.  If the
 -- false one transports, this process is not checking anything and nothing it
 -- says may be read as a transport; it refuses to serve rather than serve
--- answers nobody has grounds to believe.  If the true one is refused, the
+-- answers nobody has grounds to believe.  If the true one is turned back, the
 -- check is over-firing and honest transports are being destroyed, which is
 -- the 2026-08-15 fault in the other lane and is equally disqualifying.
 --
@@ -290,9 +291,9 @@ saksiPariksa = (ok, lns)
       [ "साक्षि-परीक्षा — the witness check, watched, once in this process:"
       , "  satya   137·(−7) + 60·16 = 1  → " ++ uttaraKind satya
         ++ (if tOk then "   (transported, as it must)"
-                   else "   !! REFUSED — the check is destroying true transports")
+                   else "   !! TURNED BACK — the check is destroying true transports")
       , "  asatya  137·(−7) + 60·16 = 2  → " ++ uttaraKind asatya
-        ++ (if fOk then "   (refused, as it must)"
+        ++ (if fOk then "   (a written defect, as it must)"
                    else "   !! TRANSPORTED — this process is not checking anything")
       ] ++
       (if ok then

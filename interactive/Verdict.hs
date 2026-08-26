@@ -3,11 +3,11 @@
 -- WHAT THIS IS FOR.  `interactive/MathMachine.hs` decides, and its decision is
 -- `koAccepted :: Bool`.  A census over `interactive/machine.log` (ANEKANTA.md §1)
 -- found that single bit carrying at least four unrelated situations across
--- 1457 refusals:
+-- 1457 obligations:
 --
---     refused, and refutable by computation — simply false        288
---     refused here, ACCEPTED ELSEWHERE IN THE SAME LOG            455
---     refusal not expressible as a predication at all             154
+--     denied, and refutable by computation — simply false         288
+--     denied here, ACCEPTED ELSEWHERE IN THE SAME LOG             455
+--     answer not expressible as a predication at all              154
 --     no subject to predicate of (`x != y`, failed unification)    80
 --
 --   machine.log:146   KERNEL-REJECT  round=0  x = (xmaxx)   refl
@@ -140,7 +140,7 @@ module Verdict
   ) where
 
 import Data.List (nub, sort)
-import qualified RefusalAnalysis as OB
+import qualified ObligationAnalysis as OB
 import Data.Maybe (isJust, mapMaybe)
 
 -- ------------------------------------------------------------------ १ seeds
@@ -252,14 +252,14 @@ nyuna x y = krama x y == y
 -- --------------------------------------------------- ४ live evidence
 
 -- The standpoint, carried explicitly, with WITNESSES rather than flags.  A
--- `Maybe String` and not a `Bool` for the same reason `RefusalAnalysis.Evidence`
+-- `Maybe String` and not a `Bool` for the same reason `ObligationAnalysis.Evidence`
 -- keeps `evSakshin` as the accept line itself: affirmation may not be
 -- asserted without producing the thing that affirms.
 --
 --   vAsti      — some naya AFFIRMED this claim (the accepting line/tactic)
---   vNasti     — some naya DENIED it (the refusing tactic, or a computed
+--   vNasti     — some naya DENIED it (the denying tactic, or a computed
 --                counterexample)
---   vAvaktavya — the refusal is not expressible as a predication in the
+--   vAvaktavya — the answer is not expressible as a predication in the
 --                machine's language at all: no term came back, so no
 --                utterance is formable.  The FOURTH position, positive.
 --   vAdharmin  — no subject to predicate of (`x != y`): not a bhanga at all
@@ -279,7 +279,7 @@ noVacana = Vacana Nothing Nothing Nothing Nothing
 -- `vAdharmin` sets NO seed.  It is the recorded reason a naya said nothing
 -- about this claim -- `x != y`, two distinct free variables, a failed
 -- unification -- and a reason for silence is not a predication.  So a
--- refusal carrying only adharmin comes out `Apratipatti`: nothing was said.
+-- answer carrying only adharmin comes out `Apratipatti`: nothing was said.
 -- An earlier version let adharmin OVERRIDE the other seeds, and on real log
 -- lines that swallowed claims another naya had ACCEPTED, reporting "no
 -- predication was made" about a theorem the same run had proved.  That is
@@ -319,7 +319,7 @@ glossOf (Position b) = case b of
     \not a contradiction, and not a tie"
   SyadAvaktavya ->
     "no single utterance carries it (saha/yugapat) -- NOT unknown, NOT \
-    \undefined, NOT bottom: the refusal is not formable as a predication"
+    \undefined, NOT bottom: the answer is not formable as a predication"
   SyadAstiAvaktavya      -> "affirmed, and inexpressible taken simultaneously"
   SyadNastiAvaktavya     -> "denied, and inexpressible taken simultaneously"
   SyadAstiNastiAvaktavya -> "affirmed, denied, and inexpressible taken simultaneously"
@@ -400,16 +400,16 @@ selfTest =
       in f SyadAsti == f SyadNasti
          || f SyadAsti == f SyadAvaktavya
          || f SyadNasti == f SyadAvaktavya
--- THE REFUSAL, READ AS EVIDENCE RATHER THAN AS A BIT.
+-- THE OBLIGATION, READ AS EVIDENCE RATHER THAN AS A BIT.
 --
--- Which seed predicates a refusal actually supports, each with the text that
+-- Which seed predicates an obligation actually supports, each with the text that
 -- supports it.  Three of the four situations the census found are decided
 -- here; the fourth (asti -- the claim accepted by ANOTHER naya in the same
 -- round) cannot be known at this point in the process and is filled in by
 -- `sakshin` at the round's census, which is exactly where the log first
 -- becomes able to see both lines.
 --
--- WHY AN UNPARSED REFUSAL IS NOT RECORDED AS DENIAL.  When agda's message
+-- WHY AN UNPARSED ANSWER IS NOT RECORDED AS DENIAL.  When agda's message
 -- yields no term in the machine's language, the DENIAL ITSELF is not
 -- formable as a predication: recording it as nasti would assert a denial in
 -- a language it was never given in.  So it is avaktavya alone -- the fourth
@@ -418,8 +418,8 @@ selfTest =
 -- utterance carries both.  The process fact "that tactic exited non-zero" is
 -- a fact about the ATTEMPT and is already in `koNaya`.
 --
--- This differs from `RefusalAnalysis.sthana`, which sets `nasti = True` on every
--- refusal by construction.  The disagreement is written down here rather
+-- This differs from `ObligationAnalysis.sthana`, which sets `nasti = True` on every
+-- obligation by construction.  The disagreement is written down here rather
 -- than silently reconciled (AHIMSA_SUTRA_VISTARA §6: transport, or a WRITTEN
 -- defect, and no third path).
 vacanaOfRejection :: String -> String -> Vacana
@@ -439,7 +439,7 @@ vacanaOfRejection nayaNote err = Vacana
               ++ "unification, not a claim")
       _ -> Nothing
     avaktavya = case res of
-      Nothing -> Just ("refusal not formable as a predication: "
+      Nothing -> Just ("answer not formable as a predication: "
                        ++ take 120 (filter (/= '\n') err))
       Just _  -> Nothing
     nasti = case (res, tri) of
@@ -449,10 +449,10 @@ vacanaOfRejection nayaNote err = Vacana
         Just ("refuted by computation at " ++ show asg ++ ": "
               ++ OB.showClaim p)
       (Just p, _) ->
-        Just (nayaNote ++ " refused; computation stalled at " ++ OB.showClaim p)
+        Just (nayaNote ++ " denied; computation stalled at " ++ OB.showClaim p)
 
 -- The witness that some OTHER naya affirmed the same claim.  `machine.log`
--- line 146 refuses `x = (xmaxx)` and line 174 accepts it, same round, same
+-- line 146 denies `x = (xmaxx)` and line 174 accepts it, same round, same
 -- process: under a Bool those were `False` and `True` about one claim and
 -- nothing in the codebase could say they were not a contradiction.  They are
 -- krama -- two standpoints in succession -- and with this filled in the

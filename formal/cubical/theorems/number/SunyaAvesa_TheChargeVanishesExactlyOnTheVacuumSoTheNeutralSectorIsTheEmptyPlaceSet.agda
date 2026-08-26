@@ -30,8 +30,8 @@
 --
 -- HOW.  Written with holes, loaded warm through नाडी, the kernel naming its
 -- छिद्राणि; each filler proposed with `give` and accepted live before it was
--- written down; then sealed and batch-checked.  One proposal appeared to be
--- refused without a reason, which turned out to be the conduit and not the
+-- written down; then sealed and batch-checked.  One proposal appeared to
+-- come back with no obligation named, which turned out to be the conduit and not the
 -- term — see the turn-boundary repair in `interactive/Nadi.hs` committed the same
 -- hour.  The term had been right the first time.
 module SunyaAvesa_TheChargeVanishesExactlyOnTheVacuumSoTheNeutralSectorIsTheEmptyPlaceSet where

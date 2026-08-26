@@ -2,7 +2,8 @@
 # check — typecheck the repository, and never report a green off the pin.
 #
 #   sh check           the kernel, the fiber law, and the Lean root closure
-#   sh check --all     everything under formal/cubical/theorems too (slow)
+#   sh check --all     everything under formal/cubical/theorems too, plus the
+#                      Lean lane's build and axiom gate (slow; needs lake)
 #
 # THE ONE RULE.  A verdict that does not name its toolchain has dropped half
 # its witness.  This script names it first, and if it is not the pin it says
@@ -55,8 +56,8 @@ run() {  # run <label> <dir> <file>
 }
 
 printf '\nkernel — the 296 lines and their readings\n'
-for m in "$ROOT"/formal/cubical/kernel/*.agda; do
-  run "$(basename "$m" .agda | cut -c1-56)" "$ROOT/formal/cubical" "kernel/$(basename "$m")"
+for m in "$ROOT"/formal/cubical/Kernel/*.agda; do
+  run "$(basename "$m" .agda | cut -c1-56)" "$ROOT/formal/cubical" "Kernel/$(basename "$m")"
 done
 
 printf '\nfiber — the one primitive the corpus turns on\n'
@@ -71,12 +72,108 @@ if [ "${1:-}" = "--all" ]; then
   done
 fi
 
+# ── lean: root closure ──────────────────────────────────────────────────
+# Every module under Pairfield/ must be import-reachable from Pairfield.lean
+# or named (with a reason) in root-exclusions.txt.  A module the root does
+# not reach is an undeclared standpoint: nothing is wrong with it, but the
+# aggregate's green silently does not cover it.  Text analysis, no toolchain.
 printf '\nlean — every module under Pairfield/ reachable from the root\n'
-if [ -x "$ROOT/scripts/check-lean-root-closure.sh" ] || [ -f "$ROOT/scripts/check-lean-root-closure.sh" ]; then
-  if out="$(bash "$ROOT/scripts/check-lean-root-closure.sh" 2>&1)"; then
-    printf '  %s\n' "$(printf '%s' "$out" | tail -1)"
+lean_root_closure() (
+  cd "$ROOT/formal/lean" || return 2
+  LROOT=Pairfield
+  [ -f "$LROOT.lean" ] || { echo "no $LROOT.lean"; return 2; }
+  seen=$(mktemp); queue=$(mktemp); t_all=$(mktemp); t_reach=$(mktemp); t_decl=$(mktemp)
+  trap 'rm -f "$seen" "$queue" "$queue.t" "$t_all" "$t_reach" "$t_decl"' EXIT
+  printf '%s\n' "$LROOT" > "$queue"
+  while [ -s "$queue" ]; do
+    m=$(head -n1 "$queue"); tail -n +2 "$queue" > "$queue.t"; mv "$queue.t" "$queue"
+    grep -qxF "$m" "$seen" 2>/dev/null && continue
+    printf '%s\n' "$m" >> "$seen"
+    f=$(printf '%s' "$m" | tr '.' '/').lean
+    [ -f "$f" ] || continue
+    grep -oE '^[[:space:]]*import[[:space:]]+[A-Za-z0-9_.]+' "$f" \
+      | sed -E 's/.*import[[:space:]]+//' \
+      | while read -r i; do
+          [ -f "$(printf '%s' "$i" | tr '.' '/').lean" ] && printf '%s\n' "$i"
+        done >> "$queue" || true
+  done
+  find "$LROOT" -name '*.lean' | sed 's|/|\.|g; s|\.lean$||' | sort > "$t_all"
+  sort -u "$seen" > "$t_reach"
+  if [ -f root-exclusions.txt ]; then
+    grep -vE '^[[:space:]]*(#|$)' root-exclusions.txt | sed 's/[[:space:]]*$//' | sort -u > "$t_decl"
+  else : > "$t_decl"; fi
+  unreached=$(comm -23 "$t_all" "$t_reach")
+  undeclared=$(printf '%s\n' "$unreached" | grep . | comm -23 - "$t_decl" || true)
+  stale=$(printf '%s\n' "$unreached" | grep . | comm -13 - "$t_decl" || true)
+  echo "modules under $LROOT/: $(grep -c . "$t_all") ; reachable from $LROOT.lean: $(grep -c "^$LROOT\." "$t_reach" || true)"
+  if [ -n "$undeclared" ]; then
+    echo "FAIL: unreachable from $LROOT.lean and not named in root-exclusions.txt:"
+    printf '%s\n' "$undeclared" | sed 's/^/    /'
+    echo "Fix: add 'import <module>' to $LROOT.lean, or name it in"
+    echo "root-exclusions.txt with a reason that DISCRIMINATES."
+    return 1
+  fi
+  [ -n "$stale" ] && { echo "note: exclusions now reachable (or gone) -- prune:"; printf '%s\n' "$stale" | sed 's/^/    /'; }
+  echo "OK: every module under $LROOT/ is reachable or declared out."
+)
+if out="$(lean_root_closure 2>&1)"; then
+  printf '  %s\n' "$(printf '%s' "$out" | tail -1)"
+else
+  printf '  RED\n%s\n' "$out"; fail=1
+fi
+
+if [ "${1:-}" = "--all" ]; then
+  # ── lean: anonymous-example oracle sweep ──────────────────────────────
+  # `lake exe yogyanupalabdhi` sees oracle use through imports but only on
+  # NAMED declarations; an anonymous `example` emits no constant, so an
+  # oracle inside one is structurally invisible to it.  This is the
+  # complement: text analysis over every column-0 `example` block.
+  printf '\nlean — no anonymous example rests on an oracle\n'
+  ORACLES='native_decide|ofReduceBool|ofReduceNat|sorryAx|\bsorry\b'
+  hits=$(find "$ROOT/formal/lean/Pairfield" -name '*.lean' -print0 \
+    | xargs -0 awk -v oracles="$ORACLES" '
+        function flush() {
+          if (inex && found != "")
+            printf "%s:%d: anonymous `example` uses oracle `%s`\n", FILENAME, start, found
+        }
+        FNR == 1 { inex = 0; found = ""; start = 0 }
+        /^(theorem|lemma|example|def|instance|abbrev|structure|inductive|axiom|opaque)[ \t({\[]/ {
+          flush(); inex = ($1 == "example"); found = ""; start = FNR
+        }
+        {
+          line = $0; sub(/--.*$/, "", line)
+          if (inex && found == "" && match(line, oracles))
+            found = substr(line, RSTART, RLENGTH)
+        }
+        END { flush() }
+      ' || true)
+  if [ -n "$hits" ]; then
+    printf '  RED — anonymous example(s) rest on an oracle the axiom gate cannot see:\n'
+    printf '%s\n' "$hits" | sed 's/^/      /'
+    printf '  Fix: name the declaration (theorem/def) so the axiom gate reaches it.\n'
+    fail=1
   else
-    printf '  RED\n%s\n' "$out"; fail=1
+    printf '  ok — no anonymous example under Pairfield/ rests on an oracle.\n'
+  fi
+
+  # ── lean: build + axiom gate ──────────────────────────────────────────
+  # The axiom check (yogyanupalabdhi): Lean's substitute for Agda's --safe.
+  # Rejects any lane constant whose collectAxioms set escapes
+  # {propext, Classical.choice, Quot.sound} plus formal/lean/axiom-allowlist.txt.
+  # Sees taint through imports, which no grep can.  Needs the Lean toolchain;
+  # per the one rule, an absent toolchain is a stated red, never a quiet skip.
+  printf '\nlean — lake build and the axiom gate (slow)\n'
+  if command -v lake >/dev/null 2>&1; then
+    if ( cd "$ROOT/formal/lean" && lake build && lake exe yogyanupalabdhi ); then
+      printf '  ok — the lane builds and every constant passes the axiom gate.\n'
+    else
+      printf '  RED — the Lean lane failed its build or its axiom gate.\n'; fail=1
+    fi
+  else
+    printf '  RED — no `lake` on this machine, so the Lean lane was NOT verified.\n'
+    printf '  This is a fact about the machine, not the corpus.  Install elan/lake\n'
+    printf '  (https://leanprover.github.io) or run --all where the toolchain exists.\n'
+    fail=1
   fi
 fi
 
