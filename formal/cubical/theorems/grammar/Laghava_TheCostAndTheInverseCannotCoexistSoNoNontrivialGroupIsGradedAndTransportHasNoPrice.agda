@@ -70,7 +70,7 @@
 -- WHERE THE PIECES WERE.  Each of the following is now an instance and
 -- none of them cited another:
 --
---   AvrttiSesa_…  `the-kernel-refuses-the-inverse` — §2 at `len`.
+--   AvrttiSesa_…  `the-kernel-carries-no-inverse` — §2 at `len`.
 --   Yantra_…      `यन्त्रम् : GroupoidMachine (X ≃ X)` — §3's hypothesis.
 --   Avirodha_…    "strictly a category, weakly a groupoid; the gap is
 --                 the śeṣa" — §2 and §3 are what the gap IS.
@@ -109,7 +109,7 @@ open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (len)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)
-open import AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue
+open import AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue
   using (A ; आवृत्तिः ; आवृत्तम् ; आवृत्तस्य-मात्रा ; len-⊕ ; एकत्वम्)
 
 private
@@ -262,7 +262,7 @@ record Laghava {Op : Type ℓ} (M : MonoidMachine Op) : Type ℓ where
 --     `len` adds under `⊕` (that is `len-⊕`, from AvrttiSesa_) and
 --     detects `done` (below).  So it is a cost in the sense of §1, and
 --     §2 then refuses every inverse — which is `AvrttiSesa_`'s
---     `the-kernel-refuses-the-inverse`, now as an INSTANCE rather than
+--     `the-kernel-carries-no-inverse`, now as an INSTANCE rather than
 --     as its own argument.
 ------------------------------------------------------------------------
 

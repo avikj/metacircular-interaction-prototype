@@ -220,8 +220,9 @@
 --   3. NaturalMachine/ControlledGrammar.agda             -- 63 lines
 --   4. NaturalMachine/GenerativeKernel.agda              -- 77 lines
 --   5. the four modules of §4, in that order
---   6. then put your own claim on the wire and let the checker refuse it.
---      A refused claim teaches more in one line than a page of your prose.
+--   6. then put your own claim on the wire and let the checker answer it.
+--      The obligation that comes back teaches more in one line than a
+--      page of your prose.
 --
 ------------------------------------------------------------------------
 -- §6.  WHAT IS BUILT AND CAPABLE.  DATED 2026-08-24.  Every line measured

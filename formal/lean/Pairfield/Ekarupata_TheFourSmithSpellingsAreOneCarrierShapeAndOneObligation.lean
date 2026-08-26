@@ -37,7 +37,7 @@ the question for each is only: **which fibre of `f` is this?**
 | `Certificate A` | `ComputableSmith2x2` | Carrier with a predicate on the carried datum |
 | `SmithPresentation A B` | `SmithPresentation` | **not** a Carrier — target is an index |
 
-The last is the interesting one and it is a refusal, not an omission. Making
+The last is the interesting one and it is an obligation, not an omission. Making
 the target an index turns the graph fibre into the **preimage** fibre, and the
 preimage is not a singleton and need not be inhabited at all:
 `natAbs_det_eq` below extracts the invariant that obstructs it, and
@@ -93,7 +93,7 @@ def reductionEquivCarrier (A : IntMat2) :
 def reductionEquiv (A : IntMat2) : Reduction A ≃ UnimodularPair :=
   (reductionEquivCarrier A).trans (Carrier.equivBase (conjugate A))
 
-/-! ## 2. `SmithPresentation` refuses, and the refusal is the preimage -/
+/-! ## 2. `SmithPresentation` hands back an obligation, and the obligation is the preimage -/
 
 /-- The indexed spelling is the **preimage** fibre of the same map. -/
 def presentationEquivPreimage (A B : IntMat2) :

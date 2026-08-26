@@ -31,7 +31,7 @@
 -- and its comment states the doctrine the fourth one exists for:
 --
 --     "Absence of an ACCEPT line is NOT recorded as nāsti.  The log
---      records refusals and successes; it does not record a naya
+--      records denials and successes; it does not record a naya
 --      declining to try."
 --
 -- Reading silence as denial is the error.  `देश f b` cannot make it,

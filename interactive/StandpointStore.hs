@@ -49,7 +49,7 @@
 --
 -- `Naya.hs` states its fragment honestly and returns `Abhinna` outside
 -- it.  Four widenings are made here, each of them a case that module
--- refused and this one decides:
+-- declined and this one decides:
 --
 --  1. YOGYATĀ IS NOW AN INPUT, AND ITS ABSENCE IS NOT A DENIAL.
 --     `Naya.hs` computes truth as `not . null . witnesses`, so an empty
@@ -61,7 +61,7 @@
 --     witnesses.  Empty under `Yogya` is a denial.  Empty under `Ayogya`
 --     is silence, and silence gets NO truth value at all, so the entry
 --     is residue rather than a nāsti.  (Reading silence as denial is
---     named as the durnaya in `interactive/RefusalAnalysis.hs` under THE
+--     named as the durnaya in `interactive/ObligationAnalysis.hs` under THE
 --     SEVENFOLD POSITIONS.  Both modules are this repository's; the bug
 --     and the warning against it were live at the same time.)
 --
@@ -111,7 +111,7 @@
 --      and no amount of journal format changes that.
 --
 --  D4. A DENIAL HAS NO WITNESSES, so two fit denials are indexed
---      identically no matter what they deny.  The store refuses the case
+--      identically no matter what they deny.  The store declines the case
 --      (`decide` returns Abhinna when every fit standpoint is a denial)
 --      rather than reporting the vacuous agreement as agreement.  What
 --      would fix it is an index on the PROPOSITION denied, which this
@@ -129,7 +129,7 @@
 --   * अवक्तव्य and अभिन्न are kept apart.  Avaktavyam is the positive
 --     fourth bhaṅga: the joint content is perfectly determinate and no
 --     single utterance carries it (Akalaṅka, Laghīyastraya c. 720–780,
---     kramārpaṇa against sahārpaṇa).  Abhinna is the refusal of a
+--     kramārpaṇa against sahārpaṇa).  Abhinna is the finding of a
 --     looking that was not fit to decide.  Both say "no single
 --     sentence"; they say it for opposite reasons, and a type with one
 --     constructor for the pair would destroy which.
@@ -150,13 +150,13 @@
 -- which.
 --
 -- The `Bhanga` and `Sthana` types are NOT redefined here.  They are
--- another hand's work in `interactive/RefusalAnalysis.hs` and are imported.
+-- another hand's work in `interactive/ObligationAnalysis.hs` and are imported.
 
 module StandpointStore where
 
 import Data.List (sort, nub, sortOn, intercalate, partition, groupBy, isPrefixOf)
 import Data.Function (on)
-import RefusalAnalysis (Bhanga(..), Sthana(..))
+import ObligationAnalysis (Bhanga(..), Sthana(..))
 
 -- ─────────────────────────────────────────────────────────── the entry
 
@@ -339,7 +339,7 @@ decide saha es0
   -- witnesses, so it cannot tell a fit denial of one thing from a fit
   -- denial of another, and reporting them as agreeing would be a YES
   -- manufactured out of the absence of the very thing it indexes by.
-  -- Refused, and the refusal is Abhinna, not a bhanga.
+  -- Turned back, and the answer is Abhinna, not a bhanga.
   | length fit >= 2 && all (null . artha) fit =
       Abhinna ("all " ++ show (length fit) ++ " standpoints the looking was fit \
                \for are DENIALS, and this store indexes by witnesses, which a \
@@ -492,7 +492,7 @@ render (Abhinna msg) =
   [ "  NO VERDICT ISSUED (abhinna)."
   , "  " ++ msg
   , "  An unfit looking's silence is not a NO, and this answer is NOT the"
-  , "  fourth bhanga.  Avaktavyam is positive; this is a refusal." ]
+  , "  fourth bhanga.  Avaktavyam is positive; this is a verdict withheld." ]
 render n =
   [ "  bhanga : " ++ show (nirSthana n)
   , "  samata : " ++ maybe "none -- not even truth-equal" samataName (nirSamata n)
@@ -624,7 +624,7 @@ selfTest =
       case decide False [ePingala, ePingala{entId = 99}] of
         Nirnaya{nirSamata = Just MulaSama, nirSthana = Position B1Asti} -> True
         _ -> False)
-  , ("two fit DENIALS are refused, not reported as agreeing (D4)",
+  , ("two fit DENIALS are turned back, not reported as agreeing (D4)",
       case decide False [eDenied, eDenied{entName = "something-else-entirely"}] of
         Abhinna _ -> True
         _         -> False)

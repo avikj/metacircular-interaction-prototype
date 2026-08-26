@@ -22,7 +22,7 @@
 --
 -- Being a conjunction of decidable divisibilities it is decidable, and
 -- the decision procedure returns *either* membership *or* the offending
--- entry (i , j).  A refusal is a witness, not a string.
+-- entry (i , j).  A denial is a witness, not a string.
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------

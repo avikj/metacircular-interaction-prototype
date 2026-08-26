@@ -7,7 +7,7 @@
 -- Certify.hs, ArithVocab.hs, library.terms); the live substrate is the
 -- cubical corpus + the crystal runtime, and candidate generation is now
 -- the endogenous frontier (Sanghatta critical pairs, Obstruction's kernel
--- refusal stream). The MathMachine references below are the historical
+-- obligation stream). The MathMachine references below are the historical
 -- record of what this emitter was built against; read them past tense.
 --
 -- WHAT THIS REPLACES, AND WHY (retained as the emitter's design record)
@@ -583,8 +583,8 @@ preambleWith defs syms =
 -- kernel's ability to check proofs, `kernelIsChecking` returned False, and
 -- `vetSuccess` downgraded EVERY acceptance to an environment fault.  Measured
 -- reach on that container: 0/28, where the same binary with the pragmas
--- agreeing gets 15/28.  The refusal was correct and the reason given for it
--- was invented, which is not.
+-- agreeing gets 15/28.  The negative verdict was correct and the reason given
+-- for it was invented, which is not.
 --
 -- Sharing the string is the mechanism.  A control module that is not compiled
 -- the way the candidate modules are compiled is not a control for them, and
@@ -722,7 +722,7 @@ agdaInductionCertificate defs eq@(l, r) v step = do
 -- definitionally), and a semiring solver is the decision procedure for
 -- exactly that class.  It is SOUND because the macro emits a proof term the
 -- kernel checks under the candidate's own pragmas — probed 2026-08-24: it
--- discharges (x + y) ≡ (y + x) (rc 0) and REFUSES (x + y) ≡ (x · y) (rc 1) —
+-- discharges (x + y) ≡ (y + x) (rc 0) and DENIES (x + y) ≡ (x · y) (rc 1) —
 -- so it is not a trusted oracle, and the two watched controls in the caller
 -- are unaffected.  `imp` and `body` are supplied by `solverShapes` because
 -- the macro's import path and name differ by cubical version.
@@ -1102,7 +1102,7 @@ canaryFalse = canaryModule "(suc x) ≡ x"
 -- forbids: a written defect must state WHICH.
 --
 -- Fail-closed is unchanged.  Only `KernelChecking` licenses an acceptance;
--- the other three are refusals.  What changes is that the refusal now names
+-- the other three are negative verdicts.  What changes is that the verdict now names
 -- the control that actually failed and carries agda's own words for it.
 --
 -- The fourth constructor exists for the same reason as the split: a negative
@@ -1126,7 +1126,7 @@ data KernelStatus
     --   kernel was not observed rejecting a falsehood, and it was not observed
     --   accepting one either.  Both are asserted at once and the pair has no
     --   single verdict: *avaktavyam*, the fourth position of the saptabhaṅgī
-    --   and not an absence.  Refused, like the others.
+    --   and not an absence.  No acceptance is licensed, as with the others.
   deriving (Eq, Show)
 
 {-# NOINLINE kernelChecksRef #-}
@@ -1211,7 +1211,7 @@ successHidesAnError out = any (`isInfixOf` out) markers
 
 -- Where entries live, relative to the same `root` the agda child runs in.
 kCertCacheDir :: FilePath
-kCertCacheDir = "machine" </> ".certcache"
+kCertCacheDir = "interactive" </> ".certcache"
 
 -- The one escape hatch.  `MATH_CERTCACHE=0|off|no|false` bypasses the cache
 -- completely: every module is sent to agda and nothing is read or written.
@@ -1468,11 +1468,11 @@ confirmHere key = modifyIORef' confirmedRef (key :)
 -- A zero exit is upgraded to an acceptance only if agda's own output is
 -- free of complaints AND this process has seen the kernel reject a false
 -- module.  Otherwise the zero exit is reported as what it is: a fault in
--- the environment, uncacheable, and a refusal.
+-- the environment, uncacheable, and a negative verdict.
 --
--- THE ACCOUNTABILITY OF A NEGATIVE VERDICT.  This function's refusals now
--- carry the observation that produced them, which is the whole of the repair
--- of 2026-08-20.  A refusal that does not say what was looked at, and found
+-- THE ACCOUNTABILITY OF A NEGATIVE VERDICT.  This function's negative verdicts
+-- now carry the observation that produced them, which is the whole of the repair
+-- of 2026-08-20.  A negative verdict that does not say what was looked at, and found
 -- unfit, is a verdict asserting itself while concealing its standpoint —
 -- दुर्नयो भवति").  The older Mīmāṃsā name for the requirement is
 -- *yogyānupalabdhi*: a non-apprehension is evidence only when the looking was
@@ -1496,7 +1496,7 @@ vetSuccess root out
           ( ExitFailure 126
           , kEnvironmentFault
               ++ ": the POSITIVE control did not check.  `(zero + x) ≡ x` by\n"
-              ++ "refl was refused by this container, so it cannot compile the\n"
+              ++ "refl did not check in this container, so it cannot compile the\n"
               ++ "modules this emitter produces and no verdict of its is about\n"
               ++ "mathematics.  This is NOT a claim that the kernel is\n"
               ++ "dishonest -- the negative control was never reached.\n"
@@ -1526,7 +1526,7 @@ vetSuccess root out
 -- to re-plumb their invocation through this module's temp-directory and
 -- argument conventions, which are not theirs.
 --
--- A non-zero exit is returned untouched: a refusal needs no watch, because
+-- A non-zero exit is returned untouched: a negative verdict needs no watch, because
 -- the failure mode being guarded against is a FALSE ACCEPTANCE.  Only a zero
 -- is asked to earn itself.
 vetForeignRun :: FilePath -> ExitCode -> String -> IO (ExitCode, String)
@@ -1727,10 +1727,10 @@ certifyWith defs root (eq, proofNote) =
     -- arrives with "[induction on x]" and gets the eleven step shapes.  A
     -- RESIDUAL — a subgoal harvested from the kernel's own stall and asked
     -- back — has no such note, and the `Nothing` branch that used to stand
-    -- here refused it after ONE agda call, having emitted no induction module
+    -- here turned it back after ONE agda call, having emitted no induction module
     -- at all.  `MathMachine.koNaya` already records the consequence: the naya
     -- attempted is `NRefl` exactly when the note named no variable, and over
-    -- the committed log 541 of 1457 refusals are refusals of claims the same
+    -- the committed log 541 of 1457 obligations attach to claims the same
     -- log accepts elsewhere.
     --
     -- Measured on the six lemmas the kernel demanded and no composition law
@@ -1745,8 +1745,8 @@ certifyWith defs root (eq, proofNote) =
     -- the first of which is the flagship residual this engine circled for 239
     -- rounds.  None of the three needed a new shape; they needed to be asked.
     --
-    -- THIS IS NOT THE PROOF SEARCH §3a OF CERTIFICATE_REACH.md REFUSES.  That
-    -- refusal is about searching over COMPOSITIONS of proof shapes, where the
+    -- THIS IS NOT THE PROOF SEARCH §3a OF CERTIFICATE_REACH.md RULES OUT.  That
+    -- prohibition is about searching over COMPOSITIONS of proof shapes, where the
     -- space is unbounded and the search is a prover in another process.  This
     -- searches over the ≤ 6 VARIABLES OF THE EQUATION with the shape menu
     -- fixed, and the bound is stated below and derived rather than guessed.

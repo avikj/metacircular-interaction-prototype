@@ -77,7 +77,7 @@
 --
 -- — and this module calls both of them "not an equivalence".  §4 and §5
 -- below are therefore about the CROWDED arm only, and §5's `Bool → Unit`
--- is level २ of a five-level scale, not "the refusal".
+-- is level २ of a five-level scale, not "the obstruction".
 --
 -- The repair is `Fibre.SakalaVikalaDesa_…` in this library: the
 -- diagnosis is a CENSUS — a function `B → देश f b` whose constructors
@@ -91,7 +91,7 @@
 -- and the residual are two projections of one graph.  What does not: the
 -- claim that the two projections exhaust the readings.
 --
--- §5 exhibits the refusal and PRICES it rather than merely detecting it:
+-- §5 exhibits the residue and PRICES it rather than merely detecting it:
 -- for the collapsing map Bool → Unit the residual is not just
 -- non-contractible, it is equivalent to Bool — exactly one bit — and the
 -- carrier is provably equivalent to its source and provably not to its
@@ -198,7 +198,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   शेष-द्वयम्→न-समता b x y x≢y e = x≢y (isContr→isProp (e .equiv-proof b) x y)
 
 ------------------------------------------------------------------------
--- 5.  The refusal, priced.
+-- 5.  The residue, priced.
 --
 -- Bool → Unit is the smallest genuine collapse.  Over its single target
 -- point the residual is not merely non-contractible — it is EQUIVALENT TO

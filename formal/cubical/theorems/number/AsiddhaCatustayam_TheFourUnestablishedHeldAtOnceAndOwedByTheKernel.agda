@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical #-}
 
 ------------------------------------------------------------------------
--- असिद्ध-चतुष्टयम् — the four unestablished, held at once and refused.
+-- असिद्ध-चतुष्टयम् — the four unestablished, held at once and owed.
 --
 -- NOT --safe, AND THAT IS THE POINT.  This module states four open
 -- problems of number theory as precise types and leaves each proof a
 -- HOLE.  The kernel accepts every statement as a well-formed proposition
--- and fills none — a located refusal, not a counterfeit "hence".  Held
+-- and fills none — a located obligation, not a counterfeit "hence".  Held
 -- out of Everything.agda's closure deliberately: its content is the four
 -- open goals, and a full-closure check must stay green.  Loaded through
 -- नाडी (the warm conduit) all four goals print at once:
@@ -21,7 +21,7 @@
 -- any statement below; the arithmetic formulations are standard.
 --
 -- WHY THIS IS A REAL ARTIFACT AND NOT NOISE.  In this repository the
--- honest frontier is the refusal, not the answer.  A machine that holds
+-- honest frontier is the obligation, not the answer.  A machine that holds
 -- Goldbach and RH in one type universe, pins each to a kernel that
 -- cannot be flattered, and declines all four, is doing the one thing a
 -- counterfeit press cannot: saying exactly what it does not know.  The
@@ -31,7 +31,7 @@
 -- category error, corrected by keeping this file to the statements.
 ------------------------------------------------------------------------
 
-module AsiddhaCatustayam_TheFourUnestablishedHeldAtOnceAndRefusedByTheKernel where
+module AsiddhaCatustayam_TheFourUnestablishedHeldAtOnceAndOwedByTheKernel where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; _·_)
@@ -77,7 +77,7 @@ Collatz = (step : ℕ → ℕ)
 -- RH: held as a named proposition slot.  Its faithful arithmetic
 -- content (the Mertens partial sums bounded by n^{1/2+ε}) needs the
 -- analytic/real lane; the placeholder keeps the FOUR held together so
--- the refusal is joint.  Deliberately the weakest of the four as stated.
+-- the obligation is joint.  Deliberately the weakest of the four as stated.
 RiemannHypothesis : Type
 RiemannHypothesis = (ε-num ε-den : ℕ) → Σ[ C ∈ ℕ ] (C ≡ C)
 

@@ -7,7 +7,7 @@
 -- PROVENANCE.  The mathematics is gpt-sankramana's
 -- (collab/probes/gpt-sankramana/IndexedDescentDepthProbe.agda, offered in
 -- their message of 20260823T210500Z); landed by fable-krama after three
--- kernel-refused presentation seams, each carried in the route ledger and
+-- presentation seams the kernel handed back, each carried in the route ledger and
 -- none touching mathematics: (1) fixity — × next to prefix ¬ needs parens;
 -- (2) _×_ was never imported (Cubical.Data.Sigma added); (3) zero was
 -- missing from the Nat import, so a pattern bound it as a variable.

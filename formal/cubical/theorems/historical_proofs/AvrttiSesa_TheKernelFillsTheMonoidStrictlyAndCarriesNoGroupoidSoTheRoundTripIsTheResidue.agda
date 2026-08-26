@@ -35,7 +35,7 @@
 -- that SOME OTHER inverse — not `rev` — might close it on the nose.
 -- §3 removes that.  It quantifies over every function whatsoever:
 --
---     the-kernel-refuses-the-inverse :
+--     the-kernel-carries-no-inverse :
 --       (inv : Derivation A A → Derivation A A)
 --       → ((d : Derivation A A) → d ⊕ inv d ≡ done A) → ⊥
 --
@@ -66,7 +66,7 @@
 -- reinstate it.
 ------------------------------------------------------------------------
 
-module AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue where
+module AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -115,7 +115,7 @@ GroupoidOver {Op = Op} M =
 --
 -- Every field is `Avirodha_…`'s term, unchanged.  Nothing is reproved;
 -- the point of the record is that the SAME interface is offered to both
--- sides in §4, so what §3 refuses is refused on it.
+-- sides in §4, so what §3 excludes is excluded on it.
 ------------------------------------------------------------------------
 
 A : Tm
@@ -130,7 +130,7 @@ A = add var zero
   ; assoc = ⊕-assoc }
 
 ------------------------------------------------------------------------
--- §3  AND REFUSE THE INVERSE — FOR EVERY CANDIDATE, NOT ONLY FOR `rev`.
+-- §3  AND CARRY NO INVERSE — FOR EVERY CANDIDATE, NOT ONLY FOR `rev`.
 --
 -- The measure first: concatenation adds lengths.  This is the lemma the
 -- `len` remark in `Avirodha_…` needed and did not have; with it, the
@@ -156,13 +156,13 @@ len-⊕ (then-step p d) e = cong N.suc (len-⊕ d e)
 आवृत्तस्य-मात्रा : len आवृत्तम् ≡ N.suc (N.suc N.zero)
 आवृत्तस्य-मात्रा = refl
 
--- THE REFUSAL.  No function inverts the kernel's composition, because
+-- THE EXCLUSION.  No function inverts the kernel's composition, because
 -- composition can only ADD length and `done` has none.  The hypothesis is
 -- used at exactly one point, and one point is enough.
-the-kernel-refuses-the-inverse :
+the-kernel-carries-no-inverse :
   (inv : Derivation A A → Derivation A A)
   → ((d : Derivation A A) → d ⊕ inv d ≡ done A) → ⊥
-the-kernel-refuses-the-inverse inv law =
+the-kernel-carries-no-inverse inv law =
   snotz (sym (len-⊕ आवृत्तम् (inv आवृत्तम्)) ∙ cong len (law आवृत्तम्))
 
 ------------------------------------------------------------------------
@@ -187,7 +187,7 @@ equivalences-carry-an-inverse X =
 
 the-kernel-carries-none : ¬ GroupoidOver आवृत्तिः
 the-kernel-carries-none (inv , rinv , _) =
-  the-kernel-refuses-the-inverse inv rinv
+  the-kernel-carries-no-inverse inv rinv
 
 ------------------------------------------------------------------------
 -- §5  WHAT THE DIFFERENCE IS.

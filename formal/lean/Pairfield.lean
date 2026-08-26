@@ -181,7 +181,7 @@ import Pairfield.LosslessReturn_TheDeterminedFieldRidesFree
 import Pairfield.LosslessReturnPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
 -- [STRUCK 2026-08-22, Punaragama seat: file in NO commit — third Lean-lane orphan.]
 -- [UN-STRUCK 2026-08-22, later session: same as the two above — file on disk, builds green.]
-import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneRefusal
+import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneObligation
 
 -- Added 2026-08-22.  The parity transfer owed by
 -- `formal/cubical/YugmaPurana_TheValliRecoversItsLengthModuloTwoAndNoFurther.agda`

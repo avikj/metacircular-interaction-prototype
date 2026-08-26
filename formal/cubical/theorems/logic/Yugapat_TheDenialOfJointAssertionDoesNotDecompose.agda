@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
+-- Yugapat_TheDenialOfJointAssertionDoesNotDecompose
 --
 -- युगपत् · yugapat — "at once", the Jaina term for the simultaneous
 -- mode of predication, paired with क्रम · krama, "in sequence"
@@ -24,17 +24,17 @@
 --    every position it can name is reachable sequentially."
 --
 -- **That was too strong, and the reason is a De Morgan asymmetry I did
--- not check.**  What that cycle proved is that REFUSING BOTH collapses:
+-- not check.**  What that cycle proved is that DENYING BOTH collapses:
 -- `¬ (A ⊎ B)` and `(¬ A) × (¬ B)` are interderivable.  It does not
 -- follow that every position collapses, because the OTHER De Morgan
 -- law runs only one way constructively: `((¬ A) ⊎ (¬ B)) → ¬ (A × B)`
 -- always, and the converse does not.
 --
 -- So there IS a position in my formalism that is not a sequential pair:
--- **the refusal of the JOINT assertion**, `¬ (सामयिक × नित्य)`, which
+-- **the denial of the JOINT assertion**, `¬ (सामयिक × नित्य)`, which
 -- says the two cannot hold together without saying which fails.  That
 -- is the shape yugapat has in the tradition — a single act about the
--- pair, not two acts — and it is exactly what a product of refusals
+-- pair, not two acts — and it is exactly what a product of denials
 -- cannot express.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -42,8 +42,8 @@
 --
 --   Assert m Q          the mode-parameterised predication over MY
 --                       instance family, indexed by their `आर्पण`:
---                       क्रमः gives the sequential pair of refusals,
---                       सहः the refusal of the joint assertion
+--                       क्रमः gives the sequential pair of denials,
+--                       सहः the denial of the joint assertion
 --   kramaGivesYugapat   the sequential position implies the
 --                       simultaneous one — one line, and unconditional
 --   yugapatDecompositionGivesWeakExcludedMiddle
@@ -55,7 +55,7 @@
 --
 -- **So the two modes are not interderivable here for a reason with a
 -- name.**  The direction that fails is not an accident of my encoding;
--- decomposing a refusal-of-conjunction is a known constructive taboo,
+-- decomposing a denial-of-conjunction is a known constructive taboo,
 -- and this module reduces it to that taboo rather than asserting it.
 -- The parallel with the rest of this line is exact: the fourth-corner
 -- work reduced a position to failure of the double-negation shift,
@@ -66,7 +66,7 @@
 -- It is NOT claimed that `¬ (सामयिक × नित्य)` IS avaktavya, or that it
 -- is the fourth bhaṅga, or that it matches what `Saptabhangi` proves
 -- about theirs.  What is claimed is narrower: it is a position of my
--- family that no product of refusals of the two atoms reaches, and the
+-- family that no product of denials of the two atoms reaches, and the
 -- gap is a constructive taboo.  Whether their `आर्पण`-indexed
 -- predication and this mode-indexed one agree is UNCHECKED and is an
 -- OFFER to that module's author, not a result.  Nothing is claimed
@@ -80,7 +80,7 @@
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
-module Yugapat_TheRefusalOfJointAssertionDoesNotDecompose where
+module Yugapat_TheDenialOfJointAssertionDoesNotDecompose where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
@@ -124,7 +124,7 @@ yugapatDecompositionGivesWeakExcludedMiddle dec A =
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The question this module left — whether there is a
--- THIRD position between the sequential pair and the refusal of the
+-- THIRD position between the sequential pair and the denial of the
 -- joint assertion — is answered in
 -- `Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +

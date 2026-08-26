@@ -21,7 +21,7 @@
 --
 --   2. THERE IS NO FLOAT.  CLAUDE.md: exact/certified symbolic
 --      computation is proof, a measurement stands in for an error
---      analysis nobody did.  A decimal point on this wire is refused at
+--      analysis nobody did.  A decimal point on this wire is turned back at
 --      the moment of the act, which is the repository's own stated rule
 --      for what to do when prose has failed.
 --
@@ -59,8 +59,8 @@
 -- forever, for anyone").  Three files, one inference, no term.
 --
 -- OPERATIVE CONSEQUENCE, and it is why this is written here.  This wire
--- refuses a boolean and offers a repair AT THE WIRE.  That is the right
--- place to refuse and the wrong place to fix.  A client that keeps sending
+-- turns back a boolean and offers a repair AT THE WIRE.  That is the right
+-- place to turn it back and the wrong place to fix.  A client that keeps sending
 -- `true` is not the defect; the defect is the slot its producer discarded,
 -- upstream, and no amount of wire grammar reaches it.  A boolean on this
 -- wire is a RECEIPT of that discard.
@@ -72,9 +72,9 @@
 -- Nor is there `null`.  Absence is said by omitting the key, and asked
 -- for by name; a key present-and-null is two facts flattened into one.
 --
--- The refusals are not errors in the ordinary sense: each one returns the
--- utterance it refused AND the utterance that would have carried the same
--- intent without loss.  Refusal without a repair is itself a collapse.
+-- The turn-backs are not errors in the ordinary sense: each one returns the
+-- utterance it turned back AND the utterance that would have carried the same
+-- intent without loss.  A turn-back without a repair is itself a collapse.
 --
 -- NOT CLAIMED: that Gautama or Vātsyāyana wrote a wire format.  What is
 -- taken from Nyāya is the position that testimony is a distinct pramāṇa
@@ -231,8 +231,8 @@ hexVal = foldl (\a d -> a * 16 + digitToInt d) 0
 --
 -- Surrogates exist only to encode a supplementary character as a PAIR in
 -- UTF-16.  So the pair is accepted and combined — nothing is lost, that is
--- the transport — and a lone one is refused with the repair named, which is
--- what every other refusal in this file does.
+-- the transport — and a lone one is turned back with the repair named, which is
+-- what every other answer in this file does.
 uEscape :: Int -> String -> Either String (String, String)
 uEscape n rest
   | n >= 0xD800 && n <= 0xDBFF =
@@ -254,7 +254,7 @@ uEscape n rest
       ++ "character; nothing on this wire can encode one, so accepting it "
       ++ "here would hand the writer a value it cannot write — and the "
       ++ "failure would then land mid-flush, truncating the answer instead "
-      ++ "of refusing the utterance (doṣa 0017).  Send " ++ want
+      ++ "of turning back the utterance (doṣa 0017).  Send " ++ want
       ++ ", or send the character itself in UTF-8."
 
 pad4hex :: Int -> String
@@ -263,7 +263,7 @@ pad4hex v = let h = showHex v "" in replicate (4 - length h) '0' ++ h
 -- | Is this String writable at all?  A String may hold a lone surrogate that
 --   arrived from somewhere other than this parser — a handler that built it,
 --   a file read under a different decoder — and `render` would then produce
---   bytes the UTF-8 encoder refuses, mid-line.  Callers that are about to put
+--   bytes the UTF-8 encoder cannot write, mid-line.  Callers that are about to put
 --   a rendered answer on a wire ask this FIRST and take the second road when
 --   the answer is Just.  §6, held at the boundary where it was being lost.
 unwritable :: String -> Maybe Char
@@ -320,7 +320,7 @@ pobject s = go s []
 --
 -- NOT deduplication.  Deduplication would decide that the two bindings are
 -- the same when the wire has just said they are two, which is the collapse
--- wearing a repair's name.  Both are named in the refusal and neither is
+-- wearing a repair's name.  Both are named in the answer and neither is
 -- chosen for the caller.
 look :: String -> J -> Either String J
 look k (JObj kvs) = case [ v | (k', v) <- kvs, k' == k ] of
@@ -332,7 +332,7 @@ look k (JObj kvs) = case [ v | (k', v) <- kvs, k' == k ] of
                ++ intercalate " and then " (map render vs)
                ++ ".  Reading the first would destroy the rest with no residue "
                ++ "and no way back (∥A∥₁ has no section: AHIMSA_SUTRA_VISTARA "
-               ++ "§5), so it is refused rather than resolved.  Send the key "
+               ++ "§5), so it is turned back rather than resolved.  Send the key "
                ++ "once; if you meant several things, send them as one list "
                ++ "under it: \"" ++ k ++ "\":[…] — a list says `these are "
                ++ "several` and a repeated key says `this is one thing` twice.")
@@ -375,9 +375,9 @@ jObj v = Left ("expected an object, got " ++ render v)
 -- `Left` there carries BOTH `you did not say` and `you said it and I could
 -- not read it`, and `const` discards the sentence that said which.  The
 -- caller who sent `avrtti:"second"` was answered about occurrence 0 and told
--- it succeeded.  That is the boolean this wire refuses, reached by another
+-- it succeeded.  That is the boolean this wire turns back, reached by another
 -- road: a default is a silent coercion, and a silent coercion is the
--- collapse performed by the parser (header, on refusals).
+-- collapse performed by the parser (header, on turn-backs).
 --
 -- So the reader's own type has three constructors, for the same reason the
 -- wire has four and no boolean: what the type cannot say, this machine
@@ -385,7 +385,7 @@ jObj v = Left ("expected an object, got " ++ render v)
 --
 -- The correct pattern was already in the kernel twice — kuṭṭaka's `c` and
 -- vargaprakṛti's `n` are read with `case look k j of Left _ -> …; Right
--- (JInt n) -> …; Right other -> refused` — and was written out longhand each
+-- (JInt n) -> …; Right other -> turned back` — and was written out longhand each
 -- time, which is why the other four sites did not get it.  §35: यत् हेतुना
 -- जन्यते तत् न स्थाप्यते — what a rule generates is not stored in six copies.
 --
@@ -451,13 +451,13 @@ athava _ (Durvacam e) = Left e
 -- nothing — the reader took the first and the rest went with no trace — and
 -- this function carried a branch for it.  The branch is gone because `look`,
 -- above, was repaired for doṣa 0015 in this same file while this was being
--- written, and it refuses a doubled key AT THE ACCESSOR, naming both values
+-- written, and it turns back a doubled key AT THE ACCESSOR, naming both values
 -- and giving the repair (send a list, which says `these are several`, rather
 -- than the key twice, which says `this is one thing` twice).  A check here
 -- runs first and would shadow that with a worse sentence: one lane's rule
 -- displacing another lane's better one by being earlier in the pipeline,
 -- which is vipratiṣedha settled by list position and is exactly what
--- Aṣṭādhyāyī 1.4.2 exists to refuse.  An undeclared doubled key still lands
+-- Aṣṭādhyāyī 1.4.2 exists to rule out.  An undeclared doubled key still lands
 -- here, by the extent branch below; a declared one reaches `look`.
 --
 -- THIS IS WHAT THIS WIRE SAYS INSTEAD OF `additionalProperties:false`,
@@ -479,8 +479,8 @@ athava _ (Durvacam e) = Left e
 -- SILENCE IS ALSO WRONG, for the reason above: the hole is real.
 --
 -- The third road is that the constraint was never the schema's to state.
--- `additionalProperties:false` asks the CALLER's validator to refuse; the
--- ignoring happens in the kernel.  So it is refused in the kernel, and what
+-- `additionalProperties:false` asks the CALLER's validator to turn it back; the
+-- ignoring happens in the kernel.  So it is turned back in the kernel, and what
 -- comes back is strictly more than the keyword could have said: WHICH key,
 -- WHY it is unread, and the operation's whole adhikāra beside it.  A
 -- validator would have answered `does not match schema`.  The keyword stays

@@ -70,8 +70,8 @@ abbrev BehavioralState (M : DFA A X) :=
   Quotient (futureSetoid M.step (fun state => state ∈ M.accept))
 
 /--
-A next-action policy descends to behavioral meanings exactly when it refuses
-to distinguish states with the same complete accepted future.
+A next-action policy descends to behavioral meanings exactly when it is
+constant on states with the same complete accepted future.
 -/
 def selectNext (M : DFA A X) (policy : X → A)
     (sound : ∀ ⦃x y⦄,

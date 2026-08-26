@@ -139,7 +139,7 @@ private
 --   empty X supplies no q x to produce it from.  The certificate direction is
 --   the free one; the representation direction is the one that costs an
 --   argument.  This was written into the मर्यादा before the kernel was asked,
---   and the kernel refused the first attempt on exactly this point.
+--   and the first attempt came back from the kernel owing exactly this point.
 -- * `प्रवहति` is DATA, not a truncated existence.  An organ that cannot hand
 --   over its h has not shown it is derived, and §३ refutes derivability
 --   outright rather than refuting a particular h.

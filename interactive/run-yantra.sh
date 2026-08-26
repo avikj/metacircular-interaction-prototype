@@ -35,7 +35,7 @@
 # differs, and `dosa.pramanya` verifies whichever one it is pointed at.
 #
 # THE SEAM, stated rather than discovered.  This machine imports
-# interactive/RewriteEngine.hs (120 KB) and interactive/RefusalAnalysis.hs, which other
+# interactive/RewriteEngine.hs (120 KB) and interactive/ObligationAnalysis.hs, which other
 # lanes edit.  A grammar file mid-surgery does not typecheck, and failing the
 # whole check then would report `the machine is broken` when the true
 # statement is `another lane is mid-edit`.  Those are two facts and a single

@@ -207,7 +207,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
   subst (λ X → S.समावेश ≃ (X ⊎ Unit)) (sym सप्तभङ्गी≡सप्तभङ्गी) S.समावेश-भेदः
 
 ------------------------------------------------------------------------
--- ४ · THE REFUSAL, AND IT IS A RESULT.
+-- ४ · THE DENIAL, AND IT IS A RESULT.
 --
 --     `SaptabhangiGarbha_….सप्तभङ्गी P` is not a third
 --     copy of the seven names.  Its constructors take the WITNESSES —

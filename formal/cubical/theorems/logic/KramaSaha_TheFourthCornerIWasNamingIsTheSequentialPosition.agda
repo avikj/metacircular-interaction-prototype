@@ -30,10 +30,10 @@
 --   1. the two conjuncts are INDEPENDENT — each is satisfiable while
 --      the other fails, so the pair is genuinely "one, and also the
 --      other", which is krama;
---   2. **the simultaneous refusal collapses to the sequential pair**:
+--   2. **the simultaneous denial collapses to the sequential pair**:
 --      `¬ (A ⊎ B) → (¬ A) × (¬ B)` and back, constructively, with no
---      hypothesis — so in this formalism "refusing both at once" IS
---      "refusing one and refusing the other", and there is no room
+--      hypothesis — so in this formalism "denying both at once" IS
+--      "denying one and denying the other", and there is no room
 --      between them;
 --   3. hence my formalism, as it stands, cannot express avaktavya at
 --      all: every position it can name is reachable sequentially.
@@ -86,7 +86,7 @@ open import KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegatio
   using (one)
 
 ------------------------------------------------------------------------
--- 1.  Simultaneous refusal collapses to sequential refusal
+-- 1.  Simultaneous denial collapses to sequential denial
 ------------------------------------------------------------------------
 
 sahaToKrama : {A B : Type} → ¬ (A ⊎ B) → (¬ A) × (¬ B)
@@ -103,11 +103,11 @@ kramaToSaha (na , nb) (inr b) = nb b
 Corner : {R : Type} → (R → Type) → Type
 Corner Q = (¬ सामयिक (one Q)) × (¬ नित्य (one Q))
 
-cornerIsRefusingBothAtOnce :
+cornerIsDenyingBothAtOnce :
   {R : Type} (Q : R → Type)
   → (¬ (सामयिक (one Q) ⊎ नित्य (one Q)) → Corner Q)
   × (Corner Q → ¬ (सामयिक (one Q) ⊎ नित्य (one Q)))
-cornerIsRefusingBothAtOnce Q = sahaToKrama , kramaToSaha
+cornerIsDenyingBothAtOnce Q = sahaToKrama , kramaToSaha
 
 ------------------------------------------------------------------------
 -- 3.  The two conjuncts are independent
@@ -141,15 +141,15 @@ firstFailsThere k = k (λ _ → tt , (λ e → e))
 -- line above.  **THE CONCLUSION ABOVE IS TOO STRONG AND IS CORRECTED
 -- HERE.**  The block above says "this formalism, as it stands, cannot
 -- express avaktavya at all: every position it can name is reachable
--- sequentially."  What is actually proved above is narrower: REFUSING
+-- sequentially."  What is actually proved above is narrower: DENYING
 -- BOTH collapses, because `¬ (A ⊎ B)` and `(¬ A) × (¬ B)` are
 -- interderivable.
 --
 -- The other De Morgan law runs only one way constructively, and I did
--- not check it.  `Yugapat_TheRefusalOfJointAssertionDoesNotDecompose`
+-- not check it.  `Yugapat_TheDenialOfJointAssertionDoesNotDecompose`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin) gives the position I said did not
--- exist: `¬ (सामयिक × नित्य)` — the refusal of the JOINT assertion,
+-- exist: `¬ (सामयिक × नित्य)` — the denial of the JOINT assertion,
 -- which says the two cannot hold together without saying which fails.
 -- `kramaGivesYugapat` shows the sequential position implies it, and
 -- `yugapatDecompositionGivesWeakExcludedMiddle` shows the converse, as
@@ -159,6 +159,6 @@ firstFailsThere k = k (λ _ → tt , (λ e → e))
 -- That module also imports their `आर्पण` rather than rebuilding it, and
 -- states plainly what is NOT claimed: that this position IS avaktavya,
 -- or that it matches what `Saptabhangi` proves.  It is a position of my
--- family that no product of refusals reaches; the comparison with their
+-- family that no product of denials reaches; the comparison with their
 -- construction remains an OFFER, not a result.
 ------------------------------------------------------------------------

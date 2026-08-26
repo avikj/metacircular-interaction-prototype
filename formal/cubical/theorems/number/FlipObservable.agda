@@ -80,7 +80,7 @@
 --         values (fuel-indexed, `euclLen`); the machine's pulverize
 --         may treat negative arguments by floor division, in which
 --         case vallī itself is a further (sign-sensitive) breaking
---         generator NOT covered by the blindness half.  Refusal on
+--         generator NOT covered by the blindness half.  Refutation on
 --         this point is invited.
 --       - gcd is on absolute values (as math.gcd); mod by 0 yields 0
 --         where Python raises; the (0,0) vallī sentinel -1 is dropped.
@@ -93,7 +93,7 @@
 --     (hentry)}.  The flip acts only on the hidden payload, so a
 --     grammar of visible entries alone is blind for the trivial
 --     reason; if the packet lane meant visible entries only, this
---     module over-answers and refusal is invited.
+--     module over-answers and refutation is invited.
 --   * The state space is all of M × M; no unimodularity or Γ₀
 --     constraint is imposed on payloads.  The concrete witness pair
 --     (idm, diag(1,-1)) does lie in the closed event fiber; the

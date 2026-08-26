@@ -19,7 +19,7 @@
 --   defect lives.  An unwritten defect is himsa.  There is no third path.
 --
 -- The first organ is checked in Agda: uaβ says transport loses nothing.
--- The second organ is this file: a log with a type, so that a refusal
+-- The second organ is this file: a log with a type, so that an obligation
 -- is an OBJECT and not a silence.
 --
 -- ─────────────────────────────────────────────────────────────────────
@@ -27,18 +27,18 @@
 -- measurement rather than an argument.
 --
 --   ANEKANTA.md §1.  interactive/MathMachine.hs:1743 answered every kernel
---   refusal with 160 characters into a log and a `False`.  A census over
+--   obligation with 160 characters into a log and a `False`.  A census over
 --   that log found the single bit carrying at least four unrelated
---   situations across 1457 refusals, 455 of them claims the SAME LOG
+--   situations across 1457 obligations, 455 of them claims the SAME LOG
 --   accepts elsewhere, one pair four lines apart:
 --
 --       machine.log:146   KERNEL-REJECT  round=0  x = (xmaxx)   refl
 --       machine.log:174   KERNEL-ACCEPT  round=0  x = (xmaxx)   induction on x
 --
---   Nothing was lying.  The refusal simply had nowhere typed to go, so it
+--   Nothing was lying.  The obligation simply had nowhere typed to go, so it
 --   went into prose and stopped being an object.  That is the defect this
 --   organ exists to make structurally impossible: not "agents forget to
---   record", but "a refusal has no type, therefore no reader".
+--   record", but "an obligation has no type, therefore no reader".
 --
 -- ─────────────────────────────────────────────────────────────────────
 -- WHAT EVERY ENTRY MUST CARRY, and why each field is not optional.
@@ -104,7 +104,7 @@
 -- Nor is this interactive/GATE_AUDIT_DISPOSITION.md (what was DONE about six
 -- findings against one gate) or interactive/CertReplay.hs (whether a proved
 -- equation survives a ledger round-trip).  Those are records of repair and
--- of re-checking.  This is the record of REFUSAL.
+-- of re-checking.  This is the record of OBLIGATION.
 --
 -- ─────────────────────────────────────────────────────────────────────
 -- THE KINDS (jati).  Seven of them, and that number is INCIDENTAL: this is

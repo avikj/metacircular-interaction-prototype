@@ -32,7 +32,7 @@
 -- which is `asiddha-is-many-sided` below, a definition and not a
 -- metaphor — and the consequence is inherited with no new proof:
 -- mutually असिद्ध rules **admit no common state**
--- (`asiddha-refuses-collapse`, from `plurality-blocks-collapse`).
+-- (`asiddha-denies-collapse`, from `plurality-blocks-collapse`).
 --
 -- THE INSTANCE, and it is this repository's own machine.  The walk keeps
 -- its state multiplicatively (the lcm, a tropical object) and runs its
@@ -97,10 +97,10 @@ asiddha-is-many-sided visible = refl
 -- and so the consequence is inherited: mutually असिद्ध rules cannot be
 -- given a common state.  No new proof — the Jain theorem discharges
 -- Pāṇini's configuration.
-asiddha-refuses-collapse :
+asiddha-denies-collapse :
   {R : Type ℓ} (visible : R → Type ℓ') →
   Asiddha visible → (Q : Type ℓ') → ¬ (Collapses visible Q)
-asiddha-refuses-collapse visible = plurality-blocks-collapse visible
+asiddha-denies-collapse visible = plurality-blocks-collapse visible
 
 ------------------------------------------------------------------------
 -- 2.  The walk is an असिद्ध system
@@ -123,11 +123,11 @@ walk-is-asiddha p n pp p∣n =
 -- THE CONSEQUENCE.  The walk's two rules admit no common state object.
 -- Every attempt to give the machine one state that both its bookkeeping
 -- and its search can read is refuted, for every prime it has installed.
-walk-refuses-common-state :
+walk-denies-common-state :
   (p n : ℕ) → IsPrime p → p ∣ n →
   (Q : Type) → ¬ (Collapses (walk-view p n) Q)
-walk-refuses-common-state p n pp p∣n =
-  asiddha-refuses-collapse (walk-view p n) (walk-is-asiddha p n pp p∣n)
+walk-denies-common-state p n pp p∣n =
+  asiddha-denies-collapse (walk-view p n) (walk-is-asiddha p n pp p∣n)
 
 ------------------------------------------------------------------------
 -- 3.  Non-vacuity: the smallest instance, fired.
@@ -141,8 +141,8 @@ walk-refuses-common-state p n pp p∣n =
 smallest-asiddha : Asiddha (walk-view 2 2)
 smallest-asiddha = walk-is-asiddha 2 2 isPrime2 2∣2
 
-smallest-refuses-collapse : (Q : Type) → ¬ (Collapses (walk-view 2 2) Q)
-smallest-refuses-collapse = walk-refuses-common-state 2 2 isPrime2 2∣2
+smallest-denies-collapse : (Q : Type) → ¬ (Collapses (walk-view 2 2) Q)
+smallest-denies-collapse = walk-denies-common-state 2 2 isPrime2 2∣2
 
 ------------------------------------------------------------------------
 -- 4.  What this settles, and what it opens.

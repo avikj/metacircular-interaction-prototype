@@ -1,4 +1,5 @@
--- Obstruction — the kernel's refusals, read as material instead of as a verdict.
+-- Obstruction — the kernel's negative answers, read as obligations: material
+-- handed forward, not verdicts.
 --
 -- WHAT THIS IS FOR.
 --
@@ -47,7 +48,7 @@
 -- from the day it lands, and `selfTest` runs against the real log strings
 -- above rather than against invented ones.
 
-module RefusalAnalysis
+module ObligationAnalysis
   ( Term(..)
   , Obstruction(..)
   , parseAgdaTerm
@@ -106,7 +107,7 @@ instance Show Term where
     "(" ++ show a ++ f ++ show b ++ ")"
   show (F f as) = f ++ "(" ++ concatMap show as ++ ")"
 
--- What a refusal turned out to be.
+-- What an obligation turned out to be.
 --
 -- STANDPOINT.  Every constructor below is a report of ONE naya, the
 -- `KernelRefl` standpoint — Agda's definitional equality with `refl` as the
@@ -135,7 +136,7 @@ data Obstruction
 --   _·_  infixl 7      _+_  infixl 6      _∸_  infixl 6
 --   suc / max / le     application, tightest
 --
--- Anything else is refused rather than approximated.
+-- Anything else comes back `Unparsed`, kept verbatim rather than approximated.
 
 type P a = String -> Maybe (a, String)
 
@@ -237,7 +238,7 @@ splitOn sep = go ""
       | sep `isPrefixOf` s = Just (reverse acc, drop (length sep) s)
       | otherwise = go (c:acc) cs
 
--- Classify a refusal against the goal that produced it.
+-- Classify an obligation against the goal that produced it.
 classify :: (Term, Term) -> String -> Obstruction
 classify goal msg = case residualOf msg of
   Nothing -> Unparsed (take 200 msg)
@@ -247,7 +248,7 @@ classify goal msg = case residualOf msg of
   where
     sameEquation (a, b) (c, d) = (a, b) == (c, d) || (a, b) == (d, c)
 
--- The conjectures a batch of refusals is asking for.  `TacticTooWeak` yields
+-- The conjectures a batch of obligations is asking for.  `TacticTooWeak` yields
 -- nothing new to CONJECTURE (the statement is already in hand; what must
 -- change is the tactic), so only genuine residuals are returned.
 obstructionGoals :: [Obstruction] -> [(Term, Term)]
@@ -394,7 +395,7 @@ evalT env (F "max" [a,b]) = max (evalT env a) (evalT env b)
 evalT env (F "-" [a,b]) = max 0 (evalT env a - evalT env b)
 evalT env (F "gcd" [a,b]) = gcd (evalT env a) (evalT env b)
 evalT env (F "le" [a,b]) = if evalT env a <= evalT env b then 1 else 0
-evalT _   _ = 0   -- unknown symbol: no opinion, and `triage` refuses to
+evalT _   _ = 0   -- unknown symbol: no opinion, and `triage` declines to
                   -- pronounce on a term containing one (see `known`)
 
 -- every function symbol occurring in a term, outermost first.  `known` and
@@ -598,7 +599,7 @@ curriculum ls =
 --     KERNEL-ACCEPT  x = (xmaxx)  (induction on x, step = cong suc)
 --
 --   as the log stands 2026-08-20 -- the same claim, still both ways, and
---   the refusal now given a different ground, which is itself the finding:
+--   the denial now given a different ground, which is itself the finding:
 --     KERNEL-ACCEPT round=0 x = (xmaxx)  (induction on x, step = cong suc, 4 agda calls)
 --     KERNEL-REJECT round=0 x = (xmaxx)  (4 agda calls) [naya=induction on x] kernel gate environment fault
 --
@@ -622,15 +623,15 @@ curriculum ls =
 --
 --   asti       — some naya in the log AFFIRMS the claim (an ACCEPT line).
 --   nāsti      — some naya in the log DENIES it (a REJECT line; kernel-refl
---                refused), or the rewriter refutes it by evaluation.
---   avaktavya  — the refusal is not expressible as a standpointed
+--                denied), or the rewriter refutes it by evaluation.
+--   avaktavya  — the kernel's answer is not expressible as a standpointed
 --                predication at all: Agda's message yields no term in the
 --                language, so no `Vacana` is even formable.  This is the
 --                §5 notion of Saptabhangi.agda in its degenerate case, and
 --                it is what `Unparsed` was reaching for.
 --
 -- Note the asymmetry, deliberately kept: absence of an ACCEPT line is NOT
--- recorded as nāsti.  The log records refusals and successes; it does not
+-- recorded as nāsti.  The log records denials and successes; it does not
 -- record a naya declining to try.  Reading silence as denial is the durnaya.
 
 data Naya
@@ -660,7 +661,7 @@ data Sthana = Position Bhanga | ADharmin
 -- verdict "of the kernel" or "of the machine" unindexed.
 data Evidence = Evidence
   { evRewriter   :: Maybe Verdict      -- Nothing when there is no term to judge
-  , evKernelRefl :: Obstruction        -- what refl refused, and how
+  , evKernelRefl :: Obstruction        -- the obligation refl handed back
   , evSakshin    :: Maybe String       -- साक्षिन्: the ACCEPT line that affirms
                                       -- it, if any naya did.  Not a Bool: the
                                       -- witness itself, so affirmation cannot
@@ -888,8 +889,8 @@ selfTest = do
         , "cached: x != x + 0 \183 x of type \8469 when checking that the expression refl has type x \8801 1 \183 x"
         , Residual (x, F "+" [x, F "*" [z0, x]]) )
 
-        -- honest refusal: a section is outside the fragment
-      , ( "section is refused, not guessed"
+        -- honest remainder: a section is outside the fragment
+      , ( "section is kept verbatim, not guessed"
         , (x, x)
         , "cached: cong (x \183_) p != suc x of type \8469"
         , Unparsed "cached: cong (x \183_) p != suc x of type \8469" )
@@ -939,11 +940,11 @@ selfTest = do
         , st "  KERNEL-REJECT round=5 x = -((x+y),y)  (2 agda calls) base clause: x != x + zero of type \8469 when checking that the expression refl has type x \8801 x + zero \8760 zero"
         , Position B2Nasti )
 
-        -- The refusal quoted below mentions a section `cong (x ·_)`,
+        -- The kernel answer quoted below mentions a section `cong (x ·_)`,
         -- which is outside the language of standpointed predication: no
         -- Vacana is formable, so nothing single-standpointed denotes it.
         -- This is `Unparsed` read as what it always was.
-      , ( "avaktavya: refusal not expressible as a standpointed predication"
+      , ( "avaktavya: the answer not expressible as a standpointed predication"
         , st "  KERNEL-REJECT round=0 le(x,0) = -(s(0),(x*x))  (8 agda calls) x \183 le x zero != zero of type \8469 when checking that the expression cong (x \183_) (candidate x) has"
         , Position B6NastiAvaktavya )
 

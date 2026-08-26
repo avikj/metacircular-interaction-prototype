@@ -61,7 +61,7 @@
 --                           operation of a list is enabled at t, then t is
 --                           the source of one of them.  Capability is the
 --                           list of sources, so n theorems give n loci.
---   §4  na-vyapakam         the refusal made concrete: no NativeOperation
+--   §4  na-vyapakam         the denial made concrete: no NativeOperation
 --                           fires at both `zero` and `suc zero`.  A schema
 --                           would; that is exactly what §1 forbids.
 --
@@ -163,7 +163,7 @@ adhikarana-sruta (op ∷ L) t (inl c) = inl (control-sound op c)
 adhikarana-sruta (op ∷ L) t (inr s) = inr (adhikarana-sruta L t s)
 
 ------------------------------------------------------------------------
--- §4.  THE REFUSAL, CONCRETE.
+-- §4.  THE DENIAL, CONCRETE.
 --
 -- A schema fires at a class of terms.  §1 forbids it, and here is the
 -- smallest witness: nothing in this kernel fires at both `zero` and

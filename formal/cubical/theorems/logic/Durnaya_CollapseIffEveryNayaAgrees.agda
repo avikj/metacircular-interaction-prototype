@@ -129,8 +129,8 @@ Mixed-not-agree : ¬ (AllNayasAgree Mixed)
 Mixed-not-agree a = ¬Unit≃Bool (a true false)
 
 -- yet no collapse exists
-Mixed-refuses-collapse : (Q : Type₀) → ¬ (Collapses Mixed Q)
-Mixed-refuses-collapse Q c = Mixed-not-agree (collapse→agree Mixed Q c)
+Mixed-denies-collapse : (Q : Type₀) → ¬ (Collapses Mixed Q)
+Mixed-denies-collapse Q c = Mixed-not-agree (collapse→agree Mixed Q c)
 
 -- the refutation of "there is no third option", as an inhabited type
 third-option-exists :
@@ -139,7 +139,7 @@ third-option-exists :
     × ( (¬ (AllNayasAgree P))
     × ((Q : Type₀) → ¬ (Collapses P Q)) ) )
 third-option-exists =
-  Mixed , Mixed-not-astināsti , Mixed-not-agree , Mixed-refuses-collapse
+  Mixed , Mixed-not-astināsti , Mixed-not-agree , Mixed-denies-collapse
 
 ------------------------------------------------------------------------
 -- 4.  What survives, stated so the next mind inherits the right rule.

@@ -47,7 +47,7 @@
 --   var⟧ σ₁).  Not one — that is Ankapasa's negative, imported.  And
 --   dividing two — that is §3.
 --
--- CONSEQUENCE, and it is a refusal.  In the braid group Bₙ the generators
+-- CONSEQUENCE, and it is a denial.  In the braid group Bₙ the generators
 -- have INFINITE order; σ² = 1 is precisely the relation collapsing Bₙ onto
 -- Sₙ, and non-abelian anyonic statistics live in the monodromy σ².  §5
 -- discharges the hypothesis of infinite order against §3 directly: the
@@ -151,7 +151,7 @@ Ubhaya = ⟦ add var var ⟧ σ₁          -- = Unit ⊎ Unit
 द्विवर्गः = वर्गः , comm-loop-is-a-nontrivial-loop-in-the-universe
 
 ------------------------------------------------------------------------
--- §5  THE REFUSAL.  A braid generator has infinite order.  This one does
+-- §5  THE DENIAL.  A braid generator has infinite order.  This one does
 --     not, and the witness is §3 at the exponent two.
 ------------------------------------------------------------------------
 

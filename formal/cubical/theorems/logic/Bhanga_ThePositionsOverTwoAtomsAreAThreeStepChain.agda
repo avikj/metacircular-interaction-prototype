@@ -13,18 +13,18 @@
 -- reprove or extend their construction.
 --
 -- ────────────────────────────────────────────────────────────────────
--- `Yugapat_TheRefusalOfJointAssertionDoesNotDecompose` found a second
+-- `Yugapat_TheDenialOfJointAssertionDoesNotDecompose` found a second
 -- position and asked the obvious next question: is there a THIRD,
--- between the sequential pair and the refusal of the joint assertion,
+-- between the sequential pair and the denial of the joint assertion,
 -- or are two all there are?
 --
 -- **There is a third, and it sits strictly between them.**
 --
---   Krama Q    = (¬ सामयिक) × (¬ नित्य)     both refused, in sequence
---   Vikalpa Q  = (¬ सामयिक) ⊎ (¬ नित्य)     one of them refused, said
+--   Krama Q    = (¬ सामयिक) × (¬ नित्य)     both denied, in sequence
+--   Vikalpa Q  = (¬ सामयिक) ⊎ (¬ नित्य)     one of them denied, said
 --                                            without saying which
 --   Yugapat Q  = ¬ (सामयिक × नित्य)         their joint assertion
---                                            refused, as one act
+--                                            denied, as one act
 --
 -- WHAT IS PROVED
 --
@@ -80,7 +80,7 @@ open import KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegatio
   using (one)
 open import KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
   using (trivial ; firstAloneHolds ; secondFailsThere)
-open import Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
+open import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
   using (yugapatDecompositionGivesWeakExcludedMiddle)
 
 private

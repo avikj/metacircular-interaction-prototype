@@ -127,7 +127,7 @@ private
 --     `गुरु ∷ []` are distinct patterns of equal weight, so no recovery
 --     map can exist — it would have to return both.  §२ still applies to
 --     मात्रा with no hypothesis, which is exactly the point: the receipt
---     is free and the address is refused.
+--     is free and the address is denied.
 ------------------------------------------------------------------------
 
 data अक्षर : Type₀ where
@@ -162,7 +162,7 @@ data अक्षर : Type₀ where
 भिन्न-रूपे : ¬ (द्विलघु ≡ एकगुरु)
 भिन्न-रूपे p = true≢false (cong शिरः p)
 
--- THE REFUSAL.  A recovery map would have to send one weight back to two
+-- THE DENIAL.  A recovery map would have to send one weight back to two
 -- different patterns, so there is none.
 मात्रा-न-पता : ¬ (पता मात्रा)
 मात्रा-न-पता (g , ret , _) =
