@@ -7,7 +7,7 @@
 --  which every step conserves it by itself.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHERE THIS COMES FROM.  `loss/…/AntyaSamskara_…` instantiates
+-- WHERE THIS COMES FROM.  `fiber/src/Fiber/AntyaSamskara_…` instantiates
 -- the carrier law at Mādhava's end-correction: base = (index of the
 -- correction , the point it is evaluated at), carried = that convergent's
 -- स्थौल्य, coarseness.  Its finding is the exact mirror of the प्रस्तार

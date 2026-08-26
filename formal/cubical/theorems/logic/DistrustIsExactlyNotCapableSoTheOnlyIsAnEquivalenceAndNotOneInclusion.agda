@@ -29,9 +29,9 @@
 -- is a claim about EXACT information content, and one implication gives
 -- an upper bound on what distrust tells you in one direction alone.
 -- What is missing is the converse — that every non-`capable` state is
--- actually graded `false`, so the `false` fibre is EXACTLY the
+-- actually graded `false`, so the `false` fiber is EXACTLY the
 -- complement of `capable` and not merely contained in it — and the
--- constancy of the verdict across that fibre, which is what "forgets
+-- constancy of the verdict across that fiber, which is what "forgets
 -- the reason" asserts.  §"NOT CLAIMED" there lists the missing fourth
 -- state and soundness, and does not list either of these.
 --
@@ -45,7 +45,7 @@
 -- `trusted s ≡ false` is a path in `Bool`, a set; `¬ (s ≡ capable)` is a
 -- negation.  Both are propositions, so the two implications are an
 -- EQUIVALENCE, not a pair — `distrustIsExactlyNotCapable`.  That is what
--- makes `Only` mean what its name says: the fibre is not just contained
+-- makes `Only` mean what its name says: the fiber is not just contained
 -- in the complement, it IS the complement.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -64,7 +64,7 @@
 --                              hence `(trusted s ≡ false) ≃ ¬ (s ≡ capable)`,
 --                              REUSING the audited implication rather
 --                              than restating it
---   verdictIsConstantOnTheDistrustFibre
+--   verdictIsConstantOnTheDistrustFiber
 --                              any two non-`capable` states get the same
 --                              verdict — one line from the converse, no
 --                              case analysis at all, which is the
@@ -120,9 +120,9 @@ distrustIsExactlyNotCapable s =
 -- 3.  And "forgets the reason", stated for every pair rather than one
 ------------------------------------------------------------------------
 
-verdictIsConstantOnTheDistrustFibre :
+verdictIsConstantOnTheDistrustFiber :
   (s t : KernelState)
   → ¬ (s ≡ capable) → ¬ (t ≡ capable)
   → trusted s ≡ trusted t
-verdictIsConstantOnTheDistrustFibre s t hs ht =
+verdictIsConstantOnTheDistrustFiber s t hs ht =
   notCapableGivesDistrust s hs ∙ sym (notCapableGivesDistrust t ht)

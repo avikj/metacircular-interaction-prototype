@@ -10,15 +10,15 @@
 -- WHY THIS EXISTS, AND IT IS A CORRECTION TO HOW I HAD BEEN READING THE
 -- CARRIER LAW ALL DAY.
 --
--- `loss/…/Carrier.agda` gives `A ≃ Carrier f` for every f because
+-- `fiber/src/Fiber/Carrier.agda` gives `A ≃ Carrier f` for every f because
 -- `singl (f a)` is CONTRACTIBLE, and I had been treating "contractible
--- fibre = free" as the whole of it.  It is one of three grades, and
+-- fiber = free" as the whole of it.  It is one of three grades, and
 -- `Bhagahara_TheExactDivisionCarriesItsWitnessAndSixTurnsReachOneAt
 -- SixtyOne.agda` names the one I was missing, in the case that matters:
 --
---     "For the क्षेप the fibre is `singl` — contractible — because the
+--     "For the क्षेप the fiber is `singl` — contractible — because the
 --      roots determine it TOTALLY: every pair has a क्षेप.  For the भागहार
---      the fibre is a proposition and NOT in general inhabited: division
+--      the fiber is a proposition and NOT in general inhabited: division
 --      by k is PARTIAL, and the inhabitant is exactly the divisibility.
 --      Contractible vs. merely propositional is the whole difference
 --      between the भावना (free) and the चक्रवाल (not free)."
@@ -31,23 +31,23 @@
 --                              Nothing to search for.
 --   एकाधिक isProp (fiber f b)  — determined IF it exists.  Uniqueness is
 --                              free; existence is the whole problem.
---   बहु   neither             — the fibre has two points that are not
+--   बहु   neither             — the fiber has two points that are not
 --                              identified.
 --
 -- ~~"not determined.  No search can return the answer because there is no
 -- the."~~ — STRUCK 2026-08-23 by its author, left standing struck.
 --
--- THE H-LEVEL OF THE FIBRE DOES NOT TRACK UNDOABILITY.  `Bahupratyanayana
--- _TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFibrePointsAndThe
+-- THE H-LEVEL OF THE FIBER DOES NOT TRACK UNDOABILITY.  `Bahupratyanayana
+-- _TheObstructionToUndoingIsTwoDistinctSourcesNotTwoFiberPointsAndThe
 -- CircleIsNotAnInstance.agda` exhibits it: `एकवृत्तम् : Unit → S¹`,
--- `tt ↦ base`, HAS a retraction, and its fibre over `base` is `ΩS¹ ≃ ℤ`.
--- So it sits at बहु and is undoable.  Its many fibre points differ only in
+-- `tt ↦ base`, HAS a retraction, and its fiber over `base` is `ΩS¹ ≃ ℤ`.
+-- So it sits at बहु and is undoable.  Its many fiber points differ only in
 -- their WITNESS; their SOURCE is one point.  A LOOP IS NOT A COLLISION.
 --
 -- The obstruction to undoing is TWO DISTINCT SOURCES over one target,
 -- strictly stronger than बहु, and that is its §२ — four lines, no h-level,
 -- no decidability, no finiteness, arbitrary A and B.  §५ below uses
--- `Bool → Unit`, whose two fibre points DO have distinct sources, so the
+-- `Bool → Unit`, whose two fiber points DO have distinct sources, so the
 -- instance stands; the reading did not.  This grade says what its name
 -- says and no more, and what a search can recover is answered by sources.
 --
@@ -60,7 +60,7 @@
 -- computation.
 --
 -- IT CUTS ACROSS THE CENSUS, and that is worth seeing rather than
--- reconciling.  `loss/…/SakalaVikalaDesa` grades a fibre as
+-- reconciling.  `fiber/src/Fiber/SakalaVikalaDesa` grades a fiber as
 -- अवक्तव्यम् (empty) / सकलादेश (contractible) / विकलादेश (two points, not
 -- identified).  `isProp` is the UNION of its first two constructors — at
 -- most one — so the h-level grading and the census are different cuts of
@@ -134,9 +134,9 @@ module _ {A B : Type ℓ} (f : A → B) (b : B) where
   लब्धि-निर्धारिता p x y = cong fst (p x y)
 
 ------------------------------------------------------------------------
--- ४ · The empty fibre is at the middle grade, which is why `isProp` is
+-- ४ · The empty fiber is at the middle grade, which is why `isProp` is
 --     the UNION of the census's first two constructors and not a coarser
---     version of either.  An uninhabited fibre is a proposition and is
+--     version of either.  An uninhabited fiber is a proposition and is
 --     not contractible, so the middle grade genuinely spans them.
 ------------------------------------------------------------------------
 
@@ -150,7 +150,7 @@ module _ {A B : Type ℓ} (f : A → B) (b : B) where
 
 ------------------------------------------------------------------------
 -- ५ · The bottom grade, so §३ is a distinction and not a vacuity: where
---     the fibre is crowded a search CANNOT stop at the first hit, because
+--     the fiber is crowded a search CANNOT stop at the first hit, because
 --     the two hits are provably different and neither is "the" answer.
 --     `Bool → Unit`, the smallest collapse there is.
 ------------------------------------------------------------------------

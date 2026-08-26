@@ -24,7 +24,7 @@
 -- type D with a distinguished zero, an invariant χ : D → A killing that
 -- zero, and the exact logical asymmetry between the two directions.
 --
--- NOT formalized: stable ∞-categories, cofibre sequences, K₀, or the
+-- NOT formalized: stable ∞-categories, cofiber sequences, K₀, or the
 -- Grothendieck group of D^b(Vect_k).  §2 below is a FAITHFUL FINITE
 -- MODEL of the K₀ argument and is not the derived-category statement
 -- itself: it replaces an object of D^b(Vect_k) with the pair of its
@@ -33,7 +33,7 @@
 -- k ⊕ k[1] with (1 , 1).  Under that replacement the note's witness is
 -- reproduced exactly: the model's χ(1,1) = 1 − 1 = 0 while
 -- (1,1) ≢ (0,0).  What the model does NOT show is that D^b(Vect_k)
--- realizes the pair (1,1) as a cofibre — that is the note's §4.3, done
+-- realizes the pair (1,1) as a cofiber — that is the note's §4.3, done
 -- with pen, and it is quoted here, not re-proved.  No claim of this
 -- module depends on the derived-category reading; every claim of this
 -- module is about the abstract shape, and the finite model is exhibited

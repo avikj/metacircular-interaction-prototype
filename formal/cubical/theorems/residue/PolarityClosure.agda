@@ -257,7 +257,7 @@ module BooleanGloss {ℓ} (X : Type ℓ) where
     , cl-ext α
 
 -- The Bool-valued corollary, at ℓ-zero to keep the characteristic
--- function's fibres literally Unit and ⊥: a subset given by a
+-- function's fibers literally Unit and ⊥: a subset given by a
 -- characteristic function is decidable, so for it the closure is the
 -- identity map.  This is the vacuity of D0020 §5's boxed display as a
 -- term.

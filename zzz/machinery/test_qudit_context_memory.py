@@ -39,7 +39,7 @@ class LagrangianCover(unittest.TestCase):
                 expected *= d ** k + 1
             self.assertEqual(len(lagrangians(nonzero(n, d), n, d)), expected)
 
-    def test_character_fibre_has_d_to_the_n(self):
+    def test_character_fiber_has_d_to_the_n(self):
         for n, d in ((1, 3), (1, 5), (2, 3)):
             for L in lagrangians(nonzero(n, d), n, d):
                 self.assertEqual(len(characters(L, n, d)), d ** n)

@@ -10,7 +10,7 @@
 --
 --   * an Iso of the two realized-output carriers;
 --   * an Iso of their equality kernels; and
---   * an Iso of every pair of corresponding input fibres; and
+--   * an Iso of every pair of corresponding input fibers; and
 --   * an Iso between their factorization witnesses for every set-valued
 --     downstream target.
 --
@@ -178,7 +178,7 @@ module MutualCompression
   Iso.leftInv realizedOutputIso = expand-last
 
 ------------------------------------------------------------------------
--- 2. The pointwise kernel and fibre consequences
+-- 2. The pointwise kernel and fiber consequences
 ------------------------------------------------------------------------
 
   kernelIso :

@@ -6,14 +6,14 @@
 -- A reversible action on a predictive quotient and a reversible physical
 -- implementation are different typed statements.  If q : X -> Q forgets
 -- physical states and u : Q ≅ Q is the effective unit, then the physical-
--- source observed map u ∘ q has exactly the fibres of q, relabelled by u.
+-- source observed map u ∘ q has exactly the fibers of q, relabelled by u.
 -- Its coherent side-memory therefore does not disappear.  Unit environment
 -- is attained only after Q itself becomes the input source.
 --
 -- The concrete control is Apoha's minimal three-state reversal: a
 -- nonidentity idempotent reset becomes identity after merging states 0 and 1
 -- while retaining state 2.  The quotient identity needs Unit from quotient
--- input, but the physical-source observed map has a Bool fibre and Bool is
+-- input, but the physical-source observed map has a Bool fiber and Bool is
 -- both necessary and sufficient as an exact certificate alphabet.
 ------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ private
     Q : Type ℓq
 
 ------------------------------------------------------------------------
--- 1. A quotient unit only relabels the physical-source fibres
+-- 1. A quotient unit only relabels the physical-source fibers
 ------------------------------------------------------------------------
 
 observed : (X → Q) → Iso Q Q → X → Q
@@ -64,14 +64,14 @@ Iso.leftInv (postIsoFiber q u isSetQ y) _ =
   Σ≡Prop (λ _ → isSetQ _ _) refl
 
 -- Every exact physical-source certificate contains the corresponding
--- original q-fibre.  Postcomposition by the unit cannot lower this bound.
-physical-fibre-lower :
+-- original q-fiber.  Postcomposition by the unit cannot lower this bound.
+physical-fiber-lower :
   {Environment : Type ℓe}
   (q : X → Q) (u : Iso Q Q) (isSetQ : isSet Q)
   (certificate : X → Environment)
   → isEmbedding (Cert.recorded (observed q u) certificate)
   → (y : Q) → fiber q (Iso.inv u y) ↪ Environment
-physical-fibre-lower q u isSetQ certificate embedding y =
+physical-fiber-lower q u isSetQ certificate embedding y =
   compEmbedding
     (Cert.fiber↪cert (observed q u) certificate embedding y)
     (Equiv→Embedding
@@ -188,7 +188,7 @@ physical-environment-lower certificate embedding =
     (Cert.fiber↪cert physicalObserved certificate embedding false)
     (Equiv→Embedding (isoToEquiv (invIso falsePhysicalFiberIso)))
 
--- One bit records precisely which member of the merged fibre was present.
+-- One bit records precisely which member of the merged fiber was present.
 physicalCertificate : Physical → Bool
 physicalCertificate (inl _)  = false
 physicalCertificate (inr tt) = true

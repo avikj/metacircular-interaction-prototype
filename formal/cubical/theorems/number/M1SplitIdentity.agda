@@ -51,7 +51,7 @@
 --   f and every w.  Instantiating w n = 1/n² turns w 2 into ¼; that
 --   instantiation is arithmetic in ℚ and is not performed here.
 --
--- SECOND RESULT (§5).  `sharp-collapse`: if a weight ω and a fibre value
+-- SECOND RESULT (§5).  `sharp-collapse`: if a weight ω and a fiber value
 -- c satisfy  c q ≡ φ q  and  ω q ⊗ φ q ≡ μ q  for every q, then
 -- Σ_{q≤Q} ω q ⊗ c q ≡ Σ_{q≤Q} μ q.  With ω q = μ(q)/φ(q), φ = Euler,
 -- c = the Ramanujan sum c_q(n), this is Λ♯_Q(n) = M(Q).  The two

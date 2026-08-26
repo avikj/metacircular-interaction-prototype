@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ContractibleFiberSectionBoundary
 --
--- A section of the dependent path-fibre bundle
+-- A section of the dependent path-fiber bundle
 --
 --     a ↦ Σ[ x ∈ A ] (a ≡ x)
 --
@@ -28,13 +28,13 @@ private
   variable
     ℓ : Level
 
--- The path fibre rooted at a.  This is the sampled module's `insideView`
+-- The path fiber rooted at a.  This is the sampled module's `insideView`
 -- carrier, exposed here so that its actual section type is unambiguous.
 InsideFiber : (A : Type ℓ) → A → Type ℓ
 InsideFiber A a = Σ[ x ∈ A ] (a ≡ x)
 
 -- A dependent section chooses a point and a path from the root in every
--- rooted fibre.  No truncation appears in this type.
+-- rooted fiber.  No truncation appears in this type.
 InsideSections : Type ℓ → Type ℓ
 InsideSections A = (a : A) → InsideFiber A a
 
@@ -43,7 +43,7 @@ canonicalInsideSection : {A : Type ℓ} → InsideSections A
 canonicalInsideSection a = a , refl
 
 -- More strongly, there is only one such section up to path: products of
--- contractible path fibres are contractible.
+-- contractible path fibers are contractible.
 insideSectionsContr : {A : Type ℓ} → isContr (InsideSections A)
 insideSectionsContr = isContrΠ Descent.insideView
 

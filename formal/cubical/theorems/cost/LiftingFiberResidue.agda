@@ -6,7 +6,7 @@
 --
 -- THE SENTENCE UNDER AUDIT.  That note fixes a forgetful functor
 -- `U : C -> D`, relaxed candidates `p` downstairs, and defines the exact
--- residual of `p` to be the lifting fibre
+-- residual of `p` to be the lifting fiber
 --
 --     Lift_U(p) = { f in F_C(A,B) : U(f) = p }.
 --
@@ -35,13 +35,13 @@
 --   §2  TRANSPORT is constructive and hypothesis-free.  `paretoLift`
 --       needs no truncation, no decidability, no h-level assumption, no
 --       faithfulness, and no univalence.  It is true of EVERY element of
---       the fibre, exactly as the note says.  This is the strong part and
+--       the fiber, exactly as the note says.  This is the strong part and
 --       it survives intact.
 --
 --   §3  The residue at the level of WITNESSES.  For `A` and `B` sets,
 --       `witness = fst : LiftFib U p → A` factors through
 --       `∥ LiftFib U p ∥₁` IF AND ONLY IF the lift is unique
---       (`factors↔isProp`).  So the compression "replace the fibre by
+--       (`factors↔isProp`).  So the compression "replace the fiber by
 --       mere inhabitation" is sound for asserting validity and unsound
 --       for performing step 4, with the exact boundary being uniqueness
 --       of the lift — not a weakening one may take and repay later.
@@ -54,8 +54,8 @@
 --
 --       and `liftDNS→LEM` shows this schema IMPLIES excluded middle for
 --       propositions (`lem→liftDNS` gives the converse, so it IS
---       excluded middle).  The mechanism is `everySetIsAFibre`: every
---       set is, up to equivalence, a lifting fibre of a map between
+--       excluded middle).  The mechanism is `everySetIsAFiber`: every
+--       set is, up to equivalence, a lifting fiber of a map between
 --       sets, so the schema cannot be weaker than unrestricted
 --       double-negation shift.  The note's biconditional is therefore
 --       not an oversight of notation; at its stated generality it is a
@@ -65,7 +65,7 @@
 --       wrong sentence.  Two paragraphs below VALIDITY it says "For
 --       discrete feasible candidate sets, ...".  `decLiftFib` shows that
 --       hypothesis is exactly what VALIDITY needs: given an ENUMERATION
---       `A ≃ Fin n` and `Discrete B`, the fibre is decidable WITH
+--       `A ≃ Fin n` and `Discrete B`, the fiber is decidable WITH
 --       WITNESS, so all of `LiftFib`, `∥ LiftFib ∥₁` and `¬ ¬ LiftFib`
 --       coincide (`collapse`) and step 4 goes through.
 --
@@ -106,7 +106,7 @@
 --    routinely observed to coincide only classically, e.g. the nLab
 --    discussion of double-negation as an approximation to truncation).
 --    The content claimed as new is the AUDIT: §3's uniqueness boundary,
---    §4's `everySetIsAFibre` reduction pinning the note's own sentence
+--    §4's `everySetIsAFiber` reduction pinning the note's own sentence
 --    to that principle, and §5's identification of the repair already
 --    present in the note.
 --
@@ -139,7 +139,7 @@ private
     ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
--- 1.  The lifting fibre.
+-- 1.  The lifting fiber.
 ------------------------------------------------------------------------
 
 -- `U` forgets structure; `LiftFib U p` is the note's `Lift_U(p)`, kept
@@ -170,7 +170,7 @@ module Pareto {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
   MinC f = (g : A) → c (U g) ≺ c (U f) → ⊥
 
   -- THE NOTE'S TRANSPORT SENTENCE, VERBATIM AND CONSTRUCTIVE:
-  -- every element of the fibre over a downstairs optimum is an upstairs
+  -- every element of the fiber over a downstairs optimum is an upstairs
   -- optimum.  An upstairs dominator forgets to a downstairs dominator.
   --
   -- Note what is absent: no truncation, no `Dec`, no `isSet`, no
@@ -192,7 +192,7 @@ module Pareto {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
 
 -- "`h` factors through mere inhabitation", with the factorisation
 -- required to compute correctly on witnesses.  This is precisely what
--- step 4 would need if the fibre had been compressed to `∥ · ∥₁`.
+-- step 4 would need if the fiber had been compressed to `∥ · ∥₁`.
 FactorsThroughTrunc : {X : Type ℓ} {Y : Type ℓ'} (h : X → Y) → Type (ℓ-max ℓ ℓ')
 FactorsThroughTrunc {X = X} {Y = Y} h = Σ[ g ∈ (∥ X ∥₁ → Y) ] ((x : X) → g ∣ x ∣₁ ≡ h x)
 
@@ -210,7 +210,7 @@ factors→2Const (g , β) x y =
 2Const→factors {h = h} isSetY k = Prop.rec→Set isSetY h k , λ _ → refl
 
 -- Weak constancy of `witness` IS uniqueness of the lift, when `B` is a
--- set (so that `U f ≡ p` is a proposition and the fibre is a Σ over a
+-- set (so that `U f ≡ p` is a proposition and the fiber is a Σ over a
 -- subsingleton family).
 2Const-witness→isProp : {A : Type ℓ} {B : Type ℓ'} {U : A → B} {p : B}
                       → isSet B
@@ -223,12 +223,12 @@ isProp→2Const-witness : {A : Type ℓ} {B : Type ℓ'} {U : A → B} {p : B}
                       → 2-Constant (witness {U = U} {p = p})
 isProp→2Const-witness ip l m = cong witness (ip l m)
 
--- THE BOUNDARY.  For `A`, `B` sets: the witness map of a lifting fibre
+-- THE BOUNDARY.  For `A`, `B` sets: the witness map of a lifting fiber
 -- factors through mere validity exactly when the lift is unique.
 --
 -- Read as a prohibition: if a relaxed optimum `p` admits two distinct
 -- structured lifts, then NO function on `∥ Lift_U(p) ∥₁` performs step 4.
--- Truncating the fibre keeps the note's VALIDITY sentence and destroys
+-- Truncating the fiber keeps the note's VALIDITY sentence and destroys
 -- the note's own step 4.  This is the compression that is unsound as a
 -- reusable move, stated exactly.
 factors→isProp : {A : Type ℓ} {B : Type ℓ'} {U : A → B} {p : B}
@@ -252,7 +252,7 @@ factors↔isProp : {A : Type ℓ} {B : Type ℓ'} {U : A → B} {p : B}
 factors↔isProp isSetA isSetB = factors→isProp isSetB , isProp→factors isSetA
 
 -- A concrete instance of the prohibition: `U : Bool-like → Unit` has a
--- two-element fibre, so its witness map admits no factorisation.
+-- two-element fiber, so its witness map admits no factorisation.
 -- (Stated over an arbitrary type with two provably distinct points, so
 -- that no `Bool` machinery is needed.)
 noFactorOnTwoPoints :
@@ -271,17 +271,17 @@ LEM : (ℓ : Level) → Type (ℓ-suc ℓ)
 LEM ℓ = (P : Type ℓ) → isProp P → Dec P
 
 -- The note's biconditional, read constructively and at the generality it
--- is stated: "the fibre is nonempty" gives "the fibre is inhabited",
+-- is stated: "the fiber is nonempty" gives "the fiber is inhabited",
 -- uniformly in the forgetful map.  Restricted to SETS, which is the only
 -- case the note is about (hom-sets of feasible morphisms).
 LiftDNS : (ℓ : Level) → Type (ℓ-suc ℓ)
 LiftDNS ℓ = {A B : Type ℓ} → isSet A → isSet B → (U : A → B) (p : B)
           → ((LiftFib U p → ⊥) → ⊥) → ∥ LiftFib U p ∥₁
 
--- Every type is a lifting fibre: forget everything.  `Σ[ x ∈ X ] (tt* ≡ tt*)`
--- has contractible second component, so the fibre IS `X`.
-everySetIsAFibre : (X : Type ℓ) → LiftFib {A = X} {B = Unit* {ℓ}} (λ _ → tt*) tt* ≃ X
-everySetIsAFibre X =
+-- Every type is a lifting fiber: forget everything.  `Σ[ x ∈ X ] (tt* ≡ tt*)`
+-- has contractible second component, so the fiber IS `X`.
+everySetIsAFiber : (X : Type ℓ) → LiftFib {A = X} {B = Unit* {ℓ}} (λ _ → tt*) tt* ≃ X
+everySetIsAFiber X =
   Σ-contractSnd (λ _ → isProp→isContrPath isPropUnit* tt* tt*)
 
 -- `Dec P` is a set when `P` is a proposition, and is irrefutable.
@@ -294,7 +294,7 @@ private
 --
 -- Take the feasible structured candidates to be `Dec P` and forget
 -- everything: the relaxed problem is trivial, so `p = tt*` is vacuously
--- Pareto-optimal and its fibre is irrefutable.  VALIDITY hands back a
+-- Pareto-optimal and its fiber is irrefutable.  VALIDITY hands back a
 -- mere decision, which is a proposition, so it untruncates.  Nothing
 -- about optimisation is used — which is the point: the sentence is
 -- carrying a logical principle, not a fact about forgetting.
@@ -309,7 +309,7 @@ liftDNS→LEM {ℓ = ℓ} dns P isPropP =
     isSetA = isProp→isSet (isPropDec isPropP)
 
     e : LiftFib {A = A} {B = Unit* {ℓ}} (λ _ → tt*) tt* ≃ A
-    e = everySetIsAFibre A
+    e = everySetIsAFiber A
 
     ¬¬fib : ((LiftFib {A = A} {B = Unit* {ℓ}} (λ _ → tt*) tt* → ⊥) → ⊥)
     ¬¬fib k = ¬¬Dec {P = P} (λ d → k (invEq e d))
@@ -319,7 +319,7 @@ liftDNS→LEM {ℓ = ℓ} dns P isPropP =
 
 -- Converse: excluded middle does prove VALIDITY, so the two are
 -- equivalent and §4 has located the principle exactly, not merely a
--- lower bound.  (Decide `∥ fibre ∥₁`, which is a proposition.)
+-- lower bound.  (Decide `∥ fiber ∥₁`, which is a proposition.)
 lem→liftDNS : LEM ℓ → LiftDNS ℓ
 lem→liftDNS lem {A = A} {B = B} _ _ U p nn =
   decide (lem ∥ LiftFib U p ∥₁ isPropPropTrunc)
@@ -350,7 +350,7 @@ searchFin (suc n) Q dq = step (dq (inl tt)) (searchFin n (λ k → Q (inr k)) (�
         neither (inr k  , q) = ¬r (k , q)
 
 -- With an ENUMERATION of the structured candidates and a discrete
--- relaxed target, the lifting fibre is decidable — and `yes` carries the
+-- relaxed target, the lifting fiber is decidable — and `yes` carries the
 -- lift itself, which is what §5 step 4 consumes.
 decLiftFib : {A : Type ℓ} {B : Type ℓ'} (n : ℕ) (enum : A ≃ Fin n)
            → Discrete B → (U : A → B) (p : B) → Dec (LiftFib U p)

@@ -155,7 +155,7 @@ value-at-one-factors = (λ g → g 1) , (λ _ → refl)
 -- Reformulations — Pāṇini's, and `WalkFast`'s — are exactly the moves in
 -- the kernel of `eval`.  Every semantic invariant, univalent ones
 -- included, is blind to that kernel by construction.  लाघव is a measure
--- on the fibre, and `laghava-is-not-semantic` proves the fibre is not a
+-- on the fiber, and `laghava-is-not-semantic` proves the fiber is not a
 -- point.
 --
 -- That is why the grammarians needed a criterion beyond correctness, and

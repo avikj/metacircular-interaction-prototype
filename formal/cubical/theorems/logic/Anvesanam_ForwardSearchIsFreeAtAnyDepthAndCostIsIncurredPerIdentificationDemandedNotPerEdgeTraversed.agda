@@ -85,7 +85,7 @@ module _ {A : Type ℓ} (step : A → A) where
 -- ३ · शेषः — what a search still owes.
 --
 -- §२ says nothing about whether any particular target is REACHED; it
--- prices the exploration, not the answer.  Reachability is a fibre
+-- prices the exploration, not the answer.  Reachability is a fiber
 -- question, its three verdicts are `Tantutrayam_…agda`'s, and its empty
 -- case is `Anupalabdhi_…agda`'s Π over the whole field.  A search that
 -- conflates "I explored and did not arrive" with "there is no route" has

@@ -6,7 +6,7 @@
 -- The canonical corollary of the corrected holonomy descent obstruction:
 -- a family with nontrivial loop transport cannot descend to the set
 -- truncation of its base.  The set truncation may preserve components and
--- every pointwise fibre type; what it destroys is the distinction between
+-- every pointwise fiber type; what it destroys is the distinction between
 -- the observed loop and refl, so it cannot carry the local system.
 ------------------------------------------------------------------------
 

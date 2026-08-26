@@ -86,7 +86,7 @@ private theorem sum_range_ite_lt
   rw [sum_range_ite_lt_fun (fun _ ↦ a) N K hK,
     Finset.sum_const, Finset.card_range]
 
-/-- Summing out `j` turns the witness fibre into natural-number scalar weight. -/
+/-- Summing out `j` turns the witness fiber into natural-number scalar weight. -/
 theorem sum_weightedTriples_eq_tent
     {A : Type*} [AddCommMonoid A] (h : ℕ → ℕ → A) (N : ℕ) :
     (∑ x ∈ weightedTriples N, h x.1 x.2.1) =

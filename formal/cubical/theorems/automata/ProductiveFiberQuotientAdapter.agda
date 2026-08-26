@@ -3,10 +3,10 @@
 ------------------------------------------------------------------------
 -- ProductiveFiberQuotientAdapter
 --
--- The productive future-view fibre retains a candidate Net and a path from
+-- The productive future-view fiber retains a candidate Net and a path from
 -- its complete view code to the centre's code.  When Jewel is a set, that
 -- path induces complete singleton-action FutureEq and hence a path to the
--- centre in FutureQuotient.Meaning.  Thus the entire homotopy fibre maps
+-- centre in FutureQuotient.Meaning.  Thus the entire homotopy fiber maps
 -- constantly to one quotient point; it is not itself the quotient carrier.
 --
 -- The set hypothesis is load-bearing.  Without it, TotalView is not known
@@ -53,15 +53,15 @@ module Adapter {Root Jewel : Type₀} (setJewel : isSet Jewel) where
     (isSetTotalView setJewel)
     PIN.Net.view
 
-  -- Keep the candidate component of the actual homotopy fibre, then name its
+  -- Keep the candidate component of the actual homotopy fiber, then name its
   -- complete observable meaning.  The path witness has not been discarded:
   -- fiberToCenter below consumes it.
   fiberToMeaning : (center : PIN.Net Root Jewel)
     → POF.FutureViewFiber center → FQ.Meaning
   fiberToMeaning center point = [ fst point ]
 
-  -- Every point of the encoder fibre lands at the centre's single quotient
-  -- class.  This is the exact map from proof-relevant fibre data to the
+  -- Every point of the encoder fiber lands at the centre's single quotient
+  -- class.  This is the exact map from proof-relevant fiber data to the
   -- set-truncated behavioral carrier.
   fiberToCenter : (center : PIN.Net Root Jewel)
     → (point : POF.FutureViewFiber center)

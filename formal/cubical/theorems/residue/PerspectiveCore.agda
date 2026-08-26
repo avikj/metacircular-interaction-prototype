@@ -21,7 +21,7 @@
 -- WHAT IS CHECKED, BY DELTA-14 NUMBER
 --
 --   §A  `restricts-suff`     T14.6, sufficient direction: if the two
---                            sector predicates correspond fibrewise
+--                            sector predicates correspond fiberwise
 --                            along `e`, the equivalence restricts.
 --       `restricts-nec`      T14.6, necessary direction, in the form
 --                            that is actually true (see below).
@@ -37,24 +37,24 @@
 --                            Periods follow from `conj-iterate` and are
 --                            stated for period n as `conj-per`.
 --
---   §D  `section→inhabited`  T14.21: a section makes every fibre
+--   §D  `section→inhabited`  T14.21: a section makes every fiber
 --                            inhabited …
 --       `inhabited↛contr`    … and NOT contractible, with the witness
 --                            `Bool` — an inhabited non-contractible
---                            fibre exists, so the implication genuinely
+--                            fiber exists, so the implication genuinely
 --                            fails rather than merely being unproved.
 --       `constMonodromy`     P14.24: for the constant two-point family
 --                            over ANY base, transport along ANY path is
---                            the identity.  So a two-point fibre alone
+--                            the identity.  So a two-point fiber alone
 --                            carries no monodromy.
 --       `twoPointNoObstr`    C14.25, stated as the contrapositive that
---                            is usable: exhibiting a two-element fibre
+--                            is usable: exhibiting a two-element fiber
 --                            does not exhibit an obstruction, because
---                            `B × Bool → B` has two-element fibres and
+--                            `B × Bool → B` has two-element fibers and
 --                            trivial transport throughout.
 --
---   §H  `restrict-fibre`     T14.44: a total-space map restricts to the
---                            fibre over `c₀` exactly when its base
+--   §H  `restrict-fiber`     T14.44: a total-space map restricts to the
+--                            fiber over `c₀` exactly when its base
 --                            component fixes `c₀`.
 --       `transport-back`     T14.45: and if the base component moves
 --                            `c₀` to `c₁`, a path `c₁ ≡ c₀` returns the
@@ -67,11 +67,11 @@
 -- A₊(a) ↔ B₊(e a) for all a"*.  Read literally in a proof-relevant
 -- setting that is FALSE in the ← direction, and the file says so rather
 -- than quietly weakening it.  A restriction `Σ A A₊ ≃ Σ B B₊` need not
--- arise from fibrewise maps at all: it may permute the base.  What IS
+-- arise from fiberwise maps at all: it may permute the base.  What IS
 -- true, and is `restricts-nec` below, is the direction that gets used:
 -- if the restriction is *over* `e` (i.e. its first component is `e`),
 -- then the predicates correspond.  The unrestricted converse needs
--- either "over `e`" or a fibrewise hypothesis, and adding it silently
+-- either "over `e`" or a fiberwise hypothesis, and adding it silently
 -- would be exactly Delta 14 §N's **P14.67 false-quotient danger** in
 -- miniature.
 --
@@ -79,10 +79,10 @@
 -- WHAT IS NOT CLAIMED
 --
 --  * **T14.19 and T14.22 are NOT re-proved.**  "q is an equivalence iff
---    every homotopy fibre is contractible" is `Cubical.Foundations.Equiv`'s
+--    every homotopy fiber is contractible" is `Cubical.Foundations.Equiv`'s
 --    *definition* of `isEquiv` together with `isoToEquiv`/`equivToIso`;
 --    "a path `b ≡ b'` induces `fib q b ≃ fib q b'`" is `subst` on the
---    fibre family.  Delta 14 labels both "Known" and they are one import
+--    fiber family.  Delta 14 labels both "Known" and they are one import
 --    away.  Re-deriving them would be the rediscovery failure this
 --    corpus has documented repeatedly.
 --
@@ -130,7 +130,7 @@ private
 -- selected sector on each side, does the equivalence restrict?
 ------------------------------------------------------------------------
 
--- T14.6, sufficient direction.  Fibrewise correspondence of the sector
+-- T14.6, sufficient direction.  Fiberwise correspondence of the sector
 -- predicates gives the restricted equivalence.
 restricts-suff :
   (e : A ≃ B) (A₊ : A → Type ℓ'') (B₊ : B → Type ℓ'')
@@ -155,7 +155,7 @@ SectorBreak : (e : A ≃ B) (A₊ : A → Type ℓ'') (B₊ : B → Type ℓ'') 
 SectorBreak {A = A} e A₊ B₊ =
   Σ[ a ∈ A ] (A₊ a × (B₊ (equivFun e a) → ⊥))
 
--- … and a break really does obstruct: no fibrewise correspondence can
+-- … and a break really does obstruct: no fiberwise correspondence can
 -- exist once one is exhibited.
 sector-not-inv :
   (e : A ≃ B) (A₊ : A → Type ℓ'') (B₊ : B → Type ℓ'')
@@ -204,7 +204,7 @@ conj-per e f n a p =
   ∙ cong (equivFun e) (cong (iter f n) (retEq e a) ∙ p)
 
 ------------------------------------------------------------------------
--- D.  FIBRES, SECTIONS, AND THE MONODROMY QUESTION
+-- D.  FIBERS, SECTIONS, AND THE MONODROMY QUESTION
 --     (T14.21, P14.24, C14.25)
 --
 -- This is the section of Delta 14 that lands directly on live work.
@@ -214,7 +214,7 @@ conj-per e f n a p =
 -- attached to the second, and it is a warning this corpus needed.
 ------------------------------------------------------------------------
 
--- T14.21.  A section makes every fibre inhabited.
+-- T14.21.  A section makes every fiber inhabited.
 section→inhabited :
   (q : A → B) (s : B → A) → ((b : B) → q (s b) ≡ b)
   → (b : B) → fiber q b
@@ -222,8 +222,8 @@ section→inhabited q s sect b = s b , sect b
 
 -- … but NOT contractible, and here is the witness rather than the
 -- assertion: the first projection `B × Bool → B` has a section, and its
--- fibre over any `b` contains two distinct points.
-module TwoPointFibre {B : Type ℓ} (b : B) where
+-- fiber over any `b` contains two distinct points.
+module TwoPointFiber {B : Type ℓ} (b : B) where
 
   pr : B × Bool → B
   pr = fst
@@ -238,14 +238,14 @@ module TwoPointFibre {B : Type ℓ} (b : B) where
   ptTrue  = (b , true)  , refl
   ptFalse = (b , false) , refl
 
-  -- The two fibre points are distinct, so the fibre is not a proposition
+  -- The two fiber points are distinct, so the fiber is not a proposition
   -- and a fortiori not contractible.
-  fibre-not-prop : isProp (fiber pr b) → ⊥
-  fibre-not-prop hp =
+  fiber-not-prop : isProp (fiber pr b) → ⊥
+  fiber-not-prop hp =
     true≢false (cong (λ z → z .fst .snd) (hp ptTrue ptFalse))
 
 -- P14.24.  For a CONSTANT family over any base, transport along any path
--- is the identity.  So "the fibre has two points" supplies no monodromy
+-- is the identity.  So "the fiber has two points" supplies no monodromy
 -- whatsoever — the sheets are never exchanged.
 constMonodromy :
   {B : Type ℓ} {C : Type ℓ'} {b b' : B} (p : b ≡ b') (x : C)
@@ -255,10 +255,10 @@ constMonodromy p x = transportRefl x
 -- C14.25, in the form a lane can actually use.
 --
 -- **A residual bit is not an obstruction.**  If someone exhibits a
--- two-element fibre and calls it a binary obstruction, the above is the
--- counterexample: `B × Bool → B` has two-element fibres over every point,
+-- two-element fiber and calls it a binary obstruction, the above is the
+-- counterexample: `B × Bool → B` has two-element fibers over every point,
 -- admits a section, and has trivial transport along every loop.  What an
--- obstruction requires is that some loop ACT nontrivially on the fibre —
+-- obstruction requires is that some loop ACT nontrivially on the fiber —
 -- sheet exchange — and that is a strictly further fact which must be
 -- exhibited separately.
 --
@@ -270,9 +270,9 @@ MonodromyOf F b p = Σ[ x ∈ F b ] (subst F p x ≡ x → ⊥)
 
 -- P14.24 / C14.25.  A CONSTANT two-sheet family over any base admits no
 -- monodromy at all: every loop acts as the identity.  Together with the
--- module above — two distinct points in the fibre, and a section — this
--- is the counterexample in full: two-element fibres, a section, and
--- trivial transport along every loop.  So neither "the fibre has two
+-- module above — two distinct points in the fiber, and a section — this
+-- is the counterexample in full: two-element fibers, a section, and
+-- trivial transport along every loop.  So neither "the fiber has two
 -- elements" nor "a section exists" is evidence of an obstruction.
 --
 -- SCOPE, and it is narrower than a first draft of this file claimed.
@@ -307,7 +307,7 @@ twoSheetNoObstr = constNoMonodromy Bool
 --
 -- Delta 14 §H: charge as a dependent index `G : C → U`, the
 -- grand-canonical object as the total space `Σ C G`, a fixed charge as a
--- fibre.  When does a transformation of the total space restrict to a
+-- fiber.  When does a transformation of the total space restrict to a
 -- sector?
 ------------------------------------------------------------------------
 
@@ -319,13 +319,13 @@ module Graded {C : Type ℓ} (G : C → Type ℓ') where
   base : Total → C
   base = fst
 
-  -- T14.44.  A total-space map restricts to the fibre over `c₀` exactly
+  -- T14.44.  A total-space map restricts to the fiber over `c₀` exactly
   -- when its base component fixes `c₀`.
-  restrict-fibre :
+  restrict-fiber :
     (T : Total → Total) (c₀ : C)
     → ((g : G c₀) → base (T (c₀ , g)) ≡ c₀)
     → G c₀ → G c₀
-  restrict-fibre T c₀ fixes g = subst G (fixes g) (T (c₀ , g) .snd)
+  restrict-fiber T c₀ fixes g = subst G (fixes g) (T (c₀ , g) .snd)
 
   -- T14.45.  If instead the base component sends `c₀` to some `c₁`, a
   -- supplied path returns the output to `G c₀` by transport.  This is

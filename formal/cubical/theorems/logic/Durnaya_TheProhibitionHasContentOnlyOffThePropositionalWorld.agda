@@ -30,7 +30,7 @@
 -- (Landing 27, 2026-08-19), the sharpest thing left over — declining to
 -- take it, so that someone else could:
 --
---     "if every fibre is an hProp, AllNayasAgree degenerates to logical
+--     "if every fiber is an hProp, AllNayasAgree degenerates to logical
 --      equivalence and the collapse prohibition may say far less than the
 --      README asks it to — and the README asks it to govern real
 --      disagreements between agents."
@@ -42,7 +42,7 @@
 --   §4  off them it is strictly more — `Mixed` (the very witness that
 --       refuted the old dichotomy) mutually entails and does not agree;
 --   §5  and the reason is exactly non-propositionality: `Mixed`'s second
---       fibre is `Bool`, which is not an hProp.
+--       fiber is `Bool`, which is not an hProp.
 --
 -- So the content of अनेकान्त here is precisely the content a standpoint
 -- carries BEYOND its truth value.  If a naya is only a proposition, the
@@ -52,7 +52,7 @@
 -- TYPE, not a truth value.  Unit and Bool are both inhabited — they
 -- agree in every proposition-valued respect — and still cannot be identified.
 --
--- §6 then restores the struck gloss exactly where it is true.  Over fibres
+-- §6 then restores the struck gloss exactly where it is true.  Over fibers
 -- that are propositions AND stable, there IS no third option: absence of
 -- the third bhaṅga forces collapse.  §7 records what the stability
 -- hypothesis is buying, because without it the argument delivers only a
@@ -142,9 +142,9 @@ entail-does-not-imply-agree :
 entail-does-not-imply-agree = Mixed , Mixed-entails , Mixed-not-agree
 
 ------------------------------------------------------------------------
--- 5.  And the separation is caused by exactly one thing: a fibre that is
+-- 5.  And the separation is caused by exactly one thing: a fiber that is
 --     not a proposition.  By §2 no proposition-valued family can witness
---     this, so `Mixed`'s second fibre must fail isProp — it does.
+--     this, so `Mixed`'s second fiber must fail isProp — it does.
 ------------------------------------------------------------------------
 
 ¬isPropBool : ¬ (isProp Bool)
@@ -164,7 +164,7 @@ separator-is-not-proposition-valued P e ¬a pr = ¬a (entail→agree-onProps P p
 ------------------------------------------------------------------------
 -- 6.  The struck gloss, restored exactly where it is true.
 --
---     `Anekanta.agda` §5 said "there is no third option".  Over fibres
+--     `Anekanta.agda` §5 said "there is no third option".  Over fibers
 --     that are propositions AND stable, that is a theorem: if no naya
 --     denies, collapse exists.  The third option of
 --     `Durnaya_CollapseIffEveryNayaAgrees` §3 cannot live here.

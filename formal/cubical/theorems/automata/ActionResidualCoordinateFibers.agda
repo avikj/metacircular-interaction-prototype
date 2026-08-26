@@ -6,7 +6,7 @@
 -- The behavior and residual carriers in ActionResidual are related by an
 -- actual equivalence of their whole codomain, not only mutual replay on the
 -- realized image.  Postcomposition with that equivalence preserves every
--- homotopy fibre proof-relevantly.
+-- homotopy fiber proof-relevantly.
 --
 -- This is coordinate invariance, not state recovery: a constant Boolean
 -- observation supplies an explicit noninjective control.
@@ -35,7 +35,7 @@ open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 import ActionResidual as AR
 
 ------------------------------------------------------------------------
--- 1. Any equivalence of output coordinates preserves the exact fibres
+-- 1. Any equivalence of output coordinates preserves the exact fibers
 ------------------------------------------------------------------------
 
 postcomposeEquiv-fiber :
@@ -96,7 +96,7 @@ module CoordinateFibers
       ≡ D.defectCarrier x
   behavior-to-defect x = refl
 
-  -- Therefore every output fibre is transported with all of its path data.
+  -- Therefore every output fiber is transported with all of its path data.
   -- No finiteness, set-truncation, or proof-irrelevance premise is used.
   behaviorFiber≃defectFiber : (output : ⟨ A ⟩ × ⟨ A ⟩)
     → fiber D.behaviorCarrier output

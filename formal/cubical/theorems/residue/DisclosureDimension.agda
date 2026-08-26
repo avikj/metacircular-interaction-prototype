@@ -28,7 +28,7 @@
 -- instance (COORDINATION_THEOREMS_XXIX 804-833) and the finite-set
 -- instances (msg 0264's dilation dimension, msg 0249's cache fiber) are
 -- not two costumes of one invariant: the linear invariant is a SUM over
--- a composite, the finite-set invariant is a MAX over fibres, and max
+-- a composite, the finite-set invariant is a MAX over fibers, and max
 -- does not add.
 --
 -- CHECKED ON THE PIN: `NM_MODULES="DisclosureDimension.agda" ./check.sh`
@@ -157,8 +157,8 @@ composite-three-letters _ _ _ q = q
 -- minAlphabet (q2 . q1) = 3.  Were the invariant a dimension, its
 -- logarithm would be additive and the composite would require the full
 -- 2 * 2 = 4 letters.  It requires 3.  The defect is exactly the failure
--- of "max over fibres" to be additive, and it is why the flow instance
--- (a nullity) and the finite-set instances (a max fibre size) are
+-- of "max over fibers" to be additive, and it is why the flow instance
+-- (a nullity) and the finite-set instances (a max fiber size) are
 -- different invariants.
 
 Submultiplicative-Strictly : Type

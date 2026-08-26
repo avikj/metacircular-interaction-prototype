@@ -53,7 +53,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
 open import Cubical.Data.Empty using (⊥)
 
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; अपूर्वम्)
 
 private

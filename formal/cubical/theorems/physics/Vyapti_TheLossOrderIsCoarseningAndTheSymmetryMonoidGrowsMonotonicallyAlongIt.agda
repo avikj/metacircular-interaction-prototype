@@ -15,7 +15,7 @@
 --   constant.  Total loss is exactly total symmetry.
 --
 -- Between them the corpus says "how much is lost" and has no object for
--- it.  The obvious move is a NUMBER — a fibre cardinality, an entropy —
+-- it.  The obvious move is a NUMBER — a fiber cardinality, an entropy —
 -- and that move is unavailable here (A is not finite, not a set, and no
 -- measure is in sight) and would in any case be the fitted-constant
 -- error this repository is built against.  The quantity is not a number.
@@ -32,8 +32,8 @@
 --       invisible to every coarsening of it.  Three rewrites, no
 --       hypotheses on A, B, C, Φ — not h-sets, not finite, not
 --       equivalences.
---   §५  and so do the fibres: a fibre of f maps into the corresponding
---       fibre of g.  The loss itself is monotone, not only its symmetry.
+--   §५  and so do the fibers: a fiber of f maps into the corresponding
+--       fiber of g.  The loss itself is monotone, not only its symmetry.
 --
 -- §४ is why this is a unification and not a definition.  `idfun A` is a
 -- bottom of the order and any constant map is a top, so **Dhruva's pole
@@ -41,7 +41,7 @@
 -- REPROVES Dhruva §२ in one line: an equivalence lies at the bottom
 -- (`f व्याप्नोति idfun A`, witnessed by `invEq`/`retEq`), and
 -- `संरक्षणम् (idfun A) Φ` is definitionally `Φ a ≡ a`.  Dhruva's proof
--- used contractibility of a fibre; this one uses no fibre at all.
+-- used contractibility of a fiber; this one uses no fiber at all.
 --
 -- §६ is the erasure half.  Landauer's bound is about a NON-INJECTIVE
 -- step, and non-injectivity of `Φ` is the failure of `Φ` to be an
@@ -50,11 +50,11 @@
 --     विस्मृतिः Φ  :=  Σ[ a ] Σ[ a' ] (Φ a ≡ Φ a') × ¬ (a ≡ a')
 --
 -- and three terms: an equivalence forgets nothing (§६·१); an inhabitant
--- of विस्मृतिः exhibits a FIBRE OF Φ that fails to be a proposition
--- (§६·२) — so "what is forgotten is a fibre of Φ" is a statement about
+-- of विस्मृतिः exhibits a FIBER OF Φ that fails to be a proposition
+-- (§६·२) — so "what is forgotten is a fiber of Φ" is a statement about
 -- h-levels, which is the only sense in which this vocabulary can say
 -- "how much"; and (§६·३) a flow that conserves f can only forget INSIDE
--- a fibre of f — the flow's loss is bounded by the observation's, which
+-- a fiber of f — the flow's loss is bounded by the observation's, which
 -- is the composite of the two halves of this file.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -68,7 +68,7 @@
 -- is non-injective; nothing below derives it, bounds it, or implies it,
 -- and no physical consequence follows from any term here.  What survives
 -- the stripping is combinatorial and typal — *the coarser observation
--- admits more invariant flows, and an erasing step is a fibre that is
+-- admits more invariant flows, and an erasing step is a fiber that is
 -- not a proposition* — and saying exactly that much, and no more, is
 -- what the file is for.
 --
@@ -132,7 +132,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Data.Nat using (ℕ; zero; suc)
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 
 private variable ℓ : Level
@@ -216,14 +216,14 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 
 -- An equivalence sits at the BOTTOM of the order: it factors through the
 -- identity, with `invEq` as the mediator.  This is "nothing is hidden",
--- said as a position in the order rather than as contractible fibres.
+-- said as a position in the order rather than as contractible fibers.
 समत्वम्-अधःस्थम् : {A : Type ℓ} {B : Type ℓ} (f : A → B) → isEquiv f
                   → f व्याप्नोति (idfun A)
 समत्वम्-अधःस्थम् f e = invEq (f , e) , λ a → sym (retEq (f , e) a)
 
 -- DHRUVA §२, REPROVED BY MONOTONICITY ALONE.  `संरक्षणम् (idfun A) Φ`
 -- unfolds definitionally to `(a : A) → Φ a ≡ a`, so pushing conservation
--- down to the bottom of the order IS the frozen-world theorem.  No fibre
+-- down to the bottom of the order IS the frozen-world theorem.  No fiber
 -- and no contractibility is used anywhere in this proof.
 नष्ट-अभावे-गति-अभावः-व्याप्त्या :
     {A : Type ℓ} {B : Type ℓ} {f : A → B} {Φ : A → A}
@@ -234,7 +234,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 ------------------------------------------------------------------------
 -- ५ · THE LOSS ITSELF IS MONOTONE, not only its symmetry.
 --
--- §५·१ every fibre of the finer map lands in the corresponding fibre of
+-- §५·१ every fiber of the finer map lands in the corresponding fiber of
 -- the coarser one — the coarsening never separates what f identified.
 -- §५·२ the same fact on identifications alone.
 ------------------------------------------------------------------------
@@ -266,23 +266,23 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 समत्वे-न-विस्मृतिः {Φ = Φ} e (a , a' , q , n) =
   n (sym (retEq (Φ , e) a) ∙ cong (invEq (Φ , e)) q ∙ retEq (Φ , e) a')
 
--- ६·२ · WHAT IS FORGOTTEN IS A FIBRE OF Φ — and the "how much" is an
+-- ६·२ · WHAT IS FORGOTTEN IS A FIBER OF Φ — and the "how much" is an
 -- h-level, the only sense of magnitude this vocabulary owns.  An
--- inhabitant of विस्मृतिः exhibits a point of A over which the fibre of
--- Φ fails to be a proposition.  (For an equivalence every such fibre is
+-- inhabitant of विस्मृतिः exhibits a point of A over which the fiber of
+-- Φ fails to be a proposition.  (For an equivalence every such fiber is
 -- contractible, hence a proposition — which is ६·१ from the other side.)
 विस्मृतिः-तन्तुः : {A : Type ℓ} {Φ : A → A}
                  → विस्मृतिः Φ → Σ[ b ∈ A ] (¬ isProp (fiber Φ b))
 विस्मृतिः-तन्तुः {Φ = Φ} (a , a' , q , n) =
   Φ a , λ pr → n (cong fst (pr (a , refl) (a' , sym q)))
 
--- ६·३ · A CONSERVING FLOW CAN ONLY FORGET INSIDE A FIBRE OF f.
+-- ६·३ · A CONSERVING FLOW CAN ONLY FORGET INSIDE A FIBER OF f.
 --
 -- The flow's loss is bounded by the observation's loss, in the only
 -- currency available: if Φ conserves f and Φ collides a with a', then f
--- had already identified a with a'.  So `Dhruva`'s fibre — the room a
+-- had already identified a with a'.  So `Dhruva`'s fiber — the room a
 -- symmetry needs in order to exist — is also the room an erasure needs.
--- Composed with ६·२: the forgotten fibre of Φ sits inside a fibre of f.
+-- Composed with ६·२: the forgotten fiber of Φ sits inside a fiber of f.
 विस्मरणं-तन्तौ : {A : Type ℓ} {B : Type ℓ} {f : A → B} {Φ : A → A}
                → संरक्षणम् f Φ → (a a' : A) → Φ a ≡ Φ a' → f a ≡ f a'
 विस्मरणं-तन्तौ {f = f} cons a a' q =
@@ -311,7 +311,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 --    `Vaidharmya_…agda` argues in this corpus that the answer type need
 --    only be APART, and a positive apartness would make ६·२ constructive
 --    in a stronger sense.  Not done here.
---  * Nothing above says which fibres are BIG.  There is no size notion
+--  * Nothing above says which fibers are BIG.  There is no size notion
 --    in this file at all, deliberately; supplying one (a cardinality, a
 --    measure) is exactly where a fitted constant would enter, and the
 --    order is what makes the statement possible without one.

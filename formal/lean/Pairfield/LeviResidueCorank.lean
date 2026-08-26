@@ -3,7 +3,7 @@ import Mathlib
 /-!
 # Residue blocks and the combinatorial Levi corank
 
-For a finite map `h : ι → ρ`, the fibres of `h` are the blocks of the
+For a finite map `h : ι → ρ`, the fibers of `h` are the blocks of the
 residue partition.  A block of size `m` contributes rank `m - 1` to the
 corresponding product of type-A factors.  This file checks the resulting
 finite identity

@@ -56,7 +56,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS NOT CLAIMED.
 --
--- **The quotient is not shown to be the fibre.**  `f̄` is a function on
+-- **The quotient is not shown to be the fiber.**  `f̄` is a function on
 -- `A / ≈`; that it is INJECTIVE — that two points with equal charge lie
 -- on one orbit — is exactly the transitivity hypothesis `सङ्क्रमणम्` of
 -- `Kaksya` §७, and is NOT proved here and is not implied.  Descent is
@@ -91,7 +91,7 @@ open import Cubical.Data.Nat.Properties using (+-comm)
 open import Cubical.Data.Sigma
 open import Cubical.HITs.SetQuotients using (_/_ ; [_] ; eq/) renaming (rec to /rec)
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 open import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
   using (कक्ष्या ; ध्रुवं-कक्ष्यायाम्)
@@ -237,7 +237,7 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) (e : isEquiv Φ) where
 --
 -- **STRUCK, and by a checked counterexample, not by a re-reading.  Left
 -- standing because striking silently is how this repository loses its
--- own history.**  `Sankramana_TheFibreIsOneOrbitExactlyWhenTheChargeIs
+-- own history.**  `Sankramana_TheFiberIsOneOrbitExactlyWhenTheChargeIs
 -- InjectiveAndOneSidedReachabilityIsStrictlyStronger.agda` shows
 -- `सङ्क्रमणम्` is SUFFICIENT and NOT NECESSARY, and exhibits the gap:
 -- `A = Bool`, `B = Unit`, `f = λ _ → tt`, `Φ = λ _ → true`.  Every pair

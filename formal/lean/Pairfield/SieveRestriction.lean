@@ -10,7 +10,7 @@ import Mathlib.Data.Nat.Basic
 
 namespace Pairfield
 
-/-- The affine parametrization of the residue-class fibre `r + W * Nat`. -/
+/-- The affine parametrization of the residue-class fiber `r + W * Nat`. -/
 def sieveRestriction (W r : Nat) : Nat → Nat := fun m => W * m + r
 
 /-- Right-to-left composition multiplies scales and lets the outer scale act

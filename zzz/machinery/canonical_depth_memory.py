@@ -2,13 +2,13 @@
 """Depth and reversible memory are locked along the canonical encounter order.
 
 `notes/DEPTH_MEMORY_NONMONOTONICITY.md` proves two opposing monotonicities --
-refining the chart shrinks fibres, enlarging the world grows them -- and
+refining the chart shrinks fibers, enlarging the world grows them -- and
 concludes that "no monotone law relates semantic depth to reversible memory
 without additional fiber-balance hypotheses".  That is correct for arbitrary
 hand-built worlds.
 
 For the order an organism built from zero and successor actually meets,
-`S_t = {1,...,t}`, the fibre balance is not a missing hypothesis: it is a
+`S_t = {1,...,t}`, the fiber balance is not a missing hypothesis: it is a
 theorem.  With the valuation observable `v_p` and the p-adic chart chain,
 
     D(t) = floor(log_p t)                                    (Theorem D)
@@ -20,7 +20,7 @@ each interval `[p^L, p^(L+1))` and resets to 1 exactly at the depth increments.
 "Depth rises while memory falls" is therefore not an occasional coincidence in
 this order -- it happens at `t = p^(L+1)` and nowhere else.
 
-All arithmetic is exact.  `global_depth` and `max_fibre` evaluate the target
+All arithmetic is exact.  `global_depth` and `max_fiber` evaluate the target
 note's definitions (1) and (2) literally, by enumeration.
 """
 
@@ -38,7 +38,7 @@ def valuation(number: int, prime: int) -> int:
 
 
 def global_depth(world, prime: int, cap: int = 64) -> int:
-    """`D_S` of DEPTH_MEMORY_NONMONOTONICITY (1): least chart constant on every fibre."""
+    """`D_S` of DEPTH_MEMORY_NONMONOTONICITY (1): least chart constant on every fiber."""
     members = list(world)
     for depth in range(cap):
         modulus = prime ** depth
@@ -50,7 +50,7 @@ def global_depth(world, prime: int, cap: int = 64) -> int:
     raise ValueError("no chart in range is sufficient")
 
 
-def max_fibre(world, prime: int, depth: int) -> int:
+def max_fiber(world, prime: int, depth: int) -> int:
     """`M_S` of (2): the largest class the selected chart overwrites."""
     modulus = prime ** depth
     counts: dict[int, int] = {}
@@ -62,9 +62,9 @@ def max_fibre(world, prime: int, depth: int) -> int:
 def canonical_depth(prime: int, time: int) -> int:
     """Theorem D.  `D({1,...,t}) = floor(log_p t)`.
 
-    Proof.  A fibre of the mod-`p^k` chart is `{y <= t : y = r mod p^k}`.
-    If `v_p(r) = j < k` then every member has `v_p = j`, so the fibre is
-    constant.  The one remaining fibre is `r = 0`, namely
+    Proof.  A fiber of the mod-`p^k` chart is `{y <= t : y = r mod p^k}`.
+    If `v_p(r) = j < k` then every member has `v_p = j`, so the fiber is
+    constant.  The one remaining fiber is `r = 0`, namely
     `{m p^k : 1 <= m <= floor(t/p^k)}`, on which `v_p = k + v_p(m)`; this is
     constant exactly when no two admissible `m` differ in `v_p`, i.e. when
     `floor(t/p^k) <= p-1`, i.e. when `t < p^(k+1)`.  So depth `k` suffices iff

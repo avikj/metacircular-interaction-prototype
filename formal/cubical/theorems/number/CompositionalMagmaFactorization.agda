@@ -87,7 +87,7 @@ identity value = value
 module BoolQuotient = CCA.ContextQuotient xor isSetBool identity
 
 -- The empty context makes ContextEq imply equality for identity observation,
--- so `not` is constant on the contextual fibres and has a bare factor.
+-- so `not` is constant on the contextual fibers and has a bare factor.
 not-context-constant : ContextConstant xor identity not
 not-context-constant related = cong not (related [])
 

@@ -6,7 +6,7 @@ from math import ceil
 from index_law import (
     dilation_dimension,
     divisibility_predicate,
-    fibres,
+    fibers,
     index_bound,
     is_balanced,
     is_equivariant_quotient,
@@ -23,7 +23,7 @@ class TheoremITests(unittest.TestCase):
             for image in range(1, size + 1):
                 def chart(x, size=size, image=image):
                     return x % image if x < image * (size // image) else x % image
-                grouped = fibres(chart, range(size))
+                grouped = fibers(chart, range(size))
                 dimension = dilation_dimension(chart, range(size))
                 self.assertGreaterEqual(dimension, index_bound(size, len(grouped)))
                 self.assertLessEqual(dimension, lopsided_bound(size, len(grouped)))
@@ -54,7 +54,7 @@ class TheoremETests(unittest.TestCase):
                                      (3, 3, 5), (5, 2, 1)):
             observable, domain = rolling_step(prime, height, power)
             self.assertTrue(is_equivariant_quotient(observable, prime ** height))
-            sizes = {len(v) for v in fibres(observable, domain).values()}
+            sizes = {len(v) for v in fibers(observable, domain).values()}
             self.assertEqual(len(sizes), 1, f"p={prime} k={height} j={power}")
 
     def test_equivariance_gives_exactly_the_published_dimension(self):

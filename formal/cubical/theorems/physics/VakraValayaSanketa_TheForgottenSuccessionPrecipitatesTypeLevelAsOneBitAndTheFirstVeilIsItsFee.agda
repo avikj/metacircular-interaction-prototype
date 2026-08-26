@@ -27,7 +27,7 @@
 --
 -- THE READING (a reading, not a claim about the sources).  README
 -- movement 34: every wall this corpus hits is ℤ/2, "the smallest
--- possible fibre — the minimal hiding."  Here the wall arrives with a
+-- possible fiber — the minimal hiding."  Here the wall arrives with a
 -- direction: the krama-difference the charge carrier forgets does not
 -- vanish — it PRECIPITATES as the smallest possible type-level charge,
 -- one bit, when the succession is integrated over the whole surface

@@ -5,7 +5,7 @@
 --   Shrink(𝒯) ⇒ δ↓        अतः  शून्यवक्रता ≠ सत्य
 --   δ = 0 ⇏ Advance
 --   δ_σ = 0 ⇍ δ_σ^base = 0   (गुह्यवक्रता: the base can be flat while the
---                             fibre is not, so a base-only test is not a test)
+--                             fiber is not, so a base-only test is not a test)
 --
 -- The defect of a Chu space is monotone in the test list: dropping tests can
 -- only merge points.  Hence a vanishing defect is a statement about 𝒯, never

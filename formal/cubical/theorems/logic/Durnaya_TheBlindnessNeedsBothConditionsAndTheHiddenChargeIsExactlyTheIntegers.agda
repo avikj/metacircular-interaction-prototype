@@ -63,7 +63,7 @@
 -- Type₀; and the same three facts hold.
 --
 -- §२ is the part that is a RECEIPT in this repository's sense — an
--- identification of a fibre with a standard type, never a bound.  What
+-- identification of a fiber with a standard type, never a bound.  What
 -- every set-valued observable of the carrier destroys is not "some
 -- charge": it is exactly ℤ, by `ΩS¹Isoℤ`, and the identifying map IS
 -- `winding` on the nose (§२ब, `refl`).  The earlier statement of the

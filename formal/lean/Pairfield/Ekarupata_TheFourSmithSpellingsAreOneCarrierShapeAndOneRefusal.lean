@@ -28,7 +28,7 @@ Every one of the four is built around the same map
     f (L, R)  =  L · A · R
 
 and a field holding its value, with a `replay` equation pinning that field. So
-the question for each is only: **which fibre of `f` is this?**
+the question for each is only: **which fiber of `f` is this?**
 
 | structure | file | verdict |
 |---|---|---|
@@ -38,7 +38,7 @@ the question for each is only: **which fibre of `f` is this?**
 | `SmithPresentation A B` | `SmithPresentation` | **not** a Carrier — target is an index |
 
 The last is the interesting one and it is a refusal, not an omission. Making
-the target an index turns the graph fibre into the **preimage** fibre, and the
+the target an index turns the graph fiber into the **preimage** fiber, and the
 preimage is not a singleton and need not be inhabited at all:
 `natAbs_det_eq` below extracts the invariant that obstructs it, and
 `isEmpty_presentation_one_to_diagonal_two_two` exhibits a genuinely empty one.
@@ -95,7 +95,7 @@ def reductionEquiv (A : IntMat2) : Reduction A ≃ UnimodularPair :=
 
 /-! ## 2. `SmithPresentation` refuses, and the refusal is the preimage -/
 
-/-- The indexed spelling is the **preimage** fibre of the same map. -/
+/-- The indexed spelling is the **preimage** fiber of the same map. -/
 def presentationEquivPreimage (A B : IntMat2) :
     SmithPresentation A B ≃ { p : UnimodularPair // conjugate A p = B } where
   toFun p := ⟨⟨(p.left, p.right), p.left_unimodular, p.right_unimodular⟩,

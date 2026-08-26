@@ -7,7 +7,7 @@
 --
 -- THE CLAIM BEING INDEXED.  The transport lane's floor is stated as:
 -- "reversibility IS ahiṃsā IS losslessness, one equation" (LosslessReturn's
--- own header), with the reading that below the fibre lies the interval,
+-- own header), with the reading that below the fiber lies the interval,
 -- below the interval `hcomp` as "the one operation under all the verbs",
 -- and below that the presheaf topos [□ᵒᵖ, Set] with "no concept beneath it."
 --
@@ -84,7 +84,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 रिक्तपथः = refl
 
 -- a genuinely heterogeneous move: along ua नकार the endpoints are the same
--- type but the FIBRE is transported nontrivially, which §१ witnesses.
+-- type but the FIBER is transported nontrivially, which §१ witnesses.
 -- Here the heterogeneity is made visible in the dependent form: PathP over
 -- a line of types is what transp inhabits and hcomp cannot express.
 अन्तरण : (P : I → Type) → P i0 → P i1

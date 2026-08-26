@@ -42,14 +42,14 @@
 -- site: every firing arrives carrying a proof about that firing.  "Cannot
 -- generalise" and "cannot be wrong at a site" are one sentence read twice.
 --
--- AND THIS IS THE FIBRE LAW CHOOSING ITS BINDING.  `fibre/src/Fibre/
--- Carrier.agda`: for f : A → B, bind the OUTPUT and the fibre is
+-- AND THIS IS THE FIBER LAW CHOOSING ITS BINDING.  `fiber/src/Fiber/
+-- Carrier.agda`: for f : A → B, bind the OUTPUT and the fiber is
 -- `singl (f a)`, contractible, so the datum rides free — that is the
 -- schema, one proof and infinitely many free applications.  Bind the INPUT
--- and the fibre is `fiber f b`, the exact loss — one proof, one site, and
+-- and the fiber is `fiber f b`, the exact loss — one proof, one site, and
 -- you pay again to move.  §2 computes the locus type of an installed
 -- operation and it is literally a `singl`: contractible, one point, the
--- source.  The kernel is at the lossy binding on purpose.  `TheWholeDerivationTypeIsOneFibre…`
+-- source.  The kernel is at the lossy binding on purpose.  `TheWholeDerivationTypeIsOneFiber…`
 -- reports the same position from the soundness side.
 --
 -- WHAT IS PROVED

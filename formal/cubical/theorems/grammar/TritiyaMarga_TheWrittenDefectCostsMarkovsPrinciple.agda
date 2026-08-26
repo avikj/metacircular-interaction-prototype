@@ -15,7 +15,7 @@
 --   * `Apratikaryatva_TheRetractionTypeIsTheHLevelHypothesis`,
 --     §तृतीयः-मार्गः — that DECIDING "path one or not path one",
 --     `isEquiv f ⊎ ¬ isEquiv f`, is exactly excluded middle; and
---     `दोषलेखः-पूर्णः`, that the fibre family of a map is a complete
+--     `दोषलेखः-पूर्णः`, that the fiber family of a map is a complete
 --     record of it.
 --
 -- That module's prose then names, without proving it, the step this one
@@ -60,7 +60,7 @@
 -- WHAT IS CHECKED
 --
 --   §1  `Defect`            path two as DATA: a named site, plus the
---                           refutation that its fibre is contractible.
+--                           refutation that its fiber is contractible.
 --                           Deliberately not `¬ isEquiv f`; §2–§4 are
 --                           the reason that distinction is not pedantry.
 --       `defect→¬isEquiv`   the easy direction, unconditionally.
@@ -182,7 +182,7 @@ defect→¬isEquiv f (b , nc) e = nc (e .equiv-proof b)
 --     Q n = ¬ (α n ≡ true)          (a decidable proposition)
 --     f   = fst : (Σ ℕ Q) → ℕ
 --
--- HoTT 4.8.1 gives `fiber f n ≃ Q n`, so the fibre over `n` is
+-- HoTT 4.8.1 gives `fiber f n ≃ Q n`, so the fiber over `n` is
 -- contractible exactly when `Q n` holds.  Then
 --
 --     f is an equivalence      ⟺  α is never `true`
@@ -283,13 +283,13 @@ noRetraction x y x≢y (r , s) =
 f₀ : ⊥ → Bool
 f₀ ()
 
-noFibre : (b : Bool) → ¬ isContr (fiber f₀ b)
-noFibre b c = ⊥.rec (c .fst .fst)
+noFiber : (b : Bool) → ¬ isContr (fiber f₀ b)
+noFiber b c = ⊥.rec (c .fst .fst)
 
 defectIsTwoValued : Σ[ x ∈ Defect f₀ ] Σ[ y ∈ Defect f₀ ] (¬ (x ≡ y))
 defectIsTwoValued =
-    (true , noFibre true)
-  , (false , noFibre false)
+    (true , noFiber true)
+  , (false , noFiber false)
   , λ p → true≢false (cong fst p)
 
 truncatedDefectIsNotWritable : ¬ Retraction (Defect f₀)

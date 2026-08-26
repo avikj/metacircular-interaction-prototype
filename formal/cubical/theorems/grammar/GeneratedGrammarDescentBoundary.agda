@@ -78,7 +78,7 @@ semantic-fiber-splits-withdrawal =
 ------------------------------------------------------------------------
 
 -- A decoder from semantic observations would make withdrawal survival
--- constant on every semantic fibre.  The named pair above refutes that
+-- constant on every semantic fiber.  The named pair above refutes that
 -- necessary condition through the existing constructive descent theorem.
 withdrawal-survival-does-not-descend :
   ¬ FI.FactorsThrough semantic (survives quotient)

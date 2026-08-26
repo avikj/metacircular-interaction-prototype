@@ -18,9 +18,9 @@ and no less.  An extensional model is therefore not merely at risk of being
 unfaithful; it is by construction the quotient, and everything intensional
 is what it quotients by.  A model that retains the play succeeds precisely
 because it declines the truncation, and the excess it retains is not
-informal "intensional information" but a fibre we compute.
+informal "intensional information" but a fiber we compute.
 
-We give the setting in full and identify the fibre.
+We give the setting in full and identify the fiber.
 
 Terms are elements of a closed inductive type with six independent
 constants, a unary and a binary constructor, and no binder — so no
@@ -47,7 +47,7 @@ program context, no test, and no observation whatsoever separates them,
 while they are distinct as evaluations.  Where a rule's redex contains no
 free constant, the evaluations available at a single term form an entire
 copy of the term algebra with every one yielding the same outcome — the
-fibre is unbounded, not a bounded intensional annotation.
+fiber is unbounded, not a bounded intensional annotation.
 
 Compositionality of the two levels is where the trade becomes a theorem.
 Acquired equations come in two dual forms.  The first inhabits the higher

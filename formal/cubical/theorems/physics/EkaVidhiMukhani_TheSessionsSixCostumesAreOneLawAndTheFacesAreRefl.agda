@@ -17,12 +17,12 @@
 -- one law would be worth nothing; `refl` is the claim the kernel checks.
 --
 -- WHAT EACH FACE SAYS.  `तन्तौ-अन्धः S q` is: a reading derived from S is
--- constant on S's fibres.  `अपूर्वम्` is its contrapositive with a witness.
+-- constant on S's fibers.  `अपूर्वम्` is its contrapositive with a witness.
 -- Then:
 --
 --   ParimanaAndha    |·| cannot see the Möbius sign      = अपूर्वम् at चिह्नम्
 --   TiryakTantu      residue and factorisation transverse = अपूर्वम्, twice
---   EkaVidhih        descent ⟹ blind on fibres           = तन्तौ-अन्धः
+--   EkaVidhih        descent ⟹ blind on fibers           = तन्तौ-अन्धः
 --   SamacaranaNityam a transitive symmetry flattens       = तन्तौ-अन्धः at Unit
 --
 -- The fifth costume, `SamuhaDrstih`, is NOT a face and is not forced into
@@ -38,7 +38,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 open import ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily
   as PA using (परिमाणम् ; योगः ; संहरत् ; न-संहरत् ; अन्धत्वम् ; भेदः)

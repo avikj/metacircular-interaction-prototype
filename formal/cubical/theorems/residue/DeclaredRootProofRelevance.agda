@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- `Declared : Root → Type` is proof-relevant unless its fibres are known to
+-- `Declared : Root → Type` is proof-relevant unless its fibers are known to
 -- be propositions.  Consequently a `SeparatorFamily` can select different
 -- separator data from two declarations of the same root.
 --
@@ -25,7 +25,7 @@ private
     ℓR ℓX ℓO ℓD : Level
 
 ------------------------------------------------------------------------
--- When declaration fibres are propositions, separator choice is determined
+-- When declaration fibers are propositions, separator choice is determined
 -- by the root rather than by the declaration proof.
 ------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ propositional-declarations-are-root-determined declaredIsProp family
   cong (family root) (declaredIsProp root left right)
 
 -- The sampled north-root declaration is genuinely predicate-like because
--- Bool is a set, so each equality fibre `root ≡ false` is a proposition.
+-- Bool is a set, so each equality fiber `root ≡ false` is a proposition.
 northDeclared-isProp : DeclarationIsProp DRP.northDeclared
 northDeclared-isProp root = isSetBool root false
 

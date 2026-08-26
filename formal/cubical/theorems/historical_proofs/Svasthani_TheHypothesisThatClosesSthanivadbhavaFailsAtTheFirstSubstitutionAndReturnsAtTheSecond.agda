@@ -7,7 +7,7 @@
 --  first substitution and comes back at the second.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHERE THIS COMES FROM.  `loss/…/Sthanivadbhava_…` instantiates
+-- WHERE THIS COMES FROM.  `fiber/src/Fiber/Sthanivadbhava_…` instantiates
 -- the carrier law at the ādeśa operation and finds that 1.1.56's अल्/अनल्
 -- exception IS the base/carried split: the form is the free slot, the
 -- sthānin and the designation are carried, and a designation-reading rule
@@ -19,7 +19,7 @@
 --     DEFINITIONALLY AND DOES NOT DERIVE ITS BLINDNESS BETWEEN A
 --     SUBSTITUTE AND ITS ORIGINAL
 --
--- because those two points do not lie in one fibre of the carried map.
+-- because those two points do not lie in one fiber of the carried map.
 -- It then names the exact hypothesis that closes the gap rather than
 -- describing it: `स्थानी v ≡ रूपम् v` — v stands in place of itself.
 --

@@ -11,10 +11,10 @@ sees to what it is invariant under - in both directions, with the second
 direction free for a reason that outlives the theorem.
 
 The holonomy.  Traversing the circuit returns to the base point with the
-fibre shifted, so the loop acts on the fibre rather than trivially.  We do
+fiber shifted, so the loop acts on the fiber rather than trivially.  We do
 not merely prove the action nontrivial at a point.  We prove the action
 *is* the successor function on the integers, as an equality of functions,
-obtained by function extensionality from the pointwise shift.  The fibre
+obtained by function extensionality from the pointwise shift.  The fiber
 is a torsor and the holonomy is the generator; the winding number is the
 integer it produces.
 
@@ -49,8 +49,8 @@ observable, never by refining it.
 
 WHAT IS NOT CLAIMED.  There is no lattice, no gauge group, no connection
 form, no Wilson loop and no field in this development.  The system is a
-discrete circuit with an integer fibre; "holonomy" names the action of the
-loop on that fibre, and "observable" names a function out of the state.
+discrete circuit with an integer fiber; "holonomy" names the action of the
+loop on that fiber, and "observable" names a function out of the state.
 The physical reading is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

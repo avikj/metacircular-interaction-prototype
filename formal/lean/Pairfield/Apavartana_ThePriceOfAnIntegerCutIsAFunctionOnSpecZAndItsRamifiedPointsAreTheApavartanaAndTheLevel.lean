@@ -49,7 +49,7 @@ Here the drop is 2 at one bad prime and 1 at another.  A non-constant function
 on the ramification locus is not a number, and that is the whole content of
 "over ℤ the price of a cut is a function on Spec ℤ."
 
-(the defect is a fibre dimension; and the fence — linear ranks satisfy
+(the defect is a fiber dimension; and the fence — linear ranks satisfy
 Ingleton, entropies do not, so this does not read as entropy),
 `formal/cubical/Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd.agda`.
 

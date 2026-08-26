@@ -182,13 +182,13 @@ theorem shortestReachingWord_minimal
       word.length ≤ candidate.length :=
   shortestReachingUpTo_minimal alphabet complete M target h
 
-/-- The complete proof-history fibre of reaching words.  Selecting one active
+/-- The complete proof-history fiber of reaching words.  Selecting one active
 shortest witness below never identifies or deletes the other inhabitants. -/
 def ReachDerivationFiber (M : DFA A X) (target : X) :=
   { word : List A // M.eval word = target }
 
 /-- The active shortest-witness projection is inhabited exactly when the full
-derivation fibre is inhabited.  This is the checked automata instance of the
+derivation fiber is inhabited.  This is the checked automata instance of the
 reciprocal `derivationFiber` / `activeWitnesses` separation. -/
 theorem shortestReachingWord_exists_iff_derivationFiber
     [DecidableEq A] [DecidableEq X] [Fintype X]

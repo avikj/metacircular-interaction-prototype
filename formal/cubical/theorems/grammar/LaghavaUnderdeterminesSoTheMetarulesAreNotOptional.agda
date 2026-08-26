@@ -4,13 +4,13 @@
 -- LaghavaUnderdeterminesSoTheMetarulesAreNotOptional
 --
 -- `Laghava.laghava-is-not-semantic` proves the kernel of `eval` is not
--- empty, and stops there.  It never asks what the fibre looks like.  That
+-- empty, and stops there.  It never asks what the fiber looks like.  That
 -- is Pāṇini's question rather than a footnote to it: the Aṣṭādhyāyī's
 -- method is to choose among presentations of one meaning, and the
 -- commentarial tradition celebrates the saving of half a mora — a
--- difference *inside* a fibre — like the birth of a son.
+-- difference *inside* a fiber — like the birth of a son.
 --
--- Two facts about the fibre.
+-- Two facts about the fiber.
 --
 --   * लाघव ATTAINS its minimum.  For the meaning `n ↦ n + 1` the minimum
 --     is 3, and `three-is-minimal` proves it: an expression of size 1 is

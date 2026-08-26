@@ -31,13 +31,13 @@ look like the same shape.
 
 ## The relation between EuclidCoefficientTrace's two halves
 
-`EuclidCoefficientTrace.lean` contains, 37 lines apart, a contractible fibre
+`EuclidCoefficientTrace.lean` contains, 37 lines apart, a contractible fiber
 and a non-contractible one, with nothing said relating them. They are the two
-fibres of **one map**
+fibers of **one map**
 
     f = runCoefficientTrace 0 : List SignedUnitStep → Int.
 
-* Over a *trace*, the graph fibre `{ v // f t = v }` is a singleton. That is
+* Over a *trace*, the graph fiber `{ v // f t = v }` is a singleton. That is
   `CoefficientWitness ≃ List SignedUnitStep` (`coefficientWitnessEquiv`): the
   `value` and `valid` fields are informationally free, and the structure has
   exactly the degrees of freedom of a bare trace.
@@ -88,7 +88,7 @@ base alone. -/
 theorem cost_eq_length (w : CoefficientWitness) :
     w.cost = (coefficientWitnessEquiv w).length := rfl
 
-/-! ### The other fibre -/
+/-! ### The other fiber -/
 
 /-- Two distinct traces over the same value. -/
 def traceOne : Carrier.Preimage replayTrace 1 := ⟨[.inc], by decide⟩
@@ -98,7 +98,7 @@ def tracePaddedOne : Carrier.Preimage replayTrace 1 :=
   ⟨[.inc, .inc, .dec], by decide⟩
 
 /-- **The preimage over `1` is not a singleton.** This is the exact negation of
-the Carrier law, in the other fibre of the same map. -/
+the Carrier law, in the other fiber of the same map. -/
 theorem preimage_one_not_subsingleton :
     ¬ Subsingleton (Carrier.Preimage replayTrace 1) :=
   Carrier.preimage_not_subsingleton traceOne tracePaddedOne (by decide)

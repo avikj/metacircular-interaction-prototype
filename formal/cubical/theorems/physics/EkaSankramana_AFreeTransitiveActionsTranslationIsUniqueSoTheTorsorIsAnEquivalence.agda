@@ -18,12 +18,12 @@
 --   §1  एक-संक्रमण (regular): in a FREE + TRANSITIVE action, for all
 --       p, q the g with act g p ≡ q is UNIQUE.  Transitivity gives
 --       existence, freeness gives uniqueness; general in P, no h-level.
---   §2  the fibre reading (the seam's point): the orbit map
---       g ↦ act g p has a CONTRACTIBLE fibre over every q — so a torsor
+--   §2  the fiber reading (the seam's point): the orbit map
+--       g ↦ act g p has a CONTRACTIBLE fiber over every q — so a torsor
 --       IS an equivalence Carrier ≃ P (with P a set).  translate is the
---       inverse; its "exactly one" is contractibility of the fibre
---       (अदृष्टं तन्तुः एकम् — the fibre is a singleton), not a runtime
---       check.  free + transitive ⟺ the orbit map's fibres are singletons.
+--       inverse; its "exactly one" is contractibility of the fiber
+--       (अदृष्टं तन्तुः एकम् — the fiber is a singleton), not a runtime
+--       check.  free + transitive ⟺ the orbit map's fibers are singletons.
 --
 -- So residual.py's exhaustive regularity check is provably redundant
 -- given the free + transitive it already checks — the general form of
@@ -112,7 +112,7 @@ module _ (Grp : Group ℓ) (P : Type ℓ') where
       h ∎
 
   ----------------------------------------------------------------------
-  -- §2  the torsor IS an equivalence: the orbit map's fibres are singletons.
+  -- §2  the torsor IS an equivalence: the orbit map's fibers are singletons.
   ----------------------------------------------------------------------
 
   torsorIsEquiv : isSet P → (A : Action) → Free A → Transitive A

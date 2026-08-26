@@ -6,7 +6,7 @@
 -- (the conserved quantity is constant along the orbit.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS IS.  `Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThere
+-- WHAT THIS IS.  `Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThere
 -- IsNoSymmetry.agda` §४ names its own open item, verbatim:
 --
 --     "The conserved quantity here is `f` itself: `संरक्षणम्` says exactly
@@ -25,7 +25,7 @@
 -- WHY IT IS WORTH A TERM AND NOT A REMARK.  The one-step law is a
 -- hypothesis about a generator; the orbit law is a statement about the
 -- ORBIT, which is the object `Dhruva` §१ actually identifies with the
--- gauge orbit and the fibre.  Without §२, "the gauge orbit is the fibre"
+-- gauge orbit and the fiber.  Without §२, "the gauge orbit is the fiber"
 -- is asserted of a set nothing has been proved constant on.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -60,7 +60,7 @@ module Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 
 private variable ℓ : Level
@@ -139,7 +139,7 @@ open import Cubical.Foundations.Equiv using (isEquiv)
 
 module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 
-  open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+  open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
     using (नष्ट-अभावे-गति-अभावः)
 
   नष्टाभावे-कक्ष्या-एकपदा : isEquiv f → संरक्षणम् f Φ
@@ -149,19 +149,19 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
     cong Φ (नष्टाभावे-कक्ष्या-एकपदा e cons n a) ∙ नष्ट-अभावे-गति-अभावः f Φ e cons a
 
 ------------------------------------------------------------------------
--- ६ · कक्ष्या तन्तौ वसति — THE WHOLE ORBIT LIES IN ONE FIBRE.
+-- ६ · कक्ष्या तन्तौ वसति — THE WHOLE ORBIT LIES IN ONE FIBER.
 --
--- `Dhruva` §१ proves that `Φ` carries a fibre into itself — one step —
--- and its prose then reads that as "the gauge orbit IS the fibre".  The
+-- `Dhruva` §१ proves that `Φ` carries a fiber into itself — one step —
+-- and its prose then reads that as "the gauge orbit IS the fiber".  The
 -- orbit is a set §१ never quantifies over.  This is that set: every
--- station of the forward orbit of `a` is a point of the fibre over
+-- station of the forward orbit of `a` is a point of the fiber over
 -- `f a`, with §२ supplying its membership witness.
 --
--- So the sentence "the gauge orbit lies in the fibre" now has a term
+-- So the sentence "the gauge orbit lies in the fiber" now has a term
 -- whose subject is the orbit, and the physics reading of `Dhruva` §१ is
 -- discharged rather than asserted.  What is still NOT claimed is the
--- converse -- that the fibre is exhausted by one orbit -- which is
--- transitivity of the flow on the fibre, exactly the hypothesis
+-- converse -- that the fiber is exhausted by one orbit -- which is
+-- transitivity of the flow on the fiber, exactly the hypothesis
 -- `Dhruva`'s header says the second theorem's dichotomy needs and does
 -- not have.
 ------------------------------------------------------------------------
@@ -178,16 +178,16 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 --     CARRIES A CHARGE.
 --
 -- `Dhruva`'s header names this twice as missing: its §३ exhibits the
--- degenerate case at the smallest fibre "but does not prove the general
+-- degenerate case at the smallest fiber "but does not prove the general
 -- dichotomy; transitivity is not stated", and §४ repeats it.  §६ above
--- fenced the same gap from the other side — the orbit lies IN the fibre,
--- and whether it EXHAUSTS the fibre is transitivity.
+-- fenced the same gap from the other side — the orbit lies IN the fiber,
+-- and whether it EXHAUSTS the fiber is transitivity.
 --
 -- Here transitivity is stated, as a hypothesis, and its consequence
--- proved: if the flow reaches every point of a fibre from every other,
--- then EVERY Φ-invariant observable is constant on that fibre.  Not just
+-- proved: if the flow reaches every point of a fiber from every other,
+-- then EVERY Φ-invariant observable is constant on that fiber.  Not just
 -- `f` — every one.  So there is no further conserved quantity to carry
--- there, and the whole fibre is one state as far as any invariant can
+-- there, and the whole fiber is one state as far as any invariant can
 -- tell.
 --
 -- That is Noether's SECOND theorem's conclusion — a local symmetry gives
@@ -198,11 +198,11 @@ module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 
 module _ {A B : Type ℓ} (f : A → B) (Φ : A → A) where
 
-  -- the flow reaches every point of the fibre from every other
+  -- the flow reaches every point of the fiber from every other
   सङ्क्रमणम् : B → Type ℓ
   सङ्क्रमणम् b = (x y : fiber f b) → Σ[ n ∈ ℕ ] कक्ष्या f Φ n (fst x) ≡ fst y
 
-  -- and then NO invariant separates two points of that fibre
+  -- and then NO invariant separates two points of that fiber
   सङ्क्रमणे-भारो-नास्ति :
       {C : Type ℓ} (g : A → C) → संरक्षणम् g Φ
     → (b : B) → सङ्क्रमणम् b

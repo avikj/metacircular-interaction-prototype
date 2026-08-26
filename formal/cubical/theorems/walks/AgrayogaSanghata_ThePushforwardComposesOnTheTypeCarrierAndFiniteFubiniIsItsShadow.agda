@@ -12,7 +12,7 @@
 -- शेष-सङ्घातः — residuals compose, `शेष (g∘f) c ≃ Σ[w ∈ शेष g c] शेष f
 -- (fst w)` — and nobody had told the measure lane.  This module cashes
 -- it at the TOP of the carrier table: for W = Type, "sum over the
--- fibre" IS Σ, the pushforward is
+-- fiber" IS Σ, the pushforward is
 --
 --     अग्रयोगः f F y  =  Σ[ u ∈ शेष f y ] F (fst u)
 --
@@ -26,7 +26,7 @@
 --
 -- WHY THE TYPE ROW IS THE MASTER.  The carrier table (Bool reachability,
 -- ℕ counting, tropical cost, ℝ₊ probability, ℂ amplitude, Type the full
--- uncollapsed history fibre) is a ladder of lawful forgettings.  Every
+-- uncollapsed history fiber) is a ladder of lawful forgettings.  Every
 -- W-valued finite Fubini is THIS equivalence read through a fold: apply
 -- an enumeration-invariant `total` (the measure lane's receipt, its
 -- permutation-invariance probe on the नाडी route as this is written) to
@@ -41,8 +41,8 @@
 -- COMPOUND BUILT HERE (naming rule, note 2): अग्रयोग (the forward
 -- yoking — the pushforward), सङ्घात (composition/stacking, following
 -- SankramanaSesa's शेष-सङ्घातः).  No source text is claimed for the
--- compound; the mathematics is HoTT-standard (Σ over a fibre; the
--- composite-fibre splitting is HoTT 4.8.2's neighbourhood), composed.
+-- compound; the mathematics is HoTT-standard (Σ over a fiber; the
+-- composite-fiber splitting is HoTT 4.8.2's neighbourhood), composed.
 --
 -- CHECKED: Agda 2.6.3 + cubical v0.5 (the live carrier), exit 0, no
 -- postulates, no holes.

@@ -18,7 +18,7 @@
 -- foliations as the anti-diagonal and the off-diagonal.  Checked here:
 --
 --   * centre and gap ARE the two light-cone coordinates of
---     CenterRelative (fibreCentre / fibreGap);
+--     CenterRelative (fiberCentre / fiberGap);
 --   * every prime pair lands in the open positive cone (inCone);
 --   * the one-leg reflection J₂ EXCHANGES the two foliations
 --     (Delta 16 Cor 16.2) but provably CANNOT preserve the cone
@@ -83,14 +83,14 @@ module Field (IsPrime : ℤ → Type) where
   -- structural theorems have something to be about.
   ----------------------------------------------------------------------
 
-  -- Goldbach: every sufficiently large centre fibre is inhabited.
+  -- Goldbach: every sufficiently large centre fiber is inhabited.
   -- "Sufficiently large" is left as the predicate `Large`, since the
   -- bound is not what is at issue.
   Goldbach : (Large : ℤ → Type) → Type
   Goldbach Large =
     (w : ℤ) → Large w → ∥ (Σ[ x ∈ PrimePair ] (centre x ≡ w)) ∥₁
 
-  -- Twin primes: the fixed-gap fibre at gap 2 is cofinal in centre.
+  -- Twin primes: the fixed-gap fiber at gap 2 is cofinal in centre.
   Twin : (Beyond : ℤ → ℤ → Type) → Type
   Twin Beyond =
     (m : ℤ) → ∥ (Σ[ x ∈ PrimePair ] ((gap x ≡ pos 2) × Beyond m (centre x))) ∥₁
@@ -101,12 +101,12 @@ module Field (IsPrime : ℤ → Type) where
 
   -- The centre fibration is the first light-cone coordinate doubled:
   -- fixing the centre fixes p + q.
-  fibreCentre : (x : PrimePair) → u₋ (toCR x) ≡ leg₁ x + leg₁ x
-  fibreCentre (p , q , _) = thm17-1-lower p q
+  fiberCentre : (x : PrimePair) → u₋ (toCR x) ≡ leg₁ x + leg₁ x
+  fiberCentre (p , q , _) = thm17-1-lower p q
 
   -- The gap fibration is the second: fixing the gap fixes q - p.
-  fibreGap : (x : PrimePair) → u₊ (toCR x) ≡ leg₂ x + leg₂ x
-  fibreGap (p , q , _) = thm17-1-upper p q
+  fiberGap : (x : PrimePair) → u₊ (toCR x) ≡ leg₂ x + leg₂ x
+  fiberGap (p , q , _) = thm17-1-upper p q
 
   -- Positivity of both legs is inherited by the cone.
   private

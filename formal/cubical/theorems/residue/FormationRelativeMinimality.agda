@@ -5,7 +5,7 @@
 --
 -- Sufficiency restricts from an ambient world to any formed subworld.  Exact
 -- minimality does not: it additionally needs a formed point in the last
--- insufficient chart fibre whose task value differs.  This module packages
+-- insufficient chart fiber whose task value differs.  This module packages
 -- that explicit-witness adapter and checks the two-point control where
 -- restriction makes the trivial chart sufficient.
 --
@@ -84,7 +84,7 @@ module AtPoint
   formed-sufficient→no-counterexample x sufficient witness =
     counterexample→not-sufficient x witness sufficient
 
-  -- The exact constructive repair for a searchable formed fibre.  Negative
+  -- The exact constructive repair for a searchable formed fiber.  Negative
   -- separator search becomes positive sufficiency only because equality of
   -- task values is itself decidable; chart equality is supplied as a premise
   -- and never needs to be decided.
@@ -305,7 +305,7 @@ singleton-depth-zero-sufficient :
 singleton-depth-zero-sufficient false formed same-chart = refl
 singleton-depth-zero-sufficient true formed same-chart = Empty.rec formed
 
--- Searchable repair control: the two-state formed fibre exposes the witness
+-- Searchable repair control: the two-state formed fiber exposes the witness
 -- through the exact interface.  The decision procedure is supplied data; the
 -- theorem does not infer it from the carrier's name.
 module AllAtDepthZero =

@@ -14,7 +14,7 @@
 --
 --   MonodromyOf F b p = Σ[ x ∈ F b ] (subst F p x ≡ x → ⊥)
 --
--- and its C14.25 warning: a two-element fibre plus a section is NOT an
+-- and its C14.25 warning: a two-element fiber plus a section is NOT an
 -- obstruction, because `B × Bool → B` has both and trivial transport.
 -- An obstruction needs SHEET EXCHANGE, exhibited separately.
 --
@@ -163,7 +163,7 @@ coverTransport : subst Cover loop true ≡ false
 coverTransport = refl
 
 -- … and therefore an inhabitant of `MonodromyOf`: the loop acts
--- non-identically on the fibre.  This is exactly what C14.25 demands of
+-- non-identically on the fiber.  This is exactly what C14.25 demands of
 -- anyone claiming a binary obstruction, and exactly what the sieve
 -- lane cannot supply.
 s¹Monodromy : MonodromyOf Cover base loop

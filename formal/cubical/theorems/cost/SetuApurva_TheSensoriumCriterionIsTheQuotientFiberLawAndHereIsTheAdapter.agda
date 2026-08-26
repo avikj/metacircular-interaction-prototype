@@ -60,7 +60,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 open import QuotientFiberLaw
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 
 module _ (X : Type) where

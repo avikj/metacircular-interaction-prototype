@@ -7,19 +7,19 @@
 --
 -- FACT A (`README` §C4).  `FactorsThrough` has two definitions under one
 -- name.  `FiniteInformation` types its decoder on the IMAGE — "the empty
--- fibre unroutable by type, the router's guard is sound THERE" — while
+-- fiber unroutable by type, the router's guard is sound THERE" — while
 -- `QuotientFiberLaw` types it on the full codomain, and gating against the
 -- wrong one makes the रिक्तम् rows transportable.  Recorded as a naming
 -- defect.
 --
 -- FACT B (`DesaSanghata_…NotAGradedMonoid`, `Vilopa_…FailureOfChoice`, both
--- this corpus, today).  Cost does not compose: an empty inner fibre deletes
--- a point of the outer fibre, विकलादेश collapses to सकलादेश, monotonicity
+-- this corpus, today).  Cost does not compose: an empty inner fiber deletes
+-- a point of the outer fiber, विकलादेश collapses to सकलादेश, monotonicity
 -- fails — and the annihilation happens exactly when no section
 -- `(w : शेष g z) → शेष f (fst w)` exists.
 --
 -- THEY ARE THE SAME FACT.  The section whose absence कills composition IS
--- the statement that the outer fibre lies inside the image of `f`.  So:
+-- the statement that the outer fiber lies inside the image of `f`.  So:
 --
 --   * on the full codomain there is no graded monoid (Fact B), and
 --   * on the image there is (§३ below), because the section is free,
@@ -96,7 +96,7 @@ module _ {A B C : Type ℓ} (f : A → B) (g : B → C) (z : C) where
 
 ------------------------------------------------------------------------
 -- २ · प्रतिबिम्बे — THE IMAGE CONDITION, named.  "Every point of the outer
--- fibre over z is hit by f."  This is precisely the section whose absence
+-- fiber over z is hit by f."  This is precisely the section whose absence
 -- Vilopa proves the annihilation requires, and precisely what typing a
 -- decoder on the Image asserts.
 ------------------------------------------------------------------------

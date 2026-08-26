@@ -2,7 +2,7 @@
 Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
-Global shortestness and proof-relevant fibres for the visited synchronous
+Global shortestness and proof-relevant fibers for the visited synchronous
 pair traversal supplied by `VisitedPairHorizon`.
 -/
 import Pairfield.VisitedPairHorizon
@@ -187,7 +187,7 @@ theorem visitedPairWitness?_length_eq_shortestStateWitness
   · exact shortestStateWitness_minimal M alphabet complete left right
       hexhaustive node.word hvisitedSound.2.1
 
-/-- The complete proof-history fibre of distinguishing suffixes. -/
+/-- The complete proof-history fiber of distinguishing suffixes. -/
 def DistinguishingDerivationFiber
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (left right : X) :=
@@ -196,7 +196,7 @@ def DistinguishingDerivationFiber
         behavior M.step (acceptsBool M) right word }
 
 /-- Selecting one active shortest separator never identifies or deletes the
-other inhabitants of the distinguishing derivation fibre. -/
+other inhabitants of the distinguishing derivation fiber. -/
 theorem visitedPairWitness?_exists_iff_derivationFiber
     [DecidableEq X] [Fintype X]
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]

@@ -46,8 +46,8 @@
 --
 -- WHAT IS NOT CLAIMED.  Nothing analytic, no operator algebra: this is
 -- the finite/typal shadow of "the unitaries commuting with an
--- observable," and no Hilbert space is implied.  The fibrewise leg
--- (group ≅ product over the codomain of the fibres' automorphism
+-- observable," and no Hilbert space is implied.  The fiberwise leg
+-- (group ≅ product over the codomain of the fibers' automorphism
 -- groups) still needs the Avaccheda currying coherence and is NOT here
 -- — it is śeṣa (a) of SamraksakaGana §५, unchanged.  The ∞-version
 -- (śeṣa (c)) is likewise untouched.  §३ transports the unit evidence
@@ -74,7 +74,7 @@ open import Cubical.Algebra.Group.MorphismProperties using (makeIsGroupHom)
 
 open import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
   using (सर्व-नाशः)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibers
 open import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
 
 private variable ℓ : Level
@@ -251,8 +251,8 @@ module अन्ध-समूहे {A B : Type ℓ} (setA : isSet A) (setB : is
 
 ------------------------------------------------------------------------
 -- §५ · शेषः — unchanged from SamraksakaGana §५ except (b), which this
--- module discharges: (a) the fibrewise leg (group ≅ Π over the codomain
--- of the fibres' automorphism groups, needing the Avaccheda currying
+-- module discharges: (a) the fiberwise leg (group ≅ Π over the codomain
+-- of the fibers' automorphism groups, needing the Avaccheda currying
 -- coherence); (c) the ∞-version; (d) the yoga/gauge instances.  New
 -- here: the section-side units as a packaged `Group` with वासः a
 -- `GroupEquiv` onto it — §३ gives the pointwise evidence and stops.

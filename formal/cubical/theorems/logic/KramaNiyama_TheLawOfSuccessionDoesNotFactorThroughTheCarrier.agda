@@ -12,7 +12,7 @@
 -- object; no source is claimed for the compound (CLAUDE.md, naming
 -- rule, note 2).
 --
--- SEED.  The owner's transmission of 2026-08-23 ("the fibre of
+-- SEED.  The owner's transmission of 2026-08-23 ("the fiber of
 -- forgetting"), which named this as the first of four determined
 -- terms:
 --
@@ -23,7 +23,7 @@
 -- `VakraValaya_TheSameCarrierTwoLawsOfSuccession…` proved समः/भेदः at
 -- π₁ itself — torus loops commute, Klein loops do not, through
 -- `windingKlein` — over the ONE stratum-3 carrier ℤ × ℤ.  This module
--- is the structure-fibre PACKAGING of that separation: the two group
+-- is the structure-fiber PACKAGING of that separation: the two group
 -- operations are transported onto the one carrier ℤ × ℤ, and the
 -- separation is then fed to `QuotientFiberLaw`, the
 -- corpus's one theorem, so that "the law is invisible to any

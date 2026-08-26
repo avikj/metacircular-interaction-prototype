@@ -330,7 +330,7 @@
     <text x="56" y="904" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve"></text>
     <text x="56" y="922" fill="#111111" font-family="monospace" font-size="12" font-weight="bold" text-anchor="start" xml:space="preserve">MISREADING RISKS:</text>
     <text x="56" y="940" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">  (a) the four ancestry colours encode c_0 only.  Two generic cells of the same colour are NOT in the</text>
-    <text x="56" y="958" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">      same orbit; the orbit is not recoverable from the colour (56-state fibres).</text>
+    <text x="56" y="958" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">      same orbit; the orbit is not recoverable from the colour (56-state fibers).</text>
     <text x="56" y="976" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">  (b) orange and purple are disjoint here only because b is even; for odd b a word can be fixed by E</text>
     <text x="56" y="994" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">      as well, and this palette would need a fourth sector.</text>
   </g>

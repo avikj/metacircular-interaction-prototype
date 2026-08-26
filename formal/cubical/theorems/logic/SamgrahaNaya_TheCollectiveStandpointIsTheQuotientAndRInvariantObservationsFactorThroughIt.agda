@@ -17,9 +17,9 @@
 --     (A → B) respecting R    ≃    (A / R → B)          [B a set]
 --
 -- So the saṅgraha-naya is not a metaphor for the quotient; it is the
--- quotient's universal property.  The fibre of the quotient map over a
+-- quotient's universal property.  The fiber of the quotient map over a
 -- class is the class itself — exactly what the collective standpoint
--- cannot separate (the fibre law, `SarvavibhagaH`, `QuotientFiberLaw`).
+-- cannot separate (the fiber law, `SarvavibhagaH`, `QuotientFiberLaw`).
 --
 -- WHAT IS PROVED:
 --   §2  सङ्ग्रह-सार्वत्रिकम् : (A → B respecting R) ≃ (A/R → B), for B a
@@ -31,13 +31,13 @@
 --       unseen.
 --   §4  कक्ष्या-लोपः : the collective standpoint is genuinely BLIND within
 --       a class: if R a b then [ a ] ≡ [ b ] — R-related particulars are
---       identified, their difference is the fibre the naya forgets.
+--       identified, their difference is the fiber the naya forgets.
 --
 -- WHAT IS **NOT** CLAIMED.  The universal property is the library's; no
 -- novelty in it.  The identification — that the saṅgraha-naya IS the
 -- quotient and its universal property is the naya's defining character —
 -- is the claim, made a term.  R need not be an equivalence for §2/§4;
--- effectivity (fibre over [a] = exactly R-class of a) needs R an
+-- effectivity (fiber over [a] = exactly R-class of a) needs R an
 -- equivalence and is cited to the library, not re-proved.  Doctrine is
 -- Jaina (the seven nayas, Siddhasena); the type theory is cubical.
 --

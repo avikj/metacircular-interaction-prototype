@@ -113,7 +113,7 @@ import AnuvrttiIsTheSameTrade
 import PratyaharaBuysTotalityWithLocality
 import TheSecondNaIsTheCollision
 import MeruDiagonalIsVirahanka
-import TheFibreIsTheSubject
+import TheFiberIsTheSubject
 import AntyaSamskaraSthaulya
 import ExclusionRecoversGroundAtAPrice
 import TheAbsenceTowerIsThreeUnconditionally

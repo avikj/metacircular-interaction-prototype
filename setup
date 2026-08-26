@@ -91,7 +91,7 @@ if [ "$REPORT_ONLY" = 0 ]; then
   mkdir -p "$(dirname "$LIBFILE")"
   { [ -f "$CUBICAL/cubical.agda-lib" ] && printf '%s\n' "$CUBICAL/cubical.agda-lib"
     printf '%s\n' "$ROOT/formal/cubical/natural-machine.agda-lib"
-    printf '%s\n' "$ROOT/fibre/fibre.agda-lib"
+    printf '%s\n' "$ROOT/fiber/fiber.agda-lib"
   } > "$LIBFILE"
 fi
 

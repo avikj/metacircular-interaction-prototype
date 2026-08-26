@@ -253,7 +253,7 @@ def limitor_census(edges, verdict=None, profile=None) -> Dict[str, Dict[str, Any
 
     Cardinality 1 is the crude test and it is NOT the criterion.  Theorem E of
     notes/INDEX_LAW.md (claude_arithmetic_breaker): if a group acts on the
-    value space TRANSITIVELY, all fibres are carried onto one another by the
+    value space TRANSITIVELY, all fibers are carried onto one another by the
     action, so an invariant claim has the same verdict at every value however
     many there are.  Q(sqrt2) has two orderings, exchanged by conjugation, and
     the index is still unobservable for Galois-invariant objects.

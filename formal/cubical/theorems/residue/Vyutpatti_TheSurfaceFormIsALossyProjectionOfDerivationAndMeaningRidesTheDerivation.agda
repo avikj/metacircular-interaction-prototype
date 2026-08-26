@@ -17,12 +17,12 @@
 -- is the hash of its construction — which is this machine's identity
 -- law, arrived at from the other end, ~2,500 years earlier.
 --
--- The obstruction to the bridge is exactly a fibre: the map
+-- The obstruction to the bridge is exactly a fiber: the map
 --
 --     surface : Derivation → String
 --
 -- is NOT injective — sandhi and homonymy collapse distinct derivations
--- onto one string.  A pun (śleṣa) is a two-point fibre of `surface`,
+-- onto one string.  A pun (śleṣa) is a two-point fiber of `surface`,
 -- played deliberately.  So meaning CANNOT factor through the surface
 -- (this module's theorem २: any factoring through a surface with a
 -- collision forces two different meanings equal — refuted by
@@ -35,7 +35,7 @@
 -- already holds the lost material alongside the surface (sthānivadbhāva,
 -- lopa channels); this module is the abstract statement of WHY that
 -- design is forced: recover-from-surface is exactly a section of a map
--- with inhabited multi-point fibres, and no such section exists.
+-- with inhabited multi-point fibers, and no such section exists.
 --
 -- The concrete witness is kept small and abstract (two derivations, one
 -- surface, two arthas); a real Sanskrit śleṣa instantiates it — the
@@ -110,7 +110,7 @@ no-surface-semantics (m , h) =
 ------------------------------------------------------------------------
 -- ३ · NO SECTION RECOVERS THE DERIVATION.  A reader of surfaces cannot
 -- reconstruct the formation: any s with surface ∘ s ≡ id picks ONE
--- point of each fibre, and the collision fibre has two — so some
+-- point of each fiber, and the collision fiber has two — so some
 -- derivation is not recovered.  Stated as: no section can be right
 -- about both colliding roots.
 no-faithful-reader :

@@ -51,7 +51,7 @@
 --     and (1,0) is one of them — so the conserving flows are closed
 --     under composition and contain the identity.
 --
--- §४  तन्तु-गति : the fibre action, obtained by feeding §१ to Dhruva's
+-- §४  तन्तु-गति : the fiber action, obtained by feeding §१ to Dhruva's
 --     `ध्रुव-तन्तौ`.  A norm-one element carries the solution set of
 --     x² − D y² = k into itself, for every k at once.  This is the one
 --     line of the चक्रवाल that is pure conservation.
@@ -63,7 +63,7 @@
 --     places of a number field is a different theorem about a different
 --     object (an idele class), and nothing below has places, absolute
 --     values, completions, or an archimedean term.  What is proved here
---     is that N is multiplicative along bhāvanā and that its fibre of 1
+--     is that N is multiplicative along bhāvanā and that its fiber of 1
 --     is the conserving set — i.e. the conserved quantity is the value
 --     of a MONOID MAP and the flows are its unit set.  Reading that as
 --     "the product formula" is an ANALOGY; it is stated as one in
@@ -111,7 +111,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 
 open import Bhavana
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
 
 private variable ℓ : Level
 
@@ -188,7 +188,7 @@ module Samrakshana (CR : CommRing ℓ) (D : fst CR) where
   एकत्व-आदि = नियम-एकम्
 
   ----------------------------------------------------------------------
-  -- ४ · The fibre action, straight out of Dhruva.
+  -- ४ · The fiber action, straight out of Dhruva.
   --
   -- `fiber नियम k` is the solution set of x² − D y² = k.  A norm-one
   -- element carries it into itself — every k at once, one term.

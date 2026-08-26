@@ -281,7 +281,7 @@ no-unqualified-denial    : ¬ ((ρ : Env) → ¬ P ρ)
 ```
 
 Both unqualified forms are refuted. The two qualified ones hold. `P` is a family
-over `Env` whose fibres disagree. For a pair the calculus derives, the two
+over `Env` whose fibers disagree. For a pair the calculus derives, the two
 refutations fail.
 
 This exhibits bhaṅgas one and two, and the *krama* reading of the third. It does

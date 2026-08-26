@@ -53,8 +53,8 @@
 --   §३  The strike's own strengthening, checked: diag(2,6) and
 --       diag(2,12) have the SAME drop side (12) and different products
 --       (12 against 24).  So the drop divisor is a strictly lossier
---       invariant than the determinant; the fibre of the drop divisor
---       is not a point.  This is the fibre law applied to movement 65's
+--       invariant than the determinant; the fiber of the drop divisor
+--       is not a point.  This is the fiber law applied to movement 65's
 --       own price instrument, and it is now a term rather than a
 --       sentence.
 --

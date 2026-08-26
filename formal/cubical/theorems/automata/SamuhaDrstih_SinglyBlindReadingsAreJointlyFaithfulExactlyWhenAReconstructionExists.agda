@@ -10,7 +10,7 @@
 -- one of them is a NO-GO:
 --
 --   SamacaranaNityam  a transitive symmetry flattens every observable
---   ApurvaIndriyam    a derived reading is blind inside its source's fibres
+--   ApurvaIndriyam    a derived reading is blind inside its source's fibers
 --   ParimanaAndha     |·| cannot see the Möbius sign
 --   TiryakTantu       the residue class and the factorisation are transverse
 --
@@ -32,8 +32,8 @@
 --
 -- AND IT IS THE SECTION AGAIN.  `EkaVidhih` §३ showed descent costs a section
 -- of S.  Joint faithfulness costs a reconstruction of the joint reading.
--- Same object, opposite side: a section chooses a point in each fibre, a
--- reconstruction proves each fibre was a point already.  The one law's costly
+-- Same object, opposite side: a section chooses a point in each fiber, a
+-- reconstruction proves each fiber was a point already.  The one law's costly
 -- direction is paid in the same currency both times.
 ------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots ; snotz ; injSuc)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using (⊥)
 
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 
 private
@@ -170,7 +170,7 @@ data षट् : Type where
 --
 -- `अपूर्वम्` refutes derivation of one reading FROM another.  It says nothing
 -- against a family, and §३ is the reason: the pair is not derived from either
--- part — it is derived from both, and its fibre is a point where each part's
+-- part — it is derived from both, and its fiber is a point where each part's
 -- was not.  Blindness is a property of a chart, not of the object, and it
 -- does not survive being joined.
 --

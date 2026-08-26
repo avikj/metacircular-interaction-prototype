@@ -62,7 +62,7 @@ namespace FiniteLiveCell
 variable {Candidate : Type u} {Next : Type v} {Score : Type w}
 variable [DecidableEq Candidate] [DecidableEq Next]
 
-/-- If every live candidate returns the declared answer, that response fibre
+/-- If every live candidate returns the declared answer, that response fiber
 is the whole live cell. -/
 theorem responseFiber_eq_cell_of_constant
     (cell : Finset Candidate) (response : Candidate → Bool) (answer : Bool)

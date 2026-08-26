@@ -39,7 +39,7 @@
 --   §८  स्थान-निर्णयः — the SUPPORT of the factorisation is determined by
 --       n alone: for firm p, p ∣ n ↔ p occurs in the list §५ produced.
 --   §९  मूल्यम् — the bridge to `Sarvasthana`'s विभागः: the map
---       D ↦ ∏ p^e from exponent-lists to ℕ has an INHABITED fibre over
+--       D ↦ ∏ p^e from exponent-lists to ℕ has an INHABITED fiber over
 --       every n ≥ 1.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -55,10 +55,10 @@
 --     statement proved.  What is proved is the surjection: every n ≥ 1 is
 --     SOME product of primes, and the prime support is determined.  The
 --     step from "some" to "the" is the uniqueness half, and it is absent.
---   · §९'s fibre is shown INHABITED, not contractible.  Contractibility
---     of that fibre IS unique factorisation, and it is exactly what is
+--   · §९'s fiber is shown INHABITED, not contractible.  Contractibility
+--     of that fiber IS unique factorisation, and it is exactly what is
 --     missing; the module is careful to state only the inhabitation.
---     (Contrast `Sarvasthana` §५, where the fibre of the conservation
+--     (Contrast `Sarvasthana` §५, where the fiber of the conservation
 --     observable over zero is *everything* — proved there, and a fact of
 --     a different kind: blindness, not rigidity.)
 --   · NOTHING about ℚˣ, negatives, valuations on a field, or the product
@@ -338,13 +338,13 @@ x सदस्यः (y ∷ ys) = (x ≡ y) ⊎ (x सदस्यः ys)
 --     There a divisor is a list of (place, exponent) and the module's
 --     whole point is that it never has to say what the places are.  Here
 --     the value map D ↦ ∏ p^e is written down, and the theorem is that
---     its fibre over every n ≥ 1 is INHABITED by a divisor all of whose
+--     its fiber over every n ≥ 1 is INHABITED by a divisor all of whose
 --     places are firm.
 --
---     INHABITED, not contractible.  Contractibility of this fibre is
+--     INHABITED, not contractible.  Contractibility of this fiber is
 --     unique factorisation and is not proved anywhere in this module; the
 --     statement below is deliberately the weaker one, and the difference
---     between it and `Sarvasthana` §५ — where the fibre is *everything* —
+--     between it and `Sarvasthana` §५ — where the fiber is *everything* —
 --     is the difference between an arithmetic fact and a bookkeeping one.
 ------------------------------------------------------------------------
 

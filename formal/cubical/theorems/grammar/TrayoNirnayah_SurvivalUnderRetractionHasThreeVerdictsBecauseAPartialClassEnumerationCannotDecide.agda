@@ -33,10 +33,10 @@
 --       decision destroys a real asti/nāsti distinction.  त्रयो निर्णयाः,
 --       न द्वौ, mechanised for L4 survival.
 --
--- The fibre reading: the survivors are the fibre over the seen prefix
+-- The fiber reading: the survivors are the fiber over the seen prefix
 -- that the retraction cannot see into; forcing a two-valued answer is the
 -- unreceipted compression (हिंसा सङ्क्षेपः) that loses it.  UNDECIDED is
--- the honest receipt that the fibre was not enumerated.
+-- the honest receipt that the fiber was not enumerated.
 --
 -- Sources for the mathematics: runtime/propagate/README.md §0-§1,
 -- invalidate.survival; runtime/SCALE.md §5.1; runtime/STATUS.md.

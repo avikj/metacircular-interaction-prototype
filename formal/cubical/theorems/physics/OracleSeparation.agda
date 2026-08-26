@@ -50,7 +50,7 @@
 -- neutral sector at once, not a finite sample of it.  The theorem
 -- (`no-charged-predicate`) is that no such F computes ANY flip-charged
 -- predicate whatsoever.  The proof is still `cong F` — because by
--- poincaré's coset theorem (`GaugeOrbitClasses` §5: transcript fibres are
+-- poincaré's coset theorem (`GaugeOrbitClasses` §5: transcript fibers are
 -- cosets of the query annihilator, and τ₋ annihilates the entire neutral
 -- sector) the two full transcripts are EQUAL as functions, so there is
 -- nothing downstream of them for any F to see.  §6 records the bridge to
@@ -333,7 +333,7 @@ sfe-is-one-charged-value σ p n =
 ------------------------------------------------------------------------
 -- §6  The coset reading, as a term.
 --
--- `GaugeOrbitClasses` §5: transcript fibres are cosets of the query
+-- `GaugeOrbitClasses` §5: transcript fibers are cosets of the query
 -- annihilator.  The collapse of §1 is that theorem's instance at the
 -- full neutral sector, whose annihilator contains τ₋: translating any σ
 -- by the parity element does not move its full transcript.  So the

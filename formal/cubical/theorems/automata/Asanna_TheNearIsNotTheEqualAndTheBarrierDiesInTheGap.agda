@@ -12,7 +12,7 @@
 --
 -- It was proposed that the item SPLITS: the analytic half (that WL
 -- observables do factor through the blur) stays open, while the second
--- half (that once they do, no refinement recovers the fibre) is already
+-- half (that once they do, no refinement recovers the fiber) is already
 -- available in general form from
 -- `Vaidharmya_TheObstructionWasNeverClassicalAndTheAnswerTypeNeedOnlyBeApart`,
 -- which removed `Bool` from `QuotientFiberLaw` and left

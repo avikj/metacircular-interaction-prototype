@@ -55,7 +55,7 @@ def childMembers (block : Block M) (action : A) (answer : Bool) : Finset X :=
   FiniteLiveCell.responseFiber block.members
     (block.postResponse M action) answer
 
-/-- Validity is the exact no-merging condition on both response fibres. -/
+/-- Validity is the exact no-merging condition on both response fibers. -/
 def ValidAction (block : Block M) (action : A) : Prop :=
   FiniteLiveCell.SafeAdvance block.members
     (block.postResponse M action) (block.nextState M action)
@@ -105,7 +105,7 @@ def branchSquareAmbiguity (block : Block M) (action : A) : Nat :=
 
 /-- Exact local-to-global accounting.  The identity is on the initial-state
 partition, so it holds independently of validity; validity is what turns both
-nonempty fibres into reusable annotated children. -/
+nonempty fibers into reusable annotated children. -/
 theorem squareAmbiguity_split (block : Block M) (action : A) :
     block.squareAmbiguity M =
       block.branchSquareAmbiguity M action +

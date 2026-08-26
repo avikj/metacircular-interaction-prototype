@@ -11,7 +11,7 @@
 -- At every finite prime, the admissibility predicate is invariant under
 -- negation, so J restricts to the admissible sector.  Consequently the
 -- sum forms (x , k-x) and difference forms (x , x-k) have equivalent
--- admissible fibres, hence equal finite cardinality.  This is the exact
+-- admissible fibers, hence equal finite cardinality.  This is the exact
 -- local statement behind their common Hardy--Littlewood singular series.
 --
 -- On an ordered positive cone the SAME ambient J does not restrict:
@@ -22,10 +22,10 @@
 --
 --   JEquiv                 J is an ambient equivalence.
 --   admissible-reflection  a negation-invariant predicate restricts J.
---   local-fibre-equiv      sum and difference admissible fibres agree.
+--   local-fiber-equiv      sum and difference admissible fibers agree.
 --   local-count-equal      finite instances therefore have equal counts.
 --   positive-break         positivity gives an exact SectorBreak witness.
---   positive-not-invariant no fibrewise restriction can exist.
+--   positive-not-invariant no fiberwise restriction can exist.
 --
 -- RIGOR BOUNDARY
 --
@@ -119,18 +119,18 @@ module Reflection (R : CommRing ℓ) where
       Iso.leftInv (bothIso u v) (pu , pv) =
         ≡-× refl (retEq (neg-invariant v) pv)
 
-    both-fibrewise : (z : Pair) → Both U z ≃ Both U (equivFun JEquiv z)
-    both-fibrewise (u , v) = isoToEquiv (bothIso u v)
+    both-fiberwise : (z : Pair) → Both U z ≃ Both U (equivFun JEquiv z)
+    both-fiberwise (u , v) = isoToEquiv (bothIso u v)
 
     -- Exact contact with T14.6: J restricts because the predicate is
-    -- fibrewise invariant.  For the finite-prime application U is the
+    -- fiberwise invariant.  For the finite-prime application U is the
     -- unit/nonzero predicate, whose invariance is multiplication by -1.
     admissible-reflection : (Σ Pair (Both U)) ≃ (Σ Pair (Both U))
     admissible-reflection =
-      restricts-suff JEquiv (Both U) (Both U) both-fibrewise
+      restricts-suff JEquiv (Both U) (Both U) both-fiberwise
 
     --------------------------------------------------------------------
-    -- 3.  Pull J back to the one-parameter sum and difference fibres.
+    -- 3.  Pull J back to the one-parameter sum and difference fibers.
     --------------------------------------------------------------------
 
     SumCondition DiffCondition : Carrier → Carrier → Type ℓ'
@@ -159,19 +159,19 @@ module Reflection (R : CommRing ℓ) where
       Iso.leftInv (conditionIso k x) (px , py) =
         ≡-× refl (retEq (second-leg-equiv k x) py)
 
-    condition-fibrewise : (k x : Carrier)
+    condition-fiberwise : (k x : Carrier)
                         → SumCondition k x ≃ DiffCondition k x
-    condition-fibrewise k x = isoToEquiv (conditionIso k x)
+    condition-fiberwise k x = isoToEquiv (conditionIso k x)
 
     -- The exact equality of local solution spaces.  This is stronger than
     -- equality of their sizes and does not require finiteness.
-    local-fibre-equiv : (k : Carrier) → LocalSum k ≃ LocalDiff k
-    local-fibre-equiv k =
+    local-fiber-equiv : (k : Carrier) → LocalSum k ≃ LocalDiff k
+    local-fiber-equiv k =
       restricts-suff (idEquiv Carrier)
-        (SumCondition k) (DiffCondition k) (condition-fibrewise k)
+        (SumCondition k) (DiffCondition k) (condition-fiberwise k)
 
     -- The density statement used by the singular series: on any finite
-    -- instance, equivalent admissible fibres have exactly equal counts.
+    -- instance, equivalent admissible fibers have exactly equal counts.
     local-count-equal :
       (k : Carrier)
       (finSum : isFinSet (LocalSum k))
@@ -179,7 +179,7 @@ module Reflection (R : CommRing ℓ) where
       → card (LocalSum k , finSum) ≡ card (LocalDiff k , finDiff)
     local-count-equal k finSum finDiff =
       cardEquiv (LocalSum k , finSum) (LocalDiff k , finDiff)
-        ∣ local-fibre-equiv k ∣₁
+        ∣ local-fiber-equiv k ∣₁
 
   ----------------------------------------------------------------------
   -- 4.  The same ambient equivalence fails on a positive cone.

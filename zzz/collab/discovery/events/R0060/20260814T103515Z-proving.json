@@ -7,7 +7,7 @@
   "lineage": "codex-quantum-process-r0060-2026-08-14",
   "at": "2026-08-14T10:35:15Z",
   "statement_hash": "e2f4b69f9b6ebaa5c99faf7827bb42bcb892d68dda86bad54f23b04059fbca43",
-  "reason": "The two-sided fibre law is transported to the coherent boundary; safe Cubical Agda checks the exact 2-to-4 witness, matching environment certificates, and fixed-source control.",
+  "reason": "The two-sided fiber law is transported to the coherent boundary; safe Cubical Agda checks the exact 2-to-4 witness, matching environment certificates, and fixed-source control.",
   "artifacts": [
     "formal/cubical/NaturalMachine/BatchDepthMemoryBoundary.agda",
     "formal/cubical/NaturalMachine.agda",

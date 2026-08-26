@@ -154,7 +154,7 @@ sign-seen = inr tt , posNotnegsuc 6 5
 -- PRIOR ART.  `ChuAdvance` states this content first and states
 -- it better: "the defect of a Chu space is monotone in the test list ... a
 -- vanishing defect is a statement about 𝒯, never about X".  It carries
--- `Shrink(𝒯) ⇒ δ↓` and the base-flat/fibre-curved separation, neither of which
+-- `Shrink(𝒯) ⇒ δ↓` and the base-flat/fiber-curved separation, neither of which
 -- is here.  I did not check the directory before writing this and only found
 --
 -- What `break-blindness` adds is small and worth keeping distinct: `ChuAdvance`

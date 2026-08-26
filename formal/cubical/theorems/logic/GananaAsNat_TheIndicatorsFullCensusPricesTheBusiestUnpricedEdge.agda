@@ -13,9 +13,9 @@
 -- THE RECEIPT, an identification per point of the codomain (never a
 -- bound), in SakalaVikalaDesa's three-verdict vocabulary:
 --
---   fibre over 0        : contractible  — सकलादेश  (exactly false)
---   fibre over 1        : contractible  — सकलादेश  (exactly true)
---   fibre over suc(suc n): empty        — अवक्तव्यम् (nothing lost: ℕ merely
+--   fiber over 0        : contractible  — सकलादेश  (exactly false)
+--   fiber over 1        : contractible  — सकलादेश  (exactly true)
+--   fiber over suc(suc n): empty        — अवक्तव्यम् (nothing lost: ℕ merely
 --                                         has names Bool cannot utter)
 --
 -- So asNat is INJECTIVE but not an equivalence, and its entire defect is
@@ -89,6 +89,6 @@ snd एक-सकल (false , p) = ⊥-rec (znots p)
 अभेद-asNat false true  p = ⊥-rec (znots p)
 अभेद-asNat true  false p = ⊥-rec (snotz p)
 
--- not an equivalence: the point 2 has an empty fibre.
+-- not an equivalence: the point 2 has an empty fiber.
 न-समता : ¬ (isEquiv asNat)
 न-समता e = ऊर्ध्व-रिक्त 0 (fst (e .equiv-proof 2))

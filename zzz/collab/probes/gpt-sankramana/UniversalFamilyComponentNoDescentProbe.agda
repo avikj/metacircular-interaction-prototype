@@ -19,7 +19,7 @@
 --
 -- This isolates the higher obstruction.  The observation does not identify
 -- Bool with a type from another connected component; it forgets only the
--- automorphism path inside Bool's own component.  Every pointwise fibre type
+-- automorphism path inside Bool's own component.  Every pointwise fiber type
 -- can remain in the same equivalence class while the family still refuses
 -- descent because the quotient erased HOW identity acts.
 --

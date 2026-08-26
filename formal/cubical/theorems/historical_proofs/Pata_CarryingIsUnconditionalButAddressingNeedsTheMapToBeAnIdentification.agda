@@ -11,10 +11,10 @@
 --
 -- The carrier law gives `A ≃ Carrier f` for EVERY f, with no hypothesis:
 -- a derived datum may always be kept alongside what it was derived from,
--- because the fibre `singl (f a)` is contractible.  That is a RECEIPT.
+-- because the fiber `singl (f a)` is contractible.  That is a RECEIPT.
 --
 -- It does not follow that you may throw the base away.  For that you need
--- to get the base BACK from the datum, and `loss/…/Prastara_…`
+-- to get the base BACK from the datum, and `fiber/src/Fiber/Prastara_…`
 -- is where the difference becomes a theorem rather than a caution.  Two
 -- maps out of the same base behave oppositely:
 --

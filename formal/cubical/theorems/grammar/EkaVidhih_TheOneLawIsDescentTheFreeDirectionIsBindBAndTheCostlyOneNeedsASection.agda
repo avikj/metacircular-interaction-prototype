@@ -4,11 +4,11 @@
 -- एकविधिः — अवतरणम् एव सर्वम् ।  मुक्तो मार्गः बद्ध-b ; बद्ध-a च्छेदं याचते ।
 --
 -- (the one law is DESCENT.  the free direction is bind-b; the costly one
--- demands a section, and the cost is exactly the fibre.)
+-- demands a section, and the cost is exactly the fiber.)
 --
 -- चत्वारः सिद्धान्ताः एकः — four terms landed in this corpus, and each was
 -- called "the same law" in prose.  Prose is बद्ध-a: it fixes the conclusion
--- and leaves the reader to find the fibre.  Here the identification is a
+-- and leaves the reader to find the fiber.  Here the identification is a
 -- term.
 --
 --   SamacaranaNityam  सङ्क्रमण-नित्यम्   — S = the orbit projection
@@ -20,7 +20,7 @@
 -- Five statements, one rewrite, and §२ below is the rewrite.
 --
 -- सूत्र ५ अत्र निर्णायकम् ।  `प्रवहति S q` says q descends along S.  §२ gives
--- descent ⟹ blindness on fibres, and it is FREE: no hypothesis on any of the
+-- descent ⟹ blindness on fibers, and it is FREE: no hypothesis on any of the
 -- three types, no choice, no decidability.  §३ gives the converse and it is
 -- NOT free — it demands a section of S, and §४ exhibits the failure when none
 -- exists.  That asymmetry is बद्ध-b versus बद्ध-a, at the level of the law
@@ -44,7 +44,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Data.Unit using (Unit ; tt ; isContrUnit)
 open import Cubical.Data.Empty using (⊥ ; rec)
 
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 
 private
@@ -68,7 +68,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} (S : X → O) where
   वहनम्-सदा-एकम् x = isContrSingl (S x)
 
 ------------------------------------------------------------------------
--- २ · मुक्तो मार्गः — descent ⟹ blind on the fibres.  FREE.
+-- २ · मुक्तो मार्गः — descent ⟹ blind on the fibers.  FREE.
 --
 -- Re-exported rather than reproved: this IS `तन्तौ-अन्धः`, and naming it
 -- twice would be the collapse §७ forbids.
@@ -81,9 +81,9 @@ module _ {X : Type ℓ} {O : Type ℓ'} (S : X → O) where
 अवतरणात्-अन्धः = तन्तौ-अन्धः
 
 ------------------------------------------------------------------------
--- ३ · बद्धो मार्गः — blind on the fibres ⟹ descent.  COSTS A SECTION.
+-- ३ · बद्धो मार्गः — blind on the fibers ⟹ descent.  COSTS A SECTION.
 --
--- `h` must be TOTAL on O.  Constancy supplies its value only where a fibre is
+-- `h` must be TOTAL on O.  Constancy supplies its value only where a fiber is
 -- inhabited, so the converse needs a chosen point in each — a section.  With
 -- one, the derivation is `q ∘ sec` and the proof is one rewrite.
 ------------------------------------------------------------------------
@@ -99,7 +99,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} (S : X → O) where
 ------------------------------------------------------------------------
 -- ४ · छेदाभावे भङ्गः — without a section the converse FAILS
 --
--- X = ⊥, O = Unit, Q = ⊥.  Every fibre condition holds vacuously — there are
+-- X = ⊥, O = Unit, Q = ⊥.  Every fiber condition holds vacuously — there are
 -- no two points to be constant between — yet `h : Unit → ⊥` cannot exist.
 -- So §३'s hypothesis is load-bearing and not bookkeeping.
 ------------------------------------------------------------------------
@@ -110,7 +110,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} (S : X → O) where
 शून्य-q : ⊥ → ⊥
 शून्य-q ()
 
--- Vacuously blind on fibres.
+-- Vacuously blind on fibers.
 शून्ये-नित्यम् : (x y : ⊥) → शून्य-S x ≡ शून्य-S y → शून्य-q x ≡ शून्य-q y
 शून्ये-नित्यम् ()
 
@@ -125,7 +125,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} (S : X → O) where
 -- two halves and they are §२ and §३.
 --
 --   sufficiency — transitive ⟹ flattened.  This is §२ at O = Unit: a
---     transitive action makes the orbit space a point, every fibre is the
+--     transitive action makes the orbit space a point, every fiber is the
 --     whole type, and blindness is total.  FREE, and it stood.
 --   necessity  — flattened ⟹ transitive.  This is §३'s direction: it asks
 --     to reconstruct a structure ON the index from constancy of a reading OF
@@ -138,7 +138,7 @@ module _ {X : Type ℓ} {O : Type ℓ'} (S : X → O) where
 -- छेदं याचते — what is free is free, what is bound demands its section.
 --
 -- मर्यादा.  §३ takes a split surjection.  A merely surjective S with untruncated
--- fibres needs choice to pick `छेदः`, and in this corpus that choice is DATA
+-- fibers needs choice to pick `छेदः`, and in this corpus that choice is DATA
 -- to be handed over, not a background assumption — which is the same standard
 -- `प्रवहति` sets by being a Σ and not a truncation.  §४ shows the hypothesis
 -- cannot simply be dropped; it does not claim it is the weakest possible one.

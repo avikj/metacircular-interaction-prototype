@@ -20,7 +20,7 @@
 --
 --     (Σ[ Φ ∈ A → A ] ((a : A) → f (Φ a) ≡ f a))  ≃  ((a : A) → fiber f (f a))
 --
--- — the conserving flows of an observation are the sections of its own fibre
+-- — the conserving flows of an observation are the sections of its own fiber
 -- family.  That is exact, and it is η for Σ and Π: both round trips are `refl`,
 -- no funext, no h-level, any universes.  Independently re-checked here before
 -- this file was written.
@@ -47,11 +47,11 @@
 -- has no inverse.  A structure containing `λ _ → zero` is not symmetry.
 --
 -- WHAT SURVIVES, and it is the stronger half: the conserving-flow space of an
--- observation IS its fibre census, pointwise, unconditionally.  "How much
--- symmetry does `f` have" and "how large are `f`'s fibres" are one question.
+-- observation IS its fiber census, pointwise, unconditionally.  "How much
+-- symmetry does `f` have" and "how large are `f`'s fibers" are one question.
 -- That needs no Lagrangian and is not Noether, which is why it is better.
 --
--- Corollary for the frontier: an unpriced fibre is an unpriced quantity of
+-- Corollary for the frontier: an unpriced fiber is an unpriced quantity of
 -- this (monoid) invariance, so the undecided queue measures uncounted
 -- invariance and not merely uncounted structure.
 --

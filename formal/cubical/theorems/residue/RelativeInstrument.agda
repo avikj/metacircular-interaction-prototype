@@ -8,7 +8,7 @@
 -- a posterior fact indexed by that outcome.  Sequential composition retains
 -- both outcomes and feeds the first posterior to the second instrument.
 --
--- Frame covariance transports inputs and posteriors through fibrewise
+-- Frame covariance transports inputs and posteriors through fiberwise
 -- equivalences while leaving the outcome label explicit.  No probabilities,
 -- amplitudes, collapse law, or claim of a complete RQM model is made here.
 ------------------------------------------------------------------------

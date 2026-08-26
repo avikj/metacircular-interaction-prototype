@@ -66,7 +66,7 @@
 --       So the qualified forms are not a weakening of an available
 --       absolute one.  There is no absolute one, in either direction.
 --       AND THIS IS NOT A CONTRADICTION: it is the ordinary condition of
---       a family over `Env` whose fibres disagree.  Contingent on the
+--       a family over `Env` whose fibers disagree.  Contingent on the
 --       pair, and false for pairs the calculus does derive.
 --
 --   §2  no-fourth-corner : ¬ (¬ (A ⊎ ¬ A)), for EVERY A, at every level,

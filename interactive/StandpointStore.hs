@@ -19,8 +19,8 @@
 -- an opinion about tidiness; it is
 -- `formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda`,
 -- which proves that a standpoint index may be dropped exactly when every
--- pair of fibres is EQUIVALENT, and exhibits `Mixed : Bool → Type` with
--- fibres `Unit` and `Bool` — both inhabited, so equal in truth value,
+-- pair of fibers is EQUIVALENT, and exhibits `Mixed : Bool → Type` with
+-- fibers `Unit` and `Bool` — both inhabited, so equal in truth value,
 -- inequivalent, so not collapsible.  Truth-equality is strictly weaker
 -- than content-equality and reading the first as the second is durnaya.
 --
@@ -464,8 +464,8 @@ decide saha es0
       Just SatyaSama ->
         [ "NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT."
         , "This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is"
-        , "available iff every pair of fibres is equivalent, and `Mixed` with"
-        , "fibres Unit and Bool is the checked witness that both-inhabited is"
+        , "available iff every pair of fibers is equivalent, and `Mixed` with"
+        , "fibers Unit and Bool is the checked witness that both-inhabited is"
         , "not enough.  Any single verdict here discards the difference below."
         ] ++ (if someAgree && not allAgree
                 then [ "Not uniformly, though: the sub-families listed as varga DO"
@@ -681,11 +681,11 @@ kTricky = k3
     (_,_,k3) = insert eBool k2
 
 -- The checked witness from Durnaya_CollapseIffEveryNayaAgrees, as data:
--- both fibres inhabited, and inequivalent.
+-- both fibers inhabited, and inequivalent.
 eUnit, eBool :: Entry
-eUnit = mk "Mixed-at-true" (Yogya "the fibre is Unit; enumerated")
+eUnit = mk "Mixed-at-true" (Yogya "the fiber is Unit; enumerated")
           [("tt", "NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda")]
-eBool = mk "Mixed-at-false" (Yogya "the fibre is Bool; enumerated")
+eBool = mk "Mixed-at-false" (Yogya "the fiber is Bool; enumerated")
           [("true",  "NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda")
           ,("false", "NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda")]
 

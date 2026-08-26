@@ -14,7 +14,7 @@
 -- Voevodsky's univalence), not in the grammatical tradition.  The compound
 -- names the phenomenon; it does not assert a source for the theorem.
 --
--- WHAT THIS MODULE MEASURES.  `loss/README.md` finding 3 records:
+-- WHAT THIS MODULE MEASURES.  `fiber/README.md` finding 3 records:
 --
 --     "transport along `ua` does not reduce on a neutral variable.  It sticks
 --      on prim^unglue; it computes only on canonical form.  So uaβ is

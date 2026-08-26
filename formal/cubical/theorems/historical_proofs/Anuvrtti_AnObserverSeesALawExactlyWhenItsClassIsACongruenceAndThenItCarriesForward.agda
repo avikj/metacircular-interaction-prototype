@@ -9,7 +9,7 @@
 --
 -- WHAT THIS IS.  `NaturalMachine/QuotientFiberLaw.agda` states the one law
 -- for a STATIC observation: a closed observation class sees exactly a
--- quotient, never the fibre, and visibility returns only by a separating
+-- quotient, never the fiber, and visibility returns only by a separating
 -- query.  This module is its DYNAMICAL face, which the corpus did not have:
 --
 --     put a rule on the state space, and ask when the observer sees a LAW.

@@ -97,7 +97,7 @@ open import CoprimeSplitting using (dec∣)
 -- `_∣_` is `∃[ c ] c · d ≡ n`, a propositional truncation.  The target is
 -- an equality of naturals, hence a proposition by `isSetℕ`, so
 -- `PropTrunc.rec` applies with no further hypotheses: no choice, no
--- decidability of the fibre, no untruncation lemma.
+-- decidability of the fiber, no untruncation lemma.
 ------------------------------------------------------------------------
 
 ∣→modw-zero : (n : ℕ) (w : Word) → (suc n) ∣ value w → modw (suc n) w ≡ 0

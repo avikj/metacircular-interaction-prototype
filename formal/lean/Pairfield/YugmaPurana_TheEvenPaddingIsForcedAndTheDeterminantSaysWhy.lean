@@ -276,7 +276,7 @@ theorem one_paddedOne_padding_is_even :
 * It does not say the endpoint matrices determine the word up to parity.  They
   forget the quotients entirely; `det` sees only the length, and only its
   parity.  The claim is about the coordinate the two counterexamples were
-  built to defeat, not about the fibre.
+  built to defeat, not about the fiber.
 * It does not say a **minimal** word length is undecodable.  Both no-decoder
   theorems are about *historical* cost, and
   `kuttaka610_leftWord_length_ge_four` in `DiagonalSmithRoute.lean` is the

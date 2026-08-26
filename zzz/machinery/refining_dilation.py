@@ -32,7 +32,7 @@ integers needs 13 environment levels and 4 qubits; the organism's minimal
 sufficient chart for `v_7` on the same integers is `mod 49` and needs 2 levels
 and **1 qubit**.
 
-Nothing here is measured; every dimension is a maximum fibre cardinality
+Nothing here is measured; every dimension is a maximum fiber cardinality
 computed by enumeration, and the closed forms are proved.
 """
 
@@ -50,17 +50,17 @@ def valuation(number: int, prime: int) -> int:
 
 
 def environment_dimension(observable, world) -> int:
-    """Their Theorem 2.1: the least environment dimension is the largest fibre.
+    """Their Theorem 2.1: the least environment dimension is the largest fiber.
 
     For an isometry `V|x> = |q(x)>|e_x>`, inner-product preservation forces the
-    environment vectors within a fibre to be orthonormal, and labels may be
-    reused across fibres because the output register already separates them.
+    environment vectors within a fiber to be orthonormal, and labels may be
+    reused across fibers because the output register already separates them.
     """
-    fibres: dict[object, int] = {}
+    fibers: dict[object, int] = {}
     for element in world:
         key = observable(element)
-        fibres[key] = fibres.get(key, 0) + 1
-    return max(fibres.values())
+        fibers[key] = fibers.get(key, 0) + 1
+    return max(fibers.values())
 
 
 def qubits(dimension: int) -> int:
@@ -95,8 +95,8 @@ def refining_qubits(prime: int) -> int:
 def divisibility_predicate_dimension(modulus: int, size: int) -> int:
     """The coarser predicate `[m | n]` costs *more*, not less.
 
-    Refining shrinks fibres (`DEPTH_MEMORY_NONMONOTONICITY` Prop 2.1), so the
-    two-valued divisibility observable has a fibre of size about `N(1 - 1/m)`.
+    Refining shrinks fibers (`DEPTH_MEMORY_NONMONOTONICITY` Prop 2.1), so the
+    two-valued divisibility observable has a fiber of size about `N(1 - 1/m)`.
     The cheap memory belongs to the valuation observable, not to any coarsening
     of it -- which is why the bound above is a statement about *which* sensor
     the organism retains.

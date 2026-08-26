@@ -2,8 +2,8 @@ NAYA	0	log-carries-both-verdicts	yogya:read machine/Obstruction.hs, section THE 
 NAYA	1	log-carries-both-verdicts	yogya:read formal/cubical/SaptabhangiNaya.agda, header	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	machine.log carries one claim both affirmed and denied, so a verdict is a property of the (claim, standpoint) pair and not of the claim=formal/cubical/SaptabhangiNaya.agda
 NAYA	2	the-cited-line-numbers-still-resolve	yogya:opened machine/machine.log at lines 146 and 174 on 2026-08-20	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	
 NAYA	3	the-log-is-content-addressed	ayogya:no search for a hash, a length or a commit pin on machine.log	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	
-NAYA	4	Mixed-at-true	yogya:the fibre is Unit\s its inhabitants enumerated exhaustively	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	tt=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda
-NAYA	5	Mixed-at-false	yogya:the fibre is Bool\s its inhabitants enumerated exhaustively	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	true=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda;false=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda
+NAYA	4	Mixed-at-true	yogya:the fiber is Unit\s its inhabitants enumerated exhaustively	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	tt=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda
+NAYA	5	Mixed-at-false	yogya:the fiber is Bool\s its inhabitants enumerated exhaustively	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	true=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda;false=formal/cubical/NaturalMachine/Durnaya_CollapseIffEveryNayaAgrees.agda
 NAYA	6	python-is-banned	yogya:read CLAUDE.md, section The substrate: Agda, not Python	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	Python is banned in this repository=CLAUDE.md
 NAYA	7	python-is-banned-and-mechanised	yogya:read CLAUDE.md and the hook and workflow files it names	naya-kosha, machine/NayaKosha_RunTheLiveStore.hs	2026-08-20	Python is banned in this repository=CLAUDE.md;the ban is enforced by a hook, a pre-commit and CI, because prose failed=CLAUDE.md
 PRCCHA	0	saha	0,1	one content, two records -- asserted at once (saha)
@@ -52,8 +52,8 @@ VAKYA	2	  bhanga : Position B2Nasti
 VAKYA	2	  samata : satya (truth value only)
 VAKYA	2	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	2	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	2	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	2	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	2	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	2	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	2	  not enough.  Any single verdict here discards the difference below.
 VAKYA	2	
 VAKYA	2	  maximal collapsible sub-families (varga), by content:
@@ -72,8 +72,8 @@ VAKYA	3	  bhanga : Position B3AstiNasti
 VAKYA	3	  samata : satya (truth value only)
 VAKYA	3	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	3	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	3	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	3	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	3	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	3	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	3	  not enough.  Any single verdict here discards the difference below.
 VAKYA	3	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	3	  collapse.  What does not exist is the collapse of the whole.
@@ -119,8 +119,8 @@ VAKYA	6	  bhanga : Position B2Nasti
 VAKYA	6	  samata : satya (truth value only)
 VAKYA	6	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	6	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	6	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	6	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	6	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	6	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	6	  not enough.  Any single verdict here discards the difference below.
 VAKYA	6	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	6	
@@ -177,8 +177,8 @@ VAKYA	9	  bhanga : Position B2Nasti
 VAKYA	9	  samata : satya (truth value only)
 VAKYA	9	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	9	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	9	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	9	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	9	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	9	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	9	  not enough.  Any single verdict here discards the difference below.
 VAKYA	9	
 VAKYA	9	  maximal collapsible sub-families (varga), by content:
@@ -197,8 +197,8 @@ VAKYA	10	  bhanga : Position B3AstiNasti
 VAKYA	10	  samata : satya (truth value only)
 VAKYA	10	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	10	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	10	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	10	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	10	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	10	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	10	  not enough.  Any single verdict here discards the difference below.
 VAKYA	10	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	10	  collapse.  What does not exist is the collapse of the whole.
@@ -244,8 +244,8 @@ VAKYA	13	  bhanga : Position B2Nasti
 VAKYA	13	  samata : satya (truth value only)
 VAKYA	13	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	13	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	13	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	13	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	13	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	13	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	13	  not enough.  Any single verdict here discards the difference below.
 VAKYA	13	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	13	
@@ -302,8 +302,8 @@ VAKYA	16	  bhanga : Position B2Nasti
 VAKYA	16	  samata : satya (truth value only)
 VAKYA	16	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	16	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	16	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	16	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	16	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	16	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	16	  not enough.  Any single verdict here discards the difference below.
 VAKYA	16	
 VAKYA	16	  maximal collapsible sub-families (varga), by content:
@@ -322,8 +322,8 @@ VAKYA	17	  bhanga : Position B3AstiNasti
 VAKYA	17	  samata : satya (truth value only)
 VAKYA	17	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	17	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	17	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	17	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	17	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	17	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	17	  not enough.  Any single verdict here discards the difference below.
 VAKYA	17	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	17	  collapse.  What does not exist is the collapse of the whole.
@@ -381,8 +381,8 @@ VAKYA	22	  bhanga : Position B2Nasti
 VAKYA	22	  samata : satya (truth value only)
 VAKYA	22	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	22	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	22	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	22	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	22	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	22	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	22	  not enough.  Any single verdict here discards the difference below.
 VAKYA	22	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	22	
@@ -439,8 +439,8 @@ VAKYA	25	  bhanga : Position B2Nasti
 VAKYA	25	  samata : satya (truth value only)
 VAKYA	25	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	25	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	25	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	25	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	25	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	25	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	25	  not enough.  Any single verdict here discards the difference below.
 VAKYA	25	
 VAKYA	25	  maximal collapsible sub-families (varga), by content:
@@ -459,8 +459,8 @@ VAKYA	26	  bhanga : Position B3AstiNasti
 VAKYA	26	  samata : satya (truth value only)
 VAKYA	26	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	26	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	26	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	26	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	26	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	26	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	26	  not enough.  Any single verdict here discards the difference below.
 VAKYA	26	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	26	  collapse.  What does not exist is the collapse of the whole.
@@ -518,8 +518,8 @@ VAKYA	31	  bhanga : Position B2Nasti
 VAKYA	31	  samata : satya (truth value only)
 VAKYA	31	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	31	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	31	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	31	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	31	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	31	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	31	  not enough.  Any single verdict here discards the difference below.
 VAKYA	31	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	31	
@@ -576,8 +576,8 @@ VAKYA	34	  bhanga : Position B2Nasti
 VAKYA	34	  samata : satya (truth value only)
 VAKYA	34	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	34	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	34	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	34	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	34	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	34	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	34	  not enough.  Any single verdict here discards the difference below.
 VAKYA	34	
 VAKYA	34	  maximal collapsible sub-families (varga), by content:
@@ -596,8 +596,8 @@ VAKYA	35	  bhanga : Position B3AstiNasti
 VAKYA	35	  samata : satya (truth value only)
 VAKYA	35	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	35	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	35	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	35	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	35	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	35	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	35	  not enough.  Any single verdict here discards the difference below.
 VAKYA	35	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	35	  collapse.  What does not exist is the collapse of the whole.
@@ -655,8 +655,8 @@ VAKYA	40	  bhanga : Position B2Nasti
 VAKYA	40	  samata : satya (truth value only)
 VAKYA	40	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	40	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	40	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	40	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	40	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	40	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	40	  not enough.  Any single verdict here discards the difference below.
 VAKYA	40	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	40	
@@ -713,8 +713,8 @@ VAKYA	43	  bhanga : Position B2Nasti
 VAKYA	43	  samata : satya (truth value only)
 VAKYA	43	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	43	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	43	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	43	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	43	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	43	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	43	  not enough.  Any single verdict here discards the difference below.
 VAKYA	43	
 VAKYA	43	  maximal collapsible sub-families (varga), by content:
@@ -733,8 +733,8 @@ VAKYA	44	  bhanga : Position B3AstiNasti
 VAKYA	44	  samata : satya (truth value only)
 VAKYA	44	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	44	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	44	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	44	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	44	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	44	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	44	  not enough.  Any single verdict here discards the difference below.
 VAKYA	44	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	44	  collapse.  What does not exist is the collapse of the whole.
@@ -792,8 +792,8 @@ VAKYA	49	  bhanga : Position B2Nasti
 VAKYA	49	  samata : satya (truth value only)
 VAKYA	49	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	49	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	49	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	49	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	49	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	49	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	49	  not enough.  Any single verdict here discards the difference below.
 VAKYA	49	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	49	
@@ -850,8 +850,8 @@ VAKYA	52	  bhanga : Position B2Nasti
 VAKYA	52	  samata : satya (truth value only)
 VAKYA	52	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	52	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	52	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	52	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	52	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	52	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	52	  not enough.  Any single verdict here discards the difference below.
 VAKYA	52	
 VAKYA	52	  maximal collapsible sub-families (varga), by content:
@@ -870,8 +870,8 @@ VAKYA	53	  bhanga : Position B3AstiNasti
 VAKYA	53	  samata : satya (truth value only)
 VAKYA	53	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	53	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	53	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	53	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	53	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	53	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	53	  not enough.  Any single verdict here discards the difference below.
 VAKYA	53	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	53	  collapse.  What does not exist is the collapse of the whole.
@@ -929,8 +929,8 @@ VAKYA	58	  bhanga : Position B2Nasti
 VAKYA	58	  samata : satya (truth value only)
 VAKYA	58	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	58	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	58	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	58	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	58	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	58	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	58	  not enough.  Any single verdict here discards the difference below.
 VAKYA	58	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	58	
@@ -988,8 +988,8 @@ VAKYA	61	  bhanga : Position B2Nasti
 VAKYA	61	  samata : satya (truth value only)
 VAKYA	61	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	61	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	61	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	61	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	61	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	61	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	61	  not enough.  Any single verdict here discards the difference below.
 VAKYA	61	
 VAKYA	61	  maximal collapsible sub-families (varga), by content:
@@ -1008,8 +1008,8 @@ VAKYA	62	  bhanga : Position B3AstiNasti
 VAKYA	62	  samata : satya (truth value only)
 VAKYA	62	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	62	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	62	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	62	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	62	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	62	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	62	  not enough.  Any single verdict here discards the difference below.
 VAKYA	62	  Not uniformly, though: the sub-families listed as varga DO
 VAKYA	62	  collapse.  What does not exist is the collapse of the whole.
@@ -1076,8 +1076,8 @@ VAKYA	67	  bhanga : Position B2Nasti
 VAKYA	67	  samata : satya (truth value only)
 VAKYA	67	  NOT IDENTIFIABLE.  They agree in TRUTH VALUE and differ in CONTENT.
 VAKYA	67	  This is Durnaya_CollapseIffEveryNayaAgrees exactly: collapse is
-VAKYA	67	  available iff every pair of fibres is equivalent, and `Mixed` with
-VAKYA	67	  fibres Unit and Bool is the checked witness that both-inhabited is
+VAKYA	67	  available iff every pair of fibers is equivalent, and `Mixed` with
+VAKYA	67	  fibers Unit and Bool is the checked witness that both-inhabited is
 VAKYA	67	  not enough.  Any single verdict here discards the difference below.
 VAKYA	67	  One-sided: python-is-banned is contained in python-is-banned-and-mechanised, so the loss is entirely on python-is-banned-and-mechanised's side.
 VAKYA	67	

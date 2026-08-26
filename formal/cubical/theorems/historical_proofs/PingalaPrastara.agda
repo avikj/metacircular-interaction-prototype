@@ -52,7 +52,7 @@
 --                  rule for the meru-prastāra, forced the same way.
 --
 -- ONE `Pattern` TYPE, THREE GRADINGS.  A pattern is a plain list of
--- syllables.  `Vak n`, `Metre n` and `Chosen n k` are its fibres over
+-- syllables.  `Vak n`, `Metre n` and `Chosen n k` are its fibers over
 -- three different statistics — syllable count, mātrā count, and the
 -- pair (syllable count, guru count).  That is why the same object
 -- carries Piṅgala's 2ⁿ, Virahāṅka's additive sequence and Halāyudha's
@@ -122,7 +122,7 @@ guruOf []           = 0
 guruOf (laghu ∷ p)  = guruOf p
 guruOf (guru ∷ p)   = suc (guruOf p)
 
--- the three graded families, as fibres of those statistics
+-- the three graded families, as fibers of those statistics
 
 Metre : ℕ → Type              -- mātrā-vṛtta: fixed duration
 Metre n = Σ[ p ∈ Pattern ] (matraOf p ≡ n)
@@ -133,7 +133,7 @@ Vak n = Σ[ p ∈ Pattern ] (varna p ≡ n)
 Chosen : ℕ → ℕ → Type         -- n syllables of which exactly k guru
 Chosen n k = Σ[ p ∈ Pattern ] ((varna p ≡ n) × (guruOf p ≡ k))
 
--- the fibre conditions are propositions, because ℕ is a set
+-- the fiber conditions are propositions, because ℕ is a set
 isPropFib : {f : Pattern → ℕ} {n : ℕ} (p : Pattern) → isProp (f p ≡ n)
 isPropFib _ = isSetℕ _ _
 

@@ -15,15 +15,15 @@
 --   why a route can be free at any length.
 --
 -- §३ · हानिः न संयोगे — a composite of LOSSY maps need not be lossy.
---   `loss/…/SakalaVikalaDesa_…` §3 already computes the witness
+--   `fiber/src/Fiber/SakalaVikalaDesa_…` §3 already computes the witness
 --   and reads it as a refutation of a sequential diagnostic; here it is
 --   read as the composition law it also is:
 --
---     सत् : Unit → Bool     u ↦ true    — its fibre over `false` is EMPTY.
+--     सत् : Unit → Bool     u ↦ true    — its fiber over `false` is EMPTY.
 --                                        Nothing is lost: Bool merely has
 --                                        a name Unit cannot utter.
 --                                        अवक्तव्यम्, and POSITIVE.
---     एकम् : Bool → Unit    _ ↦ tt      — its fibre over `tt` is CROWDED.
+--     एकम् : Bool → Unit    _ ↦ tt      — its fiber over `tt` is CROWDED.
 --                                        Exactly one bit is lost. विकलादेश.
 --     एकम् ∘ सत् : Unit → Unit          — the IDENTITY.  An equivalence.
 --
@@ -71,10 +71,10 @@
 --
 -- A NEIGHBOUR, FOUND AFTER THIS WAS WRITTEN AND NAMED HERE RATHER THAN
 -- LEFT FOR A READER TO DISCOVER.  `Parampara_TheChainOfThreeIsPricedAnd
--- TheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFibre.agda` in this
+-- TheLossesDoNotAddBecauseAnAbsenceSitsInTheMiddleFiber.agda` in this
 -- same lane found the non-additivity FIRST and went deeper than §३ does:
--- it prices an explicit chain of three, fibre by fibre, and names the
--- MECHANISM -- an अभाव sitting in the middle fibre, with both its
+-- it prices an explicit chain of three, fiber by fiber, and names the
+-- MECHANISM -- an अभाव sitting in the middle fiber, with both its
 -- Nyāya-Vaiśeṣika slots (pratiyogin and anuyogin) supplied, so the result
 -- is a relation and not a report that a number came out smaller than
 -- expected.
@@ -111,8 +111,8 @@
 -- WHAT THIS IS NOT.  It is not a claim that loss cannot be tracked.  It
 -- is the narrower and harder claim that it cannot be tracked STEPWISE:
 -- the composite's residual is `Sesa`'s `शेष` of the composite, and सूत्र
--- १३ (संयोगे शेषः शेषे शेषः — the composite's fibre is fibred over the
--- fibre) says how it is BUILT from the parts.  Built from, and not
+-- १३ (संयोगे शेषः शेषे शेषः — the composite's fiber is fiberd over the
+-- fiber) says how it is BUILT from the parts.  Built from, and not
 -- determined by: §३ is exactly a case where the parts are non-trivial and
 -- the total is trivial.  Those two statements are consistent and it is
 -- worth not confusing them.
@@ -177,14 +177,14 @@ private
 --     composite is the identity.
 ------------------------------------------------------------------------
 
--- the first step's fibre over `false` is empty: nothing lost, unsayable
+-- the first step's fiber over `false` is empty: nothing lost, unsayable
 सत्-अवक्तव्यम् : ¬ (fiber सत् false)
 सत्-अवक्तव्यम् (_ , p) = true≢false p
 
 सत्-न-समता : ¬ (isEquiv सत्)
 सत्-न-समता e = सत्-अवक्तव्यम् (isEquiv.equiv-proof e false .fst)
 
--- the second step's fibre over `tt` is crowded: exactly one bit lost
+-- the second step's fiber over `tt` is crowded: exactly one bit lost
 एकम्-वाम एकम्-दक्षिण : fiber एकम् tt
 एकम्-वाम   = false , refl
 एकम्-दक्षिण = true  , refl
@@ -241,7 +241,7 @@ private
 --     identity.  Certification composes; refutation does not.
 --
 --     And that is not a defect in the grading.  It is सूत्र १३ read
---     correctly: the composite's fibre is fibred OVER the fibre — built
+--     correctly: the composite's fiber is fiberd OVER the fiber — built
 --     from the parts, not determined by them — and §३ is precisely a case
 --     where non-trivial parts assemble a trivial total.
 ------------------------------------------------------------------------

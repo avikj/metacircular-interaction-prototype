@@ -70,7 +70,7 @@
 --     Bind `b`: `Σ[ b ] (f a ≡ b)` is contractible, so "what is the
 --     address of this object" needs no consensus and never disagrees.
 --     Bind `a`: `Address b = Σ[ a ] (f a ≡ b)` is the PREIMAGE and is
---     arbitrary.  Content addressing is the assertion that THIS fibre
+--     arbitrary.  Content addressing is the assertion that THIS fiber
 --     is contractible, and `addressed` decomposes that assertion into
 --     its two independent halves: `Address b` inhabited is
 --     AVAILABILITY, `isProp (Address b)` is COLLISION-FREEDOM.  Neither
@@ -157,7 +157,7 @@ module Sangha (X : Type ℓ) where
   sees-exactly os x y = obs-agree os x y , blind-of-obs os x y
 
 ------------------------------------------------------------------------
--- §3  अभिज्ञान — the token of recognition.  A digest, read as a fibre.
+-- §3  अभिज्ञान — the token of recognition.  A digest, read as a fiber.
 ------------------------------------------------------------------------
 
 module Abhijnana {A B : Type ℓ} (f : A → B) where
@@ -174,7 +174,7 @@ module Abhijnana {A B : Type ℓ} (f : A → B) where
   Address : B → Type ℓ
   Address b = Σ[ a ∈ A ] (f a ≡ b)
 
-  -- Content addressing works at b ⟺ this fibre is contractible, and
+  -- Content addressing works at b ⟺ this fiber is contractible, and
   -- that decomposes into two independent halves.
   available      : (b : B) → isContr (Address b) → Address b
   available b c = c .fst

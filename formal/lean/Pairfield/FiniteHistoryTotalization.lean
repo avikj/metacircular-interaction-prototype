@@ -3,7 +3,7 @@ Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
 Finite histories split exactly into a prefix and an endpoint.  The endpoint
-projection forgets the entire prefix fibre.
+projection forgets the entire prefix fiber.
 -/
 import Mathlib.SetTheory.Cardinal.Finite
 import Mathlib.CategoryTheory.Elements
@@ -72,7 +72,7 @@ def grothendieckEndpoint (n : ℕ) (Root : History State n → Type v)
     (rooted : GrothendieckTotal n Root) : State :=
   endpoint n rooted.1.as
 
-/-- With a unit rooted fibre, the Grothendieck total carrier is the history. -/
+/-- With a unit rooted fiber, the Grothendieck total carrier is the history. -/
 def unitRootTotalEquivHistory (n : ℕ) :
     GrothendieckTotal n (fun _ : History State n => Unit) ≃ History State n where
   toFun rooted := rooted.1.as
@@ -89,7 +89,7 @@ theorem totalize_hasDecoder (n : ℕ) :
   refine ⟨(historyTotalizationEquiv (State := State) n).symm, ?_⟩
   exact (historyTotalizationEquiv (State := State) n).symm_apply_apply
 
-/-- Every endpoint fibre is explicitly the full space of length-`n` prefixes. -/
+/-- Every endpoint fiber is explicitly the full space of length-`n` prefixes. -/
 def endpointFiberEquivPrefix (n : ℕ) (final : State) :
     {history : History State n // endpoint n history = final} ≃
       (Fin n → State) where
@@ -108,7 +108,7 @@ def endpointFiberEquivPrefix (n : ℕ) (final : State) :
     simp [pastProjection, assemble]
 
 /--
-The endpoint fibre of the unit-root Grothendieck total object is still the
+The endpoint fiber of the unit-root Grothendieck total object is still the
 entire prefix space.
 -/
 def unitRootEndpointFiberEquivPrefix (n : ℕ) (final : State) :

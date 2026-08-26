@@ -291,7 +291,7 @@ categories-agree-when-decidable dT q t dC =
 -- for which bare negation with a प्रतियोगिन् is right.  The `Abhāva`
 -- record supplies ONE delimitor; the Jaina scheme specifies FOUR, and I
 -- never said which — or whether any — of the four my `q` is standing
--- for.  Downstream, `TheFibreIsTheSubject`, `AsiddhatvaBreaksFactoring`,
+-- for.  Downstream, `TheFiberIsTheSubject`, `AsiddhatvaBreaksFactoring`,
 -- `AnuvrttiIsTheSameTrade`, `PratyaharaBuysTotalityWithLocality` and
 -- `TheSecondNaIsTheCollision` all use `Anyonya` and inherit this.
 --
@@ -387,6 +387,6 @@ categories-agree-when-decidable dT q t dC =
 --
 -- Until someone who can read the paper compares them, NO NOVELTY IS
 -- CLAIMED for anything below.  The theorems are about observables,
--- fibres and Bool-valued models and are unaffected; what is owed is a
+-- fibers and Bool-valued models and are unaffected; what is owed is a
 -- citation check, not a withdrawal.
 ------------------------------------------------------------------------

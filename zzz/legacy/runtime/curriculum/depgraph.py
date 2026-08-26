@@ -586,7 +586,7 @@ J_CARDINALITY_TO_ORDER = Justification(
     A,
     "Theorem 2.5",
     "For an\n"
-    "$n$-element set $X$, the fibre $U^{-1}(X) = \\{\\text{linear orders on } X\\}$ is a torsor\n"
+    "$n$-element set $X$, the fiber $U^{-1}(X) = \\{\\text{linear orders on } X\\}$ is a torsor\n"
     "under $\\operatorname{Aut}(X) = S_n$, of cardinality $n!$.",
 )
 J_SYM_TO_ORDER = Justification(
@@ -741,7 +741,7 @@ def build_graph() -> DependencyGraph:
     ))
     g.add_concept(Concept(
         "order", "order / ordinals below omega", "(d)", 0, (),
-        "Finite well-orders. Rigidifies what cardinality truncates: the fibre is the "
+        "Finite well-orders. Rigidifies what cardinality truncates: the fiber is the "
         "S_n-torsor of linear orders.",
         freedom_justification=J_ORDER_FREE,
     ))

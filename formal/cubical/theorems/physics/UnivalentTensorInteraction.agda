@@ -159,7 +159,7 @@ interaction-reopens-joint-phase .JointReopening.localCannotRecover =
 ------------------------------------------------------------------------
 -- Rigor boundary
 --
--- Checked: the local product quotient, its non-reconstructible joint fibre,
+-- Checked: the local product quotient, its non-reconstructible joint fiber,
 -- the univalent phase loop and its state transport, and compilation commuting
 -- with the admitted interaction.
 --

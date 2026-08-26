@@ -4,7 +4,7 @@ Released under Apache 2.0 license.
 
 The exact finite-information boundary of multiplication on a cyclic additive
 group.  This is a thin adapter around Mathlib's cyclic-group cardinality and
-homomorphism-fibre theorems, motivated by the repository's nonunit linear
+homomorphism-fiber theorems, motivated by the repository's nonunit linear
 congruence descent.
 -/
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
@@ -37,7 +37,7 @@ theorem kernelCard (d : ℕ) :
   IsAddCyclic.card_nsmulAddMonoidHom_ker G d
 
 /--
-Every occupied fibre is a translate of the kernel.  This is stronger than a
+Every occupied fiber is a translate of the kernel.  This is stronger than a
 cardinality statement: it identifies the alternatives that the output has
 made indistinguishable.
 -/

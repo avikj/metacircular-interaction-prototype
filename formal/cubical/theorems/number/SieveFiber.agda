@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- SieveFiber
 --
--- THE SIEVE FIBRE AT THE √X HORIZON, AND WHAT DOES AND DOES NOT
+-- THE SIEVE FIBER AT THE √X HORIZON, AND WHAT DOES AND DOES NOT
 -- DESCEND ALONG IT.
 --
 -- This is the experiment named in `collab/upstream/raw/U0006.txt`
@@ -47,13 +47,13 @@
 --                         residual datum a Bool rather than an integer.
 --
 --   §5  `factorises`      n = smooth n · rough n.
---       `fiberAt-1`       THE FIBRE, EXPLICITLY.
+--       `fiberAt-1`       THE FIBER, EXPLICITLY.
 --       `fiberAt-2`         q⁻¹(0,0,0) ∩ [1,30] = {1,7,11,13,17,19,23,29}
 --       `fiberAt-3`         q⁻¹(1,0,0) ∩ [1,30] = {2,14,22,26} = 2·{1,7,11,13}
 --                           q⁻¹(1,1,1) ∩ [1,30] = {30}
 --                         — a smooth representative together with its
 --                         large-prime multiples that still fit under X.
---                         Sizes 8, 4, 1: the fibre is NOT of constant
+--                         Sizes 8, 4, 1: the fiber is NOT of constant
 --                         size and in particular never uniformly 2.
 --                         The shape is q⁻¹(v) = {s} ∪ {s·p : √X < p ≤ X/s}
 --                         for s = σ v, so #q⁻¹(v) = 1 + #{p : √X < p ≤ X/s}
@@ -78,7 +78,7 @@
 --   §8  `hasSection`      THE SECTION QUESTION, ANSWERED — AND
 --       `noChargePreservingSection`  RE-POSED.  q DOES admit a section:
 --                         σ(a,b,c) = 2^a·3^b·5^c picks the smooth point
---                         of each fibre, lands in the domain, satisfies
+--                         of each fiber, lands in the domain, satisfies
 --                         q ∘ σ ∘ q = q, and always has ε = 0.  But NO
 --                         section is charge-preserving.  The obstruction
 --                         is therefore not to sectioning q; it is to
@@ -93,11 +93,11 @@
 --                         without separating those two readings.
 --
 --   §10 `noFullPattern`   STEP 7 (k AFFINE FORMS) DOES NOT START HERE.
---       `jointFibreAt1`   For k = 2 with the forms (n , n+2), NO joint
---       `patternsAt1`     fibre at X = 30 realises all four residual
---                         patterns — the joint fibres have at most two
+--       `jointFiberAt1`   For k = 2 with the forms (n , n+2), NO joint
+--       `patternsAt1`     fiber at X = 30 realises all four residual
+--                         patterns — the joint fibers have at most two
 --                         elements.  The 2^k charge structure is not a
---                         property of a small finite fibre; it is a
+--                         property of a small finite fiber; it is a
 --                         statement about the joint distribution as
 --                         X → ∞, and the required X grows with k.
 --
@@ -106,7 +106,7 @@
 --   * Nothing is proved for general X.  Every statement here is about
 --     X = 30, verified exhaustively.  The X-uniform statements are
 --     conjectures this file does not touch.  In particular the
---     fibre-shape formula quoted above is stated, not proved: what is
+--     fiber-shape formula quoted above is stated, not proved: what is
 --     proved is its three instances.
 --   * No higher structure appears.  `Vis`, `Bool` and the quotient are
 --     all sets; every obstruction here is π₀-level, exactly as
@@ -404,7 +404,7 @@ roughSplit {n} m with orSplit (eqᵇ (rough n) 1)
                   , andR (eqᵇ (Ω (rough n)) 1) (ltᵇ 5 (rough n)) s )
 
 ------------------------------------------------------------------------
--- §5  The fibre, explicitly
+-- §5  The fiber, explicitly
 ------------------------------------------------------------------------
 
 chkFactor : ℕ → Bool
@@ -418,57 +418,57 @@ factorises {n} m = eqᵇ→≡ n (smooth n · rough n)
                      (allOf-sound domain chkFactor factorisesᵇ m)
 
 -- q⁻¹(0,0,0) ∩ [1,30] = {1} ∪ {p prime : 5 < p ≤ 30}.
-fibre000 : List ℕ
-fibre000 = 1 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 29 ∷ []
+fiber000 : List ℕ
+fiber000 = 1 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 29 ∷ []
 
-chkFibre000 : ℕ → Bool
-chkFibre000 n = eqBool (eqVis (q n) (0 , 0 , 0)) (memberOf fibre000 n)
+chkFiber000 : ℕ → Bool
+chkFiber000 n = eqBool (eqVis (q n) (0 , 0 , 0)) (memberOf fiber000 n)
 
-fiberAt-1 : allOf domain chkFibre000 ≡ true
+fiberAt-1 : allOf domain chkFiber000 ≡ true
 fiberAt-1 = refl
 
 -- q⁻¹(1,0,0) ∩ [1,30] = 2 · {1,7,11,13} — the smooth representative
--- times the rough numbers that still fit under X.  The fibre shrinks
+-- times the rough numbers that still fit under X.  The fiber shrinks
 -- as the smooth part grows; it is never of constant size, and in
 -- particular never of size 2.
-fibre100 : List ℕ
-fibre100 = 2 ∷ 14 ∷ 22 ∷ 26 ∷ []
+fiber100 : List ℕ
+fiber100 = 2 ∷ 14 ∷ 22 ∷ 26 ∷ []
 
-chkFibre100 : ℕ → Bool
-chkFibre100 n = eqBool (eqVis (q n) (1 , 0 , 0)) (memberOf fibre100 n)
+chkFiber100 : ℕ → Bool
+chkFiber100 n = eqBool (eqVis (q n) (1 , 0 , 0)) (memberOf fiber100 n)
 
-fiberAt-2 : allOf domain chkFibre100 ≡ true
+fiberAt-2 : allOf domain chkFiber100 ≡ true
 fiberAt-2 = refl
 
--- q⁻¹(1,1,1) ∩ [1,30] = {30}: a SINGLETON fibre.  Together with the
--- 8-element fibre above this refutes, for this model, the hypothesis of
--- equivalence iff every fibre has exactly two elements on which ε is a
--- bijection.  Here the fibres have 8, 4 and 1 elements, and on the
+-- q⁻¹(1,1,1) ∩ [1,30] = {30}: a SINGLETON fiber.  Together with the
+-- 8-element fiber above this refutes, for this model, the hypothesis of
+-- equivalence iff every fiber has exactly two elements on which ε is a
+-- bijection.  Here the fibers have 8, 4 and 1 elements, and on the
 -- singleton ε is constantly `false`.  So the pair map is not an
 -- equivalence, and its failure is not a near miss.
-fibre111 : List ℕ
-fibre111 = 30 ∷ []
+fiber111 : List ℕ
+fiber111 = 30 ∷ []
 
-chkFibre111 : ℕ → Bool
-chkFibre111 n = eqBool (eqVis (q n) (1 , 1 , 1)) (memberOf fibre111 n)
+chkFiber111 : ℕ → Bool
+chkFiber111 n = eqBool (eqVis (q n) (1 , 1 , 1)) (memberOf fiber111 n)
 
-fiberAt-3 : allOf domain chkFibre111 ≡ true
+fiberAt-3 : allOf domain chkFiber111 ≡ true
 fiberAt-3 = refl
 
--- The fibre through n, as an actual type.
-Fibre : Vis → Type
-Fibre v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (q n ≡ v))
+-- The fiber through n, as an actual type.
+Fiber : Vis → Type
+Fiber v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (q n ≡ v))
 
--- Two elements of one fibre, exhibited.  This is the object the
+-- Two elements of one fiber, exhibited.  This is the object the
 -- proposal asked for in place of prose.
-1∈Fibre000 : Fibre (0 , 0 , 0)
-1∈Fibre000 = 1 , 1∈ , refl
+1∈Fiber000 : Fiber (0 , 0 , 0)
+1∈Fiber000 = 1 , 1∈ , refl
 
-7∈Fibre000 : Fibre (0 , 0 , 0)
-7∈Fibre000 = 7 , 7∈ , refl
+7∈Fiber000 : Fiber (0 , 0 , 0)
+7∈Fiber000 = 7 , 7∈ , refl
 
-11∈Fibre000 : Fibre (0 , 0 , 0)
-11∈Fibre000 = 11 , 11∈ , refl
+11∈Fiber000 : Fiber (0 , 0 , 0)
+11∈Fiber000 = 11 , 11∈ , refl
 
 ------------------------------------------------------------------------
 -- §6  THE POSITIVE RESULT
@@ -530,7 +530,7 @@ noChargeDescentQuot (c̄ , agree) =
 --
 -- "Does the arithmetic quotient map admit a section?"  YES, and that
 -- is why the question has to be re-posed.  σ picks the smooth point of
--- each fibre; it lands in the domain, it is a genuine section of q,
+-- each fiber; it lands in the domain, it is a genuine section of q,
 -- and its residual bit is always 0.  What fails is not sectioning but
 -- CHARGE-COMPATIBLE sectioning.
 ------------------------------------------------------------------------
@@ -584,12 +584,12 @@ noReconstructionWithBit :
        ({n : ℕ} → n ∈ domain → s (q n) (ε n) ≡ n))
 noReconstructionWithBit (s , agree) = 7≢11 (sym (agree 7∈) ∙ agree 11∈)
 
--- The same failure, stated on the fibre object: two distinct points of
--- one fibre that agree on the residual bit.
+-- The same failure, stated on the fiber object: two distinct points of
+-- one fiber that agree on the residual bit.
 pairMapNotInjective :
-  Σ[ x ∈ Fibre (0 , 0 , 0) ] Σ[ y ∈ Fibre (0 , 0 , 0) ]
+  Σ[ x ∈ Fiber (0 , 0 , 0) ] Σ[ y ∈ Fiber (0 , 0 , 0) ]
     ((ε (fst x) ≡ ε (fst y)) × (¬ (fst x ≡ fst y)))
-pairMapNotInjective = 7∈Fibre000 , 11∈Fibre000 , refl , 7≢11
+pairMapNotInjective = 7∈Fiber000 , 11∈Fiber000 , refl , 7≢11
 
 ------------------------------------------------------------------------
 -- §10  STEP 7 OF THE PROPOSAL, AND WHY IT DOES NOT START HERE
@@ -601,15 +601,15 @@ pairMapNotInjective = 7∈Fibre000 , 11∈Fibre000 , refl , 7≢11
 -- this scale, which is worth knowing before a successor builds on it.
 --
 -- The joint visible state is (q n , q (n+2)) and the joint residual is
--- (ε n , ε (n+2)) ∈ 2².  For the fibre to "acquire 2² charge structure"
+-- (ε n , ε (n+2)) ∈ 2².  For the fiber to "acquire 2² charge structure"
 -- in any sense stronger than "the target has four elements", some joint
--- fibre must actually REALISE all four patterns.  `noFullPattern` says
--- no joint fibre at X = 30 does.  The reason is not subtle and is the
--- point: realising four patterns needs a joint fibre with at least four
+-- fiber must actually REALISE all four patterns.  `noFullPattern` says
+-- no joint fiber at X = 30 does.  The reason is not subtle and is the
+-- point: realising four patterns needs a joint fiber with at least four
 -- elements, i.e. four n in [1,28] sharing both visible states, and at
--- X = 30 the joint fibres have at most two elements.
+-- X = 30 the joint fibers have at most two elements.
 --
--- So the 2^k structure is not a property of a finite fibre at small X.
+-- So the 2^k structure is not a property of a finite fiber at small X.
 -- It is a statement about the joint distribution as X → ∞, and the X
 -- needed grows with k.  Whatever step 7 is, it is not this computation
 -- at this scale.
@@ -628,7 +628,7 @@ anyOf (x ∷ xs) f = f x or anyOf xs f
 sameJoint : ℕ → ℕ → Bool
 sameJoint n m = eqVis (q n) (q m) and eqVis (q (n + 2)) (q (m + 2))
 
--- Is the residual pattern (a , b) realised somewhere in n's joint fibre?
+-- Is the residual pattern (a , b) realised somewhere in n's joint fiber?
 hasPattern : ℕ → Bool → Bool → Bool
 hasPattern n a b =
   anyOf domain28
@@ -640,22 +640,22 @@ chkNoFull n =
        and (hasPattern n false true
             and (hasPattern n true false and hasPattern n true true)))
 
--- No joint fibre at X = 30 realises all four residual patterns.
+-- No joint fiber at X = 30 realises all four residual patterns.
 noFullPattern : allOf domain28 chkNoFull ≡ true
 noFullPattern = refl
 
 -- The machinery is not vacuous: the patterns it does find, it finds.
--- n = 1 lies in the joint fibre {1 , 19}; (ε 1 , ε 3) = (false , false)
+-- n = 1 lies in the joint fiber {1 , 19}; (ε 1 , ε 3) = (false , false)
 -- and (ε 19 , ε 21) = (true , true) are both realised there, and the
 -- two mixed patterns are not.
-jointFibreOf1 : List ℕ
-jointFibreOf1 = 1 ∷ 19 ∷ []
+jointFiberOf1 : List ℕ
+jointFiberOf1 = 1 ∷ 19 ∷ []
 
-chkJointFibre1 : ℕ → Bool
-chkJointFibre1 m = eqBool (sameJoint 1 m) (memberOf jointFibreOf1 m)
+chkJointFiber1 : ℕ → Bool
+chkJointFiber1 m = eqBool (sameJoint 1 m) (memberOf jointFiberOf1 m)
 
-jointFibreAt1 : allOf domain28 chkJointFibre1 ≡ true
-jointFibreAt1 = refl
+jointFiberAt1 : allOf domain28 chkJointFiber1 ≡ true
+jointFiberAt1 = refl
 
 patternsAt1 : ( (hasPattern 1 false false ≡ true)
               × (hasPattern 1 true true   ≡ true) )

@@ -25,7 +25,7 @@ rootOf (root , view) = root
 viewOf : {Root Jewel : Type₀} → RootedView Root Jewel → TotalView Root Jewel
 viewOf (root , view) = view
 
--- The projection and its fibre are definitional: the fibre over root is the
+-- The projection and its fiber are definitional: the fiber over root is the
 -- complete rooted-view space carried at that root.
 rootProjection : {Root Jewel : Type₀} → RootedView Root Jewel → Root
 rootProjection = rootOf

@@ -6,7 +6,7 @@
 -- (the whole ledger rides free, not just one step.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- `fibre/src/Loss/Carrier.agda` proves ONE step free: the
+-- `fiber/src/Fiber/Carrier.agda` proves ONE step free: the
 -- datum and its witness contribute zero degrees of freedom, because
 -- `singl (f a)` is contractible.  Everything downstream in this corpus —
 -- that a receipted mathematics is affordable at all, that proof-of-
@@ -33,7 +33,7 @@
 -- What is still not claimed: nothing about time,
 -- space, joules, or Landauer is claimed: this is an informational
 -- statement about degrees of freedom and nothing else.  And it says
--- nothing about the FIBRES of `f` and `g` — those are the other binding
+-- nothing about the FIBERS of `f` and `g` — those are the other binding
 -- and are arbitrary (`Abhijnana_…agda` §१).
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no

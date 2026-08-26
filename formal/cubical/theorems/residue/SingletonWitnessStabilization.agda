@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- SingletonWitnessStabilization
 --
--- One separator in the last insufficient chart fibre defeats every coarser
+-- One separator in the last insufficient chart fiber defeats every coarser
 -- chart when the charts are genuinely nested.  Final-world sufficiency at the
 -- next depth restricts to the current stage, so that single arrived separator
 -- is a complete positive certificate of terminal-depth stabilization.

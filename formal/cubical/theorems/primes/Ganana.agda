@@ -38,7 +38,7 @@ prime n = go n 2
   go (suc f) d = if (n <ᵇ (d · d)) then true
                  else (if (mod n d == zero) then false else go f (suc d))
 
--- गणना: the SIZE of the goldbach fibre, not one witness.
+-- गणना: the SIZE of the goldbach fiber, not one witness.
 -- unordered pairs p ≤ n∸p, both prime, p + (n∸p) = n.
 gcount : ℕ → ℕ
 gcount n = go n 2
@@ -57,7 +57,7 @@ tcount N = go N 2
   go (suc f) p = if (N <ᵇ suc (suc p)) then zero else
                  (if (prime p and prime (suc (suc p))) then suc (go f (suc p)) else go f (suc p))
 
--- RUNS: fibre sizes, checked against the literature's values.
+-- RUNS: fiber sizes, checked against the literature's values.
 _ : gcount 10 ≡ 2      -- {3,7},{5,5}
 _ = refl
 _ : gcount 100 ≡ 6     -- {3,97},{11,89},{17,83},{29,71},{41,59},{47,53}

@@ -60,8 +60,8 @@ def minimal_depth(polynomial, point: tuple[int, ...], prime: int,
                   arity: int) -> tuple[int, int]:
     """The least chart depth determining the valuation, and that valuation.
 
-    Determination is monotone in depth (the depth-(k+1) fibre is contained in
-    the depth-k fibre), and depth `e+1` always determines, so the search
+    Determination is monotone in depth (the depth-(k+1) fiber is contained in
+    the depth-k fiber), and depth `e+1` always determines, so the search
     terminates at `e+1`.
     """
     order = valuation(polynomial(point), prime)

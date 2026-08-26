@@ -13,12 +13,12 @@ All four are one statement, and it is not a fact about arithmetic at all.
 
   **Theorem I.**  For a surjection q : X -> Y of finite sets,
       ceil(|X|/|Y|)  <=  d_E(q)  <=  |X| - |Y| + 1,
-  both bounds sharp.  The lower bound is attained exactly when the fibres are
-  as equal as possible; the upper exactly when one fibre holds everything but
+  both bounds sharp.  The lower bound is attained exactly when the fibers are
+  as equal as possible; the upper exactly when one fiber holds everything but
   one representative of each other class.
 
   **Theorem E.**  If a group `G` acts on `X`, `q` is `G`-equivariant onto `Y`,
-  and `G` acts transitively on `Y`, then every fibre has size `|X|/|Y|`, so
+  and `G` acts transitively on `Y`, then every fiber has size `|X|/|Y|`, so
   `d_E(q) = |X|/|Y|` exactly.
 
 Theorem E is why the four computations agree with the index: each chart is (a
@@ -42,7 +42,7 @@ from __future__ import annotations
 from math import ceil
 
 
-def fibres(observable, domain) -> dict[object, list]:
+def fibers(observable, domain) -> dict[object, list]:
     grouped: dict[object, list] = {}
     for element in domain:
         grouped.setdefault(observable(element), []).append(element)
@@ -50,8 +50,8 @@ def fibres(observable, domain) -> dict[object, list]:
 
 
 def dilation_dimension(observable, domain) -> int:
-    """`d_E` of ARITHMETIC_QUOTIENT_QUANTUM_DILATION Theorem 2.1: largest fibre."""
-    return max(len(members) for members in fibres(observable, domain).values())
+    """`d_E` of ARITHMETIC_QUOTIENT_QUANTUM_DILATION Theorem 2.1: largest fiber."""
+    return max(len(members) for members in fibers(observable, domain).values())
 
 
 def index_bound(size: int, image_size: int) -> int:
@@ -65,13 +65,13 @@ def lopsided_bound(size: int, image_size: int) -> int:
 
 
 def is_balanced(observable, domain) -> bool:
-    """Are all fibres within one of each other -- the index-law condition?"""
-    sizes = {len(members) for members in fibres(observable, domain).values()}
+    """Are all fibers within one of each other -- the index-law condition?"""
+    sizes = {len(members) for members in fibers(observable, domain).values()}
     return max(sizes) - min(sizes) <= 1
 
 
 def obeys_index_law(observable, domain) -> bool:
-    grouped = fibres(observable, domain)
+    grouped = fibers(observable, domain)
     return dilation_dimension(observable, domain) == index_bound(
         sum(len(v) for v in grouped.values()), len(grouped))
 
@@ -81,7 +81,7 @@ def is_equivariant_quotient(observable, modulus: int) -> bool:
 
     Checks `q(s + g) = q(s) + q(g)` in the image group.  When it holds, the
     image is a subgroup acting transitively on itself by translation, so
-    Theorem E applies and every fibre is a coset of the kernel.
+    Theorem E applies and every fiber is a coset of the kernel.
     """
     return all(observable((s + g) % modulus)
                == (observable(s) + observable(g)) % modulus
@@ -117,7 +117,7 @@ def main() -> None:
         ("divisibility [5|n] on 200", *divisibility_predicate(5, 200)),
     ]
     for name, observable, domain in cases:
-        grouped = fibres(observable, domain)
+        grouped = fibers(observable, domain)
         dimension = dilation_dimension(observable, domain)
         index = index_bound(sum(len(v) for v in grouped.values()), len(grouped))
         print(f"{name:30} {dimension:5} {index:6}"

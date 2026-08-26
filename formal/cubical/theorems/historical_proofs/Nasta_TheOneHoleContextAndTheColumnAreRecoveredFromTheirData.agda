@@ -22,7 +22,7 @@
 -- no text is claimed for one-hole contexts, for integer matrices, or
 -- for any statement in this file.  The छन्दःशास्त्रम् has not been opened
 -- here; the citation is carried from
--- `NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFibreIsContractible.agda`
+-- `NastoddistaPariksa_BothDirectionsExistExactlyWhenEveryFiberIsContractible.agda`
 -- and `PingalaPrastara.agda`, and is owed at verse level.  Nor is the
 -- नष्ट/उद्दिष्ट equivalence itself reproved here: `PingalaPrastara.uddistaIso`
 -- already has it, and this module does not touch it.

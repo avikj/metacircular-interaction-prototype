@@ -57,14 +57,14 @@ http and many proxies tunnel only https; hackage's mirrors answer 403 on
 networks where hackage itself answers 200 — and it prints exactly what it
 obtained either way.
 
-  Measured 2026-08-25, and it is why this section exists: ``fibre/``, which
+  Measured 2026-08-25, and it is why this section exists: ``fiber/``, which
   holds the one primitive the whole corpus turns on, was pinned to cubical
   **v0.5** while everything else was built at **v0.9**.  It had been read as
   a mathematical fact — "a different lake", and the modules that wanted to
-  cite the fibre law said so in prose "rather than pretending to a
+  cite the fiber law said so in prose "rather than pretending to a
   dependency it does not have."  It was not a fact.  It was a missing
   ``--guardedness`` flag.  With that one word added, every module in
-  ``fibre/`` checks at the pin, exit 0, and the corpus can import its own
+  ``fiber/`` checks at the pin, exit 0, and the corpus can import its own
   foundation for the first time.
 
 
@@ -187,13 +187,13 @@ agreeing with it.  Not a different answer there — NO VALUE THERE.
 
 So asiddhatva is not a device against looping.  That is a separate
 theorem, proved separately.  8.2.1 is a DESCENT CONDITION: it registers
-that an earlier rule's condition is a function on a fibre which the later
-rule's collapse destroys.  A second term exhibits the two points of that fibre,
-so the fibre is not a figure of speech for the invisible part.  It is that
+that an earlier rule's condition is a function on a fiber which the later
+rule's collapse destroys.  A second term exhibits the two points of that fiber,
+so the fiber is not a figure of speech for the invisible part.  It is that
 set.
 
-  A predicate descends along a map iff it is constant on its fibres.
-  8.4.56 has a two-point fibre on which 8.2.39's applicability is not
+  A predicate descends along a map iff it is constant on its fibers.
+  8.4.56 has a two-point fiber on which 8.2.39's applicability is not
   constant.  Hence no descent — and the blindness is forced, not
   stipulated.
 
@@ -361,7 +361,7 @@ SENTENCE, and that III and V are literally about one object.  A common
 generalisation would be a real theorem and it is not proved.
 
 Not that Pāṇini or Bhāskara II proved, stated or anticipated any of this.
-§I quotes sūtras of the Aṣṭādhyāyī; the fibre reading is not Pāṇini's.
+§I quotes sūtras of the Aṣṭādhyāyī; the fiber reading is not Pāṇini's.
 
 Not anything about physical spacetime, quantum states, Hilbert spaces or
 SU(2).  §II is about a semantics and an equivalence.

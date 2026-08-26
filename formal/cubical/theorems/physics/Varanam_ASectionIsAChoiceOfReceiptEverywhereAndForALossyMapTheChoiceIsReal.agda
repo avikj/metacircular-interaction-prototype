@@ -7,13 +7,13 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- A SECTION IS A CHOICE OF RECEIPT AT EVERY POINT.  Given `f : A → B`, a
--- section picks, for each `b`, an inhabitant of the fibre over it — a
+-- section picks, for each `b`, an inhabitant of the fiber over it — a
 -- preimage together with the witness that it IS one.  That is exactly
 -- "choose a receipt everywhere", and this file prices the space of such
 -- choices.
 --
 -- §२ · WHEN NOTHING IS HIDDEN, THERE IS NOTHING TO CHOOSE.  If `f` is an
--- equivalence, every fibre is contractible, so the space of sections is
+-- equivalence, every fiber is contractible, so the space of sections is
 -- contractible: the choice exists and is unique, which is to say it is
 -- not a choice.
 --
@@ -22,7 +22,7 @@
 -- nothing in the codomain can see which was taken.
 --
 -- READ AT MOVEMENT 22.  Spontaneous symmetry breaking is the vacuum
--- choosing a point in a formerly free fibre, and mass is the coupling to
+-- choosing a point in a formerly free fiber, and mass is the coupling to
 -- that paid receipt.  §३ is that at the smallest scale: a two-point
 -- vacuum manifold, two sections, no ground for preferring either, and the
 -- observable blind to the choice.  §२ is the other half and it is
@@ -34,7 +34,7 @@
 -- degeneracy of a ground state, no mass: those are read in the notes and
 -- are not here.  Nor is any general classification of section spaces
 -- claimed — §३ is one witness, the smallest available.  And note that
--- sections need not exist at all when a fibre is empty, which this file
+-- sections need not exist at all when a fiber is empty, which this file
 -- does not treat (`Anupalabdhi_…agda` is where that verdict lives).
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
@@ -63,7 +63,7 @@ private variable ℓ : Level
 ------------------------------------------------------------------------
 -- २ · अक्षये वरणं न — no loss, no choosing.
 --
--- Every fibre contractible makes the whole space of sections
+-- Every fiber contractible makes the whole space of sections
 -- contractible: there is a choice, it is unique, and therefore it is not
 -- a choice at all.
 ------------------------------------------------------------------------

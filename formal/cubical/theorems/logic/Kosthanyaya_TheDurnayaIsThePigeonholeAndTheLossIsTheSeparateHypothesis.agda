@@ -13,7 +13,7 @@
 --
 --   · `Saptabhangi.दुर्नयः` — over सप्तभङ्गी, three seeds into द्विपद, by
 --     `with` on six cases.
---   · `loss/…/Adharmin_….चतुर्-दुर्नयः` — over a four-name type
+--   · `fiber/src/Fiber/Adharmin_….चतुर्-दुर्नयः` — over a four-name type
 --     into Bool, by explicit exhaustion, and its header says the bridge
 --     to दुर्नयः "needs one toolchain that can see both, which this
 --     container does not have".

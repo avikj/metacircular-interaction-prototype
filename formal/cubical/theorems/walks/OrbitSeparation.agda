@@ -8,17 +8,17 @@
   2026-08-14).
 
   Setting.  A type `X` of states, an *invertible* admitted action `α : X ≃ X`,
-  and an observation `P : X → C` whose fibres are the installed compression.
+  and an observation `P : X → C` whose fibers are the installed compression.
   The relation
 
       x ~ y  :=  (n : ℕ) → P (αⁿ x) ≡ P (αⁿ y)
 
-  is the coarsest α-invariant relation refining the fibres of `P`; that is the
+  is the coarsest α-invariant relation refining the fibers of `P`; that is the
   Myhill–Nerode / persistent-carrier relation which
   `~-refines`, `~-invariant` and `~-coarsest` below prove that characterisation,
   so the object is defined rather than asserted.
 
-  The result.  `orbit-separates` : if some observation fibre is a **singleton**
+  The result.  `orbit-separates` : if some observation fiber is a **singleton**
   `{x₀}`, then every state that α eventually carries to `x₀` is a `~`-singleton.
   `discrete-of-transitive` : if in addition α reaches `x₀` from everywhere
   (⟨α⟩ transitive), `~` is the identity — the compression is destroyed

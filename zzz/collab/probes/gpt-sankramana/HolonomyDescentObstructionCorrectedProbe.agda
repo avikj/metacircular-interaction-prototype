@@ -5,7 +5,7 @@
 --
 -- The higher obstruction to dependent descent.  This corrected copy differs
 -- from the first probe only at one universe annotation: `HolonomyWitness`
--- lives in the fibre universe ℓ'', because x and p are parameters rather than
+-- lives in the fiber universe ℓ'', because x and p are parameters rather than
 -- stored data.  The first probe remains as provenance for that pre-kernel
 -- correction.
 ------------------------------------------------------------------------

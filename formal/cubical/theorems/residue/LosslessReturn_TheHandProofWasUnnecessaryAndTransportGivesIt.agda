@@ -14,11 +14,11 @@
 --
 -- That obstacle is not in the mathematics.  It is an artefact of building
 -- the equivalence instead of recognising it.  The record IS
--- `Loss.Carrier योग` for योग (s , l) = s + l, whose fibre is
+-- `Loss.Carrier योग` for योग (s , l) = s + l, whose fiber is
 -- `singl (s + l)`, contractible by `isContrSingl` — no h-level hypothesis,
 -- no ℕ, no transport of a field, and true for ARBITRARY A and B.
 --
--- So nothing here is constructed.  §1 names the map, §2 is the fibre,
+-- So nothing here is constructed.  §1 names the map, §2 is the fiber,
 -- §3 is the equivalence and the path, and §4 is the identification with
 -- the hand-built one — every proof `refl` or a library lemma.  The
 -- content is that there was nothing to do.
@@ -28,7 +28,7 @@
 -- structure that carries here is the whole equivalence.
 --
 -- WHAT IS AND IS NOT CLAIMED.  पुनरागमन (पुनरागमन, "coming back again") is
--- this repository's name for the law, introduced by `loss/`; it is
+-- this repository's name for the law, introduced by `fiber/`; it is
 -- not offered as a term attested in a source text for this object.  The
 -- substrate — `singl`, `isContrSingl`, `Σ-contractSnd`, `ua` — is
 -- Voevodsky's univalence as realised in cubical type theory.  Nothing
@@ -71,7 +71,7 @@ record Carrier {A B : Type ℓ} (f : A → B) : Type ℓ where
 open Carrier public
 
 ------------------------------------------------------------------------
--- २ · क्षेत्रं सम्पूर्णम् — the fibre is contractible, and that is the whole
+-- २ · क्षेत्रं सम्पूर्णम् — the fiber is contractible, and that is the whole
 -- proof.
 --
 -- `singl (f a)` is inhabited by (f a , refl) and everything in it is
@@ -178,7 +178,7 @@ Iso.leftInv  विवेक≅वाहकः _ = refl
 --
 -- `Carrier` is restated here rather than imported because loss/ is
 -- a separate lake with its own pin (2.6.3 / cubical v0.5, currently
--- unrunnable on this machine — see loss/README.md's Toolchain
+-- unrunnable on this machine — see fiber/README.md's Toolchain
 -- section).  That duplication is a defect, it is deliberate, and the fix
 -- is to make loss/ importable from formal/cubical rather than to
 -- keep two copies of a five-line record.

@@ -4,11 +4,11 @@
 -- HolonomyDescentObstructionProbe
 --
 -- `AvataranaBhanga` closes the zeroth obstruction to dependent descent:
--- over an observation collision, non-equivalent fibres cannot both be the
--- pullback of one descended fibre.  This file asks the genuinely higher
+-- over an observation collision, non-equivalent fibers cannot both be the
+-- pullback of one descended fiber.  This file asks the genuinely higher
 -- question left open by that theorem.
 --
--- Every pointwise fibre may have the SAME type, and descent may still fail.
+-- Every pointwise fiber may have the SAME type, and descent may still fail.
 -- A loop p : x ≡ x can carry nontrivial transport in the family F even when
 -- the observation q kills that loop.  Were F pulled back from a family on O,
 -- naturality of the comparison F x ≡ D (q x) would force the holonomy around
@@ -34,8 +34,8 @@
 --       the sharp terminal case q : X → Unit: every base loop is erased, so
 --       any nontrivial family holonomy prevents descent to a constant family.
 --
--- This is not another pointwise-fibre argument.  `F x ≃ F x` is automatic;
--- the obstruction lives in the ACTION OF THE LOOP on that fibre.  It is the
+-- This is not another pointwise-fiber argument.  `F x ≃ F x` is automatic;
+-- the obstruction lives in the ACTION OF THE LOOP on that fiber.  It is the
 -- next rung after `AvataranaBhanga`: existence/type profile can agree while
 -- the law of transport still refuses the quotient.
 --

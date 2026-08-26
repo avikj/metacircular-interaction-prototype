@@ -41,7 +41,7 @@ branchWeight : Outcome₂ → Amp.State₂ → ℕ
 branchWeight false = Amp.weight₀
 branchWeight true  = Amp.weight₁
 
--- The posterior is indexed by its outcome even though both fibres currently
+-- The posterior is indexed by its outcome even though both fibers currently
 -- have the same carrier.  This leaves the outcome dependency available to
 -- later refinements instead of truncating it away.
 Posterior : Outcome₂ → Type₀

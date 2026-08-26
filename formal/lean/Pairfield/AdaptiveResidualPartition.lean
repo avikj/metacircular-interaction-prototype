@@ -274,7 +274,7 @@ theorem ResidualCell.initial_currentConstant
   exact hleft.trans hright.symm
 
 /-- Global prefix-residual separation is equivalent to carrying a recursive
-splitting certificate on both free-current-output fibres. -/
+splitting certificate on both free-current-output fibers. -/
 theorem BoolExperimentTree.separatesPrefixResiduals_iff_initialSplitting
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (tree : BoolExperimentTree A) :
@@ -336,7 +336,7 @@ theorem adaptiveTree_separatesPrefixResiduals :
       (leftQuotient_eq_stateLanguage_eval automaton right).symm
 
 /-- Consequently the same depth-two tree carries the full recursive
-safe-action/live-cell certificate on both free-current-output fibres. -/
+safe-action/live-cell certificate on both free-current-output fibers. -/
 theorem adaptiveTree_initialResidualSplitting :
     ∀ response : Bool,
       adaptiveTree.ResidualSplitting automaton

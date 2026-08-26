@@ -1,4 +1,4 @@
-NON-IDENTIFIABILITY IS A FIBRE, AND WE EXHIBIT TWO READINGS EACH BLIND
+NON-IDENTIFIABILITY IS A FIBER, AND WE EXHIBIT TWO READINGS EACH BLIND
 THAT ARE JOINTLY FAITHFUL
 Reconstructibility from a single observable is refuted at named points,
 and recovered exactly by the joint reading
@@ -6,7 +6,7 @@ and recovered exactly by the joint reading
 Identifiability / observability of finite systems
 
 Reconstructibility of a hidden state from an observable is the statement
-that the observable admits an inverse - equivalently, that its fibre over
+that the observable admits an inverse - equivalently, that its fiber over
 each reading is contractible.  We give the smallest complete example in
 which two observables are each individually non-reconstructing, the
 failures are exhibited at named points, and the pair is reconstructing;
@@ -30,8 +30,8 @@ distinct states - so the presence of one named blind pair is already the
 whole refutation, and no enumeration of the state space is needed.
 
 Why this is the interesting shape rather than a curiosity.  Each
-observable is individually a coarsening whose fibre is nonempty and not a
-singleton.  Their conjunction has singleton fibres.  So non-identifiability
+observable is individually a coarsening whose fiber is nonempty and not a
+singleton.  Their conjunction has singleton fibers.  So non-identifiability
 does not compose in the direction practitioners assume: two measurements
 that each destroy information can jointly destroy none, and the
 cancellation is exact rather than approximate.  The same development
@@ -41,7 +41,7 @@ witness in which an injection into a larger space is followed by a
 collapse and the composite is the identity.
 
 The methodological consequence is the point.  A claim that a quantity is
-unidentifiable from a set of observables is a claim about a fibre, and it
+unidentifiable from a set of observables is a claim about a fiber, and it
 must be discharged by naming two states the observables cannot separate.
 Absent that witness the claim has not been stated, and a sensitivity study
 is not a substitute for it.
@@ -49,7 +49,7 @@ is not a substitute for it.
 WHAT IS NOT CLAIMED.  There is no probability distribution, no estimator,
 no structural equation model, no do-calculus and no counterfactual in this
 development.  The observables are functions on a six-element type and
-"identifiable" means the fibres are contractible.  Whether a statistical
+"identifiable" means the fibers are contractible.  Whether a statistical
 identification problem has this shape is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

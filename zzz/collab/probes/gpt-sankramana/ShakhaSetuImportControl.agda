@@ -25,7 +25,7 @@ open import Cubical.Foundations.Equiv using (_≃_ ; fiber)
 open import Cubical.Data.Nat using (ℕ ; suc)
 open import Cubical.Data.SumFin using (Fin)
 
-import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch as S
+import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFiberOverEachCoarseOutcomeIsItsBranch as S
 
 -- Force the universe-path computation receipt through the imported interface.
 transport-receipt : (c : ℕ) (k : Fin (suc c) → ℕ)
@@ -33,8 +33,8 @@ transport-receipt : (c : ℕ) (k : Fin (suc c) → ℕ)
   → transport (S.refinement-path c k) m ≡ S.encode c k m
 transport-receipt = S.refinement-transport
 
--- Force the dependent fibre theorem through the imported interface.
-branch-fibre-receipt : (c : ℕ) (k : Fin (suc c) → ℕ)
+-- Force the dependent fiber theorem through the imported interface.
+branch-fiber-receipt : (c : ℕ) (k : Fin (suc c) → ℕ)
   (y : S.Coarse c k)
   → fiber (S.coarse-flat c k) y ≃ S.Branch c k y
-branch-fibre-receipt = S.flat-fibre≃branch
+branch-fiber-receipt = S.flat-fiber≃branch

@@ -72,7 +72,7 @@
 --
 --   `NaturalMachine/GaugeOrbitClasses.agda` — the character law `val-⋆`,
 --     the annihilator subgroup qs^⊥ = `AllNeutral · qs`, and the class
---     theorem (transcript fibres = cosets of qs^⊥).  §3 below is the
+--     theorem (transcript fibers = cosets of qs^⊥).  §3 below is the
 --     statement that the Lean iff transports to precisely that
 --     annihilator; every lemma §3 uses is from there.
 --   THE WITNESS OF §5 IS NOT NEW.  It is `GaugeOrbitClasses` §6's τ₀,
@@ -238,7 +238,7 @@ allEven→pointwise (u ∷ ts) (_ , rest) t (inr m) = allEven→pointwise ts res
 --   ⟺ qs^⊥ ⊄ {t}^⊥,  i.e. inserting t shrinks the annihilator.
 --
 -- This is what "the merge, not the program" meant.  `GaugeOrbitClasses`
--- §5 proves that transcript fibres are the cosets of qs^⊥; the Lean
+-- §5 proves that transcript fibers are the cosets of qs^⊥; the Lean
 -- theorem proves that inserting a test strictly refines the experiment
 -- partition iff an identified pair is separated.  A partition into
 -- cosets is strictly refined exactly when the subgroup shrinks, and

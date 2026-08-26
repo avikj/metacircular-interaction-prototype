@@ -22,9 +22,9 @@
       finite.  This is where the decidability hypothesis is spent, and it
       is imported, not re-proved.
     * `Cubical.Data.FinSet.Cardinality` (v0.9): `card`, `cardEquiv`,
-      `sumCardFiber`, `sumConst`, `isContr→card≡1`.  The fibrewise count
-      `|X| = Σ_y |fibre f y|` is the library's; the content here is the
-      identification of each fibre with `H`.
+      `sumCardFiber`, `sumConst`, `isContr→card≡1`.  The fiberwise count
+      `|X| = Σ_y |fiber f y|` is the library's; the content here is the
+      identification of each fiber with `H`.
     * IN THIS REPOSITORY: `FinCardinality.agda` (Cauchy, today) supplies
       `injSameCard→isEquiv`, CRT, `countMul`;
       `NaturalMachine/FiniteEquivalenceBridge.agda` and
@@ -52,15 +52,15 @@
          subgroup axioms, once each);
       2. its quotient is finite, because membership is decidable
          (`isFinSetQuot`);
-      3. every fibre of `[_] : G → G/∼` is EQUIVALENT to `H`, by
+      3. every fiber of `[_] : G → G/∼` is EQUIVALENT to `H`, by
          `h ↦ g · h` at any representative `g` — well-defined on the
-         quotient because the goal `card (fibre c) ≡ |H|` is a
+         quotient because the goal `card (fiber c) ≡ |H|` is a
          PROPOSITION, so `elimProp` needs no choice of representative;
       4. `sumCardFiber` + `sumConst`.
 
   Step 3 is where a set-level proof would need to choose coset
   representatives; in HoTT the choice is unnecessary because the
-  *cardinality* of the fibre, unlike the fibre, is a proposition-valued
+  *cardinality* of the fiber, unlike the fiber, is a proposition-valued
   statement.  That is the only place this proof differs from the textbook
   one, and it is worth recording as the reason no choice principle appears.
 
@@ -237,7 +237,7 @@ module Index (G : Group ℓ)
   order = card FH
 
   ------------------------------------------------------------------
-  -- §2  Every fibre of the quotient map is equivalent to H.
+  -- §2  Every fiber of the quotient map is equivalent to H.
   ------------------------------------------------------------------
 
   private
@@ -248,33 +248,33 @@ module Index (G : Group ℓ)
     cancelL' g x = ·Assoc (inv g) g x ∙ cong (_· x) (·InvL g) ∙ ·IdL x
 
   -- h ↦ g · h, at a chosen representative g.
-  fibreIso : (g : X) → Iso HCarrier (fiber q (q g))
-  Iso.fun (fibreIso g) (h , hh) =
+  fiberIso : (g : X) → Iso HCarrier (fiber q (q g))
+  Iso.fun (fiberIso g) (h , hh) =
     (g · h) , eq/ (g · h) g (subst (_∈ ⟪ H ⟫) toInv (Hsub .inv-closed hh))
     where
     toInv : inv h ≡ (inv (g · h) · g)
     toInv = sym (cong (_· g) (invDistr g h) ∙ sym (·Assoc (inv h) (inv g) g)
                ∙ cong (inv h ·_) (·InvL g) ∙ ·IdR (inv h))
-  Iso.inv (fibreIso g) (x , p) =
+  Iso.inv (fiberIso g) (x , p) =
     (inv g · x)
     , subst (_∈ ⟪ H ⟫)
         (invDistr (inv x) g ∙ cong (inv g ·_) (invInv x))
         (Hsub .inv-closed (effective isProp∼ isEquivRel∼ x g p))
-  Iso.rightInv (fibreIso g) (x , p) =
+  Iso.rightInv (fiberIso g) (x , p) =
     Σ≡Prop (λ _ → squash/ _ _) (cancelL g x)
-  Iso.leftInv (fibreIso g) (h , hh) =
+  Iso.leftInv (fiberIso g) (h , hh) =
     Σ≡Prop (λ y → ∈-isProp ⟪ H ⟫ y) (cancelL' g h)
 
-  FFibre : (c : Coset) → FinSet ℓ
-  FFibre c = fiber q c , isFinSetFiber FG FCoset q c
+  FFiber : (c : Coset) → FinSet ℓ
+  FFiber c = fiber q c , isFinSetFiber FG FCoset q c
 
   -- No representative is chosen: the goal is a path in ℕ, hence a
   -- proposition, so `elimProp` discharges it.  This is the step that
   -- would need choice of coset representatives in a set-level proof.
-  cardFibre : (c : Coset) → card (FFibre c) ≡ order
-  cardFibre =
-    SetQuot.elimProp (λ c → isSetℕ (card (FFibre c)) order)
-      (λ g → cardEquiv (FFibre (q g)) FH ∣ invEquiv (isoToEquiv (fibreIso g)) ∣₁)
+  cardFiber : (c : Coset) → card (FFiber c) ≡ order
+  cardFiber =
+    SetQuot.elimProp (λ c → isSetℕ (card (FFiber c)) order)
+      (λ g → cardEquiv (FFiber (q g)) FH ∣ invEquiv (isoToEquiv (fiberIso g)) ∣₁)
 
   ------------------------------------------------------------------
   -- §3  Lagrange.
@@ -282,7 +282,7 @@ module Index (G : Group ℓ)
 
   lagrange' : card FG ≡ order ·ℕ index
   lagrange' = sumCardFiber FG FCoset q
-            ∙ sumConst FCoset (λ c → card (FFibre c)) order cardFibre
+            ∙ sumConst FCoset (λ c → card (FFiber c)) order cardFiber
 
   lagrange : card FG ≡ index ·ℕ order
   lagrange = lagrange' ∙ ·-comm order index

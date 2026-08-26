@@ -11,7 +11,7 @@
 --
 -- The landed module proves:
 --
---   * independent re-enumeration of every micro-fibre;
+--   * independent re-enumeration of every micro-fiber;
 --   * re-enumeration of the outer coarse index with its dependent size family;
 --   * both transformations simultaneously.
 --

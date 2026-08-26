@@ -7,15 +7,15 @@
 -- recurse on it.
 --
 -- LIMIT ON THE TERM.  Āryabhaṭa states a descent on integers.  He states
--- nothing whatever about maps of types, fibres, or composition of maps,
+-- nothing whatever about maps of types, fibers, or composition of maps,
 -- and none of the theorems below are attributed to him.  शेष is borrowed
 -- for its exact sense — the part not consumed by the step, carried into
--- the next one — because that is what a fibre of a map is.
+-- the next one — because that is what a fiber of a map is.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS SETTLES.
 --
--- `Avaccheda_….agda` proves the cut decomposition A ≃ Σ[ b ∈ B ] fibre f b
+-- `Avaccheda_….agda` proves the cut decomposition A ≃ Σ[ b ∈ B ] fiber f b
 -- maps composed:
 --
 --     rank(AB) = rank(B) − dim(im B ∩ ker A)                       (11)
@@ -24,25 +24,25 @@
 -- composition failed to be additive, against the fibration's additivity.
 --
 -- IT IS THE SAME THEOREM.  (11) is rank–nullity applied to A restricted
--- to im B, i.e. it is the fibre decomposition of that restricted map:
--- the defect dim(im B ∩ ker A) is the DIMENSION OF ITS FIBRE, and the
+-- to im B, i.e. it is the fiber decomposition of that restricted map:
+-- the defect dim(im B ∩ ker A) is the DIMENSION OF ITS FIBER, and the
 -- "non-additivity" of composition is the additivity of the fibration read
 -- on a different map.  §१ below is the type-theoretic form of that fact,
 -- with no linear algebra in it at all:
 --
---   §१  शेष : fibre (g ∘ f) z ≃ Σ[ p ∈ fibre g z ] fibre f (fst p)
+--   §१  शेष : fiber (g ∘ f) z ≃ Σ[ p ∈ fiber g z ] fiber f (fst p)
 --
 --       The remainder of the composite is the remainder of f summed over
 --       the remainder of g.  Nothing is lost and nothing is created by
---       composing; the fibres reassemble.
+--       composing; the fibers reassemble.
 --
---   §२  शेषसमता : if f has a uniform remainder — fibre f y ≃ Φ for every
---       y — then fibre (g ∘ f) z ≃ fibre g z × Φ.  At cardinality this is
---       |fibre(g∘f)| = |fibre g| · |Φ|, i.e. LOGS ADD.  This is the whole
---       of "area = log of the fibre" under composition, and it is an
+--   §२  शेषसमता : if f has a uniform remainder — fiber f y ≃ Φ for every
+--       y — then fiber (g ∘ f) z ≃ fiber g z × Φ.  At cardinality this is
+--       |fiber(g∘f)| = |fiber g| · |Φ|, i.e. LOGS ADD.  This is the whole
+--       of "area = log of the fiber" under composition, and it is an
 --       equivalence, not an inequality.
 --
---   §३  शून्यशेष : g ∘ f has contractible fibres as soon as both do —
+--   §३  शून्यशेष : g ∘ f has contractible fibers as soon as both do —
 --       the composite of two cuts that retain nothing retains nothing.
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -51,7 +51,7 @@
 -- number needs finiteness that is not assumed below.  Nothing here is
 -- about entropy, area, black holes, or physical spacetime: the reading
 -- of §२ as "logs add" is a reading, stated in this comment and nowhere
--- in a theorem.  In particular §२'s hypothesis (a uniform fibre) is
+-- in a theorem.  In particular §२'s hypothesis (a uniform fiber) is
 -- exactly what a general map does NOT have, which is why §१ and not §२
 -- is the general law.
 --

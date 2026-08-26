@@ -21,7 +21,7 @@ structure preserving: identity to reflexivity, concatenation to path
 composition, the symmetry constructor to path inversion.  Because M is a
 set, its path types are subsingletons, so its fundamental groupoid is
 discrete and I is a functor from a nontrivial groupoid onto essentially
-nothing.  By the fibre characterisation for maps into subsingletons, the
+nothing.  By the fiber characterisation for maps into subsingletons, the
 preimage of any point of Path M is equivalent to the whole of D.  I
 therefore factors through the propositional truncation of D, and the
 factorisation is not incidental: no function out of Path M selects an

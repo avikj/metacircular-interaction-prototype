@@ -522,9 +522,9 @@ class CardinalChart(Chart):
         return Torsor("Iso(X,[%d]) under S_%d" % (n, n), g, pts,
                       lambda s, f: tuple(s[f[i]] for i in range(n)))
 
-    def decategorification_fibre(self, n: int, universe: int
+    def decategorification_fiber(self, n: int, universe: int
                                  ) -> Tuple[Tuple[Any, ...], ...]:
-        """Every ``n``-element subset of a universe: the fibre of pi_0 over n."""
+        """Every ``n``-element subset of a universe: the fiber of pi_0 over n."""
         return tuple(itertools.combinations(ATOMS[:universe], n))
 
     def disjoint_union(self, Xs: Sequence[Any], Ys: Sequence[Any]) -> Tuple[Any, ...]:
@@ -550,7 +550,7 @@ class CardinalChart(Chart):
                             "and product; morphisms are bijections" % len(ATOMS),
             exact_image="iso-classes = N, but the chart lives one level up: it is the "
                         "groupoid F = coprod_n BS_n, not the set N",
-            equivalence_kernel="NOT trivial: the fibre of |-| over n is every n-element "
+            equivalence_kernel="NOT trivial: the fiber of |-| over n is every n-element "
                                "set, and each carries Aut = S_n of order n!. "
                                "|X| = |Y| is the truncation of an S_n-torsor.",
             closure=("Card (cardinal arithmetic past omega)",),
@@ -568,11 +568,11 @@ class CardinalChart(Chart):
         detail = []
         for n in range(min(bound, 4) + 1):
             c.bump("atlas.chart.probe")
-            fib = self.decategorification_fibre(n, min(len(ATOMS), 6))
+            fib = self.decategorification_fiber(n, min(len(ATOMS), 6))
             g = symmetric_group(n)
             if any(self.value(s) != n for s in fib):
-                return False, "fibre over %d contains a set of another size" % n
-            detail.append("|fibre(%d)|=%d Aut=%d" % (n, len(fib), g.order))
+                return False, "fiber over %d contains a set of another size" % n
+            detail.append("|fiber(%d)|=%d Aut=%d" % (n, len(fib), g.order))
         return True, "nontrivial kernel, measured: " + " ".join(detail)
 
 
@@ -719,7 +719,7 @@ class OrdinalChart(Chart):
             exact_image="all of N, and the groupoid is *discrete*: any two finite "
                         "linear orders of equal size are UNIQUELY isomorphic (Prop. 2.4)",
             equivalence_kernel="trivial as a groupoid (no nontrivial automorphisms), "
-                               "but the forgetful map to (c) has fibre the S_n-torsor "
+                               "but the forgetful map to (c) has fiber the S_n-torsor "
                                "of orders, of size n!",
             closure=("Ord (ordinal arithmetic past omega)",),
             omitted_locus="every infinite well-order, starting at omega -- and that is "

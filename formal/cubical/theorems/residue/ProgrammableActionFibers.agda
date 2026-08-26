@@ -8,8 +8,8 @@
 --   keep  (p , x) = (p , action p x)
 --   erase (p , x) =      action p x.
 --
--- Their fibres are not estimates.  Keeping the program leaves one action
--- fibre; erasing it forms the dependent sum of every program fibre.  These
+-- Their fibers are not estimates.  Keeping the program leaves one action
+-- fiber; erasing it forms the dependent sum of every program fiber.  These
 -- are the types whose finite cardinalities become the maximum/sum coherent
 -- environment law in PROGRAMMABLE_SCALAR_COHERENCE_BOUNDARY.
 --
@@ -44,7 +44,7 @@ module _ {Program : Type ℓp} {Data : Type ℓx} {Output : Type ℓy}
          (action : Program → Data → Output) where
 
   ----------------------------------------------------------------------
-  -- 1. The two program interfaces and their exact fibres
+  -- 1. The two program interfaces and their exact fibers
   ----------------------------------------------------------------------
 
   keepProgram : Program × Data → Program × Output
@@ -54,7 +54,7 @@ module _ {Program : Type ℓp} {Data : Type ℓx} {Output : Type ℓy}
   eraseProgram (program , datum) = action program datum
 
   -- This is HoTT 4.7.6 (`fibers-total`) with constant input/output
-  -- families.  The output program selects exactly one action fibre.
+  -- families.  The output program selects exactly one action fiber.
   keep-program-fiber : (program : Program) (output : Output)
     → Iso (fiber keepProgram (program , output))
           (fiber (action program) output)

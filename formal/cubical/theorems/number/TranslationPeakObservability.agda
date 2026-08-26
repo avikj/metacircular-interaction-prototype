@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- A sharply cancelling translation family plus an observation with one
--- distinguished singleton fibre makes one-step response profiles faithful.
+-- distinguished singleton fiber makes one-step response profiles faithful.
 -- Consequently the complete FutureBehavior relation is just state equality,
 -- and every carrier through which all one-step responses factor is injective.
 --
@@ -197,7 +197,7 @@ constant-observation-does-not-detect-state :
 constant-observation-does-not-detect-state detects =
   false≢true (detects constant-future-collision)
 
-constant-peak-fibre-is-not-singleton :
+constant-peak-fiber-is-not-singleton :
   ¬ ((state : Bool) → constantObservation state ≡ tt → state ≡ false)
-constant-peak-fibre-is-not-singleton unique =
+constant-peak-fiber-is-not-singleton unique =
   false≢true (sym (unique true refl))

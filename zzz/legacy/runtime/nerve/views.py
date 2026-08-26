@@ -8,7 +8,7 @@ computation over runtime objects, and each with a stated blind spot.
     truth      what the kernel certifies      (proof paths, checked edges)
     action     what it does operationally     (rewrites, routes, procedures)
     cost       its cost-vector effect         (steps, size, width, verify)
-    residual   what it leaves undetermined    (fibres, omitted locus, cone,
+    residual   what it leaves undetermined    (fibers, omitted locus, cone,
                                                unresolved obligations)
 
 THE ONE STRUCTURAL RULE
@@ -118,14 +118,14 @@ CANNOT_SEE: Dict[int, Tuple[str, ...]] = {
     View.COST: (
         "licence: `cost` prices whatever it is handed; that the route is "
         "checked, or that a Quotient edge is task-sufficient, is not its call",
-        "residual: a cost vector has no slot for what was destroyed; the fibre "
+        "residual: a cost vector has no slot for what was destroyed; the fiber "
         "size and the omitted locus do not appear in (steps,size,width,verify)",
         "on this runtime specifically: `verify` is near-collinear with `steps` "
         "on flat proof paths (execute/README.md sec.10.7)",
     ),
     View.RESIDUAL: (
         "truth: naming what is undetermined is not deciding it; `residual` "
-        "reports a fibre, never which of its members is the answer",
+        "reports a fiber, never which of its members is the answer",
         "cost: an obligation has no price until somebody routes it",
         "action: what fires is exactly what `residual` is the complement of, so "
         "it cannot re-derive it -- that is the point of the pairing",
@@ -139,7 +139,7 @@ SOURCE_SCHEMA: Dict[int, Tuple[str, ...]] = {
     View.TRUTH: ("certified", "witness"),
     View.ACTION: ("opened", "fires", "witness"),
     View.COST: ("before", "after", "search_before", "search_after"),
-    View.RESIDUAL: ("omitted", "unresolved", "fibre"),
+    View.RESIDUAL: ("omitted", "unresolved", "fiber"),
 }
 
 
@@ -336,7 +336,7 @@ class LocalSection:
         return tuple(s for s in self.sites if s not in vis)
 
     def partition(self) -> Tuple[Tuple[str, ...], Tuple[str, ...]]:
-        """The view's web: the fibres of its reading.  CROSS_LENS sec.2."""
+        """The view's web: the fibers of its reading.  CROSS_LENS sec.2."""
         return (self.admits(), self.refuses())
 
     def name(self) -> str:
@@ -375,7 +375,7 @@ def read_truth(source: Mapping[str, Mapping[str, Any]],
 
     Reads ``certified`` -- the verdict of a checker, a gate battery, or an
     exact residual being zero -- and nothing else.  It has no counter, no
-    route, and no fibre.
+    route, and no fiber.
     """
     visible, reading, detail = [], {}, {}
     for s in sites:
@@ -445,7 +445,7 @@ def read_residual(source: Mapping[str, Mapping[str, Any]],
 
     ``omitted``     the site lies in the omitted locus (CRYSTAL.md sec.4)
     ``unresolved``  obligations still owed at this site
-    ``fibre``       the size of the fibre the claim collapses here; 1 is exact,
+    ``fiber``       the size of the fiber the claim collapses here; 1 is exact,
                     n > 1 is what a lossy channel returns instead of a guess
     """
     visible, reading, detail = [], {}, {}
@@ -453,20 +453,20 @@ def read_residual(source: Mapping[str, Mapping[str, Any]],
         if s not in source:
             continue
         rec = source[s]
-        _require(rec, ("omitted", "unresolved", "fibre"), View.RESIDUAL, s)
+        _require(rec, ("omitted", "unresolved", "fiber"), View.RESIDUAL, s)
         omitted = 1 if int(rec["omitted"]) else 0
         unresolved = int(rec["unresolved"])
-        fibre = int(rec["fibre"])
-        if fibre < 1:
-            raise NerveError("a fibre has at least one member: %r at %r"
-                             % (fibre, s))
+        fiber = int(rec["fiber"])
+        if fiber < 1:
+            raise NerveError("a fiber has at least one member: %r at %r"
+                             % (fiber, s))
         visible.append(s)
-        reading[s] = 1 if (omitted == 0 and unresolved == 0 and fibre == 1) else 0
-        detail[s] = "omitted=%d unresolved=%d fibre=%d" % (
-            omitted, unresolved, fibre)
+        reading[s] = 1 if (omitted == 0 and unresolved == 0 and fiber == 1) else 0
+        detail[s] = "omitted=%d unresolved=%d fiber=%d" % (
+            omitted, unresolved, fiber)
     return LocalSection(View.RESIDUAL, sites, visible, reading, detail,
                         provenance="omitted loci, invalidated cones, "
-                                   "obligation ledgers, decode fibres")
+                                   "obligation ledgers, decode fibers")
 
 
 READERS: Dict[int, Callable[[Mapping[str, Mapping[str, Any]], Sequence[str]],

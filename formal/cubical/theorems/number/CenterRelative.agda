@@ -224,7 +224,7 @@ thm16-4 (W , R) (_ , s) (_ , s') =
 ------------------------------------------------------------------------
 
 -- The parity constraint W ≡ R (mod 2).  Because `isEven` is a decidable
--- Bool-valued function, the fibre is a proposition for free.
+-- Bool-valued function, the fiber is a proposition for free.
 EvenT : ℤ → Type
 EvenT n = isEven n ≡ true
 

@@ -126,10 +126,10 @@ open import Cubical.Tactics.CommRingSolver using (solve!)
 --
 --     §४ says the total observable is CONSTANT.  Read through this
 --     corpus's own criterion — which side of `f a ≡ b` is bound — that
---     settles its whole fibre structure at once, and it comes out with
+--     settles its whole fiber structure at once, and it comes out with
 --     all three counts and no fourth:
 --
---       बहु    over pos 0 : the fibre is EVERY divisor (§५.१)
+--       बहु    over pos 0 : the fiber is EVERY divisor (§५.१)
 --       रिक्तम् over anything else : no divisor at all (§५.२)
 --       एकम्   nowhere.
 --
@@ -151,7 +151,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; ΣPathP)
 योगः : भारः → विभागः → ℤ
 योगः w D = सान्त w D + अनन्त w D
 
--- ५.१ · बहु — the fibre over zero is everything.
+-- ५.१ · बहु — the fiber over zero is everything.
 सर्व-तन्तुः : (w : भारः) → fiber (योगः w) (pos 0) ≃ विभागः
 सर्व-तन्तुः w = isoToEquiv (iso fst प्रति (λ _ → refl) निवृत्ति)
   where
@@ -160,6 +160,6 @@ open import Cubical.Data.Sigma using (Σ-syntax ; ΣPathP)
   निवृत्ति : (x : fiber (योगः w) (pos 0)) → प्रति (fst x) ≡ x
   निवृत्ति (D , p) i = D , isSetℤ (योगः w D) (pos 0) (तुला w D) p i
 
--- ५.२ · रिक्तम् — over any other value the fibre is empty.
+-- ५.२ · रिक्तम् — over any other value the fiber is empty.
 अन्य-रिक्तम् : (w : भारः) (k : ℤ) → ¬ (pos 0 ≡ k) → ¬ (fiber (योगः w) k)
 अन्य-रिक्तम् w k ne (D , p) = ne (sym (तुला w D) ∙ p)

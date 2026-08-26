@@ -8,8 +8,8 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  `QuotientFiberLaw` is this corpus's
 -- general obstruction theorem — an observation class sees exactly a
--- quotient, what it cannot see is the fibre, no post-processing
--- manufactures the fibre.  It has essentially NO hypotheses on the state
+-- quotient, what it cannot see is the fiber, no post-processing
+-- manufactures the fiber.  It has essentially NO hypotheses on the state
 -- space: `X : Type ℓ`, arbitrary, no `isSet`, no `Discrete`, no
 -- finiteness, and `Separates` quantifies over EVERY decoder, computable
 -- or not, deliberately.

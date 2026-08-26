@@ -41,9 +41,9 @@
 --                             an incompatibility now has something
 --                             specific to refute.
 --
---   §3  `noEquiv→badFibre`    T15.81 / C15.82: a failed equivalence hands
+--   §3  `noEquiv→badFiber`    T15.81 / C15.82: a failed equivalence hands
 --                             back a reconstruction question located in
---                             a specific fibre.
+--                             a specific fiber.
 --
 --   §4  `Stab`,`stab-id`,     D15.8 stabiliser, T15.9 in the form
 --       `stab-∘`,`stab-inv`   available here (see scope note).
@@ -242,16 +242,16 @@ pointDefect-refuted = notEquiv-not-str
 -- Delta 15: "if f is an equivalence, all equivalence-invariant
 -- mathematics transports; if it is not, at least one of its homotopy
 -- fibers is noncontractible or empty."  The second half is the
--- contrapositive of the fibrewise characterisation of `isEquiv`, which
+-- contrapositive of the fiberwise characterisation of `isEquiv`, which
 -- in cubical Agda IS the definition, so it is one step.
 ------------------------------------------------------------------------
 
-noEquiv→badFibre :
+noEquiv→badFiber :
   {f : A → B} → (isEquiv f → ⊥) → ((b : B) → isContr (fiber f b)) → ⊥
-noEquiv→badFibre notE allContr = notE (record { equiv-proof = allContr })
+noEquiv→badFiber notE allContr = notE (record { equiv-proof = allContr })
 
 -- C15.82, as the object it hands back: a failed equivalence yields a
--- specific fibre that is not contractible, and that fibre IS the
+-- specific fiber that is not contractible, and that fiber IS the
 -- reconstruction question.  Named so a lane can quote it.
 FailedAt : (f : A → B) (b : B) → Type _
 FailedAt f b = isContr (fiber f b) → ⊥

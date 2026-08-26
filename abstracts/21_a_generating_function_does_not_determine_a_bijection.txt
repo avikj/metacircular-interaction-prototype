@@ -14,7 +14,7 @@ the bijection type: the preimage of an identity is the entire set of
 bijections witnessing it.  No function of the identity, and no manipulation
 of the generating function, selects a bijection.  The passage from
 bijection to count is decategorification, and the datum it discards is a
-group action on the fibres — which we exhibit as a computed object rather
+group action on the fibers — which we exhibit as a computed object rather
 than as a heuristic remark.  A generating-function proof and a bijective
 proof are therefore not two routes to the same statement; the second
 strictly dominates, and the excess is measurable.
@@ -34,8 +34,8 @@ binomial identity is read off, not proved separately.  A duration-preserving
 reversal acts on each fixed-weight family as an involution, so that family
 carries an order-two action whose orbit structure is invisible to the
 count, and we compute the fixed points.  The disjoint-union principle is
-proved once in the general form — the fibre of a two-valued map is the
-two-valued family of its fibres, hence the counts add — and every
+proved once in the general form — the fiber of a two-valued map is the
+two-valued family of its fibers, hence the counts add — and every
 additivity in the development is an instance rather than a repetition.
 
 Two structural facts explain why the excess cannot be recovered later.
@@ -54,7 +54,7 @@ The consequence for practice is a prohibition and a licence.  The
 prohibition: identifying two configurations because they have equal weight
 is a quotient that destroys the action, and any enumeration that
 canonicalises, deduplicates, or normalises its search frontier collapses a
-fibre whose size, in the degenerate case where a pattern contains no free
+fiber whose size, in the degenerate case where a pattern contains no free
 register, is an entire copy of the configuration algebra rather than a
 finite ambiguity.  The licence: a family of bijections established once
 transports every statement of every family identified with it, in both

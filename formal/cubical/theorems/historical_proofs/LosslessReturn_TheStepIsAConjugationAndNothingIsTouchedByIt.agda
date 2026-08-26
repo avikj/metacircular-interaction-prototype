@@ -15,7 +15,7 @@
 -- Both equations hold here BY DEFINITION (समीकरण-१, समीकरण-२ are refl).
 -- The step is not Φ.  The step is अवतरण ∘ Φ ∘ उत्थान — a conjugation —
 -- and because अवतरण/उत्थान are an equivalence, the whole infinite run is
--- one transport and no fibre is ever collapsed.  Φ is marked *dummy* in
+-- one transport and no fiber is ever collapsed.  Φ is marked *dummy* in
 -- the specification and is dummy here: Φ is not the content, the
 -- conjugation is.
 --

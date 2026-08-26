@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- CertificateFibration
 --
--- THE CERTIFICATE IS THE FIBRE COORDINATE.
+-- THE CERTIFICATE IS THE FIBER COORDINATE.
 --
 -- `f : X → Y` between finite sets:
 --
@@ -40,7 +40,7 @@
 --     the two data are the same data: `certIso` (§3) is an Iso
 --     `(X → E) ≅ ((y : Y) → fiber f y → E)`, one of whose round trips
 --     is again `refl`.
---   * the numerical statement, once the fibres happen to be finite
+--   * the numerical statement, once the fibers happen to be finite
 --     (§4, `fiberCard≤`): `card (fiber f y) ≤ card E`.
 --
 -- WHAT THIS CORRECTS, AND IT IS NOT A QUIBBLE.  The note's sentence is
@@ -49,17 +49,17 @@
 -- theorem about `f` alone.  The attainment is a DATUM: a family
 -- `(y : Y) → fiber f y ↪ E`, uniform in `y`.  A pointwise cardinality
 -- bound `∀ y → card (fiber f y) ≤ n` does NOT produce that family;
--- producing it is choosing an enumeration of each fibre, i.e. choosing
+-- producing it is choosing an enumeration of each fiber, i.e. choosing
 -- a trivialisation of the fibration `f`.  Nothing in this module
 -- constructs one from a bound, and nothing below claims to.  In the
 -- corpus's own instance the trivialisation is canonical — the emitted
--- row coefficient `-q` IS the fibre coordinate — which is exactly why
+-- row coefficient `-q` IS the fiber coordinate — which is exactly why
 -- that example works and why it proves nothing about the general case.
 --
 -- §5 lands that instance: for the Smith family
 -- `A_q = ((2,0),(2q+1,7))`, whose post-state `B = ((1,7),(2,0))` is
 -- independent of `q` (`collab/messages/workers/
--- 20260812T161511.752509Z--codex_quantum_process--0004.md`), the fibre
+-- 20260812T161511.752509Z--codex_quantum_process--0004.md`), the fiber
 -- over the single post-state is `ℕ`, so ANY certificate alphabet `E`
 -- admits `ℕ ↪ E`.  That is the broadcast's "no finite global
 -- controller factors through (kind,pivot,remainder)", with the
@@ -78,15 +78,15 @@
 --
 -- `FiniteInformation` (ported from the Lean lane) already
 -- has `Completes q c` = injectivity of `⟨q,c⟩`, and
--- `completes→separates` / `separates→completes` reducing it to fibres.
+-- `completes→separates` / `separates→completes` reducing it to fibers.
 -- That is §2 at h-level 0 for a SET, stated element-wise.  §6 below
 -- bridges to it in both directions rather than restating it, and the
 -- bridge is where the h-level hypotheses become visible: `Completes`
 -- needs `isSet Y`, `isSet E` to imply `isEmbedding`, while §1–§3 need
 -- none.  `FiniteInformation`'s cardinality corollary
 -- `targetFiber-card≤` bounds `card C` below by the TARGET values alive
--- in a fibre, relative to a decoder; `fiberCard≤` here bounds it below
--- by the fibre itself, with no target and no decoder.  Neither implies
+-- in a fiber, relative to a decoder; `fiberCard≤` here bounds it below
+-- by the fiber itself, with no target and no decoder.  Neither implies
 -- the other as stated.
 --
 -- `Cubical.Functions.Fibration.totalEquiv` (HoTT Lemma 4.8.2) is the
@@ -103,7 +103,7 @@
 --
 --     fiber (λ (a , p) → a , g a p) (a , q)  ≅  fiber (g a) q
 --
--- for a fibrewise map `g : ∀ a → P a → Q a`.  §1 IS that theorem, at
+-- for a fiberwise map `g : ∀ a → P a → Q a`.  §1 IS that theorem, at
 -- `P = fiber f`, `Q = λ _ → E`, transported along
 -- `X ≃ Σ Y (fiber f)`.  What §1 adds is exactly what the transport
 -- costs: `fibers-total`'s four components are `J`/`JRefl` arguments,
@@ -160,7 +160,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   --
   -- `recorded c` is the note's "recorded update"
   -- `A_q ↦ (B , -q)`; `onFiber c y` is the certificate read on one
-  -- fibre of the state map.  The Iso between their fibres is Σ-eta.
+  -- fiber of the state map.  The Iso between their fibers is Σ-eta.
   ------------------------------------------------------------------
 
   recorded : (X → E) → X → Y × E
@@ -179,7 +179,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   ------------------------------------------------------------------
   -- 2.  THE TRANSFER
   --
-  -- `isEmbedding` is `hasPropFibers`; §1 is a fibrewise Iso; so the
+  -- `isEmbedding` is `hasPropFibers`; §1 is a fiberwise Iso; so the
   -- two statements are the same statement.  Both directions of the
   -- note's argument, with the orthogonality appeal deleted.
   ------------------------------------------------------------------
@@ -201,7 +201,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
                 (isEmbedding→hasPropFibers (h (fst ye)) (snd ye)))
 
   -- The note's item 2, in full generality: a certificate that makes the
-  -- recorded update injective embeds every fibre of the state map.
+  -- recorded update injective embeds every fiber of the state map.
   fiber↪cert : (c : X → E) → isEmbedding (recorded c) → (y : Y) → fiber f y ↪ E
   fiber↪cert c emb y = onFiber c y , recorded→onFiber c emb y
 
@@ -209,7 +209,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   -- 3.  A CERTIFICATE IS A TRIVIALISATION
   --
   -- Currying along `X ≃ Σ Y (fiber f)` (HoTT 4.8.2).  Written out so
-  -- that `leftInv` is `refl`: recovering `c` from its fibrewise
+  -- that `leftInv` is `refl`: recovering `c` from its fiberwise
   -- restrictions is not a theorem, it is η.
   ------------------------------------------------------------------
 
@@ -246,7 +246,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   -- Everything above is finiteness-free.  This is the only place a
   -- cardinality appears, and it is a corollary of §2, not a separate
   -- argument.  It is the note's "minimum environment dimension ≥
-  -- maximum fibre cardinality" — the ≥ half, which is the half that is
+  -- maximum fiber cardinality" — the ≥ half, which is the half that is
   -- a theorem.
   ------------------------------------------------------------------
 
@@ -279,7 +279,7 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
 -- 5.  THE CORPUS INSTANCE: THE SMITH QUOTIENT NO-GO
 --
 -- `A_q = ((2,0),(2q+1,7))` for `q : ℕ`.  Every source reaches the same
--- post-state `B`, so the state map is constant and its single fibre is
+-- post-state `B`, so the state map is constant and its single fiber is
 -- `ℕ`.  Therefore every certificate alphabet that restores injectivity
 -- admits `ℕ ↪ E`.
 --

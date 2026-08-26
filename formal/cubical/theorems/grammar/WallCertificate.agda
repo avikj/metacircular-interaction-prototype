@@ -74,7 +74,7 @@
 --                               immediately forms
 --                                   mix (rd⁺ x) x
 --                               whose total charge is the SECOND bit:
---                               the hidden fibre coordinate, formed out
+--                               the hidden fiber coordinate, formed out
 --                               of one port grant plus the old
 --                               vocabulary.  That is the formation event,
 --                               with the exact separated pair
@@ -98,11 +98,11 @@
 --                               with first factor the term-visible charge
 --                               and second factor the residue no term
 --                               reaches (`hidden-varies-in-class`).  The
---                               "endpoint × fibre" of THE_MACHINE.md, as
+--                               "endpoint × fiber" of THE_MACHINE.md, as
 --                               an equivalence rather than a picture.
 --
 -- Read with: ProjectionChargeAudit2 (Descends ≃ Respects — §5 instantiates
--- it), NaturalMachine/GaugeOrbitClasses (transcript fibres = cosets of the
+-- it), NaturalMachine/GaugeOrbitClasses (transcript fibers = cosets of the
 -- annihilator — the same wall in the character-theoretic presentation;
 -- §5's torsor statements are its two-bit shadow).
 --
@@ -413,8 +413,8 @@ readNotCongruence isCong =
 formation : Term⁺
 formation = node⁺ mx⁺ (node⁺ rd⁺ (var⁺ tt ◂⁺ ε⁺) ◂⁺ (var⁺ tt ◂⁺ ε⁺))
 
-formation-reads-fibre : (x : State) → tot (eval⁺ (env x) formation) ≡ snd x
-formation-reads-fibre (a , b) = cong (_⊕ b) (⊕-self a)
+formation-reads-fiber : (x : State) → tot (eval⁺ (env x) formation) ≡ snd x
+formation-reads-fiber (a , b) = cong (_⊕ b) (⊕-self a)
 
 -- and it separates the pair the wall kept merged.  This is the exact
 -- term, the exact pair, and the exact new distinction.
@@ -507,7 +507,7 @@ quotient≃Bool = isoToEquiv (iso visible classOf ri li)
 -- elements of zero charge; it acts on States by `mixS`, preserving the
 -- class (`ann-acts`), transitively on each class (`torsor-transitive`)
 -- and freely (`torsor-free`).  So a ≈-class IS a torsor under a group of
--- order two — the two-bit shadow of GaugeOrbitClasses' "fibres of the
+-- order two — the two-bit shadow of GaugeOrbitClasses' "fibers of the
 -- transcript map are cosets of the annihilator".
 Ann : State → Type₀
 Ann g = tot g ≡ false
@@ -626,7 +626,7 @@ ann-nonmembers = refl , refl
 --   "Remainder = this group."              Ann, torsor-transitive,
 --                                          torsor-free, ann-size
 --   "Menu = these two classes."            quotient≃Bool
---   "The world is endpoint × fibre."       worldSplit
+--   "The world is endpoint × fiber."       worldSplit
 --   "One grant suffices to breach it,
 --    and here is the term that does."      readNotCongruence, formation,
 --                                          theFormationEvent

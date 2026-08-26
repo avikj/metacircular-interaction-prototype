@@ -4527,7 +4527,7 @@ it was received as an entertainment; it was reportedly performed at the court of
 Charles II **[recall]**. The system does not report the gap. It fills it in with
 whatever surrounds it and delivers the result as continuous.
 
-**The retina is inside out.** Light has to pass through the nerve fibre layer, the
+**The retina is inside out.** Light has to pass through the nerve fiber layer, the
 ganglion cells, and the blood vessels before it reaches the photoreceptors, which
 face backwards. You are looking through your own wiring. You never see the wiring.
 
@@ -8509,7 +8509,7 @@ view; each taken alone as the whole is wrong view.
 allowed.**
 
 Model a standpoint-indexed proposition as a family over an index. "Collapsing" it
-means producing a single object equivalent to every fibre — the claim that the
+means producing a single object equivalent to every fiber — the claim that the
 index was doing no work.
 
 The result, checked in Agda, `--safe`, exit 0: **a collapse exists if and only if

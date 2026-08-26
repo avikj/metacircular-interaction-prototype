@@ -28,7 +28,7 @@
 --       ordering, exactly the one edge pair the crystal refuses.
 --   §4  sign does NOT factor through abs (the quotient that forgets sign):
 --       ¬ Σ[ s ∈ (ℕ → Sign) ] (∀ n → s (abs n) ≡ sign n).
---   §5  the abs-fibre over a positive value is the two-point {n, −n}, split
+--   §5  the abs-fiber over a positive value is the two-point {n, −n}, split
 --       by sign — sign is exactly what the quotient forgets, and it is an
 --       order datum, so only an Order edge recovers it.
 --
@@ -111,9 +111,9 @@ signNotThroughAbs (s , e) =
   rna≢dhana (sym (e (negsuc zero)) ∙ e (pos (suc zero)))
 
 ------------------------------------------------------------------------
--- §5 · the abs-fibre over a positive magnitude is the two-point {n, −n},
+-- §5 · the abs-fiber over a positive magnitude is the two-point {n, −n},
 -- carrying the same quotient value and separated exactly by sign.
-absFibreIsSplitBySign :
+absFiberIsSplitBySign :
   (abs (pos (suc zero)) ≡ abs (negsuc zero))
   × (¬ (sign (pos (suc zero)) ≡ sign (negsuc zero)))
-absFibreIsSplitBySign = refl , λ p → rna≢dhana (sym p)
+absFiberIsSplitBySign = refl , λ p → rna≢dhana (sym p)

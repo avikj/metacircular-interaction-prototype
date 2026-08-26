@@ -70,7 +70,7 @@
 -- `install` makes a proved theorem a next-move, so the operation library is
 -- a learned policy and `EnabledFuture seed` is its forward pass.  §1-§4 say:
 -- the correctness of an emission is one bit, and everything the kernel
--- actually maintains -- multiplicity, route, length -- lives in the fibre
+-- actually maintains -- multiplicity, route, length -- lives in the fiber
 -- over that bit.  A likelihood that is a function of correctness therefore
 -- cannot rank branches at all, and the ranking that matters is a residual
 -- quantity the semantics is provably blind to.  That is why `advance` may

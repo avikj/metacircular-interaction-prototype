@@ -17,9 +17,9 @@ from refining_dilation import (
 
 
 class TheirTheoremsTests(unittest.TestCase):
-    """Attacked and upheld: the dilation dimension is the largest fibre."""
+    """Attacked and upheld: the dilation dimension is the largest fiber."""
 
-    def test_least_environment_dimension_is_the_largest_fibre(self):
+    def test_least_environment_dimension_is_the_largest_fiber(self):
         for modulus in (2, 3, 5, 7, 11):
             for size in (10, 50, 91, 200):
                 self.assertEqual(

@@ -28,7 +28,7 @@
 --
 -- RELATION TO THE DSO LANE (stated because it is a rediscovery, not a
 -- discovery).  `_⊓_` of `Residual` is, symbol for symbol, `min₂` of
--- `DSOBellmanFinite`, and it is the ℕ-fibre of `minC` of
+-- `DSOBellmanFinite`, and it is the ℕ-fiber of `minC` of
 -- `DSOMinPlusFinite` restricted along `fin`.  `Γ↝` is that
 -- lane's `foldMin` with `List (Neighbour A)` in place of the finite index
 -- `Ix n`, and with `wHere` -- the cost of staying home -- in place of the

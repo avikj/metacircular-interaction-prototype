@@ -60,8 +60,8 @@
 -- real open item and is where the coherence work lives.
 --
 -- A second remark, recorded and not pursued: `Σ[ g ∈ A ≃ A ] Stab g` is
--- the fibre of the orbit map `g ↦ subst Str (ua g) s` over `s`, so §4
--- is also an instance of the fibre language in
+-- the fiber of the orbit map `g ↦ subst Str (ua g) s` over `s`, so §4
+-- is also an instance of the fiber language in
 -- `CertificateFibration`.  Making that identification
 -- carry weight needs the orbit map's own universal property, which is
 -- `StabilizerTorsor`'s subject, not this file's.

@@ -174,7 +174,7 @@ excluded-middle-intact = no-standpoint-carries-both Two
 -- (no standpoint denies) nor uniformly equivalent, and then NEITHER theorem
 -- applies — yet collapse is still unavailable.  A checked counterexample
 -- (Unit and Bool, over Bool) and the exhaustive statement this section
--- reached for — collapse exists iff EVERY pair of fibres is equivalent, of
+-- reached for — collapse exists iff EVERY pair of fibers is equivalent, of
 -- which plurality-blocks-collapse is a corollary — are in
 -- Durnaya_CollapseIffEveryNayaAgrees.  Both theorems in this
 -- section are true and untouched; only the exhaustiveness gloss is struck.

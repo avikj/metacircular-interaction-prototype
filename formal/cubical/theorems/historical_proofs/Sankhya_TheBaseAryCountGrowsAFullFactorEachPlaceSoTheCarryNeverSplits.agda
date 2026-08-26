@@ -33,7 +33,7 @@
 --       so by Prop. 2.11 the carry extension never splits — the top
 --       digit is BOUND to the register, not free (कः पक्षो बद्ध).
 --
--- The fibre reading (README §THE LAW): the carry is the fibre a
+-- The fiber reading (README §THE LAW): the carry is the fiber a
 -- carry-free reading ℤ/b^n ⊕ ℤ/b would make free; the strict growth of
 -- the count is exactly why it cannot be — visibility of the top place
 -- is not manufacturable by keeping the digits apart.

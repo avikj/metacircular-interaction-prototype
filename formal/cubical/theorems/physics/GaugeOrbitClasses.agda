@@ -37,7 +37,7 @@
 --
 -- a subgroup of G (`ann-unit`, `ann-mul`, `ann-self-inverse`).  Then:
 --
---     **THE FIBRES OF THE TRANSCRIPT MAP ARE EXACTLY THE COSETS OF qs^⊥.**
+--     **THE FIBERS OF THE TRANSCRIPT MAP ARE EXACTLY THE COSETS OF qs^⊥.**
 --
 --         obs σ qs ≡ obs σ' qs   ⟺   σ' ⋆ σ  ∈  qs^⊥
 --
@@ -109,7 +109,7 @@
 --       charge⇒separator⋆              the converse, separator CONSTRUCTED,
 --                                      and for an arbitrary base point σ
 --   §5  classes-⇐, classes-⇒           THE CLASS THEOREM: transcript
---                                      fibres = cosets of qs^⊥
+--                                      fibers = cosets of qs^⊥
 --   §6  even-but-not-blind             the scope-correction witness
 --   §7  square-neutral, …              no gradient: unboundedly large
 --                                      queries of exactly zero power
@@ -229,8 +229,8 @@ flip-law-again σ n =
 -- §3  The annihilator of a query set, and that it is a subgroup.
 --
 -- "Coset" in §5 is only meaningful because of this section: qs^⊥ is
--- closed under the group operations, so the fibres really are translates
--- of one subgroup and not merely fibres of some map.
+-- closed under the group operations, so the fibers really are translates
+-- of one subgroup and not merely fibers of some map.
 ------------------------------------------------------------------------
 
 AllNeutral : Gauge → List Number → Type
@@ -329,7 +329,7 @@ gauge-criterion τ σ qs = charge⇒separator⋆ τ σ qs , neutral⇒no-separat
 -- §5  THE CLASS THEOREM.
 --
 -- Two sign assignments have the same transcript on qs exactly when they
--- differ by an element of qs^⊥.  Both directions; the fibres of the
+-- differ by an element of qs^⊥.  Both directions; the fibers of the
 -- transcript map are therefore precisely the cosets of the subgroup of
 -- §3, and "observable class" acquires a definition rather than a
 -- gesture.

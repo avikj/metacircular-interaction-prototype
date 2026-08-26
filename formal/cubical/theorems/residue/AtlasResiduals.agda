@@ -87,10 +87,10 @@
 --                            path space Σ[ X ∈ Type₀ ] (X ≡ Fin n).
 --   B5 `isContrOrdTotal`     THE THEOREM: Σ[ X ∈ BSₙ ] LinOrd(X) is
 --                            contractible.
---   B6 `linOrd-torsor`       the fibrewise companion (note Theorem 2.5):
+--   B6 `linOrd-torsor`       the fiberwise companion (note Theorem 2.5):
 --                            given one order on X, the type of orders on
 --                            X is equivalent to Sₙ = (Fin n ≃ Fin n).
---                            A torsor is a fibre that becomes the group
+--                            A torsor is a fiber that becomes the group
 --                            once a point is chosen; that is this line.
 --
 --
@@ -138,12 +138,12 @@
 --      * forward `Order.rankEquiv`, the rank map x ↦ #{ z | z < x },
 --        proved an equivalence (injective by antisymmetry through
 --        `rank-order`, surjective by a finite pigeonhole `embSurj`
---        proved there by counting fibres);
+--        proved there by counting fibers);
 --      * backward `pull`, transport of Fin n's standard order;
 --      * `rank-pull`, `pull-rank`, the two composites, as paths.
 --    Its `isContrOrdTotal′ : isContr (Σ[ X ∈ BSₙ ] LinOrd′ ⟨X⟩)` is
 --    Theorem 3.2 whole, and it is obtained by transporting B5 below
---    along that fibrewise equivalence: B5 is imported, not reproved.
+--    along that fiberwise equivalence: B5 is imported, not reproved.
 --
 --    Two riders, both spelled out in that file's header.  (a) The
 --    axioms are the classical ones with MERE (truncated) totality;
@@ -461,7 +461,7 @@ Iso.rightInv (forgetTrunc n) _             = refl
 Iso.leftInv  (forgetTrunc n) ((X , t) , e) i =
   (X , isPropPropTrunc ∣ e ∣₁ t i) , e
 
--- B4.  Univalence, applied fibrewise: the space of rank listings on a
+-- B4.  Univalence, applied fiberwise: the space of rank listings on a
 -- varying X is the based path space at Fin n.  THIS is the step the
 -- note calls "a two-line univalent proof".
 basedPath≃ : (n : ℕ) → (Σ[ X ∈ Type₀ ] (X ≡ Fin n)) ≃ (Σ[ X ∈ Type₀ ] (X ≃ Fin n))
@@ -487,11 +487,11 @@ isPropOrdTotal : (n : ℕ) → isProp (OrdTotal n)
 isPropOrdTotal n = isContr→isProp (isContrOrdTotal n)
 
 ------------------------------------------------------------------------
--- 5.  The fibrewise companion (note Theorem 2.5): over a FIXED carrier
+-- 5.  The fiberwise companion (note Theorem 2.5): over a FIXED carrier
 --     the space of orders is not contractible but a copy of Sₙ.
 --
 -- Contractibility of the TOTAL space together with non-contractibility
--- of the fibres is exactly "chart (d) rigidifies what chart (c)
+-- of the fibers is exactly "chart (d) rigidifies what chart (c)
 -- truncates": the orders on one set form an Sₙ-worth of choices, and
 -- letting the set vary along with the order collapses all of them.
 ------------------------------------------------------------------------
@@ -500,7 +500,7 @@ linOrd-torsor : (n : ℕ) (X : Type₀) → LinOrd n X → LinOrd n X ≃ (Fin n
 linOrd-torsor n X e = equivComp e (idEquiv (Fin n))
 
 -- Sanity, definitional: the standard n-element type carries the
--- standard rank listing, so the fibres are inhabited and §5 is not
+-- standard rank listing, so the fibers are inhabited and §5 is not
 -- vacuous.
 stdLinOrd : (n : ℕ) → LinOrd n (Fin n)
 stdLinOrd n = idEquiv (Fin n)

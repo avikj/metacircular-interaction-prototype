@@ -3,10 +3,10 @@
 ------------------------------------------------------------------------
 -- तन्तु-त्रयम् — एकस्मिन् फले त्रयस्तन्तवः ।
 --
--- (three fibres over one codomain.)
+-- (three fibers over one codomain.)
 --
 -- §१ · THE THREE VERDICTS, EXHIBITED AT THE SMALLEST SCALE.  Three maps
--- into ONE codomain, `Unit`, with fibres रिक्तम् / एकम् / बहु.  A boolean
+-- into ONE codomain, `Unit`, with fibers रिक्तम् / एकम् / बहु.  A boolean
 -- verdict -- "is this an equivalence?" -- answers NO to the first and the
 -- third alike, and §१.४ proves those two are not the same situation.
 -- That is `Saptabhangi.दुर्नयः`'s pigeonhole at the minimum instance, and
@@ -22,7 +22,7 @@
 --
 -- RELATION TO `Parampara_...agda`, checked before writing and cited rather
 -- than rediscovered.  That module also finds that losses do not add along a
--- chain, by a DIFFERENT mechanism -- an ABSENCE sitting in the middle fibre
+-- chain, by a DIFFERENT mechanism -- an ABSENCE sitting in the middle fiber
 -- -- over three maps rather than two.  Section 2 here is the other mechanism
 -- at minimum scale: the first edge's image DODGES the second edge's collapse,
 -- with nothing empty anywhere.  Two distinct ways for the alignment term to
@@ -52,24 +52,24 @@ open import Cubical.Data.Sigma using (_,_ ; fst ; snd ; _×_)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- १ · त्रयो निर्णयाः — three maps into Unit, three fibres.
+-- १ · त्रयो निर्णयाः — three maps into Unit, three fibers.
 ------------------------------------------------------------------------
 
--- १.१ रिक्तम् — the empty fibre.  No answer exists.
+-- १.१ रिक्तम् — the empty fiber.  No answer exists.
 रिक्त-मार्गः : ⊥ → Unit
 रिक्त-मार्गः ()
 
 रिक्तम् : ¬ (fiber रिक्त-मार्गः tt)
 रिक्तम् (x , _) = Empty.rec x
 
--- १.२ एकम् — the singleton fibre.  Free: the identity loses nothing.
+-- १.२ एकम् — the singleton fiber.  Free: the identity loses nothing.
 एक-मार्गः : Unit → Unit
 एक-मार्गः u = u
 
 एकम् : isEquiv एक-मार्गः
 एकम् = idIsEquiv Unit
 
--- १.३ बहु — the many fibre.  One bit destroyed, and the two witnesses
+-- १.३ बहु — the many fiber.  One bit destroyed, and the two witnesses
 --      of that destruction are distinct.
 बहु-मार्गः : Bool → Unit
 बहु-मार्गः _ = tt
@@ -85,7 +85,7 @@ open import Cubical.Relation.Nullary using (¬_)
 --
 -- Both रिक्त-मार्गः and बहु-मार्गः fail to be equivalences, so a two-valued
 -- verdict returns the same answer for both.  They are not the same
--- situation: one fibre is uninhabited and the other is inhabited, and
+-- situation: one fiber is uninhabited and the other is inhabited, and
 -- that difference is exactly what the boolean destroys.
 भेदः : (¬ (fiber रिक्त-मार्गः tt)) × (fiber बहु-मार्गः tt)
 भेदः = रिक्तम् , सत्

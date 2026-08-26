@@ -6,7 +6,7 @@ The semantic observable-closure theorem compiled through the visited
 synchronous-pair traversal.  Mathlib loop deletion (`DFA.evalFrom_split`) and
 `Fintype.card_prod` enter through `VisitedPairHorizon`; the automata return in
 `VisitedPair` additionally proves global shortestness and preserves the full
-distinguishing derivation fibre.
+distinguishing derivation fiber.
 -/
 import Pairfield.ObservableHorizon
 import Pairfield.VisitedPair

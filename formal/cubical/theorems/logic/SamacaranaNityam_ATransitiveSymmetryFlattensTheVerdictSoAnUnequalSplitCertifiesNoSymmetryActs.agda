@@ -21,7 +21,7 @@
 --     every one.  ℚ(√2) has two, and the census came out 495/495 — the
 --     symmetry standing visible in the numbers.
 --     quantum dilation of finite quotients: a group transitive on the target
---     of an equivariant map forces every fibre to the same size.  The same
+--     of an equivariant map forces every fiber to the same size.  The same
 --     one-line conjugation argument, reached the same day through entirely
 --     different objects, and the more general of the two.
 --     carried it further: constancy is the criterion and transitivity is one
@@ -64,7 +64,7 @@ private
 --
 -- Not a group: a self-map of the index that leaves the verdict alone.  Both
 -- notes used exactly this and no more — "pick g with g y = y′; then x ↦ gx is
--- a bijection of fibres" needs only that g preserves what is being counted.
+-- a bijection of fibers" needs only that g preserves what is being counted.
 ------------------------------------------------------------------------
 
 समाचारः : {I : Type ℓ} → (I → Bool) → (I → I) → Type ℓ
@@ -78,7 +78,7 @@ private
 ------------------------------------------------------------------------
 -- २ · मुख्यसिद्धिः — a transitive symmetry flattens the verdict
 --
--- No hypothesis on I.  This is Theorem E's content for a two-valued fibre
+-- No hypothesis on I.  This is Theorem E's content for a two-valued fiber
 -- census, and weaver's §10 is its instance at I = Sper K, g = a field
 -- automorphism, v = "is this form definite at this ordering".
 ------------------------------------------------------------------------
@@ -93,7 +93,7 @@ private
 --
 -- An unequal verdict at two indices proves NO transitive symmetry acts.  This
 -- is the sentence "a conjugate pair can only split 1+1" with the counting
--- removed: unequal fibres need no cardinality, only two witnesses.
+-- removed: unequal fibers need no cardinality, only two witnesses.
 ------------------------------------------------------------------------
 
 विषम-भेद-प्रमाणम् : {I : Type ℓ} (v : I → Bool) (i j : I)

@@ -46,7 +46,7 @@ this header, and of README movement 65, wrote `∑_p #{i:p∣dᵢ}·log p =
 log|coker_tors|` — false for exactly this reason; struck there, avoided here.)
 So the rank-on-Spec-ℤ this file decides is a strictly LOSSIER invariant than the
 cokernel: `diag(2,6)` and `diag(2,12)` have IDENTICAL drop functions but
-cokernels of order 12 and 24 — the price function's own fibre is the p-adic
+cokernels of order 12 and 24 — the price function's own fiber is the p-adic
 depth it discards, `QuotientFiberLaw` applied to the price itself, not a defect.
 The value's finite half is checked next door as `Apavartana.det_eq`
 (`smithDivisors.prod = 24`); the cokernel group and reals are not built here.

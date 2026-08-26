@@ -14,7 +14,7 @@
 -- DIFFERENT components:
 --
 --     ⟨lib⟩.ℕ            component 5   (छन्दस्, CanWord, Tally, Word, π₀FinSet)
---     ⟨lib⟩.ℕ × ⟨lib⟩.ℕ   component 2   (विवेक, विवेक-प्रमाण, Carrier, योग-fibre)
+--     ⟨lib⟩.ℕ × ⟨lib⟩.ℕ   component 2   (विवेक, विवेक-प्रमाण, Carrier, योग-fiber)
 --     ⟨lib⟩.Bool         component 1
 --     ⟨lib⟩.Unit         component 6
 --

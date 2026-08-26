@@ -2,8 +2,8 @@
 Copyright (c) 2026 Avik Jain and the mathematics collaboration.
 Released under Apache 2.0 license.
 
-The endpoint fibre of a proof-relevant rooted history total is the dependent
-sum of the rooted fibres over all compatible pasts.
+The endpoint fiber of a proof-relevant rooted history total is the dependent
+sum of the rooted fibers over all compatible pasts.
 -/
 import Pairfield.FiniteHistoryTotalization
 
@@ -27,7 +27,7 @@ def rootedTotalEquivSigma (n : ℕ) (Root : History State n → Type v) :
     rfl
   right_inv _ := rfl
 
-/-- A history in an endpoint fibre is reconstructed by its past and the fixed
+/-- A history in an endpoint fiber is reconstructed by its past and the fixed
 endpoint.  The direction is chosen to transport a rooted payload forward. -/
 theorem history_eq_assemble_of_endpoint (n : ℕ) (final : State)
     (history : History State n) (hfinal : endpoint n history = final) :
@@ -39,7 +39,7 @@ theorem history_eq_assemble_of_endpoint (n : ℕ) (final : State)
   · simp [assemble, pastProjection]
 
 /--
-The exact dependent fibre equation for the discrete rooted Grothendieck total:
+The exact dependent fiber equation for the discrete rooted Grothendieck total:
 an endpoint-fixed rooted history is a past together with the rooted payload
 over the history assembled from that past and endpoint.
 -/
@@ -56,8 +56,8 @@ def rootedEndpointFiberEquivDependentPrefix (n : ℕ)
             history_eq_assemble_of_endpoint n final history.1 history.2
 
 /--
-For finite state and rooted fibres, endpoint ambiguity is the sum of the
-rooted multiplicities over all compatible pasts.  No uniform-fibre assumption
+For finite state and rooted fibers, endpoint ambiguity is the sum of the
+rooted multiplicities over all compatible pasts.  No uniform-fiber assumption
 or proof irrelevance is used.
 -/
 theorem rootedEndpointFiberCard [Fintype State]

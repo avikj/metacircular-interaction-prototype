@@ -200,6 +200,6 @@ A²≡C²+return b2 = refl
 
 -- And the root entry of that difference is the branching number q = 2:
 -- the least-prime "stopped" kernel differs from the full walk by a factor
--- counted by the tree's degree, not by a memory of an eliminated fibre.
+-- counted by the tree's degree, not by a memory of an eliminated fiber.
 return-at-root : parent-return δr r ≡ 2
 return-at-root = refl

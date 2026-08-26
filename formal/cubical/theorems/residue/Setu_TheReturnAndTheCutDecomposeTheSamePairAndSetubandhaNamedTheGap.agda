@@ -35,7 +35,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_)
 
 open import LosslessReturn_TheHandProofWasUnnecessaryAndTransportGivesIt
   using (Carrier ; योग ; Carrier≃)
-open import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFibreFailingToBeContractible
+open import Avaccheda_TheCutsBoundaryIsTheBaseAndMemoryIsTheFiberFailingToBeContractible
   using (अवच्छेदः)
 
 ------------------------------------------------------------------------

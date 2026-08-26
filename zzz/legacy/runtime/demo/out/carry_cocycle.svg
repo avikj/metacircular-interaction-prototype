@@ -618,6 +618,6 @@
     <text x="56" y="892" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">  (c) the pink cells are the two states where cocycle (2.1) does not apply (it is stated for x &lt; b^n-1);</text>
     <text x="56" y="910" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">      they are an exception marked by the semantic layer, not a fifth carry class of a different kind.</text>
     <text x="56" y="928" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">  (d) 256 states are shown in 5 colours.  The colour of a cell does not determine the cell: the largest</text>
-    <text x="56" y="946" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">      fibre has 192 states.  This picture is a projection and cannot be inverted by eye or by machine.</text>
+    <text x="56" y="946" fill="#444444" font-family="monospace" font-size="12" font-weight="normal" text-anchor="start" xml:space="preserve">      fiber has 192 states.  This picture is a projection and cannot be inverted by eye or by machine.</text>
   </g>
 </svg>

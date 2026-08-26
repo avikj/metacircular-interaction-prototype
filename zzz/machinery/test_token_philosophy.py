@@ -4,7 +4,7 @@
 The decisive tests are `test_collective_identifies_causally_distinct` (the
 checked derivation) together with `test_threads_separate_beyond_boundary_orbit`
 (the model that keeps them apart): jointly they refute the `notes/STATEBOX.md`
-§7 guess that the fibre of the token-forgetting map is a boundary orbit.
+§7 guess that the fiber of the token-forgetting map is a boundary orbit.
 
 Everything else is a control.  Three matter: withholding `COMM` must make the
 identification underivable (it is the one axiom the individual-token theory
@@ -453,7 +453,7 @@ class CorpusCrystal(unittest.TestCase):
     already has that object, its universal property, and a runtime that emits
     it with a minimum separating context basis.  So compute it there."""
 
-    def test_boundary_fibres_are_the_orbits(self):
+    def test_boundary_fibers_are_the_orbits(self):
         elements, crystal = boundary_crystal([F_EXEC, G_EXEC], SIG_TWO)
         self.assertEqual(len(elements), 8)
         self.assertEqual(len(crystal.fibers), 2)
@@ -463,8 +463,8 @@ class CorpusCrystal(unittest.TestCase):
 
     def test_collective_factors_but_is_not_injective(self):
         """factor_map succeeds: the collective normal form is constant on the
-        boundary fibres, so the collective relation is coarser.  It takes the
-        SAME value on both fibres, so it is strictly coarser -- Corollary 6,
+        boundary fibers, so the collective relation is coarser.  It takes the
+        SAME value on both fibers, so it is strictly coarser -- Corollary 6,
         computed rather than argued."""
         crystal, values, injective = collective_factors_through_boundary(
             [F_EXEC, G_EXEC], SIG_TWO)

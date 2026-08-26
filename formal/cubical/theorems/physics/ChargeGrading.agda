@@ -84,14 +84,14 @@ base : {X : Graded ℓ} → Total X → ℕ
 base = fst
 
 -- D15.21.  A map of charge shift δ: it moves every sector by exactly δ.
--- Stating it fibrewise rather than as a map of total spaces with a
+-- Stating it fiberwise rather than as a map of total spaces with a
 -- side condition is what makes T15.22 and T15.24 definitional.
 Shift : {ℓ : Level} → Graded ℓ → ℕ → Type ℓ
 Shift X δ = (c : ℕ) → X c → X (c + δ)
 
 -- T15.24.  A degree-δ map restricts X_c → X_{c+δ}.  This is the type of
 -- `Shift`, so it holds by construction — which is the point of choosing
--- the fibrewise formulation.
+-- the fiberwise formulation.
 shift-restricts : {X : Graded ℓ} {δ : ℕ}
                 → Shift X δ → (c : ℕ) → X c → X (c + δ)
 shift-restricts S = S
@@ -153,7 +153,7 @@ parity-shift (suc zero) δ = lemma δ
 parity-shift (suc (suc c)) δ = parity-shift c δ
 
 -- C15.28.  Forgetting full charge while retaining parity is STRICTLY
--- coarser: the fibre of `parity` over a value contains all charges of
+-- coarser: the fiber of `parity` over a value contains all charges of
 -- that parity.  Exhibited rather than asserted.
 parity-blind : Σ[ a ∈ ℕ ] Σ[ b ∈ ℕ ] ((parity a ≡ parity b) × (¬ (a ≡ b)))
 parity-blind = 0 , 2 , refl , znots

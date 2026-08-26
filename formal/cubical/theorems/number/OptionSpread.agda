@@ -21,14 +21,14 @@
 --     (1,0) and (0,1) on the declared targets (3,4).  "A router merging
 --     these states necessarily misprices at least one future request."
 --
--- Both are statements about a fibre of a summary map σ, ordered by the
+-- Both are statements about a fiber of a summary map σ, ordered by the
 -- pointwise order on marginal-cost vectors.  R0019 is the case where the
--- fibre is a single point; 0249 exhibits a fibre with no ≼-least member.
+-- fiber is a single point; 0249 exhibits a fiber with no ≼-least member.
 -- 0249 gives a counterexample but never states the inequality that the
 -- counterexample violates.  This module states it, and proves that a
 -- violation is always witnessed by exactly two states:
 --
---   THEOREM (`dichotomy`).  For every inhabited finite fibre F of cost
+--   THEOREM (`dichotomy`).  For every inhabited finite fiber F of cost
 --   vectors, one may CONSTRUCT either
 --     (R) a member m ∈ F with m ≼ y for all y ∈ F — merging F to m
 --         misprices nothing; or
@@ -36,8 +36,8 @@
 --         v_j < u_j.
 --   The certificate in (S) always has size TWO: no three-state or
 --   higher-order witness is ever needed.  (The branches are not
---   exclusive in general — a fibre may have a least element and an
---   incomparable pair further up — but on a two-element fibre the (S)
+--   exclusive in general — a fiber may have a least element and an
+--   incomparable pair further up — but on a two-element fiber the (S)
 --   certificate does refute (R): `sep-pair-noLeast`.)
 --
 -- Rigidity end: `sum-rigid` / `exposed-point`, the discrete form of
@@ -130,7 +130,7 @@ _◃_ : List ℕ → List ℕ → Type₀
     go (gt b<a) _       = inr (inl b<a)
 
 ------------------------------------------------------------------------
--- 3.  Fibres of a summary map: an inhabited finite family of states
+-- 3.  Fibers of a summary map: an inhabited finite family of states
 ------------------------------------------------------------------------
 
 _∈_ : List ℕ → List (List ℕ) → Type₀
@@ -171,9 +171,9 @@ consLeast x u G u∈ dom with ≼-or-◃ x u
 ...   | inl u≼x = inl (u , inr u∈ , (u≼x , dom))
 ...   | inr x◃u = inr (u , x , (inr u∈ , inl refl , u◃x , x◃u))
 
--- For every inhabited finite fibre, EITHER a sound merge representative
+-- For every inhabited finite fiber, EITHER a sound merge representative
 -- OR a two-point separation.  Constructive, hence decidable.  An
--- inhabited fibre is presented as a distinguished member x and the rest G.
+-- inhabited fiber is presented as a distinguished member x and the rest G.
 dichotomy : (x : List ℕ) (G : List (List ℕ)) → Least (x ∷ G) ⊎ Sep (x ∷ G)
 dichotomy x []      = inl (x , inl refl , (≼-refl x , tt))
 dichotomy x (y ∷ G) with dichotomy y G
@@ -181,8 +181,8 @@ dichotomy x (y ∷ G) with dichotomy y G
 ... | inr (u , v , u∈ , v∈ , p , q) =
         inr (u , v , (inr u∈ , inr v∈ , p , q))
 
--- On a two-element fibre the separating certificate really is a no-go:
--- no member of the fibre dominates the other, so any merged report
+-- On a two-element fiber the separating certificate really is a no-go:
+-- no member of the fiber dominates the other, so any merged report
 -- misprices at least one declared target.
 sep-pair-noLeast : (u v : List ℕ) → u ◃ v → v ◃ u → ¬ Least (u ∷ v ∷ [])
 sep-pair-noLeast u v u◃v v◃u (m , inl e , (_ , q , _)) =
@@ -191,7 +191,7 @@ sep-pair-noLeast u v u◃v v◃u (m , inr (inl e) , (p , _)) =
   ◃→¬≼ u v u◃v (subst (_≼ u) e p)
 sep-pair-noLeast u v u◃v v◃u (m , inr (inr ()) , _)
 
--- A singleton fibre is always sound.  This is the router-side reading of
+-- A singleton fiber is always sound.  This is the router-side reading of
 -- exposed-point rigidity (§5): rigidity ⇒ soundness.
 singleton-least : (x : List ℕ) → Least (x ∷ [])
 singleton-least x = x , inl refl , (≼-refl x , tt)
@@ -217,7 +217,7 @@ head-eq {a} {b} {sx} {sy} a≤b sx≤sy p with a ≟ b
 
 -- THE EXPOSED-POINT LEMMA.  Termwise domination together with equality
 -- of the aggregate forces termwise equality: the aggregate map has a
--- singleton fibre at its maximum.  This is R0019's proof obligation 1,
+-- singleton fiber at its maximum.  This is R0019's proof obligation 1,
 -- over ℕ, by exactly the stated argument.
 sum-rigid : (x y : List ℕ) → x ≼ y → sum x ≡ sum y → x ≡ y
 sum-rigid []       []       _        _ = refl
@@ -254,15 +254,15 @@ exposed-point m c = sum-rigid c (ones m)
 σ₅ = 3 ∷ 4 ∷ []
 σ₆ = 3 ∷ 4 ∷ []
 
--- The two states lie in the SAME fibre of the scalar summary.
+-- The two states lie in the SAME fiber of the scalar summary.
 same-summary : σ₅ ≡ σ₆
 same-summary = refl
 
 0<1 : 0 < 1
 0<1 = 0 , refl
 
-cacheFibre : List (List ℕ)
-cacheFibre = μ₅ ∷ μ₆ ∷ []
+cacheFiber : List (List ℕ)
+cacheFiber = μ₅ ∷ μ₆ ∷ []
 
 μ₅◃μ₆ : μ₅ ◃ μ₆     -- C₅ strictly cheaper on target 4
 μ₅◃μ₆ = inr (inl 0<1)
@@ -270,18 +270,18 @@ cacheFibre = μ₅ ∷ μ₆ ∷ []
 μ₆◃μ₅ : μ₆ ◃ μ₅     -- C₆ strictly cheaper on target 3
 μ₆◃μ₅ = inl 0<1
 
-cacheSep : Sep cacheFibre
+cacheSep : Sep cacheFiber
 cacheSep = μ₅ , μ₆ , (inl refl , inr (inl refl) , μ₅◃μ₆ , μ₆◃μ₅)
 
 -- Hence no merge representative exists: message 0249's no-go, as a term.
-cacheNoLeast : ¬ Least cacheFibre
+cacheNoLeast : ¬ Least cacheFiber
 cacheNoLeast = sep-pair-noLeast μ₅ μ₆ μ₅◃μ₆ μ₆◃μ₅
 
 -- Contrast.  Equality of summaries is NOT itself the obstruction: a
--- fibre whose members are comparable does have a representative.
-chainFibre : List (List ℕ)
-chainFibre = (0 ∷ 0 ∷ []) ∷ (1 ∷ 0 ∷ []) ∷ []
+-- fiber whose members are comparable does have a representative.
+chainFiber : List (List ℕ)
+chainFiber = (0 ∷ 0 ∷ []) ∷ (1 ∷ 0 ∷ []) ∷ []
 
-chainLeast : Least chainFibre
+chainLeast : Least chainFiber
 chainLeast = (0 ∷ 0 ∷ []) , inl refl
            , (≼-refl (0 ∷ 0 ∷ []) , (zero-≤ , ≤-refl , tt) , tt)

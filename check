@@ -1,7 +1,7 @@
 #!/bin/sh
 # check — typecheck the repository, and never report a green off the pin.
 #
-#   sh check           the kernel, the fibre law, and the Lean root closure
+#   sh check           the kernel, the fiber law, and the Lean root closure
 #   sh check --all     everything under formal/cubical/theorems too (slow)
 #
 # THE ONE RULE.  A verdict that does not name its toolchain has dropped half
@@ -59,9 +59,9 @@ for m in "$ROOT"/formal/cubical/kernel/*.agda; do
   run "$(basename "$m" .agda | cut -c1-56)" "$ROOT/formal/cubical" "kernel/$(basename "$m")"
 done
 
-printf '\nfibre — the one primitive the corpus turns on\n'
-run "Fibre.Carrier"     "$ROOT/fibre" "src/Fibre/Carrier.agda"
-run "Fibre (everything)" "$ROOT/fibre" "src/Everything.agda"
+printf '\nfiber — the one primitive the corpus turns on\n'
+run "Fiber.Carrier"     "$ROOT/fiber" "src/Fiber/Carrier.agda"
+run "Fiber (everything)" "$ROOT/fiber" "src/Everything.agda"
 
 if [ "${1:-}" = "--all" ]; then
   printf '\ntheorems — every module (slow)\n'

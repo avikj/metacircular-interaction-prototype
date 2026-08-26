@@ -18,7 +18,7 @@
 --   `SvaTantuVasa_…`    ध्रुव-बिन्दुः : isEquiv f → isContr (Σ[ Φ ] संरक्षणम् f Φ)
 --                       — a lossless observable's conserving-flow space
 --                       is a POINT (itself `invIso Σ-Π-Iso` evaluated).
---   `GhataTantu_…`      powg = घात g in C₃, whose fibre over ε is not
+--   `GhataTantu_…`      powg = घात g in C₃, whose fiber over ε is not
 --                       contractible: 0, 3 and 6 all land there.
 --
 -- §१ composes the first two: **every instruction of the machine has a
@@ -36,18 +36,18 @@
 --
 -- WHAT THE JOIN SAYS, and it is a reading of the terms and not a further
 -- theorem: by `वासः` a conserving flow IS a section of the map's own
--- fibre family, so the flow `n ↦ 3 + n` is the section `a ↦ (3 + a , …)`
+-- fiber family, so the flow `n ↦ 3 + n` is the section `a ↦ (3 + a , …)`
 -- — at every exponent, the NEXT exponent with the same public value.
 -- That section is the discrete log's ambiguity, and it is also the map's
 -- symmetry.  **The thing an attacker cannot recover and the thing that
--- can move without being seen are one fibre.**  §५ states the limits of
+-- can move without being seen are one fiber.**  §५ states the limits of
 -- that sentence rather than leaving it to be over-read.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS NOT CLAIMED.
 --
 --   * No physics.  "Charge", "gauge", "conserved" are used as
---     `Dhruva_…`/`Khahara_…` use them — for `संरक्षणम्` and the fibre —
+--     `Dhruva_…`/`Khahara_…` use them — for `संरक्षणम्` and the fiber —
 --     and Dhruva's fence transfers verbatim: this is NOT Noether's first
 --     theorem, there is no Lagrangian, variation, continuity or current.
 --   * No computational hardness.  §२–४ are about a three-element group
@@ -62,7 +62,7 @@
 --     precedent `MadhyaVinimaya_…`).
 --
 -- TERM.  शून्य-भार is `Dhruva_…` §३'s own compound for a contractible
--- fibre carrying no charge, and is reused rather than coined.  आवृत्ति
+-- fiber carrying no charge, and is reused rather than coined.  आवृत्ति
 -- (period, recurrence) is ordinary Sanskrit.  No text is claimed for any
 -- statement below.
 --
@@ -80,13 +80,13 @@ open import Cubical.Data.Nat.Properties using (znots)
 open import Cubical.Data.Sigma using (Σ ; Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibers
   using (ध्रुव-बिन्दुः ; तादात्म्यम् ; वासः)
 open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (Program ; चालनम्)
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataTantu_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; εC)
 open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
   using (C₃ ; e₀ ; g ; g² ; _∘_)
@@ -176,16 +176,16 @@ private variable ℓ : Level
 --
 -- `वासः powg` carries आवृत्ति-प्रवाह-युग्मम् to the section
 -- `a ↦ (3 + a , आवृत्तिः a)`: at every exponent, the next exponent with
--- the same public value.  That section is a point of the same fibre
+-- the same public value.  That section is a point of the same fiber
 -- family whose non-contractibility at ε is `GhataTantu.तन्तुः-द्विपदः`.
 -- The two are the same family; the sentence "the ambiguity and the
 -- symmetry are one object" says that and no more.
 --
 -- NOT settled here: that the flow space is EXACTLY the ℤ/3 of
 -- translations — §३ exhibits two flows and refutes contractibility; it
--- does not compute the space, and the sections of a fibre family over ℕ
+-- does not compute the space, and the sections of a fiber family over ℕ
 -- are far larger than the translations (any pointwise choice will do).
--- Computing it needs the fibres identified uniformly in `a`, which is
+-- Computing it needs the fibers identified uniformly in `a`, which is
 -- `GhataTantu`'s owed general coset statement.  §३ is a witness, not a
 -- census.
 --

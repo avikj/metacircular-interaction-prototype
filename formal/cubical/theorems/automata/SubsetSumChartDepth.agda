@@ -15,7 +15,7 @@
 -- This module answers it, negatively and with the exact depth.  Write
 -- `m` for the largest finite `v_p` of a subset sum of `a`.  Then every `b`
 -- congruent to `a` coordinatewise modulo `p^(m+1)` has the *same* response
--- on every subset, and `p^m` is not enough.  So the observational fibre of
+-- on every subset, and `p^m` is not enough.  So the observational fiber of
 -- `a` contains a whole congruence class, which for `n >= 2` contains
 -- tuples that are not scalar multiples of `a`.
 --
@@ -34,7 +34,7 @@
 --   §4  masked sums: the "every subset" quantifier
 --   §5  `subsetChartDepth`: the theorem
 --   §6  `depthMIsNotEnough`: `m+1` cannot be lowered to `m`
---   §7  `fibreTransport` / `notProportional`: the fibre is not the
+--   §7  `fiberTransport` / `notProportional`: the fiber is not the
 --       scaling orbit — the negative answer to message 0161
 ------------------------------------------------------------------------
 
@@ -263,7 +263,7 @@ depthMIsNotEnough = ∣'→∣ (pos 3) (pos 3) (pos 1 , refl)
                   , ∣'→∣ (pos 9) (pos 9) (pos 1 , refl)
 
 ------------------------------------------------------------------------
--- §7  The observational fibre is not the scaling orbit.
+-- §7  The observational fiber is not the scaling orbit.
 --
 -- `a = (1 , 2)` and `b = (10 , 2)` agree coordinatewise modulo
 -- `3^2 = p^(m+1)`, so by §5 they carry the *same* exact depth on every
@@ -273,22 +273,22 @@ depthMIsNotEnough = ∣'→∣ (pos 3) (pos 3) (pos 1 , refl)
 ------------------------------------------------------------------------
 
 private
-  zsFibre : List (ℤ × ℤ)
-  zsFibre = (pos 1 , pos 10) ∷ (pos 2 , pos 2) ∷ []
+  zsFiber : List (ℤ × ℤ)
+  zsFiber = (pos 1 , pos 10) ∷ (pos 2 , pos 2) ∷ []
 
-congModP^sm : Cong (pos 3 ^ 2) zsFibre
+congModP^sm : Cong (pos 3 ^ 2) zsFiber
 congModP^sm = ∣'→∣ (pos 9) (negsuc 8) (negsuc 0 , refl)
             , ∣'→∣ (pos 9) (pos 0) (pos 0 , refl)
             , tt
 
-fibreTransport :
+fiberTransport :
     (bs : List Bool) (k : ℕ) → k ≤ 1
-  → (pos 3 ^ k) ∣ sumL (mask bs zsFibre)
-  → ¬ ((pos 3 ^ suc k) ∣ sumL (mask bs zsFibre))
-  → ((pos 3 ^ k) ∣ sumR (mask bs zsFibre))
-  × (¬ ((pos 3 ^ suc k) ∣ sumR (mask bs zsFibre)))
-fibreTransport bs k k≤1 =
-  subsetChartDepth (pos 3) 1 zsFibre bs k k≤1 congModP^sm
+  → (pos 3 ^ k) ∣ sumL (mask bs zsFiber)
+  → ¬ ((pos 3 ^ suc k) ∣ sumL (mask bs zsFiber))
+  → ((pos 3 ^ k) ∣ sumR (mask bs zsFiber))
+  × (¬ ((pos 3 ^ suc k) ∣ sumR (mask bs zsFiber)))
+fiberTransport bs k k≤1 =
+  subsetChartDepth (pos 3) 1 zsFiber bs k k≤1 congModP^sm
 
 notProportional : ¬ (Σ[ c ∈ ℤ ] ((c · pos 1 ≡ pos 10) × (c · pos 2 ≡ pos 2)))
 notProportional (c , h1 , h2) =

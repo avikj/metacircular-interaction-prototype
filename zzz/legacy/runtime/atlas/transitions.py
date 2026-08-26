@@ -460,7 +460,7 @@ def _cardinal_peano() -> Transition:
     def dom() -> Sequence[Any]:
         out = []
         for n in range(_SET_N + 1):
-            out.extend(CARD.decategorification_fibre(n, 6))
+            out.extend(CARD.decategorification_fiber(n, 6))
         return out
 
     return Transition(
@@ -474,8 +474,8 @@ def _cardinal_peano() -> Transition:
         residuals=tuple(_sym_residual(n) for n in range(RESIDUAL_LEVEL + 1)) +
                   (Residual("Iso(X,[n]) torsor n=%d" % RESIDUAL_LEVEL, TORSOR,
                             CARD.iso_torsor(RESIDUAL_LEVEL), False,
-                            "the fibre of the comparison is an S_n-torsor of size n!"),),
-        note="pi_0: bijective on iso-classes, NOT faithful; the fibre of Aut(X) -> "
+                            "the fiber of the comparison is an S_n-torsor of size n!"),),
+        note="pi_0: bijective on iso-classes, NOT faithful; the fiber of Aut(X) -> "
              "Aut(n) = 1 is S_n",
         term_pairs=lambda: [(CARD.term(n), PEANO.term(n)) for n in range(_SET_N + 1)],
         certificate_name="cert:atlas/pi0",
@@ -498,7 +498,7 @@ def _ordinal_cardinal() -> Transition:
         codomain=lambda: [tuple(sorted(CARD.datum(n))) for n in range(_SET_N + 1)],
         forward=lambda o: tuple(sorted(o)),
         residuals=tuple(_order_torsor_residual(n) for n in range(2, RESIDUAL_LEVEL + 1)),
-        note="forget the order: the fibre is the S_n-torsor of linear orders, and the "
+        note="forget the order: the fiber is the S_n-torsor of linear orders, and the "
              "total space is contractible (Thm 3.2) -- checked as 'exactly one order "
              "isomorphism between any two objects'",
         term_pairs=lambda: [(ORD.term(n), CARD.term(n)) for n in range(_SET_N + 1)],

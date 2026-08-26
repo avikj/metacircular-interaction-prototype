@@ -10,7 +10,7 @@
 -- checks is that the collapse is exactly a π₀ statement:
 --
 --   * card is invariant along paths                (card-invariant)
---   * its fibres are connected, in the mere sense  (fibre-connected)
+--   * its fibers are connected, in the mere sense  (fiber-connected)
 --   * every n is hit                               (card-Fin)
 --   * and the π₀ statement itself, assembled:      (ℕ≃π₀FinSet)
 --       ℕ ≃ ∥ FinSet ℓ-zero ∥₂
@@ -72,8 +72,8 @@ card-Fin n = refl
 card-invariant : (X Y : FinSet ℓ-zero) → X ≡ Y → card X ≡ card Y
 card-invariant X Y = cong card
 
-fibre-connected : (X Y : FinSet ℓ-zero) → card X ≡ card Y → ∥ X ≡ Y ∥₁
-fibre-connected X Y p =
+fiber-connected : (X Y : FinSet ℓ-zero) → card X ≡ card Y → ∥ X ≡ Y ∥₁
+fiber-connected X Y p =
   Prop.rec isPropPropTrunc
            (λ e → ∣ equivFun (FinSet≡ X Y) (ua e) ∣₁)
            (cardInj {X = X} {Y = Y} p)
@@ -83,14 +83,14 @@ fibre-connected X Y p =
 card≡MereEq : (X Y : FinSet ℓ-zero) → (card X ≡ card Y) ≃ ∥ X ≡ Y ∥₁
 card≡MereEq X Y =
   propBiimpl→Equiv (isSetℕ _ _) isPropPropTrunc
-    (fibre-connected X Y)
+    (fiber-connected X Y)
     (Prop.rec (isSetℕ _ _) (card-invariant X Y))
 
 -- The π₀ statement itself, assembled from the fiberwise ingredients
 -- above: ℕ IS the set truncation of FinSet.  Forward: n names the
 -- component of the standard n-element set.  Backward: card descends to
 -- components because ℕ is a set.  The round trips are card-Fin and
--- fibre-connected.
+-- fiber-connected.
 π₀FinSet : Type₁
 π₀FinSet = ∥ FinSet ℓ-zero ∥₂
 
@@ -103,7 +103,7 @@ cardπ₀ = SetTrunc.rec isSetℕ card
     sect : (x : π₀FinSet) → ∣ 𝔽 (cardπ₀ x) ∣₂ ≡ x
     sect = SetTrunc.elim (λ x → isProp→isSet (squash₂ _ _))
              (λ X → Prop.rec (squash₂ _ _) (cong ∣_∣₂)
-                      (fibre-connected (𝔽 (card X)) X (card-Fin (card X))))
+                      (fiber-connected (𝔽 (card X)) X (card-Fin (card X))))
 
     retr : (n : ℕ) → cardπ₀ ∣ 𝔽 n ∣₂ ≡ n
     retr = card-Fin

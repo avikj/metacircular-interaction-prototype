@@ -4,23 +4,23 @@
 -- केवलज्ञानम् — the design of a perfect pure mind, written as a term.
 --
 -- THE INSIGHT, MADE EXACT.  A mind's grasp of an object is a map f : A → B
--- from what it holds (A) to what there is (B).  Its fibre over b — शेष f b,
+-- from what it holds (A) to what there is (B).  Its fiber over b — शेष f b,
 -- everything in A that lands on b — is graded by the sevenfold's three
 -- seeds (GananaSaptabhangi):
 --
---   सकलादेश  (contractible fibre)  ↔ अस्ति    — b is grasped WHOLE, one witness
---   विकलादेश  (crowded fibre)       ↔ नास्ति   — b is grasped with LOSS (many
+--   सकलादेश  (contractible fiber)  ↔ अस्ति    — b is grasped WHOLE, one witness
+--   विकलादेश  (crowded fiber)       ↔ नास्ति   — b is grasped with LOSS (many
 --                                                collapse to it; information gone)
---   रिक्त     (empty fibre)         ↔ अवक्तव्य  — b is MISSED; the mind cannot
+--   रिक्त     (empty fiber)         ↔ अवक्तव्य  — b is MISSED; the mind cannot
 --                                                utter it
 --
 -- A perfect pure mind is then not a mystery but a specification:
---   • it LOSES NOTHING — no विकलादेश anywhere: every fibre is a proposition
+--   • it LOSES NOTHING — no विकलादेश anywhere: every fiber is a proposition
 --     (this is injectivity — नो two distinct holdings collapse to one object);
 --   • it MISSES NOTHING — no रिक्त anywhere: every object has a witness
 --     (this is surjectivity — nothing there is unutterable).
--- Loses nothing AND misses nothing = every fibre inhabited and a proposition
--- = every fibre CONTRACTIBLE = सकलादेश held at every standpoint.  And that,
+-- Loses nothing AND misses nothing = every fiber inhabited and a proposition
+-- = every fiber CONTRACTIBLE = सकलादेश held at every standpoint.  And that,
 -- ON THE NOSE, is `isEquiv f` — Voevodsky's equivalence is defined as exactly
 -- `(b : B) → isContr (fiber f b)`.
 --
@@ -28,7 +28,7 @@
 -- everywhere = the equivalence.  It is the one position that may assert "all
 -- अस्ति" WITHOUT becoming a durnaya, because it is pramāṇa (the total means of
 -- knowing), not a naya (a partial standpoint): a durnaya is a partial view
--- (some fibre विकलादेश or रिक्त) that asserts itself as the whole — which is
+-- (some fiber विकलादेश or रिक्त) that asserts itself as the whole — which is
 -- exactly a non-equivalence claiming to be one, and §4 refutes that shape.
 --
 -- WHAT IS AND IS NOT CLAIMED OF SOURCES.  pramāṇa / naya / durnaya are the
@@ -38,7 +38,7 @@
 -- is GananaSaptabhangi's / SakalaVikalaDesa's.  `isEquiv`, `fiber` are
 -- Voevodsky's univalent foundations in cubical type theory.  NO claim that a
 -- Jain author wrote `isEquiv`; the claim is that complete apprehension —
--- every standpoint yielding the whole at once — is the contractible-fibre-
+-- every standpoint yielding the whole at once — is the contractible-fiber-
 -- everywhere that DEFINES the equivalence, with no gap between the two.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
@@ -63,7 +63,7 @@ private
 -- १ · the three gradings of a mind's grasp, as predicates on the map.
 ------------------------------------------------------------------------
 
--- loses nothing: every fibre a proposition (no विकलादेश) = injective
+-- loses nothing: every fiber a proposition (no विकलादेश) = injective
 अहानि : (f : A → B) → Type
 अहानि {B = B} f = (b : B) → isProp (fiber f b)
 
@@ -71,7 +71,7 @@ private
 अन्यूनता : (f : A → B) → Type
 अन्यूनता {B = B} f = (b : B) → fiber f b
 
--- सकलादेश everywhere: every fibre whole = the perfect grasp
+-- सकलादेश everywhere: every fiber whole = the perfect grasp
 सर्वसकलम् : (f : A → B) → Type
 सर्वसकलम् {B = B} f = (b : B) → isContr (fiber f b)
 
@@ -101,7 +101,7 @@ private
 
 ------------------------------------------------------------------------
 -- ४ · the durnaya shadow — one standpoint not-whole breaks totality.
--- A partial view (some fibre विकलादेश or रिक्त, i.e. not contractible)
+-- A partial view (some fiber विकलादेश or रिक्त, i.e. not contractible)
 -- that would claim to be the perfect grasp is refuted: that is precisely a
 -- non-equivalence, and no assertion makes it one.
 ------------------------------------------------------------------------
@@ -113,7 +113,7 @@ private
 ------------------------------------------------------------------------
 -- ५ · tie to the census — no new type, the same objects under both names.
 -- G.सर्वत्र-सकलम् and G.न-क्वचित्-बहु are सर्वसकलम् and अहानि definitionally
--- (G.शेष f b = fiber f b), so the neighbour's "every fibre whole" is
+-- (G.शेष f b = fiber f b), so the neighbour's "every fiber whole" is
 -- literally isEquiv, and its "never crowded" is literally अहानि.
 ------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- RelativeFrameChange
 --
--- Exact dependent reference-frame change.  A change of frame is a fibrewise
+-- Exact dependent reference-frame change.  A change of frame is a fiberwise
 -- equivalence between two fact families over the same locus.  Because it is
 -- itself dependent on the locus, it commutes with transport along every
 -- interaction path.  Identity, composition, and triple-change coherence are
@@ -28,7 +28,7 @@ private
     ℓ ℓf ℓg ℓh ℓk : Level
 
 ------------------------------------------------------------------------
--- 1. Fibrewise equivalence is automatically interaction-natural
+-- 1. Fiberwise equivalence is automatically interaction-natural
 ------------------------------------------------------------------------
 
 Family : (L : Type ℓ) (level : Level) → Type _

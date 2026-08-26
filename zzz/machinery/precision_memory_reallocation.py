@@ -2,9 +2,9 @@
 """Precision growth reallocates reversible information; it does not erase it.
 
 At the canonical valuation frontier just before `t = p^(L+1)`, the selected
-chart is `mod p^L`: it has `p^L` visible values and maximum fibre `p`.  At the
+chart is `mod p^L`: it has `p^L` visible values and maximum fiber `p`.  At the
 transition the selected chart becomes `mod p^(L+1)`: it has `p^(L+1)` visible
-values and maximum fibre one.  The output dimension grows by exactly the factor
+values and maximum fiber one.  The output dimension grows by exactly the factor
 lost by the coherent-overwrite environment.
 
 If the old output chart is held fixed, its environment dimension remains `p`.
@@ -43,19 +43,19 @@ def _check(prime: int, level: int) -> None:
 def profile(world_size: int, modulus: int) -> InterfaceProfile:
     """Exact basis-interface profile on `S={1,...,world_size}`.
 
-    The coherent overwrite dimension is the maximum residue-fibre size.
+    The coherent overwrite dimension is the maximum residue-fiber size.
     """
     if world_size < 1 or modulus < 1:
         raise ValueError("world size and modulus must be positive")
-    fibres: dict[int, int] = {}
+    fibers: dict[int, int] = {}
     for value in range(1, world_size + 1):
         residue = value % modulus
-        fibres[residue] = fibres.get(residue, 0) + 1
+        fibers[residue] = fibers.get(residue, 0) + 1
     return InterfaceProfile(
         world_size=world_size,
         modulus=modulus,
-        image_size=len(fibres),
-        environment_dimension=max(fibres.values()),
+        image_size=len(fibers),
+        environment_dimension=max(fibers.values()),
     )
 
 

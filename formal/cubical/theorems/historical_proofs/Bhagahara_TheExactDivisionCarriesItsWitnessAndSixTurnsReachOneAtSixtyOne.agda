@@ -12,11 +12,11 @@
 -- Two modules in this repository refuse, in identical words, to call
 -- anything "the चक्रवाल", and both name the SAME missing ingredient:
 --
---   `loss/…/Bhavana_TheKsepaIsDeterminedByTheRootsAnd…`:
+--   `fiber/src/Fiber/Bhavana_TheKsepaIsDeterminedByTheRootsAnd…`:
 --     "It requires choosing m with k ∣ (a + b·m), and then dividing the
 --      composed row through by k — exact division in ℤ, which needs a
 --      divisibility witness carried alongside and is not done here."
---   `Vargaprakrtitantu_ThePellFibreIsInfinite…`:
+--   `Vargaprakrtitantu_ThePellFiberIsInfinite…`:
 --     "the cyclic step needs a chosen m with k ∣ (a + b·m) and an exact
 --      division carrying its divisibility witness, and none of that is
 --      done."
@@ -33,8 +33,8 @@
 -- makes carrying it free.
 --
 -- AND THE DISTINCTION THAT MATTERS, which the क्षेप case hides.  For the
--- क्षेप the fibre is `singl` — contractible — because the roots determine
--- it TOTALLY: every pair has a क्षेप.  For the भागहार the fibre is a
+-- क्षेप the fiber is `singl` — contractible — because the roots determine
+-- it TOTALLY: every pair has a क्षेप.  For the भागहार the fiber is a
 -- proposition and NOT in general inhabited: division by k is PARTIAL, and
 -- the inhabitant is exactly the divisibility.  So the missing ingredient
 -- is not "a carried datum" in the same sense at all; it is the one place
@@ -63,7 +63,7 @@
 --        1766319049² − 61 · 226153980² = 1.
 --
 --     Which is Bhāskara's answer, and the case the naive भावना orbit
---     inside the k=1 fibre cannot reach, because at D = 61 there is no
+--     inside the k=1 fiber cannot reach, because at D = 61 there is no
 --     small k=1 row to seed it with.
 --
 -- WHAT IS *NOT* PROVED, so nobody has to guess.
@@ -179,10 +179,10 @@ open पङ्क्तिः public
 --
 -- `भागहार-एकः`: the type is a PROPOSITION.  The quotient is determined
 -- by the base, so carrying it costs nothing; that is the same statement
--- as `Loss.Carrier`'s contractible fibre, one h-level weaker.
+-- as `Loss.Carrier`'s contractible fiber, one h-level weaker.
 --
 -- And it is exactly one h-level weaker, which is the content: the क्षेप's
--- fibre is contractible because every pair HAS a क्षेप, and this one is
+-- fiber is contractible because every pair HAS a क्षेप, and this one is
 -- only propositional because not every n has a quotient.  The inhabitant
 -- IS the divisibility.  That is the thing Bhāskara's choice of m buys and
 -- the thing no amount of carrying can produce for free.
@@ -198,7 +198,7 @@ open भागहारः public
 
 -- the carried datum is determined: at most one quotient, always.  That is
 -- what makes carrying it free, and it is `Loss.Carrier`'s
--- contractible fibre one h-level weaker — weaker exactly because the
+-- contractible fiber one h-level weaker — weaker exactly because the
 -- division is partial.
 भागहार-एकः : (j n : ℕ) → isProp (भागहारः j n)
 भागहार-एकः j n (हृतम् q₁ w₁) (हृतम् q₂ w₂) i = हृतम् (p i) (w i)

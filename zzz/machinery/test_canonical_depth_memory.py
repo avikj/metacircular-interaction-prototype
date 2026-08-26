@@ -8,7 +8,7 @@ from canonical_depth_memory import (
     canonical_profile,
     global_depth,
     hitting_time,
-    max_fibre,
+    max_fiber,
     valuation,
 )
 
@@ -23,7 +23,7 @@ class LiteralAgreementTests(unittest.TestCase):
                 depth = global_depth(world, prime)
                 self.assertEqual(depth, canonical_depth(prime, time),
                                  f"p={prime} t={time}")
-                self.assertEqual(max_fibre(world, prime, depth),
+                self.assertEqual(max_fiber(world, prime, depth),
                                  canonical_memory(prime, time),
                                  f"p={prime} t={time}")
 

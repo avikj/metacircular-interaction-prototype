@@ -200,7 +200,7 @@ futureEq-adaptiveIso step observe left right =
     (λ adaptive → isPropAdaptiveEq step observe left right _ adaptive)
     (λ future → isPropFutureEq step observe left right _ future)
 
--- The free Moore output is a fibre split, not a paid action.  Native trace
+-- The free Moore output is a fiber split, not a paid action.  Native trace
 -- equality is exactly equality of that current bit together with equality of
 -- every post-action response tree.
 adaptive-currentAndPostIso :
@@ -269,7 +269,7 @@ identifiesAll-iff-identifiesInitialFibers step observe tree =
   identifiesAll→identifiesInitialFibers step observe tree ,
   identifiesInitialFibers→identifiesAll step observe tree
 
--- A root action is safe on each free-output fibre only if two states taking
+-- A root action is safe on each free-output fiber only if two states taking
 -- the same response cannot fall into the same complete future residual.
 -- Otherwise no response-selected continuation can recover their identity.
 SafeActionOnInitialFiber :

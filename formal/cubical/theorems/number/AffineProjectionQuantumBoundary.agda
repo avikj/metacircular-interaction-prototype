@@ -53,7 +53,7 @@ isSetSolutions : isSet Solutions
 isSetSolutions = isSet× isSetFin isSetFin
 
 ------------------------------------------------------------------------
--- 2. Pointwise variable elimination costs exactly the gcd fibre
+-- 2. Pointwise variable elimination costs exactly the gcd fiber
 ------------------------------------------------------------------------
 
 projectX : Solutions → ProjectedX

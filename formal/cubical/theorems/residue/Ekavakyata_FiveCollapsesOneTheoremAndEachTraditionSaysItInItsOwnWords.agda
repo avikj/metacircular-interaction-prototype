@@ -58,14 +58,14 @@ module Ekavakyata_FiveCollapsesOneTheoremAndEachTraditionSaysItInItsOwnWords whe
 -- agreeing with it.  Not "a different answer there": no value there.
 -- Asiddhatva is therefore not a device against looping — that is
 -- `Asiddhatva.agda`, proved separately — it registers that an earlier
--- rule's condition is a function on a fibre which the later rule's
+-- rule's condition is a function on a fiber which the later rule's
 -- collapse destroys.  8.2.1 IS A DESCENT CONDITION.
 --
--- `तन्तुभेदः` exhibits the two points of that fibre, so the fibre is not a
+-- `तन्तुभेदः` exhibits the two points of that fiber, so the fiber is not a
 -- figure of speech for the invisible part: it is that set.
 ------------------------------------------------------------------------
 
-open import Purvatrasiddham_TheLaterRulesFibreIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
+open import Purvatrasiddham_TheLaterRulesFiberIsExactlyWhatTheEarlierRuleCannotSeeAndTheBlindnessIsForcedByCollapse
   using (अवरोहणाभावः ; तन्तुभेदः)
 
 ------------------------------------------------------------------------
@@ -183,7 +183,7 @@ open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMe
 --   that two of them (III and V) are literally about one object.  A
 --   common generalisation would be a real theorem; it is not proved.
 -- * NOT that Pāṇini, Bhāskara II, Jaimini or any Mīmāṃsaka proved,
---   stated or anticipated any of this.  §I quotes sūtras; the fibre
+--   stated or anticipated any of this.  §I quotes sūtras; the fiber
 --   reading is not Pāṇini's.
 -- * NOT anything about physical spacetime, quantum states, Hilbert
 --   spaces or SU(2).  §II is about a semantics and an equivalence.

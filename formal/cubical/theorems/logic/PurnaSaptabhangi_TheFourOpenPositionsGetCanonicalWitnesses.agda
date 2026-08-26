@@ -5,11 +5,11 @@
 --
 -- WHAT THIS CLOSES.  `GananaSaptabhangi_…agda` §6 (दोषलेखः) shows the
 -- map-level classification IS the sevenfold — the non-empty selections of
--- three fibre seeds, 2³ − 1 = 7 — and supplies canonical witnesses for
+-- three fiber seeds, 2³ − 1 = 7 — and supplies canonical witnesses for
 -- THREE positions:
 --
---   id    : Bool → Bool   every fibre contractible          → pure अस्ति
---   एकम्   : Bool → Unit    every fibre crowded               → pure नास्ति
+--   id    : Bool → Bool   every fiber contractible          → pure अस्ति
+--   एकम्   : Bool → Unit    every fiber crowded               → pure नास्ति
 --   asNat : Bool → ℕ      contractible then empty, never
 --                         crowded (injective into a set)     → अस्ति-अवक्तव्य
 --
@@ -21,9 +21,9 @@
 -- sevenfold is a theorem only once every selection is inhabited.
 --
 -- The seeds, following the neighbour's readings:
---   सकलादेश (contractible fibre) ↔ अस्ति    — something carried whole
---   विकलादेश (crowded fibre)     ↔ नास्ति   — something lost, exhibited
---   रिक्त    (empty fibre)        ↔ अवक्तव्य  — something the source cannot utter
+--   सकलादेश (contractible fiber) ↔ अस्ति    — something carried whole
+--   विकलादेश (crowded fiber)     ↔ नास्ति   — something lost, exhibited
+--   रिक्त    (empty fiber)        ↔ अवक्तव्य  — something the source cannot utter
 --
 -- Each position is stated cleanly: the seeds that occur are witnessed
 -- existentially (क्वचित्, with the b that witnesses), and the seeds that do
@@ -37,7 +37,7 @@
 -- सप्तभङ्गी and the four witness maps are this repository's own; NO claim
 -- that any Jain author classified functions — the claim is only that the
 -- non-classical logic they enumerated (three values, the third combinable
--- with the other two) is, on the nose, the selection algebra of the fibre.
+-- with the other two) is, on the nose, the selection algebra of the fiber.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
 -- no holes, no native_decide.  Verified 2026-08-23.
@@ -97,8 +97,8 @@ isSetBU = isSet⊎ isSetBool isSetUnit
 -- १ · नास्ति-अवक्तव्य — the constant map Bool → Bool ⊎ Unit at inl true.
 --
 -- inl true is hit twice (विकलादेश → नास्ति), everything else empty
--- (रिक्त → अवक्तव्य), and NO fibre is contractible (the one inhabited
--- fibre is crowded), so अस्ति is refuted.
+-- (रिक्त → अवक्तव्य), and NO fiber is contractible (the one inhabited
+-- fiber is crowded), so अस्ति is refuted.
 ------------------------------------------------------------------------
 
 नित्य : Bool → Bool ⊎ Unit
@@ -124,7 +124,7 @@ isSetBU = isSet⊎ isSetBool isSetUnit
 ------------------------------------------------------------------------
 -- २ · अस्ति-नास्ति — the krama both-position (third bhaṅga): a surjection
 -- (Bool ⊎ Unit) → Bool, contractible at false, crowded at true, and NO
--- empty fibre, so अवक्तव्य is refuted.
+-- empty fiber, so अवक्तव्य is refuted.
 ------------------------------------------------------------------------
 
 क्रमद्वि : Bool ⊎ Unit → Bool
@@ -156,7 +156,7 @@ isSetBU = isSet⊎ isSetBool isSetUnit
 
 ------------------------------------------------------------------------
 -- ३ · pure अवक्तव्य — the empty source against an inhabited codomain.
--- Every fibre over the inhabited Unit is empty; अस्ति and नास्ति are both
+-- Every fiber over the inhabited Unit is empty; अस्ति and नास्ति are both
 -- refuted because their witnesses would require a domain element and there
 -- are none.  This is the position §6 said "needs an EMPTY source".
 ------------------------------------------------------------------------

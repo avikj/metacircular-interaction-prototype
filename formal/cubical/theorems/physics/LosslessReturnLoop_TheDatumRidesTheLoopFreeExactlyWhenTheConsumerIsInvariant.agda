@@ -14,7 +14,7 @@
 -- of the coming-back to be trivial, and this module says so as terms.
 --
 --   पुनरागमन   the return exists: the datum is determined, rides free,
---             nothing is lost.  `loss/` states it for a map.
+--             nothing is lost.  `fiber/` states it for a map.
 --   holonomy   go around and return changed.  Stated for a loop.
 --
 -- Same object, opposite sign, two lanes of this repository, and until now
@@ -27,7 +27,7 @@
 -- application of a theorem that already existed.  Nothing is constructed.
 --
 -- THE STATEMENT.  For a consumer `sem : Z → B`, `Carrier sem` carries
--- `sem z` beside `z` at zero degrees of freedom (the fibre `singl (sem z)`
+-- `sem z` beside `z` at zero degrees of freedom (the fiber `singl (sem z)`
 -- is contractible).  A holonomy `h : Z ≃ Z` acts on the base, hence on the
 -- Carrier.  §3: the carried datum after one turn is `sem (h z)`, by `refl`.
 -- §4: therefore the datum is unmoved for every point exactly when `sem` is
@@ -44,7 +44,7 @@
 -- and a path inverts.  **Holonomy is road one, not road two.**
 --
 -- WHAT IS AND IS NOT CLAIMED.  पुनरागमन is this repository's name for the
--- law (`loss/`), not a term attested in a source for this object;
+-- law (`fiber/`), not a term attested in a source for this object;
 -- वर्तुल is used in its plain sense, "circle / loop", and no text is claimed
 -- for the compound.  `ua`, `uaβ`, `singl`, `isContrSingl` are Voevodsky's
 -- univalence in its cubical realisation.  Nothing here is new mathematics:
@@ -90,7 +90,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   उत्थान : Carrier f → A
   उत्थान = base
 
-  -- contractible fibre ⇒ equivalence ⇒ path.  The whole proof.
+  -- contractible fiber ⇒ equivalence ⇒ path.  The whole proof.
   अवतरण-उत्थान : (c : Carrier f) → अवतरण (उत्थान c) ≡ c
   अवतरण-उत्थान (carry a b w) i = carry a (q i .fst) (q i .snd)
     where
@@ -108,7 +108,7 @@ module _ {A B : Type ℓ} (f : A → B) where
 --
 -- `H.Holonomy Z = Z ≃ Z`, that module's own definition.  Φ is the loop
 -- read as a map; the lift is the conjugation अवतरण ∘ Φ ∘ उत्थान, which is
--- the shape `loss/`'s Φ-carrier already has.
+-- the shape `fiber/`'s Φ-carrier already has.
 ------------------------------------------------------------------------
 
 module _ {B Z : Type₀} (sem : Z → B) (h : H.Holonomy Z) where

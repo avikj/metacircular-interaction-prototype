@@ -88,12 +88,12 @@
 --
 --   §5  द्वौ मार्गौ — the two paths, and the honest status of the third.
 --       `संक्रमणे-न-किञ्चिन्-नश्यति`  path one: along an identification
---                           every fibre transports, nothing lost.
+--                           every fiber transports, nothing lost.
 --       `दोषलेखः-पूर्णः`      path two: `A ≃ Σ[ b ∈ B ] fiber f b`.
 --                           The defect record is COMPLETE — the domain
 --                           is recovered from the codomain plus the
---                           fibres, so there is nothing about `f` that
---                           the fibrewise ledger fails to carry.
+--                           fibers, so there is nothing about `f` that
+--                           the fiberwise ledger fails to carry.
 --       `संक्रमणम्≃निर्दोषः`   and path one is exactly the defect-free
 --                           case: `isEquiv f ≃ (∀ b → isContr (fiber f b))`.
 --       `तृतीयः-मार्गः-निर्णयः` **THE HONESTY LEDGER, AND IT IS A
@@ -404,8 +404,8 @@ private
 संक्रमणे-न-किञ्चिन्-नश्यति = uaβ
 
 -- PATH TWO, AND ITS COMPLETENESS.  The defect record of a map is its
--- family of fibres, and that record is COMPLETE: the domain is nothing
--- more than the codomain together with the fibres.  So writing the
+-- family of fibers, and that record is COMPLETE: the domain is nothing
+-- more than the codomain together with the fibers.  So writing the
 -- defect down is not a consolation prize for a failed transport — it
 -- loses nothing that was there.
 --
@@ -420,7 +420,7 @@ private
   Iso.leftInv i a = refl
 
 -- and path one is exactly the case where the record is empty of
--- content: `f` is an equivalence precisely when every fibre is
+-- content: `f` is an equivalence precisely when every fiber is
 -- contractible, i.e. when there is nothing at any site to write down.
 संक्रमणम्≃निर्दोषः
   : (f : A → B) → isEquiv f ≃ ((b : B) → isContr (fiber f b))
@@ -432,7 +432,7 @@ private
 ------------------------------------------------------------------------
 -- तृतीयः मार्गः — THE HONESTY LEDGER, AS A THEOREM.
 --
--- Read as a claim about the shape of the ledger — that the fibres carry
+-- Read as a claim about the shape of the ledger — that the fibers carry
 -- everything — "no third path" is `दोषलेखः-पूर्णः` above, and it is
 -- proved.
 --
@@ -504,7 +504,7 @@ private
 --     claiming it as an instance.  An unstated transport is exactly the
 --     kind of gap this repository has been caught in.
 --
---   * §5's `दोषलेखः-पूर्णः` says the fibres carry everything about the
+--   * §5's `दोषलेखः-पूर्णः` says the fibers carry everything about the
 --     MAP.  It says nothing about whether a defect, once written, is
 --     legible, actionable, or of any use — that is a question about
 --     प्रमाण and not about types, and the sūtra's §६ claim that

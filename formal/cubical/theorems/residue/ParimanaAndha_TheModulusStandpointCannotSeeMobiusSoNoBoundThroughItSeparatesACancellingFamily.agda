@@ -24,7 +24,7 @@
 -- bounded coefficients — or summing |b_a| — discards that cancellation.  This
 -- module upgrades the observation to a no-go, using the criterion landed in
 -- `ApurvaIndriyam_…`: a reading that FACTORS through a coarser one is blind
--- inside that one's fibres, so a blind pair separated by the true quantity
+-- inside that one's fibers, so a blind pair separated by the true quantity
 -- proves no such reading exists.
 --
 -- THE STATEMENT.  Let S be the modulus standpoint — a coefficient vector read
@@ -43,7 +43,7 @@
 -- WHAT IS NOT CLAIMED.  Nothing here bounds K_a, and nothing here says the
 -- absolute-value route is useless — it is exactly right whenever the trivial
 -- bound suffices, and `ApurvaIndriyam.तन्तौ-अन्धः` is the theorem that it is
--- FAITHFUL to what it does read.  The claim is only that its fibre is
+-- FAITHFUL to what it does read.  The claim is only that its fiber is
 -- nonempty, which settles what it can never distinguish.  The blind pair is
 -- exhibited at the smallest size that carries the phenomenon; scaling it to
 -- an actual coefficient family is arithmetic this module does not do.
@@ -56,7 +56,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using (⊥)
 
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 
 ------------------------------------------------------------------------
@@ -136,7 +136,7 @@ data चिह्नम् : Type where          -- +1 and −1, the values μ t
 --     ζ(s+1)^{−1}  lives in the SIGNS — invisible to परिमाणम् by §३;
 --     e(−2ak ū/v)  lives in the PHASE — invisible to the coefficients.
 --
--- An argument that drops either half has passed to a standpoint whose fibre
+-- An argument that drops either half has passed to a standpoint whose fiber
 -- contains a member with nothing to prove, and inherits that member's bound.
 -- The needed theorem is the one that refuses both projections at once.
 --
@@ -178,12 +178,12 @@ data चिह्नम् : Type where          -- +1 and −1, the values μ t
 -- signs do.
 --
 -- Blindness is inherited by everything downstream, which is `तन्तौ-अन्धः`
--- again: any function of a blind reading is blind on the same fibre.
+-- again: any function of a blind reading is blind on the same fiber.
 ------------------------------------------------------------------------
 
 -- Whatever the argument computes AFTER passing to moduli — a Cauchy–Schwarz
 -- factor, a dispersion bound, a final estimate — it is one value for the whole
--- fibre.  Composition cannot recover what the first step discarded.
+-- fiber.  Composition cannot recover what the first step discarded.
 पश्चात्-अपि-अन्धः : {Q : Type} (g : ℕ → Q)
                  → (g (योगः संहरत्) ≡ g (योगः न-संहरत्) → ⊥)
                  → प्रवहति परिमाणम् योगः → ⊥
@@ -193,7 +193,7 @@ data चिह्नम् : Type where          -- +1 and −1, the values μ t
 
 -- The faithfulness half, recorded so the no-go is not read as a dismissal:
 -- whatever IS computed from the moduli is correctly computed for the whole
--- fibre at once.  That is `तन्तौ-अन्धः`, and it is why the modulus route is
+-- fiber at once.  That is `तन्तौ-अन्धः`, and it is why the modulus route is
 -- sound wherever the trivial bound is what is wanted.
 परिमाण-सत्यता : (h : ℕ × ℕ → ℕ) (x y : गुणकः)
               → परिमाणम् x ≡ परिमाणम् y

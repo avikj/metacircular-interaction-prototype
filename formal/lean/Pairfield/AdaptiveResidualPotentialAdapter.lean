@@ -62,7 +62,7 @@ theorem postResponse_eq_true_iff_nil_mem
     Language.mem_leftQuotient, DFA.mem_accepts]
 
 /-- On a reduced finite representative cell, the recursive residual-safety
-law is exactly strong enough for formation's fibrewise-injective advance. -/
+law is exactly strong enough for formation's fiberwise-injective advance. -/
 theorem safeAdvance_of_residualSafe
     (M : DFA A X) [DecidablePred (fun state : X => state ∈ M.accept)]
     (cell : Finset (List A)) (action : A)
@@ -74,7 +74,7 @@ theorem safeAdvance_of_residualSafe
   apply hdistinct hleft hright
   exact hsafe hleft hright hadvanced
 
-/-- Conversely, fibrewise injectivity on the finite representatives implies
+/-- Conversely, fiberwise injectivity on the finite representatives implies
 the repository's residual-safety law.  Equality of advanced residuals itself
 supplies the response equality required by `SafeAdvance`. -/
 theorem residualSafe_of_safeAdvance

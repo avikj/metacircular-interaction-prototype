@@ -5,7 +5,7 @@
 --
 -- This file carried receipt A: the family of higher-cell witnesses cannot
 -- descend through a carrier-only transcript when one observed collision has
--- an inhabited fibre on one side and an empty fibre on the other.
+-- an inhabited fiber on one side and an empty fiber on the other.
 --
 -- The warm carrier first staged the probe inside `formal/cubical`, because a
 -- file under `collab/probes` has no `.agda-lib` context.  Agda 2.6.3 then
@@ -21,7 +21,7 @@
 --
 -- It contains this probe's `dependent-collision-obstructs` and
 -- `fillerDoesNotFactorThroughCarrier`, plus the marked generalization that
--- mere non-equivalence of the two dependent fibres refutes descent via
+-- mere non-equivalence of the two dependent fibers refutes descent via
 -- `pathToEquiv`.
 --
 -- The complete pre-repair probe remains in Git history here.  This live stub

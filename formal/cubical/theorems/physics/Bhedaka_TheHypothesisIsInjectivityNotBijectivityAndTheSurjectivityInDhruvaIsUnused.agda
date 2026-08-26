@@ -15,10 +15,10 @@
 --
 --     नष्ट-अभावे-गति-अभावः : isEquiv f → संरक्षणम् → (a : A) → Φ a ≡ a
 --
--- and its prose reads `isEquiv f` as "every fibre contractible, nothing
+-- and its prose reads `isEquiv f` as "every fiber contractible, nothing
 -- hidden, zero receipt".  **The proof uses `isEquiv f` at exactly one
 -- point, `e .equiv-proof (f a)`, and `f a` is in the image of `f`.**  So
--- the fibres over non-image points are never consulted, and the
+-- the fibers over non-image points are never consulted, and the
 -- hypothesis is stronger than the argument.
 --
 -- What the argument actually needs is that `f` does not CONFLATE:
@@ -28,10 +28,10 @@
 -- true as stated — it is the statement of what makes it true.
 --
 -- WHY THIS IS THE CARRIER LAW AND NOT A LEMMA ABOUT EMBEDDINGS.
--- `fibre/src/Loss/Carrier.agda` is built on one line:
--- the fibre `Σ[ b ∈ B ] (f a ≡ b) = singl (f a)` is contractible, always,
+-- `fiber/src/Fiber/Carrier.agda` is built on one line:
+-- the fiber `Σ[ b ∈ B ] (f a ≡ b) = singl (f a)` is contractible, always,
 -- for any `f` whatever.  Its header names the converse as "the part that
--- does work": a NON-contractible fibre cannot be declared equivalent to
+-- does work": a NON-contractible fiber cannot be declared equivalent to
 -- its base.  The two roads are the two sides of one equation:
 --
 --     bind the OUTPUT:  Σ[ b ∈ B ] (f a ≡ b)  = singl (f a)   — free
@@ -106,7 +106,7 @@ open import Cubical.Functions.Embedding
         ; hasPropFibersOfImage→isEmbedding ; isEquiv→isEmbedding)
 open import Cubical.Data.Sigma
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 
 private variable ℓ : Level
@@ -129,11 +129,11 @@ module _ {A B : Type ℓ} (f : A → B) where
   एक-पन्थाः = isContrΠ (λ a → isContrSingl (f a))
 
 ------------------------------------------------------------------------
--- २a · भेदकत्वम् — THE INPUT-BOUND FIBRES ARE POINTS EXACTLY WHEN THE
+-- २a · भेदकत्वम् — THE INPUT-BOUND FIBERS ARE POINTS EXACTLY WHEN THE
 --      OBSERVABLE DOES NOT CONFLATE.  An equivalence of propositions.
 --
 -- `fiber f (f a)` is always INHABITED, by `(a , refl)`.  So it is
--- contractible exactly when it is a proposition, and "every fibre over
+-- contractible exactly when it is a proposition, and "every fiber over
 -- the image is a proposition" is `isEmbedding` on the nose.
 ------------------------------------------------------------------------
 
@@ -182,7 +182,7 @@ module _ {A B : Type ℓ} (f : A → B) where
 -- `Dhruva` §२ with `isEquiv f` weakened to `isEmbedding f`.  The proof
 -- is `Dhruva`'s own, with the contractibility now supplied by §२a
 -- instead of by `equiv-proof`: `(Φ a , cons a)` and `(a , refl)` are
--- two points of one contractible fibre.
+-- two points of one contractible fiber.
 --
 -- Note that `Φ` is still a bare endomorphism, and that nothing about
 -- the codomain outside the image of `f` is used or available.

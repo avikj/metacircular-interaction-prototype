@@ -17,8 +17,8 @@ aspirational.  Every channel built here must be able to state, and prove:
   lying.
 * **whether the round trip is exact** -- if the channel declares injectivity on
   a sublanguage, an inverse must be *implemented* and checked against the
-  independently recomputed fibre.  If it is lossy, ``decode`` returns the
-  **fibre** -- the whole set of preimages -- and structurally cannot return a
+  independently recomputed fiber.  If it is lossy, ``decode`` returns the
+  **fiber** -- the whole set of preimages -- and structurally cannot return a
   single guess.
 
 This mirrors the corpus's own homometry result (`notes/CROSS_LENS.md` §2):
@@ -240,7 +240,7 @@ class LossCertificate:
 
     def render(self) -> str:
         sizes = " ".join("%dx%d" % (count, size) for size, count in self.fiber_sizes)
-        return "%d states -> %d codes; fibres %s; max fibre %d" % (
+        return "%d states -> %d codes; fibers %s; max fiber %d" % (
             self.domain_size,
             self.image_size,
             sizes,
@@ -329,7 +329,7 @@ class ValidationReport:
 class Channel:
     """A projection of mathematical state onto a perceptual code.
 
-    ``decode`` is defined here, on the base class, as *the fibre*: the tuple of
+    ``decode`` is defined here, on the base class, as *the fiber*: the tuple of
     every state in the declared language mapping to that code.  It is not a
     hook subclasses are invited to reinterpret.  A lossy channel therefore
     cannot return a single guess without overriding a method whose contract
@@ -378,7 +378,7 @@ class Channel:
         _counter(counter).tick("channel.encode", self.encode_cost)
         return self._encoder(state)
 
-    # -- fibres -----------------------------------------------------------
+    # -- fibers -----------------------------------------------------------
 
     def _build(self, counter: Optional[StepCounter] = None) -> dict:
         if self._fibers is None:
@@ -397,7 +397,7 @@ class Channel:
         return self._image
 
     def decode(self, code, counter: Optional[StepCounter] = None) -> tuple:
-        """Return the FIBRE of ``code``: every preimage, in language order.
+        """Return the FIBER of ``code``: every preimage, in language order.
 
         Never a single state, never a guess, never a "best" preimage.  An
         empty tuple means the code is not in the image.
@@ -419,7 +419,7 @@ class Channel:
         if self._inverse is None:
             fiber = self.decode(code, counter)
             if len(fiber) != 1:
-                raise ChannelError("%s: code %r has fibre of size %d" % (self.name, code, len(fiber)))
+                raise ChannelError("%s: code %r has fiber of size %d" % (self.name, code, len(fiber)))
             return fiber[0]
         _counter(counter).tick("channel.decode_exact")
         return self._inverse(code)
@@ -465,7 +465,7 @@ def certify_injectivity(channel: Channel, counter: Optional[StepCounter] = None)
 
 
 def certify_loss(channel: Channel, counter: Optional[StepCounter] = None) -> LossCertificate:
-    """What the projection destroys: image size, fibre histogram, a witness."""
+    """What the projection destroys: image size, fiber histogram, a witness."""
     local = _counter(counter)
     fibers = channel._build(local)
     histogram: dict = {}
@@ -487,7 +487,7 @@ def certify_loss(channel: Channel, counter: Optional[StepCounter] = None) -> Los
 
 
 def certify_round_trip(channel: Channel, counter: Optional[StepCounter] = None) -> RoundTripCertificate:
-    """Round-trip discipline, checked against independently recomputed fibres.
+    """Round-trip discipline, checked against independently recomputed fibers.
 
     ``fiber_exact``  -- for every state x, ``decode(encode(x))`` is exactly the
     set of states with the same code, recomputed here from scratch rather than
@@ -510,7 +510,7 @@ def certify_round_trip(channel: Channel, counter: Optional[StepCounter] = None) 
         expected = tuple(recomputed[code])
         if fiber != expected:
             fiber_exact = False
-            failure = "fibre of %s is %r, recomputed %r" % (state, fiber, expected)
+            failure = "fiber of %s is %r, recomputed %r" % (state, fiber, expected)
             break
 
     inverse_implemented = channel._inverse is not None
@@ -634,9 +634,9 @@ def validate_channel(channel: Channel, counter: Optional[StepCounter] = None) ->
     """Structural discipline: does this object behave like a channel at all?
 
     1. ``decode`` returns a tuple of *states of the declared language*.
-    2. The fibres partition the language exactly: every state appears in
-       exactly one fibre, and each fibre is duplicate-free.
-    3. Fibre order is deterministic (language order), so reports are stable.
+    2. The fibers partition the language exactly: every state appears in
+       exactly one fiber, and each fiber is duplicate-free.
+    3. Fiber order is deterministic (language order), so reports are stable.
 
     A ``decode`` that returns a single state fails (1) and (2) at once.
     """
@@ -660,23 +660,23 @@ def validate_channel(channel: Channel, counter: Optional[StepCounter] = None) ->
                 continue
             if state in covered:
                 partition_ok = False
-                failures.append("state %r appears in two fibres" % (state,))
+                failures.append("state %r appears in two fibers" % (state,))
             covered[state] = code
         if len(set(fiber)) != len(fiber):
             partition_ok = False
-            failures.append("fibre of %r has a duplicate" % (code,))
+            failures.append("fiber of %r has a duplicate" % (code,))
         expected = tuple(s for s in channel.language.states if s in set(fiber))
         if fiber != expected:
             order_ok = False
-            failures.append("fibre of %r is not in language order" % (code,))
+            failures.append("fiber of %r is not in language order" % (code,))
         recomputed = tuple(s for s in channel.language.states if channel.encode(s, local) == code)
         if fiber != recomputed:
             partition_ok = False
-            failures.append("fibre of %r disagrees with the recomputed preimage" % (code,))
+            failures.append("fiber of %r disagrees with the recomputed preimage" % (code,))
     if len(covered) != len(channel.language):
         partition_ok = False
         failures.append(
-            "fibres cover %d of %d states -- decode is not returning fibres"
+            "fibers cover %d of %d states -- decode is not returning fibers"
             % (len(covered), len(channel.language))
         )
     return ValidationReport(
@@ -722,7 +722,7 @@ def restrict(channel: Channel, language: Language, name: Optional[str] = None, *
 
 
 def product_channel(left: Channel, right: Channel, name: Optional[str] = None) -> Channel:
-    """Two channels read side by side.  Fibres are intersections.
+    """Two channels read side by side.  Fibers are intersections.
 
     `runtime/distinguish/` step 4 installs a *set* of channels; this is that
     set, as one object, so that all the certificates apply to it unchanged.

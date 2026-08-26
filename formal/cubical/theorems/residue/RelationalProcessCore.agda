@@ -179,7 +179,7 @@ loop-obstructs-global P p noFixed section =
   noFixed (section _) (section-naturality (Fact P) section p)
 
 ------------------------------------------------------------------------
--- 2. A genuine finite-fibre gluing obstruction
+-- 2. A genuine finite-fiber gluing obstruction
 ------------------------------------------------------------------------
 
 Observer : Type₀
@@ -304,8 +304,8 @@ response-is-set Physical.coherent   = isSetBool
 -- is constant on the facts that forgetting identifies.
 port-descent-criterion : (p : Physical.Port)
   → (D.Factors forgetBaseFact (Physical.observe p)
-      → D.ConstantOnFibres forgetBaseFact (Physical.observe p))
-  × (D.ConstantOnFibres forgetBaseFact (Physical.observe p)
+      → D.ConstantOnFibers forgetBaseFact (Physical.observe p))
+  × (D.ConstantOnFibers forgetBaseFact (Physical.observe p)
       → D.Factors forgetBaseFact (Physical.observe p))
 port-descent-criterion p =
   D.factors→constant forgetBaseFact (Physical.observe p) ,

@@ -7,7 +7,7 @@
 -- LEAST-PRIME PEELING AS A DIRECTED TRANSFORMATION OF INDEXED STATES.
 --
 -- Delta 14 §H: `G : Charge → U`, the grand-canonical object is the
--- total space `Σ_r G r`, a fixed charge is a fibre, and T14.44 says
+-- total space `Σ_r G r`, a fixed charge is a fiber, and T14.44 says
 -- exactly when a transformation of the total space restricts to a
 -- sector.  `PerspectiveCore.Graded` has those lemmas in
 -- the abstract.  THIS FILE IS THE INSTANCE, in the arithmetic model
@@ -65,8 +65,8 @@
 --                          the transport that makes the square close is
 --                          exactly `notnot : ¬¬r ≡ r`.
 --
---   §6  `sectorToFibre`, `fibreToSector`, `sector-fibre-roundtrip`
---                          "a fixed charge is a fibre" (Delta 14 §H's
+--   §6  `sectorToFiber`, `fiberToSector`, `sector-fiber-roundtrip`
+--                          "a fixed charge is a fiber" (Delta 14 §H's
 --                          own phrase), as maps rather than as prose.
 --
 --
@@ -292,7 +292,7 @@ g₂ = 2 , 2∈ , refl
 
 -- T14.44's hypothesis, and it FAILS: peeling does not restrict to a
 -- charge sector.  4 has charge `false` and `peel 4 = 2` has charge
--- `true`.  So `restrict-fibre` is inapplicable — as it should be, since
+-- `true`.  So `restrict-fiber` is inapplicable — as it should be, since
 -- peeling is charge-CHANGING by design.
 noSectorRestriction : ((g : G false) → base (T (false , g)) ≡ false) → ⊥
 noSectorRestriction h = true≢false (h g₄)
@@ -359,18 +359,18 @@ indexPathIsNotNot : (r : Bool) → not (not r) ≡ r
 indexPathIsNotNot = notnot
 
 ------------------------------------------------------------------------
--- §6  "A FIXED CHARGE IS A FIBRE"  (Delta 14 §H)
+-- §6  "A FIXED CHARGE IS A FIBER"  (Delta 14 §H)
 ------------------------------------------------------------------------
 
-fibreOf : Bool → Type
-fibreOf r = Σ[ t ∈ Total ] (base t ≡ r)
+fiberOf : Bool → Type
+fiberOf r = Σ[ t ∈ Total ] (base t ≡ r)
 
-sectorToFibre : (r : Bool) → G r → fibreOf r
-sectorToFibre r g = (r , g) , refl
+sectorToFiber : (r : Bool) → G r → fiberOf r
+sectorToFiber r g = (r , g) , refl
 
-fibreToSector : (r : Bool) → fibreOf r → G r
-fibreToSector r ((r' , g) , p) = subst G p g
+fiberToSector : (r : Bool) → fiberOf r → G r
+fiberToSector r ((r' , g) , p) = subst G p g
 
-sector-fibre-roundtrip :
-  (r : Bool) (g : G r) → fibreToSector r (sectorToFibre r g) ≡ g
-sector-fibre-roundtrip r g = substRefl {B = G} g
+sector-fiber-roundtrip :
+  (r : Bool) (g : G r) → fiberToSector r (sectorToFiber r g) ≡ g
+sector-fiber-roundtrip r g = substRefl {B = G} g

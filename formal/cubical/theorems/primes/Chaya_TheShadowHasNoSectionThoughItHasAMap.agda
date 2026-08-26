@@ -11,7 +11,7 @@
 -- ∥ A ∥₁ → A, EXISTS whenever A is inhabited, and this file exhibits one.
 -- What does not exist is a SECTION — a map that returns the witness it
 -- was given.  That is proved below, unconditionally, for any A carrying
--- two distinct elements, and then instantiated at the Goldbach fibre of
+-- two distinct elements, and then instantiated at the Goldbach fiber of
 -- 10, which carries 3+7 and 5+5.
 --
 -- TERM.  छाया / *chāyā*, shadow, is `Prakasha`'s own coinage in
@@ -23,7 +23,7 @@
 --
 -- NOT CLAIMED.  Nothing here says Goldbach is true or false.  Nothing
 -- here says the untruncated statement is unprovable.  The theorem is
--- about ∥_∥₁ and a fibre with two elements, and the fibre's plurality is
+-- about ∥_∥₁ and a fiber with two elements, and the fiber's plurality is
 -- the whole of the hypothesis.
 ------------------------------------------------------------------------
 
@@ -72,38 +72,38 @@ p5 = toWitness {d = primeDec 5} tt
 p7 : IsPrime 7
 p7 = toWitness {d = primeDec 7} tt
 
--- ═══ the Goldbach fibre of a single even number ═══
-Fibre : ℕ → Type₀
-Fibre n = Σ[ p ∈ ℕ ] Σ[ q ∈ ℕ ] IsPrime p × IsPrime q × (p + q ≡ n)
+-- ═══ the Goldbach fiber of a single even number ═══
+Fiber : ℕ → Type₀
+Fiber n = Σ[ p ∈ ℕ ] Σ[ q ∈ ℕ ] IsPrime p × IsPrime q × (p + q ≡ n)
 
 -- 10 = 3 + 7 and 10 = 5 + 5.  Ganana.gcount 10 ≡ 2 counts exactly these.
-three+seven : Fibre 10
+three+seven : Fiber 10
 three+seven = 3 , 7 , p3 , p7 , refl
 
-five+five : Fibre 10
+five+five : Fiber 10
 five+five = 5 , 5 , p5 , p5 , refl
 
 3≢5 : ¬ (3 ≡ 5)
 3≢5 e = znots (injSuc (injSuc (injSuc e)))
 
-fibrePlural : ¬ (three+seven ≡ five+five)
-fibrePlural e = 3≢5 (cong fst e)
+fiberPlural : ¬ (three+seven ≡ five+five)
+fiberPlural e = 3≢5 (cong fst e)
 
--- ═══ the consequence, at the fibre ═══
-noSectionAt10 : ¬ Section (Fibre 10)
-noSectionAt10 = noSection three+seven five+five fibrePlural
+-- ═══ the consequence, at the fiber ═══
+noSectionAt10 : ¬ Section (Fiber 10)
+noSectionAt10 = noSection three+seven five+five fiberPlural
 
 -- and the map does exist there, which is the half that was overstated
-mapAt10 : ∥ Fibre 10 ∥₁ → Fibre 10
+mapAt10 : ∥ Fiber 10 ∥₁ → Fiber 10
 mapAt10 = mapFromInhabited three+seven
 
 -- ═══ what the shadow keeps and what it drops ═══
 -- the collapse, from Prakasha, restated locally
-chaya : Fibre 10 → ∥ Fibre 10 ∥₁
+chaya : Fiber 10 → ∥ Fiber 10 ∥₁
 chaya = ∣_∣₁
 
 -- every truncated element is equal to every other: the witness is gone
-shadowIsProp : (u v : ∥ Fibre 10 ∥₁) → u ≡ v
+shadowIsProp : (u v : ∥ Fiber 10 ∥₁) → u ≡ v
 shadowIsProp = squash₁
 
 -- so the two distinct decompositions become one object in the shadow

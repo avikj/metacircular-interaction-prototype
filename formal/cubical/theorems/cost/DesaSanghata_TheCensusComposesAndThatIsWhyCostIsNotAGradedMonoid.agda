@@ -5,13 +5,13 @@
 -- there is no shortest-path formulation of routing in this corpus.
 --
 -- WHAT WAS ALREADY THERE, and is used rather than reproved:
---   * `शेष-सङ्घातः` (SankramanaSesa) — fibres compose:
+--   * `शेष-सङ्घातः` (SankramanaSesa) — fibers compose:
 --         शेष (g ∘ f) z  ≃  Σ[ w ∈ शेष g z ] शेष f (fst w)
 --   * `देश` (Loss.SakalaVikalaDesa) — the census as a TERM, three
---     constructors carrying their evidence: अवक्तव्यम् (empty fibre, nothing
+--     constructors carrying their evidence: अवक्तव्यम् (empty fiber, nothing
 --     lost, धनात्मकम्), सकलादेश (contractible), विकलादेश (two points, exhibited).
 --
--- WHAT IS MISSING AND IS BUILT HERE.  The Σ-law is about FIBRES.  Nobody
+-- WHAT IS MISSING AND IS BUILT HERE.  The Σ-law is about FIBERS.  Nobody
 -- lifted it to the CENSUS, and that lift is the whole content of "what does
 -- a route cost".  `SakalaVikalaDesa` §3 exhibits the cancellation as three
 -- hand-computed instances on Unit/Bool and reads the moral off them.  Here
@@ -19,19 +19,19 @@
 --
 -- THE THREE LAWS, and what each one kills.
 --
--- §२ अवक्तव्य-ग्रासः — an empty OUTER fibre is ABSORBING.  ¬ शेष g z forces
+-- §२ अवक्तव्य-ग्रासः — an empty OUTER fiber is ABSORBING.  ¬ शेष g z forces
 --    ¬ शेष (g ∘ f) z, whatever f is.  So arbitrary loss upstream of an
 --    inexpressible point is INVISIBLE in the composite.  This kills
 --    monotonicity: extending a path can hide cost already paid.
 --
--- §३ सकल-सङ्क्रमः — a contractible OUTER fibre is TRANSPARENT.  With centre
+-- §३ सकल-सङ्क्रमः — a contractible OUTER fiber is TRANSPARENT.  With centre
 --    (b , p), शेष (g ∘ f) z ≃ शेष f b: the composite's census at z IS f's
 --    census at b, on the nose.  This is the only case in which a scalar
 --    weight would have been correct, and it is the case where the weight
 --    is not needed.
 --
--- §४ प्रतिहननम् — the cancellation, as a mechanism.  A CROWDED outer fibre
---    whose points have empty inner fibres except one contractible entry
+-- §४ प्रतिहननम् — the cancellation, as a mechanism.  A CROWDED outer fiber
+--    whose points have empty inner fibers except one contractible entry
 --    yields a CONTRACTIBLE composite.  विकलादेश ∘ अवक्तव्यम् = सकलादेश.  Two
 --    genuine defects annihilate.  §५ instantiates this at Unit → Bool →
 --    Unit and recovers SakalaVikalaDesa §3's computed example as a
@@ -42,7 +42,7 @@
 -- associative accumulation, monotone under extension.  §२ refutes
 -- monotonicity and §४ refutes any accumulation at all — the composite's
 -- census is not a function of the two censuses, because §४'s outcome
--- depends on WHICH points of the outer fibre carry which inner fibres, data
+-- depends on WHICH points of the outer fiber carry which inner fibers, data
 -- that neither census records.  The correct object is not a weight but the
 -- Σ itself: cost is a SECTION over the codomain, and composition is
 -- dependent sum, not addition.  Dijkstra has no formulation here; the
@@ -111,7 +111,7 @@ module _ {A B C : Type ℓ} (f : A → B) (g : B → C) (z : C) where
   शेष-सङ्घातः = isoToEquiv (iso fwd bwd fwd-bwd bwd-fwd)
 
 ------------------------------------------------------------------------
--- २ · अवक्तव्य-ग्रासः — the empty outer fibre swallows everything upstream.
+-- २ · अवक्तव्य-ग्रासः — the empty outer fiber swallows everything upstream.
 -- MONOTONICITY DIES HERE: f may lose arbitrarily much and the composite
 -- records none of it.
 ------------------------------------------------------------------------
@@ -121,7 +121,7 @@ module _ {A B C : Type ℓ} (f : A → B) (g : B → C) (z : C) where
 अवक्तव्य-ग्रासः f g z ne (a , p) = ne (f a , p)
 
 ------------------------------------------------------------------------
--- ३ · सकल-सङ्क्रमः — the contractible outer fibre is transparent.
+-- ३ · सकल-सङ्क्रमः — the contractible outer fiber is transparent.
 -- The composite's census at z IS f's census at the centre.
 ------------------------------------------------------------------------
 
@@ -151,14 +151,14 @@ module _ {A B C : Type ℓ} (f : A → B) (g : B → C) (z : C) where
 ------------------------------------------------------------------------
 -- ४ · प्रतिहननम् — the cancellation, as the general mechanism.
 --
--- The composite is the Σ of the inner fibres over the outer fibre.  So a
--- CROWDED outer fibre contributes only at those of its points whose inner
--- fibre is inhabited: emptiness downstream DELETES points of the outer
--- fibre.  विकलादेश above ∘ अवक्तव्यम् below can be सकलादेश.
+-- The composite is the Σ of the inner fibers over the outer fiber.  So a
+-- CROWDED outer fiber contributes only at those of its points whose inner
+-- fiber is inhabited: emptiness downstream DELETES points of the outer
+-- fiber.  विकलादेश above ∘ अवक्तव्यम् below can be सकलादेश.
 --
 -- Stated as the exact criterion the Σ gives: the composite is contractible
 -- exactly when the Σ is, and the Σ can be contractible while the outer
--- fibre is not.  §५ exhibits that, minimally.
+-- fiber is not.  §५ exhibits that, minimally.
 ------------------------------------------------------------------------
 
 प्रतिहननम् : {A B C : Type ℓ} (f : A → B) (g : B → C) (z : C)
@@ -197,9 +197,9 @@ fst अन्तः-सकलम्          = tt , refl
 snd अन्तः-सकलम् (u , p) i = tt , isSetBool true true refl p i
 
 -- THE DELETION, isolated as its own term and structural (no `with`, per the
--- house discipline): an outer point whose inner fibre is inhabited MUST be
+-- house discipline): an outer point whose inner fiber is inhabited MUST be
 -- `true`.  This is exactly "emptiness downstream deletes points of the outer
--- fibre" — the mechanism of §४, at its smallest.
+-- fiber" — the mechanism of §४, at its smallest.
 बिन्दु-निर्धारणम् : (b : Bool) → शेष सत् b → true ≡ b
 बिन्दु-निर्धारणम् true  _ = refl
 बिन्दु-निर्धारणम् false r = ⊥-rec (अन्तः-रिक्तम् r)
@@ -228,9 +228,9 @@ Iso.leftInv  संहति-Iso-वाहकः ((b , q) , (u , p)) i =
 --
 -- §४ is stated as "if the Σ is contractible then the composite is".  It is
 -- NOT a function from (देश g z) and (देश f) to (देश (g ∘ f) z), and no such
--- function exists: §५'s outcome depends on WHICH point of the outer fibre
--- carries the empty inner fibre, and a census records only that the outer
--- fibre is crowded, not which of its points are which.  That is precisely
+-- function exists: §५'s outcome depends on WHICH point of the outer fiber
+-- carries the empty inner fiber, and a census records only that the outer
+-- fiber is crowded, not which of its points are which.  That is precisely
 -- why cost here is a Σ and not a weight.  The seam of SakalaVikalaDesa §4
 -- (levels ३ and ४ unseparated) is inherited unchanged; nothing here
 -- distinguishes them either.

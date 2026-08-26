@@ -56,9 +56,9 @@
 -- invariant is the स्थौल्य's order, and it drops by two at each step.  §7.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE REMAINDER IS A FIBRE
+-- THE REMAINDER IS A FIBER
 --
--- `TheFibreIsTheSubject` observed that a collision read as an obstruction
+-- `TheFiberIsTheSubject` observed that a collision read as an obstruction
 -- is, from the other नय, an orbit that the composition law generates.
 -- The same reversal is here.  A truncated series UNDERDETERMINES π: the
 -- prefix does not decide the sum, which by the obstruction reading is a
@@ -254,13 +254,13 @@ open Correction ℤCommRing
 -- found without limits, and it is why they can be checked here, in a
 -- lane with neither ℝ nor ℚ.
 --
--- And it is the `TheFibreIsTheSubject` reversal again, in the tradition
+-- And it is the `TheFiberIsTheSubject` reversal again, in the tradition
 -- that produced both.  A truncated series underdetermines its sum; read
 -- as an obstruction that is a failure to be bounded.  The अन्त्यसंस्कार
 -- reads it as an object to be corrected, and the residue says exactly
--- how much of the fibre the correction has not absorbed.
+-- how much of the fiber the correction has not absorbed.
 --
--- Brahmagupta's fibres compose by भावना; Mādhava's remainder telescopes
+-- Brahmagupta's fibers compose by भावना; Mādhava's remainder telescopes
 -- by a recurrence.  In both the thing that "cannot be recovered" is the
 -- thing the method operates on.
 ------------------------------------------------------------------------

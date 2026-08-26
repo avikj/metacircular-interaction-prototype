@@ -40,8 +40,8 @@
 -- the preimage — and this module computes exactly how much of it the
 -- matrix sees: the parity, and nothing else.
 --
--- So the three verdicts of `Tantujala_TheFibreHasThreeVerdictsAndIsContr-
--- MergesTwoOfThem.agda` are not the whole story at a lossy map.  A fibre
+-- So the three verdicts of `Tantujala_TheFiberHasThreeVerdictsAndIsContr-
+-- MergesTwoOfThem.agda` are not the whole story at a lossy map.  A fiber
 -- with MANY points still admits an exact statement of WHAT IS RECOVERED,
 -- and here it is a quotient group.  नष्टि is not "everything is lost":
 -- §४ of अहिंसा-सूत्र-विस्तारः says यत् तिष्ठति, कः नश्यति — the THAT
@@ -165,13 +165,13 @@ open CommRingStr (ℤCommRing .snd)
 ------------------------------------------------------------------------
 -- ५ · शेषः — what this does NOT say.
 --
--- It does not say the fibre of `replay` is the set of vallīs of a given
+-- It does not say the fiber of `replay` is the set of vallīs of a given
 -- parity: `replay` forgets far more than length, and two vallīs of one
 -- parity generally have different matrices.  The claim is only about what
 -- the DETERMINANT sees, which is the coordinate all three no-decoder
 -- theorems' witnesses were built to defeat.
 --
--- It does not compute the fibre of `replay` itself.  That fibre is the
+-- It does not compute the fiber of `replay` itself.  That fiber is the
 -- subject rather than a defect — `Gamma0Freeness` is where it lives — and
 -- computing it would be a different module.
 --

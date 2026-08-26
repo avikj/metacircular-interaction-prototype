@@ -17,14 +17,14 @@ declared state set:
   carrying the same code;
 * a **round-trip** certificate -- exact single-valued inverse on a declared
   sublanguage where injectivity is proved, and otherwise ``decode`` returning
-  the whole **fibre**, never a guess;
+  the whole **fiber**, never a guess;
 * a **claim** certificate saying whether the channel claims *information gain*
   (always rejected: a channel is a function of state) or *recognition-cost
   reduction* (the only admissible claim, and measured as a machine-side proxy
   that establishes nothing about human vision).
 
 ```
-runtime/render/channel.py   the abstraction: languages, tasks, fibres, certificates
+runtime/render/channel.py   the abstraction: languages, tasks, fibers, certificates
 runtime/render/chroma.py    the chromatic channel: exact colour, five layers, precedence
 runtime/render/svg.py       a minimal exact SVG writer, integer geometry, hand written
 runtime/demo/render_demo.py the artifacts and the measured report

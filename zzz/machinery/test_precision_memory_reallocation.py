@@ -32,7 +32,7 @@ class PrecisionMemoryReallocationTests(unittest.TestCase):
                 self.assertEqual(fixed.environment_dimension, prime)
                 self.assertEqual(fixed.image_size, prime**level)
 
-    def test_formula_matches_literal_fibres(self):
+    def test_formula_matches_literal_fibers(self):
         exact = profile(27, 9)
         self.assertEqual(exact.image_size, 9)
         self.assertEqual(exact.environment_dimension, 3)

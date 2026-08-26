@@ -6,16 +6,16 @@
 -- A two-point encounter can raise both the least sufficient chart depth and
 -- the exact environment alphabet required by coherent overwrite.  This is
 -- impossible for refinement on one fixed source.  The distinction is source
--- growth, not a failure of the fibre theorem.
+-- growth, not a failure of the fiber theorem.
 --
 -- The finite incidence pattern is the p = 3 witness from
 -- DEPTH_MEMORY_LAW:
 --
---   old world: two valuation-one points, constant chart, fibre size 2;
+--   old world: two valuation-one points, constant chart, fiber size 2;
 --   new world: three valuation-one points in residue 0 and one
---              valuation-zero point in residue 1, fibre sizes 3 and 1.
+--              valuation-zero point in residue 1, fiber sizes 3 and 1.
 --
--- `CertificateFibration` turns those fibres into exact coherent-environment
+-- `CertificateFibration` turns those fibers into exact coherent-environment
 -- requirements.  Lower bounds are embeddings of Bool and Fin 3 into every
 -- valid certificate alphabet; matching certificates attain both bounds.
 -- On the fixed four-point source the coarse constant chart instead requires
@@ -53,7 +53,7 @@ Old = Bool
 Three : Type₀
 Three = Fin 3
 
--- `inl` is the residue-zero fibre; `inr tt` is the exceptional residue.
+-- `inl` is the residue-zero fiber; `inr tt` is the exceptional residue.
 New : Type₀
 New = Three ⊎ Unit
 
@@ -73,7 +73,7 @@ newChart₁ (inr tt) = true
 newValue : New → Bool
 newValue = newChart₁
 
--- The two old points sit in the three-point refined fibre.  The remaining
+-- The two old points sit in the three-point refined fiber.  The remaining
 -- `Fin 3` point and `inr tt` are exactly the two-point batch.
 includeOld : Old → New
 includeOld false = inl fzero

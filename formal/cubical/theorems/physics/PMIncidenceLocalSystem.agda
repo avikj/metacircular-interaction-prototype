@@ -114,7 +114,7 @@ no-global-sheet section =
 -- transport, the six-edge holonomy, and absence of a global sheet.
 --
 -- Not checked: an equivalence between this GlobalSheet and
--- PMCokernel.Section.  The present fibre is only the one-dimensional
+-- PMCokernel.Section.  The present fiber is only the one-dimensional
 -- obstruction local system, not the contextwise three-observable valuation
 -- space with restriction maps.  Building that Čech object remains the next
 -- step; this module prevents it from reverting to a discrete context base.

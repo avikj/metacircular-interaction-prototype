@@ -98,7 +98,7 @@ import AdaptiveResidualAdapter
 import AdaptiveProbeCollapse
 -- Ambient pointwise sufficiency restricts to a formed subworld, while exact
 -- minimality additionally needs an explicit formed separator in the previous
--- chart fibre.  A two-point control shows minimality disappearing under
+-- chart fiber.  A two-point control shows minimality disappearing under
 -- restriction, and a DNE reduction blocks a generic constructive extractor.
 import FormationRelativeMinimality
 -- A mathematical critical-direction criterion compiles to that formed
@@ -201,7 +201,7 @@ import ParitySeparator
 import ChargeCriterion
 -- and the class theorem TARGET.md's headline promised: Signs is a TORSOR
 -- over the gauge torus, not a set with a distinguished involution, so the
--- fibres of the transcript map are exactly the COSETS of the annihilator
+-- fibers of the transcript map are exactly the COSETS of the annihilator
 -- subgroup of the query set.  `flip` is one group element among many; the
 -- right lemma is bilinearity, not flip-law, and flip-law comes back out.
 -- Also: val lands in a group of exponent 2, so every SQUARE query lies in
@@ -328,7 +328,7 @@ import ProstheticImageAdapter
 import TranscriptDescent
 -- A deterministic history and terminal record that factor through one
 -- another have isomorphic realized-output images, equality kernels, and every
--- corresponding input fibre.  A Bool-to-Unit control rejects one-way erasure
+-- corresponding input fiber.  A Bool-to-Unit control rejects one-way erasure
 -- of branch-changing history as "compression".
 import TerminalTraceCompression
 -- Equal arithmetic endpoints do not license the preceding compression when
@@ -368,17 +368,17 @@ import WalkBridge
 import WalkBridgeUniform
 -- the walk's Nerode theorem: a sensor family is seen only through its lcm.
 import SensorNerode
--- U0006's named first experiment: the sieve quotient, its fibres, and the
--- charge obstruction as an actual fibre rather than prose.
+-- U0006's named first experiment: the sieve quotient, its fibers, and the
+-- charge obstruction as an actual fiber rather than prose.
 import SieveFiber
 -- and the X-uniform lemma the one-bit story rests on: below the isqrt
 -- horizon, a rough number is 1 or prime.
 import RoughSplit
 -- Delta 14, the perspectival deltas made executable: the general
--- transport/fibre/sector toolkit, and the w±r centre-relative instance.
+-- transport/fiber/sector toolkit, and the w±r centre-relative instance.
 import PerspectiveCore
 -- A random prime-pair image returned an exact instance of that API:
--- ambient reflection restricts on negation-invariant fibres, while the
+-- ambient reflection restricts on negation-invariant fibers, while the
 -- positive cone supplies a literal sector-break witness.
 import PairReflectionSector
 import CenterRelativeExecutable
@@ -405,7 +405,7 @@ import ProductiveObservabilityBridge
 -- depthwise trajectory above.  Under ObservableHorizon action closure, a
 -- bounded unary kernel therefore maps to and from productive bisimulation.
 import SingletonActionObservability
--- A productive complete-code fibre is proof-relevant data over one centre,
+-- A productive complete-code fiber is proof-relevant data over one centre,
 -- not the behavioral quotient carrier.  With set-valued jewels, its canonical
 -- map to FutureQuotient is checked constant at the centre's meaning class.
 import ProductiveFiberQuotientAdapter
@@ -538,7 +538,7 @@ import ParallelNetworkComposition
 import UnivalentPhysicalProcess
 -- Local population interfaces compose but do not reconstruct the coherent
 -- joint sector.  Its exchange is retained as a nontrivial universe path;
--- admitting a joint interference port reopens exactly the forgotten fibre.
+-- admitting a joint interference port reopens exactly the forgotten fiber.
 import UnivalentTensorInteraction
 -- The relational S¹ obstruction and the tensor reconstruction obstruction
 -- share the Bool/negation residual but require different diagrams: global
@@ -553,7 +553,7 @@ import ProgrammableActionFibers
 -- valuation encounter raises exact coherent-environment demand 2 -> 3, while
 -- the fixed-source refinement control lowers 4 -> 3.
 import BatchDepthMemoryBoundary
--- Fibre balance, not transitive equivariance, is the exact finite coherent-
+-- Fiber balance, not transitive equivariance, is the exact finite coherent-
 -- overwrite cost criterion: a marked balanced quotient attains Bool while
 -- every structure-preserving lift of the target swap is impossible.
 import BalanceWithoutTransitivity
@@ -671,7 +671,7 @@ import QuestionMachine
 -- Chu(X,𝒯,e): the defect is monotone in the test list, so a vanishing defect
 -- is a statement about 𝒯 and never about X (the empty test list makes every
 -- pair agree).  Also δ_σ = 0 ⇍ δ_σ^base = 0: the base can be flat while the
--- fibre is not, so a base-only test is not a test.
+-- fiber is not, so a base-only test is not a test.
 import ChuAdvance
 -- The advance gate as a record of its five clauses, with the two that are
 -- not formalizable here carried as explicit propositions the caller must
@@ -1092,7 +1092,7 @@ import TheDelimitorNeedsOnlyStability
 import TheDerivationIsDenseToo
 import TheDiagonalLemmaDischargesGoedelFix
 import TheDomainThatIsAnAbsence
-import TheFibreIsTheSubject
+import TheFiberIsTheSubject
 import TheFloorIsAnswerability
 import TheGapWasAUnitsError
 import TheInternalRulesPreserveIndependenceInThisCalculus
@@ -1147,7 +1147,7 @@ import Yugapat_TheRefusalOfJointAssertionDoesNotDecompose
 -- individually at EXIT 0 on the pin; wired here rather than in Everything
 -- because this file is the root of the NaturalMachine/ subtree.
 import Alopa_TheEngineNeverTouchesTheMeaning
-import YantraTantu_TheEngineLivesInTheFibreOfItsDenotation
+import YantraTantu_TheEngineLivesInTheFiberOfItsDenotation
 
 -- ── समुच्चयः, 2026-08-22 (second pass) ────────────────────────────────────
 -- Fourteen NaturalMachine/ modules that arrived by merge from origin already
@@ -1175,7 +1175,7 @@ import WalkStreamHypothesisBoundary
 import TheInstalledOperationHasNoPervasionSoTheKernelMemorises
 import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
 import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
-import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
+import TheWholeDerivationTypeIsOneFiberSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 

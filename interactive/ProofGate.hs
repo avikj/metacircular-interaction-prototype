@@ -1176,8 +1176,8 @@ kernelStatus root = do
       pure status
 
 -- The boolean face, kept because `KernelContext` and `ClauseOrder` ask the
--- question in that form and only need the true fibre.  `KernelStatus` is where
--- the two false fibres are kept apart; collapsing them HERE is safe precisely
+-- question in that form and only need the true fiber.  `KernelStatus` is where
+-- the two false fibers are kept apart; collapsing them HERE is safe precisely
 -- because a caller of this function consumes only `True`.
 kernelIsChecking :: FilePath -> IO Bool
 kernelIsChecking root = (== KernelChecking) <$> kernelStatus root

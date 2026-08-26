@@ -23,7 +23,7 @@
 -- (4) is the one that bites.  `NaturalMachine/QuotientFiberLaw.agda`: an
 -- observation class sees exactly a quotient.  The whole hierarchy of marked
 -- charges is blind to WHICH places are active and sees only HOW MANY — the
--- quotient is ω, on the nose, and the fibre is everything the tower cannot
+-- quotient is ω, on the nose, and the fiber is everything the tower cannot
 -- distinguish.  Which is why no amount of work with these tensors can see
 -- an individual prime.
 module MulaShakti_TheMarkingParameterIsAPowerAndTheZetaTwistIsTranslationByOne where

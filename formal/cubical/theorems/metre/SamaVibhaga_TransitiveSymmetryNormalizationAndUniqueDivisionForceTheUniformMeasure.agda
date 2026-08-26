@@ -9,7 +9,7 @@
 -- HERE for this object and no source is claimed for it (CLAUDE.md,
 -- naming rule, note 2).
 --
--- SEED.  The owner's transmission of 2026-08-23 ("the fibre of
+-- SEED.  The owner's transmission of 2026-08-23 ("the fiber of
 -- forgetting"), term 2 of the four determined landings:
 --
 --     Transitive(G ↷ X) → Invariant(w) → Normalized(w)
@@ -49,7 +49,7 @@
 --                 contractible — isContr(WeightRule), as transmitted.
 --
 -- WHAT IS NOT CLAIMED.  Steps 3–5 of the transmitted Born ladder
--- (equal-amplitude refinement, rational weights by fibre pushforward,
+-- (equal-amplitude refinement, rational weights by fiber pushforward,
 -- continuity/noncontextual extension) are NOT touched: they stay
 -- distinct and open, per the transmission's own instruction that they
 -- must not be collapsed into "Gleason handles it".  Nothing here is

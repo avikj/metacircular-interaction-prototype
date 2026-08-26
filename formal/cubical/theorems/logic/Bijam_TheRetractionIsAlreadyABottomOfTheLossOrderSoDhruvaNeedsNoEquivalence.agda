@@ -48,7 +48,7 @@
 --
 -- No claim that the seed is the ONLY shape in the corpus, nor that every
 -- theorem of this form is an instance of §२ — `प्रत्यानयनम्-तनुः`'s inner
--- path is `p₁ ∙ sym p₂`, built from the two fibre witnesses, and §२ takes
+-- path is `p₁ ∙ sym p₂`, built from the two fiber witnesses, and §२ takes
 -- that path as given rather than constructing it.  The seed is the
 -- conjugation, not the whole proof.
 --
@@ -67,7 +67,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 
 open import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
   using (_व्याप्नोति_ ; संरक्षक-वृद्धिः)
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 
 private variable ℓ : Level
@@ -232,20 +232,20 @@ open import Cubical.Relation.Nullary using (¬_)
 ------------------------------------------------------------------------
 -- ८ · FOUR STATEMENTS OF ONE THEOREM, three of them over `isEquiv`.
 --
---   Dhruva.नष्ट-अभावे-गति-अभावः          isEquiv, via a contractible FIBRE
+--   Dhruva.नष्ट-अभावे-गति-अभावः          isEquiv, via a contractible FIBER
 --   Vyapti.नष्ट-अभावे-गति-अभावः-व्याप्त्या  isEquiv, via the ORDER
 --   SvaTantuVasa.तादात्म्यम्             isEquiv, via contractibility of
 --                                      the whole FLOW SPACE
 --   §५ here                            f व्याप्नोति (idfun A) — the bottom
 --
 -- Same conclusion, four routes, and the fourth needs none of the other
--- three's machinery: no fibre, no flow space, no equivalence.  §८ derives
+-- three's machinery: no fiber, no flow space, no equivalence.  §८ derives
 -- the isEquiv form from §५ so the containment is a term and not a remark.
 --
 -- AND ONE OF THAT FILE'S TWO IS SHARP, which is the distinction worth
 -- keeping.  `SvaTantuVasa.ध्रुव-बिन्दुः : isEquiv f → isContr (Σ[Φ] संरक्षणम् f Φ)`
 -- CANNOT weaken: the flow space is `Π[a] fiber f (f a)` (its own वासः),
--- contractible exactly when every fibre is — which IS `isEquiv f`.  So in
+-- contractible exactly when every fiber is — which IS `isEquiv f`.  So in
 -- one module one theorem needs the equivalence essentially and the other
 -- does not, and only the second is over-hypothesised.
 --
@@ -306,7 +306,7 @@ open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 --   sweep would have been wrong about them:
 --
 --     SvaTantuVasa.ध्रुव-बिन्दुः — the flow space is `Π[a] fiber f (f a)`,
---       contractible exactly when every fibre is, which IS `isEquiv f`.
+--       contractible exactly when every fiber is, which IS `isEquiv f`.
 --     NastoddistaPariksa.समता-चक्रम् / समता→परीक्षा — stated as an
 --       equivalence in both directions; `isEquiv` is the content.
 --     Kevalajnana.समानता→सर्वसकलम् — केवलज्ञान read as losing nothing AND

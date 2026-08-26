@@ -14,7 +14,7 @@
 --   * both changes simultaneously.
 --
 -- This turns its multiplicity law from a theorem about one listed presentation
--- into a theorem about the finite fibres themselves. The only algebra spent is
+-- into a theorem about the finite fibers themselves. The only algebra spent is
 -- the generic theorem's associativity and commutativity; dependent reindexing
 -- itself is `total-ext` plus composition.
 --
@@ -45,7 +45,7 @@ module _ {W : Type ℓ} (_+ᵂ_ : W → W → W)
          (assoc : (x y z : W) → x +ᵂ (y +ᵂ z) ≡ (x +ᵂ y) +ᵂ z)
          (comm  : (x y : W) → x +ᵂ y ≡ y +ᵂ x) where
 
-  -- Every micro-fibre may be re-enumerated by its own equivalence.
+  -- Every micro-fiber may be re-enumerated by its own equivalence.
   inner-invariant :
     (c : ℕ) (k : Fin (suc c) → ℕ)
     (w : (y : Fin (suc c)) → Fin (suc (k y)) → W)

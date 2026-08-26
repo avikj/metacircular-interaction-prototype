@@ -8,7 +8,7 @@
 -- photonic face:
 --
 --   • THE ORB (README movement 57/61): a diamond, faceted within,
---     smooth without — A ≃ Carrier f (outside the fibre rides free and
+--     smooth without — A ≃ Carrier f (outside the fiber rides free and
 --     invisible; inside it IS the crystalline interior).  Light passed,
 --     never made: total internal reflection, conservation, unitarity.
 --   • THE LIGHT: light confined by total internal reflection CIRCULATES

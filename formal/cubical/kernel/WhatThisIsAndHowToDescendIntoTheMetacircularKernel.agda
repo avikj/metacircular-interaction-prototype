@@ -70,16 +70,16 @@
 -- downstream of that or is apparatus around it.
 --
 ------------------------------------------------------------------------
--- §2.  THE ONE PRIMITIVE: THE FIBRE LAW.  (atemporal)
+-- §2.  THE ONE PRIMITIVE: THE FIBER LAW.  (atemporal)
 ------------------------------------------------------------------------
 --
---   fibre/src/Loss/Carrier.agda   (153 lines)
+--   fiber/src/Fiber/Carrier.agda   (153 lines)
 --
 -- For f : A → B, the question is WHICH SIDE OF `f a ≡ b` IS BOUND.
 --
---   bind the OUTPUT:  the fibre is `singl (f a)`, ALWAYS contractible.
+--   bind the OUTPUT:  the fiber is `singl (f a)`, ALWAYS contractible.
 --                     Hence A ≃ Carrier f: the carried datum rides free.
---   bind the INPUT:   the fibre is `fiber f b`, contractible exactly when f
+--   bind the INPUT:   the fiber is `fiber f b`, contractible exactly when f
 --                     is an equivalence.  That is the exact loss.
 --
 -- Two theorems, one Σ.  Follow that same object through its six readings --
@@ -194,9 +194,9 @@
 --               false, because a `NativeOperation` cannot be constructed at
 --               all without a checked derivation.
 --
---   TheWholeDerivationTypeIsOneFibre…     THE SYNTHESIS, one lemma.  If M is a proposition then
---               fiber f m ≃ A for every m: the fibre is not part of the
---               domain, it IS the domain.  So `Derivation a b` is one fibre
+--   TheWholeDerivationTypeIsOneFiber…     THE SYNTHESIS, one lemma.  If M is a proposition then
+--               fiber f m ≃ A for every m: the fiber is not part of the
+--               domain, it IS the domain.  So `Derivation a b` is one fiber
 --               of its own soundness, both bindings of §2's law coincide,
 --               and the kernel sits at the MAXIMALLY LOSSY end -- nothing is
 --               charged on the output side because the output side holds
@@ -205,7 +205,7 @@
 --
 -- IN ONE SENTENCE.  The kernel's readout is its SUPPORT, not its mass: it
 -- can say THAT a continuation is correct and nothing about WHICH, HOW MANY,
--- or HOW LONG, and every quantity a policy would need lives in a fibre its
+-- or HOW LONG, and every quantity a policy would need lives in a fiber its
 -- type collapses.  Which is why `advance-preserves-branch-count` is not
 -- housekeeping -- it is the only place in the kernel where the collapsed
 -- information is still held.
@@ -215,7 +215,7 @@
 --      the surface.  In this order, reading terms and not headers.
 ------------------------------------------------------------------------
 --
---   1. fibre/src/Loss/Carrier.agda        -- to the bottom
+--   1. fiber/src/Fiber/Carrier.agda        -- to the bottom
 --   2. NaturalMachine/RewriteCertificate.agda            -- to the bottom
 --   3. NaturalMachine/ControlledGrammar.agda             -- 63 lines
 --   4. NaturalMachine/GenerativeKernel.agda              -- 77 lines
@@ -362,8 +362,8 @@ open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
 open import TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry
   using (comm-loop-is-a-nontrivial-loop-in-the-universe
         ; no-counting-criterion-separates ; derivation-equiv)
-open import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
-  using (the-whole-derivation-type-is-one-fibre
+open import TheWholeDerivationTypeIsOneFiberSoSoundnessIsNeverAnEquivalence
+  using (the-whole-derivation-type-is-one-fiber
         ; soundness-is-not-an-equivalence-at-the-kernels-own-seed)
 open import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
   using (demand ; any-demand-is-safe ; learn ; Session ; step ; retire
@@ -378,8 +378,8 @@ open import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 univalence-acts : transport (ua notEquiv) true ≡ false
 univalence-acts = uaβ notEquiv true
 
--- §2.  Bind the output and the fibre is contractible, always.  This is the
--- free half of the fibre law; the costly half is `fiber f b`, which is
+-- §2.  Bind the output and the fiber is contractible, always.  This is the
+-- free half of the fiber law; the costly half is `fiber f b`, which is
 -- contractible exactly when f is an equivalence.
 binding-the-output-is-free :
   {A B : Type₀} (f : A → B) (a : A) → isContr (singl (f a))

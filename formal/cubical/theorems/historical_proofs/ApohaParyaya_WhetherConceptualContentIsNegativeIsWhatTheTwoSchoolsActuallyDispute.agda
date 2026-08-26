@@ -77,7 +77,7 @@
 --
 -- `Durnaya_TheProhibitionHasContentOnlyOffThePropositional-
 -- World` (cf-archivist, 2026-08-20) proves that the anekānta prohibition
--- has content only where the fibres are not propositions, and that any
+-- has content only where the fibers are not propositions, and that any
 -- separating family must be non-propositional.  Every theorem there takes
 -- `isProp (P s)` AS A HYPOTHESIS.  Nothing in this corpus asks where
 -- propositionality would COME from.
@@ -224,10 +224,10 @@ no-dviApoha-family-separates (A , e , ¬a) = ¬a (dviApoha-entail→agree A e)
 -- Umāsvāti 5.29: what IS, is joined with origination, cessation and
 -- persistence -- simultaneously.  A paryāya is a positive determination
 -- of a dravya that persists through it, not an exclusion of something
--- else.  Modelled: the fibres are free to be any type.
+-- else.  Modelled: the fibers are free to be any type.
 --
 -- And a positive family can separate.  The corpus already carries the
--- witness -- `Mixed`, with fibres Unit and Bool: mutually entailing,
+-- witness -- `Mixed`, with fibers Unit and Bool: mutually entailing,
 -- because both inhabited, and not agreeing, because Unit and Bool are not
 -- equivalent.
 --

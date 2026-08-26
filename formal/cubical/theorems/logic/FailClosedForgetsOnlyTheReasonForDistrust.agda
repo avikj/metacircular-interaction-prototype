@@ -113,8 +113,8 @@ distrustDeterminesOnlyNotCapable s p q =
 --
 -- §2 and §3 together are the precise content of "fail-closed": the map
 -- to the verdict is injective over `true` and two-to-one over `false`.
--- A guard consumes only the `true` fibre, so it loses nothing it uses; a
--- reader diagnosing a red probe consumes the `false` fibre, and there
+-- A guard consumes only the `true` fiber, so it loses nothing it uses; a
+-- reader diagnosing a red probe consumes the `false` fiber, and there
 -- the verdict alone cannot distinguish a missing compiler from a broken
 -- one.  Which is why the shelf prints `agda=<version|ABSENT>` on the
 -- SAME line as the grade: the reason for distrust is carried beside the

@@ -441,7 +441,7 @@ module Generative (CR : CommRing ℓ) where
 
   ----------------------------------------------------------------------
   -- The AbGroup packages: `Sol D 1r` is a set (a retract of a Σ of sets — R
-  -- is a set, and each `hasNorm` fibre is a prop), and with every `_∙₁_` group
+  -- is a set, and each `hasNorm` fiber is a prop), and with every `_∙₁_` group
   -- law now in hand, `makeGroup` assembles the group object.  So the norm-1
   -- bhāvanā solutions ARE a group, `SolGroup D`, not just a list of laws —
   -- Brahmagupta's structure as a first-class algebraic object over abstract R.

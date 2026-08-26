@@ -4,7 +4,7 @@
 -- शेष — the one-way function is exactly a non-equivalence, and
 -- cryptography lives in the residual univalence cannot erase.
 --
--- "deeper" than `GhataTantu` (the discrete log is a fibre): WHY is one
+-- "deeper" than `GhataTantu` (the discrete log is a fiber): WHY is one
 -- binding of `f a ≡ b` free and the other work?  Because of univalence's
 -- own floor.  This file names the floor and shows the whole crypto arc
 -- rests on it.
@@ -14,8 +14,8 @@
 -- EveryTransportOwesItsResidual`).  No sūtra claimed; the ordinary word.
 --
 -- THE FLOOR.  In cubical type theory, `isEquiv f` is DEFINED as: every
--- fibre of f is contractible (`equiv-proof : (b) → isContr (fiber f b)`).
--- And `singl b` — the fibre of the IDENTITY, `Σ x, b ≡ x` — is ALWAYS
+-- fiber of f is contractible (`equiv-proof : (b) → isContr (fiber f b)`).
+-- And `singl b` — the fiber of the IDENTITY, `Σ x, b ≡ x` — is ALWAYS
 -- contractible, by `isContrSingl` (Cubical/Foundations/Prelude, the term
 -- `isContrSingl a .fst = (a , refl)`).  So:
 --
@@ -28,11 +28,11 @@
 --
 -- Therefore a ONE-WAY FUNCTION IS EXACTLY A NON-EQUIVALENCE.  Not "hard
 -- to invert" — that is the computational overlay; underneath, the map
--- simply is not an equivalence, its fibres are not all contractible, and
+-- simply is not an equivalence, its fibers are not all contractible, and
 -- univalence's transport (`ua`, the free road, road one) does NOT apply.
 -- Cryptography is the deliberate use of a map OUTSIDE the image of `ua`.
 --
--- WHAT IS PROVED (using `GhataTantu`'s checked non-contractible fibre):
+-- WHAT IS PROVED (using `GhataTantu`'s checked non-contractible fiber):
 --
 --   §2  प्रकाश-सर्वदा-मुक्तः : for ANY f, isContr (singl (f a))
 --       The public road is free for every map — this is the floor, the
@@ -40,9 +40,9 @@
 --
 --   §3  घातः-न-तुल्यता : ¬ isEquiv (घात g)  in C₃.
 --       घात g is NOT an equivalence — the discrete log has no inverse
---       function.  Proof: isEquiv would make every fibre contractible
+--       function.  Proof: isEquiv would make every fiber contractible
 --       (equiv-proof), contradicting GhataTantu's तन्तुः-द्विपदः (the
---       fibre over ε has 0 and 3).  This is the info-theoretic root of
+--       fiber over ε has 0 and 3).  This is the info-theoretic root of
 --       one-wayness, as a term.
 --
 --   §4  तुल्यता-भञ्जयति-गुप्तिम् : isEquiv (घात g) → (the discrete log is a
@@ -78,7 +78,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataTantu_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; εC ; तन्तुः-द्विपदः)
 
 private
@@ -103,7 +103,7 @@ private
 ------------------------------------------------------------------------
 -- §4  The converse: an equivalence would hand back the secret.  If घात
 --     were an equivalence, the discrete log is the center of the
---     (contractible) fibre — a total inverse — so the scheme is broken.
+--     (contractible) fiber — a total inverse — so the scheme is broken.
 --     Security ⟺ ¬ isEquiv.
 ------------------------------------------------------------------------
 

@@ -111,7 +111,7 @@
 --
 --  * **§2 and §3 are already in this corpus, in prose.**  Searched
 --    (cf-tessera) states exactly this as its theorem (T) — "`f` factors
---    through `q` iff `f` is constant on every `q`-fibre" — and identifies
+--    through `q` iff `f` is constant on every `q`-fiber" — and identifies
 --    three lanes as instances of it.  Its rigor boundary names the gap
 --    this file fills: *"the formal unification in one proof language is
 --    open and named as the successor seed."*  So §2/§3 are a
@@ -211,11 +211,11 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
   module _ (surj : isSurjection q) (coeq : Coequalizes q f) where
 
     private
-      constOnFibre : (b : B) → 2-Constant {A = fiber q b} (λ u → f (fst u))
-      constOnFibre b u v = coeq (fst u) (fst v) (snd u ∙ sym (snd v))
+      constOnFiber : (b : B) → 2-Constant {A = fiber q b} (λ u → f (fst u))
+      constOnFiber b u v = coeq (fst u) (fst v) (snd u ∙ sym (snd v))
 
     descend : B → C
-    descend b = rec→Set setC (λ u → f (fst u)) (constOnFibre b) (surj b)
+    descend b = rec→Set setC (λ u → f (fst u)) (constOnFiber b) (surj b)
 
     -- The computation rule.  Definitional on `∣_∣₁`; the one step that
     -- is not definitional is replacing the anonymous surjectivity
@@ -223,7 +223,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
     -- propositionality of `∥_∥₁`.
     descend-β : (a : A) → descend (q a) ≡ f a
     descend-β a =
-      cong (rec→Set setC (λ u → f (fst u)) (constOnFibre (q a)))
+      cong (rec→Set setC (λ u → f (fst u)) (constOnFiber (q a)))
            (isPropPropTrunc (surj (q a)) ∣ a , refl ∣₁)
 
     descends : Σ[ g ∈ (B → C) ] ((a : A) → g (q a) ≡ f a)
@@ -320,7 +320,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} {C : Type ℓ''}
 -- Tested against a single set — `hProp`, the subobject classifier.  The
 -- two subobjects of `B` that agree after restriction along `q` are "the
 -- image of q" and "everything"; injectivity of `restrictAlong` at
--- `hProp` identifies them, which says exactly that every fibre is
+-- `hProp` identifies them, which says exactly that every fiber is
 -- inhabited.
 --
 -- PRIOR ART, cited not reproved: this is Mac Lane–Moerdijk p. 143

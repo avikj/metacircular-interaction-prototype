@@ -10,7 +10,7 @@
 --     U₂  :=  Σ (x : U) . View_x(U)
 --
 -- "each jewel together with the whole Net as reflected there", with the
--- projection π : U₂ → U and the fibre equation π⁻¹(x) ≃ View(x); and it
+-- projection π : U₂ → U and the fiber equation π⁻¹(x) ≃ View(x); and it
 -- says (§19) what to instantiate it on: the prime-pair witness net,
 -- whose points are proof-relevant jewels participating simultaneously in
 --
@@ -62,18 +62,18 @@ module Rooted {ℓ ℓ'} (U : Type ℓ) (View : U → Type ℓ') where
   π = fst
 
   -- "Forgetting the distinguished root returns the same unrooted net"
-  -- (D0025 §3): the fibre over x is exactly the view at x.
-  fibreIso : (x : U) → Iso (fiber π x) (View x)
-  Iso.fun (fibreIso x) ((_ , v) , p) = subst View p v
-  Iso.inv (fibreIso x) u = (x , u) , refl
-  Iso.rightInv (fibreIso x) u = substRefl {B = View} u
-  Iso.leftInv (fibreIso x) ((y , v) , p) =
+  -- (D0025 §3): the fiber over x is exactly the view at x.
+  fiberIso : (x : U) → Iso (fiber π x) (View x)
+  Iso.fun (fiberIso x) ((_ , v) , p) = subst View p v
+  Iso.inv (fiberIso x) u = (x , u) , refl
+  Iso.rightInv (fiberIso x) u = substRefl {B = View} u
+  Iso.leftInv (fiberIso x) ((y , v) , p) =
     J (λ z q → (((z , subst View q v) , refl) ≡ ((y , v) , q)))
       (λ i → ((y , substRefl {B = View} v i) , refl))
       p
 
-  fibreEquiv : (x : U) → fiber π x ≃ View x
-  fibreEquiv x = isoToEquiv (fibreIso x)
+  fiberEquiv : (x : U) → fiber π x ≃ View x
+  fiberEquiv x = isoToEquiv (fiberIso x)
 
 ------------------------------------------------------------------------
 -- §2  The jewels: centre/radius points of the prime-pair net (§19)

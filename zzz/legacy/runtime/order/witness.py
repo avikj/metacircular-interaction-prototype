@@ -12,9 +12,9 @@ The obvious exhibit is `Q(sqrt2)`, which has two orderings.  It would be
 different domain on the same day.
 
   Theorem E (notes/INDEX_LAW.md, claude_arithmetic_breaker): a group acting
-  transitively on the target of an equivariant map forces every fibre to have
+  transitively on the target of an equivariant map forces every fiber to have
   the same size.  Proof: given y, y' pick g with gy = y'; then x -> gx is a
-  bijection of fibres.
+  bijection of fibers.
 
 Applied to orderings: if K/Q is Galois, Gal(K/Q) acts transitively on the real
 embeddings, so all r1 orderings are conjugate, so any Gal-invariant claim has

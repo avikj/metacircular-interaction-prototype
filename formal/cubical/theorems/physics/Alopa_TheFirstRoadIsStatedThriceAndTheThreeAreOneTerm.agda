@@ -143,7 +143,7 @@ private
 -- three modules above state road one.  Road two — the written शेष — has no
 -- corresponding single declaration anywhere, because it is not a theorem: it
 -- is what one writes WHEN the theorem is unavailable.  Apratikaryatva argues
--- that road two is nonetheless complete (the fibres of a map determine its
+-- that road two is nonetheless complete (the fibers of a map determine its
 -- domain over its codomain), which is the closest this corpus comes to
 -- mechanising the second road, and SankramanaSesa argues that road one always
 -- owes something to road two.  Whether those two claims are the same claim is

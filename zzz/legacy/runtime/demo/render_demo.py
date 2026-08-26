@@ -14,7 +14,7 @@ WHAT IS BEING CLAIMED, AND WHAT IS NOT
     CLAIMED.  Colour here is a *projection of one object* with an explicit
     information loss, a concrete collision witness, and a stated round trip:
     exact and single-valued on a declared sublanguage where injectivity is
-    proved, and otherwise the whole fibre.  Codes assigned to states a declared
+    proved, and otherwise the whole fiber.  Codes assigned to states a declared
     task must distinguish are pairwise distinct -- proved exhaustively, not
     sampled.  Answering that task from the code costs strictly fewer comparison
     operations than answering it from the raw state, once the code exists.
@@ -276,7 +276,7 @@ def write_carry_svg(path: str, carry_cells, borrow_cells, legend) -> tuple:
         "  (c) the pink cells are the two states where cocycle (2.1) does not apply (it is stated for x < b^n-1);",
         "      they are an exception marked by the semantic layer, not a fifth carry class of a different kind.",
         "  (d) 256 states are shown in 5 colours.  The colour of a cell does not determine the cell: the largest",
-        "      fibre has 192 states.  This picture is a projection and cannot be inverted by eye or by machine.",
+        "      fiber has 192 states.  This picture is a projection and cannot be inverted by eye or by machine.",
     ]
     width = x_b + PANEL + MARGIN
     doc = SVG(width, 1, "carry cocycle and its complement", "", background=PAPER)
@@ -314,7 +314,7 @@ def write_orbit_svg(path: str, cells, legend) -> tuple:
         "",
         "MISREADING RISKS:",
         "  (a) the four ancestry colours encode c_0 only.  Two generic cells of the same colour are NOT in the",
-        "      same orbit; the orbit is not recoverable from the colour (56-state fibres).",
+        "      same orbit; the orbit is not recoverable from the colour (56-state fibers).",
         "  (b) orange and purple are disjoint here only because b is even; for odd b a word can be fixed by E",
         "      as well, and this palette would need a fourth sector.",
     ]
@@ -448,10 +448,10 @@ def main() -> int:
             )
         )
     say()
-    say("structural validation (decode returns fibres; fibres partition the language):")
+    say("structural validation (decode returns fibers; fibers partition the language):")
     for channel in channels:
         report = validate_channel(channel, counter)
-        say("  %-18s decode=fibre %-5s partition %-5s deterministic %-5s failures %d"
+        say("  %-18s decode=fiber %-5s partition %-5s deterministic %-5s failures %d"
             % (channel.name, report.decode_returns_fiber, report.fibers_partition,
                report.fibers_deterministic, len(report.failures)))
     say()
@@ -549,12 +549,12 @@ def main() -> int:
     say("THE SAME CHANNEL ON THE AMBIENT LANGUAGE  %s  (%d states)"
         % (low_full.language.name, len(low_full.language)))
     say("  injective              %s" % (certify_injectivity(low_full, counter).injective,))
-    say("  fibres exact           %s   (decode returns the whole preimage, recomputed from scratch)"
+    say("  fibers exact           %s   (decode returns the whole preimage, recomputed from scratch)"
         % (full_trip.fiber_exact,))
-    fibre = low_full.decode(code, counter)
-    say("  decode(%s) returns a fibre of %d states, not a guess:" % (code.hex(), len(fibre)))
-    say("      %s" % (", ".join(str(word) for word in fibre[:8]),))
-    say("      %s" % (", ".join(str(word) for word in fibre[8:]),))
+    fiber = low_full.decode(code, counter)
+    say("  decode(%s) returns a fiber of %d states, not a guess:" % (code.hex(), len(fiber)))
+    say("      %s" % (", ".join(str(word) for word in fiber[:8]),))
+    say("      %s" % (", ".join(str(word) for word in fiber[8:]),))
     say("  This is the homometry discipline of notes/CROSS_LENS.md §2 made executable: one")
     say("  projection identifies distinct objects, so decode CANNOT be single-valued here and")
     say("  the type of decode says so.  Same channel, two declared languages, two guarantees.")
@@ -708,7 +708,7 @@ def main() -> int:
     say("  Prop 1.2, so it is not); (b) equal colour steps meaning equal magnitude steps (the ramp")
     say("  is linear in a non-uniform surrogate); (c) the pink cells being a carry class rather")
     say("  than the exceptional states where cocycle (2.1) is not stated; (d) the picture being")
-    say("  invertible -- it is not, the largest fibre holds 192 of the 256 states.")
+    say("  invertible -- it is not, the largest fiber holds 192 of the 256 states.")
     say()
 
     palindromes = sum(1 for word in states if is_palindrome(word))
@@ -817,10 +817,10 @@ def main() -> int:
     say()
     loss = certify_loss(carry_ch, counter)
     say("WHAT THE REDUCTION COSTS IN INFORMATION.  chroma_carry: %s" % (loss.render(),))
-    say("  fibre sizes by carry class:")
+    say("  fiber sizes by carry class:")
     for key in sorted(class_codes):
         size = sum(1 for word in states if carry_count(word, BASE) == key)
-        say("    c_n = %d  ->  %s   fibre %3d states" % (key, target_code[key].hex(), size))
+        say("    c_n = %d  ->  %s   fiber %3d states" % (key, target_code[key].hex(), size))
     say()
     say("*** THE CAVEAT, STATED PLAINLY AND NOT IN A FOOTNOTE ***")
     say("  These are machine-side comparison counts.  They are a PROXY for recognition cost and")
@@ -828,7 +828,7 @@ def main() -> int:
     say("  search-time measurement was taken; none is possible from this program.  Nothing above")
     say("  establishes that a person recognises the carry class faster from the colour than from")
     say("  the digits.  The honest statement is: the channel reduces the number of comparisons a")
-    say("  machine performs by %d over %d queries, loses %d-to-1 in its worst fibre, and its value"
+    say("  machine performs by %d over %d queries, loses %d-to-1 in its worst fiber, and its value"
         % (saved, queries, loss.max_fiber))
     say("  to a human reader is UNMEASURED.")
     say()
@@ -910,7 +910,7 @@ def main() -> int:
     say("  channels defined, validated, and certified            %s" % (True,))
     say("  loss stated with a concrete collision witness         %s" % (True,))
     say("  round trip exact on the declared sublanguage          %s" % (trip.inverse_exact,))
-    say("  decode returns fibres, never a guess, on the ambient  %s" % (full_trip.fiber_exact,))
+    say("  decode returns fibers, never a guess, on the ambient  %s" % (full_trip.fiber_exact,))
     say("  semantic override beats lexical                       %s" % (blue[1].colour == RGB(0, 0, 255),))
     say("  task-distinguishability proved exhaustively           %s" % (True,))
     say("  the rendered picture verifies its own theorem         %s" % (reflection_ok,))

@@ -25,7 +25,7 @@ open import Alopa_TheEngineNeverTouchesTheMeaning
   using (Term ; Env ; Rule ; eval ; step ; normalize ; step-sound)
 open import Kaksya_TheChargeIsConstantAlongTheWholeOrbitAndNotOnlyAcrossOneStep
   using (कक्ष्या ; ध्रुवं-कक्ष्यायाम्)
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 
 module _ (rs : List Rule) (ρ : Env) where

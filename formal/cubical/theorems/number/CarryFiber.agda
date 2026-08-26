@@ -20,20 +20,20 @@
 --
 -- The object.  Fix width 2 and the redundant binary alphabet {0,1,2}
 -- (the alphabet a carry normalisation acts on: a digit 2 is exactly a
--- pending carry).  Let  value (a,b) = a + 2b  and let the descent fibre
+-- pending carry).  Let  value (a,b) = a + 2b  and let the descent fiber
 -- over n be  Fib n = Σ w. value w ≡ n.  Then
 --
 --     Fib 1 is contractible,          (one representation:  1 = 1 + 2·0)
 --     Fib 2 has two distinct points   (2 = 2 + 2·0  and  2 = 0 + 2·1),
 --
 -- so `Fib 1 ≃ Fib 2` is absurd.  A regular G-torsor structure on every
--- inhabited fibre would give, for each inhabited n, an equivalence
+-- inhabited fiber would give, for each inhabited n, an equivalence
 -- Fib n ≃ G (choose the base point); composing at n = 1 and n = 2 gives
 -- exactly that absurdity.  Hence:
 --
 --   * no group G — in particular not D∞, and no payload type G — in
---     particular not `Z × Bool` — charts the carry fibres uniformly;
---   * fibre cardinality is a non-constant invariant of the carry
+--     particular not `Z × Bool` — charts the carry fibers uniformly;
+--   * fiber cardinality is a non-constant invariant of the carry
 --     descent, whereas it is constant for a torsor.  R0032's payload
 --     theorem is stratum-local and does not extend along the carry.
 --
@@ -77,7 +77,7 @@ Word = Digit × Digit
 value : Word → ℕ
 value (a , b) = wt a + (wt b + wt b)
 
--- the fibre of the descent over a value
+-- the fiber of the descent over a value
 Fib : ℕ → Type₀
 Fib n = Σ[ w ∈ Word ] (value w ≡ n)
 
@@ -132,13 +132,13 @@ carry≢normal e = subst DCode (cong (λ z → fst (fst z)) e) tt
 -- 5. the obstruction
 ------------------------------------------------------------------------
 
--- Fibre cardinality is not constant along the carry descent.
+-- Fiber cardinality is not constant along the carry descent.
 Fib1≃Fib2→⊥ : (Fib 1 ≃ Fib 2) → ⊥
 Fib1≃Fib2→⊥ e =
   carry≢normal (isContr→isProp (isOfHLevelRespectEquiv 0 e isContrFib1)
                                carryRep noCarryRep)
 
--- A regular G-torsor structure on every inhabited fibre yields, after a
+-- A regular G-torsor structure on every inhabited fiber yields, after a
 -- choice of base point, exactly this datum.  So no such structure exists,
 -- for any G in any universe.
 no-uniform-chart : {ℓ : Level} {G : Type ℓ}

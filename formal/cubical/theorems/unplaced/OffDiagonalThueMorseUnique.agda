@@ -30,7 +30,7 @@
 --       NOT claimed here.
 --
 -- The obstruction "is one bit wide" (drishti): uniqueGivenHead says the
--- fibre of the forget-the-diagonal map over a full-line partition is a
+-- fiber of the forget-the-diagonal map over a full-line partition is a
 -- single Bool.
 ------------------------------------------------------------------------
 

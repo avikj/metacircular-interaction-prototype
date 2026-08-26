@@ -7,7 +7,7 @@
 -- THE STEP BACK, spoken to the machine in its own tongue.  Today five
 -- modules were laid down in five lanes, each exhibiting "a charge":
 --
---   प्रदक्षिणा       transport around the circuit shifts the fibre    (holonomy)
+--   प्रदक्षिणा       transport around the circuit shifts the fiber    (holonomy)
 --   गुह्य-नास्ति     the loss the set-census cannot see, in the loops  (winding)
 --   क्रम-सह         what survives loop-first and dies set-first    (commutator)
 --   तात्कालिकी गतिः  the tangent of the parity character at one prime    (jet)
@@ -45,7 +45,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.HITs.S1 using (S¹ ; base ; loop ; winding)
 open import Cubical.HITs.SetTruncation using (∣_∣₂)
 
-open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFiberShiftedSoTheHolonomyIsInhabited
   using (प्रदक्षिणा ; सरणिः)
 open import GuhyaNasti_TheLossCanHideInTheLoopsAndTheSetLevelCensusCannotSeeIt
   using (गुह्य-भारः)
@@ -58,7 +58,7 @@ open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJe
 -- the five faces.  Each names its lane's charge at the generator.
 ------------------------------------------------------------------------
 
--- १ · holonomy: one circuit displaces the fibre by one.
+-- १ · holonomy: one circuit displaces the fiber by one.
 मुखम्-परिक्रमा : प्रदक्षिणा (pos zero) ≡ pos 1
 मुखम्-परिक्रमा = सरणिः (pos zero)
 
@@ -68,7 +68,7 @@ open import TatkalikiGati_ThePrimeChargeIsTheTangentOfTheParityCharacterAndTheJe
 मुखम्-वक्रता : winding loop ≡ pos 1
 मुखम्-वक्रता = मुखम्-परिक्रमा
 
--- ३ · the hidden charge: गुह्य-नास्ति's fibre loop carries the same unit,
+-- ३ · the hidden charge: गुह्य-नास्ति's fiber loop carries the same unit,
 -- again by the same proof — the concealed नास्ति was this quantum.
 मुखम्-गुह्यम् : गुह्य-भारः (λ i → loop i , refl) ≡ pos 1
 मुखम्-गुह्यम् = मुखम्-परिक्रमा

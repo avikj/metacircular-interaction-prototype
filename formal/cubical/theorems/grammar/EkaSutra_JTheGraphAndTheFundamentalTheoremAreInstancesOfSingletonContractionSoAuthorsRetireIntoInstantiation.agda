@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 -- एकसूत्र — one aphorism.  अल्पं स्थापय, शेषं जनय: hold one line, generate
--- the rest.  The line is the fibre law's positive half —
+-- the rest.  The line is the fiber law's positive half —
 --
 --     THE SINGLETON IS CONTRACTIBLE:  isContr (Σ[ y ] (x ≡ y))
 --

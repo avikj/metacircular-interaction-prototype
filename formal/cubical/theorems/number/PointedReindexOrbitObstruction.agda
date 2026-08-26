@@ -3,7 +3,7 @@
 -- Coordinate reindexing preserves every constant assignment.  Consequently,
 -- an observational collision with a distinct constant assignment need not be
 -- a coordinate-reindexing orbit.  The finite control extends the squarefree
--- Bool chart of TotientFibreSymmetry to bounded prime-power exponents.
+-- Bool chart of TotientFiberSymmetry to bounded prime-power exponents.
 
 module PointedReindexOrbitObstruction where
 

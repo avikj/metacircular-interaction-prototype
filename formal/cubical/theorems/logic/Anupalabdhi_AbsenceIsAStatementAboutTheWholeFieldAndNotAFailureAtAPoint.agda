@@ -7,10 +7,10 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- THE ASYMMETRY THIS FILE IS ABOUT.  Every other verdict in this corpus
--- is witnessed by EXHIBITING something: बहु by two points of a fibre,
+-- is witnessed by EXHIBITING something: बहु by two points of a fiber,
 -- एकम् by a centre, an edge by an equivalence, a receipt by an
 -- identification.  रिक्तम् is the one that cannot be.  There is no
--- element of an empty fibre to show, so the witness has to be of a
+-- element of an empty fiber to show, so the witness has to be of a
 -- different kind — and §१ says which kind, exactly.
 --
 -- §१ · अभावः पर्याप्तिः — "nothing in the field has this property" IS
@@ -82,9 +82,9 @@ Iso.leftInv  (क्षेत्र-वचनम् P) _      = refl
 अभावः≃पर्याप्तिः P = isoToEquiv (क्षेत्र-वचनम् P)
 
 ------------------------------------------------------------------------
--- २ · रिक्तम् has no exhibiting witness — read off §१ at a fibre.
+-- २ · रिक्तम् has no exhibiting witness — read off §१ at a fiber.
 --
--- A claim that the fibre over `b` is empty is, exactly, a rule covering
+-- A claim that the fiber over `b` is empty is, exactly, a rule covering
 -- every point of the domain.  Not a point, not a finite check, not a
 -- search that came back empty: a statement about the whole field.
 ------------------------------------------------------------------------
@@ -103,6 +103,6 @@ Iso.leftInv  (क्षेत्र-वचनम् P) _      = refl
 उपलब्धिः : {A B : Type ℓ} (f : A → B) (a : A) → fiber f (f a)
 उपलब्धिः f a = a , refl        -- a verdict you can hand someone
 
--- the empty fibre offers nothing to hand over, by construction
+-- the empty fiber offers nothing to hand over, by construction
 अनुपलब्धिः : (b : Unit) → ¬ (fiber (λ (x : ⊥) → tt) b)
 अनुपलब्धिः _ (x , _) = Empty.rec x

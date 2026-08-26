@@ -131,7 +131,7 @@ def t_symmetric_group():
     return True
 
 
-@capability("A5 (c)->(a) the fibre Iso(X,[n]) is an S_n-torsor of size n!")
+@capability("A5 (c)->(a) the fiber Iso(X,[n]) is an S_n-torsor of size n!")
 def t_iso_torsor():
     for n in range(0, 5):
         tor = X.CARD.iso_torsor(n)

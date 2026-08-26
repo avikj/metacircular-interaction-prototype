@@ -22,7 +22,7 @@ Mermin-type parity proofs do not exist for odd ``d``.
 
 A memory state is a pair ``(L, chi)``: a Lagrangian ``L <= Z_d^(2n)`` together
 with a character ``chi : L -> Z_d`` recording the measured eigenvalue
-exponents.  Compatibility is automatic by the Lemma, so the fibre over each
+exponents.  Compatibility is automatic by the Lemma, so the fiber over each
 Lagrangian has exactly ``d^n`` elements.
 """
 

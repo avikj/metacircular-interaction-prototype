@@ -7,7 +7,7 @@
 -- particular truncation strata.  This file supplies the missing order law:
 -- descent through an observation is DOWNWARD CLOSED in truncation depth.
 --
--- If the (m+n)-truncation of every fibre descends, then its n-truncation
+-- If the (m+n)-truncation of every fiber descends, then its n-truncation
 -- descends.  The receipt is the library's checked
 --
 --   truncOfTruncEq n m :

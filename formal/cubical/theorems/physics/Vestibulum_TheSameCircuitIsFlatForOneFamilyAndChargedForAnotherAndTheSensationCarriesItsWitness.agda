@@ -40,7 +40,7 @@ open import Cubical.Data.Nat using (zero)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.HITs.S1 using (S¹ ; base ; loop ; helix)
 
-open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFiberShiftedSoTheHolonomyIsInhabited
   using (प्रदक्षिणा ; सरणिः ; अ-पुनरागमः ; ध्रुव-वलयः)
 
 private

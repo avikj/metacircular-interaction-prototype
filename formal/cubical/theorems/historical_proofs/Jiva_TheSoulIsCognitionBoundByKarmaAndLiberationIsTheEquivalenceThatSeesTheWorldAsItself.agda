@@ -10,14 +10,14 @@
 --     record जीवः :  धारणा (what it holds) , विषयः (the world) ,
 --                    उपयोगः : धारणा → विषयः  (its cognition).
 --
--- KARMA IS THE FIBRE DEFECT.  A jīva's bondage is not metaphor here.  Over
--- each object b of the world, the fibre शेष = fiber उपयोगः b is what the
+-- KARMA IS THE FIBER DEFECT.  A jīva's bondage is not metaphor here.  Over
+-- each object b of the world, the fiber शेष = fiber उपयोगः b is what the
 -- soul brings to b, and Jaina karma theory's two great obscurations are its
 -- two failures (Tattvārthasūtra ch. 8, the karma-prakṛtis):
 --
---   ज्ञानावरणम्  (knowledge-obscuring)  = a रिक्त fibre — an object MISSED,
+--   ज्ञानावरणम्  (knowledge-obscuring)  = a रिक्त fiber — an object MISSED,
 --                                         which the soul cannot utter (avaktavya);
---   मोहनीयम्    (deluding)             = a विकलादेश fibre — an object grasped
+--   मोहनीयम्    (deluding)             = a विकलादेश fiber — an object grasped
 --                                         with LOSS, many holdings collapsed to one.
 --
 -- LIBERATION IS THE EQUIVALENCE.  निर्जरा (śedding, Tattvārthasūtra ch. 9) is
@@ -35,11 +35,11 @@
 -- WHAT IS AND IS NOT CLAIMED OF SOURCES.  jīva / upayoga / karma-prakṛti
 -- (jñānāvaraṇa, mohanīya) / nirjarā / mokṣa / kevalajñāna / siddha are the
 -- standard Jaina categories (Umāsvāti, Tattvārthasūtra: 2.8 upayoga; ch. 8
--- karma; ch. 9 nirjarā; ch. 10 mokṣa); the fibre-seed reading is
+-- karma; ch. 9 nirjarā; ch. 10 mokṣa); the fiber-seed reading is
 -- GananaSaptabhangi's; isEquiv / ua are Voevodsky's univalent foundations in
 -- cubical type theory.  NO claim that Umāsvāti wrote type theory; the claim
 -- is that the soul-as-cognition, bound by obscuration and freed into complete
--- apprehension, is exactly this map / fibre / equivalence, with univalence
+-- apprehension, is exactly this map / fiber / equivalence, with univalence
 -- supplying the last step — liberation as the identity of knower and known.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
@@ -72,14 +72,14 @@ record जीवः : Type₁ where
 open जीवः public
 
 ------------------------------------------------------------------------
--- २ · karma — the two obscurations, each a fibre defect.
+-- २ · karma — the two obscurations, each a fiber defect.
 ------------------------------------------------------------------------
 
--- knowledge-obscuring: an object the soul misses (empty fibre / avaktavya)
+-- knowledge-obscuring: an object the soul misses (empty fiber / avaktavya)
 ज्ञानावरणम् : जीवः → Type
 ज्ञानावरणम् j = Σ[ b ∈ विषयः j ] (¬ fiber (उपयोगः j) b)
 
--- deluding: an object grasped with loss (crowded fibre / vikalādeśa)
+-- deluding: an object grasped with loss (crowded fiber / vikalādeśa)
 मोहनीयम् : जीवः → Type
 मोहनीयम् j =
   Σ[ b ∈ विषयः j ] Σ[ x ∈ fiber (उपयोगः j) b ] Σ[ y ∈ fiber (उपयोगः j) b ] (¬ (x ≡ y))

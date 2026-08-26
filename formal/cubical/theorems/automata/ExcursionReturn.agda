@@ -260,7 +260,7 @@ module SetForm {X : Type ℓ} {A : Type ℓ} {O : Type ℓ}
   futureEq→now : {x y : X} → futureEq x y → observe x ≡ observe y
   futureEq→now h = h []
 
-  -- ... and the converse fails, which is exactly why the discarded fibre
+  -- ... and the converse fails, which is exactly why the discarded fiber
   -- can be future-relevant: a single separating word refutes future
   -- equivalence even when the two states agree right now.  This is the
   -- set-level face of "P T_t Q ≠ 0 for some t".

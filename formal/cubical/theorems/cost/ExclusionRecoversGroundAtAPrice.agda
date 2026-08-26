@@ -578,12 +578,12 @@ module _ {T : Type ℓt} (t : Bool → T) where
 --
 -- `Excludes q x x' = ¬ (q x ≡ q x')` is a negation in a fixed universe
 -- with a fixed partition — `Y` is given, `q` is given, the partition is
--- the fibres of `q`.  It is the defeated gloss, exactly.
+-- the fibers of `q`.  It is the defeated gloss, exactly.
 --
 -- WITHDRAWN: any reading of §1–§9 as carrying apoha's shape, including
 -- the phrase "individuated negatively by what `q` fails to distinguish"
 -- in this thread's earlier notes.  The theorems are untouched: they are
--- statements about observables and their fibres, and they never needed
+-- statements about observables and their fibers, and they never needed
 -- the gloss.
 --
 -- NOT WITHDRAWN: §7's citation of the DISPUTE.  Naming Uddyotakara's and

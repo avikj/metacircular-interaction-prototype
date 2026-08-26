@@ -4,14 +4,14 @@
 -- SieveScaleTower
 --
 -- DELTA 14, PROGRAM 14.75 — THE SCALE TOWER `O_z`, FINITE AND CONCRETE,
--- WITH THE HOMOTOPY FIBRES OF ITS CHARGE-FORGETTING OBSERVATIONS.
+-- WITH THE HOMOTOPY FIBERS OF ITS CHARGE-FORGETTING OBSERVATIONS.
 --
 -- Delta 14 §G asks for an inverse tower
 --
 --     … → O_{n+1} → O_n → … → O_0
 --
 -- of "what is visible below scale z", with forgetting maps, and for the
--- homotopy fibres of the observations to be computed.  P14.39 warns
+-- homotopy fibers of the observations to be computed.  P14.39 warns
 -- that adjacent lifts need not compose to a global lift.
 --
 -- This file builds the tower for `SieveFiber`'s model
@@ -35,7 +35,7 @@
 --
 --   §2  `tower-commutes-*`, `o₃≡q`   the squares, and that the top of
 --                                    the tower IS SieveFiber's `q`.
---   §3  `fibre₀ᵇ … fibre₃ᵇ`          THE HOMOTOPY FIBRES OF THE
+--   §3  `fiber₀ᵇ … fiber₃ᵇ`          THE HOMOTOPY FIBERS OF THE
 --                                    OBSERVATIONS OVER THE TRIVIAL
 --                                    STATE, as explicit lists:
 --                                      z=0 : all 30
@@ -46,7 +46,7 @@
 --                                    never of constant size — which is
 --                                    the tower form of `SieveFiber`'s
 --                                    sizes 8/4/1 finding.
---       `25∉fibre₃`, `3∉fibre₂`      the shrinkage is STRICT, with
+--       `25∉fiber₃`, `3∉fiber₂`      the shrinkage is STRICT, with
 --                                    witnesses: 25 falls out at z=5,
 --                                    3 falls out at z=3.
 --
@@ -97,7 +97,7 @@
 --  * **No general X.**  Every `refl` is X = 30 arithmetic.
 --  * **No new mathematics.**  An inverse system of coarsenings with
 --    strictly commuting squares is the most elementary pro-object there
---    is.  The content is the concrete fibre census, the three strictness
+--    is.  The content is the concrete fiber census, the three strictness
 --    witnesses, and §5's horizon-relativity of the residual bit.
 ------------------------------------------------------------------------
 
@@ -211,78 +211,78 @@ o₃≡q : (n : ℕ) → o₃ n ≡ q n
 o₃≡q n = refl
 
 ------------------------------------------------------------------------
--- §3  THE HOMOTOPY FIBRES, COMPUTED
+-- §3  THE HOMOTOPY FIBERS, COMPUTED
 --
--- The fibre of the observation over the trivial state, at each horizon,
+-- The fiber of the observation over the trivial state, at each horizon,
 -- as an explicit list verified against the observation by exhaustion.
 ------------------------------------------------------------------------
 
-Fibre₁ : O₁ → Type
-Fibre₁ v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (o₁ n ≡ v))
+Fiber₁ : O₁ → Type
+Fiber₁ v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (o₁ n ≡ v))
 
-Fibre₂ : O₂ → Type
-Fibre₂ v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (o₂ n ≡ v))
+Fiber₂ : O₂ → Type
+Fiber₂ v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (o₂ n ≡ v))
 
-Fibre₃ : O₃ → Type
-Fibre₃ v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (o₃ n ≡ v))
+Fiber₃ : O₃ → Type
+Fiber₃ v = Σ[ n ∈ ℕ ] ((n ∈ domain) × (o₃ n ≡ v))
 
--- z = 0: nothing is visible, so the fibre is the whole domain.
-fibre₀ᵇ : allOf domain (λ n → memberOf domain n) ≡ true
-fibre₀ᵇ = refl
+-- z = 0: nothing is visible, so the fiber is the whole domain.
+fiber₀ᵇ : allOf domain (λ n → memberOf domain n) ≡ true
+fiber₀ᵇ = refl
 
 -- z = 2: the 15 odd numbers.
-fibre₁List : List ℕ
-fibre₁List = 1 ∷ 3 ∷ 5 ∷ 7 ∷ 9 ∷ 11 ∷ 13 ∷ 15 ∷ 17 ∷ 19
+fiber₁List : List ℕ
+fiber₁List = 1 ∷ 3 ∷ 5 ∷ 7 ∷ 9 ∷ 11 ∷ 13 ∷ 15 ∷ 17 ∷ 19
            ∷ 21 ∷ 23 ∷ 25 ∷ 27 ∷ 29 ∷ []
 
-chkFibre₁ : ℕ → Bool
-chkFibre₁ n = eqBool (eqᵇ (o₁ n) 0) (memberOf fibre₁List n)
+chkFiber₁ : ℕ → Bool
+chkFiber₁ n = eqBool (eqᵇ (o₁ n) 0) (memberOf fiber₁List n)
 
-fibre₁ᵇ : allOf domain chkFibre₁ ≡ true
-fibre₁ᵇ = refl
+fiber₁ᵇ : allOf domain chkFiber₁ ≡ true
+fiber₁ᵇ = refl
 
 -- z = 3: the 10 numbers coprime to 6.
-fibre₂List : List ℕ
-fibre₂List = 1 ∷ 5 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 25 ∷ 29 ∷ []
+fiber₂List : List ℕ
+fiber₂List = 1 ∷ 5 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 25 ∷ 29 ∷ []
 
 eq₂ : O₂ → O₂ → Bool
 eq₂ (x , y) (x' , y') = eqᵇ x x' and eqᵇ y y'
 
-chkFibre₂ : ℕ → Bool
-chkFibre₂ n = eqBool (eq₂ (o₂ n) (0 , 0)) (memberOf fibre₂List n)
+chkFiber₂ : ℕ → Bool
+chkFiber₂ n = eqBool (eq₂ (o₂ n) (0 , 0)) (memberOf fiber₂List n)
 
-fibre₂ᵇ : allOf domain chkFibre₂ ≡ true
-fibre₂ᵇ = refl
+fiber₂ᵇ : allOf domain chkFiber₂ ≡ true
+fiber₂ᵇ = refl
 
 -- z = 5: the 8 numbers coprime to 30.  This is `SieveFiber.fiberAt-1`
 -- re-derived through the tower's own observation, which is how the
 -- tower is checked to have `q` on top rather than merely to resemble it.
-fibre₃List : List ℕ
-fibre₃List = 1 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 29 ∷ []
+fiber₃List : List ℕ
+fiber₃List = 1 ∷ 7 ∷ 11 ∷ 13 ∷ 17 ∷ 19 ∷ 23 ∷ 29 ∷ []
 
 eq₃ : O₃ → O₃ → Bool
 eq₃ (x , y , z) (x' , y' , z') = eqᵇ x x' and (eqᵇ y y' and eqᵇ z z')
 
-chkFibre₃ : ℕ → Bool
-chkFibre₃ n = eqBool (eq₃ (o₃ n) (0 , 0 , 0)) (memberOf fibre₃List n)
+chkFiber₃ : ℕ → Bool
+chkFiber₃ n = eqBool (eq₃ (o₃ n) (0 , 0 , 0)) (memberOf fiber₃List n)
 
-fibre₃ᵇ : allOf domain chkFibre₃ ≡ true
-fibre₃ᵇ = refl
+fiber₃ᵇ : allOf domain chkFiber₃ ≡ true
+fiber₃ᵇ = refl
 
 -- STRICTNESS, with witnesses.  25 survives to z = 3 and dies at z = 5;
 -- 3 survives to z = 2 and dies at z = 3.  So the tower really coarsens
--- at every stage, and the fibre sizes 30 ⊃ 15 ⊃ 10 ⊃ 8 are strict.
-25∈fibre₂ : Fibre₂ (0 , 0)
-25∈fibre₂ = 25 , memberOf→∈ domain 25 refl , refl
+-- at every stage, and the fiber sizes 30 ⊃ 15 ⊃ 10 ⊃ 8 are strict.
+25∈fiber₂ : Fiber₂ (0 , 0)
+25∈fiber₂ = 25 , memberOf→∈ domain 25 refl , refl
 
-25∉fibre₃ : ¬ (o₃ 25 ≡ (0 , 0 , 0))
-25∉fibre₃ p = false≢true (cong (λ v → eqᵇ (snd (snd v)) 0) p)
+25∉fiber₃ : ¬ (o₃ 25 ≡ (0 , 0 , 0))
+25∉fiber₃ p = false≢true (cong (λ v → eqᵇ (snd (snd v)) 0) p)
 
-3∈fibre₁ : Fibre₁ 0
-3∈fibre₁ = 3 , memberOf→∈ domain 3 refl , refl
+3∈fiber₁ : Fiber₁ 0
+3∈fiber₁ = 3 , memberOf→∈ domain 3 refl , refl
 
-3∉fibre₂ : ¬ (o₂ 3 ≡ (0 , 0))
-3∉fibre₂ p = false≢true (cong (λ v → eqᵇ (snd v) 0) p)
+3∉fiber₂ : ¬ (o₂ 3 ≡ (0 , 0))
+3∉fiber₂ p = false≢true (cong (λ v → eqᵇ (snd v) 0) p)
 
 ------------------------------------------------------------------------
 -- §4  CHARGE-FORGETTING AT EVERY LEVEL

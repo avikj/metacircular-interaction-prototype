@@ -46,7 +46,7 @@ cannot supply - the store is monotone: no tombstones, no compaction, no
 safe pruning rule.  Where a rule's left-hand side contains no free
 variable, the derivations enabled at a single value form an entire copy of
 the term algebra with every member producing the same answer, so a pruning
-heuristic collapses an unbounded fibre rather than a redundant pair.  We
+heuristic collapses an unbounded fiber rather than a redundant pair.  We
 characterise the trade rather than tune it.
 
 WHAT IS NOT CLAIMED.  There is no provenance semiring in this development,

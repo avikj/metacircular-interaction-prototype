@@ -29,14 +29,14 @@
 --   silent n true  = ∥ Sⁿ⁺¹ ∥_(2+n)
 --   silent n false = ∥ Unit  ∥_(2+n)
 --
--- descends: both fibres are contractible.
+-- descends: both fibers are contractible.
 --
 -- But one stratum higher:
 --
 --   spoken n true  = ∥ Sⁿ⁺¹ ∥_(3+n)
 --   spoken n false = ∥ Unit  ∥_(3+n)
 --
--- does NOT descend.  If those two fibres were equivalent, the sphere
+-- does NOT descend.  If those two fibers were equivalent, the sphere
 -- truncation would be contractible; its (n+1)-fold loop space would then be
 -- contractible.  `AnantaraArpana.अनन्तरम्` identifies that loop space with ℤ,
 -- contradicting pos 0 ≠ pos 1.

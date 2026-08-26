@@ -15,12 +15,12 @@
 -- `SumFinΣ≃` gives `Micro ≃ Flat`.  By univalence this is a universe path,
 -- and transport along the path computes to the encoder by `uaβ`.  Decoding
 -- recovers both the coarse outcome and the microbranch.  The coarse observer
--- on the flat register is `fst ∘ decode`, and its fibre over y is equivalent
+-- on the flat register is `fst ∘ decode`, and its fiber over y is equivalent
 -- to `Fin (suc (k y))` exactly—not merely equal in cardinality.
 --
 -- One generic lemma is made explicit because it is the bridge the claim
--- consumes: precomposing a map by an equivalence carries each fibre to an
--- equivalent fibre.  Since the current base is a finite set, the two round
+-- consumes: precomposing a map by an equivalence carries each fiber to an
+-- equivalent fiber.  Since the current base is a finite set, the two round
 -- trips close by `Σ≡Prop`; no path witness is silently identified without the
 -- set receipt.
 --
@@ -28,7 +28,7 @@
 --   * a reversible encoder/decoder for every dependent finite refinement;
 --   * the universe path and the computation rule for its transport;
 --   * exact recovery of the coarse label after encode/decode;
---   * the branch itself as the fibre of the flat coarse observer.
+--   * the branch itself as the fiber of the flat coarse observer.
 --
 -- WHAT THIS DOES NOT CLAIM.
 --   * no Hilbert space, amplitude, inner product, or unitary dynamics;
@@ -66,7 +66,7 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- 1. Fibres are preserved when the domain is changed by an equivalence.
+-- 1. Fibers are preserved when the domain is changed by an equivalence.
 ------------------------------------------------------------------------
 
 module _ {A : Type ℓ} {A' : Type ℓ} {B : Type ℓ'}
@@ -75,18 +75,18 @@ module _ {A : Type ℓ} {A' : Type ℓ} {B : Type ℓ'}
   carried-map : A' → B
   carried-map a' = f (invEq e a')
 
-  fibre-domain-Iso : (b : B) → Iso (fiber f b) (fiber carried-map b)
-  Iso.fun (fibre-domain-Iso b) (a , p) =
+  fiber-domain-Iso : (b : B) → Iso (fiber f b) (fiber carried-map b)
+  Iso.fun (fiber-domain-Iso b) (a , p) =
     equivFun e a , cong f (retEq e a) ∙ p
-  Iso.inv (fibre-domain-Iso b) (a' , p) =
+  Iso.inv (fiber-domain-Iso b) (a' , p) =
     invEq e a' , p
-  Iso.rightInv (fibre-domain-Iso b) (a' , p) =
+  Iso.rightInv (fiber-domain-Iso b) (a' , p) =
     Σ≡Prop (λ z → setB (carried-map z) b) (secEq e a')
-  Iso.leftInv (fibre-domain-Iso b) (a , p) =
+  Iso.leftInv (fiber-domain-Iso b) (a , p) =
     Σ≡Prop (λ z → setB (f z) b) (retEq e a)
 
-  fibre-domain-Equiv : (b : B) → fiber f b ≃ fiber carried-map b
-  fibre-domain-Equiv b = isoToEquiv (fibre-domain-Iso b)
+  fiber-domain-Equiv : (b : B) → fiber f b ≃ fiber carried-map b
+  fiber-domain-Equiv b = isoToEquiv (fiber-domain-Iso b)
 
 ------------------------------------------------------------------------
 -- 2. Every dependent finite refinement is one reversible flat register.
@@ -150,21 +150,21 @@ module _ (c : ℕ) (k : Fin (suc c) → ℕ) where
   -- 3. The residual of coarse observation is exactly the branch.
   --------------------------------------------------------------------------
 
-  micro-fibre≃branch : (y : Coarse)
+  micro-fiber≃branch : (y : Coarse)
     → fiber coarse-micro y ≃ Branch y
-  micro-fibre≃branch y = fiberEquiv Branch y
+  micro-fiber≃branch y = fiberEquiv Branch y
 
-  micro-fibre≃flat-fibre : (y : Coarse)
+  micro-fiber≃flat-fiber : (y : Coarse)
     → fiber coarse-micro y ≃ fiber coarse-flat y
-  micro-fibre≃flat-fibre y =
-    fibre-domain-Equiv flatten coarse-micro (isSetSumFin (suc c)) y
+  micro-fiber≃flat-fiber y =
+    fiber-domain-Equiv flatten coarse-micro (isSetSumFin (suc c)) y
 
-  flat-fibre≃branch : (y : Coarse)
+  flat-fiber≃branch : (y : Coarse)
     → fiber coarse-flat y ≃ Branch y
-  flat-fibre≃branch y =
-    compEquiv (invEquiv (micro-fibre≃flat-fibre y))
-              (micro-fibre≃branch y)
+  flat-fiber≃branch y =
+    compEquiv (invEquiv (micro-fiber≃flat-fiber y))
+              (micro-fiber≃branch y)
 
-  branch≃flat-fibre : (y : Coarse)
+  branch≃flat-fiber : (y : Coarse)
     → Branch y ≃ fiber coarse-flat y
-  branch≃flat-fibre y = invEquiv (flat-fibre≃branch y)
+  branch≃flat-fiber y = invEquiv (flat-fiber≃branch y)

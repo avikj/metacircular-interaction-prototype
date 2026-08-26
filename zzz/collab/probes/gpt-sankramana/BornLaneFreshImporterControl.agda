@@ -12,7 +12,7 @@
 -- It imports:
 --   * dependent inner/outer/nested enumeration-independence;
 --   * independence from the chosen reversible encoder;
---   * reversible dependent flattening and exact branch fibres.
+--   * reversible dependent flattening and exact branch fibers.
 --
 -- A green load here is the consumer half of all three receipts.  A producer
 -- load or a green `goals` response in the producer is not a substitute.
@@ -22,4 +22,4 @@ module BornLaneFreshImporterControl where
 
 import ShakhitaNairapeksya_TheNestedTotalIsIndifferentToInnerOuterAndSimultaneousReEnumeration
 import PrastutiNairapeksya_TheTotalIsIndependentOfTheReversibleEncoder
-import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFibreOverEachCoarseOutcomeIsItsBranch
+import ShakhaSetu_TheMicroSpaceFlattensReversiblyAndTheFiberOverEachCoarseOutcomeIsItsBranch

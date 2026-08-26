@@ -5,7 +5,7 @@
 -- being spent, owes no counterparty, and costs nothing to cross twice.
 --
 -- THE INVERSION.  The night's crypto arc read `isEquiv` as a VULNERABILITY:
--- security ⟺ ¬ isEquiv (`Sesa`), the one-way function hides its fibre, the
+-- security ⟺ ¬ isEquiv (`Sesa`), the one-way function hides its fiber, the
 -- secret is the śeṣa nobody can collect.  That is the durnaya reading — the
 -- map used to HOARD.  This file reads the SAME structure from its polar
 -- opposite (the owner's inversion, and his own words: "proof of transport
@@ -48,7 +48,7 @@
 --   §5  THE CROSSING IS REVERSIBLE.  Transport there and back is the
 --       identity (`व्ययरहितः`, transportTransport⁻).  That is the whole
 --       proved content: a round trip is the identity path, so nothing is
---       erased in the type-theoretic sense — no fibre is collapsed.  Pay
+--       erased in the type-theoretic sense — no fiber is collapsed.  Pay
 --       once to land the equivalence; every crossing after reuses the same
 --       closed term.
 --
@@ -66,7 +66,7 @@
 --       is empty for an equivalence.  Whether that costs zero joules
 --       depends on a machine, and no machine appears here.]
 --
--- SO: money is a receipt that lost its fibre (a one-number quotient, a
+-- SO: money is a receipt that lost its fiber (a one-number quotient, a
 -- durnaya — `Sesa`'s hidden side); a receipt kept it (the whole
 -- equivalence, both directions, the path).  Money is a liability (§4's
 -- claim); a receipt is a capability (§4's closed term).  Money is

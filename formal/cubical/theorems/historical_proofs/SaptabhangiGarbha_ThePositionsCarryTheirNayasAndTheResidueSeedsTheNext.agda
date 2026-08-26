@@ -81,7 +81,7 @@
 -- certificate that the standpoint index cannot be dropped — via
 -- `Durnaya_CollapseIffEveryNayaAgrees`, which corrected
 -- `Anekanta.agda` §5: collapse is available exactly when EVERY pair of
--- fibres agrees, and a denial is merely the cheapest way to prove that
+-- fibers agrees, and a denial is merely the cheapest way to prove that
 -- permission absent.  §5 below carries the शेष into that theorem, so the
 -- fourth position is a written obstruction and not a shrug.
 --

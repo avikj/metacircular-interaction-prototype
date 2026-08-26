@@ -57,7 +57,7 @@
 --
 -- §6 is where the two named modules meet.  `Anekanta`
 -- proves plurality-blocks-collapse: where standpoints disagree there is NO
--- single object equivalent to every fibre.  Applied to a residual family:
+-- single object equivalent to every fiber.  Applied to a residual family:
 -- when a boundary forgets different amounts over different target points,
 -- **the loss cannot be summarised by one object at all** — "the residual"
 -- as a single thing does not exist, and the record must stay pointwise.

@@ -7,17 +7,17 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- README movement 34 says every wall this corpus hit is the same size,
--- ℤ/2, because "ℤ/2 is the smallest possible fibre — the minimal hiding
+-- ℤ/2, because "ℤ/2 is the smallest possible fiber — the minimal hiding
 -- — so the first obstruction any observation meets is a bit."  That is
 -- stated there as a pattern over instances.  Here it is as a theorem, and
 -- it is not about any of those instances:
 --
---   **any failure of injectivity embeds `Bool` into a fibre.**
+--   **any failure of injectivity embeds `Bool` into a fiber.**
 --
--- Given two points the map cannot tell apart, the fibre over their common
+-- Given two points the map cannot tell apart, the fiber over their common
 -- image contains an injective copy of `Bool`.  So there is no such thing
 -- as losing less than one bit: the moment an observation confuses
--- anything at all, a two is sitting inside the fibre, and every larger
+-- anything at all, a two is sitting inside the fiber, and every larger
 -- loss contains this one.
 --
 -- WHICH IS WHY THE FIRST VEIL IS ALWAYS BINARY — not as a coincidence
@@ -29,9 +29,9 @@
 -- RELATION TO `Parampara_…agda`, checked before writing this and cited
 -- rather than rediscovered.  That module constructs `Bool → fiber …`
 -- SPECIFIC to a concrete three-chain, as one half of an iso computing
--- particular fibres.  This is the general statement — any `f`, any pair it
--- confuses — and neither subsumes the other: Parampara computes fibres,
--- this one says every nontrivial fibre contains a two.  Its §६ counting
+-- particular fibers.  This is the general statement — any `f`, any pair it
+-- confuses — and neither subsumes the other: Parampara computes fibers,
+-- this one says every nontrivial fiber contains a two.  Its §६ counting
 -- and this floor are the same fact at two altitudes.
 --
 -- WHAT IS NOT CLAIMED.  Nothing about any of the instances movement 34
@@ -39,7 +39,7 @@
 -- why a particular obstruction is EXACTLY one bit rather than more.  It
 -- says only that one bit is the minimum, and it says nothing about
 -- cardinality, measure, or entropy — "smallest" here means: embeds into
--- every nontrivial fibre, and nothing finer.
+-- every nontrivial fiber, and nothing finer.
 --
 -- CHECKED: Agda 2.6.3 + agda/cubical v0.5, --cubical --safe, no
 -- postulates, no holes, exit 0.
@@ -61,7 +61,7 @@ module _ {A B : Type ℓ} (f : A → B) {a a' : A}
          where
 
 ------------------------------------------------------------------------
--- १ · द्वि-न्यासः — the two points, placed in one fibre.
+-- १ · द्वि-न्यासः — the two points, placed in one fiber.
 ------------------------------------------------------------------------
 
   द्वि-न्यासः : Bool → fiber f (f a)
@@ -69,7 +69,7 @@ module _ {A B : Type ℓ} (f : A → B) {a a' : A}
   द्वि-न्यासः false = a' , sym सङ्करः
 
 ------------------------------------------------------------------------
--- २ · न्यासः निवेशः — and the placement is injective, so the fibre
+-- २ · न्यासः निवेशः — and the placement is injective, so the fiber
 --     genuinely contains a two.  There is no losing less than a bit.
 ------------------------------------------------------------------------
 

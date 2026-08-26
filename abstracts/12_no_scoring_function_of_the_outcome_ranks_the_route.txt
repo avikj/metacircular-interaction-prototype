@@ -41,7 +41,7 @@ exactly the judgement just shown to be undefinable from the signal.  Where
 a skill's precondition contains no free register the histories enabled at
 one state form an entire copy of the term algebra with every member
 producing the same outcome, so a beam or a hash collapses an unbounded
-fibre.
+fiber.
 
 Where preference must come from.  Selection among histories is therefore
 extra-semantic by theorem rather than by omission: the system is

@@ -25,7 +25,7 @@
 --
 --   (x + 1)^2 - (x^2 + 1) = 2x.
 --
--- Thus one execution of successor splits the old square fibre {1,-1}; the
+-- Thus one execution of successor splits the old square fiber {1,-1}; the
 -- new coordinate was calculated from the old sensor and action, not granted
 -- as a cube/sign oracle.  The strict-refinement certificate is an instance
 -- of the independently returned `ActionRefinement` product theorem.
@@ -137,7 +137,7 @@ module DefectCoordinate
   module ResidualProduct = AR.ProductRefinement q residual
 
   -- The executable formation certificate: if one action encounter exposes a
-  -- difference inside an old q-fibre, `(q,residual)` strictly refines q.
+  -- difference inside an old q-fiber, `(q,residual)` strictly refines q.
   collision-forces-residual-formation :
     AR.ActionCollision q after
     → AR.Refines ResidualProduct.joint q

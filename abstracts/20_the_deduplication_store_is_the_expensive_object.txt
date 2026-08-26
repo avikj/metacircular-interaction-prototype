@@ -1,6 +1,6 @@
 AN IDEMPOTENT TOTAL MERGE REMOVES THE DEDUPLICATION STORE, AND WE PROVE
 WHAT DEDUPLICATION WOULD HAVE DESTROYED
-Exactly-once as a quotient over a fibre that is unbounded, with the
+Exactly-once as a quotient over a fiber that is unbounded, with the
 alternative shipped
 
 Stream processing / operation-based pipelines
@@ -10,7 +10,7 @@ keyed by message identity, and the store is where the operational cost
 sits: it must be persisted, checkpointed, bounded, and expired.  We give a
 pipeline in which the store is absent because the merge makes it
 unnecessary, and we prove that the deduplication it replaces is not a
-no-op but a quotient over a fibre we construct and show unbounded.
+no-op but a quotient over a fiber we construct and show unbounded.
 
 The merge is concatenation of libraries of operations, and it has four
 properties we prove rather than assume: it never drops a contribution from
@@ -42,7 +42,7 @@ deduplicator keyed on outcome is not identifying duplicates, it is
 selecting one representative of a class it cannot justify.  We construct
 the class: where an operation.s left-hand side contains no free variable,
 the operations enabled at a single state form an entire copy of the term
-algebra and every member emits the same result, so the fibre over an
+algebra and every member emits the same result, so the fiber over an
 outcome is unbounded.  We also prove that
 length does not factor through the truncation of the history type, so a
 pipeline retaining only the outcome cannot afterwards recover the cost of

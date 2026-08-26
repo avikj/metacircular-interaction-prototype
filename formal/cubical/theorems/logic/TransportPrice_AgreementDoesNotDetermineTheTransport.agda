@@ -79,7 +79,7 @@ private
 
 ------------------------------------------------------------------------
 -- 1.  A transport between two standpoints is an equivalence of their
---     fibres.  `AllNayasAgree` says one exists at every pair; it says
+--     fibers.  `AllNayasAgree` says one exists at every pair; it says
 --     nothing about how many.
 ------------------------------------------------------------------------
 

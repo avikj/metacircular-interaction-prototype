@@ -45,7 +45,7 @@ def valuation(number: int, prime: int) -> int:
 
 def relative_depth(world: Iterable[int], point: int, prime: int,
                    cap: int = 64) -> int:
-    """`D_S(x)`: least k with v_p constant on `S` intersect the depth-k fibre.
+    """`D_S(x)`: least k with v_p constant on `S` intersect the depth-k fiber.
 
     This is `LEARNING_RAISES_DEPTH`'s definition evaluated literally.
     """
@@ -76,12 +76,12 @@ def canonical_depth(prime: int, height: int, time: int) -> int:
     Proof.  Put `x = p^E`, `S_t = {1,...,t}`, `t >= p^E`.
     (a) Depth `E+1` always suffices: `y = x + p^(E+1)m = p^E(u + pm)` with `u`
         a unit, so `v_p(y) = E`.
-    (b) Every depth `k <= E-1` fails: `p^k` lies in the depth-k fibre of `x`
+    (b) Every depth `k <= E-1` fails: `p^k` lies in the depth-k fiber of `x`
         (both are `0 mod p^k`), `p^k <= p^E <= t`, and `v_p(p^k) = k != E`.
-    (c) If `p^E <= t < p^(E+1)`, depth `E` succeeds: the fibre is
+    (c) If `p^E <= t < p^(E+1)`, depth `E` succeeds: the fiber is
         `{m p^E : 1 <= m <= floor(t/p^E)}` with `floor(t/p^E) <= p-1`, so no `m`
         is divisible by `p` and every member has valuation exactly `E`.
-    (d) If `t >= p^(E+1)`, depth `E` fails: `p^(E+1)` is in the depth-E fibre
+    (d) If `t >= p^(E+1)`, depth `E` fails: `p^(E+1)` is in the depth-E fiber
         and has valuation `E+1`.
     Together `D = E` on `[p^E, p^(E+1))` and `E+1` beyond, which is
     `min(floor(log_p t), E+1)`.  []

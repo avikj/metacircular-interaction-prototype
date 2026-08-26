@@ -75,14 +75,14 @@
 --                     standpoint type, any length.  Two profiles, no
 --                     exhaustion, no decidability.
 --   सकलादेशो-न-सङ्गच्छते  the same as a factorisation obstruction.
---   रिक्तं-तन्तुजालम्    and as the statement that the fibre of `denotes`
+--   रिक्तं-तन्तुजालम्    and as the statement that the fiber of `denotes`
 --                     over the demanded content is EMPTY.
 --
 -- THE LAST ONE IS THE POINT, and it is what places अवक्तव्यम् on the scale
--- this corpus has been assembling.  A map's fibre being CONTRACTIBLE is
--- `Loss.Carrier`: nothing lost, the datum rides free.  A fibre with
+-- this corpus has been assembling.  A map's fiber being CONTRACTIBLE is
+-- `Loss.Carrier`: nothing lost, the datum rides free.  A fiber with
 -- MORE than one point is नष्टि: the "which" is destroyed (§४), priced when
--- the fibre is finite and decidable, अप्रतिकार्य when truncated.  A fibre
+-- the fiber is finite and decidable, अप्रतिकार्य when truncated.  A fiber
 -- that is EMPTY is neither: nothing was lost, because nothing was ever
 -- there to lose — the content simply is not in the image of single
 -- utterance.  That is अवक्तव्यम्, and it is why the tradition insists it is
@@ -222,20 +222,20 @@ module _ {S : Type ℓ} where
     एक-वचनेन-न d ha hn v .snd (agrees (एक-वचनेन-न d ha hn v .fst))
 
   ----------------------------------------------------------------------
-  -- ५ · रिक्तं तन्तुजालम् — AND AS A STATEMENT ABOUT A FIBRE.
+  -- ५ · रिक्तं तन्तुजालम् — AND AS A STATEMENT ABOUT A FIBER.
   --
   -- `denotes` sends an utterance to the content it denotes.  §4 says the
-  -- demanded content is NOT IN ITS IMAGE, i.e. the fibre over it is empty.
+  -- demanded content is NOT IN ITS IMAGE, i.e. the fiber over it is empty.
   --
   -- Placed against the rest of the scale:
   --
-  --   fibre contractible   nothing lost.  `Loss.Carrier`; the datum
+  --   fiber contractible   nothing lost.  `Loss.Carrier`; the datum
   --                        is determined and rides free.
-  --   fibre with >1 point  नष्टि: the "which" is destroyed (§४).  Priced
+  --   fiber with >1 point  नष्टि: the "which" is destroyed (§४).  Priced
   --                        when finite and decidable — the कुट्टक's side is
   --                        exactly one bit, and a comparison per step is
   --                        what recovers it.  अप्रतिकार्य when truncated.
-  --   fibre EMPTY          अवक्तव्यम्.  Nothing was lost; nothing was ever
+  --   fiber EMPTY          अवक्तव्यम्.  Nothing was lost; nothing was ever
   --                        there.  The content is not sayable by one
   --                        utterance at all.
   --

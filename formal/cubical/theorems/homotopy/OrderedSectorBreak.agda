@@ -72,7 +72,7 @@
 --                            DIAGONAL pair `(1,1)`, strictly inside the
 --                            positive cone, whose centre image sits on
 --                            the wall `r = 0`.
---       `no-fibrewise-…`     hence, by `sector-not-inv`, no fibrewise
+--       `no-fiberwise-…`     hence, by `sector-not-inv`, no fiberwise
 --                            correspondence of the two predicates exists.
 --
 --   §3  `cone-restricts`     T14.6 sufficient direction, POSITIVELY: Φ
@@ -100,7 +100,7 @@
 --    the sense that its Ψ-image leaves the cone.  Neither says `w > 0` is
 --    uninteresting; it says it is not *the transport of* the cone.
 --
---  * **No converse.**  `SectorBreak` refutes fibrewise correspondence
+--  * **No converse.**  `SectorBreak` refutes fiberwise correspondence
 --    (that is `sector-not-inv`).  It does not refute the existence of
 --    SOME equivalence `Σ Pair PairCone ≃ Σ Centre Sector` — such a thing
 --    may exist and permute the base.  `PerspectiveCore` says exactly this
@@ -269,31 +269,31 @@ module _ (R : CommRing ℓ) where
     break-diagonal p1 p0 =
       (1r , 1r) , ((p1 , p1) , λ z → p0 (subst P (diag0 half 1r) (z .snd)))
 
-    -- … and therefore no fibrewise correspondence of the two predicates
+    -- … and therefore no fiberwise correspondence of the two predicates
     -- exists.  This is `sector-not-inv`, i.e. C14.7's "precisely
     -- because the sector predicate is not invariant".
-    no-fibrewise-diagonal :
+    no-fiberwise-diagonal :
       P 1r → (P 0r → ⊥)
       → ((a : Prs) → PairCone a ≃ CentreCone (equivFun ambient a)) → ⊥
-    no-fibrewise-diagonal p1 p0 =
+    no-fiberwise-diagonal p1 p0 =
       sector-not-inv ambient PairCone CentreCone (break-diagonal p1 p0)
 
     -----------------------------------------------------------------
     -- 3.  T14.6, SUFFICIENT DIRECTION, POSITIVELY.
     --
     -- The ambient equivalence DOES restrict — to `Transported`.  No
-    -- order axiom is used: the fibrewise correspondence is the
+    -- order axiom is used: the fiberwise correspondence is the
     -- transport of `PairCone` along `ΨΦ`, so it holds for an arbitrary
     -- predicate `P`.  The content is that `Transported` is forced: it
     -- is `PairCone ∘ ψ`, which unfolds to `w − r > 0 ∧ w + r > 0`.
     -----------------------------------------------------------------
 
-    cone-fibrewise : (a : Prs) → PairCone a ≃ Transported (equivFun ambient a)
-    cone-fibrewise a =
+    cone-fiberwise : (a : Prs) → PairCone a ≃ Transported (equivFun ambient a)
+    cone-fiberwise a =
       pathToEquiv (cong PairCone (sym (ΨΦ R half half+half a)))
 
     cone-restricts : PositiveCone ≃ (Σ Ctr Transported)
-    cone-restricts = restricts-suff ambient PairCone Transported cone-fibrewise
+    cone-restricts = restricts-suff ambient PairCone Transported cone-fiberwise
 
   -------------------------------------------------------------------
   -- 4.  THE ORDERED INSTANCE, and the second break.
@@ -310,7 +310,7 @@ module _ (R : CommRing ℓ) where
 
     cone-not-invariant :
       ((a : Prs) → PairCone a ≃ CentreCone (equivFun ambient a)) → ⊥
-    cone-not-invariant = no-fibrewise-diagonal pos1 ¬pos0
+    cone-not-invariant = no-fiberwise-diagonal pos1 ¬pos0
 
     -----------------------------------------------------------------
     -- C14.7, SECOND BREAK — the one against the *natural* sector.
@@ -339,7 +339,7 @@ module _ (R : CommRing ℓ) where
   -- unconditionally.  After sector selection the correspondence dies,
   -- and `sector-not-inv` says the death is *exactly* non-invariance of
   -- the predicate: a break is a point of the sector whose image leaves
-  -- it, and that datum alone refutes every fibrewise correspondence.
+  -- it, and that datum alone refutes every fiberwise correspondence.
   --
   -- The two halves side by side, at one order, so a reader sees the
   -- juxtaposition rather than reconstructing it:
@@ -352,7 +352,7 @@ module _ (R : CommRing ℓ) where
     before : Prs ≃ Ctr
     before = ambient
 
-    -- after selection with the same-named predicate: no fibrewise
+    -- after selection with the same-named predicate: no fiberwise
     -- correspondence, and the reason is an exhibited non-invariant point
     after : ((a : Prs) → PairCone a ≃ CentreCone (equivFun ambient a)) → ⊥
     after = cone-not-invariant

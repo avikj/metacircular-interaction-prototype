@@ -17,7 +17,7 @@ The planted-false controls the design requires, and where they are:
    it, must return the lexicographically first witness, and ``decode_exact``
    must refuse to run.
 2. ``test_planted_lossy_decode_returns_a_single_value`` -- a subclass whose
-   ``decode`` returns one state instead of the fibre.  ``validate_channel``
+   ``decode`` returns one state instead of the fiber.  ``validate_channel``
    must catch it on both the type and the partition test.
 3. ``test_planted_precedence_violation_lexical_over_semantic`` -- a chromatic
    channel wired with the lexical layer above the semantic one, so that "blue"
@@ -208,16 +208,16 @@ class TestExactColour(unittest.TestCase):
 
 class TestChannelDiscipline(unittest.TestCase):
 
-    def test_decode_returns_the_fibre_and_the_fibres_partition_the_language(self):
+    def test_decode_returns_the_fiber_and_the_fibers_partition_the_language(self):
         language, chroma = digit_fixture()
         channel = chroma.channel()
         report = validate_channel(channel)
         self.assertTrue(report.ok, report.failures)
         covered = []
         for code in channel.image():
-            fibre = channel.decode(code)
-            self.assertIsInstance(fibre, tuple)
-            covered.extend(fibre)
+            fiber = channel.decode(code)
+            self.assertIsInstance(fiber, tuple)
+            covered.extend(fiber)
         self.assertEqual(sorted(covered), sorted(language.states))
 
     def test_decode_of_an_unseen_code_is_empty_not_a_guess(self):
@@ -236,7 +236,7 @@ class TestChannelDiscipline(unittest.TestCase):
         self.assertEqual(channel.encode(witness.left), channel.encode(witness.right))
         self.assertEqual(channel.encode(witness.left), witness.code)
 
-    def test_fibre_sizes_match_the_closed_form_for_the_carry_channel(self):
+    def test_fiber_sizes_match_the_closed_form_for_the_carry_channel(self):
         """#{w : c_n(w) = k} = (b-1) b^(n-1-k) for k < n, and 1 for k = n."""
         language, chroma = digit_fixture()
         channel = chroma.channel()
@@ -369,12 +369,12 @@ class TestPlantedFalseControls(unittest.TestCase):
             liar.decode_exact(RGB(0, 0, 0))
 
     def test_planted_lossy_decode_returns_a_single_value(self):
-        """``decode`` must return the fibre.  A single guess must be caught."""
+        """``decode`` must return the fiber.  A single guess must be caught."""
 
         class SingleGuessChannel(Channel):
             def decode(self, code, counter=None):  # noqa: D102 - deliberately wrong
-                fibre = super().decode(code, counter)
-                return fibre[0] if fibre else ()
+                fiber = super().decode(code, counter)
+                return fiber[0] if fiber else ()
 
         language = digit_language(BASE, LENGTH)
         cheat = SingleGuessChannel(
@@ -387,8 +387,8 @@ class TestPlantedFalseControls(unittest.TestCase):
         self.assertFalse(report.fibers_partition)
         text = " ".join(report.failures)
         self.assertIn("not a state", text)
-        self.assertIn("fibres cover", text)
-        # and the honest base class does return the fibre for the same encoder
+        self.assertIn("fibers cover", text)
+        # and the honest base class does return the fiber for the same encoder
         honest = Channel(
             name="honest",
             language=language,
@@ -589,7 +589,7 @@ class TestChromaticLayers(unittest.TestCase):
     def test_gamut_clamping_is_counted_and_harmless_to_the_declared_task(self):
         """Layering can push a composed colour out of the sRGB cube.
 
-        That is a third loss source, on top of fibres and 8-bit quantisation,
+        That is a third loss source, on top of fibers and 8-bit quantisation,
         and it is *measured* rather than assumed away.  chroma_carry and
         chroma_borrow never clamp; chroma_orbit clamps on 168 of 256 states,
         because its sort layer overwrites Y on saturated ancestry hues.  The

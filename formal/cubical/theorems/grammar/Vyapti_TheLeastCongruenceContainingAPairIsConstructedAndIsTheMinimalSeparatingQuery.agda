@@ -28,8 +28,8 @@
 -- a law is the failure of its own kernel to be closed under that same step,
 -- which is a finite computation and not a search.
 --
--- The corpus's own name for the general shape is the fibre: a class sees a
--- quotient, and the separating query is what re-enters the fibre.  Here the
+-- The corpus's own name for the general shape is the fiber: a class sees a
+-- quotient, and the separating query is what re-enters the fiber.  Here the
 -- separating query is exhibited rather than asserted to exist.
 module Vyapti_TheLeastCongruenceContainingAPairIsConstructedAndIsTheMinimalSeparatingQuery where
 

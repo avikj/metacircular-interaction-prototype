@@ -111,7 +111,7 @@ _⊓_ : {X : Type₀} → Rel X → Rel X → Rel X
        (λ h k → tr e (fst h) (fst k) , tr f (snd h) (snd k))
 
 -- Kernels are the canonical equivalence relations: `ker c` is exactly
--- what `runtime/render/channel.py` calls the fibre partition of a
+-- what `runtime/render/channel.py` calls the fiber partition of a
 -- channel `c`.  Being an equivalence is path algebra, nothing more.
 ker : {X Y : Type₀} → (X → Y) → Rel X
 ker f x y = f x ≡ f y

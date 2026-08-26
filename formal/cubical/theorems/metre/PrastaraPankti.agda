@@ -55,7 +55,7 @@ open import MeruKarna using (मेरु-कर्ण ; समता-कर्�
 -- (Piṅgala–Halāyudha's meru pratyaya — the count of n-syllable metres with
 -- exactly k guru, PingalaPrastara.meru via Chosen n k ≃ Fin(meru n k) — equals
 -- the binomial C(n,k) (Dvipada, by Pascal), differing only by the order of the
--- two summands in the Pascal step.  So the guru-count fibre IS the binomial.)
+-- two summands in the Pascal step.  So the guru-count fiber IS the binomial.)
 ------------------------------------------------------------------------
 
 मेरु-द्विपदः : (n k : ℕ) → meru n k ≡ C n k

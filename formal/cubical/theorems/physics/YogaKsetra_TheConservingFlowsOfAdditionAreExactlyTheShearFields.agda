@@ -6,7 +6,7 @@
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS.  `Dhruva_….agda` proves the frame (conservation acts
--- inside the fibres; lossless forces Φ ≡ id) and `YogaDhruva_….agda`
+-- inside the fibers; lossless forces Φ ≡ id) and `YogaDhruva_….agda`
 -- instantiates it (fiber योग n is a ℤ-torsor under the shears) — and its
 -- own header fences that it did NOT classify the conserving
 -- endomorphisms.  This module is that classification, for this
@@ -25,7 +25,7 @@
 --
 -- Read with Dhruva §२ this exhibits the two poles of one statement: a
 -- LOSSLESS observable has a contractible flow space (Φ ≡ id, nothing
--- hidden, no room to move), and THIS cut — each fibre a full R-torsor —
+-- hidden, no room to move), and THIS cut — each fiber a full R-torsor —
 -- has a flow space as large as a function space.  The freedom of a cut
 -- is measured by its conserving flows, and here the measure is exact.
 --
@@ -70,7 +70,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.CommRing.Instances.Int
 open import Cubical.Tactics.CommRingSolver.Reflection
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
 
 module क्षेत्रम् {ℓ : Level} (R' : CommRing ℓ) where
 

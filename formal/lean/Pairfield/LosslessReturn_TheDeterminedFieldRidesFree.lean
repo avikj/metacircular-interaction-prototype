@@ -3,13 +3,13 @@ import Mathlib.Logic.Equiv.Basic
 import Mathlib.Logic.Unique
 
 /-!
-# पुनरागमन — the determined field rides free, and the other fibre is where it stops
+# पुनरागमन — the determined field rides free, and the other fiber is where it stops
 
 ## On the name, and what is and is not claimed
 
 *Punarāgamana* (पुनरागमन), "coming back again / return", is used here as the
-name of a module family, following `loss/` and
-`fibre/src/Fibre/Carrier.agda` in this repository. **The compound
+name of a module family, following `fiber/` and
+`fiber/src/Fiber/Carrier.agda` in this repository. **The compound
 is chosen here; no text and no source is claimed for it**, and naming a module
 for it asserts nothing about any tradition's authorship of the theorem below.
 The contrast the name is for is नष्टि (destruction), which is अप्रतिकार्य — the
@@ -36,9 +36,9 @@ Given `f : A → B`, a `Carrier f` holds three fields:
 
 and `Carrier f ≃ A`. The `carried` and `witness` fields are real terms you can
 project and compute with, and they contribute **zero further degrees of
-freedom**, because the graph fibre
+freedom**, because the graph fiber
 
-    Fibre f a  =  { b : B // f a = b }
+    Fiber f a  =  { b : B // f a = b }
 
 is a singleton (`Unique`, below). Nothing is amputated and nothing is falsely
 advertised as independent.
@@ -53,11 +53,11 @@ this lane, is that an `Equiv` transports *statements* quantified over the type:
 `Carrier.factors_through_base` below is the specific consequence that any
 function of a whole Carrier is a function of its base alone.
 
-## The other fibre — the half that does the work
+## The other fiber — the half that does the work
 
-There are two fibres of one map `f`, and they are not the same shape:
+There are two fibers of one map `f`, and they are not the same shape:
 
-* the **graph** fibre `{ b // f a = b }`, over a point of `A`, is always a
+* the **graph** fiber `{ b // f a = b }`, over a point of `A`, is always a
   singleton — this is the Carrier law;
 * the **preimage** `{ a // f a = b }`, over a point of `B`, is in general
   neither a singleton nor inhabited.
@@ -66,7 +66,7 @@ A quantity computed from the base descends to the carried datum **iff** it is
 constant on preimages, and `not_factors_through` is that obstruction stated as
 a theorem: one preimage with two points of different `g`-value kills every
 decoder. So a `Carrier` and a no-decoder theorem about the same `f` are not two
-unrelated facts. They are the two fibres, and the second is exactly where the
+unrelated facts. They are the two fibers, and the second is exactly where the
 first stops.
 -/
 
@@ -105,21 +105,21 @@ def equivBase (f : A → B) : Carrier f ≃ A where
   left_inv := descend_base_eq
   right_inv _ := rfl
 
-/-- The graph fibre over a base point. -/
-def Fibre (f : A → B) (a : A) : Sort _ := { b : B // f a = b }
+/-- The graph fiber over a base point. -/
+def Fiber (f : A → B) (a : A) : Sort _ := { b : B // f a = b }
 
 /-- …and it is a singleton. Everything above is a consequence of this line. -/
-instance fibreUnique (f : A → B) (a : A) : Unique (Fibre f a) where
+instance fiberUnique (f : A → B) (a : A) : Unique (Fiber f a) where
   default := ⟨f a, rfl⟩
   uniq x := Subtype.ext x.2.symm
 
-/-- The preimage fibre over a carried point. Nothing says this is a singleton,
+/-- The preimage fiber over a carried point. Nothing says this is a singleton,
 and where it is not, the Carrier law stops. -/
 def Preimage (f : A → B) (b : B) : Sort _ := { a : A // f a = b }
 
-/-- A Carrier is a base point together with a point of its graph fibre. -/
+/-- A Carrier is a base point together with a point of its graph fiber. -/
 def equivSigma {A : Type u} {B : Type v} (f : A → B) :
-    Carrier f ≃ Σ a : A, Fibre f a where
+    Carrier f ≃ Σ a : A, Fiber f a where
   toFun c := ⟨c.base, c.carried, c.witness⟩
   invFun p := ⟨p.1, p.2.1, p.2.2⟩
   left_inv _ := rfl

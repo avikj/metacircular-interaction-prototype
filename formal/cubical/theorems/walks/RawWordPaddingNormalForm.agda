@@ -4,7 +4,7 @@
 -- A raw little-endian digit word is uniquely a canonical numeral followed
 -- by a finite run of zero digits at its most-significant end.
 --
--- This is a statement about the fibres of the positional chart `value`.
+-- This is a statement about the fibers of the positional chart `value`.
 -- It does not compute their automorphism groups, preserve concatenation, or
 -- identify the finite-word presentation with a digit tower.
 ------------------------------------------------------------------------

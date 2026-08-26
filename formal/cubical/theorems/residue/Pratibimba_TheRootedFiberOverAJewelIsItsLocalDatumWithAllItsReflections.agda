@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- प्रतिबिम्ब — the reflection.  The rooted fibre over a jewel IS that
+-- प्रतिबिम्ब — the reflection.  The rooted fiber over a jewel IS that
 -- jewel's local datum together with all its reflections.
 --
 -- SOURCE / SCOPE.  The metaphor is इन्द्रजाल, Indra's net: at every knot
@@ -18,7 +18,7 @@
 -- "closing the loop with T25.B":
 --
 --   T25.B  Rooted.rootFiber x : fiber unroot x ≃ Net x
---            — the fibre of the rooted totalization Σ x . Net x over a
+--            — the fiber of the rooted totalization Σ x . Net x over a
 --              jewel x is "the net as seen from this jewel".
 --   T25.D  netUnfold       x : Net x ≃ (L x × ((y : J) → Net y))
 --            — the guarded Indra equation: a jewel unfolds into its own
@@ -72,7 +72,7 @@ module _ {J : Type ℓ} (L : J → Type ℓ') where
   Root≡IndraRoot : Root ≡ IndraRoot
   Root≡IndraRoot = refl
 
-  -- THE CLOSED GAP.  Fibre-over-a-jewel (T25.B) composed with the guarded
+  -- THE CLOSED GAP.  Fiber-over-a-jewel (T25.B) composed with the guarded
   -- unfolding (T25.D): to lie over x in the rooted net is exactly to be
   -- x's local datum together with the whole net's reflection.
   pratibimba : (x : J)

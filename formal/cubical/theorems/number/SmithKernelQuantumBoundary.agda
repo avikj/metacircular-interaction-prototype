@@ -10,7 +10,7 @@
 --     2x = b₁,  2y = b₂  (mod 30),
 --
 -- each scalar equation has a two-element homogeneous kernel, so the joint
--- solution fibre is (Z/2)².  We model that kernel by Bool × Bool.  The map
+-- solution fiber is (Z/2)².  We model that kernel by Bool × Bool.  The map
 -- from a solution state to its retained output therefore needs a four-state
 -- environment, in the precise type-level sense that Bool × Bool embeds into
 -- every exact certificate alphabet.  The kernel coordinate itself attains

@@ -5,7 +5,7 @@ Released under Apache 2.0 license.
 The exact timing adapter between the repository's Moore-style adaptive trees
 and the post-action output trees used by classical adaptive-distinguishing-
 sequence theory.  The current observation is free, so post-action responses
-need only identify each current-observation fibre.
+need only identify each current-observation fiber.
 -/
 import Pairfield.AdaptiveBranchResidual
 
@@ -28,7 +28,7 @@ def IdentifiesInitialFibers (step : X → A → X) (observe : X → Bool)
     left = right
 
 /-- Native trace injectivity is exactly post-action response injectivity on
-each fibre of the free current observation.  No step is added to the cost. -/
+each fiber of the free current observation.  No step is added to the cost. -/
 theorem identifiesAll_iff_identifiesInitialFibers
     (step : X → A → X) (observe : X → Bool)
     (tree : BoolExperimentTree A) :
@@ -38,14 +38,14 @@ theorem identifiesAll_iff_identifiesInitialFibers
   · intro hinjective left right hnow hresponses
     apply hinjective
     simp only [trace, hnow, hresponses]
-  · intro hfibres left right htrace
+  · intro hfibers left right htrace
     have hnow : observe left = observe right := by
       exact List.cons.inj (by simpa [trace] using htrace) |>.1
     have hresponses :
         tree.responses step observe left =
           tree.responses step observe right := by
       exact List.cons.inj (by simpa [trace] using htrace) |>.2
-    exact hfibres hnow hresponses
+    exact hfibers hnow hresponses
 
 end BoolExperimentTree
 
@@ -107,7 +107,7 @@ theorem done_postResponses_not_injective :
   exact Bool.false_ne_true (hinjective heq)
 
 /-- The repaired all-reachable `1 < 2` witness satisfies the exact
-initial-fibre ADS obligation, with no timing correction to its depth. -/
+initial-fiber ADS obligation, with no timing correction to its depth. -/
 example :
     BoolExperimentTree.IdentifiesInitialFibers
       ReachableAdaptiveObservableHorizonWitness.step

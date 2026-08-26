@@ -38,19 +38,19 @@
 --                  are connected, every point-census agrees, and the
 --                  loop charge ℤ separates them.
 --   गहनता-०/१/२    the three descent no-gos: families over one blind
---                  pair whose fibres disagree first at existence
+--                  pair whose fibers disagree first at existence
 --                  (Unit/⊥), at components (Bool/Unit), at loops
 --                  (S¹/Unit).  Each is one application of the landed
 --                  no-go; the third is the sharpest — a base that
 --                  correctly reports "a witness exists, and the
 --                  witness space is connected" still cannot host the
---                  family, because the fibres differ in their loops.
+--                  family, because the fibers differ in their loops.
 --
 -- WHAT IS NOT CLAIMED.  The full indexed theorem ("for every n a pair
 -- first failing at stratum n", via Sⁿ/Unit) is stated by the
 -- transmission and NOT proved here — only rungs 0, 1, 2.  Nor is the
 -- truncation-refinement ("τₙ₋₁F descends while τₙF does not") proved:
--- what is proved is fibre non-equivalence at each rung, which by
+-- what is proved is fiber non-equivalence at each rung, which by
 -- अवतरण-भङ्ग-सामान्यम् refutes descent of the full family.  The
 -- truncated-family analysis is owed above this stone.
 ------------------------------------------------------------------------
@@ -123,12 +123,12 @@ open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIs
 -- ३ · the ladder: one blind pair, three families, three strata.
 ------------------------------------------------------------------------
 
--- rung 0 — the fibres disagree at existence (this is अधिकारभङ्गः above,
+-- rung 0 — the fibers disagree at existence (this is अधिकारभङ्गः above,
 -- named into the ladder):
 गहनता-० : ¬ DependentFactorsThrough दर्शनम् अधिकारः
 गहनता-० = अधिकारभङ्गः
 
--- rung 1 — both fibres inhabited; they disagree at π₀:
+-- rung 1 — both fibers inhabited; they disagree at π₀:
 घटकाः : गूढम् → Type
 घटकाः true  = Bool
 घटकाः false = Unit
@@ -136,7 +136,7 @@ open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIs
 गहनता-१ : ¬ DependentFactorsThrough दर्शनम् घटकाः
 गहनता-१ = अवतरण-भङ्ग-सामान्यम् दर्शनम् घटकाः true false refl द्वि-एक-भेदः
 
--- rung 2 — both fibres inhabited AND connected; they disagree at π₁.
+-- rung 2 — both fibers inhabited AND connected; they disagree at π₁.
 -- A base that truthfully reports "a witness exists and the witness
 -- space is in one piece" still cannot host the family.
 वलयाः : गूढम् → Type

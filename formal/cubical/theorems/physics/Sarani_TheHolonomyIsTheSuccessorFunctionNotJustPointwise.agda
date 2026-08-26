@@ -17,7 +17,7 @@ module Sarani_TheHolonomyIsTheSuccessorFunctionNotJustPointwise where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Int using (ℤ ; sucℤ)
-open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFibreShiftedSoTheHolonomyIsInhabited
+open import Pradakshina_TheCircuitReturnsToTheBasePointWithTheFiberShiftedSoTheHolonomyIsInhabited
   using (प्रदक्षिणा ; सरणिः)
 
 प्रदक्षिणा≡सुच् : प्रदक्षिणा ≡ sucℤ

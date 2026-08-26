@@ -224,7 +224,7 @@ insideViewS¹ : (a : S¹) → isContr (Σ[ x ∈ S¹ ] (a ≡ x))
 insideViewS¹ = insideView
 
 -- RETIRED CLAIM (false, corrected 2026-08-14): this comment formerly called
--- `Retracts₀` a global section of the contractible `insideView` fibres and
+-- `Retracts₀` a global section of the contractible `insideView` fibers and
 -- inferred that the section fails for S¹.  Those are different data types.
 -- The actual dependent section space `(a : A) → Σ[ x ∈ A ] (a ≡ x)` is
 -- contractible for every A; `Retracts₀ A` is left-inverse data for the

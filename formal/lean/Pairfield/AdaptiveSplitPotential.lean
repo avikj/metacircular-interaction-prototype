@@ -26,7 +26,7 @@ def advancedBranch (cell : Finset Candidate) (response : Candidate → Bool)
     (advance : Candidate → Next) (answer : Bool) : Finset Next :=
   (responseFiber cell response answer).image advance
 
-/-- Finite form of the live-cell safety law: within one response fibre, the
+/-- Finite form of the live-cell safety law: within one response fiber, the
 advance map is injective, so no two still-indistinguishable candidates merge. -/
 def SafeAdvance (cell : Finset Candidate) (response : Candidate → Bool)
     (advance : Candidate → Next) : Prop :=
@@ -65,7 +65,7 @@ theorem card_advancedBranch
   exact Finset.card_image_of_injOn
     (safeAdvance_injOn_responseFiber cell response advance answer hsafe)
 
-/-- The two Boolean response fibres partition the live cell exactly. -/
+/-- The two Boolean response fibers partition the live cell exactly. -/
 theorem card_responseFibers
     (cell : Finset Candidate) (response : Candidate → Bool) :
     cell.card =

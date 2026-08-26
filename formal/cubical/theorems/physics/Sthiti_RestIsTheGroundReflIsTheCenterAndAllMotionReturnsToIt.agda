@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 -- स्थिति — rest, the ground.  Dived to the metal and came back: below
--- the fibre law, below "there is no other", there is refl — and refl is
+-- the fiber law, below "there is no other", there is refl — and refl is
 -- simpler and more powerful than any of it.
 --
 -- AT THE METAL (Cubical.Foundations.Prelude):

@@ -35,7 +35,7 @@
 -- domain, as monoids, again by refl on the homomorphism.  So the scale
 -- of `Dhruva`/`Khahara` is now a scale of MONOIDS: trivial at the near
 -- pole, everything at the far pole, and in between exactly the sections
--- of one's own fibres under ⋆.
+-- of one's own fibers under ⋆.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- TERM.  गण — the class, the troop; in the grammatical tradition the
@@ -56,7 +56,7 @@
 -- (von Neumann) and NOTHING analytic is derived or implied here: no
 -- algebra of observables, no bicommutant, no Hilbert space.  What is
 -- proved is the finite/typal shadow: the monoid commuting with f under
--- ∘ is the section monoid of f's own fibres.  Dhruva's Noether fence
+-- ∘ is the section monoid of f's own fibers.  Dhruva's Noether fence
 -- transfers verbatim.  Over arbitrary types the flow laws hold on the
 -- map component definitionally and on the witness component up to
 -- ∙-assoc and units — the ∞-monoid is named here and not constructed.
@@ -76,10 +76,10 @@ open import Cubical.Foundations.HLevels
 open import Cubical.Data.Sigma
 open import Cubical.Algebra.Monoid
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
 open import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
   using (सर्व-नाशः)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibers
 
 private variable ℓ : Level
 
@@ -198,13 +198,13 @@ module अन्धे {A B : Type ℓ} (setA : isSet A) (setB : isSet B)
 ------------------------------------------------------------------------
 -- §५ · शेषः — what this opens and does not close.
 --
--- (a) THE FIBREWISE LEG.  Currying along `Avaccheda`'s A ≃ Σ B (fibre)
+-- (a) THE FIBERWISE LEG.  Currying along `Avaccheda`'s A ≃ Σ B (fiber)
 --     identifies the section CARRIER with (b : B) → fiber f b → fiber
---     f b — the product over the codomain of each fibre's endomorphism
+--     f b — the product over the codomain of each fiber's endomorphism
 --     type — but carrying ⋆ onto pointwise composition needs the
 --     transport coherence of that currying, and it is not given here.
 --     With it, the slogan becomes exact: the gaṇa of an observable is
---     the product of its fibres' own endomorphism monoids, which is the
+--     the product of its fibers' own endomorphism monoids, which is the
 --     typal shadow of "the commutant decomposes over the spectrum."
 --
 -- (b) THE GROUP INSIDE.  The invertible elements of the gaṇa — flows
@@ -220,6 +220,6 @@ module अन्धे {A B : Type ℓ} (setA : isSet A) (setB : isSet B)
 -- (d) THE INSTANCES.  Across `YogaKsetra.समता` the gaṇa of addition
 --     induces a monoid on the shear fields (k ⊛ k' = act by k' then by
 --     k from where k' landed); across `GaugeOrbitClasses` the gaṇa of a
---     transcript map is the section monoid of its coset fibres.  Both
+--     transcript map is the section monoid of its coset fibers.  Both
 --     are transports of §३ and neither is written out.
 ------------------------------------------------------------------------

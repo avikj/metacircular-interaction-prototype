@@ -324,8 +324,8 @@ record Laghava {Op : Type ℓ} (M : MonoidMachine Op) : Type ℓ where
 -- and no memory, becomes a PATH — and every route that produced it is
 -- gone, not by omission but because the destination type has no room for
 -- it.  `Asesa_…` measures the loss exactly: soundness lands in a
--- proposition, so the fibre over any meaning is the WHOLE derivation
--- type, and by §5 that fibre is graded while the meaning is not.
+-- proposition, so the fiber over any meaning is the WHOLE derivation
+-- type, and by §5 that fiber is graded while the meaning is not.
 --
 -- The interface consequence, and it is mechanical: any wire that returns
 -- a transport returns something §4 proves is priceless — and therefore

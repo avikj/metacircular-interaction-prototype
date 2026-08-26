@@ -59,13 +59,13 @@
 --       theorem shows no NativeOperation whatsoever covers even two of them.
 --
 --   §4  every-substitution-is-enabled, all-collapse-to-one-output
---       The fibre reading, which is why the substitution witness may not be
+--       The fiber reading, which is why the substitution witness may not be
 --       thrown away.  `apply` does not consume `u`.  For a schema whose
 --       left-hand side contains no `var`, the enabled set at its one context
 --       is a whole copy of `Tm` and every member emits the same output: the
---       fibre over an emission is infinite.  `GenerativeKernel.run-targets`
+--       fiber over an emission is infinite.  `GenerativeKernel.run-targets`
 --       exhibits the two-element case of this (two histories, one target);
---       here it is unbounded.  Collapsing that fibre is the loss the carrier
+--       here it is unbounded.  Collapsing that fiber is the loss the carrier
 --       law prices, and the reason `advance` refuses to dedupe.
 --
 -- NOT CLAIMED.  No decision procedure for `Control` is given, so nothing
@@ -259,10 +259,10 @@ no-native-operation-does-this op c₀ c₁ =
   ctx₀≢ctx₁ (enabled-set-is-subsingleton op c₀ c₁)
 
 ------------------------------------------------------------------------
--- §4.  THE FIBRE.  `apply` never consumes `u`, so the enabled set maps
+-- §4.  THE FIBER.  `apply` never consumes `u`, so the enabled set maps
 -- many-to-one onto emissions.  When the schema's left-hand side contains no
 -- `var`, every substitution is enabled at one and the same context and all
--- of them emit the same term: the fibre over that emission is a whole copy
+-- of them emit the same term: the fiber over that emission is a whole copy
 -- of `Tm`.  `GenerativeKernel.run-targets` is the two-element case of
 -- exactly this, and it is why `advance` is forbidden to dedupe.
 ------------------------------------------------------------------------

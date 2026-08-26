@@ -200,6 +200,6 @@ categories-agree-on-two-points dY dT q t =
 --
 -- Until someone who can read the paper compares them, NO NOVELTY IS
 -- CLAIMED for anything below.  The theorems are about observables,
--- fibres and Bool-valued models and are unaffected; what is owed is a
+-- fibers and Bool-valued models and are unaffected; what is owed is a
 -- citation check, not a withdrawal.
 ------------------------------------------------------------------------

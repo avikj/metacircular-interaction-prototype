@@ -254,7 +254,7 @@ open import SaptabhangiNaya
 शून्य≢एकम् : ¬ (pos 0 ≡ pos 1)
 शून्य≢एकम् p = false≢true (cong एकम्? p)
 
--- Two distinct values both satisfy it, so the fibre is not a singleton.
+-- Two distinct values both satisfy it, so the fiber is not a singleton.
 -- THIS is the defect at 0÷0, and it is not the defect at avaktavyam.
 शून्यहरः-अनेकम् :
   Σ[ x ∈ ℤ ] Σ[ y ∈ ℤ ]

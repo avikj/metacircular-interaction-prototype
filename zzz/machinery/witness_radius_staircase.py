@@ -122,7 +122,7 @@ def predicted_staircase(radii: Sequence[int]) -> list[int]:
 def relative_depth(f: Callable[[int], int], world: Iterable[int], x: int,
                    prime: int, cap: int) -> int:
     """`D_S(x)`: least `k` with `v_p(f(.))` constant on `S` cap the depth-`k`
-    fibre of `x`.  A literal evaluation of the corpus definition."""
+    fiber of `x`.  A literal evaluation of the corpus definition."""
     world = list(world)
     target = valuation(f(x), prime)
     for k in range(cap + 1):

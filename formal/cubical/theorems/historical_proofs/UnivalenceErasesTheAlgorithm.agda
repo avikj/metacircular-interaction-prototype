@@ -47,7 +47,7 @@
 -- That is not a complaint about univalence.  It is the same observation
 -- `Laghava` makes about denotations, at the scale of whole traditions:
 -- the equality is real, and the mathematics that differs between naṣṭa
--- and CRT lives entirely in the fibre the equality collapses.
+-- and CRT lives entirely in the fiber the equality collapses.
 --
 -- WHICH IS WHY PĀṆINI'S CRITERION IS NOT OPTIONAL.  A tradition that
 -- could only see denotations would have no reason to prefer naṣṭa to a
@@ -109,7 +109,7 @@ vak1≡metre2 = same-count→same-type 1 2 count-1-2
 --
 -- `uaβ` — transporting along `ua e` is applying `e`.  So the path carries
 -- the equivalence and nothing else: not the halving, not the recurrence,
--- not the coprime splitting.  The algorithms are in the fibre the
+-- not the coprime splitting.  The algorithms are in the fiber the
 -- identification collapses.
 ------------------------------------------------------------------------
 

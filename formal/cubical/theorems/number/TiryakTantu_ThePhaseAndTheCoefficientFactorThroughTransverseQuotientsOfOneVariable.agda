@@ -10,7 +10,7 @@
 -- WHAT THIS IS.  Not a hardness result — §५ is explicit that hardness here is
 -- a property of the LANGUAGE and not of the object.  It is the statement that
 -- two customary projections are lossy, so that working inside either one is
--- looking into a fibre that is provably nonempty.  The residual form the
+-- looking into a fiber that is provably nonempty.  The residual form the
 -- corpus has compressed the frontier to is
 --
 --   𝔇_a(L) = Σ_{u,v<L, uv≳L} b_a(u) b_a(v) Σ_{|k|≲uv/L} W(·) e(−2ak ū/v),
@@ -33,7 +33,7 @@
 -- The consequence is not "be careful".  It is: any argument that fixes one
 -- reading and averages over the other has passed to a quotient on which the
 -- second does not descend, and by `तन्तौ-अन्धः` everything computed
--- afterwards is constant on that quotient's fibres.  Fixing the residue class
+-- afterwards is constant on that quotient's fibers.  Fixing the residue class
 -- and summing the coefficients loses μ; fixing the factorisation type and
 -- summing the classes loses the phase.  The theorem must live on the JOINT
 -- object — Möbius weights distributed over residue classes to modulus v — and
@@ -53,7 +53,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; znots ; injSuc)
 open import Cubical.Data.Empty using (⊥)
 
-open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense
+open import ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibersSoASeparatedBlindPairCertifiesANewSense
   using (प्रवहति ; तन्तौ-अन्धः ; अपूर्वम्)
 
 ------------------------------------------------------------------------
@@ -140,10 +140,10 @@ data चिह्नम् : Type where
 -- ५ · तत्फलम् — what this settles, and where it puts the frontier
 --
 -- Fixing the residue class and summing the coefficients passes to `शेषः`, on
--- whose fibres μ is not constant (§३a), so everything computed afterwards is
--- one value for a fibre containing both signs — `तन्तौ-अन्धः`.  Fixing the
+-- whose fibers μ is not constant (§३a), so everything computed afterwards is
+-- one value for a fiber containing both signs — `तन्तौ-अन्धः`.  Fixing the
 -- factorisation type and summing over classes passes to `म्यू`, on whose
--- fibres the phase is not constant (§३b), with the same consequence.  Both
+-- fibers the phase is not constant (§३b), with the same consequence.  Both
 -- projections are therefore closed, and closed for the same reason.
 --
 -- AND THE MORAL IS NOT "THIS IS HARD".  Read §४ again: both statements are
@@ -153,7 +153,7 @@ data चिह्नम् : Type where
 -- object — the object never lost anything.
 --
 -- सूत्र ५ names it exactly.  Working in either projection is **bind a**: fix
--- the class or fix the factorisation type, and what you get back is a fibre
+-- the class or fix the factorisation type, and what you get back is a fiber
 -- you must now fight to see into.  Carrying the pair is **bind b**: the datum
 -- rides along as a field, `Σ[ o ∈ O ] (S u ≡ o)` is contractible always, and
 -- there is nothing to recover because nothing was discarded.  शेषं रक्ष — a
@@ -172,7 +172,7 @@ data चिह्नम् : Type where
 -- That is a claim about where to work, and it is cheap to state and not cheap
 -- to cash: §४ proves the projections are lossy, it does not supply the joint
 -- calculus.  But it does say that looking for a cleverer argument INSIDE
--- either projection is looking inside a fibre this module proved is nonempty.
+-- either projection is looking inside a fiber this module proved is nonempty.
 --
 -- मर्यादा, at the site.  §४ is proved AT v = 5 with four small integers.  It
 -- establishes that the two readings are transverse — that no general

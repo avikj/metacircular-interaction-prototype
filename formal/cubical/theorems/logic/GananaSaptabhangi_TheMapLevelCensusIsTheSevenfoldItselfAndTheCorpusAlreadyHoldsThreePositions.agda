@@ -18,16 +18,16 @@
 --     विकलादेश somewhere   ↔  नास्ति      (something lost, exhibited)
 --     अवक्तव्यम् somewhere  ↔  अवक्तव्य    (something the source cannot utter)
 --
--- following the note's own readings (empty fibre = avaktavya, धनात्मकम्;
+-- following the note's own readings (empty fiber = avaktavya, धनात्मकम्;
 -- crowded = the loss).
 --
 -- THE THREE WITNESSES, all already in the corpus, now classified:
 --
---   id : Bool → Bool     every fibre contractible          → pure अस्ति
---   एकम् : Bool → Unit    every fibre crowded               → pure नास्ति
+--   id : Bool → Bool     every fiber contractible          → pure अस्ति
+--   एकम् : Bool → Unit    every fiber crowded               → pure नास्ति
 --   asNat : Bool → ℕ     contractible at 0,1; empty above;
 --                        NEVER crowded (injectivity ⟹ the
---                        fibres are propositions)          → अस्ति-अवक्तव्य
+--                        fibers are propositions)          → अस्ति-अवक्तव्य
 --
 -- Three maps, three DIFFERENT bhaṅgas, each coordinate a term.  The
 -- remaining four positions are combinations awaiting their canonical
@@ -88,7 +88,7 @@ private
 न-क्वचित्-बहु {B = B} f = (b : B) → (x y : शेष f b) → x ≡ y
 
 ------------------------------------------------------------------------
--- २ · WITNESS ONE — pure अस्ति: the identity.  Every fibre contractible;
+-- २ · WITNESS ONE — pure अस्ति: the identity.  Every fiber contractible;
 -- this is `isEquiv id`, read as the first bhaṅga.
 ------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ fst (एकत्व-अस्ति b) = b , refl
 snd (एकत्व-अस्ति b) (a , p) i = p (~ i) , λ j → p (~ i ∨ j)
 
 ------------------------------------------------------------------------
--- ३ · WITNESS TWO — pure नास्ति: एकम् : Bool → Unit.  Every fibre crowded,
+-- ३ · WITNESS TWO — pure नास्ति: एकम् : Bool → Unit.  Every fiber crowded,
 -- the two points named, their distinctness a term.
 ------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ snd (एकत्व-अस्ति b) (a , p) i = p (~ i) , λ j → p (~ i �
 ------------------------------------------------------------------------
 -- ४ · WITNESS THREE — अस्ति-अवक्तव्य, the FIFTH bhaṅga: asNat.
 -- Contractible somewhere (अस्ति), empty somewhere (अवक्तव्य), and NEVER
--- crowded — injectivity into a set makes every fibre a proposition, so
+-- crowded — injectivity into a set makes every fiber a proposition, so
 -- the नास्ति coordinate is refuted, not merely unexhibited.
 ------------------------------------------------------------------------
 
@@ -142,7 +142,7 @@ asNat-अस्ति-अवक्तव्यम् = asNat-अस्ति , a
 ------------------------------------------------------------------------
 -- ५ · the three witnesses occupy three DISTINCT selections — stated as
 -- terms, so the classification genuinely separates them:
--- the identity has no empty fibre; एकम् has no contractible fibre.
+-- the identity has no empty fiber; एकम् has no contractible fiber.
 ------------------------------------------------------------------------
 
 एकत्व-न-अवक्तव्य : ¬ अवक्तव्य-क्वचित् (λ (b : Bool) → b)

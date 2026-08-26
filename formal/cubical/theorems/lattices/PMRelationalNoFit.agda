@@ -5,7 +5,7 @@
 --
 -- The Peres--Mermin no-section theorem does NOT instantiate the S¹
 -- RelativeProcess obstruction by simply taking measurement contexts as the
--- base and contextwise satisfying assignments as fibres.
+-- base and contextwise satisfying assignments as fibers.
 --
 -- That naive dependent family has a global section: `local-section` chooses
 -- an assignment independently in every context.  PMCokernel's actual global

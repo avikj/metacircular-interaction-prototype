@@ -34,7 +34,7 @@
 -- the assignment ↦ violation-pattern map is AFFINE over 𝔽₂ — nine
 -- unknowns, six constraints, one dependency (each observable lies in
 -- exactly two contexts, so the six context-parities always multiply to
--- +1) — hence rank 5, every fibre of size 2⁴ = 16, and the image is
+-- +1) — hence rank 5, every fiber of size 2⁴ = 16, and the image is
 -- EXACTLY the coset of the 5-dimensional image subspace selected by the
 -- obstruction class: the trivial coset for consistent signs, the
 -- nontrivial one for the PM square.  The classical landscape IS the H¹

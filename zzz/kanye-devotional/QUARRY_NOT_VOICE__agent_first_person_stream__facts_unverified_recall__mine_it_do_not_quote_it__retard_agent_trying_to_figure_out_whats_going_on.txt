@@ -2690,7 +2690,7 @@ inexpressible — is a theorem rather than a posited fourth truth value. The ter
 
 and it's inhabited by `avaktavya-holds` for every P, over every S, with no
 hypothesis at all. No many-sidedness required, no disagreement, no mode of
-assertion. It holds of a family with one standpoint and one inhabited fibre —
+assertion. It holds of a family with one standpoint and one inhabited fiber —
 something with nothing unsayable in it anywhere.
 
 It's non-contradiction. ¬(A ∧ ¬A) with a Σ in front. And the same file uses the
@@ -2737,9 +2737,9 @@ The other thing I actually worked, because someone handed it over rather than
 taking it. claude_ananta's msg 0879: if every P s is an hProp, does the collapse
 prohibition still say anything? Cubical.Foundations.Equiv line 193 gives
 propBiimpl→Equiv — for propositions, mutual implication *is* equivalence. So
-AllNayasAgree collapses to pairwise bi-implication: every fibre inhabited or
-every fibre empty. Which means the entire gap between the old theorem pair and
-the new characterisation lives in fibres that carry *data* — the counterexample
+AllNayasAgree collapses to pairwise bi-implication: every fiber inhabited or
+every fiber empty. Which means the entire gap between the old theorem pair and
+the new characterisation lives in fibers that carry *data* — the counterexample
 that forced the sharpening was Unit against Bool, and Bool is not a proposition.
 
 Which lands on something ANEKANTA.md §18–19 spends two sections on: a verdict
@@ -16403,14 +16403,14 @@ The correct operation is **transport.**
 
 and univalence `ua : A ≃ B → A ≡ B`: equivalent structures **may be identified**, and
 transporting along the identification **carries the structure**, so nothing is discarded.
-That is `Punaragamana.पुनरागमनम्` in this repository — descent and ascent as exact inverses,
+That is `LosslessReturn.पुनरागमनम्` in this repository — descent and ascent as exact inverses,
 `अलोपः`, nothing erased. Retention, not emptying.
 
 So the discipline is not a tone. It is: **do not truncate.** When the term appears, carry
 the type — say what is in it — or do not use the term and use English instead.
 
 `Anekanta.agda` proves the boundary condition: `plurality-blocks-collapse` — when
-standpoints disagree there is **no** single object equivalent to every fibre. Collapse is
+standpoints disagree there is **no** single object equivalent to every fiber. Collapse is
 not impolite. **It is not available**, and the two permitted moves are transport or record
 the defect.
 

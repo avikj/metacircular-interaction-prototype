@@ -6,11 +6,11 @@
 --
 -- THE LIMIT OF EVERYTHING LANDED TODAY, exhibited from inside cubespace.
 -- `SakalaVikalaDesa`'s trichotomy — and my own `गणना-सप्तभङ्गी` — grade a
--- fibre by its POINTS: empty (अवक्तव्यम्), one up to path (सकलादेश), or two
+-- fiber by its POINTS: empty (अवक्तव्यम्), one up to path (सकलादेश), or two
 -- exhibitably distinct (विकलादेश).  In cubespace there is a fourth
--- condition of a fibre, and it defeats all three detectors at once:
+-- condition of a fiber, and it defeats all three detectors at once:
 --
---     the fibre of  बिन्दु : S¹ → Unit  at tt  is S¹ itself, and S¹ is
+--     the fiber of  बिन्दु : S¹ → Unit  at tt  is S¹ itself, and S¹ is
 --
 --       inhabited                     — अवक्तव्यम् cannot fire;
 --       merely connected: any two
@@ -23,11 +23,11 @@
 -- dimension up, in the loops, and it is not "some loss" — it is exactly
 -- ℤ (`winding`, ΩS¹Isoℤ), the same charge `Durnaya_…` identified as what
 -- every set-valued carrier-observable destroys.  The concealed नास्ति of
--- this fibre IS the gauge charge.
+-- this fiber IS the gauge charge.
 --
 -- WHAT THIS MEANS FOR THE CENSUS, said exactly.  The trichotomy's
--- exhaustiveness was a SET-LEVEL theorem: for fibres that are sets, the
--- three verdicts cover.  For higher fibres the sevenfold does not
+-- exhaustiveness was a SET-LEVEL theorem: for fibers that are sets, the
+-- three verdicts cover.  For higher fibers the sevenfold does not
 -- disappear — it RESTRATIFIES: at each h-level the same three seeds
 -- reappear (here: π₀-सकल, π₁-बहु with charge ℤ).  Syādvāda is graded by
 -- dimension; a census that stops at points is a durnaya one storey up,
@@ -35,7 +35,7 @@
 --
 -- No claim that any Jain author graded predication by h-level.  The
 -- claim is that their refusal to let one standpoint exhaust the object
--- is, in cubespace, a THEOREM about which fibres a pointwise census can
+-- is, in cubespace, a THEOREM about which fibers a pointwise census can
 -- classify.  गुह्य-नास्ति is built here, 2026-08-23.
 ------------------------------------------------------------------------
 
@@ -56,7 +56,7 @@ open import Cubical.HITs.S1
   using (S¹ ; base ; loop ; ΩS¹ ; winding ; intLoop ; windingℤLoop ; isConnectedS¹)
 
 ------------------------------------------------------------------------
--- १ · the map, and its fibre identified: शेष बिन्दु tt ≃ S¹.
+-- १ · the map, and its fiber identified: शेष बिन्दु tt ≃ S¹.
 ------------------------------------------------------------------------
 
 बिन्दु : S¹ → Unit
@@ -71,14 +71,14 @@ open import Cubical.HITs.S1
                          (λ (s , p) i → s , isSetUnit tt tt refl p i))
 
 ------------------------------------------------------------------------
--- २ · अवक्तव्यम् cannot fire: the fibre is inhabited.
+-- २ · अवक्तव्यम् cannot fire: the fiber is inhabited.
 ------------------------------------------------------------------------
 
 सत्त्वम् : शेष tt
 सत्त्वम् = base , refl
 
 ------------------------------------------------------------------------
--- ३ · विकलादेश cannot fire: any two points of the fibre are MERELY equal —
+-- ३ · विकलादेश cannot fire: any two points of the fiber are MERELY equal —
 -- no exhibitably distinct pair exists to name.
 ------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ open import Cubical.HITs.S1
         (isConnectedS¹ x)
 
 ------------------------------------------------------------------------
--- ४ · सकलादेश cannot fire either: the fibre is NOT a proposition.  If every
+-- ४ · सकलादेश cannot fire either: the fiber is NOT a proposition.  If every
 -- two points were (exhibitably) equal, transporting along शेष≃S¹ would make
 -- S¹ a proposition, forcing loop ≡ refl — and winding refutes that with the
 -- charge: 1 ≢ 0 in ℤ.
@@ -134,7 +134,7 @@ open import Cubical.HITs.S1
 -- ५ · the concealed charge is exactly ℤ: what the pointwise census cannot
 -- see is not "some crowding" but the winding — identified, not bounded.
 -- (The library's ΩS¹Isoℤ is the identification; re-exported here as the
--- fibre's own loop charge through शेष≃S¹'s base point.)
+-- fiber's own loop charge through शेष≃S¹'s base point.)
 ------------------------------------------------------------------------
 
 गुह्य-भारः : (सत्त्वम् ≡ सत्त्वम्) → ℤ
@@ -147,7 +147,7 @@ open import Cubical.HITs.S1
                   ∙ cong winding (sym (rUnit loop)) ∙ q)
 
 ------------------------------------------------------------------------
--- ६ · दोषलेखः.  This does not overturn the set-level census — for fibres
+-- ६ · दोषलेखः.  This does not overturn the set-level census — for fibers
 -- that are sets its trichotomy is exhaustive and everything landed today
 -- stands.  What it proves is the census's own SCOPE: h-level is a
 -- hypothesis, not a formality, and above it the seeds restratify.  The

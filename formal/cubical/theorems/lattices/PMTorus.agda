@@ -23,7 +23,7 @@
 --      K₃,₃ := (Vertex = Fin 3 ⊎ Fin 3, Edge = Fin 3 × Fin 3,
 --      endpoints (i , j) = (inl i , inr j)).  `pm-cell-unique` is the
 --      "each row meets each column in exactly one cell" reading:
---      contractibility of the fibre of the cell map, obtained from the
+--      contractibility of the fiber of the cell map, obtained from the
 --      equivalence rather than from a search.
 --
 --  (b) NONPLANARITY — ARITHMETIC OBSTRUCTION ONLY.  Topological
@@ -333,7 +333,7 @@ pm-is-K33 XY = refl
 pm-is-K33 YX = refl
 pm-is-K33 ZZ = refl
 
--- "Every row meets every column in exactly one cell": the fibre of the
+-- "Every row meets every column in exactly one cell": the fiber of the
 -- cell map over any (row, column) pair is contractible.  This is the
 -- equivalence, not a search over 9 × 9 possibilities.
 pm-cell-unique : (i j : Fin 3) → isContr (fiber obsToEdge (i , j))

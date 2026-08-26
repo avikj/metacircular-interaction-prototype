@@ -23,7 +23,7 @@ lemma additiveSquareCoeff_eq_zero_of_lt_four
 
 /-- Exact tail theorem: equality of the Goldbach coefficients only for
 `N ≥ 4` determines arbitrary complex sequences in the normalized nonzero
-index-two fibre. -/
+index-two fiber. -/
 theorem sequence_eq_of_additiveSquareCoeff_tail_eq
     (a b : ℕ → ℂ)
     (ha_zero : a 0 = 0) (ha_one : a 1 = 0)
@@ -50,7 +50,7 @@ coefficient: output index `n` stores the coefficient at `n + 4`. -/
 def goldbachTail {c : ℂ} (a : NormalizedFiber c) : ℕ → ℂ :=
   fun n ↦ Pairfield.additiveSquareCoeff a.1 (n + 4)
 
-/-- On every fibre with fixed nonzero index-two coefficient, the complete
+/-- On every fiber with fixed nonzero index-two coefficient, the complete
 Goldbach tail is injective. -/
 theorem goldbachTail_injective {c : ℂ} (hc : c ≠ 0) :
     Function.Injective (@goldbachTail c) := by

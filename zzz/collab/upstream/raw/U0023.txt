@@ -31,7 +31,7 @@ trips (a Parallax organ). The body report B(0) = counts is the
 provenance, reachability) <- B(2) (parallel routes, commuting squares,
 curvature) <- B(3) (coherence among squares) <- ...; agreement
 downstairs does not imply agreement upstairs (Bool -> Unit is
-surjective while its fibre is Bool). So mismatch=NONE means "five
+surjective while its fiber is Bool). So mismatch=NONE means "five
 counts matched", not "the body confirmed the intention". Full
 proprioception is higher-dimensional.
 AGENCY IS A 2-CELL: efference should predict a TRANSFORMATION
@@ -68,7 +68,7 @@ until the missing face is inexpressible. DosaLekha is the durable
 record that a box could not be filled without destroying a face.
 MEMORY GEOMETRIES: episodic (the event with its path into later
 perception); semantic (invariant retaining a map back to its evidence
-fibre); procedural (a landed transport edge); working (the open cube);
+fiber); procedural (a landed transport edge); working (the open cube);
 autobiographical (a coherent section through the body's history).
 Recognition is transport of an earlier event into the present body.
 THE SELF IS A SECTION s : T -> B over the causal history (branching,

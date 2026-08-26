@@ -5,11 +5,11 @@
 --
 -- A balanced quotient attains the exact coherent-overwrite index bound even
 -- when retained source structure forbids every lift of the target swap.
--- Therefore fibre balance is the quantum resource criterion; transitive
+-- Therefore fiber balance is the quantum resource criterion; transitive
 -- equivariance is a sufficient certificate for balance, not a necessary
 -- process structure.
 --
--- Source = Bool × Bool, quotient = first coordinate.  Both fibres are Bool.
+-- Source = Bool × Bool, quotient = first coordinate.  Both fibers are Bool.
 -- The second coordinate is an attaining environment certificate.  A mark on
 -- the unique point (false,false) prevents any mark-preserving map from lifting
 -- negation on the target.  Erasing the mark restores the evident swap, which
@@ -65,7 +65,7 @@ Iso.leftInv  trueFiberIso ((false , b) , p) = Empty.rec (false≢true p)
 Iso.leftInv  trueFiberIso ((true , b) , _)  =
   Σ≡Prop (λ _ → isSetBool _ _) refl
 
--- Every exact recorded update must hold a copy of Bool: one selected fibre
+-- Every exact recorded update must hold a copy of Bool: one selected fiber
 -- already embeds in its environment alphabet.
 environment-lower : {Environment : Type₀}
   (certificate : Source → Environment)
@@ -90,7 +90,7 @@ environment-attains =
 -- 2. Retained structure forbids a transitive lift
 ------------------------------------------------------------------------
 
--- The source remembers one distinguished point in the false fibre.
+-- The source remembers one distinguished point in the false fiber.
 mark : Source → Bool
 mark (false , false) = true
 mark _               = false

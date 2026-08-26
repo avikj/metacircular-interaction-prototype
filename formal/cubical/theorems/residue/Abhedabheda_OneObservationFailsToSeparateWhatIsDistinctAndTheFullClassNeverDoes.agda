@@ -6,12 +6,12 @@
 -- (indistinguishable to the view, distinct in fact.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- LEIBNIZ, BOTH WAYS, IN ONE FILE — and the fibre is the gap between them.
+-- LEIBNIZ, BOTH WAYS, IN ONE FILE — and the fiber is the gap between them.
 --
 -- §१ · `cong` is the indiscernibility of identicals and it is FREE: apply
 -- any function to equal things and get equal results.  It carries no
 -- hypothesis because it is not a theorem about anything — it is
--- constitutive of what equality is.  That is why the fibre law transports
+-- constitutive of what equality is.  That is why the fiber law transports
 -- everywhere and why it is the SHALLOWEST available statement rather than
 -- a deep one.
 --
@@ -25,7 +25,7 @@
 -- — which does not fail: when the class is everything, indistinguishable
 -- IS identical, and in cubical it computes.
 --
--- SO THE FIBRE IS EXACTLY THE GAP between "indistinguishable by THIS
+-- SO THE FIBER IS EXACTLY THE GAP between "indistinguishable by THIS
 -- observation" (§२, and it is a real gap) and "indistinguishable by ALL
 -- structure" (§३, and there the gap is zero).  A barrier is the report
 -- that one is not at the limit — misfiled, in every field that has one,
@@ -82,7 +82,7 @@ private variable ℓ : Level
 भिन्नं-वस्तुतः p = false≢true (sym p)
 
 -- so: indistinguishable to this view, distinct in fact.  The pair IS the
--- fibre, and there is nothing else to it.
+-- fiber, and there is nothing else to it.
 अभेद-भेदः : (बहुदर्शनम् true ≡ बहुदर्शनम् false) × (¬ (true ≡ false))
 अभेद-भेदः = अभिन्नं-दर्शने , भिन्नं-वस्तुतः
 

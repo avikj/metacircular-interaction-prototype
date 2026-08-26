@@ -4,11 +4,11 @@
 -- ProductiveObservationFiber
 --
 -- The complete future-view encoder of the linear productive Net has an
--- exact fibre: the states in its fibre over a chosen centre, together with
+-- exact fiber: the states in its fiber over a chosen centre, together with
 -- their equality to that centre's code, are equivalent to candidates
 -- equipped with a coinductive bisimulation to the centre.
 --
--- This is a fibre-level composition of the already checked
+-- This is a fiber-level composition of the already checked
 -- `ProductiveObservabilityBridge.bisim≃forever` and function
 -- extensionality.  It does not transfer to the indexed branching Net of
 -- `IndraNet.Coinductive`, and it supplies neither finality nor an explicit
@@ -54,7 +54,7 @@ BisimClass {Root = Root} {Jewel = Jewel} center =
 FutureViewFiber : PIN.Net Root Jewel → Type₀
 FutureViewFiber center = fiber futureView (futureView center)
 
--- The rooted class and the actual encoder fibre agree, without quotienting
+-- The rooted class and the actual encoder fiber agree, without quotienting
 -- either side or erasing the proof of observational equality.
 bisimClass≃futureViewFiber : (center : PIN.Net Root Jewel)
   → BisimClass center ≃ FutureViewFiber center

@@ -56,7 +56,7 @@
 --      `embSurj`     AN EMBEDDING BETWEEN FINITE SETS OF EQUAL
 --                    CARDINALITY IS SURJECTIVE — the finite pigeonhole
 --                    principle, in the only form used below.  Proved by
---                    counting fibres, not assumed.
+--                    counting fibers, not assumed.
 --
 --   §3 (module `Order`, over X with `isFinSet X` and an order)
 --      `dec⊑`        decidability of the order, DERIVED (above).
@@ -81,16 +81,16 @@
 --
 --   §5 `isContrOrdTotal′`
 --                    Σ[ X ∈ BSₙ ] LinOrd′(X) is CONTRACTIBLE: Theorem
---                    3.2 with orders, not rank listings, in the fibre.
+--                    3.2 with orders, not rank listings, in the fiber.
 --                    Obtained by transporting AtlasResiduals'
---                    `isContrOrdTotal` along §4 fibrewise.
+--                    `isContrOrdTotal` along §4 fiberwise.
 --
 --
 -- ====================================================================
 -- WHAT IS NOT CLAIMED
 -- ====================================================================
 --
---  * The equivalence is FIBREWISE OVER A GIVEN n and uses merely-
+--  * The equivalence is FIBERWISE OVER A GIVEN n and uses merely-
 --    finiteness essentially, twice: to get `Discrete X` (hence
 --    decidability of the order) and to make the down-sets finite so
 --    that rank exists.  Nothing here holds, or is claimed, for infinite
@@ -522,7 +522,7 @@ module _ (n : ℕ) (X : Type₀) (t : ∥ X ≃ Fin n ∥₁) where
 -- 5.  Theorem 3.2, whole.
 ------------------------------------------------------------------------
 
--- The library's Σ-congruence is level-homogeneous in the fibres, and
+-- The library's Σ-congruence is level-homogeneous in the fibers, and
 -- LinOrd′ X lives one universe above X ≃ Fin n.
 Σ-cong-iso-snd′ : {ℓ ℓ' ℓ'' : Level} {A : Type ℓ} {B : A → Type ℓ'} {B' : A → Type ℓ''}
                 → ((a : A) → Iso (B a) (B' a)) → Iso (Σ A B) (Σ A B')
@@ -540,7 +540,7 @@ ordTotal′≃ordTotal : (n : ℕ) → OrdTotal′ n ≃ OrdTotal n
 ordTotal′≃ordTotal n =
   isoToEquiv (Σ-cong-iso-snd′ (λ X → linOrd′Iso n (X .fst) (X .snd)))
 
--- rank listings, in the fibre.
+-- rank listings, in the fiber.
 isContrOrdTotal′ : (n : ℕ) → isContr (OrdTotal′ n)
 isContrOrdTotal′ n =
   isOfHLevelRespectEquiv 0 (invEquiv (ordTotal′≃ordTotal n)) (isContrOrdTotal n)

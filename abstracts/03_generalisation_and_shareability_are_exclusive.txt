@@ -45,8 +45,8 @@ different fields, and we give both records so the trade is inspectable.
 Two further measurements.  Where a generalising skill's pattern contains
 no free register, the substitutions enabled at its one state form an
 entire copy of the term algebra and every member emits the same output, so
-the fibre over an emission is unbounded and no deduplication heuristic
-collapses a redundant pair - it collapses that fibre.  And emission does
+the fiber over an emission is unbounded and no deduplication heuristic
+collapses a redundant pair - it collapses that fiber.  And emission does
 not determine the witness: we prove the discarded substitution is not
 recoverable from what the skill produced.
 

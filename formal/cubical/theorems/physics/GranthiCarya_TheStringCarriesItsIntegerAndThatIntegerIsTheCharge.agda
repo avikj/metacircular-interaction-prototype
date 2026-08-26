@@ -7,8 +7,8 @@
 -- THE SEED, and it is not a metaphor here: the loop space of the circle
 -- IS the integers, and because univalence computes, the integer
 -- REDUCES — a loop that goes around n times evaluates to n.  The string
--- carries its own winding, on the nose.  This is the fibre law's own
--- charge (सूत्र: "charge is the fibre of the path type, exactly ℤ at
+-- carries its own winding, on the nose.  This is the fiber law's own
+-- charge (सूत्र: "charge is the fiber of the path type, exactly ℤ at
 -- the circle") made a running number.
 --
 -- The whole picture, one register per line, ALL resting on this:

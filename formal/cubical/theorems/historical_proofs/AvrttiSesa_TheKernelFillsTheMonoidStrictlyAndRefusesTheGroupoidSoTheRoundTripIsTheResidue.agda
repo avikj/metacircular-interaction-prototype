@@ -25,7 +25,7 @@
 --                       śeṣa" — but the weakness is exhibited only by
 --                       `the-round-trip-is-not-nothing`, an observation
 --                       about `len`, not a statement in the path type.
---   Asesa_…             `Meaning a b` is a PROPOSITION, so the fibre of
+--   Asesa_…             `Meaning a b` is a PROPOSITION, so the fiber of
 --                       soundness over any meaning is the WHOLE
 --                       derivation type, and soundness is refutably not
 --                       an equivalence at the kernel's own seed.
@@ -52,7 +52,7 @@
 -- SAME INTERFACE.  One side fills it; the other provably cannot.  That
 -- difference is the whole of what the kernel keeps and `_≃_` throws away,
 -- and by `Asesa_…` it is invisible to meaning: the two derivations that
--- separate the fibre have EQUAL meanings, because the meaning type is a
+-- separate the fiber have EQUAL meanings, because the meaning type is a
 -- proposition and has no two positions in it.
 --
 -- WHAT IS **NOT** CLAIMED.  No braiding.  A groupoid whose inverse fails
@@ -199,7 +199,7 @@ the-kernel-carries-none (inv , rinv , _) =
 -- function can remove it.
 --
 -- That surplus is exactly the object `Asesa_…` shows the semantics cannot
--- see.  `Meaning a b` is a proposition; the fibre of soundness over any
+-- see.  `Meaning a b` is a proposition; the fiber of soundness over any
 -- meaning is the whole derivation type; the two routes that separate it
 -- have equal meanings by `isSetℕ`.  So the kernel carries a distinction
 -- that is real in the term, invisible in the value, and — by §3 —

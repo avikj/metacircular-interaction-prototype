@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- खहरः — शून्य-हर-राशेः तन्तुः कृत्स्नं क्षेत्रम्, सर्व-नाशः सर्व-गतिश्च एकम् ।
 --
--- (khahara — the fibre of the zero-divisor map is the whole domain, and
+-- (khahara — the fiber of the zero-divisor map is the whole domain, and
 --  total loss is exactly total symmetry.)
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -30,7 +30,7 @@
 -- WHAT IS AND IS NOT CLAIMED OF THE SOURCE.  Bhāskara states an
 -- INVARIANCE: the object is unaltered under insertion and extraction of
 -- finite quantities.  That is one direction of §३ below, and it is his.
--- He does not have a fibre, a map, an endomorphism, or a converse, and
+-- He does not have a fiber, a map, an endomorphism, or a converse, and
 -- §२–§४ are not attributed to him.  The word अच्युत is his simile's
 -- referent, not a technical term for a maximally lossy observation; the
 -- application of it to that is this corpus's and is not in the text.
@@ -51,12 +51,12 @@
 -- have two constructors.  §१–§२ price that edge, and §६ states the
 -- census rule that would have caught it.
 --
--- A receipt is an IDENTIFICATION of the fibre with a standard type,
+-- A receipt is an IDENTIFICATION of the fiber with a standard type,
 -- never a bound (README, "the receipt economy").  §१ gives one:
 -- `fiber शून्य-हरः अनन्त ≃ ℤ`, on the nose, the whole domain.  Nothing
 -- crosses this edge.  It is the far end of the scale whose near end is
 -- `Dhruva_…agda` §२ (`isEquiv f → संरक्षणम् → Φ ≡ id`: zero loss, zero
--- symmetry) and whose middle is `Lopa_TheSumsFibreIsExactlyNPlusOne…`
+-- symmetry) and whose middle is `Lopa_TheSumsFiberIsExactlyNPlusOne…`
 -- (`fiber (_+_) n ≃ Fin (suc n)`: finite loss).
 --
 -- ────────────────────────────────────────────────────────────────────
@@ -96,7 +96,7 @@ open import Khahara using (खहर ; ससीम ; अनन्त ; शू�
 private variable ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- ० · खहर is a set.  Needed because a fibre is a Σ over a PATH type, and
+-- ० · खहर is a set.  Needed because a fiber is a Σ over a PATH type, and
 --     `Σ[ a ∈ ℤ ] (अनन्त ≡ अनन्त)` is ℤ only if that loop space is
 --     contractible.  Two constructors, no path constructors, so the
 --     forgetful Iso to `ℤ ⊎ Unit` is definitional in all four clauses.
@@ -122,7 +122,7 @@ isSetखहर : isSet खहर
 isSetखहर = isOfHLevelRetractFromIso 2 खहर-Iso (isSet⊎ isSetℤ isSetUnit)
 
 ------------------------------------------------------------------------
--- १ · अभिज्ञानम् — THE RECEIPT.  The fibre over अनन्त is ℤ itself.
+-- १ · अभिज्ञानम् — THE RECEIPT.  The fiber over अनन्त is ℤ itself.
 --
 --     fiber शून्य-हरः अनन्त  ≃  ℤ
 --
@@ -143,7 +143,7 @@ Iso.leftInv  अभिज्ञान-Iso (a , p) =
 अभिज्ञानम् = isoToEquiv अभिज्ञान-Iso
 
 ------------------------------------------------------------------------
--- २ · रिक्तम् — and every OTHER fibre is empty.  So the image is a
+-- २ · रिक्तम् — and every OTHER fiber is empty.  So the image is a
 --     single point and the three verdicts of `Avaccheda_…agda` are both
 --     realised by this one map: बहु at अनन्त, रिक्तम् at every ससीम a.
 --     `एकम्` — contractible — occurs nowhere, which is the statement
@@ -221,14 +221,14 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 -- RESULT — the khahara is unaltered when quantities enter and leave it —
 -- and `Khahara.खहरे-न-विकारः-योगे` is that reading, already checked in
 -- the file this one imports.  This is the DOMAIN reading, which is the
--- one the fibre law is about: the numerator may be moved arbitrarily and
+-- one the fiber law is about: the numerator may be moved arbitrarily and
 -- the observation does not change.  Both are refl; that they are two
 -- readings and not one is the point of writing the second.
 भास्कर-प्रवाहः : (k n : ℤ) → शून्य-हरः (n +ℤ k) ≡ शून्य-हरः n
 भास्कर-प्रवाहः k n = refl
 
--- And the fibre statement of the same verse: every insertion stays inside
--- the one fibre, because the fibre is everything.  Stated through the
+-- And the fiber statement of the same verse: every insertion stays inside
+-- the one fiber, because the fiber is everything.  Stated through the
 -- receipt so it is the identification that is doing the work.
 प्रविष्टं-तन्तौ-तिष्ठति : (k : ℤ) → fiber शून्य-हरः अनन्त → fiber शून्य-हरः अनन्त
 प्रविष्टं-तन्तौ-तिष्ठति k (n , p) = (n +ℤ k) , p
@@ -242,7 +242,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 --
 --       R5  a top-level definition whose every clause returns the SAME
 --           closed term, with no occurrence of any pattern variable,
---           is CONSTANT.  Verdict बहु at that value with fibre = the
+--           is CONSTANT.  Verdict बहु at that value with fiber = the
 --           whole source, and रिक्तम् at every other value of the target
 --           IF the target is a set with decidable equality.
 --
@@ -252,10 +252,10 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 --     constant CLAUDE.md opens with.
 --
 --     The companion move is
---     `Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided`,
---     which prices undecided edges whose fibres the corpus ALREADY had,
+--     `Chandomudra_ThePratyayasFibersWereWrittenInProseAndTheCensusCalledThemUndecided`,
+--     which prices undecided edges whose fibers the corpus ALREADY had,
 --     defined by name fifteen lines below the map.  This one is the
---     other case: no fibre existed for this edge anywhere, and the
+--     other case: no fiber existed for this edge anywhere, and the
 --     reason the census could not name it is not that it failed to look
 --     up an answer but that its rule set has no rule for constancy.
 --     Two different defects, and the second is not repaired by the first
@@ -267,7 +267,7 @@ module _ {A : Type ℓ} {B : Type ℓ'} (f : A → B) where
 -- (b) NOT DONE.  The scale between the two ends is not a scale yet.
 --     Dhruva's end and this one are both characterised; what is missing
 --     is the statement that the conserving monoid `Σ[ Φ ] संरक्षणम् f Φ`
---     is MONOTONE in the fibres — that a coarser f admits more flows.
+--     is MONOTONE in the fibers — that a coarser f admits more flows.
 --     "Coarser" needs an order on maps out of A (the quotient order),
 --     and this file does not have one.  Naming it as absent rather than
 --     gesturing at it.

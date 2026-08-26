@@ -10,8 +10,8 @@
 --
 -- SEED.  The owner's transmission of 2026-08-23 ("causal horizon"):
 -- "the next finite theorem is Fubini as transport."  The full statement
--- — g_!(f_!w) ≡ (g∘f)_!w across the fibre-composition equivalence शेष
--- (fc/Sesa_TheCompositesRemainder…:92) — needs fibre ENUMERATIONS,
+-- — g_!(f_!w) ≡ (g∘f)_!w across the fiber-composition equivalence शेष
+-- (fc/Sesa_TheCompositesRemainder…:92) — needs fiber ENUMERATIONS,
 -- which the corpus does not yet carry for arbitrary maps.  What is
 -- landable exactly, today, is the RECTANGULAR case, which is also the
 -- interchange law the span/path-integral reading consumes first:
@@ -23,7 +23,7 @@
 -- more.  On a rectangle X = Fin(1+a) × Fin(1+b) with the two
 -- projections as observations, the nested totals ARE f_! then g_!, so
 -- this theorem is pushforward functoriality for the product square —
--- the case where both fibres are constant.  The general fib version
+-- the case where both fibers are constant.  The general fib version
 -- remains owed and is named in the ledger.
 --
 -- WHAT IS PROVED.
@@ -36,7 +36,7 @@
 --                total agree, for every rectangular weight family.
 --
 -- WHAT IS NOT CLAIMED.  Not the dependent Fubini over fib_{g∘f} ≃
--- Σ fib_g fib_f (owed: fibre enumerations + transport of the fold along
+-- Σ fib_g fib_f (owed: fiber enumerations + transport of the fold along
 -- क्रमनैरपेक्ष्यम्'s invariance); not any infinite or measure-theoretic
 -- statement.  The algebra ledger for the lane now reads: SamaVibhaga
 -- none · SthulaBhara assoc · BahuShakha none · KramaNairapeksya

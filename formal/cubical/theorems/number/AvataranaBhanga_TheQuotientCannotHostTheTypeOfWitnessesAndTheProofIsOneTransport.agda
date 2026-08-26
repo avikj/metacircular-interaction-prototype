@@ -29,7 +29,7 @@
 -- ADDITION beyond the probe, marked as fable-krama's: the transmitted
 -- "dependent novelty" generalization अवतरण-भङ्ग-सामान्यम् — the
 -- inhabited/empty contrast weakened to mere non-equivalence of the
--- fibres, via pathToEquiv.  The inhabited/empty theorem becomes the
+-- fibers, via pathToEquiv.  The inhabited/empty theorem becomes the
 -- cheapest instance of it.
 ------------------------------------------------------------------------
 -- The probe's own header, kept whole:
@@ -86,8 +86,8 @@ DependentFactorsThrough {ℓ'' = ℓ''} {X = X} {O = O} observe Family =
   Σ[ Descended ∈ (O → Type ℓ'') ]
     ((x : X) → Family x ≡ Descended (observe x))
 
--- A collision in the observation together with an inhabited fibre on one
--- side and an empty fibre on the other obstructs dependent factorization.
+-- A collision in the observation together with an inhabited fiber on one
+-- side and an empty fiber on the other obstructs dependent factorization.
 -- The contradiction is obtained by transporting the inhabitant across the
 -- type path that factorization would force.
 dependent-collision-obstructs :
@@ -133,8 +133,8 @@ fillerDoesNotFactorThroughCarrier =
 
 ------------------------------------------------------------------------
 -- 3. [fable-krama] अवतरण-भङ्ग-सामान्यम् — the transmitted generalization:
--- the fibres need not be inhabited/empty; MERE NON-EQUIVALENCE of the
--- two fibres over a collision already refutes descent, because a
+-- the fibers need not be inhabited/empty; MERE NON-EQUIVALENCE of the
+-- two fibers over a collision already refutes descent, because a
 -- factorization forces a path of types and pathToEquiv turns it into
 -- the equivalence that was refuted.  The inhabited/empty theorem above
 -- is the cheapest way to refute that equivalence, not the content.

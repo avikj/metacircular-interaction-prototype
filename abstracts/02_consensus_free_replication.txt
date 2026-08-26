@@ -62,7 +62,7 @@ tombstones, no compaction, no garbage collection, and no safe pruning
 rule.  Where an operation's left-hand side contains no free register, the
 set of updates enabled at a single key is an entire copy of the term
 algebra with every member producing the same value, so any pruning
-heuristic collapses an unbounded fibre.  Systems adopting this design
+heuristic collapses an unbounded fiber.  Systems adopting this design
 trade unbounded state growth for the elimination of the entire agreement
 stack, and we characterise the trade precisely rather than tuning it.
 

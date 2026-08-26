@@ -11,7 +11,7 @@
 -- This closes the holonomy seed of SMITH_KERNEL_QUANTUM_BOUNDARY negatively:
 -- global Smith relabellings can be individually nontrivial, but cannot create
 -- nontrivial loop holonomy.  A genuine residual needs local/partial charts,
--- path-dependent transport, or a process that changes the fibre.
+-- path-dependent transport, or a process that changes the fiber.
 ------------------------------------------------------------------------
 
 module GlobalSmithAtlasFlatness where

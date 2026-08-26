@@ -29,10 +29,10 @@
 -- reversed even up to any weakening that factors through the flow space.
 --
 -- WHY, in the census's own vocabulary, which is the point of writing it:
--- a conserving flow is a section of the fibre family AT REACHED POINTS
+-- a conserving flow is a section of the fiber family AT REACHED POINTS
 -- (`SvaTantuVasa`: flows ≃ (a : A) → fiber f (f a) — every index is an
 -- f a).  The mediator h of `f व्याप्नोति g` is typed on the WHOLE
--- codomain.  A point of B outside f's image — a रिक्तम् fibre, the
+-- codomain.  A point of B outside f's image — a रिक्तम् fiber, the
 -- census's अवक्तव्यम् — is invisible to every flow and every conservation
 -- witness, and it is exactly where h can die.  Here it does: B = Bool
 -- with the whole codomain unreached, C = ⊥, and the mediator would be a
@@ -76,7 +76,7 @@ open import Cubical.Data.Bool using (Bool ; true)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 open import Vyapti_TheLossOrderIsCoarseningAndTheSymmetryMonoidGrowsMonotonicallyAlongIt
   using (_व्याप्नोति_)

@@ -18,7 +18,7 @@
 --
 -- with Cₙ the conserved world that transports lawfully across the
 -- change.  What cannot cross is not deleted — its failed transport
--- becomes the transition fibre, and its FATE is recorded.  Here the
+-- becomes the transition fiber, and its FATE is recorded.  Here the
 -- worlds are types Wₙ and the transition is a map τₙ : Wₙ → Wₙ₊₁ (an
 -- equivalence, a refinement, a restriction — ANY map; W changes type),
 -- which is one leg of the span with the conserved core as its domain.
@@ -40,7 +40,7 @@
 --
 -- THE FIVE FATES (§3).  A single claim, under a transition, meets one
 -- of five fates — the owner's anatomy of a lossless correction.  They
--- are the constructors of the transition fibre; the datatype is their
+-- are the constructors of the transition fiber; the datatype is their
 -- codomain.  FENCE: classifying a SPECIFIC claim's fate needs the
 -- actual span maps and is not done here — this supplies the type a
 -- lossless correction must land in, so that no claim silently vanishes.
@@ -92,7 +92,7 @@ data Fate : Type where
   transported : Fate   -- crossed unchanged (in the conserved core Cₙ)
   restricted  : Fate   -- survived under a narrower hypothesis
   refuted     : Fate   -- a new distinction invalidated it
-  split       : Fate   -- one fibre became several
+  split       : Fate   -- one fiber became several
   unresolved  : Fate   -- its transport is owed, not yet known
 
 -- a correction is LOSSLESS when it assigns a fate to every claim: the

@@ -1,7 +1,7 @@
 """What the collective-token view of a Petri net forgets, exactly.
 
 `notes/STATEBOX.md` §7 posed a `PROVE` item and guessed an answer: that the
-fibre of the map
+fiber of the map
 
     individual-token executions  --q-->  collective-token executions
 
@@ -41,7 +41,7 @@ The headline pair, for the net with one place `s` and two transitions
 `Phi` separates them, and separates `g` from all four boundary-permutation
 variants of `f`, so they are distinct individual-token executions lying in
 distinct boundary orbits.  `COLLECTIVE_IDENTIFICATION` is a three-step checked
-derivation of `f = g` in the commutative theory.  Hence the fibre is strictly
+derivation of `f = g` in the commutative theory.  Hence the fiber is strictly
 larger than a boundary orbit, and the guess is dead.
 
 `CAUSAL_COLLAPSE` is the same phenomenon in its starkest form: for `u : s -> s`,
@@ -823,8 +823,8 @@ def boundary_crystal(seeds: Sequence[Term], sig: Signature):
 
 def collective_factors_through_boundary(seeds: Sequence[Term], sig: Signature):
     """`factor_map` succeeds iff the collective normal form is constant on the
-    boundary fibres, i.e. iff the collective relation is coarser.  It is, and it
-    is not injective on fibres -- which is Corollary 6, computed rather than
+    boundary fibers, i.e. iff the collective relation is coarser.  It is, and it
+    is not injective on fibers -- which is Corollary 6, computed rather than
     argued."""
     elements, crystal = boundary_crystal(seeds, sig)
     values = factor_map(

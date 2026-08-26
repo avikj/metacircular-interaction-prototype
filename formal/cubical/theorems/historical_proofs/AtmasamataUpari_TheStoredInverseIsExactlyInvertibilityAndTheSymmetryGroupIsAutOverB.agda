@@ -121,13 +121,13 @@ open import Cubical.Algebra.Group
 open import Cubical.Algebra.Group.Morphisms using (GroupEquiv)
 open import Cubical.Algebra.Group.MorphismProperties using (makeIsGroupHom)
 
-open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
+open import Dhruva_TheSymmetryLivesInTheFiberAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 open import Khahara_TheZeroDivisorEdgeIsPricedAtItsWholeDomainAndTotalLossIsExactlyTotalSymmetry
   using (सर्व-नाशः)
 open import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseAndTheChargeDescendsToTheQuotient
   using (व्युत्क्रम-संरक्षणम्)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibers
   using (ध्रुव-बिन्दुः)
 open import SamraksakaGana_TheConservingFlowsFormAGanaAndTheSectionIdentificationPreservesItByRefl
   using (प्रवाहः ; _∘प्र_ ; एकः ; module गणे)
@@ -301,7 +301,7 @@ module अन्धे-उपरि {A B : Type ℓ} (setA : isSet A) (setB : is
 --     be stated as invertibility of the section's point component
 --     instead of as stored data.
 -- (b) The group leg of `TantuVibhaga`'s decomposition: is
---     आत्मसमता-उपरि ≃ Π over the codomain of Aut(fibre f b)?  §२'s
+--     आत्मसमता-उपरि ≃ Π over the codomain of Aut(fiber f b)?  §२'s
 --     reassociation is what makes this a question about equivalences of
 --     Σ-types rather than about the monoid, but it is NOT proved here.
 -- (c) The ∞-version.  Over arbitrary types isEquiv is still a

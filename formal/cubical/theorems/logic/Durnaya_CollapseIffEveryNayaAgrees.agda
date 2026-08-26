@@ -13,14 +13,14 @@
 -- (*Sanmatitarka*) and Akalaṅka use `durnaya` for a naya asserted to the
 -- exclusion of the rest; that a naya so asserted is defective is theirs.
 -- The characterisation below — collapse is available iff every pair of
--- fibres is equivalent — is NOT claimed to be in those texts.  It is
+-- fibers is equivalent — is NOT claimed to be in those texts.  It is
 -- this corpus's mathematics, named for the act the tradition already
 -- named, in the sense `Anekanta.agda` argues for at length.
 --
 -- THE CORRECTION.  `Anekanta.agda` §5 proves two true theorems:
 --
 --     plurality-blocks-collapse   : disagreement (syādastināsti) ⟹ no collapse
---     agreement-permits-collapse  : uniform equivalence to one fibre ⟹ collapse
+--     agreement-permits-collapse  : uniform equivalence to one fiber ⟹ collapse
 --
 -- and then its header says of the pair: "the two together characterise
 -- erasure completely", "There is no third option".  ~~That is false.~~
@@ -77,7 +77,7 @@ agree→collapse P s₀ a = P s₀ , λ s → a s s₀
 -- The exhaustive statement `Anekanta.agda` §5 reached for.  Note the
 -- side condition the older pair also needed and did not name: S must be
 -- inhabited for the backward direction, since over an empty S every Q
--- collapses vacuously and there is no fibre to collapse to.
+-- collapses vacuously and there is no fiber to collapse to.
 collapse-characterisation :
   {S : Type ℓ} (P : S → Type ℓ') (s₀ : S) →
   ((Σ[ Q ∈ Type ℓ' ] Collapses P Q) → AllNayasAgree P)
@@ -88,7 +88,7 @@ collapse-characterisation P s₀ =
 ------------------------------------------------------------------------
 -- 2.  `plurality-blocks-collapse` is a corollary, not an axiom of the
 --     ethics.  Disagreement blocks collapse because it is one way — not
---     the only way — for two fibres to fail to be equivalent.
+--     the only way — for two fibers to fail to be equivalent.
 ------------------------------------------------------------------------
 
 plurality-blocks-collapse-derived :
@@ -100,9 +100,9 @@ plurality-blocks-collapse-derived P ((s , ps) , (t , ¬pt)) Q c =
 ------------------------------------------------------------------------
 -- 3.  The witness that the old pair was not exhaustive.
 --
--- Standpoints = Bool; from one the fibre is Unit, from the other Bool.
+-- Standpoints = Bool; from one the fiber is Unit, from the other Bool.
 -- No standpoint denies, so syādastināsti is empty and
--- `plurality-blocks-collapse` says nothing.  The fibres are inequivalent,
+-- `plurality-blocks-collapse` says nothing.  The fibers are inequivalent,
 -- so `agreement-permits-collapse` does not apply either.  And collapse
 -- is nonetheless unavailable — the third option.
 ------------------------------------------------------------------------

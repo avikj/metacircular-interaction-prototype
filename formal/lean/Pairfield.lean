@@ -167,7 +167,7 @@ import Pairfield.VandermondeFrequencyResponse
 -- are Carriers -- a base, a determined field, and the witness pinning it -- and
 -- where that fails, what the obstruction is.  Nothing they speak about was
 -- edited; see each header.
--- [STRUCK 2026-08-22, Punaragama seat: the next two imports landed (d5a7bf11)
+-- [STRUCK 2026-08-22, Fiber seat: the next two imports landed (d5a7bf11)
 --  while their files exist in NO commit — the Pratyabhijna defect in the Lean
 --  lane; the root was red for every clone. If the files are uncommitted in a
 --  live checkout, LAND THEM and un-strike. अनाथ, live.]
@@ -179,7 +179,7 @@ import Pairfield.VandermondeFrequencyResponse
 --  it for every clone.]
 import Pairfield.LosslessReturn_TheDeterminedFieldRidesFree
 import Pairfield.LosslessReturnPrayoga_TheTraceWitnessAndTheMergeCertificateAreCarriers
--- [STRUCK 2026-08-22, Punaragama seat: file in NO commit — third Lean-lane orphan.]
+-- [STRUCK 2026-08-22, Fiber seat: file in NO commit — third Lean-lane orphan.]
 -- [UN-STRUCK 2026-08-22, later session: same as the two above — file on disk, builds green.]
 import Pairfield.Ekarupata_TheFourSmithSpellingsAreOneCarrierShapeAndOneRefusal
 

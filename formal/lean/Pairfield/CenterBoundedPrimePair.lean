@@ -5,7 +5,7 @@ Released under Apache 2.0 license.
 A finite source-centred sector inside `BoundedPrimePair`: ordered prime legs,
 an integral midpoint, and a cutoff on that midpoint rather than on each leg.
 Enlargement is covariant on total carriers but an equivalence on every old
-complete centre fibre.
+complete centre fiber.
 
 No inhabitation theorem for any centre is asserted here.
 -/
@@ -73,7 +73,7 @@ def weakenCenterPair {X Y : ℕ} (hXY : X ≤ Y)
   exact weakenPrimePair_trans
     (Nat.mul_le_mul_left 2 hXY) (Nat.mul_le_mul_left 2 hYZ) point.1
 
-/-- The complete ordered source-centre fibre at midpoint `w`. -/
+/-- The complete ordered source-centre fiber at midpoint `w`. -/
 abbrev CenterPrimeFiber (X w : ℕ) :=
   {point : CenterBoundedPrimePair X // pairCenter point.1 = 2 * w}
 
@@ -84,7 +84,7 @@ def weakenCenterPrimeFiber {X Y w : ℕ} (hXY : X ≤ Y)
       (Nat.mul_le_mul_left 2 hXY) point.1.1) = 2 * w
     simpa using point.2⟩
 
-/-- Re-bind a complete old centre fibre to its old horizon. -/
+/-- Re-bind a complete old centre fiber to its old horizon. -/
 def rebindCenterPrimeFiber {X Y w : ℕ} (hwX : w ≤ X)
     (point : CenterPrimeFiber Y w) : CenterPrimeFiber X w := by
   let p := point.1.1.1.1.val
@@ -111,7 +111,7 @@ def rebindCenterPrimeFiber {X Y w : ℕ} (hwX : w ≤ X)
       hcenter⟩
 
 /-- Once `w` is admitted, enlarging the horizon does not change its complete
-ordered prime-pair fibre. -/
+ordered prime-pair fiber. -/
 def centerPrimeFiberWeakenEquiv {X Y w : ℕ} (hXY : X ≤ Y) (hwX : w ≤ X) :
     CenterPrimeFiber X w ≃ CenterPrimeFiber Y w where
   toFun := weakenCenterPrimeFiber hXY

@@ -4,7 +4,7 @@
 -- RelationalTensorObstructionBridge
 --
 -- The RQM-adjacent S¹ family and the local/joint compiler share an exact
--- residual: the Bool fibre with negation monodromy.  Their obstructions are
+-- residual: the Bool fiber with negation monodromy.  Their obstructions are
 -- nevertheless different.
 --
 --   relational obstruction : no loop-coherent dependent section;
@@ -12,7 +12,7 @@
 --
 -- A bare local choice exists in the tensor chart, so these cannot be merged
 -- into one slogan such as "there is no local state".  What is common is the
--- phase fibre and its exchange; what differs is the diagram required to
+-- phase fiber and its exchange; what differs is the diagram required to
 -- commute.
 ------------------------------------------------------------------------
 
@@ -33,8 +33,8 @@ import UnivalentTensorInteraction as Ten
 -- 1. Exact common carrier
 ------------------------------------------------------------------------
 
-base-fibre-is-joint-sector : Rel.RelativeFact base ≡ Ten.JointCoherence
-base-fibre-is-joint-sector = refl
+base-fiber-is-joint-sector : Rel.RelativeFact base ≡ Ten.JointCoherence
+base-fiber-is-joint-sector = refl
 
 -- The monodromy of the relational family is the same point motion as the
 -- univalent phase-exchange presentation.
@@ -52,7 +52,7 @@ no-loop-stable-phase (phase , stable) =
   Rel.no-loop-fixed-point phase stable
 
 -- A global relative fact would in particular produce a stable point in the
--- common Bool fibre.  This isolates the exact monodromy obstruction.
+-- common Bool fiber.  This isolates the exact monodromy obstruction.
 global-fact→loop-stable : Rel.GlobalFact → LoopStable
 global-fact→loop-stable section =
   section base , Rel.section-naturality Rel.RelativeFact section loop
@@ -65,7 +65,7 @@ LocalChoice : Type₀
 LocalChoice = Ten.SeparatePopulation → Ten.JointCoherence
 
 -- Unlike a global section, a bare local choice is easy: it need not respect
--- the loop and need not reconstruct both points of the forgotten fibre.
+-- the loop and need not reconstruct both points of the forgotten fiber.
 local-choice-exists : LocalChoice
 local-choice-exists populations = Ten.plus
 
@@ -85,7 +85,7 @@ no-exact-local-reconstruction (recover , round) =
 
 record ObstructionComparison : Type₁ where
   field
-    sameFibre : Rel.RelativeFact base ≡ Ten.JointCoherence
+    sameFiber : Rel.RelativeFact base ≡ Ten.JointCoherence
     sameMotion :
       (phase : Bool)
       → subst Rel.RelativeFact loop phase
@@ -95,8 +95,8 @@ record ObstructionComparison : Type₁ where
     quotientRetractionFails : ¬ ExactLocalReconstruction
 
 relational-tensor-comparison : ObstructionComparison
-relational-tensor-comparison .ObstructionComparison.sameFibre =
-  base-fibre-is-joint-sector
+relational-tensor-comparison .ObstructionComparison.sameFiber =
+  base-fiber-is-joint-sector
 relational-tensor-comparison .ObstructionComparison.sameMotion =
   monodromy-is-joint-exchange
 relational-tensor-comparison .ObstructionComparison.localChoiceSurvives =
@@ -109,7 +109,7 @@ relational-tensor-comparison .ObstructionComparison.quotientRetractionFails =
 ------------------------------------------------------------------------
 -- Rigor boundary
 --
--- Checked: equality of the base fibres, equality of their point motions,
+-- Checked: equality of the base fibers, equality of their point motions,
 -- absence of a loop-stable phase, existence of a bare local choice, and the
 -- two distinct no-go statements.
 --

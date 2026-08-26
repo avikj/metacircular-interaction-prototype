@@ -431,7 +431,7 @@ echo "That file, not this console output, is the record. Quote a row."
 echo "A row is an EVENT — this container, carrying this toolchain, invoked"
 echo "these checks at this time and observed these exit codes. It is never"
 echo "a STATE of the mathematics, and it covers only the modules named in"
-echo "it: the fibre over an observed"
+echo "it: the fiber over an observed"
 echo "result has size 2^|omitted|, exactly)."
 echo "======================================================================"
 
