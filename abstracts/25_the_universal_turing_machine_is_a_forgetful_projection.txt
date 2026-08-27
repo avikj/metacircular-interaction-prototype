@@ -114,6 +114,27 @@ one step is contractible (Ekatva), while the preimage of one behavior
 in the space of tables is unbounded (the padding lemma) — losslessness
 is a property of the step, multiplicity is a property of the code.
 
+The contractibility has a slogan-sharp corollary: LawfulStep A ≃
+(A → A).  The type of lossless proof-relevant machines on A IS the
+type of ordinary programs on A — completion adds nothing and forgets
+nothing.  What the visible step does destroy, the completed step
+cannot: a one-rule eraser collides two distinct configurations (the
+collision is refl, the distinctness a two-line refutation), while the
+lossless completion of any map is injective, so the kept fibre
+separates what the projection identified — the destroyed bit,
+exhibited, and its receipt.
+
+Programs compose.  For M₁ with source states below H, the compound
+M₁ ++ shift H M₂ runs M₁ to its retire state H — where the shifted
+M₂'s state 0 already sits, with no glue — and then runs M₂, with step
+counts adding and the tape handed over (compose-runs).  The state
+shift is proof-relevant all the way down: the shifted comparison
+witness is the original witness under cong (H +_).  Instantiated:
+incr ⨟ incr computes n ↦ n+2 in (n+1)+2 steps, and its certificate is
+manufactured from the two phase certificates by the composition
+theorem, with no induction over the compound — composition of
+verified programs is verified once, in general.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
