@@ -135,6 +135,24 @@ manufactured from the two phase certificates by the composition
 theorem, with no induction over the compound — composition of
 verified programs is verified once, in general.
 
+Determinism is contractibility.  The type of productive infinite runs
+from any configuration — a now, a receipt, a rest from the stepped
+configuration — is contractible, the contraction built coinductively:
+one configuration, one history, as a statement about the whole
+unfolding at once rather than a condition on steps.
+
+And the machine is a quotient computer, literally.  Codes modulo
+running-the-same form a set-quotient Beh = Code / SameRun to which
+running descends, definitionally on codes.  Duplicated rules are
+shadowed by first-match lookup unconditionally, so the doubling family
+dups j M runs identically for every j while its members are pairwise
+distinct codes: an injection ℕ → Code whose image is one single point
+of the quotient.  The picture closes against the contractibility
+theorem: the lossless trace of the step is a point, forced; the fibre
+of the behavioral quotient is infinite, free.  What is unique is the
+trace; what is multiple is the expression; the fibre carries exactly
+what the quotient forgot.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
