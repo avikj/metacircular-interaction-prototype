@@ -1,6 +1,8 @@
-# Metacircular Interaction Kernel
+# Computable Universal Turing Machine via Homotopy Type Theory
 
-**A local-first computational substrate for partial knowledge, certified transport, and compositional interaction**
+Dedicated to empathic intelligence & in memory of Vladmir Voevodsky. This work draws heavily from that of Carlo Rovelli & Stephen Wolfram.
+
+**A local-first computational prototype for partial knowledge, certified transport, and compositional interaction for decentralized organisms & algorithms**
 
 This repository defines a computational model in which data, program, execution, proof, and transport are different views of the same evolving symbolic object.
 
