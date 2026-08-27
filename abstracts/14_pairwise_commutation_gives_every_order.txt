@@ -51,10 +51,43 @@ copy of the term algebra with every member producing the same result.
 There are consequently no tombstones, no compaction and no safe pruning
 rule; the store is monotone in the strongest sense.
 
-WHAT IS NOT CLAIMED.  There is no working tree, no file, no line-based
-diff, no blame algorithm and no repository format here.  A patch is a
-step on an abstract state and commutation is a hypothesis discharged by
-the caller.  The reading as a version control system is a reading and is
-not proved.
+The calculus, built, and the hypothesis discharged rather than passed
+on.  Above, commutation is assumed and the caller owes it.  We now
+exhibit a patch calculus in which it is a theorem.
+
+The repository format is the one git actually uses: a tree is a map from
+locations to contents, not a list of lines carrying its own length, and a
+location is a path together with a line number - so "line-based" is
+literal, a patch names the file and the line.  There is no bounds check
+anywhere because there is no bound.
+
+Commutation is then proved, for every tree and every content type: two
+patches at distinct locations commute, by case analysis on the two
+decisions at each location, with the only awkward case - both fire -
+exactly the one distinctness forbids.  And the distinctness is not
+removable: two writes to one location with different content are
+exhibited failing to commute, so the hypothesis marks the boundary rather
+than a gap in the proof.
+
+The blame algorithm, with the correctness statement blame usually does
+not state.  Blame at a location is the last patch in the run that named
+it, and we prove it explains the tree: the content you observe after a
+run is exactly what blame says put it there, and where blame is silent
+the content is the one the run started with.
+
+The line-based diff, with the property a diff owes.  Over a finite set of
+locations the diff of two trees is the list of writes carrying the first
+to the second, and applying it lands on the target at every location the
+diff names.  The induction runs on the invariant that once a location
+holds its target content no later write in the diff can move it.
+
+And the commutation hypothesis is now local.  The earlier form quantifies
+over every step of the type; here it constrains only the patches that
+appear in the list, with the membership index carried through the
+transposition and transitivity cases - the step that makes transitivity
+work being that a permutation cannot introduce a patch that was not
+there.  A caller supplies a checkable property of its own patch list -
+that no two of them name one location without being the same patch - and
+receives commutation, and therefore every order, in return.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
