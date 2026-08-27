@@ -167,6 +167,38 @@ exactly by the event type:
 
     UTM  =  deterministic ISC (a point)  ⊊  interactive ISC.
 
+The self-hosting question is answered on both flanks.  There is no
+table that is every table on the nose — two machines disagreeing at
+one configuration kill every candidate — so a universal table must
+read its subject machine in an encoding: the change of representation
+is a theorem, not an implementation convenience.  And every encoding
+hands the diagonal its pen: fixing a tape-reading of codes (five
+naturals per rule, with its section proved), Lawvere's fixed-point
+argument manufactures a concrete configuration map — the
+state-successor of what the machine read off the tape would do — that
+NO program's step realizes, since a table evaluated at its own
+encoding would equal its own successor.  The universal function
+exists; the program behaviors cannot exhaust the configuration maps;
+the escape is one act of self-reference, not a cardinality count.
+
+Three bridges close the development.  Physics: every table's step is
+unitary when completed — the lossless completion is an equivalence,
+and by contractibility the only one — yet the successor and the
+eraser fail to exchange at one stroke under the head, both composites
+computing by refl: invertibility buys no exchange coherence, the
+machine's own dialect of "unitarity does not give braiding".
+Univalence: ua turns the completion into an identification
+Machine ≡ Σ Machine (fib uStep) in the universe, and the
+identification COMPUTES — transport evaluates to the completed step
+by the computation rule for ua, evaluating, not cited; on a closed
+machine the whole crossing reaches a closed normal form.  And the
+syādvāda: each step is a transport with its receipt or a silence with
+its equation — the disjunction computed, the witness riding in the
+sum, no boolean and no excluded middle — so every finite depth is
+decided with evidence either way, while divergence, the refutation at
+every depth at once, is a proposition no finite observation asserts:
+each depth speaks with evidence, and the totality is not a naya.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
