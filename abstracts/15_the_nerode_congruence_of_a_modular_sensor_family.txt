@@ -42,15 +42,37 @@ value is indistinguishable from zero under the family.  This is the
 concrete statement of what the array's collapse destroys, and it is the
 first element of the fibre.
 
-Read as automata theory: the minimal deterministic acceptor for a modular
-sensor array is the cyclic group of order the least common multiple, and
-the two directions above are that the minimisation is complete and that it
-is faithful.  The residue is the Nerode class.
+The automaton, built.  The reading as automata theory is no longer a
+reading.  A sensor array is driven by one event repeated, so the alphabet
+has one letter and a word over it is a natural number - we construct that
+identification rather than assert it.  On that alphabet we build the
+machine whose states are the naturals, whose letter advances by one, and
+whose report is the residue profile, and we prove its Nerode relation is
+exactly the indistinguishability relation above: forward is the empty
+word and nothing more, and backward holds because the distance is
+invariant under a common shift, which is what makes the relation a right
+congruence.
 
-WHAT IS NOT CLAIMED.  There is no automaton, no alphabet, no regular
-language and no Myhill-Nerode theorem in the development.  The object is
-a family of moduli over the naturals and the theorems are about its
-indistinguishability relation.  The automata-theoretic reading in the
-previous paragraph is a reading and is not proved.
+Then the minimal machine.  Its states are the residues below the least
+common multiple, its letter turns the wheel one notch, and we prove the
+three facts that make it THE minimal acceptor rather than merely a
+correct one: the classifying map is constant on Nerode classes, distinct
+classes are never identified by it, and every state of the wheel is
+reached.  We also prove the wheel is a wheel of order exactly the least
+common multiple - that many turns return every state, and no positive
+number of turns below it returns even one.  So "the cyclic group of order
+the lcm" is a theorem about the machine and not a description of it.
+
+The residue bridge, proved, and the modulus where it fails.  The
+identification of "the modulus divides the distance" with "the two
+residues agree" is standard, and we prove it at every positive modulus.
+At modulus zero it is FALSE, and we exhibit the pair that breaks it: with
+the usual convention that x mod 0 is 0, the zero modulus read as a
+residue sensor is blind - it reports the same thing about everything -
+while read as a divisor it is the perfect sensor, separating every
+distinct pair.  The two readings of a single number sit at opposite ends
+of the observability scale, and 0 and 1 is where they come apart.  The
+positivity hypothesis in the bridge is therefore not bookkeeping; without
+it the statement has a counterexample, and the counterexample is a term.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
