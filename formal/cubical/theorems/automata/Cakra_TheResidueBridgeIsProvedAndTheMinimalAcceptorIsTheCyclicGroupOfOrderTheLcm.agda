@@ -14,20 +14,28 @@
 --     language and no Myhill-Nerode theorem, and that the automata-
 --     theoretic reading is a reading.
 --
--- Both are closed here, as theorems.  And the first one is not what the
--- note assumed: the bridge is TRUE at every positive modulus and FALSE
--- at modulus zero, where the two readings of the same number sit at
--- opposite ends of the observability scale.  §३ exhibits the pair.  The
--- hypothesis is load-bearing, not decorative — which is exactly what an
--- unchecked "entirely standard" step can hide.
+-- Both are closed here, as theorems, and neither carries a hypothesis.
+--
+-- The bridge holds AT EVERY MODULUS (`bridge!`, §३).  What the note's
+-- unchecked step hid was not a missing side condition but a wrong
+-- function: `_mod_` is not the residue map, because the library sets
+-- `x mod 0 = 0` while the quotient by the zero modulus is ℤ/0 ≅ ℤ, in
+-- which the residue of x is x.  With `res` in place of `_mod_` the
+-- statement is unconditional, the positivity assumption disappears from
+-- §४ and §६ as well, and §३.२ exhibits the pair that proves `_mod_`
+-- itself is the thing that fails at 0.
 --
 -- WHAT IS CHECKED
 --
 --   §१  the arithmetic: ∸ cancellation, and · over ∸.
---   §२  `bridge`         (suc n ∣ dist a b) ≡ (a mod suc n ≡ b mod suc n)
---   §३  `bridge-fails-at-zero`   …and it does not extend to 0.
+--   §२  `bridge`         the positive-modulus case, where the work is.
+--   §३  `res`, `bridge!` THE BRIDGE, at every modulus, no hypothesis.
+--       `mod-is-not-the-residue-at-zero`
+--                        …and the witness that `_mod_` cannot replace
+--                        `res`, which is what the gap really was.
 --   §४  `ind→residues`   the family form: divisibility of the distance
---       `residues→ind`   is agreement of the whole residue profile.
+--       `residues→ind`   is agreement of the whole residue profile —
+--                        for EVERY family, no positivity anywhere.
 --   §५  `Machine`        one letter, `Word ≅ ℕ` constructed, `Nerode`.
 --   §६  `nerode-is-ind`  THE NERODE RELATION OF THE SENSOR MACHINE IS
 --                        `Ind`, as an equality of types.
@@ -39,6 +47,10 @@
 --       `no-shorter-turn`… and no positive number below L returns one,
 --                        so the order is exactly L and "the cyclic group
 --                        of order the lcm" is a theorem, not a gloss.
+--   §९  `zero-lcm-no-collapse`
+--                        the other half of the dichotomy: when the lcm
+--                        is 0 the quotient is ℕ and nothing is merged.
+--                        §८ and §९ together cover every family.
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9 — the repository pin.
 -- --cubical --safe --guardedness, no postulates, no holes.
@@ -174,8 +186,55 @@ module _ (n : ℕ) where
     hPropExt isProp∣ (isSetℕ (a mod m) (b mod m))
              (dist∣→mod≡ a b) (mod≡→dist∣ a b)
 
+absurd : {X : Type} → ⊥ → X
+absurd ()
+
+∸≡0→≤ : (a b : ℕ) → a ∸ b ≡ 0 → a ≤ b
+∸≡0→≤ zero    b       _ = zero-≤
+∸≡0→≤ (suc a) zero    p = absurd (snotz p)
+∸≡0→≤ (suc a) (suc b) p = suc-≤-suc (∸≡0→≤ a b p)
+
+dist≡0→≡ : (i j : ℕ) → dist i j ≡ 0 → i ≡ j
+dist≡0→≡ i j p with splitℕ-≤ j i
+... | inl j≤i = ≤-antisym (∸≡0→≤ i j (sym (dist-≥ i j j≤i) ∙ p)) j≤i
+... | inr i<j = ≤-antisym (<-weaken i<j)
+                  (∸≡0→≤ j i (sym (dist-≥ j i (<-weaken i<j))
+                              ∙ sym (dist-sym i j) ∙ p))
+
+≡→dist≡0 : (i j : ℕ) → i ≡ j → dist i j ≡ 0
+≡→dist≡0 i j p = cong (dist i) (sym p) ∙ cong₂ _+_ (n∸n i) (n∸n i)
+
 ------------------------------------------------------------------------
--- ३ · AND AT ZERO IT IS FALSE.  Exhibited, not warned about.
+-- ३ · THE RESIDUE, AND THE BRIDGE WITH NO HYPOTHESIS AT ALL.
+--
+-- §२ is stated at `suc n`, and the reason is NOT that the mathematics
+-- needs a positive modulus.  It is that `_mod_` is not the residue map
+-- at zero.  The library sets `x mod 0 = 0`, which is a junk value: the
+-- quotient by the zero modulus is ℤ/0 ≅ ℤ, in which the residue of x is
+-- x itself and nothing whatever is identified — while `x mod 0`
+-- identifies everything.
+--
+-- So `res` below is the residue, `_mod_` is a representative-picking
+-- function that agrees with it at every positive modulus and disagrees
+-- at exactly one, and `bridge!` holds AT EVERY MODULUS with no side
+-- condition.  §३.२'s counterexample is then not a limit on the theorem
+-- — it is the proof that `_mod_` is the wrong function at 0.
+------------------------------------------------------------------------
+
+res : ℕ → ℕ → ℕ
+res zero    x = x
+res (suc n) x = x mod suc n
+
+-- THE BRIDGE, unconditionally.
+bridge! : (m a b : ℕ) → (m ∣ dist a b) ≡ (res m a ≡ res m b)
+bridge! zero a b =
+  hPropExt isProp∣ (isSetℕ a b)
+    (λ d → dist≡0→≡ a b (sym (∣-zeroˡ d)))
+    (λ p → ∣-refl (sym (≡→dist≡0 a b p)))
+bridge! (suc n) a b = bridge n a b
+
+------------------------------------------------------------------------
+-- ३.२ · why the hypothesis was there: `_mod_` at zero.
 --
 -- The library defines `x mod 0 = 0`, so the modulus 0 read as a residue
 -- sensor is BLIND — it reports the same thing about everything.  Read as
@@ -184,8 +243,10 @@ module _ (n : ℕ) where
 -- of "modulus 0" are not merely different, they are at opposite ends,
 -- and the pair (0,1) is where they are pulled apart.
 --
--- This is why §२ is stated at `suc n` and not at `m`.  The hypothesis is
--- not bookkeeping; without it the statement is refuted below.
+-- `bridge!` above already covers every modulus, so nothing below is a
+-- limitation of it.  What is refuted here is `_mod_`: no statement of
+-- the form "divisibility of the distance is equality of `_mod_`" can
+-- hold at 0, so the function is wrong there and `res` is right.
 ------------------------------------------------------------------------
 
 zero-as-residue-is-blind : (0 mod 0) ≡ (1 mod 0)
@@ -194,50 +255,32 @@ zero-as-residue-is-blind = refl
 zero-as-divisor-is-sighted : ¬ (0 ∣ dist 0 1)
 zero-as-divisor-is-sighted d = znots (∣-zeroˡ d)
 
--- so the bridge does not extend to modulus 0, and this is the witness.
-bridge-fails-at-zero : ¬ ((a b : ℕ) → (0 ∣ dist a b) ≡ (a mod 0 ≡ b mod 0))
-bridge-fails-at-zero h =
+-- `_mod_` cannot be the residue at 0, and this is the witness.  `res`
+-- can, and `bridge!` proves it.
+mod-is-not-the-residue-at-zero :
+  ¬ ((a b : ℕ) → (0 ∣ dist a b) ≡ (a mod 0 ≡ b mod 0))
+mod-is-not-the-residue-at-zero h =
   zero-as-divisor-is-sighted (transport (sym (h 0 1)) zero-as-residue-is-blind)
 
 ------------------------------------------------------------------------
--- ४ · the FAMILY bridge: divisibility of the distance, for a family of
--- positive moduli, is agreement of the whole residue profile.
+-- ४ · the FAMILY bridge: divisibility of the distance is agreement of
+-- the whole residue profile.  No hypothesis on the family.
 ------------------------------------------------------------------------
 
-Positive : List ℕ → Type
-Positive = All (λ m → 0 < m)
-
 SameResidues : List ℕ → ℕ → ℕ → Type
-SameResidues S a b = All (λ m → a mod m ≡ b mod m) S
+SameResidues S a b = All (λ m → res m a ≡ res m b) S
 
-0<→suc : {x : ℕ} → 0 < x → Σ[ n ∈ ℕ ] x ≡ suc n
-0<→suc (k , p) = k , sym p ∙ +-comm k 1
+-- With the residue map in place there is nothing left to assume: the
+-- family form is `bridge!` applied once per modulus.
+ind→residues : (S : List ℕ) (a b : ℕ) → Ind S a b → SameResidues S a b
+ind→residues []       a b _        = tt
+ind→residues (x ∷ S) a b (d , ds) =
+  transport (bridge! x a b) d , ind→residues S a b ds
 
-ind→residues : (S : List ℕ) → Positive S
-             → (a b : ℕ) → Ind S a b → SameResidues S a b
-ind→residues []       _         a b _        = tt
-ind→residues (x ∷ S) (px , ps) a b (d , ds) =
-    subst (λ z → a mod z ≡ b mod z) (sym q)
-          (dist∣→mod≡ n a b (subst (_∣ dist a b) q d))
-  , ind→residues S ps a b ds
-  where
-    n : ℕ
-    n = fst (0<→suc px)
-    q : x ≡ suc n
-    q = snd (0<→suc px)
-
-residues→ind : (S : List ℕ) → Positive S
-             → (a b : ℕ) → SameResidues S a b → Ind S a b
-residues→ind []       _         a b _        = tt
-residues→ind (x ∷ S) (px , ps) a b (r , rs) =
-    subst (_∣ dist a b) (sym q)
-          (mod≡→dist∣ n a b (subst (λ z → a mod z ≡ b mod z) q r))
-  , residues→ind S ps a b rs
-  where
-    n : ℕ
-    n = fst (0<→suc px)
-    q : x ≡ suc n
-    q = snd (0<→suc px)
+residues→ind : (S : List ℕ) (a b : ℕ) → SameResidues S a b → Ind S a b
+residues→ind []       a b _        = tt
+residues→ind (x ∷ S) a b (r , rs) =
+  transport (sym (bridge! x a b)) r , residues→ind S a b rs
 
 ------------------------------------------------------------------------
 -- ५ · THE ALPHABET, THE MACHINE, THE LANGUAGE.
@@ -310,7 +353,7 @@ isPropNerode sO M q q' = isPropΠ (λ w → sO _ _)
 ------------------------------------------------------------------------
 
 profile : List ℕ → ℕ → List ℕ
-profile S x = map (x mod_) S
+profile S x = map (λ m → res m x) S
 
 sensor : List ℕ → Machine ℕ (List ℕ)
 step (sensor S) = suc
@@ -341,11 +384,11 @@ All→map≡ (x ∷ S) f g (q , qs) = cong₂ _∷_ q (All→map≡ S f g qs)
 
 profile≡→residues : (S : List ℕ) (a b : ℕ)
                   → profile S a ≡ profile S b → SameResidues S a b
-profile≡→residues S a b = map≡→All S (a mod_) (b mod_)
+profile≡→residues S a b = map≡→All S (λ m → res m a) (λ m → res m b)
 
 residues→profile≡ : (S : List ℕ) (a b : ℕ)
                   → SameResidues S a b → profile S a ≡ profile S b
-residues→profile≡ S a b = All→map≡ S (a mod_) (b mod_)
+residues→profile≡ S a b = All→map≡ S (λ m → res m a) (λ m → res m b)
 
 ------------------------------------------------------------------------
 -- THE FIRST HALF OF MYHILL–NERODE, as a theorem about this machine:
@@ -357,45 +400,25 @@ residues→profile≡ S a b = All→map≡ S (a mod_) (b mod_)
 -- because the distance is shift-invariant.
 ------------------------------------------------------------------------
 
-nerode→ind : (S : List ℕ) → Positive S → (a b : ℕ)
-           → Nerode (sensor S) a b → Ind S a b
-nerode→ind S pos a b h =
-  residues→ind S pos a b (profile≡→residues S a b (h []))
+nerode→ind : (S : List ℕ) (a b : ℕ) → Nerode (sensor S) a b → Ind S a b
+nerode→ind S a b h = residues→ind S a b (profile≡→residues S a b (h []))
 
-ind→nerode : (S : List ℕ) → Positive S → (a b : ℕ)
-           → Ind S a b → Nerode (sensor S) a b
-ind→nerode S pos a b ind w =
+ind→nerode : (S : List ℕ) (a b : ℕ) → Ind S a b → Nerode (sensor S) a b
+ind→nerode S a b ind w =
     cong (profile S) (reads-sensor S w a)
   ∙ residues→profile≡ S (len w + a) (len w + b)
-      (ind→residues S pos (len w + a) (len w + b)
-        (Ind-shift S (len w) a b ind))
+      (ind→residues S (len w + a) (len w + b) (Ind-shift S (len w) a b ind))
   ∙ cong (profile S) (sym (reads-sensor S w b))
 
-nerode-is-ind : (S : List ℕ) → Positive S → (a b : ℕ)
-              → Nerode (sensor S) a b ≡ Ind S a b
-nerode-is-ind S pos a b =
+nerode-is-ind : (S : List ℕ) (a b : ℕ) → Nerode (sensor S) a b ≡ Ind S a b
+nerode-is-ind S a b =
   hPropExt (isPropNerode (isOfHLevelList 0 isSetℕ) (sensor S) a b)
            (isPropInd S a b)
-           (nerode→ind S pos a b) (ind→nerode S pos a b)
+           (nerode→ind S a b) (ind→nerode S a b)
 
 ------------------------------------------------------------------------
 -- ७ · the order facts the minimality argument runs on.
 ------------------------------------------------------------------------
-
-absurd : {X : Type} → ⊥ → X
-absurd ()
-
-∸≡0→≤ : (a b : ℕ) → a ∸ b ≡ 0 → a ≤ b
-∸≡0→≤ zero    b       _ = zero-≤
-∸≡0→≤ (suc a) zero    p = absurd (snotz p)
-∸≡0→≤ (suc a) (suc b) p = suc-≤-suc (∸≡0→≤ a b p)
-
-dist≡0→≡ : (i j : ℕ) → dist i j ≡ 0 → i ≡ j
-dist≡0→≡ i j p with splitℕ-≤ j i
-... | inl j≤i = ≤-antisym (∸≡0→≤ i j (sym (dist-≥ i j j≤i) ∙ p)) j≤i
-... | inr i<j = ≤-antisym (<-weaken i<j)
-                  (∸≡0→≤ j i (sym (dist-≥ j i (<-weaken i<j))
-                              ∙ sym (dist-sym i j) ∙ p))
 
 dist<bound : (B i j : ℕ) → i < B → j < B → dist i j < B
 dist<bound B i j i<B j<B with splitℕ-≤ j i
@@ -422,7 +445,7 @@ Ind-sym S a b = subst (λ d → All (_∣ d) S) (dist-sym a b)
 -- order exactly L: L turns return every state, and no fewer than L do.
 ------------------------------------------------------------------------
 
-module _ (S : List ℕ) (pos : Positive S) (l : ℕ) (isL : IsLCM S (suc l)) where
+module _ (S : List ℕ) (l : ℕ) (isL : IsLCM S (suc l)) where
   private
     L : ℕ
     L = suc l
@@ -475,7 +498,7 @@ module _ (S : List ℕ) (pos : Positive S) (l : ℕ) (isL : IsLCM S (suc l)) whe
   simulates x w =
       cong (out cyclic) (reads-classify w x)
     ∙ residues→profile≡ S ((len w + x) mod L) (len w + x)
-        (ind→residues S pos ((len w + x) mod L) (len w + x)
+        (ind→residues S ((len w + x) mod L) (len w + x)
           (Ind-sym S (len w + x) ((len w + x) mod L) (reduce (len w + x))))
     ∙ cong (profile S) (sym (reads-sensor S w x))
 
@@ -485,11 +508,11 @@ module _ (S : List ℕ) (pos : Positive S) (l : ℕ) (isL : IsLCM S (suc l)) whe
   classify-sound : (a b : ℕ) → Nerode (sensor S) a b → classify a ≡ classify b
   classify-sound a b h =
     Σ≡Prop (λ _ → isProp≤)
-      (dist∣→mod≡ l a b (ind→lcm isL a b (nerode→ind S pos a b h)))
+      (dist∣→mod≡ l a b (ind→lcm isL a b (nerode→ind S a b h)))
 
   classify-complete : (a b : ℕ) → classify a ≡ classify b → Nerode (sensor S) a b
   classify-complete a b p =
-    ind→nerode S pos a b (lcm→ind isL a b (mod≡→dist∣ l a b (cong fst p)))
+    ind→nerode S a b (lcm→ind isL a b (mod≡→dist∣ l a b (cong fst p)))
 
   classify-onto : (c : Cakra) → Σ[ x ∈ ℕ ] classify x ≡ c
   classify-onto (k , k<L) =
@@ -522,4 +545,35 @@ module _ (S : List ℕ) (pos : Positive S) (l : ℕ) (isL : IsLCM S (suc l)) whe
                   ∙ cong classify (+-zero k))
             ∙ p
       k∼0 : Ind S k 0
-      k∼0 = nerode→ind S pos k 0 (classify-complete k 0 cls)
+      k∼0 = nerode→ind S k 0 (classify-complete k 0 cls)
+
+------------------------------------------------------------------------
+-- ९ · AND WHEN THE LEAST COMMON MULTIPLE IS ZERO.
+--
+-- §८ takes `IsLCM S (suc l)`.  That is not a side condition admitted to
+-- keep the wheel finite: it is one half of a dichotomy whose other half
+-- is proved here.  A family whose least common multiple is 0 — one
+-- containing the zero modulus — identifies NOTHING.  Every pair of
+-- distinct naturals is separated, so the Nerode quotient is ℕ itself
+-- and the classifying map is the identity.
+--
+-- The two sections together therefore say, for EVERY family and with no
+-- hypothesis anywhere, what the minimal acceptor is: the wheel of order
+-- L when L is positive, and the discrete infinite machine when it is
+-- not.  There is no third case, because a natural is either zero or a
+-- successor.
+------------------------------------------------------------------------
+
+module _ (S : List ℕ) (isL : IsLCM S 0) where
+
+  zero-lcm-separates : (a b : ℕ) → Ind S a b → a ≡ b
+  zero-lcm-separates a b ind =
+    dist≡0→≡ a b (sym (∣-zeroˡ (ind→lcm isL a b ind)))
+
+  zero-lcm-nerode-is-identity : (a b : ℕ) → Nerode (sensor S) a b → a ≡ b
+  zero-lcm-nerode-is-identity a b h = zero-lcm-separates a b (nerode→ind S a b h)
+
+  -- so no two distinct states are ever merged: the minimal machine for
+  -- such a family has one state per natural.
+  zero-lcm-no-collapse : (a b : ℕ) → ¬ (a ≡ b) → ¬ Nerode (sensor S) a b
+  zero-lcm-no-collapse a b ne h = ne (zero-lcm-nerode-is-identity a b h)

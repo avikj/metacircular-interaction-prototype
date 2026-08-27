@@ -63,16 +63,30 @@ common multiple - that many turns return every state, and no positive
 number of turns below it returns even one.  So "the cyclic group of order
 the lcm" is a theorem about the machine and not a description of it.
 
-The residue bridge, proved, and the modulus where it fails.  The
-identification of "the modulus divides the distance" with "the two
-residues agree" is standard, and we prove it at every positive modulus.
-At modulus zero it is FALSE, and we exhibit the pair that breaks it: with
+The residue bridge, proved, with no hypothesis, and the function that was
+wrong.  The identification of "the modulus divides the distance" with
+"the two residues agree" is standard and we prove it at EVERY modulus,
+including zero.  It looks at first as though zero must be excluded: under
 the usual convention that x mod 0 is 0, the zero modulus read as a
-residue sensor is blind - it reports the same thing about everything -
-while read as a divisor it is the perfect sensor, separating every
-distinct pair.  The two readings of a single number sit at opposite ends
-of the observability scale, and 0 and 1 is where they come apart.  The
-positivity hypothesis in the bridge is therefore not bookkeeping; without
-it the statement has a counterexample, and the counterexample is a term.
+residue sensor is blind, reporting the same thing about everything, while
+read as a divisor it is the perfect sensor separating every distinct
+pair, and we exhibit the pair that pulls the two readings apart.  But
+that is not a limit on the theorem.  It is a defect in the function.  The
+quotient by the zero modulus is the integers modulo nothing, in which the
+residue of a number is the number itself; the conventional mod is a
+representative-picking function that agrees with the residue at every
+positive modulus and disagrees at exactly one.  Replace it with the
+residue and the bridge is unconditional - and the positivity assumption
+then disappears from the family form and from the automaton as well.
+
+Which leaves one place a case split survives, and it is a dichotomy
+rather than an assumption.  The wheel above is finite because the least
+common multiple is positive.  When it is zero - when the family contains
+the zero modulus - we prove the opposite: nothing is identified at all,
+every pair of distinct states is separated, and the quotient is the
+naturals themselves with the identity as classifier.  So for every family
+whatsoever the minimal acceptor is now named: the wheel of order the lcm
+when that is positive, the discrete infinite machine when it is not, and
+there is no third case because a natural is either zero or a successor.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
