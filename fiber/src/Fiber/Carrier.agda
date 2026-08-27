@@ -73,13 +73,30 @@ module _ {A B : Type ℓ} (f : A → B) where
 
   open Carrier public
 
-  -- The fiber over a is singl (f a) — and it is contractible.  Everything
+  -- क्षेत्रम् over a is singl (f a) — and it is contractible.  Everything
   -- below is a consequence of this one line.
-  fiber : A → Type ℓ
-  fiber a = singl (f a)
+  --
+  -- DO NOT NAME THIS `fiber`.  It is not agda/cubical's `fiber`, and the
+  -- two are not the same object:
+  --
+  --   Cubical.Foundations.Equiv.Base   fiber f y = Σ[ x ∈ A ] (f x ≡ y)
+  --   here                             क्षेत्रम्   a = Σ[ b ∈ B ] (f a ≡ b)
+  --
+  -- Cubical's is a Σ over the DOMAIN — what f collapses onto y, i.e. the
+  -- loss.  This one is a Σ over the CODOMAIN — where f a is free to sit,
+  -- i.e. the carried slot, which is contractible and therefore free.  The
+  -- whole point of the law below is that those are different, so spelling
+  -- them the same is not a clash to work around with `hiding`; it is the
+  -- distinction the file exists to make.  (Agda catches it: naming this
+  -- `fiber` is a ClashingDefinition against the import above, which is how
+  -- the collision was found rather than reasoned about.)  The same object
+  -- carries the same name in the corpus's own second copy of this law,
+  -- formal/cubical/theorems/residue/LosslessReturn_TheHandProofWas… .
+  क्षेत्रम् : A → Type ℓ
+  क्षेत्रम् a = singl (f a)
 
-  fiber-isContr : (a : A) → isContr (fiber a)
-  fiber-isContr a = isContrSingl (f a)
+  क्षेत्र-सम्पूर्णम् : (a : A) → isContr (क्षेत्रम् a)
+  क्षेत्र-सम्पूर्णम् a = isContrSingl (f a)
 
   -- No pattern match: see implementation fact 2 in the header.
   descend : A → Carrier
@@ -121,7 +138,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   -- The same statement read as a Σ: a Carrier is a point of A together with a
   -- point of its fiber.  Both round trips are refl, by eta for records and
   -- for Σ.
-  Carrier-as-Σ : Iso Carrier (Σ[ a ∈ A ] fiber a)
+  Carrier-as-Σ : Iso Carrier (Σ[ a ∈ A ] क्षेत्रम् a)
   Iso.fun      Carrier-as-Σ c       = base c , (carried c , witness c)
   Iso.inv      Carrier-as-Σ (a , p) = carry a (p .fst) (p .snd)
   Iso.rightInv Carrier-as-Σ _       = refl
@@ -129,8 +146,8 @@ module _ {A B : Type ℓ} (f : A → B) where
 
   -- Contracting the second component IS the content.  Feed a non-contractible
   -- fiber here and there is nothing to construct.
-  Σ-law : (Σ[ a ∈ A ] fiber a) ≃ A
-  Σ-law = Σ-contractSnd fiber-isContr
+  Σ-law : (Σ[ a ∈ A ] क्षेत्रम् a) ≃ A
+  Σ-law = Σ-contractSnd क्षेत्र-सम्पूर्णम्
 
   Carrier≃-via-law : Carrier ≃ A
   Carrier≃-via-law = compEquiv (isoToEquiv Carrier-as-Σ) Σ-law

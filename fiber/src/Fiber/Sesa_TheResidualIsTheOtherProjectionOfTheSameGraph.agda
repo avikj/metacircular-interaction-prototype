@@ -140,7 +140,7 @@ module _ {A B : Type ℓ} (f : A → B) where
   -- two lanes were never two theorems.
   ------------------------------------------------------------------------
 
-  स्वप् : Iso (Σ[ a ∈ A ] fiber f a) (Σ[ b ∈ B ] शेष b)
+  स्वप् : Iso (Σ[ a ∈ A ] क्षेत्रम् f a) (Σ[ b ∈ B ] शेष b)
   Iso.fun      स्वप् (a , (b , p)) = (b , (a , p))
   Iso.inv      स्वप् (b , (a , p)) = (a , (b , p))
   Iso.rightInv स्वप् _ = refl

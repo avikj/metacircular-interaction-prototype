@@ -198,8 +198,8 @@ data त्रिक् : Type where
 कुट्टक-प्रमाण c = witness c
 
 -- the fiber is singl, hence contractible; hence the equivalence and the path
-कुट्टक-क्षेत्र-सम्पूर्ण : (t : त्रिक्) → isContr (fiber उत्थान t)
-कुट्टक-क्षेत्र-सम्पूर्ण = fiber-isContr उत्थान
+कुट्टक-क्षेत्र-सम्पूर्ण : (t : त्रिक्) → isContr (क्षेत्रम् उत्थान t)
+कुट्टक-क्षेत्र-सम्पूर्ण = क्षेत्र-सम्पूर्णम् उत्थान
 
 त्रिक्-Iso-कुट्टक : Iso त्रिक् कुट्टक
 त्रिक्-Iso-कुट्टक = Carrier-Iso उत्थान

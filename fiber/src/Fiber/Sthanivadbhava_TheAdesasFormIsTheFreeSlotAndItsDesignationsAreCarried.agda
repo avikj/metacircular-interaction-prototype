@@ -328,8 +328,8 @@ open वर्ण public
 स्थानिवत्-प्रमाण c = witness c
 
 -- the fiber is singl, hence contractible; hence the equivalence and the path
-स्थानिवत्-क्षेत्र-सम्पूर्ण : (x : आधार) → isContr (fiber निर्धारितम् x)
-स्थानिवत्-क्षेत्र-सम्पूर्ण = fiber-isContr निर्धारितम्
+स्थानिवत्-क्षेत्र-सम्पूर्ण : (x : आधार) → isContr (क्षेत्रम् निर्धारितम् x)
+स्थानिवत्-क्षेत्र-सम्पूर्ण = क्षेत्र-सम्पूर्णम् निर्धारितम्
 
 आधार-Iso-स्थानिवत् : Iso आधार स्थानिवत्
 आधार-Iso-स्थानिवत् = Carrier-Iso निर्धारितम्

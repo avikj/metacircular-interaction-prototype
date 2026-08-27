@@ -189,8 +189,8 @@ module _ (D : ℤ) where
   प्रमाण c = witness c
 
   -- the fiber is singl, hence contractible: k adds no degree of freedom
-  क्षेप-क्षेत्र-सम्पूर्ण : (x : ℤ × ℤ) → isContr (fiber (क्षेपः D) x)
-  क्षेप-क्षेत्र-सम्पूर्ण = fiber-isContr (क्षेपः D)
+  क्षेप-क्षेत्र-सम्पूर्ण : (x : ℤ × ℤ) → isContr (क्षेत्रम् (क्षेपः D) x)
+  क्षेप-क्षेत्र-सम्पूर्ण = क्षेत्र-सम्पूर्णम् (क्षेपः D)
 
   युग्म-Iso-वर्गप्रकृति : Iso (ℤ × ℤ) वर्गप्रकृति
   युग्म-Iso-वर्गप्रकृति = Carrier-Iso (क्षेपः D)
