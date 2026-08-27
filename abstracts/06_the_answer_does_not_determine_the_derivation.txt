@@ -49,10 +49,43 @@ the term algebra with every member producing the same answer, so a pruning
 heuristic collapses an unbounded fibre rather than a redundant pair.  We
 characterise the trade rather than tune it.
 
-WHAT IS NOT CLAIMED.  There is no provenance semiring in this development,
-no forgetful homomorphism to the boolean semiring, no relational algebra
-and no query language.  The object is a term rewriting calculus with an
-interpreter into the naturals.  The reading of these results as statements
-about how-provenance is a reading and is not proved.
+The provenance semiring, built, and the theorem of the subject proved.
+The reading as how-provenance is no longer a reading.  We construct
+commutative semirings and their homomorphisms; the provenance terms over
+a set of tuple identifiers; and the unique semiring map out of them.  Two
+elements of the free commutative semiring are proved DIFFERENT without
+constructing the quotient, by the universal property itself: two terms
+are equal there exactly when every evaluation into every commutative
+semiring agrees, so one evaluation that disagrees is a proof of
+distinctness.
+
+Then the forgetful homomorphism the earlier form lacked.  The naturals
+under sum and product are the bag semiring, counting derivations; the
+booleans under or and and are the set semiring, recording only that there
+was one; and the map sending zero to false and every successor to true is
+proved a semiring homomorphism.  Set semantics is therefore bag semantics
+composed with forgetting, and that factorisation is a corollary of one
+five-line induction: a homomorphism commutes with evaluation.
+
+The hierarchy is strict at both steps, each with a witness.  One tuple
+used twice and the same tuple used once have the same count and are
+different polynomials.  Two derivations of a fact and one derivation of
+it have the same existence and different counts.  And the sharper form at
+each step, which is what kills reconstruction: there is no function of
+the boolean annotation agreeing with the count, and no function of the
+count agreeing with the polynomial - not "the obvious attempt fails" but
+no function whatsoever.
+
+Finally the algebra and the language.  An annotated relation sends each
+tuple to its provenance; union adds, join multiplies, selection keeps or
+annihilates, projection sums over the fibre - the positive relational
+algebra, annotated.  Queries are a datatype over base relation symbols,
+interpreted in any commutative semiring, and we prove that QUERY
+EVALUATION COMMUTES WITH SEMIRING HOMOMORPHISMS, by induction over the
+language.  Read with the strictness results, that is the exact statement
+of the design consequence: you may run the query and then forget, or
+forget and then run, and you get the same answer - but the forgetting is
+the step with no inverse, so a system that forgets first has destroyed
+what no later query can recompute.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
