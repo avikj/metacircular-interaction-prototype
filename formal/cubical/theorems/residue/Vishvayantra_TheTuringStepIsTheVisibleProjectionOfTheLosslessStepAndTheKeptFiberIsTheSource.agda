@@ -4,7 +4,7 @@
 -- विश्वयन्त्रम् — the universal machine, inside the lossless one.
 --
 -- CLAIM, in one sentence: the ordinary universal Turing machine is the
--- visible projection of a lossless, proof-relevant step, and the fibre
+-- visible projection of a lossless, proof-relevant step, and the fiber
 -- the projection forgets is exactly the source configuration with the
 -- witness that it maps there.
 --
@@ -54,7 +54,7 @@
 -- where the next step will find it.
 ------------------------------------------------------------------------
 
-module Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource where
+module Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFiberIsTheSource where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
@@ -77,7 +77,7 @@ private
 -- §1  The lossless completion of an arbitrary map.
 --
 -- For every f, the domain is equivalent to the total space of f's
--- fibres, the forward map keeps the source and the witness, and the
+-- fibers, the forward map keeps the source and the witness, and the
 -- visible projection of the completed step is f — definitionally.
 ------------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ module _ (f : A → B) where
 -- The equivalence alone is not the law: `e : A ≃ Σ a' T(a')` could
 -- shuffle A arbitrarily and `step` would be decorative.  `visible`
 -- ties the projection of the completed event to the step, and
--- `trace-is-fiber` shows the tie leaves no slack: T is then the fibre
+-- `trace-is-fiber` shows the tie leaves no slack: T is then the fiber
 -- family of `step`, up to fiberwise equivalence.
 ------------------------------------------------------------------------
 
@@ -122,7 +122,7 @@ module _ {X : Type ℓ} (L : LawfulStep X) where
   open LawfulStep L
 
   -- From a lawful trace, recover the source and the witness that the
-  -- step sends it here: the trace is spent as a fibre point.
+  -- step sends it here: the trace is spent as a fiber point.
   traceToFiber : (x' : X) → Trace x' → fiber step x'
   traceToFiber x' t =
     invEq complete (x' , t) ,
@@ -148,7 +148,7 @@ module _ {X : Type ℓ} (L : LawfulStep X) where
     totalIsEquiv = subst isEquiv (funExt slide) (composite .snd)
 
   -- The commuting equation is exactly strong enough: a lawful trace
-  -- family is the fibre family of its own step.
+  -- family is the fiber family of its own step.
   trace-is-fiber : (x' : X) → Trace x' ≃ fiber step x'
   trace-is-fiber x' = traceToFiber x' ,
     fiberEquiv Trace (fiber step) traceToFiber totalIsEquiv x'
@@ -229,7 +229,7 @@ run (suc n) mc = run n (uStep mc)
 universal : LawfulStep Machine
 universal = canonical uStep
 
--- THE HEADLINE, and it is refl: forgetting the fibre of the completed
+-- THE HEADLINE, and it is refl: forgetting the fiber of the completed
 -- universal step IS the ordinary universal Turing step.
 turing-is-the-projection :
   (mc : Machine) → fst (equivFun (LawfulStep.complete universal) mc) ≡ uStep mc
@@ -242,7 +242,7 @@ code-rides zero    M c = refl
 code-rides (suc n) M c = code-rides n M (rec c (idfun Conf) (δ M c))
 
 -- Every finite visible run is itself the projection of a lossless run:
--- the n-step map has its own kept fibre.
+-- the n-step map has its own kept fiber.
 run-lossless : (n : ℕ) → Machine ≃ Σ Machine (fiber (run n))
 run-lossless n = lossless (run n)
 

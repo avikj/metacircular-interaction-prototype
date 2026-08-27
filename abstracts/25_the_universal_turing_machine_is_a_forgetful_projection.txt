@@ -1,6 +1,6 @@
 THE UNIVERSAL TURING MACHINE IS A FORGETFUL PROJECTION
 Every map is definitionally the visible part of its lossless completion,
-and the commuting law forces every trace family to be the fibre family
+and the commuting law forces every trace family to be the fiber family
 
 Computability / cubical type theory
 
@@ -15,7 +15,7 @@ transition, however irreversible, is the first projection of a step
 that retains its exact preimage witness.  Irreversibility is not
 prohibited and not repaired; it is exhibited as forgetting, and the
 forgotten object is computed rather than postulated — it is the
-homotopy fibre.
+homotopy fiber.
 
 The law.  A lossless step on A is a quadruple (step, T, e, v): an
 endomap, a family T : A → U, an equivalence e : A ≃ Σ_{a'} T(a'), and
@@ -24,7 +24,7 @@ load-bearing: without it, e may permute A arbitrarily and `step` is
 decorative — the equivalence alone is not a law.  The paper's central
 theorem is that the field is also exactly strong enough:
 
-    THEOREM (trace-is-fibre).  For every lossless step (step, T, e, v)
+    THEOREM (trace-is-fiber).  For every lossless step (step, T, e, v)
     and every a' : A,   T(a') ≃ fib_step(a').
 
 The trace family of a lawful step carries no information beyond the
