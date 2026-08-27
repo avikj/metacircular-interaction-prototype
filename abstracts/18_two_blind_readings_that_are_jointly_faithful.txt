@@ -46,10 +46,42 @@ must be discharged by naming two states the observables cannot separate.
 Absent that witness the claim has not been stated, and a sensitivity study
 is not a substitute for it.
 
-WHAT IS NOT CLAIMED.  There is no probability distribution, no estimator,
-no structural equation model, no do-calculus and no counterfactual in this
-development.  The observables are functions on a six-element type and
-"identifiable" means the fibres are contractible.  Whether a statistical
-identification problem has this shape is a reading and is not proved.
+The causal apparatus, built, and the identification statements proved of
+it.  A structural equation model: an exogenous variable with a weight, a
+structural equation assigning the treatment, and a structural equation
+assigning the outcome from the treatment AND the exogenous variable - the
+second argument being what confounding is, a field of the record rather
+than an assumption about one.  The do-operator, deleting the treatment's
+equation and substituting a constant.  The counterfactual joint, as the
+distribution of the PAIR of potential outcomes at a single draw of the
+exogenous variable, which is what separates the third rung from the
+second.
+
+Probability without division.  A distribution here is an unnormalised
+weight function into the naturals, and every statement is either a
+comparison of weights on a common total or is stated cross-multiplied.
+No rationals, no normalisation, and - the point - no positivity side
+condition, because the cleared form needs none: where a denominator
+vanishes both sides vanish.
+
+Two identification theorems, in the form that admits no estimator.  No
+function of the observational distribution computes the interventional
+one: we exhibit two models, one with the exogenous variable causing both
+treatment and outcome and one with it causing the treatment which causes
+the outcome, that agree on everything observable and disagree under
+intervention.  So any purported identification formula would have to
+return two answers on one input.  And no function of the interventional
+distributions computes the counterfactual joint: two models agreeing
+under EVERY intervention and disagreeing on the joint distribution of the
+potential outcomes.  Experiments do not settle counterfactuals, and here
+that is a theorem rather than a slogan.
+
+The positive half, so the negative ones are not the whole story.  When
+the outcome's structural equation does not read the exogenous variable,
+the adjustment identity holds: the interventional and observational
+distributions agree, cross-multiplied, with no hypothesis at all.  That
+is the identified case, and the contrast between it and the confounded
+one is the exact content of "identifiable means the fibres are
+contractible".
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
