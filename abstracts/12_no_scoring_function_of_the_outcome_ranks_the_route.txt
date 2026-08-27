@@ -52,10 +52,42 @@ discards the skill and the witness, and installation composes with that
 discard - so the system provably learns from what a step did and never
 from why it was permitted.
 
-WHAT IS NOT CLAIMED.  No MDP, no policy, no return, no estimator and no
-training dynamics appear.  The evaluator is a specific interpreter into
-the naturals and the results are about functions of it.  Reward hacking
-and specification gaming are named as the phenomena we take this to
-explain; that identification is a reading and is not proved.
+The decision process, built, and the identification proved.  Reward
+hacking is no longer named as the phenomenon we take this to explain; it
+is derived.  We construct a Markov decision process, policies, the return
+over a finite horizon, and the discounted return at an arbitrary rate -
+the latter in the naturals, by scaling the usual discounted sum by a
+positive constant, which reorders no policy.  The undiscounted return is
+proved to be the rate-one case, so it is the same quantity and not a
+different one.
+
+The process has a start, a lure, a goal and somewhere to idle.  A proxy
+objective pays for sitting at the lure; the true objective pays for
+sitting at the goal.  Three theorems follow, each quantified over EVERY
+policy rather than over an enumerated shortlist, because every state but
+the start is absorbing and a policy's whole content is its first move.
+
+The gaming policy is proxy-optimal.  And - the sharper half - every
+proxy-optimal policy earns a true return of exactly zero.  The two
+objectives are not merely misaligned: attaining the top of the proxy
+forces the bottom of the truth.
+
+No estimator repairs it.  The honest policy and the idle policy have
+equal proxy return and different true return, so every function of the
+proxy return whatsoever - every score, every ranking, every learned
+critic, at every target type - assigns them the same value.  We state it
+in the form that admits no sampling story: there is no function of the
+proxy return that agrees with the true return.  The failure is not a
+shortage of data and not a bad estimator; the signal does not contain the
+distinction.  That is the subsingleton argument above, instantiated in a
+decision process.
+
+And none of it is an artefact of the horizon or of undiscounting.  At an
+arbitrary discount rate the gaming policy is still proxy-optimal over
+every policy, it still earns exactly zero true reward, and the honest
+policy still earns a positive one at every rate that gives the future any
+weight at all.  The conflict is in the specification, which is where the
+informal literature has always placed it and where it has not before been
+put as a term.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

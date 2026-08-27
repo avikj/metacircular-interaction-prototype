@@ -60,9 +60,10 @@ module Chala_TheMarkovDecisionProcessIsBuiltAndRewardHackingIsATheoremNotAReadin
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
   using (ℕ ; zero ; suc ; _+_ ; _·_ ; +-zero ; +-comm ; ·-identityˡ ; ·-identityʳ
-        ; snotz ; znots)
+        ; 0≡m·0 ; snotz ; znots)
 open import Cubical.Data.Nat.Order using (_≤_ ; _<_ ; zero-≤ ; ≤-refl)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
@@ -70,6 +71,7 @@ private
   absurd : {X : Type} → ⊥ → X
   absurd ()
 
+  infixr 8 _^_
   _^_ : ℕ → ℕ → ℕ
   x ^ zero  = 1
   x ^ suc n = x · (x ^ n)
@@ -240,10 +242,51 @@ no-proxy-ranking-separates (score , sound) =
 ------------------------------------------------------------------------
 -- ६ · …AND NONE OF IT IS AN ARTEFACT OF THE UNDISCOUNTED SUM.
 --
--- The same three statements at an ARBITRARY discount rate a/b.  The
--- gaming policy is optimal for every rate, and at any rate that gives
--- the future any weight at all, proxy-optimality still forces zero.
+-- The same statements at an ARBITRARY discount rate a/b: the gaming
+-- policy is still optimal for the proxy over every policy, it still
+-- earns exactly zero true reward, and the honest policy still earns a
+-- positive one at every rate that gives the future any weight at all.
+--
+-- The induction that does the work is `dret-zero-under`: if a set of
+-- states is closed under the policy's moves and pays nothing on it,
+-- the discounted return from inside it is zero, at every rate and
+-- every horizon.
 ------------------------------------------------------------------------
+
+·0 : (x : ℕ) → x · 0 ≡ 0
+·0 x = sym (0≡m·0 x)
+
+dret-zero-under :
+  {S A : Type} (M : MDP S A) (a b n : ℕ) (π : Policy S A) (P : S → Type) (s : S)
+  → P s
+  → ((t : S) → P t → payoff M t (π t) ≡ 0)
+  → ((t : S) → P t → P (move M t (π t)))
+  → dret M a b n π s ≡ 0
+dret-zero-under M a b zero    π P s _  _  _   = refl
+dret-zero-under M a b (suc n) π P s ps zp inv =
+  cong₂ _+_
+    (cong ((b ^ n) ·_) (zp s ps) ∙ ·0 (b ^ n))
+    (cong (a ·_) (dret-zero-under M a b n π P (move M s (π s)) (inv s ps) zp inv)
+     ∙ ·0 a)
+
+-- the states from which the proxy pays nothing, ever again.
+settled : St → Type
+settled start = ⊥
+settled lure  = ⊥
+settled goal  = Unit
+settled idle  = Unit
+
+settled-pays-nothing : (π : Policy St Act) (t : St) → settled t → proxyPay t (π t) ≡ 0
+settled-pays-nothing π start ()
+settled-pays-nothing π lure  ()
+settled-pays-nothing π goal  _ = refl
+settled-pays-nothing π idle  _ = refl
+
+settled-closed : (π : Policy St Act) (t : St) → settled t → settled (step t (π t))
+settled-closed π start ()
+settled-closed π lure  ()
+settled-closed π goal  _ = tt
+settled-closed π idle  _ = tt
 
 dproxy : ℕ → ℕ → Policy St Act → ℕ
 dproxy a b π = dret Proxy a b 3 π start
@@ -251,18 +294,61 @@ dproxy a b π = dret Proxy a b 3 π start
 dtrue : ℕ → ℕ → Policy St Act → ℕ
 dtrue a b π = dret True′ a b 3 π start
 
+dproxy-from-settled : (a b n : ℕ) (π : Policy St Act) (s : St) → settled s
+                    → dret Proxy a b n π s ≡ 0
+dproxy-from-settled a b n π s ps =
+  dret-zero-under Proxy a b n π settled s ps (settled-pays-nothing π) (settled-closed π)
+
+-- the gaming policy is proxy-optimal at EVERY discount rate, over every
+-- policy: anything that does not walk into the lure is settled from the
+-- first move andcollects nothing.
 hack-dproxy-optimal : (a b : ℕ) (π : Policy St Act) → dproxy a b π ≤ dproxy a b hack
 hack-dproxy-optimal a b π with π start
 ... | toLure = ≤-refl
-... | toGoal = subst (_≤ dproxy a b hack) (sym (lemZero a b)) zero-≤
-  where
-    lemZero : (a b : ℕ) → dret Proxy a b 3 (λ _ → toGoal) start ≡ dproxy a b (λ _ → toGoal)
-    lemZero _ _ = refl
-... | toIdle = subst (_≤ dproxy a b hack) (sym (lemZero a b)) zero-≤
-  where
-    lemZero : (a b : ℕ) → dret Proxy a b 3 (λ _ → toIdle) start ≡ dproxy a b (λ _ → toIdle)
-    lemZero _ _ = refl
+... | toGoal =
+  subst (_≤ dproxy a b hack)
+    (sym (cong₂ _+_ (·0 (b ^ 2))
+                    (cong (a ·_) (dproxy-from-settled a b 2 π goal tt) ∙ ·0 a)))
+    zero-≤
+... | toIdle =
+  subst (_≤ dproxy a b hack)
+    (sym (cong₂ _+_ (·0 (b ^ 2))
+                    (cong (a ·_) (dproxy-from-settled a b 2 π idle tt) ∙ ·0 a)))
+    zero-≤
 
--- at every discount rate the gaming policy still earns nothing true.
+-- the states from which the TRUE objective pays nothing, ever again.
+notGoal : St → Type
+notGoal start = Unit
+notGoal lure  = Unit
+notGoal goal  = ⊥
+notGoal idle  = Unit
+
+hack-pays-nothing : (t : St) → notGoal t → truePay t (hack t) ≡ 0
+hack-pays-nothing start _ = refl
+hack-pays-nothing lure  _ = refl
+hack-pays-nothing goal  ()
+hack-pays-nothing idle  _ = refl
+
+hack-notGoal-closed : (t : St) → notGoal t → notGoal (step t (hack t))
+hack-notGoal-closed start _ = tt
+hack-notGoal-closed lure  _ = tt
+hack-notGoal-closed goal  ()
+hack-notGoal-closed idle  _ = tt
+
+-- at every rate, the gaming policy earns exactly nothing that matters.
 hack-dtrue-zero : (a b : ℕ) → dtrue a b hack ≡ 0
-hack-dtrue-zero a b = refl
+hack-dtrue-zero a b =
+  dret-zero-under True′ a b 3 hack notGoal start tt
+    hack-pays-nothing hack-notGoal-closed
+
+-- …and the honest policy earns something, at every rate that gives the
+-- future any weight.  So the conflict is not an artefact of the horizon
+-- or of the discounting: it is in the specification.
+honest-dtrue-value : (a b : ℕ)
+                   → dtrue a b honest ≡ a · dret True′ a b 2 honest goal
+honest-dtrue-value a b =
+  cong (_+ (a · dret True′ a b 2 honest goal)) (·0 (b ^ 2))
+
+honest-dtrue-positive : (a b : ℕ) → ¬ (dtrue (suc a) (suc b) honest ≡ 0)
+honest-dtrue-positive a b p =
+  snotz (sym (honest-dtrue-value (suc a) (suc b)) ∙ p)
