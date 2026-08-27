@@ -54,12 +54,36 @@ proposed observable the blind set is computable in advance, and an
 invariance imposed for physical reasons is precisely a blindness
 accepted.
 
-WHAT IS NOT CLAIMED.  There are no completely positive maps, no Hilbert
-spaces, no density operators and no anyon models in this development.
-"Three Boolean strands" is a three-fold product of the two-element type,
-and "unitary" abbreviates "equipped with a two-sided inverse and its unit
-laws".  The results are about equivalences of finite types and about a
-term calculus; their bearing on a physical implementation is a reading
-and is not proved.
+Unitary, not merely invertible, and independent in both directions.
+"Unitary" above is not an abbreviation for "invertible".  We build the
+space: the free module on the eight basis states over the integers, with
+the counting inner product, and we prove the computational basis
+orthonormal - each basis vector has norm one, so the enumeration hits
+every state exactly once and none twice, which is what makes the form an
+inner product rather than a bilinear one.  A unitary is then an
+invertible isometry of it, written out as those two conditions, and every
+operator here is a permutation of the basis, so nothing needs a
+completion, a limit or a real number: this is the integral lattice in the
+eight-dimensional Hilbert space with the computational basis declared
+orthonormal.
+
+The countermodel survives the strengthening.  The first-strand flip is an
+isometry - it carries the enumeration to itself with the two halves
+exchanged, so the same eight products are summed in the other order and
+one commutation closes it - and it is invertible, hence unitary.  So is
+the identity crossing.  They still fail Yang-Baxter, now as operators on
+the space, separated by the vector that reads the first strand at the
+state the earlier form names.
+
+And the converse fails too, which the implication's defenders never
+check.  Satisfying Yang-Baxter does not give unitarity: the constant
+crossing satisfies the relation definitionally and is not unitary, not
+even injective - it collapses the space onto one coordinate and reports
+norm eight for a unit vector.  So the two conditions are logically
+independent in both directions, each with a witness that is a term.  That
+is the exact content of "an architecture whose gates are certified
+unitary has certified nothing about exchange statistics", together with
+its mirror image, "satisfying the braid relation certifies nothing about
+unitarity".
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
