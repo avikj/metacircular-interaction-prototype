@@ -1,0 +1,54 @@
+THE PAIR FIELD HAS EXACTLY ONE COMPANION
+The cone stabiliser in the full leg group is the exchange alone,
+so no symmetry carries Goldbach to twins, and the split of the one
+symmetric statement into two conjectures is exhaustive
+
+Number theory / cubical type theory
+
+A prime pair (p, q) has centre-relative coordinates W = p + q and
+R = q − p; the legs are, doubled, the light-cone coordinates of the
+(W, R) plane (u∓ = W ∓ R = 2p, 2q), and positivity of both legs is
+membership of the open forward cone.  Goldbach and twin primes are the
+two transverse foliations of the support of one dependent type: every
+large constant-W slice inhabited; the R = 2 line cofinal.
+
+The natural finite symmetry group of the legs — sign change on each
+leg extended by the leg swap, the hyperoctahedral group of order 8 —
+acts on the plane.  Computed through the coordinate change, its eight
+elements are: the identity; the exchange τ : (W, R) ↦ (W, −R); the
+pure swap (W, R) ↦ (R, W), which is one-leg negation in disguise; the
+one-leg reflection J₂ : (W, R) ↦ (−R, −W); total negation; τ composed
+with it; and the two quarter-turn rotations.  Exactly four of these —
+swap, J₂, and the rotations — carry the fixed-centre foliation to the
+fixed-gap foliation: each is a candidate duality that would transport
+Goldbach-progress to twin-progress or back.
+
+    THEOREM (one companion).  The stabiliser of the cone in the leg
+    group is {id, τ}.  In particular all four foliation-exchanging
+    elements break the cone, including the pure swap (W, R) ↦ (R, W):
+    the exchange with no signs at all still fails, because it negates
+    the cone coordinate W − R.
+
+Every breakage is one lemma — a nonzero integer and its negation are
+never both positive — applied to the coordinate the element negates.
+The cone is killed by polarity alone.  That is the arithmetic content:
+the obstruction to self-duality of the prime-pair field is (−1).
+
+Read structurally: on the sign-extended plane the reflection group
+acts and the two conjectures are one orbit; the cone is a fundamental
+domain; descending to it splits the one statement into two that no
+surviving symmetry connects.  The doublet is split by positivity, the
+splitting is exhaustive over the group where a duality must live (a
+duality normalises the foliations and fixes the origin, so it permutes
+the axes up to sign), and the surviving symmetry τ fixes each
+foliation rather than exchanging them.  Whatever transports progress
+between Goldbach and twins, it is not a symmetry of the field; the
+theorem closes that road and names the toll: the arrow of the cone,
+which is the same (−1) whose Liouville eigenvector carries the parity
+obstruction in the shift–dilation interface σ ∘ D_m = D_m ∘ σ^m.
+
+Formalised: EkaSahaya (theorems/number), over CenterRelative's cone
+and posAnti, ring identities by the commutative-ring solver, --safe,
+with inhabitation controls at the twin pair (3, 5).  Typecheck at the
+pin is pending in this container (the toolchain is mid-bootstrap);
+until agda answers, this abstract is a claim and says so.
