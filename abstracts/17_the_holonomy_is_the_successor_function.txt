@@ -47,10 +47,35 @@ symmetry cannot represent that symmetry's holonomy - not approximately,
 not with more resolution.  The residue is recoverable only by changing the
 observable, never by refining it.
 
-WHAT IS NOT CLAIMED.  There is no lattice, no gauge group, no connection
-form, no Wilson loop and no field in this development.  The system is a
-discrete circuit with an integer fibre; "holonomy" names the action of the
-loop on that fibre, and "observable" names a function out of the state.
-The physical reading is a reading and is not proved.
+The lattice, built, and the physical reading proved.  The gauge-theoretic
+vocabulary is no longer a gloss on the result: we construct the objects.
+A group, written out.  Sites, oriented links, and the paths between them.
+A connection - a group element on every link, which is a lattice gauge
+field with no further axiom.  The Wilson line as the ordered product
+along a path, and the Wilson loop as that product when the path closes.
+A gauge transformation acting at the sites.
+
+Two theorems then say what the construction is for.  Gauge covariance:
+under a gauge transformation the Wilson line is conjugated by the group
+elements at its two endpoints and nothing else survives, because the
+interior dressings meet their own inverses and cancel - the telescoping
+is the whole induction.  Consequently, on an abelian group the Wilson
+loop is gauge invariant on the nose, so it is a genuine observable of the
+field rather than of the coordinates.
+
+Curvature as an obstruction.  A field that is pure gauge - a gauge
+transform of the trivial connection - has every Wilson loop trivial.  So
+a loop carrying a nontrivial Wilson element cannot be gauged away, and
+that is the precise sense in which a holonomy is physical.
+
+The bridge.  The integers form an abelian gauge group; the smallest
+lattice carrying a loop is one site with one link to itself, a single
+plaquette; put the generator on that link.  We prove that the
+type-theoretic transport of the circle's integer bundle around its loop
+and the action of that plaquette's Wilson element on the fibre are THE
+SAME FUNCTION, and the last step is reflexivity, because adding one is
+the successor by the definition of integer addition.  The holonomy
+computed at the top of this abstract is a Wilson loop, and that is now a
+theorem rather than a reading.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
