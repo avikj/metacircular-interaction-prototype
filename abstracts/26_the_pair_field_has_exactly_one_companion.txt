@@ -47,8 +47,7 @@ theorem closes that road and names the toll: the arrow of the cone,
 which is the same (−1) whose Liouville eigenvector carries the parity
 obstruction in the shift–dilation interface σ ∘ D_m = D_m ∘ σ^m.
 
-Formalised: EkaSahaya (theorems/number), over CenterRelative's cone
-and posAnti, ring identities by the commutative-ring solver, --safe,
-with inhabitation controls at the twin pair (3, 5).  Typecheck at the
-pin is pending in this container (the toolchain is mid-bootstrap);
-until agda answers, this abstract is a claim and says so.
+Checked: EkaSahaya (theorems/number), over CenterRelative's cone and
+posAnti, ring identities by the commutative-ring solver, --safe,
+inhabitation controls at the twin pair (3, 5).  Agda 2.8.0 +
+cubical-0.9 at the pin, exit 0, 2026-08-27, this container.
