@@ -199,6 +199,26 @@ decided with evidence either way, while divergence, the refutation at
 every depth at once, is a proposition no finite observation asserts:
 each depth speaks with evidence, and the totality is not a naya.
 
+The truncation doctrine meets its exact boundary.  In general ∥A∥₁
+has no retraction — a collapse to mere inhabitation cannot be undone.
+But mere halting already yields the first halting time with its
+minimality certificate, untruncated, with no choice principle: each
+finite depth is decided with evidence, so a bounded search walks down
+from any witness, and the pair (first time, minimality) is a
+proposition, so the truncation eliminates into it.  The collapse
+destroys choices and preserves canons; minimality is a canon.
+
+And the relational presentation collapses too.  A proof-relevant
+program R : A → B → U with unique answers — contractible output
+spaces — is the graph of its execution, R a b ≃ (exec a ≡ b), by the
+fundamental theorem of identity types; globally (Σ R. Fun R) ≃
+(A → B), one direction definitional.  The deterministic ISC's receipt
+event is definitionally the graph relation of the universal step.  So
+three grammars — lossless step, functional relation, collapsed
+interaction — present one function, and each grammar's surplus is
+measured by its own theorem: the trace is the fibre, the relation is
+the graph, the interaction is the receipt.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
