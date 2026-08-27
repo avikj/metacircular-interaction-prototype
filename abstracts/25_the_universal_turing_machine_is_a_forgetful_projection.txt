@@ -69,6 +69,37 @@ divergent — the halting observation is refuted at every finite depth
 by transporting along the run's fixity and colliding just with
 nothing.
 
+Losslessness is a property, not a structure.  The type of lossless
+completions of a fixed map,
+
+    Lossless f  =  Σ (T : B → U). Σ (e : A ≃ Σ_b T b). π₁ ∘ e ∼ f,
+
+is CONTRACTIBLE (losslessness-is-a-property).  The proof unwinds a
+completion through a chain of explicit equivalences — a map over f is
+a section, a section is a fiberwise map, both definitionally; total
+and fiberwise invertibility exchange as propositions; two applications
+of definitional choice and one flip through univalence — landing in a
+product of equivalence-singletons, each contractible by univalence.
+So the completed machine is not one design among possible designs: up
+to a path there is exactly one lossless completion of the universal
+step, and the constructed one is the inhabitant
+(machine-lossless-unique).
+
+The ledger has an algebra.  For any maps g, f and target c,
+
+    fiber (g ∘ f) c  ≃  Σ (w : fiber g c). fiber f (π₁ w)
+
+— the kept fibre of a composite is the composite of kept fibres — and
+run is additive, so the trace of an (m+n)-step run factors through the
+n-leg and then the m-leg with nothing double-kept and nothing dropped.
+Reverse execution of the completed machine is refl: the inverse of the
+lossless completion reads the source out of the fibre, a projection
+rather than a search, and the kernel accepts source-recovered by refl
+at every depth.  Halting is an equation in a set, hence a proposition;
+silence persists to every later depth; and the pair (first halting
+time, its minimality) is itself a proposition — if the machine halts,
+when it first halts admits no second answer, as data.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
