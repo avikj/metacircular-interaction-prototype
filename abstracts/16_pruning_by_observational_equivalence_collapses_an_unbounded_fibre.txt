@@ -44,10 +44,39 @@ information remains, which is why the stronger law is not available: it
 would require adjudicating an identity of histories that behaviour cannot
 supply.
 
-WHAT IS NOT CLAIMED.  There is no specification language, no example-based
-synthesis, no version space and no enumerative search procedure here.  The
-object is a rewriting calculus with an interpreter, and "candidate" names a
-history.  The reading as a statement about synthesisers is a reading and is
-not proved.
+The synthesiser, built, and the practice statements proved of it.  A
+candidate language; a specification language that is a finite list of
+input-output examples, which is what programming-by-example means and is
+the whole language - no connectives, no types, no sketch; the version
+space as the subtype of candidates consistent with a specification; and
+the enumerative search procedure, candidates by depth with no pruning,
+returning the first that passes every example, with the proof that what
+it returns satisfies the specification.
+
+Then the step every synthesiser takes and few justify.  The behaviour of
+a candidate on a specification is the vector of its outputs at the
+specification's inputs.  Two candidates with the same behaviour satisfy
+the same specifications - that is the entire justification for dedup, and
+it is one induction.  Pruning keeps one candidate per behaviour, and we
+prove it never loses a solution.  The completeness theorem is stated for
+any pruner that covers behaviours, so it is a theorem about the criterion
+rather than about one implementation, and a concrete pruner is then shown
+to satisfy it.
+
+And what the pruning removed was not a duplicate.  The class of
+candidates that are constantly zero contains an injective copy of the
+naturals: a synthesiser keeping one representative is selecting one
+element of an unbounded fibre and discarding the rest.  We ship the
+family, the proof that every member has the same behaviour on every
+specification, and the proof that they are pairwise distinct.
+
+Finally the ranking, in a form stronger than the specification-relative
+one.  Not merely that the specification fails to determine the choice
+inside a class: the WHOLE input-output function fails to.  Two members of
+the family are equal as functions from inputs to outputs and differ in
+size, so no functional of the semantics computes the size.  Size, cost
+and structural heuristics are therefore choices about the residue by
+theorem, and should be reported as such rather than as approximations to
+a semantic optimum that does not exist.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
