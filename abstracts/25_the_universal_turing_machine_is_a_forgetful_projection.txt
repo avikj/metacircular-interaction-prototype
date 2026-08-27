@@ -1,0 +1,76 @@
+THE UNIVERSAL TURING MACHINE IS A FORGETFUL PROJECTION
+Every map is definitionally the visible part of its lossless completion,
+and the commuting law forces every trace family to be the fibre family
+
+Computability / cubical type theory
+
+For any types A, B and any map f : A → B there is an equivalence
+
+    e_f : A ≃ Σ_{b : B} fib_f(b)
+
+whose forward map is a ↦ (f a, a, refl) and whose visible projection is
+f *definitionally*: π₁ ∘ e_f = f is inhabited by refl, with no
+transport and no path algebra.  Read operationally: every computable
+transition, however irreversible, is the first projection of a step
+that retains its exact preimage witness.  Irreversibility is not
+prohibited and not repaired; it is exhibited as forgetting, and the
+forgotten object is computed rather than postulated — it is the
+homotopy fibre.
+
+The law.  A lossless step on A is a quadruple (step, T, e, v): an
+endomap, a family T : A → U, an equivalence e : A ≃ Σ_{a'} T(a'), and
+the commuting datum v : π₁ ∘ e ∼ step.  The fourth field is
+load-bearing: without it, e may permute A arbitrarily and `step` is
+decorative — the equivalence alone is not a law.  The paper's central
+theorem is that the field is also exactly strong enough:
+
+    THEOREM (trace-is-fibre).  For every lossless step (step, T, e, v)
+    and every a' : A,   T(a') ≃ fib_step(a').
+
+The trace family of a lawful step carries no information beyond the
+step itself, so lossless completion is canonical, not chosen.  The
+proof composes e⁻¹ with e_step, slides the base point of the resulting
+total-space equivalence along the witness assembled from v and the
+section of e — the same interval trick, λ i → (q i, a, λ j → q (i∧j)),
+that proves e_f itself — and then applies the total-to-fiberwise
+equivalence theorem.
+
+The machine.  Code is the type of finite transition tables of a
+single-tape machine, List (Q × S × Q × S × Move) with Q = S = ℕ, so an
+effectively presented machine IS an element of Code: there is no Gödel
+numbering to trust and no decoder to verify, because the table is the
+program.  Conf is a two-list tape with a scanned cell, blank beyond
+both ends.  The rule lookup answers with Maybe (m ≡ n) — a witness of
+the match, or nothing — and no boolean occurs in the development: the
+branch a boolean would stand in for is exactly the slot the witness
+keeps.  The universal step uStep : Code × Conf → Code × Conf is total;
+a configuration its table does not address is a fixed point, so
+halting is the table's silence, an equation in Maybe, and no defined
+function diverges.
+
+Instantiating at uStep: the equation
+
+    ordinary universal step  =  forget trace ∘ lossless universal step
+
+is a definitional equality of the checked artifact — the term
+turing-is-the-projection is refl — not an assertion about it.  The
+program rides untouched through execution (π₁(run n (M,c)) ≡ M, one
+refl per step folded through the run), and the n-step visible run is
+itself the projection of its own lossless completion, for every n, by
+the same e.
+
+Divergence lives inside the total language.  A guarded coinductive
+exec is total and productive: every machine, halting or not, yields
+the infinite stream of its finite transitions, so nontermination is
+represented and never executed.  Both poles are then computed: the
+empty table halts at once on every configuration, by refl; and a
+one-rule machine that rewrites its scanned blank in place is proved
+divergent — the halting observation is refuted at every finite depth
+by transporting along the run's fixity and colliding just with
+nothing.
+
+Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
+--guardedness --safe, no postulates, no holes.  The interactive
+generalisation — question-indexed events under the guarded later — is
+a śeṣa, and it is queued in the machine's own remainder store, where
+the next step will find it.
