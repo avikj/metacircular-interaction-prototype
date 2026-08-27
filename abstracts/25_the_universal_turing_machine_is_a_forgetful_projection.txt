@@ -178,11 +178,11 @@ questions force a contractible run space (silence-is-determinism),
 with no set-ness of the state space used anywhere — the contraction
 is built coinductively over a path of states on the answer side and
 carried across the equivalence — and the closed universal machine
-recovers one-execution as an instance, while a single Bool-valued
-question already opens the space (a-real-question-is-a-space):
-the environment's freedom IS the homotopy of the history space,
-measured on one flank by the event type and on the other by the
-answer type.
+recovers one-execution as an instance.  With the strictness witness
+already checked on the event flank, the two files close the picture
+together: the environment's freedom IS the homotopy of the history
+space, measured on one flank by the event type and on the other by
+the answer stream.
 
 The self-hosting question is answered on both flanks.  There is no
 table that is every table on the nose — two machines disagreeing at

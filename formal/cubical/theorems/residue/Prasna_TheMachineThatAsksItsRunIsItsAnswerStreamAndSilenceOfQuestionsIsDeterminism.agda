@@ -36,15 +36,11 @@
 -- (one-execution-again) — for the closed machine the whole space of
 -- interactive runs is again a point.
 --
---   WITNESS (a-real-question-is-a-space).  One genuine question — a
---   coin: Q x = Bool, δ counts the heads — and the run space is
---   provably NOT contractible: the always-true and always-false runs
---   are separated by their first answer.
---
--- So the trichotomy is checked in both directions: contractible
--- questions force one history; one two-valued question already makes
--- the histories a genuine space; and in every case the space of
--- histories is exactly the space of answer streams — no more, no less.
+-- The other direction — one genuine degree of freedom opens the
+-- space — is already checked on the event flank, in Prashna's
+-- interaction-is-strictly-wider, and is not repeated here.  What this
+-- file adds is the measurement: in every case the space of histories
+-- is exactly the space of answer streams — no more, no less.
 ------------------------------------------------------------------------
 
 module Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism where
@@ -53,10 +49,8 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
 open import Cubical.Foundations.Equiv
 open import Cubical.Foundations.HLevels using (isOfHLevelRespectEquiv)
-open import Cubical.Data.Bool using (Bool ; true ; false ; true≢false)
-open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Cubical.Data.Unit using (Unit ; tt ; isContrUnit)
-open import Cubical.Relation.Nullary using (¬_)
+open import Cubical.Data.Nat using (ℕ)
+open import Cubical.Data.Unit using (Unit ; isContrUnit)
 
 open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep)
@@ -191,33 +185,3 @@ utm = closed uStep
 -- exactly one interactive execution.
 one-execution-again : (mc : Machine) → isContr (IExec utm mc)
 one-execution-again = silence-is-determinism utm (λ _ → isContrUnit)
-
-------------------------------------------------------------------------
--- §5  One real question makes the histories a space.
---
--- A coin: every state asks Bool, and the step counts the heads.  The
--- always-true and always-false runs are separated by their very first
--- answer, so the run space is not contractible — and by §2 this is a
--- statement about answer streams: the environment's freedom is
--- exactly the homotopy of the history space.
-------------------------------------------------------------------------
-
-coin : Interaction ℕ
-coin .Q _       = Bool
-coin .δ n true  = suc n
-coin .δ n false = n
-
-always : (b : Bool) (n : ℕ) → IExec coin n
-IExec.now  (always b n) = n
-IExec.here (always b n) = refl
-IExec.ans  (always b n) = b
-IExec.next (always b n) = always b (coin .δ n b)
-
-heads tails : (n : ℕ) → IExec coin n
-heads = always true
-tails = always false
-
--- THE WITNESS.  Two runs, one first answer apart: no contraction.
-a-real-question-is-a-space : ¬ isContr (IExec coin 0)
-a-real-question-is-a-space c =
-  true≢false (cong IExec.ans (sym (snd c (heads 0)) ∙ snd c (tails 0)))
