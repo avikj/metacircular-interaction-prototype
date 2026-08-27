@@ -73,6 +73,13 @@ neither one nor minus one modulo fifteen, the greatest common divisor of
 three with fifteen is three, and three divides fifteen and is neither one
 nor fifteen.  Every step evaluates.
 
+And both exclusions are necessary, which is why they are hypotheses and
+not an incomplete proof.  One and minus one are themselves square roots
+of one, and at each the construction returns a trivial divisor - N itself
+at one, and one at minus one.  Both are computed at fifteen, where
+fourteen squared is one hundred ninety-six, thirteen fifteens plus one,
+so fourteen really is a square root of one there.
+
 What the file supplies is the arithmetic the reduction needs.  It says
 nothing about the price of running it - what an order costs to find, on
 any machine, is a claim about cost, and the corpus's cost results are

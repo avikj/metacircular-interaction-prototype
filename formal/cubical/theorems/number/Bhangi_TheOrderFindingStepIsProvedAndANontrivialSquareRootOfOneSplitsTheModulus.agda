@@ -42,7 +42,8 @@ module Bhangi_TheOrderFindingStepIsProvedAndANontrivialSquareRootOfOneSplitsTheM
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
 open import Cubical.Data.Nat.Order using (_<_ ; _≤_)
-open import Cubical.Data.Nat.Divisibility using (_∣_ ; ∣-refl ; ∣-trans ; ∣-left ; ∣-right ; ∣-untrunc)
+open import Cubical.Data.Nat.Divisibility using (_∣_ ; ∣-refl ; ∣-trans ; ∣-left ; ∣-right ; ∣-untrunc ; ∣-zeroʳ)
+open import Cubical.HITs.PropositionalTruncation using (∣_∣₁)
 open import Cubical.Data.Nat.GCD using (isGCD ; gcd ; gcdIsGCD ; isGCD→gcd≡ ; gcd≡→isGCD ; symGCD)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 open import Cubical.Data.Empty using (⊥)
@@ -150,3 +151,29 @@ fifteen-splits = sqrt1-splits 15 3 fifteen-sqrt1 notOne15 notMinusOne15
 
 gcd-3-15 : gcd 3 15 ≡ 3
 gcd-3-15 = refl
+
+------------------------------------------------------------------------
+-- ५ · AND NEITHER EXCLUSION CAN BE DROPPED.
+--
+-- §३ excludes x ≡ 1 and x ≡ −1.  Both are genuine square roots of one,
+-- and at both the construction returns a trivial divisor — so the two
+-- hypotheses mark the boundary rather than a gap in the proof.
+--
+--   at x = 1  (y = 0)   the greatest common divisor is N itself
+--   at x = −1 (y = N−2) it is 1
+--
+-- Both are computed below at N = 15, where 14² = 196 = 13·15 + 1, so 14
+-- really is a square root of one there.
+------------------------------------------------------------------------
+
+one-is-a-square-root : 15 ∣ ((suc 0 · suc 0) ∸ 1)
+one-is-a-square-root = ∣-zeroʳ 15
+
+one-gives-back-N : gcd 0 15 ≡ 15
+one-gives-back-N = refl
+
+minus-one-is-a-square-root : 15 ∣ ((suc 13 · suc 13) ∸ 1)
+minus-one-is-a-square-root = ∣ 13 , refl ∣₁
+
+minus-one-gives-back-1 : gcd 13 15 ≡ 1
+minus-one-gives-back-1 = refl
