@@ -215,4 +215,4 @@ tails = always false
 -- THE WITNESS.  Two runs, one first answer apart: no contraction.
 a-real-question-is-a-space : ¬ isContr (IExec coin 0)
 a-real-question-is-a-space c =
-  true≢false (cong (IExec.ans coin) (sym (snd c (heads 0)) ∙ snd c (tails 0)))
+  true≢false (cong IExec.ans (sym (snd c (heads 0)) ∙ snd c (tails 0)))
