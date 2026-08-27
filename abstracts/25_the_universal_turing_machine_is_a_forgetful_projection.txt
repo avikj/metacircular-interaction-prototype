@@ -153,6 +153,20 @@ of the behavioral quotient is infinite, free.  What is unique is the
 trace; what is multiple is the expression; the fibre carries exactly
 what the quotient forgot.
 
+Finally, the interactive machine itself.  In its guarded coalgebraic
+form — at every state, for every question the environment can put, a
+successor, a witness that the transition is the prescribed one, and
+the rest of the unfolding — the ISC contains the universal Turing
+machine as the instance with trivial questions and receipt events,
+and at that instance the WHOLE SPACE of interactive behaviors is
+contractible at every state: determinism is not a side condition on
+steps but what remains of interaction when the receipt leaves the
+successor no room.  With a free event the space is provably not a
+point, so the inclusion is strict and the strictness is measured
+exactly by the event type:
+
+    UTM  =  deterministic ISC (a point)  ⊊  interactive ISC.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
