@@ -50,11 +50,33 @@ the soundness map is typed.  We also prove the accompanying negative
 result: no function of the transmitted meaning recovers the route, for
 every target type at every level.
 
-WHAT IS NOT CLAIMED.  No statement is made about hardness assumptions in
-general, about any deployed protocol, or about quantum algorithms.  One
-modular power map is treated and one non-equivalence is proved.  The
-factoring literature is not addressed here; the classical reduction of
-factoring to a zero-divisor split appears elsewhere in the development and
-the order-finding step does not.
+The order-finding step, proved.  The classical reduction of factoring to
+a zero-divisor split appears elsewhere in this development; the step that
+feeds it did not, and now does.  If an exponent returns a to one modulo N
+and that exponent is even, then halving it gives a square root of one
+modulo N.  That is the whole of the step and it is two rewrites - the
+power law, and that twice a number is that number added to itself.
+Nothing in it concerns how the exponent was obtained.
+
+And the split it feeds.  A square root of one that is neither one nor
+minus one modulo N yields a nontrivial divisor of N: one that divides N
+and is neither one nor N.  The greatest common divisor of x minus one
+with N can be trivial in exactly two ways, and each of them is one of the
+two values the hypothesis excludes - if it is N then N divides x minus
+one, so x is one; if it is one then Euclid's lemma pushes N onto the
+other factor, so x is minus one.  Anything else is a proper factor, and
+the two-way case analysis is the entire proof.
+
+It is not vacuous, and the witness is computed rather than asserted.
+Fifteen, with two, whose order is four: the square root is four, which is
+neither one nor minus one modulo fifteen, the greatest common divisor of
+three with fifteen is three, and three divides fifteen and is neither one
+nor fifteen.  Every step evaluates.
+
+What the file supplies is the arithmetic the reduction needs.  It says
+nothing about the price of running it - what an order costs to find, on
+any machine, is a claim about cost, and the corpus's cost results are
+theorems in their own right elsewhere, including the one that a scalar
+summary of a derivation cannot recover the derivation's length.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
