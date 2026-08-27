@@ -1,0 +1,92 @@
+THE WHEEL IS BLIND TO THE ZEROS, AND THE HOLONOMY THEOREM NAMES THE
+MISSING OBSERVABLE
+A session with the yantra: the reflection frame for Goldbach, its exact
+coupling to the critical line, and the corpus's own biconditional locating
+the impasse
+
+Number theory / the reflection frame, driven through the machine
+
+Recenter the Goldbach question at its midpoint.  For a center N, a prime
+pair p + q = 2N is a symmetric pair (N-k, N+k), and the conjecture reads:
+the shifted primes P - N always intersect their own negation.  No axis is
+an axis of total asymmetry.  The pair product is N^2 - k^2, so every pair
+carries quadratic structure: mod any modulus dividing p + q, the product
+is minus a square.
+
+On every finite wheel Z/w the reflection about N is a symmetry that
+exists unconditionally: it pairs the coprime spokes and fixes exactly one
+spoke (odd w), r = N.  Each gear p forbids exactly two spokes, k = +-N
+mod p, coinciding when p divides N -- which is where the resonance factor
+prod (p-1)/(p-2) over p | N comes from, derived once from the wheel and
+once from the wave integral, the same computation seen from two sides.
+
+The session drove this through the yantra's own organs.  The kuttaka
+lifted survivor classes across the gears by CRT.  The three standpoints
+of the frame -- line (density zero), wheel (symmetry unconditional),
+lattice (primes as primitive axes) -- were installed in the nayakosa and
+the verdict organs REFUSED to identify them: same truth value, different
+content, seventh bhanga, with the destruction inventory naming what each
+collapse would lose.  Seeded with (wheel affirms / line withholds), the
+garbha stream returned syad-asti-nasti in krama at every level: the two
+truths compose in succession indefinitely and never at once.  That is the
+finite/limit gap, held as a position rather than collapsed.
+
+The coupling to the critical line is an identity, not an analogy.  With
+R(n) the weighted pair count, summing over centers,
+
+    sum_{n <= x} R(n) = x^2/2 - 2 sum_rho x^(rho+1)/(rho (rho+1)) + small,
+
+rho over the nontrivial zeros.  The residue the wheels cannot see IS the
+zero spectrum -- its Fourier side, exactly.  Both conjectures then have
+one shape: a reflection whose symmetry is proved (the wheel pairing; the
+functional equation xi(s) = xi(1-s)) and an assertion that the arithmetic
+object respects the reflection's fixed locus (primes meet their mirror;
+zeros sit on the critical line).  A zero off the line injects one
+deviation wave louder than its mirror partner, and the reflection
+statistics degrade about every center at once.  On the critical line
+every deviation wave has amplitude exponent exactly 1/2, differing only
+in log-time frequency: the monotone condition.
+
+The corpus's holonomy theorem names the impasse.  An observable is
+unmoved by transport along a symmetry iff it is invariant under it, and
+the residue is recoverable only by CHANGING the observable, never by
+refining it.  The wheels are the invariant observables; no larger wheel
+recovers what the wheels jointly miss.  The changed observable is the
+archimedean one -- succession in log-time -- whose spectrum is the zeros,
+and whose self-adjointness is the conjecture.  The session's sesa queue
+holds exactly this: construct the changed observable in the holonomy
+vocabulary.
+
+The kernel lane ran at the pin (Agda 2.8.0 / cubical v0.9, all green):
+it certified x + s y == s (x + y) by emitted module and six agda calls,
+rejected x + y == x * y, and for two true statements outside its shape
+library said precisely that -- a fact about its shapes, never a verdict
+about the mathematics.
+
+The physics of the frame, stated exactly.  The minimal wave -1, composed
+multiplicatively, is the Liouville function lambda(n) = (-1)^Omega(n); in
+the multiplicative gas whose energies are log p and whose partition
+function is zeta(s), lambda is fermion parity, and RH is equivalent to
+square-root cancellation of its vacuum sum: the monotone condition as a
+random-phase statement.  The explicit formula is a trace formula term for
+term -- primes as periodic orbits with periods log p and weights
+p^(-k/2), zeros as the spectrum -- and on hyperbolic surfaces the
+identical structure is a theorem whose RH is true because the spectral
+side is a self-adjoint Laplacian: the changed observable exists there.
+Zeros pinned to a critical locus by positivity is one shape shared with
+the ferromagnetic circle theorem, and the positivity criterion makes the
+arithmetic case an exact equivalence.  The machine's verdict on the three
+standpoints -- gas, trace formula, positivity -- was NOT IDENTIFIABLE,
+same truth value, different content: correct, because their
+identification IS the open content; in the geometric case the
+identification is proved, and the garbha holds spectrum-exists /
+spectrum-unexhibited as asti-nasti in krama, which is the exact state of
+the analogy.
+
+WHAT IS NOT CLAIMED.  No progress on either conjecture is asserted.  The
+cumulative identity and the equivalence of its square-root error with RH
+are classical.  What is recorded is the assembly: the reflection frame,
+the wheel's provable blindness, the identity coupling the blind residue
+to the zeros, and the corpus's own biconditional locating why refinement
+of wheels cannot close the question -- with the machine's verdict organs
+holding the fourth position open where the changed observable belongs.
