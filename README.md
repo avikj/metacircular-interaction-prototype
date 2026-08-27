@@ -1,6 +1,6 @@
 # Computable Universal Turing Machine via Homotopy Type Theory
 
-Dedicated to empathic intelligence & in memory of Vladmir Voevodsky. This work draws heavily from that of Carlo Rovelli & Stephen Wolfram.
+Dedicated to empathic intelligence & in memory of Vladmir Voevodsky. Standing on the shoulders of Carlo Rovelli, Stephen Wolfram, and many others.
 
 **A local-first computational prototype for partial knowledge, certified transport, and compositional interaction for decentralized organisms & algorithms**
 
