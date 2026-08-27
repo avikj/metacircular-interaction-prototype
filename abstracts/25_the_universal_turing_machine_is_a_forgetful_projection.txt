@@ -167,6 +167,23 @@ exactly by the event type:
 
     UTM  =  deterministic ISC (a point)  ⊊  interactive ISC.
 
+The same śeṣa has a second face, where the freedom lives in the
+answers rather than the events: an interaction is a family of
+questions Q(s) with an answer-indexed step, and its guarded run — a
+stream of nows, receipts, and answers — is EQUIVALENT to the bare
+answer stream (run-is-answers).  The states of an interactive history
+are receipts, and receipts weigh nothing: the interactive face of
+trace-is-fibre.  The collapse then comes out structural: contractible
+questions force a contractible run space (silence-is-determinism),
+with no set-ness of the state space used anywhere — the contraction
+is built coinductively over a path of states on the answer side and
+carried across the equivalence — and the closed universal machine
+recovers one-execution as an instance, while a single Bool-valued
+question already opens the space (a-real-question-is-a-space):
+the environment's freedom IS the homotopy of the history space,
+measured on one flank by the event type and on the other by the
+answer type.
+
 The self-hosting question is answered on both flanks.  There is no
 table that is every table on the nose — two machines disagreeing at
 one configuration kill every candidate — so a universal table must
@@ -201,6 +218,7 @@ each depth speaks with evidence, and the totality is not a naya.
 
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
-generalisation — question-indexed events under the guarded later — is
-a śeṣa, and it is queued in the machine's own remainder store, where
-the next step will find it.
+generalisation, long queued as a śeṣa, is now collected on both of
+its flanks; what the remainder store holds next is the interactive
+machine's own composition law — sequencing dialogues as Samasa
+sequences tapes.

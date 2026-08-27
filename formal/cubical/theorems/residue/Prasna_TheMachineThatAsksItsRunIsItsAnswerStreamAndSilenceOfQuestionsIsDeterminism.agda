@@ -4,9 +4,14 @@
 -- प्रश्न — the question.  THE MACHINE THAT ASKS: ITS RUN IS ITS ANSWER
 -- STREAM, AND SILENCE OF QUESTIONS IS DETERMINISM.
 --
--- Vishvayantra closed with a śeṣa: the interactive generalisation —
--- states with question types Q(s), events indexed by the environment's
--- answers, the guarded stream.  This file collects it.
+-- Vishvayantra's śeṣa — the interactive generalisation — was
+-- concluded once in Prashna, where the freedom lives in the EVENT
+-- type: the ISC's respond chooses the successor, receipts collapse
+-- the space, and the collapse's squares are filled by Machine being a
+-- set.  This file is the śeṣa's other face, where the freedom lives
+-- in the ANSWERS: the environment's answer determines the successor,
+-- and the collapse comes out structural — no set-ness of the state
+-- space is used anywhere, because of a theorem Prashna does not have:
 --
 -- An interaction on X is a family of questions Q : X → Type and an
 -- answered step δ : (x : X) → Q x → X.  The guarded productive run
