@@ -100,6 +100,20 @@ silence persists to every later depth; and the pair (first halting
 time, its minimality) is itself a proposition — if the machine halts,
 when it first halts admits no second answer, as data.
 
+Programs are verified by exhibiting their fibre point.  A two-rule
+table computes the successor on unary tapes, and its correctness proof
+— n+1 steps from n strokes to a halted n+1, for every n — is not
+beside the run but literally a point of the kept fibre,
+fiber (run (n+1)) (end); the lossless run reads the source back out of
+the certificate by refl.  And the classical padding lemma bounds the
+other side of the ledger: rules living above every reachable state are
+invisible, configuration for configuration at every depth, so there is
+an injection ℕ → Code all of whose values run identically.  The
+contrast is exact and checked in both directions: the trace family of
+one step is contractible (Ekatva), while the preimage of one behavior
+in the space of tables is unbounded (the padding lemma) — losslessness
+is a property of the step, multiplicity is a property of the code.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
 generalisation — question-indexed events under the guarded later — is
