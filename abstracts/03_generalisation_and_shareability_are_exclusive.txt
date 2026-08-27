@@ -50,11 +50,42 @@ collapses a redundant pair - it collapses that fibre.  And emission does
 not determine the witness: we prove the discarded substitution is not
 recoverable from what the skill produced.
 
-WHAT IS NOT CLAIMED.  There is no Markov decision process, no reward
-signal, no stochasticity, no discounting and no optimisation in this
-development.  "Skill" names a record, "state" names a term, and "fires"
-names inhabitation of an applicability family.  Whether a deployed
-learner's skill representation has this shape is a reading and is not
-proved.
+The process, built, and the separation made quantitative.  A decision
+process with a reward signal, a discounted return at an arbitrary rate
+and optimality quantified over every policy is constructed in the
+companion development on reward specification.  What that one does not
+have, and what is added here, is stochasticity: finite distributions
+weighted by counts, a stochastic transition function, the expected
+return, and the proof that the deterministic process is the Dirac special
+case with equal returns on the nose.  So "no MDP, no reward, no
+stochasticity, no discounting, no optimisation" is answered by
+construction, and the skill results below are results about a learner
+acting in that process rather than about a record.
+
+The memorising skill fires at exactly one state, and now that is a
+statement about the learner's coverage.  Its enabled set is contractible
+and centred on the training state - whatever applicability family its
+author supplied, because the pinning field forces it.
+
+Coverage therefore grows by at most one state per skill, and we prove it
+in the form that makes the consequence visible: every state at which a
+library fires lies inside the set of training states of its members.  So
+after n skills the covered set has at most n elements.
+
+And no finite library covers an infinite state space.  We do not argue
+this; we construct the state that is missed - one past the largest
+training state in the library - and prove no member fires there.  That is
+the exact sense in which capability grows by one while the state algebra
+does not.
+
+Finally the exclusion itself, in the form that admits no encoding.  A
+generalising skill supplies its endpoints and a family of outcome
+equalities, and an outcome equality in a discrete domain is a
+proposition, so what it offers is two states and a proof-irrelevant
+certificate.  The library demands a route.  We exhibit two skills sharing
+both endpoints whose routes have different lengths, and conclude that no
+function of the endpoints agrees with the route - so nothing a
+generalising skill carries determines what the library requires, and the
+form that generalises is exactly the form that cannot be installed.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
