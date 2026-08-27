@@ -48,7 +48,7 @@ open import Cubical.Foundations.Function using (_∘_)
 open import Cubical.Data.Sigma
 
 open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
-  using (Machine ; uStep ; lossless ; losslessIso)
+  using (Machine ; uStep ; lossless ; losslessIso ; LawfulStep)
 
 private
   variable
@@ -232,3 +232,26 @@ machine-lossless-unique = losslessness-is-a-property uStep
 
 machine-lossless-canonical : Lossless uStep
 machine-lossless-canonical = canonical-lossless uStep
+
+------------------------------------------------------------------------
+-- §5  The lossless machines ARE the maps.
+------------------------------------------------------------------------
+
+-- A LawfulStep is its step paired with a lossless completion, by eta.
+LawfulStep≅Σ : {A : Type ℓ} → Iso (LawfulStep A) (Σ[ f ∈ (A → A) ] Lossless f)
+Iso.fun LawfulStep≅Σ L =
+  LawfulStep.step L , LawfulStep.Trace L ,
+  LawfulStep.complete L , LawfulStep.visible L
+Iso.inv LawfulStep≅Σ (f , T , e , v) =
+  record { step = f ; Trace = T ; complete = e ; visible = v }
+Iso.rightInv LawfulStep≅Σ _ = refl
+Iso.leftInv  LawfulStep≅Σ _ = refl
+
+-- THE COROLLARY.  Because the completion is contractible, the type of
+-- lossless proof-relevant machines on A is the type of ordinary
+-- programs on A.  Completion adds nothing and forgets nothing: the
+-- lossless machine IS the map, carried with its one canonical trace.
+lawful-steps-are-the-maps : {A : Type ℓ} → LawfulStep A ≃ (A → A)
+lawful-steps-are-the-maps =
+  compEquiv (isoToEquiv LawfulStep≅Σ)
+            (Σ-contractSnd (λ f → losslessness-is-a-property f))
