@@ -54,9 +54,34 @@ monotone.  Systems adopting this design trade unbounded growth for the
 elimination of the entire delivery-semantics stack, and we characterise
 the trade rather than tune it.
 
-WHAT IS NOT CLAIMED.  There is no message broker, no partition, no offset,
-no checkpoint and no watermark in this development.  A "message" is an
-operation and the "pipeline" is a library under concatenation.  The
-reading as a stream processing system is a reading and is not proved.
+The broker, built, and the reading proved.  A record is addressed by its
+partition and its offset within that partition, which is what a broker's
+coordinates are; a delivery is a list of such addresses, so duplication
+and reordering are representable rather than assumed away.  The consumer
+is a grow-only set of what it has seen, and we prove that this consumer
+IS the idempotent merge - the merge is a theorem about it, not the
+definition it was handed.
+
+Exactly-once is then algebra.  Two deliveries with the same members give
+the same state, whatever their order and however many times each record
+arrived; redelivering an entire stream changes nothing.  So at-least-once
+delivery already produces the effect exactly-once was purchased for, and
+the deduplication store, its identity key and its expiry policy disappear
+together.
+
+Checkpoints and the watermark, with the theorem a watermark exists for.
+A checkpoint records how far the consumer has read on each partition and
+the watermark is their least over the partitions in play, taken from a
+seed, the seed being the conservative answer for the empty case since a
+watermark that is too small is safe and one that is too large is not.  We
+prove that below the watermark the answer is settled: given a delivery
+complete to the checkpoints, no future delivery of anything can change
+the state at any offset below it.
+
+And the cost, exactly, as a term rather than a remark.  Dropping a
+delivered key from the state changes the state.  There are therefore no
+tombstones, no compaction and no safe expiry: the store is monotone, and
+systems adopting this design trade unbounded growth for the elimination
+of the entire delivery-semantics stack.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
