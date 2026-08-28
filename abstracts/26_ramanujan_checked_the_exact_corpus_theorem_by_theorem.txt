@@ -85,5 +85,29 @@ THE EISENSTEIN CONVOLUTION (1916).  σ₇(n) = σ₃(n) + 120·Σσ₃(k)σ₃(n
 — Ramanujan's elementary rendering of E₄² = E₈ — instances n = 1..8
 each closed by refl, both sides meeting at 2113665.
 
+THE OPEN ASSERTION (1916, unproved without GRH): the odd numbers not
+of the form x² + y² + 10z² are exactly his eighteen.  Treated by the
+corpus's boundary method, not as a target: the universal claim is a
+TYPE (RamanujanAssertion), the kernel-signed gate restricts it with
+deliberately no term backwards, and the machine's verdict organs hold
+the totality as syād-avaktavyam — one content at two scopes, not
+formable as a single predication — with the gates affirmed.  What is
+now checked: every odd n below 720 is listed or represented with its
+triple handed out as data; representation below 720 is DECIDED either
+way with evidence (completeness of the witness finders); the counting
+field rC is the object and the boolean its support, both directions,
+with the collapse's loss witnessed (rC 1 = 2 against rC 2 = 1, one
+boolean); and THE SOUNDNESS HALF ENTIRE — all eighteen, 2719
+included, represented by no triple whatsoever, growth bounds folding
+every candidate into boxes the kernel emptied.  Half of the open
+statement is a checked term, and the type system knows which half.
+
+LEHMER'S QUESTION (1947, open): is τ(n) ever zero?  τ is made TOTAL —
+τAt n from the Δ product truncated at degree n+1, every value the
+finite computation Ramanujan performed — the question is a type over
+all n, the gate is signed on 1..16, and no converse is written:
+sixteen instances license nothing universal, and the type system now
+says so.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes, no booleans.
