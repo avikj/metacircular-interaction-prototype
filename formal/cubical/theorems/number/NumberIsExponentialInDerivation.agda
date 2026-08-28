@@ -42,7 +42,7 @@
 -- is the bill.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, AND IT IS THE INTERESTING HALF.
+-- SYĀT — THE CLAIM, EXACTLY, AND IT IS THE INTERESTING HALF.
 --
 -- ψ(k) ≈ k is NOT proved here and is not used.  Turning
 -- "coordinatewise exponential" into "ψ(k) versus its derivation's size"

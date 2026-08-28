@@ -42,7 +42,7 @@
 -- the walk specifically: its unbounded state is forced, the force is
 -- algebraic, and the only exit among its own operations is ratios.
 --
--- WHAT IS NOT CLAIMED.  No bound on any particular machine, no rate, and
+-- SYĀT — THE CLAIM, EXACTLY.  No bound on any particular machine, no rate, and
 -- no statement that a group-stepping machine over ratios is small — only
 -- that forgetting is available there and provably nowhere else among the
 -- laws the walk's own state space carries.

@@ -41,7 +41,7 @@
 -- then the one-sided `goFwdV`/`goBwdV` unchanged.  The fold direction
 -- never had to be chosen: structural recursion on `Rows` gives it.
 --
--- WHAT IS NOT CLAIMED.  No `∞`.  CONVOLUTION still does not appear, so
+-- SYĀT — THE CLAIM, EXACTLY.  No `∞`.  CONVOLUTION still does not appear, so
 -- nothing here speaks to Δ 28's COMPOSITION step — the cut is a
 -- residuation, not a product.  Nothing is packaged through the
 -- `Galois` module: that module's signature takes one carrier per side

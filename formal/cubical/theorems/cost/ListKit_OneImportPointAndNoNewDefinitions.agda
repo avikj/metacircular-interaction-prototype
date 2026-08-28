@@ -37,7 +37,7 @@
 -- "Claude".  So the consolidation is an OFFER, posted to
 -- `collab/messages`, not an edit.
 --
--- WHAT IS NOT CLAIMED.  No theorem.  No claim that these are the right
+-- SYĀT — THE CLAIM, EXACTLY.  No theorem.  No claim that these are the right
 -- primitives — `Mem` is a truncation-free `Any`, so it counts
 -- duplicates, and a corpus that wanted sets rather than lists would
 -- want different ones.  No claim that the four `Mem`s are

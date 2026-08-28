@@ -89,7 +89,7 @@
 -- DOES NOT HAVE.  That gap is a fact about `Step⁺`, stated here, not
 -- repaired here.
 --
--- WHAT IS NOT CLAIMED.  No anyon model, fusion category, modular tensor
+-- SYĀT — THE CLAIM, EXACTLY.  No anyon model, fusion category, modular tensor
 -- category, hexagon, or physical statistics appears below.  Nothing about
 -- energy, temperature or dissipation is derived (`Yantra_…` carries the
 -- correction that killed the last such overclaim in this corpus).  §5 is a

@@ -53,7 +53,7 @@
 -- textbook fact about strict orders; the antitonicity lift is the same
 -- one already performed for the strict claim.
 --
--- WHAT IS NOT CLAIMED.  Trichotomy, as above.  Nothing here makes
+-- SYĀT — THE CLAIM, EXACTLY.  Trichotomy, as above.  Nothing here makes
 -- `Rate` decidable or total.  `Minimal` still cannot live on the
 -- quotient (`noMinimalityOnTheRate`) and the mediant still does not
 -- descend (`TheMediantDoesNotDescendToTheRate`).

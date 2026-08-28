@@ -157,7 +157,7 @@ firstFailsThere k = k (λ _ → tt , (λ e → e))
 -- named constructive taboo, not an accident of encoding.
 --
 -- That module also imports their `आर्पण` rather than rebuilding it, and
--- states plainly what is NOT claimed: that this position IS avaktavya,
+-- states plainly, syāt, the position withheld: that this position IS avaktavya,
 -- or that it matches what `Saptabhangi` proves.  It is a position of my
 -- family that no product of denials reaches; the comparison with their
 -- construction remains an OFFER, not a result.

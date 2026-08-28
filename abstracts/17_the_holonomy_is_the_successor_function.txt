@@ -47,10 +47,10 @@ symmetry cannot represent that symmetry's holonomy - not approximately,
 not with more resolution.  The residue is recoverable only by changing the
 observable, never by refining it.
 
-WHAT IS NOT CLAIMED.  There is no lattice, no gauge group, no connection
+SYĀT — THE CLAIM, EXACTLY.  There is no lattice, no gauge group, no connection
 form, no Wilson loop and no field in this development.  The system is a
 discrete circuit with an integer fibre; "holonomy" names the action of the
 loop on that fibre, and "observable" names a function out of the state.
-The physical reading is a reading and is not proved.
+The physical reading is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

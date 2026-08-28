@@ -57,7 +57,7 @@
 -- division.**
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, AND IT IS MOST OF THE METHOD.
+-- SYĀT — THE CLAIM, EXACTLY, AND IT IS MOST OF THE METHOD.
 --
 -- NOT proved here: that a suitable m exists; that Bhāskara's rule
 -- (choose m minimising |m² − D| subject to k | a + bm) is well defined or

@@ -57,7 +57,7 @@
 -- NO NOVELTY.  Everything here is filter/map bookkeeping over
 -- Goldberg/Deb non-dominated sorting.
 --
--- WHAT IS NOT CLAIMED.  The transported statements are NOT written out
+-- SYĀT — THE CLAIM, EXACTLY.  The transported statements are NOT written out
 -- as separate theorems — the path is given and the rewriting is left
 -- to the reader or to a later cycle; nothing here claims a new fact
 -- about coverage, disjointness or order beyond that they transport.

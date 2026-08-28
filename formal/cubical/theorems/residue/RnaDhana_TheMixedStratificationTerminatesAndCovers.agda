@@ -58,7 +58,7 @@
 -- NO NOVELTY.  Iterated non-dominated sorting terminates and partitions
 -- (Goldberg 1989; Deb et al. 2002).
 --
--- WHAT IS NOT CLAIMED.  Nothing constructs caps.  `Mem` is a
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing constructs caps.  `Mem` is a
 -- truncation-free `Any`; duplicates count twice.  No rank function:
 -- `OrderedM` still says "some earlier stratum".  And the whole §5.2
 -- block remains conditional on the DARWIN note describing its code

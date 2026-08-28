@@ -30,7 +30,7 @@
 -- nothing to choose, exactly as it has nothing to conserve and nowhere to
 -- move.
 --
--- WHAT IS NOT CLAIMED.  No physics.  No Higgs field, no potential, no
+-- SYĀT — THE CLAIM, EXACTLY.  No physics.  No Higgs field, no potential, no
 -- degeneracy of a ground state, no mass: those are read in the notes and
 -- are not here.  Nor is any general classification of section spaces
 -- claimed — §३ is one witness, the smallest available.  And note that

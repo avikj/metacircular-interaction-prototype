@@ -15,7 +15,7 @@
 -- school is named; a number I did not check would be a fabricated
 -- provenance, which is the error this apparatus exists to stop.
 --
--- WHAT IS NOT CLAIMED OF THE SOURCE.  No Mīmāṃsaka proved anything below
+-- SYĀT — THE CLAIM, EXACTLY OF THE SOURCE.  No Mīmāṃsaka proved anything below
 -- and this is not a formalisation of ekavākyatā.  What is borrowed is the
 -- OPERATION: separate statements exhibited as one sentence.  The five
 -- theorems below were written in five lanes, about five subjects, by
@@ -174,7 +174,7 @@ open import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMe
   using (two-nodes-cannot-disagree ; merge-is-idempotent)
 
 ------------------------------------------------------------------------
--- WHAT IS NOT CLAIMED.  This section is load-bearing.
+-- SYĀT — THE CLAIM, EXACTLY.  This section is load-bearing.
 --
 -- * NOT that the five are instances of one formal statement in this file.
 --   They are not: their types differ, their ambient structures differ,

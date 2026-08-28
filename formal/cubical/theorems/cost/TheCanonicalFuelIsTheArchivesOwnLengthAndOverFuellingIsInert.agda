@@ -65,7 +65,7 @@
 -- parameter of the object — which is what the line has been assuming in
 -- prose since `strata` was written.
 --
--- WHAT IS NOT CLAIMED.  **No module on this line is amended or
+-- SYĀT — THE CLAIM, EXACTLY.  **No module on this line is amended or
 -- retracted**; `theStratificationCovers` is true as stated and §3 is a
 -- corollary of it, not a replacement.  Nothing is said about the NUMBER
 -- of strata, about duplicates (`filterDec` and `filterOut` preserve

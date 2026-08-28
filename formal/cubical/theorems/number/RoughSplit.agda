@@ -85,7 +85,7 @@
 --   isqrt-30, isqrt-49, isqrt-100  the horizon computes.
 --
 --
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --   * No uniqueness of factorization, no valuations, no p-adic anything
 --     is proved or used.  `primeDivisor` (existence of SOME prime
 --     divisor) is the only arithmetic import beyond order.

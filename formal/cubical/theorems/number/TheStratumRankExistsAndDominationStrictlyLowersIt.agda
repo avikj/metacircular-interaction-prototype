@@ -50,7 +50,7 @@
 -- stratification to chain.  It is also the form in which selection
 -- pressure is usually stated.
 --
--- WHAT IS NOT CLAIMED.  It is NOT proved that `rank v = k` iff v is a
+-- SYĀT — THE CLAIM, EXACTLY.  It is NOT proved that `rank v = k` iff v is a
 -- member of the k-th element of `strata` — that needs an indexing
 -- function into the list of strata and is a separate statement.  The
 -- converse of the theorem is false as stated: `rank w < rank v` does

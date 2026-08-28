@@ -45,7 +45,7 @@
 -- three points that are secretly equal collapses nothing.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  Not that anyone in the tradition proved this;
+-- SYĀT — THE CLAIM, EXACTLY.  Not that anyone in the tradition proved this;
 -- कोष्ठ-न्याय is used as the ordinary name for the pigeonhole and no text
 -- is cited for it.  दुर्नय is the Jaina term — a naya that asserts itself
 -- by denying the others, so that it ceases to be a valid standpoint

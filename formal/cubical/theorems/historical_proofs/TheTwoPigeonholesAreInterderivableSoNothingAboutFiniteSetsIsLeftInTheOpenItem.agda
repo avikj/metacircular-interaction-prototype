@@ -62,7 +62,7 @@
 -- it, and *that* is what "reduces to" could not say on its own —
 -- the distinction this line logged at 806bd0ea, now discharged.
 --
--- WHAT IS NOT CLAIMED.  **`FinPigeonhole` is still NOT proved and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`FinPigeonhole` is still NOT proved and NOT
 -- refuted** — it is true and standard, asserting it without a proof is
 -- what this corpus forbids, and both directions here take it or its
 -- image as a HYPOTHESIS.  So (w″) is not closed; only its

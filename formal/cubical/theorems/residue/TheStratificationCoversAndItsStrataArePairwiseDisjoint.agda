@@ -56,7 +56,7 @@
 -- reference).  What is here is only the checked version of it over
 -- this corpus's own `stratum`/`remainder`.
 --
--- WHAT IS NOT CLAIMED.  Nothing says the strata are NON-EMPTY (they
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing says the strata are NON-EMPTY (they
 -- are, by `stratumIsNonEmpty`, but that is not threaded through here),
 -- nor that their lengths sum to the archive's, nor that the number of
 -- strata is minimal, nor anything ORDERING the strata — that every

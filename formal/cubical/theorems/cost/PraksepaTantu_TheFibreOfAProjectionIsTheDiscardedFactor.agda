@@ -21,7 +21,7 @@
 -- No h-level hypothesis on A or B: singl (fst p) is contractible for any
 -- types, so these hold for arbitrary A, B (the same fact Carrier runs on).
 --
--- WHAT IS NOT CLAIMED.  Nothing about any particular corpus edge; this is
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about any particular corpus edge; this is
 -- the general shape a तपस् emitter instantiates.  A projection map written
 -- in the corpus under any local name is a fibre of THIS shape exactly when
 -- the bond lattice resolves its equation-position identifier to `fst`/`snd`

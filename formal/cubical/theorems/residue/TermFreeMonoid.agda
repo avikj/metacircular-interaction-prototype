@@ -81,7 +81,7 @@
 --                            plug-additive.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * Not that `WitnessPolicy.plug-size` or `ProgressDefinition.
 --    `plug-deficit` are wrong, or should be removed.  They are correct

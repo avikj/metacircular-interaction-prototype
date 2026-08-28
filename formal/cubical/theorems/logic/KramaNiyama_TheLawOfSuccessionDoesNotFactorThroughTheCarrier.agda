@@ -49,7 +49,7 @@
 --   न-कोऽपि-निर्णयः   and generally: for ANY query list blind on the
 --            pair, no analysis separates it — `no-decision`.
 --
--- WHAT IS NOT CLAIMED.  That μK below "is" π₁ of the Klein bottle:
+-- SYĀT — THE CLAIM, EXACTLY.  That μK below "is" π₁ of the Klein bottle:
 -- the identification of π₁(K) with ℤ ⋊ ℤ (second generator acting by
 -- inversion) is the library's and `VakraValaya`'s; here μK is that
 -- semidirect operation written directly on the carrier, and the

@@ -61,7 +61,7 @@
 --       nothing there is lost and the narrower statement is visibly a
 --       special case
 --
--- WHAT IS NOT CLAIMED.  Nothing new about `Rate` itself: no arithmetic,
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing new about `Rate` itself: no arithmetic,
 -- no normal form, no decidability of `≈`, no lowest-terms section.
 -- DENSITY and the mediant are untouched — the audited module's own
 -- append settles those and its open item (whether `mediant` descends)

@@ -64,7 +64,7 @@
 -- NO NOVELTY.  This is the defining property of non-dominated sorting
 -- (Goldberg 1989; Deb et al. 2002's fast-non-dominated-sort).
 --
--- WHAT IS NOT CLAIMED.  `Beats` is an EXISTENCE statement per member
+-- SYĀT — THE CLAIM, EXACTLY.  `Beats` is an EXISTENCE statement per member
 -- and picks no canonical dominator — `maximalExists` chooses one and
 -- the choice is not stable under permuting the archive.  Nothing here
 -- says a member of stratum j is beaten by a member of stratum j−1

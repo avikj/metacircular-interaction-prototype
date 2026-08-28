@@ -28,7 +28,7 @@
 -- carried witness are one object — is that sentence, and §२ is the part
 -- of it that has to be true for the economics to work.
 --
--- WHAT IS NOT CLAIMED.  ~~Two steps, not n.~~ **§३ closes this: the
+-- SYĀT — THE CLAIM, EXACTLY.  ~~Two steps, not n.~~ **§३ closes this: the
 -- n-fold case is proved by induction for an iterated endomorphism.**
 -- What is still not claimed: nothing about time,
 -- space, joules, or Landauer is claimed: this is an informational

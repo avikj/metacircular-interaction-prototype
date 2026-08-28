@@ -54,7 +54,7 @@
 -- is what destroys it.  This holds for a bare endomorphism; no inverse.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- **No untruncated quotient is constructed here, and therefore nothing
 -- is proved about its loop space.**  The natural guess — that `A`

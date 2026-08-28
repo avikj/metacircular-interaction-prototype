@@ -39,7 +39,7 @@
 -- kuṭṭaka's habit of returning a construction carried the chain as far as
 -- it could go, and stopped exactly where primality enters.
 --
--- WHAT IS NOT CLAIMED.  That the walk's installs are prime powers — that
+-- SYĀT — THE CLAIM, EXACTLY.  That the walk's installs are prime powers — that
 -- is `WalkPrimePowers.installs-are-prime-powers`, already checked, and it
 -- is a separate statement from anything here.  Nor that this gives the
 -- residue count at a general frontier as a single term: assembling it

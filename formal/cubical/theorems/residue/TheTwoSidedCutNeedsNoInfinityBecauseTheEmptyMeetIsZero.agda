@@ -56,7 +56,7 @@
 -- restriction, was recording a restriction that was not there;
 -- `dnAll [] ks _ _` is `zeroProfile ks` and everything goes through.
 --
--- WHAT IS NOT CLAIMED.  Nothing about khahara is used or needed, and
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about khahara is used or needed, and
 -- no `ℕ∞` is built — the request that would have gone to that module's
 -- author is withdrawn before being sent.  CONVOLUTION still does not
 -- appear, so nothing here speaks to Δ 28's COMPOSITION step: the cut

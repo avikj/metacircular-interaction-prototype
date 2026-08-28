@@ -20,7 +20,7 @@
 -- together with proofs that it divides both inputs, so the divisor and
 -- its certificate are one object.
 --
--- WHAT IS NOT CLAIMED.  Not that Āryabhaṭa proved any of this; the text
+-- SYĀT — THE CLAIM, EXACTLY.  Not that Āryabhaṭa proved any of this; the text
 -- gives a procedure.  Not that the returned divisor is the GREATEST
 -- common divisor — only that it is a common divisor.  The maximality half
 -- needs a subtraction lemma this file does not have, and it is left open

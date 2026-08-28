@@ -65,7 +65,7 @@
 -- Number IS ratio.  This module is that sentence with a proof attached,
 -- and the proof is that the alternative has no inverses.
 --
--- WHAT IS NOT CLAIMED.  That a ℤ-exponent machine solves anything.  Its
+-- SYĀT — THE CLAIM, EXACTLY.  That a ℤ-exponent machine solves anything.  Its
 -- states are not natural numbers, so "lossless machine for ℕ" is not
 -- even the same problem; whether the walk's questions survive the passage
 -- to ratios is untouched here and is the next real question.

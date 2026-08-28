@@ -54,7 +54,7 @@
 -- without the reason, and the reason is what tells an implementer
 -- whether to care.
 --
--- WHAT IS NOT CLAIMED.  The CONVERSE of the first theorem — that an
+-- SYĀT — THE CLAIM, EXACTLY.  The CONVERSE of the first theorem — that an
 -- agent below the cap DOES admit a strict improvement — is false in
 -- general and is not claimed: the cap bounds the score, it does not
 -- populate it.  Nothing is said about the SAMPLING WEIGHTS: §5.2's

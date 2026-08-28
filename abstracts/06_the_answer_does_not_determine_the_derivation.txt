@@ -49,10 +49,10 @@ the term algebra with every member producing the same answer, so a pruning
 heuristic collapses an unbounded fibre rather than a redundant pair.  We
 characterise the trade rather than tune it.
 
-WHAT IS NOT CLAIMED.  There is no provenance semiring in this development,
+SYĀT — THE CLAIM, EXACTLY.  There is no provenance semiring in this development,
 no forgetful homomorphism to the boolean semiring, no relational algebra
 and no query language.  The object is a term rewriting calculus with an
 interpreter into the naturals.  The reading of these results as statements
-about how-provenance is a reading and is not proved.
+about how-provenance is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

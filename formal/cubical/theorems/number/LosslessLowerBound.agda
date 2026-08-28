@@ -60,7 +60,7 @@
 -- state is a ¬ over propositions.  The corpus has been writing the second
 -- while meaning the first.
 --
--- WHAT IS NOT CLAIMED.  That the walk attains this bound in general —
+-- SYĀT — THE CLAIM, EXACTLY.  That the walk attains this bound in general —
 -- `TheGapWasAUnitsError` checks tightness at frontiers 4, 5, 7, 8 by
 -- computation and nothing here extends that.  Nor that residues are the
 -- only lossless scheme: the theorem is deliberately about all of them,

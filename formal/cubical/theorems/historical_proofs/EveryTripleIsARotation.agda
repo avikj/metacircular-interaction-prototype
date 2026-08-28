@@ -53,7 +53,7 @@
 -- is what the conic has and the line does not, said at full strength and
 -- with the right cardinality this time.
 --
--- WHAT IS NOT CLAIMED.  That ℚ's hypotenuses are invertible is a fact
+-- SYĀT — THE CLAIM, EXACTLY.  That ℚ's hypotenuses are invertible is a fact
 -- about ℚ quoted from outside; no rational arithmetic is formalised here
 -- and `Cubical.Algebra.CommRing.Instances.QuoQ` is not imported.  The
 -- theorems below are conditional on the invertibility hypothesis, exactly

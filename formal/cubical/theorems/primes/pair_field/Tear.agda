@@ -30,7 +30,7 @@
 -- which is the exact difference between this and the machine's `GROW`,
 -- where running dry takes the next symbol off a hard-coded list.
 --
--- WHAT IS NOT CLAIMED.  §5's equation is `refl` by construction.  Its
+-- SYĀT — THE CLAIM, EXACTLY.  §5's equation is `refl` by construction.  Its
 -- content is that Γ is DEFINED from the defect; the proof is nothing
 -- and saying otherwise would be dressing a definition as a theorem.
 ------------------------------------------------------------------------

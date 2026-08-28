@@ -29,7 +29,7 @@
 -- discharged below BY THE प्रमाण FIELD (path in `v` is sym प्रमाण; the
 -- प्रमाण component by isSet विवेक), which is what that field is for.
 --
--- WHAT IS NOT CLAIMED.  Not that Gaṅgeśa proved anything below; the
+-- SYĀT — THE CLAIM, EXACTLY.  Not that Gaṅgeśa proved anything below; the
 -- *Tattvacintāmaṇi* is unopened by me and the citation is carried from
 -- `NamingIsNotAFunctionOfResemblance.agda`, owed at section level.  Not
 -- that ▹ (Cubical.Later) is used — it is absent from the pin (v0.9) and

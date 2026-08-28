@@ -14,7 +14,7 @@
 --
 -- `CenterRelative` supplies the ambient equivalence
 -- Φ : Pair ≃ Centre over any CommRing in which 2 is invertible, and says
--- in its own "WHAT IS NOT CLAIMED" that the positive cone cannot even be
+-- in its own "SYĀT — THE CLAIM, EXACTLY" that the positive cone cannot even be
 -- posed there because `R` carries no order.  This file poses it.  Neither
 -- `CenterRelative.agda` nor `PerspectiveCore.agda` is edited; both are
 -- imported.
@@ -93,7 +93,7 @@
 --                            juxtaposition IS C14.7.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **No claim that `Sector` is a bad choice of sector.**  §3 shows the
 --    cone transports to `|r| < w`; §4 shows `w > 0` is strictly weaker in

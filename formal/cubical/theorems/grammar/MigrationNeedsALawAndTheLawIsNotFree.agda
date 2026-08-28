@@ -48,7 +48,7 @@
 -- observation" is the definition of a simulation/refinement and is as
 -- old as the notion; `not` failing it is immediate.
 --
--- WHAT IS NOT CLAIMED.  This does NOT amend the earlier `Certified`:
+-- SYĀT — THE CLAIM, EXACTLY.  This does NOT amend the earlier `Certified`:
 -- that module's four-component Σ is unchanged and its
 -- `composeCertified` still composes a bare function.  What is offered
 -- is the law and its composition, so a later definition can require it;

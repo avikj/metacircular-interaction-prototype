@@ -50,7 +50,7 @@
 -- corollary of this one.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, and the asymmetry is the interesting part.
+-- SYĀT — THE CLAIM, EXACTLY, and the asymmetry is the interesting part.
 --
 -- The POSITIVE half — charge suffices, a separator can be BUILT — does
 -- NOT generalise for free.  Over `Bool` it projects the transcript with

@@ -73,7 +73,7 @@
 --                            previously checked anywhere in the corpus.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * NOT that this is a model of the Pauli matrices.  Nothing here
 --    constructs 4×4 matrices over ℤ[i] or proves the Weyl presentation

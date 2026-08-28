@@ -54,7 +54,7 @@
 -- NO NOVELTY.  Trichotomy of the rationals is classical; `isPropSum` is
 -- standard and cubical v0.5 happens not to export it.
 --
--- WHAT IS NOT CLAIMED.  Not a decision procedure: a disjunction is not
+-- SYĀT — THE CLAIM, EXACTLY.  Not a decision procedure: a disjunction is not
 -- a `Dec`, and reading off which case holds still needs `_≟_` at a
 -- representative.  `Minimal` still cannot live on the quotient; the
 -- mediant still does not descend.

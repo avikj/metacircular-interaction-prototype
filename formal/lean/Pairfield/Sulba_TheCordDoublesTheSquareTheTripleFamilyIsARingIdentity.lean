@@ -14,7 +14,7 @@ What the source states (and what is CLAIMED of it here):
   that lays out the perpendicular. This is a GEOMETRIC construction of right
   angles, given in the tradition, and the (3,4,5) triple below is that cord.
 
-What is NOT claimed of the source:
+Syāt — what the source is claimed to state, exactly:
   The ring identity `(m² - n²)² + (2mn)² = (m² + n²)²` and its Lean proof are
   OURS. Baudhāyana states a geometric construction over stretched cords, not
   an algebraic identity over a commutative ring, and did not formulate the

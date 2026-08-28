@@ -50,7 +50,7 @@
 -- built here, and no text is claimed for them.  "Monoid" itself is
 -- modern (the structure is used from the library, not re-derived).
 --
--- WHAT IS NOT CLAIMED.  The reading this rhymes with — symmetries
+-- SYĀT — THE CLAIM, EXACTLY.  The reading this rhymes with — symmetries
 -- commuting with an observable decompose over its spectrum; the
 -- commutant; superselection sectors — lives in operator algebra
 -- (von Neumann) and NOTHING analytic is derived or implied here: no

@@ -34,7 +34,7 @@
 -- algorithms — naṣṭa is the inverse of uddiṣṭa and has its own word — and
 -- the third comes with CRT.
 --
--- WHAT IS NOT CLAIMED.  That optimality in this sense is interesting for
+-- SYĀT — THE CLAIM, EXACTLY.  That optimality in this sense is interesting for
 -- infinite families, where `card` does not exist; that an optimal scheme
 -- is unique (it is not — any bijection onto the same target is optimal);
 -- or anything about the COST of computing the decode, which is

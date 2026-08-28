@@ -54,7 +54,7 @@
 -- above is the reason, in its smallest instance.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  That three letters and three sets are the
+-- SYĀT — THE CLAIM, EXACTLY.  That three letters and three sets are the
 -- Aṣṭādhyāyī; that ह's doubling is caused by *this* triple (the real
 -- family is the one his rules actually require, and identifying it is a
 -- philological question this file does not touch); or that Pāṇini's

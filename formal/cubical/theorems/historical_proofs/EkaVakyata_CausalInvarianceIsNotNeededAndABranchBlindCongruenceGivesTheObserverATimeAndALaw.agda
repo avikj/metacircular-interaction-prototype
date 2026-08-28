@@ -100,7 +100,7 @@ module _ {X : Type ℓ} (R : X → X → Type ℓ') where
 
 -- --------------------------------------------------------------- मर्यादा
 --
--- WHAT IS NOT CLAIMED.  Nothing here says a branch-blind observer exists for
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here says a branch-blind observer exists for
 -- a given rule, nor that one is easy to find; `machine/DrshtiJala_...`
 -- computes them for a deterministic rule and the multiway case is not done.
 -- Nor is anything claimed about what such an observer's time is PHYSICALLY —

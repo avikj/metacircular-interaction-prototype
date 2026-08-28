@@ -57,7 +57,7 @@
 --                        hence the whole `Σ` is a proposition, by
 --                        `ΣPathP` and `isProp→PathP`
 --
--- WHAT IS NOT CLAIMED.  **Nothing empirical.**  Like the audited module,
+-- SYĀT — THE CLAIM, EXACTLY.  **Nothing empirical.**  Like the audited module,
 -- this ran no check against any corpus snapshot; SEED-05, SEED-09 and
 -- the 47 declared-classical files are not examined here and no snapshot
 -- is stated because none was taken.  Nothing says `Outside` IS or IS NOT

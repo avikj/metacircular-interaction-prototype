@@ -38,7 +38,7 @@
 --       second sense refutes the record.  The property genuinely lives
 --       on the pair and provably not on either projection.
 --
--- WHAT IS NOT CLAIMED.  No general theory of circular definition is
+-- SYĀT — THE CLAIM, EXACTLY.  No general theory of circular definition is
 -- given; "productive" here means exactly what --guardedness accepts,
 -- and the vicious circle is not represented in this file because a
 -- --safe module cannot contain it — that refusal is the point, and the

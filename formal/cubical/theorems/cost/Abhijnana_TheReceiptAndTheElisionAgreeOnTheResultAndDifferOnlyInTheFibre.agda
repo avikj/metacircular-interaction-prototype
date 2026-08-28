@@ -38,7 +38,7 @@
 -- not a reader, is what tells them apart.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- Both halves are elementary and neither is new mathematics; `isContrSingl`
 -- is library, and the `Bool → Unit` witness is the smallest possible one.

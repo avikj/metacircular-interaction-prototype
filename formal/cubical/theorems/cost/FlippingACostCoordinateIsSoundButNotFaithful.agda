@@ -51,7 +51,7 @@
 -- and that truncation loses the order above the cap, is elementary; it
 -- is proved here because five modules deferred it in a sentence.
 --
--- WHAT IS NOT CLAIMED.  No RESTRICTED converse is proved: presumably
+-- SYĀT — THE CLAIM, EXACTLY.  No RESTRICTED converse is proved: presumably
 -- `flipIsSound`'s converse holds once every cost is `≤ cap`, and that
 -- is NOT checked here — only the unrestricted converse is refuted.  The
 -- cap is a single number shared by all cost coordinates; per-coordinate

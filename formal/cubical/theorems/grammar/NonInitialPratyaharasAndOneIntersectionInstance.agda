@@ -35,7 +35,7 @@ open import Sivasutra using (Sym ; a ; i ; u ; ṛ ; ḷ ; e ; o ; ai ; au ; Ṇ
 --       `iK`, again a named pratyāhāra, by `refl`.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, AND THE LIMIT IS THE INTERESTING PART
+-- SYĀT — THE CLAIM, EXACTLY, AND THE LIMIT IS THE INTERESTING PART
 --
 -- **Not Petersen's theorem.**  `Sivasutra.agda`'s header names it and
 -- declines it in the same breath: *"NOT claimed … that the ordering is

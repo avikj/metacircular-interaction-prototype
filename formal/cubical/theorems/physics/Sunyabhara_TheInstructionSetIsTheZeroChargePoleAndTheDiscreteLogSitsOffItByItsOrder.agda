@@ -44,7 +44,7 @@
 -- that sentence rather than leaving it to be over-read.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 --   * No physics.  "Charge", "gauge", "conserved" are used as
 --     `Dhruva_…`/`Khahara_…` use them — for `संरक्षणम्` and the fibre —

@@ -42,7 +42,7 @@ open import Kuttaka using (solutionFamily)
 -- one open, and the open one is minimality, not the section.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- That this is what Āryabhaṭa meant by iṣṭa.  The verse-level sourcing is
 -- owed and unpaid: `KUTTAKA_SOLUTION_FAMILY.md` states plainly that "no

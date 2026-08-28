@@ -73,7 +73,7 @@
 --                            machinery.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **No arity above 2.** The directive's target C (Aᵏ ≃ A × V_k with an
 --    Sₖ action, sign representation at k = 2, the 2-dimensional standard

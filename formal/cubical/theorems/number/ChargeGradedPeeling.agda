@@ -83,7 +83,7 @@
 -- is a theorem.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * Nothing is proved for general X.  Every exhaustive `refl` is about
 --    the domain [1,30], exactly as in `SieveFiber`.  `peelDrops` in

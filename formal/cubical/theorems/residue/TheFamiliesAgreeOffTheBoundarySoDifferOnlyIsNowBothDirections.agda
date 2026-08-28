@@ -53,7 +53,7 @@
 --                        hence `AtLeast ⟺ Above` at every population
 --                        that does not meet the threshold exactly
 --
--- WHAT IS NOT CLAIMED.  This says nothing new about WHICH populations
+-- SYĀT — THE CLAIM, EXACTLY.  This says nothing new about WHICH populations
 -- sit on a boundary — that is the audited module's appended result
 -- (`pop p k`, length `suc q`), and MINIMALITY of that length is still
 -- open there and here.  Nothing about interleaving or density of `⊑`.

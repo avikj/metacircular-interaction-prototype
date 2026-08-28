@@ -47,7 +47,7 @@
 -- is quadratic in certified factorizations; the length of a finite check
 -- is the one quantity this file is arguing does not matter.
 --
--- WHAT IS NOT CLAIMED.  The 1985 disproof is not formalised here and
+-- SYĀT — THE CLAIM, EXACTLY.  The 1985 disproof is not formalised here and
 -- nothing below shows `MertensConjecture` is false; it is cited, and the
 -- citation is why the label is withdrawn.  No tradition is credited with
 -- the Möbius function or with anything proved here; *upādhi* names the

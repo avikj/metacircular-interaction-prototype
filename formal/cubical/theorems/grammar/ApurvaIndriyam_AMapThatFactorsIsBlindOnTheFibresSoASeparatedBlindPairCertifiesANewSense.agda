@@ -32,7 +32,7 @@
 --
 -- The organ criterion and the index criterion were never two criteria.
 --
--- WHAT IS NOT CLAIMED.  Nothing here says a dashboard is worthless — §२ is
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here says a dashboard is worthless — §२ is
 -- exactly the statement that a derived reading is FAITHFUL to its source, and
 -- faithful compression is most of what an instrument is for.  The theorem
 -- separates two roles; it ranks neither.  And no organ is built here: this

@@ -25,7 +25,7 @@
 -- certified by kernel count.  I did not re-derive any of that and §2
 -- does not depend on it.
 --
--- WHAT IS NOT CLAIMED.  NOT that r_e = 2 for that matrix — the matching
+-- SYĀT — THE CLAIM, EXACTLY.  NOT that r_e = 2 for that matrix — the matching
 -- UPPER bound there is an exhibited 2-rectangle cover, certified
 -- entrywise, and nothing here constructs or verifies a cover.  NOT
 -- anything about d_e, raw width, the min-plus closure, the elimination
@@ -117,7 +117,7 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- APPENDED 2026-08-19 by this module's author, at the end, altering no
 -- line above.
 --
--- §"WHAT IS NOT CLAIMED" says: "Nor a general lower bound: §2 gives
+-- §"SYĀT — THE CLAIM, EXACTLY" says: "Nor a general lower bound: §2 gives
 -- 'at least two' from a fooling PAIR; a fooling set of size k giving
 -- k rectangles needs a distinctness argument over the whole set and is
 -- not done here."

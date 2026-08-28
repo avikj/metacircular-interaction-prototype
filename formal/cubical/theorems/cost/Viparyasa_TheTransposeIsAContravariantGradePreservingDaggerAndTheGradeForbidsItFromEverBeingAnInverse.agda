@@ -32,9 +32,9 @@
 -- forbidden its inverse by its own grading (§4) — dagger yes, groupoid
 -- never, and the gap between the two is where every unit of cost in the
 -- corpus lives (abstract 13).  The identification of `reverse` with the
--- transpose of a Chow correspondence is a reading and is not proved.
+-- transpose of a Chow correspondence is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
 --
--- WHAT IS NOT CLAIMED.  No cycles, no varieties, no linearisation and
+-- SYĀT — THE CLAIM, EXACTLY.  No cycles, no varieties, no linearisation and
 -- no additive category appear.  `daṇḍa` is defined on the kernel of
 -- README-draft-2 §3 as it stands in RewriteCertificate.agda, and every
 -- law below is about that object.

@@ -56,7 +56,7 @@
 -- ¬ (A × B)` and the taboo status of its converses are standard
 -- intuitionistic logic.
 --
--- WHAT IS NOT CLAIMED.  Not that these three are ALL the positions
+-- SYĀT — THE CLAIM, EXACTLY.  Not that these three are ALL the positions
 -- over two atoms — nothing here enumerates the formulas, and adding
 -- implication or double negation would give more.  Not that any of
 -- them IS a bhaṅga of the saptabhaṅgī, or that the chain matches the

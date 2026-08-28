@@ -40,7 +40,7 @@
 -- `Bahupratyanayana` §५ is that example.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  Nothing here is new mathematics — every term is
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new mathematics — every term is
 -- three path components, and the four theorems above were already
 -- checked.  What is claimed is that they are one term, and that seeing
 -- them so weakens a hypothesis in two of them.  §४ is NOT stronger than

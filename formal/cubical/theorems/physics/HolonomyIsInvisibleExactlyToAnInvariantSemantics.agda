@@ -55,7 +55,7 @@
 -- runs on.  What is contributed is the identification of §36–38's two
 -- clauses as one statement.
 --
--- WHAT IS NOT CLAIMED.  ARCHITECTURE SPACE IS NOT MODELLED.  There is
+-- SYĀT — THE CLAIM, EXACTLY.  ARCHITECTURE SPACE IS NOT MODELLED.  There is
 -- no type of architectures here and no loop in one — `h` is given
 -- directly as a self-equivalence of the interface, which is what
 -- §36–38 says such a loop YIELDS, not what it is.  So this is a theorem
@@ -142,7 +142,7 @@ oneLoopTwoVerdicts =
 --
 -- **THE WORD `EXACTLY` IS IN THIS MODULE'S NAME AND WAS IN NONE OF ITS
 -- THEOREMS.**  §2 proves invariant ⟹ unmoved.  The converse — unmoved
--- ⟹ invariant — is not here, and §"WHAT IS NOT CLAIMED" above, which
+-- ⟹ invariant — is not here, and §"SYĀT — THE CLAIM, EXACTLY" above, which
 -- does list architecture space, flatness, boundary semantics, loop
 -- composition and the fundamental group, does not list it either.  The
 -- same holds of §3: `nonTrivialHolonomyMovesTheRawInterface` goes one

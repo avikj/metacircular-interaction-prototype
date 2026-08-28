@@ -45,7 +45,7 @@
 -- गण as in `SamraksakaGana` (gaṇapāṭha, Pāṇini, ~500 BCE, applied to
 -- flows in this corpus).
 --
--- WHAT IS NOT CLAIMED.  Nothing analytic — no commutant, no spectrum,
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing analytic — no commutant, no spectrum,
 -- no von Neumann algebra; the slogan names a rhyme, and the theorem is
 -- its finite/typal shadow only.  The ∞-version (arbitrary carriers,
 -- where the witness components carry real path algebra) is śeṣa, §५.

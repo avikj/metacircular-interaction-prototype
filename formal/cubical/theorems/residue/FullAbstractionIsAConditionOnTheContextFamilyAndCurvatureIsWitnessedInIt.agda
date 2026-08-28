@@ -64,7 +64,7 @@
 -- that line found — enumerability of the index and decidability of the
 -- observation — through the same lemma, `decΣOverEnumerated`.
 --
--- WHAT IS NOT CLAIMED.  No term language, no contexts, no compression
+-- SYĀT — THE CLAIM, EXACTLY.  No term language, no contexts, no compression
 -- is constructed: `Tm`, `Ctx`, `plug`, `obs`, `C` are parameters, so
 -- this says what 28.14 MEANS and that it holds, not that anything in
 -- the corpus satisfies it.  Nothing exhibits curvature.  "Arising"
@@ -148,7 +148,7 @@ module _ {Tm O : Type} (Ctx : Type) (plug : Ctx → Tm → Tm) (obs : Tm → O)
 -- cubical v0.5, NOT the declared pin).
 --
 -- **THE OMISSION.**  Everything above states ONE implication —
--- `CtxEq p q → C p ≡ C q` — and the §"WHAT IS NOT CLAIMED" above does
+-- `CtxEq p q → C p ≡ C q` — and the §"SYĀT — THE CLAIM, EXACTLY" above does
 -- not list the CONVERSE among what is missing.  It should have.  The
 -- section names a term language, contexts, compression, "arising",
 -- approximation, dropped witnesses, incoherent updates and holonomy,

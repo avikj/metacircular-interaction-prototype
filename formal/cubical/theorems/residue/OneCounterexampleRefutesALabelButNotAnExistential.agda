@@ -32,7 +32,7 @@
 -- other claim-shape survives what kills a label, which is the direction
 -- of the point and not its full strength.
 --
--- WHAT IS NOT CLAIMED: anything about DGM, its archive, its benchmark
+-- SYĀT — THE CLAIM, EXACTLY: anything about DGM, its archive, its benchmark
 -- numbers, or whether the pilot in §6–§7 should be run.  That note
 -- quarantines the design as "not canonical architecture" and declines to
 -- import DGM's empirical claims; nothing here changes that, nothing was

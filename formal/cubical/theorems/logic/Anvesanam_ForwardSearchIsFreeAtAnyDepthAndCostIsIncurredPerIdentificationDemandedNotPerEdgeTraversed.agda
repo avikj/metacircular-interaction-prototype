@@ -33,7 +33,7 @@
 -- than guessing, on the stated ground that a verdict guessed is worse
 -- than a verdict withheld.
 --
--- WHAT IS NOT CLAIMED.  No complexity claim, no bound, no algorithm, and
+-- SYĀT — THE CLAIM, EXACTLY.  No complexity claim, no bound, no algorithm, and
 -- nothing about any actual graph in this repository.  "Free" here means
 -- exactly "contractible" — zero degrees of freedom — and nothing about
 -- time, space or joules.  The value of minting an edge, and the

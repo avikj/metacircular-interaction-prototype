@@ -45,7 +45,7 @@
 -- inexpressible, and it is exact.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- That the Jain avaktavya *is* a non-factoring statement in the tradition
 -- — `Saptabhangi` is a formalisation with a declared model (three nayas

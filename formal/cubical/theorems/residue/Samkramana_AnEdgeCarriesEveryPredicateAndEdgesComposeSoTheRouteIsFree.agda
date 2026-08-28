@@ -25,7 +25,7 @@
 -- §३ · पुनरागमनम् — and an edge inverts, so transport is two-way and the
 -- round trip returns.  Road one is closed under composition and inverse.
 --
--- WHAT IS NOT CLAIMED.  Nothing here is new: `subst`, `ua`, `compEquiv`
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new: `subst`, `ua`, `compEquiv`
 -- and `invEquiv` are library.  What is claimed is that these four ARE the
 -- transport economy, that the economics has no content beyond them, and
 -- that the absence of any hypothesis on `P` in §१ is the whole of why a

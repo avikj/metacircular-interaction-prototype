@@ -43,7 +43,7 @@
 -- that did not reference each other until this one.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- That gcd(b,k) = 1 holds at a cakravāla state.  It does — from
 -- gcd(a,b) = 1 and a² − D b² = k, any common prime of b and k divides a²

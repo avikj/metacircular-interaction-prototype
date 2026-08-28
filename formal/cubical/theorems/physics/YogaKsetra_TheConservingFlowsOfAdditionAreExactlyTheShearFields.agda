@@ -37,7 +37,7 @@
 -- meets.  The ℤ instance is taken at the end in one line.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  Nothing about a general observable f : A → B —
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about a general observable f : A → B —
 -- the classification is for THIS f (binary addition on R × R) and its
 -- proof uses the ring structure; no Noether theorem, no Lagrangian, no
 -- continuity (Dhruva's fence applies verbatim).  "Freedom" is a reading

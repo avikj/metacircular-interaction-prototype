@@ -28,7 +28,7 @@
 -- list over a discrete type is either constant or exhibits a differing
 -- pair, and each law covers one horn.
 --
--- WHAT IS NOT CLAIMED.  Nothing about amplitudes, weights, or the
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about amplitudes, weights, or the
 -- quantitative Born rule — this is the uniqueness of the ASSERTION
 -- layer (which propositions the decision may assert), the qualitative
 -- skeleton.  The quantitative extension (weights forced by vows on a

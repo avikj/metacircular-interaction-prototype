@@ -64,7 +64,7 @@
 -- apoha.  That is why the step is available to him.  It is not thereby
 -- available to his opponent, and §6 does not pretend otherwise.
 --
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 -- modelling in §1 is MINE and the module's whole argument depends on it,
 -- so §1 says exactly what is being modelled and what is being assumed.
 -- In particular: nothing here says apoha "is" negation in this type

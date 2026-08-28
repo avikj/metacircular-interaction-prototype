@@ -65,7 +65,7 @@
 -- `(ℕ × ℕ) ≃ विवेक`, whose residual §5b computes to be contractible
 -- everywhere — a "no loss" report that did look.
 --
--- WHAT IS NOT CLAIMED.  No source of this repository states a fibration
+-- SYĀT — THE CLAIM, EXACTLY.  No source of this repository states a fibration
 -- theorem; the Sanskrit here names the operations (संक्रमण, passage/transit;
 -- शेष, remainder — Āryabhaṭa's *Āryabhaṭīya* 499, kuṭṭaka, is where "keep
 -- the remainder and recurse on it" is the working rule), and the

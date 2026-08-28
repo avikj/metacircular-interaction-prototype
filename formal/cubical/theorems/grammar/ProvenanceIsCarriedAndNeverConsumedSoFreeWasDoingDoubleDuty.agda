@@ -67,7 +67,7 @@
 --                      agreeing on the first three components and
 --                      differing on the fourth
 --
--- WHAT IS NOT CLAIMED.  This does not FIX anything.  Adding a law to
+-- SYĀT — THE CLAIM, EXACTLY.  This does not FIX anything.  Adding a law to
 -- provenance — that an entry corresponds to a step, that the length
 -- tracks the chain — is not done, and the audited module is NOT
 -- amended: its four-component Σ is unchanged and still admits inert

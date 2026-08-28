@@ -47,7 +47,7 @@
 -- NO NOVELTY.  Standard properties of iterated non-dominated sorting
 -- (Goldberg 1989; Deb et al. 2002).
 --
--- WHAT IS NOT CLAIMED.  No coverage, as above.  Nothing constructs
+-- SYĀT — THE CLAIM, EXACTLY.  No coverage, as above.  Nothing constructs
 -- caps.  `Mem` is a truncation-free `Any`; duplicates count twice; the
 -- dominator is not canonical.
 --

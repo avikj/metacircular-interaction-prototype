@@ -31,7 +31,7 @@
 -- rides free — `fibre/src/Loss/Carrier.agda`, and `Lekha_…agda` for the
 -- same fact at length.
 --
--- WHAT IS NOT CLAIMED.  No Piṅgala content: `PingalaPrastara.matrameruIso`
+-- SYĀT — THE CLAIM, EXACTLY.  No Piṅgala content: `PingalaPrastara.matrameruIso`
 -- is the mātrā instance proved by hand and is neither used nor
 -- generalized here — this is the generic statement for an arbitrary
 -- weight `w : X → ℕ`, and the instance follows by taking `w` to be

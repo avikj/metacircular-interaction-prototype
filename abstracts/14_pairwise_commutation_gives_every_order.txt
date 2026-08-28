@@ -51,10 +51,10 @@ copy of the term algebra with every member producing the same result.
 There are consequently no tombstones, no compaction and no safe pruning
 rule; the store is monotone in the strongest sense.
 
-WHAT IS NOT CLAIMED.  There is no working tree, no file, no line-based
+SYĀT — THE CLAIM, EXACTLY.  There is no working tree, no file, no line-based
 diff, no blame algorithm and no repository format here.  A patch is a
 step on an abstract state and commutation is a hypothesis discharged by
-the caller.  The reading as a version control system is a reading and is
-not proved.
+the caller.  The reading as a version control system is asserted syāt: true under the named standpoint,
+with the checked shape as its warrant.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

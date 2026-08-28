@@ -33,7 +33,7 @@
 -- `WalkObservationCount`'s hand-composed three CRT steps have become.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, AND IT IS NOW A SINGLE NAMED THEOREM
+-- SYĀT — THE CLAIM, EXACTLY, AND IT IS NOW A SINGLE NAMED THEOREM
 --
 -- That `prodOf (frontierList k) ≡ lcm(1..k)`, i.e. that this list is the
 -- walk's actual capacity.  It is — the standard formula

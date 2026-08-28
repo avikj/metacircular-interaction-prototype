@@ -54,7 +54,7 @@
 -- waiting on it.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- **The quotient is not shown to be the fibre.**  `f̄` is a function on
 -- `A / ≈`; that it is INJECTIVE — that two points with equal charge lie

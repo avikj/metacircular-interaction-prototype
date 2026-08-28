@@ -57,7 +57,7 @@
 -- by coordinate; the only content is that the generalisation costs
 -- nothing and strictly weakens the hypothesis.
 --
--- WHAT IS NOT CLAIMED.  Still nothing about how a cap should be chosen.
+-- SYĀT — THE CLAIM, EXACTLY.  Still nothing about how a cap should be chosen.
 -- The Pareto and certificate lines still state their theorems with the
 -- BENEFIT reading and inherit the obligation to flip; this module makes
 -- the obligation cheaper to discharge and does not discharge it for

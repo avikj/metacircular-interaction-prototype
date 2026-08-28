@@ -62,7 +62,7 @@
 -- another principle that is classically trivial and constructively not.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, and this matters because I over-claimed once.
+-- SYĀT — THE CLAIM, EXACTLY, and this matters because I over-claimed once.
 -- It is NOT claimed that `¬ (सामयिक × नित्य)` IS avaktavya, or that it
 -- is the fourth bhaṅga, or that it matches what `Saptabhangi` proves
 -- about theirs.  What is claimed is narrower: it is a position of my

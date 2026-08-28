@@ -54,7 +54,7 @@ open import TheUnstableGroundCannotBeExhibited using (DNS)
 -- for the pointwise forms and says nothing about the uniform one.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- That (c) holds anywhere.  Nothing here exhibits a family whose
 -- uniform decidability fails; the claim is only that this lane does not

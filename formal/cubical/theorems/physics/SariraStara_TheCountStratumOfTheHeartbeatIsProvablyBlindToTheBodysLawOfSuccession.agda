@@ -40,7 +40,7 @@
 -- The Haskell-side extension (a शरीरस्तर line in the heartbeat) is
 -- engineering owed downstream; nothing here claims it exists.
 --
--- WHAT IS NOT CLAIMED.  Not a formalization of Postnikov towers (the
+-- SYĀT — THE CLAIM, EXACTLY.  Not a formalization of Postnikov towers (the
 -- library's HITs lane holds the real ones); not a claim about the
 -- jiva graph's actual π₁ — the two bodies here are the canonical
 -- blind pair, imported from KramaNiyama, playing the role of two

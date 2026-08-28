@@ -59,7 +59,7 @@
 --       sentence.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, and the fence is large because the arithmetic
+-- SYĀT — THE CLAIM, EXACTLY, and the fence is large because the arithmetic
 -- below is small.
 --
 -- 1.  **No cokernel is constructed here.**  `|coker(ℤ²/Dℤ²)| = 24` is

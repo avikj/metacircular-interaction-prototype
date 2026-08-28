@@ -59,7 +59,7 @@
 -- consequence is "the flag cannot be used at all, and no one will
 -- notice" deserves the consequence stated.
 --
--- WHAT IS NOT CLAIMED.  Tokens are ℕ, standing for strings; no string
+-- SYĀT — THE CLAIM, EXACTLY.  Tokens are ℕ, standing for strings; no string
 -- type, no concatenation operation and no Python is modelled, so
 -- `concatenationIsDisjoint` is an ASSUMPTION about the instance encoded
 -- as three distinct numerals, not a derivation from concatenation.

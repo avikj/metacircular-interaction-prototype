@@ -33,7 +33,7 @@
 -- difference is physically carried.  None of that is proved here; the
 -- shape of it is, and the shape is this file.
 --
--- WHAT IS NOT CLAIMED.  There is no Hilbert space, no complex field,
+-- SYĀT — THE CLAIM, EXACTLY.  There is no Hilbert space, no complex field,
 -- no Born rule and no interferometer in this development.  "Amplitude"
 -- names an integer, "intensity" its distance from zero, "phase" its
 -- sign, and the physical vocabulary is a reading offered over a

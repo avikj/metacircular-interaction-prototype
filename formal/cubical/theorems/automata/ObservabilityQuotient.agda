@@ -69,7 +69,7 @@
 --                               defect vanishes.  Imported, not reproved.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **The quotient TYPE is not constructed.**  `U/N_obs` as a
 --    `SetQuotient`, and the induced dynamics on it, are not built.  What

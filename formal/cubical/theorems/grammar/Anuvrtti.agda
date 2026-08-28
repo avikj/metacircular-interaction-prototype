@@ -61,7 +61,7 @@
 -- standpoint was working with a quotient that the measure does not
 -- descend to.
 --
--- WHAT IS NOT CLAIMED.  That two features and three rules model the
+-- SYĀT — THE CLAIM, EXACTLY.  That two features and three rules model the
 -- Aṣṭādhyāyī; that node/feature count is Pāṇini's measure (it is not —
 -- his lāghava counts morae and rule-slots); or that anuvṛtti in the
 -- Aṣṭādhyāyī reaches only the immediate predecessor (it does not; it

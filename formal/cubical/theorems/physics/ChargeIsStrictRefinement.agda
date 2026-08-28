@@ -88,7 +88,7 @@
 --     it removes the hand step in front of them.
 --
 --
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --   * No new arithmetic.  The barrier is Bombieri's and
 --     Friedlander–Iwaniec's; the criterion is `ChargeCriterion`'s; the
 --     gauge-group picture is `GaugeOrbitClasses`'.

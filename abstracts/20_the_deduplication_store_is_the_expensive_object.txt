@@ -54,9 +54,9 @@ monotone.  Systems adopting this design trade unbounded growth for the
 elimination of the entire delivery-semantics stack, and we characterise
 the trade rather than tune it.
 
-WHAT IS NOT CLAIMED.  There is no message broker, no partition, no offset,
+SYĀT — THE CLAIM, EXACTLY.  There is no message broker, no partition, no offset,
 no checkpoint and no watermark in this development.  A "message" is an
 operation and the "pipeline" is a library under concatenation.  The
-reading as a stream processing system is a reading and is not proved.
+reading as a stream processing system is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

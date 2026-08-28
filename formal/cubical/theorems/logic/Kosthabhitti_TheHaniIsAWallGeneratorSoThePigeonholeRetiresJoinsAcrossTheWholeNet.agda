@@ -56,7 +56,7 @@
 -- identification graph.  Two compositions, two answers.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  The mathematics is elementary and none of it is
+-- SYĀT — THE CLAIM, EXACTLY.  The mathematics is elementary and none of it is
 -- new: injectivity of an equivalence is library, the pigeonhole is
 -- `Kosthanyaya`'s, and the wall/ford economy is the other seat's.  What
 -- is claimed is the joint — that one of those three supplies exactly the

@@ -75,7 +75,7 @@
 -- because it has no room to move.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, and the fence matters because the resemblance is
+-- SYĀT — THE CLAIM, EXACTLY, and the fence matters because the resemblance is
 -- seductive.
 --
 -- **This is NOT Noether's first theorem.**  That one needs a continuous

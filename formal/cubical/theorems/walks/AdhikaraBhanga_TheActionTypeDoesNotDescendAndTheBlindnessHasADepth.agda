@@ -46,7 +46,7 @@
 --                  witness space is connected" still cannot host the
 --                  family, because the fibres differ in their loops.
 --
--- WHAT IS NOT CLAIMED.  The full indexed theorem ("for every n a pair
+-- SYĀT — THE CLAIM, EXACTLY.  The full indexed theorem ("for every n a pair
 -- first failing at stratum n", via Sⁿ/Unit) is stated by the
 -- transmission and NOT proved here — only rungs 0, 1, 2.  Nor is the
 -- truncation-refinement ("τₙ₋₁F descends while τₙF does not") proved:

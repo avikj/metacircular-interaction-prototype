@@ -35,7 +35,7 @@
 -- from a single seed gives an ℕ-indexed family — which is the generativity
 -- the 628 rule is named for and which no file here had.
 --
--- WHAT IS NOT CLAIMED.  That the family is INJECTIVE.  Over an arbitrary
+-- SYĀT — THE CLAIM, EXACTLY.  That the family is INJECTIVE.  Over an arbitrary
 -- commutative ring it is not (take a finite ring), so distinctness is not a
 -- consequence of anything below and is not asserted.  It is a statement about
 -- growth in an ordered ring and it is left open here rather than waved at.

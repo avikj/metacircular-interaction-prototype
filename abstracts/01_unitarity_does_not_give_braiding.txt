@@ -54,7 +54,7 @@ proposed observable the blind set is computable in advance, and an
 invariance imposed for physical reasons is precisely a blindness
 accepted.
 
-WHAT IS NOT CLAIMED.  There are no completely positive maps, no Hilbert
+SYĀT — THE CLAIM, EXACTLY.  There are no completely positive maps, no Hilbert
 spaces, no density operators and no anyon models in this development.
 "Three Boolean strands" is a three-fold product of the two-element type,
 and "unitary" abbreviates "equipped with a two-sided inverse and its unit

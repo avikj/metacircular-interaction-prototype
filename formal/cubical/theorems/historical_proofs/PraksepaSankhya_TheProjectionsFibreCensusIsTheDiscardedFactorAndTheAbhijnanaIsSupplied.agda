@@ -46,7 +46,7 @@
 --      अभिज्ञान SankhyaTantu says the general count cannot give and this
 --      concrete map can.
 --
--- WHAT IS NOT CLAIMED.  Nothing about non-projection maps: SankhyaTantu's
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about non-projection maps: SankhyaTantu's
 -- caveat stands for them and this module does not touch it.  `card P ≡
 -- card A · card B` is the library's own `isFinSet×` and is not re-proved
 -- here.  No claim beyond the two projections of a finite product.

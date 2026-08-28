@@ -75,7 +75,7 @@
 -- failure to resolve.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  No analytic statement.  Nothing about ζ, about
+-- SYĀT — THE CLAIM, EXACTLY.  No analytic statement.  Nothing about ζ, about
 -- admissible spectra, about L, X₀, or the depth law.  Whether WL
 -- observables factor through the blur at all — the first half of item 1
 -- — is untouched and remains open.  This module does not prove the

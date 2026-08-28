@@ -61,7 +61,7 @@
 --                    audited module's two functions REUSED, not
 --                    restated
 --
--- WHAT IS NOT CLAIMED.  No new arithmetic: `count`, `length` and both
+-- SYĀT — THE CLAIM, EXACTLY.  No new arithmetic: `count`, `length` and both
 -- implications are imported unchanged.  Nothing about thresholds other
 -- than 1 — percentages are still absent there and here, and
 -- `MajorityLiesStrictlyBetweenAllAndSome` remains the only other

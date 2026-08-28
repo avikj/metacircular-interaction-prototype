@@ -59,7 +59,7 @@
 -- or leave, is appended at the end of `Madhava.agda` and nowhere else.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- * NOT that Mādhava's correction terms are here.  The *Yuktibhāṣā*'s
 --   correction terms are specific rational expressions sharpening the

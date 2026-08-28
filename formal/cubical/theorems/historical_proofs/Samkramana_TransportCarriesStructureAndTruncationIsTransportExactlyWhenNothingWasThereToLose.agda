@@ -100,7 +100,7 @@
 --       demand costs the caller nothing it did not already have.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * `गति` below has two constructors.  That is a fact about a datatype
 --    I wrote, not a theorem that the world has two moves.  The theorem
@@ -355,7 +355,7 @@ private variable
 -- ५ · गति — the machine's move, as a type.
 --
 -- Two constructors.  This is a datatype declaration, NOT a theorem that
--- the world has two moves; see "WHAT IS NOT CLAIMED" above.  What it buys
+-- the world has two moves; see "SYĀT — THE CLAIM, EXACTLY" above.  What it buys
 -- is that a move cannot be performed without producing one of two things:
 -- an equivalence, or a written defect.  Silence is not a constructor.
 --

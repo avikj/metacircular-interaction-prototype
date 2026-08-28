@@ -32,7 +32,7 @@
 -- hypothesis is a `⊎` and §2 does both cases.  That is the only thing
 -- the generalisation costs.
 --
--- WHAT IS NOT CLAIMED.  Nothing about r_e, d_e, raw width, or the
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about r_e, d_e, raw width, or the
 -- calibration's matrix — see that module and `AFoolingPairForcesTwoRectangles`
 -- for what each does and does not establish.  No cover is constructed
 -- here, so no upper bound is implied.

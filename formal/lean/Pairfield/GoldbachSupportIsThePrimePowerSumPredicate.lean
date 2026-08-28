@@ -19,7 +19,7 @@ support question about a field already known to carry the whole of
 `-ζ'/ζ`.  Nothing here proves any case of it; what is proved is the exact
 identity of the question with a projection of a ζ-complete object.
 
-WHAT IS NOT CLAIMED.  Not Goldbach for primes: `Λ` is supported on all
+SYĀT — THE CLAIM, EXACTLY.  Not Goldbach for primes: `Λ` is supported on all
 prime powers, so the predicate here is `IsPrimePow p ∧ IsPrimePow q`, not
 primality — the classical strong Goldbach statement is strictly finer and
 is untouched.  Nothing about `re s ≤ 1`, zeros, or continuation.

@@ -48,7 +48,7 @@
 -- (Goldberg 1989; Deb et al. 2002), here for mixed benefit/cost
 -- vectors.
 --
--- WHAT IS NOT CLAIMED.  ONE step.  The iterated versions over
+-- SYĀT — THE CLAIM, EXACTLY.  ONE step.  The iterated versions over
 -- `mixedStrata` are not written out; they follow the same way with
 -- `strataSound` in place of direct membership.  Nothing constructs
 -- caps.  `Mem` is a truncation-free `Any`, so duplicates count twice,

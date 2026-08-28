@@ -30,12 +30,12 @@
 --     ((z : Z) → sem (equivFun h z) ≡ sem z)
 --     → (z : Z) → sem (transport (ua h) z) ≡ sem z
 --
--- The converse is nowhere in the file, and its §"WHAT IS NOT CLAIMED"
+-- The converse is nowhere in the file, and its §"SYĀT — THE CLAIM, EXACTLY"
 -- — which does list architecture space, flatness, boundary semantics,
 -- loop composition and the fundamental group — does not list it.
 -- **So the word doing the most work in that module was in its title and
 -- was unearned.**  Found by the audit move that produced ae3c3d00:
--- read a §"WHAT IS NOT CLAIMED" for what it FAILED to list.
+-- read a §"SYĀT — THE CLAIM, EXACTLY" for what it FAILED to list.
 --
 -- **AND THE CONVERSE COSTS NOTHING.**  `uaβ h z : transport (ua h) z ≡
 -- equivFun h z` is a PATH, so it may be walked in either orientation;
@@ -73,7 +73,7 @@
 --                           does not fix the point.  The old module has
 --                           only the other direction.
 --
--- WHAT IS NOT CLAIMED.  Everything the older module disclaims still
+-- SYĀT — THE CLAIM, EXACTLY.  Everything the older module disclaims still
 -- stands: ARCHITECTURE SPACE IS NOT MODELLED, flatness is unused, no
 -- loop composition, no fundamental group, and no claim that Δ 28's
 -- "boundary semantics" IS invariant — that is a hypothesis here and a

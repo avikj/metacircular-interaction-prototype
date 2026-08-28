@@ -38,7 +38,7 @@
 -- each see the half-wave flip; only homodyning both sees the quarter
 -- turn.  Interference detects jointly what no detector sees alone.
 --
--- WHAT IS NOT CLAIMED.  No optics, no Hilbert space, no braid group.
+-- SYĀT — THE CLAIM, EXACTLY.  No optics, no Hilbert space, no braid group.
 -- The plane is Bool × Bool, the turn is a four-case function, and the
 -- physical vocabulary is a reading over refutations that typecheck.
 ------------------------------------------------------------------------

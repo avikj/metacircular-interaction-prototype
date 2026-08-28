@@ -4,7 +4,7 @@
 -- नामान्तरम् — एकस्य वस्तुनः नामभेदः, न वस्तुभेदः ।
 -- (nāmāntara: another NAME for one thing, not another thing.)
 --
--- THE TERM, ITS SENSE, AND WHAT IS NOT CLAIMED.  नामान्तर is used in its
+-- THE TERM, ITS SENSE, AND SYĀT — THE CLAIM, EXACTLY.  नामान्तर is used in its
 -- plain grammatical sense — "a second name" — and no text is claimed for
 -- the compound or for the reading below; it is this file's naming of what
 -- it does.  The सप्तभङ्गी vocabulary IS Jaina and is the origin of the

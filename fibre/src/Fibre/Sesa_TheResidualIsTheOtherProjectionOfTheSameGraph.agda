@@ -8,7 +8,7 @@
 -- Gaṇitapāda 32–33 (499 CE), where it is the kuṭṭaka's governing move
 -- ("śeṣaṃ rakṣa", keep the remainder).
 --
--- WHAT IS NOT CLAIMED OF THE SOURCE.  Nothing below is Āryabhaṭa's.  The
+-- SYĀT — THE CLAIM, EXACTLY OF THE SOURCE.  Nothing below is Āryabhaṭa's.  The
 -- *Āryabhaṭīya* is unopened by me; the citation is carried from
 -- `.claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt`
 -- row 77 and from the header of

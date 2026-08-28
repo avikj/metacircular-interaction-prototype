@@ -70,7 +70,7 @@
 --                              case analysis at all, which is the
 --                              precise form of "forgets the reason"
 --
--- WHAT IS NOT CLAIMED.  Nothing about SOUNDNESS — the audited module
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about SOUNDNESS — the audited module
 -- says capability does not imply it and this does not bridge it either.
 -- No fourth state is modelled.  Nothing about `interactive/KernelProbe.hs`
 -- as a program: no claim that it implements `trusted`, only that

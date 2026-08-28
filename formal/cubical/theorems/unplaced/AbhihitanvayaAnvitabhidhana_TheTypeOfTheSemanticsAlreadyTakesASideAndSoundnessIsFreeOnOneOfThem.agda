@@ -39,7 +39,7 @@
 -- word-meaning.  Neither concedes.  The dispute is live in the sources
 -- and is not resolved here.
 --
--- **WHAT IS NOT CLAIMED.**  Not that either doctrine IS a hypothesis of
+-- **SYĀT — THE CLAIM, EXACTLY.**  Not that either doctrine IS a hypothesis of
 -- this module, not that either school proved anything below, and not
 -- that the mathematics is theirs.  The equational content here is three
 -- lines of `cong` and belongs to nobody.  What IS claimed is one thing,

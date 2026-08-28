@@ -60,7 +60,7 @@
 -- observable CONFLATES, and being onto has nothing to do with it.**
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- **`Dhruva` §२ is not corrected.**  It is true.  Its hypothesis is
 -- sufficient and not necessary, which is what §४ demonstrates by

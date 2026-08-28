@@ -230,7 +230,7 @@ data द्वि-क्रमः : Type where
 -- non-Galois cubic is such an index; §६'s ℚ(√2) is not, at any codomain.
 
 ------------------------------------------------------------------------
--- ७ · मर्यादा — what is NOT claimed, at the site
+-- ७ · मर्यादा — the claim at the site, asserted syāt
 --
 -- * §५'s verdict vector is DATA transcribed from an exact Python computation.
 --   This module does not check that x³ − 4x − 1 has three real roots, that

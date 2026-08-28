@@ -32,7 +32,7 @@
 -- of any particular run.  NOT CLAIMED: that DGM's actual archive ever
 -- contains such a pair.
 --
--- WHAT IS NOT CLAIMED at all: anything about DGM's benchmark numbers
+-- SYĀT — THE CLAIM, EXACTLY at all: anything about DGM's benchmark numbers
 -- (20.0 → 50.0 on the 200-task SWE-bench Verified subset, 14.2 → 30.7 on
 -- Polyglot), which that note records and explicitly declines to import
 -- as evidence about mathematical discovery.  Nothing here is evidence

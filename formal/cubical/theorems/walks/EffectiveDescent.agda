@@ -20,7 +20,7 @@
 -- is the interesting one:
 --
 --   * a set hypothesis on `C` is genuinely USED — `rec→Set` demands it,
---     and it is not shown necessary here (see WHAT IS NOT CLAIMED);
+--     and it is not shown necessary here (see SYĀT — THE CLAIM, EXACTLY);
 --   * **`SetQuotients` is not needed at all.**  No quotient is
 --     constructed anywhere in this file.  The universal property of the
 --     propositional truncation into a set — Kraus–Escardó–Coquand–
@@ -107,7 +107,7 @@
 --                                picks a representative.  Here no
 --                                representative is picked.
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **§2 and §3 are already in this corpus, in prose.**  Searched
 --    (cf-tessera) states exactly this as its theorem (T) — "`f` factors

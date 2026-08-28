@@ -52,10 +52,10 @@ discards the skill and the witness, and installation composes with that
 discard - so the system provably learns from what a step did and never
 from why it was permitted.
 
-WHAT IS NOT CLAIMED.  No MDP, no policy, no return, no estimator and no
+SYĀT — THE CLAIM, EXACTLY.  No MDP, no policy, no return, no estimator and no
 training dynamics appear.  The evaluator is a specific interpreter into
 the naturals and the results are about functions of it.  Reward hacking
 and specification gaming are named as the phenomena we take this to
-explain; that identification is a reading and is not proved.
+explain; that identification is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

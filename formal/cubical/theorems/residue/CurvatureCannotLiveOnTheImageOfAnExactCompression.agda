@@ -48,7 +48,7 @@
 -- geometric reading that suggests the phenomenon is subtler than the
 -- pasting.
 --
--- WHAT IS NOT CLAIMED.  NO CURVATURE IS EXHIBITED.  Nothing below
+-- SYĀT — THE CLAIM, EXACTLY.  NO CURVATURE IS EXHIBITED.  Nothing below
 -- constructs `f' g' C` with genuine curvature, so this is a
 -- constraint on where curvature can be and not evidence that it
 -- occurs.  Theorem 28.14 ("fully abstract compression … preserves

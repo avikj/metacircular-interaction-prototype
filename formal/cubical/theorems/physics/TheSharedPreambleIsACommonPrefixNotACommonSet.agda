@@ -38,7 +38,7 @@
 -- neither derives the other: Anuvrtti is about a cost failing to factor
 -- through `asSet`; §3 is about a common set failing to BE a preamble.
 --
--- WHAT IS NOT CLAIMED.  Nothing about the 16-of-17 figure — that is a
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about the 16-of-17 figure — that is a
 -- count over `interactive/replay.traces` and is that module's, not restated
 -- here.  Nothing about whether `lcp` finds the LARGEST useful preamble
 -- in practice; §2 is about the order, not about how much is shared.

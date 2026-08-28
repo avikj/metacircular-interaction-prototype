@@ -41,7 +41,7 @@ endpoints whose difference is physically carried, the experimental form
 of the statement that route information is kept at the step or is
 nowhere.
 
-WHAT IS NOT CLAIMED.  There is no Hilbert space, no complex number, no
+SYĀT — THE CLAIM, EXACTLY.  There is no Hilbert space, no complex number, no
 Born rule, no beam splitter and no interferometer in this development.
 "Amplitude" names an integer, "intensity" its distance from zero,
 "phase" its sign, and the theorems are a six-line case analysis over

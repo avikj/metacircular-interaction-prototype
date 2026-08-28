@@ -60,7 +60,7 @@
 -- pointwise-equivalent predicates" are standard list lemmas; the
 -- Pareto layer is Goldberg/Deb non-dominated sorting.
 --
--- WHAT IS NOT CLAIMED.  ONE layer.  The ITERATED statement —
+-- SYĀT — THE CLAIM, EXACTLY.  ONE layer.  The ITERATED statement —
 -- `strata`, `theStratificationCovers`, `theStrataArePairwiseDisjoint`,
 -- `theStrataAreOrdered` on mixed vectors — needs the remainder
 -- transferred too and then an induction in which the caps must still

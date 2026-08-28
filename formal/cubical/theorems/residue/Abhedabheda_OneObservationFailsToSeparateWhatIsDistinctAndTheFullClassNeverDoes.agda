@@ -31,7 +31,7 @@
 -- that one is not at the limit — misfiled, in every field that has one,
 -- as a report about the terrain.
 --
--- WHAT IS NOT CLAIMED.  `cong`, `ua` and `false≢true` are library, and the
+-- SYĀT — THE CLAIM, EXACTLY.  `cong`, `ua` and `false≢true` are library, and the
 -- witness is the smallest there is.  Nothing here is new mathematics.
 -- What is claimed is that the three stand together: the free direction,
 -- an exhibited failure of its converse under a restricted class, and the

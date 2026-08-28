@@ -11,7 +11,7 @@ Euclidean algorithm."
 the common divisor removed from a pair, and in the matrix
 `D = diag(d₁, q·d₁)` the entry `d₁` is exactly that — the content shared by
 both diagonal entries, with `q` the level left over after it is removed.
-**What is NOT claimed.** Brahmagupta did not state Smith normal form, did not
+**Syāt — the claim, exactly.** Brahmagupta did not state Smith normal form, did not
 work over Spec ℤ, and proved nothing in this file.  The Smith divisors, the
 prime-by-prime rank, and the cokernel are ours; the term names the split.
 

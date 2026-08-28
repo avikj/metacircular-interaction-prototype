@@ -37,7 +37,7 @@
 --                multiplicity": m/(m+n) is a name for m·h under total
 --                normalization, now over ANY finite family.
 --
--- WHAT IS NOT CLAIMED, and it is the quantum boundary, kept open per
+-- SYĀT — THE CLAIM, EXACTLY, and it is the quantum boundary, kept open per
 -- the transmission's instruction: (1) that a REVERSIBLE transformation
 -- realizes a given refinement — that is the physical content of step 3
 -- and no part of it is formalized here; (2) enumeration-independence

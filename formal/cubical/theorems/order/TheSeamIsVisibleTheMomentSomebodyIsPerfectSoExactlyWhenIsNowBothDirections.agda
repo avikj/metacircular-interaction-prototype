@@ -21,7 +21,7 @@
 -- DISCLAIMED.**  `Only` here is the direction REMOVED ⟹ GAINLESS, which
 -- is exactly `noStrictImprovementAtTheCap`.  The reverse reading —
 -- every gainless candidate is removed — is false in general, and that
--- module's §"WHAT IS NOT CLAIMED" says so in its own words: the cap
+-- module's §"SYĀT — THE CLAIM, EXACTLY" says so in its own words: the cap
 -- bounds the score, it does not populate it.  **This is the first
 -- target in the sweep whose `Only` was already guarded against its own
 -- second reading**, and it is worth recording as such.
@@ -31,7 +31,7 @@
 -- direction: if no agent attains the cap, eligibility keeps every
 -- member.  The converse — if eligibility keeps every member of every
 -- list, then no agent attains the cap — is not there, and the module's
--- §"WHAT IS NOT CLAIMED" lists the sampling weights, the ℕ-vs-accuracy
+-- §"SYĀT — THE CLAIM, EXACTLY" lists the sampling weights, the ℕ-vs-accuracy
 -- gap, the modelling of "perfect", and seams 2 and 4, but not this.
 -- **Same defect as ecb432c2, one level in: `Exactly` unearned, this
 -- time in a theorem's name rather than a module's.**
@@ -55,7 +55,7 @@
 --                       the missing direction, refuting invisibility
 --                       from a single at-cap agent
 --
--- WHAT IS NOT CLAIMED.  Nothing empirical: no code was read and no
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing empirical: no code was read and no
 -- corpus scanned.  Nothing about SAMPLING WEIGHTS — `p_i` and the
 -- exploration mass `η` do not appear, so no share of wasted budget is
 -- computed here any more than there.  "Perfect" is still attaining a

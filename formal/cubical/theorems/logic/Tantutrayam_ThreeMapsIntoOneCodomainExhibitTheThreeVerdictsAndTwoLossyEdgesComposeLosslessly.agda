@@ -28,7 +28,7 @@
 -- with nothing empty anywhere.  Two distinct ways for the alignment term to
 -- vanish, and the corpus now carries both.
 --
--- WHAT IS NOT CLAIMED.  Nothing here is new mathematics; every witness is
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new mathematics; every witness is
 -- the smallest one available.  The value is that the three verdicts and
 -- the cancellation are exhibited rather than asserted, in one file, over
 -- one codomain, so that neither can be read as a statement about size or

@@ -51,7 +51,7 @@
 -- says "take the least refuting list" is under-specified, and the
 -- audited line does not make that mistake anywhere I have read.
 --
--- WHAT IS NOT CLAIMED.  **`WitnessNumberIsTwo` is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`WitnessNumberIsTwo` is NOT amended and NOT
 -- retracted** — `Refutes`, `factorLaw`, `collision→refutes` and
 -- `singleton-never-refutes` are imported unchanged and every theorem
 -- there is true as written; "exactly 2" is about the LENGTH and is

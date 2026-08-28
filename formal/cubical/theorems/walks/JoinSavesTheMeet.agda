@@ -54,7 +54,7 @@
 -- module's answer as wrong leaves the question open, and open is where it
 -- honestly sits.
 --
--- WHAT IS NOT CLAIMED.  ψ(k) ≈ k and log k! ≈ k log k are quoted from
+-- SYĀT — THE CLAIM, EXACTLY.  ψ(k) ≈ k and log k! ≈ k log k are quoted from
 -- outside this file and are not proved here; they are used only to fix
 -- the SIGN of a comparison, which the identity below settles on its own
 -- without them: `⊔≤⊕` shows the join's state always divides the sum's.

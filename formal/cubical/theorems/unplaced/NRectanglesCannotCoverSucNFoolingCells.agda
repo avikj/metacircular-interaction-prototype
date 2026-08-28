@@ -30,7 +30,7 @@
 -- the whole content of the numeric claim and it is stated without a
 -- cardinality.
 --
--- WHAT IS NOT CLAIMED.  Nothing about r_e, d_e, raw width, or
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about r_e, d_e, raw width, or
 -- `DSOCutCalibration`'s matrix; no cover is constructed anywhere on this
 -- line, so no upper bound is implied by any of it.  Nor is the general
 -- "minimum cover size = maximum fooling set" claimed — that is false in
@@ -122,7 +122,7 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- the family contains it.  What §2 takes instead is a `pick : Fin (suc
 -- n) → Fin n` together with pointwise `Sound (rects (pick i))` and
 -- `Covers (rects (pick i)) (r i) (c i)` — a cover ALREADY EQUIPPED with
--- a choice of which rectangle serves each cell.  §"WHAT IS NOT CLAIMED"
+-- a choice of which rectangle serves each cell.  §"SYĀT — THE CLAIM, EXACTLY"
 -- above disclaims upper bounds, r_e, d_e, raw width and the
 -- min-cover/max-fooling equality, and says nothing about the shape of
 -- its own hypothesis.

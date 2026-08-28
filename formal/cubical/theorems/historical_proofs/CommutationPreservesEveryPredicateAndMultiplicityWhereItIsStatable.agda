@@ -45,7 +45,7 @@
 -- wherever same-multiset is statable, and the question is ill-posed
 -- exactly where the corpus actually uses `_~_`.
 --
--- WHAT IS NOT CLAIMED.  **The CONVERSE is not proved.**  Equal counts
+-- SYĀT — THE CLAIM, EXACTLY.  **The CONVERSE is not proved.**  Equal counts
 -- everywhere does not obviously give `xs ~ ys`; the standard route
 -- (sort both, then transpose) needs a total order on steps, which is
 -- less available than decidable equality.  `_~_` may be strictly finer

@@ -104,7 +104,7 @@
 --      phenomenon, and §५ prices both.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- No general theorem about chains is proved here; this is ONE chain,
 -- every map explicit, every fibre written out.  Nothing here says the

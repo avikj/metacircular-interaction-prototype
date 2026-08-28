@@ -82,7 +82,7 @@
 -- Size is not partial charge; there is no partial charge.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- * No new arithmetic.  The content is that a completely multiplicative
 --   ±1 function reads exactly the SQUARE CLASS of its argument, which is

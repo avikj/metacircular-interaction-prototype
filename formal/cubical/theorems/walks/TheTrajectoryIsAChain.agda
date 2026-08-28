@@ -32,7 +32,7 @@
 -- the waste — the ψ(k) versus log k gap — remains exactly as open as
 -- `JoinSavesTheMeet` left it, and this module does not narrow it.
 --
--- WHAT IS NOT CLAIMED.  That a chain-representing machine would be
+-- SYĀT — THE CLAIM, EXACTLY.  That a chain-representing machine would be
 -- smaller; that the walk could be re-encoded by its index without losing
 -- what it is for (it is a machine over inputs, not over its own step
 -- count); or any rate.  Only that the join does no work on the path the

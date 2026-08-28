@@ -28,7 +28,7 @@
 --
 -- — i.e. a cover ALREADY EQUIPPED with a choice of which rectangle
 -- serves each cell.  That is structure handed to the theorem, not a
--- hypothesis about the family, and the module's §"WHAT IS NOT CLAIMED"
+-- hypothesis about the family, and the module's §"SYĀT — THE CLAIM, EXACTLY"
 -- does not mention it: it disclaims upper bounds, r_e, d_e, raw width
 -- and the min-cover/max-fooling equality, and says nothing about the
 -- shape of its own covering hypothesis.
@@ -69,7 +69,7 @@
 -- and `covers` are constructed from the hypothesis and handed to
 -- `nRectanglesCannotCoverSucNFoolingCells` unchanged.
 --
--- WHAT IS NOT CLAIMED.  Everything the older module disclaims still
+-- SYĀT — THE CLAIM, EXACTLY.  Everything the older module disclaims still
 -- stands: no upper bound, no cover is constructed anywhere on this
 -- line, and NOT the "minimum cover size = maximum fooling set"
 -- equality, which is false in general for rectangle covers.  `finChoiceFin`

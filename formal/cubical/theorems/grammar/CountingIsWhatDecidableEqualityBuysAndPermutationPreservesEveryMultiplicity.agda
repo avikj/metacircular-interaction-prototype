@@ -65,7 +65,7 @@
 -- decidability do real work rather than bookkeeping.  Nothing below
 -- attempts it and nothing below should be read as evidence for it.
 --
--- WHAT IS NOT CLAIMED.  Nothing is amended or retracted; `Insert` and
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing is amended or retracted; `Insert` and
 -- `Perm` are imported from 47c200bf unchanged.  `Discrete A` is a
 -- HYPOTHESIS of every statement here and is never discharged — the
 -- corpus's `Step C` has no such structure assumed, so **none of this

@@ -44,7 +44,7 @@
 -- inverse follows `BhavanaSamuha`'s use for the conjugate inverse
 -- (a,−b).  The compound संरक्षकसमूह is built here.
 --
--- WHAT IS NOT CLAIMED.  Nothing analytic, no operator algebra: this is
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing analytic, no operator algebra: this is
 -- the finite/typal shadow of "the unitaries commuting with an
 -- observable," and no Hilbert space is implied.  The fibrewise leg
 -- (group ≅ product over the codomain of the fibres' automorphism

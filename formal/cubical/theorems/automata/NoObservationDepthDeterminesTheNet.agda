@@ -25,7 +25,7 @@
 -- half the Haskell shelf's disclaimer is about and which neither module
 -- had.
 --
--- WHAT IS NOT CLAIMED.  Not that agreement at ALL depths gives equality
+-- SYĀT — THE CLAIM, EXACTLY.  Not that agreement at ALL depths gives equality
 -- — that is a bisimulation principle, the shelf carries a `Bisim` type
 -- for it, and nothing below proves or uses it.  Not anything about
 -- self-containing universes; the shelf disclaims that and so does this.

@@ -67,7 +67,7 @@
 -- the two representations disagree about.  Nothing about permutations
 -- is at stake in that gap — only which relation pays for composition.
 --
--- WHAT IS NOT CLAIMED.  **Nothing is amended or retracted**;
+-- SYĀT — THE CLAIM, EXACTLY.  **Nothing is amended or retracted**;
 -- `PairwiseCommutationGivesEveryOrder` and 47c200bf stand unchanged and
 -- `Insert`, `Perm`, `_≈_` are imported, not redefined.  Transitivity of
 -- `Perm` is NOT proved and NOT refuted — it is true and standard, and
