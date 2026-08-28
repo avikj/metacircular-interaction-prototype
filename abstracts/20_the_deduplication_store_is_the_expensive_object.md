@@ -1,0 +1,19 @@
+# AN IDEMPOTENT TOTAL MERGE REMOVES THE DEDUPLICATION STORE, AND WE PROVE WHAT DEDUPLICATION WOULD HAVE DESTROYED
+
+*Exactly-once as a quotient over a fibre that is unbounded, with the alternative shipped*
+
+**Stream processing / operation-based pipelines**
+
+Exactly-once delivery is normally purchased with a deduplication store keyed by message identity, and the store is where the operational cost sits: it must be persisted, checkpointed, bounded, and expired.  We give a pipeline in which the store is absent because the merge makes it unnecessary, and we prove that the deduplication it replaces is not a no-op but a quotient over a fibre we construct and show unbounded.
+
+The merge is concatenation of libraries of operations, and it has four properties we prove rather than assume: it never drops a contribution from either side, never manufactures one absent from both, is idempotent, and two replicas merging the same pair in opposite orders are afterwards behaviourally indistinguishable.  That is a grow-only join-semilattice on capability with no reconciliation pass, no vector clocks, no causal delivery requirement and no tie-break rule.  Redelivery is therefore harmless by algebra: merging a state with itself changes nothing observable, so at-least-once delivery already gives the effect exactly-once was purchased for, and the identity key, the store and its expiry policy all disappear together.
+
+Totality is the second half and it is why there is no validation stage. The replicated element is an operation carrying the derivation that licenses it, and the element type admits no inhabitant without such a derivation in hand.  There is consequently no invalid element for a consumer to reject: merge is a total function with no failure case and no error return, and admission control does not occur at the boundary because it is a precondition of the value existing.  A hostile producer cannot inject an unauthorised operation for the same reason it cannot inject an integer that is not an integer, and this holds with no signatures and no authenticated channel.
+
+What deduplication would have destroyed, computed.  Two histories reaching the same state have equal meanings, and we prove no function of the meaning distinguishes them, for every target type at every level - so a deduplicator keyed on outcome is not identifying duplicates, it is selecting one representative of a class it cannot justify.  We construct the class: where an operation.s left-hand side contains no free variable, the operations enabled at a single state form an entire copy of the term algebra and every member emits the same result, so the fibre over an outcome is unbounded.  We also prove that length does not factor through the truncation of the history type, so a pipeline retaining only the outcome cannot afterwards recover the cost of what it did.  Replay was for the history; the quotient removes exactly it.
+
+The cost, stated exactly.  Nothing may be deduplicated, so there are no tombstones, no compaction and no safe retention policy - the store is monotone.  Systems adopting this design trade unbounded growth for the elimination of the entire delivery-semantics stack, and we characterise the trade rather than tune it.
+
+WHAT IS NOT CLAIMED.  There is no message broker, no partition, no offset, no checkpoint and no watermark in this development.  A "message" is an operation and the "pipeline" is a library under concatenation.  The reading as a stream processing system is a reading and is not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.
