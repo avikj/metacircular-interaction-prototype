@@ -51,10 +51,13 @@ copy of the term algebra with every member producing the same result.
 There are consequently no tombstones, no compaction and no safe pruning
 rule; the store is monotone in the strongest sense.
 
-SYĀT — THE CLAIM, EXACTLY.  There is no working tree, no file, no line-based
-diff, no blame algorithm and no repository format here.  A patch is a
-step on an abstract state and commutation is a hypothesis discharged by
-the caller.  The reading as a version control system is asserted syāt: true under the named standpoint,
-with the checked shape as its warrant.
+RESOLVED IN PART.  The working tree now exists:
+theorems/unplaced/PatraLekha gives files as line-indexed content,
+patches as single-line writes, proves distinct-line patches commute —
+the hypothesis the reordering theorem consumes, discharged on the model
+— and proves blame beyond the last writer is not a function of the
+working tree: two distinct histories produce identical files, so every
+tree-reading blame computation agrees on them.  Diff algorithms remain
+constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

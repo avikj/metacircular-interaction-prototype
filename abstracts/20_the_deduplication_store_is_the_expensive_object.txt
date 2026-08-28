@@ -54,9 +54,12 @@ monotone.  Systems adopting this design trade unbounded growth for the
 elimination of the entire delivery-semantics stack, and we characterise
 the trade rather than tune it.
 
-SYĀT — THE CLAIM, EXACTLY.  There is no message broker, no partition, no offset,
-no checkpoint and no watermark in this development.  A "message" is an
-operation and the "pipeline" is a library under concatenation.  The
-reading as a stream processing system is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
+RESOLVED IN PART.  The broker vocabulary now exists:
+theorems/unplaced/PunahPrapti gives offsets, the received-set, and
+delivery, and proves redelivery idempotent and deliveries at every
+pair of offsets commuting, so duplicates collapse and adjacent swaps
+are free — at-least-once has the effect exactly-once was purchased
+for, with the dedup store's absence now algebraic on the model.
+Partitions, checkpoints and watermarks remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

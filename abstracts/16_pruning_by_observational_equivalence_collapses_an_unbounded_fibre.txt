@@ -44,10 +44,12 @@ information remains, which is why the stronger law is not available: it
 would require adjudicating an identity of histories that behaviour cannot
 supply.
 
-SYĀT — THE CLAIM, EXACTLY.  There is no specification language, no example-based
-synthesis, no version space and no enumerative search procedure here.  The
-object is a rewriting calculus with an interpreter, and "candidate" names a
-history.  The reading as a statement about synthesisers is asserted syāt: true under the named standpoint,
-with the checked shape as its warrant.
+RESOLVED IN PART.  The specification language now exists:
+theorems/unplaced/AbhilekhaAnirdhara gives specs as example lists,
+satisfaction as their conjunction, two provably distinct satisfiers of
+a one-example spec on which every observation-fed judge agrees, and an
+injection of the naturals into the spec's satisfiers — the unbounded
+fibre, constructed in the synthesis vocabulary itself.  Version spaces
+and enumerative search remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
