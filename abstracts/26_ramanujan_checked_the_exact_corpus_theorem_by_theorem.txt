@@ -57,5 +57,33 @@ p(28).  The general congruences are the theta identities and Atkin's
 completion; they are named at the boundary where the exact discipline
 ends and the analytic one begins.
 
+THE CUBES.  Four quadruples a³+b³+c³ = d³ (7,14,17,20 being the
+parametric family at (2,1)) and three near-misses of Fermat
+x³+y³ = z³±1 — the taxicab itself as 9³+10³ ≡ 12³+1, and the
+notebook's 135³+138³+1 ≡ 172³ — all closed computations.
+
+RAMANUJAN PRIMES (1919).  From the Bertrand-postulate paper: with
+primality by interrogation (the divisor counter answering exactly 2)
+and π the sum of that indicator, the five thresholds hold on 1..50 —
+π(⌊x/2⌋)+k ≤ π(x) once x reaches 2, 11, 17, 29, 41 — and each
+minimality is literally ¬m<m: one step early, the failed inequality
+normalizes to a strict self-precedence, which the order refuses.  The
+k = 1 row is Bertrand's postulate on the range.
+
+THE 691 CONGRUENCE (1916).  τ is DEFINED by the Δ product itself —
+q·∏(1−qⁿ)²⁴ truncated at degree 8, twenty-four honest multiplications
+per factor — with signed coefficients as formal differences of
+naturals: the corpus's keep-the-slot discipline, no signed branch
+ever taken (and a finding en route: the ℤ of the ambient library
+multiplies by iterated addition; the difference pairs ride the fast
+path instead).  The τ table falls out by refl; multiplicativity shows
+itself at τ(6) = τ(2)·τ(3); and τ(n) ≡ σ₁₁(n) mod 691 holds in five
+instances stated entirely in ℕ, representation-invariant, cofactors
+3, 256, 6075, 70656, 525300 exhibited, each one refl.
+
+THE EISENSTEIN CONVOLUTION (1916).  σ₇(n) = σ₃(n) + 120·Σσ₃(k)σ₃(n−k)
+— Ramanujan's elementary rendering of E₄² = E₈ — instances n = 1..8
+each closed by refl, both sides meeting at 2113665.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes, no booleans.
