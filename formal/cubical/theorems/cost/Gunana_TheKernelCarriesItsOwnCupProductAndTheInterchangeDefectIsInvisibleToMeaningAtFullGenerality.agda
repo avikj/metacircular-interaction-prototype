@@ -139,3 +139,60 @@ vinimaya-artha : (d : Derivation x y) (e : Derivation u v) (ρ : Env)
                → derivation-sound (d ⊗ e) ρ ≡ derivation-sound (d ⊗' e) ρ
 vinimaya-artha d e ρ =
   isSetℕ _ _ (derivation-sound (d ⊗ e) ρ) (derivation-sound (d ⊗' e) ρ)
+
+------------------------------------------------------------------------
+-- ५ · The residue is a permutation.  The two schedules do not merely
+-- have equal meaning: they have equal length, an equal count of
+-- left-whiskered steps, and an equal count of right-whiskered steps —
+-- the same multiset of step kinds, differing in ORDER alone.  What the
+-- interchange defect withholds from the meaning is exactly a
+-- transposition of independent steps, which is the corpus's dropped
+-- bit (abstract 13) appearing as the content of scheduling.
+------------------------------------------------------------------------
+
+vāmagaṇanā : Derivation x y → N.ℕ
+vāmagaṇanā (done _)                     = N.zero
+vāmagaṇanā (then-step (add-left _ _) d) = N.suc (vāmagaṇanā d)
+vāmagaṇanā (then-step _ d)              = vāmagaṇanā d
+
+gaṇanā-⊕ : (d : Derivation x y) (e : Derivation y z)
+         → vāmagaṇanā (d ⊕ e) ≡ vāmagaṇanā d N.+ vāmagaṇanā e
+gaṇanā-⊕ (done _) e = refl
+gaṇanā-⊕ (then-step (add-left s w) d) e = cong N.suc (gaṇanā-⊕ d e)
+gaṇanā-⊕ (then-step (add-zero _) d)   e = gaṇanā-⊕ d e
+gaṇanā-⊕ (then-step (add-suc _ _) d)  e = gaṇanā-⊕ d e
+gaṇanā-⊕ (then-step (suc-step _) d)   e = gaṇanā-⊕ d e
+gaṇanā-⊕ (then-step (add-right _ _) d) e = gaṇanā-⊕ d e
+gaṇanā-⊕ (then-step (reverse _) d)    e = gaṇanā-⊕ d e
+
+-- Every step of a left whiskering is left-headed; of a right
+-- whiskering, none is.
+gaṇanā-vāmāṅga : (d : Derivation x y) (z : Tm)
+               → vāmagaṇanā (vāmāṅga d z) ≡ dairghya d
+gaṇanā-vāmāṅga (done _)        z = refl
+gaṇanā-vāmāṅga (then-step s d) z = cong N.suc (gaṇanā-vāmāṅga d z)
+
+gaṇanā-dakṣiṇāṅga : (z : Tm) (e : Derivation u v)
+                  → vāmagaṇanā (dakṣiṇāṅga z e) ≡ N.zero
+gaṇanā-dakṣiṇāṅga z (done _)        = refl
+gaṇanā-dakṣiṇāṅga z (then-step s e) = gaṇanā-dakṣiṇāṅga z e
+
+-- Both schedules carry exactly |d| left-whiskered steps…
+krama-eva-bhedaḥ : (d : Derivation x y) (e : Derivation u v)
+                 → vāmagaṇanā (d ⊗ e) ≡ vāmagaṇanā (d ⊗' e)
+krama-eva-bhedaḥ {x} {y} {u} {v} d e =
+  gaṇanā-⊕ (vāmāṅga d u) (dakṣiṇāṅga y e)
+  ∙ cong₂ N._+_ (gaṇanā-vāmāṅga d u) (gaṇanā-dakṣiṇāṅga y e)
+  ∙ N.+-zero (dairghya d)
+  ∙ sym (gaṇanā-vāmāṅga d v)
+  ∙ sym (cong₂ N._+_ (gaṇanā-dakṣiṇāṅga x e) refl)
+  ∙ sym (gaṇanā-⊕ (dakṣiṇāṅga x e) (vāmāṅga d v))
+
+-- …and equal length: the right-first schedule is graded additively too,
+-- so the multiset of step kinds is invariant and only the order moves.
+guṇana-mātrā' : (d : Derivation x y) (e : Derivation u v)
+              → dairghya (d ⊗' e) ≡ dairghya d N.+ dairghya e
+guṇana-mātrā' {x} {y} {u} {v} d e =
+  dairghya-⊕ (dakṣiṇāṅga x e) (vāmāṅga d v)
+  ∙ cong₂ N._+_ (mātrā-dakṣiṇa x e) (mātrā-vāma d v)
+  ∙ N.+-comm (dairghya e) (dairghya d)
