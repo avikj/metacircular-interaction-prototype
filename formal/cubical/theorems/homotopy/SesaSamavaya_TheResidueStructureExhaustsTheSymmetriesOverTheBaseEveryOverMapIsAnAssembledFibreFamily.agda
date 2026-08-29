@@ -82,3 +82,16 @@ module _ {B : Type ℓ} {F : B → Type ℓ'} where
   -- own action.
   punar : (h : Vṛtti) → pratyāhāra (ā-kriyā h) (λ _ → refl) ≡ h
   punar h = funExt λ b → funExt λ x → transportRefl (h b x)
+
+  -- §4 · The groupoid clause: a family of fibre inverses assembles to
+  -- an inverse of the assembly, both round trips pointwise — residue
+  -- symmetries, not merely residue endomaps, exhaust the over-level.
+  module _ (h k : Vṛtti)
+           (sandhi  : (b : B) (x : F b) → h b (k b x) ≡ x)
+           (prasandhi : (b : B) (x : F b) → k b (h b x) ≡ x) where
+
+    ā-sandhi : (s : Σ B F) → ā-kriyā h (ā-kriyā k s) ≡ s
+    ā-sandhi (b , x) i = b , sandhi b x i
+
+    ā-prasandhi : (s : Σ B F) → ā-kriyā k (ā-kriyā h s) ≡ s
+    ā-prasandhi (b , x) i = b , prasandhi b x i
