@@ -733,12 +733,21 @@ agdaSolverCertificate defs eq@(l, r) imp body = do
   lhs <- agdaTermWith defs l
   rhs <- agdaTermWith defs r
   names <- mapM agdaVar (equationVars eq)
+  -- The v0.9 macro parses only a BARE equation goal: a telescoped type is
+  -- "failed to parse the goal" (probed 2026-08-29).  The library's own
+  -- Examples.agda binds the variables with a module telescope and leaves
+  -- the goal bare; emitted here the same way, `candidate` still has the
+  -- telescoped type from outside the anonymous module, so nothing
+  -- downstream changes.
   pure $ unlines $
     preambleWith defs (equationSymbols eq)
-    ++ [ imp
-       , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
-       , "candidate = " ++ body
-       ]
+    ++ [ imp ]
+    ++ (if null names
+          then [ "candidate : " ++ lhs ++ " ≡ " ++ rhs
+               , "candidate = " ++ body ]
+          else [ "module _ " ++ concatMap (\v -> "(" ++ v ++ " : ℕ) ") names ++ "where"
+               , "  candidate : " ++ lhs ++ " ≡ " ++ rhs
+               , "  candidate = " ++ body ])
 
 -- The solver shapes, in order, each an (label, import line, macro name).
 -- Both cubical versions the corpus meets are covered so the shape survives
@@ -785,13 +794,15 @@ agdaSolverPeelCertificate defs eq@(l, r) imp body =
       irhs <- agdaTermWith defs ir
       names <- mapM agdaVar (equationVars eq)
       let wrap s = foldr (\_ acc -> "cong suc (" ++ acc ++ ")") s [1 .. k]
-          appInner = unwords ("inner" : names)
+      -- Same bare-goal requirement as the direct certificate: the clause
+      -- already binds the variables, so `inner` in its where-block states
+      -- the core equation bare and the macro can parse it.
       pure $ unlines $
         preambleWith defs (equationSymbols eq)
         ++ [ imp
            , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
-           , "candidate " ++ unwords names ++ " = " ++ wrap appInner
-           , "  where inner : " ++ telescope names ++ ilhs ++ " ≡ " ++ irhs
+           , "candidate " ++ unwords names ++ " = " ++ wrap "inner"
+           , "  where inner : " ++ ilhs ++ " ≡ " ++ irhs
            , "        inner = " ++ body
            ]
 
