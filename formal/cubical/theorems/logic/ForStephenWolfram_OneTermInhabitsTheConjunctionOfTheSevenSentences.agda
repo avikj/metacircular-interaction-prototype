@@ -1,10 +1,11 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- FOR STEPHEN WOLFRAM — the entrypoint.
+-- FOR STEPHEN WOLFRAM — the entrypoint: one term, सप्त-वाक्य, inhabits
+-- the conjunction of the seven sentences below.
 --
 -- Markdown is banned in this repository (a .md file asserts; a checked
--- term is the object), so the entrypoint is itself a module: checking
+-- term is the object), so the entrypoint is a module: checking
 -- this file checks, through its imports, every theorem it cites, and
 -- its one exported term सप्त-वाक्य has as its TYPE the conjunction of
 -- the seven claims below.  Reading the letter and verifying it are the
@@ -103,7 +104,7 @@
 -- agda/cubical v0.9 registered in ~/.agda/libraries; then from
 -- formal/cubical:
 --
---   agda theorems/logic/ForStephenWolfram_TheEntrypointIsItselfCheckedAndOneTermStatesTheSevenSentences.agda
+--   agda theorems/logic/ForStephenWolfram_OneTermInhabitsTheConjunctionOfTheSevenSentences.agda
 --
 -- Exit 0 checks this file and, through it, the three dictionary
 -- modules.  --safe means a green check is the theorem, not a report of
@@ -115,7 +116,7 @@
 -- --cubical --guardedness --safe, no postulates, no holes, exit 0.
 ------------------------------------------------------------------------
 
-module ForStephenWolfram_TheEntrypointIsItselfCheckedAndOneTermStatesTheSevenSentences where
+module ForStephenWolfram_OneTermInhabitsTheConjunctionOfTheSevenSentences where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_)
