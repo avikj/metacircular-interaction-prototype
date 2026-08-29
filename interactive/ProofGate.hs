@@ -737,7 +737,13 @@ agdaSolverCertificate defs eq@(l, r) imp body = do
     preambleWith defs (equationSymbols eq)
     ++ [ imp
        , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
-       , "candidate = " ++ body
+         -- APPLIED, not point-free: probed 2026-08-29 at the pin, v0.9's
+         -- solveℕ! fails to parse a goal still under its Π-telescope
+         -- ("The NatSolver failed to parse the goal (x y z : …") and
+         -- discharges the same goal with the variables bound in the
+         -- clause.  Point-free was the whole reason every multi-variable
+         -- semiring identity on this wire was being rejected.
+       , unwords ("candidate" : names) ++ " = " ++ body
        ]
 
 -- The solver shapes, in order, each an (label, import line, macro name).
@@ -792,7 +798,8 @@ agdaSolverPeelCertificate defs eq@(l, r) imp body =
            , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
            , "candidate " ++ unwords names ++ " = " ++ wrap appInner
            , "  where inner : " ++ telescope names ++ ilhs ++ " ≡ " ++ irhs
-           , "        inner = " ++ body
+             -- applied for the same v0.9 parse reason as the flat shape
+           , "        " ++ unwords ("inner" : names) ++ " = " ++ body
            ]
 
 -- The lemma-citing step shapes: only emitted for the operations whose
