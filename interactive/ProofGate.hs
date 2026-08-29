@@ -322,7 +322,7 @@ import Data.Bits (shiftR, xor, (.&.), (.|.))
 import Data.Char (isAlphaNum, isDigit, isSpace, ord, toLower)
 import Control.Monad (when)
 import Data.IORef (IORef, modifyIORef', newIORef, readIORef, writeIORef)
-import Data.List (foldl', intercalate, isInfixOf, isPrefixOf, nub, sort)
+import Data.List (foldl', intercalate, isInfixOf, isPrefixOf, nub, permutations, sort)
 import Data.Maybe (isJust, mapMaybe)
 import Data.Time.Clock (diffUTCTime, getCurrentTime)
 import Data.Word (Word64)
@@ -746,6 +746,46 @@ agdaSolverCertificate defs eq@(l, r) imp body = do
        , unwords ("candidate" : names) ++ " = " ++ body
        ]
 
+-- CITATION modules: whole-proof bodies citing a lemma the pinned library
+-- already holds, emitted only when the goal's symbols contain the
+-- operation the lemma is about.  Occasion (2026-08-29): the wire was asked
+-- gcd (x·z) (y·z) ≡ gcd x y · z — Cubical.Data.Nat.GCD.gcd-factorʳ,
+-- verbatim — and rejected it, because gcd sits outside the semiring solver
+-- and the step shapes, and the emitter had no way to SAY a library lemma.
+-- The shape is blind in the same sense as every shape here: each variable
+-- ordering is offered and agda judges; the permutation count is bounded by
+-- the variable cap, so the budget stays a constant.  A wrong citation is
+-- an ordinary rejection and the search moves on.
+agdaCitationModules :: [Definition] -> Equation -> [(String, String)]
+agdaCitationModules defs eq
+  | not (definitionsSafe defs)          = []
+  | "gcd" `notElem` equationSymbols eq  = []
+  | length (equationVars eq) > kMaxInductionVariables = []
+  | otherwise =
+      [ ("citation: " ++ lemma ++ " " ++ unwords names, src)
+      | perm <- permutations (equationVars eq)
+      , Just names <- [mapM agdaVar perm]
+      , (modName, lemma) <- [("Cubical.Data.Nat.GCD", "gcd-factorʳ")]
+      , Just src <- [mkCitation modName lemma names]
+      ]
+  where
+    mkCitation modName lemma names = do
+      lhs <- agdaTermWith defs (fst eq)
+      rhs <- agdaTermWith defs (snd eq)
+      allNames <- mapM agdaVar (equationVars eq)
+      pure $ unlines $
+        preambleWith defs (equationSymbols eq)
+        ++ [ "open import " ++ modName ++ " using (" ++ lemma ++ ")"
+           , "candidate : " ++ telescope allNames ++ lhs ++ " ≡ " ++ rhs
+           , unwords ("candidate" : allNames)
+               ++ " = " ++ lemma ++ " " ++ unwords names
+           ]
+
+-- The number of citation modules is bounded: one lemma times at most
+-- (kMaxInductionVariables)! orderings.
+kMaxCitationModules :: Int
+kMaxCitationModules = product [1 .. kMaxInductionVariables]
+
 -- The solver shapes, in order, each an (label, import line, macro name).
 -- Both cubical versions the corpus meets are covered so the shape survives
 -- the toolchain skew that fibered VargaPrakrtiWitness109: v0.5 exposes the
@@ -875,6 +915,7 @@ kMaxCongArguments = 2
 kMaxAgdaCalls :: Int
 kMaxAgdaCalls = 1
              + 2 * length solverShapes  -- direct + peel module per macro
+             + kMaxCitationModules      -- library-lemma citations
              + length (stepShapes "ih" (replicate kMaxCongArguments "k"))
              + length (citingStepShapes ["max", "-"] "n")
 
@@ -892,8 +933,9 @@ kMaxInductionVariables = 3
 -- the base clause fails and `blamedLine` stops each variable's search at 2
 -- calls — but the bound is what is guaranteed and it is what is stated.
 kMaxAgdaCallsUnannotated :: Int
-kMaxAgdaCallsUnannotated = 1 + 2 * length solverShapes
-  + kMaxInductionVariables * (kMaxAgdaCalls - 1 - 2 * length solverShapes)
+kMaxAgdaCallsUnannotated = 1 + 2 * length solverShapes + kMaxCitationModules
+  + kMaxInductionVariables
+      * (kMaxAgdaCalls - 1 - 2 * length solverShapes - kMaxCitationModules)
 
 -- The cubical library, by name as registered in ~/.agda/libraries.
 -- Without this the engine's invocation cannot resolve Cubical.* at all;
@@ -1698,7 +1740,8 @@ certifyWith defs root (eq, proofNote) =
         ExitFailure _ | environmentFault out ->
           pure (Rejected (firstErrorLine out) n0)
         ExitFailure _ ->
-          trySolvers solverModules n0 (firstErrorLine out)
+          trySolvers (solverModules ++ agdaCitationModules defs eq)
+            n0 (firstErrorLine out)
   where
     -- The reflection-solver modules are tried after the definitional `refl`
     -- module and before the induction search: one call closes the whole
