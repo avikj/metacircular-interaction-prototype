@@ -93,6 +93,67 @@ carrying read/write footprints, the causal order as an indexed family,
 invariance as an equivalence of orders), and the queueing itself was a
 transported operation of the running machine, not a note in a file.
 
+The 2025–2026 writings extend the dictionary, and a second module
+(NKSRuliology2025To2026_*, same system, same pin) holds three more
+sentences to terms.
+
+W5.  "We don't get any fundamental advantage by trying to make a proof
+rather than just running the Turing machine" (Towards a Theory of
+Bugs, July 2026).  The sentence is exactly right about each single
+instance and exactly wrong about their totality, and both halves are
+checked: a run reaches one endpoint, and the term (n : ℕ) → Evolve 0 n
+reaches every endpoint by one induction through a snoc lemma.  The
+fundamental advantage of proof is the universal quantifier — the term
+is the family where the run is a point — and the corpus already holds
+the machine-scale form in abstract 25's composition theorem, which
+certifies a compound machine for every input with no induction over
+the compound.  The same essay's "whatever constraint we give, there'll
+always be machines that insidiously escape it" is this series'
+standing discipline read back: the escape is a named counterexample,
+and a constraint without its exhibited escape is an unfinished
+theorem.
+
+W6.  "Equivalent states are in fact merged" (What Ultimately Is
+There?, February 2026).  The February sentence is stronger than the
+2021 merge — merged in the object, not treated as equivalent by an
+observer — and the stronger merge is the set quotient: under
+co-terminality the two branches become equal AS DATA (eq/), the
+quotient contracts to a single point, and that point is Wolfram's eme
+— an atom of existence with no property beyond its distinctness —
+constructed rather than posited.  Both merges are real, both lossy,
+and the loss is the same computed object: the stronger merge still
+has no section, by the same two-cong collision that refuted
+reconstruction from the truncation.
+
+W7.  Bulk orchestration and the rulial ensemble (What's Special about
+Life?, November 2025).  Taking the purpose to be arrival, the ensemble
+"selected to achieve the purpose" is the fibre of the endpoint, and
+the checked statement is that purpose ranks nothing inside it: every
+assessor reading only the merged achievement — prop-valued fitness
+functions included — answers equally on all ensemble members, which is
+abstract 12's theorem arrived at from the November 2025 vocabulary.
+The orchestration half — mechanism-like patches fitted together, the
+step whose visible part consults its hidden part — is the living step
+of this branch's Jīva module, where the consultation is proved: no
+marginal endomap simulates the controlled-not, and the refusal is
+located on the visible side while the environment side descends by
+refl.
+
+One methodological sentence from What Is Ruliology? (January 2026)
+frames the whole series: mathematics "tends to get out of hand, with
+even a very simple rule having behavior that can only be captured by
+large amounts of obscure mathematics."  The modules above are the
+measured reply: at the scale where ruliology's own sentences live —
+two events, one branch point, one merge — the mathematics does not get
+out of hand; it gets exactly as large as the sentence, and each of
+seven sentences across five years of writings (2021–2026) is
+discharged by identifiers whose proof text is shorter than its prose.
+Where a sentence names something genuinely irreducible — the January
+2025 window on the 307-step proof nobody understands — the corpus
+agrees from the other side: abstract 08 proves that proof identity is
+the fibre, so an ununderstood proof is a trace not yet carried, and
+carrying traces is what this machine is for.
+
 The machine scale of W1 is already in the corpus and is cited rather
 than re-proved: abstract 25's universal machine, where codes modulo
 running-the-same form a set-quotient, the padding lemma injects ℕ into
