@@ -105,3 +105,23 @@ veṇī-sthairya zero    (suc n) s t h =
 śabda-sthairya (i ∷ w) n s t h =
   śabda-sthairya w n (veṇī∞ i s) (veṇī∞ i t)
     (veṇī-sthairya i (length w + n) s t h)
+
+------------------------------------------------------------------------
+-- ४ · The completion's new point is BETTER behaved than any word: the
+-- uniform turn is continuous with ZERO lookahead — n-close in, n-close
+-- out — because it is cellwise.  What finite words cannot reach is not
+-- wilder than they are; it is tamer: uniformity costs no lookahead at
+-- all, and the escape from the word-image happens entirely inside the
+-- best-behaved class of maps.
+------------------------------------------------------------------------
+
+open import KendraAtireka_TheCentralizerExceedsTheGroupTheUniformQuarterTurnIsCentralOfOrderFourYetNoFiniteWordRealizesIt
+  using (catur∞)
+
+catur-sthairya : (n : ℕ) (s t : Rajju)
+               → kartana n s ≡ kartana n t
+               → kartana n (catur∞ s) ≡ kartana n (catur∞ t)
+catur-sthairya zero    s t h = refl
+catur-sthairya (suc n) s t h =
+  cong₂ _∷_ (cong caturaṃśa (cons-inj₁ h))
+            (catur-sthairya n (śeṣam s) (śeṣam t) (cons-inj₂ h))
