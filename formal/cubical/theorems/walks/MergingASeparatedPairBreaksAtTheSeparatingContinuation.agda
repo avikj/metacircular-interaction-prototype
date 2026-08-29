@@ -33,7 +33,7 @@
 -- different shape of conclusion: a located failure rather than a
 -- non-existence.
 --
--- WHAT IS NOT CLAIMED.  NOT Theorem 28.10 itself as that note means it:
+-- SYĀT — THE CLAIM, EXACTLY.  NOT Theorem 28.10 itself as that note means it:
 -- "projectively distinct" there is defined by the projective
 -- continuation quotient of §14–15, which is NOT modelled here; §2 takes
 -- separation by a single continuation as its hypothesis and proves only

@@ -46,10 +46,15 @@ must be discharged by naming two states the observables cannot separate.
 Absent that witness the claim has not been stated, and a sensitivity study
 is not a substitute for it.
 
-WHAT IS NOT CLAIMED.  There is no probability distribution, no estimator,
-no structural equation model, no do-calculus and no counterfactual in this
-development.  The observables are functions on a six-element type and
-"identifiable" means the fibres are contractible.  Whether a statistical
-identification problem has this shape is a reading and is not proved.
+RESOLVED IN PART.  The statistical vocabulary now exists:
+theorems/unplaced/VitaranaYugma constructs estimators and proves that
+no estimator from a blind sense is everywhere correct — generically,
+with the failure point manufactured from the sense's own blind pair —
+and constructs distributions with their two marginals, proving the
+perfectly correlated and anti-correlated joints distinct while both
+marginals agree by reduction: the marginals do not determine the
+joint, so joint faithfulness does not survive distributional lifting,
+and the new blind spot at the higher level is exactly correlation.
+Sigma-algebras, expectation and independence remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

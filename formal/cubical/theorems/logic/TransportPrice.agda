@@ -58,7 +58,7 @@
 -- asked the question used it, and `loop-is-free` is the theorem that
 -- makes the objection precise.
 --
--- WHAT IS NOT CLAIMED.  That additivity is the right axiom for every
+-- SYĀT — THE CLAIM, EXACTLY.  That additivity is the right axiom for every
 -- notion of cost — a cost that is not additive over intermediate
 -- standpoints is outside this theorem, and the theorem is exactly the
 -- statement that additivity alone already forces triviality of the path

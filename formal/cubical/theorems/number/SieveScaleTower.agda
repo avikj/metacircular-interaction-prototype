@@ -87,7 +87,7 @@
 --                                    loop appears.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **No inverse limit.**  The tower is four levels of a model at
 --    X = 30.  A genuine `O_z` tower is indexed by all z ≤ √X and its

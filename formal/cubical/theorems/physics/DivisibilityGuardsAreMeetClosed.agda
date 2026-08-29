@@ -37,7 +37,7 @@
 -- `PermanentUnsaidIsStableAndTemporaryIsASearch`, met
 -- here from a third direction and not by design.
 --
--- WHAT IS NOT CLAIMED.  Nothing about §6's OPEN conjecture (whether the
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about §6's OPEN conjecture (whether the
 -- pratyāhāra system is the ∩-closure §2 requires) — that needs the
 -- external sūtra corpus, which is EGRESS_BLOCKED, and it stays open.
 -- Nothing about Petersen 2004, NOT proved and NOT read.  No claim that

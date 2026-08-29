@@ -1,0 +1,113 @@
+RAMANUJAN, CHECKED: THE EXACT CORPUS, THEOREM BY THEOREM
+Bounded reflection with Maybe-witnesses turns his arithmetic claims
+into kernel computations, and the machine's own wheel turns the Pell
+
+Number theory / exact mechanization / cubical type theory
+
+Ramanujan's exact arithmetic — the claims whose content is a finite
+computation or a Diophantine bridge, as opposed to the analytic
+corpus — is mechanized theorem by theorem, deterministically: each
+item driven to a checked proof, with what remains beyond exact
+methods named at its boundary rather than blurred.  The uniform
+engine is boolean-free bounded reflection: comparisons return
+Maybe (m ≡ n) — a witness or nothing, never a bit — bounded scans
+fold thousands of witness-checks into a single refl the kernel
+normalizes, and soundness lemmas convert the computation into the
+Π-statement.  Nothing is asserted that did not compute or derive.
+
+THE TAXICAB (1729).  Both representations by refl, their distinctness
+by a two-line refutation, and MINIMALITY in full: any number below
+1729 has, up to order, at most one representation as a sum of two
+positive cubes.  The kernel normalizes all 20736 quadruples of
+1..12 in one refl; a cube-growth bound (13³ = 2197 overshoots)
+confines the parts; the soundness bridge does the rest.
+
+THE STRAND PUZZLE (1914).  The balance Σ(1..203) + Σ(1..204) ≡
+Σ(1..288) by refl, subtraction-free; 577² ≡ 2·408² + 1 by refl; and
+the general BRIDGE, both directions, for every n and k: the balanced
+house is exactly the Pell point, 2k² ≡ n(n+1) iff (2n+1)² ≡ 2(2k)²+1,
+by explicit semiring algebra with the converse by cancellation.  The
+wheel itself was turned by the repository's machine: asked
+vargaprakrti D = 2 over its wire, it answered the fundamental (3,2)
+with the composition law checked multiplicative at every turn, and
+declared in its own ledger exactly what it does not re-prove.
+
+RAMANUJAN–NAGELL (1913).  The five solutions of x² + 7 = 2ⁿ — n = 3,
+4, 5, 7, 15, the square 181² among them — each by refl, and NO SIXTH
+below 2¹⁵: every solution with n ≤ 15 is one of the five, by the same
+reflection engine with a square bound (182² already exceeds 2¹⁵).
+The range settled includes his largest solution; beyond it lies
+Nagell's 1948 descent in Z[√−2], by other instruments — named.
+
+HIGHLY COMPOSITE NUMBERS (1915).  The divisor counter defines itself
+— an indicator that holds exactly when a multiplication witness
+q·k ≡ m is found by scan — so there is no separate specification to
+trust.  The memoir's opening column checks as ten refls (divisor
+counts 1,2,3,4,6,8,9,10,12,16 at 1,2,4,6,12,24,36,48,60,120), and
+120 IS highly composite: all 119 predecessors interrogated
+completely, none reaching sixteen.
+
+THE PARTITION CONGRUENCES (1919).  The partition function defined as
+a counting recursion — the multiplicity of the largest allowed part,
+total by lexicographic descent, truncated subtraction only behind its
+guard — with MacMahon's values falling out as refls.  All three
+families with cofactors exhibited, divisibility as Σ q (q·d ≡ p n):
+5 ∣ p(4), p(9), p(14);  7 ∣ p(5), p(12), p(19);  11 ∣ p(6), p(17),
+p(28).  The general congruences are the theta identities and Atkin's
+completion; they are named at the boundary where the exact discipline
+ends and the analytic one begins.
+
+THE CUBES.  Four quadruples a³+b³+c³ = d³ (7,14,17,20 being the
+parametric family at (2,1)) and three near-misses of Fermat
+x³+y³ = z³±1 — the taxicab itself as 9³+10³ ≡ 12³+1, and the
+notebook's 135³+138³+1 ≡ 172³ — all closed computations.
+
+RAMANUJAN PRIMES (1919).  From the Bertrand-postulate paper: with
+primality by interrogation (the divisor counter answering exactly 2)
+and π the sum of that indicator, the five thresholds hold on 1..50 —
+π(⌊x/2⌋)+k ≤ π(x) once x reaches 2, 11, 17, 29, 41 — and each
+minimality is literally ¬m<m: one step early, the failed inequality
+normalizes to a strict self-precedence, which the order refuses.  The
+k = 1 row is Bertrand's postulate on the range.
+
+THE 691 CONGRUENCE (1916).  τ is DEFINED by the Δ product itself —
+q·∏(1−qⁿ)²⁴ truncated at degree 8, twenty-four honest multiplications
+per factor — with signed coefficients as formal differences of
+naturals: the corpus's keep-the-slot discipline, no signed branch
+ever taken (and a finding en route: the ℤ of the ambient library
+multiplies by iterated addition; the difference pairs ride the fast
+path instead).  The τ table falls out by refl; multiplicativity shows
+itself at τ(6) = τ(2)·τ(3); and τ(n) ≡ σ₁₁(n) mod 691 holds in five
+instances stated entirely in ℕ, representation-invariant, cofactors
+3, 256, 6075, 70656, 525300 exhibited, each one refl.
+
+THE EISENSTEIN CONVOLUTION (1916).  σ₇(n) = σ₃(n) + 120·Σσ₃(k)σ₃(n−k)
+— Ramanujan's elementary rendering of E₄² = E₈ — instances n = 1..8
+each closed by refl, both sides meeting at 2113665.
+
+THE OPEN ASSERTION (1916, unproved without GRH): the odd numbers not
+of the form x² + y² + 10z² are exactly his eighteen.  Treated by the
+corpus's boundary method, not as a target: the universal claim is a
+TYPE (RamanujanAssertion), the kernel-signed gate restricts it with
+deliberately no term backwards, and the machine's verdict organs hold
+the totality as syād-avaktavyam — one content at two scopes, not
+formable as a single predication — with the gates affirmed.  What is
+now checked: every odd n below 720 is listed or represented with its
+triple handed out as data; representation below 720 is DECIDED either
+way with evidence (completeness of the witness finders); the counting
+field rC is the object and the boolean its support, both directions,
+with the collapse's loss witnessed (rC 1 = 2 against rC 2 = 1, one
+boolean); and THE SOUNDNESS HALF ENTIRE — all eighteen, 2719
+included, represented by no triple whatsoever, growth bounds folding
+every candidate into boxes the kernel emptied.  Half of the open
+statement is a checked term, and the type system knows which half.
+
+LEHMER'S QUESTION (1947, open): is τ(n) ever zero?  τ is made TOTAL —
+τAt n from the Δ product truncated at degree n+1, every value the
+finite computation Ramanujan performed — the question is a type over
+all n, the gate is signed on 1..16, and no converse is written:
+sixteen instances license nothing universal, and the type system now
+says so.
+
+Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
+--guardedness --safe, no postulates, no holes, no booleans.

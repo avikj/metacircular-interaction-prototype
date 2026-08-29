@@ -14,7 +14,7 @@
 -- (आत् and ऐच् receive the सञ्ज्ञा *vṛddhi*) and १.४.१४ सुप्तिङन्तं पदम्
 -- (what ends in सुप् or तिङ् receives the सञ्ज्ञा *pada*), c. 500 BCE.
 --
--- SCOPE, and what is NOT claimed.  Pāṇini stated no fibre, no type and no
+-- SCOPE, asserted syāt — each source claim under its own standpoint.  Pāṇini stated no fibre, no type and no
 -- equivalence, and nothing below is attributed to him.  What is borrowed
 -- is one discipline of the सञ्ज्ञा-sūtra and nothing else: **a class that
 -- has been named is thereafter referred to by that name.**  This corpus

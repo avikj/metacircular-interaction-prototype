@@ -55,7 +55,7 @@
 -- untruncated statement over a set-quotient costs its own `isProp`
 -- proof, and the truncated one does not.
 --
--- WHAT IS NOT CLAIMED.  No decision procedure on `Rate`.  No claim
+-- SYĀT — THE CLAIM, EXACTLY.  No decision procedure on `Rate`.  No claim
 -- that the untruncated version is unprovable, or slow under the
 -- declared pin (Agda 2.8.0 + cubical v0.9), whose `SetQuotients`
 -- internals differ from the container's v0.5.  Nothing about

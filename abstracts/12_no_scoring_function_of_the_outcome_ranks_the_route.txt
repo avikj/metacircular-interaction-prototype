@@ -52,10 +52,12 @@ discards the skill and the witness, and installation composes with that
 discard - so the system provably learns from what a step did and never
 from why it was permitted.
 
-WHAT IS NOT CLAIMED.  No MDP, no policy, no return, no estimator and no
-training dynamics appear.  The evaluator is a specific interpreter into
-the naturals and the results are about functions of it.  Reward hacking
-and specification gaming are named as the phenomena we take this to
-explain; that identification is a reading and is not proved.
+RESOLVED IN PART.  The return and the shaping side now exist:
+theorems/cost/PratiphalaAntara constructs debits and credits from a
+potential and proves the telescoping identity — a potential-shaped
+return is a function of the two endpoints alone, so every no-go above
+applies to it in full, and a reward that separates two same-endpoint
+histories is thereby certified non-potential.  Stochasticity,
+discounting and estimators remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

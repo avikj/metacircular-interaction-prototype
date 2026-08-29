@@ -83,7 +83,7 @@
 -- is stated in the enumerative form and therefore has a trivial
 -- answer.
 --
--- WHAT IS NOT CLAIMED.  No predicate is exhibited: §6 is NOT closed by
+-- SYĀT — THE CLAIM, EXACTLY.  No predicate is exhibited: §6 is NOT closed by
 -- this module, and the honest status is that its stated form is
 -- vacuous and its intended form is unstated.  Nothing here is about
 -- text: `A` is any type with decidable equality and the documents are

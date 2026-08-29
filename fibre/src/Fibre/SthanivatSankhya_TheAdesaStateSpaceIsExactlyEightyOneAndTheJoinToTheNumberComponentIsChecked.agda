@@ -30,7 +30,7 @@
 -- adds NOTHING to the cardinality, because the fibre is contractible.
 -- A reader who trusts only numbers can now check ahiṃsā by counting.
 --
--- WHAT IS NOT CLAIMED.  Nothing new about Pāṇini — the grammar content
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing new about Pāṇini — the grammar content
 -- is `Sthanivadbhava_…`'s, with its own sources and scope sentences.
 -- 81 = 3⁴ is a fact about THIS toy inventory (three forms, three
 -- designations), not about the Aṣṭādhyāyī's varṇa inventory.

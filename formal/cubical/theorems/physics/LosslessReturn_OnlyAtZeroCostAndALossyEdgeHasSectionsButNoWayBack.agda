@@ -26,7 +26,7 @@
 -- §४ is its converse: at zero defect the way back exists and is the
 -- equivalence's own inverse.
 --
--- WHAT IS NOT CLAIMED.  No causal structure, no spacetime, no cycles in
+-- SYĀT — THE CLAIM, EXACTLY.  No causal structure, no spacetime, no cycles in
 -- any walked graph: README movement 6's reading is a reading and lives
 -- in the notes.  This is a statement about one map and its inverses.
 -- `Bool → Unit` is the smallest witness and no generality beyond it is

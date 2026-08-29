@@ -44,7 +44,7 @@
 -- semantic could ever have registered its improvement.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  That this expression language is the right
+-- SYĀT — THE CLAIM, EXACTLY.  That this expression language is the right
 -- syntax for the walk, or for the Aṣṭādhyāyī, or that node-count is the
 -- right measure — Pāṇini's own lāghava counts morae and rule-slots, not
 -- nodes.  The theorem is about the SHAPE of the situation: any measure

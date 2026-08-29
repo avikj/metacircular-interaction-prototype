@@ -1,0 +1,63 @@
+THE MUTUAL-DEPENDENCE OBJECTION CHECKS WHEN THE LEANING IS PRODUCTIVE,
+AND AN INTERDEPENDENT PAIR IS PROVED MUTUALLY NOVEL
+Neither member checks without the other, or neither has the property
+alone; the vicious circle is separated from the generative one by the
+typechecker, and the derived-sense case is refuted outright
+
+Foundations of type theory / measurement and identifiability
+
+The parasparasraya objection — each of two things established only
+through the other, catalogued across a millennium of Nyaya and Jaina
+literature as a defect of definition — is answered here by a criterion
+rather than a concession, and the criterion is mechanical.  A mutual
+pair whose leaning is productive exists: two streams defined in one
+mutual block, each the tail of the other, are accepted under the
+guardedness discipline, proved distinct, and close their circle by
+reduction at depth two — the period of the orbit is computed, not
+argued.  The same pair with the guard removed is the negative control,
+and it dies where it must: the productivity checker rejects it naming
+the two offending calls.  The distance between the tradition's fallacy
+and a construction principle is one guarded constructor, and the
+typechecker is the arbiter of which circles are vicious and which are
+generative.
+
+The second face is a record, and it is where the notion earns its name.
+An interdependent pair over a state space is two observables, a named
+blind pair for each — two states, their distinctness, and the
+identification that observable cannot avoid making — and joint
+faithfulness.  The record is inhabited at the smallest complete
+instance, and three theorems fall out of it generically, using no
+instance data.  Each observable provably separates every blind pair of
+the other: interdependence forces complementary vision.  Neither
+observable can be discarded: a constant replacement for either refutes
+the record through the other's blindness.  And the collision that
+closes the account: a pair in which the second sense factors through
+the first is refuted outright, in both directions — joint faithfulness
+forces the second sense to separate the first's blind pair, while
+factoring forces it blind there, and the two demands cannot coexist.
+An interdependent pair therefore contains no derived member.  Neither
+observable is post-processing of the other, and the record itself is
+the certificate: interdependence is proved mutual novelty, not shared
+redundancy.
+
+The complement is priced exactly.  For a sensorium S and a derived
+reading q factoring through it, with q landing in a set, the agreement
+type of the extended family at any two states is equal — by univalence,
+as a path in the universe, not merely equivalent — to the agreement
+type of S alone.  Adjoining a derived sense moves the
+indistinguishability relation not at all, and the non-movement is a
+type equality that transports.  A dashboard buys no vision; only a
+sense that survives the refutation above can.
+
+SYĀT — THE CLAIM, EXACTLY.  No general theory of circular definition is
+given: "productive" means exactly what the guardedness checker accepts,
+and no claim is made beyond that boundary.  The primary-text loci of
+the parasparasraya objection are cited as the tradition's and are
+unverified here; no theorem is attributed to any historical author.
+The reading of the record as a family of realization functors, and of
+mutual novelty as the independence of cohomology theories, is a reading
+and is not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals; the negative control fails to typecheck at the productivity
+checker, and its failure is part of the claim.

@@ -76,7 +76,7 @@
 -- miniature.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **T14.19 and T14.22 are NOT re-proved.**  "q is an equivalence iff
 --    every homotopy fibre is contractible" is `Cubical.Foundations.Equiv`'s

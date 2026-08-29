@@ -60,7 +60,7 @@
 -- routine; `maximalExists` is this corpus's own, and the mixed
 -- statement is the one DARWIN §5.2 needed all along.
 --
--- WHAT IS NOT CLAIMED.  Only maximal EXISTENCE is transferred.  The
+-- SYĀT — THE CLAIM, EXACTLY.  Only maximal EXISTENCE is transferred.  The
 -- stratification (`strata`, `theStrataAreOrdered`,
 -- `theStratificationCovers`) is NOT transferred here — that needs the
 -- whole peeling to be run on flipped vectors and pulled back layer by

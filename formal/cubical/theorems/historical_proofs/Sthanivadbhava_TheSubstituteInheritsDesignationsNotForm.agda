@@ -108,7 +108,7 @@
 -- whose cost can be measured, and what it costs is that an extension of a
 -- property is rendered as a substitution on the input.
 --
--- WHAT IS NOT CLAIMED.  1.1.52–1.1.55, which say WHICH sound of the
+-- SYĀT — THE CLAIM, EXACTLY.  1.1.52–1.1.55, which say WHICH sound of the
 -- sthānin an ādeśa replaces, are not here; nor the vārttikas that
 -- restrict 1.1.56 further; nor 1.1.61/1.1.63, which single out luk, ślu
 -- and lup and give them their own sthānivadbhāva treatment.  The

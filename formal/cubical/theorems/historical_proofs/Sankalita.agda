@@ -39,7 +39,7 @@
 -- not merely in their values.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- Nothing analytic.  Mādhava's series, its error terms, and the
 -- convergence acceleration are the Kerala school's actual achievement and

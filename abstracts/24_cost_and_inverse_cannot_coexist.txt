@@ -82,13 +82,18 @@ to be costless, and therefore historyless.  An interface that intends to
 carry cost, route, effort or provenance must carry the DERIVATION, since
 the theorem says those quantities do not exist on the other side.
 
-We claim no braiding: two involutive self-equivalences of a three-bit
-state space, each supplied with its inverse and both unit laws, fail the
-braid relation at an explicitly named state, so invertibility does not
-induce a braid group action and nothing here supplies the missing
-coherence.  We claim no thermodynamics: cost here is a natural number,
-and no heat, energy, temperature, entropy or erasure bound is derived,
-bounded or implied at any point.
+The braiding coherence, once withheld here, is now supplied elsewhere:
+theorems/physics/VeniBandha exhibits the quarter-turn-twisted swap
+satisfying Yang-Baxter by refl at exact order eight, so what this
+abstract refutes — braiding for free from invertibility — and what
+that module constructs — braiding bought by the pair-level coherence —
+bracket the phenomenon exactly.  And the erasure bound's logical core
+is now derived: theorems/physics/ApasaranaNiyama proves reversibility
+conserves distinctions, so erasure is displacement into the
+environment, never destruction — which is WHERE the cost this
+abstract banishes from the invertible dynamics goes: into the kept
+fibre of the marginal one stopped watching.  Heat as a measure (reals,
+logarithm, temperature) remains a construction over that fibre.
 
 All statements are machine-checked in a proof assistant with no
 postulates, no admitted goals, and no warnings.

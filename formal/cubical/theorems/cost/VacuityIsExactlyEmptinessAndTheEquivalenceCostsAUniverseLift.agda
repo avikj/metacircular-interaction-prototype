@@ -66,7 +66,7 @@
 -- about a relation and the other a fact about every relation on it,
 -- and the universe gap is where that difference is recorded.
 --
--- WHAT IS NOT CLAIMED.  **The audited module is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **The audited module is NOT amended and NOT
 -- retracted** — §2 and §3 are true as stated, and §3's theorem is a
 -- real one; the quarrel is that it was offered as the justification for
 -- a universally quantified reading.  It is NOT claimed that unrestricted

@@ -68,7 +68,7 @@
 -- anything below.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- · NOT a correction.  Nothing above is refuted; `व्युत्क्रम-सत्` was
 --   never wrong, it was redundant, and redundancy is only visible once

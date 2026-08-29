@@ -67,7 +67,7 @@
 --                            two different fates for `Q`, both checked.
 --
 --
--- WHAT IS NOT CLAIMED — and this is most of Delta 17
+-- SYĀT — THE CLAIM, EXACTLY — and this is most of Delta 17
 --
 --  * **No valuations, no places, no adeles.**  §17.8's `s_ℓ`/`d_ℓ` are
 --    the motivation and are NOT constructed here.  This file is about a
@@ -287,7 +287,7 @@ module _ (R : CommRing ℓ) where
 -- Untouched by this correction: §§1-3 and §5, whose named terms
 -- (`Φ′`, `Ψ`, `ΨΦ′-is-double`, `Φ′Ψ-is-double`, `image-parity-sum`,
 -- `image-parity-diff`, `Q`, `τ-preserves-Q`, `J₂-negates-Q`) all exist
--- and match their header descriptions, and the "WHAT IS NOT CLAIMED"
+-- and match their header descriptions, and the "SYĀT — THE CLAIM, EXACTLY"
 -- block, which the audit found accurate and if anything stronger than
 -- it needed to be.
 ------------------------------------------------------------------------

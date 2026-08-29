@@ -59,7 +59,7 @@
 -- bridge between the two is the one induction that has to walk down the
 -- list.  Everything else is plumbing.
 --
--- WHAT IS NOT CLAIMED.  **The audited module is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **The audited module is NOT amended and NOT
 -- retracted**; its flag was accurate and this discharges half of it.
 -- The OTHER half is untouched: nothing here proves `Perm` (or `≈`)
 -- coincides with "same multiset" — that direction needs to LOCATE an

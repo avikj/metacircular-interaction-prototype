@@ -54,7 +54,7 @@
 -- `FactorsThrough` results have mostly not met — they establish that a
 -- decode exists or does not, and `Pingala.agda` exhibits one.
 --
--- WHAT IS NOT CLAIMED.  That uddiṣṭa is the unique optimal scheme (it is
+-- SYĀT — THE CLAIM, EXACTLY.  That uddiṣṭa is the unique optimal scheme (it is
 -- not — any bijection to `Fin (sankhya n)` attains the bound); that
 -- Piṅgala stated an optimality claim (he did not, and nothing in the
 -- Chandaḥśāstra is read here as one).  The mātrā-vṛtta case, listed here

@@ -55,7 +55,7 @@
 --                         obligations has min cut 1 and least
 --                         certificate n.
 --
--- WHAT IS NOT CLAIMED.  Nothing here is new mathematics.  §2 is the
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new mathematics.  §2 is the
 -- greatest-fixed-point characterisation of observational equivalence —
 -- classical minimal-realization / bisimulation theory, and Delta 19
 -- says so itself (S19.14, "do not reinvent it").  §3 is the 1-certificate

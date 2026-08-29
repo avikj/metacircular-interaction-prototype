@@ -41,7 +41,7 @@
 -- quoted at frontier 8: a bound over all schemes, a count for this one,
 -- and an attainment.
 --
--- WHAT IS NOT CLAIMED.  Anything at a general frontier.  The iterated CRT
+-- SYĀT — THE CLAIM, EXACTLY.  Anything at a general frontier.  The iterated CRT
 -- for an arbitrary list of installed prime powers needs pairwise
 -- coprimality of prime powers as a lemma, which this lane does not carry,
 -- and this file does one frontier explicitly rather than pretend

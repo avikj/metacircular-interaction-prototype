@@ -30,7 +30,7 @@
 -- module is what the attempt produced on the way, and it is a corollary
 -- of the first face rather than progress on the third.
 --
--- WHAT IS NOT CLAIMED.  NOT that the convergents are in lowest terms.
+-- SYĀT — THE CLAIM, EXACTLY.  NOT that the convergents are in lowest terms.
 -- That needs "a divisor of ±1 in ℤ is ±1", a classification of units
 -- which is NOT proved here and NOT imported.  §2 stops exactly where the
 -- algebra stops: the common divisor divides a unit.  Calling that

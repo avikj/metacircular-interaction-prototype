@@ -34,7 +34,7 @@ determinant.  One statement, every prime, decided — not measured.  And
 as the shadow of this law at one list, so the instance is now a corollary of
 the general fact rather than a separate measurement.
 
-**What is NOT claimed / not done here, and a false identity avoided.** This is
+**Syāt — the claim, exactly, and a false identity avoided.** This is
 the drop-LOCUS — which places see — and NOT the height VALUE.  The value is
 `log|coker_tors| = ∑_i log dᵢ = ∑_p (∑_i v_p(dᵢ))·log p` for `T` square
 nonsingular: the exponent is the VALUATION SUM `∑_i v_p(dᵢ)` — how MUCH `p`

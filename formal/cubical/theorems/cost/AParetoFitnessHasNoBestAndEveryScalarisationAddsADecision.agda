@@ -52,7 +52,7 @@
 -- d'économie politique`, 1896) and Edgeworth before him; the Agda is
 -- attached to §5.2, not discovered.
 --
--- WHAT IS NOT CLAIMED.  Vectors are `List ℕ` and the order is only
+-- SYĀT — THE CLAIM, EXACTLY.  Vectors are `List ℕ` and the order is only
 -- defined between lists of equal length — mismatched lengths are `⊥`
 -- rather than an error, and no length index appears (no `Fin`, the
 -- standing idiom here).  §5.2's objectives include wall time, tokens,

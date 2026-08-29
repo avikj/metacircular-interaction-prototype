@@ -66,7 +66,7 @@
 --                      transport the resulting `isEquiv` back along a
 --                      `funExt` built from `retEq` twice
 --
--- WHAT IS NOT CLAIMED.  **Nothing is amended or retracted** —
+-- SYĀT — THE CLAIM, EXACTLY.  **Nothing is amended or retracted** —
 -- `OptimalObservation` and ac4ee91d stand unchanged, and `Optimal`,
 -- `Injective` and `TheOpenPigeonhole` are imported, not redefined.
 -- `FinPigeonhole` is NOT proved here and NOT refuted; it is true and

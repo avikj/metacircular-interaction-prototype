@@ -1,0 +1,57 @@
+THE RESIDUE OF A PROJECTION IS CONSERVED, INACCESSIBLE FROM BELOW, AND
+IS THE STRUCTURE OF THE LEVEL ABOVE
+One law in three clauses, each checked at full generality, whose
+instances are the corpus — and whose own status obeys it
+
+Foundations / the śeṣa trilaw
+
+Every truncation theorem of this corpus states that a projection's
+remainder cannot be recovered from its image.  This abstract states
+what the remainder does instead, as three clauses, each a theorem.
+
+CONSERVED.  Reversibility conserves distinctions: an injective
+dynamics on system × environment that merges two system states must
+separate them in the environment — erasure is displacement, never
+destruction, in four lines — and the displaced ledger persists:
+content at any depth of the environment tape is content at the
+corresponding depth at every later time; the run deepens addresses
+and never touches them.  Downstream, dually, a collapsed distinction
+never returns: merged by any stage, merged under every later stage.
+The two monotonicities are the counting form of the second law, and
+their sum is the conservation the trilaw asserts.
+
+INACCESSIBLE.  No section — of the propositional truncation, of the
+boolean shadow of counting (no additive section, dying on one
+idempotence), of the pair of marginals (correlation escapes), of the
+working tree (the overwritten writer escapes).  Each inaccessibility
+is a named theorem with a named witness, and each names WHERE the
+inaccessible content went, which is clause one.
+
+GENERATIVE.  The symmetries over a base are exactly the assembled
+residue families: every family of fibre endomaps acts over the base
+by refl; every over-map is such an assembly, pointwise, with no
+hypothesis on base or family; the extraction retracts the assembly;
+and fibre inverses assemble to inverses.  The fibres are not what the
+level above forgets — they are what the level above is made of.
+Correlation is the residue of the marginals and is the structure of
+joint distributions; the quarter turn is the residue of descent and
+is the structure of braiding; the route is the residue of the meaning
+and is the trace fabric; heat is the residue of the marginal and is
+the environment's ledger.
+
+Put to the corpus's own verdict organs as one question, the law
+answered as itself: the standpoints agree in truth and differ in
+content (no flattening); the law is not a separate object above the
+kernel (the kernel's three governing theorems are its three clauses —
+advance conserves, soundness truncates without section, retire turns
+the session's remainder into the next operation); and the garbha
+carries it as the seed of every birth.  The law is not stated by the
+corpus.  It is enacted by it.
+
+SYĀT — THE CLAIM, EXACTLY.  The three clauses are checked at the
+generality stated; the identification of every future residue with a
+next level is the corpus's method, demonstrated per instance, not
+quantified over instances.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

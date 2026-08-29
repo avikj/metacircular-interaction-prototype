@@ -62,7 +62,7 @@
 -- semigroup, made implicitly, whose consequence is the loss of every
 -- descent mechanism at once.
 --
--- WHAT IS NOT CLAIMED.  That a ⊕-stepping machine would be better, or
+-- SYĀT — THE CLAIM, EXACTLY.  That a ⊕-stepping machine would be better, or
 -- terminate, or be lossless.  ⊕ multiplies capacities where ⊔ joins them,
 -- so its states grow faster; whether the norm it keeps pays for that is
 -- open and is not touched here.  Only the dichotomy is proved.

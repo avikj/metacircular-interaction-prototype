@@ -39,7 +39,7 @@
 -- countFix is such a class function, and on S₃ it takes the three
 -- values 3, 1, 0 on the three classes' named representatives.
 --
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --   * That fixed-point counting separates conjugacy classes of Sₙ in
 --     general.  It does NOT for n ≥ 5: in S₅ the cycle types (2,2,1)
 --     and (4,1) both fix exactly one point.  The separation here is a

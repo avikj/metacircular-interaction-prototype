@@ -51,7 +51,7 @@
 -- certificates are for; the content is only the count — three free,
 -- one earned.
 --
--- WHAT IS NOT CLAIMED.  "Peak semantic width" is NOT modelled: the cost
+-- SYĀT — THE CLAIM, EXACTLY.  "Peak semantic width" is NOT modelled: the cost
 -- is an abstract vector, and nothing says it is a width, a Pareto
 -- stratum index, or anything computed from a cut.  MIGRATION is a bare
 -- function with no law — nothing says it preserves the boundary
@@ -119,7 +119,7 @@ module _ {Sys B Prov : Type}
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS NOT CLAIMED" says:
+-- line above.  §"SYĀT — THE CLAIM, EXACTLY" says:
 --
 --   "MIGRATION is a bare function with no law — nothing says it
 --    preserves the boundary semantics, and a compiler would need

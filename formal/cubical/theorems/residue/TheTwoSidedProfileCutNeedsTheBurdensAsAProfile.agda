@@ -55,7 +55,7 @@
 -- cut exists over a NON-EMPTY residual index set or over `ℕ ⊎ ∞`, and
 -- not over ℕ with an arbitrary index set.
 --
--- WHAT IS NOT CLAIMED.  The non-empty-row right adjoint is NOT built
+-- SYĀT — THE CLAIM, EXACTLY.  The non-empty-row right adjoint is NOT built
 -- here — `maxP` and its laws are the pieces it needs, and assembling
 -- them with a fold is the next step on this line, not attempted this
 -- cycle.  CONVOLUTION still does not appear: Δ 28 composes generator

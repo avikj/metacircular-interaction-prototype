@@ -50,7 +50,7 @@
 -- what being a fixed point of the closure means.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED, and this is the load-bearing part.
+-- SYĀT — THE CLAIM, EXACTLY, and this is the load-bearing part.
 --
 -- The note's ↑ and ↓ are min-plus RESIDUATIONS over a semiring-valued
 -- kernel, taking burden profiles to residual profiles.  The ↑ and ↓

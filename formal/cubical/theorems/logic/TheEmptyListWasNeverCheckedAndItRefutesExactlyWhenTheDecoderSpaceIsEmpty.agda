@@ -70,7 +70,7 @@
 -- a property of the mathematics obstructed").  The omitted case is the
 -- extreme point of the distinction it had already found.
 --
--- WHAT IS NOT CLAIMED.  **`WitnessNumberIsTwo` is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`WitnessNumberIsTwo` is NOT amended and NOT
 -- retracted** — every theorem in it is true as written, `Refutes` and
 -- `factorLaw` are imported unchanged, and the conclusion "exactly 2"
 -- SURVIVES for every site whose decoder space is inhabited, which

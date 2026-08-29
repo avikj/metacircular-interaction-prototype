@@ -66,7 +66,7 @@
 --                             and re-inherited a discharged hypothesis.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **The residue bridge is not proved here.**  The note writes the
 --    observation as `profile_S(n) = (n mod m)_{m∈S}`, and this file

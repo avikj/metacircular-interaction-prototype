@@ -40,7 +40,7 @@
 -- of them.  That is why the needed estimate must carry BOTH ζ(s+1)^{−1} and
 -- ū/v: the modulus route provably cannot recover the first.
 --
--- WHAT IS NOT CLAIMED.  Nothing here bounds K_a, and nothing here says the
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here bounds K_a, and nothing here says the
 -- absolute-value route is useless — it is exactly right whenever the trivial
 -- bound suffices, and `ApurvaIndriyam.तन्तौ-अन्धः` is the theorem that it is
 -- FAITHFUL to what it does read.  The claim is only that its fibre is

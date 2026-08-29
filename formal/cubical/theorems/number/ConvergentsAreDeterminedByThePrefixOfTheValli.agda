@@ -24,7 +24,7 @@
 -- give the same k-th convergent, so reading further never revises what
 -- was already produced.
 --
--- WHAT IS NOT CLAIMED.  Nothing about COMPLETENESS — that enough grant
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about COMPLETENESS — that enough grant
 -- always resolves — which for the vallī means the expansion of a
 -- rational terminates with the last convergent equal to it, and needs
 -- the kuṭṭaka itself, not the recurrence.  §3 records one thing the

@@ -82,7 +82,7 @@
 --   coversAtOne              and coverage does hold there, at a fuel
 --                            strictly below `lengthL`
 --
--- WHAT IS NOT CLAIMED.  **No module is amended or retracted** — §0
+-- SYĀT — THE CLAIM, EXACTLY.  **No module is amended or retracted** — §0
 -- corrects a NOT-CLAIMED remark of my own, and the theorem it sat next
 -- to (`fuelIrrelevant`, `canonicalFuel`,
 -- `theStratificationCoversAtEverySufficientFuel`) is untouched and

@@ -24,7 +24,7 @@
 -- distinction between counting a loss and naming it — सङ्ख्या vs the
 -- carried identification — kept honest here rather than papered over.
 --
--- WHAT IS NOT CLAIMED.  Not `fibre ≃ Fin (card)` as a bare consequence
+-- SYĀT — THE CLAIM, EXACTLY.  Not `fibre ≃ Fin (card)` as a bare consequence
 -- (that is the truncated part).  Not anything about infinite-source maps
 -- (the ℕ-source front is the recurrence emitter's, disjoint).  This is
 -- the count, for finite sources, as the shared enzyme.

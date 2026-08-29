@@ -118,7 +118,7 @@
 -- worth not confusing them.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  The mathematics is elementary — `compEquiv` is
+-- SYĀT — THE CLAIM, EXACTLY.  The mathematics is elementary — `compEquiv` is
 -- library, and the two-map witness is the smallest there is.  What is
 -- claimed is only that the two halves belong under one name, because
 -- either alone invites the wrong inference: §२ alone suggests grading is

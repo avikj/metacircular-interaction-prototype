@@ -37,7 +37,7 @@
 -- rather than guessing, on the stated ground that a verdict guessed is
 -- worse than a verdict withheld.
 --
--- WHAT IS NOT CLAIMED.  §१ is the standard `¬Σ ≃ Π¬` and is library-grade
+-- SYĀT — THE CLAIM, EXACTLY.  §१ is the standard `¬Σ ≃ Π¬` and is library-grade
 -- mathematics; nothing here is new.  What is claimed is the reading: that
 -- this equivalence is the yogyatā condition, that it explains why रिक्तम्
 -- is the only verdict without an exhibiting witness, and that the invalid

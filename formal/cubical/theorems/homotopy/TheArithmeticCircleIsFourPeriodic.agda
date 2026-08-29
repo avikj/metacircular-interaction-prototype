@@ -41,7 +41,7 @@
 -- its loop group says so.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- That `Pair ≡ Pair` over ℤ is `ℤ/4` — the loop space of the universe at
 -- `Pair` contains far more than these four paths, and nothing here

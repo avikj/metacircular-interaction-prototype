@@ -47,10 +47,18 @@ sensor array is the cyclic group of order the least common multiple, and
 the two directions above are that the minimisation is complete and that it
 is faithful.  The residue is the Nerode class.
 
-WHAT IS NOT CLAIMED.  There is no automaton, no alphabet, no regular
-language and no Myhill-Nerode theorem in the development.  The object is
-a family of moduli over the naturals and the theorems are about its
-indistinguishability relation.  The automata-theoretic reading in the
-previous paragraph is a reading and is not proved.
+RESOLVED.  The formerly absent objects are now constructed and the
+reading is a theorem: theorems/automata/NerodeYantra gives the Moore
+machine (states the naturals, advance the successor, observation the
+joint (parity, mod-3) readout), proves generically that whenever the
+next observation factors through the current one the entire Nerode
+relation is the kernel of a single observation — an equivalence of
+types, for any set-valued readout — and instantiates it on this
+machine, where the factoring holds definitionally.  Composed with the
+divisibility theorem above, the chain closes: Nerode class = residue
+class modulo the lcm, with the machine, not about a machine-shaped
+absence.  Regular languages over larger alphabets and the minimisation
+algorithm are the next constructions.
 
-Machine-checked in cubical type theory, no postulates, no admitted goals.
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

@@ -49,7 +49,7 @@
 -- its §0 and which I read this cycle.  Verse-level sourcing OWED AND NOT
 -- CLAIMED.
 --
--- WHAT IS NOT CLAIMED.  Not that the gavaya example is modelled — a
+-- SYĀT — THE CLAIM, EXACTLY.  Not that the gavaya example is modelled — a
 -- two-point carrier is not a forest.  Not any verdict on `Upamana.hs`'s
 -- §6 empirical control (whether what it transports lies inside the
 -- engine's enumeration reach); that is its measurement and its result,

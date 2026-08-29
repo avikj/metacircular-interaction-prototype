@@ -65,7 +65,7 @@
 -- of a finite set dominates everything else in it (Goldberg 1989; Deb
 -- et al. 2002), and the sublist argument is the usual one.
 --
--- WHAT IS NOT CLAIMED.  `Mem` is a truncation-free `Any`, so a value
+-- SYĀT — THE CLAIM, EXACTLY.  `Mem` is a truncation-free `Any`, so a value
 -- listed twice is two members.  Nothing here says the dominator is
 -- unique or canonical — `maximalExists` picks one and the choice is
 -- not stable under permuting the archive.  Nothing about lengths, and

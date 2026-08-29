@@ -167,8 +167,78 @@ exactly by the event type:
 
     UTM  =  deterministic ISC (a point)  ⊊  interactive ISC.
 
+The same śeṣa has a second face, where the freedom lives in the
+answers rather than the events: an interaction is a family of
+questions Q(s) with an answer-indexed step, and its guarded run — a
+stream of nows, receipts, and answers — is EQUIVALENT to the bare
+answer stream (run-is-answers).  The states of an interactive history
+are receipts, and receipts weigh nothing: the interactive face of
+trace-is-fibre.  The collapse then comes out structural: contractible
+questions force a contractible run space (silence-is-determinism),
+with no set-ness of the state space used anywhere — the contraction
+is built coinductively over a path of states on the answer side and
+carried across the equivalence — and the closed universal machine
+recovers one-execution as an instance.  With the strictness witness
+already checked on the event flank, the two files close the picture
+together: the environment's freedom IS the homotopy of the history
+space, measured on one flank by the event type and on the other by
+the answer stream.
+
+The self-hosting question is answered on both flanks.  There is no
+table that is every table on the nose — two machines disagreeing at
+one configuration kill every candidate — so a universal table must
+read its subject machine in an encoding: the change of representation
+is a theorem, not an implementation convenience.  And every encoding
+hands the diagonal its pen: fixing a tape-reading of codes (five
+naturals per rule, with its section proved), Lawvere's fixed-point
+argument manufactures a concrete configuration map — the
+state-successor of what the machine read off the tape would do — that
+NO program's step realizes, since a table evaluated at its own
+encoding would equal its own successor.  The universal function
+exists; the program behaviors cannot exhaust the configuration maps;
+the escape is one act of self-reference, not a cardinality count.
+
+Three bridges close the development.  Physics: every table's step is
+unitary when completed — the lossless completion is an equivalence,
+and by contractibility the only one — yet the successor and the
+eraser fail to exchange at one stroke under the head, both composites
+computing by refl: invertibility buys no exchange coherence, the
+machine's own dialect of "unitarity does not give braiding".
+Univalence: ua turns the completion into an identification
+Machine ≡ Σ Machine (fib uStep) in the universe, and the
+identification COMPUTES — transport evaluates to the completed step
+by the computation rule for ua, evaluating, not cited; on a closed
+machine the whole crossing reaches a closed normal form.  And the
+syādvāda: each step is a transport with its receipt or a silence with
+its equation — the disjunction computed, the witness riding in the
+sum, no boolean and no excluded middle — so every finite depth is
+decided with evidence either way, while divergence, the refutation at
+every depth at once, is a proposition no finite observation asserts:
+each depth speaks with evidence, and the totality is not a naya.
+
+The truncation doctrine meets its exact boundary.  In general ∥A∥₁
+has no retraction — a collapse to mere inhabitation cannot be undone.
+But mere halting already yields the first halting time with its
+minimality certificate, untruncated, with no choice principle: each
+finite depth is decided with evidence, so a bounded search walks down
+from any witness, and the pair (first time, minimality) is a
+proposition, so the truncation eliminates into it.  The collapse
+destroys choices and preserves canons; minimality is a canon.
+
+And the relational presentation collapses too.  A proof-relevant
+program R : A → B → U with unique answers — contractible output
+spaces — is the graph of its execution, R a b ≃ (exec a ≡ b), by the
+fundamental theorem of identity types; globally (Σ R. Fun R) ≃
+(A → B), one direction definitional.  The deterministic ISC's receipt
+event is definitionally the graph relation of the universal step.  So
+three grammars — lossless step, functional relation, collapsed
+interaction — present one function, and each grammar's surplus is
+measured by its own theorem: the trace is the fibre, the relation is
+the graph, the interaction is the receipt.
+
 Machine-checked at the pin (Agda 2.8.0, cubical v0.9), --cubical
 --guardedness --safe, no postulates, no holes.  The interactive
-generalisation — question-indexed events under the guarded later — is
-a śeṣa, and it is queued in the machine's own remainder store, where
-the next step will find it.
+generalisation, long queued as a śeṣa, is now collected on both of
+its flanks; what the remainder store holds next is the interactive
+machine's own composition law — sequencing dialogues as Samasa
+sequences tapes.

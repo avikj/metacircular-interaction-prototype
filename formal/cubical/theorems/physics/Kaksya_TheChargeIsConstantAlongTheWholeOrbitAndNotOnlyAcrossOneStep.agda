@@ -29,7 +29,7 @@
 -- is asserted of a set nothing has been proved constant on.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- **Not a quotient.**  No orbit space is constructed and no universal
 -- property is proved.  `Φ` is a bare endomorphism with no inverse, so its

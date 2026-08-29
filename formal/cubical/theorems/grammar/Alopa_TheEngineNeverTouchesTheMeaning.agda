@@ -40,7 +40,7 @@
 -- field.  Soundness of the run then is not an audit; it falls out of the
 -- type.
 --
--- WHAT IS NOT CLAIMED.  The term language is one binary symbol and
+-- SYĀT — THE CLAIM, EXACTLY.  The term language is one binary symbol and
 -- variables — what the theorems need and no more; the engine's real
 -- vocabulary is larger and this does not model it.  Rewriting fires at
 -- the root after rewriting the children, one pass per fuel step, which is

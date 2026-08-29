@@ -1,0 +1,52 @@
+INTENSITY IS BLIND TO PHASE, PHASE IS BLIND TO MAGNITUDE, AND THE
+AMPLITUDE IS THEIR INTERDEPENDENT PAIR
+Complementarity as joint faithfulness, with the fringe exhibited as a
+term and intensity-only interferometry refuted
+
+Quantum optics / foundations of measurement
+
+Interferometry rests on a fact usually stated informally: a magnitude
+detector cannot see phase, a phase reference cannot see brightness, and
+the field is what the two jointly determine.  We give the fact as an
+inhabitant of a checked record and draw its consequences as terms.
+
+The instance is the smallest that is complete.  Over the integers as a
+toy amplitude line, intensity is the distance from zero and phase is
+the sign.  Intensity's blind pair is named — plus one and minus one,
+equal magnitude by reduction, distinct because the sign separates them:
+the fringe pair, identified by every magnitude detector.  Phase's blind
+pair is named — plus one and plus two, one ray at two brightnesses.
+Joint faithfulness is a reconstruction function exhibited by a
+four-case analysis, not an existence claim: magnitude and sign
+determine the amplitude.
+
+The general laws of the interdependent-pair record then land on the
+instance with no further proof.  The phase provably separates what
+intensity identifies — the fringe, as a term.  Intensity alone is
+refuted as a faithful reading of the amplitude: no post-processing of
+detector output recovers what the detector discarded.  And neither
+observable factors through the other, by the derived-sense refutation:
+a photodetector and a homodyne reference are mutually new senses of one
+field, each passing the admission gate against the other.  The two
+blindnesses are not a deficiency the pair happens to patch; they are
+the certificate that the pair is genuinely two instruments.
+
+The reading this makes exact, offered as a reading.  The squared
+modulus forgetting the phase is the decategorification this corpus
+prices everywhere — the scalar the detector reports is a projection
+with no section.  Complementarity — extract the one reading and lose
+the other's residue — is the truncation price stated physically.  And
+interference is nature declining the quotient: two routes with shared
+endpoints whose difference is physically carried, the experimental form
+of the statement that route information is kept at the step or is
+nowhere.
+
+SYĀT — THE CLAIM, EXACTLY.  There is no Hilbert space, no complex number, no
+Born rule, no beam splitter and no interferometer in this development.
+"Amplitude" names an integer, "intensity" its distance from zero,
+"phase" its sign, and the theorems are a six-line case analysis over
+that data.  Whether physical complementarity has this shape is a
+reading and is not proved; the shape itself is.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

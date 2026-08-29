@@ -351,7 +351,7 @@ are one idempotence, priced once as a loss and once as a guarantee.
 
 
 
-WHAT IS NOT CLAIMED
+SYĀT — THE CLAIM, EXACTLY
 ------------------------------------------------------------------------------------------
 
 Not that the five are instances of one formal statement.  They are not:

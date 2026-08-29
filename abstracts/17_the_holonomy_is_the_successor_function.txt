@@ -47,10 +47,16 @@ symmetry cannot represent that symmetry's holonomy - not approximately,
 not with more resolution.  The residue is recoverable only by changing the
 observable, never by refining it.
 
-WHAT IS NOT CLAIMED.  There is no lattice, no gauge group, no connection
-form, no Wilson loop and no field in this development.  The system is a
-discrete circuit with an integer fibre; "holonomy" names the action of the
-loop on that fibre, and "observable" names a function out of the state.
-The physical reading is a reading and is not proved.
+RESOLVED IN PART.  The gauge vocabulary now exists:
+theorems/physics/SetuKsetra constructs the lattice (a chain of links),
+the gauge group (Z/2 under xor), the connection as a link field, the
+gauge transformation, and the Wilson loop, and proves the telescoping
+law: the transformed Wilson line is start-site times end-site times the
+original, so on a closed chain THE WILSON LOOP IS GAUGE INVARIANT for
+every connection and every transformation — while the connection
+itself provably changes on a named two-link witness whose loop, by the
+same theorem, cannot.  The holonomy is physical; the connection is
+coordinates; both halves are terms.  Larger gauge groups and
+higher-dimensional lattices remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

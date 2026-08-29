@@ -72,7 +72,7 @@
 --      The pair IS (its sum, which pair of that sum) — यत् तिष्ठति /
 --      कः नश्यति, as one equivalence.
 --
--- WHAT IS NOT CLAIMED.  Nothing here says addition is the only such edge,
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here says addition is the only such edge,
 -- nor that the other 1036 UNDECIDED edges resolve this way.  `pairsFin` is
 -- not proved here; it is imported and credited.  No rank, no dimension,
 -- and nothing about physical spacetime.

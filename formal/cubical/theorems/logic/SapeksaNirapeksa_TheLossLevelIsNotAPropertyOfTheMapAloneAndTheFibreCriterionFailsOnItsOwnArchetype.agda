@@ -21,7 +21,7 @@
 -- rows 120 and 121) and from
 -- and are owed at verse level.
 --
--- WHAT IS NOT CLAIMED OF THE SOURCE.  Nothing below is Siddhasena's, and
+-- SYĀT — THE CLAIM, EXACTLY OF THE SOURCE.  Nothing below is Siddhasena's, and
 -- no Jaina logician is claimed to have held anything about fibres.  The
 -- word is taken for ONE property — that a verdict pronounced on a thing
 -- taken apart from what it stands among is false — because that is

@@ -51,7 +51,7 @@
 --     the walk's cost is its overlap, and overlap is exactly the locus
 --     where the two operations disagree.
 --
--- WHAT IS NOT CLAIMED.  No rate.  The sentence above is a location, not a
+-- SYĀT — THE CLAIM, EXACTLY.  No rate.  The sentence above is a location, not a
 -- bound: nothing here computes how much the join discards, and the
 -- comparison of k! with lcm(1..k) is named as the quantity to compute,
 -- not computed.  Nor is anything claimed about real sieves beyond the

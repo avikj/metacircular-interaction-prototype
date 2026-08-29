@@ -68,7 +68,7 @@
 --                              are indistinguishable forever.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * **T18.5's converse is not proved.**  Delta 18 says "conversely, if
 --    P T_t Q ≠ 0 for some t, there exists an eliminated component

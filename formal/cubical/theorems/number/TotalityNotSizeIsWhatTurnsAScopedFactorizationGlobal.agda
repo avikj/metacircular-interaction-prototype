@@ -72,7 +72,7 @@
 -- the easy direction and is not equivalent to it.  **The proxy is
 -- always the one that can be counted.**
 --
--- WHAT IS NOT CLAIMED.  **`VacuityVerdict` is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`VacuityVerdict` is NOT amended and NOT
 -- retracted**; its sentence is true, and everything here is built from
 -- its own definitions, lemmas and controls, unaltered.  It is NOT
 -- claimed that totality is NECESSARY for a global factorization — a

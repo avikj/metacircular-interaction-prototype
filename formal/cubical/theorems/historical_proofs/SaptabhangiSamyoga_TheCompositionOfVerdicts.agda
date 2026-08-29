@@ -50,7 +50,7 @@
 --   Mallisena, Syādvādamañjarī, 1292 CE — sakalādeśa (total statement,
 --     pramāṇa) against vikalādeśa (partial statement, naya).
 --
--- WHAT IS NOT CLAIMED.  None of these authors wrote a composition
+-- SYĀT — THE CLAIM, EXACTLY.  None of these authors wrote a composition
 -- operator, an associativity law, or a counterexample to associativity.
 -- What is theirs is: three seed predicates; two modes of assertion; that
 -- the simultaneous mode of asti-and-nāsti is a FOURTH position and not the

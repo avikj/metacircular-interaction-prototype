@@ -51,7 +51,7 @@
 -- list is elementary order theory; it is here to be ATTACHED to §2, not
 -- because it is new.
 --
--- WHAT IS NOT CLAIMED.  No sorting algorithm appears — the argument is
+-- SYĀT — THE CLAIM, EXACTLY.  No sorting algorithm appears — the argument is
 -- entirely about bounds, so nothing depends on how the ascending order
 -- is produced or on its stability.  Nothing is claimed about the other
 -- three seams: the missing perfect-score exclusion, the adjacent string

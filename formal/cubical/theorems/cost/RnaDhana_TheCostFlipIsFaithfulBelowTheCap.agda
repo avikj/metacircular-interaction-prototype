@@ -64,7 +64,7 @@
 -- Galois-adjunction framing of monus is Birkhoff/Ore-era lattice
 -- theory.
 --
--- WHAT IS NOT CLAIMED.  The cap is still a single number shared by all
+-- SYĀT — THE CLAIM, EXACTLY.  The cap is still a single number shared by all
 -- cost coordinates; per-coordinate caps are not modelled, though the
 -- one-sided hypothesis suggests they would be the honest version.
 -- Nothing here transports `stratum`, `maximalExists` or the

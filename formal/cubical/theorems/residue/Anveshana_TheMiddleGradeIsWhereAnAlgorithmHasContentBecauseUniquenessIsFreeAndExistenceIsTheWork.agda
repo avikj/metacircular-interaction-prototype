@@ -67,7 +67,7 @@
 -- one object, not a coarser and a finer version of one cut.  §४ is that,
 -- both directions.
 --
--- WHAT IS NOT CLAIMED.  Nothing here is new mathematics: `isContr`,
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new mathematics: `isContr`,
 -- `isProp` and their relation are library, and §५ is a reading rather
 -- than a theorem about computation — no notion of algorithm, cost, or
 -- decidability appears below, and `isProp (fiber f b)` does NOT say the

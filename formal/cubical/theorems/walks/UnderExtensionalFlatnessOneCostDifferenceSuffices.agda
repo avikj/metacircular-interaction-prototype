@@ -28,7 +28,7 @@
 -- NOT AT ALL, and every scrap of information about which order to pick
 -- lives in the cost model.  §5's sentence, from the other side.
 --
--- WHAT IS NOT CLAIMED.  NOT Theorem 28.2 — flatness is a HYPOTHESIS
+-- SYĀT — THE CLAIM, EXACTLY.  NOT Theorem 28.2 — flatness is a HYPOTHESIS
 -- here, named `Flat`, and nothing below proves it for elimination
 -- orders or for anything else.  NOT anything about PeakScope,
 -- PeakEntries, fill-in, treewidth, the tropical Schur complement, or

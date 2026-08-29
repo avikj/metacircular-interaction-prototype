@@ -49,7 +49,7 @@
 -- transports equalities of composites onto the image; this is the
 -- functoriality of simulation and is standard.
 --
--- WHAT IS NOT CLAIMED, and this is now the sharp remainder.
+-- SYĀT — THE CLAIM, EXACTLY, and this is now the sharp remainder.
 -- PERMUTATIONS ARE NOT MODELLED.  "For every order" is encoded as the
 -- HYPOTHESIS that the two uncompressed composites agree — which is what
 -- Δ 28 means by "exact elimination commutes" — and NO theorem here

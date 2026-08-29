@@ -65,7 +65,7 @@
 -- `undecided` until an ambient theorem is supplied"*, says this; the
 -- theorems below are that sentence with its quantifiers.
 --
--- WHAT IS NOT CLAIMED.  **`VacuityVerdict` is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`VacuityVerdict` is NOT amended and NOT
 -- retracted** — every definition and lemma there is used here exactly
 -- as written, and nothing above says the four constructors are the
 -- wrong four.  It is NOT claimed that `Verdict` should be changed: a

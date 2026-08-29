@@ -177,9 +177,24 @@ if [ "${1:-}" = "--all" ]; then
   fi
 fi
 
+# ── gate: the two-valued unclaiming is retired ──────────────────────────
+# Readings are asserted syāt — indexed by their standpoint — never merely
+# unclaimed.  The sevenfold is proved non-equivalent to Bool, so a
+# claimed/unclaimed partition is the collapse the corpus itself refutes.
+WNC='WHAT IS NOT ''CLAIMED'
+printf '\ngate — no two-valued unclaiming\n'
+if hits=$(grep -rlI -i "$WNC" abstracts formal fibre README.md README.rst 2>/dev/null); [ -n "$hits" ]; then
+  echo "  FAIL: the retired phrase appears in:"; printf '%s\n' "$hits" | sed 's/^/    /'
+  echo "  Assert the reading syāt, under its standpoint, instead."
+  fail=1
+else
+  echo "  OK: no file unclaims; readings are asserted under their standpoint."
+fi
+
 if [ "$fail" = 0 ]; then
   printf '\nALL GREEN at Agda %s / agda-cubical %s.\n' "$GOT_AGDA" "$GOT_CUB"
   exit 0
 fi
 printf '\nSOMETHING IS RED, and the toolchain above IS the pin — so it is the\nmathematics or the code, not your machine.\n'
 exit 1
+

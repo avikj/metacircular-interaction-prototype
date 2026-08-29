@@ -29,7 +29,7 @@
 -- With `RateOneIsExactlyTheUniversalClaim`'s equivalence (rate one IS
 -- the Π), the three sit in order and each separation is witnessed.
 --
--- WHAT IS NOT CLAIMED.  Not that the order is total over all
+-- SYĀT — THE CLAIM, EXACTLY.  Not that the order is total over all
 -- thresholds — only these three are exhibited, and "at most 25%" or any
 -- other fraction is not analysed.  Not any general theorem relating
 -- thresholds; the two witnesses are witnesses, and a pattern over two

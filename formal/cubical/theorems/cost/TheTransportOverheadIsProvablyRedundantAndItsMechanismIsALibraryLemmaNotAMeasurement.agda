@@ -73,7 +73,7 @@
 -- one round trip in a UNARY representation.  Nothing was measured to
 -- get here.
 --
--- WHAT IS NOT CLAIMED.  **`TransportCost` is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`TransportCost` is NOT amended and NOT
 -- retracted**; its answers are, as far as I can tell, correct, and §1
 -- above is about how one of them was justified, not whether it holds.
 -- **No cost model is formalised and none exists in Agda here**: the

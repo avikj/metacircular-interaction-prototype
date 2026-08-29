@@ -73,7 +73,7 @@
 -- apoha as Boolean complementation.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- * NOT the Panday–Ghosh treatment.  arXiv:2605.12548 claims typed
 --   abhāva, dependent delimitation, tādātmya AND paramparā-sambandha

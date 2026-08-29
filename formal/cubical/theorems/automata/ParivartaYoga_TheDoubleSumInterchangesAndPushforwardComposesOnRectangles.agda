@@ -35,7 +35,7 @@
 --   परिवर्तः      THE INTERCHANGE: the two nesting orders of the double
 --                total agree, for every rectangular weight family.
 --
--- WHAT IS NOT CLAIMED.  Not the dependent Fubini over fib_{g∘f} ≃
+-- SYĀT — THE CLAIM, EXACTLY.  Not the dependent Fubini over fib_{g∘f} ≃
 -- Σ fib_g fib_f (owed: fibre enumerations + transport of the fold along
 -- क्रमनैरपेक्ष्यम्'s invariance); not any infinite or measure-theoretic
 -- statement.  The algebra ledger for the lane now reads: SamaVibhaga

@@ -101,7 +101,7 @@
 --                             problems but one.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * ~~**T15.9 is not proved as "subgroup".**  §4 takes a family of
 --    self-equivalences and proves closure under identity, composition

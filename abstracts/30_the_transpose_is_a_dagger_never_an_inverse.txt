@@ -1,0 +1,60 @@
+THE TRANSPOSE IS A CONTRAVARIANT, GRADE-PRESERVING DAGGER, AND THE
+GRADE IS WHY IT IS NEVER AN INVERSE
+What survives the prohibition of inversion is computed: self-dual and
+irreversibly graded at once, with the whole weakness quotiented by the
+semantics in one stroke
+
+Category theory / reversible computing / foundations of correspondences
+
+A calculus whose transition relation carries reversal as a constructor
+has, on every derivation, a transpose: reverse each step and reassemble
+in the opposite order.  We construct it on the kernel of this corpus
+and prove the three laws that make it a dagger structure on the strict
+category of derivations, then prove why a dagger is all there is.
+
+The construction and its laws.  Concatenation of derivations is
+associative and unital on the nose, as data.  The transpose fixes
+identities, and its contravariance is proved, not imposed: the
+transpose of a composite is the reverse composite of the transposes,
+by structural induction with the associator as the only glue.  The
+grade — length of the derivation — is additive under concatenation,
+and the transpose preserves it exactly: reversing a route costs what
+the route cost, and forgets nothing.
+
+The wall, in two strengths.  The double transpose of a one-step
+derivation is not the derivation: counting the reversal marks on the
+head step separates them, so the dagger is weak syntactically, and the
+count is the residue.  Then the general prohibition, which is the
+result: no function whatsoever — not the transpose, not a cleverer
+candidate — is an inverse for concatenation.  The grade is additive and
+detects the unit, so the inversion equation dies at a single length-one
+derivation for every candidate at once.  This is the graded-or-
+invertible dichotomy landed on the kernel's own category: the
+derivation category is graded, therefore never a groupoid, and what
+survives the prohibition of the inverse is exactly the dagger.  A
+category of correspondences, not a groupoid — self-duality is the
+symmetry that costs nothing, invertibility is the symmetry the grading
+forbids.
+
+The semantic collapse completes the account.  The interpretation sends
+every derivation to an equality in a discrete domain, and it sends the
+transpose to path inversion — up to a filler that exists because an
+identity type over a set is a proposition, with no case analysis
+anywhere.  The dagger's entire syntactic weakness is divided out by the
+semantics in one stroke: the strict category that is only weakly a
+groupoid has, as its shadow, a structure in which transpose and inverse
+are indistinguishable.  Every unit of cost, provenance and route in the
+corpus lives in exactly the gap this quotient closes, which is why an
+interface that answers with the shadow answers with something proved
+costless.
+
+SYĀT — THE CLAIM, EXACTLY.  No Chow correspondences, no cycles, no additive
+or triangulated category, and no linearisation appear.  The dagger is
+defined on the six-register kernel as it stands, and every law is about
+that object.  The reading of the transpose as the transpose of an
+algebraic correspondence, and of the prohibition as the reason a
+category of motives is built self-dual rather than invertible, is a
+reading and is not proved.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

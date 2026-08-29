@@ -38,7 +38,7 @@
 -- stood upstream: from `map flip A ≡ map flip B` one cannot conclude
 -- `A ≡ B`.  So the published form is genuinely weaker than what the
 -- proof establishes, and the gap is measured by the very map the module
--- warns about.  §"WHAT IS NOT CLAIMED" there lists the iterated
+-- warns about.  §"SYĀT — THE CLAIM, EXACTLY" there lists the iterated
 -- stratification, the remainder half and the existence of caps — not
 -- this.
 --
@@ -62,7 +62,7 @@
 --       `cong (map flip)` and `filterMapCommutes` — so nothing is lost
 --       and the published statement is visibly the image.
 --
--- WHAT IS NOT CLAIMED.  Still ONE layer: the iterated statement
+-- SYĀT — THE CLAIM, EXACTLY.  Still ONE layer: the iterated statement
 -- (`strata`, coverage, disjointness, order on mixed vectors) needs the
 -- remainder transferred and an induction in which the caps must bound a
 -- shrinking archive, and is not written here any more than there.

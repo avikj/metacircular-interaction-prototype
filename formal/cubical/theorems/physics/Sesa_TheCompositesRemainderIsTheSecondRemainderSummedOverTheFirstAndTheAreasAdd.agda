@@ -46,7 +46,7 @@
 --       the composite of two cuts that retain nothing retains nothing.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  No rank is computed here and no field is
+-- SYĀT — THE CLAIM, EXACTLY.  No rank is computed here and no field is
 -- mentioned; these are equivalences of types, and the passage to a
 -- number needs finiteness that is not assumed below.  Nothing here is
 -- about entropy, area, black holes, or physical spacetime: the reading

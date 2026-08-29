@@ -60,7 +60,7 @@
 -- certificate loses a free component when it moves to the reachable
 -- law.
 --
--- WHAT IS NOT CLAIMED.  `R` is an arbitrary family; `Reach` is offered
+-- SYĀT — THE CLAIM, EXACTLY.  `R` is an arbitrary family; `Reach` is offered
 -- as the intended instance and is NOT plugged into the certificate
 -- here.  No step relation is attached to the systems of the earlier
 -- modules, so this does not amend `LCertified` — extending the record

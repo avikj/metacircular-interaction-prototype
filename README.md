@@ -1,4 +1,4 @@
-# Computable Universal Turing Machine via Homotopy Type Theory
+# A Proof-Relevant Interaction Calculus in Cubical Type Theory
 
 **A local-first computational prototype for partial knowledge, certified transport, and compositional interaction for decentralized organisms & algorithms**
 

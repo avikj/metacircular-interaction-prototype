@@ -41,7 +41,7 @@
 -- Gaṇitapāda 32–33; the recurrence is the standard one and the vallī is
 -- named because this corpus's own kuṭṭaka modules name it.
 --
--- WHAT IS NOT CLAIMED.  Not that the convergents converge — no limit, no
+-- SYĀT — THE CLAIM, EXACTLY.  Not that the convergents converge — no limit, no
 -- order, no ℝ appears.  Not that `det 0 ≡ 1` for arbitrary seeds; §4
 -- proves it for the standard seeds only, and §3 is deliberately stated
 -- for ARBITRARY seeds because that is where the algebra lives.

@@ -52,7 +52,7 @@
 -- is new in this corpus is that the open item is now closed by a
 -- refutation rather than left standing.
 --
--- WHAT IS NOT CLAIMED.  Nothing about the mediant restricted to
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about the mediant restricted to
 -- reduced representatives — that is exactly the classical statement and
 -- it is NOT proved here.  Nothing about whether some OTHER function
 -- Rate → Rate → Rate lands strictly between its arguments; the

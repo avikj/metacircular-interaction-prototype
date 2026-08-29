@@ -45,7 +45,7 @@
 -- one bridge is enough to place the finding, and `bhavana-trivial` is
 -- private, so a bridge to it would have to edit another author's file.
 --
--- WHAT IS NOT CLAIMED.  Nothing new about the cakravāla.  No claim that
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing new about the cakravāla.  No claim that
 -- either module should be deleted — the two proofs run by different
 -- routes (`solve!` on the whole identity, versus Brahmagupta's
 -- composition plus `normScale`), and a second route is worth having.

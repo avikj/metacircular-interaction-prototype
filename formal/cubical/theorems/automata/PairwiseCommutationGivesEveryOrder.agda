@@ -46,7 +46,7 @@
 -- are both elementary and old.  The content here is only that Δ 28's
 -- phrase is now discharged rather than assumed.
 --
--- WHAT IS NOT CLAIMED, and one of these is a real weakening.
+-- SYĀT — THE CLAIM, EXACTLY, and one of these is a real weakening.
 -- **THE COMMUTATION HYPOTHESIS IS GLOBAL**: `comm` quantifies over ALL
 -- steps of the type, not over the steps appearing in the list.  Δ 28's
 -- setting plausibly has non-commuting steps elsewhere in the system,

@@ -1,0 +1,50 @@
+INFINITY PURCHASES COHERENCE THAT FINITE INTERDEPENDENCE CANNOT: THE
+CENTER OF THE ENDLESS BRAID, AND A CENTRAL SYMMETRY NO WORD ATTAINS
+The infinite full twist is central of order two; the uniform quarter
+turn is central of order four and finitely unrealizable, with the
+separating depth computed from the word
+
+Braid groups at infinity / centers and centralizers / the reach of
+finiteness
+
+The braid tower closed with its kernel computed; the level above the
+closed action is its symmetry, and two theorems exhibit it — the
+second with a strict surprise.
+
+THE CENTER, AT THE LIMIT.  The infinite full twist — the half-wave
+applied to every strand at once, by corecursion — commutes with every
+crossing at every position (the half-wave exchanges with the quarter
+turn pointwise by one pair-split; the stream paths close with
+definitional leaves), squares to the identity by a corecursive path
+riding double negation down the rope, and moves no strand's address:
+pure residue.  At three strands the full twist was the global
+half-wave, central by refl; at infinity the same object is central by
+stream paths.  The center is the descendable part, at every scale
+including the endless one.
+
+THE EXCESS.  The uniform QUARTER turn — one turn on every strand — is
+also central, with every clause of the commutation constant, and its
+order is four: strictly more central symmetry than the braid group's
+own center provides.  And NO FINITE BRAID WORD REALIZES IT: a word
+deposits twists at finitely many addresses, so the depth one past the
+sum of its deposited addresses reads twist count zero — computed from
+the word, not bounded abstractly — while the uniform turn moves every
+reader of the constant rope.  Finite braiding approximates the
+uniform turn at every depth and attains it at none.
+
+So the action's centralizer strictly exceeds the group's center, and
+the difference is named: uniformity.  The group's center is the
+finitely-realizable shadow of the action's; what lies beyond is
+coherence purchasable only by touching every strand at once, which no
+finite word can afford and the corecursive rope simply does.  The
+coherence ladder — involution to quarter turn to braiding, each level
+bought by interdependence — has a rung above every finite word, and
+infinity stands on it.
+
+SYĀT — THE CLAIM, EXACTLY.  Centrality, orders, and the
+non-realizability with its computed separating depth; that uniform
+twist vectors exhaust the centralizer's excess is the standing
+construction.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

@@ -74,7 +74,7 @@
 -- this shape, and the witness needs the two steps to disagree about
 -- where `bad` goes — `f' bad = off`, `g' bad = bad`, and `g' off = im`.
 --
--- WHAT IS NOT CLAIMED.  This is a witness, not a theory: nothing says
+-- SYĀT — THE CLAIM, EXACTLY.  This is a witness, not a theory: nothing says
 -- three points is minimal in general, only that this two-point attempt
 -- fails.  No claim that curvature occurs in any SYSTEM — `Pt` is not a
 -- compiled architecture and `C` here compresses a one-point source.

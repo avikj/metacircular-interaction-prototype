@@ -36,7 +36,7 @@
 --                 one projection — the refined fibre maps into the
 --                 coarse fibre and robustness pulls back.
 --
--- WHAT IS NOT CLAIMED.  No claim that the tax is ever forced positive
+-- SYĀT — THE CLAIM, EXACTLY.  No claim that the tax is ever forced positive
 -- for a GIVEN task (a task may need only robust actions); करसाक्षी is
 -- an existence witness, not a lower bound.  The n-step future families
 -- (Future_n, the causal cone) and the coarsest-lawful-quotient

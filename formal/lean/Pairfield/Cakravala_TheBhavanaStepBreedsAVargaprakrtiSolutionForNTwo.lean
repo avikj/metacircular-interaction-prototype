@@ -36,7 +36,7 @@
   solution. This is a pure algebraic identity ((x²+2y²)² − 2(2xy)² = (x²−2y²)²)
   and its instantiation at the hypothesis. From it the orbit above is bred.
 
-  WHAT IS NOT CLAIMED. This does NOT reproduce the tradition's proof, nor the
+  SYĀT — THE CLAIM, EXACTLY. This does NOT reproduce the tradition's proof, nor the
   full cakravāla descent (that x²−Ny²=1 is always solvable / the ascent
   terminates). It also does NOT adopt the name "Pell's equation," which is a
   misattribution: Pell never solved this equation; Euler misattributed it to

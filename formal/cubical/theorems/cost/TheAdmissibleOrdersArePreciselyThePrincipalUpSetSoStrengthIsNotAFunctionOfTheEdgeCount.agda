@@ -74,7 +74,7 @@
 -- same reflex `CLAUDE.md` names when it forbids fitting a pattern from
 -- three points.  Here it was fitted from one.
 --
--- WHAT IS NOT CLAIMED.  **Nothing earlier on this line is amended or
+-- SYĀT — THE CLAIM, EXACTLY.  **Nothing earlier on this line is amended or
 -- retracted**; both prior modules are true as stated and §§1–3 are
 -- their lattice-level restatement, not a correction.  No h-level is
 -- assumed of `hb`, `ord` or the families — `⊑` is `Type`-valued and

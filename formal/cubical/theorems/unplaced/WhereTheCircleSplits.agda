@@ -50,7 +50,7 @@
 -- norm form is irreducible, and where the form splits, the "additive law"
 -- was multiplication all along.
 --
--- WHAT IS NOT CLAIMED.  The converse — that a nontrivial factorisation of
+-- SYĀT — THE CLAIM, EXACTLY.  The converse — that a nontrivial factorisation of
 -- the norm form forces −1 to be a square — is not proved here and needs
 -- more than a ring identity.  Nor is anything claimed about which primes
 -- split; that is the two-squares theorem and requires unique

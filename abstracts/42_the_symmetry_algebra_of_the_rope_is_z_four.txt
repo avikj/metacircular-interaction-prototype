@@ -1,0 +1,51 @@
+THE SYMMETRY ALGEBRA OF THE ROPE IS ℤ/4: THE FULL CONTINUOUS
+EXHAUSTION, WITH THE PARITY OBSTRUCTION DYING AT THE MIXING LEMMA
+Every central causal symmetry collapses to one turn-equivariant cell
+map, hence a uniform power of the quarter turn
+
+Symmetry algebras / rigidity / the one constant
+
+The question that has driven this development since the centralizer
+was found to exceed the group — WHAT, exactly, commutes with the
+endless braid — is answered on the whole causal class, and the answer
+is the smallest it could be.
+
+THE SETTING.  A causal symmetry reads, at each depth, at most the
+cells at and above it: it is presented by a family of prefix-readers
+assembled by corecursion.  This is the class the light-cone theorem
+carves out — everything with bounded lookahead, every physically
+readable map, all braid words, and all the completion's uniform
+points live here.
+
+THE COLLAPSE, in four forced steps.  Centrality SHIFTS: the peeled
+family at any fixed head is central for the peeled action,
+definitionally, via the cons rope.  The MIXING LEMMA: commuting with
+the first crossing, read at the upper position against two-cell
+witness ropes, forces the depth-one reader to forget its head — the
+crossing feeds the lower cell through, and centrality leaves
+lower-cell dependence nowhere to hide.  (A parity invariant of the
+lower twist action threatened to survive; it dies exactly here —
+mixing is stronger than parity.)  The COLLAPSE: by induction along
+the shifted families, every reader is the single cell map
+g x = F₀ [x] at its own depth — causal central IS cellwise with a
+constant family.  EQUIVARIANCE: the lower reading forces
+g ∘ turn = turn ∘ g, and on the single orbit an equivariant map is
+its base value transported, with the exponent computed.
+
+THE EXHAUSTION.  Central causal = uniform power of the quarter turn.
+Exactly four symmetries — the identity, the uniform quarter, half,
+and three-quarter turns — commute with the whole action on the causal
+class.  The same ℤ/4 that grades the twist vector, decides the
+kernel, tops the resolution ladder, and charges the gauge sectors is
+the entire symmetry algebra.  One local impossibility — the quarter
+turn no single strand can carry — generates, counts, and now BOUNDS
+every global structure of the theory.  The rope has one constant,
+and its centralizer is that constant's cyclic group.
+
+SYĀT — THE CLAIM, EXACTLY.  The exhaustion on causal presentations;
+symmetries of unbounded lookahead lie outside every physical reading
+and outside this classification, and whether their question is
+well-posed is itself held as śeṣa.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

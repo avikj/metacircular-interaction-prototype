@@ -53,7 +53,7 @@
 -- over (injectivity) and nothing missing (surjectivity).
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.
+-- SYĀT — THE CLAIM, EXACTLY.
 --
 -- **Not Noether.**  Every fence in `Dhruva`'s header stands unchanged:
 -- no Lagrangian, no variation, no action, no continuity.  `Φ` is a bare

@@ -48,7 +48,7 @@
 -- kuṭṭaka's step; that would need the two constructions compared, which
 -- is their author's to do.
 --
--- WHAT IS NOT CLAIMED.  Density is proved for ⊏ on PAIRS, and ⊑ is a
+-- SYĀT — THE CLAIM, EXACTLY.  Density is proved for ⊏ on PAIRS, and ⊑ is a
 -- preorder, not an order — so this says nothing about density of the
 -- RATES, which would need the quotient that
 -- `WhichThresholdStatementsDescendToTheRate` explicitly does not form.

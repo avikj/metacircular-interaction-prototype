@@ -62,7 +62,7 @@
 -- what its own two definitions consume, which is visible in their
 -- bodies.
 --
--- WHAT IS NOT CLAIMED.  Not that this is a NEW presentation — both are
+-- SYĀT — THE CLAIM, EXACTLY.  Not that this is a NEW presentation — both are
 -- standard and Ore has them.  Not that the min-plus instance is any
 -- closer: the obligation named there is untouched here.  The round trip
 -- is an EQUALITY only under the propositional-order hypothesis, which

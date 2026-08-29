@@ -34,7 +34,7 @@
 -- this one says every nontrivial fibre contains a two.  Its §६ counting
 -- and this floor are the same fact at two altitudes.
 --
--- WHAT IS NOT CLAIMED.  Nothing about any of the instances movement 34
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing about any of the instances movement 34
 -- names; none of them is touched here, and this theorem does not explain
 -- why a particular obstruction is EXACTLY one bit rather than more.  It
 -- says only that one bit is the minimum, and it says nothing about

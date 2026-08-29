@@ -55,7 +55,7 @@
 -- useful induction principle favours `ask`; an open term favours `peel`.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- * NOT that `peel` and `askℕ` are the kuṭṭaka.  They are the smallest
 --   pair that separates the two presentations; the kuṭṭaka's descent is

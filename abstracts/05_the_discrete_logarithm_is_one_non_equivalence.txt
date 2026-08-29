@@ -50,7 +50,7 @@ the soundness map is typed.  We also prove the accompanying negative
 result: no function of the transmitted meaning recovers the route, for
 every target type at every level.
 
-WHAT IS NOT CLAIMED.  No statement is made about hardness assumptions in
+SYĀT — THE CLAIM, EXACTLY.  No statement is made about hardness assumptions in
 general, about any deployed protocol, or about quantum algorithms.  One
 modular power map is treated and one non-equivalence is proved.  The
 factoring literature is not addressed here; the classical reduction of

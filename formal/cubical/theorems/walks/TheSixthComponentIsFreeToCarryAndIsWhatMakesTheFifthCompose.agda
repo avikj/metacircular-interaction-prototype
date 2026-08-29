@@ -57,7 +57,7 @@
 -- on the refinement calculi.  The content is the count over this
 -- corpus's own certificate.
 --
--- WHAT IS NOT CLAIMED.  The CHAIN version is not repeated: the
+-- SYĀT — THE CLAIM, EXACTLY.  The CHAIN version is not repeated: the
 -- induction in `TheLawBelongsInTheRecordAndTheCertificateComposesAlongAChain`
 -- goes through verbatim with `composeRCertified` in place of
 -- `composeLCertified`, and duplicating it would add nothing.  `R` is

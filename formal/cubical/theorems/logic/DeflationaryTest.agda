@@ -83,7 +83,7 @@
 -- explicit case split).  That is where decidability was doing work all
 -- along — in the disjunctions, not in the absences.
 --
--- WHAT IS NOT CLAIMED.  That no obstruction in this corpus is a genuine
+-- SYĀT — THE CLAIM, EXACTLY.  That no obstruction in this corpus is a genuine
 -- barrier — only that none is SHOWN to be, and that the absence-level
 -- argument cannot show it.  Nor that the ⊎-sites listed above hide one;
 -- each is discharged decidably and is checked.  The claim is about what

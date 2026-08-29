@@ -71,7 +71,7 @@
 --                                  `refl` was an accident of how their
 --                                  `FinSet`s were written, not the reason
 --
--- WHAT IS NOT CLAIMED.  **`OptimalObservation` is NOT amended and NOT
+-- SYĀT — THE CLAIM, EXACTLY.  **`OptimalObservation` is NOT amended and NOT
 -- retracted** — `optimal→minimal`, `lossless-needs-room` and all three
 -- instances are true as written and are used or left alone here.  It is
 -- NOT claimed that `Optimal obs` fails to make `obs` an equivalence;

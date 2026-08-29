@@ -29,7 +29,7 @@
 -- on a graph where the final module has imports; it is the difference
 -- between a computed instance and a quantified statement.
 --
--- WHAT IS NOT CLAIMED.  The RAW half — "raw width = |imports(m)|" — is a
+-- SYĀT — THE CLAIM, EXACTLY.  The RAW half — "raw width = |imports(m)|" — is a
 -- cardinality claim; nothing here is finite or counted, so it is NOT
 -- formalised and NOT claimed.  Nor are topological orders, DAGs,
 -- acyclicity, path decompositions, or any other cut.  §2–§3 are about

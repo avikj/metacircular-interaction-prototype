@@ -63,7 +63,7 @@
 -- content is again only the count — the law is the component that does
 -- NOT come for free and does NOT follow from the others.
 --
--- WHAT IS NOT CLAIMED.  No relation between `obs` and `sem` is
+-- SYĀT — THE CLAIM, EXACTLY.  No relation between `obs` and `sem` is
 -- asserted: a compiler would want `sem` recoverable from `obs`, and
 -- nothing here says it is.  The law is on ALL states, not on reachable
 -- ones, which is the version a real compiler would use.  The cost

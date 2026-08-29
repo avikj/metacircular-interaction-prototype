@@ -54,12 +54,17 @@ proposed observable the blind set is computable in advance, and an
 invariance imposed for physical reasons is precisely a blindness
 accepted.
 
-WHAT IS NOT CLAIMED.  There are no completely positive maps, no Hilbert
-spaces, no density operators and no anyon models in this development.
-"Three Boolean strands" is a three-fold product of the two-element type,
-and "unitary" abbreviates "equipped with a two-sided inverse and its unit
-laws".  The results are about equivalences of finite types and about a
-term calculus; their bearing on a physical implementation is a reading
-and is not proved.
+RESOLVED IN PART.  The missing coherence now has a name, a home, and
+a checked order: theorems/physics/VeniBandha supplies it — on strands
+that are interdependent pairs, the swap twisted by the quarter turn
+satisfies Yang-Baxter on the nose (the proof is refl), its square is
+provably not the identity and its fourth power is not either, while
+its eighth power is: a genuine braiding of exact order eight, the
+non-involutive exchange phase an anyonic crossing has and a bosonic or
+fermionic one does not.  With CaturamsaBhramana proving the quarter
+turn lives only on the pair, the arc closes: braiding is a property of
+interdependent strands, unavailable in principle to single states —
+which is why unitarity alone could never supply it.  Hilbert spaces,
+density operators and anyon models proper remain constructions.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

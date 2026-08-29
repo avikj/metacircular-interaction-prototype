@@ -55,7 +55,7 @@
 -- the criterion that distinguishes them, it is not semantic, and
 -- `Anuvrtti` shows it is not even a function of the rule set.
 --
--- WHAT IS NOT CLAIMED.  That univalence is a defective tool, or that the
+-- SYĀT — THE CLAIM, EXACTLY.  That univalence is a defective tool, or that the
 -- transport theorem loses information it was supposed to keep — `ua`
 -- keeps exactly what an equivalence is, which is all it claims.  Nor that
 -- naṣṭa and CRT are "really" different in any sense this lane can state

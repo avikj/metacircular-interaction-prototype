@@ -40,7 +40,7 @@
 -- (Cubical.Later), which is ABSENT FROM THE PIN (v0.9) — checked, not
 -- assumed.
 --
--- WHAT IS NOT CLAIMED.  No source is cited for सम/वाम/दक्षिण as a triple
+-- SYĀT — THE CLAIM, EXACTLY.  No source is cited for सम/वाम/दक्षिण as a triple
 -- here; the compound is used as the owner wrote it and the Āryabhaṭa
 -- kuṭṭaka reading lives in the neighbouring modules, not asserted onto
 -- this one.

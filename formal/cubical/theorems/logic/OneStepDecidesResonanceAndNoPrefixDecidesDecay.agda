@@ -41,7 +41,7 @@
 --     INCOMPLETE, and the "otherwise ⟹ branching" catch-all is unsound:
 --     the same witness is labelled branching while it decays.
 --
--- WHAT IS NOT CLAIMED.  No criticism of `KFlow`, which proves exactly
+-- SYĀT — THE CLAIM, EXACTLY.  No criticism of `KFlow`, which proves exactly
 -- what it states.  No claim that the shelf's other functions fail to be
 -- replays — I checked this one.  No claim about ρ, spectral radius, or
 -- any quantity the trichotomy is named for; `Contracting`, `Stationary`

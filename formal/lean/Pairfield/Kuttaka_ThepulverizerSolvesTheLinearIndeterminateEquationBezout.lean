@@ -14,7 +14,7 @@
             by descent on the remainder. Below we state this cleanly and derive a
             concrete coprime instance where the combination equals 1.
 
-  What is NOT claimed.  The proof is imported from Mathlib
+  Syāt — the claim, exactly.  The proof is imported from Mathlib
             (`Int.gcd_eq_gcd_ab`, the Bézout identity via `Int.gcdA`/`Int.gcdB`,
             themselves computed by the very descent Āryabhaṭa described). We do
             not re-derive the descent. What is asserted is provenance: the

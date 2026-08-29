@@ -234,7 +234,7 @@ entries-fromNine v = refl
 --     is the instrument, and they disagree; the instrument is another
 --     seat's file and is not touched here.
 --
---     WHAT IS NOT CLAIMED.  Nothing about the rest of the queue.  The
+--     SYĀT — THE CLAIM, EXACTLY.  Nothing about the rest of the queue.  The
 --     remaining edges are not asserted to be one-way; they are
 --     unexamined, and मौनं न निषेधः.  Two edges moved from receipt to
 --     address; the census's own count is not a number this file speaks

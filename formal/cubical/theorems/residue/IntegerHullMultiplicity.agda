@@ -51,7 +51,7 @@
 -- that no feasible configuration does better.  So the optima are the
 -- relaxations' values, for every t, not merely at N ∈ {12,18,24,30,36}.
 --
--- WHAT IS NOT CLAIMED.  This is a statement about an integer program.
+-- SYĀT — THE CLAIM, EXACTLY.  This is a statement about an integer program.
 -- It says nothing about zeta zeros, and nothing about the step F25
 -- itself identified as the genuinely lossy one — the von Neumann
 -- transplant from multiplicities to matrix eigenvalues.  See

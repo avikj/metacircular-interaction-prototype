@@ -34,7 +34,7 @@
 -- instance — which is the corpus's thesis about all knowledge work,
 -- landed on its own foundations.
 --
--- WHAT IS NOT CLAIMED.  Nothing here is new mathematics: J, 4.8.2 and
+-- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new mathematics: J, 4.8.2 and
 -- 5.8.4 are the univalent foundations' own results (The HoTT Book,
 -- 2013; Voevodsky's library before it), and cubical primitives are
 -- CCHM/ABCFHL.  What is contributed is the ABSORPTION — each derived

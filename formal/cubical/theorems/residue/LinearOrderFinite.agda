@@ -87,7 +87,7 @@
 --
 --
 -- ====================================================================
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 -- ====================================================================
 --
 --  * The equivalence is FIBREWISE OVER A GIVEN n and uses merely-

@@ -38,7 +38,7 @@
 -- is the cardinality of a Σ over a finite index, which is
 -- `Cubical.Data.FinSet.Cardinality` machinery and is named, not waved at.
 --
--- WHAT IS NOT CLAIMED.  The equivalence, and hence the identity.  What is
+-- SYĀT — THE CLAIM, EXACTLY.  The equivalence, and hence the identity.  What is
 -- claimed is that the obstacle common to all three refuted encodings —
 -- subtraction, or a family not closed under reindexing — is absent from
 -- this formulation, and the lemma that makes it absent is checked.

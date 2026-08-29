@@ -64,7 +64,7 @@
 --     monodromy is a base that is not a set.
 --
 --
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 --  * Nothing here is new mathematics.  "A set has no nontrivial loops"
 --    is `isSet`'s definition; the Bool cover of S¹ is the standard

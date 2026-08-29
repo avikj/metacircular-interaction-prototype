@@ -40,7 +40,7 @@
 --       re-reading the same organ (the identity factoring on the left
 --       contradicts the required refutation on the right).
 --
--- WHAT IS NOT CLAIMED.  Temporary-versus-permanent (attention versus
+-- SYĀT — THE CLAIM, EXACTLY.  Temporary-versus-permanent (attention versus
 -- organogenesis) is a statement about INSTALLATION over time, not
 -- about the reading maps, and no type here carries time; U0023's
 -- distinction between them is therefore cited, not checked.  Nothing

@@ -57,7 +57,7 @@
 -- exhibited, not sampled.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED
+-- SYĀT — THE CLAIM, EXACTLY
 --
 -- * NOT that this formalises Gaṅgeśa.  Two conditions, stated as a pair
 --   of types, is not the *Tattvacintāmaṇi*'s analysis; the tradition's

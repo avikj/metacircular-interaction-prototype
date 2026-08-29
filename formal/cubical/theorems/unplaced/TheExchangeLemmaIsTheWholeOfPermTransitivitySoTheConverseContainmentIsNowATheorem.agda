@@ -56,7 +56,7 @@
 -- no assumption whatever on the element type.  Nothing about
 -- permutations was at stake; the price of composing was.
 --
--- WHAT IS NOT CLAIMED.  **Nothing is amended or retracted** —
+-- SYĀT — THE CLAIM, EXACTLY.  **Nothing is amended or retracted** —
 -- `PairwiseCommutationGivesEveryOrder`, 47c200bf and dbbd4be6 stand
 -- unchanged, and `Insert`, `Perm`, `_≈_`, `permIsAnAdjacentChain` and
 -- `permTransitivityGivesTheConverse` are imported, not redefined.

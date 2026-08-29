@@ -35,7 +35,7 @@
 -- smallest: n is the charge, the shear is the gauge motion.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  This is NOT Noether's first theorem: there is
+-- SYĀT — THE CLAIM, EXACTLY.  This is NOT Noether's first theorem: there is
 -- no Lagrangian, no variational principle, no continuous one-parameter
 -- group, no conserved current — Φ is a bare endomorphism of a set and
 -- every statement is discrete and structural (the fence in Dhruva's

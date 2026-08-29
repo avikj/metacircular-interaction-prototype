@@ -76,7 +76,7 @@
 -- them is the point, because "it is just the contrapositive" hides that
 -- the third branch changed shape.
 --
--- WHAT IS NOT CLAIMED.  No UPPER bound, and nothing about "minimum
+-- SYĀT — THE CLAIM, EXACTLY.  No UPPER bound, and nothing about "minimum
 -- cover size = maximum fooling set" — that equality is false in general
 -- for rectangle covers and nothing here bears on it.  No cover is
 -- constructed.  Nothing about r_e, d_e, raw width, or

@@ -59,7 +59,7 @@
 -- prove and none is missing; associativity is the whole of the
 -- algebraic structure available here.
 --
--- WHAT IS NOT CLAIMED.  No CATEGORY — see above, and no claim that
+-- SYĀT — THE CLAIM, EXACTLY.  No CATEGORY — see above, and no claim that
 -- adjoining identities (weakening `⊏` to `⊑` on a self-rewrite) would
 -- give one; that is a different record with a different composition.
 -- The five-component `LCertified` and six-component `RCertified` are

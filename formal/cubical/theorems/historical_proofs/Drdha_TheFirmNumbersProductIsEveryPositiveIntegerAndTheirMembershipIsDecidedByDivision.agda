@@ -82,7 +82,7 @@
 --   (1150), whose kuṭṭaka rule directs the reduction to दृढ before the
 --   vallī is begun.
 --
--- **What is NOT claimed of दृढ.**  In those texts दृढ is a property of a
+-- **Syāt — the claim, exactly of दृढ.**  In those texts दृढ is a property of a
 -- PAIR — two magnitudes with no common measure left — and it is a step in
 -- a solving procedure, not a classification of numbers.  Using it here
 -- for a SINGLE number that admits no nontrivial factorisation is an

@@ -56,7 +56,7 @@
 --      is `Saptabhangi.दुर्नयः` arriving in physics.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT CLAIMED.  The cut theorem over a field says the least
+-- SYĀT — THE CLAIM, EXACTLY.  The cut theorem over a field says the least
 -- boundary dimension is `rank T`, a NUMBER.  Nothing below computes a
 -- rank, and the correspondence proved here is the structural one: the
 -- decomposition, not its dimension.  Nonnegative rank and quantum

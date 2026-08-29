@@ -446,7 +446,7 @@ chart-is-better-e13 = canonical-chart-is-better 3 3 fzero t13 can13 long-enough
 -- base supplies and the kernel checks it — a fitted threshold would be
 -- strictly worse than either.
 --
--- WHAT IS NOT CLAIMED.  That the chart is optimal; that 3 is the right
+-- SYĀT — THE CLAIM, EXACTLY.  That the chart is optimal; that 3 is the right
 -- price for an edge; that `value` is the cheapest home algorithm.  Edge
 -- costs stay parameters and the theorems are quantified over them, which
 -- is the whole discipline of `CostGeometry`: the maps are the
