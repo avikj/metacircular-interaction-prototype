@@ -1,0 +1,117 @@
+A NEW KIND OF SCIENCE, UNDER UNIVALENCE
+Coordinatization is a path, the merge is a truncation with no section,
+the bounded observer separates no co-terminal runs, and the interchange
+converges by refl
+
+Multicomputation / observer theory / cubical type theory
+
+Wolfram's programme rests on sentences that have until now been read as
+programme rather than as mathematics.  We take four of them verbatim
+and hold each to a machine-checked term, over the smallest multiway
+system that exhibits all four phenomena: a unary substitution system
+with two updating events — append one cell, append two — whose
+multiway evolutions between fixed endpoints form an indexed inductive
+family.  Nothing is argued by simulation and nothing is asserted of a
+rule class; each sentence names a theorem, and the theorem's witness
+is exhibited at named points.  Checked at Agda 2.8.0 with agda/cubical
+v0.9, --cubical --safe, no postulates, no holes.
+
+W1.  "Each [computational system] can be thought of as defining a
+different coordinate system for describing the ruliad ... each will
+ultimately lead to the same limiting object."  This is univalence,
+used as Voevodsky built it.  The same system is presented in two
+coordinate systems — unary tapes with cell-appending events, numbers
+with successor events — and the coordinate change is an equivalence
+that ua turns into a path in the universe.  The theorem is that the
+two STRUCTURED systems, carrier together with both updating events,
+are connected by a single path in the type of systems: the event
+components ride over ua by ua→, and the commuting datum in each
+component is refl, because the coding function sends a cell to a
+successor definitionally.  Three corollaries discharge the sentence's
+three clauses.  Every property of systems crosses the coordinate
+change by transport, with no re-proof — the interchange law, proved in
+tape coordinates by refl, is delivered in number coordinates by subst.
+The emulation that "moves" between coordinate systems is not a map
+postulated beside the identification: it is the path's own transport,
+and it COMPUTES to the coding function, by uaβ — in cubical type
+theory univalence is a theorem with computational content, which is
+the entire difference between citing an equivalence and running one.
+And "the same limiting object" is not agreement-after-inspection but
+contractibility: the space of coordinatizations of the fixed carrier,
+each carrying its own identification, is a point (EquivContr).  No
+coordinate system is privileged, and the privilege's absence is a
+contraction, not a convention.
+
+W2.  "Whenever we said that two paths in the ruliad 'merge', that's
+really just saying that we treat the outcomes as equivalent."  The
+merge is propositional truncation, and its cost is a computed object.
+Two evolutions from state 0 to state 3 — one-then-two, two-then-one —
+are proved distinct by an invariant that reads the first updating
+event, and proved merged by the squash.  The branchial pair is then
+exhibited where this series always puts what an identification
+destroys: as two distinct residents of the fibre of the merge over the
+one merged point.  Branch structure is not what a finer observer would
+see; it is the fibre of the coarser observer's map, and it is
+computed, in the sense of abstract 07, where the same statement is
+proved for a reversible process calculus.
+
+W3.  "Because we are computationally bounded observers who imagine a
+certain coherence in their experience, there are strong constraints on
+what kinds of equivalence classes we can use."  The constraint is
+quantified and the repair is refuted.  Any consumer of the merged
+single thread — any function out of the truncation, into every type at
+every universe level — answers equally on the two branches.  And the
+merge has no section: a selector reading a run back out of the thread
+collides with the branch distinction, so route information provably
+cannot be reconstructed downstream and must be carried or lost.  This
+is computational irreducibility in its proof-relevant form — the
+outcome does not determine the run — and it is the multiway instance
+of what abstract 06 proves for derivations (soundness factors through
+the truncation, and the truncation is strict), abstract 22 for
+denotations (full abstraction is the statement that the denotation IS
+the truncation), and abstract 16 for program synthesis (pruning by
+observational equivalence collapses a fibre that is constructed and
+unbounded).
+
+W4.  "Causal invariance can be thought of as being associated with
+paths of history that diverge, eventually converging again."  From
+every state, the two updating events diverge — one cell apart after
+one event — and both orders complete to the same state three cells on,
+with the endpoint agreement definitional: the two interchanged runs
+inhabit the same type, with no transport and no path algebra.  Stated
+exactly: what is checked is endpoint agreement of interchanged
+co-initial updating events, the convergence the sentence names.  Where
+the corpus already went further — abstract 14 proves that pointwise
+pairwise commutation makes EVERY permutation of a run agree on every
+source state, and that any observed order-dependence localises a state
+outside the image of the observation — the citation is to that
+theorem's actual content, agreement of states under reordering.  The
+causal-graph form, isomorphism of the event dependency structure
+across orders, is not claimed by either module: it is queued in the
+machine's remainder store, with a candidate shape recorded (events
+carrying read/write footprints, the causal order as an indexed family,
+invariance as an equivalence of orders), and the queueing itself was a
+transported operation of the running machine, not a note in a file.
+
+The machine scale of W1 is already in the corpus and is cited rather
+than re-proved: abstract 25's universal machine, where codes modulo
+running-the-same form a set-quotient, the padding lemma injects ℕ into
+the codes of one single behaviour point, determinism is contractibility
+of the space of productive runs, and the deterministic machine sits
+strictly inside the interactive one with the strictness measured by
+the event type.  What this module adds is the coordinatization
+sentence itself, as one path of structured systems whose transport
+computes — the sentence of Wolfram's that only univalence can hold,
+because it identifies presentations while refunding, through
+transport, everything the identification would otherwise owe.
+
+The development is deliberately at the smallest scale that is not
+degenerate: two updating events, one branch point, one merge, two
+coordinate systems.  Every constructor is reachable by hand, every
+refutation lands on a named collision, and the four sentences are
+discharged by nine identifiers whose combined proof text is shorter
+than this abstract.  The claim is not that the ruliad has been
+formalised; it is that the ruliad's load-bearing sentences are, one by
+one, theorems of univalent mathematics — and that where a sentence
+outruns what is checked, the remainder is in the remainder store,
+where the next step will find it.
