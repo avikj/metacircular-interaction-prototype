@@ -74,6 +74,38 @@ RH-whole : Type
 RH-whole = RH
 
 ------------------------------------------------------------------------
+-- Collatz.  The step couples the two operations the frame keeps apart:
+-- even → divide (multiplicative descent), odd → 3n+1 (additive kick).
+-- The conjecture: from every positive start, some iterate reaches 1.
+-- Same shape as the others: every fibre decidable by running the flow,
+-- the section open.
+------------------------------------------------------------------------
+
+half : ℕ → ℕ
+half zero          = zero
+half (suc zero)    = zero
+half (suc (suc n)) = suc (half n)
+
+evenb : ℕ → Bool
+evenb zero          = true
+evenb (suc zero)    = false
+evenb (suc (suc n)) = evenb n
+
+cstep : ℕ → ℕ
+cstep n = go (evenb n)
+  where
+  go : Bool → ℕ
+  go true  = half n
+  go false = suc (3 · n)
+
+citer : ℕ → ℕ → ℕ            -- k steps of the flow from n
+citer zero n    = n
+citer (suc k) n = citer k (cstep n)
+
+Collatz : Type
+Collatz = (n : ℕ) → Σ[ k ∈ ℕ ] (citer k (suc n) ≡ 1)
+
+------------------------------------------------------------------------
 -- THE ORACLE'S ANSWERS, computed.  Each refl below is the typechecker
 -- evaluating the sieve.  Nothing is asserted; everything is run.
 ------------------------------------------------------------------------
@@ -87,6 +119,12 @@ goldbach-at-210 = 83 , 127 , refl , refl , refl
 twins-beyond-100 : Σ[ p ∈ ℕ ] (leb 100 p ≡ true)
                    × (primeb p ≡ true) × (primeb (2 + p) ≡ true)
 twins-beyond-100 = 101 , refl , refl , refl
+
+collatz-27 : citer 111 27 ≡ 1             -- the famous long orbit, run entire
+collatz-27 = refl
+
+collatz-at-6 : Σ[ k ∈ ℕ ] (citer k 7 ≡ 1) -- fibre n = 6 of the conjecture
+collatz-at-6 = 16 , refl
 
 -- and one asymmetric fact the oracle computes as easily: 121 is not
 -- prime, so the k = 16 survivor at center 105 fails above the wheel —
