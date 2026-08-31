@@ -101,7 +101,7 @@ module Server
 import Control.Monad (foldM, forM_)
 import Data.Char (isDigit, isSpace)
 import Data.IORef
-import Data.List (intercalate, nub, isInfixOf)
+import Data.List (intercalate, nub, isInfixOf, isPrefixOf)
 import System.Environment (getArgs, lookupEnv)
 import System.Exit (ExitCode(..), exitFailure, exitSuccess)
 import System.IO
@@ -274,6 +274,10 @@ kriyah =
       , ("daksina", "right side")
       , ("sadhya", "optional: a note naming the induction variable, e.g. \"induction on x\"") ]
       kSadhana
+  , Kriya "sadhana.patra"
+      "Give the kernel a WHOLE Agda module, verbatim, and carry back its verdict.  This is the wire's door to what the lanes always did by hand — write a full problem statement as a module and run agda on it.  The corpus at formal/cubical and the pinned cubical library are importable; the two controls are watched FIRST, exactly as for `sadhana`."
+      [ ("patra", "the module, as a list of source lines, verbatim.  It must carry an OPTIONS pragma with --safe, and its top-level module (if named) must be `Candidate`, because the kernel writes it to Candidate.agda") ]
+      kPatra
   , Kriya "kuttaka"
       "Āryabhaṭa's pulverizer: the vallī of a and b, the Bézout pair, and — if c is given — the solution of a·x ≡ c (mod b)."
       [ ("a", "an integer"), ("b", "a positive integer"), ("c", "optional: the residue to hit") ]
@@ -1007,6 +1011,133 @@ kSadhana y j = case pieces of
     showT (C.F f []) = f
     showT (C.F f as) = "(" ++ f ++ " " ++ unwords (map showT as) ++ ")"
 
+-- ---- the kernel, on a whole module
+--
+-- The door the lanes always used, now on the wire.  Every theorem commit in
+-- this repository is an agent writing a COMPLETE module and running agda on
+-- it; `sadhana` reaches none of that, because its emitter speaks an
+-- eight-symbol fragment.  ProofGate's own seam has accepted an arbitrary
+-- module string since it was written — `runAgda root source` writes it to a
+-- temp Candidate.agda, runs agda with the corpus and the pinned library on
+-- the include path, under the watched launch (`vetSuccess`) — and nothing on
+-- the wire could hand it one.  This operation is that handing, and nothing
+-- more: no emitter, no shapes, no search.  The caller writes the module; the
+-- kernel answers about exactly it.
+--
+-- WHAT IS DEMANDED BEFORE AGDA IS ASKED, each with its repair:
+--   * an OPTIONS pragma carrying --safe.  Without it a postulate is a proof,
+--     and a green about a module that may postulate is a fact about nothing.
+--   * the top-level module, if named, must be `Candidate`, because the seam
+--     writes to Candidate.agda and agda matches the name against the file.
+--     A module with no header is accepted; agda infers the name.
+-- Both are turned back at the door, so an agda invocation is never spent on
+-- a module the seam is known to be unable to check.
+--
+-- WHAT A GREEN MEANS, and the vyaya says it in every answer: agda checked
+-- that every term inhabits the TYPE AS WRITTEN.  Whether the types say what
+-- their names claim, nothing here read.  A module whose theorem is named
+-- `commutativity` and whose type says `x ≡ x` gets a green; the reader of
+-- the answer gets the module back verbatim so the types can be read.
+
+kPatra :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
+kPatra y j = case jStrs "patra" j of
+  Left e -> pure (turnedBack y "sadhana.patra" e)
+  Right lns
+    | all (all isSpace) lns ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "the module as sent is carried back: it has no content")
+             , dosalekha "sadhana.patra"
+                 "an empty module was sent, so there is nothing to ask agda about"
+                 [ "the verdict you asked for; a verdict about no module would be about nothing" ]
+                 [ "send the module's lines under `patra`, verbatim" ]
+                 srcTwoRoads )
+    | not (safeDeclared lns) ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "the module is carried back unexecuted; agda was not asked")
+             , dosalekha "sadhana.patra"
+                 (case pragmaLines lns of
+                    []      -> "the module carries no OPTIONS pragma, so nothing declares --safe"
+                    (p : _) -> "the module's OPTIONS pragma does not carry --safe: " ++ p)
+                 [ "the meaning of a green: without --safe a postulate typechecks, and an acceptance would then be a fact about agda's parser, not about mathematics"
+                 , "and the distinction between `this module is unproved` and `this module was never held to proof`, which running it unsafe would merge" ]
+                 [ "open the module with the kernel's own pragma, or any OPTIONS pragma carrying --safe: " ++ C.kOptionsPragma ]
+                 [ "ProofGate.hs, kOptionsPragma — one string, shared with the two controls, so a candidate is compiled the way the controls are" ] )
+    | Just nm <- wrongName lns ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "the module is carried back unexecuted; agda was not asked")
+             , dosalekha "sadhana.patra"
+                 ("the top-level module is named `" ++ nm ++ "`, and the kernel writes to Candidate.agda; agda would reject the mismatch before reading a single type")
+                 [ "an agda invocation, which would be spent reporting a fact this door already knows" ]
+                 [ "rename the header to `module Candidate where`, or drop the header and let agda infer the name" ]
+                 [ "ProofGate.hs, runAgdaRaw — the file is Candidate.agda, as for every candidate and both controls" ] )
+    | otherwise -> do
+        st <- C.kernelStatus (yRoot y)
+        case st of
+          C.KernelChecking -> do
+            (code, out) <- C.runAgda (yRoot y) (unlines lns)
+            pure $ case code of
+              ExitSuccess ->
+                ( y
+                , Mudra (S.Position S.SyadAsti)
+                    (Kernel ("agda typechecked the module as sent, under --safe, with "
+                             ++ C.kIncludeRoot ++ " and the pinned cubical library importable; "
+                             ++ "the two controls were watched first, and the acceptance "
+                             ++ "survived the falsifier watch (vetSuccess)"))
+                , samkramana "sadhana.patra"
+                    (tulyata "the module as uttered, identified with a module the kernel accepts"
+                             ("the " ++ show (length lns) ++ " line(s) you sent, verbatim")
+                             "agda's acceptance at the pin"
+                             "no rewriting, no emission, no shape search: the bytes agda examined are the bytes you sent, and they are carried back below so the types can be read")
+                    [ ("patra", JArr (map JStr lns))
+                    , ("pankti-ganana", JInt (fromIntegral (length lns))) ]
+                    [ "WHY anything in the module holds: a checked term closes a claim, it does not explain one"
+                    , "whether the TYPES say what their NAMES claim — agda checked inhabitation of the types as written, and nothing here read the names against them; the module is carried back so a reader can"
+                    , "any module the sent one imports: the corpus and the library are trusted at the pin, not re-checked by this answer"
+                    , "whether the kernel is honest in general — what was watched is that it rejected ONE falsehood, today, in this container" ]
+                    [ "Voevodsky — an identification is a thing you hold; CLAUDE.md: exact/certified symbolic computation is proof" ] )
+              ExitFailure _
+                | C.kEnvironmentFault `isInfixOf` out ->
+                    ( y, Mudra S.Apratipatti
+                           (Ayogya ("the kernel could not be asked: " ++ firstLine out))
+                    , dosalekha "sadhana.patra"
+                        ("no verdict: the invocation failed in the environment, not in the module — " ++ firstLine out)
+                        [ "the verdict you asked for, and with it the distinction between `agda says no` and `agda could not be run`, which a single red merges" ]
+                        [ "repair the environment and ask again; the module itself was not examined and is not diminished" ]
+                        [ "ProofGate.hs, kEnvironmentFault — the marker means exactly `about the environment, not the mathematics`" ] )
+              ExitFailure _ ->
+                ( y, Mudra (S.Position S.SyadNasti)
+                       (Kernel "agda examined the module as sent and rejected it; its own first error line is carried, and the fuller report beside it")
+                , dosalekha "sadhana.patra"
+                    ("the kernel rejected the module: " ++ firstLine out)
+                    [ "agda's report, which is the content of the rejection and is not paraphrased: " ++ take 1200 out
+                    , "and the distinction between `the claim is false` and `this module does not prove it` — a rejection is a fact about this module, and the claim may be provable by another" ]
+                    [ "repair the module at the line agda names and send it again"
+                    , "for a bare equation over 0, s, +, *, -, max, le, gcd, `sadhana` runs the emitter's own shape search instead" ]
+                    [ "ProofGate.hs — the watched launch; the module ran with the corpus at " ++ C.kIncludeRoot ++ " importable" ] )
+          other ->
+            pure ( y, Mudra S.Apratipatti
+                        (Ayogya ("the kernel did not pass its own controls: " ++ show other))
+                 , dosalekha "sadhana.patra"
+                     ("no verdict from the kernel, because the kernel has not been seen to work: " ++ show other)
+                     [ "the certificate you asked for.  A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics."
+                     , "and the distinction between `agda says no` and `agda is not usable here`, which a single red merges" ]
+                     [ "repair the environment — the cubical library, the include root " ++ C.kIncludeRoot ++ ", the locale — and ask again" ]
+                     [ "ProofGate.hs — the two controls: canaryTrue must check and canaryFalse must fail with a located type error" ] )
+  where
+    -- Every OPTIONS pragma line, as written.  --safe may sit on any of them.
+    pragmaLines = filter (("{-# OPTIONS" `isPrefixOf`) . dropWhile isSpace)
+    safeDeclared = any ("--safe" `isInfixOf`) . pragmaLines
+    -- The declared top-level module name, when a header names one other
+    -- than Candidate.  Only a COLUMN-0 header is the file's module — an
+    -- indented `module … where` is a nested module and is the caller's own
+    -- business.  A headerless module is fine (agda infers the name), and so
+    -- is the anonymous `module _ where`.
+    wrongName ls = case [ w | l <- ls
+                            , "module" `isPrefixOf` l
+                            , ("module" : w : _) <- [words l] ] of
+      (n : _) | n /= "Candidate", n /= "_" -> Just n
+      _ -> Nothing
+    firstLine s = case [ l | l <- lines s, not (all isSpace l) ] of
+      (l : _) -> take 300 l
+      []      -> "(agda produced no output)"
+
 -- ---- arithmetic, from the reactor lane
 
 kKuttaka :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
@@ -1613,6 +1744,12 @@ script =
   , "{\"kriya\":\"sadhana\",\"angani\":{\"vama\":\"(+ x 0)\",\"daksina\":\"x\",\"sadhya\":\"induction on x\"}}"
   , "{\"kriya\":\"sadhana\",\"angani\":{\"vama\":\"(s x)\",\"daksina\":\"x\"}}"
   , "{\"kriya\":\"sadhana\",\"angani\":{\"vama\":\"(ackermann x y)\",\"daksina\":\"x\"}}"
+
+  -- the kernel, on whole modules: one that must transport, one falsehood
+  -- that must be rejected, one turned back at the door for lacking --safe
+  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"{-# OPTIONS --cubical --safe #-}\",\"module Candidate where\",\"open import Cubical.Foundations.Prelude\",\"open import Cubical.Data.Nat using (\\u2115 ; zero ; suc ; _+_)\",\"thm : (x : \\u2115) \\u2192 zero + x \\u2261 x\",\"thm x = refl\"]}}"
+  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"{-# OPTIONS --cubical --safe #-}\",\"module Candidate where\",\"open import Cubical.Foundations.Prelude\",\"open import Cubical.Data.Nat using (\\u2115 ; zero ; suc)\",\"thm : (x : \\u2115) \\u2192 suc x \\u2261 x\",\"thm x = refl\"]}}"
+  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"module Candidate where\",\"postulate oops : (A : Set) \\u2192 A\"]}}"
 
   -- arithmetic, exact
   , "{\"kriya\":\"kuttaka\",\"angani\":{\"a\":137,\"b\":60,\"c\":10}}"
