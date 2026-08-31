@@ -1071,7 +1071,7 @@ kPatra y j = case jStrs "patra" j of
         st <- C.kernelStatus (yRoot y)
         case st of
           C.KernelChecking -> do
-            (code, out) <- C.runAgda (yRoot y) (unlines lns)
+            (code, out) <- C.runAgdaModule (yRoot y) (unlines lns)
             pure $ case code of
               ExitSuccess ->
                 ( y
@@ -1134,9 +1134,13 @@ kPatra y j = case jStrs "patra" j of
                             , ("module" : w : _) <- [words l] ] of
       (n : _) | n /= "Candidate", n /= "_" -> Just n
       _ -> Nothing
-    firstLine s = case [ l | l <- lines s, not (all isSpace l) ] of
+    -- Agda's report opens with `Checking Candidate (…)`, which locates
+    -- nothing; the content is the first line carrying `error`.  Prefer it,
+    -- and fall back to the first non-blank line where the report has none.
+    firstLine s = case [ l | l <- ls, "error" `isInfixOf` l ] ++ ls of
       (l : _) -> take 300 l
       []      -> "(agda produced no output)"
+      where ls = [ l | l <- lines s, not (all isSpace l) ]
 
 -- ---- arithmetic, from the reactor lane
 
@@ -1747,8 +1751,8 @@ script =
 
   -- the kernel, on whole modules: one that must transport, one falsehood
   -- that must be rejected, one turned back at the door for lacking --safe
-  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"{-# OPTIONS --cubical --safe #-}\",\"module Candidate where\",\"open import Cubical.Foundations.Prelude\",\"open import Cubical.Data.Nat using (\\u2115 ; zero ; suc ; _+_)\",\"thm : (x : \\u2115) \\u2192 zero + x \\u2261 x\",\"thm x = refl\"]}}"
-  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"{-# OPTIONS --cubical --safe #-}\",\"module Candidate where\",\"open import Cubical.Foundations.Prelude\",\"open import Cubical.Data.Nat using (\\u2115 ; zero ; suc)\",\"thm : (x : \\u2115) \\u2192 suc x \\u2261 x\",\"thm x = refl\"]}}"
+  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}\",\"module Candidate where\",\"open import Cubical.Foundations.Prelude\",\"open import Cubical.Data.Nat using (\\u2115 ; zero ; suc ; _+_)\",\"thm : (x : \\u2115) \\u2192 zero + x \\u2261 x\",\"thm x = refl\"]}}"
+  , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}\",\"module Candidate where\",\"open import Cubical.Foundations.Prelude\",\"open import Cubical.Data.Nat using (\\u2115 ; zero ; suc)\",\"thm : (x : \\u2115) \\u2192 suc x \\u2261 x\",\"thm x = refl\"]}}"
   , "{\"kriya\":\"sadhana.patra\",\"angani\":{\"patra\":[\"module Candidate where\",\"postulate oops : (A : Set) \\u2192 A\"]}}"
 
   -- arithmetic, exact

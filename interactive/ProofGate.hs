@@ -274,12 +274,15 @@ module ProofGate
   , kAgdaLibrary
   , kIncludeRoot
   , agdaArgs
+  , agdaArgsWith
+  , corpusIncludeRoots
     -- * running
   , Verdict(..)
   , certify
   , certifyWith
   , runAgda
   , runAgdaUnwatched
+  , runAgdaModule
   , vetSuccess
   , vetForeignRun
   , main
@@ -910,8 +913,36 @@ kIncludeRoot :: FilePath
 kIncludeRoot = "formal/cubical"
 
 agdaArgs :: FilePath -> FilePath -> [String]
-agdaArgs dir file =
-  ["-i", kIncludeRoot, "-i", dir, "--library=" ++ kAgdaLibrary, file]
+agdaArgs dir file = agdaArgsWith [] dir file
+
+-- The same invocation with extra include roots spliced in.  The candidate
+-- modules the emitter writes import only Cubical.* and NaturalMachine.*, so
+-- the base args never needed more than the one root; a WHOLE module handed
+-- over the wire (sadhana.patra) may import any module of the corpus, whose
+-- own .agda-lib names further roots (kernel, theorems/…).  Those roots are
+-- read from that file at the moment of the run — see `corpusIncludeRoots` —
+-- never restated here, so the two cannot drift.
+agdaArgsWith :: [FilePath] -> FilePath -> FilePath -> [String]
+agdaArgsWith extra dir file =
+  concat [ ["-i", r] | r <- kIncludeRoot : extra ]
+  ++ ["-i", dir, "--library=" ++ kAgdaLibrary, file]
+
+-- The corpus's own include roots, read from its .agda-lib and made relative
+-- to the repository root the agda child runs in.  `.` is kIncludeRoot itself
+-- and is dropped rather than doubled.  An unreadable or absent file yields
+-- [], which is exactly today's behaviour — the base root alone — so nothing
+-- new can break the emitter's gate or the two controls.
+corpusIncludeRoots :: FilePath -> IO [FilePath]
+corpusIncludeRoots root = do
+  r <- try (readFile (root </> kIncludeRoot </> "natural-machine.agda-lib"))
+         :: IO (Either SomeException String)
+  pure $ case r of
+    Left _ -> []
+    Right s ->
+      [ kIncludeRoot </> p
+      | l <- lines s
+      , ("include:" : ps) <- [words l]
+      , p <- ps, p /= "." ]
 
 -- --------------------------------------------------------------- running
 
@@ -1021,7 +1052,10 @@ kEnvironmentFault :: String
 kEnvironmentFault = "kernel gate environment fault"
 
 runAgdaRaw :: FilePath -> String -> IO (ExitCode, String)
-runAgdaRaw root source = do
+runAgdaRaw = runAgdaRawWith []
+
+runAgdaRawWith :: [FilePath] -> FilePath -> String -> IO (ExitCode, String)
+runAgdaRawWith extra root source = do
   setLocaleEncoding utf8
   tmp <- getTemporaryDirectory
   dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
@@ -1032,11 +1066,36 @@ runAgdaRaw root source = do
       let env' = ("LC_ALL", "C.UTF-8")
                  : ("LANG", "C.UTF-8")
                  : [ kv | kv@(k, _) <- base, k /= "LC_ALL", k /= "LANG" ]
-          cp = (proc "agda" (agdaArgs dir file))
+          cp = (proc "agda" (agdaArgsWith extra dir file))
                  { cwd = Just root, env = Just env' }
       (code, out, err) <- readCreateProcessWithExitCode cp ""
       pure (code, out ++ err))
     `finally` removePathForcibly dir
+
+-- A WHOLE module, watched, with the corpus's own include roots on the path.
+-- The controls and the emitter's candidates keep the narrow invocation they
+-- always had; this is the wire's door (sadhana.patra) and nothing else calls
+-- it.  Watched exactly as `runAgda` is: a success is vetted, and the vet's
+-- own kernelStatus runs on the NARROW args, so the controls stay the
+-- controls of the gate, not of this widened path.
+runAgdaModule :: FilePath -> String -> IO (ExitCode, String)
+runAgdaModule root source = do
+  extra <- corpusIncludeRoots root
+  micros <- agdaTimeoutMicros
+  r <- try (timeout micros (runAgdaRawWith extra root source))
+         :: IO (Either SomeException (Maybe (ExitCode, String)))
+  let raw = case r of
+        Right (Just ok) -> ok
+        Right Nothing ->
+          ( ExitFailure 124
+          , kEnvironmentFault ++ ": agda did not return within "
+              ++ show (micros `div` 1000000) ++ "s\n" )
+        Left e ->
+          ( ExitFailure 127
+          , kEnvironmentFault ++ ": agda invocation raised: " ++ show e ++ "\n" )
+  case raw of
+    (ExitSuccess, out) -> vetSuccess root out
+    other -> pure other
 
 -- ------------------------------------------------------- the two controls
 --
