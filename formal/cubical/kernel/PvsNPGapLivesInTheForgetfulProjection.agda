@@ -1,9 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TheGapIsInTheForgetfulProjection
+-- PvsNPGapLivesInTheForgetfulProjection
 --
--- ONE SENTENCE, MADE A TERM.
+-- THE P-vs-NP GAP IS A PROPERTY OF THE LOSSY FORGETFUL PROJECTION, NOT OF
+-- COMPUTATION.  ONE SENTENCE, MADE A TERM.
 --
 --   "Within the interaction calculus, where the derivation is carried, the
 --    answer is projection and there is no gap; the gap is a property of the
@@ -31,7 +32,7 @@
 -- the forgetful model and absent in the carried one, and both are theorems.
 ------------------------------------------------------------------------
 
-module TheGapIsInTheForgetfulProjection where
+module PvsNPGapLivesInTheForgetfulProjection where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; isSetℕ)
