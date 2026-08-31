@@ -44,8 +44,15 @@ open import GenerativeKernel
 -- §1.  THE CARRIED MODEL HAS NO GAP: THE ANSWER IS PROJECTION.
 ------------------------------------------------------------------------
 
--- Execute the kernel's own enabled future.  The answer is the `target` field
--- of the resulting CheckedFuture -- obtained by projection, on the nose.
+-- THE GENERAL FACT.  For ANY enabled future, executing it keeps the target
+-- as a field: the answer is the carried datum, recovered by projection, on
+-- the nose.  No search, no reconstruction -- definitional, for every future.
+answer-is-projection-general :
+  {s : Tm} (f : EnabledFuture s)
+  → CheckedFuture.target (execute f) ≡ EnabledFuture.target f
+answer-is-projection-general f = refl
+
+-- The kernel's own seed as a witness: the answer comes out `target₀`.
 answer-is-projection :
   CheckedFuture.target (execute direct-future) ≡ target₀
 answer-is-projection = refl
@@ -74,14 +81,22 @@ len-direct = refl
 len-detour : len detour-history ≡ suc (suc (suc (suc zero)))
 len-detour = refl
 
--- Yet the forgetful semantics cannot see it.  `derivation-sound` sends a
--- derivation to an equality in ℕ, a set, so any two derivations between the
--- same endpoints have EQUAL image.  The length gap (2 vs 4) is invisible to
--- the projection -- it exists only in the derivation the projection forgets.
+-- THE GENERAL THEOREM.  The forgetful semantics is blind to the route for
+-- ANY two derivations between ANY two endpoints, at ANY environment.  Nothing
+-- example-specific: `derivation-sound` lands in an equality in ℕ, and ℕ is a
+-- set, so any two proofs of it agree.  The route -- however long, however it
+-- detours -- has EQUAL forgetful image.  This is the blindness, in general.
+forgetful-is-blind-to-route :
+  {a b : Tm} (d e : Derivation a b) (ρ : Env)
+  → derivation-sound d ρ ≡ derivation-sound e ρ
+forgetful-is-blind-to-route {a} {b} d e ρ =
+  isSetℕ (eval a ρ) (eval b ρ) (derivation-sound d ρ) (derivation-sound e ρ)
+
+-- The example is now only the WITNESS OF STRICTNESS: it shows the collapse is
+-- non-trivial -- that there really are distinct routes for the general
+-- theorem to collapse.  Blindness is general; the seed proves it collapses
+-- something rather than nothing.
 forgetful-image-is-blind-to-route :
   (ρ : Env)
   → derivation-sound direct-history ρ ≡ derivation-sound detour-history ρ
-forgetful-image-is-blind-to-route ρ =
-  isSetℕ (eval seed ρ) (eval target₀ ρ)
-    (derivation-sound direct-history ρ)
-    (derivation-sound detour-history ρ)
+forgetful-image-is-blind-to-route = forgetful-is-blind-to-route direct-history detour-history
