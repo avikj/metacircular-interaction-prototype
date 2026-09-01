@@ -31,7 +31,10 @@
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 INC="$ROOT/formal/cubical"
-OUT="${ORACLE_OUT:-${TMPDIR:-/tmp}/oracle-$(id -u)}"
+# per-PROCESS, not per-user: two sessions asking at once must not share a
+# last.log — a race here once answered one module's question with another
+# module's rejection (observed 2026-09-01, Sha256 vs TwinPrimesFakeProof)
+OUT="${ORACLE_OUT:-${TMPDIR:-/tmp}/oracle-$(id -u)-$$}"
 mkdir -p "$OUT"
 export LC_ALL=en_US.UTF-8   # ProofGate: agda's child throws on a bare locale before agda runs
 
