@@ -42,15 +42,39 @@
 --       and forceWs ws k ≡ k ws.  The 400× repair changed cost, never
 --       meaning; the kernel confirms the two readings are one.
 --
--- WHAT IS **NOT** CLAIMED.  No computational hardness is touched: §1's
--- inverse CONSUMES the receipt (the preimage rides inside the fibre
--- point), so nothing here shortens any search.  ¬ isEquiv sha256 is
--- not asserted: the honest routes are a length invariant through the
--- pipeline (unwritten) or an exhibited collision (open); stating the
--- routes is the fence.  The claim is locational, and it is exact:
--- one-wayness is a property of the projection, and the projection is
--- one reading of an object whose other reading has no one-wayness
--- at all.
+-- WHAT IS **NOT** CLAIMED — with a strike where the first fence stood
+-- backwards, corrected by the owner the day it landed.
+--
+-- ~~"No computational hardness is touched: §1's inverse CONSUMES the
+-- receipt (the preimage rides inside the fibre point), so nothing
+-- here shortens any search."~~  STRUCK by its author.  That sentence
+-- reads the theorem from the attacker's standpoint — digest alone in
+-- hand — and takes that standpoint as the primary reality, with the
+-- completion as bookkeeping added after.  The checked terms say the
+-- opposite.  `equivFun खुला m` is `(sha256 m , m , refl)`: every
+-- computation of the hash MINTS its receipt at zero marginal cost —
+-- साक्षी-स्वयंसिद्धः is refl, not a construction.  The digest is
+-- never born alone; it is born completed.  One-wayness is not a
+-- property the function has: it is a condition an observer is placed
+-- in by an act of erasure that happens strictly AFTER the
+-- computation, and the erasure is itself a map — the visible
+-- projection — chosen, with an address (व्यये स्थानम्, loss has
+-- location), its price on the lossy side being exactly §2's collision
+-- type.  So "we can invert any proclaimed one-way function" is not a
+-- trick that consumes a secret; it is the observation that the secret
+-- is manufactured by discarding, and no discarding is forced.
+-- Security is custody of the fibre — an arrangement between parties
+-- about where erasure happens — not a wall inside the mathematics.
+-- The wall is the erasure.  (This is the P=NP lane's own finding —
+-- the gap fails on the lossless machine — and the struck sentence had
+-- repeated, one level up, the standpoint error that lane refutes.)
+--
+-- What remains genuinely unasserted: ¬ isEquiv sha256 — the honest
+-- routes are a length invariant through the pipeline (unwritten) or
+-- an exhibited collision (open); stating the routes is the fence.
+-- The claim that stands is locational, and it is exact: one-wayness
+-- is a property of the projection, and the projection is one reading
+-- of an object whose other reading has no one-wayness at all.
 --
 -- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
