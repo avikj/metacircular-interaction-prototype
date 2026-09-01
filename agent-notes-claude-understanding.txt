@@ -227,3 +227,27 @@ WindingCostIsCarriedAndCompressionDropsIt.agda (--safe, EXIT 0):
    The trace carries length n+1; the compressed value records only "equal".
    Cost conserved in the derivation, dropped by the projection. This closes
    the arc: WindingCost (2) + Compression (5) + fibre law (B) as one picture.
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 8 — the cost law is "output magnitude", carried to mul.
+
+Held all the cost pieces at once and the real invariant is not "linear in
+input" but COST = UNARY MAGNITUDE OF THE OUTPUT = the winding number reached.
+Addition looks input-linear only because output ≈ input; multiplication shows
+the true law (output a·b >> input a+b).
+
+MultiplicationUnfoldsInLinearPeels.agda (RewriteCertificateMul, --safe, EXIT 0):
+   mulPeel     : (x)(b) → Derivation (mul x (unary b)) (copies x b)
+   len-mulPeel : (x)(b) → len (mulPeel x b) ≡ suc b
+   The multiplicative layer costs the number of factors (b+1); reducing the b
+   copies then runs the additive engine ~a each — total ~a·b = output unary
+   magnitude. Cost tracks the winding number of the RESULT.
+
+UNIFYING PICTURE (held simultaneously): computation is winding in π₁ of the
+carrier (ℤ for the circle, ℤ/4 the rope's finite quotient); cost of a given
+winding = the unary magnitude it reaches; the fibre law splits every map into
+free endpoint (output binding) and carried winding (input binding); the
+forgetful projection (eval/compress) drops the winding — the one place
+classical "cost" appears. "General finite symmetry" was a category error:
+it is π₁ of the carrier, not one group. The genuinely open residue: producing
+a winding to a chosen target you do not already hold a route to.
