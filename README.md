@@ -36,7 +36,7 @@ The standard model is what you get by dropping the kept fibre from this one ([`V
 \lnot\,\mathsf{Gap}\,(\mathrm{complete}\;\mathsf{uStep})
 ```
 
-The collision that makes the projection lossy ([`Nasha…`](formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda), `the-step-forgets`) is impossible on the completion (`completed-injective`). This is the modus tollens made a theorem: the distinction holds only under loss; the lossless universal machine has no loss; so it has no distinction ([`PNeqNPIsNotUniversal…`](formal/cubical/theorems/residue/PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.agda), [`PeqNPHoldsOnTheLosslessUniversalMachine.agda`](formal/cubical/theorems/residue/PeqNPHoldsOnTheLosslessUniversalMachine.agda)).
+The collision that makes the projection lossy ([`Nasha…`](formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda), `the-step-forgets`) is impossible on the completion (`completed-injective`). The distinction holds only under loss; the lossless universal machine has no loss; so it has no distinction ([`PNeqNPIsNotUniversal…`](formal/cubical/theorems/residue/PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.agda), [`PeqNPHoldsOnTheLosslessUniversalMachine.agda`](formal/cubical/theorems/residue/PeqNPHoldsOnTheLosslessUniversalMachine.agda)).
 
 **3. Deciding and verifying are one operation.** They are the two directions of a single, *unique* lossless equivalence ([`VerifyIsDecide…`](formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda)). Finding = checking; the answer is a projection — π₁ of a Σ — not a search.
 
