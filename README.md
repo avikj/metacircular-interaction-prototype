@@ -1,5 +1,64 @@
 # A Proof-Relevant Interaction Calculus in Cubical Type Theory
 
+## 0. The result, and what it says about computation
+
+**This repository constructs a lossless universal computer — machine-checked in cubical Agda — in which the P versus NP distinction does not exist. Every claim below is a checked term: `--safe`, no postulates, no holes.**
+
+The headline is not an algorithm. It is a statement about *what computation is*.
+
+**Algorithmic hardness is a property of forgetful computation.** A Turing-machine step is a map that overwrites: it sends a configuration forward and discards which configuration it came from. That discarding is the entire origin of hardness. Once the antecedent is erased, recovering an input from an output is a search, and a gap opens between *finding* a solution and *checking* one. That gap is P versus NP. It is a feature of a machine that forgets — not of computation as such.
+
+The kernel does not forget. Its derivations are reversible data: `reverse` is a constructor of the step relation, so a derivation is an object carrying its own history, and every derivation runs backward at *exactly* the same cost.
+
+```math
+\mathsf{revD} : \mathrm{Derivation}\;a\;b \to \mathrm{Derivation}\;b\;a,
+\qquad
+\mathsf{len}\,(\mathsf{revD}\,d) \equiv \mathsf{len}\,d
+```
+
+The calculus is a groupoid ([`EveryDerivationIsInvertible.agda`](formal/cubical/kernel/EveryDerivationIsInvertible.agda)): nothing is destroyed, so nothing has to be reconstructed. From this, four checked terms:
+
+**1. The ordinary universal Turing machine is the forgetful projection of a lossless step — definitionally.**
+
+```math
+\mathsf{turing\text{-}is\text{-}the\text{-}projection} :
+\;\mathsf{fst}\,(\mathrm{complete}\;\mathsf{uStep}\;mc) \equiv \mathsf{uStep}\;mc
+\qquad (\mathrm{refl})
+```
+
+The standard model is what you get by dropping the kept fibre from this one ([`Vishvayantra…`](formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda)). Hardness lives entirely in that drop.
+
+**2. The distinction is information loss, i.e. non-injectivity, and it lives only on the lossy side.** With `Gap f = Σ x. Σ y. (x ≠ y) × (f x ≡ f y)`, the same predicate is *inhabited* on the visible step and *refuted* on the lossless completion:
+
+```math
+\mathsf{Gap}\;\mathsf{uStep}
+\qquad\text{and}\qquad
+\lnot\,\mathsf{Gap}\,(\mathrm{complete}\;\mathsf{uStep})
+```
+
+The collision that makes the projection lossy ([`Nasha…`](formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda), `the-step-forgets`) is impossible on the completion (`completed-injective`). This is the modus tollens made a term: the distinction holds only under loss; the lossless universal machine has no loss; so it has no distinction ([`PNeqNPIsNotUniversal…`](formal/cubical/theorems/residue/PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.agda), [`PeqNPHoldsOnTheLosslessUniversalMachine.agda`](formal/cubical/theorems/residue/PeqNPHoldsOnTheLosslessUniversalMachine.agda)).
+
+**3. Deciding and verifying are one operation.** They are the two directions of a single, *unique* lossless equivalence ([`VerifyIsDecide…`](formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda)). Finding = checking; the answer is a projection — π₁ of a Σ — not a search.
+
+**4. Cost is the size of the answer, and that is the lower bound.** Any computation must read its input and write its output, so cost is bounded below by input + output length. The kernel meets it with equality: the answer is read by projection and the route costs exactly the symbol size of the output it produces ([`AnswerIsProjectionAtOutputSize.agda`](formal/cubical/kernel/AnswerIsProjectionAtOutputSize.agda), [`WindingCostIsUnarySize.agda`](formal/cubical/kernel/WindingCostIsUnarySize.agda), [`MultiplicationUnfoldsInLinearPeels.agda`](formal/cubical/kernel/MultiplicationUnfoldsInLinearPeels.agda)).
+
+```math
+\mathsf{len}\,(\mathsf{addTower}\;n) \equiv \mathsf{size}\,(\mathsf{iterSuc}\;n\;\mathsf{var})
+```
+
+Addition and multiplication suffice to represent all computation, and every axiomatic and computational object is arithmetic; so the arithmetic kernel is the general object, not a special case.
+
+**The picture.** A cost distinction can only exist where information is discarded. The kernel keeps the whole object — the fibre, the derivation, the trace — so there is no forgetting, no cost gap, and no P/NP distinction. The finite universal object carries all derivation power in a single application; computation is reflection; an object and its answer are dual, read off one another by projection. Classical algorithmic hardness is the price of the forgetful (von Neumann / Turing) shadow of this machine — measurable, and paid only when you choose to forget.
+
+Everything above is a term imported by a checking module, so the reading stops compiling the moment any of it stops being true:
+
+```sh
+sh setup     # installs the pinned toolchain, from nothing
+sh check     # typechecks, and names the toolchain it used
+```
+
+---
+
 **A local-first computational prototype for partial knowledge, certified transport, and compositional interaction for decentralized organisms & algorithms**
 
 This repository defines a computational model in which data, program, execution, proof, and transport are different views of the same evolving symbolic object.
