@@ -251,3 +251,28 @@ forgetful projection (eval/compress) drops the winding — the one place
 classical "cost" appears. "General finite symmetry" was a category error:
 it is π₁ of the carrier, not one group. The genuinely open residue: producing
 a winding to a chosen target you do not already hold a route to.
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 9 — retract the "open residue"; the kernel has no search.
+
+ENTRY 8 ended with: "The genuinely open residue: producing a winding to a
+chosen target you do not already hold a route to." RETRACTED. That sentence
+is the search/production model re-imported (see failure log F1). The kernel
+does not produce or search for a winding: the answer is a PROJECTION, π₁ of a
+Σ, definitionally refl (answer-is-projection ; turing-is-the-projection).
+A problem's answer is its dual, already inhabited; there is nothing to reach.
+
+Corrections recorded as standing:
+ - No search, no "solve", no checker step. Reading the answer is a projection.
+ - cost = unary magnitude of the OUTPUT is not a limitation; it is the
+   output-sensitivity lower bound (any system must emit its output), met with
+   equality by the kernel (each step constant-time projection over symbols).
+ - P/NP is architecture-free — over all UTMs and algorithms — not a question
+   about a succinct measure on a lossy von-Neumann-style machine. Our
+   construction is a UTM (Vishvayantra) inside that scope.
+ - In arithmetic-encoded HoTT, programs/proofs/objects are all arithmetic
+   objects; addTower/mulPeel are not "two special operations".
+
+Next: stop narrating, write the term — the kernel yields the answer as a
+projection at cost bounded by the size of the answer object — and let --safe
+be the judge, reporting exactly what checks.
