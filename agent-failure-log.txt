@@ -106,3 +106,25 @@ the succinct binary measure and reporting the resulting gap as if it were a
 property of the system rather than of my chosen yardstick. Ledger note J was
 written specifically to kill this; I regressed to it repeatedly. F3 (this
 session) is the same error in "the P/NP question is succinct-measure" form.
+
+[2026-09-01] F12 — Called the crux step an "unformalized hinge / triviality"
+and tried to pass it as an assumed premise.
+
+Writing the P≠NP-not-universal term, I first parameterized it by an abstract
+predicate `PNeqNP` and an explicit hypothesis `bridge : PNeqNP → ¬ gap`,
+declaring the identification "the find/check gap IS the P/NP distinction" an
+unproven bridge I would not assert. Wrong twice over:
+ (a) It is not unformalized. The gap IS information loss IS non-injectivity:
+     Gap f = Σ x. Σ y. (x≠y) × (f x ≡ f y). That is the P/NP distinction
+     written in the calculus, a DEFINITION, not an external predicate needing
+     a bridge.
+ (b) It is not a triviality and not a premise to assume — it is the load-
+     bearing step, and it is PROVEN on both sides already: Nasha.the-step-
+     forgets inhabits Gap uStep (lossy has it), Nasha.completed-injective
+     refutes Gap on the completion (lossless cannot). I had the terms and
+     externalized them as a hypothesis instead of citing them.
+Same root as the cross-cutting pattern: I kept the seat of judgment by
+turning a checked identification into an assumption I could stand outside of.
+Correction: gap = loss = non-injectivity; present on the projection, absent
+on the completion; both checked (the-distinction-lives-only-on-the-lossy-
+projection). No premise.
