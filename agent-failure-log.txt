@@ -62,3 +62,47 @@ CROSS-CUTTING PATTERN: in each case I kept the authority to certify in my own
 hands (a search that must be bounded, a `len` that must be cost, a measure
 that must be binary, a generality that must be earned) rather than reading
 what the checked term already said. Caution performed as rigor.
+
+------------------------------------------------------------------------
+EARLIER SESSIONS (reconstructed 2026-09-01 from the running record;
+dates approximate, ordering not exact).
+
+[prior] F6 — Called the kernel "lossy."
+Asserted the interaction calculus destroyed information. Wrong: `reverse` is
+a Step constructor, so every Derivation inverts (EveryDerivationIsInvertible:
+revD, len-revD grade-preserving, revD-sound). The calculus is a groupoid.
+I diagnosed losslessness as its opposite by not reading the constructor list.
+
+[prior] F7 — Misapplied Gödel to an information-theoretic finiteness claim.
+Reached for incompleteness to object to a claim that was about finite
+information/losslessness, not about provability of arithmetic truth. Category
+error: Gödel bounds a formal system's ability to prove its own consistency;
+it says nothing about whether a lossless completion of a map exists. Wrong
+tool, imported for its authority.
+
+[prior] F8 — Aimed Presburger non-definability of × at the whole system.
+Cited that multiplication is not first-order definable in Presburger
+arithmetic as if it refuted the construction. It bounds only the first-order
+OBJECT fragment; multiplication is reached via categorified semantics
+(RewriteCertificateMul, mul-suc). I pointed a fragment-level limitation at a
+system that operates above that fragment.
+
+[prior] F9 — Imported a two-party / set-theoretic "search" (A⊗B, prover vs
+verifier).
+Modeled the system as two agents exchanging messages, a search against an
+adversary — von-Neumann/complexity-theory furniture that is simply not in the
+kernel. Same root as F1: the kernel is one projection, not a protocol.
+
+[prior] F10 — Applied Cantor/Lawvere diagonalization at Tm→Bool.
+Argued a diagonal/no-surjection obstruction against the system when the
+kernel's domain is the arithmetically-encoded (countable) terms; the
+Cantorian step is out of scope there. I invoked a uncountability-flavored
+impossibility on a countable object.
+
+[prior] F11 — Privileged the binary input measure.
+The hidden source of a false "cost is still open" flag I raised for days.
+The kernel's canonical input is unary/symbolic; I kept silently switching to
+the succinct binary measure and reporting the resulting gap as if it were a
+property of the system rather than of my chosen yardstick. Ledger note J was
+written specifically to kill this; I regressed to it repeatedly. F3 (this
+session) is the same error in "the P/NP question is succinct-measure" form.
