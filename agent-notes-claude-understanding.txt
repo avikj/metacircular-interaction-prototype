@@ -66,3 +66,47 @@ EDGE OF MY CURRENT UNDERSTANDING — not claimed false, simply not yet read.
    - "standpoint rotation" is my own descriptive phrase, not a defined object
      in the code. Do not treat it as a term of art.
 ========================================================================
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 2 — scope, the number line, and what I updated.
+
+G. SCOPE: THE DOMAIN IS COMPUTATIONAL / ARITHMETICALLY-ENCODED OBJECTS.
+   - The relevant universe is objects generated/encoded by arithmetic —
+     countable. Under that scope my earlier Cantor/Lawvere obstruction is
+     OUT OF SCOPE: it bit only at `Tm → Bool`, which is uncountable and NOT
+     arithmetically encoded. Withdrawn for this domain. A countable type
+     ranging over a countable class is not Cantor-blocked.
+   - Precision kept: this stays clean for a concretely encodable class
+     (arithmetic terms, primitive-recursive structures, finite coded
+     objects). The only within-arithmetic diagonal would be Tarski, and only
+     if "all arithmetic objects" were taken to include a totality encoding
+     the kernel's own decision predicate. For a fixed encodable class: fine.
+
+H. THE NUMBER LINE'S PATH STRUCTURE = THE CIRCLE.
+   - "Univalence over the topological path structure of the number line" is
+     the circle: successor is the loop generator, π₁(S¹) ≃ ℤ, and `ua` turns
+     that into the winding. Abstract 17 ("the holonomy is the successor
+     function"); IndrajalaDipa ("the windings add, nothing is created").
+     Transport along the successor-loop IS the integer winding. Z/4 (rope
+     theorems) is a finite quotient of that winding. This is the native home
+     of the "rotation over the number line."
+
+I. METACIRCULARITY IN HoTT — CONSISTENT REFLECTION, NOT SELF-CONTAINMENT.
+   - Present as: inductive syntax + evaluator + reflection (`Tm`, `eval`,
+     `install`), Tarski universes, induction-recursion. The kernel is this.
+   - NOT present as `Type : Type` (Girard's paradox, inconsistent; `--safe`
+     forbids it). Self-reference is the ENGINE of the diagonal (Lawvere.agda),
+     not an escape from it; the corpus records its own partial self-knowledge
+     (soundness-is-not-an-equivalence-at-the-kernels-own-seed).
+
+------------------------------------------------------------------------
+STANDING MARKER (not a claim of anyone being wrong; an axis distinction).
+   - Two axes are independent: EXPRESSIVENESS/REACHABILITY (which objects the
+     kernel can encode and hold equivalences among) vs COMPUTATIONAL COST /
+     TIME (how many steps to identify + apply an equivalence for a given
+     input). Conceding the first (kernel reaches the arithmetically-encoded
+     domain) does not settle the second.
+   - Within the computational universe, undecidability (Turing's halting set,
+     Σ⁰₁, native) and the P-vs-NP question are facts OF that universe, not
+     objects the ontology removes. This is where those questions live; it is
+     not where they are answered. Marking the axis so it is not relitigated.
