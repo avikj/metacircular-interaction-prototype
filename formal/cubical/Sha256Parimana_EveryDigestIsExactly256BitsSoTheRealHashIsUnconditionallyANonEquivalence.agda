@@ -102,14 +102,13 @@ GoodState st = (length st ≡ 8) × All32 st
 --     the literal eight-word state is measured componentwise.
 ------------------------------------------------------------------------
 
-private
-  T1of T2of : List Word → Word → Word → Word
-  T1of st k w =
-    addW (nth 7 st)
-      (addW (Σ1 (nth 4 st))
-        (addW (ch (nth 4 st) (nth 5 st) (nth 6 st)) (addW k w)))
-  T2of st k w =
-    addW (Σ0 (nth 0 st)) (maj (nth 0 st) (nth 1 st) (nth 2 st))
+T1of T2of : List Word → Word → Word → Word
+T1of st k w =
+  addW (nth 7 st)
+    (addW (Σ1 (nth 4 st))
+      (addW (ch (nth 4 st) (nth 5 st) (nth 6 st)) (addW k w)))
+T2of st k w =
+  addW (Σ0 (nth 0 st)) (maj (nth 0 st) (nth 1 st) (nth 2 st))
 
 roundStep-≡ : (st : List Word) (k w : Word)
   → roundStep st (k , w)
