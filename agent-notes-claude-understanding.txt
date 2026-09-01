@@ -209,3 +209,21 @@ TheCompressionIsTheForgetfulProjection.agda (--safe, EXIT 0):
    This ties WindingCostIsUnarySize (unary=value) and
    ForgetfulCompressionPricesTheDrop (route dropped) to the fibre law's
    costly binding: the classical "cost" is precisely this forgetting.
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 7 — the fibre law completed on `compress`, and the capstone.
+
+TheCompressionIsTheForgetfulProjection.agda, added:
+   carried-side-is-free : (Σ[t] Σ[n] (compress t ≡ n)) ≃ Tm   (isContrSingl)
+   Output binding free: carrying the value costs nothing. With
+   compression-forgets-structure (costly input binding), the FULL fibre law
+   now holds on the kernel's own compression — free to carry, non-trivial to
+   invert.
+
+WindingCostIsCarriedAndCompressionDropsIt.agda (--safe, EXIT 0):
+   winding-is-sound : compress (add var (unary n)) ≡ compress (iterSuc n var)
+   cost-is-carried-value-is-blind :
+       (len (addTower n) ≡ suc n) × (endpoints compress-equal)
+   The trace carries length n+1; the compressed value records only "equal".
+   Cost conserved in the derivation, dropped by the projection. This closes
+   the arc: WindingCost (2) + Compression (5) + fibre law (B) as one picture.
