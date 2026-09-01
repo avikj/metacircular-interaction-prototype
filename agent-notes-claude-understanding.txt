@@ -166,3 +166,31 @@ A,C → TERM. EveryDerivationIsInvertible.agda:
    revD-sound : derivation-sound (revD d) ρ ≡ sym (derivation-sound d ρ)
    The calculus is a groupoid operationally; reversal is lossless and costs
    what the route cost. Ahimsa as a term.
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 5 — the rest of the notes as terms; status of each.
+
+L → TERM. ForgetfulCompressionPricesTheDrop.agda:
+   route-length-differs : ¬ (len direct-history ≡ len detour-history)  (2 ≢ 4)
+   meaning-agrees       : (ρ) → sound direct ρ ≡ sound detour ρ        (isSetℕ)
+   the-drop-is-real-and-priced = (differs , agrees)
+   The forgetful projection collapses a distinction (length) that is real in
+   the calculus. The classical "cost" lives in this forgetting, priced.
+
+H → TERM. NumberLinePathStructureIsTheCircle.agda:
+   number-line-is-loop-space    : ΩS¹ ≡ ℤ                     (ΩS¹≡ℤ)
+   winding-recovers-the-integer : winding (intLoop n) ≡ n     (windingℤLoop)
+   successor-is-one-more-loop   : intLoop (pos (suc n)) ≡ intLoop (pos n) ∙ loop  (refl)
+   The number line's path structure is the circle; successor is the loop
+   generator, definitionally; winding recovers the integer.
+
+ALREADY TERMS IN THE CORPUS (not re-proved, cited):
+   B  Fibre/Carrier.agda (descend, Carrier≃, both bindings)
+   D  PvsNPGapLivesInTheForgetfulProjection.agda (forgetful-is-blind-to-route)
+   E  ControlledGrammar + TheKernelIsAnInteractiveSystem (install/retire/sound)
+   F  abstracts 34/35/41/42 rope Z/4 theorem files
+   I  Lawvere.agda (the diagonal); soundness-not-an-equivalence-at-the-seed
+
+NOT SINGLE LEMMAS (meta, kept as prose in ledger, correctly):
+   G  scope of the domain (arithmetically-encoded/countable) — a framing
+   J  the binary-measure assumption to avoid — an anti-pattern, not a theorem
