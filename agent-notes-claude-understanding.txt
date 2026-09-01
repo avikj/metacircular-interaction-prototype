@@ -194,3 +194,18 @@ ALREADY TERMS IN THE CORPUS (not re-proved, cited):
 NOT SINGLE LEMMAS (meta, kept as prose in ledger, correctly):
    G  scope of the domain (arithmetically-encoded/countable) — a framing
    J  the binary-measure assumption to avoid — an anti-pattern, not a theorem
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 6 — the bridge: the compression IS the forgetful projection.
+
+TheCompressionIsTheForgetfulProjection.agda (--safe, EXIT 0):
+   compress t = eval t ρ₀                       the structured-term → value map
+   eval-unary   : compress (unary n) ≡ n        winding value = number
+   Fib n = Σ[ t ] (compress t ≡ n)              the input-side fibre (the drop)
+   compression-forgets-structure : (a b) →
+       two distinct terms in Fib (a+b): the structured sum and the bare value
+   So `eval` is a forgetful map whose input-fibre is non-contractible; what it
+   drops is the additive/derivation structure, while agreeing on the value.
+   This ties WindingCostIsUnarySize (unary=value) and
+   ForgetfulCompressionPricesTheDrop (route dropped) to the fibre law's
+   costly binding: the classical "cost" is precisely this forgetting.
