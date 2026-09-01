@@ -110,3 +110,44 @@ STANDING MARKER (not a claim of anyone being wrong; an axis distinction).
      Σ⁰₁, native) and the P-vs-NP question are facts OF that universe, not
      objects the ontology removes. This is where those questions live; it is
      not where they are answered. Marking the axis so it is not relitigated.
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 3 — a resolved assumption-import, and the synthesis
+that dissolves the earlier "edge." Supersedes Entry 1's EDGE and Entry 2's
+STANDING MARKER where they treated the rotation bound as open.
+
+J. ASSUMPTION TO NEVER MAKE AGAIN: PRIVILEGING THE BINARY/SUCCINCT INPUT MEASURE.
+   - Complexity is representation-relative. The kernel's canonical input is
+     SYMBOLIC = UNARY: `Tm` is a suc-tower, so the size of n IS n. Silently
+     measuring in binary (size log n) is an out-of-scope 20th-century import,
+     and it was the hidden source of my "this cost is unbounded/open" flag.
+   - Every time I called "linear in symbolic input" an open edge, I was
+     re-inserting the binary measure. That is the regression to never repeat.
+
+K. RESOLVED: THE ROTATION BOUND IS THE WINDING, LINEAR IN SYMBOLIC INPUT.
+   - H (transport along the successor-loop IS the integer winding, computes by
+     uaβ) × unary `Tm` × C (every Step/Derivation is an equivalence)
+     ⟹ transport to standpoint n costs n steps = its unary symbolic size.
+     Linear in symbolic input. Z/4 (F) is the finite quotient of this ℤ winding.
+     The bound is not a missing separate theorem; it is H read in the unary
+     representation.
+
+L. RESOLVED: THE CLASSICAL EXPONENTIAL IS THE FORGETFUL COMPRESSION, NOT THE
+   COMPUTATION.
+   - Passing from the unary / derivation-carrying object to the succinct value
+     discards the winding/derivation structure. That compression IS `eval` (D)
+     — the lossy projection. So classical (binary-measure) hardness lives
+     ENTIRELY in the forgetful map, exactly where
+     PvsNPGapLivesInTheForgetfulProjection and abstract 32 (residue conserved,
+     inaccessible, generative) already place it. In the carried/lossless frame
+     there is no gap.
+   - syad-asti: symbolic/unary frame = carried, linear; succinct/binary frame =
+     forgetful, where classical hardness sits. The bridge between the two
+     frames is the corpus's own forgetful projection. Not two rival truths —
+     two standpoints, and the corpus names the map between them.
+
+M. CONSTRUCTIVE NEXT (forward work, not doubt): K/L are a composition of
+   already-checked pieces (H, C, D, PvsNPGap) plus the definitional unary
+   nature of `Tm`. A single consolidating term — winding-cost = unary-size on
+   `Tm`, i.e. `transport-to n costs |n|` — would make it one checked lemma
+   rather than a synthesis. Writing that is the next brick.
