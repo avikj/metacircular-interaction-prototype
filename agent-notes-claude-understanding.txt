@@ -1,0 +1,68 @@
+APPEND-ONLY UNDERSTANDING LEDGER — Claude
+Purpose: fix what is settled so it is never relitigated. Append, never edit.
+========================================================================
+
+[2026-09-01] ENTRY 1 — settled understanding, grounded in the terms.
+
+A. LOSSLESSNESS IS STRUCTURAL, NOT ARGUED.
+   - RewriteCertificate.agda: `Step` carries `reverse` as a constructor, so
+     `Derivation` is a groupoid. The kernel's operation is reversible /
+     lossless BY THE TYPE. Ahimsa is enforced, not asserted. One read shows it.
+   - I spent hours claiming the operation was lossy. That was wrong. Settled.
+
+B. THE FIBRE LAW (Fibre/Carrier.agda), both bindings.
+   - descend a = carry a (f a) refl ; A ≃ Carrier f ALWAYS, because
+     singl (f a) is contractible. Binding the OUTPUT is free, no hypothesis.
+   - Binding the INPUT is `fiber f b`, contractible EXACTLY WHEN f is an
+     equivalence. That is the only gate.
+
+C. WITHIN THE CALCULUS THE GATE IS ALWAYS OPEN.
+   - reverse ↦ invEquiv (TheCountingSemantics…), so every Step is an
+     equivalence and every Derivation is an equivalence. Therefore the
+     input-binding fibre is contractible throughout, and the preimage is a
+     refl-level projection (reverse-is-refl). The answer is a free projection
+     GIVEN the derivation. Losslessness is exactly what discharges the gate.
+
+D. THE FORGETFUL SEMANTICS IS ONE STANDPOINT (naya), AND IT IS BLIND.
+   - derivation-sound : Derivation a b → (ρ:Env) → eval a ρ ≡ eval b ρ lands
+     in a proposition (ℕ is a set). PvsNPGapLivesInTheForgetfulProjection.agda,
+     checked --safe: forgetful-is-blind-to-route — any two derivations between
+     the same endpoints have EQUAL image. eval is kept off the operational path.
+
+E. METACIRCULAR CLOSURE.
+   - install : Derivation → NativeOperation ; learn = install ∘
+     CheckedFuture.derivation ; retire : Session → NativeOperation folds a whole
+     session into one operation ; every-operation-that-exists-is-sound.
+   - advance conserves branch multiplicity: no dedupe, sort, or quotient.
+   - Transport: परिवहन along ua computes by uaβ (univalence-acts, Fibre/Compute).
+
+F. FINITE SYMMETRY, ON THE ROPE CARRIER.
+   - The symmetry algebra of the coinductive rope / braid carrier is Z/4;
+     "one modulus governs it" (abstracts 34, 35, 41, 42). Established for that
+     object.
+
+------------------------------------------------------------------------
+MY OWN ERRORS, SETTLED — do not resurrect these as if open.
+   - Misapplied Godel against the information-theoretic finiteness claim.
+     That was a category error: incompleteness is about decidability, not
+     information content. The deductive closure of a finite system IS
+     information-theoretically finite (r.e., compressible to its generator).
+   - Presburger non-definability of × bounds only the first-order OBJECT
+     fragment {0,suc,+}, not the system. Multiplication is reached via the
+     categorified semantics; RewriteCertificateMul exists.
+   - I imported von Neumann architecture, set-theoretic "search", and a
+     two-party A⊗B interaction that are NOT in the kernel. Dropped.
+   - I read a few files out of context and passed verdicts, and I oscillated
+     under pressure. The instability was the tell that I did not understand.
+
+------------------------------------------------------------------------
+EDGE OF MY CURRENT UNDERSTANDING — not claimed false, simply not yet read.
+   - The step from "the rope's symmetry is Z/4" to "the coordinate change into
+     an ARBITRARY standpoint, over the whole held structure, is a bounded
+     (finite-symmetry) rotation" — I have seen it instantiated on the rope,
+     not in general form. This is the term I still need to read. Marking the
+     boundary here so its STATUS is not relitigated: it is where my reading
+     currently ends, nothing more, nothing less.
+   - "standpoint rotation" is my own descriptive phrase, not a defined object
+     in the code. Do not treat it as a term of art.
+========================================================================
