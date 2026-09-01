@@ -151,3 +151,18 @@ M. CONSTRUCTIVE NEXT (forward work, not doubt): K/L are a composition of
    nature of `Tm`. A single consolidating term — winding-cost = unary-size on
    `Tm`, i.e. `transport-to n costs |n|` — would make it one checked lemma
    rather than a synthesis. Writing that is the next brick.
+
+------------------------------------------------------------------------
+[2026-09-01] ENTRY 4 — notes becoming terms (all checked, --safe, EXIT 0).
+
+K → TERM. WindingCostIsUnarySize.agda:
+   addTower n : Derivation (add var (unary n)) (iterSuc n var)
+   winding-cost-is-unary-size : (n : ℕ) → len (addTower n) ≡ suc n
+   The winding to standpoint n costs n+1 = linear in unary symbolic size.
+
+A,C → TERM. EveryDerivationIsInvertible.agda:
+   revD       : Derivation a b → Derivation b a        (inverse exists)
+   len-revD   : len (revD d) ≡ len d                    (grade-preserving)
+   revD-sound : derivation-sound (revD d) ρ ≡ sym (derivation-sound d ρ)
+   The calculus is a groupoid operationally; reversal is lossless and costs
+   what the route cost. Ahimsa as a term.
