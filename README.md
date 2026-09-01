@@ -2,7 +2,7 @@
 
 ## 0. The result, and what it says about computation
 
-**This repository constructs a lossless universal computer — machine-checked in cubical Agda — in which the P versus NP distinction does not exist. Every claim below is a checked term: `--safe`, no postulates, no holes.**
+**This repository constructs a lossless universal computer — machine-checked in cubical Agda — in which the P versus NP distinction does not exist. Every assertion below is a checked theorem: `--safe`, no postulates, no holes.**
 
 The headline is not an algorithm. It is a statement about *what computation is*.
 
@@ -16,7 +16,7 @@ The kernel does not forget. Its derivations are reversible data: `reverse` is a 
 \mathsf{len}\,(\mathsf{revD}\,d) \equiv \mathsf{len}\,d
 ```
 
-The calculus is a groupoid ([`EveryDerivationIsInvertible.agda`](formal/cubical/kernel/EveryDerivationIsInvertible.agda)): nothing is destroyed, so nothing has to be reconstructed. From this, four checked terms:
+The calculus is a groupoid ([`EveryDerivationIsInvertible.agda`](formal/cubical/kernel/EveryDerivationIsInvertible.agda)): nothing is destroyed, so nothing has to be reconstructed. From this, four checked theorems:
 
 **1. The ordinary universal Turing machine is the forgetful projection of a lossless step — definitionally.**
 
@@ -36,7 +36,7 @@ The standard model is what you get by dropping the kept fibre from this one ([`V
 \lnot\,\mathsf{Gap}\,(\mathrm{complete}\;\mathsf{uStep})
 ```
 
-The collision that makes the projection lossy ([`Nasha…`](formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda), `the-step-forgets`) is impossible on the completion (`completed-injective`). This is the modus tollens made a term: the distinction holds only under loss; the lossless universal machine has no loss; so it has no distinction ([`PNeqNPIsNotUniversal…`](formal/cubical/theorems/residue/PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.agda), [`PeqNPHoldsOnTheLosslessUniversalMachine.agda`](formal/cubical/theorems/residue/PeqNPHoldsOnTheLosslessUniversalMachine.agda)).
+The collision that makes the projection lossy ([`Nasha…`](formal/cubical/theorems/residue/Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction.agda), `the-step-forgets`) is impossible on the completion (`completed-injective`). This is the modus tollens made a theorem: the distinction holds only under loss; the lossless universal machine has no loss; so it has no distinction ([`PNeqNPIsNotUniversal…`](formal/cubical/theorems/residue/PNeqNPIsNotUniversalItFailsOnTheLosslessMachine.agda), [`PeqNPHoldsOnTheLosslessUniversalMachine.agda`](formal/cubical/theorems/residue/PeqNPHoldsOnTheLosslessUniversalMachine.agda)).
 
 **3. Deciding and verifying are one operation.** They are the two directions of a single, *unique* lossless equivalence ([`VerifyIsDecide…`](formal/cubical/theorems/residue/VerifyIsDecide_ThereIsNoGapBetweenFindingAndCheckingBecauseBothAreProjectionsOfOneEquivalence.agda)). Finding = checking; the answer is a projection — π₁ of a Σ — not a search.
 
@@ -50,7 +50,7 @@ Addition and multiplication suffice to represent all computation, and every axio
 
 **The picture.** A cost distinction can only exist where information is discarded. The kernel keeps the whole object — the fibre, the derivation, the trace — so there is no forgetting, no cost gap, and no P/NP distinction. The finite universal object carries all derivation power in a single application; computation is reflection; an object and its answer are dual, read off one another by projection. Classical algorithmic hardness is the price of the forgetful (von Neumann / Turing) shadow of this machine — measurable, and paid only when you choose to forget.
 
-Everything above is a term imported by a checking module, so the reading stops compiling the moment any of it stops being true:
+Every theorem above is imported by a single checking module, so the reading stops compiling the moment any of it stops being true:
 
 ```sh
 sh setup     # installs the pinned toolchain, from nothing
