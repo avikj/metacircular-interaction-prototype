@@ -317,6 +317,22 @@
 --     So the corpus contains a proved-terminating learner and a metacircular
 --     kernel, and no morphism between their term languages.
 --
+--     PARTIALLY CLOSED, 2026-09-01 -- and "largest structural gap" is now
+--     stale framing rather than the standing description.  `Kernel.Siddha-
+--     sadhana_InstallingWhatYouCanAlreadyReachIsAPlateau…` transfers the
+--     FIRST HALF of Obstruction's separation to the kernel itself, as
+--     checked terms and not a port: `install-chain-plateau` and
+--     `kernel-install-chains-cannot-reach-a-tower`, run through the kernel's
+--     `control-sound` (the control of `install d` at t′ IS an identification
+--     t′ ≡ t) rather than through Obstruction's Bool membership test.  A
+--     bridge between the two substrates therefore exists.  Its own header
+--     marks the live remainder precisely: the ANTI-PLATEAU half -- what
+--     escapes reach is `Vyapti_`'s `SchematicOperation`
+--     (`no-native-operation-does-this`), but a schema is not yet installable
+--     as a `NativeOperation`, so the escape is not yet a step of any chain.
+--     The standing item is that anti-plateau step, not the absence of a
+--     bridge.
+--
 ------------------------------------------------------------------------
 -- §8.  THE FRONTIER, DERIVED FROM §7 RATHER THAN LISTED.
 ------------------------------------------------------------------------
@@ -325,10 +341,20 @@
 --       which `propose` becomes `install`.  That is what closes the loop:
 --       failed match → named missing structure → new operation → larger
 --       enabled set, with the deficit measure already proved to descend.
+--       ADVANCED, 2026-09-01: `Kernel.Siddhasadhana_` establishes the plateau
+--       direction on the kernel (see §7); the loop-driving / anti-plateau
+--       direction is the remaining half.
 --   (b) The schema of TheInstalledOperationHasNoPervasion raised from `subVar`'s one variable to all six
 --       coordinates, and `install` replaced by `install-schema` in
 --       ControlledGrammar so that generalisation is the kernel's default
 --       rather than a companion module's.
+--       ADVANCED, 2026-09-01: `Kernel.Adesa_SubstitutionIsAdmissibleOn-
+--       Derivations…` proves substitution admissible on `Step`/`Derivation`,
+--       supplying the certificate a schema needs -- `apply-checked` as a
+--       Derivation, not only Vyapti_'s `apply-sound` eval-equality.  Its
+--       header marks what remains: `install-schema` as a record change (the
+--       `apply`/`apply-checked` fields, since `control-sound` forces the
+--       subsingleton), and substitution for the other five coordinates.
 --   (c) A policy over the enabled list that is honestly extra-semantic --
 --       TheDerivationCarriesNoMeaning proves no semantic one exists, and lāghava is the obvious
 --       candidate order.  It must not collapse to a boolean verdict
