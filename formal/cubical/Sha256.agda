@@ -64,12 +64,12 @@ or2  false b = b
 xor2 true  b = not b
 xor2 false b = b
 
+revGo : {A : Type} → List A → List A → List A
+revGo acc []       = acc
+revGo acc (x ∷ xs) = revGo (x ∷ acc) xs
+
 revL : {A : Type} → List A → List A
-revL = go []
-  where
-    go : {A : Type} → List A → List A → List A
-    go acc []       = acc
-    go acc (x ∷ xs) = go (x ∷ acc) xs
+revL = revGo []
 
 foldlL : {A B : Type} → (B → A → B) → B → List A → B
 foldlL f b []       = b

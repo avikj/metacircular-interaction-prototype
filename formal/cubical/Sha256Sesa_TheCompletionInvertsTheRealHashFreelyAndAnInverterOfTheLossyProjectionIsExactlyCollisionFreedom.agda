@@ -69,9 +69,13 @@
 -- the gap fails on the lossless machine — and the struck sentence had
 -- repeated, one level up, the standpoint error that lane refutes.)
 --
--- What remains genuinely unasserted: ¬ isEquiv sha256 — the honest
+-- ~~What remains genuinely unasserted: ¬ isEquiv sha256 — the honest
 -- routes are a length invariant through the pipeline (unwritten) or
--- an exhibited collision (open); stating the routes is the fence.
+-- an exhibited collision (open); stating the routes is the fence.~~
+-- DISCHARGED the same day: Sha256Parimana walks the first route —
+-- परिमाणम् (every digest is exactly 256 bits, every message) and
+-- न-तुल्यता (¬ isEquiv sha256), no collision anywhere in the proof.
+-- The collision route stays open, and stays the sharper prize.
 -- The claim that stands is locational, and it is exact: one-wayness
 -- is a property of the projection, and the projection is one reading
 -- of an object whose other reading has no one-wayness at all.
