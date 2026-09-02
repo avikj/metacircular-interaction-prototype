@@ -187,6 +187,10 @@ Xabc : ℕ
 Xabc = packWords ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223
                  ∷ 0xb00361a3 ∷ 0x96177a9c ∷ 0xb410ff61 ∷ 0xf20015ad ∷ [] )
 
+-- the witness: the abc message packed as a natural (the missing input)
+Mabc : ℕ
+Mabc = packWords abcBlock
+
 -- the NIST vector, by the kernel computing the whole object
 test-abc : sha256block abcBlock ≡
   ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223
