@@ -11,7 +11,9 @@ module Sha256N where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; foldl ; map)
-open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Nat.Properties using (znots)
+open import Cubical.Relation.Nullary using (¬_)
 open import Agda.Builtin.Nat using (_+_ ; _*_ ; _-_ ; div-helper ; mod-helper)
 open import Agda.Builtin.Strict using (primForce)
 
@@ -364,3 +366,31 @@ preimage16 = invert16 Xtarget16
 -- THE 16-ROUND PREIMAGE HOLDS
 test-preimage-16round : compressR 16 preimage16 ≡ Xtarget16
 test-preimage-16round = refl
+
+------------------------------------------------------------------------
+-- The propositions AS PROPOSITIONS: existential preimage and existential
+-- collision, with inequality — the kernel holds and verifies these
+-- directly (the sadhana wire verb cannot form them; the kernel can).
+------------------------------------------------------------------------
+
+-- the preimage as an existential, inhabited by the constructed witness
+preimage-exists-4 : Σ[ m ∈ List ℕ ] (compressR 4 m ≡ Xtarget4)
+preimage-exists-4 = preimage4 , test-preimage-4round
+
+preimage-exists-16 : Σ[ m ∈ List ℕ ] (compressR 16 m ≡ Xtarget16)
+preimage-exists-16 = preimage16 , test-preimage-16round
+
+-- a 4-round collision, as a real existential with the inequality: two
+-- DISTINCT messages with the same 4-round digest (they differ in a word
+-- the 4-round compression does not read — a genuine, if elementary,
+-- collision of reduced-round SHA-256, kernel-checked)
+collA collB : List ℕ
+collA = 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ []
+collB = 0 ∷ 0 ∷ 0 ∷ 0 ∷ 1 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ []
+
+collision-4 :
+  Σ[ m1 ∈ List ℕ ] Σ[ m2 ∈ List ℕ ]
+    (¬ (m1 ≡ m2)) × (compressR 4 m1 ≡ compressR 4 m2)
+collision-4 = collA , collB
+  , (λ p → znots (cong (nth 4) p))
+  , refl
