@@ -283,3 +283,40 @@ preimage4 = invert4 Xtarget4
 -- THE 4-ROUND PREIMAGE HOLDS: the recovered message regenerates the digest
 test-preimage-4round : compressR 4 preimage4 ≡ Xtarget4
 test-preimage-4round = refl
+
+------------------------------------------------------------------------
+-- PREIMAGE, 8 rounds — still closed form, by cascading the middle a's.
+-- e_{t+1} = a_{t+1} ⊟ T2ₜ ⊞ a_{t-3}, so a_{t-3} = e_{t+1} ⊟ (a_{t+1} ⊟ T2ₜ).
+-- The four pinned e's (e₅..e₈) solve a₄,a₃,a₂,a₁ in turn, each from
+-- already-known a's — no search.
+------------------------------------------------------------------------
+
+invert8 : List ℕ → List ℕ
+invert8 D =
+  let T   = zipSub D H0
+      a0  = nth 0 H0 ; am1 = nth 1 H0 ; am2 = nth 2 H0 ; am3 = nth 3 H0
+      e0  = nth 4 H0 ; em1 = nth 5 H0 ; em2 = nth 6 H0 ; em3 = nth 7 H0
+      a5  = nth 3 T ; a6 = nth 2 T ; a7 = nth 1 T ; a8 = nth 0 T
+      e5  = nth 7 T ; e6 = nth 6 T ; e7 = nth 5 T ; e8 = nth 4 T
+      a4  = subN e8 (subN a8 (addN (Σ0 a7) (maj a7 a6 a5)))
+      a3  = subN e7 (subN a7 (addN (Σ0 a6) (maj a6 a5 a4)))
+      a2  = subN e6 (subN a6 (addN (Σ0 a5) (maj a5 a4 a3)))
+      a1  = subN e5 (subN a5 (addN (Σ0 a4) (maj a4 a3 a2)))
+      e1  = addN (subN a1 (addN (Σ0 a0) (maj a0 am1 am2))) am3
+      e2  = addN (subN a2 (addN (Σ0 a1) (maj a1 a0 am1))) am2
+      e3  = addN (subN a3 (addN (Σ0 a2) (maj a2 a1 a0))) am1
+      e4  = addN (subN a4 (addN (Σ0 a3) (maj a3 a2 a1))) a0
+      aS  = am3 ∷ am2 ∷ am1 ∷ a0 ∷ a1 ∷ a2 ∷ a3 ∷ a4 ∷ a5 ∷ a6 ∷ a7 ∷ a8 ∷ []
+      eS  = em3 ∷ em2 ∷ em1 ∷ e0 ∷ e1 ∷ e2 ∷ e3 ∷ e4 ∷ e5 ∷ e6 ∷ e7 ∷ e8 ∷ []
+  in wAt aS eS 0 ∷ wAt aS eS 1 ∷ wAt aS eS 2 ∷ wAt aS eS 3
+   ∷ wAt aS eS 4 ∷ wAt aS eS 5 ∷ wAt aS eS 6 ∷ wAt aS eS 7
+   ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ []
+
+Xtarget8 : List ℕ
+Xtarget8 = compressR 8 abcBlock
+preimage8 : List ℕ
+preimage8 = invert8 Xtarget8
+
+-- THE 8-ROUND PREIMAGE HOLDS
+test-preimage-8round : compressR 8 preimage8 ≡ Xtarget8
+test-preimage-8round = refl
