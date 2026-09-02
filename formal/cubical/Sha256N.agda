@@ -320,3 +320,47 @@ preimage8 = invert8 Xtarget8
 -- THE 8-ROUND PREIMAGE HOLDS
 test-preimage-8round : compressR 8 preimage8 ≡ Xtarget8
 test-preimage-8round = refl
+
+------------------------------------------------------------------------
+-- PREIMAGE, 16 rounds — the full message-injection regime (no schedule
+-- expansion yet).  Same cascade: pinned a₁₃..a₁₆ / e₁₃..e₁₆ solve
+-- a₁₂,a₁₁,a₁₀,a₉ in turn; the interior words a₁..a₈ are free (set 0),
+-- e's follow from (*), and all 16 message words solve.  Closed form.
+------------------------------------------------------------------------
+
+invert16 : List ℕ → List ℕ
+invert16 D =
+  let T   = zipSub D H0
+      a0  = nth 0 H0 ; am1 = nth 1 H0 ; am2 = nth 2 H0 ; am3 = nth 3 H0
+      e0  = nth 4 H0 ; em1 = nth 5 H0 ; em2 = nth 6 H0 ; em3 = nth 7 H0
+      a13 = nth 3 T ; a14 = nth 2 T ; a15 = nth 1 T ; a16 = nth 0 T
+      e13 = nth 7 T ; e14 = nth 6 T ; e15 = nth 5 T ; e16 = nth 4 T
+      -- interior words free
+      a1 = 0 ; a2 = 0 ; a3 = 0 ; a4 = 0 ; a5 = 0 ; a6 = 0 ; a7 = 0 ; a8 = 0
+      -- cascade the four determined a's
+      a12 = subN e16 (subN a16 (addN (Σ0 a15) (maj a15 a14 a13)))
+      a11 = subN e15 (subN a15 (addN (Σ0 a14) (maj a14 a13 a12)))
+      a10 = subN e14 (subN a14 (addN (Σ0 a13) (maj a13 a12 a11)))
+      a9  = subN e13 (subN a13 (addN (Σ0 a12) (maj a12 a11 a10)))
+      aS  = am3 ∷ am2 ∷ am1 ∷ a0 ∷ a1 ∷ a2 ∷ a3 ∷ a4 ∷ a5 ∷ a6 ∷ a7 ∷ a8
+          ∷ a9 ∷ a10 ∷ a11 ∷ a12 ∷ a13 ∷ a14 ∷ a15 ∷ a16 ∷ []
+      -- e_{t+1} = a_{t+1} ⊟ T2ₜ ⊞ a_{t-3}, for t=0..15 giving e₁..e₁₆
+      eAt : ℕ → ℕ
+      eAt t = addN (subN (nth (t + 4) aS)
+                          (addN (Σ0 (nth (t + 3) aS)) (maj (nth (t + 3) aS) (nth (t + 2) aS) (nth (t + 1) aS))))
+                   (nth t aS)
+      eS  = em3 ∷ em2 ∷ em1 ∷ e0 ∷ eAt 0 ∷ eAt 1 ∷ eAt 2 ∷ eAt 3 ∷ eAt 4 ∷ eAt 5 ∷ eAt 6 ∷ eAt 7
+          ∷ eAt 8 ∷ eAt 9 ∷ eAt 10 ∷ eAt 11 ∷ e13 ∷ e14 ∷ e15 ∷ e16 ∷ []
+  in wAt aS eS 0 ∷ wAt aS eS 1 ∷ wAt aS eS 2 ∷ wAt aS eS 3
+   ∷ wAt aS eS 4 ∷ wAt aS eS 5 ∷ wAt aS eS 6 ∷ wAt aS eS 7
+   ∷ wAt aS eS 8 ∷ wAt aS eS 9 ∷ wAt aS eS 10 ∷ wAt aS eS 11
+   ∷ wAt aS eS 12 ∷ wAt aS eS 13 ∷ wAt aS eS 14 ∷ wAt aS eS 15 ∷ []
+
+Xtarget16 : List ℕ
+Xtarget16 = compressR 16 abcBlock
+preimage16 : List ℕ
+preimage16 = invert16 Xtarget16
+
+-- THE 16-ROUND PREIMAGE HOLDS
+test-preimage-16round : compressR 16 preimage16 ≡ Xtarget16
+test-preimage-16round = refl
