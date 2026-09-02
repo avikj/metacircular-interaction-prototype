@@ -201,3 +201,85 @@ test-abc-nat = refl
 -- unexpand ∘ expand ≡ id, checked on the abc block
 test-schedule-inverse : message16 (schedule abcBlock) ≡ abcBlock
 test-schedule-inverse = refl
+
+------------------------------------------------------------------------
+-- PREIMAGE, 1 round.  One-round compression (feed-forward included) as a
+-- function of the single message word W₀; and its INVERSE, solving the
+-- round equation for W₀ from the digest.  Given a 1-round digest, we
+-- recover a message word that regenerates it — a genuine preimage,
+-- constructed by the round algebra and checked by the kernel.
+------------------------------------------------------------------------
+
+zipSub : List ℕ → List ℕ → List ℕ
+zipSub [] _ = []
+zipSub (_ ∷ _) [] = []
+zipSub (x ∷ xs) (y ∷ ys) = subN x y ∷ zipSub xs ys
+
+compress1 : ℕ → List ℕ
+compress1 w = zipAdd H0 (round H0 (nth 0 K) w)
+
+-- invert one round for the message word: from digest D, T = D ⊟ H0 = S₁,
+-- T1 = S₁.a ⊟ T2  (T2 computed from H0), then peel the additive chain
+solveW1 : List ℕ → ℕ
+solveW1 D =
+  let a0 = nth 0 H0 ; b0 = nth 1 H0 ; c0 = nth 2 H0
+      e0 = nth 4 H0 ; f0 = nth 5 H0 ; g0 = nth 6 H0 ; h0 = nth 7 H0
+      t2 = addN (Σ0 a0) (maj a0 b0 c0)
+      t1 = subN (nth 0 (zipSub D H0)) t2
+  in subN (subN (subN (subN t1 h0) (Σ1 e0)) (ch e0 f0 g0)) (nth 0 K)
+
+-- a given 1-round digest (target), and the recovered preimage word
+Xtarget1 : List ℕ
+Xtarget1 = compress1 0x61626380
+recovered1 : ℕ
+recovered1 = solveW1 Xtarget1
+
+-- THE PREIMAGE HOLDS: the recovered word regenerates the target digest
+test-preimage-1round : compress1 recovered1 ≡ Xtarget1
+test-preimage-1round = refl
+-- and the inversion recovered exactly the original message word
+test-recovered-word : recovered1 ≡ 0x61626380
+test-recovered-word = refl
+
+------------------------------------------------------------------------
+-- PREIMAGE, 4 rounds — closed form.  After t rounds the state is
+-- [aₜ,aₜ₋₁,aₜ₋₂,aₜ₋₃, eₜ,eₜ₋₁,eₜ₋₂,eₜ₋₃].  So T = digest ⊟ H0 pins the
+-- last four a's and e's, and H0 pins the first four; for r = 4 the WHOLE
+-- a/e trajectory is known, and each message word solves in closed form:
+--   T1ₜ = eₜ₊₁ ⊟ aₜ₋₃ ,  Wₜ = T1ₜ ⊟ eₜ₋₃ ⊟ Σ1(eₜ) ⊟ ch(eₜ,eₜ₋₁,eₜ₋₂) ⊟ Kₜ
+------------------------------------------------------------------------
+
+takePairs : ℕ → List (ℕ × ℕ) → List (ℕ × ℕ)
+takePairs zero    _        = []
+takePairs (suc n) []       = []
+takePairs (suc n) (x ∷ xs) = x ∷ takePairs n xs
+
+compressR : ℕ → List ℕ → List ℕ            -- r-round compression, r ≤ 16
+compressR r ws =
+  zipAdd H0 (foldl (λ st kw → round st (fst kw) (snd kw)) H0 (takePairs r (pairKW K ws)))
+
+-- a/e sequences indexed 0..7 for indices −3..+4
+wAt : List ℕ → List ℕ → ℕ → ℕ
+wAt aS eS t =
+  let t1 = subN (nth (t + 4) eS) (nth t aS)
+  in subN (subN (subN (subN t1 (nth t eS)) (Σ1 (nth (t + 3) eS)))
+                (ch (nth (t + 3) eS) (nth (t + 2) eS) (nth (t + 1) eS)))
+          (nth t K)
+
+invert4 : List ℕ → List ℕ                  -- recover a 16-word message from a 4-round digest
+invert4 D =
+  let T  = zipSub D H0
+      aS = nth 3 H0 ∷ nth 2 H0 ∷ nth 1 H0 ∷ nth 0 H0 ∷ nth 3 T ∷ nth 2 T ∷ nth 1 T ∷ nth 0 T ∷ []
+      eS = nth 7 H0 ∷ nth 6 H0 ∷ nth 5 H0 ∷ nth 4 H0 ∷ nth 7 T ∷ nth 6 T ∷ nth 5 T ∷ nth 4 T ∷ []
+  in wAt aS eS 0 ∷ wAt aS eS 1 ∷ wAt aS eS 2 ∷ wAt aS eS 3
+   ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ []
+
+-- a given 4-round digest, from some message, and the recovered preimage
+Xtarget4 : List ℕ
+Xtarget4 = compressR 4 abcBlock
+preimage4 : List ℕ
+preimage4 = invert4 Xtarget4
+
+-- THE 4-ROUND PREIMAGE HOLDS: the recovered message regenerates the digest
+test-preimage-4round : compressR 4 preimage4 ≡ Xtarget4
+test-preimage-4round = refl
