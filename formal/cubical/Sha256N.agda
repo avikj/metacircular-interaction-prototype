@@ -103,6 +103,35 @@ revL = revAcc []
 schedule : List ℕ → List ℕ            -- 16 words in → 64 words out
 schedule ws = revL (extend 48 (revL ws))
 
+-- word subtraction mod 2³² (a,b < 2³²): a ⊟ b
+subN : ℕ → ℕ → ℕ
+subN a b = mask32 ((a + m32) - b)
+
+takeN : ℕ → List ℕ → List ℕ
+takeN zero    _        = []
+takeN (suc n) []       = []
+takeN (suc n) (x ∷ xs) = x ∷ takeN n xs
+
+lastN : ℕ → List ℕ → List ℕ
+lastN n xs = revL (takeN n (revL xs))
+
+-- one backward schedule step: from a window [Wₜ .. Wₜ₊₁₅] recover Wₜ₋₁,
+-- inverting W_s = σ1(W_{s-2}) + W_{s-7} + σ0(W_{s-15}) + W_{s-16} at s = t+15
+schedBack1 : List ℕ → ℕ
+schedBack1 (w0 ∷ _ ∷ _ ∷ _ ∷ _ ∷ _ ∷ _ ∷ _ ∷ w8 ∷ _ ∷ _ ∷ _ ∷ _ ∷ w13 ∷ _ ∷ w15 ∷ _) =
+  subN (subN (subN w15 (σ1 w13)) w8) (σ0 w0)
+schedBack1 _ = 0
+
+slideDown : ℕ → List ℕ → List ℕ → List ℕ
+slideDown zero    win rec = rec
+slideDown (suc f) win rec =
+  primForce (schedBack1 win) (λ wp → slideDown f (wp ∷ takeN 15 win) (wp ∷ rec))
+
+-- recover the 16-word message from the full 64-word schedule, using only
+-- the last 16 words and the backward recurrence
+message16 : List ℕ → List ℕ
+message16 sch = takeN 16 (slideDown 48 (lastN 16 sch) [])
+
 -- one round on the 8-word state
 round : List ℕ → ℕ → ℕ → List ℕ
 round st k w =
@@ -136,8 +165,39 @@ sha256block ws = compress H0 ws
 abcBlock : List ℕ
 abcBlock = 0x61626380 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 24 ∷ []
 
+-- ℕ → ℕ face: message packed as one natural (16 words, low word first),
+-- digest packed as one natural (8 words, low word first).  This is the
+-- shape the yantra's equation language speaks: sha256nat y ≡ X.
+splitWords : ℕ → ℕ → List ℕ
+splitWords zero    _ = []
+splitWords (suc k) m = (m mod m32) ∷ splitWords k (m div m32)
+
+packWords : List ℕ → ℕ
+packWords [] = 0
+packWords (x ∷ xs) = x + m32 * packWords xs
+
+sha256nat : ℕ → ℕ
+sha256nat n = packWords (sha256block (splitWords 16 n))
+
+-- the abc digest as a named natural target, so the yantra proposition
+-- `sha256nat y ≡ Xabc` needs no 256-bit literal on the wire
+Xabc : ℕ
+Xabc = packWords ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223
+                 ∷ 0xb00361a3 ∷ 0x96177a9c ∷ 0xb410ff61 ∷ 0xf20015ad ∷ [] )
+
 -- the NIST vector, by the kernel computing the whole object
 test-abc : sha256block abcBlock ≡
   ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223
   ∷ 0xb00361a3 ∷ 0x96177a9c ∷ 0xb410ff61 ∷ 0xf20015ad ∷ [] )
 test-abc = refl
+
+-- the ℕ→ℕ face agrees: sha256nat of the packed abc block is the packed digest
+test-abc-nat : sha256nat (packWords abcBlock) ≡
+  packWords ( 0xba7816bf ∷ 0x8f01cfea ∷ 0x414140de ∷ 0x5dae2223
+            ∷ 0xb00361a3 ∷ 0x96177a9c ∷ 0xb410ff61 ∷ 0xf20015ad ∷ [] )
+test-abc-nat = refl
+
+-- THE SCHEDULE IS INVERTIBLE: recover the message from the expansion,
+-- unexpand ∘ expand ≡ id, checked on the abc block
+test-schedule-inverse : message16 (schedule abcBlock) ≡ abcBlock
+test-schedule-inverse = refl
