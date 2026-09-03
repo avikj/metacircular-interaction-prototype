@@ -74,3 +74,10 @@ open import Fibre.JivitaSmrti
 -- two realizations of one motive-source translate through the shared
 -- middle rather than by a direct compiler.
 open import Fibre.TheCarrierIsTheMotiveAndEachReadingIsARealization
+
+-- A reading, as a reusable shape: a collapse into a set, with its kept
+-- middle (Carrier) and owed residual (शेष) derived at the record level,
+-- and the two halves of the law as its derived theorems.  The verdict
+-- reading (Bool → Unit) is a checked instance; the six domain readings
+-- named in the kernel overview instantiate this shape in their own files.
+open import Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual
