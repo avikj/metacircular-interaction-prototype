@@ -55,7 +55,7 @@
 --       (middle-rank-isAntichain, W-middle).  Max antichain =
 --       W_{⌊Ω(p^α)/2⌋}, which is the note's §5(3) at m = 1.
 --
--- WHAT IS NOT PROVED HERE, and is stated as a type with NO inhabitant
+-- THE SCOPE, EXACTLY, and is stated as a type with NO inhabitant
 -- (§8): the general case B_n = ⨂_i V_{α_i}, i.e. the divisors of an
 -- arbitrary n.  There the conclusion is not degenerate — W_k really
 -- varies, unimodality has content, and the injectivity of ε^{A−2k} is

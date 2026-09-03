@@ -188,7 +188,7 @@ _+Col_ = subst (λ A → A → A → A) (sym Col≡Row3) _+Row_
 +Col-assoc = subst Assoc (sym मार्गः-col) +Row-assoc
 
 ------------------------------------------------------------------------
--- ४ · WHAT IS NOT PROVED HERE, stated so nothing is read into it.
+-- ४ · THE SCOPE, EXACTLY, stated so nothing is read into it.
 --
 --   * That `_+Mat_` is the library's matrix addition.  It is the transport
 --     of componentwise addition on the tuple, and it agrees with the

@@ -31,7 +31,7 @@
 -- strictly lower threshold survives a failure that kills the Π, which is
 -- what "tolerable benchmark noise" means and why the label admits none.
 --
--- WHAT IS STILL NOT CLAIMED.  Percentages.  `count` and `length` are ℕ
+-- THE SCOPE, EXACTLY.  Percentages.  `count` and `length` are ℕ
 -- and no division appears; "more than half" would be `length xs < 2 ·
 -- count xs`, which is stateable but is NOT stated or used below, and no
 -- threshold other than 1 is analysed.  The population is a LIST, so

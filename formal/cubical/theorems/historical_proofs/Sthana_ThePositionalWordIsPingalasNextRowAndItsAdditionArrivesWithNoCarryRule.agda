@@ -226,7 +226,7 @@ CanWord≡Tally : CanWord ≡ Tally
 CanWord≡Tally = cong ⟨_⟩ स्थान-तल्ली
 
 ------------------------------------------------------------------------
--- ६ · WHAT IS NOT PROVED HERE.
+-- ६ · THE SCOPE, EXACTLY.
 --
 --   * That `संकलन` is Āryabhaṭa's or anyone's ADDITION ALGORITHM.  It is
 --     a function on canonical words that agrees with `+` under `valueC`;

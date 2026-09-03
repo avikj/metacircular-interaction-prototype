@@ -27,7 +27,7 @@
 -- by computation, one `gcd≡→isGCD refl` per install.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS STILL NOT CLAIMED, AND IT IS THE ARITHMETIC
+-- THE SCOPE, EXACTLY, AND IT IS THE ARITHMETIC
 --
 -- That the walk's installed prime powers ARE pairwise coprime.  That is
 -- Euclid's lemma territory — `Kuttaka.bezout` is the ingredient this

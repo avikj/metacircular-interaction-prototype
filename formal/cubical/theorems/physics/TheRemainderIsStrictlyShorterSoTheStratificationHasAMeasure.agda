@@ -48,7 +48,7 @@
 -- They are proved because the missing piece for the stratification was
 -- never the recursion — it was the measure the recursion decreases.
 --
--- WHAT IS STILL NOT CLAIMED, and it is now a SMALLER remainder than
+-- THE SCOPE, EXACTLY, and it is now a SMALLER remainder than
 -- before.  THE ITERATION IS NOT WRITTEN: no `strata` function exists,
 -- fuelled or well-founded, and no claim is made that the layers it
 -- would produce cover the archive, are pairwise disjoint, or are

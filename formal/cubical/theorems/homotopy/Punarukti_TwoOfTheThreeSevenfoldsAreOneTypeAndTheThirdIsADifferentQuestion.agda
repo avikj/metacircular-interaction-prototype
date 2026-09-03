@@ -252,7 +252,7 @@ import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as
 न-सेतुः-गर्भे-अनेकान्ते e = गर्भः-शून्यः (invEq e A.स्यात्-अस्ति)
 
 ------------------------------------------------------------------------
--- ५ · WHAT IS NOT PROVED HERE.
+-- ५ · THE SCOPE, EXACTLY.
 --
 --   * That `Anekanta.agda` should be deleted.  It should not.  Its own
 --     header records that another agent found and repaired a soundness

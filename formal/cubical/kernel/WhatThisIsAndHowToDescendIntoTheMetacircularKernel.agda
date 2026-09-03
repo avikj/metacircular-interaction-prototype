@@ -270,7 +270,7 @@
 --     of contexts, soundly, at no proof cost.
 --
 ------------------------------------------------------------------------
--- §7.  WHAT IS NOT BUILT.  DATED 2026-08-24.  An absence without a command
+-- §7.  THE SCOPE, EXACTLY.  DATED 2026-08-24.  An absence without a command
 --      is a rumour, so each carries the command that establishes it.
 ------------------------------------------------------------------------
 --

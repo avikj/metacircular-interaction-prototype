@@ -113,7 +113,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 -- what is added is that it holds LEVEL BY LEVEL rather than as one summation
 -- identity — the whole hierarchy transports, not just its first rung.
 --
--- WHAT IT DOES NOT GIVE.  Nothing here is a statement about ω as an
+-- THE SCOPE, EXACTLY.  Nothing here is a statement about ω as an
 -- arithmetic function.  These are lists of places, and which primes are
 -- active in a given modulus is not modelled; only the combinatorics of
 -- active-vs-inactive is.  The bridge to a modulus is the Lean lane's

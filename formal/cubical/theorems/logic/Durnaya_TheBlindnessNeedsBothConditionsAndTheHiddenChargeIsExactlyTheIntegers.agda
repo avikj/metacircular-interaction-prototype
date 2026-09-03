@@ -84,7 +84,7 @@
 -- non-dependent and `S¹` merely not a set.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT PROVED.  Nothing about KMS states, Theorem F, Wilson
+-- THE SCOPE, EXACTLY.  Nothing about KMS states, Theorem F, Wilson
 -- loops, gauge theory, Aharonov–Bohm, or Ryu–Takayanagi.  Not proved:
 -- that `Naya` §१ or `Paryayarthika` is wrong — both are correct as
 -- stated and both are APPLIED here unchanged.  What is refuted is one

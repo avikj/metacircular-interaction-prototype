@@ -43,7 +43,7 @@
 -- whole family, and having it makes the two-population illustration a
 -- corollary rather than the evidence.
 --
--- WHAT IS STILL NOT CLAIMED.  Antitone is proved, ANTI-SYMMETRY of ⊑ is
+-- THE SCOPE, EXACTLY.  Antitone is proved, ANTI-SYMMETRY of ⊑ is
 -- not, so `⊑` is a total PREORDER on pairs and not an order on rates:
 -- (1,1) and (2,3) name the same rate 1/2 and are distinct pairs.
 -- Nothing here quotients by that.  STRICT thresholds (the `Majority`

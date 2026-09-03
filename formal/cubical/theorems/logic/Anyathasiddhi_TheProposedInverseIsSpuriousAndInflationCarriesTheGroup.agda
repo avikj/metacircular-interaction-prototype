@@ -216,7 +216,7 @@ real2-+H kι kι e1 = refl
           (Iso.rightInv infl-iso x) (Iso.rightInv infl-iso y)
 
 ------------------------------------------------------------------------
--- ५ · WHAT IS NOT PROVED HERE, stated so nothing is read into it.
+-- ५ · THE SCOPE, EXACTLY, stated so nothing is read into it.
 --
 --   * That inflation is an isomorphism in general.  It is not.  The
 --     inflation–restriction sequence is exact at H¹ with cokernel governed

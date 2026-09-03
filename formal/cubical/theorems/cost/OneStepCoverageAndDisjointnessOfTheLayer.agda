@@ -39,7 +39,7 @@
 -- the length version of this was already proved on this line
 -- (`partitionLength`), and this is its membership counterpart.
 --
--- WHAT IS STILL NOT CLAIMED.  THE ITERATED VERSIONS.  Nothing says a
+-- THE SCOPE, EXACTLY.  THE ITERATED VERSIONS.  Nothing says a
 -- member of the archive appears in some layer of `strata n xs` for any
 -- particular `n`, nor that two DIFFERENT layers share no member — both
 -- need the one-step facts threaded through the recursion together with

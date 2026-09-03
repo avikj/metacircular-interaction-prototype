@@ -58,7 +58,7 @@
 --                     generalisation demonstrably contains the source's
 --                     own statement rather than replacing it.
 --
--- WHAT IS NOT PROVED HERE, stated so no reader infers it.  Termination of
+-- THE SCOPE, EXACTLY, stated so no reader infers it.  Termination of
 -- the cycle (Lagrange 1768 for T = 0; open in this repository).
 -- Minimality of Bhāskara's choice rule.  The bookkeeping — k and k′
 -- themselves — which is where the signs live; these are the step's

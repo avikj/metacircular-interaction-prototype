@@ -48,7 +48,7 @@
 --                     p^(suc m) equals p^m·(p+1) — i.e. ψ(p^k) = p^{k−1}(p+1),
 --                     for EVERY prime power, replacing the eight-row table.
 --
--- WHAT THIS MODULE DOES NOT PROVE — stated precisely, because the boundary is
+-- THE SCOPE, EXACTLY — stated precisely, because the boundary is
 -- the point (§7).  Nothing group-theoretic.  There is no group, no coset, no
 -- lattice and no cardinality in any type below: the objects are the exponent
 -- data (G, E, the run-lengths) and the closed form built from them.  The steps

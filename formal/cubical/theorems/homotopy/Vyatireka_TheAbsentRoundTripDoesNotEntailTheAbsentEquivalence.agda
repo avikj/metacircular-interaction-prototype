@@ -276,7 +276,7 @@ Z2≡H4 = ua Z2≃H2 ∙ H2≡H4
 ¬H4≃Z4 = subst (λ A → ¬ (A ≃ Z4)) Z2≡H4 ¬Z2≃Z4
 
 ------------------------------------------------------------------------
--- ६ · WHAT IS NOT PROVED HERE.
+-- ६ · THE SCOPE, EXACTLY.
 --
 --   * That the remaining candidates of the 39 are any particular verdict.
 --     Twenty-three pairs are untouched by this file; the sixteen listed in

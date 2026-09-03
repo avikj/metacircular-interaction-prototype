@@ -43,7 +43,7 @@
 -- practice.  What is contributed is that this corpus's own two open
 -- half-sentences are closed, and the observation about the witness.
 --
--- WHAT IS STILL NOT CLAIMED.  Whether `mediant` DESCENDS is open and is
+-- THE SCOPE, EXACTLY.  Whether `mediant` DESCENDS is open and is
 -- not needed above; if a canonical between-rate is ever wanted, that
 -- question returns.  `⊏R` is a relation into `hProp`, not an order:
 -- irreflexivity, transitivity and the relation to `AtLeastOnRate` /

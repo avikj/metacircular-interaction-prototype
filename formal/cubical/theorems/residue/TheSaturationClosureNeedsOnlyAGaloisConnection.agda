@@ -49,7 +49,7 @@
 -- stated.  What is contributed is the reduction of Δ 28 §31–32's
 -- residuation obligation to those two lines.
 --
--- WHAT IS STILL NOT CLAIMED.  The min-plus instance itself: neither
+-- THE SCOPE, EXACTLY.  The min-plus instance itself: neither
 -- `galFwd` nor `galBwd` is proved for a semiring-valued kernel here,
 -- and no quantale is constructed anywhere in this repository.  The
 -- idempotence result therefore STILL does not apply to min-plus

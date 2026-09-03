@@ -28,7 +28,7 @@
 --   the Born weights has no rival within the vows — exactly as the
 --   qualitative layer, now on weights.
 --
--- WHAT IS NOT PROVED, and is stated honestly as a conjecture type:
+-- THE SCOPE, EXACTLY, and is stated honestly as a conjecture type:
 --   `BornInteriorConjecture` — the INTERIOR.  Replace the all-or-nothing
 --   vows by (i) normalisation, (ii) additivity across a refinement of the
 --   contention (ahiṃsā quantitative: a coarse outcome's weight is the sum

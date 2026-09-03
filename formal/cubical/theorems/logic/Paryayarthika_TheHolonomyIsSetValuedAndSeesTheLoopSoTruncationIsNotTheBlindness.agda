@@ -66,7 +66,7 @@
 -- gauge loop" would predict Aharonov–Bohm invisible.  §२ is that
 -- objection made into a term.
 --
--- WHAT IS NOT PROVED.  Nothing about KMS states, C*-algebras, Wilson
+-- THE SCOPE, EXACTLY.  Nothing about KMS states, C*-algebras, Wilson
 -- loops, connections, or Aharonov–Bohm.  Theorem F is neither used nor
 -- formalised.  Not proved: that `Naya` §१ is wrong — it is correct as
 -- stated and is applied here unchanged in §४; what is refuted is the

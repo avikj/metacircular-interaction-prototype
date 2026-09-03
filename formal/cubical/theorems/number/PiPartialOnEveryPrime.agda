@@ -288,7 +288,7 @@ fails-pp-on-every-prime-square e q =
 -- re-proved here.  No other input is used: no ordering, no primality
 -- algorithm, no arithmetic beyond ℕ and ℤ.
 --
--- WHAT IS NOT ESTABLISHED.  Nothing here connects the model to a numeral:
+-- THE SCOPE, EXACTLY.  Nothing here connects the model to a numeral:
 -- there is no term of the form "the shape of 12 is [1,0]".  That link is
 -- exactly what `TransmissionRefutations.agda` supplies from the other
 -- side, by computing μ, ω, Ω, λ, 𝟙_℘ from numerals by trial division and

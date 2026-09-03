@@ -45,7 +45,7 @@
 -- a function of the rate.  That is the whole criterion, and it explains
 -- rather than merely records the earlier separation.
 --
--- WHAT IS STILL NOT CLAIMED.  No quotient TYPE is formed — `≈` is a
+-- THE SCOPE, EXACTLY.  No quotient TYPE is formed — `≈` is a
 -- relation, and no set-quotient, no truncation, no univalence is used
 -- anywhere below.  Descent is proved for the two claim families and
 -- refuted for one statement; nothing is proved about an arbitrary

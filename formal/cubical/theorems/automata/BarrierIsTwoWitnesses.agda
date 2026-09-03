@@ -57,7 +57,7 @@
 -- "arbitrary Φ" was for.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS NOT PROVED, AND MUST NOT BE READ IN
+-- THE SCOPE, EXACTLY — AND WHAT MUST NOT BE READ INTO IT
 --
 -- Nothing analytic.  No claim that such a pair exists, that the zeros of
 -- ζ admit one, that the counting law and functional equation can be met,
