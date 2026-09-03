@@ -265,3 +265,37 @@ totality-forced g n = goldbach-complete (4 + 2 · n) (g n)
 goldbach-is-witness-totality :
   (SearchIsTotal → Goldbach) × (Goldbach → SearchIsTotal)
 goldbach-is-witness-totality = section-factors , totality-forced
+
+------------------------------------------------------------------------
+-- §7 · two provable properties OF the totality, without proving it.
+--
+-- These say what kind of proposition the totality is, and they hold
+-- because the fibre is DECIDABLE — a feature Goldbach has and the twin
+-- and Collatz sections do not (their fibres are semidecidable, unbounded
+-- searches).  Goldbach is Π₁; the other two are Π₂.
+------------------------------------------------------------------------
+
+Dec→Stable : {A : Type} → Dec A → ¬ ¬ A → A
+Dec→Stable (yes a) _  = a
+Dec→Stable (no ¬a) nn = E.rec (nn ¬a)
+
+-- (a) REFUTABLE BY A FINITE WITNESS.  A single even number on which the
+--     search fails disproves the whole section.  If Goldbach is false, it
+--     is false at an exhibitable, checkable place — coherence has a
+--     finite defect or none.
+finite-counterexample-refutes :
+  (Σ[ n ∈ ℕ ] (gcheck (4 + 2 · n) ≡ false)) → ¬ Goldbach
+finite-counterexample-refutes (n , f) g =
+  false≢true (sym f ∙ totality-forced g n)
+
+-- (b) ¬¬-STABLE.  Because every fibre is decidable, the section is its own
+--     double negation: if Goldbach cannot be false, it is true — a term is
+--     recovered, not merely licensed.  So there is NO gap between "true"
+--     and "constructively provable" for this statement; the classical and
+--     the constructive Goldbach are one proposition.  The only openness is
+--     exhibiting the term, never a term that is classically-there-and-
+--     constructively-absent.
+goldbach-¬¬-stable : ¬ ¬ Goldbach → Goldbach
+goldbach-¬¬-stable nn n =
+  Dec→Stable (goldbach-dec (4 + 2 · n))
+             (λ ¬gn → nn (λ g → ¬gn (g n)))
