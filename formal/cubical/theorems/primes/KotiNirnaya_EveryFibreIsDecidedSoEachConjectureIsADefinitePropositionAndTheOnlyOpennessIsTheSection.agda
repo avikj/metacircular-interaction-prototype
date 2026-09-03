@@ -228,3 +228,40 @@ CollatzWithin k n = citer k (suc n) ≡ suc zero
 
 collatz-dec : (k n : ℕ) → Dec (CollatzWithin k n)
 collatz-dec k n = discreteℕ (citer k (suc n)) (suc zero)
+
+------------------------------------------------------------------------
+-- §6 · the section is not an unknown object — it is the universal
+--       witness, exhibited, and the only open thing is its totality.
+--
+-- `the-universal-witness` is a TOTAL function, present here, that turns a
+-- successful search into the prime pair at every stage.  It is the
+-- kernel's own bounded search composed with the extractor; nothing about
+-- it is unknown.  `section-factors` shows the Goldbach section is exactly
+-- this witness applied to its precondition, and `totality-forced` shows
+-- the precondition is exactly what the section supplies back.  So
+-- Goldbach is NOT "does a function exist"; it is one Π-property OF a named,
+-- constructed witness: that its search never fails.  The universal witness
+-- is built; its totality is the single open predicate.
+------------------------------------------------------------------------
+
+UniversalWitness : Type
+UniversalWitness = (n : ℕ) → gcheck (4 + 2 · n) ≡ true → GoldbachAt (4 + 2 · n)
+
+the-universal-witness : UniversalWitness
+the-universal-witness n = goldbach-sound (4 + 2 · n)
+
+SearchIsTotal : Type
+SearchIsTotal = (n : ℕ) → gcheck (4 + 2 · n) ≡ true
+
+section-factors : SearchIsTotal → Goldbach
+section-factors tot n = the-universal-witness n (tot n)
+
+totality-forced : Goldbach → SearchIsTotal
+totality-forced g n = goldbach-complete (4 + 2 · n) (g n)
+
+-- The two together: the Goldbach section and the totality of the exhibited
+-- witness are interderivable.  What is open is a predicate on a known
+-- object, not the object.
+goldbach-is-witness-totality :
+  (SearchIsTotal → Goldbach) × (Goldbach → SearchIsTotal)
+goldbach-is-witness-totality = section-factors , totality-forced
