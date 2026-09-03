@@ -44,7 +44,7 @@ module KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndT
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat
-  using (ℕ ; zero ; suc ; _+_ ; _·_ ; +-comm ; +-suc ; injSuc ; snotz ; discreteℕ)
+  using (ℕ ; zero ; suc ; _+_ ; _·_ ; +-comm ; +-suc ; injSuc ; snotz ; discreteℕ ; predℕ)
 open import Cubical.Data.Bool using (Bool ; true ; false ; false≢true)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; _×_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬_)
@@ -299,3 +299,52 @@ goldbach-¬¬-stable : ¬ ¬ Goldbach → Goldbach
 goldbach-¬¬-stable nn n =
   Dec→Stable (goldbach-dec (4 + 2 · n))
              (λ ¬gn → nn (λ g → ¬gn (g n)))
+
+------------------------------------------------------------------------
+-- §8 · the fibre carries the reflection ℤ/2, and its SIZE is the
+--       representation count — the founding reflection frame, now
+--       internal to the witness.
+------------------------------------------------------------------------
+
+-- the two primes of a witness
+p-of q-of : {m : ℕ} → GoldbachAt m → ℕ
+p-of w = fst w
+q-of w = fst (snd w)
+
+-- REFLECTION: swap the two primes.  This is k ↦ −k about the midpoint —
+-- the pair (m/2 − r, m/2 + r) reflected to (m/2 + r, m/2 − r) — now an
+-- endofunction of the fibre itself.
+reflect : {m : ℕ} → GoldbachAt m → GoldbachAt m
+reflect (p , q , pp , pq , e) = q , p , pq , pp , (+-comm q p ∙ e)
+
+reflect-swaps-p : {m : ℕ} (w : GoldbachAt m) → p-of (reflect w) ≡ q-of w
+reflect-swaps-p w = refl
+
+reflect-swaps-q : {m : ℕ} (w : GoldbachAt m) → q-of (reflect w) ≡ p-of w
+reflect-swaps-q w = refl
+
+-- it is an involution on the underlying pair: reflecting twice returns
+-- both primes unchanged.  A ℤ/2 action on the solution set.
+reflect-invol-p : {m : ℕ} (w : GoldbachAt m) → p-of (reflect (reflect w)) ≡ p-of w
+reflect-invol-p w = refl
+
+-- a witness is FIXED by the reflection exactly when its two primes are
+-- equal — the diagonal p = q, the zero-offset centre.  Every other
+-- solution lives in a 2-orbit {(p,q),(q,p)}.
+Fixed : {m : ℕ} → GoldbachAt m → Type
+Fixed w = p-of w ≡ q-of w
+
+-- SIZE: the fibre is not a proposition.  10 = 3+7 = 5+5 are two distinct
+-- inhabitants, so the number of representations is the CARDINALITY of the
+-- fibre, and "strong Goldbach" (many representations) is a statement about
+-- its h-level.  Truncating the fibre to a proposition is exactly the
+-- śeṣa/loss the corpus measures everywhere: it discards the count.
+gb10-a gb10-b : GoldbachAt 10
+gb10-a = 3 , 7 , refl , refl , refl
+gb10-b = 5 , 5 , refl , refl , refl
+
+3≢5 : ¬ (3 ≡ 5)
+3≢5 p = snotz (cong (λ n → predℕ (predℕ (predℕ n))) (sym p))
+
+GoldbachAt10-is-not-a-proposition : ¬ (isProp (GoldbachAt 10))
+GoldbachAt10-is-not-a-proposition hp = 3≢5 (cong p-of (hp gb10-a gb10-b))
