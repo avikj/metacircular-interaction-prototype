@@ -1,0 +1,44 @@
+THE QUOTIENT BY AN EXPLANATION IS LOSSLESS FOR EVERY EXACT EVALUATOR
+AND KILLS THE DEPTH CLASS
+Filling the diamond's loop is the decision to demote depth from the
+protected observers — compression and protection decided against
+each other, as one theorem
+
+Semantic compression as quotient / the 2-cell that kills a class /
+the observer boundary made explicit
+
+MulyaVinimaya ended on a prophecy: when an explanation fills the
+diamond's loop, the depth class is what it must kill or account for.
+This night the loop is filled and the death is watched.
+
+The explanation enters as the synthesis defines semantic compression:
+a set-quotient of the trace space by exactly the identification of
+the two coterminal schedules.  Declare the protected observers to be
+the exact evaluators — the endpoint utilities — and two theorems
+close over the same quotient:
+
+LOSSLESS.  For every potential, the pairing factors through the
+compression, and the factorization computes on constructors.  Stokes
+is the descent condition, applied twice: both schedules carry
+φ(end) − φ(start), so the identification destroys nothing any exact
+observer can see.
+
+LETHAL.  No function on the compressed space restricts to the depth
+pairing.  The two identified schedules carry depths 2 and 1; the
+quotient makes them one point; 2 ≡ 1 is refuted in ℕ.  The nonzero
+cycle integral of abstract 44 is thereby exactly the obstruction to
+this compression — not a curiosity about one loop but the price of
+the quotient, stated before it is paid.
+
+So admitting the explanation and protecting the depth observer are
+incompatible as a theorem, and the choice between them is not the
+machine's: the dangerous act is not quotienting, it is quotienting
+before declaring the observer class.  The machine now holds both
+consequences checked, and hands the declaration to the caller.
+
+SYĀT — THE CLAIM, EXACTLY.  Losslessness for every potential over
+the quotient by the one identification; lethality for the depth
+evaluator on the same quotient.  NOT claimed: anything about other
+explanations or other observer classes.
+
+Machine-checked in cubical type theory, --safe, at the pin.
