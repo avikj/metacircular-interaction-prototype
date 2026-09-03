@@ -1,0 +1,50 @@
+COLLISION IS AN OFF-DIAGONAL KERNEL-PAIR POINT, THE KERNEL PAIR IS THE
+FIBERED PAIRING, AND EVERY COIN FACE IS A COLLISION
+Collision semantics on the atom — finding a collision is constructing a
+distinct pair in one fiber, and the session's whole coin was that all
+along
+
+Collision semantics / relational meaning is fiber geometry / the coin
+unified
+
+Collision finding is not inversion.  It is the construction of an
+off-diagonal point of a program's kernel pair, and the kernel pair is
+the fibered pairing — so a collision is exactly two distinct points in
+one output fiber.  This module makes that core exact on any map, and
+then closes a loop: the session's coin was collision semantics.
+
+THE KERNEL PAIR IS THE FIBERED PAIRING.  For any P : X → Y,
+KernelPair P ≃ Σ y, (Fib P y × Fib P y), with no hypothesis on Y — the
+based-path space is contractible and the equivalence is that
+contraction, twice, both round trips discharged.  Relational collision
+semantics is fiber geometry, as a term.
+
+A COLLISION IS AN OFF-DIAGONAL FIBER CONFIGURATION.  Coll P maps to
+Σ y, Conf₂(Fib P y) with no hypothesis, and back when Y is a set —
+because a set makes the output-proofs unique, so apartness of inputs
+and apartness of fiber points coincide.
+
+WHERE DID THE COLLISION ENTER?  Fiber Fubini — the fiber of a
+composite is the dependent pairing of stage fibers — gives the
+collision chain rule: a composite collision is upstream (the
+intermediates already collided) or a genuine merge (the later stage
+identified two distinct intermediates), the split being exactly
+decidability of intermediate equality.
+
+THE COIN WAS COLLISION SEMANTICS.  Every face of the coin — a
+projection, two carried points, apart upstairs, together downstairs —
+IS a point of Coll of its projection, in one line.  So the P/NP gap,
+the route, the schedule, the count, and the rope's charge are all
+off-diagonal kernel-pair points, and the no-retraction lemma is
+exactly that these fibers admit no global chart.
+
+SYĀT — THE CLAIM, EXACTLY.  The kernel-pair equivalence, the two
+collision/configuration directions, fiber Fubini and the chain rule,
+and that every coin face is a collision.  NOT claimed — the
+collision-semantics document's own boundary, kept: none of this makes
+CONSTRUCTING an off-diagonal point cheap.  Identifying the fiber is
+immediate; giving it a short generative presentation is the work these
+theorems relocate, not abolish.
+
+Machine-checked in cubical type theory, --safe, at the pin; certified
+through the interactive kernel.
