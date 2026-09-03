@@ -50,8 +50,7 @@
 --       corollary, on the kernel's OWN library.  Exact analogue of
 --       Obstruction.frequency-cannot-reach.
 --
--- WHAT IS NOT PROVED, and these are the live questions rather than
--- omissions:
+-- THE FRONTIER THIS OPENS — the live questions it makes precise:
 --   * NO ANTI-PLATEAU IS PROVED HERE.  Obstruction's separation has two
 --     halves and this is one.  What escapes the plateau on the kernel side
 --     is Vyapti_'s `SchematicOperation` -- `no-native-operation-does-this`

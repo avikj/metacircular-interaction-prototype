@@ -94,7 +94,7 @@
 --       and the kernel can certify theorems it cannot install, since
 --       `NativeOperation.checked` demands a `Derivation`.
 --
--- WHAT IS NOT PROVED, named rather than hidden:
+-- THE SCOPE, NAMED IN FULL:
 --   * NO completeness, no characterisation, no decision procedure.  §3
 --     refutes two statements; it does not describe what IS derivable.
 --   * NO claim that this standpoint is canonical or best.  It is one more,

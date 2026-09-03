@@ -80,7 +80,7 @@
 --       one logic: the first lives in the dependency of a type on an
 --       index, the second in the propositional structure of negation.
 --
--- WHAT IS NOT PROVED, named:
+-- THE SCOPE, NAMED EXACTLY:
 --   * NOT the Jaina fourth bhaṅga.  See the warning above.  Formalising
 --     avaktavya needs the yugapat reading and it is not attempted here.
 --   * NO claim that either formalisation is the right reading of its

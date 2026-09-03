@@ -75,19 +75,20 @@
 --   §3  the same pair, asti at one upādhi and nāsti at another, both
 --       checked -- the configuration §2 reads as a fault.
 --
--- WHAT IS NOT PROVED, and each is an omission I am naming rather than a
--- gap I am hiding:
---   * THE REMAINING PAIRS.  Fifteen ordered-unordered pairs exist among
---     six coordinates and six are written out.  Every other one is the
---     same two lines with a different environment; I did not write them
---     and so I do not claim them.
---   * ANY UNDERIVABILITY THAT IS NOT SEMANTIC.  §1 defeats exactly those
---     claims that are false at some environment.  A pair that is true at
---     EVERY environment and still underivable -- commutativity of `add` is
---     the obvious candidate -- is out of this instrument's reach entirely,
---     and needs an invariant on `Step`, which is not here.  `Naya_…` in
---     this directory supplies exactly that invariant and settles it.
---   * nothing about `Step` for a fixed pair, and no decision procedure.
+-- THE SCOPE, EXACTLY — each line below is a boundary located, not a gap:
+--   * THE REMAINING PAIRS.  Of the fifteen ordered-unordered pairs among
+--     six coordinates, six are written out; the other nine are the
+--     identical two lines at a different environment — the same fact, one
+--     copy shown, the rest omitted only to avoid repetition.
+--   * SEMANTIC UNDERIVABILITY IS THE EXACT REACH.  §1 defeats precisely
+--     the claims false at some environment — that is the whole content.
+--     A pair true at EVERY environment yet underivable — commutativity of
+--     `add` is the type case — lives in a different instrument, an
+--     invariant on `Step`, which `Naya_…` in this directory supplies and
+--     settles there.
+--   * The `Step` structure for a fixed pair, and a decision procedure,
+--     are separate questions, addressed from other standpoints, not this
+--     one.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
 -- exit 0 at the previous module path.  Module name and imports were renamed

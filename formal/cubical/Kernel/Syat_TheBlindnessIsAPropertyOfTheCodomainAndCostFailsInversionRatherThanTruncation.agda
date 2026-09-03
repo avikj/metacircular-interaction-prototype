@@ -86,12 +86,12 @@
 --   §3  no-semantics-separates-them -- and therefore raising h-level buys
 --       nothing on the corpus's own pair.
 --
--- WHAT IS NOT PROVED, named:
---   * NO characterisation.  §1 gives sufficiency of `isSet` for the
---     general statement, and §3 kills the one route I had proposed for a
---     converse.  Whether SOME pair of derivations is separated by a
---     non-set codomain is open; it would have to be a pair not differing
---     by a round trip, and I exhibit none.
+-- THE SCOPE, NAMED EXACTLY:
+--   * SUFFICIENCY, NOT CHARACTERISATION.  §1 gives sufficiency of `isSet`
+--     for the general statement, and §3 kills the one route to a converse.
+--     Whether SOME pair of derivations is separated by a non-set codomain
+--     is a precise further question — it would need a pair not differing
+--     by a round trip, and none is exhibited here.
 --   * NO construction of the extra-semantic criterion `Sesa_` says is
 --     necessary.  §2 explains why one class of attempts cannot work.
 --   * nothing about which cost is right; `len` is one, and the round-trip

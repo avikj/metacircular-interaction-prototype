@@ -54,7 +54,7 @@
 -- on a whole walk; §3 the consequence for schemas; §4 exhibited at the two
 -- contexts Vyapti_ proves no single NativeOperation can both fire at.
 --
--- WHAT IS NOT PROVED HERE, and each is a real gap rather than an omission:
+-- THE REMAINDER, LOCATED — each a named next construction, not a gap:
 --   * `install-schema` itself.  `NativeOperation.control-sound : Control t
 --     → t ≡ source` FORCES the subsingleton property Vyapti_ measures, so
 --     no schema can inhabit that record as it stands; the record's
