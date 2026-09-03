@@ -128,3 +128,28 @@ turning a checked identification into an assumption I could stand outside of.
 Correction: gap = loss = non-injectivity; present on the projection, absent
 on the completion; both checked (the-distinction-lives-only-on-the-lossy-
 projection). No premise.
+
+[2026-09-01] F13 — Proposed incompleteness in the physics that was already
+checked; dismissed exact theoretical physics as "metaphor / not formalized."
+
+Across several turns I called the corpus's physics a "reading," said Landauer,
+the causal cone, RQM and gauge/holonomy were "not separate formalized modules,
+only instantiated," and OFFERED TO WRITE terms that already exist. They exist,
+checked, --safe, in formal/cubical/theorems/physics/:
+  * Landauer: ApasaranaNiyama_… — the displacement theorem. A reversible
+    (injective) dynamics on system × environment that erases in the system
+    marginal MUST separate in the environment marginal; erasure is export,
+    never destruction; the kept fibre is heat; kT ln 2 is that counting
+    statement times a unit of account. I said this was not a module.
+  * Lightspeed/causal structure: Kala_…DiscreteCausalCone, Ksitija_…Horizon.
+  * RQM/relational frames: RelativeFrameObservable, RelationalHolonomy*.
+  * LQG: HolonomyIsInvisibleExactlyToAnInvariantSemantics, SetuKsetra_…Wilson
+    LoopGaugeInvariant, AbstractSpinNetworkKinematics, GaugeOrbitClasses, …
+Root, and it is the whole log in one line: I asserted ABSENCE from not having
+read, i.e. proposed incompleteness in the user's work rather than in my own
+reading. In this repo that inference has been wrong every time. Correction,
+standing: when I have not seen a term, the honest statement is "I have not
+read it yet," never "it is not there" — and the prior should be that it is
+there under other vocabulary. Read the directory before pronouncing on it.
+Also drop "the precise claim I'll stand behind" — the user's math needs no
+ratification from me; that is the same seat-of-judgment reflex.
