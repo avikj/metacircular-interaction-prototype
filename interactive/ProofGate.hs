@@ -283,6 +283,8 @@ module ProofGate
   , runAgda
   , runAgdaUnwatched
   , runAgdaModule
+  , Analysis(..)
+  , runAgdaAnalyze
   , vetSuccess
   , vetForeignRun
   , main
@@ -1096,6 +1098,107 @@ runAgdaModule root source = do
   case raw of
     (ExitSuccess, out) -> vetSuccess root out
     other -> pure other
+
+-- ---------------------------------------------- the analyzer readout
+--
+-- WHAT THE KERNEL SAYS BEYOND YES.  `runAgdaModule` returns a verdict; this
+-- returns the ANALYSIS.  agda's --interaction mode answers two questions
+-- about any expression in a loaded module: `Cmd_compute_toplevel` gives its
+-- NORMAL FORM, `Cmd_infer_toplevel` gives its TYPE.  So for a submitted
+-- module and a list of expressions, the kernel hands back, per expression,
+-- what it computes it to and what it is — every bit it derives, not a green.
+--
+-- Include roots are made ABSOLUTE here: in --interaction mode agda resolves
+-- `-i` relative to the loaded file, not the working directory (measured), so
+-- the relative roots that runAgdaModule uses would miss the corpus.  Same
+-- corpus, same library, same locale; a different question asked of them.
+--
+-- Returns, per requested expression, (expr, normal-form-or-error,
+-- type-or-error).  A load failure surfaces as agda's report in the first
+-- entry's fields; nothing is paraphrased.
+data Analysis = Analysis
+  { anExpr   :: String
+  , anNormal :: String   -- Cmd_compute_toplevel DefaultCompute
+  , anType   :: String   -- Cmd_infer_toplevel Simplified
+  } deriving (Eq, Show)
+
+runAgdaAnalyze :: FilePath -> String -> [String] -> IO (ExitCode, [Analysis])
+runAgdaAnalyze root modSource exprs = do
+  setLocaleEncoding utf8
+  extra <- corpusIncludeRoots root
+  micros <- agdaTimeoutMicros
+  tmp <- getTemporaryDirectory
+  dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-anal.XXXXXX"] ""
+  let dir  = reverse (dropWhile isSpace (reverse dirLine))
+      file = dir </> "Candidate.agda"
+      absRoots = [ root </> r | r <- kIncludeRoot : extra ]
+      incArgs  = concat [ ["-i", r] | r <- absRoots ]
+                 ++ ["-i", dir, "--library=" ++ kAgdaLibrary]
+      iotcm payload = "IOTCM " ++ show file ++ " NonInteractive Direct (" ++ payload ++ ")"
+      compute e = iotcm ("Cmd_compute_toplevel DefaultCompute " ++ show e)
+      inferT  e = iotcm ("Cmd_infer_toplevel Simplified " ++ show e)
+      stdinText = unlines (concat [ [compute e, inferT e] | e <- exprs ])
+  (do writeUtf8 file modSource
+      base <- getEnvironment
+      let env' = ("LC_ALL", "C.UTF-8") : ("LANG", "C.UTF-8")
+                 : [ kv | kv@(k, _) <- base, k /= "LC_ALL", k /= "LANG" ]
+          cp = (proc "agda" ("--interaction" : incArgs))
+                 { cwd = Just root, env = Just env' }
+      r <- try (timeout micros (readCreateProcessWithExitCode cp stdinText))
+             :: IO (Either SomeException (Maybe (ExitCode, String, String)))
+      pure $ case r of
+        Right (Just (code, out, err)) ->
+          (code, pairUp exprs (infoResults (out ++ err)))
+        Right Nothing ->
+          ( ExitFailure 124
+          , [ Analysis e (kEnvironmentFault ++ ": agda did not return") "" | e <- exprs ] )
+        Left ex ->
+          ( ExitFailure 127
+          , [ Analysis e (kEnvironmentFault ++ ": " ++ show ex) "" | e <- exprs ] ))
+    `finally` removePathForcibly dir
+  where
+    -- Pair the ordered info-action results back to the expressions: compute
+    -- then infer, one result each, in the order the commands were sent.
+    pairUp [] _ = []
+    pairUp (e : es) (nf : ty : rest) = Analysis e nf ty : pairUp es rest
+    pairUp (e : es) [nf]             = [Analysis e nf "(no type returned)"]
+    pairUp (e : es) []               = [ Analysis e' "(no answer returned)" "" | e' <- e : es ]
+
+-- Scan agda2 s-expression output for `agda2-info-action "TITLE" "BODY"`,
+-- returning each BODY (unescaped) whose TITLE is a real answer — dropping the
+-- "*Type-checking*" progress lines and empty bodies.  An "*Error*" body is
+-- kept: an expression that failed to elaborate is a real, reported answer.
+infoResults :: String -> [String]
+infoResults = go
+  where
+    marker = "agda2-info-action "
+    go s = case breakOn marker s of
+      Nothing -> []
+      Just after -> case readSExpString after of
+        Just (title, r1) -> case readSExpString (dropWhile isSpace r1) of
+          Just (body, r2)
+            | title == "*Type-checking*" || all isSpace body -> go r2
+            | otherwise -> body : go r2
+          Nothing -> go r1
+        Nothing -> go after
+    breakOn m t = fmap (drop (length m)) (findPrefix m t)
+    findPrefix m t@(_ : cs)
+      | m `isPrefixOf` t = Just t
+      | otherwise = findPrefix m cs
+    findPrefix _ [] = Nothing
+
+-- Read one double-quoted, backslash-escaped string; return it (decoded) and
+-- the remainder after the closing quote.
+readSExpString :: String -> Maybe (String, String)
+readSExpString ('"' : cs) = decode cs
+  where
+    decode ('\\' : x : r) = fmap (first (unesc x :)) (decode r)
+    decode ('"' : r)      = Just ([], r)
+    decode (c : r)        = fmap (first (c :)) (decode r)
+    decode []             = Nothing
+    unesc 'n' = '\n'; unesc 't' = '\t'; unesc c = c
+    first f (a, b) = (f a, b)
+readSExpString _ = Nothing
 
 -- ------------------------------------------------------- the two controls
 --
