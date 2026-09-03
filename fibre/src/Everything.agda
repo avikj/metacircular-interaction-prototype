@@ -67,3 +67,10 @@ open import Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoi
 -- orbit: at rung n it is योग of the n-th state, never a stale payload.
 -- पुनरागमन read forward into infinity — losslessness as उपयोग at every rung.
 open import Fibre.JivitaSmrti
+
+-- The naming of the law: Carrier IS the motive (the universal lossless
+-- middle), each projection of §Sesa's graph is a realization, and every
+-- map factors as realize ∘ to-motive (middle-out).  Adds the mediation:
+-- two realizations of one motive-source translate through the shared
+-- middle rather than by a direct compiler.
+open import Fibre.TheCarrierIsTheMotiveAndEachReadingIsARealization
