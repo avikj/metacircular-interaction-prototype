@@ -1,0 +1,130 @@
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- मूल-चक्र-परीक्षा — the basis-cycle test.
+--
+-- THE CLAIM (2026-09-03, the synthesis): exhaustive path testing
+-- compresses to a homology basis — to certify that an additive edge
+-- effect is path-independent, it suffices to verify zero integral on
+-- basis cycles.  Here is the pairwise instance of that theorem, in the
+-- kernel, for every evaluator that respects orientation:
+--
+--   §1  INTEGRATION IS ADDITIVE over concatenation, and on a reversed
+--       derivation the integral of an antisymmetric evaluator cancels
+--       against the original: ∫(revD d) + ∫ d ≡ 0 — proved without
+--       ever distributing negation, by cancelling one step at a time.
+--
+--   §2  THE ONE-CYCLE TEST: for any two coterminal derivations p, q
+--       and any antisymmetric evaluator ω, if ω integrates to zero on
+--       the single cycle p ++ revD q, then ω agrees on p and q.  One
+--       loop tested, every pair of schedules certified — the
+--       fundamental cycle IS the test suite.
+--
+--   §3  EVERY EXACT EVALUATOR IS ANTISYMMETRIC (a potential's
+--       coboundary reverses sign with the step, proved from the ℤ
+--       lemmas), so §2 applies to the whole protected class of
+--       MulyaVinimaya/Vyakhya for free.  And the depth evaluator
+--       गभीरता is NOT antisymmetric — it counts wrappers through
+--       `reverse` positively — which is exactly why its nonzero loop
+--       integral (pos 3) escapes this test and lives as a class.  The
+--       hypothesis of §2 is not a convenience: it is the boundary
+--       between value that one cycle can certify and value that no
+--       cycle can kill.
+--
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–3 for step evaluators valued in ℤ
+-- over the kernel's Derivation, with revD and ++ imported from
+-- EveryDerivationIsInvertible, not restated.  NOT claimed: a spanning
+-- tree or a full H₁ basis for the whole step graph — this is the
+-- theorem at one fundamental cycle, uniformly in the pair it spans.
+------------------------------------------------------------------------
+
+module MulaCakraPariksa_OneCycleTestDecidesPathIndependenceForEveryAntisymmetricEvaluator where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Int using (ℤ ; pos ; _+_ ; -_ ; _-_)
+open import Cubical.Data.Int.Properties
+  using (+Comm ; +Assoc ; minusPlus ; -Cancel ; -Cancel' ; pos0+)
+
+open import RewriteCertificate using (Tm ; Step ; reverse ; Derivation ; done ; then-step)
+open import EveryDerivationIsInvertible using (_++_ ; revD)
+open import MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral
+  using (Evaluator ; ∫ ; d′)
+
+------------------------------------------------------------------------
+-- ० · Two ℤ facts, assembled from the pinned lemmas.
+------------------------------------------------------------------------
+
+-- (x − y) + (y − x) ≡ 0
+cancelPair : (x y : ℤ) → (x - y) + (y - x) ≡ pos 0
+cancelPair x y =
+  +Comm (x - y) (y - x)
+  ∙ +Assoc (y - x) x (- y)
+  ∙ cong (_+ (- y)) (minusPlus x y)
+  ∙ -Cancel y
+
+-- x − y ≡ − (y − x)
+negSwap : (x y : ℤ) → x - y ≡ - (y - x)
+negSwap x y =
+  cong ((x - y) +_) (sym (-Cancel (y - x)))
+  ∙ +Assoc (x - y) (y - x) (- (y - x))
+  ∙ cong (_+ (- (y - x))) (cancelPair x y)
+  ∙ sym (pos0+ (- (y - x)))
+
+------------------------------------------------------------------------
+-- १ · Additivity, and step-by-step cancellation on the reverse.
+------------------------------------------------------------------------
+
+Antisymmetric : Evaluator → Type₀
+Antisymmetric ω = {a b : Tm} (s : Step a b) → ω (reverse s) ≡ - ω s
+
+∫-++ : (ω : Evaluator) {a b c : Tm} (d : Derivation a b) (e : Derivation b c)
+  → ∫ ω (d ++ e) ≡ ∫ ω d + ∫ ω e
+∫-++ ω (done _) e = pos0+ (∫ ω e)
+∫-++ ω (then-step s d) e =
+  cong (ω s +_) (∫-++ ω d e) ∙ +Assoc (ω s) (∫ ω d) (∫ ω e)
+
+∫-revD-cancel : (ω : Evaluator) (anti : Antisymmetric ω)
+  {a b : Tm} (d : Derivation a b)
+  → ∫ ω (revD d) + ∫ ω d ≡ pos 0
+∫-revD-cancel ω anti (done _) = refl
+∫-revD-cancel ω anti (then-step s d) =
+  cong (_+ (ω s + ∫ ω d))
+       (∫-++ ω (revD d) (then-step (reverse s) (done _))
+        ∙ cong (∫ ω (revD d) +_) (cong (_+ pos 0) (anti s)))
+  ∙ sym (+Assoc (∫ ω (revD d)) (- ω s + pos 0) (ω s + ∫ ω d))
+  ∙ cong (∫ ω (revD d) +_)
+      ( +Assoc (- ω s + pos 0) (ω s) (∫ ω d)
+      ∙ cong (_+ ∫ ω d) (cong (_+ ω s) (+Comm (- ω s) (pos 0)
+                                        ∙ sym (pos0+ (- ω s)))
+                         ∙ -Cancel' (ω s))
+      ∙ sym (pos0+ (∫ ω d)) )
+  ∙ ∫-revD-cancel ω anti d
+
+------------------------------------------------------------------------
+-- २ · The one-cycle test.
+------------------------------------------------------------------------
+
+oneCycleTest : (ω : Evaluator) (anti : Antisymmetric ω)
+  {x y : Tm} (p q : Derivation x y)
+  → ∫ ω (p ++ revD q) ≡ pos 0
+  → ∫ ω p ≡ ∫ ω q
+oneCycleTest ω anti p q cycle0 =
+  cong (∫ ω p +_) (sym (∫-revD-cancel ω anti q))
+  ∙ +Assoc (∫ ω p) (∫ ω (revD q)) (∫ ω q)
+  ∙ cong (_+ ∫ ω q) (sym (∫-++ ω p (revD q)) ∙ cycle0)
+  ∙ sym (pos0+ (∫ ω q))
+
+------------------------------------------------------------------------
+-- ३ · The whole exact class satisfies the hypothesis for free.
+------------------------------------------------------------------------
+
+exactIsAntisymmetric : (φ : Tm → ℤ) → Antisymmetric (d′ φ)
+exactIsAntisymmetric φ {a} {b} s = negSwap (φ a) (φ b)
+
+-- so, in particular: for any potential and any pair of coterminal
+-- schedules, one vanishing cycle certifies agreement — the test suite
+-- for the protected observers of Vyakhya is a single loop.
+exactOneCycle : (φ : Tm → ℤ) {x y : Tm} (p q : Derivation x y)
+  → ∫ (d′ φ) (p ++ revD q) ≡ pos 0
+  → ∫ (d′ φ) p ≡ ∫ (d′ φ) q
+exactOneCycle φ = oneCycleTest (d′ φ) (exactIsAntisymmetric φ)
