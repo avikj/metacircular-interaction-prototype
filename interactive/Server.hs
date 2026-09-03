@@ -278,6 +278,11 @@ kriyah =
       "Give the kernel a WHOLE Agda module, verbatim, and carry back its verdict.  This is the wire's door to what the lanes always did by hand — write a full problem statement as a module and run agda on it.  The corpus at formal/cubical and the pinned cubical library are importable; the two controls are watched FIRST, exactly as for `sadhana`."
       [ ("patra", "the module, as a list of source lines, verbatim.  It must carry an OPTIONS pragma with --safe, and its top-level module (if named) must be `Candidate`, because the kernel writes it to Candidate.agda") ]
       kPatra
+  , Kriya "sadhana.vislesana"
+      "Analyze objects on the atom: load a WHOLE Agda module and read back, for each expression you name, its NORMAL FORM (what the kernel computes it to) and its TYPE (what it is).  Not a verdict — the kernel's own semantic analysis of the object, returned as data.  The corpus and the pinned library are importable; the two controls are watched first."
+      [ ("patra", "the module, as a list of source lines, verbatim; opens whatever the expressions reference.  --safe pragma required; top-level module named Candidate or headerless")
+      , ("padani", "list of expressions to analyze, each in scope in the module; the kernel returns each one's computed normal form and inferred type") ]
+      kVislesana
   , Kriya "kuttaka"
       "Āryabhaṭa's pulverizer: the vallī of a and b, the Bézout pair, and — if c is given — the solution of a·x ≡ c (mod b)."
       [ ("a", "an integer"), ("b", "a positive integer"), ("c", "optional: the residue to hit") ]
@@ -1141,6 +1146,114 @@ kPatra y j = case jStrs "patra" j of
       (l : _) -> take 300 l
       []      -> "(agda produced no output)"
       where ls = [ l | l <- lines s, not (all isSpace l) ]
+
+-- ---- the analyzer readout: the kernel's semantic analysis, as data
+--
+-- sadhana.patra returns a verdict about a module.  This returns the
+-- ANALYSIS of objects inside it: for each named expression, the normal form
+-- the kernel computes it to and the type it inhabits.  The kernel's output
+-- is not pass/fail here — it is every bit it derives about the object,
+-- carried onto the wire as data a reader consumes.  The same door checks as
+-- kPatra guard it (─safe, module name), because agda is asked the same way.
+kVislesana :: Yantra -> J -> IO (Yantra, Mudra, Uttara)
+kVislesana y j = case pieces of
+  Left e -> pure (turnedBack y "sadhana.vislesana" e)
+  Right (lns, exprs)
+    | all (all isSpace) lns ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "the module as sent is carried back: it has no content")
+             , dosalekha "sadhana.vislesana" "an empty module was sent, so there is nothing to analyze"
+                 [ "the analysis you asked for; there is no object to analyze" ]
+                 [ "send the module's lines under `patra` and the expressions under `padani`" ]
+                 srcTwoRoads )
+    | null exprs ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "no expressions were named to analyze")
+             , dosalekha "sadhana.vislesana" "the module was sent but `padani` named no expression to analyze"
+                 [ "the analysis; an analysis of nothing is not withheld, it is undefined" ]
+                 [ "name at least one expression in `padani`, each in scope in the module" ]
+                 srcTwoRoads )
+    | not (safeDeclared lns) ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "the module is carried back unexecuted; agda was not asked")
+             , dosalekha "sadhana.vislesana"
+                 "the module declares no --safe, so an analysis of it would rest on a parser that admits postulates"
+                 [ "the meaning of the analysis: without --safe a computed normal form could rest on an unproved postulate" ]
+                 [ "open the module with a pragma carrying --safe: " ++ C.kOptionsPragma ]
+                 [ "ProofGate.hs, kOptionsPragma" ] )
+    | Just nm <- wrongName lns ->
+        pure ( y, Mudra S.Apratipatti (Pratyaksa "the module is carried back unexecuted; agda was not asked")
+             , dosalekha "sadhana.vislesana"
+                 ("the top-level module is named `" ++ nm ++ "`, and the kernel writes to Candidate.agda")
+                 [ "an agda invocation, spent reporting a name mismatch this door already knows" ]
+                 [ "rename the header to `module Candidate where`, or drop it" ]
+                 [ "ProofGate.hs, runAgdaAnalyze" ] )
+    | otherwise -> do
+        st <- C.kernelStatus (yRoot y)
+        case st of
+          C.KernelChecking -> do
+            (code, results) <- C.runAgdaAnalyze (yRoot y) (unlines lns) exprs
+            let anJ a = JObj [ ("pada", JStr (C.anExpr a))
+                             , ("akara", JStr (C.anNormal a))
+                             , ("prakara", JStr (C.anType a)) ]
+                envFault = any (\a -> C.kEnvironmentFault `isInfixOf` C.anNormal a) results
+            pure $ case code of
+              _ | envFault ->
+                    ( y, Mudra S.Apratipatti
+                           (Ayogya "the kernel could not be asked; the environment failed, not the object")
+                    , dosalekha "sadhana.vislesana"
+                        "no analysis: the invocation failed in the environment, not in the module"
+                        [ "the analysis you asked for; agda was not usable, so nothing it would have said is carried" ]
+                        [ "repair the environment and ask again" ]
+                        [ "ProofGate.hs, kEnvironmentFault" ] )
+              ExitSuccess ->
+                ( y
+                , Mudra (S.Position S.SyadAsti)
+                    (Nihsesa (length results)
+                       ("every one of the " ++ show (length results)
+                        ++ " expression(s) computed to normal form and had its type inferred by agda, "
+                        ++ "under --safe, with " ++ C.kIncludeRoot ++ " and the pinned library importable; "
+                        ++ "the two controls were watched first"))
+                , samkramana "sadhana.vislesana"
+                    (tulyata "each expression as uttered, identified with the kernel's own computation of it"
+                             (intercalate ", " exprs)
+                             "agda's normal forms and inferred types"
+                             ("computed in --interaction mode against the loaded module; "
+                              ++ "the answers below are agda's, not paraphrased"))
+                    [ ("vislesana", JArr (map anJ results)) ]
+                    [ "WHY each normal form is what it is: the kernel computes it, it does not narrate the reduction"
+                    , "whether the expression's NAME matches its meaning — the type and value are agda's; reading them against the name is the reader's"
+                    , "any module the loaded one imports: trusted at the pin, not re-analyzed here" ]
+                    [ "Agda --interaction: Cmd_compute_toplevel (normal form), Cmd_infer_toplevel (type)"
+                    , "CLAUDE.md: exact/certified symbolic computation is proof" ] )
+              ExitFailure _ ->
+                ( y, Mudra (S.Position S.SyadNasti)
+                       (Pratyaksa "agda loaded the module but at least one expression did not elaborate; its report is carried per expression")
+                , dosalekha "sadhana.vislesana"
+                    "the module loaded but an expression could not be analyzed; agda's answers are carried verbatim below"
+                    ( [ "the clean analysis you asked for; what agda actually said is carried instead, per expression, unparaphrased:" ]
+                      ++ [ "  " ++ C.anExpr a ++ "  ⇒  normal form: " ++ oneLn (C.anNormal a)
+                           ++ "  |  type: " ++ oneLn (C.anType a) | a <- results ] )
+                    [ "correct the failing expression — it may be out of scope, ill-typed, or misspelt — and ask again" ]
+                    [ "ProofGate.hs, runAgdaAnalyze" ] )
+          other ->
+            pure ( y, Mudra S.Apratipatti
+                        (Ayogya ("the kernel did not pass its own controls: " ++ show other))
+                 , dosalekha "sadhana.vislesana"
+                     ("no analysis, because the kernel has not been seen to work: " ++ show other)
+                     [ "the analysis you asked for; a kernel not watched rejecting a falsehood analyzes nothing trustworthy" ]
+                     [ "repair the environment — the cubical library, the include root " ++ C.kIncludeRoot ++ " — and ask again" ]
+                     [ "ProofGate.hs — the two controls" ] )
+  where
+    pieces = do
+      lns <- jStrs "patra" j
+      exprs <- jStrs "padani" j
+      pure (lns, exprs)
+    pragmaLines = filter (("{-# OPTIONS" `isPrefixOf`) . dropWhile isSpace)
+    safeDeclared = any ("--safe" `isInfixOf`) . pragmaLines
+    wrongName ls = case [ w | l <- ls
+                            , "module" `isPrefixOf` l
+                            , ("module" : w : _) <- [words l] ] of
+      (n : _) | n /= "Candidate", n /= "_" -> Just n
+      _ -> Nothing
+    oneLn = unwords . words
 
 -- ---- arithmetic, from the reactor lane
 
