@@ -348,3 +348,33 @@ gb10-b = 5 , 5 , refl , refl , refl
 
 GoldbachAt10-is-not-a-proposition : ¬ (isProp (GoldbachAt 10))
 GoldbachAt10-is-not-a-proposition hp = 3≢5 (cong p-of (hp gb10-a gb10-b))
+
+------------------------------------------------------------------------
+-- §9 · the fixed points of the reflection are exactly primality of the
+--       centre.  The diagonal p = q solution of 4+2n exists iff the
+--       midpoint 2+n is prime.  So the ℤ/2 has a fixed point at a centre
+--       exactly when that centre is itself prime; every other
+--       representation is a free 2-orbit.
+------------------------------------------------------------------------
+
+diag-eq : (n : ℕ) → (2 + n) + (2 + n) ≡ 4 + 2 · n
+diag-eq n =
+  cong (λ z → suc (suc z)) (+-suc n (suc n) ∙ cong suc (+-suc n n))
+  ∙ cong (λ z → suc (suc (suc (suc z)))) (cong (n +_) (sym +n0))
+  where
+  +n0 : n + zero ≡ n
+  +n0 = +-comm n zero
+
+diagonal-witness : (n : ℕ) → primeb (2 + n) ≡ true → GoldbachAt (4 + 2 · n)
+diagonal-witness n pr = (2 + n) , (2 + n) , pr , pr , diag-eq n
+
+diagonal-is-fixed : (n : ℕ) (pr : primeb (2 + n) ≡ true)
+                  → Fixed (diagonal-witness n pr)
+diagonal-is-fixed n pr = refl
+
+-- so a prime centre GIVES a Goldbach representation for free — the
+-- diagonal one — and it is the reflection's fixed point.  10 = 5+5:
+-- 5 = 2 + 3 prime, the fixed point of the pair {(3,7),(7,3)} ∪ {(5,5)}.
+prime-centre-gives-representation :
+  (n : ℕ) → primeb (2 + n) ≡ true → GoldbachAt (4 + 2 · n)
+prime-centre-gives-representation = diagonal-witness
