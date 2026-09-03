@@ -1,7 +1,9 @@
 {-# OPTIONS --safe --cubical --guardedness #-}
 
 ------------------------------------------------------------------------
--- ValueIsThePairing — "the value is the pairing."
+-- HolonomyCriterionForExactness — a W-valued edge cochain on a connected
+-- graph is a coboundary iff its holonomy vanishes on every loop; a
+-- finite basis of independent cycles suffices to decide it.
 --
 -- The second stimulus, paid as theorems, in the corpus's discipline:
 -- --safe, cubical, pinned library, every claim a checked term, every
@@ -60,7 +62,7 @@
 -- reading is.
 ------------------------------------------------------------------------
 
-module ValueIsThePairing where
+module HolonomyCriterionForExactness where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism

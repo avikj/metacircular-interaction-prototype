@@ -1,13 +1,12 @@
 {-# OPTIONS --safe --cubical --guardedness #-}
 
 ------------------------------------------------------------------------
--- TwoStageTower — the interaction code, the extension channel, and the
--- bottom rung of the Postnikov ladder, as one development.  These are
--- not three imports: an extension of a group Q by an abelian value
--- group W IS the two-stage tower, its gluing code IS the 2-cocycle,
--- and the extension channel of the stimulus IS the question of whether
--- that code is trivial.  Everything below is universal (every Q, every
--- abelian W, every candidate code c) and --safe at the pin.
+-- CocycleConditionAndExtensionSplitting — for a group Q acting trivially
+-- on an abelian group W, a function c : Q × Q → W satisfies the
+-- 2-cocycle condition iff the twisted product on W × Q is associative;
+-- and if c is a coboundary the resulting extension splits as a direct
+-- product, via an explicit shear isomorphism.  Universal in Q, W, c;
+-- --safe at the pin.
 --
 -- THEOREMS.
 --   1. assocFromCocycle — the twisted product on Q × W is associative
@@ -28,11 +27,11 @@
 --      inhabited transmission.
 ------------------------------------------------------------------------
 
-module TwoStageTower where
+module CocycleConditionAndExtensionSplitting where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma
-open import ValueIsThePairing using (GroupOn)
+open import HolonomyCriterionForExactness using (GroupOn)
 
 private
   variable
