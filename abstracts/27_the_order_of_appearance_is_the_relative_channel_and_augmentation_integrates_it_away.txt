@@ -1,0 +1,63 @@
+THE ORDER OF APPEARANCE IS THE RELATIVE CHANNEL, AND ENDPOINT
+AUGMENTATION INTEGRATES IT AWAY WHILE THE DIFFERENCE SURVIVES AT EVERY
+DEPTH
+A product of two distinct primes carries the two orders in which its
+factors could arrive; a prime square carries one; the map that forgets
+the order is exactly the map that sums them, and its kernel is read
+completely by the order-difference
+
+Number theory / the combinatorics of multiplicative history
+
+A natural number is a point of the multiplicative lattice, and the
+question of the ORDER in which its prime factors arrive is not answered by
+the number itself.  This development makes the order a datum and then
+measures exactly what forgetting it costs.
+
+The two histories.  A product p·q of two DISTINCT primes admits its
+factors in two orders; the history type is therefore Bool.  A prime SQUARE
+p·p admits only one; its history type is Unit, and `square-history-unique`
+proves every inhabitant is that one point.  No ordering of the primes is
+imposed from outside -- the multiplicity of histories is a property of the
+number, not a convention.
+
+The integration.  A split profile is a pair of integer coefficients on the
+two ordered histories, ℤ × ℤ.  `augment` sends (x , y) to x + y -- it
+FORGETS the order and sums the histories -- and `relative` sends it to
+x - y, the primitive difference the augmentation discards.  This is the
+path-space integral in the small: the observable that integrates over the
+orderings is exactly `augment`, and the channel it annihilates is exactly
+`relative`.
+
+The kernel, computed exactly.  `kernel-is-sign` proves that every profile
+augmenting to zero has second coordinate the negation of its first: the
+augmentation kernel IS the sign embedding z ↦ (z , -z), no larger and no
+smaller.  `kernel-relative-exact` then reads that kernel through the
+relative channel and returns z + z -- the whole of the discarded history
+survives, doubled, in the difference.  The prime-square fiber has no such
+kernel: `square-kernel-zero` proves its one-dimensional augmentation is
+injective, because there is no second order for the difference to record.
+
+Non-vacuity, exhibited.  At coefficient one the sign profile annihilates
+under augmentation (`signOne-annihilates`) while its relative channel is
+2, provably nonzero (`signOne-relative-nonzero`).  Assembled into a
+productive observation, `augmentation-coherent` shows the summed history
+agrees across both orders at every target, while `relative-separates`
+shows the difference distinguishes them at every target -- the forgotten
+order is invisible to the integral and fully present in the residual, at
+every depth of the observing net.
+
+The consequence.  "Integrate over the path space of orderings" is not a
+programme here; it is a checked map with a computed kernel.  The order of
+appearance of the factors of a number is exactly the relative channel of
+its history profile, the augmentation is exactly the integral that erases
+it, and the erased datum is recovered, doubled, from the difference.  What
+is conserved under forgetting the order, and what is lost, are two named
+projections of one pair.
+
+WHAT IS NOT CLAIMED.  No global ordering of the primes is asserted or
+used; the histories are local to one number's two-factor decomposition.
+Nothing here is a statement about factorization existence or uniqueness --
+that is unique factorization, assumed.  The profiles are the two-factor
+case; higher multiplicities are not treated in this module.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.
