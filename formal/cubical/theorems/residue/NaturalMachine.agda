@@ -1261,3 +1261,11 @@ import CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOr
 -- (0,0,σ a∂₂v) itself divergence-free so the pressure is constant, coarse
 -- stress and coarse continuation computed at both signs.
 import TorusFourierLayer_TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed
+-- GalerkinJets: the Taylor jets of the pair's advected component at t = 0
+-- to all orders, exact on a window widening by one mode per order; the
+-- Galerkin truncation residual is exactly the boundary row.
+import GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow
+-- FiniteExplicitFormula: Newton's identities — power sums of the roots equal
+-- the coefficient recursion, i.e. −zP′/P = Σ p_k zᵏ coefficientwise — and
+-- the power sums grow at least like the largest root.
+import FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot
