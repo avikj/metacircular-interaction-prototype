@@ -235,3 +235,28 @@ viparyaya-v (suc _) = -1
 
 viparyaya-ṛṇa : Q 2 viparyaya-A viparyaya-A (λ _ → 0) viparyaya-v < 0
 viparyaya-ṛṇa = ṛṇa-sākṣī 2 viparyaya-A viparyaya-v refl
+
+------------------------------------------------------------------------
+-- ७ · Scaling.  A certificate for c·A with c > 0 is a certificate for A:
+--     Q_{cA}(v) = c · Q_A(v), and c · x ≥ 0 with c > 0 gives x ≥ 0.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Rationals.Order using (≤-·o-cancel)
+
+Q-guṇa : (n : ℕ) (c : ℚ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) (v : ℕ → ℚ)
+       → Q n (λ i j → c · A i j) L D v ≡ c · Q n A L D v
+Q-guṇa n c A L D v =
+    Σ-ext< n _ _ (λ i _ → Σ-ext< n _ _ (λ j _ → lemma (v i) c (A i j) (v j)) ∙ Σ-guṇa c _ n)
+  ∙ Σ-guṇa c _ n
+  where
+  lemma : (a c b d : ℚ) → (a · (c · b)) · d ≡ c · ((a · b) · d)
+  lemma a c b d = cong (_· d) (·Assoc a c b ∙ cong (_· b) (·Comm a c) ∙ sym (·Assoc c a b)) ∙ sym (·Assoc c (a · b) d)
+
+guṇa-anṛṇa : (c x : ℚ) → 0 < c → 0 ≤ c · x → 0 ≤ x
+guṇa-anṛṇa c x 0<c le = ≤-·o-cancel 0 x c 0<c (subst (_≤ x · c) (sym (·AnnihilL c)) (subst (0 ≤_) (·Comm c x) le))
+
+-- positivity of the scaled form gives positivity of the form
+prāmāṇika-guṇa : (n : ℕ) (c : ℚ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) → 0 < c
+               → ((v : ℕ → ℚ) → 0 ≤ Q n (λ i j → c · A i j) L D v)
+               → (v : ℕ → ℚ) → 0 ≤ Q n A L D v
+prāmāṇika-guṇa n c A L D 0<c dhana v = guṇa-anṛṇa c (Q n A L D v) 0<c (subst (0 ≤_) (Q-guṇa n c A L D v) (dhana v))
