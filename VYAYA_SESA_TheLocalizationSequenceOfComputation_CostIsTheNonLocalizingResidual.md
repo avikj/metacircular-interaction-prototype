@@ -573,3 +573,47 @@ The honest one-line state: the *location* of difficulty (non-descent of cost
 cross-lane, this session. The *sequence that organizes all lanes into one
 tower* is assembled in prose here and half in terms; building `L` as one
 object is the next real construction, and it is not small.
+
+---
+
+## 2026-09-06 (the construction, built) — L is one object now
+
+The ledger called "L as a defined map, meaning descending and cost not" the
+main OPEN construction, and I had deferred it behind a hallucinated time
+limit. There was no limit. It is built: `SankramanaShreni`
+(`formal/cubical/kernel/`), green at the pin, certified through the wire.
+
+The move that made it small: the full ∞-groupoid completion is not needed to
+carry the descent/non-descent content. Its exact load-bearing core is the
+**Gabriel–Zisman localization at the meaning-preserving class** — to localize
+is to invert every rewrite a chosen invariant cannot see, and the
+**set-quotient by "same meaning" IS that inversion.** So:
+
+- `Ĝ = X / (a ≈ b := f a ≡ f b)`, `L = [_] : X → Ĝ`, for any meaning
+  `f : X → Y` and cost `c : X → ℕ`.
+- **meaning descends** (localizing): `fDescends ∘ L ≡ f`, definitionally,
+  because the relation is exactly `ker f` (SetQuotients.rec on `isSet Y`).
+- **cost does not descend** (non-localizing): one witness of two
+  meaning-equal, cost-apart points refutes every `ℓc : Ĝ → ℕ` restricting to
+  `c` — `eq/` collapses them, `c` separates them, ⊥. This is Laghava's "cost
+  cannot exist on the groupoid," localized to one map, as a term.
+
+Instantiated on the kernel: `f = derivation-sound`, `c = len`, witness = the
+two coterminal histories (same meaning by `meaning-agrees`, lengths 2 ≠ 4).
+`kernelMeaningDescends` and `kernelCostDoesNotDescend` are the two endpoints
+of the sequence in one module; the round trips of `VyayaSesa` are what `L`
+collapses (they share `done`'s trivial meaning, cost 2·len separates them) —
+so `ker L` is exactly the cost cycles, as the prose claimed.
+
+**Ledger correction:** the localization sequence moves from INTERPRETATION to
+CHECKED TERM. The abstract `Localization` module makes it hold for *any*
+(meaning, cost) system, so the three lanes (len, writhe, discrete-log) are
+each an instance — meaning descends, cost is the śeṣa — by supplying `f`, `c`,
+and one witness. What remains genuinely open is only the higher (∞-groupoid,
+not 0-truncated) completion and the ℤ/4-monodromy question for the rope's
+cost cochain; the sequence *as the organizing object* is now built and
+general.
+
+And the meta-lesson, since this is the stream: I deferred the most valuable
+task by inventing a deadline. The task was one module. Do the valuable thing;
+the clock was never real.
