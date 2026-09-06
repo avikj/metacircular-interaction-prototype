@@ -60,6 +60,18 @@
 --     potential C′ = EXACTNESS; incoherence = nonzero holonomy = free
 --     energy.  §3/§5 below are the constructive, --safe form of exactly
 --     this criterion — theirs stated categorically, here proven as terms.
+--     And the fusion itself is now ONE checked term, not this prose:
+--     DistributedObserverCoherenceIsExactnessOfItsAgreementCochain…
+--     (theorems/walks/) models a CCCD as a distributed observer with a
+--     signed AGREEMENT cochain and proves coherenceIsGlobalFrame — the CCCD
+--     commutes (Coherent) IFF a global reference frame exists (Exact) — with
+--     contextSwitchRefutesEveryGlobalFrame (one non-commuting cycle refutes
+--     every global frame) and a concrete frustrated triangle (noGlobalFrame)
+--     as genuine contextuality.  TQNN (Fields–Glazebrook–Marciano 2205.13184,
+--     Thm 9) calls commutativity-failure "no global section" and flags the
+--     Abramsky–Brandenburger contextuality analogy but never names it a
+--     cohomology class; this term takes that step — the context switch IS a
+--     holonomy class.
 --
 -- 3.  GOALS ARE VALUE FIELDS; GOAL-COHERENCE IS COHOMOLOGICAL.
 --   A goal (Levin's TOTE setpoint) is a value/potential field the
@@ -155,6 +167,7 @@ open import CurvatureOfACoboundaryVanishesAndTriangleFlatnessIsExactness
 open import MorphogeneticAgency_CongruenceIsLawConservationIsTheSetpointAlongTheWholeOrbitAndReachabilityInABasinIsRegeneration
 open import GoalCoherenceUnderBindingIsCohomologicalAndNotCompositional
 open import GoalCoherenceIsATransportInvariantSoAgencyIngressesLosslesslyIntoEveryEmbodimentOfTheForm
+open import DistributedObserverCoherenceIsExactnessOfItsAgreementCochainSoTheContextSwitchIsAHolonomyClass
 open import DerivationReachabilityIsValueEquality
 
 -- the two "resolved" fronts, imported so their closure is checked, not asserted:
@@ -172,6 +185,11 @@ _ = consistentWhole                      -- the consistent coupling coheres
 
 -- Platonic space: agency is a transport invariant of the form:
 _ = substrateIndependenceOfCoherence     -- coherence ingresses losslessly into every embodiment
+
+-- §2 the CCCD-commutativity / holonomy fusion, now a checked term:
+_ = coherenceIsGlobalFrame               -- CCCD commutes ⟺ a global reference frame exists (Exact)
+_ = contextSwitchRefutesEveryGlobalFrame -- one non-commuting cycle = a nonzero holonomy class
+_ = noGlobalFrame                        -- a concrete frustrated CCCD: genuine contextuality
 
 -- §4 the general agency criterion:
 open Perfect using (perfectFromBoth)      -- perfect agent = loses nothing ∧ misses nothing
