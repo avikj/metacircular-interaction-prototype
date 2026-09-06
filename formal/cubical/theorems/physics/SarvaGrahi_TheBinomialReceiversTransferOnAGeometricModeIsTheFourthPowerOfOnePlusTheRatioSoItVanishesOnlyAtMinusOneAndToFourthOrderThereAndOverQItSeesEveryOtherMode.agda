@@ -111,6 +111,65 @@ module _ (R : CommRing ℓ) where
   peṭikā-grāhī (suc (suc (suc (suc (suc zero))))) = solve! R
   peṭikā-grāhī (suc (suc (suc (suc (suc (suc k)))))) = solve! R
 
+  ----------------------------------------------------------------------
+  -- २″ · The convolution theorem for the box: convolving with the box
+  --      multiplies the transfer by (1 + m).  So (1+m)^4 is structural —
+  --      the fourth power counts the four boxes — and every further box
+  --      raises the attenuation order by one.
+  ----------------------------------------------------------------------
+
+  -- Σ_{k < N} f k
+  Σ⟨_⟩ : ℕ → (ℕ → ⟨ R ⟩) → ⟨ R ⟩
+  Σ⟨ zero ⟩  f = 0r
+  Σ⟨ suc N ⟩ f = Σ⟨ N ⟩ f + f N
+
+  -- the transfer of a sequence on [0, N) at the mode m
+  T : ℕ → (ℕ → ⟨ R ⟩) → ⟨ R ⟩ → ⟨ R ⟩
+  T N f m = Σ⟨ N ⟩ (λ k → f k · (m ^ k))
+
+  -- T_{N+1}(f ⋆ box) = T_{N+1}(f) + m · T_N(f)
+  peṭikā-T : (N : ℕ) (f : ℕ → ⟨ R ⟩) (m : ⟨ R ⟩)
+           → T (suc N) (⋆peṭikā f) m ≡ T (suc N) f m + m · T N f m
+  peṭikā-T zero    f m = solve! R
+  peṭikā-T (suc N) f m =
+      cong (_+ (f (suc N) + f N) · (m · (m ^ N))) (peṭikā-T N f m)
+    ∙ punar (T (suc N) f m) (T N f m) (f (suc N)) (f N) m (m ^ N)
+    where
+    punar : (a b c d m p : ⟨ R ⟩)
+          → (a + m · b) + (c + d) · (m · p) ≡ (a + c · (m · p)) + m · (b + d · p)
+    punar a b c d m p = solve! R
+
+  -- on a sequence supported below N the transfer is multiplied by (1 + m)
+  peṭikā-guṇa : (N : ℕ) (f : ℕ → ⟨ R ⟩) (m : ⟨ R ⟩) → f N ≡ 0r
+              → T (suc N) (⋆peṭikā f) m ≡ (1r + m) · T N f m
+  peṭikā-guṇa N f m z =
+      peṭikā-T N f m
+    ∙ cong (λ v → (T N f m + v · (m ^ N)) + m · T N f m) z
+    ∙ punar (T N f m) m (m ^ N)
+    where
+    punar : (a m p : ⟨ R ⟩) → (a + 0r · p) + m · a ≡ (1r + m) · a
+    punar a m p = solve! R
+
+  -- the box's own transfer on [0, 2) is 1 + m
+  peṭikā-T₂ : (m : ⟨ R ⟩) → T 2 peṭikā m ≡ 1r + m
+  peṭikā-T₂ m = solve! R
+
+  -- hence, structurally: T₆(box⁴) = (1+m)^4
+  catuṣ-T : (m : ⟨ R ⟩) → T 5 catuṣ-peṭikā m ≡ caturtha (1r + m)
+  catuṣ-T m =
+      peṭikā-guṇa 4 (⋆peṭikā (⋆peṭikā peṭikā)) m z₄
+    ∙ cong ((1r + m) ·_) (peṭikā-guṇa 3 (⋆peṭikā peṭikā) m z₃)
+    ∙ cong (λ v → (1r + m) · ((1r + m) · v)) (peṭikā-guṇa 2 peṭikā m refl)
+    ∙ cong (λ v → (1r + m) · ((1r + m) · ((1r + m) · v))) (peṭikā-T₂ m)
+    ∙ punar (1r + m)
+    where
+    punar : (u : ⟨ R ⟩) → u · (u · (u · u)) ≡ (u · u) · (u · u)
+    punar u = solve! R
+    z₃ : ⋆peṭikā peṭikā 3 ≡ 0r
+    z₃ = solve! R
+    z₄ : ⋆peṭikā (⋆peṭikā peṭikā) 4 ≡ 0r
+    z₄ = solve! R
+
 ------------------------------------------------------------------------
 -- ३ · Over ℚ the receiver sees every mode but m = −1.
 ------------------------------------------------------------------------
