@@ -83,12 +83,6 @@
 --
 --   §7  the two prices, and what each school gets to say about them.
 --
--- NOT CLAIMED.  No reading of any apoha text beyond the two sentences
--- attributed above; no position on whether Dignāga's apoha is or is not
--- circular; no claim that either school possessed this distinction.  §5
--- and §6 are theorems about observables in a univalent type theory, and
--- the historical dispute is cited because it is where the question was
--- posed sharply, not because it is being adjudicated here.
 ------------------------------------------------------------------------
 
 module ExclusionRecoversGroundAtAPrice where
@@ -197,15 +191,6 @@ coIdentify→transferAll q q' h T _ t fc = fiberConstant-transfer q q' t h fc
 -- being RECOVERED — and without it the implication is not available in
 -- this type theory.
 --
--- WHAT THIS IS NOT.  It is tempting to call `Dec (Ground q x x')` the
--- Naiyāyika condition on अभाव, and that would be a flattening.  The
--- school's requirement is on the SPECIFICATION of the absence: an अभाव
--- is individuated by its प्रतियोगिन् under a प्रतियोगिता-अवच्छेदक, a
--- delimitor fixing under what description the counterpositive is
--- absent.  That is a condition on what the absence IS.  Decidability is
--- a condition on what can be SETTLED about it, and the two come apart:
--- `¬ (q x ≡ q x')` already has its counterpositive written into it, in
--- the school's sense fully determinate, and is still undecidable.  So
 -- §5 does not formalise the pratiyogin requirement.  It occupies the
 -- same position in the argument — the point where reasoning from an
 -- absence needs something more than the absence itself — and the two

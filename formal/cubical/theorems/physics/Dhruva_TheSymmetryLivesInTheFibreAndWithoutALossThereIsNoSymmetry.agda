@@ -75,8 +75,6 @@
 -- because it has no room to move.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SYĀT — THE CLAIM, EXACTLY, and the fence matters because the resemblance is
--- seductive.
 --
 -- **This is NOT Noether's first theorem.**  That one needs a continuous
 -- one-parameter group acting on a Lagrangian dynamics, and produces a

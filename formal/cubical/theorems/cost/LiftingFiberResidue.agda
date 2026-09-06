@@ -69,8 +69,6 @@
 --       WITNESS, so all of `LiftFib`, `∥ LiftFib ∥₁` and `¬ ¬ LiftFib`
 --       coincide (`collapse`) and step 4 goes through.
 --
--- WHAT IS DELIBERATELY NOT CLAIMED.
---
 --  * Nothing here refutes `¬ ¬ X → ∥ X ∥₁`.  It is independent, not
 --    false; §4 measures its strength, it does not contradict it.  In
 --    particular no module here proves any negation of a classical

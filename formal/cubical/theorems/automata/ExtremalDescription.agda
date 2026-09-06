@@ -55,17 +55,6 @@
 --                         obligations has min cut 1 and least
 --                         certificate n.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing here is new mathematics.  §2 is the
--- greatest-fixed-point characterisation of observational equivalence —
--- classical minimal-realization / bisimulation theory, and Delta 19
--- says so itself (S19.14, "do not reinvent it").  §3 is the 1-certificate
--- complexity of a monotone AND, which is textbook (Buhrman–de Wolf,
--- *Complexity measures and decision tree complexity*, TCS 288 (2002)
--- 21–43; attribution from a search summary, source text not read).
--- The deliverable is that both are now terms, and that O5(3) is false
--- as stated.  No min-cut algorithm is formalised here and none is
--- needed: §4 exhibits a valid repair of cost 1 and shows the empty
--- repair invalid, which pins the min cut at 1 by Theorem O3 itself.
 ------------------------------------------------------------------------
 
 module ExtremalDescription where

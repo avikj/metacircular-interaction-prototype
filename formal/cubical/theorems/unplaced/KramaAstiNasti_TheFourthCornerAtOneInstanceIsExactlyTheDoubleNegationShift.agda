@@ -184,10 +184,6 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- WHERE THE CORNER CAN LIVE, as narrow as it has been: a
 -- NON-ENUMERABLE remedy set with a badness that is not stable.
 --
--- STILL NOT CLAIMED: EXISTENCE.  `Enumerated` carries a CHOSEN list, so
--- "non-enumerable" means "no such list and covering proof is given",
--- not a cardinality claim.  `finiteDNSList` yields `¬ ¬ All`, never
--- `All` — no decidability is used or smuggled in.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

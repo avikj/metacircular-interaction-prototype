@@ -46,10 +46,6 @@
 --   Observability, obsKernel   T18.6's equivalence
 --   obsKernel≡FutureEq         the identification with FutureBehavior
 --
--- NOT claimed: novelty.  §1 is the Schur-complement/Feshbach algebra and
--- Delta 18 says so; §2 is standard observability theory.  What this adds
--- to THIS repository is that the two are checked in its own substrate and
--- that §2 is proved equal to the construction the corpus already runs on.
 ------------------------------------------------------------------------
 
 module ExcursionReturn where

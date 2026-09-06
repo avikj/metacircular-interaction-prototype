@@ -120,9 +120,4 @@ reopened-minus-port = minus-interferes-to-port₁
 -- factor 2, H² = 2I, and opposite deterministic ports for equal/opposite
 -- phase inputs, including the existing reopened joint-phase compiler.
 --
--- Not claimed: unitary normalization.  H/sqrt(2) is not an endomorphism of
--- Gaussian-integer states.  `quadraticNorm²` is the ring presentation of the
--- sum of four integer squares; this file does not rebuild the order-theoretic
--- bridge to Amp's natural-number weights or divide those weights into
--- probabilities.
 ------------------------------------------------------------------------

@@ -202,12 +202,6 @@ theRatesAreDense =
 -- The density result above therefore now sits on an ORDER, not a bare
 -- relation.
 --
--- STILL NOT CLAIMED there: ASYMMETRY and TRICHOTOMY — `⊑-total` was
--- proved on PAIRS and is not transported, so nothing says two rates are
--- always comparable.  Only `AboveOnRate` is related to `⊏R`;
--- `AtLeastOnRate`'s antitonicity along the STRICT order is a different
--- statement and is not made.  And whether `mediant` descends is still
--- open, so the density witness above remains truncated.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

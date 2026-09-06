@@ -44,10 +44,6 @@
 --   no-cancellation            T18.7 structural: ℕ has no inverses, so a
 --                              later charge cannot cancel an earlier one
 --
--- NOT claimed: novelty.  Graded objects and degree-additivity are
--- standard; Delta 15 presents them as setup.  The contribution here is
--- that the machine's sector-reopening condition is derived from the
--- grading instead of being asserted alongside it.
 ------------------------------------------------------------------------
 
 module ChargeGrading where

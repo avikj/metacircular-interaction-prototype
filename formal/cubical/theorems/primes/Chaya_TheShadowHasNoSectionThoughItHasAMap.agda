@@ -21,10 +21,6 @@
 -- truncation — Voevodsky's h-levels, the substrate this repository names
 -- as its one exception — and is claimed for nobody else.
 --
--- NOT CLAIMED.  Nothing here says Goldbach is true or false.  Nothing
--- here says the untruncated statement is unprovable.  The theorem is
--- about ∥_∥₁ and a fibre with two elements, and the fibre's plurality is
--- the whole of the hypothesis.
 ------------------------------------------------------------------------
 
 module Chaya_TheShadowHasNoSectionThoughItHasAMap where

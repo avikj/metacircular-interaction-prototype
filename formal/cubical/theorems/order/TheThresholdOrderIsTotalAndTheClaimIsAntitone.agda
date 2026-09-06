@@ -247,10 +247,6 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- a population sitting exactly ON a threshold.
 --
 -- The gap between the families is therefore exactly the boundary, and
--- STILL NOT CLAIMED there: that every threshold HAS such a boundary
--- population.  That is a divisibility statement about ℕ, not a
--- statement about lists, and it is untouched — as is density of ⊑, and
--- as is the quotient by equal rates, which §2's preorder still lacks.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -289,9 +285,4 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- mention p and suc q only inside a product of exactly the shape ⊑
 -- compares, and minimality mentions suc q on its own.
 --
--- STILL NOT CLAIMED: no quotient TYPE is formed anywhere; `≈` is a
--- relation, with no set-quotient, no truncation and no univalence.  The
--- boundary criterion above is a reading of the proofs, not a theorem —
--- characterising the descending statements would need a language of
--- statements to quantify over, and there is none here.
 ------------------------------------------------------------------------

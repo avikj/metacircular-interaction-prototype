@@ -30,9 +30,6 @@
 -- direction and impossible in the other, and the impossibility is one
 -- idempotence away.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Relational algebra and a query language
--- remain absent — those are the next constructions; the semiring
--- reading of abstract 06 is no longer among the absences.
 ------------------------------------------------------------------------
 
 module ChhayaRig_TheBooleanShadowOfCountingProvenanceIsAHomomorphismWithNoHomomorphicSection where

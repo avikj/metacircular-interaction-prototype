@@ -45,9 +45,6 @@
 -- `Fin bⁿ⁺¹` is what made the combined file take >15 min; the two files
 -- take 6 s and 3 s).
 --
--- NOT claimed here, deliberately (see the status paragraph appended to
--- ATLAS_OF_N.md §7):
---
 --  * H²(ℤ/m; A) ≅ A/mA.  The coefficient group here is `ker π` as a
 --    subgroup of ℤ/bⁿ⁺¹, not `ℤ/b`; neither the isomorphism
 --    bⁿℤ/bⁿ⁺¹ ≅ ℤ/b nor the computation of H² as A/mA is constructed.

@@ -73,13 +73,6 @@
 -- Answerable, Dec — at the sites that assume them.  That question has
 -- failing instances, which is what makes it a question.
 --
--- NOT CLAIMED.  That stability is uninteresting (§1–§2 are used
--- throughout this thread as PREMISES; what §4 denies is only that they
--- discriminate); that the barrier language in this corpus is or is not
--- overstated (§4 says the tower height cannot settle it, and offers no
--- other settlement); that no absence anywhere is unstable — module E
--- says it cannot be EXHIBITED, which is a statement about this type
--- theory.
 ------------------------------------------------------------------------
 
 module TheDeflationaryTestIsVacuous where

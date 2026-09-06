@@ -36,10 +36,6 @@
 -- non-potential — the admission gate for genuinely route-sensitive
 -- reward, dual to ApurvaIndriyam's gate for genuinely new senses.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Deterministic dynamics, ℕ-valued
--- potential, unit discount.  Stochasticity and discounting are the
--- next constructions; the shaping reading of abstract 12 is no longer
--- among the absences.
 ------------------------------------------------------------------------
 
 module PratiphalaAntara_APotentialShapedReturnTelescopesToTheEndpointsSoTheOutcomeNoGoApplies where

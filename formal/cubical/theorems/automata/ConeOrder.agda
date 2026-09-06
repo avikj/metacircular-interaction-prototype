@@ -46,10 +46,6 @@
 --                              from `Cone` alone, so the two modules
 --                              agree and neither assumes the other
 --
--- NOT claimed: that the signed cone over an ordered ring reduces this
--- way.  Over ℕ the sign of the gap is fixed by which leg is called
--- smaller; the signed statement over ℤ needs |d| and then the fusion is
--- two cases, not one.  Recorded so nobody reads this as more than it is.
 ------------------------------------------------------------------------
 
 module ConeOrder where

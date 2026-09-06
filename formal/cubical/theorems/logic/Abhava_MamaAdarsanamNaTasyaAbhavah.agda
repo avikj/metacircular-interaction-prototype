@@ -139,8 +139,4 @@ Drsya-nayas-disagree a = equivFun (a false true) tt
 -- instrument that failed was not wrong about its stamp — it was silent
 -- about its hypothesis.
 --
--- NOT CLAIMED: any reading of Navya-Nyāya beyond the discipline named in
--- the header.  The pratiyogin/avacchedaka analysis is Gaṅgeśa's tradition
--- and the theorems here are this corpus's; `AbhavaAvacchedaka` is where
--- the limitor is actually modelled, and this module does not restate it.
 ------------------------------------------------------------------------

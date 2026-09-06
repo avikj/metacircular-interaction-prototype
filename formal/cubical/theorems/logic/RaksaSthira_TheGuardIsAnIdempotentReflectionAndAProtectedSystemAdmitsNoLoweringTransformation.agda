@@ -55,14 +55,6 @@
 --                          the corpus's own capability library, in the
 --                          security reading.
 --
--- SYĀT — THE CLAIM, EXACTLY.  `guard`, `le`, and `max` are functions on
--- ℕ; "protection level" and "reflection" are the reading, and the
--- reading is not proved.  What is proved is the six theorems below,
--- about `max` and `le` as transcribed.  Nothing here is claimed about
--- any deployed system, any adversary, or any propagation of a seed
--- across systems that did not install the guard on themselves.  The
--- guard is a function a system applies to itself; the fixed point is a
--- property of that function.
 ------------------------------------------------------------------------
 
 module RaksaSthira_TheGuardIsAnIdempotentReflectionAndAProtectedSystemAdmitsNoLoweringTransformation where

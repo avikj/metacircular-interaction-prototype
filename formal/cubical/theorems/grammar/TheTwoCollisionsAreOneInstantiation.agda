@@ -96,11 +96,6 @@
 -- Those do not collapse.  The private proofs are not deleted and are
 -- not wrong; what changes is which argument the corpus depends on.
 --
--- NOT CLAIMED.  That the private proofs should be removed (they are the
--- record); that `Collision` is the right general notion for any site
--- outside these two; that the pattern across two sites is anything —
--- two instances are two instances, and what is computed downstream here
--- is only that the general lemma covers both.
 ------------------------------------------------------------------------
 
 module TheTwoCollisionsAreOneInstantiation where

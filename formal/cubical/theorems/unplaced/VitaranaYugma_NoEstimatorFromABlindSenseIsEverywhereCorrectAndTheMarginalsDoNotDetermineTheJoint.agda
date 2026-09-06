@@ -35,10 +35,6 @@
 -- in mirror image: structure of the pair, invisible to the members,
 -- reappearing at every level with a new name.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Weights are naturals, not normalised;
--- no sigma-algebra, no expectation, no independence formalism.  Those
--- are constructions; the distribution, the estimator, and their two
--- theorems are no longer among the absences.
 ------------------------------------------------------------------------
 
 module VitaranaYugma_NoEstimatorFromABlindSenseIsEverywhereCorrectAndTheMarginalsDoNotDetermineTheJoint where

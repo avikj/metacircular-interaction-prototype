@@ -74,14 +74,6 @@
 -- arrangement, as opposed to how many.  Order information is not an
 -- inefficiency of a bag-of-counts semantics; it is provably absent from it.
 --
--- NOT CLAIMED.  No theorem here relates ⟦t⟧ to `eval t` by cardinality --
--- that would need finiteness and is not proved; the decategorification claim
--- is the module's motivation, made precise only in the one direction §4
--- actually checks (the ℕ side is blind, the type side is not).  No coherence
--- theorem: nothing says the pre-`add-comm` calculus has no separable pair,
--- only that this extension has one.  `Step⁺` is defined here and NOT added
--- to `RewriteCertificate`, which other lanes import.
---
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 

@@ -72,15 +72,6 @@
 -- chain uses to manufacture them (ordering, voting, finality, reorg) has no
 -- work to do because the disagreement it resolves cannot be stated.
 --
--- NOT CLAIMED.  Nothing here is about networks, messages, latency,
--- adversaries, partitions or liveness -- there is no protocol below and no
--- failure model.  These are the ALGEBRAIC preconditions a replicated system
--- needs, proved; a system also needs the operational half, and none of it
--- is here.  Nothing about Byzantine behaviour: a node that ships a
--- well-typed operation cannot lie, but nothing here stops it withholding
--- one, and availability is not a theorem in this file.  `rev` is not proved
--- involutive on the nose, and §2 says why it is not.
---
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 

@@ -83,21 +83,6 @@
 -- is a theorem.
 --
 --
--- SYĀT — THE CLAIM, EXACTLY
---
---  * Nothing is proved for general X.  Every exhaustive `refl` is about
---    the domain [1,30], exactly as in `SieveFiber`.  `peelDrops` in
---    particular is X = 30 arithmetic; the general statement (Ω of the
---    quotient by the least prime factor is Ω − 1) is elementary and is
---    NOT proved here.
---  * No monodromy, and none is available: the index `Bool` and the
---    index `ℕ` are both sets, so `SetBaseNoMonodromy`
---    (Program 14.76) applies to this grading and kills loop transport
---    on it.  See that file for the verdict.
---  * No novelty.  Grading a state space by a charge and asking when a
---    transformation preserves the grade is the standard
---    graded/dependent-family setup; the content here is the arithmetic
---    instance and the two negative terms.
 ------------------------------------------------------------------------
 
 module ChargeGradedPeeling where

@@ -36,13 +36,6 @@
 -- therefore each other") in the mātrā register: not a new count, a
 -- welding of two records the census had listed as separate.
 --
--- WHAT IS AND IS NOT CLAIMED.  विरहाङ्क did not write `Fin`, and the
--- closed form `matra` counted here is Piṅgala's मात्रामेरु procedure, not
--- विरहाङ्क's; the naming honours whose fibre and whose count each half is.
--- Nothing new about `matra` is proved — it is imported and its
--- equivalence transported.  What is new is the identification of the two
--- fibres, and hence the count for विरहाङ्क's encoding.
---
 -- CHECKED: Agda 2.8.0 + cubical, --safe, no postulate/sorry/hole, exit 0.
 ------------------------------------------------------------------------
 

@@ -37,8 +37,6 @@
 -- is not a function of the ℓ-adic readings — that instance is a reading
 -- and is not proved; the shape of it is §2 and is.
 --
--- SYĀT — THE CLAIM, EXACTLY.  No realization functors, no motives, no
--- cohomology.  §1 needs only that the dashboard's codomain is a set;
 -- §2 is generic in all three types.
 ------------------------------------------------------------------------
 

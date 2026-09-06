@@ -89,7 +89,6 @@
 -- file is a model of saptabhaṅgī and it should not be cited as one.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS IS NOT, ON THE APOHA DISPUTE
 --
 -- It is tempting to read §1 as answering the Naiyāyika regress
 -- objection to अपोह — Uddyotakara's and Kumārila's charge that if "cow"
@@ -108,10 +107,6 @@
 -- new content is available by iterating exclusion, so nobody may claim
 -- an unbounded hierarchy of exclusions as either resource or defect.
 --
--- NOT CLAIMED.  That the corpus's obstructions are trivial (they are
--- not — §3 says the tower over them is short, not that they are easy);
--- that stability holds anywhere in particular; any reading of any
--- apoha text beyond the sentence attributed above.
 ------------------------------------------------------------------------
 
 module TheAbsenceTowerIsThreeUnconditionally where

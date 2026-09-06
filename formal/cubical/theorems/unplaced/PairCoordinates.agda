@@ -35,10 +35,6 @@
 --                                is exactly this
 --   ValueLevel, ValuationLevel   §3: the same theorem, twice
 --
--- NOT claimed: novelty.  Every identity here is one line of ring algebra;
--- Delta 22 says so itself.  What is contributed is that they are checked
--- at the generality that makes Delta 17's cross-level repetition a
--- consequence rather than an observation.
 ------------------------------------------------------------------------
 
 module PairCoordinates where

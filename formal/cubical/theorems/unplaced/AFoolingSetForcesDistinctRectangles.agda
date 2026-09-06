@@ -32,11 +32,6 @@
 -- hypothesis is a `⊎` and §2 does both cases.  That is the only thing
 -- the generalisation costs.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing about r_e, d_e, raw width, or the
--- calibration's matrix — see that module and `AFoolingPairForcesTwoRectangles`
--- for what each does and does not establish.  No cover is constructed
--- here, so no upper bound is implied.
---
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
@@ -130,7 +125,4 @@ module _ (Row Col : Type) (M : Row → Col → Bool) where
 -- That is the whole content of the numeric claim, stated without a
 -- cardinality.
 --
--- STILL NOT CLAIMED, and it is a different theorem rather than a gap:
--- any UPPER bound, and any claim that the maximum fooling set matches
--- the minimum cover — which is false in general for rectangle covers.
 ------------------------------------------------------------------------

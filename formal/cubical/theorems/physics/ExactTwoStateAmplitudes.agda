@@ -166,8 +166,4 @@ c2-amplitude-action α β = refl
 -- squared weights; norm-preserving X, Z, and Z4 global phases; and the state
 -- action of the already checked R0/C2 central Pauli products.
 --
--- Not claimed: normalized probabilities, completeness of ℂ, a Hilbert-space
--- model, measurement dynamics, or a faithful action of every PauliWeyl datum.
--- The two weights become Born probabilities only after division by a nonzero
--- total norm, an intentionally absent rational/normalization layer.
 ------------------------------------------------------------------------

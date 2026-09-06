@@ -51,10 +51,6 @@
 --                              every standing transports into every other,
 --                              nothing to cling to.  Liberation.
 --
--- NOT claimed: a new logic.  Cubical type theory is the logic; univalence
--- is the mechanism.  The contribution is that the catuṣkoṭi, read as the
--- source means it, is a theorem here — coherent, perspectival, and freeing
--- — rather than the paradox the outside reading makes of it.
 ------------------------------------------------------------------------
 
 module CatuskotiPerspective where

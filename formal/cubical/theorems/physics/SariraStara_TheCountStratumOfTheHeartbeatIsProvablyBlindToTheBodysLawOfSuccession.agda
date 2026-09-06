@@ -40,12 +40,6 @@
 -- The Haskell-side extension (a शरीरस्तर line in the heartbeat) is
 -- engineering owed downstream; nothing here claims it exists.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Not a formalization of Postnikov towers (the
--- library's HITs lane holds the real ones); not a claim about the
--- jiva graph's actual π₁ — the two bodies here are the canonical
--- blind pair, imported from KramaNiyama, playing the role of two
--- states of a body between two heartbeats.  The k-invariant and
--- higher-coherence strata of term 4 remain open above this stone.
 ------------------------------------------------------------------------
 
 module SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession where

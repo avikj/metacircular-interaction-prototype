@@ -18,11 +18,6 @@
 --   conjugate-stabilizer-back     the converse transport
 --   bare-equivalence-insufficient the sampled pointed-Bool control
 --
--- NOT claimed: novelty.  This is the standard conjugacy of stabilizers along
--- an equivariant identification, expressed using the repository's
--- proof-relevant `Defect` carrier.  No equality of whole stabilizer TYPES is
--- claimed: that stronger packaging would also have to retain the paths
--- comparing the two conjugation composites with the identity.
 ------------------------------------------------------------------------
 
 module StructuredSymmetryTransport where

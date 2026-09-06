@@ -166,12 +166,6 @@ stratumIsNonEmpty x xs with maximalExists x xs
 -- non-emptiness CONSTRUCTIVELY; non-emptiness gives the strict
 -- decrease.  Each cycle's output was the next cycle's only route.
 --
--- STILL NOT CLAIMED, and the remainder is now smaller and sharper: THE
--- ITERATION IS NOT WRITTEN.  No `strata` function exists, fuelled or
--- well-founded, and nothing claims the layers it would produce cover
--- the archive, are pairwise disjoint, or are ordered by domination.
--- What was missing for a stratification was never the recursion — it
--- was the measure the recursion decreases, and that is now present.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

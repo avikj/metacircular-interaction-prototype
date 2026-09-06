@@ -234,11 +234,6 @@ open import SaptabhangiNaya
 -- Satyayantra (§1 above), Khahara and Shunya — with three different things
 -- underneath.
 --
--- NOT CLAIMED: that classical usage of avaktavyam is as narrow as
--- `SaptabhangiNaya` makes it.  The sources are broader in places and this
--- is not an argument about them.  The claim is only that within THIS
--- repository one word is carrying three distinct structures, and the
--- module that defines it most precisely excludes the other two.
 ------------------------------------------------------------------------
 
 -- Brahmagupta's own reason, as a term: every x satisfies it.  Over cubical

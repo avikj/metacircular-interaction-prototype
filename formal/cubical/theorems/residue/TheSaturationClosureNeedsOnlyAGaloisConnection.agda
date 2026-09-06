@@ -208,14 +208,6 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- because `∸` truncates.  The obligation is dischargeable or false
 -- depending on which way the order points.
 --
--- STILL NOT CLAIMED, and it is the larger half: ONE CUT is one burden
--- and one residual, `X = Y = Unit`, so no infimum over an index appears.
--- Δ 28's cut carries a PROFILE on each side and its `↑` takes a meet
--- over all burdens — that needs `min` over a finite index and its
--- universal property, not built.  **So what this settles is that the
--- obstruction is NOT the residuation law; it is the meet.**  No `∞` is
--- adjoined, so that is ℕ and not the min-plus semiring proper, and
--- convolution does not appear.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

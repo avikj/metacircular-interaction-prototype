@@ -55,10 +55,6 @@
 -- step is the ℤ-specific parity fact, already checked elsewhere in this
 -- development rather than re-derived here.
 --
--- NOT claimed: novelty.  P/Q ≅ ℤ/k for A_{k−1} is in every Lie theory
--- text.  What is contributed is the correction to T17.24 as supplied, and
--- the identification of the k = 2 index with the corpus's own parity
--- obstruction.
 ------------------------------------------------------------------------
 
 module RootWeightIndex where

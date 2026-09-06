@@ -59,10 +59,6 @@
 -- adapter rather than a note.  (Registered obligation: PMTorus and
 -- SieveFiber next; each is one section of the same shape as §2.)
 --
--- NOT claimed: the quantitative faces (BAND's constant, the disclosure
--- dimension, the KMS uniqueness).  Those are the analytic and
--- operator-theoretic bodies of the law; this is its skeleton, and a
--- skeleton is exactly what an adapter needs.
 ------------------------------------------------------------------------
 
 module QuotientFiberLaw where

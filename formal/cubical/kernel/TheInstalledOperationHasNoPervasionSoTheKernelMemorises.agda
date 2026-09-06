@@ -68,14 +68,6 @@
 --       here it is unbounded.  Collapsing that fibre is the loss the carrier
 --       law prices, and the reason `advance` refuses to dedupe.
 --
--- NOT CLAIMED.  No decision procedure for `Control` is given, so nothing
--- here is a matcher; §3 exhibits instances and does not search for them.
--- Nothing here scores, ranks or samples the enabled list -- there is no
--- policy, and `Uttara`'s prohibition on a bare verdict is untouched.  The
--- schematic operation substitutes for ONE variable (`var`, via `subVar`),
--- which is the only substitution `RewriteCertificate` defines; the other
--- five coordinates of `Env` are not schematic here.
---
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 

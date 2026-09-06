@@ -35,11 +35,6 @@
 -- laboratory is this counting statement composed with a unit of
 -- account; the counting statement is the theorem.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Distinctions are counted, not weighed:
--- no reals, no logarithm, no temperature — those are the next
--- constructions (a measure theory over the kept fibre).  The
--- conservation-of-distinctions law and the displacement of erasure
--- into the environment are no longer among the absences.
 ------------------------------------------------------------------------
 
 module ApasaranaNiyama_ReversibilityConservesDistinctionsSoErasureIsDisplacementIntoTheEnvironmentNeverDestruction where

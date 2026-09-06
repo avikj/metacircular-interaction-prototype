@@ -29,10 +29,6 @@
 -- Abelian phase = per-strand property; non-abelian statistics =
 -- pair property — one theorem-pair, both halves terms.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Centrality is proved against the two
--- generators on this state space; the general equivalence
--- center-equals-descendable is a conjecture this pair of theorems
--- instantiates, and is the next construction.
 ------------------------------------------------------------------------
 
 module PurnaModa_TheFullTwistIsTheGlobalHalfWaveCentralByReflOfOrderTwoAndNotTheIdentity where

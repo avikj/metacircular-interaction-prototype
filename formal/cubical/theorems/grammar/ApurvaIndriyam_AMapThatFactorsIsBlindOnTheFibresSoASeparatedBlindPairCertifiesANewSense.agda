@@ -32,12 +32,6 @@
 --
 -- The organ criterion and the index criterion were never two criteria.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing here says a dashboard is worthless — §२ is
--- exactly the statement that a derived reading is FAITHFUL to its source, and
--- faithful compression is most of what an instrument is for.  The theorem
--- separates two roles; it ranks neither.  And no organ is built here: this
--- supplies the admission certificate an organ must carry, and `Aisthesis` —
--- the unified sensory-event type — is a successor that is not in this file.
 ------------------------------------------------------------------------
 
 module ApurvaIndriyam_AMapThatFactorsIsBlindOnTheFibresSoASeparatedBlindPairCertifiesANewSense where

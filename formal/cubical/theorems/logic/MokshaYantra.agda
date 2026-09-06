@@ -57,10 +57,6 @@
 --                              Pratityasamutpada's `conditioned`, reread as
 --                              the wheel: niḥsvabhāva of the knot, turned.
 --
--- NOT claimed: new mathematics.  It is Pratityasamutpada's descent cut and
--- NisvabhavaNet's transport, closed into the arising/cessation wheel the
--- source names.  The contribution is the closure: three received jewels
--- turning as one checked cycle.
 ------------------------------------------------------------------------
 
 module MokshaYantra where

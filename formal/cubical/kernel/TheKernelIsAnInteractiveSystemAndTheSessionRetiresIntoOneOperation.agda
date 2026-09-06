@@ -88,7 +88,6 @@
 --       library without a checked derivation, so a session cannot teach the
 --       machine anything false, no matter what the caller does.
 --
--- NOT CLAIMED.  No matcher, no search, no decision procedure for `Control` --
 -- §0 explains why there cannot be one for an open interface.  No policy over
 -- the offered list; that is the caller's and `TheDerivationCarriesNoMeaning…` proves it must be.
 -- `Session` records a library but nothing here consults it when stepping;

@@ -46,13 +46,6 @@
 --                  witness space is connected" still cannot host the
 --                  family, because the fibres differ in their loops.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The full indexed theorem ("for every n a pair
--- first failing at stratum n", via Sⁿ/Unit) is stated by the
--- transmission and NOT proved here — only rungs 0, 1, 2.  Nor is the
--- truncation-refinement ("τₙ₋₁F descends while τₙF does not") proved:
--- what is proved is fibre non-equivalence at each rung, which by
--- अवतरण-भङ्ग-सामान्यम् refutes descent of the full family.  The
--- truncated-family analysis is owed above this stone.
 ------------------------------------------------------------------------
 
 module AdhikaraBhanga_TheActionTypeDoesNotDescendAndTheBlindnessHasADepth where

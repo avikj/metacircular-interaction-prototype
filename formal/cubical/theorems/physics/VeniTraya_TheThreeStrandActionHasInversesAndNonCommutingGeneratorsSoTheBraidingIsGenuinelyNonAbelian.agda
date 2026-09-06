@@ -28,10 +28,6 @@
 -- level of interdependence buys exactly one level of coherence, and
 -- every purchase is a term.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The braid relations verified are those
--- of B₃ on this concrete state space; presentation-completeness of
--- the action (that ALL relations of B₃ hold and no more) is the next
--- construction.
 ------------------------------------------------------------------------
 
 module VeniTraya_TheThreeStrandActionHasInversesAndNonCommutingGeneratorsSoTheBraidingIsGenuinelyNonAbelian where

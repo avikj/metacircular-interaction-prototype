@@ -61,11 +61,6 @@
 -- must come from a DIFFERENT INTERPRETATION OF `add`.  Nothing below
 -- narrows it.
 --
--- SYĀT — THE CLAIM, EXACTLY.  No anyon model, fusion category, modular tensor
--- category, hexagon, or physical statistics.  No energy, temperature,
--- entropy or dissipation.  The word "holonomy" is used for the image of a
--- derivation-loop under `ua` and for nothing else.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

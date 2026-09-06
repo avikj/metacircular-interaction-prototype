@@ -135,10 +135,6 @@ open import SieveFiber
 -- The same shape kills `SieveScaleTower.Fibre₁ ₂ ₃` and
 -- `ChargeGradedPeeling.G`; those five deaths are one phenomenon.
 --
--- NOT CLAIMED: that the census edge `ℕ ⟶ Vis « q` is thereby priced.  It
--- is not.  What is priced is the edge out of the RESTRICTED domain, and
--- the census does not currently hold that edge — naming the gap is the
--- content of this section, not closing it.
 ------------------------------------------------------------------------
 
 अवच्छिन्नम् : Type

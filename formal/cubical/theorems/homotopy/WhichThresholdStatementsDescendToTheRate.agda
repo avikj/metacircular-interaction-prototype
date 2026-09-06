@@ -210,13 +210,6 @@ minimalDoesNotDescend =
 -- dissection (Haros 1802; Farey 1816) and the Stern–Brocot tree (Stern
 -- 1858; Brocot 1861).
 --
--- STILL NOT CLAIMED, and it is this module's own gap showing again:
--- density is proved for pairs, and ⊑ is a preorder, so nothing is said
--- about density of the RATES — that needs the quotient §4 above
--- explicitly does not form.  The mediant is one witness, not the only
--- one, and is not claimed to be in lowest terms.  Nothing iterates it:
--- no Stern–Brocot enumeration and no claim that every intermediate
--- threshold is reachable.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -250,11 +243,4 @@ minimalDoesNotDescend =
 -- into a PATH.  `AtLeast` is a proposition because cubical's `≤` is, so
 -- nothing needed truncating.
 --
--- STILL NOT CLAIMED: DENSITY OF THE RATES.  The mediant module's `⊏`
--- is not lifted, and lifting it needs `⊏` to respect `≈` on both sides,
--- which is unchecked — so of the two sentences this closes only the
--- one quoted at the top.  No arithmetic on `Rate` is defined, no normal
--- form or lowest-terms section is constructed, `≈` is not shown
--- decidable, and `Rate` is not related to any independently defined type
--- of rationals.
 ------------------------------------------------------------------------

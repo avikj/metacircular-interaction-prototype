@@ -107,12 +107,6 @@
 -- the Π-form residue in §3 is exactly where they would have to be
 -- taken, and a double-negation shift is what taking them would need.
 --
--- NOT CLAIMED.  That no separating pair exists in any extension of this
--- setting (§1 shows none can be exhibited HERE, which is a statement
--- about this type theory and about exhibition, not about existence);
--- that double-negation shift is false (it is simply not available);
--- that the saptabhaṅgī cannot be modelled — only that it has not been
--- modelled by anything called that here.
 ------------------------------------------------------------------------
 
 module TheUnstableGroundCannotBeExhibited where

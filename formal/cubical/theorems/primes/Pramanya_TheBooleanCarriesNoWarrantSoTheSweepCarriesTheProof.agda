@@ -30,12 +30,6 @@
 -- `Bool` arrives having been stripped of it and must be certified from
 -- outside, and 944676e4 provides no outside.
 --
--- NOT CLAIMED.  No tradition is credited with propositions-as-types,
--- with `Dec`, or with anything proved below; the mathematics is Agda's
--- and the parallel is mine, drawn because the corpus already ran the same
--- audit against *pramāṇa* elsewhere.  Nothing here shows the fuelled
--- `prime` of `Ganana` is wrong — it is very probably right, and it
--- is still unbridged, and that is the whole complaint.
 ------------------------------------------------------------------------
 
 module Pramanya_TheBooleanCarriesNoWarrantSoTheSweepCarriesTheProof where

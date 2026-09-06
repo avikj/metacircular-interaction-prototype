@@ -48,12 +48,6 @@
 --                 the type of normalized invariant weight rules is
 --                 contractible — isContr(WeightRule), as transmitted.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Steps 3–5 of the transmitted Born ladder
--- (equal-amplitude refinement, rational weights by fibre pushforward,
--- continuity/noncontextual extension) are NOT touched: they stay
--- distinct and open, per the transmission's own instruction that they
--- must not be collapsed into "Gleason handles it".  Nothing here is
--- about amplitudes; this is the finite uniform-orbit floor only.
 ------------------------------------------------------------------------
 
 module SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure where

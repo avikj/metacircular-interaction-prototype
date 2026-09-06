@@ -70,13 +70,6 @@
 --   fe-ratio-is-the-sign       the ratio the FE constraint propagates IS
 --                              σ(p) — charge-one data on the nose
 --
--- NOT claimed: any lower bound (that value queries cannot simulate FE
--- queries at some cost — W3 proper).  Not claimed: anything about the
--- entropy-decrement PROOF; only about the interface it reads.  The
--- Friedlander–Iwaniec bilinear axiom and Vinogradov type-II sums consume
--- interfaces of the same charged shape, which is consistent with, and
--- predicted by, GAUGE.md §F.3 — but that identification is prose, not
--- a checked term, and stays in the note.
 ------------------------------------------------------------------------
 
 module OracleCharge where

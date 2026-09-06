@@ -223,9 +223,6 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- reads as offering two routes, and the first is not a route at all
 -- when one instance suffices.
 --
--- STILL NOT CLAIMED: EXISTENCE.  DNS is neither provable nor refutable
--- in this substrate; exhibiting a failure needs a model, and none is
--- constructed. What changed is the question's status, not its answer.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -322,6 +319,4 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- the backlog: when adopting a term, prove the object has the property
 -- the term names — before the rename, not after.
 --
--- What is still NOT claimed: that avaktavya is inexpressible here; only
--- that a product of negations over an instance family is not it.
 ------------------------------------------------------------------------

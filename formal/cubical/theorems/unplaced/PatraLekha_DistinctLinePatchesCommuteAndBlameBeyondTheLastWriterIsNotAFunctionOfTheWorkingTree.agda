@@ -26,10 +26,6 @@
 --       the working tree, with the last-writer boundary exact: the
 --       final write is in the tree; everything before it is not.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Lines hold single naturals; no diff
--- algorithm and no merge UI appear.  Those are constructions, not
--- readings; the file, the patch, the commutation and the blame
--- theorem are no longer among the absences.
 ------------------------------------------------------------------------
 
 module PatraLekha_DistinctLinePatchesCommuteAndBlameBeyondTheLastWriterIsNotAFunctionOfTheWorkingTree where

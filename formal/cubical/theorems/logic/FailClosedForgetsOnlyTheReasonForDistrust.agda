@@ -120,8 +120,4 @@ distrustDeterminesOnlyNotCapable s p q =
 -- SAME line as the grade: the reason for distrust is carried beside the
 -- verdict, not inside it.
 --
--- NOT CLAIMED: that the three states are the only ones (a kernel could
--- be present, refl-capable and cubical-incapable, which the shelf's
--- verdict line records separately and this module does not model).  NOT
--- CLAIMED: anything about soundness, per §0.
 ------------------------------------------------------------------------

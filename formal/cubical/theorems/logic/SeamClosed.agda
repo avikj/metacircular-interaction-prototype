@@ -37,11 +37,6 @@
 -- Nothing here is invented: the lemma is the machine's own text, and the
 -- residual is the kernel's own words.
 --
--- WHAT THIS IS NOT.  It is not the seam repaired.  Repairing it means wiring
--- `interactive/KernelContext.hs` to read `replay.traces` so that EVERY goal can
--- cite these lemmas, and that is not done here.  This file shows the gap is
--- one of plumbing rather than of mathematics: the proof exists, on disk, in
--- the machine's own hand.
 ------------------------------------------------------------------------
 
 module SeamClosed where

@@ -41,15 +41,6 @@
 -- and one CONCRETE witness proved here, so the shape is inhabited without
 -- leaving --safe: `not` and the constant `true` on Bool do not commute.
 --
--- WHAT IS AND IS NOT CLAIMED.  The abstract शब्द and its one-line proof are
--- built here, 2026-08-23.  The four instances are their own checked terms;
--- this module does not re-prove them, it exhibits that they are the same
--- shape — which is the deliverable, because "these are one object in four
--- languages" was prose until it was a type.  No claim that the instances
--- are EQUAL as objects (they live in different types); the claim is that
--- अन्तर्विनिमयः is inhabited in each, and अवक्तव्यम् discharges each by the
--- same line.  Non-commuting observation carries an un-erasable charge; that
--- sentence is now checked at the level of the site, not the instance.
 ------------------------------------------------------------------------
 
 module KramaSahaSarvatra_TheInterchangeChargeIsOneStructureFromLoopsThroughContextualityToTheFourthBhanga where

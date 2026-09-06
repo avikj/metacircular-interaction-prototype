@@ -174,12 +174,6 @@ truncationBreaksTheNaiveOrder = naiveHolds , naiveFails
 --   goFwd / goBwd                       both directions
 --   ProfileCut                          `module Galois` instantiated
 --
--- STILL NOT CLAIMED there: one side is still SCALAR — burdens form a
--- profile, residuals are one value, which is what makes `up` land in ℕ.
--- Profiles on BOTH sides need a meet per residual index and are not
--- built.  No `∞`, so the empty meet is `0` by ℕ's bottom rather than by
--- choice.  CONVOLUTION is absent, so nothing there speaks to Δ 28's
--- COMPOSITION step — only to re-saturation.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

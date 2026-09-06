@@ -44,11 +44,6 @@
 -- floor of the transmission's bisimulation reading: states may be
 -- lawfully identified only when their whole future cones descend.
 --
--- SYĀT — THE CLAIM, EXACTLY.  No general theory of the coarsest lawful
--- quotient (the transmission's optimization problem) and no infinite-
--- horizon limit; this is the finite adjacency witness.  The dynamics
--- here is deterministic and three-pointed by design — the smallest
--- body that dies.
 ------------------------------------------------------------------------
 
 module Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep where

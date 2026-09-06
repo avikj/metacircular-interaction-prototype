@@ -50,9 +50,6 @@
 -- in the Arthaśāstra tradition — locus unverified; no theorem is
 -- attributed to any historical author).
 --
--- SYĀT — THE CLAIM, EXACTLY.  No protocol, no adversary model, no game
--- theory, no mechanism design.  A boundary is a type family, the meet
--- is the pointwise product, and every claim below is about those.
 ------------------------------------------------------------------------
 
 module SamvaraSandhi_ABoundaryEarnsItsSeatByANamedRefusalAndTheTreatyOfInterdependentBoundariesStrictlyRefinesBoth where

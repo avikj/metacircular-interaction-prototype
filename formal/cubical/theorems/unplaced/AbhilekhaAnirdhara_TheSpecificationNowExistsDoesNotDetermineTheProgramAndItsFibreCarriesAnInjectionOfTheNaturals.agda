@@ -25,10 +25,6 @@
 --       recovers n.  A dedup keyed on spec-behaviour does not remove a
 --       duplicate; it collapses a copy of ℕ.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Examples over ℕ with unary programs; no
--- version-space algebra and no enumerative search appear — those are
--- constructions.  The specification language and the exhibited gap are
--- no longer among the absences.
 ------------------------------------------------------------------------
 
 module AbhilekhaAnirdhara_TheSpecificationNowExistsDoesNotDetermineTheProgramAndItsFibreCarriesAnInjectionOfTheNaturals where

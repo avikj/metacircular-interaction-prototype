@@ -570,7 +570,6 @@ chooseMoves-exhibits-listed-move s wHere ms lt' =
   choose-exhibits-listed-move s wHere (nbrs s ms) lt'
 
 ------------------------------------------------------------------------
--- §4.  WHAT IS AND IS NOT CLAIMED
 --
 -- Claimed.  Three decision rules of `interactive/MathMachine.hs` now name a
 -- checked statement rather than a comment:
@@ -586,16 +585,6 @@ chooseMoves-exhibits-listed-move s wHere ms lt' =
 --       `choose-never-worse`, `choose-optimal`, `choose-greatest`,
 --       `choose-exhibits-listed-move`
 --
--- Not claimed.  That the Haskell's ∂ really counts open conjectures, that
--- its probe list really contains the values it computed, that its move list
--- is really assembled by `moveTo`, or that its costs are honest.  Those are
--- the interface, and they are where the model can be wrong; each is a
--- hypothesis above rather than a definition, so the failure would be a
--- visible mismatch and not a silent one.
---
--- Also not claimed: anything about the prover, the term generator or the
--- fingerprint.  §2 constrains how the fingerprint's verdict may be USED and
--- says nothing about how it is computed.
 ------------------------------------------------------------------------
 
 -- CHECKED: Agda 2.6.3, cubical **v0.7** (/tmp/cubical), --cubical --safe,

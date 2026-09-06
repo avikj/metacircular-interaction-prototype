@@ -44,10 +44,6 @@
 -- of the present's.  One law: factoring kills separation — across
 -- instruments, and now across time.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The alphabet is unary; "automaton" means
--- the Moore machine above; no regular languages and no minimisation
--- algorithm appear.  Those are the next absences to construct, not
--- readings left unproved.
 ------------------------------------------------------------------------
 
 module NerodeYantra_TheMooreMachineNowExistsAndWhenTheNextObservationFactorsThroughTheCurrentTheNerodeCongruenceIsOneObservationsKernel where

@@ -73,11 +73,6 @@
 --       than separatedness yields isSet.  Hedberg's argument is not
 --       proved optimal here and nothing below claims it is.
 --
--- NOT CLAIMED.  That the original statements are wrong (they are not —
--- a redundant hypothesis weakens a theorem, it does not falsify it);
--- that this exhausts the redundant hypotheses in this corpus (two
--- sites were read, which is two sites); that pointwise stability
--- cannot yield isSet (it is not shown to, which is not the same).
 ------------------------------------------------------------------------
 
 module HypothesesAssumedWhereTheyAreDerivable where

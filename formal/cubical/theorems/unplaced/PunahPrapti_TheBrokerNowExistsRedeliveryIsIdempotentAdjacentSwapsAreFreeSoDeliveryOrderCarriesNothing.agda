@@ -26,9 +26,6 @@
 --       expiry policy.  The store this makes unnecessary is the one
 --       whose absence the abstract priced.
 --
--- SYĀT — THE CLAIM, EXACTLY.  One partition, no checkpoint, no
--- watermark — constructions, not readings.  The broker, the offsets,
--- and the redelivery algebra are no longer among the absences.
 ------------------------------------------------------------------------
 
 module PunahPrapti_TheBrokerNowExistsRedeliveryIsIdempotentAdjacentSwapsAreFreeSoDeliveryOrderCarriesNothing where

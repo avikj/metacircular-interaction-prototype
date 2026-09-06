@@ -39,21 +39,6 @@
 -- countFix is such a class function, and on S₃ it takes the three
 -- values 3, 1, 0 on the three classes' named representatives.
 --
--- SYĀT — THE CLAIM, EXACTLY.
---   * That fixed-point counting separates conjugacy classes of Sₙ in
---     general.  It does NOT for n ≥ 5: in S₅ the cycle types (2,2,1)
---     and (4,1) both fix exactly one point.  The separation here is a
---     fact about S₃ specifically.
---   * That the six named elements exhaust S₃.  Completeness of the
---     six-element enumeration (every equivalence of Fin 3 is equal to
---     one of the six) is NOT proved in this module; the per-element
---     census values are statements about the named representatives.
---     Conjugation invariance and closed-loop gauge invariance, by
---     contrast, are proved for arbitrary elements and need no
---     enumeration.
---   * No representation theory: countFix is the character of the
---     permutation representation only in the informal sense recorded
---     above; no vector spaces or traces appear.
 ------------------------------------------------------------------------
 
 module SthiraBinduGanana_TheFixedPointCountIsTheConjugationCensusForS3 where

@@ -35,15 +35,6 @@
 -- from a single seed gives an ℕ-indexed family — which is the generativity
 -- the 628 rule is named for and which no file here had.
 --
--- SYĀT — THE CLAIM, EXACTLY.  That the family is INJECTIVE.  Over an arbitrary
--- commutative ring it is not (take a finite ring), so distinctness is not a
--- consequence of anything below and is not asserted.  It is a statement about
--- growth in an ordered ring and it is left open here rather than waved at.
--- What is exhibited instead, at the end, is the first stretch of the D = 2
--- chain over ℤ with its members computed, their norms checked, and their
--- pairwise DISEQUALITIES proved as terms — a fact about D = 2, not a theorem
--- about the construction.  (Until 2026-08-18 the disequalities were asserted
--- in a comment with no term behind them; an audit caught it.)
 ------------------------------------------------------------------------
 
 module BhavanaGenerative where

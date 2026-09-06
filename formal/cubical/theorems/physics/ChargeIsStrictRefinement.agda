@@ -88,24 +88,6 @@
 --     it removes the hand step in front of them.
 --
 --
--- SYĀT — THE CLAIM, EXACTLY.
---   * No new arithmetic.  The barrier is Bombieri's and
---     Friedlander–Iwaniec's; the criterion is `ChargeCriterion`'s; the
---     gauge-group picture is `GaugeOrbitClasses`'.
---   * The Lean term is not imported and cannot be.  §2 transports its
---     STATEMENT; §3 proves the transported statement here, from the
---     Agda side, and the Lean theorem remains the general fact about
---     DFA experiment partitions.  "Same theorem" below means the
---     dictionary is exhibited and both sides are checked, not that one
---     term was moved.
---   * Nothing here bears on W3, W4, Goldbach, or twin primes.
---
--- CHECKED ON THE PIN.  `formal/cubical/check.sh` with
--- NM_MODULES set to this module printed "RUNNING AGAINST THE PIN"
--- (agda 2.8.0 at /root/Agda-2.8.0/…, cubical /root/agda-libs/cubical-v0.9),
--- EXIT=0 (errors: 0, warning lines: 0), CHECKSH_EXIT=0 read unpiped.
--- it is the pin's verdict on THIS module and its import closure, not on
--- the whole aggregate.  `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------
 
 module ChargeIsStrictRefinement where

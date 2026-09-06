@@ -20,16 +20,6 @@
 -- together with proofs that it divides both inputs, so the divisor and
 -- its certificate are one object.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Not that Āryabhaṭa proved any of this; the text
--- gives a procedure.  Not that the returned divisor is the GREATEST
--- common divisor — only that it is a common divisor.  The maximality half
--- needs a subtraction lemma this file does not have, and it is left open
--- rather than asserted.  Not Bézout, and not the linear congruence the
--- kuṭṭaka is actually for.  The corpus already carries the correction
--- that the kuṭṭaka's shape transfers to other engines while its
--- termination argument does not; this is the other side of that — here
--- the argument is present, and it is present because the remainders
--- strictly decrease and for no other reason.
 ------------------------------------------------------------------------
 
 module KuttakaSamapti_TheValliTerminatesWithoutFuel where

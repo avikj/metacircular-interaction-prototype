@@ -143,6 +143,4 @@ relative-phase-survives-projectivization equality =
 -- norm and interference-port weights, and separation of the two concrete
 -- relative-phase rays by their descended output weights.
 --
--- Not claimed: projective Hilbert space, quotient by every nonzero complex
--- scalar, analytic completion, normalized probabilities, or measurement.
 ------------------------------------------------------------------------

@@ -131,14 +131,6 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 -- `decAny decStrictlyDominates` makes that `Any` decidable, hence
 -- stable — the fourth cycle on this line to turn on the same decision.
 --
--- STILL NOT CLAIMED, and the SECOND half of (3) is the real one: the
--- dominator lies in `xs`, NOT necessarily in `stratum xs`.
--- Strengthening it needs a RELATIVISED maximality lemma — for any `v`
--- in `xs` there is a maximal `m` in `xs` with `v ≼ m` — which is
--- `maximalExists` threaded through an extra parameter and is not
--- proved.  Until then, what holds is: nothing dropped from a layer was
--- undominated in the archive it was dropped from.  (1) COVERAGE and
--- (2) DISJOINTNESS remain untouched.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -162,12 +154,4 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 -- nothing about Pareto maximality is used, only that the two filters
 -- are complementary, which is why each is three lines.
 --
--- STILL NOT CLAIMED: THE ITERATED VERSIONS.  Nothing says a member of
--- the archive appears in some layer of `strata n xs`, nor that two
--- DIFFERENT layers share no member; both need these facts threaded
--- through the recursion alongside `theStratificationTerminates`, and
--- that threading is not written.  One-step disjointness is between a
--- layer and ITS OWN remainder — weaker than pairwise disjointness of
--- the layers.  Duplicates are untouched: the filters preserve
--- multiplicity and these are statements about membership, not counts.
 ------------------------------------------------------------------------

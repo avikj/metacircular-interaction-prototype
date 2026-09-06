@@ -247,7 +247,4 @@ generic-pm-gauge-translate-is-derived-total gauge =
 -- the generated gauge quotient, and sends the ZZ representative and every
 -- gauge translate to the same odd value derived from PauliWeyl.
 --
--- Not claimed: a calculation of every H1 class of K3,3, a full valuation
--- sheaf, or a Hilbert-space realization.  H¹PM is exactly the finite quotient
--- needed for this obstruction line; cycleClass is one descended functional.
 ------------------------------------------------------------------------

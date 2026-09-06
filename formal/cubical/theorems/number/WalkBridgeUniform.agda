@@ -41,12 +41,6 @@
 -- instantiated at `m = 0`, because `cap 0 = 1` and the least non-divisor
 -- of `1` is `2`.  One statement covers the trajectory and its base.
 --
--- WHAT THIS IS NOT.  Not a defect report: every statement in
--- `WalkBridge` is true as written and its proofs are correct.  Not a
--- replacement: `WalkBridge` also makes the walk's step TOTAL (`leastND`,
--- `next`) and assembles the global install stream, neither of which is
--- reproved here.  This is a hypothesis-removal and a second derivation.
---
 -- CHECKED: Agda 2.6.3, cubical v0.5, --cubical --safe.
 -- No postulates, no holes.
 

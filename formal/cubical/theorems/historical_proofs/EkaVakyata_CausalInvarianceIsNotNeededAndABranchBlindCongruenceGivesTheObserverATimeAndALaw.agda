@@ -100,13 +100,6 @@ module _ {X : Type ℓ} (R : X → X → Type ℓ') where
 
 -- --------------------------------------------------------------- मर्यादा
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing here says a branch-blind observer exists for
--- a given rule, nor that one is easy to find; `machine/DrshtiJala_...`
--- computes them for a deterministic rule and the multiway case is not done.
--- Nor is anything claimed about what such an observer's time is PHYSICALLY —
--- `मार्गः n` counts steps, and calling that a time is a reading, not a
--- theorem.
---
 -- WHAT IS CLAIMED, and it is the whole of it: the global hypothesis is
 -- replaceable by a local one about the observer, and the replacement is not
 -- an approximation.  `एकवाक्यता` has no confluence premise in its statement

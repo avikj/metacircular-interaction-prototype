@@ -77,12 +77,6 @@
 -- not dedupe, why lāghava is a SEPARATE order, and why search does not
 -- reduce to checking.
 --
--- NOT CLAIMED.  Nothing here says `Derivation a b` is a set, or computes its
--- h-level.  Nothing gives a decision procedure, a search, or a selection
--- rule; §4 is a no-go and does not construct the extra-semantic criterion it
--- says is necessary.  `len` is one cost among possible ones and no claim is
--- made that it is the right one -- only that it is not semantic.
---
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 

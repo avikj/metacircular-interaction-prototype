@@ -50,7 +50,6 @@
 -- what being a fixed point of the closure means.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SYĀT — THE CLAIM, EXACTLY, and this is the load-bearing part.
 --
 -- The note's ↑ and ↓ are min-plus RESIDUATIONS over a semiring-valued
 -- kernel, taking burden profiles to residual profiles.  The ↑ and ↓
@@ -210,9 +209,4 @@ module _ {X Y : Type} (K : X → Y → Type) where
 -- nothing re-proved.  That is what makes the size of the remaining
 -- obligation credible rather than asserted.
 --
--- STILL NOT CLAIMED, and unchanged: the min-plus instance itself.
--- Neither direction is proved for a semiring-valued kernel, and no
--- quantale is constructed anywhere in this repository, so the
--- idempotence result STILL does not apply to min-plus convolution.
--- Making an obligation small and explicit is not discharging it.
 ------------------------------------------------------------------------

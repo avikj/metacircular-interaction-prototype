@@ -47,11 +47,6 @@
 -- the library's Σ-based `_≤_`, so transitivity and monotonicity are the
 -- standard lemmas, not re-derived.
 --
--- SYĀT.  This proves House Robber optimal — that named program, that
--- selection structure.  It does not prove any universal "every DP is so
--- certified"; it is one real instance carried to the end, exhibiting
--- that optimality (lower bound included) is a checkable object for a
--- genuine algorithm, not only for a toy.
 ------------------------------------------------------------------------
 
 module GrhaChaura_TheHouseRobberDynamicProgramIsOptimalAttainedAndUnbeatable where

@@ -166,9 +166,4 @@ theThresholdAtOneAndBelow = theUniversalClaimFails , butOneStillPasses
 -- the rate-one case proved here (`fullCountGivesAll`) is the top of that
 -- ordering, not a point on a continuum that was never exhibited.
 --
--- STILL NOT CLAIMED, there and therefore here: no threshold order is
--- shown TOTAL over all fractions -- two populations are two populations,
--- not a chain -- and no fraction other than 1/2 and 1 is analysed.  The
--- population remains a LIST, so multiplicity is counted and order is
--- carried even though no claim here uses the order.
 ------------------------------------------------------------------------
