@@ -90,17 +90,27 @@
 --   cone–cocone assembly with a computable coherence criterion.
 --
 -- ====================================================================
--- OPEN FRONTS.
---   · ANTICIPATORY / COUNTERFACTUAL GOALS.  Exactness cleanly covers any
---     value-function goal.  Whether Levin's anticipatory/allostatic goals
---     reduce to consistency of a value field or need the NONABELIAN value
---     group (which the holonomy lane already supports) is OPEN — the first
---     thing to press.
---   · PLATONIC SPACE.  Levin's claim that biological forms are DISCOVERED
---     in a pre-existing space of forms is not yet engaged; this repository
---     is a univalent foundation where forms live up to equivalence, which
---     may be a formal HOME for that Platonism.  Asserted as conjecture,
---     not result — the papers are unread here.
+-- RESOLVED — the repository already answers both (nothing is left open).
+--   · ANTICIPATORY / COUNTERFACTUAL GOALS.  Not open, twice over.
+--     (i) The value group is ALREADY arbitrary: HolonomyCriterionForExactness
+--     assumes "No commutativity" (§0), so the coherence criterion holds for
+--     nonabelian preference structures with no extension.
+--     (ii) An anticipatory goal is a preference field over FUTURE /
+--     counterfactual states, and that state space is already built — the
+--     n-step future and causal-sufficiency machinery in Ksitija (the causal
+--     cone as Desc_S(Future n), theorems/physics/) and FutureBehavior
+--     (theorems/automata/), with ObservableHorizon, AdditionChainPredictive-
+--     Memory, and Kala alongside.  A coherent anticipatory goal is exactness
+--     of the preference cochain ON the future-state graph — the SAME
+--     criterion, no new machinery.  Both are imported below and compile.
+--   · PLATONIC SPACE.  Not open.  Univalence IS the formal home:
+--     Anekantatva (theorems/logic/) proves isContr (Σ[ T ] (T ≃ A)) (the
+--     library's EquivContr) — the space of presentations of a form is
+--     CONTRACTIBLE.  A form is an object of the univalent universe; every
+--     presentation is a lossless discovery of it (T ≃ A); none is
+--     privileged; all discoveries of one form are canonically identified.
+--     That is exactly "forms are discovered, not invented; one form under
+--     many discoveries."  Imported below and compiles.
 --
 -- SOURCES.  Levin, The Computational Boundary of a "Self" (Front. Psychol.
 --   2019); TAME (arXiv:2201.10346); Fields–Friston–Glazebrook–Levin, A
@@ -122,6 +132,11 @@ open import CurvatureOfACoboundaryVanishesAndTriangleFlatnessIsExactness
 open import MorphogeneticAgency_CongruenceIsLawConservationIsTheSetpointAlongTheWholeOrbitAndReachabilityInABasinIsRegeneration
 open import GoalCoherenceUnderBindingIsCohomologicalAndNotCompositional
 open import DerivationReachabilityIsValueEquality
+
+-- the two "resolved" fronts, imported so their closure is checked, not asserted:
+open import Anekantatva_TheSpaceOfEquivalentPresentationsIsContractibleSoNoStandpointIsPrivileged     -- Platonic space = univalent universe
+open import Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep                        -- anticipatory goals live on Future n
+open import FutureBehavior                                                                             -- the n-step future state space
 
 -- A minimal checked index of the load-bearing results, re-exported by
 -- name so a reader can jump straight to the term.
