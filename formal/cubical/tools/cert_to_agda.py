@@ -6,6 +6,7 @@ A' = t·s²·A (integers).  Then A' = L' D' L'ᵀ.  Emits tables in Saṅkhyā (
 Usage: cert_to_agda.py cert.json ModuleName > ModuleName.agda
 """
 import sys, json
+sys.set_int_max_str_digits(0)
 from fractions import Fraction as F
 from math import lcm
 def s𝕊(x):
