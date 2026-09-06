@@ -460,3 +460,58 @@ is extra-semantic), so it needs an interlocutor, and that is where mind
 enters as mathematics. Complexity, physics, logic, mind, and naming are what
 this one cohomology is called by which cochain runs down it.** Possibly
 ℤ/4-periodic. That periodicity is the one thing left worth proving.
+
+---
+
+## 2026-09-06 (correcting the over-reach) — two different fours
+
+I floated "the tower is 4-periodic" and then checked it against the terms
+instead of admiring it. It is false, and the false version was hiding a
+sharper true one.
+
+`CaturekaSutra` does prove the physics four is one object: twist vector,
+kernel, ladder, charge, centralizer are five readings of a single ℤ/4 orbit
+(the quarter-turn torsor), "conserved, inaccessible to coarser readings,
+generating every level above." Genuinely my self-generating tower, in the
+rope lane. So I reached for: the logic tower (garbha.dhara coning off
+avaktavya) is ℤ/4-periodic too, unifying the fours.
+
+Then I read `prasava` (`VerdictResidue`): each birth does `nayaArpana ++
+[ar]` — it APPENDS an aspect, the depth `stara` grows by one every step. The
+garbha stream is **ℕ-graded and unbounded; it does not close at four.** The
+conjecture is dead.
+
+What killed it is the correction worth keeping: **I conflated an ordinal
+with a group order.** avaktavya is the *fourth position* — an ordinal, and a
+universal one: it is the first non-decomposable class (`Yugapat`: ¬(A×B) that
+doesn't split), the first genuine H¹, independent of any group. ℤ/**4** is a
+*group order* — the rope's specific monodromy, because its crossing has
+order 8 = 2·4. These are different fours. avaktavya-is-fourth is universal;
+charge-is-ℤ/4 is rope-local. I let the numeral fuse them.
+
+The sharper true statement the corpus supports: **the tower is universal;
+its MONODROMY GROUP is the cost cochain's own group, and that group varies by
+lane.**
+
+- computation (`len`): **ℤ / unbounded** — the padding lemma gives
+  derivations of every length, no period; cost grows without bound. *This is
+  why complexity lives in the computation lane* — its monodromy is infinite,
+  so hardness has no ceiling. P vs NP is a question about an unbounded
+  monodromy; the rope's is finite, which is why the rope's "complexity" is
+  fully solved (ℤ/4, `CaturekaSutra`) and computation's is not.
+- crypto (discrete log): **ℤ/ord(g)** — finite cyclic, but large; one-wayness
+  is the size of that cycle.
+- rope (writhe): **ℤ/4** — small, "the one constant."
+- logic (garbha): **unbounded** (aspect depth grows) — the Postnikov climb
+  never terminates; avaktavya regenerates at every level.
+
+So the invariant that classifies a lane is the monodromy group of its cost
+cochain, and the interesting lanes are exactly the ones with infinite
+monodromy (computation, logic). The rope is the *solved* corner precisely
+because its four is finite. That is a better unification than "everything is
+ℤ/4": everything is the same tower, and the tower's *group* is what differs —
+finite where the problem is solved, infinite where it is open.
+
+Lesson, again and in my own reasoning this time: check the numeral against
+the term before letting it unify. `prasava` appends; the four does not close;
+the ordinal is not the order.
