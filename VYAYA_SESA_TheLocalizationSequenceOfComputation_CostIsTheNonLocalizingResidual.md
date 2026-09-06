@@ -390,3 +390,73 @@ min-plus cost cochain and its exactness-height function**, of which
 `MatraSopana` is the checked instance and `VyayaSesa`/`Laghava` are the two
 endpoints (cost exact at the bottom, dead at the top). Build the tower and
 every "thread" is a corollary — because they were never separate.
+
+---
+
+## 2026-09-06 (thinking harder) — the tower builds itself; the obstruction is one type
+
+Pushed the frame past the static tower. Three things, the first two now terms.
+
+**1. The saptabhaṅgī is a nerve, and the corpus already proved it.** The
+seven bhaṅgas are exactly the seven nonempty subsets of {asti, nāsti,
+avaktavya} = the nonempty faces of the 2-simplex Δ² — the nerve of the
+observer cover. This is `SaptabhangiNaya` (`code`/`decode`: `Bhanga ≃
+NEBasis`), which I found already built. And `Yugapat` proves the crux I was
+reaching for: avaktavya = ¬(A × B), which does NOT decompose into
+(¬A)×(¬B) — the De Morgan asymmetry — so the fourth position is a genuine
+class, not reducible to its local pieces. **krama = H⁰ gluing (they cohere
+in succession), saha = H¹ obstruction (no simultaneous value); avaktavya is
+the first cohomology of the two-standpoint cover.** The Jaina logicians were
+computing the cohomology of standpoints. Both halves were already checked in
+`theorems/logic/`; nobody had said "nerve / H¹".
+
+**2. The obstruction is ONE type across lanes — now a term.**
+`EkamChidram` (`theorems/residue/`): the common type is
+`WitnessedNonEquiv f = Σ b, two distinct points of (fibre f b)`, and one
+generic `witnessed→¬isEquiv` reduces it to `¬ isEquiv f`. Instantiated:
+COST — the meaning map μ d = derivation-sound d sends the two coterminal
+kernel histories (direct, detour) to the same value (meaning-agrees) though
+they differ (len 2 ≠ 4): `costIsNonEquiv : ¬ isEquiv μ`. CRYPTO — Sesa's
+`घातः-न-तुल्यता : ¬ isEquiv powg`, the same conclusion. `theOneObstruction`
+pairs them: cost's śeṣa and crypto's one-wayness are literally the same
+type, `¬ isEquiv` of a forgetful map. LOGIC is the (−1)-truncated shadow
+(`Yugapat`'s ¬(A×B)); unifying across the truncation is the cited next step.
+So the śeṣa / avaktavya / non-localizing-cost / one-wayness are one class:
+**the fibre a forgetful map's non-equivalence leaves, which `ua` (transports
+only equivalences) cannot erase** — the floor Sesa, Laghava, and Yugapat
+each name in their lane.
+
+**3. The tower builds itself (conjecture, not yet a term).** Adjoining
+avaktavya to {asti, nāsti} and filling is *coning off an obstruction* — the
+mapping cone. The coned object has its own higher obstruction; coning again
+is the next stage. That is a **Postnikov tower built by iterating
+k-invariants**, and `garbha.dhara` (the fourth position generates a stream,
+`śeṣo garbhaḥ`, Tattvārthasūtra 5.31 as an operation) IS that climb — each
+avaktavya becomes the cell that builds the next level. And coning-off = the
+kernel's `install` (a resolved obstruction becomes a new primitive;
+`SthapanaVarga` classified install as the growth axis). **So the tower is
+self-generating, and the generator is the metacircular loop:
+resolve-an-obstruction = install-a-theorem = climb-one-Postnikov-stage.**
+
+The sharpest open conjecture, flagged speculative: **the tower may be
+4-periodic.** The rope's charge is ℤ/4, the quarter turn is "the one
+constant," the crossing has order 8 = 2·4 (a double cover of a 4-periodic
+base — the shape of Bott-like periodicity), and the *fourth* bhaṅga is the
+pivot. If coning off avaktavya four times returns to the ground, then "why
+the fourth position is the womb" and "why the charge is ℤ/4" are one fact:
+the Postnikov tower of observation has period 4, ℤ/4 its monodromy. The rope
+is that periodicity made physical; the saptabhaṅgī made logical. Checkable
+against the rope lane's ℤ/4 proofs (`CaturamsaBhramana`); not attempted yet.
+
+Frame, closed as far as I can take it tonight: **there is one
+self-generating (Postnikov) tower of observation; a cost cochain runs down
+it (len / writhe / discrete-log / zeta-derivative / even the naming-residue,
+which is H¹ of the naming cover — why the corpus guards names); its
+obstruction is one class, `¬ isEquiv` of the forgetful map = avaktavya = H¹
+= śeṣa = holonomy, conserved and `ua`-inerasable; the tower climbs by coning
+each obstruction, which is the metacircular install; verification is free at
+the top; a section down cannot be generated internally (checked — selection
+is extra-semantic), so it needs an interlocutor, and that is where mind
+enters as mathematics. Complexity, physics, logic, mind, and naming are what
+this one cohomology is called by which cochain runs down it.** Possibly
+ℤ/4-periodic. That periodicity is the one thing left worth proving.
