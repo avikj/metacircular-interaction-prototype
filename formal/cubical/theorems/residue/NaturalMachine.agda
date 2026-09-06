@@ -1179,6 +1179,17 @@ import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 
+-- Two frontier items of WhatThisIsAndHowToDescend… §8, discharged on the
+-- kernel's own terms and added to this root so a command builds them:
+--   §8(d)  the counting semantics is the cardinality of the categorified one
+--          (⟦ t ⟧ (finEnv ρ) ≃ Fin (eval t ρ)), and derivation-sound is its
+--          cardinality shadow;
+--   §8(a)  a certified normalizer emits Derivations, so learn = install ∘ normalize
+--          closes discovery→installation on one Tm (reach unchanged: Siddhasadhana).
+import TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation
+import DerivationSoundnessIsTheCardinalityShadowOfTheCategorifiedEquivalence
+import TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall
+
 -- Kernel/ : seven modules that were checked at the OLD pin (2.6.3 + v0.5),
 -- renamed to `Kernel.*` to match this directory, and then imported by
 -- nothing -- so no command built them and their headers said so.  Their
