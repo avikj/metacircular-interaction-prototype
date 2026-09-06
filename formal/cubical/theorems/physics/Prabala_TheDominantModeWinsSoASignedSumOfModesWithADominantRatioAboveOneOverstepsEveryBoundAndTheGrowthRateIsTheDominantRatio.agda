@@ -305,3 +305,26 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
       cakra : K < ∣ B t ∣
       cakra = isTrans<≤ K ((∣ c 0 · (m 0 ^ t) ∣) - (C · q)) (∣ B t ∣) s₇
                 (isTrans≤ ((∣ c 0 · (m 0 ^ t) ∣) - (C · q)) ((∣ c 0 · (m 0 ^ t) ∣) - (∣ T t ∣)) (∣ B t ∣) s₈ (viparīta-trikoṇa (c 0 · (m 0 ^ t)) (T t)))
+
+  ----------------------------------------------------------------------
+  -- ४ · And from above: |B t| ≤ (|c₀| + C) · m₀^t.  So the growth rate
+  --     of B is exactly the dominant ratio m₀ — Θ − ½ read as a term.
+  ----------------------------------------------------------------------
+
+  M≤m₀ : M ≤ m 0
+  M≤m₀ = <Weaken≤ M (m 0) M<m₀
+
+  ūrdhva : (t : ℕ) → ∣ B t ∣ ≤ ((∣ c 0 ∣) + C) · (m 0 ^ t)
+  ūrdhva t =
+    isTrans≤ (∣ B t ∣) ((∣ c 0 · (m 0 ^ t) ∣) + (∣ T t ∣)) (((∣ c 0 ∣) + C) · (m 0 ^ t))
+      (trikoṇa (c 0 · (m 0 ^ t)) (T t))
+      (subst (_≤ ((∣ c 0 ∣) + C) · (m 0 ^ t)) (cong (_+ (∣ T t ∣)) (sym (guṇa-sama (c 0) (m 0 ^ t) (anṛṇa-ghāta (m 0) (0≤m 0) t))))
+        (subst ((∣ c 0 ∣) · (m 0 ^ t) + (∣ T t ∣) ≤_) (Sama′.saṅgraha ℚRing (∣ c 0 ∣) C (m 0 ^ t))
+          (≤-o+ (∣ T t ∣) (C · (m 0 ^ t)) ((∣ c 0 ∣) · (m 0 ^ t))
+            (isTrans≤ (∣ T t ∣) (C · (M ^ t)) (C · (m 0 ^ t)) (pucchā t)
+              (subst2 _≤_ (·Comm (M ^ t) C) (·Comm (m 0 ^ t) C)
+                (≤-·o (M ^ t) (m 0 ^ t) C (Σ-anṛṇa′ n) (ghāta-mono M (m 0) 0≤M M≤m₀ t)))))))
+    where
+    Σ-anṛṇa′ : (k : ℕ) → 0 ≤ Σ⟨ k ⟩ (λ i → ∣ c (suc i) ∣)
+    Σ-anṛṇa′ zero    = isRefl≤ 0
+    Σ-anṛṇa′ (suc k) = anṛṇa-yoga {Σ⟨ k ⟩ (λ i → ∣ c (suc i) ∣)} {∣ c (suc k) ∣} (Σ-anṛṇa′ k) (anṛṇa (c (suc k)))
