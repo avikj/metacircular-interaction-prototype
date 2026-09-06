@@ -617,3 +617,388 @@ general.
 And the meta-lesson, since this is the stream: I deferred the most valuable
 task by inventing a deadline. The task was one module. Do the valuable thing;
 the clock was never real.
+
+---
+
+## 2026-09-06 (the last conjecture, one step of it built) — install IS a coning-off
+
+The one item still marked CONJECTURE above — "the self-generating tower =
+Postnikov climb = `garbha.dhara` = `install`; their identification is
+unbuilt" — moves one honest notch. Not the whole tower; one step of it, as a
+checked term: `GarbhaDhara` (`formal/cubical/kernel/`), green at the pin,
+and — the point of this session — read back through the Oracle as data, not
+asserted.
+
+What a Postnikov step *is*: attach one contractible cell to kill an
+obstruction class, and pay a fee — a new class one level up (the
+k-invariant). Two halves. Both are already in the corpus wearing other
+names; this module identifies them with `install`.
+
+- **The cell is a cone, and it is install's locus.** SthapanaVarga §4 found
+  the applicability locus of `install d`, `Σ[ t ] (t ≡ lhs)`, contractible —
+  "capability grows by one, not by a class." That contractibility *is*
+  coning-off's defining property (a cone is contractible). `locusIsCone` is
+  the term; the analyzer reads its type back as
+  `(d : Derivation l r) → isContr (Locus d)`.
+- **The spoke is literal, and the machine found it, not me.** Cone off the
+  source as a point-map `g : Unit → Tm`, `g _ = lhs`; Cubical's mapping cone
+  `Cone g` has a hub and one spoke `hub ≡ inj (g x)` per point. A control
+  datum `c : t ≡ lhs` *is* such a spoke. `toSpoke` sends a locus point into
+  `Σ[ y ∈ Cone g ] (hub ≡ y)` — and `sadhana.vislesana` INFERRED that target
+  on its own, printing `Locus d → Σ-syntax (TheCone d) (Cone.hub ≡_)`. The
+  Oracle reduced install's applicability datum to a mapping-cone spoke; I
+  only wrote the map.
+- **The fee is the non-descending cost.** After install collapses
+  meaning-equal routes (`L` of SankramanaShreni), cost is exactly what does
+  not descend — the residual one level up, VakraValayaSanketa's "first veil,
+  its fee." `theFee` re-exports the witness; the analyzer normal-forms it to
+  `Localization.costDoesNotDescend …`, so the identification "fee = śeṣa" is
+  the machine's reduction, not a gloss.
+
+So **one install = one Postnikov step**: one contractible cone attached (kill
+the obstruction), one residual precipitated (the śeṣa). This is the
+metacircular self-generation, made local and exact: the kernel grows by
+coning off its own obstructions, and each growth prices exactly the cost that
+could not descend.
+
+**What stays open — stated exactly, not deferred behind a clock.** The
+*iteration*: that applying install to the precipitated fee, and again, and
+again, is the full ∞-Postnikov tower — a colimit of these steps. One step is
+a term; the tower is still a name. That colimit (and whether it terminates or
+runs like the ℤ/4 rope, unbounded) is the genuine remaining construction, and
+it is the same object as SarvaMauna's ladder-termination question read
+through `install`. It is not small, and it is not faked green here.
+
+**Ledger correction, and a method note.** The CONJECTURE line above ("their
+identification is unbuilt") is now half-retired: the single step is built and
+Oracle-verified; only the iterated tower remains conjectural. And the method
+that did it: I did not assert the coning-off; I wrote the map and let the
+analyzer infer the type, and the type it printed (`Cone.hub`, the spoke) was
+the proof the identification was real. Engaging the Oracle's *full* output —
+not its pass/fail, its inferred types and normal forms — is what turned a
+prose analogy into a checked identification. That is what the machine is for.
+
+(Plumbing, recorded because it blocked the Oracle: `runAgdaAnalyze` built its
+`-i` include roots from a possibly-relative repo root, and agda
+`--interaction` resolves relative `-i` against the loaded file's directory,
+not cwd — so the corpus was invisible and every `sadhana.vislesana` failed
+with FileNotFound. Fixed by `makeAbsolute` on the root before assembling the
+roots. The analyzer now finds the corpus regardless of the wire's launch cwd.)
+
+---
+
+## 2026-09-06 (the loop, run) — the tower's rungs are one predicate
+
+I stopped grading the architecture against prover loops and ran the discovery
+loop the architecture is *for*: let the corpus's own frontier drive the next
+move, read every bit of Oracle output as the datum.
+
+The move the readback forced: GarbhaDhara's fee (cost is not a function on
+π₀ = the set-quotient Ĝ) and MulyaVinimaya's `depthHasNoPotential` (the depth
+evaluator is a nonzero cocycle on π₁ — `loop` integrates to `pos 3`, no state
+potential represents it) are not two facts. They are ONE predicate at two
+degrees: **cost is not exact.**
+
+`GarbhaShreni` (`formal/cubical/kernel/`, green at the pin) makes it a term:
+
+- `NotExact ∂ V = ¬ Σ[ φ ] (∀ i → ∂ φ i ≡ V i)` — the invariant `V` is not
+  the coboundary `∂` of any potential `φ`. One k-invariant type, degree-blind.
+- **Rung 0** (`costNotExact₀ : NotExact ∂₀ len`): `∂₀ φ d = φ (L d)`, potentials
+  are functions `Ĝ → ℕ`. This IS `kernelCostDoesNotDescend` — definitionally
+  the same type, the term is a pass-through. "No 0-potential" = "not a function
+  on π₀."
+- **Rung 1** (`costNotExact₁ : NotExact ∂₁ V₁`): `∂₁ φ = d′ φ` (the coboundary),
+  potentials are `Tm → ℤ`, `V₁ = गभीरता`. This IS `depthHasNoPotential`,
+  bridged by `sym`. "No 1-potential" = "not exact on π₁."
+- `theTower : NotExact ∂₀ len × NotExact ∂₁ V₁` — the analyzer read all three
+  back as data (`NotExact ∂₀ len`, `NotExact ∂₁ V₁`, and their `×`).
+
+So the climb is one type re-instantiated one degree up, not a sequence of
+coincidences. That is the self-generation, made a pattern.
+
+**What this did to the open problem — the point.** It did not solve the
+∞-tower; it *sharpened* it, which is the loop working. "Does install iterate
+into a tower?" is now the precise induction: **for the derivation cochain
+complex, cost is not exact at any degree n.** Two base cases (n=0, n=1) are
+discharged as one predicate. The remaining content is the cochain complex at
+degree n and the inductive precipitation — a definite object, not a mood.
+
+The method note, again, because it is the whole difference: I did not search
+for a proof of a stated goal. I read back the semantics of what was already
+checked, saw two obstructions collapse to one type, and the *next question*
+generated itself from that collapse. A goal-conditioned prover cannot do that
+— it has no goal until one is handed to it, and it discards the object that
+would have told it two rungs are the same rung. This loop's unit is the
+object and its meaning; the frontier is a byproduct of reading it. That is
+the thing the caveman loop structurally cannot do, shown once, small, and for
+real.
+
+---
+
+## 2026-09-06 (uncertainty handed over, correction returned) — the unifier is ¬ isEquiv, not NotExact
+
+Handed the Oracle the uncertainty I had been swallowing instead of stating:
+my `NotExact` unification of the tower's rungs is *too narrow*. It only fits
+rungs where the invariant is a coboundary-valued cochain (ℕ, ℤ) — the abelian
+degrees of cost. The corpus's higher k-invariants are not that: VakraValaya-
+Sanketa's rung is an **orientation bit** (ℤ/2 at H²), a different invariant.
+Cost is a degree-1 object; there is no natural degree-2 cost. So "cost is not
+exact at every degree" is the **wrong induction**, and I had shipped it as the
+general claim yesterday.
+
+The correction, `TrtiyaCidram` (`theorems/residue/`, green at the pin): what
+actually spans the rungs is the aperture **EkamChidram already named** — the
+level-n forgetful map is **not an equivalence**. `¬ isEquiv` is degree-blind
+and lane-blind; it is the type of "a fibre survived," the śeṣa itself, and it
+swallows the H² rung in one line:
+
+- `rung₂ : (f : ⟨H²(𝕂²)⟩ → ⟨H²(T²)⟩) → ¬ isEquiv f`, and `rung₂ f ie =
+  सङ्केतः (f , ie)` — an equivalence would hand back the type-equivalence
+  `सङ्केतः` refutes. Every candidate map at once.
+- `theWiderAperture : (¬ isEquiv μ) × ((f) → ¬ isEquiv f)` — EkamChidram's cost
+  rung (π₁) and this orientation rung (H²) as the **same predicate at
+  different degrees**. Heterogeneous invariants, one obstruction type.
+
+So the ladder is corrected: **the tower's unifier is `¬ isEquiv`, and
+`NotExact` was only its abelian shadow** — true where the invariant is a
+group-valued cochain, and no further. GarbhaShreni's rungs 0,1 are still
+correct as stated; what was wrong was calling `NotExact` the *general*
+rung-relation. It isn't. `¬ isEquiv` is.
+
+Two honest boundaries, recorded because the point of this session is not to
+launder them:
+
+1. `¬ isEquiv` is the obstruction's **inhabitant** (a surviving fibre), not
+   the cohomology *class* in the technical Postnikov k-invariant sense. The
+   two coincide in spirit — a nonempty fibre is why the class is nonzero — but
+   I have not built the identification "surviving fibre = k-invariant." That
+   is the real remaining content, and it is not what `¬ isEquiv` alone says.
+2. The interactive analyzer forces `--guardedness` in interaction mode, so a
+   module whose import tree mixes guardedness and non-guardedness (this one,
+   via the ZCohomology lane) returns `InfectiveImport` from the readback route
+   rather than its types. The Oracle answered with that defect — which is
+   itself information: the readback and the corpus's own flag discipline are
+   not yet reconciled across the ZCohomology boundary. The direct `--safe`
+   typecheck is the proof; the readback route has a flag seam.
+
+The method, stated once more because it is the only thing that generalizes: I
+did not defend NotExact. I wrote the boundary I was unsure of — "does this fit
+the higher rung?" — as a term, and the attempt to place the H² rung showed me
+NotExact could not reach it and `¬ isEquiv` could. The uncertainty, made a
+type, resolved itself into the correct predicate and a retraction of the
+over-broad one. That is what handing over the full uncertainty buys.
+
+---
+
+## 2026-09-06 (correction to abstract 56's diagnosis) — the guardedness seam was my error, and the real wall is compile time
+
+Abstract 56 and the prior entry said the analyzer "forces --guardedness in
+interaction mode," so a non-guardedness import tree returns InfectiveImport.
+That diagnosis is **wrong**, and the append-only discipline says name it:
+
+- The corpus's `natural-machine.agda-lib` carries
+  `flags: --cubical --guardedness --safe --no-import-sorts`. So **every**
+  corpus module is guardedness-infected regardless of its own header —
+  TrtiyaCidram included, even though I wrote its pragma as `--cubical --safe`.
+  Direct `agda -i .` supplies the library flags, which is why it compiled.
+- The analyzer does **not** force guardedness. It writes the Candidate with
+  the pragma *I send*. I sent `--cubical --safe` — no guardedness — so a
+  guardedness-free Candidate importing the guardedness-infected corpus was
+  the InfectiveImport. The fix is one character of caller discipline: send
+  the full `--cubical --guardedness --safe --no-import-sorts` pragma (which is
+  exactly `kOptionsPragma`), matching the corpus. My probe under-declared; the
+  door was correct.
+- With the right pragma the readback then hit a **second, real** wall, and it
+  is not guardedness at all: the ZCohomology lane is heavy, the interaction
+  Candidate compiles it cold in a temp dir, and it exceeds the analyzer's
+  120s timeout (`kAgdaTimeoutMicros`), returning an `ayogya` environment
+  defect — "the kernel could not be asked." That timeout is env-overridable
+  (`MATH_AGDA_TIMEOUT`, whole seconds), so the lane is readable given a larger
+  budget; it is a resource setting, not a defect in the door or the module.
+
+Net: TrtiyaCidram is correct (direct `--safe` typecheck, exit 0). The only
+true seam is that the heaviest lane needs a longer analyzer budget to read
+back, and the caller must match the corpus flags. Abstract 56's parenthetical
+about "forced guardedness" is retracted by this entry.
+
+The lesson I keep having to relearn, stated plainly: when the Oracle returned
+a defect I explained it with a story ("it forces guardedness") instead of
+reading what the defect actually was. The defect was `InfectiveImport`, whose
+text names the direction of infection exactly — and had I read it as data
+rather than narrating around it, I would have seen it was my pragma, not the
+machine. Read the output; do not narrate over it.
+
+---
+
+## 2026-09-06 (the ZCohomology lane is not Oracle-readable in practice) — and I am not going to pretend otherwise
+
+Retried the TrtiyaCidram readback with `MATH_AGDA_TIMEOUT=560`. It faulted
+again — `ayogya`, "the invocation failed in the environment." So the lane is
+not readable by bumping the budget within any reasonable bound.
+
+Likely root cause (stated as likely, not proven — the temp dir is removed
+before I can inspect it): interface staleness across the interaction-mode flag
+boundary. TrtiyaCidram and VakraValayaSanketa compiled only because the
+corpus `.agda-lib` supplied `--guardedness --no-import-sorts`; their own
+headers omit those. In interaction mode the Candidate does not load
+`natural-machine.agda-lib`, so the flags agda sees for those modules differ
+from the flags their `.agdai` were built under, the interfaces read as stale,
+and agda recompiles them and their ZCohomology dependencies cold — which does
+not finish in 560s.
+
+What that means, without laundering: the interactive analyzer can read back
+the algebraic/kernel lanes (their headers already carry the full flag set, so
+their interfaces are reused) but not the ZCohomology lane (headers under-
+declare, interfaces go stale, cold recompile is too heavy). Making it readable
+would mean either normalising every corpus header to the full lib flag set, or
+teaching the analyzer to load the corpus `.agda-lib` so its flags match — real
+interface-sharing work, not a tuning knob.
+
+I am **not** pursuing that now. It is plumbing, the mathematics does not need
+it (TrtiyaCidram is proved by the direct `--safe` check), and chasing it
+further would be exactly the substitution of a solvable mechanical task for
+the valuable one that I have been warned off. The finding is recorded; the
+readback of this one lane stays a known gap.
+
+---
+
+## 2026-09-06 (pulled the sibling branches — my calculus was behind, again)
+
+Fetched and read the two branches active today. `claude/hott-kernel-structure-dvdgmm`
+is working this exact territory and is ahead of me on the synthesis I have
+been circling. Recording it plainly, because "trim redundancy at the end"
+needs an honest map, and because it corrects me twice.
+
+**What that branch already has, green at the pin:**
+
+- `ValueIsThePairing` — discrete (nonabelian) Stokes, descent, the holonomy
+  classification as an **iff** (one loop refutes exactness; the potential is
+  *constructed* from vanishing holonomy), a fundamental-loop **test basis**
+  (finitely many checks decide the class). This is a more general form of
+  MulyaVinimaya's cost-cochain / `depthHasNoPotential` — the whole degree-1
+  exactness↔holonomy story, done over an arbitrary group.
+- `CurvatureOfACoboundaryVanishesAndTriangleFlatnessIsExactness` — the
+  **degree-two rung**: curvature 2-cochain, `d² = 0` over any (nonabelian)
+  group, curvature = triangle holonomy, and **flat iff exact**.
+- `walks: distributed-observer coherence = exactness of its agreement cochain`
+  — fuses the **observer = quotient/colimit** side (my localization
+  `SankramanaShreni`) with the **exactness↔holonomy** side, through the
+  classifier's agreement cochain. This is precisely the bridge I named open.
+- `propose = install` on the kernel's own `Tm` — the discovery→installation
+  closure, from the Tm-morphism angle.
+
+**Correction 1, to TrtiyaCidram.** I argued "cost is a degree-1 object, the
+exactness ladder stops, so `¬ isEquiv` is the *only* unifier." The curvature
+module refutes the premise: the cochain-exactness ladder **continues** to
+degree 2 (curvature, flat-iff-exact) over any group. So `NotExact`-style
+non-exactness is not confined to degrees 0–1; it is a genuine ladder
+(potential → holonomy → curvature → …). `¬ isEquiv` is not its replacement —
+it is a **complementary view**. Two towers, both real:
+
+  1. **cochain-exactness** (internal): Hⁿ of the walk complex — nonexactness
+     at each degree, "flat iff exact" the rung relation.
+  2. **¬ isEquiv aperture** (external): the forgetful/localization map is not
+     an equivalence — a surviving fibre.
+
+**Correction 2, and the bridge, now visibly within reach.** Their
+"observer-coherence = exactness of the agreement cochain" is the degree-1
+instance of the identification I called "surviving fibre = k-invariant":
+non-exactness of the cochain (tower 1) **is** the surviving fibre of the
+observer's quotient map (tower 2). I have the aperture side (EkamChidram's
+`witnessed→¬isEquiv`); they have the exactness side and the observer=quotient
+fusion. The bridge is one identification across the two, and most of its
+material now exists — on two branches, unmerged.
+
+**Judgment call, stated so it is not silently made.** I am NOT going to build
+another tower module. The corpus already outran me here; producing a third
+overlapping version is exactly the low-value reflex I keep being warned off.
+What is genuinely non-redundant on this branch is narrow and worth keeping:
+GarbhaDhara's specific reading of `install` as a **contractible-cone /
+mapping-cone spoke** (a different handle on install than `propose = install`),
+and the `¬ isEquiv` aperture as the external tower's rung type. Everything
+else I built this session (NotExact rungs, the localization sequence) is a
+less-general shadow of `ValueIsThePairing` + the curvature rung and should be
+trimmed toward them at merge time, not the other way round.
+
+The recurring lesson, one more time: I keep treating my own last step as the
+frontier. It is not. The frontier is what the corpus and the sibling branches
+already hold, unassembled. Reading them first would have saved me two
+overreaches this session.
+
+---
+
+## 2026-09-06 (deep read of hott-kernel-structure — term by term, and it subsumes my session)
+
+Read the sibling branch's core in full, not headers: `HolonomyCriterion-
+ForExactness` (506 lines), `CurvatureOf…Exactness`, `GoalCoherenceUnderBinding`,
+`DerivationReachabilityIsValueEquality`, the `AgencyAsCohomology` entrypoint,
+and noted the tip commit trims its own re-derivations (5caf5913). What it
+actually is, at the term level:
+
+- **`HolonomyCriterionForExactness`** — a complete nonabelian graph-cohomology
+  framework: `GroupOn W` (no commutativity), `Walk`, `Cochain`, the pairing
+  `⟨ω,w⟩`, coboundary `d f`. Then, as checked terms: `stokes` (discrete
+  Stokes), `descent`, `loopsVanishForExact` (B¹), `oneLoopRefutesExactness`
+  (one nonzero loop ⟹ ¬Exact against **every** potential at once),
+  **`potentialFromVanishingHolonomy`** (the CONVERSE — vanishing holonomy ⟹
+  exact, potential *constructed* as the pairing along chosen traces), so
+  exact ⟺ zero holonomy is an **iff**; `TestBasis` (fundamental loops are a
+  finite complete test basis — the m−n+1 first-Betti sentence as construction,
+  not counting); `gaugeInvariance`; `ObserverLossless` (A ≃ Σ O (fiber o));
+  `outputWitnessIsFree = isContrSingl`; and the whole thing **executable at ℤ**
+  (`priceOfTrace` computes by refl).
+
+- **`CurvatureOf…`** — the degree-2 rung: curvature 2-cochain, `d²=0` over any
+  group, curvature = triangle holonomy, **flat iff exact**.
+
+- **`GoalCoherenceUnderBinding`** — three coupled sites; `F(coupled δ) ≡ ⊖δ`,
+  so any nonzero coupling mismatch ⟹ ¬Exact (frustration), δ=0 ⟹ exact;
+  `goalCoherenceNotCompositional`. The degree-2 curvature IS the binding-
+  frustration invariant — a *meaningful* degree-2 obstruction, exactly the
+  thing I claimed didn't exist.
+
+- **`DerivationReachabilityIsValueEquality`** — the keystone for the kernel:
+  `Derivation a b ⟺ val a ≡ val b` on closed terms (both directions), and it
+  **constructs `connect`** — the per-value-component spanning datum that
+  `TestBasis` only hypothesised and `MulaCakraPariksa` explicitly declined.
+  With it, the holonomy/test-basis machinery applies to the kernel's own
+  graph.
+
+**How my session maps onto this — honestly, and it is humbling:**
+
+- `MulyaVinimaya.depthHasNoPotential` / my `GarbhaShreni.NotExact` (rungs 0,1)
+  ⊂ `oneLoopRefutesExactness` — theirs is general (any group, any state
+  space), has the **converse** (the iff) and the **test basis**; mine has
+  none of that. Strictly subsumed.
+- My `SankramanaShreni` localization (Ĝ = Derivation/same-meaning, meaning
+  descends, cost doesn't) ⊂ `reach`/`valueOfReach` (my Ĝ is just π₀ of the
+  derivation graph = the value classes) + `descent` + `ObserverLossless`.
+  Subsumed, and they prove the reachability iff constructively both ways,
+  which I only gestured at.
+- My `TrtiyaCidram` "the ladder stops at degree 1" — refuted by `CurvatureOf…`
+  (degree 2 is real and meaningful).
+- Even my supposedly-novel `GarbhaDhara` "install's locus is a contractible
+  cone" is the SAME term as their `outputWitnessIsFree = isContrSingl` — the
+  contractible singleton — under a different interpretation. The MappingCones
+  (`Cone`/`spoke`) dressing is mine; the mathematical content is theirs.
+
+**Net.** Essentially all of my session's *mathematics* is a narrower shadow of
+this branch. What survives as genuinely non-redundant is not math but
+infrastructure: the wire operations (`sadhana.patra`/`sadhana.vislesana`) and
+the `makeAbsolute` analyzer fix — which let the kernel be queried as an
+analyzer at all, and which this branch does not touch. At merge/trim time,
+my tower modules should be retired **toward** `HolonomyCriterionForExactness`
++ `CurvatureOf…` + `DerivationReachabilityIsValueEquality`, not the reverse.
+
+**The one place I might still add to THEIR framework** (offered, not built):
+they characterise the obstruction as a nonzero *holonomy class* (H¹, via the
+iff) but I did not find, in the tip, the **untruncated** identification
+"nonzero class ⟺ the value-quotient map has a surviving fibre (¬ isEquiv)" —
+my `EkamChidram.witnessed→¬isEquiv` is that direction, and their fusion module
+that touched it was removed as redundant (5caf5913). Whether that bridge is
+genuinely absent or lives elsewhere on the branch I have not yet confirmed —
+so I am not claiming a gap, only a candidate, to check before building.
+
+The lesson, now with evidence rather than as a slogan: I re-derived, narrower,
+what a sibling branch already held general. The corpus is the frontier; my
+last step was not.

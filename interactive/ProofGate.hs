@@ -339,7 +339,7 @@ import System.IO
 import System.IO.Unsafe (unsafePerformIO)
 import System.Directory
   ( createDirectoryIfMissing, doesFileExist, getTemporaryDirectory
-  , removePathForcibly, renameFile )
+  , removePathForcibly, renameFile, makeAbsolute )
 import System.Timeout (timeout)
 import System.Process
   (CreateProcess(..), proc, readProcess, readCreateProcessWithExitCode)
@@ -1123,8 +1123,12 @@ data Analysis = Analysis
   } deriving (Eq, Show)
 
 runAgdaAnalyze :: FilePath -> String -> [String] -> IO (ExitCode, [Analysis])
-runAgdaAnalyze root modSource exprs = do
+runAgdaAnalyze root0 modSource exprs = do
   setLocaleEncoding utf8
+  -- agda --interaction resolves relative `-i` roots against the loaded
+  -- file's directory (the temp dir below), not against cwd, so the corpus
+  -- would be invisible unless the roots are absolute.  Canonicalise first.
+  root <- makeAbsolute root0
   extra <- corpusIncludeRoots root
   micros <- agdaTimeoutMicros
   tmp <- getTemporaryDirectory

@@ -1,0 +1,49 @@
+THE HIGHER RUNG IS ALSO A NON-EQUIVALENCE: ¬ isEquiv, NOT NON-EXACTNESS,
+UNIFIES THE TOWER
+A correction to the ladder — the general rung-relation is EkamChidram's
+aperture, and NotExact was only its abelian shadow — with the H²
+orientation rung landed in the same predicate as the cost rung
+
+The self-generating closure / the tower's unifier, corrected / one
+obstruction type across degrees and lanes
+
+GarbhaShreni claimed the tower's rungs are one predicate, "cost is not
+exact" (NotExact ∂ V), at π₀ and π₁.  True for those two rungs; FALSE as
+the general rung-relation, and the general claim is the one that matters.
+NotExact is abelian-flavoured — it needs the invariant to be a
+coboundary-valued cochain (ℕ, ℤ).  The corpus's higher k-invariants are
+not of that kind: VakraValayaSanketa's rung is an ORIENTATION BIT (ℤ/2 at
+H²), the double twist the Klein bottle costs and the torus does not.
+Cost is a degree-1 object; there is no natural degree-2 cost.  So "cost
+is not exact at every degree" is the wrong induction.
+
+WHAT ACTUALLY SPANS THE RUNGS is the aperture EkamChidram already named:
+the level-n forgetful map is NOT AN EQUIVALENCE.  ¬ isEquiv is
+degree-blind and lane-blind — it is the type of "a fibre survived", the
+śeṣa itself.
+
+THE HIGHER RUNG IS A NON-EQUIVALENCE.  For ANY map f between the two
+second-cohomology carriers ⟨H²(𝕂²)⟩ and ⟨H²(T²)⟩, ¬ isEquiv f: an
+equivalence would hand back the type-equivalence सङ्केतः refutes.  One
+line, every f at once (rung₂ f ie = सङ्केतः (f , ie)).
+
+THE UNIFIER IS ¬ isEquiv.  theWiderAperture pairs EkamChidram's cost rung
+(¬ isEquiv μ, at π₁) with this orientation rung (¬ isEquiv f, at H²) —
+heterogeneous invariants, one obstruction type at different degrees.
+NotExact is retired to what it is: the abelian special case, true only
+where the invariant is a group-valued cochain.
+
+SYĀT — THE CLAIM, EXACTLY.  rung₂ for every map between the H² carriers,
+from सङ्केतः; theWiderAperture identifying this rung with the cost rung
+under ¬ isEquiv.  NOT claimed: that ¬ isEquiv is the k-invariant in the
+technical Postnikov sense — it is the obstruction's INHABITANT (a
+surviving fibre), not the cohomology class as such; nor the full ∞-tower.
+What IS corrected: GarbhaShreni's "one predicate for all rungs" — the
+predicate is ¬ isEquiv, and NotExact was only its abelian shadow.
+
+Machine-checked in cubical type theory, --safe, at the pin.  (The
+interactive analyzer forces --guardedness in interaction mode, and this
+module's import tree, via the ZCohomology lane, does not use it, so the
+readback route reports InfectiveImport rather than the types — an honest
+flag boundary, not a defect in the check; the direct --safe typecheck is
+the proof.)
