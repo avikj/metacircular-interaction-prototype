@@ -26,7 +26,12 @@ module Pramanika_AnExactRationalLDLTFactorisationCertifiesThatAQuadraticFormIsNo
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Cubical.Data.Nat.Order using (≤-refl ; ≤-suc) renaming (_<_ to _<ℕ_)
+open import Cubical.Data.Nat using (discreteℕ ; +-suc)
+open import Cubical.Data.Nat.Order using (≤-refl ; ≤-suc ; ¬-<-zero ; pred-≤-pred) renaming (_<_ to _<ℕ_)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
+open import Cubical.Data.Bool using (Bool ; true ; false ; _and_ ; false≢true)
+open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim)
+open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver
 
@@ -36,7 +41,7 @@ module Sama (R : CommRing ℓ-zero) where
   pada v l d l′ v′ = solve! R
 
 open import Cubical.Data.Rationals
-open import Cubical.Data.Rationals.Order using (_≤_ ; isRefl≤ ; isTrans≤)
+open import Cubical.Data.Rationals.Order using (_≤_ ; isRefl≤ ; isTrans≤ ; ≤Dec)
 
 open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAndNonnegativityExcludesMinusTwoSoTheFiniteWeilCriterionAndTheKreinSplittingHoldOverQ
   using (ℚRing ; anṛṇa-varga ; anṛṇa-yoga)
@@ -73,8 +78,13 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
 -- २ · The quadratic form and its diagonalisation.
 ------------------------------------------------------------------------
 
-module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ)
-         (ldl : (i j : ℕ) → i <ℕ n → j <ℕ n → A i j ≡ Σ⟨ n ⟩ (λ k → (L i k · D k) · L j k)) where
+module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
+
+  LDLᵀ : Type₀
+  LDLᵀ = (i j : ℕ) → i <ℕ n → j <ℕ n → A i j ≡ Σ⟨ n ⟩ (λ k → (L i k · D k) · L j k)
+
+  Anṛṇa-D : Type₀
+  Anṛṇa-D = (k : ℕ) → k <ℕ n → 0 ≤ D k
 
   -- vᵀ A v
   Q : (ℕ → ℚ) → ℚ
@@ -85,8 +95,8 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ)
   w v k = Σ⟨ n ⟩ (λ i → v i · L i k)
 
   -- the diagonalisation: vᵀ A v = Σ_k D_k (Lᵀv)_k²
-  vibhāga : (v : ℕ → ℚ) → Q v ≡ Σ⟨ n ⟩ (λ k → D k · (w v k · w v k))
-  vibhāga v =
+  vibhāga : LDLᵀ → (v : ℕ → ℚ) → Q v ≡ Σ⟨ n ⟩ (λ k → D k · (w v k · w v k))
+  vibhāga ldl v =
       Σ-ext< n _ _ (λ i i<n → Σ-ext< n _ _ (λ j j<n →
           cong (λ z → (v i · z) · v j) (ldl i j i<n j<n)
         ∙ cong (_· v j) (sym (Σ-guṇa (v i) _ n))
@@ -108,6 +118,62 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ)
   -- ३ · Positivity from a nonnegative diagonal.
   ----------------------------------------------------------------------
 
-  prāmāṇika : ((k : ℕ) → 0 ≤ D k) → (v : ℕ → ℚ) → 0 ≤ Q v
-  prāmāṇika 0≤D v = subst (0 ≤_) (sym (vibhāga v))
-    (Σ-anṛṇa (λ k → D k · (w v k · w v k)) (λ k → anṛṇa-guṇa (D k) (w v k · w v k) (0≤D k) (anṛṇa-varga (w v k))) n)
+  Σ-anṛṇa< : (f : ℕ → ℚ) (k : ℕ) → ((i : ℕ) → i <ℕ k → 0 ≤ f i) → 0 ≤ Σ⟨ k ⟩ f
+  Σ-anṛṇa< f zero    _   = isRefl≤ 0
+  Σ-anṛṇa< f (suc k) 0≤f = anṛṇa-yoga {Σ⟨ k ⟩ f} {f k} (Σ-anṛṇa< f k (λ i lt → 0≤f i (≤-suc lt))) (0≤f k ≤-refl)
+
+  prāmāṇika : LDLᵀ → Anṛṇa-D → (v : ℕ → ℚ) → 0 ≤ Q v
+  prāmāṇika ldl 0≤D v = subst (0 ≤_) (sym (vibhāga ldl v))
+    (Σ-anṛṇa< (λ k → D k · (w v k · w v k)) n
+       (λ k k<n → anṛṇa-guṇa (D k) (w v k · w v k) (0≤D k k<n) (anṛṇa-varga (w v k))))
+
+  ----------------------------------------------------------------------
+  -- ४ · The checker: the certificate is verified by computation, and the
+  --     verification hands back the two hypotheses.
+  ----------------------------------------------------------------------
+
+  dec→bool : {P : Type₀} → Dec P → Bool
+  dec→bool (yes _) = true
+  dec→bool (no  _) = false
+
+  dec-satya : {P : Type₀} (d : Dec P) → dec→bool d ≡ true → P
+  dec-satya (yes p) _ = p
+  dec-satya (no  _) e = ⊥-elim (false≢true e)
+
+  sarva : (k : ℕ) → (ℕ → Bool) → Bool
+  sarva zero    f = true
+  sarva (suc k) f = sarva k f and f k
+
+  and-satya : (a b : Bool) → a and b ≡ true → (a ≡ true) × (b ≡ true)
+  and-satya true  true  _ = refl , refl
+  and-satya true  false e = ⊥-elim (false≢true e)
+  and-satya false true  e = ⊥-elim (false≢true e)
+  and-satya false false e = ⊥-elim (false≢true e)
+
+  sarva-satya : (k : ℕ) (f : ℕ → Bool) → sarva k f ≡ true → (i : ℕ) → i <ℕ k → f i ≡ true
+  sarva-satya zero    f _ i lt = ⊥-elim (¬-<-zero lt)
+  sarva-satya (suc k) f e i lt with discreteℕ i k
+  ... | yes p = subst (λ z → f z ≡ true) (sym p) (snd (and-satya (sarva k f) (f k) e))
+  ... | no ¬p = sarva-satya k f (fst (and-satya (sarva k f) (f k) e)) i (suc-le i k lt ¬p)
+    where
+    suc-le : (i k : ℕ) → i <ℕ suc k → ¬ (i ≡ k) → i <ℕ k
+    suc-le i k lt ne with pred-≤-pred lt
+    ... | (zero  , q) = ⊥-elim (ne q)
+    ... | (suc j , q) = j , (+-suc j i ∙ q)
+
+  -- the certificate check
+  sādhya : Bool
+  sādhya = sarva n (λ i → sarva n (λ j → dec→bool (discreteℚ (A i j) (Σ⟨ n ⟩ (λ k → (L i k · D k) · L j k)))))
+           and sarva n (λ k → dec→bool (≤Dec 0 (D k)))
+
+  sādhya-ldl : sādhya ≡ true → LDLᵀ
+  sādhya-ldl e i j i<n j<n =
+    dec-satya (discreteℚ (A i j) _)
+      (sarva-satya n _ (sarva-satya n _ (fst (and-satya _ _ e)) i i<n) j j<n)
+
+  sādhya-D : sādhya ≡ true → Anṛṇa-D
+  sādhya-D e k k<n = dec-satya (≤Dec 0 (D k)) (sarva-satya n _ (snd (and-satya _ _ e)) k k<n)
+
+  -- THE THEOREM: a certificate that checks is a proof of positivity.
+  prāmāṇika-sādhya : sādhya ≡ true → (v : ℕ → ℚ) → 0 ≤ Q v
+  prāmāṇika-sādhya e = prāmāṇika (sādhya-ldl e) (sādhya-D e)
