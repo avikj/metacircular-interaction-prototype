@@ -1252,3 +1252,36 @@ import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPaired
 -- BoundaryBlockGeneral: the same identity at every width — for any finite
 -- receiver and coefficient signal, Σ (Σ c_k S^k f)² ≡ Σ c_k c_l ρ(|k−l|).
 import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
+-- CyclicParseval: given orthogonal characters, Σ_θ b̂(θ)č(θ) ≡ N·Σ_t b_t c_t —
+-- the block is a spectral sum of products, and a sum of squares there
+-- exactly when the dual character is the conjugate (the frequencies real).
+import CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal
+-- TorusFourierLayer: the triangular pair derived from its velocity field in
+-- an exact Fourier calculus on the torus — divergence-free, nonlinear term
+-- (0,0,σ a∂₂v) itself divergence-free so the pressure is constant, coarse
+-- stress and coarse continuation computed at both signs.
+import TorusFourierLayer_TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed
+-- GalerkinJets: the Taylor jets of the pair's advected component at t = 0
+-- to all orders, exact on a window widening by one mode per order; the
+-- Galerkin truncation residual is exactly the boundary row.
+import GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAndTheTruncationResidualSitsOnTheBoundaryRow
+-- FiniteExplicitFormula: Newton's identities — power sums of the roots equal
+-- the coefficient recursion, i.e. −zP′/P = Σ p_k zᵏ coefficientwise — and
+-- the power sums grow at least like the largest root.
+import FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot
+-- InteractionAssociator: the binary coefficient of a quadratic mode system
+-- is a 2-cochain; its associator (the ratio of the two binary derivations
+-- of p+q+r) is gauge-invariant, satisfies the pentagon, and measures
+-- ancestry interference (X+Yω)(X+Yω̄) = (X+Y)² − XY(2−ω−ω̄); at the
+-- orthogonal cube's ω = e^{2πi/3} in ℤ[ω] the amplitude is half the envelope.
+import InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference
+-- TwoScaleSubgroup: 2ᵐ = 3ⁿ only at m = n = 0 — the arithmetic behind the
+-- density of the (2,3)-scale samples in the C(𝕋²)-descent reading of RH.
+import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo
+-- HistoryCompletion: the one construction under both frontiers — the value
+-- stream of a history under an evaluator, complete by corecursion in the
+-- take-metric (PurnataSutra freed to any carrier), its limit determined by
+-- truncations, and □ (at every depth) refuted by one truncation and decided
+-- by none; instantiated on the power-sum trace (bounded iff roots on the
+-- circle) and on the Galerkin jet stream.
+import HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot
