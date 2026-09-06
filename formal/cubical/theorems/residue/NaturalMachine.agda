@@ -1226,3 +1226,10 @@ import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHes
 -- diag(n,n,−2n) (an injection of ℕ), and the pushforward of the true Q̇ to
 -- the (Q,R) plane is a LawfulContinuationCore.BranchingFiber.
 import VieillefosseFibre_TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZeroFibreIsUnboundedAndThePushforwardOfTheTrueFieldBranches
+-- DiscriminantIsTheOnlyFirstIntegral: up to cubic degree every polynomial
+-- first integral of the restricted-Euler field is affine in the
+-- discriminant (linear algebra over ℤ on ten coefficients, with the
+-- symbolic derivative checked against the analytic one by the solver), and
+-- ℤ injects into the pushforward fibre over a (Q,R) point by scaling the
+-- Hessian direction.
+import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded
