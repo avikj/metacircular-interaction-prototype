@@ -1209,3 +1209,15 @@ import Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelyS
 -- It is the kernel's own `Derivation` with the generators left open, and
 -- it was imported by nothing.
 import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+
+-- StrainInvariants: the even magnitude tr S² and the odd charge det S of a
+-- trace-free symmetric matrix are each blind to the other and neither
+-- factors through the other (DescentObstructionUnified's lemma, both ways);
+-- the pointwise interaction ωᵀSω escapes (S, |ω|²) and the coupling escapes
+-- the marginals.  Added to this root so a command builds it.
+import StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther
+-- QRClosure: the restricted-Euler quotient (tr A², tr A³) closes by two ring
+-- identities (fractions cleared) and the pressure-Hessian couplings
+-- tr(AH), tr(A²H) do not descend through it: witness pair over ℤ, both
+-- obstructions by DescentObstructionUnified's lemma.
+import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt
