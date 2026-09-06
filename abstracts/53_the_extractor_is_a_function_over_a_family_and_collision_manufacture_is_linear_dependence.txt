@@ -1,0 +1,42 @@
+THE SQUARE-COLLISION EXTRACTOR IS A FUNCTION RUN OVER A FAMILY, AND
+COLLISION MANUFACTURE IS LINEAR DEPENDENCE
+The congruence-of-squares realization as a plain map factoring a table
+of moduli, and the exponent-parity signature turning collision
+manufacture into an 𝔽₂ null-space — both computed by the analyzer
+
+Collision semantics, generalized / factoring as a fold / manufacture as
+linear algebra
+
+SanghattaKarya ran the extraction chain on one modulus.  This gives the
+collision-semantics document its next asks at once, both computed and
+read back through the analyzer.
+
+THE EXTRACTOR IS A FUNCTION.  extract N a b = (gcd(a∸b,N), gcd(a+b,N))
+is congruence-of-squares as a plain map; run over a table of given
+square collisions it factors each modulus and every factorization
+recomposes — 15→(3,5), 21→(7,3), 33→(3,11), 35→(5,7), checked
+uniformly, and the analyzer computed 143→(11,13) live from 12²≡1, a
+modulus not in the module.
+
+MANUFACTURE IS LINEAR DEPENDENCE.  Over a factor base [2,3,5] a smooth
+relation's square-class signature is its exponent-parity vector in 𝔽₂³.
+The relation matrix is a boundary operator; a null-space element — a
+selection whose parity sum is zero — is a product that is a SQUARE, a
+manufactured square collision.  The three relations 2·3, 2·5, 3·5 have
+parities (1,1,0),(1,0,1),(0,1,1); their sum is (0,0,0), read back from
+the analyzer as all-false, so their product is (2·3·5)² = 900 — the
+dependency IS the collision, computed.
+
+Manufacture produces the collision the extractor turns into a factor.
+The frontier the document names — cheaply ENTERING the smooth chart —
+is untouched and unclaimed; once inside, the whole pipeline is
+arithmetic and linear algebra the kernel computes and hands back as
+data.
+
+SYĀT — THE CLAIM, EXACTLY.  The extractor over the tabulated moduli
+with their given collisions, and the exhibited parity dependency with
+its square product.  NOT claimed: that the collisions or the smooth
+relations were found rather than supplied.
+
+Machine-checked in cubical type theory, --safe, at the pin; computed
+and read back through the interactive kernel.

@@ -1,0 +1,41 @@
+A SQUARE COLLISION EXTRACTS A FACTOR AND AN IDEMPOTENT PROJECTOR SPLITS
+THE RING — WORKED, AND COMPUTED BY THE ANALYZER
+The collision-semantics extraction chain run concretely on N = 15, its
+factors read back from the kernel as normal forms rather than supplied
+
+Collision semantics at work / factoring as projector discovery / the
+analyzer computing, not verifying
+
+SanghattaBija made collision semantics abstract.  This runs the
+document's §12–13 chain concretely, on N = 15, every step a checked
+term the analyzer computes and hands back:
+
+  square collision → zero divisor → idempotent projector → factor.
+
+The collision (a = 4, b = 1, with 4² ≡ 1² mod 15) is GIVEN — its
+manufacture is the frontier the collision-semantics document is
+explicit about, and this does not pretend to abolish it.  What runs is
+the extractor, and the kernel does not merely accept it — it computes:
+
+  the zero divisor (4 ∸ 1)(4 + 1) = 15 ≡ 0 mod 15;
+  the factors gcd(4 ∸ 1, 15) = 3 and gcd(4 + 1, 15) = 5, each a proper
+  divisor, recomposing to 15;
+  the idempotent e = 2⁻¹(1 + 4) = 10 (10² ≡ 10 mod 15), a nontrivial
+  projector whose gcds with 15 recover the same two factors — the CRT
+  decomposition made a number, Spec(ℤ/15) split into its two clopen
+  components.
+
+Read through sadhana.vislesana, the factors 3 and 5 come back as
+COMPUTED normal forms — the analyzer factoring 15 by reading its own
+arithmetic, not being told the answer.  This is the session's whole
+turn made concrete: the kernel is an analyzer, and its output is the
+decomposition, delivered as data.
+
+SYĀT — THE CLAIM, EXACTLY.  The chain for N = 15 with the given
+collision, every value computed and read back.  NOT claimed: that the
+collision was found rather than supplied, nor anything about N in
+general.  The extractor is executed on one worked instance; that is
+what makes the factors readable rather than only provable.
+
+Machine-checked in cubical type theory, --safe, at the pin; computed
+and read back through the interactive kernel.

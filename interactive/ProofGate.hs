@@ -274,12 +274,17 @@ module ProofGate
   , kAgdaLibrary
   , kIncludeRoot
   , agdaArgs
+  , agdaArgsWith
+  , corpusIncludeRoots
     -- * running
   , Verdict(..)
   , certify
   , certifyWith
   , runAgda
   , runAgdaUnwatched
+  , runAgdaModule
+  , Analysis(..)
+  , runAgdaAnalyze
   , vetSuccess
   , vetForeignRun
   , main
@@ -733,12 +738,21 @@ agdaSolverCertificate defs eq@(l, r) imp body = do
   lhs <- agdaTermWith defs l
   rhs <- agdaTermWith defs r
   names <- mapM agdaVar (equationVars eq)
+  -- The v0.9 macro parses only a BARE equation goal: a telescoped type is
+  -- "failed to parse the goal" (probed 2026-08-29).  The library's own
+  -- Examples.agda binds the variables with a module telescope and leaves
+  -- the goal bare; emitted here the same way, `candidate` still has the
+  -- telescoped type from outside the anonymous module, so nothing
+  -- downstream changes.
   pure $ unlines $
     preambleWith defs (equationSymbols eq)
-    ++ [ imp
-       , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
-       , "candidate = " ++ body
-       ]
+    ++ [ imp ]
+    ++ (if null names
+          then [ "candidate : " ++ lhs ++ " ≡ " ++ rhs
+               , "candidate = " ++ body ]
+          else [ "module _ " ++ concatMap (\v -> "(" ++ v ++ " : ℕ) ") names ++ "where"
+               , "  candidate : " ++ lhs ++ " ≡ " ++ rhs
+               , "  candidate = " ++ body ])
 
 -- The solver shapes, in order, each an (label, import line, macro name).
 -- Both cubical versions the corpus meets are covered so the shape survives
@@ -785,13 +799,15 @@ agdaSolverPeelCertificate defs eq@(l, r) imp body =
       irhs <- agdaTermWith defs ir
       names <- mapM agdaVar (equationVars eq)
       let wrap s = foldr (\_ acc -> "cong suc (" ++ acc ++ ")") s [1 .. k]
-          appInner = unwords ("inner" : names)
+      -- Same bare-goal requirement as the direct certificate: the clause
+      -- already binds the variables, so `inner` in its where-block states
+      -- the core equation bare and the macro can parse it.
       pure $ unlines $
         preambleWith defs (equationSymbols eq)
         ++ [ imp
            , "candidate : " ++ telescope names ++ lhs ++ " ≡ " ++ rhs
-           , "candidate " ++ unwords names ++ " = " ++ wrap appInner
-           , "  where inner : " ++ telescope names ++ ilhs ++ " ≡ " ++ irhs
+           , "candidate " ++ unwords names ++ " = " ++ wrap "inner"
+           , "  where inner : " ++ ilhs ++ " ≡ " ++ irhs
            , "        inner = " ++ body
            ]
 
@@ -899,8 +915,36 @@ kIncludeRoot :: FilePath
 kIncludeRoot = "formal/cubical"
 
 agdaArgs :: FilePath -> FilePath -> [String]
-agdaArgs dir file =
-  ["-i", kIncludeRoot, "-i", dir, "--library=" ++ kAgdaLibrary, file]
+agdaArgs dir file = agdaArgsWith [] dir file
+
+-- The same invocation with extra include roots spliced in.  The candidate
+-- modules the emitter writes import only Cubical.* and NaturalMachine.*, so
+-- the base args never needed more than the one root; a WHOLE module handed
+-- over the wire (sadhana.patra) may import any module of the corpus, whose
+-- own .agda-lib names further roots (kernel, theorems/…).  Those roots are
+-- read from that file at the moment of the run — see `corpusIncludeRoots` —
+-- never restated here, so the two cannot drift.
+agdaArgsWith :: [FilePath] -> FilePath -> FilePath -> [String]
+agdaArgsWith extra dir file =
+  concat [ ["-i", r] | r <- kIncludeRoot : extra ]
+  ++ ["-i", dir, "--library=" ++ kAgdaLibrary, file]
+
+-- The corpus's own include roots, read from its .agda-lib and made relative
+-- to the repository root the agda child runs in.  `.` is kIncludeRoot itself
+-- and is dropped rather than doubled.  An unreadable or absent file yields
+-- [], which is exactly today's behaviour — the base root alone — so nothing
+-- new can break the emitter's gate or the two controls.
+corpusIncludeRoots :: FilePath -> IO [FilePath]
+corpusIncludeRoots root = do
+  r <- try (readFile (root </> kIncludeRoot </> "natural-machine.agda-lib"))
+         :: IO (Either SomeException String)
+  pure $ case r of
+    Left _ -> []
+    Right s ->
+      [ kIncludeRoot </> p
+      | l <- lines s
+      , ("include:" : ps) <- [words l]
+      , p <- ps, p /= "." ]
 
 -- --------------------------------------------------------------- running
 
@@ -1010,7 +1054,10 @@ kEnvironmentFault :: String
 kEnvironmentFault = "kernel gate environment fault"
 
 runAgdaRaw :: FilePath -> String -> IO (ExitCode, String)
-runAgdaRaw root source = do
+runAgdaRaw = runAgdaRawWith []
+
+runAgdaRawWith :: [FilePath] -> FilePath -> String -> IO (ExitCode, String)
+runAgdaRawWith extra root source = do
   setLocaleEncoding utf8
   tmp <- getTemporaryDirectory
   dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-agda.XXXXXX"] ""
@@ -1021,11 +1068,137 @@ runAgdaRaw root source = do
       let env' = ("LC_ALL", "C.UTF-8")
                  : ("LANG", "C.UTF-8")
                  : [ kv | kv@(k, _) <- base, k /= "LC_ALL", k /= "LANG" ]
-          cp = (proc "agda" (agdaArgs dir file))
+          cp = (proc "agda" (agdaArgsWith extra dir file))
                  { cwd = Just root, env = Just env' }
       (code, out, err) <- readCreateProcessWithExitCode cp ""
       pure (code, out ++ err))
     `finally` removePathForcibly dir
+
+-- A WHOLE module, watched, with the corpus's own include roots on the path.
+-- The controls and the emitter's candidates keep the narrow invocation they
+-- always had; this is the wire's door (sadhana.patra) and nothing else calls
+-- it.  Watched exactly as `runAgda` is: a success is vetted, and the vet's
+-- own kernelStatus runs on the NARROW args, so the controls stay the
+-- controls of the gate, not of this widened path.
+runAgdaModule :: FilePath -> String -> IO (ExitCode, String)
+runAgdaModule root source = do
+  extra <- corpusIncludeRoots root
+  micros <- agdaTimeoutMicros
+  r <- try (timeout micros (runAgdaRawWith extra root source))
+         :: IO (Either SomeException (Maybe (ExitCode, String)))
+  let raw = case r of
+        Right (Just ok) -> ok
+        Right Nothing ->
+          ( ExitFailure 124
+          , kEnvironmentFault ++ ": agda did not return within "
+              ++ show (micros `div` 1000000) ++ "s\n" )
+        Left e ->
+          ( ExitFailure 127
+          , kEnvironmentFault ++ ": agda invocation raised: " ++ show e ++ "\n" )
+  case raw of
+    (ExitSuccess, out) -> vetSuccess root out
+    other -> pure other
+
+-- ---------------------------------------------- the analyzer readout
+--
+-- WHAT THE KERNEL SAYS BEYOND YES.  `runAgdaModule` returns a verdict; this
+-- returns the ANALYSIS.  agda's --interaction mode answers two questions
+-- about any expression in a loaded module: `Cmd_compute_toplevel` gives its
+-- NORMAL FORM, `Cmd_infer_toplevel` gives its TYPE.  So for a submitted
+-- module and a list of expressions, the kernel hands back, per expression,
+-- what it computes it to and what it is — every bit it derives, not a green.
+--
+-- Include roots are made ABSOLUTE here: in --interaction mode agda resolves
+-- `-i` relative to the loaded file, not the working directory (measured), so
+-- the relative roots that runAgdaModule uses would miss the corpus.  Same
+-- corpus, same library, same locale; a different question asked of them.
+--
+-- Returns, per requested expression, (expr, normal-form-or-error,
+-- type-or-error).  A load failure surfaces as agda's report in the first
+-- entry's fields; nothing is paraphrased.
+data Analysis = Analysis
+  { anExpr   :: String
+  , anNormal :: String   -- Cmd_compute_toplevel DefaultCompute
+  , anType   :: String   -- Cmd_infer_toplevel Simplified
+  } deriving (Eq, Show)
+
+runAgdaAnalyze :: FilePath -> String -> [String] -> IO (ExitCode, [Analysis])
+runAgdaAnalyze root modSource exprs = do
+  setLocaleEncoding utf8
+  extra <- corpusIncludeRoots root
+  micros <- agdaTimeoutMicros
+  tmp <- getTemporaryDirectory
+  dirLine <- readProcess "mktemp" ["-d", tmp </> "math-machine-anal.XXXXXX"] ""
+  let dir  = reverse (dropWhile isSpace (reverse dirLine))
+      file = dir </> "Candidate.agda"
+      absRoots = [ root </> r | r <- kIncludeRoot : extra ]
+      incArgs  = concat [ ["-i", r] | r <- absRoots ]
+                 ++ ["-i", dir, "--library=" ++ kAgdaLibrary]
+      iotcm payload = "IOTCM " ++ show file ++ " NonInteractive Direct (" ++ payload ++ ")"
+      compute e = iotcm ("Cmd_compute_toplevel DefaultCompute " ++ show e)
+      inferT  e = iotcm ("Cmd_infer_toplevel Simplified " ++ show e)
+      stdinText = unlines (concat [ [compute e, inferT e] | e <- exprs ])
+  (do writeUtf8 file modSource
+      base <- getEnvironment
+      let env' = ("LC_ALL", "C.UTF-8") : ("LANG", "C.UTF-8")
+                 : [ kv | kv@(k, _) <- base, k /= "LC_ALL", k /= "LANG" ]
+          cp = (proc "agda" ("--interaction" : incArgs))
+                 { cwd = Just root, env = Just env' }
+      r <- try (timeout micros (readCreateProcessWithExitCode cp stdinText))
+             :: IO (Either SomeException (Maybe (ExitCode, String, String)))
+      pure $ case r of
+        Right (Just (code, out, err)) ->
+          (code, pairUp exprs (infoResults (out ++ err)))
+        Right Nothing ->
+          ( ExitFailure 124
+          , [ Analysis e (kEnvironmentFault ++ ": agda did not return") "" | e <- exprs ] )
+        Left ex ->
+          ( ExitFailure 127
+          , [ Analysis e (kEnvironmentFault ++ ": " ++ show ex) "" | e <- exprs ] ))
+    `finally` removePathForcibly dir
+  where
+    -- Pair the ordered info-action results back to the expressions: compute
+    -- then infer, one result each, in the order the commands were sent.
+    pairUp [] _ = []
+    pairUp (e : es) (nf : ty : rest) = Analysis e nf ty : pairUp es rest
+    pairUp (e : es) [nf]             = [Analysis e nf "(no type returned)"]
+    pairUp (e : es) []               = [ Analysis e' "(no answer returned)" "" | e' <- e : es ]
+
+-- Scan agda2 s-expression output for `agda2-info-action "TITLE" "BODY"`,
+-- returning each BODY (unescaped) whose TITLE is a real answer — dropping the
+-- "*Type-checking*" progress lines and empty bodies.  An "*Error*" body is
+-- kept: an expression that failed to elaborate is a real, reported answer.
+infoResults :: String -> [String]
+infoResults = go
+  where
+    marker = "agda2-info-action "
+    go s = case breakOn marker s of
+      Nothing -> []
+      Just after -> case readSExpString after of
+        Just (title, r1) -> case readSExpString (dropWhile isSpace r1) of
+          Just (body, r2)
+            | title == "*Type-checking*" || all isSpace body -> go r2
+            | otherwise -> body : go r2
+          Nothing -> go r1
+        Nothing -> go after
+    breakOn m t = fmap (drop (length m)) (findPrefix m t)
+    findPrefix m t@(_ : cs)
+      | m `isPrefixOf` t = Just t
+      | otherwise = findPrefix m cs
+    findPrefix _ [] = Nothing
+
+-- Read one double-quoted, backslash-escaped string; return it (decoded) and
+-- the remainder after the closing quote.
+readSExpString :: String -> Maybe (String, String)
+readSExpString ('"' : cs) = decode cs
+  where
+    decode ('\\' : x : r) = fmap (first (unesc x :)) (decode r)
+    decode ('"' : r)      = Just ([], r)
+    decode (c : r)        = fmap (first (c :)) (decode r)
+    decode []             = Nothing
+    unesc 'n' = '\n'; unesc 't' = '\t'; unesc c = c
+    first f (a, b) = (f a, b)
+readSExpString _ = Nothing
 
 -- ------------------------------------------------------- the two controls
 --

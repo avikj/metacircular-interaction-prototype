@@ -1,0 +1,56 @@
+MEMORY MEASURED, MASS CONSERVED, AND RESOLUTION AS INVARIANCE
+QUANTIFIED
+The identification theorem, the pre-logarithmic second law, and the
+ladder of detectors, closing one arc
+
+Measurement / statistical foundations / the accounting of memory
+
+Three closures, sharing one spine: what a system remembers, what a
+measure preserves, and what an observer resolves are a single
+accounting, and each clause is a theorem.
+
+THE IDENTIFICATION.  Two braid words act identically on every rope
+exactly when their bare permutations agree and their deposited twist
+counts agree modulo four.  The upper bound routes both words through
+the normal form and closes the streams by reader extensionality; the
+lower bound is the kernel theorem's detector pair.  A braid's
+observational identity IS its invariant pair — where it sends the
+strands, and what it deposited on them, to the fourth turn.  Memory,
+measured exactly.
+
+THE PRE-LOGARITHMIC SECOND LAW.  Weights on the two-point space:
+mass is conserved by the merging pushforward (support shrinks, mass
+arrives intact), permuted by reversible reindexing, and MULTIPLIED
+under independence — the product weight's total is the product of
+totals, both distributivities proved from scratch.  Entropies add
+because masses multiply; the multiplication is the theorem, the
+logarithm a notation for it.  Conservation, reversibility,
+independence: the measure-level second law without a real number in
+sight.
+
+THE RESOLUTION LADDER.  Each observable reads the braid's twist
+count modulo the order of its own blindness: the full strand reading
+(blind to nothing) reads mod four; the xor reading (invariant under
+the half-wave, moved by the quarter turn) reads mod two, proved at
+every depth on every rope; the constant functional reads mod one.
+Resolution is invariance quantified — choosing an observable chooses
+which residue of the memory survives, and coarser senses alias the
+memory at the divisor their blindness dictates.  The interferometric
+face: an intensity-like detector sees fringes at half the field's
+period, not as an artifact but as the arithmetic of its own
+acceptance.
+
+One spine: the śeṣa trilaw.  The memory is conserved (nothing a word
+does escapes its invariants), inaccessible from below (no coarser
+reading reconstructs a finer residue), and generative (each rung of
+the ladder is the structure the rung below cannot hold).  The braid,
+the measure, and the observer obey the same law because they are the
+same law, read at three altitudes.
+
+SYĀT — THE CLAIM, EXACTLY.  The three theorems at their stated
+carriers; the logarithm proper, the semidirect naming of the braid
+quotient, and the ladder quantified over all observables at once are
+the standing constructions.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

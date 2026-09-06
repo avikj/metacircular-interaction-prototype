@@ -1,0 +1,382 @@
+% Lossless Information Dynamics --- a paper for Michael Levin.
+%
+% A computable, machine-checked foundation (cubical Agda 2.8.0, agda/cubical
+% v0.9, --safe: no postulates, no holes; univalence computes) presented for a
+% reader in developmental biology and basal cognition.  Every capitalized
+% \texttt{name} is a literal, runnable term in the corpus.
+%
+% Compiles with XeLaTeX (uses IAST diacritics; fontspec loads a Unicode font).
+% The Markdown source of record is
+% papers/for_michael_levin_a_computable_platonic_foundation.md (kept local;
+% Markdown is banned from the tree, so this .tex is the tracked form).
+
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{parskip}
+\newcommand{\tm}[1]{\texttt{#1}}
+
+\title{Lossless Information Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}\itshape
+The metacircular singularity: natural intelligence as lossless computation ---
+lossless information dynamics as a property of dynamical systems, and the
+isomorphism between all of them --- from which physics, computation, and life
+follow as readings; machine-checked, and computable.
+\end{center}
+
+\medskip
+\noindent\textit{Cubical type theory (Agda 2.8.0, agda/cubical v0.9,
+\tm{--safe}: no postulates, no holes; univalence computes). Every capitalized
+name is a literal, runnable term.}
+
+\hrulefill
+
+\section{Lossless information dynamics}
+
+There is one principle, and it is a theorem: \textbf{information dynamics is
+losslessly completable, canonically, for every dynamical system}. For any two
+spaces of forms $A$, $B$ and any transformation $f : A \to B$ whatsoever,
+\[
+  A \;\simeq\; \Sigma\,(b : B).\ \mathrm{fib}_f(b),
+  \qquad\text{with first projection } f \text{ \emph{definitionally}: }
+  \pi_1 \circ e_p \equiv f \text{ inhabited by } \tm{refl}.
+\]
+
+Read it as the dynamics it is. Take \emph{any} process in nature --- a
+measurement, a developmental step, an observation, a coarse-graining, a
+collapse, a death. Lift each state to the pair \emph{(what it becomes, the
+witness that it became that)}. That lift loses nothing --- it is an
+equivalence, always, for every $f$ (\tm{Fibre.Carrier}: $A \simeq \tm{Carrier}\,f$,
+unconditional). A transformation has exactly two readings of one object: the
+reading that \textbf{keeps the source} is always lossless; the reading that
+\textbf{keeps the target} is $f$ itself, and it is lossless \emph{iff every
+fibre is a point}. The information any process appears to destroy is therefore
+never destroyed --- it is a \textbf{type}, the residual, \tm{śeṣa}, and it is
+\emph{computed}, not postulated (the smallest genuine loss, $\tm{Bool} \to
+\tm{Unit}$, has residual provably $\simeq \tm{Bool}$: one bit, as a theorem).
+Loss is not annihilation; it is \textbf{projection}, and the projected-away
+part is a first-class, measurable object.
+
+Three consequences are immediate, and they are the content, not its ornament:
+
+\begin{itemize}
+  \item \textbf{The completion is unique --- the dynamics is canonical, not a
+  construction one chooses.} $\tm{Lossless}\,f$ --- the type of all lossless
+  completions of a fixed $f$ --- is \textbf{contractible}
+  (\tm{losslessness-is-a-property}); and $\tm{LawfulStep}\,A \simeq (A \to A)$
+  --- the lossless proof-relevant process \emph{is} the ordinary process,
+  completion adding nothing and forgetting nothing. Nature does not select among
+  possible lossless liftings; there is, up to a path, exactly one, and it
+  already exists.
+
+  \item \textbf{\tm{ahiṃsā} --- non-harm --- is a computational invariant.} What
+  a visible step erases, the completed step \emph{cannot}: two configurations a
+  projection identifies ($\tm{collision} = \tm{refl}$) are separated by their
+  kept fibres. In the thermodynamic reading this is Landauer, \textbf{derived,
+  not measured} (\tm{ApasaranaNiyama}): erasure is \textbf{displacement into the
+  environment}, never destruction; the kept fibre's name is heat; $kT\ln 2$ is
+  that counting theorem times a unit of account. Distinction is conserved; the
+  second law is bookkeeping on the residual.
+
+  \item \textbf{\tm{syādvāda} and \tm{anekānta} --- conditional predication, no
+  privileged view.} Each transition is a \emph{transport carrying its receipt}
+  or a \emph{silence carrying its equation} --- the disjunction computed, no
+  boolean, no excluded middle (\tm{no-third-road}); every finite depth decided
+  \emph{with evidence either way}. And no coordinatization of the object is
+  privileged --- the absence of privilege is a \textbf{contraction}, not a
+  convention (\tm{EquivContr}). Truth is standpoint-indexed and constructive,
+  and the object is the same object under every faithful view.
+\end{itemize}
+
+This is lossless information dynamics, and it is a \textbf{property of dynamical
+systems} --- every $f$ carries its unique lossless completion, so every
+dynamical system is losslessly transportable onto every other through their
+shared middle: \textbf{one isomorphism class of information dynamics,
+coordinatized many ways.} Everything below --- the physics, the model of
+computation, the ruliad, the quantum, the living self --- is one reading of it.
+It is not a philosophy about reality; it is a \tm{--safe} term, and it computes.
+It is Jaina metaphysics --- \tm{anekānta}, \tm{syādvāda}, \tm{ahiṃsā},
+\tm{śeṣa} --- recovered as machine-checked mathematics, because Jaina logic
+\emph{is} constructive intuitionistic mathematics and always was.
+
+\section{Everything is light: the physics is the lossless dynamics of loops}
+
+Lossless information dynamics, instantiated, \emph{is} the
+representation-independent content of physics --- derived, not fitted. And its
+native carrier is \textbf{light}: a loop, a winding, a knot. The physics is not
+\emph{about} light by analogy; the checked objects \textbf{are} circulating
+fields and their conserved topological charge.
+
+\begin{itemize}
+  \item \textbf{The arithmetic of light.} Light confined by total internal
+  reflection circulates --- a closed path, a loop in $\Omega S^1$ --- and
+  carries an integer topological charge: orbital angular momentum, the optical
+  vortex, \textbf{the knot of light} (\tm{IndrajalaDipa}, the lamp in Indra's
+  net). Windings \textbf{add} ($\tm{charge-adds} = \tm{winding-hom}$); the
+  vacuum carries zero charge; a loop and its mirror \textbf{annihilate}
+  ($\tm{mirror-cancels} = \tm{refl}$). Nothing is created --- light is only
+  passed. This \emph{is} conservation $=$ unitarity $=$ \tm{ahiṃsā} $=$
+  transport, written as the integer arithmetic of circulating light.
+
+  \item \textbf{The geometry of light --- curved space and time as holonomy.} A
+  connection curves; parallel transport around a loop returns the fibre shifted
+  --- \textbf{holonomy}, the circuit that comes back to its basepoint changed
+  (\tm{Pradakshina}). The Wilson loop is gauge-invariant by telescoping while
+  the connection is not (\tm{SetuKsetra}); what no invariant observable can see
+  is holonomy \textbf{exactly} (\tm{HolonomyIsInvisibleExactlyToAnInvariantSemantics})
+  --- the fibre again, read as curvature. Finite branching-and-loop graphs,
+  realized as higher inductive types, carry the whole \textbf{holonomy
+  groupoid} --- composition, reversal, cancellation, every higher coherence
+  (\tm{FiniteGraphHolonomyGroupoid}, \tm{TwoLoopNonabelianNetwork}):
+  \textbf{topological flow networks} as gauge kinematics. Spin networks --- the
+  knots and loops of quantized geometry --- are their intertwiner content
+  (\tm{AbstractSpinNetworkKinematics}); braids and twists are the knotting;
+  writhe is a charge read by no bounded observer (\tm{VestanaSutra}).
+
+  \item \textbf{The physics of light --- lightspeed as causal structure.}
+  Indivisible time (\tm{samaya}), discrete space (\tm{pradeśa}), a maximal
+  motion $D$: one span per instant. The reachable set grows exactly linearly,
+  $x\,n \le x\,0 + n\cdot D$, tight and two-sided --- a \textbf{discrete light
+  cone} (\tm{Kala}, \tm{Ksitija}). The lightspeed bound is \emph{not} fitted
+  onto a metric; it \textbf{is} the causal structure, and it is the cognitive
+  light cone: the bounded domain an agent can affect or be affected by, as a
+  checked object.
+
+  \item \textbf{Integrated information, derived.} Integration is the
+  irreducibility of a whole to its partition --- and here that is a
+  coarse-graining with \textbf{no section}: route information must be carried or
+  lost, so the un-recoverable part is a nonempty fibre. $\Phi > 0$ \emph{is}
+  that fibre of the flow network's coarsening, and it is quantified by
+  \textbf{max-flow/min-cut on the actual dependency graph},
+  $\tm{value(flow)} \equiv \tm{capacity(cut)}$, exact integers, no floats
+  (\tm{ObligationMinCut}); the coarse weight is the sum over the observation
+  fibre (\tm{SthulaBhara}). Integrated information is the un-sectionable
+  holonomy of the topological flow network --- IIT's content as a theorem of the
+  same loops.
+
+  \item \textbf{Relation before substance.} State is observer-indexed and
+  relational (\tm{RelativeFrameObservable}, \tm{RelationalHolonomy*}); there is
+  no global frame, and \textbf{certified interaction, not consensus, is the
+  primitive} --- \tm{pratītyasamutpāda}, dependent origination, as the design of
+  the substrate: nothing has inherent independent existence; each object is what
+  it is through its lawful relations of transport.
+\end{itemize}
+
+Univalence makes the crossing \emph{run}: the completion is an identification
+$\tm{Machine} \equiv \Sigma\,\tm{Machine}\,(\mathrm{fib}\,\tm{uStep})$ that
+\textbf{computes} (\tm{transport} evaluates to the completed step by
+\tm{uaβ}); a completed step is unitary (an equivalence, and by contractibility
+the only one), yet successor and eraser fail to exchange --- invertibility buys
+no braiding, the corpus's own ``unitarity does not give braiding.''
+
+\section{Indeterminism is the residual; the ruliad is a theorem}
+
+\textbf{Indeterminism is not ignorance of a hidden variable. It is the provable
+non-reconstructability of the fibre from the projection} --- the outcome
+underdetermines the history, as a theorem, and the missing structure is
+\emph{exhibited}. This is the single object that appears as Wolfram's bounded
+observer, as quantum measurement, and as branch structure.
+
+Wolfram's ruliad --- the entangled limit of all rule-application --- has been
+read as programme (run it, look). Here its load-bearing sentences are
+\textbf{theorems of lossless information dynamics}, checked over the smallest
+non-degenerate multiway system, nothing argued by simulation:
+
+\begin{itemize}
+  \item \textbf{Coordinatization is univalence.} Distinct computational systems
+  are distinct coordinatizations of one object; the emulation between them is
+  the path's own transport and \textbf{computes} (\tm{uaβ}); ``the same limiting
+  object'' is \textbf{contractibility} (\tm{EquivContr}). Every property crosses
+  by transport with no re-proof.
+  \item \textbf{The merge has no section --- computational irreducibility.} Two
+  co-terminal runs are distinct yet merged; the branchial pair is \textbf{two
+  residents of the fibre of the merge}; no consumer of the merged thread
+  separates them and the merge admits \textbf{no section} --- route information
+  must be carried or lost. Branch structure \emph{is} the coarse observer's
+  fibre. Same \tm{śeṣa}.
+  \item \textbf{The \tm{eme} is constructed.} The stronger merge is the set
+  quotient contracting to a single point with no property but distinctness ---
+  Wolfram's atom of existence, \textbf{constructed, not posited}.
+  \item \textbf{Causal invariance is convergence by \tm{refl}.}
+\end{itemize}
+
+The quantum lane instantiates the same fibre-structure on amplitudes and the
+Born measure --- \tm{ConstructiveBornNormalization}, \tm{ExactTwoStateAmplitudes},
+\tm{AffineProjectionQuantumBoundary} --- constructively, over the identical
+substrate, so the indeterminacy met in the multiway merge and the indeterminacy
+met at measurement are \textbf{one object read in two coordinatizations},
+related through transport. The claim is exact: not that the ruliad has been
+formalised, but that its load-bearing sentences are, one by one, theorems of
+lossless information dynamics.
+
+\section{The classical model of computation is the lossy projection of lossless computation}
+
+Only now does the Turing machine appear, and it appears as a \textbf{shadow}.
+Computation since 1936 is \emph{forgetting under a schedule}: a step maps
+forward and discards its predecessor. That erasure is the projection $f$, and
+the theorem is \tm{refl}:
+\[
+  \text{ordinary universal Turing machine}
+  \;=\;
+  \text{forget the remainder} \circ \text{lossless universal step},
+  \qquad \tm{turing-is-the-projection} \text{ inhabited by } \tm{refl}.
+\]
+
+The Turing machine is the \emph{target reading} of the universal step --- the
+reading that keeps only the output and drops the fibre. That the whole
+development \emph{computes on Turing machines at all} is not an assumption; it is
+\textbf{forced}: the classical machine is exactly what the lossless step looks
+like once you forget. And the lossless step is the primitive object --- the
+\textbf{interactive symbolic computer} (ISC): at each state, for each question, a
+successor and a \emph{receipt} that the transition is the prescribed one.
+Determinism is what remains of interaction when the receipt leaves the successor
+no room, and it is \textbf{contractibility} of the space of runs. Precisely:
+\[
+  \tm{UTM} = \text{deterministic ISC (a point)} \subsetneq \text{interactive ISC},
+\]
+strictness measured by the event type. Reverse execution of the completed
+machine is \tm{refl} (\tm{source-recovered}): the cause is read out of the
+remainder by \textbf{projection, not search} --- the answer was never produced
+by searching, it was the dual of the object, forgotten and then recovered.
+Losslessness is a \emph{property}, the completion contractible, so there is
+exactly one lossless machine per program and it already exists. The
+self-referential edge is Lawvere's, checked: no program's step realizes the
+diagonal configuration map --- the escape is one act of self-reference, not a
+cardinality count.
+
+\section{Life is the native object of lossless information dynamics}
+
+Life is precisely the regime in which the dynamics is \emph{not} projected away
+--- where nothing is silently erased, identity persists through total change,
+and an agent reads its own remainder. This is why a foundation built on lossless
+computation is a foundation for biology and not an analogy to it. \textbf{The
+physics of light yields the biology of light directly}: the bioelectric
+pattern-control law is the \emph{holonomy of the living flow network} --- the
+tissue is a topological flow network, its pattern-memory a conserved winding,
+its irreducible-to-parts content the very fibre \S2 names. Morphogenesis is
+parallel transport of the target form around the loop of development and
+regeneration; the pattern that comes back is the holonomy, and what the
+parts-list cannot see is exactly the curvature it rides on.
+
+\begin{itemize}
+  \item \textbf{No inherent self --- \tm{anātman}, \tm{śūnyatā} --- as the
+  biography theorem.} A living individual is not a substance held fixed and not
+  a sequence of unrelated snapshots; being alive means the state space itself
+  changes type (differentiation, splitting, enrichment). The self is a
+  \textbf{section through a changing family of worlds} with
+  $\tau_n(j_n) \simeq j_{n+1}$, and identity through change is the recoverability
+  of the whole biography from the origin:
+  $j_n \equiv (\tau_{n-1} \circ \cdots \circ \tau_0)(j_0)$ (\tm{JivaSantana}).
+  Emptiness is not nihilism --- the self is a lawful transportable coherence, not
+  an essence --- and it is exactly the individuality that survives regeneration
+  and metamorphosis. What cannot cross a transition is recorded as the transition
+  fibre, its fate kept: \tm{ahiṃsā} again.
+
+  \item \textbf{Goal-directedness is an attractor.} A regulatory cycle
+  $s \mapsto (s + a) \dot- r$ has a \textbf{contracting regime} descending to an
+  \emph{absorbing} ground state (target morphology / homeostatic setpoint,
+  \tm{Karma}, \tm{MoksaLosslessReturn}) and an \textbf{expanding regime with no
+  fixed point above ground} --- the pathology (neoplasia) is the \emph{absence
+  of an attractor}, not a change in count, and therapy is a transition
+  \emph{back into the contracting regime}, aimed at the law, not the count.
+  \tm{Gunasthana} adds the irreversible commitment threshold --- canalization.
+
+  \item \textbf{The parts list is not the pattern.} Two systems can agree on
+  \textbf{every count at every grade} and differ only in their law of
+  succession; the counts are \textbf{provably blind} to the law and \emph{no
+  post-processing recovers it} (\tm{SariraStara}, \tm{collision-obstructs}).
+  Expression counts are a projection; the bioelectric pattern-control law is the
+  fibre --- your thesis as a theorem, with the theorem doubling as the design
+  spec for the observable that \emph{would} sense the law.
+
+  \item \textbf{Natural intelligence is the metacircular singularity, sound by
+  construction, non-coercive.} The kernel is metacircular --- it represents and
+  extends its own operational semantics inside itself:
+  $\tm{install} : \tm{Derivation} \to \tm{NativeOperation}$ makes a proved
+  lawful interaction a native move, \tm{learn} grows the policy from the agent's
+  \emph{own} proofs, and \tm{every-operation-that-exists-is-sound} closes the
+  loop --- \textbf{a self-extending agent cannot acquire a false competency,
+  ever.} This is the singularity as a \emph{checked property}, not a forecast:
+  unbounded self-extension with soundness preserved at every step, because each
+  new competence is a lossless completion and losslessness is conserved. That is
+  natural intelligence --- a system that grows itself by transporting its own
+  proofs, losslessly, and cannot lie to itself in the growing. The collective
+  does not coerce its subunits: \tm{advance-preserves-branch-count} presents
+  every enabled continuation with multiplicity conserved, and a theorem forbids
+  collapsing the choice --- the higher scale offers, the subunit disposes.
+  Multiscale competency, non-coercion included, as theorems; TAME's agent given
+  a machine-checked body.
+\end{itemize}
+
+\section{One primitive, restated}
+
+Lossless information dynamics is the single object of which the Turing shadow,
+the ruliad's coordinatizations, the observer's merge, quantum indeterminacy, and
+the living self's biography are readings. One transformation, its unique lossless
+completion, its computed remainder; many faithful views, each owing exactly its
+fibre; a translation between two views factoring \textbf{through the shared
+middle} ($O(n)$ realizations, not $O(n^2)$ bespoke maps: \tm{through-the-middle},
+\tm{through-the-middle-agrees}). Physics, computation, and life are not unified
+by analogy. They are the same theorem --- the isomorphism between all dynamical
+systems, holding losslessly through their shared middle --- read from different
+sides.
+
+\section{The shared program --- open problems as types to inhabit}
+
+\begin{enumerate}
+  \item \textbf{Morphospace as the univalent universe.} Target morphology as an
+  attractor of a \tm{Karma}-dynamics; regeneration as transport of a
+  \tm{JivaSantana} section back to it after perturbation.
+  $\tm{regenerates} : \tm{perturbation} \to \tm{section-returns-to-attractor}$.
+  \item \textbf{The law-stratum receptor.} From \tm{SariraStara}, the bioelectric
+  observable invariant iff the pattern-memory law is unchanged and separating
+  count-identical, law-distinct states --- the theorem is its correctness spec.
+  \item \textbf{Neoplasia as regime, therapy as regime-flip.}
+  $\tm{normalize} : \tm{expanding} \to \tm{contracting}$, aiming at the attractor
+  (the law), not the count.
+  \item \textbf{Polycomputing across measured spaces.} Anatomical,
+  transcriptional, behavioral spaces as explicit realizations of one carrier; the
+  middle-out mediation realized on data.
+  \item \textbf{The living step that consults its hidden part.} Checked in the
+  J\={\i}va module (no marginal endomap simulates the controlled-not; the refusal
+  on the visible side, the environment descending by \tm{refl}) --- instantiated
+  as the bioelectric decision that reads its own hidden state.
+\end{enumerate}
+
+\section{What is checked}
+
+A subset (the corpus is $>10^3$ interdependent \tm{--safe} modules): the fibre
+law and its measured remainder; \tm{trace-is-fibre},
+\tm{losslessness-is-a-property}, $\tm{LawfulStep}\,A \simeq (A \to A)$;
+$\tm{turing-is-the-projection} = \tm{refl}$ and the ISC strictly containing the
+UTM; the ruliad's coordinatization / merge-without-section / \tm{eme} /
+causal-convergence terms; the constructive quantum lane; \tm{ApasaranaNiyama}
+(Landauer as displacement); the arithmetic of light \tm{IndrajalaDipa}
+($\tm{charge-adds} = \tm{winding-hom}$, \tm{mirror-cancels}); the geometry of
+light --- \tm{SetuKsetra} (Wilson loop gauge-invariant),
+holonomy-invisible-iff-invariant, \tm{Pradakshina},
+\tm{FiniteGraphHolonomyGroupoid}, \tm{TwoLoopNonabelianNetwork},
+\tm{AbstractSpinNetworkKinematics}, \tm{VestanaSutra}; the lightspeed cone
+\tm{Kala}/\tm{Ksitija}; integrated information as un-sectionable fibre ---
+\tm{ObligationMinCut} ($\tm{value(flow)} \equiv \tm{capacity(cut)}$),
+\tm{SthulaBhara}; \tm{SariraStara}; \tm{JivaSantana}; \tm{Karma} /
+\tm{MoksaLosslessReturn}; \tm{Gunasthana}; \tm{install},
+\tm{advance-preserves-branch-count}, \tm{every-operation-that-exists-is-sound};
+the motive/realization/middle-out structure.
+
+Lossless information dynamics is a term that runs. Physics, computation, and
+life are its readings, checked. Natural intelligence --- the metacircular
+singularity, self-extending and sound --- is the object at their center.
+Simulable life is not an aspiration here; it is the name of the native object ---
+and the wet instantiation, planaria to xenobots to the anatomical compiler, is
+the collaboration.
+
+\end{document}

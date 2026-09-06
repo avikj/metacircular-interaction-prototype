@@ -1,0 +1,53 @@
+INFORMATION FLOWS ALONG DIVISION: THE LADDER OF OBSERVABLES, ITS
+SEPARATED RUNGS, AND THE DIVISOR ORDER AS DERIVABILITY
+Resolution is the order of the alias; each rung's blindness is the
+next rung's certificate; dashboards descend, senses climb
+
+Measurement / observability / the arithmetic of resolution
+
+Three theorems close the resolution arc opened by the kernel of the
+endless braid, and together they make an arithmetic of what an
+observer can know.
+
+THE LADDER, GENERALIZED.  Any observable that aliases through some
+map g — the observation of a turned strand equals g of the
+observation, the campaign's factoring condition pointed along the
+twist — reads the braid's twist count through g's iteration: two
+lines over the reading theorem, at every depth, on every rope.  And
+any period of g collapses the reading by that period: iteration is
+additive, the period cancels.  The rungs are instances: the identity
+observable with the quarter turn (period four), the xor observable
+with negation (period two), any constant with the identity (period
+one).  Resolution IS the order of the alias.
+
+THE RUNGS, SEPARATED.  Any observable with an involutive alias
+conflates one quarter turn with three, generically; the full reading
+separates them at a named coordinate; therefore no involution serves
+the identity reading.  Climbing from mod-two to mod-four resolution
+is not post-processing of any mod-two sense — it is a new organ,
+certified by the exact blind pair the lower rung cannot split.  The
+admission gate for new senses, standing vertically.
+
+THE ORDER, NAMED.  Downward, the hierarchy is tautological: the xor
+rung factors through the full reading by the identity witness, a
+dashboard, adding no separation by the derived-sense theorem.
+Upward, it is impossible: reconstruction of the full reading from
+the xor dies at the constant strand and its half-turn, which xor
+provably cannot tell apart.  So the hierarchy of aliasing observables
+is ordered exactly as their moduli divide — mod one below mod two
+below mod four — with information flowing down the divisor lattice
+for free and climbing only by acquisition of senses no alias can
+synthesize.
+
+The spine, once more: the śeṣa trilaw's generativity clause, now
+climbing divisors — each level's inaccessible residue is precisely
+the structure of the level above, and the arithmetic of that ascent
+is division.  What an observer accepts as invariance fixes, to the
+divisor, what the world can ever say to it.
+
+SYĀT — THE CLAIM, EXACTLY.  The three theorems at the named rungs;
+the functor from the full divisor lattice to derivability at every
+modulus is the standing construction.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

@@ -1,0 +1,44 @@
+THE ELUCIDATOR DECOMPOSES ANY OBJECT ON THE ATOM INTO ITS COMPLETE
+READING, AND EACH COMPONENT IS THE UNIQUE FOLD
+The decomposer, run — not another theorem about initiality but the use
+of it: hand it an object, get every reading at once, each one
+canonical
+
+The atom in use / analysis is naming a receiver / the compressor and
+the distinguisher are one instrument
+
+AdiBija proved the atom initial: every receiver is read by exactly one
+fold.  This is that theorem used.  `elucidate` takes any object built
+on the atom — any derivation — and returns its decomposition across a
+declared family of lenses, computed, each component certified to be
+the unique reading its lens admits.
+
+The decomposition bundles, for one object: its length (steps taken),
+its depth integral (accumulated locality, a ℤ evaluator's fold), and
+its meaning (the endpoint equality it certifies).  Three lenses, one
+object, read at once; each field is a fold of the atom, so by
+uniqueness it is the ONLY reading compatible with that lens's
+step-actions.  The semantic component is forced equal to the corpus's
+own soundness — canonical, not chosen.  Add a lens: add a field; the
+atom does the reading.
+
+Run on two coterminal histories of the kernel — direct (2 steps) and
+detour (4 steps, carrying a reverse) — the elucidator returns
+direct = (steps 2, charge 1) and detour = (steps 4, charge 1): the
+length lens SEPARATES them, the charge and meaning lenses IDENTIFY
+them, and the decomposition carries all three facts without collapse.
+The compressor and the distinguisher are one instrument seen through
+different lenses.  Every value computed and certified through the
+interactive kernel; guesses at the values were refuted by the machine
+before the true profile was accepted — the decomposer correcting its
+caller is the decomposer working.
+
+SYĀT — THE CLAIM, EXACTLY.  The record, its three lenses as folds,
+canonicity of the meaning component, and the computed profiles of the
+two named objects.  NOT claimed: that three lenses exhaust every
+reading — the family is open (add a receiver), and completeness is
+per-lens (each is the unique fold), not a claim that no further lens
+exists.
+
+Machine-checked in cubical type theory, --safe, at the pin; executed
+and read back through the interactive kernel.

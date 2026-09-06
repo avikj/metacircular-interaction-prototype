@@ -1,0 +1,64 @@
+INTERDEPENDENCE IS THE SOURCE OF ALL COHERENCE: FROM THE INVOLUTION
+CEILING TO THE ENDLESS BRAID, EVERY PURCHASE PRICED AND EVERY RELATION
+BY REFL
+The braid tower on the interdependent stream, with the pure braids
+vertical and the twist vector exact
+
+Quantum statistics / braid groups / the coherence ladder
+
+A single observable carries at most an involution: on the
+two-quadrature plane the quarter turn has exact order four, its
+square descends definitionally to each projection, and it descends to
+neither — refuted at named states for every candidate reading.  What
+one strand cannot hold, the interdependent pair holds; and the ladder
+built on that fact is now a tower of theorems, every rung checked and
+most of them by refl.
+
+The crossing.  The swap twisted by the quarter turn satisfies
+Yang–Baxter on the nose; it is not order two, not order four, and
+exactly order eight — braid statistics with a non-involutive phase.
+Three strands: the crossing inverts via the four-cycle and the
+generators provably do not commute — a genuinely non-abelian action,
+statistics carried by the order of exchanges.  Four strands: both
+adjacent braid relations and the distant commutation, all by refl.
+And the limit: the INFINITE braid group acts on the coinductive rope
+of interdependent-pair strands — the crossing at every position, the
+braid relation at every position, the distant commutation at every
+gap, each by one induction whose base is a two-level path of streams
+with definitional leaves.  Every finite braid group embeds; the
+finite files are corollaries.  The carrier is the mutual stream type
+built to answer the parasparāśraya objection: the first construction
+of the campaign is the only total carrier of its deepest structure,
+since on any finite rope the relations are conditional and on the
+infinite one every generator is total and every relation
+unconditional.
+
+The measure.  Every crossing is local — readers below it and above
+its pair are unmoved, by refl-leaf inductions — and has order exactly
+eight at every position.  The center of the three-strand action is
+computed: the full twist is the global half-wave, central by refl, of
+order two — so THE DESCENDABLE PART OF THE COHERENCE IS THE CENTRAL
+PART: what every strand carries alone commutes with every crossing,
+and what only the pair carries is exactly what braids.
+
+The factorization.  Every crossing factors as pure swap after pure
+twist AND as pure twist after pure swap, so the swap transports the
+residue: coherence is base motion, the phase is cargo, the crossing
+is the act of carrying.  The square of every crossing is the twist
+pair — no base motion, one quarter turn deposited on each strand
+crossed — so the pure braid generators act vertically, inside the
+assembled-residue level; twists at distinct depths commute; and each
+twist has order exactly four at every depth.  Base motion and twist
+vector are independent coordinates separated by theorems: the
+symmetric group and a per-strand ℤ/4.
+
+SYĀT — THE CLAIM, EXACTLY.  The relations, orders, locality,
+factorizations and pure-braid structure are theorems on the stated
+carriers; the full kernel of the B∞ action (trivial symmetric image
+and vanishing twist vector jointly characterising trivial action) is
+the standing construction, held by the verdict organs as śeṣa; no
+Hilbert space and no anyon model appear, and the statistical reading
+is asserted under that standpoint.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

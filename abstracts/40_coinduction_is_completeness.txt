@@ -1,0 +1,49 @@
+COINDUCTION IS COMPLETENESS: THE TAKE-METRIC, UNIT-SPEED CAUSALITY,
+AND THE ROPE AS ITS OWN COMPLETION
+Every crossing 1-Lipschitz with unit lookahead, every word continuous
+with modulus its length, every Cauchy sequence convergent to a
+corecursive limit unique by truncations
+
+Metric coinduction / causality / the topology the braid was always in
+
+The braid campaign's metric story, closed in three theorems on one
+truncation.
+
+CAUSALITY.  Truncate a rope at depth n; call ropes n-close when the
+truncations agree.  Every crossing carries (n+1)-close inputs to
+n-close outputs — 1-Lipschitz with unit lookahead, exactly what its
+four-equation reader profile dictates — and every braid word is
+uniformly continuous with modulus ITS OWN LENGTH, read off the list.
+Finite braiding transmits information at unit speed down the rope:
+depth is time, and a word's length is its light cone.  The uniform
+turn, by contrast, needs no lookahead at all: the point finite words
+cannot reach is not wilder than they are but tamer — the escape from
+the word-image happens inside the best-behaved class of maps.
+
+COMPLETENESS.  A Cauchy sequence of ropes — each approximant agreeing
+with the next to its own depth — converges: the limit is built by
+corecursion (head from the first approximant that has one, tail as
+the limit of the shifted tails), agrees with the n-th approximant to
+depth n (heads stabilize along the chain, tails recurse), and is
+unique (all-truncation agreement is equality, by a corecursive path).
+No completion is adjoined: the coinductive rope was its own
+completion from the campaign's first module.  COINDUCTION IS
+COMPLETENESS — the guarded circle that answered the parasparāśraya
+objection is the same structure that holds every limit, and the
+uniform coherences of the centralizer are simply the limits the
+structure was always holding.
+
+The campaign's arc, closed on itself: the mutual stream was built to
+prove interdependence generative; it turned out to be the only total
+carrier of the endless braid; and now it is the complete metric space
+in which that braid's own unattainable symmetries reside.  One type,
+three necessities, none retrofitted.  The centralizer question is
+posed on stage with every object present: central, continuous,
+zero-lookahead — is uniformity forced?
+
+SYĀT — THE CLAIM, EXACTLY.  The three theorems on the stated metric;
+the closure of the braid image as a subgroup and the continuous
+centralizer's exhaustion are the standing constructions.
+
+Machine-checked in cubical type theory, no postulates, no admitted
+goals.

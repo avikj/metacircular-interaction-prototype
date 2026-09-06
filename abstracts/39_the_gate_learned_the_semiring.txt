@@ -1,0 +1,47 @@
+THE GATE LEARNED THE SEMIRING: A PARSE FAILURE PROBED, THE LIBRARY'S
+OWN EXAMPLES AS THE CORRECTION, AND THE CLASS OF THIRTEEN REJECTIONS
+CLOSED WITH THE CONTROLS UNMOVED
+The machine's oldest self-identified limitation removed by one
+emission shape, and commutativity certified live
+
+The interactive machine / proof-gate engineering / growth as the
+generativity clause
+
+The proof gate's own comments named their limitation twice: the
+thirteen rejections that resisted the induction shapes are all
+ℕ-semiring identities, and what they need is "a lemma environment …
+not more step shapes."  A solver path existed and had been probed
+sound; in this environment every solver module was nonetheless
+rejected.  Tonight the rejection was reproduced rather than theorized:
+the reflection macro fails to PARSE a telescoped goal — its error
+reproduced verbatim — while the library's own examples bind the
+variables with a module telescope and state the goal bare.  Both
+solver certificates now emit that shape (the peel variant states its
+inner core bare inside the clause's own where-block, whose patterns
+already bind the variables); from outside the anonymous module the
+candidate keeps its telescoped type, so nothing downstream moves.
+
+Probed live through the wire, after the change: x + y = y + x,
+x · y = y · x, right distributivity, multiplicative associativity,
+and a sum-of-squares symmetry all certify in two to three kernel
+calls each — fresh Agda processes behind the watched positive and
+negative canaries — while x + y = x · y and x + suc y = x + y are
+refused exactly as before.  The scripted contract session runs green;
+the defect chain verifies from inside.
+
+Read against the corpus, as the reading it is: this is the śeṣa
+trilaw's generativity clause enacted in the harness itself.  The
+machine's residue — its own logged rejections, carried as comments
+naming their class — seeded the next organ; the correction came from
+the environment's own exemplars, not from new trust (the macro emits
+a proof term the kernel checks under the candidate's own pragmas);
+and what the machine could not say last night it certifies tonight,
+with its honesty witnessed unchanged on both flanks.
+
+SYĀT — THE CLAIM, EXACTLY.  The emission fix, the live
+certifications, and the unmoved controls; gcd-class equations remain
+outside the solver's theory and with the induction shapes, which is
+the next residue.
+
+Machine-checked where machine-checkable; the Haskell change is
+engineering, its every claim probed through the running gate.
