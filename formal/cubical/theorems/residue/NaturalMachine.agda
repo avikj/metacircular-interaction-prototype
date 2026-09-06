@@ -1221,3 +1221,8 @@ import StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFact
 -- tr(AH), tr(A²H) do not descend through it: witness pair over ℤ, both
 -- obstructions by DescentObstructionUnified's lemma.
 import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt
+-- VieillefosseFibre: the discriminant is a first integral of the restricted-
+-- Euler field (polynomial identity), its zero fibre carries the sheet strains
+-- diag(n,n,−2n) (an injection of ℕ), and the pushforward of the true Q̇ to
+-- the (Q,R) plane is a LawfulContinuationCore.BranchingFiber.
+import VieillefosseFibre_TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZeroFibreIsUnboundedAndThePushforwardOfTheTrueFieldBranches
