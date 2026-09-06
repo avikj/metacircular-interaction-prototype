@@ -48,6 +48,18 @@
 --   standpoint IS the quotient/colimit.  The Σ/fibre is the cone; the
 --   quotient is the cocone.  This repository is the constructive,
 --   univalent, machine-checked form of that program.
+--     The bridge is exact, in their own words: in "A free energy principle
+--     for generic quantum systems" (Fields–Friston–Glazebrook–Levin 2022)
+--     the cocone core C′ "encodes, via the incoming infomorphisms, the
+--     CONJUNCTION of the semantic constraints" — i.e. C′ is a POTENTIAL —
+--     and COMMUTATIVITY of the cone–cocone diagram "enforces Bayesian
+--     coherence", while FAILURE of commutativity is a context switch that
+--     drives variational free energy up ("the local logic becomes
+--     inconsistent, the sequent relation fails").  That is verbatim a
+--     HOLONOMY criterion: coherence = commutativity = existence of the
+--     potential C′ = EXACTNESS; incoherence = nonzero holonomy = free
+--     energy.  §3/§5 below are the constructive, --safe form of exactly
+--     this criterion — theirs stated categorically, here proven as terms.
 --
 -- 3.  GOALS ARE VALUE FIELDS; GOAL-COHERENCE IS COHOMOLOGICAL.
 --   A goal (Levin's TOTE setpoint) is a value/potential field the
