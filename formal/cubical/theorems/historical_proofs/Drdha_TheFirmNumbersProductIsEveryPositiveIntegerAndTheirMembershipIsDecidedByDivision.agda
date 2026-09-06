@@ -68,8 +68,6 @@
 --     What this module supplies is the fact that WOULD justify such an
 --     identification for the finite half — nothing more.
 --
--- ────────────────────────────────────────────────────────────────────
--- TERMS, AND WHAT IS AND IS NOT CLAIMED OF THE SOURCES.
 --
 -- दृढ · dṛḍha — "firm, solid, that which stands after abrasion".  In the
 -- kuṭṭaka the dividend (भाज्य) and divisor (भाजक) are first divided by

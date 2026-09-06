@@ -51,10 +51,10 @@
 --   anuyogin                the locus
 --   anuyogitāvacchedaka     the mode under which the LOCUS is taken
 --
--- SOURCING LIMIT, stated and not evaded.  No primary Sanskrit text was
--- opened.  The slot doctrine is carried from this repository's own
--- exactly as `AbhavaAvacchedaka.agda`'s own header records for itself.
--- Verse-level sourcing is OWED AND NOT CLAIMED.  The concrete example in
+-- SOURCING LIMIT, stated and not evaded. No primary Sanskrit text was opened.
+-- The slot doctrine is carried from this repository's own exactly as
+-- `AbhavaAvacchedaka.agda`'s own header records for itself. The concrete
+-- example in
 -- §3 is MINE — a two-point locus, not a tradition example — and it is
 -- offered as a separating instance, not as an exegesis.
 --

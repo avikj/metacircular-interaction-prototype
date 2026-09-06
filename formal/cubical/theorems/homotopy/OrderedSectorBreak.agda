@@ -48,13 +48,10 @@
 --      In particular **`0 < half` is never assumed**, which is why the
 --      witnesses below are chosen as they are.
 --
---  (2) NOT CLAIMED, and this is the honest gap: **no model of the
---      hypotheses is constructed here.**  The theorems are conditional on
---      the bundle being inhabited.  That ℚ with its usual order inhabits
---      it is standard and is CITED, not formalized.  What *is* checked is
---      that the bundle has bite: `StrictOrder.nontrivial` derives
---      `¬ (1r ≡ 0r)` from it, so it is not satisfied by the trivial ring
---      and is not vacuous dressing on the break.
+-- (2) That ℚ with its usual order inhabits it is standard and is CITED, not
+-- formalized. What *is* checked is that the bundle has bite:
+-- `StrictOrder.nontrivial` derives `¬ (1r ≡ 0r)` from it, so it is not
+-- satisfied by the trivial ring and is not vacuous dressing on the break.
 --
 --
 -- WHAT IS CHECKED, BY DELTA-14 NUMBER

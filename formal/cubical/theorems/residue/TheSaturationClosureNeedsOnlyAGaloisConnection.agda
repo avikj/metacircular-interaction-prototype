@@ -228,17 +228,14 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- is not auditing — so the negative result is recorded here rather than
 -- left silent.
 --
--- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY
--- sufficient one**, which is what "needs only X" invites a reader to
--- conclude.  §"WHAT IS STILL NOT CLAIMED" above lists the min-plus
--- instance, antisymmetry and tractability, and does not mention the
--- alternative presentation.  At commit 10c5bca1,
--- `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms`:
--- `FromUnitCounit` derives `galFwd`/`galBwd` from `u-antitone`,
--- `d-antitone`, `unit`, `counit` — one line each — and then transports
--- this entire module by `open Galois … public`, nothing re-proved;
--- `RoundTrip` shows out-and-back is the identity when the order
--- relations are proposition-valued.
+-- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY sufficient
+-- one**, which is what "needs only X" invites a reader to conclude. At commit
+-- 10c5bca1, `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeed
+-- DifferentAxioms`: `FromUnitCounit` derives `galFwd`/`galBwd` from
+-- `u-antitone`, `d-antitone`, `unit`, `counit` — one line each — and then
+-- transports this entire module by `open Galois … public`, nothing re-proved;
+-- `RoundTrip` shows out-and-back is the identity when the order relations are
+-- proposition-valued.
 --
 -- **AND THE TWO PACKAGES NEED DIFFERENT AXIOMS.**  unit/counit ⟹
 -- adjunction uses ONLY the two transitivities.  Adjunction ⟹

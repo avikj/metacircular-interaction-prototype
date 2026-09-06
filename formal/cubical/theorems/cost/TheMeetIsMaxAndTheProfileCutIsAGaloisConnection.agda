@@ -239,14 +239,13 @@ module ProfileCut (ks : List ℕ) where
 -- all zeros.  ℕ has it.  The unrestricted adjunction is at the
 -- recording site.
 --
--- **AND THE ORIGINAL SENTENCE IN §"WHAT IS STILL NOT CLAIMED" WAS
--- RIGHT.**  It says `up ks φ = 0` on the empty burden list "is the
--- reversed order's top only because `0` is ℕ's bottom".  That is the
--- correct reading, made here first, on the LEFT adjoint's side.  The
--- append then claimed the right adjoint's empty case was a different
--- fact and an obstruction.  It is the same fact, and it is not an
--- obstruction — the reversal was already recorded three lines up from
--- where it was then forgotten.
+-- WAS RIGHT.**  It says `up ks φ = 0` on the empty burden list "is the
+-- reversed order's top only because `0` is ℕ's bottom". That is the correct
+-- reading, made here first, on the LEFT adjoint's side. The append then
+-- claimed the right adjoint's empty case was a different fact and an
+-- obstruction. It is the same fact, and it is not an obstruction — the
+-- reversal was already recorded three lines up from where it was then
+-- forgotten.
 --
 -- So this module needed no `∞` and never did.  What it needed was to be
 -- re-read before being appended to.

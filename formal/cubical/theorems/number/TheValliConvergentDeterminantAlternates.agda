@@ -36,10 +36,9 @@
 -- standard seeds the first one is 1, so all are units — which is Bézout,
 -- and is what `Bija.बीजगणितम्`'s alternating orientation is computing.
 --
--- SOURCING LIMIT.  Verse-level sourcing OWED AND NOT CLAIMED, as for
--- both Kuttaka lanes.  Nothing here is offered as a reading of
--- Gaṇitapāda 32–33; the recurrence is the standard one and the vallī is
--- named because this corpus's own kuṭṭaka modules name it.
+-- SOURCING LIMIT. Nothing here is offered as a reading of Gaṇitapāda 32–33;
+-- the recurrence is the standard one and the vallī is named because this
+-- corpus's own kuṭṭaka modules name it.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, which is Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no

@@ -27,13 +27,11 @@
 -- That is worth recording because the sweep's other findings have all
 -- been overclaims; this one is not.
 --
--- **WHAT IT DOES NOT SHOW IS THAT ITS PACKAGE IS THE ONLY SUFFICIENT
--- ONE**, and "needs only X" invites exactly that reading.  A reader who
--- already has antitone maps with a unit and a counit — the other
--- standard presentation, and the one a construction usually hands you
--- first — has no statement to appeal to.  §"WHAT IS STILL NOT CLAIMED"
--- there lists the min-plus instance, antisymmetry and tractability, and
--- does not mention the alternative presentation at all.
+-- **WHAT IT DOES NOT SHOW IS THAT ITS PACKAGE IS THE ONLY SUFFICIENT ONE**,
+-- and "needs only X" invites exactly that reading. A reader who already has
+-- antitone maps with a unit and a counit — the other standard presentation,
+-- and the one a construction usually hands you first — has no statement to
+-- appeal to.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED

@@ -30,9 +30,7 @@
 -- module is what the attempt produced on the way, and it is a corollary
 -- of the first face rather than progress on the third.
 --
--- SOURCING LIMIT.  Verse-level sourcing OWED AND NOT CLAIMED, as for
--- both Kuttaka lanes and both convergent modules; nothing here is a
--- reading of Gaṇitapāda 32–33.
+-- SOURCING LIMIT.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

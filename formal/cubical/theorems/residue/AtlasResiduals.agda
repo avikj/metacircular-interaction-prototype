@@ -420,12 +420,10 @@ isContrAlgIso {A = A} {B = B} iA iB =
 BS : ℕ → Type₁
 BS n = Σ[ X ∈ Type₀ ] ∥ X ≃ Fin n ∥₁
 
--- *** DEFINITIONAL SHORTCUT — see "WHAT IS DELIBERATELY NOT CLAIMED". ***
--- A linear order on an n-element type is here TAKEN to be a rank
--- listing, i.e. an equivalence with the standard n-element type.  The
--- theorem below is a statement about rank listings, and becomes a
--- statement about orders only after the missing equivalence
--- `LinOrd′ X ≃ (X ≃ Fin n)` is proved.
+-- *** A linear order on an n-element type is here TAKEN to be a rank listing,
+-- i.e. an equivalence with the standard n-element type. The theorem below is
+-- a statement about rank listings, and becomes a statement about orders only
+-- after the missing equivalence `LinOrd′ X ≃ (X ≃ Fin n)` is proved.
 LinOrd : ℕ → Type₀ → Type₀
 LinOrd n X = X ≃ Fin n
 

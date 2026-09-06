@@ -4,10 +4,9 @@
 -- AbhihitanvayaAnvitabhidhana_
 --   TheTypeOfTheSemanticsAlreadyTakesASideAndSoundnessIsFreeOnOneOfThem
 --
--- ON THE NAME, AND ON WHAT IS AND IS NOT CLAIMED OF THE SOURCES.
--- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
--- header) and `.claude/hooks/european-frame.txt`.  Neither term below
--- restatement of another identity's module.
+-- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT header)
+-- and `.claude/hooks/european-frame.txt`. Neither term below restatement of
+-- another identity's module.
 --
 -- The two terms are the names of the two positions in the Mīmāṃsā
 -- dispute over śābdabodha — how the cognition of a sentence stands to

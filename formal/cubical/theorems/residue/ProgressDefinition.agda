@@ -126,30 +126,16 @@
 --      at loop scale, so that "the null proposer satisfies the existing
 --      progress theorems" is checked and not asserted.
 --
---   `null-step₀`, `AllNull`, `null-loop`, `null-generative-loop`
---                           `GenerativeLoop.B2`-`B4` re-run with every
---                           body pinned to `var`: same measure, same
---                           bound `chainLen ch ≤ deficit V t`, no step
---                           lost.
---   `null-loop-drops-in`    forgetting nullity returns `generative-loop`'s
---                           conclusion verbatim — so the null proposer
---                           does discharge B3-B4, checked, not asserted.
---                           (That NO theorem of §§A-B distinguishes the
---                           two is a reading of those statements, not a
---                           theorem of this file; see NOT CLAIMED.)
---   `totalBody`             the chain measure the audit's list is
---                           missing: the total size of the bodies a chain
---                           generated.
---   `null-chain-generates-nothing`
---                           AllNull ch → totalBody ch ≡ 0.  Uniform, over
---                           every chain, of every length: the null
---                           proposer's definitional output is zero.
---   `totalBody-step-null`   and it never moves: totalBody (step ch o) ≡
---                           totalBody ch on a null step.
---   `informative-step-grows`
---                           against that: an informative step with a
---                           non-empty payload STRICTLY increases
---                           totalBody.
+-- `null-step₀`, `AllNull`, `null-loop`, `null-generative-loop`
+-- `GenerativeLoop.B2`-`B4` re-run with every body pinned to `var`: same
+-- measure, same bound `chainLen ch ≤ deficit V t`, no step lost. `null-loop-
+-- drops-in`    forgetting nullity returns `generative-loop`'s conclusion
+-- verbatim — so the null proposer does discharge B3-B4, checked, not
+-- asserted. Uniform, over every chain, of every length: the null proposer's
+-- definitional output is zero. `totalBody-step-null`   and it never moves:
+-- totalBody (step ch o) ≡ totalBody ch on a null step. `informative-step-
+-- grows` against that: an informative step with a non-empty payload STRICTLY
+-- increases totalBody.
 --
 -- D6.  Sharpness and non-vacuity (§6).
 --

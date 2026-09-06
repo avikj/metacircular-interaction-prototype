@@ -6,9 +6,8 @@
 -- Closes the last item I left open on this line.
 -- `RateOneIsExactlyTheUniversalClaim` said:
 --
---   "STILL NOT CLAIMED, and still said: percentages.  'More than half'
---    is stateable as `length xs < 2 · count xs`; it is not stated, and
---    no threshold other than 1 is analysed."
+-- 'More than half' is stateable as `length xs < 2 · count xs`; it is not
+-- stated, and no threshold other than 1 is analysed."
 --
 -- It is stated here, and the three claim-shapes are separated by two
 -- populations: majority holds where the universal claim fails, and

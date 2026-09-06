@@ -6,14 +6,13 @@
 --
 -- वर्ग-प्रकृति ("square-nature") is BRAHMAGUPTA's own name, in the
 -- Brāhmasphuṭasiddhānta (628), ch. 18, for the object of his composition
--- rule.  WHAT IS AND IS NOT CLAIMED OF HIM: he composes
--- x² − D y² with arbitrary kṣepa, which is T = 0 below.  The parameter T
--- is NOT his and is not attributed to him; it is what the composition
--- becomes in ℤ[ω] with ω² = T·ω + C, and it is introduced here because
--- restricting the reactor to T = 0 was restricting Brahmagupta's rule to
--- the one equation that later displaced it.  The identities below at
--- T = 0 ARE his, and that specialisation is exhibited at the bottom of
--- this file as a checked term rather than asserted.
+-- rule.  He composes x² − D y² with arbitrary kṣepa, which is T = 0
+-- below.  The parameter T is NOT his and is not attributed to him; it is what
+-- the composition becomes in ℤ[ω] with ω² = T·ω + C, and it is introduced
+-- here because restricting the reactor to T = 0 was restricting Brahmagupta's
+-- rule to the one equation that later displaced it. The identities below at T
+-- = 0 ARE his, and that specialisation is exhibited at the bottom of this
+-- file as a checked term rather than asserted.
 --
 -- THE FORM.   N(x, y) = x² + T·x·y − C·y²,  Δ = T² + 4C.
 --

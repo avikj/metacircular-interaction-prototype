@@ -107,14 +107,12 @@ theStratificationTerminates :
 theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS STILL NOT CLAIMED" reduces this line to three
--- properties of the output and names (3) ORDER as the one that would
--- make "stratification" mean what §5.2 wants.  Its FIRST HALF is now
--- proved, in
--- `EveryRemainderMemberIsStrictlyDominated`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no line
+-- above. ORDER as the one that would make "stratification" mean what §5.2
+-- wants. Its FIRST HALF is now proved, in
+-- `EveryRemainderMemberIsStrictlyDominated` (--safe, no postulates, no holes;
+-- container green under Agda 2.6.3 + cubical v0.5, NOT the declared pin —
+-- check.sh returns 1 and says so):
 --
 --   filterOutOnlyKeepsNonSatisfiers   the complement keeps exactly what
 --                                     fails the predicate
@@ -134,13 +132,11 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS STILL NOT CLAIMED" names three output
--- properties; the appended note above closed the first half of (3)
--- ORDER, and this closes (1) COVERAGE and (2) DISJOINTNESS AT ONE STEP,
--- in `OneStepCoverageAndDisjointnessOfTheLayer`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no line
+-- above. ORDER, and this closes (1) COVERAGE and (2) DISJOINTNESS AT ONE
+-- STEP, in `OneStepCoverageAndDisjointnessOfTheLayer` (--safe, no postulates,
+-- no holes; container green under Agda 2.6.3 + cubical v0.5, NOT the declared
+-- pin — check.sh returns 1 and says so):
 --
 --   memberOfFilterSatisfies / memberOfFilterOutFails
 --   memberSplits       every member of `xs` is in the filter or its

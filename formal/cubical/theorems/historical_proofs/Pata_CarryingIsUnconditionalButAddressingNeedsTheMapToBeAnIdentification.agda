@@ -44,18 +44,14 @@
 -- claimed here.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SOURCES.  Piṅgala, छन्दःशास्त्रम् ८.२३–३५ (~300 BCE) — the प्रत्ययाः, of
+-- SOURCES. Piṅgala, छन्दःशास्त्रम् ८.२३–३५ (~300 BCE) — the प्रत्ययाः, of
 -- which नष्ट (given a place, recover the pattern) and उद्दिष्ट (given the
 -- pattern, recover its place) are the two directions, and मात्रा (लघु = 1,
--- गुरु = 2) is the weight.  Worked with the array in Halāyudha,
--- मृतसञ्जीवनी (10th c. CE).  NOT CLAIMED: that Piṅgala proved anything
--- below, or that the छन्दःशास्त्रम् has been opened here — the citation is
--- carried from `formal/cubical/PingalaPrastara.agda` and from the
--- loss module named above, and is owed at verse level.  What is
--- claimed is that मात्रा is the weight his enumeration uses and that two
--- distinct patterns share a weight, which §४ exhibits rather than
--- asserts.  पता is ordinary modern Sanskrit/Hindi for an address and no
--- text is claimed for it.
+-- गुरु = 2) is the weight. Worked with the array in Halāyudha, मृतसञ्जीवनी
+-- (10th c. CE). What is claimed is that मात्रा is the weight his enumeration
+-- uses and that two distinct patterns share a weight, which §४ exhibits
+-- rather than asserts.  पता is ordinary modern Sanskrit/Hindi for an address
+-- and no text is claimed for it.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
 -- postulates, no holes.

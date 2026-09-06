@@ -264,14 +264,11 @@ factorsThrough-transfer-discreteTarget isSetT discT q q' t ce ft =
 -- and it is not a verdict on the dispute; it is a place to stand while
 -- reading it.
 --
---   The Naiyāyika reading of §5.  The recovery of the positive ground
---   from the exclusions is not free: something must be supplied at the
---   absence before it will argue.  That is the school's standing point
---   about अभाव, though the thing §5 supplies is decidability and NOT
---   the प्रतियोगिन् requirement (§5, WHAT THIS IS NOT).  Nothing here
---   shows the ground is dispensable, and §4 sharpens the realist side:
---   the ground is not one description among several, it is recoverable
---   from the descent behaviour itself.
+-- The Naiyāyika reading of §5. The recovery of the positive ground from the
+-- exclusions is not free: something must be supplied at the absence before it
+-- will argue. Nothing here shows the ground is dispensable, and §4 sharpens
+-- the realist side: the ground is not one description among several, it is
+-- recoverable from the descent behaviour itself.
 --
 --   The Buddhist reading of §6.  The condition in §5 was never the only
 --   one available.  §6 pays nothing at the counterpositive — the

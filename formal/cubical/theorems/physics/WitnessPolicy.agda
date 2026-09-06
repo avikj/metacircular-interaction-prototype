@@ -5,10 +5,9 @@
 --
 -- The obligation `GenerativeLoop` names for itself, discharged:
 --
---   "Witness policy still degenerate (`witness = var`), as in
---    `obs-complete`.  Conservativity holds for any base witness; an
---    *informative* body policy is the next theorem, not one proved
---    here."                        — GenerativeLoop.agda, §"NOT CLAIMED"
+-- "Witness policy still degenerate (`witness = var`), as in `obs-complete`.
+-- Conservativity holds for any base witness; an *informative* body policy is
+-- the next theorem, not one proved here."
 --
 -- An `Obstruction V` already carries everything an informative policy
 -- needs and nothing was doing with it: the field `arg` is the base
@@ -108,12 +107,11 @@
 --                          vacuous: an explicit obstruction satisfying
 --                          it, over the vocabulary `0 ∷ []`.
 --
---   The honest scope of P2, checked as statements rather than asserted:
---   `policies-agree-on-matching`, `policies-agree-on-coverage` —
---   `extend` reads only `residual`, so the two policies induce the SAME
---   `Matches` and the SAME `Over`, definitionally.  The informativeness
---   is invisible to the matcher and lives entirely in `unfold`.  See
---   "NOT CLAIMED" below.
+-- The honest scope of P2, checked as statements rather than asserted:
+-- `policies-agree-on-matching`, `policies-agree-on-coverage` — `extend` reads
+-- only `residual`, so the two policies induce the SAME `Matches` and the SAME
+-- `Over`, definitionally. The informativeness is invisible to the matcher and
+-- lives entirely in `unfold`.
 --
 -- P3. `inform` is a drop-in for `degenerate` (task item 3).
 --

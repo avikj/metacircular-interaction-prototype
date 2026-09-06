@@ -180,9 +180,8 @@ stratumKeepsEveryMaximal xs v =
                                (λ u → decIsParetoMaximal u xs) xs v
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS STILL NOT CLAIMED" makes two admissions.  One
--- is discharged, the other is not, and this says which is which.
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no line
+-- above. One is discharged, the other is not, and this says which is which.
 --
 -- DISCHARGED: "No claim is made that the stratum is non-empty … for a
 -- non-empty archive non-emptiness needs an argument this module does

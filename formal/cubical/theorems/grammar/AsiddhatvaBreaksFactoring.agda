@@ -250,12 +250,10 @@ agree-example = refl
 -- reading is offered, not proved; what is established here is only the
 -- correction of the number, which is sourced.
 --
--- SOURCES for the correction, checked 2026-08-19 rather than recalled:
--- 8.2.1 is an adhikāra running to the end of the text, making an operation
--- in 8.2-8.4 invalid when any preceding rule is to be applied; 6.4.22
--- heads the asiddhavat section through 6.4.129 in which rules are asiddha
--- with respect to EACH OTHER and apply as if simultaneously.  Pāṇini,
--- Aṣṭādhyāyī, c. 500 BCE.  The commentarial disputes (Kātyāyana,
--- Patañjali's Mahābhāṣya) are untouched, as this file's own NOT CLAIMED
--- section requires.
+-- SOURCES for the correction, checked 2026-08-19 rather than recalled: 8.2.1
+-- is an adhikāra running to the end of the text, making an operation in
+-- 8.2-8.4 invalid when any preceding rule is to be applied; 6.4.22 heads the
+-- asiddhavat section through 6.4.129 in which rules are asiddha with respect
+-- to EACH OTHER and apply as if simultaneously. Pāṇini, Aṣṭādhyāyī, c. 500
+-- BCE.
 -- ---------------------------------------------------------------------

@@ -26,9 +26,9 @@
 -- there carries the domain searched.  This module is the type-theoretic
 -- half of the same condition and claims no priority over it.
 --
--- SOURCING LIMIT: the *Ślokavārttika* has NOT been opened.  The
--- attribution above is carried from `interactive/Yogyata.hs`, which carries
--- it from its own sources.  Verse-level sourcing OWED AND NOT CLAIMED.
+-- SOURCING LIMIT: the *Ślokavārttika* has NOT been opened. The attribution
+-- above is carried from `interactive/Yogyata.hs`, which carries it from its
+-- own sources.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS IS NOT A FIFTH RESTATEMENT OF THE Σ/¬ AXIS

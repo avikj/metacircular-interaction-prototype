@@ -54,14 +54,10 @@
 -- provably fails to conserve.  Without it, §३ would be true and empty.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SOURCES.  Mādhava of Saṅgamagrāma (c. 1340–1425), transmitted in
--- Nīlakaṇṭha, तन्त्रसङ्ग्रहः २.२७१–२७४ (1501) and Jyeṣṭhadeva,
--- युक्तिभाषा (c. 1530) — the अन्त्यसंस्कार and स्थौल्य.  NOT CLAIMED: that
--- any of them proved anything below, or that any text has been opened
--- here; the citation is carried from the loss module named above
--- and from `formal/cubical/NaturalMachine/AntyaSamskaraSthaulya.agda`,
--- is second-hand, and is owed at verse level.  Nothing here is about π,
--- and there is no limit, no ℝ and no error bound in this file.
+-- SOURCES. Mādhava of Saṅgamagrāma (c. 1340–1425), transmitted in Nīlakaṇṭha,
+-- तन्त्रसङ्ग्रहः २.२७१–२७४ (1501) and Jyeṣṭhadeva, युक्तिभाषा (c. 1530) — the
+-- अन्त्यसंस्कार and स्थौल्य. Nothing here is about π, and there is no limit,
+-- no ℝ and no error bound in this file.
 --
 -- अनपेक्षा is ordinary Sanskrit for non-dependence and no text is claimed
 -- for the compound.

@@ -33,20 +33,17 @@
 -- two lanes are asking different questions and the coincidence of the
 -- theorem does not make them one enquiry.  See §4.
 --
--- SOURCES, AND WHAT IS AND IS NOT CLAIMED OF THEM.
---   · पिङ्गलः, छन्दःशास्त्रम् (c. 300 BCE) — the प्रत्ययाः, the six
---     enumeration procedures on metrical patterns (प्रस्तारः, नष्टम्,
---     उद्दिष्टम्, लघुक्रिया, सङ्ख्या, अध्वयोगः).  मात्रा (duration), वर्ण
---     (syllable count) and गुरु (heavy syllable) are his categories; the
---     relation मात्रा = वर्ण + गुरु is immediate in them, because a गुरु is
---     worth two मात्राs and a लघु one.
---   · विरहाङ्कः (c. 700), वृत्तजातिसमुच्चयः — the count of patterns of a given
---     मात्रा total, satisfying M(n+2) = M(n+1) + M(n); हलायुधः (c. 10th c.,
---     मृतसञ्जीवनी) reads the same numbers off the shallow diagonals of
---     पिङ्गल's मेरु-प्रस्तारः.
---   · Neither text states an Agda theorem, and neither is claimed to.  What is
---     claimed is that the two mechanised statements below are their content,
---     and that this corpus proved each of them twice without noticing.
+-- — the प्रत्ययाः, the six enumeration procedures on metrical patterns
+-- (प्रस्तारः, नष्टम्, उद्दिष्टम्, लघुक्रिया, सङ्ख्या, अध्वयोगः).  मात्रा
+-- (duration), वर्ण (syllable count) and गुरु (heavy syllable) are his
+-- categories; the relation मात्रा = वर्ण + गुरु is immediate in them, because
+-- a गुरु is worth two मात्राs and a लघु one. · विरहाङ्कः (c. 700),
+-- वृत्तजातिसमुच्चयः — the count of patterns of a given मात्रा total,
+-- satisfying M(n+2) = M(n+1) + M(n); हलायुधः (c. 10th c., मृतसञ्जीवनी) reads
+-- the same numbers off the shallow diagonals of पिङ्गल's मेरु-प्रस्तारः. ·
+-- Neither text states an Agda theorem, and neither is claimed to. What is
+-- claimed is that the two mechanised statements below are their content, and
+-- that this corpus proved each of them twice without noticing.
 ------------------------------------------------------------------------
 
 module Pratyaya_TheChandasCountsStandTwiceAndTheTwoProofsAreOnePath where

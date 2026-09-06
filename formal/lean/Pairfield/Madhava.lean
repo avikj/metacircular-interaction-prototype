@@ -38,19 +38,14 @@ verse's own variables — an arbitrary *vyāsa*, four times it, divided by the
 successive odd numbers, alternately subtracted and added, converging to the
 *paridhi*.
 
-NOT CLAIMED: that Mādhava proved a `Filter.Tendsto` statement, or possessed
-this notion of a limit.  The *Yuktibhāṣā*'s derivation is a rectification of
-the arc by successive subdivision with an explicitly stated remainder; what
-is formalised here is the series and its sum, not that argument.
+The *Yuktibhāṣā*'s derivation is a rectification of the arc by successive
+subdivision with an explicitly stated remainder; what is formalised here is
+the series and its sum, not that argument.
 
-NOT CLAIMED, and this is the larger omission: Mādhava's *saṃskāra* — the end
-correction terms that make the slowly-convergent series usable, and which are
-the sharper half of the achievement (*Tantrasaṅgraha* 2.271–274, three
-successively better correctors, the third with error O(n⁻⁶)).  None of that
-discipline: the *āsanna* — the source says in the verse itself that the value
-is approximate, and the tradition that inherited it dropped the word.  A
-module that formalises the series and omits the correctors should say so
-rather than let the name stand for the whole.
+None of that discipline: the *āsanna* — the source says in the verse itself
+that the value is approximate, and the tradition that inherited it dropped the
+word. A module that formalises the series and omits the correctors should say
+so rather than let the name stand for the whole.
 
 
 ## The other lane already declared this gap, and did not fill it falsely

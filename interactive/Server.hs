@@ -1,10 +1,9 @@
 -- Server — the assembly.
 --
--- यन्त्रम् — an instrument.  Bhāskara II gives the Siddhāntaśiromaṇi a
+-- यन्त्रम् — an instrument. Bhāskara II gives the Siddhāntaśiromaṇi a
 -- Yantrādhyāya (1150): a chapter of instruments, each described by what it
--- does when it is turned, not by what it is made of.  NOT CLAIMED: that
--- Bhāskara wrote anything resembling this.  What is taken is the word and
--- the standard — an instrument is judged by being turned.
+-- does when it is turned, not by what it is made of. What is taken is the
+-- word and the standard — an instrument is judged by being turned.
 --
 -- WHAT THIS FILE IS.  Fifteen lanes built organs.  Each one compiles, each
 -- one runs, and until this file they were fifteen processes.  A store that

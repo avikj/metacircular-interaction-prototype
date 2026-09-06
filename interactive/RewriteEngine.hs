@@ -2629,12 +2629,7 @@ laghavaReport =
 --     laghava is not a function of the SET of rules; the order carries
 --     information no set carries.
 --
--- So the theorem is already proved, twice, and this file does not
--- restate it.  What is added here is exactly what
--- `AnuvrttiIsTheSameTrade` names in its own NOT CLAIMED paragraph --
--- "the real anuvrtti chains run many words deep with their own
--- nivrtti", and "the saving in §2 is not the Phonology's actual
--- economy":
+-- So the theorem is already proved, twice, and this file does not restate it.
 --
 --   * CHAINS, not one edge.  Four words, in force over 8, 6, 5 and 6
 --     sutras, overlapping, with a nivrtti that stops one of them.

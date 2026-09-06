@@ -287,15 +287,13 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
 -- semantic at every level of this hierarchy, which is `TheDerivation
 -- CarriesNoMeaning…`'s no-go surviving the obvious repair.
 --
--- THE SCOPE, EXACTLY.  This does NOT supply the coherence theorem
--- the module's own NOT CLAIMED asks for.  §5 settles ONE pair — the one
--- the corpus already exhibits — and says nothing about whether some other
--- pair of `Derivation`s with equal endpoints is separated by ⟦_⟧.  A
--- general statement would have to rule out every pair, and that is a
--- coherence result about the whole calculus which is not proved anywhere
--- here.  The `add-comm` extension shows such pairs DO exist once the
--- constructor is added, so any general claim must be about `Step` and not
--- `Step⁺`.
+-- THE SCOPE, EXACTLY. §5 settles ONE pair — the one the corpus already
+-- exhibits — and says nothing about whether some other pair of `Derivation`s
+-- with equal endpoints is separated by ⟦_⟧. A general statement would have to
+-- rule out every pair, and that is a coherence result about the whole
+-- calculus which is not proved anywhere here. The `add-comm` extension shows
+-- such pairs DO exist once the constructor is added, so any general claim
+-- must be about `Step` and not `Step⁺`.
 ------------------------------------------------------------------------
 
 -- Going and coming back is invisible, for EVERY step and every derivation.

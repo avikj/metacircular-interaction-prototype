@@ -137,17 +137,14 @@
 --     duplicates.  Deduplicating is the cheapest possible saṃkṣepa and
 --     it is exactly what a store is normally built to do.
 --
--- SOURCES.  Umāsvāti, Tattvārthasūtra (c. 2nd–5th c. CE) 5.31
--- arpitānarpitasiddheḥ — the standpoint index, stated as an index.
--- Siddhasena Divākara, Sanmatitarka (c. 5th c. CE) 1.21 — a naya taken
--- without regard to the others is the durnaya.  Samantabhadra,
--- Āptamīmāṃsā (c. 6th c. CE) — the seven members.  Akalaṅka,
--- Laghīyastraya (c. 720–780 CE) — krama against saha, and the argument
--- that the number is exactly seven.  Kumārila Bhaṭṭa, Ślokavārttika,
--- Abhāvapariccheda (c. 7th c. CE) — yogya-anupalabdhi.  NOT CLAIMED:
--- that any of them wrote a store, an index, or a decision procedure.
--- What is taken is the classification and the rule for which case is
--- which.
+-- SOURCES. Umāsvāti, Tattvārthasūtra (c. 2nd–5th c. CE) 5.31
+-- arpitānarpitasiddheḥ — the standpoint index, stated as an index. Siddhasena
+-- Divākara, Sanmatitarka (c. 5th c. CE) 1.21 — a naya taken without regard to
+-- the others is the durnaya. Samantabhadra, Āptamīmāṃsā (c. 6th c. CE) — the
+-- seven members. Akalaṅka, Laghīyastraya (c. 720–780 CE) — krama against
+-- saha, and the argument that the number is exactly seven. Kumārila Bhaṭṭa,
+-- Ślokavārttika, Abhāvapariccheda (c. 7th c. CE) — yogya-anupalabdhi. What is
+-- taken is the classification and the rule for which case is which.
 --
 -- The `Bhanga` and `Sthana` types are NOT redefined here.  They are
 -- another hand's work in `interactive/ObligationAnalysis.hs` and are imported.

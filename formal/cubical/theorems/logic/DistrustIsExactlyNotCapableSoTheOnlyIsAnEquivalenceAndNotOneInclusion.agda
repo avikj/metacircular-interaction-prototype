@@ -25,15 +25,13 @@
 --
 --     trusted s ≡ false  →  ¬ (s ≡ capable)
 --
--- and its name says ONLY.  But "the verdict determines only `¬ capable`"
--- is a claim about EXACT information content, and one implication gives
--- an upper bound on what distrust tells you in one direction alone.
--- What is missing is the converse — that every non-`capable` state is
--- actually graded `false`, so the `false` fibre is EXACTLY the
--- complement of `capable` and not merely contained in it — and the
--- constancy of the verdict across that fibre, which is what "forgets
--- the reason" asserts.  §"NOT CLAIMED" there lists the missing fourth
--- state and soundness, and does not list either of these.
+-- and its name says ONLY. But "the verdict determines only `¬ capable`" is a
+-- claim about EXACT information content, and one implication gives an upper
+-- bound on what distrust tells you in one direction alone. What is missing is
+-- the converse — that every non-`capable` state is actually graded `false`,
+-- so the `false` fibre is EXACTLY the complement of `capable` and not merely
+-- contained in it — and the constancy of the verdict across that fibre, which
+-- is what "forgets the reason" asserts.
 --
 -- **BOTH ARE FREE, AND DIAGNOSTIC (1) SAYS WHY BEFORE THEY ARE
 -- WRITTEN.**  The two sides are joined by a CASE ANALYSIS on a

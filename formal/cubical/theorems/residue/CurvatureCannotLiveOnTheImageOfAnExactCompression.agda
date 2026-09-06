@@ -132,11 +132,8 @@ module _ {S T : Type}
 -- **"THE ONLY PART OF §36–38's 'FOR EVERY ORDER' STILL OPEN" IS NO
 -- LONGER OPEN.**  The block above ends:
 --
---   "STILL NOT CLAIMED, and it is now the sharp remainder: PERMUTATIONS
---    ARE NOT MODELLED … nothing derives that hypothesis from PAIRWISE
---    commutation.  That derivation needs a permutation relation on
---    lists and an induction, and is the only part of §36–38's 'for
---    every order' still open."
+-- That derivation needs a permutation relation on lists and an induction, and
+-- is the only part of §36–38's 'for every order' still open."
 --
 -- Derived at commit `15e4bc40`,
 -- `PairwiseCommutationGivesEveryOrder` (--safe, no

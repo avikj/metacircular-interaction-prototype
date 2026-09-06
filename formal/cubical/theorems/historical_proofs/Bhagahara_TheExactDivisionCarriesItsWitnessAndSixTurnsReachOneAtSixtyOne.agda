@@ -107,13 +107,11 @@
 --   भागहार (divisor / the act of dividing) and लब्धि (the quotient, "what
 --   is obtained") are the कुट्टक vocabulary of the same chapter.
 --
---   CITATIONS ARE SECOND-HAND AND ARE OWED AT VERSE LEVEL.  The author of
---   this file has not opened these texts.  NOT CLAIMED: that any of the
---   three stated any theorem below, or that the सन्धि of "carrier" with
---   भागहार is theirs.  What IS claimed is checkable: that the quantity
---   a² − D b² is what their algorithms carry beside the pair of roots,
---   and that their step's three divisions are exactly the three
---   hypotheses of §३.
+-- CITATIONS ARE SECOND-HAND AND ARE OWED AT VERSE LEVEL. The author of this
+-- file has not opened these texts. What IS claimed is checkable: that the
+-- quantity a² − D b² is what their algorithms carry beside the pair of roots,
+-- and that their step's three divisions are exactly the three hypotheses of
+-- §३.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
 -- postulates, no holes.  ℕ throughout, never ℤ: cubical's ℤ product does

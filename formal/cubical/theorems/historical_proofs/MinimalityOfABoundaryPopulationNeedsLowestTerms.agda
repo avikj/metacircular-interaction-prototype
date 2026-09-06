@@ -7,11 +7,10 @@
 -- boundary population of length `suc q` for every threshold p/(suc q)
 -- with p ≤ suc q, and closed with:
 --
---   "STILL NOT CLAIMED: MINIMALITY.  The length produced is suc q, and
---    whether a SHORTER boundary population exists is the divisibility
---    question after all — for p/(suc q) in lowest terms it does not —
---    and that is unproved, because lowest terms are not defined
---    anywhere here."
+-- The length produced is suc q, and whether a SHORTER boundary population
+-- exists is the divisibility question after all — for p/(suc q) in lowest
+-- terms it does not — and that is unproved, because lowest terms are not
+-- defined anywhere here."
 --
 -- That parenthesis — "for p/(suc q) in lowest terms it does not" — was
 -- an assertion.  Its CONTRAPOSITIVE is checked here, which is the half

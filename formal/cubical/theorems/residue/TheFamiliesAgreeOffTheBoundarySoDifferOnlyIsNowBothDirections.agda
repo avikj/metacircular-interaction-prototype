@@ -23,14 +23,9 @@
 --
 -- **`DIFFER ONLY AT THE BOUNDARY` WAS ONE INCLUSION AND ONE INSTANCE.**
 -- Proved there: `aboveGivesAtLeast` (strict ⇒ non-strict), and
--- `atLeastWithoutAbove`, a SINGLE population — one true, one false —
--- where the non-strict claim holds and the strict one fails.  A single
--- witness shows the families differ SOMEWHERE.  **`ONLY` is the claim
--- that they differ NOWHERE ELSE, and that is a universally quantified
--- statement about every population off the boundary, which is not
--- there.**  Its §"WHAT IS STILL NOT CLAIMED" lists the one-population
--- limitation, interleaving, the unquotiented preorder and the list
--- encoding — not this.
+-- `atLeastWithoutAbove`, a SINGLE population — one true, one false — where
+-- the non-strict claim holds and the strict one fails. A single witness shows
+-- the families differ SOMEWHERE.
 --
 -- **AND IT IS TWO LINES, BECAUSE ℕ'S ORDER SPLITS.**  `≤-split` gives
 -- `m ≤ n → (m < n) ⊎ (m ≡ n)`, so `AtLeast` is exactly `Above` or

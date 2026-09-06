@@ -25,12 +25,11 @@
 -- ℕ.  So `f` below is a POSITIVE INTEGER SURROGATE for the sigmoid
 -- factor, not the sigmoid.
 --
--- WHAT IS LOST: the sigmoid's range.  σ(10(α−0.5)) is strictly between
--- 0 and 1 and never attains an integer; §2's witness uses scores 3 and 2
--- and claims nothing about which accuracies α could produce a ratio 3:2.
--- The disagreement proved is a property of the SHAPE of the weight, not
--- of any particular run.  NOT CLAIMED: that DGM's actual archive ever
--- contains such a pair.
+-- WHAT IS LOST: the sigmoid's range.  σ(10(α−0.5)) is strictly between 0 and
+-- 1 and never attains an integer; §2's witness uses scores 3 and 2 and claims
+-- nothing about which accuracies α could produce a ratio 3:2. The
+-- disagreement proved is a property of the SHAPE of the weight, not of any
+-- particular run.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

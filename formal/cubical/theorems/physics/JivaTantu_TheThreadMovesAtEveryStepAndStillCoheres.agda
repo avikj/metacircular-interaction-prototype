@@ -6,13 +6,11 @@
 -- adhyāyas, ~2nd–5th c. CE: the knower persisting through karmic change);
 -- tantu, thread (ordinary Sanskrit; the weaver's word for continuity,
 -- attested of the sacrificial line in the Ṛgveda — second-hand, verse
--- citation owed).  The compound is built here, 2026-08-23, for the
--- owner's U0022 (collab/upstream/raw/U0022.txt); no source is claimed
--- for it.  NOT CLAIMED: that any Jaina text states a dependent type or
--- this theorem.  What is taken is the exact position being checked:
--- the jīva persists AND changes — against both the eternalist and the
--- annihilationist reading — and this module is that position as
--- theorems about one term.
+-- citation owed). The compound is built here, 2026-08-23, for the owner's
+-- U0022 (collab/upstream/raw/U0022.txt); no source is claimed for it. What is
+-- taken is the exact position being checked: the jīva persists AND changes —
+-- against both the eternalist and the annihilationist reading — and this
+-- module is that position as theorems about one term.
 --
 -- U0022's line:
 --     "The living thread — the jīva — is a section through the changing
