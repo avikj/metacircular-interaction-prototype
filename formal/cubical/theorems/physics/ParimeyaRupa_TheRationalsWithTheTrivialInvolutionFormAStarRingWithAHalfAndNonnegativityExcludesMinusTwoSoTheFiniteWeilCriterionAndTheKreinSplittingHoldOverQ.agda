@@ -28,10 +28,10 @@ module ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAn
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; snotz ; injSuc)
 import Cubical.Data.Nat.Order as NO
 open import Cubical.Data.NatPlusOne using (ℕ₊₁ ; 1+_)
-open import Cubical.Data.Int using (ℤ ; pos ; negsuc ; sucℤ ; _+pos_ ; posNotnegsuc)
+open import Cubical.Data.Int using (ℤ ; pos ; negsuc ; sucℤ ; _+pos_ ; posNotnegsuc ; injPos)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim)
 open import Cubical.Relation.Nullary using (¬_ ; Dec ; yes ; no)
 open import Cubical.Data.Rationals
@@ -153,3 +153,45 @@ dvi-ṛṇa = W.calita-ṛṇa ℚ✶ 2 viparyaya 0 (NO.suc-≤-suc NO.zero-≤)
 -- and the identity configuration on two modes is positive
 sthira-dvi : (c : ℕ → ℚ) → Anṛṇa (T.τ-rūpa ℚ✶ 2 (λ i → i) c c)
 sthira-dvi = W.sthira→dhana ℚ✶ 2 (λ i → i) Anṛṇa anṛṇa-varga (λ {x} {y} → anṛṇa-yoga {x} {y}) anṛṇa-śūnya (λ _ _ → refl)
+
+------------------------------------------------------------------------
+-- ५ · An off-line transport in numbers.  On the swapped pair take
+--     E = (2 , ½): the reflection law E i · E (τ i) = 1 holds, so the
+--     τ-form is preserved for every vector — but (E 0)* · E 0 = 4 ≠ 1,
+--     so the plain form is not preserved.  A Type-I "zero off the line"
+--     as a rational configuration.
+------------------------------------------------------------------------
+
+dvi : ℚ
+dvi = [ pos 2 / 1+ 0 ]
+
+pāra-E : ℕ → ℚ
+pāra-E zero          = dvi
+pāra-E (suc zero)    = ardha
+pāra-E (suc (suc k)) = 1
+
+pāra-reflect : (i : ℕ) → pāra-E i · pāra-E (viparyaya i) ≡ 1
+pāra-reflect zero          = eq/ _ _ refl
+pāra-reflect (suc zero)    = eq/ _ _ refl
+pāra-reflect (suc (suc k)) = eq/ _ _ refl
+
+pāra : T.Saṅkramaṇa ℚ✶ 2 viparyaya
+T.Saṅkramaṇa.E       pāra = pāra-E
+T.Saṅkramaṇa.reflect pāra = pāra-reflect
+
+-- the τ-form is preserved, for every pair of vectors
+pāra-τ-avikāra : (c d : ℕ → ℚ)
+               → T.τ-rūpa ℚ✶ 2 viparyaya (T.apply ℚ✶ 2 viparyaya pāra c) (T.apply ℚ✶ 2 viparyaya pāra d)
+               ≡ T.τ-rūpa ℚ✶ 2 viparyaya c d
+pāra-τ-avikāra = T.τ-avikāra ℚ✶ 2 viparyaya pāra
+
+-- but mode 0 has modulus 4, not 1
+catur-na-eka : ¬ (dvi · dvi ≡ 1)
+catur-na-eka p = snotz (injSuc (injPos (eq/⁻¹ _ _ p)))
+
+pāra-na-mātrā : ¬ T.UnitModulus ℚ✶ 2 viparyaya pāra
+pāra-na-mātrā um = catur-na-eka (um 0 (NO.suc-≤-suc NO.zero-≤))
+
+-- so the plain form is not preserved: τ-unitary, not unitary
+pāra-na-unitary : ¬ T.PlainUnitary ℚ✶ 2 viparyaya pāra
+pāra-na-unitary pu = pāra-na-mātrā (T.unitary→modulus ℚ✶ 2 viparyaya pāra pu)
