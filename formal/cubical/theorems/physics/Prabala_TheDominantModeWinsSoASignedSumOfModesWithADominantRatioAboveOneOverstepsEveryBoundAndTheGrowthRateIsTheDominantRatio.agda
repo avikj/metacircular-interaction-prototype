@@ -163,3 +163,145 @@ module Tail (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (0≤M : 0 ≤ M)
           (λ i i<n → subst (_≤ (M ^ t) · (∣ c i ∣)) (sym (guṇa-sama (c i) (m i ^ t) (anṛṇa-ghāta (m i) (0≤m i) t)))
                        (subst (_≤ (M ^ t) · (∣ c i ∣)) (·Comm (m i ^ t) (∣ c i ∣))
                          (≤-·o (m i ^ t) (M ^ t) (∣ c i ∣) (anṛṇa (c i)) (ghāta-mono (m i) M (0≤m i) (m≤M i i<n) t))))))
+
+------------------------------------------------------------------------
+-- ३ · The dominant mode oversteps every bound.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim ; isProp⊥ to isProp⊥)
+open import Cubical.HITs.PropositionalTruncation as PT using (∥_∥₁ ; ∣_∣₁)
+open import Cubical.Data.Rationals.Order using (isTrans<≤ ; isTrans≤< ; <-·o ; ≤→≯ ; <-+o)
+open import Nirapeksa_TheAbsoluteValueOnTheRationalsIsTheMaximumOfAnElementAndItsNegativeSoItIsNonnegativeDominatesBothAndIsSubadditive
+  using (neg-sama)
+open import Parimana_EveryRationalLiesBelowANaturalAndEveryPositiveRationalHasANaturalMultipleAtLeastOneSoTheRationalsAreArchimedean
+  using (archimedes)
+
+module Sama′ (R : CommRing ℓ-zero) where
+  open CommRingStr (snd R) renaming (_+_ to _⊕_ ; _·_ to _⊗_ ; -_ to ⊖_ ; _-_ to _⊝_)
+  pratyāhāra : (a b : ⟨ R ⟩) → (a ⊕ b) ⊕ (⊖ b) ≡ a
+  pratyāhāra a b = solve! R
+  vibhāga : (K C c p : ⟨ R ⟩) → K ⊕ C ⊗ p ≡ (K ⊕ (C ⊝ c) ⊗ p) ⊕ c ⊗ p
+  vibhāga K C c p = solve! R
+  saṅgraha : (a b p : ⟨ R ⟩) → a ⊗ p ⊕ b ⊗ p ≡ (a ⊕ b) ⊗ p
+  saṅgraha a b p = solve! R
+  ghāta-vibhāga : (c u x p q : ⟨ R ⟩) → (u ⊗ (c ⊗ x)) ⊗ p ⊕ c ⊗ q ≡ c ⊗ (q ⊕ (u ⊗ x) ⊗ p)
+  ghāta-vibhāga c u x p q = solve! R
+  pūraṇa : (M m : ⟨ R ⟩) → M ⊕ (m ⊝ M) ≡ m
+  pūraṇa M m = solve! R
+
+-- reverse triangle: |a| − |b| ≤ |a + b|
+viparīta-trikoṇa : (a b : ℚ) → (∣ a ∣) - (∣ b ∣) ≤ ∣ a + b ∣
+viparīta-trikoṇa a b =
+  subst ((∣ a ∣) + (- (∣ b ∣)) ≤_) (Sama′.pratyāhāra ℚRing (∣ a + b ∣) (∣ b ∣))
+    (≤-+o (∣ a ∣) ((∣ a + b ∣) + (∣ b ∣)) (- (∣ b ∣)) upper)
+  where
+  -- |a| ≤ |a+b| + |b|
+  upper : (∣ a ∣) ≤ (∣ a + b ∣) + (∣ b ∣)
+  upper = subst (λ z → (∣ z ∣) ≤ (∣ a + b ∣) + (∣ b ∣)) (Sama′.pratyāhāra ℚRing a b)
+            (isTrans≤ (∣ (a + b) + (- b) ∣) ((∣ a + b ∣) + (∣ - b ∣)) ((∣ a + b ∣) + (∣ b ∣))
+               (trikoṇa (a + b) (- b))
+               (subst (λ z → (∣ a + b ∣) + z ≤ (∣ a + b ∣) + (∣ b ∣)) (sym (neg-sama b)) (isRefl≤ ((∣ a + b ∣) + (∣ b ∣)))))
+
+open import Nirapeksa_TheAbsoluteValueOnTheRationalsIsTheMaximumOfAnElementAndItsNegativeSoItIsNonnegativeDominatesBothAndIsSubadditive
+  using (neg-≤)
+open import Cubical.HITs.PropositionalTruncation using (squash₁)
+
+0≤1′ : 0 ≤ 1
+0≤1′ = <Weaken≤ 0 1 (0 , refl)
+
+0<1′ : 0 < 1
+0<1′ = 0 , refl
+
+eka-ghāta : (t : ℕ) → (1 ^ t) ≡ 1
+eka-ghāta zero    = refl
+eka-ghāta (suc t) = ·IdL (1 ^ t) ∙ eka-ghāta t
+
+-- a product of positives is positive
+dhana-guṇa : (a b : ℚ) → 0 < a → 0 < b → 0 < a · b
+dhana-guṇa a b 0<a 0<b = subst (_< a · b) (·AnnihilL b) (<-·o 0 a b 0<b 0<a)
+
+module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀ : M < m 0)
+               (0≤m : (i : ℕ) → 0 ≤ m i) (m≤M : (i : ℕ) → i <ℕ n → m (suc i) ≤ M)
+               (0<c₀ : 0 < ∣ c 0 ∣) where
+
+  0≤M : 0 ≤ M
+  0≤M = isTrans≤ 0 1 M 0≤1′ 1≤M
+
+  open Tail n (λ i → c (suc i)) (λ i → m (suc i)) M 0≤M (λ i → 0≤m (suc i)) m≤M
+
+  -- the signal: dominant mode plus tail
+  B : ℕ → ℚ
+  B t = c 0 · (m 0 ^ t) + T t
+
+  x : ℚ
+  x = m 0 - M
+
+  0<x : 0 < x
+  0<x = subst (_< m 0 - M) (+InvR M) (<-+o M (m 0) (- M) M<m₀)
+
+  0≤x : 0 ≤ x
+  0≤x = <Weaken≤ 0 x 0<x
+
+  M^≥1 : (t : ℕ) → 1 ≤ M ^ t
+  M^≥1 t = subst (_≤ M ^ t) (eka-ghāta t) (ghāta-mono 1 M 0≤1′ 1≤M t)
+
+  0<M^ : (t : ℕ) → 0 < M ^ t
+  0<M^ t = isTrans<≤ 0 1 (M ^ t) 0<1′ (M^≥1 t)
+
+  0≤M^ : (t : ℕ) → 0 ≤ M ^ t
+  0≤M^ t = <Weaken≤ 0 (M ^ t) (0<M^ t)
+
+  prabala : (K : ℚ) → ∥ Σ[ t ∈ ℕ ] K < ∣ B t ∣ ∥₁
+  prabala K = PT.rec squash₁ go (archimedes ((∣ c 0 ∣) · x) (dhana-guṇa (∣ c 0 ∣) x 0<c₀ 0<x) D)
+    where
+    c₀ = ∣ c 0 ∣
+    D : ℚ
+    D = (∣ K ∣) + (∣ C - c₀ ∣) · M
+    0≤D : 0 ≤ D
+    0≤D = anṛṇa-yoga {∣ K ∣} {(∣ C - c₀ ∣) · M} (anṛṇa K) (anṛṇa-guṇa (∣ C - c₀ ∣) M (anṛṇa (C - c₀)) 0≤M)
+
+    go : Σ[ t ∈ ℕ ] D < ι t · (c₀ · x) → ∥ Σ[ t ∈ ℕ ] K < ∣ B t ∣ ∥₁
+    go (zero   , D<0) = ⊥-elim (≤→≯ 0 D 0≤D (subst (D <_) (·AnnihilL (c₀ · x)) D<0))
+    go (suc t′ , D<ux) = ∣ suc t′ , cakra ∣₁
+      where
+      t = suc t′
+      p = M ^ t′
+      q = M ^ t
+      u = ι t
+      -- K + (C − c₀) q ≤ D p
+      s₂ : K + (C - c₀) · q ≤ D · p
+      s₂ = subst (K + (C - c₀) · q ≤_) (Sama′.saṅgraha ℚRing (∣ K ∣) ((∣ C - c₀ ∣) · M) p)
+             (≤Monotone+ K ((∣ K ∣) · p) ((C - c₀) · q) (((∣ C - c₀ ∣) · M) · p)
+               (isTrans≤ K (∣ K ∣) ((∣ K ∣) · p) (vāma K)
+                 (subst (_≤ (∣ K ∣) · p) (·IdR (∣ K ∣))
+                   (subst2 _≤_ (·Comm 1 (∣ K ∣)) (·Comm p (∣ K ∣)) (≤-·o 1 p (∣ K ∣) (anṛṇa K) (M^≥1 t′)))))
+               (subst (_≤ ((∣ C - c₀ ∣) · M) · p) (sym (·Assoc (C - c₀) M p))
+                 (≤-·o ((C - c₀) · M) ((∣ C - c₀ ∣) · M) p (0≤M^ t′)
+                   (≤-·o (C - c₀) (∣ C - c₀ ∣) M 0≤M (vāma (C - c₀))))))
+      -- D p < (u (c₀ x)) p
+      s₃ : D · p < (u · (c₀ · x)) · p
+      s₃ = <-·o D (u · (c₀ · x)) p (0<M^ t′) D<ux
+      -- c₀ (q + (u x) p) ≤ c₀ m₀^t
+      s₅ : c₀ · (q + (u · x) · p) ≤ c₀ · (m 0 ^ t)
+      s₅ = subst (λ z → c₀ · (q + (u · x) · p) ≤ c₀ · (z ^ t)) (Sama′.pūraṇa ℚRing M (m 0))
+             (subst2 _≤_ (·Comm (q + (u · x) · p) c₀) (·Comm ((M + x) ^ t) c₀)
+               (≤-·o (q + (u · x) · p) ((M + x) ^ t) c₀ (<Weaken≤ 0 c₀ 0<c₀) (dvipada M x 0≤M 0≤x t′)))
+      -- K + C q < |c₀ m₀^t|
+      mukhya : K + C · q < ∣ c 0 · (m 0 ^ t) ∣
+      mukhya = subst (K + C · q <_) (sym (guṇa-sama (c 0) (m 0 ^ t) (anṛṇa-ghāta (m 0) (0≤m 0) t)))
+        (subst (_< c₀ · (m 0 ^ t)) (sym (Sama′.vibhāga ℚRing K C c₀ q))
+          (isTrans≤< ((K + (C - c₀) · q) + c₀ · q) (D · p + c₀ · q) (c₀ · (m 0 ^ t))
+            (≤-+o (K + (C - c₀) · q) (D · p) (c₀ · q) s₂)
+            (isTrans<≤ (D · p + c₀ · q) ((u · (c₀ · x)) · p + c₀ · q) (c₀ · (m 0 ^ t))
+              (<-+o (D · p) ((u · (c₀ · x)) · p) (c₀ · q) s₃)
+              (subst (_≤ c₀ · (m 0 ^ t)) (sym (Sama′.ghāta-vibhāga ℚRing c₀ u x p q)) s₅))))
+      -- K < |c₀ m₀^t| − C q
+      s₇ : K < (∣ c 0 · (m 0 ^ t) ∣) - (C · q)
+      s₇ = subst (_< (∣ c 0 · (m 0 ^ t) ∣) - (C · q)) (Sama′.pratyāhāra ℚRing K (C · q))
+             (<-+o (K + C · q) (∣ c 0 · (m 0 ^ t) ∣) (- (C · q)) mukhya)
+      -- |c₀ m₀^t| − C q ≤ |c₀ m₀^t| − |T t| ≤ |B t|
+      s₈ : (∣ c 0 · (m 0 ^ t) ∣) - (C · q) ≤ (∣ c 0 · (m 0 ^ t) ∣) - (∣ T t ∣)
+      s₈ = ≤-o+ (- (C · q)) (- (∣ T t ∣)) (∣ c 0 · (m 0 ^ t) ∣) (neg-≤ (∣ T t ∣) (C · q) (pucchā t))
+      cakra : K < ∣ B t ∣
+      cakra = isTrans<≤ K ((∣ c 0 · (m 0 ^ t) ∣) - (C · q)) (∣ B t ∣) s₇
+                (isTrans≤ ((∣ c 0 · (m 0 ^ t) ∣) - (C · q)) ((∣ c 0 · (m 0 ^ t) ∣) - (∣ T t ∣)) (∣ B t ∣) s₈ (viparīta-trikoṇa (c 0 · (m 0 ^ t)) (T t)))
