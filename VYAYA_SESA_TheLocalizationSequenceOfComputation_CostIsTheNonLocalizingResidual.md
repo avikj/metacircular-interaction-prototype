@@ -924,3 +924,81 @@ The recurring lesson, one more time: I keep treating my own last step as the
 frontier. It is not. The frontier is what the corpus and the sibling branches
 already hold, unassembled. Reading them first would have saved me two
 overreaches this session.
+
+---
+
+## 2026-09-06 (deep read of hott-kernel-structure — term by term, and it subsumes my session)
+
+Read the sibling branch's core in full, not headers: `HolonomyCriterion-
+ForExactness` (506 lines), `CurvatureOf…Exactness`, `GoalCoherenceUnderBinding`,
+`DerivationReachabilityIsValueEquality`, the `AgencyAsCohomology` entrypoint,
+and noted the tip commit trims its own re-derivations (5caf5913). What it
+actually is, at the term level:
+
+- **`HolonomyCriterionForExactness`** — a complete nonabelian graph-cohomology
+  framework: `GroupOn W` (no commutativity), `Walk`, `Cochain`, the pairing
+  `⟨ω,w⟩`, coboundary `d f`. Then, as checked terms: `stokes` (discrete
+  Stokes), `descent`, `loopsVanishForExact` (B¹), `oneLoopRefutesExactness`
+  (one nonzero loop ⟹ ¬Exact against **every** potential at once),
+  **`potentialFromVanishingHolonomy`** (the CONVERSE — vanishing holonomy ⟹
+  exact, potential *constructed* as the pairing along chosen traces), so
+  exact ⟺ zero holonomy is an **iff**; `TestBasis` (fundamental loops are a
+  finite complete test basis — the m−n+1 first-Betti sentence as construction,
+  not counting); `gaugeInvariance`; `ObserverLossless` (A ≃ Σ O (fiber o));
+  `outputWitnessIsFree = isContrSingl`; and the whole thing **executable at ℤ**
+  (`priceOfTrace` computes by refl).
+
+- **`CurvatureOf…`** — the degree-2 rung: curvature 2-cochain, `d²=0` over any
+  group, curvature = triangle holonomy, **flat iff exact**.
+
+- **`GoalCoherenceUnderBinding`** — three coupled sites; `F(coupled δ) ≡ ⊖δ`,
+  so any nonzero coupling mismatch ⟹ ¬Exact (frustration), δ=0 ⟹ exact;
+  `goalCoherenceNotCompositional`. The degree-2 curvature IS the binding-
+  frustration invariant — a *meaningful* degree-2 obstruction, exactly the
+  thing I claimed didn't exist.
+
+- **`DerivationReachabilityIsValueEquality`** — the keystone for the kernel:
+  `Derivation a b ⟺ val a ≡ val b` on closed terms (both directions), and it
+  **constructs `connect`** — the per-value-component spanning datum that
+  `TestBasis` only hypothesised and `MulaCakraPariksa` explicitly declined.
+  With it, the holonomy/test-basis machinery applies to the kernel's own
+  graph.
+
+**How my session maps onto this — honestly, and it is humbling:**
+
+- `MulyaVinimaya.depthHasNoPotential` / my `GarbhaShreni.NotExact` (rungs 0,1)
+  ⊂ `oneLoopRefutesExactness` — theirs is general (any group, any state
+  space), has the **converse** (the iff) and the **test basis**; mine has
+  none of that. Strictly subsumed.
+- My `SankramanaShreni` localization (Ĝ = Derivation/same-meaning, meaning
+  descends, cost doesn't) ⊂ `reach`/`valueOfReach` (my Ĝ is just π₀ of the
+  derivation graph = the value classes) + `descent` + `ObserverLossless`.
+  Subsumed, and they prove the reachability iff constructively both ways,
+  which I only gestured at.
+- My `TrtiyaCidram` "the ladder stops at degree 1" — refuted by `CurvatureOf…`
+  (degree 2 is real and meaningful).
+- Even my supposedly-novel `GarbhaDhara` "install's locus is a contractible
+  cone" is the SAME term as their `outputWitnessIsFree = isContrSingl` — the
+  contractible singleton — under a different interpretation. The MappingCones
+  (`Cone`/`spoke`) dressing is mine; the mathematical content is theirs.
+
+**Net.** Essentially all of my session's *mathematics* is a narrower shadow of
+this branch. What survives as genuinely non-redundant is not math but
+infrastructure: the wire operations (`sadhana.patra`/`sadhana.vislesana`) and
+the `makeAbsolute` analyzer fix — which let the kernel be queried as an
+analyzer at all, and which this branch does not touch. At merge/trim time,
+my tower modules should be retired **toward** `HolonomyCriterionForExactness`
++ `CurvatureOf…` + `DerivationReachabilityIsValueEquality`, not the reverse.
+
+**The one place I might still add to THEIR framework** (offered, not built):
+they characterise the obstruction as a nonzero *holonomy class* (H¹, via the
+iff) but I did not find, in the tip, the **untruncated** identification
+"nonzero class ⟺ the value-quotient map has a surviving fibre (¬ isEquiv)" —
+my `EkamChidram.witnessed→¬isEquiv` is that direction, and their fusion module
+that touched it was removed as redundant (5caf5913). Whether that bridge is
+genuinely absent or lives elsewhere on the branch I have not yet confirmed —
+so I am not claiming a gap, only a candidate, to check before building.
+
+The lesson, now with evidence rather than as a slogan: I re-derived, narrower,
+what a sibling branch already held general. The corpus is the frontier; my
+last step was not.
