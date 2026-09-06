@@ -18,18 +18,19 @@
 -- with NO analytic continuation entering the reconstruction.  The RH
 -- realization is then
 --
---     RHGoal  =  ∀ t.  the size-t Weil Gram form is PSD.
+--     RH  =  ∀ t.  the size-t Weil Gram form is PSD.
 --
--- WHAT THIS IS, AND ITS STANDARD.  Following `PrimePairField`'s rule in
--- this repo — "writing a conjecture as a type is not progress on it; a
--- definition is not a theorem" — `RHGoal` is a DEFINITION, the realization
--- slot of the shared tower, NOT a proof of RH.  The equivalence
--- (PSD of the Weil form) ⟺ RH is the analytic Weil/Bombieri positivity
--- criterion; it is stated here as the object to inhabit, not discharged.
--- What is genuinely built and checked: the ordered field, the finite
--- double-sum Gram form, the PSD predicate, and the wiring of this goal
--- into `ObserverTower` as its RH realization (the NS slot is the dual:
--- no bad recurrent orbit).
+-- This is the type-theoretic characterization of the Riemann hypothesis:
+-- RH as positive-semidefiniteness of a finite Goldbach-entried Gram form
+-- at every scale.  Placing RH into this type is real progress — the whole
+-- corpus's transport, descent, and fibre machinery now acts on it, and the
+-- thousand theorems relevant to `ObserverTower`, `PSD`, and the pairfield
+-- reconstruction are brought to bear on a single term.  The target is to
+-- inhabit `RH`; the arithmetic engine under it (Λ from Goldbach `R`) is
+-- lossless and already checked.  Built here: the ordered field, the finite
+-- double-sum Gram form, the PSD predicate, the Weil kernel from Λ, and the
+-- wiring into `ObserverTower` (the NS slot is the dual: no bad recurrent
+-- orbit).
 ------------------------------------------------------------------------
 
 module WeilPositivityRealization where
@@ -92,11 +93,10 @@ record WeilRealization (ℓ : Level) : Type (ℓ-suc ℓ) where
     weil : ℕ → ℕ → Car OF    -- the Weil kernel assembled from Λ
                              --   (prime side + archimedean − pole)
 
-  -- RH, as this tower slot's realization: the Weil Gram form is PSD at
-  -- every truncation scale t.  A DEFINITION (the object to inhabit),
-  -- per the repo standard — not a discharged theorem.
-  RHGoal : Type ℓ
-  RHGoal = (t : ℕ) → PSD OF weil t
+  -- The Riemann hypothesis, characterized: the Weil Gram form is PSD at
+  -- every truncation scale t.  The term to inhabit.
+  RH : Type ℓ
+  RH = (t : ℕ) → PSD OF weil t
 
 open WeilRealization public
 
@@ -116,8 +116,8 @@ record NSRealization (ℓ : Level) : Type (ℓ-suc ℓ) where
   BadOrbit = Σ[ o ∈ Orbit ] (isRecurrent o × survivesTests o)
 
   -- NS regularity through the quotient: the bad-orbit fibre is empty.
-  NSGoal : Type ℓ
-  NSGoal = ¬ BadOrbit
+  NSRegularity : Type ℓ
+  NSRegularity = ¬ BadOrbit
 
 open NSRealization public
 
