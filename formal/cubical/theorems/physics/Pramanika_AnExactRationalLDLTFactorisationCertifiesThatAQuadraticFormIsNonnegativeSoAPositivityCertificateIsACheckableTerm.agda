@@ -177,3 +177,34 @@ module _ (n : ℕ) (A L : ℕ → ℕ → ℚ) (D : ℕ → ℚ) where
   -- THE THEOREM: a certificate that checks is a proof of positivity.
   prāmāṇika-sādhya : sādhya ≡ true → (v : ℕ → ℚ) → 0 ≤ Q v
   prāmāṇika-sādhya e = prāmāṇika (sādhya-ldl e) (sādhya-D e)
+
+------------------------------------------------------------------------
+-- ५ · A certificate that checks, by computation: A = [[2,1],[1,2]] with
+--     L = [[1,0],[½,1]] and D = (2, 3/2).  sādhya evaluates to true, and
+--     the theorem returns positivity of the form for every vector.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Int using (pos)
+open import Cubical.Data.NatPlusOne using (1+_)
+
+udāharaṇa-A : ℕ → ℕ → ℚ
+udāharaṇa-A zero    zero    = 2
+udāharaṇa-A zero    (suc _) = 1
+udāharaṇa-A (suc _) zero    = 1
+udāharaṇa-A (suc _) (suc _) = 2
+
+udāharaṇa-L : ℕ → ℕ → ℚ
+udāharaṇa-L zero    zero    = 1
+udāharaṇa-L zero    (suc _) = 0
+udāharaṇa-L (suc _) zero    = [ pos 1 / 1+ 1 ]
+udāharaṇa-L (suc _) (suc _) = 1
+
+udāharaṇa-D : ℕ → ℚ
+udāharaṇa-D zero    = 2
+udāharaṇa-D (suc _) = [ pos 3 / 1+ 1 ]
+
+udāharaṇa-sādhya : sādhya 2 udāharaṇa-A udāharaṇa-L udāharaṇa-D ≡ true
+udāharaṇa-sādhya = refl
+
+udāharaṇa-dhana : (v : ℕ → ℚ) → 0 ≤ Q 2 udāharaṇa-A udāharaṇa-L udāharaṇa-D v
+udāharaṇa-dhana = prāmāṇika-sādhya 2 udāharaṇa-A udāharaṇa-L udāharaṇa-D udāharaṇa-sādhya
