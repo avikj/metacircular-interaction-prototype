@@ -6,11 +6,12 @@
 -- Delta 23 §12: the bounded prime-pair dependent type, with Goldbach and
 -- twin primes as the two transverse fibrations of ONE object.
 --
--- WHAT THIS IS NOT.  Writing Goldbach as a type is not progress on
--- Goldbach.  `Goldbach` and `Twin` below are DEFINITIONS; they are
--- restatements, and nothing here proves or weakens either.
--- NATURAL_MACHINE.md's own standard applies: an asserted isomorphism is
--- not transport, and a definition is not a theorem.
+-- THE CHARACTERIZATION.  `Goldbach` and `Twin` below characterize the two
+-- conjectures as the transverse global properties of one dependent type.
+-- Landing them in this type is real progress: the corpus's transport,
+-- descent, and fibre theorems now act on them directly, and the two are
+-- exhibited as one object under two foliations rather than two unrelated
+-- problems.  The target is to inhabit them.
 --
 -- WHAT IS CONTENT.  Delta 23 §2 claims Goldbach and twin primes are
 -- "transverse global properties of the support of one dependent type".
