@@ -1252,3 +1252,7 @@ import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPaired
 -- BoundaryBlockGeneral: the same identity at every width — for any finite
 -- receiver and coefficient signal, Σ (Σ c_k S^k f)² ≡ Σ c_k c_l ρ(|k−l|).
 import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
+-- CyclicParseval: given orthogonal characters, Σ_θ b̂(θ)č(θ) ≡ N·Σ_t b_t c_t —
+-- the block is a spectral sum of products, and a sum of squares there
+-- exactly when the dual character is the conjugate (the frequencies real).
+import CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal
