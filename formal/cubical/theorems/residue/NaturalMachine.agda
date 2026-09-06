@@ -1278,3 +1278,10 @@ import InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociator
 -- TwoScaleSubgroup: 2ᵐ = 3ⁿ only at m = n = 0 — the arithmetic behind the
 -- density of the (2,3)-scale samples in the C(𝕋²)-descent reading of RH.
 import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo
+-- HistoryCompletion: the one construction under both frontiers — the value
+-- stream of a history under an evaluator, complete by corecursion in the
+-- take-metric (PurnataSutra freed to any carrier), its limit determined by
+-- truncations, and □ (at every depth) refuted by one truncation and decided
+-- by none; instantiated on the power-sum trace (bounded iff roots on the
+-- circle) and on the Galerkin jet stream.
+import HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot
