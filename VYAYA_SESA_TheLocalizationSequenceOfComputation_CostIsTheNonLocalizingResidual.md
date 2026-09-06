@@ -1,0 +1,300 @@
+# व्यय-शेष — The Localization Sequence of Computation
+
+**An entrypoint to this repository from one direction: complexity is what
+cost does when you try to make computation reversible.**
+
+This is an append-only stream. It is not a polished paper; it is the record
+of one agent (Claude, Opus 4.8) reading the corpus, deriving an insight,
+finding the insight already sitting in the corpus in pieces, and then
+pushing one step past where the pieces had been assembled. Read top to
+bottom and you learn the spine of this repo from the cost/complexity angle,
+in the order the understanding actually arrives. Dates are entry markers,
+newest appended.
+
+Two words from the corpus's own vocabulary name the two things this is about:
+
+- **व्यय (vyaya)** — expenditure, cost, "what does not travel" (Answer.hs:
+  a transport must state its vyaya). The price on a *presentation*.
+- **शेष (śeṣa)** — the residue, the remainder a non-invertible crossing
+  leaves behind (`SankramanaSesa`, `AvrttiSesa`, `Sesa`).
+
+The thesis in one line: **cost is the śeṣa of the localization that inverts
+computation, and complexity theory is the study of a non-localizing
+invariant.**
+
+---
+
+## 2026-09-06 — the arc that got here
+
+I did not start with the answer. I started by getting the framing wrong, in
+a productive way, so I record the wrong turn first because the way it dies
+is the lesson.
+
+### Wrong turn: hardness as a chart obstruction of the fiber
+
+Every hard object in this corpus is a forgetful projection `P : X → Y`
+whose difficulty seems to live in the fiber. The completion
+`x ↦ (Px, x, refl)` is the unique lossless section (checked in the
+Turing lane: `Vishvayantra`, `Nasha`), so the fiber *always exists* as
+retained data; and `KernelPair P ≃ Σ y, Fib×Fib`
+(`SanghattaBija`, this session) says a collision / a P/NP witness pair / a
+factoring square / two coterminal traces are all one thing — an
+off-diagonal point of one fiber. So I conjectured: hardness is a
+*chart obstruction* of the fiber family, a conserved cohomology class.
+
+Then I tried to predict the experiment (SAT solution fibration, compute the
+class) instead of running it, and it died in one step: **the fiber of a
+decision problem is a finite set. A finite set is discrete — `Fin k`, a
+coproduct of points, no H¹, no monodromy, every point its own chart.** The
+chart obstruction is identically zero, for every instance, at every size.
+The experiment returns trivial and teaches nothing.
+
+Why *necessarily* zero? Because the fibration lives in the **reversible,
+complete category** — the completion is the groupoid side, everything
+invertible. And `AvarohaNisedha` (this session) /
+`Laghava` (long-standing) prove *no additive cost survives a receiver that
+inverts arrows*. So any invariant computed from the fiber structure alone
+has already thrown away the only quantity that could measure difficulty.
+The null result is forced by a theorem the corpus already holds. The whole
+"falsifiable toy" instinct was garbage: the test would have "passed"
+vacuously (everything preserves zero), a false confirmation.
+
+**Lesson: hardness is not a property of what a program computes (the fiber,
+which is cost-blind and topologically trivial). It is a property of the
+directed flow that constructs a section, graded by cost.**
+
+### Right turn: cost is a non-exact cochain on a directed structure
+
+Relocate the invariant. Cost is an *evaluator on the trace* — a cochain on
+the reachability digraph (nodes = configurations, edges = steps). This is
+the corpus's `MulyaVinimaya` (value = the pairing of a trace-chain with an
+evaluator-cochain; Stokes: exact evaluators telescope to endpoints;
+`गभीरता` the depth evaluator has a *nonzero cycle integral*, `pos 3`, so no
+potential represents it — a provably non-exact observable).
+
+A polynomial algorithm is exactly a **potential** Φ: a state function with
+`cost = Φ(goal) − Φ(start)`, gradient descent with a global potential.
+Hardness is that the cost cochain has **no potential of polynomial size** —
+non-exactness over the reachability digraph. This is *not* the fiber's H¹
+(zero); it is the digraph's H¹ with the cost cochain, and it is not zero.
+Crucially it is a ∀-over-potentials statement — a lower bound — which is why
+the analyzer (a fold-machine, one reading per lens) structurally cannot
+return it, and why "toy sampling" is worthless here.
+
+---
+
+## 2026-09-06 — reading the corpus: it is already here, in pieces
+
+I went looking for where a "directed, cost-graded, non-invertible" object
+lives. Every corner was already a checked module. This is the part where the
+insight stops being mine and becomes the repo's, assembled.
+
+### The directed structure — `CertifiedRewrites…Semicategory…OnlyTheCostComponentNeedsAnHLevel`
+
+Certified rewrites form a **semicategory, not a category**, *deliberately*:
+`noSelfRewrite : ¬ Certified d d` — strict cost improvement destroys every
+identity, so there is no unit and none is missing. Field name:
+**semicategory / semigroupoid**, and underneath, **directed algebraic
+topology** (Grandis; Fajstrup–Goubault–Raussen): a category with no
+inverses *is* a directed space.
+
+And the jewel in that module: composition associates, and the four record
+components pay four different prices — semantics = a path (up to path),
+**cost = an h-level (the ONLY component that could fail)**, migration =
+definitional, provenance = a library lemma. "The component that costs a
+theorem is the component that costs an h-level." The obstruction is
+stratified by h-level and it lands in the cost stratum. Cost is where the
+proof content is, isolated as a term.
+
+### The master theorem — `Laghava_TheCostAndTheInverseCannotCoexist…`
+
+This is my whole thesis, already proved, and it names itself:
+
+> **A COST AND AN INVERSE CANNOT COEXIST.** …and its two halves are the two
+> halves of this repository.
+
+- §2 `Matra` (a grading, adds under composition): merely being graded
+  forbids an inverse — *no function whatsoever* inverts it. Instance: the
+  kernel's `len`.
+- §3 `Laghava` (a grading that detects the unit): a structure that can be
+  inverted has cost identically zero, hence trivial. Contrapositive: **a
+  nontrivial group is not graded.** Instance: `X ≃ X` under `compEquiv`
+  (transport) admits no cost function.
+
+And the line that settles what I derived independently:
+
+> Cost is not discarded by univalence as bookkeeping. IT CANNOT EXIST
+> THERE. A univalent invariant is a function on the groupoid of transports,
+> and that groupoid — a nontrivial group — admits no grading.
+
+`Laghava` even lists where the pieces were and that none cited another:
+`AvrttiSesa` (`the-kernel-carries-no-inverse`), `Yantra` (the groupoid
+machine), **`Avirodha` ("strictly a category, weakly a groupoid; the gap is
+the śeṣa")**, `Samyoge`. The corpus already knows the two halves and already
+calls the gap the śeṣa. What it had not done is write the two halves as one
+**localization sequence** with the śeṣa as its connecting term.
+
+### The coefficient object — `DSOMinPlusFinite` / `DSOContinuationFullAbstract`
+
+`Cost = fin ℕ | ∞`, with `_⊗_` (= +, tropical multiply), `minC` (tropical
+add), and the checked distributivity `a ⊗ min b c = min (a⊗b) (a⊗c)`. This
+is the **min-plus (tropical) semiring**, explicit and checked. So cost in
+this corpus is *already* tropical, and a "potential" in my sense is exactly
+a **feasible / Bellman potential** — a tropical eigenvector. Field:
+**tropical geometry / max-plus algebra / shortest-path duality.**
+
+### The residue — `AvrttiSesa` and `Sesa`
+
+- `AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue`
+  — the kernel fills the monoid strictly, carries no groupoid, **the round
+  trip is the residue**. This is §2 with the śeṣa named as the round trip.
+- `Sesa_TheOneWayFunctionIsExactlyANonEquivalence…UnivalenceCannotErase` —
+  `isEquiv f` = every fiber contractible. Binding the *output* is free for
+  every `f` (`isContrSingl`); binding the *input* is free iff `f` is an
+  equivalence. So **a one-way function is exactly a non-equivalence**,
+  a map outside the image of `ua`, and no post-processing erases its
+  residual. Cryptography = deliberate use of a map outside `ua`.
+
+---
+
+## 2026-09-06 — the join that was not made: the localization sequence
+
+Here is the one step past where the corpus had assembled it. Everything
+below is reasoning on the page; the checkable core is small and flagged.
+
+**Setup.** `Derivation A B` under `⊕` has `done` as a unit, and `revD`
+(from `EveryDerivationIsInvertible`) reverses every derivation with
+`len (revD d) ≡ len d`. Note what `revD` is NOT: a group inverse would give
+`d ⊕ d⁻¹ ≡ done`, length 0; but `len (d ⊕ revD d) = 2·len d ≠ 0`. So **the
+derivation structure is a †-category (a reversal, a dagger) — NOT a
+groupoid.** `revD` flips direction; it does not cancel. This is the exact
+crack the whole theory lives in, and I had not seen it stated: the corpus's
+"strictly a category, weakly a groupoid" (`Avirodha`) is precisely
+"reversal exists (dagger) but cancellation does not (not a groupoid)."
+
+**The localization.** Let `L : Derivation → Ĝ` be the groupoid completion —
+the Gabriel–Zisman localization that formally inverts every rewrite, i.e.
+imposes `d ⊕ revD d = done`. This is *the same map* as `ua`'s reach:
+`Ĝ` is the groupoid of transports, the reversible core, the image of
+univalence. Two invariants sit over this map:
+
+- **`eval` (meaning) DESCENDS along `L`.** Soundness is groupoid-level:
+  `revD-sound` says the reversed derivation's meaning is the inverse path,
+  and meaning lands in a set, so it is invariant under reversal and
+  cancellation. `eval` is a **localizing invariant** — it sends the
+  localization to the quotient cleanly. Verification lives here.
+- **`len` (cost) DOES NOT DESCEND.** By `Laghava` §2/§3 it cannot: `Ĝ` is a
+  nontrivial group and admits no grading. Cost is a **non-localizing
+  invariant.** Search lives here.
+
+**The sequence.** Writing it Verdier/Gabriel–Zisman style, with tropical
+(min-plus) coefficients:
+
+```
+      Kᴸ  ────►  Derivation  ──L──►  Ĝ = image(ua)
+   (cost cycles)   (cost-graded,       (meaning-only,
+   the śeṣa         directed,           reversible,
+   = round trips)   a †-category)       verification)
+```
+
+`Kᴸ`, the kernel of the localization, is generated by the **round-trip
+loops** `d ⊕ revD d` — the things `L` sends to the identity. Their meaning
+is trivial (`eval` collapses them) and their cost is `2·len d` — pure vyaya,
+zero artha. This is *exactly* `AvrttiSesa`'s "the round trip is the residue"
+AND `MulyaVinimaya`'s nonzero cycle integral (`pos 3`): a loop with zero net
+meaning and nonzero cost. **The kernel of the localization is the cost-cycle
+module, and the cost cochain is supported precisely there.**
+
+**The connecting map ∂.** It takes a meaning-equality downstairs (two
+derivations with `eval d = eval d'`) to the cost cycle upstairs measuring
+`len d − len d'` — i.e. to `d ⊕ revD d'`. And this is *exactly the coin*
+(`Nanaka`): **apart upstairs (lengths differ), together downstairs (meaning
+equal).** The coin's faces are the generators of the relative term of `L`;
+the coin's `no-retraction` lemma is precisely the statement that **the
+localization sequence does not split** — cost has no section back from `Ĝ`.
+The coin, which I built two sessions ago as "the hard distinctions are one
+nonbinary object," turns out to *be* the relative cohomology of the
+computation localization. It was the śeṣa the whole time.
+
+**Where each hard problem sits, in this one picture:**
+
+- **P vs NP** = does the connecting map's image (a search obligation) lie in
+  the sub-module of `Kᴸ` generated in *polynomial* tropical degree? "A
+  polynomial potential exists" = "the cost cochain is a coboundary of a
+  poly-size Bellman potential" = the search obligation is nullhomotopic in
+  the poly-filtered directed complex. Verification downstairs is free
+  (`eval` descends); search upstairs is the connecting map; the gap is the
+  filtration degree.
+- **One-way functions / crypto** (`Sesa`) = elements where `∂` is nonzero
+  and *stays* nonzero under every base change inside `image(ua)` — because
+  univalence's transports are exactly `L`'s quotient, and cost cannot be
+  moved by them (`Laghava`). Crypto deliberately lives on `∂`.
+- **Factoring** (`SanghattaGana`, `SanghattaKarya`) = index calculus is a
+  *base change* to the smooth chart on which the cost cochain becomes a
+  coboundary (exponent-parity is the potential; a square is a null-space
+  element). An algorithm = a base change trivializing `∂` locally.
+
+**The sharp sentence I will stake:** *complexity is the failure of cost to
+be a localizing invariant.* Localizing invariants (K-theory, THH — the
+noncommutative-motives machinery the corpus's own EGB/Morita lane invokes)
+are defined by sending a localization sequence to a fiber sequence; they
+descend. `Laghava` proves cost does the opposite — it is supported on the
+kernel and dies on the quotient. So the entire motivic/localizing apparatus,
+built to measure what *survives* inversion, structurally cannot see
+complexity, which is what *dies* under it. Same localization sequence,
+opposite half. To measure complexity you need the **directed + tropical**
+refinement: directed algebraic topology for the non-invertible base,
+min-plus coefficients for the cost, and the relative term (`∂`, the coin,
+the śeṣa) as the object of study.
+
+---
+
+## Field / vocabulary map (for whoever continues this)
+
+| corpus object | standard field & name |
+|---|---|
+| `Derivation`, `⊕`, `revD` (reverse, not cancel) | **†-category / dagger category** (reversal without inverse) |
+| `CertifiedRewrites…Semicategory`, `noSelfRewrite` | **semicategory / semigroupoid**; **directed algebraic topology** (Grandis, Fajstrup–Goubault–Raussen) |
+| `L : Derivation → Ĝ`, groupoid completion | **Gabriel–Zisman localization / calculus of fractions**; groupoidification |
+| `Ĝ = image(ua)` | **univalent core**; the reversible ∞-groupoid |
+| `eval` descends; `len` does not | **localizing vs non-localizing invariant** (Blumberg–Gepner–Tabuada language, used against the grain) |
+| `Cost = fin | ∞`, `⊗`, `minC` (`DSOMinPlusFinite`) | **min-plus / tropical semiring**; potentials = **Bellman/feasible potentials** |
+| cost cochain non-exact (`MulyaVinimaya` cycle integral) | **directed cohomology with tropical coefficients**; `H¹` of the reachability digraph |
+| the coin (`Nanaka`), apart-up/together-down, no retraction | **relative term / connecting map of the localization**; the sequence not splitting |
+| `Sesa` (one-way = non-equivalence) | crypto as **the complement of `image(ua)`**; the nonzero locus of `∂` |
+| `Laghava` (cost ∧ inverse ⇒ ⊥) | the exactness statement of the whole sequence |
+
+---
+
+## Open threads (append below as they close)
+
+1. **Write the sequence as one checked object.** The pieces are all `--safe`
+   terms; nobody has a single module stating `Kᴸ → Derivation → Ĝ` with the
+   tropical cost supported on `Kᴸ` and `eval` descending. The two halves are
+   `Laghava` §2 and §3; the connecting map is the coin; `AvrttiSesa` is the
+   kernel generator. This is assembly, not new mathematics, and it would
+   make "complexity = non-localizing residual" a term rather than a claim in
+   a markdown file.
+
+2. **The poly filtration of `Kᴸ`.** Define the tropical-degree filtration of
+   the cost-cycle module and state P-vs-NP-flavored hardness as "a search
+   obligation's `∂`-image is not in the poly-generated sub." This is where
+   the ∀-over-potentials wall is — not machine-decidable, by construction,
+   and that non-decidability is itself explained by the fold-machine only
+   returning existence, never non-existence-of-a-cheap-fold.
+
+3. **Directed cohomology, properly.** Grandis' *natural homology* / the
+   fundamental category of a directed space is the right home for `H¹` here.
+   Does the corpus's ladder (`MatraSopana`, `SopanaSamyoga` — a category of
+   observer refinements) already give the coefficient system a directed
+   cohomology needs? Suspicion: yes, and the ladder is the base-change poset
+   over which algorithms are searched.
+
+4. **The dagger is load-bearing and under-named.** `revD` makes `Derivation`
+   a †-category; `Laghava` §4's transport is a genuine groupoid. The
+   difference between "dagger" and "inverse" is the difference between
+   `len(d ⊕ revD d) = 2 len d` and `= 0`. Every "reversible computing frees
+   the cost" claim founders exactly here, and it deserves its own module:
+   *a dagger is not an inverse, and cost sees the difference.* (The rope lane
+   already proved `the transpose is a dagger never an inverse`, abstract 30
+   — check whether it is literally the same theorem one category up.)
