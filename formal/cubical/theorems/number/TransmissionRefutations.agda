@@ -546,8 +546,6 @@ companion-display-holds-to-12 = refl
 ------------------------------------------------------------------------
 -- SECTION C.  §0's tower collapses at stage one (ledger rows 0.3, 5.1)
 --
--- WHAT IS AND IS NOT FORMALISED.
---
 -- The archive's κ is  κ(Θ) := ⋂ { Υ ⊇ Θ | Υ closed under the nine
 -- operations }.  As the ledger's row 0.2 records, no ambient set is
 -- supplied, so this intersection ranges over a class and κ does not

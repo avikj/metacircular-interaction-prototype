@@ -24,11 +24,6 @@
 -- the Riemann hypothesis; an inhabitant of its negation would refute it.
 -- The type sits where the fourth position held the seat for it.
 --
--- WHAT IS NOT CLAIMED.  No inhabitant is offered in either direction.
--- The equivalence of RH with this inequality is classical analysis and
--- is cited, not formalized here; what is formalized is the elementary
--- side, exactly.  The constant 36 (here 144 after clearing 2·) is the
--- published one.
 ------------------------------------------------------------------------
 
 module RH_TheWholeQuestionEntersTyped_DavisMatiyasevichRobinsonArithmetization where

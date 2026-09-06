@@ -19,7 +19,6 @@
 -- complaint about latency.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS AND IS NOT BEING FORMALISED
 --
 -- Only the delivery constraint.  A causal-delivery discipline says: an
 -- order may deliver `b` after `a` whenever nothing forbids it, and must

@@ -32,9 +32,6 @@
 -- many r strictly between.  Both halves are decidable at size ~q by
 -- `decIsPrimePower`, built here from `primeDivisor` and `strip`.
 --
--- WHAT IS AND IS NOT DELIVERED HERE, stated before the theorems rather
--- than discovered by a later auditor.
---
 -- DELIVERED: `next-characterised`, `decIsPrimePower`, and the decision
 -- procedure's own non-vacuity (`test-9 : IsPrimePower 9`, obtained by
 -- the kernel evaluating `decIsPrimePower 9`).  Whole file, EXIT=0, 3 s.

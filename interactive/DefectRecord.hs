@@ -168,9 +168,6 @@
 -- Exact throughout.  Nothing here is sampled, fitted or estimated: the
 -- counts are counts and the chain is a fold.
 --
--- NOT CLAIMED of the sources: none of Kumarila, Siddhasena or Akalanka
--- wrote a log format.  What is taken from each is the DISTINCTION named
--- beside it, and the rule for when it applies.
 
 module DefectRecord (main) where
 

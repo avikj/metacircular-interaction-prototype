@@ -46,8 +46,6 @@
 --   end of a book for the next author (Sawaguchi Kazuyuki 1670,
 --   Seki Takakazu's 1674 answer).
 --
--- NOT CLAIMED: that any source wrote this datatype.  What is taken is the
--- two-road structure and the obligation each road carries.
 
 module Answer
   ( Saksin(..)

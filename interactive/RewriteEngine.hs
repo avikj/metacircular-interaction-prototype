@@ -1907,14 +1907,6 @@ deriveLekhaV vd nv start =
 -- from memory, which is the failure this repository exists to prevent.
 -- The mechanism is exercised counterfactually below until that is fixed.
 --
--- WHAT IS AND IS NOT CLAIMED.  The rules run below are the tripadi's own,
--- which belong to the ORDERED regime; running them simultaneously is a
--- COUNTERFACTUAL, not a claim about Sanskrit.  Its purpose is to show that
--- the regime itself changes the output -- that the choice of device is
--- load-bearing rather than presentational.  No sutra of 6.4 is encoded
--- here; the schematic treatment is the same choice
--- formal/cubical/NaturalMachine/AsiddhatvaBreaksFactoring.agda makes and
--- says it makes ("three letters and one substitution... deliberate").
 
 -- One asiddhavat pass: every rule of the block is offered the SAME input,
 -- so none of them sees any other's effect.  Non-overlapping rewrites are
@@ -2063,15 +2055,6 @@ asiddhaAudit start =
 -- vallī and the answer is read by climbing it -- the intermediate trace IS
 -- the result, not scratch work thrown away once a result is reached.  Space
 -- log, time log, no table.
---
--- WHAT IS NOT CLAIMED, stated first because it is the easy overclaim.  The
--- kuṭṭaka terminates because its remainders STRICTLY DECREASE.  Nothing here
--- strictly decreases; a residual is frequently a larger object than the
--- configuration that produced it.  What holds instead is FINITENESS -- the
--- queue is a set of keys over the finite juncture alphabet, and requeue is
--- suppressed explicitly.  "It is the kuṭṭaka, therefore it terminates" is
--- false.  What is taken from Āryabhaṭa is the DISPOSAL RULE (keep the
--- remainder, it is the material) and not the termination proof.
 --
 -- THE PRECEDENT IN THIS REPOSITORY.  `interactive/ObligationAnalysis.hs` did this for
 -- the theorem engine: the kernel's obligations carried the exact pair of terms
@@ -3058,18 +3041,6 @@ selfTest = concat
       ]
 
     -- 8.11  स्थानिवद्भावः (1.1.56) and लोपः (1.1.60), section 6c.
-    --
-    -- WHAT IS AND IS NOT EXERCISED, and this is the honest half of the
-    -- section.  The EXCEPTION clause `anal-vidhau` is exercised: three
-    -- corpus words have a rule firing at a position another rule had
-    -- already substituted, and the rule reads the ādeśa (`barrierAudit`).
-    -- The INHERITANCE half is DECLARED for the three designation-reading
-    -- rules encoded here -- 1.1.5, 1.3.9, 7.1.1 -- and in every derivation
-    -- this file runs, those three fire at sites holding no ādeśa, so their
-    -- two readings COINCIDE and nothing distinguishes them.  That is
-    -- checked below, not glossed over: `deriveRupamEverywhere`, which
-    -- strikes `sthānivat` and makes every rule read the form, gives the
-    -- same word as the grammar on the whole corpus.
     --
     -- So the divergence is exhibited by striking the EXCEPTION -- reading
     -- 1.1.56 as the folklore's full transparency -- and not by an encoded
