@@ -1,0 +1,48 @@
+ONE NO-RETRACTION LEMMA, FOUR CHECKED FACES: THE GAP, THE ROUTE, THE
+SCHEDULE, AND THE COUNT ARE ONE COIN
+The corpus's hard distinctions inhabit a single type, apartness
+upstairs and identity downstairs are both theorems on every face, and
+no observer reads both sides
+
+The nonbinary coin / the shape shared by the projections / four lanes
+holding one object
+
+A face of the coin is a record: a projection, two carried points,
+apartness upstairs, identification downstairs.  This night the type is
+minted and the corpus's distinctions are found to inhabit it — each
+face built from another lane's checked terms, none re-proved:
+
+  the gap       the visible Turing step's collision (Nasha): find/check
+                asymmetry as non-injectivity of the projection — the
+                P/NP distinction's carrier.
+  the route     direct and detour histories, lengths 2 and 4, equal
+                forgetful meaning: classical cost lives in the drop.
+  the schedule  the diamond's two traces, depths 2 and 1, identified
+                by the explanation's quotient.
+  the count     the free-orbit witnesses, distinct in the carrier,
+                one reading to every symmetric observable.
+
+ONE LEMMA SERVES EVERY FACE.  No face's projection admits a retraction
+recovering both carried points — proved once, generically, and applied
+four times.  Every "not recoverable downstairs" argument in the corpus
+is this proof.
+
+THE COIN IS NONBINARY, AS A TERM.  On every face, apart and together
+are both theorems: the question "are the two the same?" has no boolean
+answer, only a position indexed by which side of the projection asks.
+Syād-asti-nāsti at the level of identity itself, with the no-retraction
+lemma as the reason no collapse is available.
+
+Companion law, cited not restated: the carried side cannot be
+discarded, because no additive cost survives any receiver that inverts
+arrows (AvarohaNisedha) and the carried side is invertible
+(EveryDerivationIsInvertible).  Cost, route, schedule, count: each
+lives exactly in what its projection drops.
+
+SYĀT — THE CLAIM, EXACTLY.  The record, the lemma, the four
+inhabitants, bothTheorems on each.  NOT claimed: that any open problem
+is decided.  What is proved is that four checked distinctions share
+one shape and the shape forbids recovery — a theorem about the
+projections, not a conjecture about the problems.
+
+Machine-checked in cubical type theory, --safe, at the pin.

@@ -1,0 +1,42 @@
+THE KERNEL IS INITIAL: EVERY READING IS ITS UNIQUE FOLD, SO ALL PATHS
+THROUGH A SYSTEM ARE ENUMERATED BY ONE RECURSOR
+The atom of the interaction calculus, made a term — decomposition is
+canonical because there is exactly one map out per building
+instruction
+
+The seed-atom / initiality as the elucidator's licence / analysis is
+naming a receiver
+
+The kernel is the singularity from which every object is built, in
+exactly one way per building instruction.  The word for that is
+initiality, and this night it is a term.
+
+A receiver of the atom's motion is a carrier per source term and an
+action for every generating step — reverse, the two defining
+equations of +, the three congruences.  Give the actions and you have
+said how to read every derivation there could be.
+
+THE FOLD EXISTS: every receiver is built upon the kernel by one
+recursor.  THE FOLD IS UNIQUE: any function with the receiver's two
+computation rules IS the fold, by one induction.  So a system admits
+exactly one reading compatible with its own step-actions —
+decomposition is canonical, not chosen, and "seeing all paths through
+a system" is a theorem rather than a hope: every path-reading is the
+image of the atom under its unique map, and there is no other.
+
+The session's own analyzers are recovered as instances, by the
+uniqueness theorem and not by rewriting them: soundness is the fold at
+the endpoints-evaluate-equally receiver, cost is the fold at the
+constant-ℕ receiver, and every evaluator integral is the fold at a
+constant-ℤ receiver carrying that evaluator's per-step values.  Three
+procedures were always one recursor at three receivers.
+
+To analyze a system is to name its receiver; the atom does the rest.
+
+SYĀT — THE CLAIM, EXACTLY.  Recursion and uniqueness for receivers
+indexed by Tm with a level-polymorphic carrier and an action per Step;
+the three named analyzers as instances.  NOT claimed: initiality
+packaged as an object in a category of algebras — this is its
+computational content, stated directly on the kernel's type.
+
+Machine-checked in cubical type theory, --safe, at the pin.

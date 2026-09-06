@@ -1,0 +1,35 @@
+THE ROPE JOINS THE COIN: A FACE AT EVERY HORIZON
+The quarter power of a far crossing is apart from the identity and
+reads identically to every observer below it — the writhe sector
+minted into the same type as the P/NP gap
+
+The fifth face / the coin gains a parameter / topological memory and
+the forgetful projection are one shape
+
+Nanaka minted the type: a face of the coin is a projection, two
+carried points, apartness upstairs, identification downstairs — and
+four lanes inhabited it.  The rope lane, which proved months apart
+that its charge is conserved and read by no bounded observer, now
+inhabits it too, and contributes what no earlier face had: A FACE AT
+EVERY HORIZON.
+
+For every observer depth k and every excess i: the carried points are
+the fourth power of a crossing beyond the horizon (a pure twist,
+charge-bearing) and the identity; they are apart (na-catuṣka — the
+quarter turn has order exactly four), and the reading at depth k
+receives them identically (adhaḥ-sthira, four times, then funExt).
+The one no-retraction lemma applies uniformly: no reader at any depth
+reconstructs both the twist and the identity from what it reads.
+
+So the rope's topological memory and the Turing step's find/check gap
+are, from the coin's side, the same face-shape held by different
+lanes — which is the session's standing claim made checkable one more
+time: the hard distinctions are sides of one nonbinary coin, and each
+new face is one record away from joining.
+
+SYĀT — THE CLAIM, EXACTLY.  The family ropeFace : (k i : ℕ) → Paksa
+and its no-retraction corollary.  NOT claimed: apartness of a single
+crossing from the identity (the checked apartness the lane exports is
+at the fourth power), nor anything about readers above the crossing.
+
+Machine-checked in cubical type theory, --safe, at the pin.

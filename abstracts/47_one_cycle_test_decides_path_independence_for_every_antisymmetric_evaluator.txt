@@ -1,0 +1,36 @@
+ONE CYCLE TEST DECIDES PATH-INDEPENDENCE FOR EVERY ANTISYMMETRIC
+EVALUATOR
+Exhaustive path testing compresses to a single loop, the whole exact
+class satisfies the hypothesis for free, and the depth evaluator's
+escape from the hypothesis is exactly why its class lives
+
+Test-suite compression / the basis cycle as the test suite / the
+boundary of what one loop can certify
+
+The synthesis claims: to prove an additive edge effect
+path-independent, verify zero integral on basis cycles — homology
+gives the minimum family of irreducible global path tests.  The
+pairwise instance is now a theorem of the kernel.
+
+Integration is additive over concatenation, and against reversal an
+orientation-respecting evaluator cancels step by step:
+∫(revD d) + ∫ d ≡ 0, proved without ever distributing negation.
+Therefore THE ONE-CYCLE TEST: for any two coterminal derivations p, q
+and any antisymmetric evaluator, ∫(p ++ revD q) ≡ 0 forces
+∫ p ≡ ∫ q.  One loop tested, every pair of schedules certified.
+
+Every exact evaluator is antisymmetric (a potential's coboundary
+reverses sign with the step — negSwap, from the pinned ℤ lemmas), so
+the entire protected class of the compression theorems passes the
+hypothesis for free.  And the depth evaluator does NOT — it counts
+wrappers through reverse positively — which is exactly why its
+nonzero loop integral escapes the test and lives as a class.  The
+hypothesis is not a convenience; it is the boundary between value one
+cycle can certify and value no cycle can kill.
+
+SYĀT — THE CLAIM, EXACTLY.  Additivity, the cancellation, the test,
+the antisymmetry of every coboundary, at one fundamental cycle
+uniformly in the pair it spans.  NOT claimed: a spanning tree or full
+H₁ basis for the whole step graph.
+
+Machine-checked in cubical type theory, --safe, at the pin.
