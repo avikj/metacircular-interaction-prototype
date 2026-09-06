@@ -328,3 +328,15 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
     Σ-anṛṇa′ : (k : ℕ) → 0 ≤ Σ⟨ k ⟩ (λ i → ∣ c (suc i) ∣)
     Σ-anṛṇa′ zero    = isRefl≤ 0
     Σ-anṛṇa′ (suc k) = anṛṇa-yoga {Σ⟨ k ⟩ (λ i → ∣ c (suc i) ∣)} {∣ c (suc k) ∣} (Σ-anṛṇa′ k) (anṛṇa (c (suc k)))
+
+------------------------------------------------------------------------
+-- ५ · The converse, with signed weights: when every ratio is at most one
+--     the signal is bounded by Σ|c_i| — the tail bound at M = 1.
+------------------------------------------------------------------------
+
+module Sīmita (n : ℕ) (c m : ℕ → ℚ) (0≤m : (i : ℕ) → 0 ≤ m i) (m≤1 : (i : ℕ) → i <ℕ n → m i ≤ 1) where
+
+  open Tail n c m 1 0≤1′ 0≤m m≤1
+
+  sīmita : (t : ℕ) → ∣ T t ∣ ≤ C
+  sīmita t = subst (∣ T t ∣ ≤_) (cong (C ·_) (eka-ghāta t) ∙ ·IdR C) (pucchā t)
