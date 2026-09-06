@@ -123,6 +123,17 @@
 --     privileged; all discoveries of one form are canonically identified.
 --     That is exactly "forms are discovered, not invented; one form under
 --     many discoveries."  Imported below and compiles.
+--     And the AGENCY of a form ingresses with it: THEOREM
+--     (GoalCoherenceIsATransportInvariant…, theorems/walks/) — a form's
+--     goal-coherence (the exactness / holonomy class of its preference
+--     field) is a TRANSPORT INVARIANT of the state space
+--     (substrateIndependenceOfCoherence): it is a property of the FORM,
+--     preserved and reflected by every discovery e : Carrier ≃ Form, hence
+--     independent of the carrier or its history.  This is Levin's "free
+--     lunch / agential gifts from Platonic space" as a checked term — the
+--     coherent competency a Xenobot exhibits with no evolutionary history
+--     is transported from the form, not selected for — and it upgrades the
+--     Platonic-space claim above from prose to theorem.
 --
 -- SOURCES.  Levin, The Computational Boundary of a "Self" (Front. Psychol.
 --   2019); TAME (arXiv:2201.10346); Fields–Friston–Glazebrook–Levin, A
@@ -143,6 +154,7 @@ open import HolonomyCriterionForExactness
 open import CurvatureOfACoboundaryVanishesAndTriangleFlatnessIsExactness
 open import MorphogeneticAgency_CongruenceIsLawConservationIsTheSetpointAlongTheWholeOrbitAndReachabilityInABasinIsRegeneration
 open import GoalCoherenceUnderBindingIsCohomologicalAndNotCompositional
+open import GoalCoherenceIsATransportInvariantSoAgencyIngressesLosslesslyIntoEveryEmbodimentOfTheForm
 open import DerivationReachabilityIsValueEquality
 
 -- the two "resolved" fronts, imported so their closure is checked, not asserted:
@@ -157,6 +169,9 @@ open import FutureBehavior                                                      
 _ = goalCoherenceNotCompositional        -- coherence is not compositional
 _ = couplingInconsistentFrustrates       -- any nonzero coupling mismatch frustrates
 _ = consistentWhole                      -- the consistent coupling coheres
+
+-- Platonic space: agency is a transport invariant of the form:
+_ = substrateIndependenceOfCoherence     -- coherence ingresses losslessly into every embodiment
 
 -- §4 the general agency criterion:
 open Perfect using (perfectFromBoth)      -- perfect agent = loses nothing ∧ misses nothing
