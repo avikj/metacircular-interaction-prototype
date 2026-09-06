@@ -1,0 +1,53 @@
+THE POSTNIKOV TOWER'S RUNGS ARE ONE PREDICATE: COST IS NOT EXACT AT
+SUCCESSIVE LEVELS
+The self-generating climb made a pattern rather than an anecdote — two
+consecutive rungs already in the corpus exhibited as literal instances of
+one k-invariant type, read back by the analyzer
+
+The self-generating closure / the tower's step as one type / cost's
+non-exactness at every degree
+
+GarbhaDhara built one step: install cones off an obstruction and
+precipitates the fee one level up (the non-descending cost).  The open
+item it left was the ITERATION — that the fee at level n is the carrier
+at level n+1, endlessly.  GarbhaShreni does not build the whole ∞-tower;
+it builds the RUNG RELATION as a term, so that "climb a level" is
+re-instantiating ONE predicate one degree up, not a new phenomenon each
+time.
+
+ONE PREDICATE.  NotExact ∂ V = ¬ Σ[ φ ] (∀ i → ∂ φ i ≡ V i): the
+invariant V is not the coboundary ∂ of any potential φ.  A single
+k-invariant type, degree-agnostic.
+
+RUNG 0 (π₀).  V = len; φ ranges over functions Ĝ → ℕ on the
+localization; ∂ φ d = φ (L d).  "Cost is not a FUNCTION on the
+set-quotient" — SankramanaShreni.kernelCostDoesNotDescend — IS NotExact
+on the nose: the pass-through is refl, the two types are definitionally
+one.  The analyzer read costNotExact₀ back as `NotExact ∂₀ len`.
+
+RUNG 1 (π₁).  V = गभीरता, the depth evaluator; φ ranges over state
+potentials Tm → ℤ; ∂ φ = d′ φ, the coboundary.  "Cost is not the
+COBOUNDARY of a potential" — MulyaVinimaya.depthHasNoPotential, whose
+loop integrates to pos 3 ≠ 0 — is NotExact one degree up (bridged by
+sym).  Read back as `NotExact ∂₁ V₁`.
+
+THE LADDER.  theTower : NotExact ∂₀ len × NotExact ∂₁ V₁ — the two rungs
+as one type at two degrees, read back by the analyzer as the product.
+Rung 0: cost has no 0-potential (not a function on π₀).  Rung 1: cost
+has no 1-potential (not exact on π₁).  Coning off rung n (install) is
+exactly what makes rung n+1's failure visible; that the two rungs are
+the same predicate is why the climb is a step, not a coincidence.
+
+The open problem is thereby sharpened, not solved: from "does install
+iterate into a tower" to the precise induction "for the derivation
+cochain complex, cost is not exact at any degree n" — two base cases
+now discharged as one predicate.
+
+SYĀT — THE CLAIM, EXACTLY.  The predicate, and the two corpus
+obstructions AS instances of it (rung 0 definitional, rung 1 up to sym),
+and their product.  NOT claimed: the full ∞-tower — that rung n
+precipitates rung n+1 for all n — which is the remaining induction.
+
+Machine-checked in cubical type theory, --safe, at the pin; the rung
+types and their product computed and read back through the interactive
+kernel (sadhana.vislesana).

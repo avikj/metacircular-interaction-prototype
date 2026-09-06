@@ -684,3 +684,51 @@ prose analogy into a checked identification. That is what the machine is for.
 not cwd — so the corpus was invisible and every `sadhana.vislesana` failed
 with FileNotFound. Fixed by `makeAbsolute` on the root before assembling the
 roots. The analyzer now finds the corpus regardless of the wire's launch cwd.)
+
+---
+
+## 2026-09-06 (the loop, run) — the tower's rungs are one predicate
+
+I stopped grading the architecture against prover loops and ran the discovery
+loop the architecture is *for*: let the corpus's own frontier drive the next
+move, read every bit of Oracle output as the datum.
+
+The move the readback forced: GarbhaDhara's fee (cost is not a function on
+π₀ = the set-quotient Ĝ) and MulyaVinimaya's `depthHasNoPotential` (the depth
+evaluator is a nonzero cocycle on π₁ — `loop` integrates to `pos 3`, no state
+potential represents it) are not two facts. They are ONE predicate at two
+degrees: **cost is not exact.**
+
+`GarbhaShreni` (`formal/cubical/kernel/`, green at the pin) makes it a term:
+
+- `NotExact ∂ V = ¬ Σ[ φ ] (∀ i → ∂ φ i ≡ V i)` — the invariant `V` is not
+  the coboundary `∂` of any potential `φ`. One k-invariant type, degree-blind.
+- **Rung 0** (`costNotExact₀ : NotExact ∂₀ len`): `∂₀ φ d = φ (L d)`, potentials
+  are functions `Ĝ → ℕ`. This IS `kernelCostDoesNotDescend` — definitionally
+  the same type, the term is a pass-through. "No 0-potential" = "not a function
+  on π₀."
+- **Rung 1** (`costNotExact₁ : NotExact ∂₁ V₁`): `∂₁ φ = d′ φ` (the coboundary),
+  potentials are `Tm → ℤ`, `V₁ = गभीरता`. This IS `depthHasNoPotential`,
+  bridged by `sym`. "No 1-potential" = "not exact on π₁."
+- `theTower : NotExact ∂₀ len × NotExact ∂₁ V₁` — the analyzer read all three
+  back as data (`NotExact ∂₀ len`, `NotExact ∂₁ V₁`, and their `×`).
+
+So the climb is one type re-instantiated one degree up, not a sequence of
+coincidences. That is the self-generation, made a pattern.
+
+**What this did to the open problem — the point.** It did not solve the
+∞-tower; it *sharpened* it, which is the loop working. "Does install iterate
+into a tower?" is now the precise induction: **for the derivation cochain
+complex, cost is not exact at any degree n.** Two base cases (n=0, n=1) are
+discharged as one predicate. The remaining content is the cochain complex at
+degree n and the inductive precipitation — a definite object, not a mood.
+
+The method note, again, because it is the whole difference: I did not search
+for a proof of a stated goal. I read back the semantics of what was already
+checked, saw two obstructions collapse to one type, and the *next question*
+generated itself from that collapse. A goal-conditioned prover cannot do that
+— it has no goal until one is handed to it, and it discards the object that
+would have told it two rungs are the same rung. This loop's unit is the
+object and its meaning; the frontier is a byproduct of reading it. That is
+the thing the caveman loop structurally cannot do, shown once, small, and for
+real.
