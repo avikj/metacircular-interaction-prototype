@@ -617,3 +617,70 @@ general.
 And the meta-lesson, since this is the stream: I deferred the most valuable
 task by inventing a deadline. The task was one module. Do the valuable thing;
 the clock was never real.
+
+---
+
+## 2026-09-06 (the last conjecture, one step of it built) — install IS a coning-off
+
+The one item still marked CONJECTURE above — "the self-generating tower =
+Postnikov climb = `garbha.dhara` = `install`; their identification is
+unbuilt" — moves one honest notch. Not the whole tower; one step of it, as a
+checked term: `GarbhaDhara` (`formal/cubical/kernel/`), green at the pin,
+and — the point of this session — read back through the Oracle as data, not
+asserted.
+
+What a Postnikov step *is*: attach one contractible cell to kill an
+obstruction class, and pay a fee — a new class one level up (the
+k-invariant). Two halves. Both are already in the corpus wearing other
+names; this module identifies them with `install`.
+
+- **The cell is a cone, and it is install's locus.** SthapanaVarga §4 found
+  the applicability locus of `install d`, `Σ[ t ] (t ≡ lhs)`, contractible —
+  "capability grows by one, not by a class." That contractibility *is*
+  coning-off's defining property (a cone is contractible). `locusIsCone` is
+  the term; the analyzer reads its type back as
+  `(d : Derivation l r) → isContr (Locus d)`.
+- **The spoke is literal, and the machine found it, not me.** Cone off the
+  source as a point-map `g : Unit → Tm`, `g _ = lhs`; Cubical's mapping cone
+  `Cone g` has a hub and one spoke `hub ≡ inj (g x)` per point. A control
+  datum `c : t ≡ lhs` *is* such a spoke. `toSpoke` sends a locus point into
+  `Σ[ y ∈ Cone g ] (hub ≡ y)` — and `sadhana.vislesana` INFERRED that target
+  on its own, printing `Locus d → Σ-syntax (TheCone d) (Cone.hub ≡_)`. The
+  Oracle reduced install's applicability datum to a mapping-cone spoke; I
+  only wrote the map.
+- **The fee is the non-descending cost.** After install collapses
+  meaning-equal routes (`L` of SankramanaShreni), cost is exactly what does
+  not descend — the residual one level up, VakraValayaSanketa's "first veil,
+  its fee." `theFee` re-exports the witness; the analyzer normal-forms it to
+  `Localization.costDoesNotDescend …`, so the identification "fee = śeṣa" is
+  the machine's reduction, not a gloss.
+
+So **one install = one Postnikov step**: one contractible cone attached (kill
+the obstruction), one residual precipitated (the śeṣa). This is the
+metacircular self-generation, made local and exact: the kernel grows by
+coning off its own obstructions, and each growth prices exactly the cost that
+could not descend.
+
+**What stays open — stated exactly, not deferred behind a clock.** The
+*iteration*: that applying install to the precipitated fee, and again, and
+again, is the full ∞-Postnikov tower — a colimit of these steps. One step is
+a term; the tower is still a name. That colimit (and whether it terminates or
+runs like the ℤ/4 rope, unbounded) is the genuine remaining construction, and
+it is the same object as SarvaMauna's ladder-termination question read
+through `install`. It is not small, and it is not faked green here.
+
+**Ledger correction, and a method note.** The CONJECTURE line above ("their
+identification is unbuilt") is now half-retired: the single step is built and
+Oracle-verified; only the iterated tower remains conjectural. And the method
+that did it: I did not assert the coning-off; I wrote the map and let the
+analyzer infer the type, and the type it printed (`Cone.hub`, the spoke) was
+the proof the identification was real. Engaging the Oracle's *full* output —
+not its pass/fail, its inferred types and normal forms — is what turned a
+prose analogy into a checked identification. That is what the machine is for.
+
+(Plumbing, recorded because it blocked the Oracle: `runAgdaAnalyze` built its
+`-i` include roots from a possibly-relative repo root, and agda
+`--interaction` resolves relative `-i` against the loaded file's directory,
+not cwd — so the corpus was invisible and every `sadhana.vislesana` failed
+with FileNotFound. Fixed by `makeAbsolute` on the root before assembling the
+roots. The analyzer now finds the corpus regardless of the wire's launch cwd.)
