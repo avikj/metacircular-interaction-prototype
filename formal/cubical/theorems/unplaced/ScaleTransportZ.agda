@@ -138,3 +138,15 @@ all-critical :
   → (m : Mode) → exp m ≡ pos 0
 all-critical Mode exp dual de bdd =
   criticality ℤexp (mkTransport Mode exp dual de) bdd
+
+-- D's sufficiency, stated exactly: if every exponent is nonpositive (Θ ≤ ½)
+-- and the functional equation pairs exponents (B), then every exponent is 0
+-- (Θ = ½).  This is the whole RH-shaped conclusion, resting solely on the
+-- nonpositivity estimate D = "(m) → exp m ≤ 0".
+criticality-from-≤0 :
+    (Mode : Type₀) (exp : Mode → ℤ) (dual : Mode → Mode)
+  → (de : (m : Mode) → exp (dual m) ≡ (- exp m))
+  → ((m : Mode) → exp m ≤ pos 0)
+  → (m : Mode) → exp m ≡ pos 0
+criticality-from-≤0 Mode exp dual de h =
+  all-critical Mode exp dual de (λ m → ≤0→boundedOrbit (exp m) (h m))
