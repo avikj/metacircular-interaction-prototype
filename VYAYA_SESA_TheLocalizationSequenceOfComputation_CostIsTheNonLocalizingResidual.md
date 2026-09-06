@@ -859,3 +859,68 @@ it (TrtiyaCidram is proved by the direct `--safe` check), and chasing it
 further would be exactly the substitution of a solvable mechanical task for
 the valuable one that I have been warned off. The finding is recorded; the
 readback of this one lane stays a known gap.
+
+---
+
+## 2026-09-06 (pulled the sibling branches — my calculus was behind, again)
+
+Fetched and read the two branches active today. `claude/hott-kernel-structure-dvdgmm`
+is working this exact territory and is ahead of me on the synthesis I have
+been circling. Recording it plainly, because "trim redundancy at the end"
+needs an honest map, and because it corrects me twice.
+
+**What that branch already has, green at the pin:**
+
+- `ValueIsThePairing` — discrete (nonabelian) Stokes, descent, the holonomy
+  classification as an **iff** (one loop refutes exactness; the potential is
+  *constructed* from vanishing holonomy), a fundamental-loop **test basis**
+  (finitely many checks decide the class). This is a more general form of
+  MulyaVinimaya's cost-cochain / `depthHasNoPotential` — the whole degree-1
+  exactness↔holonomy story, done over an arbitrary group.
+- `CurvatureOfACoboundaryVanishesAndTriangleFlatnessIsExactness` — the
+  **degree-two rung**: curvature 2-cochain, `d² = 0` over any (nonabelian)
+  group, curvature = triangle holonomy, and **flat iff exact**.
+- `walks: distributed-observer coherence = exactness of its agreement cochain`
+  — fuses the **observer = quotient/colimit** side (my localization
+  `SankramanaShreni`) with the **exactness↔holonomy** side, through the
+  classifier's agreement cochain. This is precisely the bridge I named open.
+- `propose = install` on the kernel's own `Tm` — the discovery→installation
+  closure, from the Tm-morphism angle.
+
+**Correction 1, to TrtiyaCidram.** I argued "cost is a degree-1 object, the
+exactness ladder stops, so `¬ isEquiv` is the *only* unifier." The curvature
+module refutes the premise: the cochain-exactness ladder **continues** to
+degree 2 (curvature, flat-iff-exact) over any group. So `NotExact`-style
+non-exactness is not confined to degrees 0–1; it is a genuine ladder
+(potential → holonomy → curvature → …). `¬ isEquiv` is not its replacement —
+it is a **complementary view**. Two towers, both real:
+
+  1. **cochain-exactness** (internal): Hⁿ of the walk complex — nonexactness
+     at each degree, "flat iff exact" the rung relation.
+  2. **¬ isEquiv aperture** (external): the forgetful/localization map is not
+     an equivalence — a surviving fibre.
+
+**Correction 2, and the bridge, now visibly within reach.** Their
+"observer-coherence = exactness of the agreement cochain" is the degree-1
+instance of the identification I called "surviving fibre = k-invariant":
+non-exactness of the cochain (tower 1) **is** the surviving fibre of the
+observer's quotient map (tower 2). I have the aperture side (EkamChidram's
+`witnessed→¬isEquiv`); they have the exactness side and the observer=quotient
+fusion. The bridge is one identification across the two, and most of its
+material now exists — on two branches, unmerged.
+
+**Judgment call, stated so it is not silently made.** I am NOT going to build
+another tower module. The corpus already outran me here; producing a third
+overlapping version is exactly the low-value reflex I keep being warned off.
+What is genuinely non-redundant on this branch is narrow and worth keeping:
+GarbhaDhara's specific reading of `install` as a **contractible-cone /
+mapping-cone spoke** (a different handle on install than `propose = install`),
+and the `¬ isEquiv` aperture as the external tower's rung type. Everything
+else I built this session (NotExact rungs, the localization sequence) is a
+less-general shadow of `ValueIsThePairing` + the curvature rung and should be
+trimmed toward them at merge time, not the other way round.
+
+The recurring lesson, one more time: I keep treating my own last step as the
+frontier. It is not. The frontier is what the corpus and the sibling branches
+already hold, unassembled. Reading them first would have saved me two
+overreaches this session.
