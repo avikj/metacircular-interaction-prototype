@@ -208,3 +208,30 @@ udāharaṇa-sādhya = refl
 
 udāharaṇa-dhana : (v : ℕ → ℚ) → 0 ≤ Q 2 udāharaṇa-A udāharaṇa-L udāharaṇa-D v
 udāharaṇa-dhana = prāmāṇika-sādhya 2 udāharaṇa-A udāharaṇa-L udāharaṇa-D udāharaṇa-sādhya
+
+------------------------------------------------------------------------
+-- ६ · The other side: a vector with vᵀAv < 0, checked by computation, is
+--     a witness of indefiniteness — the shape of the oracle's rigorous
+--     witnesses that the archimedean part alone is indefinite past L*.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Rationals.Order using (_<_ ; <Dec)
+
+ṛṇa-sākṣī : (n : ℕ) (A : ℕ → ℕ → ℚ) (v : ℕ → ℚ)
+          → dec→bool n A A (λ _ → 0) (<Dec (Q n A A (λ _ → 0) v) 0) ≡ true
+          → Q n A A (λ _ → 0) v < 0
+ṛṇa-sākṣī n A v e = dec-satya n A A (λ _ → 0) (<Dec (Q n A A (λ _ → 0) v) 0) e
+
+-- the form of the swap on two modes, [[0,1],[1,0]], is indefinite: v = (1, −1)
+viparyaya-A : ℕ → ℕ → ℚ
+viparyaya-A zero    zero    = 0
+viparyaya-A zero    (suc _) = 1
+viparyaya-A (suc _) zero    = 1
+viparyaya-A (suc _) (suc _) = 0
+
+viparyaya-v : ℕ → ℚ
+viparyaya-v zero    = 1
+viparyaya-v (suc _) = -1
+
+viparyaya-ṛṇa : Q 2 viparyaya-A viparyaya-A (λ _ → 0) viparyaya-v < 0
+viparyaya-ṛṇa = ṛṇa-sākṣī 2 viparyaya-A viparyaya-v refl
