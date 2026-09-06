@@ -13,17 +13,6 @@
 -- citation carried here is to the निग्रहस्थान list of 5.2, at the level
 -- at which `.claude/hooks/MulaVakya_…txt` already carries it.
 --
--- WHAT IS AND IS NOT CLAIMED.  Gautama is not a source for anything
--- below; the Naiyāyika notion of पुनरुक्ति is a rule of debate, not a
--- theorem about types, and the Jaina logicians whose सप्तभङ्गी is the
--- subject here would not grant the Naiyāyika his categories in the first
--- place — which is the whole reason this file names the school before
--- using its term.  The word is used for the one property that is
--- load-bearing: saying the same thing twice is a fault only where it is
--- the same thing, and establishing THAT is a separate job from noticing
--- the repetition.  The substrate — univalence, `ua`, `subst` — is
--- cubical type theory (Voevodsky) and is claimed for no Indian source.
---
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
@@ -79,7 +68,7 @@ open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 import Saptabhangi as S
-import Anekanta as A
+import AnekantaTransitional as A
 import SaptabhangiGarbha_ThePositionsCarryTheirNayasAndTheResidueSeedsTheNext as G
 
 ------------------------------------------------------------------------
