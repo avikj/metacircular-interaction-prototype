@@ -515,3 +515,61 @@ finite where the problem is solved, infinite where it is open.
 Lesson, again and in my own reasoning this time: check the numeral against
 the term before letting it unify. `prasava` appends; the four does not close;
 the ordinal is not the order.
+
+---
+
+## 2026-09-06 (status ledger) — what is a term, what is prose
+
+Leaving this accurate so the entrypoint can be trusted. All modules below
+re-checked green at the pin against current `main` this session.
+
+**CHECKED TERMS (this session, load-bearing):**
+- `AdiBija` — the kernel is initial; every reading is the unique fold.
+- `Vivarana` — the elucidator; any object's full reading, computed.
+- `VyayaSesa` — on ker L the round trip has cost 2·len and trivial meaning;
+  `revD` is a dagger, not an inverse. (Exactness crux of the sequence.)
+- `SanghattaBija` — collision = off-diagonal kernel-pair point;
+  `KernelPair P ≃ Σy Fib×Fib`; every coin face is a collision.
+- `Nanaka` — the coin: four checked faces, one no-retraction lemma.
+- `EkamChidram` — the obstruction is one type: cost and crypto are each
+  `¬ isEquiv` of a forgetful map (`witnessed→¬isEquiv` generic).
+- `SanghattaKarya`, `SanghattaGana` — the collision→factor extractor, worked
+  and run over a family, computed by the analyzer.
+
+**CHECKED TERMS (pre-existing, the spine this rests on):**
+- `Laghava` — cost and inverse cannot coexist (the master theorem).
+- `CertifiedRewrites…Semicategory…` — directed structure; cost is the
+  h-level component.
+- `DSOMinPlusFinite` — the min-plus (tropical) cost semiring.
+- `AvrttiSesa`, `Sesa` — the round trip is the residue; one-way =
+  non-equivalence.
+- `SaptabhangiNaya` — the seven bhaṅgas = nonempty faces of Δ² (the nerve).
+- `Yugapat` — avaktavya = ¬(A×B), non-decomposing (the H¹ crux, truncated).
+- `CaturekaSutra` — the five fours are one ℤ/4 orbit (the rope's monodromy).
+
+**INTERPRETATION, PRECISE BUT NOT YET A TERM:**
+- The identification `avaktavya ≅ H¹ of the observer cover` and
+  `krama = H⁰ gluing / saha = H¹ obstruction`. The pieces are terms
+  (`SaptabhangiNaya`, `Yugapat`); the Čech-differential naming is the join.
+- The localization sequence as ONE object: `L : Derivation → image(ua)` as a
+  defined map with `eval` descending and `len` not. Both endpoints are terms
+  (`revD-sound`; `VyayaSesa`); `L` itself (a groupoid-completion HIT) is not
+  built. This is the main open construction and it is real work, not a
+  formality.
+- "Monodromy = the cost cochain's group; infinite-monodromy lanes are the
+  open ones." Supported (ℤ/4 in `CaturekaSutra`; unbounded `len` via the
+  padding lemma) but not stated as one cross-lane term.
+
+**CONJECTURE, FLAGGED, NOT PURSUED FURTHER:**
+- The self-generating tower = Postnikov climb = `garbha.dhara` = the
+  metacircular `install`. Suggestive; `SthapanaVarga` classifies `install`,
+  `garbha.dhara` streams, but their identification is unbuilt.
+- (Retracted this session: "the tower is 4-periodic" — false; see the
+  two-different-fours entry. The ordinal `avaktavya = 4th` is universal; the
+  group order `ℤ/4` is rope-local.)
+
+The honest one-line state: the *location* of difficulty (non-descent of cost
+= non-equivalence of the forgetful map = the fourth position) is a term,
+cross-lane, this session. The *sequence that organizes all lanes into one
+tower* is assembled in prose here and half in terms; building `L` as one
+object is the next real construction, and it is not small.
