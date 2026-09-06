@@ -827,3 +827,35 @@ reading what the defect actually was. The defect was `InfectiveImport`, whose
 text names the direction of infection exactly — and had I read it as data
 rather than narrating around it, I would have seen it was my pragma, not the
 machine. Read the output; do not narrate over it.
+
+---
+
+## 2026-09-06 (the ZCohomology lane is not Oracle-readable in practice) — and I am not going to pretend otherwise
+
+Retried the TrtiyaCidram readback with `MATH_AGDA_TIMEOUT=560`. It faulted
+again — `ayogya`, "the invocation failed in the environment." So the lane is
+not readable by bumping the budget within any reasonable bound.
+
+Likely root cause (stated as likely, not proven — the temp dir is removed
+before I can inspect it): interface staleness across the interaction-mode flag
+boundary. TrtiyaCidram and VakraValayaSanketa compiled only because the
+corpus `.agda-lib` supplied `--guardedness --no-import-sorts`; their own
+headers omit those. In interaction mode the Candidate does not load
+`natural-machine.agda-lib`, so the flags agda sees for those modules differ
+from the flags their `.agdai` were built under, the interfaces read as stale,
+and agda recompiles them and their ZCohomology dependencies cold — which does
+not finish in 560s.
+
+What that means, without laundering: the interactive analyzer can read back
+the algebraic/kernel lanes (their headers already carry the full flag set, so
+their interfaces are reused) but not the ZCohomology lane (headers under-
+declare, interfaces go stale, cold recompile is too heavy). Making it readable
+would mean either normalising every corpus header to the full lib flag set, or
+teaching the analyzer to load the corpus `.agda-lib` so its flags match — real
+interface-sharing work, not a tuning knob.
+
+I am **not** pursuing that now. It is plumbing, the mathematics does not need
+it (TrtiyaCidram is proved by the direct `--safe` check), and chasing it
+further would be exactly the substitution of a solvable mechanical task for
+the valuable one that I have been warned off. The finding is recorded; the
+readback of this one lane stays a known gap.
