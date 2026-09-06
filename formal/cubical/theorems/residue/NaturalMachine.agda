@@ -1269,3 +1269,12 @@ import GalerkinJets_TheTaylorJetsOfThePairAtTimeZeroAreExactOnAWideningWindowAnd
 -- the coefficient recursion, i.e. −zP′/P = Σ p_k zᵏ coefficientwise — and
 -- the power sums grow at least like the largest root.
 import FiniteExplicitFormula_NewtonsIdentitiesArePowerSumsOfTheRootsEqualToCoefficientRecursionsAndTheGrowthOfThePowerSumsIsTheLargestRoot
+-- InteractionAssociator: the binary coefficient of a quadratic mode system
+-- is a 2-cochain; its associator (the ratio of the two binary derivations
+-- of p+q+r) is gauge-invariant, satisfies the pentagon, and measures
+-- ancestry interference (X+Yω)(X+Yω̄) = (X+Y)² − XY(2−ω−ω̄); at the
+-- orthogonal cube's ω = e^{2πi/3} in ℤ[ω] the amplitude is half the envelope.
+import InteractionAssociator_TheBinaryCoefficientPhaseIsATwoCochainItsAssociatorIsGaugeInvariantSatisfiesThePentagonAndMeasuresAncestryInterference
+-- TwoScaleSubgroup: 2ᵐ = 3ⁿ only at m = n = 0 — the arithmetic behind the
+-- density of the (2,3)-scale samples in the C(𝕋²)-descent reading of RH.
+import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScaleSubgroupIsFreeOfRankTwo
