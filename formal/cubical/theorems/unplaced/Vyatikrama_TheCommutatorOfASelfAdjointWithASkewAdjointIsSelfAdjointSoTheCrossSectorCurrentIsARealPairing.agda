@@ -17,11 +17,14 @@
 -- production term of two positive budgets, rather than an indefinite
 -- bookkeeping artefact — is that their commutator is SELF-adjoint.
 --
--- The received route is to multiply the skew element by i and reuse the
--- self-adjoint theorem.  That is unnecessary, and it costs a complex
--- structure the statement does not need.  Everything below is proved
--- directly in an arbitrary ring with involution: no scalars, no i, no
--- idempotence, and no hypothesis beyond the two adjointness equations.
+-- In a concrete operator setting one multiplies the skew element by i,
+-- which makes it self-adjoint, and the parent theorem then applies
+-- directly; that route is correct and is the natural one there.  This
+-- module takes the other scope: a bare ring with involution has no i to
+-- multiply by, so the statement is proved without one.  Everything below
+-- holds with no scalars, no complex structure, no idempotence, and no
+-- hypothesis beyond the two adjointness equations — which is what makes
+-- it transportable to rings where the concrete route is unavailable.
 --
 -- THE PARITY TABLE, and it is the whole content:
 --
