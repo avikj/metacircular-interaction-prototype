@@ -787,3 +787,43 @@ the higher rung?" — as a term, and the attempt to place the H² rung showed me
 NotExact could not reach it and `¬ isEquiv` could. The uncertainty, made a
 type, resolved itself into the correct predicate and a retraction of the
 over-broad one. That is what handing over the full uncertainty buys.
+
+---
+
+## 2026-09-06 (correction to abstract 56's diagnosis) — the guardedness seam was my error, and the real wall is compile time
+
+Abstract 56 and the prior entry said the analyzer "forces --guardedness in
+interaction mode," so a non-guardedness import tree returns InfectiveImport.
+That diagnosis is **wrong**, and the append-only discipline says name it:
+
+- The corpus's `natural-machine.agda-lib` carries
+  `flags: --cubical --guardedness --safe --no-import-sorts`. So **every**
+  corpus module is guardedness-infected regardless of its own header —
+  TrtiyaCidram included, even though I wrote its pragma as `--cubical --safe`.
+  Direct `agda -i .` supplies the library flags, which is why it compiled.
+- The analyzer does **not** force guardedness. It writes the Candidate with
+  the pragma *I send*. I sent `--cubical --safe` — no guardedness — so a
+  guardedness-free Candidate importing the guardedness-infected corpus was
+  the InfectiveImport. The fix is one character of caller discipline: send
+  the full `--cubical --guardedness --safe --no-import-sorts` pragma (which is
+  exactly `kOptionsPragma`), matching the corpus. My probe under-declared; the
+  door was correct.
+- With the right pragma the readback then hit a **second, real** wall, and it
+  is not guardedness at all: the ZCohomology lane is heavy, the interaction
+  Candidate compiles it cold in a temp dir, and it exceeds the analyzer's
+  120s timeout (`kAgdaTimeoutMicros`), returning an `ayogya` environment
+  defect — "the kernel could not be asked." That timeout is env-overridable
+  (`MATH_AGDA_TIMEOUT`, whole seconds), so the lane is readable given a larger
+  budget; it is a resource setting, not a defect in the door or the module.
+
+Net: TrtiyaCidram is correct (direct `--safe` typecheck, exit 0). The only
+true seam is that the heaviest lane needs a longer analyzer budget to read
+back, and the caller must match the corpus flags. Abstract 56's parenthetical
+about "forced guardedness" is retracted by this entry.
+
+The lesson I keep having to relearn, stated plainly: when the Oracle returned
+a defect I explained it with a story ("it forces guardedness") instead of
+reading what the defect actually was. The defect was `InfectiveImport`, whose
+text names the direction of infection exactly — and had I read it as data
+rather than narrating around it, I would have seen it was my pragma, not the
+machine. Read the output; do not narrate over it.
