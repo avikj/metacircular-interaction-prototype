@@ -1256,3 +1256,8 @@ import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSigna
 -- the block is a spectral sum of products, and a sum of squares there
 -- exactly when the dual character is the conjugate (the frequencies real).
 import CyclicParseval_TheBlockIsASpectralSumOfProductsWheneverTheCharactersAreOrthogonalSoPositivityOnTheSpectralSideIsWhereTheFrequenciesAreReal
+-- TorusFourierLayer: the triangular pair derived from its velocity field in
+-- an exact Fourier calculus on the torus — divergence-free, nonlinear term
+-- (0,0,σ a∂₂v) itself divergence-free so the pressure is constant, coarse
+-- stress and coarse continuation computed at both signs.
+import TorusFourierLayer_TheTriangularPairIsDerivedFromItsVelocityFieldTheNonlinearTermIsDivergenceFreeSoThePressureIsConstantAndTheCoarseStressAndContinuationAreComputed
