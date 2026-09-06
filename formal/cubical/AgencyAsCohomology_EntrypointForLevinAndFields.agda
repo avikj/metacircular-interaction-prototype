@@ -48,30 +48,6 @@
 --   standpoint IS the quotient/colimit.  The Σ/fibre is the cone; the
 --   quotient is the cocone.  This repository is the constructive,
 --   univalent, machine-checked form of that program.
---     The bridge is exact, in their own words: in "A free energy principle
---     for generic quantum systems" (Fields–Friston–Glazebrook–Levin 2022)
---     the cocone core C′ "encodes, via the incoming infomorphisms, the
---     CONJUNCTION of the semantic constraints" — i.e. C′ is a POTENTIAL —
---     and COMMUTATIVITY of the cone–cocone diagram "enforces Bayesian
---     coherence", while FAILURE of commutativity is a context switch that
---     drives variational free energy up ("the local logic becomes
---     inconsistent, the sequent relation fails").  That is verbatim a
---     HOLONOMY criterion: coherence = commutativity = existence of the
---     potential C′ = EXACTNESS; incoherence = nonzero holonomy = free
---     energy.  §3/§5 below are the constructive, --safe form of exactly
---     this criterion — theirs stated categorically, here proven as terms.
---     And the fusion itself is now ONE checked term, not this prose:
---     DistributedObserverCoherenceIsExactnessOfItsAgreementCochain…
---     (theorems/walks/) models a CCCD as a distributed observer with a
---     signed AGREEMENT cochain and proves coherenceIsGlobalFrame — the CCCD
---     commutes (Coherent) IFF a global reference frame exists (Exact) — with
---     contextSwitchRefutesEveryGlobalFrame (one non-commuting cycle refutes
---     every global frame) and a concrete frustrated triangle (noGlobalFrame)
---     as genuine contextuality.  TQNN (Fields–Glazebrook–Marciano 2205.13184,
---     Thm 9) calls commutativity-failure "no global section" and flags the
---     Abramsky–Brandenburger contextuality analogy but never names it a
---     cohomology class; this term takes that step — the context switch IS a
---     holonomy class.
 --
 -- 3.  GOALS ARE VALUE FIELDS; GOAL-COHERENCE IS COHOMOLOGICAL.
 --   A goal (Levin's TOTE setpoint) is a value/potential field the
@@ -135,17 +111,6 @@
 --     privileged; all discoveries of one form are canonically identified.
 --     That is exactly "forms are discovered, not invented; one form under
 --     many discoveries."  Imported below and compiles.
---     And the AGENCY of a form ingresses with it: THEOREM
---     (GoalCoherenceIsATransportInvariant…, theorems/walks/) — a form's
---     goal-coherence (the exactness / holonomy class of its preference
---     field) is a TRANSPORT INVARIANT of the state space
---     (substrateIndependenceOfCoherence): it is a property of the FORM,
---     preserved and reflected by every discovery e : Carrier ≃ Form, hence
---     independent of the carrier or its history.  This is Levin's "free
---     lunch / agential gifts from Platonic space" as a checked term — the
---     coherent competency a Xenobot exhibits with no evolutionary history
---     is transported from the form, not selected for — and it upgrades the
---     Platonic-space claim above from prose to theorem.
 --
 -- SOURCES.  Levin, The Computational Boundary of a "Self" (Front. Psychol.
 --   2019); TAME (arXiv:2201.10346); Fields–Friston–Glazebrook–Levin, A
@@ -166,8 +131,6 @@ open import HolonomyCriterionForExactness
 open import CurvatureOfACoboundaryVanishesAndTriangleFlatnessIsExactness
 open import MorphogeneticAgency_CongruenceIsLawConservationIsTheSetpointAlongTheWholeOrbitAndReachabilityInABasinIsRegeneration
 open import GoalCoherenceUnderBindingIsCohomologicalAndNotCompositional
-open import GoalCoherenceIsATransportInvariantSoAgencyIngressesLosslesslyIntoEveryEmbodimentOfTheForm
-open import DistributedObserverCoherenceIsExactnessOfItsAgreementCochainSoTheContextSwitchIsAHolonomyClass
 open import DerivationReachabilityIsValueEquality
 
 -- the two "resolved" fronts, imported so their closure is checked, not asserted:
@@ -182,14 +145,6 @@ open import FutureBehavior                                                      
 _ = goalCoherenceNotCompositional        -- coherence is not compositional
 _ = couplingInconsistentFrustrates       -- any nonzero coupling mismatch frustrates
 _ = consistentWhole                      -- the consistent coupling coheres
-
--- Platonic space: agency is a transport invariant of the form:
-_ = substrateIndependenceOfCoherence     -- coherence ingresses losslessly into every embodiment
-
--- §2 the CCCD-commutativity / holonomy fusion, now a checked term:
-_ = coherenceIsGlobalFrame               -- CCCD commutes ⟺ a global reference frame exists (Exact)
-_ = contextSwitchRefutesEveryGlobalFrame -- one non-commuting cycle = a nonzero holonomy class
-_ = noGlobalFrame                        -- a concrete frustrated CCCD: genuine contextuality
 
 -- §4 the general agency criterion:
 open Perfect using (perfectFromBoth)      -- perfect agent = loses nothing ∧ misses nothing
