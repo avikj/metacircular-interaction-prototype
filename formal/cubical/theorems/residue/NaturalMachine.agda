@@ -1249,3 +1249,6 @@ import TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinua
 -- paired with the receiver's autocorrelation — positivity at h = f ∗ f̃ is
 -- an identity.
 import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation
+-- BoundaryBlockGeneral: the same identity at every width — for any finite
+-- receiver and coefficient signal, Σ (Σ c_k S^k f)² ≡ Σ c_k c_l ρ(|k−l|).
+import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
