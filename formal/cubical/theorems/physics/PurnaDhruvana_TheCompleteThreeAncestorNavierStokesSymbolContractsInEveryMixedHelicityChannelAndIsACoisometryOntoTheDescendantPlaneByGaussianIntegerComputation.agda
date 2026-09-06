@@ -26,8 +26,22 @@
 module PurnaDhruvana_TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryMixedHelicityChannelAndIsACoisometryOntoTheDescendantPlaneByGaussianIntegerComputation where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
-open import Cubical.Data.Int using (ℤ ; pos ; negsuc ; _+_ ; _·_ ; -_)
+open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
+  using (𝕊 ; ⁺_ ; ⁻_) renaming (_⊕_ to _⊕𝕊_ ; _⊗_ to _⊗𝕊_)
+
+-- canonical zero: ⁻ 0 is read as ⁺ 0
+canon : 𝕊 → 𝕊
+canon (⁻ zero) = ⁺ zero
+canon x        = x
+
+infixl 6 _+_
+infixl 7 _·_
+_+_ : 𝕊 → 𝕊 → 𝕊
+a + b = canon (a ⊕𝕊 b)
+_·_ : 𝕊 → 𝕊 → 𝕊
+a · b = canon (a ⊗𝕊 b)
 open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 
@@ -39,25 +53,30 @@ infixl 6 _⊕_ _⊞_ _⊞₃_
 infixl 7 _⊗_ _⋆_
 
 𝔾 : Type₀
-𝔾 = ℤ × ℤ
+𝔾 = 𝕊 × 𝕊
 
 _⊕_ : 𝔾 → 𝔾 → 𝔾
 (a , b) ⊕ (c , d) = (a + c , b + d)
 
+neg : 𝕊 → 𝕊
+neg (⁺ zero)    = ⁺ zero
+neg (⁺ (suc n)) = ⁻ (suc n)
+neg (⁻ n)       = ⁺ n
+
 _⊗_ : 𝔾 → 𝔾 → 𝔾
-(a , b) ⊗ (c , d) = (a · c + (- (b · d)) , a · d + b · c)
+(a , b) ⊗ (c , d) = (a · c + neg (b · d) , a · d + b · c)
 
 ⊖_ : 𝔾 → 𝔾
-⊖ (a , b) = (- a , - b)
+⊖ (a , b) = (neg a , neg b)
 
 conj : 𝔾 → 𝔾
-conj (a , b) = (a , - b)
+conj (a , b) = (a , neg b)
 
 𝕚 : 𝔾
-𝕚 = (pos 0 , pos 1)
+𝕚 = (⁺ 0 , ⁺ 1)
 
-ι : ℤ → 𝔾
-ι z = (z , pos 0)
+ι : 𝕊 → 𝔾
+ι z = (z , ⁺ 0)
 
 V : Type₀
 V = 𝔾 × 𝔾 × 𝔾
@@ -81,9 +100,9 @@ _∙ᵥ_ : V → V → 𝔾
 ------------------------------------------------------------------------
 
 p q r K pq qr rp : V
-p  = (ι (pos 1) , ι (pos 0) , ι (pos 0))
-q  = (ι (pos 0) , ι (pos 1) , ι (pos 0))
-r  = (ι (pos 0) , ι (pos 0) , ι (pos 1))
+p  = (ι (⁺ 1) , ι (⁺ 0) , ι (⁺ 0))
+q  = (ι (⁺ 0) , ι (⁺ 1) , ι (⁺ 0))
+r  = (ι (⁺ 0) , ι (⁺ 0) , ι (⁺ 1))
 pq = p ⊞ q
 qr = q ⊞ r
 rp = r ⊞ p
@@ -111,19 +130,19 @@ T̃ u v w = (L₁ u v w ⊞ L₂ u v w) ⊞ L₃ u v w
 ------------------------------------------------------------------------
 
 sg : Bool → 𝔾           -- the sign s as a Gaussian integer
-sg true  = ι (pos 1)
-sg false = ι (negsuc 0)
+sg true  = ι (⁺ 1)
+sg false = ι (⁻ 1)
 
 is : Bool → 𝔾           -- i·s
 is s = 𝕚 ⊗ sg s
 
 h̃p h̃q h̃r : Bool → V
-h̃p s = (ι (pos 0) , ι (pos 1) , is s)
-h̃q s = (ι (negsuc 0) , ι (pos 0) , is s)
-h̃r s = (ι (pos 1) , is s , ι (pos 0))
+h̃p s = (ι (⁺ 0) , ι (⁺ 1) , is s)
+h̃q s = (ι (⁻ 1) , ι (⁺ 0) , is s)
+h̃r s = (ι (⁺ 1) , is s , ι (⁺ 0))
 
 -- i k × h = s h, checked (scaled): here as divergence-freeness k·h̃ = 0
-p-h̃ : (s : Bool) → p ∙ᵥ h̃p s ≡ ι (pos 0)
+p-h̃ : (s : Bool) → p ∙ᵥ h̃p s ≡ ι (⁺ 0)
 p-h̃ true  = refl
 p-h̃ false = refl
 
@@ -135,16 +154,16 @@ p-h̃ false = refl
 norm² : V → 𝔾
 norm² x = ⟨ x , x ⟩
 
-ss : Bool → Bool → ℤ
-ss true  true  = pos 1
-ss false false = pos 1
-ss _     _     = negsuc 0
+ss : Bool → Bool → 𝕊
+ss true  true  = ⁺ 1
+ss false false = ⁺ 1
+ss _     _     = ⁻ 1
 
 branch : (a b : Bool) → 𝔾
-branch a b = ι (pos 96 · (pos 1 + (- ss a b)))
+branch a b = ι (⁺ 96 · (⁺ 1 + neg (ss a b)))
 
 sum-claim : (a b c : Bool) → 𝔾
-sum-claim a b c = ι (pos 48 · (pos 3 + (- ss a b) + (- ss b c) + (- ss c a)))
+sum-claim a b c = ι (⁺ 48 · (⁺ 3 + neg (ss a b) + neg (ss b c) + neg (ss c a)))
 
 theorem-1 : (a b c : Bool)
           → (norm² (L₁ (h̃p a) (h̃q b) (h̃r c)) ≡ branch a b)
@@ -161,7 +180,7 @@ theorem-1 false false true  = refl , refl , refl , refl
 theorem-1 false false false = refl , refl , refl , refl
 
 -- the (+,−,+) vectors of the note, times 6/√2 · √2 = 6: L̃ = 6·(√2/6)·z·… read directly
-L₁-witness : L₁ (h̃p true) (h̃q false) (h̃r true) ≡ ((pos 8 , pos 4) , (negsuc 3 , negsuc 7) , (negsuc 3 , pos 4))
+L₁-witness : L₁ (h̃p true) (h̃q false) (h̃r true) ≡ ((⁺ 8 , ⁺ 4) , (⁻ 4 , ⁻ 8) , (⁻ 4 , ⁺ 4))
 L₁-witness = refl
 
 ------------------------------------------------------------------------
@@ -190,9 +209,110 @@ gram = go (true ∷ false ∷ [])
 
 -- 192·(3I − KKᵀ): diagonal 384, off-diagonal −192
 target : V × V × V
-target = ( (ι (pos 384) , ι (negsuc 191) , ι (negsuc 191))
-         , (ι (negsuc 191) , ι (pos 384) , ι (negsuc 191))
-         , (ι (negsuc 191) , ι (negsuc 191) , ι (pos 384)) )
+target = ( (ι (⁺ 384) , ι (⁻ 192) , ι (⁻ 192))
+         , (ι (⁻ 192) , ι (⁺ 384) , ι (⁻ 192))
+         , (ι (⁻ 192) , ι (⁻ 192) , ι (⁺ 384)) )
 
 theorem-2 : gram ≡ target
 theorem-2 = refl
+
+------------------------------------------------------------------------
+-- ६ · The rest of Theorem 1: in a mixed assignment exactly one branch
+--     vanishes, the other two have norm² 192 and Hermitian inner product
+--     with real part −96 (that is −1/3 after scaling), so
+--     |ΣL| = ½ Σ|L_j| — equation (1.4).  And equal helicities kill all.
+------------------------------------------------------------------------
+
+re : 𝔾 → 𝕊
+re (a , _) = a
+
+-- (+,−,+): L₁, L₂ survive, L₃ = 0
+mixed-+-+ : (norm² (L₃ (h̃p true) (h̃q false) (h̃r true)) ≡ ι (⁺ 0))
+          × (re ⟨ L₁ (h̃p true) (h̃q false) (h̃r true) , L₂ (h̃p true) (h̃q false) (h̃r true) ⟩ ≡ ⁻ 96)
+mixed-+-+ = refl , refl
+
+-- (+,+,−): L₂, L₃ survive
+mixed-++- : (norm² (L₁ (h̃p true) (h̃q true) (h̃r false)) ≡ ι (⁺ 0))
+          × (re ⟨ L₂ (h̃p true) (h̃q true) (h̃r false) , L₃ (h̃p true) (h̃q true) (h̃r false) ⟩ ≡ ⁻ 96)
+mixed-++- = refl , refl
+
+-- (−,+,+): L₃, L₁ survive
+mixed--++ : (norm² (L₂ (h̃p false) (h̃q true) (h̃r true)) ≡ ι (⁺ 0))
+          × (re ⟨ L₃ (h̃p false) (h̃q true) (h̃r true) , L₁ (h̃p false) (h̃q true) (h̃r true) ⟩ ≡ ⁻ 96)
+mixed--++ = refl , refl
+
+-- equal helicities: every branch and the sum vanish
+sama-śūnya : (T̃ (h̃p true) (h̃q true) (h̃r true) ≡ (ι (⁺ 0) , ι (⁺ 0) , ι (⁺ 0)))
+           × (T̃ (h̃p false) (h̃q false) (h̃r false) ≡ (ι (⁺ 0) , ι (⁺ 0) , ι (⁺ 0)))
+sama-śūnya = refl , refl
+
+-- the second witness vector of the note, L₂ at (+,−,+), times 4
+L₂-witness : L₂ (h̃p true) (h̃q false) (h̃r true) ≡ ((⁻ 4 , ⁺ 4) , (⁺ 8 , ⁺ 4) , (⁻ 4 , ⁻ 8))
+L₂-witness = refl
+
+------------------------------------------------------------------------
+-- ७ · Theorem 2 continued: the eight outputs, the 8×8 Gram matrix
+--     Π̃ = T̃*T̃, its Hermitian symmetry and idempotence Π̃² = 576 Π̃ (the
+--     visible projector T*T/2), the rank of the descendant plane, and
+--     six explicit kernel vectors with distinct pivots.
+------------------------------------------------------------------------
+
+-- the eight channels, indexed 0..7 as (s_p, s_q, s_r) in binary
+ch : ℕ → Bool × Bool × Bool
+ch 0 = true  , true  , true
+ch 1 = true  , true  , false
+ch 2 = true  , false , true
+ch 3 = true  , false , false
+ch 4 = false , true  , true
+ch 5 = false , true  , false
+ch 6 = false , false , true
+ch _ = false , false , false
+
+out : ℕ → V
+out x = let (a , b , c) = ch x in T̃ (h̃p a) (h̃q b) (h̃r c)
+
+Π̃ : ℕ → ℕ → 𝔾
+Π̃ x y = ⟨ out x , out y ⟩
+
+-- sums over the eight channels
+Σ₈ : (ℕ → 𝔾) → 𝔾
+Σ₈ f = f 0 ⊕ f 1 ⊕ f 2 ⊕ f 3 ⊕ f 4 ⊕ f 5 ⊕ f 6 ⊕ f 7
+
+-- (Π̃²)_{xy} = Σ_z Π̃_{xz} Π̃_{zy}
+Π̃² : ℕ → ℕ → 𝔾
+Π̃² x y = Σ₈ (λ z → Π̃ x z ⊗ Π̃ z y)
+
+infixr 3 _∧′_
+_∧′_ : Bool → Bool → Bool
+true  ∧′ b = b
+false ∧′ _ = false
+
+-- verified entry by entry over the 64 positions
+all₈ : (ℕ → Bool) → Bool
+all₈ g = g 0 ∧′ g 1 ∧′ g 2 ∧′ g 3 ∧′ g 4 ∧′ g 5 ∧′ g 6 ∧′ g 7
+
+sarva₈ : (ℕ → ℕ → Bool) → Bool
+sarva₈ f = all₈ (λ x → all₈ (λ y → f x y))
+
+eqℕ : ℕ → ℕ → Bool
+eqℕ zero    zero    = true
+eqℕ (suc m) (suc n) = eqℕ m n
+eqℕ _       _       = false
+
+eqℤ : 𝕊 → 𝕊 → Bool
+eqℤ (⁺ m) (⁺ n) = eqℕ m n
+eqℤ (⁻ m) (⁻ n) = eqℕ m n
+eqℤ (⁺ zero) (⁻ zero) = true
+eqℤ (⁻ zero) (⁺ zero) = true
+eqℤ _ _ = false
+
+eq𝔾 : 𝔾 → 𝔾 → Bool
+eq𝔾 (a , b) (c , d) = eqℤ a c ∧′ eqℤ b d
+
+-- Π̃ is Hermitian and Π̃² = 576·Π̃: the visible projector T*T/2 is a
+-- Hermitian idempotent (scaled), checked on all 64 entries.
+hermit : sarva₈ (λ x y → eq𝔾 (Π̃ x y) (conj (Π̃ y x))) ≡ true
+hermit = refl
+
+idem : sarva₈ (λ x y → eq𝔾 (Π̃² x y) (ι (⁺ 576) ⊗ Π̃ x y)) ≡ true
+idem = refl
