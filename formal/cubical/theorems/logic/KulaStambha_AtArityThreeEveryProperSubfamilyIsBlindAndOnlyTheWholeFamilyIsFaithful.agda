@@ -24,9 +24,6 @@
 -- by exactly the member the subfamily dropped; and the tower of
 -- refutations is as wide as the lattice's co-atoms.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Arity three, coordinates as senses;
--- the arithmetic tower (moduli whose every proper sub-lcm is a
--- proper divisor) at general arity is the standing construction.
 ------------------------------------------------------------------------
 
 module KulaStambha_AtArityThreeEveryProperSubfamilyIsBlindAndOnlyTheWholeFamilyIsFaithful where

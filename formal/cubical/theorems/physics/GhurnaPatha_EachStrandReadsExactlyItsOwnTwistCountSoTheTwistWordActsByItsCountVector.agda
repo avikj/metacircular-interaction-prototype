@@ -25,9 +25,6 @@
 -- twist word is trivial on readings iff every count vanishes mod
 -- four — the kernel theorem's abelian half, reduced to arithmetic.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The reading theorem; the mod-four
--- arithmetic corollary and the permutation half are the standing
--- constructions.
 ------------------------------------------------------------------------
 
 module GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActsByItsCountVector where

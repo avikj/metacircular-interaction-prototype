@@ -24,9 +24,6 @@
 -- runs as a confluent rewriting discipline on words: base motion
 -- transports cargo through arbitrary futures.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The conjugation and the involution; the
--- assembled word-level normal form is the standing construction, one
--- list induction away.
 ------------------------------------------------------------------------
 
 module VeniSamvahana_TheCrossingItselfConjugatesTheTwistByTheSameTranspositionSoTwistsPushThroughWholeWords where

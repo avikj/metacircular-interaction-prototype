@@ -29,11 +29,6 @@
 -- Turing step are, from the coin's side, the same face-shape held at
 -- different lanes.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The family ropeFace : (k i : ℕ) → Paksa
--- and the no-retraction corollary at every horizon.  NOT claimed:
--- apartness of a SINGLE crossing from the identity (the fourth power
--- is used because na-catuṣka∞ is the checked apartness the lane
--- exports), nor anything about readers above the crossing.
 ------------------------------------------------------------------------
 
 module NanakaPancamaPaksa_TheRopeJoinsTheCoinAFaceAtEveryHorizonWhereTheQuarterPowerIsApartFromTheIdentityYetReadsIdentically where

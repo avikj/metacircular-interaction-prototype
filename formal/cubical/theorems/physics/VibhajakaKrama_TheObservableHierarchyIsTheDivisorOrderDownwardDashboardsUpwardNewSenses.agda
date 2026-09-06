@@ -24,9 +24,6 @@
 -- admission gate, and the divisor lattice are one structure, and the
 -- direction of information is the direction of division.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The two directions between the named
--- rungs; the statement over the full divisor lattice at every modulus
--- is the standing construction.
 ------------------------------------------------------------------------
 
 module VibhajakaKrama_TheObservableHierarchyIsTheDivisorOrderDownwardDashboardsUpwardNewSenses where

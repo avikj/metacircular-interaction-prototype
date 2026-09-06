@@ -31,11 +31,6 @@
 --       between value that one cycle can certify and value that no
 --       cycle can kill.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–3 for step evaluators valued in ℤ
--- over the kernel's Derivation, with revD and ++ imported from
--- EveryDerivationIsInvertible, not restated.  NOT claimed: a spanning
--- tree or a full H₁ basis for the whole step graph — this is the
--- theorem at one fundamental cycle, uniformly in the pair it spans.
 ------------------------------------------------------------------------
 
 module MulaCakraPariksa_OneCycleTestDecidesPathIndependenceForEveryAntisymmetricEvaluator where

@@ -29,9 +29,6 @@
 -- its own factoring dictates.  Factoring kills separation — across
 -- instruments, across time, across value, and now across resolution.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The reading and collapse laws for every
--- aliasing observable; the converse (an observable that does NOT
--- factor reads more) is the standing construction.
 ------------------------------------------------------------------------
 
 module SamanyaSopana_AnyObservableAliasingThroughGReadsTheCountThroughGsIterationAndPeriodsCollapseIt where

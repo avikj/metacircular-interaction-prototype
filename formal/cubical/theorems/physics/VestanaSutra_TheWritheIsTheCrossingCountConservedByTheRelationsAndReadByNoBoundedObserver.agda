@@ -30,10 +30,6 @@
 -- gauge charge.  Total phase is real, conserved, and everywhere
 -- locally unreadable.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The count identity, the three
--- conservations, and the depth-n escape witness; the writhe as a
--- group homomorphism to ℤ/4 with its kernel computed is the standing
--- construction.
 ------------------------------------------------------------------------
 
 module VestanaSutra_TheWritheIsTheCrossingCountConservedByTheRelationsAndReadByNoBoundedObserver where

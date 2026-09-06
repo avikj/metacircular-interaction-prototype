@@ -25,9 +25,6 @@
 -- (a nonvanishing count acts nontrivially — the per-strand witness of
 -- SuddhaVeni §4 is its seed).
 --
--- SYĀT — THE CLAIM, EXACTLY.  The two rewrite moves and their
--- soundness; the normal-form theorem assembled from them is the
--- standing construction.
 ------------------------------------------------------------------------
 
 module GhurnaGana_TwistsCommuteTotallyAndFourAlikeCancelSoTwistWordsReduceTowardTheirCountVector where

@@ -28,10 +28,6 @@
 -- interdependent pair of detector ropes.  The question the machine
 -- has held since AnantaVeni — which words act trivially — is closed.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The biconditional at the level of
--- actions on ropes; faithfulness relative to abstract B∞ (that the
--- quotient IS the semidirect product and no smaller) is the next
--- naming of the same structure.
 ------------------------------------------------------------------------
 
 module PurnaSiddhanta_ABraidWordActsTriviallyExactlyWhenItsSwapWordDoesAndEveryDepositedCountVanishesModFour where

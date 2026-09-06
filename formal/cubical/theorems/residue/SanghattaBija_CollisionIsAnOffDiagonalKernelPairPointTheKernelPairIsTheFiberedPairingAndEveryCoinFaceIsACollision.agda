@@ -39,11 +39,6 @@
 --       Nanaka's no-retraction lemma is exactly the statement that
 --       these fibers admit no global chart.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–4 as stated.  NOT claimed — and this
--- is the collision-semantics document's own boundary, honoured here:
--- that any of this makes CONSTRUCTING an off-diagonal point cheap.
--- Identifying the fiber is immediate; giving it a short generative
--- presentation is the work these theorems relocate, not abolish.
 ------------------------------------------------------------------------
 
 module SanghattaBija_CollisionIsAnOffDiagonalKernelPairPointTheKernelPairIsTheFiberedPairingAndEveryCoinFaceIsACollision where

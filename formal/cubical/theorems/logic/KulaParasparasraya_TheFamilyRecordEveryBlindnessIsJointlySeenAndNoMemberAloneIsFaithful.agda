@@ -28,10 +28,6 @@
 -- the family's joint sight is precisely the union of its members'
 -- named darknesses, each covered by the others.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The record and its two generic laws;
--- the tower of proper-subfamily blindnesses (every proper subfamily
--- blind, only the whole faithful — the CRT shape at full strength)
--- is the standing construction.
 ------------------------------------------------------------------------
 
 module KulaParasparasraya_TheFamilyRecordEveryBlindnessIsJointlySeenAndNoMemberAloneIsFaithful where

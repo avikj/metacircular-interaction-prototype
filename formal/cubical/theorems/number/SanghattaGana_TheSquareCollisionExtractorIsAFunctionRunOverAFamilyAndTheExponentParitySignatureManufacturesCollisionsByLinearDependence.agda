@@ -28,10 +28,6 @@
 -- what is here is that once inside, the whole pipeline is arithmetic and
 -- linear algebra the kernel computes and hands back.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §A for the four tabulated moduli with
--- their given collisions; §B for the exhibited three relations, parity
--- sum zero and the product a square.  NOT claimed: that the collisions
--- or the smooth relations were found rather than supplied.
 ------------------------------------------------------------------------
 
 module SanghattaGana_TheSquareCollisionExtractorIsAFunctionRunOverAFamilyAndTheExponentParitySignatureManufacturesCollisionsByLinearDependence where

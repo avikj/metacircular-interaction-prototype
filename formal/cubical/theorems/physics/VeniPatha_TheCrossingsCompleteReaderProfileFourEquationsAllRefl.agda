@@ -22,9 +22,6 @@
 -- on nothing else — causality as four checked equations rather than a
 -- bound.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The four-equation profile; the induced
--- uniform continuity of every braid word on the rope's take-metric is
--- the standing construction.
 ------------------------------------------------------------------------
 
 module VeniPatha_TheCrossingsCompleteReaderProfileFourEquationsAllRefl where

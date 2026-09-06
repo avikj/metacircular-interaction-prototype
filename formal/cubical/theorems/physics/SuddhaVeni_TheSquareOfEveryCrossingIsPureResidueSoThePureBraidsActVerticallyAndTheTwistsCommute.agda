@@ -29,8 +29,6 @@
 -- the symmetric group, the second in the abelian residue level —
 -- coherence and cargo, separated by theorems.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The two lemmas; the full kernel
--- computation is the standing construction.
 ------------------------------------------------------------------------
 
 module SuddhaVeni_TheSquareOfEveryCrossingIsPureResidueSoThePureBraidsActVerticallyAndTheTwistsCommute where

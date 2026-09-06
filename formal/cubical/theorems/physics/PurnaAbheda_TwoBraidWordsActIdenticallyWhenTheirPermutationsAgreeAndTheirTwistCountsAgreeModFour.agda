@@ -22,10 +22,6 @@
 -- to every possible observer, is where it sends the strands and what
 -- it deposited on them, to the fourth turn.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The determination at the level of
--- actions; packaging invariant-distinctness as action-distinctness in
--- full generality (the converse direction word by word) and the
--- weighted second law remain standing.
 ------------------------------------------------------------------------
 
 module PurnaAbheda_TwoBraidWordsActIdenticallyWhenTheirPermutationsAgreeAndTheirTwistCountsAgreeModFour where

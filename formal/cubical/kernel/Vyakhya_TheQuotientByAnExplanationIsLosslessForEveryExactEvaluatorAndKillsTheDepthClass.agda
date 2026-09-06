@@ -36,11 +36,6 @@
 -- live (the dangerous act is not quotienting — it is quotienting
 -- before declaring the observers).
 --
--- SYĀT — THE CLAIM, EXACTLY.  §1 for every potential φ, with the
--- quotient taken by the relation identifying scheduleA with
--- scheduleB; §2 for the depth evaluator on the same quotient.  NOT
--- claimed: anything about quotients by other explanations, or other
--- observer classes; this is the diamond's own compression, decided.
 ------------------------------------------------------------------------
 
 module Vyakhya_TheQuotientByAnExplanationIsLosslessForEveryExactEvaluatorAndKillsTheDepthClass where

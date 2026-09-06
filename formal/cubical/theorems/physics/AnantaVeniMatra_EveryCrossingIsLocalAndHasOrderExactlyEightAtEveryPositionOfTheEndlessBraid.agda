@@ -26,9 +26,6 @@
 -- structure from bounded, local, finite-order interdependence — the
 -- fabric claim of the README, on the rope, as terms.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Order and locality of generators; the
--- kernel of the whole action (which WORDS act trivially) is the
--- standing next construction.
 ------------------------------------------------------------------------
 
 module AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid where

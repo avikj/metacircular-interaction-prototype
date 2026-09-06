@@ -36,10 +36,6 @@
 -- charge the sectors.  The theory has one constant, and now its
 -- symmetry algebra says so too.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The collapse and equivariance for
--- causal presentations; symmetries with unbounded lookahead (not
--- causal at any depth) are outside every physical reading and remain
--- unclassified.
 ------------------------------------------------------------------------
 
 module KendraPurnaNirvahana_EveryCentralCausalSymmetryCollapsesToOneEquivariantCellMapTheFullContinuousExhaustion where

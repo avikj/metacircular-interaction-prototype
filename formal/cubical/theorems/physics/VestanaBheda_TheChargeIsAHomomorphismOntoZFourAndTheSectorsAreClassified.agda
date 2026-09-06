@@ -28,10 +28,6 @@
 -- modulus governs the twist, the ladder, the kernel, and the charge —
 -- the quarter turn is the corpus's Planck constant.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Additivity, the mod-four homomorphism,
--- and the inhabited sectors; the exact kernel of the charge on
--- actions (sector zero versus trivial action — they differ, and by
--- how much) is the standing construction.
 ------------------------------------------------------------------------
 
 module VestanaBheda_TheChargeIsAHomomorphismOntoZFourAndTheSectorsAreClassified where

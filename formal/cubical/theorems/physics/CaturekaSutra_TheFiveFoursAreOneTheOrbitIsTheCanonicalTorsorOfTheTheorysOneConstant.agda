@@ -25,9 +25,6 @@
 -- final appearance tonight: a single local structure, conserved,
 -- inaccessible to coarser readings, generating every level above.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The inverse pair; the five readings
--- are each already checked in their own files and cited, not
--- re-proved.
 ------------------------------------------------------------------------
 
 module CaturekaSutra_TheFiveFoursAreOneTheOrbitIsTheCanonicalTorsorOfTheTheorysOneConstant where

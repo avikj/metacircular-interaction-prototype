@@ -31,10 +31,6 @@
 -- from the displacement theorem to additive entropy, every step a
 -- term.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Exactness on powers of two; the
--- interpolation to arbitrary masses (real logarithms) and to
--- non-uniform weights (Shannon proper) are the standing
--- constructions.
 ------------------------------------------------------------------------
 
 module GhataLekha_EntropyIsTheExponentTheLogIsExactOnPowersAndAdditiveBecauseMassMultiplies where
