@@ -1179,6 +1179,17 @@ import TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence
 import TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation
 import TheKernelIsAReversibleGroupoidWhoseJoinIsConflictFreeSoConsensusOnMeaningIsVacuous
 
+-- Two frontier items of WhatThisIsAndHowToDescend… §8, discharged on the
+-- kernel's own terms and added to this root so a command builds them:
+--   §8(d)  the counting semantics is the cardinality of the categorified one
+--          (⟦ t ⟧ (finEnv ρ) ≃ Fin (eval t ρ)), and derivation-sound is its
+--          cardinality shadow;
+--   §8(a)  a certified normalizer emits Derivations, so learn = install ∘ normalize
+--          closes discovery→installation on one Tm (reach unchanged: Siddhasadhana).
+import TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOneEveryTermsTypeIsFinOfItsEvaluation
+import DerivationSoundnessIsTheCardinalityShadowOfTheCategorifiedEquivalence
+import TheGenerativeLoopOnTheKernelsOwnTermsACertifiedNormalizerEmitsDerivationsSoLearnCallsInstall
+
 -- Kernel/ : seven modules that were checked at the OLD pin (2.6.3 + v0.5),
 -- renamed to `Kernel.*` to match this directory, and then imported by
 -- nothing -- so no command built them and their headers said so.  Their
@@ -1198,3 +1209,46 @@ import Kernel.Vyabhicara_OneEnvironmentWhereItFailsForbidsTheDerivationEntirelyS
 -- It is the kernel's own `Derivation` with the generators left open, and
 -- it was imported by nothing.
 import Parampara_TheDerivableEqualitiesAreExactlyTheWitnessChainsSoExplanationIsTotalAndSound
+
+-- StrainInvariants: the even magnitude tr S² and the odd charge det S of a
+-- trace-free symmetric matrix are each blind to the other and neither
+-- factors through the other (DescentObstructionUnified's lemma, both ways);
+-- the pointwise interaction ωᵀSω escapes (S, |ω|²) and the coupling escapes
+-- the marginals.  Added to this root so a command builds it.
+import StrainInvariants_TheEvenMagnitudeIsBlindToTheOddShapeChargeAndNeitherFactorsThroughTheOther
+-- QRClosure: the restricted-Euler quotient (tr A², tr A³) closes by two ring
+-- identities (fractions cleared) and the pressure-Hessian couplings
+-- tr(AH), tr(A²H) do not descend through it: witness pair over ℤ, both
+-- obstructions by DescentObstructionUnified's lemma.
+import QRClosure_TheRestrictedEulerQuotientClosesByRingIdentityAndThePressureHessianCouplingDoesNotDescendThroughIt
+-- VieillefosseFibre: the discriminant is a first integral of the restricted-
+-- Euler field (polynomial identity), its zero fibre carries the sheet strains
+-- diag(n,n,−2n) (an injection of ℕ), and the pushforward of the true Q̇ to
+-- the (Q,R) plane is a LawfulContinuationCore.BranchingFiber.
+import VieillefosseFibre_TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZeroFibreIsUnboundedAndThePushforwardOfTheTrueFieldBranches
+-- DiscriminantIsTheOnlyFirstIntegral: up to cubic degree every polynomial
+-- first integral of the restricted-Euler field is affine in the
+-- discriminant (linear algebra over ℤ on ten coefficients, with the
+-- symbolic derivative checked against the analytic one by the solver), and
+-- ℤ injects into the pushforward fibre over a (Q,R) point by scaling the
+-- Hessian direction.
+import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded
+-- WindowShiftResidual: on a finite window the two zero-displacement shift
+-- words act differently (closed forms), agree away from both edges, and the
+-- operator reading does not factor through net displacement.
+import WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges
+-- SecantCriterion: reconstruction of a cone C from a homomorphic observation
+-- O holds exactly when ker O ∩ (C − C) = {0}; over ℤ × ℤ one observation
+-- reconstructs the axis and not the quadrant.
+import SecantCriterion_ReconstructionOnAConeFromALinearObservationHoldsExactlyWhenNoSecantOfTheConeLiesInTheKernel
+-- TriangularPair: the shear pair u^σ = (0, a, σv) shares every σ-even stress
+-- invariant and has σ-odd continuation, so continuation does not descend
+-- through the invariants.
+import TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants
+-- BoundaryBlock: the mean square of a received signal equals the pair field
+-- paired with the receiver's autocorrelation — positivity at h = f ∗ f̃ is
+-- an identity.
+import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation
+-- BoundaryBlockGeneral: the same identity at every width — for any finite
+-- receiver and coefficient signal, Σ (Σ c_k S^k f)² ≡ Σ c_k c_l ρ(|k−l|).
+import BoundaryBlockGeneral_ForEveryFiniteReceiverAndEveryFiniteCoefficientSignalTheMeanSquareIsThePairFieldPairedWithTheAutocorrelationLags
