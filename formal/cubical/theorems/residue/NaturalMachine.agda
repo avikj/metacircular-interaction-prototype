@@ -1237,3 +1237,15 @@ import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstInt
 -- words act differently (closed forms), agree away from both edges, and the
 -- operator reading does not factor through net displacement.
 import WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges
+-- SecantCriterion: reconstruction of a cone C from a homomorphic observation
+-- O holds exactly when ker O ∩ (C − C) = {0}; over ℤ × ℤ one observation
+-- reconstructs the axis and not the quadrant.
+import SecantCriterion_ReconstructionOnAConeFromALinearObservationHoldsExactlyWhenNoSecantOfTheConeLiesInTheKernel
+-- TriangularPair: the shear pair u^σ = (0, a, σv) shares every σ-even stress
+-- invariant and has σ-odd continuation, so continuation does not descend
+-- through the invariants.
+import TriangularPair_TwoShearFlowsShareEveryEvenStressInvariantAndTheirContinuationIsOddSoContinuationDoesNotDescendThroughTheInvariants
+-- BoundaryBlock: the mean square of a received signal equals the pair field
+-- paired with the receiver's autocorrelation — positivity at h = f ∗ f̃ is
+-- an identity.
+import BoundaryBlock_ThePrimeSideMeanSquareOfAReceivedSignalIsThePairFieldPairedWithTheReceiversAutocorrelation
