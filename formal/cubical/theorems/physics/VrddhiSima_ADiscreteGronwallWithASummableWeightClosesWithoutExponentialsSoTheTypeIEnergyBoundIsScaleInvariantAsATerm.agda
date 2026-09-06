@@ -45,6 +45,27 @@ module Sama (R : CommRing ℓ-zero) where
   guṇa-eka : (p : ⟨ R ⟩) → 1r · p ≡ p
   guṇa-eka p = solve! R
 
+module Dvi (R : CommRing ℓ-zero) where
+  open CommRingStr (snd R)
+  ādi : 0r ≡ (1r + 1r) · (1r - 1r)
+  ādi = solve! R
+  -- 2(1 − p) + p = 2(1 − h p) + (2h − 1) p, and the last term dies when 2h = 1
+  pada : (h p : ⟨ R ⟩) → (1r + 1r) · (1r - p) + p ≡ (1r + 1r) · (1r - h · p) + (h · (1r + 1r) - 1r) · p
+  pada h p = solve! R
+  śuddha : (h p : ⟨ R ⟩) → h · (1r + 1r) ≡ 1r
+         → (1r + 1r) · (1r - h · p) + (h · (1r + 1r) - 1r) · p ≡ (1r + 1r) · (1r - h · p)
+  śuddha h p e = cong (λ z → (1r + 1r) · (1r - h · p) + (z - 1r) · p) e ∙ lemma
+    where lemma : (1r + 1r) · (1r - h · p) + (1r - 1r) · p ≡ (1r + 1r) · (1r - h · p)
+          lemma = solve! R
+  caturtha : (h p : ⟨ R ⟩) → (h · h) · ((1r + 1r) · (1r - p)) ≡ (h · (h · (1r + 1r))) · (1r - p)
+  caturtha h p = solve! R
+  dviguṇa : (a h : ⟨ R ⟩) → (a · h) · (1r + 1r) ≡ a · (h · (1r + 1r))
+  dviguṇa a h = solve! R
+  guṇa-eka : (b : ⟨ R ⟩) → b · (1r + 1r) ≡ (1r + 1r) · b
+  guṇa-eka b = solve! R
+  pratyāhāra : (a s : ⟨ R ⟩) → (a + s) - s ≡ a
+  pratyāhāra a s = solve! R
+
 open import Cubical.Data.Rationals
 open import Cubical.Data.Rationals.Order
   using (_≤_ ; _<_ ; isRefl≤ ; isTrans≤ ; <Weaken≤ ; ≤-+o ; ≤-o+ ; ≤-·o)
@@ -161,3 +182,88 @@ module _ (w : ℕ → ℚ) (0≤w : (k : ℕ) → 0 ≤ w k) where
       where
       0≤1-S : 0 ≤ 1 - Σ⟨ n ⟩ w
       0≤1-S = subst2 _≤_ (+InvR (Σ⟨ n ⟩ w)) refl (≤-+o (Σ⟨ n ⟩ w) 1 (- Σ⟨ n ⟩ w) le)
+
+------------------------------------------------------------------------
+-- ५ · The dyadic weight.  Σ_{k<n} (½)^k = 2 (1 − (½)^n) exactly, so with
+--     w_k = ¼ (½)^k the weights sum to at most ½ and the closure reads
+--     a_n ≤ 2 (a_0 + Σ c): the constant is 2, at every scale.
+------------------------------------------------------------------------
+
+open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAndNonnegativityExcludesMinusTwoSoTheFiniteWeilCriterionAndTheKreinSplittingHoldOverQ
+  using (ardha ; ardha-dvi)
+open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostOneStaysBoundedSoTheFiniteGrowthTheoremReadsTheDominantRatio
+  using (_^_)
+
+ardha-guṇa : ardha · (1 + 1) ≡ 1
+ardha-guṇa = ·DistL+ ardha 1 1 ∙ cong₂ _+_ (·IdR ardha) (·IdR ardha) ∙ ardha-dvi
+
+-- Σ_{k<n} h^k = 2 (1 − h^n) for the half h
+geo : (n : ℕ) → Σ⟨ n ⟩ (λ k → (ardha ^ k)) ≡ (1 + 1) · (1 - (ardha ^ n))
+geo zero    = Dvi.ādi ℚRing
+geo (suc n) = cong (_+ (ardha ^ n)) (geo n)
+            ∙ Dvi.pada ℚRing ardha ((ardha ^ n))
+            ∙ Dvi.śuddha ℚRing ardha ((ardha ^ n)) ardha-guṇa
+
+-- pulling a constant out of a sum
+Σ-guṇa : (q : ℚ) (f : ℕ → ℚ) (n : ℕ) → Σ⟨ n ⟩ (λ k → q · f k) ≡ q · Σ⟨ n ⟩ f
+Σ-guṇa q f zero    = sym (·AnnihilR q)
+Σ-guṇa q f (suc n) = cong (_+ q · f n) (Σ-guṇa q f n) ∙ sym (·DistL+ q (Σ⟨ n ⟩ f) (f n))
+
+-- powers of the half are nonnegative
+ardha-anṛṇa : 0 ≤ ardha
+ardha-anṛṇa = <Weaken≤ 0 ardha (0 , refl)
+
+ardha^-anṛṇa : (n : ℕ) → 0 ≤ (ardha ^ n)
+ardha^-anṛṇa zero    = 0≤1
+ardha^-anṛṇa (suc n) = anṛṇa-guṇa ardha ((ardha ^ n)) ardha-anṛṇa (ardha^-anṛṇa n)
+
+-- the dyadic weight w_k = ¼ (½)^k
+dvidhā : ℕ → ℚ
+dvidhā k = (ardha · ardha) · ((ardha ^ k))
+
+dvidhā-anṛṇa : (k : ℕ) → 0 ≤ dvidhā k
+dvidhā-anṛṇa k = anṛṇa-guṇa (ardha · ardha) ((ardha ^ k)) (anṛṇa-guṇa ardha ardha ardha-anṛṇa ardha-anṛṇa) (ardha^-anṛṇa k)
+
+-- its partial sums are ½ (1 − (½)^n), hence at most ½
+dvidhā-Σ : (n : ℕ) → Σ⟨ n ⟩ dvidhā ≡ ardha · (1 - (ardha ^ n))
+dvidhā-Σ n = Σ-guṇa (ardha · ardha) (λ k → (ardha ^ k)) n
+           ∙ cong ((ardha · ardha) ·_) (geo n)
+           ∙ Dvi.caturtha ℚRing ardha ((ardha ^ n))
+           ∙ cong (λ z → (ardha · z) · (1 - (ardha ^ n))) ardha-guṇa
+           ∙ cong (_· (1 - (ardha ^ n))) (·IdR ardha)
+
+-- so the partial sums are at most ½, in particular at most 1
+dvidhā-ardha : (n : ℕ) → Σ⟨ n ⟩ dvidhā ≤ ardha
+dvidhā-ardha n = subst (_≤ ardha) (sym (dvidhā-Σ n))
+  (subst (ardha · (1 - (ardha ^ n)) ≤_) (·IdR ardha)
+    (subst2 _≤_ (·Comm (1 - (ardha ^ n)) ardha) (·Comm 1 ardha)
+      (≤-·o (1 - (ardha ^ n)) 1 ardha ardha-anṛṇa (vyava-≤ 1 ((ardha ^ n)) (ardha^-anṛṇa n)))))
+
+ardha≤1 : ardha ≤ 1
+ardha≤1 = <Weaken≤ ardha 1 (0 , refl)
+
+dvidhā-eka : (n : ℕ) → Σ⟨ n ⟩ dvidhā ≤ 1
+dvidhā-eka n = isTrans≤ (Σ⟨ n ⟩ dvidhā) ardha 1 (dvidhā-ardha n) ardha≤1
+
+------------------------------------------------------------------------
+-- ६ · The closure with the dyadic weight: a_n ≤ 2 (a_0 + Σ c), every n.
+------------------------------------------------------------------------
+
+module _ (a c : ℕ → ℚ) (0≤a : (k : ℕ) → 0 ≤ a k) (0≤c : (k : ℕ) → 0 ≤ c k)
+         (pada : (k : ℕ) → a (suc k) ≤ a k · (1 + dvidhā k) + c k) where
+
+  dvidhā-sīmā : (n : ℕ) → a n ≤ (1 + 1) · (a 0 + Σ⟨ n ⟩ c)
+  dvidhā-sīmā n =
+    subst2 _≤_ (Dvi.dviguṇa ℚRing (a n) ardha ∙ cong (a n ·_) ardha-guṇa ∙ ·IdR (a n))
+               (Dvi.guṇa-eka ℚRing (a 0 + Σ⟨ n ⟩ c))
+      (≤-·o (a n · ardha) (a 0 + Σ⟨ n ⟩ c) (1 + 1) (anṛṇa-yoga {1} {1} 0≤1 0≤1)
+        (isTrans≤ (a n · ardha) (a n · (1 - Σ⟨ n ⟩ dvidhā)) (a 0 + Σ⟨ n ⟩ c)
+          (subst2 _≤_ (·Comm ardha (a n)) (·Comm (1 - Σ⟨ n ⟩ dvidhā) (a n))
+            (≤-·o ardha (1 - Σ⟨ n ⟩ dvidhā) (a n) (0≤a n) ardha≤1-S))
+          (saṃvṛta dvidhā dvidhā-anṛṇa a c 0≤a 0≤c pada n (dvidhā-eka n))))
+    where
+    -- ½ ≤ 1 − S_n since S_n ≤ ½
+    ardha≤1-S : ardha ≤ 1 - Σ⟨ n ⟩ dvidhā
+    ardha≤1-S = subst (_≤ 1 - Σ⟨ n ⟩ dvidhā) (Dvi.pratyāhāra ℚRing ardha (Σ⟨ n ⟩ dvidhā))
+      (≤-+o (ardha + Σ⟨ n ⟩ dvidhā) 1 (- Σ⟨ n ⟩ dvidhā)
+        (subst (ardha + Σ⟨ n ⟩ dvidhā ≤_) ardha-dvi (≤-o+ (Σ⟨ n ⟩ dvidhā) ardha ardha (dvidhā-ardha n))))
