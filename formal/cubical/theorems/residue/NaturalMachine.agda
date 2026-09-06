@@ -1233,3 +1233,7 @@ import VieillefosseFibre_TheDiscriminantIsAFirstIntegralOfRestrictedEulerItsZero
 -- ℤ injects into the pushforward fibre over a (Q,R) point by scaling the
 -- Hessian direction.
 import DiscriminantIsTheOnlyFirstIntegral_UpToCubicDegreeEveryPolynomialFirstIntegralOfRestrictedEulerIsAffineInTheDiscriminantAndThePushforwardFibreIsUnbounded
+-- WindowShiftResidual: on a finite window the two zero-displacement shift
+-- words act differently (closed forms), agree away from both edges, and the
+-- operator reading does not factor through net displacement.
+import WindowShiftResidual_NetDisplacementDescendsAndTheBoundaryInteractionHistoryDoesNotAndForAFixedWordItRetreatsToTheEdges
