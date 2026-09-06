@@ -39,7 +39,7 @@
 -- by cross multiplication are elementary; lifting propositional
 -- statements through a set-quotient by `elimProp` is standard.
 --
--- WHAT IS STILL NOT CLAIMED.  ASYMMETRY and TRICHOTOMY are not proved:
+-- THE SCOPE, EXACTLY.  ASYMMETRY and TRICHOTOMY are not proved:
 -- `⊏-total`-style comparability was proved for `⊑` on PAIRS and is not
 -- transported here, so nothing says two rates are always comparable.
 -- No claim relates `⊏R` to `AtLeastOnRate` — only to `AboveOnRate`;

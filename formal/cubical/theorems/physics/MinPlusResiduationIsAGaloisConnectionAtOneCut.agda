@@ -53,7 +53,7 @@
 -- object).  What is contributed is only that this repository's own
 -- obligation is now discharged for one cut rather than named.
 --
--- WHAT IS STILL NOT CLAIMED, and it is the larger half.  ONE CUT means
+-- THE SCOPE, EXACTLY, and it is the larger half.  ONE CUT means
 -- ONE burden and ONE residual: `X = Y = Unit`, so no infimum over an
 -- index appears.  Δ 28's cut has a PROFILE on each side, and its `↑`
 -- takes a meet over all burdens — that needs `min` over a finite index

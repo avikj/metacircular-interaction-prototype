@@ -60,7 +60,7 @@
 --     proved, obtained with NO new induction.  The carry pays (Ahiṃsā
 --     §६: an identification is a channel; theorems flow along it).
 --
--- WHAT IS NOT PROVED.  Nothing about sieves, Goldbach, twin primes,
+-- THE SCOPE, EXACTLY.  Nothing about sieves, Goldbach, twin primes,
 -- winding, or gauge theory beyond what the two imported modules already
 -- hold.  Not claimed: that `sgn`/`parity` is novel, or that the ℤ→ℤ/2
 -- projection framing (ChargeGrading D15.26) originates here.  What is

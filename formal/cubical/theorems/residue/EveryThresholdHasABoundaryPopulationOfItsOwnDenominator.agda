@@ -45,7 +45,7 @@
 -- q) above 1 is not a rate any population can meet non-vacuously, since
 -- `count ≤ length` is proved in `RateOneIsExactlyTheUniversalClaim`.
 --
--- WHAT IS STILL NOT CLAIMED.  Uniqueness: `pop p k` is one boundary
+-- THE SCOPE, EXACTLY.  Uniqueness: `pop p k` is one boundary
 -- population, not the only one, and no claim is made that boundary
 -- populations at a threshold are related in any way.  Minimality: the
 -- length is suc q, and whether a SHORTER boundary population exists is

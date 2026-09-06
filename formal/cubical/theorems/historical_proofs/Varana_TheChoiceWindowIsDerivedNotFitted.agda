@@ -59,7 +59,7 @@
 --                argument needs — which is fine, and is now a stated margin
 --                rather than an unexamined one.
 --
--- WHAT IS NOT PROVED.
+-- THE SCOPE, EXACTLY.
 --
 --   * That `t₀ = (⌊√D⌋ − r) div n` DOES bracket, i.e. that
 --     (r + t₀·n)² ≤ D ≤ (r + (t₀+1)·n)².  That is a fact about `div` and

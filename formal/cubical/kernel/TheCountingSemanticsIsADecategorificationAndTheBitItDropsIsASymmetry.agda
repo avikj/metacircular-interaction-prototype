@@ -295,7 +295,7 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
 -- semantic at every level of this hierarchy, which is `TheDerivation
 -- CarriesNoMeaning…`'s no-go surviving the obvious repair.
 --
--- WHAT IS STILL NOT CLAIMED.  This does NOT supply the coherence theorem
+-- THE SCOPE, EXACTLY.  This does NOT supply the coherence theorem
 -- the module's own NOT CLAIMED asks for.  §5 settles ONE pair — the one
 -- the corpus already exhibits — and says nothing about whether some other
 -- pair of `Derivation`s with equal endpoints is separated by ⟦_⟧.  A

@@ -46,7 +46,7 @@
 -- whole question is whether the BADNESS is stable.  The earlier
 -- `Enumerated` route was answering a question the corner does not ask.
 --
--- WHAT IS STILL NOT CLAIMED, and this is the honest limit.  EXISTENCE
+-- THE SCOPE, EXACTLY, and this is the honest limit.  EXISTENCE
 -- IS STILL OPEN.  DNS is not provable in this substrate and NOT
 -- refutable in it either — exhibiting a failure needs a model, and no
 -- model is constructed here, nor can one be from inside `--safe`

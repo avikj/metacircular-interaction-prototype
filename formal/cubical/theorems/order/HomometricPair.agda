@@ -34,7 +34,7 @@
 --     to B.  Finite exhaustion over the symmetry types, with the
 --     translation parameter eliminated by the head of the sorted list.
 --
--- WHAT IS NOT FORMALIZED: minimality ("no homometric pair of diameter
+-- THE SCOPE, EXACTLY: minimality ("no homometric pair of diameter
 -- ≤ 10", "6 distinct pairs across 12 collision events").  That is a
 -- 2^14-subset sweep, a separate and larger kernel run; REPORT.md's
 -- minimality clause still rests on the legacy Python search.  This

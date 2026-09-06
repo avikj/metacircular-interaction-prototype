@@ -41,7 +41,7 @@
 -- their absence as the reason its result was a specification and not a
 -- construction.
 --
--- WHAT IS STILL NOT CLAIMED.  This is ONE stratum — the maximal layer.
+-- THE SCOPE, EXACTLY.  This is ONE stratum — the maximal layer.
 -- A STRATIFICATION is the iterated construction (remove the layer,
 -- repeat), and that needs a termination argument on the archive's
 -- length which is NOT given here; nothing below iterates.  No claim is

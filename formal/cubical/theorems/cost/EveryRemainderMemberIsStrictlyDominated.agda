@@ -38,7 +38,7 @@
 -- NO NOVELTY.  A filter's complement keeps the non-satisfiers, and a
 -- decidable proposition is stable; both elementary.
 --
--- WHAT IS STILL NOT CLAIMED — and the second half of (3) is the real
+-- THE SCOPE, EXACTLY — and the second half of (3) is the real
 -- one.  The dominator produced here lies in `xs`, NOT necessarily in
 -- `stratum xs`.  Strengthening it needs a RELATIVISED maximality
 -- lemma — for any `v` in `xs` there is a maximal `m` in `xs` with

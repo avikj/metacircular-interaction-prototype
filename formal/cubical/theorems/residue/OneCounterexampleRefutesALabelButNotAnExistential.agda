@@ -25,7 +25,7 @@
 -- That is the weakest possible witness that claim-shapes differ in
 -- refutation conditions, and it is chosen because it needs no counting.
 --
--- WHAT IS NOT MODELLED, said rather than glossed: a genuine RATE claim
+-- THE SCOPE, EXACTLY, said rather than glossed: a genuine RATE claim
 -- ("more than half", "at most 25%").  That needs a measure and a count,
 -- neither of which appears below.  §3 therefore does NOT establish the
 -- comparison §7's list invites — it establishes only that at least one

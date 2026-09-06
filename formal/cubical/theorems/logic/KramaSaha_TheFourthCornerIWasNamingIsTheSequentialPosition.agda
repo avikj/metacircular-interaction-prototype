@@ -52,7 +52,7 @@
 -- the sequential position, not silence.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS DOES NOT SHOW.  It does NOT show that avaktavya is
+-- THE SCOPE, EXACTLY.  It does NOT show that avaktavya is
 -- inexpressible in cubical type theory — only that THIS encoding, a
 -- product of negations over an instance family, is not it, because De
 -- Morgan's one constructively valid direction runs the wrong way for

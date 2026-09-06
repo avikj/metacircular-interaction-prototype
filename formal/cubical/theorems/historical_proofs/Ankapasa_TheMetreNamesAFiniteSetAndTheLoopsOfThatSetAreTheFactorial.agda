@@ -157,7 +157,7 @@ open import SymmetryEnumeration using (symmetryEnum)
 अनुक्रमस्य-भ्रमणम् ds = छन्दो-भ्रमणम् (अनुक्रम ds)
 
 ------------------------------------------------------------------------
--- ४ · WHAT IS NOT PROVED HERE.
+-- ४ · THE SCOPE, EXACTLY.
 --
 --   * That `छन्दस्≃π₀FinSet` is a PATH.  It is not, and it cannot be
 --     written as one: the endpoints are in different universes.  Every

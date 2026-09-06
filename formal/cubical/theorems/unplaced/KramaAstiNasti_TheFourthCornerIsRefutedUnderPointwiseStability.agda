@@ -57,7 +57,7 @@
 -- is precisely the "positive pole is a search" side of the axis this
 -- corpus keeps meeting.  §4 then refutes the fourth corner.
 --
--- WHAT IS STILL NOT CLAIMED.  That the fourth corner is impossible
+-- THE SCOPE, EXACTLY.  That the fourth corner is impossible
 -- WITHOUT the hypothesis.  Nothing below shows the stability is
 -- necessary, and I did not find a model realising the corner either; the
 -- unconditional question stays open and is stated here as open rather

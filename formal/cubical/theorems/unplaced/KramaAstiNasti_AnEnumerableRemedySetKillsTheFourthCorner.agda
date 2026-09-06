@@ -69,7 +69,7 @@
 -- concerns `ℕ`.  It is proved here because this corpus reached for
 -- enumerability twice without noticing the two sides differ.
 --
--- WHAT IS STILL NOT CLAIMED.  EXISTENCE, as ever: this narrows where
+-- THE SCOPE, EXACTLY.  EXISTENCE, as ever: this narrows where
 -- the corner can be and exhibits nothing.  `Enumerated` carries a
 -- CHOSEN list, so "non-enumerable" here means "no such list and
 -- covering proof is given", not any cardinality claim.  The result is

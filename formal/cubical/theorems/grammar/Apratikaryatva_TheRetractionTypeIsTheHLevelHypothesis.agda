@@ -493,7 +493,7 @@ private
 ... | inr ¬p = inr (λ e → ¬p (प्रश्नः-समः hP e))
 
 ------------------------------------------------------------------------
--- WHAT THIS MODULE DOES NOT SETTLE.  Recorded because a module that
+-- THE SCOPE, EXACTLY.  Recorded because a module that
 -- lists only its results is a durnaya about itself.
 --
 --   * §3 is about `hLevelTrunc`.  `Cubical.HITs.SetTruncation.∥_∥₂` and

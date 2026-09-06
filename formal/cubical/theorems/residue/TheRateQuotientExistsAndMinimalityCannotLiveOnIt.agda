@@ -51,7 +51,7 @@
 -- contributed is only which of THIS corpus's threshold predicates
 -- survive the quotient, and the proof that one provably does not.
 --
--- WHAT IS STILL NOT CLAIMED.  DENSITY OF THE RATES is NOT proved: the
+-- THE SCOPE, EXACTLY.  DENSITY OF THE RATES is NOT proved: the
 -- mediant module's `⊏` is not lifted here, and lifting it needs `⊏` to
 -- respect `≈` on BOTH sides, which is not checked.  So the second of
 -- the two sentences quoted at the top is still open, and only the first

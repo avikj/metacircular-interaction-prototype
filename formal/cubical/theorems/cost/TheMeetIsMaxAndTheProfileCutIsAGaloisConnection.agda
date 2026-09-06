@@ -57,7 +57,7 @@
 -- repository's own obligation is discharged at the profile level, and
 -- that the operation it names is corrected.
 --
--- WHAT IS STILL NOT CLAIMED.  ONE SIDE IS STILL SCALAR: burdens form a
+-- THE SCOPE, EXACTLY.  ONE SIDE IS STILL SCALAR: burdens form a
 -- profile, residuals are a single value, because that is what makes
 -- `up` land in ℕ.  A cut with profiles on BOTH sides needs `up` to
 -- produce a residual profile, i.e. a meet per residual index, and is

@@ -83,7 +83,7 @@
 -- barrier language has been pointing at.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT THIS DOES NOT CLAIM.  Nothing here is a statement about the
+-- THE SCOPE, EXACTLY.  Nothing here is a statement about the
 -- distribution of primes, about the parity obstruction in sieve theory,
 -- or about the walk's asymptotics.  It is a statement about which
 -- additive law admits a transition to the multiplicative chart, with

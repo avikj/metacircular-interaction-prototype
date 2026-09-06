@@ -77,7 +77,7 @@
 -- v0.5 `Fin n = Σ k (k < n)`, so constructors in index positions do not
 -- pattern-match — and it is why nothing here mentions `Fin` at all.
 --
--- WHAT IS STILL NOT CLAIMED.  Existence.  No model realising
+-- THE SCOPE, EXACTLY.  Existence.  No model realising
 -- `¬ सामयिक × ¬ नित्य` is exhibited here either, and none is refuted in
 -- general: this is a second sufficient condition, sharper and checkable,
 -- not a necessary one.  `Enumerated I` is a Σ, not a truncation, so it

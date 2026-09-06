@@ -66,7 +66,7 @@
 --   §4  the-whole-family-means-one-thing -- and all of it is one bit
 --       downstairs, through `Sesa_…`, forced by ℕ being a set.
 --
--- WHAT IS NOT PROVED, and these are omissions rather than gaps:
+-- THE SCOPE, EXACTLY — omissions precisely located, not gaps:
 --   * nothing about the h-level of `Derivation a b`, and no claim that
 --     `inflate` enumerates it -- it exhibits an injection, not a bijection.
 --   * nothing about `Step a b` for a fixed pair, which is a different

@@ -45,7 +45,7 @@
 -- previous module named its absence, and because the constructive proof
 -- needs the decision that module supplies rather than excluded middle.
 --
--- WHAT IS STILL NOT CLAIMED.  A STRATIFICATION.  Removing the layer and
+-- THE SCOPE, EXACTLY.  A STRATIFICATION.  Removing the layer and
 -- repeating needs a termination argument on the archive's length, and
 -- nothing here iterates — that admission survives this cycle intact.
 -- No claim about the SIZE of the stratum, nor that it is the set of ALL

@@ -39,7 +39,7 @@
 -- ordering but their behaviour at a single population per threshold —
 -- the one that meets it exactly.
 --
--- WHAT IS STILL NOT CLAIMED.  `atLeastWithoutAbove` is ONE population
+-- THE SCOPE, EXACTLY.  `atLeastWithoutAbove` is ONE population
 -- at ONE threshold (one true and one false, so the rate is exactly 1/2); that
 -- every threshold has such a population is NOT proved, and would need a
 -- construction of a population realising an arbitrary p/(suc q), which

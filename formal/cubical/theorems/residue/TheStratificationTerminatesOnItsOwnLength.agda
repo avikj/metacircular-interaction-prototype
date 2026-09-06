@@ -40,7 +40,7 @@
 -- measure is the standard way to write a well-founded loop without
 -- well-founded machinery.
 --
--- WHAT IS STILL NOT CLAIMED — the same three, and they are now the
+-- THE SCOPE, EXACTLY — the same three, and they are now the
 -- WHOLE remainder for this line.  (1) COVERAGE: nothing says every
 -- member of the archive appears in some layer of `strata`.  (2)
 -- DISJOINTNESS: nothing says the layers share no member; `filterDec`

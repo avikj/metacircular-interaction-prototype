@@ -39,7 +39,7 @@
 --      causal order read off such a graph is therefore vacuous -- it
 --      constrains nothing, because `R x y → x ≡ y` already holds.
 --
--- WHAT IS NOT PROVED.  Nothing about KMS states, C*-algebras, Liouville,
+-- THE SCOPE, EXACTLY.  Nothing about KMS states, C*-algebras, Liouville,
 -- or physics.  Theorem F is cited, not formalised; §३ is an analogue at a
 -- stated grain and the note says where the analogy stops.
 --

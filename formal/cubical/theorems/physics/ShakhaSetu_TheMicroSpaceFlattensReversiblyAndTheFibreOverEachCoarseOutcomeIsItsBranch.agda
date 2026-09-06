@@ -30,7 +30,7 @@
 --   * exact recovery of the coarse label after encode/decode;
 --   * the branch itself as the fibre of the flat coarse observer.
 --
--- WHAT THIS DOES NOT CLAIM.
+-- THE SCOPE, EXACTLY.
 --   * no Hilbert space, amplitude, inner product, or unitary dynamics;
 --   * no physical process implements this equivalence;
 --   * no equality yet between the nested weight fold and the direct fold on
