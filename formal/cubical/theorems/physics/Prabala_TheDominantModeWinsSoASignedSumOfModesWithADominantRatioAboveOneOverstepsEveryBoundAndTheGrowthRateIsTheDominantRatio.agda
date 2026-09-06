@@ -77,3 +77,89 @@ dvipada m x 0≤m 0≤x (suc t) =
                      (anṛṇa-guṇa (ι (suc t) · x · x) (m ^ t)
                         (anṛṇa-guṇa (ι (suc t) · x) x (anṛṇa-guṇa (ι (suc t)) x (ι-anṛṇa (suc t)) 0≤x) 0≤x)
                         (anṛṇa-ghāta m 0≤m t))))
+
+------------------------------------------------------------------------
+-- २ · The tail is at most (Σ|c_i|) · M^t.
+------------------------------------------------------------------------
+
+open import Cubical.Data.Rationals.Order using (_≟_ ; lt ; eq ; gt ; ≤max ; ≤→max)
+open import Nirapeksa_TheAbsoluteValueOnTheRationalsIsTheMaximumOfAnElementAndItsNegativeSoItIsNonnegativeDominatesBothAndIsSubadditive
+  using (∣_∣ ; vāma ; dakṣiṇa ; anṛṇa ; trikoṇa ; dhana-sama ; ṛṇa-sama ; max-≤ ; ≤Monotone+)
+open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm
+  using (Σ⟨_⟩ ; Σ-guṇa)
+open import DvandvaVarga_TheSquareOfTheInnerProductPlusTheSumOfPairSquaresIsTheProductOfNormsSoCauchySchwarzHoldsOverQAndTheResolvedDualityOfTheAdjointReceiverIsAttainedAtTheVectorItself
+  using (Σ-ext)
+open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAHalfAndNonnegativityExcludesMinusTwoSoTheFiniteWeilCriterionAndTheKreinSplittingHoldOverQ
+  using (ṛṇa-viparīta)
+open import Cubical.Data.Nat.Order using (≤-refl ; ≤-suc) renaming (_<_ to _<ℕ_)
+
+-- (−a)·p = −(a·p)
+neg-guṇa : (a p : ℚ) → (- a) · p ≡ - (a · p)
+neg-guṇa a p = sym (·Assoc (-1) a p)
+
+-- |0| = 0
+śūnya-sama : (∣ 0 ∣) ≡ 0
+śūnya-sama = cong (max 0) (·AnnihilR (-1)) ∙ maxIdem 0
+
+-- |a · p| = |a| · p for p ≥ 0
+guṇa-sama : (a p : ℚ) → 0 ≤ p → ∣ a · p ∣ ≡ (∣ a ∣) · p
+guṇa-sama a p 0≤p with a ≟ 0
+... | lt a<0 = cong (max (a · p)) (sym (neg-guṇa a p))
+             ∙ ≤→max (a · p) ((- a) · p) (≤-·o a (- a) p 0≤p a≤-a)
+             ∙ cong (_· p) (sym (ṛṇa-sama a (<Weaken≤ a 0 a<0)))
+  where
+  a≤-a : a ≤ - a
+  a≤-a = isTrans≤ a 0 (- a) (<Weaken≤ a 0 a<0) (<Weaken≤ 0 (- a) (ṛṇa-viparīta a a<0))
+... | eq q   = cong (λ z → ∣ z · p ∣) q ∙ cong ∣_∣ (·AnnihilL p) ∙ śūnya-sama
+             ∙ sym (·AnnihilL p) ∙ cong (_· p) (sym śūnya-sama) ∙ cong (λ z → (∣ z ∣) · p) (sym q)
+... | gt 0<a = maxComm (a · p) (- (a · p))
+             ∙ ≤→max (- (a · p)) (a · p) (isTrans≤ (- (a · p)) 0 (a · p) neg≤0 0≤ap)
+             ∙ cong (_· p) (sym (dhana-sama a (<Weaken≤ 0 a 0<a)))
+  where
+  0≤ap : 0 ≤ a · p
+  0≤ap = anṛṇa-guṇa a p (<Weaken≤ 0 a 0<a) 0≤p
+  neg≤0 : - (a · p) ≤ 0
+  neg≤0 = subst2 _≤_ (+IdL (- (a · p))) (+InvR (a · p)) (≤-+o 0 (a · p) (- (a · p)) 0≤ap)
+
+-- |Σ f| ≤ Σ |f|
+Σ-trikoṇa : (f : ℕ → ℚ) (n : ℕ) → ∣ Σ⟨ n ⟩ f ∣ ≤ Σ⟨ n ⟩ (λ i → ∣ f i ∣)
+Σ-trikoṇa f zero    = subst (_≤ 0) (sym śūnya-sama) (isRefl≤ 0)
+Σ-trikoṇa f (suc n) = isTrans≤ (∣ Σ⟨ n ⟩ f + f n ∣) ((∣ Σ⟨ n ⟩ f ∣) + (∣ f n ∣)) (Σ⟨ n ⟩ (λ i → ∣ f i ∣) + (∣ f n ∣))
+  (trikoṇa (Σ⟨ n ⟩ f) (f n))
+  (≤-+o (∣ Σ⟨ n ⟩ f ∣) (Σ⟨ n ⟩ (λ i → ∣ f i ∣)) (∣ f n ∣) (Σ-trikoṇa f n))
+
+-- range-restricted monotonicity of sums
+Σ-mono : (f g : ℕ → ℚ) (k : ℕ) → ((i : ℕ) → i <ℕ k → f i ≤ g i) → Σ⟨ k ⟩ f ≤ Σ⟨ k ⟩ g
+Σ-mono f g zero    _  = isRefl≤ 0
+Σ-mono f g (suc k) le =
+  isTrans≤ (Σ⟨ k ⟩ f + f k) (Σ⟨ k ⟩ g + f k) (Σ⟨ k ⟩ g + g k)
+    (≤-+o (Σ⟨ k ⟩ f) (Σ⟨ k ⟩ g) (f k) (Σ-mono f g k (λ i i<k → le i (≤-suc i<k))))
+    (≤-o+ (f k) (g k) (Σ⟨ k ⟩ g) (le k ≤-refl))
+
+-- powers are monotone on [0, ∞)
+ghāta-mono : (a b : ℚ) → 0 ≤ a → a ≤ b → (t : ℕ) → a ^ t ≤ b ^ t
+ghāta-mono a b 0≤a a≤b zero    = isRefl≤ 1
+ghāta-mono a b 0≤a a≤b (suc t) =
+  isTrans≤ (a · (a ^ t)) (a · (b ^ t)) (b · (b ^ t))
+    (subst2 _≤_ (·Comm (a ^ t) a) (·Comm (b ^ t) a) (≤-·o (a ^ t) (b ^ t) a 0≤a (ghāta-mono a b 0≤a a≤b t)))
+    (≤-·o a b (b ^ t) (anṛṇa-ghāta b (isTrans≤ 0 a b 0≤a a≤b) t) a≤b)
+
+module Tail (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (0≤M : 0 ≤ M)
+            (0≤m : (i : ℕ) → 0 ≤ m i) (m≤M : (i : ℕ) → i <ℕ n → m i ≤ M) where
+
+  T : ℕ → ℚ
+  T t = Σ⟨ n ⟩ (λ i → c i · (m i ^ t))
+
+  C : ℚ
+  C = Σ⟨ n ⟩ (λ i → ∣ c i ∣)
+
+  pucchā : (t : ℕ) → ∣ T t ∣ ≤ C · (M ^ t)
+  pucchā t =
+    isTrans≤ (∣ T t ∣) (Σ⟨ n ⟩ (λ i → ∣ c i · (m i ^ t) ∣)) (C · (M ^ t))
+      (Σ-trikoṇa (λ i → c i · (m i ^ t)) n)
+      (subst (Σ⟨ n ⟩ (λ i → ∣ c i · (m i ^ t) ∣) ≤_)
+             (Σ-guṇa (M ^ t) (λ i → ∣ c i ∣) n ∙ ·Comm (M ^ t) C)
+        (Σ-mono (λ i → ∣ c i · (m i ^ t) ∣) (λ i → (M ^ t) · (∣ c i ∣)) n
+          (λ i i<n → subst (_≤ (M ^ t) · (∣ c i ∣)) (sym (guṇa-sama (c i) (m i ^ t) (anṛṇa-ghāta (m i) (0≤m i) t)))
+                       (subst (_≤ (M ^ t) · (∣ c i ∣)) (·Comm (m i ^ t) (∣ c i ∣))
+                         (≤-·o (m i ^ t) (M ^ t) (∣ c i ∣) (anṛṇa (c i)) (ghāta-mono (m i) M (0≤m i) (m≤M i i<n) t))))))
