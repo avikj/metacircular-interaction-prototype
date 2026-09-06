@@ -316,3 +316,54 @@ hermit = refl
 
 idem : sarva₈ (λ x y → eq𝔾 (Π̃² x y) (ι (⁺ 576) ⊗ Π̃ x y)) ≡ true
 idem = refl
+
+------------------------------------------------------------------------
+-- ८ · Rank two and a six-dimensional kernel.  Outputs 1 and 2 have a
+--     nonzero 2×2 minor, so the image is the descendant plane; six
+--     integer relations Σ_x c_x·out x = 0 with distinct unit pivots at
+--     channels 0, 3, 4, 5, 6, 7 span a six-dimensional kernel.
+------------------------------------------------------------------------
+
+minor : 𝔾
+minor = (fst (out 1) ⊗ fst (snd (out 2))) ⊕ (⊖ (fst (out 2) ⊗ fst (snd (out 1))))
+
+minor-anasta : minor ≡ (⁺ 0 , ⁺ 48)
+minor-anasta = refl
+
+Σ₈V : (ℕ → 𝔾) → V
+Σ₈V c = ((c 0 ⋆ out 0) ⊞ (c 1 ⋆ out 1)) ⊞ ((c 2 ⋆ out 2) ⊞ (c 3 ⋆ out 3))
+        ⊞ (((c 4 ⋆ out 4) ⊞ (c 5 ⋆ out 5)) ⊞ ((c 6 ⋆ out 6) ⊞ (c 7 ⋆ out 7)))
+
+0V : V
+0V = (ι (⁺ 0) , ι (⁺ 0) , ι (⁺ 0))
+
+-- the six relations, each with its pivot coordinate 1 at a distinct channel
+κ₀ κ₃ κ₄ κ₅ κ₆ κ₇ : ℕ → 𝔾
+κ₀ 0 = ι (⁺ 1)
+κ₀ _ = ι (⁺ 0)
+κ₃ 1 = (⁺ 1 , ⁻ 2)
+κ₃ 2 = (⁺ 1 , ⁺ 2)
+κ₃ 3 = ι (⁺ 1)
+κ₃ _ = ι (⁺ 0)
+κ₄ 1 = ι (⁺ 1)
+κ₄ 2 = ι (⁻ 1)
+κ₄ 4 = ι (⁺ 1)
+κ₄ _ = ι (⁺ 0)
+κ₅ 1 = ι (⁺ 2)
+κ₅ 2 = (⁻ 1 , ⁺ 2)
+κ₅ 5 = ι (⁺ 1)
+κ₅ _ = ι (⁺ 0)
+κ₆ 1 = (⁺ 1 , ⁺ 2)
+κ₆ 2 = ι (⁻ 2)
+κ₆ 6 = ι (⁺ 1)
+κ₆ _ = ι (⁺ 0)
+κ₇ 7 = ι (⁺ 1)
+κ₇ _ = ι (⁺ 0)
+
+kernel-6 : (Σ₈V κ₀ ≡ 0V) × (Σ₈V κ₃ ≡ 0V) × (Σ₈V κ₄ ≡ 0V) × (Σ₈V κ₅ ≡ 0V) × (Σ₈V κ₆ ≡ 0V) × (Σ₈V κ₇ ≡ 0V)
+kernel-6 = refl , refl , refl , refl , refl , refl
+
+-- distinct pivots: κ_j is 1 at channel j and 0 at the other pivot channels,
+-- so no nontrivial combination vanishes — the six are independent.
+pivots : (κ₀ 0 ≡ ι (⁺ 1)) × (κ₃ 3 ≡ ι (⁺ 1)) × (κ₄ 4 ≡ ι (⁺ 1)) × (κ₅ 5 ≡ ι (⁺ 1)) × (κ₆ 6 ≡ ι (⁺ 1)) × (κ₇ 7 ≡ ι (⁺ 1))
+pivots = refl , refl , refl , refl , refl , refl
