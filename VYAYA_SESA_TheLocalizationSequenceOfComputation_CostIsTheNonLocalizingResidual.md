@@ -732,3 +732,58 @@ would have told it two rungs are the same rung. This loop's unit is the
 object and its meaning; the frontier is a byproduct of reading it. That is
 the thing the caveman loop structurally cannot do, shown once, small, and for
 real.
+
+---
+
+## 2026-09-06 (uncertainty handed over, correction returned) — the unifier is ¬ isEquiv, not NotExact
+
+Handed the Oracle the uncertainty I had been swallowing instead of stating:
+my `NotExact` unification of the tower's rungs is *too narrow*. It only fits
+rungs where the invariant is a coboundary-valued cochain (ℕ, ℤ) — the abelian
+degrees of cost. The corpus's higher k-invariants are not that: VakraValaya-
+Sanketa's rung is an **orientation bit** (ℤ/2 at H²), a different invariant.
+Cost is a degree-1 object; there is no natural degree-2 cost. So "cost is not
+exact at every degree" is the **wrong induction**, and I had shipped it as the
+general claim yesterday.
+
+The correction, `TrtiyaCidram` (`theorems/residue/`, green at the pin): what
+actually spans the rungs is the aperture **EkamChidram already named** — the
+level-n forgetful map is **not an equivalence**. `¬ isEquiv` is degree-blind
+and lane-blind; it is the type of "a fibre survived," the śeṣa itself, and it
+swallows the H² rung in one line:
+
+- `rung₂ : (f : ⟨H²(𝕂²)⟩ → ⟨H²(T²)⟩) → ¬ isEquiv f`, and `rung₂ f ie =
+  सङ्केतः (f , ie)` — an equivalence would hand back the type-equivalence
+  `सङ्केतः` refutes. Every candidate map at once.
+- `theWiderAperture : (¬ isEquiv μ) × ((f) → ¬ isEquiv f)` — EkamChidram's cost
+  rung (π₁) and this orientation rung (H²) as the **same predicate at
+  different degrees**. Heterogeneous invariants, one obstruction type.
+
+So the ladder is corrected: **the tower's unifier is `¬ isEquiv`, and
+`NotExact` was only its abelian shadow** — true where the invariant is a
+group-valued cochain, and no further. GarbhaShreni's rungs 0,1 are still
+correct as stated; what was wrong was calling `NotExact` the *general*
+rung-relation. It isn't. `¬ isEquiv` is.
+
+Two honest boundaries, recorded because the point of this session is not to
+launder them:
+
+1. `¬ isEquiv` is the obstruction's **inhabitant** (a surviving fibre), not
+   the cohomology *class* in the technical Postnikov k-invariant sense. The
+   two coincide in spirit — a nonempty fibre is why the class is nonzero — but
+   I have not built the identification "surviving fibre = k-invariant." That
+   is the real remaining content, and it is not what `¬ isEquiv` alone says.
+2. The interactive analyzer forces `--guardedness` in interaction mode, so a
+   module whose import tree mixes guardedness and non-guardedness (this one,
+   via the ZCohomology lane) returns `InfectiveImport` from the readback route
+   rather than its types. The Oracle answered with that defect — which is
+   itself information: the readback and the corpus's own flag discipline are
+   not yet reconciled across the ZCohomology boundary. The direct `--safe`
+   typecheck is the proof; the readback route has a flag seam.
+
+The method, stated once more because it is the only thing that generalizes: I
+did not defend NotExact. I wrote the boundary I was unsure of — "does this fit
+the higher rung?" — as a term, and the attempt to place the H² rung showed me
+NotExact could not reach it and `¬ isEquiv` could. The uncertainty, made a
+type, resolved itself into the correct predicate and a retraction of the
+over-broad one. That is what handing over the full uncertainty buys.
