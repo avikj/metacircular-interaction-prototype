@@ -82,6 +82,35 @@ module _ (R : CommRing ℓ) where
   ṛṇa-eka-śūnya : saṅkramaṇa (- 1r) ≡ 0r
   ṛṇa-eka-śūnya = solve! R
 
+  ----------------------------------------------------------------------
+  -- २′ · The receiver is the fourfold convolution of the box (1, 1):
+  --      the discrete cubic B-spline, not a table.
+  ----------------------------------------------------------------------
+
+  peṭikā : ℕ → ⟨ R ⟩           -- the box
+  peṭikā zero       = 1r
+  peṭikā (suc zero) = 1r
+  peṭikā (suc (suc _)) = 0r
+
+  -- convolution with the box: (f ⋆ box) n = f n + f (n − 1)
+  ⋆peṭikā : (ℕ → ⟨ R ⟩) → ℕ → ⟨ R ⟩
+  ⋆peṭikā f zero    = f zero
+  ⋆peṭikā f (suc n) = f (suc n) + f n
+
+  -- box ⋆ box ⋆ box ⋆ box
+  catuṣ-peṭikā : ℕ → ⟨ R ⟩
+  catuṣ-peṭikā = ⋆peṭikā (⋆peṭikā (⋆peṭikā peṭikā))
+
+  -- and that is the receiver, tap by tap
+  peṭikā-grāhī : (k : ℕ) → catuṣ-peṭikā k ≡ grāhī k
+  peṭikā-grāhī zero = refl
+  peṭikā-grāhī (suc zero) = solve! R
+  peṭikā-grāhī (suc (suc zero)) = solve! R
+  peṭikā-grāhī (suc (suc (suc zero))) = solve! R
+  peṭikā-grāhī (suc (suc (suc (suc zero)))) = solve! R
+  peṭikā-grāhī (suc (suc (suc (suc (suc zero))))) = solve! R
+  peṭikā-grāhī (suc (suc (suc (suc (suc (suc k)))))) = solve! R
+
 ------------------------------------------------------------------------
 -- ३ · Over ℚ the receiver sees every mode but m = −1.
 ------------------------------------------------------------------------
