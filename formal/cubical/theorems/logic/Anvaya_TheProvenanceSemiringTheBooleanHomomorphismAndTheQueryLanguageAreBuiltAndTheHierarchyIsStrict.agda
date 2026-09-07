@@ -6,7 +6,7 @@
 -- WHY THIS FILE EXISTS.  The abstract "THE ANSWER DOES NOT DETERMINE THE
 -- DERIVATION" proves that evaluation into a discrete domain factors
 -- through the truncation of the derivation type, and then says, under
--- WHAT IS NOT CLAIMED, that there is no provenance semiring in the
+-- WHAT IS AND IS NOT CLAIMED, that there is no provenance semiring in the
 -- development, no forgetful homomorphism to the boolean semiring, no
 -- relational algebra and no query language, and that the reading as
 -- how-provenance is a reading.

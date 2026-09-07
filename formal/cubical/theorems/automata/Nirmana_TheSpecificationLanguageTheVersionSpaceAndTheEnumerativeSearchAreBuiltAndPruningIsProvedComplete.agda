@@ -5,7 +5,7 @@
 --
 -- WHY THIS FILE EXISTS.  The abstract "PRUNING BY OBSERVATIONAL
 -- EQUIVALENCE COLLAPSES A FIBRE WE CONSTRUCT AND SHOW IS UNBOUNDED"
--- says, under WHAT IS NOT CLAIMED, that there is no specification
+-- says, under WHAT IS AND IS NOT CLAIMED, that there is no specification
 -- language, no example-based synthesis, no version space and no
 -- enumerative search procedure in the development, and that the reading
 -- as a statement about synthesisers is a reading.

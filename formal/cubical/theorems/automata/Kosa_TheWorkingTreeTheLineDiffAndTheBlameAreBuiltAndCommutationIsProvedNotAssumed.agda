@@ -17,7 +17,7 @@
 -- of a patch list — and gets commutation, order-independence and blame
 -- back.  Nothing is passed out to be assumed.
 --
--- The module's own WHAT IS NOT CLAIMED also records that its
+-- The module's own WHAT IS AND IS NOT CLAIMED also records that its
 -- commutation hypothesis is GLOBAL, quantified over every step of the
 -- type rather than over the steps in the list, and that localising it
 -- "is possible but NOT done".  §६ does it: the hypothesis here is

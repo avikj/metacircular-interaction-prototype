@@ -4,7 +4,7 @@
 -- कारण — the cause.
 --
 -- WHY THIS FILE EXISTS.  The abstract "TWO BLIND READINGS THAT ARE
--- JOINTLY FAITHFUL" says, under WHAT IS NOT CLAIMED, that there is no
+-- JOINTLY FAITHFUL" says, under WHAT IS AND IS NOT CLAIMED, that there is no
 -- probability distribution, no estimator, no structural equation model,
 -- no do-calculus and no counterfactual in the development — that the
 -- observables are functions on a six-element type and "identifiable"

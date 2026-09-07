@@ -5,7 +5,7 @@
 --
 -- WHY THIS FILE EXISTS.  `BraidCoherenceBoundary` proves that two
 -- self-EQUIVALENCES of the three-strand state space need not satisfy
--- Yang–Baxter, and then says, under WHAT IS NOT CLAIMED, that there is
+-- Yang–Baxter, and then says, under WHAT IS AND IS NOT CLAIMED, that there is
 -- no Hilbert space anywhere in it and that "unitary" there abbreviates
 -- "has a two-sided inverse".
 --

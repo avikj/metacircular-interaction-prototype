@@ -4,7 +4,7 @@
 -- भङ्गि — the breaking, the split.
 --
 -- WHY THIS FILE EXISTS.  The abstract "THE DISCRETE LOGARITHM IS ONE
--- NON-EQUIVALENCE" says, under WHAT IS NOT CLAIMED, that the factoring
+-- NON-EQUIVALENCE" says, under WHAT IS AND IS NOT CLAIMED, that the factoring
 -- literature is not addressed, that the classical reduction of factoring
 -- to a zero-divisor split appears elsewhere in the development, and that
 -- THE ORDER-FINDING STEP DOES NOT.
