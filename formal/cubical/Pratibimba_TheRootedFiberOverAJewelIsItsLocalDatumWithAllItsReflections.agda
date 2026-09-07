@@ -48,7 +48,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; compEquiv ; fiber)
 open import Cubical.Data.Sigma using (_×_)
 
-import IndraNet
+import EGB.IndraNet
 
 private
   variable
@@ -58,14 +58,14 @@ private
 -- coinductive Net of IndraNet is parametrized.
 module _ {J : Type ℓ} (L : J → Type ℓ') where
 
-  open IndraNet.Coinductive {J = J} L
+  open EGB.IndraNet.Coinductive {J = J} L
     using (Net ; netUnfold ; IndraRoot)
 
   -- Root the reflection net on its own jewels: instantiate the rooted
   -- totalization of IndraNet with Φ := Net.  `Root` is then Σ x . Net x,
   -- which is IndraNet's `IndraRoot` on the nose, and `unroot` forgets the
   -- distinguished jewel.
-  open IndraNet.Rooted {U = J} Net
+  open EGB.IndraNet.Rooted {U = J} Net
     using (Root ; unroot ; rootFiber)
 
   -- The two encodings ARE the same rooted total space (definitionally;

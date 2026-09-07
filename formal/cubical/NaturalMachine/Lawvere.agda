@@ -90,7 +90,7 @@ open import Cubical.Data.Empty using (⊥ ; isProp⊥)
 open import Cubical.Data.Sigma
 open import Cubical.Relation.Nullary using (¬_)
 
-import LawvereDiagonal as WK
+import EGB.LawvereDiagonal as WK
 import NaturalMachine.EndObstruction as EO
 open EO using (Observable ; Quote)
 

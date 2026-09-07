@@ -35,7 +35,7 @@
 # differs, and `dosa.pramanya` verifies whichever one it is pointed at.
 #
 # THE SEAM, stated rather than discovered.  This machine imports
-# machine/Astadhyayi.hs (120 KB) and machine/Obstruction.hs, which other
+# machine/Phonology.hs (120 KB) and machine/Obstruction.hs, which other
 # lanes edit.  A grammar file mid-surgery does not typecheck, and failing the
 # whole check then would report `the machine is broken` when the true
 # statement is `another lane is mid-edit`.  Those are two facts and a single
@@ -46,22 +46,22 @@ OUT="${YANTRA_OUT:-${TMPDIR:-/tmp}/yantra-$(id -u)}"
 mkdir -p "$OUT"
 
 # organ 2: the doṣa-lekha, built first, because the machine files into it.
-DOSA_SRC="$ROOT/machine/DosaLekha_TheWrittenDefectRecord.hs"
+DOSA_SRC="$ROOT/machine/DefectLog.hs"
 DOSA_BIN="$OUT/dosalekha"
 if [ ! -x "$DOSA_BIN" ] || [ "$DOSA_SRC" -nt "$DOSA_BIN" ]; then
-  ghc -O0 -main-is DosaLekha_TheWrittenDefectRecord.main \
+  ghc -O0 -main-is DefectLog.main \
       -outputdir "$OUT/dosa-build" -o "$DOSA_BIN" "$DOSA_SRC" >"$OUT/dosa-build.log" 2>&1 || {
     echo "run-yantra: the doṣa-lekha did not build.  first errors:" >&2
     grep -E "error" -A6 "$OUT/dosa-build.log" | head -20 >&2
     exit 2; }
 fi
 
-mine="Yantra_TheOrgansAreOneMachineOnOneWire.hs YantraRun.hs"
+mine="Server.hs Main.hs"
 BIN="$OUT/yantra"
 SRCTREE="the working tree"
 
 if ghc -O0 -i"$ROOT/machine" -outputdir "$OUT/build" -o "$BIN" \
-       "$ROOT/machine/YantraRun.hs" >"$OUT/build.log" 2>&1; then
+       "$ROOT/machine/Main.hs" >"$OUT/build.log" 2>&1; then
   echo "built from the working tree."
 else
   echo "the working tree did not build.  first errors:" >&2
@@ -87,7 +87,7 @@ else
   done < "$OUT/head-files"
   for f in $mine; do cp "$ROOT/machine/$f" "$ISO/$f"; done
 
-  if ! ghc -O0 -i"$ISO" -outputdir "$ISO/out" -o "$BIN" "$ISO/YantraRun.hs" \
+  if ! ghc -O0 -i"$ISO" -outputdir "$ISO/out" -o "$BIN" "$ISO/Main.hs" \
           >"$ISO/build.log" 2>&1; then
     if grep -E "error:" "$ISO/build.log" | grep -qE "$(echo $mine | tr ' ' '|')"; then
       echo "the fallback build fails IN THIS LANE'S OWN FILE, and that is a third" >&2

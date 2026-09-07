@@ -1,12 +1,12 @@
 #!/bin/sh
-# nigrahasthana-mutants.sh -- mutation testing on the Astadhyayi's rule table.
+# nigrahasthana-mutants.sh -- mutation testing on the Phonology's rule table.
 #
 # A suite that only ever runs against a correct machine measures nothing.
-# This perturbs ONE thing at a time in a COPY of machine/Astadhyayi.hs -- one
+# This perturbs ONE thing at a time in a COPY of machine/Phonology.hs -- one
 # Ref, one condition, one order, one class, one map -- rebuilds, and reports
 # which of the two suites notices:
 #
-#   selfTest    Astadhyayi's own, all success cases
+#   selfTest    Phonology's own, all success cases
 #   nigraha     machine/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs,
 #               all refusal cases
 #
@@ -17,9 +17,9 @@
 #
 # Nothing here writes to the repository.  Usage:
 #
-#   sh machine/nigrahasthana-mutants.sh [path-to-Astadhyayi.hs]
+#   sh machine/nigrahasthana-mutants.sh [path-to-Phonology.hs]
 #
-# with the default being machine/Astadhyayi.hs.  A second argument is a work
+# with the default being machine/Phonology.hs.  A second argument is a work
 # directory (default: a fresh mktemp -d).
 #
 # NO PYTHON -- banned repo-wide, hook-enforced.  This is sh and ghc.
@@ -27,15 +27,15 @@
 set -u
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-SRC=${1:-$ROOT/machine/Astadhyayi.hs}
+SRC=${1:-$ROOT/machine/Phonology.hs}
 WORK=${2:-$(mktemp -d)}
 
 mkdir -p "$WORK"
-cp "$SRC" "$WORK/Astadhyayi.hs.orig"
+cp "$SRC" "$WORK/Phonology.hs.orig"
 cp "$ROOT/machine/Nigrahasthana_TheMachineIsJudgedByWhatItRefuses.hs" "$WORK/"
 
 cat > "$WORK/Driver.hs" <<'EOF'
-import Astadhyayi (selfTest)
+import Phonology (selfTest)
 import Nigrahasthana_TheMachineIsJudgedByWhatItRefuses (nigraha)
 import GHC.IO.Encoding (setLocaleEncoding, utf8)
 main :: IO ()
@@ -76,7 +76,7 @@ EOF
 }
 
 run() {           # run in $WORK; echoes "selfTest N nigraha M" or "STERILE"
-  ( cd "$WORK" && rm -f Astadhyayi.hi Astadhyayi.o Nigrahasthana*.hi Nigrahasthana*.o Driver.hi Driver.o driver
+  ( cd "$WORK" && rm -f Phonology.hi Phonology.o Nigrahasthana*.hi Nigrahasthana*.o Driver.hi Driver.o driver
     if ghc -O0 -v0 Driver.hs -o driver > build.log 2>&1; then
       ./driver 2>/dev/null | tr '\n' ' '
     else
@@ -85,7 +85,7 @@ run() {           # run in $WORK; echoes "selfTest N nigraha M" or "STERILE"
 }
 
 echo "== baseline"
-cp "$WORK/Astadhyayi.hs.orig" "$WORK/Astadhyayi.hs"
+cp "$WORK/Phonology.hs.orig" "$WORK/Phonology.hs"
 BASE=$(run)
 echo "   $BASE"
 case "$BASE" in
@@ -98,8 +98,8 @@ echo
 echo "== mutants                                          selfTest  nigraha  verdict"
 mutations | while IFS='|' read -r NAME PROG; do
   [ -n "$NAME" ] || continue
-  sed "$PROG" "$WORK/Astadhyayi.hs.orig" > "$WORK/Astadhyayi.hs"
-  if cmp -s "$WORK/Astadhyayi.hs" "$WORK/Astadhyayi.hs.orig"; then
+  sed "$PROG" "$WORK/Phonology.hs.orig" > "$WORK/Phonology.hs"
+  if cmp -s "$WORK/Phonology.hs" "$WORK/Phonology.hs.orig"; then
     printf '%-45s  %s\n' "$NAME" "SED DID NOT APPLY -- not a mutant"
     echo "NOTAPPLIED $NAME" >> "$WORK/tally"
     continue
@@ -122,7 +122,7 @@ mutations | while IFS='|' read -r NAME PROG; do
   esac
 done
 
-cp "$WORK/Astadhyayi.hs.orig" "$WORK/Astadhyayi.hs"
+cp "$WORK/Phonology.hs.orig" "$WORK/Phonology.hs"
 
 echo
 echo "== tally"

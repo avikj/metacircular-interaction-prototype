@@ -67,7 +67,7 @@
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 
 import NaturalMachine.Digits as Dg
-import NaturalMachine.TransportDiv as TD
+import Mula.TransportDiv as TD
 import NaturalMachine.TransportDivWitness as W10
 
 module NaturalMachine.WalkResidueBridge (k : ℕ) where
@@ -83,7 +83,7 @@ open import Cubical.Relation.Nullary using (Dec ; yes ; no ; ¬_ ; isPropDec)
 import Cubical.HITs.PropositionalTruncation as PropTrunc
 
 open import NaturalMachine.Digits k
-open import NaturalMachine.TransportDiv k
+open import Mula.TransportDiv k
 open import NaturalMachine.CoprimeSplitting using (dec∣)
 
 ------------------------------------------------------------------------

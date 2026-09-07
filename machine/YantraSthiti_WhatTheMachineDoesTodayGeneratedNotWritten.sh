@@ -177,7 +177,7 @@ fi
 #    the code the way a README's count does.
 # =====================================================================
 sec "4. Aṣṭādhyāyī: sūtras implemented, derivations run"
-AST="$OUT/Astadhyayi"
+AST="$OUT/Phonology"
 if [ -x "$AST" ] && [ -s "$OUT/r_Astadhyayi.log" ]; then
   grep -E '^ +(sūtras (encoded here|in the Aṣṭādhyāyī)|of which vidhi[^:]*|saṃjñā / paribhāṣā[^:]*|fraction):' "$OUT/r_Astadhyayi.log" | sed 's/^ */   /' | head -8
   DERIV=$(grep -cE '^  .* +-> +' "$OUT/r_Astadhyayi.log")
@@ -191,10 +191,10 @@ if [ -x "$AST" ] && [ -s "$OUT/r_Astadhyayi.log" ]; then
 else
   # The program did not run.  Say what can still be counted from source,
   # and say plainly that it is a source count and not a run.
-  SRC_SUTRAS=$(awk '/^sutras :: \[Sutra\]/,/^$/' machine/Astadhyayi.hs 2>/dev/null | grep -c '^  *[,[] *Sutra')
+  SRC_SUTRAS=$(awk '/^sutras :: \[Sutra\]/,/^$/' machine/Phonology.hs 2>/dev/null | grep -c '^  *[,[] *Sutra')
   echo "   the Aṣṭādhyāyī program did not run in this pass (see §3)."
   printf '   %-40s %5s   <- counted from SOURCE, not from a run\n' \
-     "Sutra constructors in Astadhyayi.hs" "${SRC_SUTRAS:-?}"
+     "Sutra constructors in Phonology.hs" "${SRC_SUTRAS:-?}"
   echo "   Against ~3983 sūtras in the text (recensions differ: 3959-3996)."
 fi
 
