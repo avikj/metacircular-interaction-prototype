@@ -233,7 +233,7 @@
 -- nothing in a container with neither present; the lanes carry their own
 -- bootstrap and a missing toolchain here is a command not yet run.
 --
--- SIZE.        git ls-files '<glob>' | wc -l
+-- ~~SIZE.        git ls-files '<glob>' | wc -l
 --   formal/cubical           1196 .agda   (601 of them under NaturalMachine/)
 --   formal/pairfield          203 .lean
 --   machine                   160 .hs
@@ -251,7 +251,36 @@
 -- this file are inside both closures.  A module outside a root's import
 -- closure is built by NO command, so "it is green" about such a module is a
 -- claim about one person's shell; the four were reachable from nothing until
--- they were added to those roots in this same commit.
+-- they were added to those roots in this same commit.~~
+--
+-- STRUCK 2026-09-07.  Every number above is false and the last paragraph is
+-- the one that matters, because it stated the rule this file then broke.
+--
+-- SIZE, re-measured, same command:
+--   formal/cubical           1104 .agda   (13 of them under Kernel/)
+--   formal/pairfield          205 .lean
+--   machine                    15 .hs     (was 160; renamed by role, not subject)
+--   punaragamana               16 .agda
+--
+-- ROOTS.  THERE ARE NONE, and this is the change that matters most to an
+-- arriving mind.  `Everything.agda` is deleted.  The generated root that
+-- superseded it (`Samuccaya_…`, and its generator) is deleted.
+-- `scripts/check-agda-closure.sh`, which failed when a module sat outside
+-- every closure, is deleted.  `NaturalMachine.agda` survives with 476
+-- imports but covers only its own subtree.
+--
+-- So: THE 357 LOOSE TOP-LEVEL MODULES, AND Mula/, EGB/ AND Swarm/, ARE
+-- RECHECKED BY NO COMMAND.  By the struck paragraph's own standard — "a
+-- module outside a root's import closure is built by NO command, so 'it is
+-- green' about such a module is a claim about one person's shell" — a green
+-- reported about any of them is now exactly that.  A green here is
+-- per-module, at the pin, and only for what was run.
+--
+-- This was retired deliberately, not lost.  What is NOT acceptable, and was
+-- the state on 2026-09-07 until it was fixed, is the census reporting zero
+-- orphans because the program it called had been deleted and `2>/dev/null`
+-- ate the error.  `sh scripts/.prasava-unreached.sh` now answers
+-- `NA(generator absent)`.  Silence about coverage is honest; a zero is not.
 --
 -- WHAT THE KERNEL CAN DO TODAY, each backed by a term in the three files:
 --   * represent terms, single rewrites, and their compositions PROOF-
