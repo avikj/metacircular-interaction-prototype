@@ -123,8 +123,13 @@ data Tree = Tree
 
 trees :: [Tree]
 trees =
+  -- "Everything" was a hand-kept root here until 2026-09-07 and the file is
+  -- deleted: 2282 lines, 1541 of them comment, strictly contained in the
+  -- closure of this generated root.  A root that names a file not on disk
+  -- contributes nothing and reads as coverage, so it is removed rather than
+  -- left.  `MachineMinted.Everything` is a different file and stays.
   [ Tree "formal/cubical"
-         ["Everything", "NaturalMachine", "MachineMinted.Everything"] True
+         ["NaturalMachine", "MachineMinted.Everything"] True
   , Tree "punaragamana/src" ["Everything"] False
   ]
 
@@ -338,10 +343,10 @@ writeRootFile t body nExcl = do
       , "--"
       , "-- Every .agda file under formal/cubical/ is imported here except the"
       , "-- " ++ show nExcl ++ " row(s) declared with a reason in"
-      , "-- formal/cubical/SAMUCCAYA_EXCLUSIONS.txt.  `Everything.agda` remains the"
-      , "-- hand-kept, ANNOTATED index and is imported by this file like any other"
-      , "-- module; this file is the one that cannot omit anything, because it is"
-      , "-- not written by anybody."
+      , "-- formal/cubical/SAMUCCAYA_EXCLUSIONS.txt.  The hand-kept annotated"
+      , "-- index `Everything.agda` was deleted 2026-09-07 as strictly contained"
+      , "-- in this closure; this file is the one that cannot omit anything,"
+      , "-- because it is not written by anybody."
       , "--"
       , "-- Being inside this root means something WOULD recheck the module.  It"
       , "-- does not mean the module typechecks.  Run agda on this file to learn"

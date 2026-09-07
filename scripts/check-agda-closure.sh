@@ -26,7 +26,25 @@ set -euo pipefail
 
 cd "$(dirname "$0")/../formal/cubical"
 
-ROOTS="${AGDA_AGGREGATE_ROOTS:-Everything NaturalMachine}"
+# 2026-09-07 — THE DEFAULT CHANGED AND THE REASON IS THE WHOLE POINT OF THIS
+# GATE, so it is written here rather than in a commit message.
+#
+# The default was "Everything NaturalMachine": two HAND-KEPT roots, and this
+# gate existed to diagnose their drift.  `Everything.agda` is now deleted —
+# 2282 lines, 1541 of them comment, strictly contained in the closure of the
+# generated root.  That leaves `NaturalMachine`, which covers only its own
+# subtree, so the hand-kept default reported 624 orphans and would report
+# them forever.  A gate that always says FAIL has stopped being an
+# instrument; it is noise wearing enforcement's name.
+#
+# There is no longer a meaningful hand-kept list at the top level, so the
+# drift this gate was built to catch no longer has anywhere to happen.  What
+# CAN still rot is the generated root itself: it is written by a program and
+# read by everyone, and if nobody reruns the program it goes stale silently.
+# It did.  Seven of its imports named files not in the tree, it was red at
+# scope-check, and nothing noticed.  So the default is now the generated
+# root, and the staleness check below is the part that earns its keep.
+ROOTS="${AGDA_AGGREGATE_ROOTS:-Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted}"
 CONTROL_PREFIX="NaturalMachine.Control."
 
 # The DERIVED aggregate root (machine/Samuccaya_…hs --write).  It is a root,
@@ -37,6 +55,17 @@ CONTROL_PREFIX="NaturalMachine.Control."
 # root; the number this gate prints is the DIAGNOSIS of the hand-kept list,
 # and it is worth keeping precisely because the derived root has made the
 # drift harmless rather than absent.
+#
+# 2026-09-07 — I struck the paragraph above and was wrong, and the strike is
+# recorded rather than silently reverted.  I deleted the generated .agda on
+# the grounds that seven of its imports named files not in the tree.  That
+# was true and it was a reason to REGENERATE, not to delete: the list is
+# derived, its staleness is a fact about when it was last written and never
+# about whether it should exist.  Deleting it — on top of Everything.agda,
+# deleted earlier the same session — left the tree with NO root covering the
+# top level, and this gate went from clean to hundreds of orphans.  Rerunning
+# the generator restored it: 1187 imports, and every one now resolves against
+# the filesystem.  The paragraph's claim was true the whole time.
 GENERATED_ROOT="Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted"
 
 mod_to_file() { printf '%s\n' "$1" | tr '.' '/'; }
@@ -136,8 +165,8 @@ if [ -n "$orphans" ]; then
     echo
     echo "FAIL: $(printf '%s' "$tracked" | grep -c .) TRACKED module(s) are outside the aggregate's import closure."
     echo "Nothing rechecks these, so no green claim covers them. Import each from"
-    echo "the appropriate aggregate root (Everything.agda, or NaturalMachine.agda"
-    echo "for the NaturalMachine/ subtree), or delete it."
+    echo "the appropriate aggregate root (NaturalMachine.agda for the"
+    echo "NaturalMachine/ subtree), or delete it."
     echo
     printf '%s' "$tracked" | sed 's/^/    ORPHAN /'
     status=1
@@ -165,6 +194,38 @@ if [ -n "$bad_control" ]; then
   status=1
 fi
 
+# ---- 4. The generated root must not be stale ---------------------------
+# Added 2026-09-07 after the failure this catches actually happened: the
+# generated root sat unregenerated long enough that SEVEN of its imports
+# named files no longer in the tree.  It was red at scope-check and every
+# gate above it was green, because they all asked "is each module reached?"
+# and none asked "does each import resolve?".  A derived file's staleness is
+# invisible to any check that trusts the file.
+#
+# This does not shell out to the generator (runghc is not always present and
+# a missing tool is not a finding).  It asks the cheaper question that would
+# have caught it: does every import in the root name a file on disk, and is
+# every module on disk named by the root?
+stale=""
+if [ -f "$GENERATED_ROOT.agda" ]; then
+  while IFS= read -r m; do
+    [ -n "$m" ] || continue
+    [ -f "$(mod_to_file "$m").agda" ] || stale="$stale$m
+"
+  done <<EOF
+$(sed -nE 's/^(open[[:space:]]+)?import[[:space:]]+([^[:space:]]+).*/\2/p' "$GENERATED_ROOT.agda")
+EOF
+  if [ -n "$stale" ]; then
+    echo
+    echo "FAIL: the generated root imports $(printf '%s' "$stale" | grep -c .) module(s) that are not on disk."
+    echo "It is DERIVED and it has gone stale. Regenerate it — do not hand-edit,"
+    echo "and do not delete it, which removes the only root covering the top level:"
+    echo "    LC_ALL=C.utf8 runghc machine/${GENERATED_ROOT}.hs --write"
+    printf '%s' "$stale" | sed 's/^/    DANGLING /'
+    status=1
+  fi
+fi
+
 n_ctrl=$(printf '%s\n' "$all_mods" | grep -c "^${CONTROL_PREFIX//./\\.}" || true)
-[ "$status" -eq 0 ] && echo "OK: closure complete; $n_ctrl control module(s) correctly unimported."
+[ "$status" -eq 0 ] && echo "OK: closure complete; $n_ctrl control module(s) correctly unimported; generated root resolves."
 exit "$status"

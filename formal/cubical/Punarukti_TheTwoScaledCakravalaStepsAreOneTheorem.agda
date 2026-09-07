@@ -33,10 +33,16 @@
 -- ... two references pointing at work that was never done" — and by
 -- then the k²-scaled step HAD been done, nine hours earlier, in the
 -- same generality, in this same directory tree.  Neither file names the
--- other.  Exactly one module imports both: the GENERATED aggregate root
+-- other.  ~~Exactly one module imports both: the GENERATED aggregate root
 -- `Samuccaya_...`, which imports all 897 modules under formal/cubical/
--- and asserts nothing about any pair of them.  A mechanical root cannot
--- notice that two of its rows are one theorem.
+-- and asserts nothing about any pair of them.~~  STRUCK 2026-09-07: that
+-- root is deleted.  It was a pure import list with no term of its own,
+-- and seven of its imports named files not in the tree, so it was red at
+-- scope-check and had been importing neither of these two for some time.
+-- NOW NOTHING IMPORTS BOTH, which is the stronger form of the same
+-- point: a mechanical root could not notice that two of its rows are one
+-- theorem, and its absence does not make the duplication any harder to
+-- see than it already was.
 --
 -- The private lemma `NaturalMachine.Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
