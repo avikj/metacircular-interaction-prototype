@@ -68,7 +68,7 @@
 -- `fibre-of-run` — which is about an ARBITRARY factorisation rather than
 -- the canonical one — and the refutation at the foot of the file.
 --
--- WHAT IS NOT CLAIMED.  Nothing here says a trace is cheap to store, safe
+-- WHAT IS AND IS NOT CLAIMED.  Nothing here says a trace is cheap to store, safe
 -- to publish, or authorised to exist.  The record has two fields and both
 -- are mathematics.  Effects, capability, disclosure and admissibility are
 -- separate obligations and are not smuggled in by naming them.

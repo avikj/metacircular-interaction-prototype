@@ -46,7 +46,7 @@
 -- depend on that one.  The shared name is the shared shape, not a shared
 -- theorem.
 --
--- WHAT IS NOT CLAIMED.  A strategy here is a function of the state alone,
+-- WHAT IS AND IS NOT CLAIMED.  A strategy here is a function of the state alone,
 -- not of the history; O and E are families, not a protocol; and nothing
 -- about authority, disclosure, or resources is expressed by the shape of
 -- this record.  Those are separate obligations.

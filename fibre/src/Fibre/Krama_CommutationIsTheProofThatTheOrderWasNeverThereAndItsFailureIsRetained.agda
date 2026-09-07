@@ -42,7 +42,7 @@
 -- order.  That is the same seam in the logical lane; this module is the
 -- executional one, and neither imports the other.
 --
--- WHAT IS NOT CLAIMED.  `Commutes` here is the 1-dimensional statement —
+-- WHAT IS AND IS NOT CLAIMED.  `Commutes` here is the 1-dimensional statement —
 -- a path between the two composites.  The higher coherence of several such
 -- squares (that a cube of them fills) is a further obligation and is not
 -- proved by proving the faces.
