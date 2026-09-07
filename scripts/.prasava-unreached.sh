@@ -47,6 +47,8 @@
 # the two apart, which is the form you want when the sum moves.
 cd "$(dirname "$0")/.." || exit 2
 
+PROG=machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs
+
 if ! command -v runghc >/dev/null 2>&1; then
   # A missing tool is NOT a zero.  Printing 0 here would be the worst possible
   # failure for a gate whose whole job is to say "nothing checks these": it
@@ -55,4 +57,23 @@ if ! command -v runghc >/dev/null 2>&1; then
   exit 0
 fi
 
-runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs --orphans 2>/dev/null | grep -c .
+# 2026-09-07.  THE PARAGRAPH ABOVE WAS RIGHT AND THIS SCRIPT BROKE ITS OWN
+# RULE, because it guarded the TOOL and never guarded the PROGRAM.
+#
+# The generator was deleted.  `runghc` was still on PATH, so the guard above
+# passed; runghc then failed on a file that does not exist, `2>/dev/null` ate
+# the reason, and `grep -c .` counted an empty stream.  This script printed
+#
+#     0
+#
+# and 0 in this row means NO MODULE IS OUTSIDE THE IMPORT CLOSURE — perfect
+# coverage — at a moment when there was no aggregate root in the tree at all
+# and nothing rechecked anything.  Exactly the failure named above, reached
+# by the one door the guard was not watching.  A gate that cannot look must
+# say so; a gate that says 0 because it could not look is worse than absent,
+# because absence is visible and this was not.
+[ -f "$PROG" ] || { echo "NA(generator absent)"; exit 0; }
+
+# stderr is NOT discarded any more: if this fails for a new reason, the reason
+# should reach whoever ran it rather than be rounded down to a number.
+runghc "$PROG" --orphans | grep -c .

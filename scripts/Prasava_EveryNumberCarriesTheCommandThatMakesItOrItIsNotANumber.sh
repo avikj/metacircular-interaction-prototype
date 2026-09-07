@@ -49,22 +49,41 @@ LEDGER=PRASAVA.tsv
 TODAY=$(date +%Y-%m-%d)
 
 # --- the rows.  key | command.  ADD A ROW BY ADDING A LINE. ---------------
+#
+# ROWS REMOVED 2026-09-07, each because the thing it counted is gone and the
+# command had started answering anyway.  Named here rather than only in a
+# commit message, because a row that vanishes without a reason is the same
+# severance this file exists to close.
+#
+#   agda-reached                 the generator it called was deleted; with
+#                                `2>/dev/null` the failure read as the number
+#                                0, i.e. "nothing is reached" — a lie in the
+#                                direction of alarm.  Its sibling row
+#                                agda-unreached printed 0 the same way, which
+#                                is a lie in the direction of COMFORT: zero
+#                                orphans, perfect coverage, at a moment when
+#                                no aggregate root existed at all.  That one
+#                                is kept and now says NA(generator absent);
+#                                see scripts/.prasava-unreached.sh.
+#   agda-generated-root-imports  counted imports in the deleted root.
+#   hooks, mulavakya-rows        .claude/ was deleted wholesale (the
+#                                agent-instruction layer); nothing to count.
+#   readme-movements             counted `### N` in README.md; the front door
+#                                is README.rst now and has no such headings.
+#
+# Added: kernel-modules, because Kernel/ is what the project is.
 rows() {
 cat <<'ROWS'
 agda-modules-toplevel	ls formal/cubical/*.agda | wc -l
 agda-modules-all	find formal/cubical punaragamana/src -name '*.agda' | wc -l
 agda-root-direct-imports	grep -c '^import ' formal/cubical/NaturalMachine.agda
-agda-reached	runghc machine/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.hs 2>/dev/null | awk '/reached/{s+=$3} END{print s+0}'
 agda-unreached	sh scripts/.prasava-unreached.sh
-agda-generated-root-imports	grep -c '^import ' formal/cubical/Samuccaya_TheAggregateRootIsGeneratedFromTheTreeSoNothingCanBeOmitted.agda
 lean-modules	find formal/pairfield/Pairfield -name '*.lean' | wc -l
 lean-root-imports	grep -c '^import ' formal/pairfield/Pairfield.lean
 machine-modules	ls machine/*.hs | wc -l
 notes	ls notes/*.md | wc -l
 punaragamana-modules	find punaragamana/src -name '*.agda' | wc -l
 scripts	ls scripts/*.sh | wc -l
-hooks	ls .claude/hooks/* 2>/dev/null | wc -l
-mulavakya-rows	grep -vc '^#' .claude/hooks/MulaVakya_SourceStatementsForTheTermsInOurFileNames.txt
 sanskrit-led-modules	find formal/cubical punaragamana/src -name '*_*.agda' | wc -l
 postulates	grep -rl '^ *postulate' formal/cubical punaragamana/src --include=*.agda | wc -l
 lean-sorry	find formal/pairfield/Pairfield -name '*.lean' -exec awk -f scripts/.lean-strip.awk {} + | grep -cE '\bsorry\b|\badmit\b'
@@ -72,7 +91,7 @@ python-files	find . -name '*.py' -not -path './.git/*' | wc -l
 commits	git rev-list --count HEAD
 lean-lane-green	(cd formal/pairfield && lake build Pairfield >/dev/null 2>&1 && echo 0 || echo 1)
 receipt-modules	find formal/cubical formal/pairfield/Pairfield -not -path '*_build*' \( -name 'Lopa_TheSums*' -o -name 'YugmaPurana*' -o -name 'SthiraBindu*' -o -name 'GoldbachSupport*' -o -name 'Marga1*' \) | wc -l
-readme-movements	grep -cE '^### [0-9]' README.md
+kernel-modules	ls formal/cubical/Kernel/*.agda | wc -l
 ROWS
 }
 
@@ -109,8 +128,19 @@ TMP=$(mktemp)
   elif [ "$now" = "$was" ]; then
     printf '  %-24s %10s %10s\n' "$key" "$now" "$was"
   else
-    d=$(( now - was )) 2>/dev/null || d='?'
-    printf '  %-24s %10s %10s   DRIFT %+d\n' "$key" "$now" "$was" "$d"
+    # A row may legitimately be NON-NUMERIC: `NA(...)` is this census's word
+    # for "the instrument could not look", and it is the honest answer when a
+    # command's inputs are gone.  `$(( ))` on such a value is an arithmetic
+    # SYNTAX error, and dash treats that as fatal — it kills the whole shell,
+    # not just the subshell, so `|| d='?'` never runs.  Measured 2026-09-07:
+    # one NA row truncated this census after four rows and the remaining
+    # seventeen silently never printed.  A census that stops early looks
+    # exactly like a census that finished.  So: only subtract when BOTH sides
+    # are digits, and otherwise show the change without arithmetic.
+    case "$now$was" in
+      *[!0-9]*) printf '  %-24s %10s %10s   CHANGED\n' "$key" "$now" "$was" ;;
+      *)        printf '  %-24s %10s %10s   DRIFT %+d\n' "$key" "$now" "$was" "$(( now - was ))" ;;
+    esac
   fi
   printf '%s\t%s\t%s\n' "$key" "$now" "$cmd" >> $TMP
 done
