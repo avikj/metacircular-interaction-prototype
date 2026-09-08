@@ -36,6 +36,30 @@
 # does not mean the corpus builds.  For that, run agda at the pin
 # (scripts/Dhruva_…sh) and quote the exit code for what you actually ran.
 #
+# AND IT CHECKS THE MODULE, NOT THE NAMES.  `import M using (x)` where M
+# exists but does not export `x` passes this gate and is a real defect one
+# level down.  Agda reports it as a WARNING, not an error —
+#
+#     warning: -W[no]ModuleDoesntExport
+#     The module … doesn't export the following: …
+#
+# — so the name is silently not brought into scope and the build continues.
+# Found live on 2026-09-08 in NaturalMachine/SymmetryCardinality.agda:19,
+# which imported `factorial` from Cubical.Data.Fin.LehmerCode while the
+# comment on the very next line already said cubical 2.8 had moved it to
+# Cubical.Data.Nat.  The correction was written as prose beneath the line it
+# corrected and never applied; nothing failed, so nothing noticed.
+#
+# Checking 4440 `using` lists against real export sets needs a parser that
+# handles re-exports and `open … public`, and a parser I cannot validate is
+# worse than none.  Agda already knows.  Make it fatal instead:
+#
+#     agda -W error --library-file="$HOME/.agda-pin/libraries" -i . <M>.agda
+#
+# Verified on that exact defect: fixed -> EXIT 0; import restored -> EXIT 42.
+# Use -W error whenever you check a module at the pin, and this whole class
+# is closed at the point where it can actually be seen.
+#
 # TERM.  प्रत्यय in its ordinary sense — ground, basis, that on which
 # something depends.  No text is claimed and no author is credited.
 # ─────────────────────────────────────────────────────────────────────────
