@@ -107,7 +107,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Kernel.RewriteCertificate using (Tm ; Derivation ; done ; then-step)
 open import Kernel.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (len)
-open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
+open import Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)
 open import Mula.AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndRefusesTheGroupoidSoTheRoundTripIsTheResidue
   using (A ; आवृत्तिः ; आवृत्तम् ; आवृत्तस्य-मात्रा ; len-⊕ ; एकत्वम्)

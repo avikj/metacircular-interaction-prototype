@@ -99,7 +99,7 @@
 -- no holes.  Written 2026-08-22.
 ------------------------------------------------------------------------
 
-module Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers where
+module Mula.Durnaya_TheBlindnessNeedsBothConditionsAndTheHiddenChargeIsExactlyTheIntegers where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Function using (idfun)
@@ -112,7 +112,7 @@ open import Cubical.Data.Nat using (snotz)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
+import Mula.Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
 
 ------------------------------------------------------------------------
 -- १ ── THE LOOP IS A CONSTRUCTOR, NOT A `ua`.

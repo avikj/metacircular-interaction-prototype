@@ -88,7 +88,7 @@
 -- repository pin), --cubical --safe, exit 0, re-checked 2026-08-23.
 ------------------------------------------------------------------------
 
-module Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
+module Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

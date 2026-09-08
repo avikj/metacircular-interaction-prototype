@@ -84,7 +84,7 @@ open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
   using (संरक्षणम्)
 open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
   using (ध्रुव-बिन्दुः ; तादात्म्यम् ; वासः)
-open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
+open import Mula.Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (Program ; चालनम्)
 open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; εC)

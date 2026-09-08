@@ -28,7 +28,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS IS, AND HOW IT DIFFERS FROM ITS COMPANION.
 --
--- `Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere`
+-- `Mula.Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere`
 -- proves the GENERAL annihilation: `cong F p ≡ refl` for every
 -- set-valued `F` and every loop `p`, with no hypothesis on `F`.  It
 -- exhibits ONE loop (`ua notEquiv`) to show the sector is not empty.
@@ -80,7 +80,7 @@
 -- Written 2026-08-22.
 ------------------------------------------------------------------------
 
-module Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter where
+module Mula.Paryaya_ElevenOfTheFourteenLoopsMoveAPointOneIsTheIdentityAndTwoDependOnTheParameter where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence
@@ -103,12 +103,12 @@ import NaturalMachine.ExactTwoStateInstrument          as EI
 import NaturalMachine.StructuredDefect                 as SD
 import NaturalMachine.TheArithmeticCircleIsFourPeriodic as AC
 import NaturalMachine.UnivalentTensorInteraction       as UT
-import NaturalMachine.BraidCoherenceBoundary           as BR
+import Mula.BraidCoherenceBoundary           as BR
 import NaturalMachine.DefectCalculus                   as DC
 import NaturalMachine.PathIsSymmetry                   as PS
 
 -- the general annihilation theorem, applied and not re-proved
-import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
+import Mula.Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
 
 private variable ℓ : Level
 

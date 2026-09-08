@@ -25,7 +25,7 @@
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT THIS REFUTES.
 --
--- `Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere`
+-- `Mula.Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere`
 -- proves (§१) that every SET-valued `F : A → X` has `cong F p ≡ refl`
 -- for every loop `p`, and reads off (§४) the gloss
 --
@@ -77,7 +77,7 @@
 -- no holes.  Written 2026-08-22.
 ------------------------------------------------------------------------
 
-module Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness where
+module Mula.Paryayarthika_TheHolonomyIsSetValuedAndSeesTheLoopSoTruncationIsNotTheBlindness where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence
@@ -87,7 +87,7 @@ open import Cubical.Data.Bool using (Bool; true; false; not; notEquiv; isSetBool
 open import Cubical.Data.Sigma using (_×_; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
-import Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
+import Mula.Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere as NAYA
 
 ------------------------------------------------------------------------
 -- १ ── THE OBSERVABLE, AND THAT IT LANDS IN A SET.

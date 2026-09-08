@@ -27,7 +27,7 @@
 --     `eval : Tm → Env → ℕ` provably cannot see — its ℕ-meaning is `refl`,
 --     forced, because `isSetℕ`.  Holonomy with no set-valued observable.
 --
---   `NaturalMachine.BraidCoherenceBoundary` proves that this is not yet a
+--   `Mula.BraidCoherenceBoundary` proves that this is not yet a
 --     braid: it exhibits two self-EQUIVALENCES of `Bool × Bool × Bool`,
 --     both involutive, that fail
 --       σ₁ (σ₂ (σ₁ x)) ≡ σ₂ (σ₁ (σ₂ x))
@@ -153,7 +153,7 @@ Tri A = A ⊎ (A ⊎ A)
 
 ------------------------------------------------------------------------
 -- §3.  YANG–BAXTER HOLDS.  Same statement as
--- `NaturalMachine.BraidCoherenceBoundary.YangBaxter`, composition written
+-- `Mula.BraidCoherenceBoundary.YangBaxter`, composition written
 -- out so no diagram-order convention is in play.  Three cases, each by
 -- computation, for an arbitrary `A`.
 ------------------------------------------------------------------------

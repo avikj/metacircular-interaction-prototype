@@ -910,7 +910,7 @@ import NaturalMachine.ConstantBoundNotFunctionBound
 --  now typecheck under the pin and are imported at lines 238-239; the
 --  closure script exits 0 with 361 of 361 modules reached.]
 ------------------------------------------------------------------------
-import NaturalMachine.BraidCoherenceBoundary
+import Mula.BraidCoherenceBoundary
 import NaturalMachine.CarryClassNonzero
 import NaturalMachine.CompressionDefectRegularWitness
 import NaturalMachine.DSOFactorRankFinite

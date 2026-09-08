@@ -51,7 +51,7 @@
 -- Written 2026-08-22.
 ------------------------------------------------------------------------
 
-module Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere where
+module Mula.Naya_TheSetValuedObservableAnnihilatesEveryLoopAndTheLoopIsStillThere where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Univalence

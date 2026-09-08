@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.BraidCoherenceBoundary
+-- Mula.BraidCoherenceBoundary
 --
 -- A bounded exact response to UP-D0025, T25.E.  The word "braid" and
 -- invertibility of two arbitrary proposed generators do not supply a braid
@@ -20,7 +20,7 @@
 -- control needed before such a structure can be inferred.
 ------------------------------------------------------------------------
 
-module NaturalMachine.BraidCoherenceBoundary where
+module Mula.BraidCoherenceBoundary where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism
