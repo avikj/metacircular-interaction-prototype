@@ -191,6 +191,48 @@ endpoint_dependency_discharged: none; Σ(1) = 0 ⇔ RH across all orbits is anal
 remaining_assumptions: existence of cosh/sinh/exponential elements with the stated derivatives (a differential ring containing them)
 ```
 
+## SmrtiMula — emitted forcings are exact, weighted forcing is memory plus exact, log-radius factorization, symbol
+
+```text
+claim_id: NV-MEMORY-FINITE
+statement: Over a commutative ring with a derivation ∂ and ∂r = 1: r⁴g·(5gf + 2rg′f + rgf′) ≡ ∂(r⁵g²f) (β₂ exact); with f = r²hφ, g = h³: 3rgf′ − 6gf − rg′f ≡ 3r³h⁴∂φ (β₄ exact); with f = −(r²g″ + 6rg′) the toroidal inverse: 2r(5gf + 2rg′f + rgf′) ≡ 2(9rg² − r³g′²) + ∂(−2r⁴gg″ − 18r³gg′ − r⁴g′² − 9r²g²), i.e. ∫rβ₂ = (6/7)𝓘[f]; in log radius (Dr = r), (4 − 3D − D²)(rg) ≡ r·(−(D²g + 5Dg)) and 9b² − (rDg)² ≡ 8b² − (Db)² + D(b²) for b = rg; (4+ξ²)² + 9ξ² ≡ (1+ξ²)(16+ξ²); the scaled kernel matrix [[8,11],[11,8]] has eigenvalues 19 and −3.
+source_class: algebraic cores of N-LEAK4, N-MEMORYK, N-SIGNEDK (handoff §21, §24; [S12],[S16])
+parameters_and_quantifiers: ∀ CommRing, ∀ derivation ∂, ∀ r with ∂r = 1 (resp. Dr = r), ∀ g f h φ ξ
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/SmrtiMula_TheEmittedForcingsAreExactDerivativesTheWeightedQuadrupoleForcingIsTheMemoryQuadraticPlusAnExactDerivativeTheLogRadiusSourceIsAFactoredOperatorAndItsSymbolIsTheProductOfTwoShiftedSquares.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas whose numerals are written as explicit sums of 1r (ι n unfolds to them definitionally)
+existing_terms_reused: derivation lemmas as in Vartana; the two-radius kernel positivity itself is SmrtiBija
+new_derivation_or_artifact: β₂-is-exact, β₄-is-exact, weighted-forcing-is-memory-plus-exact (with toroidal-f and memory-bracket), factored-operator, memory-integrand, symbol-modulus, kernel-eigenvalue-19, kernel-eigenvalue-minus-3
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0 (28 s)
+negative_controls: NV-CONTROLS-3: symbol-modulus with 16 replaced by 15 is rejected
+correction_of: none; makes exact the "bracketed functions vanish at both support ends" step behind the generic sign change of β₂, β₄ and 𝓘[β₂,ε] < 0
+endpoint_dependency_discharged: none; the integrals, the boundary vanishing and the Fourier/Plancherel step are analytic
+remaining_assumptions: f, g are the actual radial profiles with compact support so the brackets vanish at the ends; h = g^{1/3} exists (g > 0)
+```
+
+## PidaMatra — noncommutative spherical pressure bracket is r times an exact derivative
+
+```text
+claim_id: NV-PRESSURE-MATRIX
+statement: Over any ring (noncommutative) with a derivation ∂ and a central radius r, ∂r = 1, for an arbitrary profile G with V = rG′, W = r²G″: r·∂(15G² + 3r(GG′ + G′G) − r²G′²) ≡ 18(GV + VG) + 3(GW + WG) + 4V² − (VW + WV). This is the doubled form of "the radial integrand of (12/35)[18G∘V + 3G∘W + 2V² − V∘W]₀ is the derivative of (15/2)G² + 3rG∘G′ − (r²/2)G′²", valid when G, G′, G″ do not commute.
+source_class: algebraic core of N-PRESSURE (handoff §20, [S12]); the Lane III "full matrix identity, not only the diagonal A case"
+parameters_and_quantifiers: ∀ Ring, ∀ derivation ∂, ∀ central r with ∂r = 1, ∀ G
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/PidaMatra_TheSphericalPressureBracketOfARadialMatrixProfileIsRTimesTheDerivativeOfAQuadraticFormEvenWhenTheProfileAndItsDerivativesDoNotCommute.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.MonoidSolver (solveCommMonoid) on the additive commutative monoid of the ring, applied through an abstract-monoid lemma so the goal is not normalized away
+existing_terms_reused: AbGroup→CommMonoid, Ring→AbGroup, RingTheory (-Dist, -DistR·, 0RightAnnihilates)
+new_derivation_or_artifact: AdditiveShape.rearrange (the seven-monomial multiset identity), L1–L3, R1–R4, pressure-bracket-is-exact
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-3: replacing G′·G′ by G′·G in Φ₂ is rejected
+correction_of: none
+endpoint_dependency_discharged: none; the spherical average producing the bracket and the trace-free projection are analytic/finite-geometric steps not formalized here
+remaining_assumptions: r central (scalar radius times matrix profile); the spherical-moment identity that yields the bracket from tr((∇u₂)²)
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -210,3 +252,10 @@ The rejections are at the mutated statements, so the checker discriminates the e
 | M4 | DvipadaGuna | Pascal rule `Cb a (suc b) +ℕ Cb (suc a) b` → `Cb a (suc b) +ℕ Cb a b` | 42 | first failure is the sanity check `Cb 2 2 ≡ 6` (`4 != 6`); the checker stops there |
 | M5 | YogaPatra | composite `Z∘ = Z₁ + (R₁ · Z₂) · T₁` → `Z₁ + (R₁ · Z₂)` | 42 | UnequalTerms in compose-transforms (`Rc · Z != Rc`) |
 | M6 | DviSthana | `residues-are-halves : … ≡ d + d` → `≡ d` | 42 | solve! normal forms differ (`_+_` vs `1r`) |
+
+## NV-CONTROLS-3 — mutation negative controls for the third batch
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M7 | SmrtiMula | `symbol-modulus … (ι 16 + ξ · ξ)` → `(ι 15 + ξ · ξ)` | 42 | solve! normal forms differ at symbol-modulus |
+| M8 | PidaMatra | `Φ₂ = … − r²·(G′ · G′)` → `− r²·(G′ · G)` | 42 | the Leibniz expansion L3 no longer matches the seven-monomial shape |

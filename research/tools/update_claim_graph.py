@@ -39,8 +39,8 @@ NATIVE = {
   'R-IMAGE':      ['PratibimbaTantu', 'RiktaTantu'],
   'K-FIBRE':      ['RiktaTantu'],
   'N-POTENTIAL':  ['KalaSetu'],
-  'N-MEMORYK':    ['SmrtiBija'],
-  'N-SIGNEDK':    ['SmrtiBija'],
+  'N-MEMORYK':    ['SmrtiBija', 'SmrtiMula'],
+  'N-SIGNEDK':    ['SmrtiBija', 'SmrtiMula'],
   'N-COMMUTATOR': ['SamanaMula', 'SarvaMula'],
   'N-TRANSPORT':  ['VahanaSamata', 'EkaSesa', 'SarvaMula'],
   'N-AFFINE':     ['SahagunaVaha', 'BhramaMatra', 'TryaSresthaDosa', 'CaturthaAnka'],
@@ -50,6 +50,8 @@ NATIVE = {
   'A-CRT':        ['EkagraSreni'],
   'A-JUNITARY':   ['Vyatikrama'],
   'R-SCHUR':      ['DviSthana'],
+  'N-PRESSURE':   ['PidaMatra', 'BhramaMatra'],
+  'N-LEAK4':      ['SmrtiMula'],
 }
 # native modules from this branch not mapped onto a received claim
 UNMAPPED = ['AdrsyaMana', 'SamaVrddhi', 'DvitiyaAntara', 'VyarthaCakra']
