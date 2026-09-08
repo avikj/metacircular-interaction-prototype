@@ -53,13 +53,18 @@
 --       does as well, with the two terms killing each other exactly.
 --       Neither term is zero on its own.
 --
+-- AND THE OTHER SIDE OF THE PRODUCTION IDENTITY.  `BhramaMatra` §2
+-- proves that a symmetric affine field has vanishing curl, so on such a
+-- field the identity's LEFT-hand side vanishes as well; its §5 pairs the
+-- two, and the cancellation §4 exhibits is then the whole equation
+-- rather than a relation between two nonzero terms.
+--
 -- SYĀT — THE CLAIM, EXACTLY.  §§1–4 over any commutative ring, for every
 -- matrix presented by three columns and every vector.  NOT claimed: the
 -- production identity itself, which is a differential identity about a
 -- vector field and is assumed nowhere and proved nowhere below — what is
 -- proved is that ITS TWO RIGHT-HAND TERMS cancel on an affine field;
--- that the vorticity of a symmetric affine field vanishes, which is a
--- statement about `curl` and is not formalized here; anything about
+-- anything about
 -- integration, boundaries, or Green's identity; anything about `S` being
 -- a strain, symmetric, or trace-free — §§1–4 hold for every matrix; and
 -- no division anywhere: the 4/3 is cleared by multiplying through by 3,
@@ -176,10 +181,9 @@ module _ (R : CommRing ℓ) where
   -- ४ · AND THE TWO PRODUCTION TERMS CANCEL EXACTLY.
   --------------------------------------------------------------------
 
-  private
-    three four : A
-    three = 1r + (1r + 1r)
-    four  = 1r + (1r + (1r + 1r))
+  three four : A
+  three = 1r + (1r + 1r)
+  four  = 1r + (1r + (1r + 1r))
 
   production-cancels : (c₁ c₂ c₃ : V)
     → (three · (- (four · det c₁ c₂ c₃)))
