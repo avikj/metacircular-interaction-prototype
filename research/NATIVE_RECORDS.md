@@ -595,4 +595,4 @@ The rejections are at the mutated statements, so the checker discriminates the e
 
 ## Regression
 
-All modules added since the pin were rechecked in one pass at the end of the session (`agda --safe`, each file separately); see research/handoff_20260908/validation/native/regression.log (added in the following commit).
+All modules added since the pin were rechecked in one pass at the end of the session (`agda --safe`, each file separately); see research/handoff_20260908/validation/native/regression.log.
