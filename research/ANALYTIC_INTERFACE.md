@@ -28,6 +28,7 @@ Every native module below is a `--safe` Cubical Agda theorem over an abstract ri
 | NV-BELTRAMI | SamaCakra | algebraic core of N-BELTRAMI (handoff §9, [S02]) | the Leray projection P is additive and the actual × is the vector cross product; the nonzero negative-helicity projection value is a numeric evaluation not formalized | none |
 | NV-IMPEDANCE | Pratirodha | algebraic cores of R-IMPEDANCE, R-OUTPUT (handoff §61) and R-GSQUARE / R-GCRITERION (§63) | positivity p_γ > 0 under RH, convergence of the mode sums, PNT for tA → 1, the Mellin argument | none |
 | NV-TRIANGULAR | Trikona | algebraic core of N-FUTURE (handoff §14, [S02]): the exact family behind the finite-jet separator | the mode recurrence ċ_k, the jet-depth statement c₀^{(j)}(0) = 0 for j < m, the path-counting bound I_m, and the coarse/fine passivity are not formalized | none |
+| NV-CATALAN | KatalanaSima | exact finite control of N-CATALAN (handoff §40, [S18]); the majorant of the causal tree expansion q = Σ qₙ, qₙ₊₁ = Σ_{a+c=n} C(qₐ,q_c) of N-HISTORY | the norm bounds ‖C(x,y)‖ ≤ b‖x‖‖y‖ and ‖g_p‖ ≤ g that feed x; the radius 4bg < 1 and the explicit truncation remainder are analytic (Cat_n ~ 4ⁿ) | none |
 
 ## Reading the table
 

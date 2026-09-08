@@ -506,6 +506,27 @@ endpoint_dependency_discharged: none
 remaining_assumptions: the mode recurrence ċ_k, the jet-depth statement c₀^{(j)}(0) = 0 for j < m, the path-counting bound I_m, and the coarse/fine passivity are not formalized
 ```
 
+## KatalanaSima — the Catalan majorant
+
+```text
+claim_id: NV-CATALAN
+statement: For ℕ-valued x with x₀ ≤ g and x_{n+1} ≤ b·Σ_{a+c=n} x_a x_c: x_n ≤ bⁿ·Cat_n·gⁿ⁺¹ for every n, where Cat₀ = 1, Cat_{n+1} = Σ_{a+c=n} Cat_a Cat_c (defined through a memo table so the recurrence is structural; Cat₃ = 5 and Cat₅ = 42 by computation, and cat-suc is the proved recurrence).
+source_class: exact finite control of N-CATALAN (handoff §40, [S18]); the majorant of the causal tree expansion q = Σ qₙ, qₙ₊₁ = Σ_{a+c=n} C(qₐ,q_c) of N-HISTORY
+parameters_and_quantifiers: ∀ x : ℕ → ℕ, ∀ b g, the two hypotheses, ∀ n; proved by strong induction over the pair sum with D-mono, D-ext, D-scale
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/unplaced/KatalanaSima_AQuadraticallyMajorizedSequenceIsBoundedByCatalanNumbersTimesPowersSoTheTreeExpansionOfTheHiddenHistoryHasAnExplicitMajorant.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; Cubical.Data.Nat.Order (≤-+-≤, ≤-·k, ≤-trans, ≤0→≡0), Cubical.Relation.Nullary (decRec, isPropDec), NatSolver (solveℕ!)
+existing_terms_reused: the pair-sum D of DvipadaGuna, now over ℕ
+new_derivation_or_artifact: D, D-ext, pow, pow-+, D-mono, D-scale, ≤-split′, ≤-·-≤, catTab, cat, stable, cat-zero, cat-suc, Majorant.bound, product-of-bounds, below, catalan-majorant
+proof_status: formal theorem checking (--safe, no postulates); an inequality theorem over ℕ, not only an identity
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-8: gⁿ in place of gⁿ⁺¹ in the bound is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the norm bounds ‖C(x,y)‖ ≤ b‖x‖‖y‖ and ‖g_p‖ ≤ g that feed x; the radius 4bg < 1 and the explicit truncation remainder are analytic (Cat_n ~ 4ⁿ)
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -565,3 +586,13 @@ The rejections are at the mutated statements, so the checker discriminates the e
 | M19 | SamaCakra | `helicity-cross … ≡ (i , - i , 1r)` → `(i , i , 1r)` | 42 | solve! normal forms differ |
 | M20 | Pratirodha | `cayley … ≡ ι 4 · …` → `ι 2 · …` | 42 | solve! normal forms differ |
 | M21 | Trikona | `convective-collapses … (0r , 0r , a · ∂₂ v)` → `(0r , 0r , v · ∂₂ a)` | 42 | solve! normal forms differ |
+
+## NV-CONTROLS-8 — mutation negative control for the Catalan majorant
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M22 | KatalanaSima | `catalan-majorant : … pow g (suc n)` → `pow g n` | 42 | UnequalTerms `g · pow g n != pow g n` |
+
+## Regression
+
+All modules added since the pin were rechecked in one pass at the end of the session (`agda --safe`, each file separately); see research/handoff_20260908/validation/native/regression.log (added in the following commit).

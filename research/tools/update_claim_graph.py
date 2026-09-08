@@ -69,6 +69,8 @@ NATIVE = {
   'R-GSQUARE':    ['Pratirodha'],
   'R-GCRITERION': ['Pratirodha'],
   'N-FUTURE':     ['Trikona'],
+  'N-CATALAN':    ['KatalanaSima'],
+  'N-HISTORY':    ['KatalanaSima'],
   'R-SCHUR':      ['DviSthana'],
   'N-PRESSURE':   ['PidaMatra', 'BhramaMatra'],
   'N-LEAK4':      ['SmrtiMula'],
