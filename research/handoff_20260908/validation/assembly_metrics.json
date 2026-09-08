@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-08",
+  "comparison_commit": "168ea8e240524f898af4b0e9cf70297c38422f08",
+  "chapters": 12,
+  "source_groups": 26,
+  "master_words_whitespace": 22747,
+  "master_bytes": 186301,
+  "anthology_words_whitespace": 54967,
+  "original_files": 61,
+  "original_python_files": 13,
+  "original_python_parse_failures": 0,
+  "native_proof_assistant_runs": 0,
+  "fresh_exact_replay_checks": {
+    "causal": 86,
+    "midpoint": 43
+  },
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41"
+}

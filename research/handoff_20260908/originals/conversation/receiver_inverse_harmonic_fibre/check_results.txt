@@ -1,0 +1,34 @@
+PASS inverse boundary polynomial N=0
+PASS inverse boundary polynomial N=1
+PASS inverse boundary polynomial N=2
+PASS inverse boundary polynomial N=3
+PASS inverse boundary polynomial N=4
+PASS inverse boundary polynomial N=5
+PASS inverse boundary polynomial N=6
+PASS inverse boundary polynomial N=7
+PASS inverse boundary polynomial N=8
+PASS inverse boundary polynomial N=9
+PASS inverse boundary polynomial N=10
+PASS inverse boundary polynomial N=11
+PASS inverse boundary polynomial N=12
+PASS inverse boundary polynomial induction, all N
+PASS inverse identity after one extra difference N=3
+PASS fixed receiver differential-delay multiplier
+PASS spectral-strip contraction exponent
+PASS vector potential produces arbitrary trace-free affine strain
+PASS affine strain has no vorticity
+PASS affine strain is divergence free
+PASS arbitrary smooth cutoff keeps the constructed field divergence free
+PASS affine cofactor current
+PASS pure-strain cubic term cancels its cofactor divergence
+PASS core rotation vorticity
+PASS affine harmonic addition preserves core vorticity
+PASS actual first-vorticity-variation separator
+PASS solid rotation alone has zero local stretching
+PASS boundary quadrupole recovers every trace-free symmetric strain
+PASS radial compact rotation curl formula
+PASS parabolic L2 square scales by r
+PASS parabolic maximum vorticity scales by r^-2
+
+31/31 exact algebraic checks passed.
+No Navier-Stokes evolution, RH verification, or Agda/Lean build was executed.

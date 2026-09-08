@@ -1,0 +1,100 @@
+{
+  "snapshot": "168ea8e240524f898af4b0e9cf70297c38422f08",
+  "scope": "backward slice, not exhaustive repository audit or completed global proof",
+  "nodes": [
+    {
+      "id": "C0",
+      "statement": "Canonical source equivalences and carries",
+      "status": "repository theorem read"
+    },
+    {
+      "id": "R0",
+      "statement": "Actual quantitative Goldbach tail reconstructs \u039b and the L-series on Re s>1",
+      "status": "repository theorem read"
+    },
+    {
+      "id": "R1",
+      "statement": "Actual received zero signal and classical explicit formula",
+      "status": "saved analytic derivation plus classical inputs"
+    },
+    {
+      "id": "R2",
+      "statement": "Universal finite-shell arithmetic bound B_RH",
+      "status": "not discharged"
+    },
+    {
+      "id": "R3",
+      "statement": "Bounded receiver gives holomorphic Laplace transform on Re w>0",
+      "status": "conditional deduction supplied"
+    },
+    {
+      "id": "R4",
+      "statement": "Nonvanishing residues and functional equation give actual RH",
+      "status": "conditional deduction supplied"
+    },
+    {
+      "id": "N0",
+      "statement": "Maximal classical NS solution on R3 and full history",
+      "status": "classical input"
+    },
+    {
+      "id": "N1",
+      "statement": "Dini maximum-vorticity inequality D+M\u2264b_u M",
+      "status": "deduction supplied"
+    },
+    {
+      "id": "N2",
+      "statement": "Finite accumulated actual peak stretching B_NS at a putative finite maximal time",
+      "status": "not discharged"
+    },
+    {
+      "id": "N3",
+      "statement": "Bounded vorticity and continuation contradict finite maximal time",
+      "status": "conditional deduction plus classical criterion"
+    },
+    {
+      "id": "N4",
+      "statement": "Toroidal heat/Duhamel response with actual nonlinear forcing",
+      "status": "saved analytic derivation"
+    }
+  ],
+  "edges": [
+    [
+      "R0",
+      "R1"
+    ],
+    [
+      "R1",
+      "R3"
+    ],
+    [
+      "R2",
+      "R3"
+    ],
+    [
+      "R3",
+      "R4"
+    ],
+    [
+      "N0",
+      "N1"
+    ],
+    [
+      "N1",
+      "N3"
+    ],
+    [
+      "N2",
+      "N3"
+    ],
+    [
+      "N4",
+      "N1"
+    ]
+  ],
+  "not_discharged": [
+    "R2",
+    "N2"
+  ],
+  "proof_assistant_build_run": false
+}

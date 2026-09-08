@@ -1,0 +1,76 @@
+EXACT 01: synthetic divisor is even
+EXACT 02: synthetic divisor has real coefficients
+EXACT 03: division by full multiplicity at synthetic root 0
+EXACT 04: cardinal value 0,0
+EXACT 05: cardinal value 0,1
+EXACT 06: cardinal value 0,2
+EXACT 07: cardinal value 0,3
+EXACT 08: cardinal value 0,4
+EXACT 09: cardinal value 0,5
+EXACT 10: division by full multiplicity at synthetic root 1
+EXACT 11: cardinal value 1,0
+EXACT 12: cardinal value 1,1
+EXACT 13: cardinal value 1,2
+EXACT 14: cardinal value 1,3
+EXACT 15: cardinal value 1,4
+EXACT 16: cardinal value 1,5
+EXACT 17: division by full multiplicity at synthetic root 2
+EXACT 18: cardinal value 2,0
+EXACT 19: cardinal value 2,1
+EXACT 20: cardinal value 2,2
+EXACT 21: cardinal value 2,3
+EXACT 22: cardinal value 2,4
+EXACT 23: cardinal value 2,5
+EXACT 24: division by full multiplicity at synthetic root 3
+EXACT 25: cardinal value 3,0
+EXACT 26: cardinal value 3,1
+EXACT 27: cardinal value 3,2
+EXACT 28: cardinal value 3,3
+EXACT 29: cardinal value 3,4
+EXACT 30: cardinal value 3,5
+EXACT 31: division by full multiplicity at synthetic root 4
+EXACT 32: cardinal value 4,0
+EXACT 33: cardinal value 4,1
+EXACT 34: cardinal value 4,2
+EXACT 35: cardinal value 4,3
+EXACT 36: cardinal value 4,4
+EXACT 37: cardinal value 4,5
+EXACT 38: division by full multiplicity at synthetic root 5
+EXACT 39: cardinal value 5,0
+EXACT 40: cardinal value 5,1
+EXACT 41: cardinal value 5,2
+EXACT 42: cardinal value 5,3
+EXACT 43: cardinal value 5,4
+EXACT 44: cardinal value 5,5
+EXACT 45: order-1 past/future mismatch solves the homogeneous ODE
+EXACT 46: order-2 past/future mismatch solves the homogeneous ODE
+EXACT 47: order-3 past/future mismatch solves the homogeneous ODE
+EXACT 48: order-4 past/future mismatch solves the homogeneous ODE
+EXACT 49: real quartet direction is J-negative
+EXACT 50: multiplicity-weighted quartet norm equals one
+EXACT 51: multiplicity-weighted quartet Weil value equals minus one
+EXACT 52: theta-source kernel is (D^2-1/4) applied to e^(x/2) psi
+EXACT 53: quadrupole attenuation derivative
+EXACT 54: quadrupole attenuation at zero
+EXACT 55: quadrupole attenuation at infinity
+EXACT 56: quadrupole attenuation small-radius coefficient
+EXACT 57: heat-regularized Newton Hessian coefficient
+EXACT 58: backward radial response equation
+EXACT 59: toroidal l=2 radial heat is seven-dimensional after division by r^2
+EXACT 60: dimensionless integrated memory is one third
+EXACT 61: shell memory integral is r^2/(6nu)
+EXACT 62: first temporal moment is r^4/(24nu^2)
+EXACT 63: energy-amplitude sum for R_j=4^-j
+EXACT 64: time-integrated shell-memory sum
+EXACT 65: quadrupole shell vorticity amplitude formula
+EXACT 66: quadrupole provides positive axial central strain
+EXACT 67: core amplitude is convex combination of radial/tangential squares
+
+TOTAL: 67 exact symbolic controls passed.
+NUMERICAL 01: theta-source transform matches completed zeta at 0.0; error=0.0
+NUMERICAL 02: theta-source transform matches completed zeta at 0.2; error=0.0
+NUMERICAL 03: theta-source transform matches completed zeta at (0.3 + 2.0j); error=4.4131e-47
+NUMERICAL 04: incomplete-gamma memory integral; error=0.0
+NUMERICAL 05: physical shell lifetime r=1.0,nu=1.0; error=0.0
+NUMERICAL 06: physical shell lifetime r=2.0,nu=0.7; error=8.7581e-47
+TOTAL: 6 numerical consistency checks passed.

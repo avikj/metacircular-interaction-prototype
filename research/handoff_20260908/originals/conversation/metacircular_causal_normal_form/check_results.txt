@@ -1,0 +1,89 @@
+86 exact checks passed.
+Exact finite matrix/polynomial controls. No continuum PDE evolution or proof-assistant build.
+
+1. strict causal matrix is nilpotent despite large norm
+2. causal matrix sup-norm exceeds 100: no smallness assumption
+3. entire causal resolvent: left inverse, symbolic coupling z
+4. entire causal resolvent: right inverse, symbolic coupling z
+5. certificate: observed state round trip
+6. certificate: source correction has zero visible component
+7. certificate: reconstructed homogeneous equation
+8. certificate: reconstructed source equation
+9. certificate: all actual solutions reconstruct
+10. certificate: observed state round trip
+11. certificate: source correction has zero visible component
+12. certificate: reconstructed homogeneous equation
+13. certificate: reconstructed source equation
+14. certificate: all actual solutions reconstruct
+15. certificate: observed state round trip
+16. certificate: source correction has zero visible component
+17. certificate: reconstructed homogeneous equation
+18. certificate: reconstructed source equation
+19. certificate: all actual solutions reconstruct
+20. certificate: observed state round trip
+21. certificate: source correction has zero visible component
+22. certificate: reconstructed homogeneous equation
+23. certificate: reconstructed source equation
+24. certificate: all actual solutions reconstruct
+25. certificate: observed state round trip
+26. certificate: source correction has zero visible component
+27. certificate: reconstructed homogeneous equation
+28. certificate: reconstructed source equation
+29. certificate: all actual solutions reconstruct
+30. certificate: observed state round trip
+31. certificate: source correction has zero visible component
+32. certificate: reconstructed homogeneous equation
+33. certificate: reconstructed source equation
+34. certificate: all actual solutions reconstruct
+35. certificate: observed state round trip
+36. certificate: source correction has zero visible component
+37. certificate: reconstructed homogeneous equation
+38. certificate: reconstructed source equation
+39. certificate: all actual solutions reconstruct
+40. order independence q then r: observe
+41. order independence q then r: effective
+42. order independence q then r: forcing
+43. order independence q then r: reconstruct_state
+44. order independence q then r: reconstruct_source
+45. order independence r then q: observe
+46. order independence r then q: effective
+47. order independence r then q: forcing
+48. order independence r then q: reconstruct_state
+49. order independence r then q: reconstruct_source
+50. certificate: observed state round trip
+51. certificate: source correction has zero visible component
+52. certificate: reconstructed homogeneous equation
+53. certificate: reconstructed source equation
+54. certificate: all actual solutions reconstruct
+55. retired operation solves original equation for every symbolic source
+56. retirement and direct compilation agree on every source
+57. compiled solution equals all causal paths
+58. rejected forged certificate that preserves operator but loses source
+59. certificate: observed state round trip
+60. certificate: source correction has zero visible component
+61. certificate: reconstructed homogeneous equation
+62. certificate: reconstructed source equation
+63. certificate: all actual solutions reconstruct
+64. rejected mismatched intermediate equation in proof composition
+65. causal restriction preserves source prefix at cut 3
+66. causal restriction preserves source prefix at cut 6
+67. Volterra ordered-simplex coefficient 1
+68. Volterra ordered-simplex coefficient 2
+69. Volterra ordered-simplex coefficient 3
+70. Volterra ordered-simplex coefficient 4
+71. Volterra ordered-simplex coefficient 5
+72. Volterra ordered-simplex coefficient 6
+73. Volterra ordered-simplex coefficient 7
+74. Volterra ordered-simplex coefficient 8
+75. hidden derivative differentiates both common-source slots
+76. exact nonlinear rebase identity
+77. global decaying quadratic control rebase composition
+78. decaying quadratic control actual differential equation
+79. decaying quadratic control is regular beyond its origin Taylor disk
+80. Volterra variation around non-small regular solution
+81. RH source-preserving Schur normalization
+82. RH normalized expression is actual resolvent corner
+83. RH apparent self-energy pole d=0 is removable for sigma nonzero
+84. RH genuine right pair pole has residue one half
+85. RH genuine left pair pole has residue one half
+86. RH fixed-orbit case retains actual neutral pole

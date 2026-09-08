@@ -1,0 +1,31 @@
+Runtime capability probe
+Tue Sep  8 13:27:11 UTC 2026
+
+$ agda --version
+bash: line 1: agda: command not found
+exit=127
+
+$ ghc --version
+bash: line 1: ghc: command not found
+exit=127
+
+$ cabal --version
+bash: line 1: cabal: command not found
+exit=127
+
+$ git ls-remote https://github.com/avikj/metacircular-interaction-prototype.git HEAD
+fatal: unable to access 'https://github.com/avikj/metacircular-interaction-prototype.git/': Could not resolve host: github.com
+exit=128
+
+Cached pinned toolchains:
+absent: /root/.local/bin/agda
+absent: /root/.cache/cubical-v0.9/cubical.agda-lib
+absent: /home/oai/.local/bin/agda
+absent: /home/oai/.cache/cubical-v0.9/cubical.agda-lib
+
+Cached apt archives:
+
+DNS probes:
+no resolution: github.com
+no resolution: deb.debian.org
+no resolution: hackage.haskell.org

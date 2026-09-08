@@ -1,0 +1,18 @@
+PASS: transverse principal-symbol eigenvalue -wz
+PASS: transverse principal-symbol eigenvalue +wz
+PASS: Hamiltonian stabilizer B*Pi+Pi*B^T=0
+PASS: shared-noise generator at identity equals J+J^T
+PASS: unforced globally smooth shear solves NS with p=0
+PASS: test field is divergence-free
+PASS: test-field L2 norm squared is 3/2
+PASS: test-field gradient norm squared is 5/2
+PASS: strain pairing equals -a*exp(-nu*t)/4
+
+Exact finite-Fourier norm witnesses, displayed as decimal square roots:
+p=  2, k=    4, ||Pi v||/||v||=0.808692273536
+p=  4, k=   16, ||Pi v||/||v||=0.897748176369
+p=  8, k=   64, ||Pi v||/||v||=0.944240042371
+p= 16, k=  256, ||Pi v||/||v||=0.970567780007
+p= 32, k= 1024, ||Pi v||/||v||=0.984846251233
+p= 64, k= 4096, ||Pi v||/||v||=0.992307433450
+p=128, k=16384, ||Pi v||/||v||=0.996123999926
