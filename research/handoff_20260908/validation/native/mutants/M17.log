@@ -1,0 +1,24 @@
+Checking M17 (/home/user/math/formal/cubical/theorems/physics/M17.agda).
+/home/user/math/formal/cubical/theorems/physics/M17.agda:57.7-62.43: error: [MismatchedProjectionsError]
+The projections CommRingStr._+_ and CommRingStr.0r do not match
+when checking that the expression
+cong₂ (λ u v → - (ι 2 · u) + - v)
+(cong₂
+ (λ u v →
+    ι 15 · S i l + - u + - v +
+    Σ₃ (λ j → Σ₃ (λ k → m4 i j k l · S j k)))
+ (left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i l)
+ (right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i l)
+ ∙
+ cong (ι 15 · S i l + - (ι 5 · S i l) + - (ι 5 · S i l) +_)
+ (fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i l))
+(cong₂ (λ u v → u · δ i l + - v)
+ (trace5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃)
+ (fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i l))
+∙ shape (S i l) (S l i) (tr S) (δ i l)
+has type
+q30 (mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃) i l ≡
+-
+(ι 11 · mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i l +
+ mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ l i)
++ - (ι 5 · (tr (mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃) · δ i l))

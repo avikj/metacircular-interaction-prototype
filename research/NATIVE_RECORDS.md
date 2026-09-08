@@ -359,6 +359,90 @@ endpoint_dependency_discharged: none; R-TWOPACKET stays conditional
 remaining_assumptions: the sector bound |arg G| < 37/50, M₀ > 0, absolute convergence of Z, the explicit-formula tail identity for t > 1/2 and the Laplace/residue argument for sufficiency are analytic
 ```
 
+## Vistara — the dilation generator is skew
+
+```text
+claim_id: NV-DILATION-SKEW
+statement: Over a commutative ring with three derivations ∂ᵢ and coordinates yᵢ with ∂ᵢyᵢ = 1: (y·∇f)g + f(y·∇g) + 3fg ≡ Σᵢ ∂ᵢ(yᵢ f g), an exact divergence; so y·∇ + 3/2 is skew in L² and D_E = (2/5)(y·∇ + 3/2) = 3/5 + (2/5)y·∇.
+source_class: algebraic core of N-ADAPT (handoff §33, [S13])
+parameters_and_quantifiers: ∀ CommRing, ∀ Leibniz ∂₁ ∂₂ ∂₃, ∀ y₁ y₂ y₃ with the diagonal derivatives = 1, ∀ f g
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/Vistara_TheDilationGeneratorPlusThreeHalvesIsSkewBecauseItsSymmetricPartOnAProductIsAnExactDivergence.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
+existing_terms_reused: none
+new_derivation_or_artifact: Y, div-y, symmetric-part-is-exact, generator
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-6: 2fg in place of 3fg is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the divergence integrates to zero (decay); the critical real weight 1/5 and the moving gauge terms are analytic
+```
+
+## GolakaMatra — spherical-moment contractions
+
+```text
+claim_id: NV-SPHERE-MOMENTS
+statement: With the sphere moments taken as the tensors 15⟨nᵢnⱼ⟩ = 5δᵢⱼ and 15⟨nᵢnⱼnₖnₗ⟩ = δᵢⱼδₖₗ + δᵢₖδⱼₗ + δᵢₗδⱼₖ over three indices: Σⱼₖ m4(i,j,k,l)Sⱼₖ ≡ Sᵢₗ + Sₗᵢ + δᵢₗ tr S for every 3×3 matrix S, and the second-moment contractions Σⱼ 5δᵢⱼSⱼₗ ≡ 5Sᵢₗ, Σₖ Sᵢₖ5δₖₗ ≡ 5Sᵢₗ, Σⱼₖ Sⱼₖ5δⱼₖ ≡ 5 tr S.
+source_class: the spherical-moment algebra the Lane III deliverable asks for (handoff §18–21, [S11],[S12])
+parameters_and_quantifiers: ∀ CommRing, ∀ nine entries a₁₁…a₃₃, ∀ i l ∈ {1,2,3} (27 + 1 cases by solve!)
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/GolakaMatra_TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r; the matrix is built from nine explicit entries so each entry is its own solver atom
+existing_terms_reused: none
+new_derivation_or_artifact: Ix, δ, Σ₃, mat, symm, tr, m4, fourth-contraction, left5, right5, trace5
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0 (42 s)
+negative_controls: NV-CONTROLS-6: Sᵢₗ + Sᵢₗ in place of Sᵢₗ + Sₗᵢ is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the moment tensors are the actual sphere averages (the two integrals ⟨nᵢnⱼ⟩, ⟨nᵢnⱼnₖnₗ⟩)
+```
+
+## GolakaTantra — strain tomography and the pressure cross-effect
+
+```text
+claim_id: NV-TOMOGRAPHY
+statement: For q_u(n) = −P_nSP_n − ½(nᵀSn)P_n: 30⟨q⟩ ≡ −11S − Sᵀ − 6(tr S)I for every S, hence 30⟨q⟩ = −12S for symmetric trace-free S, i.e. S_u = −(5/2)⟨q_u⟩. For a symmetric biadditive H: H[u₂+u⊥] ≡ H[u₂] + 2H(u₂,u⊥) + H[u⊥], and with 7H[u₂] = −2(S²)₀: 7H[u] + 2(S²)₀ ≡ 7(2H(u₂,u⊥) + H[u⊥]).
+source_class: algebraic cores of N-TOMOGRAPHY, N-SYMBOL (handoff §18) and N-PRESSURERES (§20)
+parameters_and_quantifiers: ∀ CommRing, ∀ entries, ∀ i l; ∀ symmetric biadditive H, ∀ u₂ u⊥ (S²)₀ with the N-PRESSURE hypothesis
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/GolakaTantra_TheAveragedCrossHelicitySymbolIsMinusTwoFifthsOfTheStrainSoTheStrainIsRecoveredFromTheSphericalMeanOfItsSymbolAndThePressureCrossEffectIsTheBilinearRemainder.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r; imports GolakaMatra
+existing_terms_reused: GolakaMatra.Contractions
+new_derivation_or_artifact: PSP15, nSnP15, q30, tomography, tomography-tracefree, cross-effect, pressure-residual
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-6: 5(tr S)I in place of 6(tr S)I is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the symbol q_u is the stated formula; recovering u from S by inverse Laplacian/divergence and the N-PRESSURE input 7H[u₂] = −2(S²)₀ are analytic
+```
+
+## UpaGuna — subset product rule and the linearized generator
+
+```text
+claim_id: NV-SUBSET-RULE
+statement: ∂₁∂₂(fg) ≡ ∂₁∂₂f·g + ∂₂f·∂₁g + ∂₁f·∂₂g + f·∂₁∂₂g and ∂₃∂₁∂₂(fg) ≡ the eight-term subset sum, for any additive Leibniz ∂ᵢ (no commutation needed); for additive L and symmetric biadditive B, F(ω+v) ≡ F(ω) + (Lv + 2B(ω,v)) + B(v,v).
+source_class: algebraic core of A-JETS (handoff §8, [S03]); companion of DvipadaGuna (single-derivation all orders) and PunarAgamana (projected failure)
+parameters_and_quantifiers: ∀ CommRing, ∀ ∂₁ ∂₂ ∂₃ additive Leibniz, ∀ f g; ∀ L B ω v
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/UpaGuna_TheMixedDerivativeOfAProductIsTheSumOverSubsetsOfWhichFactorEachDerivationHitsAndTheLinearizedGeneratorOfAQuadraticFlowIsItsLinearPartPlusTwiceThePolarization.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
+existing_terms_reused: none
+new_derivation_or_artifact: subset-rule-2, subset-rule-3, F, DF, linearized-generator
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-6: B(ω,v) in place of B(v,v) as the remainder is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the general |S| subset rule is stated for |S| ≤ 3; the actual B = ½curl(u_a×b + u_b×a) is symmetric biadditive (its definition)
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -401,3 +485,12 @@ The rejections are at the mutated statements, so the checker discriminates the e
 | M12 | DhruvaMula | `h5-derivative … (q · q) · (q · q)` → `(q · q) · q` | 42 | UnequalTerms `q · q != q` |
 | M13 | Sikhara | `direction-absorbs-nothing … (- (m · Q))` → `(m · Q)` | 42 | solve! normal forms differ |
 | M14 | Grahaka | `weil-determinant … (M₀ + Z)` → `(M₀ + (- Z))` | 42 | solve! normal forms differ |
+
+## NV-CONTROLS-6 — mutation negative controls for the sixth batch
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M15 | Vistara | `ι 3 · (f · g)` → `ι 2 · (f · g)` in symmetric-part-is-exact | 42 | solve! normal forms differ |
+| M16 | GolakaMatra | `(S i l + S l i)` → `(S i l + S i l)` in fourth-contraction | 42 | solve! normal forms differ (first off-diagonal case) |
+| M17 | GolakaTantra | `ι 6 · (tr S · δ i l)` → `ι 5 · …` in tomography | 42 | solve! normal forms differ |
+| M18 | UpaGuna | remainder `B v v` → `B ω v` in linearized-generator | 42 | solve! normal forms differ |

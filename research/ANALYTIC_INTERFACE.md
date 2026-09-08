@@ -21,6 +21,10 @@ Every native module below is a `--safe` Cubical Agda theorem over an abstract ri
 | NV-SHIFTED-LADDER | DhruvaMula | algebraic cores of R-THETA / R-CARDINAL (the finite Ξ-derivative polynomial in the two-sided (D−z)^m inverse difference, handoff §51) and N-H5 (handoff §22) | e^{zt}, tᵏ, erf and e^{−q²} live in a differential ring with the stated derivatives; the lifetime integral ∫H5 dt = r²/(6ν) is analytic | none; Ξ-interpolation, zero multiplicity and double-exponential tails are analytic |
 | NV-PEAK-LEDGER | Sikhara | algebraic cores of N-PEAK (handoff §27, [S13]) and N-SCALE (handoff §28) | the maximizing point, envelope derivative M′ = Dm and ∇m = 0 at the maximum are analytic; division by 2 needs a ring where 2 is invertible | none (O-NPEAK untouched) |
 | NV-RECEIVER | Grahaka | algebraic core of R-PACKET, R-Z, R-TWOPACKET (handoff §46–47, [S02]) | the sector bound \|arg G\| < 37/50, M₀ > 0, absolute convergence of Z, the explicit-formula tail identity for t > 1/2 and the Laplace/residue argument for sufficiency are analytic | none; R-TWOPACKET stays conditional |
+| NV-DILATION-SKEW | Vistara | algebraic core of N-ADAPT (handoff §33, [S13]) | the divergence integrates to zero (decay); the critical real weight 1/5 and the moving gauge terms are analytic | none |
+| NV-SPHERE-MOMENTS | GolakaMatra | the spherical-moment algebra the Lane III deliverable asks for (handoff §18–21, [S11],[S12]) | the moment tensors are the actual sphere averages (the two integrals ⟨nᵢnⱼ⟩, ⟨nᵢnⱼnₖnₗ⟩) | none |
+| NV-TOMOGRAPHY | GolakaTantra | algebraic cores of N-TOMOGRAPHY, N-SYMBOL (handoff §18) and N-PRESSURERES (§20) | the symbol q_u is the stated formula; recovering u from S by inverse Laplacian/divergence and the N-PRESSURE input 7H[u₂] = −2(S²)₀ are analytic | none |
+| NV-SUBSET-RULE | UpaGuna | algebraic core of A-JETS (handoff §8, [S03]); companion of DvipadaGuna (single-derivation all orders) and PunarAgamana (projected failure) | the general \|S\| subset rule is stated for \|S\| ≤ 3; the actual B = ½curl(u_a×b + u_b×a) is symmetric biadditive (its definition) | none |
 
 ## Reading the table
 

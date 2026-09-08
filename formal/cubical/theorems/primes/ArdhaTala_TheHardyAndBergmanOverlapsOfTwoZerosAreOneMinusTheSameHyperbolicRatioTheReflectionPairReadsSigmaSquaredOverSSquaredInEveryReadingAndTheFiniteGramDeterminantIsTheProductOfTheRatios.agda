@@ -22,7 +22,9 @@
 --        3×3:  det = (x₂−x₁)(x₃−x₁)(x₃−x₂)(y₂−y₁)(y₃−y₁)(y₃−y₂),
 --      which is  det C_F = Π_{i<j} ρ(z_i,z_j)²  for the normalized atoms
 --      and the new-atom residual  dist² = Π_{w∈F} ρ(z,w)²  (Schur);
---   ५  the amplitude-weighted Vandermonde:  det V = Π a_i · Π_{i<j}(z_j − z_i).
+--   ५  the amplitude-weighted Vandermonde:  det V = Π a_i · Π_{i<j}(z_j − z_i);
+--   ६  the polarized pair coordinates of §56 are jointly invertible and
+--      the pair exponent (z+w)C + (w−z)D is zT + wU.
 ------------------------------------------------------------------------
 module ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios where
 
@@ -133,3 +135,28 @@ module _ (R : CommRing ℓ) where
           + v₁₃ · (v₂₁ · v₃₂ + (- (v₂₂ · v₃₁)))
           ≡ (a₁ · a₂ · a₃) · ((z₂ + (- z₁)) · (z₃ + (- z₁)) · (z₃ + (- z₂)))
   vandermonde-3 a₁ a₂ a₃ z₁ z₂ z₃ = solve! R
+
+  ----------------------------------------------------------------
+  -- ६ · the polarized pair coordinates of §56:  Σ = z + w, Δ = w − z,
+  --     C = (T + U)/2, D = (U − T)/2  are jointly invertible and
+  --     (z + w) C + (w − z) D = z T + w U
+  ----------------------------------------------------------------
+  pair-exponent : (z w T U C D : A) → ι 2 · C ≡ T + U → ι 2 · D ≡ U + (- T)
+    → ι 2 · ((z + w) · C + (w + (- z)) · D) ≡ ι 2 · (z · T + w · U)
+  pair-exponent z w T U C D hC hD =
+      shape z w C D
+    ∙ cong₂ (λ u v → (z + w) · u + (w + (- z)) · v) hC hD
+    ∙ shape' z w T U
+    where
+      shape : (z w C D : A) → (1r + (1r + 0r)) · ((z + w) · C + (w + (- z)) · D) ≡ (z + w) · ((1r + (1r + 0r)) · C) + (w + (- z)) · ((1r + (1r + 0r)) · D)
+      shape z w C D = solve! R
+      shape' : (z w T U : A) → (z + w) · (T + U) + (w + (- z)) · (U + (- T)) ≡ (1r + (1r + 0r)) · (z · T + w · U)
+      shape' z w T U = solve! R
+
+  joint-inversion : (z w : A) → (ι 2 · z ≡ (z + w) + (- (w + (- z)))) × (ι 2 · w ≡ (z + w) + (w + (- z)))
+  joint-inversion z w = shape₁ z w , shape₂ z w
+    where
+      shape₁ : (z w : A) → (1r + (1r + 0r)) · z ≡ (z + w) + (- (w + (- z)))
+      shape₁ z w = solve! R
+      shape₂ : (z w : A) → (1r + (1r + 0r)) · w ≡ (z + w) + (w + (- z))
+      shape₂ z w = solve! R
