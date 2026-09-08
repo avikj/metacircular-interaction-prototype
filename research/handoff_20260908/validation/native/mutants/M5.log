@@ -1,0 +1,14 @@
+Checking M5 (/home/user/math/formal/cubical/theorems/physics/M5.agda).
+/home/user/math/formal/cubical/theorems/physics/M5.agda:134.11-139.18: error: [UnequalTerms]
+C₁.Rc · C₂.Z != C₁.Rc of type R .fst
+when checking that the expression
+·DistR+ (E₂ · E₁) Z₁ (R₁ · Z₂ · T₁) ∙
+cong₂ _+_
+(sym (·Assoc E₂ E₁ Z₁) ∙
+ cong (E₂ ·_) C₁.source-blind ∙ 0RightAnnihilates E₂)
+(·Assoc (E₂ · E₁) (R₁ · Z₂) T₁ ∙
+ cong (_· T₁)
+ (·Assoc (E₂ · E₁) R₁ Z₂ ∙ cong (_· Z₂) L1 ∙ C₂.source-blind)
+ ∙ 0LeftAnnihilates T₁)
+∙ +IdR 0r
+has type E∘ · Z∘ ≡ 0r

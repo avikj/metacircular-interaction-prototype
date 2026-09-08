@@ -25,11 +25,11 @@ NATIVE = {
   'N-MIDPOINT':   ['MadhyaCheda'],
   'N-STORAGE':    ['MadhyaCheda', 'PurnaAvakalana'],
   'R-PASSIVE':    ['MadhyaCheda'],
-  'K-CERT':       ['PramanaPatra'],
+  'K-CERT':       ['PramanaPatra', 'YogaPatra'],
   'K-EXCURSION':  ['PunarAgamana'],
   'N-RENEWAL':    ['PunarAgamana'],
   'N-OBSRETRACT': ['PunarAgamana'],
-  'N-LIFT':       ['DvitiyaLeibniz'],
+  'N-LIFT':       ['DvitiyaLeibniz', 'DvipadaGuna'],
   'R-ABEL':       ['AbelaRupa'],
   'R-DYADIC':     ['AbelaRupa', 'SesaDvaya'],
   'N-RETURN24':   ['Vartana'],
@@ -49,6 +49,7 @@ NATIVE = {
   'N-ZENO':       ['ManaSesa', 'YugmaVyaya'],
   'A-CRT':        ['EkagraSreni'],
   'A-JUNITARY':   ['Vyatikrama'],
+  'R-SCHUR':      ['DviSthana'],
 }
 # native modules from this branch not mapped onto a received claim
 UNMAPPED = ['AdrsyaMana', 'SamaVrddhi', 'DvitiyaAntara', 'VyarthaCakra']

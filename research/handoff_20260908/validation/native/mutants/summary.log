@@ -2,3 +2,7 @@ M1 exit=42
 M2 exit=42
 M3 exit=42
 done
+M4 exit=42
+M5 exit=42
+M6 exit=42
+done

@@ -1,0 +1,31 @@
+Checking M6 (/home/user/math/formal/cubical/theorems/physics/M6.agda).
+/home/user/math/formal/cubical/theorems/physics/M6.agda:124.27-35: error: [MismatchedProjectionsError]
+The projections CommRingStr._+_ and CommRingStr.1r do not match
+when checking that the expression refl has type
+Cubical.Tactics.CommRingSolver.HornerEval.eval
+(Cubical.Tactics.CommRingSolver.Solver.EqualityToNormalform.normalize
+ R
+ ((Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   Cubical.Data.FinData.Base.Fin.zero
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.-'
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    (Cubical.Data.FinData.Base.Fin.suc
+     Cubical.Data.FinData.Base.Fin.zero)))
+  Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+  (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   Cubical.Data.FinData.Base.Fin.zero
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    Cubical.Data.FinData.Base.Fin.zero))))
+(d Cubical.Data.Vec.Base.Vec.∷
+ (σ Cubical.Data.Vec.Base.Vec.∷ Cubical.Data.Vec.Base.Vec.[]))
+≡
+Cubical.Tactics.CommRingSolver.HornerEval.eval
+(Cubical.Tactics.CommRingSolver.Solver.EqualityToNormalform.normalize
+ R
+ (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+  Cubical.Data.FinData.Base.Fin.zero))
+(d Cubical.Data.Vec.Base.Vec.∷
+ (σ Cubical.Data.Vec.Base.Vec.∷ Cubical.Data.Vec.Base.Vec.[]))

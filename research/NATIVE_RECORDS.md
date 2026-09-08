@@ -128,6 +128,69 @@ endpoint_dependency_discharged: none; the boundary forms are the terms the analy
 remaining_assumptions: decay/regularity making the boundary forms vanish; the actual toroidal projection P₂ and Biot–Savart source are interfaces, not formalized
 ```
 
+## DvipadaGuna — iterated Leibniz law for the observable lift
+
+```text
+claim_id: NV-LIFT-BINOMIAL
+statement: For a derivation 𝓛 on a commutative ring, 𝓛ⁿ(h·k) ≡ Σ_{a+b=n} C(a+b,a)·𝓛ᵃh·𝓛ᵇk for every n (the boxed identity of handoff §37); unfolded at n = 2: 𝓛²(hk) = h𝓛²k + 2𝓛h𝓛k + 𝓛²h k. The sum over a+b = n is a recursion on n with the binomial as a function of the pair, so no truncated subtraction enters; the Pascal step is proved as an exact re-indexing lemma for every row function obeying Pascal's rule and the two edge rules.
+source_class: algebraic core of N-LIFT (FORMAL-SERIES, [S17]); makes the coefficientwise product preservation of exp(𝓛) exact
+parameters_and_quantifiers: ∀ CommRing, ∀ additive Leibniz 𝓛, ∀ n : ℕ, ∀ h k
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/DvipadaGuna_TheIteratesOfADerivationOnAProductAreTheBinomialSumOfIteratesSoTheObservableLiftPreservesProductsCoefficientwiseAtEveryOrder.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) for closed commutative identities
+existing_terms_reused: RingTheory (+ShufflePairs); the derivation lemmas follow PurnaAvakalana/Vartana
+new_derivation_or_artifact: Cb (pair binomial, C(4,2)=6 by refl), D (sum over a+b=n), shift-row, pascal-D, step, iterated-leibniz, second-order
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-2: breaking Pascal's rule in Cb is rejected
+correction_of: C33 companion: the full-space lift is a derivation at every order; the projected one is not (PunarAgamana)
+endpoint_dependency_discharged: the formal-series part of N-LIFT
+remaining_assumptions: that the PDE observable algebra is a commutative ring and 𝓛h = Dh[F] is a derivation on it; no convergence of the time-Taylor series is claimed
+```
+
+## YogaPatra — certificate composition, derived transport law, nilpotent causal inverse
+
+```text
+claim_id: NV-CERT-COMPOSE
+statement: In any ring with an additive anti-multiplicative t fixing 1 (a transpose): (१) the five checker identities E·R = 1, E·Z = 0, M·R = tE·S, M·Z + tE·T = 1, R·E + Z·M = 1 imply the transport law T·M = S·E; (२) for a certificate c₁ of M and a certificate c₂ of its reduced operator S₁, the composite E = E₂E₁, S = S₂, T = T₂T₁, R = R₁R₂, Z = Z₁ + R₁Z₂T₁ satisfies all five identities for M, so `compose : Cert M`; (३) in a commutative ring, K³ = 0 gives (1 − zK)(1 + zK + z²K²) = 1 for every z.
+source_class: algebraic core of K-CERT (EXACT-CONTROL, handoff §45, [S18]); (३) is the "large norm is not a causal-inverse failure" control, checked in the form 1 + zK + z²K² (the chapter prints the last term as z²K)
+parameters_and_quantifiers: ∀ Ring, ∀ t with t-add, t-mul, t-one, ∀ M, ∀ certificates c₁ c₂ (the mismatched-intermediate rejection is the type: c₂ must be a Cert of Cert.S c₁); (३) ∀ CommRing, ∀ z K
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/YogaPatra_TheCompositeOfTwoEliminationCertificatesIsACertificateTheTransportLawFollowsFromTheFiveCheckedIdentitiesAndANilpotentCausalKernelHasAPolynomialInverseWhateverItsNorm.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) for closed commutative identities
+existing_terms_reused: RingTheory (0LeftAnnihilates, 0RightAnnihilates); the projection-form certificate is PramanaPatra (NV-CERT-PROJ)
+new_derivation_or_artifact: record Cert, transport-law, compose-eliminates, compose-source-blind, compose-reduces, compose-transforms, compose-reconstructs, compose, nilpotent-causal-inverse
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-2: dropping the T₁ factor from the composite Z is rejected
+correction_of: C01: "exact composition installs the full session" is now a checked term, not a kernel.py convention
+endpoint_dependency_discharged: K-CERT composition rule; what remains for K-CERT is wiring this Cert type to the Yantra install/retire path
+remaining_assumptions: the transpose is a hypothesis (t-add, t-mul, t-one); over matrices it is the ordinary transpose
+```
+
+## DviSthana — two-sector reflection block, Schur pivot, poles, damped cosh
+
+```text
+claim_id: NV-SCHUR-BLOCK
+statement: In the commutative block algebra α·I + β·X with X² = I, for the resolvent block (d, σ), d = λ + iγ: (d,σ)⊗(d,−σ) = (d² − σ², 0); any inverse (ρ,τ) has ρ(d² − σ²) = d and τ(d² − σ²) = −σ, so R₊₊ = d/(d² − σ²); with Σ·d = σ², (d − Σ)·d = d² − σ² (the self-energy is subtracted); at d = 0 the block (0,σ) has inverse (0, 1/σ) = X/σ, so the pivot pole is removable; (d − σ) + (d + σ) = 2d, so the genuine poles d = ±σ carry residue ½ each; with ∂e = −g e, ∂c = σ s, ∂s = σ c the block K = (e·c, −e·s) satisfies ∂K = G⊗K for G = (−g, −σ), its retained channel is e·c = e^{−iγt}cosh σt, and it starts at 1.
+source_class: exact finite instance of R-SCHUR (handoff §64, [S17–S18]); the same block normal form as the NS return (PunarAgamana)
+parameters_and_quantifiers: ∀ CommRing, ∀ d σ (∀ Σ with Σd = σ²; ∀ inverse (ρ,τ); ∀ s with σs = 1); evolution: ∀ derivation ∂ and e c s g σ with the three ODE hypotheses
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/DviSthana_TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; Cubical.Tactics.CommRingSolver (solve!) for closed commutative identities
+existing_terms_reused: Cubical.Data.Sigma pairs; derivation lemmas as in Vartana
+new_derivation_or_artifact: _⊗_, X-squares-to-𝟙, resolvent-factor, resolved-plus-plus, resolved-plus-minus, schur-denominator, pivot-inverse, residues-are-halves, evolves, retained-channel, starts-at-one
+proof_status: formal theorem checking (--safe, no postulates); the block algebra is the exact 2×2 case, not an operator-theoretic statement
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-2: residues-are-halves with 2d replaced by d is rejected
+correction_of: C50/C52 (the pivot pole is not a pole of the full problem; positive self-energy is subtracted, not a dissipation proof): both are checked identities here
+endpoint_dependency_discharged: none; Σ(1) = 0 ⇔ RH across all orbits is analytic
+remaining_assumptions: existence of cosh/sinh/exponential elements with the stated derivatives (a differential ring containing them)
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -139,3 +202,11 @@ Three copies of the green modules were mutated in exactly one theorem statement 
 | M3 | AbelaRupa | `c · (1r + (- T))` → `c · (1r + T)` in normal-form | 42 | UnequalTerms `- T != T` |
 
 The rejections are at the mutated statements, so the checker discriminates the exact identities, not only well-formedness.
+
+## NV-CONTROLS-2 — mutation negative controls for the second batch
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M4 | DvipadaGuna | Pascal rule `Cb a (suc b) +ℕ Cb (suc a) b` → `Cb a (suc b) +ℕ Cb a b` | 42 | first failure is the sanity check `Cb 2 2 ≡ 6` (`4 != 6`); the checker stops there |
+| M5 | YogaPatra | composite `Z∘ = Z₁ + (R₁ · Z₂) · T₁` → `Z₁ + (R₁ · Z₂)` | 42 | UnequalTerms in compose-transforms (`Rc · Z != Rc`) |
+| M6 | DviSthana | `residues-are-halves : … ≡ d + d` → `≡ d` | 42 | solve! normal forms differ (`_+_` vs `1r`) |

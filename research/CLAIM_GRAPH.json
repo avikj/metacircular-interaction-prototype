@@ -1101,7 +1101,8 @@
     "C33"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/DvitiyaLeibniz_TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct.agda"
+    "formal/cubical/theorems/physics/DvitiyaLeibniz_TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct.agda",
+    "formal/cubical/theorems/physics/DvipadaGuna_TheIteratesOfADerivationOnAProductAreTheBinomialSumOfIteratesSoTheObservableLiftPreservesProductsCoefficientwiseAtEveryOrder.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1386,7 +1387,8 @@
     "C01"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/PramanaPatra_BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda"
+    "formal/cubical/theorems/physics/PramanaPatra_BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda",
+    "formal/cubical/theorems/physics/YogaPatra_TheCompositeOfTwoEliminationCertificatesIsACertificateTheTransportLawFollowsFromTheFiveCheckedIdentitiesAndANilpotentCausalKernelHasAPolynomialInverseWhateverItsNorm.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -2123,9 +2125,18 @@
     "C50",
     "C52"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/DviSthana_TheTwoSectorReflectionBlockResolvesExactlyThePivotPoleOfTheSelfEnergyIsRemovableTheGenuinePolesSitAtPlusMinusSigmaWithResidueOneHalfAndTheRetainedChannelIsADampedCosh.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "O-RBOUND",
