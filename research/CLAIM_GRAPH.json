@@ -1,0 +1,2343 @@
+{
+ "title": "Actual-source NS/RH dependency and correction slice — live copy with native repository loci",
+ "comparison_commit": "168ea8e240524f898af4b0e9cf70297c38422f08",
+ "scope": "Finite explicit handoff dependency slice, not an exhaustive repository graph. UNSUPPLIED-HERE does not mean absent from the repository.",
+ "nodes": [
+  {
+   "id": "K-FIBRE",
+   "title": "Canonical lossless source completion",
+   "statement": "A is equivalent to Sigma b:B, fib_f(b); admissibility and actual evolution transport through the declared equivalence.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 7,
+   "sources": [
+    "S00",
+    "S03"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [
+    "fibre/src/Fibre/Carrier.agda",
+    "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda",
+    "formal/cubical/theorems/physics/RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [
+      "fibre/src/Fibre/Carrier.agda",
+      "formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda"
+     ],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "K-INSTALL",
+   "title": "Proof installation and session retirement",
+   "statement": "learn = install o CheckedFuture.derivation; retire installs the complete session derivation.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 5,
+   "sources": [
+    "S00"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C01",
+    "C04"
+   ],
+   "repository_loci": [
+    "formal/cubical/kernel/TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "K-SCHEMA",
+   "title": "Instance/locus certificate transport",
+   "statement": "Substitution and one-hole context lift the stored derivation to every supported application site.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 5,
+   "sources": [
+    "S00"
+   ],
+   "dependencies": [
+    "K-INSTALL"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "K-ROOTED",
+   "title": "Dependent rooted history fibre",
+   "statement": "Endpoint-fixed rooted total equals the dependent sum of payloads over compatible prefixes.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 11,
+   "sources": [
+    "S00"
+   ],
+   "dependencies": [
+    "K-FIBRE"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/lean/Pairfield/DependentRootedHistoryFiber.lean"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "K-EXCURSION",
+   "title": "Exact compressed evolution defect",
+   "statement": "K_t K_s = K_(t+s) - P T_t Q T_s i on the declared operator carrier.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 11,
+   "sources": [
+    "S25"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/automata/ExcursionReturn.agda",
+    "formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [
+      "formal/cubical/theorems/automata/ExcursionReturn.agda"
+     ],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "K-FUTURE",
+   "title": "Future observation is finer than current observation",
+   "statement": "ForeverEq is invariant and refines InstantEq; an explicit finite source separates the converse.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 11,
+   "sources": [
+    "S25"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/automata/ObservabilityQuotient.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "A-POLARIZE",
+   "title": "Complete quadratic diagonal fibre",
+   "statement": "All bilinear realizations differ by an alternating map; DQ uses symmetric polarization and differentiates both source slots.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 8,
+   "sources": [
+    "S03"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C07"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/unplaced/Samamsa_TheQuadraticDiagonalFixesOnlyTheSymmetricPartSoAFrozenActionIsNotIntrinsicButItsPolarizationIs.agda",
+    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "A-JETS",
+   "title": "All-order shared-source variations",
+   "statement": "Mixed derivatives satisfy the exact subset product rule with canonical linearized generator.",
+   "status": "ANALYTIC",
+   "domain": "Differentiable solution families on a common classical interval",
+   "handoff_section": 8,
+   "sources": [
+    "S03"
+   ],
+   "dependencies": [
+    "A-POLARIZE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "A-CRT",
+   "title": "Coherent CRT history cardinality",
+   "statement": "Independent capacity product differs from compatible endpoint cardinality; completion is Zhat, not the embedded Z image.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 10,
+   "sources": [
+    "S03"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C09"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/unplaced/EkagraSreni_ACompatibleHistoryIsAChainOfSinglesSoTheTowerContractsToItsTopAndTheAmbientProductOverCounts.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "A-JUNITARY",
+   "title": "Two-metric positive loop",
+   "statement": "T*JT=J implies JT^-1JT=T*T, reciprocal spectrum and purely cross-J logarithmic positive metric.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 12,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C12",
+    "C50"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-BELTRAMI",
+   "title": "Frozen leakage cancels in actual variation",
+   "statement": "Same-eigenvalue Beltrami family has opposite-helicity frozen term but zero true nonlinear variation.",
+   "status": "ANALYTIC",
+   "domain": "Periodic exact smooth Beltrami solutions",
+   "handoff_section": 9,
+   "sources": [
+    "S03"
+   ],
+   "dependencies": [
+    "A-POLARIZE"
+   ],
+   "corrections": [
+    "C08"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-FUTURE",
+   "title": "Actual NS finite-jet future separator",
+   "statement": "Triangular exact global smooth solutions can match arbitrarily deep finite initial jets and multiple complete scalar histories while later resolved velocity differs.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 14,
+   "sources": [
+    "S01",
+    "S02"
+   ],
+   "dependencies": [
+    "K-FUTURE"
+   ],
+   "corrections": [
+    "C14"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-POISSON",
+   "title": "Essential vorticity source norm",
+   "statement": "On the periodic mean-zero class, ||Pi_u|| = ||Pi_u||ess = ||curl u||infinity; ess spec(i Pi_u)=[-M,M].",
+   "status": "ANALYTIC",
+   "domain": "Smooth flat-torus mean-zero divergence-free sources",
+   "handoff_section": 15,
+   "sources": [
+    "S04"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [
+    "Pseudodifferential principal symbols / localized Weyl sequences"
+   ],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-COMMUTATOR",
+   "title": "Compact nonzero source commutator",
+   "statement": "[Pi_u,Pi_v] is compact but can be nonzero and outside the source image.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 15,
+   "sources": [
+    "S05"
+   ],
+   "dependencies": [
+    "N-POISSON"
+   ],
+   "corrections": [
+    "C17"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/SamanaMula_TranslationCovarianceIteratesSoTheSummedDoubleCommutatorIsTheSourcesLaplacianAndTheProductDefectIsTheDifferentiatedPair.agda",
+    "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-TRANSPORT",
+   "title": "Stochastic source/tangent distinction",
+   "statement": "Coadjoint transport S preserves source covariance; true tangent R produces an explicitly retained compact residual.",
+   "status": "ANALYTIC",
+   "domain": "Common-noise smooth periodic interval",
+   "handoff_section": 16,
+   "sources": [
+    "S05"
+   ],
+   "dependencies": [
+    "N-POISSON",
+    "A-POLARIZE"
+   ],
+   "corrections": [
+    "C13",
+    "C15",
+    "C16"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/VahanaSamata_TheCongruenceAndTheDiffusionTermPreserveAdjointParitySoARealCovarianceStaysRealUnderCommonSourceTransport.agda",
+    "formal/cubical/theorems/physics/EkaSesa_TheIdentityDefectOfTheCommonNoiseGeneratorIsExactlyTheSymmetricPartOfTheDriftBecauseTheDiffusionCancelsTheLaplacian.agda",
+    "formal/cubical/theorems/physics/SarvaMula_TheAllSourceCoadjointLawIsJacobiPairedAndTheActualTangentResidualIsExactlyTheSourceCommutator.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-AFFINE",
+   "title": "Complete BMO harmonic fibre",
+   "statement": "Curl reconstruction with BMO gradient leaves Ax+b; after translation, A is five-dimensional Sym_0(3).",
+   "status": "ANALYTIC",
+   "domain": "Declared BMO/growth class",
+   "handoff_section": 17,
+   "sources": [
+    "S06",
+    "S07"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C19"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/SahagunaVaha_TheAdjugateIdentityMakesTheCofactorCurrentOfAnAffineFieldTheDeterminantDilationSoItsTwoProductionTermsCancelExactly.agda",
+    "formal/cubical/theorems/physics/BhramaMatra_TheCurlOfALinearFieldIsTheAxialVectorOfItsAntisymmetricPartAndTheSpinSquareIsTheOuterProductMinusTheNorm.agda",
+    "formal/cubical/theorems/unplaced/TryaSresthaDosa_TheTriadicProductionDefectIsACollinearityDeterminantSoAffineWeightsAreItsKernelAndTheMagnitudeWeightIsNotInIt.agda",
+    "formal/cubical/theorems/physics/CaturthaAnka_TheQuarticTraceIsTheSquareOfTheQuadraticUpToItsTraceSoTheCubeRateCoefficientIsExact.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-SYMBOL",
+   "title": "Cross-helicity essential symbol",
+   "statement": "q_u(x,n)=-P_n S_u P_n -(n^T S_u n)P_n/2.",
+   "status": "ANALYTIC",
+   "domain": "Periodic smooth pseudodifferential source carrier",
+   "handoff_section": 18,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "A-POLARIZE"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/TiryakChihna_TheTransverseSymbolIsTheAxialVorticityTimesAComplexStructureSoItsSquareIsMinusThatScalarSquared.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-ESSNORM",
+   "title": "Mixing essential norm is full strain spread",
+   "statement": "||B_u||ess = (1/2) sup_x(lambda_max(S_u)-lambda_min(S_u)).",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 18,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "N-SYMBOL"
+   ],
+   "corrections": [
+    "C18"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-TOMOGRAPHY",
+   "title": "Recover actual strain and source",
+   "statement": "S_u = -(5/2) spherical_mean(q_u); recover mean-zero u by inverse Laplacian/divergence.",
+   "status": "ANALYTIC",
+   "domain": "Fixed periodic source image",
+   "handoff_section": 18,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "N-SYMBOL"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-TOROIDAL",
+   "title": "Exact central strain selection",
+   "statement": "S(0)=-(3/5) integral A_omega(r) dr/r, where A_omega is the full toroidal l=2 projection.",
+   "status": "ANALYTIC",
+   "domain": "Whole-space smooth finite-energy sources",
+   "handoff_section": 19,
+   "sources": [
+    "S10",
+    "S12"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda",
+    "formal/cubical/theorems/physics/PurnaAvakalana_TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-BLIND",
+   "title": "Gradient moments miss strain-bearing currents",
+   "statement": "Smooth toroidal shell has every centered-ball gradient moment zero but arbitrary prescribed trace-free central strain.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 19,
+   "sources": [
+    "S10"
+   ],
+   "dependencies": [
+    "N-TOROIDAL"
+   ],
+   "corrections": [
+    "C22"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-INVERSE2",
+   "title": "Complete radial toroidal velocity inverse",
+   "statement": "G=(1/5)[r^-5 integral_0^r s^4F(s)ds + integral_r^infinity F(s)ds/s]; Gsecond+6Gprime/r=-F/r^2.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 20,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [
+    "N-TOROIDAL"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-PRESSURE",
+   "title": "Full matrix pressure theorem",
+   "statement": "Actual deviatoric pressure Hessian H[u_2]=-(2/7)(S_u(0)^2)_0 for arbitrary radial noncommuting matrix profiles.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 20,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [
+    "N-INVERSE2"
+   ],
+   "corrections": [
+    "C23",
+    "C24"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-PRESSURERES",
+   "title": "Complete complementary pressure cross-effect",
+   "statement": "H[u]+(2/7)(S^2)_0 = 2H(u_2,u_perp)+H[u_perp].",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 20,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [
+    "N-PRESSURE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-LEAK4",
+   "title": "Actual outgoing degree-four source",
+   "statement": "N(f T_A)=beta2 T_(A^2)_0+beta4 T4[A]; beta4 cannot vanish identically for a nonzero nonnegative compact shell.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 21,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [
+    "N-INVERSE2",
+    "A-POLARIZE"
+   ],
+   "corrections": [
+    "C23"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-H5",
+   "title": "Exact free viscous strain response",
+   "statement": "H5(q)=erf(q)-(2/sqrtpi)e^-q^2(q+2q^3/3), central strain weighted by H5(r/(2sqrt(nu t))).",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 22,
+   "sources": [
+    "S13"
+   ],
+   "dependencies": [
+    "N-TOROIDAL"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-LIFETIME",
+   "title": "Exact heat memory and temporal moments",
+   "statement": "integral_0^infinity H5(r/(2sqrt(nu t)))dt=r^2/(6nu); higher moments exist precisely for -1<p<3/2.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 22,
+   "sources": [
+    "S13"
+   ],
+   "dependencies": [
+    "N-H5"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-POTENTIAL",
+   "title": "Strain potential coboundary",
+   "statement": "nu integral S = endpoint Pi_pot difference + integral Pi_pot[N]; material form has transport commutator.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 23,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "N-LIFETIME"
+   ],
+   "corrections": [
+    "C27"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/KalaSetu_TheViscousStrainHistoryIsATemporalCoboundaryPlusOneResidualSoOnALoopTheCirculationIsTheResidualAlone.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-MEMORYK",
+   "title": "First quadratic radial memory kernel",
+   "statement": "K(s,t)=a(3-2a^3)/10 with a=min/max; I[f]=integral(9rg^2-r^3gprime^2).",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 24,
+   "sources": [
+    "S14",
+    "S16"
+   ],
+   "dependencies": [
+    "N-LEAK4",
+    "N-LIFETIME"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/SmrtiBija_TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-SIGNEDK",
+   "title": "Signed radial spectrum and cone coercivity",
+   "statement": "khat(xi)=(8-xi^2)/((1+xi^2)(16+xi^2)); nonnegative profiles have sharp I>=4||b||2^2, signed profiles need not be positive.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 24,
+   "sources": [
+    "S16"
+   ],
+   "dependencies": [
+    "N-MEMORYK"
+   ],
+   "corrections": [
+    "C25"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/SmrtiBija_TheTwoScaleMemoryKernelIsStrictlyPositiveAndItsRatioBoundIsExactAndTheTruncatedDoubleSumClosesAgainstAnyInverse.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-RETURN24",
+   "title": "Actual full-polarized 2->4->2 return",
+   "statement": "P2 DN(fT_A)[hT4[A]] = (4 tr A^2/49) C[f,h] T_A with the explicit radial C.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 25,
+   "sources": [
+    "S15"
+   ],
+   "dependencies": [
+    "A-POLARIZE",
+    "N-LEAK4"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/Vartana_TheFirstReturnRadialOperatorIsThreeBoundaryFormsPlusAnExactDerivativeAndTheIndicialPolynomialOfEveryToroidalDegreeFactorsSoDegreeTwoIsTheOnlyMarginalChannel.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-RETURNK",
+   "title": "Directional two-radius returned-memory kernel",
+   "statement": "L24(s,t)=3(t/s)/5-4(t/s)^6/9 for t<=s; 5(s/t)^3/9-2(s/t)^4/5 otherwise.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 25,
+   "sources": [
+    "S15"
+   ],
+   "dependencies": [
+    "N-RETURN24",
+    "N-LIFETIME"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-RETURNSIGNS",
+   "title": "Same-source return has both signs",
+   "statement": "Nonnegative smooth f examples produce reinforcement or opposition through h=beta4[f]; thin-shell J24 tends to 151/225.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 25,
+   "sources": [
+    "S15"
+   ],
+   "dependencies": [
+    "N-RETURNK",
+    "N-LEAK4"
+   ],
+   "corrections": [
+    "C25"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-ZENO",
+   "title": "Static geometric stacks do not force long-time growth",
+   "statement": "Instantaneous strain O(N), feedback O(N^2), while heat and first nonlinear/returned free-memory integrals stay uniformly bounded.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 26,
+   "sources": [
+    "S13",
+    "S14",
+    "S15"
+   ],
+   "dependencies": [
+    "N-LIFETIME",
+    "N-RETURNK"
+   ],
+   "corrections": [
+    "C28"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
+    "formal/cubical/theorems/unplaced/YugmaVyaya_TwoBudgetsWithAFixedDifferenceDivergeTogetherSoNeitherSectorCanCarryTheBlowupAlone.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-PEAK",
+   "title": "Actual growing maximum ledger",
+   "statement": "alpha=Mprime/M+nu|grad xi|^2+nu(-Delta m)/M at an increasing maximum.",
+   "status": "ANALYTIC",
+   "domain": "Classical smooth source with maximum-envelope formulation",
+   "handoff_section": 27,
+   "sources": [
+    "S23"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C31"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-SCALE",
+   "title": "Joint energy/vorticity scale and metric torus",
+   "statement": "ell=M^-2/(d+2), A=M^-d/(d+2), time=M^-1; gC^(d+2)=gomega^(2(d-2))gE^4.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 28,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C14"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
+    "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-FAR",
+   "title": "Whole far-strain tightness",
+   "statement": "Core far strain <= C E0^1/2 r^-1/2 L^-5/2; at L=C r^-1/5 the bound is O(C^-5/2).",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 29,
+   "sources": [
+    "S13",
+    "S14"
+   ],
+   "dependencies": [
+    "N-SCALE",
+    "N-TOROIDAL"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-FREQ",
+   "title": "Mandatory high-frequency part of peak",
+   "statement": "Low-frequency vorticity <= C E^1/2 K^5/2 implies high-frequency amplitude at least M/2 above c M^2/5.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 29,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "N-SCALE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-JETS",
+   "title": "Scoped energy-only harmonic/pressure thresholds",
+   "statement": "Harmonic m-jet threshold 1/(2m+3), pressure k-jet 1/(k+3); full normalized vorticity improves higher remote jets.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 30,
+   "sources": [
+    "S13",
+    "S15"
+   ],
+   "dependencies": [
+    "N-FAR"
+   ],
+   "corrections": [
+    "C20",
+    "C21"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-MOMENTS",
+   "title": "Common-worldtube harmonic moments vanish",
+   "statement": "Normalized moments against grad H_(m+1) have squared time norm <= C r^-1 R^-5 on one chosen tube.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 31,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "N-SCALE"
+   ],
+   "corrections": [
+    "C22"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-EULER",
+   "title": "Energy-scale and supercritical weak limits",
+   "statement": "Supercritical Euler dilation has zero L2 velocity limit but retained unit point vorticity; critical chart keeps finite energy possible.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 32,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "N-SCALE"
+   ],
+   "corrections": [
+    "C14",
+    "C30"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-HOLDER",
+   "title": "Source-symbol spatial modulus and pointed compactness",
+   "statement": "eta_mu=M^(-1-2mu/5)[omega]Cmu equals symbol Holder modulus; bounded snapshot eta retains nonzero pointed spatial limit.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 32,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "N-EULER",
+    "N-POISSON"
+   ],
+   "corrections": [
+    "C29",
+    "C30"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-ADAPT",
+   "title": "Exact energy-neutral adaptive dilation",
+   "statement": "DE=3/5+(2/5)y.grad skew in L2; critical real weight1/5; all moving gauge terms retained.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 33,
+   "sources": [
+    "S19"
+   ],
+   "dependencies": [
+    "N-SCALE"
+   ],
+   "corrections": [
+    "C12",
+    "C29"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-HEATSUP",
+   "title": "Integrated heat response with correct moving-centre quantifier",
+   "statement": "Integral ||S_heat(v)||infinity <= C/nu sqrt(||v||2 ||grad v||2), plus bounded-velocity/vorticity variants.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 34,
+   "sources": [
+    "S16"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C26"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-DUHAMELSUP",
+   "title": "Actual nonlinear source control",
+   "statement": "Integral ||S_u||infinity <= Hnu(u0)+(C/nu) integral ||grad u||2 ||Delta u||2.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 34,
+   "sources": [
+    "S16"
+   ],
+   "dependencies": [
+    "N-HEATSUP"
+   ],
+   "corrections": [
+    "C26"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-SMALL",
+   "title": "All-time small energy-enstrophy control",
+   "statement": "Small sqrt(E0 W0)/nu gives global smoothness and bounded integrated moving-peak strain.",
+   "status": "ANALYTIC",
+   "domain": "Small-data class, not arbitrary source",
+   "handoff_section": 35,
+   "sources": [
+    "S16"
+   ],
+   "dependencies": [
+    "N-DUHAMELSUP"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-MATCHAUDIT",
+   "title": "Proposed dynamic octave suppression",
+   "statement": "Claimed ultra-fine Gaussian-in-octave propagation needs log-uniformity and paraproduct/source matching proof.",
+   "status": "AUDIT",
+   "domain": "",
+   "handoff_section": 36,
+   "sources": [
+    "S21",
+    "S22"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C37"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-LIFT",
+   "title": "Whole source observable/tensor generator",
+   "statement": "L h=Dh[F]; product Leibniz identities retain multiplicative character and tensor realization constraints.",
+   "status": "FORMAL-SERIES",
+   "domain": "",
+   "handoff_section": 37,
+   "sources": [
+    "S17"
+   ],
+   "dependencies": [
+    "A-POLARIZE"
+   ],
+   "corrections": [
+    "C33"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/DvitiyaLeibniz_TheSecondOrderDefectOfADerivationIsExactlyTwiceTheCrossTermSoALaplacianSeesOnlyTheProduct.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-OBSRETRACT",
+   "title": "Actual initial-complement observable retraction",
+   "statement": "Pscript h(omega)=h(P omega+q0); Qscript L product defect retained.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 38,
+   "sources": [
+    "S17"
+   ],
+   "dependencies": [
+    "N-LIFT"
+   ],
+   "corrections": [
+    "C33"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-RENEWAL",
+   "title": "Complete ordered return recurrence",
+   "statement": "K_(n+1)=A K_n+sum_(j=0)^(n-1) B D^j C K_(n-1-j).",
+   "status": "FORMAL-SERIES",
+   "domain": "",
+   "handoff_section": 38,
+   "sources": [
+    "S17",
+    "S25"
+   ],
+   "dependencies": [
+    "K-EXCURSION",
+    "N-OBSRETRACT"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/PunarAgamana_TheProjectedPowersOfAnOperatorObeyAnOrderedReturnRecurrenceWhoseKernelIsExcursionThroughTheHiddenBlockAndTheProjectedDerivationFailsLeibnizByExactlyTheCrossSectorTerms.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-HISTORY",
+   "title": "Exact nonlinear hidden-history evaluator",
+   "statement": "q=g_p+C_p(q,q), omega=p+Y[p;q0], with the actual shared-source Volterra operations.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 39,
+   "sources": [
+    "S17"
+   ],
+   "dependencies": [
+    "A-POLARIZE",
+    "K-ROOTED"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-CATALAN",
+   "title": "Initial local convergent tree certificate",
+   "statement": "Catalan majorant and explicit truncation remainder when 4bc<1; sufficient aggregate bound4kappa(pstar+rstar)<1.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 40,
+   "sources": [
+    "S17"
+   ],
+   "dependencies": [
+    "N-HISTORY"
+   ],
+   "corrections": [
+    "C35"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-VOLTERRA",
+   "title": "Causal inverse without smallness",
+   "statement": "A^n norm <= (C sqrtpi)^n T^(n/2)/Gamma(1+n/2), so (I-zA)^-1 entire for every bounded coefficient.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 40,
+   "sources": [
+    "S18"
+   ],
+   "dependencies": [
+    "N-HISTORY"
+   ],
+   "corrections": [
+    "C35"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-ANALYTIC",
+   "title": "Single-valued analytic hidden history on existence domain",
+   "statement": "At each bounded solution DqF causal-invertible; uniqueness and analytic IFT glue charts on the open actual domain.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 41,
+   "sources": [
+    "S18"
+   ],
+   "dependencies": [
+    "N-VOLTERRA"
+   ],
+   "corrections": [
+    "C36"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-REBASE",
+   "title": "Finite time/sector/recenter invariance",
+   "statement": "Compatible exact eliminations, time restarts and analytic rebasing reconstruct the same source on common domains.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 41,
+   "sources": [
+    "S18"
+   ],
+   "dependencies": [
+    "N-ANALYTIC",
+    "K-FIBRE"
+   ],
+   "corrections": [
+    "C36"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-SCALEKERNEL",
+   "title": "Renormalize the evaluator once",
+   "statement": "B and heat commute with declared finite parabolic scaling; all causal trees transport by structural induction.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 42,
+   "sources": [
+    "S17"
+   ],
+   "dependencies": [
+    "N-HISTORY",
+    "N-SCALE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "N-MIDPOINT",
+   "title": "Actual all-depth midpoint residual propagator",
+   "statement": "N(a+b)-N(a)=DN(a+b/2)b; source-dependent U_Q packages the complete nonlinear return.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 43,
+   "sources": [
+    "S19"
+   ],
+   "dependencies": [
+    "A-POLARIZE",
+    "N-TOROIDAL"
+   ],
+   "corrections": [
+    "C34"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-STORAGE",
+   "title": "Exact full nonlinear returning kinetic work",
+   "statement": "Integral<a,R_P>=initial complementary energy-final complementary energy-viscous complementary dissipation.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 44,
+   "sources": [
+    "S19"
+   ],
+   "dependencies": [
+    "N-MIDPOINT"
+   ],
+   "corrections": [
+    "C32"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda",
+    "formal/cubical/theorems/physics/PurnaAvakalana_TheQuadraticSourceIntegrandIsExactlyADerivativeSoTheWholeCoefficientIsABoundaryTerm.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "N-MOVINGP",
+   "title": "Moving observer and adaptive gauge storage",
+   "statement": "Retain Pprime b and skew gauge exchange; exact signed storage survives with changing viscosity.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 44,
+   "sources": [
+    "S19"
+   ],
+   "dependencies": [
+    "N-STORAGE",
+    "N-ADAPT"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "K-CERT",
+   "title": "Source-aware finite elimination certificates",
+   "statement": "(M,E,S,T,R,Z) identities certify reduced operator, transformed source and reconstruction; exact composition installs the full session.",
+   "status": "EXACT-CONTROL",
+   "domain": "",
+   "handoff_section": 45,
+   "sources": [
+    "S18"
+   ],
+   "dependencies": [
+    "K-INSTALL"
+   ],
+   "corrections": [
+    "C01"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/PramanaPatra_BlockEliminationByAnIdempotentIsALosslessCertificateTheReducedAndFullEquationsAreEquivalentForEverySourceAndTheForcingMapTransportsTheOperator.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "R-GOLDBACH",
+   "title": "Quantitative convolution source reconstructs Lambda",
+   "statement": "Actual normalized Goldbach tail reconstructs Lambda and its Dirichlet logarithmic derivative on Re s>1.",
+   "status": "REPO-TERM",
+   "domain": "",
+   "handoff_section": 46,
+   "sources": [
+    "S00",
+    "S23"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [
+    "formal/lean/Pairfield/GoldbachReconstructionChain.lean"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-H4",
+   "title": "Early faithful fourfold spline packet",
+   "statement": "Explicit delayed H4 has no strip zeros and a four-derivative Sobolev inverse.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 46,
+   "sources": [
+    "S01",
+    "S06"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C38"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-PACKET",
+   "title": "Actual fixed autocorrelation receiver",
+   "statement": "Explicit H/G, support[-1/2,1/2], G nonzero on strip, ReG>0 and G(i gamma)>0.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 46,
+   "sources": [
+    "S02"
+   ],
+   "dependencies": [],
+   "corrections": [
+    "C38",
+    "C39"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-Z",
+   "title": "Actual prime-shell response and prime-free diagonal",
+   "statement": "Z real/even, M0>0, exact tail prime/pole/arch identity for t>1/2 and finite multiplicative shell.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 47,
+   "sources": [
+    "S02"
+   ],
+   "dependencies": [
+    "R-PACKET"
+   ],
+   "corrections": [
+    "C45"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-TWOPACKET",
+   "title": "Complete two-packet actual Weil criterion",
+   "statement": "RH iff |Z(t)|<=M0 for all t iff two translated packet Weil matrices PSD.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 47,
+   "sources": [
+    "S02"
+   ],
+   "dependencies": [
+    "R-Z"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [
+    "Actual Weil explicit formula",
+    "Functional equation",
+    "Zero count"
+   ],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-ABSCISSA",
+   "title": "Exact received growth exponent",
+   "statement": "limsup log(1+|Z(t)|)/t=delta with no dominating-zero or attained-sup assumption.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 48,
+   "sources": [
+    "S01",
+    "S02"
+   ],
+   "dependencies": [
+    "R-Z"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-FINITEHEIGHT",
+   "title": "Finite-height to finite-scale error",
+   "statement": "Weighted zero tail O(T^-3 log T), multiplied by e^(|t|/2), retains unverified tail.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 48,
+   "sources": [
+    "S02"
+   ],
+   "dependencies": [
+    "R-PACKET"
+   ],
+   "corrections": [
+    "C53"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-WEILSPACE",
+   "title": "Completed actual Weil source",
+   "statement": "QW(v,w)=<Ev,J Ew> in l2(Sigma,m) on the declared form domain; compact source class kept distinct.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 49,
+   "sources": [
+    "S08",
+    "S12"
+   ],
+   "dependencies": [
+    "R-PACKET"
+   ],
+   "corrections": [
+    "C40",
+    "C41"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-CYCLIC",
+   "title": "Faithful packet cyclicity and source separation",
+   "statement": "Translation orbit cyclic in completed space; critical-line zero density makes compact-source evaluation injective.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 49,
+   "sources": [
+    "S08",
+    "S12"
+   ],
+   "dependencies": [
+    "R-WEILSPACE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [
+    "Positive proportion of distinct simple critical-line zeros"
+   ],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-IMAGE",
+   "title": "Original compact reflection fibre",
+   "statement": "Specified translated packet has a singleton compact source lift of J under RH and empty fibre otherwise.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 50,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [
+    "R-CYCLIC",
+    "R-PACKET"
+   ],
+   "corrections": [
+    "C40"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/PratibimbaTantu_TheReflectedFibreIsASingletonOrEmptySoALiftOfTheReflectionThroughTheSourceForcesItToBeTheIdentityOnTheImage.agda",
+    "formal/cubical/theorems/physics/RiktaTantu_TheSourceFibreOverANonzeroResidualIsEmptyExactlyWhenTheSourceResidualSplittingIsAProposition.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "R-INTERP",
+   "title": "Finite compact interpolation and norm escape",
+   "statement": "All finite interpolation fibres inhabited; imposing more critical constraints forces least norm to infinity for an offending reflected value.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 50,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [
+    "R-CYCLIC",
+    "R-IMAGE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-CARDINAL",
+   "title": "Actual Xi-cardinal source",
+   "statement": "m!/Xi^(m)(z) times Xi(w)/(w-z)^m has evaluations exactly e_z; source inverse in declared noncompact class.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 51,
+   "sources": [
+    "S11",
+    "S13"
+   ],
+   "dependencies": [
+    "R-WEILSPACE"
+   ],
+   "corrections": [
+    "C42"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-THETA",
+   "title": "Two-sided theta-history equality and double-exponential tails",
+   "statement": "Past/future (D-z)^m inverse difference is the finite Xi-derivative polynomial; zero multiplicity closes it.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 51,
+   "sources": [
+    "S13"
+   ],
+   "dependencies": [
+    "R-CARDINAL"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-ESCAPE",
+   "title": "Endpoint compact negative-bottom escape",
+   "statement": "Hypothetical Re z=sigma>0 gives lambda_a<=-c_z a^-sigma exp(2sigma a) at logarithmic support overhead.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 52,
+   "sources": [
+    "S13"
+   ],
+   "dependencies": [
+    "R-THETA"
+   ],
+   "corrections": [
+    "C43"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-INDEX",
+   "title": "Actual Weil inertia and exhaustion",
+   "statement": "One negative completed direction per nonfixed distinct reflection orbit; compact support exhausts negative index.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 52,
+   "sources": [
+    "S08",
+    "S11"
+   ],
+   "dependencies": [
+    "R-CARDINAL"
+   ],
+   "corrections": [
+    "C41"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-LANDAU",
+   "title": "Off-line receiver grows in both signs",
+   "statement": "Any exponent below delta is exceeded in both signs; eventual one-sided polynomial bound implies RH.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 53,
+   "sources": [
+    "S16"
+   ],
+   "dependencies": [
+    "R-ABSCISSA"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [
+    "Landau nonnegative Laplace boundary principle"
+   ],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-OUTPUT",
+   "title": "Positive-output L2 stability criteria",
+   "statement": "Subexponential damped square finite iff RH; exponential L2 entry abscissa equals delta.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 54,
+   "sources": [
+    "S02"
+   ],
+   "dependencies": [
+    "R-ABSCISSA"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-HANKEL",
+   "title": "Unbounded-to-nuclear causal phase transition",
+   "statement": "s>delta gives trace class; 0<s<delta unbounded via actual divided-difference poles.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 55,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "R-ABSCISSA"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-TRACE",
+   "title": "Hankel trace and return energy",
+   "statement": "2Tr H=F_T(s); HS^2=integral t e^-2st |Z(T+t)|2; residues recover actual weighted divisor.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 55,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "R-HANKEL"
+   ],
+   "corrections": [
+    "C45"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-PAIR",
+   "title": "Positive polarized two-zero arithmetic kernel",
+   "statement": "Two-time Hardy/Bergman kernels retain centre/difference and arithmetic rapidity; full Gram positivity not fixed Goldbach slice positivity.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 56,
+   "sources": [
+    "S09",
+    "S25"
+   ],
+   "dependencies": [
+    "R-Z"
+   ],
+   "corrections": [
+    "C44",
+    "C47"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-INVERSE",
+   "title": "Direct two-time source inverse",
+   "statement": "L_s H_s=Z tensor conjugate Z; L_s K_s=H_s; M0 anchor recovers Z exactly.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 57,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "R-PAIR",
+    "R-Z"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-LADDER",
+   "title": "Damping moment Weyl ladder",
+   "statement": "R=-1/2 partial_s raises; L lowers; [L,R]=I; L^(n+1)G_n=n!Z tensor conjugate Z.",
+   "status": "FORMAL-SERIES",
+   "domain": "",
+   "handoff_section": 57,
+   "sources": [
+    "S02"
+   ],
+   "dependencies": [
+    "R-INVERSE"
+   ],
+   "corrections": [
+    "C46"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-GEOMETRY",
+   "title": "Hardy/Bergman reflection rank and descent",
+   "statement": "Hardy orbit determinant=sigma2/s2; Bergman squared reflection difference=2sigma2/s2.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 58,
+   "sources": [
+    "S09",
+    "S14"
+   ],
+   "dependencies": [
+    "R-PAIR"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-HOLONOMY",
+   "title": "Actual reflection-scale positive loop",
+   "statement": "J U_t J U_t^-1=diag exp(2t Re z); zero loop iff RH; logarithmic norm is delta.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 59,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "R-WEILSPACE",
+    "A-JUNITARY"
+   ],
+   "corrections": [
+    "C50"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "R-CURVATURE",
+   "title": "One weighted defect under multiple readings",
+   "statement": "Packet curvature/4 = sum w sigma2 = weighted Hardy minors = half weighted Bergman difference energy.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 59,
+   "sources": [
+    "S14"
+   ],
+   "dependencies": [
+    "R-GEOMETRY",
+    "R-HOLONOMY"
+   ],
+   "corrections": [
+    "C41"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-MINORS",
+   "title": "Cauchy determinant and exact innovation",
+   "statement": "Finite normalized Hardy determinant product rho2; new atom distance product; each infinite distinct atom remains minimal.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 60,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "R-GEOMETRY"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-NOUNIFORM",
+   "title": "Individual extraction not uniform stability",
+   "statement": "Known critical simple zero crowding destroys uniform normalized Riesz and Bessel bounds.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 60,
+   "sources": [
+    "S09"
+   ],
+   "dependencies": [
+    "R-MINORS",
+    "R-CYCLIC"
+   ],
+   "corrections": [
+    "C48"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-PASSIVE",
+   "title": "Actual input-output work criterion",
+   "statement": "RH iff supplied work W(f)>=0 for every compact smooth input; cosh control separates damped output PSD.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 61,
+   "sources": [
+    "S10"
+   ],
+   "dependencies": [
+    "R-TWOPACKET"
+   ],
+   "corrections": [
+    "C44"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "R-IMPEDANCE",
+   "title": "Corrected positive-real/Stieltjes source",
+   "statement": "Actual received Y positive-real iff RH; arithmetic formula includes prefix E_T and convergent weighted trivial-zero tail.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 61,
+   "sources": [
+    "S02",
+    "S14"
+   ],
+   "dependencies": [
+    "R-PASSIVE",
+    "R-Z"
+   ],
+   "corrections": [
+    "C45",
+    "C49"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-DYADIC",
+   "title": "Pole-annihilating finite arithmetic residual",
+   "statement": "A_m=(T_log2-sqrt2)^m S removes actual pole character but none of the nontrivial modes.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 62,
+   "sources": [
+    "S20",
+    "S21"
+   ],
+   "dependencies": [
+    "R-Z"
+   ],
+   "corrections": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda",
+    "formal/cubical/theorems/primes/SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "R-ABEL",
+   "title": "Rigorous all-order source-boundary inverse",
+   "statement": "Strong c0 Abel inverse recovers L-S; bounded A_m gives absolute inverse with norm(sqrt2-1)^-m.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 62,
+   "sources": [
+    "S19"
+   ],
+   "dependencies": [
+    "R-DYADIC"
+   ],
+   "corrections": [
+    "C51"
+   ],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/AbelaRupa_TheResolventOfTheDampedShiftNormalizesTheShiftDefectSoItsPowersInvertEveryOrderAndTheDyadicDifferencesOfTheNormalizedSourceAreTheResidualTower.agda"
+   ],
+   "external_inputs": [],
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
+  },
+  {
+   "id": "R-GSQUARE",
+   "title": "Direct quantitative Goldbach source square",
+   "statement": "G_R(t)=A(t)^2 and normalized Gcal=t2G_R tends to1 by PNT.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 63,
+   "sources": [
+    "S22"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [
+    "Actual quantitative Goldbach convolution identity",
+    "Prime number theorem"
+   ],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-GCRITERION",
+   "title": "Direct Goldbach dyadic rate iff RH",
+   "statement": "For every epsilon, Gcal(2t)-Gcal(t)=O(t^(1/2-epsilon)) iff RH; finite prefix tail O(t log4(1/t)).",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 63,
+   "sources": [
+    "S22"
+   ],
+   "dependencies": [
+    "R-GSQUARE"
+   ],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [
+    "Actual Mellin/logarithmic-derivative continuation bounds under RH"
+   ],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "R-SCHUR",
+   "title": "Exact reflection self-energy and pole audit",
+   "statement": "Sigma_z=lambda-map sigma2/(lambda+i gamma); full denominator has real pair poles, not the intermediate removable pivot.",
+   "status": "ANALYTIC",
+   "domain": "",
+   "handoff_section": 64,
+   "sources": [
+    "S17",
+    "S18"
+   ],
+   "dependencies": [
+    "R-HOLONOMY",
+    "K-EXCURSION"
+   ],
+   "corrections": [
+    "C50",
+    "C52"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-RBOUND",
+   "title": "Unconditional actual received tail bound",
+   "statement": "Supply a proof for the actual prime-shell response; not an arbitrary positive kernel.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "Actual fixed packet and prime/arch source",
+   "handoff_section": 68,
+   "sources": [
+    "S23"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-RONESIDE",
+   "title": "Unconditional one-sided arithmetic control",
+   "statement": "Supply eventual one-sided polynomial bound for the same Z.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S16"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-RLOWER",
+   "title": "Actual Weil bottom lower bound",
+   "statement": "Supply global/subexponential semiboundedness sufficient to contradict negative endpoint escape.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S13"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-RLIFT",
+   "title": "Actual compact reflected source",
+   "statement": "Construct the specified original compact source realizing JEp with all interpolation constraints.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S12"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-RDYADIC",
+   "title": "One actual residual order bounded",
+   "statement": "Supply a bound for A_m at one fixed m, not its formally inverted surrogate.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S19"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-RGOLDBACH",
+   "title": "Actual Goldbach residual critical rate",
+   "statement": "Supply every-epsilon half-order rate for the actual quadratic Goldbach scale residual.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S22"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "O-NPEAK",
+   "title": "All-data actual peak-work integrability",
+   "statement": "For every admissible maximal solution with finite lifetime, integral b_u < infinity.",
+   "status": "UNSUPPLIED-HERE",
+   "domain": "Standard fixed chosen three-dimensional formulation",
+   "handoff_section": 68,
+   "sources": [
+    "S23"
+   ],
+   "dependencies": [],
+   "corrections": [],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "END-RH",
+   "title": "Actual Riemann hypothesis",
+   "statement": "All actual nontrivial zeta zeros have real part 1/2.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S23"
+   ],
+   "dependencies": [
+    "R-TWOPACKET",
+    "O-RBOUND"
+   ],
+   "corrections": [
+    "C03",
+    "C06"
+   ],
+   "repository_loci": [],
+   "external_inputs": [],
+   "native_verification_this_transfer": false
+  },
+  {
+   "id": "END-NS",
+   "title": "Actual global smooth NS",
+   "statement": "Every admissible datum in the chosen fixed formulation has a global smooth solution.",
+   "status": "CONDITIONAL",
+   "domain": "",
+   "handoff_section": 68,
+   "sources": [
+    "S23"
+   ],
+   "dependencies": [
+    "N-PEAK",
+    "O-NPEAK"
+   ],
+   "corrections": [
+    "C03",
+    "C06"
+   ],
+   "repository_loci": [],
+   "external_inputs": [
+    "Classical vorticity continuation theorem"
+   ],
+   "native_verification_this_transfer": false
+  }
+ ],
+ "alternative_routes": [
+  {
+   "endpoint": "END-RH",
+   "requirements": [
+    "R-LANDAU",
+    "O-RONESIDE"
+   ]
+  },
+  {
+   "endpoint": "END-RH",
+   "requirements": [
+    "R-ESCAPE",
+    "O-RLOWER"
+   ]
+  },
+  {
+   "endpoint": "END-RH",
+   "requirements": [
+    "R-IMAGE",
+    "O-RLIFT"
+   ]
+  },
+  {
+   "endpoint": "END-RH",
+   "requirements": [
+    "R-ABEL",
+    "R-TWOPACKET",
+    "O-RDYADIC"
+   ]
+  },
+  {
+   "endpoint": "END-RH",
+   "requirements": [
+    "R-GCRITERION",
+    "O-RGOLDBACH"
+   ]
+  },
+  {
+   "endpoint": "END-NS",
+   "requirements": [
+    "N-SMALL"
+   ],
+   "restriction": "Small energy-enstrophy data only; not the all-data endpoint."
+  }
+ ],
+ "received_graph": "research/handoff_20260908/CLAIM_GRAPH.json",
+ "native_records": "research/NATIVE_RECORDS.md",
+ "updated": "2026-09-08",
+ "unmapped_native_modules": [
+  "formal/cubical/theorems/primes/AdrsyaMana_TheKernelOfTheDiscreteSecondDifferenceIsExactlyTheAffineSequencesSoAnAdditiveReceiverBlindToThemDescendsToTheFibre.agda",
+  "formal/cubical/theorems/primes/SamaVrddhi_TheRunningProductIsLogConvexAndItsSecondDifferenceIsExactlyTheStepRatioSoTheWalkVolumeAndTheHistoryTowerAreOneConstruction.agda",
+  "formal/cubical/theorems/primes/DvitiyaAntara_TheLocalPrimePowerFieldIsTheMultiplicativeSecondDifferenceOfTheDMRWalkVolume.agda",
+  "formal/cubical/theorems/unplaced/VyarthaCakra_TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes.agda"
+ ]
+}
