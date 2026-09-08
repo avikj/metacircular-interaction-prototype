@@ -1,0 +1,16 @@
+Checking M12 (/home/user/math/formal/cubical/theorems/unplaced/M12.agda).
+/home/user/math/formal/cubical/theorems/unplaced/M12.agda:199.11-204.16: error: [UnequalTerms]
+q · q != q of type R .fst
+when checking that the expression
+∂-add _ _ ∙
+cong₂ _+_ (∂ιx 3 erf ∙ cong (ι 3 ·_) ∂erf)
+(∂-neg _ ∙
+ cong -_
+ (∂-leib κ _ ∙
+  cong₂ _+_ (cong (_· (e · (ι 3 · q + ι 2 · (q · (q · q))))) ∂κ)
+  (cong (κ ·_)
+   (∂-leib e _ ∙
+    cong₂ _+_ (cong (_· (ι 3 · q + ι 2 · (q · (q · q)))) ∂e)
+    (cong (e ·_) ∂P)))))
+∙ shape
+has type ∂ H5₃ ≡ ι 4 · (κ · (q · q · q · e))

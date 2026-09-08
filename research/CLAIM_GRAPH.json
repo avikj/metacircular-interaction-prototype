@@ -230,7 +230,8 @@
     "C50"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda"
+    "formal/cubical/theorems/unplaced/Vyatikrama_TheCommutatorOfASelfAdjointWithASkewAdjointIsSelfAdjointSoTheCrossSectorCurrentIsARealPairing.agda",
+    "formal/cubical/theorems/primes/DviMana_TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -628,9 +629,18 @@
     "N-TOROIDAL"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "N-LIFETIME",
@@ -854,9 +864,18 @@
    "corrections": [
     "C31"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "N-SCALE",
@@ -874,7 +893,8 @@
    ],
    "repository_loci": [
     "formal/cubical/theorems/physics/DviDrsti_EachScalingReadingHasAOneParameterFibreButTheirDeterminantIsDimensionPlusTwoSoTogetherTheyReconstructAndTheDerivedTimeReadingAddsNothing.agda",
-    "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda"
+    "formal/cubical/theorems/physics/ManaSesa_TheScaleResidualIsTheDegreeTimesTheObservableSoZeroResidualIsCriticalityAndANegativeDegreeMonotoneForbidsShrinkingRecurrence.agda",
+    "formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1474,9 +1494,18 @@
     "C38",
     "C39"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-Z",
@@ -1494,9 +1523,18 @@
    "corrections": [
     "C45"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-TWOPACKET",
@@ -1512,13 +1550,22 @@
     "R-Z"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda"
+   ],
    "external_inputs": [
     "Actual Weil explicit formula",
     "Functional equation",
     "Zero count"
    ],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-ABSCISSA",
@@ -1669,9 +1716,18 @@
    "corrections": [
     "C42"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-THETA",
@@ -1687,9 +1743,18 @@
     "R-CARDINAL"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-ESCAPE",

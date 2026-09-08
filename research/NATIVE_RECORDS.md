@@ -275,6 +275,90 @@ endpoint_dependency_discharged: none; R-GEOMETRY stays conditional (the zeros ar
 remaining_assumptions: the inner products are the stated half-plane kernels; the infinite-product/closed-span statements of R-MINORS and the non-uniform Riesz/Bessel bounds are analytic
 ```
 
+## DviMana — two-metric conservation algebra
+
+```text
+claim_id: NV-TWOMETRIC
+statement: In any ring with J² = 1, a transfer T with two-sided inverse, and S with (S·J)·T = J: S = J·T⁻¹·J, so the metric C = S·T is the reflected loop J·T⁻¹·J·T; the conservation law reverses, (T·J)·S = J; J-conjugation inverts C on both sides, (J·C·J)·C = 1 = C·(J·C·J); and for a normal transfer (S·T = T·S) the reciprocal cycle J·T·J·T⁻¹ is C⁻¹.
+source_class: algebraic core of A-JUNITARY (handoff §12, [S14]); the loop orientations of §59 both stated with exact hypotheses
+parameters_and_quantifiers: ∀ Ring (noncommutative), ∀ J T S T⁻¹ with the four hypotheses; ४ additionally S·T = T·S
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/DviMana_TheTwoMetricConservationLawMakesTheMetricTheReflectedInverseLoopTheLoopIsInvertedByJConjugationAndForANormalTransferTheReciprocalLoopIsItsInverse.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; hand associativity only (no solver)
+existing_terms_reused: none
+new_derivation_or_artifact: star-is-reflected-inverse, metric-is-reflected-loop, reverse-conservation, J-conjugation-inverts, C-inverts-J-conjugation, reciprocal-loop-is-inverse
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-5: reverse-conservation with 1r in place of J is rejected
+correction_of: C50 companion: the two loop orientations are distinguished by their hypotheses (normality) rather than by the word "holonomy"
+endpoint_dependency_discharged: none
+remaining_assumptions: positivity of C = T*T, the logarithm A = ½ log C and its anti-commutation with J are operator-theoretic; the generator identity G*J + JG = 0 along a path is not formalized
+```
+
+## DhruvaMula — shifted-derivative ladder and the free viscous response
+
+```text
+claim_id: NV-SHIFTED-LADDER
+statement: With ∂E = zE and ∂t = 1, ℒ = ∂ − z satisfies ℒ(E·t⁰) = 0 and ℒ(E·tᵏ⁺¹) = (k+1)·E·tᵏ, hence ℒᵏ⁺¹(E·tᵏ) ≡ 0 (E times polynomials of degree < m lie in ker ℒᵐ) and ℒᵏ(E·tᵏ) ≡ k!·E (the top coefficient survives); the first is the Sopana ladder instantiated. With ∂erf = κe, ∂e = −2qe, ∂q = 1, ∂κ = 0: ∂[3erf − κe(3q + 2q³)] ≡ 4κq⁴e, i.e. H5 is the antiderivative of (8/(3√π)) q⁴ e^{−q²}.
+source_class: algebraic cores of R-THETA / R-CARDINAL (the finite Ξ-derivative polynomial in the two-sided (D−z)^m inverse difference, handoff §51) and N-H5 (handoff §22)
+parameters_and_quantifiers: ∀ CommRing, ∀ derivation ∂, ∀ z E t with the two hypotheses, ∀ k; ∀ κ e erf q with the four hypotheses
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/unplaced/DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r; imports Sopana (Ladder, ι, scale, fact)
+existing_terms_reused: Sopana.Ladder (ladder, ℒ^), Sopana.ι, Sopana.scale, Sopana.fact
+new_derivation_or_artifact: pow, G, ℒ, t∂pow, base, step, kills-below, keeps-top, H5₃, h5-derivative
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-5: h5-derivative with q³ in place of q⁴ is rejected
+correction_of: none
+endpoint_dependency_discharged: none; Ξ-interpolation, zero multiplicity and double-exponential tails are analytic
+remaining_assumptions: e^{zt}, tᵏ, erf and e^{−q²} live in a differential ring with the stated derivatives; the lifetime integral ∫H5 dt = r²/(6ν) is analytic
+```
+
+## Sikhara — the exact peak ledger and the scale gains
+
+```text
+claim_id: NV-PEAK-LEDGER
+statement: Over a commutative ring with derivations, for ω = mξ with ξ₁² + ξ₂² + ξ₃² = 1 (doubled to avoid dividing by 2): 2·ξ·∂∂(mξ) ≡ 2·(∂∂m − m|∂ξ|²) and 2·ξ·D(mξ) ≡ 2·Dm; hence from the componentwise vorticity equation D(mξᵢ) = Sᵢ + νΔ(mξᵢ) and ξ·S = αm: 2·Dm ≡ 2·(αm + ν(Δm − m|∇ξ|²)), and the ledger 2·αm ≡ 2·Dm + 2·(νm|∇ξ|² − νΔm). Scaling (d = 3): g_C⁵ ≡ g_ω²g_E⁴ for g_ω = Aℓ, g_E = A²λ³, g_C = A²λ² (ℓλ = 1), and the energy chart ℓ = μ⁻², A = μ⁻³, M = μ⁵ has AℓM = 1 and A²ℓ⁻³ = 1.
+source_class: algebraic cores of N-PEAK (handoff §27, [S13]) and N-SCALE (handoff §28)
+parameters_and_quantifiers: ∀ CommRing, ∀ derivations ∂₁ ∂₂ ∂₃ D, ∀ ξᵢ m ν α Sᵢ with unit, vorticity and stretch hypotheses; ∀ A ℓ λ with ℓλ = 1; ∀ μ μ⁻¹ with μμ⁻¹ = 1
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/Sikhara_TheUnitDirectionAbsorbsNoLaplacianSoTheVorticityMagnitudeObeysItsOwnEquationAndThePeakLedgerIsItsRearrangementWhileTheThreeScaleGainsObeyOneMonomialRelation.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
+existing_terms_reused: DviDrsti (the d+2 determinant) is the companion scale module
+new_derivation_or_artifact: OneDirection.direction-absorbs-nothing, OneDirection.direction-absorbs-no-rate, Magnitude.magnitude-equation, Magnitude.peak-ledger, gain-relation, energy-chart
+proof_status: formal theorem checking (--safe, no postulates); all peak identities in doubled form
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0 (53 s)
+negative_controls: NV-CONTROLS-5: direction-absorbs-nothing with +m|∂ξ|² in place of −m|∂ξ|² is rejected
+correction_of: none; makes the §27 quantifier discipline exact: the identity holds pointwise wherever ω ≠ 0, before any envelope/Dini argument
+endpoint_dependency_discharged: none (O-NPEAK untouched)
+remaining_assumptions: the maximizing point, envelope derivative M′ = Dm and ∇m = 0 at the maximum are analytic; division by 2 needs a ring where 2 is invertible
+```
+
+## Grahaka — the fixed packet receiver and the two-packet Weil matrix
+
+```text
+claim_id: NV-RECEIVER
+statement: With w·w̄ = 1: (1 − Ew̄)(1 − Ew) ≡ 1 − E(w + w̄) + E² and (z + 4)(4 − z) ≡ 16 − z², so G(z) = H(z)H(−z) assembles to 256(1 − 2e⁻¹cosh(z/4) + e⁻²)²/(16 − z²)²; the two-packet Weil matrix has det ≡ (M₀ − Z)(M₀ + Z), trace ≡ 2M₀, values 2(M₀ ± Z) on (1, ±1), and 2·form(x,y) ≡ (M₀ + Z)(x+y)² + (M₀ − Z)(x−y)², so PSD ⇔ |Z| ≤ M₀; the closing inequality is the tail identity up to sign.
+source_class: algebraic core of R-PACKET, R-Z, R-TWOPACKET (handoff §46–47, [S02])
+parameters_and_quantifiers: ∀ CommRing, ∀ E w w̄ z M₀ Z x y L S J with w w̄ = 1
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
+existing_terms_reused: none
+new_derivation_or_artifact: packet-product, denominator, symbol-assembles, weil-determinant, weil-trace, weil-form, weil-form-on-sum, weil-form-on-difference, weil-form-diagonalizes, closing-argument
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-5: weil-determinant with (M₀ − Z)² in place of (M₀ − Z)(M₀ + Z) is rejected
+correction_of: none
+endpoint_dependency_discharged: none; R-TWOPACKET stays conditional
+remaining_assumptions: the sector bound |arg G| < 37/50, M₀ > 0, absolute convergence of Z, the explicit-formula tail identity for t > 1/2 and the Laplace/residue argument for sufficiency are analytic
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -308,3 +392,12 @@ The rejections are at the mutated statements, so the checker discriminates the e
 |---|---|---|---|---|
 | M9 | Sopana | `weyl : … ≡ - (ι 2 · φ)` → `≡ - (ι 3 · φ)` | 42 | solve! normal forms differ at weyl |
 | M10 | ArdhaTala | `cauchy-3 … (y₃ + (- y₂))` → `(y₂ + (- y₃))` | 42 | solve! normal forms differ at cauchy-3 |
+
+## NV-CONTROLS-5 — mutation negative controls for the fifth batch
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M11 | DviMana | `reverse-conservation : (T · J) · S ≡ J` → `≡ 1r` | 42 | UnequalTerms `J != 1r` |
+| M12 | DhruvaMula | `h5-derivative … (q · q) · (q · q)` → `(q · q) · q` | 42 | UnequalTerms `q · q != q` |
+| M13 | Sikhara | `direction-absorbs-nothing … (- (m · Q))` → `(m · Q)` | 42 | solve! normal forms differ |
+| M14 | Grahaka | `weil-determinant … (M₀ + Z)` → `(M₀ + (- Z))` | 42 | solve! normal forms differ |

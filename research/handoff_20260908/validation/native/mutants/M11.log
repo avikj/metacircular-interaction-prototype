@@ -1,0 +1,7 @@
+Checking M11 (/home/user/math/formal/cubical/theorems/unplaced/M11.agda).
+/home/user/math/formal/cubical/theorems/unplaced/M11.agda:61.9-64.15: error: [UnequalTerms]
+J != 1r of type R .fst
+when checking that the expression
+cong (T · J ·_) star-is-reflected-inverse ∙
+·Assoc (T · J) (J · Tinv) J ∙ cong (_· J) lem ∙ ·IdL J
+has type T · J · S ≡ 1r
