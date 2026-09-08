@@ -1,0 +1,5 @@
+Checking M21 (/home/user/math/formal/cubical/theorems/physics/M21.agda).
+/home/user/math/formal/cubical/theorems/physics/M21.agda:99.35-53: error: [UnequalTerms]
+a != v of type R .fst
+when checking that the expression λ t → c₁ t , c₂ t , c₃ t has type
+convective ≡ (0r , 0r , v · ∂₂ a)

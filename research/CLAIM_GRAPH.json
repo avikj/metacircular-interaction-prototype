@@ -268,9 +268,18 @@
    "corrections": [
     "C08"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/SamaCakra_OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "N-FUTURE",
@@ -289,9 +298,18 @@
    "corrections": [
     "C14"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/physics/Trikona_TheTriangularFamilyHasConvectiveTermZeroZeroAdvectedVIsDivergenceFreeWithZeroPressureAndItsStrictlyLowerTriangularGradientKillsBothVelocityGradientInvariants.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "N-POISSON",
@@ -1869,9 +1887,18 @@
     "R-ABSCISSA"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-HANKEL",
@@ -2185,9 +2212,18 @@
     "C45",
     "C49"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-DYADIC",
@@ -2259,12 +2295,21 @@
    ],
    "dependencies": [],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+   ],
    "external_inputs": [
     "Actual quantitative Goldbach convolution identity",
     "Prime number theorem"
    ],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-GCRITERION",
@@ -2280,11 +2325,20 @@
     "R-GSQUARE"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda"
+   ],
    "external_inputs": [
     "Actual Mellin/logarithmic-derivative continuation bounds under RH"
    ],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-SCHUR",

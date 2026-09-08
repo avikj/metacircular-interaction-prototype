@@ -443,6 +443,69 @@ endpoint_dependency_discharged: none
 remaining_assumptions: the general |S| subset rule is stated for |S| ≤ 3; the actual B = ½curl(u_a×b + u_b×a) is symmetric biadditive (its definition)
 ```
 
+## SamaCakra — Beltrami eigenspace cancellation
+
+```text
+claim_id: NV-BELTRAMI
+statement: With an antisymmetric biadditive ×, additive P, and curl u = λu, curl v = λv: A_u u = K_u u = N(u) (definitionally), A_u v = P(λ(u×v)), K_u v = P(−λ(u×v)), and A_u v + K_u v = P 0: each frozen factor leaks, the actual derivative DN(u)v vanishes. The positive-helicity cross product (0,1,i)×(−1,0,i) = (i,−i,1) is transverse to k = (1,1,0).
+source_class: algebraic core of N-BELTRAMI (handoff §9, [S02])
+parameters_and_quantifiers: ∀ CommRing, ∀ × P curl λ u v with the stated hypotheses; ∀ i
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/SamaCakra_OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on closed identities
+existing_terms_reused: none
+new_derivation_or_artifact: A-frozen, K-frozen, N, A-reproduces, K-reproduces, A-leaks, K-leaks, derivative-vanishes, cross, dot, helicity-cross, transverse
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-7: (i, i, 1) in place of (i, −i, 1) is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the Leray projection P is additive and the actual × is the vector cross product; the nonzero negative-helicity projection value is a numeric evaluation not formalized
+```
+
+## Pratirodha — impedance, Stieltjes, Cayley, dyadic Goldbach normalization
+
+```text
+claim_id: NV-IMPEDANCE
+statement: (x, y−γ)·conj = (x² + (y−γ)², 0) so Re 1/(w−iγ) = x/(x²+(y−γ)²); (w,γ)(w,−γ) = (w²+γ², 0) and (w+γ)+(w−γ) = 2w (the ±γ pair is a Stieltjes term 2pw/(q+λ)); |α+Y|² − |α−Y|² = 4Re(ᾱY) (Cayley contractive ⇔ right half-plane); (2t)²G₂ − t²G₁ = 4t²G₂ − t²G₁ and t²A² = (tA)² (the dyadic normalization 𝒢(2t) − 𝒢(t) = 4t²(G_R(2t) − ¼G_R(t)), 𝒢 = (tA)²).
+source_class: algebraic cores of R-IMPEDANCE, R-OUTPUT (handoff §61) and R-GSQUARE / R-GCRITERION (§63)
+parameters_and_quantifiers: ∀ CommRing, ∀ x y γ w α Y t G₁ G₂ A
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/Pratirodha_OneSpectralModeOfTheImpedanceHasRealPartXOverXSquaredPlusTheOffsetSquaredThePairedModesAreAStieltjesTermTheCayleyCoefficientIsContractiveExactlyOnTheRightHalfPlaneAndTheDyadicGoldbachResidualIsTheNormalizedDifference.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on closed identities
+existing_terms_reused: complex pairs as in DviSthana
+new_derivation_or_artifact: _⊗_, conj, ∣_∣², mode-denominator, mode-real-part, paired-modes, stieltjes-numerator, cayley, dyadic-normalization, normalized-square
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-7: 2Re(ᾱY) in place of 4Re(ᾱY) is rejected
+correction_of: C45/C49 companion: the identities hold per mode; the prefix E_T and the convergent trivial-zero tail are the analytic corrections
+endpoint_dependency_discharged: none
+remaining_assumptions: positivity p_γ > 0 under RH, convergence of the mode sums, PNT for tA → 1, the Mellin argument
+```
+
+## Trikona — the triangular exact NS family
+
+```text
+claim_id: NV-TRIANGULAR
+statement: For u = (0, a, v) with ∂₂a = ∂₃a = ∂₃v = 0 over a commutative ring with derivations ∂₁ ∂₂ ∂₃ D (∂₃∂₂ = ∂₂∂₃): (u·∇)u ≡ (0, 0, a∂₂v); div((u·∇)u) ≡ 0 (so p = 0 is consistent); div u ≡ 0; the NS residuals with p = 0 are NS₁ ≡ 0, NS₂ ≡ Da − νΔa, NS₃ ≡ Dv + a∂₂v − νΔv; and for the strictly lower-triangular gradient [[0,0,0],[p,0,0],[q,r,0]]: tr M² = 0, M² has the single entry rp, tr M³ = 0, M³ = 0 (Q_inv = R_inv = 0).
+source_class: algebraic core of N-FUTURE (handoff §14, [S02]): the exact family behind the finite-jet separator
+parameters_and_quantifiers: ∀ CommRing, ∀ derivations, ∀ a v ν with the ansatz hypotheses; ∀ p q r
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/physics/Trikona_TheTriangularFamilyHasConvectiveTermZeroZeroAdvectedVIsDivergenceFreeWithZeroPressureAndItsStrictlyLowerTriangularGradientKillsBothVelocityGradientInvariants.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on closed identities
+existing_terms_reused: leib-zero (∂0 = 0 from Leibniz alone)
+new_derivation_or_artifact: advect, convective, convective-collapses, div, convective-is-divergence-free, u-is-divergence-free, Δ, NS₁ NS₂ NS₃, first-component-is-trivial, second-component-is-heat, third-component-is-advected-heat, Q-invariant-vanishes, square-is-one-corner, R-invariant-vanishes, cube-vanishes
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-7: (0, 0, v∂₂a) in place of (0, 0, a∂₂v) is rejected
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: the mode recurrence ċ_k, the jet-depth statement c₀^{(j)}(0) = 0 for j < m, the path-counting bound I_m, and the coarse/fine passivity are not formalized
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -494,3 +557,11 @@ The rejections are at the mutated statements, so the checker discriminates the e
 | M16 | GolakaMatra | `(S i l + S l i)` → `(S i l + S i l)` in fourth-contraction | 42 | solve! normal forms differ (first off-diagonal case) |
 | M17 | GolakaTantra | `ι 6 · (tr S · δ i l)` → `ι 5 · …` in tomography | 42 | solve! normal forms differ |
 | M18 | UpaGuna | remainder `B v v` → `B ω v` in linearized-generator | 42 | solve! normal forms differ |
+
+## NV-CONTROLS-7 — mutation negative controls for the seventh batch
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M19 | SamaCakra | `helicity-cross … ≡ (i , - i , 1r)` → `(i , i , 1r)` | 42 | solve! normal forms differ |
+| M20 | Pratirodha | `cayley … ≡ ι 4 · …` → `ι 2 · …` | 42 | solve! normal forms differ |
+| M21 | Trikona | `convective-collapses … (0r , 0r , a · ∂₂ v)` → `(0r , 0r , v · ∂₂ a)` | 42 | solve! normal forms differ |

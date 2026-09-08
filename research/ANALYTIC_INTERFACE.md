@@ -25,6 +25,9 @@ Every native module below is a `--safe` Cubical Agda theorem over an abstract ri
 | NV-SPHERE-MOMENTS | GolakaMatra | the spherical-moment algebra the Lane III deliverable asks for (handoff §18–21, [S11],[S12]) | the moment tensors are the actual sphere averages (the two integrals ⟨nᵢnⱼ⟩, ⟨nᵢnⱼnₖnₗ⟩) | none |
 | NV-TOMOGRAPHY | GolakaTantra | algebraic cores of N-TOMOGRAPHY, N-SYMBOL (handoff §18) and N-PRESSURERES (§20) | the symbol q_u is the stated formula; recovering u from S by inverse Laplacian/divergence and the N-PRESSURE input 7H[u₂] = −2(S²)₀ are analytic | none |
 | NV-SUBSET-RULE | UpaGuna | algebraic core of A-JETS (handoff §8, [S03]); companion of DvipadaGuna (single-derivation all orders) and PunarAgamana (projected failure) | the general \|S\| subset rule is stated for \|S\| ≤ 3; the actual B = ½curl(u_a×b + u_b×a) is symmetric biadditive (its definition) | none |
+| NV-BELTRAMI | SamaCakra | algebraic core of N-BELTRAMI (handoff §9, [S02]) | the Leray projection P is additive and the actual × is the vector cross product; the nonzero negative-helicity projection value is a numeric evaluation not formalized | none |
+| NV-IMPEDANCE | Pratirodha | algebraic cores of R-IMPEDANCE, R-OUTPUT (handoff §61) and R-GSQUARE / R-GCRITERION (§63) | positivity p_γ > 0 under RH, convergence of the mode sums, PNT for tA → 1, the Mellin argument | none |
+| NV-TRIANGULAR | Trikona | algebraic core of N-FUTURE (handoff §14, [S02]): the exact family behind the finite-jet separator | the mode recurrence ċ_k, the jet-depth statement c₀^{(j)}(0) = 0 for j < m, the path-counting bound I_m, and the coarse/fine passivity are not formalized | none |
 
 ## Reading the table
 

@@ -1,0 +1,5 @@
+Checking M19 (/home/user/math/formal/cubical/theorems/physics/M19.agda).
+/home/user/math/formal/cubical/theorems/physics/M19.agda:94.29-47: error: [UnequalTerms]
+- i != i of type fst R
+when checking that the expression λ t → p₁ t , p₂ t , p₃ t has type
+cross (0r , 1r , i) (- 1r , 0r , i) ≡ (i , i , 1r)
