@@ -233,6 +233,48 @@ endpoint_dependency_discharged: none; the spherical average producing the bracke
 remaining_assumptions: r central (scalar radius times matrix profile); the spherical-moment identity that yields the bracket from tr((∇u₂)²)
 ```
 
+## Sopana — damping-moment Weyl ladder and the lossless oscillator
+
+```text
+claim_id: NV-LADDER
+statement: (१) For any additive ℒ and sequence G with ℒG₀ = ZZ and ℒG_{n+1} = (n+1)·G_n: ℒⁿ⁺¹G_n ≡ n!·ZZ for every n. (२) For a derivation ∂ with ∂s = 1 and an additive D commuting with ∂, ℒφ = 2sφ − Dφ satisfies ℒ(∂φ) − ∂(ℒφ) ≡ −2φ, i.e. [ℒ, −½∂] = I; and with ∂E = −2tE, ∂t = 0: ∂(tⁿE) ≡ −2tⁿ⁺¹E (R raises). (३) With p′ = −γq + f₁, q′ = γp + f₂: ∂(p² + q²) ≡ 2(pf₁ + qf₂), the stored energy changes by the supplied work Re(f̄a).
+source_class: algebraic cores of R-LADDER (FORMAL-SERIES), R-INVERSE, and the §61 lossless-oscillator realization under R-PASSIVE (handoff §57, §61; [S09],[S10])
+parameters_and_quantifiers: ∀ CommRing; (१) ∀ additive ℒ, ∀ G ZZ with the two rung hypotheses, ∀ n; (२) ∀ derivation ∂, ∀ s with ∂s = 1, ∀ additive D with D∂ = ∂D, ∀ φ; ∀ t E n; (३) ∀ γ p q f₁ f₂ with the two ODE hypotheses
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
+existing_terms_reused: scale-+/scale-· as in Vartana; derivation lemmas as before
+new_derivation_or_artifact: Ladder.ladder (with ℒ^ and fact), weyl, raising, stored-work
+proof_status: formal theorem checking (--safe, no postulates)
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-4: weyl with −3φ in place of −2φ is rejected
+correction_of: none; the §57 regularity guard is respected by taking ℒG_n = nG_{n−1} as a hypothesis on the declared domain rather than deriving it by integration by parts
+endpoint_dependency_discharged: the formal-series content of R-LADDER
+remaining_assumptions: the integration-by-parts identities ℒG₀ = Z⊗Z̄, ℒG_n = nG_{n−1} on the declared domain (distributional/resolvent interpretation or a smoother faithful packet)
+```
+
+## ArdhaTala — Hardy/Bergman overlap geometry, reflection readings, Cauchy and Vandermonde determinants
+
+```text
+claim_id: NV-HALFPLANE
+statement: (१) |2s − z − w̄|² − |z − w|² ≡ 4(s − Re z)(s − Re w), so |⟨h_z,h_w⟩|² = |⟨F_z,F_w⟩| = 1 − ρ_s(z,w)²; (२) on a reflection pair, s² − (s−σ)(s+σ) ≡ σ² (Gram det = σ²/s²) and 2s² − 2(s−σ)(s+σ) ≡ 2σ² (‖F_z − F_θz‖² = 2σ²/s²), and the three curvature readings agree mode by mode; (३) with c² = 1 + sh²: (c − sh)² + (c + sh)² − 2 ≡ 4sh² (the holonomy defect e^{−2tσ} + e^{2tσ} − 2 = 4sinh²(tσ)); (४) Cauchy determinants with rows cleared: 2×2 ≡ (x₂−x₁)(y₂−y₁), 3×3 ≡ Π_{i<j}(x_j−x_i)(y_j−y_i), which is det C_F = Π ρ² and the Schur new-atom residual Π_{w∈F} ρ(z,w)²; (५) amplitude-weighted Vandermonde 2×2 and 3×3 determinants ≡ Πa_i·Π_{i<j}(z_j − z_i).
+source_class: algebraic cores of R-GEOMETRY (CONDITIONAL), R-CURVATURE, R-MINORS, and the §59 defect identity under R-HOLONOMY (handoff §58–60; [S09])
+parameters_and_quantifiers: ∀ CommRing; identities in the real/imaginary parts s x y u v, σ, c sh, x_i y_j, a_i z_i
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9 (pinned at $HOME/.agda-pin/libraries), flags --safe --no-import-sorts; CommRingSolver on shape lemmas with numerals as explicit sums of 1r
+existing_terms_reused: none beyond the library
+new_derivation_or_artifact: overlap-identity, reflection-gram-determinant, bergman-reflection-difference, curvature-readings, sinh-defect, cauchy-2, cauchy-3, vandermonde-2, vandermonde-3
+proof_status: formal theorem checking (--safe, no postulates); finite-rank instances (2 and 3 atoms) of the determinant statements
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0 (12 s, the 3×3 Cauchy determinant included)
+negative_controls: NV-CONTROLS-4: cauchy-3 with one factor reversed in sign is rejected
+correction_of: none
+endpoint_dependency_discharged: none; R-GEOMETRY stays conditional (the zeros are inputs)
+remaining_assumptions: the inner products are the stated half-plane kernels; the infinite-product/closed-span statements of R-MINORS and the non-uniform Riesz/Bessel bounds are analytic
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -259,3 +301,10 @@ The rejections are at the mutated statements, so the checker discriminates the e
 |---|---|---|---|---|
 | M7 | SmrtiMula | `symbol-modulus … (ι 16 + ξ · ξ)` → `(ι 15 + ξ · ξ)` | 42 | solve! normal forms differ at symbol-modulus |
 | M8 | PidaMatra | `Φ₂ = … − r²·(G′ · G′)` → `− r²·(G′ · G)` | 42 | the Leibniz expansion L3 no longer matches the seven-monomial shape |
+
+## NV-CONTROLS-4 — mutation negative controls for the fourth batch
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M9 | Sopana | `weyl : … ≡ - (ι 2 · φ)` → `≡ - (ι 3 · φ)` | 42 | solve! normal forms differ at weyl |
+| M10 | ArdhaTala | `cauchy-3 … (y₃ + (- y₂))` → `(y₂ + (- y₃))` | 42 | solve! normal forms differ at cauchy-3 |

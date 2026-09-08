@@ -13,6 +13,8 @@ OUT = os.path.join(ROOT, 'research/CLAIM_GRAPH.json')
 
 def locus(prefix):
     hits = sorted(glob.glob(os.path.join(ROOT, 'formal/cubical/theorems/*/%s_*.agda' % prefix)))
+    if len(hits) != 1:
+        hits = sorted(glob.glob(os.path.join(ROOT, 'formal/cubical/theorems/*/%s*.agda' % prefix)))
     assert len(hits) == 1, (prefix, hits)
     return os.path.relpath(hits[0], ROOT)
 
@@ -24,7 +26,7 @@ NATIVE = {
   'A-POLARIZE':   ['Samamsa', 'MadhyaCheda'],
   'N-MIDPOINT':   ['MadhyaCheda'],
   'N-STORAGE':    ['MadhyaCheda', 'PurnaAvakalana'],
-  'R-PASSIVE':    ['MadhyaCheda'],
+  'R-PASSIVE':    ['MadhyaCheda', 'Sopana_TheDamping'],
   'K-CERT':       ['PramanaPatra', 'YogaPatra'],
   'K-EXCURSION':  ['PunarAgamana'],
   'N-RENEWAL':    ['PunarAgamana'],
@@ -35,7 +37,7 @@ NATIVE = {
   'N-RETURN24':   ['Vartana'],
   'N-INVERSE2':   ['Vartana'],
   'N-TOROIDAL':   ['Vartana', 'PurnaAvakalana'],
-  'R-HOLONOMY':   ['PratibimbaBhramana'],
+  'R-HOLONOMY':   ['PratibimbaBhramana', 'ArdhaTala'],
   'R-IMAGE':      ['PratibimbaTantu', 'RiktaTantu'],
   'K-FIBRE':      ['RiktaTantu'],
   'N-POTENTIAL':  ['KalaSetu'],
@@ -52,6 +54,11 @@ NATIVE = {
   'R-SCHUR':      ['DviSthana'],
   'N-PRESSURE':   ['PidaMatra', 'BhramaMatra'],
   'N-LEAK4':      ['SmrtiMula'],
+  'R-LADDER':     ['Sopana_TheDamping'],
+  'R-INVERSE':    ['Sopana_TheDamping'],
+  'R-GEOMETRY':   ['ArdhaTala'],
+  'R-CURVATURE':  ['ArdhaTala'],
+  'R-MINORS':     ['ArdhaTala'],
 }
 # native modules from this branch not mapped onto a received claim
 UNMAPPED = ['AdrsyaMana', 'SamaVrddhi', 'DvitiyaAntara', 'VyarthaCakra']

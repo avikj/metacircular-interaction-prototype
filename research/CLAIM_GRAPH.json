@@ -1845,9 +1845,18 @@
     "R-Z"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-LADDER",
@@ -1865,9 +1874,18 @@
    "corrections": [
     "C46"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-GEOMETRY",
@@ -1884,9 +1902,18 @@
     "R-PAIR"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-HOLONOMY",
@@ -1906,7 +1933,8 @@
     "C50"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/primes/PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare.agda"
+    "formal/cubical/theorems/primes/PratibimbaBhramana_TheReflectionScaleCycleIsAMultiplicativeHolonomyTrivialExactlyOnTheFixedPairAndItsMidpointDefectIsASquare.agda",
+    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
@@ -1935,9 +1963,18 @@
    "corrections": [
     "C41"
    ],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-MINORS",
@@ -1953,9 +1990,18 @@
     "R-GEOMETRY"
    ],
    "corrections": [],
-   "repository_loci": [],
+   "repository_loci": [
+    "formal/cubical/theorems/primes/ArdhaTala_TheHardyAndBergmanOverlapsOfTwoZerosAreOneMinusTheSameHyperbolicRatioTheReflectionPairReadsSigmaSquaredOverSSquaredInEveryReadingAndTheFiniteGramDeterminantIsTheProductOfTheRatios.agda"
+   ],
    "external_inputs": [],
-   "native_verification_this_transfer": false
+   "native_verification_this_transfer": true,
+   "history": [
+    {
+     "received_repository_loci": [],
+     "received_native_verification": false
+    }
+   ],
+   "native_scope": "ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters"
   },
   {
    "id": "R-NOUNIFORM",
@@ -1995,7 +2041,8 @@
     "C44"
    ],
    "repository_loci": [
-    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda"
+    "formal/cubical/theorems/physics/MadhyaCheda_TheQuadraticSecantIsTheDerivativeAtTheMidpointFreezingAtEitherEndMissesTheHiddenSquareAndTheReturningWorkIsExactlyMinusTheHiddenWork.agda",
+    "formal/cubical/theorems/primes/Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork.agda"
    ],
    "external_inputs": [],
    "native_verification_this_transfer": true,
