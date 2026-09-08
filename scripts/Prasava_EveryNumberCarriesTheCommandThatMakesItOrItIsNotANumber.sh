@@ -106,6 +106,7 @@ ROWS
 # --- gates: command | must exit 0 ----------------------------------------
 gates() {
 cat <<'ROWS'
+imports-resolve	sh scripts/Pratyaya_EveryImportResolvesOrTheGateNamesTheOneThatDoesNot.sh
 agda-pragmas	bash scripts/check-agda-pragmas.sh
 lean-globs	bash scripts/check-lean-globs.sh
 machine-lane	bash scripts/Anatha_TheMachineLaneHadNoGateAndNowItHasOne.sh
