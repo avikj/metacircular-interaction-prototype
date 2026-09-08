@@ -168,7 +168,7 @@ lnd-unique L p q 2≤p 2≤q lp lq with p ≟ q
 module Step (k : ℕ) where
 
   open import NaturalMachine.Digits k
-  open import NaturalMachine.TransportDiv k
+  open import Mula.TransportDiv k
   open import NaturalMachine.WalkResidueBridge k
     using (decDivides ; usteps ; usteps-is-value)
 

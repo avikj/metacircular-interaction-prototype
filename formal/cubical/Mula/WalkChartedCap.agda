@@ -414,7 +414,7 @@ quotient-< B t Q t<QB = <Stable _ _ nn
 module Charted (k : ℕ) where
 
   open import NaturalMachine.Digits k
-  open import NaturalMachine.TransportDiv k
+  open import Mula.TransportDiv k
   open import NaturalMachine.WalkResidueBridge k using (usteps ; usteps-is-value)
   open import Cubical.Data.Fin using (toℕ)
   open import Cubical.Data.List using (List ; [] ; _∷_ ; length)

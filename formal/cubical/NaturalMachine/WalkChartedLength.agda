@@ -131,7 +131,7 @@ open import Mula.WalkChartedCap using (module Charted)
 module Lengths (k : ℕ) where
 
   open import NaturalMachine.Digits k
-  open import NaturalMachine.TransportDiv k
+  open import Mula.TransportDiv k
   open import NaturalMachine.WalkResidueBridge k using (usteps ; usteps-is-value)
   open Scaling k using (pow-pos ; pow-double ; pow-mono-suc ; pow≤value)
   open Charted k

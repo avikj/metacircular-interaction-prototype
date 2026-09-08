@@ -89,9 +89,14 @@ open import Cubical.Data.Nat using (zero ; suc ; _+_)
 open import Cubical.Data.Sigma using (Σ≡Prop ; ΣPathP ; _,_ ; fst ; snd)
 open import Cubical.Algebra.Monoid.Base using (Monoid ; MonoidStr)
 
-open import Mula.Pingala using (छन्दस् ; अनुक्रम ; छन्दस्≡ℕ)
-open import Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuiltByHand
-  using (transport-अनुक्रम-is-suc)
+-- `transport-अनुक्रम-is-suc` was imported here from
+-- `Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuilt
+-- ByHand`, a module that never existed in any commit on any branch.  This
+-- file was therefore red at scope-check -- EXIT 42, [FileNotFound] -- for
+-- as long as that line stood.  The lemma is now proved in Mula.Pingala,
+-- beside `अनुक्रम-मूल्य`, which is its entire content.  2026-09-07.
+open import Mula.Pingala
+  using (छन्दस् ; अनुक्रम ; छन्दस्≡ℕ ; transport-अनुक्रम-is-suc)
 open import NaturalMachine.FreeMonoid
   using (Tally ; Tally-Monoid ; ℕ-Monoid ; ℕ-Monoid≡Tally-Monoid)
 open import NaturalMachine.Digits k

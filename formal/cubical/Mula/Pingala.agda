@@ -25,7 +25,7 @@ module Mula.Pingala where
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso ; iso ; isoToEquiv)
 open import Cubical.Foundations.Equiv using (_≃_)
-open import Cubical.Foundations.Univalence using (ua)
+open import Cubical.Foundations.Univalence using (ua ; transportUAop₁)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; +-suc ; injSuc ; znots ; snotz)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
@@ -162,3 +162,42 @@ data अक्षर : Type where
 
 छन्दस्≡ℕ : छन्दस् ≡ ℕ
 छन्दस्≡ℕ = ua छन्दस्≃ℕ
+
+------------------------------------------------------------------------
+-- transport-अनुक्रम-is-suc — अनुक्रमः छन्दस्≡ℕ-मार्गेण नीतः suc एव ।
+--
+-- (Piṅgala's next-row operator, transported along छन्दस् ≡ ℕ, IS the
+--  successor.  Not "corresponds to" — the two are the same function, and
+--  `ua`'s β-rule is what makes the sentence a computation.)
+--
+-- WHY IT IS HERE AND WHY IT IS WRITTEN AT ALL.  Added 2026-09-07.
+--
+-- `Mula/Sthana_…agda` needed exactly this one name and imported it from
+-- `Setubandha_ThePrastarasNextRowIsTheTallySuccessorAndNothingHereIsBuilt
+-- ByHand` — a module that HAS NEVER EXISTED in any commit on any branch
+-- (`git rev-list --all --objects` finds no blob for the name).  Somebody
+-- wrote the `open import` for a file they meant to write and did not, so
+-- `Sthana_` has been red at scope-check ever since: EXIT 42,
+-- `[FileNotFound] Failed to find source of module`.
+--
+-- The old generated aggregate root reported that name faithfully as one of
+-- the seven it could not resolve.  The root was then deleted — partly on my
+-- own argument that those seven made it stale — and the report went with
+-- it while the defect stayed.  Deleting an instrument does not close what
+-- it measured.  The lemma is written here rather than at the phantom
+-- filename, because the file was never the point; this is.
+--
+-- अनुक्रम-मूल्य above is the whole computational content: the next row is
+-- one greater.  This says the same thing after the identification, where
+-- "one greater" is literally `suc`.
+------------------------------------------------------------------------
+
+transport-अनुक्रम-is-suc :
+  subst (λ A → A → A) छन्दस्≡ℕ अनुक्रम ≡ suc
+transport-अनुक्रम-is-suc = funExt lemma
+  where
+    lemma : (n : ℕ) → subst (λ A → A → A) छन्दस्≡ℕ अनुक्रम n ≡ suc n
+    lemma n =
+        transportUAop₁ छन्दस्≃ℕ अनुक्रम n
+      ∙ अनुक्रम-मूल्य (विन्यास n)
+      ∙ cong suc (मूल्य-विन्यास n)
