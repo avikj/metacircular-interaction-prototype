@@ -36,7 +36,7 @@ edited.  Nothing was assumed.
 | Kuttaka: "the iṣṭa section … is not supplied here" | historical_proofs/KuttakaIsta_… | Euclidean division on ℤ; least non-negative member; uniqueness at g = 1 |
 | PairComposition: "SEED (stated, not proved here)" | primes/pair_field/PairCompositionSeed_… | isPrime (a·b) ≡ false for a, b ≥ 2; no composed pair is a prime pair |
 | HomometricPair: minimality "still rests on the legacy Python search" | order/HomometricMinimality_… | 1024-form kernel sweep with completeness and soundness proofs |
-| ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | see below |
+| ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
 
