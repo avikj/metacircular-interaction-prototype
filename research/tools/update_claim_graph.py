@@ -100,5 +100,13 @@ for cid, mods in NATIVE.items():
     n['native_verification_this_transfer'] = True
     n['native_scope'] = 'ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters'
 g['unmapped_native_modules'] = [locus(m) for m in UNMAPPED]
+g['frontier_composition'] = {
+  'module': locus('Sima_TheOpen'),
+  'statement': 'with the conditional theorems of every alternative route as hypotheses, the six RH unknowns are equivalent to END-RH (and to each other, by univalence one point of hProp); O-NPEAK is equivalent to END-NS given the ledger, BKM and the maximal-solution formulation',
+  'rh_routes': {'A': ['O-RBOUND', 'R-TWOPACKET'], 'B': ['O-RONESIDE', 'R-LANDAU'], 'C': ['O-RLOWER', 'R-ESCAPE', 'R-WEILSPACE'], 'D': ['O-RLIFT', 'R-IMAGE'], 'E': ['O-RDYADIC', 'R-ABEL', 'R-DYADIC', 'R-TWOPACKET'], 'F': ['O-RGOLDBACH', 'R-GCRITERION']},
+  'ns_route': ['O-NPEAK', 'N-PEAK'],
+  'kernel_gate': 'research/handoff_20260908/validation/native/frontier/',
+  'status_change': 'none: the endpoints remain CONDITIONAL; the unsupplied items remain UNSUPPLIED-HERE and are now known to be one proposition',
+}
 json.dump(g, open(OUT, 'w'), indent=1, ensure_ascii=False)
 print('wrote', OUT, 'nodes with native loci:', sum(1 for n in g['nodes'] if n['native_verification_this_transfer']))

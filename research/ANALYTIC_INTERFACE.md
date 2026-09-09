@@ -29,6 +29,9 @@ Every native module below is a `--safe` Cubical Agda theorem over an abstract ri
 | NV-IMPEDANCE | Pratirodha | algebraic cores of R-IMPEDANCE, R-OUTPUT (handoff §61) and R-GSQUARE / R-GCRITERION (§63) | positivity p_γ > 0 under RH, convergence of the mode sums, PNT for tA → 1, the Mellin argument | none |
 | NV-TRIANGULAR | Trikona | algebraic core of N-FUTURE (handoff §14, [S02]): the exact family behind the finite-jet separator | the mode recurrence ċ_k, the jet-depth statement c₀^{(j)}(0) = 0 for j < m, the path-counting bound I_m, and the coarse/fine passivity are not formalized | none |
 | NV-CATALAN | KatalanaSima | exact finite control of N-CATALAN (handoff §40, [S18]); the majorant of the causal tree expansion q = Σ qₙ, qₙ₊₁ = Σ_{a+c=n} C(qₐ,q_c) of N-HISTORY | the norm bounds ‖C(x,y)‖ ≤ b‖x‖‖y‖ and ‖g_p‖ ≤ g that feed x; the radius 4bg < 1 and the explicit truncation remainder are analytic (Cat_n ~ 4ⁿ) | none |
+| NV-FRONTIER | Sima | the composition of handoff §68 / CLAIM_GRAPH.alternative_routes; no analytic claim is proved, the SHAPE of the frontier is | every hypothesis named by a graph node is the received analytic theorem; "bounded ⇒ one-sided", "vacuous", "no-maximal", "global-of/maximal-of" are the definitional glue of the fixed formulations | none; what is discharged is the multiplicity: the unsupplied items are one proposition |
+| NV-GATE-FRONTIER | Lane I bis | metacircular application (handoff §5, §69): the repository's knowledge about the frontier checked and normalized by its own kernel | none beyond the pinned toolchain | none |
+| NV-REPLAY | MetacircularReplay | infrastructure (handoff §5 Lane I); repository content from another agent, composed in | none | none |
 
 ## Reading the table
 

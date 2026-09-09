@@ -2596,11 +2596,50 @@
  ],
  "received_graph": "research/handoff_20260908/CLAIM_GRAPH.json",
  "native_records": "research/NATIVE_RECORDS.md",
- "updated": "2026-09-08",
+ "updated": "2026-09-09",
  "unmapped_native_modules": [
   "formal/cubical/theorems/primes/AdrsyaMana_TheKernelOfTheDiscreteSecondDifferenceIsExactlyTheAffineSequencesSoAnAdditiveReceiverBlindToThemDescendsToTheFibre.agda",
   "formal/cubical/theorems/primes/SamaVrddhi_TheRunningProductIsLogConvexAndItsSecondDifferenceIsExactlyTheStepRatioSoTheWalkVolumeAndTheHistoryTowerAreOneConstruction.agda",
   "formal/cubical/theorems/primes/DvitiyaAntara_TheLocalPrimePowerFieldIsTheMultiplicativeSecondDifferenceOfTheDMRWalkVolume.agda",
   "formal/cubical/theorems/unplaced/VyarthaCakra_TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes.agda"
- ]
+ ],
+ "frontier_composition": {
+  "module": "formal/cubical/theorems/unplaced/Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda",
+  "statement": "with the conditional theorems of every alternative route as hypotheses, the six RH unknowns are equivalent to END-RH (and to each other, by univalence one point of hProp); O-NPEAK is equivalent to END-NS given the ledger, BKM and the maximal-solution formulation",
+  "rh_routes": {
+   "A": [
+    "O-RBOUND",
+    "R-TWOPACKET"
+   ],
+   "B": [
+    "O-RONESIDE",
+    "R-LANDAU"
+   ],
+   "C": [
+    "O-RLOWER",
+    "R-ESCAPE",
+    "R-WEILSPACE"
+   ],
+   "D": [
+    "O-RLIFT",
+    "R-IMAGE"
+   ],
+   "E": [
+    "O-RDYADIC",
+    "R-ABEL",
+    "R-DYADIC",
+    "R-TWOPACKET"
+   ],
+   "F": [
+    "O-RGOLDBACH",
+    "R-GCRITERION"
+   ]
+  },
+  "ns_route": [
+   "O-NPEAK",
+   "N-PEAK"
+  ],
+  "kernel_gate": "research/handoff_20260908/validation/native/frontier/",
+  "status_change": "none: the endpoints remain CONDITIONAL; the unsupplied items remain UNSUPPLIED-HERE and are now known to be one proposition"
+ }
 }

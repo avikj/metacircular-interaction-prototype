@@ -527,6 +527,69 @@ endpoint_dependency_discharged: none
 remaining_assumptions: the norm bounds ‖C(x,y)‖ ≤ b‖x‖‖y‖ and ‖g_p‖ ≤ g that feed x; the radius 4bg < 1 and the explicit truncation remainder are analytic (Cat_n ~ 4ⁿ)
 ```
 
+## Sima — the open frontier is one proposition
+
+```text
+claim_id: NV-FRONTIER
+statement: With the six route unknowns (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH) and RH as propositions, and the received conditional theorems (R-TWOPACKET both ways, R-LANDAU, R-ESCAPE, R-WEILSPACE positivity, R-IMAGE both ways, R-ABEL, R-DYADIC, R-GCRITERION both ways, and "bounded ⇒ one-sided") as hypotheses: each unknown ≃ RH, hence ≡ RH by univalence, and all six routes name one point of hProp; resolving any resolves all (Any → All) and refuting any refutes all; every reading P of one unknown transports to every other by subst along the ua path, and the transported inhabitant is the composed proof. For NS: with the ledger, BKM, and the definition of a maximal solution as hypotheses, O-NPEAK ≃ END-NS.
+source_class: the composition of handoff §68 / CLAIM_GRAPH.alternative_routes; no analytic claim is proved, the SHAPE of the frontier is
+parameters_and_quantifiers: ∀ ℓ, ∀ propositions RH Bounded OneSided Lower Lift Dyadic Goldbach (resp. Global Maximal PeakWork VortBounded Continuation) with their isProp proofs, ∀ the twelve (resp. six) conditional hypotheses
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/unplaced/Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; propBiimpl→Equiv, ua, Σ≡Prop, subst
+existing_terms_reused: the finite cores under each hypothesis: Grahaka, AbelaRupa, SesaDvaya, ArdhaTala, DviSthana, DviMana, PratibimbaTantu, RiktaTantu, Pratirodha, Sikhara (cited, not imported)
+new_derivation_or_artifact: RH-Frontier: Bounded≃RH … Goldbach≃RH, the six ua paths, Frontier and route-A…F in hProp, routes-name-one-unknown, All, Any, from-RH, to-RH, resolving-any-resolves-all, refuting-any-refutes-all, transport-reading, transport-any-reading, transport-computes; NS-Frontier: PeakWork≃Global, PeakWork≡Global, NS-Frontier-is-one
+proof_status: formal theorem checking (--safe, no postulates) of a conditional structure; the endpoints stay CONDITIONAL, their premises uninstantiated
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-9: using R-DYADIC in place of R-ABEL in the dyadic route is rejected; and the kernel-gate false control below
+correction_of: none; this is the §68 sentence "not independent conjectures to prove one after another" made a theorem
+endpoint_dependency_discharged: none; what is discharged is the multiplicity: the unsupplied items are one proposition
+remaining_assumptions: every hypothesis named by a graph node is the received analytic theorem; "bounded ⇒ one-sided", "vacuous", "no-maximal", "global-of/maximal-of" are the definitional glue of the fixed formulations
+```
+
+## Lane I bis — the frontier through the native gate
+
+```text
+claim_id: NV-GATE-FRONTIER
+statement: A Candidate importing Sima and deriving Dyadic → Goldbach and Dyadic ≡ Goldbach from the route hypotheses is accepted by the Yantra kernel gate (marga: kernel, controls watched first); vislesana returns the kernel's own normal form of the corollary, λ … d → h₁₂ (h₁ (h₉ d)) — the composed proof is literally Goldbach-necessity ∘ TwoPacket-sufficiency ∘ Abel. The same Candidate with the Abel hypothesis removed is rejected with "Dyadic !=< Bounded when checking that h₁₀ has type Dyadic → Bounded": the gate names exactly the missing analytic input.
+source_class: metacircular application (handoff §5, §69): the repository's knowledge about the frontier checked and normalized by its own kernel
+parameters_and_quantifiers: two fixed request streams
+repository_commit: pin 168ea8e2; evidence at (this commit; see git log for the hash)
+working_tree_changes: research/handoff_20260908/validation/native/frontier/{positive,false}.{requests.jsonl,wire-transcript.jsonl,stdout.log,stderr.log}, Candidate.{positive,false}.agda.txt
+imports_and_toolchain: sh interactive/run-yantra.sh --wire with YANTRA_OUT, DOSA_LEKHA, YANTRA_LEKHA, MATH_CERTCACHE=0, AGDA_DIR=$HOME/.agda-pin
+existing_terms_reused: sadhana.patra, sadhana.vislesana; Sima.RH-Frontier
+new_derivation_or_artifact: Candidate.positive (corollary, as-path); the normal forms in positive.wire-transcript.jsonl
+proof_status: finite executable control plus a formal theorem checked by the kernel gate
+executed_commands: sh interactive/run-yantra.sh --wire < frontier/positive.requests.jsonl ; … < frontier/false.requests.jsonl
+exit_status_and_log: exit 0 / exit 0; positive: samkramana on all four requests; false: dosalekha with the UnequalTerms line
+negative_controls: the false Candidate (Abel hypothesis removed) is rejected at the exact slot
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: none beyond the pinned toolchain
+```
+
+## MetacircularReplay — the codex native replay integration, merged and repaired
+
+```text
+claim_id: NV-REPLAY
+statement: The codex/agda-native-replay-20260908 branch (two files) is merged: MetacircularReplay checks execute/learn/retire/replay of kernel sessions against the actual kernel (receipt targets and traces, one-operation-learned, replay-preserves-base-step-count, two branches, the sample normal form), and WrongSourceMustFail is rejected as intended. Under the pinned Agda the two substRefl steps left an unsolved implicit family; they are given explicitly (B = λ q → Derivation q b) and the module now checks.
+source_class: infrastructure (handoff §5 Lane I); repository content from another agent, composed in
+parameters_and_quantifiers: none
+repository_commit: pin 168ea8e2; merge and fix at (this commit; see git log for the hash)
+working_tree_changes: interactive/agda-native-replay/MetacircularReplay.agda (two lines), WrongSourceMustFail.agda (unchanged)
+imports_and_toolchain: agda --safe -i interactive/agda-native-replay from formal/cubical
+existing_terms_reused: RewriteCertificate, ControlledGrammar, GenerativeKernel, the Dialogue and Normalize kernel modules
+new_derivation_or_artifact: none beyond the two explicit families
+proof_status: formal theorem checking (--safe)
+executed_commands: cd formal/cubical && agda --safe -i ../../interactive/agda-native-replay ../../interactive/agda-native-replay/MetacircularReplay.agda
+exit_status_and_log: exit 0 (MetacircularReplay), exit 42 (WrongSourceMustFail, by design: "zero != add var (suc zero)")
+negative_controls: WrongSourceMustFail
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: none
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -596,3 +659,9 @@ The rejections are at the mutated statements, so the checker discriminates the e
 ## Regression
 
 All modules added since the pin were rechecked in one pass at the end of the session (`agda --safe`, each file separately); see research/handoff_20260908/validation/native/regression.log.
+
+## NV-CONTROLS-9 — mutation negative control for the frontier
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M23 | Sima | dyadic route closed with R-DYADIC in place of R-ABEL | 42 | UnequalTerms (the composite has the wrong type) |

@@ -29,7 +29,7 @@ receipt-target d = refl
 
 receipt-trace : {a b : Tm} (d : Derivation a b)
   → CheckedFuture.derivation (receipt d) ≡ d
-receipt-trace d = substRefl d
+receipt-trace {a} {b} d = substRefl {B = λ q → Derivation q b} d
 
 learned : {a b : Tm} → Derivation a b → NativeOperation
 learned d = Dialogue.learn (receipt d)
@@ -69,7 +69,8 @@ replay-session-target S = refl
 
 replay-session-trace : (S : Dialogue.Session)
   → CheckedFuture.derivation (replay-session S) ≡ Dialogue.Session.trace S
-replay-session-trace S = substRefl (Dialogue.Session.trace S)
+replay-session-trace S =
+  substRefl {B = λ q → Derivation q (Dialogue.Session.here S)} (Dialogue.Session.trace S)
 
 base-step-count : {a b : Tm} → Derivation a b → ℕ
 base-step-count (done _) = 0
