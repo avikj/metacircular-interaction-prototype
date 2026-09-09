@@ -32,6 +32,8 @@ Every native module below is a `--safe` Cubical Agda theorem over an abstract ri
 | NV-FRONTIER | Sima | the composition of handoff §68 / CLAIM_GRAPH.alternative_routes; no analytic claim is proved, the SHAPE of the frontier is | every hypothesis named by a graph node is the received analytic theorem; "bounded ⇒ one-sided", "vacuous", "no-maximal", "global-of/maximal-of" are the definitional glue of the fixed formulations | none; what is discharged is the multiplicity: the unsupplied items are one proposition |
 | NV-GATE-FRONTIER | Lane I bis | metacircular application (handoff §5, §69): the repository's knowledge about the frontier checked and normalized by its own kernel | none beyond the pinned toolchain | none |
 | NV-REPLAY | MetacircularReplay | infrastructure (handoff §5 Lane I); repository content from another agent, composed in | none | none |
+| NV-TYPED-FRONTIER | SamastaSima | composition of the corpus's typed open problems (RH_TheWholeQuestionEntersTyped, SamastaPrasna, KotiNirnaya); this replaces the abstract Sima composition as the object-level statement of the frontier | the classical equivalence of the DMR inequality with RH (cited in the RH module); stages beyond n = 3 of the RH fibre are decidable but not computed here (δ(4) = 12 already makes the harmonic fraction unary-infeasible for the checker) | none; the section is uninhabited |
+| NV-GATE-TYPED | Lane I ter | metacircular application: the corpus's kernel evaluates the corpus's own frontier stages | none beyond the pinned toolchain | none |
 
 ## Reading the table
 

@@ -590,6 +590,48 @@ endpoint_dependency_discharged: none
 remaining_assumptions: none
 ```
 
+## SamastaSima — the typed frontier of the corpus is one computable Boolean, true at every stage
+
+```text
+claim_id: NV-TYPED-FRONTIER
+statement: Over the corpus's actual objects: the RH fibre RHAt n of the Davis–Matiyasevich–Robinson arithmetization is decided (rh-dec, via <Dec), with a Boolean rhb sound and complete, so DMR.RH ≃ (∀ m. rhb (suc m) ≡ true) (rh-definite; RH-is-section holds by refl); with KotiNirnaya's decided Goldbach fibre, the whole frontier Frontier = RH × Goldbach is the section of ONE Boolean family: Frontier ≃ (∀ n. frontierb n ≡ true) (frontier-definite); one stage with frontierb n ≡ false refutes it (frontier-refuted-by); prefix k checks the first k stages (prefix-sound); and rhb 1, rhb 2, rhb 3, gcheck 4/6/8 and prefix 3 are true by refl — the typechecker runs the DMR inequality and the sieve.
+source_class: composition of the corpus's typed open problems (RH_TheWholeQuestionEntersTyped, SamastaPrasna, KotiNirnaya); this replaces the abstract Sima composition as the object-level statement of the frontier
+parameters_and_quantifiers: none free: every ingredient is the corpus's computable definition; the section (n : ℕ) → frontierb n ≡ true is the open object
+repository_commit: pin 168ea8e2; module at (this commit; see git log for the hash)
+working_tree_changes: formal/cubical/theorems/primes/SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix.agda
+imports_and_toolchain: Agda 2.8.0, agda/cubical v0.9, --safe; <Dec from Cubical.Data.Nat.Order
+existing_terms_reused: DMR.RH, DMR.δ, DMR.Hfrac, DMR.diffSq; SamastaPrasna.Goldbach, GoldbachAt; KotiNirnaya.gcheck, goldbach-sound, goldbach-complete
+new_derivation_or_artifact: RHAt, RH-is-section, rh-dec, decb, rhb, rhb-sound, rhb-complete, RHBool, rh-definite, _and_, Frontier, frontierb, FrontierBool, frontier-definite, frontier-refuted-by, prefix, prefix-sound, first-three-stages, stages-below-three
+proof_status: formal theorem checking (--safe, no postulates) plus kernel computation of the first stages
+executed_commands: cd formal/cubical && LC_ALL=C.UTF-8 AGDA_DIR=$HOME/.agda-pin agda --safe <module>
+exit_status_and_log: exit 0
+negative_controls: NV-CONTROLS-10: RH-is-section without the 1 ≤ n guard is rejected; kernel gate: the Candidate claiming frontierb 0 ≡ false is rejected with "true != false"
+correction_of: the abstract Sima module (NV-FRONTIER), which composed names rather than objects; kept as the route-equivalence shape, superseded as the statement of the unknown
+endpoint_dependency_discharged: none; the section is uninhabited
+remaining_assumptions: the classical equivalence of the DMR inequality with RH (cited in the RH module); stages beyond n = 3 of the RH fibre are decidable but not computed here (δ(4) = 12 already makes the harmonic fraction unary-infeasible for the checker)
+```
+
+## Lane I ter — the typed frontier through the native gate
+
+```text
+claim_id: NV-GATE-TYPED
+statement: A Candidate importing SamastaSima is accepted by the kernel gate; vislesana computes F.frontierb 0 ↦ true, F.frontierb 2 ↦ true, F.rhb 3 ↦ true, F.prefix 3 ↦ true, and the inferred type of definite is (F.Frontier → F.FrontierBool) × (F.FrontierBool → F.Frontier). The Candidate claiming F.frontierb 0 ≡ false is rejected: "true != false of type Bool".
+source_class: metacircular application: the corpus's kernel evaluates the corpus's own frontier stages
+parameters_and_quantifiers: two fixed request streams
+repository_commit: pin 168ea8e2; evidence at (this commit; see git log for the hash)
+working_tree_changes: research/handoff_20260908/validation/native/frontier-typed/
+imports_and_toolchain: sh interactive/run-yantra.sh --wire (env as before)
+existing_terms_reused: sadhana.patra, sadhana.vislesana
+new_derivation_or_artifact: the five normal forms in positive.wire-transcript.jsonl
+proof_status: finite executable control
+executed_commands: sh interactive/run-yantra.sh --wire < frontier-typed/{positive,false}.requests.jsonl
+exit_status_and_log: exit 0 / exit 0; samkramana ×2; dosalekha with the UnequalTerms line
+negative_controls: the false Candidate
+correction_of: none
+endpoint_dependency_discharged: none
+remaining_assumptions: none beyond the pinned toolchain
+```
+
 ## NV-CONTROLS — mutation negative controls
 
 Three copies of the green modules were mutated in exactly one theorem statement and rechecked with the same command (`agda --safe`, inside the library tree). All three are rejected at the mutated line; sources and logs are in research/handoff_20260908/validation/native/mutants/.
@@ -665,3 +707,9 @@ All modules added since the pin were rechecked in one pass at the end of the ses
 | mutant | module | mutation | exit | rejection |
 |---|---|---|---|---|
 | M23 | Sima | dyadic route closed with R-DYADIC in place of R-ABEL | 42 | UnequalTerms (the composite has the wrong type) |
+
+## NV-CONTROLS-10 — mutation negative control for the typed frontier
+
+| mutant | module | mutation | exit | rejection |
+|---|---|---|---|---|
+| M24 | SamastaSima | `RH-is-section` stated without the `1 ≤ n` guard | 42 | refl no longer types: the corpus RH is exactly the guarded section |

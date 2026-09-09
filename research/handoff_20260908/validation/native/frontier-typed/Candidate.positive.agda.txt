@@ -1,0 +1,21 @@
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
+module Candidate where
+open import Cubical.Foundations.Prelude
+open import Cubical.Data.Nat using (ℕ)
+open import Cubical.Data.Bool using (Bool ; true)
+open import Cubical.Data.Sigma using (_×_ ; fst ; snd)
+import SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix as F
+-- the corpus's own RH fibre and Goldbach fibre, computed by the kernel at the first stages
+stage0 : F.frontierb 0 ≡ true
+stage0 = refl
+stage1 : F.frontierb 1 ≡ true
+stage1 = refl
+stage2 : F.frontierb 2 ≡ true
+stage2 = refl
+rh3 : F.rhb 3 ≡ true
+rh3 = refl
+three : F.prefix 3 ≡ true
+three = F.first-three-stages
+-- the whole frontier is the section of one Boolean family: both directions, from the corpus
+definite : (F.Frontier → F.FrontierBool) × (F.FrontierBool → F.Frontier)
+definite = F.frontier-definite

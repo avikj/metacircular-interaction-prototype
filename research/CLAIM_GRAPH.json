@@ -2603,6 +2603,12 @@
   "formal/cubical/theorems/primes/DvitiyaAntara_TheLocalPrimePowerFieldIsTheMultiplicativeSecondDifferenceOfTheDMRWalkVolume.agda",
   "formal/cubical/theorems/unplaced/VyarthaCakra_TheDescentDefectSatisfiesItsCocycleIdentityForEveryFeatureSoTheClassSeparatesNothingAndOnlyPointwiseVanishingDoes.agda"
  ],
+ "typed_frontier": {
+  "module": "formal/cubical/theorems/primes/SamastaSima_TheTypedFrontierOfTheCorpusIsOneComputableBooleanTrueAtEveryStageTheRHFibreIsDecidedLikeTheGoldbachFibreSoTheWholeOpenSectionIsOneSectionAndTheOracleComputesItsPrefix.agda",
+  "statement": "the corpus RH (DMR arithmetization) and Goldbach are the section of one decided Boolean family frontierb; every stage is a computation, the section is the only open object; stages 0,1,2 computed by the kernel",
+  "kernel_gate": "research/handoff_20260908/validation/native/frontier-typed/",
+  "supersedes": "frontier_composition as the statement of the unknown"
+ },
  "frontier_composition": {
   "module": "formal/cubical/theorems/unplaced/Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence.agda",
   "statement": "with the conditional theorems of every alternative route as hypotheses, the six RH unknowns are equivalent to END-RH (and to each other, by univalence one point of hProp); O-NPEAK is equivalent to END-NS given the ledger, BKM and the maximal-solution formulation",

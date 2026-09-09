@@ -100,6 +100,12 @@ for cid, mods in NATIVE.items():
     n['native_verification_this_transfer'] = True
     n['native_scope'] = 'ring/algebra core checked in --safe Cubical Agda; analytic hypotheses remain module parameters'
 g['unmapped_native_modules'] = [locus(m) for m in UNMAPPED]
+g['typed_frontier'] = {
+  'module': locus('SamastaSima'),
+  'statement': 'the corpus RH (DMR arithmetization) and Goldbach are the section of one decided Boolean family frontierb; every stage is a computation, the section is the only open object; stages 0,1,2 computed by the kernel',
+  'kernel_gate': 'research/handoff_20260908/validation/native/frontier-typed/',
+  'supersedes': 'frontier_composition as the statement of the unknown',
+}
 g['frontier_composition'] = {
   'module': locus('Sima_TheOpen'),
   'statement': 'with the conditional theorems of every alternative route as hypotheses, the six RH unknowns are equivalent to END-RH (and to each other, by univalence one point of hProp); O-NPEAK is equivalent to END-NS given the ledger, BKM and the maximal-solution formulation',

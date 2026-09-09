@@ -2,24 +2,21 @@
 
 Thesis under test: every open solution is latent composition, and expressing exactly what is unknown already yields knowledge.
 
-## What was composed
+## Two attempts, one kept
 
-All native cores on this branch (56 claims with checked algebraic cores, 25 §71 records) plus the received conditional theorems of the handoff's six RH closing routes and its one NS integrability route (§68). The composition is one `--safe` cubical module, `Sima_TheOpenFrontier…` (theorems/unplaced), applied to itself through the repository's own kernel gate (validation/native/frontier/).
+**Attempt 1 (Sima, kept only as a shape).** The six RH routes of the handoff were abstracted into propositions with the received conditional theorems as hypotheses, and cubical Agda proved them all equivalent to RH. That is a tautology in a costume: it composes names, not objects, and the "transport" moves nothing. It is left in the tree as the statement of the route structure, and nothing more.
 
-## What is now a theorem
+**Attempt 2 (SamastaSima, the actual composition).** The corpus already holds the open problems as types built from computable functions: RH as the Davis–Matiyasevich–Robinson inequality at every n ≥ 1, Goldbach as GoldbachAt at every even number, with the Goldbach fibre proved decided (KotiNirnaya). What was missing was the same fact for the RH fibre and the single type that holds both. Now:
 
-1. **The RH frontier is one proposition.** With the route unknowns as propositions and the conditional theorems as hypotheses named by their graph nodes, each unknown is equivalent to RH (`propBiimpl→Equiv`), hence equal to it by univalence (`ua`), hence all six routes name one point of `hProp` (`routes-name-one-unknown`).
-2. **Resolving any resolves all; refuting any refutes all** (`resolving-any-resolves-all : Any → All`, `refuting-any-refutes-all`).
-3. **Every reading transports.** Any property `P` of one unknown (a strategy, a certificate shape, a cost) is a property of every other by `subst P` along the univalence path, and the transported inhabitant is the composed proof (`transport-computes`).
-4. **The NS frontier is one proposition.** Given the peak ledger (Sikhara), BKM, and the fixed maximal-solution formulation, `O-NPEAK ≃ END-NS`.
-5. **The kernel computes the composition.** The Candidate importing Sima is accepted by the Yantra gate; its normal form of "one bounded dyadic order ⇒ every-ε Goldbach rate" is `λ … d → h₁₂ (h₁ (h₉ d))`: Goldbach-necessity ∘ two-packet-sufficiency ∘ Abel. Removing the Abel hypothesis, the gate rejects at the exact slot (`Dyadic !=< Bounded`).
+- `rh-dec`: the RH fibre is decided; `rhb` is its Boolean, sound and complete; `DMR.RH ≃ (∀ m. rhb (suc m) ≡ true)`.
+- `Frontier = RH × Goldbach ≃ (∀ n. frontierb n ≡ true)`: the whole typed frontier of the corpus is the section of one decided Boolean family.
+- `frontier-refuted-by`: one false stage refutes it; `prefix-sound`: a prefix check certifies the first k stages.
+- The kernel computed stages 0, 1, 2 (`frontierb n ↦ true`, `prefix 3 ↦ true`) and rejected the claim that stage 0 fails.
 
-## What this yields, and what it does not
+## What is now exact
 
-- It yields the exact unknown: not six arithmetic problems and one PDE problem, but one proposition `RH` with six readings, each reading a concrete statement whose finite algebra is checked (Grahaka, AbelaRupa, ArdhaTala, DviSthana, DviMana, PratibimbaTantu, Pratirodha) and whose analytic content is the hypothesis. A proof of any reading is, by transport, a proof of all.
-- It yields the missing-input diagnostics: the gate names the hypothesis a route lacks.
-- It does **not** resolve RH or NS. No endpoint status changed; the O-items remain UNSUPPLIED-HERE. The thesis is confirmed in its first half (expressing the unknown exactly produced checked knowledge: equivalence, transport, composition terms) and unconfirmed in its second: the one proposition still has no inhabitant, and univalence gives no way to manufacture one.
+The open frontier of this corpus is one object: the section `(n : ℕ) → frontierb n ≡ true`. Every stage is a terminating computation; the only thing open is the function inhabiting all stages at once. Refutation is finite. This is the precise shape the thesis predicts, and it was already latent in three modules nobody had joined.
 
-## Where an inhabitant would have to come from
+## What this does not do
 
-By the equivalences, any of: a bounded received tail (A), an eventual one-sided polynomial bound (B), a subexponential lower bound for the actual Weil form (C), a compact source realizing the reflected packet (D), one bounded dyadic residual order (E), the every-ε Goldbach rate (F). The finite identities under each are on this branch; the analytic step in each is exactly the row's "analytic hypotheses left outside the checker" in ANALYTIC_INTERFACE.md.
+It does not inhabit the section. The DMR fibre is decidable but its cost explodes (δ(4) = 12 already puts the harmonic fraction beyond unary evaluation), so the kernel's oracle reaches only the first stages. The equivalence of the DMR inequality with the zeta zeros is classical and cited, not formalized. NS has no computable-fibre form in the corpus; its frontier stays the abstract chain of Sima's second half. No endpoint status changes.
