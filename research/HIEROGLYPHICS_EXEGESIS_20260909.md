@@ -125,7 +125,7 @@ Map(j,i) ⊗ Map(i,j) ⊗ 𝔠_ij` is the round trip: `ExcursionReturn`'s
 (the colourless reflection) → `अवशिष्टविघ्नः` (the residual obstruction).
 `X^{t𝒢} = 0 ⟺ N ≃ id`. The corpus's `SthiraBinduGanana` (fixed points vs
 conjugation census for S₃, now with the enumeration completed by
-`SatSthana`) is orbits-versus-fixed-points at the smallest nonabelian group;
+`SthiraBinduPurnata`) is orbits-versus-fixed-points at the smallest nonabelian group;
 `Apavartana` (the drop divisor) and `Prthakkarana` (p-adic splitting, today)
 are the refraction `अपवर्तनम् = दृष्टिपरिवर्तनजनित स्पेक्ट्रमविघटनम्` at the
 integers: one crystal, many refraction paths. `एकत्वम् ⇏ एकरूपता` is the
