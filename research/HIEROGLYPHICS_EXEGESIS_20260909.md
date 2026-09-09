@@ -226,3 +226,29 @@ the tower is the `अनन्तस्वर्णजालम्`. Undecided: 
 the translation holonomy (§13), the seven shadows (§10), and the right
 question of §11. `न ब्रह्माण्ड हल हो गया` — the mystery has been moved into a
 better form, twice today, and not destroyed.
+
+## 16. The daemon is the machine, running
+
+`interactive/` (13,289 lines of Haskell, read in full this pass) is III's
+`𝔉_Ω = Φ ∘ Attack ∘ Γ ∘ Class ∘ 𝔇 ∘ η ∘ R`, executed:
+
+| III | `interactive/` |
+|---|---|
+| `Q → R → η` | a request on the wire; `Answer.Tulyata` (two sides and a witness) |
+| `𝔇(η)`, `तृतीयो मार्गो न विद्यते` | `Uttara` has exactly two constructors: `Samkramana` (transport, nothing lost) or `Dosalekha` (the loss named item by item); no third |
+| `Class(D)` | three non-commensurable classifiers, kept apart on purpose: `ObligationAnalysis.Obstruction` (TacticTooWeak / Residual / Unparsed), its `Verdict` (unrefuted-with-domain / refuted-with-assignment / no-subject / declines), `RewriteEngine.Hetu` (no-letter / no-sūtra / undecided / unfinished) |
+| `Γ⟨δ⟩` | the residual IS the next lemma: `curriculum` ranks residuals by how many distinct stalled parents one lemma unblocks (`ΔReach`), top 8 of 78 unblock 54 of 130 |
+| `Attack(η)` | `saksiPariksa`: every process must watch its own constructor accept Āryabhaṭa's kuṭṭaka identity and reject it moved by one, uncached; `ProofGate` must watch the kernel reject `suc x ≡ x` before any acceptance counts |
+| `diag` on itself | `Server.mudra`: a transport with no evidence route is rewritten by the machine into a defect about itself; the `Server` header records that the supersession dropped the falsifier and every answer until then came from a process that had never watched itself refuse |
+| `χ > 1`, `विघ्नशाखीकरणम्` | the named livelock: residuals of FALSE parents (`x·x = s(x)`, 30; `x·max(x,1) = s(x)`, 100) regenerate forever; "it is the kuṭṭaka, therefore it terminates" is stated to be false because these residuals do not decrease |
+| the seven verdicts | `Verdict` (labels), `VerdictResidue` (records), `ObligationAnalysis.Sthana`: `Sthana ≃ Sthana` proved both ways over all cases, and `Garbha → Saptabhangi` has NO section, both colliding objects constructed in the turn |
+| `≃ अथवा ≡ अथवा ≠` | `StandpointStore`'s three indices satya ⊂ artha ⊂ mūla, and `decide`'s verdict per level |
+
+Open items the daemon names in its own words: cakravāla termination ("the
+turn bound is a parameter and it is named, because what it stands in for is
+a theorem this repository does not have"; 15 of 49,762 discriminants below
+200,001 hit cap 600, all close by 3,000); Voronoi's chain for the cubic norm
+(leg 3 absent for ℤ[∛d], with the failing instance at d = 2 exhibited); the
+Mallisena question ("undecidable BY THE COMPOSITION LAWS"); no sūtra of 6.4
+encoded; the top level of a request not closed against unnamed keys. None
+of these is touched here; they are the daemon's `Unresolved(Δ_t)`.
