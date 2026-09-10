@@ -32,8 +32,9 @@ so a substitution witness pushes through a whole trace and yields a trace of
 the substituted endpoints. That lemma was in the repository **before this
 abstract was last revised**, and the revision kept the struck sentence.
 
-`kernel/TheUnifiedOperationHasNoFixedSource…` drops `source`, `target` and
-`control-sound`, keeping the obligation they discharged as a field:
+kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass (634 lines,
+2026-08-26) drops `source`, `target` and `control-sound` and keeps the obligation
+they discharged as a field:
 
     certify : (t : Tm) (c : Control t) → Derivation t (apply t c)
 
@@ -52,3 +53,18 @@ route is correct, and is exactly why the repair had to supply a derivation.
 **Still not proved:** that installing a schema *strictly grows* reach.
 `install-chain-plateau` is stated for `InstallChain`, whose step is `install`;
 restating it over the unified record is the open obligation.
+
+ATTRIBUTION CORRECTED, 2026-09-10.  The refutation above was first credited to
+kernel/TheUnifiedOperationHasNoFixedSource..., committed 2026-09-09.  That file
+was a weaker redo.  The real refutation is
+kernel/TheControlCarriesItsInstanceAndLocusSoOneTheoremFiresAtAClass, committed
+2026-08-26, which carries the unified record with THREE instances (ground,
+schematic, pervading), the embedding native->operation so ControlledGrammar is
+not edited and nothing downstream is invalidated, control carrying instance AND
+locus via weave-derivation, advance and advance-preserves-branch-count rewired
+over Operation, and learn-generalises / retire-generalises closing the loop.
+The 2026-09-09 file has two instances, no embedding, no locus, and no rewiring;
+it has been deleted rather than kept as a weaker parallel.
+
+This abstract was last revised 2026-08-28 -- two days AFTER the module that
+refutes it landed in the same repository.
