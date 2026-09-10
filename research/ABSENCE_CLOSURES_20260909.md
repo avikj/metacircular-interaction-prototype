@@ -36,6 +36,10 @@ edited.  Nothing was assumed.
 | Kuttaka: "the iṣṭa section … is not supplied here" | historical_proofs/KuttakaIsta_… | Euclidean division on ℤ; least non-negative member; uniqueness at g = 1 |
 | PairComposition: "SEED (stated, not proved here)" | primes/pair_field/PairCompositionSeed_… | isPrime (a·b) ≡ false for a, b ≥ 2; no composed pair is a prime pair |
 | HomometricPair: minimality "still rests on the legacy Python search" | order/HomometricMinimality_… | 1024-form kernel sweep with completeness and soundness proofs |
+| Hieroglyphics II §5 / notes/FOUR_REPAIR_MODES: "cannot see" whether the four repairs Γ∅ Γ⇑ Γ↺ Γ^ are four objects; Γ⇑ has no corpus defect | residue/CatuhSamskara_… | at S¹: ∥S¹∥₂ contractible (Γ∅); winding loop = 1 (Γ↺); loopDatum ≢ any restricted constant (Γ⇑, the descent defect); helix with fixed-point-free sucℤ and ΩS¹ ≡ ℤ (Γ^); four-are-four |
+| Cantor/Lawvere and the Möbius monodromy treated as two theorems (LawvereFixedPoint, Diagonal modules) | automata/Ekasutra_… | Section (Torus e) ≃ FixedPoint (equivFun e) via ua-glue/unglue; point-surjection gives sections; a free monodromy (notEquiv) has no section |
+| Hieroglyphics III §Z: Goldbach and twins are read from two kernels; KuttakaSamapti "the logarithmic bound … (Lamé); provable, not yet composed" | primes/EkaBija_…, historical_proofs/Svarnasima_… | one kernel 𝒦 w r = a(w∸r)·a(w+r); Goldbach is the centre marginal, twins the radius marginal, ordered Goldbach count is the Cauchy square; the vallī of consecutive Virahāṅka numbers is the longest, every vallī is shorter than the Virahāṅka inverse |
+| fibre census: the seam conjecture (fibre of ∣_∣₁ over a truncated point) | fibre/Fibre/Avaccheda_… | fiber ∣_∣₁ x ≃ A for every x : ∥ A ∥₁ |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
@@ -47,14 +51,14 @@ edited.  Nothing was assumed.
 - Aut ≃ Π over the codomain of Aut(fibre) (AtmasamataUpari, SamraksakaSamuha): the currying coherence of Avaccheda; open in the corpus's own terms.
 - Sha256Varga: two distinct colliding inputs.  A SHA-256 collision.
 - GunakaKsepa §5: sign normalisation preserving the congruence; a statement about the wheel's own reactor, not a composition.
-- KuttakaSamapti: the logarithmic bound on the vallī length (Lamé); provable, not yet composed.
+- KuttakaSamapti: the logarithmic bound on the vallī length (Lamé) is now the Virahāṅka bound of Svarnasima; the base-φ logarithm as a function is still not composed.
 - Gleason's theorem (EkatvaMatra); Born interior.
 - The seven UNSUPPLIED nodes of research/handoff_20260908 (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH, O-NPEAK): analytic estimates; no real-analysis library at the pin; nothing here changes their status.
 - The section `(n : ℕ) → frontierb n ≡ true` of SamastaSima (RH × Goldbach): every stage is decided; the section is not inhabited by anything in this corpus.
 
 ## What the exercise shows
 
-Twenty-two absences the corpus had recorded were compositions of terms it
+Twenty-six absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
