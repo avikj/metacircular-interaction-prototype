@@ -1703,21 +1703,30 @@ answer y0 kala line = do
   let y = y0 { yTurn = yTurn y0 + 1 }
   (y', m0, u0) <- case parseLine line of
     Left e -> pure (y, fst (heard e), snd (heard e))
-    Right j -> case jStr "kriya" j of
-      Left e -> pure (y, fst (noOp e), snd (noOp e))
-      Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
-        -- अनुक्तम् / उक्तम् / दुर्वचम्, at the door.  `angani` absent is a
-        -- request with no arguments and is legal; `angani` present and not
-        -- an object is a request that cannot be dispatched, and until now
-        -- the two produced byte-identical answers (doṣa 0016).  The Left
-        -- `look`/`jObj` had already composed is now the hetu, instead of
-        -- being constructed and thrown away by `const`.
-        (kr:_) -> case athava (JObj []) (vObjAt "angani" j) of
-          Left e -> let (m, u) = malformed (kName kr) e in pure (y, m, u)
-          Right args -> case anadhikrta (map fst (kParams kr)) args of
-            [] -> kRun kr y args
-            ns -> let (m, u) = unnamed kr ns in pure (y, m, u)
-        [] -> pure (y, fst (unknown k), snd (unknown k))
+    -- अनधिकृतम् AT THE DOOR.  The inner guard (below, on `angani`) turns back
+    -- keys the OPERATION does not read; this outer one turns back keys the
+    -- TRANSPORT does not read — closing the gap Wire.anadhikrta named ("the
+    -- set of keys the transport itself claims is not written down anywhere
+    -- yet").  `claimedTopKeys` IS that set, the one source of truth.  Without
+    -- it a misspelt `angani` beside `kriya` ran the operation on no arguments
+    -- and reported success — the collapse the inner guard refuses, one level up.
+    Right j -> case anadhikrta claimedTopKeys j of
+      (n : ns) -> let (m, u) = unnamedTop (n : ns) in pure (y, m, u)
+      [] -> case jStr "kriya" j of
+        Left e -> pure (y, fst (noOp e), snd (noOp e))
+        Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
+          -- अनुक्तम् / उक्तम् / दुर्वचम्, at the door.  `angani` absent is a
+          -- request with no arguments and is legal; `angani` present and not
+          -- an object is a request that cannot be dispatched, and until now
+          -- the two produced byte-identical answers (doṣa 0016).  The Left
+          -- `look`/`jObj` had already composed is now the hetu, instead of
+          -- being constructed and thrown away by `const`.
+          (kr:_) -> case athava (JObj []) (vObjAt "angani" j) of
+            Left e -> let (m, u) = malformed (kName kr) e in pure (y, m, u)
+            Right args -> case anadhikrta (map fst (kParams kr)) args of
+              [] -> kRun kr y args
+              ns -> let (m, u) = unnamed kr ns in pure (y, m, u)
+          [] -> pure (y, fst (unknown k), snd (unknown k))
   let (m, u) = mudra m0 u0
       y2 = logIf m u y'
   y3 <- case u of
@@ -1752,6 +1761,27 @@ answer y0 kala line = do
            ++ [ "if the key names something this machine should read and does not, that is a doṣa and dosa.lekha takes it" ])
           [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2, c. 500 BCE — adhikāra: a heading governs a stated extent and nothing outside it, and vipratiṣedhe paraṁ kāryam decides inside it.  The extent is stated; a key outside it is not a weaker match, it is outside."
           , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् न दुर्बलं प्रमाणम् । तत् अप्रमाणम् ।" ] )
+    -- THE keys the transport reads at the OUTER object, and the whole of them.
+    -- One source of truth: `kriya` and `angani` are read in `answer` above,
+    -- `prasna-id` in `mergeId` below; nothing else at top level is read by
+    -- anything.  Add a transport-level key here and at its reader together.
+    claimedTopKeys :: [String]
+    claimedTopKeys = [ "kriya", "angani", "prasna-id" ]
+    -- the door's own अनधिकृतम्: a top-level key the transport does not read,
+    -- named back with its reason, the way `unnamed` does for `angani`.
+    unnamedTop ns =
+      ( Mudra S.Apratipatti (Pratyaksa "every unread top-level key is named back with its reason, and the transport's whole adhikāra beside it")
+      , dosalekha "yantra.srutam"
+          ("the request carried " ++ show (length ns)
+           ++ " top-level key(s) the transport does not read: "
+           ++ intercalate "; " [ "`" ++ n ++ "` — " ++ w | (n, w) <- ns ])
+          [ "the value you sent under `" ++ n ++ "` at the outer object, which WAS uttered and would otherwise have been dropped in silence — with it the difference between `I did not send that` and `I sent it and you dropped it`.  A misspelt `angani` lands here: without this the operation would run on no arguments and report success."
+          | (n, _) <- ns ]
+          ([ "the transport reads exactly these keys at the outer object, and no others:" ]
+           ++ [ "  " ++ tk | tk <- claimedTopKeys ]
+           ++ [ "operation parameters go under `angani`; `prasna-id`, if sent, is echoed back on the answer." ])
+          [ "Pāṇini, Aṣṭādhyāyī 1.4.1–2 — adhikāra: a heading governs a stated extent and nothing outside it.  The extent is now stated for the transport too, not only for each operation."
+          , "AHIMSA_SUTRA_VISTARA §19 — यत् अनङ्गीकृतमार्गेण आगच्छति तत् अप्रमाणम् ।" ] )
 
 appendLekha :: FilePath -> Int -> String -> Mudra -> Uttara -> IO ()
 appendLekha fp n line m u =
