@@ -14,6 +14,10 @@ Two witnesses keep the law from being vacuous.  The two-element symmetry is a ge
 
 The consequence for modelling.  An invariance imposed for physical reasons is exactly a blindness accepted, and the blind set is computable in advance from the invariance group.  A model that is invariant under a symmetry cannot represent that symmetry's holonomy - not approximately, not with more resolution.  The residue is recoverable only by changing the observable, never by refining it.
 
-WHAT IS NOT CLAIMED.  There is no lattice, no gauge group, no connection form, no Wilson loop and no field in this development.  The system is a discrete circuit with an integer fibre; "holonomy" names the action of the loop on that fibre, and "observable" names a function out of the state. The physical reading is a reading and is not proved.
+There is no lattice, no gauge group, no connection form, no Wilson loop and no
+field in this development. The system is a discrete circuit with an integer
+fibre; "holonomy" names the action of the loop on that fibre, and "observable"
+names a function out of the state. The physical reading is a reading and is
+not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

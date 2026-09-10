@@ -18,6 +18,9 @@ Self-blindness.  A family cannot see its own least common multiple: that value i
 
 Read as automata theory: the minimal deterministic acceptor for a modular sensor array is the cyclic group of order the least common multiple, and the two directions above are that the minimisation is complete and that it is faithful.  The residue is the Nerode class.
 
-WHAT IS NOT CLAIMED.  There is no automaton, no alphabet, no regular language and no Myhill-Nerode theorem in the development.  The object is a family of moduli over the naturals and the theorems are about its indistinguishability relation.  The automata-theoretic reading in the previous paragraph is a reading and is not proved.
+There is no automaton, no alphabet, no regular language and no Myhill-Nerode
+theorem in the development. The object is a family of moduli over the naturals
+and the theorems are about its indistinguishability relation. The automata-
+theoretic reading in the previous paragraph is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

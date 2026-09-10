@@ -16,6 +16,10 @@ Unforgeability without keys.  In the accompanying kernel an installed operation 
 
 Hiding by typing.  Soundness of a transition factors through the propositional truncation of the derivation type, so a recipient learns that a transition is licensed and never which derivation produced it - with no blinding, no commitment and no simulator, as a consequence of how the soundness map is typed.  We also prove the accompanying negative result: no function of the transmitted meaning recovers the route, for every target type at every level.
 
-WHAT IS NOT CLAIMED.  No statement is made about hardness assumptions in general, about any deployed protocol, or about quantum algorithms.  One modular power map is treated and one non-equivalence is proved.  The factoring literature is not addressed here; the classical reduction of factoring to a zero-divisor split appears elsewhere in the development and the order-finding step does not.
+No statement is made about hardness assumptions in general, about any deployed
+protocol, or about quantum algorithms. One modular power map is treated and
+one non-equivalence is proved. The factoring literature is not addressed here;
+the classical reduction of factoring to a zero-divisor split appears elsewhere
+in the development and the order-finding step does not.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

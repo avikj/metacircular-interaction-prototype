@@ -1,10 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- TheCountingSemanticsIsTheCardinalityOfTheCategorifiedOne — closes the
--- one hole `TheCountingSemanticsIsADecategorification…` names in its own
--- "NOT CLAIMED": "No theorem here relates ⟦t⟧ to `eval t` by cardinality —
--- that would need finiteness and is not proved."
 --
 -- It is proved here.  The categorified interpretation ⟦_⟧ sends
 -- zero ↦ ⊥, suc ↦ Unit ⊎ −, add ↦ ⊎ — which is EXACTLY the structure of

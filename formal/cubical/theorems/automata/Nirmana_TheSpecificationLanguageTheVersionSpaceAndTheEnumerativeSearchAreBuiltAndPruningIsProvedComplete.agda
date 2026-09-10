@@ -3,12 +3,7 @@
 ------------------------------------------------------------------------
 -- निर्माण — construction; the making of a thing to order.
 --
--- WHY THIS FILE EXISTS.  The abstract "PRUNING BY OBSERVATIONAL
--- EQUIVALENCE COLLAPSES A FIBRE WE CONSTRUCT AND SHOW IS UNBOUNDED"
--- says, under WHAT IS AND IS NOT CLAIMED, that there is no specification
--- language, no example-based synthesis, no version space and no
--- enumerative search procedure in the development, and that the reading
--- as a statement about synthesisers is a reading.
+-- WHY THIS FILE EXISTS.
 --
 -- All four are built here, and the statement about synthesisers becomes
 -- three theorems: pruning by observational equivalence is COMPLETE

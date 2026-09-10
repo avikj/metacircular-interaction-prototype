@@ -14,6 +14,9 @@ What deduplication would have destroyed, computed.  Two histories reaching the s
 
 The cost, stated exactly.  Nothing may be deduplicated, so there are no tombstones, no compaction and no safe retention policy - the store is monotone.  Systems adopting this design trade unbounded growth for the elimination of the entire delivery-semantics stack, and we characterise the trade rather than tune it.
 
-WHAT IS NOT CLAIMED.  There is no message broker, no partition, no offset, no checkpoint and no watermark in this development.  A "message" is an operation and the "pipeline" is a library under concatenation.  The reading as a stream processing system is a reading and is not proved.
+There is no message broker, no partition, no offset, no checkpoint and no
+watermark in this development. A "message" is an operation and the "pipeline"
+is a library under concatenation. The reading as a stream processing system is
+a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

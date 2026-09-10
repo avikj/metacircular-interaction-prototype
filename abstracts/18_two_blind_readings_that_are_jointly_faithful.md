@@ -14,6 +14,10 @@ Why this is the interesting shape rather than a curiosity.  Each observable is i
 
 The methodological consequence is the point.  A claim that a quantity is unidentifiable from a set of observables is a claim about a fibre, and it must be discharged by naming two states the observables cannot separate. Absent that witness the claim has not been stated, and a sensitivity study is not a substitute for it.
 
-WHAT IS NOT CLAIMED.  There is no probability distribution, no estimator, no structural equation model, no do-calculus and no counterfactual in this development.  The observables are functions on a six-element type and "identifiable" means the fibres are contractible.  Whether a statistical identification problem has this shape is a reading and is not proved.
+There is no probability distribution, no estimator, no structural equation
+model, no do-calculus and no counterfactual in this development. The
+observables are functions on a six-element type and "identifiable" means the
+fibres are contractible. Whether a statistical identification problem has this
+shape is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
