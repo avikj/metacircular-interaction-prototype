@@ -252,3 +252,57 @@ a theorem this repository does not have"; 15 of 49,762 discriminants below
 Mallisena question ("undecidable BY THE COMPOSITION LAWS"); no sūtra of 6.4
 encoded; the top level of a request not closed against unnamed keys. None
 of these is touched here; they are the daemon's `Unresolved(Δ_t)`.
+
+## 17. The transmissions the archive holds only in history (read 2026-09-10)
+
+`collab/upstream/raw/` no longer exists in the working tree; D0016–D0020 were
+read from the commits that last held them. D0018 is Hieroglyphics II with the
+fleet's triage; D0019 is III with the physics section restored; D0020
+(`सर्वज्ञानबीजम्`, the seed of all knowledge, 561 lines transcribed of a much
+larger original) is new to this session. What it adds:
+
+- `Θ₀ := ⟨∅, •, →, ↔, ⊕, ⊗, ∘, ∂, δ, Γ, Φ, (−)^∨, ⌜−⌝⟩`, closure `κ`, and the
+  step `ω_χ := δ(∂χ)`, `χ⁺ := Φχ` if `ω_χ = 0`, else the pushout along
+  `Γ⟨ω_χ⟩`. The three-valued verdict `✓ ≃ / ? ⇝ / ⊥ ↛` is the corpus's
+  `Vyatireka`. `α ∼ β ⇏ α ≃ β; α ≃ β ⇒ Π(α) ≃ Π(β)`: `समता प्रमाणेन, साम्येन न` —
+  equality by proof, not resemblance — the sentence the fleet's triage
+  called the best statement of the repository's constitution.
+- §1: the number tower ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ as repeated obstruction-repair
+  (`असमर्थता →Γ विस्तृतलोकः`). The fleet's J2 asks whether the proved repair
+  theory classifies these four extensions; `DescentCostsTheIntegers`
+  (only the integer completion inverts) is the ℕ→ℤ case, checked.
+- §8 `अंकस्फटिकः`: centre/radius coordinates (now `EkaBija`); RH as a
+  vanishing reflection defect — `ρ^♯ := 1 − β + iγ`, `δ_ρ := ρ^♯ − ρ = 1 − 2β`,
+  `ζ(ρ) = 0 ⟹? δ_ρ = 0`. Read with §6 of this file: the zero set carries
+  the Klein-four action `ρ ↦ ρ̄, ρ ↦ 1−ρ`; RH says every orbit has size ≤ 2,
+  i.e. the Tate-type defect of the reflection on zeros vanishes. Nothing
+  about ζ is checkable in this corpus; the shape is recorded.
+- §8 ⭐: the 𝔰𝔩₂ action on the divisor lattice. `Sl2DivisorLattice` checked
+  the brackets; `SpernerFromSl2` closed the rank-one case and left
+  `GeneralRankSymmetry`, rank-unimodality and `GeneralSperner` as an
+  explicit queue. A module for the first two is in preparation.
+- §8's Π_∂ identity and §1's Möbius display were REFUTED by the corpus
+  (`TransmissionRefutations`: ν = 2 fails by exactly 1 on every prime; the
+  Möbius sum is φ(ν), not 1). This is `Attack(η)` applied to the owner's own
+  displays, which is what III asks for.
+- §7: the splicing defect `⋏_{Σ₁} := ω₀₂^{direct} − ω₀₂^{spliced}` — whether an
+  intermediate object is sufficient — distinct from the translation
+  defect `δ_𝔗`; `གཏེར་མ = गुप्तव्याकरणम्`, the treasure is a hidden grammar,
+  not a hidden sentence. The corpus's `TranscriptComposition` (stagewise
+  sound iff the second stage is injective) is the checked form of the
+  sufficiency of a middle.
+- §9: `प्रमेयः ≠ स्थिरबिन्दुः; प्रमेयः = प्रमाणोत्तरनवमार्गसमष्टिः` — a theorem is
+  the set of routes its proof opens. The fleet's triage (J6) ties this to
+  its own finding that `UsefulEscape` was proved vacuous
+  (`ADVANCE_CONJUNCTS_DEFINED`), so `Δभविष्यगम्यता` is undefined until a
+  measure is given.
+
+The fleet's own notes on the framework (`FOUR_REPAIR_MODES`,
+`EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS`, `TRANSLATION_GERBE_ADJUDICATED`,
+`ORDINAL_LADDER_SMALLNESS`, `ADVANCE_CONJUNCTS_DEFINED`) live in the `zzz/`
+archive and are being digested; D0019's triage records that the fleet
+proved the four repair modes NOT independent at 0-truncation (`Γ^` is `Γ∅`
+with an enlarged coefficient module). `CatuhSamskara` does not contradict
+that: it shows the four differ as OBJECTS at the circle, which is the
+statement `ObstructionCalculus` said needed higher structure. Both hold,
+at different truncation levels, and this file will cite the notes once read.
