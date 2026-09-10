@@ -1,0 +1,6 @@
+name: rescued-lanes
+-- the lanes recovered from the pre-rewrite branches on 2026-09-10; each
+-- module here typechecked against cubical-0.9 and the natural-machine corpus
+depend: cubical-0.9
+include: formal/cubical formal/executable formal/karma formal/cubical/kernel formal/cubical/theorems formal/cubical/theorems/automata formal/cubical/theorems/cost formal/cubical/theorems/grammar formal/cubical/theorems/historical_proofs formal/cubical/theorems/homotopy formal/cubical/theorems/lattices formal/cubical/theorems/logic formal/cubical/theorems/metre formal/cubical/theorems/must_fail formal/cubical/theorems/number formal/cubical/theorems/order formal/cubical/theorems/physics formal/cubical/theorems/primes formal/cubical/theorems/primes/pair_field formal/cubical/theorems/residue formal/cubical/theorems/unplaced formal/cubical/theorems/walks collab/probes/gpt-sankramana collab/probes/mauna-carrier fiber/src formal/mukha machine/agda machine/avatarana.pending fibre/src punaragamana/src
+flags:

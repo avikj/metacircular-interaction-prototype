@@ -70,6 +70,26 @@ if [ "${1:-}" = "--all" ]; then
     rel="${m#"$ROOT"/formal/cubical/}"
     run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT/formal/cubical" "$rel"
   done
+
+  printf '\nrescued lanes — the pre-rewrite modules recovered 2026-09-10 (slow)\n'
+  # flat modules and the lane directories under formal/cubical that are not
+  # theorems/ or kernel/ (Prastuta, NaturalMachine, Ratri, Yantra, Swarm,
+  # Mula, Kernel, Tapas, MachineMinted, EGB, ...), then the outside lanes
+  # resolved by rescued-lanes.agda-lib at the repository root.
+  for m in "$ROOT"/formal/cubical/*.agda "$ROOT"/formal/cubical/*/*.agda "$ROOT"/formal/cubical/*/*/*.agda; do
+    case "$m" in */theorems/*|*/kernel/*) continue ;; esac
+    [ -f "$m" ] || continue
+    rel="${m#"$ROOT"/formal/cubical/}"
+    run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT/formal/cubical" "$rel"
+  done
+  for m in "$ROOT"/formal/executable/*.agda "$ROOT"/formal/karma/*.agda "$ROOT"/formal/mukha/*.agda \
+           "$ROOT"/machine/agda/*.agda "$ROOT"/machine/avatarana.pending/*.agda \
+           "$ROOT"/collab/probes/*/*.agda "$ROOT"/fiber/src/Fiber/*.agda \
+           "$ROOT"/punaragamana/src/Punaragamana/*.agda; do
+    [ -f "$m" ] || continue
+    rel="${m#"$ROOT"/}"
+    run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT" "$rel"
+  done
 fi
 
 # ── lean: root closure ──────────────────────────────────────────────────
