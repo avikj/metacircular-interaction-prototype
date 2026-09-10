@@ -275,3 +275,60 @@ module JetStream where
   -- … and the boundary row of the residual at depth 3 is nonzero
   residual-beyond : residual₃ (pos 4) (pos 1) ≡ (pos 0 , pos 1)
   residual-beyond = refl
+
+------------------------------------------------------------------------
+-- §5  the one engine, in stream form: no measure falls forever
+--
+-- SamanaAvatarana's DescentObstruction iterates a measure-decreasing step;
+-- its measure sequence is a stream of naturals, and □(next < now) on it
+-- is uninhabited.  Unlike □Bounded (§3), which no depth decides, this □
+-- is refuted at NO finite depth and yet uninhabited: well-foundedness is
+-- the one infinite-depth fact the corpus rests on, and here it is what
+-- separates a descent from a history.
+------------------------------------------------------------------------
+
+module Descent where
+  open Take
+  open import Cubical.Data.Nat.Order using (_<_)
+  open import RenormalizedObserverTower using (no-infinite-descent)
+
+  -- "the next value is below the current one", at every depth
+  record □↓ (s : Dhārā ℕ) : Type₀ where
+    coinductive
+    field
+      drop : śiras (śeṣam s) < śiras s
+      rest : □↓ (śeṣam s)
+  open □↓
+
+  -- the stream read as a sequence
+  seq : Dhārā ℕ → ℕ → ℕ
+  seq s zero = śiras s
+  seq s (suc n) = seq (śeṣam s) n
+
+  seq-drop : (s : Dhārā ℕ) → □↓ s → (n : ℕ) → seq s (suc n) < seq s n
+  seq-drop s d zero = drop d
+  seq-drop s d (suc n) = seq-drop (śeṣam s) (rest d) n
+
+  -- THE ENGINE: no stream of naturals falls forever
+  no-falling-stream : (s : Dhārā ℕ) → ¬ □↓ s
+  no-falling-stream s d = no-infinite-descent (seq s , seq-drop s d)
+
+  -- a measure-decreasing step (SamanaAvatarana's DStep) iterated from a
+  -- configuration is a falling stream, so the configuration is empty
+  module _ (Config : Type₀) (measure : Config → ℕ)
+           (step : (c : Config) → Σ[ c' ∈ Config ] (measure c' < measure c)) where
+
+    orbit : Config → Dhārā Config
+    śiras (orbit c) = c
+    śeṣam (orbit c) = orbit (fst (step c))
+
+    measures : Dhārā Config → Dhārā ℕ
+    śiras (measures o) = measure (śiras o)
+    śeṣam (measures o) = measures (śeṣam o)
+
+    orbit-falls : (c : Config) → □↓ (measures (orbit c))
+    drop (orbit-falls c) = snd (step c)
+    rest (orbit-falls c) = orbit-falls (fst (step c))
+
+    emptied-by-stream : ¬ Config
+    emptied-by-stream c = no-falling-stream (measures (orbit c)) (orbit-falls c)
