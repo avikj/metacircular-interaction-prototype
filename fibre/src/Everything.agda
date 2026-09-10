@@ -23,6 +23,10 @@ open import Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph
 -- them.  Contains the computed refutation of the sequential diagnostic.
 open import Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic
 
+-- The census's seam, closed: the fibre of the truncation map is the whole
+-- source, so the level-४ criterion is a theorem and not a conjecture.
+open import Fibre.Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem
+
 -- …and the census's own collapse, one level up.  A fourth outcome exists
 -- that `देश` structurally cannot express — the question with no subject —
 -- and `interactive/Obstruction.hs` has carried it in a type all along while
