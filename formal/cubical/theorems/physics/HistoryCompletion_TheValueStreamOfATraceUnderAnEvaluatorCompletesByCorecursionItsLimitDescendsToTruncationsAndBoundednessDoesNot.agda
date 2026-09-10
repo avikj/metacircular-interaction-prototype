@@ -332,3 +332,29 @@ module Descent where
 
     emptied-by-stream : ¬ Config
     emptied-by-stream c = no-falling-stream (measures (orbit c)) (orbit-falls c)
+
+------------------------------------------------------------------------
+-- §6  in the record's own decoder language: the bounded-forever
+--     transcript does not factor through any finite-depth endpoint
+--
+-- TranscriptDescent: a transcript factors through a visible endpoint iff
+-- it is constant on endpoint collisions, and one collision with different
+-- transcript values refutes every endpoint-only decoder.  §3's pair is
+-- that collision: at depth n the two streams have the same endpoint
+-- (take n) and different transcripts (bounded forever / not).
+------------------------------------------------------------------------
+
+module Decoder where
+  open Take
+  open NoDepth
+  open import TranscriptDescent using (collisionObstructsDecoder)
+  open import FiniteInformation using (FactorsThrough)
+
+  -- the transcript: whether the stream is bounded at every depth, as a type
+  transcript : Dhārā ℤ → Type₀
+  transcript s = □ Bounded s
+
+  bounded-does-not-factor-through-depth : (n : ℕ) → ¬ FactorsThrough (take n) transcript
+  bounded-does-not-factor-through-depth n =
+    collisionObstructsDecoder (take n) transcript {spike n} {zeros} (agree n)
+      (λ e → spike-unbounded n (transport (sym e) zeros-bounded))
