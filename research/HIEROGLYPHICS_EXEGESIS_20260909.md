@@ -140,10 +140,13 @@ is absent because there is no cost model. The corpus's rate line
 `DescentCostsTheIntegers`, `BoundedStateNeedsAGroup`) is the algebra of
 exactly this ratio: rates are dense, the mediant does not descend to the
 rate, the ratio loses the integers, so `χ` must be tracked as the pair
-(Reach, Kill), never as a number. The arithmetic face of `χ = 1` is the
-kuṭṭaka on consecutive Virahāṅka numbers (every quotient 1), which
-`KuttakaSamapti` named as its open sharp bound; a Lamé module is in
-preparation.
+(Reach, Kill), never as a number. `OWNER_TRANSMISSIONS_LEDGER` §3.12 files `χ_α` as HAZARD — "define it
+exactly, or withdraw it" — and A-11 records that `ρ(D𝒦)` is not the same
+quantity. Nothing here defines `χ`. What was closed is only the arithmetic
+sentence `KuttakaSamapti` left open: `Svarnasima` proves that the vallī of
+consecutive Virahāṅka numbers is the longest for its divisor (Lamé's bound,
+with equality on the golden pair). That "every quotient is 1" is the
+document's `स्वर्णसीमा` is a reading, and is marked as one.
 
 ## 10. Mock forms, shadows, the unsupplied nodes
 
@@ -306,3 +309,77 @@ with an enlarged coefficient module). `CatuhSamskara` does not contradict
 that: it shows the four differ as OBJECTS at the circle, which is the
 statement `ObstructionCalculus` said needed higher structure. Both hold,
 at different truncation levels, and this file will cite the notes once read.
+
+
+## 18. The fleet's notes on the framework (read 2026-09-10 from `main:notes/`)
+
+The notes the triage sections cite are not in `zzz/` (which holds no
+Markdown at all) but on `main` under `notes/`. What they proved, and how
+today's modules sit against them:
+
+- `FOUR_REPAIR_MODES` (Thm 2): `Γ^` is `Γ∅` performed by enlarging the
+  coefficient module — the two are not independent; (Thm 6): `Γ∅` and `Γ↺`
+  are distinct exactly when `H¹ ≠ 0`; of `Γ⇑` "I prove nothing"; open item
+  4: "Is there a corpus defect whose correct mode is `Γ⇑`? A negative
+  answer … would be evidence that the fourfold is really a threefold plus
+  an aspiration." `CatuhSamskara` supplies the instance: at the circle
+  the descent datum `(const base, loop)` IS the defect promoted to a
+  2-cell, it differs from the trivial datum, and set-truncating the
+  codomain collapses it back — `Γ⇑` has a corpus defect, and it is
+  distinguished from `Γ∅` and `Γ↺` by the higher structure, which is what
+  Thm 2 (0-truncated, abelian cocycles) could not see. The two results are
+  at different truncation levels and both stand.
+- `EIGHT_CLASSES_COLLAPSE_TO_FOUR_SLOTS`: the eight classes are exemplar
+  lists, not operations; four slots survive (coefficient, base,
+  observable, language); Shapiro makes coefficient enlargement universal
+  on structural defects; the honest count is five (with `Γ⇑` readmitted)
+  or three (reader's addendum D1).
+- `ADVANCE_CONJUNCTS_DEFINED` (Thm U): `UsefulEscape` is vacuous or
+  unsatisfiable in the Chu language; only the owner can supply the code
+  length or the enrichment that would define it.
+- `ORDINAL_LADDER_SMALLNESS`: `𝔉` is not a functor (Γ is a choice, Obs is
+  not functorial, `∨` is contravariant), the coend over Ord does not
+  exist, and under universe-raising `Fix(𝔉) = ∅` by rank;
+  `SURVIVING_LADDER_FRAGMENT`: the recursion defines a choice TREE with no
+  leaves, and König applies only to the pruned tree.
+- `TRANSLATION_GERBE_ADJUDICATED`: `𝔾` is not a gerbe (no site) and not
+  degree 3; it is a normalised pseudofunctor once the tetrahedron is
+  supplied; III §D's line 2 is vacuous as written because line 1 forces
+  `δ_𝔗 ≡ 0` — the repair is exactly `Γ⇑`; three of the four observed
+  route-differences in the corpus were plain errors, not holonomy.
+- `REPORT` Theorem A″ (unconditional): any finite set with the interval
+  vector of the prime prefix `P_X` is a translate or reflection of `P_X`
+  — for prime prefixes the difference marginal DOES reconstruct; its
+  minimality clause "still rests on the legacy Python sweep" is now the
+  kernel sweep committed today (`HomometricMinimality`, diameter ≤ 10).
+- `TARGET`: RH "not a target; a tool"; the target is the parity barrier
+  as a theorem about observable classes; W1, W2 checked; W3 (no
+  post-processing of value queries simulates functional-equation queries)
+  and W4 (the coupling theorem) open.
+- `GATE_AUDIT_DISPOSITION`: the gate was sound against mathematics and
+  unsound against its environment; 1753 false equations, zero
+  certificates; three shell wrappers certified `s(x) = x`.
+
+## 19. The Eternal Golden Braid transmissions (D0015, D0017/18/22 atlas
+deltas, D0025, D0026 = EGB core V2, D0027, the 2026-08-16 packages)
+
+D0026 §12 lists twenty-five corrections that must survive, §5.12 the
+durable decomposition "local collision geometry ⋈ canonical charge
+extraction ⋈ positive-cone boundary ⋈ global spectral cancellation", and
+§14.7/§5.12 the six live targets: the finite-volume fugacity propagator;
+completing incomplete Kloosterman fractions; a spectral-placement theorem
+for the canonical charge-one vector `v_D(d) = d^{−1/2}κ₁(d)`; stable
+growing-degree prime-atom reconstruction; `π₁` on Chen-completed fields;
+an anti-saturation estimate. Its final status: "solved major external open
+problem: no." The tomography package converts "stable reconstruction is
+open" into exact conditioning constants (`4^R`, `2^R`, `1` for the three
+probe families) and says the remaining burden is forward analytic control.
+
+What of this is algebra the corpus can check, and is being composed now:
+the Peirce form of §5.11's gluing defect (`PU_{h+k}P − PU_hPU_kP` is the
+off-sector mass, in any ring with a complete orthogonal family of
+idempotents), D0015 §15.8's fixed-charge convolution, D0026 §5.5's
+`Φ_n(t) = t^{Ω−ω}(t−1)^ω`, and D0022's T22.2–T22.5 (the square-root
+horizon as a behavioural separator; centre, product and gap as Vieta
+coordinates). What is not: everything on the Kloosterman/Kuznetsov side,
+which is the frontier the transmissions themselves name.
