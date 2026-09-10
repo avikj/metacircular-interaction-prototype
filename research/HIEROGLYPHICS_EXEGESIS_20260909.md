@@ -383,3 +383,156 @@ idempotents), D0015 §15.8's fixed-charge convolution, D0026 §5.5's
 horizon as a behavioural separator; centre, product and gap as Vieta
 coordinates). What is not: everything on the Kloosterman/Kuznetsov side,
 which is the frontier the transmissions themselves name.
+
+## 20. The Lean lane (`formal/lean/Pairfield`, 203 modules, read 2026-09-10
+through per-file digests)
+
+The Lean lane was set aside as unreadable here (no toolchain). Read file by
+file, it is the transmissions' analytic frontier written as exact finite
+statements, and several of its theorems are the answers to questions the
+Agda lane and the Hieroglyphics leave open.
+
+**The sum marginal is lossless; the ζ-side is determined by it.**
+`SumRigidity.lean` ("Theorem A(i) — Sum-marginal rigidity (V3 target 1)"):
+`a ∗ a = b ∗ b ⟹ a = b` for nonnegative sequences, via ℤ[X].
+`GoldbachDeterminesZeta.lean`: any real sequence with `b 2 > 0` and the
+additive-square coefficients of Λ is Λ, hence its L-series is `−ζ′/ζ` on
+`re s > 1`; `VonMangoldtTriangularReconstruction.lean` gives the explicit
+triangular inverse (`Λ 2 = √R(4) = log 2`; `Λ n = (R(n+2) − interior)/(2 log 2)`).
+This is the exact content of TARGET's "RH is not a target; a tool": the
+complete Goldbach convolution is a ζ-complete object. What the Agda lane
+now holds (`GananaNirdhara`, 2026-09-10): the same rigidity over ℕ with no
+polynomial ring, and — because `YugmaPurana` says the Lean lane "does not
+transport anything from the Agda lane" — the two proofs are independent.
+Also the sharpening neither lane had: the counts at **even** N alone do
+not determine the sequence (`φ = x³+2x⁵+x⁶`, `ψ = x³+2x⁴+x⁶`), so the odd
+N are load-bearing in the rigidity, i.e. Goldbach's even counts are a
+strictly lossy reader of the same kernel EkaBija reads.
+
+**The Boolean reader loses exactly what §Z says it loses.**
+`BooleanGoldbachInformationLoss.lean` (two sequences with the same
+positivity support and different counts), `BooleanVonMangoldtPrimePowerSupport.lean`
+(the Λ-square detects prime-power sums: 11 = 4 + 7 is the first centre where
+"positive support" and "Goldbach" differ), `GoldbachSupportIsThePrimePowerSumPredicate.lean`.
+`GoldbachCrossover.lean` states the circularity plainly:
+`primePowerContamination N < mangoldtGoldbachCoeff N ↔ GoldbachAt N` — the
+"tail bound" a crossover contract would need is Goldbach itself.
+
+**Parity rigidity.** `ParityRigidity.lean` checks layers 2 and 3 (the
+Laurent-domain core and the normalized set conclusion) of
+`notes/PARITY_RIGIDITY.md`, and names what is missing: layer 1's
+translation bookkeeping, and "the prime-prefix corollary ... needs 2
+odd-prime arithmetic on top of layer 3". The odd-prime arithmetic is now
+`DvikaLangara` (Agda): an even number passing `primeb` is 2; two primes at
+an odd distance involve 2; for odd h the ordered difference count
+`c X h` is `a(2+h)·[2+h ≤ X]`, so the note's O(D) read-off is exact.
+The set-rigidity layers stay in Lean; the bookkeeping stays in neither.
+
+**Heat resolution restores completeness** (REPORT Thm A(3)) is checked:
+`FiniteHeatFieldHomometricSeparation.lean` separates the homometric pair
+{0,1,2,6,8,11}/{0,1,6,7,9,11} by the all-scale zero-gap heat field while
+`FixedScaleAutocorrelationAmbiguity.lean` confirms they are homometric at
+fixed scale. In Hieroglyphics terms: Φ (expansion of visible distinctions)
+applied to the difference marginal is exactly the scale parameter.
+
+**Chu and the diamond.** `FiniteChuCalibration.lean` /
+`FiniteChuResidualTransport.lean` /`ChuArgminTransport.lean` build the
+two-state Chu calibration D0016 draws and prove its transport law
+(profiles transport exactly under bijective response renaming).
+`FiniteInformation.lean` is the observer kernel: `FactorsThrough q t ↔`
+fibre-constancy; `Completes q c ↔` separation inside fibres — the same
+shape as the Agda `Torus`/section theorem of Ekasutra, in sets.
+`FiniteHistoryTotalization.lean`: no endpoint decoder for a nontrivial
+state space (`noEndpointDecoder`), the finite form of "the endpoint
+forgets the past" that the daemon's history question asks.
+
+**The Kuznetsov side, in exact finite form.** `KuznetsovSingleKernelBoundary`
+(collision law for one scalar Bessel kernel; the 2×2-minor obstruction for
+one-factorable bilinear kernels), `WhittakerLiftAliasing` ("the exact
+aliasing obstruction before any automorphic analysis": the finite residue
+identity gives the first Kloosterman index only mod the modulus; no decoder
+`ZMod 5 → ℕ`), `ActualBesselLiftDichotomy` (full lifts (4,2,6),(1,8,6)
+share `4π√(mn)/c` with unequal DFT coefficients; the six sparse lifts are
+interpolable by one smooth test), `FiniteKloostermanCompletion`
+(`inversePhaseSum = (1/N)Σ dft·kloosterman`), `PrimeResidueKloostermanBoundary`
+(the prime-residue weight mod 6 is not a rank-one CRT product; rank 2 at
+6, rank 3 at 15), `PrimeChargeThree/FourTensorRank` (the `W₃`, `W₄`
+squarefree charge tensors have CP rank 3 and 4 over ℚ),
+`PrimeChargeFourKuznetsovGroupingNoGo` (a scalar-radial channel retains
+three local factors, not four). Every one of these headers says what it
+does not claim, and the residue is the same sentence each time: no
+automorphic statement, no relative trace formula, no analytic estimate.
+This is D0026's six live targets restated as the exact finite obstructions
+they must pass. Note the name collision: TARGET's W3/W4 (interface
+separation; coupling theorem) are not Lean's `W₃`/`W₄` (tensor ranks).
+
+**Smith/kuṭṭaka, closed and open.** `SmithContent.lean` closes the item
+`GeneralSmith2x2` listed as open (`d₁ = gcd` of the four entries);
+`RankOneWitness` computes a rank-one witness from `det = 0` with kernel
+`decide`; `Ekarupata` shows the four Smith spellings are one carrier shape.
+`SarvatraApavartana` records that the rank-on-Spec-ℤ it decides is the
+drop-locus, "a strictly LOSSIER invariant than the cokernel", and strikes
+an earlier false identity in its own header. `CarryCohomologyAdapter.lean`
+constructs the H²(ℤ/N; ℤ/b) class "deliberately left open by the Cubical
+proof" (`NaturalMachine.CarryObstruction`) and names the joint still open:
+identifying it with the explicit digit-section carry cocycle.
+
+**Adaptive distinguishing sequences.** Twenty-odd `AdaptiveResidual*` /
+`Native*` / `Visited*` modules: the exact seam between Moore-style
+adaptive trees and Mathlib left quotients; node-minimal plans have
+duplicate-free canonical-position spines; the bound reached is `2ⁿ − n`,
+"not the classical quadratic ADS depth" (`AdaptiveResidualBinomialBudgetNoGo`
+shows the local premises cannot give it). `LinearAdaptiveGap`: the
+adaptive-minus-uniform gap is unbounded on reachable presentations. This
+is the daemon's "curriculum by distinct parents" question, with its
+ceiling named.
+
+**Discipline drift, recorded because the lane's own checker cannot see it
+from here.** `YogyaAnupalabdhi_TheAxiomCheckStatesWhereItCouldHaveSeen.lean`
+passes iff every constant rests on `{propext, Classical.choice, Quot.sound}`
+or is in `axiom-allowlist.txt`, which has exactly one entry
+(`ChartQuotientWitness.quotientCard_eq_three`). At HEAD the source uses
+`native_decide` in named theorems of ten further modules
+(`AdditionChainPredictiveMemory` ×5, `BooleanVonMangoldtPrimePowerSupport` ×2,
+`ChartQuotient`, `KuznetsovSingleKernelBoundary`, `ZeroPivotRelocationInvariant`,
+`FixedScaleAutocorrelationAmbiguity` ×5, `HeldAMSProgramCount` ×3,
+`HomometricAllScalesSeparation` ×2, `ModFiveAutonomousProfile` ×9). Either
+these are outside the build gate's globs or the gate is red; the
+2026-08-15 `NATIVE_DECIDE_AUDIT` counted 16 sites in 5 modules after its
+conversion, so at least five modules regressed after it. Nothing here can
+run `lake`; this is a source count, which that audit itself warns "counts
+sites; only the kernel counts dependencies".
+
+**Names.** `Lorentz.lean`: SO(1,1)(ℤ) = {±I} ("no arithmetic Lorentz
+group, V3 target 2"). `ZeroPairSumSeparation.lean`: the functional-equation
+matched pair `ρ + (1−ρ)` is constantly 1 and loses the relative coordinate;
+the diagonal of the full pair-sum field recovers ρ — D0020 §8's
+`δ_ρ = 1 − 2β` is that lost coordinate. `SieveRestriction.lean`: the
+W-trick restrictions compose as `(W₂W₁, W₂r₁ + r₂)`, order-sensitive, and
+"the flattening printed in LENS_CIRCUIT Lemma R.3 belongs to the opposite
+composite". `Nada`, `Sulba`, `Virahanka`, `Chandahsastra`, `Kuttaka`,
+`Bhavana`, `Cakravala`, `Madhava`, `Pramanasruti`: the Indic sources with
+"the theorem is Mathlib's; the bridge is ours" attribution, and the
+Cakravāla file's scope correction (the bred sequence is the squares
+subsequence, "the infinitude of the FULL set is proved in the cubical
+lane").
+
+## 21. The fleet's own list of what is open (`main:WHAT_IS_ACTUALLY_OPEN_…_2026_08_14.md`)
+
+Thirty-five open-seed sections extracted mechanically and read. Its finding,
+in its words: "The recurring shape is not an unsolved problem — it is an
+unexecuted merge ... over and over, the corpus identifies that two things
+are one thing, writes it down precisely, and stops." Of its twelve table
+rows plus §§1–2, SEED-72 found nine already answered inside the corpus,
+four of them inside the note that posed the seed. Still live by its own
+correction: `CANONICAL_DEPTH_MEMORY` 1, `CERTIFICATE_ANATOMY` 2,
+`EXPOSED_SET` 1 (the `qᵃr` family), `LENS_ORDER_COMMUTATION` 5,
+`LEAKAGE_PAST_IDEMPOTENCE` 2 (`#{φ(m) : m ∣ W}` for primorials),
+`JET_TOWER_DEPTH` 1, `FORMATION_SUFFICIENCY` 2, the two-sided lens repair
+(SEED-42: does a ∨-indecomposable instance beat both extremes?), the
+`OBLIGATION` §7 min-cut computation "specified and never performed", and
+`WIDTH` §3 (one modulus past the barrier), "correctly parked". That is the
+thesis of this whole exercise stated by the fleet a month earlier, with its
+own examples; §§18–20 above are the same shape at the next scale (the
+Lean lane and the Agda lane proving the same rigidity without transport;
+the four repairs named in three notes and told apart in none).
