@@ -34,6 +34,7 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 import Cubical.Data.Int as ℤ
 open ℤ using (ℤ ; pos ; negsuc)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+import Cubical.Data.Nat
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver
 
@@ -121,18 +122,46 @@ F (suc (suc k)) = [ pos 2 / 1+ (4 Cubical.Data.Nat.· k) ]
 prathama : ((F 2 + F 3) - F 0) - F 1 ≡ [ pos 352 / 1+ 104 ]
 prathama = refl
 
--- (4/49 + 4/9 + 4 + 4/25) = 51664/11025, then /64 = 51664/705600
-dvitīya : (((F 0 · F 0) + (F 1 · F 1)) + (F 2 · F 2)) + (F 3 · F 3) ≡ [ pos 51664 / 1+ 11024 ]
-dvitīya = refl
+-- (4/49 + 4/9 + 4 + 4/25) = 51664/11025, on representatives by computation.
+-- The sum of squares is named and kept opaque: its one computation (≈ 10⁵
+-- unary sucℤ steps) happens here, inside the abstract block, and outside
+-- it every comparison against Σ² is structural.
+abstract
+  Σ² : ℚ
+  Σ² = (((F 0 · F 0) + (F 1 · F 1)) + (F 2 · F 2)) + (F 3 · F 3)
 
--- and 51664/705600 = 3229/44100: cancelling the common factor 16 exactly
-cancel : (k : ℕ) (a : ℤ) (m : ℕ) → [ pos (suc k) ℤ.· a / (1+ k) ·₊₁ (1+ m) ] ≡ [ a / 1+ m ]
-cancel k a m = eq/ _ _ sākṣī
+  dvitīya : Σ² ≡ [ pos 51664 / 1+ 11024 ]
+  dvitīya = refl
+
+-- (1/64) · (51664/11025) = 51664/705600, on representatives: the ℤ
+-- product pos 1 · pos 51664 is one step, the ℕ₊₁ product is builtin.
+caturtha : [ pos 1 / 1+ 63 ] · [ pos 51664 / 1+ 11024 ] ≡ [ pos 51664 / 1+ 705599 ]
+caturtha = refl
+
+-- and 51664/705600 = 3229/44100: cancelling the common factor 16.
+--
+-- The library's ℤ product is unary (pos (suc n) · m = m + pos n · m, and
+-- _+_ iterates sucℤ), and Agda's conversion checker unfolds any ℤ
+-- product it meets in a type, so a cross-multiplication of size 10⁹
+-- can never appear in a signature.  The cancellation is therefore a
+-- lemma whose only numeric hypotheses are equations between builtin
+-- ℕ literals, which Agda's primitive arithmetic decides at once; the
+-- ℤ products live only inside the generic proof.
+sāmya : (n m k l M L : ℕ) → suc m ≡ M → suc l ≡ L
+      → n Cubical.Data.Nat.· L ≡ k Cubical.Data.Nat.· M
+      → [ pos n / 1+ m ] ≡ [ pos k / 1+ l ]
+sāmya n m k l M L pM pL h = eq/ (pos n , 1+ m) (pos k , 1+ l) sākṣī
   where
-  sākṣī : (pos (suc k) ℤ.· a) ℤ.· pos (suc m) ≡ a ℤ.· pos (suc k Cubical.Data.Nat.· suc m)
-  sākṣī = cong (ℤ._· pos (suc m)) (ℤ.·Comm (pos (suc k)) a)
-        ∙ sym (ℤ.·Assoc a (pos (suc k)) (pos (suc m)))
-        ∙ cong (a ℤ.·_) (sym (ℤ.pos·pos (suc k) (suc m)))
+  sākṣī : pos n ℤ.· pos (suc l) ≡ pos k ℤ.· pos (suc m)
+  sākṣī = sym (ℤ.pos·pos n (suc l))
+        ∙ cong (λ z → pos (n Cubical.Data.Nat.· z)) pL
+        ∙ cong pos h
+        ∙ cong (λ z → pos (k Cubical.Data.Nat.· z)) (sym pM)
+        ∙ ℤ.pos·pos k (suc m)
 
 tṛtīya : [ pos 51664 / 1+ 705599 ] ≡ [ pos 3229 / 1+ 44099 ]
-tṛtīya = cancel 15 (pos 3229) 44099
+tṛtīya = sāmya 51664 705599 3229 44099 705600 44100 refl refl refl
+
+-- The second series, assembled: (1/64)(F 0² + F 1² + F 2² + F 3²) = 3229/44100.
+dvitīya-sīmā : [ pos 1 / 1+ 63 ] · Σ² ≡ [ pos 3229 / 1+ 44099 ]
+dvitīya-sīmā = cong ([ pos 1 / 1+ 63 ] ·_) dvitīya ∙ caturtha ∙ tṛtīya
