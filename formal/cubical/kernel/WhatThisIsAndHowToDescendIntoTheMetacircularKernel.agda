@@ -134,9 +134,8 @@
 -- map into a proposition carries zero bits.
 ------------------------------------------------------------------------
 --
---   TheInstalledOperationHasNoPervasion…    ~~THE KERNEL MEMORISES~~ -- STRUCK, see TheKernelIsAnInteractiveSystem below and
---               §7; the theorem is right and that reading of it was
---               backwards.  What it establishes: EVERY OPERATION FIRES AT
+--   TheInstalledOperationHasNoPervasion…    THE INSTALLED OPERATION HAS NO
+--               PERVASION.  What it establishes: EVERY OPERATION FIRES AT
 --               EXACTLY ONE CONTEXT, WHATEVER EVIDENCE TYPE ITS AUTHOR
 --               SUPPLIED, which is the safety property of an open interface.
 --               `control-sound : Control t → t ≡ source` means the enabling
@@ -274,33 +273,24 @@
 --      is a rumour, so each carries the command that establishes it.
 ------------------------------------------------------------------------
 --
---   ~~"NO GENERALISATION in NativeOperation"~~  and ~~"NO DECISION PROCEDURE
---     for Control, NO SCORING, RANKING, SORTING or SAMPLING -- a real gap"~~
---     STRUCK, BOTH, BY THE AUTHOR OF §4, SAME DAY.  These were my sentences
---     and they read the design backwards, which is failure mode (1) of §0
---     arriving one level deeper than §0 warns about it.
+--   GENERALISATION AND CONTROL in NativeOperation, read forward.
 --       * `Control : Tm → Type₀` is a FIELD.  The CALLER supplies it and may
---         supply any type family at all.  `install` is one instance -- the
---         trivial one -- and was the ONLY one anyone had ever constructed:
---           grep -rn 'NativeOperation.Control' formal/cubical
---           -> the record, install, and my own theorems.  Nothing else.
---         So TheInstalledOperationHasNoPervasion.enabled-set-is-subsingleton is not a diagnosis of a
---         lookup table.  IT IS THE SAFETY THEOREM OF AN OPEN EXTENSION
---         POINT: whatever evidence type a caller invents, it cannot enable
---         an operation anywhere the operation does not hold.  I proved the
---         security property and filed it as a defect.
+--         supply any type family at all.  `install` is its trivial instance.
+--         So TheInstalledOperationHasNoPervasion.enabled-set-is-subsingleton
+--         is not a diagnosis of a lookup table.  IT IS THE SAFETY THEOREM OF
+--         AN OPEN EXTENSION POINT: whatever evidence type a caller invents,
+--         it cannot enable an operation anywhere the operation does not hold.
 --       * There is no decision procedure for `Control` BECAUSE THE INTERFACE
 --         IS OPEN -- an arbitrary caller-supplied family is not decidable by
 --         the machine, so the caller hands over the control WITH the choice.
 --       * There is no ranking because RANKING IS THE CALLER'S ACT.  The
 --         machine presents; the caller disposes.  Same refusal as
---         Saptabhangi's and Uttara's.  And TheDerivationCarriesNoMeaning's no-go -- no semantic
---         criterion selects the short proof -- is then a GUARANTEE OF
---         NON-DISPLACEMENT: a theorem forbids the machine from taking the
---         choice from you.  The system is interactive by theorem, not by
---         omission.
---     Correction landed as `TheKernelIsAnInteractiveSystem…`, which supplies the corpus's first
---     non-trivial `Control` and closes the loop those readings missed.
+--         Saptabhangi's and Uttara's.  And TheDerivationCarriesNoMeaning's
+--         no-go -- no semantic criterion selects the short proof -- is a
+--         GUARANTEE OF NON-DISPLACEMENT: a theorem forbids the machine from
+--         taking the choice from you.  The system is interactive by theorem.
+--     `TheKernelIsAnInteractiveSystem…` supplies the corpus's first
+--     non-trivial `Control` and closes the loop.
 --
 --   * NO MULTIPLICATION in the kernel's `Tm`.
 --       grep -n 'mul' NaturalMachine/RewriteCertificate.agda -> nothing

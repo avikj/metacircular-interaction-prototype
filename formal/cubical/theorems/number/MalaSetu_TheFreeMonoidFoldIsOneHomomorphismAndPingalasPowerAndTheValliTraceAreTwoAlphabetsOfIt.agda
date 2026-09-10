@@ -54,7 +54,7 @@
 -- The corpus's scale-free design law, here as a checked term rather than
 -- a resemblance.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * That `replay` and this `foldMap L` are the SAME TERM across module
 --     boundaries — `KuttakaValli` is parametrised by its own monoid and
 --     is not imported here; the identity is clause-level and stated, and

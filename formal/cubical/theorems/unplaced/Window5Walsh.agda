@@ -81,7 +81,7 @@
 --                        implication; they are recorded because the
 --                        retired script recorded them.
 --
--- WHAT IS *NOT* CLAIMED.
+-- SCOPE.
 --   * The Liouville / logarithmic-Chowla theorem is NOT refuted.  What
 --     is exhibited is a stationary measure satisfying the five-window
 --     correlation inputs and violating the intermediate orbit count.

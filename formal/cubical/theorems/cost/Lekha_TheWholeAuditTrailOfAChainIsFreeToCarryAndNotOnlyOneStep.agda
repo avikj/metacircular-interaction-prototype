@@ -28,8 +28,8 @@
 -- carried witness are one object — is that sentence, and §२ is the part
 -- of it that has to be true for the economics to work.
 --
--- SYĀT — THE CLAIM, EXACTLY.  ~~Two steps, not n.~~ **§३ closes this: the
--- n-fold case is proved by induction for an iterated endomorphism.**
+-- SYĀT — THE CLAIM, EXACTLY.  §३ proves the n-fold case by induction for
+-- an iterated endomorphism, not merely two steps.
 -- What is still not claimed: nothing about time,
 -- space, joules, or Landauer is claimed: this is an informational
 -- statement about degrees of freedom and nothing else.  And it says

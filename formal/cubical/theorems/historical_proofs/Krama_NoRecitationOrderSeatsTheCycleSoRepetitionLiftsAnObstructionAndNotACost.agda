@@ -58,7 +58,7 @@
 -- to the RIGHT of the start, and never asks anything of what stands left.
 -- That is the whole mechanism, and it is why the obstruction is not a cost.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --
 --   * That the śiva-sūtra family contains such a cycle.  IT DOES, and the
 --     first draft of this header said the opposite.  Three ATTESTED

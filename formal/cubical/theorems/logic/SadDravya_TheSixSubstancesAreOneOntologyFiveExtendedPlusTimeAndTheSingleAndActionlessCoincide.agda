@@ -38,7 +38,7 @@
 --       conservation law (`Pudgala.द्रव्य-नित्यम्`, `DharmaAdharma`,
 --       `Kala`) instantiates.
 --
--- WHAT IS **NOT** CLAIMED.  Doctrine is Umāsvāti's; the type theory is
+-- SCOPE.  Doctrine is Umāsvāti's; the type theory is
 -- cubical.  kāla as the sixth is the Digambara reading (marked); the
 -- Śvetāmbara pañcāstikāya counts five and takes kāla as upacāra — this
 -- file encodes the six-dravya schema and says so.  The substances'

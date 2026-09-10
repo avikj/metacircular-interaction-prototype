@@ -111,7 +111,7 @@
 -- ALL |c| < 1" itself is the hand proof above and is NOT claimed as a
 -- kernel object.
 --
--- WHAT IS *NOT* CLAIMED, restated from Window5Walsh:
+-- SCOPE, restated from Window5Walsh:
 --   * No claim about the text of the published paper is made by this
 --     module; the paper-reading clause of R0021 (that §7 of the paper
 --     actually asserts the flip step in the audited form, and that no

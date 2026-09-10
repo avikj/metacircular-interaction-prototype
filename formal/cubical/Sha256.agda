@@ -30,7 +30,7 @@
 --   * व्युत्क्रम-द्वयम् — notW is an involution (a small structural fact
 --     proved for every length, not only 32).
 --
--- WHAT IS NOT CLAIMED.  No security property — collision resistance,
+-- SCOPE.  No security property — collision resistance,
 -- preimage resistance — is stated or provable here; those are not
 -- theorems of the function but conjectures about adversaries.  The two
 -- vectors certify the IMPLEMENTATION against the standard's own

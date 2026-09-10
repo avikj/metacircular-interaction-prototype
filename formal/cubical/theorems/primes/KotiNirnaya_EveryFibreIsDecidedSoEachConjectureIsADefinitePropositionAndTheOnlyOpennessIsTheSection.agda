@@ -33,7 +33,7 @@
 --   §5  twin-dec, collatz-dec — the other two families' fibres decided,
 --       so the same statement holds across the constellation.
 --
--- WHAT IS NOT CLAIMED.  No inhabitant of any section is produced; the
+-- SCOPE.  No inhabitant of any section is produced; the
 -- conjectures remain open.  Decidability of a fibre is not decidability of
 -- the section — a Π over a decidable predicate need not itself be
 -- decidable, and no claim is made that it is.  This is the constructive

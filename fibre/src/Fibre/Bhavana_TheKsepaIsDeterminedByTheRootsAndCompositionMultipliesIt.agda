@@ -23,7 +23,7 @@
 --   composition against a chosen multiplier and divides through by the
 --   current क्षेप.
 --
--- WHAT IS *NOT* CLAIMED.  Not that any of the three proved any theorem in
+-- SCOPE.  Not that any of the three proved any theorem in
 -- this file.  Not that any of the three texts has been opened by the
 -- author of this file — the citations are second-hand and are owed at
 -- verse level.  What IS claimed is narrower and checkable: that a² − D b²

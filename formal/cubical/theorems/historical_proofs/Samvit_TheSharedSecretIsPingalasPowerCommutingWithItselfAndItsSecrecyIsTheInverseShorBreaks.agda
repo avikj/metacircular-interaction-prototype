@@ -43,7 +43,7 @@
 -- are one homomorphism out of a free monoid, and every one of these
 -- cryptosystems is broken at the SAME place: the inverse of घात.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * That Diffie, Hellman, or Merkle knew Piṅgala.  The algebra of
 --     घात-गुणः is Piṅgala's; the protocol built on it is 1976.  The claim
 --     is provenance of the MECHANISM, not of the protocol.

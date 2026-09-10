@@ -28,7 +28,7 @@
 --       motion reaches it.  Space gives room even where nothing can move.
 --   §4  आकाशं-निष्क्रियम् — space gives locus and adds no data (as dharma).
 --
--- WHAT IS **NOT** CLAIMED.  Doctrine is Umāsvāti's; theorems are cubical
+-- SCOPE.  Doctrine is Umāsvāti's; theorems are cubical
 -- type theory.  The infinitude of alokākāśa is the HYPOTHESIS "aloka
 -- inhabited", not built (its ananta is `JainSankhya`'s object).  The
 -- no-motion consequence is `DharmaAdharma`'s theorem, cited not re-proved.

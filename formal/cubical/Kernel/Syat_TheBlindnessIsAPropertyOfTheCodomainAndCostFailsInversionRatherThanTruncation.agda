@@ -57,12 +57,10 @@
 -- it is exactly `len d + len d`.
 --
 ------------------------------------------------------------------------
--- A CORRECTION OF MY OWN, LANDED THE SAME DAY, STRUCK IN PLACE.
+-- THE SEPARATION IS BY INVERSION, NOT h-LEVEL.
 --
--- ~~"§1 gives sufficiency of `isSet`; that a NON-set codomain separates
--- the kernel's two histories is not shown here and needs a model landing
--- in a genuine groupoid."~~  I wrote that as an open item.  IT IS NOT
--- OPEN AND IT IS NOT AVAILABLE: no such model exists, at any h-level.
+-- No model landing in a genuine groupoid separates the kernel's two
+-- histories -- none exists, at any h-level.
 --
 -- §3 proves it.  `detour-history` is `s ; reverse s ; direct-history`, and
 -- EVERY semantics sends `reverse` to `sym`, so that round trip is the

@@ -74,7 +74,7 @@
 -- edge composes with every old one).  This is the inversion, and it
 -- type-checks.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * Any economics as a theorem — §§2–5 are the type-theoretic FACTS
 --     (composition, non-linearity of proofs, closed vs. hypothetical
 --     terms, reversibility of transport); the monetary reading is the

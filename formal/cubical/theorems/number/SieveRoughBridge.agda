@@ -96,7 +96,7 @@
 --   §8  `bridge-needs-the-horizon-bound`  sharpness, as above.
 --
 --
--- WHAT IS *NOT* CLAIMED
+-- SCOPE
 --
 --  * **`Ω` is not bridged.**  `SieveFiber` §4's exhaustion concludes
 --    `(Ω (rough n) ≡ 1) × (5 < rough n)`; this module concludes

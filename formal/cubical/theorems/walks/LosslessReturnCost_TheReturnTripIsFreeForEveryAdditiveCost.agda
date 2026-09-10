@@ -40,7 +40,7 @@
 -- second and it proves less.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS *NOT* CLAIMED
+-- SCOPE
 --
 -- Not that the two standpoints below are the nayas TransportPrice was
 -- written about; `Anekanta`'s standpoints are charts on a structure and

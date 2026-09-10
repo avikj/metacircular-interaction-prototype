@@ -24,7 +24,7 @@
 -- is the precise shape of this class of open problem, now sitting in
 -- the corpus as three uninhabited-so-far types.
 --
--- WHAT IS NOT CLAIMED.  No inhabitant of Goldbach, TwinPrimes, or RH
+-- SCOPE.  No inhabitant of Goldbach, TwinPrimes, or RH
 -- is offered.  The instances checked below are finitely many and prove
 -- nothing about the closures.
 ------------------------------------------------------------------------

@@ -39,7 +39,7 @@
 --   §3  आच्छादनम् : f is SURJECTIVE iff every fibre is inhabited — the
 --       quotient (image) is all of B iff nothing in B is unseen.
 --
--- WHAT IS **NOT** CLAIMED.  The equivalence is a standard cubical fact
+-- SCOPE.  The equivalence is a standard cubical fact
 -- (the domain is the total space of its own fibration); no novelty in it.
 -- The novelty claimed is only the IDENTIFICATION: that the isomorphism
 -- theorem, rank–nullity, dravya/paryāya, and nayavāda are one law, made a

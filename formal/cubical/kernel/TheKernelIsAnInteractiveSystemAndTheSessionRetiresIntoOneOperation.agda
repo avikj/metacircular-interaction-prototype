@@ -15,37 +15,31 @@
 -- sense, which happens to be exactly this record's double role.
 --
 ------------------------------------------------------------------------
--- A CORRECTION FIRST, BECAUSE IT IS MINE AND IT IS LOAD-BEARING.
+-- WHAT THE ADJACENT THEOREMS ESTABLISH, READ FORWARD.
 --
--- `TheInstalledOperationHasNoPervasion…`, `TheDerivationCarriesNoMeaning…` and `WhatThisIsAndHowToDescend…` §7 read this kernel as a static
--- artifact and reported its limits.  The theorems there are true and the
--- READING WAS BACKWARDS.  Three claims are struck here, in place:
+-- `TheInstalledOperationHasNoPervasion…`, `TheDerivationCarriesNoMeaning…`
+-- and `WhatThisIsAndHowToDescend…` §7 read forward as the interactive
+-- design of this kernel:
 --
---  ~~"the kernel memorises"~~  `Control : Tm → Type₀` is a FIELD.  The
---    caller supplies it, and may supply ANY type family whatsoever.
---    `install` is one instance -- the trivial one -- and until now the only
---    one anybody had ever constructed:
---        grep -rn 'NativeOperation.Control' formal/cubical
---        -> the record, install, and my own theorems.  Nothing else.
---    So `enabled-set-is-subsingleton` is not a diagnosis of a lookup table.
---    It is THE SAFETY THEOREM OF AN OPEN EXTENSION POINT: whatever evidence
---    type a caller invents, it cannot enable the operation anywhere the
---    operation does not hold.  §1 supplies the first non-trivial `Control`
---    in the corpus and shows the theorem covers it for free.
+--    `Control : Tm → Type₀` is a FIELD the caller supplies, and may be ANY
+--    type family whatsoever.  `install` is its trivial instance.  So
+--    `enabled-set-is-subsingleton` is THE SAFETY THEOREM OF AN OPEN
+--    EXTENSION POINT: whatever evidence type a caller invents, it cannot
+--    enable the operation anywhere the operation does not hold.  §1
+--    supplies the first non-trivial `Control` in the corpus and shows the
+--    theorem covers it for free.
 --
---  ~~"no scoring, ranking, sorting or sampling -- a real gap"~~  It is the
---    design.  `advance` does not dedupe, sort or quotient because RANKING IS
---    THE CALLER'S ACT.  The machine presents; the caller disposes.  That is
---    the same refusal as `Saptabhangi`'s (a boolean verdict is a
---    theorem-grade error) and `Uttara`'s (never a bare verdict).
+--    `advance` does not dedupe, sort or quotient because RANKING IS THE
+--    CALLER'S ACT.  The machine presents; the caller disposes -- the same
+--    refusal as `Saptabhangi`'s (a boolean verdict is a theorem-grade
+--    error) and `Uttara`'s (never a bare verdict).
 --
---  ~~"no semantic criterion selects the short proof -- a no-go"~~  It is a
---    GUARANTEE OF NON-DISPLACEMENT.  `TheDerivationCarriesNoMeaning…` proves the machine can never
---    take the choice from you on semantic grounds.  The system is
---    interactive by theorem, not by omission.
+--    That no semantic criterion selects the short proof is a GUARANTEE OF
+--    NON-DISPLACEMENT: `TheDerivationCarriesNoMeaning…` proves the machine
+--    can never take the choice from you on semantic grounds.  The system is
+--    interactive by theorem.
 --
--- The generative content of the correction is §2: the loop those readings
--- missed was never written down, and it closes in one line.
+-- The generative content is §2: the loop closes in one line.
 --
 ------------------------------------------------------------------------
 -- WHAT THE KERNEL ACTUALLY IS.

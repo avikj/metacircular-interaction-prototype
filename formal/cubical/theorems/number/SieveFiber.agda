@@ -102,7 +102,7 @@
 --                         X → ∞, and the required X grows with k.
 --
 --
--- WHAT IS *NOT* CLAIMED.
+-- SCOPE.
 --   * Nothing is proved for general X.  Every statement here is about
 --     X = 30, verified exhaustively.  The X-uniform statements are
 --     conjectures this file does not touch.  In particular the

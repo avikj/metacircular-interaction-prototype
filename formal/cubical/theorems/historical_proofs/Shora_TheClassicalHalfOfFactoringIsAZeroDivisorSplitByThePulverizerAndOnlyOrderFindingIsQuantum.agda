@@ -49,7 +49,7 @@
 -- classical = faith (part 1) + the pulverizer (part 3); quantum = part 2
 -- alone.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * The probability bound (part 1).  Stated, not proved.
 --   * Order-finding (part 2).  The quantum step; not here.
 --   * That the zero-divisor gives a factor in ℤ/N specifically — that

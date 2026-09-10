@@ -37,7 +37,7 @@
 --       (a path between them); being "the canonical one" is not a property
 --       the space distinguishes.
 --
--- WHAT IS **NOT** CLAIMED.  `EquivContr` is the library's (the content of
+-- SCOPE.  `EquivContr` is the library's (the content of
 -- univalence); no novelty in it.  The identification — that it IS the four
 -- marks of anekāntavāda, so univalence is the doctrine and not a tool that
 -- resembles it — is the claim.  Doctrine is Jaina; the mechanization is

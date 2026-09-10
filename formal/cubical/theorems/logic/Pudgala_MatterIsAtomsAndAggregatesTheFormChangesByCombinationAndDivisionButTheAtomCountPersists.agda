@@ -44,7 +44,7 @@
 --         admits no division into two nonempty parts (5.27's limit of
 --       bheda).  The atom is where cutting stops.
 --
--- WHAT IS **NOT** CLAIMED.  That Umāsvāti proved these (doctrine his,
+-- SCOPE.  That Umāsvāti proved these (doctrine his,
 -- theorems cubical type theory).  The qualia of 5.23 (touch/taste/smell/
 -- colour) are NAMED, not modelled — a paramāṇu here is an abstract atom,
 -- and its rūpitva is not encoded.  Order/binding geometry of a skandha is

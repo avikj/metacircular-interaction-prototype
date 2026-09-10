@@ -64,7 +64,7 @@
 -- again.  §4 states the classical half of that reduction as a hypothesis
 -- and marks the quantum half as the owed frontier; it is NOT proved here.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * Euler's theorem itself (`pow x φ ≡ ε`).  It is the hypothesis, not
 --     a lemma — deliberately, because the point is that RSA's correctness
 --     isolates to exactly this one fact.  Proving it (order divides φ,
