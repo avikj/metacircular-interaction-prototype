@@ -20,7 +20,6 @@
 -- `PerspectiveCore.SectorBreak`: a sector predicate is one structure,
 -- and a sector break is one way `Def` fails to be inhabited.
 --
---
 -- WHAT IS CHECKED, BY DELTA-15 NUMBER
 --
 --   §1  `StructuredEquiv`     D15.5.
@@ -99,7 +98,6 @@
 --                             invariants is dual to search for
 --                             equivalences" is therefore not two search
 --                             problems but one.
---
 --
 -- SYĀT — THE CLAIM, EXACTLY
 --
@@ -255,10 +253,6 @@ failedEquivQuestion b bad e = bad (e .equiv-proof b)
 ------------------------------------------------------------------------
 -- 4.  STABILISERS  (D15.8, T15.9, C15.10)
 --
--- SCOPE.  Delta 15 says the stabiliser is a subgroup.  Here `G` is an
--- arbitrary family of self-equivalences of `A` rather than a group
--- object, so what is proved is closure under identity, composition and
--- inverse.  That is the usable content; the group packaging is not here.
 ------------------------------------------------------------------------
 
 module _ (Str : Type ℓ → Type ℓ') {A : Type ℓ} (s : Str A) where

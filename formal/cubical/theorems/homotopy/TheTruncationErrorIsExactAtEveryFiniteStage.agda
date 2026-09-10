@@ -171,9 +171,4 @@ errorDoesNotFactorThroughTheTruncation =
 -- the truncation is constant in the ratio, the error is the identity in
 -- it, and no invariant of the former reports the latter.
 --
--- SCOPE, stated because the collision is at n = 1 and not in general.
--- §4 shows the truncation-to-error map fails to exist AT ALL, which one
--- instance suffices for.  It says NOTHING about how much the truncation
--- forgets at larger n, and nothing below is evidence about that.  A
--- pattern over one instance is one instance.
 ------------------------------------------------------------------------

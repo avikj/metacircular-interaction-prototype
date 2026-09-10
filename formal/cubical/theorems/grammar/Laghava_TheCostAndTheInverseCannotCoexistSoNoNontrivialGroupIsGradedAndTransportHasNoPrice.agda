@@ -85,11 +85,6 @@
 --                 witness `Unit → Bool → Unit ≡ id` is exactly a
 --                 non-unit element of measure zero.
 --
--- SCOPE.  No braiding (`Braid-
--- CoherenceBoundary` refutes invertibility ⇒ Yang–Baxter).  No
--- thermodynamics: no heat, energy, temperature, entropy or Landauer
--- bound is derived or implied, and "cost" here is the grammarians'
--- lāghava and a natural number, nothing else.
 ------------------------------------------------------------------------
 
 module Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice where

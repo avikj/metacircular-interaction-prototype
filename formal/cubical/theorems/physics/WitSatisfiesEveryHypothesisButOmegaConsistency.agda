@@ -47,7 +47,6 @@ open import RepresentabilityIsNotEnoughForIndependence
 -- propositionally deviant, and it is not.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE SCOPE, EXACTLY
 --
 -- That ω-consistency SUFFICES for any theory of interest.  §4 says only
 -- that dropping it from the six is what the derivation cannot survive

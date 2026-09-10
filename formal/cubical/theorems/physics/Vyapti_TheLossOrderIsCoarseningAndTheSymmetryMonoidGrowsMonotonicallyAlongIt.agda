@@ -58,8 +58,6 @@
 -- is the composite of the two halves of this file.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SCOPE.  This fence is the point of the file, in the
--- manner of `Dhruva`'s fence on Noether.
 --
 -- **There is no thermodynamics here.  None.**  No entropy, no measure,
 -- no temperature, no Boltzmann constant, no Hilbert space, no unitarity,

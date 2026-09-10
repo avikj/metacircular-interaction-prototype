@@ -31,11 +31,6 @@
 --      through it — and `through-the-middle-agrees` proves the mediation is
 --      the intended composite on lifted points.
 --
--- SCOPE, honestly: this is the abstract structure of motives (a universal
--- object whose realizations are projections, each owing a residual), made a
--- checked term. It is NOT Voevodsky's DM(k): no correspondences, no slice or
--- weight filtration, no realization functors into concrete cohomologies. The
--- name is for the shape the corpus already is.
 ------------------------------------------------------------------------
 
 module Fibre.TheCarrierIsTheMotiveAndEachReadingIsARealization where

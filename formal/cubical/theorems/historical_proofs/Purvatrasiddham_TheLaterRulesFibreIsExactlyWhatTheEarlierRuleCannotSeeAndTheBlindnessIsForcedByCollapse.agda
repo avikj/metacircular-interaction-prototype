@@ -89,13 +89,6 @@
 -- stated somewhere I did not reach, this is a re-derivation and the
 -- citation is owed.
 --
--- SCOPE OF THE CARRIER, so the model is not read as more than it is.  The
--- carrier is the pada-final consonant of `vāc` ("speech") along the
--- trajectory the derivation actually takes, exactly as in
--- `Asiddhatva.agda`, and the rules are their restrictions to it.  `ca` is
--- never presented to 8.2.39 in a real derivation because 8.2.30 has
--- already removed it; that is not assumed, it is `कस्यापि-न-चः` below.
---
 -- No postulates, no holes, --safe.  2026-08-22.
 ------------------------------------------------------------------------
 

@@ -29,12 +29,6 @@
 --       agreement-under-every-standpoint.  Pramāṇa is the totality of
 --       nayas, and it is faithful.
 --
--- SCOPE.  This is Leibniz's law / indiscernibility, a
--- standard fact; no novelty in it.  The identification is the claim: that
--- it is pramāṇa (the totality of standpoints) made the criterion of
--- sameness, the general form of `NayaVada.प्रमाणम्` — foundation of
--- identity as anekānta.  Doctrine Jaina; type theory cubical.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

@@ -59,8 +59,6 @@
 --                argument needs — which is fine, and is now a stated margin
 --                rather than an unexamined one.
 --
--- THE SCOPE, EXACTLY.
---
 --   * That `t₀ = (⌊√D⌋ − r) div n` DOES bracket, i.e. that
 --     (r + t₀·n)² ≤ D ≤ (r + (t₀+1)·n)².  That is a fact about `div` and
 --     `isqrt` in `machine/Nalanda.hs`, not about the choice rule, and it is

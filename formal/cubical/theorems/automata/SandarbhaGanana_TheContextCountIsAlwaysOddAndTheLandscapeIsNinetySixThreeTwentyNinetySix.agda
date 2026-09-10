@@ -41,11 +41,6 @@
 --    k = 3.  The landscape is symmetric about 3 — satisfaction and
 --    frustration are exchanged by the obstruction.
 --
--- SCOPE: the counts are kernel-computed constants (refl); the parity
--- rule's cocycle DERIVATION is stated in prose above and not re-proved
--- as a general theorem here — the seven pins are its complete finite
--- verification at the PM square.  Composed through नाडी; the question
--- was answered live before it was landed.
 ------------------------------------------------------------------------
 
 module SandarbhaGanana_TheContextCountIsAlwaysOddAndTheLandscapeIsNinetySixThreeTwentyNinetySix where

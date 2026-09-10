@@ -60,15 +60,6 @@
 -- "no motion in aloka".  The identification of the two is offered, not
 -- claimed; each is stated in its own vocabulary.
 --
--- SCOPE.  That Umāsvāti proved any of the terms below;
--- the doctrine is his, the theorems are cubical type theory (Voevodsky's
--- univalence is the substrate only).  Not formalised, and owed: pudgala
--- (matter/paramāṇu and combination), ākāśa (space/avagāhana), kāla
--- (time/samaya); the cosmology of loka/aloka as geometry; that dharma is
--- literally ONE (singleness is asserted in the header, not encoded — the
--- carrier here is abstract).  Only the FUNCTIONAL core — permission,
--- confinement, the bounding edge, the dual for rest — is checked.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

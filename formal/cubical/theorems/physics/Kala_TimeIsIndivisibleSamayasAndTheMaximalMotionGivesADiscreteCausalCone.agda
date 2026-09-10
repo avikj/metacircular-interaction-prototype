@@ -48,15 +48,6 @@
 --       below the instant (the doctrine's atom of time), exactly as the
 --       paramāṇu is the atom of matter (`Pudgala.अणुः-अविभाज्यः`).
 --
--- SCOPE.  That Umāsvāti proved these (doctrine his,
--- theorems cubical type theory).  The one-loka-per-samaya maximum is
--- commentarial and marked; no mūla-sūtra is asserted for it.  ākāśa
--- (space as avagāhana) is named but only its pradeśa-count is used here;
--- the geometry of the loka (its shape, its finite pradeśa total) is not
--- modelled — D is an abstract cap, not the computed loka-span.  Only the
--- causal-cone core — quantised time, a speed cap, the linear reachable
--- bound and its attainment — is checked.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

@@ -30,14 +30,6 @@
 --       points: what the two standpoints agree on, carried unchanged —
 --       the dravya of the adjunction.
 --
--- SCOPE.  A general adjunction of categories is not
--- built (that needs functors and naturality); the Galois connection is its
--- poset shadow and is what is checked.  Antisymmetry is not assumed, so
--- idempotence is stated up-to-≈ (≤ both ways), which is the honest
--- preorder statement.  The naya reading (two mutually-adjoint standpoints,
--- the closure as dhrauvya) is the identification claimed; doctrine is
--- Jaina, the type theory cubical.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

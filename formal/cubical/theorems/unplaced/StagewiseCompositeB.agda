@@ -69,19 +69,6 @@
 --                            |G| ≤ 2.  So only the passage to supports
 --                            costs; the G-valued ledger never does.
 --
--- SCOPE LIMITS (stated, not buried):
---   * `theoremB-iff` needs `Dec (Cancellation …)`.  Constructively
---     ¬(P × Q) does not split into ¬P ⊎ ¬Q, and realizability of a cell
---     by an arbitrary predicate T is not decidable.  The two one-sided
---     implications above are hypothesis-free and are the working form.
---   * TwoValued / ThreeValued are the constructive renderings of
---     |R| ≤ 2 and |R| ≥ 3 for a discrete type, as in StagewiseComposite;
---     no finiteness or cardinal arithmetic is used anywhere.
---   * Cor B.2 is proved for G ITSELF as the codomain (the torsor case is
---     G acting on itself); the general torsor and the nonabelian variant
---     the note mentions are not formalized here.
---   * The defect throughout is the EQUALITY defect.  Tolerance relations
---     (note §6) are untouched.
 ------------------------------------------------------------------------
 
 module StagewiseCompositeB where

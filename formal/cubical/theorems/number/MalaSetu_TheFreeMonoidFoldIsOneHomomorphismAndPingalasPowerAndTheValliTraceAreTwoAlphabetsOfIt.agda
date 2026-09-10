@@ -54,16 +54,6 @@
 -- The corpus's scale-free design law, here as a checked term rather than
 -- a resemblance.
 --
--- SCOPE:
---   * That `replay` and this `foldMap L` are the SAME TERM across module
---     boundaries — `KuttakaValli` is parametrised by its own monoid and
---     is not imported here; the identity is clause-level and stated, and
---     replayHom is re-proved there in its own monoid.  §5 exhibits the
---     structure concretely on ONE small non-commutative monoid so the
---     R-alphabet instance is not only prose.
---   * Any new theorem about RSA or the vallī themselves.  This unifies
---     what each already proved; it does not extend either.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

@@ -21,13 +21,6 @@
 -- type.  That is what the univalent construction buys over the
 -- classical one, and it needs nothing beyond what --safe admits.
 --
--- SCOPE.  The field operations, the order, and the
--- analysis tower (continuity, differentiation, the smooth/cohesive
--- layer, and any PDE statement) are NOT developed here; each is a
--- further construction over this base.  This module is the base: the
--- continuum exists in the corpus from its own axioms, and one
--- computation at the bottom shows the closeness relation deciding a
--- concrete instance.
 ------------------------------------------------------------------------
 
 module SantataDhara_TheContinuumBuiltFromTheAxiomsWithItsLimitsAsConstructors where

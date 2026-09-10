@@ -51,13 +51,6 @@
 --       between D and D′ needs a path D ≡ D′, i.e. they are one substance
 --       up to univalence — otherwise a written defect, the other road.)
 --
--- SCOPE.  Doctrine is Umāsvāti's and Siddhasena's; the
--- type theory is cubical (univalence Voevodsky's).  Modelling a dravya AS
--- its mode-space is the one interpretive choice, stated: it encodes
--- guṇa-paryāyavad dravyam with the substance as the identity-type carrier
--- of its modes; it does not claim the sūtra intends a type.  The qualia
--- (guṇa) are not separated from paryāya here.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

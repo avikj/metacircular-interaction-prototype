@@ -44,14 +44,6 @@
 --       mokṣa is total DISSOCIATION of matter from the jīva, not
 --       annihilation of matter (`Pudgala.द्रव्य-नित्यम्`).
 --
--- SCOPE.  That Umāsvāti proved these (doctrine his,
--- theorems cubical type theory).  Only pradeśa-bandha (the count) is
--- modelled; prakṛti/sthiti/anubhāga (the other three binding-aspects, the
--- 8 mūla-prakṛtis, the guṇasthāna ladder) are named, owed, not encoded.
--- yoga and kaṣāya enter only as the scalar influx-rate a; their structure
--- is not modelled.  The ūrdhvagati is cited to `DharmaAdharma`, not
--- re-proved.  Only the count-dynamics and its fixed point are checked.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

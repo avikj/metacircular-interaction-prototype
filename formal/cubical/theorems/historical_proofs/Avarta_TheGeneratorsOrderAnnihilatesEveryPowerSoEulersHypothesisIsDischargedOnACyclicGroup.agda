@@ -39,9 +39,6 @@
 -- the arithmetic of exponents rather than by counting cosets — which is
 -- the whole reason this case is separable from the general one.
 --
--- SCOPE, kept apart because the sibling's honesty about
--- its own boundary is what made this successor findable:
---
 --   * LAGRANGE, or Euler's theorem for a general finite group.  Not
 --     proved, not approached.  The general case needs cosets and
 --     cardinality; nothing below counts anything.  §२ is the cyclic case

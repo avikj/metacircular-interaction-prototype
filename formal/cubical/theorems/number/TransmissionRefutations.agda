@@ -363,17 +363,6 @@ repair-holds-to-25 = refl
 ------------------------------------------------------------------------
 -- A.4  The universal half: "false on every prime".
 --
--- SCOPE, stated so that a witness cannot masquerade as a theorem.
--- The theorem below is: for ANY ν, IF the four functions occurring in
--- the display take at ν the values they take at a prime — μ(ν)² = 1,
--- ω(ν) = 1, λ(ν) = −1, 1_℘(ν) = 1 — THEN the display's two sides differ
--- by exactly 1.  Those four values at a prime are the DEFINITIONS of
--- μ, ω, λ, 1_℘ evaluated at a prime, not further facts.  What is NOT
--- formalised here is the passage from "ν is prime" to those four
--- equations: that would require Agda definitions of μ, ω, λ agreeing
--- provably (not merely computationally, as in A.1–A.3) with the
--- classical ones, together with a primality predicate.  So:
---
 --   * "the display fails by 1 at ν, given the prime values" — THEOREM.
 --   * "every prime has those values"                        — checked
 --     here only at ν = 2, 3, 5, 7, 11, 13, 17, 19, 23 (A.5), by
@@ -503,10 +492,6 @@ allPhiAgrees zero = true
 allPhiAgrees (suc k) = phiAgrees (suc k) and allPhiAgrees k
 
 -- Σ_{δ | ν} μ(δ)⌊ν/δ⌋ = φ(ν) for every ν ≤ 12.
--- SCOPE: this is the ledger's identification of the sum, checked at
--- twelve points.  The general identity Σ_{d|n} μ(d)(n/d) = φ(n) is
--- classical (Möbius inversion of n = Σ_{d|n} φ(d)) and is NOT proved
--- here; the refutation of the display does not need it.
 divsum-is-phi-to-12 : allPhiAgrees 12 ≡ true
 divsum-is-phi-to-12 = refl
 

@@ -26,13 +26,6 @@
 --   §5  क्षीणमोहः — kṣīṇa-moha is rung 12, the irreversible threshold
 --       (mohanīya destroyed); kevala is strictly above it.
 --
--- SCOPE.  Doctrine is the Karma-grantha's / Gommaṭasāra's;
--- theorems are cubical type theory.  The tie to karma (rising = shedding
--- mohanīya then ghātī; 13 ⟺ all ghātī gone, `KarmaPrakrti`; beyond 14 =
--- Karma's zero state) is CITED across modules, not re-proved here; this
--- file is the ladder's order-skeleton.  The upaśama vs kṣapaka fork at 11
--- (suppression falls back, destruction does not) is named, not encoded.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

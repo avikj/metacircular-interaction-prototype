@@ -19,9 +19,6 @@
 --      the recentred pair-product is the square of the center minus
 --      the square of the offset: the diameter identity.
 --
--- SCOPE.  Nothing about primes, nothing about existence
--- of pairs; these are the identities every pair satisfies, stated over
--- ℕ with the offset as the ≤-witness so no monus is needed.
 ------------------------------------------------------------------------
 
 module PratibimbaDvaya_TheTwoIdentitiesOfTheReflectionFrameProvedWhereTheEquationLaneStops where

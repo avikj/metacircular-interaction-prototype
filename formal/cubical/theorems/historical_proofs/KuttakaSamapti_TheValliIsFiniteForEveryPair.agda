@@ -87,8 +87,6 @@
 --   महत्तम-सर्वत्र    and g divides both and is divisible by every common
 --                   divisor — the gcd, for every pair, constructively.
 --
--- THE SCOPE, EXACTLY, so nobody has to guess.
---
 --   * The SHARP length bound.  `≤ b` is what the measure gives directly and
 --     it is honest.  The true worst case is logarithmic in b — attained on
 --     consecutive Virahāṅka numbers (Virahāṅka, c. 700, the recurrence

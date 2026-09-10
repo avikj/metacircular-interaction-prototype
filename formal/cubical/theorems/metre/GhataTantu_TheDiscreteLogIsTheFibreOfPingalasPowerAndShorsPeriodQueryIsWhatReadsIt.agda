@@ -52,15 +52,6 @@
 -- its inverse (`GhataViparyaya`, `MalaSetu`, `Bijamula`, `Samvit`,
 -- `Shora`).
 --
--- SCOPE:
---   * That the classical discrete log is hard (the security assumption;
---     here shown only that the fibre is non-trivial, which is the
---     INFORMATION-theoretic root, not the COMPUTATIONAL hardness).
---   * Shor's quantum period-finding as an algorithm (owed throughout).
---   * That the C₃ fibre being a coset generalises as a checked term to
---     all cyclic groups (exhibited on C₃; the general coset statement is
---     owed).
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

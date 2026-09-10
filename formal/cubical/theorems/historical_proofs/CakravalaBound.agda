@@ -83,8 +83,6 @@
 -- sound — any m satisfying the congruence descends — but the attribution
 -- is wrong, and nothing here edits those files.
 --
--- THE SCOPE, EXACTLY, stated so nobody has to guess.
---
 --   * TERMINATION IS STILL OPEN.  A bound on |k| is not termination.  What
 --     the bound buys is that the state (a mod ·, b mod ·, k) ranges over a
 --     FINITE set, so some state must recur; turning that into "the wheel

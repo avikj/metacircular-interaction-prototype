@@ -33,11 +33,6 @@
 --   §5  twin-dec, collatz-dec — the other two families' fibres decided,
 --       so the same statement holds across the constellation.
 --
--- SCOPE.  No inhabitant of any section is produced; the
--- conjectures remain open.  Decidability of a fibre is not decidability of
--- the section — a Π over a decidable predicate need not itself be
--- decidable, and no claim is made that it is.  This is the constructive
--- content of "definite, not mystical," not a resolution.
 ------------------------------------------------------------------------
 
 module KotiNirnaya_EveryFibreIsDecidedSoEachConjectureIsADefinitePropositionAndTheOnlyOpennessIsTheSection where

@@ -31,15 +31,6 @@
 --   §3  grid : length p ≤ length pts, pts distinct, p vanishing on pts
 --       ⟹ evalP p x ≡ 0 for EVERY x.
 --
--- SCOPE, stated before the prose can overreach: univariate, over ℤ.
--- The two-sided form is carried: §4 has the coefficientwise difference,
--- its evaluation law, and the AGREEMENT theorem — two polynomials
--- agreeing at more distinct points than either's length agree at every
--- point.
--- The MULTIVARIATE grid G7 also uses (a product of grids, one variable
--- at a time) is a further induction not taken here.  G7's license is
--- this module's job only at one variable.
---
 -- CHECKED under the pin (Agda 2.8.0 + cubical v0.9).
 ------------------------------------------------------------------------
 

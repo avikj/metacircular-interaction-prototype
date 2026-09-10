@@ -51,15 +51,6 @@
 --       X−1 and Z_3 is still < 1.  M ≍ X/log²X is just one point of this
 --       window, so the kill is robust to the exact count.
 --
--- SCOPE / HONESTY.  This certifies the countermodel's NUMBERS, thereby
--- establishing the insufficiency claim BY EXHIBITION: a family with all
--- the listed structural properties and Z_{1/δ} → 0.  The exact value of
--- ⌊X/log²X⌋ depends on log (a transcendental) and is NOT certified; what
--- is certified is that the chosen counts sit in the no-go window
--- 1 < M_X < a_X^3 and have the order X/log²X.  Per the T110 statement,
--- only the ORDER "count ≍ X/log²X" matters for the kill (item 5 shows the
--- window is huge), so nothing turns on the transcendental value.  Nothing
--- here proves twins; T110 proves which strategy CANNOT.
 ------------------------------------------------------------------------
 
 module FactoryVICoolingKill where

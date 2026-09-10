@@ -69,8 +69,6 @@
 --                    identities.
 --   षष्ट्येक-प्रत्यावृत्तिः  D = 61, turn 0 → turn 1, computed in the kernel.
 --
--- THE SCOPE, EXACTLY, so nobody has to guess.
---
 --   * TERMINATION IS STILL OPEN and this file does not narrow it.  What is
 --     established is a CONDITIONAL cap: exceeding B² turns proves a state
 --     repeated, and — given §6's missing lemma — that the wheel is in a

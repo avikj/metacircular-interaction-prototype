@@ -89,11 +89,6 @@
 -- order and the kṛtākṛtaprasaṅgi definition of nitya; the paribhāṣās
 -- themselves are older and are collected there, not invented there.
 --
--- SCOPE.  This module encodes FOUR METARULES.  It does not
--- encode sūtras, and it is not a count against the ~3983 of the Aṣṭādhyāyī
--- (recensions differ: 3959-3996).  `RewriteEngine.coverage` is where that number
--- lives and this file does not move it.
-
 module RulePriority
   ( -- position
     Sthana

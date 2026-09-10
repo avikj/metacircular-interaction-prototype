@@ -24,8 +24,6 @@
 -- `normalize-table-X-data` supplies the X-covariance law that was
 -- vacuous here.
 --
--- SCOPE OF THAT CLOSURE, stated so it is not over-read:
---
 --   * SUFFICIENCY ONLY.  That module makes no minimality claim for its
 --     carrier and says so in its own header.  Nothing yet shows the
 --     complete branch table is the SMALLEST carrier admitting an exact
