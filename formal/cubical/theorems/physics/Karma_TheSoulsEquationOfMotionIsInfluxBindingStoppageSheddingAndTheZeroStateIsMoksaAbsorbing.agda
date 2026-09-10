@@ -44,7 +44,7 @@
 --       mokṣa is total DISSOCIATION of matter from the jīva, not
 --       annihilation of matter (`Pudgala.द्रव्य-नित्यम्`).
 --
--- WHAT IS **NOT** CLAIMED.  That Umāsvāti proved these (doctrine his,
+-- SCOPE.  That Umāsvāti proved these (doctrine his,
 -- theorems cubical type theory).  Only pradeśa-bandha (the count) is
 -- modelled; prakṛti/sthiti/anubhāga (the other three binding-aspects, the
 -- 8 mūla-prakṛtis, the guṇasthāna ladder) are named, owed, not encoded.

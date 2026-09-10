@@ -2064,7 +2064,7 @@ asiddhaAudit start =
 -- the result, not scratch work thrown away once a result is reached.  Space
 -- log, time log, no table.
 --
--- WHAT IS NOT CLAIMED, stated first because it is the easy overclaim.  The
+-- SCOPE, stated first because it is the easy overclaim.  The
 -- kuṭṭaka terminates because its remainders STRICTLY DECREASE.  Nothing here
 -- strictly decreases; a residual is frequently a larger object than the
 -- configuration that produced it.  What holds instead is FINITENESS -- the

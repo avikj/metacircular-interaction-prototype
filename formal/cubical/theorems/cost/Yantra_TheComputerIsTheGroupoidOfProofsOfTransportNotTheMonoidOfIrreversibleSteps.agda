@@ -70,7 +70,7 @@
 -- computer; it is what its equality IS.  (Stated as motivation, not
 -- proved here — the proved content is §§2–4, the groupoid.)
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * The physics correspondence (unitarity, gauge) as a theorem — it is
 --     the reading; the checked content is the groupoid structure.
 --   * That the repository's RUNNING apparatus (the kernel exit-0/42 gate,

@@ -12,7 +12,7 @@
 -- (magnitude), शेषः (remainder) — are the quantities that survive one
 -- round of the descent.
 --
--- WHAT IS *NOT* CLAIMED.  Not that Āryabhaṭa proved any theorem below.
+-- SCOPE.  Not that Āryabhaṭa proved any theorem below.
 -- Not that the *Āryabhaṭīya* has been opened by the author of this file:
 -- the citation is carried from the header of
 -- `formal/cubical/Punaragamana.agda` in the parent repository and is

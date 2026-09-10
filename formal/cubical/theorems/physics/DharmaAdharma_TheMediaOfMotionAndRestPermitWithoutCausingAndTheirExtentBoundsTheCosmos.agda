@@ -60,7 +60,7 @@
 -- "no motion in aloka".  The identification of the two is offered, not
 -- claimed; each is stated in its own vocabulary.
 --
--- WHAT IS **NOT** CLAIMED.  That Umāsvāti proved any of the terms below;
+-- SCOPE.  That Umāsvāti proved any of the terms below;
 -- the doctrine is his, the theorems are cubical type theory (Voevodsky's
 -- univalence is the substrate only).  Not formalised, and owed: pudgala
 -- (matter/paramāṇu and combination), ākāśa (space/avagāhana), kāla

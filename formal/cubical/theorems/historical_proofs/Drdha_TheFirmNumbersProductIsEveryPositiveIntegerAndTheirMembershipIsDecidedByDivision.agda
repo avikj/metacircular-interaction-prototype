@@ -43,7 +43,7 @@
 --       every n ≥ 1.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS **NOT** CLAIMED.  Stated at the same grain as the claims,
+-- SCOPE.  Stated at the same grain as the claims,
 -- because "not proven here" without its extent is a forged absence.
 --
 --   · UNIQUENESS IS NOT PROVED.  §५ produces *a* list; nothing here says

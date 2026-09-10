@@ -24,7 +24,7 @@
 --   1.1.5   क्ङिति च                 kṅiti ca — no guṇa/vṛddhi after an
 --           affix marked k or ṅ, a marking 1.3.9 has already erased.
 --
--- WHAT IS *NOT* CLAIMED.  Pāṇini proved none of the theorems below, and
+-- SCOPE.  Pāṇini proved none of the theorems below, and
 -- the *Aṣṭādhyāyī* has not been opened by the author of this file: the
 -- sūtra text and numbering are carried from
 -- `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`

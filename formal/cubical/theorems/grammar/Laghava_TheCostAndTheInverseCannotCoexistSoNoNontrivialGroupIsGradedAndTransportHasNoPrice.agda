@@ -85,7 +85,7 @@
 --                 witness `Unit → Bool → Unit ≡ id` is exactly a
 --                 non-unit element of measure zero.
 --
--- WHAT IS **NOT** CLAIMED.  No braiding (`Braid-
+-- SCOPE.  No braiding (`Braid-
 -- CoherenceBoundary` refutes invertibility ⇒ Yang–Baxter).  No
 -- thermodynamics: no heat, energy, temperature, entropy or Landauer
 -- bound is derived or implied, and "cost" here is the grammarians'

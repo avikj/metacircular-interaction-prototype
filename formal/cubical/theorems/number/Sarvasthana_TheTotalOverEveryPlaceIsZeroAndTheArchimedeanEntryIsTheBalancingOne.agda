@@ -30,7 +30,7 @@
 -- with opposite sign.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS **NOT** CLAIMED.  This is not the product formula for ℚˣ.  It
+-- SCOPE.  This is not the product formula for ℚˣ.  It
 -- does not say the finite places are the primes, that w p is log p, or
 -- that a divisor determines a rational number — that last needs unique
 -- factorisation, which is exactly the work this module does not do.  What

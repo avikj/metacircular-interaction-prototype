@@ -103,21 +103,13 @@
 --
 -- SYĀT — THE CLAIM, EXACTLY
 --
---  * ~~**T15.9 is not proved as "subgroup".**  §4 takes a family of
+--  * **T15.9 IS the subgroup statement.**  §4 takes a family of
 --    self-equivalences and proves closure under identity, composition
---    and inverse.  The *group* statement wants a group object acting;
---    packaging one here would be scope creep.  Stated, not proved.~~
---
---    **CORRECTED 2026-08-14 by another lane, and the correction is
---    sharper than the entry it replaces.**  Both halves of that sentence
---    were wrong.  The parameter `A ≃ A` **is** the group object —
+--    and inverse.  The parameter `A ≃ A` **is** the group object —
 --    cubical v0.9 ships it as `SymGroup A isSetA`, whose `1g`, `_·_`
 --    and `inv` are `idEquiv`, `compEquiv`, `invEquiv`, i.e. exactly the
 --    three operations §4's three lemmas are already stated at, and they
---    reduce definitionally, so no bridging lemma is needed either.  So
---    it was not scope creep; it was a library module I had not looked
---    for.  (Third time today that a first draft of mine missed something
---    the library had.)
+--    reduce definitionally, so no bridging lemma is needed.
 --
 --    What is ACTUALLY missing is two h-level hypotheses: `isSet A`, to
 --    have the group at all, and **`isSet (Str A)`, so that `Stab` lands

@@ -27,7 +27,7 @@
 --   §5  ¬ (suc (x + y) ≤ y)      the engine's  0 = le(s(x+y), y)
 --   §6  ¬ (suc (suc (suc x)) ≤ x)  the engine's  0 = le(s(s(s(x))), x)
 --
--- WHAT IS **NOT** CLAIMED.  No novelty in the lemmas — they are elementary
+-- SCOPE.  No novelty in the lemmas — they are elementary
 -- ℕ facts; the point is the BRIDGE: the engine identified precisely these
 -- as beyond its equational reach, and the kernel closes them.  The engine's
 -- `le` is its Bool-valued order; here it is rendered as the propositional

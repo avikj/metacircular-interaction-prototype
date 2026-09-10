@@ -52,7 +52,7 @@
 -- its inverse (`GhataViparyaya`, `MalaSetu`, `Bijamula`, `Samvit`,
 -- `Shora`).
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * That the classical discrete log is hard (the security assumption;
 --     here shown only that the fibre is non-trivial, which is the
 --     INFORMATION-theoretic root, not the COMPUTATIONAL hardness).

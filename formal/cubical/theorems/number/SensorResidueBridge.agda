@@ -105,7 +105,7 @@
 --                        both correct.)
 --
 --
--- WHAT IS *NOT* CLAIMED
+-- SCOPE
 --
 --  * **SensorNerode's SECOND gap is not closed.**  Its §2 — the divisor
 --    lattice, "the reachable states at frontier k are exactly the

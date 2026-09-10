@@ -26,7 +26,7 @@
 -- that the earlier भेद kept only half of it, dropping which side the
 -- remainder fell on and the shared magnitude at identity.
 --
--- WHAT IS *NOT* CLAIMED.  Not that Āryabhaṭa proved anything below.  Not
+-- SCOPE.  Not that Āryabhaṭa proved anything below.  Not
 -- that the *Āryabhaṭīya* has been opened by me — it has not; the citation
 -- is carried from the neighbouring module and is owed at verse level.
 -- Not that Φ means anything: it is suc on two slots.  Not that this

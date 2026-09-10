@@ -64,7 +64,7 @@
 -- naming collides), is not thrift and not accident: it is the price of
 -- the trio, and the line pays it because nothing cheaper exists.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --
 --   * That HA specifically is forced.  Forced is: one of h, y, ś twice.
 --     That the repeated one is ha is Pāṇini's choice; whether repeating

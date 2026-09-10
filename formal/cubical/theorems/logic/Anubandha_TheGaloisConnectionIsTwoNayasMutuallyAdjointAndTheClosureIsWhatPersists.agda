@@ -30,7 +30,7 @@
 --       points: what the two standpoints agree on, carried unchanged —
 --       the dravya of the adjunction.
 --
--- WHAT IS **NOT** CLAIMED.  A general adjunction of categories is not
+-- SCOPE.  A general adjunction of categories is not
 -- built (that needs functors and naturality); the Galois connection is its
 -- poset shadow and is what is checked.  Antisymmetry is not assumed, so
 -- idempotence is stated up-to-≈ (≤ both ways), which is the honest

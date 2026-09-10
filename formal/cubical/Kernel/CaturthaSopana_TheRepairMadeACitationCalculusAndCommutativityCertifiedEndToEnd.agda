@@ -41,7 +41,7 @@
 -- and the third level exhibited INHABITED at commutativity — reached,
 -- not merely true.
 --
--- WHAT IS NOT CLAIMED.  No completeness for the citation closure (it
+-- SCOPE.  No completeness for the citation closure (it
 -- trivially contains every pointwise truth by citing it; the content is
 -- not the closure's extent but WHICH citations suffice — here, two
 -- lemmas each certified by induction below, so the tower is honest:

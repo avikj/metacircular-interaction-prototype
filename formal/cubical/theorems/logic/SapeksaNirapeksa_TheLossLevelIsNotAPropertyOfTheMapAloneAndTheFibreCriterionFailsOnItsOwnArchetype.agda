@@ -95,7 +95,7 @@
 -- a per-instance fibre criterion cannot reach a quantifier.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS **NOT** CLAIMED HERE, said flatly because the refuted claim was
+-- SCOPE HERE, said flatly because the refuted claim was
 -- an overreach of exactly this kind.
 --
 --   * NOT claimed that levels ३ and ४ are the same thing, or that the

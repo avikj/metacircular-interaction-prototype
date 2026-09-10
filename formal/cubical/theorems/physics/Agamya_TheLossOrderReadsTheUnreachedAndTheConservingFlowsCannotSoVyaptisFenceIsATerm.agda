@@ -42,7 +42,7 @@
 -- there is nothing there to owe.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS **NOT** CLAIMED.  The witness is DEGENERATE ON PURPOSE — the
+-- SCOPE.  The witness is DEGENERATE ON PURPOSE — the
 -- domain is ⊥, which is what makes both flow spaces contractible and
 -- every conservation hypothesis vacuous, isolating the unreached-sector
 -- obstruction with nothing else in the frame.  Whether an INHABITED

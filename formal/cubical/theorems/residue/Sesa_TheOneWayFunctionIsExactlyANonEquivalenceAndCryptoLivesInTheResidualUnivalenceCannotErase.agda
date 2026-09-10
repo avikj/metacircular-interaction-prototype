@@ -59,7 +59,7 @@
 -- cannot invert; the key/secret = the śeṣa; Shor = the one thing that
 -- collects it.
 --
--- WHAT IS **NOT** CLAIMED:
+-- SCOPE:
 --   * Computational hardness (§3 is non-invertibility as a FUNCTION, the
 --     information-theoretic floor, not a complexity bound).
 --   * That every one-way function arises this way in practice (the

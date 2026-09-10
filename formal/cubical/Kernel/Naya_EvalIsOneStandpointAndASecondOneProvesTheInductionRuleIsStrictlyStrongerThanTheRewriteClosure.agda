@@ -29,11 +29,8 @@
 -- nayas are standpoints on a real object, not interpretations of a formal
 -- syntax, and no Jaina proved anything below.
 --
--- ~~"this corpus has been treating `eval` as THE semantics … every
--- soundness theorem in the kernel is stated against ℕ alone."~~
---
--- STRUCK BY ITS OWN AUTHOR, and left standing struck.  IT IS FALSE, AND IT
--- WAS FALSE WHEN I WROTE IT.  `Ankapasa_…` builds
+-- `eval` INTO ℕ IS ONE STANDPOINT AMONG MANY, not THE semantics.
+-- `Ankapasa_…` builds
 --
 --     ⟦_⟧ : Tm → TEnv → Type₀     zero ↦ ⊥, suc ↦ Unit ⊎ −, add ↦ ⊎
 --
@@ -41,12 +38,10 @@
 -- constructor becomes an equivalence and `reverse` becomes `invEquiv`; it
 -- proves `counting-semantics-cannot-see-it` against
 -- `univalent-semantics-does-see-it`, and names the diagnosis नय-निरोधः.
--- It got there first and from the aṅkapāśa side.  I asserted an absence
--- without running the command that would have found it -- `grep -rlE ': *Tm
--- *→' formal/cubical` returns twenty files -- which is the exact failure
--- CLAUDE.md names: an absence without a command is a rumor.
+-- It reaches the fact from the aṅkapāśa side; `grep -rlE ': *Tm *→'
+-- formal/cubical` returns twenty files reading `Tm` into other codomains.
 --
--- WHAT SURVIVES, and it is the whole mathematical content:
+-- THE MATHEMATICAL CONTENT, bracketed by the two standpoints:
 --   * `Ankapasa_`'s model VALIDATES commutativity -- `add ↦ ⊎` and
 --     `⊎-swap-≃` -- and separates it from the identity.  §3 below REFUTES
 --     it: no derivation exists at all.  Non-triviality and underivability

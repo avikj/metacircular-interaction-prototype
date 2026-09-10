@@ -55,7 +55,7 @@
 -- separate the fibre have EQUAL meanings, because the meaning type is a
 -- proposition and has no two positions in it.
 --
--- WHAT IS **NOT** CLAIMED.  No braiding.  A groupoid whose inverse fails
+-- SCOPE.  No braiding.  A groupoid whose inverse fails
 -- to be strict is not thereby a braid group action:
 -- `BraidCoherenceBoundary` exhibits two involutive
 -- self-EQUIVALENCES of `Bool × Bool × Bool` that fail Yang–Baxter at

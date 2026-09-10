@@ -48,7 +48,7 @@
 -- names and does not make; whether to make it is a design decision and
 -- is not taken here.
 --
--- WHAT IS NOT CLAIMED.  No completeness for the two-level closure, no
+-- SCOPE.  No completeness for the two-level closure, no
 -- claim that deeper nesting exhausts ℕ-truth (Gödel forbids exhausting
 -- it by any effective closure), no repair, no design change.  One
 -- certificate type is refuted at one pair of endpoints; the positive

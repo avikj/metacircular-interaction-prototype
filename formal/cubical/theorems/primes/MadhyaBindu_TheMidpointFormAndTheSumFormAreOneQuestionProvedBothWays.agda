@@ -23,7 +23,7 @@
 --
 -- both by double induction, both total, no classical steps.
 --
--- WHAT IS NOT CLAIMED.  Neither type is inhabited for all n here; the
+-- SCOPE.  Neither type is inhabited for all n here; the
 -- theorem is that the two questions are interderivable, so the open
 -- section of one is the open section of the other — the midpoint
 -- phrasing and the Goldbach phrasing stand or fall together.
