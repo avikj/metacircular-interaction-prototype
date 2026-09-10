@@ -1,0 +1,6 @@
+Checking M3 (/home/user/math/formal/cubical/theorems/physics/M3.agda).
+/home/user/math/formal/cubical/theorems/physics/M3.agda:99.9-100.20: error: [UnequalTerms]
+- T != T of type R .fst
+when checking that the expression
+cong (_+ - B) (sym resolvent) ∙ shape c ρ T has type
+1r + - B ≡ c · (1r + T)

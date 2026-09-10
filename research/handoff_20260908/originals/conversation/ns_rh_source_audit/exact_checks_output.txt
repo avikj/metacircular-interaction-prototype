@@ -1,0 +1,6 @@
+PASS: cubic conservation, canonical tangent defect, exact second-jet compensation.
+PASS: all eight labelled subset-product coefficients at order three.
+PASS: exhaustive CRT endpoint/defect bijections through length six; probability identity.
+PASS: exact integer DMR product reindexing through n=50.
+PASS: log-time differential transport, causal Green jump, kernel and initial-boundary terms.
+All finite exact checks passed. No global PDE or zeta-location conclusion is certified.

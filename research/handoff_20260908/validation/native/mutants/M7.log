@@ -1,0 +1,6 @@
+Checking M7 (/home/user/math/formal/cubical/theorems/physics/M7.agda).
+/home/user/math/formal/cubical/theorems/physics/M7.agda:59.22-29: error: [MismatchedProjectionsError]
+The projections CommRingStr._+_ and CommRingStr.0r do not match
+when checking that the expression shape ξ has type
+(ι 4 + ξ · ξ) · (ι 4 + ξ · ξ) + ι 9 · (ξ · ξ) ≡
+(1r + ξ · ξ) · (ι 15 + ξ · ξ)

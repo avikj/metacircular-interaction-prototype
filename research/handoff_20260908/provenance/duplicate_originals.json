@@ -1,0 +1,28 @@
+{
+  "19ace49ddcf9c84d1bdcab674cc5ab8e05b4d7ec31e7833dec194f72aabae896": [
+    "originals/conversation/finite_strain_weil_signature/proof_note.md",
+    "originals/library/proof_note.md"
+  ],
+  "246475b47b0de16b94b93f8a3555a8c0e6ddf28d3aeb09586964d26d15810755": [
+    "originals/conversation/instantiated_continuation_fibres/proof_note.md",
+    "originals/library/proof_note_7.md"
+  ],
+  "b23175d1efc70954277f562d4140835a8ab383d1d4f4dd5878022804a88a7656": [
+    "originals/conversation/ns_rh_strain_symbol_hardy_innovation/proof_note.md",
+    "originals/library/proof_note_5.md"
+  ],
+  "d6764d2d263c402f31555e6368eee481259d38be61a1046e6afcb5696dbbccd1": [
+    "originals/conversation/passivity_toroidal_quadrupole/proof_note.md",
+    "originals/library/proof_note_8.md"
+  ],
+  "6c1c73295e924f497d70d6ed3104fe78b166326ae39d39f984eefa60d574b409": [
+    "originals/conversation/receiver_inverse_harmonic_fibre/proof_note.md",
+    "originals/library/proof_note_6.md"
+  ],
+  "2d820c78027b28600bb92399cb681c2991d179ccb31c87cce23d74eced1daf56": [
+    "originals/conversation/source_resolved_closure/proof_note.md",
+    "originals/library/proof_note_2.md",
+    "originals/library/proof_note_3.md",
+    "originals/library/proof_note_4.md"
+  ]
+}

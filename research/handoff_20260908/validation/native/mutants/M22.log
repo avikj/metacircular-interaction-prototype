@@ -1,0 +1,5 @@
+Checking M22 (/home/user/math/formal/cubical/theorems/unplaced/M22.agda).
+/home/user/math/formal/cubical/theorems/unplaced/M22.agda:153.24-40: error: [UnequalTerms]
+g · pow g n != pow g n of type ℕ
+when checking that the expression below n n ≤-refl has type
+x n ≤ pow b n · (cat n · pow g n)

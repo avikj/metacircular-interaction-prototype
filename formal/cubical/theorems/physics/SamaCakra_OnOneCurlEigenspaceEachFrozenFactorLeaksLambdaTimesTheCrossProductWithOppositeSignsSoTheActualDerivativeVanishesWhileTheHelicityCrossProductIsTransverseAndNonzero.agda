@@ -1,0 +1,105 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- सम-चक्र — the same wheel.
+--
+-- The Beltrami regression control of handoff §9 ([S02]).  With
+--     N(u) = P(u × curl u),   A_u v = P(u × curl v),   K_u v = P(v × curl u),
+-- both frozen operators reproduce the source, A_u u = K_u u = N(u), and
+-- the derivative is their sum.  On one curl eigenspace, curl v = λv,
+--
+--     A_u v = λ P(u × v),   K_u v = −λ P(u × v),   DN(u) v = 0 :
+--
+-- each frozen factor leaks (opposite helicity), the actual derivative
+-- cancels exactly.  Over any commutative ring with an antisymmetric
+-- biadditive × and an additive P, with u and v in the λ-eigenspace,
+-- these are checked, together with the explicit positive-helicity
+-- cross product  (0,1,i) × (−1,0,i) = (i, −i, 1)  and its transversality
+-- to k = p + q = (1,1,0)  (i any element; the 1/√2 normalizations are
+-- cleared).
+------------------------------------------------------------------------
+module SamaCakra_OnOneCurlEigenspaceEachFrozenFactorLeaksLambdaTimesTheCrossProductWithOppositeSignsSoTheActualDerivativeVanishesWhileTheHelicityCrossProductIsTransverseAndNonzero where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Sigma using (_×_ ; _,_)
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+
+private
+  variable
+    ℓ : Level
+
+------------------------------------------------------------------------
+module _ (R : CommRing ℓ) where
+  open CommRingStr (snd R)
+
+  private
+    A = ⟨ R ⟩
+
+  ----------------------------------------------------------------
+  -- १ · the eigenspace cancellation
+  ----------------------------------------------------------------
+  module _ (_⨯_ : A → A → A)
+           (⨯-addR : (a b c : A) → a ⨯ (b + c) ≡ a ⨯ b + a ⨯ c)
+           (⨯-scaleR : (λ' a b : A) → a ⨯ (λ' · b) ≡ λ' · (a ⨯ b))
+           (⨯-anti : (a b : A) → b ⨯ a ≡ - (a ⨯ b))
+           (P : A → A) (P-add : (a b : A) → P (a + b) ≡ P a + P b)
+           (curl : A → A)
+           (λ' u v : A) (eu : curl u ≡ λ' · u) (ev : curl v ≡ λ' · v)
+           where
+
+    A-frozen K-frozen : A → A → A
+    A-frozen a b = P (a ⨯ curl b)
+    K-frozen a b = P (b ⨯ curl a)
+
+    N : A → A
+    N a = P (a ⨯ curl a)
+
+    -- both frozen operators reproduce the source
+    A-reproduces : A-frozen u u ≡ N u
+    A-reproduces = refl
+    K-reproduces : K-frozen u u ≡ N u
+    K-reproduces = refl
+
+    -- A_u v = λ P(u × v)
+    A-leaks : A-frozen u v ≡ P (λ' · (u ⨯ v))
+    A-leaks = cong (λ w → P (u ⨯ w)) ev ∙ cong P (⨯-scaleR λ' u v)
+
+    -- K_u v = −λ P(u × v)   (as P applied to the negative)
+    K-leaks : K-frozen u v ≡ P (- (λ' · (u ⨯ v)))
+    K-leaks = cong (λ w → P (v ⨯ w)) eu ∙ cong P (⨯-scaleR λ' v u ∙ cong (λ' ·_) (⨯-anti u v) ∙ negR λ' (u ⨯ v))
+      where negR : (x y : A) → x · (- y) ≡ - (x · y)
+            negR x y = solve! R
+
+    -- DN(u) v = A_u v + K_u v = 0
+    derivative-vanishes : A-frozen u v + K-frozen u v ≡ P 0r
+    derivative-vanishes = cong₂ _+_ A-leaks K-leaks ∙ sym (P-add _ _) ∙ cong P (+InvR (λ' · (u ⨯ v)))
+
+  ----------------------------------------------------------------
+  -- २ · the explicit positive-helicity cross product
+  ----------------------------------------------------------------
+  -- 3-vectors as triples; cross product componentwise
+  V3 : Type ℓ
+  V3 = A × A × A
+
+  cross : V3 → V3 → V3
+  cross (a₁ , a₂ , a₃) (b₁ , b₂ , b₃) =
+    (a₂ · b₃ + (- (a₃ · b₂))) , (a₃ · b₁ + (- (a₁ · b₃))) , (a₁ · b₂ + (- (a₂ · b₁)))
+
+  dot : V3 → V3 → A
+  dot (a₁ , a₂ , a₃) (b₁ , b₂ , b₃) = (a₁ · b₁ + a₂ · b₂) + a₃ · b₃
+
+  -- h_p ∝ (0,1,i), h_q ∝ (−1,0,i):  h_p × h_q ∝ (i, −i, 1)
+  helicity-cross : (i : A) → cross (0r , 1r , i) (- 1r , 0r , i) ≡ (i , - i , 1r)
+  helicity-cross i = λ t → (p₁ t , p₂ t , p₃ t)
+    where
+      p₁ : 1r · i + (- (i · 0r)) ≡ i
+      p₁ = solve! R
+      p₂ : i · (- 1r) + (- (0r · i)) ≡ - i
+      p₂ = solve! R
+      p₃ : 0r · 0r + (- (1r · (- 1r))) ≡ 1r
+      p₃ = solve! R
+
+  -- it is transverse to k = p + q = (1, 1, 0)
+  transverse : (i : A) → dot (1r , 1r , 0r) (i , - i , 1r) ≡ 0r
+  transverse i = solve! R

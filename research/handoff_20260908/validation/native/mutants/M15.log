@@ -1,0 +1,15 @@
+Checking M15 (/home/user/math/formal/cubical/theorems/physics/M15.agda).
+/home/user/math/formal/cubical/theorems/physics/M15.agda:58.9-61.68: error: [MismatchedProjectionsError]
+The projections CommRingStr._+_ and CommRingStr.0r do not match
+when checking that the expression
+sym
+(cong₂ _+_
+ (cong₂ _+_
+  (∂₁-leib y₁ (f · g) ∙
+   cong₂ _+_ (cong (_· (f · g)) ∂₁y₁) (cong (y₁ ·_) (∂₁-leib f g)))
+  (∂₂-leib y₂ (f · g) ∙
+   cong₂ _+_ (cong (_· (f · g)) ∂₂y₂) (cong (y₂ ·_) (∂₂-leib f g))))
+ (∂₃-leib y₃ (f · g) ∙
+  cong₂ _+_ (cong (_· (f · g)) ∂₃y₃) (cong (y₃ ·_) (∂₃-leib f g)))
+ ∙ shape f g (∂₁ f) (∂₂ f) (∂₃ f) (∂₁ g) (∂₂ g) (∂₃ g))
+has type Y f · g + f · Y g + ι 2 · (f · g) ≡ div-y (f · g)

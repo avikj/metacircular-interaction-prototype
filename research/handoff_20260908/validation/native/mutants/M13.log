@@ -1,0 +1,23 @@
+Checking M13 (/home/user/math/formal/cubical/theorems/unplaced/M13.agda).
+/home/user/math/formal/cubical/theorems/unplaced/M13.agda:113.9-117.15: error: [MismatchedProjectionsError]
+The projections CommRingStr.-_ and CommRingStr._·_ do not match
+when checking that the expression
+cong (λ u → ι 2 · u)
+(cong₂ _+_
+ (cong₂ _+_ (cong (ξ₁ ·_) (∂∂mξ ξ₁)) (cong (ξ₂ ·_) (∂∂mξ ξ₂)))
+ (cong (ξ₃ ·_) (∂∂mξ ξ₃)))
+∙
+shape ∙
+cong₂
+(λ u v →
+   ι 2 · (∂ (∂ m) · u + - (m · Q)) + ι 2 · (∂ m · v) + m · (ι 2 · Y))
+unit two-first
+∙
+cong
+(λ w → ι 2 · (∂ (∂ m) · 1r + - (m · Q)) + ι 2 · (∂ m · 0r) + m · w)
+two-second
+∙ finish
+has type
+ι 2 ·
+(ξ₁ · ∂ (∂ (m · ξ₁)) + ξ₂ · ∂ (∂ (m · ξ₂)) + ξ₃ · ∂ (∂ (m · ξ₃)))
+≡ ι 2 · (∂ (∂ m) + m · Q)
