@@ -1,0 +1,52 @@
+INSTALL IS THE CONING-OFF OF AN OBSTRUCTION: THE LOCUS IS A
+CONTRACTIBLE CONE AND THE FEE IS THE NON-DESCENDING COST
+The kernel's one growth axis, `install`, identified as a Postnikov step —
+one contractible cell attached, one residual precipitated a level up —
+with the analyzer reading the identification back as data
+
+The self-generating closure / install = garbha.dhara / one Postnikov step
+
+VYAYA_SESA named one genuinely-open object: whether `install` — the act
+by which a theorem of the kernel becomes a structure map of the kernel —
+is the same act as CONING OFF an obstruction and thereby climbing one
+level of the Postnikov tower.  This lands the load-bearing half as a
+checked term and names, exactly, the half that is not.
+
+INSTALL'S LOCUS IS A CONTRACTIBLE CONE.  SthapanaVarga §4 found the
+applicability locus of `install d`, Σ[ t ] (t ≡ lhs), contractible with
+centre the source — "capability grows by one, not by a class."  That is
+coning-off's defining property: a cone is contractible, so the cell it
+attaches has nothing in it and any class it bounds goes null.
+locusIsCone is that contractibility, read back by the analyzer as
+`{l r}(d : Derivation l r) → isContr (Locus d)`.
+
+THE SPOKE IS LITERAL, NOT ANALOGY.  Coning off the source as a point-map
+g : Unit → Tm, g _ = lhs, gives Cubical's mapping cone `Cone g` with a
+hub and one spoke to each inj (g x).  Each control datum c : t ≡ lhs is
+exactly a spoke: toSpoke sends a locus point into Σ[ y ∈ Cone g ]
+(hub ≡ y), and the analyzer INFERRED that target on its own —
+`Locus d → Σ-syntax (TheCone d) (Cone.hub ≡_)`.  The machine, not the
+prose, reduces install's applicability datum to a mapping-cone spoke.
+
+THE FEE IS THE NON-DESCENDING COST.  A Postnikov step does not only
+kill; it precipitates a new class one level up (VakraValayaSanketa: the
+forgotten succession precipitates as one bit, "the first veil is its
+fee").  In the kernel that residual is cost: after install collapses
+meaning-equal routes (L of SankramanaShreni), cost is exactly what does
+not descend.  theFee is that witness; the analyzer normal-forms it to
+`Localization.costDoesNotDescend …`, confirming the fee IS the śeṣa.
+
+So one install = one Postnikov step: one contractible cone attached
+(kills the obstruction, §§1–3), one residual left a level up (the cited
+fee).  Self-generation is this step iterated — and THAT iteration, the
+full ∞-tower, is what stays conjecture: proved here is one step's shape.
+
+SYĀT — THE CLAIM, EXACTLY.  install's locus is a contractible cone and
+its points are mapping-cone spokes, as checked terms read back by the
+analyzer; the fee is cited.  NOT claimed: that iterated install
+generates the whole Postnikov tower — one step is built, the tower is
+named.
+
+Machine-checked in cubical type theory, --safe, at the pin; the
+identification's types and normal forms computed and read back through
+the interactive kernel (sadhana.vislesana).

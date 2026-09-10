@@ -22,11 +22,8 @@
 -- that a naya asserting itself by DENYING the others becomes a दुर्नय ·
 -- durnaya.  No date of first use is established here.
 --
--- ~~"this corpus has been treating `eval` as THE semantics … every
--- soundness theorem in the kernel is stated against ℕ alone."~~
---
--- STRUCK BY ITS OWN AUTHOR, and left standing struck.  IT IS FALSE, AND IT
--- WAS FALSE WHEN I WROTE IT.  `Ankapasa_…` builds
+-- `eval` INTO ℕ IS ONE STANDPOINT AMONG MANY, not THE semantics.
+-- `Ankapasa_…` builds
 --
 --     ⟦_⟧ : Tm → TEnv → Type₀     zero ↦ ⊥, suc ↦ Unit ⊎ −, add ↦ ⊎
 --
@@ -34,12 +31,10 @@
 -- constructor becomes an equivalence and `reverse` becomes `invEquiv`; it
 -- proves `counting-semantics-cannot-see-it` against
 -- `univalent-semantics-does-see-it`, and names the diagnosis नय-निरोधः.
--- It got there first and from the aṅkapāśa side.  I asserted an absence
--- without running the command that would have found it -- `grep -rlE ': *Tm
--- *→' formal/cubical` returns twenty files -- which is the exact failure
--- CLAUDE.md names: an absence without a command is a rumor.
+-- It reaches the fact from the aṅkapāśa side; `grep -rlE ': *Tm *→'
+-- formal/cubical` returns twenty files reading `Tm` into other codomains.
 --
--- WHAT SURVIVES, and it is the whole mathematical content:
+-- THE MATHEMATICAL CONTENT, bracketed by the two standpoints:
 --   * `Ankapasa_`'s model VALIDATES commutativity -- `add ↦ ⊎` and
 --     `⊎-swap-≃` -- and separates it from the identity.  §3 below REFUTES
 --     it: no derivation exists at all.  Non-triviality and underivability
@@ -86,18 +81,6 @@
 --       THE INDUCTION RULE IS STRICTLY STRONGER THAN THE REWRITE CLOSURE,
 --       and the kernel can certify theorems it cannot install, since
 --       `NativeOperation.checked` demands a `Derivation`.
---
--- THE SCOPE, NAMED IN FULL:
---   * NO completeness, no characterisation, no decision procedure.  §3
---     refutes two statements; it does not describe what IS derivable.
---   * NO claim that this standpoint is canonical or best.  It is one more,
---     which is the whole point; a third would decide things it cannot.
---   * NO repair.  §4 exhibits the gap and closes nothing: making an
---     induction certificate installable needs either a `Step` constructor
---     for induction or a weakening of `NativeOperation.checked`, and both
---     are design changes that are not mine to make.
---   * `p`'s third clause overlaps its second and so does not reduce on an
---     open head variable.  Every use below is at a concrete head.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
 -- exit 0 at the previous module path.  Module name and imports were renamed

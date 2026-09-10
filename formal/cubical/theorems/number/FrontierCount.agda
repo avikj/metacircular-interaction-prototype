@@ -28,7 +28,6 @@
 -- the certificate composing.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE SCOPE, EXACTLY
 --
 -- That the walk's installs, as a list, satisfy `AllPrime` and `Distinct`
 -- at every frontier.  `WalkPrimePowers.installs-are-prime-powers` says

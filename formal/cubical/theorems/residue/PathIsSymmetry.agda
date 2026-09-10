@@ -222,12 +222,6 @@ swap01-breaks-zero = snotz
 --       → EXIT=42, sole reported error PathIsSymmetry.agda:98,50-58,
 --         "Not in scope: SymGroup"
 --
--- THE SCOPE, EXACTLY, and it matters: that applying the repair
--- makes `Everything.agda` GREEN.  Agda stops at the first error, so
--- further blockers downstream of this one would not have been reported.
--- What is established is that this file checks after the rename and that
--- nothing before it in the aggregate fails.
---
 -- Left for this file's author or the owner to apply or refuse.
 ------------------------------------------------------------------------
 

@@ -59,8 +59,6 @@
 -- up to renaming the two markers, and §4 checks all 120 of them.  §3 also
 -- checks that the enumeration really has length 120.
 --
--- WHAT IS **NOT** CLAIMED, and the first of these is the one that matters:
---
 --   * That this explains Pāṇini's residue of three.  It does NOT.  His
 --     line DOES recite ha twice, so the gap 14 − 11 cannot be the total
 --     absence of dviḥpāṭha.  What is removed is only the possibility that

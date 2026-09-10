@@ -1,0 +1,47 @@
+ENERGY IS NOT DYNAMICALLY CLOSED: ITS COMPLETION IS THE SIGNED
+SCALE-FLUX, AND A SINGULARITY IS FLUX THROUGH THE K=∞ BOUNDARY
+The Navier-Stokes "final shot", as a finite checked term: the L² energy
+metric is noncoercive (the UV boundary is Zeno-accessible), so energy is
+completed by its nonlinear flux, the transfer conserves the total from
+within, and singularity is the boundary term
+
+Navier-Stokes in the corpus's grammar / the completion rule / Dhruva +
+VitaranaYugma
+
+The L² energy identity gives every smooth trajectory a FINITE dissipation
+budget, and at the self-similar scaling the ultraviolet boundary K=∞ is
+reachable at finite energy cost (∑ 2⁻ⁿ < ∞) -- energy is noncoercive
+against concentration, so it is the wrong observable. ScaleFluxContinuity
+makes the right structure a checked term: energy-below-a-cut is completed
+by the signed flux through that cut, E_{<K} ⟼ (E_{<K}, Π_K), which is the
+corpus's own completion rule "observable + its Lie derivative."
+
+CONTINUITY. The internal energy rate below cut K telescopes to the
+boundary difference; with no flux from below (c 0 = 0), flowBelow c K ≡
+− Π_K. Internal transfer cancels; only the boundary flux survives. Read
+back by the analyzer as (c 0 ≡ 0) → flowBelow c K ≡ − c K.
+
+CONSERVATION (Dhruva). No flux out the top (c N = 0) ⇒ the total internal
+energy change is exactly 0 -- pure redistribution, the transfer living in
+a conserved fibre.
+
+SINGULARITY = BOUNDARY FLUX. The total change equals −(flux out the top),
+so a finite-time singularity is a nonzero flux reaching the K=∞ boundary,
+and it is invisible to the total-energy reading, which conservation shows
+is 0 for every internal redistribution.
+
+ENERGY IS NOT DYNAMICALLY SUFFICIENT (VitaranaYugma). Two flux fields
+with identical total-energy evolution but different interior flux Π₁ --
+the scalar energy marginal identifies states the flux separates; the
+reduced observable does not close.
+
+SYĀT -- THE CLAIM, EXACTLY. The four statements for the finite signed-flux
+model. NOT claimed: the continuum NS flux, its cubic third-order-increment
+structure, or any bound on it -- that bound IS the Clay problem and is the
+one thing this shadow does not touch. What IS claimed is the structure the
+problem must be phrased in. The viscous sink is an additive −D ≤ 0 that
+only strengthens conservation/boundary-flux; it is not carried in the
+telescoping core.
+
+Machine-checked in cubical type theory, --safe, at the pin; the four
+theorem types read back through the interactive kernel (sadhana.vislesana).

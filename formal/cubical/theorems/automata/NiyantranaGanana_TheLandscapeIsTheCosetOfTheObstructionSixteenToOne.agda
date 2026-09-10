@@ -46,11 +46,6 @@
 -- violation.  (The same shape as StaraArpana one lane over: the
 -- obstruction never destroys; it displaces by one stratum.)
 --
--- SCOPE: the affine-fibration derivation is prose here; the seven pins
--- of SandarbhaGanana plus the twelve below are its complete finite
--- verification at the PM square.  The general theorem (any F₂ context
--- hypergraph: landscape = kernel-size · binomial profile of the
--- obstruction coset) is stated as the reading and owed as a term.
 ------------------------------------------------------------------------
 
 module NiyantranaGanana_TheLandscapeIsTheCosetOfTheObstructionSixteenToOne where

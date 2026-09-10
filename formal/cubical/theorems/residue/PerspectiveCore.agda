@@ -17,7 +17,6 @@
 -- comparison, not conceptual resemblance."*  Accordingly every numbered
 -- item here is either a term or an explicit statement of why it is not.
 --
---
 -- WHAT IS CHECKED, BY DELTA-14 NUMBER
 --
 --   §A  `restricts-suff`     T14.6, sufficient direction: if the two
@@ -60,7 +59,6 @@
 --                            `c₀` to `c₁`, a path `c₁ ≡ c₀` returns the
 --                            output to `G c₀` by transport.
 --
---
 -- WHY T14.6's "IFF" IS SPLIT AND NOT PROVED AS STATED
 --
 -- Delta 14 states T14.6 as an iff: *"e restricts to A₊ ≃ B₊ iff
@@ -74,7 +72,6 @@
 -- either "over `e`" or a fibrewise hypothesis, and adding it silently
 -- would be exactly Delta 14 §N's **P14.67 false-quotient danger** in
 -- miniature.
---
 --
 --  * **No cost, no complexity, nothing from §L.**  `G(e;f) = C(f) − C(fᵉ)`
 --    (D14.59) and the equivalence-optimised prediction cost (D14.61) are
@@ -264,15 +261,6 @@ MonodromyOf F b p = Σ[ x ∈ F b ] (subst F p x ≡ x → ⊥)
 -- is the counterexample in full: two-element fibres, a section, and
 -- trivial transport along every loop.  So neither "the fibre has two
 -- elements" nor "a section exists" is evidence of an obstruction.
---
--- SCOPE, and it is narrower than a first draft of this file claimed.
--- The statement is about the constant family `λ _ → Bool`, NOT about
--- `fiber pr`.  `fiber pr` is not constant — it varies over the base —
--- so `transportRefl` does not apply to it, and proving ITS monodromy
--- trivial needs the (true, but separate) fact that the bundle is
--- trivialisable naturally.  That is not proved here.  P14.24 as Delta 14
--- states it is the constant-family statement, and that is exactly what
--- is below; anything stronger would need the trivialisation.
 --
 -- **GAP CLOSED, and by a stronger route than the one this paragraph
 -- proposed.**  `SetBaseNoMonodromy.setNoMonodromy` proves

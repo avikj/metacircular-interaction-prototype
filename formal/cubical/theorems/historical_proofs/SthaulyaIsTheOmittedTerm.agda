@@ -339,7 +339,6 @@ module Sthaulya (R : CommRing ℓ) where
     ∙ cong ((- (pn (suc (suc (suc k))))) ·_) (sym (sthaulya-closed k n))
 
 ------------------------------------------------------------------------
--- THE SCOPE, EXACTLY — AND WHY THE MISSING PART CANNOT BE PROVED IN THIS LANE
 --
 -- The commit that introduced this theorem, and §7 of
 -- `AntyaSamskaraSthaulya`, both say that the स्थौल्य "drops by exactly two

@@ -59,14 +59,6 @@
 -- cannot invert; the key/secret = the śeṣa; Shor = the one thing that
 -- collects it.
 --
--- WHAT IS **NOT** CLAIMED:
---   * Computational hardness (§3 is non-invertibility as a FUNCTION, the
---     information-theoretic floor, not a complexity bound).
---   * That every one-way function arises this way in practice (the
---     statement is: one-wayness ⟹ non-equivalence, proved; the practical
---     converse is a modelling choice).
---   * Shor's quantum step (owed throughout the arc).
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

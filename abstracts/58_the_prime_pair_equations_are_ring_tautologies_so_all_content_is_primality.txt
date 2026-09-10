@@ -1,0 +1,45 @@
+THE CENTERED PRIME-PAIR EQUATIONS ARE RING TAUTOLOGIES, SO ALL THE
+CONTENT IS PRIMALITY AND NO LINEAR REFRAMING CROSSES PARITY
+The honest attack on "pq+1 ≡ 0 mod w² is a powerful equation": read as
+symbols it is universally true, so the difficulty is located entirely in
+the multiplicative primality predicate, exactly where the parity barrier
+sits
+
+Goldbach / twin primes / the w±r frame / why coordinate elegance is not a
+lever
+
+Kendra proved the centering SYMMETRY: a wall pair about its midpoint c
+becomes a mirror pair ±h, unifying Goldbach (walls 0,2h → ±h) and twins
+(0,−2 → ±1) into one two-wall field, and its fence noted that taking
+magnitudes discards the cosine sign, which IS the parity loss.  This
+module proves the complementary fact: the centering IDENTITIES carry no
+primality information.
+
+goldbach-product : for p=w−r, q=w+r,  pq = w² − r²,  for ALL w,r.
+twin-product     : (w−1)(w+1) = w² − 1  (the r=1 case); so pq+1 = w²,
+                   the "powerful equation," is a ring tautology true of
+                   every integer w, prime or not.
+sum-recovers /   : the basis (w,r) ↦ (w−r, w+r) is linear and invertible
+diff-recovers      over ℤ[½] — an additive involution.
+
+WHY THIS IS THE BARRIER.  Primality is multiplicative; the parity
+obstruction (Selberg) is an invariant of the multiplicative structure —
+the Liouville sign λ(n) = (−1)^Ω(n), which sieves and magnitude-only
+spectral readings cannot see (Kendra's discarded cosine sign is exactly
+this datum).  The w±r frame is an additive linear symmetry; it acts
+trivially on Ω and λ.  So no identity in these coordinates can decide
+primality or cross parity: coordinates and obstruction live in
+independent (additive vs multiplicative) structures.  This is the precise
+reason the frontier stops where it does — Chen (p+P₂), Maynard–Zhang
+(bounded gaps), Helfgott (ternary Goldbach) — and why the binary problems
+need an idea coupling the two structures, which a coordinate change is
+not.
+
+SYĀT — THE CLAIM, EXACTLY.  The four ring identities, for all w,r.  NOT
+claimed: Goldbach, twin primes, or any lower bound on the pair count —
+those need the multiplicative content this module shows the algebra does
+not carry.  What IS claimed is the clarifying negative: the celebrated
+equations of this frame are tautologies.
+
+Machine-checked in cubical type theory, --safe, at the pin (ℤ CommRing
+solver).

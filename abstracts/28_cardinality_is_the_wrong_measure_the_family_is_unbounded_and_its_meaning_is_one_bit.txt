@@ -1,0 +1,62 @@
+CARDINALITY IS THE WRONG MEASURE: THE DERIVATIONS BETWEEN TWO CONNECTED
+TERMS EXCEED EVERY BOUND, EVERY ONE HAS A DEFINITE LENGTH, AND ALL OF THEM
+MEAN ONE THING
+The size of the space of histories is unbounded; the count on any single
+history is definite; the meaning of the whole family is a single bit --
+three different orders on one object, and confusing them is the error
+
+Foundations / what to measure when a space of proofs is large
+
+The question "how many ways connect two points" has, in this calculus,
+three answers that are not the same number, and the development separates
+them so that none stands in for another.
+
+The family is unbounded.  From any single derivation between two terms, and
+with no hypothesis on the terms, `inflate` builds for every k another
+derivation with the SAME endpoints, by going up along `reverse (add-zero
+a)` and back down -- two steps that change nothing.  `inflate-len` computes
+its length exactly as (k + k) + len d.  The padding is uniform: it needs no
+fact about the endpoints beyond one derivation existing at all.
+
+The index is real, not a repetition.  `double-inj` and `inflate-inj` prove
+k is recoverable from the padded derivation, so ℕ injects into the
+derivation space whenever it is inhabited.  `ananta` states this in the
+form the counting apparatus demands: no bound is assignable to the
+standpoints between two connected terms.  This is the order the Jaina
+scheme calls ananta -- unbounded, exceeding every definite magnitude --
+and it is proved, not asserted.
+
+Every single history is definite.  Each derivation nonetheless has a
+`len`, a definite natural number; and the kernel's parallel offering is a
+`List`, whose count is its `length`, conserved exactly by
+`advance-preserves-branch-count`.  So "how long is this one" and "how many
+are on offer right now" are both definite, while "how many exist in total"
+is not.  Three questions, three orders of answer.
+
+The whole family means one bit.  `the-whole-family-means-one-thing` proves
+that the soundness of every padded derivation equals the soundness of the
+original, at every environment -- because soundness lands in a proposition
+(ℕ is a set), and a map into a proposition carries no bits.  So the
+unbounded, injectively-indexed family of histories collapses, downstairs,
+to a single meaning.  The order of the OBJECT (unbounded) and the order of
+its MEANING (one bit) are not the same order.
+
+The consequence for measurement.  Cardinality is the wrong invariant here,
+and the module says exactly why: the space of histories is unbounded, so
+its size distinguishes nothing; the definite invariants are the length of
+a given history and the count of a presented offering; and the meaning is a
+single bit that the entire unbounded family shares.  To ask "is set
+cardinality the right measure" is to ask a question this module answers no
+to, by exhibiting the same object at three different orders and keeping
+them apart.
+
+WHAT IS NOT CLAIMED.  `inflate` exhibits an injection ℕ ↪ Derivation a b,
+not a bijection; nothing is claimed about the h-level of that type or that
+the padding enumerates it.  Nothing is claimed about `Step a b` for a fixed
+pair, which is a different question -- the unboundedness here is in the
+length of a walk.  The one-bit collapse is a fact about the ℕ-valued
+soundness semantics; it is not a claim that no finer semantics
+distinguishes the histories -- a univalent semantics does, and is treated
+elsewhere.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

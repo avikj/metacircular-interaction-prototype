@@ -70,7 +70,6 @@
 -- theorem.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE SCOPE, EXACTLY
 --
 -- It does not claim `expOf` is wrong.  `ExponentBound` proves it right.
 -- It claims the correctness was not IN the type, and locates the exact

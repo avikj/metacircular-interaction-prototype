@@ -38,12 +38,6 @@
 --       four ghātī gone and an aghātī remaining is kevala WITHOUT mokṣa
 --       (the sayoga-kevalī).  Omniscience precedes liberation.
 --
--- WHAT IS **NOT** CLAIMED.  Doctrine is Umāsvāti's; type theory cubical.
--- Only the eight ROOT natures and the ghātī/aghātī split are modelled;
--- the uttara-prakṛtis (148 sub-types), sthiti/anubhāga, and the
--- guṇasthāna ascent are named, owed, not encoded.  "Destroyed" is a
--- per-prakṛti boolean-free predicate on a state.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

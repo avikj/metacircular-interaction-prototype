@@ -58,8 +58,6 @@
 -- breaks one cycle and leaves another standing; doubling h leaves none.
 -- Pāṇini's "choice" of ha is forced by the classes themselves.
 --
--- WHAT IS **NOT** CLAIMED:
---
 --   * A formal single statement "for all d, …" quantifying over the
 --     doubled sound.  The case analysis above rides on the reading
 --     "line doubles only d ⟹ the other sounds' subsequence is a

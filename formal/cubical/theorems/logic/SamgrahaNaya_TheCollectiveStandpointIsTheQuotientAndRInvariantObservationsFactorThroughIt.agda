@@ -33,14 +33,6 @@
 --       a class: if R a b then [ a ] ≡ [ b ] — R-related particulars are
 --       identified, their difference is the fibre the naya forgets.
 --
--- WHAT IS **NOT** CLAIMED.  The universal property is the library's; no
--- novelty in it.  The identification — that the saṅgraha-naya IS the
--- quotient and its universal property is the naya's defining character —
--- is the claim, made a term.  R need not be an equivalence for §2/§4;
--- effectivity (fibre over [a] = exactly R-class of a) needs R an
--- equivalence and is cited to the library, not re-proved.  Doctrine is
--- Jaina (the seven nayas, Siddhasena); the type theory is cubical.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

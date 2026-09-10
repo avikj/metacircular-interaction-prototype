@@ -14,13 +14,6 @@
 -- provenance, which is the error the apparatus exists to stop.  The section
 -- is standard and named; the verse range is not claimed.
 --
--- SCOPE OF THE CLAIM ON THE SOURCE.  None of the theorems below are
--- Bhāskara's, and this is not a formalisation of the aṅkapāśa rules.  What
--- is borrowed is the section's OBJECT: an arrangement, as distinct from the
--- count of arrangements.  §4 shows the kernel's semantics keeps the count
--- and provably cannot keep the arrangement, and that the missing datum is
--- exactly a transposition.
---
 ------------------------------------------------------------------------
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
@@ -287,13 +280,6 @@ comm-loop-is-a-nontrivial-loop-in-the-universe p =
 -- semantic at every level of this hierarchy, which is `TheDerivation
 -- CarriesNoMeaning…`'s no-go surviving the obvious repair.
 --
--- THE SCOPE, EXACTLY. §5 settles ONE pair — the one the corpus already
--- exhibits — and says nothing about whether some other pair of `Derivation`s
--- with equal endpoints is separated by ⟦_⟧. A general statement would have to
--- rule out every pair, and that is a coherence result about the whole
--- calculus which is not proved anywhere here. The `add-comm` extension shows
--- such pairs DO exist once the constructor is added, so any general claim
--- must be about `Step` and not `Step⁺`.
 ------------------------------------------------------------------------
 
 -- Going and coming back is invisible, for EVERY step and every derivation.

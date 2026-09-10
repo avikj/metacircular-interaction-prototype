@@ -1,0 +1,73 @@
+THE DIFFERENCE MARGINAL HAS A KERNEL, EXHIBITED IN THE INTEGERS: TWO SETS
+WITH ONE AUTOCORRELATION AND NO CONGRUENCE, AND WHY IT IS THE SAME
+LOSSINESS AS THE REFLECTION FRAME AND THE COHOMOLOGICAL SIDE INFORMATION
+A kernel-checked homometric pair, and the observation that reconstructing
+a set from its pairwise differences is the same lossy transport as
+reconstructing a field from its local data — the residue is the same
+object at two scales
+
+Number theory / the map from a set to its difference multiset, and its
+kernel
+
+Take the transport that sends a finite set of integers to the multiset of
+its pairwise differences.  This development exhibits, with a machine-
+checked certificate, that this transport is LOSSY: two sets carry the same
+differences and are not the same set up to the symmetries of ℤ.
+
+The witness.  A = {0,1,2,6,8,11} and B = {0,1,6,7,9,11}, normalized to
+least element 0 and greatest 11.  `diffs` forms the 15 positive pairwise
+differences of each; `iv` bins them into the interval vector over 1..11;
+and `interval-vector-agree` proves iv A ≡ iv B by computation -- both are
+(2,2,1,1,2,2,1,1,1,1,1).  `A-has-15-differences`, `B-has-15-differences`,
+`A-total`, `B-total` confirm that all 15 pairs of each set are accounted
+for inside the window, so equality of the vectors is equality of the whole
+difference multisets, not of a truncation.  `not-congruent` then proves,
+by finite exhaustion over the four congruence shapes (translation either
+way, reflection-then-translation either way, the translation parameter
+pinned by the sorted head), that NO symmetry of ℤ carries A to B.  Same
+autocorrelation, different set: the marginal has a genuine kernel.
+
+The mathematics is classical -- homometric (Patterson-equivalent) sets,
+Patterson 1944; the polynomial characterization, Rosenblatt–Seymour 1982;
+the music-theoretic Z-relation, Lewin 1959.  What is new is the
+certificate: a kernel-checked term in place of an uncertified search, with
+the non-congruence discharged by exhaustion rather than asserted.
+
+Why it belongs to the same picture as the rest of the corpus, which is the
+point of surfacing it.  The reflection frame writes a pair of primes by
+its difference data: with midpoint w and offset r, the pair is (w−r, w+r)
+and the product is w² − r², so a prime pair is encoded entirely by a
+center and a difference.  The homometric pair is the theorem that
+difference data does not determine the set -- the encoding has a kernel,
+and the kernel is exhibited, minimal, at six points.  This is the same
+statement, in the integers, as the fibre law's lossy binding and as
+SankramanaSesa's every-transport-owes-its-residual: the transport
+set ↦ autocorrelation is not injective, and the homometric ambiguity IS
+its residue.  It is also the number-theoretic incarnation of the
+cohomological reading in which a field is reconstructed from its local
+data only up to global side information: the autocorrelation is the local
+pairwise data, the set is the global object, and the homometric pair is
+the side information that no amount of local difference-counting removes.
+The residue of a reflection encoding of primes and the residue of a local
+reconstruction of a field are one object at two scales, and this module
+pins the small scale exactly.
+
+The consequence.  Anyone reading the reflection frame for Goldbach must
+reckon that the pair-by-difference encoding is lossy in general, and here
+is the exact witness of that loss, certified.  The difference multiset is
+a marginal; its kernel is real; and naming what survives the marginal and
+what is lost by it is the same accounting the corpus performs everywhere
+else, now at the scale of a six-element set of integers.
+
+WHAT IS NOT CLAIMED.  Minimality is not formalized here -- that no
+homometric pair has diameter ≤ 10 is a larger subset sweep and still rests
+on the legacy search; this module discharges existence only.  The
+reduction of ℤ-congruence to the four normalized shapes is a definition in
+the module, elementary and assumed, not a theorem of it.  No claim is made
+that homometry and cohomological side information are related by more than
+the shared shape of a non-injective transport with an exhibited residue;
+the identification is structural, not a theorem that one reduces to the
+other.  The mathematics of homometric sets is entirely classical and none
+of it is claimed as new.
+
+Machine-checked in cubical type theory, no postulates, no admitted goals.

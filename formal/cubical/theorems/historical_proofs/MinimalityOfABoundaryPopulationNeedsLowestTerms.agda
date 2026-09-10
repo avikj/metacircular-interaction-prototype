@@ -43,7 +43,6 @@
 -- property of the RATE, only of the PAIR.
 --
 -- ────────────────────────────────────────────────────────────────────
--- THE SCOPE, EXACTLY, and the obligation is exact.
 --
 -- The general case — gcd p (suc q) ≡ 1 ⇒ every non-empty boundary
 -- population has length ≥ suc q — is NOT proved.  It needs exactly one

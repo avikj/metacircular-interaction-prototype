@@ -43,12 +43,6 @@
 --       genuinely a facet of the object (a projection that commutes) —
 --       a naya is true, just not whole (सत्यः न कृत्स्नः).
 --
--- WHAT IS **NOT** CLAIMED.  Doctrine is Umāsvāti's and Siddhasena's; the
--- type theory is cubical.  The SEVEN are modelled only as seven distinct
--- coordinates in their traditional order and root-split; their individual
--- semantics (what naigama vs evambhūta each actually see) is named, not
--- encoded — that is the owed refinement.  Facets are an abstract type.
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

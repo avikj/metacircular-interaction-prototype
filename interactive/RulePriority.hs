@@ -89,7 +89,6 @@
 -- order and the kṛtākṛtaprasaṅgi definition of nitya; the paribhāṣās
 -- themselves are older and are collected there, not invented there.
 --
-
 module RulePriority
   ( -- position
     Sthana

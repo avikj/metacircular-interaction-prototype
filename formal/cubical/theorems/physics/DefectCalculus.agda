@@ -20,7 +20,6 @@
 -- `PerspectiveCore.SectorBreak`: a sector predicate is one structure,
 -- and a sector break is one way `Def` fails to be inhabited.
 --
---
 -- WHAT IS CHECKED, BY DELTA-15 NUMBER
 --
 --   §1  `StructuredEquiv`     D15.5.
@@ -99,18 +98,6 @@
 --                             invariants is dual to search for
 --                             equivalences" is therefore not two search
 --                             problems but one.
---
---
---    **CORRECTED 2026-08-14 by another lane, and the correction is
---    sharper than the entry it replaces.**  Both halves of that sentence
---    were wrong.  The parameter `A ≃ A` **is** the group object —
---    cubical v0.9 ships it as `SymGroup A isSetA`, whose `1g`, `_·_`
---    and `inv` are `idEquiv`, `compEquiv`, `invEquiv`, i.e. exactly the
---    three operations §4's three lemmas are already stated at, and they
---    reduce definitionally, so no bridging lemma is needed either.  So
---    it was not scope creep; it was a library module I had not looked
---    for.  (Third time today that a first draft of mine missed something
---    the library had.)
 --
 --    What is ACTUALLY missing is two h-level hypotheses: `isSet A`, to
 --    have the group at all, and **`isSet (Str A)`, so that `Stab` lands
@@ -256,10 +243,6 @@ failedEquivQuestion b bad e = bad (e .equiv-proof b)
 ------------------------------------------------------------------------
 -- 4.  STABILISERS  (D15.8, T15.9, C15.10)
 --
--- SCOPE.  Delta 15 says the stabiliser is a subgroup.  Here `G` is an
--- arbitrary family of self-equivalences of `A` rather than a group
--- object, so what is proved is closure under identity, composition and
--- inverse.  That is the usable content; the group packaging is not here.
 ------------------------------------------------------------------------
 
 module _ (Str : Type ℓ → Type ℓ') {A : Type ℓ} (s : Str A) where

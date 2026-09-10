@@ -55,15 +55,6 @@
 -- separate the fibre have EQUAL meanings, because the meaning type is a
 -- proposition and has no two positions in it.
 --
--- WHAT IS **NOT** CLAIMED.  No braiding.  A groupoid whose inverse fails
--- to be strict is not thereby a braid group action:
--- `BraidCoherenceBoundary` exhibits two involutive
--- self-EQUIVALENCES of `Bool × Bool × Bool` that fail Yang–Baxter at
--- (false , false , false), so invertibility does not entail the
--- coherence, and nothing here supplies it.  No thermodynamics, no
--- physical implementation, no measure, no heat — `Yantra_…` carries a
--- correction inset about exactly that overclaim and this file does not
--- reinstate it.
 ------------------------------------------------------------------------
 
 module AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue where

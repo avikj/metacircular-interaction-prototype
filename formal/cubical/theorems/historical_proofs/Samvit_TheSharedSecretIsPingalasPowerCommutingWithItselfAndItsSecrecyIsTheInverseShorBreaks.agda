@@ -43,16 +43,6 @@
 -- are one homomorphism out of a free monoid, and every one of these
 -- cryptosystems is broken at the SAME place: the inverse of घात.
 --
--- WHAT IS **NOT** CLAIMED:
---   * That Diffie, Hellman, or Merkle knew Piṅgala.  The algebra of
---     घात-गुणः is Piṅgala's; the protocol built on it is 1976.  The claim
---     is provenance of the MECHANISM, not of the protocol.
---   * Any hardness of the discrete log (it is the security ASSUMPTION,
---     stated, not proved — proving it would settle far more than DH).
---   * Shor's quantum order-finding (owed, as in Bijamula §4).
---   * That M is a group or finite.  Unused; a commutative monoid suffices
---     for correctness (security needs more, and is not formalised).
---
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
 

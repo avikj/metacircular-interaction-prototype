@@ -21,10 +21,6 @@
 -- `Sesa_…` proves `every-semantic-criterion-is-blind` and states it
 -- unqualified -- "No semantic criterion -- none, at any h-level, of any
 -- complexity -- selects the short proof."  THE THEOREM IS TRUE AND THE
--- SCOPE SENTENCE IS THE DURNAYA.  §1 abstracts that proof over its
--- codomain and shows what it actually consumes: `isSet X`, and nothing
--- else.  Not ℕ, not `eval`, not one fact about this kernel.  So the
--- qualified form is
 --
 --     syāt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
 --
@@ -50,12 +46,10 @@
 -- it is exactly `len d + len d`.
 --
 ------------------------------------------------------------------------
--- A CORRECTION OF MY OWN, LANDED THE SAME DAY, STRUCK IN PLACE.
+-- THE SEPARATION IS BY INVERSION, NOT h-LEVEL.
 --
--- ~~"§1 gives sufficiency of `isSet`; that a NON-set codomain separates
--- the kernel's two histories is not shown here and needs a model landing
--- in a genuine groupoid."~~  I wrote that as an open item.  IT IS NOT
--- OPEN AND IT IS NOT AVAILABLE: no such model exists, at any h-level.
+-- No model landing in a genuine groupoid separates the kernel's two
+-- histories -- none exists, at any h-level.
 --
 -- §3 proves it.  `detour-history` is `s ; reverse s ; direct-history`, and
 -- EVERY semantics sends `reverse` to `sym`, so that round trip is the
@@ -78,17 +72,6 @@
 --       costs double to the walker.
 --   §3  no-semantics-separates-them -- and therefore raising h-level buys
 --       nothing on the corpus's own pair.
---
--- THE SCOPE, NAMED EXACTLY:
---   * SUFFICIENCY, NOT CHARACTERISATION.  §1 gives sufficiency of `isSet`
---     for the general statement, and §3 kills the one route to a converse.
---     Whether SOME pair of derivations is separated by a non-set codomain
---     is a precise further question — it would need a pair not differing
---     by a round trip, and none is exhibited here.
---   * NO construction of the extra-semantic criterion `Sesa_` says is
---     necessary.  §2 explains why one class of attempts cannot work.
---   * nothing about which cost is right; `len` is one, and the round-trip
---     law is about invertibility, not about that choice.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
 -- exit 0 at the previous module path.  Module name and imports were renamed

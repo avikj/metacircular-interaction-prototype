@@ -73,18 +73,6 @@
 -- `bracket-εφ` along the currying (ℕ × ℕ → ℤ) ≃ (ℕ → ℕ → ℤ).  Nothing
 -- in Sl2DivisorLattice is modified.
 --
--- SCOPE LIMITS (stated, not papered over):
---  * The general-m OPERATORS are proved to be an 𝔰𝔩₂-triple (item 2).
---    The general-m BASIS DISPLAY (ε ξ^κ = Σ_{i=1}^m ξ^{κ+e_i} with a
---    multi-index δ) is proved at m = 2 only (§6), for arbitrary
---    (κ₁,d₁,κ₂,d₂); for general m what is written is the recursive
---    comultiplication (item 3), which is the same statement unrolled,
---    but the multi-index δ notation is not set up here.
---  * Coefficients are ℤ, as in the rank-one module; char-0 consequences
---    (complete reducibility, Sperner) are NOT claimed here.
---  * Nothing here is new mathematics: this is the coproduct on U(𝔰𝔩₂)
---    (Humphreys §7, and note §3(ii)).  What is new is that it is a
---    checked term.
 ------------------------------------------------------------------------
 
 module Sl2TensorProduct where

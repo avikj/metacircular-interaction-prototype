@@ -1,0 +1,37 @@
+THE FINITE-WINDOW SHIFT DEFECT IS THE BOUNDARY RESIDUAL: NET DISPLACEMENT
+DESCENDS, BOUNDARY INTERACTION HISTORY DOES NOT
+The RH-side residual of the renormalized-boundary-transport picture as a
+finite checked term: the truncated shift is not unitary, its commutation
+defect is a difference of two boundary projectors, trace zero but nonzero
+
+RH / renormalized boundary transport / descent / SankramanaShreni instance
+
+On the full line the shift is unitary (Uₐ⁻¹ = U₋ₐ). On a finite window the
+truncated shift S has S*S = kill-top, SS* = kill-bottom: identity on the
+interior, differing only at the two ends. The commutation defect is a
+difference of the two rank-one boundary projectors, S*S − SS* = P_bottom −
+P_top. ShiftBoundaryDefect makes the split a checked term:
+
+  netDescends       : trace(S*S − SS*) ≡ 0. Net displacement descends —
+                      the two histories (−a then +a; +a then −a) have the
+                      same endpoint reading, which cannot tell them apart.
+  interiorVanishes  : the defect is zero on the interior;
+  bottomEnd/topEnd  : it is ±1 exactly at the two boundary cells.
+  boundarySurvives  : the defect is nonzero (S*S ≠ SS*). The boundary
+                      interaction history is the residual every
+                      trace/endpoint reading loses.
+
+This is the atom of the renormalized boundary residual: increasing the
+window is not embedding one matrix in a larger one — fresh shifts a = log n
+keep arriving at the moving boundary a ∼ t, so new words always live at
+boundary scale, and bulk convergence can look perfect while the spectral
+information keeps entering through this residual. It is a literal
+descent/non-descent instance in the sense of SankramanaShreni and VyayaSesa.
+
+SYĀT — THE CLAIM, EXACTLY. The three facts for the N = 3 window (the shape
+is general, the witness is exhibited, per the corpus's concrete-witness
+discipline). NOT claimed: anything about ζ or its zeros — this is the
+residual's algebra, the piece the explicit-formula boundary block is built
+on, not the spectral theorem.
+
+Machine-checked in cubical type theory, --safe, at the pin.

@@ -80,13 +80,6 @@
 -- not "unknown" and not "neither true nor false".  It is a statement about
 -- what one vacana can denote.
 --
--- THE SCOPE, EXACTLY.  That seven is exhaustive — `SaptabhangiNaya` §6
--- carries Akalaṅka's argument and this module does not touch it.  That the
--- demand list is the right model of सकलादेश — it is a model of what a total
--- statement DEMANDS, and Malliṣeṇa's question of what अवक्तव्यम् IS (failure
--- of expression, or consumption of what was to be expressed) is untouched
--- here, exactly as `Arpitanarpita_…` §११ says the composition laws cannot
--- settle it.  Nothing here settles it either.
 ------------------------------------------------------------------------
 
 module Sakaladesa_NoSingleUtteranceDenotesTheTotalStatementAndTheContentNonethelessFolds where

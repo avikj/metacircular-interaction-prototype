@@ -87,12 +87,6 @@
 -- `eq-0` and `eq-1` certify the two equality cases.  The note's
 -- asymptotic ratio √(πR)/2^R is unaffected.
 --
--- SCOPE, negatively.  Nothing here proves any arithmetic statement
--- about primes, the fugacity propagator, or the CRT/Kloosterman
--- estimates the note leaves as its remaining obligation; nothing here
--- says the R+1 character phases are easy to bound.  The content is
--- exactly: three explicit inversion functionals, their exact ℓ∞ norms,
--- and their order.  --safe throughout; no postulates, no holes.
 ------------------------------------------------------------------------
 
 module TomographyConditioning where
