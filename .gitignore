@@ -150,6 +150,8 @@ zzz/**/*.pyc
 # verifies THIS run and not a history it did not produce.  So a committed
 # copy is, by construction, always some other container's run — and a
 # `--wire` session deletes it and writes nothing, which is how it showed
-# up as a staged deletion.  interactive/dosa.lekha, the shared append-only
-# log several lanes write to, is a different file and stays tracked.
+# up as a staged deletion.  Defect analysis is deterministic and immediate:
+# a defect is analyzed to completion now, its next step and Oracle-feedback
+# emitted, and nothing persisted — git is the only history.  There is no
+# standing defect ledger.
 interactive/yantra-session.lekha
