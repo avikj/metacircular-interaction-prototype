@@ -1285,3 +1285,7 @@ import TwoScaleSubgroup_ThePowersOfTwoAndThreeMeetOnlyAtOneSoTheTwoGeneratorScal
 -- by none; instantiated on the power-sum trace (bounded iff roots on the
 -- circle) and on the Galerkin jet stream.
 import HistoryCompletion_TheValueStreamOfATraceUnderAnEvaluatorCompletesByCorecursionItsLimitDescendsToTruncationsAndBoundednessDoesNot
+-- GalerkinLookahead: for every window M the truncated jet stream agrees
+-- with the exact one to depth M — the support lemma of convolution with a
+-- and the closure of row-support under the field operations.
+import GalerkinLookahead_TheJetOfOrderNReachesRowNPlusOneAndNoFurtherSoTruncationToAnyWindowIsExactToTheWindowsDepthTheCrossingProfileOfThePairsEquation
