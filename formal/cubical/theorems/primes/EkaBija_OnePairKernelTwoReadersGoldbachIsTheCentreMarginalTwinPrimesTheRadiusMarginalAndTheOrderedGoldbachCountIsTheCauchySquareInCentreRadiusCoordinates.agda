@@ -46,13 +46,6 @@
 --       𝒦 6 1 (5, 7), the marginal at 2·50 = 100 is 6 (nonzero), and
 --       the ordered count of 100 is 12 = 𝒦 50 0 + 2·6.
 --
--- WHAT IS NOT CLAIMED.  Nothing analytic: no Λ(n) = log p, no e^{−nz},
--- no Laplace/Fourier/Mellin transform, no P(z), no Z(t,θ), no ζ.  The
--- weights here are the prime indicator, NOT the von Mangoldt function
--- (prime powers p^k, k ≥ 2, carry weight 0 here and log p there).  No
--- inhabitant of Goldbach or TwinPrimes is offered; §1–§2 relate fibres
--- of the two conjectures to fibres of the kernel, and §5 checks finitely
--- many instances by evaluation.
 ------------------------------------------------------------------------
 
 module EkaBija_OnePairKernelTwoReadersGoldbachIsTheCentreMarginalTwinPrimesTheRadiusMarginalAndTheOrderedGoldbachCountIsTheCauchySquareInCentreRadiusCoordinates where

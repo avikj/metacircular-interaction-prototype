@@ -64,9 +64,6 @@
 -- out of a sum by zeroing it in place) and Σ≤-single (a sum with one
 -- possibly nonzero term is that term).
 --
--- WHAT IS NOT CLAIMED.  Nothing about Goldbach's conjecture: no
--- inhabitant of any Goldbach fibre is offered, and no bound on any count.
--- Nothing about the even-N counts alone (see above).  Nothing analytic.
 ------------------------------------------------------------------------
 
 module GananaNirdhara_TheSequenceOfOrderedPairCountsDeterminesTheSequenceSoTheGoldbachCountsAtEveryIntegerAreThePrimeIndicator where

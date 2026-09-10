@@ -72,17 +72,6 @@
 --       via `+induction` does not finish in budget); there the link to
 --       Drdha's list is `perm-360-drdha`, by proof.
 --
--- WHAT IS NOT CLAIMED.
---   · Nothing about Ω, ω, μ, Φ or Theorem A/B of ChargePolynomialFinite is
---     restated here.  Those results are about tables; this module shows
---     the three tables are the factorizations, which is the hypothesis
---     under which that file says its instances are the note's theorems.
---     Composing the two is a reading, made available, not performed here.
---   · Check (iv) (Ω against `Ωtrial`) is not used and not needed: (i)–(iii)
---     already determine the table up to order.
---   · No general n is factorized here beyond what Drdha/Ekatva already do;
---     the general theorems quantify over tables and over p.
---
 -- No postulates, no holes, no TERMINATING pragmas.
 ------------------------------------------------------------------------
 

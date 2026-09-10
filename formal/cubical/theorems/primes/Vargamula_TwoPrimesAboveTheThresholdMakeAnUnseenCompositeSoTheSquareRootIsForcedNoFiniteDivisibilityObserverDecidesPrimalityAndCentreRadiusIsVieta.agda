@@ -71,24 +71,19 @@
 --                 ≡ w · w, and (w + r) ∸ (w ∸ r) ≡ 2 · r.  So EkaBija's
 --                 chart IS Vieta for the pair.
 --
--- WHAT IS NOT PROVED / NOT CLAIMED.
---   · T22.3 is stated for 0 < m.  For m = 0 the hypothesis is vacuous
---     when X < 4 and 0 is neither 1 nor prime, so the bound is needed and
---     is stated.
---   · "Sufficient" in T22.3 is the mathematical statement, not a
---     statement about the Boolean testers `primeb`/`spf` of
---     SamastaPrasna/RH_; those are not touched here.
---   · "Observer" is formalised as the family of divisibility readings
---     (d ∣ n for d in a finite list, or for primes d ≤ z), and "decides
---     primality" as: some property that depends on n ONLY through those
---     readings coincides with दृढम्.  The separator refutes every such
---     property at once.  Nothing is said about observers of any other
---     shape.
---   · The sentence "growth of the sufficient observer with task scale"
---     is illustrated (T22.3 gives a sufficient observer of size √X;
---     T22.4 shows z < √X does not suffice when two primes sit in (z, √X])
---     but "growth" is not itself a formal statement here.
---   · T22.5 over ℤ uses no ordering; the ℕ chart needs r ≤ w and says so.
+-- For m = 0 the hypothesis is vacuous when X < 4 and 0 is neither 1 nor
+-- prime, so the bound is needed and is stated. · "Sufficient" in T22.3 is the
+-- mathematical statement, not a statement about the Boolean testers
+-- `primeb`/`spf` of SamastaPrasna/RH_; those are not touched here. ·
+-- "Observer" is formalised as the family of divisibility readings (d ∣ n for
+-- d in a finite list, or for primes d ≤ z), and "decides primality" as: some
+-- property that depends on n ONLY through those readings coincides with
+-- दृढम्. The separator refutes every such property at once. Nothing is said
+-- about observers of any other shape. · The sentence "growth of the
+-- sufficient observer with task scale" is illustrated (T22.3 gives a
+-- sufficient observer of size √X; T22.4 shows z < √X does not suffice when
+-- two primes sit in (z, √X]) but "growth" is not itself a formal statement
+-- here. · T22.5 over ℤ uses no ordering; the ℕ chart needs r ≤ w and says so.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
 -- postulates, no holes, no TERMINATING pragmas.
