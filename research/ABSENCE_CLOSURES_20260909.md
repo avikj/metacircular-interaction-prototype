@@ -48,6 +48,10 @@ edited.  Nothing was assumed.
 | PARITY_RIGIDITY / ParityRigidity.lean: "the prime-prefix corollary ... needs 2 odd-prime arithmetic" | primes/DvikaLangara_… | an even number passing primeb is 2; odd differences of primes involve 2; the odd part of the difference count is the prime indicator shifted by 2 |
 | WALK_STATE_IS_ITS_LCM: "Not yet Agda — §2's (⊇) needs a coprime-family lcm computation" | walks/Antarala_… | every divisor of cap(k) is the lcm of a family below k; reachable states = divisor lattice of the capacity |
 | DISTINCTION_CARRIES_WITNESSES §6 seeds 1, 2: d_sep and cotransitivity under decidable Obs | number/Vaidharmya_… | Apart is irreflexive, symmetric, cotransitive; over a finite alphabet the shortest separating experiment is computed from any separating one |
+| SEED66_CRT_SYNCHRONISATION seed 3: "Theorems Y and Z in formal/cubical/; Y.a is four lines and is the cheapest formalisation target in this whole family" | number/Samakala_… | Y.a: 2^ω ∣ n − 1 for any list of prime powers with q_j ≡ 1 mod 2^{c_j}, ω ≤ c_j; hence ω ≤ s and ω ≤ मानम् 2 (n − 1); the clause v ≤ s is vacuous. Y.b, Z not here |
+| CHARGE_TOWER_MONODROMY: "Stated, not proved: that Ω(n/p⁻(n)) = Ω(n) − 1 for all n ≥ 2" | number/Nihsarana_… | in ChargeGradedPeeling's own Ω and peel, for every n ≥ 2; its X = 30 consequences (peelDrops, peelFlips, peelGrade, P¹, P²) unconditional; iterating peel Ω n times reaches 1 |
+| GAMMA0_INDEX_EXPONENT: "CRT multiplicativity — Lemma 3.2 ... becomes a one-file target and Gamma0Index's four crt* refls become a theorem" | number/Gunanam_… | cnt2 (m·n) 1 and cnt2 (m·n) (m·n) multiplicative over coprime m, n via crtEquiv on each entry; the four refls are instances; coprimality load-bearing (cnt2 4 1 ≠ cnt2 2 1²) |
+| FLEET_BREAKER_PASS seed 2: "PROVE: r(N) = 2d(N) in Agda" | number/Dviguna_… | Rep N ≃ same-parity factor pairs; for odd n, Rep (pos n) ≃ Bool × Div n; no representation of 2 mod 4; Rep (4M) ≃ factor pairs of M |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
@@ -75,7 +79,7 @@ edited.  Nothing was assumed.
 
 ## What the exercise shows
 
-Thirty-four absences the corpus had recorded were compositions of terms it
+Thirty-eight absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
