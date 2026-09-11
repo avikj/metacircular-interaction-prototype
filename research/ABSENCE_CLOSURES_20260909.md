@@ -59,6 +59,7 @@ edited.  Nothing was assumed.
 | NATURAL_MACHINE §7.3 item 4: "ℕ ≃ ∥FinSet∥₀. Not proved." | homotopy/Sankhya_… | the pinned library's ∥FinSet∥₂≃ℕ, in the note's orientation, with count/class round trips |
 | ARITHMETIC_LIFE_ADVERSARIAL_AUDIT seed 2: "State the corresponding valuation form v(lcm) = max(v(a),v(b)) and connect it to VALUATION_FORMATION_UNIVERSALITY's universal property" | number/Yogamana_… | p^k ∣ n ↔ k ≤ v_p n; v_p(lcm) = max, v_p(gcd) = min for every witness; gcd·lcm = ab through valuations; IsLCM₂ ↔ valuation join at every prime, both directions, via v_p-injectivity from Ekatva |
 | CHARGE_EXTRACTION_SHOULD_BE_CYCLIC: "GaugeOrbitClasses.agda generalizes by replacing Bool-valued signs with ℤ/n-valued phases … a concrete, small, and checkable Agda PROVE item" | physics/CakraVarga_… | the character law, annihilator subgroup and class theorem for phases in any abelian group; Bool recovers the original proofs, ℤ/3 shows a third class on one query; transcript descends injectively to the quotient |
+| DELTA17_SPLIT_TORUS_AUDIT: "T17.3, T17.5, T17.8 are not formalised"; seed "PROVE: T17.5, the Weyl conjugation, as a 2×2 matrix identity over ℤ" | lattices/VinimayaWeyl_… | τ·dia u t·τ ≡ dia t u for all u, t; τ² = J² = I; τJ ≢ Jτ; the split norm 4pq is preserved by τ and negated by J (C17.7) |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
@@ -86,7 +87,7 @@ edited.  Nothing was assumed.
 
 ## What the exercise shows
 
-Forty-five absences the corpus had recorded were compositions of terms it
+Forty-six absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
