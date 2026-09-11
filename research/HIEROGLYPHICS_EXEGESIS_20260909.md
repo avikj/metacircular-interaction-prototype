@@ -536,3 +536,45 @@ thesis of this whole exercise stated by the fleet a month earlier, with its
 own examples; §§18–20 above are the same shape at the next scale (the
 Lean lane and the Agda lane proving the same rigidity without transport;
 the four repairs named in three notes and told apart in none).
+
+## 22. The notes' own open lists, read whole (2026-09-10/11)
+
+All 942 notes on `main:notes/` were digested (claim, verbatim status
+sentences, open items, formal references, corrections, one surprise each),
+and the open items were classified: analytic (out of reach at the pin),
+computational-or-organisational, already closed elsewhere, and composable
+from terms the corpus holds. The last class was composed and checked:
+
+- `Samakala` — SEED-66's "cheapest formalisation target in this whole
+  family" (Theorem Y.a; the clause v ≤ s vacuous).
+- `Nihsarana` — CHARGE_TOWER_MONODROMY's "stated, not proved" Ω-drop, in
+  the module's own terms, so its X = 30 consequences hold for every n.
+- `Gunanam` — GAMMA0_INDEX_EXPONENT's "one-file target": the Γ₀ counts are
+  multiplicative over coprime levels by `crtEquiv`, and coprimality is
+  load-bearing.
+- `Dviguna` — FLEET_BREAKER's "PROVE: r(N) = 2d(N) in Agda".
+- `Antarala` — WALK_STATE_IS_ITS_LCM's "Not yet Agda" interior of the
+  triangle.
+- `Vaidharmya` — DISTINCTION_CARRIES_WITNESSES' two seeds (cotransitivity;
+  d_sep over a finite alphabet).
+- `Sankhya` — NATURAL_MACHINE §7.3 item 4 is the pinned library's
+  `∥FinSet∥₂≃ℕ`.
+- `Pratyavartana` — the cakravāla state step as a total function, Bhāskara's
+  minimisation verified, and return to क्षेप = 1 within B² turns under
+  reversibility; what remains of termination is now one sentence (the
+  opposite-tie-break reverse follows the forward step on every orbit
+  state).
+
+Six items the notes list as open were already closed in the corpus or the
+pinned library before this reading (ledger, "Items the fleet's notes list as
+open that were already closed elsewhere"). The same shape as §21: the lists
+of the open go stale faster than they are re-read.
+
+One engineering fact, recorded because it cost most of a day: in Cubical
+Agda a record state type has η, so a function defined by matching on the
+pair reduces on *any* argument through the projections; with a search
+machinery inside, every conversion on an open state unfolds it, and `with`
+abstraction normalises the whole context. The cure is a `no-eta-equality`
+record (with `pattern`) whose constructor and projections overload Σ's, and
+explicit case functions in place of `with`. The cakravāla module went from
+out-of-memory at 14 GB to a fifteen-minute check by that change alone.
