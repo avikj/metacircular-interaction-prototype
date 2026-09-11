@@ -46,6 +46,13 @@ fi
 [ -f "$LIBFILE" ] || { printf '\nno %s -- run: sh setup\n' "$LIBFILE"; exit 1; }
 
 fail=0
+# The GHC runtime of agda: a heap cap.  The depth-4096 Rule 30 certificate
+# (theorems/automata/Navapada_*) holds ~10 GB live while it decides one
+# boolean; under the default copying collector the process grows past a
+# 15 GB machine and is killed, while under -M the runtime switches to
+# compacting collection near the cap and finishes.  This is a fact about
+# the checker's environment, not about the mathematics.
+export GHCRTS="${GHCRTS:--M12500m}"
 run() {  # run <label> <dir> <file>
   printf '  %-58s ' "$1"
   if ( cd "$2" && "$AGDA" --library-file="$LIBFILE" "$3" ) >/tmp/mathcheck.$$ 2>&1
