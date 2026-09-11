@@ -52,11 +52,12 @@ edited.  Nothing was assumed.
 | CHARGE_TOWER_MONODROMY: "Stated, not proved: that Ω(n/p⁻(n)) = Ω(n) − 1 for all n ≥ 2" | number/Nihsarana_… | in ChargeGradedPeeling's own Ω and peel, for every n ≥ 2; its X = 30 consequences (peelDrops, peelFlips, peelGrade, P¹, P²) unconditional; iterating peel Ω n times reaches 1 |
 | GAMMA0_INDEX_EXPONENT: "CRT multiplicativity — Lemma 3.2 ... becomes a one-file target and Gamma0Index's four crt* refls become a theorem" | number/Gunanam_… | cnt2 (m·n) 1 and cnt2 (m·n) (m·n) multiplicative over coprime m, n via crtEquiv on each entry; the four refls are instances; coprimality load-bearing (cnt2 4 1 ≠ cnt2 2 1²) |
 | FLEET_BREAKER_PASS seed 2: "PROVE: r(N) = 2d(N) in Agda" | number/Dviguna_… | Rep N ≃ same-parity factor pairs; for odd n, Rep (pos n) ≃ Bool × Div n; no representation of 2 mod 4; Rep (4M) ≃ factor pairs of M |
+| CakravalaBound "TERMINATION IS STILL OPEN ... MINIMALITY OF BHĀSKARA'S CHOICE is not proved — it is a HYPOTHESIS"; GunakaKsepa "DETERMINISM IS NOT COMPLETE ... A tie is a genuine branch" | historical_proofs/Pratyavartana_… | the step on (गुणक, क्षेप) is a total function; Bhāskara's minimisation verified (chooseMin); invariant propagates without coprimality; orbit stays in the box; returns to क्षेप = 1 within B² turns given reversibility along the orbit; reversibility is one condition on the गुणक; signed क्षेप returns to +1 within 2B²; kernel discharges reversibility at D = 2, 3, 13, 29, 61 (Lagrange at 61 from the theorem) |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
 
-- Cakravāla termination and Bhāskara's minimality (CakravalaBound, CakravalaDescent, CakravalaStep): Lagrange 1768; needs periodicity of the continued fraction of √D.  No corpus term approaches it.
+- Cakravāla termination for general D: what remains after Pratyavartana is exactly that the opposite-tie-break reverse follows the forward step on every orbit state (the gcd/tie-break gap GunakaKsepa names); Lagrange 1768 for general D is not composed.
 - Petersen's optimality of the Śivasūtras (Sivasutra, PratyaharaLaghava, Dvihpatha): a graded minimisation over all enumerations; unread source, no formal statement in the corpus.
 - ℚ(√2) has exactly two orderings (SamacaranaNityam): needs ordered-field theory absent from the pin.
 - Nontrivial factorisation of the norm form forces −1 a square (WhereTheCircleSplits): polynomial factorisation over a field, absent.
@@ -79,7 +80,7 @@ edited.  Nothing was assumed.
 
 ## What the exercise shows
 
-Thirty-eight absences the corpus had recorded were compositions of terms it
+Thirty-nine absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
