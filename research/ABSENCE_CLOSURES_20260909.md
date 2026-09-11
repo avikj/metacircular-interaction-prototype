@@ -61,6 +61,7 @@ edited.  Nothing was assumed.
 | CHARGE_EXTRACTION_SHOULD_BE_CYCLIC: "GaugeOrbitClasses.agda generalizes by replacing Bool-valued signs with ℤ/n-valued phases … a concrete, small, and checkable Agda PROVE item" | physics/CakraVarga_… | the character law, annihilator subgroup and class theorem for phases in any abelian group; Bool recovers the original proofs, ℤ/3 shows a third class on one query; transcript descends injectively to the quotient |
 | DELTA17_SPLIT_TORUS_AUDIT: "T17.3, T17.5, T17.8 are not formalised"; seed "PROVE: T17.5, the Weyl conjugation, as a 2×2 matrix identity over ℤ" | lattices/VinimayaWeyl_… | τ·dia u t·τ ≡ dia t u for all u, t; τ² = J² = I; τJ ≢ Jτ; the split norm 4pq is preserved by τ and negated by J (C17.7) |
 | DESCENT_ALONG_ONE_MAP seed 2: "the multi-map case … its Theorem (compatible tuples glue; fibre P/L) … nothing in formal/cubical/ currently states it" | residue/BahuSesa_… | for any list of moduli: compatibility necessary and sufficient, gluing unique mod lcm, fibre in the product ≃ Fin (P/L); Bézout over ℕ; the note's own tuple (1,3,7) refuted, (3,1,7) glues to 7 with six lifts |
+| GroupCohomologyH2 "NOT claimed here … the computation of H² as A/mA is constructed" nowhere; FOUR_REPAIR_MODES seed 2 "Construct H²(ℤ/m;A) ≅ A/mA constructively, discharging §4.1's Γ↺"; ATLAS_OF_N "remains open" | homotopy/Cakragana_… | GroupIso H²(ℤ/m; A) ≅ A/mA for every m ≥ 1 and abelian A via the carry cocycle: σ(f) = Σ f(i, g), σ(δh) = m·h(g), every cocycle ≡ carry(σ f) + δh, carry(m·b) = δ(k ↦ k·b); instances at ℤ/2 with coefficients ℤ/2 and ℤ, the carry class nonzero |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
@@ -88,7 +89,7 @@ edited.  Nothing was assumed.
 
 ## What the exercise shows
 
-Forty-seven absences the corpus had recorded were compositions of terms it
+Forty-eight absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
