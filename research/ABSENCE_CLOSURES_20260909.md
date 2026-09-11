@@ -40,6 +40,14 @@ edited.  Nothing was assumed.
 | Cantor/Lawvere and the Möbius monodromy treated as two theorems (LawvereFixedPoint, Diagonal modules) | automata/Ekasutra_… | Section (Torus e) ≃ FixedPoint (equivFun e) via ua-glue/unglue; point-surjection gives sections; a free monodromy (notEquiv) has no section |
 | Hieroglyphics III §Z: Goldbach and twins are read from two kernels; KuttakaSamapti "the logarithmic bound … (Lamé); provable, not yet composed" | primes/EkaBija_…, historical_proofs/Svarnasima_… | one kernel 𝒦 w r = a(w∸r)·a(w+r); Goldbach is the centre marginal, twins the radius marginal, ordered Goldbach count is the Cauchy square; the vallī of consecutive Virahāṅka numbers is the longest, every vallī is shorter than the Virahāṅka inverse |
 | fibre census: the seam conjecture (fibre of ∣_∣₁ over a truncated point) | fibre/Fibre/Avaccheda_… | fiber ∣_∣₁ x ≃ A for every x : ∥ A ∥₁ |
+| SpernerFromSl2 §8: "THE OPEN STATEMENT. Uninhabited below, deliberately." GeneralSperner, GeneralRankSymmetry | number/Bahuguna_… | both inhabited by the symmetric-chain route; rank sequence of a product of chains is symmetric unimodal (box-SU); caveat that the earlier DivM constrains every coordinate |
+| ChargePolynomialFinite; D0026 §5.5 Φ_n(t) = t^{Ω−ω}(t−1)^ω "for every n" | number/Sthirabhara_… | the identity for every positive integer by peeling the least prime; κ₁ three cases; Ω is the length of every firm factorisation; also CHARGE_TOWER_MONODROMY's "Stated, not proved: Ω(n/p⁻(n)) = Ω(n) − 1" is its Ω-step |
+| D0026 §5.11 / D0018 T18.7: the gluing defect PU_{h+k}P − PU_hPU_kP | number/PeirceGluing_… | equals the off-sector mass in any ring with a complete family of idempotents; closure iff it vanishes; projection linear not multiplicative |
+| D0022 T22.2–T22.5 (owner transmission, in history only) | primes/Vargamula_… | composites coprime to any finite prime set; √X suffices; no finite divisibility observer decides primality; centre/product/gap are Vieta coordinates |
+| Lean SumRigidity "does not transport anything from the Agda lane"; the even-N question | primes/GananaNirdhara_… | ordered pair counts at every N determine the sequence, over ℕ; the even counts alone do not (φ = x³+2x⁵+x⁶, ψ = x³+2x⁴+x⁶) |
+| PARITY_RIGIDITY / ParityRigidity.lean: "the prime-prefix corollary ... needs 2 odd-prime arithmetic" | primes/DvikaLangara_… | an even number passing primeb is 2; odd differences of primes involve 2; the odd part of the difference count is the prime indicator shifted by 2 |
+| WALK_STATE_IS_ITS_LCM: "Not yet Agda — §2's (⊇) needs a coprime-family lcm computation" | walks/Antarala_… | every divisor of cap(k) is the lcm of a family below k; reachable states = divisor lattice of the capacity |
+| DISTINCTION_CARRIES_WITNESSES §6 seeds 1, 2: d_sep and cotransitivity under decidable Obs | number/Vaidharmya_… | Apart is irreflexive, symmetric, cotransitive; over a finite alphabet the shortest separating experiment is computed from any separating one |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
@@ -56,9 +64,18 @@ edited.  Nothing was assumed.
 - The seven UNSUPPLIED nodes of research/handoff_20260908 (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH, O-NPEAK): analytic estimates; no real-analysis library at the pin; nothing here changes their status.
 - The section `(n : ℕ) → frontierb n ≡ true` of SamastaSima (RH × Goldbach): every stage is decided; the section is not inhabited by anything in this corpus.
 
+## Items the fleet's notes list as open that were already closed elsewhere
+
+- DESCENT_ALONG_ONE_MAP_IS_UNOBSTRUCTED seed 1 ("exhibit a non-set C at which clause (2) fails, presumably C = S¹"): walks/AsetChidra_… (2026-09-09).
+- FOUR_REPAIR_MODES seed 4 ("Is there a corpus defect whose correct mode is Γ⇑?"): residue/CatuhSamskara_… exhibits the descent datum at S¹ as exactly that object.
+- INDIC_CORPUS_OPEN_FRONTIER item 2 ("Meru diagonal = Fibonacci ... Open because the diagonal reindexing over the list representation is fiddly"): metre/MeruKarna.agda already holds मेरु-कर्ण n ≡ length (सर्व n).
+- WHAT_IS_ACTUALLY_OPEN §3 (OBLIGATION §7 "specified and never performed"): notes/OBLIGATION_S7_MINCUT.md performed it (interval [115, 222]; self-instance kernel-certified in ObligationMinCut.agda).
+- DELTA19_IS_THE_KERNEL_AGAIN seed 3 (instantiate FutureBehavior at a linear system, N_obs = ∩ ker(PTⁿ)): formal/lean/Pairfield/LinearObservabilityKernel.lean.
+- GeneralSmith2x2's open item d₁ = gcd of the entries: formal/lean/Pairfield/SmithContent.lean.
+
 ## What the exercise shows
 
-Twenty-six absences the corpus had recorded were compositions of terms it
+Thirty-four absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
