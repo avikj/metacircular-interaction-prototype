@@ -1,0 +1,12 @@
+#!/bin/sh
+# The corpus calculus is universal over checked Agda inhabitants:
+#   State = Σ A : Type . A
+#   Question (A , a) = Σ B : Type . (A → B)
+# `check --all` is already the repository's mechanical enumeration of the
+# complete Agda corpus at the pinned toolchain.  Since CorpusCalculus.agda is
+# itself in formal/cubical/, this command checks the calculus and every actual
+# checked inhabitant/typed map available to it, without introducing a second
+# corpus representation, generated root, taxonomy, or semantic index.
+set -eu
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+exec sh "$ROOT/check" --all
