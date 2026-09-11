@@ -1097,11 +1097,20 @@ kPatra y j = case jStrs "patra" j of
                     , "whether the kernel is honest in general — what was watched is that it rejected ONE falsehood, today, in this container" ]
                     [ "Voevodsky — an identification is a thing you hold; CLAUDE.md: exact/certified symbolic computation is proof" ] )
               ExitFailure _
-                | C.kEnvironmentFault `isInfixOf` out ->
+                -- A nonzero exit is a rejection only when agda plainly reports a
+                -- located type error (`cacheableFailure`, the same test the cache
+                -- applies).  A process killed by the machine's memory limit exits
+                -- nonzero with `Checking Candidate` as its whole output, and
+                -- reporting THAT as the kernel's rejection merges `agda says no`
+                -- with `agda could not finish` — the distinction the record below
+                -- names.  Filed over this wire 2026-09-11 (research/rule30) after
+                -- the depth-4096 certificate was reported rejected twice and
+                -- accepted once the runtime had a heap cap.
+                | C.kEnvironmentFault `isInfixOf` out || not (C.cacheableFailure out) ->
                     ( y, Mudra S.Apratipatti
                            (Ayogya ("the kernel could not be asked: " ++ firstLine out))
                     , dosalekha "sadhana.patra"
-                        ("no verdict: the invocation failed in the environment, not in the module — " ++ firstLine out)
+                        ("no verdict: the invocation failed in the environment, not in the module (no located type error in agda's output — a killed process, a missing root, a locale fault) — " ++ firstLine out)
                         [ "the verdict you asked for, and with it the distinction between `agda says no` and `agda could not be run`, which a single red merges" ]
                         [ "repair the environment and ask again; the module itself was not examined and is not diminished" ]
                         [ "ProofGate.hs, kEnvironmentFault — the marker means exactly `about the environment, not the mathematics`" ] )

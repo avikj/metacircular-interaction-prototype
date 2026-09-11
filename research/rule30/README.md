@@ -4,8 +4,8 @@ Everything here was decided by the machine in `interactive/` over its wire
 (`sh interactive/run-yantra.sh --wire`): each candidate module was sent as a
 `sadhana.patra` request, every rejection's obligation (the kernel's own first
 error line) was repaired and the module resent, until the kernel accepted it.
-`yantra_answers.jsonl` is the full transcript (38 turns: 19 transports, 19 written defects); `yantra_session.lekha`
-is the session's doṣa-lekha, one written defect per rejection; `candidate_*.agda`
+`yantra_answers.jsonl` is the full transcript (38 turns: 19 accepted, 19 rejected — every rejection an error in what I sent, repaired and resent); `yantra_session.lekha`
+is the session's doṣa-lekha, one record per rejection; `candidate_*.agda`
 are the modules as accepted; `yantra_client.py` / `pack.py` drive the wire;
 `agda-compacting.sh` is the shim that gives the kernel's agda a compacting
 collector, needed by the depth-4096 certificate.
