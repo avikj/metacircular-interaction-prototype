@@ -57,6 +57,7 @@ edited.  Nothing was assumed.
 | LEAN_TO_CUBICAL_PORT_MAP rank 3: ObserverDescent, "choice-free factorization through Image" | logic/DrastrAvatarana_… | FactorsThrough q t ≃ FiberConstant q t for set-valued t, decode by rec→Set; Completes ≃ separates fibres; postprocessing; the fibre-injects-side content |
 | LEAN_TO_CUBICAL_PORT_MAP rank 2: OrbitDescent, "no closure lemma anywhere in the file" | homotopy/KaksaAvatarana_… | Descends ≃ Invariant for set-valued tasks; effectivity in mere-witness form; coinvariants as the raw quotient with the full AbGroup structure and universal property |
 | NATURAL_MACHINE §7.3 item 4: "ℕ ≃ ∥FinSet∥₀. Not proved." | homotopy/Sankhya_… | the pinned library's ∥FinSet∥₂≃ℕ, in the note's orientation, with count/class round trips |
+| ARITHMETIC_LIFE_ADVERSARIAL_AUDIT seed 2: "State the corresponding valuation form v(lcm) = max(v(a),v(b)) and connect it to VALUATION_FORMATION_UNIVERSALITY's universal property" | number/Yogamana_… | p^k ∣ n ↔ k ≤ v_p n; v_p(lcm) = max, v_p(gcd) = min for every witness; gcd·lcm = ab through valuations; IsLCM₂ ↔ valuation join at every prime, both directions, via v_p-injectivity from Ekatva |
 | ChargePolynomialFinite: "the table is *the* factorization … unique factorization … not proved" | number/Sarani_… | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
@@ -84,7 +85,7 @@ edited.  Nothing was assumed.
 
 ## What the exercise shows
 
-Forty-three absences the corpus had recorded were compositions of terms it
+Forty-four absences the corpus had recorded were compositions of terms it
 already held.  Several had been closed inside the corpus without the ledger
 noticing (BhavanaGenerative §7 already held the PathP forms; FinCardinality
 already held the CRT equivalence KsetraSamasa named as missing; WalkJumps
