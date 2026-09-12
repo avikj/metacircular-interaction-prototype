@@ -41,7 +41,6 @@ def public_names(src: str) -> list[str]:
         "instance", "macro", "variable", "postulate", "field", "constructor",
         "infix", "infixl", "infixr", "syntax", "pattern",
     }
-
     def add(x: str) -> None:
         x = x.strip()
         if not x or x == "_" or x in keywords or x.startswith("--") or x.startswith("{-#"):
@@ -49,16 +48,13 @@ def public_names(src: str) -> list[str]:
         if any(c in x for c in "(){}[],"):
             return
         if x not in seen:
-            seen.add(x)
-            names.append(x)
-
+            seen.add(x); names.append(x)
     for line in src.splitlines():
         if not line or line[0].isspace() or line.startswith("--") or line.startswith("{-#"):
             continue
         dm = re.match(r"(?:data|record)\s+([^\s:{]+)", line)
         if dm:
-            add(dm.group(1))
-            continue
+            add(dm.group(1)); continue
         if ":" not in line:
             continue
         left = line.split(":", 1)[0].strip()
@@ -72,17 +68,12 @@ def public_names(src: str) -> list[str]:
 
 
 def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[Path]]]]:
-    libs = [
-        ROOT / "formal/cubical/natural-machine.agda-lib",
-        ROOT / "rescued-lanes.agda-lib",
-        ROOT / "fibre/fibre.agda-lib",
-    ]
+    libs = [ROOT / "formal/cubical/natural-machine.agda-lib", ROOT / "rescued-lanes.agda-lib", ROOT / "fibre/fibre.agda-lib"]
     includes: list[Path] = []
     for lib in libs:
         for p in parse_include_dirs(lib):
             if p not in includes:
                 includes.append(p)
-
     by_module: dict[str, list[tuple[Path, list[str], int]]] = {}
     for rank, inc in enumerate(includes):
         for path in inc.rglob("*.agda"):
@@ -94,10 +85,8 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             except UnicodeDecodeError:
                 continue
             mod = module_name(src)
-            if not mod:
-                continue
-            by_module.setdefault(mod, []).append((path, public_names(src), rank))
-
+            if mod:
+                by_module.setdefault(mod, []).append((path, public_names(src), rank))
     chosen: list[tuple[str, Path, list[str]]] = []
     duplicates: list[tuple[str, list[Path]]] = []
     for mod, xs in sorted(by_module.items()):
@@ -118,17 +107,14 @@ def find_agda() -> tuple[Path, Path] | None:
     if not agda.exists():
         found = shutil.which("agda")
         if not found:
-            print("no agda; run: sh setup", file=sys.stderr)
-            return None
+            print("no agda; run: sh setup", file=sys.stderr); return None
         agda = Path(found)
     libfile = prefix / ".agda-pin/libraries"
     if not libfile.exists():
-        print(f"no {libfile}; run: sh setup", file=sys.stderr)
-        return None
+        print(f"no {libfile}; run: sh setup", file=sys.stderr); return None
     ver = subprocess.run([str(agda), "--version"], text=True, capture_output=True).stdout.strip()
     if not ver.startswith("Agda version 2.8.0"):
-        print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr)
-        return None
+        print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr); return None
     return agda, libfile
 
 
@@ -141,44 +127,29 @@ def generate() -> tuple[int, int]:
             continue
         imports.append(f"import {mod}")
         qnames.extend(f"{mod}.{n}" for n in names)
-
     GENERATED.mkdir(exist_ok=True)
     body = [
         "{-# OPTIONS --cubical --safe --guardedness #-}",
-        "module CorpusRepository where",
-        "",
+        "module CorpusRepository where", "",
         "open import Agda.Primitive using (lzero)",
         "open import Agda.Builtin.Reflection using (Name)",
         "open import Agda.Builtin.List using (List ; [] ; _∷_)",
         "open import Fibre.CorpusReflection",
         "open import Fibre.CorpusSamvada",
-        "",
-        *imports,
-        "",
-        "names : List Name",
-        "names =",
+        "import CorpusSelfPresentation as SP", "",
+        *imports, "", "names : List Name", "names =",
     ]
-    if qnames:
-        body.extend([f"  quote {q} ∷" for q in qnames])
-        body.append("  []")
-    else:
-        body.append("  []")
-    body.extend([
-        "",
-        "corpus : RawCorpus",
-        "corpus = materialize names",
-        "",
-        "corpusPoint : Point lzero",
-        "corpusPoint = point corpus",
-        "",
-        "corpusProcess : Corpus corpusPoint",
-        "corpusProcess = run corpusPoint",
-        "",
-    ])
+    body += [f"  quote {q} ∷" for q in qnames] + ["  []"]
+    body += [
+        "", "corpus : RawCorpus", "corpus = materialize names",
+        "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
+        "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
+        "", "corpusPresentation : SP.SelfPresentation corpusPoint", "corpusPresentation = SP.present corpusPoint", "",
+    ]
     OUT.write_text("\n".join(body), encoding="utf-8")
     print(f"generated {OUT.relative_to(ROOT)}", file=sys.stderr)
     print(f"active modules: {len(modules)}", file=sys.stderr)
-    print(f"seed public names: {len(qnames)}", file=sys.stderr)
+    print(f"checked declarations in the one repository state: {len(qnames)}", file=sys.stderr)
     if duplicates:
         print(f"duplicate declared module names resolved by include order: {len(duplicates)}", file=sys.stderr)
     return len(modules), len(qnames)
@@ -190,17 +161,15 @@ def main() -> int:
         return 1
     agda, libfile = tool
     generate()
-    cmd = [
-        str(agda),
-        f"--library-file={libfile}",
-        "-l", "fibre",
-        "-l", "natural-machine",
-        "-l", "rescued-lanes",
-        "-i", str(GENERATED),
-        str(OUT),
-    ]
-    print("materializing one checked repository state and its guarded process...", file=sys.stderr)
-    return subprocess.call(cmd, cwd=ROOT)
+    cmd = [str(agda), f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED), str(OUT)]
+    print("materializing one checked repository state and its infinite lossless guarded presentation...", file=sys.stderr)
+    rc = subprocess.call(cmd, cwd=ROOT)
+    if rc == 0:
+        print("COMPLETE: generated/CorpusRepository.agda", file=sys.stderr)
+        print("  corpus             = the entire reflected checked repository as one value", file=sys.stderr)
+        print("  corpusPoint        = that one value as a universal typed state", file=sys.stderr)
+        print("  corpusPresentation = infinite guarded target + exact fibre + continuation", file=sys.stderr)
+    return rc
 
 
 if __name__ == "__main__":
