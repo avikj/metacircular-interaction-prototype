@@ -184,7 +184,7 @@ def main() -> int:
         return 1
     agda, libfile = tool
     generate()
-    cmd = [str(agda), f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED), str(OUT)]
+    cmd = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED), str(OUT)]
     print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
     rc = subprocess.call(cmd, cwd=ROOT)
     if rc == 0:

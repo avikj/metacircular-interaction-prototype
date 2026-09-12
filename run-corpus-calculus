@@ -7,6 +7,7 @@ AGDA="$PREFIX/.local/bin/agda"
 [ -x "$AGDA" ] || AGDA="$(command -v agda)"
 LIBFILE="$PREFIX/.agda-pin/libraries"
 "$AGDA" \
+  +RTS -M13G -RTS \
   "--library-file=$LIBFILE" \
   -l fibre -l natural-machine -l rescued-lanes \
   -i "$ROOT/generated" \
