@@ -57,9 +57,11 @@ const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">":
 /* ---------------- boot ---------------- */
 
 async function boot() {
-  const [idx, concepts] = await Promise.all([
+  const [idx, concepts, kedges, kaliases] = await Promise.all([
     fetch("store/index.json").then((r) => r.json()),
     fetch("store/concepts.json").then((r) => r.json()).catch(() => null),
+    fetch("store/kernel_edges.json").then((r) => r.json()).catch(() => null),
+    fetch("store/aliases.json").then((r) => r.json()).catch(() => null),
   ]);
   Grapheme.load();
   S.idx = idx;
@@ -70,6 +72,12 @@ async function boot() {
     S.byMod.set(n.m, n);
     if (!S.byAddr.has(n.a)) S.byAddr.set(n.a, n);
   }
+  if (kedges) {
+    for (const [s2, d2, c] of kedges.edges) idx.edges.push([s2, d2, "kernel-ref:" + c]);
+  }
+  S.aliasGroups = kaliases ? kaliases.groups : [];
+  S.aliasOf = new Map();
+  for (const g of S.aliasGroups) for (const m of g) S.aliasOf.set(m, g);
   for (const [s, d, t] of idx.edges) {
     if (!S.out.has(s)) S.out.set(s, []);
     if (!S.inn.has(d)) S.inn.set(d, []);
@@ -340,11 +348,10 @@ async function openNode(n, fromRoute = false, isReverse = false) {
     const sec = el("section", "block");
     sec.append(el("h2", "", "The fibre — what this presentation hides"));
     const items = [];
-    const base = n.m.split(".").pop().replace(/Fibre/g, "Fiber");
-    const twins = S.nodes.filter((m) =>
-      m.i !== n.i && m.m.split(".").pop().replace(/Fibre/g, "Fiber") === base);
-    if (twins.length) items.push(
-      `${twins.length} other spelling${twins.length > 1 ? "s" : ""}/lane${twins.length > 1 ? "s" : ""} of this module — this page shows one realization of its content.`);
+    const grp = S.aliasOf && S.aliasOf.get(n.m);
+    if (grp) items.push(
+      `${grp.length - 1} other name${grp.length > 2 ? "s" : ""} carry exactly this content ` +
+      `(kernel stratum-2: identical declaration address multisets) — this page shows one of its names.`);
     const cls = S.nodes.filter((m) =>
       m.area === n.area && m.verdict === n.verdict && m.kind === n.kind);
     items.push(
@@ -459,6 +466,7 @@ function conceptCard(ev, name) {
 /* ---------------- context rail ---------------- */
 
 const EDGE_EVIDENCE = {
+  "kernel-ref": "computed by the typechecker from elaborated terms",
   "import": "exact — read from the source text",
   "ratri-target": "decoded from the probe's own filename",
   "header-mention": "a reading of prose — not a checked relation",
@@ -477,8 +485,12 @@ function renderContext(n) {
       if (!byType.has(t)) byType.set(t, []);
       byType.get(t).push(j);
     }
-    for (const [t, js] of byType) {
-      c.append(el("div", "evroute", `${t}: ${EDGE_EVIDENCE[t] || t}`));
+    const order = [...byType.keys()].sort((a, b) =>
+      (a.startsWith("kernel-ref") ? -1 : 0) - (b.startsWith("kernel-ref") ? -1 : 0));
+    for (const t of order) {
+      const js = byType.get(t);
+      const base = t.split(":")[0];
+      c.append(el("div", "evroute", `${base}: ${EDGE_EVIDENCE[base] || base}`));
       const seen = new Set();
       for (const j of js.slice(0, 30)) {
         if (seen.has(j)) continue;
@@ -497,13 +509,17 @@ function renderContext(n) {
   bucket("Feeds on", outs, "→");
   bucket("Fed by", inns, "←");
 
-  // twins: same basename across lanes (fibre/fiber/punaragamana)
-  const base = n.m.split(".").pop().replace(/Fibre/g, "Fiber");
-  const twins = S.nodes.filter((m) =>
-    m.i !== n.i && m.m.split(".").pop().replace(/Fibre/g, "Fiber") === base);
-  if (twins.length) {
-    c.append(el("h3", "", "Other lanes of this module"));
-    for (const m of twins) {
+  // aliases: modules whose declaration address multisets coincide —
+  // computed by the stratum-2 collapse over kernel identities.
+  const group = S.aliasOf && S.aliasOf.get(n.m);
+  if (group) {
+    c.append(el("h3", "", "Same content, other names"));
+    c.append(el("div", "evroute",
+      "kernel: declaration address multisets coincide (stratum-2)"));
+    for (const mm of group) {
+      if (mm === n.m) continue;
+      const m = S.byMod.get(mm);
+      if (!m) continue;
       const row = el("div", "edge");
       row.append(el("span", "et", m.lane || m.area));
       row.append(el("span", "em", m.m));
