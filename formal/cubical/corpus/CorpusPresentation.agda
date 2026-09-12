@@ -52,7 +52,7 @@ module CorpusPresentation where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_≃_ ; fiber)
-open import Cubical.Data.Nat using (ℕ ; zero ; suc ; isSetℕ)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc ; _+_ ; isSetℕ)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Cubical.HITs.SetQuotients using (_/_ ; [_])
@@ -210,3 +210,38 @@ Tm-type-is-sort = refl
 
 behavior-type-is-pi : observeDecl FB.behavior ≡ 5
 behavior-type-is-pi = refl
+
+------------------------------------------------------------------------
+-- §7  The WHOLE corpus, formed and observed.
+--
+-- CorpusNames.corpusNames is every public declaration of every --safe
+-- module (all of it minus must_fail).  `observeAll` folds the reflection
+-- bridge over the entire list: for each name it forms the declaration
+-- (getType), takes its type as the formed state, reads the machine's
+-- present observation (headCode), and accumulates.  The single ℕ it
+-- returns therefore DEPENDS ON observing every declaration; a green check
+-- is proof the whole flow ran end-to-end over the entire corpus at once.
+------------------------------------------------------------------------
+
+open import CorpusNames using (corpusNames)
+
+private
+  observeAll : BList Name → TC ℕ
+  observeAll bnil        = returnTC zero
+  observeAll (n b∷ rest) =
+    bindTC (decl n)         λ d →
+    bindTC (observeAll rest) λ acc →
+    returnTC (headCode (rawView d) + acc)
+
+macro
+  -- forces getType + headCode over the ENTIRE corpus at elaboration time.
+  corpusObservationSum : Term → TC ⊤
+  corpusObservationSum hole =
+    bindTC (observeAll corpusNames) λ s →
+    bindTC (quoteTC s)              λ r →
+    unify hole r
+
+-- The whole corpus, formed and observed, as one checked natural number.
+-- Its very construction runs the pipeline over all ~15k declarations.
+corpusPresentationRuns : ℕ
+corpusPresentationRuns = corpusObservationSum
