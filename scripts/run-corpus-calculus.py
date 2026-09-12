@@ -128,9 +128,15 @@ def find_agda() -> tuple[Path, Path] | None:
 
 def generate() -> tuple[int, int]:
     modules, duplicates = discover()
+    dup_names = {mod for mod, _ in duplicates}
     imports: list[str] = []
     qnames: list[str] = []
     for mod, _, names in modules:
+        if mod in dup_names:
+            # Agda cannot disambiguate a bare module name that exists in
+            # two contexts (fibre/fiber Everything); skip the ambiguous
+            # aggregates — their members are imported individually.
+            continue
         if mod in {"CorpusRepository", "CorpusFinalPresentation"}:
             # The repository state cannot import the module that presents
             # it: that is the one genuine self-cycle, cut here and only here.
