@@ -1,13 +1,12 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 module CorpusExecute where
 
 open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
-open import Agda.Builtin.Bool
-open import Agda.Builtin.Nat
-open import CorpusCalculus using (step)
+open import CorpusCalculus using (point ; step)
+open import CorpusSelfPresentation using (present)
 
 infixr 5 _++_
 _++_ : {A : Set} → List A → List A → List A
@@ -45,41 +44,62 @@ applyNamed f x =
     (data-cons _ _) → returnTC (con f (vArg x ∷ []))
     _               → returnTC (def f (vArg x ∷ []))
 
-mutual
-  explore : Nat → List Name → Term → TC ⊤
-  explore zero    fs x = returnTC tt
-  explore (suc d) fs x = eachFunction d fs fs x
+-- A checked term is immediately a point of the universal calculus.  `present`
+-- is coinductive: this term denotes the entire productive future, not a finite
+-- prefix.  The runner only prints its root as an inspectable handle.
+coinductivePresentation : Term → Term
+coinductivePresentation x =
+  def (quote present)
+    (vArg (def (quote point) (vArg x ∷ [])) ∷ [])
 
-  eachFunction : Nat → List Name → List Name → Term → TC ⊤
-  eachFunction d all []       x = returnTC tt
-  eachFunction d all (f ∷ fs) x =
-    bindTC (tryApply d all f x) λ _ → eachFunction d all fs x
+emitRoot : Term → TC ⊤
+emitRoot x =
+  let p = coinductivePresentation x in
+  withReconstructed true
+    (noConstraints
+      (bindTC (inferType x) λ xty →
+       bindTC (inferType p) λ pty →
+       debugPrint "corpus.presentation" 1
+         (strErr "LOCUS " ∷ termErr x ∷ strErr " : " ∷ termErr xty ∷
+          strErr "  INFINITE_PRESENTATION " ∷ termErr p ∷
+          strErr " : " ∷ termErr pty ∷ [])))
 
-  tryApply : Nat → List Name → Name → Term → TC ⊤
-  tryApply d all f x =
-    bindTC (termOf f) λ ft →
-    bindTC (applyNamed f x) λ app →
-    let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
-    catchTC
-      (withReconstructed true
-        (noConstraints
-          (bindTC (inferType app) λ ty →
-           bindTC (inferType witness) λ witnessTy →
-           bindTC (normalise ty) λ nty →
-           bindTC
-             (debugPrint "corpus.edge" 1
-               (strErr "EDGE " ∷ termErr x ∷ strErr "  --" ∷ nameErr f ∷
-                strErr "→  " ∷ termErr app ∷ strErr "  :  " ∷ termErr nty ∷
-                strErr "  WITNESS " ∷ termErr witness ∷ strErr "  :  " ∷ termErr witnessTy ∷ []))
-             λ _ → explore d all app)))
-      (returnTC tt)
+-- Immediate named continuations are shown only as the current finite view.
+-- Their continuation is NOT recursively unfolded: it is the coinductive
+-- `present (point app)` value carried on the edge.
+emitEdge : Name → Term → TC ⊤
+emitEdge f x =
+  bindTC (termOf f) λ ft →
+  bindTC (applyNamed f x) λ app →
+  let stepWitness = def (quote step) (vArg x ∷ vArg ft ∷ [])
+      future      = coinductivePresentation app
+  in catchTC
+    (withReconstructed true
+      (noConstraints
+        (bindTC (inferType app) λ aty →
+         bindTC (inferType stepWitness) λ sty →
+         bindTC (inferType future) λ fty →
+         debugPrint "corpus.presentation" 1
+           (strErr "  EDGE --" ∷ nameErr f ∷ strErr "→ " ∷ termErr app ∷
+            strErr " : " ∷ termErr aty ∷
+            strErr "  STEP " ∷ termErr stepWitness ∷ strErr " : " ∷ termErr sty ∷
+            strErr "  CONTINUATION " ∷ termErr future ∷ strErr " : " ∷ termErr fty ∷ []))))
+    (returnTC tt)
 
-seedLoop : Nat → List Name → List Name → TC ⊤
-seedLoop d all []       = returnTC tt
-seedLoop d all (n ∷ ns) =
+emitEdges : List Name → Term → TC ⊤
+emitEdges []       x = returnTC tt
+emitEdges (f ∷ fs) x = bindTC (emitEdge f x) λ _ → emitEdges fs x
+
+seedLoop : List Name → List Name → TC ⊤
+seedLoop all []       = returnTC tt
+seedLoop all (n ∷ ns) =
   bindTC (termOf n) λ t →
-  bindTC (explore d all t) λ _ → seedLoop d all ns
+  bindTC (emitRoot t) λ _ →
+  bindTC (emitEdges all t) λ _ →
+  seedLoop all ns
 
-runCorpus : Nat → List Name → TC ⊤
-runCorpus d ns =
-  bindTC (expandAll ns) λ expanded → seedLoop d expanded expanded
+-- Whole checked corpus at once: enumeration supplies the finite seed support;
+-- each seed is mapped to one INFINITE coinductive presentation.  There is no
+-- depth parameter and no claim that a finite prefix determines the object.
+runCorpus : List Name → TC ⊤
+runCorpus ns = bindTC (expandAll ns) λ expanded → seedLoop expanded expanded
