@@ -107,6 +107,12 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             mod = module_name(src)
             if not mod:
                 continue
+            opts = re.search(r"\{-#\s*OPTIONS([^#]*)#-\}", src)
+            if not opts or "--safe" not in opts.group(1):
+                # A --safe probe can only import --safe modules; a module
+                # that drops --safe is carrying declared debt and is not
+                # importable state for this observation.
+                continue
             ns = public_names(src)
             by_module.setdefault(mod, []).append((path, ns))
 
