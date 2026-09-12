@@ -60,6 +60,8 @@ def public_names(src: str) -> list[str]:
         left = line.split(":", 1)[0].strip()
         if not left or left.split()[0] in keywords:
             continue
+        if {"=", "with", "rewrite", "|", "...", "where", "let", "in"} & set(left.split()):
+            continue
         for token in left.split():
             add(token)
     return names
