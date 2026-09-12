@@ -49,6 +49,10 @@ def public_names(src: str) -> list[str]:
         # These cannot be a single Agda name token in a top-level signature.
         if any(c in x for c in "(){}[],"):
             return
+        if x in {"=", "\u03bb", "\u2200", "\u2192", "|", "...", "where", "let", "in", "do", "rewrite", "with"}:
+            return
+        if x.isdigit() or '"' in x or "'" in x or x.startswith("\u2115"):
+            return
         if x not in seen:
             seen.add(x)
             names.append(x)
