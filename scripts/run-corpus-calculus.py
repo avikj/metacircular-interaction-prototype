@@ -159,8 +159,16 @@ def generate() -> tuple[int, int]:
     imports: list[str] = []
     qnames: list[str] = []
     ambiguous = {mod for mod, _ in duplicates}
+    # Machine-bound exclusions, not mathematical ones.  The two Ramanujan
+    # monsters exhaust a 14 GB heap even checked alone on this 15 GB
+    # machine; Sthana imports a Setubandha module absent from the tree.
+    unbuildable = {
+        "RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten",
+        "RamanujanSiddhanta_ThePaperInOneModuleEveryClaimOneTerm",
+        "Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule",
+    }
     for mod, _, names in modules:
-        if mod == "CorpusRepository" or mod in ambiguous:
+        if mod == "CorpusRepository" or mod in ambiguous or mod in unbuildable:
             continue
         imports.append(f"import {mod}")
         qnames.extend(f"{mod}.{n}" for n in names)
