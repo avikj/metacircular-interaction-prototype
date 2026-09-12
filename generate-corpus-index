@@ -1,0 +1,71 @@
+#!/bin/sh
+# Mechanical bootstrap only: enumerate public top-level declarations from the
+# checked Cubical Agda corpus and write an Agda module containing their Names.
+# No semantic grouping, ranking, clustering, or relation inference happens here.
+set -eu
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+OUT="$ROOT/formal/cubical/CorpusGeneratedIndex.agda"
+TMP="$OUT.tmp.$$"
+
+printf '%s\n' '{-# OPTIONS --cubical --guardedness --no-import-sorts #-}' > "$TMP"
+printf '%s\n\n' 'module CorpusGeneratedIndex where' >> "$TMP"
+printf '%s\n' 'open import Agda.Builtin.Reflection using (Name)' >> "$TMP"
+printf '%s\n\n' 'open import Agda.Builtin.List using (List ; [] ; _∷_)' >> "$TMP"
+
+mods="$ROOT/.corpus-mods.$$"
+: > "$mods"
+find "$ROOT/formal/cubical" -type f -name '*.agda' \
+  ! -name 'CorpusGeneratedIndex.agda' \
+  ! -name 'CorpusReadout.agda' \
+  -print | LC_ALL=C sort > "$mods"
+
+names="$ROOT/.corpus-names.$$"
+: > "$names"
+i=0
+while IFS= read -r f; do
+  # The semantic corpus is checked mathematics; unsafe world-mouths are not
+  # reflected as mathematical inhabitants here.
+  grep -q -- '--safe' "$f" || continue
+  mod=$(sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$f" | head -1)
+  [ -n "$mod" ] || continue
+  alias="C$i"
+  printf 'import %s as %s\n' "$mod" "$alias" >> "$TMP"
+
+  # Public top-level signatures only.  Layout-indented/private/record-field
+  # declarations are intentionally reached through their public parents and
+  # checked term bodies rather than guessed from source structure.
+  awk -v a="$alias" '
+    {
+      line=$0
+      sub(/--.*/, "", line)
+      if (line ~ /^[^ \t].*[ \t]:[ \t]/) {
+        left=line
+        sub(/[ \t]:[ \t].*$/, "", left)
+        n=split(left, xs, /[ \t]+/)
+        # Normal signatures are one name; for `x y : T`, emit both.
+        for (j=1; j<=n; j++) {
+          x=xs[j]
+          if (x == "" || x == "private" || x == "module" || x == "open" || x == "import" || x == "infix" || x == "infixl" || x == "infixr" || x == "syntax" || x == "variable" || x == "field") continue
+          if (x ~ /^\{/ || x ~ /^\(/) continue
+          print "quote " a "." x
+        }
+      } else if (line ~ /^data[ \t]+[^ \t:{]+/) {
+        split(line, xs, /[ \t]+/); print "quote " a "." xs[2]
+      } else if (line ~ /^record[ \t]+[^ \t:{]+/) {
+        split(line, xs, /[ \t]+/); print "quote " a "." xs[2]
+      }
+    }
+  ' "$f" >> "$names"
+  i=$((i + 1))
+done < "$mods"
+
+printf '\ncorpusNames : List Name\n' >> "$TMP"
+if [ -s "$names" ]; then
+  awk 'NR==1 { printf "corpusNames = %s", $0; next } { printf "\n  ∷ %s", $0 } END { print "\n  ∷ []" }' "$names" >> "$TMP"
+else
+  printf '%s\n' 'corpusNames = []' >> "$TMP"
+fi
+
+rm -f "$mods" "$names"
+mv "$TMP" "$OUT"
+printf 'generated %s\n' "$OUT"
