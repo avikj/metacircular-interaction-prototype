@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import functools
 import os
 from pathlib import Path
 import re
@@ -226,7 +227,7 @@ def generate() -> tuple[int, int]:
         "-- together with the accepted application and normalized result type.",
         *[f"import {m}" for m in shard_mods],
         "loci : RawLoci",
-        "loci = " + (" ++ ".join(f"{m}.shard" for m in shard_mods) if shard_mods else "[]"),
+        "loci = " + (functools.reduce(lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.shard ({acc})", reversed(shard_mods[:-1]), f"{shard_mods[-1]}.shard") if shard_mods else "[]"),
         "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
         "", "lociPoint : Point lzero", "lociPoint = point loci",
         "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
