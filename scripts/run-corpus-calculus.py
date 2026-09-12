@@ -82,6 +82,7 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             if p not in includes:
                 includes.append(p)
     by_module: dict[str, list[tuple[Path, list[str], int]]] = {}
+    imports_of: dict[str, set[str]] = {}
     for rank, inc in enumerate(includes):
         for path in inc.rglob("*.agda"):
             rp = path.resolve()
@@ -104,11 +105,21 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             if re.search(r"(?m)^\s*(open\s+)?import\s+CorpusRepository\b", src):
                 continue
             mod = module_name(src)
-            if mod in MEMORY_EXCLUDES:
-                print(f"EXCLUDED (memory): {mod}", file=sys.stderr)
-                continue
             if mod:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
+                imports_of[mod] = set(re.findall(r"(?m)^\s*(?:open\s+)?import\s+([^\s(]+)", src))
+    # Exclude memory-excluded modules together with everything that
+    # (transitively) imports them; report each exclusion.
+    dropped = set(MEMORY_EXCLUDES)
+    changed = True
+    while changed:
+        changed = False
+        for mod, imps in imports_of.items():
+            if mod not in dropped and imps & dropped:
+                dropped.add(mod); changed = True
+    for mod in sorted(dropped & set(by_module)):
+        print(f"EXCLUDED (memory closure): {mod}", file=sys.stderr)
+        del by_module[mod]
     chosen: list[tuple[str, Path, list[str]]] = []
     duplicates: list[tuple[str, list[Path]]] = []
     for mod, xs in sorted(by_module.items()):
