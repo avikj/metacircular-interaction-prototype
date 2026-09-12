@@ -131,7 +131,9 @@ def generate() -> tuple[int, int]:
     imports: list[str] = []
     qnames: list[str] = []
     for mod, _, names in modules:
-        if mod == "CorpusRepository":
+        if mod in {"CorpusRepository", "CorpusFinalPresentation"}:
+            # The repository state cannot import the module that presents
+            # it: that is the one genuine self-cycle, cut here and only here.
             continue
         imports.append(f"import {mod}")
         qnames.extend(f"{mod}.{n}" for n in names)
