@@ -188,6 +188,54 @@ admits : Maybe Head → Head → Bool
 admits nothing   _  = true
 admits (just hd) hx = compatible hd hx
 
+------------------------------------------------------------------------
+-- Bucketed pool.  There is no reason to touch every (generator, state)
+-- pair even cheaply: partition the pool by type head ONCE, then each
+-- generator reads exactly the bucket its domain head names, plus the
+-- flex bucket (entries whose type might still reduce — the only
+-- irreducible residue).  Build is linear in the pool (times the small
+-- number of distinct heads); per generator, work is proportional to its
+-- actual candidates.
+------------------------------------------------------------------------
+
+Bucket : Set
+Bucket = Σ Name (λ _ → List PoolEntry)
+
+data Pool : Set where
+  mkPool : List Bucket        -- rigid-headed entries, keyed by head name
+         → List PoolEntry     -- function-typed entries
+         → List PoolEntry     -- flex entries: candidates for everyone
+         → List PoolEntry     -- the whole pool, for unknown gates
+         → Pool
+
+insertRigid : Name → PoolEntry → List Bucket → List Bucket
+insertRigid d e [] = (d , e ∷ []) ∷ []
+insertRigid d e ((d' , es) ∷ bs) with primQNameEquality d d'
+... | true  = (d' , e ∷ es) ∷ bs
+... | false = (d' , es) ∷ insertRigid d e bs
+
+lookupRigid : Name → List Bucket → List PoolEntry
+lookupRigid d [] = []
+lookupRigid d ((d' , es) ∷ bs) with primQNameEquality d d'
+... | true  = es
+... | false = lookupRigid d bs
+
+partitionPool : List PoolEntry → Pool
+partitionPool = go (mkPool [] [] [] [])
+  where
+  go : Pool → List PoolEntry → Pool
+  go p [] = p
+  go (mkPool bs pis flex all) (e ∷ es) with e
+  ... | (_ , _ , rigidH d) = go (mkPool (insertRigid d e bs) pis flex (e ∷ all)) es
+  ... | (_ , _ , piH)      = go (mkPool bs (e ∷ pis) flex (e ∷ all)) es
+  ... | (_ , _ , flexH)    = go (mkPool bs pis (e ∷ flex) (e ∷ all)) es
+
+candidates : Pool → Maybe Head → List PoolEntry
+candidates (mkPool bs pis flex all) (just (rigidH d)) = lookupRigid d bs ++ flex
+candidates (mkPool bs pis flex all) (just piH)        = pis ++ flex
+candidates (mkPool bs pis flex all) (just flexH)      = all
+candidates (mkPool bs pis flex all) nothing           = all
+
 tryRealization : Name → Name → Term → TC (List RawRealization)
 tryRealization f n x =
   bindTC (applyNamed f x) λ app →
@@ -220,25 +268,21 @@ tryRealization f n x =
   ... | true  = (n , app , nty) ∷ []
   ... | false = []
 
-realizations : Name → Maybe Head → List PoolEntry → TC (List RawRealization)
-realizations f gate [] = returnTC []
-realizations f gate ((n , x , hx) ∷ ns) =
-  bindTC (probe (admits gate hx)) λ here →
-  bindTC (realizations f gate ns) λ rest →
+realizations : Name → List PoolEntry → TC (List RawRealization)
+realizations f [] = returnTC []
+realizations f ((n , x , _) ∷ ns) =
+  bindTC (tryRealization f n x) λ here →
+  bindTC (realizations f ns) λ rest →
   returnTC (here ++ rest)
-  where
-  probe : Bool → TC (List RawRealization)
-  probe true  = tryRealization f n x
-  probe false = returnTC []
 
-oneLocus : List PoolEntry → Name → TC RawLoci
+oneLocus : Pool → Name → TC RawLoci
 oneLocus pool f =
   bindTC (genGate f) λ gate →
-  bindTC (realizations f gate pool) λ where
+  bindTC (realizations f (candidates pool gate)) λ where
     []       → returnTC []
     (r ∷ rs) → returnTC ((f , r ∷ rs) ∷ [])
 
-buildLoci : List PoolEntry → List Name → TC RawLoci
+buildLoci : Pool → List Name → TC RawLoci
 buildLoci pool [] = returnTC []
 buildLoci pool (f ∷ fs) =
   bindTC (oneLocus pool f) λ here →
@@ -248,8 +292,8 @@ buildLoci pool (f ∷ fs) =
 materializeLociTerm : List Name → TC Term
 materializeLociTerm ns =
   bindTC (expandAll ns) λ expanded →
-  bindTC (preparePool expanded) λ pool →
-  bindTC (buildLoci pool expanded) quoteTC
+  bindTC (preparePool expanded) λ entries →
+  bindTC (buildLoci (partitionPool entries) expanded) quoteTC
 
 -- Generator-sliced form: probe only the given generators against the
 -- full pool.  Quadratic probing accumulates un-collectable TC state, so
@@ -259,9 +303,9 @@ materializeLociTerm ns =
 materializeLociForTerm : List Name → List Name → TC Term
 materializeLociForTerm gens ns =
   bindTC (expandAll ns) λ expanded →
-  bindTC (preparePool expanded) λ pool →
+  bindTC (preparePool expanded) λ entries →
   bindTC (expandAll gens) λ egens →
-  bindTC (buildLoci pool egens) quoteTC
+  bindTC (buildLoci (partitionPool entries) egens) quoteTC
 
 macro
   materializeLoci : List Name → Term → TC ⊤
