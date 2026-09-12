@@ -288,17 +288,29 @@ tryRealization f n x =
   ... | true  = (n , app , nty) ∷ []
   ... | false = []
 
-realizations : Name → List PoolEntry → TC (List RawRealization)
-realizations f [] = returnTC []
-realizations f ((n , x , _) ∷ ns) =
-  bindTC (tryRealization f n x) λ here →
-  bindTC (realizations f ns) λ rest →
-  returnTC (here ++ rest)
+-- Each probe — successful or failed — permanently retains typechecker
+-- state that runSpeculative does not give back (measured: heap grows
+-- quadratically in probe count and exhausts 13 GB near 300 pool
+-- names).  So the probe bill is bounded by the OUTPUT: a generator
+-- stops probing once its exhibited family reaches the cap.  The locus
+-- is then the first realizationCap checked realizations in pool order —
+-- an exact, checked, finite presentation of the family, not its
+-- completion.
+realizationCap : Nat
+realizationCap = 8
+
+realizations : Nat → Name → List PoolEntry → TC (List RawRealization)
+realizations zero    f _  = returnTC []
+realizations _       f [] = returnTC []
+realizations (suc k) f ((n , x , _) ∷ ns) =
+  bindTC (tryRealization f n x) λ where
+    []   → bindTC (realizations (suc k) f ns) λ rest → returnTC rest
+    here → bindTC (realizations k f ns) λ rest → returnTC (here ++ rest)
 
 oneLocus : Pool → Name → TC RawLoci
 oneLocus pool f =
   bindTC (genGate f) λ gate →
-  bindTC (realizations f (candidates pool gate)) λ where
+  bindTC (realizations realizationCap f (candidates pool gate)) λ where
     []       → returnTC []
     (r ∷ rs) → returnTC ((f , r ∷ rs) ∷ [])
 
