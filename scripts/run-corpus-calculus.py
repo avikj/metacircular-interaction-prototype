@@ -253,12 +253,27 @@ def main() -> int:
     generate()
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     shards = sorted(GENERATED.glob("CorpusShard*.agda"), key=lambda p: int(p.stem[len("CorpusShard"):]))
-    for shard in shards:
-        print(f"materializing {shard.name} ...", file=sys.stderr)
-        rc = subprocess.call(base + [str(shard)], cwd=ROOT)
+    # Shards are independent; run a small pool of them concurrently,
+    # bounded by CORPUS_JOBS (default 2 — each process can hold a
+    # multi-GB heap on this machine).
+    jobs = max(1, int(os.environ.get("CORPUS_JOBS", "2")))
+    pending = list(shards)
+    running: list[tuple[Path, subprocess.Popen]] = []
+    failed: Path | None = None
+    while (pending or running) and failed is None:
+        while pending and len(running) < jobs:
+            shard = pending.pop(0)
+            print(f"materializing {shard.name} ...", file=sys.stderr)
+            running.append((shard, subprocess.Popen(base + [str(shard)], cwd=ROOT)))
+        shard, proc = running.pop(0)
+        rc = proc.wait()
         if rc != 0:
-            print(f"shard failed: {shard.name}", file=sys.stderr)
-            return rc
+            failed = shard
+    for _, proc in running:
+        proc.wait()
+    if failed is not None:
+        print(f"shard failed: {failed.name}", file=sys.stderr)
+        return 1
     print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
     rc = subprocess.call(base + [str(OUT)], cwd=ROOT)
     if rc == 0:

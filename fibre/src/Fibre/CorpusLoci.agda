@@ -7,6 +7,7 @@ open import Agda.Builtin.List
 open import Agda.Builtin.Sigma
 open import Agda.Builtin.Unit
 open import Agda.Builtin.Bool
+open import Agda.Builtin.Maybe
 
 open import Fibre.CorpusReflection using (expandAll)
 
@@ -106,9 +107,89 @@ mutual
   metaFreeCs (absurd-clause _ _ ∷ cs) = metaFreeCs cs
 
 
-tryRealization : Name → Name → TC (List RawRealization)
-tryRealization f n =
+------------------------------------------------------------------------
+-- Head gate.  Almost every (generator, argument) pair is rejected by
+-- the typechecker on the heads of the two types alone, and two DISTINCT
+-- RIGID heads (data or record types, which nothing can unfold) can
+-- never convert.  Comparing heads costs one name equality instead of an
+-- elaboration, turning the effectively-quadratic probe bill into a
+-- quadratic bill of cheap comparisons plus a near-linear bill of real
+-- probes.  Only provably-doomed probes are skipped: any uncertainty
+-- (function aliases, primitives, vars, sorts) falls through to a real
+-- probe, so the recorded loci value is unchanged.
+------------------------------------------------------------------------
+
+data Head : Set where
+  rigidH : Name → Head   -- a data/record head: cannot unfold
+  piH    : Head          -- a visible function type
+  flexH  : Head          -- anything that might still reduce
+
+-- Peel hidden and instance domains: applying one visible argument makes
+-- Agda insert those automatically, so the effective type is the body.
+peelHidden : Nat → Term → Term
+peelHidden zero t = t
+peelHidden (suc f) (pi (arg (arg-info hidden _) _) (abs _ b))    = peelHidden f b
+peelHidden (suc f) (pi (arg (arg-info instance′ _) _) (abs _ b)) = peelHidden f b
+peelHidden (suc f) t = t
+
+headOf : Term → TC Head
+headOf t0 = classify (peelHidden 64 t0)
+  where
+  classify : Term → TC Head
+  classify (def d _) = bindTC (getDefinition d) λ where
+    (data-type _ _)   → returnTC (rigidH d)
+    (record-type _ _) → returnTC (rigidH d)
+    _                 → returnTC flexH
+  classify (pi _ _) = returnTC piH
+  classify _        = returnTC flexH
+
+-- The first visible domain of a generator's type, if syntactically
+-- apparent; nothing means "cannot tell", never "cannot apply".
+visibleDomain : Term → Maybe Term
+visibleDomain t = grab (peelHidden 64 t)
+  where
+  grab : Term → Maybe Term
+  grab (pi (arg (arg-info visible _) a) _) = just a
+  grab _ = nothing
+
+compatible : Head → Head → Bool
+compatible (rigidH a) (rigidH b) = primQNameEquality a b
+compatible (rigidH _) piH        = false
+compatible piH        (rigidH _) = false
+compatible _ _ = true
+
+-- A pool entry carries its argument term and type head, computed once.
+PoolEntry : Set
+PoolEntry = Σ Name (λ _ → Σ Term (λ _ → Head))
+
+preparePool : List Name → TC (List PoolEntry)
+preparePool [] = returnTC []
+preparePool (n ∷ ns) =
   bindTC (termOf n) λ x →
+  bindTC (catchTC (bindTC (getType n) headOf) (returnTC flexH)) λ hx →
+  bindTC (preparePool ns) λ rest →
+  returnTC ((n , x , hx) ∷ rest)
+
+-- The generator's domain head; nothing = unknown, probe everything.
+genGate : Name → TC (Maybe Head)
+genGate f =
+  catchTC
+    (bindTC (getType f) λ tf → gate (visibleDomain tf))
+    (returnTC nothing)
+  where
+  gate : Maybe Term → TC (Maybe Head)
+  gate nothing    = returnTC nothing
+  gate (just dom) = bindTC (headOf dom) just′
+    where
+    just′ : Head → TC (Maybe Head)
+    just′ h = returnTC (just h)
+
+admits : Maybe Head → Head → Bool
+admits nothing   _  = true
+admits (just hd) hx = compatible hd hx
+
+tryRealization : Name → Name → Term → TC (List RawRealization)
+tryRealization f n x =
   bindTC (applyNamed f x) λ app →
   -- No withReconstructed: parameter reconstruction on arbitrary corpus
   -- terms hits an uncatchable internal error in Agda 2.8.0's
@@ -139,30 +220,36 @@ tryRealization f n =
   ... | true  = (n , app , nty) ∷ []
   ... | false = []
 
-realizations : Name → List Name → TC (List RawRealization)
-realizations f [] = returnTC []
-realizations f (n ∷ ns) =
-  bindTC (tryRealization f n) λ here →
-  bindTC (realizations f ns) λ rest →
+realizations : Name → Maybe Head → List PoolEntry → TC (List RawRealization)
+realizations f gate [] = returnTC []
+realizations f gate ((n , x , hx) ∷ ns) =
+  bindTC (probe (admits gate hx)) λ here →
+  bindTC (realizations f gate ns) λ rest →
   returnTC (here ++ rest)
+  where
+  probe : Bool → TC (List RawRealization)
+  probe true  = tryRealization f n x
+  probe false = returnTC []
 
-oneLocus : List Name → Name → TC RawLoci
-oneLocus all f =
-  bindTC (realizations f all) λ where
+oneLocus : List PoolEntry → Name → TC RawLoci
+oneLocus pool f =
+  bindTC (genGate f) λ gate →
+  bindTC (realizations f gate pool) λ where
     []       → returnTC []
     (r ∷ rs) → returnTC ((f , r ∷ rs) ∷ [])
 
-buildLoci : List Name → List Name → TC RawLoci
-buildLoci all [] = returnTC []
-buildLoci all (f ∷ fs) =
-  bindTC (oneLocus all f) λ here →
-  bindTC (buildLoci all fs) λ rest →
+buildLoci : List PoolEntry → List Name → TC RawLoci
+buildLoci pool [] = returnTC []
+buildLoci pool (f ∷ fs) =
+  bindTC (oneLocus pool f) λ here →
+  bindTC (buildLoci pool fs) λ rest →
   returnTC (here ++ rest)
 
 materializeLociTerm : List Name → TC Term
 materializeLociTerm ns =
   bindTC (expandAll ns) λ expanded →
-  bindTC (buildLoci expanded expanded) quoteTC
+  bindTC (preparePool expanded) λ pool →
+  bindTC (buildLoci pool expanded) quoteTC
 
 -- Generator-sliced form: probe only the given generators against the
 -- full pool.  Quadratic probing accumulates un-collectable TC state, so
@@ -171,7 +258,8 @@ materializeLociTerm ns =
 -- concatenate to exactly buildLoci pool pool.
 materializeLociForTerm : List Name → List Name → TC Term
 materializeLociForTerm gens ns =
-  bindTC (expandAll ns) λ pool →
+  bindTC (expandAll ns) λ expanded →
+  bindTC (preparePool expanded) λ pool →
   bindTC (expandAll gens) λ egens →
   bindTC (buildLoci pool egens) quoteTC
 
