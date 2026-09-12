@@ -92,6 +92,10 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             flags = opts.group(1) if opts else ""
             if "--cubical" not in flags or "--safe" not in flags:
                 continue
+            # Anything importing the generated module sits above it; pulling
+            # it back into the generated state would be a module cycle.
+            if re.search(r"(?m)^\s*(open\s+)?import\s+CorpusRepository\b", src):
+                continue
             mod = module_name(src)
             if mod:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
