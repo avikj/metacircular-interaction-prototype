@@ -1,0 +1,92 @@
+#!/bin/sh
+# Produce the corpus self-presentation over the GREEN module set, in
+# memory-safe chunks. Reads green module files from /tmp/green.txt (one
+# path relative to formal/cubical per line), enumerates each module's
+# public names, splits into chunks of CHUNKSZ modules, runs each chunk
+# (imports only its slice, emits one ROW per declaration via
+# CorpusProbeLib), and aggregates all rows into /tmp/rows.txt.
+set -eu
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+CD="$ROOT/formal/cubical"
+LIB="$HOME/.agda-pin/libraries"
+CHUNKSZ="${CHUNKSZ:-15}"
+PAR="${PAR:-3}"
+ROWS=/tmp/rows.txt
+
+rm -f "$CD"/corpus/Chunk[0-9]*.agda
+dups=/tmp/green-dups.txt
+while IFS= read -r f; do
+  sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$CD/$f" 2>/dev/null | head -1 || true
+done < /tmp/green.txt | LC_ALL=C sort | uniq -d > "$dups"
+
+enum() {  # enum <file> <alias>  -> lines "quote ALIAS.name"
+  awk -v a="$2" '
+    { line=$0; sub(/--.*/, "", line)
+      ci=index(line," : "); ei=index(line," = ")
+      if (line ~ /^[^ \t]/ && ci>0 && (ei==0 || ci<ei)) {
+        left=substr(line,1,ci-1); n=split(left,xs,/[ \t]+/)
+        for (j=1;j<=n;j++){ x=xs[j]
+          if (x==""||x=="private"||x=="module"||x=="open"||x=="import"||x=="infix"||x=="infixl"||x=="infixr"||x=="syntax"||x=="variable"||x=="field"||x=="data"||x=="record"||x=="postulate"||x=="mutual"||x=="abstract"||x=="instance"||x=="where"||x=="with"||x=="renaming"||x=="using"||x=="hiding") continue
+          if (x ~ /[][(){}=;.@|?\\"]/) continue
+          if (index(x,"→")) continue
+          if (x==":"||x=="∈"||x=="∀"||x=="λ"||x=="Σ"||x=="→"||x=="×"||x=="⊎"||x=="≃"||x=="≡") continue
+          print "quote " a "." x }
+      } else if (line ~ /^data[ \t]+[^ \t:{]+/) { split(line,xs,/[ \t]+/); print "quote " a "." xs[2]
+      } else if (line ~ /^record[ \t]+[^ \t:{]+/) { split(line,xs,/[ \t]+/); print "quote " a "." xs[2] }
+    }' "$1"
+}
+
+chunklist=/tmp/chunklist.txt; : > "$chunklist"
+k=0
+newchunk() {
+  k=$((k+1))
+  imports=/tmp/ch_imp.$k; names=/tmp/ch_nm.$k
+  : > "$imports"; : > "$names"; i=0
+  echo "corpus/Chunk$k.agda" >> "$chunklist"
+}
+flush() {
+  [ "${k:-0}" -gt 0 ] || return 0
+  cf="$CD/corpus/Chunk$k.agda"
+  {
+    echo '{-# OPTIONS --cubical --guardedness --no-import-sorts #-}'
+    echo "module Chunk$k where"
+    echo 'open import CorpusProbeLib using (emitRows)'
+    echo 'open import Agda.Builtin.Unit using (⊤)'
+    echo 'open import Agda.Builtin.Reflection using (Name)'
+    echo 'open import Agda.Builtin.List using (List ; [] ; _∷_)'
+    cat "$imports"
+    echo 'names : List Name'
+    if [ -s "$names" ]; then
+      echo 'names ='
+      awk 'NR==1{print "    " $0; next}{print "  ∷ " $0} END{print "  ∷ []"}' "$names"
+    else
+      echo 'names = []'
+    fi
+    echo 'run : ⊤'
+    echo 'run = emitRows names'
+  } > "$cf"
+}
+
+newchunk
+while IFS= read -r f; do
+  mod=$(sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$CD/$f" 2>/dev/null | head -1)
+  [ -n "$mod" ] || continue
+  grep -qxF "$mod" "$dups" && continue
+  if [ "$i" -ge "$CHUNKSZ" ]; then flush; newchunk; fi
+  al="D$i"
+  echo "import $mod as $al" >> "$imports"
+  enum "$CD/$f" "$al" >> "$names"
+  i=$((i+1))
+done < /tmp/green.txt
+flush
+
+echo "chunks: $(wc -l < "$chunklist")  chunksz=$CHUNKSZ  par=$PAR"
+
+: > "$ROWS"
+xargs -P "$PAR" -I{} sh -c '
+  bn=$(basename "{}" .agda)
+  cd "'"$CD"'" && LC_ALL=C.utf8 agda --library-file="'"$LIB"'" -vrow:1 "corpus/$bn.agda" 2>/dev/null | grep "^ROW	"
+' < "$chunklist" >> "$ROWS" 2>/dev/null || true
+
+echo "rows collected: $(wc -l < "$ROWS")"
+rm -f "$CD"/corpus/Chunk[0-9]*.agda /tmp/ch_imp.* /tmp/ch_nm.*
