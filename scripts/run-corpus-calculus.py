@@ -72,7 +72,15 @@ def public_names(src: str) -> list[str]:
             continue
         for token in left.split():
             add(token)
-    return names
+    # Two names in one module whose underscore-stripped spellings agree
+    # (a prefix operator next to its infix sibling, e.g. ⊟ᵐ_ and _⊟ᵐ_)
+    # make `quote` irreducibly ambiguous between name and section; drop
+    # every member of such a collision class.
+    stripped: dict[str, int] = {}
+    for n in names:
+        key = n.replace("_", "")
+        stripped[key] = stripped.get(key, 0) + 1
+    return [n for n in names if stripped[n.replace("_", "")] == 1]
 
 
 def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[Path]]]]:
