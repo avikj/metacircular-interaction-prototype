@@ -1,0 +1,39 @@
+<title>Corpus Reader</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="app.css">
+<div id="app">
+  <header>
+    <span class="brand">Corpus Reader<small>the store is the mathematics; every view is a lens</small></span>
+    <input id="q" type="search" placeholder="ask the corpus: name, sentence, term  (Ctrl-K)" autocomplete="off">
+    <span class="stats" id="nstats">loading…</span>
+    <button id="backbtn" title="reverse (appends a mark; deletes nothing)">reverse</button>
+    <button id="graphbtn" class="viewtoggle" title="the corpus as one object">graph</button>
+    <button id="aboutbtn" class="viewtoggle">about</button>
+    <button id="themebtn" title="theme">theme</button>
+  </header>
+  <main>
+    <nav id="rail">
+      <div id="railbody"></div>
+      <div id="meetline"></div>
+    </nav>
+    <div style="position:relative; min-width:0; overflow-y:auto">
+      <article id="focus"></article>
+      <div id="graphwrap" hidden>
+        <canvas id="graph"></canvas>
+        <div id="graphlegend">
+          color = verdict (green proved · ochre conjecture-as-type · red red-by-design)
+          · size = import in-degree · sector = area · click to open
+        </div>
+      </div>
+    </div>
+    <aside id="ctx">
+      <div id="ctxbody"></div>
+      <h3>Session trace</h3>
+      <div id="trace"></div>
+      <div id="tracegrade"></div>
+    </aside>
+  </main>
+</div>
+<div id="results" hidden></div>
+<div id="card" hidden></div>
+<script type="module" src="app.js"></script>
