@@ -2,6 +2,7 @@
 
 module CorpusExecute where
 
+open import Agda.Primitive renaming (Set to UType)
 open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
@@ -10,7 +11,7 @@ open import Fibre.CorpusSamvada using (point)
 open import CorpusSelfPresentation using (present)
 
 infixr 5 _++_
-_++_ : {A : Set} → List A → List A → List A
+_++_ : {A : UType} → List A → List A → List A
 []       ++ ys = ys
 (x ∷ xs) ++ ys = x ∷ (xs ++ ys)
 
@@ -39,9 +40,6 @@ termOf n = bindTC (getDefinition n) λ where
   (data-cons _ _) → returnTC (con n [])
   _               → returnTC (def n [])
 
--- Reflection is only the bootstrap that exposes checked declarations.
--- The semantic object is `present (point x)`, the infinite guarded coalgebra
--- enriched with the exact residual fibre at every demanded question.
 coinductivePresentation : Term → Term
 coinductivePresentation x =
   def (quote present)
@@ -67,7 +65,5 @@ loop : List Name → TC ⊤
 loop []       = returnTC tt
 loop (n ∷ ns) = bindTC (emit n) λ _ → loop ns
 
--- No depth argument: finite enumeration only supplies the checked seed support.
--- Each seed is mapped directly to its complete guarded interaction object.
 runCorpus : List Name → TC ⊤
 runCorpus ns = bindTC (expandAll ns) loop
