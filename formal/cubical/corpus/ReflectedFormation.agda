@@ -21,7 +21,7 @@
 
 module ReflectedFormation where
 
-open import Cubical.Foundations.Prelude using (Type₀)
+open import Cubical.Foundations.Prelude using (Type)
 open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_)
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Sigma using (_,_)
@@ -35,9 +35,9 @@ open import Agda.Builtin.Reflection renaming (Type to Quoted)
 record Decl : Type₀ where
   constructor formed
   field
-    name       : Name
-    type       : Term
-    definition : Definition
+    declName       : Name
+    declType       : Term
+    declDefinition : Definition
 
 -- The bridge: a checked declaration becomes a formed state, by
 -- reflection alone.
@@ -59,13 +59,13 @@ declAll (nm ∷ nms) =
 ------------------------------------------------------------------------
 
 rawView : Decl → Term
-rawView = Decl.type
+rawView = Decl.declType
 
 reducedView : Decl → TC Term
-reducedView d = reduce (Decl.type d)
+reducedView d = reduce (Decl.declType d)
 
 normalView : Decl → TC Term
-normalView d = normalise (Decl.type d)
+normalView d = normalise (Decl.declType d)
 
 ------------------------------------------------------------------------
 -- 3.  Structural reference lists (provenance edges, not semantics)
@@ -130,7 +130,7 @@ refsDefinition (record-type c fs) = c ∷ fieldNames fs
 refsDefinition _                  = []
 
 refs : Decl → List Name
-refs d = refsTerm (Decl.type d) ++ refsDefinition (Decl.definition d)
+refs d = refsTerm (Decl.declType d) ++ refsDefinition (Decl.declDefinition d)
 
 ------------------------------------------------------------------------
 -- 4.  Head observation and child navigation on reflected syntax.
