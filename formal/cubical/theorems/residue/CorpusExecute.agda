@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe --no-import-sorts #-}
+{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 module CorpusExecute where
 
@@ -6,9 +6,10 @@ open import Agda.Primitive renaming (Set to UType)
 open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
-open import Agda.Builtin.Bool
-open import Agda.Builtin.Nat
-open import CorpusCalculus using (step)
+
+import Fibre.CorpusSamvada as C
+import CorpusSelfPresentation as SP
+import CorpusLosslessPresentation as LP
 
 infixr 5 _++_
 _++_ : {A : UType} → List A → List A → List A
@@ -40,47 +41,44 @@ termOf n = bindTC (getDefinition n) λ where
   (data-cons _ _) → returnTC (con n [])
   _               → returnTC (def n [])
 
-applyNamed : Name → Term → TC Term
-applyNamed f x =
-  bindTC (getDefinition f) λ where
-    (data-cons _ _) → returnTC (con f (vArg x ∷ []))
-    _               → returnTC (def f (vArg x ∷ []))
+presentationOf : Term → Term
+presentationOf x =
+  def (quote SP.present)
+    (vArg (def (quote C.point) (vArg x ∷ [])) ∷ [])
 
-mutual
-  explore : Nat → List Name → Term → TC ⊤
-  explore zero    fs x = returnTC tt
-  explore (suc d) fs x = eachFunction d fs fs x
+emitGenerator : TC ⊤
+emitGenerator =
+  bindTC (getType (quote SP.present)) λ pty →
+  bindTC (getType (quote C.Question)) λ qty →
+  bindTC (getType (quote LP.Residual)) λ rty →
+  debugPrint "corpus.presentation" 1
+    (strErr "════════ CORPUS COINDUCTIVE SELF-PRESENTATION ════════\n" ∷
+     strErr "NUCLEUS  " ∷ nameErr (quote SP.present) ∷ strErr " : " ∷ termErr pty ∷
+     strErr "\nQUESTION " ∷ nameErr (quote C.Question) ∷ strErr " : " ∷ termErr qty ∷
+     strErr "\nRESIDUAL " ∷ nameErr (quote LP.Residual) ∷ strErr " : " ∷ termErr rty ∷
+     strErr "\nOne guarded generator; every checked declaration below is a realization.\n" ∷
+     strErr "Every demanded question yields target + exact fibre + guarded continuation.\n" ∷ [])
 
-  eachFunction : Nat → List Name → List Name → Term → TC ⊤
-  eachFunction d all []       x = returnTC tt
-  eachFunction d all (f ∷ fs) x =
-    bindTC (tryApply d all f x) λ _ → eachFunction d all fs x
+emitRealization : Name → TC ⊤
+emitRealization n =
+  bindTC (termOf n) λ x →
+  let p = presentationOf x in
+  catchTC
+    (withReconstructed true
+      (noConstraints
+        (bindTC (inferType x) λ xty →
+         bindTC (inferType p) λ _ →
+         debugPrint "corpus.presentation" 1
+           (strErr "REALIZATION  " ∷ nameErr n ∷ strErr " = " ∷ termErr x ∷
+            strErr " : " ∷ termErr xty ∷ []))))
+    (returnTC tt)
 
-  tryApply : Nat → List Name → Name → Term → TC ⊤
-  tryApply d all f x =
-    bindTC (termOf f) λ ft →
-    bindTC (applyNamed f x) λ app →
-    let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
-    catchTC
-      (withReconstructed true
-        (noConstraints
-          (bindTC (inferType app) λ ty →
-           bindTC (inferType witness) λ witnessTy →
-           bindTC (normalise ty) λ nty →
-           bindTC
-             (debugPrint "corpus.edge" 1
-               (strErr "EDGE " ∷ termErr x ∷ strErr "  --" ∷ nameErr f ∷
-                strErr "→  " ∷ termErr app ∷ strErr "  :  " ∷ termErr nty ∷
-                strErr "  WITNESS " ∷ termErr witness ∷ strErr "  :  " ∷ termErr witnessTy ∷ []))
-             λ _ → explore d all app)))
-      (returnTC tt)
+loop : List Name → TC ⊤
+loop []       = returnTC tt
+loop (n ∷ ns) = bindTC (emitRealization n) λ _ → loop ns
 
-seedLoop : Nat → List Name → List Name → TC ⊤
-seedLoop d all []       = returnTC tt
-seedLoop d all (n ∷ ns) =
-  bindTC (termOf n) λ t →
-  bindTC (explore d all t) λ _ → seedLoop d all ns
-
-runCorpus : Nat → List Name → TC ⊤
-runCorpus d ns =
-  bindTC (expandAll ns) λ expanded → seedLoop d expanded expanded
+runCorpus : List Name → TC ⊤
+runCorpus ns =
+  bindTC (expandAll ns) λ expanded →
+  bindTC emitGenerator λ _ →
+  loop expanded
