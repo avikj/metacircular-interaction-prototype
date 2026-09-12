@@ -184,7 +184,8 @@ def main() -> int:
         "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}",
         "module CorpusProbe where",
         "",
-        "open import Agda.Builtin.Reflection using (Name)",
+        "open import Agda.Builtin.Reflection using (Name ; Term ; TC ; bindTC ; unify ; con)",
+        "open import Agda.Builtin.Unit using (\u22a4 ; tt)",
         "open import Agda.Builtin.List using (List ; [] ; _∷_)",
         "open import Agda.Builtin.Nat using (Nat ; zero ; suc)",
         "open import CorpusExecute using (runCorpus)",
@@ -199,7 +200,16 @@ def main() -> int:
         body.append("  []")
     else:
         body.append("  []")
-    body.extend(["", f"unquoteDecl = runCorpus ({depth_term(args.depth)}) names", ""])
+    body.extend([
+        "",
+        "macro",
+        "  probeRun : Term \u2192 TC \u22a4",
+        f"  probeRun hole = bindTC (runCorpus ({depth_term(args.depth)}) names) \u03bb _ \u2192 unify hole (con (quote tt) [])",
+        "",
+        "probe : \u22a4",
+        "probe = probeRun",
+        "",
+    ])
 
     tmp_ctx = tempfile.TemporaryDirectory(prefix="corpus-calculus-")
     tdir = Path(tmp_ctx.name)
