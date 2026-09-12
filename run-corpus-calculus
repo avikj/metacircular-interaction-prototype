@@ -1,23 +1,31 @@
 #!/bin/sh
-# One-command verification of the corpus self-presentation.
-#
-# The universal carrier is already the checked mathematics itself:
-#   Point ℓ          = Σ[ A ∈ Type ℓ ] A
-#   Question (A , a) = Σ[ B ∈ Type ℓ ] (A → B)
-#
-# CorpusSelfPresentation wires the existing primitives into the closed loop:
-#   question ↦ visible target × exact fibre × productive continuation
-#   finite trace ↦ native future question
-#   source ≃ visible composite × exact residual
-#
-# `check --all` mechanically checks the complete Agda corpus at the pinned
-# toolchain, including CorpusCalculus, CorpusLosslessPresentation,
-# CorpusTraceCompression, and CorpusSelfPresentation.
+# One-command execution of the corpus self-presentation.
 set -eu
 ROOT="$(cd "$(dirname "$0")" && pwd)"
+PREFIX="${MATH_PREFIX:-$HOME}"
+AGDA="$PREFIX/.local/bin/agda"
+LIBFILE="$PREFIX/.agda-pin/libraries"
+BUILD="$ROOT/.corpus-self-presentation-build"
+
+# 1. Verify the complete pinned corpus and the checked self-presentation core.
 sh "$ROOT/check" --all
-printf '\nCORPUS SELF-PRESENTATION: CHECKED\n'
-printf '  formal/cubical/theorems/residue/CorpusSelfPresentation.agda\n'
-printf '  present : Point -> coinductive visible+fibre+continuation\n'
-printf '  install : finite Trace -> native Question\n'
-printf '  installed-lossless : Source ≃ visible composite + exact fibre\n'
+
+# 2. Compile and execute the thin IO mouth.  All semantics live in the checked
+#    Agda core; this module only prints the executable readout.
+rm -rf "$BUILD"
+mkdir -p "$BUILD"
+cd "$ROOT"
+"$AGDA" --library-file="$LIBFILE" --compile --compile-dir="$BUILD" \
+  formal/mukha/CorpusSelfPresentation_run.agda
+
+EXE="$BUILD/CorpusSelfPresentation_run"
+if [ ! -x "$EXE" ]; then
+  EXE="$(find "$BUILD" -type f -name 'CorpusSelfPresentation_run' -perm -111 | head -1)"
+fi
+[ -n "${EXE:-}" ] && [ -x "$EXE" ] || {
+  echo "compiled mouth executable not found under $BUILD" >&2
+  exit 1
+}
+
+printf '\n=== EXECUTED CORPUS SELF-PRESENTATION ===\n'
+"$EXE"
