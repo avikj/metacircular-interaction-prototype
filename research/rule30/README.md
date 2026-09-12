@@ -25,7 +25,16 @@ What was decided, exactly (the corpus modules are in
   eventually periodic (Jen 1986), so if the centre column repeats, neither
   neighbour does.
 
-What is not decided: whether the column repeats at all (Wolfram's 2019 prize
-problem 1) — the oracle's report `ORACLE_RULE30.md` states its status, its own
-search to depth 2^21, and the hierarchy of stronger properties (superlinear
-complexity, disjunctiveness, normality) the column is conjectured to have.
+- Karna: every right diagonal d_k(t) = x_t(t−k) is purely periodic with
+  period 2^k (Theorem R), from the closed recurrence the rule induces along
+  a diagonal; the centre column is the diagonal of the diagonals, which is
+  the exact shape of the absence of a closed recurrence for it.
+- Ganana, Sankirnata: on the first 4096 bits, 2028 ones; every 6-, 8- and
+  9-bit word has occurred by depth 422, 1591, 2872 and not one bit sooner;
+  the complexity function is 2^n through n = 9 and then 1017, 1791, 2599.
+
+Nothing is queued. What is not decided is one thing: whether the column
+repeats at all (Wolfram's 2019 prize problem 1), and Jen's argument says
+exactly why no single-column version of it closes. The oracle's report
+`ORACLE_RULE30.md` gives its status, a search to depth 2^21, and the
+hierarchy of stronger properties the column is conjectured to have.

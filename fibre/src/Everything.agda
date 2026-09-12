@@ -140,3 +140,8 @@ open import Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFail
 -- deterministic embedding every strategy observes the same prefix, and
 -- `counter` shows that in general two strategies disagree at step one.
 open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers
+
+-- The formal corpus itself is the same coalgebra: a state is Σ A . A and a
+-- question is exactly a typed map out of the current A.  No finite-depth
+-- approximation or external scheduler is introduced.
+open import Fibre.CorpusSamvada
