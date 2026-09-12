@@ -84,6 +84,10 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
                 src = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 continue
+            # A module with open interaction points ('?' or '{! !}' holes)
+            # cannot be imported; leave it out of the materialized state.
+            if "{!" in src or re.search(r"(?m)(^|[\s(=])\?(\s|\)|$)", src):
+                continue
             mod = module_name(src)
             if mod:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
