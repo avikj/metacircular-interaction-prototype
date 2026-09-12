@@ -134,8 +134,9 @@ def generate() -> tuple[int, int]:
     modules, duplicates = discover()
     imports: list[str] = []
     qnames: list[str] = []
+    ambiguous = {mod for mod, _ in duplicates}
     for mod, _, names in modules:
-        if mod == "CorpusRepository":
+        if mod == "CorpusRepository" or mod in ambiguous:
             continue
         imports.append(f"import {mod}")
         qnames.extend(f"{mod}.{n}" for n in names)
