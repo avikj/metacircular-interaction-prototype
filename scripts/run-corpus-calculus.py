@@ -93,8 +93,28 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             if "--cubical" not in flags or "--safe" not in flags:
                 continue
             mod = module_name(src)
+            if mod and mod.split(".")[-1] != path.stem:
+                # Agda resolves 'import M' to a file named M: a file whose
+                # first declared module is not its own stem (the Rule 30
+                # censuses open with nested 'module Red (…)') is not
+                # bare-name importable and is skipped, not judged.
+                continue
             if mod:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
+        # Literate files are not harvested but occupy module names: Agda
+        # resolves imports over .agda and .lagda alike, so any name also
+        # carried by a .lagda file is ambiguous and must count as a
+        # duplicate (which generate() skips).
+        for path in inc.rglob("*.lagda"):
+            if "must_fail" in path.resolve().parts or "generated" in path.resolve().parts:
+                continue
+            try:
+                src = path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                continue
+            mod = module_name(src)
+            if mod and mod in by_module:
+                by_module[mod].append((path, [], rank))
     chosen: list[tuple[str, Path, list[str]]] = []
     duplicates: list[tuple[str, list[Path]]] = []
     for mod, xs in sorted(by_module.items()):
