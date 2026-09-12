@@ -8,8 +8,30 @@ open import Agda.Builtin.Unit
 open import Agda.Builtin.Bool
 open import Agda.Builtin.Nat
 
+infixr 5 _++_
+_++_ : {A : Set} → List A → List A → List A
+[]       ++ ys = ys
+(x ∷ xs) ++ ys = x ∷ (xs ++ ys)
+
 vArg : Term → Arg Term
 vArg t = arg (arg-info visible (modality relevant quantity-ω)) t
+
+fieldNames : List (Arg Name) → List Name
+fieldNames [] = []
+fieldNames (arg _ n ∷ fs) = n ∷ fieldNames fs
+
+expandOne : Name → TC (List Name)
+expandOne n = bindTC (getDefinition n) λ where
+  (data-type _ cs)   → returnTC (n ∷ cs)
+  (record-type c fs) → returnTC (n ∷ c ∷ fieldNames fs)
+  _                  → returnTC (n ∷ [])
+
+expandAll : List Name → TC (List Name)
+expandAll []       = returnTC []
+expandAll (n ∷ ns) =
+  bindTC (expandOne n) λ here →
+  bindTC (expandAll ns) λ rest →
+  returnTC (here ++ rest)
 
 termOf : Name → TC Term
 termOf n = bindTC (getDefinition n) λ where
@@ -58,4 +80,5 @@ seedLoop d all (n ∷ ns) =
 -- Agda itself accepts or rejects application; successful results are fed back
 -- as the next state with no semantic classification in between.
 runCorpus : Nat → List Name → TC ⊤
-runCorpus d ns = seedLoop d ns ns
+runCorpus d ns =
+  bindTC (expandAll ns) λ expanded → seedLoop d expanded expanded
