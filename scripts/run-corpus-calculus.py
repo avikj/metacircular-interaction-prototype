@@ -88,6 +88,12 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             # cannot be imported; leave it out of the materialized state.
             if "{!" in src or re.search(r"(?m)(^|[\s(=])\?(\s|\)|$)", src):
                 continue
+            # The generated module is --cubical --safe, both infective and
+            # coinfective: only modules declaring the same can be imported.
+            opts = re.search(r"(?s)\{-#\s*OPTIONS(.*?)#-\}", src)
+            flags = opts.group(1) if opts else ""
+            if "--cubical" not in flags or "--safe" not in flags:
+                continue
             mod = module_name(src)
             if mod:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
