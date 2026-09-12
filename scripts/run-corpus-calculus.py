@@ -46,7 +46,6 @@ def public_names(src: str) -> list[str]:
         x = x.strip()
         if not x or x == "_" or x in keywords or x.startswith("--") or x.startswith("{-#"):
             return
-        # These cannot be a single Agda name token in a top-level signature.
         if any(c in x for c in "(){}[],"):
             return
         if x not in seen:
@@ -87,9 +86,6 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
 
     by_module: dict[str, list[tuple[Path, list[str]]]] = {}
     for inc in includes:
-        # Agda include paths are namespace roots.  Do not recursively reinterpret
-        # their subdirectories as additional bare-name roots; those are separate
-        # only when explicitly listed in an .agda-lib file.
         for path in inc.glob("*.agda"):
             rp = path.resolve()
             if "must_fail" in rp.parts:
@@ -138,6 +134,8 @@ def main() -> int:
     ap.add_argument("--depth", type=int, default=1,
                     help="finite observation depth of the coinductive unfolding")
     ap.add_argument("--keep-probe", action="store_true")
+    ap.add_argument("--output", default=str(ROOT / "corpus-presentation.txt"),
+                    help="where to persist the exact Agda-emitted presentation")
     args = ap.parse_args()
     if args.depth < 0:
         ap.error("--depth must be nonnegative")
@@ -219,8 +217,28 @@ def main() -> int:
         "-v", "corpus.edge:1",
         str(probe),
     ]
+    out_path = Path(args.output).expanduser().resolve()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     print("executing finite observation of coinductive corpus calculus...", file=sys.stderr)
-    return subprocess.call(cmd, cwd=ROOT)
+    print(f"presentation output: {out_path}", file=sys.stderr)
+
+    # Presentation only: Python is the byte-for-byte terminal/file mouth.  All
+    # semantic acceptance, application, continuation, and witnesses are emitted
+    # by the Agda TC program above.
+    with out_path.open("w", encoding="utf-8") as out:
+        proc = subprocess.Popen(
+            cmd, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            text=True, bufsize=1,
+        )
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            sys.stdout.write(line)
+            out.write(line)
+        rc = proc.wait()
+
+    if rc == 0:
+        print(f"\nCORPUS PRESENTATION COMPLETE: {out_path}", file=sys.stderr)
+    return rc
 
 
 if __name__ == "__main__":
