@@ -51,6 +51,8 @@ compile {s = s} (ask q rest) with compile rest
 ... | B , f = B , λ a → f (snd q a)
 
 -- The compressed question computes exactly the expanded trace endpoint.
+-- Keeping this equality at the dependent Point level retains both the
+-- endpoint type and the endpoint inhabitant in one path.
 compile-target : {s : C.Point ℓ} (trace : Trace s)
                → C.target s (compile trace) ≡ endpoint trace
 compile-target stop = refl
@@ -71,12 +73,6 @@ compress {s = s} trace = LP.encode s (compile trace)
 current-compressed : {s : C.Point ℓ} (trace : Trace s)
                    → CompressedPresentation trace
 current-compressed {s = s} trace = compress trace (LP.source s)
-
-current-visible-is-endpoint : {s : C.Point ℓ} (trace : Trace s)
-                            → fst (current-compressed trace)
-                              ≡ fst (endpoint trace)
-current-visible-is-endpoint {s = s} trace =
-  cong fst (compile-target trace)
 
 -- The entire original source type remains exactly recoverable from the
 -- compiled visible observation and its fibre; no finite chain loses data.
