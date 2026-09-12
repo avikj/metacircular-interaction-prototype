@@ -346,6 +346,20 @@ materializeLociForTerm gens ns =
   bindTC (expandAll gens) λ egens →
   bindTC (buildLoci (partitionPool entries) egens) quoteTC
 
+-- Pool preparation itself retains typechecker state per reflection
+-- call (36k names × 4 calls exhausts the heap before any probing), so
+-- the classified pool is materialized ONCE, in chunks, as a checked
+-- value; shards consume it as data and pay no reflection for it.
+materializePoolTerm : List Name → TC Term
+materializePoolTerm ns =
+  bindTC (expandAll ns) λ expanded →
+  bindTC (preparePool expanded) quoteTC
+
+buildLociOver : List PoolEntry → List Name → TC Term
+buildLociOver entries gens =
+  bindTC (expandAll gens) λ egens →
+  bindTC (buildLoci (partitionPool entries) egens) quoteTC
+
 macro
   materializeLoci : List Name → Term → TC ⊤
   materializeLoci ns hole = bindTC (materializeLociTerm ns) (unify hole)
@@ -353,3 +367,10 @@ macro
   materializeLociFor : List Name → List Name → Term → TC ⊤
   materializeLociFor gens ns hole =
     bindTC (materializeLociForTerm gens ns) (unify hole)
+
+  materializePool : List Name → Term → TC ⊤
+  materializePool ns hole = bindTC (materializePoolTerm ns) (unify hole)
+
+  materializeLociOver : List PoolEntry → List Name → Term → TC ⊤
+  materializeLociOver entries gens hole =
+    bindTC (buildLociOver entries gens) (unify hole)
