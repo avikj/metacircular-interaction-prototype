@@ -9,6 +9,13 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# Modules whose typechecking exhausts this container's memory (>14 GB even
+# checked alone, at every heap/GC setting). Excluded from the materialized
+# state and reported, so the omission is visible rather than silent.
+MEMORY_EXCLUDES = {
+    "RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten",
+}
 GENERATED = ROOT / "generated"
 OUT = GENERATED / "CorpusRepository.agda"
 
@@ -97,6 +104,9 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             if re.search(r"(?m)^\s*(open\s+)?import\s+CorpusRepository\b", src):
                 continue
             mod = module_name(src)
+            if mod in MEMORY_EXCLUDES:
+                print(f"EXCLUDED (memory): {mod}", file=sys.stderr)
+                continue
             if mod:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
     chosen: list[tuple[str, Path, list[str]]] = []
