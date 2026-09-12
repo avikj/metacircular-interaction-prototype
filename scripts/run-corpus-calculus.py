@@ -41,25 +41,20 @@ def public_names(src: str) -> list[str]:
         "instance", "macro", "variable", "postulate", "field", "constructor",
         "infix", "infixl", "infixr", "syntax", "pattern",
     }
-
     def add(x: str) -> None:
         x = x.strip()
         if not x or x == "_" or x in keywords or x.startswith("--") or x.startswith("{-#"):
             return
-        # These cannot be a single Agda name token in a top-level signature.
         if any(c in x for c in "(){}[],"):
             return
         if x not in seen:
-            seen.add(x)
-            names.append(x)
-
+            seen.add(x); names.append(x)
     for line in src.splitlines():
         if not line or line[0].isspace() or line.startswith("--") or line.startswith("{-#"):
             continue
         dm = re.match(r"(?:data|record)\s+([^\s:{]+)", line)
         if dm:
-            add(dm.group(1))
-            continue
+            add(dm.group(1)); continue
         if ":" not in line:
             continue
         left = line.split(":", 1)[0].strip()
@@ -70,15 +65,8 @@ def public_names(src: str) -> list[str]:
     return names
 
 
-def depth_term(n: int) -> str:
-    return "zero" if n == 0 else "suc (" + depth_term(n - 1) + ")"
-
-
 def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[Path]]]]:
-    libs = [
-        ROOT / "formal/cubical/natural-machine.agda-lib",
-        ROOT / "rescued-lanes.agda-lib",
-    ]
+    libs = [ROOT / "formal/cubical/natural-machine.agda-lib", ROOT / "rescued-lanes.agda-lib"]
     includes: list[Path] = []
     for lib in libs:
         for p in parse_include_dirs(lib):
@@ -87,34 +75,24 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
 
     by_module: dict[str, list[tuple[Path, list[str]]]] = {}
     for inc in includes:
-        # Agda include paths are namespace roots.  Do not recursively reinterpret
-        # their subdirectories as additional bare-name roots; those are separate
-        # only when explicitly listed in an .agda-lib file.
         for path in inc.glob("*.agda"):
             rp = path.resolve()
-            if "must_fail" in rp.parts:
-                continue
-            if path.name.startswith("CorpusProbe"):
+            if "must_fail" in rp.parts or path.name.startswith("CorpusProbe"):
                 continue
             try:
                 src = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 continue
             mod = module_name(src)
-            if not mod:
-                continue
-            ns = public_names(src)
-            by_module.setdefault(mod, []).append((path, ns))
+            if mod:
+                by_module.setdefault(mod, []).append((path, public_names(src)))
 
     rank = {p: i for i, p in enumerate(includes)}
-
     def resolution_key(item: tuple[Path, list[str]]) -> tuple[int, str]:
-        p = item[0].resolve()
-        best = len(includes)
+        p = item[0].resolve(); best = len(includes)
         for inc, i in rank.items():
             try:
-                p.relative_to(inc)
-                best = min(best, i)
+                p.relative_to(inc); best = min(best, i)
             except ValueError:
                 pass
         return best, str(p)
@@ -135,35 +113,23 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--depth", type=int, default=1,
-                    help="finite observation depth of the coinductive unfolding")
     ap.add_argument("--keep-probe", action="store_true")
+    ap.add_argument("--output", default=str(ROOT / "corpus-presentation.txt"))
     args = ap.parse_args()
-    if args.depth < 0:
-        ap.error("--depth must be nonnegative")
 
     prefix = Path(os.environ.get("MATH_PREFIX", str(Path.home())))
     agda = prefix / ".local/bin/agda"
     if not agda.exists():
         found = shutil.which("agda")
         if not found:
-            print("no agda; run: sh setup", file=sys.stderr)
-            return 1
+            print("no agda; run: sh setup", file=sys.stderr); return 1
         agda = Path(found)
     libfile = prefix / ".agda-pin/libraries"
     if not libfile.exists():
-        print(f"no {libfile}; run: sh setup", file=sys.stderr)
-        return 1
-
+        print(f"no {libfile}; run: sh setup", file=sys.stderr); return 1
     ver = subprocess.run([str(agda), "--version"], text=True, capture_output=True).stdout.strip()
     if not ver.startswith("Agda version 2.8.0"):
-        print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr)
-        return 1
-
-    registered = libfile.read_text(encoding="utf-8")
-    if str((ROOT / "rescued-lanes.agda-lib").resolve()) not in registered:
-        print("rescued-lanes is not registered; rerun: sh setup", file=sys.stderr)
-        return 1
+        print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr); return 1
 
     modules, duplicates = discover()
     qnames: list[str] = []
@@ -173,33 +139,24 @@ def main() -> int:
         qnames.extend(f"{mod}.{n}" for n in names)
 
     print(f"corpus modules in active Agda namespace: {len(modules)}", file=sys.stderr)
-    print(f"public checked names supplied as states/actions: {len(qnames)}", file=sys.stderr)
+    print(f"checked declaration seeds: {len(qnames)}", file=sys.stderr)
+    print("semantic object: guarded infinite CorpusSamvada + exact residual fibre", file=sys.stderr)
     if duplicates:
-        print(f"duplicate raw module names (separate Agda contexts): {len(duplicates)}", file=sys.stderr)
-        for mod, paths in duplicates:
-            print("DUPLICATE_MODULE " + mod + " :: " + " | ".join(str(p.relative_to(ROOT)) for p in paths),
-                  file=sys.stderr)
+        print(f"duplicate raw module names: {len(duplicates)}", file=sys.stderr)
 
     body = [
         "{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}",
-        "module CorpusProbe where",
-        "",
+        "module CorpusProbe where", "",
         "open import Agda.Builtin.Reflection using (Name)",
         "open import Agda.Builtin.List using (List ; [] ; _∷_)",
-        "open import Agda.Builtin.Nat using (Nat ; zero ; suc)",
-        "open import CorpusExecute using (runCorpus)",
-        "",
-        *imports,
-        "",
-        "names : List Name",
-        "names =",
+        "open import CorpusExecute using (runCorpus)", "",
+        *imports, "", "names : List Name", "names =",
     ]
     if qnames:
-        body.extend([f"  quote {q} ∷" for q in qnames])
-        body.append("  []")
+        body.extend([f"  quote {q} ∷" for q in qnames]); body.append("  []")
     else:
         body.append("  []")
-    body.extend(["", f"unquoteDecl = runCorpus ({depth_term(args.depth)}) names", ""])
+    body.extend(["", "unquoteDecl = runCorpus names", ""])
 
     tmp_ctx = tempfile.TemporaryDirectory(prefix="corpus-calculus-")
     tdir = Path(tmp_ctx.name)
@@ -210,17 +167,22 @@ def main() -> int:
         kept.write_text(probe.read_text(encoding="utf-8"), encoding="utf-8")
         print(f"probe: {kept}", file=sys.stderr)
 
-    cmd = [
-        str(agda),
-        f"--library-file={libfile}",
-        "-l", "natural-machine",
-        "-l", "rescued-lanes",
-        "-i", str(tdir),
-        "-v", "corpus.edge:1",
-        str(probe),
-    ]
-    print("executing finite observation of coinductive corpus calculus...", file=sys.stderr)
-    return subprocess.call(cmd, cwd=ROOT)
+    cmd = [str(agda), f"--library-file={libfile}", "-l", "natural-machine", "-l", "rescued-lanes",
+           "-l", "fibre", "-i", str(tdir), "-v", "corpus.presentation:1", str(probe)]
+
+    out_path = Path(args.output).expanduser().resolve()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    print("constructing corpus-wide infinite guarded presentations...", file=sys.stderr)
+    print(f"presentation output: {out_path}", file=sys.stderr)
+    with out_path.open("w", encoding="utf-8") as out:
+        proc = subprocess.Popen(cmd, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            sys.stdout.write(line); out.write(line)
+        rc = proc.wait()
+    if rc == 0:
+        print(f"CORPUS PRESENTATION COMPLETE: {out_path}", file=sys.stderr)
+    return rc
 
 
 if __name__ == "__main__":
