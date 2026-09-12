@@ -81,10 +81,12 @@ tryRealization f n =
   -- terms hits an uncatchable internal error in Agda 2.8.0's
   -- ReconstructParameters; the locus needs only the checked application
   -- and its normalized type, which inference supplies unreconstructed.
-  -- The result type is weak-head reduced, not normalised: full
-  -- normalisation of some application types unfolds certificate
-  -- computations past this machine's heap, while reduce keeps a
-  -- canonical head at bounded cost.
+  -- The result type is recorded exactly as inference produced it:
+  -- both full normalisation and weak-head reduction unfold heads
+  -- (FactorsThrough into its Σ-expansion, certificate computations
+  -- into their tables) and the sum of those expansions across the
+  -- quadratic probe grid is what exhausts the heap.  The recorded
+  -- application is fully checked either way.
   -- runSpeculative with false rolls the TC state back, discarding every
   -- meta the probe created (a partial application of a parameterized
   -- family otherwise leaves unsolved metas that poison the whole
@@ -95,8 +97,7 @@ tryRealization f n =
     (runSpeculative
       (noConstraints
         (bindTC (inferType app) λ ty →
-         bindTC (reduce ty) λ rty →
-         returnTC (keep n app rty , false))))
+         returnTC (keep n app ty , false))))
     (returnTC [])
   where
   keep : Name → Term → Term → List RawRealization
