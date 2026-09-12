@@ -1,0 +1,1 @@
+{"Swarm.S09SmithKuttaka": {"R": "Type", "_Divides_": "R → R → Type", "Rep": "R → R → R → Type", "Cert": "(a m : R) → Type", "C1230": "Cert (pos 12) (pos 30)", "six∣18": "pos 6 Divides pos 18", "solve1218": "Rep (pos 12) (pos 30) (pos 18)", "witnessZ": "solve1218 .fst ≡ pos 9", "witnessK": "solve1218 .snd .fst ≡ negsuc 2"}}
