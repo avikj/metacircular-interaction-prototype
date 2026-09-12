@@ -38,6 +38,7 @@
 module CorpusSelfPresentation where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Isomorphism using (Iso)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬_)
 
@@ -88,7 +89,7 @@ next-is-target q = refl
 
 residual : {s : C.Point ℓ} (q : C.Question s)
          → LP.Residual s q
-residual {s = s} q = fst (snd (fst (snd (respond (present s) q))))
+residual {s = s} q = snd (fst (snd (respond (present s) q)))
 
 residual-is-source : {s : C.Point ℓ} (q : C.Question s)
                    → residual q ≡ LP.current-residual s q
@@ -120,9 +121,7 @@ NeedsRefinement s q t = ¬ Descends s q t
 descends-iff-constant-on-residual :
     (s : C.Point ℓ) (q : C.Question s)
     {T : Type ℓt} (isSetT : isSet T) (t : LP.Source s → T)
-  → Cubical.Foundations.Isomorphism.Iso
-      (Descends s q t)
-      (LP.ConstantOnResidual s q t)
+  → Iso (Descends s q t) (LP.ConstantOnResidual s q t)
 descends-iff-constant-on-residual = LP.descends-iff-constant-on-residual
 
 ------------------------------------------------------------------------
