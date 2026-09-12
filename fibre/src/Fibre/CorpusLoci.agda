@@ -303,7 +303,7 @@ realizationCap = 8
 -- generator whose bucket is large but mostly ill-typed must also stop:
 -- it spends at most failureBudget failures.
 failureBudget : Nat
-failureBudget = 64
+failureBudget = 24
 
 realizations : Nat → Nat → Name → List PoolEntry → TC (List RawRealization)
 realizations zero    _       f _  = returnTC []
