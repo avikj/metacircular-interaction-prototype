@@ -9,6 +9,7 @@
 !.claude/settings.json
 __pycache__/
 _build/
+generated/
 zzz/collab/orchestration/persistent-minds.*.log
 zzz/collab/orchestration/worker-runs/
 zzz/collab/orchestration/worker-sessions/
