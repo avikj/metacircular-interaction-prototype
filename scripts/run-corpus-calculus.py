@@ -105,7 +105,10 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             if re.search(r"(?m)^\s*(open\s+)?import\s+CorpusRepository\b", src):
                 continue
             mod = module_name(src)
-            if mod:
+            # An importable top-level module must be named after its file;
+            # anything else (an inner module matched first, module _) is not
+            # addressable by import and would poison the generated file.
+            if mod and mod.split(".")[-1] == path.stem:
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
                 imports_of[mod] = set(re.findall(r"(?m)^\s*(?:open\s+)?import\s+([^\s(]+)", src))
     # Exclude memory-excluded modules together with everything that
