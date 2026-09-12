@@ -44,6 +44,39 @@ and : Bool → Bool → Bool
 and true b = b
 and false _ = false
 
+open import Agda.Builtin.Nat using (Nat ; zero ; suc)
+
+-- Fuel-bounded size gate.  The heap wall is the cumulative size of the
+-- one materialized value: a handful of realizations whose types carry
+-- huge instantiations dominate it.  A realization is recorded only when
+-- its terms fit the fuel; the traversal itself is fuel-bounded so a
+-- huge term costs only the fuel, never its own size.
+mutual
+  fuelT : Nat → Term → Nat
+  fuelT zero _ = zero
+  fuelT (suc f) (var _ as)      = fuelAs f as
+  fuelT (suc f) (con _ as)      = fuelAs f as
+  fuelT (suc f) (def _ as)      = fuelAs f as
+  fuelT (suc f) (lam _ (abs _ t)) = fuelT f t
+  fuelT (suc f) (pat-lam _ as)  = fuelAs f as
+  fuelT (suc f) (pi (arg _ a) (abs _ b)) = fuelT (fuelT f a) b
+  fuelT (suc f) (agda-sort _)   = f
+  fuelT (suc f) (lit _)         = f
+  fuelT (suc f) (meta _ as)     = fuelAs f as
+  fuelT (suc f) unknown         = f
+
+  fuelAs : Nat → List (Arg Term) → Nat
+  fuelAs zero _ = zero
+  fuelAs f []   = f
+  fuelAs f (arg _ t ∷ as) = fuelAs (fuelT f t) as
+
+fits : Nat → Term → Bool
+fits f t = positive (fuelT f t)
+  where
+  positive : Nat → Bool
+  positive zero    = false
+  positive (suc _) = true
+
 -- A recorded realization must be meta-free: inferType on a partial
 -- application can leave unsolved implicit metas, and a quoted meta node
 -- poisons the final closed value with an unsolvable constraint.
@@ -101,7 +134,8 @@ tryRealization f n =
     (returnTC [])
   where
   keep : Name → Term → Term → List RawRealization
-  keep n app nty with and (metaFreeT app) (metaFreeT nty)
+  keep n app nty with and (and (metaFreeT app) (metaFreeT nty))
+                         (and (fits 200 app) (fits 200 nty))
   ... | true  = (n , app , nty) ∷ []
   ... | false = []
 
