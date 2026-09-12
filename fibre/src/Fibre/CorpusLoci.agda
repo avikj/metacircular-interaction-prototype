@@ -6,7 +6,7 @@ open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Sigma
 open import Agda.Builtin.Unit
-open import Agda.Builtin.Bool using (true)
+open import Agda.Builtin.Bool
 
 open import Fibre.CorpusReflection using (expandAll)
 
