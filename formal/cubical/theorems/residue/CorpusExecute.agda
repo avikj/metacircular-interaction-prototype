@@ -5,7 +5,7 @@ module CorpusExecute where
 open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
-open import CorpusCalculus using (point ; step)
+open import CorpusCalculus using (point)
 open import CorpusSelfPresentation using (present)
 
 infixr 5 _++_
@@ -38,68 +38,38 @@ termOf n = bindTC (getDefinition n) λ where
   (data-cons _ _) → returnTC (con n [])
   _               → returnTC (def n [])
 
-applyNamed : Name → Term → TC Term
-applyNamed f x =
-  bindTC (getDefinition f) λ where
-    (data-cons _ _) → returnTC (con f (vArg x ∷ []))
-    _               → returnTC (def f (vArg x ∷ []))
-
--- A checked term is immediately a point of the universal calculus.  `present`
--- is coinductive: this term denotes the entire productive future, not a finite
--- prefix.  The runner only prints its root as an inspectable handle.
+-- The reflection layer only exposes checked inhabitants.  Semantics begins at
+-- `point x`; `present` is the already-checked infinite productive object over
+-- every dependent Question admitted from that point.
 coinductivePresentation : Term → Term
 coinductivePresentation x =
   def (quote present)
     (vArg (def (quote point) (vArg x ∷ [])) ∷ [])
 
-emitRoot : Term → TC ⊤
-emitRoot x =
+emitRoot : Name → Term → TC ⊤
+emitRoot n x =
   let p = coinductivePresentation x in
-  withReconstructed true
-    (noConstraints
-      (bindTC (inferType x) λ xty →
-       bindTC (inferType p) λ pty →
-       debugPrint "corpus.presentation" 1
-         (strErr "LOCUS " ∷ termErr x ∷ strErr " : " ∷ termErr xty ∷
-          strErr "  INFINITE_PRESENTATION " ∷ termErr p ∷
-          strErr " : " ∷ termErr pty ∷ [])))
-
--- Immediate named continuations are shown only as the current finite view.
--- Their continuation is NOT recursively unfolded: it is the coinductive
--- `present (point app)` value carried on the edge.
-emitEdge : Name → Term → TC ⊤
-emitEdge f x =
-  bindTC (termOf f) λ ft →
-  bindTC (applyNamed f x) λ app →
-  let stepWitness = def (quote step) (vArg x ∷ vArg ft ∷ [])
-      future      = coinductivePresentation app
-  in catchTC
+  catchTC
     (withReconstructed true
       (noConstraints
-        (bindTC (inferType app) λ aty →
-         bindTC (inferType stepWitness) λ sty →
-         bindTC (inferType future) λ fty →
+        (bindTC (inferType x) λ xty →
+         bindTC (inferType p) λ pty →
          debugPrint "corpus.presentation" 1
-           (strErr "  EDGE --" ∷ nameErr f ∷ strErr "→ " ∷ termErr app ∷
-            strErr " : " ∷ termErr aty ∷
-            strErr "  STEP " ∷ termErr stepWitness ∷ strErr " : " ∷ termErr sty ∷
-            strErr "  CONTINUATION " ∷ termErr future ∷ strErr " : " ∷ termErr fty ∷ []))))
+           (strErr "LOCUS " ∷ nameErr n ∷ strErr " = " ∷ termErr x ∷
+            strErr " : " ∷ termErr xty ∷
+            strErr "\n  INFINITE_PRESENTATION " ∷ termErr p ∷
+            strErr " : " ∷ termErr pty ∷ []))))
     (returnTC tt)
 
-emitEdges : List Name → Term → TC ⊤
-emitEdges []       x = returnTC tt
-emitEdges (f ∷ fs) x = bindTC (emitEdge f x) λ _ → emitEdges fs x
-
-seedLoop : List Name → List Name → TC ⊤
-seedLoop all []       = returnTC tt
-seedLoop all (n ∷ ns) =
+seedLoop : List Name → TC ⊤
+seedLoop []       = returnTC tt
+seedLoop (n ∷ ns) =
   bindTC (termOf n) λ t →
-  bindTC (emitRoot t) λ _ →
-  bindTC (emitEdges all t) λ _ →
-  seedLoop all ns
+  bindTC (emitRoot n t) λ _ → seedLoop ns
 
--- Whole checked corpus at once: enumeration supplies the finite seed support;
--- each seed is mapped to one INFINITE coinductive presentation.  There is no
--- depth parameter and no claim that a finite prefix determines the object.
+-- Whole checked corpus: finite enumeration supplies only the seed support.
+-- No finite observation depth is taken.  Every seed is mapped directly to its
+-- infinite coinductive SelfPresentation, whose response carries visible target,
+-- exact residual fibre, and productive continuation.
 runCorpus : List Name → TC ⊤
-runCorpus ns = bindTC (expandAll ns) λ expanded → seedLoop expanded expanded
+runCorpus ns = bindTC (expandAll ns) seedLoop
