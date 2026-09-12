@@ -7,6 +7,7 @@ open import Agda.Builtin.List
 open import Agda.Builtin.Unit
 open import Agda.Builtin.Bool
 open import Agda.Builtin.Nat
+open import CorpusCalculus using (step)
 
 infixr 5 _++_
 _++_ : {A : Set} → List A → List A → List A
@@ -56,16 +57,20 @@ mutual
 
   tryApply : Nat → List Name → Name → Term → TC ⊤
   tryApply d all f x =
+    bindTC (termOf f) λ ft →
     bindTC (applyNamed f x) λ app →
+    let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
     catchTC
       (withReconstructed true
         (noConstraints
           (bindTC (inferType app) λ ty →
+           bindTC (inferType witness) λ witnessTy →
            bindTC (normalise ty) λ nty →
            bindTC
              (debugPrint "corpus.edge" 1
                (strErr "EDGE " ∷ termErr x ∷ strErr "  --" ∷ nameErr f ∷
-                strErr "→  " ∷ termErr app ∷ strErr "  :  " ∷ termErr nty ∷ []))
+                strErr "→  " ∷ termErr app ∷ strErr "  :  " ∷ termErr nty ∷
+                strErr "  WITNESS " ∷ termErr witness ∷ strErr "  :  " ∷ termErr witnessTy ∷ []))
              λ _ → explore d all app)))
       (returnTC tt)
 
@@ -75,10 +80,6 @@ seedLoop d all (n ∷ ns) =
   bindTC (termOf n) λ t →
   bindTC (explore d all t) λ _ → seedLoop d all ns
 
--- A depth-d finite observation of the coinductive unfolding.  Every state is
--- a raw checked Agda term.  Every action is a raw checked named Agda term.
--- Agda itself accepts or rejects application; successful results are fed back
--- as the next state with no semantic classification in between.
 runCorpus : Nat → List Name → TC ⊤
 runCorpus d ns =
   bindTC (expandAll ns) λ expanded → seedLoop d expanded expanded
