@@ -46,6 +46,9 @@ def public_names(src: str) -> list[str]:
         x = x.strip()
         if not x or x == "_" or x in keywords or x.startswith("--") or x.startswith("{-#"):
             return
+        # These cannot be a single Agda name token in a top-level signature.
+        if any(c in x for c in "(){}[],"):
+            return
         if x not in seen:
             seen.add(x)
             names.append(x)
@@ -62,7 +65,6 @@ def public_names(src: str) -> list[str]:
         left = line.split(":", 1)[0].strip()
         if not left or left.split()[0] in keywords:
             continue
-        # Agda permits grouped signatures: f g : A.  Each token is a name.
         for token in left.split():
             add(token)
     return names
@@ -85,7 +87,10 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
 
     by_module: dict[str, list[tuple[Path, list[str]]]] = {}
     for inc in includes:
-        for path in inc.rglob("*.agda"):
+        # Agda include paths are namespace roots.  Do not recursively reinterpret
+        # their subdirectories as additional bare-name roots; those are separate
+        # only when explicitly listed in an .agda-lib file.
+        for path in inc.glob("*.agda"):
             rp = path.resolve()
             if "must_fail" in rp.parts:
                 continue
@@ -101,9 +106,6 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             ns = public_names(src)
             by_module.setdefault(mod, []).append((path, ns))
 
-    # An Agda library context resolves a module name to one module.  Preserve
-    # that raw namespace fact rather than inventing identities between duplicate
-    # source files.  Pick the first include-order resolution and report the rest.
     rank = {p: i for i, p in enumerate(includes)}
 
     def resolution_key(item: tuple[Path, list[str]]) -> tuple[int, str]:
@@ -122,7 +124,7 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
     for mod, xs in sorted(by_module.items()):
         xs = sorted(xs, key=resolution_key)
         chosen.append((mod, xs[0][0], xs[0][1]))
-        uniq = []
+        uniq: list[Path] = []
         for p, _ in xs:
             if p not in uniq:
                 uniq.append(p)
@@ -156,6 +158,11 @@ def main() -> int:
     ver = subprocess.run([str(agda), "--version"], text=True, capture_output=True).stdout.strip()
     if not ver.startswith("Agda version 2.8.0"):
         print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr)
+        return 1
+
+    registered = libfile.read_text(encoding="utf-8")
+    if str((ROOT / "rescued-lanes.agda-lib").resolve()) not in registered:
+        print("rescued-lanes is not registered; rerun: sh setup", file=sys.stderr)
         return 1
 
     modules, duplicates = discover()
