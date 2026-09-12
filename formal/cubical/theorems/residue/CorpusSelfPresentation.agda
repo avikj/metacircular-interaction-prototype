@@ -6,7 +6,7 @@ import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDem
 import CorpusLosslessPresentation as LP
 private variable ℓ : Level
 Event : (s : C.Point ℓ) (q : C.Question s) (s' : C.Point ℓ) → C.Receipt s q s' → Type (ℓ-suc ℓ)
-Event s q s' receipt = Lift {j = ℓ-suc ℓ} (LP.Residual s q)
+Event {ℓ} s q s' receipt = Lift {j = ℓ-suc ℓ} (LP.Residual s q)
 SelfPresentation : C.Point ℓ → Type (ℓ-suc ℓ)
 SelfPresentation = S.ISC C.Question C.Receipt Event
 present : (s : C.Point ℓ) → SelfPresentation s
