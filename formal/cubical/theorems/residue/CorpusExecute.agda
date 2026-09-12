@@ -7,8 +7,9 @@ open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
 
-open import Fibre.CorpusSamvada using (point)
-open import CorpusSelfPresentation using (present)
+import Fibre.CorpusSamvada as C
+import CorpusSelfPresentation as SP
+import CorpusLosslessPresentation as LP
 
 infixr 5 _++_
 _++_ : {A : UType} → List A → List A → List A
@@ -40,30 +41,49 @@ termOf n = bindTC (getDefinition n) λ where
   (data-cons _ _) → returnTC (con n [])
   _               → returnTC (def n [])
 
-coinductivePresentation : Term → Term
-coinductivePresentation x =
-  def (quote present)
-    (vArg (def (quote point) (vArg x ∷ [])) ∷ [])
+presentationOf : Term → Term
+presentationOf x =
+  def (quote SP.present)
+    (vArg (def (quote C.point) (vArg x ∷ [])) ∷ [])
 
-emit : Name → TC ⊤
-emit n =
+emitGenerator : TC ⊤
+emitGenerator =
+  bindTC (getType (quote SP.present)) λ pty →
+  bindTC (getType (quote C.Question)) λ qty →
+  bindTC (getType (quote LP.Residual)) λ rty →
+  debugPrint "corpus.presentation" 1
+    (strErr "════════ CORPUS COINDUCTIVE SELF-PRESENTATION ════════\n" ∷
+     strErr "NUCLEUS  " ∷ nameErr (quote SP.present) ∷ strErr " : " ∷ termErr pty ∷
+     strErr "\nQUESTION " ∷ nameErr (quote C.Question) ∷ strErr " : " ∷ termErr qty ∷
+     strErr "\nRESIDUAL " ∷ nameErr (quote LP.Residual) ∷ strErr " : " ∷ termErr rty ∷
+     strErr "\nOne guarded generator; every checked declaration below is a realization.\n" ∷
+     strErr "A demanded question exposes its target + exact fibre + guarded continuation.\n" ∷ [])
+
+-- Each declaration is checked as an actual realization of the ONE generator.
+-- The coinductive term is typechecked but deliberately not reprinted, so the
+-- common structure is factored once rather than duplicated per source term.
+emitRealization : Name → TC ⊤
+emitRealization n =
   bindTC (termOf n) λ x →
-  let p = coinductivePresentation x in
+  let p = presentationOf x in
   catchTC
     (withReconstructed true
       (noConstraints
         (bindTC (inferType x) λ xty →
-         bindTC (inferType p) λ pty →
+         bindTC (inferType p) λ _ →
          debugPrint "corpus.presentation" 1
-           (strErr "LOCUS " ∷ nameErr n ∷ strErr " = " ∷ termErr x ∷
-            strErr " : " ∷ termErr xty ∷
-            strErr "\n  COINDUCTIVE " ∷ termErr p ∷
-            strErr " : " ∷ termErr pty ∷ []))))
+           (strErr "REALIZATION  " ∷ nameErr n ∷ strErr " = " ∷ termErr x ∷
+            strErr " : " ∷ termErr xty ∷ []))))
     (returnTC tt)
 
 loop : List Name → TC ⊤
 loop []       = returnTC tt
-loop (n ∷ ns) = bindTC (emit n) λ _ → loop ns
+loop (n ∷ ns) = bindTC (emitRealization n) λ _ → loop ns
 
+-- Finite enumeration is only the support of existing realizations.  The
+-- semantic generator and every continuation are infinite guarded values.
 runCorpus : List Name → TC ⊤
-runCorpus ns = bindTC (expandAll ns) loop
+runCorpus ns =
+  bindTC (expandAll ns) λ expanded →
+  bindTC emitGenerator λ _ →
+  loop expanded
