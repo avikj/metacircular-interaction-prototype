@@ -115,6 +115,36 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             mod = module_name(src)
             if mod and mod in by_module:
                 by_module[mod].append((path, [], rank))
+    # Close the discovered set under import resolvability: a module whose
+    # import names neither a discovered module nor the Agda/Cubical
+    # libraries cannot load (three tree modules import a Setubandha_ that
+    # exists nowhere), and its removal can cascade.  Each drop is printed:
+    # excluded for an unresolved import, not judged.
+    import_re = re.compile(r"(?m)^\s*(?:open\s+)?import\s+([A-Za-z0-9_.\u0080-\uffff'-]+)")
+    mod_imports: dict[str, set[str]] = {}
+    for mod, xs in by_module.items():
+        names: set[str] = set()
+        for path, _, _ in xs:
+            try:
+                names |= set(import_re.findall(path.read_text(encoding="utf-8")))
+            except UnicodeDecodeError:
+                pass
+        mod_imports[mod] = names
+    known = set(by_module)
+    changed = True
+    while changed:
+        changed = False
+        for mod in sorted(known):
+            for imp in mod_imports.get(mod, set()):
+                if imp.startswith(("Cubical.", "Agda.")):
+                    continue
+                if imp not in known:
+                    print(f"AVYAPTA (unresolved import, not a verdict): {mod} -> {imp}", file=sys.stderr)
+                    known.discard(mod)
+                    changed = True
+                    break
+    by_module = {m: xs for m, xs in by_module.items() if m in known}
+
     chosen: list[tuple[str, Path, list[str]]] = []
     duplicates: list[tuple[str, list[Path]]] = []
     for mod, xs in sorted(by_module.items()):
