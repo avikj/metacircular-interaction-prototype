@@ -19,7 +19,7 @@ Point ℓ = Σ[ A ∈ Type ℓ ] A
 point : {A : Type ℓ} → A → Point ℓ
 point {A = A} a = A , a
 
-Question : {ℓ : Level} → Point ℓ → Type (ℓ-suc ℓ)
+Question : Point ℓ → Type (ℓ-suc ℓ)
 Question {ℓ} s = Σ[ B ∈ Type ℓ ] (fst s → B)
 
 target : (s : Point ℓ) → Question s → Point ℓ
@@ -42,7 +42,7 @@ step : {A B : Type ℓ} (a : A) (f : A → B)
      → fst (S.react (run (point a)) (B , f)) ≡ point (f a)
 step a f = refl
 
-module Carried {ℓ : Level} {B : Type (ℓ-suc ℓ)} (read : Point ℓ → B) where
+module Carried {B : Type (ℓ-suc ℓ)} (read : Point ℓ → B) where
 
   State : Type (ℓ-suc ℓ)
   State = C.Carrier read
