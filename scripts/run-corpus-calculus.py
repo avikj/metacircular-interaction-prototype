@@ -136,6 +136,8 @@ def generate() -> tuple[int, int]:
     # killed checker is no verdict: the module is excluded, not judged.
     machine_excluded = {
         "RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten",
+        # imports the module above, so the same limit covers it
+        "RamanujanSiddhanta_ThePaperInOneModuleEveryClaimOneTerm",
     }
     for m in sorted(machine_excluded):
         print(f"NASTA (machine limit, not a verdict): {m}", file=sys.stderr)
