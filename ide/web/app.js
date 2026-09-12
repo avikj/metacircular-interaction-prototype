@@ -37,6 +37,7 @@ const S = {
   concepts: null,       // concept join table
   details: new Map(),   // shard key -> table (lazy)
   srcs: new Map(),      // shard key -> table (lazy)
+  types: new Map(),     // area shard key -> { module: { name: type } } (lazy)
   filters: { area: null, verdict: null, motif: null, kind: null },
   trace: [],            // {op, arg, rev}
   focus: null,
@@ -225,6 +226,18 @@ function nodeRow(n) {
 
 /* ---------------- focus view ---------------- */
 
+async function typesOf(n) {
+  // kernel-computed types, present only where the elaboration has reached
+  const key = n.dsh;
+  if (!S.types.has(key)) {
+    const t = await fetch("store/types/" + key + ".json")
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({}));
+    S.types.set(key, t);
+  }
+  return S.types.get(key)[n.m] || null;
+}
+
 async function detailOf(n) {
   if (!S.details.has(n.dsh)) {
     const t = await fetch("store/" + S.idx.details[n.dsh]).then((r) => r.json());
@@ -301,18 +314,55 @@ async function openNode(n, fromRoute = false, isReverse = false) {
     f.append(sec);
   }
   if (d && d.decls && d.decls.length) {
+    const ktypes = await typesOf(n);
     const sec = el("section", "block");
-    sec.append(el("h2", "", `Checked terms (${d.decls.length})`));
+    sec.append(el("h2", "",
+      `Checked terms (${d.decls.length})` +
+      (ktypes ? " — types computed by the kernel" : " — signatures read from text")));
     for (const dec of d.decls.slice(0, 40)) {
       const box = el("div", "decl");
-      box.innerHTML = dec.s.replace(esc(dec.n),
+      const kt = ktypes && ktypes[dec.n];
+      const shown = kt ? `${dec.n} : ${kt}` : dec.s;
+      box.innerHTML = esc(shown).replace(esc(dec.n),
         `<span class="dn" data-n="${esc(dec.n)}">${esc(dec.n)}</span>`);
+      if (kt) box.classList.add("kernel");
       box.querySelectorAll(".dn").forEach((e) => {
         e.addEventListener("mouseenter", (ev) => conceptCard(ev, dec.n));
         tint(e, dec.n, 1);
       });
       sec.append(box);
     }
+    f.append(sec);
+  }
+
+  // ---- the fibre of this presentation ----
+  {
+    const sec = el("section", "block");
+    sec.append(el("h2", "", "The fibre — what this presentation hides"));
+    const items = [];
+    const base = n.m.split(".").pop().replace(/Fibre/g, "Fiber");
+    const twins = S.nodes.filter((m) =>
+      m.i !== n.i && m.m.split(".").pop().replace(/Fibre/g, "Fiber") === base);
+    if (twins.length) items.push(
+      `${twins.length} other spelling${twins.length > 1 ? "s" : ""}/lane${twins.length > 1 ? "s" : ""} of this module — this page shows one realization of its content.`);
+    const cls = S.nodes.filter((m) =>
+      m.area === n.area && m.verdict === n.verdict && m.kind === n.kind);
+    items.push(
+      `Under the rail's observations (area, verdict, species) this node is one of ` +
+      `${cls.length} indistinguishable realizations — the filters cannot separate them; ` +
+      `what separates them lives here, in the content.`);
+    const revs = S.trace.filter((s) => s.rev).length;
+    items.push(
+      `The route that brought you here: grade ${S.trace.length}, ` +
+      `${revs} reversal mark${revs === 1 ? "" : "s"} — absent from this page, held in the trace.`);
+    if (d && d.struck && d.struck.length === 0) { /* nothing */ }
+    for (const it of items) {
+      const li = el("div", "fibreline", it);
+      sec.append(li);
+    }
+    const btn2 = el("button", "", `list the ${cls.length} indistinguishables`);
+    btn2.onclick = () => showMeet(cls);
+    sec.append(btn2);
     f.append(sec);
   }
 

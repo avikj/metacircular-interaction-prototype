@@ -276,3 +276,9 @@ section.block > h2 {
   body { padding: 0; }
   #focus { padding: 16px; }
 }
+
+.decl.kernel { border-left: 3px solid var(--proved); }
+.fibreline {
+  font-size: 13px; color: var(--ink-dim); margin: 4px 0;
+  padding-left: 10px; border-left: 2px solid var(--line);
+}
