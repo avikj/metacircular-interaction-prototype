@@ -40,6 +40,39 @@ applyNamed f x = bindTC (getDefinition f) λ where
   (data-cons _ _) → returnTC (con f (vArg x ∷ []))
   _               → returnTC (def f (vArg x ∷ []))
 
+and : Bool → Bool → Bool
+and true b = b
+and false _ = false
+
+-- A recorded realization must be meta-free: inferType on a partial
+-- application can leave unsolved implicit metas, and a quoted meta node
+-- poisons the final closed value with an unsolvable constraint.
+mutual
+  metaFreeT : Term → Bool
+  metaFreeT (var _ as)      = metaFreeAs as
+  metaFreeT (con _ as)      = metaFreeAs as
+  metaFreeT (def _ as)      = metaFreeAs as
+  metaFreeT (lam _ (abs _ t)) = metaFreeT t
+  metaFreeT (pat-lam cs as) = and (metaFreeCs cs) (metaFreeAs as)
+  metaFreeT (pi (arg _ a) (abs _ b)) = and (metaFreeT a) (metaFreeT b)
+  metaFreeT (agda-sort (set t))  = metaFreeT t
+  metaFreeT (agda-sort (prop t)) = metaFreeT t
+  metaFreeT (agda-sort _)   = true
+  metaFreeT (lit (meta _))  = false
+  metaFreeT (lit _)         = true
+  metaFreeT (meta _ _)      = false
+  metaFreeT unknown         = true
+
+  metaFreeAs : List (Arg Term) → Bool
+  metaFreeAs [] = true
+  metaFreeAs (arg _ t ∷ as) = and (metaFreeT t) (metaFreeAs as)
+
+  metaFreeCs : List Clause → Bool
+  metaFreeCs [] = true
+  metaFreeCs (clause _ _ t ∷ cs)      = and (metaFreeT t) (metaFreeCs cs)
+  metaFreeCs (absurd-clause _ _ ∷ cs) = metaFreeCs cs
+
+
 tryRealization : Name → Name → TC (List RawRealization)
 tryRealization f n =
   bindTC (termOf n) λ x →
@@ -52,8 +85,13 @@ tryRealization f n =
     (noConstraints
       (bindTC (inferType app) λ ty →
        bindTC (normalise ty) λ nty →
-       returnTC ((n , app , nty) ∷ [])))
+       returnTC (keep n app nty)))
     (returnTC [])
+  where
+  keep : Name → Term → Term → List RawRealization
+  keep n app nty with and (metaFreeT app) (metaFreeT nty)
+  ... | true  = (n , app , nty) ∷ []
+  ... | false = []
 
 realizations : Name → List Name → TC (List RawRealization)
 realizations f [] = returnTC []
