@@ -162,6 +162,12 @@ def find_agda() -> tuple[Path, Path] | None:
     return agda, libfile
 
 
+def write_if_changed(path: Path, text: str) -> None:
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return
+    path.write_text(text, encoding="utf-8")
+
+
 def generate() -> tuple[int, int]:
     modules, duplicates = discover()
     imports: list[str] = []
@@ -188,10 +194,12 @@ def generate() -> tuple[int, int]:
     chunk_size = int(os.environ.get("CORPUS_POOL_CHUNK", "2000"))
     slices = [qnames[i:i + shard_size] for i in range(0, len(qnames), shard_size)] or [[]]
     chunks = [qnames[i:i + chunk_size] for i in range(0, len(qnames), chunk_size)] or [[]]
-    for old_shard in GENERATED.glob("CorpusShard*.agda"):
-        old_shard.unlink()
-    for old_chunk in GENERATED.glob("CorpusPool*.agda"):
-        old_chunk.unlink()
+    for stale in GENERATED.glob("CorpusShard*.agda"):
+        if stale.name not in {f"CorpusShard{k}.agda" for k in range(1, len(slices) + 1)}:
+            stale.unlink()
+    for stale in GENERATED.glob("CorpusPool*.agda"):
+        if stale.name not in {f"CorpusPool{k}.agda" for k in range(1, len(chunks) + 1)}:
+            stale.unlink()
     # The classified pool is materialized once, in chunks, as checked
     # values; shards consume it as data and pay no reflection for it.
     chunk_mods: list[str] = []
@@ -206,10 +214,10 @@ def generate() -> tuple[int, int]:
             "open import Fibre.CorpusLoci using (PoolEntry ; materializePool)", "",
             *imports, "",
             "chunkNames : List Name", "chunkNames =",
-            *[f"  quote {q} ∷" for q in ch], "  []", "",
+            *[f"  (quote {q}) ∷" for q in ch], "  []", "",
             "chunk : List PoolEntry", "chunk = materializePool chunkNames", "",
         ]
-        (GENERATED / f"{cmod}.agda").write_text("\n".join(cbody), encoding="utf-8")
+        write_if_changed(GENERATED / f"{cmod}.agda", "\n".join(cbody))
     pool_expr = " Fibre.CorpusLoci.++ ".join(f"{m}.chunk" for m in chunk_mods)
     pool_expr = functools.reduce(
         lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.chunk ({acc})",
@@ -230,10 +238,10 @@ def generate() -> tuple[int, int]:
             "pool : List PoolEntry",
             f"pool = {pool_expr}", "",
             "gens : List Name", "gens =",
-            *[f"  quote {q} ∷" for q in sl], "  []", "",
+            *[f"  (quote {q}) ∷" for q in sl], "  []", "",
             "shard : RawLoci", "shard = materializeLociOver pool gens", "",
         ]
-        (GENERATED / f"{smod}.agda").write_text("\n".join(sbody), encoding="utf-8")
+        write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
     body = [
         "{-# OPTIONS --cubical --safe --guardedness #-}",
         "module CorpusRepository where", "",
@@ -246,7 +254,7 @@ def generate() -> tuple[int, int]:
         "import CorpusSelfPresentation as SP", "",
         *imports, "", "names : List Name", "names =",
     ]
-    body += [f"  quote {q} ∷" for q in qnames] + ["  []"]
+    body += [f"  (quote {q}) ∷" for q in qnames] + ["  []"]
     body += [
         "", "-- Expanded checked source, retained as the exact realization substrate.",
         "corpus : RawCorpus", "corpus = materialize names",
@@ -264,7 +272,7 @@ def generate() -> tuple[int, int]:
         "-- demanded question returns its target plus the exact residual fibre.",
         "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
     ]
-    OUT.write_text("\n".join(body), encoding="utf-8")
+    write_if_changed(OUT, "\n".join(body))
     print(f"generated {OUT.relative_to(ROOT)}", file=sys.stderr)
     print(f"active modules: {len(modules)}", file=sys.stderr)
     print(f"checked declarations: {len(qnames)}", file=sys.stderr)
