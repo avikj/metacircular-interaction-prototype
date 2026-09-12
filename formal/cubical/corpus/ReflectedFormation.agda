@@ -46,7 +46,7 @@
 
 module ReflectedFormation where
 
-open import Cubical.Foundations.Prelude using (Type₀)
+open import Cubical.Foundations.Prelude
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Reflection
   using ( Name ; Term ; Definition ; Clause ; TC ; Arg ; arg ; Abs ; abs
