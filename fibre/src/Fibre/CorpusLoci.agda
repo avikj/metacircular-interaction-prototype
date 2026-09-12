@@ -120,8 +120,9 @@ mutual
 ------------------------------------------------------------------------
 
 data Head : Set where
-  rigidH : Name → Head   -- a data/record head: cannot unfold
+  rigidH : Name → Head   -- a data/record/axiom head: cannot unfold
   piH    : Head          -- a visible function type
+  sortH  : Head          -- a universe
   flexH  : Head          -- anything that might still reduce
 
 -- Peel hidden and instance domains: applying one visible argument makes
@@ -132,16 +133,30 @@ peelHidden (suc f) (pi (arg (arg-info hidden _) _) (abs _ b))    = peelHidden f 
 peelHidden (suc f) (pi (arg (arg-info instance′ _) _) (abs _ b)) = peelHidden f b
 peelHidden (suc f) t = t
 
+-- Classify with a little reduction fuel: a function-alias head (the
+-- ubiquitous _≡_ over PathP) is weak-head reduced — on the small
+-- DECLARED type of a name, never on probe results — until a rigid
+-- head, a pi, a sort, or the fuel appears.  Axioms are rigid: nothing
+-- ever unfolds them.
 headOf : Term → TC Head
-headOf t0 = classify (peelHidden 64 t0)
+headOf = go 3
   where
-  classify : Term → TC Head
-  classify (def d _) = bindTC (getDefinition d) λ where
-    (data-type _ _)   → returnTC (rigidH d)
-    (record-type _ _) → returnTC (rigidH d)
-    _                 → returnTC flexH
-  classify (pi _ _) = returnTC piH
-  classify _        = returnTC flexH
+  go : Nat → Term → TC Head
+  go fuel t0 = classify (peelHidden 64 t0)
+    where
+    again : Nat → Term → TC Head
+    again zero    _ = returnTC flexH
+    again (suc f) t = bindTC (catchTC (reduce t) (returnTC unknown)) (go f)
+
+    classify : Term → TC Head
+    classify t@(def d _) = bindTC (getDefinition d) λ where
+      (data-type _ _)   → returnTC (rigidH d)
+      (record-type _ _) → returnTC (rigidH d)
+      axiom             → returnTC (rigidH d)
+      _                 → again fuel t
+    classify (pi _ _)      = returnTC piH
+    classify (agda-sort _) = returnTC sortH
+    classify _             = returnTC flexH
 
 -- The first visible domain of a generator's type, if syntactically
 -- apparent; nothing means "cannot tell", never "cannot apply".
@@ -154,9 +169,11 @@ visibleDomain t = grab (peelHidden 64 t)
 
 compatible : Head → Head → Bool
 compatible (rigidH a) (rigidH b) = primQNameEquality a b
-compatible (rigidH _) piH        = false
-compatible piH        (rigidH _) = false
-compatible _ _ = true
+compatible piH        piH        = true
+compatible sortH      sortH      = true
+compatible flexH      _          = true
+compatible _          flexH      = true
+compatible _ _ = false
 
 -- A pool entry carries its argument term and type head, computed once.
 PoolEntry : Set
@@ -204,6 +221,7 @@ Bucket = Σ Name (λ _ → List PoolEntry)
 data Pool : Set where
   mkPool : List Bucket        -- rigid-headed entries, keyed by head name
          → List PoolEntry     -- function-typed entries
+         → List PoolEntry     -- universe-typed entries
          → List PoolEntry     -- flex entries: candidates for everyone
          → List PoolEntry     -- the whole pool, for unknown gates
          → Pool
@@ -221,20 +239,22 @@ lookupRigid d ((d' , es) ∷ bs) with primQNameEquality d d'
 ... | false = lookupRigid d bs
 
 partitionPool : List PoolEntry → Pool
-partitionPool = go (mkPool [] [] [] [])
+partitionPool = go (mkPool [] [] [] [] [])
   where
   go : Pool → List PoolEntry → Pool
   go p [] = p
-  go (mkPool bs pis flex all) (e ∷ es) with e
-  ... | (_ , _ , rigidH d) = go (mkPool (insertRigid d e bs) pis flex (e ∷ all)) es
-  ... | (_ , _ , piH)      = go (mkPool bs (e ∷ pis) flex (e ∷ all)) es
-  ... | (_ , _ , flexH)    = go (mkPool bs pis (e ∷ flex) (e ∷ all)) es
+  go (mkPool bs pis sorts flex all) (e ∷ es) with e
+  ... | (_ , _ , rigidH d) = go (mkPool (insertRigid d e bs) pis sorts flex (e ∷ all)) es
+  ... | (_ , _ , piH)      = go (mkPool bs (e ∷ pis) sorts flex (e ∷ all)) es
+  ... | (_ , _ , sortH)    = go (mkPool bs pis (e ∷ sorts) flex (e ∷ all)) es
+  ... | (_ , _ , flexH)    = go (mkPool bs pis sorts (e ∷ flex) (e ∷ all)) es
 
 candidates : Pool → Maybe Head → List PoolEntry
-candidates (mkPool bs pis flex all) (just (rigidH d)) = lookupRigid d bs ++ flex
-candidates (mkPool bs pis flex all) (just piH)        = pis ++ flex
-candidates (mkPool bs pis flex all) (just flexH)      = all
-candidates (mkPool bs pis flex all) nothing           = all
+candidates (mkPool bs pis sorts flex all) (just (rigidH d)) = lookupRigid d bs ++ flex
+candidates (mkPool bs pis sorts flex all) (just piH)        = pis ++ flex
+candidates (mkPool bs pis sorts flex all) (just sortH)      = sorts ++ flex
+candidates (mkPool bs pis sorts flex all) (just flexH)      = all
+candidates (mkPool bs pis sorts flex all) nothing           = all
 
 tryRealization : Name → Name → Term → TC (List RawRealization)
 tryRealization f n x =
