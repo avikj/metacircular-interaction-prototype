@@ -24,6 +24,18 @@ find "$ROOT/formal/cubical" -type f -name '*.agda' \
 
 names="$ROOT/.corpus-names.$$"
 : > "$names"
+
+# Agda identifies a module by its NAME, not its path: if two files both
+# declare `module X where`, then even a single `import X` is ambiguous and
+# cannot be resolved.  The corpus has exactly one such collision among its
+# --safe files (`Cakravala`, two files); those names are excluded outright,
+# since no importer can name either file.  Computed, not hard-coded.
+dups="$ROOT/.corpus-dups.$$"
+while IFS= read -r f; do
+  grep -q -- '--safe' "$f" || continue
+  sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$f" | head -1
+done < "$mods" | LC_ALL=C sort | uniq -d > "$dups"
+
 i=0
 while IFS= read -r f; do
   # The semantic corpus is checked mathematics; unsafe world-mouths are not
@@ -31,6 +43,8 @@ while IFS= read -r f; do
   grep -q -- '--safe' "$f" || continue
   mod=$(sed -n 's/^[[:space:]]*module[[:space:]]\([^[:space:]]*\).*where[[:space:]]*$/\1/p' "$f" | head -1)
   [ -n "$mod" ] || continue
+  # Skip any module whose name is not unique across the corpus (unimportable).
+  if grep -qxF "$mod" "$dups"; then continue; fi
   alias="C$i"
   printf 'import %s as %s\n' "$mod" "$alias" >> "$TMP"
 
@@ -78,6 +92,6 @@ else
   printf '%s\n' 'corpusNames = []' >> "$TMP"
 fi
 
-rm -f "$mods" "$names"
+rm -f "$mods" "$names" "$dups"
 mv "$TMP" "$OUT"
 printf 'generated %s\n' "$OUT"
