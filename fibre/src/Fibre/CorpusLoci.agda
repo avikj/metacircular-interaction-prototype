@@ -299,18 +299,25 @@ tryRealization f n x =
 realizationCap : Nat
 realizationCap = 8
 
-realizations : Nat → Name → List PoolEntry → TC (List RawRealization)
-realizations zero    f _  = returnTC []
-realizations _       f [] = returnTC []
-realizations (suc k) f ((n , x , _) ∷ ns) =
+-- Failed probes retain state exactly like successful ones, so a
+-- generator whose bucket is large but mostly ill-typed must also stop:
+-- it spends at most failureBudget failures.
+failureBudget : Nat
+failureBudget = 64
+
+realizations : Nat → Nat → Name → List PoolEntry → TC (List RawRealization)
+realizations zero    _       f _  = returnTC []
+realizations _       _       f [] = returnTC []
+realizations _       zero    f _  = returnTC []
+realizations (suc k) (suc b) f ((n , x , _) ∷ ns) =
   bindTC (tryRealization f n x) λ where
-    []   → bindTC (realizations (suc k) f ns) λ rest → returnTC rest
-    here → bindTC (realizations k f ns) λ rest → returnTC (here ++ rest)
+    []   → bindTC (realizations (suc k) b f ns) λ rest → returnTC rest
+    here → bindTC (realizations k (suc b) f ns) λ rest → returnTC (here ++ rest)
 
 oneLocus : Pool → Name → TC RawLoci
 oneLocus pool f =
   bindTC (genGate f) λ gate →
-  bindTC (realizations realizationCap f (candidates pool gate)) λ where
+  bindTC (realizations realizationCap failureBudget f (candidates pool gate)) λ where
     []       → returnTC []
     (r ∷ rs) → returnTC ((f , r ∷ rs) ∷ [])
 
