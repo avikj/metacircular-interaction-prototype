@@ -65,6 +65,12 @@ def public_names(src: str) -> list[str]:
         left = line.split(":", 1)[0].strip()
         if not left or left.split()[0] in keywords:
             continue
+        # A standalone `=`, `with`, `rewrite`, `|` or ellipsis before the `:`
+        # means this is a definition clause (the `:` belongs to the right-hand
+        # side), not a type signature; its tokens are patterns and terms, not
+        # public names.
+        if {"=", "with", "rewrite", "|", "...", "where", "let", "in"} & set(left.split()):
+            continue
         for token in left.split():
             add(token)
     return names
