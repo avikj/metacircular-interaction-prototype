@@ -21,9 +21,6 @@ fieldNames : List (Arg Name) → List Name
 fieldNames [] = []
 fieldNames (arg _ n ∷ fs) = n ∷ fieldNames fs
 
--- Data constructors and record constructor/fields are genuine checked
--- operations too.  Expand a public declaration to the operations Agda itself
--- stores under it; no file/import relation is emitted as mathematics.
 expandOne : Name → TC (List Name)
 expandOne n = bindTC (getDefinition n) λ where
   (data-type _ cs)   → returnTC (n ∷ cs)
@@ -49,83 +46,79 @@ applyNamed f x =
     _               → returnTC (def f (vArg x ∷ []))
 
 -- One successful application is one literal CorpusCalculus interaction.
--- The witness below is not an annotation: Agda must infer the type of
--- `CorpusCalculus.step x f`, so every emitted realization is certified by the
--- universal calculus itself.
-tryApply : Nat → List Name → Name → Term → TC ⊤
-tryApply d all f x =
-  bindTC (termOf f) λ ft →
-  bindTC (applyNamed f x) λ app →
-  let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
-  catchTC
-    (withReconstructed true
-      (noConstraints
-        (bindTC (inferType app) λ ty →
-         bindTC (inferType witness) λ witnessTy →
-         bindTC (normalise ty) λ nty →
-         bindTC
-           (debugPrint "corpus.edge" 1
-             (strErr "    REALIZATION  " ∷ termErr x ∷
-              strErr "  ↦  " ∷ termErr app ∷
-              strErr "  :  " ∷ termErr nty ∷
-              strErr "\n      WITNESS  " ∷ termErr witness ∷
-              strErr "  :  " ∷ termErr witnessTy ∷ []))
-           λ _ → continue d all app)))
-    (returnTC tt)
+-- Generated targets are immediately fed back as next states, giving the
+-- requested finite observation of the coinductive unfolding.
+mutual
+  tryApply : Nat → List Name → Name → Term → TC ⊤
+  tryApply d all f x =
+    bindTC (termOf f) λ ft →
+    bindTC (applyNamed f x) λ app →
+    let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
+    catchTC
+      (withReconstructed true
+        (noConstraints
+          (bindTC (inferType app) λ ty →
+           bindTC (inferType witness) λ witnessTy →
+           bindTC (normalise ty) λ nty →
+           bindTC
+             (debugPrint "corpus.edge" 1
+               (strErr "    REALIZATION  " ∷ termErr x ∷
+                strErr "  ↦  " ∷ termErr app ∷
+                strErr "  :  " ∷ termErr nty ∷
+                strErr "\n      WITNESS  " ∷ termErr witness ∷
+                strErr "  :  " ∷ termErr witnessTy ∷ []))
+             λ _ → continue d all app)))
+      (returnTC tt)
 
--- A generated result is immediately a next state.  At positive remaining
--- depth, ask every checked operation of it.  These continuation edges are the
--- finite observation of the coinductive unfolding; no semantic classifier is
--- inserted between result and continuation.
-continue : Nat → List Name → Term → TC ⊤
-continue zero    all x = returnTC tt
-continue (suc d) all x = continuationLoop d all all x
+  continue : Nat → List Name → Term → TC ⊤
+  continue zero    all x = returnTC tt
+  continue (suc d) all x = continuationLoop d all all x
 
-continuationLoop : Nat → List Name → List Name → Term → TC ⊤
-continuationLoop d all []       x = returnTC tt
-continuationLoop d all (f ∷ fs) x =
-  bindTC (tryContinuation d all f x) λ _ → continuationLoop d all fs x
+  continuationLoop : Nat → List Name → List Name → Term → TC ⊤
+  continuationLoop d all []       x = returnTC tt
+  continuationLoop d all (f ∷ fs) x =
+    bindTC (tryContinuation d all f x) λ _ → continuationLoop d all fs x
 
-tryContinuation : Nat → List Name → Name → Term → TC ⊤
-tryContinuation d all f x =
-  bindTC (termOf f) λ ft →
-  bindTC (applyNamed f x) λ app →
-  let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
-  catchTC
-    (withReconstructed true
-      (noConstraints
-        (bindTC (inferType app) λ ty →
-         bindTC (inferType witness) λ witnessTy →
-         bindTC (normalise ty) λ nty →
-         bindTC
-           (debugPrint "corpus.edge" 1
-             (strErr "      CONTINUE --" ∷ nameErr f ∷
-              strErr "→  " ∷ termErr app ∷
-              strErr "  :  " ∷ termErr nty ∷
-              strErr "  WITNESS " ∷ termErr witness ∷ []))
-           λ _ → continue d all app)))
-    (returnTC tt)
+  tryContinuation : Nat → List Name → Name → Term → TC ⊤
+  tryContinuation d all f x =
+    bindTC (termOf f) λ ft →
+    bindTC (applyNamed f x) λ app →
+    let witness = def (quote step) (vArg x ∷ vArg ft ∷ []) in
+    catchTC
+      (withReconstructed true
+        (noConstraints
+          (bindTC (inferType app) λ ty →
+           bindTC (inferType witness) λ witnessTy →
+           bindTC (normalise ty) λ nty →
+           bindTC
+             (debugPrint "corpus.edge" 1
+               (strErr "      CONTINUE --" ∷ nameErr f ∷
+                strErr "→  " ∷ termErr app ∷
+                strErr "  :  " ∷ termErr nty ∷
+                strErr "  WITNESS " ∷ termErr witness ∷ []))
+             λ _ → continue d all app)))
+      (returnTC tt)
 
 -- Compact finite presentation: factor by the checked generator.  A generator
--- is printed ONCE; all checked source realizations on which it acts are its
--- explicit dependent family beneath it.  This is the machine-readable form of
---   duplicated expression -> one generator + its realization family.
--- It is not a guessed cluster: membership is exactly "Agda accepts f x".
-emitLocus : Nat → List Name → Name → TC ⊤
-emitLocus d all f =
-  bindTC (getType f) λ fty →
-  bindTC (normalise fty) λ nfty →
-  bindTC
-    (debugPrint "corpus.edge" 1
-      (strErr "\nLOCUS  " ∷ nameErr f ∷ strErr "  :  " ∷ termErr nfty ∷ []))
-    λ _ → realizationLoop d all f all
+-- is printed once; all checked source realizations on which it acts are the
+-- explicit dependent family beneath it.  Membership is exactly Agda accepting
+-- the application -- never a lexical/import/embedding similarity judgement.
+mutual
+  emitLocus : Nat → List Name → Name → TC ⊤
+  emitLocus d all f =
+    bindTC (getType f) λ fty →
+    bindTC (normalise fty) λ nfty →
+    bindTC
+      (debugPrint "corpus.edge" 1
+        (strErr "\nLOCUS  " ∷ nameErr f ∷ strErr "  :  " ∷ termErr nfty ∷ []))
+      λ _ → realizationLoop d all f all
 
-realizationLoop : Nat → List Name → Name → List Name → TC ⊤
-realizationLoop d all f []       = returnTC tt
-realizationLoop d all f (n ∷ ns) =
-  bindTC (termOf n) λ x →
-  bindTC (tryApply d all f x) λ _ →
-  realizationLoop d all f ns
+  realizationLoop : Nat → List Name → Name → List Name → TC ⊤
+  realizationLoop d all f []       = returnTC tt
+  realizationLoop d all f (n ∷ ns) =
+    bindTC (termOf n) λ x →
+    bindTC (tryApply d all f x) λ _ →
+    realizationLoop d all f ns
 
 locusLoop : Nat → List Name → List Name → TC ⊤
 locusLoop d all []       = returnTC tt
@@ -138,8 +131,8 @@ runCorpus d ns =
   bindTC
     (debugPrint "corpus.edge" 1
       (strErr "════════ CORPUS FINITE SELF-PRESENTATION ════════\n" ∷
-       strErr "Each LOCUS is one checked generator printed once.\n" ∷
-       strErr "REALIZATION is its exact Agda-accepted action on a checked inhabitant.\n" ∷
-       strErr "CONTINUE is the recursively generated future interaction.\n" ∷
+       strErr "LOCUS = one checked generator, printed once.\n" ∷
+       strErr "REALIZATION = exact Agda-accepted action on a checked inhabitant.\n" ∷
+       strErr "CONTINUE = recursively generated future interaction.\n" ∷
        strErr "Every emitted edge carries CorpusCalculus.step as its checked witness.\n" ∷ []))
     λ _ → locusLoop d expanded expanded
