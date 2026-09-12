@@ -44,12 +44,15 @@ tryRealization : Name → Name → TC (List RawRealization)
 tryRealization f n =
   bindTC (termOf n) λ x →
   bindTC (applyNamed f x) λ app →
+  -- No withReconstructed: parameter reconstruction on arbitrary corpus
+  -- terms hits an uncatchable internal error in Agda 2.8.0's
+  -- ReconstructParameters; the locus needs only the checked application
+  -- and its normalized type, which inference supplies unreconstructed.
   catchTC
-    (withReconstructed true
-      (noConstraints
-        (bindTC (inferType app) λ ty →
-         bindTC (normalise ty) λ nty →
-         returnTC ((n , app , nty) ∷ []))))
+    (noConstraints
+      (bindTC (inferType app) λ ty →
+       bindTC (normalise ty) λ nty →
+       returnTC ((n , app , nty) ∷ [])))
     (returnTC [])
 
 realizations : Name → List Name → TC (List RawRealization)
