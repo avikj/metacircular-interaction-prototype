@@ -16,9 +16,11 @@ from __future__ import annotations
 
 import json
 import os
+import queue
 import re
 import subprocess
 import sys
+import threading
 import time
 from collections import defaultdict
 from pathlib import Path
@@ -46,6 +48,14 @@ class AgdaSession:
             stderr=subprocess.DEVNULL, text=True, cwd=ROOT,
             env={**os.environ, "LC_ALL": "C.utf8"},
         )
+        self.q: queue.Queue = queue.Queue()
+        threading.Thread(target=self._pump, daemon=True).start()
+
+    def _pump(self) -> None:
+        assert self.proc.stdout
+        for raw in self.proc.stdout:
+            self.q.put(raw)
+        self.q.put(None)
 
     def send(self, line: str) -> None:
         assert self.proc.stdin
@@ -53,11 +63,16 @@ class AgdaSession:
         self.proc.stdin.flush()
 
     def read_until(self, pred, deadline: float):
-        assert self.proc.stdout
         msgs = []
-        while time.time() < deadline:
-            raw = self.proc.stdout.readline()
-            if not raw:
+        while True:
+            remaining = deadline - time.time()
+            if remaining <= 0:
+                raise TimeoutError("deadline")
+            try:
+                raw = self.q.get(timeout=min(remaining, 5.0))
+            except queue.Empty:
+                continue
+            if raw is None:
                 raise RuntimeError("agda closed the pipe")
             raw = raw.strip()
             if raw.startswith("JSON> "):
@@ -83,6 +98,7 @@ class AgdaSession:
                 time.time() + TIMEOUT,
             )
         except TimeoutError:
+            self.close()
             return False, "timeout"
         for m in msgs:
             if m.get("kind") == "DisplayInfo" and m.get("info", {}).get("kind") == "Error":
@@ -147,6 +163,16 @@ def main() -> int:
         nodes = nodes[:limit]
 
     OUT_DIR.mkdir(exist_ok=True)
+    already: set[str] = set()
+    for shard in OUT_DIR.glob("*.json"):
+        if shard.name == "_failures.json":
+            continue
+        try:
+            already.update(json.loads(shard.read_text()).keys())
+        except Exception:
+            pass
+    nodes = [n for n in nodes if n["m"] not in already]
+    print(f"resuming: {len(already)} done, {len(nodes)} to go", file=sys.stderr)
     results: dict[str, dict] = defaultdict(dict)
     failures: dict[str, str] = {}
     sess = AgdaSession()
@@ -154,6 +180,8 @@ def main() -> int:
     for n in nodes:
         path = ROOT / n["p"]
         ok, err = False, "?"
+        if sess.proc.poll() is not None:
+            sess = AgdaSession()
         try:
             ok, err = sess.load(path)
         except (RuntimeError, BrokenPipeError):
