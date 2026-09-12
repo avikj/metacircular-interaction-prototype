@@ -109,6 +109,13 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             # anything else (an inner module matched first, module _) is not
             # addressable by import and would poison the generated file.
             if mod and mod.split(".")[-1] == path.stem:
+                # CORPUS_FILTER bounds the probe namespace by module-name
+                # regex.  Unset means the whole repository; on machines
+                # that cannot hold the whole value, a filter proves the
+                # same lane on a subcorpus.
+                flt = os.environ.get("CORPUS_FILTER")
+                if flt and not re.search(flt, mod):
+                    continue
                 by_module.setdefault(mod, []).append((path, public_names(src), rank))
                 imports_of[mod] = set(re.findall(r"(?m)^\s*(?:open\s+)?import\s+([^\s(]+)", src))
     # Exclude memory-excluded modules together with everything that
