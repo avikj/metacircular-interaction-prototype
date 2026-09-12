@@ -145,3 +145,7 @@ open import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndT
 -- question is exactly a typed map out of the current A.  No finite-depth
 -- approximation or external scheduler is introduced.
 open import Fibre.CorpusSamvada
+
+-- Mechanical bridge from the active Agda namespace to one raw checked value:
+-- each declaration is its QName, elaborated type, and Agda Definition.
+open import Fibre.CorpusReflection
