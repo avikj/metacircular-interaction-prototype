@@ -9,6 +9,7 @@
     <button id="backbtn" title="reverse (appends a mark; deletes nothing)">reverse</button>
     <button id="graphbtn" class="viewtoggle" title="the corpus as one object">graph</button>
     <button id="aboutbtn" class="viewtoggle">about</button>
+    <button id="lensbtn" class="viewtoggle" title="grapheme lens: color as a computed observation on spelling">lens</button>
     <button id="themebtn" title="theme">theme</button>
   </header>
   <main>
@@ -21,7 +22,8 @@
       <div id="graphwrap" hidden>
         <canvas id="graph"></canvas>
         <div id="graphlegend">
-          color = verdict (green proved · ochre conjecture-as-type · red red-by-design)
+          <button id="gcolorbtn">color: verdict</button>
+          green proved · ochre conjecture-as-type · red red-by-design
           · size = import in-degree · sector = area · click to open
         </div>
       </div>

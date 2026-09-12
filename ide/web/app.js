@@ -11,6 +11,21 @@
  *          the two data the corpus proves every collapsed summary loses.
  */
 
+import { Grapheme } from "./grapheme.js";
+
+const isDark = () =>
+  document.documentElement.dataset.theme === "dark" ||
+  (document.documentElement.dataset.theme !== "light" &&
+   matchMedia("(prefers-color-scheme: dark)").matches);
+
+/** Tint an element by its token under the grapheme lens. */
+const tint = (elm, token, strength = 1) => {
+  if (!Grapheme.enabled || !token) return;
+  const c = Grapheme.color(token, { dark: isDark(), strength });
+  elm.style.color = c;
+  elm.style.textDecorationColor = c;
+};
+
 const S = {
   idx: null,            // index.json
   nodes: [],
@@ -26,6 +41,7 @@ const S = {
   trace: [],            // {op, arg, rev}
   focus: null,
   view: "focus",        // focus | graph | about
+  graphColor: "verdict", // verdict | grapheme
 };
 
 const $ = (s) => document.querySelector(s);
@@ -44,6 +60,7 @@ async function boot() {
     fetch("store/index.json").then((r) => r.json()),
     fetch("store/concepts.json").then((r) => r.json()).catch(() => null),
   ]);
+  Grapheme.load();
   S.idx = idx;
   S.nodes = idx.nodes;
   S.names = idx.names;
@@ -153,7 +170,9 @@ function renderRail() {
     rail.append(el("h3", "", title));
     for (const [v, c] of entries.slice(0, top)) {
       const row = el("div", "obs" + (S.filters[key] === v ? " on" : ""));
-      row.append(el("span", "", v));
+      const lab = el("span", "", v);
+      if (key === "area" || key === "motif") tint(lab, v.split("/").pop(), 0.8);
+      row.append(lab);
       row.append(el("span", "n", String(c)));
       row.onclick = () => {
         S.filters[key] = S.filters[key] === v ? null : v;
@@ -233,9 +252,21 @@ async function openNode(n, fromRoute = false, isReverse = false) {
   f.textContent = "";
 
   f.append(el("div", "crumbs", `${n.p}  ·  ${n.a}`));
-  const h1 = el("h1", "sentence", n.sent || n.head);
+  const h1 = el("h1", "sentence");
+  for (const w of (n.sent || n.head).split(/(\s+)/)) {
+    if (/^\s+$/.test(w) || w.length < 4) { h1.append(w); continue; }
+    const sp = el("span", "", w);
+    tint(sp, w, 0.55);
+    h1.append(sp);
+  }
   f.append(h1);
-  if (n.sent) f.append(el("div", "headname", n.head + "  ·  " + n.m));
+  if (n.sent) {
+    const hn = el("div", "headname");
+    const hd = el("span", "", n.head);
+    tint(hd, n.head, 1);
+    hn.append(hd, "  ·  " + n.m);
+    f.append(hn);
+  }
 
   const badges = el("div", "badges");
   badges.append(el("span", "badge v-" + n.verdict, n.verdict));
@@ -276,8 +307,10 @@ async function openNode(n, fromRoute = false, isReverse = false) {
       const box = el("div", "decl");
       box.innerHTML = dec.s.replace(esc(dec.n),
         `<span class="dn" data-n="${esc(dec.n)}">${esc(dec.n)}</span>`);
-      box.querySelectorAll(".dn").forEach((e) =>
-        e.addEventListener("mouseenter", (ev) => conceptCard(ev, dec.n)));
+      box.querySelectorAll(".dn").forEach((e) => {
+        e.addEventListener("mouseenter", (ev) => conceptCard(ev, dec.n));
+        tint(e, dec.n, 1);
+      });
       sec.append(box);
     }
     f.append(sec);
@@ -295,6 +328,7 @@ async function openNode(n, fromRoute = false, isReverse = false) {
     box.querySelectorAll(".id-link").forEach((e) => {
       e.addEventListener("click", () => jumpToName(e.dataset.n));
       e.addEventListener("mouseenter", (ev) => conceptCard(ev, e.dataset.n));
+      tint(e, e.dataset.n, 0.9);
     });
     srcSec.append(box);
     traceStep("read-source", n.m);
@@ -402,7 +436,9 @@ function renderContext(n) {
         const m = S.nodes[j];
         const row = el("div", "edge");
         row.append(el("span", "et", dir));
-        row.append(el("span", "em", m.sent || m.head));
+        const em = el("span", "em", m.sent || m.head);
+        tint(em, m.head, 0.6);
+        row.append(em);
         row.onclick = () => openNode(m);
         c.append(row);
       }
@@ -460,7 +496,12 @@ function wireSearch() {
     }
     for (const [n, name] of hits) {
       const r = el("div", "r");
-      r.append(el("div", "rm", (name ? name + "  ·  " : "") + n.m));
+      const rm = el("div", "rm");
+      if (name) { const nm = el("span", "", name); tint(nm, name, 1); rm.append(nm, "  ·  "); }
+      const hd = el("span", "", n.m);
+      tint(hd, n.head, 0.7);
+      rm.append(hd);
+      r.append(rm);
       r.append(el("div", "rs", n.sent || n.head));
       r.onclick = () => { res.hidden = true; q.blur(); traceStep("ask", v); openNode(n); };
       res.append(r);
@@ -498,6 +539,18 @@ function wireKeys() {
   $("#backbtn").onclick = goBack;
   $("#graphbtn").onclick = () => { location.hash = "~graph"; };
   $("#aboutbtn").onclick = () => { location.hash = "~about"; };
+  $("#lensbtn").onclick = () => {
+    Grapheme.toggle();
+    $("#lensbtn").classList.toggle("on", Grapheme.enabled);
+    route();
+    renderRail();
+  };
+  $("#lensbtn").classList.toggle("on", Grapheme.enabled);
+  $("#gcolorbtn").onclick = () => {
+    S.graphColor = S.graphColor === "verdict" ? "grapheme" : "verdict";
+    $("#gcolorbtn").textContent = "color: " + S.graphColor;
+    drawGraph();
+  };
   $("#themebtn").onclick = () => {
     const r = document.documentElement;
     const cur = r.dataset.theme;
@@ -532,8 +585,32 @@ function renderAbout() {
      <p>Concept cards join to agda-unimath's published concept index
      (name-normalized candidates, labeled as such) and out to Wikidata.
      When the pinned kernel joins this store, textual edges are replaced by
-     elaborated ones, and hover shows computed types and normal forms.</p>`;
+     elaborated ones, and hover shows computed types and normal forms.</p>
+     <p><b>The grapheme lens.</b> Color here is a computed observation on
+     spelling: a token's hue is the front-loaded blend of its graphemes'
+     hues, so names sharing a root cohere in color and diverge as they
+     diverge. It surfaces relation before reading. Paste your own
+     configuration below — exact word colors, prefix colors, per-grapheme
+     colors — and the whole place repaints to your mapping.</p>`;
   f.append(p);
+  const ta = el("textarea");
+  ta.id = "lenscfg";
+  ta.style.cssText = "width:100%;max-width:72ch;height:130px;font:12px var(--mono);" +
+    "background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px";
+  ta.value = JSON.stringify(Grapheme.cfg, null, 1);
+  const apply = el("button", "", "apply configuration");
+  const msg = el("span", "", "");
+  msg.style.marginLeft = "10px";
+  apply.onclick = () => {
+    try {
+      Grapheme.save(ta.value);
+      msg.textContent = "applied — the place repaints to your mapping";
+      renderRail();
+    } catch (err) {
+      msg.textContent = "not valid JSON: " + err.message;
+    }
+  };
+  f.append(ta, el("div"), apply, msg);
 }
 
 /* ---------------- graph ---------------- */
@@ -613,7 +690,9 @@ function drawGraph() {
       const rr = 1.2 + Math.sqrt(n.deg) * 0.9;
       ctx.beginPath();
       ctx.arc(x, y, rr, 0, Math.PI * 2);
-      ctx.fillStyle = VERDICT_COLOR[n.verdict] || "#777";
+      ctx.fillStyle = S.graphColor === "grapheme"
+        ? Grapheme.color(n.head, { dark, strength: 1 })
+        : (VERDICT_COLOR[n.verdict] || "#777");
       ctx.globalAlpha = act.has(n.i) ? 0.95 : 0.15;
       ctx.fill();
       if (S.focus && n.i === S.focus.i) {
