@@ -81,11 +81,18 @@ tryRealization f n =
   -- terms hits an uncatchable internal error in Agda 2.8.0's
   -- ReconstructParameters; the locus needs only the checked application
   -- and its normalized type, which inference supplies unreconstructed.
+  -- runSpeculative with false rolls the TC state back, discarding every
+  -- meta the probe created (a partial application of a parameterized
+  -- family otherwise leaves unsolved metas that poison the whole
+  -- declaration), while the computed value survives.  The meta-free
+  -- filter still guards the recorded terms: a reference to a rolled-back
+  -- meta would dangle.
   catchTC
-    (noConstraints
-      (bindTC (inferType app) λ ty →
-       bindTC (normalise ty) λ nty →
-       returnTC (keep n app nty)))
+    (runSpeculative
+      (noConstraints
+        (bindTC (inferType app) λ ty →
+         bindTC (normalise ty) λ nty →
+         returnTC (keep n app nty , false))))
     (returnTC [])
   where
   keep : Name → Term → Term → List RawRealization
