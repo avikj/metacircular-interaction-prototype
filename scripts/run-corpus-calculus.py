@@ -84,8 +84,6 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
                 src = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 continue
-            # A module with open interaction points ('?' or '{! !}' holes)
-            # cannot be imported; leave it out of the materialized state.
             if "{!" in src or re.search(r"(?m)(^|[\s(=])\?(\s|\)|$)", src):
                 continue
             # The generated module is --cubical --safe, both infective and
@@ -146,20 +144,30 @@ def generate() -> tuple[int, int]:
         "open import Agda.Builtin.List using (List ; [] ; _∷_)",
         "open import Fibre.CorpusReflection",
         "open import Fibre.CorpusSamvada",
+        "open import Fibre.CorpusLoci",
         "import CorpusSelfPresentation as SP", "",
         *imports, "", "names : List Name", "names =",
     ]
     body += [f"  quote {q} ∷" for q in qnames] + ["  []"]
     body += [
-        "", "corpus : RawCorpus", "corpus = materialize names",
+        "", "-- Expanded checked source, retained as the exact realization substrate.",
+        "corpus : RawCorpus", "corpus = materialize names",
+        "", "-- Factored relational presentation: each checked generator occurs once;",
+        "-- its dependent family contains exactly the checked inhabitants it acts on,",
+        "-- together with the accepted application and normalized result type.",
+        "loci : RawLoci", "loci = materializeLoci names",
         "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
+        "", "lociPoint : Point lzero", "lociPoint = point loci",
         "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
-        "", "corpusPresentation : SP.SelfPresentation corpusPoint", "corpusPresentation = SP.present corpusPoint", "",
+        "", "lociProcess : Corpus lociPoint", "lociProcess = run lociPoint",
+        "", "-- Infinite, depth-free continuation of the factored presentation; every",
+        "-- demanded question returns its target plus the exact residual fibre.",
+        "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
     ]
     OUT.write_text("\n".join(body), encoding="utf-8")
     print(f"generated {OUT.relative_to(ROOT)}", file=sys.stderr)
     print(f"active modules: {len(modules)}", file=sys.stderr)
-    print(f"checked declarations in the one repository state: {len(qnames)}", file=sys.stderr)
+    print(f"checked declarations: {len(qnames)}", file=sys.stderr)
     if duplicates:
         print(f"duplicate declared module names resolved by include order: {len(duplicates)}", file=sys.stderr)
     return len(modules), len(qnames)
@@ -172,13 +180,13 @@ def main() -> int:
     agda, libfile = tool
     generate()
     cmd = [str(agda), f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED), str(OUT)]
-    print("materializing one checked repository state and its infinite lossless guarded presentation...", file=sys.stderr)
+    print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
     rc = subprocess.call(cmd, cwd=ROOT)
     if rc == 0:
         print("COMPLETE: generated/CorpusRepository.agda", file=sys.stderr)
-        print("  corpus             = the entire reflected checked repository as one value", file=sys.stderr)
-        print("  corpusPoint        = that one value as a universal typed state", file=sys.stderr)
-        print("  corpusPresentation = infinite guarded target + exact fibre + continuation", file=sys.stderr)
+        print("  corpus           = exact expanded checked corpus", file=sys.stderr)
+        print("  loci             = shared checked generators factored once + exact realization families", file=sys.stderr)
+        print("  lociPresentation = infinite guarded target + exact fibre + continuation", file=sys.stderr)
     return rc
 
 
