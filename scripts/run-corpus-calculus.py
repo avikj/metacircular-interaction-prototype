@@ -180,6 +180,31 @@ def generate() -> tuple[int, int]:
         imports.append(f"import {mod}")
         qnames.extend(f"{mod}.{n}" for n in names)
     GENERATED.mkdir(exist_ok=True)
+    # Shard the quadratic loci materialization: each shard probes a slice
+    # of generators against the full pool in its own bounded process, and
+    # the concatenation of shard values is exactly buildLoci pool pool.
+    shard_size = int(os.environ.get("CORPUS_SHARD", "32"))
+    slices = [qnames[i:i + shard_size] for i in range(0, len(qnames), shard_size)] or [[]]
+    for old_shard in GENERATED.glob("CorpusShard*.agda"):
+        old_shard.unlink()
+    shard_mods: list[str] = []
+    names_block = ["names : List Name", "names ="] + [f"  quote {q} ∷" for q in qnames] + ["  []"]
+    for k, sl in enumerate(slices, start=1):
+        smod = f"CorpusShard{k}"
+        shard_mods.append(smod)
+        sbody = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            f"module {smod} where", "",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusLoci using (RawLoci ; materializeLociFor)", "",
+            *imports, "",
+            *names_block, "",
+            "gens : List Name", "gens =",
+            *[f"  quote {q} ∷" for q in sl], "  []", "",
+            "shard : RawLoci", "shard = materializeLociFor gens names", "",
+        ]
+        (GENERATED / f"{smod}.agda").write_text("\n".join(sbody), encoding="utf-8")
     body = [
         "{-# OPTIONS --cubical --safe --guardedness #-}",
         "module CorpusRepository where", "",
@@ -199,7 +224,9 @@ def generate() -> tuple[int, int]:
         "", "-- Factored relational presentation: each checked generator occurs once;",
         "-- its dependent family contains exactly the checked inhabitants it acts on,",
         "-- together with the accepted application and normalized result type.",
-        "loci : RawLoci", "loci = materializeLoci names",
+        *[f"import {m}" for m in shard_mods],
+        "loci : RawLoci",
+        "loci = " + (" ++ ".join(f"{m}.shard" for m in shard_mods) if shard_mods else "[]"),
         "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
         "", "lociPoint : Point lzero", "lociPoint = point loci",
         "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
@@ -223,9 +250,16 @@ def main() -> int:
         return 1
     agda, libfile = tool
     generate()
-    cmd = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED), str(OUT)]
+    base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
+    shards = sorted(GENERATED.glob("CorpusShard*.agda"), key=lambda p: int(p.stem[len("CorpusShard"):]))
+    for shard in shards:
+        print(f"materializing {shard.name} ...", file=sys.stderr)
+        rc = subprocess.call(base + [str(shard)], cwd=ROOT)
+        if rc != 0:
+            print(f"shard failed: {shard.name}", file=sys.stderr)
+            return rc
     print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
-    rc = subprocess.call(cmd, cwd=ROOT)
+    rc = subprocess.call(base + [str(OUT)], cwd=ROOT)
     if rc == 0:
         print("COMPLETE: generated/CorpusRepository.agda", file=sys.stderr)
         print("  corpus           = exact expanded checked corpus", file=sys.stderr)

@@ -164,6 +164,21 @@ materializeLociTerm ns =
   bindTC (expandAll ns) λ expanded →
   bindTC (buildLoci expanded expanded) quoteTC
 
+-- Generator-sliced form: probe only the given generators against the
+-- full pool.  Quadratic probing accumulates un-collectable TC state, so
+-- one process cannot hold the whole grid; slices materialize the same
+-- loci value shard by shard, one bounded process each, and the shards
+-- concatenate to exactly buildLoci pool pool.
+materializeLociForTerm : List Name → List Name → TC Term
+materializeLociForTerm gens ns =
+  bindTC (expandAll ns) λ pool →
+  bindTC (expandAll gens) λ egens →
+  bindTC (buildLoci pool egens) quoteTC
+
 macro
   materializeLoci : List Name → Term → TC ⊤
   materializeLoci ns hole = bindTC (materializeLociTerm ns) (unify hole)
+
+  materializeLociFor : List Name → List Name → Term → TC ⊤
+  materializeLociFor gens ns hole =
+    bindTC (materializeLociForTerm gens ns) (unify hole)
