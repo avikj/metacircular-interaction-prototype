@@ -2,7 +2,7 @@
 
 module CorpusExecute where
 
-open import Agda.Primitive renaming (Set to Type)
+open import Agda.Primitive renaming (Set to UType)
 open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
@@ -11,7 +11,7 @@ open import Agda.Builtin.Nat
 open import CorpusCalculus using (step)
 
 infixr 5 _++_
-_++_ : {A : Type} → List A → List A → List A
+_++_ : {A : UType} → List A → List A → List A
 []       ++ ys = ys
 (x ∷ xs) ++ ys = x ∷ (xs ++ ys)
 
