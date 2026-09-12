@@ -40,6 +40,10 @@ def public_names(src: str) -> list[str]:
         "module", "open", "import", "private", "public", "mutual", "abstract",
         "instance", "macro", "variable", "postulate", "field", "constructor",
         "infix", "infixl", "infixr", "syntax", "pattern",
+        "with", "where", "rewrite", "let", "in", "do", "forall",
+        "hiding", "renaming", "using", "primitive", "interleaved",
+        "opaque", "unfolding", "tactic", "quote", "unquote",
+        "λ", "∀", "→", "¬", "|", "=",
     }
 
     def add(x: str) -> None:
@@ -64,6 +68,11 @@ def public_names(src: str) -> list[str]:
             continue
         left = line.split(":", 1)[0].strip()
         if not left or left.split()[0] in keywords:
+            continue
+        # A bare `=` left of the first `:` marks a defining clause whose
+        # right-hand side merely contains a Pi binder, not a signature;
+        # its tokens are clause variables, not declared names.
+        if re.search(r"(^|\s)=(\s|$)", left):
             continue
         for token in left.split():
             add(token)

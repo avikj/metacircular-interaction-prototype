@@ -4,6 +4,7 @@ module Fibre.CorpusSamvada where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
+open import Cubical.Foundations.Equiv using (_≃_)
 
 import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers as S
 import Fibre.Carrier as C
@@ -19,7 +20,7 @@ point : {A : Type ℓ} → A → Point ℓ
 point {A = A} a = A , a
 
 Question : Point ℓ → Type (ℓ-suc ℓ)
-Question s = Σ[ B ∈ Type ℓ ] (fst s → B)
+Question {ℓ} s = Σ[ B ∈ Type ℓ ] (fst s → B)
 
 target : (s : Point ℓ) → Question s → Point ℓ
 target s (B , f) = B , f (snd s)
@@ -41,7 +42,7 @@ step : {A B : Type ℓ} (a : A) (f : A → B)
      → fst (S.react (run (point a)) (B , f)) ≡ point (f a)
 step a f = refl
 
-module Carried {B : Type (ℓ-suc ℓ)} (read : Point ℓ → B) where
+module Carried {ℓ : Level} {B : Type (ℓ-suc ℓ)} (read : Point ℓ → B) where
 
   State : Type (ℓ-suc ℓ)
   State = C.Carrier read

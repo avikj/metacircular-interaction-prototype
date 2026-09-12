@@ -5,7 +5,9 @@ module CorpusCalculus where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse
-  using (ISC ; respond)
+  using (ISC)
+
+open ISC
 
 Point : (ℓ : Level) → Type (ℓ-suc ℓ)
 Point ℓ = Σ[ A ∈ Type ℓ ] A

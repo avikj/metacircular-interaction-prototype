@@ -2,6 +2,7 @@
 
 module CorpusExecute where
 
+open import Agda.Primitive using (Set)
 open import Agda.Builtin.Reflection
 open import Agda.Builtin.List
 open import Agda.Builtin.Unit
