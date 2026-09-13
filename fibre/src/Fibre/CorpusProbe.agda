@@ -29,9 +29,10 @@ open import Agda.Builtin.String using (String ; primStringAppend ; primShowNat)
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Sigma using (Σ ; _,_ ; fst ; snd)
 open import Agda.Builtin.Reflection
-  using ( Name ; Term ; Abs ; TC
+  using ( Name ; Term ; Abs ; TC ; Definition
         ; pi ; def ; con ; lam ; pat-lam ; agda-sort ; lit ; meta ; var ; unknown
-        ; abs ; returnTC ; bindTC ; quoteTC ; unquoteTC ; unify
+        ; function ; data-type ; record-type ; data-cons ; axiom ; prim-fun
+        ; abs ; getType ; getDefinition ; returnTC ; bindTC ; quoteTC ; unquoteTC ; unify
         ; debugPrint ; ErrorPart ; strErr ; primShowQName )
 
 open import Fibre.CorpusReflection using (expandAll)
@@ -83,4 +84,48 @@ macro
     bindTC (unquoteTC namesTerm) λ (ns : List Name) →
     bindTC (expandAll ns)        λ expanded →
     bindTC (emitEach expanded expanded) λ _ →
+    bindTC (quoteTC tt)          λ q → unify hole q
+
+------------------------------------------------------------------------
+-- emitDecls — the cheap O(n) companion readout for the WHOLE-corpus pass.
+--
+-- One row per (expanded) declaration, carrying strictly more than the bare
+-- (arity, head): the reflected definition KIND, so data / record / their
+-- constructors and fields / functions / postulates are distinguished — this
+-- is CorpusReflection's expand-and-reflect observation, streamed.
+--
+--     DECL <Π-arity> <conclusion-head> <def-kind> <qualified-name>
+--
+-- on verbosity "decl" (agda -vdecl:1).  No realization search, no aggregate
+-- term: getType + getDefinition per name, folded through debugPrint.
+------------------------------------------------------------------------
+
+defKind : Definition → String
+defKind (function _)    = "function"
+defKind (data-type _ _) = "data"
+defKind (record-type _ _) = "record"
+defKind (data-cons _ _) = "constructor"
+defKind (axiom)         = "postulate"
+defKind (prim-fun)      = "primitive"
+
+emitDecl : Name → TC ⊤
+emitDecl n =
+  bindTC (getType n) λ ty →
+  bindTC (getDefinition n) λ d →
+  debugPrint "decl" 1
+    ( strErr ("DECL\t" <> headView 0 ty <> "\t" <> defKind d
+              <> "\t" <> primShowQName n) ∷ [] )
+
+emitDeclsGo : List Name → TC ⊤
+emitDeclsGo []       = returnTC tt
+emitDeclsGo (n ∷ ns) = bindTC (emitDecl n) λ _ → emitDeclsGo ns
+
+macro
+  -- emitDecls names : expand to constructors/fields, then stream one DECL row
+  -- per declaration.  This is the memory-safe whole-corpus readout.
+  emitDecls : Term → Term → TC ⊤
+  emitDecls namesTerm hole =
+    bindTC (unquoteTC namesTerm) λ (ns : List Name) →
+    bindTC (expandAll ns)        λ expanded →
+    bindTC (emitDeclsGo expanded) λ _ →
     bindTC (quoteTC tt)          λ q → unify hole q
