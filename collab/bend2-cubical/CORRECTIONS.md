@@ -82,7 +82,10 @@ the same type as a **coherent** equivalence (contractible fibres / half-adjoint
 not on the nose. The honest statement is: **`isoToPath` with `uaβ`, `uaIdEquiv`,
 and `uaη`** — which is exactly the interface `Fibre.Carrier` uses — **not** a
 full `Iso ≃ Path` equivalence. Coherent-equivalence univalence (with both round
-trips) would require an `isEquiv`/`isContr`-fibre formulation and is open.
+trips) requires an `isEquiv`/`isContr`-fibre formulation — since done:
+`uaequiv.bend` proves `uaEquivRoundTrip : pathToEquiv(uaE e) = e` (17✓ 0✗),
+with `uaE` built from the contractible-fibre data and the second component
+closed by `isPropIsEquiv` (general `hcompN`). See GENERAL_HCOMP.md.
 
 ### Proof-cost analysis is a syntactic static proxy, not a runtime/thermo measurement
 

@@ -203,8 +203,13 @@ transport laws. It is **NOT** claimed to be a full equivalence `Iso ≃ Path`: t
 other round trip `pathToIso(ua e) = e` at the Iso-record level does **not** hold
 by refl (raw isomorphism data is not a coherent equivalence — see
 `uaroundtrip.bend` and CORRECTIONS.md). This is `isoToPath`, exactly what
-`Fibre.Carrier` uses; coherent-equivalence univalence with both round trips is
-open.
+`Fibre.Carrier` uses. Coherent-equivalence univalence with both round trips is
+now closed on top of it: `uaequiv.bend` (17 checks green) defines
+`Equiv(A,B) = Σ f. ∀y. isContr(fiber f y)`, `uaE` (path from the coherent data),
+`pathToEquiv` (transport of `idEquiv`), and proves
+`uaEquivRoundTrip : pathToEquiv(uaE e) = e` for arbitrary `e` — first
+component by uaβ, second by `isPropIsEquiv`, itself pointwise `isPropIsContr`
+(the 4-face `hcompN`; GENERAL_HCOMP.md, REF_ENDPOINTS.md).
 
 ### The instrument (analysis layer)
 `Core/Analysis.hs` makes the checker report, per definition, not pass/fail but:
