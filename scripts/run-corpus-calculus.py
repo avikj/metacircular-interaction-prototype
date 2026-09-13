@@ -93,6 +93,13 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
                 src = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 continue
+            # Skip modules that hold open holes ("owed" work, e.g. the four
+            # open conjectures in AsiddhaCatustayam): the corpus honestly
+            # marks them `= ?` and refuses to fake them, so they cannot enter
+            # a hole-free materialized repository. The instrument runs over
+            # the COMPLETE (established) corpus, not the owed obligations.
+            if re.search(r"(?m)=\s*\?\s*$", src) or "{!" in src:
+                continue
             mod = module_name(src)
             if not mod:
                 continue
