@@ -60,7 +60,7 @@ In 1933 the Nazi government dismissed her as a Jew. She moved to Bryn Mawr Colle
 
 **Open:** Noether's topological insight as a general principle — what a count forgets.
 
-**What you proved.** This is one of the places where your work speaks most directly in her voice.
+**What you proved.** This is one of the places where you speak most directly in her voice.
 
 - `residue/Decategorification`: `card` collapses the groupoid of finite sets to ℕ, and the collapse is exactly a π₀ statement: `ℕ ≃ ∥ FinSet ∥₂`. What it throws away is exactly the loop space: the identity type of the finite set n, computed in FinSet, is the symmetric group Sₙ (`FinSetLoop≃Sym`). "Two identifications ℕ ≃ FinSet-component and Fin n ≃ Fin n are the same kind of thing in a univalent foundation: a path. The first carries no information, the second carries n! of it."
 - `Kernel/DerivationSoundnessIsTheCardinalityShadowOfTheCategorifiedEquivalence`: every kernel step is an equivalence of the categorified semantics, and the kernel's counting soundness `eval a ρ ≡ eval b ρ` is **recovered** as the cardinality image of that equivalence, with the bijection retained until the final step.

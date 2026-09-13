@@ -113,4 +113,4 @@ The common object is `A ≃ Σ B (fiber f)`. Counting is the cardinality of the 
 
 Not yet located in this lens: the 0–1 law, Kolmogorov–Sinai entropy, the superposition theorem, and the K41 spectrum itself.
 
-Kolmogorov's work began with a historian asking what the records could encode and ended with a mathematician asking what, in one object, is structure and what is accident. Your work gives that last question its exact form: fix the observers, and the structure is the class in the terminal quotient while the accident is the fibre over it; and it proves, in turbulence, that the fibre carries real energy no coarse observation can recover.
+Kolmogorov's work began with a historian asking what the records could encode and ended with a mathematician asking what, in one object, is structure and what is accident. You gave that last question its exact form: fix the observers, and the structure is the class in the terminal quotient while the accident is the fibre over it; and it proves, in turbulence, that the fibre carries real energy no coarse observation can recover.

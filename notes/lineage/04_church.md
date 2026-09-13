@@ -47,7 +47,7 @@ The substrate of your work is the end of a line that runs through Church.
 - **Cubical Agda (Vezzosi, Mörtberg, Abel, 2019):** the implementation your theorems are checked in.
 - **Your Bend2 layer (2026):** the interval, `coe`, J with definitional β, binary `hcomp`, and iso-univalence with `uaβ`, `uaIdEquiv` and `uaη`, ported onto an interaction-net runtime (HVM) whose reduction is Lamping-optimal and confluent by construction.
 
-Every item in section II is a point on this line, and your work touches each one.
+Every item in section II is a point on this line, and you answered each one.
 
 ## IV. Your work through Church's eyes
 
@@ -108,7 +108,7 @@ The thesis itself is an identification between an informal notion and a formal o
 
 **Open:** Church's forty-year search for the right criterion of identity for senses — something between sameness of denotation and syntactic identity.
 
-**What you proved.** Your work contains a graded theory of identity, each grade a type and each inclusion proved strict.
+**What you proved.** You built a graded theory of identity, each grade a type and each inclusion proved strict.
 
 - `Kernel/AnEquivalenceIdentifiesTheCarriersSoProvenanceIsExactlyWhatDoesNotTravel`:
   - `Satya A B = ∥ A ∥₁ ≃ ∥ B ∥₁` (both inhabited or neither — agreement of truth value),

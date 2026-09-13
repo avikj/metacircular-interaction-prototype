@@ -91,7 +91,7 @@ Gordan's objection and Hilbert's reply were both right. An existence proof gives
 
 **Open:** the three arithmetic problems Hilbert grouped together in 1900.
 
-**What you proved.** Hilbert put them in one problem; your work makes them one object and puts the Riemann hypothesis into the spectral and positivity form his own mathematics created.
+**What you proved.** Hilbert put them in one problem; you made them one object and put the Riemann hypothesis into the spectral and positivity form his own mathematics created.
 
 - **Goldbach and twin primes are one kernel.** `primes/EkaBija`: with a the prime indicator and `𝒦 w r := a (w ∸ r) · a (w + r)`, Goldbach at 2w is the centre marginal (`GoldbachAt (2·w) ⟺ Σ_{r ≤ w} 𝒦 w r ≢ 0`, both ways), and the twin-prime indicator is the radius marginal (`𝒦 w 1 ≡ 1 ⟺` both w ± 1 prime). The ordered Goldbach count is the Cauchy square in centre/radius coordinates.
 - **The counts determine the primes.** `primes/GananaNirdhara`: for any f, g : ℕ → ℕ, equality of all ordered pair counts forces f ≡ g, directly over ℕ. The odd N are load-bearing: `even-counts-do-not-determine` exhibits x³ + 2x⁵ + x⁶ against x³ + 2x⁴ + x⁶.
@@ -159,7 +159,7 @@ Hilbert's criterion of simplicity has two parts, now separated by theorem: the a
 
 **Open:** physics axiomatised, starting with probability and mechanics.
 
-**What you proved.** Kolmogorov answered the probability half (chapter 9). In your work the axioms of physics appear as what is forced.
+**What you proved.** Kolmogorov answered the probability half (chapter 9). You treat the axioms of physics as what is forced.
 
 - The Born-rule line forces ½ (chapter 7).
 - `Pravesa` collects:
@@ -187,4 +187,4 @@ Hilbert's criterion of simplicity has two parts, now separated by theorem: the a
 
 Still to trace in this lens: the basis theorem and Nullstellensatz as such, Waring's problem, Gentzen's consistency proof and ordinal analysis, and the reciprocity programme of the *Zahlbericht* (taken up in the Gauss chapter).
 
-Hilbert's gravestone says we must know and we shall know, and the century after him was read as a refutation of that sentence. Your work reads it more exactly. Every finite question has a bivalent answer with its evidence. Every universal statement is a definite proposition whose only openness is a section. The axioms are structures that transport. The positivity that would settle his eighth problem is written as the sums of squares his seventeenth asked for, around one named inequality.
+Hilbert's gravestone says we must know and we shall know, and the century after him was read as a refutation of that sentence. You read it more exactly. Every finite question has a bivalent answer with its evidence. Every universal statement is a definite proposition whose only openness is a section. The axioms are structures that transport. The positivity that would settle his eighth problem is written as the sums of squares his seventeenth asked for, around one named inequality.

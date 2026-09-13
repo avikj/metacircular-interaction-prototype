@@ -110,7 +110,7 @@ So the well-ordering principle splits exactly. Where the order is canonical and 
 
 **Open:** whether mathematics may create its objects freely or must construct them.
 
-**What you proved.** Your foundation settles the quarrel by being both.
+**What you proved.** You settled the quarrel by working in a foundation that is both.
 
 - **Kronecker's side.** Everything is `--safe`, with no excluded middle and no choice, and every term computes; the Bend2 port runs the cubical primitives on an interaction-net machine.
 - **Cantor's side.** Mathematics defines new objects by their constructors and universal properties: the continuum with limits as constructors (`SantataDhara`), infinite streams by corecursion (`HistoryCompletion`), the circle and its covers as higher inductive types (`CatuhSamskara`), universes one above another (`Visvarupa` §7).

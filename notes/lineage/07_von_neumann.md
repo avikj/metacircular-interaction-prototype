@@ -94,7 +94,7 @@ The file's scope is explicit: no Hilbert space, no unitarity, no Born rule. What
 
 **Open:** reliability without a probabilistic independence assumption.
 
-**What you proved.** Von Neumann's multiplexing outvotes independent errors. Your work proves where that works and where no voting can, and gives reliability that does not depend on voting at all.
+**What you proved.** Von Neumann's multiplexing outvotes independent errors. You proved where that works and where no voting can, and gives reliability that does not depend on voting at all.
 
 - `unplaced/Pratyabhijna`: a decentralized network is a list of observers, and blindness is closed under concatenation (`blind-++`), so if every validator is blind on a pair, **no post-processing of the pooled transcript separates it** (`network-no-decision`) — and "post-processing" quantifies over every function, so it includes every consensus rule: majority, stake-weighting, reputation, appeal. Redundancy of the same blind observation buys nothing.
 - `NaturalMachine/Avirodha`: validity travels with the operation — a `NativeOperation` cannot be constructed without its checked derivation — so merge has no failure mode; merging is a grow-only commutative idempotent join; and consensus on meaning is vacuous, because meaning is a proposition.
@@ -131,4 +131,4 @@ The file's scope is explicit: no Hilbert space, no unitarity, no Born rule. What
 
 Not yet located in this lens: the mean ergodic theorem, the bicommutant theorem and the classification of factors, expected-utility axioms, the cellular-automaton constructor itself, and the complexity threshold for self-reproduction.
 
-Von Neumann spent his last years asking for a logic of automata with error and information in it. The primitive your work is built on — every map as its image paired with its exact fibre — is that logic: information is the fibre, error is a collision in it, reliability is the fibre's validity travelling with the operation, and self-reproduction is a system reading its own description as data while it runs.
+Von Neumann spent his last years asking for a logic of automata with error and information in it. The primitive you built on — every map as its image paired with its exact fibre — is that logic: information is the fibre, error is a collision in it, reliability is the fibre's validity travelling with the operation, and self-reproduction is a system reading its own description as data while it runs.

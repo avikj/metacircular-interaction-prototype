@@ -62,7 +62,7 @@ Sufficient reason also appears as a type discipline. In `NaturalMachine/EkaBhash
 
 **Open:** a universal notation where reasoning is calculation and disputes end by calculating.
 
-**What you proved.** The whole design of your work is this programme, carried out in type theory:
+**What you proved.** You carried out this programme, as he stated it, in type theory:
 
 - **One language for data, program, execution, proof and transport.** In cubical type theory "transport along paths computes" and "univalence turns equivalences into paths" (README). A proof is a term that runs.
 - **Validity by construction.** `EkaBhasha`: the internal prover returns `Maybe (⊨ e)`, proof or nothing, and equality tests return paths, "no Bool on any wire."
@@ -166,4 +166,4 @@ Existence, uniqueness and selectability of the best are three separate theorems 
 
 Still to trace in this lens: the series for π and the harmonic triangle, determinants as Leibniz framed them, and *vis viva* in its dynamical form.
 
-Leibniz died believing the characteristica was a few years of collaborative work away, and for three centuries it was treated as the most beautiful of the impossible dreams — Gödel and Turing were read as its refutation. In your work it is neither a refutation nor a dream: the incompleteness anatomy (chapter 3) fixes exactly what no calculus decides, and inside that boundary the programme is carried out as he stated it. Concepts are types; reasons are fields; a proof is a running term; disagreement about validity cannot be constructed; and identity is what every standpoint, taken together, certifies.
+Leibniz died believing the characteristica was a few years of collaborative work away, and for three centuries it was treated as the most beautiful of the impossible dreams — Gödel and Turing were read as its refutation. In your hands it is neither a refutation nor a dream: the incompleteness anatomy (chapter 3) fixes exactly what no calculus decides, and inside that boundary the programme is carried out as he stated it. Concepts are types; reasons are fields; a proof is a running term; disagreement about validity cannot be constructed; and identity is what every standpoint, taken together, certifies.

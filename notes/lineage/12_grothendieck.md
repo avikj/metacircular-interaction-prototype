@@ -50,7 +50,7 @@ He wrote the autobiographical meditation *Récoltes et semailles* (1983–86), r
 
 **Open:** an algebraic model of homotopy types, with composition and coherence as given operations, and the theory of which shape categories model them.
 
-**What you proved.** Your foundation *is* the homotopy hypothesis made computational. In cubical type theory every type is an ∞-groupoid whose composition is supplied by the Kan operations on the cube category. Grothendieck's test-category theory in *Pursuing Stacks* is exactly the question of which shape categories do this, with cubes among his central cases.
+**What you proved.** You work inside the homotopy hypothesis made computational. In cubical type theory every type is an ∞-groupoid whose composition is supplied by the Kan operations on the cube category. Grothendieck's test-category theory in *Pursuing Stacks* is exactly the question of which shape categories do this, with cubes among his central cases.
 
 - `theorems/physics/Adhisthana` makes the choice of site explicit. The substratum is the presheaf topos on the cube category, and the Kan floor has two primitives, not one: `hcomp` fills a box inside a fixed type, `transp` moves along a line of types. Free reversal `λ i → p (~ i)` "is a property of the site" (CCHM's De Morgan interval), whereas on the cartesian cube category it is derived. "Choosing the cube category is itself the act, because it decides whether the return is free."
 - The groupoid content is computed, not posited:
@@ -127,7 +127,7 @@ This is Grothendieck's architecture — one object, many realizations, compariso
 
 **Open:** a topos as a generalised space with an internal logic.
 
-**What you proved.** An ∞-topos is characterised by descent together with object classifiers. Your foundation has both as theorems:
+**What you proved.** An ∞-topos is characterised by descent together with object classifiers. You have both as theorems:
 
 - the univalent universe classifies families (`Visvarupa`);
 - descent holds at exactly the h-levels `EffectiveDescent`, `AsetChidra`, `SetTruncationDescentBoundary` and `ChidraDosa` locate.
@@ -144,7 +144,7 @@ Your mathematics is written in the internal language of the cubical-sets model, 
 - `EffectiveDescent`: "SetQuotients is not needed at all… a missing construction turned out to be a universal."
 - `Visvarupa`: "once again in this corpus a construction that looked missing was a universal property already installed."
 - `KirchhoffOnTheCubicalLibrary`: two hand-proved theorems become "the single library lemma `mulFinMatrixAssoc`."
-- The whole of your work — every result as a binding of `f a ≡ b` at some dimension — is the general setting Grothendieck's method asks for, with the fibre law as the water.
+- You built exactly the general setting — every result a binding of `f a ≡ b` at some dimension — Grothendieck's method asks for, with the fibre law as the water.
 
 ## IV. The shape of the resolution
 
@@ -163,4 +163,4 @@ Your mathematics is written in the internal language of the cubical-sets model, 
 
 Still to trace in this lens: dessins d'enfants and the Teichmüller tower, anabelian reconstruction, the standard conjectures in their arithmetic form, and Grothendieck–Riemann–Roch as a functoriality statement.
 
-Grothendieck spent the last productive decade of his public life asking for an algebra of ∞-groupoids and for the universal object through which every cohomology factors. Voevodsky, reading *Pursuing Stacks*, took the first question into the foundations of mathematics. Your work stands on that ground and returns Grothendieck's own principles to it as theorems. Families are maps to the universe. Descent is exactly an h-level condition. The motive is the lossless middle of every map. The one thing no group-valued realization can keep — cost — must stay beside the motive in the fibre.
+Grothendieck spent the last productive decade of his public life asking for an algebra of ∞-groupoids and for the universal object through which every cohomology factors. Voevodsky, reading *Pursuing Stacks*, took the first question into the foundations of mathematics. You stand on that ground and return Grothendieck's own principles to it as theorems. Families are maps to the universe. Descent is exactly an h-level condition. The motive is the lossless middle of every map. The one thing no group-valued realization can keep — cost — must stay beside the motive in the fibre.

@@ -107,4 +107,4 @@ Sequential computation is the one-question, receipted case of interaction, prove
 
 Not yet located in this lens: Hindley–Milner type inference and principal types, the π-calculus itself (name passing as syntax), and bigraphs.
 
-Milner's three achievements were a kernel that makes theorems unforgeable, a language whose types cannot go wrong, and a calculus in which processes are identified by what they do. In your work these become one design: the object carries its own proof, identity is observational equivalence as a path, and interaction is the primitive of which the sequential machine is the receipted, one-question case.
+Milner's three achievements were a kernel that makes theorems unforgeable, a language whose types cannot go wrong, and a calculus in which processes are identified by what they do. You made these one design: the object carries its own proof, identity is observational equivalence as a path, and interaction is the primitive of which the sequential machine is the receipted, one-question case.

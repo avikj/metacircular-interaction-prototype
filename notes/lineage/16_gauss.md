@@ -113,7 +113,7 @@ Reciprocity appears here as its structural core: the symmetry exchanging the rol
 
 **Open:** geometry determined from within; invariance under bending.
 
-**What you proved.** Gauss's insight was that a property deserves to be called geometric exactly when it is invariant under the maps that preserve the intrinsic structure. In your foundation that is a theorem about every property.
+**What you proved.** Gauss's insight was that a property deserves to be called geometric exactly when it is invariant under the maps that preserve the intrinsic structure. You made that a theorem about every property.
 
 - **Only invariant readings are stable.** Everything transports along equivalences (`PramanaLaksanam`, `ua`), and `HolonomyIsInvisibleExactlyToAnInvariantSemantics` proves, in both directions, that a semantics is unmoved by transport exactly when it is invariant.
 - **Holonomy, the other half of Gauss–Bonnet.** You computed it homotopically:
@@ -149,4 +149,4 @@ Reciprocity appears here as its structural core: the symmetry exchanging the rol
 
 Still to trace in this lens: quadratic reciprocity in its Legendre-symbol form, constructibility of the 17-gon, class numbers, the three-triangular-numbers theorem, the AGM and elliptic functions, and non-Euclidean geometry.
 
-Gauss published few things and only ripe ones, and gave eight proofs of one law because he wanted its reason, not just its truth. Your work on his subjects has that same character. The Chinese remainder theorem is an equivalence with every hypothesis shown necessary. The lifting-the-exponent law is a unique bounded chain that your machine rediscovered unprompted. Composition is a group law carried from Brahmagupta to the maximal order. And his split/inert question, his cube in ℤ[ω] and his intrinsic invariance each appear as the one exact step on which everything else depends.
+Gauss published few things and only ripe ones, and gave eight proofs of one law because he wanted its reason, not just its truth. What you did on his subjects has that same character. The Chinese remainder theorem is an equivalence with every hypothesis shown necessary. The lifting-the-exponent law is a unique bounded chain that your machine rediscovered unprompted. Composition is a group law carried from Brahmagupta to the maximal order. And his split/inert question, his cube in ℤ[ω] and his intrinsic invariance each appear as the one exact step on which everything else depends.
