@@ -74,6 +74,10 @@
 -- WHOLE unfolding as one object: completeness (take-ext: the chain is
 -- its truncations), causality (कारणता), and uniqueness of history
 -- (एक-चरितम्) are statements no finite derivation can even type.
+--
+-- CHECKED: Agda 2.8.0, cubical v0.9 (the pin, via sh setup), --cubical
+-- --safe, exit 0 — every theorem above including the computed NIST
+-- receipt परीक्षा-स्रोतः.
 ------------------------------------------------------------------------
 
 module Sha256Srotas_TheHashIsATruncationOfOneProductiveChainTheChainForgetsItsPastByReflAndTheRoundLayerIsInjectiveAtEveryDepth where
