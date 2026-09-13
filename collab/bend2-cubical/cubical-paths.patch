@@ -527,6 +527,132 @@ index 0000000..b4386c2
 +  finally
 +def main() -> Nat:
 +  0n
+diff --git a/isoequiv.bend b/isoequiv.bend
+new file mode 100644
+index 0000000..626df32
+--- /dev/null
++++ b/isoequiv.bend
+@@ -0,0 +1,120 @@
++# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
++# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
++# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
++# A ≃ Σ B (fiber f) at the coherent level, for every f.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
++def Total(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. fiber(A, B, f, b)
++def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  (f(a), a, <_> f(a))
++def untot(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  match w:
++    case (b, a, q):
++      a
++def tot_sec(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> Path(Total(A, B, f), tot(A, B, f, untot(A, B, f, w)), w):
++  match w:
++    case (b, a, q):
++      <i> (q @ i, a, <j> q @ iand(i, j))
++def tot_ret(A: Set, B: Set, f: A -> B, a: A) -> Path(A, untot(A, B, f, tot(A, B, f, a)), a):
++  <_> a
++def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
++  isoToEquiv(A, Total(A, B, f), tot(A, B, f), untot(A, B, f), tot_sec(A, B, f), tot_ret(A, B, f))
++
++
++# ---- ua of the fibre law: the lossless presentation as a PATH in Set,
++# transported natively (coe) — the corpus's factoring a ↦ (f a, a, refl).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def losslessPath(A: Set, B: Set, f: A -> B) -> Path(Set, A, Total(A, B, f)):
++  uaE(A, Total(A, B, f), totalEquiv(A, B, f))
++def present(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  coe(lambda i. losslessPath(A, B, f) @ i, i0, i1, a)
++def retrieve(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  coe(lambda i. losslessPath(A, B, f) @ i, i1, i0, w)
++# transport along the fibre-law path IS the factoring (uaβ), and back
++def present_is_tot(A: Set, B: Set, f: A -> B, a: A) -> Path(Total(A, B, f), present(A, B, f, a), tot(A, B, f, a)):
++  <_> tot(A, B, f, a)
++def retrieve_present(A: Set, B: Set, f: A -> B, a: A) -> Path(A, retrieve(A, B, f, present(A, B, f, a)), a):
++  <_> a
++
++# runtime instance: f = neg on Bool
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def presentNeg(x: Bool) -> Bool:
++  match present(Bool, Bool, neg, x):
++    case (b, a, q):
++      b
++def retrieveNeg(x: Bool) -> Bool:
++  retrieve(Bool, Bool, neg, present(Bool, Bool, neg, x))
++def main() -> Bool:
++  presentNeg(True)
 diff --git a/isprop.bend b/isprop.bend
 new file mode 100644
 index 0000000..707f2c1
@@ -963,7 +1089,7 @@ index f94d1ce..eb78af4 100644
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..562d6d1 100644
+index cdd6756..6f053ff 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -127,6 +127,70 @@ infer d span book@(Book defs) ctx term =
@@ -1063,7 +1189,7 @@ index cdd6756..562d6d1 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -435,6 +511,66 @@ check d span book ctx term goal =
+@@ -435,6 +511,95 @@ check d span book ctx term goal =
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -1085,7 +1211,17 @@ index cdd6756..562d6d1 100644
 +           (Just (x, _), I0) -> go x
 +           (Just (_, y), I1) -> go y
 +           _                 -> PAp p' r'
-+    App f x    -> App (go f) (go x)
++    -- A Ref-headed application is unfolded (force) so that endpoint
++    -- redexes inside a lemma's body (e.g. t(x0) @ i1 under an hcomp face)
++    -- are still reduced against the context; without this, conversion
++    -- unfolds the Ref itself and never sees the typed endpoint law.
++    App f x    ->
++      let r = App (go f) (go x) in
++      if unfoldable d book ctx r
++        then case force book r of
++               r' | refHeaded r' -> r'
++                  | otherwise    -> go r'
++        else r
 +    Tup a b    -> Tup (go a) (go b)
 +    SigM x f   -> SigM (go x) (go f)
 +    Suc n      -> Suc (go n)
@@ -1103,13 +1239,24 @@ index cdd6756..562d6d1 100644
 +    Chk x a    -> Chk (go x) (go a)
 +    _          -> t
 +
-+-- The endpoints of a var-headed spine of path type, read from the context.
++refHeaded :: Term -> Bool
++refHeaded t = case cut t of
++  App f _ -> refHeaded f
++  Ref _   -> True
++  _       -> False
++
++-- The endpoints of a var- or Ref-headed spine of path type.
 +spineEndpoints :: Int -> Book -> Ctx -> Term -> Maybe (Term, Term)
-+spineEndpoints d book ctx@(Ctx ks) p = do
-+  ty <- spineType (cut p)
++spineEndpoints d book ctx p = do
++  ty <- spineTy d book ctx p
 +  case force book ty of
 +    Pth _ x y -> Just (x, y)
 +    _         -> Nothing
++
++-- The declared type of a var- or Ref-headed spine (context/book lookup,
++-- peeling Pi and Path applications).
++spineTy :: Int -> Book -> Ctx -> Term -> Maybe Term
++spineTy d book (Ctx ks) = spineType
 +  where
 +    spineType t = case cut t of
 +      Var _ i | i < length ks -> let (_, _, ty) = ks !! i in Just ty
@@ -1127,10 +1274,18 @@ index cdd6756..562d6d1 100644
 +          _         -> Nothing
 +      _ -> Nothing
 +
++-- Unfold a Ref-headed application in epNormCtx only when it is saturated
++-- (not a Pi) and not path-typed (where the endpoint law must stay visible).
++unfoldable :: Int -> Book -> Ctx -> Term -> Bool
++unfoldable d book ctx r = refHeaded r && case fmap (force book) (spineTy d book ctx r) of
++  Just (Pth _ _ _) -> False
++  Just (All _ _)   -> False
++  _                -> True
++
  -- Verify that a term has the expected type by inference
  verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
  verify d span book ctx term goal = do
-@@ -468,3 +604,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +633,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False

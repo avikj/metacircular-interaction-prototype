@@ -148,3 +148,13 @@ stock examples 2/2.
 Must-fail guard (`uaequiv_mustfail.bend`): `wrong1` (constant path `(f,h)`)
 and `wrong2` (endpoints swapped) both ✗ on the same binary; everything else in
 the file ✓. The round-trip green is not a checker hole.
+
+## Addendum — fibre law as coherent Equiv, transported natively (`fibrelaw.bend`)
+
+`bend fibrelaw.bend`: 32 ✓ 0 ✗ (isoToIsEquiv via lemIso with 4-face hcompN,
+totalEquiv, losslessPath = uaE(totalEquiv), present/retrieve with refl laws).
+Runtime, raw net: HVM4 presentNeg True⇒0 (83), False⇒1 (76); retrieveNeg
+True⇒1, False⇒0 (118 each). HVM3: 102/93/140/140, same values. Full suite on
+this binary: every other file unchanged, `equiv.bend` now 10✓ 0✗,
+`uaequiv_mustfail.bend` wrong1/wrong2 still ✗, stock examples 2/2. Details:
+FIBRE_LAW.md.
