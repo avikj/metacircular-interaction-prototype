@@ -34,6 +34,15 @@ has:
 | `retrieveNeg(True)` (`retrieve ∘ present`) | `1`, 118 | `1`, 140 | `True` |
 | `retrieveNeg(False)` | `0`, 118 | `0`, 140 | `False` |
 
+## The contraction itself, executed
+
+`contrFib` is the `isContr` witness — the path from the centre `(neg y, refl)`
+to any fibre point. Over `y = True` the fibre of `neg` is `{False}`, and both
+ends of the path observed on the net are `0` (False): HVM4-raw 18 itrs, HVM3
+23 (`contrNeg0`, `contrNeg1`). The emitters resolve the literal endpoint at
+compile time (`force`) and the net reduces the rest; before this fix the
+erased body (the hcomp cap) was emitted for `p @ i1`.
+
 ## Checker changes needed (in `cubical-paths.patch`)
 
 - `epNormCtx` unfolds a **saturated, non-path-typed** Ref-headed application

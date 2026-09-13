@@ -116,5 +116,22 @@ def presentNeg(x: Bool) -> Bool:
       b
 def retrieveNeg(x: Bool) -> Bool:
   retrieve(Bool, Bool, neg, present(Bool, Bool, neg, x))
+
+# the fibre-contractibility witness (the discriminator's content) executed:
+# contrFib's path from the centre (neg y, refl) to w, observed at both ends.
+# The fibre of neg over y=True is {False}: both ends must be False.
+def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
+  if x:
+    <_> True
+  else:
+    <_> False
+def contrNeg0() -> Bool:
+  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i0:
+    case (x, _):
+      x
+def contrNeg1() -> Bool:
+  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i1:
+    case (x, _):
+      x
 def main() -> Bool:
   presentNeg(True)

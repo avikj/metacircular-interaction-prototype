@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..fa10252 100644
+index e8b579d..ea3fd20 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -7,23 +7,26 @@ index e8b579d..fa10252 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileTotal, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
-@@ -14,6 +14,7 @@ showUsage = do
+@@ -14,6 +14,9 @@ showUsage = do
    putStrLn "Options:"
    putStrLn "  --to-javascript    Compile to JavaScript"
    putStrLn "  --to-hvm           Compile to HVM"
 +  putStrLn "  --to-hvm4          Compile to HVM4 surface"
++  putStrLn "  --to-hvm4-raw      Compile to HVM4 surface without pre-normalisation"
++  putStrLn "  --total            Check, then fail if any definition is [unchecked]"
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +24,9 @@ main = do
+@@ -23,6 +26,10 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
++    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
      [file, "--to-hvm"] | ".bend"    `isSuffixOf` file -> processFileToHVM file
@@ -527,12 +530,38 @@ index 0000000..b4386c2
 +  finally
 +def main() -> Nat:
 +  0n
+diff --git a/hfill.bend b/hfill.bend
+new file mode 100644
+index 0000000..3473798
+--- /dev/null
++++ b/hfill.bend
+@@ -0,0 +1,20 @@
++# hfill(A, [(face, tube)...], base) : Path(A, base, hcompN(A, [(face, tube)...], base))
++def hf(A: Set, x: A, y: A, p: Path(A, x, y), i: Interval) -> Path(A, x, hcompN(A, [(i, <k> p @ k), (inot(i), <k> x)], x)):
++  hfill(A, [(i, <k> p @ k), (inot(i), <k> x)], x)
++
++# the filler at a satisfied face is the tube itself: at i=i1 the composite
++# is p @ i1 = y and the filler is p
++def hf_face(A: Set, x: A, y: A, p: Path(A, x, y)) -> Path(Path(A, x, y), hfill(A, [(i1, <k> p @ k)], x), p):
++  <_> p
++
++# the library's fill0 (Cubical.Foundations.Isomorphism) through hfill, as a
++# path from its cap to its composite
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval) -> Path(A, g(p0 @ inot(i)), hcompN(A, [(i, <k> t(x0) @ k), (inot(i), <k> g(y))], g(p0 @ inot(i)))):
++  hfill(A, [(i, <k> t(x0) @ k), (inot(i), <k> g(y))], g(p0 @ inot(i)))
++
++# MUST FAIL: a filler whose tube does not start at the base
++def wrong(A: Set, x: A, y: A, p: Path(A, x, y), i: Interval) -> Path(A, y, hcompN(A, [(i, <k> p @ k)], y)):
++  hfill(A, [(i, <k> p @ k)], y)
++
++def main() -> Nat:
++  0n
 diff --git a/isoequiv.bend b/isoequiv.bend
 new file mode 100644
-index 0000000..626df32
+index 0000000..eab7259
 --- /dev/null
 +++ b/isoequiv.bend
-@@ -0,0 +1,120 @@
+@@ -0,0 +1,137 @@
 +# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
 +# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
 +# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
@@ -651,6 +680,23 @@ index 0000000..626df32
 +      b
 +def retrieveNeg(x: Bool) -> Bool:
 +  retrieve(Bool, Bool, neg, present(Bool, Bool, neg, x))
++
++# the fibre-contractibility witness (the discriminator's content) executed:
++# contrFib's path from the centre (neg y, refl) to w, observed at both ends.
++# The fibre of neg over y=True is {False}: both ends must be False.
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def contrNeg0() -> Bool:
++  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i0:
++    case (x, _):
++      x
++def contrNeg1() -> Bool:
++  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i1:
++    case (x, _):
++      x
 +def main() -> Bool:
 +  presentNeg(True)
 diff --git a/isprop.bend b/isprop.bend
@@ -1033,19 +1079,20 @@ index 939a19f..80c544c 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..eb78af4 100644
+index f94d1ce..c508b93 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,8 @@ module Core.CLI
+@@ -5,6 +5,9 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
 +  , processFileToHVM4
 +  , processFileToHVM4Raw
++  , processFileTotal
    , listDependencies
    ) where
  
-@@ -23,11 +25,14 @@ import Core.Collapse
+@@ -23,11 +26,14 @@ import Core.Collapse
  import Core.Deps
  import Core.Import (autoImport)
  import Core.Parse.Book (doParseBook)
@@ -1060,7 +1107,7 @@ index f94d1ce..eb78af4 100644
  
  -- | Parse a Bend file into a Book
  parseFile :: FilePath -> IO Book
-@@ -59,7 +64,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +65,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -1069,7 +1116,7 @@ index f94d1ce..eb78af4 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -123,6 +128,18 @@ processFileToHVM file = do
+@@ -123,6 +129,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -1088,11 +1135,30 @@ index f94d1ce..eb78af4 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
+@@ -139,3 +157,18 @@ collectAllRefs (Book defs) =
+   S.unions $ map collectRefsFromDefn (M.elems defs)
+   where
+     collectRefsFromDefn (_, term, typ) = S.union (getDeps term) (getDeps typ)
++
++-- | Gated mode: check everything, then refuse the file if any definition is
++-- [unchecked] by the totality classifier (structural descent / guarded
++-- corecursion are the only accepted shapes).
++processFileTotal :: FilePath -> IO ()
++processFileTotal file = do
++  book@(Book defs) <- parseFile file
++  checkDefinitions book
++  let bad = [ name | (name, (_, term, typ)) <- M.toList defs
++                   , Unchecked <- [rTot (analyze book name term typ)] ]
++  if null bad
++    then putStrLn "\x1b[32m--total: every definition is [total] or [productive]\x1b[0m"
++    else do
++      putStrLn $ "\x1b[31m--total: refused, [unchecked]: " ++ unwords bad ++ "\x1b[0m"
++      exitFailure
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..6f053ff 100644
+index cdd6756..87ac206 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
-@@ -127,6 +127,70 @@ infer d span book@(Book defs) ctx term =
+@@ -127,6 +127,73 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -1156,14 +1222,17 @@ index cdd6756..6f053ff 100644
 +      Fail $ CantInfer span (formatCtx d book ctx)
 +    PAp p r -> do
 +      check d span book ctx r Itv
-+      pT <- infer d span book ctx p
-+      case force book pT of
-+        Pth t a b -> Done (App t r)
-+        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Pth (Var "_" 0) (Var "_" 0) (Var "_" 0))) (format d book pT)
++      case cut p of
++        PLm _ f -> infer d span book ctx (f r)   -- beta: (<i> t) @ r
++        _ -> do
++          pT <- infer d span book ctx p
++          case force book pT of
++            Pth t a b -> Done (App t r)
++            _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Pth (Var "_" 0) (Var "_" 0) (Var "_" 0))) (format d book pT)
      App f x ->
        case f of
          Lam k body -> do
-@@ -294,6 +358,15 @@ check d span book ctx term goal =
+@@ -294,6 +361,15 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
@@ -1179,7 +1248,7 @@ index cdd6756..6f053ff 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -402,6 +475,9 @@ check d span book ctx term goal =
+@@ -402,6 +478,9 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
@@ -1189,7 +1258,7 @@ index cdd6756..6f053ff 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -435,6 +511,95 @@ check d span book ctx term goal =
+@@ -435,6 +514,99 @@ check d span book ctx term goal =
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -1203,7 +1272,7 @@ index cdd6756..6f053ff 100644
 +      let fs' = [ (force book (go p), go u) | (p,u) <- fs ] in
 +      case [ u | (I1, u) <- fs' ] of
 +        (u : _) -> go (PAp u I1)
-+        []      -> HCm (go a) fs' (go x)
++        []      -> HCm (go a) [ f | f@(p, _) <- fs', notI0 p ] (go x)
 +    PAp p r ->
 +      let p' = go p
 +          r' = go r
@@ -1245,6 +1314,10 @@ index cdd6756..6f053ff 100644
 +  Ref _   -> True
 +  _       -> False
 +
++notI0 :: Term -> Bool
++notI0 I0 = False
++notI0 _  = True
++
 +-- The endpoints of a var- or Ref-headed spine of path type.
 +spineEndpoints :: Int -> Book -> Ctx -> Term -> Maybe (Term, Term)
 +spineEndpoints d book ctx p = do
@@ -1285,7 +1358,7 @@ index cdd6756..6f053ff 100644
  -- Verify that a term has the expected type by inference
  verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
  verify d span book ctx term goal = do
-@@ -468,3 +633,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +640,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -1483,7 +1556,7 @@ index 31f1da3..957a3f3 100644
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..5886cd0 100644
+index 146a4d2..fb62482 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
 @@ -62,6 +62,17 @@ parseTermIni = choice
@@ -1495,7 +1568,7 @@ index 146a4d2..5886cd0 100644
 +  , parseCoe
 +  , parseUa
 +  , parseHCmN
-+
++  , parseHFill
 +  , parseHCm
 +  , parsePLm
 +  , parseItvKw
@@ -1514,7 +1587,7 @@ index 146a4d2..5886cd0 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1025,3 +1037,152 @@ doReadTerm input =
+@@ -1025,3 +1037,181 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -1571,6 +1644,35 @@ index 146a4d2..5886cd0 100644
 +  x <- parseTerm
 +  _ <- symbol ")"
 +  return (HCm a fs x)
++  where
++    facePair = do
++      _ <- symbol "("
++      f <- parseTerm
++      _ <- symbol ","
++      u <- parseTerm
++      _ <- symbol ")"
++      _ <- (symbol "," >> return ()) <|> return ()
++      return (f, u)
++
++-- | hfill(A, [(face, tube), ...], base) : the filler, a path from base to
++-- hcompN(A, [(face, tube), ...], base):
++--   <j> hcompN(A, [(face, <k> tube @ iand(j,k)), ..., (inot(j), <k> base)], base)
++parseHFill :: Parser Term
++parseHFill = label "hfill" $ do
++  _ <- try $ keyword "hfill" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ","
++  _ <- symbol "["
++  fs <- many facePair
++  _ <- symbol "]"
++  _ <- symbol ","
++  x <- parseTerm
++  _ <- symbol ")"
++  -- binders are resolved by NAME after parsing, so HOAS application cannot
++  -- substitute here; the tube is applied with PAp and the checker beta-
++  -- reduces `(<k> t) @ r` (Core.Check, PAp of a path lambda).
++  return $ PLm "hfill_j" $ \j ->
++    HCm a ([ (f, PLm "hfill_k" (\k -> PAp u (IAnd j k))) | (f, u) <- fs ] ++ [(INot j, PLm "hfill_k" (\_ -> x))]) x
 +  where
 +    facePair = do
 +      _ <- symbol "("
@@ -1882,10 +1984,10 @@ index a5d92e8..3c3249f 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..71ff3fe 100644
+index 953410d..ca95af5 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,238 @@ whnfGo lv book term =
+@@ -53,9 +53,240 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -1994,7 +2096,9 @@ index 953410d..71ff3fe 100644
 +  let fs' = [ (whnf lv book p, u) | (p, u) <- fs ]
 +  in case [ u | (I1, u) <- fs' ] of
 +       (u : _) -> whnf lv book (PAp u I1)   -- a face holds: the composite is that tube's cap
-+       []      -> HCm a fs' x
++       []      -> HCm a [ f | f@(p, _) <- fs', notI0 p ] x   -- false faces contribute nothing
++  where notI0 I0 = False
++        notI0 _  = True
 +
 +-- coe: generalized transport along a type line P from r to s.
 +whnfCoe :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
@@ -2124,7 +2228,7 @@ index 953410d..71ff3fe 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +630,41 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +632,41 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -2166,7 +2270,7 @@ index 953410d..71ff3fe 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +749,18 @@ normal d book term =
+@@ -485,6 +751,18 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -2186,10 +2290,29 @@ index 953410d..71ff3fe 100644
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..e27bf77 100644
+index 996bb26..6e3f7e2 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
-@@ -28,6 +28,11 @@ prelude = unlines [
+@@ -6,6 +6,7 @@ module Target.HVM where
+ 
+ import Control.Monad (forM)
+ import Core.Type
++import Core.WHNF (force)
+ import Data.Either (partitionEithers)
+ import Data.List (isInfixOf, unsnoc)
+ import Debug.Trace
+@@ -15,8 +16,8 @@ import qualified Data.Set as S
+ import qualified HVM.Type as HVM
+ 
+ compile :: Book -> String
+-compile (Book defs) =
+-  let ds       = map compileDef (M.toList defs)
++compile book@(Book defs) =
++  let ds       = map (compileDef book) (M.toList defs)
+       (ts, fs) = partitionEithers ds
+   in prelude ++ unlines ts ++ unlines fs
+ 
+@@ -28,6 +29,11 @@ prelude = unlines [
      "data Nat { #Z #S{n} }",
      "data Pair { #P{fst snd} }",
      "@fix(&f) = (f @fix(f))",
@@ -2201,10 +2324,194 @@ index 996bb26..e27bf77 100644
      "@main = @main$",
      "",
      "// Bend to HVM Compiler Output",
-@@ -202,11 +207,47 @@ termToHVM ctx tm = go tm where
+@@ -36,12 +42,12 @@ prelude = unlines [
+   ]
+ 
+ -- Compile a Bend function to an HVM definition
+-compileDef :: (Name, Defn) -> Either String String
+-compileDef (nam, (_, tm, ty)) 
++compileDef :: Book -> (Name, Defn) -> Either String String
++compileDef book (nam, (_, tm, ty)) 
+   -- TODO: Remove proof fields?
+   | (Just (_, ctrs)) <- extractTypeDef tm = Left (compileType nam ctrs)
+   -- TODO: Function arguments
+-  | otherwise = Right (compileFn nam tm)
++  | otherwise = Right (compileFn book nam tm)
+ 
+ compileType :: Name -> [(Name, [Name])] -> String
+ compileType nam ctrs = unlines $
+@@ -50,8 +56,8 @@ compileType nam ctrs = unlines $
+   ]
+   where compileCtr (nam, fds) = "#" ++ (hvmNam nam) ++ "{" ++ unwords fds ++ "}"
+ 
+-compileFn :: Name -> Term -> String
+-compileFn nam tm = "@" ++ (hvmNam nam) ++ " = " ++ HVM.showCore (termToHVM MS.empty tm)
++compileFn :: Book -> Name -> Term -> String
++compileFn book nam tm = "@" ++ (hvmNam nam) ++ " = " ++ HVM.showCore (termToHVM book MS.empty tm)
+ 
+ -- Extract constructor definition info from type definitions
+ extractTypeDef :: Term -> Maybe ([Name], [(Name, [Name])])
+@@ -81,8 +87,8 @@ extractTypeDef tm = do
+     subst a f = f (Var a 0)
+ 
+ 
+-termToHVM :: MS.Map Name HVM.Name -> Term -> HVM.Core
+-termToHVM ctx tm = go tm where
++termToHVM :: Book -> MS.Map Name HVM.Name -> Term -> HVM.Core
++termToHVM book ctx tm = go tm where
+   subst a f = f (Var a 0)
+ 
+   go (Var n i) =
+@@ -90,62 +96,62 @@ termToHVM ctx tm = go tm where
+       Just n  -> HVM.Var n
+       Nothing -> HVM.Var n
+   go (Ref k)      = HVM.Ref (hvmNam k) 0 [] -- TODO: Ref arguments
+-  go (Sub t)      = termToHVM ctx t
+-  go (Fix n f)    = HVM.Ref "fix" 0 [HVM.Lam ('&':n) (termToHVM (MS.insert n n ctx) (f (Var n 0)))]
+-  go (Let v f)    = HVM.App (termToHVM ctx f) (termToHVM ctx v)
++  go (Sub t)      = termToHVM book ctx t
++  go (Fix n f)    = HVM.Ref "fix" 0 [HVM.Lam ('&':n) (termToHVM book (MS.insert n n ctx) (f (Var n 0)))]
++  go (Let v f)    = HVM.App (termToHVM book ctx f) (termToHVM book ctx v)
+   go Set          = HVM.Era
+-  go (Chk v t)    = termToHVM ctx v
++  go (Chk v t)    = termToHVM book ctx v
+   go Emp          = HVM.Era
+   go (EmpM x)     = HVM.Era
+   go Uni          = HVM.Era
+   go One          = HVM.U32 1
+-  go (UniM x f)   = termToHVM ctx f
++  go (UniM x f)   = termToHVM book ctx f
+   go Bit          = HVM.Era
+   go Bt0          = HVM.U32 0
+   go Bt1          = HVM.U32 1
+-  go (BitM x f t) = HVM.Mat HVM.SWI (termToHVM ctx x) [] [("0", [], termToHVM ctx f), ("_", [], termToHVM ctx t)]
++  go (BitM x f t) = HVM.Mat HVM.SWI (termToHVM book ctx x) [] [("0", [], termToHVM book ctx f), ("_", [], termToHVM book ctx t)]
+   go Nat          = HVM.Era
+   go Zer          = HVM.Ctr "#Z" []
+-  go (Suc p)      = HVM.Ctr "#S" [termToHVM ctx p]
+-  go (NatM x z s) = HVM.Mat (HVM.MAT 0) (termToHVM ctx x) [] [("#Z", [], termToHVM ctx z), ("#S", [], termToHVM ctx s)]
++  go (Suc p)      = HVM.Ctr "#S" [termToHVM book ctx p]
++  go (NatM x z s) = HVM.Mat (HVM.MAT 0) (termToHVM book ctx x) [] [("#Z", [], termToHVM book ctx z), ("#S", [], termToHVM book ctx s)]
+   go (Lst t)      = HVM.Era
+   go Nil          = HVM.Ctr "#Nil" []
+-  go (Con h t)    = HVM.Ctr "#Cons" [termToHVM ctx h, termToHVM ctx t]
+-  go (LstM x n c) = HVM.Mat (HVM.MAT 0) (termToHVM ctx x) [] [("#Nil", [], termToHVM ctx n), ("#Cons", [], termToHVM ctx c)]
++  go (Con h t)    = HVM.Ctr "#Cons" [termToHVM book ctx h, termToHVM book ctx t]
++  go (LstM x n c) = HVM.Mat (HVM.MAT 0) (termToHVM book ctx x) [] [("#Nil", [], termToHVM book ctx n), ("#Cons", [], termToHVM book ctx c)]
+   go (Enu s)      = HVM.Era
+   go (Sym s)      = error "TODO: bare Sym toHVM"
+   go (EnuM x c e) = error "TODO: bare EnuM toHVM"
+-  go (Log s x)    = termToHVM ctx x  -- For HVM, just return the result expression
++  go (Log s x)    = termToHVM book ctx x  -- For HVM, just return the result expression
+   go (Num _)      = HVM.Era
+   go (Val (U64_V v)) = HVM.U32 (fromIntegral v)
+   go (Val (I64_V v)) = HVM.Era
+   go (Val (F64_V v)) = HVM.Era
+   go (Val (CHR_V c)) = HVM.Chr c
+   go (Op2 o a b)  = op2ToHVM o a b where
+-    op2ToHVM ADD a b = HVM.Op2 HVM.OP_ADD (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM SUB a b = HVM.Op2 HVM.OP_SUB (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM MUL a b = HVM.Op2 HVM.OP_MUL (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM DIV a b = HVM.Op2 HVM.OP_DIV (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM MOD a b = HVM.Op2 HVM.OP_MOD (termToHVM ctx a) (termToHVM ctx b)
++    op2ToHVM ADD a b = HVM.Op2 HVM.OP_ADD (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM SUB a b = HVM.Op2 HVM.OP_SUB (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM MUL a b = HVM.Op2 HVM.OP_MUL (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM DIV a b = HVM.Op2 HVM.OP_DIV (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM MOD a b = HVM.Op2 HVM.OP_MOD (termToHVM book ctx a) (termToHVM book ctx b)
+     op2ToHVM POW a b = error "TODO"
+-    op2ToHVM EQL a b = HVM.Op2 HVM.OP_EQ  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM NEQ a b = HVM.Op2 HVM.OP_NE  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM LST a b = HVM.Op2 HVM.OP_LT  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM GRT a b = HVM.Op2 HVM.OP_GT  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM LEQ a b = HVM.Op2 HVM.OP_LTE (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM GEQ a b = HVM.Op2 HVM.OP_GTE (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM AND a b = HVM.Op2 HVM.OP_AND (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM OR  a b = HVM.Op2 HVM.OP_OR  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM XOR a b = HVM.Op2 HVM.OP_XOR (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM SHL a b = HVM.Op2 HVM.OP_LSH (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM SHR a b = HVM.Op2 HVM.OP_RSH (termToHVM ctx a) (termToHVM ctx b)
++    op2ToHVM EQL a b = HVM.Op2 HVM.OP_EQ  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM NEQ a b = HVM.Op2 HVM.OP_NE  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM LST a b = HVM.Op2 HVM.OP_LT  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM GRT a b = HVM.Op2 HVM.OP_GT  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM LEQ a b = HVM.Op2 HVM.OP_LTE (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM GEQ a b = HVM.Op2 HVM.OP_GTE (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM AND a b = HVM.Op2 HVM.OP_AND (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM OR  a b = HVM.Op2 HVM.OP_OR  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM XOR a b = HVM.Op2 HVM.OP_XOR (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM SHL a b = HVM.Op2 HVM.OP_LSH (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM SHR a b = HVM.Op2 HVM.OP_RSH (termToHVM book ctx a) (termToHVM book ctx b)
+   go (Op1 o a)    = op1ToHVM o a where
+     op1ToHVM NOT = error "TODO"
+     op1ToHVM NEG = error "TODO"
+   go (Sig _ _)    = HVM.Era
+   go (Tup x y) = case extractCtr x y of
+-      Just (k, x) -> HVM.Ctr ('#':hvmNam k) (map (termToHVM ctx) x)
+-      Nothing     -> HVM.Ctr "#P" [termToHVM ctx x, termToHVM ctx y]
++      Just (k, x) -> HVM.Ctr ('#':hvmNam k) (map (termToHVM book ctx) x)
++      Nothing     -> HVM.Ctr "#P" [termToHVM book ctx x, termToHVM book ctx y]
+     where 
+       extractCtr (Sym k) y = 
+         case unsnoc (flattenTup y) of
+@@ -153,8 +159,8 @@ termToHVM ctx tm = go tm where
+           _              -> Nothing
+       extractCtr _ _ = Nothing
+   go (SigM x f)  = case extractCtrM f of
+-      Just (cs,t,b,d) -> HVM.Let HVM.LAZY t (termToHVM ctx x) (matToHVM ctx t b cs d) -- TODO: Default case should rewrite (ctrNam, ctrBod) to the default case var
+-      Nothing         -> HVM.Mat (HVM.MAT 0) (termToHVM ctx x) [] [("#P", [], termToHVM ctx f)]
++      Just (cs,t,b,d) -> HVM.Let HVM.LAZY t (termToHVM book ctx x) (matToHVM ctx t b cs d) -- TODO: Default case should rewrite (ctrNam, ctrBod) to the default case var
++      Nothing         -> HVM.Mat (HVM.MAT 0) (termToHVM book ctx x) [] [("#P", [], termToHVM book ctx f)]
+     where
+       extractCtrM :: Term -> Maybe ([(Name, [Name], Term)], Name, Name, Term)
+       extractCtrM (Lam a (subst a -> Lam bodK (subst bodK -> EnuM (Var x _) cs (Lam tagK (subst tagK -> dflt))))) =
+@@ -173,40 +179,81 @@ termToHVM ctx tm = go tm where
+       flattenCtrM _ _ _ = Nothing
+ 
+       matToHVM :: MS.Map Name HVM.Name -> Name -> Name -> [(Name, [Name], Term)] -> Term -> HVM.Core
+-      matToHVM ctx t b [(ctr,fds,bod)]    d = mkIfl t ctr (termToHVM ctx bod) fds d' -- Make dflt case match entire ctr, not just the tag
+-                                     where d' = (rewriteHVM (HVM.Ctr "#P" [HVM.Var t, HVM.Var b]) (HVM.Var t) (termToHVM ctx d))
+-      matToHVM ctx t b ((ctr,fds,bod):cs) d = mkIfl t ctr (termToHVM ctx bod) fds (matToHVM ctx t b cs d)
++      matToHVM ctx t b [(ctr,fds,bod)]    d = mkIfl t ctr (termToHVM book ctx bod) fds d' -- Make dflt case match entire ctr, not just the tag
++                                     where d' = (rewriteHVM (HVM.Ctr "#P" [HVM.Var t, HVM.Var b]) (HVM.Var t) (termToHVM book ctx d))
++      matToHVM ctx t b ((ctr,fds,bod):cs) d = mkIfl t ctr (termToHVM book ctx bod) fds (matToHVM ctx t b cs d)
+       matToHVM _ _ _ _ _ = error "matToHVM: unreachable"
+ 
+       mkIfl x ctr bod fds d = HVM.Mat (HVM.IFL 0) (HVM.Var x) [] [('#':hvmNam ctr, [], foldr HVM.Lam bod (map ('&':) (reverse fds))), (('&':x), [], d)]
+   go (All _ _)    = HVM.Era
+-  go (Lam n f)    = HVM.Lam ('&':n) (termToHVM (MS.insert n n ctx) (f (Var n 0)))
+-  go (App f x)    = HVM.App (termToHVM ctx f) (termToHVM ctx x)
++  go (Lam n f)    = HVM.Lam ('&':n) (termToHVM book (MS.insert n n ctx) (f (Var n 0)))
++  go (App f x)    = HVM.App (termToHVM book ctx f) (termToHVM book ctx x)
+   go (Eql _ _ _)  = HVM.Era
+   go Rfl          = HVM.Era
+-  go (EqlM x f)   = termToHVM ctx f
++  go (EqlM x f)   = termToHVM book ctx f
+   go (Met n t ts) = HVM.Era -- TODO: Met
+-  go (Ind t)      = termToHVM ctx t
+-  go (Frz t)      = termToHVM ctx t
++  go (Ind t)      = termToHVM book ctx t
++  go (Frz t)      = termToHVM book ctx t
+   go Era          = HVM.Era
+-  go (Sup l a b)  = HVM.Ref "SUP" 0 [termToHVM ctx l, termToHVM ctx a, termToHVM ctx b]
+-  go (SupM x l f) = HVM.Ref "DUP" 0 [termToHVM ctx l, termToHVM ctx x, termToHVM ctx f]
++  go (Sup l a b)  = HVM.Ref "SUP" 0 [termToHVM book ctx l, termToHVM book ctx a, termToHVM book ctx b]
++  go (SupM x l f) = HVM.Ref "DUP" 0 [termToHVM book ctx l, termToHVM book ctx x, termToHVM book ctx f]
+   go (Frk l a b)  = tmLab where
+     -- Only fork variables free in the bodies of a and b
+-    tmLab             = HVM.Let HVM.STRI "&L$" (termToHVM ctx l) tmDup 
++    tmLab             = HVM.Let HVM.STRI "&L$" (termToHVM book ctx l) tmDup 
+     tmDup             = foldr dup tmSup vars
+-    tmSup             = HVM.Ref "SUP" 0 [HVM.Var "L$", termToHVM ctxA a, termToHVM ctxB b]
++    tmSup             = HVM.Ref "SUP" 0 [HVM.Var "L$", termToHVM book ctxA a, termToHVM book ctxB b]
+     dup (_,v,(a,b)) x = HVM.Ref "DUP" 0 [HVM.Var "L$", HVM.Var v, HVM.Lam ('&':a) (HVM.Lam ('&':b) x)]
+     vars              = [(k, v, (suff v "0", suff v "1")) | (k, v) <- MS.toList ctx, k `S.member` free]
+     free              = freeVars S.empty a `S.union` freeVars S.empty b
      suff v s          = if "$$" `isInfixOf` v then v ++ s else v ++ "$$" ++ s
      ctxA              = MS.fromList [(k, a) | (k, _, (a, _)) <- vars]
      ctxB              = MS.fromList [(k, b) | (k, _, (_, b)) <- vars]
+-  go (Loc s t)    = termToHVM ctx t
+-  go (Rwt _ _ x)  = termToHVM ctx x
 +  -- cubical layer (faithful: transport is applied, never erased)
 +  go Itv          = HVM.Era
 +  go I0           = HVM.Era
@@ -2213,17 +2520,22 @@ index 996bb26..e27bf77 100644
 +  go (IAnd _ _)   = HVM.Era
 +  go (IOr _ _)    = HVM.Era
 +  go (Pth _ _ _)  = HVM.Era
-+  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else termToHVM ctx b
-+  go (PAp p _)    = termToHVM ctx p
-+  go (HCm _ _ x)  = termToHVM ctx x
-+  go (Ua _ _ f g _ _) = HVM.Lam "&k" (HVM.App (HVM.App (HVM.Var "k") (termToHVM ctx f)) (termToHVM ctx g))
++  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else termToHVM book ctx b
++  -- a literal endpoint is resolved before erasure (p @ i1 of an hcomp is
++  -- the tube top, not the cap)
++  go (PAp p r)    = case cut r of
++      I0 -> termToHVM book ctx (force book (PAp p r))
++      I1 -> termToHVM book ctx (force book (PAp p r))
++      _  -> termToHVM book ctx p
++  go (HCm _ _ x)  = termToHVM book ctx x
++  go (Ua _ _ f g _ _) = HVM.Lam "&k" (HVM.App (HVM.App (HVM.Var "k") (termToHVM book ctx f)) (termToHVM book ctx g))
 +  go (Coe pP r s x) = case pathLineHead pP of
 +      Just pth -> case (cut r, cut s) of
-+        (I1, I0) -> HVM.App (HVM.App (HVM.Ref "cub_pathBwd" 0 []) (termToHVM ctx pth)) (termToHVM ctx x)
-+        _        -> HVM.App (HVM.App (HVM.Ref "cub_pathFwd" 0 []) (termToHVM ctx pth)) (termToHVM ctx x)
-+      Nothing  -> termToHVM ctx x
-   go (Loc s t)    = termToHVM ctx t
-   go (Rwt _ _ x)  = termToHVM ctx x
++        (I1, I0) -> HVM.App (HVM.App (HVM.Ref "cub_pathBwd" 0 []) (termToHVM book ctx pth)) (termToHVM book ctx x)
++        _        -> HVM.App (HVM.App (HVM.Ref "cub_pathFwd" 0 []) (termToHVM book ctx pth)) (termToHVM book ctx x)
++      Nothing  -> termToHVM book ctx x
++  go (Loc s t)    = termToHVM book ctx t
++  go (Rwt _ _ x)  = termToHVM book ctx x
    go (Pri p)      = HVM.Era
    go (Pat x m c)  = HVM.Era
  
@@ -2251,10 +2563,10 @@ index 996bb26..e27bf77 100644
  
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..585aed9
+index 0000000..2bfb1eb
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,183 @@
+@@ -0,0 +1,188 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -2275,7 +2587,7 @@ index 0000000..585aed9
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (normal)
++import Core.WHNF (normal, force)
 +
 +compile :: Book -> String
 +compile book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
@@ -2370,7 +2682,12 @@ index 0000000..585aed9
 +
 +    -- cubical: paths pass through content, interval arg erased; types erase
 +    PLm _ f        -> let b = f Era in if isTypeLine b then "@cub_idPath" else go d b
-+    PAp p _        -> go d p
++    -- a literal endpoint is resolved before erasure: `p @ i1` where p is a
++    -- path lambda / hcomp must yield the tube top, never the erased body.
++    PAp p r        -> case cut r of
++                        I0 -> go d (force book (PAp p r))
++                        I1 -> go d (force book (PAp p r))
++                        _  -> go d p
 +    Coe pP r s x   -> case pathLineHead pP of
 +                        -- coe along a universe path `<i> P @ i`: run the
 +                        -- path's forward transport (its runtime rep) on x.
