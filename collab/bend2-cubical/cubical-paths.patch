@@ -3440,10 +3440,10 @@ index 0000000..cbf1493
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..339ea7b
+index 0000000..e400c3c
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,205 @@
+@@ -0,0 +1,254 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -3468,7 +3468,23 @@ index 0000000..339ea7b
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (coeMarker, occursMarker, substMarker)
++import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep)
++import Data.IORef
++import System.IO.Unsafe (unsafePerformIO)
++
++-- Every binder gets a globally unique name: HVM4 derives the clone label of a
++-- `λ&x` from the binder, so two different lambdas sharing a name (e.g. both
++-- named by depth) would share a label and their dups would annihilate
++-- instead of commuting. Names must be unique per binder occurrence.
++{-# NOINLINE binderCounter #-}
++binderCounter :: IORef Int
++binderCounter = unsafePerformIO (newIORef 0)
++
++{-# NOINLINE freshName #-}
++freshName :: Int -> String
++freshName d = unsafePerformIO $ do
++  n <- atomicModifyIORef' binderCounter (\n -> (n + 1, n))
++  return ("b" ++ show d ++ "u" ++ show n)
 +
 +compileFull :: Book -> String
 +compileFull book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
@@ -3493,7 +3509,7 @@ index 0000000..339ea7b
 +  , "// ---- hcomp: faces = #Nil | #Cons{#Face{phi, tube}, rest}; stuck faces are kept"
 +  , "@hcomp = λA. λfs. λbase. @hcompGo(A, fs, base, #Nil)"
 +  , "@hcompGo = λ&A. λ{"
-+  , "  #Nil: λ&base. λ{#Nil: base; λstuck. #HCm{A, stuck, base}};"
++  , "  #Nil: λ&base. λ{#Nil: base; λ&stuck. (λ{#Set: #Glue{base, @setFaces(stuck)}; λA2. #HCm{A2, stuck, base}})(A)};"
 +  , "  #Cons: λ{#Face: λphi. λ&tube. λ&rest. λ&base. λ&stuck. (λ{"
 +  , "    #I1: @pathAt(tube, #I1);"
 +  , "    #I0: @hcompGo(A, rest, base, stuck);"
@@ -3501,19 +3517,49 @@ index 0000000..339ea7b
 +  , "// ---- Glue (boundary rules only, as in the checker): a true face selects its partial type / section"
 +  , "@glueT = λ&A. λfs. @glueTGo(A, fs, #Nil)"
 +  , "@glueTGo = λ&A. λ{"
-+  , "  #Nil: λ{#Nil: A; λstuck. #Glue{A, stuck}};"
-+  , "  #Cons: λ{#GFace: λphi. λ&T. λ&e. λ&rest. λ&stuck. (λ{"
-+  , "    #I1: T;"
-+  , "    #I0: @glueTGo(A, rest, stuck);"
-+  , "    λp. @glueTGo(A, rest, #Cons{#GFace{p, T, e}, stuck})})(phi)}}"
++  , "  #Nil: λ{#Nil: A; λlive. #Glue{A, live}};"
++  , "  #Cons: λ{#GFace: λphi. λ&T. λ&e. λ&rest. λ&live. (λ{"
++  , "    #I0: @glueTGo(A, rest, live);"
++  , "    λp. @glueTGo(A, rest, #Cons{#GFace{p, T, e}, live})})(phi)}}"
++  , "@glueA = λ{#Glue: λA. λfs. A; λA. A}"
++  , "@glueFs = λ{#Glue: λA. λfs. fs; λA. #Nil}"
++  , "// coherent equivalence e = #Pair{f, h}: function, inverse (fibre centre), section path"
++  , "@eFun = λ{#Pair: λf. λh. f}"
++  , "@eInv = λ{#Pair: λf. λh. λy. (λ{#Pair: λcen. λc. (λ{#Pair: λx. λp. x})(cen)})(h(y))}"
++  , "@eSec = λ{#Pair: λf. λh. λy. (λ{#Pair: λcen. λc. (λ{#Pair: λx. λp. p})(cen)})(h(y))}"
++  , "// transport through Glue: faces at r and s read off L(r), L(s)"
++  , "// the faces are read off the line at the MARKER and instantiated at r / s by"
++  , "// interval substitution (re-evaluating L at a literal endpoint would let a"
++  , "// true face collapse the Glue to its partial type and lose the faces)"
++  , "@coeGlue = λ&L. λ&r. λ&s. λ&x. λfs0."
++  , "  ! &{fsA, fsB} = fs0;"
++  , "  ! &{a1x, a1y} = @coe(λi. @glueA(L(i)), r, s, @gUnglue(@facesAt(fsA, r), x));"
++  , "  ! &{a1u, a1v} = a1x;"
++  , "  ! &{fsS, fsS2} = @facesAt(fsB, s);"
++  , "  ! &{aSu, aSv} = @glueA(L(s));"
++  , "  @glue(aSu, @gT1(fsS, a1y), @hcomp(aSv, @gTubes(fsS2, a1u), a1v))"
++  , "@substI = λ&s. λ{#IMark: s; #I0: #I0; #I1: #I1; #INot: λa. @inot(@substI(s, a)); #IAnd: λa. λb. @iand(@substI(s, a), @substI(s, b)); #IOr: λa. λb. @ior(@substI(s, a), @substI(s, b)); λv. v}"
++  , "@facesAt = λ{#Nil: λs. #Nil; #Cons: λ{#GFace: λphi. λT. λe. λ&rest. λ&s. (λ{#I0: @facesAt(rest, s); λp. #Cons{#GFace{p, T, e}, @facesAt(rest, s)}})(@substI(s, phi))}}"
++  , "// unglue at r: a true face gives fst(e) x; symbolic faces unglue the glue value; no faces: x"
++  , "@gUnglue = λ{#Nil: λx. x; #Cons: λ{#GFace: λphi. λT. λ&e. λ&rest. λ&x. (λ{#I1: @eFun(e)(x); λp. @gUngS(rest, x)})(phi)}}"
++  , "@gUngS = λ{#Nil: λx. @unglue(x); #Cons: λ{#GFace: λphi. λT. λ&e. λ&rest. λ&x. (λ{#I1: @eFun(e)(x); λp. @gUngS(rest, x)})(phi)}}"
++  , "@gT1 = λ{#Nil: λa. #Nil; #Cons: λ{#GFace: λphi. λT. λ&e. λ&rest. λ&a. #Cons{#Face{phi, @eInv(e)(a)}, @gT1(rest, a)}}}"
++  , "@gTubes = λ{#Nil: λa. #Nil; #Cons: λ{#GFace: λphi. λT. λ&e. λ&rest. λ&a. #Cons{#Face{phi, #PLm{λj. @pathAt(@eSec(e)(@eInv(e)(a)), @inot(j))}}, @gTubes(rest, a)}}}"
++  , "// hcomp in the universe: Glue over the base with the transport equivalences of the tubes"
++  , "@isContrT = λ&c. #Sig{c, λ&cen. #Pi{c, λw. #Path{λi. c, cen, w}}}"
++  , "@fiberT = λ&T. λ&A. λ&f. λ&y. #Sig{T, λx. #Path{λi. A, f(x), y}}"
++  , "@equivT = λ&T. λ&A. #Sig{#Pi{T, λx. A}, λ&f. #Pi{A, λy. @isContrT(@fiberT(T, A, f, y))}}"
++  , "@idEquivV = λ&a. #Pair{λx. x, λ&y. #Pair{#Pair{y, #PLm{λi. y}}, λ{#Pair: λx. λ&p. #PLm{λ&i. #Pair{@pathAt(p, @inot(i)), #PLm{λj. @pathAt(p, @ior(@inot(i), j))}}}}}}"
++  , "@transpEquiv = λ&u. ! &{top, top2} = @pathAt(u, #I1); @coe(λ&k. @equivT(top, @pathAt(u, @inot(k))), #I0, #I1, @idEquivV(top2))"
++  , "@setFaces = λ{#Nil: #Nil; #Cons: λ{#Face: λphi. λ&u. λrest. #Cons{#GFace{phi, @pathAt(u, #I1), @transpEquiv(u)}, @setFaces(rest)}}}"
 +  , "@glue = λ&A. λfs. λ&x. @glueGo(A, fs, x, #Nil)"
 +  , "@glueGo = λ&A. λ{"
-+  , "  #Nil: λ&x. λ{#Nil: #GlB{A, #Nil, x}; λstuck. #GlB{A, stuck, x}};"
++  , "  #Nil: λ&x. λ{#Nil: x; λstuck. #GlB{A, stuck, x}};"
 +  , "  #Cons: λ{#Face: λphi. λ&t. λ&rest. λ&x. λ&stuck. (λ{"
 +  , "    #I1: t;"
 +  , "    #I0: @glueGo(A, rest, x, stuck);"
 +  , "    λp. @glueGo(A, rest, x, #Cons{#Face{p, t}, stuck})})(phi)}}"
-+  , "@unglue = λ{#GlB: λA. λfs. λx. x; λg. #StuckUnglue{g}}"
++  , "@unglue = λ{#GlB: λA. λfs. λx. x; λg. g}"
 +  , "// ---- coe: transport x along the type line L from r to s"
 +  , "@coe = λ&L. λ&r. λ&s. λ&x. (λ{1: x; λn. @coeT(L, r, s, x, L(#IMark))})(@sameEnd(r, s))"
 +  , "@piA = λ{#Pi: λA. λB. A; λt. #StuckDom{t}}"
@@ -3529,12 +3575,15 @@ index 0000000..339ea7b
 +  , "  #Sig: λA0. λB0. (λ{#Pair: λ&a. λb. #Pair{@coe(λj. @sgA(L(j)), r, s, a), @coe(λ&i. @sgB(L(i), @coe(λj. @sgA(L(j)), r, i, a)), r, s, b)}})(x);"
 +  , "  #Path: λA0. λu0. λv0. #PLm{λj. @hcomp(@ptA(L(s)), #Cons{#Face{@inot(s), #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptU(L(k)))}}, #Cons{#Face{s, #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptV(L(k)))}}, #Nil}}, @coe(λi. @ptA(L(i)), r, s, @pathAt(x, j)))};"
 +  , "  #At: λp. λi. @coeAt(p, i, r, s, x);"
++  , "  #Glue: λA0. λfs0. @coeGlue(L, r, s, x, fs0);"
 +  , "  λt. #StuckCoe{t, x}}"
 +  , "// coe along a universe path applied at the symbolic marker (or its negation)"
-+  , "@coeAt = λ&p. λ{#IMark: λr. λs. λx. @coeU(p, @fwd(r, s), x); #INot: λ{#IMark: λr. λs. λx. @coeU(p, (1 - @fwd(r, s)), x); λi. λr. λs. λx. #StuckCoe{#At{p, #INot{i}}, x}}; λi. λr. λs. λx. #StuckCoe{#At{p, i}, x}}"
++  , "// direction of literal endpoints: 1 fwd, 0 bwd, 2 symbolic (stuck)"
++  , "@dir = λ{#I0: λ{#I1: 1; λs. 2}; #I1: λ{#I0: 0; λs. 2}; λr. λs. 2}"
++  , "@coeAt = λ&p. λ{#IMark: λr. λs. λx. @coeU(p, @dir(r, s), x); #INot: λ{#IMark: λr. λs. λx. @coeU(p, (1 - @dir(r, s)), x); λi. λr. λs. λx. #StuckCoe{#At{p, #INot{i}}, x}}; λi. λr. λs. λx. #StuckCoe{#At{p, i}, x}}"
 +  , "@coeU = λ{"
-+  , "  #UaU: λA. λB. λ&f. λ&g. λd. λ&x. (λ{1: f(x); λn. g(x)})(d);"
-+  , "  #CompU: λ&P. λ&Q. λ&d. λ&x. (λ{1: @coe(Q, #I0, #I1, @coe(P, #I0, #I1, x)); λn. @coe(P, #I1, #I0, @coe(Q, #I1, #I0, x))})(d);"
++  , "  #UaU: λ&A. λ&B. λ&f. λ&g. λd. λ&x. (λ{1: f(x); 0: g(x); λn. #StuckCoeU{#UaU{A, B, f, g}, x}})(d);"
++  , "  #CompU: λ&P. λ&Q. λ&d. λ&x. (λ{1: @coe(Q, #I0, #I1, @coe(P, #I0, #I1, x)); 0: @coe(P, #I1, #I0, @coe(Q, #I1, #I0, x)); λn. #StuckCoeU{#CompU{P, Q}, x}})(d);"
 +  , "  λv. λd. λx. #StuckCoeU{v, x}}"
 +  , "" ]
 +
@@ -3545,16 +3594,16 @@ index 0000000..339ea7b
 +emitFull book t0 = go 0 t0 where
 +  go :: Int -> Term -> String
 +  go d t = case t of
-+    Var _ i        -> if i < 0 then "#IMark" else "b" ++ show i
++    Var n i        -> if i < 0 then "#IMark" else n
 +    Ref k          -> "@" ++ hvmName k
 +    Sub x          -> go d x
 +    Loc _ x        -> go d x
 +    Chk x _        -> go d x
 +    Ind x          -> go d x
 +    Frz x          -> go d x
-+    Fix k f        -> "!b" ++ show d ++ "&F = " ++ go (d+1) (f (Var k d)) ++ "; b" ++ show d
++    Fix k f        -> let n = freshName d in "!" ++ n ++ "&F = " ++ go (d+1) (f (Var n d)) ++ "; " ++ n
 +    Let v f        -> "(" ++ go d f ++ " " ++ go d v ++ ")"
-+    Lam k f        -> "λ&b" ++ show d ++ ". " ++ go (d+1) (f (Var k d))
++    Lam k f        -> let n = freshName d in "λ&" ++ n ++ ". " ++ go (d+1) (f (Var n d))
 +    App f x        -> appFun d f ++ "(" ++ go d x ++ ")"
 +    -- data
 +    Zer            -> "#Zer"
@@ -3570,7 +3619,7 @@ index 0000000..339ea7b
 +    Sym s          -> "#" ++ s
 +    Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    Rfl            -> "#Refl"
-+    BitM x f tr    -> "λ{0: " ++ go d f ++ "; _: λ&b" ++ show d ++ ". " ++ go (d+1) tr ++ "}(" ++ go d x ++ ")"
++    BitM x f tr    -> "λ{0: " ++ go d f ++ "; _: λ&" ++ freshName d ++ ". " ++ go (d+1) tr ++ "}(" ++ go d x ++ ")"
 +    NatM x z s     -> "λ{#Zer: " ++ go d z ++ "; #Suc: " ++ go d s ++ "}(" ++ go d x ++ ")"
 +    LstM x n c     -> "λ{#Nil: " ++ go d n ++ "; #Con: " ++ go d c ++ "}(" ++ go d x ++ ")"
 +    UniM x f       -> "λ{#One: " ++ go d f ++ "}(" ++ go d x ++ ")"
@@ -3578,7 +3627,7 @@ index 0000000..339ea7b
 +    EqlM x f       -> "λ{#Refl: " ++ go d f ++ "}(" ++ go d x ++ ")"
 +    EmpM x         -> "λ{}(" ++ go d x ++ ")"
 +    EnuM x cs df   -> "λ{" ++ intercalate "; " (map (\(sy,b) -> "#" ++ sy ++ ": " ++ go d b) cs)
-+                       ++ "; _: λ&b" ++ show d ++ ". " ++ go (d+1) df ++ "}(" ++ go d x ++ ")"
++                       ++ "; _: λ&" ++ freshName d ++ ". " ++ go (d+1) df ++ "}(" ++ go d x ++ ")"
 +    Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
 +    Op1 _ a        -> go d a
 +    Log _ x        -> go d x
@@ -3605,7 +3654,7 @@ index 0000000..339ea7b
 +    -- other path lambda is a runtime function of a runtime interval
 +    PLm k f        -> case compLine (f coeMarker) of
 +                        Just (p, q) -> "#CompU{" ++ go d (Lam "i" (\i -> substMarker i p)) ++ ", " ++ go d (Lam "i" (\i -> PAp q i)) ++ "}"
-+                        Nothing     -> "#PLm{λ&b" ++ show d ++ ". " ++ go (d+1) (f (Var k d)) ++ "}"
++                        Nothing     -> let n = freshName d in "#PLm{λ&" ++ n ++ ". " ++ go (d+1) (f (Var n d)) ++ "}"
 +    PAp p r        -> "@pathAt(" ++ go d p ++ ", " ++ go d r ++ ")"
 +    Coe pP r s x   -> "@coe(" ++ go d pP ++ ", " ++ go d r ++ ", " ++ go d s ++ ", " ++ go d x ++ ")"
 +    HCm a fs x     -> "@hcomp(" ++ go d a ++ ", " ++ faces d fs ++ ", " ++ go d x ++ ")"
@@ -3636,7 +3685,7 @@ index 0000000..339ea7b
 +    _ -> Nothing
 +  isMark p = case cut p of { Var "__coe_i__" (-1) -> True; _ -> False }
 +  constTube u = case cut u of
-+    PLm _ f -> not (occursMarker (f (Var "_" (-9))))
++    PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
 +    _       -> False
 +
 +  label (Loc _ t)       = label t

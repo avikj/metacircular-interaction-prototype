@@ -29,7 +29,8 @@ dropped in `whnfHCm`, emitters resolving literal endpoints before erasure.
 
 Erased targets (`--to-hvm4`, `--to-hvm4-raw`, `--to-hvm`) are kept as cost
 comparison points; the full runtime is `--to-hvm4-full`. In the checker/normaliser nothing cubical is stuck any more (Glue Kan rules
-in). On the full runtime the Glue rules are boundary-only so far (next step).
+in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
+`hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
 Suite on the final binary: 28 `.bend` files, 0 ✗ except the three deliberate
 must-fails; stock `examples/` 2/2.

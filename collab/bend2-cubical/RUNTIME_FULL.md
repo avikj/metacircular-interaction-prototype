@@ -46,9 +46,38 @@ a stuck composition carrying its faces; the same term at `#I0` is `#Zer`, at
 paths as Church pairs) and `--to-hvm` (HVM3) remain, so the cost of erasure vs
 runtime can be read side by side (e.g. `viaNeg3`: 31 itrs erased, 1106 full).
 
+## Kan rules on the runtime (later session)
+
+`@coe` on a `#Glue{A, faces}` line (`@coeGlue`) and `@hcomp` at `#Set`
+(`#Glue` over the base with `@transpEquiv` of each tube — pathToEquiv computed
+by the runtime `@coe` through Σ/Π/Path type data) mirror the checker's rules.
+Faces are read off the line at the marker and instantiated at `r`/`s` by
+interval substitution (`@substI`), since re-evaluating the line at a literal
+endpoint lets a true face collapse the Glue to its partial type. Verified:
+
+| program | result | itrs |
+|---|---|---|
+| `uaglue.bend` `viaGlue True/False` (ua derived from Glue) | 0 / 1 | 797 / 789 |
+| `viaGlueBwd True/False` | 0 / 1 | 811 / 802 |
+| `hcompset.bend` `viaSq(i0)` (2-dim universe composition; equivalence computed on the net) | 0 | 1935 |
+| `viaSq(i1)` | 0 | 147 |
+| `viaTwist True/False` (non-constant base line) | 1 / 0 | 587 / 589 |
+| whole earlier matrix (chain, fibre law, contraction, superposed line) | unchanged | — |
+
+A glue value with no live faces is its base; a Glue type keeps its faces
+(types are consumed only by `@coe`). Binders now get globally unique names.
+
 ## Not runtime yet / caveats
 
-- `hcomp` in `Set` outside the composite shape stays stuck data (no `Glue`).
+- `coe` to a *symbolic* endpoint stays stuck (`@dir` = 2); the runtime
+  `pathToEquiv` therefore carries stuck proof components, but the function
+  and the fibre centre (inverse) compute, which is what transport needs.
+- `isprop_run.bend` (Unit instance of `isPropIsContr` written with a Unit
+  `match`) runs at corner `(i1,i1)` on HVM4 but leaves residual DUP nodes at
+  the other corners; the same file with `lambda x. <_> ()` (not accepted by
+  the checker — Unit has no η) ran at every corner, and the same 4-face
+  composition runs inside `contrNeg0/1`. Minimal reproduction not isolated;
+  it is an HVM4 duplication issue in the emitted term, not a semantics gap.
 - Dependent Π/Σ lines go through the generic `@coe`. Over a varying base the
   family receives a transport **to a symbolic endpoint** (`coe r→i`), which
   this prelude leaves stuck (`#StuckCoe`); a family that does not inspect it
