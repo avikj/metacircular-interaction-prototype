@@ -82,6 +82,17 @@ arity), then negations (`¬_`), sorts, and the arithmetic/boolean/equivalence
 carriers — exactly what a cubical-Agda mathematics corpus should look like when
 it observes itself.
 
+## Realization families (`--loci`), bounded sample
+
+The O(n²) readout is demonstrated on a 45-module slice: **370 Agda-accepted
+realizations** across **34 meaning-loci** (singleton recovery engaged for one
+zero-row chunk, +35), memory-safe, exit 0. Each row is a generator applied to a
+candidate that actually type-checks, keyed by the normalized result-type head —
+e.g. large families landing in `Sort`, `Σ`, `PathP`, `⊥`, and local carriers
+like `KramaAstiNasti_….Any`. This is the factored presentation hekefw's
+string-row readout does not carry; it scales the same way (bound it with
+`--limit`, or raise `--par`/lower `--chunksz` for the full run).
+
 ## Machine-limit exclusions (named, not judged)
 
 `RamanujanLehmer_…` (the τ gate) and its importer `RamanujanSiddhanta_…`
