@@ -63,3 +63,31 @@ is the general form. Differences from the first `HCmN` version:
 Verified (this session): `isprop.bend` 3✓, `hcompfaces.bend` 4✓, all prior
 files unchanged (39/11/10/12/8/7/9/11/2/3/2/7 ✓, 0 ✗), `uaRoundTrip` still
 correctly fails at the raw-Iso level.
+
+## Reverse univalence round trip — CLOSED (`uaequiv.bend`, 17✓ 0✗)
+
+`uaEquivRoundTrip : Path(Equiv(A,B), pathToEquiv(A,B, uaE(A,B,e)), e)` checks,
+at the coherent (contractible-fibre) level, for an arbitrary `e : Equiv(A,B)`.
+
+Proof shape: `<i> (f, isPropIsEquiv(A,B,f, sndE(pathToEquiv(uaE(f,h))), h) @ i)`.
+The first component is `f` on the nose (uaβ + regularity on the constant
+`A`-line, then λ-η: the transported function is `λx. f(x)`); the second is the
+prop-filler on `isEquiv` (`isPropIsEquiv` = pointwise `isPropIsContr`, the
+4-face `hcompN`).
+
+Two checker gaps had to close for it:
+
+- **Ref-headed endpoints** (`spineType`, `Ref` case — same hunk as
+  REF_ENDPOINTS.md): `isPropIsContr(_,h0 y,h1 y) @ i0 ≡ h0 y`.
+- **`epNormCtx` traverses `SigM`** (`~x{(,):f}`), so the endpoint of
+  `match contr((x,<_>f x)) @ i0 {(z,_): z}` reduces through the match to
+  `match cen {(z,_): z}` and meets `invC(...)(cen,contr)` — this is `retC`,
+  the retraction read off the contractible fibre.
+
+`uaE` builds the path from the coherent data via `invC/secC/retC` (the
+inverse, section and retraction extracted from `isContr(fiber f y)`), so no
+raw `Iso` is assumed; `uaroundtrip.bend`'s raw-Iso reverse trip still ✗, as
+it must.
+
+Note: `equiv.bend` carries a *probe* `isPropIsContr` written with the binary
+`hcomp` (its comment says so); it ✗ by design — the proof is `isprop.bend`.
