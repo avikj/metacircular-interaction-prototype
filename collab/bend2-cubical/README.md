@@ -61,3 +61,30 @@ Still open: hcomp with general cofibration systems and hfill (would make
 more compositions definitional and enable a HIT schema -- user-declared
 path constructors), full Glue (ua is the iso special case), and gating
 --total mode.
+
+
+## Analysis layer (Core/Analysis.hs, same patch)
+
+Every checked definition now prints a mathematical report, not pass/fail:
+
+    totality        [total] / [productive] / [unchecked]
+    shape           theorem(=) / theorem(path) / family / program
+    proof cost      "definitional" when the kernel pays only computation,
+                    else measured rewrite steps and transport cells (coe/
+                    hcomp/ua occurrences) -- the cost-lives-in-the-non-
+                    contractible-fibre theorem as a per-proof number
+    unused args     hypotheses the body never consumes (the erasure signal)
+    sup labels      superposition labels touched
+    Set-binders     impredicativity load of the type
+
+## The closed loop
+
+run_corpus.bend: mul2/div2 with the proof div2(mul2(n)) == n.
+  - checks: proof costs "rewrites: 1, cells: 0"
+  - runs in-process: div2(mul2(21n)) = 21
+  - extracts (--to-hvm): the PROOF compiles to erasers (*) -- theorems
+    ride with programs at zero runtime cost
+run_corpus.hvm4: the same program in HVM4 surface syntax, executed on the
+  real HVM4 C runtime: div2(mul2(3)) = 3n in 26 interactions.
+  (--to-hvm targets the HVM3 dialect; an HVM4 emitter is a mechanical
+  printer variant, not yet written.)
