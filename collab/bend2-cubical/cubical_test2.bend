@@ -21,11 +21,11 @@ def pathp_const(A: Set, a: A) -> PathP(lambda i. A, a, a):
   <i> a
 
 # transport along ua computes to the function
-def ua_beta(A: Set, B: Set, f: A -> B, g: B -> A, x: A) -> Path(B, transport(lambda i. ua(A, B, f, g) @ i, x), f(x)):
+def ua_beta(A: Set, B: Set, f: A -> B, g: B -> A, gf: all x:A. Path(A, g(f(x)), x), fg: all y:B. Path(B, f(g(y)), y), x: A) -> Path(B, transport(lambda i. ua(A, B, f, g, gf, fg) @ i, x), f(x)):
   <i> f(x)
 
 # transport backwards along ua computes to the inverse
-def ua_beta_inv(A: Set, B: Set, f: A -> B, g: B -> A, y: B) -> Path(A, coe(lambda i. ua(A, B, f, g) @ i, i1, i0, y), g(y)):
+def ua_beta_inv(A: Set, B: Set, f: A -> B, g: B -> A, gf: all x:A. Path(A, g(f(x)), x), fg: all y:B. Path(B, f(g(y)), y), y: B) -> Path(A, coe(lambda i. ua(A, B, f, g, gf, fg) @ i, i1, i0, y), g(y)):
   <i> g(y)
 
 # transport in a Pi type (function transport)

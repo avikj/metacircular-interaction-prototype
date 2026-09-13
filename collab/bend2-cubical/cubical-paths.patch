@@ -1,5 +1,5 @@
 diff --git a/bend.cabal b/bend.cabal
-index e934487..bd2da95 100644
+index e934487..225dbcd 100644
 --- a/bend.cabal
 +++ b/bend.cabal
 @@ -1,4 +1,4 @@
@@ -8,11 +8,322 @@ index e934487..bd2da95 100644
  name:               bend
  version:            0.1.0.0
  homepage:           https://higherorderco.com/
+@@ -35,6 +35,7 @@ library
+                       Core.Parse.Term,
+                       Core.Parse.WithSpan,
+                       Core.Rewrite,
++                      Core.Totality,
+                       Core.WHNF,
+                       Target.HVM,
+                       Target.JavaScript
+diff --git a/corpus_calculus.bend b/corpus_calculus.bend
+new file mode 100644
+index 0000000..2888f4e
+--- /dev/null
++++ b/corpus_calculus.bend
+@@ -0,0 +1,42 @@
++# Translation of formal/cubical/theorems/residue/CorpusCalculus.agda
++# Point = Σ[ A ∈ Type ] A ; Question s = Σ[ B ∈ Type ] (fst s → B)
++# target, Event, step, twoSteps — refl theorems check by computation.
++
++def Point() -> Set:
++  any A: Set. A
++
++def point(A: Set, a: A) -> Point():
++  (A, a)
++
++def Src(s: Point()) -> Set:
++  match s:
++    case (A, a):
++      A
++
++def src(s: Point()) -> Src(s):
++  match s:
++    case (A, a):
++      a
++
++def Question(s: Point()) -> Set:
++  any B: Set. (Src(s) -> B)
++
++def target(s: Point(), q: Question(s)) -> Point():
++  match q:
++    case (B, f):
++      (B, f(src(s)))
++
++# Event s q s' = target s q ≡ s'   (as a Path)
++def Event(s: Point(), q: Question(s), s2: Point()) -> Set:
++  Path(Point(), target(s, q), s2)
++
++# step : fst (target (point a) (B , f)) ≡ B with value f a  — by refl
++def step(A: Set, B: Set, a: A, f: A -> B) -> Path(Point(), target(point(A, a), (B, f)), point(B, f(a))):
++  <i> target(point(A, a), (B, f))
++
++# twoSteps : target (target (point a) (B,f)) (C,g) ≡ point (g (f a)) — by refl
++def twoSteps(A: Set, B: Set, C: Set, a: A, f: A -> B, g: B -> C) -> Path(Point(), target(target(point(A, a), (B, f)), (C, g)), point(C, g(f(a)))):
++  <i> point(C, g(f(a)))
++
++def main() -> Nat:
++  0n
+diff --git a/corpus_lossless.bend b/corpus_lossless.bend
+new file mode 100644
+index 0000000..8a8d71c
+--- /dev/null
++++ b/corpus_lossless.bend
+@@ -0,0 +1,44 @@
++# The repo's lossless presentation lemma, in Bend2's fragment.
++#
++# Agda (cubical):  lossless : A ≃ Σ B (fiber f),  a ↦ (f a , a , refl)
++# Bend2 has no paths/univalence, but the section-retraction half and the
++# visible-projection law are expressible with Eql + Sigma.
++
++# Presentation of A through f: an observation b, a source a, a witness f a == b.
++def Pres(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. any a: A. B{f(a) == b}
++
++# encode: the codec, a ↦ (f a, a, {==})
++def encode(A: Set, B: Set, f: A -> B, a: A) -> Pres(A, B, f):
++  (f(a), a, {==})
++
++# decode: drop the determined fields
++def decode(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> A:
++  match p:
++    case (b, a, e):
++      a
++
++# retraction: decode(encode(a)) == a, definitionally
++def lossless_retract(A: Set, B: Set, f: A -> B, a: A) -> A{decode(A, B, f, encode(A, B, f, a)) == a}:
++  {==}
++
++# the observation is the visible projection, definitionally
++def obs(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> B:
++  match p:
++    case (b, a, e):
++      b
++
++# the observation is the visible projection, definitionally
++def visible_projection(A: Set, B: Set, f: A -> B, a: A) -> B{obs(A, B, f, encode(A, B, f, a)) == f(a)}:
++  {==}
++
++def main() -> Nat:
++  0n
++
++# section: encode(decode(p)) == p, by eliminating the witness (J).
++# In cubical Agda this is  λ i → p i , a , λ j → p (i ∧ j).
++def lossless_section(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> Pres(A, B, f){encode(A, B, f, decode(A, B, f, p)) == p}:
++  match p:
++    case (b, a, e):
++      rewrite e
++      finally
+diff --git a/cubical_test.bend b/cubical_test.bend
+new file mode 100644
+index 0000000..98a5d20
+--- /dev/null
++++ b/cubical_test.bend
+@@ -0,0 +1,49 @@
++# Cubical primitives in Bend2: Path types, interval, connections.
++# Acceptance: funext (unprovable with Eql) and the corpus's lossless
++# rightInv, transliterated from cubical Agda term for term.
++
++# refl as a path
++def prefl(A: Set, a: A) -> Path(A, a, a):
++  <i> a
++
++# symmetry, via interval negation: (sym p) i = p (~ i)
++def psym(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, b, a):
++  <i> p @ inot(i)
++
++# congruence: cong f p = λ i. f (p i)
++def pcong(A: Set, B: Set, f: A -> B, a: A, b: A, p: Path(A, a, b)) -> Path(B, f(a), f(b)):
++  <i> f(p @ i)
++
++# function extensionality — the theorem Eql cannot prove
++def funext(A: Set, B: Set, f: A -> B, g: A -> B, h: all x:A. Path(B, f(x), g(x))) -> Path(A -> B, f, g):
++  <i> lambda x. h(x) @ i
++
++# connection square: λ i. p (i ∧ j) degenerates correctly
++def conn_left(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, a, b):
++  <i> p @ iand(i, i1)
++
++# ---- the corpus lemma, cubical version ----
++# Pres A B f = Σ b:B. Σ a:A. Path(B, f a, b)
++def PresP(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. any a: A. Path(B, f(a), b)
++
++def encodeP(A: Set, B: Set, f: A -> B, a: A) -> PresP(A, B, f):
++  (f(a), a, <i> f(a))
++
++def decodeP(A: Set, B: Set, f: A -> B, p: PresP(A, B, f)) -> A:
++  match p:
++    case (b, a, e):
++      a
++
++# Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , λ j → p (i ∧ j)
++def rightInv(A: Set, B: Set, f: A -> B, p: PresP(A, B, f)) -> Path(PresP(A, B, f), encodeP(A, B, f, decodeP(A, B, f, p)), p):
++  match p:
++    case (b, a, e):
++      <i> (e @ i, a, <j> e @ iand(i, j))
++
++# Agda:  Iso.leftInv losslessIso a = refl
++def leftInv(A: Set, B: Set, f: A -> B, a: A) -> Path(A, decodeP(A, B, f, encodeP(A, B, f, a)), a):
++  <i> a
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test2.bend b/cubical_test2.bend
+new file mode 100644
+index 0000000..91d9797
+--- /dev/null
++++ b/cubical_test2.bend
+@@ -0,0 +1,40 @@
++# Layer 2: PathP, coe (transport), J with definitional refl, ua.
++
++# transport along a line of types
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++
++# subst: transport along a path in the base of a family
++def subst(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++
++# J, defined by coe along the connection square (no hcomp needed)
++def J(A: Set, a: A, C: all b:A. (Path(A, a, b) -> Set), d: C(a, <_> a), b: A, p: Path(A, a, b)) -> C(b, p):
++  coe(lambda i. C(p @ i, <j> p @ iand(i, j)), i0, i1, d)
++
++# J computes on refl definitionally (regularity)
++def J_refl(A: Set, a: A, C: all b:A. (Path(A, a, b) -> Set), d: C(a, <_> a)) -> Path(C(a, <_> a), J(A, a, C, d, a, <_> a), d):
++  <i> d
++
++# PathP: dependent path over a line of types
++def pathp_const(A: Set, a: A) -> PathP(lambda i. A, a, a):
++  <i> a
++
++# transport along ua computes to the function
++def ua_beta(A: Set, B: Set, f: A -> B, g: B -> A, gf: all x:A. Path(A, g(f(x)), x), fg: all y:B. Path(B, f(g(y)), y), x: A) -> Path(B, transport(lambda i. ua(A, B, f, g, gf, fg) @ i, x), f(x)):
++  <i> f(x)
++
++# transport backwards along ua computes to the inverse
++def ua_beta_inv(A: Set, B: Set, f: A -> B, g: B -> A, gf: all x:A. Path(A, g(f(x)), x), fg: all y:B. Path(B, f(g(y)), y), y: B) -> Path(A, coe(lambda i. ua(A, B, f, g, gf, fg) @ i, i1, i0, y), g(y)):
++  <i> g(y)
++
++# transport in a Pi type (function transport)
++def transport_pi(A: Set, B: Set, C: Set, p: Path(Set, A, B)) -> ((A -> C) -> (B -> C)):
++  lambda h. coe(lambda i. (p @ i) -> C, i0, i1, h)
++
++# transport in a Sigma
++def transport_sig(A: Set, C: Set, D: Set, p: Path(Set, C, D), t: any x:A. C) -> any x:A. D:
++  coe(lambda i. any x:A. (p @ i), i0, i1, t)
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test3.bend b/cubical_test3.bend
+new file mode 100644
+index 0000000..7cd66c7
+--- /dev/null
++++ b/cubical_test3.bend
+@@ -0,0 +1,56 @@
++# Layer 3: derived path algebra, and the ISC coalgebra via Fix.
++
++def subst3(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++
++# path composition, derived from transport (no hcomp needed)
++def pcomp(A: Set, a: A, b: A, c: A, p: Path(A, a, b), q: Path(A, b, c)) -> Path(A, a, c):
++  subst3(A, lambda x. Path(A, a, x), b, c, q, p)
++
++# groupoid laws come out by J; e.g. right unit
++def prunit(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(Path(A, a, b), pcomp(A, a, b, b, p, <_> b), p):
++  <i> p
++
++# ---- the interactive coalgebra (Fibre.Samvada ISC), one-field form ----
++# ISC Q O E w  =  (q : Q w) -> Σ w'. Σ o : O w q w'. E w q w' o × ISC w'
++# Coinduction via Fix: productivity is not checked (Bend2 has no totality),
++# exactly as Bend2 checks any recursive definition.
++
++def Point3() -> Set:
++  any A: Set. A
++
++def Src3(s: Point3()) -> Set:
++  match s:
++    case (A, a):
++      A
++
++def src3(s: Point3()) -> Src3(s):
++  match s:
++    case (A, a):
++      a
++
++def Question3(s: Point3()) -> Set:
++  any B: Set. (Src3(s) -> B)
++
++def target3(s: Point3(), q: Question3(s)) -> Point3():
++  match q:
++    case (B, f):
++      (B, f(src3(s)))
++
++# Corpus process: at every state, every question gets target + exact
++# residual receipt (a Path) + continuation. Nu-type via Fix.
++def Corpus3(s: Point3()) -> Set:
++  all q: Question3(s).
++  any s2: Point3().
++  any e: Path(Point3(), target3(s, q), s2).
++  Corpus3(s2)
++
++def run3(s: Point3()) -> Corpus3(s):
++  lambda q. (target3(s, q), <_> target3(s, q), run3(target3(s, q)))
++
++# finite observation: two demanded steps compute by refl
++def obs2(A: Set, B: Set, C: Set, a: A, f: A -> B, g: B -> C) -> Path(Point3(), target3(target3((A, a), (B, f)), (C, g)), (C, g(f(a)))):
++  <i> (C, g(f(a)))
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test4.bend b/cubical_test4.bend
+new file mode 100644
+index 0000000..4690383
+--- /dev/null
++++ b/cubical_test4.bend
+@@ -0,0 +1,36 @@
++# Layer 4: hcomp (definitional composition), full iso-univalence, Sup x Path.
++
++def neg4(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++
++def neg_inv(x: Bool) -> Path(Bool, neg4(neg4(x)), x):
++  if x:
++    <i> True
++  else:
++    <i> False
++
++# full iso-univalence: Bool = Bool by negation, with both coherences
++def notPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, lambda x. neg4(x), lambda x. neg4(x), lambda x. neg_inv(x), lambda x. neg_inv(x))
++
++# transport along it computes: True goes to False, definitionally
++def notPath_beta() -> Path(Bool, coe(lambda i. notPath() @ i, i0, i1, True), False):
++  <i> False
++
++# hcomp: definitional path composition
++def pcompH(A: Set, a: A, b: A, c: A, p: Path(A, a, b), q: Path(A, b, c)) -> Path(A, a, c):
++  <i> hcomp(A, i, <j> a, <j> q @ j, p @ i)
++
++# Sup x Path: transport along a superposed line routes by label:
++# the first universe transports along notPath (negation), the second is constant.
++def supLine() -> Interval -> Set:
++  lambda i. &0{notPath() @ i, Bool}
++
++def sup_transport() -> Path(&0{Bool, Bool}, coe(lambda i. supLine()(i), i0, i1, &0{True, True}), &0{False, True}):
++  <i> &0{False, True}
++
++def main() -> Nat:
++  0n
 diff --git a/src/Core/Bind.hs b/src/Core/Bind.hs
-index 939a19f..0f0ea5f 100644
+index 939a19f..858cef1 100644
 --- a/src/Core/Bind.hs
 +++ b/src/Core/Bind.hs
-@@ -55,6 +55,17 @@ binder lv term ctx vars = case term of
+@@ -55,6 +55,18 @@ binder lv term ctx vars = case term of
    Frz t      -> Frz (binder lv t ctx vars)
    Loc s t    -> Loc s (binder lv t ctx vars)
    Rwt a b x  -> Rwt (binder lv a ctx vars) (binder lv b ctx vars) (binder lv x ctx vars)
@@ -26,15 +337,37 @@ index 939a19f..0f0ea5f 100644
 +  PLm k f    -> PLm k (\x -> binder (lv+1) (f (Sub x)) (ctx++[x]) (M.insert k x vars))
 +  PAp f x    -> PAp (binder lv f ctx vars) (binder lv x ctx vars)
 +  Coe pp r t x -> Coe (binder lv pp ctx vars) (binder lv r ctx vars) (binder lv t ctx vars) (binder lv x ctx vars)
-+  Ua a b f g -> Ua (binder lv a ctx vars) (binder lv b ctx vars) (binder lv f ctx vars) (binder lv g ctx vars)
++  Ua a b f g gf fg -> Ua (binder lv a ctx vars) (binder lv b ctx vars) (binder lv f ctx vars) (binder lv g ctx vars) (binder lv gf ctx vars) (binder lv fg ctx vars)
++  HCm a r u0 u1 x -> HCm (binder lv a ctx vars) (binder lv r ctx vars) (binder lv u0 ctx vars) (binder lv u1 ctx vars) (binder lv x ctx vars)
    Era        -> Era
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
+diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
+index f94d1ce..d45e835 100644
+--- a/src/Core/CLI.hs
++++ b/src/Core/CLI.hs
+@@ -23,6 +23,7 @@ import Core.Collapse
+ import Core.Deps
+ import Core.Import (autoImport)
+ import Core.Parse.Book (doParseBook)
++import Core.Totality
+ import Core.Type
+ import Core.WHNF
+ 
+@@ -59,7 +60,7 @@ checkDefinitions book@(Book defs) = do
+     checkAll bBook ((name, (_, term, typ)):rest) = do
+       case checkDef bBook term typ of
+         Done () -> do
+-          putStrLn $ "\x1b[32m✓ " ++ name ++ "\x1b[0m"
++          putStrLn $ "\x1b[32m✓ " ++ name ++ "\x1b[0m " ++ totTag (classify name term)
+           checkAll bBook rest
+         Fail e -> do
+           putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..5b32a5d 100644
+index cdd6756..6431232 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
-@@ -127,6 +127,48 @@ infer d span book@(Book defs) ctx term =
+@@ -127,6 +127,59 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -66,12 +399,23 @@ index cdd6756..5b32a5d 100644
 +      check d span book ctx s Itv
 +      check d span book ctx t (epNormCtx d book ctx (App pP r))
 +      Done (epNormCtx d book ctx (App pP s))
-+    Ua a b f g -> do
++    Ua a b f g gf fg -> do
 +      check d span book ctx a Set
 +      check d span book ctx b Set
 +      check d span book ctx f (All a (Lam "_" (\_ -> b)))
 +      check d span book ctx g (All b (Lam "_" (\_ -> a)))
++      check d span book ctx gf (All a (Lam "x" (\x -> Pth (Lam "_" (\_ -> a)) (App g (App f x)) x)))
++      check d span book ctx fg (All b (Lam "y" (\y -> Pth (Lam "_" (\_ -> b)) (App f (App g y)) y)))
 +      Done (Pth (Lam "_" (\_ -> Set)) a b)
++    HCm a r u0 u1 x -> do
++      check d span book ctx a Set
++      check d span book ctx r Itv
++      check d span book ctx x a
++      -- each side is a j-line in a whose j=i0 end agrees with the base
++      -- under its face constraint (r := i0 / r := i1)
++      check d span book ctx u0 (Pth (Lam "_" (\_ -> a)) (rewrite 3 d book r I0 x) (PAp u0 I1))
++      check d span book ctx u1 (Pth (Lam "_" (\_ -> a)) (rewrite 3 d book r I1 x) (PAp u1 I1))
++      Done a
 +    PLm _ _ -> do
 +      Fail $ CantInfer span (formatCtx d book ctx)
 +    PAp p r -> do
@@ -83,7 +427,7 @@ index cdd6756..5b32a5d 100644
      App f x ->
        case f of
          Lam k body -> do
-@@ -294,6 +336,15 @@ check d span book ctx term goal =
+@@ -294,6 +347,15 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
@@ -99,7 +443,17 @@ index cdd6756..5b32a5d 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -435,6 +486,59 @@ check d span book ctx term goal =
+@@ -402,6 +464,9 @@ check d span book ctx term goal =
+       if equal d book tr goal
+         then Done ()
+         else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
++    (Sup l a b, Sup l2 ta tb) | equal d book l l2 -> do
++      check d span book ctx a ta
++      check d span book ctx b tb
+     (Sup l a b, _) -> do
+       check d span book ctx a goal
+       check d span book ctx b goal
+@@ -435,6 +500,64 @@ check d span book ctx term goal =
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -109,6 +463,11 @@ index cdd6756..5b32a5d 100644
 +epNormCtx :: Int -> Book -> Ctx -> Term -> Term
 +epNormCtx d book ctx t0 = go t0 where
 +  go t = case t of
++    HCm a r u0 u1 x ->
++      case force book (go r) of
++        I0 -> go (PAp u0 I1)
++        I1 -> go (PAp u1 I1)
++        r' -> HCm (go a) r' (go u0) (go u1) (go x)
 +    PAp p r ->
 +      let p' = go p
 +          r' = go r
@@ -160,10 +519,10 @@ index cdd6756..5b32a5d 100644
  verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
  verify d span book ctx term goal = do
 diff --git a/src/Core/Deps.hs b/src/Core/Deps.hs
-index 99c0709..1bc19aa 100644
+index 99c0709..f152abe 100644
 --- a/src/Core/Deps.hs
 +++ b/src/Core/Deps.hs
-@@ -63,6 +63,17 @@ collectDeps bound term = case term of
+@@ -63,6 +63,18 @@ collectDeps bound term = case term of
    Met _ t ctx -> S.unions (collectDeps bound t : map (collectDeps bound) ctx)
    Ind t       -> collectDeps bound t
    Frz t       -> collectDeps bound t
@@ -177,12 +536,13 @@ index 99c0709..1bc19aa 100644
 +  PLm k f     -> collectDeps (S.insert k bound) (f (Var k 0))
 +  PAp f x     -> S.union (collectDeps bound f) (collectDeps bound x)
 +  Coe pp r t x -> S.unions [collectDeps bound pp, collectDeps bound r, collectDeps bound t, collectDeps bound x]
-+  Ua a b f g  -> S.unions [collectDeps bound a, collectDeps bound b, collectDeps bound f, collectDeps bound g]
++  Ua a b f g gf fg -> S.unions [collectDeps bound a, collectDeps bound b, collectDeps bound f, collectDeps bound g, collectDeps bound gf, collectDeps bound fg]
++  HCm a r u0 u1 x -> S.unions [collectDeps bound a, collectDeps bound r, collectDeps bound u0, collectDeps bound u1, collectDeps bound x]
    Era         -> S.empty
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..7acaac4 100644
+index 9d1ab06..ffb6d0a 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
 @@ -63,6 +63,8 @@ cmp lv d book a b =
@@ -194,7 +554,7 @@ index 9d1ab06..7acaac4 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +79,19 @@ cmp lv d book a b =
+@@ -77,6 +79,20 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -210,15 +570,16 @@ index 9d1ab06..7acaac4 100644
 +    (a            , PLm kb fb    ) -> eql lv (d+1) book (PAp a (Var kb d)) (fb (Var kb d))
 +    (PAp fa xa    , PAp fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
 +    (Coe pa ra sa ta, Coe pb rb sb tb) -> eql lv d book pa pb && eql lv d book ra rb && eql lv d book sa sb && eql lv d book ta tb
-+    (Ua aa ba fa ga, Ua ab bb fb gb) -> eql lv d book aa ab && eql lv d book ba bb && eql lv d book fa fb && eql lv d book ga gb
++    (Ua aa ba fa ga _ _, Ua ab bb fb gb _ _) -> eql lv d book aa ab && eql lv d book ba bb && eql lv d book fa fb && eql lv d book ga gb
++    (HCm aa ra u0a u1a xa, HCm ab rb u0b u1b xb) -> eql lv d book aa ab && eql lv d book ra rb && eql lv d book u0a u0b && eql lv d book u1a u1b && eql lv d book xa xb
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
 diff --git a/src/Core/Flatten.hs b/src/Core/Flatten.hs
-index 31f1da3..c2732d4 100644
+index 31f1da3..cde0b55 100644
 --- a/src/Core/Flatten.hs
 +++ b/src/Core/Flatten.hs
-@@ -91,6 +91,17 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
+@@ -91,6 +91,18 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
  flatten d book (Met i t x)  = Met i (flatten d book t) (map (flatten d book) x)
  flatten d book (Ind t)      = Ind (flatten d book t)
  flatten d book (Frz t)      = Frz (flatten d book t)
@@ -232,11 +593,12 @@ index 31f1da3..c2732d4 100644
 +flatten d book (PLm n f)    = PLm n (\x -> flatten (d+1) book (f x))
 +flatten d book (PAp f x)    = PAp (flatten d book f) (flatten d book x)
 +flatten d book (Coe pp r t x) = Coe (flatten d book pp) (flatten d book r) (flatten d book t) (flatten d book x)
-+flatten d book (Ua a b f g) = Ua (flatten d book a) (flatten d book b) (flatten d book f) (flatten d book g)
++flatten d book (Ua a b f g gf fg) = Ua (flatten d book a) (flatten d book b) (flatten d book f) (flatten d book g) (flatten d book gf) (flatten d book fg)
++flatten d book (HCm a r u0 u1 x) = HCm (flatten d book a) (flatten d book r) (flatten d book u0) (flatten d book u1) (flatten d book x)
  flatten d book Era          = Era
  flatten d book (Sup l a b)  = Sup (flatten d book l) (flatten d book a) (flatten d book b)
  flatten d book (SupM x l f) = SupM (flatten d book x) (flatten d book l) (flatten d book f)
-@@ -288,6 +299,17 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
+@@ -288,6 +300,18 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
  unpat d (Met i t x)     = Met i (unpat d t) (map (unpat d) x)
  unpat d (Ind t)         = Ind (unpat d t)
  unpat d (Frz t)         = Frz (unpat d t)
@@ -250,11 +612,12 @@ index 31f1da3..c2732d4 100644
 +unpat d (PLm n f)       = PLm n (\x -> unpat (d+1) (f x))
 +unpat d (PAp f x)       = PAp (unpat d f) (unpat d x)
 +unpat d (Coe pp r t x)  = Coe (unpat d pp) (unpat d r) (unpat d t) (unpat d x)
-+unpat d (Ua a b f g)    = Ua (unpat d a) (unpat d b) (unpat d f) (unpat d g)
++unpat d (Ua a b f g gf fg) = Ua (unpat d a) (unpat d b) (unpat d f) (unpat d g) (unpat d gf) (unpat d fg)
++unpat d (HCm a r u0 u1 x) = HCm (unpat d a) (unpat d r) (unpat d u0) (unpat d u1) (unpat d x)
  unpat d Era             = Era
  unpat d (Sup l a b)     = Sup (unpat d l) (unpat d a) (unpat d b)
  unpat d (SupM x l f)    = SupM (unpat d x) (unpat d l) (unpat d f)
-@@ -535,6 +557,17 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
+@@ -535,6 +559,18 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
  unfrkGo d ctx (Met i t x)  = Met i (unfrkGo d ctx t) (map (unfrkGo d ctx) x)
  unfrkGo d ctx (Ind t)      = Ind (unfrkGo d ctx t)
  unfrkGo d ctx (Frz t)      = Frz (unfrkGo d ctx t)
@@ -268,11 +631,12 @@ index 31f1da3..c2732d4 100644
 +unfrkGo d ctx (PLm n f)    = PLm n (\x -> unfrkGo (d+1) ctx (f x))
 +unfrkGo d ctx (PAp f x)    = PAp (unfrkGo d ctx f) (unfrkGo d ctx x)
 +unfrkGo d ctx (Coe pp r t x) = Coe (unfrkGo d ctx pp) (unfrkGo d ctx r) (unfrkGo d ctx t) (unfrkGo d ctx x)
-+unfrkGo d ctx (Ua a b f g) = Ua (unfrkGo d ctx a) (unfrkGo d ctx b) (unfrkGo d ctx f) (unfrkGo d ctx g)
++unfrkGo d ctx (Ua a b f g gf fg) = Ua (unfrkGo d ctx a) (unfrkGo d ctx b) (unfrkGo d ctx f) (unfrkGo d ctx g) (unfrkGo d ctx gf) (unfrkGo d ctx fg)
++unfrkGo d ctx (HCm a r u0 u1 x) = HCm (unfrkGo d ctx a) (unfrkGo d ctx r) (unfrkGo d ctx u0) (unfrkGo d ctx u1) (unfrkGo d ctx x)
  unfrkGo d ctx Era          = Era
  unfrkGo d ctx (Sup l a b)  = Sup (unfrkGo d ctx l) (unfrkGo d ctx a) (unfrkGo d ctx b)
  unfrkGo d ctx (SupM x l f) = SupM (unfrkGo d ctx x) (unfrkGo d ctx l) (unfrkGo d ctx f)
-@@ -652,6 +685,17 @@ subst name val term = go name val term where
+@@ -652,6 +688,18 @@ subst name val term = go name val term where
      Met i t x  -> Met i (go name val t) (map (go name val) x)
      Ind t      -> Ind (go name val t)
      Frz t      -> Frz (go name val t)
@@ -286,15 +650,16 @@ index 31f1da3..c2732d4 100644
 +    PLm k f    -> PLm k (\x -> go name val (f x))
 +    PAp f x    -> PAp (go name val f) (go name val x)
 +    Coe pp r t x -> Coe (go name val pp) (go name val r) (go name val t) (go name val x)
-+    Ua a b f g -> Ua (go name val a) (go name val b) (go name val f) (go name val g)
++    Ua a b f g gf fg -> Ua (go name val a) (go name val b) (go name val f) (go name val g) (go name val gf) (go name val fg)
++    HCm a r u0 u1 x -> HCm (go name val a) (go name val r) (go name val u0) (go name val u1) (go name val x)
      Era        -> Era
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..eea7df2 100644
+index 146a4d2..96091db 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
-@@ -62,6 +62,14 @@ parseTermIni = choice
+@@ -62,6 +62,15 @@ parseTermIni = choice
    , parseSym
    , parseTupApp
    , parseView
@@ -302,6 +667,7 @@ index 146a4d2..eea7df2 100644
 +  , parsePthP
 +  , parseCoe
 +  , parseUa
++  , parseHCm
 +  , parsePLm
 +  , parseItvKw
 +  , parseIEnd
@@ -309,7 +675,7 @@ index 146a4d2..eea7df2 100644
    , parseVar
    ]
  
-@@ -81,7 +89,8 @@ parseTermArg t = do
+@@ -81,7 +90,8 @@ parseTermArg t = do
  -- | Parse a "loose" postfix: f + x | f <> x | ...
  parseTermOpr :: Term -> Parser Term
  parseTermOpr t = choice
@@ -319,7 +685,7 @@ index 146a4d2..eea7df2 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1025,3 +1034,106 @@ doReadTerm input =
+@@ -1025,3 +1035,126 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -363,6 +729,22 @@ index 146a4d2..eea7df2 100644
 +  _ <- symbol ")"
 +  return (Coe pP r s t)
 +
++-- | Syntax: hcomp(A, r, u0, u1, base)
++parseHCm :: Parser Term
++parseHCm = label "hcomp" $ do
++  _ <- try $ keyword "hcomp" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ","
++  r <- parseTerm
++  _ <- symbol ","
++  u0 <- parseTerm
++  _ <- symbol ","
++  u1 <- parseTerm
++  _ <- symbol ","
++  x <- parseTerm
++  _ <- symbol ")"
++  return (HCm a r u0 u1 x)
++
 +-- | Syntax: ua(A, B, f, g)
 +parseUa :: Parser Term
 +parseUa = label "ua" $ do
@@ -374,8 +756,12 @@ index 146a4d2..eea7df2 100644
 +  f <- parseTerm
 +  _ <- symbol ","
 +  g <- parseTerm
++  _ <- symbol ","
++  gf <- parseTerm
++  _ <- symbol ","
++  fg <- parseTerm
 +  _ <- symbol ")"
-+  return (Ua a b f g)
++  return (Ua a b f g gf fg)
 +
 +-- | Syntax: <i> body
 +parsePLm :: Parser Term
@@ -427,10 +813,10 @@ index 146a4d2..eea7df2 100644
 +  r <- parseTerm
 +  return (PAp t r)
 diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
-index ae061af..7f94846 100644
+index ae061af..6ce0b5e 100644
 --- a/src/Core/Rewrite.hs
 +++ b/src/Core/Rewrite.hs
-@@ -71,6 +71,17 @@ rewriteGo lv d book old neo val = case val of
+@@ -71,6 +71,18 @@ rewriteGo lv d book old neo val = case val of
    Met i t a  -> Met i (rewrite lv d book old neo t) (map (rewrite lv d book old neo) a)
    Ind t      -> Ind (rewrite lv d book old neo t)
    Frz t      -> Frz (rewrite lv d book old neo t)
@@ -444,15 +830,138 @@ index ae061af..7f94846 100644
 +  PLm k f    -> PLm k (\x -> rewrite lv d book old neo (f x))
 +  PAp f x    -> PAp (rewrite lv d book old neo f) (rewrite lv d book old neo x)
 +  Coe pp r t x -> Coe (rewrite lv d book old neo pp) (rewrite lv d book old neo r) (rewrite lv d book old neo t) (rewrite lv d book old neo x)
-+  Ua a b f g -> Ua (rewrite lv d book old neo a) (rewrite lv d book old neo b) (rewrite lv d book old neo f) (rewrite lv d book old neo g)
++  Ua a b f g gf fg -> Ua (rewrite lv d book old neo a) (rewrite lv d book old neo b) (rewrite lv d book old neo f) (rewrite lv d book old neo g) (rewrite lv d book old neo gf) (rewrite lv d book old neo fg)
++  HCm a r u0 u1 x -> HCm (rewrite lv d book old neo a) (rewrite lv d book old neo r) (rewrite lv d book old neo u0) (rewrite lv d book old neo u1) (rewrite lv d book old neo x)
    Era        -> Era
    Sup l a b  -> Sup l (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
+diff --git a/src/Core/Totality.hs b/src/Core/Totality.hs
+new file mode 100644
+index 0000000..07a7722
+--- /dev/null
++++ b/src/Core/Totality.hs
+@@ -0,0 +1,116 @@
++{-./Type.hs-}
++
++-- Conservative totality / productivity classifier.
++--
++-- For each definition, examine its recursive self-references:
++--   Total      no self-reference, or every self-call passes a structurally
++--              smaller argument (a variable bound strictly inside an
++--              eliminator branch of some parameter).
++--   Productive not structurally total, but every self-reference sits under
++--              at least one value constructor (Suc/Con/Tup/PLm/Sup), i.e.
++--              each observation peels one constructor: guardedness.
++--   Unchecked  neither; the definition may loop.
++--
++-- This is an analysis, not a gate: Bend2's logic is non-total by design,
++-- and the tag makes the trust boundary visible per definition.
++
++module Core.Totality where
++
++import qualified Data.Set as S
++
++import Core.Type
++
++data Tot = Total | Productive | Unchecked
++  deriving (Eq, Show)
++
++totTag :: Tot -> String
++totTag Total      = "\x1b[2m[total]\x1b[0m"
++totTag Productive = "\x1b[2m[productive]\x1b[0m"
++totTag Unchecked  = "\x1b[33m[unchecked]\x1b[0m"
++
++-- Variables known to be structurally smaller than some parameter are
++-- tagged by binding them as Var names in this set (by unique index).
++classify :: Name -> Term -> Tot
++classify self term =
++  let calls = collect 0 S.empty False term in
++  case calls of
++    [] -> Total
++    _  | all fst calls -> Total       -- every call has a smaller arg
++       | all snd calls -> Productive  -- every call is constructor-guarded
++       | otherwise     -> Unchecked
++  where
++    -- returns one (smallerArg, guarded) per self-call found
++    collect :: Int -> S.Set Int -> Bool -> Term -> [(Bool, Bool)]
++    collect d sm g t = case t of
++      Ref k | k == self -> [(False, g)]  -- bare self-ref (no args)
++      App _ _ ->
++        let (fn, xs) = spine t []
++        in case fn of
++          Ref k | k == self ->
++            let smaller = any (argSmall sm) xs
++            in [(smaller, g)] ++ concatMap (collect d sm g) xs
++          _ -> collect d sm g fn ++ concatMap (collect d sm g) xs
++      -- eliminators: branch binders are smaller than the scrutinee
++      NatM x z s ->
++        collect d sm g x ++ collect d sm g z ++ branch1 d sm g s
++      LstM x n c ->
++        collect d sm g x ++ collect d sm g n ++ branch2 d sm g c
++      SigM x f ->
++        collect d sm g x ++ branch2 d sm g f
++      EnuM x cs e ->
++        collect d sm g x ++ concatMap (collect d sm g . snd) cs ++ collect d sm g e
++      BitM x a b -> concatMap (collect d sm g) [x, a, b]
++      UniM x f   -> collect d sm g x ++ collect d sm g f
++      EqlM x f   -> collect d sm g x ++ collect d sm g f
++      EmpM x     -> collect d sm g x
++      SupM x l f -> collect d sm g x ++ collect d sm g l ++ branch2 d sm g f
++      -- value constructors: everything under them is guarded
++      Suc n     -> collect d sm True n
++      Con h tl  -> collect d sm True h ++ collect d sm True tl
++      Tup a b   -> collect d sm True a ++ collect d sm True b
++      Sup l a b -> collect d sm g l ++ collect d sm True a ++ collect d sm True b
++      PLm k f   -> collect (d+1) sm True (f (Var k d))
++      -- plain binders: keep flags
++      Lam k f   -> collect (d+1) sm g (f (Var k d))
++      Fix k f   -> collect (d+1) sm g (f (Var k d))
++      Let v f   -> collect d sm g v ++ collect d sm g f
++      Chk a b   -> collect d sm g a ++ collect d sm g b
++      Loc _ a   -> collect d sm g a
++      Rwt a b c -> concatMap (collect d sm g) [a, b, c]
++      Ind a     -> collect d sm g a
++      Frz a     -> collect d sm g a
++      Sig a b   -> collect d sm g a ++ collect d sm g b
++      All a b   -> collect d sm g a ++ collect d sm g b
++      Lst a     -> collect d sm g a
++      Eql a b c -> concatMap (collect d sm g) [a, b, c]
++      Pth a b c -> concatMap (collect d sm g) [a, b, c]
++      PAp a b   -> collect d sm g a ++ collect d sm g b
++      INot a    -> collect d sm g a
++      IAnd a b  -> collect d sm g a ++ collect d sm g b
++      IOr a b   -> collect d sm g a ++ collect d sm g b
++      Coe a b c e -> concatMap (collect d sm g) [a, b, c, e]
++      HCm a r u0 u1 x -> concatMap (collect d sm g) [a, r, u0, u1, x]
++      Ua a b f' g' gf fg -> concatMap (collect d sm g) [a, b, f', g', gf, fg]
++      Op2 _ a b -> collect d sm g a ++ collect d sm g b
++      Op1 _ a   -> collect d sm g a
++      Log a b   -> collect d sm g a ++ collect d sm g b
++      Met _ a xs -> collect d sm g a ++ concatMap (collect d sm g) xs
++      Sub a     -> collect d sm g a
++      _         -> []
++      where
++        -- one-binder branch whose variable is smaller (Nat pred)
++        branch1 dd s0 gg (Lam k f) = collect (dd+1) (S.insert dd s0) gg (f (Var k dd))
++        branch1 dd s0 gg other     = collect dd s0 gg other
++        -- two-binder branch (List head/tail, Sigma fst/snd): binders smaller
++        branch2 dd s0 gg (Lam k f) = case f (Var k dd) of
++          Lam k2 f2 -> collect (dd+2) (S.insert dd (S.insert (dd+1) s0)) gg (f2 (Var k2 (dd+1)))
++          other     -> collect (dd+1) (S.insert dd s0) gg other
++        branch2 dd s0 gg other     = collect dd s0 gg other
++
++    spine (App f x) acc = spine f (x:acc)
++    spine (Loc _ t) acc = spine t acc
++    spine f acc         = (f, acc)
++
++    argSmall s0 a = case cut a of
++      Var _ i -> S.member i s0
++      _       -> False
 diff --git a/src/Core/Type.hs b/src/Core/Type.hs
-index a5d92e8..f978450 100644
+index a5d92e8..8f69402 100644
 --- a/src/Core/Type.hs
 +++ b/src/Core/Type.hs
-@@ -125,6 +125,19 @@ data Term
+@@ -125,6 +125,21 @@ data Term
    | Ind Type -- ~~T
    | Frz Type -- ∅T
  
@@ -465,14 +974,16 @@ index a5d92e8..f978450 100644
 +  | IOr  Term Term      -- ior(r,s)
 +  | Pth Term Term Term  -- PathP: Pth P a b, P : Interval -> Set
 +  | Coe Term Term Term Term -- coe(P, r, s, t) : transport t from P r to P s
-+  | Ua  Term Term Term Term -- ua(A, B, f, g) : Path(Set, A, B)
++  | Ua  Term Term Term Term Term Term -- ua(A,B,f,g,gf,fg) : Path(Set, A, B)
++  | HCm Term Term Term Term Term -- hcomp(A, r, u0, u1, base): compose base
++                                 -- with sides u0 (at r=i0), u1 (at r=i1)
 +  | PLm Name Body       -- <i> t
 +  | PAp Term Term       -- p @ r
 +
    -- Supperpositions
    | Era                 -- *
    | Sup Term Term Term  -- &L{a,b}
-@@ -253,6 +266,17 @@ instance Show Term where
+@@ -253,6 +268,18 @@ instance Show Term where
    show (Frz t)         = "∅" ++ show t
    show (Loc _ t)       = show t
    show (Rwt a b x)     = show a ++ " ⇒ " ++ show b ++ "; " ++ show x
@@ -484,22 +995,24 @@ index a5d92e8..f978450 100644
 +  show (IOr a b)       = "ior(" ++ show a ++ "," ++ show b ++ ")"
 +  show (Pth t a b)     = "PathP(" ++ show t ++ "," ++ show a ++ "," ++ show b ++ ")"
 +  show (Coe p r s t)   = "coe(" ++ show p ++ "," ++ show r ++ "," ++ show s ++ "," ++ show t ++ ")"
-+  show (Ua a b f g)    = "ua(" ++ show a ++ "," ++ show b ++ "," ++ show f ++ "," ++ show g ++ ")"
++  show (Ua a b f g _ _) = "ua(" ++ show a ++ "," ++ show b ++ "," ++ show f ++ "," ++ show g ++ ",..)"
++  show (HCm a r u0 u1 x) = "hcomp(" ++ show a ++ "," ++ show r ++ "," ++ show u0 ++ "," ++ show u1 ++ "," ++ show x ++ ")"
 +  show (PLm k f)       = "<" ++ k ++ "> " ++ show (f (Var k 0))
 +  show (PAp p r)       = "(" ++ show p ++ " @ " ++ show r ++ ")"
    show (Era)           = "*"
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..ac3b4c1 100644
+index 953410d..2e3e5a5 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,196 @@ whnfGo lv book term =
+@@ -53,9 +53,216 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
 +    PAp f x    -> whnfPAp lv book f x
 +    Coe pp r t x -> whnfCoe lv book pp r t x
++    HCm a r u0 u1 x -> whnfHCm lv book a r u0 u1 x
 +    INot a     -> whnfINot lv book a
 +    IAnd a b   -> whnfIAnd lv book a b
 +    IOr a b    -> whnfIOr lv book a b
@@ -510,10 +1023,10 @@ index 953410d..ac3b4c1 100644
 +whnfPAp lv book p r =
 +  case whnf lv book p of
 +    PLm _ f      -> whnf lv book (f r)
-+    Ua a b f g   -> case whnf lv book r of
++    Ua a b f g gf fg -> case whnf lv book r of
 +      I0 -> whnf lv book a
 +      I1 -> whnf lv book b
-+      r' -> PAp (Ua a b f g) r'
++      r' -> PAp (Ua a b f g gf fg) r'
 +    p'           -> PAp p' r
 +
 +-- The interval marker used to inspect a type line's dependency on its
@@ -592,7 +1105,17 @@ index 953410d..ac3b4c1 100644
 +    PLm k f    -> go (f (Var k 0))
 +    PAp a b    -> go a || go b
 +    Coe a b c d2 -> go a || go b || go c || go d2
-+    Ua a b c d2  -> go a || go b || go c || go d2
++    HCm a b c d2 e2 -> go a || go b || go c || go d2 || go e2
++    Ua a b c d2 e2 f2 -> go a || go b || go c || go d2 || go e2 || go f2
++
++-- hcomp (binary system): if the face direction is an endpoint, the
++-- composite is the corresponding side's cap; otherwise neutral.
++whnfHCm :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term -> Term
++whnfHCm lv book a r u0 u1 x =
++  case whnf lv book r of
++    I0 -> whnf lv book (PAp u0 I1)
++    I1 -> whnf lv book (PAp u1 I1)
++    r' -> HCm a r' u0 u1 x
 +
 +-- coe: generalized transport along a type line P from r to s.
 +whnfCoe :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
@@ -631,11 +1154,20 @@ index 953410d..ac3b4c1 100644
 +          -- ua: the line is a univalence path; apply the function
 +          PAp u m | isCoeMarker m ->
 +            case whnf Full book u of
-+              Ua _ _ f g -> case (r', s') of
++              Ua _ _ f g _ _ -> case (r', s') of
 +                (I0, I1) -> whnf lv book (App f t)
 +                (I1, I0) -> whnf lv book (App g t)
 +                _        -> Coe pP r' s' t
 +              _ -> Coe pP r' s' t
++          -- superposed line: dup the value at the label, transport each
++          -- universe along its own line, resuperpose (fibre-exact routing)
++          Sup _ _ _ ->
++            let labAt = case body of { Sup l _ _ -> l ; _ -> body }
++                aAt i = case whnf Full book (App pP i) of { Sup _ a _ -> a ; x -> x }
++                bAt i = case whnf Full book (App pP i) of { Sup _ _ b -> b ; x -> x }
++                (t0, t1) = dup book labAt t
++            in Sup labAt (Coe (Lam "i" (\i -> aAt i)) r' s' t0)
++                         (Coe (Lam "i" (\i -> bAt i)) r' s' t1)
 +          -- rigid inductives and Set: identity
 +          Nat     -> whnf lv book t
 +          Bit     -> whnf lv book t
@@ -691,7 +1223,7 @@ index 953410d..ac3b4c1 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +588,37 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +608,43 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -721,7 +1253,13 @@ index 953410d..ac3b4c1 100644
 +        (r0,r1)         = dup book l r
 +        (s0,s1)         = dup book l s
 +        (t0,t1)         = dup book l t
-+dup book l (Ua a b f g) = (Ua a0 b0 f0 g0, Ua a1 b1 f1 g1)
++dup book l (HCm a r u0 u1 x) = (HCm a0 r0 u00 u10 x0, HCm a1 r1 u01 u11 x1)
++  where (a0,a1)          = dup book l a
++        (r0,r1)          = dup book l r
++        (u00,u01)        = dup book l u0
++        (u10,u11)        = dup book l u1
++        (x0,x1)          = dup book l x
++dup book l (Ua a b f g gf fg) = (Ua a0 b0 f0 g0 gf fg, Ua a1 b1 f1 g1 gf fg)
 +  where (a0,a1)         = dup book l a
 +        (b0,b1)         = dup book l b
 +        (f0,f1)         = dup book l f
@@ -729,7 +1267,7 @@ index 953410d..ac3b4c1 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +703,17 @@ normal d book term =
+@@ -485,6 +729,18 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -743,7 +1281,8 @@ index 953410d..ac3b4c1 100644
 +    PLm k f    -> PLm k (\x -> normal d book (f (Sub x)))
 +    PAp f x    -> PAp (normal d book f) (normal d book x)
 +    Coe p r s t -> Coe (normal d book p) (normal d book r) (normal d book s) (normal d book t)
-+    Ua a b f g -> Ua (normal d book a) (normal d book b) (normal d book f) (normal d book g)
++    Ua a b f g gf fg -> Ua (normal d book a) (normal d book b) (normal d book f) (normal d book g) (normal d book gf) (normal d book fg)
++    HCm a r u0 u1 x -> HCm (normal d book a) (normal d book r) (normal d book u0) (normal d book u1) (normal d book x)
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)

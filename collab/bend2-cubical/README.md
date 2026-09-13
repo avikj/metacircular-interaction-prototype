@@ -38,9 +38,26 @@ and computes definitionally on refl (J_refl is <i> d). Checked green in
 cubical_test2.bend: transport, subst, J, J_refl, pathp_const, ua_beta,
 ua_beta_inv, transport_pi, transport_sig. No regressions (39/39 stock).
 
-Still open: general hcomp with boundary systems (needed for HITs and
-composition of paths with free endpoints), full Glue (ua here is the
-bi-invertible-map special case, computation without the coherence path),
-guarded coinduction, and the Sup x Path interaction (transport along a path
-of superpositions -- no prior art; the repo's fibre theorems are the
-specification).
+Layer 4 (same patch):
+  - hcomp(A, r, u0, u1, base): homogeneous composition with the binary face
+    system (r=i0 -> u0, r=i1 -> u1); faces reduce definitionally, giving
+    definitional path composition pcompH (cubical_test4.bend). refl.refl=refl
+    stays propositional, matching cubical Agda.
+  - ua upgraded to full iso-univalence: ua(A,B,f,g,gf,fg) carries both
+    homotopies (this is isoToPath, which is what the corpus's Carrier uses);
+    transport still computes to f forwards and g backwards.
+  - Sup x Path: coe along a superposed line &L{A(i),B(i)} dups the value at
+    label L and transports each universe along its own line -- the corpus's
+    fibre-exactness theorem as a reduction rule. Checked: transport along
+    &0{ua(not), Bool} sends &0{True,True} to &0{False,True} definitionally.
+    Typing: a superposed value checks componentwise against a superposed
+    type at the same label.
+  - Totality classifier (Core/Totality.hs): every definition is tagged
+    [total] (no recursion, or structural descent), [productive]
+    (constructor-guarded corecursion), or [unchecked]. An analysis, not a
+    gate -- it makes the trust boundary per-definition visible.
+
+Still open: hcomp with general cofibration systems and hfill (would make
+more compositions definitional and enable a HIT schema -- user-declared
+path constructors), full Glue (ua is the iso special case), and gating
+--total mode.
