@@ -55,10 +55,13 @@ whnfGo lv book term =
     Log s x    -> whnfLog lv book s x
     PAp f x    -> whnfPAp lv book f x
     Coe pp r t x -> whnfCoe lv book pp r t x
-    HCm a r u0 u1 x -> whnfHCm lv book a r u0 u1 x
+    HCm a fs x -> whnfHCm lv book a fs x
     INot a     -> whnfINot lv book a
     IAnd a b   -> whnfIAnd lv book a b
     IOr a b    -> whnfIOr lv book a b
+    UnG g      -> whnfUnG lv book g
+    Glu a fs   -> whnfGlu lv book a fs
+    GlB a fs x -> whnfGlB lv book a fs x
     _          -> term
 
 -- Normalizes a let binding
@@ -148,17 +151,46 @@ occursMarker t = go t where
     PLm k f    -> go (f (Var k 0))
     PAp a b    -> go a || go b
     Coe a b c d2 -> go a || go b || go c || go d2
-    HCm a b c d2 e2 -> go a || go b || go c || go d2 || go e2
+    HCm a fs e2 -> go a || go e2 || any (\(p,u) -> go p || go u) fs
     Ua a b c d2 e2 f2 -> go a || go b || go c || go d2 || go e2 || go f2
+    Glu a fs -> go a || or [ go p || go t || go e | (p,t,e) <- fs ]
+    GlB a fs x -> go a || go x || or [ go p || go t | (p,t) <- fs ]
+    UnG gg -> go gg
 
 -- hcomp (binary system): if the face direction is an endpoint, the
 -- composite is the corresponding side's cap; otherwise neutral.
-whnfHCm :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term -> Term
-whnfHCm lv book a r u0 u1 x =
-  case whnf lv book r of
-    I0 -> whnf lv book (PAp u0 I1)
-    I1 -> whnf lv book (PAp u1 I1)
-    r' -> HCm a r' u0 u1 x
+notI0g :: Term -> Bool
+notI0g I0 = False
+notI0g _  = True
+
+whnfGlu :: EvalLevel -> Book -> Term -> [(Term,Term,Term)] -> Term
+whnfGlu lv book a fs =
+  let fs' = [ (whnf lv book p, t, e) | (p,t,e) <- fs ] in
+  case [ t | (I1, t, _) <- fs' ] of
+    (t : _) -> whnf lv book t
+    []      -> Glu a [ f | f@(p,_,_) <- fs', notI0g p ]
+
+whnfGlB :: EvalLevel -> Book -> Term -> [(Term,Term)] -> Term -> Term
+whnfGlB lv book a fs x =
+  let fs' = [ (whnf lv book p, t) | (p,t) <- fs ] in
+  case [ t | (I1, t) <- fs' ] of
+    (t : _) -> whnf lv book t
+    []      -> GlB a [ f | f@(p,_) <- fs', notI0g p ] x
+
+whnfUnG :: EvalLevel -> Book -> Term -> Term
+whnfUnG lv book g =
+  case whnf lv book g of
+    GlB _ _ a -> whnf lv book a
+    g'        -> UnG g'
+
+whnfHCm :: EvalLevel -> Book -> Term -> [(Term, Term)] -> Term -> Term
+whnfHCm lv book a fs x =
+  let fs' = [ (whnf lv book p, u) | (p, u) <- fs ]
+  in case [ u | (I1, u) <- fs' ] of
+       (u : _) -> whnf lv book (PAp u I1)   -- a face holds: the composite is that tube's cap
+       []      -> HCm a [ f | f@(p, _) <- fs', notI0 p ] x   -- false faces contribute nothing
+  where notI0 I0 = False
+        notI0 _  = True
 
 -- coe: generalized transport along a type line P from r to s.
 whnfCoe :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
@@ -194,6 +226,18 @@ whnfCoe lv book pP r s t =
                       _                -> App pP i
                 in Tup (Coe fstLn r' s' a) (Coe (Lam "i" (\i -> sndAt i)) r' s' b)
               t' -> Coe pP r' s' t'
+          -- inverse line  λi. P @ inot(i): transport along P the other way
+          PAp u m | (case cut m of { INot v -> isCoeMarker (cut v); _ -> False }) && not (occursMarker u) ->
+            whnf lv book (Coe (Lam "i" (\i -> PAp u i)) (invEnd r') (invEnd s') t)
+          -- composite line  λi. hcomp(Set, [(inot i, <_> A), (i, <k> Q@k)], P@i):
+          -- transport along P, then along Q (backwards: Q then P)
+          HCm Set fs base | Just q <- compTube fs ->
+            let pLn = Lam "i" (\i -> substMarker i base)
+                qLn = Lam "i" (\i -> PAp q i)
+            in case (r', s') of
+                 (I0, I1) -> whnf lv book (Coe qLn I0 I1 (Coe pLn I0 I1 t))
+                 (I1, I0) -> whnf lv book (Coe pLn I1 I0 (Coe qLn I1 I0 t))
+                 _        -> Coe pP r' s' t
           -- ua: the line is a univalence path; apply the function
           PAp u m | isCoeMarker m ->
             case whnf Full book u of
@@ -220,9 +264,9 @@ whnfCoe lv book pP r s t =
                 sideL k = Coe (Lam "i" (\i -> aAt i)) k s' (uAt k)
                 sideR k = Coe (Lam "i" (\i -> aAt i)) k s' (vAt k)
             in PLm "j" (\j ->
-                 HCm (aAt s') s'
-                   (PLm "k" (\k -> sideL k))
-                   (PLm "k" (\k -> sideR k))
+                 HCm (aAt s')
+                   [ (INot s', PLm "k" (\k -> sideL k))
+                   , (s',      PLm "k" (\k -> sideR k)) ]
                    (base j))
           -- superposed line: dup the value at the label, transport each
           -- universe along its own line, resuperpose (fibre-exact routing)
@@ -656,12 +700,16 @@ dup book l (Coe p r s t) = (Coe p0 r0 s0 t0, Coe p1 r1 s1 t1)
         (r0,r1)         = dup book l r
         (s0,s1)         = dup book l s
         (t0,t1)         = dup book l t
-dup book l (HCm a r u0 u1 x) = (HCm a0 r0 u00 u10 x0, HCm a1 r1 u01 u11 x1)
-  where (a0,a1)          = dup book l a
-        (r0,r1)          = dup book l r
-        (u00,u01)        = dup book l u0
-        (u10,u11)        = dup book l u1
-        (x0,x1)          = dup book l x
+dup book l (HCm a fs x) = (HCm a0 [ (p0,u0) | ((p0,_),(u0,_)) <- ds ] x0, HCm a1 [ (p1,u1) | ((_,p1),(_,u1)) <- ds ] x1)
+  where (a0,a1) = dup book l a
+        ds      = [ (dup book l p, dup book l u) | (p,u) <- fs ]
+        (x0,x1) = dup book l x
+dup book l (Glu a fs) = (Glu a [ p0 | (p0,_) <- ds ], Glu a [ p1 | (_,p1) <- ds ])
+  where ds = [ let (p0,p1)=dup book l p; (t0,t1)=dup book l t; (e0,e1)=dup book l e in ((p0,t0,e0),(p1,t1,e1)) | (p,t,e) <- fs ]
+dup book l (GlB a fs x) = (GlB a [ p0 | (p0,_) <- ds ] x0, GlB a [ p1 | (_,p1) <- ds ] x1)
+  where (x0,x1) = dup book l x
+        ds = [ let (p0,p1)=dup book l p; (t0,t1)=dup book l t in ((p0,t0),(p1,t1)) | (p,t) <- fs ]
+dup book l (UnG g) = (UnG g0, UnG g1) where (g0,g1) = dup book l g
 dup book l (Ua a b f g gf fg) = (Ua a0 b0 f0 g0 gf fg, Ua a1 b1 f1 g1 gf fg)
   where (a0,a1)         = dup book l a
         (b0,b1)         = dup book l b
@@ -762,7 +810,10 @@ normal d book term =
     PAp f x    -> PAp (normal d book f) (normal d book x)
     Coe p r s t -> Coe (normal d book p) (normal d book r) (normal d book s) (normal d book t)
     Ua a b f g gf fg -> Ua (normal d book a) (normal d book b) (normal d book f) (normal d book g) (normal d book gf) (normal d book fg)
-    HCm a r u0 u1 x -> HCm (normal d book a) (normal d book r) (normal d book u0) (normal d book u1) (normal d book x)
+    Glu a fs -> Glu (normal d book a) [ (normal d book p, normal d book t, normal d book e) | (p,t,e) <- fs ]
+    GlB a fs x -> GlB (normal d book a) [ (normal d book p, normal d book t) | (p,t) <- fs ] (normal d book x)
+    UnG g -> UnG (normal d book g)
+    HCm a fs x -> HCm (normal d book a) [ (normal d book p, normal d book u) | (p,u) <- fs ] (normal d book x)
     Era        -> Era
     Sup l a b  -> Sup l (normal d book a) (normal d book b)
     SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
@@ -825,3 +876,171 @@ ieql :: Book -> Term -> Term -> Bool
 ieql book a b = case (termToInt book a, termToInt book b) of
   (Just x, Just y) -> x == y
   _                -> False
+
+-- Runtime algebra of universe paths (Target emitters)
+-- ---------------------------------------------------
+-- A universe path is represented at runtime by a Church pair (fwd, bwd).
+-- The algebra below is CLOSED under the constructions the checker admits on
+-- lines in Set, so transport along a composite / inverse / Pi / Sigma line
+-- is performed by the net, not by the normaliser:
+--   ua                    -> the pair itself
+--   <i> P @ i             -> P
+--   <i> P @ inot(i)       -> inv P            (swap)
+--   <i> hcomp(Set, i, <_> A, <k> Q @ k, P @ i) -> comp P Q   (composition)
+--   <i> (P@i) -> (Q@i)    -> pi P Q          (h |-> fwdQ . h . bwdP)
+--   <i> Σ (P@i) (Q@i)     -> sig P Q         (componentwise)
+--   constant line         -> idPath
+-- Anything else yields Nothing and a strict emitter refuses instead of
+-- silently emitting the cap / identity.
+pathRep :: Term -> Maybe Term
+pathRep t = case t of
+  Loc _ x  -> pathRep x
+  PLm _ f  -> lineRep (f coeMarker)
+  _        -> Just t   -- ua, or a runtime value of path type (Ref/Var/App)
+
+-- a Set-valued body in the marker interval variable
+lineRep :: Term -> Maybe Term
+lineRep body
+  | not (occursMarker body) = Just (Ref "cub_idPath")
+  | otherwise = case body of
+      Loc _ x -> lineRep x
+      PAp p r | not (occursMarker p) -> case cut r of
+        Var "__coe_i__" (-1)          -> pathRep p
+        INot v | isCoeMarker (cut v)  -> fmap cubInv (pathRep p)
+        _                             -> Nothing
+      All a (Lam _ b) | not (occursDep (b depMarker)) -> do
+        pa <- lineRep a
+        pb <- lineRep (b depMarker)
+        Just (cubPi pa pb)
+      Sig a (Lam _ b) | not (occursDep (b depMarker)) -> do
+        pa <- lineRep a
+        pb <- lineRep (b depMarker)
+        Just (cubSig pa pb)
+      HCm a0 fs base | Set <- cut a0 -> case [ (p, u) | (p, u) <- fs, isMarkerFace p ] of
+        [(_, u)] | not (occursMarker u), all constTube [ u0 | (p, u0) <- fs, not (isMarkerFace p) ] -> do
+          pb <- lineRep base
+          q  <- pathRep u
+          Just (cubComp pb q)
+        _ -> Nothing
+      _ -> Nothing
+  where
+    isMarkerFace p = case cut p of { Var "__coe_i__" (-1) -> True; _ -> False }
+    constTube u = case cut u of
+      PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
+      _       -> False
+
+-- coe along a line from r to s, as an application of the path's runtime
+-- representation (literal endpoints only: closed programs have no other)
+coeRep :: Term -> Term -> Term -> Term -> Maybe Term
+coeRep pP r s x = do
+  rep <- lineRep (case cut pP of { Lam _ f -> f coeMarker; _ -> App pP coeMarker })
+  case (cut r, cut s) of
+    (I0, I1) -> Just (cubFwd rep x)
+    (I1, I0) -> Just (cubBwd rep x)
+    (I0, I0) -> Just x
+    (I1, I1) -> Just x
+    _        -> Nothing
+
+cubFwd, cubBwd :: Term -> Term -> Term
+cubFwd p x = App (App (Ref "cub_pathFwd") p) x
+cubBwd p x = App (App (Ref "cub_pathBwd") p) x
+
+cubPair :: Term -> Term -> Term
+cubPair f g = Lam "k" (\k -> App (App k f) g)
+
+cubInv :: Term -> Term
+cubInv p = cubPair (Lam "y" (\y -> cubBwd p y)) (Lam "x" (\x -> cubFwd p x))
+
+cubComp :: Term -> Term -> Term
+cubComp p q = cubPair (Lam "x" (\x -> cubFwd q (cubFwd p x))) (Lam "y" (\y -> cubBwd p (cubBwd q y)))
+
+cubPi :: Term -> Term -> Term
+cubPi p q = cubPair (Lam "h" (\h -> Lam "x" (\x -> cubFwd q (App h (cubBwd p x)))))
+                    (Lam "h" (\h -> Lam "x" (\x -> cubBwd q (App h (cubFwd p x)))))
+
+cubSig :: Term -> Term -> Term
+cubSig p q = cubPair (Lam "w" (\w -> SigM w (Lam "a" (\a -> Lam "b" (\b -> Tup (cubFwd p a) (cubFwd q b))))))
+                     (Lam "w" (\w -> SigM w (Lam "a" (\a -> Lam "b" (\b -> Tup (cubBwd p a) (cubBwd q b))))))
+
+-- dependency marker for the bound variable of a Pi/Sigma line
+depMarker :: Term
+depMarker = Var "__dep_x__" (-2)
+
+occursDep :: Term -> Bool
+occursDep t = occursMarker (swap t) where
+  -- reuse occursMarker by renaming the dep marker to the coe marker and
+  -- hiding the real coe marker
+  swap x = case x of
+    Var "__dep_x__" (-2) -> coeMarker
+    Var "__coe_i__" (-1) -> Var "__hidden__" (-3)
+    _ -> mapSub swap x
+
+-- one-level structural map over immediate subterms (HOAS bodies included)
+mapSub :: (Term -> Term) -> Term -> Term
+mapSub g x = case x of
+  Sub a      -> Sub (g a)
+  Fix k f    -> Fix k (g . f)
+  Let v f    -> Let (g v) (g f)
+  Chk a b    -> Chk (g a) (g b)
+  EmpM a     -> EmpM (g a)
+  UniM a b   -> UniM (g a) (g b)
+  BitM a b c -> BitM (g a) (g b) (g c)
+  Suc n      -> Suc (g n)
+  NatM a b c -> NatM (g a) (g b) (g c)
+  Lst a      -> Lst (g a)
+  Con a b    -> Con (g a) (g b)
+  LstM a b c -> LstM (g a) (g b) (g c)
+  EnuM a cs e -> EnuM (g a) [ (s, g c) | (s, c) <- cs ] (g e)
+  Sig a b    -> Sig (g a) (g b)
+  Tup a b    -> Tup (g a) (g b)
+  SigM a b   -> SigM (g a) (g b)
+  All a b    -> All (g a) (g b)
+  Lam k f    -> Lam k (g . f)
+  App a b    -> App (g a) (g b)
+  Eql a b c  -> Eql (g a) (g b) (g c)
+  EqlM a b   -> EqlM (g a) (g b)
+  Met n a xs -> Met n (g a) (map g xs)
+  Ind a      -> Ind (g a)
+  Frz a      -> Frz (g a)
+  Sup a b c  -> Sup (g a) (g b) (g c)
+  SupM a b c -> SupM (g a) (g b) (g c)
+  Frk a b c  -> Frk (g a) (g b) (g c)
+  Op2 o a b  -> Op2 o (g a) (g b)
+  Op1 o a    -> Op1 o (g a)
+  Loc l a    -> Loc l (g a)
+  Rwt a b c  -> Rwt (g a) (g b) (g c)
+  Log a b    -> Log (g a) (g b)
+  INot a     -> INot (g a)
+  IAnd a b   -> IAnd (g a) (g b)
+  IOr a b    -> IOr (g a) (g b)
+  Pth a b c  -> Pth (g a) (g b) (g c)
+  PLm k f    -> PLm k (g . f)
+  PAp a b    -> PAp (g a) (g b)
+  Coe a b c d2 -> Coe (g a) (g b) (g c) (g d2)
+  HCm a fs e2 -> HCm (g a) [ (g p, g u) | (p, u) <- fs ] (g e2)
+  Ua a b c d2 e2 f2 -> Ua (g a) (g b) (g c) (g d2) (g e2) (g f2)
+  Glu a fs -> Glu (g a) [ (g p, g t, g e) | (p,t,e) <- fs ]
+  GlB a fs y -> GlB (g a) [ (g p, g t) | (p,t) <- fs ] (g y)
+  UnG gg -> UnG (g gg)
+  _          -> x
+
+invEnd :: Term -> Term
+invEnd I0 = I1
+invEnd I1 = I0
+invEnd r  = INot r
+
+-- the tube Q of a standard composite line in Set (face i: <k> Q @ k, face
+-- inot i constant), if the system has that shape
+compTube :: [(Term, Term)] -> Maybe Term
+compTube fs = case [ u | (p, u) <- fs, isCoeMarker (cut p) ] of
+  [u] | not (occursMarker u), all constTube [ u0 | (p, u0) <- fs, not (isCoeMarker (cut p)) ] -> Just u
+  _ -> Nothing
+  where constTube u = case cut u of
+          PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
+          _       -> False
+
+substMarker :: Term -> Term -> Term
+substMarker i t = go t where
+  go x = case x of
+    Var "__coe_i__" (-1) -> i
+    _ -> mapSub go x
