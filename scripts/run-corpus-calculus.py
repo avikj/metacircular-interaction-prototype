@@ -210,8 +210,11 @@ def generate() -> tuple[int, int]:
             stale.unlink()
     # The classified pool is materialized once, in chunks, as checked
     # values; shards consume it as data and pay no reflection for it.
+    eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
     chunk_mods: list[str] = []
     for k, ch in enumerate(chunks, start=1):
+        if not eager_loci:
+            break
         cmod = f"CorpusPool{k}"
         chunk_mods.append(cmod)
         cbody = [
@@ -289,9 +292,15 @@ def generate() -> tuple[int, int]:
             "", "lociPoint : Point lzero", "lociPoint = point loci",
             "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
             "", "lociProcess : Corpus lociPoint", "lociProcess = run lociPoint",
-            "", "-- Infinite, depth-free continuation of the factored presentation; every",
-            "-- demanded question returns its target plus the exact residual fibre.",
-            "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
+            "", "-- THE COINDUCTIVE PRESENTATION: the corpus as one state of the",
+            "-- guarded interactive coalgebra.  Every question (every map out of",
+            "-- the corpus) is answered on demand with its target, the EXACT",
+            "-- residual fibre, and a continuation; nothing is globally",
+            "-- normalised, no relation is enumerated eagerly — the finite",
+            "-- description unfolds to the complete relation web.",
+            "corpusPresentation : SP.SelfPresentation corpusPoint",
+            "corpusPresentation = SP.present corpusPoint",
+            "", "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
         ]
         return body
 
@@ -309,8 +318,9 @@ def main() -> int:
     agda, libfile = tool
     ctx = generate()
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
+    eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
     # Pool chunks first, sequentially: shards depend on their values.
-    pools = sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
+    pools = [] if not eager_loci else sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
     for chunk in pools:
         print(f"classifying {chunk.name} ...", file=sys.stderr)
         rc = subprocess.call(base + [str(chunk)], cwd=ROOT)
@@ -321,7 +331,7 @@ def main() -> int:
     # probes force huge normal forms), so no fixed shard size is right.
     # Try a slice; on heap failure split it in half; a generator that
     # fails ALONE is excluded with a printed notice.
-    queue: list[list[str]] = list(ctx["slices"])
+    queue: list[list[str]] = list(ctx["slices"]) if eager_loci else []
     successful: list[str] = []
     excluded: list[str] = []
     next_id = 1

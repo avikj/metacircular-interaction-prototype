@@ -4,7 +4,7 @@ module CorpusFinalPresentation where
 open import Cubical.Data.List using (List)
 import CorpusRepository as R
 import CorpusBehavioralMeaning as BM
-import Fibre.CorpusLoci as L
+import Fibre.CorpusRefs as CR
 import CorpusSelfPresentation as SP
 
 -- The proved minimal/full-future quotient of every formed declaration type,
@@ -12,12 +12,16 @@ import CorpusSelfPresentation as SP
 behavioralPresentation : List BM.Presented
 behavioralPresentation = BM.presentCorpus R.corpus
 
--- The immediately legible relational readout: each checked generator once,
--- with the exact family of checked applications it accepts.
-relationalLoci : L.RawLoci
-relationalLoci = R.loci
+-- The TOTAL reference relation between all expressions of the corpus:
+-- exact, complete, computed by pure syntax over the one corpus value.
+referenceRelation : CR.RefGraph
+referenceRelation = R.refGraph
 
--- The loci are not a dead finite graph: this is their complete guarded
--- continuation object, carrying the exact residual fibre at every demand.
-interactivePresentation : SP.SelfPresentation R.lociPoint
-interactivePresentation = R.lociPresentation
+-- THE COINDUCTIVE CALCULUS IS THE PRESENTATION.  The corpus is one state
+-- of the guarded interactive coalgebra; every question — every map out of
+-- it — is answered on demand with its target, the EXACT residual fibre,
+-- and a continuation.  Nothing is globally normalised and no relation is
+-- enumerated eagerly: the finite description unfolds, under demand, to
+-- the complete relation web.
+interactivePresentation : SP.SelfPresentation R.corpusPoint
+interactivePresentation = R.corpusPresentation

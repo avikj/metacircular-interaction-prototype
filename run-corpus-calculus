@@ -14,5 +14,7 @@ LIBFILE="$PREFIX/.agda-pin/libraries"
   "$ROOT/formal/cubical/theorems/residue/CorpusFinalPresentation.agda"
 printf '%s\n' 'FINAL CORPUS PRESENTATION GREEN'
 printf '%s\n' '  behavioralPresentation = full-future quotient meanings + exact realization fibres'
-printf '%s\n' '  relationalLoci         = checked generators factored once + exact realization families'
-printf '%s\n' '  interactivePresentation= infinite guarded continuation of the factored loci'
+printf '%s\n' '  referenceRelation      = the total reference relation between all expressions'
+printf '%s\n' '  interactivePresentation= the corpus as one state of the guarded coalgebra:'
+printf '%s\n' '                           every question answered on demand with target +'
+printf '%s\n' '                           exact residual fibre + continuation'
