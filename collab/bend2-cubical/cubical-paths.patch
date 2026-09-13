@@ -1264,7 +1264,7 @@ index f94d1ce..0a69302 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..87ac206 100644
+index cdd6756..12e7fd6 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -127,6 +127,73 @@ infer d span book@(Book defs) ctx term =
@@ -1367,7 +1367,7 @@ index cdd6756..87ac206 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -435,6 +514,99 @@ check d span book ctx term goal =
+@@ -435,6 +514,100 @@ check d span book ctx term goal =
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -1400,6 +1400,7 @@ index cdd6756..87ac206 100644
 +               r' | refHeaded r' -> r'
 +                  | otherwise    -> go r'
 +        else r
++    Coe a r s x -> Coe (go a) (go r) (go s) (go x)
 +    Tup a b    -> Tup (go a) (go b)
 +    SigM x f   -> SigM (go x) (go f)
 +    Suc n      -> Suc (go n)
@@ -1467,7 +1468,7 @@ index cdd6756..87ac206 100644
  -- Verify that a term has the expected type by inference
  verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
  verify d span book ctx term goal = do
-@@ -468,3 +640,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +641,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
