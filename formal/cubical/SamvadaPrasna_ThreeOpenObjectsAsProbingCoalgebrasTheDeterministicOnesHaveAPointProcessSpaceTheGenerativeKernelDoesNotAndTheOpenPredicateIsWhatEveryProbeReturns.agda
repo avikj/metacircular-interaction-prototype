@@ -414,3 +414,9 @@ module Kernel where
   -- event datum the interface was built to carry.
   वर्धन-बहुत्वम् : ¬ isContr (Vardhana seed)
   वर्धन-बहुत्वम् (c , h) = processes-differ (sym (h p₁) ∙ h p₂)
+
+  -- COROLLARY, the sharper h-level fact underneath, by the same shadow:
+  -- the event datum's own type is not a proposition — direct and detour
+  -- are two inhabitants of Derivation seed target₀ that length separates.
+  ¬isProp-Derivation : ¬ (isProp (Derivation seed target₀))
+  ¬isProp-Derivation ip = ¬n≡ssn _ (cong dlen (ip direct-history detour-history))
