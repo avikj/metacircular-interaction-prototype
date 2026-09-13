@@ -145,5 +145,33 @@ def invEquiv(A: Set, B: Set, e: Equiv(A,B)) -> Equiv(B,A):
         lambda x. eqT(A,B,f,h,x),
         lambda y. eqS(A,B,f,h,y))
 
+# ---- fiberFst: the fibre of the first projection IS the family (the heart)
+def SigT(B: Set, T: B -> Set) -> Set:
+  any b: B. T(b)
+def fstT(B: Set, T: B -> Set, s: SigT(B,T)) -> B:
+  match s:
+    case (b2, t): b2
+def sndT(B: Set, T: B -> Set, s: SigT(B,T)) -> T(fstT(B,T,s)):
+  match s:
+    case (b2, t): t
+def ffFun(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b)) -> T(b):
+  match w:
+    case (s, p):
+      coe(lambda i. T(p @ i), i0, i1, sndT(B,T,s))
+def ffInv(B: Set, T: B -> Set, b: B, t: T(b)) -> fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b):
+  ( (b, t), <_> b )
+def ffSec(B: Set, T: B -> Set, b: B, t: T(b)) -> Path(T(b), ffFun(B,T,b, ffInv(B,T,b,t)), t):
+  <_> t
+def ffRet(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b))
+  -> Path(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), ffInv(B,T,b, ffFun(B,T,b,w)), w):
+  match w:
+    case (s, p):
+      match s:
+        case (b2, t):
+          <j> ( (p @ inot(j), (<i> coe(lambda k. T(p @ iand(i, k)), i0, i, t)) @ inot(j)), <k> p @ ior(inot(j), k) )
+def fiberFst(B: Set, T: B -> Set, b: B) -> Equiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b)):
+  isoToEquiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
+             lambda w. ffFun(B,T,b,w), lambda t. ffInv(B,T,b,t),
+             lambda t. ffSec(B,T,b,t), lambda w. ffRet(B,T,b,w))
 def main2() -> Nat:
   0n
