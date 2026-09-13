@@ -205,7 +205,7 @@ def generate() -> tuple[int, int]:
     for stale in GENERATED.glob("CorpusShard*.agda"):
         if stale.name not in {f"CorpusShard{k}.agda" for k in range(1, len(slices) + 1)}:
             stale.unlink()
-    for stale in GENERATED.glob("CorpusPool*.agda"):
+    for stale in GENERATED.glob("CorpusPool[0-9]*.agda"):
         if stale.name not in {f"CorpusPool{k}.agda" for k in range(1, len(chunks) + 1)}:
             stale.unlink()
     # The classified pool is materialized once, in chunks, as checked
@@ -226,10 +226,22 @@ def generate() -> tuple[int, int]:
             "chunk : List PoolEntry", "chunk = materializePool chunkNames", "",
         ]
         write_if_changed(GENERATED / f"{cmod}.agda", "\n".join(cbody))
-    pool_expr = " Fibre.CorpusLoci.++ ".join(f"{m}.chunk" for m in chunk_mods)
     pool_expr = functools.reduce(
         lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.chunk ({acc})",
         reversed(chunk_mods[:-1]), f"{chunk_mods[-1]}.chunk") if chunk_mods else "[]"
+    # Partition the concatenated pool ONCE into a checked literal.
+    abody = [
+        "{-# OPTIONS --cubical --safe --guardedness #-}",
+        "module CorpusPoolAll where", "",
+        "open import Agda.Builtin.Reflection using (Name)",
+        "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+        "import Fibre.CorpusLoci",
+        "open Fibre.CorpusLoci using (PoolEntry ; Pool ; materializePartitioned)", "",
+        *[f"import {m}" for m in chunk_mods], "",
+        "pool : Pool",
+        f"pool = materializePartitioned ({pool_expr})", "",
+    ]
+    write_if_changed(GENERATED / "CorpusPoolAll.agda", "\n".join(abody))
     shard_mods: list[str] = []
     for k, sl in enumerate(slices, start=1):
         smod = f"CorpusShard{k}"
@@ -240,14 +252,12 @@ def generate() -> tuple[int, int]:
             "open import Agda.Builtin.Reflection using (Name)",
             "open import Agda.Builtin.List using (List ; [] ; _∷_)",
             "import Fibre.CorpusLoci",
-            "open Fibre.CorpusLoci using (RawLoci ; PoolEntry ; materializeLociOver)", "",
-            *[f"import {m}" for m in chunk_mods], "",
+            "open Fibre.CorpusLoci using (RawLoci ; materializeLociOverPool)",
+            "import CorpusPoolAll", "",
             *imports, "",
-            "pool : List PoolEntry",
-            f"pool = {pool_expr}", "",
             "gens : List Name", "gens =",
             *[f"  (quote {q}) ∷" for q in sl], "  []", "",
-            "shard : RawLoci", "shard = materializeLociOver pool gens", "",
+            "shard : RawLoci", "shard = materializeLociOverPool CorpusPoolAll.pool gens", "",
         ]
         write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
     body = [
@@ -297,7 +307,8 @@ def main() -> int:
     generate()
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     # Pool chunks first, sequentially: shards depend on their values.
-    pools = sorted(GENERATED.glob("CorpusPool*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
+    pools = sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
+    pools.append(GENERATED / "CorpusPoolAll.agda")
     for chunk in pools:
         print(f"classifying {chunk.name} ...", file=sys.stderr)
         rc = subprocess.call(base + [str(chunk)], cwd=ROOT)

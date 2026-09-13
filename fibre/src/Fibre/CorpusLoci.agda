@@ -360,6 +360,14 @@ buildLociOver entries gens =
   bindTC (expandAll gens) λ egens →
   bindTC (buildLoci (partitionPool entries) egens) quoteTC
 
+-- The compile-time evaluator does not reliably share the partitioned
+-- pool between generators, so the partition is evaluated ONCE and
+-- stored as a checked literal; shards then only walk data.
+buildLociOverPool : Pool → List Name → TC Term
+buildLociOverPool pool gens =
+  bindTC (expandAll gens) λ egens →
+  bindTC (buildLoci pool egens) quoteTC
+
 macro
   materializeLoci : List Name → Term → TC ⊤
   materializeLoci ns hole = bindTC (materializeLociTerm ns) (unify hole)
@@ -374,3 +382,11 @@ macro
   materializeLociOver : List PoolEntry → List Name → Term → TC ⊤
   materializeLociOver entries gens hole =
     bindTC (buildLociOver entries gens) (unify hole)
+
+  materializePartitioned : List PoolEntry → Term → TC ⊤
+  materializePartitioned entries hole =
+    bindTC (quoteTC (partitionPool entries)) (unify hole)
+
+  materializeLociOverPool : Pool → List Name → Term → TC ⊤
+  materializeLociOverPool pool gens hole =
+    bindTC (buildLociOverPool pool gens) (unify hole)
