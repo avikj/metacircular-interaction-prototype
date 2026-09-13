@@ -235,6 +235,29 @@ function nodeRow(n) {
 
 /* ---------------- focus view ---------------- */
 
+async function towerOf() {
+  if (!S.details.has("tower")) {
+    const t = await fetch("store/tower_summary.json")
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    S.details.set("tower", t);
+    if (t) {
+      // index: qualified name -> delta class / pi edges touching it
+      const didx = new Map();
+      for (const cls of t.delta_classes) for (const n of cls) didx.set(n, cls);
+      const pidx = new Map();
+      for (const e of t.pi) {
+        for (const key of [e[0], e[2], e[3]]) {
+          if (!pidx.has(key)) pidx.set(key, []);
+          if (pidx.get(key).length < 12) pidx.get(key).push(e);
+        }
+      }
+      S.details.set("tower:didx", didx);
+      S.details.set("tower:pidx", pidx);
+    }
+  }
+  return S.details.get("tower");
+}
+
 async function usesOf(n) {
   const key = "uses:" + n.dsh;
   if (!S.details.has(key)) {
@@ -432,6 +455,56 @@ async function openNode(n, fromRoute = false, isReverse = false) {
     btn2.onclick = () => showMeet(cls);
     sec.append(btn2);
     f.append(sec);
+  }
+
+  // ---- the identity tower: this page's content at three levels ----
+  {
+    const t = await towerOf();
+    if (t) {
+      const didx = S.details.get("tower:didx");
+      const pidx = S.details.get("tower:pidx");
+      const rows = [];
+      for (const dec of (d && d.decls ? d.decls.slice(0, 40) : [])) {
+        const q = n.m + "." + dec.n;
+        const cls = didx.get(q);
+        if (cls && cls.length > 1) {
+          const others = cls.filter((x) => !x.startsWith(n.m + "."));
+          if (others.length) rows.push(["δ", dec.n, others.slice(0, 6),
+            "witness: the kernel's normalization"]);
+        }
+        const pes = pidx.get(q);
+        if (pes) for (const [w, kind, lhs, rhs] of pes.slice(0, 4)) {
+          if (w === q) rows.push(["π",
+            lhs.split(".").pop() + " ~ " + rhs.split(".").pop(),
+            [], "this theorem IS the identification (" + kind.toLowerCase() + ")"]);
+        }
+      }
+      const pmod = pidx && pidx.get(n.m);
+      if (rows.length || pmod) {
+        const sec = el("section", "block");
+        sec.append(el("h2", "", "The identity tower — what this content is, at three depths"));
+        sec.append(el("div", "evroute",
+          "α structural (the address above) · δ up to the kernel's normalization · π up to proved equivalence"));
+        for (const [lvl, subject, others, why] of rows.slice(0, 14)) {
+          const row = el("div", "fibreline");
+          const b = el("b", "", lvl + "  ");
+          b.style.fontFamily = "var(--mono)";
+          row.append(b);
+          const sj = el("span", "", subject + (others.length ? "  ↔  " : ""));
+          tint(sj, subject.split(" ")[0], 0.9);
+          row.append(sj);
+          others.forEach((o, i) => {
+            const a = el("span", "modref", o.split(".").slice(-2).join("."));
+            a.onclick = () => { const m = S.byMod.get(o.split(".").slice(0, -1).join(".")); if (m) openNode(m); };
+            row.append(a);
+            if (i < others.length - 1) row.append(", ");
+          });
+          row.append(el("span", "evroute", "  — " + why));
+          sec.append(row);
+        }
+        f.append(sec);
+      }
+    }
   }
 
   const srcSec = el("section", "block");
