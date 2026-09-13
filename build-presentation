@@ -25,6 +25,8 @@ enum() {  # enum <file> <alias>  -> lines "quote ALIAS.name"
       ci=index(line," : "); ei=index(line," = ")
       if (line ~ /^[^ \t]/ && ci>0 && (ei==0 || ci<ei)) {
         left=substr(line,1,ci-1); n=split(left,xs,/[ \t]+/)
+        # private/variable/postulate declarations are not accessible as M.name
+        if (xs[1]=="private"||xs[1]=="variable"||xs[1]=="postulate") next
         for (j=1;j<=n;j++){ x=xs[j]
           if (x==""||x=="private"||x=="module"||x=="open"||x=="import"||x=="infix"||x=="infixl"||x=="infixr"||x=="syntax"||x=="variable"||x=="field"||x=="data"||x=="record"||x=="postulate"||x=="mutual"||x=="abstract"||x=="instance"||x=="where"||x=="with"||x=="renaming"||x=="using"||x=="hiding") continue
           if (x ~ /[][(){}=;.@|?\\"]/) continue
@@ -56,12 +58,10 @@ flush() {
     echo 'open import Agda.Builtin.List using (List ; [] ; _∷_)'
     cat "$imports"
     echo 'names : List Name'
-    if [ -s "$names" ]; then
-      echo 'names ='
-      awk 'NR==1{print "    " $0; next}{print "  ∷ " $0} END{print "  ∷ []"}' "$names"
-    else
-      echo 'names = []'
-    fi
+    echo 'names ='
+    # trailing-∷ per line so deleting any single bad-name line stays valid
+    awk '{print "    " $0 " ∷"}' "$names"
+    echo '    []'
     echo 'run : ⊤'
     echo 'run = emitRows names'
   } > "$cf"
@@ -82,11 +82,34 @@ flush
 
 echo "chunks: $(wc -l < "$chunklist")  chunksz=$CHUNKSZ  par=$PAR"
 
+# Self-healing chunk runner: run a chunk; if it emits rows, keep them; if it
+# fails with NotInScope at a line, that scraped name is not accessible — delete
+# that line and retry (up to MAXHEAL times); any other error abandons the chunk.
+cat > /tmp/runchunk.sh <<'SH'
+set -u
+CD="$1"; LIB="$2"; rel="$3"; MAXHEAL=200
+bn=$(basename "$rel" .agda)
+cf="$CD/corpus/$bn.agda"
+n=0
+while [ "$n" -lt "$MAXHEAL" ]; do
+  rm -f "$CD/_build/2.8.0/agda/corpus/$bn.agdai"
+  out=$( cd "$CD" && LC_ALL=C.utf8 agda --library-file="$LIB" -vrow:1 "corpus/$bn.agda" 2>&1 )
+  if printf '%s\n' "$out" | grep -q '^ROW	'; then
+    printf '%s\n' "$out" | grep '^ROW	'
+    exit 0
+  fi
+  # find a NotInScope line number in this chunk and drop it
+  ln=$(printf '%s\n' "$out" | grep -oE "corpus/$bn\.agda:[0-9]+" | head -1 | grep -oE '[0-9]+$')
+  if printf '%s\n' "$out" | grep -q 'NotInScope' && [ -n "$ln" ]; then
+    sed -i "${ln}d" "$cf"; n=$((n+1)); continue
+  fi
+  exit 0   # non-scope error (or empty): abandon this chunk quietly
+done
+exit 0
+SH
+
 : > "$ROWS"
-xargs -P "$PAR" -I{} sh -c '
-  bn=$(basename "{}" .agda)
-  cd "'"$CD"'" && LC_ALL=C.utf8 agda --library-file="'"$LIB"'" -vrow:1 "corpus/$bn.agda" 2>/dev/null | grep "^ROW	"
-' < "$chunklist" >> "$ROWS" 2>/dev/null || true
+xargs -P "$PAR" -I{} sh /tmp/runchunk.sh "$CD" "$LIB" "{}" < "$chunklist" >> "$ROWS" || true
 
 echo "rows collected: $(wc -l < "$ROWS")"
-rm -f "$CD"/corpus/Chunk[0-9]*.agda /tmp/ch_imp.* /tmp/ch_nm.*
+rm -f "$CD"/corpus/Chunk[0-9]*.agda
