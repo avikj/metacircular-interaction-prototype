@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+# Equivalence-class map at PROVABLE identity: nodes = normalised type-keys of
+# declarations (definitional identity already merges equal keys); edges = the
+# corpus's own checked equivalence witnesses (A ≃ B, Iso A B). Connected
+# components = classes at the level of mathematical identity the corpus proves.
+#
+#   classmap-equiv <obj-rows> <edge-rows> <out>
+import sys, collections
+
+obj_path  = sys.argv[1] if len(sys.argv) > 1 else "/tmp/obj-rows.txt"
+edge_path = sys.argv[2] if len(sys.argv) > 2 else "/tmp/rows.txt"
+out_path  = sys.argv[3] if len(sys.argv) > 3 else "/tmp/classmap-equiv.txt"
+
+ids = {}                      # key-string -> int
+def kid(k):
+    i = ids.get(k)
+    if i is None:
+        i = len(ids); ids[k] = i
+        parent.append(i); rank.append(0)
+    return i
+parent, rank = [], []
+def find(x):
+    r = x
+    while parent[r] != r: r = parent[r]
+    while parent[x] != r: parent[x], x = r, parent[x]
+    return r
+def union(a, b):
+    ra, rb = find(a), find(b)
+    if ra == rb: return
+    if rank[ra] < rank[rb]: ra, rb = rb, ra
+    parent[rb] = ra
+    if rank[ra] == rank[rb]: rank[ra] += 1
+
+names_of = collections.defaultdict(list)   # key-id -> [decl names]
+# nodes: OBJ key name
+with open(obj_path, encoding="utf-8") as f:
+    for line in f:
+        p = line.rstrip("\n").split("\t")
+        if len(p) >= 3 and p[0] == "OBJ":
+            i = kid(p[1]); names_of[i].append(p[2])
+nkeys_def = len(ids)
+ndecls = sum(len(v) for v in names_of.values())
+
+# edges: EDGE keyA keyB  (equivalence witnesses)
+nedges = 0
+with open(edge_path, encoding="utf-8") as f:
+    for line in f:
+        p = line.rstrip("\n").split("\t")
+        if len(p) >= 3 and p[0] == "EDGE":
+            union(kid(p[1]), kid(p[2])); nedges += 1
+
+# gather components over the key-ids that carry declarations
+comp = collections.defaultdict(list)   # root -> [names...]
+comp_keys = collections.defaultdict(set)
+for i, nms in names_of.items():
+    r = find(i)
+    comp[r].extend(nms)
+    comp_keys[r].add(i)
+
+classes = sorted(comp.values(), key=lambda v: -len(v))
+ncls = len(classes)
+nnt = sum(1 for v in classes if len(v) > 1)
+# classes the equivalence edges MERGED beyond definitional identity
+merged = sum(1 for r, ks in comp_keys.items() if len(ks) > 1)
+
+with open(out_path, "w", encoding="utf-8") as o:
+    o.write("════════ EQUIVALENCE-CLASS MAP — PROVABLE identity (definitional ∪ ≃/Iso witnesses) ════════\n")
+    o.write(f"declarations (objects)        : {ndecls}\n")
+    o.write(f"definitional keys (nodes)     : {nkeys_def}\n")
+    o.write(f"equivalence-witness edges     : {nedges}   (A ≃ B / Iso A B in the corpus)\n")
+    o.write(f"identity classes              : {ncls}\n")
+    o.write(f"non-trivial classes (>1 decl) : {nnt}\n")
+    o.write(f"classes fused BY EQUIVALENCE  : {merged}   (definitional identity kept these key-distinct;\n")
+    o.write( "                                 a checked ≃/Iso proved them the same)\n\n")
+    o.write("──────── classes fused by an equivalence witness (the coinductive resolution), largest first ────────\n")
+    fused = sorted(((comp_keys[r], comp[r]) for r in comp_keys if len(comp_keys[r]) > 1),
+                   key=lambda t: -len(t[1]))
+    for ks, nms in fused:
+        o.write(f"\n[{len(nms)} decls / {len(ks)} distinct types fused]\n")
+        for nm in sorted(set(nms)):
+            o.write("    " + nm + "\n")
+print(f"objects={ndecls} nodes={nkeys_def} edges={nedges} classes={ncls} nontrivial={nnt} fused-by-equivalence={merged}")
+print(f"wrote {out_path}")

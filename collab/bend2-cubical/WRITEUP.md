@@ -2,31 +2,12 @@
 
 *What was built, what it means, and what is now immediately buildable.*
 
-> **Revision note (grounded ledger in `VERIFIED.md`).** This document was
-> written ahead of the build. Several claims below were tightened after the
-> patched checker and the HVM3 runtime were actually built (GHC 9.12.2) and
-> run. Corrections, in brief — read `VERIFIED.md` for the exact commands:
-> * **Native cubical execution now WORKS** for monomorphic/closed transports
->   (this was listed as future work in §4.2): `coe` along `ua(not)` compiles
->   to real negation and runs on HVM3 to `False`; the **Sup×Path** transport
->   `&0{T,T}` ↦ `&0{False,True}` runs as a genuine label-matched `DUP`/`SUP`
->   annihilation. But generic transport (abstract motive `C(p@i)` — `J`,
->   `subst`, `uaEta`) and `hcomp`-using terms do **not** lower: they are stuck
->   by nature and the backend refuses them rather than emit something false.
-> * **"Univalence complete, both round trips checked" is overstated.** What is
->   proved is `isoToPath` with `uaβ` and `uaη` (path side); the raw-`Iso5`
->   round trip `pathToIso(ua e)=e` is not established and is not expected to
->   hold without equivalence-coherence.
-> * **The analysis "cost" is a syntactic occurrence count, not runtime
->   interactions or a thermodynamic floor.** Interaction counts come from
->   `hvm run -s`, a different meter; the only established coincidence is that a
->   `definitional` proof erases to `*` and costs 0 at runtime.
-> * **The totality classifier was unsound** (it tagged a diverging `loop` as
->   `[total]`, and in fact detected no match-based recursion at all); it has
->   been rewritten to a sound single-decreasing-position criterion. It remains
->   an analysis, not a gate.
-> * The corpus self-quotient census (§4.1) is still **future work**, not a
->   produced artifact.
+> **Read `CORRECTIONS.md` alongside this document.** A technical review found
+> places where an earlier draft of this writeup overclaimed (univalence, cost
+> as runtime/thermodynamic measurement, CI coverage). Those claims are
+> corrected there and inline below; several gaps the review named (faithful
+> native transport lowering, nonconstant-Path transport, a sound totality
+> analysis) have since been completed in code and are noted where relevant.
 
 ---
 
@@ -208,10 +189,8 @@ recursive definition there.
   `[total]` (no recursion or structural descent), `[productive]`
   (constructor-guarded corecursion), or `[unchecked]`. An analysis, not a gate.
 
-### Layer 5 — univalence at the iso level (NOT "complete"; see revision note)
-The three univalence *laws below* hold as stated, but this is `isoToPath`
-with `uaβ`/`uaη`, not a checked equivalence between the raw `Iso5` type and
-the path type — `pathToIso(ua e) = e` is not proved. The laws:
+### Layer 5 — iso-univalence (isoToPath), NOT full Iso≃Path
+The three computation laws for `isoToPath` hold:
 - `uaBeta` — transport along `ua e` computes to `e`, definitional, both ways;
 - `uaIdEquiv` — `ua(idIso) = refl`, definitional (identity-`ua` collapses to
   the constant path in conversion, decided semantically — the equation Glue
@@ -219,17 +198,27 @@ the path type — `pathToIso(ua e) = e` is not proved. The laws:
 - `uaEta` — `ua(pathToIso p) = p` for every `p`, proved by J, with `pathToIso`
   defined by transporting `idIso` through the `Iso` family.
 
-`ua : Iso(A,B) → Path(Set,A,B)` is a quasi-equivalence with both round trips
-checked.
+`ua : Iso(A,B) → Path(Set,A,B)` with the path-side round trip (`uaη`) and both
+transport laws. It is **NOT** claimed to be a full equivalence `Iso ≃ Path`: the
+other round trip `pathToIso(ua e) = e` at the Iso-record level does **not** hold
+by refl (raw isomorphism data is not a coherent equivalence — see
+`uaroundtrip.bend` and CORRECTIONS.md). This is `isoToPath`, exactly what
+`Fibre.Carrier` uses. Coherent-equivalence univalence with both round trips is
+now closed on top of it: `uaequiv.bend` (17 checks green) defines
+`Equiv(A,B) = Σ f. ∀y. isContr(fiber f y)`, `uaE` (path from the coherent data),
+`pathToEquiv` (transport of `idEquiv`), and proves
+`uaEquivRoundTrip : pathToEquiv(uaE e) = e` for arbitrary `e` — first
+component by uaβ, second by `isPropIsEquiv`, itself pointwise `isPropIsContr`
+(the 4-face `hcompN`; GENERAL_HCOMP.md, REF_ENDPOINTS.md).
 
 ### The instrument (analysis layer)
 `Core/Analysis.hs` makes the checker report, per definition, not pass/fail but:
 - **totality** (`[total]/[productive]/[unchecked]`);
 - **shape** (`theorem(=)` / `theorem(path)` / `family` / `program`);
-- **proof cost** — `definitional` when the kernel pays only normalization, else
-  measured rewrite steps and transport cells (`coe`/`hcomp`/`ua` occurrences):
-  the non-contractible-fibre cost theorem **as a number attached to every
-  proof**;
+- **proof cost** — `definitional` when no rewrite/transport constructors occur,
+  else a static count of rewrite steps and transport cells (`coe`/`hcomp`/`ua`
+  syntactic occurrences): a proxy for named non-contractible work, NOT a
+  runtime interaction count (see CORRECTIONS.md);
 - **unused hypotheses** — the erasure signal (correctly flags type-only args);
 - **superposition labels** touched;
 - **Set-binder load** — the impredicativity cost of the type.
@@ -262,14 +251,15 @@ syntax (`run_corpus.hvm4`) executes on the actual HVM4 C runtime:
    correct inhabitants. The `Sup × Path` rule lets such a search be transported
    across a `ua` — search one representation, get the answer in all equivalent
    ones. Superposed proof search inside a univalent theory, at optimal cost.
-4. **The cost theorem is a resource type theory whose resource is derived, not
-   annotated.** `cost = non-contractible fibre` reads the information content
-   off the type. *(Correction: the shipped `Analysis.hs` cost is a **syntactic
-   occurrence count** of `Rwt`/`Coe`/`HCm`/`Ua`, and the interaction count is a
-   separate meter from `hvm run -s`; the two are conjectured to align but this
-   is NOT established. The one verified coincidence is narrow: a `definitional`
-   proof erases to `*` and costs 0 interactions at runtime. The Landauer/
-   thermodynamic reading is aspiration, not a measurement.)*
+4. **The cost theorem motivates a static proof-structure metric (not yet a
+   runtime/thermodynamic measurement).** The corpus proves `cost =
+   non-contractible fibre`. The analysis layer (`Core/Analysis.hs`) counts
+   *syntactic occurrences* of the rewrite/transport constructors in a proof
+   term — a useful static proxy for named non-contractible work, reported as
+   `definitional` when none occur. The stronger reading — that this coincides
+   with executed HVM interaction counts or a Landauer floor decided per redex —
+   is a **design conjecture**, not established by the implementation. See
+   CORRECTIONS.md.
 5. **A self-verifying optimal reducer.** HVM reduces HVM; the corpus is one
    `Point` inside its own state space; conversion = reduction. The evaluator,
    the checker, and the object are one optimally-reducing net that normalizes

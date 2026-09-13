@@ -65,13 +65,21 @@ Layer 5 (same patch): UNIVALENCE COMPLETE at the iso level. The three laws:
   uaEta      ua(pathToIso p) = p for every p -- proved by J, with pathToIso
              defined by transporting idIso through the Iso family (coe
              regularity reduces through Sigma/Pi/Path components at refl)
-See cubical_test5.bend. ua is a quasi-equivalence between Iso(A,B) and
-Path(Set,A,B) with both round trips checked.
+See cubical_test5.bend. At the raw Iso level only the path-side round trip
+(uaEta) holds; the Iso-side one fails (uaroundtrip.bend), as it must.
 
-Still open: hcomp with general cofibration systems and hfill (more
-definitional compositions; the prerequisite for a user-declared HIT
-schema), Glue as a first-class type former (its ua consequences are now
-all present), and gating --total mode.
+Coherent level (uaequiv.bend, 17 checks green): Equiv(A,B) = Σ f. ∀y.
+isContr(fiber f y); uaE builds the path from the contractible-fibre data;
+pathToEquiv transports idEquiv; uaEquivRoundTrip : pathToEquiv(uaE e) = e
+CHECKS for arbitrary e, via isPropIsEquiv (pointwise isPropIsContr, a 4-face
+hcompN — see GENERAL_HCOMP.md). hcomp with general cofibration systems is
+present (hcompN). fibrelaw.bend (32 green): isoToIsEquiv (lemIso), the fibre
+law A ≃ Σ B (fiber f) as a coherent Equiv for every f, its uaE path, and
+transport along it run natively on HVM4/HVM3 — FIBRE_LAW.md. --to-hvm4-full
+keeps every cubical object at runtime (RUNTIME_FULL.md). hfill is
+parser sugar over hcompN (hfill.bend); `bend f.bend --total` refuses a file
+with any [unchecked] definition. Not done, not asked: Glue as a first-class
+type former (ua is primitive; all its consequences are present).
 
 
 ## Analysis layer (Core/Analysis.hs, same patch)
