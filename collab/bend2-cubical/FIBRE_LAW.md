@@ -39,9 +39,10 @@ has:
 `contrFib` is the `isContr` witness — the path from the centre `(neg y, refl)`
 to any fibre point. Over `y = True` the fibre of `neg` is `{False}`, and both
 ends of the path observed on the net are `0` (False): HVM4-raw 18 itrs, HVM3
-23 (`contrNeg0`, `contrNeg1`). The emitters resolve the literal endpoint at
+23 (`contrNeg0`, `contrNeg1`). The emitters resolve the literal endpoint of this value-level path at
 compile time (`force`) and the net reduces the rest; before this fix the
-erased body (the hcomp cap) was emitted for `p @ i1`.
+erased body (the hcomp cap) was emitted for `p @ i1`. Universe-level
+composites are a different matter — they now run on the net: RUNTIME_ALGEBRA.md.
 
 ## Checker changes needed (in `cubical-paths.patch`)
 
