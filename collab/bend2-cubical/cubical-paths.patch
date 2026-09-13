@@ -1,5 +1,35 @@
+diff --git a/app/Main.hs b/app/Main.hs
+index e8b579d..32b8841 100644
+--- a/app/Main.hs
++++ b/app/Main.hs
+@@ -4,7 +4,7 @@ import Control.Monad (unless)
+ import qualified Data.Map as M
+ import System.Environment (getArgs)
+ import System.Exit (exitFailure)
+-import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, listDependencies)
+ 
+ -- | Show usage information
+ showUsage :: IO ()
+@@ -14,6 +14,7 @@ showUsage = do
+   putStrLn "Options:"
+   putStrLn "  --to-javascript    Compile to JavaScript"
+   putStrLn "  --to-hvm           Compile to HVM"
++  putStrLn "  --to-hvm4          Compile to HVM4 surface"
+   putStrLn "  --list-dependencies List all dependencies (recursive)"
+ 
+ -- | Main entry point
+@@ -23,6 +24,8 @@ main = do
+   case args of
+     [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
+     [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
++    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
++    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
+     [file, "--to-hvm"] | ".bend"    `isSuffixOf` file -> processFileToHVM file
+     [file, "--to-hvm"] | ".bend.py" `isSuffixOf` file -> processFileToHVM file
+     [file, "--list-dependencies"] | ".bend"    `isSuffixOf` file -> listDependencies file
 diff --git a/bend.cabal b/bend.cabal
-index e934487..b8ce2d9 100644
+index e934487..bd601b0 100644
 --- a/bend.cabal
 +++ b/bend.cabal
 @@ -1,4 +1,4 @@
@@ -8,7 +38,7 @@ index e934487..b8ce2d9 100644
  name:               bend
  version:            0.1.0.0
  homepage:           https://higherorderco.com/
-@@ -35,6 +35,8 @@ library
+@@ -35,8 +35,11 @@ library
                        Core.Parse.Term,
                        Core.Parse.WithSpan,
                        Core.Rewrite,
@@ -16,7 +46,10 @@ index e934487..b8ce2d9 100644
 +                      Core.Analysis,
                        Core.WHNF,
                        Target.HVM,
++                      Target.HVM4,
                        Target.JavaScript
+     build-depends:    base ^>= 4.21.0.0,
+                       hs-highlight == 1.0.5,
 diff --git a/corpus_calculus.bend b/corpus_calculus.bend
 new file mode 100644
 index 0000000..2888f4e
@@ -361,6 +394,27 @@ index 0000000..c87fae5
 +
 +def main() -> Nat:
 +  0n
+diff --git a/rt.bend b/rt.bend
+new file mode 100644
+index 0000000..5ebafe3
+--- /dev/null
++++ b/rt.bend
+@@ -0,0 +1,15 @@
++def add(a: Nat, b: Nat) -> Nat:
++  match a:
++    case 0n:
++      b
++    case 1n + p:
++      1n + add(p, b)
++def add_comm_stub(a: Nat) -> Nat{add(a,0n) == a}:
++  match a:
++    case 0n:
++      finally
++    case 1n + p:
++      rewrite add_comm_stub(p)
++      finally
++def main() -> Nat:
++  add(add(7n, 8n), 6n)
 diff --git a/run_corpus.bend b/run_corpus.bend
 new file mode 100644
 index 0000000..1cb8f41
@@ -648,10 +702,18 @@ index 939a19f..858cef1 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..b7d77ff 100644
+index f94d1ce..49c03a3 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -23,6 +23,8 @@ import Core.Collapse
+@@ -5,6 +5,7 @@ module Core.CLI
+   , processFile
+   , processFileToJS
+   , processFileToHVM
++  , processFileToHVM4
+   , listDependencies
+   ) where
+ 
+@@ -23,11 +24,14 @@ import Core.Collapse
  import Core.Deps
  import Core.Import (autoImport)
  import Core.Parse.Book (doParseBook)
@@ -660,7 +722,13 @@ index f94d1ce..b7d77ff 100644
  import Core.Type
  import Core.WHNF
  
-@@ -59,7 +61,7 @@ checkDefinitions book@(Book defs) = do
+ import qualified Target.JavaScript as JS
+ import qualified Target.HVM as HVM
++import qualified Target.HVM4 as HVM4
+ 
+ -- | Parse a Bend file into a Book
+ parseFile :: FilePath -> IO Book
+@@ -59,7 +63,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -669,6 +737,19 @@ index f94d1ce..b7d77ff 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
+@@ -123,6 +127,12 @@ processFileToHVM file = do
+   let hvmCode = HVM.compile book
+   putStrLn hvmCode
+ 
++-- | Process a Bend file and compile to HVM4 surface syntax
++processFileToHVM4 :: FilePath -> IO ()
++processFileToHVM4 file = do
++  book <- parseFile file
++  putStrLn (HVM4.compile book)
++
+ -- | List all dependencies of a Bend file (including transitive dependencies)
+ listDependencies :: FilePath -> IO ()
+ listDependencies file = do
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
 index cdd6756..6431232 100644
 --- a/src/Core/Check.hs
@@ -1609,3 +1690,140 @@ index 953410d..2e3e5a5 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
+diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
+new file mode 100644
+index 0000000..ffb0ff9
+--- /dev/null
++++ b/src/Target/HVM4.hs
+@@ -0,0 +1,131 @@
++{-./../Core/Type.hs-}
++
++{-# LANGUAGE ViewPatterns #-}
++
++-- Bend2 -> HVM4 surface emitter.
++--
++-- Strategy: normalize each definition first (Core.WHNF.normal reduces coe /
++-- hcomp / ua-applications wherever they compute, so the residual cubical
++-- constructs are proof-level and carry no runtime content), then print HVM4
++-- surface syntax directly. Cubical type-level formers and proof cells erase to
++-- the eraser `&{}`; path lambdas / applications pass through their content
++-- (the interval argument is erased). Every lambda binder is emitted cloned
++-- (`λ&x`) so the affine runtime accepts repeated use without hand-placed dups.
++
++module Target.HVM4 where
++
++import Data.List (intercalate, isInfixOf)
++import qualified Data.Map as M
++
++import Core.Type
++import Core.WHNF (normal)
++
++compile :: Book -> String
++compile book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
++  where
++    def (nam, (_, tm, _)) =
++      "@" ++ hvmName nam ++ " = " ++ emit book (normal 0 book tm)
++
++prelude :: String
++prelude = unlines
++  [ "// Bend2 -> HVM4 (normalize-then-erase; cubical proof structure erased)"
++  , "" ]
++
++hvmName :: Name -> String
++hvmName = concatMap (\c -> if c == '/' then "__" else [c])
++
++-- fresh-ish binder names avoiding clashes with HVM4 syntax
++binderName :: Name -> String
++binderName "_" = "_"
++binderName k   = case k of
++  ('_':rest) -> 'v' : sanitize rest
++  _          -> sanitize k
++  where sanitize = concatMap (\c -> if c `elem` ("_0123456789" ++ ['a'..'z'] ++ ['A'..'Z']) then [c] else "")
++
++emit :: Book -> Term -> String
++emit book = go where
++  go :: Term -> String
++  go t = case t of
++    Var n _        -> binderName n
++    Ref k          -> "@" ++ hvmName k
++    Sub x          -> go x
++    Loc _ x        -> go x
++    Chk x _        -> go x
++    Ind x          -> go x
++    Frz x          -> go x
++
++    -- recursion: HVM4 has @fix(&f) = (f @fix(f)); emit a self-application form
++    Fix k f        -> "!" ++ k ++ "&F = " ++ go (f (Var k 0)) ++ "; " ++ k
++
++    Let v f        -> "(" ++ go f ++ " " ++ go v ++ ")"
++
++    -- functions (binders cloned for affine runtime)
++    Lam k f        -> "λ&" ++ binderName k ++ ". " ++ go (f (Var k 0))
++    App f x        -> go f ++ "(" ++ go x ++ ")"
++
++    -- data
++    Zer            -> "#Zer"
++    Suc n          -> "#Suc{" ++ go n ++ "}"
++    Bt0            -> "0"
++    Bt1            -> "1"
++    One            -> "1"
++    Nil            -> "#Nil"
++    Con h tl       -> "#Con{" ++ go h ++ ", " ++ go tl ++ "}"
++    Val (U64_V v)  -> show v
++    Val (CHR_V c)  -> "'" ++ [c] ++ "'"
++    Val _          -> "0"
++    Sym s          -> "#" ++ s
++
++    -- tuples: #Pair (Sig-encoded ctors would need the type; use #Pair)
++    Tup a b        -> "#Pair{" ++ go a ++ ", " ++ go b ++ "}"
++
++    -- eliminators -> HVM4 match/switch lambdas, immediately applied
++    BitM x f tr    -> "λ{0: " ++ go f ++ "; _: λ&_p. " ++ go tr ++ "}(" ++ go x ++ ")"
++    NatM x z s     -> "λ{#Zer: " ++ go z ++ "; #Suc: " ++ go s ++ "}(" ++ go x ++ ")"
++    LstM x n c     -> "λ{#Nil: " ++ go n ++ "; #Con: " ++ go c ++ "}(" ++ go x ++ ")"
++    UniM x f       -> "λ{1: " ++ go f ++ "}(" ++ go x ++ ")"
++    SigM x f       -> "λ{#Pair: " ++ go f ++ "}(" ++ go x ++ ")"
++    EnuM x cs d    -> "λ{" ++ intercalate "; " (map (\(s,b) -> "#" ++ s ++ ": " ++ go b) cs)
++                       ++ "; _: λ&_p. " ++ go d ++ "}(" ++ go x ++ ")"
++
++    -- numeric ops
++    Op2 o a b      -> "(" ++ go a ++ " " ++ op2 o ++ " " ++ go b ++ ")"
++
++    -- superpositions -> real HVM4 SUP/DUP nodes (the point of targeting HVM4)
++    Sup l a b      -> "&" ++ label l ++ "{" ++ go a ++ ", " ++ go b ++ "}"
++    Era            -> "&{}"
++
++    -- cubical: paths pass through content, interval arg erased; types erase
++    PLm _ f        -> go (f Era)
++    PAp p _        -> go p
++    Coe _ _ _ x    -> go x            -- residual (neutral) coe is proof-level
++    HCm _ _ _ _ x  -> go x            -- residual hcomp cap
++    Ua a _ _ _ _ _ -> go a
++
++    -- type-level formers with no runtime content
++    Set   -> "&{}"; Emp   -> "&{}"; Uni   -> "&{}"; Bit -> "&{}"
++    Nat   -> "&{}"; Lst _ -> "&{}"; Enu _ -> "&{}"; Num _ -> "&{}"
++    Sig _ _ -> "&{}"; All _ _ -> "&{}"; Eql _ _ _ -> "&{}"; Rfl -> "&{}"
++    Itv -> "&{}"; I0 -> "&{}"; I1 -> "&{}"
++    INot _ -> "&{}"; IAnd _ _ -> "&{}"; IOr _ _ -> "&{}"; Pth _ _ _ -> "&{}"
++    EmpM x -> "λ{}(" ++ go x ++ ")"
++    EqlM _ f -> go f
++    Op1 _ a -> go a
++    Log _ x -> go x
++    Met _ _ _ -> "&{}"
++    Frk l a b -> "&" ++ label l ++ "{" ++ go a ++ ", " ++ go b ++ "}"
++    SupM x l f -> "!&D&" ++ label l ++ " = " ++ go x ++ "; " ++ go f
++    Pri _ -> "&{}"
++    Pat _ _ _ -> "&{}"
++
++  label :: Term -> String
++  label (Loc _ t)     = label t
++  label (Val (U64_V v)) = "L" ++ show v
++  label (Sym s)       = s
++  label _             = "L"
++
++  op2 :: NOp2 -> String
++  op2 ADD = "+"; op2 SUB = "-"; op2 MUL = "*"; op2 DIV = "/"; op2 MOD = "%"
++  op2 EQL = "=="; op2 NEQ = "!="; op2 LST = "<"; op2 GRT = ">"
++  op2 LEQ = "<="; op2 GEQ = ">="; op2 AND = "&&"; op2 OR = "||"
++  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
