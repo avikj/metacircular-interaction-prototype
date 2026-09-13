@@ -13,6 +13,7 @@
 
 import { Grapheme } from "./grapheme.js";
 import { mountFibreLaw } from "./mathview.js";
+import { probeBridge, bridgePresent, mountWorkbench } from "./workbench.js";
 
 const isDark = () =>
   document.documentElement.dataset.theme === "dark" ||
@@ -65,6 +66,9 @@ async function boot() {
     fetch("store/aliases.json").then((r) => r.json()).catch(() => null),
   ]);
   Grapheme.load();
+  probeBridge().then((b) => {
+    if (b) $("#nstats").textContent += "  ·  kernel live";
+  });
   S.idx = idx;
   S.nodes = idx.nodes;
   S.names = idx.names;
@@ -498,6 +502,22 @@ async function openNode(n, fromRoute = false, isReverse = false) {
         f.append(sec);
       }
     }
+  }
+
+  // ---- the workbench: edit against the live kernel (bridge mode) ----
+  if (bridgePresent()) {
+    const sec = el("section", "block");
+    sec.append(el("h2", "", "Workbench — the kernel in the loop"));
+    const btnW = el("button", "", "edit this module");
+    sec.append(btnW);
+    btnW.onclick = () => {
+      btnW.remove();
+      const hostEl = el("div");
+      sec.append(hostEl);
+      mountWorkbench(hostEl, n, { el });
+      traceStep("edit", n.m);
+    };
+    f.append(sec);
   }
 
   const srcSec = el("section", "block");
