@@ -37,11 +37,12 @@ execution; push/pull main every few minutes; never idle; no questions.
   superposition and same-label dups annihilate (probe: `@f(&L{#A,#B},&L{1,2})`
   → branches get 1 and 2). `supline.bend` is the Bend2 test for it (next).
 
-## Immediate next steps
-1. Run `supline.bend` and `isprop_run.bend` on `--to-hvm4-full`; record.
-2. Write RUNTIME_FULL.md (table of what is runtime now, numbers), update
-   STATUS.md / README.md; note that `--to-hvm4`/`raw` remain as the erased
-   comparison points.
-3. Not yet runtime in full mode: general hcomp in Set beyond the composite
-   shape (stays stuck data), dependent Π/Σ are handled by @coe generically
-   (untested), higher paths between universe paths.
+## Done since: supline.bend (6✓; full runtime &0{0,1}, native routing) and
+isprop_run.bend (5✓; 4-face composite decided at every corner) recorded in
+RUNTIME_FULL.md; STATUS.md updated.
+
+## Next steps (if continuing)
+1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
+   coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
+2. hcomp in Set beyond the composite shape (would need Glue-style rules).
+3. Keep every claim tied to a run; keep pushing main.

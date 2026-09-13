@@ -16,6 +16,7 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | The object itself: `A ≃ Σ B (fiber f)` | `isoToIsEquiv` (library `lemIso`, transcribed), `totalEquiv` for every `f`, `losslessPath = uaE(totalEquiv)`, `present/retrieve` by `coe`, laws by refl | `fibrelaw.bend` 35✓ (FIBRE_LAW.md) |
 | …running on the net | `presentNeg`/`retrieveNeg` and the contraction `contrNeg0/1` on the raw HVM4 net and HVM3 | 0/1/1/0 and 0/0, itrs in FIBRE_LAW.md |
 | **Transport across chains of equivalences performed by the net** (composite / inverse / Π / Σ lines as runtime paths; raw mode strict) | closed runtime path algebra `pathRep/lineRep/coeRep`; `whnfCoe` gains the same inverse/composite rules | `chain.bend` 19✓; 12 transports × 3 evaluators agree; itrs 12/19/31 for 1/2/3 equivalences (RUNTIME_ALGEBRA.md) |
+| **Everything cubical at runtime** (README: the trace IS the path; partial knowledge) | `--to-hvm4-full`: intervals, paths, types, `coe`, `hcomp` are runtime objects; stuck `#HCm` on symbolic faces; DUP-SUP routing native | RUNTIME_FULL.md: chain/fibre/t_*/supline/isprop_run all correct on the full runtime |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
 
@@ -25,9 +26,10 @@ typed endpoint law for var- **and Ref-**headed path spines (`spineTy`),
 applications (`unfoldable`), `(<i> t) @ r` beta in `infer`, false faces
 dropped in `whnfHCm`, emitters resolving literal endpoints before erasure.
 
-Compile-time only (stated in RUNTIME_ALGEBRA.md): value-level hcomp face
-selection (proof content); transport along Path families, dependent Π/Σ and
-superposed lines (raw mode refuses these loudly). Not done (not asked): Glue.
+Erased targets (`--to-hvm4`, `--to-hvm4-raw`, `--to-hvm`) are kept as cost
+comparison points; the full runtime is `--to-hvm4-full`. Remaining caveats are
+listed in RUNTIME_FULL.md (hcomp in Set beyond the composite shape stays stuck;
+no Glue).
 
-Suite on the final binary: 28 `.bend` files, 0 ✗ except the three deliberate
+Suite on the final binary: 30 `.bend` files, 0 ✗ except the three deliberate
 must-fails; stock `examples/` 2/2.

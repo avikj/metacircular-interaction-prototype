@@ -75,7 +75,8 @@ CHECKS for arbitrary e, via isPropIsEquiv (pointwise isPropIsContr, a 4-face
 hcompN — see GENERAL_HCOMP.md). hcomp with general cofibration systems is
 present (hcompN). fibrelaw.bend (32 green): isoToIsEquiv (lemIso), the fibre
 law A ≃ Σ B (fiber f) as a coherent Equiv for every f, its uaE path, and
-transport along it run natively on HVM4/HVM3 — FIBRE_LAW.md. hfill is
+transport along it run natively on HVM4/HVM3 — FIBRE_LAW.md. --to-hvm4-full
+keeps every cubical object at runtime (RUNTIME_FULL.md). hfill is
 parser sugar over hcompN (hfill.bend); `bend f.bend --total` refuses a file
 with any [unchecked] definition. Not done, not asked: Glue as a first-class
 type former (ua is primitive; all its consequences are present).

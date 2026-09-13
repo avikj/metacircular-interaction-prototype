@@ -15,7 +15,7 @@ def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0
                   , (j,       <k> p0(x) @ k)
                   ], a0) )
 def unitContr() -> isContr(Unit):
-  ((), lambda x. <_> ())
+  ((), lambda x. match x: case (): <_> ())
 # the filler at (i=i1, x=(), j=i0): a 4-face composition with two faces true
 def run(i: Interval, j: Interval) -> Unit:
   match isPropIsContr(Unit, unitContr(), unitContr()) @ i:
