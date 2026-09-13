@@ -1355,10 +1355,10 @@ index a5d92e8..8f69402 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..2e4e4fd 100644
+index 953410d..3af0384 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,228 @@ whnfGo lv book term =
+@@ -53,9 +53,238 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -1474,7 +1474,17 @@ index 953410d..2e4e4fd 100644
 +            -- A needed) and gives the groupoid unit/idempotence laws
 +            -- definitionally: p · refl ≡ p, refl · refl ≡ refl.
 +            then whnf lv book x
-+            else HCm a r' u0 u1 x
++            else case whnf lv book a of
++              -- Π: hcomp commutes into a function type by applying the base
++              -- and both walls to the argument (the standard CCHM rule).
++              All aTy bFam ->
++                Lam "x" (\v ->
++                  let bAt = case bFam of { Lam _ bf -> bf v ; _ -> App bFam v }
++                  in HCm bAt r'
++                       (PLm "j" (\j -> App (PAp u0 j) v))
++                       (PLm "j" (\j -> App (PAp u1 j) v))
++                       (App x v))
++              _ -> HCm a r' u0 u1 x
 +  where
 +    -- a path-lambda whose body does not depend on its interval variable
 +    constLine u = case whnf lv book u of
@@ -1587,7 +1597,7 @@ index 953410d..2e4e4fd 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +620,43 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +630,43 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -1631,7 +1641,7 @@ index 953410d..2e4e4fd 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +741,18 @@ normal d book term =
+@@ -485,6 +751,18 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)

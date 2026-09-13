@@ -165,7 +165,17 @@ whnfHCm lv book a r u0 u1 x =
             -- A needed) and gives the groupoid unit/idempotence laws
             -- definitionally: p · refl ≡ p, refl · refl ≡ refl.
             then whnf lv book x
-            else HCm a r' u0 u1 x
+            else case whnf lv book a of
+              -- Π: hcomp commutes into a function type by applying the base
+              -- and both walls to the argument (the standard CCHM rule).
+              All aTy bFam ->
+                Lam "x" (\v ->
+                  let bAt = case bFam of { Lam _ bf -> bf v ; _ -> App bFam v }
+                  in HCm bAt r'
+                       (PLm "j" (\j -> App (PAp u0 j) v))
+                       (PLm "j" (\j -> App (PAp u1 j) v))
+                       (App x v))
+              _ -> HCm a r' u0 u1 x
   where
     -- a path-lambda whose body does not depend on its interval variable
     constLine u = case whnf lv book u of
