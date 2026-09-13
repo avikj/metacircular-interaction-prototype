@@ -27,6 +27,8 @@ class StdinFile extends OpenFile {
 
 let wasmModule = null;
 let primFiles = null;
+let libManifest = null;   // cubical interface pack manifest
+let libBlob = null;       // concatenated .agdai bytes
 
 const enc = new TextEncoder();
 const dec = new TextDecoder();
@@ -55,6 +57,11 @@ async function boot(base) {
   for (const c of chunks) { buf.set(new Uint8Array(c), off); off += c.byteLength; }
   wasmModule = await WebAssembly.compile(buf);
   primFiles = await fetchCached(base + "kernel/prim.json").then((r) => r.json());
+  try {
+    libManifest = await fetchCached(base + "kernel/lib.pack.json").then((r) => r.json());
+    libBlob = new Uint8Array(
+      await fetchCached(base + "kernel/lib.pack.0").then((r) => r.arrayBuffer()));
+  } catch (e) { libManifest = null; libBlob = null; }
 }
 
 function buildTree(extra) {
@@ -70,10 +77,11 @@ function buildTree(extra) {
       }
       return cur;
     };
-    for (const [path, text] of Object.entries(tbl)) {
+    for (const [path, data] of Object.entries(tbl)) {
       const parts = path.split("/");
       const fn = parts.pop();
-      dirOf(parts).set(fn, new File(enc.encode(text)));
+      dirOf(parts).set(fn, new File(
+        typeof data === "string" ? enc.encode(data) : data));
     }
     const toDir = (m) => {
       const contents = new Map();
@@ -85,9 +93,17 @@ function buildTree(extra) {
   const tbl = {};
   for (const [p, t] of Object.entries(primFiles)) tbl["opt/" + p] = t;
   for (const [p, t] of Object.entries(extra)) tbl["opt/" + p] = t;
+  if (libManifest) {
+    for (const [p, t] of Object.entries(libManifest.sources)) tbl["cubical/" + p] = t;
+    for (const [p, [off, len]] of Object.entries(libManifest.agdai))
+      tbl["cubical/_build/2.8.0/agda/" + p] = libBlob.subarray(off, off + len);
+    tbl["opt/.agda/libraries"] = "/cubical/cubical.agda-lib\n";
+    tbl["opt/.agda/defaults"] = "cubical-0.9\n";
+  }
   const rootDir = mk(tbl);
   rootDir.contents.set("tmp", new Directory(new Map()));
-  rootDir.contents.get("opt").contents.set(".agda", new Directory(new Map()));
+  if (!rootDir.contents.get("opt").contents.has(".agda"))
+    rootDir.contents.get("opt").contents.set(".agda", new Directory(new Map()));
   return rootDir;
 }
 

@@ -84,7 +84,7 @@ export function mountKernelPad(host, helpers) {
   const { el } = helpers;
   host.innerHTML = "";
 
-  const note = el("p", "about", "Agda 2.8.0 · WebAssembly · runs locally · ~31 MB first load, then cached");
+  const note = el("p", "about", "Agda 2.8.0 + Cubical core · WebAssembly · runs locally · ~43 MB first load, then cached");
   const ed = document.createElement("textarea");
   ed.id = "pad-editor";
   ed.spellcheck = false;
