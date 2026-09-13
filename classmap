@@ -1,38 +1,46 @@
 #!/bin/sh
-# Build the equivalence-class map from /tmp/rows.txt (OBJ/SUB <key> <name>).
-# Two declarations/sub-objects are in the same class iff their normalised
-# types are identical (LF definitional identity). Emits the full class map
-# and a summary.
+# Equivalence-class map from /tmp/rows.txt (OBJ/SUB <key> <name>).
+# Two declarations/sub-objects share a class iff their normalised types are
+# byte-identical (LF definitional identity). Grouping is by sort — keys are
+# never passed as arguments (they can be very large).
 set -eu
 ROWS="${1:-/tmp/rows.txt}"
 OUT="${2:-/tmp/classmap.txt}"
-export LC_ALL=C.utf8
+export LC_ALL=C
 
-# whole-type objects only (OBJ); SUB are sub-objects, handled separately
-awk -F'\t' '$1=="OBJ"{print $2"\t"$3}' "$ROWS" > /tmp/obj.tsv
-nobj=$(wc -l < /tmp/obj.tsv)
-ncls=$(cut -f1 /tmp/obj.tsv | sort -u | wc -l)
-nsub=$(awk -F'\t' '$1=="SUB"' "$ROWS" | wc -l)
-nsubcls=$(awk -F'\t' '$1=="SUB"{print $2}' "$ROWS" | sort -u | wc -l)
+# key \t name, sorted by key so equal keys are adjacent
+awk -F'\t' '$1=="OBJ"{print $2"\t"$3}' "$ROWS" | sort -t"$(printf '\t')" -k1,1 > /tmp/obj.sorted
+awk -F'\t' '$1=="SUB"{print $2"\t"$3}' "$ROWS" | sort -t"$(printf '\t')" -k1,1 > /tmp/sub.sorted
+
+# collapse each key-group into: <count>\t<name1|name2|...>  (only |class|>1)
+collapse() {  # collapse <sorted-file>
+  awk -F'\t' '
+    NR==1 { key=$1; names=$2; c=1; next }
+    $1==key { names=names " | " $2; c++; next }
+    { if (c>1) print c "\t" names; key=$1; names=$2; c=1 }
+    END { if (c>1) print c "\t" names }
+  ' "$1" | sort -rn -k1,1
+}
+
+nobj=$(wc -l < /tmp/obj.sorted)
+ncls=$(cut -f1 /tmp/obj.sorted | uniq | wc -l)
+collapse /tmp/obj.sorted > /tmp/obj.classes
+collapse /tmp/sub.sorted > /tmp/sub.classes
+nnt=$(wc -l < /tmp/obj.classes)
 
 {
   echo "════════ EQUIVALENCE-CLASS MAP — LF (definitional) type identity ════════"
-  echo "objects (whole declaration types) : $nobj"
-  echo "equivalence classes               : $ncls"
-  echo "non-trivial classes (|class|>1)   : $(cut -f1 /tmp/obj.tsv | sort | uniq -d | wc -l)"
-  echo "sub-objects (Π-domains)           : $nsub  in  $nsubcls classes"
+  echo "whole-type objects        : $nobj declarations"
+  echo "equivalence classes       : $ncls"
+  echo "non-trivial classes (>1)  : $nnt   (declarations that are literally the same type)"
+  echo "sub-object non-trivial cls: $(wc -l < /tmp/sub.classes)"
   echo
-  echo "A class with >1 member = declarations that are THE SAME TYPE — identical"
-  echo "up to definitional equality (α, β, δ, ι). These are genuine identities."
+  echo "A class with N members = N declarations whose types normalise to the"
+  echo "same normal form: identical up to α,β,δ,ι. Genuine identities."
   echo
-  echo "──── the identity classes (whole-type objects), largest first ────"
-  # for each key with >1 member, print size then the member names
-  cut -f1 /tmp/obj.tsv | sort | uniq -c | sort -rn \
-    | awk '$1>1{print $1"\t"$2}' \
-    | while IFS="$(printf '\t')" read -r cnt key; do
-        printf '\n[%s members]  key=%.90s\n' "$cnt" "$key"
-        awk -F'\t' -v k="$key" '$1==k{print "    " $2}' /tmp/obj.tsv
-      done
+  echo "──────── whole-type identity classes, largest first ────────"
+  awk -F'\t' '{printf "\n[%s ≡] %s\n", $1, $2}' /tmp/obj.classes
 } > "$OUT"
 echo "wrote $OUT ($(wc -l < "$OUT") lines)"
-head -40 "$OUT"
+echo "--- summary ---"; head -8 "$OUT"
+echo "--- top classes ---"; sed -n '9,45p' "$OUT"

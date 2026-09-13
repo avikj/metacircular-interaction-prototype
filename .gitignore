@@ -134,3 +134,5 @@ zzz/**/*.pyc
 # log several lanes write to, is a different file and stays tracked.
 interactive/yantra-session.lekha
 formal/cubical/corpus/Chunk*.agda
+formal/cubical/corpus/identity-rows.tsv
+formal/cubical/corpus/corpus-rows.tsv
