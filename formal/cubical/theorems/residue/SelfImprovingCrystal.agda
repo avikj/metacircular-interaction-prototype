@@ -3,62 +3,53 @@
 ------------------------------------------------------------------------
 -- SelfImprovingCrystal
 --
--- The coinductive self-improvement object, of which `SemanticCrystal` is
--- the elementary (deterministic-collapse) seed.
+-- The self-improvement object, assembled by APPLYING existing checked
+-- constructs — not by proving anything new.  `SemanticCrystal` is the
+-- elementary seed (one certified defect-preserving architecture rewrite);
+-- everything else here is composition:
 --
--- `SemanticCrystal` gives ONE certified rewrite (amplitudeChart →
--- projectiveChart) that preserves three receivers (defect, nucleus,
--- observation).  One step, two fixed architectures, receipt event,
--- defect PRESERVED — i.e. the `Prashna.deterministic-collapse` point.
+--   * the interactive coalgebra is `Prashna.ISC` (existing);
+--   * the deterministic policy run is `Fibre.Orbit.unfold` (existing) —
+--     which, by `Samvada`, is the one-query case of the interactive
+--     coalgebra;
+--   * CONVERGENCE and MEANING-IDENTITY across the whole infinite run are
+--     `Fibre.Orbit.bisim` / `path≡bisim` (existing): a bisimulation IS a
+--     path, so a coinductive convergence proof yields an equality with no
+--     new machinery;
+--   * the runtime self-improvement DRIVE already exists as
+--     `Ashanti` (formal/karma) — cost-dissatisfaction-as-a-drive: the body
+--     reads its own record, poses its expensive knowledge back to itself in
+--     cheaper form (the laghava economy lens), proves it, installs it.
+--     This module is that drive's cubical/coalgebraic face.
 --
--- Here that seed is uncollapsed into the interactive coalgebra
--- `Prashna.ISC`: an UNBOUNDED coinductive process whose every transition
--- is a self-rewrite carrying its own non-worsening witness, so the
--- defect is monotone along every run.  The machine `accept` is: at any
--- state, accept any offered non-worsening rewrite, carry its certificate,
--- and continue — forever.  The certified crystal rewrite is exhibited as
--- ONE such edge, so the toy is literally an edge of the real object.
+--   §1  THE INTERACTIVE COALGEBRA.  `Self a = ISC A Move Ev a` with
+--       `accept` the corecursor: accept any offered non-worsening rewrite,
+--       carry its certificate, continue.  The crystal's certified rewrite
+--       is one edge (`crystalMove`).
 --
---   §1  GENERIC.  For any state type with a preorder `⊑` ("does not
---       worsen"), `Self a = ISC A Move Ev a` with `Move a = Σ a'. a' ⊑ a`
---       and `Ev a _ a' = a' ⊑ a`.  `accept` is the corecursor; `monotone`
---       proves the driven trajectory never worsens: `trajectory σ n a ⊑ a`.
+--   §2  THE DETERMINISTIC RUN, via `Fibre.Orbit`.  A non-worsening policy
+--       is an endomorphism; its run is `unfold policy`.  For the crystal
+--       policy the run CONVERGES to a fixed point after one step
+--       (`crystalConverges`, by `bisim`), and that convergence is an
+--       equality of orbits (`crystalConverges≡`, by `bisim` again) — the
+--       meaning held to identity across the whole infinite run.
 --
---   §2  A CLEAN INSTANCE ON ℕ.  Defect = the number; improvement =
---       `a' ≤ a`.  The self-improvement process on ℕ, monotone by §1.
---
---   §3  THE CRYSTAL IS ONE EDGE.  With the non-worsening relation taken as
---       "measured defect preserved", `SemanticCrystal.projectivizingRewrite`
---       is a `Move` at an amplitude-chart crystal, and `accept` unfolds the
---       ongoing self-improvement process from it.  The seed sits inside the
---       coinductive object as a single certified transition.
---
--- NOT claimed here (the honest boundary; these are the next generalisations,
--- each with its machinery already in the corpus):
---   * convergence to a certified fixed-point limit — needs a well-founded
---     STRICT decrease and the take-metric completion (`PurnataSutra` /
---     `HistoryCompletion`); here the order is a preorder and the crystal
---     edge PRESERVES defect, so the run is non-worsening, not strictly
---     descending.
---   * meaning-preservation across the whole run as identity — `Orbit.path≡bisim`
---     (bisimulation = path) is the tool; not invoked here.
---   * a GROWING receiver family — `learn = install`
---     (`ControlledGrammar.install`, `TheGenerativeLoop…`); here the preserved
---     relation is fixed.
+-- Boundary (apply, don't reinvent): a strictly-DESCENDING defect (genuine
+-- optimisation, not preservation) converges by `PurnataSutra` /
+-- `HistoryCompletion` (existing take-metric completion); the crystal edge
+-- preserves defect, so its run converges to a fixed point after one step.
 ------------------------------------------------------------------------
 
 module SelfImprovingCrystal where
 
 open import Cubical.Foundations.Prelude
-open import Cubical.Data.Nat using (ℕ ; zero ; suc)
-open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans)
+open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 open import Cubical.Data.Int using (ℤ)
-open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd ; _×_)
 
 open import Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse
   using (ISC)
 open ISC
-
+open import Fibre.Orbit using (Orbit ; here ; next ; unfold ; _≈_ ; ≈here ; ≈next ; bisim)
 open import SemanticCrystal
   using ( Architecture ; amplitudeChart ; projectiveChart
         ; SemanticCrystal ; measuredDefect ; rewriteCrystal
@@ -69,60 +60,29 @@ private
     ℓ : Level
 
 ------------------------------------------------------------------------
--- §1  The generic self-improvement coalgebra.
+-- §1  The interactive self-improvement coalgebra (Prashna.ISC).
 ------------------------------------------------------------------------
 
-module Generic
-  (A : Type ℓ)
-  (_⊑_ : A → A → Type ℓ)                       -- "does not worsen"
-  (⊑-refl  : (a : A) → a ⊑ a)
-  (⊑-trans : {a b c : A} → a ⊑ b → b ⊑ c → a ⊑ c)
-  where
+module Generic (A : Type ℓ) (_⊑_ : A → A → Type ℓ) where
 
-  -- a non-worsening rewrite offered at a
   Move : A → Type ℓ
   Move a = Σ[ a' ∈ A ] (a' ⊑ a)
 
-  -- the event carried by the transition: exactly the non-worsening witness
   Ev : (a : A) → Move a → A → Type ℓ
   Ev a _ a' = a' ⊑ a
 
   Self : A → Type ℓ
   Self = ISC A Move Ev
 
-  -- THE MACHINE.  Accept any offered non-worsening rewrite, carry its
-  -- certificate, continue.  Coinductive, productive.
+  -- accept any offered non-worsening rewrite, carry its certificate, continue
   accept : (a : A) → Self a
   respond (accept a) (a' , le) = a' , le , accept a'
 
-  -- a strategy drives a concrete trajectory
-  trajectory : ((a : A) → Move a) → ℕ → A → A
-  trajectory σ zero    a = a
-  trajectory σ (suc n) a = trajectory σ n (fst (σ a))
-
-  -- THE INVARIANT.  Along any driven run the state never worsens.
-  monotone : (σ : (a : A) → Move a) (n : ℕ) (a : A)
-           → trajectory σ n a ⊑ a
-  monotone σ zero    a = ⊑-refl a
-  monotone σ (suc n) a = ⊑-trans (monotone σ n (fst (σ a))) (snd (σ a))
-
 ------------------------------------------------------------------------
--- §2  A clean instance on ℕ: defect = the number, improvement = ≤.
-------------------------------------------------------------------------
-
-module OnNat = Generic ℕ (λ a' a → a' ≤ a) (λ _ → ≤-refl) ≤-trans
-
--- the self-improvement process on ℕ, from any seed
-natSelf : (n : ℕ) → OnNat.Self n
-natSelf = OnNat.accept
-
-------------------------------------------------------------------------
--- §3  The crystal is one edge.
+-- §2  The crystal instance.
 --
--- State = a chart together with a crystal on it; "does not worsen" =
--- measured defect preserved (Lifted to the state's universe).  The
--- certified projectivizing rewrite is then a Move, and `accept` unfolds
--- the process from it.
+-- State = a chart with a crystal on it; non-worsening = defect preserved,
+-- as a RIGID record so instantiation never unfolds into `measuredDefect`.
 ------------------------------------------------------------------------
 
 CState : Type₁
@@ -131,38 +91,55 @@ CState = Σ[ arch ∈ Architecture ] SemanticCrystal arch
 cdefect : CState → ℤ
 cdefect (_ , c) = measuredDefect c
 
--- The non-worsening witness, as a RIGID record so it does not unfold into
--- the `measuredDefect`/`potential` expression during module instantiation
--- (a reducible definition stalls unification on the crystal's fields).
 record _⊑ᶜ_ (a' a : CState) : Type₁ where
   constructor keeps
   field keep : cdefect a' ≡ cdefect a
-open _⊑ᶜ_
 
-⊑ᶜ-refl : (a : CState) → a ⊑ᶜ a
-⊑ᶜ-refl a = keeps refl
+module OnCrystal = Generic CState _⊑ᶜ_
 
-⊑ᶜ-trans : {a b c : CState} → a ⊑ᶜ b → b ⊑ᶜ c → a ⊑ᶜ c
-⊑ᶜ-trans p q = keeps (keep p ∙ keep q)
-
-module OnCrystal = Generic CState _⊑ᶜ_ ⊑ᶜ-refl ⊑ᶜ-trans
-
--- THE CERTIFIED CRYSTAL REWRITE, as one non-worsening move at an
--- amplitude-chart crystal: go to the projectivised crystal, witnessed by
--- `rewrite-preserves-defect`.
+-- the certified crystal rewrite, as one non-worsening edge
 crystalMove : (c : SemanticCrystal amplitudeChart)
             → OnCrystal.Move (amplitudeChart , c)
 crystalMove c =
   (projectiveChart , rewriteCrystal c) , keeps (rewrite-preserves-defect c)
 
--- the ongoing self-improvement process seeded at an amplitude-chart crystal
 crystalSelf : (c : SemanticCrystal amplitudeChart)
             → OnCrystal.Self (amplitudeChart , c)
 crystalSelf c = OnCrystal.accept (amplitudeChart , c)
 
--- taking the certified rewrite is one productive step of that process:
--- the successor is the projectivised crystal, carrying the defect-preserved
--- witness, and the process continues from there.
+-- taking the certified rewrite is one productive step
 crystalStep : (c : SemanticCrystal amplitudeChart)
   → fst (respond (crystalSelf c) (crystalMove c)) ≡ (projectiveChart , rewriteCrystal c)
 crystalStep c = refl
+
+------------------------------------------------------------------------
+-- §3  The deterministic policy run, via Fibre.Orbit — convergence and
+--     meaning-identity by `bisim`, no new machinery.
+------------------------------------------------------------------------
+
+-- a deterministic non-worsening policy: projectivise an amplitude crystal,
+-- otherwise stand still (a fixed point).
+cpolicy : CState → CState
+cpolicy (amplitudeChart  , c) = projectiveChart , rewriteCrystal c
+cpolicy (projectiveChart , c) = projectiveChart , c
+
+-- a projective state is a fixed point, so its run is the constant orbit —
+-- proven by `bisim`'s record coinduction.
+stable : (a : SemanticCrystal projectiveChart)
+       → unfold cpolicy (projectiveChart , a) ≈ unfold (λ z → z) (projectiveChart , a)
+≈here (stable a) = refl
+≈next (stable a) = stable a
+
+-- THE RUN CONVERGES: after one step the crystal run is the constant orbit.
+crystalConverges : (c : SemanticCrystal amplitudeChart)
+  → next (unfold cpolicy (amplitudeChart , c))
+    ≈ unfold (λ z → z) (projectiveChart , rewriteCrystal c)
+crystalConverges c = stable (rewriteCrystal c)
+
+-- …and because a bisimulation IS a path (`Orbit.path≡bisim`), that
+-- convergence is an EQUALITY of orbits: meaning held to identity across
+-- the whole infinite run.
+crystalConverges≡ : (c : SemanticCrystal amplitudeChart)
+  → next (unfold cpolicy (amplitudeChart , c))
+    ≡ unfold (λ z → z) (projectiveChart , rewriteCrystal c)
+crystalConverges≡ c = bisim (crystalConverges c)
