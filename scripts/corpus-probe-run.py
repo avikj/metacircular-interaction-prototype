@@ -182,16 +182,38 @@ def main() -> int:
           f"par={args.par} macro={macro}", file=sys.stderr)
 
     all_rows: list[str] = []
+    zero_slices: list = []  # modules in chunks that yielded nothing
     done = 0
     with ThreadPoolExecutor(max_workers=args.par) as ex:
-        futs = [ex.submit(run_chunk, agda, libfile, k, sl, macro, verb, tag)
-                for k, sl in enumerate(chunks)]
+        futs = {ex.submit(run_chunk, agda, libfile, k, sl, macro, verb, tag): (k, sl)
+                for k, sl in enumerate(chunks)}
         for fut in futs:
+            k, sl = futs[fut]
             rows = fut.result()
             all_rows.extend(rows)
+            if not rows and len(sl) > 1:
+                zero_slices.append(sl)
             done += 1
             print(f"  chunk {done}/{len(chunks)}: +{len(rows)} rows "
                   f"(total {len(all_rows)})", file=sys.stderr)
+
+    # Singleton recovery: a zero-row chunk lost every module to ONE module's
+    # hard (non-NotInScope) error.  Re-run its modules one per chunk so a
+    # single red module costs only itself, not its neighbours.
+    recover = [(m, ns) for sl in zero_slices for (m, ns) in sl]
+    if recover:
+        print(f"recovery: {len(recover)} modules from "
+              f"{len(zero_slices)} zero-row chunks, one per chunk", file=sys.stderr)
+        base = 100000
+        with ThreadPoolExecutor(max_workers=args.par) as ex:
+            futs = [ex.submit(run_chunk, agda, libfile, base + j, [one], macro, verb, tag)
+                    for j, one in enumerate(recover)]
+            got = 0
+            for fut in futs:
+                rows = fut.result()
+                all_rows.extend(rows)
+                got += len(rows)
+            print(f"recovery: +{got} rows (total {len(all_rows)})", file=sys.stderr)
 
     Path(args.rows_out).write_text("\n".join(all_rows) + "\n", encoding="utf-8")
     print(f"rows -> {args.rows_out}", file=sys.stderr)
