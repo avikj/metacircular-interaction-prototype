@@ -229,19 +229,7 @@ def generate() -> tuple[int, int]:
     pool_expr = functools.reduce(
         lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.chunk ({acc})",
         reversed(chunk_mods[:-1]), f"{chunk_mods[-1]}.chunk") if chunk_mods else "[]"
-    # Partition the concatenated pool ONCE into a checked literal.
-    abody = [
-        "{-# OPTIONS --cubical --safe --guardedness #-}",
-        "module CorpusPoolAll where", "",
-        "open import Agda.Builtin.Reflection using (Name)",
-        "open import Agda.Builtin.List using (List ; [] ; _∷_)",
-        "import Fibre.CorpusLoci",
-        "open Fibre.CorpusLoci using (PoolEntry ; Pool ; materializePartitioned)", "",
-        *[f"import {m}" for m in chunk_mods], "",
-        "pool : Pool",
-        f"pool = materializePartitioned ({pool_expr})", "",
-    ]
-    write_if_changed(GENERATED / "CorpusPoolAll.agda", "\n".join(abody))
+    (GENERATED / "CorpusPoolAll.agda").unlink(missing_ok=True)
     shard_mods: list[str] = []
     for k, sl in enumerate(slices, start=1):
         smod = f"CorpusShard{k}"
@@ -252,12 +240,14 @@ def generate() -> tuple[int, int]:
             "open import Agda.Builtin.Reflection using (Name)",
             "open import Agda.Builtin.List using (List ; [] ; _∷_)",
             "import Fibre.CorpusLoci",
-            "open Fibre.CorpusLoci using (RawLoci ; materializeLociOverPool)",
-            "import CorpusPoolAll", "",
+            "open Fibre.CorpusLoci using (RawLoci ; PoolEntry ; materializeLociStream)", "",
+            *[f"import {m}" for m in chunk_mods], "",
             *imports, "",
+            "pool : List PoolEntry",
+            f"pool = {pool_expr}", "",
             "gens : List Name", "gens =",
             *[f"  (quote {q}) ∷" for q in sl], "  []", "",
-            "shard : RawLoci", "shard = materializeLociOverPool CorpusPoolAll.pool gens", "",
+            "shard : RawLoci", "shard = materializeLociStream pool gens", "",
         ]
         write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
     body = [
@@ -308,7 +298,6 @@ def main() -> int:
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     # Pool chunks first, sequentially: shards depend on their values.
     pools = sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
-    pools.append(GENERATED / "CorpusPoolAll.agda")
     for chunk in pools:
         print(f"classifying {chunk.name} ...", file=sys.stderr)
         rc = subprocess.call(base + [str(chunk)], cwd=ROOT)

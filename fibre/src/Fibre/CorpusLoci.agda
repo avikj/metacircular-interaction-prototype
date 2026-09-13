@@ -368,6 +368,62 @@ buildLociOverPool pool gens =
   bindTC (expandAll gens) λ egens →
   bindTC (buildLoci pool egens) quoteTC
 
+------------------------------------------------------------------------
+-- Single-pass materialization.  Profiled: each generator's candidate
+-- walk re-forces the whole pool literal (~100 MB retained per
+-- generator), so the loop is inverted — ONE pass over the pool,
+-- every generator carried as folded state with its own caps, probes
+-- interleaved.  The literal is forced exactly once per shard.
+------------------------------------------------------------------------
+
+data GenState : Set where
+  genSt : Name → Maybe Head → Nat → Nat → List RawRealization → GenState
+
+initStates : List Name → TC (List GenState)
+initStates [] = returnTC []
+initStates (f ∷ fs) =
+  bindTC (genGate f) λ gate →
+  bindTC (initStates fs) λ rest →
+  returnTC (genSt f gate realizationCap failureBudget [] ∷ rest)
+
+stepStates : PoolEntry → List GenState → TC (List GenState)
+stepStates e [] = returnTC []
+stepStates e@(n , x , hx) (st@(genSt f gate succ fail acc) ∷ sts) =
+  bindTC (stepOne st) λ st' →
+  bindTC (stepStates e sts) λ rest →
+  returnTC (st' ∷ rest)
+  where
+  probeWith : Name → Maybe Head → Nat → Nat → List RawRealization → TC GenState
+  probeWith f gate (suc k) (suc b) acc =
+    bindTC (tryRealization f n x) λ where
+      []   → returnTC (genSt f gate (suc k) b acc)
+      here → returnTC (genSt f gate k (suc b) (acc ++ here))
+  probeWith f gate succ fail acc = returnTC (genSt f gate succ fail acc)
+
+  stepOne : GenState → TC GenState
+  stepOne (genSt f gate zero fail acc)     = returnTC (genSt f gate zero fail acc)
+  stepOne (genSt f gate succ zero acc)     = returnTC (genSt f gate succ zero acc)
+  stepOne (genSt f gate succ fail acc) with admits gate hx
+  ... | true  = probeWith f gate succ fail acc
+  ... | false = returnTC (genSt f gate succ fail acc)
+
+sweep : List PoolEntry → List GenState → TC (List GenState)
+sweep [] sts = returnTC sts
+sweep (e ∷ es) sts =
+  bindTC (stepStates e sts) λ sts' → sweep es sts'
+
+harvest : List GenState → RawLoci
+harvest [] = []
+harvest (genSt f _ _ _ []       ∷ sts) = harvest sts
+harvest (genSt f _ _ _ (r ∷ rs) ∷ sts) = (f , r ∷ rs) ∷ harvest sts
+
+buildLociStream : List PoolEntry → List Name → TC Term
+buildLociStream entries gens =
+  bindTC (expandAll gens) λ egens →
+  bindTC (initStates egens) λ sts →
+  bindTC (sweep entries sts) λ done →
+  quoteTC (harvest done)
+
 macro
   materializeLoci : List Name → Term → TC ⊤
   materializeLoci ns hole = bindTC (materializeLociTerm ns) (unify hole)
@@ -390,3 +446,7 @@ macro
   materializeLociOverPool : Pool → List Name → Term → TC ⊤
   materializeLociOverPool pool gens hole =
     bindTC (buildLociOverPool pool gens) (unify hole)
+
+  materializeLociStream : List PoolEntry → List Name → Term → TC ⊤
+  materializeLociStream entries gens hole =
+    bindTC (buildLociStream entries gens) (unify hole)
