@@ -363,7 +363,13 @@ def main() -> int:
         dnext += 1
         ctx["write_data"](dmod, ch)
         print(f"reflecting {dmod} ({len(ch)} declarations) ...", file=sys.stderr)
-        rc = subprocess.call(base + [str(GENERATED / f"{dmod}.agda")], cwd=ROOT)
+        # A piece that runs long is thrashing at the heap cap; fail it
+        # fast and let bisection isolate the monster.
+        try:
+            rc = subprocess.call(base + [str(GENERATED / f"{dmod}.agda")], cwd=ROOT,
+                                 timeout=int(os.environ.get("CORPUS_PIECE_TIMEOUT", "900")))
+        except subprocess.TimeoutExpired:
+            rc = 1
         if rc == 0:
             data_mods.append(dmod)
         elif len(ch) > 1:
