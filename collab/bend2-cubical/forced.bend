@@ -173,5 +173,24 @@ def fiberFst(B: Set, T: B -> Set, b: B) -> Equiv(fiber(SigT(B,T), B, lambda s. f
   isoToEquiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
              lambda w. ffFun(B,T,b,w), lambda t. ffInv(B,T,b,t),
              lambda t. ffSec(B,T,b,t), lambda w. ffRet(B,T,b,w))
+# ---- s1: reindex the fibre base by an equivalence (fiberPrecomp).
+# fun/inv/section done; the retraction needs the half-adjoint triangle identity
+# ap ef (eqT a) = eqS (ef a) (+ a unit law) — the one coherence square remaining.
+def cpf(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z))
+  -> PathP(lambda j. Path(A, p @ j, z), pcomp(A,x,y,z,p,q), q):
+  <j> <i> hcompN(A, [ (inot(i), <_> p @ j), (i, <k> q @ k), (j, <k> q @ iand(i, k)) ], p @ ior(i, j))
+def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
+  match w:
+    case (a, p): (ef(a), p)
+def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
+  match w:
+    case (a2, p):
+      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
+def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
+  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
+  match w:
+    case (a2, p):
+      <j> ( eqS(A,Ap,ef,h,a2) @ j
+          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
 def main2() -> Nat:
   0n
