@@ -57,16 +57,18 @@
 --   §6  THE METACIRCULAR KERNEL — Q w = CheckedFuture w (a target with a
 --       CHECKED Derivation); obs = the target; and the event datum E IS
 --       THE DERIVATION — proof-relevant, not a proposition.  So §2 does
---       NOT apply, and that is the theorem: वर्धन-बहुत्वम् — one seed
---       reacts to two distinct futures with the SAME target but DIFFERENT
---       derivations (GenerativeKernel's two-walks-one-output), so the
---       react-image over that seed is not a proposition, so the process
---       space is not contractible.  The kernel's self-extension is the
---       one coalgebra here whose history genuinely branches: the loss of
---       contractibility is exactly the generativity (Apunaragamana — the
---       orbit strictly grows).  Determinism is a set-level phenomenon;
---       generation lives one h-level up, in the proof-relevance of the
---       event datum the interface was built to carry.
+--       NOT apply, and वर्धन-बहुत्वम् turns that into a THEOREM (not a
+--       reading): ¬ isContr (Vardhana seed).  The proof routes around
+--       every h-level obstruction through derivation LENGTH — two lawful
+--       processes (the echo and a detour-echo) emit derivations differing
+--       in length on one query, so no path identifies them.  The kernel's
+--       self-extension is the one coalgebra here whose history genuinely
+--       branches: the loss of contractibility is exactly the generativity
+--       (Apunaragamana — the orbit strictly grows).  Determinism is a
+--       set-level phenomenon; generation lives one h-level up, in the
+--       proof-relevance of the event datum the interface was built to
+--       carry — and length is the invariant that makes the gap visible
+--       without deciding whether Derivation is itself a set.
 --
 -- THE THROUGH-LINE.  h-level of the event datum E is the classifier.
 -- Prop receipt (SHA, RH, NS) → contractible process, deterministic
@@ -334,7 +336,9 @@ module NavierStokes where
 ------------------------------------------------------------------------
 
 module Kernel where
-  open import RewriteCertificate using (Tm ; Derivation)
+  open import Cubical.Data.Nat using (znots ; injSuc)
+  open import RewriteCertificate using (Tm ; Derivation ; done ; then-step ; reverse ; add-suc ; var ; add)
+    renaming (zero to tzero ; suc to tsuc)
   open import ControlledGrammar using (CheckedFuture)
   open CheckedFuture
   open import GenerativeKernel using (seed ; target₀ ; direct-history ; detour-history)
@@ -359,18 +363,54 @@ module Kernel where
     → reaction-history w cf ≡ derivation cf
   history-refl w cf = refl
 
-  -- TWO FUTURES, ONE TARGET, DIFFERENT PROOF (GenerativeKernel's
-  -- two-walks-one-output).  Both typecheck; the event datum distinguishing
-  -- them is a Derivation, whose type is NOT a proposition — which is
-  -- exactly why §2's एक-नेत्रम् is unavailable for this coalgebra.  [R]:
-  -- the process space of the kernel's self-extension is not contractible;
-  -- that non-collapse is the generativity.  ([S]: a formal ¬ isProp of
-  -- Derivation seed target₀ is the sharper term, not built here.)
-  cf-direct cf-detour : CheckedFuture seed
+  cf-direct : CheckedFuture seed
   cf-direct = record { target = target₀ ; derivation = direct-history }
-  cf-detour = record { target = target₀ ; derivation = detour-history }
 
-  -- the two reactions agree on everything a SET-level observer sees (same
-  -- successor, same observation) and differ only in the carried proof:
-  same-target : target cf-direct ≡ target cf-detour
-  same-target = refl
+  ----------------------------------------------------------------------
+  -- वर्धन-बहुत्वम् — THE PROCESS SPACE IS NOT A POINT.  Now a THEOREM,
+  -- not a reading.  The event datum is a Derivation; a Derivation has a
+  -- LENGTH (a set-valued invariant), and length sidesteps every h-level
+  -- obstruction.  Two processes that emit derivations of different
+  -- length on the same query cannot be identified, so the space of
+  -- lawful self-extensions from `seed` is not contractible.
+  ----------------------------------------------------------------------
+
+  -- the length of a checked walk
+  dlen : {a b : Tm} → Derivation a b → Cubical.Data.Nat.ℕ
+  dlen (done _)       = zero
+  dlen (then-step _ r) = suc (dlen r)
+
+  -- n is never its own successor's successor (a set-level fact)
+  ¬n≡ssn : (n : Cubical.Data.Nat.ℕ) → ¬ (n ≡ suc (suc n))
+  ¬n≡ssn zero    e = znots e
+  ¬n≡ssn (suc m) e = ¬n≡ssn m (injSuc e)
+
+  -- a generic length-increasing transform: prepend a forward step out of
+  -- seed and its reverse — a round-trip that changes the walk, not the
+  -- endpoints (this IS the shape of GenerativeKernel's detour, made
+  -- generic in the target so it answers EVERY query).
+  detour-of : {o : Tm} → Derivation seed o → Derivation seed o
+  detour-of d = then-step (add-suc var tzero)
+                  (then-step (reverse (add-suc var tzero)) d)
+
+  -- two processes of the interface: the echo, and the detour-echo
+  p₁ p₂ : Vardhana seed
+  p₁ = vardhana seed
+  react p₂ cf = target cf , target cf , detour-of (derivation cf) , vardhana (target cf)
+
+  -- the length of the proof each emits on the query cf-direct: p₁ emits
+  -- direct-history (length n); p₂ emits its detour (length n+2)
+  emitLen : Vardhana seed → Cubical.Data.Nat.ℕ
+  emitLen p = dlen (fst (snd (snd (react p cf-direct))))
+
+  -- so no path identifies them: the deterministic-service argument fails
+  -- here for a REASON that is itself a checked term
+  processes-differ : ¬ (p₁ ≡ p₂)
+  processes-differ P = ¬n≡ssn _ (cong emitLen P)
+
+  -- THE THEOREM: the kernel's self-extension process space is not a
+  -- point.  Determinism is contractibility (§2); generativity is its
+  -- failure, and the failure is exactly the proof-relevance of the
+  -- event datum the interface was built to carry.
+  वर्धन-बहुत्वम् : ¬ isContr (Vardhana seed)
+  वर्धन-बहुत्वम् (c , h) = processes-differ (sym (h p₁) ∙ h p₂)
