@@ -144,3 +144,7 @@ corpus_lossless 8, cubical_test 11/10/12/8/7, hcompfaces 5, isprop 3, loop 2,
 pth2 2, run_corpus 4, t_* 7×4, all 0 ✗; uaroundtrip 4✓ 1✗ (raw-Iso reverse
 trip, expected); equiv.bend 7✓ 1✗ (its binary-hcomp probe, expected);
 stock examples 2/2.
+
+Must-fail guard (`uaequiv_mustfail.bend`): `wrong1` (constant path `(f,h)`)
+and `wrong2` (endpoints swapped) both ✗ on the same binary; everything else in
+the file ✓. The round-trip green is not a checker hole.
