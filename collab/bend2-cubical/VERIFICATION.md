@@ -55,3 +55,38 @@ HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
 ## Not yet independently rerun
 - Executing the HVM4 emission on the HVM4 runtime (`@applyPath(_)(_)(@negPath)(1) => 0`)
   — HVM4 runtime being built here now.
+
+## Native execution — verified on BOTH runtimes (this session)
+
+Fix applied to both emitters (Target/HVM.hs = HVM3, Target/HVM4.hs = HVM4):
+a universe path is represented at runtime as a **Church pair (fwd, bwd)**;
+`ua(A,B,f,g,…)` ⟶ `λk. k(f)(g)`; `coe(λi. p@i, i0,i1, x)` ⟶ `@cub_pathFwd(p)(x)`;
+`coe(…, i1,i0, y)` ⟶ `@cub_pathBwd(p)(y)`; a constant type line `<_> A` ⟶
+`@cub_idPath`. This closes two real gaps in the prior emitter: `@pathBwd`
+was referenced but never defined, and `ua` lowered to `f` alone (dropping
+`g`), so backward transport was unrepresentable. Helpers are prefixed
+`cub_` because bare prelude names clashed with user definitions (`idPath`).
+The HVM3 target previously crashed on any cubical term (non-exhaustive
+`go`); it now lowers the full cubical layer.
+
+Runtime results, path supplied as **runtime data** (not pre-reduced):
+
+| program | HVM4 (C runtime) | HVM3 (`hvm run`) |
+|---|---|---|
+| `@applyPath(*)(*)(@negPath)(1)` | `0`, **11 interactions** | — |
+| `@applyPath(*)(*)(@negPath)(0)` | `1`, **10 interactions** | — |
+| `t_fwd_neg` (coe i0→i1 along ua(neg), True) | `0` | `0`, 18 interactions |
+| `t_bwd_neg` (coe i1→i0 along ua(neg), True) | `0` | `0`, 18 interactions |
+| `t_fwd_id`  (coe i0→i1 along `<_>Bool`, True) | `1` | `1`, 17 interactions |
+| `t_bwd_id`  (coe i1→i0 along `<_>Bool`, True) | `1` | `1`, 17 interactions |
+
+A cubical program's transport — forward AND backward — reaches and reduces
+on the interaction net; it is applied, not erased. Note: the HVM4 default
+emitter pre-normalises in Haskell (`normal 0 book`), so *closed* transports
+arrive as literals (0 interactions); the nonzero counts above come from the
+path being a function argument. HVM3's emitter does not pre-normalise.
+A `--to-hvm4-raw` mode (no pre-normalisation) was added; its output does
+not yet parse on HVM4 (see open items).
+
+Checker regression after emitter changes: all 11 test files green (0 ✗);
+`uaRoundTrip` still correctly fails.

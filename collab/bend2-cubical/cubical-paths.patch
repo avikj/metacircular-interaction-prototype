@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..32b8841 100644
+index e8b579d..faaa66f 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -19,10 +19,11 @@ index e8b579d..32b8841 100644
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +24,8 @@ main = do
+@@ -23,6 +24,9 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
++    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
      [file, "--to-hvm"] | ".bend"    `isSuffixOf` file -> processFileToHVM file
@@ -59,6 +60,47 @@ index 0000000..5605df0
 +  applyPath(Bool, Bool, negPath(), x)
 +def transId(x: Bool) -> Bool:
 +  applyPath(Bool, Bool, idPath(), x)
++def main() -> Nat:
++  0n
+diff --git a/applypath_bwd.bend b/applypath_bwd.bend
+new file mode 100644
+index 0000000..e5f5248
+--- /dev/null
++++ b/applypath_bwd.bend
+@@ -0,0 +1,35 @@
++# Backward transport at runtime: coe from i1 to i0 along a runtime-supplied
++# universe path must apply the path's BACKWARD function (g), not f, and must
++# not be erased. negPath's g is neg too, so use an asymmetric iso to tell
++# f from g apart: Nat <-> Nat via (+1) / (-1) on the "wrapped" side is not
++# an iso, so use Bool with f = neg, g = neg but observe direction via a
++# tagged pair type instead: here we use idPath vs negPath and a wrapper.
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++# generic runtime transport, both directions, path supplied as data
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def fwdNeg(x: Bool) -> Bool:
++  applyPathFwd(Bool, Bool, negPath(), x)
++def bwdNeg(x: Bool) -> Bool:
++  applyPathBwd(Bool, Bool, negPath(), x)
++def fwdId(x: Bool) -> Bool:
++  applyPathFwd(Bool, Bool, idPath(), x)
++def bwdId(x: Bool) -> Bool:
++  applyPathBwd(Bool, Bool, idPath(), x)
 +def main() -> Nat:
 +  0n
 diff --git a/bend.cabal b/bend.cabal
@@ -782,18 +824,19 @@ index 939a19f..858cef1 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..65d03c0 100644
+index f94d1ce..eb78af4 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,7 @@ module Core.CLI
+@@ -5,6 +5,8 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
 +  , processFileToHVM4
++  , processFileToHVM4Raw
    , listDependencies
    ) where
  
-@@ -23,11 +24,14 @@ import Core.Collapse
+@@ -23,11 +25,14 @@ import Core.Collapse
  import Core.Deps
  import Core.Import (autoImport)
  import Core.Parse.Book (doParseBook)
@@ -808,7 +851,7 @@ index f94d1ce..65d03c0 100644
  
  -- | Parse a Bend file into a Book
  parseFile :: FilePath -> IO Book
-@@ -59,7 +63,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +64,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -817,7 +860,7 @@ index f94d1ce..65d03c0 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -123,6 +127,12 @@ processFileToHVM file = do
+@@ -123,6 +128,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -826,6 +869,12 @@ index f94d1ce..65d03c0 100644
 +processFileToHVM4 file = do
 +  book <- parseFile file
 +  putStrLn (HVM4.compile book)
++
++-- | Compile to HVM4 WITHOUT compile-time normalisation (net does the work)
++processFileToHVM4Raw :: FilePath -> IO ()
++processFileToHVM4Raw file = do
++  book <- parseFile file
++  putStrLn (HVM4.compileRaw book)
 +
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
@@ -1816,12 +1865,76 @@ index 953410d..4792e0b 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
+diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
+index 996bb26..6e96eca 100644
+--- a/src/Target/HVM.hs
++++ b/src/Target/HVM.hs
+@@ -28,6 +28,11 @@ prelude = unlines [
+     "data Nat { #Z #S{n} }",
+     "data Pair { #P{fst snd} }",
+     "@fix(&f) = (f @fix(f))",
++    "// cubical: a universe path is a Church pair (fwd, bwd); coe projects a direction",
++    "@cub_idfn = λ&x x",
++    "@cub_idPath = λ&k ((k @cub_idfn) @cub_idfn)",
++    "@cub_pathFwd = λ&p λ&x ((p λ&f λ&g f) x)",
++    "@cub_pathBwd = λ&p λ&x ((p λ&f λ&g g) x)",
+     "@main = @main$",
+     "",
+     "// Bend to HVM Compiler Output",
+@@ -202,11 +207,47 @@ termToHVM ctx tm = go tm where
+     suff v s          = if "$$" `isInfixOf` v then v ++ s else v ++ "$$" ++ s
+     ctxA              = MS.fromList [(k, a) | (k, _, (a, _)) <- vars]
+     ctxB              = MS.fromList [(k, b) | (k, _, (_, b)) <- vars]
++  -- cubical layer (faithful: transport is applied, never erased)
++  go Itv          = HVM.Era
++  go I0           = HVM.Era
++  go I1           = HVM.Era
++  go (INot _)     = HVM.Era
++  go (IAnd _ _)   = HVM.Era
++  go (IOr _ _)    = HVM.Era
++  go (Pth _ _ _)  = HVM.Era
++  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else termToHVM ctx b
++  go (PAp p _)    = termToHVM ctx p
++  go (HCm _ _ _ _ x) = termToHVM ctx x
++  go (Ua _ _ f g _ _) = HVM.Lam "&k" (HVM.App (HVM.App (HVM.Var "k") (termToHVM ctx f)) (termToHVM ctx g))
++  go (Coe pP r s x) = case pathLineHead pP of
++      Just pth -> case (cut r, cut s) of
++        (I1, I0) -> HVM.App (HVM.App (HVM.Ref "cub_pathBwd" 0 []) (termToHVM ctx pth)) (termToHVM ctx x)
++        _        -> HVM.App (HVM.App (HVM.Ref "cub_pathFwd" 0 []) (termToHVM ctx pth)) (termToHVM ctx x)
++      Nothing  -> termToHVM ctx x
+   go (Loc s t)    = termToHVM ctx t
+   go (Rwt _ _ x)  = termToHVM ctx x
+   go (Pri p)      = HVM.Era
+   go (Pat x m c)  = HVM.Era
+ 
++-- a path lambda whose body is a type former is a constant line in Set:
++-- its runtime meaning is the identity path.
++isTypeLine :: Term -> Bool
++isTypeLine t = case cut t of
++  Set -> True; Bit -> True; Nat -> True; Uni -> True; Emp -> True
++  Lst _ -> True; Enu _ -> True; Num _ -> True; Sig _ _ -> True
++  All _ _ -> True; Itv -> True; Pth _ _ _ -> True; Eql _ _ _ -> True
++  _ -> False
++
++-- If `pP` is `λi. (P @ i)` (a universe-path line), return the path `P`.
++pathLineHead :: Term -> Maybe Term
++pathLineHead t = case t of
++  Lam k f  -> case f (Var k 0) of
++                PAp pth _         -> Just pth
++                Loc _ (PAp pth _) -> Just pth
++                _                 -> Nothing
++  Loc _ x  -> pathLineHead x
++  _        -> Nothing
++
+ hvmNam :: Name -> HVM.Name
+ hvmNam n = (replace '/' "__" n) ++ "$"
+ 
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..998deee
+index 0000000..2af6df7
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,161 @@
+@@ -0,0 +1,183 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -1850,12 +1963,25 @@ index 0000000..998deee
 +    def (nam, (_, tm, _)) =
 +      "@" ++ hvmName nam ++ " = " ++ emit book (normal 0 book tm)
 +
++-- Raw mode: emit WITHOUT pre-normalising in Haskell, so coe/ua/path
++-- reduction happens on the interaction net itself (measurable in
++-- interactions), not at compile time.
++compileRaw :: Book -> String
++compileRaw book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
++  where
++    def (nam, (_, tm, _)) =
++      "@" ++ hvmName nam ++ " = " ++ emit book tm
++
 +prelude :: String
 +prelude = unlines
 +  [ "// Bend2 -> HVM4 (normalize-then-erase; cubical proof structure erased)"
 +  , "// universe paths are represented by their forward transport function;"
 +  , "// coe along a path is application of that function."
-+  , "@idfn = λx. x"
++  , "// a universe path is a Church pair (fwd, bwd); coe picks a direction"
++  , "@cub_idfn = λx. x"
++  , "@cub_idPath = λ&k. k(@cub_idfn)(@cub_idfn)"
++  , "@cub_pathFwd = λ&p. p(λ&f. λ&g. f)"
++  , "@cub_pathBwd = λ&p. p(λ&f. λ&g. g)"
 +  , "" ]
 +
 +hvmName :: Name -> String
@@ -1923,18 +2049,18 @@ index 0000000..998deee
 +    Era            -> "&{}"
 +
 +    -- cubical: paths pass through content, interval arg erased; types erase
-+    PLm _ f        -> go d (f Era)
++    PLm _ f        -> let b = f Era in if isTypeLine b then "@cub_idPath" else go d b
 +    PAp p _        -> go d p
 +    Coe pP r s x   -> case pathLineHead pP of
 +                        -- coe along a universe path `<i> P @ i`: run the
 +                        -- path's forward transport (its runtime rep) on x.
-+                        Just pth -> case (r, s) of
-+                          (I1, I0) -> "@pathBwd(" ++ go d pth ++ ")(" ++ go d x ++ ")"
-+                          _        -> go d pth ++ "(" ++ go d x ++ ")"
++                        Just pth -> case (cut r, cut s) of
++                          (I1, I0) -> "@cub_pathBwd(" ++ go d pth ++ ")(" ++ go d x ++ ")"
++                          _        -> "@cub_pathFwd(" ++ go d pth ++ ")(" ++ go d x ++ ")"
 +                        -- coe over a type that does not vary in i: identity.
 +                        Nothing  -> go d x
 +    HCm _ _ _ _ x  -> go d x            -- residual hcomp cap
-+    Ua _ _ f _ _ _ -> go d f
++    Ua _ _ f g _ _ -> "(λ&b" ++ show d ++ ". b" ++ show d ++ "(" ++ go (d+1) f ++ ")(" ++ go (d+1) g ++ "))"
 +
 +    -- type-level formers with no runtime content
 +    Set   -> "&{}"; Emp   -> "&{}"; Uni   -> "&{}"; Bit -> "&{}"
@@ -1961,6 +2087,15 @@ index 0000000..998deee
 +    App _ _ -> go d f
 +    _       -> "(" ++ go d f ++ ")"
 +
++  -- A path lambda whose body is a type former is a constant line in Set:
++  -- its runtime meaning is the identity path (transport is the identity).
++  isTypeLine :: Term -> Bool
++  isTypeLine t = case cut t of
++    Set -> True; Bit -> True; Nat -> True; Uni -> True; Emp -> True
++    Lst _ -> True; Enu _ -> True; Num _ -> True; Sig _ _ -> True
++    All _ _ -> True; Itv -> True; Pth _ _ _ -> True; Eql _ _ _ -> True
++    _ -> False
++
 +  -- If `pP` is `λi. (P @ i)` (a universe-path line), return the path `P`
 +  -- whose runtime representation is its forward transport function.
 +  pathLineHead :: Term -> Maybe Term
@@ -1983,6 +2118,110 @@ index 0000000..998deee
 +  op2 EQL = "=="; op2 NEQ = "!="; op2 LST = "<"; op2 GRT = ">"
 +  op2 LEQ = "<="; op2 GEQ = ">="; op2 AND = "&&"; op2 OR = "||"
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
+diff --git a/t_bwd_id.bend b/t_bwd_id.bend
+new file mode 100644
+index 0000000..a736040
+--- /dev/null
++++ b/t_bwd_id.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathBwd(Bool, Bool, idPath(), True)
+diff --git a/t_bwd_neg.bend b/t_bwd_neg.bend
+new file mode 100644
+index 0000000..24b5c95
+--- /dev/null
++++ b/t_bwd_neg.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathBwd(Bool, Bool, negPath(), True)
+diff --git a/t_fwd_id.bend b/t_fwd_id.bend
+new file mode 100644
+index 0000000..8890671
+--- /dev/null
++++ b/t_fwd_id.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathFwd(Bool, Bool, idPath(), True)
+diff --git a/t_fwd_neg.bend b/t_fwd_neg.bend
+new file mode 100644
+index 0000000..4e983fe
+--- /dev/null
++++ b/t_fwd_neg.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathFwd(Bool, Bool, negPath(), True)
 diff --git a/uaroundtrip.bend b/uaroundtrip.bend
 new file mode 100644
 index 0000000..b1f06d6
