@@ -219,6 +219,8 @@ def generate() -> tuple[int, int]:
     data_slices = [qnames[i:i + data_size] for i in range(0, len(qnames), data_size)] or [[]]
     for stale in GENERATED.glob("CorpusData*.agda"):
         stale.unlink()
+    for stale in GENERATED.glob("CorpusNorm*.agda"):
+        stale.unlink()
 
     def write_data(dmod: str, ch: list[str]) -> None:
         dbody = [
@@ -275,11 +277,28 @@ def generate() -> tuple[int, int]:
         ]
         write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
 
-    def write_repository(data_mods: list[str], shard_mods: list[str]) -> None:
-        body = build_repository_body(data_mods, shard_mods)
+    def write_norm(dmod: str, ch: list[str]) -> None:
+        dbody = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            f"module {dmod} where", "",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusNorm using (NormCorpus ; materializeNorm)", "",
+            *imports, "",
+            "partNames : List Name", "partNames =",
+            *[f"  (quote {q}) ∷" for q in ch], "  []", "",
+            "part : NormCorpus", "part = materializeNorm partNames", "",
+        ]
+        write_if_changed(GENERATED / f"{dmod}.agda", "\n".join(dbody))
+
+    def write_repository(data_mods: list[str], norm_mods: list[str], shard_mods: list[str]) -> None:
+        body = build_repository_body(data_mods, norm_mods, shard_mods)
         write_if_changed(OUT, "\n".join(body))
 
-    def build_repository_body(data_mods: list[str], shard_mods: list[str]) -> list[str]:
+    def build_repository_body(data_mods: list[str], norm_mods: list[str], shard_mods: list[str]) -> list[str]:
+        norm_expr = functools.reduce(
+            lambda acc, m: f"Fibre.CorpusReflection._++_ {m}.part ({acc})",
+            reversed(norm_mods[:-1]), f"{norm_mods[-1]}.part") if norm_mods else "[]"
         corpus_expr = functools.reduce(
             lambda acc, m: f"Fibre.CorpusReflection._++_ {m}.part ({acc})",
             reversed(data_mods[:-1]), f"{data_mods[-1]}.part") if data_mods else "[]"
@@ -309,6 +328,15 @@ def generate() -> tuple[int, int]:
             "-- complete, no probing, no truncation.",
             "refGraph : Fibre.CorpusRefs.RefGraph",
             "refGraph = Fibre.CorpusRefs.refGraph corpus",
+            "", "-- THE DEFINITIONAL-EQUALITY MAP: each declaration with the normal",
+            "-- form of its checked type.  Normalisation is an observation, and by",
+            "-- ConservativeSemanticCompression its observer quotient IS",
+            "-- conservative semantic compression; by NerodeYantra grouping the",
+            "-- stored normal forms is the greatest congruence for it.",
+            "import Fibre.CorpusNorm",
+            *[f"import {m}" for m in norm_mods],
+            "normCorpus : Fibre.CorpusNorm.NormCorpus",
+            f"normCorpus = {norm_expr}",
             "", "-- Factored relational presentation: each checked generator occurs once;",
             "-- its dependent family contains the checked inhabitants it accepts,",
             "-- capped per generator; each entry is the accepted application and",
@@ -336,9 +364,11 @@ def generate() -> tuple[int, int]:
     print(f"checked declarations: {len(qnames)}", file=sys.stderr)
     if duplicates:
         print(f"duplicate declared module names resolved by include order: {len(duplicates)}", file=sys.stderr)
-    return {"write_shard": write_shard, "write_data": write_data,
+    norm_size = int(os.environ.get("CORPUS_NORM_PIECE", "400"))
+    norm_slices = [qnames[i:i + norm_size] for i in range(0, len(qnames), norm_size)] or [[]]
+    return {"write_shard": write_shard, "write_data": write_data, "write_norm": write_norm,
             "write_repository": write_repository,
-            "slices": slices, "data_slices": data_slices}
+            "slices": slices, "data_slices": data_slices, "norm_slices": norm_slices}
 
 
 def main() -> int:
@@ -350,40 +380,42 @@ def main() -> int:
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
 
-    # Corpus data pieces, adaptively: a piece that fails is split in
-    # half; a declaration whose definition cannot be quoted alone on
-    # this machine is excluded with a printed notice.
-    dqueue: list[list[str]] = list(ctx["data_slices"])
-    data_mods: list[str] = []
-    data_excluded: list[str] = []
-    dnext = 1
-    while dqueue:
-        ch = dqueue.pop(0)
-        dmod = f"CorpusData{dnext}"
-        dnext += 1
-        ctx["write_data"](dmod, ch)
-        print(f"reflecting {dmod} ({len(ch)} declarations) ...", file=sys.stderr)
-        # A piece that runs long is thrashing at the heap cap; fail it
-        # fast and let bisection isolate the monster.
-        try:
-            rc = subprocess.call(base + [str(GENERATED / f"{dmod}.agda")], cwd=ROOT,
-                                 timeout=int(os.environ.get("CORPUS_PIECE_TIMEOUT", "900")))
-        except subprocess.TimeoutExpired:
-            rc = 1
-        if rc == 0:
-            data_mods.append(dmod)
-        elif len(ch) > 1:
-            mid = len(ch) // 2
-            print(f"  {dmod} failed; splitting {len(ch)} -> {mid} + {len(ch) - mid}", file=sys.stderr)
-            dqueue.insert(0, ch[mid:])
-            dqueue.insert(0, ch[:mid])
-            (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
-        else:
-            print(f"EXCLUDED (reflection cost): {ch[0]}", file=sys.stderr)
-            data_excluded.append(ch[0])
-            (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
-    if data_excluded:
-        print(f"declarations excluded by reflection cost: {len(data_excluded)}", file=sys.stderr)
+    def adaptive(prefix: str, verb: str, slices: list[list[str]], writer) -> list[str]:
+        # A piece that fails (or thrashes past the timeout) is split in
+        # half; a declaration that fails alone is excluded by name.
+        queue = list(slices)
+        mods: list[str] = []
+        excluded: list[str] = []
+        nxt = 1
+        while queue:
+            ch = queue.pop(0)
+            dmod = f"{prefix}{nxt}"
+            nxt += 1
+            writer(dmod, ch)
+            print(f"{verb} {dmod} ({len(ch)} declarations) ...", file=sys.stderr)
+            try:
+                rc = subprocess.call(base + [str(GENERATED / f"{dmod}.agda")], cwd=ROOT,
+                                     timeout=int(os.environ.get("CORPUS_PIECE_TIMEOUT", "900")))
+            except subprocess.TimeoutExpired:
+                rc = 1
+            if rc == 0:
+                mods.append(dmod)
+            elif len(ch) > 1:
+                mid = len(ch) // 2
+                print(f"  {dmod} failed; splitting {len(ch)} -> {mid} + {len(ch) - mid}", file=sys.stderr)
+                queue.insert(0, ch[mid:])
+                queue.insert(0, ch[:mid])
+                (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
+            else:
+                print(f"EXCLUDED ({verb} cost): {ch[0]}", file=sys.stderr)
+                excluded.append(ch[0])
+                (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
+        if excluded:
+            print(f"declarations excluded by {verb} cost: {len(excluded)}", file=sys.stderr)
+        return mods
+
+    data_mods = adaptive("CorpusData", "reflecting", ctx["data_slices"], ctx["write_data"])
+    norm_mods = adaptive("CorpusNorm", "normalising", ctx["norm_slices"], ctx["write_norm"])
 
     pools = [] if not eager_loci else sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
     for chunk in pools:
@@ -419,7 +451,7 @@ def main() -> int:
             print(f"EXCLUDED (probe cost): {sl[0]}", file=sys.stderr)
             excluded.append(sl[0])
             (GENERATED / f"{smod}.agda").unlink(missing_ok=True)
-    ctx["write_repository"](data_mods, successful)
+    ctx["write_repository"](data_mods, norm_mods, successful)
     if excluded:
         print(f"generators excluded by probe cost: {len(excluded)}", file=sys.stderr)
     print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
