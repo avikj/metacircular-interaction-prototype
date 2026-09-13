@@ -176,3 +176,14 @@ FIBRE_LAW.md.
 - Whole suite on this binary (27 files): 0 ✗ except the three deliberate
   must-fails (`uaequiv_mustfail` wrong1/wrong2, `uaroundtrip` raw-Iso,
   `hfill` wrong); stock examples 2/2.
+
+## Addendum — runtime path algebra (`chain.bend`, RUNTIME_ALGEBRA.md)
+
+`chain.bend` 19 ✓. Twelve closed transports along composite (`hcomp` in Set),
+inverse, Π and Σ lines: normaliser, `--to-hvm4-raw` and `--to-hvm` agree on
+every value; HVM4-raw interactions 19/19 (two equivalences), 31/30 (three),
+13/12 (inverse), 20/19 (Π), 20/19 (Σ) vs 10–11 for one bare `ua`. Raw mode
+now refuses (error naming the line) any coe line outside the algebra instead
+of emitting cap/identity. Regression on this binary: 28 files, 0 ✗ except the
+three deliberate must-fails; examples 2/2; prior raw matrices unchanged
+(t_* 0/0/1/1; present/retrieve 0/1/1/0; contr 0/0).

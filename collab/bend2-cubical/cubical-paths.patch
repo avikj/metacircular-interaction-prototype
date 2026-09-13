@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..ea3fd20 100644
+index e8b579d..d9ddcd4 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -7,25 +7,27 @@ index e8b579d..ea3fd20 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileTotal, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileToHVM4Full, processFileTotal, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
-@@ -14,6 +14,9 @@ showUsage = do
+@@ -14,6 +14,10 @@ showUsage = do
    putStrLn "Options:"
    putStrLn "  --to-javascript    Compile to JavaScript"
    putStrLn "  --to-hvm           Compile to HVM"
 +  putStrLn "  --to-hvm4          Compile to HVM4 surface"
 +  putStrLn "  --to-hvm4-raw      Compile to HVM4 surface without pre-normalisation"
++  putStrLn "  --to-hvm4-full     Compile to HVM4 with the full cubical runtime (no erasure)"
 +  putStrLn "  --total            Check, then fail if any definition is [unchecked]"
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +26,10 @@ main = do
+@@ -23,6 +27,11 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
++    [file, "--to-hvm4-full"] | ".bend" `isSuffixOf` file -> processFileToHVM4Full file
 +    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
@@ -107,7 +109,7 @@ index 0000000..e5f5248
 +def main() -> Nat:
 +  0n
 diff --git a/bend.cabal b/bend.cabal
-index e934487..bd601b0 100644
+index e934487..1e3720f 100644
 --- a/bend.cabal
 +++ b/bend.cabal
 @@ -1,4 +1,4 @@
@@ -116,7 +118,7 @@ index e934487..bd601b0 100644
  name:               bend
  version:            0.1.0.0
  homepage:           https://higherorderco.com/
-@@ -35,8 +35,11 @@ library
+@@ -35,8 +35,12 @@ library
                        Core.Parse.Term,
                        Core.Parse.WithSpan,
                        Core.Rewrite,
@@ -125,9 +127,76 @@ index e934487..bd601b0 100644
                        Core.WHNF,
                        Target.HVM,
 +                      Target.HVM4,
++                      Target.HVM4Full,
                        Target.JavaScript
      build-depends:    base ^>= 4.21.0.0,
                        hs-highlight == 1.0.5,
+diff --git a/chain.bend b/chain.bend
+new file mode 100644
+index 0000000..d021e3f
+--- /dev/null
++++ b/chain.bend
+@@ -0,0 +1,60 @@
++# Transport across COMPOSITE equivalences, performed by the net.
++# Every definition below is checked, then run in three ways: in-process
++# (normaliser), --to-hvm4-raw (no pre-normalisation) and --to-hvm (HVM3).
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++
++# composition of universe paths (hcomp in Set): neg then neg
++def negNeg() -> Path(Set, Bool, Bool):
++  <i> hcomp(Set, i, <_> Bool, <k> negPath() @ k, negPath() @ i)
++# three negations
++def neg3() -> Path(Set, Bool, Bool):
++  <i> hcomp(Set, i, <_> Bool, <k> negPath() @ k, negNeg() @ i)
++
++def viaNegNeg(x: Bool) -> Bool:
++  coe(lambda i. negNeg() @ i, i0, i1, x)
++def viaNeg3(x: Bool) -> Bool:
++  coe(lambda i. neg3() @ i, i0, i1, x)
++def viaNeg3Bwd(x: Bool) -> Bool:
++  coe(lambda i. neg3() @ i, i1, i0, x)
++# inverse line
++def viaInv(x: Bool) -> Bool:
++  coe(lambda i. negPath() @ inot(i), i0, i1, x)
++# Pi line: a function Bool -> Bool transported along (negPath -> Bool)
++def viaPi(x: Bool) -> Bool:
++  (coe(lambda i. (negPath() @ i) -> Bool, i0, i1, lambda y. y))(x)
++# Sigma line: a pair transported componentwise along Σ (negPath) Bool
++def viaSig(x: Bool) -> Bool:
++  match coe(lambda i. any a: (negPath() @ i). Bool, i0, i1, (x, x)):
++    case (a, b):
++      a
++
++# the laws on closed values, definitional in the checker (on a variable x,
++# neg(neg(x)) = x is only propositional, as in cubical Agda)
++def negNeg_T() -> Path(Bool, viaNegNeg(True), True):
++  <_> True
++def negNeg_F() -> Path(Bool, viaNegNeg(False), False):
++  <_> False
++def neg3_T() -> Path(Bool, viaNeg3(True), False):
++  <_> False
++def neg3Bwd_F() -> Path(Bool, viaNeg3Bwd(False), True):
++  <_> True
++def inv_T() -> Path(Bool, viaInv(True), False):
++  <_> False
++def pi_T() -> Path(Bool, viaPi(True), False):
++  <_> False
++def sig_T() -> Path(Bool, viaSig(True), False):
++  <_> False
++
++def main() -> Bool:
++  viaNeg3(True)
 diff --git a/corpus_calculus.bend b/corpus_calculus.bend
 new file mode 100644
 index 0000000..2888f4e
@@ -724,6 +793,37 @@ index 0000000..707f2c1
 +
 +def main() -> Nat:
 +  0n
+diff --git a/isprop_run.bend b/isprop_run.bend
+new file mode 100644
+index 0000000..13f6b11
+--- /dev/null
++++ b/isprop_run.bend
+@@ -0,0 +1,25 @@
++# isPropIsContr (the 4-face hcompN) EXECUTED: instantiated at Unit and
++# observed through the composite's second component.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
++  match c0:
++    case (a0, p0):
++      match c1:
++        case (a1, p1):
++          <i> ( p0(a1) @ i
++              , lambda x. <j> hcompN(A,
++                  [ (inot(i), <k> p0(p0(x) @ j) @ k)
++                  , (i,       <k> p0(p1(x) @ j) @ k)
++                  , (inot(j), <k> p0(p0(a1) @ i) @ k)
++                  , (j,       <k> p0(x) @ k)
++                  ], a0) )
++def unitContr() -> isContr(Unit):
++  ((), lambda x. match x: case (): <_> ())
++# the filler at (i=i1, x=(), j=i0): a 4-face composition with two faces true
++def run(i: Interval, j: Interval) -> Unit:
++  match isPropIsContr(Unit, unitContr(), unitContr()) @ i:
++    case (c, h):
++      h(()) @ j
++def main() -> Unit:
++  run(i1, i0)
 diff --git a/loop.bend b/loop.bend
 new file mode 100644
 index 0000000..2ac63ac
@@ -1079,24 +1179,26 @@ index 939a19f..80c544c 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..c508b93 100644
+index f94d1ce..0a69302 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,9 @@ module Core.CLI
+@@ -5,6 +5,10 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
 +  , processFileToHVM4
 +  , processFileToHVM4Raw
++  , processFileToHVM4Full
 +  , processFileTotal
    , listDependencies
    ) where
  
-@@ -23,11 +26,14 @@ import Core.Collapse
+@@ -23,11 +27,15 @@ import Core.Collapse
  import Core.Deps
  import Core.Import (autoImport)
  import Core.Parse.Book (doParseBook)
 +import Core.Analysis
++import qualified Target.HVM4Full as HVM4Full
 +import Core.Totality
  import Core.Type
  import Core.WHNF
@@ -1107,7 +1209,7 @@ index f94d1ce..c508b93 100644
  
  -- | Parse a Bend file into a Book
  parseFile :: FilePath -> IO Book
-@@ -59,7 +65,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +67,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -1116,7 +1218,7 @@ index f94d1ce..c508b93 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -123,6 +129,18 @@ processFileToHVM file = do
+@@ -123,6 +131,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -1135,7 +1237,7 @@ index f94d1ce..c508b93 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -139,3 +157,18 @@ collectAllRefs (Book defs) =
+@@ -139,3 +159,25 @@ collectAllRefs (Book defs) =
    S.unions $ map collectRefsFromDefn (M.elems defs)
    where
      collectRefsFromDefn (_, term, typ) = S.union (getDeps term) (getDeps typ)
@@ -1154,6 +1256,13 @@ index f94d1ce..c508b93 100644
 +    else do
 +      putStrLn $ "\x1b[31m--total: refused, [unchecked]: " ++ unwords bad ++ "\x1b[0m"
 +      exitFailure
++
++-- | Compile to HVM4 with the FULL cubical runtime (intervals, paths, types,
++-- coe and hcomp are all runtime objects; nothing erased or pre-normalised)
++processFileToHVM4Full :: FilePath -> IO ()
++processFileToHVM4Full file = do
++  book <- parseFile file
++  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
 index cdd6756..87ac206 100644
 --- a/src/Core/Check.hs
@@ -1984,10 +2093,10 @@ index a5d92e8..3c3249f 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..ca95af5 100644
+index 953410d..bf31d49 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,240 @@ whnfGo lv book term =
+@@ -53,9 +53,252 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -2134,6 +2243,18 @@ index 953410d..ca95af5 100644
 +                      _                -> App pP i
 +                in Tup (Coe fstLn r' s' a) (Coe (Lam "i" (\i -> sndAt i)) r' s' b)
 +              t' -> Coe pP r' s' t'
++          -- inverse line  λi. P @ inot(i): transport along P the other way
++          PAp u m | (case cut m of { INot v -> isCoeMarker (cut v); _ -> False }) && not (occursMarker u) ->
++            whnf lv book (Coe (Lam "i" (\i -> PAp u i)) (invEnd r') (invEnd s') t)
++          -- composite line  λi. hcomp(Set, [(inot i, <_> A), (i, <k> Q@k)], P@i):
++          -- transport along P, then along Q (backwards: Q then P)
++          HCm Set fs base | Just q <- compTube fs ->
++            let pLn = Lam "i" (\i -> substMarker i base)
++                qLn = Lam "i" (\i -> PAp q i)
++            in case (r', s') of
++                 (I0, I1) -> whnf lv book (Coe qLn I0 I1 (Coe pLn I0 I1 t))
++                 (I1, I0) -> whnf lv book (Coe pLn I1 I0 (Coe qLn I1 I0 t))
++                 _        -> Coe pP r' s' t
 +          -- ua: the line is a univalence path; apply the function
 +          PAp u m | isCoeMarker m ->
 +            case whnf Full book u of
@@ -2228,7 +2349,7 @@ index 953410d..ca95af5 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +632,41 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +644,41 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -2270,7 +2391,7 @@ index 953410d..ca95af5 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +751,18 @@ normal d book term =
+@@ -485,6 +763,18 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -2289,15 +2410,184 @@ index 953410d..ca95af5 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
+@@ -547,3 +837,168 @@ ieql :: Book -> Term -> Term -> Bool
+ ieql book a b = case (termToInt book a, termToInt book b) of
+   (Just x, Just y) -> x == y
+   _                -> False
++
++-- Runtime algebra of universe paths (Target emitters)
++-- ---------------------------------------------------
++-- A universe path is represented at runtime by a Church pair (fwd, bwd).
++-- The algebra below is CLOSED under the constructions the checker admits on
++-- lines in Set, so transport along a composite / inverse / Pi / Sigma line
++-- is performed by the net, not by the normaliser:
++--   ua                    -> the pair itself
++--   <i> P @ i             -> P
++--   <i> P @ inot(i)       -> inv P            (swap)
++--   <i> hcomp(Set, i, <_> A, <k> Q @ k, P @ i) -> comp P Q   (composition)
++--   <i> (P@i) -> (Q@i)    -> pi P Q          (h |-> fwdQ . h . bwdP)
++--   <i> Σ (P@i) (Q@i)     -> sig P Q         (componentwise)
++--   constant line         -> idPath
++-- Anything else yields Nothing and a strict emitter refuses instead of
++-- silently emitting the cap / identity.
++pathRep :: Term -> Maybe Term
++pathRep t = case t of
++  Loc _ x  -> pathRep x
++  PLm _ f  -> lineRep (f coeMarker)
++  _        -> Just t   -- ua, or a runtime value of path type (Ref/Var/App)
++
++-- a Set-valued body in the marker interval variable
++lineRep :: Term -> Maybe Term
++lineRep body
++  | not (occursMarker body) = Just (Ref "cub_idPath")
++  | otherwise = case body of
++      Loc _ x -> lineRep x
++      PAp p r | not (occursMarker p) -> case cut r of
++        Var "__coe_i__" (-1)          -> pathRep p
++        INot v | isCoeMarker (cut v)  -> fmap cubInv (pathRep p)
++        _                             -> Nothing
++      All a (Lam _ b) | not (occursDep (b depMarker)) -> do
++        pa <- lineRep a
++        pb <- lineRep (b depMarker)
++        Just (cubPi pa pb)
++      Sig a (Lam _ b) | not (occursDep (b depMarker)) -> do
++        pa <- lineRep a
++        pb <- lineRep (b depMarker)
++        Just (cubSig pa pb)
++      HCm a0 fs base | Set <- cut a0 -> case [ (p, u) | (p, u) <- fs, isMarkerFace p ] of
++        [(_, u)] | not (occursMarker u), all constTube [ u0 | (p, u0) <- fs, not (isMarkerFace p) ] -> do
++          pb <- lineRep base
++          q  <- pathRep u
++          Just (cubComp pb q)
++        _ -> Nothing
++      _ -> Nothing
++  where
++    isMarkerFace p = case cut p of { Var "__coe_i__" (-1) -> True; _ -> False }
++    constTube u = case cut u of
++      PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
++      _       -> False
++
++-- coe along a line from r to s, as an application of the path's runtime
++-- representation (literal endpoints only: closed programs have no other)
++coeRep :: Term -> Term -> Term -> Term -> Maybe Term
++coeRep pP r s x = do
++  rep <- lineRep (case cut pP of { Lam _ f -> f coeMarker; _ -> App pP coeMarker })
++  case (cut r, cut s) of
++    (I0, I1) -> Just (cubFwd rep x)
++    (I1, I0) -> Just (cubBwd rep x)
++    (I0, I0) -> Just x
++    (I1, I1) -> Just x
++    _        -> Nothing
++
++cubFwd, cubBwd :: Term -> Term -> Term
++cubFwd p x = App (App (Ref "cub_pathFwd") p) x
++cubBwd p x = App (App (Ref "cub_pathBwd") p) x
++
++cubPair :: Term -> Term -> Term
++cubPair f g = Lam "k" (\k -> App (App k f) g)
++
++cubInv :: Term -> Term
++cubInv p = cubPair (Lam "y" (\y -> cubBwd p y)) (Lam "x" (\x -> cubFwd p x))
++
++cubComp :: Term -> Term -> Term
++cubComp p q = cubPair (Lam "x" (\x -> cubFwd q (cubFwd p x))) (Lam "y" (\y -> cubBwd p (cubBwd q y)))
++
++cubPi :: Term -> Term -> Term
++cubPi p q = cubPair (Lam "h" (\h -> Lam "x" (\x -> cubFwd q (App h (cubBwd p x)))))
++                    (Lam "h" (\h -> Lam "x" (\x -> cubBwd q (App h (cubFwd p x)))))
++
++cubSig :: Term -> Term -> Term
++cubSig p q = cubPair (Lam "w" (\w -> SigM w (Lam "a" (\a -> Lam "b" (\b -> Tup (cubFwd p a) (cubFwd q b))))))
++                     (Lam "w" (\w -> SigM w (Lam "a" (\a -> Lam "b" (\b -> Tup (cubBwd p a) (cubBwd q b))))))
++
++-- dependency marker for the bound variable of a Pi/Sigma line
++depMarker :: Term
++depMarker = Var "__dep_x__" (-2)
++
++occursDep :: Term -> Bool
++occursDep t = occursMarker (swap t) where
++  -- reuse occursMarker by renaming the dep marker to the coe marker and
++  -- hiding the real coe marker
++  swap x = case x of
++    Var "__dep_x__" (-2) -> coeMarker
++    Var "__coe_i__" (-1) -> Var "__hidden__" (-3)
++    _ -> mapSub swap x
++
++-- one-level structural map over immediate subterms (HOAS bodies included)
++mapSub :: (Term -> Term) -> Term -> Term
++mapSub g x = case x of
++  Sub a      -> Sub (g a)
++  Fix k f    -> Fix k (g . f)
++  Let v f    -> Let (g v) (g f)
++  Chk a b    -> Chk (g a) (g b)
++  EmpM a     -> EmpM (g a)
++  UniM a b   -> UniM (g a) (g b)
++  BitM a b c -> BitM (g a) (g b) (g c)
++  Suc n      -> Suc (g n)
++  NatM a b c -> NatM (g a) (g b) (g c)
++  Lst a      -> Lst (g a)
++  Con a b    -> Con (g a) (g b)
++  LstM a b c -> LstM (g a) (g b) (g c)
++  EnuM a cs e -> EnuM (g a) [ (s, g c) | (s, c) <- cs ] (g e)
++  Sig a b    -> Sig (g a) (g b)
++  Tup a b    -> Tup (g a) (g b)
++  SigM a b   -> SigM (g a) (g b)
++  All a b    -> All (g a) (g b)
++  Lam k f    -> Lam k (g . f)
++  App a b    -> App (g a) (g b)
++  Eql a b c  -> Eql (g a) (g b) (g c)
++  EqlM a b   -> EqlM (g a) (g b)
++  Met n a xs -> Met n (g a) (map g xs)
++  Ind a      -> Ind (g a)
++  Frz a      -> Frz (g a)
++  Sup a b c  -> Sup (g a) (g b) (g c)
++  SupM a b c -> SupM (g a) (g b) (g c)
++  Frk a b c  -> Frk (g a) (g b) (g c)
++  Op2 o a b  -> Op2 o (g a) (g b)
++  Op1 o a    -> Op1 o (g a)
++  Loc l a    -> Loc l (g a)
++  Rwt a b c  -> Rwt (g a) (g b) (g c)
++  Log a b    -> Log (g a) (g b)
++  INot a     -> INot (g a)
++  IAnd a b   -> IAnd (g a) (g b)
++  IOr a b    -> IOr (g a) (g b)
++  Pth a b c  -> Pth (g a) (g b) (g c)
++  PLm k f    -> PLm k (g . f)
++  PAp a b    -> PAp (g a) (g b)
++  Coe a b c d2 -> Coe (g a) (g b) (g c) (g d2)
++  HCm a fs e2 -> HCm (g a) [ (g p, g u) | (p, u) <- fs ] (g e2)
++  Ua a b c d2 e2 f2 -> Ua (g a) (g b) (g c) (g d2) (g e2) (g f2)
++  _          -> x
++
++invEnd :: Term -> Term
++invEnd I0 = I1
++invEnd I1 = I0
++invEnd r  = INot r
++
++-- the tube Q of a standard composite line in Set (face i: <k> Q @ k, face
++-- inot i constant), if the system has that shape
++compTube :: [(Term, Term)] -> Maybe Term
++compTube fs = case [ u | (p, u) <- fs, isCoeMarker (cut p) ] of
++  [u] | not (occursMarker u), all constTube [ u0 | (p, u0) <- fs, not (isCoeMarker (cut p)) ] -> Just u
++  _ -> Nothing
++  where constTube u = case cut u of
++          PLm _ f -> let b = f depMarker in not (occursDep b) && not (occursMarker b)
++          _       -> False
++
++substMarker :: Term -> Term -> Term
++substMarker i t = go t where
++  go x = case x of
++    Var "__coe_i__" (-1) -> i
++    _ -> mapSub go x
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..6e3f7e2 100644
+index 996bb26..6743b58 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
 @@ -6,6 +6,7 @@ module Target.HVM where
  
  import Control.Monad (forM)
  import Core.Type
-+import Core.WHNF (force)
++import Core.WHNF (force, coeRep, pathRep, coeMarker, occursMarker)
  import Data.Either (partitionEithers)
  import Data.List (isInfixOf, unsnoc)
  import Debug.Trace
@@ -2351,7 +2641,7 @@ index 996bb26..6e3f7e2 100644
  
  -- Extract constructor definition info from type definitions
  extractTypeDef :: Term -> Maybe ([Name], [(Name, [Name])])
-@@ -81,8 +87,8 @@ extractTypeDef tm = do
+@@ -81,71 +87,71 @@ extractTypeDef tm = do
      subst a f = f (Var a 0)
  
  
@@ -2362,13 +2652,14 @@ index 996bb26..6e3f7e2 100644
    subst a f = f (Var a 0)
  
    go (Var n i) =
-@@ -90,62 +96,62 @@ termToHVM ctx tm = go tm where
+     case MS.lookup n ctx of
        Just n  -> HVM.Var n
        Nothing -> HVM.Var n
-   go (Ref k)      = HVM.Ref (hvmNam k) 0 [] -- TODO: Ref arguments
+-  go (Ref k)      = HVM.Ref (hvmNam k) 0 [] -- TODO: Ref arguments
 -  go (Sub t)      = termToHVM ctx t
 -  go (Fix n f)    = HVM.Ref "fix" 0 [HVM.Lam ('&':n) (termToHVM (MS.insert n n ctx) (f (Var n 0)))]
 -  go (Let v f)    = HVM.App (termToHVM ctx f) (termToHVM ctx v)
++  go (Ref k)      = if take 4 k == "cub_" then HVM.Ref k 0 [] else HVM.Ref (hvmNam k) 0 [] -- TODO: Ref arguments
 +  go (Sub t)      = termToHVM book ctx t
 +  go (Fix n f)    = HVM.Ref "fix" 0 [HVM.Lam ('&':n) (termToHVM book (MS.insert n n ctx) (f (Var n 0)))]
 +  go (Let v f)    = HVM.App (termToHVM book ctx f) (termToHVM book ctx v)
@@ -2465,7 +2756,7 @@ index 996bb26..6e3f7e2 100644
      where
        extractCtrM :: Term -> Maybe ([(Name, [Name], Term)], Name, Name, Term)
        extractCtrM (Lam a (subst a -> Lam bodK (subst bodK -> EnuM (Var x _) cs (Lam tagK (subst tagK -> dflt))))) =
-@@ -173,40 +179,81 @@ termToHVM ctx tm = go tm where
+@@ -173,40 +179,91 @@ termToHVM ctx tm = go tm where
        flattenCtrM _ _ _ = Nothing
  
        matToHVM :: MS.Map Name HVM.Name -> Name -> Name -> [(Name, [Name], Term)] -> Term -> HVM.Core
@@ -2520,7 +2811,12 @@ index 996bb26..6e3f7e2 100644
 +  go (IAnd _ _)   = HVM.Era
 +  go (IOr _ _)    = HVM.Era
 +  go (Pth _ _ _)  = HVM.Era
-+  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else termToHVM book ctx b
++  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else
++                      case f coeMarker of
++                        bm | isSetLine bm -> case pathRep tm of
++                               Just r  -> termToHVM book ctx r
++                               Nothing -> error ("HVM emission: unsupported universe path: " ++ show tm)
++                        _ -> termToHVM book ctx b
 +  -- a literal endpoint is resolved before erasure (p @ i1 of an hcomp is
 +  -- the tube top, not the cap)
 +  go (PAp p r)    = case cut r of
@@ -2529,16 +2825,21 @@ index 996bb26..6e3f7e2 100644
 +      _  -> termToHVM book ctx p
 +  go (HCm _ _ x)  = termToHVM book ctx x
 +  go (Ua _ _ f g _ _) = HVM.Lam "&k" (HVM.App (HVM.App (HVM.Var "k") (termToHVM book ctx f)) (termToHVM book ctx g))
-+  go (Coe pP r s x) = case pathLineHead pP of
-+      Just pth -> case (cut r, cut s) of
-+        (I1, I0) -> HVM.App (HVM.App (HVM.Ref "cub_pathBwd" 0 []) (termToHVM book ctx pth)) (termToHVM book ctx x)
-+        _        -> HVM.App (HVM.App (HVM.Ref "cub_pathFwd" 0 []) (termToHVM book ctx pth)) (termToHVM book ctx x)
-+      Nothing  -> termToHVM book ctx x
++  go (Coe pP r s x) = case coeRep pP r s x of
++      Just t' -> termToHVM book ctx t'
++      Nothing -> error ("HVM emission: unsupported coe line (outside the runtime path algebra): " ++ show pP)
 +  go (Loc s t)    = termToHVM book ctx t
 +  go (Rwt _ _ x)  = termToHVM book ctx x
    go (Pri p)      = HVM.Era
    go (Pat x m c)  = HVM.Era
  
++isSetLine :: Term -> Bool
++isSetLine bm = occursMarker bm && case cut bm of
++  All _ _     -> True
++  Sig _ _     -> True
++  HCm a _ _   -> case cut a of { Set -> True; _ -> False }
++  _           -> False
++
 +-- a path lambda whose body is a type former is a constant line in Set:
 +-- its runtime meaning is the identity path.
 +isTypeLine :: Term -> Bool
@@ -2563,10 +2864,10 @@ index 996bb26..6e3f7e2 100644
  
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..2bfb1eb
+index 0000000..b8afe3b
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,188 @@
+@@ -0,0 +1,207 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -2587,13 +2888,13 @@ index 0000000..2bfb1eb
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (normal, force)
++import Core.WHNF (normal, force, coeRep, pathRep, coeMarker, occursMarker)
 +
 +compile :: Book -> String
 +compile book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
 +  where
 +    def (nam, (_, tm, _)) =
-+      "@" ++ hvmName nam ++ " = " ++ emit book (normal 0 book tm)
++      "@" ++ hvmName nam ++ " = " ++ emitWith False book (normal 0 book tm)
 +
 +-- Raw mode: emit WITHOUT pre-normalising in Haskell, so coe/ua/path
 +-- reduction happens on the interaction net itself (measurable in
@@ -2602,7 +2903,7 @@ index 0000000..2bfb1eb
 +compileRaw book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
 +  where
 +    def (nam, (_, tm, _)) =
-+      "@" ++ hvmName nam ++ " = " ++ emit book tm
++      "@" ++ hvmName nam ++ " = " ++ emitWith True book tm
 +
 +prelude :: String
 +prelude = unlines
@@ -2628,7 +2929,12 @@ index 0000000..2bfb1eb
 +  where sanitize = concatMap (\c -> if c `elem` ("_0123456789" ++ ['a'..'z'] ++ ['A'..'Z']) then [c] else "")
 +
 +emit :: Book -> Term -> String
-+emit book t0 = go 0 t0 where
++emit = emitWith False
++
++-- strict: refuse (error) any cubical form outside the runtime path algebra
++-- instead of erasing it to a cap / identity (raw mode must never guess).
++emitWith :: Bool -> Book -> Term -> String
++emitWith strict book t0 = go 0 t0 where
 +  go :: Int -> Term -> String
 +  go d t = case t of
 +    Var _ i        -> if i < 0 then "_" else "b" ++ show i
@@ -2681,21 +2987,25 @@ index 0000000..2bfb1eb
 +    Era            -> "&{}"
 +
 +    -- cubical: paths pass through content, interval arg erased; types erase
-+    PLm _ f        -> let b = f Era in if isTypeLine b then "@cub_idPath" else go d b
++    PLm _ f        -> let b = f Era in if isTypeLine b then "@cub_idPath" else
++                      -- a line whose body is a type former / hcomp in Set is a
++                      -- universe path: emit its runtime representation
++                      case f coeMarker of
++                        bm | isSetLine bm -> case pathRep t of
++                               Just r  -> go d r
++                               Nothing -> unsupported "universe path" t
++                        _ -> go d b
 +    -- a literal endpoint is resolved before erasure: `p @ i1` where p is a
 +    -- path lambda / hcomp must yield the tube top, never the erased body.
 +    PAp p r        -> case cut r of
 +                        I0 -> go d (force book (PAp p r))
 +                        I1 -> go d (force book (PAp p r))
 +                        _  -> go d p
-+    Coe pP r s x   -> case pathLineHead pP of
-+                        -- coe along a universe path `<i> P @ i`: run the
-+                        -- path's forward transport (its runtime rep) on x.
-+                        Just pth -> case (cut r, cut s) of
-+                          (I1, I0) -> "@cub_pathBwd(" ++ go d pth ++ ")(" ++ go d x ++ ")"
-+                          _        -> "@cub_pathFwd(" ++ go d pth ++ ")(" ++ go d x ++ ")"
-+                        -- coe over a type that does not vary in i: identity.
-+                        Nothing  -> go d x
++    -- coe along a Set-line: the line's runtime representation (closed
++    -- under composition / inverse / Pi / Sigma) applied in the direction
++    Coe pP r s x   -> case coeRep pP r s x of
++                        Just t' -> go d t'
++                        Nothing -> if strict then unsupported "coe line" pP else go d x
 +    HCm _ _ x      -> go d x            -- residual hcomp cap
 +    Ua _ _ f g _ _ -> "(λ&b" ++ show d ++ ". b" ++ show d ++ "(" ++ go (d+1) f ++ ")(" ++ go (d+1) g ++ "))"
 +
@@ -2714,6 +3024,16 @@ index 0000000..2bfb1eb
 +    SupM x l f -> "!&D&" ++ label l ++ " = " ++ go d x ++ "; " ++ go d f
 +    Pri _ -> "&{}"
 +    Pat _ _ _ -> "&{}"
++
++  unsupported :: String -> Term -> String
++  unsupported what t = error ("HVM4 raw emission: unsupported cubical " ++ what ++ " (outside the runtime path algebra): " ++ show t)
++
++  isSetLine :: Term -> Bool
++  isSetLine bm = occursMarker bm && case cut bm of
++    All _ _     -> True
++    Sig _ _     -> True
++    HCm a _ _   -> case cut a of { Set -> True; _ -> False }
++    _           -> False
 +
 +  -- Function position of an application: atomic heads print bare; any
 +  -- binder/eliminator head is parenthesized so `(λx.M)(N)` is not misread.
@@ -2755,6 +3075,227 @@ index 0000000..2bfb1eb
 +  op2 EQL = "=="; op2 NEQ = "!="; op2 LST = "<"; op2 GRT = ">"
 +  op2 LEQ = "<="; op2 GEQ = ">="; op2 AND = "&&"; op2 OR = "||"
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
+diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
+new file mode 100644
+index 0000000..e3c8ae3
+--- /dev/null
++++ b/src/Target/HVM4Full.hs
+@@ -0,0 +1,186 @@
++{-./../Core/Type.hs-}
++
++{-# LANGUAGE ViewPatterns #-}
++
++-- Bend2 -> HVM4, FULL RUNTIME: nothing cubical is erased or pre-normalised.
++--
++-- Intervals are runtime data (#I0, #I1, and symbolic terms built by @inot /
++-- @iand / @ior), paths are runtime functions of intervals, TYPES are runtime
++-- data (#Bool, #Pi{A,B}, #Sig{A,B}, #Path{A,u,v}, universe paths #UaU/#CompU),
++-- `coe` is the runtime function @coe dispatching on the type former the line
++-- yields at a symbolic interval, and `hcomp` is the runtime function @hcomp
++-- that evaluates its faces and STAYS STUCK DATA (#HCm{...}) when a face is
++-- symbolic — partial knowledge, decided later by application.
++--
++-- The prelude below is Core.WHNF's cubical reduction, written as an HVM4
++-- program. Superposed lines need no rule: an HVM4 match commutes over a
++-- superposition and same-label dups annihilate, which IS the fibre routing.
++
++module Target.HVM4Full where
++
++import Data.List (intercalate)
++import qualified Data.Map as M
++
++import Core.Type
++import Core.WHNF (coeMarker, occursMarker, substMarker)
++
++compileFull :: Book -> String
++compileFull book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
++  where
++    def (nam, (_, tm, _)) = "@" ++ hvmName nam ++ " = " ++ emitFull book tm
++
++prelude :: String
++prelude = unlines
++  [ "// Bend2 -> HVM4 FULL RUNTIME (no erasure, no pre-normalisation)"
++  , "// ---- intervals"
++  , "@inot = λ{#I0: #I1; #I1: #I0; λx. #INot{x}}"
++  , "@iand = λ{#I0: λb. #I0; #I1: λb. b; λ&a. λ{#I0: #I0; #I1: a; λb. #IAnd{a, b}}}"
++  , "@ior  = λ{#I1: λb. #I1; #I0: λb. b; λ&a. λ{#I1: #I1; #I0: a; λb. #IOr{a, b}}}"
++  , "@sameEnd = λ{#I0: λ{#I0: 1; λx. 0}; #I1: λ{#I1: 1; λx. 0}; λx. λy. 0}"
++  , "// forward direction test: r=I0,s=I1 -> 1 ; r=I1,s=I0 -> 0"
++  , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
++  , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"
++  , "@pathAt = λ&p. λ{#I0: @pL(p); #I1: @pR(p); λi. @pAtSym(p, i)}"
++  , "@pAtSym = λ{#PLm: λf. λi. f(i); #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
++  , "@pL = λ{#PLm: λf. f(#I0); #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
++  , "@pR = λ{#PLm: λf. f(#I1); #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); λv. #StuckAt{v, #I1}}"
++  , "// ---- hcomp: faces = #Nil | #Cons{#Face{phi, tube}, rest}; stuck faces are kept"
++  , "@hcomp = λA. λfs. λbase. @hcompGo(A, fs, base, #Nil)"
++  , "@hcompGo = λ&A. λ{"
++  , "  #Nil: λ&base. λ{#Nil: base; λstuck. #HCm{A, stuck, base}};"
++  , "  #Cons: λ{#Face: λphi. λ&tube. λ&rest. λ&base. λ&stuck. (λ{"
++  , "    #I1: @pathAt(tube, #I1);"
++  , "    #I0: @hcompGo(A, rest, base, stuck);"
++  , "    λp. @hcompGo(A, rest, base, #Cons{#Face{p, tube}, stuck})})(phi)}}"
++  , "// ---- coe: transport x along the type line L from r to s"
++  , "@coe = λ&L. λ&r. λ&s. λ&x. (λ{1: x; λn. @coeT(L, r, s, x, L(#IMark))})(@sameEnd(r, s))"
++  , "@piA = λ{#Pi: λA. λB. A; λt. #StuckDom{t}}"
++  , "@piB = λ{#Pi: λA. λB. B; λt. λv. #StuckCod{t}}"
++  , "@sgA = λ{#Sig: λA. λB. A; λt. #StuckDom{t}}"
++  , "@sgB = λ{#Sig: λA. λB. B; λt. λv. #StuckCod{t}}"
++  , "@ptA = λ{#Path: λA. λu. λv. A; λt. #StuckPathTy{t}}"
++  , "@ptU = λ{#Path: λA. λu. λv. u; λt. #StuckPathTy{t}}"
++  , "@ptV = λ{#Path: λA. λu. λv. v; λt. #StuckPathTy{t}}"
++  , "@coeT = λ&L. λ&r. λ&s. λ&x. λ{"
++  , "  #Bool: x; #Nat: x; #Set: x; #Unit: x; #Empty: x; #List: x; #Enum: x; #Num: x; #Itv: x; #Eql: x;"
++  , "  #Pi: λA0. λB0. λ&y. @coe(λ&i. @piB(L(i), @coe(λj. @piA(L(j)), s, i, y)), r, s, x(@coe(λj. @piA(L(j)), s, r, y)));"
++  , "  #Sig: λA0. λB0. (λ{#Pair: λ&a. λb. #Pair{@coe(λj. @sgA(L(j)), r, s, a), @coe(λ&i. @sgB(L(i), @coe(λj. @sgA(L(j)), r, i, a)), r, s, b)}})(x);"
++  , "  #Path: λA0. λu0. λv0. #PLm{λj. @hcomp(@ptA(L(s)), #Cons{#Face{@inot(s), #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptU(L(k)))}}, #Cons{#Face{s, #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptV(L(k)))}}, #Nil}}, @coe(λi. @ptA(L(i)), r, s, @pathAt(x, j)))};"
++  , "  #At: λp. λi. @coeAt(p, i, r, s, x);"
++  , "  λt. #StuckCoe{t, x}}"
++  , "// coe along a universe path applied at the symbolic marker (or its negation)"
++  , "@coeAt = λ&p. λ{#IMark: λr. λs. λx. @coeU(p, @fwd(r, s), x); #INot: λ{#IMark: λr. λs. λx. @coeU(p, (1 - @fwd(r, s)), x); λi. λr. λs. λx. #StuckCoe{#At{p, #INot{i}}, x}}; λi. λr. λs. λx. #StuckCoe{#At{p, i}, x}}"
++  , "@coeU = λ{"
++  , "  #UaU: λA. λB. λ&f. λ&g. λd. λ&x. (λ{1: f(x); λn. g(x)})(d);"
++  , "  #CompU: λ&P. λ&Q. λ&d. λ&x. (λ{1: @coe(Q, #I0, #I1, @coe(P, #I0, #I1, x)); λn. @coe(P, #I1, #I0, @coe(Q, #I1, #I0, x))})(d);"
++  , "  λv. λd. λx. #StuckCoeU{v, x}}"
++  , "" ]
++
++hvmName :: Name -> String
++hvmName = concatMap (\c -> if c == '/' then "__" else [c])
++
++emitFull :: Book -> Term -> String
++emitFull book t0 = go 0 t0 where
++  go :: Int -> Term -> String
++  go d t = case t of
++    Var _ i        -> if i < 0 then "#IMark" else "b" ++ show i
++    Ref k          -> "@" ++ hvmName k
++    Sub x          -> go d x
++    Loc _ x        -> go d x
++    Chk x _        -> go d x
++    Ind x          -> go d x
++    Frz x          -> go d x
++    Fix k f        -> "!b" ++ show d ++ "&F = " ++ go (d+1) (f (Var k d)) ++ "; b" ++ show d
++    Let v f        -> "(" ++ go d f ++ " " ++ go d v ++ ")"
++    Lam k f        -> "λ&b" ++ show d ++ ". " ++ go (d+1) (f (Var k d))
++    App f x        -> appFun d f ++ "(" ++ go d x ++ ")"
++    -- data
++    Zer            -> "#Zer"
++    Suc n          -> "#Suc{" ++ go d n ++ "}"
++    Bt0            -> "0"
++    Bt1            -> "1"
++    One            -> "#One"
++    Nil            -> "#Nil"
++    Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
++    Val (U64_V v)  -> show v
++    Val (CHR_V c)  -> "'" ++ [c] ++ "'"
++    Val _          -> "0"
++    Sym s          -> "#" ++ s
++    Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
++    Rfl            -> "#Refl"
++    BitM x f tr    -> "λ{0: " ++ go d f ++ "; _: λ&b" ++ show d ++ ". " ++ go (d+1) tr ++ "}(" ++ go d x ++ ")"
++    NatM x z s     -> "λ{#Zer: " ++ go d z ++ "; #Suc: " ++ go d s ++ "}(" ++ go d x ++ ")"
++    LstM x n c     -> "λ{#Nil: " ++ go d n ++ "; #Con: " ++ go d c ++ "}(" ++ go d x ++ ")"
++    UniM x f       -> "λ{#One: " ++ go d f ++ "}(" ++ go d x ++ ")"
++    SigM x f       -> "λ{#Pair: " ++ go d f ++ "}(" ++ go d x ++ ")"
++    EqlM x f       -> "λ{#Refl: " ++ go d f ++ "}(" ++ go d x ++ ")"
++    EmpM x         -> "λ{}(" ++ go d x ++ ")"
++    EnuM x cs df   -> "λ{" ++ intercalate "; " (map (\(sy,b) -> "#" ++ sy ++ ": " ++ go d b) cs)
++                       ++ "; _: λ&b" ++ show d ++ ". " ++ go (d+1) df ++ "}(" ++ go d x ++ ")"
++    Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
++    Op1 _ a        -> go d a
++    Log _ x        -> go d x
++    Rwt _ _ x      -> go d x
++    -- superpositions: native
++    Sup l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
++    Frk l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
++    SupM x l f     -> "!&D&" ++ label l ++ " = " ++ go d x ++ "; " ++ go d f
++    Era            -> "&{}"
++    -- TYPES ARE DATA
++    Set            -> "#Set"; Bit -> "#Bool"; Nat -> "#Nat"; Uni -> "#Unit"; Emp -> "#Empty"
++    Lst _          -> "#List"; Enu _ -> "#Enum"; Num _ -> "#Num"; Itv -> "#Itv"
++    Eql _ _ _      -> "#Eql"
++    Sig a b        -> "#Sig{" ++ go d a ++ ", " ++ go d b ++ "}"
++    All a b        -> "#Pi{" ++ go d a ++ ", " ++ go d b ++ "}"
++    Pth a u v      -> "#Path{" ++ go d a ++ ", " ++ go d u ++ ", " ++ go d v ++ "}"
++    -- INTERVALS ARE DATA
++    I0             -> "#I0"
++    I1             -> "#I1"
++    INot a         -> "@inot(" ++ go d a ++ ")"
++    IAnd a b       -> "@iand(" ++ go d a ++ ", " ++ go d b ++ ")"
++    IOr a b        -> "@ior(" ++ go d a ++ ", " ++ go d b ++ ")"
++    -- PATHS: a universe-level composite is data (#CompU of two lines); every
++    -- other path lambda is a runtime function of a runtime interval
++    PLm k f        -> case compLine (f coeMarker) of
++                        Just (p, q) -> "#CompU{" ++ go d (Lam "i" (\i -> substMarker i p)) ++ ", " ++ go d (Lam "i" (\i -> PAp q i)) ++ "}"
++                        Nothing     -> "#PLm{λ&b" ++ show d ++ ". " ++ go (d+1) (f (Var k d)) ++ "}"
++    PAp p r        -> "@pathAt(" ++ go d p ++ ", " ++ go d r ++ ")"
++    Coe pP r s x   -> "@coe(" ++ go d pP ++ ", " ++ go d r ++ ", " ++ go d s ++ ", " ++ go d x ++ ")"
++    HCm a fs x     -> "@hcomp(" ++ go d a ++ ", " ++ faces d fs ++ ", " ++ go d x ++ ")"
++    Ua a b f g _ _ -> "#UaU{" ++ go d a ++ ", " ++ go d b ++ ", " ++ go d f ++ ", " ++ go d g ++ "}"
++    Met _ _ _      -> "&{}"
++    Pri _          -> "&{}"
++    Pat _ _ _      -> error "HVM4 full emission: unflattened pattern match"
++
++  faces d fs = foldr (\(p, u) acc -> "#Cons{#Face{" ++ go d p ++ ", " ++ go d u ++ "}, " ++ acc ++ "}") "#Nil" fs
++
++  appFun d f = case cut f of
++    Var _ _ -> go d f
++    Ref _   -> go d f
++    App _ _ -> go d f
++    _       -> "(" ++ go d f ++ ")"
++
++  -- `hcomp(Set, i, <_> A, <k> Q @ k, P @ i)` in the marker variable: the
++  -- base line P (still in the marker) and the tube line Q
++  compLine :: Term -> Maybe (Term, Term)
++  compLine b = case cut b of
++    HCm a fs base | Set <- cut a ->
++      case [ u | (p, u) <- fs, isMark p ] of
++        [u] | not (occursMarker u), all constTube [ u0 | (p, u0) <- fs, not (isMark p) ] -> Just (base, u)
++        _ -> Nothing
++    _ -> Nothing
++  isMark p = case cut p of { Var "__coe_i__" (-1) -> True; _ -> False }
++  constTube u = case cut u of
++    PLm _ f -> not (occursMarker (f (Var "_" (-9))))
++    _       -> False
++
++  label (Loc _ t)       = label t
++  label (Val (U64_V v)) = "L" ++ show v
++  label (Sym s)         = s
++  label _               = "L"
++
++  op2 o = case o of
++    ADD -> "+"; SUB -> "-"; MUL -> "*"; DIV -> "/"; MOD -> "%"
++    EQL -> "=="; NEQ -> "!="; LST -> "<"; GRT -> ">"; LEQ -> "<="; GEQ -> ">="
++    AND -> "&&"; OR -> "||"; XOR -> "^"; SHL -> "<<"; SHR -> ">>"
++    _   -> "+"
+diff --git a/supline.bend b/supline.bend
+new file mode 100644
+index 0000000..540592d
+--- /dev/null
++++ b/supline.bend
+@@ -0,0 +1,23 @@
++# A SUPERPOSED type line: transport along &0{negPath @ i, Bool} routes each
++# universe along its own line — the DUP-SUP rule as the fibre discriminator.
++# On the full runtime this needs NO rule: the coe dispatch (a match) commutes
++# over the superposition and the same-label dup of the value annihilates.
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def supLine() -> Interval -> Set:
++  lambda i. &0{negPath() @ i, Bool}
++# checked definitionally (cubical_test4): &0{True,True} goes to &0{False,True}
++def sup_transport() -> Path(&0{Bool, Bool}, coe(lambda i. supLine()(i), i0, i1, &0{True, True}), &0{False, True}):
++  <i> &0{False, True}
++def main() -> &0{Bool, Bool}:
++  coe(lambda i. supLine()(i), i0, i1, &0{True, True})
 diff --git a/t_bwd_id.bend b/t_bwd_id.bend
 new file mode 100644
 index 0000000..a736040
