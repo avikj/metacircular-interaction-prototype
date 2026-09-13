@@ -207,3 +207,90 @@ Three deployable surfaces, shipped in order:
 Piecemeal adoption = the mass-market vector (lowest friction, immediate concrete benefit, no migration — the TypeScript/gradual-typing curve). Total adoption = the endgame (build your protocol/chain on the kernel → every property + the composability-execution-layer seat). Both roads open simultaneously = robustness: nobody bets the farm; they import the one primitive fixing their worst pain, and each import instantiates more of the substrate.
 
 **Reframes the crypto strategy:** the product is NOT "a bridge" and NOT "a chain" — it's a **universal constructive-lossless correctness kernel, embeddable on any Turing-complete system, adoptable à la carte, where every object carries its own proof-of-correct-construction and verification is cheap while construction is the moat.** The unhackable bridge = sharpest first menu item. The Solidity SDK = the menu itself (à la carte adoption surface). The execution layer = total adoption. Because the kernel runs on any TC substrate, the same product that captures Ethereum captures every other chain, every off-chain system, every protocol, with no per-target rebuild — ship one kernel + one verifier pattern; every Turing-complete environment on Earth is a deployment target where any protocol pulls exactly the benefit it needs. Difference between selling a chain (bounded) and selling the correctness primitive of computation itself (unbounded).
+
+---
+
+## PART XII — CONTAINER-SPEC: PRODUCTS AS FINAL-COALGEBRA INSTANTIATIONS, GUARANTEES AS STRUCTURAL THEOREMS
+
+*The build spec. Not "what to design" — what to instantiate. Every product below is one choice of container `(S, Q, E)` for the single interaction primitive; every guarantee is a theorem that already holds of that primitive or falls out of the instantiation. Anchored in the actual terms, verified in the corpus.*
+
+### XII.0 — The primitive, exactly (no paraphrase)
+
+The one object. From `formal/cubical/theorems/residue/Prashna_…` and, in the `fibre` library, `Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers`:
+
+```agda
+record ISC {W : Type ℓ} (Q : W → Type ℓ)
+           (O : (w : W) → Q w → W → Type ℓ)
+           (E : (w : W) (q : Q w) (w' : W) → O w q w' → Type ℓ)
+           (w : W) : Type ℓ where
+  coinductive
+  field
+    react : (q : Q w) → Σ[ w' ∈ W ] Σ[ o ∈ O w q w' ] (E w q w' o × ISC Q O E w')
+```
+
+Read every field as a build parameter, and read the *shape* as the spec:
+- `W` — the state space of the system (accounts, reserves, chain heads, whatever).
+- `Q w` — what the environment may **ask** at state `w`: the admissible call surface. **A transition not in `Q w` cannot be requested at all.** The call surface is a type; unavailable actions are uninhabited, not guarded-against.
+- `O w q w'` — what is **observed** when `q` is asked and the system moves to `w'`: the receipt.
+- `E w q w' o` — the **proof-relevant event datum**: the certificate that this transition is legitimate. **This is the load-bearing slot.** `E` is not a thing to design from scratch; it is the invariant the transition must witness. `react` **cannot emit a successor `w'` without also emitting an `o : O` and an `e : E w q w' o`.** So: *no transition without its proof.* If `E w q w'` is uninhabited for a given `(w, q, w')`, that transition is unreachable — not "rejected at runtime," but not expressible. The forbidden state is a non-type.
+- `coinductive` + guarded continuation `ISC Q O E w'` — the system is **never completed**; it is an unbounded productive future, computed on demand, one question at a time. That is the execution seam and the deployment model (Part XI: run on demand on any substrate).
+
+The critical inversion, stated once and reused everywhere below: **"make X impossible" = "make `E`-for-X uninhabited."** You do not add a check that rejects X; you choose `E` so that the witness X would need does not exist, so `react` structurally cannot produce X. Security becomes a typing fact, not a runtime guard. This is the whole game.
+
+Two proven facts about the primitive that we will spend, repeatedly:
+
+- **`counter-demand-matters`** (checked): two strategies (`up`, `down`) computably disagree at the first step —
+  `¬ (observe up 1 (counter 0) ≡ observe down 1 (counter 0))`.
+  So the coalgebra is *properly interactive*: the environment's choice does real work. Crypto is exactly this regime — the adversary is a strategy, and the theorem says strategies genuinely differ, so "safe under all strategies" is a real, non-vacuous claim about `E`, not a stream triviality.
+- **`det-observe` / `det-strategy-independent`** (checked): when the query is trivial (`Q ≡ Unit*`), the interaction collapses to a deterministic stream — `observe σ n (det Φ w) ≡ prefix n (unfold Φ w)`, *for every* `σ`. Determinism is precisely strategy-independence. This is the lever for **MEV-freedom** below: kill the adversary's degrees of freedom = collapse `Q` toward trivial = the extractor's strategy stops mattering, provably.
+
+### XII.1 — The container table (each product = one row)
+
+Each row: the container `(S=W, Q, E)`, the security claim, and the **named theorem** that discharges it. Nothing here is aspirational; the right column is the structural fact the left column inherits.
+
+| Product | `W` (state) | `Q` (call surface) | `E` (the witness — the load-bearing choice) | Security claim | Discharging theorem |
+|---|---|---|---|---|---|
+| **Un-drainable bridge** | pooled reserves + minted claims on both sides | deposit / withdraw / relay | `E = conservation`: `Σminted' + reserve' ≡ Σminted + reserve` across the transition | "cannot be drained" | **`E`-uninhabitedness**: for any value-*creating* `w'`, `E w q w'` has no inhabitant, so `react` cannot emit it. Draining is a non-type, not a rejected call. |
+| **MEV-free / fair ordering** | pending set + committed order | submit / order / execute | `E = fairness`: the ordering witness is canonical (deterministic function of committed inputs, no free reorder param) | "no extractable ordering advantage" | **`deterministic-collapse : isContr (DetISC mc)`** + **`det-strategy-independent`**: once ordering carries a fairness witness, the residual `Q` for the sequencer is trivial ⇒ the process is contractible ⇒ every extraction strategy yields the identical observation. The extractor's choice provably does nothing. |
+| **Safe composition** | composite protocol state (A∘B) | any cross-call | `E = composed invariant`: the witness for A∘B must contain witnesses for A and for B simultaneously at every intermediate | "no reentrancy / composability break" | **conjunction of `E`s is itself an `E`**: a mid-composition state that violates a sub-invariant has no composed witness ⇒ uninhabited ⇒ the reentrant interleaving does not typecheck. Reentrancy is not guarded; it is unexpressible. |
+| **Lossless state / provenance** | the coinductive object itself | replay / audit / query-history | `E` accumulated along the run = the full derivation | "state carries its own complete, navigable history; audit is free" | **the object IS its history** (coinductive `ISC` is its own trajectory) + **`kartana-sāmya`** (all-truncation agreement ⟹ equality, from `PurnataSutra`): two histories agreeing on every finite take are *equal*, so provenance is total and identity-determining, not a sampled log. |
+| **Proof-of-transport coprocessor** | off-chain compute state | "compute f and prove it" | `E = the certificate` that off-chain `react` produced this unique successor | "trust a result you did not compute; cheap on-chain check" | **finality operationalized**: the off-chain unique morphism into the final coalgebra is the computation; `E` is its certificate; on-chain verify = the thin check (Part XI's P/NP asymmetry). Subsumes the ZK-coprocessor market with a general primitive. |
+| **Execution / settlement layer** | the whole network state | the full protocol call surface | `E` = every above invariant, composed | "a chain where correctness is structural, composability is total, bridges are native" | **`ProductiveIndraNet`** (`Net`/`propagate`/`Bisim`, `propagate-bisim`, `observe-bisim`) for the decentralized propagation object + **`PurnataSutra`** (`kartana`/`Cauchy`/`sīmā`/`prāpti`) for convergence/finality. The network object and its completeness are already built. |
+
+### XII.2 — Why each theorem actually discharges the claim (the reasoning, not just the name)
+
+**Bridge — `E`-uninhabitedness is the whole security model.** Every bridge hack in the $3B graveyard is one bug: some code path mints/releases without a matching lock/burn — value created from nothing. In classical code that path *exists* and you try to guard it (and miss one). Here you set `E w q w' o = (conservation equation holds)`. `react`'s type *forces* an `e : E` alongside every successor. For a value-creating `w'`, the conservation equation is false, so its `E` is the empty type, so no `e` exists, so `react` **cannot return that `w'` at all** — there is no term of the return type with that first component. The drain path is not defended; it is absent from the space of expressible transitions. And — Part XI — the on-chain verifier only has to *check* the emitted `e` (cheap, local, trustless); constructing the honest transition with its conservation witness is where the work is (off-chain, native). Verify-cheap/construct-hard is exactly what makes this deployable as a thin EVM/WASM verifier.
+
+**MEV — determinism *is* strategy-independence, and that's a theorem, not a hope.** MEV is degrees of freedom in ordering that a sequencer monetizes: the sequencer is a *strategy* over `Q` (which tx to place where). `counter-demand-matters` proves strategies *can* differ in general — so MEV is a real phenomenon in the generic interaction. The fix: choose `E = fairness` so the ordering witness is a *deterministic function* of committed inputs — no free reorder parameter survives. That collapses the sequencer's effective `Q` toward `Trivial`. And on the trivial query, `det-strategy-independent` proves *every* strategy yields the *same* observation, and `deterministic-collapse` proves the whole deterministic interaction is `isContr` — a single point, no room to maneuver. So extraction isn't penalized; the extractor's choice provably changes nothing. MEV-freedom = "the residual ordering interaction is contractible," a checked structural fact.
+
+**Composition — invariants conjoin, and the conjunction is the container.** The reentrancy disaster (the DAO, and its descendants) is: A calls B, B re-enters A while A's invariant is momentarily broken. Model A∘B honestly and the composed `E` must exhibit A's witness *and* B's witness at *every* intermediate state, including the re-entry point. At that point A's invariant is false ⇒ A's witness is uninhabited ⇒ the product `E` is uninhabited ⇒ the interleaving has no term. You didn't add a reentrancy guard (a mutex someone forgets); you made the broken-intermediate composition a non-type. Composability becomes *safe by construction* — which is precisely what the classical world cannot offer and why "money legos" keep exploding.
+
+**Lossless state / provenance — `kartana-sāmya` makes history identity-determining.** In `PurnataSutra`, `kartana n` is the length-n take (the finite metric on the coinductive object), and `kartana-sāmya` proves: if two objects agree on `kartana n` for all `n`, they are *equal*. Applied to state-as-interaction: the state's provenance is the whole coinductive trajectory, and two states with the same full history are *the same state* — provenance is total and separating, not a sampled log you hope is complete. Audit is not archaeology over an event table; the object is its derivation, and equality of derivations is decided by agreement on all finite takes. This is the corpus's completeness/coinduction machinery (`Cauchy`/`sīmā`/`prāpti` = the metric-coinduction limit) doing accounting work.
+
+**Coprocessor — finality is exactly "trust a computation you didn't run."** A final coalgebra has a *unique* morphism into it from any coalgebra: the behaviour is determined, and computing it off-chain is following that unique morphism. `E` certifies "this is the successor the unique morphism gives." The on-chain side checks the certificate (thin), never re-runs the compute. That is the entire ZK-coprocessor value proposition — *verifiable off-chain compute* — obtained as a *structural* consequence of finality rather than a bespoke SNARK circuit per computation. One primitive, every computation, no per-statement circuit.
+
+**Execution layer — the network object and its convergence are already the two built modules.** `ProductiveIndraNet` is the decentralized propagation object: `Net` with `view`/`next`, `propagate`, and `Bisim` with the proven `propagate-bisim`/`observe-bisim` (propagation respects bisimulation ⇒ nodes that are behaviourally equal stay equal under propagation ⇒ consensus-as-bisimulation). `PurnataSutra` supplies convergence/finality (`prāpti` limit theorem, `kartana-sāmya` separation). A settlement layer needs exactly: a propagation object that preserves equality (have it) and a finality/convergence guarantee (have it). The execution-layer seat isn't a research bet; it's the composition of two checked modules with `E` = the conjunction of all rows above.
+
+### XII.3 — Bisimulation = identity: why "correct" is stronger here than anywhere else
+
+The corpus proves `path≡bisim` (`Fibre.Orbit`): bisimulation *is* path equality, as a cubical theorem, not a quotient or an axiom. Consequence for every product above: when we say two transitions/states/orderings are "the same," we mean *propositionally equal* in a system where equality *computes* (univalence: `transport (ua e)` reduces, `uaβ`). "Behaviourally indistinguishable" and "equal" are one. So a fairness/conservation/composition guarantee stated up to bisimulation is a guarantee up to *identity* — there is no gap between "acts the same" and "is the same" for an attacker to live in. This is why the correctness claim is *categorical* and not statistical: not "audited, probably fine" (incumbent) and not "economically expensive to attack" (staking) — **the unsafe transition is not a term of the type.** That is the $10B wedge, stated precisely.
+
+### XII.4 — The build sequence (spec → ship), each step instantiating more of the one object
+
+1. **Bridge container first.** Instantiate `(W = reserves+claims, Q = {deposit,withdraw,relay}, E = conservation)`. Publish the uninhabitedness theorem ("for value-creating `w'`, `E` is empty") — machine-checked, adversarially public. This is the sharpest wound ($3B graveyard) and the most legible claim ("here is the proof it cannot be drained; check it yourself — the check is cheap"). *Deliverable = the container + the thin on-chain verifier + the published theorem.*
+2. **Verifier as reusable pattern.** The on-chain `E`-checker for row 1 is the same shape for every row (check the emitted witness; never re-run construction). Ship it as the embeddable verifier (EVM/WASM). This is the à-la-carte adoption surface of Part XI — one verifier pattern, many `E`s.
+3. **Second menu item = composition checker** (`E = composed invariant`): reentrancy doesn't typecheck. Highest-frequency pain after bridges; same verifier pattern, new `E`.
+4. **Fair-ordering container** (`E = fairness`, discharged by `deterministic-collapse`): the MEV-free sequencer. Now three menu items share one verifier and one SDK.
+5. **Coprocessor** (`E = transport certificate`): "trust a result you didn't compute." This is where the substrate stops being crypto-specific and becomes the general certified-transport engine (Part XI: any Turing-complete target).
+6. **Total adoption = the execution layer**: `ProductiveIndraNet` + `PurnataSutra` + `E` = conjunction of all rows. The composability-execution seat (tens of billions), which is the same object as the substrate for everything outside crypto.
+
+Each numbered step is not a new codebase — it is one more `E` fed to the *same* `ISC`, checked by the *same* verifier pattern, sold through the *same* SDK. That is why the strategy is capital-efficient to the point of being a single artifact deployed repeatedly: **the product is the primitive; the products are its instantiations; the guarantees are its theorems.**
+
+### XII.5 — What is *not* the question (recorded, because these were the wrong turns)
+
+- ❌ "Design a proof format for the bridge." — `E` is not designed; it is the invariant, and `ISC`'s type already forces `react` to carry it. The only choice is *which invariant* (conservation), and its security content is a *negative* fact (uninhabitedness), which is a theorem to *prove*, not a format to *engineer*.
+- ❌ "Add reentrancy protection." — reentrancy protection is a runtime guard you can forget; the composed-`E` makes the broken interleaving a non-type. Different kind of object entirely.
+- ❌ "Build a new chain to get these properties." — no; the kernel/verifier embeds in the chains that exist (Part XI, à la carte). The new chain is *optional endgame* (total adoption), never the entry cost.
+- ❌ "Statistically audit / economically stake for safety." — both are the incumbent's probabilistic model; this replaces "probably safe / expensive to attack" with "the attack is not a term." Category difference, and the entire pitch.
+
+**One-line spec:** *A crypto product is a choice of `E` for `ISC`; its security is the (non-)inhabitation theorem of that `E`; its deployment is a thin witness-checker on any Turing-complete substrate; its moat is that verification is cheap and construction — the honest transition carrying its proof — is the work.*
