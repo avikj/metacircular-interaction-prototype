@@ -93,9 +93,14 @@ def chunk_source(k: int, slice_, macro: str) -> str:
 
 
 def run_chunk(agda, libfile, k: int, slice_, macro: str, verb: str, tag: str,
-              maxheal: int = 400) -> list[str]:
+              timeout: float = 300.0, maxheal: int = 400) -> list[str]:
     """Run one chunk in its OWN temp dir (corpus interfaces live in the warm
-    library _build, not here), self-healing inaccessible scraped names."""
+    library _build, not here), self-healing inaccessible scraped names.
+
+    A chunk exceeding `timeout` seconds (a pathological normalise the -M heap
+    cap cannot stop because it is CPU-bound, not allocating) is abandoned; in
+    the main pass it then falls to singleton recovery, where one bad module is
+    dropped alone (an honest machine-limit exclusion) and its neighbours keep."""
     import re
     env = dict(os.environ, LC_ALL="C.utf8")
     cdir = Path(tempfile.mkdtemp(prefix=f"chunk{k}-"))
@@ -103,12 +108,16 @@ def run_chunk(agda, libfile, k: int, slice_, macro: str, verb: str, tag: str,
     cf.write_text(chunk_source(k, slice_, macro), encoding="utf-8")
     try:
         for _ in range(maxheal):
-            p = subprocess.run(
-                [agda, f"--library-file={libfile}", "-l", "fibre",
-                 "-l", "natural-machine", "-l", "rescued-lanes",
-                 "-i", str(cdir), f"-v{verb}:1",
-                 "+RTS", "-M4000m", "-RTS", str(cf)],
-                cwd=ROOT, text=True, capture_output=True, env=env)
+            try:
+                p = subprocess.run(
+                    [agda, f"--library-file={libfile}", "-l", "fibre",
+                     "-l", "natural-machine", "-l", "rescued-lanes",
+                     "-i", str(cdir), f"-v{verb}:1",
+                     "+RTS", "-M4000m", "-RTS", str(cf)],
+                    cwd=ROOT, text=True, capture_output=True, env=env,
+                    timeout=timeout)
+            except subprocess.TimeoutExpired:
+                return []  # pathological chunk: abandon (recovery isolates it)
             out = p.stdout + p.stderr
             rows = [ln for ln in out.splitlines() if ln.startswith(tag + "\t")]
             if rows:
@@ -204,6 +213,10 @@ def main() -> int:
     ap.add_argument("--loci", action="store_true", help="run the O(n^2) realization readout")
     ap.add_argument("--nf", action="store_true",
                     help="collapse declarations by normalized-type identity (the true quotient)")
+    ap.add_argument("--chunk-timeout", type=float, default=300.0,
+                    help="seconds before a chunk is abandoned to recovery")
+    ap.add_argument("--single-timeout", type=float, default=150.0,
+                    help="seconds before a recovery singleton is dropped")
     ap.add_argument("--rows-out", default="/tmp/corpus-rows.txt")
     ap.add_argument("--pres-out", default="/tmp/corpus-presentation.txt")
     args = ap.parse_args()
@@ -228,7 +241,8 @@ def main() -> int:
     zero_slices: list = []  # modules in chunks that yielded nothing
     done = 0
     with ThreadPoolExecutor(max_workers=args.par) as ex:
-        futs = {ex.submit(run_chunk, agda, libfile, k, sl, macro, verb, tag): (k, sl)
+        futs = {ex.submit(run_chunk, agda, libfile, k, sl, macro, verb, tag,
+                          args.chunk_timeout): (k, sl)
                 for k, sl in enumerate(chunks)}
         for fut in futs:
             k, sl = futs[fut]
@@ -249,7 +263,8 @@ def main() -> int:
               f"{len(zero_slices)} zero-row chunks, one per chunk", file=sys.stderr)
         base = 100000
         with ThreadPoolExecutor(max_workers=args.par) as ex:
-            futs = [ex.submit(run_chunk, agda, libfile, base + j, [one], macro, verb, tag)
+            futs = [ex.submit(run_chunk, agda, libfile, base + j, [one], macro, verb, tag,
+                              args.single_timeout)
                     for j, one in enumerate(recover)]
             got = 0
             for fut in futs:
