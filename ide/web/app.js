@@ -14,6 +14,7 @@
 import { Grapheme } from "./grapheme.js";
 import { mountFibreLaw } from "./mathview.js";
 import { probeBridge, bridgePresent, mountWorkbench } from "./workbench.js";
+import { mountKernelPad } from "./kernelpad.js";
 
 const isDark = () =>
   document.documentElement.dataset.theme === "dark" ||
@@ -103,6 +104,7 @@ function route() {
   if (!h) { openNode(defaultEntry(), true); return; }
   if (h === "~graph") { setView("graph"); return; }
   if (h === "~about") { setView("about"); return; }
+  if (h === "~kernel") { setView("kernelpad"); return; }
   const n = S.byMod.get(h) || S.byAddr.get(h);
   if (n) openNode(n, true);
 }
@@ -305,7 +307,11 @@ async function sourceOf(n) {
   const key = n.ssh;
   if (!key || !S.idx.shards[key]) return null;
   if (!S.srcs.has(key)) {
-    const t = await fetch("store/" + S.idx.shards[key]).then((r) => r.json());
+    // a shard may be absent from a hosted copy (size budget); absence of
+    // the source view must not break the page
+    const t = await fetch("store/" + S.idx.shards[key])
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    if (t === null) return null;
     S.srcs.set(key, t);
   }
   return S.srcs.get(key)[n.a] || null;
@@ -765,6 +771,7 @@ function wireKeys() {
   });
   $("#backbtn").onclick = goBack;
   $("#graphbtn").onclick = () => { location.hash = "~graph"; };
+  $("#kernelbtn").onclick = () => { location.hash = "~kernel"; };
   $("#aboutbtn").onclick = () => { location.hash = "~about"; };
   $("#lensbtn").onclick = () => {
     Grapheme.toggle();
@@ -805,8 +812,18 @@ function setView(v) {
   $("#focus").hidden = v === "graph";
   $("#graphwrap").hidden = v !== "graph";
   $("#graphbtn").classList.toggle("on", v === "graph");
+  $("#kernelbtn").classList.toggle("on", v === "kernelpad");
   if (v === "graph") drawGraph();
   if (v === "about") renderAbout();
+  if (v === "kernelpad") {
+    const f = $("#focus");
+    f.textContent = "";
+    f.append(el("h1", "sentence", "The kernel, in this browser"));
+    const hostEl = el("div");
+    f.append(hostEl);
+    mountKernelPad(hostEl, { el });
+    traceStep("kernel-pad", "");
+  }
 }
 
 function renderAbout() {
