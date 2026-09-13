@@ -1,0 +1,516 @@
+diff --git a/bend.cabal b/bend.cabal
+index e934487..bd2da95 100644
+--- a/bend.cabal
++++ b/bend.cabal
+@@ -1,4 +1,4 @@
+-cabal-version:      3.14
++cabal-version: 3.0
+ name:               bend
+ version:            0.1.0.0
+ homepage:           https://higherorderco.com/
+diff --git a/src/Core/Bind.hs b/src/Core/Bind.hs
+index 939a19f..ae2c4c6 100644
+--- a/src/Core/Bind.hs
++++ b/src/Core/Bind.hs
+@@ -55,6 +55,15 @@ binder lv term ctx vars = case term of
+   Frz t      -> Frz (binder lv t ctx vars)
+   Loc s t    -> Loc s (binder lv t ctx vars)
+   Rwt a b x  -> Rwt (binder lv a ctx vars) (binder lv b ctx vars) (binder lv x ctx vars)
++  Itv        -> Itv
++  I0         -> I0
++  I1         -> I1
++  INot a     -> INot (binder lv a ctx vars)
++  IAnd a b   -> IAnd (binder lv a ctx vars) (binder lv b ctx vars)
++  IOr a b    -> IOr (binder lv a ctx vars) (binder lv b ctx vars)
++  Pth t a b  -> Pth (binder lv t ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
++  PLm k f    -> PLm k (\x -> binder (lv+1) (f (Sub x)) (ctx++[x]) (M.insert k x vars))
++  PAp f x    -> PAp (binder lv f ctx vars) (binder lv x ctx vars)
+   Era        -> Era
+   Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
+   SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
+diff --git a/src/Core/Check.hs b/src/Core/Check.hs
+index cdd6756..2c8bb96 100644
+--- a/src/Core/Check.hs
++++ b/src/Core/Check.hs
+@@ -127,6 +127,39 @@ infer d span book@(Book defs) ctx term =
+       Done Set
+     Lam _ _ -> do
+       Fail $ CantInfer span (formatCtx d book ctx)
++    Itv -> do
++      Done Set
++    I0 -> do
++      Done Itv
++    I1 -> do
++      Done Itv
++    INot r -> do
++      check d span book ctx r Itv
++      Done Itv
++    IAnd r s -> do
++      check d span book ctx r Itv
++      check d span book ctx s Itv
++      Done Itv
++    IOr r s -> do
++      check d span book ctx r Itv
++      check d span book ctx s Itv
++      Done Itv
++    Pth t a b -> do
++      check d span book ctx t Set
++      check d span book ctx a t
++      check d span book ctx b t
++      Done Set
++    PLm _ _ -> do
++      Fail $ CantInfer span (formatCtx d book ctx)
++    PAp p r -> do
++      check d span book ctx r Itv
++      pT <- infer d span book ctx p
++      case force book pT of
++        Pth t a b -> case force book r of
++          I0 -> Done t
++          I1 -> Done t
++          _  -> Done t
++        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Pth (Var "_" 0) (Var "_" 0) (Var "_" 0))) (format d book pT)
+     App f x ->
+       case f of
+         Lam k body -> do
+@@ -294,6 +327,15 @@ check d span book ctx term goal =
+     (Lam k f, All a (Lam _ b)) -> do
+       let x = Var k d
+       check (d+1) span book (extend ctx k x a) (f x) (b x)
++    (PLm k f, Pth t a b) -> do
++      let x = Var k d
++      check (d+1) span book (extend ctx k x Itv) (f x) t
++      let nrm u = epNormCtx d book ctx u
++      if equal d book (nrm (f I0)) (nrm a)
++        then if equal d book (nrm (f I1)) (nrm b)
++          then Done ()
++          else Fail $ TermMismatch span (formatCtx d book ctx) (format d book (nrm (f I1))) (format d book (nrm b))
++        else Fail $ TermMismatch span (formatCtx d book ctx) (format d book (nrm (f I0))) (format d book (nrm a))
+     (EmpM x, _) -> do
+       xT <- infer d span book ctx x
+       case force book xT of
+@@ -435,6 +477,59 @@ check d span book ctx term goal =
+     (_, _) -> do
+       verify d span book ctx term goal
+ 
++-- Reduce endpoint applications (p @ i0, p @ i1) of path-typed context
++-- variables to their endpoints. This provides the definitional boundary
++-- equations that untyped conversion cannot see on neutral paths.
++epNormCtx :: Int -> Book -> Ctx -> Term -> Term
++epNormCtx d book ctx t0 = go t0 where
++  go t = case t of
++    PAp p r ->
++      let p' = go p
++          r' = go r
++      in case (spineEndpoints d book ctx p', force book r') of
++           (Just (x, _), I0) -> go x
++           (Just (_, y), I1) -> go y
++           _                 -> PAp p' r'
++    App f x    -> App (go f) (go x)
++    Tup a b    -> Tup (go a) (go b)
++    Suc n      -> Suc (go n)
++    Con h tl   -> Con (go h) (go tl)
++    INot a     -> INot (go a)
++    IAnd a b   -> IAnd (go a) (go b)
++    IOr a b    -> IOr (go a) (go b)
++    Pth a x y  -> Pth (go a) (go x) (go y)
++    PLm k f    -> PLm k (\x -> go (f x))
++    Lam k f    -> Lam k (\x -> go (f x))
++    Sig a b    -> Sig (go a) (go b)
++    All a b    -> All (go a) (go b)
++    Eql a x y  -> Eql (go a) (go x) (go y)
++    Loc l x    -> Loc l (go x)
++    Chk x a    -> Chk (go x) (go a)
++    _          -> t
++
++-- The endpoints of a var-headed spine of path type, read from the context.
++spineEndpoints :: Int -> Book -> Ctx -> Term -> Maybe (Term, Term)
++spineEndpoints d book ctx@(Ctx ks) p = do
++  ty <- spineType (cut p)
++  case force book ty of
++    Pth _ x y -> Just (x, y)
++    _         -> Nothing
++  where
++    spineType t = case cut t of
++      Var _ i | i < length ks -> let (_, _, ty) = ks !! i in Just ty
++      App f x -> do
++        fT <- spineType f
++        case force book fT of
++          All _ (Lam _ b) -> Just (b x)
++          All _ b         -> Just (App b x)
++          _               -> Nothing
++      PAp q r -> do
++        qT <- spineType q
++        case force book qT of
++          Pth a _ _ -> Just a
++          _         -> Nothing
++      _ -> Nothing
++
+ -- Verify that a term has the expected type by inference
+ verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
+ verify d span book ctx term goal = do
+diff --git a/src/Core/Deps.hs b/src/Core/Deps.hs
+index 99c0709..cfab12d 100644
+--- a/src/Core/Deps.hs
++++ b/src/Core/Deps.hs
+@@ -63,6 +63,15 @@ collectDeps bound term = case term of
+   Met _ t ctx -> S.unions (collectDeps bound t : map (collectDeps bound) ctx)
+   Ind t       -> collectDeps bound t
+   Frz t       -> collectDeps bound t
++  Itv         -> S.empty
++  I0          -> S.empty
++  I1          -> S.empty
++  INot a      -> collectDeps bound a
++  IAnd a b    -> S.union (collectDeps bound a) (collectDeps bound b)
++  IOr a b     -> S.union (collectDeps bound a) (collectDeps bound b)
++  Pth t a b   -> S.unions [collectDeps bound t, collectDeps bound a, collectDeps bound b]
++  PLm k f     -> collectDeps (S.insert k bound) (f (Var k 0))
++  PAp f x     -> S.union (collectDeps bound f) (collectDeps bound x)
+   Era         -> S.empty
+   Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
+   SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
+diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
+index 9d1ab06..c4a228f 100644
+--- a/src/Core/Equal.hs
++++ b/src/Core/Equal.hs
+@@ -63,6 +63,8 @@ cmp lv d book a b =
+     (SigM xa fa   , SigM xb fb   ) -> eql lv d book xa xb && eql lv d book fa fb
+     (All aa ba    , All ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
+     (Lam ka fa    , Lam kb fb    ) -> eql lv (d+1) book (fa (Var ka d)) (fb (Var kb d))
++    (Lam ka fa    , b            ) -> eql lv (d+1) book (fa (Var ka d)) (App b (Var ka d))
++    (a            , Lam kb fb    ) -> eql lv (d+1) book (App a (Var kb d)) (fb (Var kb d))
+     (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
+     (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
+     -- (Eql ta _  _  , b            ) -> eql lv d book ta b
+@@ -77,6 +79,17 @@ cmp lv d book a b =
+     (a            , Loc _ tb     ) -> eql lv d book a tb
+     (Rwt _ _ xa   , _            ) -> eql lv d book xa b
+     (_            , Rwt _ _ xb   ) -> eql lv d book a xb
++    (Itv          , Itv          ) -> True
++    (I0           , I0           ) -> True
++    (I1           , I1           ) -> True
++    (INot xa      , INot xb      ) -> eql lv d book xa xb
++    (IAnd aa ba   , IAnd ab bb   ) -> eql lv d book aa ab && eql lv d book ba bb
++    (IOr aa ba    , IOr ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
++    (Pth ta aa ba , Pth tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
++    (PLm ka fa    , PLm kb fb    ) -> eql lv (d+1) book (fa (Var ka d)) (fb (Var kb d))
++    (PLm ka fa    , b            ) -> eql lv (d+1) book (fa (Var ka d)) (PAp b (Var ka d))
++    (a            , PLm kb fb    ) -> eql lv (d+1) book (PAp a (Var kb d)) (fb (Var kb d))
++    (PAp fa xa    , PAp fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
+     (Era          , Era          ) -> True
+     (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
+     (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
+diff --git a/src/Core/Flatten.hs b/src/Core/Flatten.hs
+index 31f1da3..0bb44fa 100644
+--- a/src/Core/Flatten.hs
++++ b/src/Core/Flatten.hs
+@@ -91,6 +91,15 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
+ flatten d book (Met i t x)  = Met i (flatten d book t) (map (flatten d book) x)
+ flatten d book (Ind t)      = Ind (flatten d book t)
+ flatten d book (Frz t)      = Frz (flatten d book t)
++flatten d book Itv          = Itv
++flatten d book I0           = I0
++flatten d book I1           = I1
++flatten d book (INot a)     = INot (flatten d book a)
++flatten d book (IAnd a b)   = IAnd (flatten d book a) (flatten d book b)
++flatten d book (IOr a b)    = IOr (flatten d book a) (flatten d book b)
++flatten d book (Pth t a b)  = Pth (flatten d book t) (flatten d book a) (flatten d book b)
++flatten d book (PLm n f)    = PLm n (\x -> flatten (d+1) book (f x))
++flatten d book (PAp f x)    = PAp (flatten d book f) (flatten d book x)
+ flatten d book Era          = Era
+ flatten d book (Sup l a b)  = Sup (flatten d book l) (flatten d book a) (flatten d book b)
+ flatten d book (SupM x l f) = SupM (flatten d book x) (flatten d book l) (flatten d book f)
+@@ -288,6 +297,15 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
+ unpat d (Met i t x)     = Met i (unpat d t) (map (unpat d) x)
+ unpat d (Ind t)         = Ind (unpat d t)
+ unpat d (Frz t)         = Frz (unpat d t)
++unpat d Itv             = Itv
++unpat d I0              = I0
++unpat d I1              = I1
++unpat d (INot a)        = INot (unpat d a)
++unpat d (IAnd a b)      = IAnd (unpat d a) (unpat d b)
++unpat d (IOr a b)       = IOr (unpat d a) (unpat d b)
++unpat d (Pth t a b)     = Pth (unpat d t) (unpat d a) (unpat d b)
++unpat d (PLm n f)       = PLm n (\x -> unpat (d+1) (f x))
++unpat d (PAp f x)       = PAp (unpat d f) (unpat d x)
+ unpat d Era             = Era
+ unpat d (Sup l a b)     = Sup (unpat d l) (unpat d a) (unpat d b)
+ unpat d (SupM x l f)    = SupM (unpat d x) (unpat d l) (unpat d f)
+@@ -535,6 +553,15 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
+ unfrkGo d ctx (Met i t x)  = Met i (unfrkGo d ctx t) (map (unfrkGo d ctx) x)
+ unfrkGo d ctx (Ind t)      = Ind (unfrkGo d ctx t)
+ unfrkGo d ctx (Frz t)      = Frz (unfrkGo d ctx t)
++unfrkGo d ctx Itv          = Itv
++unfrkGo d ctx I0           = I0
++unfrkGo d ctx I1           = I1
++unfrkGo d ctx (INot a)     = INot (unfrkGo d ctx a)
++unfrkGo d ctx (IAnd a b)   = IAnd (unfrkGo d ctx a) (unfrkGo d ctx b)
++unfrkGo d ctx (IOr a b)    = IOr (unfrkGo d ctx a) (unfrkGo d ctx b)
++unfrkGo d ctx (Pth t a b)  = Pth (unfrkGo d ctx t) (unfrkGo d ctx a) (unfrkGo d ctx b)
++unfrkGo d ctx (PLm n f)    = PLm n (\x -> unfrkGo (d+1) ctx (f x))
++unfrkGo d ctx (PAp f x)    = PAp (unfrkGo d ctx f) (unfrkGo d ctx x)
+ unfrkGo d ctx Era          = Era
+ unfrkGo d ctx (Sup l a b)  = Sup (unfrkGo d ctx l) (unfrkGo d ctx a) (unfrkGo d ctx b)
+ unfrkGo d ctx (SupM x l f) = SupM (unfrkGo d ctx x) (unfrkGo d ctx l) (unfrkGo d ctx f)
+@@ -652,6 +679,15 @@ subst name val term = go name val term where
+     Met i t x  -> Met i (go name val t) (map (go name val) x)
+     Ind t      -> Ind (go name val t)
+     Frz t      -> Frz (go name val t)
++    Itv        -> Itv
++    I0         -> I0
++    I1         -> I1
++    INot a     -> INot (go name val a)
++    IAnd a b   -> IAnd (go name val a) (go name val b)
++    IOr a b    -> IOr (go name val a) (go name val b)
++    Pth t a b  -> Pth (go name val t) (go name val a) (go name val b)
++    PLm k f    -> PLm k (\x -> go name val (f x))
++    PAp f x    -> PAp (go name val f) (go name val x)
+     Era        -> Era
+     Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
+     SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
+diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
+index 146a4d2..7fdc696 100644
+--- a/src/Core/Parse/Term.hs
++++ b/src/Core/Parse/Term.hs
+@@ -62,6 +62,11 @@ parseTermIni = choice
+   , parseSym
+   , parseTupApp
+   , parseView
++  , parsePth
++  , parsePLm
++  , parseItvKw
++  , parseIEnd
++  , parseIOps
+   , parseVar
+   ]
+ 
+@@ -81,7 +86,8 @@ parseTermArg t = do
+ -- | Parse a "loose" postfix: f + x | f <> x | ...
+ parseTermOpr :: Term -> Parser Term
+ parseTermOpr t = choice
+-  [ parseCon t   -- <>
++  [ parsePAp t   -- @
++  , parseCon t   -- <>
+   , parseFun t   -- ->
+   , parseAnd t   -- &
+   , parseChk t   -- ::
+@@ -1025,3 +1031,66 @@ doReadTerm input =
+     Left err  -> error err
+     Right res -> res
+     
++
++
++-- | Syntax: Path(A, a, b)
++parsePth :: Parser Term
++parsePth = label "Path type" $ do
++  _ <- try $ keyword "Path" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ","
++  x <- parseTerm
++  _ <- symbol ","
++  y <- parseTerm
++  _ <- symbol ")"
++  return (Pth a x y)
++
++-- | Syntax: <i> body
++parsePLm :: Parser Term
++parsePLm = label "path lambda" $ do
++  k <- try $ do
++    _ <- symbol "<"
++    k <- name
++    _ <- symbol ">"
++    return k
++  body <- parseTerm
++  return (PLm k (\_ -> body))
++
++-- | Syntax: Interval
++parseItvKw :: Parser Term
++parseItvKw = label "Interval type" $ do
++  _ <- try $ keyword "Interval"
++  return Itv
++
++-- | Syntax: i0 | i1
++parseIEnd :: Parser Term
++parseIEnd = label "interval endpoint" $ choice
++  [ try (keyword "i0") >> return I0
++  , try (keyword "i1") >> return I1 ]
++
++-- | Syntax: inot(r) | iand(r,s) | ior(r,s)
++parseIOps :: Parser Term
++parseIOps = label "interval operation" $ choice
++  [ do _ <- try $ keyword "inot" <* symbol "("
++       r <- parseTerm
++       _ <- symbol ")"
++       return (INot r)
++  , do _ <- try $ keyword "iand" <* symbol "("
++       r <- parseTerm
++       _ <- symbol ","
++       t <- parseTerm
++       _ <- symbol ")"
++       return (IAnd r t)
++  , do _ <- try $ keyword "ior" <* symbol "("
++       r <- parseTerm
++       _ <- symbol ","
++       t <- parseTerm
++       _ <- symbol ")"
++       return (IOr r t) ]
++
++-- | Syntax: p @ r   (path application)
++parsePAp :: Term -> Parser Term
++parsePAp t = do
++  _ <- try $ symbol "@" <* notFollowedBy (satisfy (\c -> c == '{'))
++  r <- parseTerm
++  return (PAp t r)
+diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
+index ae061af..80443d9 100644
+--- a/src/Core/Rewrite.hs
++++ b/src/Core/Rewrite.hs
+@@ -71,6 +71,15 @@ rewriteGo lv d book old neo val = case val of
+   Met i t a  -> Met i (rewrite lv d book old neo t) (map (rewrite lv d book old neo) a)
+   Ind t      -> Ind (rewrite lv d book old neo t)
+   Frz t      -> Frz (rewrite lv d book old neo t)
++  Itv        -> Itv
++  I0         -> I0
++  I1         -> I1
++  INot a     -> INot (rewrite lv d book old neo a)
++  IAnd a b   -> IAnd (rewrite lv d book old neo a) (rewrite lv d book old neo b)
++  IOr a b    -> IOr (rewrite lv d book old neo a) (rewrite lv d book old neo b)
++  Pth t a b  -> Pth (rewrite lv d book old neo t) (rewrite lv d book old neo a) (rewrite lv d book old neo b)
++  PLm k f    -> PLm k (\x -> rewrite lv d book old neo (f x))
++  PAp f x    -> PAp (rewrite lv d book old neo f) (rewrite lv d book old neo x)
+   Era        -> Era
+   Sup l a b  -> Sup l (rewrite lv d book old neo a) (rewrite lv d book old neo b)
+   SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
+diff --git a/src/Core/Type.hs b/src/Core/Type.hs
+index a5d92e8..c77c782 100644
+--- a/src/Core/Type.hs
++++ b/src/Core/Type.hs
+@@ -125,6 +125,17 @@ data Term
+   | Ind Type -- ~~T
+   | Frz Type -- ∅T
+ 
++  -- Cubical: interval and paths (CCHM-lite)
++  | Itv                 -- Interval
++  | I0                  -- i0
++  | I1                  -- i1
++  | INot Term           -- inot(r)
++  | IAnd Term Term      -- iand(r,s)
++  | IOr  Term Term      -- ior(r,s)
++  | Pth Type Term Term  -- Path(A, a, b)
++  | PLm Name Body       -- <i> t
++  | PAp Term Term       -- p @ r
++
+   -- Supperpositions
+   | Era                 -- *
+   | Sup Term Term Term  -- &L{a,b}
+@@ -253,6 +264,15 @@ instance Show Term where
+   show (Frz t)         = "∅" ++ show t
+   show (Loc _ t)       = show t
+   show (Rwt a b x)     = show a ++ " ⇒ " ++ show b ++ "; " ++ show x
++  show (Itv)           = "Interval"
++  show (I0)            = "i0"
++  show (I1)            = "i1"
++  show (INot a)        = "inot(" ++ show a ++ ")"
++  show (IAnd a b)      = "iand(" ++ show a ++ "," ++ show b ++ ")"
++  show (IOr a b)       = "ior(" ++ show a ++ "," ++ show b ++ ")"
++  show (Pth t a b)     = "Path(" ++ show t ++ "," ++ show a ++ "," ++ show b ++ ")"
++  show (PLm k f)       = "<" ++ k ++ "> " ++ show (f (Var k 0))
++  show (PAp p r)       = "(" ++ show p ++ " @ " ++ show r ++ ")"
+   show (Era)           = "*"
+   show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
+   show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
+diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
+index 953410d..f7391a7 100644
+--- a/src/Core/WHNF.hs
++++ b/src/Core/WHNF.hs
+@@ -53,9 +53,47 @@ whnfGo lv book term =
+     EqlM x f   -> whnfEqlM lv book x f
+     SupM x l f -> whnfSupM lv book x l f
+     Log s x    -> whnfLog lv book s x
++    PAp f x    -> whnfPAp lv book f x
++    INot a     -> whnfINot lv book a
++    IAnd a b   -> whnfIAnd lv book a b
++    IOr a b    -> whnfIOr lv book a b
+     _          -> term
+ 
+ -- Normalizes a let binding
++whnfPAp :: EvalLevel -> Book -> Term -> Term -> Term
++whnfPAp lv book p r =
++  case whnf lv book p of
++    PLm _ f -> whnf lv book (f r)
++    p'      -> PAp p' r
++
++whnfINot :: EvalLevel -> Book -> Term -> Term
++whnfINot lv book a =
++  case whnf lv book a of
++    I0      -> I1
++    I1      -> I0
++    INot a' -> a'
++    a'      -> INot a'
++
++whnfIAnd :: EvalLevel -> Book -> Term -> Term -> Term
++whnfIAnd lv book a b =
++  case whnf lv book a of
++    I0 -> I0
++    I1 -> whnf lv book b
++    a' -> case whnf lv book b of
++      I0 -> I0
++      I1 -> a'
++      b' -> IAnd a' b'
++
++whnfIOr :: EvalLevel -> Book -> Term -> Term -> Term
++whnfIOr lv book a b =
++  case whnf lv book a of
++    I1 -> I1
++    I0 -> whnf lv book b
++    a' -> case whnf lv book b of
++      I1 -> I1
++      I0 -> a'
++      b' -> IOr a' b'
++
+ whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
+ whnfLet lv book v f = whnf lv book (App f v)
+ 
+@@ -401,6 +439,27 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+   where (t0,t1)         = dup book l t
+ dup book l (Frz t)      = (Frz t0, Frz t1)
+   where (t0,t1)         = dup book l t
++dup book l Itv          = (Itv, Itv)
++dup book l I0           = (I0, I0)
++dup book l I1           = (I1, I1)
++dup book l (INot a)     = (INot a0, INot a1)
++  where (a0,a1)         = dup book l a
++dup book l (IAnd a b)   = (IAnd a0 b0, IAnd a1 b1)
++  where (a0,a1)         = dup book l a
++        (b0,b1)         = dup book l b
++dup book l (IOr a b)    = (IOr a0 b0, IOr a1 b1)
++  where (a0,a1)         = dup book l a
++        (b0,b1)         = dup book l b
++dup book l (Pth t a b)  = (Pth t0 a0 b0, Pth t1 a1 b1)
++  where (t0,t1)         = dup book l t
++        (a0,a1)         = dup book l a
++        (b0,b1)         = dup book l b
++dup book l (PLm k f)    = (plm0, plm1)
++  where plm0            = PLm k $ \x -> fst (dup book l (f x))
++        plm1            = PLm k $ \x -> snd (dup book l (f x))
++dup book l (PAp f x)    = (PAp f0 x0, PAp f1 x1)
++  where (f0,f1)         = dup book l f
++        (x0,x1)         = dup book l x
+ dup book l Era          = (Era, Era)
+ dup book l (Sup r a b)
+   | ieql book l r       = (a, b)
+@@ -485,6 +544,15 @@ normal d book term =
+     Loc l t    -> Loc l (normal d book t)
+     Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
+     Log s x    -> Log (normal d book s) (normal d book x)
++    Itv        -> Itv
++    I0         -> I0
++    I1         -> I1
++    INot a     -> INot (normal d book a)
++    IAnd a b   -> IAnd (normal d book a) (normal d book b)
++    IOr a b    -> IOr (normal d book a) (normal d book b)
++    Pth t a b  -> Pth (normal d book t) (normal d book a) (normal d book b)
++    PLm k f    -> PLm k (\x -> normal d book (f (Sub x)))
++    PAp f x    -> PAp (normal d book f) (normal d book x)
+     Era        -> Era
+     Sup l a b  -> Sup l (normal d book a) (normal d book b)
+     SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
