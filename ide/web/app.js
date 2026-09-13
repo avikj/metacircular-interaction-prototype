@@ -12,6 +12,7 @@
  */
 
 import { Grapheme } from "./grapheme.js";
+import { mountFibreLaw } from "./mathview.js";
 
 const isDark = () =>
   document.documentElement.dataset.theme === "dark" ||
@@ -325,6 +326,22 @@ async function openNode(n, fromRoute = false, isReverse = false) {
   }
 
   const d = await detailOf(n);
+
+  // ---- the mathematics, drawn (exact finite instances of the law) ----
+  if (/(^|\.)(Carrier|Sesa_|Samagra_|SamataDvidha_|LawfulStep_|Vishvayantra_)/.test(n.m) ||
+      n.m.includes("Sesa_TheResidual") || n.m.includes("TheOneWayFunction")) {
+    const sec = el("section", "block");
+    sec.append(el("h2", "", "The law, drawn — exact finite instances"));
+    const hostEl = el("div");
+    sec.append(hostEl);
+    f.append(sec);
+    mountFibreLaw(hostEl, {
+      dark: isDark,
+      tint: (tok) => Grapheme.enabled
+        ? Grapheme.color(tok, { dark: isDark() })
+        : (isDark() ? "#8f86c9" : "#3a3466"),
+    });
+  }
 
   // ---- the neighborhood: multiplicity factored through its fibres ----
   // Left: what this module rests on, grouped by target. Right: this
