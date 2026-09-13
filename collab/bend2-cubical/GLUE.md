@@ -60,3 +60,18 @@ open frontier, together with edge 2 (symbolic-endpoint `transp`/`comp`). Both
 are the same missing primitive: `comp` (heterogeneous composition), whose Glue
 instance is (1). That is where the next work is, and it is genuinely the
 soundness-critical core of CCHM — not a printer change.
+
+## Reconciliation (later session)
+
+The parser for `Glue(...)/glue(...)/unglue(...)` had not reached `main` (the
+committed whole-file `.hs` copies were from a divergent tree and lacked it, so
+`glue.bend` parsed on no binary built from `main`). Glue is now integrated
+into the single canonical source, `cubical-paths.patch`: Type constructors,
+formation typing, all traversals (bind/deps/rewrite/equal/flatten/whnf/normal/
+dup/analysis/totality/epNormCtx), the parser, and the emitters (erased targets:
+Glue type erases, `glue` → its base after normalisation; `--to-hvm4-full`:
+runtime `@glueT/@glue/@unglue` with the same boundary rules). Verified:
+`glue.bend` 2✓, `glue_mustfail.bend` ✗ (must), full suite unchanged, and on the
+full runtime `@glueT(#Nat,[(#I1,#Bool,e)]) ⇒ #Bool`, `@unglue(@glue(…,1)) ⇒ 1`.
+Kan rules for Glue remain unimplemented, as stated above. The stale `.hs`
+copies were removed; the patch is the only source of truth.

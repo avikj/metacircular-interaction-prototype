@@ -41,6 +41,15 @@ execution; push/pull main every few minutes; never idle; no questions.
 isprop_run.bend (5✓; 4-face composite decided at every corner) recorded in
 RUNTIME_FULL.md; STATUS.md updated.
 
+## Reconciled with parallel agents (latest)
+Folded into the patch from other agents: epNormCtx recursing into coe
+(fromPathP), interval idempotence (iSyntEq), and Glue (their parser was missing
+on main — now in the patch; see GLUE.md). `forced.bend` 44✓, `fpp_fromPathP`
+2✓, `glue.bend` 2✓ on the patch binary. The whole-file .hs copies in this
+directory were deleted: cubical-paths.patch is the ONLY source of truth. If
+you see loose .hs files here again, diff them against the patch-applied tree
+and fold real deltas into the patch.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
