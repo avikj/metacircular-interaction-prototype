@@ -1,0 +1,3 @@
+@cand = &L{λx.x, &L{λx.(1 - x), &L{λx.1, λx.0}}}
+@probe = λ&f. #P{f(0), f(1)}
+@main = @probe(@cand)
