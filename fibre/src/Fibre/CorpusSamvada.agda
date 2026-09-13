@@ -3,6 +3,7 @@
 module Fibre.CorpusSamvada where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Equiv using (_≃_)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd)
 
 import Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers as S
@@ -18,8 +19,8 @@ Point ℓ = Σ[ A ∈ Type ℓ ] A
 point : {A : Type ℓ} → A → Point ℓ
 point {A = A} a = A , a
 
-Question : Point ℓ → Type (ℓ-suc ℓ)
-Question s = Σ[ B ∈ Type ℓ ] (fst s → B)
+Question : {ℓ : Level} → Point ℓ → Type (ℓ-suc ℓ)
+Question {ℓ} s = Σ[ B ∈ Type ℓ ] (fst s → B)
 
 target : (s : Point ℓ) → Question s → Point ℓ
 target s (B , f) = B , f (snd s)
