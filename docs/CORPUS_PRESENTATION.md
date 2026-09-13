@@ -1,3 +1,60 @@
+# The corpus as one mathematical object
+
+The compact object by which to understand the whole repo is **not** any
+file/import structure (an accident of how sources are filed, carrying no
+mathematics). It is the corpus collapsed by **equivalence of the mathematics
+itself** — the normal form of each declaration's type. `Fibre.CorpusNF`
+computes it: `getType` then `normalise` gives a declaration's definitional
+normal form; a canonical de-Bruijn serialisation is the key; two declarations
+are the **same proposition** iff their keys are equal, independent of module.
+`scripts/corpus-probe-run.py --nf` runs it; `scripts/nf-relate.py` reads the
+relations off the normal forms.
+
+## The quotient (pin: Agda 2.8.0 / cubical v0.9)
+
+- declarations normalised     : **28608**
+- distinct propositions (nf)  : **16843**   (collapse ratio **1.70×**)
+- excluded (normalise exceeded the per-chunk/-single timeout — types that
+  embed heavy computation; an honest machine limit, ~574 declarations)
+
+The corpus is mostly **non-redundant** (16843 genuinely distinct
+propositions); the 1.70× collapse is real restatement — the same proposition
+proven or posited in more than one place.
+
+## What the corpus is *made of* (relations, read off the normalised types)
+
+The named objects that occur most in the **types** of the propositions — this
+is a mathematical relation (A is an ingredient of B's statement), not an import:
+
+Library alphabet: `PathP` 10629 (identity/paths — the corpus is, first of all,
+about *equality*), `Σ` 7208 (structures/existentials), `ℕ` 7932, `Bool` 3873,
+`List` 3527, `⊥` 2835 (refutation — much of the corpus states impossibilities),
+`ℤ` 1674, `isEquiv` 940, propositional truncation `∥_∥₁` 599.
+
+**Corpus-internal spine** — the repo's own concepts recurring across theorem
+*types*, i.e. the objects the mathematics is actually built on:
+
+| in the type of … propositions | object | meaning |
+|--:|---|---|
+| 387 (+ variants) | `RewriteCertificate.Tm` | the term language of the certified rewrite kernel — THE central object |
+| 200 | `RewriteCertificate.Derivation` | its certificate/derivation calculus |
+| 133/107/102/80 | `Tm.add / .var / .zero / .suc` | that term language's constructors |
+| 236/122 | `KarmaKanda….Tm / .eval` | a compiled, path-free body of the same term calculus |
+| 119 | `Vishvayantra…` | Turing step = visible projection of a lossless step |
+| 108 | `PingalaPrastara.Syllable` | Pingala's prosody / positional combinatorics |
+| 107 | `FutureBehavior.run` | the coinductive behaviour (future-equality) |
+| 104 | `Nirjara….Sutra` | primitive-shedding cost calculus |
+| 90 | `Saptabhangi.सप्तभङ्गी` | the sevenfold (Jain) logic of standpoints |
+
+So the whole corpus, read as one object, is: **a body of ~16800 distinct
+propositions, overwhelmingly about identity (`PathP`) and impossibility (`⊥`)
+over a certified term-rewriting kernel (`RewriteCertificate.Tm` and its
+derivations), specialised through a lossless machine model, positional
+combinatorics, and many-valued logic.** That is the mathematical content, and
+it is recovered by collapsing equivalences — not by looking at the file tree.
+
+---
+
 # Corpus self-presentation (chunked, memory-safe)
 
 The corpus presents itself: every checked public declaration is reflected
