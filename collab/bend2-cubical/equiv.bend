@@ -29,3 +29,16 @@ def idEquiv(A: Set) -> Equiv(A, A):
 
 def main() -> Nat:
   0n
+
+# Equiv -> Path: derive the iso data (inverse + both homotopies) from a
+# COHERENT equivalence and feed the ua primitive.  This is the provable half
+# of coherent-equivalence univalence (the ua direction).
+
+# probe: contractibility is a proposition (needs real composition)
+def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
+  match c0:
+    case (a0, h0):
+      match c1:
+        case (a1, h1):
+          <j> ( h0(a1) @ j
+              , lambda y. <i> hcomp(A, i, <k> h0(a1) @ k, <k> h0(y) @ k, h0(h0(y) @ i) @ j) )
