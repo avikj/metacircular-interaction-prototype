@@ -376,6 +376,38 @@ buildLociOverPool pool gens =
 -- interleaved.  The literal is forced exactly once per shard.
 ------------------------------------------------------------------------
 
+-- A generator can consume at most realizationCap successes plus
+-- failureBudget failures, i.e. at most that many candidates in total —
+-- so ONE pure pass over the pool collects exactly the first
+-- (realizationCap + failureBudget) compatible entries per generator,
+-- forcing the pool literal once, and the TC monad is entered only for
+-- the bounded probes themselves.
+maxCandidates : Nat
+maxCandidates = 32   -- realizationCap + failureBudget
+
+data GenSel : Set where
+  genSel : Name → Maybe Head → Nat → List PoolEntry → GenSel
+
+selStep : PoolEntry → List GenSel → List GenSel
+selStep e [] = []
+selStep e@(n , x , hx) (genSel f gate zero acc ∷ gs) =
+  genSel f gate zero acc ∷ selStep e gs
+selStep e@(n , x , hx) (genSel f gate (suc room) acc ∷ gs)
+  with admits gate hx
+... | true  = genSel f gate room (e ∷ acc) ∷ selStep e gs
+... | false = genSel f gate (suc room) acc ∷ selStep e gs
+
+selectAll : List PoolEntry → List GenSel → List GenSel
+selectAll [] gs = gs
+selectAll (e ∷ es) gs = selectAll es (selStep e gs)
+
+reverseE : List PoolEntry → List PoolEntry
+reverseE = go []
+  where
+  go : List PoolEntry → List PoolEntry → List PoolEntry
+  go acc [] = acc
+  go acc (e ∷ es) = go (e ∷ acc) es
+
 data GenState : Set where
   genSt : Name → Maybe Head → Nat → Nat → List RawRealization → GenState
 
@@ -417,12 +449,43 @@ harvest [] = []
 harvest (genSt f _ _ _ []       ∷ sts) = harvest sts
 harvest (genSt f _ _ _ (r ∷ rs) ∷ sts) = (f , r ∷ rs) ∷ harvest sts
 
+initSels : List Name → TC (List GenSel)
+initSels [] = returnTC []
+initSels (f ∷ fs) =
+  bindTC (genGate f) λ gate →
+  bindTC (initSels fs) λ rest →
+  returnTC (genSel f gate maxCandidates [] ∷ rest)
+
+-- Probe one generator's pre-selected candidates (≤ maxCandidates), with
+-- the usual caps; candidates were accumulated in reverse pool order.
+probeSel : GenSel → TC RawLoci
+probeSel (genSel f _ _ acc) =
+  bindTC (go realizationCap failureBudget (reverseE acc)) λ where
+    []       → returnTC []
+    (r ∷ rs) → returnTC ((f , r ∷ rs) ∷ [])
+  where
+  go : Nat → Nat → List PoolEntry → TC (List RawRealization)
+  go zero    _       _  = returnTC []
+  go _       _       [] = returnTC []
+  go _       zero    _  = returnTC []
+  go (suc k) (suc b) ((n , x , _) ∷ es) =
+    bindTC (tryRealization f n x) λ where
+      []   → bindTC (go (suc k) b es) λ rest → returnTC rest
+      here → bindTC (go k (suc b) es) λ rest → returnTC (here ++ rest)
+
+probeSels : List GenSel → TC RawLoci
+probeSels [] = returnTC []
+probeSels (g ∷ gs) =
+  bindTC (probeSel g) λ here →
+  bindTC (probeSels gs) λ rest →
+  returnTC (here ++ rest)
+
 buildLociStream : List PoolEntry → List Name → TC Term
 buildLociStream entries gens =
   bindTC (expandAll gens) λ egens →
-  bindTC (initStates egens) λ sts →
-  bindTC (sweep entries sts) λ done →
-  quoteTC (harvest done)
+  bindTC (initSels egens) λ sels →
+  bindTC (probeSels (selectAll entries sels)) λ loci →
+  quoteTC loci
 
 macro
   materializeLoci : List Name → Term → TC ⊤
