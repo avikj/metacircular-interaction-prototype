@@ -20,6 +20,7 @@ import Data.List (intercalate, nub)
 
 import Core.Type
 import Core.Totality
+import Core.Flatten (flatten)
 
 data Report = Report
   { rTot     :: Tot
@@ -42,9 +43,9 @@ reportLine r = intercalate "  " (filter (not . null) parts)
       , if rSetArgs r == 0 then "" else "\x1b[2mSet-binders: " ++ show (rSetArgs r) ++ "\x1b[0m"
       ]
 
-analyze :: Name -> Term -> Term -> Report
-analyze name term typ = Report
-  { rTot     = classify name term
+analyze :: Book -> Name -> Term -> Term -> Report
+analyze book name term typ = Report
+  { rTot     = classify name (flatten 0 book term)
   , rShape   = shape (skipPis typ)
   , rCost    = cost
   , rUnused  = unusedArgs term typ
