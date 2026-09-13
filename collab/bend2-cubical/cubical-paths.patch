@@ -599,6 +599,47 @@ index 0000000..b4386c2
 +  finally
 +def main() -> Nat:
 +  0n
+diff --git a/hcompset.bend b/hcompset.bend
+new file mode 100644
+index 0000000..4453bc4
+--- /dev/null
++++ b/hcompset.bend
+@@ -0,0 +1,35 @@
++# hcomp in the UNIVERSE beyond the composite shape: a square of types with a
++# face on a second interval variable j. Transport along it is computed
++# through Glue (hcomp Set = Glue, equivalence = transport back along the tube).
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++# a 2-dimensional composition in Set: faces on i AND on j
++# at i=i0 the j-face is still live, so the left end is a Glue type, not Bool
++def sq(j: Interval) -> Path(Set, hcompN(Set, [(j, <k> negPath() @ k)], Bool), Bool):
++  <i> hcompN(Set, [(i, <k> negPath() @ k), (j, <k> negPath() @ k)], Bool)
++# an element of the left end: True glued with the section False on face j
++# (coherent: the face's equivalence is transport back along negPath = neg)
++def viaSq(j: Interval) -> Bool:
++  coe(lambda i. sq(j) @ i, i0, i1, glue(Bool, True, [(j, False)]))
++# transport along the i-line at symbolic j: the true face at i1 wins — neg
++def viaSq_T(j: Interval) -> Path(Bool, viaSq(j), False):
++  <_> False
++# a single-face composition whose base line is itself non-constant
++def twist() -> Path(Set, Bool, Bool):
++  <i> hcompN(Set, [(i, <k> negPath() @ k)], negPath() @ i)
++def viaTwist(x: Bool) -> Bool:
++  coe(lambda i. twist() @ i, i0, i1, x)
++def viaTwist_T() -> Path(Bool, viaTwist(True), True):
++  <_> True
++def main() -> Bool:
++  viaSq(i0)
 diff --git a/hfill.bend b/hfill.bend
 new file mode 100644
 index 0000000..3473798
@@ -2249,10 +2290,10 @@ index a5d92e8..eee78b7 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..3249930 100644
+index 953410d..6ab2e5b 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,330 @@ whnfGo lv book term =
+@@ -53,9 +53,344 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -2367,7 +2408,15 @@ index 953410d..3249930 100644
 +  let fs' = [ (whnf lv book p, u) | (p, u) <- fs ]
 +  in case [ u | (I1, u) <- fs' ] of
 +       (u : _) -> whnf lv book (PAp u I1)   -- a face holds: the composite is that tube's cap
-+       []      -> HCm a [ f | f@(p, _) <- fs', notI0 p ] x   -- false faces contribute nothing
++       []      -> case [ f | f@(p, _) <- fs', notI0 p ] of
++         []   -> whnf lv book x                      -- no live face: the cap
++         live -> case cut a of
++           -- hcomp in the UNIVERSE is a Glue type (CCHM): on each live face
++           -- the tube's top, glued to the base along the equivalence
++           -- "transport backwards along the tube" (pathToEquiv of the
++           -- reversed tube, computed by coe through the Equiv family).
++           Set -> Glu x [ (p, PAp u I1, transpEquiv u) | (p, u) <- live ]
++           _   -> HCm a live x
 +  where notI0 I0 = False
 +        notI0 _  = True
 +
@@ -2506,10 +2555,16 @@ index 953410d..3249930 100644
 +                aLn = Lam "i" (\i -> fst (glueAt i))
 +                live fs = [ (p', tT, e) | (p, tT, e) <- fs, let p' = whnf lv book p, (case p' of { I0 -> False; _ -> True }) ]
 +                isI1 p = case p of { I1 -> True; _ -> False }
-+                aR0 = case [ e | (p', _, e) <- live fsR, isI1 p' ] of
-+                        (e : _) -> App (equivFun e) t
-+                        []      -> UnG t
-+                a1' = Coe aLn r' s' aR0
++                aR0 = case live fsR of
++                        []  -> t                                   -- no face at r: Glue IS A there
++                        lr  -> case [ e | (p', _, e) <- lr, isI1 p' ] of
++                                 (e : _) -> App (equivFun e) t     -- true face: unglue is fst(e)
++                                 []      -> UnG t                  -- symbolic faces: unglue the glue
++                -- evaluated STRICTLY: this value is substituted into the
++                -- equivalence's own transports, whose regularity check
++                -- re-normalises at the shared coe marker; an unevaluated
++                -- Coe thunk there is re-read under the wrong marker binding
++                a1' = whnf Full book (Coe aLn r' s' aR0)
 +                facesS = [ (p', App (equivInv e) a1', e) | (p', _, e) <- live fsS ]
 +                a1 = HCm aS [ (p', PLm "j" (\j -> PAp (App (equivSec e) t1) (INot j))) | (p', t1, e) <- facesS ] a1'
 +            in whnf lv book (GlB aS [ (p', t1) | (p', t1, _) <- facesS ] a1)
@@ -2583,7 +2638,7 @@ index 953410d..3249930 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +722,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +736,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -2631,7 +2686,7 @@ index 953410d..3249930 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +847,21 @@ normal d book term =
+@@ -485,6 +861,21 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -2653,7 +2708,7 @@ index 953410d..3249930 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
-@@ -547,3 +924,196 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +938,214 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -2850,6 +2905,24 @@ index 953410d..3249930 100644
 +equivSec :: Term -> Term
 +equivSec e = Lam "y" (\y -> SigM e (Lam "f" (\_ -> Lam "h" (\h ->
 +  SigM (App h y) (Lam "cen" (\cen -> Lam "_" (\_ -> SigM cen (Lam "x" (\_ -> Lam "p" (\p -> p))))))))))
++
++-- the equivalence  u@i1 ≃ u@i0  given by transporting backwards along a
++-- universe line u, as the transport of the identity equivalence through the
++-- family  k ↦ Equiv(u@i1, u@inot k)  (this is pathToEquiv of the reversed line)
++transpEquiv :: Term -> Term
++transpEquiv u =
++  let top = PAp u I1 in
++  Coe (Lam "k" (\k -> equivTy top (PAp u (INot k)))) I0 I1 (idEquivTm top)
++
++-- the identity equivalence in core terms: (λx.x, λy. singleton contraction)
++idEquivTm :: Term -> Term
++idEquivTm a = Tup (Lam "x" (\x -> x)) (Lam "y" (\y -> isContrSinglTm a y))
++
++isContrSinglTm :: Term -> Term -> Term
++isContrSinglTm a y =
++  Tup (Tup y (PLm "_" (\_ -> y)))
++      (Lam "w" (\w -> SigM w (Lam "x" (\_ -> Lam "p" (\p ->
++        PLm "i" (\i -> Tup (PAp p (INot i)) (PLm "j" (\j -> PAp p (IOr (INot i) j)))))))))
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
 index 996bb26..8172ddd 100644
 --- a/src/Target/HVM.hs

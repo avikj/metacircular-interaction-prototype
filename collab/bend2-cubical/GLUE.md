@@ -75,3 +75,35 @@ runtime `@glueT/@glue/@unglue` with the same boundary rules). Verified:
 full runtime `@glueT(#Nat,[(#I1,#Bool,e)]) ⇒ #Bool`, `@unglue(@glue(…,1)) ⇒ 1`.
 Kan rules for Glue remain unimplemented, as stated above. The stale `.hs`
 copies were removed; the patch is the only source of truth.
+
+## Kan rules — IMPLEMENTED (later session; verified by execution)
+
+Both rules the previous section left open are now in `cubical-paths.patch`:
+
+1. **Transport through Glue** (`whnfCoe`, `Glu` case): with `e : Equiv T A`
+   coherent (Σ f. ∀y. isContr(fiber f y), core `equivTy`), `coe` along a
+   Glue line computes: unglue at `r` (on a true face, `fst(e)`), transport the
+   base along the `A`-line, on each face live at `s` take `t1 = e⁻¹ a1'` from
+   the fibre's centre and correct `a1'` along the centre's path, glue back.
+   `uaglue.bend` (26 ✓): `uaG(e) = <i> Glue(B, [(inot i, A, e), (i, B, idEquiv B)])`
+   and **`uaG_beta` is definitional for an abstract `e`**; the concrete `negE`
+   (from `lemIso`) transports both ways.
+2. **`hcomp` in `Set` = Glue** (`whnfHCm`): `hcomp(Set, [φ ↦ u], A)` with
+   live faces is `Glue A [φ ↦ (u@i1, transpEquiv u)]`, `transpEquiv u` being
+   the transport of the identity equivalence through `k ↦ Equiv(u@i1, u@inot k)`
+   (pathToEquiv of the reversed tube, computed by `coe` through Σ/Π/Path).
+   `hcompset.bend` (10 ✓): a 2-dimensional composition in `Set` with a face
+   on a second interval variable `j` — transport along it at symbolic `j`
+   computes (`viaSq_T`), as do compositions with non-constant base lines.
+
+The composite shape is still recognised first (cheaper, same answer); every
+other shape now goes through Glue instead of being stuck.
+
+Must-fails: `glue_mustfail.bend` — a Glue at a false face does not collapse
+(`evil` ✗), a bare function is not accepted as `e` (`notEquiv` ✗), a glue
+whose section is incoherent with its base is rejected (`incoherent` ✗).
+
+Implementation note: the transported base is evaluated strictly inside the
+rule; left as an unevaluated `Coe` thunk it is re-read inside the
+equivalence's own nested transports under the shared coe marker and yields a
+wrong value (observed and fixed; `twist3` probe).

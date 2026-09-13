@@ -17,6 +17,7 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | …running on the net | `presentNeg`/`retrieveNeg` and the contraction `contrNeg0/1` on the raw HVM4 net and HVM3 | 0/1/1/0 and 0/0, itrs in FIBRE_LAW.md |
 | **Transport across chains of equivalences performed by the net** (composite / inverse / Π / Σ lines as runtime paths; raw mode strict) | closed runtime path algebra `pathRep/lineRep/coeRep`; `whnfCoe` gains the same inverse/composite rules | `chain.bend` 19✓; 12 transports × 3 evaluators agree; itrs 12/19/31 for 1/2/3 equivalences (RUNTIME_ALGEBRA.md) |
 | **Everything cubical at runtime** (README: the trace IS the path; partial knowledge) | `--to-hvm4-full`: intervals, paths, types, `coe`, `hcomp` are runtime objects; stuck `#HCm` on symbolic faces; DUP-SUP routing native | RUNTIME_FULL.md: chain/fibre/t_*/supline/isprop_run all correct on the full runtime |
+| **Kan rules for the universe** (the last open frontier) | transport through Glue; `hcomp` in `Set` = Glue with `transpEquiv`; `ua` derived from Glue, uaβ definitional | `uaglue.bend` 26✓, `hcompset.bend` 10✓, `glue.bend` 8✓, `glue_mustfail` 3✗ (GLUE.md) |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
 
@@ -27,9 +28,8 @@ applications (`unfoldable`), `(<i> t) @ r` beta in `infer`, false faces
 dropped in `whnfHCm`, emitters resolving literal endpoints before erasure.
 
 Erased targets (`--to-hvm4`, `--to-hvm4-raw`, `--to-hvm`) are kept as cost
-comparison points; the full runtime is `--to-hvm4-full`. Remaining caveats are
-listed in RUNTIME_FULL.md (hcomp in Set beyond the composite shape stays stuck;
-no Glue).
+comparison points; the full runtime is `--to-hvm4-full`. In the checker/normaliser nothing cubical is stuck any more (Glue Kan rules
+in). On the full runtime the Glue rules are boundary-only so far (next step).
 
 Suite on the final binary: 28 `.bend` files, 0 ✗ except the three deliberate
 must-fails; stock `examples/` 2/2.

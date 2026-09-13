@@ -50,6 +50,13 @@ directory were deleted: cubical-paths.patch is the ONLY source of truth. If
 you see loose .hs files here again, diff them against the patch-applied tree
 and fold real deltas into the patch.
 
+## Kan rules DONE in the checker (uaglue.bend, hcompset.bend; GLUE.md)
+Transport through Glue and hcomp-in-Set-as-Glue are implemented and green.
+Full runtime (--to-hvm4-full) still has Glue boundary rules only: the next
+step is @coe on #Glue data and @hcomp at #Set -> #Glue in Target/HVM4Full.hs
+mirroring whnfCoe's Glu case (needs the coherent-equivalence projections
+fst/inv/sec as HVM4 matches on #Pair data).
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
