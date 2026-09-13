@@ -148,3 +148,13 @@ open import Fibre.CorpusSamvada
 
 -- Mechanical bridge from the active Agda namespace to one raw checked value.
 open import Fibre.CorpusReflection
+
+-- The factored presentation: each generator once, with its exact
+-- Agda-accepted realization family (source, application, normalized result).
+open import Fibre.CorpusLoci
+
+-- Memory-safe streaming readout of that factored semantics: folds debugPrint
+-- over the realizations per chunk, quoting no aggregate — the whole-corpus
+-- import's ~12 GB heap becomes a per-chunk ~1 GB, a red module fails only
+-- its own chunk, and the checked realization semantics is unchanged.
+open import Fibre.CorpusProbe
