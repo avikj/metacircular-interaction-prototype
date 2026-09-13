@@ -52,6 +52,7 @@ module SelfImprovingCrystal where
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)
 open import Cubical.Data.Nat.Order using (_≤_ ; ≤-refl ; ≤-trans)
+open import Cubical.Data.Int using (ℤ)
 open import Cubical.Data.Sigma using (Σ-syntax ; _,_ ; fst ; snd ; _×_)
 
 open import Prashna_TheInteractiveMachineStrictlyContainsTheTuringMachineAndDeterminismIsExactlyTheCollapse
@@ -127,17 +128,22 @@ natSelf = OnNat.accept
 CState : Type₁
 CState = Σ[ arch ∈ Architecture ] SemanticCrystal arch
 
-cdefect : CState → _
+cdefect : CState → ℤ
 cdefect (_ , c) = measuredDefect c
 
-_⊑ᶜ_ : CState → CState → Type₁
-a' ⊑ᶜ a = Lift {j = ℓ-suc ℓ-zero} (cdefect a' ≡ cdefect a)
+-- The non-worsening witness, as a RIGID record so it does not unfold into
+-- the `measuredDefect`/`potential` expression during module instantiation
+-- (a reducible definition stalls unification on the crystal's fields).
+record _⊑ᶜ_ (a' a : CState) : Type₁ where
+  constructor keeps
+  field keep : cdefect a' ≡ cdefect a
+open _⊑ᶜ_
 
 ⊑ᶜ-refl : (a : CState) → a ⊑ᶜ a
-⊑ᶜ-refl a = lift refl
+⊑ᶜ-refl a = keeps refl
 
 ⊑ᶜ-trans : {a b c : CState} → a ⊑ᶜ b → b ⊑ᶜ c → a ⊑ᶜ c
-⊑ᶜ-trans (lift p) (lift q) = lift (p ∙ q)
+⊑ᶜ-trans p q = keeps (keep p ∙ keep q)
 
 module OnCrystal = Generic CState _⊑ᶜ_ ⊑ᶜ-refl ⊑ᶜ-trans
 
@@ -147,7 +153,7 @@ module OnCrystal = Generic CState _⊑ᶜ_ ⊑ᶜ-refl ⊑ᶜ-trans
 crystalMove : (c : SemanticCrystal amplitudeChart)
             → OnCrystal.Move (amplitudeChart , c)
 crystalMove c =
-  (projectiveChart , rewriteCrystal c) , lift (rewrite-preserves-defect c)
+  (projectiveChart , rewriteCrystal c) , keeps (rewrite-preserves-defect c)
 
 -- the ongoing self-improvement process seeded at an amplitude-chart crystal
 crystalSelf : (c : SemanticCrystal amplitudeChart)
