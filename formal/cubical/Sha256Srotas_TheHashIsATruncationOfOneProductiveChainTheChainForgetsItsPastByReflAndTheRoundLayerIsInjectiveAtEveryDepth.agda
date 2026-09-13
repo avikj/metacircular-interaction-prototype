@@ -75,6 +75,13 @@
 -- its truncations), causality (कारणता), and uniqueness of history
 -- (एक-चरितम्) are statements no finite derivation can even type.
 --
+-- ŚEṢA.  A stream is the DEGENERATE case of an interaction — the one
+-- where the environment has exactly one thing it can say
+-- (Fibre.Samvada).  This module is therefore the trivial-query
+-- fragment of the calculus; Sha256Samvada carries the hash into the
+-- interactive coalgebra proper, and proves this module is its
+-- demand-free collapse (एकाग्र-पातः there).
+--
 -- CHECKED: Agda 2.8.0, cubical v0.9 (the pin, via sh setup), --cubical
 -- --safe, exit 0 — every theorem above including the computed NIST
 -- receipt परीक्षा-स्रोतः.
