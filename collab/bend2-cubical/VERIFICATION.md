@@ -148,3 +148,31 @@ stock examples 2/2.
 Must-fail guard (`uaequiv_mustfail.bend`): `wrong1` (constant path `(f,h)`)
 and `wrong2` (endpoints swapped) both ✗ on the same binary; everything else in
 the file ✓. The round-trip green is not a checker hole.
+
+## Addendum — fibre law as coherent Equiv, transported natively (`fibrelaw.bend`)
+
+`bend fibrelaw.bend`: 32 ✓ 0 ✗ (isoToIsEquiv via lemIso with 4-face hcompN,
+totalEquiv, losslessPath = uaE(totalEquiv), present/retrieve with refl laws).
+Runtime, raw net: HVM4 presentNeg True⇒0 (83), False⇒1 (76); retrieveNeg
+True⇒1, False⇒0 (118 each). HVM3: 102/93/140/140, same values. Full suite on
+this binary: every other file unchanged, `equiv.bend` now 10✓ 0✗,
+`uaequiv_mustfail.bend` wrong1/wrong2 still ✗, stock examples 2/2. Details:
+FIBRE_LAW.md.
+
+## Addendum — hfill, --total gate, endpoint-resolving emission
+
+- `hfill.bend`: 4 ✓ (`hf`, `hf_face`, library `fill0` via hfill, main) and the
+  must-fail `wrong` (tube not starting at base) ✗.
+- `bend loop.bend --total` → `--total: refused, [unchecked]: loop`, exit 1;
+  `bend fibrelaw.bend --total` → every definition [total]/[productive], exit 0.
+- `fibrelaw.bend` now 35 ✓ 0 ✗ (adds `contrNeg0/1`: the fibre-contraction
+  path of `neg` over `True`, observed at both ends). HVM4-raw: both ⇒ `0`
+  (False; the fibre of neg over True is {False}), 18 itrs; HVM3: `0`, 23 itrs.
+  Both emitters now resolve a literal endpoint `p @ i0/i1` by `force` before
+  erasing the interval (previously the erased body — for an hcomp, its cap —
+  was emitted), so these observations are compile-time endpoint resolution
+  followed by net reduction; earlier native matrix (t_*, present/retrieve)
+  unchanged: 0/0/1/1 and 0/1/1/0.
+- Whole suite on this binary (27 files): 0 ✗ except the three deliberate
+  must-fails (`uaequiv_mustfail` wrong1/wrong2, `uaroundtrip` raw-Iso,
+  `hfill` wrong); stock examples 2/2.

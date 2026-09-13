@@ -1,5 +1,5 @@
 diff --git a/app/Main.hs b/app/Main.hs
-index e8b579d..fa10252 100644
+index e8b579d..ea3fd20 100644
 --- a/app/Main.hs
 +++ b/app/Main.hs
 @@ -4,7 +4,7 @@ import Control.Monad (unless)
@@ -7,28 +7,105 @@ index e8b579d..fa10252 100644
  import System.Environment (getArgs)
  import System.Exit (exitFailure)
 -import Core.CLI (processFile, processFileToJS, processFileToHVM, listDependencies)
-+import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, listDependencies)
++import Core.CLI (processFile, processFileToJS, processFileToHVM, processFileToHVM4, processFileToHVM4Raw, processFileTotal, listDependencies)
  
  -- | Show usage information
  showUsage :: IO ()
-@@ -14,6 +14,7 @@ showUsage = do
+@@ -14,6 +14,9 @@ showUsage = do
    putStrLn "Options:"
    putStrLn "  --to-javascript    Compile to JavaScript"
    putStrLn "  --to-hvm           Compile to HVM"
 +  putStrLn "  --to-hvm4          Compile to HVM4 surface"
++  putStrLn "  --to-hvm4-raw      Compile to HVM4 surface without pre-normalisation"
++  putStrLn "  --total            Check, then fail if any definition is [unchecked]"
    putStrLn "  --list-dependencies List all dependencies (recursive)"
  
  -- | Main entry point
-@@ -23,6 +24,9 @@ main = do
+@@ -23,6 +26,10 @@ main = do
    case args of
      [file, "--to-javascript"] | ".bend"    `isSuffixOf` file -> processFileToJS file
      [file, "--to-javascript"] | ".bend.py" `isSuffixOf` file -> processFileToJS file
 +    [file, "--to-hvm4-raw"] | ".bend" `isSuffixOf` file -> processFileToHVM4Raw file
++    [file, "--total"] | ".bend" `isSuffixOf` file -> processFileTotal file
 +    [file, "--to-hvm4"] | ".bend"    `isSuffixOf` file -> processFileToHVM4 file
 +    [file, "--to-hvm4"] | ".bend.py" `isSuffixOf` file -> processFileToHVM4 file
      [file, "--to-hvm"] | ".bend"    `isSuffixOf` file -> processFileToHVM file
      [file, "--to-hvm"] | ".bend.py" `isSuffixOf` file -> processFileToHVM file
      [file, "--list-dependencies"] | ".bend"    `isSuffixOf` file -> listDependencies file
+diff --git a/applypath.bend b/applypath.bend
+new file mode 100644
+index 0000000..5605df0
+--- /dev/null
++++ b/applypath.bend
+@@ -0,0 +1,27 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def neg_inv(x: Bool) -> Bool{neg(neg(x)) == x}:
++  if x:
++    finally
++  else:
++    finally
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def applyPath(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def transNeg(x: Bool) -> Bool:
++  applyPath(Bool, Bool, negPath(), x)
++def transId(x: Bool) -> Bool:
++  applyPath(Bool, Bool, idPath(), x)
++def main() -> Nat:
++  0n
+diff --git a/applypath_bwd.bend b/applypath_bwd.bend
+new file mode 100644
+index 0000000..e5f5248
+--- /dev/null
++++ b/applypath_bwd.bend
+@@ -0,0 +1,35 @@
++# Backward transport at runtime: coe from i1 to i0 along a runtime-supplied
++# universe path must apply the path's BACKWARD function (g), not f, and must
++# not be erased. negPath's g is neg too, so use an asymmetric iso to tell
++# f from g apart: Nat <-> Nat via (+1) / (-1) on the "wrapped" side is not
++# an iso, so use Bool with f = neg, g = neg but observe direction via a
++# tagged pair type instead: here we use idPath vs negPath and a wrapper.
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++# generic runtime transport, both directions, path supplied as data
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def fwdNeg(x: Bool) -> Bool:
++  applyPathFwd(Bool, Bool, negPath(), x)
++def bwdNeg(x: Bool) -> Bool:
++  applyPathBwd(Bool, Bool, negPath(), x)
++def fwdId(x: Bool) -> Bool:
++  applyPathFwd(Bool, Bool, idPath(), x)
++def bwdId(x: Bool) -> Bool:
++  applyPathBwd(Bool, Bool, idPath(), x)
++def main() -> Nat:
++  0n
 diff --git a/bend.cabal b/bend.cabal
 index e934487..bd601b0 100644
 --- a/bend.cabal
@@ -51,6 +128,701 @@ index e934487..bd601b0 100644
                        Target.JavaScript
      build-depends:    base ^>= 4.21.0.0,
                        hs-highlight == 1.0.5,
+diff --git a/corpus_calculus.bend b/corpus_calculus.bend
+new file mode 100644
+index 0000000..2888f4e
+--- /dev/null
++++ b/corpus_calculus.bend
+@@ -0,0 +1,42 @@
++# Translation of formal/cubical/theorems/residue/CorpusCalculus.agda
++# Point = Σ[ A ∈ Type ] A ; Question s = Σ[ B ∈ Type ] (fst s → B)
++# target, Event, step, twoSteps — refl theorems check by computation.
++
++def Point() -> Set:
++  any A: Set. A
++
++def point(A: Set, a: A) -> Point():
++  (A, a)
++
++def Src(s: Point()) -> Set:
++  match s:
++    case (A, a):
++      A
++
++def src(s: Point()) -> Src(s):
++  match s:
++    case (A, a):
++      a
++
++def Question(s: Point()) -> Set:
++  any B: Set. (Src(s) -> B)
++
++def target(s: Point(), q: Question(s)) -> Point():
++  match q:
++    case (B, f):
++      (B, f(src(s)))
++
++# Event s q s' = target s q ≡ s'   (as a Path)
++def Event(s: Point(), q: Question(s), s2: Point()) -> Set:
++  Path(Point(), target(s, q), s2)
++
++# step : fst (target (point a) (B , f)) ≡ B with value f a  — by refl
++def step(A: Set, B: Set, a: A, f: A -> B) -> Path(Point(), target(point(A, a), (B, f)), point(B, f(a))):
++  <i> target(point(A, a), (B, f))
++
++# twoSteps : target (target (point a) (B,f)) (C,g) ≡ point (g (f a)) — by refl
++def twoSteps(A: Set, B: Set, C: Set, a: A, f: A -> B, g: B -> C) -> Path(Point(), target(target(point(A, a), (B, f)), (C, g)), point(C, g(f(a)))):
++  <i> point(C, g(f(a)))
++
++def main() -> Nat:
++  0n
+diff --git a/corpus_lossless.bend b/corpus_lossless.bend
+new file mode 100644
+index 0000000..8a8d71c
+--- /dev/null
++++ b/corpus_lossless.bend
+@@ -0,0 +1,44 @@
++# The repo's lossless presentation lemma, in Bend2's fragment.
++#
++# Agda (cubical):  lossless : A ≃ Σ B (fiber f),  a ↦ (f a , a , refl)
++# Bend2 has no paths/univalence, but the section-retraction half and the
++# visible-projection law are expressible with Eql + Sigma.
++
++# Presentation of A through f: an observation b, a source a, a witness f a == b.
++def Pres(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. any a: A. B{f(a) == b}
++
++# encode: the codec, a ↦ (f a, a, {==})
++def encode(A: Set, B: Set, f: A -> B, a: A) -> Pres(A, B, f):
++  (f(a), a, {==})
++
++# decode: drop the determined fields
++def decode(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> A:
++  match p:
++    case (b, a, e):
++      a
++
++# retraction: decode(encode(a)) == a, definitionally
++def lossless_retract(A: Set, B: Set, f: A -> B, a: A) -> A{decode(A, B, f, encode(A, B, f, a)) == a}:
++  {==}
++
++# the observation is the visible projection, definitionally
++def obs(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> B:
++  match p:
++    case (b, a, e):
++      b
++
++# the observation is the visible projection, definitionally
++def visible_projection(A: Set, B: Set, f: A -> B, a: A) -> B{obs(A, B, f, encode(A, B, f, a)) == f(a)}:
++  {==}
++
++def main() -> Nat:
++  0n
++
++# section: encode(decode(p)) == p, by eliminating the witness (J).
++# In cubical Agda this is  λ i → p i , a , λ j → p (i ∧ j).
++def lossless_section(A: Set, B: Set, f: A -> B, p: Pres(A, B, f)) -> Pres(A, B, f){encode(A, B, f, decode(A, B, f, p)) == p}:
++  match p:
++    case (b, a, e):
++      rewrite e
++      finally
+diff --git a/cubical_test.bend b/cubical_test.bend
+new file mode 100644
+index 0000000..98a5d20
+--- /dev/null
++++ b/cubical_test.bend
+@@ -0,0 +1,49 @@
++# Cubical primitives in Bend2: Path types, interval, connections.
++# Acceptance: funext (unprovable with Eql) and the corpus's lossless
++# rightInv, transliterated from cubical Agda term for term.
++
++# refl as a path
++def prefl(A: Set, a: A) -> Path(A, a, a):
++  <i> a
++
++# symmetry, via interval negation: (sym p) i = p (~ i)
++def psym(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, b, a):
++  <i> p @ inot(i)
++
++# congruence: cong f p = λ i. f (p i)
++def pcong(A: Set, B: Set, f: A -> B, a: A, b: A, p: Path(A, a, b)) -> Path(B, f(a), f(b)):
++  <i> f(p @ i)
++
++# function extensionality — the theorem Eql cannot prove
++def funext(A: Set, B: Set, f: A -> B, g: A -> B, h: all x:A. Path(B, f(x), g(x))) -> Path(A -> B, f, g):
++  <i> lambda x. h(x) @ i
++
++# connection square: λ i. p (i ∧ j) degenerates correctly
++def conn_left(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(A, a, b):
++  <i> p @ iand(i, i1)
++
++# ---- the corpus lemma, cubical version ----
++# Pres A B f = Σ b:B. Σ a:A. Path(B, f a, b)
++def PresP(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. any a: A. Path(B, f(a), b)
++
++def encodeP(A: Set, B: Set, f: A -> B, a: A) -> PresP(A, B, f):
++  (f(a), a, <i> f(a))
++
++def decodeP(A: Set, B: Set, f: A -> B, p: PresP(A, B, f)) -> A:
++  match p:
++    case (b, a, e):
++      a
++
++# Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , λ j → p (i ∧ j)
++def rightInv(A: Set, B: Set, f: A -> B, p: PresP(A, B, f)) -> Path(PresP(A, B, f), encodeP(A, B, f, decodeP(A, B, f, p)), p):
++  match p:
++    case (b, a, e):
++      <i> (e @ i, a, <j> e @ iand(i, j))
++
++# Agda:  Iso.leftInv losslessIso a = refl
++def leftInv(A: Set, B: Set, f: A -> B, a: A) -> Path(A, decodeP(A, B, f, encodeP(A, B, f, a)), a):
++  <i> a
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test2.bend b/cubical_test2.bend
+new file mode 100644
+index 0000000..91d9797
+--- /dev/null
++++ b/cubical_test2.bend
+@@ -0,0 +1,40 @@
++# Layer 2: PathP, coe (transport), J with definitional refl, ua.
++
++# transport along a line of types
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++
++# subst: transport along a path in the base of a family
++def subst(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++
++# J, defined by coe along the connection square (no hcomp needed)
++def J(A: Set, a: A, C: all b:A. (Path(A, a, b) -> Set), d: C(a, <_> a), b: A, p: Path(A, a, b)) -> C(b, p):
++  coe(lambda i. C(p @ i, <j> p @ iand(i, j)), i0, i1, d)
++
++# J computes on refl definitionally (regularity)
++def J_refl(A: Set, a: A, C: all b:A. (Path(A, a, b) -> Set), d: C(a, <_> a)) -> Path(C(a, <_> a), J(A, a, C, d, a, <_> a), d):
++  <i> d
++
++# PathP: dependent path over a line of types
++def pathp_const(A: Set, a: A) -> PathP(lambda i. A, a, a):
++  <i> a
++
++# transport along ua computes to the function
++def ua_beta(A: Set, B: Set, f: A -> B, g: B -> A, gf: all x:A. Path(A, g(f(x)), x), fg: all y:B. Path(B, f(g(y)), y), x: A) -> Path(B, transport(lambda i. ua(A, B, f, g, gf, fg) @ i, x), f(x)):
++  <i> f(x)
++
++# transport backwards along ua computes to the inverse
++def ua_beta_inv(A: Set, B: Set, f: A -> B, g: B -> A, gf: all x:A. Path(A, g(f(x)), x), fg: all y:B. Path(B, f(g(y)), y), y: B) -> Path(A, coe(lambda i. ua(A, B, f, g, gf, fg) @ i, i1, i0, y), g(y)):
++  <i> g(y)
++
++# transport in a Pi type (function transport)
++def transport_pi(A: Set, B: Set, C: Set, p: Path(Set, A, B)) -> ((A -> C) -> (B -> C)):
++  lambda h. coe(lambda i. (p @ i) -> C, i0, i1, h)
++
++# transport in a Sigma
++def transport_sig(A: Set, C: Set, D: Set, p: Path(Set, C, D), t: any x:A. C) -> any x:A. D:
++  coe(lambda i. any x:A. (p @ i), i0, i1, t)
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test3.bend b/cubical_test3.bend
+new file mode 100644
+index 0000000..7cd66c7
+--- /dev/null
++++ b/cubical_test3.bend
+@@ -0,0 +1,56 @@
++# Layer 3: derived path algebra, and the ISC coalgebra via Fix.
++
++def subst3(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++
++# path composition, derived from transport (no hcomp needed)
++def pcomp(A: Set, a: A, b: A, c: A, p: Path(A, a, b), q: Path(A, b, c)) -> Path(A, a, c):
++  subst3(A, lambda x. Path(A, a, x), b, c, q, p)
++
++# groupoid laws come out by J; e.g. right unit
++def prunit(A: Set, a: A, b: A, p: Path(A, a, b)) -> Path(Path(A, a, b), pcomp(A, a, b, b, p, <_> b), p):
++  <i> p
++
++# ---- the interactive coalgebra (Fibre.Samvada ISC), one-field form ----
++# ISC Q O E w  =  (q : Q w) -> Σ w'. Σ o : O w q w'. E w q w' o × ISC w'
++# Coinduction via Fix: productivity is not checked (Bend2 has no totality),
++# exactly as Bend2 checks any recursive definition.
++
++def Point3() -> Set:
++  any A: Set. A
++
++def Src3(s: Point3()) -> Set:
++  match s:
++    case (A, a):
++      A
++
++def src3(s: Point3()) -> Src3(s):
++  match s:
++    case (A, a):
++      a
++
++def Question3(s: Point3()) -> Set:
++  any B: Set. (Src3(s) -> B)
++
++def target3(s: Point3(), q: Question3(s)) -> Point3():
++  match q:
++    case (B, f):
++      (B, f(src3(s)))
++
++# Corpus process: at every state, every question gets target + exact
++# residual receipt (a Path) + continuation. Nu-type via Fix.
++def Corpus3(s: Point3()) -> Set:
++  all q: Question3(s).
++  any s2: Point3().
++  any e: Path(Point3(), target3(s, q), s2).
++  Corpus3(s2)
++
++def run3(s: Point3()) -> Corpus3(s):
++  lambda q. (target3(s, q), <_> target3(s, q), run3(target3(s, q)))
++
++# finite observation: two demanded steps compute by refl
++def obs2(A: Set, B: Set, C: Set, a: A, f: A -> B, g: B -> C) -> Path(Point3(), target3(target3((A, a), (B, f)), (C, g)), (C, g(f(a)))):
++  <i> (C, g(f(a)))
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test4.bend b/cubical_test4.bend
+new file mode 100644
+index 0000000..4690383
+--- /dev/null
++++ b/cubical_test4.bend
+@@ -0,0 +1,36 @@
++# Layer 4: hcomp (definitional composition), full iso-univalence, Sup x Path.
++
++def neg4(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++
++def neg_inv(x: Bool) -> Path(Bool, neg4(neg4(x)), x):
++  if x:
++    <i> True
++  else:
++    <i> False
++
++# full iso-univalence: Bool = Bool by negation, with both coherences
++def notPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, lambda x. neg4(x), lambda x. neg4(x), lambda x. neg_inv(x), lambda x. neg_inv(x))
++
++# transport along it computes: True goes to False, definitionally
++def notPath_beta() -> Path(Bool, coe(lambda i. notPath() @ i, i0, i1, True), False):
++  <i> False
++
++# hcomp: definitional path composition
++def pcompH(A: Set, a: A, b: A, c: A, p: Path(A, a, b), q: Path(A, b, c)) -> Path(A, a, c):
++  <i> hcomp(A, i, <j> a, <j> q @ j, p @ i)
++
++# Sup x Path: transport along a superposed line routes by label:
++# the first universe transports along notPath (negation), the second is constant.
++def supLine() -> Interval -> Set:
++  lambda i. &0{notPath() @ i, Bool}
++
++def sup_transport() -> Path(&0{Bool, Bool}, coe(lambda i. supLine()(i), i0, i1, &0{True, True}), &0{False, True}):
++  <i> &0{False, True}
++
++def main() -> Nat:
++  0n
+diff --git a/cubical_test5.bend b/cubical_test5.bend
+new file mode 100644
+index 0000000..c87fae5
+--- /dev/null
++++ b/cubical_test5.bend
+@@ -0,0 +1,35 @@
++# Univalence, finished: both computation rules for ua.
++#   uaβ  : transport along ua e computes to e (definitional; test2/test4)
++#   uaIdEquiv : ua of the identity iso IS refl (conversion)
++#   uaη  : ua(pathToIso p) = p for every p (theorem, by J)
++
++# Iso as a Σ-family
++def Iso5(A: Set, B: Set) -> Set:
++  any f: A -> B.
++  any g: B -> A.
++  any gf: (all x:A. Path(A, g(f(x)), x)).
++  (all y:B. Path(B, f(g(y)), y))
++
++def idIso5(A: Set) -> Iso5(A, A):
++  (lambda x. x, lambda x. x, lambda x. <_> x, lambda y. <_> y)
++
++def ua5(A: Set, B: Set, e: Iso5(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, g, gf, fg):
++      ua(A, B, f, g, gf, fg)
++
++# a path in Set yields an iso, by transport of the identity iso
++def pathToIso(A: Set, B: Set, p: Path(Set, A, B)) -> Iso5(A, B):
++  coe(lambda i. Iso5(A, p @ i), i0, i1, idIso5(A))
++
++# ua of the identity iso is refl — the missing Glue law, now conversion
++def uaIdEquiv(A: Set) -> Path(Path(Set, A, A), ua5(A, A, idIso5(A)), <_> A):
++  <i> <_> A
++
++# the eta round trip: ua(pathToIso(p)) = p, by path induction (J inlined
++# as coe along the connection square)
++def uaEta(A: Set, B: Set, p: Path(Set, A, B)) -> Path(Path(Set, A, B), ua5(A, B, pathToIso(A, B, p)), p):
++  coe(lambda i. Path(Path(Set, A, p @ i), ua5(A, p @ i, pathToIso(A, p @ i, <j> p @ iand(i, j))), <j> p @ iand(i, j)), i0, i1, <i> <_> A)
++
++def main() -> Nat:
++  0n
+diff --git a/equiv.bend b/equiv.bend
+new file mode 100644
+index 0000000..8c01b74
+--- /dev/null
++++ b/equiv.bend
+@@ -0,0 +1,31 @@
++# Coherent equivalence (contractible-fibre isEquiv) — the formulation the
++# review named as required for BOTH univalence round trips.
++
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# Contractibility of the singleton  Σ x. Path(A, x, a)  — the key lemma:
++# centre (a, refl); every (x,p) connects to it by the connection square.
++def isContrSingl(A: Set, a: A) -> isContr(fiber(A, A, lambda x. x, a)):
++  ( (a, <_> a)
++  , lambda w.
++      match w:
++        case (x, p):
++          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) )
++  )
++
++# hence the identity map is an equivalence
++def idEquiv(A: Set) -> Equiv(A, A):
++  ( lambda x. x , lambda y. isContrSingl(A, y) )
++
++def main() -> Nat:
++  0n
+diff --git a/hcompfaces.bend b/hcompfaces.bend
+new file mode 100644
+index 0000000..b4386c2
+--- /dev/null
++++ b/hcompfaces.bend
+@@ -0,0 +1,15 @@
++# General cofibration faces: any interval formula, boundary checked on every
++# DNF cell, tubes checked pairwise on the cells of their overlap.
++#  1. a satisfied face reduces the composite to that tube's cap, definitionally
++#  2. a compound face  ior(i, j)  (three cells) with a constant tube
++#  (binary sugar hcomp(A,r,u0,u1,base) is covered by cubical_test4's pcompH)
++def one() -> Nat:
++  hcompN(Nat, [(i1, <_> 1n)], 1n)
++def one_is_one() -> Nat{one() == 1n}:
++  finally
++def disj(A: Set, a: A, i: Interval, j: Interval) -> A:
++  hcompN(A, [(ior(i, j), <_> a)], a)
++def disj_top(A: Set, a: A) -> A{disj(A, a, i1, i0) == a}:
++  finally
++def main() -> Nat:
++  0n
+diff --git a/hfill.bend b/hfill.bend
+new file mode 100644
+index 0000000..3473798
+--- /dev/null
++++ b/hfill.bend
+@@ -0,0 +1,20 @@
++# hfill(A, [(face, tube)...], base) : Path(A, base, hcompN(A, [(face, tube)...], base))
++def hf(A: Set, x: A, y: A, p: Path(A, x, y), i: Interval) -> Path(A, x, hcompN(A, [(i, <k> p @ k), (inot(i), <k> x)], x)):
++  hfill(A, [(i, <k> p @ k), (inot(i), <k> x)], x)
++
++# the filler at a satisfied face is the tube itself: at i=i1 the composite
++# is p @ i1 = y and the filler is p
++def hf_face(A: Set, x: A, y: A, p: Path(A, x, y)) -> Path(Path(A, x, y), hfill(A, [(i1, <k> p @ k)], x), p):
++  <_> p
++
++# the library's fill0 (Cubical.Foundations.Isomorphism) through hfill, as a
++# path from its cap to its composite
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval) -> Path(A, g(p0 @ inot(i)), hcompN(A, [(i, <k> t(x0) @ k), (inot(i), <k> g(y))], g(p0 @ inot(i)))):
++  hfill(A, [(i, <k> t(x0) @ k), (inot(i), <k> g(y))], g(p0 @ inot(i)))
++
++# MUST FAIL: a filler whose tube does not start at the base
++def wrong(A: Set, x: A, y: A, p: Path(A, x, y), i: Interval) -> Path(A, y, hcompN(A, [(i, <k> p @ k)], y)):
++  hfill(A, [(i, <k> p @ k)], y)
++
++def main() -> Nat:
++  0n
+diff --git a/isoequiv.bend b/isoequiv.bend
+new file mode 100644
+index 0000000..eab7259
+--- /dev/null
++++ b/isoequiv.bend
+@@ -0,0 +1,137 @@
++# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
++# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
++# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
++# A ≃ Σ B (fiber f) at the coherent level, for every f.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
++def Total(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. fiber(A, B, f, b)
++def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  (f(a), a, <_> f(a))
++def untot(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  match w:
++    case (b, a, q):
++      a
++def tot_sec(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> Path(Total(A, B, f), tot(A, B, f, untot(A, B, f, w)), w):
++  match w:
++    case (b, a, q):
++      <i> (q @ i, a, <j> q @ iand(i, j))
++def tot_ret(A: Set, B: Set, f: A -> B, a: A) -> Path(A, untot(A, B, f, tot(A, B, f, a)), a):
++  <_> a
++def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
++  isoToEquiv(A, Total(A, B, f), tot(A, B, f), untot(A, B, f), tot_sec(A, B, f), tot_ret(A, B, f))
++
++
++# ---- ua of the fibre law: the lossless presentation as a PATH in Set,
++# transported natively (coe) — the corpus's factoring a ↦ (f a, a, refl).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def losslessPath(A: Set, B: Set, f: A -> B) -> Path(Set, A, Total(A, B, f)):
++  uaE(A, Total(A, B, f), totalEquiv(A, B, f))
++def present(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  coe(lambda i. losslessPath(A, B, f) @ i, i0, i1, a)
++def retrieve(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  coe(lambda i. losslessPath(A, B, f) @ i, i1, i0, w)
++# transport along the fibre-law path IS the factoring (uaβ), and back
++def present_is_tot(A: Set, B: Set, f: A -> B, a: A) -> Path(Total(A, B, f), present(A, B, f, a), tot(A, B, f, a)):
++  <_> tot(A, B, f, a)
++def retrieve_present(A: Set, B: Set, f: A -> B, a: A) -> Path(A, retrieve(A, B, f, present(A, B, f, a)), a):
++  <_> a
++
++# runtime instance: f = neg on Bool
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def presentNeg(x: Bool) -> Bool:
++  match present(Bool, Bool, neg, x):
++    case (b, a, q):
++      b
++def retrieveNeg(x: Bool) -> Bool:
++  retrieve(Bool, Bool, neg, present(Bool, Bool, neg, x))
++
++# the fibre-contractibility witness (the discriminator's content) executed:
++# contrFib's path from the centre (neg y, refl) to w, observed at both ends.
++# The fibre of neg over y=True is {False}: both ends must be False.
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def contrNeg0() -> Bool:
++  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i0:
++    case (x, _):
++      x
++def contrNeg1() -> Bool:
++  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i1:
++    case (x, _):
++      x
++def main() -> Bool:
++  presentNeg(True)
+diff --git a/isprop.bend b/isprop.bend
+new file mode 100644
+index 0000000..707f2c1
+--- /dev/null
++++ b/isprop.bend
+@@ -0,0 +1,19 @@
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++
++# contractibility is a proposition — needs a general (4-face) hcomp
++def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
++  match c0:
++    case (a0, p0):
++      match c1:
++        case (a1, p1):
++          <i> ( p0(a1) @ i
++              , lambda x. <j> hcompN(A,
++                  [ (inot(i), <k> p0(p0(x) @ j) @ k)
++                  , (i,       <k> p0(p1(x) @ j) @ k)
++                  , (inot(j), <k> p0(p0(a1) @ i) @ k)
++                  , (j,       <k> p0(x) @ k)
++                  ], a0) )
++
++def main() -> Nat:
++  0n
+diff --git a/loop.bend b/loop.bend
+new file mode 100644
+index 0000000..2ac63ac
+--- /dev/null
++++ b/loop.bend
+@@ -0,0 +1,8 @@
++def loop(n: Nat, m: Nat) -> Nat:
++  match n:
++    case 0n:
++      0n
++    case 1n + p:
++      loop(n, p)
++def main() -> Nat:
++  0n
+diff --git a/pth2.bend b/pth2.bend
+new file mode 100644
+index 0000000..c3ea193
+--- /dev/null
++++ b/pth2.bend
+@@ -0,0 +1,7 @@
++# genuinely nonconstant path family: endpoints move along q.
++# family i := Path(Nat, q@i, q@i);  at i0: Path(a,a), at i1: Path(b,b).
++# transport refl(a) along it should land in Path(b,b).
++def moveRefl(a: Nat, b: Nat, q: Path(Nat, a, b)) -> Path(Nat, b, b):
++  coe(lambda i. Path(Nat, q @ i, q @ i), i0, i1, <_> a)
++def main() -> Nat:
++  0n
+diff --git a/pthtransport.bend b/pthtransport.bend
+new file mode 100644
+index 0000000..d47432e
+--- /dev/null
++++ b/pthtransport.bend
+@@ -0,0 +1,13 @@
++# transport a PATH along a nonconstant path family.
++# Family: at interval i, the type is Path(Nat, 0n, s(i)) where s is a path in Nat.
++# Concretely test the simplest nonconstant case: transport reflexivity along
++# a family whose endpoints move, and along a constant family (must be id).
++
++def constFamPath(a: Nat, b: Nat, p: Path(Nat, a, b)) -> Path(Nat, a, b):
++  coe(lambda i. Path(Nat, a, b), i0, i1, p)
++
++def constFam_ok(a: Nat, b: Nat, p: Path(Nat, a, b)) -> Path(Path(Nat, a, b), constFamPath(a, b, p), p):
++  <_> p
++
++def main() -> Nat:
++  0n
+diff --git a/rt.bend b/rt.bend
+new file mode 100644
+index 0000000..5ebafe3
+--- /dev/null
++++ b/rt.bend
+@@ -0,0 +1,15 @@
++def add(a: Nat, b: Nat) -> Nat:
++  match a:
++    case 0n:
++      b
++    case 1n + p:
++      1n + add(p, b)
++def add_comm_stub(a: Nat) -> Nat{add(a,0n) == a}:
++  match a:
++    case 0n:
++      finally
++    case 1n + p:
++      rewrite add_comm_stub(p)
++      finally
++def main() -> Nat:
++  add(add(7n, 8n), 6n)
+diff --git a/run_corpus.bend b/run_corpus.bend
+new file mode 100644
+index 0000000..1cb8f41
+--- /dev/null
++++ b/run_corpus.bend
+@@ -0,0 +1,26 @@
++def mul2(n: Nat) -> Nat:
++  match n:
++    case 0n:
++      0n
++    case 1n + p:
++      2n + mul2(p)
++
++def div2(n: Nat) -> Nat:
++  match n:
++    case 0n:
++      0n
++    case 1n:
++      0n
++    case 2n + p:
++      1n + div2(p)
++
++def div2_mul2(n: Nat) -> Nat{div2(mul2(n)) == n}:
++  match n:
++    case 0n:
++      finally
++    case 1n + p:
++      rewrite div2_mul2(p)
++      finally
++
++def main() -> Nat:
++  div2(mul2(21n))
 diff --git a/src/Core/Analysis.hs b/src/Core/Analysis.hs
 new file mode 100644
 index 0000000..d2d72b0
@@ -307,19 +1079,20 @@ index 939a19f..80c544c 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..eb78af4 100644
+index f94d1ce..c508b93 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
-@@ -5,6 +5,8 @@ module Core.CLI
+@@ -5,6 +5,9 @@ module Core.CLI
    , processFile
    , processFileToJS
    , processFileToHVM
 +  , processFileToHVM4
 +  , processFileToHVM4Raw
++  , processFileTotal
    , listDependencies
    ) where
  
-@@ -23,11 +25,14 @@ import Core.Collapse
+@@ -23,11 +26,14 @@ import Core.Collapse
  import Core.Deps
  import Core.Import (autoImport)
  import Core.Parse.Book (doParseBook)
@@ -334,7 +1107,7 @@ index f94d1ce..eb78af4 100644
  
  -- | Parse a Bend file into a Book
  parseFile :: FilePath -> IO Book
-@@ -59,7 +64,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +65,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -343,7 +1116,7 @@ index f94d1ce..eb78af4 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -123,6 +128,18 @@ processFileToHVM file = do
+@@ -123,6 +129,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -362,11 +1135,30 @@ index f94d1ce..eb78af4 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
+@@ -139,3 +157,18 @@ collectAllRefs (Book defs) =
+   S.unions $ map collectRefsFromDefn (M.elems defs)
+   where
+     collectRefsFromDefn (_, term, typ) = S.union (getDeps term) (getDeps typ)
++
++-- | Gated mode: check everything, then refuse the file if any definition is
++-- [unchecked] by the totality classifier (structural descent / guarded
++-- corecursion are the only accepted shapes).
++processFileTotal :: FilePath -> IO ()
++processFileTotal file = do
++  book@(Book defs) <- parseFile file
++  checkDefinitions book
++  let bad = [ name | (name, (_, term, typ)) <- M.toList defs
++                   , Unchecked <- [rTot (analyze book name term typ)] ]
++  if null bad
++    then putStrLn "\x1b[32m--total: every definition is [total] or [productive]\x1b[0m"
++    else do
++      putStrLn $ "\x1b[31m--total: refused, [unchecked]: " ++ unwords bad ++ "\x1b[0m"
++      exitFailure
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..aee1b3e 100644
+index cdd6756..87ac206 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
-@@ -127,6 +127,70 @@ infer d span book@(Book defs) ctx term =
+@@ -127,6 +127,73 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -430,14 +1222,17 @@ index cdd6756..aee1b3e 100644
 +      Fail $ CantInfer span (formatCtx d book ctx)
 +    PAp p r -> do
 +      check d span book ctx r Itv
-+      pT <- infer d span book ctx p
-+      case force book pT of
-+        Pth t a b -> Done (App t r)
-+        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Pth (Var "_" 0) (Var "_" 0) (Var "_" 0))) (format d book pT)
++      case cut p of
++        PLm _ f -> infer d span book ctx (f r)   -- beta: (<i> t) @ r
++        _ -> do
++          pT <- infer d span book ctx p
++          case force book pT of
++            Pth t a b -> Done (App t r)
++            _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Pth (Var "_" 0) (Var "_" 0) (Var "_" 0))) (format d book pT)
      App f x ->
        case f of
          Lam k body -> do
-@@ -294,6 +358,15 @@ check d span book ctx term goal =
+@@ -294,6 +361,15 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
@@ -453,7 +1248,7 @@ index cdd6756..aee1b3e 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -402,6 +475,9 @@ check d span book ctx term goal =
+@@ -402,6 +478,9 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
@@ -463,7 +1258,7 @@ index cdd6756..aee1b3e 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -435,6 +511,67 @@ check d span book ctx term goal =
+@@ -435,6 +514,99 @@ check d span book ctx term goal =
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -477,7 +1272,7 @@ index cdd6756..aee1b3e 100644
 +      let fs' = [ (force book (go p), go u) | (p,u) <- fs ] in
 +      case [ u | (I1, u) <- fs' ] of
 +        (u : _) -> go (PAp u I1)
-+        []      -> HCm (go a) fs' (go x)
++        []      -> HCm (go a) [ f | f@(p, _) <- fs', notI0 p ] (go x)
 +    PAp p r ->
 +      let p' = go p
 +          r' = go r
@@ -485,7 +1280,17 @@ index cdd6756..aee1b3e 100644
 +           (Just (x, _), I0) -> go x
 +           (Just (_, y), I1) -> go y
 +           _                 -> PAp p' r'
-+    App f x    -> App (go f) (go x)
++    -- A Ref-headed application is unfolded (force) so that endpoint
++    -- redexes inside a lemma's body (e.g. t(x0) @ i1 under an hcomp face)
++    -- are still reduced against the context; without this, conversion
++    -- unfolds the Ref itself and never sees the typed endpoint law.
++    App f x    ->
++      let r = App (go f) (go x) in
++      if unfoldable d book ctx r
++        then case force book r of
++               r' | refHeaded r' -> r'
++                  | otherwise    -> go r'
++        else r
 +    Tup a b    -> Tup (go a) (go b)
 +    SigM x f   -> SigM (go x) (go f)
 +    Suc n      -> Suc (go n)
@@ -503,13 +1308,28 @@ index cdd6756..aee1b3e 100644
 +    Chk x a    -> Chk (go x) (go a)
 +    _          -> t
 +
-+-- The endpoints of a var-headed spine of path type, read from the context.
++refHeaded :: Term -> Bool
++refHeaded t = case cut t of
++  App f _ -> refHeaded f
++  Ref _   -> True
++  _       -> False
++
++notI0 :: Term -> Bool
++notI0 I0 = False
++notI0 _  = True
++
++-- The endpoints of a var- or Ref-headed spine of path type.
 +spineEndpoints :: Int -> Book -> Ctx -> Term -> Maybe (Term, Term)
-+spineEndpoints d book ctx@(Ctx ks) p = do
-+  ty <- spineType (cut p)
++spineEndpoints d book ctx p = do
++  ty <- spineTy d book ctx p
 +  case force book ty of
 +    Pth _ x y -> Just (x, y)
 +    _         -> Nothing
++
++-- The declared type of a var- or Ref-headed spine (context/book lookup,
++-- peeling Pi and Path applications).
++spineTy :: Int -> Book -> Ctx -> Term -> Maybe Term
++spineTy d book (Ctx ks) = spineType
 +  where
 +    spineType t = case cut t of
 +      Var _ i | i < length ks -> let (_, _, ty) = ks !! i in Just ty
@@ -527,10 +1347,18 @@ index cdd6756..aee1b3e 100644
 +          _         -> Nothing
 +      _ -> Nothing
 +
++-- Unfold a Ref-headed application in epNormCtx only when it is saturated
++-- (not a Pi) and not path-typed (where the endpoint law must stay visible).
++unfoldable :: Int -> Book -> Ctx -> Term -> Bool
++unfoldable d book ctx r = refHeaded r && case fmap (force book) (spineTy d book ctx r) of
++  Just (Pth _ _ _) -> False
++  Just (All _ _)   -> False
++  _                -> True
++
  -- Verify that a term has the expected type by inference
  verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
  verify d span book ctx term goal = do
-@@ -468,3 +605,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +640,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -728,7 +1556,7 @@ index 31f1da3..957a3f3 100644
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..5886cd0 100644
+index 146a4d2..fb62482 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
 @@ -62,6 +62,17 @@ parseTermIni = choice
@@ -740,7 +1568,7 @@ index 146a4d2..5886cd0 100644
 +  , parseCoe
 +  , parseUa
 +  , parseHCmN
-+
++  , parseHFill
 +  , parseHCm
 +  , parsePLm
 +  , parseItvKw
@@ -759,7 +1587,7 @@ index 146a4d2..5886cd0 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1025,3 +1037,152 @@ doReadTerm input =
+@@ -1025,3 +1037,181 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -816,6 +1644,35 @@ index 146a4d2..5886cd0 100644
 +  x <- parseTerm
 +  _ <- symbol ")"
 +  return (HCm a fs x)
++  where
++    facePair = do
++      _ <- symbol "("
++      f <- parseTerm
++      _ <- symbol ","
++      u <- parseTerm
++      _ <- symbol ")"
++      _ <- (symbol "," >> return ()) <|> return ()
++      return (f, u)
++
++-- | hfill(A, [(face, tube), ...], base) : the filler, a path from base to
++-- hcompN(A, [(face, tube), ...], base):
++--   <j> hcompN(A, [(face, <k> tube @ iand(j,k)), ..., (inot(j), <k> base)], base)
++parseHFill :: Parser Term
++parseHFill = label "hfill" $ do
++  _ <- try $ keyword "hfill" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ","
++  _ <- symbol "["
++  fs <- many facePair
++  _ <- symbol "]"
++  _ <- symbol ","
++  x <- parseTerm
++  _ <- symbol ")"
++  -- binders are resolved by NAME after parsing, so HOAS application cannot
++  -- substitute here; the tube is applied with PAp and the checker beta-
++  -- reduces `(<k> t) @ r` (Core.Check, PAp of a path lambda).
++  return $ PLm "hfill_j" $ \j ->
++    HCm a ([ (f, PLm "hfill_k" (\k -> PAp u (IAnd j k))) | (f, u) <- fs ] ++ [(INot j, PLm "hfill_k" (\_ -> x))]) x
 +  where
 +    facePair = do
 +      _ <- symbol "("
@@ -1127,10 +1984,10 @@ index a5d92e8..3c3249f 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..71ff3fe 100644
+index 953410d..ca95af5 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,238 @@ whnfGo lv book term =
+@@ -53,9 +53,240 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -1239,7 +2096,9 @@ index 953410d..71ff3fe 100644
 +  let fs' = [ (whnf lv book p, u) | (p, u) <- fs ]
 +  in case [ u | (I1, u) <- fs' ] of
 +       (u : _) -> whnf lv book (PAp u I1)   -- a face holds: the composite is that tube's cap
-+       []      -> HCm a fs' x
++       []      -> HCm a [ f | f@(p, _) <- fs', notI0 p ] x   -- false faces contribute nothing
++  where notI0 I0 = False
++        notI0 _  = True
 +
 +-- coe: generalized transport along a type line P from r to s.
 +whnfCoe :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
@@ -1369,7 +2228,7 @@ index 953410d..71ff3fe 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +630,41 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +632,41 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -1411,7 +2270,7 @@ index 953410d..71ff3fe 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +749,18 @@ normal d book term =
+@@ -485,6 +751,18 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -1431,10 +2290,29 @@ index 953410d..71ff3fe 100644
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..e27bf77 100644
+index 996bb26..6e3f7e2 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
-@@ -28,6 +28,11 @@ prelude = unlines [
+@@ -6,6 +6,7 @@ module Target.HVM where
+ 
+ import Control.Monad (forM)
+ import Core.Type
++import Core.WHNF (force)
+ import Data.Either (partitionEithers)
+ import Data.List (isInfixOf, unsnoc)
+ import Debug.Trace
+@@ -15,8 +16,8 @@ import qualified Data.Set as S
+ import qualified HVM.Type as HVM
+ 
+ compile :: Book -> String
+-compile (Book defs) =
+-  let ds       = map compileDef (M.toList defs)
++compile book@(Book defs) =
++  let ds       = map (compileDef book) (M.toList defs)
+       (ts, fs) = partitionEithers ds
+   in prelude ++ unlines ts ++ unlines fs
+ 
+@@ -28,6 +29,11 @@ prelude = unlines [
      "data Nat { #Z #S{n} }",
      "data Pair { #P{fst snd} }",
      "@fix(&f) = (f @fix(f))",
@@ -1446,10 +2324,194 @@ index 996bb26..e27bf77 100644
      "@main = @main$",
      "",
      "// Bend to HVM Compiler Output",
-@@ -202,11 +207,47 @@ termToHVM ctx tm = go tm where
+@@ -36,12 +42,12 @@ prelude = unlines [
+   ]
+ 
+ -- Compile a Bend function to an HVM definition
+-compileDef :: (Name, Defn) -> Either String String
+-compileDef (nam, (_, tm, ty)) 
++compileDef :: Book -> (Name, Defn) -> Either String String
++compileDef book (nam, (_, tm, ty)) 
+   -- TODO: Remove proof fields?
+   | (Just (_, ctrs)) <- extractTypeDef tm = Left (compileType nam ctrs)
+   -- TODO: Function arguments
+-  | otherwise = Right (compileFn nam tm)
++  | otherwise = Right (compileFn book nam tm)
+ 
+ compileType :: Name -> [(Name, [Name])] -> String
+ compileType nam ctrs = unlines $
+@@ -50,8 +56,8 @@ compileType nam ctrs = unlines $
+   ]
+   where compileCtr (nam, fds) = "#" ++ (hvmNam nam) ++ "{" ++ unwords fds ++ "}"
+ 
+-compileFn :: Name -> Term -> String
+-compileFn nam tm = "@" ++ (hvmNam nam) ++ " = " ++ HVM.showCore (termToHVM MS.empty tm)
++compileFn :: Book -> Name -> Term -> String
++compileFn book nam tm = "@" ++ (hvmNam nam) ++ " = " ++ HVM.showCore (termToHVM book MS.empty tm)
+ 
+ -- Extract constructor definition info from type definitions
+ extractTypeDef :: Term -> Maybe ([Name], [(Name, [Name])])
+@@ -81,8 +87,8 @@ extractTypeDef tm = do
+     subst a f = f (Var a 0)
+ 
+ 
+-termToHVM :: MS.Map Name HVM.Name -> Term -> HVM.Core
+-termToHVM ctx tm = go tm where
++termToHVM :: Book -> MS.Map Name HVM.Name -> Term -> HVM.Core
++termToHVM book ctx tm = go tm where
+   subst a f = f (Var a 0)
+ 
+   go (Var n i) =
+@@ -90,62 +96,62 @@ termToHVM ctx tm = go tm where
+       Just n  -> HVM.Var n
+       Nothing -> HVM.Var n
+   go (Ref k)      = HVM.Ref (hvmNam k) 0 [] -- TODO: Ref arguments
+-  go (Sub t)      = termToHVM ctx t
+-  go (Fix n f)    = HVM.Ref "fix" 0 [HVM.Lam ('&':n) (termToHVM (MS.insert n n ctx) (f (Var n 0)))]
+-  go (Let v f)    = HVM.App (termToHVM ctx f) (termToHVM ctx v)
++  go (Sub t)      = termToHVM book ctx t
++  go (Fix n f)    = HVM.Ref "fix" 0 [HVM.Lam ('&':n) (termToHVM book (MS.insert n n ctx) (f (Var n 0)))]
++  go (Let v f)    = HVM.App (termToHVM book ctx f) (termToHVM book ctx v)
+   go Set          = HVM.Era
+-  go (Chk v t)    = termToHVM ctx v
++  go (Chk v t)    = termToHVM book ctx v
+   go Emp          = HVM.Era
+   go (EmpM x)     = HVM.Era
+   go Uni          = HVM.Era
+   go One          = HVM.U32 1
+-  go (UniM x f)   = termToHVM ctx f
++  go (UniM x f)   = termToHVM book ctx f
+   go Bit          = HVM.Era
+   go Bt0          = HVM.U32 0
+   go Bt1          = HVM.U32 1
+-  go (BitM x f t) = HVM.Mat HVM.SWI (termToHVM ctx x) [] [("0", [], termToHVM ctx f), ("_", [], termToHVM ctx t)]
++  go (BitM x f t) = HVM.Mat HVM.SWI (termToHVM book ctx x) [] [("0", [], termToHVM book ctx f), ("_", [], termToHVM book ctx t)]
+   go Nat          = HVM.Era
+   go Zer          = HVM.Ctr "#Z" []
+-  go (Suc p)      = HVM.Ctr "#S" [termToHVM ctx p]
+-  go (NatM x z s) = HVM.Mat (HVM.MAT 0) (termToHVM ctx x) [] [("#Z", [], termToHVM ctx z), ("#S", [], termToHVM ctx s)]
++  go (Suc p)      = HVM.Ctr "#S" [termToHVM book ctx p]
++  go (NatM x z s) = HVM.Mat (HVM.MAT 0) (termToHVM book ctx x) [] [("#Z", [], termToHVM book ctx z), ("#S", [], termToHVM book ctx s)]
+   go (Lst t)      = HVM.Era
+   go Nil          = HVM.Ctr "#Nil" []
+-  go (Con h t)    = HVM.Ctr "#Cons" [termToHVM ctx h, termToHVM ctx t]
+-  go (LstM x n c) = HVM.Mat (HVM.MAT 0) (termToHVM ctx x) [] [("#Nil", [], termToHVM ctx n), ("#Cons", [], termToHVM ctx c)]
++  go (Con h t)    = HVM.Ctr "#Cons" [termToHVM book ctx h, termToHVM book ctx t]
++  go (LstM x n c) = HVM.Mat (HVM.MAT 0) (termToHVM book ctx x) [] [("#Nil", [], termToHVM book ctx n), ("#Cons", [], termToHVM book ctx c)]
+   go (Enu s)      = HVM.Era
+   go (Sym s)      = error "TODO: bare Sym toHVM"
+   go (EnuM x c e) = error "TODO: bare EnuM toHVM"
+-  go (Log s x)    = termToHVM ctx x  -- For HVM, just return the result expression
++  go (Log s x)    = termToHVM book ctx x  -- For HVM, just return the result expression
+   go (Num _)      = HVM.Era
+   go (Val (U64_V v)) = HVM.U32 (fromIntegral v)
+   go (Val (I64_V v)) = HVM.Era
+   go (Val (F64_V v)) = HVM.Era
+   go (Val (CHR_V c)) = HVM.Chr c
+   go (Op2 o a b)  = op2ToHVM o a b where
+-    op2ToHVM ADD a b = HVM.Op2 HVM.OP_ADD (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM SUB a b = HVM.Op2 HVM.OP_SUB (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM MUL a b = HVM.Op2 HVM.OP_MUL (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM DIV a b = HVM.Op2 HVM.OP_DIV (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM MOD a b = HVM.Op2 HVM.OP_MOD (termToHVM ctx a) (termToHVM ctx b)
++    op2ToHVM ADD a b = HVM.Op2 HVM.OP_ADD (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM SUB a b = HVM.Op2 HVM.OP_SUB (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM MUL a b = HVM.Op2 HVM.OP_MUL (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM DIV a b = HVM.Op2 HVM.OP_DIV (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM MOD a b = HVM.Op2 HVM.OP_MOD (termToHVM book ctx a) (termToHVM book ctx b)
+     op2ToHVM POW a b = error "TODO"
+-    op2ToHVM EQL a b = HVM.Op2 HVM.OP_EQ  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM NEQ a b = HVM.Op2 HVM.OP_NE  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM LST a b = HVM.Op2 HVM.OP_LT  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM GRT a b = HVM.Op2 HVM.OP_GT  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM LEQ a b = HVM.Op2 HVM.OP_LTE (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM GEQ a b = HVM.Op2 HVM.OP_GTE (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM AND a b = HVM.Op2 HVM.OP_AND (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM OR  a b = HVM.Op2 HVM.OP_OR  (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM XOR a b = HVM.Op2 HVM.OP_XOR (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM SHL a b = HVM.Op2 HVM.OP_LSH (termToHVM ctx a) (termToHVM ctx b)
+-    op2ToHVM SHR a b = HVM.Op2 HVM.OP_RSH (termToHVM ctx a) (termToHVM ctx b)
++    op2ToHVM EQL a b = HVM.Op2 HVM.OP_EQ  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM NEQ a b = HVM.Op2 HVM.OP_NE  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM LST a b = HVM.Op2 HVM.OP_LT  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM GRT a b = HVM.Op2 HVM.OP_GT  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM LEQ a b = HVM.Op2 HVM.OP_LTE (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM GEQ a b = HVM.Op2 HVM.OP_GTE (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM AND a b = HVM.Op2 HVM.OP_AND (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM OR  a b = HVM.Op2 HVM.OP_OR  (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM XOR a b = HVM.Op2 HVM.OP_XOR (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM SHL a b = HVM.Op2 HVM.OP_LSH (termToHVM book ctx a) (termToHVM book ctx b)
++    op2ToHVM SHR a b = HVM.Op2 HVM.OP_RSH (termToHVM book ctx a) (termToHVM book ctx b)
+   go (Op1 o a)    = op1ToHVM o a where
+     op1ToHVM NOT = error "TODO"
+     op1ToHVM NEG = error "TODO"
+   go (Sig _ _)    = HVM.Era
+   go (Tup x y) = case extractCtr x y of
+-      Just (k, x) -> HVM.Ctr ('#':hvmNam k) (map (termToHVM ctx) x)
+-      Nothing     -> HVM.Ctr "#P" [termToHVM ctx x, termToHVM ctx y]
++      Just (k, x) -> HVM.Ctr ('#':hvmNam k) (map (termToHVM book ctx) x)
++      Nothing     -> HVM.Ctr "#P" [termToHVM book ctx x, termToHVM book ctx y]
+     where 
+       extractCtr (Sym k) y = 
+         case unsnoc (flattenTup y) of
+@@ -153,8 +159,8 @@ termToHVM ctx tm = go tm where
+           _              -> Nothing
+       extractCtr _ _ = Nothing
+   go (SigM x f)  = case extractCtrM f of
+-      Just (cs,t,b,d) -> HVM.Let HVM.LAZY t (termToHVM ctx x) (matToHVM ctx t b cs d) -- TODO: Default case should rewrite (ctrNam, ctrBod) to the default case var
+-      Nothing         -> HVM.Mat (HVM.MAT 0) (termToHVM ctx x) [] [("#P", [], termToHVM ctx f)]
++      Just (cs,t,b,d) -> HVM.Let HVM.LAZY t (termToHVM book ctx x) (matToHVM ctx t b cs d) -- TODO: Default case should rewrite (ctrNam, ctrBod) to the default case var
++      Nothing         -> HVM.Mat (HVM.MAT 0) (termToHVM book ctx x) [] [("#P", [], termToHVM book ctx f)]
+     where
+       extractCtrM :: Term -> Maybe ([(Name, [Name], Term)], Name, Name, Term)
+       extractCtrM (Lam a (subst a -> Lam bodK (subst bodK -> EnuM (Var x _) cs (Lam tagK (subst tagK -> dflt))))) =
+@@ -173,40 +179,81 @@ termToHVM ctx tm = go tm where
+       flattenCtrM _ _ _ = Nothing
+ 
+       matToHVM :: MS.Map Name HVM.Name -> Name -> Name -> [(Name, [Name], Term)] -> Term -> HVM.Core
+-      matToHVM ctx t b [(ctr,fds,bod)]    d = mkIfl t ctr (termToHVM ctx bod) fds d' -- Make dflt case match entire ctr, not just the tag
+-                                     where d' = (rewriteHVM (HVM.Ctr "#P" [HVM.Var t, HVM.Var b]) (HVM.Var t) (termToHVM ctx d))
+-      matToHVM ctx t b ((ctr,fds,bod):cs) d = mkIfl t ctr (termToHVM ctx bod) fds (matToHVM ctx t b cs d)
++      matToHVM ctx t b [(ctr,fds,bod)]    d = mkIfl t ctr (termToHVM book ctx bod) fds d' -- Make dflt case match entire ctr, not just the tag
++                                     where d' = (rewriteHVM (HVM.Ctr "#P" [HVM.Var t, HVM.Var b]) (HVM.Var t) (termToHVM book ctx d))
++      matToHVM ctx t b ((ctr,fds,bod):cs) d = mkIfl t ctr (termToHVM book ctx bod) fds (matToHVM ctx t b cs d)
+       matToHVM _ _ _ _ _ = error "matToHVM: unreachable"
+ 
+       mkIfl x ctr bod fds d = HVM.Mat (HVM.IFL 0) (HVM.Var x) [] [('#':hvmNam ctr, [], foldr HVM.Lam bod (map ('&':) (reverse fds))), (('&':x), [], d)]
+   go (All _ _)    = HVM.Era
+-  go (Lam n f)    = HVM.Lam ('&':n) (termToHVM (MS.insert n n ctx) (f (Var n 0)))
+-  go (App f x)    = HVM.App (termToHVM ctx f) (termToHVM ctx x)
++  go (Lam n f)    = HVM.Lam ('&':n) (termToHVM book (MS.insert n n ctx) (f (Var n 0)))
++  go (App f x)    = HVM.App (termToHVM book ctx f) (termToHVM book ctx x)
+   go (Eql _ _ _)  = HVM.Era
+   go Rfl          = HVM.Era
+-  go (EqlM x f)   = termToHVM ctx f
++  go (EqlM x f)   = termToHVM book ctx f
+   go (Met n t ts) = HVM.Era -- TODO: Met
+-  go (Ind t)      = termToHVM ctx t
+-  go (Frz t)      = termToHVM ctx t
++  go (Ind t)      = termToHVM book ctx t
++  go (Frz t)      = termToHVM book ctx t
+   go Era          = HVM.Era
+-  go (Sup l a b)  = HVM.Ref "SUP" 0 [termToHVM ctx l, termToHVM ctx a, termToHVM ctx b]
+-  go (SupM x l f) = HVM.Ref "DUP" 0 [termToHVM ctx l, termToHVM ctx x, termToHVM ctx f]
++  go (Sup l a b)  = HVM.Ref "SUP" 0 [termToHVM book ctx l, termToHVM book ctx a, termToHVM book ctx b]
++  go (SupM x l f) = HVM.Ref "DUP" 0 [termToHVM book ctx l, termToHVM book ctx x, termToHVM book ctx f]
+   go (Frk l a b)  = tmLab where
+     -- Only fork variables free in the bodies of a and b
+-    tmLab             = HVM.Let HVM.STRI "&L$" (termToHVM ctx l) tmDup 
++    tmLab             = HVM.Let HVM.STRI "&L$" (termToHVM book ctx l) tmDup 
+     tmDup             = foldr dup tmSup vars
+-    tmSup             = HVM.Ref "SUP" 0 [HVM.Var "L$", termToHVM ctxA a, termToHVM ctxB b]
++    tmSup             = HVM.Ref "SUP" 0 [HVM.Var "L$", termToHVM book ctxA a, termToHVM book ctxB b]
+     dup (_,v,(a,b)) x = HVM.Ref "DUP" 0 [HVM.Var "L$", HVM.Var v, HVM.Lam ('&':a) (HVM.Lam ('&':b) x)]
+     vars              = [(k, v, (suff v "0", suff v "1")) | (k, v) <- MS.toList ctx, k `S.member` free]
+     free              = freeVars S.empty a `S.union` freeVars S.empty b
      suff v s          = if "$$" `isInfixOf` v then v ++ s else v ++ "$$" ++ s
      ctxA              = MS.fromList [(k, a) | (k, _, (a, _)) <- vars]
      ctxB              = MS.fromList [(k, b) | (k, _, (_, b)) <- vars]
+-  go (Loc s t)    = termToHVM ctx t
+-  go (Rwt _ _ x)  = termToHVM ctx x
 +  -- cubical layer (faithful: transport is applied, never erased)
 +  go Itv          = HVM.Era
 +  go I0           = HVM.Era
@@ -1458,17 +2520,22 @@ index 996bb26..e27bf77 100644
 +  go (IAnd _ _)   = HVM.Era
 +  go (IOr _ _)    = HVM.Era
 +  go (Pth _ _ _)  = HVM.Era
-+  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else termToHVM ctx b
-+  go (PAp p _)    = termToHVM ctx p
-+  go (HCm _ _ x)  = termToHVM ctx x
-+  go (Ua _ _ f g _ _) = HVM.Lam "&k" (HVM.App (HVM.App (HVM.Var "k") (termToHVM ctx f)) (termToHVM ctx g))
++  go (PLm _ f)    = let b = f Era in if isTypeLine b then HVM.Ref "cub_idPath" 0 [] else termToHVM book ctx b
++  -- a literal endpoint is resolved before erasure (p @ i1 of an hcomp is
++  -- the tube top, not the cap)
++  go (PAp p r)    = case cut r of
++      I0 -> termToHVM book ctx (force book (PAp p r))
++      I1 -> termToHVM book ctx (force book (PAp p r))
++      _  -> termToHVM book ctx p
++  go (HCm _ _ x)  = termToHVM book ctx x
++  go (Ua _ _ f g _ _) = HVM.Lam "&k" (HVM.App (HVM.App (HVM.Var "k") (termToHVM book ctx f)) (termToHVM book ctx g))
 +  go (Coe pP r s x) = case pathLineHead pP of
 +      Just pth -> case (cut r, cut s) of
-+        (I1, I0) -> HVM.App (HVM.App (HVM.Ref "cub_pathBwd" 0 []) (termToHVM ctx pth)) (termToHVM ctx x)
-+        _        -> HVM.App (HVM.App (HVM.Ref "cub_pathFwd" 0 []) (termToHVM ctx pth)) (termToHVM ctx x)
-+      Nothing  -> termToHVM ctx x
-   go (Loc s t)    = termToHVM ctx t
-   go (Rwt _ _ x)  = termToHVM ctx x
++        (I1, I0) -> HVM.App (HVM.App (HVM.Ref "cub_pathBwd" 0 []) (termToHVM book ctx pth)) (termToHVM book ctx x)
++        _        -> HVM.App (HVM.App (HVM.Ref "cub_pathFwd" 0 []) (termToHVM book ctx pth)) (termToHVM book ctx x)
++      Nothing  -> termToHVM book ctx x
++  go (Loc s t)    = termToHVM book ctx t
++  go (Rwt _ _ x)  = termToHVM book ctx x
    go (Pri p)      = HVM.Era
    go (Pat x m c)  = HVM.Era
  
@@ -1496,10 +2563,10 @@ index 996bb26..e27bf77 100644
  
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..585aed9
+index 0000000..2bfb1eb
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,183 @@
+@@ -0,0 +1,188 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -1520,7 +2587,7 @@ index 0000000..585aed9
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (normal)
++import Core.WHNF (normal, force)
 +
 +compile :: Book -> String
 +compile book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
@@ -1615,7 +2682,12 @@ index 0000000..585aed9
 +
 +    -- cubical: paths pass through content, interval arg erased; types erase
 +    PLm _ f        -> let b = f Era in if isTypeLine b then "@cub_idPath" else go d b
-+    PAp p _        -> go d p
++    -- a literal endpoint is resolved before erasure: `p @ i1` where p is a
++    -- path lambda / hcomp must yield the tube top, never the erased body.
++    PAp p r        -> case cut r of
++                        I0 -> go d (force book (PAp p r))
++                        I1 -> go d (force book (PAp p r))
++                        _  -> go d p
 +    Coe pP r s x   -> case pathLineHead pP of
 +                        -- coe along a universe path `<i> P @ i`: run the
 +                        -- path's forward transport (its runtime rep) on x.
@@ -1683,3 +2755,216 @@ index 0000000..585aed9
 +  op2 EQL = "=="; op2 NEQ = "!="; op2 LST = "<"; op2 GRT = ">"
 +  op2 LEQ = "<="; op2 GEQ = ">="; op2 AND = "&&"; op2 OR = "||"
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
+diff --git a/t_bwd_id.bend b/t_bwd_id.bend
+new file mode 100644
+index 0000000..a736040
+--- /dev/null
++++ b/t_bwd_id.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathBwd(Bool, Bool, idPath(), True)
+diff --git a/t_bwd_neg.bend b/t_bwd_neg.bend
+new file mode 100644
+index 0000000..24b5c95
+--- /dev/null
++++ b/t_bwd_neg.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathBwd(Bool, Bool, negPath(), True)
+diff --git a/t_fwd_id.bend b/t_fwd_id.bend
+new file mode 100644
+index 0000000..8890671
+--- /dev/null
++++ b/t_fwd_id.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathFwd(Bool, Bool, idPath(), True)
+diff --git a/t_fwd_neg.bend b/t_fwd_neg.bend
+new file mode 100644
+index 0000000..4e983fe
+--- /dev/null
++++ b/t_fwd_neg.bend
+@@ -0,0 +1,20 @@
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negPath() -> Path(Set, Bool, Bool):
++  ua(Bool, Bool, neg, neg, negLnv, negLnv)
++def idPath() -> Path(Set, Bool, Bool):
++  <_> Bool
++def applyPathFwd(A: Set, B: Set, p: Path(Set, A, B), x: A) -> B:
++  coe(lambda i. p @ i, i0, i1, x)
++def applyPathBwd(A: Set, B: Set, p: Path(Set, A, B), y: B) -> A:
++  coe(lambda i. p @ i, i1, i0, y)
++def main() -> Bool:
++  applyPathFwd(Bool, Bool, negPath(), True)
+diff --git a/uaequiv.bend b/uaequiv.bend
+new file mode 100644
+index 0000000..1f164e6
+--- /dev/null
++++ b/uaequiv.bend
+@@ -0,0 +1,84 @@
++# The REVERSE univalence round trip, at the COHERENT (contractible-fibre)
++# level: pathToEquiv(ua(e)) = e.  Needs isPropIsContr (general hcomp).
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++def isContrSingl(A: Set, a: A) -> isContr(fiber(A, A, lambda x. x, a)):
++  ( (a, <_> a)
++  , lambda w.
++      match w:
++        case (x, p):
++          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) )
++  )
++def idEquiv(A: Set) -> Equiv(A, A):
++  ( lambda x. x , lambda y. isContrSingl(A, y) )
++
++# contractibility is a proposition (4-face hcomp)
++def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
++  match c0:
++    case (a0, p0):
++      match c1:
++        case (a1, p1):
++          <i> ( p0(a1) @ i
++              , lambda x. <j> hcompN(A,
++                  [ (inot(i), <k> p0(p0(x) @ j) @ k)
++                  , (i,       <k> p0(p1(x) @ j) @ k)
++                  , (inot(j), <k> p0(p0(a1) @ i) @ k)
++                  , (j,       <k> p0(x) @ k)
++                  ], a0) )
++
++# hence being an equivalence is a proposition, pointwise
++def isPropIsEquiv(A: Set, B: Set, f: A -> B, h0: isEquiv(A, B, f), h1: isEquiv(A, B, f)) -> Path(isEquiv(A, B, f), h0, h1):
++  <i> lambda y. isPropIsContr(fiber(A, B, f, y), h0(y), h1(y)) @ i
++
++# inverse data from a contractible fibre, matching the isContr VALUE (a
++# variable), so the goal refines — never matching a neutral h(y).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def pathToEquiv(A: Set, B: Set, p: Path(Set, A, B)) -> Equiv(A, B):
++  coe(lambda i. Equiv(A, p @ i), i0, i1, idEquiv(A))
++
++def fstE(A: Set, B: Set, e: Equiv(A, B)) -> (A -> B):
++  match e:
++    case (f, _):
++      f
++def sndE(A: Set, B: Set, e: Equiv(A, B)) -> isEquiv(A, B, fstE(A, B, e)):
++  match e:
++    case (_, h):
++      h
++
++# THE ROUND TRIP: first component is f by uaβ (definitional), second by isPropIsEquiv.
++def uaEquivRoundTrip(A: Set, B: Set, e: Equiv(A, B)) -> Path(Equiv(A, B), pathToEquiv(A, B, uaE(A, B, e)), e):
++  match e:
++    case (f, h):
++      <i> ( f
++          , isPropIsEquiv(A, B, f, sndE(A, B, pathToEquiv(A, B, uaE(A, B, (f, h)))), h) @ i )
++
++def main() -> Nat:
++  0n
+diff --git a/uaroundtrip.bend b/uaroundtrip.bend
+new file mode 100644
+index 0000000..b1f06d6
+--- /dev/null
++++ b/uaroundtrip.bend
+@@ -0,0 +1,13 @@
++def Iso5(A: Set, B: Set) -> Set:
++  any f: A -> B. any g: B -> A. any gf: (all x:A. Path(A, g(f(x)), x)). (all y:B. Path(B, f(g(y)), y))
++def ua5(A: Set, B: Set, e: Iso5(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, g, gf, fg):
++      ua(A, B, f, g, gf, fg)
++def pathToIso(A: Set, B: Set, p: Path(Set, A, B)) -> Iso5(A, B):
++  coe(lambda i. Iso5(A, p @ i), i0, i1, (lambda x. x, lambda x. x, lambda x. <_> x, lambda y. <_> y))
++# the OTHER round trip, at the full Iso record level:
++def uaRoundTrip(A: Set, B: Set, e: Iso5(A, B)) -> Iso5(A, B){pathToIso(A, B, ua5(A, B, e)) == e}:
++  finally
++def main() -> Nat:
++  0n
