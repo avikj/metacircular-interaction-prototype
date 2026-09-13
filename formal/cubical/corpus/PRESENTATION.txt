@@ -1,0 +1,50 @@
+════════ CORPUS SELF-PRESENTATION ════════
+checked public declarations : 14114
+meaning-loci (Π-arity, head): 2154
+observation q(decl) = (dependent Π-arity, elaborated conclusion head)
+each LOCUS lists its residual fibre — the declarations sharing that observation
+
+──── loci by residual size (largest first) ────
+LOCUS  Π0   Agda.Builtin.Cubical.Path._≡_           residual=1509
+LOCUS  Π1   Agda.Builtin.Cubical.Path._≡_           residual=1028
+LOCUS  Π0   Sort                                      residual=681
+LOCUS  Π2   Agda.Builtin.Cubical.Path._≡_           residual=637
+LOCUS  Π0   Cubical.Relation.Nullary.Base.¬_         residual=617
+LOCUS  Π3   Agda.Builtin.Cubical.Path._≡_           residual=520
+LOCUS  Π2   Sort                                      residual=394
+LOCUS  Π1   Sort                                      residual=389
+LOCUS  Π1   Agda.Builtin.Nat.Nat                      residual=346
+LOCUS  Π1   Agda.Builtin.Bool.Bool                    residual=270
+LOCUS  Π4   Agda.Builtin.Cubical.Path._≡_           residual=248
+LOCUS  Π2   Agda.Builtin.Bool.Bool                    residual=244
+LOCUS  Π2   Agda.Builtin.Nat.Nat                      residual=229
+LOCUS  Π3   Sort                                      residual=214
+LOCUS  Π1   Cubical.Data.Empty.Base.⊥               residual=141
+LOCUS  Π5   Agda.Builtin.Cubical.Path._≡_           residual=136
+LOCUS  Π0   Agda.Builtin.List.List                    residual=123
+LOCUS  Π0   Agda.Builtin.Cubical.Equiv._≃_          residual=117
+LOCUS  Π1   Cubical.Data.Int.Base.ℤ                 residual=112
+LOCUS  Π0   Cubical.Data.Sigma.Base._×_              residual=103
+LOCUS  Π4   Sort                                      residual=102
+LOCUS  Π6   Agda.Builtin.Cubical.Path._≡_           residual=96
+LOCUS  Π1   Cubical.Data.Sigma.Base._×_              residual=96
+LOCUS  Π3   Agda.Builtin.Nat.Nat                      residual=86
+LOCUS  Π1   Cubical.Relation.Nullary.Base.¬_         residual=78
+LOCUS  Π2   Cubical.Data.Int.Base.ℤ                 residual=70
+LOCUS  Π1   Agda.Builtin.List.List                    residual=70
+LOCUS  Π2   Cubical.Relation.Nullary.Base.¬_         residual=69
+LOCUS  Π2   Agda.Builtin.List.List                    residual=66
+LOCUS  Π7   Agda.Builtin.Cubical.Path._≡_           residual=62
+LOCUS  Π5   Sort                                      residual=60
+LOCUS  Π0   Cubical.Foundations.Isomorphism.Iso       residual=60
+LOCUS  Π1   Agda.Builtin.Unit.⊤                     residual=52
+LOCUS  Π1   Agda.Builtin.Cubical.Equiv._≃_          residual=46
+LOCUS  Π0   Agda.Builtin.Nat.Nat                      residual=45
+LOCUS  Π6   Sort                                      residual=44
+LOCUS  Π2   Cubical.Core.Primitives.Σ-syntax         residual=42
+LOCUS  Π4   Agda.Builtin.Nat.Nat                      residual=39
+LOCUS  Π3   Cubical.Relation.Nullary.Base.¬_         residual=37
+LOCUS  Π2   Agda.Builtin.Cubical.Equiv._≃_          residual=37
+
+──── singleton loci (unique observation — a declaration alone at its locus) ────
+count: 1330
