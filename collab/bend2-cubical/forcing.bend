@@ -202,5 +202,74 @@ def cwFst(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(A, eq
 def cwSnd(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A)
   -> PathP(lambda j. Path(Ap, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a)), eqS(A,Ap,ef,h,ef(a)), <_> ef(a)):
   <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): q)
+def lUnit(A: Set, x: A, z: A, p: Path(A, x, z)) -> Path(Path(A, x, z), pcomp(A, x, x, z, <_> x, p), p):
+  <m> <i> hcompN(A, [ (inot(i), <_> x), (i, <j> p @ j), (m, <j> p @ iand(i, j)) ], x)
+def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
+  match w:
+    case (a, p): (ef(a), p)
+def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
+  match w:
+    case (a2, p):
+      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
+# path1: fpInv(fpFun(a,p)) -> (a, pcomp(refl, p)), driven by the coherent contraction
+def fpPath1(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, a: A, p: Path(B, g(ef(a)), b))
+  -> Path(fiber(A, B, lambda a2. g(ef(a2)), b),
+          (eqG(A,Ap,ef,h,ef(a)), pcomp(B, g(ef(eqG(A,Ap,ef,h,ef(a)))), g(ef(a)), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,ef(a))), ef(a), eqS(A,Ap,ef,h,ef(a))), p)),
+          (a, pcomp(B, g(ef(a)), g(ef(a)), b, <_> g(ef(a)), p))):
+  <j> ( cwFst(A,Ap,ef,h,a) @ j
+      , pcomp(B, g(ef(cwFst(A,Ap,ef,h,a) @ j)), g(ef(a)), b, ap(Ap,B,g, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a), cwSnd(A,Ap,ef,h,a) @ j), p) )
+def fpRet(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b))
+  -> Path(fiber(A, B, lambda a. g(ef(a)), b), fpInv(A,Ap,B,ef,h,g,b, fpFun(A,Ap,B,ef,g,b,w)), w):
+  match w:
+    case (a, p):
+      pcomp(fiber(A, B, lambda a2. g(ef(a2)), b),
+            (eqG(A,Ap,ef,h,ef(a)), pcomp(B, g(ef(eqG(A,Ap,ef,h,ef(a)))), g(ef(a)), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,ef(a))), ef(a), eqS(A,Ap,ef,h,ef(a))), p)),
+            (a, pcomp(B, g(ef(a)), g(ef(a)), b, <_> g(ef(a)), p)),
+            (a, p),
+            fpPath1(A,Ap,B,ef,h,g,b,a,p),
+            <k> (a, lUnit(B, g(ef(a)), b, p) @ k))
+def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
+  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
+  match w:
+    case (a2, p):
+      <j> ( eqS(A,Ap,ef,h,a2) @ j
+          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
+def fiberPrecomp(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B)
+  -> Equiv(fiber(A, B, lambda a. g(ef(a)), b), fiber(Ap, B, g, b)):
+  isoToEquiv(fiber(A, B, lambda a. g(ef(a)), b), fiber(Ap, B, g, b),
+    lambda w. fpFun(A,Ap,B,ef,g,b,w), lambda w. fpInv(A,Ap,B,ef,h,g,b,w),
+    lambda w. fpSec(A,Ap,B,ef,h,g,b,w), lambda w. fpRet(A,Ap,B,ef,h,g,b,w))
+
+# THE FORCING THEOREM.  A Conservative factorisation of A over B, and its
+# induced visible map `run`; the trace family is FORCED to be run's fibre.
+def Conservative(A: Set, B: Set) -> Set:
+  any T: (B -> Set). Equiv(A, SigT(B,T))
+def cRun(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), a: A) -> B:
+  fstT(B, T, wf(a))
+def fibreOfRun(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), b: B)
+  -> Equiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b)):
+  compEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
+            fiberPrecomp(A, SigT(B,T), B, wf, wh, lambda s. fstT(B,T,s), b),
+            fiberFst(B, T, b))
+# and the constraint reading: the trace is the fibre, no smaller residue exists
+def traceIsForced(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), b: B)
+  -> Equiv(T(b), fiber(A, B, lambda a. cRun(A,B,T,wf,a), b)):
+  invEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b))
+# transport contractibility along an equivalence
+def isContrRespectEquiv(A: Set, B: Set, e: Equiv(A,B), c: isContr(A)) -> isContr(B):
+  match e:
+    case (f, h):
+      match c:
+        case (cA, hA):
+          ( f(cA)
+          , lambda y. pcomp(B, f(cA), f(eqG(A,B,f,h,y)), y,
+                       ap(A,B,f, cA, eqG(A,B,f,h,y), hA(eqG(A,B,f,h,y))), eqS(A,B,f,h,y)) )
+# nothing forgotten (contractible trace) <=> the visible map is an equivalence
+def exactWhenContractible(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), hc: all b: B. isContr(T(b)))
+  -> isEquiv(A, B, lambda a. cRun(A,B,T,wf,a)):
+  lambda b. isContrRespectEquiv(T(b), fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), traceIsForced(A,B,T,wf,wh,b), hc(b))
+def contractibleWhenExact(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), re: isEquiv(A, B, lambda a. cRun(A,B,T,wf,a)), b: B)
+  -> isContr(T(b)):
+  isContrRespectEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b), re(b))
 def main2() -> Nat:
   0n

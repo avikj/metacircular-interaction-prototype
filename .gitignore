@@ -138,3 +138,4 @@ formal/cubical/corpus/Chunk*.agda
 formal/cubical/corpus/identity-rows.tsv
 formal/cubical/corpus/corpus-rows.tsv
 CorpusProbe.generated.agda
+formal/cubical/CensusB.agda*
