@@ -11,6 +11,7 @@ CD="$ROOT/formal/cubical"
 LIB="$HOME/.agda-pin/libraries"
 CHUNKSZ="${CHUNKSZ:-15}"
 PAR="${PAR:-3}"
+PROBEFN="${PROBEFN:-emitRows}"
 ROWS=/tmp/rows.txt
 
 rm -f "$CD"/corpus/Chunk[0-9]*.agda
@@ -52,7 +53,7 @@ flush() {
   {
     echo '{-# OPTIONS --cubical --guardedness --no-import-sorts #-}'
     echo "module Chunk$k where"
-    echo 'open import CorpusProbeLib using (emitRows)'
+    echo "open import CorpusProbeLib using ($PROBEFN)"
     echo 'open import Agda.Builtin.Unit using (⊤)'
     echo 'open import Agda.Builtin.Reflection using (Name)'
     echo 'open import Agda.Builtin.List using (List ; [] ; _∷_)'
@@ -63,7 +64,7 @@ flush() {
     awk '{print "    " $0 " ∷"}' "$names"
     echo '    []'
     echo 'run : ⊤'
-    echo 'run = emitRows names'
+    echo "run = $PROBEFN names"
   } > "$cf"
 }
 
@@ -94,8 +95,8 @@ n=0
 while [ "$n" -lt "$MAXHEAL" ]; do
   rm -f "$CD/_build/2.8.0/agda/corpus/$bn.agdai"
   out=$( cd "$CD" && LC_ALL=C.utf8 timeout 300 agda --library-file="$LIB" -vrow:1 "corpus/$bn.agda" 2>&1 )
-  if printf '%s\n' "$out" | grep -qE '^(OBJ|SUB)	'; then
-    printf '%s\n' "$out" | grep -E '^(OBJ|SUB)	'
+  if printf '%s\n' "$out" | grep -qE '^(OBJ|SUB|EDGE)	'; then
+    printf '%s\n' "$out" | grep -E '^(OBJ|SUB|EDGE)	'
     exit 0
   fi
   # find a NotInScope line number in this chunk and drop it

@@ -109,3 +109,70 @@ macro
     bindTC (unquoteTC namesTerm) λ (ns : List Name) →
     bindTC (emitAll ns)          λ _ →
     bindTC (quoteTC tt)          λ q → unify hole q
+
+------------------------------------------------------------------------
+-- Identity EDGES: the corpus's own equivalence witnesses.  A declaration
+-- of type  A ≃ B  or  Iso A B  is a checked proof that objects A and B
+-- are the same up to (coinductively-established) equivalence.  We read
+-- the head off the UN-normalised type (normalise unfolds ≃ into Σ), take
+-- the two endpoints, normalise THOSE so they match object keys, and emit
+--     EDGE <key A> <key B>
+-- Connected components of these edges are the equivalence classes at the
+-- level of provable mathematical identity — resolved by the witnesses,
+-- not decided by us.
+------------------------------------------------------------------------
+
+open import Agda.Builtin.Bool using (Bool ; true ; false)
+open import Agda.Builtin.Reflection using (primQNameEquality)
+open import Cubical.Foundations.Equiv using (_≃_)
+open import Cubical.Foundations.Isomorphism using (Iso)
+
+eqN isoN : Name
+eqN  = quote _≃_
+isoN = quote Iso
+
+isEqHead : Name → Bool
+isEqHead g with primQNameEquality g eqN
+... | true  = true
+... | false = primQNameEquality g isoN
+
+visArgTerms : List (Arg Term) → List Term
+visArgTerms []                                  = []
+visArgTerms (arg (arg-info visible _) t ∷ as)   = t ∷ visArgTerms as
+visArgTerms (arg (arg-info hidden _) _ ∷ as)    = visArgTerms as
+visArgTerms (arg (arg-info instance′ _) _ ∷ as) = visArgTerms as
+
+emitEdge : Term → Term → TC ⊤
+emitEdge a b =
+  catchTC
+    (bindTC (normalise a) λ na →
+     bindTC (normalise b) λ nb →
+     emitLine ("EDGE\t" <> serT na <> "\t" <> serT nb))
+    (returnTC tt)
+
+twoOf : List Term → TC ⊤
+twoOf (a ∷ b ∷ _) = emitEdge a b
+twoOf _           = returnTC tt
+
+edge1 : Name → TC ⊤
+edge1 nm =
+  catchTC
+    (bindTC (getType nm) λ ty → goHead ty)
+    (returnTC tt)
+  where
+    goHead : Term → TC ⊤
+    goHead (def f as) with isEqHead f
+    ... | true  = twoOf (visArgTerms as)
+    ... | false = returnTC tt
+    goHead _ = returnTC tt
+
+emitEdgesAll : List Name → TC ⊤
+emitEdgesAll []       = returnTC tt
+emitEdgesAll (n ∷ ns) = bindTC (edge1 n) λ _ → emitEdgesAll ns
+
+macro
+  emitEdges : Term → Term → TC ⊤
+  emitEdges namesTerm hole =
+    bindTC (unquoteTC namesTerm) λ (ns : List Name) →
+    bindTC (emitEdgesAll ns)     λ _ →
+    bindTC (quoteTC tt)          λ q → unify hole q
