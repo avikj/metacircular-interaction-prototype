@@ -130,9 +130,13 @@ def main() -> int:
         modules = modules[:limit]
     print(f"tower: {len(done)} done, {len(modules)} to go", file=sys.stderr)
 
+    fresh = "--fresh" in sys.argv   # new session per module: caps memory
     failures: dict[str, str] = {}
     sess = IdentitySession()
     for mod, _p, names in modules:
+        if fresh:
+            sess.close()
+            sess = IdentitySession()
         if sess.proc.poll() is not None:
             sess = IdentitySession()
         listed = kernel_names(sess, mod)
