@@ -1,17 +1,23 @@
 {-# OPTIONS --cubical --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- CorpusProbeLib — shared readout helpers, imported by each chunk module.
+-- CorpusProbeLib — identity keys for the equivalence-class map.
 --
--- Emits one machine-parseable row per declaration:
---     ROW <Π-arity> <conclusion-head> <qualified-name>
--- via debugPrint on verbosity "row". A chunk module imports a slice of
--- the corpus and calls `emitRows (quote M.x ∷ … ∷ [])`; rows from all
--- chunks are aggregated and grouped OUTSIDE Agda into meaning-loci.
+-- For each declaration: getType, NORMALISE (βδι — unfold every definition
+-- to normal form), then serialize the normal-form Term to a canonical
+-- string. de Bruijn indices make the serialization α-invariant, and
+-- normalisation makes it definitional-equality-invariant, so
 --
--- Chunking keeps each Agda process small (a few dozen imports, ~400 MB)
--- instead of the ~12 GB a whole-corpus import needs, and lets a red
--- module fail only its own chunk.
+--     ser(nf(type A)) ≡ ser(nf(type B))   ⟺   A and B have the SAME type
+--                                              at LF definitional identity.
+--
+-- Grouping declarations by this key IS the equivalence-class map at the
+-- level of mathematical (type) identity. Each row is
+--
+--     OBJ <key> <qualified-name>            the whole type as an object
+--     SUB <key> <qualified-name>#<i>        each top-level Π-domain (sub-object)
+--
+-- so identities between sub-objects are covered too.
 ------------------------------------------------------------------------
 
 module CorpusProbeLib where
@@ -21,32 +27,77 @@ open import Agda.Builtin.Nat using (Nat ; zero ; suc)
 open import Agda.Builtin.String using (String ; primStringAppend ; primShowNat)
 open import Agda.Builtin.List using (List ; [] ; _∷_)
 open import Agda.Builtin.Reflection
-  using ( Name ; Term ; Abs ; TC
-        ; pi ; def ; con ; lam ; pat-lam ; agda-sort ; lit ; meta ; var ; unknown
-        ; abs ; getType ; returnTC ; bindTC ; quoteTC ; unquoteTC ; unify
-        ; debugPrint ; ErrorPart ; strErr ; primShowQName )
+  using ( Name ; Term ; Abs ; abs ; Arg ; arg ; ArgInfo ; arg-info
+        ; Visibility ; visible ; hidden ; instance′
+        ; Sort
+        ; var ; con ; def ; lam ; pat-lam ; pi ; agda-sort ; lit ; meta ; unknown
+        ; set ; prop ; propLit ; inf
+        ; TC ; getType ; normalise ; returnTC ; bindTC ; catchTC
+        ; quoteTC ; unquoteTC ; unify ; debugPrint ; ErrorPart ; strErr
+        ; primShowQName )
 
 infixr 5 _<>_
 _<>_ : String → String → String
 _<>_ = primStringAppend
 
--- (dependent Π-arity, conclusion head) of an elaborated type.
-headView : Nat → Term → String
-headView n (pi _ (abs _ b)) = headView (suc n) b
-headView n (def f _)         = primShowNat n <> "\t" <> primShowQName f
-headView n (con c _)         = primShowNat n <> "\t" <> primShowQName c
-headView n (agda-sort _)     = primShowNat n <> "\tSort"
-headView n (var _ _)         = primShowNat n <> "\tvariable"
-headView n (lam _ _)         = primShowNat n <> "\tlambda"
-headView n (pat-lam _ _)     = primShowNat n <> "\tpattern-lambda"
-headView n (lit _)           = primShowNat n <> "\tliteral"
-headView n (meta _ _)        = primShowNat n <> "\tmeta"
-headView n unknown           = primShowNat n <> "\tunknown"
+vis : Visibility → String
+vis visible   = "e"
+vis hidden    = "i"
+vis instance′ = "n"
+
+------------------------------------------------------------------------
+-- Canonical serialization of a normal-form Term.  Fully parenthesized,
+-- constructor-tagged; equal strings ⟺ syntactically-equal normal forms.
+------------------------------------------------------------------------
+
+mutual
+  serT : Term → String
+  serT (var x as)          = "v" <> primShowNat x <> serArgs as
+  serT (con c as)          = "c" <> primShowQName c <> serArgs as
+  serT (def f as)          = "d" <> primShowQName f <> serArgs as
+  serT (lam v (abs _ t))   = "l" <> vis v <> "(" <> serT t <> ")"
+  serT (pat-lam _ as)      = "P" <> serArgs as
+  serT (pi (arg (arg-info v _) a) (abs _ b)) =
+    "p" <> vis v <> "(" <> serT a <> ")(" <> serT b <> ")"
+  serT (agda-sort s)       = "s" <> serS s
+  serT (lit _)             = "L"
+  serT (meta _ as)         = "m" <> serArgs as
+  serT unknown             = "?"
+
+  serArgs : List (Arg Term) → String
+  serArgs []                          = ""
+  serArgs (arg (arg-info v _) t ∷ as) = "[" <> vis v <> serT t <> "]" <> serArgs as
+
+  serS : Sort → String
+  serS (set t)     = "S(" <> serT t <> ")"
+  serS (lit n)     = "S" <> primShowNat n
+  serS (prop t)    = "R(" <> serT t <> ")"
+  serS (propLit n) = "R" <> primShowNat n
+  serS (inf n)     = "I" <> primShowNat n
+  serS unknown     = "?"
+
+------------------------------------------------------------------------
+-- Emit rows for one declaration: its whole type, and each Π-domain.
+------------------------------------------------------------------------
+
+emitLine : String → TC ⊤
+emitLine s = debugPrint "row" 1 (strErr s ∷ [])
+
+-- walk top-level Π, emitting each domain as a sub-object
+emitDomains : String → Nat → Term → TC ⊤
+emitDomains nm i (pi (arg _ a) (abs _ b)) =
+  bindTC (emitLine ("SUB\t" <> serT a <> "\t" <> nm <> "#" <> primShowNat i))
+         (λ _ → emitDomains nm (suc i) b)
+emitDomains _ _ _ = returnTC tt
 
 emit1 : Name → TC ⊤
 emit1 nm =
-  bindTC (getType nm) λ ty →
-  debugPrint "row" 1 (strErr ("ROW\t" <> headView 0 ty <> "\t" <> primShowQName nm) ∷ [])
+  catchTC
+    (bindTC (getType nm) λ ty →
+     bindTC (normalise ty) λ nf →
+     bindTC (emitLine ("OBJ\t" <> serT nf <> "\t" <> primShowQName nm)) λ _ →
+     emitDomains (primShowQName nm) 0 nf)
+    (returnTC tt)  -- normalise/getType failed on this one: skip, don't pollute
 
 emitAll : List Name → TC ⊤
 emitAll []       = returnTC tt

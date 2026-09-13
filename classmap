@@ -1,0 +1,38 @@
+#!/bin/sh
+# Build the equivalence-class map from /tmp/rows.txt (OBJ/SUB <key> <name>).
+# Two declarations/sub-objects are in the same class iff their normalised
+# types are identical (LF definitional identity). Emits the full class map
+# and a summary.
+set -eu
+ROWS="${1:-/tmp/rows.txt}"
+OUT="${2:-/tmp/classmap.txt}"
+export LC_ALL=C.utf8
+
+# whole-type objects only (OBJ); SUB are sub-objects, handled separately
+awk -F'\t' '$1=="OBJ"{print $2"\t"$3}' "$ROWS" > /tmp/obj.tsv
+nobj=$(wc -l < /tmp/obj.tsv)
+ncls=$(cut -f1 /tmp/obj.tsv | sort -u | wc -l)
+nsub=$(awk -F'\t' '$1=="SUB"' "$ROWS" | wc -l)
+nsubcls=$(awk -F'\t' '$1=="SUB"{print $2}' "$ROWS" | sort -u | wc -l)
+
+{
+  echo "════════ EQUIVALENCE-CLASS MAP — LF (definitional) type identity ════════"
+  echo "objects (whole declaration types) : $nobj"
+  echo "equivalence classes               : $ncls"
+  echo "non-trivial classes (|class|>1)   : $(cut -f1 /tmp/obj.tsv | sort | uniq -d | wc -l)"
+  echo "sub-objects (Π-domains)           : $nsub  in  $nsubcls classes"
+  echo
+  echo "A class with >1 member = declarations that are THE SAME TYPE — identical"
+  echo "up to definitional equality (α, β, δ, ι). These are genuine identities."
+  echo
+  echo "──── the identity classes (whole-type objects), largest first ────"
+  # for each key with >1 member, print size then the member names
+  cut -f1 /tmp/obj.tsv | sort | uniq -c | sort -rn \
+    | awk '$1>1{print $1"\t"$2}' \
+    | while IFS="$(printf '\t')" read -r cnt key; do
+        printf '\n[%s members]  key=%.90s\n' "$cnt" "$key"
+        awk -F'\t' -v k="$key" '$1==k{print "    " $2}' /tmp/obj.tsv
+      done
+} > "$OUT"
+echo "wrote $OUT ($(wc -l < "$OUT") lines)"
+head -40 "$OUT"

@@ -93,9 +93,9 @@ cf="$CD/corpus/$bn.agda"
 n=0
 while [ "$n" -lt "$MAXHEAL" ]; do
   rm -f "$CD/_build/2.8.0/agda/corpus/$bn.agdai"
-  out=$( cd "$CD" && LC_ALL=C.utf8 agda --library-file="$LIB" -vrow:1 "corpus/$bn.agda" 2>&1 )
-  if printf '%s\n' "$out" | grep -q '^ROW	'; then
-    printf '%s\n' "$out" | grep '^ROW	'
+  out=$( cd "$CD" && LC_ALL=C.utf8 timeout 300 agda --library-file="$LIB" -vrow:1 "corpus/$bn.agda" 2>&1 )
+  if printf '%s\n' "$out" | grep -qE '^(OBJ|SUB)	'; then
+    printf '%s\n' "$out" | grep -E '^(OBJ|SUB)	'
     exit 0
   fi
   # find a NotInScope line number in this chunk and drop it
