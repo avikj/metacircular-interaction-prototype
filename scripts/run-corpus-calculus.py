@@ -377,7 +377,7 @@ def main() -> int:
         return 1
     agda, libfile = tool
     ctx = generate()
-    base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
+    base = [str(agda), "+RTS", "-M11G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
 
     def adaptive(prefix: str, verb: str, slices: list[list[str]], writer) -> list[str]:
