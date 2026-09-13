@@ -52,9 +52,6 @@ HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
   `Non-exhaustive patterns in function go` (Target/HVM.hs). The HVM3 backend
   has no cubical lowering; only HVM4 does.
 
-## Not yet independently rerun
-- Executing the HVM4 emission on the HVM4 runtime (`@applyPath(_)(_)(@negPath)(1) => 0`)
-  — HVM4 runtime being built here now.
 
 ## Native execution — verified on BOTH runtimes (this session)
 
@@ -85,8 +82,50 @@ on the interaction net; it is applied, not erased. Note: the HVM4 default
 emitter pre-normalises in Haskell (`normal 0 book`), so *closed* transports
 arrive as literals (0 interactions); the nonzero counts above come from the
 path being a function argument. HVM3's emitter does not pre-normalise.
-A `--to-hvm4-raw` mode (no pre-normalisation) was added; its output does
-not yet parse on HVM4 (see open items).
+A `--to-hvm4-raw` mode (no pre-normalisation) was added and verified below.
 
 Checker regression after emitter changes: all 11 test files green (0 ✗);
 `uaRoundTrip` still correctly fails.
+
+## Final matrix (rebuilt binary; all runs this session)
+
+HVM4 = HigherOrderCO/HVM4 @ 6defdfc, built `gcc -O2 src/hvm.c`. HVM3 = the
+patched `hvm` above. `*` is HVM4's erasure literal.
+
+**Generic `applyPath`, path supplied as a runtime argument (HVM4):**
+
+| call | result | interactions |
+|---|---|---|
+| `@applyPath(*)(*)(@negPath)(1)` | 0 | 11 |
+| `@applyPath(*)(*)(@negPath)(0)` | 1 | 10 |
+| `@applyPath(*)(*)(@idPath)(1)`  | 1 | 9  |
+| `@applyPath(*)(*)(@idPath)(0)`  | 0 | 9  |
+
+**`--to-hvm4-raw` (no compile-time normalisation — the net performs the
+cubical reduction):** emitted `@applyPathFwd = λb0 λb1 λb2 λb3. @cub_pathFwd(b2)(b3)`,
+`@negPath = (λb0. b0(@neg)(@neg))`, `@main = @applyPathFwd(&{})(&{})(@negPath)(1)`.
+
+| program | HVM4 raw | HVM3 |
+|---|---|---|
+| t_fwd_neg | 0, 11 itrs | 0, 18 itrs |
+| t_bwd_neg | 0, 11 itrs | 0, 18 itrs |
+| t_fwd_id  | 1, 9 itrs  | 1, 17 itrs |
+| t_bwd_id  | 1, 9 itrs  | 1, 17 itrs |
+
+(With the default normalising HVM4 emitter the same four programs give the
+same values at 0 interactions: closed transports are pre-reduced in Haskell.
+The raw-mode and runtime-argument rows are the genuine on-net transports.)
+
+Checker regression on the final binary: examples/main 39✓, cubical_test 11✓,
+test2 10✓, test3 12✓, test4 8✓, test5 7✓, applypath 9✓, applypath_bwd 11✓,
+pth2 2✓, pthtransport 3✓, loop 2✓ ([unchecked]), equiv 7✓ — 0 ✗ anywhere;
+uaRoundTrip still correctly fails.
+
+## Status against the review's list
+- Native execution of cubical transport, both directions, on TWO runtimes: **done, measured.**
+- Pth transport through nonconstant families (`pth2.bend`): **reproduced.**
+- Totality false-positive (`loop.bend` → `[unchecked]`): **reproduced.**
+- "Univalence complete" → narrowed; reverse round trip fails at raw Iso level: **reproduced**; `equiv.bend` (coherent isEquiv, idEquiv) typechecks as the foundation for the coherent statement.
+- Backward transport (`@pathBwd` undefined; `ua` dropped `g`): **found and fixed.**
+- HVM3 target crashing on cubical terms: **found and fixed.**
+- Build blockers (HVM3 Runtime.c includes; UTF-8 locale; `bend check` false-positive): **found, fixed, documented.**

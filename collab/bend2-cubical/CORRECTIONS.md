@@ -131,3 +131,8 @@ coalgebra) are transported into this language and check.
     uaroundtrip.bend    documents that the record-level ua round trip fails by refl
     loop.bend           the totality false-positive probe: now [unchecked]
     cubical_test{,2,3,4,5}.bend, corpus_calculus.bend, run_corpus.bend
+
+
+## Addendum (independent rerun + emitter fixes)
+
+See `VERIFICATION.md`: fresh-environment reproduction of every item above, plus fixes to the emitters (`@pathBwd` was undefined and `ua` dropped `g`, so backward transport was unrepresentable; HVM3 target crashed on cubical terms; prelude names clashed with user defs). Transport now verified executing in both directions on HVM4 and HVM3 with the path supplied at runtime.
