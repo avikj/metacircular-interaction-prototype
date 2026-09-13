@@ -1276,7 +1276,7 @@ index f94d1ce..0a69302 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..aae8a98 100644
+index cdd6756..558fc3d 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -127,6 +127,96 @@ infer d span book@(Book defs) ctx term =
@@ -1327,21 +1327,21 @@ index cdd6756..aae8a98 100644
 +      mapM_ (\(p,t,e) -> do
 +        check d span book ctx p Itv
 +        check d span book ctx t Set
-+        check d span book ctx e (All t (Lam "_" (\_ -> a)))) fs
++        check d span book ctx e (equivTy t a)) fs
 +      Done Set
 +    GlB a fs x -> do
-+      -- glue A [(φ,t)] x : Glue A [(φ,T,_)] ; x : A the base, t : T the section
++      -- glue A [(φ,t)] x is checked against its Glue type; it is inferable
++      -- only when every face is false (then it is just x : A)
 +      check d span book ctx x a
-+      tfs <- mapM (\(p,t) -> do
-+        check d span book ctx p Itv
-+        tT <- infer d span book ctx t
-+        Done (p, tT)) fs
-+      Done (Glu a [ (p, tT, Lam "z" (\z -> z)) | (p,tT) <- tfs ])
++      mapM_ (\(p,_) -> check d span book ctx p Itv) fs
++      if all (\(p,_) -> case force book p of { I0 -> True; _ -> False }) fs
++        then Done a
++        else Fail $ CantInfer span (formatCtx d book ctx)
 +    UnG g -> do
 +      gT <- infer d span book ctx g
 +      case force book gT of
 +        Glu a _ -> Done a
-+        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Glu (Var "_" 0) [])) (format d book gT)
++        gT'     -> Done gT'   -- a Glue with no live faces IS its base type; unglue is the identity there
 +    HCm a fs x -> do
 +      check d span book ctx a Set
 +      check d span book ctx x a
@@ -1402,7 +1402,31 @@ index cdd6756..aae8a98 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -435,6 +537,103 @@ check d span book ctx term goal =
+@@ -429,12 +531,127 @@ check d span book ctx term goal =
+               check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
+         else do
+           verify d span book ctx term goal
++    -- glue A [(φ,t)] x : Glue A [(φ,T,e)] — each section t : T on its face,
++    -- and coherent with the base there: fst(e) t ≡ x on every cell of φ
++    (GlB a fs x, force book -> Glu a' gfs) -> do
++      check d span book ctx a Set
++      if not (equal d book a a') then Fail $ TypeMismatch span (formatCtx d book ctx) (format d book a') (format d book a) else Done ()
++      check d span book ctx x a'
++      mapM_ (\(p, t) -> do
++        check d span book ctx p Itv
++        case [ (tT, e) | (q, tT, e) <- gfs, iSyntEq (force book p) (force book q) ] of
++          [] -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book (GlB a fs x))
++          ((tT, e) : _) -> do
++            check d span book ctx t tT
++            mapM_ (\lits ->
++              let l = epNormCtx d book ctx (restrictLits d book lits (App (equivFun e) t))
++                  r = epNormCtx d book ctx (restrictLits d book lits x)
++              in if equal d book l r then Done () else
++                   Fail $ TypeMismatch span (formatCtx d book ctx) (format d book r) (format d book l))
++              (faceDNF p)) fs
+     (Log s x, _) -> do
+       check d span book ctx s (Lst (Num CHR_T))
+       check d span book ctx x goal
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -1506,7 +1530,7 @@ index cdd6756..aae8a98 100644
  -- Verify that a term has the expected type by inference
  verify :: Int -> Span -> Book -> Ctx -> Term -> Term -> Result ()
  verify d span book ctx term goal = do
-@@ -468,3 +667,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +685,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -2219,10 +2243,10 @@ index a5d92e8..eee78b7 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..cd67238 100644
+index 953410d..3249930 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,301 @@ whnfGo lv book term =
+@@ -53,9 +53,330 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -2350,7 +2374,9 @@ index 953410d..cd67238 100644
 +  let fs' = [ (whnf lv book p, t, e) | (p,t,e) <- fs ] in
 +  case [ t | (I1, t, _) <- fs' ] of
 +    (t : _) -> whnf lv book t
-+    []      -> Glu a [ f | f@(p,_,_) <- fs', notI0g p ]
++    []      -> case [ f | f@(p,_,_) <- fs', notI0g p ] of
++                 [] -> whnf lv book a          -- Glue with no faces IS A
++                 fs'' -> Glu a fs''
 +  where notI0g I0 = False
 +        notI0g _  = True
 +
@@ -2359,15 +2385,21 @@ index 953410d..cd67238 100644
 +  let fs' = [ (whnf lv book p, t) | (p,t) <- fs ] in
 +  case [ t | (I1, t) <- fs' ] of
 +    (t : _) -> whnf lv book t
-+    []      -> GlB a [ f | f@(p,_) <- fs', notI0g p ] x
++    []      -> case [ f | f@(p,_) <- fs', notI0g p ] of
++                 [] -> whnf lv book x          -- glue with no faces IS its base
++                 fs'' -> GlB a fs'' x
 +  where notI0g I0 = False
 +        notI0g _  = True
 +
 +whnfUnG :: EvalLevel -> Book -> Term -> Term
 +whnfUnG lv book g =
-+  case whnf lv book g of
++  -- a syntactic glue is eliminated BEFORE its own reduction (a glue with no
++  -- live faces reduces to its base, which would hide it from unglue)
++  case cut g of
 +    GlB _ _ a -> whnf lv book a
-+    g'        -> UnG g'
++    _ -> case whnf lv book g of
++      GlB _ _ a -> whnf lv book a
++      g'        -> UnG g'
 +
 +-- coe: generalized transport along a type line P from r to s.
 +whnfCoe :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
@@ -2454,6 +2486,27 @@ index 953410d..cd67238 100644
 +                (t0, t1) = dup book labAt t
 +            in Sup labAt (Coe (Lam "i" (\i -> aAt i)) r' s' t0)
 +                         (Coe (Lam "i" (\i -> bAt i)) r' s' t1)
++          -- Glue: CCHM transport.  a_r = unglue_r t (on a true face at r:
++          -- fst(e) t); a1' = coe along the A-line; on each face live at s,
++          -- t1 = e⁻¹ a1' (from the contractible fibre) and a1 is a1' corrected
++          -- along the fibre path so that fst(e) t1 = a1 there; result
++          -- glue [φ(s) ↦ t1] a1 (a true face selects t1, no faces gives a1).
++          Glu _ _ ->
++            let glueAt i = case cut (substMarker i body) of
++                  Glu a' fs' -> (a', fs')
++                  _          -> (App pP i, [])
++                (aR, fsR) = glueAt r'
++                (aS, fsS) = glueAt s'
++                aLn = Lam "i" (\i -> fst (glueAt i))
++                live fs = [ (p', tT, e) | (p, tT, e) <- fs, let p' = whnf lv book p, (case p' of { I0 -> False; _ -> True }) ]
++                isI1 p = case p of { I1 -> True; _ -> False }
++                aR0 = case [ e | (p', _, e) <- live fsR, isI1 p' ] of
++                        (e : _) -> App (equivFun e) t
++                        []      -> UnG t
++                a1' = Coe aLn r' s' aR0
++                facesS = [ (p', App (equivInv e) a1', e) | (p', _, e) <- live fsS ]
++                a1 = HCm aS [ (p', PLm "j" (\j -> PAp (App (equivSec e) t1) (INot j))) | (p', t1, e) <- facesS ] a1'
++            in whnf lv book (GlB aS [ (p', t1) | (p', t1, _) <- facesS ] a1)
 +          -- rigid inductives and Set: identity
 +          Nat     -> whnf lv book t
 +          Bit     -> whnf lv book t
@@ -2524,7 +2577,7 @@ index 953410d..cd67238 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +693,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +722,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -2572,7 +2625,7 @@ index 953410d..cd67238 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +818,21 @@ normal d book term =
+@@ -485,6 +847,21 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -2594,7 +2647,7 @@ index 953410d..cd67238 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
-@@ -547,3 +895,171 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +924,196 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -2766,6 +2819,31 @@ index 953410d..cd67238 100644
 +  go x = case x of
 +    Var "__coe_i__" (-1) -> i
 +    _ -> mapSub go x
++
++-- Coherent equivalences in core terms (the shape user files define as
++-- Equiv(A,B) = Σ f. ∀y. isContr(fiber f y); identical Σ/Π/Path structure)
++fiberTy :: Term -> Term -> Term -> Term -> Term
++fiberTy t a f y = Sig t (Lam "x" (\x -> Pth (Lam "_" (\_ -> a)) (App f x) y))
++
++isContrTy :: Term -> Term
++isContrTy c = Sig c (Lam "c" (\cen -> All c (Lam "w" (\w -> Pth (Lam "_" (\_ -> c)) cen w))))
++
++equivTy :: Term -> Term -> Term
++equivTy t a = Sig (All t (Lam "_" (\_ -> a))) (Lam "f" (\f -> All a (Lam "y" (\y -> isContrTy (fiberTy t a f y)))))
++
++-- projections out of e : Equiv T A
++equivFun :: Term -> Term
++equivFun e = SigM e (Lam "f" (\f -> Lam "h" (\_ -> f)))
++
++-- e⁻¹ y = the point of the contractible fibre's centre
++equivInv :: Term -> Term
++equivInv e = Lam "y" (\y -> SigM e (Lam "f" (\_ -> Lam "h" (\h ->
++  SigM (App h y) (Lam "cen" (\cen -> Lam "_" (\_ -> SigM cen (Lam "x" (\x -> Lam "p" (\_ -> x))))))))))
++
++-- sec e y : Path A (f (e⁻¹ y)) y, the centre's path
++equivSec :: Term -> Term
++equivSec e = Lam "y" (\y -> SigM e (Lam "f" (\_ -> Lam "h" (\h ->
++  SigM (App h y) (Lam "cen" (\cen -> Lam "_" (\_ -> SigM cen (Lam "x" (\_ -> Lam "p" (\p -> p))))))))))
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
 index 996bb26..8172ddd 100644
 --- a/src/Target/HVM.hs
@@ -3702,6 +3780,105 @@ index 0000000..1f164e6
 +
 +def main() -> Nat:
 +  0n
+diff --git a/uaglue.bend b/uaglue.bend
+new file mode 100644
+index 0000000..ee3103b
+--- /dev/null
++++ b/uaglue.bend
+@@ -0,0 +1,93 @@
++# ua DERIVED from Glue, and transport through it computing (the Kan rule).
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++def isContrSingl(A: Set, a: A) -> isContr(fiber(A, A, lambda x. x, a)):
++  ( (a, <_> a)
++  , lambda w.
++      match w:
++        case (x, p):
++          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) )
++  )
++def idEquiv(A: Set) -> Equiv(A, A):
++  ( lambda x. x , lambda y. isContrSingl(A, y) )
++def fstE(A: Set, B: Set, e: Equiv(A, B)) -> (A -> B):
++  match e:
++    case (f, _):
++      f
++
++# ua from Glue (CCHM): Glue B [(inot i, A, e), (i, B, idEquiv B)]
++def uaG(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  <i> Glue(B, [(inot(i), A, e), (i, B, idEquiv(B))])
++
++# transport along it IS e's function — definitionally, for an ABSTRACT e
++def uaG_beta(A: Set, B: Set, e: Equiv(A, B), x: A) -> Path(B, coe(lambda i. uaG(A, B, e) @ i, i0, i1, x), fstE(A, B, e)(x)):
++  <_> fstE(A, B, e)(x)
++
++# the concrete instance: negation as a coherent equivalence (fibre contraction by cases)
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def negE() -> Equiv(Bool, Bool):
++  isoToEquiv(Bool, Bool, neg, neg, negLnv, negLnv)
++def viaGlue(x: Bool) -> Bool:
++  coe(lambda i. uaG(Bool, Bool, negE()) @ i, i0, i1, x)
++def viaGlueBwd(x: Bool) -> Bool:
++  coe(lambda i. uaG(Bool, Bool, negE()) @ i, i1, i0, x)
++def viaGlue_T() -> Path(Bool, viaGlue(True), False):
++  <_> False
++def viaGlueBwd_T() -> Path(Bool, viaGlueBwd(True), False):
++  <_> False
++def main() -> Bool:
++  viaGlue(True)
 diff --git a/uaroundtrip.bend b/uaroundtrip.bend
 new file mode 100644
 index 0000000..b1f06d6
