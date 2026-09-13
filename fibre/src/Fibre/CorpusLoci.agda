@@ -297,13 +297,13 @@ tryRealization f n x =
 -- an exact, checked, finite presentation of the family, not its
 -- completion.
 realizationCap : Nat
-realizationCap = 8
+realizationCap = 4
 
 -- Failed probes retain state exactly like successful ones, so a
 -- generator whose bucket is large but mostly ill-typed must also stop:
 -- it spends at most failureBudget failures.
 failureBudget : Nat
-failureBudget = 24
+failureBudget = 8
 
 realizations : Nat → Nat → Name → List PoolEntry → TC (List RawRealization)
 realizations zero    _       f _  = returnTC []
@@ -383,7 +383,7 @@ buildLociOverPool pool gens =
 -- forcing the pool literal once, and the TC monad is entered only for
 -- the bounded probes themselves.
 maxCandidates : Nat
-maxCandidates = 32   -- realizationCap + failureBudget
+maxCandidates = 12   -- realizationCap + failureBudget
 
 data GenSel : Set where
   genSel : Name → Maybe Head → Nat → List PoolEntry → GenSel
