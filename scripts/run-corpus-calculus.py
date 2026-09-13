@@ -215,10 +215,12 @@ def generate() -> tuple[int, int]:
     # reflection retention is per call, so 25.8k names in one process is
     # tens of GB, while 2000-name pieces are minutes each and their
     # concatenation is pure data.
-    data_mods: list[str] = []
-    for k, ch in enumerate(chunks, start=1):
-        dmod = f"CorpusData{k}"
-        data_mods.append(dmod)
+    data_size = int(os.environ.get("CORPUS_DATA_PIECE", "400"))
+    data_slices = [qnames[i:i + data_size] for i in range(0, len(qnames), data_size)] or [[]]
+    for stale in GENERATED.glob("CorpusData*.agda"):
+        stale.unlink()
+
+    def write_data(dmod: str, ch: list[str]) -> None:
         dbody = [
             "{-# OPTIONS --cubical --safe --guardedness #-}",
             f"module {dmod} where", "",
@@ -231,12 +233,6 @@ def generate() -> tuple[int, int]:
             "part : RawCorpus", "part = materialize partNames", "",
         ]
         write_if_changed(GENERATED / f"{dmod}.agda", "\n".join(dbody))
-    for stale in GENERATED.glob("CorpusData*.agda"):
-        if stale.name not in {f"CorpusData{k}.agda" for k in range(1, len(chunks) + 1)}:
-            stale.unlink()
-    corpus_expr = functools.reduce(
-        lambda acc, m: f"Fibre.CorpusReflection._++_ {m}.part ({acc})",
-        reversed(data_mods[:-1]), f"{data_mods[-1]}.part") if data_mods else "[]"
     chunk_mods: list[str] = []
     for k, ch in enumerate(chunks, start=1):
         if not eager_loci:
@@ -279,11 +275,14 @@ def generate() -> tuple[int, int]:
         ]
         write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
 
-    def write_repository(shard_mods: list[str]) -> None:
-        body = build_repository_body(shard_mods)
+    def write_repository(data_mods: list[str], shard_mods: list[str]) -> None:
+        body = build_repository_body(data_mods, shard_mods)
         write_if_changed(OUT, "\n".join(body))
 
-    def build_repository_body(shard_mods: list[str]) -> list[str]:
+    def build_repository_body(data_mods: list[str], shard_mods: list[str]) -> list[str]:
+        corpus_expr = functools.reduce(
+            lambda acc, m: f"Fibre.CorpusReflection._++_ {m}.part ({acc})",
+            reversed(data_mods[:-1]), f"{data_mods[-1]}.part") if data_mods else "[]"
         body = [
             "{-# OPTIONS --cubical --safe --guardedness #-}",
             "module CorpusRepository where", "",
@@ -337,7 +336,9 @@ def generate() -> tuple[int, int]:
     print(f"checked declarations: {len(qnames)}", file=sys.stderr)
     if duplicates:
         print(f"duplicate declared module names resolved by include order: {len(duplicates)}", file=sys.stderr)
-    return {"write_shard": write_shard, "write_repository": write_repository, "slices": slices}
+    return {"write_shard": write_shard, "write_data": write_data,
+            "write_repository": write_repository,
+            "slices": slices, "data_slices": data_slices}
 
 
 def main() -> int:
@@ -348,10 +349,37 @@ def main() -> int:
     ctx = generate()
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
-    # Corpus data pieces first, then (optionally) pool chunks.
-    pools = sorted(GENERATED.glob("CorpusData[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusData"):]))
-    if eager_loci:
-        pools += sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
+
+    # Corpus data pieces, adaptively: a piece that fails is split in
+    # half; a declaration whose definition cannot be quoted alone on
+    # this machine is excluded with a printed notice.
+    dqueue: list[list[str]] = list(ctx["data_slices"])
+    data_mods: list[str] = []
+    data_excluded: list[str] = []
+    dnext = 1
+    while dqueue:
+        ch = dqueue.pop(0)
+        dmod = f"CorpusData{dnext}"
+        dnext += 1
+        ctx["write_data"](dmod, ch)
+        print(f"reflecting {dmod} ({len(ch)} declarations) ...", file=sys.stderr)
+        rc = subprocess.call(base + [str(GENERATED / f"{dmod}.agda")], cwd=ROOT)
+        if rc == 0:
+            data_mods.append(dmod)
+        elif len(ch) > 1:
+            mid = len(ch) // 2
+            print(f"  {dmod} failed; splitting {len(ch)} -> {mid} + {len(ch) - mid}", file=sys.stderr)
+            dqueue.insert(0, ch[mid:])
+            dqueue.insert(0, ch[:mid])
+            (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
+        else:
+            print(f"EXCLUDED (reflection cost): {ch[0]}", file=sys.stderr)
+            data_excluded.append(ch[0])
+            (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
+    if data_excluded:
+        print(f"declarations excluded by reflection cost: {len(data_excluded)}", file=sys.stderr)
+
+    pools = [] if not eager_loci else sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
     for chunk in pools:
         print(f"classifying {chunk.name} ...", file=sys.stderr)
         rc = subprocess.call(base + [str(chunk)], cwd=ROOT)
@@ -385,7 +413,7 @@ def main() -> int:
             print(f"EXCLUDED (probe cost): {sl[0]}", file=sys.stderr)
             excluded.append(sl[0])
             (GENERATED / f"{smod}.agda").unlink(missing_ok=True)
-    ctx["write_repository"](successful)
+    ctx["write_repository"](data_mods, successful)
     if excluded:
         print(f"generators excluded by probe cost: {len(excluded)}", file=sys.stderr)
     print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
