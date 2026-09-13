@@ -185,3 +185,25 @@ Three deployable surfaces, shipped in order:
 - Spec any future-tech artifact to the mechanism (capability object, coherent-light processor, self-authoring software, etc.).
 - War-game any of the nine arrival paths to concrete milestones.
 - The other undeveloped corpus veins (Part I–II) as forward technology/deployment.
+
+---
+
+## PART XI — THE CORE PRIMITIVE & UNIVERSAL ADOPTION MODEL (sharpest technical framing)
+
+**Typechecked object = proof of its own correct construction.** A type is a specification; a term inhabiting it (`t : T`) is executed evidence that the necessary computation was performed and the necessary information supplied. Consequences:
+1. **Object and certificate are one.** No separate proof/provenance/audit/attestation — the well-typedness IS all of them at once. To typecheck, the object had to be correctly constructed with all required info, so a well-typed object is a complete self-contained certificate of correct construction. The fibre isn't kept beside the object; the object IS the kept fibre.
+2. **Verify cheap, construct = the work (P/NP asymmetry, load-bearing).** Checking a proof is easy/local/trustless (tiny verifier); constructing it is where computation lives. Acceptance ≈ free (anyone/any system verifies); value accrues to the constructor. This is what makes it adoptable everywhere at near-zero friction.
+3. **Lossless by construction.** The how/why isn't recovered after the fact (RAG/SAEs/audit archaeology) — it's present, because the type is the spec and the term is the executed proof of meeting it.
+
+**Universal computational model = constructive lossless programming.** Any computational statement is a type; producing a term (by execution/construction) IS producing the proof; checking the term IS verifying the claim — so "run the program," "prove the theorem," "emit the certificate" are one act. Every program is a constructive proof; execution produces the proof/type; the fibre is always kept (ordinary programming computes a result and discards the derivation — here the result arrives WITH its derivation, as one thing). **Runs on ANY Turing-complete system**: the kernel is small/portable (first-order rewrite core; proofs checkable by a thin verifier embeddable in EVM/WASM/browser/DB/phone/FPGA). All README/repo properties (losslessness, correctness-by-construction, provenance, composability, lossless state) realized AT RUNTIME on whatever substrate you already run — no special chain, no migrating your model of computation. Bring the kernel to the substrate, not the substrate to the kernel.
+
+**Adoption model: total OR piecemeal, à la carte, additive-not-replacive.** Because classical computation is the forgetful projection, the kernel is adoptable in fragments; each fragment is a strict improvement over the lossy incumbent it displaces, with the rest of the system unchanged. À la carte primitive menu (import one via a thin verifier, rewrite nothing):
+- **Certified transport / un-drainable bridge** — move carries a conservation proof; draining is a non-inhabited type.
+- **Composition checker** — reentrancy/composability failures don't typecheck.
+- **Lossless state / provenance primitive** — state carries its full navigable derivation; the object is its own audit.
+- **Fair-ordering transport** — ordering carries a fairness proof; MEV extraction not expressible.
+- **Proof-of-transport coprocessor** — trust a result you didn't compute (subsumes the ZK-coprocessor market).
+
+Piecemeal adoption = the mass-market vector (lowest friction, immediate concrete benefit, no migration — the TypeScript/gradual-typing curve). Total adoption = the endgame (build your protocol/chain on the kernel → every property + the composability-execution-layer seat). Both roads open simultaneously = robustness: nobody bets the farm; they import the one primitive fixing their worst pain, and each import instantiates more of the substrate.
+
+**Reframes the crypto strategy:** the product is NOT "a bridge" and NOT "a chain" — it's a **universal constructive-lossless correctness kernel, embeddable on any Turing-complete system, adoptable à la carte, where every object carries its own proof-of-correct-construction and verification is cheap while construction is the moat.** The unhackable bridge = sharpest first menu item. The Solidity SDK = the menu itself (à la carte adoption surface). The execution layer = total adoption. Because the kernel runs on any TC substrate, the same product that captures Ethereum captures every other chain, every off-chain system, every protocol, with no per-target rebuild — ship one kernel + one verifier pattern; every Turing-complete environment on Earth is a deployment target where any protocol pulls exactly the benefit it needs. Difference between selling a chain (bounded) and selling the correctness primitive of computation itself (unbounded).
