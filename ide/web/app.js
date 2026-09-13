@@ -151,8 +151,7 @@ function renderTrace() {
   const visited = new Set(S.trace.filter((s) => s.op === "open").map((s) => s.arg));
   $("#tracegrade").innerHTML =
     `grade <b>${S.trace.length}</b> · reversal marks <b>${revs}</b> · ` +
-    `meet so far: <b>${visited.size}</b> nodes<br>` +
-    `<span style="font-style:italic">the summary you see forgets the route; the trace above does not</span>`;
+    `meet so far: <b>${visited.size}</b> nodes`;
 }
 
 /* ---------------- observations (the filter rail) ---------------- */
@@ -317,13 +316,7 @@ async function openNode(n, fromRoute = false, isReverse = false) {
   f.textContent = "";
 
   f.append(el("div", "crumbs", `${n.p}  ·  ${n.a}`));
-  const h1 = el("h1", "sentence");
-  for (const w of (n.sent || n.head).split(/(\s+)/)) {
-    if (/^\s+$/.test(w) || w.length < 4) { h1.append(w); continue; }
-    const sp = el("span", "", w);
-    tint(sp, w, 0.55);
-    h1.append(sp);
-  }
+  const h1 = el("h1", "sentence", n.sent || n.head);
   f.append(h1);
   if (n.sent) {
     const hn = el("div", "headname");
@@ -374,7 +367,7 @@ async function openNode(n, fromRoute = false, isReverse = false) {
     const sec = el("section", "block");
     sec.append(el("h2", "", "Neighborhood — computed by the typechecker"));
     const wrap = el("div");
-    wrap.style.cssText = "position:relative;height:340px;background:var(--card);" +
+    wrap.style.cssText = "position:relative;background:var(--card);" +
       "border:1px solid var(--line);border-radius:8px;overflow:hidden";
     const cv = document.createElement("canvas");
     cv.style.cssText = "width:100%;height:100%;display:block;cursor:pointer";
@@ -611,37 +604,51 @@ function renderContext(n) {
   c.textContent = "";
   const outs = (S.out.get(n.i) || []);
   const inns = (S.inn.get(n.i) || []);
-  const bucket = (title, pairs, dir) => {
+  c.append(el("div", "evroute",
+    "solid = computed by the typechecker · faint = read from text"));
+  const bucket = (title, pairs) => {
     if (!pairs.length) return;
-    c.append(el("h3", "", `${title} (${pairs.length})`));
-    const byType = new Map();
+    const kernel = [], textual = [], readings = [];
+    const seen = new Set();
     for (const [j, t] of pairs) {
-      if (!byType.has(t)) byType.set(t, []);
-      byType.get(t).push(j);
+      if (seen.has(t.split(":")[0] + j)) continue;
+      seen.add(t.split(":")[0] + j);
+      if (t.startsWith("kernel-ref")) kernel.push(j);
+      else if (t === "import") textual.push(j);
+      else readings.push(j);
     }
-    const order = [...byType.keys()].sort((a, b) =>
-      (a.startsWith("kernel-ref") ? -1 : 0) - (b.startsWith("kernel-ref") ? -1 : 0));
-    for (const t of order) {
-      const js = byType.get(t);
-      const base = t.split(":")[0];
-      c.append(el("div", "evroute", `${base}: ${EDGE_EVIDENCE[base] || base}`));
-      const seen = new Set();
-      for (const j of js.slice(0, 30)) {
-        if (seen.has(j)) continue;
-        seen.add(j);
+    c.append(el("h3", "", title));
+    const row = (j, cls) => {
+      const m = S.nodes[j];
+      const r = el("div", "edge" + cls);
+      const em = el("span", "em", m.sent || m.head);
+      tint(em, m.head, cls ? 0.45 : 0.85);
+      r.append(em);
+      r.onclick = () => openNode(m);
+      c.append(r);
+    };
+    const kset = new Set(kernel);
+    kernel.slice(0, 12).forEach((j) => row(j, ""));
+    textual.filter((j) => !kset.has(j)).slice(0, 6).forEach((j) => row(j, " faint"));
+    if (readings.length) {
+      const det = document.createElement("details");
+      const sum = document.createElement("summary");
+      sum.textContent = "readings from prose";
+      sum.style.cssText = "font-size:11px;color:var(--ink-dim);cursor:pointer";
+      det.append(sum);
+      const rset = new Set([...kernel, ...textual]);
+      readings.filter((j) => !rset.has(j)).slice(0, 10).forEach((j) => {
         const m = S.nodes[j];
-        const row = el("div", "edge");
-        row.append(el("span", "et", dir));
-        const em = el("span", "em", m.sent || m.head);
-        tint(em, m.head, 0.6);
-        row.append(em);
-        row.onclick = () => openNode(m);
-        c.append(row);
-      }
+        const r = el("div", "edge faint");
+        r.append(el("span", "em", m.sent || m.head));
+        r.onclick = () => openNode(m);
+        det.append(r);
+      });
+      c.append(det);
     }
   };
-  bucket("Feeds on", outs, "→");
-  bucket("Fed by", inns, "←");
+  bucket("Rests on", outs);
+  bucket("Rests on it", inns);
 
   // aliases: modules whose declaration address multisets coincide —
   // computed by the stratum-2 collapse over kernel identities.
@@ -818,19 +825,22 @@ function renderAbout() {
 async function drawNeighborhood(cv, tip, n, d) {
   const [uses, myIdent] = await Promise.all([usesOf(n), identityOf(n)]);
   const dpr = devicePixelRatio || 1;
-  const W = cv.clientWidth, H = cv.clientHeight;
+  const decls = (d && d.decls ? d.decls : []).slice(0, 22);
+  const H = Math.max(150, decls.length * 24 + 44);
+  cv.parentElement.style.height = H + "px";
+  const W = cv.clientWidth || cv.parentElement.clientWidth;
   cv.width = W * dpr; cv.height = H * dpr;
   const ctx = cv.getContext("2d");
   ctx.scale(dpr, dpr);
   const dark = isDark();
+  const mono = getComputedStyle(document.body).getPropertyValue("--mono");
+  const dim = dark ? "#9a92a8" : "#6b6478";
+  const ink = dark ? "#e8e3d8" : "#23212b";
 
-  // my terms (ring, right side), each with its users (the fibre of use)
-  const decls = (d && d.decls ? d.decls : []).slice(0, 22);
   const terms = decls.map((dec) => {
     const q = n.m + "." + dec.n;
     return { name: dec.n, q, users: (uses[q] || []) };
   });
-  // what I rest on, grouped by target module (structure, not a list)
   const onto = new Map();
   if (myIdent) {
     for (const rec of Object.values(myIdent)) {
@@ -843,84 +853,82 @@ async function drawNeighborhood(cv, tip, n, d) {
       }
     }
   }
-  const ontoArr = [...onto.entries()].sort((a, b) => b[1] - a[1]).slice(0, 14);
+  const ontoArr = [...onto.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+  const hasOnto = ontoArr.length > 0;
 
-  const hot = [];  // hit regions {x,y,r,label,mod}
-  const cx = W * 0.44, cy = H / 2;
+  const hot = [];
+  const cx = hasOnto ? W * 0.36 : W * 0.14;
+  const cy = H / 2;
+  const tx = hasOnto ? W * 0.52 : W * 0.30;
 
   ctx.clearRect(0, 0, W, H);
   // focus
-  ctx.beginPath(); ctx.arc(cx, cy, 7, 0, Math.PI * 2);
+  ctx.beginPath(); ctx.arc(cx, cy, 6.5, 0, Math.PI * 2);
   ctx.fillStyle = Grapheme.enabled ? Grapheme.color(n.head, { dark }) :
     (dark ? "#d9a441" : "#b8860b");
   ctx.fill();
-  ctx.font = "600 12px " + getComputedStyle(document.body).getPropertyValue("--mono");
-  ctx.fillStyle = dark ? "#e8e3d8" : "#23212b";
-  ctx.textAlign = "center";
-  ctx.fillText(n.head.slice(0, 26), cx, cy - 14);
+  ctx.font = "600 12px " + mono;
+  ctx.fillStyle = ink; ctx.textAlign = "center";
+  ctx.fillText(n.head.slice(0, 26), cx, cy - 13);
 
-  // left: rests-on, weight = size, arc to focus
-  ontoArr.forEach(([m, w], i) => {
-    const t = (i + 0.5) / Math.max(ontoArr.length, 1);
-    const x = W * 0.10, y = 24 + t * (H - 48);
-    const r = 3 + Math.min(9, Math.sqrt(w) * 1.6);
-    const node = S.byMod.get(m);
-    ctx.globalAlpha = 0.35;
-    ctx.strokeStyle = dark ? "#8f86c9" : "#3a3466";
-    ctx.lineWidth = 0.6 + Math.min(3, w * 0.15);
-    ctx.beginPath(); ctx.moveTo(x + r, y);
-    ctx.quadraticCurveTo((x + cx) / 2, y, cx - 9, cy); ctx.stroke();
-    ctx.globalAlpha = 1;
-    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
-    ctx.fillStyle = Grapheme.enabled && node ?
-      Grapheme.color(node.head, { dark }) : (dark ? "#8f86c9" : "#3a3466");
-    ctx.fill();
-    if (i < 7) {
-      ctx.font = "10.5px " + getComputedStyle(document.body).getPropertyValue("--mono");
-      ctx.textAlign = "left";
-      ctx.fillStyle = dark ? "#9a92a8" : "#6b6478";
-      ctx.fillText((node ? node.head : m).slice(0, 18), x + r + 4, y + 3.5);
-    }
-    hot.push({ x, y, r: r + 4, label: node ? (node.sent || node.head) : m, mod: m });
-  });
+  if (hasOnto) {
+    ctx.font = "10px sans-serif"; ctx.fillStyle = dim; ctx.textAlign = "left";
+    ctx.fillText("rests on", 14, 18);
+    ontoArr.forEach(([m, w], i) => {
+      const t = ontoArr.length === 1 ? 0.5 : (i + 0.5) / ontoArr.length;
+      const x = W * 0.10, y = 30 + t * (H - 56);
+      const r = 3 + Math.min(8, Math.sqrt(w) * 1.5);
+      const node = S.byMod.get(m);
+      ctx.globalAlpha = 0.3;
+      ctx.strokeStyle = dim; ctx.lineWidth = 0.6 + Math.min(2.5, w * 0.12);
+      ctx.beginPath(); ctx.moveTo(x + r, y);
+      ctx.quadraticCurveTo((x + cx) / 2, y, cx - 8, cy); ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = Grapheme.enabled && node ?
+        Grapheme.color(node.head, { dark }) : (dark ? "#8f86c9" : "#3a3466");
+      ctx.fill();
+      if (i < 8) {
+        ctx.font = "10.5px " + mono; ctx.textAlign = "left"; ctx.fillStyle = dim;
+        ctx.fillText((node ? node.head : m).slice(0, 16), x + r + 5, y + 3.5);
+      }
+      hot.push({ x, y, r: r + 4, label: node ? (node.sent || node.head) : m, mod: m });
+    });
+  }
 
-  // right: my terms as a ring column; users attach to their exact term
+  ctx.font = "10px sans-serif"; ctx.fillStyle = dim; ctx.textAlign = "left";
+  ctx.fillText("its terms — dependents attach to the term they rest on", tx, 18);
   terms.forEach((tm, i) => {
-    const t = (i + 0.5) / Math.max(terms.length, 1);
-    const x = W * 0.62, y = 18 + t * (H - 36);
-    ctx.globalAlpha = 0.3;
-    ctx.strokeStyle = dark ? "#5fae86" : "#2e6e4e";
-    ctx.lineWidth = 0.8;
-    ctx.beginPath(); ctx.moveTo(cx + 9, cy);
-    ctx.quadraticCurveTo((cx + x) / 2, y, x - 5, y); ctx.stroke();
+    const y = 32 + (i + 0.5) * ((H - 48) / Math.max(terms.length, 1));
+    ctx.globalAlpha = 0.25;
+    ctx.strokeStyle = dark ? "#5fae86" : "#2e6e4e"; ctx.lineWidth = 0.8;
+    ctx.beginPath(); ctx.moveTo(cx + 8, cy);
+    ctx.quadraticCurveTo((cx + tx) / 2, y, tx - 5, y); ctx.stroke();
     ctx.globalAlpha = 1;
-    ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI * 2);
     const c = Grapheme.enabled ? Grapheme.color(tm.name, { dark }) :
       (dark ? "#5fae86" : "#2e6e4e");
+    ctx.beginPath(); ctx.arc(tx, y, 3.5, 0, Math.PI * 2);
     ctx.fillStyle = c; ctx.fill();
-    ctx.font = "10.5px " + getComputedStyle(document.body).getPropertyValue("--mono");
-    ctx.textAlign = "left"; ctx.fillStyle = c;
-    ctx.fillText(tm.name.slice(0, 22), x + 7, y + 3.5);
-    hot.push({ x, y, r: 8, label: tm.name + " — its dependents attach here", mod: null });
-    // the users of THIS term, as dots to its right
-    tm.users.slice(0, 8).forEach(([um, w], j) => {
-      const ux = W * 0.80 + (j % 4) * 13, uy = y - 6 + Math.floor(j / 4) * 12;
-      const ur = 2 + Math.min(5, Math.sqrt(w));
+    ctx.font = "11px " + mono; ctx.textAlign = "left"; ctx.fillStyle = c;
+    const label = tm.name.slice(0, 24);
+    ctx.fillText(label, tx + 8, y + 3.5);
+    const labelW = ctx.measureText(label).width;
+    hot.push({ x: tx, y, r: 8, label: tm.name, mod: null });
+    // dependents directly after the label, one compact row
+    tm.users.slice(0, 10).forEach(([um, w], j) => {
+      const ux = tx + 16 + labelW + j * 13;
+      if (ux > W - 14) return;
+      const ur = 2 + Math.min(4.5, Math.sqrt(w));
       const un = S.byMod.get(um);
-      ctx.globalAlpha = 0.75;
-      ctx.beginPath(); ctx.arc(ux, uy, ur, 0, Math.PI * 2);
+      ctx.globalAlpha = 0.8;
+      ctx.beginPath(); ctx.arc(ux, y, ur, 0, Math.PI * 2);
       ctx.fillStyle = Grapheme.enabled && un ?
-        Grapheme.color(un.head, { dark }) : (dark ? "#9a92a8" : "#6b6478");
+        Grapheme.color(un.head, { dark }) : dim;
       ctx.fill();
       ctx.globalAlpha = 1;
-      hot.push({ x: ux, y: uy, r: ur + 3,
+      hot.push({ x: ux, y, r: ur + 3,
                  label: (un ? un.head : um) + " rests on " + tm.name, mod: um });
     });
-    if (tm.users.length > 8) {
-      ctx.font = "9px sans-serif";
-      ctx.fillStyle = dark ? "#9a92a8" : "#6b6478";
-      ctx.fillText("+", W * 0.80 + 4 * 13, y + 3);
-    }
   });
 
   cv.onmousemove = (e) => {
@@ -929,7 +937,7 @@ async function drawNeighborhood(cv, tip, n, d) {
     const h = hot.find((o) => Math.hypot(o.x - mx, o.y - my) <= o.r);
     if (h) {
       tip.textContent = h.label;
-      tip.style.left = Math.min(mx + 12, W - 200) + "px";
+      tip.style.left = Math.min(mx + 12, W - 220) + "px";
       tip.style.top = (my + 10) + "px";
       tip.style.display = "block";
     } else tip.style.display = "none";

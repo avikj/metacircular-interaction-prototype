@@ -282,3 +282,6 @@ section.block > h2 {
   font-size: 13px; color: var(--ink-dim); margin: 4px 0;
   padding-left: 10px; border-left: 2px solid var(--line);
 }
+
+.edge.faint { opacity: 0.55; }
+.edge .em { font-size: 12px; }

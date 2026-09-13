@@ -49,7 +49,7 @@ export function mountFibreLaw(host, opts) {
   bar.style.cssText = "display:flex;gap:8px;flex-wrap:wrap;align-items:center;" +
     "font:12px sans-serif;margin-bottom:8px";
   const wrap = document.createElement("div");
-  wrap.style.cssText = "position:relative;height:360px;background:var(--card);" +
+  wrap.style.cssText = "position:relative;background:var(--card);" +
     "border:1px solid var(--line);border-radius:8px;overflow:hidden";
   const cv = document.createElement("canvas");
   cv.style.cssText = "width:100%;height:100%;display:block";
@@ -110,7 +110,10 @@ export function mountFibreLaw(host, opts) {
 
   function draw() {
     const dpr = devicePixelRatio || 1;
-    const W = cv.clientWidth, H = cv.clientHeight;
+    const rows = Math.max(ex.dom.length, ex.cod.length);
+    const H = Math.max(170, rows * 52 + 80);
+    wrap.style.height = H + "px";
+    const W = cv.clientWidth || wrap.clientWidth;
     cv.width = W * dpr; cv.height = H * dpr;
     const g = cv.getContext("2d");
     g.scale(dpr, dpr);
@@ -119,9 +122,11 @@ export function mountFibreLaw(host, opts) {
     const ink = dark() ? "#e8e3d8" : "#23212b";
     const dim = dark() ? "#9a92a8" : "#6b6478";
 
-    const ax = W * 0.22, bx = W * 0.78;
-    const ay = (i) => 60 + i * ((H - 110) / Math.max(ex.dom.length - 1, 1));
-    const by = (j) => 60 + j * ((H - 110) / Math.max(ex.cod.length - 1, 1));
+    // columns close to center; rows centered vertically, compact spacing
+    const ax = W * 0.34, bx = W * 0.62;
+    const span = (k) => (k - 1) * 52;
+    const ay = (i) => H / 2 - span(ex.dom.length) / 2 + i * 52;
+    const by = (j) => H / 2 - span(ex.cod.length) / 2 + j * 52;
 
     g.font = "600 13px " + mono; g.fillStyle = dim; g.textAlign = "center";
     g.fillText("A", ax, 28); g.fillText("B", bx, 28);
@@ -140,25 +145,28 @@ export function mountFibreLaw(host, opts) {
       ex.cod.forEach((bl, j) => {
         const fib = ex.dom.map((_, i) => i).filter((i) => ex.f(i) === j);
         const [word, color] = census(fib);
-        // halo sized by fibre, colored by census
-        g.beginPath(); g.arc(bx, by(j), 10 + fib.length * 7 * anim, 0, Math.PI * 2);
+        const rw = Math.max(1, fib.length);
+        const haloR = Math.max(13, rw * 11 + 4);
+        g.beginPath(); g.arc(bx, by(j), haloR * (0.6 + 0.4 * anim), 0, Math.PI * 2);
         g.strokeStyle = color; g.setLineDash(word === "empty" ? [3, 3] : []);
         g.lineWidth = 1.5; g.stroke(); g.setLineDash([]);
-        // the fibre's members, pulled next to b
+        // members sit INSIDE the halo, in a centered row around b
         fib.forEach((i, k) => {
-          const fx = bx + (k - (fib.length - 1) / 2) * 16 * anim;
-          const fy = by(j) - (18 + 8 * anim);
-          g.beginPath(); g.arc(fx, fy, 4, 0, Math.PI * 2);
-          g.fillStyle = tint(ex.dom[i]); g.fill();
-          g.font = "10px " + mono; g.fillStyle = dim; g.textAlign = "center";
-          g.fillText(ex.dom[i], fx, fy - 7);
+          const t = fib.length === 1 ? 0 : (k / (fib.length - 1) - 0.5);
+          const fx = bx + t * (haloR * 1.1) * anim;
+          const fy = by(j) - (fib.length > 1 ? 0 : 0);
+          if (fib.length > 1 || ex.dom[i] !== bl) {
+            g.beginPath(); g.arc(fx, fy, 4, 0, Math.PI * 2);
+            g.fillStyle = tint(ex.dom[i]); g.fill();
+          }
         });
-        g.beginPath(); g.arc(bx, by(j), 5, 0, Math.PI * 2);
+        // b's label to the RIGHT of the halo; census beneath it
+        g.beginPath(); g.arc(bx, by(j), 4.5, 0, Math.PI * 2);
         g.fillStyle = tint(bl); g.fill();
-        g.font = "11px " + mono; g.fillStyle = ink; g.textAlign = "left";
-        g.fillText(bl, bx + 14, by(j) + 4);
-        g.font = "italic 10.5px " + mono; g.fillStyle = color;
-        g.fillText(word, bx + 14, by(j) + 17);
+        g.font = "12px " + mono; g.fillStyle = ink; g.textAlign = "left";
+        g.fillText(bl, bx + haloR + 10, by(j) + 4);
+        g.font = "italic 11px " + mono; g.fillStyle = color;
+        g.fillText(word, bx + haloR + 10, by(j) + 18);
       });
       // domain
       ex.dom.forEach((al, i) => {
