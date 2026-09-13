@@ -192,5 +192,15 @@ def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B,
     case (a2, p):
       <j> ( eqS(A,Ap,ef,h,a2) @ j
           , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
+# the coherent contraction path in fiber(ef, ef a) (Σ-η makes the centre reduce)
+def cw(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(fiber(A, Ap, ef, ef(a)), (eqG(A,Ap,ef,h,ef(a)), eqS(A,Ap,ef,h,ef(a))), (a, <_> ef(a))):
+  match (h(ef(a))):
+    case (cen, contr):
+      contr((a, <_> ef(a)))
+def cwFst(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(A, eqG(A,Ap,ef,h,ef(a)), a):
+  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): z)
+def cwSnd(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A)
+  -> PathP(lambda j. Path(Ap, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a)), eqS(A,Ap,ef,h,ef(a)), <_> ef(a)):
+  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): q)
 def main2() -> Nat:
   0n
