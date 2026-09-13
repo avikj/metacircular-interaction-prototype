@@ -74,10 +74,11 @@ def chunk_source(k: int, slice_, macro: str) -> str:
         al = f"D{i}"
         imports.append(f"import {mod} as {al}")
         quotes.extend(f"    quote {al}.{n} ∷" for n in names)
+    probe_mod = "Fibre.CorpusNF" if macro == "emitNFs" else "Fibre.CorpusProbe"
     return "\n".join([
         "{-# OPTIONS --cubical --safe --guardedness --no-import-sorts #-}",
         f"module Chunk{k} where",
-        f"open import Fibre.CorpusProbe using ({macro})",
+        f"open import {probe_mod} using ({macro})",
         "open import Agda.Builtin.Unit using (⊤)",
         "open import Agda.Builtin.List using (List ; [] ; _∷_)",
         "open import Agda.Builtin.Reflection using (Name)",
@@ -127,7 +128,42 @@ def run_chunk(agda, libfile, k: int, slice_, macro: str, verb: str, tag: str,
         shutil.rmtree(cdir, ignore_errors=True)
 
 
+def present_nf(rows: list[str], out: Path):
+    """The true quotient: collapse declarations by normalized-type identity.
+    Row = NF <normal-form-key> <name>.  Same key = same proposition."""
+    from collections import defaultdict
+    cls = defaultdict(list)
+    for r in rows:
+        c = r.split("\t", 2)
+        if len(c) == 3:
+            cls[c[1]].append(c[2])
+    ndecl, nclass = sum(len(v) for v in cls.values()), len(cls)
+    ordered = sorted(cls.items(), key=lambda kv: -len(kv[1]))
+    lines = [
+        "════ CORPUS AS ONE OBJECT — collapsed by type normal form ════",
+        f"declarations                 : {ndecl}",
+        f"distinct propositions (nf)   : {nclass}",
+        f"collapse ratio               : {ndecl / nclass:.2f}×" if nclass else "",
+        "two declarations share a class iff their type NORMAL FORMS are equal",
+        "— a mathematical identity, independent of module or file.",
+        "",
+        "──── most-restated propositions (largest equivalence classes) ────",
+    ]
+    for key, names in ordered[:30]:
+        show = key if len(key) <= 88 else key[:85] + "..."
+        lines.append(f"[{len(names):>4}×]  {show}")
+        lines.append(f"          e.g. {names[0]}")
+    singles = sum(1 for _k, v in cls.items() if len(v) == 1)
+    lines.append("")
+    lines.append(f"propositions proven exactly once : {singles}")
+    text = "\n".join(l for l in lines if l != "")
+    out.write_text(text + "\n", encoding="utf-8")
+    print(text)
+
+
 def present(rows: list[str], tag: str, out: Path):
+    if tag == "NF":
+        return present_nf(rows, out)
     # locus key = (arity, head) = columns 2,3 of the tab row
     from collections import Counter
     keys = Counter()
@@ -166,6 +202,8 @@ def main() -> int:
     ap.add_argument("--par", type=int, default=3)
     ap.add_argument("--limit", type=int, default=0, help="cap module count (0 = all)")
     ap.add_argument("--loci", action="store_true", help="run the O(n^2) realization readout")
+    ap.add_argument("--nf", action="store_true",
+                    help="collapse declarations by normalized-type identity (the true quotient)")
     ap.add_argument("--rows-out", default="/tmp/corpus-rows.txt")
     ap.add_argument("--pres-out", default="/tmp/corpus-presentation.txt")
     args = ap.parse_args()
@@ -175,7 +213,12 @@ def main() -> int:
     mods = module_set(rcc)
     if args.limit:
         mods = mods[:args.limit]
-    macro, verb, tag = ("emitLoci", "loci", "LOCUS") if args.loci else ("emitDecls", "decl", "DECL")
+    if args.nf:
+        macro, verb, tag = "emitNFs", "nf", "NF"
+    elif args.loci:
+        macro, verb, tag = "emitLoci", "loci", "LOCUS"
+    else:
+        macro, verb, tag = "emitDecls", "decl", "DECL"
 
     chunks = [mods[i:i + args.chunksz] for i in range(0, len(mods), args.chunksz)]
     print(f"modules={len(mods)} chunks={len(chunks)} chunksz={args.chunksz} "
