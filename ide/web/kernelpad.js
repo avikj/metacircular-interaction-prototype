@@ -178,9 +178,21 @@ export function mountKernelPad(host, helpers) {
       return;
     }
     for (const g of p.goals) {
-      out.append(panel(
+      const box = panel(
         "goal" + (g.line ? `  ·  line ${g.line}` : ""),
-        `?${g.id} : ${g.type || ""}`, ""));
+        `?${g.id} : ${g.type || ""}`, "");
+      box.style.cursor = "pointer";
+      box.title = "context";
+      box.onclick = () => working("context", async () => {
+        const q = await runCmds([
+          `Cmd_goal_type_context Normalised ${g.id} noRange ""`]);
+        const gi = q.infos.find((i) => i[0] === "goal");
+        if (!gi) return;
+        box.append(panel("context", (gi[2] || []).join("\n") || "(empty)", ""));
+        box.onclick = null;
+        box.style.cursor = "";
+      });
+      out.append(box);
     }
   });
 

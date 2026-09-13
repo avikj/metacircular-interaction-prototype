@@ -43,7 +43,7 @@ export function mountWorkbench(host, node, helpers) {
 
   const bar = el("div");
   bar.style.cssText = "display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap";
-  const checkBtn = el("button", "", "check  (the kernel judges)");
+  const checkBtn = el("button", "", "check");
   const revertBtn = el("button", "", "revert");
   const busy = el("span", "", "");
   busy.style.cssText = "font:12px var(--mono);color:var(--accent-ink)";
@@ -56,7 +56,7 @@ export function mountWorkbench(host, node, helpers) {
   ask.style.cssText = "display:flex;gap:8px;margin-top:10px";
   const askIn = document.createElement("input");
   askIn.id = "wb-ask";
-  askIn.placeholder = "ask the kernel about any expression in this module's scope";
+  askIn.placeholder = "expression";
   askIn.style.cssText = "flex:1;font:13px var(--mono);background:var(--card);" +
     "color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 10px";
   const inferBtn = el("button", "", "type");
@@ -99,28 +99,28 @@ export function mountWorkbench(host, node, helpers) {
     ed.value = original;
   })();
 
-  checkBtn.onclick = () => working("the kernel is checking", async () => {
+  checkBtn.onclick = () => working("checking", async () => {
     await call({ op: "write", file, text: ed.value });
     const r = await call({ op: "check", file });
     out.innerHTML = "";
     if (r.errors && r.errors.length) {
-      for (const e of r.errors) out.append(panel("the kernel refuses", e, "bad"));
+      for (const e of r.errors) out.append(panel("error", e, "bad"));
       return;
     }
     if (!r.goals || !r.goals.length) {
-      out.append(panel("checked", "no errors, no holes — the module is entire", "good"));
+      out.append(panel("checked", "0 errors · 0 goals", "good"));
       return;
     }
     for (const g of r.goals) {
-      const box = panel(`hole ?${g.id}` +
+      const box = panel("goal" +
         (g.range && g.range[0] && g.range[0].start
           ? `  ·  line ${g.range[0].start.line}` : ""),
-        g.type || "(ask for the goal)", "");
+        `?${g.id} : ${g.type || ""}`, "");
       box.style.cursor = "pointer";
-      box.title = "click for the goal's context";
-      box.onclick = () => working("asking the goal", async () => {
+      box.title = "context";
+      box.onclick = () => working("context", async () => {
         const gi = await call({ op: "goal", file, id: g.id });
-        if (gi.error) { box.append(panel("", gi.error, "bad")); return; }
+        if (gi.error) { box.append(panel("error", gi.error, "bad")); return; }
         const ctx = (gi.context || [])
           .map((c) => `${c.originalName} : ${c.binding}`).join("\n");
         box.append(panel("context", ctx || "(empty)", ""));
@@ -144,9 +144,10 @@ export function mountWorkbench(host, node, helpers) {
     const r = await call({ op, file, expr });
     const first = out.firstChild;
     const box = r.error
-      ? panel("the kernel refuses", r.error, "bad")
-      : panel(op === "infer" ? `${expr}  :` : `${expr}  ⟶`,
-              r.type || r.value || "", "good");
+      ? panel("error", r.error, "bad")
+      : panel(op === "infer" ? "type" : "normal form",
+              op === "infer" ? `${expr} : ${r.type || ""}`
+                             : `${expr} ⇓ ${r.value || ""}`, "good");
     out.insertBefore(box, first);
   });
   inferBtn.onclick = askKernel("infer");

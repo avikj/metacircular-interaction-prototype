@@ -31,18 +31,30 @@ let primFiles = null;
 const enc = new TextEncoder();
 const dec = new TextDecoder();
 
+/* Fetch through the Cache API so the kernel downloads once per device,
+ * independent of HTTP cache policy. Falls back to plain fetch. */
+async function fetchCached(url) {
+  let cache = null;
+  try { cache = await caches.open("agda-kernel-2.8.0"); } catch (e) {}
+  if (cache) {
+    const hit = await cache.match(url);
+    if (hit) return hit;
+  }
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(url + ": " + r.status);
+  if (cache) { try { await cache.put(url, r.clone()); } catch (e) {} }
+  return r;
+}
+
 async function boot(base) {
   const chunks = await Promise.all([0, 1, 2].map((i) =>
-    fetch(base + "kernel/agda.wasm." + i).then((r) => {
-      if (!r.ok) throw new Error("wasm chunk " + i + ": " + r.status);
-      return r.arrayBuffer();
-    })));
+    fetchCached(base + "kernel/agda.wasm." + i).then((r) => r.arrayBuffer())));
   const total = chunks.reduce((n, c) => n + c.byteLength, 0);
   const buf = new Uint8Array(total);
   let off = 0;
   for (const c of chunks) { buf.set(new Uint8Array(c), off); off += c.byteLength; }
   wasmModule = await WebAssembly.compile(buf);
-  primFiles = await fetch(base + "kernel/prim.json").then((r) => r.json());
+  primFiles = await fetchCached(base + "kernel/prim.json").then((r) => r.json());
 }
 
 function buildTree(extra) {
