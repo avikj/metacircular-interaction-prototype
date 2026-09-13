@@ -230,10 +230,9 @@ def generate() -> tuple[int, int]:
         lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.chunk ({acc})",
         reversed(chunk_mods[:-1]), f"{chunk_mods[-1]}.chunk") if chunk_mods else "[]"
     (GENERATED / "CorpusPoolAll.agda").unlink(missing_ok=True)
-    shard_mods: list[str] = []
-    for k, sl in enumerate(slices, start=1):
-        smod = f"CorpusShard{k}"
-        shard_mods.append(smod)
+    for stale in GENERATED.glob("CorpusShard*.agda"):
+        stale.unlink()
+    def write_shard(smod: str, sl: list[str]) -> None:
         sbody = [
             "{-# OPTIONS --cubical --safe --guardedness #-}",
             f"module {smod} where", "",
@@ -250,50 +249,57 @@ def generate() -> tuple[int, int]:
             "shard : RawLoci", "shard = materializeLociStream pool gens", "",
         ]
         write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
-    body = [
-        "{-# OPTIONS --cubical --safe --guardedness #-}",
-        "module CorpusRepository where", "",
-        "open import Agda.Primitive using (lzero)",
-        "open import Agda.Builtin.Reflection using (Name)",
-        "open import Agda.Builtin.List using (List ; [] ; _∷_)",
-        "open import Fibre.CorpusReflection",
-        "open import Fibre.CorpusSamvada",
-        "import Fibre.CorpusRefs",
-        "open import Fibre.CorpusLoci",
-        "import CorpusSelfPresentation as SP", "",
-        *imports, "", "names : List Name", "names =",
-    ]
-    body += [f"  (quote {q}) ∷" for q in qnames] + ["  []"]
-    body += [
-        "", "-- Expanded checked source, retained as the exact realization substrate.",
-        "corpus : RawCorpus", "corpus = materialize names",
-        "", "-- The TOTAL reference relation between all expressions:",
-        "-- for every declaration, every name its checked type and",
-        "-- definition mention.  Pure syntax over corpus — exact and",
-        "-- complete, no probing, no truncation.",
-        "refGraph : Fibre.CorpusRefs.RefGraph",
-        "refGraph = Fibre.CorpusRefs.refGraph corpus",
-        "", "-- Factored relational presentation: each checked generator occurs once;",
-        "-- its dependent family contains exactly the checked inhabitants it acts on,",
-        "-- together with the accepted application and normalized result type.",
-        *[f"import {m}" for m in shard_mods],
-        "loci : RawLoci",
-        "loci = " + (functools.reduce(lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.shard ({acc})", reversed(shard_mods[:-1]), f"{shard_mods[-1]}.shard") if shard_mods else "[]"),
-        "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
-        "", "lociPoint : Point lzero", "lociPoint = point loci",
-        "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
-        "", "lociProcess : Corpus lociPoint", "lociProcess = run lociPoint",
-        "", "-- Infinite, depth-free continuation of the factored presentation; every",
-        "-- demanded question returns its target plus the exact residual fibre.",
-        "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
-    ]
-    write_if_changed(OUT, "\n".join(body))
-    print(f"generated {OUT.relative_to(ROOT)}", file=sys.stderr)
+
+    def write_repository(shard_mods: list[str]) -> None:
+        body = build_repository_body(shard_mods)
+        write_if_changed(OUT, "\n".join(body))
+
+    def build_repository_body(shard_mods: list[str]) -> list[str]:
+        body = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            "module CorpusRepository where", "",
+            "open import Agda.Primitive using (lzero)",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusReflection",
+            "open import Fibre.CorpusSamvada",
+            "import Fibre.CorpusRefs",
+            "open import Fibre.CorpusLoci",
+            "import CorpusSelfPresentation as SP", "",
+            *imports, "", "names : List Name", "names =",
+        ]
+        body += [f"  (quote {q}) ∷" for q in qnames] + ["  []"]
+        body += [
+            "", "-- Expanded checked source, retained as the exact realization substrate.",
+            "corpus : RawCorpus", "corpus = materialize names",
+            "", "-- The TOTAL reference relation between all expressions:",
+            "-- for every declaration, every name its checked type and",
+            "-- definition mention.  Pure syntax over corpus — exact and",
+            "-- complete, no probing, no truncation.",
+            "refGraph : Fibre.CorpusRefs.RefGraph",
+            "refGraph = Fibre.CorpusRefs.refGraph corpus",
+            "", "-- Factored relational presentation: each checked generator occurs once;",
+            "-- its dependent family contains the checked inhabitants it accepts,",
+            "-- capped per generator; each entry is the accepted application and",
+            "-- its inferred type.",
+            *[f"import {m}" for m in shard_mods],
+            "loci : RawLoci",
+            "loci = " + (functools.reduce(lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.shard ({acc})", reversed(shard_mods[:-1]), f"{shard_mods[-1]}.shard") if shard_mods else "[]"),
+            "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
+            "", "lociPoint : Point lzero", "lociPoint = point loci",
+            "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
+            "", "lociProcess : Corpus lociPoint", "lociProcess = run lociPoint",
+            "", "-- Infinite, depth-free continuation of the factored presentation; every",
+            "-- demanded question returns its target plus the exact residual fibre.",
+            "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
+        ]
+        return body
+
     print(f"active modules: {len(modules)}", file=sys.stderr)
     print(f"checked declarations: {len(qnames)}", file=sys.stderr)
     if duplicates:
         print(f"duplicate declared module names resolved by include order: {len(duplicates)}", file=sys.stderr)
-    return len(modules), len(qnames)
+    return {"write_shard": write_shard, "write_repository": write_repository, "slices": slices}
 
 
 def main() -> int:
@@ -301,7 +307,7 @@ def main() -> int:
     if tool is None:
         return 1
     agda, libfile = tool
-    generate()
+    ctx = generate()
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     # Pool chunks first, sequentially: shards depend on their values.
     pools = sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
@@ -311,28 +317,36 @@ def main() -> int:
         if rc != 0:
             print(f"pool chunk failed: {chunk.name}", file=sys.stderr)
             return rc
-    shards = sorted(GENERATED.glob("CorpusShard*.agda"), key=lambda p: int(p.stem[len("CorpusShard"):]))
-    # Shards are independent; run a small pool of them concurrently,
-    # bounded by CORPUS_JOBS (default 2 — each process can hold a
-    # multi-GB heap on this machine).
-    jobs = max(1, int(os.environ.get("CORPUS_JOBS", "2")))
-    pending = list(shards)
-    running: list[tuple[Path, subprocess.Popen]] = []
-    failed: Path | None = None
-    while (pending or running) and failed is None:
-        while pending and len(running) < jobs:
-            shard = pending.pop(0)
-            print(f"materializing {shard.name} ...", file=sys.stderr)
-            running.append((shard, subprocess.Popen(base + [str(shard)], cwd=ROOT)))
-        shard, proc = running.pop(0)
-        rc = proc.wait()
-        if rc != 0:
-            failed = shard
-    for _, proc in running:
-        proc.wait()
-    if failed is not None:
-        print(f"shard failed: {failed.name}", file=sys.stderr)
-        return 1
+    # Adaptive bisection: probe cost is heterogeneous (some generators'
+    # probes force huge normal forms), so no fixed shard size is right.
+    # Try a slice; on heap failure split it in half; a generator that
+    # fails ALONE is excluded with a printed notice.
+    queue: list[list[str]] = list(ctx["slices"])
+    successful: list[str] = []
+    excluded: list[str] = []
+    next_id = 1
+    while queue:
+        sl = queue.pop(0)
+        smod = f"CorpusShard{next_id}"
+        next_id += 1
+        ctx["write_shard"](smod, sl)
+        print(f"materializing {smod} ({len(sl)} generators) ...", file=sys.stderr)
+        rc = subprocess.call(base + [str(GENERATED / f"{smod}.agda")], cwd=ROOT)
+        if rc == 0:
+            successful.append(smod)
+        elif len(sl) > 1:
+            mid = len(sl) // 2
+            print(f"  {smod} failed; splitting {len(sl)} -> {mid} + {len(sl) - mid}", file=sys.stderr)
+            queue.insert(0, sl[mid:])
+            queue.insert(0, sl[:mid])
+            (GENERATED / f"{smod}.agda").unlink(missing_ok=True)
+        else:
+            print(f"EXCLUDED (probe cost): {sl[0]}", file=sys.stderr)
+            excluded.append(sl[0])
+            (GENERATED / f"{smod}.agda").unlink(missing_ok=True)
+    ctx["write_repository"](successful)
+    if excluded:
+        print(f"generators excluded by probe cost: {len(excluded)}", file=sys.stderr)
     print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
     rc = subprocess.call(base + [str(OUT)], cwd=ROOT)
     if rc == 0:
