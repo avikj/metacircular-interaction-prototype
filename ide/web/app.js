@@ -778,6 +778,19 @@ function wireKeys() {
     $("#gcolorbtn").textContent = "color: " + S.graphColor;
     drawGraph();
   };
+  const mob = (btnId, panelId, otherId) => {
+    $(btnId).onclick = () => {
+      $(otherId).classList.remove("open");
+      $(panelId).classList.toggle("open");
+    };
+  };
+  mob("#mobrail", "#rail", "#ctx");
+  mob("#mobctx", "#ctx", "#rail");
+  // any navigation closes the panels on phones
+  window.addEventListener("hashchange", () => {
+    $("#rail").classList.remove("open");
+    $("#ctx").classList.remove("open");
+  });
   $("#themebtn").onclick = () => {
     const r = document.documentElement;
     const cur = r.dataset.theme;

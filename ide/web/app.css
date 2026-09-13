@@ -270,11 +270,22 @@ section.block > h2 {
 }
 [hidden] { display: none !important; }
 
+#mobrail, #mobctx { display: none; }
 @media (max-width: 900px) {
   main { grid-template-columns: 1fr; }
-  #rail, #ctx { border: none; border-bottom: 1px solid var(--line); }
-  body { padding: 0; }
-  #focus { padding: 16px; }
+  /* phone: the content owns the screen; rails live behind toggles */
+  #rail, #ctx {
+    display: none;
+    position: fixed; inset: 49px 0 0 0; z-index: 20;
+    overflow-y: auto; border: none;
+  }
+  #rail.open, #ctx.open { display: block; }
+  #focus { padding: 14px 16px 60px; }
+  .sentence { font-size: 20px; }
+  header { flex-wrap: wrap; gap: 8px; padding: 6px 10px; }
+  header .brand small, header .stats { display: none; }
+  #q { min-width: 150px; }
+  #mobrail, #mobctx { display: inline-block; }
 }
 
 .decl.kernel { border-left: 3px solid var(--proved); }
