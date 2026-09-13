@@ -211,6 +211,32 @@ def generate() -> tuple[int, int]:
     # The classified pool is materialized once, in chunks, as checked
     # values; shards consume it as data and pay no reflection for it.
     eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
+    # The corpus VALUE is materialized in the same bounded pieces:
+    # reflection retention is per call, so 25.8k names in one process is
+    # tens of GB, while 2000-name pieces are minutes each and their
+    # concatenation is pure data.
+    data_mods: list[str] = []
+    for k, ch in enumerate(chunks, start=1):
+        dmod = f"CorpusData{k}"
+        data_mods.append(dmod)
+        dbody = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            f"module {dmod} where", "",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusReflection using (RawCorpus ; materialize)", "",
+            *imports, "",
+            "partNames : List Name", "partNames =",
+            *[f"  (quote {q}) ∷" for q in ch], "  []", "",
+            "part : RawCorpus", "part = materialize partNames", "",
+        ]
+        write_if_changed(GENERATED / f"{dmod}.agda", "\n".join(dbody))
+    for stale in GENERATED.glob("CorpusData*.agda"):
+        if stale.name not in {f"CorpusData{k}.agda" for k in range(1, len(chunks) + 1)}:
+            stale.unlink()
+    corpus_expr = functools.reduce(
+        lambda acc, m: f"Fibre.CorpusReflection._++_ {m}.part ({acc})",
+        reversed(data_mods[:-1]), f"{data_mods[-1]}.part") if data_mods else "[]"
     chunk_mods: list[str] = []
     for k, ch in enumerate(chunks, start=1):
         if not eager_loci:
@@ -273,8 +299,11 @@ def generate() -> tuple[int, int]:
         ]
         body += [f"  (quote {q}) ∷" for q in qnames] + ["  []"]
         body += [
-            "", "-- Expanded checked source, retained as the exact realization substrate.",
-            "corpus : RawCorpus", "corpus = materialize names",
+            "", "-- Expanded checked source, retained as the exact realization",
+            "-- substrate — the concatenation of the checked piece values.",
+            *[f"import {m}" for m in data_mods],
+            "corpus : RawCorpus",
+            f"corpus = {corpus_expr}",
             "", "-- The TOTAL reference relation between all expressions:",
             "-- for every declaration, every name its checked type and",
             "-- definition mention.  Pure syntax over corpus — exact and",
@@ -319,8 +348,10 @@ def main() -> int:
     ctx = generate()
     base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
     eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
-    # Pool chunks first, sequentially: shards depend on their values.
-    pools = [] if not eager_loci else sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
+    # Corpus data pieces first, then (optionally) pool chunks.
+    pools = sorted(GENERATED.glob("CorpusData[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusData"):]))
+    if eager_loci:
+        pools += sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
     for chunk in pools:
         print(f"classifying {chunk.name} ...", file=sys.stderr)
         rc = subprocess.call(base + [str(chunk)], cwd=ROOT)
