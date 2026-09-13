@@ -1027,7 +1027,7 @@ index cdd6756..e29b14d 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -435,6 +528,69 @@ check d span book ctx term goal =
+@@ -435,6 +528,72 @@ check d span book ctx term goal =
      (_, _) -> do
        verify d span book ctx term goal
  
@@ -1081,6 +1081,9 @@ index cdd6756..e29b14d 100644
 +  where
 +    spineType t = case cut t of
 +      Var _ i | i < length ks -> let (_, _, ty) = ks !! i in Just ty
++      Ref nm -> case deref book nm of
++        Just (_, _, ty) -> Just ty
++        _               -> Nothing
 +      App f x -> do
 +        fT <- spineType f
 +        case force book fT of
