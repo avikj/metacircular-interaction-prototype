@@ -100,6 +100,14 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             # the COMPLETE (established) corpus, not the owed obligations.
             if re.search(r"(?m)=\s*\?\s*$", src) or "{!" in src:
                 continue
+            # Skip modules in a different type-theory regime: the materialized
+            # CorpusRepository is --cubical, and --cubical-compatible/--without-K
+            # are coinfective, so such modules (e.g. the --cubical-compatible
+            # karma/runtime lane) cannot be imported into it. The instrument
+            # materializes the --cubical established corpus as one coalgebra;
+            # the cross-regime lanes are their own coalgebra.
+            if re.search(r"(?m)^\{-#\s*OPTIONS[^#]*(--cubical-compatible|--without-K)", src):
+                continue
             mod = module_name(src)
             if not mod:
                 continue
