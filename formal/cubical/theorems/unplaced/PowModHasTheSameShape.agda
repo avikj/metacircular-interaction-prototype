@@ -174,10 +174,6 @@ correct-factors = decode , law
 -- `ℕ → ℕ → ℕ → ℕ`; `powMod` is `ℕ → ℕ → ℕ → ℕ → ℕ`.  Both are invisible
 -- to the obvious grep, which is why both survived.
 --
--- Not claimed: that `powMod` is used incorrectly anywhere.  The Breaker
--- states a range in which fuel 40 suffices, and this module does not
--- evaluate that claim — it shows only that the claim is load-bearing
--- and cannot be replaced by inspection of results.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

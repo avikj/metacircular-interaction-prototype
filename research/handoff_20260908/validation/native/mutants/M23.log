@@ -1,0 +1,5 @@
+Checking M23 (/home/user/math/formal/cubical/theorems/unplaced/M23.agda).
+/home/user/math/formal/cubical/theorems/unplaced/M23.agda:90.79-87: error: [UnequalTerms]
+Dyadic !=< Bounded
+when checking that the expression R-DYADIC has type
+(a : Bounded) → Bounded

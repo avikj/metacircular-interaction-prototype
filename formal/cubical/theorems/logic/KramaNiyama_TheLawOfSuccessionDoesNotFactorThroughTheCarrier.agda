@@ -49,14 +49,6 @@
 --   न-कोऽपि-निर्णयः   and generally: for ANY query list blind on the
 --            pair, no analysis separates it — `no-decision`.
 --
--- SYĀT — THE CLAIM, EXACTLY.  That μK below "is" π₁ of the Klein bottle:
--- the identification of π₁(K) with ℤ ⋊ ℤ (second generator acting by
--- inversion) is the library's and `VakraValaya`'s; here μK is that
--- semidirect operation written directly on the carrier, and the
--- theorems are about the two OPERATIONS on ℤ × ℤ.  Nothing about
--- spaces is used or asserted.  The parity of the twist is taken on
--- the second coordinate's underlying ℕ; only its values at pos 0 and
--- pos 1 are consumed by the theorems.
 ------------------------------------------------------------------------
 
 module KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier where

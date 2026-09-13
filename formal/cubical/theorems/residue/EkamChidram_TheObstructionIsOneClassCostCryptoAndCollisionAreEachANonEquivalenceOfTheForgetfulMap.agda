@@ -34,13 +34,6 @@
 -- cover.  So the fourth position is the H¹ of that cover; ¬ isEquiv is
 -- its untruncated form here.  Those are cited, not rebuilt.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§0–1 in general; §2 as a term on the
--- kernel's histories; §3 carried from Sesa.  NOT claimed: a single type
--- literally containing the logic lane's propositional obstruction (it is
--- the truncation of this one; unifying across the truncation is the next
--- step, cited not done).  What IS claimed: cost and crypto obstructions
--- are the same type `¬ isEquiv`, witnessed, and the logic obstruction is
--- its (−1)-truncation.
 ------------------------------------------------------------------------
 
 module EkamChidram_TheObstructionIsOneClassCostCryptoAndCollisionAreEachANonEquivalenceOfTheForgetfulMap where

@@ -26,9 +26,9 @@
 -- there carries the domain searched.  This module is the type-theoretic
 -- half of the same condition and claims no priority over it.
 --
--- SOURCING LIMIT: the *Ślokavārttika* has NOT been opened.  The
--- attribution above is carried from `interactive/Yogyata.hs`, which carries
--- it from its own sources.  Verse-level sourcing OWED AND NOT CLAIMED.
+-- SOURCING LIMIT: the *Ślokavārttika* has NOT been opened. The attribution
+-- above is carried from `interactive/Yogyata.hs`, which carries it from its
+-- own sources.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHY THIS IS NOT A FIFTH RESTATEMENT OF THE Σ/¬ AXIS
@@ -141,15 +141,6 @@ stableDomainMakesItTotal D stab licenses x =
 -- (§1), an unfit looking licenses a false verdict (§2), and a domain
 -- that licenses every absence is total up to ¬¬ (§3).  The last gap —
 -- ¬¬ D x to D x — is a stability hypothesis on the domain.
---
--- NOT CLAIMED: that ¬¬ D x cannot be improved to D x without stability.
--- Agda cannot state that, nothing below attempts it, and §3's converse
--- is what is proved, not the impossibility of a better converse.
---
--- NOT CLAIMED: any verdict about this repository's import graph.  That
--- is `interactive/Yogyata.hs`'s object and its three states (Reactor, Shelf,
--- Orphan) are its own; §1–§3 are about the CONDITION, and instantiating
--- them at the import graph is not done here.
 --
 -- NOT a position in the Bhāṭṭa / Prābhākara dispute over whether
 -- anupalabdhi is a separate pramāṇa.  Both sides accept the fitness

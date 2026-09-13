@@ -1,0 +1,44 @@
+Checking M14 (/home/user/math/formal/cubical/theorems/unplaced/M14.agda).
+/home/user/math/formal/cubical/theorems/unplaced/M14.agda:73.27-35: error: [MismatchedProjectionsError]
+The projections CommRingStr.-_ and CommRingStr.1r do not match
+when checking that the expression refl has type
+Cubical.Tactics.CommRingSolver.HornerEval.eval
+(Cubical.Tactics.CommRingSolver.Solver.EqualityToNormalform.normalize
+ R
+ ((Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    Cubical.Data.FinData.Base.Fin.zero)
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    Cubical.Data.FinData.Base.Fin.zero))
+  Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+  (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.-'
+   (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    Cubical.Data.FinData.Base.Fin.zero
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    Cubical.Data.FinData.Base.Fin.zero))))
+(Z Cubical.Data.Vec.Base.Vec.∷
+ (M₀ Cubical.Data.Vec.Base.Vec.∷ Cubical.Data.Vec.Base.Vec.[]))
+≡
+Cubical.Tactics.CommRingSolver.HornerEval.eval
+(Cubical.Tactics.CommRingSolver.Solver.EqualityToNormalform.normalize
+ R
+ ((Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    Cubical.Data.FinData.Base.Fin.zero)
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.-'
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    Cubical.Data.FinData.Base.Fin.zero))
+  Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+  (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    Cubical.Data.FinData.Base.Fin.zero)
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   (Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.-'
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    Cubical.Data.FinData.Base.Fin.zero))))
+(Z Cubical.Data.Vec.Base.Vec.∷
+ (M₀ Cubical.Data.Vec.Base.Vec.∷ Cubical.Data.Vec.Base.Vec.[]))

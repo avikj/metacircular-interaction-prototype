@@ -145,6 +145,4 @@ XX-and-ZH-are-observationally-separated equality =
 -- compositional descent of component weights, X;X = identity, and a concrete
 -- weight observation separating X;X from Z;H.
 --
--- Not claimed: a universal gate set, normalized unitary semantics, projective
--- Hilbert space, measurement collapse, or hardware realization.
 ------------------------------------------------------------------------

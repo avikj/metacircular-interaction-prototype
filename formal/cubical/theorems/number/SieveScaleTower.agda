@@ -87,18 +87,6 @@
 --                                    loop appears.
 --
 --
--- SYĀT — THE CLAIM, EXACTLY
---
---  * **No inverse limit.**  The tower is four levels of a model at
---    X = 30.  A genuine `O_z` tower is indexed by all z ≤ √X and its
---    limit is an X → ∞ object; nothing here approaches that, and
---    P14.39 is precisely the reason not to assume the finite stages
---    assemble.
---  * **No general X.**  Every `refl` is X = 30 arithmetic.
---  * **No new mathematics.**  An inverse system of coarsenings with
---    strictly commuting squares is the most elementary pro-object there
---    is.  The content is the concrete fibre census, the three strictness
---    witnesses, and §5's horizon-relativity of the residual bit.
 ------------------------------------------------------------------------
 
 module SieveScaleTower where

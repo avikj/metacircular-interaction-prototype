@@ -14,6 +14,9 @@ Two consequences for synthesis practice.  First, any ranking used inside the sea
 
 The positive form.  A frontier expansion that maps over candidates with no deduplication, canonicalisation or sorting conserves multiplicity exactly, and we prove that invariant.  It is the only place the collapsed information remains, which is why the stronger law is not available: it would require adjudicating an identity of histories that behaviour cannot supply.
 
-WHAT IS NOT CLAIMED.  There is no specification language, no example-based synthesis, no version space and no enumerative search procedure here.  The object is a rewriting calculus with an interpreter, and "candidate" names a history.  The reading as a statement about synthesisers is a reading and is not proved.
+There is no specification language, no example-based synthesis, no version
+space and no enumerative search procedure here. The object is a rewriting
+calculus with an interpreter, and "candidate" names a history. The reading as
+a statement about synthesisers is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

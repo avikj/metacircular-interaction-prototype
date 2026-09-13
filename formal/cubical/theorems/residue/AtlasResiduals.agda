@@ -95,25 +95,6 @@
 --
 --
 -- ====================================================================
--- WHAT IS DELIBERATELY NOT CLAIMED
--- ====================================================================
---
---  * ***THE LINEAR ORDER IS A DEFINITIONAL SHORTCUT, AND B5 IS THEREFORE
---    NEAR-TAUTOLOGICAL AS AN ORDER-THEORETIC STATEMENT.***  `LinOrd n X`
---    is DEFINED to be `X ≃ Fin n`.  It is not defined as a decidable
---    total order (a relation _≤_ with reflexivity, antisymmetry,
---    transitivity, totality and decidability), and no such relation
---    appears anywhere below.  The note's proof of Theorem 3.2 has two
---    halves —
---        (i) "a linear order on an n-element type is the same datum as
---             an equivalence X ≃ Fin n (send the k-th smallest element
---             to k; conversely transport the standard order)", and
---       (ii) "so the displayed type is a based path space, contractible
---             by univalence"
---    — and ONLY HALF (ii) IS CHECKED HERE.  Half (i) is assumed by
---    fiat, by naming `X ≃ Fin n` "LinOrd".  What B5 honestly certifies
---    is that the univalence half of the argument is correct and that the
---    truncation in BSₙ costs nothing; it certifies NOTHING about orders.
 --
 --    THE EXACT REMAINING OBLIGATION, stated so that a later block can
 --    discharge it without reinterpreting anything: define
@@ -439,12 +420,10 @@ isContrAlgIso {A = A} {B = B} iA iB =
 BS : ℕ → Type₁
 BS n = Σ[ X ∈ Type₀ ] ∥ X ≃ Fin n ∥₁
 
--- *** DEFINITIONAL SHORTCUT — see "WHAT IS DELIBERATELY NOT CLAIMED". ***
--- A linear order on an n-element type is here TAKEN to be a rank
--- listing, i.e. an equivalence with the standard n-element type.  The
--- theorem below is a statement about rank listings, and becomes a
--- statement about orders only after the missing equivalence
--- `LinOrd′ X ≃ (X ≃ Fin n)` is proved.
+-- *** A linear order on an n-element type is here TAKEN to be a rank listing,
+-- i.e. an equivalence with the standard n-element type. The theorem below is
+-- a statement about rank listings, and becomes a statement about orders only
+-- after the missing equivalence `LinOrd′ X ≃ (X ≃ Fin n)` is proved.
 LinOrd : ℕ → Type₀ → Type₀
 LinOrd n X = X ≃ Fin n
 

@@ -34,9 +34,6 @@
 -- infinite rope every generator is total and every relation is
 -- unconditional, which no finite list of strands can offer.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The relations of B∞ are proved; that no
--- unexpected relations hold (faithfulness up to the known finite
--- quotient) is the next construction.
 ------------------------------------------------------------------------
 
 module AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce where

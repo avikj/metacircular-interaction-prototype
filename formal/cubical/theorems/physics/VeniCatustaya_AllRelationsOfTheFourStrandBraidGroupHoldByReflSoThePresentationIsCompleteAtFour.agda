@@ -23,9 +23,6 @@
 -- crossings MEET — interdependence, again, as the source of all
 -- coherence.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The relations of B₄ are verified; that
--- no further relations hold (faithfulness of the induced finite
--- quotient) is the next construction, as is the general Bₙ scheme.
 ------------------------------------------------------------------------
 
 module VeniCatustaya_AllRelationsOfTheFourStrandBraidGroupHoldByReflSoThePresentationIsCompleteAtFour where

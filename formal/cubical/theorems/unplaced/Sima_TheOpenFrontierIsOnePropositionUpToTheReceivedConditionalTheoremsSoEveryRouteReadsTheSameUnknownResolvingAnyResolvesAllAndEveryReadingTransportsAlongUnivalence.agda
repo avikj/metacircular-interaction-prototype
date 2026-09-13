@@ -1,0 +1,214 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- सीमा — the frontier.
+--
+-- Everything the repository knows about the two endpoints, composed
+-- and applied to itself.  The received claim graph (handoff §68,
+-- CLAIM_GRAPH.alternative_routes) offers six closing routes for RH and
+-- one integrability route for NS.  Each route ends in one UNSUPPLIED
+-- proposition (the O-items) and passes through CONDITIONAL theorems
+-- whose finite algebra is checked in this repository and whose analytic
+-- content is not.  Here the conditional theorems are hypotheses, named
+-- by their graph nodes, and the unknowns are propositions.  What is
+-- then a THEOREM, in --safe cubical Agda:
+--
+--   १  every route's unknown is equivalent to RH  (propBiimpl→Equiv),
+--       so by univalence  Bounded ≡ OneSided ≡ Lower ≡ Lift ≡ Dyadic
+--       ≡ Goldbach ≡ RH  as types, and they are ONE point of hProp;
+--   २  resolving any one of them resolves all, refuting any refutes all;
+--   ३  any reading P of one unknown transports to every other along the
+--       univalence path:  a strategy for "one dyadic order bounded" IS a
+--       strategy for "every-ε Goldbach rate", literally by subst;
+--   ४  for NS the peak-work integrability O-NPEAK is equivalent to the
+--       global endpoint, given the ledger, BKM and the definition of a
+--       maximal solution.
+--
+-- This is the exact expression of what is unknown: not six problems
+-- but one proposition with six readings.  Nothing here proves it, and
+-- the hypotheses are exactly the received conditional theorems; what
+-- the checker certifies is the SHAPE of the frontier.  The finite
+-- algebra under each hypothesis is in: Grahaka (two-packet matrix,
+-- PSD ⇔ |Z| ≤ M₀), AbelaRupa / SesaDvaya (Abel inverse, dyadic
+-- residual), ArdhaTala / DviSthana / DviMana (Weil geometry, reflection
+-- block, holonomy), PratibimbaTantu / RiktaTantu (reflection fibre),
+-- Pratirodha (Goldbach normalization), Sikhara (peak ledger).
+------------------------------------------------------------------------
+module Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Function using (_∘_)
+open import Cubical.Foundations.Equiv using (_≃_ ; propBiimpl→Equiv ; invEquiv ; compEquiv ; equivFun)
+open import Cubical.Foundations.Univalence using (ua)
+open import Cubical.Foundations.HLevels using (hProp ; isProp×)
+open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd ; Σ≡Prop)
+open import Cubical.Data.Sum using (_⊎_ ; inl ; inr)
+open import Cubical.Relation.Nullary using (¬_)
+
+private
+  variable
+    ℓ ℓ' : Level
+
+------------------------------------------------------------------------
+-- RH: six routes, one unknown
+------------------------------------------------------------------------
+module RH-Frontier
+  -- the endpoint and the six route unknowns (graph: END-RH, O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH)
+  (RH Bounded OneSided Lower Lift Dyadic Goldbach : Type ℓ)
+  (RH-prop : isProp RH) (Bounded-prop : isProp Bounded) (OneSided-prop : isProp OneSided)
+  (Lower-prop : isProp Lower) (Lift-prop : isProp Lift) (Dyadic-prop : isProp Dyadic) (Goldbach-prop : isProp Goldbach)
+  -- the received conditional theorems, as hypotheses named by their graph nodes
+  (R-TWOPACKET-sufficiency : Bounded → RH)        -- bounded received tail ⇒ holomorphic Laplace transform ⇒ no off-line pole
+  (R-TWOPACKET-necessity   : RH → Bounded)        -- positive Fourier weights under RH
+  (R-LANDAU                : OneSided → RH)       -- eventual one-sided polynomial bound ⇒ RH
+  (bounded⇒one-sided       : Bounded → OneSided)  -- a bounded tail is in particular one-sidedly polynomial
+  (R-ESCAPE                : Lower → RH)          -- a lower bound contradicts negative-bottom escape
+  (R-WEILSPACE-positivity  : RH → Lower)          -- the actual Weil form is positive under RH
+  (R-IMAGE-rigidity        : Lift → RH)           -- a compact reflected source forces the reflection to be the identity
+  (R-IMAGE-singleton       : RH → Lift)           -- under RH the fibre is a singleton
+  (R-ABEL                  : Dyadic → Bounded)    -- one bounded residual order ⇒ bounded receiver (all-order Abel inverse)
+  (R-DYADIC                : Bounded → Dyadic)    -- the residual removes the pole and keeps bounded modes bounded
+  (R-GCRITERION-sufficiency : Goldbach → RH)      -- every-ε half-order rate ⇒ RH (Mellin continuation)
+  (R-GCRITERION-necessity   : RH → Goldbach)
+  where
+
+  ----------------------------------------------------------------
+  -- १ · each unknown is equivalent to RH; by univalence, equal to it
+  ----------------------------------------------------------------
+  Bounded≃RH : Bounded ≃ RH
+  Bounded≃RH = propBiimpl→Equiv Bounded-prop RH-prop R-TWOPACKET-sufficiency R-TWOPACKET-necessity
+
+  OneSided≃RH : OneSided ≃ RH
+  OneSided≃RH = propBiimpl→Equiv OneSided-prop RH-prop R-LANDAU (bounded⇒one-sided ∘ R-TWOPACKET-necessity)
+
+  Lower≃RH : Lower ≃ RH
+  Lower≃RH = propBiimpl→Equiv Lower-prop RH-prop R-ESCAPE R-WEILSPACE-positivity
+
+  Lift≃RH : Lift ≃ RH
+  Lift≃RH = propBiimpl→Equiv Lift-prop RH-prop R-IMAGE-rigidity R-IMAGE-singleton
+
+  Dyadic≃RH : Dyadic ≃ RH
+  Dyadic≃RH = propBiimpl→Equiv Dyadic-prop RH-prop (R-TWOPACKET-sufficiency ∘ R-ABEL) (R-DYADIC ∘ R-TWOPACKET-necessity)
+
+  Goldbach≃RH : Goldbach ≃ RH
+  Goldbach≃RH = propBiimpl→Equiv Goldbach-prop RH-prop R-GCRITERION-sufficiency R-GCRITERION-necessity
+
+  Bounded≡RH  : Bounded  ≡ RH
+  Bounded≡RH  = ua Bounded≃RH
+  OneSided≡RH : OneSided ≡ RH
+  OneSided≡RH = ua OneSided≃RH
+  Lower≡RH    : Lower    ≡ RH
+  Lower≡RH    = ua Lower≃RH
+  Lift≡RH     : Lift     ≡ RH
+  Lift≡RH     = ua Lift≃RH
+  Dyadic≡RH   : Dyadic   ≡ RH
+  Dyadic≡RH   = ua Dyadic≃RH
+  Goldbach≡RH : Goldbach ≡ RH
+  Goldbach≡RH = ua Goldbach≃RH
+
+  -- the frontier is one point of hProp; each route names the same point
+  Frontier : hProp ℓ
+  Frontier = RH , RH-prop
+
+  route-A route-B route-C route-D route-E route-F : hProp ℓ
+  route-A = Bounded  , Bounded-prop
+  route-B = OneSided , OneSided-prop
+  route-C = Lower    , Lower-prop
+  route-D = Lift     , Lift-prop
+  route-E = Dyadic   , Dyadic-prop
+  route-F = Goldbach , Goldbach-prop
+
+  routes-name-one-unknown :
+      (route-A ≡ Frontier) × (route-B ≡ Frontier) × (route-C ≡ Frontier)
+    × (route-D ≡ Frontier) × (route-E ≡ Frontier) × (route-F ≡ Frontier)
+  routes-name-one-unknown =
+      Σ≡Prop (λ _ → isPropIsProp) Bounded≡RH
+    , Σ≡Prop (λ _ → isPropIsProp) OneSided≡RH
+    , Σ≡Prop (λ _ → isPropIsProp) Lower≡RH
+    , Σ≡Prop (λ _ → isPropIsProp) Lift≡RH
+    , Σ≡Prop (λ _ → isPropIsProp) Dyadic≡RH
+    , Σ≡Prop (λ _ → isPropIsProp) Goldbach≡RH
+
+  ----------------------------------------------------------------
+  -- २ · resolving any resolves all; refuting any refutes all
+  ----------------------------------------------------------------
+  All : Type ℓ
+  All = (RH × Bounded) × ((OneSided × Lower) × ((Lift × Dyadic) × Goldbach))
+
+  All-prop : isProp All
+  All-prop = isProp× (isProp× RH-prop Bounded-prop)
+                     (isProp× (isProp× OneSided-prop Lower-prop) (isProp× (isProp× Lift-prop Dyadic-prop) Goldbach-prop))
+
+  from-RH : RH → All
+  from-RH rh = (rh , R-TWOPACKET-necessity rh)
+             , ((bounded⇒one-sided (R-TWOPACKET-necessity rh) , R-WEILSPACE-positivity rh)
+             , ((R-IMAGE-singleton rh , R-DYADIC (R-TWOPACKET-necessity rh)) , R-GCRITERION-necessity rh))
+
+  Any : Type ℓ
+  Any = (Bounded ⊎ OneSided) ⊎ ((Lower ⊎ Lift) ⊎ (Dyadic ⊎ Goldbach))
+
+  to-RH : Any → RH
+  to-RH (inl (inl b))       = R-TWOPACKET-sufficiency b
+  to-RH (inl (inr o))       = R-LANDAU o
+  to-RH (inr (inl (inl l))) = R-ESCAPE l
+  to-RH (inr (inl (inr l))) = R-IMAGE-rigidity l
+  to-RH (inr (inr (inl d))) = R-TWOPACKET-sufficiency (R-ABEL d)
+  to-RH (inr (inr (inr g))) = R-GCRITERION-sufficiency g
+
+  resolving-any-resolves-all : Any → All
+  resolving-any-resolves-all = from-RH ∘ to-RH
+
+  refuting-any-refutes-all : ¬ RH → ¬ Any
+  refuting-any-refutes-all nrh a = nrh (to-RH a)
+
+  ----------------------------------------------------------------
+  -- ३ · every reading transports along univalence
+  --     (P is any property of a proposition-as-type: a proof strategy,
+  --      a cost, a certificate shape …)
+  ----------------------------------------------------------------
+  transport-reading : (P : Type ℓ → Type ℓ') → P Bounded → P Dyadic
+  transport-reading P = subst P (Bounded≡RH ∙ sym Dyadic≡RH)
+
+  transport-any-reading : (P : Type ℓ → Type ℓ')
+    → P RH → (P Bounded × P OneSided) × ((P Lower × P Lift) × (P Dyadic × P Goldbach))
+  transport-any-reading P pr =
+      (subst P (sym Bounded≡RH) pr , subst P (sym OneSided≡RH) pr)
+    , ((subst P (sym Lower≡RH) pr , subst P (sym Lift≡RH) pr)
+    , (subst P (sym Dyadic≡RH) pr , subst P (sym Goldbach≡RH) pr))
+
+  -- the transported inhabitant is the composed proof, not a new one
+  transport-computes : (b : Bounded) → transport (Bounded≡RH ∙ sym Dyadic≡RH) b ≡ R-DYADIC (R-TWOPACKET-necessity (R-TWOPACKET-sufficiency b))
+  transport-computes b = Dyadic-prop _ _
+
+------------------------------------------------------------------------
+-- NS: the integrability route, one unknown
+------------------------------------------------------------------------
+module NS-Frontier
+  (Global Maximal PeakWork VortBounded Continuation : Type ℓ)
+  -- Global      : every admissible datum has a global smooth solution (END-NS)
+  -- Maximal     : some admissible maximal classical solution has finite lifetime
+  -- PeakWork    : for every such solution ∫₀^{T*} b_u dt < ∞          (O-NPEAK)
+  -- VortBounded : ‖ω‖_{L∞ₜL∞ₓ} < ∞ on every such solution
+  -- Continuation: every such solution continues past T*
+  (Global-prop : isProp Global) (PeakWork-prop : isProp PeakWork)
+  (ledger       : PeakWork → VortBounded)       -- α = M′/M + ν|∇ξ|² + ν(−Δm)/M integrated (Sikhara is the identity)
+  (BKM          : VortBounded → Continuation)   -- classical continuation from bounded vorticity
+  (no-maximal   : Continuation → ¬ Maximal)     -- a continued solution was not maximal
+  (global-of    : ¬ Maximal → Global)           -- no finite-lifetime maximal solution ⇒ global (the fixed formulation)
+  (maximal-of   : Global → ¬ Maximal)
+  (vacuous      : ¬ Maximal → PeakWork)         -- with no such solution the integrability statement holds vacuously
+  where
+
+  PeakWork→Global : PeakWork → Global
+  PeakWork→Global = global-of ∘ no-maximal ∘ BKM ∘ ledger
+
+  Global→PeakWork : Global → PeakWork
+  Global→PeakWork = vacuous ∘ maximal-of
+
+  PeakWork≃Global : PeakWork ≃ Global
+  PeakWork≃Global = propBiimpl→Equiv PeakWork-prop Global-prop PeakWork→Global Global→PeakWork
+
+  PeakWork≡Global : PeakWork ≡ Global
+  PeakWork≡Global = ua PeakWork≃Global
+
+  NS-Frontier-is-one : (PeakWork , PeakWork-prop) ≡ (Global , Global-prop)
+  NS-Frontier-is-one = Σ≡Prop (λ _ → isPropIsProp) PeakWork≡Global

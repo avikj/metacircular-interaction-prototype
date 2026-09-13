@@ -33,11 +33,6 @@
 -- (le x (max x zero) ≢ 1, max zero y ≢ y), which is what fixed the
 -- shapes below.
 --
--- SYĀT.  `max`, `le` are functions on ℕ; "upper bound", "least",
--- "optimal" are the reading of `le _ _ ≡ 1`.  What is proved is the
--- three theorems.  The general claim — that every optimality problem
--- with a finite frame is so settled — is NOT proved here; this is one
--- instance exhibiting the shape, not the universal over all problems.
 ------------------------------------------------------------------------
 
 module JyesthaAvara_TheJoinIsTheLeastUpperBoundSoNoCommonBoundIsSmaller where

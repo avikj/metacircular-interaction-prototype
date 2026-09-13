@@ -40,13 +40,6 @@
 -- of them.  That is why the needed estimate must carry BOTH ζ(s+1)^{−1} and
 -- ū/v: the modulus route provably cannot recover the first.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing here bounds K_a, and nothing here says the
--- absolute-value route is useless — it is exactly right whenever the trivial
--- bound suffices, and `ApurvaIndriyam.तन्तौ-अन्धः` is the theorem that it is
--- FAITHFUL to what it does read.  The claim is only that its fibre is
--- nonempty, which settles what it can never distinguish.  The blind pair is
--- exhibited at the smallest size that carries the phenomenon; scaling it to
--- an actual coefficient family is arithmetic this module does not do.
 ------------------------------------------------------------------------
 
 module ParimanaAndha_TheModulusStandpointCannotSeeMobiusSoNoBoundThroughItSeparatesACancellingFamily where

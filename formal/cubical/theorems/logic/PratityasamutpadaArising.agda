@@ -48,9 +48,6 @@
 --                              the knot — anicca, the arising undone when
 --                              its condition ceases
 --
--- NOT claimed: new mathematics.  Decidable equality on Bool and the
--- descent law of the corpus.  The contribution is arising and cessation
--- read as the source names them, wired to the net's no-own-being.
 ------------------------------------------------------------------------
 
 module PratityasamutpadaArising where

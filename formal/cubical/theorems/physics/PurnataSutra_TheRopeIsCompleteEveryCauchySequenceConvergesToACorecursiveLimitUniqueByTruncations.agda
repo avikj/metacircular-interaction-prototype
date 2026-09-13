@@ -26,9 +26,6 @@
 -- the guarded circle that answered parasparāśraya is the same
 -- structure that holds every limit.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Existence, the limit theorem, and
--- uniqueness; the closure of the braid image in this metric, computed
--- as a subgroup, is the standing construction.
 ------------------------------------------------------------------------
 
 module PurnataSutra_TheRopeIsCompleteEveryCauchySequenceConvergesToACorecursiveLimitUniqueByTruncations where

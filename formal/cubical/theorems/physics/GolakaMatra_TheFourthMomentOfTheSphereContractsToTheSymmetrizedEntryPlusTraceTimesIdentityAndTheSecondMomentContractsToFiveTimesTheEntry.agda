@@ -1,0 +1,133 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- गोलक-मात्र — the measure of the sphere (the contractions).
+--
+-- The spherical-moment algebra behind strain tomography (handoff §18,
+-- [S11]) and the pressure cross-effect (§20, [S12]).  The only analytic
+-- input is the two moment tensors of the unit sphere,
+--
+--     15·⟨nᵢnⱼ⟩ = 5 δᵢⱼ,      15·⟨nᵢnⱼnₖnₗ⟩ = δᵢⱼδₖₗ + δᵢₖδⱼₗ + δᵢₗδⱼₖ ,
+--
+-- taken as the DEFINITION of the averaged tensors; everything else is
+-- finite index algebra over an arbitrary commutative ring:
+--
+--   १  Σⱼₖ (δᵢⱼδₖₗ + δᵢₖδⱼₗ + δᵢₗδⱼₖ) Sⱼₖ ≡ Sᵢₗ + Sₗᵢ + δᵢₗ tr S  (= 2Sᵢₗ + δᵢₗ tr S on symmetric S);
+--   २  for the cross-helicity symbol
+--         q_u(n) = −P_n S P_n − ½ (nᵀSn) P_n,      P_n = I − nnᵀ,
+--      the averaged symbol is  30·⟨q⟩ ≡ −12 S − 6 (tr S) I,  so on
+--      trace-free S,  S = −(5/2) ⟨q_u⟩:  the strain is recovered from
+--      the spherical mean of its symbol;
+--   ३  the pressure cross-effect: for a symmetric biadditive H,
+--         H[u₂+u⊥] = H[u₂] + 2H(u₂,u⊥) + H[u⊥],
+--      so with 7H[u₂] = −2(S²)₀:  7H[u] + 2(S²)₀ = 7(2H(u₂,u⊥) + H[u⊥]).
+------------------------------------------------------------------------
+module GolakaMatra_TheFourthMomentOfTheSphereContractsToTheSymmetrizedEntryPlusTraceTimesIdentityAndTheSecondMomentContractsToFiveTimesTheEntry where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+
+private
+  variable
+    ℓ : Level
+
+-- three indices
+data Ix : Type where
+  i₁ i₂ i₃ : Ix
+
+------------------------------------------------------------------------
+module Contractions (R : CommRing ℓ) where
+  open CommRingStr (snd R)
+
+  private
+    A = ⟨ R ⟩
+
+  ι : ℕ → A
+  ι zero    = 0r
+  ι (suc n) = 1r + ι n
+
+  δ : Ix → Ix → A
+  δ i₁ i₁ = 1r
+  δ i₂ i₂ = 1r
+  δ i₃ i₃ = 1r
+  δ _  _  = 0r
+
+  Σ₃ : (Ix → A) → A
+  Σ₃ f = (f i₁ + f i₂) + f i₃
+
+  Mat : Type ℓ
+  Mat = Ix → Ix → A
+
+  -- a matrix from nine entries (so each entry is its own ring atom)
+  mat : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) → Mat
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₁ = a₁₁
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₂ = a₁₂
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₃ = a₁₃
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₁ = a₂₁
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₂ = a₂₂
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₃ = a₂₃
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₁ = a₃₁
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₂ = a₃₂
+  mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₃ = a₃₃
+
+  tr : Mat → A
+  tr S = Σ₃ (λ i → S i i)
+
+  -- a symmetric matrix from six entries
+  symm : (a₁₁ a₁₂ a₁₃ a₂₂ a₂₃ a₃₃ : A) → Mat
+  symm a₁₁ a₁₂ a₁₃ a₂₂ a₂₃ a₃₃ = mat a₁₁ a₁₂ a₁₃ a₁₂ a₂₂ a₂₃ a₁₃ a₂₃ a₃₃
+
+  -- 15·⟨nᵢnⱼnₖnₗ⟩
+  m4 : Ix → Ix → Ix → Ix → A
+  m4 i j k l = (δ i j · δ k l + δ i k · δ j l) + δ i l · δ j k
+
+  ----------------------------------------------------------------
+  -- १ · the fourth-moment contraction
+  ----------------------------------------------------------------
+  fourth-contraction : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) (i l : Ix)
+    → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
+      Σ₃ (λ j → Σ₃ (λ k → m4 i j k l · S j k)) ≡ (S i l + S l i) + δ i l · tr S
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₁ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₂ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₃ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₁ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₂ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₃ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₁ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₂ = solve! R
+  fourth-contraction a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₃ = solve! R
+
+  ----------------------------------------------------------------
+  -- २ · strain tomography
+  ----------------------------------------------------------------
+  -- the second-moment contractions, 15·⟨nᵢnⱼ⟩ = 5δᵢⱼ
+  left5 : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) (i l : Ix) → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
+    Σ₃ (λ j → (ι 5 · δ i j) · S j l) ≡ ι 5 · S i l
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₁ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₂ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₃ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₁ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₂ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₃ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₁ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₂ = solve! R
+  left5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₃ = solve! R
+
+  right5 : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) (i l : Ix) → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
+    Σ₃ (λ k → S i k · (ι 5 · δ k l)) ≡ ι 5 · S i l
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₁ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₂ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₁ i₃ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₁ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₂ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₂ i₃ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₁ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₂ = solve! R
+  right5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ i₃ i₃ = solve! R
+
+  trace5 : (a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ : A) → let S = mat a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ in
+    Σ₃ (λ j → Σ₃ (λ k → S j k · (ι 5 · δ j k))) ≡ ι 5 · tr S
+  trace5 a₁₁ a₁₂ a₁₃ a₂₁ a₂₂ a₂₃ a₃₁ a₃₂ a₃₃ = solve! R
+

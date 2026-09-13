@@ -1,0 +1,10 @@
+{
+  "repository": "avikj/metacircular-interaction-prototype",
+  "comparison_commit": "168ea8e240524f898af4b0e9cf70297c38422f08",
+  "tree": "492a4bf6e49f79d91cffec5677eb8ccf049e5fd0",
+  "parent": "c141ebdfe1a3d037b62146b76a56d7ffea4da501",
+  "Agda": "2.8.0",
+  "Cubical": "v0.9",
+  "native_executed_in_this_transfer": false,
+  "note": "Comparison metadata only. Do not overwrite a newer or dirty working tree."
+}

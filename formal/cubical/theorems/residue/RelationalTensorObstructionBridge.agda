@@ -113,8 +113,4 @@ relational-tensor-comparison .ObstructionComparison.quotientRetractionFails =
 -- absence of a loop-stable phase, existence of a bare local choice, and the
 -- two distinct no-go statements.
 --
--- Not claimed: equivalence of GlobalFact and ExactLocalReconstruction, or an
--- identification of RQM with entanglement.  The former is false at the level
--- of bare local choice exhibited above; a larger physical theory must specify
--- the actual comparison diagram before either obstruction can be transported.
 ------------------------------------------------------------------------

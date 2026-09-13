@@ -51,10 +51,10 @@
 --   anuyogin                the locus
 --   anuyogitāvacchedaka     the mode under which the LOCUS is taken
 --
--- SOURCING LIMIT, stated and not evaded.  No primary Sanskrit text was
--- opened.  The slot doctrine is carried from this repository's own
--- exactly as `AbhavaAvacchedaka.agda`'s own header records for itself.
--- Verse-level sourcing is OWED AND NOT CLAIMED.  The concrete example in
+-- SOURCING LIMIT, stated and not evaded. No primary Sanskrit text was opened.
+-- The slot doctrine is carried from this repository's own exactly as
+-- `AbhavaAvacchedaka.agda`'s own header records for itself. The concrete
+-- example in
 -- §3 is MINE — a two-point locus, not a tradition example — and it is
 -- offered as a separating instance, not as an exegesis.
 --
@@ -73,17 +73,6 @@
 -- apoha as Boolean complementation.)
 --
 -- ────────────────────────────────────────────────────────────────────
--- SYĀT — THE CLAIM, EXACTLY
---
--- * NOT the Panday–Ghosh treatment.  arXiv:2605.12548 claims typed
---   abhāva, dependent delimitation, tādātmya AND paramparā-sambandha
---   together; arxiv.org is unreachable from here, so NO NOVELTY is
---   claimed for anything below until someone who can read it compares.
--- * NOT tādātmya, NOT paramparā-sambandha.  Two slots only.
--- * NOT that two slots are the tradition's final count.  Navya-Nyāya
---   iterates `-tva`/`-tā` abstraction and chains sambandhas without a
---   stated bound; two is what §3.3 named as missing, not a ceiling, and
---   nothing below is evidence about the third.
 --
 -- CHECKED: Agda 2.6.3, cubical v0.5 — container pin.  --safe, no
 -- postulates, no holes.

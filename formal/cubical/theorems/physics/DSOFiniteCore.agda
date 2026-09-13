@@ -497,9 +497,4 @@ one-sided-product-not-associative equality =
 -- closedness of both calibration profiles; both binary products; both
 -- associations of the triple product; and the −8 ≠ −5 defect at e.
 --
--- Not claimed: the middle/two-sided repair (§2.5's ⊙ associativity) —
--- that lane is DSONucleusMiddleProduct / DSONucleusMiddleAssociativityAudit;
--- anything about ℝ̄-valued profiles or infinite carriers (D0026 §14.1's
--- own open enrichment question); any novelty for the finite instance,
--- which was first kernel-checked here from the Delta 29 transmission.
 ------------------------------------------------------------------------

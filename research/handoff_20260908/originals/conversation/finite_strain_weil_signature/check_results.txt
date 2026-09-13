@@ -1,0 +1,35 @@
+PASS symmetric trace-free affine kernel: symmetry
+PASS symmetric trace-free affine kernel: trace
+PASS affine kernel: curl
+PASS affine kernel: divergence
+PASS affine kernel: Laplacian
+PASS five strain basis matrices are independent
+PASS velocity mean reads the translation component
+PASS mean strain reads five affine coordinates
+PASS normalization preserves vorticity
+PASS normalization preserves incompressibility
+PASS normalized velocity has zero mean
+PASS normalized velocity has zero mean strain
+PASS normalization is idempotent
+PASS arbitrary time-dependent affine strain solves NS with retained pressure
+PASS affine pressure Poisson law
+PASS volume-preserving sample deformation
+PASS pulled-back diffusion is symmetric
+PASS pulled-back diffusion has determinant one
+PASS metric and diffusion are inverses
+PASS affine vorticity stretch cancels moving frame derivative
+PASS reflection involution
+PASS reflection is Hermitian
+PASS generator preserves the indefinite form
+PASS signature: one quartet has two negative dimensions
+PASS signature: one quartet plus one on-line label has three positive dimensions
+PASS reflection-odd basis has negative identity Gram
+PASS multiplicity weights commute with reflection
+PASS weighted form is Hermitian
+PASS changing multiplicity does not create duplicate evaluation dimensions
+PASS finite source Gram is Hermitian
+PASS affine cofactor current
+PASS zero-vorticity affine Betchov balance
+
+32 exact checks passed.
+Not checked by this script: BMO estimates; compactness; infinite spectral density; zeta zero locations; global NS/RH; Agda/Lean compilation.

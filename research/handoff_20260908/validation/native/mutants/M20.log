@@ -1,0 +1,6 @@
+Checking M20 (/home/user/math/formal/cubical/theorems/physics/M20.agda).
+/home/user/math/formal/cubical/theorems/physics/M20.agda:101.28-41: error: [MismatchedProjectionsError]
+The projections CommRingStr._+_ and CommRingStr.0r do not match
+when checking that the expression shape a b c d has type
+∣ a + c , b + d ∣² + - ∣ a + - c , b + - d ∣² ≡
+ι 2 · fst (conj (a , b) ⊗ (c , d))

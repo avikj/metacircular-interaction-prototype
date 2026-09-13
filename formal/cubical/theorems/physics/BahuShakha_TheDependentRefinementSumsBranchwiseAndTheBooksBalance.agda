@@ -37,14 +37,6 @@
 --                multiplicity": m/(m+n) is a name for m·h under total
 --                normalization, now over ANY finite family.
 --
--- SYĀT — THE CLAIM, EXACTLY, and it is the quantum boundary, kept open per
--- the transmission's instruction: (1) that a REVERSIBLE transformation
--- realizes a given refinement — that is the physical content of step 3
--- and no part of it is formalized here; (2) enumeration-independence
--- of the nested sum (invariance of total under Fin-equivalences) —
--- that permutation lemma needs commutativity and a punch-out argument
--- and is owed separately; without it, "the" total means the total in
--- the given enumeration.  Steps 3–5 remain open and distinct.
 ------------------------------------------------------------------------
 
 module BahuShakha_TheDependentRefinementSumsBranchwiseAndTheBooksBalance where

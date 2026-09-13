@@ -197,14 +197,6 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- because `∸` truncates.  The obligation is dischargeable or false
 -- depending on which way the order points.
 --
--- STILL NOT CLAIMED, and it is the larger half: ONE CUT is one burden
--- and one residual, `X = Y = Unit`, so no infimum over an index appears.
--- Δ 28's cut carries a PROFILE on each side and its `↑` takes a meet
--- over all burdens — that needs `min` over a finite index and its
--- universal property, not built.  **So what this settles is that the
--- obstruction is NOT the residuation law; it is the meet.**  No `∞` is
--- adjoined, so that is ℕ and not the min-plus semiring proper, and
--- convolution does not appear.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -225,17 +217,14 @@ module Polarity {X Y : Type} (K : X → Y → Type) where
 -- is not auditing — so the negative result is recorded here rather than
 -- left silent.
 --
--- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY
--- sufficient one**, which is what "needs only X" invites a reader to
--- conclude.  §"WHAT IS STILL NOT CLAIMED" above lists the min-plus
--- instance, antisymmetry and tractability, and does not mention the
--- alternative presentation.  At commit 10c5bca1,
--- `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeedDifferentAxioms`:
--- `FromUnitCounit` derives `galFwd`/`galBwd` from `u-antitone`,
--- `d-antitone`, `unit`, `counit` — one line each — and then transports
--- this entire module by `open Galois … public`, nothing re-proved;
--- `RoundTrip` shows out-and-back is the identity when the order
--- relations are proposition-valued.
+-- **WHAT THIS MODULE DOES NOT SHOW is that its package is the ONLY sufficient
+-- one**, which is what "needs only X" invites a reader to conclude. At commit
+-- 10c5bca1, `TheAdjunctionAndTheUnitCounitPackageAreInterderivableAndTheyNeed
+-- DifferentAxioms`: `FromUnitCounit` derives `galFwd`/`galBwd` from
+-- `u-antitone`, `d-antitone`, `unit`, `counit` — one line each — and then
+-- transports this entire module by `open Galois … public`, nothing re-proved;
+-- `RoundTrip` shows out-and-back is the identity when the order relations are
+-- proposition-valued.
 --
 -- **AND THE TWO PACKAGES NEED DIFFERENT AXIOMS.**  unit/counit ⟹
 -- adjunction uses ONLY the two transitivities.  Adjunction ⟹

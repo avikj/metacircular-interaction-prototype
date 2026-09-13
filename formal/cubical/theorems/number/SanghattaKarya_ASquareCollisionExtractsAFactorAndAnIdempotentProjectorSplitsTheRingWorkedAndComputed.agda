@@ -31,11 +31,6 @@
 -- 5 come back as computed normal forms, not as inputs — the analyzer
 -- factoring 15 by reading its own arithmetic.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–4 for N = 15 with the given
--- collision, every value computed.  NOT claimed: that the collision was
--- found rather than supplied, nor any statement about N in general —
--- this is the extractor executed on one worked instance, which is what
--- makes the factors READABLE rather than merely provable.
 ------------------------------------------------------------------------
 
 module SanghattaKarya_ASquareCollisionExtractsAFactorAndAnIdempotentProjectorSplitsTheRingWorkedAndComputed where

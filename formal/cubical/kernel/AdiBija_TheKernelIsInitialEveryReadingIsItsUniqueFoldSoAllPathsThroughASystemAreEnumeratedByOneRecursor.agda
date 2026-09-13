@@ -38,13 +38,6 @@
 -- decomposition is forced — the fold is the object's every structural
 -- reading, delivered in one recursor, provably exhaustive.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–3 for receivers indexed by Tm with a
--- ℓ-polymorphic carrier and an action per Step; the three named
--- analyzers recovered as instances.  NOT claimed: initiality as an
--- object of a category of algebras (that needs the algebra structure
--- packaged and its morphisms defined) — this is the recursion/
--- uniqueness pair that IS initiality's computational content, stated
--- directly on the kernel's own type.
 ------------------------------------------------------------------------
 
 module AdiBija_TheKernelIsInitialEveryReadingIsItsUniqueFoldSoAllPathsThroughASystemAreEnumeratedByOneRecursor where

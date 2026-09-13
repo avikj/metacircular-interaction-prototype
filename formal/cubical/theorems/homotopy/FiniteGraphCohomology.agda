@@ -88,6 +88,4 @@ module Graph
 --
 -- Checked generically: C0 acts on C1 by endpoint coboundaries; every additive
 -- cycle evaluation killing coboundaries is invariant and descends to H1.
--- Not claimed: enumeration of cycles, exactness at further chain degrees, or
--- a computation of the whole quotient for an arbitrary graph.
 ------------------------------------------------------------------------

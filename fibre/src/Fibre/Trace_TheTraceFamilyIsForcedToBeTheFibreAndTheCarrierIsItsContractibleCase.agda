@@ -54,24 +54,15 @@
 -- tion of `Carrier f` with its Σ-form is the one already proved in
 -- Carrier.agda, reused rather than restated.
 --
--- WHAT IS ALREADY IN THE CORPUS, AND IS NOT CLAIMED HERE.  The
--- decomposition A ≃ Σ[ b ] fiber f b is standard, and this repository
+-- The decomposition A ≃ Σ[ b ] fiber f b is standard, and this repository
 -- already has it twice, with its readings:
---   formal/cubical/theorems/logic/SarvavibhagaH_…    (every map is the sum
---                                                     of its fibres)
---   formal/cubical/theorems/number/Avaccheda_…       (memory is the fibre
---                                                     failing to be
---                                                     contractible)
--- `fiberize` below is that same fact, re-proved here only because the
--- `fibre` library does not depend on `natural-machine` and a law should
--- not be imported by prose.  The NEW content of this module is
--- `fibre-of-run` — which is about an ARBITRARY factorisation rather than
+-- formal/cubical/theorems/logic/SarvavibhagaH_… (every map is the sum of its
+-- fibres) formal/cubical/theorems/number/Avaccheda_… (memory is the fibre
+-- failing to be contractible) `fiberize` below is that same fact, re-proved
+-- here only because the `fibre` library does not depend on `natural-machine`
+-- and a law should not be imported by prose. The NEW content of this module
+-- is `fibre-of-run` — which is about an ARBITRARY factorisation rather than
 -- the canonical one — and the refutation at the foot of the file.
---
--- WHAT IS AND IS NOT CLAIMED.  Nothing here says a trace is cheap to store, safe
--- to publish, or authorised to exist.  The record has two fields and both
--- are mathematics.  Effects, capability, disclosure and admissibility are
--- separate obligations and are not smuggled in by naming them.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
 -- --cubical --safe --guardedness, no postulates, no holes; reachable

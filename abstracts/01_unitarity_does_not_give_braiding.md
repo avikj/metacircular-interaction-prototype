@@ -12,6 +12,11 @@ The positive half is where braiding does live here, and it is measured rather th
 
 Two consequences for verification practice.  First, an architecture whose gates are certified unitary individually has certified nothing about exchange statistics; the braid relations are independent data and the independence is now a theorem with a witness rather than a caution. Second, the same development proves that an observable is unmoved by transport along a symmetry exactly when it is invariant under that symmetry - both directions, the converse costing nothing because the two sides are joined by a path and a path has an inverse.  So for any proposed observable the blind set is computable in advance, and an invariance imposed for physical reasons is precisely a blindness accepted.
 
-WHAT IS NOT CLAIMED.  There are no completely positive maps, no Hilbert spaces, no density operators and no anyon models in this development. "Three Boolean strands" is a three-fold product of the two-element type, and "unitary" abbreviates "equipped with a two-sided inverse and its unit laws".  The results are about equivalences of finite types and about a term calculus; their bearing on a physical implementation is a reading and is not proved.
+There are no completely positive maps, no Hilbert spaces, no density operators
+and no anyon models in this development. "Three Boolean strands" is a three-
+fold product of the two-element type, and "unitary" abbreviates "equipped with
+a two-sided inverse and its unit laws". The results are about equivalences of
+finite types and about a term calculus; their bearing on a physical
+implementation is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

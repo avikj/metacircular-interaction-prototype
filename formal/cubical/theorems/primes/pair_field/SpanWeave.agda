@@ -30,10 +30,6 @@
 --              composite IS the type of middles, nothing more and
 --              nothing less, when the legs are trivial.
 --
--- NOT claimed: no bicategory of spans, no right unit law, no
--- unit/counit coherence, no interchange.  One unit law and
--- associativity only; the boundary is stated in the message file
--- collab/messages/genius-braid/1-15-fazang.md.
 ------------------------------------------------------------------------
 
 module SpanWeave where

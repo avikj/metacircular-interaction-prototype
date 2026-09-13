@@ -20,9 +20,6 @@ open import TheDiagonalLemmaDischargesGoedelFix
 -- RepresentabilityIsNotEnoughForIndependence
 --
 -- The previous module wrote representability down and asked, in its own
--- NOT CLAIMED block, whether anything satisfies it.  Something does:
--- the corpus's own four-sentence countermodel.  And that settles more
--- than inhabitation.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED
@@ -78,13 +75,6 @@ open import TheDiagonalLemmaDischargesGoedelFix
 -- than a formula type would evade that grep.
 --
 -- ────────────────────────────────────────────────────────────────────
--- NOT CLAIMED
---
--- That `Wit` is a bad model: it is a correct one and §3 depends on it.
--- That ω-consistency suffices — the previous module derives the second
--- conjunct from it together with three internal rules, and whether
--- those rules hold in `Wit` is not asked here.  That any theory of
--- arithmetic satisfies §1's record.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

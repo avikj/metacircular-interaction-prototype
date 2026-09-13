@@ -26,10 +26,6 @@
 -- completion, and the completion's new points are exactly the
 -- uniform coherences.  Finiteness converges; only infinity arrives.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Pointwise convergence with named
--- approximants and the strictness; the topology proper (the inverse
--- limit structure on the action's closure) is the standing
--- construction.
 ------------------------------------------------------------------------
 
 module SimaSutra_TheUniformTurnIsThePointwiseLimitOfNamedFiniteWordsAndLiesOutsideTheirImage where

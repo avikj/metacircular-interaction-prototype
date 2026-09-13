@@ -26,9 +26,6 @@
 -- is the permutation coordinate's faithfulness, whose witness rope
 -- will need distinct strands rather than the constant one.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The biconditional for twist words; the
--- permutation half and their conjunction for full braid words are the
--- standing construction.
 ------------------------------------------------------------------------
 
 module CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour where

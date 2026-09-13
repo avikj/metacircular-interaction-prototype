@@ -34,12 +34,6 @@
 --       compresses the pair to one, length keeps them two, and the
 --       elucidation carries both facts without collapse.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The record, its three lenses as folds,
--- canonicity of the meaning component, and the computed profiles of the
--- two named objects.  NOT claimed: that three lenses exhaust every
--- possible reading — the family is open by construction (add a
--- receiver), and completeness is per-lens (each is unique), not a
--- claim that no further lens exists.
 ------------------------------------------------------------------------
 
 module Vivarana_TheElucidatorDecomposesAnyObjectOnTheAtomIntoItsCompleteReadingAndEachComponentIsTheUniqueFold where

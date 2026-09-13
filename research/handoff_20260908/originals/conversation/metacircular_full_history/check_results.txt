@@ -1,0 +1,151 @@
+141 exact finite checks passed.
+
+symbolic first return = b*d*x^3
+first return differentiates the common quadratic source
+Leibniz (x, y)
+retraction preserves source products (x, y)
+projected generator product defect (x, y)
+Leibniz (x**2 + y, x*y + 1)
+retraction preserves source products (x**2 + y, x*y + 1)
+projected generator product defect (x**2 + y, x*y + 1)
+Leibniz (x + y**2, x**2*y)
+retraction preserves source products (x + y**2, x**2*y)
+projected generator product defect (x + y**2, x**2*y)
+ordered renewal recurrence n=0, observable=x
+ordered renewal recurrence n=0, observable=x**2
+ordered renewal recurrence n=1, observable=x
+ordered renewal recurrence n=1, observable=x**2
+ordered renewal recurrence n=2, observable=x
+ordered renewal recurrence n=2, observable=x**2
+ordered renewal recurrence n=3, observable=x
+ordered renewal recurrence n=3, observable=x**2
+ordered renewal recurrence n=4, observable=x
+ordered renewal recurrence n=4, observable=x**2
+ordered renewal recurrence n=5, observable=x
+ordered renewal recurrence n=5, observable=x**2
+ordered renewal recurrence n=6, observable=x
+ordered renewal recurrence n=6, observable=x**2
+all-order source-product rule n=0
+all-order source-product rule n=1
+all-order source-product rule n=2
+all-order source-product rule n=3
+all-order source-product rule n=4
+all-order source-product rule n=5
+affine retraction idempotence x
+source evaluation retained x
+affine retraction idempotence y
+source evaluation retained y
+affine retraction idempotence x*y + y**2
+source evaluation retained x*y + y**2
+Carleman row (1, 0)
+Carleman row (0, 1)
+Carleman row (2, 0)
+Carleman row (1, 1)
+Carleman row (0, 3)
+Carleman row (2, 2)
+Catalan source-tree multiplicity n=1
+Catalan source-tree multiplicity n=2
+Catalan source-tree multiplicity n=3
+Catalan source-tree multiplicity n=4
+Catalan source-tree multiplicity n=5
+Catalan source-tree multiplicity n=6
+Catalan source-tree multiplicity n=7
+Catalan source-tree multiplicity n=8
+tree sum solves same-source quadratic fixed point through order eight
+RH reflection eigenbasis generator
+RH exact Feshbach denominator
+RH pair resolvent all-return sum
+RH causal convolution renewal equation
+RH convolution evaluated by its defining ODE
+RH convolution zero initial value
+nonlinear elimination has the same quadratic local majorant threshold
+NS source divergence-free mode (-1, -1, -1)
+NS advective/cross source identity mode (-1, -1, -1)
+NS source divergence-free mode (-1, -1, 0)
+NS advective/cross source identity mode (-1, -1, 0)
+NS source divergence-free mode (-1, -1, 1)
+NS advective/cross source identity mode (-1, -1, 1)
+NS source divergence-free mode (-1, 0, -1)
+NS advective/cross source identity mode (-1, 0, -1)
+NS source divergence-free mode (-1, 0, 0)
+NS advective/cross source identity mode (-1, 0, 0)
+NS source divergence-free mode (-1, 0, 1)
+NS advective/cross source identity mode (-1, 0, 1)
+NS source divergence-free mode (-1, 1, -1)
+NS advective/cross source identity mode (-1, 1, -1)
+NS source divergence-free mode (-1, 1, 0)
+NS advective/cross source identity mode (-1, 1, 0)
+NS source divergence-free mode (-1, 1, 1)
+NS advective/cross source identity mode (-1, 1, 1)
+NS source divergence-free mode (0, -1, -1)
+NS advective/cross source identity mode (0, -1, -1)
+NS source divergence-free mode (0, -1, 0)
+NS advective/cross source identity mode (0, -1, 0)
+NS source divergence-free mode (0, -1, 1)
+NS advective/cross source identity mode (0, -1, 1)
+NS source divergence-free mode (0, 0, -1)
+NS advective/cross source identity mode (0, 0, -1)
+NS source divergence-free mode (0, 0, 1)
+NS advective/cross source identity mode (0, 0, 1)
+NS source divergence-free mode (0, 1, -1)
+NS advective/cross source identity mode (0, 1, -1)
+NS source divergence-free mode (0, 1, 0)
+NS advective/cross source identity mode (0, 1, 0)
+NS source divergence-free mode (0, 1, 1)
+NS advective/cross source identity mode (0, 1, 1)
+NS source divergence-free mode (1, -1, -1)
+NS advective/cross source identity mode (1, -1, -1)
+NS source divergence-free mode (1, -1, 0)
+NS advective/cross source identity mode (1, -1, 0)
+NS source divergence-free mode (1, -1, 1)
+NS advective/cross source identity mode (1, -1, 1)
+NS source divergence-free mode (1, 0, -1)
+NS advective/cross source identity mode (1, 0, -1)
+NS source divergence-free mode (1, 0, 0)
+NS advective/cross source identity mode (1, 0, 0)
+NS source divergence-free mode (1, 0, 1)
+NS advective/cross source identity mode (1, 0, 1)
+NS source divergence-free mode (1, 1, -1)
+NS advective/cross source identity mode (1, 1, -1)
+NS source divergence-free mode (1, 1, 0)
+NS advective/cross source identity mode (1, 1, 0)
+NS source divergence-free mode (1, 1, 1)
+NS advective/cross source identity mode (1, 1, 1)
+NS Galerkin nonlinear kinetic-energy conservation
+NS Galerkin nonlinear helicity conservation
+NS complete symmetric polarization mode (-1, -1, -1)
+NS complete symmetric polarization mode (-1, -1, 0)
+NS complete symmetric polarization mode (-1, -1, 1)
+NS complete symmetric polarization mode (-1, 0, -1)
+NS complete symmetric polarization mode (-1, 0, 0)
+NS complete symmetric polarization mode (-1, 0, 1)
+NS complete symmetric polarization mode (-1, 1, -1)
+NS complete symmetric polarization mode (-1, 1, 0)
+NS complete symmetric polarization mode (-1, 1, 1)
+NS complete symmetric polarization mode (0, -1, -1)
+NS complete symmetric polarization mode (0, -1, 0)
+NS complete symmetric polarization mode (0, -1, 1)
+NS complete symmetric polarization mode (0, 0, -1)
+NS complete symmetric polarization mode (0, 0, 1)
+NS complete symmetric polarization mode (0, 1, -1)
+NS complete symmetric polarization mode (0, 1, 0)
+NS complete symmetric polarization mode (0, 1, 1)
+NS complete symmetric polarization mode (1, -1, -1)
+NS complete symmetric polarization mode (1, -1, 0)
+NS complete symmetric polarization mode (1, -1, 1)
+NS complete symmetric polarization mode (1, 0, -1)
+NS complete symmetric polarization mode (1, 0, 0)
+NS complete symmetric polarization mode (1, 0, 1)
+NS complete symmetric polarization mode (1, 1, -1)
+NS complete symmetric polarization mode (1, 1, 0)
+NS complete symmetric polarization mode (1, 1, 1)
+NS vorticity quadratic scaling degree
+NS viscous generator scaling degree
+
+Synthetic two-variable memory coefficients:
+M_0 x = 6*x**3
+M_1 x = -18*x**4 - 30*x**3
+M_2 x = 162*x**5 + 234*x**4 + 150*x**3
+M_3 x = -1476*x**6 - 3600*x**5 - 2286*x**4 - 750*x**3
+
+Exact finite algebra only. No proof-assistant compilation, global proof, or PDE time simulation.

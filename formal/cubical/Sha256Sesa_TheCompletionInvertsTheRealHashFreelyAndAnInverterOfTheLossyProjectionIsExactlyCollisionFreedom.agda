@@ -42,8 +42,6 @@
 --       and forceWs ws k ≡ k ws.  The 400× repair changed cost, never
 --       meaning; the kernel confirms the two readings are one.
 --
--- WHAT IS AND IS NOT CLAIMED.
---
 -- `equivFun खुला m` is `(sha256 m , m , refl)`: every computation of the
 -- hash MINTS its receipt at zero marginal cost — साक्षी-स्वयंसिद्धः is
 -- refl, not a construction.  The digest is never born alone; it is born

@@ -111,7 +111,6 @@
 --                           with a checked term instead of a caveat.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS AND IS NOT CLAIMED OF THE SOURCES
 --
 -- document IN THIS REPOSITORY, not from a classical text, and this
 -- header says so rather than letting the Devanāgarī imply an antiquity

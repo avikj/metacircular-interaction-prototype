@@ -47,7 +47,6 @@ open import AmshaSatyayantra using (कदाचित्-उक्तम् ; �
 -- supplies the Σ at every input.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SYĀT — THE CLAIM, EXACTLY, AND THE FIRST ONE MATTERS MOST
 --
 -- **No correspondence is claimed between anything here and the
 -- Anuyogadvāra's saṃkhyāta / asaṃkhyāta / ananta grading.** That module

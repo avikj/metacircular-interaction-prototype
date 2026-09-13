@@ -2,6 +2,13 @@
 
 *What was built, what it means, and what is now immediately buildable.*
 
+> **Read `CORRECTIONS.md` alongside this document.** A technical review found
+> places where an earlier draft of this writeup overclaimed (univalence, cost
+> as runtime/thermodynamic measurement, CI coverage). Those claims are
+> corrected there and inline below; several gaps the review named (faithful
+> native transport lowering, nonconstant-Path transport, a sound totality
+> analysis) have since been completed in code and are noted where relevant.
+
 ---
 
 ## 0. One-paragraph statement
@@ -182,8 +189,8 @@ recursive definition there.
   `[total]` (no recursion or structural descent), `[productive]`
   (constructor-guarded corecursion), or `[unchecked]`. An analysis, not a gate.
 
-### Layer 5 — univalence complete
-The three univalence laws all hold:
+### Layer 5 — iso-univalence (isoToPath), NOT full Iso≃Path
+The three computation laws for `isoToPath` hold:
 - `uaBeta` — transport along `ua e` computes to `e`, definitional, both ways;
 - `uaIdEquiv` — `ua(idIso) = refl`, definitional (identity-`ua` collapses to
   the constant path in conversion, decided semantically — the equation Glue
@@ -191,17 +198,22 @@ The three univalence laws all hold:
 - `uaEta` — `ua(pathToIso p) = p` for every `p`, proved by J, with `pathToIso`
   defined by transporting `idIso` through the `Iso` family.
 
-`ua : Iso(A,B) → Path(Set,A,B)` is a quasi-equivalence with both round trips
-checked.
+`ua : Iso(A,B) → Path(Set,A,B)` with the path-side round trip (`uaη`) and both
+transport laws. It is **NOT** claimed to be a full equivalence `Iso ≃ Path`: the
+other round trip `pathToIso(ua e) = e` at the Iso-record level does **not** hold
+by refl (raw isomorphism data is not a coherent equivalence — see
+`uaroundtrip.bend` and CORRECTIONS.md). This is `isoToPath`, exactly what
+`Fibre.Carrier` uses; coherent-equivalence univalence with both round trips is
+open.
 
 ### The instrument (analysis layer)
 `Core/Analysis.hs` makes the checker report, per definition, not pass/fail but:
 - **totality** (`[total]/[productive]/[unchecked]`);
 - **shape** (`theorem(=)` / `theorem(path)` / `family` / `program`);
-- **proof cost** — `definitional` when the kernel pays only normalization, else
-  measured rewrite steps and transport cells (`coe`/`hcomp`/`ua` occurrences):
-  the non-contractible-fibre cost theorem **as a number attached to every
-  proof**;
+- **proof cost** — `definitional` when no rewrite/transport constructors occur,
+  else a static count of rewrite steps and transport cells (`coe`/`hcomp`/`ua`
+  syntactic occurrences): a proxy for named non-contractible work, NOT a
+  runtime interaction count (see CORRECTIONS.md);
 - **unused hypotheses** — the erasure signal (correctly flags type-only args);
 - **superposition labels** touched;
 - **Set-binder load** — the impredicativity cost of the type.
@@ -234,12 +246,15 @@ syntax (`run_corpus.hvm4`) executes on the actual HVM4 C runtime:
    correct inhabitants. The `Sup × Path` rule lets such a search be transported
    across a `ua` — search one representation, get the answer in all equivalent
    ones. Superposed proof search inside a univalent theory, at optimal cost.
-4. **The cost theorem is a resource type theory whose resource is derived, not
-   annotated.** `cost = non-contractible fibre` reads the information content
-   off the type (`isContr` of the fibre, decidable) and it *coincides with the
-   runtime's interaction count*. Implicit computational complexity realized as
-   a cost-exact type theory whose predictions are the machine's thermodynamics
-   (Landauer's floor, decided per redex).
+4. **The cost theorem motivates a static proof-structure metric (not yet a
+   runtime/thermodynamic measurement).** The corpus proves `cost =
+   non-contractible fibre`. The analysis layer (`Core/Analysis.hs`) counts
+   *syntactic occurrences* of the rewrite/transport constructors in a proof
+   term — a useful static proxy for named non-contractible work, reported as
+   `definitional` when none occur. The stronger reading — that this coincides
+   with executed HVM interaction counts or a Landauer floor decided per redex —
+   is a **design conjecture**, not established by the implementation. See
+   CORRECTIONS.md.
 5. **A self-verifying optimal reducer.** HVM reduces HVM; the corpus is one
    `Point` inside its own state space; conversion = reduction. The evaluator,
    the checker, and the object are one optimally-reducing net that normalizes

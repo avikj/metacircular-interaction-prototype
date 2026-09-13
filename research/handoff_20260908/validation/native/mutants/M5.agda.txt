@@ -1,0 +1,220 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- योग-पत्र — the composite certificate.
+--
+-- A source-aware elimination certificate for  M x = b  carries
+-- (E, S, T, R, Z) with  y = E x,  S y = T b,  x = R y + Z b,  and the
+-- checker demands the five identities
+--
+--     E R = 1,   E Z = 0,   M R = Eᵀ S,   M Z + Eᵀ T = 1,   R E + Z M = 1.
+--
+-- Three things are checked here, over any ring with an anti-
+-- multiplicative additive map  ᵀ  fixing 1 (a transpose):
+--
+--   १  the transport law  T M = S E  is a consequence of the five
+--      identities, not a sixth axiom;
+--   २  composition  E = E₂E₁, S = S₂, T = T₂T₁, R = R₁R₂,
+--      Z = Z₁ + R₁Z₂T₁  of a certificate for M with a certificate for
+--      its reduced operator S₁ is again a certificate for M — so the
+--      whole session installs from its steps (handoff §45, [S18]);
+--   ३  a causal kernel with K³ = 0 has  (1 − zK)⁻¹ = 1 + zK + z²K²  for
+--      every z, whatever its norm: large norm is not a causal-inverse
+--      failure.
+------------------------------------------------------------------------
+module M5 where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Algebra.Ring
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+
+private
+  variable
+    ℓ : Level
+
+------------------------------------------------------------------------
+module _ (R : Ring ℓ) where
+  open RingStr (snd R)
+  open RingTheory R
+
+  private
+    A = ⟨ R ⟩
+
+  module _ (t : A → A)
+           (t-add : (x y : A) → t (x + y) ≡ t x + t y)
+           (t-mul : (x y : A) → t (x · y) ≡ t y · t x)
+           (t-one : t 1r ≡ 1r)
+           where
+
+    record Cert (M : A) : Type ℓ where
+      field
+        E S T Rc Z   : A
+        eliminates   : E · Rc ≡ 1r
+        source-blind : E · Z ≡ 0r
+        reduces      : M · Rc ≡ t E · S
+        transforms   : M · Z + t E · T ≡ 1r
+        reconstructs : Rc · E + Z · M ≡ 1r
+
+    ----------------------------------------------------------------
+    -- १ · THE TRANSPORT LAW IS DERIVED.
+    ----------------------------------------------------------------
+
+    module _ {M : A} (c : Cert M) where
+      open Cert c
+
+      private
+        +cancelR : (a b x : A) → a + x ≡ b + x → a ≡ b
+        +cancelR a b x h =
+            sym (+IdR a) ∙ cong (a +_) (sym (+InvR x)) ∙ +Assoc a x (- x)
+          ∙ cong (_+ (- x)) h
+          ∙ sym (+Assoc b x (- x)) ∙ cong (b +_) (+InvR x) ∙ +IdR b
+
+        -- M (R E + Z M) = M
+        stepA : t E · (S · E) + (M · Z) · M ≡ M
+        stepA =
+            cong₂ _+_ (·Assoc (t E) S E ∙ cong (_· E) (sym reduces) ∙ sym (·Assoc M Rc E))
+                      (sym (·Assoc M Z M))
+          ∙ sym (·DistR+ M (Rc · E) (Z · M))
+          ∙ cong (M ·_) reconstructs
+          ∙ ·IdR M
+
+        -- (M Z + tE T) M = M
+        stepB : t E · (T · M) + (M · Z) · M ≡ M
+        stepB =
+            +Comm _ _
+          ∙ cong ((M · Z) · M +_) (·Assoc (t E) T M)
+          ∙ sym (·DistL+ (M · Z) (t E · T) M)
+          ∙ cong (_· M) transforms
+          ∙ ·IdL M
+
+        same-under-tE : t E · (S · E) ≡ t E · (T · M)
+        same-under-tE = +cancelR _ _ ((M · Z) · M) (stepA ∙ sym stepB)
+
+        tR-tE : t Rc · t E ≡ 1r
+        tR-tE = sym (t-mul E Rc) ∙ cong t eliminates ∙ t-one
+
+        peel : (x : A) → t Rc · (t E · x) ≡ x
+        peel x = ·Assoc (t Rc) (t E) x ∙ cong (_· x) tR-tE ∙ ·IdL x
+
+      transport-law : T · M ≡ S · E
+      transport-law = sym (peel (T · M)) ∙ cong (t Rc ·_) (sym same-under-tE) ∙ peel (S · E)
+
+    ----------------------------------------------------------------
+    -- २ · COMPOSITION.
+    ----------------------------------------------------------------
+
+    module _ {M : A} (c₁ : Cert M) (c₂ : Cert (Cert.S c₁)) where
+      private
+        module C₁ = Cert c₁
+        module C₂ = Cert c₂
+        E₁ = C₁.E ; S₁ = C₁.S ; T₁ = C₁.T ; R₁ = C₁.Rc ; Z₁ = C₁.Z
+        E₂ = C₂.E ; S₂ = C₂.S ; T₂ = C₂.T ; R₂ = C₂.Rc ; Z₂ = C₂.Z
+
+      E∘ : A
+      E∘ = E₂ · E₁
+      S∘ : A
+      S∘ = S₂
+      T∘ : A
+      T∘ = T₂ · T₁
+      R∘ : A
+      R∘ = R₁ · R₂
+      Z∘ : A
+      Z∘ = Z₁ + (R₁ · Z₂)
+
+      private
+        L1 : (E₂ · E₁) · R₁ ≡ E₂
+        L1 = sym (·Assoc E₂ E₁ R₁) ∙ cong (E₂ ·_) C₁.eliminates ∙ ·IdR E₂
+
+      compose-eliminates : E∘ · R∘ ≡ 1r
+      compose-eliminates = ·Assoc (E₂ · E₁) R₁ R₂ ∙ cong (_· R₂) L1 ∙ C₂.eliminates
+
+      compose-source-blind : E∘ · Z∘ ≡ 0r
+      compose-source-blind =
+          ·DistR+ (E₂ · E₁) Z₁ ((R₁ · Z₂) · T₁)
+        ∙ cong₂ _+_ (sym (·Assoc E₂ E₁ Z₁) ∙ cong (E₂ ·_) C₁.source-blind ∙ 0RightAnnihilates E₂)
+                    (·Assoc (E₂ · E₁) (R₁ · Z₂) T₁
+                     ∙ cong (_· T₁) (·Assoc (E₂ · E₁) R₁ Z₂ ∙ cong (_· Z₂) L1 ∙ C₂.source-blind)
+                     ∙ 0LeftAnnihilates T₁)
+        ∙ +IdR 0r
+
+      compose-reduces : M · R∘ ≡ t E∘ · S∘
+      compose-reduces =
+          ·Assoc M R₁ R₂
+        ∙ cong (_· R₂) C₁.reduces
+        ∙ sym (·Assoc (t E₁) S₁ R₂)
+        ∙ cong (t E₁ ·_) C₂.reduces
+        ∙ ·Assoc (t E₁) (t E₂) S₂
+        ∙ cong (_· S₂) (sym (t-mul E₂ E₁))
+
+      compose-transforms : M · Z∘ + t E∘ · T∘ ≡ 1r
+      compose-transforms =
+          cong (_+ (t E∘ · T∘)) (·DistR+ M Z₁ ((R₁ · Z₂) · T₁))
+        ∙ sym (+Assoc (M · Z₁) (M · ((R₁ · Z₂) · T₁)) (t E∘ · T∘))
+        ∙ cong (M · Z₁ +_) inner
+        ∙ C₁.transforms
+        where
+          p1 : M · ((R₁ · Z₂) · T₁) ≡ (t E₁ · (S₁ · Z₂)) · T₁
+          p1 = ·Assoc M (R₁ · Z₂) T₁
+             ∙ cong (_· T₁) (·Assoc M R₁ Z₂ ∙ cong (_· Z₂) C₁.reduces ∙ sym (·Assoc (t E₁) S₁ Z₂))
+          p2 : t E∘ · T∘ ≡ (t E₁ · (t E₂ · T₂)) · T₁
+          p2 = cong (_· T∘) (t-mul E₂ E₁)
+             ∙ ·Assoc (t E₁ · t E₂) T₂ T₁
+             ∙ cong (_· T₁) (sym (·Assoc (t E₁) (t E₂) T₂))
+          inner : M · ((R₁ · Z₂) · T₁) + t E∘ · T∘ ≡ t E₁ · T₁
+          inner =
+              cong₂ _+_ p1 p2
+            ∙ sym (·DistL+ (t E₁ · (S₁ · Z₂)) (t E₁ · (t E₂ · T₂)) T₁)
+            ∙ cong (_· T₁) (sym (·DistR+ (t E₁) (S₁ · Z₂) (t E₂ · T₂))
+                            ∙ cong (t E₁ ·_) C₂.transforms
+                            ∙ ·IdR (t E₁))
+
+      compose-reconstructs : R∘ · E∘ + Z∘ · M ≡ 1r
+      compose-reconstructs =
+          cong₂ _+_ q1 (·DistL+ Z₁ ((R₁ · Z₂) · T₁) M ∙ cong (Z₁ · M +_) q2)
+        ∙ rearr
+        ∙ cong (_+ (Z₁ · M))
+               (sym (·DistR+ R₁ ((R₂ · E₂) · E₁) ((Z₂ · S₁) · E₁))
+                ∙ cong (R₁ ·_) (sym (·DistL+ (R₂ · E₂) (Z₂ · S₁) E₁)
+                                ∙ cong (_· E₁) C₂.reconstructs
+                                ∙ ·IdL E₁))
+        ∙ C₁.reconstructs
+        where
+          a = R₁ · ((R₂ · E₂) · E₁)
+          b = Z₁ · M
+          c = R₁ · ((Z₂ · S₁) · E₁)
+          q1 : (R₁ · R₂) · (E₂ · E₁) ≡ a
+          q1 = sym (·Assoc R₁ R₂ (E₂ · E₁)) ∙ cong (R₁ ·_) (·Assoc R₂ E₂ E₁)
+          q2 : ((R₁ · Z₂) · T₁) · M ≡ c
+          q2 = sym (·Assoc (R₁ · Z₂) T₁ M)
+             ∙ cong ((R₁ · Z₂) ·_) (transport-law c₁)
+             ∙ sym (·Assoc R₁ Z₂ (S₁ · E₁))
+             ∙ cong (R₁ ·_) (·Assoc Z₂ S₁ E₁)
+          rearr : a + (b + c) ≡ (a + c) + b
+          rearr = +Assoc a b c ∙ cong (_+ c) (+Comm a b) ∙ sym (+Assoc b a c) ∙ +Comm b (a + c)
+
+      -- the composite is a certificate for the original operator
+      compose : Cert M
+      compose = record
+        { E = E∘ ; S = S∘ ; T = T∘ ; Rc = R∘ ; Z = Z∘
+        ; eliminates = compose-eliminates ; source-blind = compose-source-blind
+        ; reduces = compose-reduces ; transforms = compose-transforms
+        ; reconstructs = compose-reconstructs }
+
+------------------------------------------------------------------------
+-- ३ · A NILPOTENT CAUSAL KERNEL INVERTS POLYNOMIALLY, WHATEVER ITS NORM.
+------------------------------------------------------------------------
+module _ (R : CommRing ℓ) where
+  open CommRingStr (snd R)
+
+  nilpotent-causal-inverse : (z K : ⟨ R ⟩) → (K · K) · K ≡ 0r
+    → (1r + (- (z · K))) · (1r + (z · K + (z · z) · (K · K))) ≡ 1r
+  nilpotent-causal-inverse z K h =
+      expand z K ∙ cong (λ w → 1r + (- (((z · z) · z) · w))) h ∙ finish z
+    where
+      expand : (z K : ⟨ R ⟩)
+        → (1r + (- (z · K))) · (1r + (z · K + (z · z) · (K · K)))
+          ≡ 1r + (- (((z · z) · z) · ((K · K) · K)))
+      expand z K = solve! R
+      finish : (z : ⟨ R ⟩) → 1r + (- (((z · z) · z) · 0r)) ≡ 1r
+      finish z = solve! R

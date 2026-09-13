@@ -55,9 +55,6 @@
 -- runs on.  What is contributed is the identification of §36–38's two
 -- clauses as one statement.
 --
--- SYĀT — THE CLAIM, EXACTLY.  ARCHITECTURE SPACE IS NOT MODELLED.  There is
--- no type of architectures here and no loop in one — `h` is given
--- directly as a self-equivalence of the interface, which is what
 -- §36–38 says such a loop YIELDS, not what it is.  So this is a theorem
 -- about interface holonomy taken as given, and the step from "loop in
 -- architecture space" to "h : Z ≃ Z" is assumed, not built.  FLATNESS

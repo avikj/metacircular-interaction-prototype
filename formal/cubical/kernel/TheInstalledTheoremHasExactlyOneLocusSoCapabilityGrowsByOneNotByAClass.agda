@@ -65,12 +65,6 @@
 --                           fires at both `zero` and `suc zero`.  A schema
 --                           would; that is exactly what §1 forbids.
 --
--- NOT CLAIMED.  Nothing here says a schematic kernel is impossible or
--- undesirable — it says THIS field cannot hold one while `control-sound`
--- stands, and prices what that buys.  Nothing computes an h-level for
--- `Control t` in general; §2 is about `install`'s default only.  §3 is
--- about the sources present in a list and says nothing about reachability
--- under iterated advance.
 ------------------------------------------------------------------------
 
 module TheInstalledTheoremHasExactlyOneLocusSoCapabilityGrowsByOneNotByAClass where

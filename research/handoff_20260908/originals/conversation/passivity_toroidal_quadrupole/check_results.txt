@@ -1,0 +1,44 @@
+43 exact checks passed.
+PASS: toroidal tangency
+PASS: toroidal Cartesian divergence
+PASS: radial-factor toroidal divergence
+PASS: curl(x cross A x), component 0
+PASS: curl(x cross A x), component 1
+PASS: curl(x cross A x), component 2
+PASS: normalized shell tensor 00
+PASS: normalized shell tensor 01
+PASS: normalized shell tensor 02
+PASS: normalized shell tensor 11
+PASS: normalized shell tensor 12
+PASS: normalized shell tensor 22
+PASS: toroidal quadrupole squared norm
+PASS: toroidal quadrupole polarized inner product
+PASS: shell strain coefficient 0
+PASS: shell strain coefficient 1
+PASS: shell strain coefficient 2
+PASS: harmonicity of test 0
+PASS: toroidal-gradient orthogonality 0
+PASS: harmonicity of test 1
+PASS: toroidal-gradient orthogonality 1
+PASS: harmonicity of test 2
+PASS: toroidal-gradient orthogonality 2
+PASS: harmonicity of test 3
+PASS: toroidal-gradient orthogonality 3
+PASS: harmonicity of test 4
+PASS: toroidal-gradient orthogonality 4
+PASS: harmonicity of test 5
+PASS: toroidal-gradient orthogonality 5
+PASS: harmonicity of test 6
+PASS: toroidal-gradient orthogonality 6
+PASS: harmonicity of test 7
+PASS: toroidal-gradient orthogonality 7
+PASS: harmonicity of test 8
+PASS: toroidal-gradient orthogonality 8
+PASS: harmonicity of test 9
+PASS: toroidal-gradient orthogonality 9
+PASS: harmonicity of test 10
+PASS: toroidal-gradient orthogonality 10
+PASS: two-pulse supply equals half Gram quadratic
+PASS: active cosh two-pulse work
+PASS: lossless oscillator energy rate
+PASS: radial high-derivative kernel primitive

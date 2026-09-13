@@ -27,9 +27,6 @@
 -- moment either coordinate is taken alone.  Statistics live in the
 -- carrying, not in the carried nor the carrier.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The relations of S∞ on this
--- representation; the semidirect assembly of the two presentations
--- into the kernel theorem for B∞ is the standing construction.
 ------------------------------------------------------------------------
 
 module AnantaVinimaya_TheBareSwapsPresentTheInfiniteSymmetricGroupOnTheRopeSoBothCoordinatesAreComplete where

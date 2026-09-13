@@ -1,0 +1,101 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- उप-गुण — the subset product.
+--
+-- Handoff §8 ([S03]), the all-order shared-source variations: mixed
+-- derivatives of a product obey the exact subset rule
+--
+--     ∂_S (f g) = Σ_{T ⊆ S} (∂_T f)(∂_{S∖T} g),
+--
+-- and the linearized generator of a quadratic flow F(ω) = Lω + B(ω,ω)
+-- is its linear part plus twice the polarization,
+--
+--     F(ω + v) = F(ω) + [L v + 2 B(ω,v)] + B(v,v).
+--
+-- The subset rule is checked for two and three derivations (4 and 8
+-- terms; no commutation of the derivations is needed — the rule is
+-- iterated Leibniz), and the generator identity for any additive L
+-- and symmetric biadditive B.  (The single-derivation all-order rule is
+-- DvipadaGuna; the projected failure of the rule is PunarAgamana.)
+------------------------------------------------------------------------
+module UpaGuna_TheMixedDerivativeOfAProductIsTheSumOverSubsetsOfWhichFactorEachDerivationHitsAndTheLinearizedGeneratorOfAQuadraticFlowIsItsLinearPartPlusTwiceThePolarization where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+
+private
+  variable
+    ℓ : Level
+
+------------------------------------------------------------------------
+module _ (R : CommRing ℓ) where
+  open CommRingStr (snd R)
+
+  private
+    A = ⟨ R ⟩
+
+  ι : ℕ → A
+  ι zero    = 0r
+  ι (suc n) = 1r + ι n
+
+  ----------------------------------------------------------------
+  -- १ · the subset rule for two and three derivations
+  ----------------------------------------------------------------
+  module _ (∂₁ ∂₂ ∂₃ : A → A)
+           (∂₁-add : (x y : A) → ∂₁ (x + y) ≡ ∂₁ x + ∂₁ y)
+           (∂₁-leib : (x y : A) → ∂₁ (x · y) ≡ ∂₁ x · y + x · ∂₁ y)
+           (∂₂-add : (x y : A) → ∂₂ (x + y) ≡ ∂₂ x + ∂₂ y)
+           (∂₂-leib : (x y : A) → ∂₂ (x · y) ≡ ∂₂ x · y + x · ∂₂ y)
+           (∂₃-add : (x y : A) → ∂₃ (x + y) ≡ ∂₃ x + ∂₃ y)
+           (∂₃-leib : (x y : A) → ∂₃ (x · y) ≡ ∂₃ x · y + x · ∂₃ y)
+           where
+
+    -- ∂₁∂₂(fg) = ∂₁∂₂f·g + ∂₂f·∂₁g + ∂₁f·∂₂g + f·∂₁∂₂g
+    subset-rule-2 : (f g : A)
+      → ∂₁ (∂₂ (f · g)) ≡ (∂₁ (∂₂ f) · g + ∂₂ f · ∂₁ g) + (∂₁ f · ∂₂ g + f · ∂₁ (∂₂ g))
+    subset-rule-2 f g =
+        cong ∂₁ (∂₂-leib f g)
+      ∙ ∂₁-add (∂₂ f · g) (f · ∂₂ g)
+      ∙ cong₂ _+_ (∂₁-leib (∂₂ f) g) (∂₁-leib f (∂₂ g))
+
+    -- ∂₃∂₁∂₂(fg): the eight subsets of {1,2,3}
+    subset-rule-3 : (f g : A)
+      → ∂₃ (∂₁ (∂₂ (f · g)))
+        ≡ ( ((∂₃ (∂₁ (∂₂ f)) · g + ∂₁ (∂₂ f) · ∂₃ g) + (∂₃ (∂₂ f) · ∂₁ g + ∂₂ f · ∂₃ (∂₁ g))) )
+          + ( ((∂₃ (∂₁ f) · ∂₂ g + ∂₁ f · ∂₃ (∂₂ g)) + (∂₃ f · ∂₁ (∂₂ g) + f · ∂₃ (∂₁ (∂₂ g)))) )
+    subset-rule-3 f g =
+        cong ∂₃ (subset-rule-2 f g)
+      ∙ ∂₃-add _ _
+      ∙ cong₂ _+_ (∂₃-add _ _ ∙ cong₂ _+_ (∂₃-leib (∂₁ (∂₂ f)) g) (∂₃-leib (∂₂ f) (∂₁ g)))
+                  (∂₃-add _ _ ∙ cong₂ _+_ (∂₃-leib (∂₁ f) (∂₂ g)) (∂₃-leib f (∂₁ (∂₂ g))))
+
+  ----------------------------------------------------------------
+  -- २ · the linearized generator of a quadratic flow
+  ----------------------------------------------------------------
+  module _ (L : A → A) (L-add : (x y : A) → L (x + y) ≡ L x + L y)
+           (B : A → A → A)
+           (B-addL : (a b c : A) → B (a + b) c ≡ B a c + B b c)
+           (B-addR : (a b c : A) → B a (b + c) ≡ B a b + B a c)
+           (B-sym  : (a b : A) → B a b ≡ B b a)
+           where
+
+    F : A → A
+    F ω = L ω + B ω ω
+
+    -- the canonical linearized generator  DF(ω)v = Lv + 2B(ω,v)
+    DF : A → A → A
+    DF ω v = L v + ι 2 · B ω v
+
+    -- F(ω + v) = F(ω) + DF(ω)v + B(v,v):  exact, with no remainder beyond the square
+    linearized-generator : (ω v : A) → F (ω + v) ≡ (F ω + DF ω v) + B v v
+    linearized-generator ω v =
+        cong₂ _+_ (L-add ω v)
+                  (B-addL ω v (ω + v) ∙ cong₂ _+_ (B-addR ω ω v) (B-addR v ω v ∙ cong (_+ B v v) (B-sym v ω)))
+      ∙ shape (L ω) (L v) (B ω ω) (B ω v) (B v v)
+      where
+        shape : (lω lv bωω bωv bvv : A)
+          → (lω + lv) + ((bωω + bωv) + (bωv + bvv)) ≡ ((lω + bωω) + (lv + (1r + (1r + 0r)) · bωv)) + bvv
+        shape lω lv bωω bωv bvv = solve! R

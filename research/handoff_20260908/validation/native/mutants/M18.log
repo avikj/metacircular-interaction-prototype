@@ -1,0 +1,10 @@
+Checking M18 (/home/user/math/formal/cubical/theorems/physics/M18.agda).
+/home/user/math/formal/cubical/theorems/physics/M18.agda:95.9-97.50: error: [UnequalTerms]
+v != ω of type fst R
+when checking that the expression
+cong₂ _+_ (L-add ω v)
+(B-addL ω v (ω + v) ∙
+ cong₂ _+_ (B-addR ω ω v)
+ (B-addR v ω v ∙ cong (_+ B v v) (B-sym v ω)))
+∙ shape (L ω) (L v) (B ω ω) (B ω v) (B v v)
+has type F (ω + v) ≡ F ω + DF ω v + B ω v

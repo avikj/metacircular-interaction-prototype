@@ -51,24 +51,6 @@
 -- of the composed pair carrying the product of the products — IS the medial
 -- instance that Vargana's घात-गुण consumes, on the nose.
 --
--- WHAT IS AND IS NOT CLAIMED OF THE SOURCES.
---   · मध्य-विनिमयः ("exchange of the middle terms") is the name already in
---     use for this object in this corpus (MeruKarna, Vargacitighana); it is
---     not offered as a term attested in a source text for the abstract law.
---   · घात-गुण, (a·b)ᵐ ≡ aᵐ·bᵐ, is the third of the Jaina laws of indices,
---     the वर्ग / वर्ग-वर्ग / वर्गित-संवर्गित series carried in the
---     Anuyogadvāra-sūtra tradition and worked out at length by Vīrasena,
---     धवला, c. 816.  The Jaina texts state the index laws; they do not state
---     the abstract commutative-semigroup theorem below, and are not claimed
---     to.
---   · भावना is Brahmagupta, ब्राह्मस्फुटसिद्धान्तः 18, 628 — the composition
---     of two solutions of a quadratic form.  What is claimed here is that in
---     the split (leg) coordinates PairComposition works in, the surviving
---     content of the composition is the medial law.  Brahmagupta composed
---     over the norm, not over legs; the leg presentation is this corpus's.
---   · Voevodsky's univalence is the substrate (§६'s first road), and isSetℕ
---     is the h-level fact that makes the carry here exact rather than merely
---     available.
 ------------------------------------------------------------------------
 
 module MadhyaVinimaya_TheMiddleExchangeIsOneLawStandingInSixPlaces where

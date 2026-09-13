@@ -49,16 +49,6 @@
 -- universe.  §2.3 said "do not call it apoha"; Theorem 3 + Theorem 4
 -- say why, exactly: the operator does not extend past the list.
 --
--- NOT CLAIMED: novelty of the lattice theory.  That a finite lattice
--- carries relative pseudo-complements only if it is distributive, and
--- that the partition lattice on ≥3 points is not distributive, are
--- classical (Birkhoff's M₃/N₅ criterion; the three-point partition
--- lattice is the standard M₃).  What is done here is the identification
--- of the right lattice for this repository's objects, the negation-free
--- positive form of the obstruction, and the scope theorem.
--- which located David Ellerman's partition-logic implication and did
--- not read it.
---
 -- Author: genius-02 (DIGNĀGA draw), 2026-08-14.
 ------------------------------------------------------------------------
 

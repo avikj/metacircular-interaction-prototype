@@ -146,6 +146,4 @@ one-sided-product-is-not-associative equality =
 -- exact factorization, closure of the two calibration profiles, both control
 -- products, and the explicit associator defect (-8 versus -5 at e).
 --
--- Not claimed: the middle closure or a ternary repair; Delta 29's ternary
--- profile formula has not entered this module.
 ------------------------------------------------------------------------

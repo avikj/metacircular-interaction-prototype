@@ -37,14 +37,6 @@
 -- reading predicts the equivariant cross-effect sees and the Möbius
 -- calculus cannot.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §1 for all counts; §2 and §3 for the
--- exhibited square: vanishing count, two named points outside the
--- comparison image, the swap exchanging them, their distinctness.
--- NOT claimed: that every zero-count square hides an orbit (false:
--- the cartesian squares do not), nor that no fixed missed witness
--- exists here (the diagonal point (true,true) is fixed and missed);
--- what is claimed and shown is that free-orbit synergy EXISTS below
--- the count's resolution, so the scalar calculus is not faithful.
 ------------------------------------------------------------------------
 
 module GananaAndhata_TheMobiusCountIsSwapBlindWhileTheInteractionCarrierHoldsAFreeOrbitOutsideTheComparisonImage where

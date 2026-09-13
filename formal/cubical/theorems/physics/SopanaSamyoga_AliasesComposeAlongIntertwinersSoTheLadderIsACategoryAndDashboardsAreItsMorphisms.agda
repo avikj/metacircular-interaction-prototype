@@ -30,9 +30,6 @@
 -- a category, division is its geometry, and the ladder needed to be
 -- proved only once, at the top.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The category structure and the
--- recovered rung; universality of the top rung (every aliased
--- observable a dashboard of it) is the standing construction.
 ------------------------------------------------------------------------
 
 module SopanaSamyoga_AliasesComposeAlongIntertwinersSoTheLadderIsACategoryAndDashboardsAreItsMorphisms where

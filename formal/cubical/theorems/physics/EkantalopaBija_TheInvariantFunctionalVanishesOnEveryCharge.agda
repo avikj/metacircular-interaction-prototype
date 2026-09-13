@@ -13,10 +13,13 @@
 module EkantalopaBija_TheInvariantFunctionalVanishesOnEveryCharge where
 
 open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.CommRing
+import Cubical.Algebra.Ring.Properties as RP
 
 module _ (R' : CommRing ℓ-zero) where
   open CommRingStr (snd R')
+  open RP.RingTheory (CommRing→Ring R')
   R = ⟨ R' ⟩
 
   gap : R → R
@@ -31,7 +34,7 @@ module _ (R' : CommRing ℓ-zero) where
     0r                      ∎
     where
       lem : (- 1r) · w ≡ - w
-      lem = (- 1r) · w   ≡⟨ sym (-DistL· 1r w) ⟩
+      lem = (- 1r) · w   ≡⟨ -DistL· 1r w ⟩
             - (1r · w)   ≡⟨ cong -_ (·IdL w) ⟩
             - w          ∎
 

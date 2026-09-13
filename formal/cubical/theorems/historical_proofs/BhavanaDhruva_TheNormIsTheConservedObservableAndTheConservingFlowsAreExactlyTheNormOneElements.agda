@@ -57,7 +57,6 @@
 --     line of the चक्रवाल that is pure conservation.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SYĀT — THE CLAIM, EXACTLY.  The fence, and it is the point of the file.
 --
 -- 1.  **This is not the product formula.**  `∏_v |x|_v = 1` over the
 --     places of a number field is a different theorem about a different

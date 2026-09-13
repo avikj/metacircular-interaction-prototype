@@ -17,12 +17,9 @@
 -- of a patch list — and gets commutation, order-independence and blame
 -- back.  Nothing is passed out to be assumed.
 --
--- The module's own WHAT IS AND IS NOT CLAIMED also records that its
--- commutation hypothesis is GLOBAL, quantified over every step of the
--- type rather than over the steps in the list, and that localising it
--- "is possible but NOT done".  §६ does it: the hypothesis here is
--- carried through the swap and transitivity cases by a membership
--- index, so it constrains only the patches that actually appear.
+-- §६ does it: the hypothesis here is carried through the swap and
+-- transitivity cases by a membership index, so it constrains only the patches
+-- that actually appear.
 --
 -- THE REPOSITORY FORMAT is the one git actually uses: a tree is a map
 -- from locations to contents, not a list of lines carrying its own

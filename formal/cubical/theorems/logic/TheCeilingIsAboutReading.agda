@@ -56,7 +56,6 @@
 -- statement: `Laghava`'s own theorem implies it and not conversely.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS AND IS NOT SETTLED
 --
 -- SETTLED.  The ceiling is not about discreteness of the OBSERVATIONS.
 -- It is about the decoders having something discrete to read.  Restrict

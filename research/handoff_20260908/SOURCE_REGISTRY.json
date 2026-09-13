@@ -1,0 +1,282 @@
+[
+  {
+    "id": "S00",
+    "title": "Six-September comprehensive theorem-organism handoff",
+    "path": "originals/library/comprehensive_handoff_2026-09-06.extracted.txt",
+    "sha256": "418df07ac0185b775dc1b2eabe67f396cdc503c6f8329a1b66cb3c788eae5925",
+    "bytes": 43391,
+    "status": "Historical context; original DOCX also preserved.",
+    "related_files": [
+      "originals/library/Metacircular Interaction Prototype - Comprehensive Conversation Handoff.docx"
+    ]
+  },
+  {
+    "id": "S01",
+    "title": "Faithful quartic receiver and NS actual-source continuation separation",
+    "path": "sources/S01_receiver.md",
+    "sha256": "3581964801bb6c6460a4ddea8ed797b8465a26ba84eb1d9666d4374fa22229f5",
+    "bytes": 17996,
+    "status": "Analytical source note; distinct earlier receiver.",
+    "related_files": []
+  },
+  {
+    "id": "S02",
+    "title": "Autocorrelation two-packet Weil criterion and exact triangular NS memory",
+    "path": "sources/S02_two_packet.md",
+    "sha256": "9f945e269f69961766fa3b7291f4ea365878b4739c263a1596b10b5cb42d69c8",
+    "bytes": 23495,
+    "status": "Analytical source note; principal later Z/G/M0 definitions.",
+    "related_files": []
+  },
+  {
+    "id": "S03",
+    "title": "Common-source quadratic polarization, Beltrami control and coherent CRT histories",
+    "path": "sources/S03_common_source_quadratic_crt_RECONSTRUCTED.md",
+    "sha256": "8f9da4e9603c02ee8abf65e394ed34f06d6e2fb6e659e1f6a3b749f42f1f143e",
+    "bytes": 5236,
+    "status": "Reconstructed from visible user note, not original attachment bytes.",
+    "related_files": [
+      "originals/conversation/ns_rh_source_audit/exact_checks.py",
+      "originals/conversation/ns_rh_source_audit/exact_checks_output.txt"
+    ]
+  },
+  {
+    "id": "S04",
+    "title": "Poisson source spectrum, essential norm and auxiliary amplification controls",
+    "path": "originals/conversation/poisson_source_spectrum/poisson_source_spectrum.md",
+    "sha256": "31399963344537e690f6e345163c1f897b9119a23f299856abd75a73de9e5af5",
+    "bytes": 9892,
+    "status": "Original mounted analytical note.",
+    "related_files": [
+      "originals/conversation/poisson_source_spectrum/check_identities.py",
+      "originals/conversation/poisson_source_spectrum/check_results.txt"
+    ]
+  },
+  {
+    "id": "S05",
+    "title": "Actual source-preserving coadjoint/stochastic transport and compact tangent residual",
+    "path": "originals/conversation/source_image_transport/source_image_transport.md",
+    "sha256": "ac0c3650ac8817f062a928de37f46adb67b4dcd02fbe8d7422a4b90ca8b02a34",
+    "bytes": 13226,
+    "status": "Original mounted analytical note.",
+    "related_files": [
+      "originals/conversation/source_image_transport/check_results.txt",
+      "originals/conversation/source_image_transport/check_source_transport.py"
+    ]
+  },
+  {
+    "id": "S06",
+    "title": "Receiver Sobolev inverse and full affine harmonic continuation fibre",
+    "path": "originals/conversation/receiver_inverse_harmonic_fibre/proof_note.md",
+    "sha256": "6c1c73295e924f497d70d6ed3104fe78b166326ae39d39f984eefa60d574b409",
+    "bytes": 15393,
+    "status": "Original mounted note; legacy alias proof_note(2).",
+    "related_files": [
+      "originals/conversation/receiver_inverse_harmonic_fibre/check_results.txt",
+      "originals/conversation/receiver_inverse_harmonic_fibre/checks.py"
+    ]
+  },
+  {
+    "id": "S07",
+    "title": "Instantiated continuation fibres",
+    "path": "originals/conversation/instantiated_continuation_fibres/proof_note.md",
+    "sha256": "246475b47b0de16b94b93f8a3555a8c0e6ddf28d3aeb09586964d26d15810755",
+    "bytes": 12115,
+    "status": "Original mounted note; legacy alias proof_note(1).",
+    "related_files": [
+      "originals/conversation/instantiated_continuation_fibres/check_results.txt",
+      "originals/conversation/instantiated_continuation_fibres/checks.py"
+    ]
+  },
+  {
+    "id": "S08",
+    "title": "Finite strain coordinates and actual Weil source signature",
+    "path": "originals/conversation/finite_strain_weil_signature/proof_note.md",
+    "sha256": "19ace49ddcf9c84d1bdcab674cc5ab8e05b4d7ec31e7833dec194f72aabae896",
+    "bytes": 20905,
+    "status": "Original mounted note; legacy alias proof_note(3).",
+    "related_files": [
+      "originals/conversation/finite_strain_weil_signature/check_results.txt",
+      "originals/conversation/finite_strain_weil_signature/checks.py"
+    ]
+  },
+  {
+    "id": "S09",
+    "title": "Essential cross-helicity strain tomography and Hardy innovation",
+    "path": "originals/conversation/ns_rh_strain_symbol_hardy_innovation/proof_note.md",
+    "sha256": "b23175d1efc70954277f562d4140835a8ab383d1d4f4dd5878022804a88a7656",
+    "bytes": 18839,
+    "status": "Original mounted note; legacy alias proof_note(4).",
+    "related_files": [
+      "originals/conversation/ns_rh_strain_symbol_hardy_innovation/check_results.txt",
+      "originals/conversation/ns_rh_strain_symbol_hardy_innovation/checks.py"
+    ]
+  },
+  {
+    "id": "S10",
+    "title": "Passive-work distinction and toroidal multipole blindness",
+    "path": "originals/conversation/passivity_toroidal_quadrupole/proof_note.md",
+    "sha256": "d6764d2d263c402f31555e6368eee481259d38be61a1046e6afcb5696dbbccd1",
+    "bytes": 10191,
+    "status": "Original mounted note; legacy alias proof_note(5).",
+    "related_files": [
+      "originals/conversation/passivity_toroidal_quadrupole/check_results.txt",
+      "originals/conversation/passivity_toroidal_quadrupole/checks.py"
+    ]
+  },
+  {
+    "id": "S11",
+    "title": "Actual Xi-cardinal sources and renormalized toroidal strain current",
+    "path": "sources/S11_cardinal_and_current.md",
+    "sha256": "8b2f79a0737c1d4a3641a909d72b94289eefacd4988971ec50d4a00180076848",
+    "bytes": 20616,
+    "status": "Recovered proof_note(6).md.",
+    "related_files": []
+  },
+  {
+    "id": "S12",
+    "title": "Compact source-image rigidity and full nonlinear toroidal leakage",
+    "path": "sources/S12_source_image_and_quadrupole.md",
+    "sha256": "051e440ce0083ae7087b9cfbf9b7a421b97af3ac6ac285b834ceb3f14f9e5a8f",
+    "bytes": 20564,
+    "status": "Recovered proof_note(7).md; strong complete radial-matrix theorem.",
+    "related_files": []
+  },
+  {
+    "id": "S13",
+    "title": "Endpoint Xi support escape and exact H5 viscous strain memory",
+    "path": "originals/conversation/source_resolved_closure/proof_note.md",
+    "sha256": "2d820c78027b28600bb92399cb681c2991d179ccb31c87cce23d74eced1daf56",
+    "bytes": 22219,
+    "status": "Original mounted note; several numbered aliases materialize to these same bytes.",
+    "related_files": [
+      "originals/conversation/source_resolved_closure/check_results.txt",
+      "originals/conversation/source_resolved_closure/checks.py"
+    ]
+  },
+  {
+    "id": "S14",
+    "title": "User synthesis: reflection-scale holonomy, strain coboundary and nonlinear memory",
+    "path": "sources/S14_user_holonomy_and_nonlinear_memory_RECONSTRUCTED.md",
+    "sha256": "774dd7f1293bfe92efe8abe77d62fa309fb4d2715812589b2539bd86a4f2dbb8",
+    "bytes": 4633,
+    "status": "Reconstructed visible user synthesis; no claim of original attachment recovery.",
+    "related_files": []
+  },
+  {
+    "id": "S15",
+    "title": "Actual toroidal 2->4->2 return, sign examples and geometric-stack bound",
+    "path": "originals/conversation/toroidal_first_return/proof_note.md",
+    "sha256": "ee526e2031e15c7b482fa4832b169c045f8559b6016fbc62262c18fe1b4bf867",
+    "bytes": 18995,
+    "status": "Original mounted note; timestamp aliases also existed.",
+    "related_files": [
+      "originals/conversation/toroidal_first_return/check_results.txt",
+      "originals/conversation/toroidal_first_return/checks.py"
+    ]
+  },
+  {
+    "id": "S16",
+    "title": "Moving-peak heat control, signed radial spectrum and one-sided arithmetic escape",
+    "path": "sources/S16_moving_peak_and_signed_spectrum.md",
+    "sha256": "41f980eae2bf56a826fbbdefdec8d8f00ede67537f3cc92f051a8d702a5cd0ca",
+    "bytes": 24882,
+    "status": "Recovered stronger parallel note dated research state Sept 7.",
+    "related_files": []
+  },
+  {
+    "id": "S17",
+    "title": "Full source-coherent nonlinear evaluator and certified local tree summation",
+    "path": "originals/conversation/metacircular_full_history/proof_note.md",
+    "sha256": "ae0a849a0d0f46320f73597088ece6f549699582c67b9bd17e53a57c6950a1fd",
+    "bytes": 16269,
+    "status": "Original mounted note; 141 historical exact checks.",
+    "related_files": [
+      "originals/conversation/metacircular_full_history/check_results.txt",
+      "originals/conversation/metacircular_full_history/checks.py"
+    ]
+  },
+  {
+    "id": "S18",
+    "title": "Causal normal form, analytic reconstruction and source-aware matrix certificate kernel",
+    "path": "originals/conversation/metacircular_causal_normal_form/proof_note.md",
+    "sha256": "a05733d318a9590fb8656e4ff748293dd7a659774c92bb745aeccc467361e0de",
+    "bytes": 14972,
+    "status": "Original mounted note; 86 exact checks replayed during handoff.",
+    "related_files": [
+      "originals/conversation/metacircular_causal_normal_form/check_results.txt",
+      "originals/conversation/metacircular_causal_normal_form/kernel.py"
+    ]
+  },
+  {
+    "id": "S19",
+    "title": "Source-dependent midpoint return, nonlinear kinetic storage and rigorous Abel inverse",
+    "path": "sources/S19_midpoint_storage_and_abel.md",
+    "sha256": "d8b5999051e78e2df763499b5caa9e111e5ab771fbfeb0e323a383f9511c3f3f",
+    "bytes": 21561,
+    "status": "Recovered stronger parallel note; 43 exact controls replayed.",
+    "related_files": [
+      "originals/library/checks(4).py",
+      "originals/library/check_results(4).txt"
+    ]
+  },
+  {
+    "id": "S20",
+    "title": "Dyadic pole residual and general toroidal radial marginality",
+    "path": "sources/S20_dyadic_and_radial_marginality.md",
+    "sha256": "8ce3142d1c22c3e70e191b4581792ac4357711105fcb137ae31c6fc979eb59c0",
+    "bytes": 15210,
+    "status": "Recovered run26; use with later scope corrections.",
+    "related_files": []
+  },
+  {
+    "id": "S21",
+    "title": "Higher residuals and dynamic matching proposal",
+    "path": "sources/S21_higher_residuals_dynamic_matching.md",
+    "sha256": "88a5dd6291784bcdf790b43caee928ed2dbe8447ce5ca6f2031f077badff0edb",
+    "bytes": 12683,
+    "status": "AUDIT: higher difference convergence repaired by S19; NS matching claims not promoted.",
+    "related_files": []
+  },
+  {
+    "id": "S22",
+    "title": "Direct quadratic Goldbach residual and all-depth source-dependent memory",
+    "path": "sources/S22_quadratic_goldbach_and_memory.md",
+    "sha256": "1e518af138397a669e67a4b899d53a5f9411e54272add829829f2c7148d59cd6",
+    "bytes": 14445,
+    "status": "Arithmetic derivation retained; Gaussian-in-octave NS suppression remains AUDIT.",
+    "related_files": []
+  },
+  {
+    "id": "S23",
+    "title": "Actual-endpoint backward assembly",
+    "path": "originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md",
+    "sha256": "8ed1c8f6bb6f37bc131be534aa303d1985e18f674f3e61c0d470e62640c1061b",
+    "bytes": 7803,
+    "status": "Conditional actual endpoints; not an exhaustive repo closure.",
+    "related_files": [
+      "originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json",
+      "originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json"
+    ]
+  },
+  {
+    "id": "S24",
+    "title": "Native-runtime availability probes",
+    "path": "originals/conversation/yantra_runtime_probe/environment.log",
+    "sha256": "53f624aa2d9936ca690a3126eae29a3746a6d59f262baeaca67e5f7e4c55d0a8",
+    "bytes": 794,
+    "status": "Execution environment evidence, not a mathematical failure.",
+    "related_files": [
+      "originals/conversation/yantra_runtime_probe/setup-report.log"
+    ]
+  },
+  {
+    "id": "S25",
+    "title": "Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra",
+    "path": "sources/S25_delta19.md",
+    "sha256": "538b8ae6e282685e120592c680a533ccf5e087790f3a0539499eecb7adb4c94e",
+    "bytes": 14502,
+    "status": "Historical source theorem/program note; formal module coverage differs by statement.",
+    "related_files": []
+  }
+]

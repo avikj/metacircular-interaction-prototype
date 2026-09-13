@@ -33,13 +33,6 @@
 -- and §3 names why the completion must add exactly what cost cannot
 -- survive.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–3 for every derivation d, plus the
--- concrete witness on the kernel's `direct-history` (cost 4, meaning
--- trivial, not the identity).  NOT claimed: the full localization
--- sequence as one object (it is assembled in prose in the entrypoint
--- note); this is its exactness crux — meaning vanishes and cost does
--- not on the kernel — which is the one place the sequence could fail
--- and does not.
 ------------------------------------------------------------------------
 
 module VyayaSesa_TheRoundTripIsPureCostAndTrivialMeaningSoCostIsSupportedOnTheKernelOfTheGroupoidCompletion where

@@ -25,9 +25,6 @@
 -- carrier and an abelian cargo, and the weave itself — this
 -- conjugation — is where the memory lives.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The conjugation law at every pair of
--- positions; the word-level normal form assembled from it, and the
--- kernel theorem it enables, are the standing constructions.
 ------------------------------------------------------------------------
 
 module ArdhaSamasa_TheSwapConjugatesTheTwistByTheTranspositionSoTheTwoCoordinatesFormASemidirectWeave where

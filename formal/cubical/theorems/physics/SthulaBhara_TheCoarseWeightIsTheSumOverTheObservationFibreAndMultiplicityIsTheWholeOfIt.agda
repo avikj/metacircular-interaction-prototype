@@ -49,11 +49,6 @@
 --   पूर्णता        and the two coarse weights recompose to 𝟙 under the
 --                  orbit normalization (suc a + suc b)·h ≡ 𝟙.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Ladder steps 3–5 (equal-amplitude refinement,
--- the general rational law over arbitrary partitions, continuity /
--- noncontextual extension) are untouched and open.  Nothing here
--- chooses a partition: the ⊎-presentation is one coarse observation,
--- not the theory of all of them.
 ------------------------------------------------------------------------
 
 module SthulaBhara_TheCoarseWeightIsTheSumOverTheObservationFibreAndMultiplicityIsTheWholeOfIt where

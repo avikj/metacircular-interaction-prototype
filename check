@@ -46,6 +46,13 @@ fi
 [ -f "$LIBFILE" ] || { printf '\nno %s -- run: sh setup\n' "$LIBFILE"; exit 1; }
 
 fail=0
+# The GHC runtime of agda: a heap cap.  The depth-4096 Rule 30 certificate
+# (theorems/automata/Navapada_*) holds ~10 GB live while it decides one
+# boolean; under the default copying collector the process grows past a
+# 15 GB machine and is killed, while under -M the runtime switches to
+# compacting collection near the cap and finishes.  This is a fact about
+# the checker's environment, not about the mathematics.
+export GHCRTS="${GHCRTS:--M12500m}"
 run() {  # run <label> <dir> <file>
   printf '  %-58s ' "$1"
   if ( cd "$2" && "$AGDA" --library-file="$LIBFILE" "$3" ) >/tmp/mathcheck.$$ 2>&1
@@ -69,6 +76,26 @@ if [ "${1:-}" = "--all" ]; then
   for m in "$ROOT"/formal/cubical/theorems/*/*.agda; do
     rel="${m#"$ROOT"/formal/cubical/}"
     run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT/formal/cubical" "$rel"
+  done
+
+  printf '\nrescued lanes — the pre-rewrite modules recovered 2026-09-10 (slow)\n'
+  # flat modules and the lane directories under formal/cubical that are not
+  # theorems/ or kernel/ (Prastuta, NaturalMachine, Ratri, Yantra, Swarm,
+  # Mula, Kernel, Tapas, MachineMinted, EGB, ...), then the outside lanes
+  # resolved by rescued-lanes.agda-lib at the repository root.
+  for m in "$ROOT"/formal/cubical/*.agda "$ROOT"/formal/cubical/*/*.agda "$ROOT"/formal/cubical/*/*/*.agda; do
+    case "$m" in */theorems/*|*/kernel/*) continue ;; esac
+    [ -f "$m" ] || continue
+    rel="${m#"$ROOT"/formal/cubical/}"
+    run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT/formal/cubical" "$rel"
+  done
+  for m in "$ROOT"/formal/executable/*.agda "$ROOT"/formal/karma/*.agda "$ROOT"/formal/mukha/*.agda \
+           "$ROOT"/machine/agda/*.agda "$ROOT"/machine/avatarana.pending/*.agda \
+           "$ROOT"/collab/probes/*/*.agda "$ROOT"/fiber/src/Fiber/*.agda \
+           "$ROOT"/punaragamana/src/Punaragamana/*.agda; do
+    [ -f "$m" ] || continue
+    rel="${m#"$ROOT"/}"
+    run "$(printf '%s' "$rel" | cut -c1-56)" "$ROOT" "$rel"
   done
 fi
 

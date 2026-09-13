@@ -26,9 +26,6 @@
 -- the second is computed, not merely shown to exist.  The kernel
 -- theorem is now a statement about the two coordinates separately.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The normal form as an equality of
--- actions at every state; injectivity of the coordinates (the kernel
--- theorem proper) is the standing construction.
 ------------------------------------------------------------------------
 
 module NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwistWord where

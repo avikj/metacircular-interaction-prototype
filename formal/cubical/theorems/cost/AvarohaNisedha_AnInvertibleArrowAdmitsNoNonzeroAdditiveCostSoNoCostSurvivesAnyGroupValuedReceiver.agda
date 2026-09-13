@@ -30,9 +30,6 @@
 -- a graded arrow has no inverse, but that the completion which FORCES
 -- the inverse refunds every cost to zero, with the refund computed.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §1 and §2 for additive costs valued in
--- (ℕ, +, 0), over any magma-with-zero receiver; monoid laws are not
--- even needed, so nothing weaker than stated is being assumed.
 ------------------------------------------------------------------------
 
 module AvarohaNisedha_AnInvertibleArrowAdmitsNoNonzeroAdditiveCostSoNoCostSurvivesAnyGroupValuedReceiver where

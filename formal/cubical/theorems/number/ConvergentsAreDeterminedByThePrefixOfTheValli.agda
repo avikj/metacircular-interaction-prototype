@@ -24,16 +24,7 @@
 -- give the same k-th convergent, so reading further never revises what
 -- was already produced.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing about COMPLETENESS — that enough grant
--- always resolves — which for the vallī means the expansion of a
--- rational terminates with the last convergent equal to it, and needs
--- the kuṭṭaka itself, not the recurrence.  §3 records one thing the
--- seeds cost: under the STANDARD seeding p₁ = a 0, index 1 depends on
--- the vallī after all, and the theorem below keeps the seeds as
--- parameters precisely so that dependence is visible rather than hidden.
---
--- SOURCING LIMIT.  Verse-level sourcing OWED AND NOT CLAIMED, as for
--- both Kuttaka lanes.  Nothing here is a reading of Gaṇitapāda 32–33.
+-- SOURCING LIMIT. Nothing here is a reading of Gaṇitapāda 32–33.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

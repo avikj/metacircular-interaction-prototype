@@ -30,9 +30,6 @@
 -- Coherence is base motion; the phase is cargo; the crossing is the
 -- act of carrying.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The factorizations and the exchange
--- law, at every position, on the rope; the induced presentation of
--- B∞ as a twisted symmetric group is the next construction.
 ------------------------------------------------------------------------
 
 module VibhagaSutra_EveryCrossingFactorsAsPureSwapAfterPureTwistAndTheSwapTransportsTheResidue where

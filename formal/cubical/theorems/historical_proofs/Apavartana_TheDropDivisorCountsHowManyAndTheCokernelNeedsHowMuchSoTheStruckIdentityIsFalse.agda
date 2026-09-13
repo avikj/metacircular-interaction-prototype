@@ -59,8 +59,6 @@
 --       sentence.
 --
 -- ────────────────────────────────────────────────────────────────────
--- SYĀT — THE CLAIM, EXACTLY, and the fence is large because the arithmetic
--- below is small.
 --
 -- 1.  **No cokernel is constructed here.**  `|coker(ℤ²/Dℤ²)| = 24` is
 --     NOT proved in this file; it is proved for this very matrix in the

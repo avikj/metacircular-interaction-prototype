@@ -67,8 +67,6 @@
 --                            two different fates for `Q`, both checked.
 --
 --
--- SYĀT — THE CLAIM, EXACTLY — and this is most of Delta 17
---
 --  * **No valuations, no places, no adeles.**  §17.8's `s_ℓ`/`d_ℓ` are
 --    the motivation and are NOT constructed here.  This file is about a
 --    commutative ring; that the ring is `ℤ` and the elements are

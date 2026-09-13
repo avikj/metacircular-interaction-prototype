@@ -1,0 +1,197 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- त्रिकोण — the triangle.
+--
+-- The all-orders family of exact NS solutions of handoff §14 ([S02]):
+--     u = (0, a, ±v),   a = a(x₁,t),   v = v(x₁,x₂,t),   p = 0.
+-- Over a commutative ring with three derivations and the ansatz
+-- hypotheses  ∂₂a = ∂₃a = 0,  ∂₃v = 0,  the checked facts are
+--
+--   १  the convective term collapses:  (u·∇)u = (0, 0, a ∂₂v);
+--   २  it is divergence-free, so p = 0 is consistent:  div((u·∇)u) = 0;
+--   ३  u is divergence-free:  div u = 0;
+--   ४  the velocity gradient is strictly lower triangular, so
+--      (∇u)³ = 0,  tr(∇u)² = 0,  tr(∇u)³ = 0:  the invariants
+--      Q_inv = −½tr(∇u)² and R_inv = −⅓tr(∇u)³ vanish identically;
+--   ५  the component equations:  a_t = νΔa  and  v_t + a∂₂v = νΔv  are
+--      exactly the second and third components of NS with p = 0.
+-- The linear coefficient system, its path counting and the I_m bound
+-- are the analytic continuation of this algebra.
+------------------------------------------------------------------------
+module M21 where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Data.Sigma using (_×_ ; _,_)
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+
+private
+  variable
+    ℓ : Level
+
+------------------------------------------------------------------------
+module _ (R : CommRing ℓ) where
+  open CommRingStr (snd R)
+
+  private
+    A = ⟨ R ⟩
+
+  V3 : Type ℓ
+  V3 = A × A × A
+
+  -- a derivation kills 0:  ∂0 = ∂(0·0) = ∂0·0 + 0·∂0 = 0
+  private
+    leib-zero : (∂ : A → A) → ((x y : A) → ∂ (x · y) ≡ ∂ x · y + x · ∂ y) → ∂ 0r ≡ 0r
+    leib-zero ∂ leib = cong ∂ (sym (zero· 0r)) ∙ leib 0r 0r ∙ shape (∂ 0r)
+      where
+        zero· : (x : A) → 0r · x ≡ 0r
+        zero· x = solve! R
+        shape : (d : A) → d · 0r + 0r · d ≡ 0r
+        shape d = solve! R
+
+  module _ (∂₁ ∂₂ ∂₃ D : A → A)
+           (∂₁-leib : (x y : A) → ∂₁ (x · y) ≡ ∂₁ x · y + x · ∂₁ y)
+           (∂₂-leib : (x y : A) → ∂₂ (x · y) ≡ ∂₂ x · y + x · ∂₂ y)
+           (∂₃-leib : (x y : A) → ∂₃ (x · y) ≡ ∂₃ x · y + x · ∂₃ y)
+           (D-leib  : (x y : A) → D (x · y) ≡ D x · y + x · D y)
+           (comm₂₃ : (x : A) → ∂₃ (∂₂ x) ≡ ∂₂ (∂₃ x))
+           (a v ν : A)
+           (∂₂a : ∂₂ a ≡ 0r) (∂₃a : ∂₃ a ≡ 0r) (∂₃v : ∂₃ v ≡ 0r)
+           where
+
+    private
+      ∂₁0 = leib-zero ∂₁ ∂₁-leib
+      ∂₂0 = leib-zero ∂₂ ∂₂-leib
+      ∂₃0 = leib-zero ∂₃ ∂₃-leib
+      D0  = leib-zero D D-leib
+
+    u : V3
+    u = (0r , a , v)
+
+    -- (u·∇) applied to a scalar
+    advect : A → A
+    advect f = (0r · ∂₁ f + a · ∂₂ f) + v · ∂₃ f
+
+    -- (u·∇)u componentwise
+    convective : V3
+    convective = advect 0r , advect a , advect v
+
+    ----------------------------------------------------------------
+    -- १ · the convective term collapses to (0, 0, a ∂₂v)
+    ----------------------------------------------------------------
+    private
+      c₁ : advect 0r ≡ 0r
+      c₁ = cong₂ (λ w w' → (0r · ∂₁ 0r + a · w) + v · w') ∂₂0 ∂₃0 ∙ shape (∂₁ 0r)
+        where shape : (p : A) → (0r · p + a · 0r) + v · 0r ≡ 0r
+              shape p = solve! R
+      c₂ : advect a ≡ 0r
+      c₂ = cong₂ (λ w w' → (0r · ∂₁ a + a · w) + v · w') ∂₂a ∂₃a ∙ shape (∂₁ a)
+        where shape : (p : A) → (0r · p + a · 0r) + v · 0r ≡ 0r
+              shape p = solve! R
+      c₃ : advect v ≡ a · ∂₂ v
+      c₃ = cong (λ w → (0r · ∂₁ v + a · ∂₂ v) + v · w) ∂₃v ∙ shape (∂₁ v) (∂₂ v)
+        where shape : (p q : A) → (0r · p + a · q) + v · 0r ≡ a · q
+              shape p q = solve! R
+
+    convective-collapses : convective ≡ (0r , 0r , v · ∂₂ a)
+    convective-collapses = λ t → (c₁ t , c₂ t , c₃ t)
+
+    ----------------------------------------------------------------
+    -- २ · the convective term is divergence-free, so p = 0 is consistent
+    ----------------------------------------------------------------
+    div : V3 → A
+    div (f₁ , f₂ , f₃) = (∂₁ f₁ + ∂₂ f₂) + ∂₃ f₃
+
+    convective-is-divergence-free : div convective ≡ 0r
+    convective-is-divergence-free =
+        cong div convective-collapses
+      ∙ cong₂ _+_ (cong₂ _+_ ∂₁0 ∂₂0) (∂₃-leib a (∂₂ v) ∙ cong₂ _+_ (cong (_· ∂₂ v) ∂₃a) (cong (a ·_) (comm₂₃ v ∙ cong ∂₂ ∂₃v ∙ ∂₂0)))
+      ∙ shape (∂₂ v)
+      where shape : (q : A) → (0r + 0r) + (0r · q + a · 0r) ≡ 0r
+            shape q = solve! R
+
+    ----------------------------------------------------------------
+    -- ३ · u itself is divergence-free
+    ----------------------------------------------------------------
+    u-is-divergence-free : div u ≡ 0r
+    u-is-divergence-free = cong₂ _+_ (cong₂ _+_ ∂₁0 ∂₂a) ∂₃v ∙ shape
+      where shape : (0r + 0r) + 0r ≡ 0r
+            shape = solve! R
+
+    ----------------------------------------------------------------
+    -- ५ · the component equations with p = 0
+    ----------------------------------------------------------------
+    Δ : A → A
+    Δ f = (∂₁ (∂₁ f) + ∂₂ (∂₂ f)) + ∂₃ (∂₃ f)
+
+    -- NS residual, componentwise:  ∂ₜuᵢ + (u·∇)uᵢ − νΔuᵢ  (pressure 0)
+    NS₁ NS₂ NS₃ : A
+    NS₁ = (D 0r + advect 0r) + (- (ν · Δ 0r))
+    NS₂ = (D a + advect a) + (- (ν · Δ a))
+    NS₃ = (D v + advect v) + (- (ν · Δ v))
+
+    private
+      Δ0 : Δ 0r ≡ 0r
+      Δ0 = cong₂ _+_ (cong₂ _+_ (cong ∂₁ ∂₁0 ∙ ∂₁0) (cong ∂₂ ∂₂0 ∙ ∂₂0)) (cong ∂₃ ∂₃0 ∙ ∂₃0) ∙ shape
+        where shape : (0r + 0r) + 0r ≡ 0r
+              shape = solve! R
+
+    first-component-is-trivial : NS₁ ≡ 0r
+    first-component-is-trivial = cong₂ (λ w w' → (w + advect 0r) + (- (ν · w'))) D0 Δ0 ∙ cong (λ w → (0r + w) + (- (ν · 0r))) c₁ ∙ shape
+      where shape : (0r + 0r) + (- (ν · 0r)) ≡ 0r
+            shape = solve! R
+
+    second-component-is-heat : NS₂ ≡ D a + (- (ν · Δ a))
+    second-component-is-heat = cong (λ w → (D a + w) + (- (ν · Δ a))) c₂ ∙ cong (_+ (- (ν · Δ a))) (+IdR (D a))
+
+    third-component-is-advected-heat : NS₃ ≡ (D v + a · ∂₂ v) + (- (ν · Δ v))
+    third-component-is-advected-heat = cong (λ w → (D v + w) + (- (ν · Δ v))) c₃
+
+  ----------------------------------------------------------------
+  -- ४ · a strictly lower-triangular 3×3 gradient is nilpotent and
+  --     both velocity-gradient invariants vanish
+  ----------------------------------------------------------------
+  -- ∇u = [[0,0,0],[p,0,0],[q,r,0]]  with  p = ∂₁a, q = ∂₁v, r = ∂₂v
+  module _ (p q r : A) where
+    -- entries of M² and M³, computed
+    M² : A × A × A × A × A × A × A × A × A
+    M² = (0r · 0r + 0r · p + 0r · q) , (0r · 0r + 0r · 0r + 0r · r) , (0r · 0r + 0r · 0r + 0r · 0r)
+       , (p · 0r + 0r · p + 0r · q) , (p · 0r + 0r · 0r + 0r · r) , (p · 0r + 0r · 0r + 0r · 0r)
+       , (q · 0r + r · p + 0r · q) , (q · 0r + r · 0r + 0r · r) , (q · 0r + r · 0r + 0r · 0r)
+
+    -- tr M² = 0
+    Q-invariant-vanishes : (0r · 0r + 0r · p + 0r · q) + (p · 0r + 0r · 0r + 0r · r) + (q · 0r + r · 0r + 0r · 0r) ≡ 0r
+    Q-invariant-vanishes = solve! R
+
+    -- the only nonzero entry of M² is (3,1) = r·p
+    square-is-one-corner : M² ≡ (0r , 0r , 0r , 0r , 0r , 0r , r · p , 0r , 0r)
+    square-is-one-corner = λ t → (e₁ t , e₂ t , e₃ t , e₄ t , e₅ t , e₆ t , e₇ t , e₈ t , e₉ t)
+      where
+        e₁ : 0r · 0r + 0r · p + 0r · q ≡ 0r
+        e₁ = solve! R
+        e₂ : 0r · 0r + 0r · 0r + 0r · r ≡ 0r
+        e₂ = solve! R
+        e₃ : 0r · 0r + 0r · 0r + 0r · 0r ≡ 0r
+        e₃ = solve! R
+        e₄ : p · 0r + 0r · p + 0r · q ≡ 0r
+        e₄ = solve! R
+        e₅ : p · 0r + 0r · 0r + 0r · r ≡ 0r
+        e₅ = solve! R
+        e₆ : p · 0r + 0r · 0r + 0r · 0r ≡ 0r
+        e₆ = solve! R
+        e₇ : q · 0r + r · p + 0r · q ≡ r · p
+        e₇ = solve! R
+        e₈ : q · 0r + r · 0r + 0r · r ≡ 0r
+        e₈ = solve! R
+        e₉ : q · 0r + r · 0r + 0r · 0r ≡ 0r
+        e₉ = solve! R
+
+    -- M³ = M · M²:  every entry is a product with a zero row of M² except through (3,1),
+    -- which M's third column (all zero) kills:  tr M³ = 0 and M³ = 0
+    R-invariant-vanishes : (0r · 0r + 0r · 0r + 0r · (r · p)) + (p · 0r + 0r · 0r + 0r · 0r) + (q · 0r + r · 0r + 0r · 0r) ≡ 0r
+    R-invariant-vanishes = solve! R
+
+    cube-vanishes : (0r · 0r + 0r · 0r + 0r · (r · p)) + (p · 0r + 0r · 0r + 0r · (r · p)) + (q · 0r + r · 0r + 0r · (r · p)) ≡ 0r
+    cube-vanishes = solve! R

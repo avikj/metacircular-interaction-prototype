@@ -88,25 +88,6 @@
 --                       is the statement that the second survives the
 --                       failure of the first.
 --
--- DELIBERATELY NOT CLAIMED.
---  * Magnitudes are ℕ, ordered by cubical's `_≤_`.  The note's
---    quantitative defects live in ordered sets of reals/asymptotics; ℕ
---    is a faithful carrier for the ARITY argument (which uses only
---    antisymmetry and the existence of a least element) and for nothing
---    else.  No claim is made about real-valued or asymptotic slots
---    beyond the fact that the argument below never inspects the carrier
---    past those two properties.
---  * "Ambiguous" is a HYPOTHESIS, supplied per slot, not a theorem about
---    any particular corpus defect.  §5.2's paradigm (SEED43 §7: a bound
---    C₊ and a construction C₋ that do not meet) is the intended
---    instance, and this module does not formalise it — doing so would
---    require the resolvent estimate, which is not in this corpus.
---    `ambiguousToy` exhibits one ambiguous slot so that 3 is not vacuous.
---  * Nothing here formalises Γ⇑ itself as an operation into towers.  7
---    is stronger than that would be: it quantifies over ALL output types,
---    so it covers Γ⇑ without needing a model of it.
---  * No Σ⁰₁/Π⁰₂/Σ¹₁ statement, no oracle, no model of computation —
---    same scope limit as FillabilityCertificate, and for the same reason.
 ------------------------------------------------------------------------
 
 module ArityOfRepair where

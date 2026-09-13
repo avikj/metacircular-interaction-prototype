@@ -6,8 +6,6 @@
 -- `TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet` gave a
 -- second SUFFICIENT condition for refuting the fourth corner and closed:
 --
---   "STILL NOT CLAIMED: EXISTENCE.  … this is a second SUFFICIENT
---    condition, sharper and checkable, not a necessary one."
 --
 -- A necessary one is here, for one family, and it identifies the corner
 -- with a named principle instead of describing it.
@@ -145,11 +143,8 @@ fourthCornerRefutesPointwiseStability Q corner stab =
     d = fourthCornerGivesDNSFailure Q corner
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS STILL NOT CLAIMED" says existence needs a
--- model, and the appended note at the earlier module says the
--- `Enumerated` hypothesis on the INSTANCE set was INERT here, since
--- `Enumerated Unit` is immediate.
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no line
+-- above.
 --
 -- Enumerability of the REMEDY set is a different matter and is NOT
 -- inert.  In `AnEnumerableRemedySetKillsTheFourthCorner`
@@ -173,10 +168,6 @@ fourthCornerRefutesPointwiseStability Q corner stab =
 -- WHERE THE CORNER CAN LIVE, as narrow as it has been: a
 -- NON-ENUMERABLE remedy set with a badness that is not stable.
 --
--- STILL NOT CLAIMED: EXISTENCE.  `Enumerated` carries a CHOSEN list, so
--- "non-enumerable" means "no such list and covering proof is given",
--- not a cardinality claim.  `finiteDNSList` yields `¬ ¬ All`, never
--- `All` — no decidability is used or smuggled in.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------

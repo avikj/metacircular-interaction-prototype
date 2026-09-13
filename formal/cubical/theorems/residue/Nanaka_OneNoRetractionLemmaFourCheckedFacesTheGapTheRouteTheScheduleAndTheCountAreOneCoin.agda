@@ -54,13 +54,6 @@
 -- is invertible (EveryDerivationIsInvertible).  Cost, route, schedule,
 -- count: each lives exactly in what its projection drops.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The record, the no-retraction lemma, the
--- four inhabitants from four lanes, and bothTheorems on each.  NOT
--- claimed: that any open problem is hereby decided; what is proved is
--- that these four checked distinctions share one shape, and that the
--- shape itself forbids recovery — the coin's two faces cannot be read
--- by one observer, and that is a theorem about the projections, not a
--- conjecture about the problems.
 ------------------------------------------------------------------------
 
 module Nanaka_OneNoRetractionLemmaFourCheckedFacesTheGapTheRouteTheScheduleAndTheCountAreOneCoin where

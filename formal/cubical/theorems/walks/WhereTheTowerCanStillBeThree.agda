@@ -90,9 +90,6 @@
 -- an obstruction to any single decoder, and no such object is
 -- constructed below.
 --
--- NOT CLAIMED.  That any particular Σ in this corpus is or is not
--- stable; that answerability fails; that the barrier language is empty
--- (§4 deflates the TOWER over these statements, not the statements).
 ------------------------------------------------------------------------
 
 module WhereTheTowerCanStillBeThree where

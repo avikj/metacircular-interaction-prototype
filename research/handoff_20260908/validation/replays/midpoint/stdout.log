@@ -1,0 +1,46 @@
+EXACT 01: arbitrary quadratic midpoint identity
+EXACT 02: generic cubic kinetic conservation
+EXACT 03: source-dependent return is the exact observed difference
+EXACT 04: all-order signed work exchange
+EXACT 05: midpoint is distinct from a frozen visible-source tangent
+EXACT 06: projection derivative is symmetric
+EXACT 07: projection derivative has no visible-visible block
+EXACT 08: projection derivative has no hidden-hidden block
+EXACT 09: observer-motion work is exchanged, not destroyed
+EXACT 10: thermostat preserves kinetic norm
+EXACT 11: actual forward vorticity scaling
+EXACT 12: thermostat retains unit nonlinear coefficient
+EXACT 13: thermostat effective viscosity
+EXACT 14: dilation generator has exactly the L2-skew scalar term
+EXACT 15: dilation rate
+EXACT 16: peak stretching time integral is invariant
+EXACT 17: amplifying two-coordinate control conserves energy
+EXACT 18: amplifying hidden control has nonpositive supplied work balance
+EXACT 19: Abel operator normal form, order 1
+EXACT 20: negative-binomial generating kernel, order 1
+EXACT 21: bounded inverse coefficient sum, order 1
+EXACT 22: Abel operator normal form, order 2
+EXACT 23: negative-binomial generating kernel, order 2
+EXACT 24: bounded inverse coefficient sum, order 2
+EXACT 25: Abel operator normal form, order 3
+EXACT 26: negative-binomial generating kernel, order 3
+EXACT 27: bounded inverse coefficient sum, order 3
+EXACT 28: Abel operator normal form, order 4
+EXACT 29: negative-binomial generating kernel, order 4
+EXACT 30: bounded inverse coefficient sum, order 4
+EXACT 31: Abel operator normal form, order 5
+EXACT 32: negative-binomial generating kernel, order 5
+EXACT 33: bounded inverse coefficient sum, order 5
+EXACT 34: Abel operator normal form, order 6
+EXACT 35: negative-binomial generating kernel, order 6
+EXACT 36: bounded inverse coefficient sum, order 6
+EXACT 37: second weighted-difference counterexample has nonvanishing term magnitude
+EXACT 38: Fourier visible field is divergence free
+EXACT 39: Fourier hidden field is divergence free
+EXACT 40: Fourier midpoint identity with every product mode retained
+EXACT 41: Fourier exact signed all-source energy exchange
+EXACT 42: Fourier full nonlinear energy conservation
+EXACT 43: nontrivial NS excursion and return: ||QN(a)||^2=3/4, ||PDN(a)QN(a)||^2=3/8
+
+TOTAL: 43 exact symbolic/algebra controls passed.
+All Fourier products retained; no PDE evolution was numerically solved.

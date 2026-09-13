@@ -46,10 +46,6 @@
 --                               equivalence of carriers whose structure
 --                               does not transport (Program 15.90)
 --
--- NOT claimed: any novelty.  §§15.1–15.2 are the structure identity
--- principle; §15.10 is descent through a set quotient; §15.19 is
--- composition.  What this module contributes to THIS repository is that
--- the machine's residual now has a type instead of a counter.
 ------------------------------------------------------------------------
 
 module StructuredDefect where

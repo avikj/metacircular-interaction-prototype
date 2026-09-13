@@ -44,22 +44,6 @@
 --                      exact, not slack.
 --   · `restrict`     — FLT₃ implies the gate.  One direction.
 --
--- SYĀT — THE CLAIM, EXACTLY.
---   Not that Fermat's Last Theorem for n = 3 is proved here.  It is a
---   theorem of mathematics (Euler announced it in 1770; his argument's
---   ℤ[√−3] step was completed by later hands — Legendre, Kausler, and
---   the modern treatments via ℤ[ω]).  In THIS corpus it is `FLT₃`, a
---   type with no inhabitant written, exactly as Lehmer's question and
---   Ramanujan's 1916 assertion are types.  The distinction matters
---   differently than it does for Lehmer: there the universal is open
---   to mathematics; here it is known outside and unpaid inside.  The
---   type is the record of the debt, and the debt is a descent proof
---   in a quadratic ring, not a bigger scan — no bound on the scan
---   reaches the universal, which is what `restrict` having no
---   converse says as a type.
---   Not anything about n > 3, about ℤ, or about the modularity route.
---   The extent of the search IS the content of the gate's type:
---   twelve, and not a step further.
 ------------------------------------------------------------------------
 
 module Fermat3Gate_TheCubeGateBelowThirteenIsSignedAndBothNearMissesAreItsTightness where

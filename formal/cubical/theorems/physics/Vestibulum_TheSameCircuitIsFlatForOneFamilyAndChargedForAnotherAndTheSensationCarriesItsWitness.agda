@@ -24,13 +24,6 @@
 -- ORGAN — the general Hol, the witness-carrying sensation type, and the
 -- both-poles instance — none of which Pradakshina states.
 --
--- SYĀT — THE CLAIM, EXACTLY.  No decision procedure: whether a given (F, l, u)
--- moved is not decidable in general, so the organ never decides — it
--- RECEIVES a witness, either way, and a pair (F, l, u) for which no
--- witness is in hand is simply not yet a sensation (U0021 §27: "not yet
--- probed" is its own uncertainty shape, distinct from either verdict).
--- No holonomy group, no curvature form, no claim about the corpus's own
--- transport graph.
 
 module Vestibulum_TheSameCircuitIsFlatForOneFamilyAndChargedForAnotherAndTheSensationCarriesItsWitness where
 

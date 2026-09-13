@@ -1,0 +1,218 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+------------------------------------------------------------------------
+-- ध्रुव-मूल — the fixed root.
+--
+-- Two derivation-ring facts that the RH cardinal/theta step and the NS
+-- free viscous response rest on.
+--
+--   १  (Handoff §51, [S13]/[S14].)  With  ∂E = zE  and  ∂t = 1, the
+--      shifted derivative  ℒ = ∂ − z  acts on  E·tᵏ  as a lowering
+--      ladder,  ℒ(E tᵏ⁺¹) = (k+1) E tᵏ,  ℒ(E) = 0.  Hence
+--          ℒᵏ⁺¹ (E tᵏ) ≡ 0        (E·(polynomials of degree < m) ⊂ ker ℒᵐ)
+--          ℒᵏ   (E tᵏ) ≡ k!·E     (the top coefficient survives),
+--      which is the finite "Ξ-derivative polynomial" content of the
+--      two-sided (D − z)ᵐ inverse difference.  The first ladder is the
+--      general one already checked in Sopana, instantiated.
+--
+--   २  (Handoff §22, [S13].)  The free viscous strain response
+--          H5(q) = erf(q) − (2/√π) e^{−q²} (q + 2q³/3)
+--      is the antiderivative of a quartic Gaussian:  with κ = 2/√π,
+--          ∂[3 erf − κ e (3q + 2q³)] ≡ 4 κ q⁴ e
+--      given  ∂erf = κe,  ∂e = −2qe,  ∂q = 1,  ∂κ = 0.
+------------------------------------------------------------------------
+module DhruvaMula_TheShiftedDerivativeLowersExponentialTimesPowersSoItsMthPowerKillsDegreeBelowMAndKeepsTheTopCoefficientAndTheFreeViscousResponseIsTheAntiderivativeOfAQuarticGaussian where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc) renaming (_·_ to _·ℕ_ ; _+_ to _+ℕ_)
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+import Sopana_TheDampingMomentLadderIsAWeylPairSoTheLoweringOperatorAppliedNPlusOneTimesToTheNthMomentIsNFactorialTimesTheSourceSquareAndTheLosslessOscillatorStoresExactlyTheSuppliedWork as Sopana
+
+private
+  variable
+    ℓ : Level
+
+------------------------------------------------------------------------
+module _ (R : CommRing ℓ) where
+  open CommRingStr (snd R)
+
+  private
+    A = ⟨ R ⟩
+
+  ι : ℕ → A
+  ι = Sopana.ι R
+
+  scale : ℕ → A → A
+  scale = Sopana.scale R
+
+  private
+    scale-zero : (n : ℕ) → scale n 0r ≡ 0r
+    scale-zero zero    = refl
+    scale-zero (suc n) = +IdL (scale n 0r) ∙ scale-zero n
+
+    scale-+ : (m n : ℕ) (x : A) → scale (m +ℕ n) x ≡ scale m x + scale n x
+    scale-+ zero    n x = sym (+IdL (scale n x))
+    scale-+ (suc m) n x = cong (x +_) (scale-+ m n x) ∙ +Assoc x (scale m x) (scale n x)
+
+    scale-· : (m n : ℕ) (x : A) → scale (m ·ℕ n) x ≡ scale m (scale n x)
+    scale-· zero    n x = refl
+    scale-· (suc m) n x = scale-+ n (m ·ℕ n) x ∙ cong (scale n x +_) (scale-· m n x)
+
+    x·scale : (n : ℕ) (x y : A) → x · scale n y ≡ scale n (x · y)
+    x·scale zero    x y = zeroR x
+      where zeroR : (u : A) → u · 0r ≡ 0r
+            zeroR u = solve! R
+    x·scale (suc n) x y = ·DistR+ x y (scale n y) ∙ cong ((x · y) +_) (x·scale n x y)
+
+  module _ (∂ : A → A)
+           (∂-add  : (x y : A) → ∂ (x + y) ≡ ∂ x + ∂ y)
+           (∂-leib : (x y : A) → ∂ (x · y) ≡ ∂ x · y + x · ∂ y)
+           where
+
+    private
+      ∂-zero : ∂ 0r ≡ 0r
+      ∂-zero = sym ( sym (+InvR (∂ 0r)) ∙ cong (_+ (- (∂ 0r))) h ∙ cancelR (∂ 0r) (∂ 0r) )
+        where
+          h : ∂ 0r ≡ ∂ 0r + ∂ 0r
+          h = cong ∂ (sym (+IdR 0r)) ∙ ∂-add 0r 0r
+          cancelR : (x y : A) → (x + y) + (- y) ≡ x
+          cancelR x y = solve! R
+
+      ∂-neg : (x : A) → ∂ (- x) ≡ - ∂ x
+      ∂-neg x = negOf (∂ x) (∂ (- x)) (sym (∂-add x (- x)) ∙ cong ∂ (+InvR x) ∙ ∂-zero)
+        where
+          negOf : (a b : A) → a + b ≡ 0r → b ≡ - a
+          negOf a b h = sym (+IdL b) ∙ cong (_+ b) (sym (+InvL a)) ∙ sym (+Assoc (- a) a b) ∙ cong ((- a) +_) h ∙ +IdR (- a)
+
+      ∂-one : ∂ 1r ≡ 0r
+      ∂-one = sym ( sym (+InvR (∂ 1r)) ∙ cong (_+ (- (∂ 1r))) h ∙ cancelR (∂ 1r) (∂ 1r) )
+        where
+          h : ∂ 1r ≡ ∂ 1r + ∂ 1r
+          h = cong ∂ (sym (·IdR 1r)) ∙ ∂-leib 1r 1r ∙ cong₂ _+_ (·IdR (∂ 1r)) (·IdL (∂ 1r))
+          cancelR : (x y : A) → (x + y) + (- y) ≡ x
+          cancelR x y = solve! R
+
+      ∂ι : (n : ℕ) → ∂ (ι n) ≡ 0r
+      ∂ι zero    = ∂-zero
+      ∂ι (suc n) = ∂-add 1r (ι n) ∙ cong₂ _+_ ∂-one (∂ι n) ∙ +IdR 0r
+
+      ∂ιx : (n : ℕ) (x : A) → ∂ (ι n · x) ≡ ι n · ∂ x
+      ∂ιx n x = ∂-leib (ι n) x ∙ cong (_+ ι n · ∂ x) (cong (_· x) (∂ι n) ∙ zeroL x) ∙ +IdL (ι n · ∂ x)
+        where zeroL : (y : A) → 0r · y ≡ 0r
+              zeroL y = solve! R
+
+    ----------------------------------------------------------------
+    -- १ · the shifted derivative on  E · tᵏ
+    ----------------------------------------------------------------
+    module _ (z E t : A) (∂E : ∂ E ≡ z · E) (∂t : ∂ t ≡ 1r) where
+
+      pow : ℕ → A
+      pow zero    = 1r
+      pow (suc k) = t · pow k
+
+      G : ℕ → A
+      G k = E · pow k
+
+      ℒ : A → A
+      ℒ x = ∂ x + (- (z · x))
+
+      private
+        ℒ-add : (x y : A) → ℒ (x + y) ≡ ℒ x + ℒ y
+        ℒ-add x y = cong (_+ (- (z · (x + y)))) (∂-add x y) ∙ shape (∂ x) (∂ y) x y
+          where
+            shape : (a b x y : A) → (a + b) + (- (z · (x + y))) ≡ (a + (- (z · x))) + (b + (- (z · y)))
+            shape a b x y = solve! R
+
+        -- t · ∂(tᵏ) = k tᵏ
+        t∂pow : (k : ℕ) → t · ∂ (pow k) ≡ scale k (pow k)
+        t∂pow zero    = cong (t ·_) ∂-one ∙ zeroR t
+          where zeroR : (u : A) → u · 0r ≡ 0r
+                zeroR u = solve! R
+        t∂pow (suc k) =
+            cong (t ·_) (∂-leib t (pow k) ∙ cong (_+ t · ∂ (pow k)) (cong (_· pow k) ∂t ∙ ·IdL (pow k)))
+          ∙ ·DistR+ t (pow k) (t · ∂ (pow k))
+          ∙ cong ((t · pow k) +_) (cong (t ·_) (t∂pow k) ∙ x·scale k t (pow k))
+
+        base : ℒ (G zero) ≡ 0r
+        base = cong (_+ (- (z · (E · 1r)))) (∂-leib E 1r ∙ cong₂ _+_ (cong (_· 1r) ∂E) (cong (E ·_) ∂-one)) ∙ shape
+          where
+            shape : ((z · E) · 1r + E · 0r) + (- (z · (E · 1r))) ≡ 0r
+            shape = solve! R
+
+        step : (k : ℕ) → ℒ (G (suc k)) ≡ scale (suc k) (G k)
+        step k =
+            cong (_+ (- (z · (E · (t · pow k)))))
+                 (∂-leib E (t · pow k)
+                  ∙ cong₂ _+_ (cong (_· (t · pow k)) ∂E)
+                              (cong (E ·_) (∂-leib t (pow k) ∙ cong (_+ t · ∂ (pow k)) (cong (_· pow k) ∂t))))
+          ∙ shape (pow k) (∂ (pow k))
+          ∙ cong ((E · pow k) +_) (cong (E ·_) (t∂pow k) ∙ x·scale k E (pow k))
+          where
+            shape : (P Q : A)
+              → ((z · E) · (t · P) + E · (1r · P + t · Q)) + (- (z · (E · (t · P)))) ≡ E · P + E · (t · Q)
+            shape P Q = solve! R
+
+      module L = Sopana.Ladder R ℒ ℒ-add G 0r base step
+
+      -- ℒᵏ⁺¹ (E tᵏ) = 0 :  E · (degree < m) lies in the kernel of ℒᵐ
+      kills-below : (k : ℕ) → L.ℒ^ (suc k) (G k) ≡ 0r
+      kills-below k = L.ladder k ∙ scale-zero (Sopana.fact k)
+
+      private
+        ℒ-scale : (n : ℕ) (x : A) → ℒ (scale n x) ≡ scale n (ℒ x)
+        ℒ-scale zero    x = base' 
+          where base' : ℒ 0r ≡ 0r
+                base' = cong (_+ (- (z · 0r))) ∂-zero ∙ shape
+                  where shape : 0r + (- (z · 0r)) ≡ 0r
+                        shape = solve! R
+        ℒ-scale (suc n) x = ℒ-add x (scale n x) ∙ cong (ℒ x +_) (ℒ-scale n x)
+
+        ℒ^-scale : (m n : ℕ) (x : A) → L.ℒ^ m (scale n x) ≡ scale n (L.ℒ^ m x)
+        ℒ^-scale zero    n x = refl
+        ℒ^-scale (suc m) n x = cong (L.ℒ^ m) (ℒ-scale n x) ∙ ℒ^-scale m n (ℒ x)
+
+      -- ℒᵏ (E tᵏ) = k! E :  the top coefficient survives
+      keeps-top : (k : ℕ) → L.ℒ^ k (G k) ≡ scale (Sopana.fact k) E
+      keeps-top zero    = ·IdR E ∙ sym (+IdR E)
+      keeps-top (suc k) =
+          cong (L.ℒ^ k) (step k)
+        ∙ ℒ^-scale k (suc k) (G k)
+        ∙ cong (scale (suc k)) (keeps-top k)
+        ∙ sym (scale-· (suc k) (Sopana.fact k) E)
+
+    ----------------------------------------------------------------
+    -- २ · the free viscous strain response is an antiderivative
+    ----------------------------------------------------------------
+    module _ (κ e erf q : A)
+             (∂κ : ∂ κ ≡ 0r) (∂q : ∂ q ≡ 1r)
+             (∂e : ∂ e ≡ - (ι 2 · (q · e)))
+             (∂erf : ∂ erf ≡ κ · e)
+             where
+
+      -- 3·H5 = 3 erf − κ e (3q + 2q³)
+      H5₃ : A
+      H5₃ = ι 3 · erf + (- (κ · (e · (ι 3 · q + ι 2 · (q · (q · q))))))
+
+      h5-derivative : ∂ H5₃ ≡ ι 4 · (κ · (((q · q) · (q · q)) · e))
+      h5-derivative =
+          ∂-add _ _
+        ∙ cong₂ _+_ (∂ιx 3 erf ∙ cong (ι 3 ·_) ∂erf)
+                    (∂-neg _ ∙ cong -_ (∂-leib κ _ ∙ cong₂ _+_ (cong (_· (e · (ι 3 · q + ι 2 · (q · (q · q))))) ∂κ)
+                                                             (cong (κ ·_) (∂-leib e _ ∙ cong₂ _+_ (cong (_· (ι 3 · q + ι 2 · (q · (q · q)))) ∂e)
+                                                                                                   (cong (e ·_) ∂P)))))
+        ∙ shape
+        where
+          ∂P : ∂ (ι 3 · q + ι 2 · (q · (q · q))) ≡ ι 3 · 1r + ι 2 · (1r · (q · q) + q · (1r · q + q · 1r))
+          ∂P = ∂-add _ _
+             ∙ cong₂ _+_ (∂ιx 3 q ∙ cong (ι 3 ·_) ∂q)
+                         (∂ιx 2 (q · (q · q))
+                          ∙ cong (ι 2 ·_) (∂-leib q (q · q)
+                                           ∙ cong₂ _+_ (cong (_· (q · q)) ∂q)
+                                                       (cong (q ·_) (∂-leib q q ∙ cong₂ _+_ (cong (_· q) ∂q) (cong (q ·_) ∂q)))))
+          shape : (1r + (1r + (1r + 0r))) · (κ · e)
+                  + (- (0r · (e · ((1r + (1r + (1r + 0r))) · q + (1r + (1r + 0r)) · (q · (q · q))))
+                        + κ · ((- ((1r + (1r + 0r)) · (q · e))) · ((1r + (1r + (1r + 0r))) · q + (1r + (1r + 0r)) · (q · (q · q)))
+                               + e · ((1r + (1r + (1r + 0r))) · 1r + (1r + (1r + 0r)) · (1r · (q · q) + q · (1r · q + q · 1r))))))
+                  ≡ (1r + (1r + (1r + (1r + 0r)))) · (κ · (((q · q) · (q · q)) · e))
+          shape = solve! R

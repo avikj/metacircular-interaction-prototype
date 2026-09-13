@@ -1,0 +1,14 @@
+11 exact symbolic checks passed:
+PASS: tilted packet Laplace transform
+PASS: exact negative continuation vector
+PASS: negative two-packet determinant
+PASS: nullity block exact congruence
+PASS: balanced-signature block diagonalization
+PASS: det(S+Omega) = det S + omega.S.omega/4
+PASS: Piola row 0
+PASS: Piola row 1
+PASS: Piola row 2
+PASS: cofactor homogeneity
+PASS: div(cof(grad u)^T u) = 3 det(grad u)
+These checks do not verify the analytic continuation, zero-density, operator-domain,
+or infinite-dimensional parts of the mathematical arguments.

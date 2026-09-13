@@ -1,0 +1,13 @@
+Checking M1 (/home/user/math/formal/cubical/theorems/physics/M1.agda).
+/home/user/math/formal/cubical/theorems/physics/M1.agda:191.9-199.27: error: [MismatchedProjectionsError]
+The projections RingStr._+_ and RingStr._·_ do not match
+when checking that the expression
+return-recurrence 1 ∙
+cong₂ _+_
+(cong (Ablk ·_)
+ (return-recurrence 0 ∙
+  cong₂ _+_ (cong (Ablk ·_) K0 ∙ AblkP) (0RightAnnihilates B) ∙
+  +IdR Ablk))
+(cong (B ·_)
+ (cong₂ _+_ (cong (C ·_) K0 ∙ CP) (0RightAnnihilates D) ∙ +IdR C))
+has type K 2 ≡ Ablk · Ablk

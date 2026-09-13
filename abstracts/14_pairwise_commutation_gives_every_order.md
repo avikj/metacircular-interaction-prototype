@@ -14,6 +14,9 @@ The surrounding structure removes the rest of the machinery.  Transitions carry 
 
 The cost is stated rather than tuned.  Nothing may be deduplicated, because deduplication requires deciding an identity of histories the meaning provably cannot supply, and where a patch's precondition contains no free variable the operations enabled at a single state form an entire copy of the term algebra with every member producing the same result. There are consequently no tombstones, no compaction and no safe pruning rule; the store is monotone in the strongest sense.
 
-WHAT IS NOT CLAIMED.  There is no working tree, no file, no line-based diff, no blame algorithm and no repository format here.  A patch is a step on an abstract state and commutation is a hypothesis discharged by the caller.  The reading as a version control system is a reading and is not proved.
+There is no working tree, no file, no line-based diff, no blame algorithm and
+no repository format here. A patch is a step on an abstract state and
+commutation is a hypothesis discharged by the caller. The reading as a version
+control system is a reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

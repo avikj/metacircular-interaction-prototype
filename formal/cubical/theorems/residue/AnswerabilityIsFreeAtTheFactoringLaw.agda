@@ -69,11 +69,6 @@
 -- narrower than either reading — that at ONE site the composition was
 -- available and unmade.
 --
--- NOT CLAIMED.  That answerability is free at any other law (it is not
--- free at `lonelyLaw`, which is the corpus's own counterexample); that
--- the two source statements were wrong (neither is); that this is the
--- last such composition in the corpus — one was found by reading two
--- files, which is two files.
 ------------------------------------------------------------------------
 
 module AnswerabilityIsFreeAtTheFactoringLaw where

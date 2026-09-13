@@ -1,0 +1,12 @@
+{
+  "S01_receiver": "receiver_and_continuation_theorems.md",
+  "S02_two_packet": "continuation_memory_and_two_packet_weil.md",
+  "S11_cardinal_and_current": "proof_note(6).md",
+  "S12_source_image_and_quadrupole": "proof_note(7).md",
+  "S16_moving_peak_and_signed_spectrum": "proof_note(20260908-060643).md",
+  "S19_midpoint_storage_and_abel": "proof_note(20260908-111218).md",
+  "S20_dyadic_and_radial_marginality": "ns_rh_run26_scale_residual_marginality_proof_note.md",
+  "S21_higher_residuals_dynamic_matching": "ns_rh_run29_higher_residuals_dynamic_matching_proof_note.md",
+  "S22_quadratic_goldbach_and_memory": "ns_rh_run30_metacircular_quadratic_closure_proof_note.md",
+  "S25_delta19": "PRIME_PAIR_MEMORY_KERNEL_DELTA_19_2026-08-13.md"
+}

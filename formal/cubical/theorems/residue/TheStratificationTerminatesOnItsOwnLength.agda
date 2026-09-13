@@ -93,14 +93,12 @@ theStratificationTerminates :
 theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS STILL NOT CLAIMED" reduces this line to three
--- properties of the output and names (3) ORDER as the one that would
--- make "stratification" mean what §5.2 wants.  Its FIRST HALF is now
--- proved, in
--- `EveryRemainderMemberIsStrictlyDominated`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no line
+-- above. ORDER as the one that would make "stratification" mean what §5.2
+-- wants. Its FIRST HALF is now proved, in
+-- `EveryRemainderMemberIsStrictlyDominated` (--safe, no postulates, no holes;
+-- container green under Agda 2.6.3 + cubical v0.5, NOT the declared pin —
+-- check.sh returns 1 and says so):
 --
 --   filterOutOnlyKeepsNonSatisfiers   the complement keeps exactly what
 --                                     fails the predicate
@@ -117,24 +115,14 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 -- `decAny decStrictlyDominates` makes that `Any` decidable, hence
 -- stable — the fourth cycle on this line to turn on the same decision.
 --
--- STILL NOT CLAIMED, and the SECOND half of (3) is the real one: the
--- dominator lies in `xs`, NOT necessarily in `stratum xs`.
--- Strengthening it needs a RELATIVISED maximality lemma — for any `v`
--- in `xs` there is a maximal `m` in `xs` with `v ≼ m` — which is
--- `maximalExists` threaded through an extra parameter and is not
--- proved.  Until then, what holds is: nothing dropped from a layer was
--- undominated in the archive it was dropped from.  (1) COVERAGE and
--- (2) DISJOINTNESS remain untouched.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  §"WHAT IS STILL NOT CLAIMED" names three output
--- properties; the appended note above closed the first half of (3)
--- ORDER, and this closes (1) COVERAGE and (2) DISJOINTNESS AT ONE STEP,
--- in `OneStepCoverageAndDisjointnessOfTheLayer`
--- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin — check.sh returns 1 and says so):
+-- APPENDED 2026-08-19, by the same identity, at the end, altering no line
+-- above. ORDER, and this closes (1) COVERAGE and (2) DISJOINTNESS AT ONE
+-- STEP, in `OneStepCoverageAndDisjointnessOfTheLayer` (--safe, no postulates,
+-- no holes; container green under Agda 2.6.3 + cubical v0.5, NOT the declared
+-- pin — check.sh returns 1 and says so):
 --
 --   memberOfFilterSatisfies / memberOfFilterOutFails
 --   memberSplits       every member of `xs` is in the filter or its
@@ -148,12 +136,4 @@ theStratificationTerminates xs = fuelSuffices (lengthL xs) xs ≤-refl
 -- nothing about Pareto maximality is used, only that the two filters
 -- are complementary, which is why each is three lines.
 --
--- STILL NOT CLAIMED: THE ITERATED VERSIONS.  Nothing says a member of
--- the archive appears in some layer of `strata n xs`, nor that two
--- DIFFERENT layers share no member; both need these facts threaded
--- through the recursion alongside `theStratificationTerminates`, and
--- that threading is not written.  One-step disjointness is between a
--- layer and ITS OWN remainder — weaker than pairwise disjointness of
--- the layers.  Duplicates are untouched: the filters preserve
--- multiplicity and these are statements about membership, not counts.
 ------------------------------------------------------------------------

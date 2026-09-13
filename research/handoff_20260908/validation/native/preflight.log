@@ -1,0 +1,244 @@
+Repository=/home/user/math
+Output=/tmp/claude-0/-home-user-math/bff55c4d-5148-5098-ad99-3408963873bc/scratchpad/preflight
+No installation/build attempted.
+
+COMMAND: [git] [status] [--short]
+EXIT_STATUS=0
+
+COMMAND: [git] [rev-parse] [HEAD]
+51b7728b4972bb0101e207baaaf9ce76684a0e46
+EXIT_STATUS=0
+
+COMMAND: [git] [log] [-1] [--format=fuller]
+commit 51b7728b4972bb0101e207baaaf9ce76684a0e46
+Author:     Claude <noreply@anthropic.com>
+AuthorDate: Tue Sep 8 05:53:23 2026 +0000
+Commit:     Claude <noreply@anthropic.com>
+CommitDate: Tue Sep 8 05:53:23 2026 +0000
+
+    the reflection-scale cycle is a multiplicative holonomy, the viscous history is a coboundary, and the memory kernel is positive
+    
+    प्रतिबिम्ब-भ्रमण. VyarthaCakra put up the additive fence; this is the same
+    fence multiplicatively, where the defect is a closed transport rather
+    than a difference. On one reflected pair, with the swap as reflection
+    and a unit pair acting diagonally:
+    
+      §1 swap ∘ act(u,v) ∘ swap ∘ act(u⁻¹,v⁻¹) ≡ act (v·u⁻¹ , u·v⁻¹).
+         The holonomy is computed, not posited.
+      §2 hol ≡ (1,1) ⟺ u ≡ v, both directions.
+      §3 swap(hol) · hol ≡ (1,1) for EVERY unit pair — so that relation is
+         automatic and separates nothing; §2 is the one with content.
+      §4 hol(w·w') ≡ hol w · hol w', so one nontrivial value forces all.
+      §5 (x² + y²) - 2 ≡ (x - y)² whenever x·y ≡ 1: the two-sided scale
+         probe minus twice the centre is a square, with no hypothesis
+         beyond invertibility, so it is midpoint convex exactly.
+      §6 and its vanishing forces x·x ≡ 1r.
+    
+    §6 gives x² ≡ 1, NOT x ≡ 1 — and that single gap is positivity of the
+    scale factor. It is now located precisely: everything else in the
+    circuit is ring algebra and is proved.
+    
+    काल-सेतु. The step law ν·S n ≡ (P n - P (n+1)) + N n telescopes:
+    
+      ν · Σ_{n<k} S n ≡ (P 0 - P k) + Σ_{n<k} N n,
+    
+    and on a loop (P k ≡ P 0) the endpoint term is not small, it is ABSENT:
+    ν·(strain circulation) ≡ (residual circulation). No cohomology class
+    needs inventing — §3 exhibits the primitive. The index is a partition
+    and the identity is exact at every partition, so nothing is lost to
+    discretisation; a continuum version changes the carrier, not the
+    content. ν is never divided through.
+    
+    स्मृति-बीज. The memory kernel's strict positivity — the reason a
+    nonnegative shell profile has strictly positive memory — is one
+    inequality between two cubes, and it holds in ℕ:
+    
+      0 < t → s ≤ t → 2·s³ < 3·t³,
+    
+    so the bracket never vanishes and never turns; at s ≡ t it is still
+    t³ > 0. Its ratio bound is exact in subtraction-free form: with
+    2·s³ + d ≡ 3·t³, s·d ≤ s·(3·t³), discarding nothing. And SesaDvaya's
+    truncated inverse IS the closed form of the tower's sum: whenever
+    (1-x)² has an inverse c, Σ_{j≤N}(j+1)xʲ ≡ c·(1 - (N+2)x^{N+1} +
+    (N+1)x^{N+2}) — no numerals, no division, no convergence.
+    
+    All three checked --safe at the pin, no postulates, no holes.
+    
+    Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01SK5zsbQkVFLWgjaSk4NpiQ
+EXIT_STATUS=0
+
+COMMAND: [sh] [setup] [--report]
+
+toolchain
+------------------------------------------------------------
+  agda         2.8.0                  (want 2.8.0)
+  cubical      v0.9                   (want v0.9)
+  libraries    /root/.agda-pin/libraries
+
+AT THE PIN
+------------------------------------------------------------
+  Verdicts from this machine are comparable with every other at the pin.
+  
+  next:  sh check
+EXIT_STATUS=0
+
+COMMAND: [sh] [-c] [command -v agda; command -v ghc; command -v cabal; command -v lake]
+/root/.local/bin/agda
+/usr/bin/ghc
+/usr/bin/cabal
+EXIT_STATUS=127
+
+COMMAND: [sh] [-c] [agda --version; ghc --version; cabal --version; lake --version]
+Agda version 2.8.0
+Built with flags (cabal -f)
+ - optimise-heavily: extra optimisations
+The Glorious Glasgow Haskell Compilation System, version 9.4.7
+cabal-install version 3.8.1.0
+compiled using version 3.8.1.0 of the Cabal library 
+sh: 1: lake: not found
+EXIT_STATUS=127
+
+COMMAND: [sh] [-c] [printf "MATH_PREFIX=%s\n" "${MATH_PREFIX:-$HOME}"; cat "${MATH_PREFIX:-$HOME}/.agda-pin/libraries"]
+MATH_PREFIX=/root
+/root/.cache/cubical-v0.9/cubical.agda-lib
+/home/user/math/formal/cubical/natural-machine.agda-lib
+/home/user/math/fibre/fibre.agda-lib
+EXIT_STATUS=0
+
+COMMAND: [sh] [-c] [printf "Case-sensitive candidate kernel paths:\n"; for d in formal/cubical/kernel formal/cubical/Kernel; do if [ -d "$d" ]; then printf "%s exists; module count " "$d"; find "$d" -maxdepth 1 -name "*.agda" | wc -l; else printf "%s absent\n" "$d"; fi; done]
+Case-sensitive candidate kernel paths:
+formal/cubical/kernel exists; module count 34
+formal/cubical/Kernel exists; module count 9
+EXIT_STATUS=0
+
+COMMAND: [sh] [-c] [cat formal/cubical/natural-machine.agda-lib; cat fibre/fibre.agda-lib; cat formal/lean/lean-toolchain]
+name: natural-machine
+depend: cubical-0.9
+include: . kernel theorems theorems/automata theorems/cost theorems/grammar theorems/historical_proofs theorems/homotopy theorems/lattices theorems/logic theorems/metre theorems/must_fail theorems/number theorems/order theorems/physics theorems/primes theorems/primes/pair_field theorems/residue theorems/unplaced theorems/walks
+flags: --cubical --guardedness --safe --no-import-sorts
+name: fibre
+include: src
+
+-- THE PIN IS A HARD RESOLUTION CONSTRAINT, ON PURPOSE.
+-- agda/cubical declares its version in its own name -- `cubical-0.9` -- so
+-- depending on that exact name makes a wrong checkout fail AT RESOLUTION,
+-- with a message naming the library, rather than resolving and then failing
+-- somewhere deep inside a proof where the real cause is invisible.
+-- Never write `depend: cubical`.  That is how version skew gets in.
+depend: cubical-0.9
+
+-- --guardedness is required because agda/cubical v0.9 is built with it, and
+-- Agda's InfectiveImport rule refuses an import from a module that has it
+-- into one that does not.  This library carried `--cubical --safe` alone
+-- until 2026-08-25 and was therefore UNBUILDABLE at the repository pin --
+-- which is the entire reason it was believed to be "a different lake" that
+-- the main corpus could not import.  It was one flag.
+flags: --cubical --safe --guardedness
+leanprover/lean4:v4.33.0
+EXIT_STATUS=0
+
+COMMAND: [sh] [-c] [grep -n -E "kriya|sadhana.patra|sadhana.vislesana|kernel|Kernel" interactive/Server.hs check | head -100]
+interactive/Server.hs:22:-- WHAT IT SUPERSEDES.  Sabha_TheSessionKernelAnLLMTalksTo runs the same
+interactive/Server.hs:46:--   Certificate                       the Agda kernel, with its two controls.
+interactive/Server.hs:92:  , kriyah
+interactive/Server.hs:159:        [ "name the route — pratyaksa, nihsesa, ganita or kernel — and exhibit its witness, then ask again" ]
+interactive/Server.hs:165:--   two added fields spliced in after `kriya` so a reader meets the
+interactive/Server.hs:170:    let (before, after) = span ((`elem` ["uttara", "kriya"]) . fst) kvs
+interactive/Server.hs:187:      Kernel _    -> "kernel (agda typechecked it, controls watched first)"
+interactive/Server.hs:198:  , yRoot  :: FilePath                -- repository root, for the agda kernel
+interactive/Server.hs:225:  where names = map kName kriyah
+interactive/Server.hs:227:kriyah :: [Kriya]
+interactive/Server.hs:228:kriyah =
+interactive/Server.hs:229:  [ Kriya "yantra.kriyah"
+interactive/Server.hs:272:      "Emit an Agda module for an equation and give it to the kernel.  The kernel's two controls are watched FIRST; a kernel that has not been seen to reject a falsehood certifies nothing."
+interactive/Server.hs:277:  , Kriya "sadhana.patra"
+interactive/Server.hs:278:      "Give the kernel a WHOLE Agda module, verbatim, and carry back its verdict.  This is the wire's door to what the lanes always did by hand — write a full problem statement as a module and run agda on it.  The corpus at formal/cubical and the pinned cubical library are importable; the two controls are watched FIRST, exactly as for `sadhana`."
+interactive/Server.hs:279:      [ ("patra", "the module, as a list of source lines, verbatim.  It must carry an OPTIONS pragma with --safe, and its top-level module (if named) must be `Candidate`, because the kernel writes it to Candidate.agda") ]
+interactive/Server.hs:281:  , Kriya "sadhana.vislesana"
+interactive/Server.hs:282:      "Analyze objects on the atom: load a WHOLE Agda module and read back, for each expression you name, its NORMAL FORM (what the kernel computes it to) and its TYPE (what it is).  Not a verdict — the kernel's own semantic analysis of the object, returned as data.  The corpus and the pinned library are importable; the two controls are watched first."
+interactive/Server.hs:284:      , ("padani", "list of expressions to analyze, each in scope in the module; the kernel returns each one's computed normal form and inferred type") ]
+interactive/Server.hs:301:      [ ("kriya", "what you were attempting"), ("hetu", "why transport was impossible")
+interactive/Server.hs:334:          (Nihsesa (length kriyah)
+interactive/Server.hs:335:             ("every one of the " ++ show (length kriyah)
+interactive/Server.hs:339:    u = samkramana "yantra.kriyah"
+interactive/Server.hs:344:          [ ("kriyah", JArr [ JObj [ ("nama", JStr (kName k))
+interactive/Server.hs:348:                            | k <- kriyah ])
+interactive/Server.hs:898:-- ---- the kernel
+interactive/Server.hs:939:    st <- C.kernelStatus (yRoot y)
+interactive/Server.hs:941:      C.KernelChecking -> do
+interactive/Server.hs:948:                (Kernel ("agda typechecked the module below; shape = " ++ shape
+interactive/Server.hs:953:                (tulyata "the equation, identified with a term the kernel accepts"
+interactive/Server.hs:961:                  , "whether the kernel is honest in general — what was watched is that it rejected ONE falsehood, today, in this container" ]
+interactive/Server.hs:974:                   (Kernel ("agda examined an emitted module and rejected it after "
+interactive/Server.hs:977:                ("the kernel rejected every shape tried for " ++ showT l ++ " ≡ " ++ showT r)
+interactive/Server.hs:989:                [ "the module, which does not exist — and this is a fact about the emitter, not about agda and not about the equation.  A `no` here and a kernel rejection are different facts and merging them is exactly what this machine refuses."
+interactive/Server.hs:997:                     (Ayogya ("the kernel did not pass its own controls: " ++ show other))
+interactive/Server.hs:999:                 ("no verdict from the kernel, because the kernel has not been seen to work: " ++ show other)
+interactive/Server.hs:1000:                 [ "the certificate you asked for.  A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics."
+interactive/Server.hs:1019:-- ---- the kernel, on a whole module
+interactive/Server.hs:1030:-- kernel answers about exactly it.
+interactive/Server.hs:1049:  Left e -> pure (turnedBack y "sadhana.patra" e)
+interactive/Server.hs:1053:             , dosalekha "sadhana.patra"
+interactive/Server.hs:1060:             , dosalekha "sadhana.patra"
+interactive/Server.hs:1066:                 [ "open the module with the kernel's own pragma, or any OPTIONS pragma carrying --safe: " ++ C.kOptionsPragma ]
+interactive/Server.hs:1070:             , dosalekha "sadhana.patra"
+interactive/Server.hs:1071:                 ("the top-level module is named `" ++ nm ++ "`, and the kernel writes to Candidate.agda; agda would reject the mismatch before reading a single type")
+interactive/Server.hs:1076:        st <- C.kernelStatus (yRoot y)
+interactive/Server.hs:1078:          C.KernelChecking -> do
+interactive/Server.hs:1084:                    (Kernel ("agda typechecked the module as sent, under --safe, with "
+interactive/Server.hs:1088:                , samkramana "sadhana.patra"
+interactive/Server.hs:1089:                    (tulyata "the module as uttered, identified with a module the kernel accepts"
+interactive/Server.hs:1098:                    , "whether the kernel is honest in general — what was watched is that it rejected ONE falsehood, today, in this container" ]
+interactive/Server.hs:1103:                           (Ayogya ("the kernel could not be asked: " ++ firstLine out))
+interactive/Server.hs:1104:                    , dosalekha "sadhana.patra"
+interactive/Server.hs:1111:                       (Kernel "agda examined the module as sent and rejected it; its own first error line is carried, and the fuller report beside it")
+interactive/Server.hs:1112:                , dosalekha "sadhana.patra"
+interactive/Server.hs:1113:                    ("the kernel rejected the module: " ++ firstLine out)
+interactive/Server.hs:1121:                        (Ayogya ("the kernel did not pass its own controls: " ++ show other))
+interactive/Server.hs:1122:                 , dosalekha "sadhana.patra"
+interactive/Server.hs:1123:                     ("no verdict from the kernel, because the kernel has not been seen to work: " ++ show other)
+interactive/Server.hs:1124:                     [ "the certificate you asked for.  A kernel that has not been watched rejecting a falsehood certifies nothing, and a green from it would be a fact about this container reported as a fact about mathematics."
+interactive/Server.hs:1150:-- ---- the analyzer readout: the kernel's semantic analysis, as data
+interactive/Server.hs:1152:-- sadhana.patra returns a verdict about a module.  This returns the
+interactive/Server.hs:1154:-- the kernel computes it to and the type it inhabits.  The kernel's output
+interactive/Server.hs:1160:  Left e -> pure (turnedBack y "sadhana.vislesana" e)
+interactive/Server.hs:1164:             , dosalekha "sadhana.vislesana" "an empty module was sent, so there is nothing to analyze"
+interactive/Server.hs:1170:             , dosalekha "sadhana.vislesana" "the module was sent but `padani` named no expression to analyze"
+interactive/Server.hs:1176:             , dosalekha "sadhana.vislesana"
+interactive/Server.hs:1183:             , dosalekha "sadhana.vislesana"
+interactive/Server.hs:1184:                 ("the top-level module is named `" ++ nm ++ "`, and the kernel writes to Candidate.agda")
+interactive/Server.hs:1189:        st <- C.kernelStatus (yRoot y)
+interactive/Server.hs:1191:          C.KernelChecking -> do
+interactive/Server.hs:1200:                           (Ayogya "the kernel could not be asked; the environment failed, not the object")
+interactive/Server.hs:1201:                    , dosalekha "sadhana.vislesana"
+interactive/Server.hs:1214:                , samkramana "sadhana.vislesana"
+interactive/Server.hs:1215:                    (tulyata "each expression as uttered, identified with the kernel's own computation of it"
+interactive/Server.hs:1221:                    [ "WHY each normal form is what it is: the kernel computes it, it does not narrate the reduction"
+interactive/Server.hs:1229:                , dosalekha "sadhana.vislesana"
+interactive/Server.hs:1238:                        (Ayogya ("the kernel did not pass its own controls: " ++ show other))
+interactive/Server.hs:1239:                 , dosalekha "sadhana.vislesana"
+interactive/Server.hs:1240:                     ("no analysis, because the kernel has not been seen to work: " ++ show other)
+interactive/Server.hs:1241:                     [ "the analysis you asked for; a kernel not watched rejecting a falsehood analyzes nothing trustworthy" ]
+interactive/Server.hs:1432:kDosaLekha y j = pure $ case (,,,) <$> jStr "kriya" j <*> jStr "hetu" j <*> jStrs "nasta" j
+interactive/Server.hs:1580:      [ "ask yantra.kriyah for the parameters this operation requires" ]
+interactive/Server.hs:1682:  -- this repair.  The one hetu in this machine that carries both `kernel` and
+interactive/Server.hs:1683:  -- `environment` is kSadhana's kernel-not-usable branch, and its fixed
+interactive/Server.hs:1691:  | "kernel" `isInfixOf` h && "environment" `isInfixOf` h = "karana-dosa"
+interactive/Server.hs:1706:    Right j -> case jStr "kriya" j of
+interactive/Server.hs:1708:      Right k -> case [ kr | kr <- kriyah, kName kr == k ] of
+interactive/Server.hs:1738:          ([ "operations available:" ] ++ [ "  " ++ kName kr | kr <- kriyah ])
+interactive/Server.hs:1797:  -- Sabha_TheSessionKernelAnLLMTalksTo, twice, and this file's own header
+interactive/Server.hs:1835:  [ "{\"kriya\":\"yantra.kriyah\"}"
+interactive/Server.hs:1838:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"harm-is-real\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"read the primary statements and the reports; a contrary witness would have been found had one existed in that corpus\",\"saksin\":[{\"vacana\":\"the Oct 2022 statements\",\"mula\":\"the statements themselves, dated\"},{\"vacana\":\"the fear reported afterwards\",\"mula\":\"contemporaneous accounts\"}]}}"
+interactive/Server.hs:1839:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"episode-is-real\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"read the clinical record and the dated public account\",\"saksin\":[{\"vacana\":\"the documented 2025 episode\",\"mula\":\"the dated account\"},{\"vacana\":\"the diagnosis at 39\",\"mula\":\"the clinical record\"}]}}"
+interactive/Server.hs:1842:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"finding-A\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"the 1987 series read directly\",\"saksin\":[{\"vacana\":\"lithium response in bipolar I\",\"mula\":\"Wehr, Sack, Rosenthal 1987\"}]}}"
+interactive/Server.hs:1843:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"finding-B\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"yogya\",\"yogyata-hetu\":\"the 2019 registry sweep read directly\",\"saksin\":[{\"vacana\":\"lithium response in bipolar I\",\"mula\":\"the 2019 registry sweep\"}]}}"
+interactive/Server.hs:1845:  , "{\"kriya\":\"naya.sthapana\",\"angani\":{\"naya\":\"no-third-factor\",\"karta\":\"assembly-lane\",\"kala\":\"2026-08-20\",\"yogyata\":\"ayogya\",\"yogyata-hetu\":\"no search was run; this standpoint is held because someone asserted it and the search that would make its absence informative has not been done\",\"saksin\":[]}}"
+interactive/Server.hs:1846:  , "{\"kriya\":\"naya.suchi\"}"
+interactive/Server.hs:1847:  , "{\"kriya\":\"kosha.punaravrtti\"}"
+interactive/Server.hs:1850:  , "{\"kriya\":\"naya.samasa\",\"angani\":{\"nayah\":[\"finding-A\",\"finding-B\"],\"arpana\":\"saha\"}}"
+interactive/Server.hs:1851:  , "{\"kriya\":\"naya.samasa\",\"angani\":{\"nayah\":[\"harm-is-real\",\"no-third-factor\"],\"arpana\":\"saha\"}}"
+EXIT_STATUS=0
+
+Preflight completed; individual statuses are evidence, not a combined theorem verdict.

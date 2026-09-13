@@ -1,0 +1,242 @@
+{-# OPTIONS --cubical --safe --no-import-sorts #-}
+
+------------------------------------------------------------------------
+-- पुनरागमन — the return.
+--
+-- THE PROJECTED POWERS OF AN OPERATOR OBEY AN ORDERED RETURN
+-- RECURRENCE WHOSE KERNEL IS "LEAVE THE VISIBLE BLOCK, EVOLVE IN THE
+-- HIDDEN BLOCK, COME BACK"; AND A PROJECTED DERIVATION FAILS THE
+-- LEIBNIZ RULE BY EXACTLY THE TWO CROSS-SECTOR TERMS.
+--
+-- Both are the algebra under the excursion–return representation
+-- [S17 §§3–4; handoff §11], stated once, in a ring, for every operator
+-- and every idempotent.
+--
+-- PART ONE — the recurrence.  With `P` idempotent, `Q = 1 - P`, and the
+-- four blocks  A = PLP,  B = PLQ,  C = QLP,  D = QLQ,  put
+--
+--     K n  =  P Lⁿ P             the observed n-th power
+--     W n  =  Σ_{j<n} Dʲ C K(n-1-j)   in Horner form: W 0 = 0,
+--                                     W (n+1) = C K n + D W n .
+--
+--   §1  ONE INSERTION OF  P + Q = 1  gives, for any X, Y and any front
+--       block E,   E (X Y) P  ≡  (E X P)(P Y P) + (E X Q)(Q Y P) .
+--       Every step below is this lemma at a different front.
+--
+--   §2  THE HIDDEN COMPONENT IS THE HORNER SUM:  Q Lⁿ P ≡ W n .
+--
+--   §3  THE ORDERED RETURN RECURRENCE:
+--
+--         K (n+1)  ≡  A · K n  +  B · W n ,
+--
+--       i.e.  K_{n+1} = A K_n + Σ_{j<n} (B Dʲ C) K_{n-1-j} .  No binomial
+--       factor appears: this is the exponential-generating form, and the
+--       kernel M_j = B Dʲ C is literally "out through B, j steps in the
+--       hidden block, back through C".
+--
+--   §4  THE FIRST RETURN:  K 2 ≡ A·A + B·C .  The second observed power
+--       is the square of the observed block plus one excursion — the
+--       `2 → 4 → 2` coefficient is this term at the toroidal blocks.
+--
+-- PART TWO — the defect.  For a derivation 𝓛 on a commutative algebra of
+-- observables and an idempotent algebra homomorphism 𝒫 with 𝒬 = 1 - 𝒫,
+--
+--   §5  𝒬𝓛(hk) − (𝒬𝓛h)k − h(𝒬𝓛k)  ≡  (𝒫𝓛h)(𝒬k) + (𝒬h)(𝒫𝓛k) .
+--
+--       So the projected generator is not a derivation, and the failure
+--       is exactly the two terms that cross between the sectors.  Its
+--       exponential must therefore not be replaced by the pullback of a
+--       guessed autonomous flow on the visible sector — which is why the
+--       exact elimination of Part One is used instead.
+--
+-- SYĀT — THE CLAIM, EXACTLY.  §§1–4 in any ring, for every `L` and every
+-- idempotent `P`.  §5 in any commutative ring, for every additive
+-- Leibniz `𝓛` and every additive multiplicative idempotent `𝒫`.  NOT
+-- claimed: convergence of anything — `K`, `W` are finite ring elements
+-- at each n; the resolvent form  P(λ−L)⁻¹P = [λ − A − B(λ−D)⁻¹C]⁻¹,
+-- which needs inverses and is a separate statement; that any evolution
+-- is the exponential of `L`; and nothing about which `P` is the toroidal
+-- projection — the instance is named in the commentary only.
+------------------------------------------------------------------------
+
+module M1 where
+
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.Structure using (⟨_⟩)
+open import Cubical.Data.Nat using (ℕ ; zero ; suc)
+open import Cubical.Algebra.Ring
+open import Cubical.Algebra.CommRing
+open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
+
+private
+  variable
+    ℓ : Level
+
+------------------------------------------------------------------------
+-- PART ONE · The ordered return recurrence.
+------------------------------------------------------------------------
+
+module _ (R : Ring ℓ) where
+  open RingStr (snd R)
+  open RingTheory R
+
+  private
+    A : Type ℓ
+    A = ⟨ R ⟩
+
+    cancelR : (x y : A) → (x + y) + (- y) ≡ x
+    cancelR x y = sym (+Assoc x y (- y)) ∙ cong (x +_) (+InvR y) ∙ +IdR x
+
+  pow : A → ℕ → A
+  pow x zero    = 1r
+  pow x (suc n) = x · pow x n
+
+  module _ (L P : A) (PP : P · P ≡ P) where
+
+    Q : A
+    Q = 1r + (- P)
+
+    private
+      P+Q : P + Q ≡ 1r
+      P+Q = +Assoc P 1r (- P) ∙ cong (_+ (- P)) (+Comm P 1r) ∙ cancelR 1r P
+
+      PQ : P · Q ≡ 0r
+      PQ = ·DistR+ P 1r (- P) ∙ cong₂ _+_ (·IdR P) (-DistR· P P ∙ cong -_ PP) ∙ +InvR P
+
+      QP : Q · P ≡ 0r
+      QP = ·DistL+ 1r (- P) P ∙ cong₂ _+_ (·IdL P) (-DistL· P P ∙ cong -_ PP) ∙ +InvR P
+
+      QQ : Q · Q ≡ Q
+      QQ = ·DistR+ Q 1r (- P) ∙ cong₂ _+_ (·IdR Q) (-DistR· Q P ∙ cong -_ QP)
+         ∙ cong (Q +_) 0Selfinverse ∙ +IdR Q
+
+    ------------------------------------------------------------------
+    -- The four blocks, the observed powers, the Horner sum.
+    ------------------------------------------------------------------
+
+    Ablk B C D : A
+    Ablk = P · L · P
+    B    = P · L · Q
+    C    = Q · L · P
+    D    = Q · L · Q
+
+    K : ℕ → A
+    K n = P · pow L n · P
+
+    W : ℕ → A
+    W zero    = 0r
+    W (suc n) = C · K n + D · W n
+
+    ------------------------------------------------------------------
+    -- १ · ONE INSERTION OF  P + Q = 1.
+    ------------------------------------------------------------------
+
+    insert : (E X Y : A)
+      → E · (X · Y) · P ≡ (E · X · P) · (P · Y · P) + (E · X · Q) · (Q · Y · P)
+    insert E X Y =
+        cong (_· P) (·Assoc E X Y)
+      ∙ cong (λ z → (E · X · z) · P) (sym (·IdL Y) ∙ cong (_· Y) (sym P+Q) ∙ ·DistL+ P Q Y)
+      ∙ cong (_· P) (·DistR+ (E · X) (P · Y) (Q · Y))
+      ∙ ·DistL+ ((E · X) · (P · Y)) ((E · X) · (Q · Y)) P
+      ∙ cong₂ _+_ (viaP) (viaQ)
+      where
+        -- (E X)(P Y) P  ≡  (E X P)(P Y P), using P = P P
+        viaP : (E · X) · (P · Y) · P ≡ (E · X · P) · (P · Y · P)
+        viaP =
+            cong (λ z → (E · X) · (z · Y) · P) (sym PP)
+          ∙ cong (_· P) (cong ((E · X) ·_) (sym (·Assoc P P Y)) ∙ ·Assoc (E · X) P (P · Y))
+          ∙ sym (·Assoc (E · X · P) (P · Y) P)
+
+        viaQ : (E · X) · (Q · Y) · P ≡ (E · X · Q) · (Q · Y · P)
+        viaQ =
+            cong (λ z → (E · X) · (z · Y) · P) (sym QQ)
+          ∙ cong (_· P) (cong ((E · X) ·_) (sym (·Assoc Q Q Y)) ∙ ·Assoc (E · X) Q (Q · Y))
+          ∙ sym (·Assoc (E · X · Q) (Q · Y) P)
+
+    ------------------------------------------------------------------
+    -- २ · THE HIDDEN COMPONENT IS THE HORNER SUM.
+    ------------------------------------------------------------------
+
+    hidden-is-horner : (n : ℕ) → Q · pow L n · P ≡ W n
+    hidden-is-horner zero    = cong (_· P) (·IdR Q) ∙ QP
+    hidden-is-horner (suc n) =
+        insert Q L (pow L n)
+      ∙ cong (C · K n +_) (cong (D ·_) (hidden-is-horner n))
+
+    ------------------------------------------------------------------
+    -- ३ · THE ORDERED RETURN RECURRENCE.
+    ------------------------------------------------------------------
+
+    return-recurrence : (n : ℕ) → K (suc n) ≡ Ablk · K n + B · W n
+    return-recurrence n =
+        insert P L (pow L n)
+      ∙ cong (Ablk · K n +_) (cong (B ·_) (hidden-is-horner n))
+
+    ------------------------------------------------------------------
+    -- ४ · THE FIRST RETURN:  K 2 ≡ A·A + B·C.
+    ------------------------------------------------------------------
+
+    private
+      K0 : K 0 ≡ P
+      K0 = cong (_· P) (·IdR P) ∙ PP
+
+      AblkP : Ablk · P ≡ Ablk
+      AblkP = sym (·Assoc (P · L) P P) ∙ cong ((P · L) ·_) PP
+
+      CP : C · P ≡ C
+      CP = sym (·Assoc (Q · L) P P) ∙ cong ((Q · L) ·_) PP
+
+    first-return : K 2 ≡ Ablk · Ablk
+    first-return =
+        return-recurrence 1
+      ∙ cong₂ _+_
+          ( cong (Ablk ·_)
+              ( return-recurrence 0
+              ∙ cong₂ _+_ (cong (Ablk ·_) K0 ∙ AblkP) (0RightAnnihilates B)
+              ∙ +IdR Ablk ) )
+          ( cong (B ·_)
+              ( cong₂ _+_ (cong (C ·_) K0 ∙ CP) (0RightAnnihilates D)
+              ∙ +IdR C ) )
+
+------------------------------------------------------------------------
+-- PART TWO · The projected derivation fails Leibniz by the cross terms.
+------------------------------------------------------------------------
+
+module _ (O : CommRing ℓ) where
+  open CommRingStr (snd O)
+
+  private
+    Obs : Type ℓ
+    Obs = ⟨ O ⟩
+
+  module _ (𝓛 : Obs → Obs)
+           (𝓛-add  : (x y : Obs) → 𝓛 (x + y) ≡ 𝓛 x + 𝓛 y)
+           (𝓛-leib : (x y : Obs) → 𝓛 (x · y) ≡ 𝓛 x · y + x · 𝓛 y)
+           (𝒫 : Obs → Obs)
+           (𝒫-add : (x y : Obs) → 𝒫 (x + y) ≡ 𝒫 x + 𝒫 y)
+           (𝒫-mul : (x y : Obs) → 𝒫 (x · y) ≡ 𝒫 x · 𝒫 y)
+           where
+
+    𝒬 : Obs → Obs
+    𝒬 x = x + (- 𝒫 x)
+
+    ------------------------------------------------------------------
+    -- ५ · THE DEFECT IS EXACTLY THE TWO CROSS-SECTOR TERMS.
+    ------------------------------------------------------------------
+
+    projected-leibniz-defect : (h k : Obs)
+      → (𝒬 (𝓛 (h · k)) + (- (𝒬 (𝓛 h) · k))) + (- (h · 𝒬 (𝓛 k)))
+        ≡ 𝒫 (𝓛 h) · 𝒬 k + 𝒬 h · 𝒫 (𝓛 k)
+    projected-leibniz-defect h k =
+        cong (λ z → (𝒬 z + (- (𝒬 (𝓛 h) · k))) + (- (h · 𝒬 (𝓛 k)))) (𝓛-leib h k)
+      ∙ cong (λ z → ((𝓛 h · k + h · 𝓛 k) + (- z) + (- (𝒬 (𝓛 h) · k))) + (- (h · 𝒬 (𝓛 k))))
+             ( 𝒫-add (𝓛 h · k) (h · 𝓛 k)
+             ∙ cong₂ _+_ (𝒫-mul (𝓛 h) k) (𝒫-mul h (𝓛 k)) )
+      ∙ shape (𝓛 h) (𝓛 k) h k (𝒫 (𝓛 h)) (𝒫 (𝓛 k)) (𝒫 h) (𝒫 k)
+      where
+        shape : (lh lk h k plh plk ph pk : Obs)
+          → (((lh · k + h · lk) + (- (plh · pk + ph · plk)))
+               + (- ((lh + (- plh)) · k)))
+              + (- (h · (lk + (- plk))))
+            ≡ plh · (k + (- pk)) + (h + (- ph)) · plk
+        shape lh lk h k plh plk ph pk = solve! O

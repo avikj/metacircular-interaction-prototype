@@ -84,17 +84,6 @@
 --   closure-no-separator      hence FE inference cannot manufacture a
 --                             separator from neutral readings
 --
--- NOT claimed: that this says anything about BARRIER.md's OTHER axis, the
--- depth/correlation barrier of Theorem K.  The model here is the parity
--- observable class of `ParitySeparator`, and every statement is about
--- separating σ₊ from its gauge flip.  Whether the value/FE distinction is
--- also empty for the windowed-linear class is untouched here.
---
--- NOT claimed either: that entropy decrement is thereby "explained" or
--- weakened.  Its content is quantitative (logarithmic averaging, the
--- decrement bound); the claim here is only about where its parity charge
--- enters, which is a question about its interface and not about its
--- strength.
 ------------------------------------------------------------------------
 
 module OracleQueries where

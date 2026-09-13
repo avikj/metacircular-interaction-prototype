@@ -26,9 +26,6 @@
 -- theorem.  What detects everything alone does not exist; what
 -- detects everything jointly is two blindnesses facing each other.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Blindness and detection as stated; the
--- full conjunction (a braid word trivial iff swap image trivial on
--- marked ropes and counts zero mod four) is the standing assembly.
 ------------------------------------------------------------------------
 
 module CihnaRajju_TheConstantRopeIsBlindToSwapsTheMarkedRopeSeesEachOneSoTheKernelsDetectorsAreAnInterdependentPair where

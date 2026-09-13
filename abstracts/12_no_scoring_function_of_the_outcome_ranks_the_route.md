@@ -16,6 +16,10 @@ Pruning.  Frontier expansion is a map over the branch list with no deduplication
 
 Where preference must come from.  Selection among histories is therefore extra-semantic by theorem rather than by omission: the system is structurally unable to take the choice from the party it is talking to. We give the interactive form - the frontier offers, the caller supplies the applicability witness, execution retains outcome and trace and discards the skill and the witness, and installation composes with that discard - so the system provably learns from what a step did and never from why it was permitted.
 
-WHAT IS NOT CLAIMED.  No MDP, no policy, no return, no estimator and no training dynamics appear.  The evaluator is a specific interpreter into the naturals and the results are about functions of it.  Reward hacking and specification gaming are named as the phenomena we take this to explain; that identification is a reading and is not proved.
+No MDP, no policy, no return, no estimator and no training dynamics appear.
+The evaluator is a specific interpreter into the naturals and the results are
+about functions of it. Reward hacking and specification gaming are named as
+the phenomena we take this to explain; that identification is a reading and is
+not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.

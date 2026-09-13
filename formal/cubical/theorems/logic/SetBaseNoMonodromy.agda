@@ -64,23 +64,6 @@
 --     monodromy is a base that is not a set.
 --
 --
--- SYĀT — THE CLAIM, EXACTLY
---
---  * Nothing here is new mathematics.  "A set has no nontrivial loops"
---    is `isSet`'s definition; the Bool cover of S¹ is the standard
---    first example of a nonconstant family in every HoTT text and in
---    cubical v0.5's own `Cubical.HITs.S1`.  The contribution is that
---    the machine now HAS the sieve lane's instance as a checked term,
---    so the kill test is settled by citation and not by re-argument.
---  * No claim that the sieve lane has no obstruction.  It has one —
---    `SieveFiber.noChargePreservingSection`.  The claim is only that
---    the obstruction is not, and cannot be, a monodromy.
---  * No claim about bases nobody has built.  If a later lane produces a
---    charge index with higher structure (a groupoid of sieve states, a
---    delooping, a torsor with a nontrivial automorphism), this file
---    says nothing against it — it says that lane must supply the
---    non-set base first, and `S¹NotSet` is the template for what that
---    supply looks like.
 ------------------------------------------------------------------------
 
 module SetBaseNoMonodromy where

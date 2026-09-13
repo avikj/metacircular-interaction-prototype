@@ -3,12 +3,7 @@
 ------------------------------------------------------------------------
 -- स्रोतस् — the stream, the current.
 --
--- WHY THIS FILE EXISTS.  The abstract "AN IDEMPOTENT TOTAL MERGE
--- REMOVES THE DEDUPLICATION STORE" says, under WHAT IS AND IS NOT CLAIMED,
--- that there is no message broker, no partition, no offset, no
--- checkpoint and no watermark in the development — that a "message" is
--- an operation and the "pipeline" is a library under concatenation, and
--- that the reading as a stream processing system is a reading.
+-- WHY THIS FILE EXISTS.
 --
 -- The broker is built here, with all five, and the reading becomes the
 -- theorem the design rests on: under at-least-once delivery with

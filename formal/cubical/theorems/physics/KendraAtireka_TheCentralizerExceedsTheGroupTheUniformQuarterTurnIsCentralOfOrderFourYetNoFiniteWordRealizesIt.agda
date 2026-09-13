@@ -25,10 +25,6 @@
 -- finite interdependence cannot — the ladder of coherence has a rung
 -- above every finite word, and the rope reaches it.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Centrality, order four, and
--- non-realizability of the uniform turn; the full computation of the
--- centralizer (that uniform twist vectors and the swaps' centre
--- exhaust it) is the standing construction.
 ------------------------------------------------------------------------
 
 module KendraAtireka_TheCentralizerExceedsTheGroupTheUniformQuarterTurnIsCentralOfOrderFourYetNoFiniteWordRealizesIt where

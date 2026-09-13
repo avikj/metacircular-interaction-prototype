@@ -1,0 +1,11 @@
+Checking M9 (/home/user/math/formal/cubical/theorems/primes/M9.agda).
+/home/user/math/formal/cubical/theorems/primes/M9.agda:163.11-165.34: error: [MismatchedProjectionsError]
+The projections CommRingStr.0r and CommRingStr._+_ do not match
+when checking that the expression
+cong (λ u → ℒ (∂ φ) + - u) ∂ℒ ∙
+cong
+(λ u →
+   ι 2 · (s · ∂ φ) + - u + - (ι 2 · (1r · φ + s · ∂ φ) + - ∂ (D φ)))
+(D∂ φ)
+∙ shape φ (∂ φ) (∂ (D φ))
+has type ℒ (∂ φ) + - ∂ (ℒ φ) ≡ - (ι 3 · φ)

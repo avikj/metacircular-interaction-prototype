@@ -1,0 +1,42 @@
+PASS: universal transverse symbol
+PASS: universal leading-symbol commutation
+PASS: explicit nonzero commutator coefficients
+PASS: coadjoint drift of the witness source vanishes
+PASS: coadjoint naturality 0,0
+PASS: tangent residual 0,0
+PASS: common-noise Laplacian identity 0,0
+PASS: coadjoint naturality 0,1
+PASS: tangent residual 0,1
+PASS: common-noise Laplacian identity 0,1
+PASS: coadjoint naturality 1,0
+PASS: tangent residual 1,0
+PASS: common-noise Laplacian identity 1,0
+PASS: coadjoint naturality 1,1
+PASS: tangent residual 1,1
+PASS: common-noise Laplacian identity 1,1
+PASS: coadjoint naturality 2,0
+PASS: tangent residual 2,0
+PASS: common-noise Laplacian identity 2,0
+PASS: coadjoint naturality 2,1
+PASS: tangent residual 2,1
+PASS: common-noise Laplacian identity 2,1
+PASS: coadjoint naturality 3,0
+PASS: tangent residual 3,0
+PASS: common-noise Laplacian identity 3,0
+PASS: coadjoint naturality 3,1
+PASS: tangent residual 3,1
+PASS: common-noise Laplacian identity 3,1
+PASS: high-frequency witness N=1
+PASS: norm-squared ratio N=1: 1/6
+PASS: high-frequency witness N=2
+PASS: norm-squared ratio N=2: 1/12
+PASS: high-frequency witness N=3
+PASS: norm-squared ratio N=3: 1/22
+PASS: high-frequency witness N=7
+PASS: norm-squared ratio N=7: 1/102
+PASS: high-frequency witness N=19
+PASS: norm-squared ratio N=19: 1/726
+
+38 exact checks passed.
+No Fourier truncation was used. No Agda/Lean compiler, stochastic
+simulation, global continuation test, or RH certificate was run.

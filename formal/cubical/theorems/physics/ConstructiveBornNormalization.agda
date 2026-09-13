@@ -139,7 +139,4 @@ no-gaussian-unit-normalizer-for-plus scalar equality =
 -- projective weights; concrete circuit distributions; and the impossibility
 -- of unit-normalizing the equal-phase ray by a Gaussian-integer scalar.
 --
--- Not claimed: a field-valued probability type, square-root normalization,
--- sigma-additivity, measurement dynamics, or analytic Hilbert space.  The
--- record is a finite rational distribution presentation, intentionally.
 ------------------------------------------------------------------------

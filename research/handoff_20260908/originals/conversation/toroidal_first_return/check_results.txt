@@ -1,0 +1,56 @@
+EXACT 01: two-radius positive eigenvector
+EXACT 02: two-radius negative eigenvector
+EXACT 03: opposite radial atoms have negative quadratic value
+EXACT 04: exact log-radius Fourier multiplier
+EXACT 05: degree-two source is a weighted radial derivative
+EXACT 06: degree-four source is a weighted radial derivative
+EXACT 07: degree-four scalar polynomial is harmonic
+EXACT 08: 2x4 -> 2 scalar angular coefficient, channel 1
+EXACT 09: 2x4 -> 2 scalar angular coefficient, channel 2
+EXACT 10: 2x4 -> 2 scalar angular coefficient, channel 3
+EXACT 11: 2x4 -> 2 scalar angular coefficient, channel 4
+EXACT 12: 2x4 -> 2 scalar angular coefficient, channel 5
+EXACT 13: toroidal degree-two norm
+EXACT 14: toroidal degree-four norm
+EXACT 15: full polarized return coefficient
+EXACT 16: integrated return has exact radial boundary term
+EXACT 17: instantaneous central return boundary term
+EXACT 18: direct Cartesian return A=[-1/2, -1/2, 1], channel 1
+EXACT 19: direct Cartesian return A=[-1/2, -1/2, 1], channel 2
+EXACT 20: direct Cartesian return A=[-1/2, -1/2, 1], channel 3
+EXACT 21: direct Cartesian return A=[-1/2, -1/2, 1], channel 4
+EXACT 22: direct Cartesian return A=[-1/2, -1/2, 1], channel 5
+EXACT 23: direct Cartesian return A=[1, 2, -3], channel 1
+EXACT 24: direct Cartesian return A=[1, 2, -3], channel 2
+EXACT 25: direct Cartesian return A=[1, 2, -3], channel 3
+EXACT 26: direct Cartesian return A=[1, 2, -3], channel 4
+EXACT 27: direct Cartesian return A=[1, 2, -3], channel 5
+EXACT 28: quadrupole radial Green ODE inside
+EXACT 29: quadrupole radial Green ODE outside
+EXACT 30: degree-four radial Green ODE inside
+EXACT 31: degree-four radial Green ODE outside
+EXACT 32: quadrupole derivative jump
+EXACT 33: degree-four derivative jump
+EXACT 34: return-memory kernel, quadrupole outside fourth-degree shell
+EXACT 35: return-memory kernel, quadrupole inside fourth-degree shell
+EXACT 36: return kernel diagonal
+EXACT 37: return kernel diagonal continuity
+EXACT 38: outer-side diagonal slope
+EXACT 39: inner-side diagonal slope
+EXACT 40: same-source return integral boundary identity
+EXACT 41: radial outgoing derivative after the actual inverse ODE
+EXACT 42: positive broad starting profile
+EXACT 43: negative degree-four injection for broad profile
+EXACT 44: thin-shell limiting integrand
+EXACT 45: thin-shell limiting return value
+EXACT 46: all cross-shell geometric return-memory sum
+EXACT 47: RH reflection-scale loop orientation
+EXACT 48: RH loop is reciprocal metric defect
+EXACT 49: RH bidirectional positive defect
+
+TOTAL: 49 exact symbolic controls passed.
+NUMERICAL: compact C-infinity thin shell eps=0.02, J24=0.612996956522; limit 151/225=0.671111111111
+NUMERICAL: compact C-infinity thin shell eps=0.005, J24=0.656131363751; limit 151/225=0.671111111111
+NUMERICAL: compact C-infinity thin shell eps=0.001, J24=0.668090406816; limit 151/225=0.671111111111
+NUMERICAL: broad profile J24=-3.62761992645<0
+TOTAL: 4 numerical consistency checks passed; no PDE evolution was simulated.

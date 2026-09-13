@@ -3,9 +3,6 @@
 ------------------------------------------------------------------------
 -- चक्र — the wheel.
 --
--- WHY THIS FILE EXISTS.  `SensorNerode` proves that a family of moduli
--- observes a natural only through the family's least common multiple,
--- and then declines two things in a WHAT IS AND IS NOT CLAIMED paragraph:
 --
 --   * the RESIDUE BRIDGE.  It works with `m ∣ dist a b` and says the
 --     identification with equality of residues is "entirely standard"

@@ -34,10 +34,6 @@
 -- strands that are mere states.  Abstract 01's "additional coherence
 -- data" now has a name, a home, and a checked order.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Strands are pairs of booleans; no
--- Hilbert space, no modular tensor category, no anyon model.  The
--- braid group representation this generates, and its physical
--- reading, are the next constructions.
 ------------------------------------------------------------------------
 
 module VeniBandha_TheSuppliedCoherenceIsTheQuarterTurnTheTwistedSwapBraidsByReflAndTheGeneratorHasExactOrderEight where

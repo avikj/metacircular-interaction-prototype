@@ -1,0 +1,226 @@
+Checking M16 (/home/user/math/formal/cubical/theorems/physics/M16.agda).
+/home/user/math/formal/cubical/theorems/physics/M16.agda:93.66-74: error: [MismatchedProjectionsError]
+The projections CommRingStr.1r and CommRingStr._+_ do not match
+when checking that the expression refl has type
+Cubical.Tactics.CommRingSolver.HornerEval.eval
+(Cubical.Tactics.CommRingSolver.Solver.EqualityToNormalform.normalize
+ R
+ ((((((((Cubical.Tactics.CommRingSolver.Reflection.pr.1' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.0' R)
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+        (Cubical.Tactics.CommRingSolver.Reflection.pr.1' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.1' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        Cubical.Data.FinData.Base.Fin.zero)))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+     ((((Cubical.Tactics.CommRingSolver.Reflection.pr.1' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.1' R)
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+        (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        (Cubical.Data.FinData.Base.Fin.suc
+         Cubical.Data.FinData.Base.Fin.zero)))))
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+    ((((Cubical.Tactics.CommRingSolver.Reflection.pr.1' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R)
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+      (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+       Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+     (Cubical.Data.FinData.Base.Fin.suc
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        (Cubical.Data.FinData.Base.Fin.suc
+         (Cubical.Data.FinData.Base.Fin.suc
+          (Cubical.Data.FinData.Base.Fin.suc
+           (Cubical.Data.FinData.Base.Fin.suc
+            (Cubical.Data.FinData.Base.Fin.suc
+             Cubical.Data.FinData.Base.Fin.zero))))))))))
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   ((((((Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.0' R)
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+        (Cubical.Tactics.CommRingSolver.Reflection.pr.1' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.1' R))
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        (Cubical.Data.FinData.Base.Fin.suc
+         (Cubical.Data.FinData.Base.Fin.suc
+          (Cubical.Data.FinData.Base.Fin.suc
+           (Cubical.Data.FinData.Base.Fin.suc
+            (Cubical.Data.FinData.Base.Fin.suc
+             Cubical.Data.FinData.Base.Fin.zero))))))))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+     ((((Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.1' R)
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+        (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+         Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+         Cubical.Tactics.CommRingSolver.Reflection.pr.1' R))
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.1' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+      (Cubical.Data.FinData.Base.Fin.suc
+       Cubical.Data.FinData.Base.Fin.zero)))
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+    ((((Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R)
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.1' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+      (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+       Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+     (Cubical.Data.FinData.Base.Fin.suc
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        (Cubical.Data.FinData.Base.Fin.suc
+         (Cubical.Data.FinData.Base.Fin.suc
+          (Cubical.Data.FinData.Base.Fin.suc
+           Cubical.Data.FinData.Base.Fin.zero)))))))))
+  Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+  ((((((Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R)
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.1' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+      (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+       Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+     (Cubical.Data.FinData.Base.Fin.suc
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        (Cubical.Data.FinData.Base.Fin.suc
+         (Cubical.Data.FinData.Base.Fin.suc
+          Cubical.Data.FinData.Base.Fin.zero))))))
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+    ((((Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.1' R)
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+       (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+        Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+        Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+      (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+       Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+     (Cubical.Data.FinData.Base.Fin.suc
+      (Cubical.Data.FinData.Base.Fin.suc
+       (Cubical.Data.FinData.Base.Fin.suc
+        (Cubical.Data.FinData.Base.Fin.suc
+         Cubical.Data.FinData.Base.Fin.zero))))))
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   ((((Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+       Cubical.Tactics.CommRingSolver.Reflection.pr.0' R)
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+      (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+       Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+       Cubical.Tactics.CommRingSolver.Reflection.pr.0' R))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+     (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+      Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+      Cubical.Tactics.CommRingSolver.Reflection.pr.1' R))
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    Cubical.Data.FinData.Base.Fin.zero))))
+(a₃₃ Cubical.Data.Vec.Base.Vec.∷
+ (a₂₂ Cubical.Data.Vec.Base.Vec.∷
+  (a₁₁ Cubical.Data.Vec.Base.Vec.∷
+   (a₁₂ Cubical.Data.Vec.Base.Vec.∷
+    (a₃₂ Cubical.Data.Vec.Base.Vec.∷
+     (a₃₁ Cubical.Data.Vec.Base.Vec.∷
+      (a₂₃ Cubical.Data.Vec.Base.Vec.∷
+       (a₂₁ Cubical.Data.Vec.Base.Vec.∷
+        (a₁₃ Cubical.Data.Vec.Base.Vec.∷
+         Cubical.Data.Vec.Base.Vec.[])))))))))
+≡
+Cubical.Tactics.CommRingSolver.HornerEval.eval
+(Cubical.Tactics.CommRingSolver.Solver.EqualityToNormalform.normalize
+ R
+ ((Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    (Cubical.Data.FinData.Base.Fin.suc
+     (Cubical.Data.FinData.Base.Fin.suc
+      Cubical.Data.FinData.Base.Fin.zero)))
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+   (Cubical.Data.FinData.Base.Fin.suc
+    (Cubical.Data.FinData.Base.Fin.suc
+     (Cubical.Data.FinData.Base.Fin.suc
+      Cubical.Data.FinData.Base.Fin.zero))))
+  Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+  (Cubical.Tactics.CommRingSolver.Reflection.pr.0' R
+   Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.·'
+   ((Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+     (Cubical.Data.FinData.Base.Fin.suc
+      (Cubical.Data.FinData.Base.Fin.suc
+       Cubical.Data.FinData.Base.Fin.zero))
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+     Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+     (Cubical.Data.FinData.Base.Fin.suc
+      Cubical.Data.FinData.Base.Fin.zero))
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.+'
+    Cubical.Tactics.CommRingSolver.AlgebraExpression.Expr.∣
+    Cubical.Data.FinData.Base.Fin.zero))))
+(a₃₃ Cubical.Data.Vec.Base.Vec.∷
+ (a₂₂ Cubical.Data.Vec.Base.Vec.∷
+  (a₁₁ Cubical.Data.Vec.Base.Vec.∷
+   (a₁₂ Cubical.Data.Vec.Base.Vec.∷
+    (a₃₂ Cubical.Data.Vec.Base.Vec.∷
+     (a₃₁ Cubical.Data.Vec.Base.Vec.∷
+      (a₂₃ Cubical.Data.Vec.Base.Vec.∷
+       (a₂₁ Cubical.Data.Vec.Base.Vec.∷
+        (a₁₃ Cubical.Data.Vec.Base.Vec.∷
+         Cubical.Data.Vec.Base.Vec.[])))))))))

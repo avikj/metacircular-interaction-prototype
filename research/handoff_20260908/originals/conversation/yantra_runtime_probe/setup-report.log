@@ -1,0 +1,15 @@
+
+toolchain
+------------------------------------------------------------
+  agda         (none on PATH)         (want 2.8.0)
+  cubical      (absent)               (want v0.9)
+  libraries    /home/oai/.agda-pin/libraries
+
+NOT AT THE PIN
+------------------------------------------------------------
+  A green obtained here is evidence about THIS machine and not about the
+  corpus, and it is not comparable with another container's green.
+  Say so in anything that quotes it.
+  
+    run:  sh setup            (installs the pin; 30-60 min from nothing)
+exit=1

@@ -100,8 +100,6 @@
 --                                not between interfaces
 --   §6  collapse-is-coset        the bridge to GaugeOrbitClasses §5
 --
--- NOT claimed:
---
 -- * Nothing about the WL class of BARRIER §1 or the depth barrier
 --   (Theorem K).  This is the parity axis only: the model is completely
 --   multiplicative ±1 functions and the adversary is the gauge flip.

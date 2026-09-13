@@ -34,8 +34,6 @@
 -- §२ below is that line, checked.  It was one line.
 --
 -- ────────────────────────────────────────────────────────────────────
--- WHAT IS AND IS NOT ESTABLISHED, kept apart because the whole value of
--- the seam was that it was honest about its own extent.
 --
 -- ESTABLISHED (§२): for propositional truncation, EVERY fibre is
 -- equivalent to the whole source.  Not merely non-contractible, and not

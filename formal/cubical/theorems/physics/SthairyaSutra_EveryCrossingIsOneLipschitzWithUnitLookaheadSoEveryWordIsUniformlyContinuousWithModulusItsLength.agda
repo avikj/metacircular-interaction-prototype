@@ -28,9 +28,6 @@
 -- should force to uniformity.  The completion of SimaSutra is a
 -- completion in exactly this metric.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The Lipschitz bound and the word
--- modulus; the metric space proper and the continuous-centralizer
--- exhaustion are the standing constructions.
 ------------------------------------------------------------------------
 
 module SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength where

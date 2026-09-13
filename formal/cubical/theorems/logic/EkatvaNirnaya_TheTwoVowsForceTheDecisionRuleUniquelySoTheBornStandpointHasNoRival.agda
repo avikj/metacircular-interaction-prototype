@@ -28,14 +28,6 @@
 -- list over a discrete type is either constant or exhibits a differing
 -- pair, and each law covers one horn.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing about amplitudes, weights, or the
--- quantitative Born rule — this is the uniqueness of the ASSERTION
--- layer (which propositions the decision may assert), the qualitative
--- skeleton.  The quantitative extension (weights forced by vows on a
--- richer carrier) is program ४'s open continuation, named in
--- YugaParivartana.  Empty contention lists are genuinely
--- underdetermined by the laws (vacuous unanimity for every a at once)
--- and are excluded by type, honestly.
 
 module EkatvaNirnaya_TheTwoVowsForceTheDecisionRuleUniquelySoTheBornStandpointHasNoRival where
 

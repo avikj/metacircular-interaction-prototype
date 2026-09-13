@@ -7,11 +7,10 @@
 -- boundary population of length `suc q` for every threshold p/(suc q)
 -- with p ≤ suc q, and closed with:
 --
---   "STILL NOT CLAIMED: MINIMALITY.  The length produced is suc q, and
---    whether a SHORTER boundary population exists is the divisibility
---    question after all — for p/(suc q) in lowest terms it does not —
---    and that is unproved, because lowest terms are not defined
---    anywhere here."
+-- The length produced is suc q, and whether a SHORTER boundary population
+-- exists is the divisibility question after all — for p/(suc q) in lowest
+-- terms it does not — and that is unproved, because lowest terms are not
+-- defined anywhere here."
 --
 -- That parenthesis — "for p/(suc q) in lowest terms it does not" — was
 -- an assertion.  Its CONTRAPOSITIVE is checked here, which is the half
@@ -60,12 +59,6 @@
 -- in this repository (`KuttakaValli.agda`).  This module therefore
 -- names the obligation and points at where it lives rather than
 -- rebuilding it.
---
--- Also not claimed: that length ≥ suc q is the only obstruction, i.e.
--- nothing here says which lengths ARE achievable at a threshold; and
--- the p = 1 result is stated for `1 ≤ count`, since the empty
--- population is a boundary population at every threshold and has length
--- 0 — the same vacuous witness the previous module had to exclude.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

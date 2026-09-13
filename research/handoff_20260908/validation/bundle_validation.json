@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-08",
+  "structural_errors": [],
+  "structural_valid": true,
+  "claim_nodes": 103,
+  "source_groups": 26,
+  "sections": 78,
+  "corrections": 53,
+  "original_control_byte_files": 1,
+  "native_execution": false,
+  "fresh_standalone_replays": [
+    {
+      "path": "validation/replays/causal",
+      "exit_status": 0,
+      "exact_checks": 86
+    },
+    {
+      "path": "validation/replays/midpoint",
+      "exit_status": 0,
+      "exact_checks": 43
+    }
+  ],
+  "scope": "Structural/integrity checks and two explicitly standalone symbolic suites; no continuum or native theorem proof."
+}

@@ -27,9 +27,6 @@
 -- trilaw's generativity clause climbing the divisors — resolution
 -- grows only by senses no alias can synthesize.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The separation at the involutive rung;
--- the same separation at every divisor pair is the standing
--- construction.
 ------------------------------------------------------------------------
 
 module SopanaBheda_ClimbingARungIsANewSenseNoInvolutiveAliasServesTheFullReading where

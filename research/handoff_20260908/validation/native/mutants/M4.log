@@ -1,0 +1,4 @@
+Checking M4 (/home/user/math/formal/cubical/theorems/physics/M4.agda).
+/home/user/math/formal/cubical/theorems/physics/M4.agda:43.5-9: error: [UnequalTerms]
+4 != 6 of type ℕ
+when checking that the expression refl has type Cb 2 2 ≡ 6

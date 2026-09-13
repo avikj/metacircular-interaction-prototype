@@ -1,0 +1,8 @@
+साक्षि-परीक्षा — the witness check, watched, once in this process:
+  satya   137·(−7) + 60·16 = 1  → samkramana   (transported, as it must)
+  asatya  137·(−7) + 60·16 = 2  → dosalekha   (a written defect, as it must)
+  no saṃkramaṇa from this process is honoured by a run that has not
+  watched one rejected (GATE_AUDIT_DISPOSITION.md §2).  It has.
+yantra — one JSON object per line on stdin; one answer per line on stdout.
+every answer is a saṃkramaṇa or a doṣa-lekha, and carries its nirṇaya and its pramāṇya.
+transcript: /tmp/claude-0/-home-user-math/bff55c4d-5148-5098-ad99-3408963873bc/scratchpad/yantra-smoke/false/wire-transcript.jsonl

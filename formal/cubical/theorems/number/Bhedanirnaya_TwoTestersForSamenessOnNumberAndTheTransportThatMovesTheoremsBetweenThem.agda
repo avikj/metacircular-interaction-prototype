@@ -12,12 +12,12 @@
 -- This group is not like that, and the difference is the whole point:
 --
 --   ResidueGlue.eqℕ-sound        : (m n : ℕ) → eqℕ m n ≡ true → m ≡ n
---   Obstruction.eqℕ→≡ : (m n : ℕ) → eqℕ m n ≡ true → m ≡ n
+--   ObstructionSubstrate.eqℕ→≡ : (m n : ℕ) → eqℕ m n ≡ true → m ≡ n
 --
 -- The two types PRINT alike and are NOT the same type.  Each module defines
 -- its own `eqℕ`, by the same four clauses, and two definitions with the same
 -- clauses are two functions: `ResidueGlue.eqℕ m n` and
--- `Obstruction.eqℕ m n` do not reduce to a common form at
+-- `ObstructionSubstrate.eqℕ m n` do not reduce to a common form at
 -- variable m and n, so nothing identifies the two statements definitionally.
 -- A tool that compares printed types cannot see this; it reports a lead, and
 -- the lead has to be opened by hand.  It is opened here.
@@ -37,14 +37,6 @@
 -- given, with no new induction.  A duplication that has been identified is
 -- not merely tidier — it is a channel, and theorems flow both ways along it.
 --
--- WHAT IS AND IS NOT CLAIMED OF THE SOURCES.  भेद-निर्णयः is used here in its
--- plain sense — settling whether two things are the same or different — and
--- is NOT offered as a source term for this theorem.  Decidability of equality
--- on ℕ is not an Indian-source result and is not claimed as one; it lives in
--- the cubical library as `discreteℕ`, which is where both of the modules
--- below should have got it and neither did.  The substrate — `transport`, the
--- fact that a path between types carries structure — is Voevodsky's.
--- What the tradition supplies here is the DISCIPLINE and not the theorem:
 -- §६'s two roads, and §७'s सङ्क्षेपस्य अनुपलब्धिः, which is why §5's remainder
 -- is written out instead of the two modules being merged.
 ------------------------------------------------------------------------
@@ -68,7 +60,7 @@ import ObstructionSubstrate
 -- is four lines.  Everything after §1 is transport.
 ------------------------------------------------------------------------
 
-समता : (m n : ℕ) → ResidueGlue.eqℕ m n ≡ Obstruction.eqℕ m n
+समता : (m n : ℕ) → ResidueGlue.eqℕ m n ≡ ObstructionSubstrate.eqℕ m n
 समता zero    zero    = refl
 समता zero    (suc _) = refl
 समता (suc _) zero    = refl
@@ -82,7 +74,7 @@ import ObstructionSubstrate
 -- step here in which anything could go missing.
 ------------------------------------------------------------------------
 
-एकीभावः : ResidueGlue.eqℕ ≡ Obstruction.eqℕ
+एकीभावः : ResidueGlue.eqℕ ≡ ObstructionSubstrate.eqℕ
 एकीभावः i m n = समता m n i
 
 ------------------------------------------------------------------------
@@ -92,7 +84,7 @@ import ObstructionSubstrate
 -- soundness theorem for Obstruction's tester.  No induction is repeated.
 ------------------------------------------------------------------------
 
-संक्रान्त-सौष्ठवम् : (m n : ℕ) → Obstruction.eqℕ m n ≡ true → m ≡ n
+संक्रान्त-सौष्ठवम् : (m n : ℕ) → ObstructionSubstrate.eqℕ m n ≡ true → m ≡ n
 संक्रान्त-सौष्ठवम् =
   transport (λ i → (m n : ℕ) → एकीभावः i m n ≡ true → m ≡ n)
             ResidueGlue.eqℕ-sound
@@ -112,7 +104,7 @@ import ObstructionSubstrate
 -- there was never room for two answers.
 ------------------------------------------------------------------------
 
-संक्रमण-तादात्म्यम् : संक्रान्त-सौष्ठवम् ≡ Obstruction.eqℕ→≡
+संक्रमण-तादात्म्यम् : संक्रान्त-सौष्ठवम् ≡ ObstructionSubstrate.eqℕ→≡
 संक्रमण-तादात्म्यम् =
   funExt λ m → funExt λ n → funExt λ _ → isSetℕ m n _ _
 
@@ -145,7 +137,7 @@ import ObstructionSubstrate
 संक्रान्त-पूर्णता : (m n : ℕ) → ¬ m ≡ n → ResidueGlue.eqℕ m n ≡ false
 संक्रान्त-पूर्णता =
   transport (λ i → (m n : ℕ) → ¬ m ≡ n → एकीभावः (~ i) m n ≡ false)
-            Obstruction.≢→eqℕ-false
+            ObstructionSubstrate.≢→eqℕ-false
 
 -- The same, one level up: ResidueGlue's own eqFin now has a decision
 -- procedure that is trustworthy on both answers, because its underlying eqℕ

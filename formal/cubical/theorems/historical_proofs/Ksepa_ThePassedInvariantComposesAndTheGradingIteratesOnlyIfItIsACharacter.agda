@@ -44,13 +44,6 @@
 -- sits at g ≡ 𝟙, where the condition is free — and that freedom is the
 -- whole of the cyclic method.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Nothing here is about Γ, L-functions, or zeros:
--- Agda holds no analysis and this module instantiates nothing.  It does
--- not prove anything about Theorem I.  It isolates the single condition
--- that question turns on, so that the analytic verdict — g(s)=1/Γ(3+is)
--- is not a character in s, because Γ is not an exponential — is a
--- one-line check against a checked criterion rather than an impression.
--- The middle-four interchange is folklore and is not claimed as new.
 ------------------------------------------------------------------------
 
 module Ksepa_ThePassedInvariantComposesAndTheGradingIteratesOnlyIfItIsACharacter where

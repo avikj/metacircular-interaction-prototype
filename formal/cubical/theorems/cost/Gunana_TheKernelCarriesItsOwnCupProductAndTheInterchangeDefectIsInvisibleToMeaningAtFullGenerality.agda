@@ -34,11 +34,6 @@
 -- product lives at the graded level, and the bilinear completion that
 -- geometry enjoys is priced by Laghava as the grade's death.
 --
--- SYĀT — THE CLAIM, EXACTLY.  No bilinearity (there are no sums to be linear
--- over), no associativity of ⊗ up to higher coherence (not attempted
--- here), no intersection theory.  The identification with a cup
--- product is a reading; the operation, its grading, and its interchange
--- defect are theorems.
 ------------------------------------------------------------------------
 
 module Gunana_TheKernelCarriesItsOwnCupProductAndTheInterchangeDefectIsInvisibleToMeaningAtFullGenerality where

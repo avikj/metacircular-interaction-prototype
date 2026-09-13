@@ -57,18 +57,6 @@
 --   the-missing-distinction    …and one odd-Ω query does separate them,
 --                              so the collision specifies its own repair
 --
--- NOT claimed: that this proves anything Bombieri (1976) or
--- Friedlander–Iwaniec (1998) did not.  The parity obstruction is theirs.
--- What is contributed is that its core is a two-element orbit of a group
--- action and can be checked rather than argued — which is what lets the
--- next question ("which observables carry charge?") be posed as a
--- membership problem instead of a methodological caution.
---
--- NOT claimed either: that "even Ω" is the exact neutral sector for every
--- sieve.  It is the neutral sector for the parity grading, which is the
--- grading the barrier is about.  A sieve reads more than parity-neutral
--- data, and the separation above only bites on the parity-charged part —
--- which is precisely the part the barrier concerns.
 ------------------------------------------------------------------------
 
 module ParitySeparator where

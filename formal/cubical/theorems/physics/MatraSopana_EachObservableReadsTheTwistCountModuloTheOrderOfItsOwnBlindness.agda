@@ -26,9 +26,6 @@
 -- field's phase — coarser senses alias the memory at the divisor
 -- their invariance dictates.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The mod-two reading for the xor
--- observable at every depth and rope; the general statement over all
--- observables and all divisors is the standing construction.
 ------------------------------------------------------------------------
 
 module MatraSopana_EachObservableReadsTheTwistCountModuloTheOrderOfItsOwnBlindness where

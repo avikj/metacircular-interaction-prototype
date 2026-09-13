@@ -66,9 +66,6 @@
 --                            both are left standing and neither is
 --                            rewritten (ROUTES KEPT).
 --
--- SYĀT — THE CLAIM, EXACTLY.  Not that §२ is new mathematics — "a left inverse
--- forces injectivity" is elementary and is not claimed as anything else.
--- What is claimed is that it is the GENERATOR the census asked for, that
 -- §३ is a checked no-return theorem the corpus did not have, and that §५
 -- is a counterexample separating it from `Tantujala`'s बहु.  No physics.
 -- No computational hardness: §३ is about a three-element group and says

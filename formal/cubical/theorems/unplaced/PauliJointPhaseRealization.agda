@@ -137,9 +137,4 @@ checked-joint-port .CheckedJointPort.exchangeOperator =
 -- central sign sector, exact realization of exchange by -I multiplication,
 -- and the R0/C2 products at its two endpoints.
 --
--- Not claimed: that the Bool phase labels are quantum states, that central
--- signs alone reconstruct the nine observables, or that this supplies a Born
--- rule or Hilbert-space entanglement.  `PauliWeyl` itself explicitly stops
--- short of a faithful matrix representation, and this module inherits that
--- boundary.
 ------------------------------------------------------------------------

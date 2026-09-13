@@ -81,12 +81,6 @@
 -- proved; neither is called the better statement, there being no scale
 -- here on which to say it.
 --
--- NOT CLAIMED.  That `Stable (Collision q t)` holds anywhere without a
--- decision (§2 supplies a decision, not a bare stability); that a
--- two-point state space occurs at any particular site of this corpus
--- (`Bool` here is a HYPOTHESIS of §2, not a claim about state spaces);
--- that discreteness of Y is available where `AnyonyaAbhava` assumes
--- only discreteness of T — §2 asks for both and says so.
 ------------------------------------------------------------------------
 
 module TheDelimitorNeedsOnlyStability where

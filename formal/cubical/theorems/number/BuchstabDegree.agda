@@ -57,12 +57,6 @@
 --   A²≡C²+parent-return       the positive replacement — what the
 --                             difference actually IS
 --
--- NOT claimed: that Buchstab evolution has no memory correction of any
--- kind.  What is refuted is the specific identification offered — that it
--- is T18.4's excursion–return term for a parent sector.  The replacement
--- claim, that it is a grading truncation, is proved; whether the *stopped*
--- (least-prime-ordered) kernel carries a further genuine sector defect on
--- top of the grading one is untouched and stays open.
 ------------------------------------------------------------------------
 
 module BuchstabDegree where

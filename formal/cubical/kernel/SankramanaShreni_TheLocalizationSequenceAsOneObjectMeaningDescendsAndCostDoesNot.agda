@@ -35,11 +35,6 @@
 -- `done` share the trivial meaning, so L identifies them while their
 -- cost 2·len separates them — the kernel of L is exactly the cost cycles.)
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§0–2 in general for any (f, c); the kernel
--- instance with its witness.  NOT claimed: the full higher groupoid
--- completion (this is its 0-truncated localization, which carries the
--- descent/non-descent content and no more); nor effectivity of the
--- quotient (only `eq/`, the easy direction, is used).
 ------------------------------------------------------------------------
 
 module SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot where

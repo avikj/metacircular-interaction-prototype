@@ -29,9 +29,6 @@
 -- Entropy growth, in counting form: the visible shrinks, the kept
 -- fibre grows, nothing is destroyed.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Counting, not measure: the weighted
--- form (probabilities over the tape, and the logarithm that turns
--- products into sums) is the next construction.
 ------------------------------------------------------------------------
 
 module DvitiyaNiyama_CollapsedDistinctionsNeverReturnDownstreamAndTheLedgerNeverForgetsUpstream where

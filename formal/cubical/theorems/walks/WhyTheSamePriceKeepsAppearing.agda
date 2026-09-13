@@ -90,11 +90,6 @@
 -- the site's own, and `Stable-↔` is the proof inside this thread that
 -- shape does not determine the answer.
 --
--- NOT CLAIMED.  That Σ-closure fails (it is not shown, and §2's
--- argument is about the absence of a route, not the presence of an
--- obstruction); that four sites are all the sites; that a shape check
--- can be automated here — §3 was carried out by reading four
--- signatures, which is four signatures.
 ------------------------------------------------------------------------
 
 module WhyTheSamePriceKeepsAppearing where

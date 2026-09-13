@@ -63,14 +63,6 @@
 -- sort, no quotient -- is not housekeeping: it is the only place in the
 -- kernel where the collapsed information is still held.
 --
--- NOT CLAIMED.  §1 is a statement about maps into propositions and nothing
--- here computes an h-level for `Derivation a b`.  §4 gives a necessary
--- condition for `isEquiv` and refutes it at one pair of endpoints; it does
--- not characterise the endpoints where soundness IS an equivalence, and does
--- not claim there are none.  No import of `Loss.Carrier`: it lives in
--- a different library root, and §3 states the correspondence in prose rather
--- than pretending to a dependency it does not have.
---
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 

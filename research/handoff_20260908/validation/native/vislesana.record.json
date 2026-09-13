@@ -1,0 +1,48 @@
+{
+ "uttara": "samkramana",
+ "kriya": "sadhana.vislesana",
+ "nirnaya": {
+  "sthana": "syad-asti",
+  "artha": "in some respect it is: a naya affirmed it"
+ },
+ "pramanya": {
+  "marga": "nihsesa",
+  "ganana": 3,
+  "saksin": "every one of the 3 expression(s) computed to normal form and had its type inferred by agda, under --safe, with formal/cubical and the pinned library importable; the two controls were watched first"
+ },
+ "tulyata": {
+  "nama": "each expression as uttered, identified with the kernel's own computation of it",
+  "vama": "answer, N.normalize demo, N.learn demo",
+  "daksina": "agda's normal forms and inferred types",
+  "saksin": "computed in --interaction mode against the loaded module; the answers below are agda's, not paraphrased",
+  "saksi-prakara": "likhita"
+ },
+ "vahita": {
+  "vislesana": [
+   {
+    "pada": "answer",
+    "akara": "suc var",
+    "prakara": "Tm"
+   },
+   {
+    "pada": "N.normalize demo",
+    "akara": "then-step (add-suc var zero)\n(then-step (suc-step (add-zero var)) (done (suc var)))",
+    "prakara": "Derivation demo (N.normalForm demo)"
+   },
+   {
+    "pada": "N.learn demo",
+    "akara": "ControlledGrammar.install\n(then-step (add-suc var zero)\n (then-step (suc-step (add-zero var)) (done (suc var))))",
+    "prakara": "ControlledGrammar.NativeOperation"
+   }
+  ]
+ },
+ "vyaya": [
+  "WHY each normal form is what it is: the kernel computes it, it does not narrate the reduction",
+  "whether the expression's NAME matches its meaning — the type and value are agda's; reading them against the name is the reader's",
+  "any module the loaded one imports: trusted at the pin, not re-analyzed here"
+ ],
+ "pramana": [
+  "Agda --interaction: Cmd_compute_toplevel (normal form), Cmd_infer_toplevel (type)",
+  "CLAUDE.md: exact/certified symbolic computation is proof"
+ ]
+}

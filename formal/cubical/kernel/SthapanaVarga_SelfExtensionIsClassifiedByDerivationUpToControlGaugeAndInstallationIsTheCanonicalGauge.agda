@@ -47,12 +47,6 @@
 -- equation is control-sound, its solutions are the gauges, and gauge
 -- equivalence classes of solutions are the derivations themselves.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–5 for this kernel's NativeOperation
--- as it stands.  NOT claimed: that install is an equivalence onto
--- operations (it is not — gauges differ), nor anything about
--- extensions that change Tm, Step, or eval themselves: this is the
--- classification of what `install` can reach, which is the kernel's
--- own stated growth axis.
 ------------------------------------------------------------------------
 
 module SthapanaVarga_SelfExtensionIsClassifiedByDerivationUpToControlGaugeAndInstallationIsTheCanonicalGauge where

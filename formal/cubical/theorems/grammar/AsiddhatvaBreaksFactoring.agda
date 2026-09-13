@@ -56,13 +56,6 @@
 -- is deliberate: the claim is about the SHAPE of asiddhatva, and a
 -- larger fragment would add grammar without adding evidence.
 --
--- NOT CLAIMED.  No reading of any particular sūtra beyond 8.2.1's own
--- statement, no position on the ordering disputes in the commentarial
--- literature (Kātyāyana, Patañjali's *Mahābhāṣya*), and nothing about
--- whether Pāṇini would have described it this way.  What is claimed is
--- that the device has an exact characterisation — failure to factor —
--- and that the characterisation explains the cost.
---
 -- CHECKED: Agda 2.6.3, cubical v0.5 — the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
@@ -257,12 +250,10 @@ agree-example = refl
 -- reading is offered, not proved; what is established here is only the
 -- correction of the number, which is sourced.
 --
--- SOURCES for the correction, checked 2026-08-19 rather than recalled:
--- 8.2.1 is an adhikāra running to the end of the text, making an operation
--- in 8.2-8.4 invalid when any preceding rule is to be applied; 6.4.22
--- heads the asiddhavat section through 6.4.129 in which rules are asiddha
--- with respect to EACH OTHER and apply as if simultaneously.  Pāṇini,
--- Aṣṭādhyāyī, c. 500 BCE.  The commentarial disputes (Kātyāyana,
--- Patañjali's Mahābhāṣya) are untouched, as this file's own NOT CLAIMED
--- section requires.
+-- SOURCES for the correction, checked 2026-08-19 rather than recalled: 8.2.1
+-- is an adhikāra running to the end of the text, making an operation in
+-- 8.2-8.4 invalid when any preceding rule is to be applied; 6.4.22 heads the
+-- asiddhavat section through 6.4.129 in which rules are asiddha with respect
+-- to EACH OTHER and apply as if simultaneously. Pāṇini, Aṣṭādhyāyī, c. 500
+-- BCE.
 -- ---------------------------------------------------------------------

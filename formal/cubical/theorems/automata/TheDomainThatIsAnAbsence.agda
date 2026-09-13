@@ -87,11 +87,6 @@
 -- Recording the tension is the point; resolving it is not something a
 -- module of Agda is positioned to do, and this one does not try.
 --
--- NOT CLAIMED.  Any reading of any Madhyamaka text beyond the
--- existence of the fourfold and the fact that its logical form is
--- disputed; that `¬ A → Y` is the right formal counterpart of an
--- अधिकरण; that the shadow construction is legitimate on any school's
--- terms — §1–§3 say what it does, not that it is permitted.
 ------------------------------------------------------------------------
 
 module TheDomainThatIsAnAbsence where

@@ -47,10 +47,6 @@
 --   T15-36-fails-without       im(p∘q) ⊋ im p ∩ im q: x2 is in the
 --                              composite image and not in im q
 --
--- NOT claimed: that the hedged form of T15.36 is wrong.  It is right, and
--- it is confirmed here.  What is contributed is that the hypothesis is
--- shown to be load-bearing by a counterexample, and that C15.38 gets a
--- witness instead of a sentence.
 ------------------------------------------------------------------------
 
 module TwoProjections where

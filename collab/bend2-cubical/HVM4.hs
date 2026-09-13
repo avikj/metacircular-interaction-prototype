@@ -29,6 +29,9 @@ compile book@(Book defs) = prelude ++ unlines (map def (M.toList defs))
 prelude :: String
 prelude = unlines
   [ "// Bend2 -> HVM4 (normalize-then-erase; cubical proof structure erased)"
+  , "// universe paths are represented by their forward transport function;"
+  , "// coe along a path is application of that function."
+  , "@idfn = λx. x"
   , "" ]
 
 hvmName :: Name -> String
@@ -43,64 +46,71 @@ binderName k   = case k of
   where sanitize = concatMap (\c -> if c `elem` ("_0123456789" ++ ['a'..'z'] ++ ['A'..'Z']) then [c] else "")
 
 emit :: Book -> Term -> String
-emit book = go where
-  go :: Term -> String
-  go t = case t of
-    Var n _        -> binderName n
+emit book t0 = go 0 t0 where
+  go :: Int -> Term -> String
+  go d t = case t of
+    Var _ i        -> if i < 0 then "_" else "b" ++ show i
     Ref k          -> "@" ++ hvmName k
-    Sub x          -> go x
-    Loc _ x        -> go x
-    Chk x _        -> go x
-    Ind x          -> go x
-    Frz x          -> go x
+    Sub x          -> go d x
+    Loc _ x        -> go d x
+    Chk x _        -> go d x
+    Ind x          -> go d x
+    Frz x          -> go d x
 
     -- recursion: HVM4 has @fix(&f) = (f @fix(f)); emit a self-application form
-    Fix k f        -> "!" ++ k ++ "&F = " ++ go (f (Var k 0)) ++ "; " ++ k
+    Fix k f        -> "!b" ++ show d ++ "&F = " ++ go (d+1) (f (Var k d)) ++ "; b" ++ show d
 
-    Let v f        -> "(" ++ go f ++ " " ++ go v ++ ")"
+    Let v f        -> "(" ++ go d f ++ " " ++ go d v ++ ")"
 
     -- functions (binders cloned for affine runtime)
-    Lam k f        -> "λ&" ++ binderName k ++ ". " ++ go (f (Var k 0))
-    App f x        -> go f ++ "(" ++ go x ++ ")"
+    Lam k f        -> "λ&b" ++ show d ++ ". " ++ go (d+1) (f (Var k d))
+    App f x        -> appFun d f ++ "(" ++ go d x ++ ")"
 
     -- data
     Zer            -> "#Zer"
-    Suc n          -> "#Suc{" ++ go n ++ "}"
+    Suc n          -> "#Suc{" ++ go d n ++ "}"
     Bt0            -> "0"
     Bt1            -> "1"
     One            -> "1"
     Nil            -> "#Nil"
-    Con h tl       -> "#Con{" ++ go h ++ ", " ++ go tl ++ "}"
+    Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
     Val (U64_V v)  -> show v
     Val (CHR_V c)  -> "'" ++ [c] ++ "'"
     Val _          -> "0"
     Sym s          -> "#" ++ s
 
     -- tuples: #Pair (Sig-encoded ctors would need the type; use #Pair)
-    Tup a b        -> "#Pair{" ++ go a ++ ", " ++ go b ++ "}"
+    Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
 
     -- eliminators -> HVM4 match/switch lambdas, immediately applied
-    BitM x f tr    -> "λ{0: " ++ go f ++ "; _: λ&_p. " ++ go tr ++ "}(" ++ go x ++ ")"
-    NatM x z s     -> "λ{#Zer: " ++ go z ++ "; #Suc: " ++ go s ++ "}(" ++ go x ++ ")"
-    LstM x n c     -> "λ{#Nil: " ++ go n ++ "; #Con: " ++ go c ++ "}(" ++ go x ++ ")"
-    UniM x f       -> "λ{1: " ++ go f ++ "}(" ++ go x ++ ")"
-    SigM x f       -> "λ{#Pair: " ++ go f ++ "}(" ++ go x ++ ")"
-    EnuM x cs d    -> "λ{" ++ intercalate "; " (map (\(s,b) -> "#" ++ s ++ ": " ++ go b) cs)
-                       ++ "; _: λ&_p. " ++ go d ++ "}(" ++ go x ++ ")"
+    BitM x f tr    -> "λ{0: " ++ go d f ++ "; _: λ&b" ++ show d ++ ". " ++ go (d+1) tr ++ "}(" ++ go d x ++ ")"
+    NatM x z s     -> "λ{#Zer: " ++ go d z ++ "; #Suc: " ++ go d s ++ "}(" ++ go d x ++ ")"
+    LstM x n c     -> "λ{#Nil: " ++ go d n ++ "; #Con: " ++ go d c ++ "}(" ++ go d x ++ ")"
+    UniM x f       -> "λ{1: " ++ go d f ++ "}(" ++ go d x ++ ")"
+    SigM x f       -> "λ{#Pair: " ++ go d f ++ "}(" ++ go d x ++ ")"
+    EnuM x cs df   -> "λ{" ++ intercalate "; " (map (\(sy,b) -> "#" ++ sy ++ ": " ++ go d b) cs)
+                       ++ "; _: λ&b" ++ show d ++ ". " ++ go (d+1) df ++ "}(" ++ go d x ++ ")"
 
     -- numeric ops
-    Op2 o a b      -> "(" ++ go a ++ " " ++ op2 o ++ " " ++ go b ++ ")"
+    Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
 
     -- superpositions -> real HVM4 SUP/DUP nodes (the point of targeting HVM4)
-    Sup l a b      -> "&" ++ label l ++ "{" ++ go a ++ ", " ++ go b ++ "}"
+    Sup l a b      -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
     Era            -> "&{}"
 
     -- cubical: paths pass through content, interval arg erased; types erase
-    PLm _ f        -> go (f Era)
-    PAp p _        -> go p
-    Coe _ _ _ x    -> go x            -- residual (neutral) coe is proof-level
-    HCm _ _ _ _ x  -> go x            -- residual hcomp cap
-    Ua a _ _ _ _ _ -> go a
+    PLm _ f        -> go d (f Era)
+    PAp p _        -> go d p
+    Coe pP r s x   -> case pathLineHead pP of
+                        -- coe along a universe path `<i> P @ i`: run the
+                        -- path's forward transport (its runtime rep) on x.
+                        Just pth -> case (r, s) of
+                          (I1, I0) -> "@pathBwd(" ++ go d pth ++ ")(" ++ go d x ++ ")"
+                          _        -> go d pth ++ "(" ++ go d x ++ ")"
+                        -- coe over a type that does not vary in i: identity.
+                        Nothing  -> go d x
+    HCm _ _ _ _ x  -> go d x            -- residual hcomp cap
+    Ua _ _ f _ _ _ -> go d f
 
     -- type-level formers with no runtime content
     Set   -> "&{}"; Emp   -> "&{}"; Uni   -> "&{}"; Bit -> "&{}"
@@ -108,15 +118,35 @@ emit book = go where
     Sig _ _ -> "&{}"; All _ _ -> "&{}"; Eql _ _ _ -> "&{}"; Rfl -> "&{}"
     Itv -> "&{}"; I0 -> "&{}"; I1 -> "&{}"
     INot _ -> "&{}"; IAnd _ _ -> "&{}"; IOr _ _ -> "&{}"; Pth _ _ _ -> "&{}"
-    EmpM x -> "λ{}(" ++ go x ++ ")"
-    EqlM _ f -> go f
-    Op1 _ a -> go a
-    Log _ x -> go x
+    EmpM x -> "λ{}(" ++ go d x ++ ")"
+    EqlM _ f -> go d f
+    Op1 _ a -> go d a
+    Log _ x -> go d x
     Met _ _ _ -> "&{}"
-    Frk l a b -> "&" ++ label l ++ "{" ++ go a ++ ", " ++ go b ++ "}"
-    SupM x l f -> "!&D&" ++ label l ++ " = " ++ go x ++ "; " ++ go f
+    Frk l a b -> "&" ++ label l ++ "{" ++ go d a ++ ", " ++ go d b ++ "}"
+    SupM x l f -> "!&D&" ++ label l ++ " = " ++ go d x ++ "; " ++ go d f
     Pri _ -> "&{}"
     Pat _ _ _ -> "&{}"
+
+  -- Function position of an application: atomic heads print bare; any
+  -- binder/eliminator head is parenthesized so `(λx.M)(N)` is not misread.
+  appFun :: Int -> Term -> String
+  appFun d f = case cut f of
+    Var _ _ -> go d f
+    Ref _   -> go d f
+    App _ _ -> go d f
+    _       -> "(" ++ go d f ++ ")"
+
+  -- If `pP` is `λi. (P @ i)` (a universe-path line), return the path `P`
+  -- whose runtime representation is its forward transport function.
+  pathLineHead :: Term -> Maybe Term
+  pathLineHead t = case t of
+    Lam k f  -> case f (Var k 0) of
+                  PAp pth _ -> Just pth
+                  Loc _ (PAp pth _) -> Just pth
+                  _         -> Nothing
+    Loc _ x  -> pathLineHead x
+    _        -> Nothing
 
   label :: Term -> String
   label (Loc _ t)     = label t

@@ -125,7 +125,4 @@ representative-matches-derived-class =
 -- operator-derived PM sign vector has odd total, and the explicit ZZ gauge
 -- representative has that same odd class.
 --
--- Not claimed: uniqueness or canonicity of ZZ.  Other edge representatives
--- can carry the same class.  Selecting one is gauge fixing; the invariant
--- content proved here is its cycle parity, not its support.
 ------------------------------------------------------------------------

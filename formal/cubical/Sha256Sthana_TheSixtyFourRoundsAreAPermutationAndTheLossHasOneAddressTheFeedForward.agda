@@ -35,13 +35,6 @@
 -- all — and that design fact is now a theorem about this
 -- implementation, not a remark about a construction.
 --
--- NOT claimed as new mathematics: that Davies–Meyer's cipher leg is a
--- permutation is the construction's own textbook rationale.  What is
--- claimed: the working implementation's 64 rounds, as written, with
--- their strictness discipline, verifiably compose to a bijection —
--- and therefore the loss the previous modules studied (the classes,
--- the fibres, the one-wayness) is created wholly at the named seam.
---
 -- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.
 ------------------------------------------------------------------------
 

@@ -1,0 +1,197 @@
+[
+  {
+    "archived": "originals/conversation/finite_strain_weil_signature/check_results.txt",
+    "mounted_original": "/mnt/data/finite_strain_weil_signature/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/finite_strain_weil_signature/checks.py",
+    "mounted_original": "/mnt/data/finite_strain_weil_signature/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/finite_strain_weil_signature/proof_note.md",
+    "mounted_original": "/mnt/data/finite_strain_weil_signature/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/instantiated_continuation_fibres/check_results.txt",
+    "mounted_original": "/mnt/data/instantiated_continuation_fibres/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/instantiated_continuation_fibres/checks.py",
+    "mounted_original": "/mnt/data/instantiated_continuation_fibres/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/instantiated_continuation_fibres/proof_note.md",
+    "mounted_original": "/mnt/data/instantiated_continuation_fibres/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/metacircular_causal_normal_form/check_results.txt",
+    "mounted_original": "/mnt/data/metacircular_causal_normal_form/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/metacircular_causal_normal_form/kernel.py",
+    "mounted_original": "/mnt/data/metacircular_causal_normal_form/kernel.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/metacircular_causal_normal_form/proof_note.md",
+    "mounted_original": "/mnt/data/metacircular_causal_normal_form/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/metacircular_full_history/check_results.txt",
+    "mounted_original": "/mnt/data/metacircular_full_history/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/metacircular_full_history/checks.py",
+    "mounted_original": "/mnt/data/metacircular_full_history/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/metacircular_full_history/proof_note.md",
+    "mounted_original": "/mnt/data/metacircular_full_history/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json",
+    "mounted_original": "/mnt/data/ns_rh_endpoint_assembly/endpoint_graph.json",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md",
+    "mounted_original": "/mnt/data/ns_rh_endpoint_assembly/endpoint_graph.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_source_audit/exact_checks.py",
+    "mounted_original": "/mnt/data/ns_rh_source_audit/exact_checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_source_audit/exact_checks_output.txt",
+    "mounted_original": "/mnt/data/ns_rh_source_audit/exact_checks_output.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_strain_symbol_hardy_innovation/check_results.txt",
+    "mounted_original": "/mnt/data/ns_rh_strain_symbol_hardy_innovation/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_strain_symbol_hardy_innovation/checks.py",
+    "mounted_original": "/mnt/data/ns_rh_strain_symbol_hardy_innovation/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/ns_rh_strain_symbol_hardy_innovation/proof_note.md",
+    "mounted_original": "/mnt/data/ns_rh_strain_symbol_hardy_innovation/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/passivity_toroidal_quadrupole/check_results.txt",
+    "mounted_original": "/mnt/data/passivity_toroidal_quadrupole/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/passivity_toroidal_quadrupole/checks.py",
+    "mounted_original": "/mnt/data/passivity_toroidal_quadrupole/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/passivity_toroidal_quadrupole/proof_note.md",
+    "mounted_original": "/mnt/data/passivity_toroidal_quadrupole/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/poisson_source_spectrum/check_identities.py",
+    "mounted_original": "/mnt/data/poisson_source_spectrum/check_identities.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/poisson_source_spectrum/check_results.txt",
+    "mounted_original": "/mnt/data/poisson_source_spectrum/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/poisson_source_spectrum/poisson_source_spectrum.md",
+    "mounted_original": "/mnt/data/poisson_source_spectrum/poisson_source_spectrum.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/receiver_inverse_harmonic_fibre/check_results.txt",
+    "mounted_original": "/mnt/data/receiver_inverse_harmonic_fibre/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/receiver_inverse_harmonic_fibre/checks.py",
+    "mounted_original": "/mnt/data/receiver_inverse_harmonic_fibre/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/receiver_inverse_harmonic_fibre/proof_note.md",
+    "mounted_original": "/mnt/data/receiver_inverse_harmonic_fibre/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/source_image_transport/check_results.txt",
+    "mounted_original": "/mnt/data/source_image_transport/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/source_image_transport/check_source_transport.py",
+    "mounted_original": "/mnt/data/source_image_transport/check_source_transport.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/source_image_transport/source_image_transport.md",
+    "mounted_original": "/mnt/data/source_image_transport/source_image_transport.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/source_resolved_closure/check_results.txt",
+    "mounted_original": "/mnt/data/source_resolved_closure/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/source_resolved_closure/checks.py",
+    "mounted_original": "/mnt/data/source_resolved_closure/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/source_resolved_closure/proof_note.md",
+    "mounted_original": "/mnt/data/source_resolved_closure/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/toroidal_first_return/check_results.txt",
+    "mounted_original": "/mnt/data/toroidal_first_return/check_results.txt",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/toroidal_first_return/checks.py",
+    "mounted_original": "/mnt/data/toroidal_first_return/checks.py",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/toroidal_first_return/proof_note.md",
+    "mounted_original": "/mnt/data/toroidal_first_return/proof_note.md",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/yantra_runtime_probe/environment.log",
+    "mounted_original": "/mnt/data/yantra_runtime_probe/environment.log",
+    "byte_identical": true
+  },
+  {
+    "archived": "originals/conversation/yantra_runtime_probe/setup-report.log",
+    "mounted_original": "/mnt/data/yantra_runtime_probe/setup-report.log",
+    "byte_identical": true
+  }
+]

@@ -17,10 +17,8 @@
 --      else is Piṅgala's fold and Āryabhaṭa's witness, both already
 --      checked."
 --
--- and then holds that fact as a HYPOTHESIS on purpose, listing under WHAT
--- IS NOT CLAIMED: *"Euler's theorem itself (`pow x φ ≡ ε`).  It is the
--- hypothesis, not a lemma — deliberately, because the point is that RSA's
--- correctness isolates to exactly this one fact.  Proving it (order
+-- It is the hypothesis, not a lemma — deliberately, because the point is that
+-- RSA's correctness isolates to exactly this one fact. Proving it (order
 -- divides φ, Lagrange) is a clean owed successor."*
 --
 -- §२ is that successor, in the one case where it is one line — and that

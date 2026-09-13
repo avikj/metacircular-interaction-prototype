@@ -75,11 +75,6 @@
 -- nothing below depends on it — and §8 itself says the audit "was not
 -- needed", which is the part §1 confirms.
 --
--- NOT CLAIMED.  That the substrate argument is internal — it is not,
--- and §1 gives only its internal shadow; that anything in this corpus
--- is ¬¬-provable and unproved (no such statement is exhibited, and by
--- `TheUnstableGroundCannotBeExhibited` none can be); that `Stable`
--- and inhabitation are the only two notions in play.
 ------------------------------------------------------------------------
 
 module WhatTheSubstrateArgumentCovers where

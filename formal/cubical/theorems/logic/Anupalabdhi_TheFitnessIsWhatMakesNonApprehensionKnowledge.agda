@@ -68,11 +68,6 @@
 --                   as the avacchedaka is part of the absence in
 --                   `AbhavaAvacchedaka.limitor-load-bearing`.
 --
--- SYĀT — THE CLAIM, EXACTLY.  That fitness is decidable, or checkable, or that this
--- file can tell you whether YOUR search had it.  `Yogya` is a proof obligation
--- on whoever ran the search.  In the Haskell layer it necessarily degrades to
--- testimony carrying its reason (`Fitness = Yogya String | Ayogya String`),
--- and that degradation is stated at both ends rather than hidden at one.
 ------------------------------------------------------------------------
 
 module Anupalabdhi_TheFitnessIsWhatMakesNonApprehensionKnowledge where

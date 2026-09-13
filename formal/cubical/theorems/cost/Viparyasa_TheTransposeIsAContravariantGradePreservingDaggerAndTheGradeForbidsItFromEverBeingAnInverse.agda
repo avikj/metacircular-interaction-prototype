@@ -34,10 +34,6 @@
 -- corpus lives (abstract 13).  The identification of `reverse` with the
 -- transpose of a Chow correspondence is asserted syāt: true under the named standpoint, with the checked shape as its warrant.
 --
--- SYĀT — THE CLAIM, EXACTLY.  No cycles, no varieties, no linearisation and
--- no additive category appear.  `daṇḍa` is defined on the kernel of
--- README-draft-2 §3 as it stands in RewriteCertificate.agda, and every
--- law below is about that object.
 ------------------------------------------------------------------------
 
 module Viparyasa_TheTransposeIsAContravariantGradePreservingDaggerAndTheGradeForbidsItFromEverBeingAnInverse where

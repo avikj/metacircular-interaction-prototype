@@ -163,8 +163,4 @@ interaction-reopens-joint-phase .JointReopening.localCannotRecover =
 -- the univalent phase loop and its state transport, and compilation commuting
 -- with the admitted interaction.
 --
--- Not claimed: that Bool is a complete quantum state space, that this is a
--- Bell experiment, or that a classical population collision alone proves
--- physical entanglement.  The theorem isolates the proof-relevant seam a
--- future Hilbert/spin-network realization must instantiate.
 ------------------------------------------------------------------------

@@ -26,9 +26,6 @@
 -- Conservation, reversibility, independence: the three axioms of the
 -- measure-level second law, each a term, none needing a real number.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Weights on the two-point space with
--- ℕ-mass; the logarithm (reals, and the additive reading) and larger
--- index types are the standing constructions.
 ------------------------------------------------------------------------
 
 module BharaGana_MassIsConservedPermutedAndMultipliedThePreLogarithmicSecondLaw where

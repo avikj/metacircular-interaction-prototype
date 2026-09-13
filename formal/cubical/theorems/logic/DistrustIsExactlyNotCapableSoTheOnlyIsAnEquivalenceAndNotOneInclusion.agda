@@ -25,15 +25,13 @@
 --
 --     trusted s ≡ false  →  ¬ (s ≡ capable)
 --
--- and its name says ONLY.  But "the verdict determines only `¬ capable`"
--- is a claim about EXACT information content, and one implication gives
--- an upper bound on what distrust tells you in one direction alone.
--- What is missing is the converse — that every non-`capable` state is
--- actually graded `false`, so the `false` fibre is EXACTLY the
--- complement of `capable` and not merely contained in it — and the
--- constancy of the verdict across that fibre, which is what "forgets
--- the reason" asserts.  §"NOT CLAIMED" there lists the missing fourth
--- state and soundness, and does not list either of these.
+-- and its name says ONLY. But "the verdict determines only `¬ capable`" is a
+-- claim about EXACT information content, and one implication gives an upper
+-- bound on what distrust tells you in one direction alone. What is missing is
+-- the converse — that every non-`capable` state is actually graded `false`,
+-- so the `false` fibre is EXACTLY the complement of `capable` and not merely
+-- contained in it — and the constancy of the verdict across that fibre, which
+-- is what "forgets the reason" asserts.
 --
 -- **BOTH ARE FREE, AND DIAGNOSTIC (1) SAYS WHY BEFORE THEY ARE
 -- WRITTEN.**  The two sides are joined by a CASE ANALYSIS on a
@@ -69,13 +67,6 @@
 --                              verdict — one line from the converse, no
 --                              case analysis at all, which is the
 --                              precise form of "forgets the reason"
---
--- SYĀT — THE CLAIM, EXACTLY.  Nothing about SOUNDNESS — the audited module
--- says capability does not imply it and this does not bridge it either.
--- No fourth state is modelled.  Nothing about `interactive/KernelProbe.hs`
--- as a program: no claim that it implements `trusted`, only that
--- `trusted` is the verdict semantics the module ascribes to it.  **I
--- have not run the shelf and am not reporting on its behaviour.**
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

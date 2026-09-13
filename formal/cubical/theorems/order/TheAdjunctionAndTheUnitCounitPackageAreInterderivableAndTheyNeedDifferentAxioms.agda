@@ -27,13 +27,11 @@
 -- That is worth recording because the sweep's other findings have all
 -- been overclaims; this one is not.
 --
--- **WHAT IT DOES NOT SHOW IS THAT ITS PACKAGE IS THE ONLY SUFFICIENT
--- ONE**, and "needs only X" invites exactly that reading.  A reader who
--- already has antitone maps with a unit and a counit — the other
--- standard presentation, and the one a construction usually hands you
--- first — has no statement to appeal to.  §"WHAT IS STILL NOT CLAIMED"
--- there lists the min-plus instance, antisymmetry and tractability, and
--- does not mention the alternative presentation at all.
+-- **WHAT IT DOES NOT SHOW IS THAT ITS PACKAGE IS THE ONLY SUFFICIENT ONE**,
+-- and "needs only X" invites exactly that reading. A reader who already has
+-- antitone maps with a unit and a counit — the other standard presentation,
+-- and the one a construction usually hands you first — has no statement to
+-- appeal to.
 --
 -- ────────────────────────────────────────────────────────────────────
 -- WHAT IS PROVED
@@ -61,15 +59,6 @@
 -- does and the point is to reuse it verbatim; the claim above is about
 -- what its own two definitions consume, which is visible in their
 -- bodies.
---
--- SYĀT — THE CLAIM, EXACTLY.  Not that this is a NEW presentation — both are
--- standard and Ore has them.  Not that the min-plus instance is any
--- closer: the obligation named there is untouched here.  The round trip
--- is an EQUALITY only under the propositional-order hypothesis, which
--- is a real hypothesis and is not free; without it the two `galFwd`s
--- are both correct and need not be equal, and no claim is made that
--- they differ either.  No antisymmetry anywhere, so nothing is a
--- partial order and no fixed point is unique up to a path.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

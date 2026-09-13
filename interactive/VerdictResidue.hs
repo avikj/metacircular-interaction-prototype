@@ -69,8 +69,6 @@
 --     composition operators.
 --   Mallisena, Syadvadamanjari, 1292 CE -- sakaladesa against vikaladesa.
 --
--- NOT CLAIMED: that any of them wrote a composition operator, a residue
--- record, or an iterated aspect refinement.
 
 module VerdictResidue
   ( Arpana(..), Naya(..), Sesa(..), Bhanga(..)

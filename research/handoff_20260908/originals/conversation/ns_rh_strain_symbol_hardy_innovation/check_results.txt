@@ -1,0 +1,23 @@
+PASS 01: transverse trace zero
+PASS 02: longitudinal component killed
+PASS 03: helical sign anticommutes with transverse symbol
+PASS 04: transverse eigenvalues squared
+PASS 05: cross-helicity scalar amplitude
+PASS 06: cross-helicity amplitude modulus squared
+PASS 07: general Sobolev trace
+PASS 08: five scalar principal-symbol readings reconstruct strain
+PASS 09: two-direction actual stretching reconstruction
+PASS 10: spherical symbol average = -2/5 strain
+PASS 11: critical weight transport correction
+PASS 12: Fourier high-frequency coefficient matches principal symbol
+PASS 13: Hardy transport derivative recovers source product
+PASS 14: Bergman transport derivative is Hardy kernel
+PASS 15: second Bergman transport derivative recovers product
+PASS 16: damping derivative is Bergman kernel
+PASS 17: three-point Cauchy determinant
+PASS 18: normalized three-point determinant is pair-distance product
+PASS 19: new-mode Schur residual = product of two distances
+PASS 20: nearby critical-line pair lower-eigenvalue bound identity
+
+20 exact algebraic controls passed.
+Not checked here: pseudodifferential norm theorem, zero-density theorem, infinite products, PDE continuation, or RH.

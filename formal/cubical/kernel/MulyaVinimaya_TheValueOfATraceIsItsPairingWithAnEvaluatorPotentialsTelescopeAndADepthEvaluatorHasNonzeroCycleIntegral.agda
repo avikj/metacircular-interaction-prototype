@@ -43,12 +43,6 @@
 -- either kill or account for: understanding as the controlled
 -- conversion of a nonzero cycle integral into boundary.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–3 as stated: the pairing, the
--- telescoping theorem with its closed-trace corollary, the two
--- schedules, the loop, its integral, and the nonexistence of a
--- potential for गभीरता.  NOT claimed: a computation of the full H¹
--- of the derivation complex, nor anything about evaluators valued
--- outside ℤ.
 ------------------------------------------------------------------------
 
 module MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsTelescopeAndADepthEvaluatorHasNonzeroCycleIntegral where

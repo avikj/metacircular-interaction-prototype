@@ -1,0 +1,80 @@
+[
+  {
+    "path": "originals/conversation/finite_strain_weil_signature/checks.py",
+    "sha256": "a824dab248742eed08aa35344532a4c690807bd97c574d42311e0347056d1e89",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/instantiated_continuation_fibres/checks.py",
+    "sha256": "ad4536f2ad9abbf5dcffc20e3796bdb8a7371e484b9bfbbf5f47b8a27740c4f7",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/metacircular_causal_normal_form/kernel.py",
+    "sha256": "8185f47f46ba2c651a6416cd11d0a5a78d19b94c59b29d860cad9636bc12e1ff",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/metacircular_full_history/checks.py",
+    "sha256": "5e56c9a06ea3210a8d257fad49972a7ee255785acd9035b307e5f4c4c40c5c2a",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/ns_rh_source_audit/exact_checks.py",
+    "sha256": "ad358615bbbce009dac475d0e2e133f8918520673f62a04ed421c67097b08809",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/ns_rh_strain_symbol_hardy_innovation/checks.py",
+    "sha256": "0d7410412145a28c0d239bf1e8c70a62b888df21fda7d2a7a005b29357ef8793",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/passivity_toroidal_quadrupole/checks.py",
+    "sha256": "c11ca8bf8af17aa09e28821c411110d46b2244496341189132c01fe5b6381d99",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/poisson_source_spectrum/check_identities.py",
+    "sha256": "8cf894c63ccc9908d7646d09d7fff563c63a346fa421ac73f69d3c1e67a0ffcb",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/receiver_inverse_harmonic_fibre/checks.py",
+    "sha256": "62e5f4193185edc542ad3d52847962bd5a47b8ef1ff3af8e60abbe1abba84fc8",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/source_image_transport/check_source_transport.py",
+    "sha256": "48cefb0857f696e2ad6665073019bb1e25502aa8998f71d6ccc956d227075e15",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/source_resolved_closure/checks.py",
+    "sha256": "48a2e737af0ef3ce1a37f4c58bf1120926b9aa08f188ed2a5086e2db92152560",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/conversation/toroidal_first_return/checks.py",
+    "sha256": "e943022d73117abdf5d7054d7300bbade374f1dbd63cf7adfbc4b8784a8db04b",
+    "status": "PARSE_OK",
+    "reason": ""
+  },
+  {
+    "path": "originals/library/checks(4).py",
+    "sha256": "0bcd57228a99239b935e54760bec5d4671fa5c62bb3e5b15022d6d6a27ccbca2",
+    "status": "PARSE_OK",
+    "reason": ""
+  }
+]

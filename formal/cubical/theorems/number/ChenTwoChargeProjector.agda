@@ -159,7 +159,4 @@ two-cofinal-faces-do-not-force-corner corner = corner-is-empty 1 (corner zero)
 -- of radius and charge restrictions for every parameterized finite support,
 -- and an explicit field with two cofinal faces but an empty (1,one) corner.
 --
--- Not claimed: that the parameterized witnesses are primes or semiprimes, or
--- any arithmetic Chen/twin/Goldbach lower bound.  Projection commutation is
--- algebra; intersection inhabitation is additional arithmetic content.
 ------------------------------------------------------------------------

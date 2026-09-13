@@ -37,9 +37,6 @@
 -- beyond the residue level is base motion, and the residue level is
 -- everything that is not.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Endomaps, one fixed projection; the
--- groupoid version (over-equivalences, and the full Aut(E/B) ≃ Π-Aut
--- of fibres as a group identity) is the next construction.
 ------------------------------------------------------------------------
 
 module SesaSamavaya_TheResidueStructureExhaustsTheSymmetriesOverTheBaseEveryOverMapIsAnAssembledFibreFamily where

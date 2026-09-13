@@ -36,10 +36,6 @@
 -- non-observable, and the two theorems bracket the same law from
 -- both sides.
 --
--- SYĀT — THE CLAIM, EXACTLY.  The group is ℤ/2 and the lattice is one
--- chain; larger gauge groups and higher-dimensional lattices are the
--- next constructions.  The lattice, group, connection, field, and
--- Wilson loop are no longer among the absences.
 ------------------------------------------------------------------------
 
 module SetuKsetra_TheLatticeNowExistsTheWilsonLoopIsGaugeInvariantByTelescopingAndTheConnectionIsNot where

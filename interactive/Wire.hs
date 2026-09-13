@@ -76,11 +76,6 @@
 -- utterance it turned back AND the utterance that would have carried the same
 -- intent without loss.  A turn-back without a repair is itself a collapse.
 --
--- NOT CLAIMED: that Gautama or Vātsyāyana wrote a wire format.  What is
--- taken from Nyāya is the position that testimony is a distinct pramāṇa
--- with its own fitness conditions, and that an utterance arriving by an
--- unaccepted route is not weak evidence but no evidence (§19 of the
--- sūtra: अप्रमाणं न सञ्चीयते — what is not a pramāṇa does not accumulate).
 
 module Wire
   ( J(..)
@@ -389,13 +384,6 @@ jObj v = Left ("expected an object, got " ++ render v)
 -- time, which is why the other four sites did not get it.  §35: यत् हेतुना
 -- जन्यते तत् न स्थाप्यते — what a rule generates is not stored in six copies.
 --
--- NOT CLAIMED of any source.  `vacana`, `ukta`, `anukta`, `durvaca` are the
--- ordinary Sanskrit words for utterance, uttered, unuttered, and ill-spoken
--- / hard-to-express (durvaca, an attested adjective).  No text is being said
--- to have specified a JSON reader.  What §3 does supply, and what is being
--- used, is the position itself: अवक्तव्यं न अज्ञातम् । अवक्तव्यं न अनिर्धारितम् ।
--- अवक्तव्यं न शून्यम् — the inexpressible is not the unknown, not the
--- undetermined, and not the empty.  Durvacam is not Anuktam.
 
 -- | What a key on the wire is, from the reader's side.  Three, not two.
 data Vacana a
@@ -495,11 +483,6 @@ athava _ (Durvacam e) = Left e
 -- in silence.  Closing that needs the set of keys the transport itself
 -- claims, which is not written down anywhere yet.
 --
--- NOT CLAIMED of Pāṇini: adhikāra is his term for a heading that governs a
--- stated extent (Aṣṭādhyāyī 1.4.1–2 and the adhikāra-sūtras throughout), and
--- what is taken is one sentence of it — the extent is stated, so a rule
--- outside it is not a weaker match, it is outside.  He did not write a
--- parameter check.
 anadhikrta :: [String] -> J -> [(String, String)]
 anadhikrta declared (JObj kvs) =
   [ (n, why n) | n <- nub' [ n | (n, _) <- kvs ], why n /= "" ]

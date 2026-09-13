@@ -23,14 +23,9 @@
 --
 -- **`DIFFER ONLY AT THE BOUNDARY` WAS ONE INCLUSION AND ONE INSTANCE.**
 -- Proved there: `aboveGivesAtLeast` (strict ⇒ non-strict), and
--- `atLeastWithoutAbove`, a SINGLE population — one true, one false —
--- where the non-strict claim holds and the strict one fails.  A single
--- witness shows the families differ SOMEWHERE.  **`ONLY` is the claim
--- that they differ NOWHERE ELSE, and that is a universally quantified
--- statement about every population off the boundary, which is not
--- there.**  Its §"WHAT IS STILL NOT CLAIMED" lists the one-population
--- limitation, interleaving, the unquotiented preorder and the list
--- encoding — not this.
+-- `atLeastWithoutAbove`, a SINGLE population — one true, one false — where
+-- the non-strict claim holds and the strict one fails. A single witness shows
+-- the families differ SOMEWHERE.
 --
 -- **AND IT IS TWO LINES, BECAUSE ℕ'S ORDER SPLITS.**  `≤-split` gives
 -- `m ≤ n → (m < n) ⊎ (m ≡ n)`, so `AtLeast` is exactly `Above` or
@@ -52,17 +47,6 @@
 --   theFamiliesAgreeOffTheBoundary
 --                        hence `AtLeast ⟺ Above` at every population
 --                        that does not meet the threshold exactly
---
--- SYĀT — THE CLAIM, EXACTLY.  This says nothing new about WHICH populations
--- sit on a boundary — that is the audited module's appended result
--- (`pop p k`, length `suc q`), and MINIMALITY of that length is still
--- open there and here.  Nothing about interleaving or density of `⊑`.
--- `⊑` remains a total PREORDER, unquotiented: (1,1) and (2,3) name one
--- rate and stay two pairs.  The population is still a LIST, so
--- multiplicity is counted and order carried, and no claim below uses
--- the order.  No claim that `OnTheBoundary` is decidable — it is a path
--- in ℕ and `discreteℕ` would give it, but nothing here needs or states
--- that.
 --
 -- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 — NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.

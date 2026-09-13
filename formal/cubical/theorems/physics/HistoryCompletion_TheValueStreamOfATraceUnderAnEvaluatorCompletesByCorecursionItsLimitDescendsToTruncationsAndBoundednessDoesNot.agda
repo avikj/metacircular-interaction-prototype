@@ -275,3 +275,86 @@ module JetStream where
   -- … and the boundary row of the residual at depth 3 is nonzero
   residual-beyond : residual₃ (pos 4) (pos 1) ≡ (pos 0 , pos 1)
   residual-beyond = refl
+
+------------------------------------------------------------------------
+-- §5  the one engine, in stream form: no measure falls forever
+--
+-- SamanaAvatarana's DescentObstruction iterates a measure-decreasing step;
+-- its measure sequence is a stream of naturals, and □(next < now) on it
+-- is uninhabited.  Unlike □Bounded (§3), which no depth decides, this □
+-- is refuted at NO finite depth and yet uninhabited: well-foundedness is
+-- the one infinite-depth fact the corpus rests on, and here it is what
+-- separates a descent from a history.
+------------------------------------------------------------------------
+
+module Descent where
+  open Take
+  open import Cubical.Data.Nat.Order using (_<_)
+  open import RenormalizedObserverTower using (no-infinite-descent)
+
+  -- "the next value is below the current one", at every depth
+  record □↓ (s : Dhārā ℕ) : Type₀ where
+    coinductive
+    field
+      drop : śiras (śeṣam s) < śiras s
+      rest : □↓ (śeṣam s)
+  open □↓
+
+  -- the stream read as a sequence
+  seq : Dhārā ℕ → ℕ → ℕ
+  seq s zero = śiras s
+  seq s (suc n) = seq (śeṣam s) n
+
+  seq-drop : (s : Dhārā ℕ) → □↓ s → (n : ℕ) → seq s (suc n) < seq s n
+  seq-drop s d zero = drop d
+  seq-drop s d (suc n) = seq-drop (śeṣam s) (rest d) n
+
+  -- THE ENGINE: no stream of naturals falls forever
+  no-falling-stream : (s : Dhārā ℕ) → ¬ □↓ s
+  no-falling-stream s d = no-infinite-descent (seq s , seq-drop s d)
+
+  -- a measure-decreasing step (SamanaAvatarana's DStep) iterated from a
+  -- configuration is a falling stream, so the configuration is empty
+  module _ (Config : Type₀) (measure : Config → ℕ)
+           (step : (c : Config) → Σ[ c' ∈ Config ] (measure c' < measure c)) where
+
+    orbit : Config → Dhārā Config
+    śiras (orbit c) = c
+    śeṣam (orbit c) = orbit (fst (step c))
+
+    measures : Dhārā Config → Dhārā ℕ
+    śiras (measures o) = measure (śiras o)
+    śeṣam (measures o) = measures (śeṣam o)
+
+    orbit-falls : (c : Config) → □↓ (measures (orbit c))
+    drop (orbit-falls c) = snd (step c)
+    rest (orbit-falls c) = orbit-falls (fst (step c))
+
+    emptied-by-stream : ¬ Config
+    emptied-by-stream c = no-falling-stream (measures (orbit c)) (orbit-falls c)
+
+------------------------------------------------------------------------
+-- §6  in the record's own decoder language: the bounded-forever
+--     transcript does not factor through any finite-depth endpoint
+--
+-- TranscriptDescent: a transcript factors through a visible endpoint iff
+-- it is constant on endpoint collisions, and one collision with different
+-- transcript values refutes every endpoint-only decoder.  §3's pair is
+-- that collision: at depth n the two streams have the same endpoint
+-- (take n) and different transcripts (bounded forever / not).
+------------------------------------------------------------------------
+
+module Decoder where
+  open Take
+  open NoDepth
+  open import TranscriptDescent using (collisionObstructsDecoder)
+  open import FiniteInformation using (FactorsThrough)
+
+  -- the transcript: whether the stream is bounded at every depth, as a type
+  transcript : Dhārā ℤ → Type₀
+  transcript s = □ Bounded s
+
+  bounded-does-not-factor-through-depth : (n : ℕ) → ¬ FactorsThrough (take n) transcript
+  bounded-does-not-factor-through-depth n =
+    collisionObstructsDecoder (take n) transcript {spike n} {zeros} (agree n)
+      (λ e → spike-unbounded n (transport (sym e) zeros-bounded))

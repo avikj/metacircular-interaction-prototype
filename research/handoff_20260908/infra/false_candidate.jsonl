@@ -1,0 +1,1 @@
+{"kriya": "sadhana.patra", "angani": {"patra": ["{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}", "module Candidate where", "open import Cubical.Foundations.Prelude", "open import Cubical.Data.Nat using (ℕ; zero; suc)", "false-control : zero ≡ suc zero", "false-control = refl"]}}

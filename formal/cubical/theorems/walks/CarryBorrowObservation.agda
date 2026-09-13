@@ -30,11 +30,6 @@
 --   PROVED HERE: complement/carry/borrow equations, the positive-observation
 --   exclusion, and failure of complete-word descent through borrow count.
 --
---   NOT CLAIMED: that a borrow observation is a pramāṇa in Dignāga's sense,
---   that apoha is a Boolean complement, or that extensional correctness of
---   this finite observation supplies its causal or epistemic warrant.  The
---   historical tradition generated the question; the terms below certify
---   only the stated finite mathematics.
 ------------------------------------------------------------------------
 
 module CarryBorrowObservation where

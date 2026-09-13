@@ -1,0 +1,20 @@
+Checking M24 (/home/user/math/formal/cubical/theorems/primes/M24.agda).
+/home/user/math/formal/cubical/theorems/primes/M24.agda:62.17-21: error: [UnequalTerms]
+1 ≤ n →
+DMR.diffSq (2 · fst (DMR.Hfrac (DMR.δ n)))
+(n · n · snd (DMR.Hfrac (DMR.δ n)))
+<
+144 · (n · n · n) ·
+(snd (DMR.Hfrac (DMR.δ n)) · snd (DMR.Hfrac (DMR.δ n)))
+!=
+Σ ℕ
+(λ k →
+   k +
+   suc
+   (DMR.diffSq (2 · fst (DMR.Hfrac (DMR.δ n)))
+    (n · n · snd (DMR.Hfrac (DMR.δ n))))
+   ≡
+   144 · (n · n · n) ·
+   (snd (DMR.Hfrac (DMR.δ n)) · snd (DMR.Hfrac (DMR.δ n))))
+when checking that the expression refl has type
+DMR.RH ≡ ((n : ℕ) → RHAt n)

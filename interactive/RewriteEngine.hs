@@ -1907,14 +1907,6 @@ deriveLekhaV vd nv start =
 -- from memory, which is the failure this repository exists to prevent.
 -- The mechanism is exercised counterfactually below until that is fixed.
 --
--- WHAT IS AND IS NOT CLAIMED.  The rules run below are the tripadi's own,
--- which belong to the ORDERED regime; running them simultaneously is a
--- COUNTERFACTUAL, not a claim about Sanskrit.  Its purpose is to show that
--- the regime itself changes the output -- that the choice of device is
--- load-bearing rather than presentational.  No sutra of 6.4 is encoded
--- here; the schematic treatment is the same choice
--- formal/cubical/NaturalMachine/AsiddhatvaBreaksFactoring.agda makes and
--- says it makes ("three letters and one substitution... deliberate").
 
 -- One asiddhavat pass: every rule of the block is offered the SAME input,
 -- so none of them sees any other's effect.  Non-overlapping rewrites are
@@ -2637,12 +2629,7 @@ laghavaReport =
 --     laghava is not a function of the SET of rules; the order carries
 --     information no set carries.
 --
--- So the theorem is already proved, twice, and this file does not
--- restate it.  What is added here is exactly what
--- `AnuvrttiIsTheSameTrade` names in its own NOT CLAIMED paragraph --
--- "the real anuvrtti chains run many words deep with their own
--- nivrtti", and "the saving in §2 is not the Phonology's actual
--- economy":
+-- So the theorem is already proved, twice, and this file does not restate it.
 --
 --   * CHAINS, not one edge.  Four words, in force over 8, 6, 5 and 6
 --     sutras, overlapping, with a nivrtti that stops one of them.
@@ -3049,18 +3036,6 @@ selfTest = concat
       ]
 
     -- 8.11  स्थानिवद्भावः (1.1.56) and लोपः (1.1.60), section 6c.
-    --
-    -- WHAT IS AND IS NOT EXERCISED, and this is the honest half of the
-    -- section.  The EXCEPTION clause `anal-vidhau` is exercised: three
-    -- corpus words have a rule firing at a position another rule had
-    -- already substituted, and the rule reads the ādeśa (`barrierAudit`).
-    -- The INHERITANCE half is DECLARED for the three designation-reading
-    -- rules encoded here -- 1.1.5, 1.3.9, 7.1.1 -- and in every derivation
-    -- this file runs, those three fire at sites holding no ādeśa, so their
-    -- two readings COINCIDE and nothing distinguishes them.  That is
-    -- checked below, not glossed over: `deriveRupamEverywhere`, which
-    -- strikes `sthānivat` and makes every rule read the form, gives the
-    -- same word as the grammar on the whole corpus.
     --
     -- So the divergence is exhibited by striking the EXCEPTION -- reading
     -- 1.1.56 as the folklore's full transparency -- and not by an encoded

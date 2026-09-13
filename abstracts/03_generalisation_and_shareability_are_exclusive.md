@@ -14,7 +14,11 @@ The separation.  The library, the merge, the frontier expansion, the session and
 
 Two further measurements.  Where a generalising skill's pattern contains no free register, the substitutions enabled at its one state form an entire copy of the term algebra and every member emits the same output, so the fibre over an emission is unbounded and no deduplication heuristic collapses a redundant pair - it collapses that fibre.  And emission does not determine the witness: we prove the discarded substitution is not recoverable from what the skill produced.
 
-WHAT IS NOT CLAIMED.  There is no Markov decision process, no reward signal, no stochasticity, no discounting and no optimisation in this development.  "Skill" names a record, "state" names a term, and "fires" names inhabitation of an applicability family.  Whether a deployed learner's skill representation has this shape is a reading and is not proved.
+There is no Markov decision process, no reward signal, no stochasticity, no
+discounting and no optimisation in this development. "Skill" names a record,
+"state" names a term, and "fires" names inhabitation of an applicability
+family. Whether a deployed learner's skill representation has this shape is a
+reading and is not proved.
 
 Machine-checked in cubical type theory, no postulates, no admitted goals.
 

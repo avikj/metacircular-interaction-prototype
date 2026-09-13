@@ -70,14 +70,6 @@
 -- and it recurs because both statements are quantified, not because
 -- the quantities are the same.
 --
--- NOT CLAIMED.  That the general converse of §1 fails: no presentation
--- space is shown here to have an unrecoverable refutation, and the
--- four corners are not taken — this file asserts neither that the
--- witness can always be recovered nor that it cannot, and does not
--- reach the further two corners.  §2 says what buys it in one case.
--- Also not claimed: that `size` is the right measure, that laghava
--- means minimality of `size`, or anything about Pāṇinian practice
--- beyond what `Laghava` already carries.
 ------------------------------------------------------------------------
 
 module RefutingLaghavaIsASearch where

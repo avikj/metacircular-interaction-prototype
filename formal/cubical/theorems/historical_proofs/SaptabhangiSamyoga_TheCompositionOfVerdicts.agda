@@ -50,15 +50,6 @@
 --   Mallisena, Syādvādamañjarī, 1292 CE — sakalādeśa (total statement,
 --     pramāṇa) against vikalādeśa (partial statement, naya).
 --
--- SYĀT — THE CLAIM, EXACTLY.  None of these authors wrote a composition
--- operator, an associativity law, or a counterexample to associativity.
--- What is theirs is: three seed predicates; two modes of assertion; that
--- the simultaneous mode of asti-and-nāsti is a FOURTH position and not the
--- sequential pair; and that the total is seven.  The rest is mine, and the
--- non-associativity below is a consequence of their rule, not of my
--- notation — it says that under saha the grouping is not free, because
--- collapsing a pair into avaktavya destroys which seeds it was made of.
--- a failure of an algebraic law.
 ------------------------------------------------------------------------
 
 module SaptabhangiSamyoga_TheCompositionOfVerdicts where

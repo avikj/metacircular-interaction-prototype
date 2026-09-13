@@ -35,10 +35,6 @@
 -- vertical exhaustion all answer to the same four — the quarter turn
 -- as the one constant of the theory.
 --
--- SYĀT — THE CLAIM, EXACTLY.  Exhaustion on the cellwise class; the
--- extension to all zero-lookahead (causal) symmetries — where lower
--- cells may in principle feed the reading — is the standing
--- construction.
 ------------------------------------------------------------------------
 
 module KendraNirvahana_EveryCentralCellwiseSymmetryIsAUniformPowerOfTheQuarterTurnTheExhaustionForTheVerticalClass where

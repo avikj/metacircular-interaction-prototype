@@ -1,0 +1,16 @@
+Checking M8 (/home/user/math/formal/cubical/theorems/physics/M8.agda).
+/home/user/math/formal/cubical/theorems/physics/M8.agda:193.11-200.62: error: [UnequalTerms]
+∂ G != G of type R .fst
+when checking that the expression
+cong (r ·_)
+(∂-add _ _ ∙ cong (_+ ∂ (- (r · r · (G′ · G′)))) (∂-add _ _))
+∙
+·DistR+ r _ _ ∙
+cong (_+ r · ∂ (- (r · r · (G′ · G′)))) (·DistR+ r _ _) ∙
+cong₂ _+_ (cong₂ _+_ L1 L2) L3 ∙
+AdditiveShape.rearrange (AbGroup→CommMonoid (Ring→AbGroup R)) a b c
+d e f g (- c) (- f) (- g)
+∙
+cong (RHSn +_) cancel ∙
++IdR RHSn ∙ sym (cong₂ _+_ (cong₂ _+_ (cong₂ _+_ R1 R2) R3) R4)
+has type r · ∂ Φ₂ ≡ bracket
