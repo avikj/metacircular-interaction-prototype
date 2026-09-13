@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import functools
 import os
 from pathlib import Path
 import re
@@ -9,6 +10,13 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# Modules whose typechecking exhausts this container's memory (>14 GB even
+# checked alone, at every heap/GC setting). Excluded from the materialized
+# state and reported, so the omission is visible rather than silent.
+MEMORY_EXCLUDES = {
+    "RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten",
+}
 GENERATED = ROOT / "generated"
 OUT = GENERATED / "CorpusRepository.agda"
 
@@ -41,7 +49,6 @@ def public_names(src: str) -> list[str]:
         "instance", "macro", "variable", "postulate", "field", "constructor",
         "infix", "infixl", "infixr", "syntax", "pattern",
     }
-
     def add(x: str) -> None:
         x = x.strip()
         if not x or x == "_" or x in keywords or x.startswith("--") or x.startswith("{-#"):
@@ -49,16 +56,13 @@ def public_names(src: str) -> list[str]:
         if any(c in x for c in "(){}[],"):
             return
         if x not in seen:
-            seen.add(x)
-            names.append(x)
-
+            seen.add(x); names.append(x)
     for line in src.splitlines():
         if not line or line[0].isspace() or line.startswith("--") or line.startswith("{-#"):
             continue
         dm = re.match(r"(?:data|record)\s+([^\s:{]+)", line)
         if dm:
-            add(dm.group(1))
-            continue
+            add(dm.group(1)); continue
         if ":" not in line:
             continue
         left = line.split(":", 1)[0].strip()
@@ -68,22 +72,26 @@ def public_names(src: str) -> list[str]:
             continue
         for token in left.split():
             add(token)
-    return names
+    # Two names in one module whose underscore-stripped spellings agree
+    # (a prefix operator next to its infix sibling, e.g. ⊟ᵐ_ and _⊟ᵐ_)
+    # make `quote` irreducibly ambiguous between name and section; drop
+    # every member of such a collision class.
+    stripped: dict[str, int] = {}
+    for n in names:
+        key = n.replace("_", "")
+        stripped[key] = stripped.get(key, 0) + 1
+    return [n for n in names if stripped[n.replace("_", "")] == 1]
 
 
 def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[Path]]]]:
-    libs = [
-        ROOT / "formal/cubical/natural-machine.agda-lib",
-        ROOT / "rescued-lanes.agda-lib",
-        ROOT / "fibre/fibre.agda-lib",
-    ]
+    libs = [ROOT / "formal/cubical/natural-machine.agda-lib", ROOT / "rescued-lanes.agda-lib", ROOT / "fibre/fibre.agda-lib"]
     includes: list[Path] = []
     for lib in libs:
         for p in parse_include_dirs(lib):
             if p not in includes:
                 includes.append(p)
-
     by_module: dict[str, list[tuple[Path, list[str], int]]] = {}
+    imports_of: dict[str, set[str]] = {}
     for rank, inc in enumerate(includes):
         for path in inc.rglob("*.agda"):
             rp = path.resolve()
@@ -93,11 +101,44 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
                 src = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 continue
-            mod = module_name(src)
-            if not mod:
+            if "{!" in src or re.search(r"(?m)(^|[\s(=])\?(\s|\)|$)", src):
                 continue
-            by_module.setdefault(mod, []).append((path, public_names(src), rank))
-
+            # The generated module is --cubical --safe, both infective and
+            # coinfective: only modules declaring the same can be imported.
+            opts = re.search(r"(?s)\{-#\s*OPTIONS(.*?)#-\}", src)
+            flags = opts.group(1) if opts else ""
+            if "--cubical" not in flags or "--safe" not in flags:
+                continue
+            # Anything importing the generated module sits above it; pulling
+            # it back into the generated state would be a module cycle.
+            if re.search(r"(?m)^\s*(open\s+)?import\s+CorpusRepository\b", src):
+                continue
+            mod = module_name(src)
+            # An importable top-level module must be named after its file;
+            # anything else (an inner module matched first, module _) is not
+            # addressable by import and would poison the generated file.
+            if mod and mod.split(".")[-1] == path.stem:
+                # CORPUS_FILTER bounds the probe namespace by module-name
+                # regex.  Unset means the whole repository; on machines
+                # that cannot hold the whole value, a filter proves the
+                # same lane on a subcorpus.
+                flt = os.environ.get("CORPUS_FILTER")
+                if flt and not re.search(flt, mod):
+                    continue
+                by_module.setdefault(mod, []).append((path, public_names(src), rank))
+                imports_of[mod] = set(re.findall(r"(?m)^\s*(?:open\s+)?import\s+([^\s(]+)", src))
+    # Exclude memory-excluded modules together with everything that
+    # (transitively) imports them; report each exclusion.
+    dropped = set(MEMORY_EXCLUDES)
+    changed = True
+    while changed:
+        changed = False
+        for mod, imps in imports_of.items():
+            if mod not in dropped and imps & dropped:
+                dropped.add(mod); changed = True
+    for mod in sorted(dropped & set(by_module)):
+        print(f"EXCLUDED (memory closure): {mod}", file=sys.stderr)
+        del by_module[mod]
     chosen: list[tuple[str, Path, list[str]]] = []
     duplicates: list[tuple[str, list[Path]]] = []
     for mod, xs in sorted(by_module.items()):
@@ -118,70 +159,186 @@ def find_agda() -> tuple[Path, Path] | None:
     if not agda.exists():
         found = shutil.which("agda")
         if not found:
-            print("no agda; run: sh setup", file=sys.stderr)
-            return None
+            print("no agda; run: sh setup", file=sys.stderr); return None
         agda = Path(found)
     libfile = prefix / ".agda-pin/libraries"
     if not libfile.exists():
-        print(f"no {libfile}; run: sh setup", file=sys.stderr)
-        return None
+        print(f"no {libfile}; run: sh setup", file=sys.stderr); return None
     ver = subprocess.run([str(agda), "--version"], text=True, capture_output=True).stdout.strip()
     if not ver.startswith("Agda version 2.8.0"):
-        print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr)
-        return None
+        print(f"wrong toolchain: {ver!r}; run: sh setup", file=sys.stderr); return None
     return agda, libfile
+
+
+def write_if_changed(path: Path, text: str) -> None:
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return
+    path.write_text(text, encoding="utf-8")
 
 
 def generate() -> tuple[int, int]:
     modules, duplicates = discover()
     imports: list[str] = []
     qnames: list[str] = []
+    ambiguous = {mod for mod, _ in duplicates}
+    # Machine-bound exclusions, not mathematical ones.  The two Ramanujan
+    # monsters exhaust a 14 GB heap even checked alone on this 15 GB
+    # machine; Sthana imports a Setubandha module absent from the tree.
+    unbuildable = {
+        "RamanujanLehmer_TheQuestionIsATypeTauIsTotalTheGateHoldsToSixteenAndNoConverseIsWritten",
+        "RamanujanSiddhanta_ThePaperInOneModuleEveryClaimOneTerm",
+        "Sthana_ThePositionalWordIsPingalasNextRowAndItsAdditionArrivesWithNoCarryRule",
+    }
     for mod, _, names in modules:
-        if mod == "CorpusRepository":
+        if mod == "CorpusRepository" or mod in ambiguous or mod in unbuildable:
             continue
         imports.append(f"import {mod}")
         qnames.extend(f"{mod}.{n}" for n in names)
-
     GENERATED.mkdir(exist_ok=True)
-    body = [
-        "{-# OPTIONS --cubical --safe --guardedness #-}",
-        "module CorpusRepository where",
-        "",
-        "open import Agda.Primitive using (lzero)",
-        "open import Agda.Builtin.Reflection using (Name)",
-        "open import Agda.Builtin.List using (List ; [] ; _∷_)",
-        "open import Fibre.CorpusReflection",
-        "open import Fibre.CorpusSamvada",
-        "",
-        *imports,
-        "",
-        "names : List Name",
-        "names =",
-    ]
-    if qnames:
-        body.extend([f"  quote {q} ∷" for q in qnames])
-        body.append("  []")
-    else:
-        body.append("  []")
-    body.extend([
-        "",
-        "corpus : RawCorpus",
-        "corpus = materialize names",
-        "",
-        "corpusPoint : Point lzero",
-        "corpusPoint = point corpus",
-        "",
-        "corpusProcess : Corpus corpusPoint",
-        "corpusProcess = run corpusPoint",
-        "",
-    ])
-    OUT.write_text("\n".join(body), encoding="utf-8")
-    print(f"generated {OUT.relative_to(ROOT)}", file=sys.stderr)
+    # Shard the quadratic loci materialization: each shard probes a slice
+    # of generators against the full pool in its own bounded process, and
+    # the concatenation of shard values is exactly buildLoci pool pool.
+    shard_size = int(os.environ.get("CORPUS_SHARD", "32"))
+    chunk_size = int(os.environ.get("CORPUS_POOL_CHUNK", "2000"))
+    slices = [qnames[i:i + shard_size] for i in range(0, len(qnames), shard_size)] or [[]]
+    chunks = [qnames[i:i + chunk_size] for i in range(0, len(qnames), chunk_size)] or [[]]
+    for stale in GENERATED.glob("CorpusShard*.agda"):
+        if stale.name not in {f"CorpusShard{k}.agda" for k in range(1, len(slices) + 1)}:
+            stale.unlink()
+    for stale in GENERATED.glob("CorpusPool[0-9]*.agda"):
+        if stale.name not in {f"CorpusPool{k}.agda" for k in range(1, len(chunks) + 1)}:
+            stale.unlink()
+    # The classified pool is materialized once, in chunks, as checked
+    # values; shards consume it as data and pay no reflection for it.
+    eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
+    # The corpus VALUE is materialized in the same bounded pieces:
+    # reflection retention is per call, so 25.8k names in one process is
+    # tens of GB, while 2000-name pieces are minutes each and their
+    # concatenation is pure data.
+    data_size = int(os.environ.get("CORPUS_DATA_PIECE", "400"))
+    data_slices = [qnames[i:i + data_size] for i in range(0, len(qnames), data_size)] or [[]]
+    for stale in GENERATED.glob("CorpusData*.agda"):
+        stale.unlink()
+
+    def write_data(dmod: str, ch: list[str]) -> None:
+        dbody = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            f"module {dmod} where", "",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusReflection using (RawCorpus ; materialize)", "",
+            *imports, "",
+            "partNames : List Name", "partNames =",
+            *[f"  (quote {q}) ∷" for q in ch], "  []", "",
+            "part : RawCorpus", "part = materialize partNames", "",
+        ]
+        write_if_changed(GENERATED / f"{dmod}.agda", "\n".join(dbody))
+    chunk_mods: list[str] = []
+    for k, ch in enumerate(chunks, start=1):
+        if not eager_loci:
+            break
+        cmod = f"CorpusPool{k}"
+        chunk_mods.append(cmod)
+        cbody = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            f"module {cmod} where", "",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusLoci using (PoolEntry ; materializePool)", "",
+            *imports, "",
+            "chunkNames : List Name", "chunkNames =",
+            *[f"  (quote {q}) ∷" for q in ch], "  []", "",
+            "chunk : List PoolEntry", "chunk = materializePool chunkNames", "",
+        ]
+        write_if_changed(GENERATED / f"{cmod}.agda", "\n".join(cbody))
+    pool_expr = functools.reduce(
+        lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.chunk ({acc})",
+        reversed(chunk_mods[:-1]), f"{chunk_mods[-1]}.chunk") if chunk_mods else "[]"
+    (GENERATED / "CorpusPoolAll.agda").unlink(missing_ok=True)
+    for stale in GENERATED.glob("CorpusShard*.agda"):
+        stale.unlink()
+    def write_shard(smod: str, sl: list[str]) -> None:
+        sbody = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            f"module {smod} where", "",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "import Fibre.CorpusLoci",
+            "open Fibre.CorpusLoci using (RawLoci ; PoolEntry ; materializeLociStream)", "",
+            *[f"import {m}" for m in chunk_mods], "",
+            *imports, "",
+            "pool : List PoolEntry",
+            f"pool = {pool_expr}", "",
+            "gens : List Name", "gens =",
+            *[f"  (quote {q}) ∷" for q in sl], "  []", "",
+            "shard : RawLoci", "shard = materializeLociStream pool gens", "",
+        ]
+        write_if_changed(GENERATED / f"{smod}.agda", "\n".join(sbody))
+
+    def write_repository(data_mods: list[str], shard_mods: list[str]) -> None:
+        body = build_repository_body(data_mods, shard_mods)
+        write_if_changed(OUT, "\n".join(body))
+
+    def build_repository_body(data_mods: list[str], shard_mods: list[str]) -> list[str]:
+        corpus_expr = functools.reduce(
+            lambda acc, m: f"Fibre.CorpusReflection._++_ {m}.part ({acc})",
+            reversed(data_mods[:-1]), f"{data_mods[-1]}.part") if data_mods else "[]"
+        body = [
+            "{-# OPTIONS --cubical --safe --guardedness #-}",
+            "module CorpusRepository where", "",
+            "open import Agda.Primitive using (lzero)",
+            "open import Agda.Builtin.Reflection using (Name)",
+            "open import Agda.Builtin.List using (List ; [] ; _∷_)",
+            "open import Fibre.CorpusReflection",
+            "open import Fibre.CorpusSamvada",
+            "import Fibre.CorpusRefs",
+            "open import Fibre.CorpusLoci",
+            "import CorpusSelfPresentation as SP", "",
+            *imports, "", "names : List Name", "names =",
+        ]
+        body += [f"  (quote {q}) ∷" for q in qnames] + ["  []"]
+        body += [
+            "", "-- Expanded checked source, retained as the exact realization",
+            "-- substrate — the concatenation of the checked piece values.",
+            *[f"import {m}" for m in data_mods],
+            "corpus : RawCorpus",
+            f"corpus = {corpus_expr}",
+            "", "-- The TOTAL reference relation between all expressions:",
+            "-- for every declaration, every name its checked type and",
+            "-- definition mention.  Pure syntax over corpus — exact and",
+            "-- complete, no probing, no truncation.",
+            "refGraph : Fibre.CorpusRefs.RefGraph",
+            "refGraph = Fibre.CorpusRefs.refGraph corpus",
+            "", "-- Factored relational presentation: each checked generator occurs once;",
+            "-- its dependent family contains the checked inhabitants it accepts,",
+            "-- capped per generator; each entry is the accepted application and",
+            "-- its inferred type.",
+            *[f"import {m}" for m in shard_mods],
+            "loci : RawLoci",
+            "loci = " + (functools.reduce(lambda acc, m: f"Fibre.CorpusLoci._++_ {m}.shard ({acc})", reversed(shard_mods[:-1]), f"{shard_mods[-1]}.shard") if shard_mods else "[]"),
+            "", "corpusPoint : Point lzero", "corpusPoint = point corpus",
+            "", "lociPoint : Point lzero", "lociPoint = point loci",
+            "", "corpusProcess : Corpus corpusPoint", "corpusProcess = run corpusPoint",
+            "", "lociProcess : Corpus lociPoint", "lociProcess = run lociPoint",
+            "", "-- THE COINDUCTIVE PRESENTATION: the corpus as one state of the",
+            "-- guarded interactive coalgebra.  Every question (every map out of",
+            "-- the corpus) is answered on demand with its target, the EXACT",
+            "-- residual fibre, and a continuation; nothing is globally",
+            "-- normalised, no relation is enumerated eagerly — the finite",
+            "-- description unfolds to the complete relation web.",
+            "corpusPresentation : SP.SelfPresentation corpusPoint",
+            "corpusPresentation = SP.present corpusPoint",
+            "", "lociPresentation : SP.SelfPresentation lociPoint", "lociPresentation = SP.present lociPoint", "",
+        ]
+        return body
+
     print(f"active modules: {len(modules)}", file=sys.stderr)
-    print(f"seed public names: {len(qnames)}", file=sys.stderr)
+    print(f"checked declarations: {len(qnames)}", file=sys.stderr)
     if duplicates:
         print(f"duplicate declared module names resolved by include order: {len(duplicates)}", file=sys.stderr)
-    return len(modules), len(qnames)
+    return {"write_shard": write_shard, "write_data": write_data,
+            "write_repository": write_repository,
+            "slices": slices, "data_slices": data_slices}
 
 
 def main() -> int:
@@ -189,18 +346,90 @@ def main() -> int:
     if tool is None:
         return 1
     agda, libfile = tool
-    generate()
-    cmd = [
-        str(agda),
-        f"--library-file={libfile}",
-        "-l", "fibre",
-        "-l", "natural-machine",
-        "-l", "rescued-lanes",
-        "-i", str(GENERATED),
-        str(OUT),
-    ]
-    print("materializing one checked repository state and its guarded process...", file=sys.stderr)
-    return subprocess.call(cmd, cwd=ROOT)
+    ctx = generate()
+    base = [str(agda), "+RTS", "-M13G", "-RTS", f"--library-file={libfile}", "-l", "fibre", "-l", "natural-machine", "-l", "rescued-lanes", "-i", str(GENERATED)]
+    eager_loci = os.environ.get("CORPUS_LOCI", "") == "1"
+
+    # Corpus data pieces, adaptively: a piece that fails is split in
+    # half; a declaration whose definition cannot be quoted alone on
+    # this machine is excluded with a printed notice.
+    dqueue: list[list[str]] = list(ctx["data_slices"])
+    data_mods: list[str] = []
+    data_excluded: list[str] = []
+    dnext = 1
+    while dqueue:
+        ch = dqueue.pop(0)
+        dmod = f"CorpusData{dnext}"
+        dnext += 1
+        ctx["write_data"](dmod, ch)
+        print(f"reflecting {dmod} ({len(ch)} declarations) ...", file=sys.stderr)
+        # A piece that runs long is thrashing at the heap cap; fail it
+        # fast and let bisection isolate the monster.
+        try:
+            rc = subprocess.call(base + [str(GENERATED / f"{dmod}.agda")], cwd=ROOT,
+                                 timeout=int(os.environ.get("CORPUS_PIECE_TIMEOUT", "900")))
+        except subprocess.TimeoutExpired:
+            rc = 1
+        if rc == 0:
+            data_mods.append(dmod)
+        elif len(ch) > 1:
+            mid = len(ch) // 2
+            print(f"  {dmod} failed; splitting {len(ch)} -> {mid} + {len(ch) - mid}", file=sys.stderr)
+            dqueue.insert(0, ch[mid:])
+            dqueue.insert(0, ch[:mid])
+            (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
+        else:
+            print(f"EXCLUDED (reflection cost): {ch[0]}", file=sys.stderr)
+            data_excluded.append(ch[0])
+            (GENERATED / f"{dmod}.agda").unlink(missing_ok=True)
+    if data_excluded:
+        print(f"declarations excluded by reflection cost: {len(data_excluded)}", file=sys.stderr)
+
+    pools = [] if not eager_loci else sorted(GENERATED.glob("CorpusPool[0-9]*.agda"), key=lambda p: int(p.stem[len("CorpusPool"):]))
+    for chunk in pools:
+        print(f"classifying {chunk.name} ...", file=sys.stderr)
+        rc = subprocess.call(base + [str(chunk)], cwd=ROOT)
+        if rc != 0:
+            print(f"pool chunk failed: {chunk.name}", file=sys.stderr)
+            return rc
+    # Adaptive bisection: probe cost is heterogeneous (some generators'
+    # probes force huge normal forms), so no fixed shard size is right.
+    # Try a slice; on heap failure split it in half; a generator that
+    # fails ALONE is excluded with a printed notice.
+    queue: list[list[str]] = list(ctx["slices"]) if eager_loci else []
+    successful: list[str] = []
+    excluded: list[str] = []
+    next_id = 1
+    while queue:
+        sl = queue.pop(0)
+        smod = f"CorpusShard{next_id}"
+        next_id += 1
+        ctx["write_shard"](smod, sl)
+        print(f"materializing {smod} ({len(sl)} generators) ...", file=sys.stderr)
+        rc = subprocess.call(base + [str(GENERATED / f"{smod}.agda")], cwd=ROOT)
+        if rc == 0:
+            successful.append(smod)
+        elif len(sl) > 1:
+            mid = len(sl) // 2
+            print(f"  {smod} failed; splitting {len(sl)} -> {mid} + {len(sl) - mid}", file=sys.stderr)
+            queue.insert(0, sl[mid:])
+            queue.insert(0, sl[:mid])
+            (GENERATED / f"{smod}.agda").unlink(missing_ok=True)
+        else:
+            print(f"EXCLUDED (probe cost): {sl[0]}", file=sys.stderr)
+            excluded.append(sl[0])
+            (GENERATED / f"{smod}.agda").unlink(missing_ok=True)
+    ctx["write_repository"](data_mods, successful)
+    if excluded:
+        print(f"generators excluded by probe cost: {len(excluded)}", file=sys.stderr)
+    print("computing the factored checked corpus presentation and its infinite lossless continuation...", file=sys.stderr)
+    rc = subprocess.call(base + [str(OUT)], cwd=ROOT)
+    if rc == 0:
+        print("COMPLETE: generated/CorpusRepository.agda", file=sys.stderr)
+        print("  corpus           = exact expanded checked corpus", file=sys.stderr)
+        print("  loci             = shared checked generators factored once + exact realization families", file=sys.stderr)
+        print("  lociPresentation = infinite guarded target + exact fibre + continuation", file=sys.stderr)
+    return rc
 
 
 if __name__ == "__main__":

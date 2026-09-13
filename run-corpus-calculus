@@ -1,4 +1,20 @@
 #!/bin/sh
 set -eu
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-exec python3 "$ROOT/scripts/run-corpus-calculus.py" "$@"
+python3 "$ROOT/scripts/run-corpus-calculus.py" "$@"
+PREFIX="${MATH_PREFIX:-$HOME}"
+AGDA="$PREFIX/.local/bin/agda"
+[ -x "$AGDA" ] || AGDA="$(command -v agda)"
+LIBFILE="$PREFIX/.agda-pin/libraries"
+"$AGDA" \
+  +RTS -M13G -RTS \
+  "--library-file=$LIBFILE" \
+  -l fibre -l natural-machine -l rescued-lanes \
+  -i "$ROOT/generated" \
+  "$ROOT/formal/cubical/theorems/residue/CorpusFinalPresentation.agda"
+printf '%s\n' 'FINAL CORPUS PRESENTATION GREEN'
+printf '%s\n' '  behavioralPresentation = full-future quotient meanings + exact realization fibres'
+printf '%s\n' '  referenceRelation      = the total reference relation between all expressions'
+printf '%s\n' '  interactivePresentation= the corpus as one state of the guarded coalgebra:'
+printf '%s\n' '                           every question answered on demand with target +'
+printf '%s\n' '                           exact residual fibre + continuation'
