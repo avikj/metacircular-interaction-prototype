@@ -1355,10 +1355,10 @@ index a5d92e8..8f69402 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..2e3e5a5 100644
+index 953410d..2e4e4fd 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,216 @@ whnfGo lv book term =
+@@ -53,9 +53,228 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -1467,7 +1467,19 @@ index 953410d..2e3e5a5 100644
 +  case whnf lv book r of
 +    I0 -> whnf lv book (PAp u0 I1)
 +    I1 -> whnf lv book (PAp u1 I1)
-+    r' -> HCm a r' u0 u1 x
++    r' -> if constLine u0 && constLine u1
++            -- Degenerate composition: both side-walls are constant in the
++            -- composition dimension, so the square has degenerate sides and
++            -- the lid equals the base.  Sound for ANY type A (no dispatch on
++            -- A needed) and gives the groupoid unit/idempotence laws
++            -- definitionally: p · refl ≡ p, refl · refl ≡ refl.
++            then whnf lv book x
++            else HCm a r' u0 u1 x
++  where
++    -- a path-lambda whose body does not depend on its interval variable
++    constLine u = case whnf lv book u of
++      PLm _ f -> not (occursMarker (normal 0 book (f coeMarker)))
++      _       -> False
 +
 +-- coe: generalized transport along a type line P from r to s.
 +whnfCoe :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
@@ -1575,7 +1587,7 @@ index 953410d..2e3e5a5 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +608,43 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +620,43 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -1619,7 +1631,7 @@ index 953410d..2e3e5a5 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +729,18 @@ normal d book term =
+@@ -485,6 +741,18 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)

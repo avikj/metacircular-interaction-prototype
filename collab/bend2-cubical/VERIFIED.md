@@ -72,6 +72,38 @@ Verified: `loop` → **`[unchecked]`**; `mul2`, `div2`, `div2_mul2`, and
 
 It remains an **analysis, not a gate** — Bend2 is non-total by design.
 
+## D. hcomp is the primitive — made to compute (degenerate case, sound, universal)
+
+CCHM's actual primitive is **`hcomp` (Kan composition)**; `coe`/`comp`,
+transport-in-`Path`, path composition and the groupoid laws are *defined from
+it*. The prototype inverted this — `coe` primitive with per-former dispatch,
+`hcomp` a degenerate endpoint-picker (`whnfHCm` fired only when the direction
+was literally `i0`/`i1`). That inversion is exactly why `Pth`-coe was
+"missing": its foundation was stubbed.
+
+First real step, in `WHNF_evaluator.hs` / patch: `hcomp` now computes in the
+**constant-side-wall** case — when both walls are constant in the composition
+dimension the square is degenerate and the lid equals the base. This is sound
+for **any** type `A` (no dispatch on `A`), and it makes the groupoid
+unit/idempotence laws hold **definitionally** (verified in
+`hcomp_unit_laws.bend`):
+
+- `runit : pcompH A a b b p (refl b) ≡ p` → **`definitional`**
+- `rr    : pcompH A a a a (refl a) (refl a) ≡ refl a` → **`definitional`**
+
+(The shipped code had these only propositionally; the analysis now reports
+`definitional`, cost 0.) No regressions (8/8).
+
+**Still open — the rest of the primitive.** General `hcomp` with
+non-constant walls must dispatch on the type former (Π, Σ, data, and `Glue`
+for the universe), exactly as `coe` does; that is the CCHM implementation
+proper, and each former's rule must be verified individually before shipping
+(a wrong composite is unsound, worse than stuck). Left-unit `refl · p`,
+associativity of non-refl paths, and general `Pth`-coe (= `comp`) all wait on
+that. Not exotic — it is *the* primitive — but real, careful work, done
+former by former with a test each. The constant-wall case is the sound
+down payment.
+
 ## What is NOT done, stated plainly (narrowing the writeup)
 
 - **Transport through a nonconstant Path family / abstract motive.**
