@@ -76,7 +76,6 @@ suc m + n = suc (m + n)
 two : Nat
 two = suc (suc zero)
 
--- a hole for the kernel to hold open:
 double : Nat -> Nat
 double n = {!!}
 `;
@@ -85,10 +84,7 @@ export function mountKernelPad(host, helpers) {
   const { el } = helpers;
   host.innerHTML = "";
 
-  const note = el("p", "about",
-    "The pinned kernel — Agda 2.8.0 compiled to WebAssembly — runs in this " +
-    "browser, on this device. Nothing leaves the page. The first check " +
-    "downloads the kernel once (~31 MB); after that it is cached.");
+  const note = el("p", "about", "Agda 2.8.0 · WebAssembly · runs locally · ~31 MB first load, then cached");
   const ed = document.createElement("textarea");
   ed.id = "pad-editor";
   ed.spellcheck = false;
@@ -115,7 +111,7 @@ export function mountKernelPad(host, helpers) {
   ask.style.cssText = "display:flex;gap:8px;margin-top:10px;flex-wrap:wrap";
   const askIn = document.createElement("input");
   askIn.id = "pad-ask";
-  askIn.placeholder = "any expression in the module's scope";
+  askIn.placeholder = "expression";
   askIn.style.cssText = "flex:1;min-width:180px;font:13px var(--mono);" +
     "background:var(--card);color:var(--ink);border:1px solid var(--line);" +
     "border-radius:6px;padding:6px 10px";
@@ -147,14 +143,14 @@ export function mountKernelPad(host, helpers) {
     try {
       ensureWorker(import.meta.url);
       if (!booted) {
-        busy.textContent = "fetching the kernel (once)…";
+        busy.textContent = "loading kernel…";
         await call({ op: "boot", base: new URL("./", import.meta.url).href });
         booted = true;
       }
       busy.textContent = label + "…";
       return await fn();
     } catch (e) {
-      out.prepend(panel("the pad", String(e.message || e), "bad"));
+      out.prepend(panel("error", String(e.message || e), "bad"));
     } finally {
       busy.textContent = "";
       checkBtn.disabled = inferBtn.disabled = normBtn.disabled = false;
@@ -170,21 +166,21 @@ export function mountKernelPad(host, helpers) {
     return parseLines(r.lines);
   };
 
-  checkBtn.onclick = () => working("the kernel is checking", async () => {
+  checkBtn.onclick = () => working("checking", async () => {
     const p = await runCmds([]);
     out.innerHTML = "";
     if (p.errors.length) {
-      for (const e of p.errors) out.append(panel("the kernel refuses", e, "bad"));
+      for (const e of p.errors) out.append(panel("error", e, "bad"));
       return;
     }
     if (!p.goals.length) {
-      out.append(panel("checked", "no errors, no holes — the module is entire", "good"));
+      out.append(panel("checked", "0 errors · 0 goals", "good"));
       return;
     }
     for (const g of p.goals) {
       out.append(panel(
-        `hole ?${g.id}` + (g.line ? `  ·  line ${g.line}` : ""),
-        g.type || "", ""));
+        "goal" + (g.line ? `  ·  line ${g.line}` : ""),
+        `?${g.id} : ${g.type || ""}`, ""));
     }
   });
 
@@ -194,11 +190,11 @@ export function mountKernelPad(host, helpers) {
     const escd = expr.replace(/"/g, '\\"');
     const p = await runCmds([cmd.replace("EXPR", escd)]);
     if (p.errors.length) {
-      out.prepend(panel("the kernel refuses", p.errors[0], "bad"));
+      out.prepend(panel("error", p.errors[0], "bad"));
       return;
     }
     for (const [kind, body] of p.infos) {
-      out.prepend(panel(`${expr}  ·  ${kind}`, body, "good"));
+      out.prepend(panel(kind, kind === "type" ? `${expr} : ${body}` : `${expr} ⇓ ${body}`, "good"));
     }
   });
   inferBtn.onclick = askKernel('Cmd_infer_toplevel Normalised "EXPR"', "inferring");

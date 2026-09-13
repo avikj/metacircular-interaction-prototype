@@ -216,13 +216,8 @@ function showMeet(act) {
   setView("focus");
   const f = $("#focus");
   f.textContent = "";
-  f.append(el("div", "crumbs", "meet of active observations"));
-  f.append(el("h1", "sentence", `${act.length} nodes in the meet`));
-  const note = el("p", "about",
-    "Each filter is an observation; running them jointly is their meet — " +
-    "exact at points (conservation and separation decompose componentwise). " +
-    "What a pair of views knows beyond this list is glue, and lives on paths, not here.");
-  f.append(note);
+  f.append(el("div", "crumbs", "meet"));
+  f.append(el("h1", "sentence", `${act.length} nodes`));
   const list = el("section", "block");
   const sorted = [...act].sort((a, b) => b.deg - a.deg);
   for (const n of sorted.slice(0, 400)) list.append(nodeRow(n));
@@ -818,7 +813,7 @@ function setView(v) {
   if (v === "kernelpad") {
     const f = $("#focus");
     f.textContent = "";
-    f.append(el("h1", "sentence", "The kernel, in this browser"));
+    f.append(el("h1", "sentence", "Kernel"));
     const hostEl = el("div");
     f.append(hostEl);
     mountKernelPad(hostEl, { el });
@@ -829,7 +824,7 @@ function setView(v) {
 function renderAbout() {
   const f = $("#focus");
   f.textContent = "";
-  f.append(el("h1", "sentence", "How this place is built"));
+  f.append(el("h1", "sentence", "About"));
   const p = el("div", "about");
   p.innerHTML =
     `<p>${esc(S.idx["evidence-note"])}</p>
@@ -855,16 +850,16 @@ function renderAbout() {
   ta.style.cssText = "width:100%;max-width:72ch;height:130px;font:12px var(--mono);" +
     "background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px";
   ta.value = JSON.stringify(Grapheme.cfg, null, 1);
-  const apply = el("button", "", "apply configuration");
+  const apply = el("button", "", "apply");
   const msg = el("span", "", "");
   msg.style.marginLeft = "10px";
   apply.onclick = () => {
     try {
       Grapheme.save(ta.value);
-      msg.textContent = "applied — the place repaints to your mapping";
+      msg.textContent = "applied";
       renderRail();
     } catch (err) {
-      msg.textContent = "not valid JSON: " + err.message;
+      msg.textContent = "invalid JSON: " + err.message;
     }
   };
   f.append(ta, el("div"), apply, msg);

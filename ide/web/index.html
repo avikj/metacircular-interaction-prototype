@@ -1,18 +1,18 @@
-<title>Corpus Reader</title>
+<title>Corpus</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="app.css">
 <div id="app">
   <header>
-    <span class="brand">Corpus Reader<small>the store is the mathematics; every view is a lens</small></span>
-    <input id="q" type="search" placeholder="ask the corpus: name, sentence, term  (Ctrl-K)" autocomplete="off">
+    <span class="brand">Corpus</span>
+    <input id="q" type="search" placeholder="search  (Ctrl-K)" autocomplete="off">
     <span class="stats" id="nstats">loading…</span>
     <button id="mobrail">areas</button>
     <button id="mobctx">context</button>
-    <button id="backbtn" title="reverse (appends a mark; deletes nothing)">reverse</button>
-    <button id="graphbtn" class="viewtoggle" title="the corpus as one object">graph</button>
-    <button id="kernelbtn" class="viewtoggle" title="Agda 2.8.0 in this browser">kernel</button>
+    <button id="backbtn" title="back (trace-preserving)">back</button>
+    <button id="graphbtn" class="viewtoggle">graph</button>
+    <button id="kernelbtn" class="viewtoggle" title="Agda 2.8.0 · WASM · local">kernel</button>
     <button id="aboutbtn" class="viewtoggle">about</button>
-    <button id="lensbtn" class="viewtoggle" title="grapheme lens: color as a computed observation on spelling">lens</button>
+    <button id="lensbtn" class="viewtoggle" title="grapheme color lens">lens</button>
     <button id="themebtn" title="theme">theme</button>
   </header>
   <main>
