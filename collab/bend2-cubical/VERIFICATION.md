@@ -129,3 +129,22 @@ uaRoundTrip still correctly fails.
 - Backward transport (`@pathBwd` undefined; `ua` dropped `g`): **found and fixed.**
 - HVM3 target crashing on cubical terms: **found and fixed.**
 - Build blockers (HVM3 Runtime.c includes; UTF-8 locale; `bend check` false-positive): **found, fixed, documented.**
+
+## Addendum — coherent reverse univalence round trip (verified by execution)
+
+`bend uaequiv.bend` (with `LC_ALL=C.utf8`; without it bend aborts with
+`hGetContents: invalid argument` on any UTF-8 source and prints nothing —
+count ✓/✗ only under that locale):
+
+    17 ✓  0 ✗   incl. isPropIsContr, isPropIsEquiv (definitional), retC, uaE,
+                pathToEquiv, uaEquivRoundTrip
+
+Regression on the same binary: applypath 9, applypath_bwd 11, corpus_calculus 10,
+corpus_lossless 8, cubical_test 11/10/12/8/7, hcompfaces 5, isprop 3, loop 2,
+pth2 2, run_corpus 4, t_* 7×4, all 0 ✗; uaroundtrip 4✓ 1✗ (raw-Iso reverse
+trip, expected); equiv.bend 7✓ 1✗ (its binary-hcomp probe, expected);
+stock examples 2/2.
+
+Must-fail guard (`uaequiv_mustfail.bend`): `wrong1` (constant path `(f,h)`)
+and `wrong2` (endpoints swapped) both ✗ on the same binary; everything else in
+the file ✓. The round-trip green is not a checker hole.

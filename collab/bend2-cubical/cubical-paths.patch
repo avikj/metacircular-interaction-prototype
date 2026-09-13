@@ -487,6 +487,7 @@ index cdd6756..aee1b3e 100644
 +           _                 -> PAp p' r'
 +    App f x    -> App (go f) (go x)
 +    Tup a b    -> Tup (go a) (go b)
++    SigM x f   -> SigM (go x) (go f)
 +    Suc n      -> Suc (go n)
 +    Con h tl   -> Con (go h) (go tl)
 +    INot a     -> INot (go a)
@@ -512,9 +513,7 @@ index cdd6756..aee1b3e 100644
 +  where
 +    spineType t = case cut t of
 +      Var _ i | i < length ks -> let (_, _, ty) = ks !! i in Just ty
-+      Ref nm -> case deref book nm of
-+        Just (_, _, ty) -> Just ty
-+        _               -> Nothing
++      Ref k -> do (_, _, ty) <- deref book k; Just ty
 +      App f x -> do
 +        fT <- spineType f
 +        case force book fT of
