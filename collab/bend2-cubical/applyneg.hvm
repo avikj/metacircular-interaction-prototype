@@ -1,0 +1,17 @@
+// Prelude
+// -------
+data List { #Nil #Cons{head tail} }
+data Nat { #Z #S{n} }
+data Pair { #P{fst snd} }
+@fix(&f) = (f @fix(f))
+@main = @main$
+
+// Bend to HVM Compiler Output
+// ---------------------------
+
+@applyNeg$ = λ&x (~x {0:1 _:0})
+@main$ = (@applyNeg$() 1)
+@neg$ = λ&x (~x {0:1 _:0})
+@negI$ = λ&x (~x {0:λ&i 0 _:λ&i 1})
+@notPath$ = *
+
