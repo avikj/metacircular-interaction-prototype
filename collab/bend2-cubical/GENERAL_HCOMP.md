@@ -40,3 +40,26 @@ A general cofibration-system composition:
 Assemble `isPropIsEquiv` (from `isPropIsContr` + `isProp` of a Π) and the
 reverse round trip `pathToEquiv(ua e) = e`. These are proofs on top of the
 primitive now present, not a blocked type former.
+
+## Unified constructor (merged from the parallel implementation)
+
+The two general-hcomp implementations were merged into ONE constructor:
+`HCm A [(φ, u)] base`. The binary `hcomp(A, r, u0, u1, base)` is parser
+sugar for faces `[(inot(r), u0), (r, u1)]`; `hcompN(A, [(φ,u),..], base)`
+is the general form. Differences from the first `HCmN` version:
+
+- **Faces are arbitrary interval formulas** (`iand`/`ior`/`inot`), not just
+  literals. A face φ is put in DNF; the tube's `k=i0` boundary is checked
+  on **every cell**; adjacency is checked on every cell of `φ ∧ ψ`
+  (`hcompfaces.bend`: `ior(i, j)` face, three cells, checks).
+- **Adjacency endpoint-normalises** both restricted tubes (`epNormCtx`)
+  before conversion — without this `p0(x)@i0` and `p0(a1)@i0` do not meet
+  at `a0`, and `isPropIsContr` fails. With it, `isprop.bend` is green on
+  the unified constructor.
+- Reduction: any face ⇓ `i1` yields that tube's cap (WHNF and epNormCtx).
+- `Pth` transport in `whnfCoe` and `dup`/`normal`/emitters use the same
+  constructor; no second representation.
+
+Verified (this session): `isprop.bend` 3✓, `hcompfaces.bend` 4✓, all prior
+files unchanged (39/11/10/12/8/7/9/11/2/3/2/7 ✓, 0 ✗), `uaRoundTrip` still
+correctly fails at the raw-Iso level.
