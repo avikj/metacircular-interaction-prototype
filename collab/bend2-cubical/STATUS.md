@@ -31,5 +31,5 @@ comparison points; the full runtime is `--to-hvm4-full`. Remaining caveats are
 listed in RUNTIME_FULL.md (hcomp in Set beyond the composite shape stays stuck;
 no Glue).
 
-Suite on the final binary: 30 `.bend` files, 0 ✗ except the three deliberate
+Suite on the final binary: 28 `.bend` files, 0 ✗ except the three deliberate
 must-fails; stock `examples/` 2/2.

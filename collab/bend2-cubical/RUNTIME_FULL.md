@@ -49,7 +49,14 @@ runtime can be read side by side (e.g. `viaNeg3`: 31 itrs erased, 1106 full).
 ## Not runtime yet / caveats
 
 - `hcomp` in `Set` outside the composite shape stays stuck data (no `Glue`).
-- Dependent Π/Σ lines go through the generic `@coe` (correct by construction
-  of the rule, exercised only non-dependently so far).
-- Paths between universe paths (higher coherences of traces) are ordinary
-  `#PLm` data over `#UaU/#CompU` — representable, not yet exercised.
+- Dependent Π/Σ lines go through the generic `@coe`. Over a varying base the
+  family receives a transport **to a symbolic endpoint** (`coe r→i`), which
+  this prelude leaves stuck (`#StuckCoe`); a family that does not inspect it
+  still computes (probe: `Σ b:(negPath@i). Nat` transports `(True, 3n)` to
+  `3n` on the net), one that does would need `transp` with a symbolic
+  endpoint (Glue-style `unglue`). Note the checker rejects that probe's
+  well-typedness anyway (`b : negPath@i` is not `Bool`), correctly.
+- Traces are inspectable data: `@main = @negNeg` prints
+  `#CompU{λi. …#At{#UaU{#Bool,#Bool,neg,neg}, i}…, λi. …}` — the composite
+  path itself, faces and all. Paths between universe paths are `#PLm` over
+  these; representable, not yet exercised beyond `refl`.
