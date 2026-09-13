@@ -57,10 +57,21 @@ Layer 4 (same patch):
     (constructor-guarded corecursion), or [unchecked]. An analysis, not a
     gate -- it makes the trust boundary per-definition visible.
 
-Still open: hcomp with general cofibration systems and hfill (would make
-more compositions definitional and enable a HIT schema -- user-declared
-path constructors), full Glue (ua is the iso special case), and gating
---total mode.
+Layer 5 (same patch): UNIVALENCE COMPLETE at the iso level. The three laws:
+  uaBeta     transport along ua e computes to e -- definitional, both ways
+  uaIdEquiv  ua(idIso) = refl -- definitional (identity-ua collapses to the
+             constant path in conversion, decided semantically; this is the
+             equation Glue exists to justify, valid in the model)
+  uaEta      ua(pathToIso p) = p for every p -- proved by J, with pathToIso
+             defined by transporting idIso through the Iso family (coe
+             regularity reduces through Sigma/Pi/Path components at refl)
+See cubical_test5.bend. ua is a quasi-equivalence between Iso(A,B) and
+Path(Set,A,B) with both round trips checked.
+
+Still open: hcomp with general cofibration systems and hfill (more
+definitional compositions; the prerequisite for a user-declared HIT
+schema), Glue as a first-class type former (its ua consequences are now
+all present), and gating --total mode.
 
 
 ## Analysis layer (Core/Analysis.hs, same patch)

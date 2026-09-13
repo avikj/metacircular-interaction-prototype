@@ -320,6 +320,47 @@ index 0000000..4690383
 +
 +def main() -> Nat:
 +  0n
+diff --git a/cubical_test5.bend b/cubical_test5.bend
+new file mode 100644
+index 0000000..c87fae5
+--- /dev/null
++++ b/cubical_test5.bend
+@@ -0,0 +1,35 @@
++# Univalence, finished: both computation rules for ua.
++#   uaβ  : transport along ua e computes to e (definitional; test2/test4)
++#   uaIdEquiv : ua of the identity iso IS refl (conversion)
++#   uaη  : ua(pathToIso p) = p for every p (theorem, by J)
++
++# Iso as a Σ-family
++def Iso5(A: Set, B: Set) -> Set:
++  any f: A -> B.
++  any g: B -> A.
++  any gf: (all x:A. Path(A, g(f(x)), x)).
++  (all y:B. Path(B, f(g(y)), y))
++
++def idIso5(A: Set) -> Iso5(A, A):
++  (lambda x. x, lambda x. x, lambda x. <_> x, lambda y. <_> y)
++
++def ua5(A: Set, B: Set, e: Iso5(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, g, gf, fg):
++      ua(A, B, f, g, gf, fg)
++
++# a path in Set yields an iso, by transport of the identity iso
++def pathToIso(A: Set, B: Set, p: Path(Set, A, B)) -> Iso5(A, B):
++  coe(lambda i. Iso5(A, p @ i), i0, i1, idIso5(A))
++
++# ua of the identity iso is refl — the missing Glue law, now conversion
++def uaIdEquiv(A: Set) -> Path(Path(Set, A, A), ua5(A, A, idIso5(A)), <_> A):
++  <i> <_> A
++
++# the eta round trip: ua(pathToIso(p)) = p, by path induction (J inlined
++# as coe along the connection square)
++def uaEta(A: Set, B: Set, p: Path(Set, A, B)) -> Path(Path(Set, A, B), ua5(A, B, pathToIso(A, B, p)), p):
++  coe(lambda i. Path(Path(Set, A, p @ i), ua5(A, p @ i, pathToIso(A, p @ i, <j> p @ iand(i, j))), <j> p @ iand(i, j)), i0, i1, <i> <_> A)
++
++def main() -> Nat:
++  0n
 diff --git a/run_corpus.bend b/run_corpus.bend
 new file mode 100644
 index 0000000..1cb8f41
@@ -807,7 +848,7 @@ index 99c0709..f152abe 100644
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..ffb6d0a 100644
+index 9d1ab06..117ac1c 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
 @@ -63,6 +63,8 @@ cmp lv d book a b =
@@ -819,7 +860,7 @@ index 9d1ab06..ffb6d0a 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +79,20 @@ cmp lv d book a b =
+@@ -77,6 +79,24 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -830,6 +871,10 @@ index 9d1ab06..ffb6d0a 100644
 +    (IAnd aa ba   , IAnd ab bb   ) -> eql lv d book aa ab && eql lv d book ba bb
 +    (IOr aa ba    , IOr ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
 +    (Pth ta aa ba , Pth tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
++    (Ua aa ba fa ga _ _, b2      ) | isIdUa lv d book aa ba fa ga -> eql lv d book (PLm "_" (\_ -> aa)) b2
++    (a2           , Ua ab bb fb gb _ _) | isIdUa lv d book ab bb fb gb -> eql lv d book a2 (PLm "_" (\_ -> ab))
++    (PAp (cut -> Ua aa ba fa ga _ _) _, b2) | isIdUa lv d book aa ba fa ga -> eql lv d book aa b2
++    (a2           , PAp (cut -> Ua ab bb fb gb _ _) _) | isIdUa lv d book ab bb fb gb -> eql lv d book a2 ab
 +    (PLm ka fa    , PLm kb fb    ) -> eql lv (d+1) book (fa (Var ka d)) (fb (Var kb d))
 +    (PLm ka fa    , b            ) -> eql lv (d+1) book (fa (Var ka d)) (PAp b (Var ka d))
 +    (a            , PLm kb fb    ) -> eql lv (d+1) book (PAp a (Var kb d)) (fb (Var kb d))
@@ -840,6 +885,19 @@ index 9d1ab06..ffb6d0a 100644
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
+@@ -89,3 +109,12 @@ cmp lv d book a b =
+     (Met _  _  _  , Met _  _  _  ) -> error "not-supported"
+     (Pat _  _  _  , Pat _  _  _  ) -> error "not-supported"
+     (_            , _            ) -> False
++
++
++-- ua(A,B,f,g,..) is the identity path when A ≡ B and both functions are
++-- (eta-)convertible to the identity. Then the whole path is constant.
++isIdUa :: Int -> Int -> Book -> Term -> Term -> Term -> Term -> Bool
++isIdUa lv d book a b f g =
++  eql lv d book a b &&
++  eql lv d book f (Lam "x" (\x -> x)) &&
++  eql lv d book g (Lam "x" (\x -> x))
 diff --git a/src/Core/Flatten.hs b/src/Core/Flatten.hs
 index 31f1da3..cde0b55 100644
 --- a/src/Core/Flatten.hs
