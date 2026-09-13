@@ -98,15 +98,18 @@ def discover() -> tuple[list[tuple[str, Path, list[str]]], list[tuple[str, list[
             # marks them `= ?` and refuses to fake them, so they cannot enter
             # a hole-free materialized repository. The instrument runs over
             # the COMPLETE (established) corpus, not the owed obligations.
-            if re.search(r"(?m)=\s*\?\s*$", src) or "{!" in src:
-                continue
-            # Skip modules in a different type-theory regime: the materialized
-            # CorpusRepository is --cubical, and --cubical-compatible/--without-K
-            # are coinfective, so such modules (e.g. the --cubical-compatible
-            # karma/runtime lane) cannot be imported into it. The instrument
-            # materializes the --cubical established corpus as one coalgebra;
-            # the cross-regime lanes are their own coalgebra.
-            if re.search(r"(?m)^\{-#\s*OPTIONS[^#]*(--cubical-compatible|--without-K)", src):
+            # Materialize only the --cubical --safe established core. The
+            # generated CorpusRepository is --cubical --safe --guardedness;
+            # --safe is coinfective and --cubical implies --without-K, so it
+            # can import ONLY --cubical --safe modules. This excludes, by
+            # design: the --cubical-compatible karma/runtime lane (a different
+            # regime), plain --safe --with-K probes, and non-safe modules —
+            # which include the 'owed' holes (AsiddhaCatustayam's four open
+            # conjectures; --safe forbids holes anyway). Cross-regime lanes are
+            # their own coalgebra, not this one.
+            opts_m = re.search(r"(?m)^\{-#\s*OPTIONS([^#]*)#-\}", src)
+            opts = opts_m.group(1) if opts_m else ""
+            if not (re.search(r"--cubical(?!-)", opts) and "--safe" in opts):
                 continue
             mod = module_name(src)
             if not mod:
