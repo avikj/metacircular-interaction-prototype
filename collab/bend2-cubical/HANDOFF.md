@@ -57,6 +57,10 @@ Full runtime (--to-hvm4-full) now has the same Kan rules (@coeGlue, hcomp at
 isprop_run residual-DUP issue (static dup labels; prelude linearized —
 never `λ&` a value just because it is used in several match arms).
 
+## The forcing theorem RUNS (forcing_run.bend, 82✓; FORCING.md RUN section)
+Both instances (recording trace / contractible trace) observed on HVM4 full
+runtime with values matching the normaliser.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.

@@ -48,3 +48,37 @@ the visible map `run a = fst (whole a)`. Then:
 Every theorem in the Agda core that *constitutes* the object now has a green,
 executable counterpart on the interaction-net runtime. The rest of the library
 instantiates it.
+
+## RUN on the interaction net (`forcing_run.bend`, 82 ✓; `--to-hvm4-full`)
+
+The theorem instantiated and executed, values identical on the checker's
+normaliser and on HVM4 (full cubical runtime, nothing erased):
+
+Instance 1 — a trace that records something. `A = Σ b:Bool. Bool` (the whole
+event), `B = Bool` (the visible result), `T b = Bool` (the residue), `wf = id`,
+`run = fst`. `fibreOfRun` forward reads the trace off a fibre point of `run`;
+`traceIsForced` forward rebuilds the event from the trace.
+
+| observation | value | HVM4 itrs |
+|---|---|---|
+| `forcedTrace(True, ((True,False), refl))` | `False` | 191 |
+| `forcedTrace(True, ((True,True), refl))` | `True` | 191 |
+| `forcedTrace(False, ((False,True), refl))` | `True` | 191 |
+| `snd(eventFromTrace(True, False))` | `False` | 288 |
+| `fst(eventFromTrace(False, True))` | `False` | 270 |
+
+Instance 2 — a trace that records nothing. `A = Bool`, `T b = Unit`,
+`wf a = (neg a, ())`, so `run = neg`. `exactWhenContractible` turns the
+contractible trace into `isEquiv(run)`, whose inverse is read off the theorem;
+`contractibleWhenExact` turns that back into the trace's centre.
+
+| observation | value | HVM4 itrs |
+|---|---|---|
+| `runInverse(True)` (inverse of `run` from the theorem) | `False` | 349 |
+| `runInverse(False)` | `True` | 343 |
+| `traceCentre(True)` | `()` | 464 |
+
+Definitional in the checker: `forcedTrace_T`, `runInverse_T` (by `<_>`).
+Everything the theorem needs — `lemIso`'s 4-face compositions, `compEquiv`,
+`invEquiv`, `fiberFst`, `fiberPrecomp` with its coherence square — executes on
+the net in these runs.
