@@ -170,11 +170,24 @@ mathematics.
 
    The counts coincide because on the net a `dup` of a cheap structure costs
    about what constructing it costs; the transport benchmark's advantage came
-   from sharing a *computation* (the `ua` dispatch), not a value. So the
-   receiver family is the favourable regime only when the generator action
-   is expensive relative to a dup — real perturbational generators, not the
-   stand-in's constructor rewrites. That is the condition to test on the
-   emitted real-panel file, and until it is, the claim is [open]. Measure
+   from sharing a *computation* (the `ua` dispatch), not a value. The
+   condition is therefore that the generator action be expensive and that
+   the receivers read what it computes — and that was measured too
+   (`port/PerturbationBenchSlow.bend`: a passage does 64 units of work on
+   the whole cell; the receivers are the length and the tgt and tf integrals
+   along the history, which force every state):
+
+       N     shared   separate   ratio
+       8      32417      57853   1.78
+       32    151169     258301   1.71
+
+   Bound once, the generator's work is paid once; rebuilt per receiver it is
+   paid once per receiver that forces it. So the receiver family IS the
+   shared regime exactly when the generators are real computations whose
+   results the protocols read — the situation of a real perturbational
+   model, not of the stand-in's constructor rewrites. (An intermediate run,
+   with receivers that never forced the intermediate states, showed no
+   difference; the sharing is of forced work, not of structure.) Measure
    wall-clock, memory, interactions and sharing separately, never as one
    number.
 
