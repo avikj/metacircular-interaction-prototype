@@ -53,8 +53,9 @@ and fold real deltas into the patch.
 ## Kan rules DONE in the checker (uaglue.bend, hcompset.bend; GLUE.md)
 Transport through Glue and hcomp-in-Set-as-Glue are implemented and green.
 Full runtime (--to-hvm4-full) now has the same Kan rules (@coeGlue, hcomp at
-#Set -> #Glue, @transpEquiv); verified uaglue/hcompset on HVM4. Open: the
-isprop_run UniM-variant residual-DUP oddity (RUNTIME_FULL.md caveats).
+#Set -> #Glue, @transpEquiv); verified uaglue/hcompset on HVM4. Resolved: the
+isprop_run residual-DUP issue (static dup labels; prelude linearized —
+never `λ&` a value just because it is used in several match arms).
 
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher

@@ -72,12 +72,13 @@ A glue value with no live faces is its base; a Glue type keeps its faces
 - `coe` to a *symbolic* endpoint stays stuck (`@dir` = 2); the runtime
   `pathToEquiv` therefore carries stuck proof components, but the function
   and the fibre centre (inverse) compute, which is what transport needs.
-- `isprop_run.bend` (Unit instance of `isPropIsContr` written with a Unit
-  `match`) runs at corner `(i1,i1)` on HVM4 but leaves residual DUP nodes at
-  the other corners; the same file with `lambda x. <_> ()` (not accepted by
-  the checker — Unit has no η) ran at every corner, and the same 4-face
-  composition runs inside `contrNeg0/1`. Minimal reproduction not isolated;
-  it is an HVM4 duplication issue in the emitted term, not a semantics gap.
+- (resolved) `isprop_run.bend` left residual DUP nodes at three corners. Cause:
+  HVM4 auto-dup labels are static per binder, so `@pathAt`'s `λ&p` (cloned
+  only because `p` was used in three match *arms*) duplicated an argument
+  that already contained another `@pathAt` instance's dup with the same
+  label. Fix: prelude functions never clone a value merely for use in
+  different arms (match first, bind per arm). Now `#One` at all four corners
+  (104–157 itrs).
 - Dependent Π/Σ lines go through the generic `@coe`. Over a varying base the
   family receives a transport **to a symbolic endpoint** (`coe r→i`), which
   this prelude leaves stuck (`#StuckCoe`); a family that does not inspect it
