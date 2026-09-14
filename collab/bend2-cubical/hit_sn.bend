@@ -10,10 +10,10 @@ def Sphere(n: Nat) -> Set:
     case 1n + p: Susp(Sphere(p))
 
 # S1 = Susp(Bool): the loop is merid(True) composed with the inverse of merid(False)
-def s1loop() -> Path(Sphere(1n), @north, @north):
+def sloop() -> Path(Sphere(1n), @north, @north):
   <i> hcomp(Susp(Bool), i, <_> @north, <j> @merid{False} @ inot(j), @merid{True} @ i)
 
-def s1loop_i0() -> Path(Sphere(1n), s1loop() @ i0, @north):
+def sloop_i0() -> Path(Sphere(1n), sloop() @ i0, @north):
   <_> @north
 
 # the suspension recursor, iterated: a map S2 -> B from a point and a family of loops

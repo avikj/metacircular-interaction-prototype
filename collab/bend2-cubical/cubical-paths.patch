@@ -4483,7 +4483,7 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..25c7f2c 100644
+index 953410d..e25c58f 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
 @@ -6,7 +6,9 @@ module Core.WHNF where
@@ -4512,7 +4512,7 @@ index 953410d..25c7f2c 100644
      App f x    -> whnfApp lv book f x
      Loc _ t    -> whnf lv book t
      Op2 o a b  -> whnfOp2 lv book o a b
-@@ -53,9 +62,599 @@ whnfGo lv book term =
+@@ -53,9 +62,600 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -4532,6 +4532,7 @@ index 953410d..25c7f2c 100644
 +    IOr a b    -> whnfIOr lv book a b
 +    QRec x s f r -> whnfQRec lv book x s f r
 +    HEl p bs x -> whnfHEl lv book p bs x
++    HCon t c ps as ivs | not (null ivs) -> whnfHCon lv book t c ps as ivs
 +    HRec bs x -> whnfHRec lv book bs x
      _          -> term
  
@@ -5112,7 +5113,7 @@ index 953410d..25c7f2c 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +745,21 @@ whnfSigM lv book x f =
+@@ -146,6 +746,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5134,7 +5135,7 @@ index 953410d..25c7f2c 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +1015,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +1016,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5182,7 +5183,7 @@ index 953410d..25c7f2c 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -429,6 +1084,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
+@@ -429,6 +1085,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
  dup book l (Log s x)    = (Log s0 x0, Log s1 x1)
    where (s0,s1)         = dup book l s
          (x0,x1)         = dup book l x
@@ -5202,7 +5203,7 @@ index 953410d..25c7f2c 100644
  dup book l (Frk _ _ _)  = error "unreachable"
  dup book l (Pat _ _ _)  = error "unreachable"
  
-@@ -485,11 +1153,50 @@ normal d book term =
+@@ -485,11 +1154,50 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5253,7 +5254,7 @@ index 953410d..25c7f2c 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1208,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1209,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5360,7 +5361,7 @@ index 953410d..25c7f2c 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1354,311 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1355,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -5672,6 +5673,22 @@ index 953410d..25c7f2c 100644
 +    in whnf lv book (Sup l (HRec [ (c, t0) | (c, (t0, _)) <- bd ] a)
 +                           (HRec [ (c, t1) | (c, (_, t1)) <- bd ] b))
 +  x' -> HRec bs x'
++
++-- A path constructor applied to intervals of which one became literal (a face
++-- restriction substituted into an already-applied constructor): the first
++-- literal interval selects the declared endpoint, the later intervals are
++-- applied to it.
++whnfHCon :: EvalLevel -> Book -> Name -> Name -> [Term] -> [Term] -> [Term] -> Term
++whnfHCon lv book t c ps as ivs = go [] ivs
++  where
++    go done [] = HCon t c ps as done
++    go done (i : rest) = case whnf lv book i of
++      I0 -> lit done I0 rest
++      I1 -> lit done I1 rest
++      i' -> go (done ++ [i']) rest
++    lit done r rest = case hitEndpoint book t c ps as done r of
++      Just e  -> whnf lv book (foldl PAp e rest)
++      Nothing -> HCon t c ps as (done ++ [r] ++ rest)
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
 index 996bb26..9161031 100644
 --- a/src/Target/HVM.hs

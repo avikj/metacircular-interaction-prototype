@@ -174,3 +174,19 @@ def nNotSucSuc(n: Nat, e: Path(Nat, n, 2n + n)) -> Empty:
   match n:
     case 0n: natEncode(0n, 2n, e)
     case 1n + m: nNotSucSuc(m, <i> pred(e @ i))
+# no natural is its own successor; Unit is a proposition, hence a set
+def nNotSuc(n: Nat, e: Path(Nat, n, 1n + n)) -> Empty:
+  match n:
+    case 0n: natEncode(0n, 1n, e)
+    case 1n + m: nNotSuc(m, <i> pred(e @ i))
+def isPropUnit(x: Unit, y: Unit) -> Path(Unit, x, y):
+  match x:
+    case ():
+      match y:
+        case (): <_> ()
+def isSetUnit(x: Unit, y: Unit, p: Path(Unit, x, y), q: Path(Unit, x, y)) -> Path(Path(Unit, x, y), p, q):
+  isPropToIsSetU(x, y, p, q)
+def isPropToIsSetU(a: Unit, b: Unit, p: Path(Unit, a, b), q: Path(Unit, a, b)) -> Path(Path(Unit, a, b), p, q):
+  <j> <i> hcompN(Unit,
+    [ (inot(i), <k> isPropUnit(a, a) @ k), (i, <k> isPropUnit(a, b) @ k)
+    , (inot(j), <k> isPropUnit(a, p @ i) @ k), (j, <k> isPropUnit(a, q @ i) @ k) ], a)
