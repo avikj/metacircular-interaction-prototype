@@ -1,9 +1,11 @@
 # What remains for complete cubical support — exact, audited, with locations
 
-**State: sections A, B, C and E are closed. Section D has three working HITs
-(set-quotient, circle, propositional truncation); a general HIT *schema* is
-the only substantive item left, plus the one Glue law that needs
-face-restricted contexts to state. Suite: 88 files, bad = 0.**
+**State: sections A, B, C, D and E are closed. The general HIT schema (§D)
+is implemented — `hit` declarations with point and path constructors, a
+dependent eliminator generated from the signature, transport along HIT lines,
+all of it on the full runtime too; see HIT.md. What is left is the one Glue
+law that needs face-restricted contexts to state (§B), and the caveats of §F.
+Suite: 96 files, bad = 0.**
 
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed
@@ -127,31 +129,40 @@ images): its path constructor joins *any* two elements, so `Trunc(A)` is a
 proposition by construction (`truncIsProp`), and `trec` is allowed only into a
 proposition — the guard file confirms that a bogus `isProp(Bool)` is rejected.
 
-**What is left: the general schema.** All three HITs are hardcoded as `Term`
-constructors, so each new one costs another pass through every traversal in
-§A. A declaration form would take point and path constructors and generate the
-eliminator and its computation rules. Design sketch for whoever does it:
+**The general schema — DONE (HIT.md).** All four steps of the sketch that
+stood here are implemented: `hit` declarations with point and path
+constructors (parameters and fields as dependent telescopes, recursive
+fields recognised), signatures stored in the `Book` (`HitSig`) instead of in
+`Term`, the dependent eliminator's type generated from the signature with
+one computation rule per constructor (path constructors reducing at an
+interval, induction hypotheses for recursive fields), and `hcomp` in a HIT
+correctly STUCK — confirmed by execution on HVM4. `coe` along a HIT line
+whose parameters vary transports constructors field by field. Everything
+reaches `--to-hvm4-full` through generated `@hitAt` / `@hitCoe` /
+`@hit_Name_elim`. Declared: the circle, the suspension, the pushout, the
+propositional truncation, the quotient's generators, the interval, a tree
+with recursive point fields — 110 ✓, and a 7-probe must-fail file.
 
-1. Extend the `type` declaration with path constructors whose codomain is a
-   path between already-declared point constructors.
-2. Store the constructor signatures in the `Book` instead of in `Term`.
-3. Generate the eliminator's type from the signatures; its computation rules
-   are one per constructor, path constructors reducing at an interval.
-4. `hcomp` in a HIT correctly stays STUCK — for a higher inductive type a
-   composite is a canonical form, which is exactly how the higher structure
-   arises. (An earlier draft of this document wrongly listed that as missing.)
+| HIT (declared) | file |
+|---|---|
+| `Circle` | `hit_circle.bend` |
+| `Susp<A>` | `hit_susp.bend` (transport along `Susp(ua(neg) @ i)`) |
+| `Push<A,B,C,f,g>` | `hit_pushout.bend` |
+| `Tr<A>` | `hit_trunc.bend` |
+| `Q<A,R>` | `hit_quot.bend` |
+| `I` | `hit_interval.bend` (funext from the interval) |
+| `Tree` | `hit_tree.bend` |
 
-This is the one genuinely research-scale item remaining; everything else in
-this document is closed. Absent for the same reason: suspensions, pushouts,
-and propositional/set truncation as first-class types.
-
----
+Still absent, and now precisely scoped (HIT.md, Limitations): higher-
+dimensional path constructors (squares: torus, set truncation as a
+declaration), indices, nested recursion, recursive fields at other
+parameters. The three hardcoded HITs stay; the schema re-derives them.
 
 ## E. Backend coverage
 
 | target | cubical | quotients |
 |---|---|---|
-| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **DONE** — `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
+| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data); **declared HITs** as data with generated `@hitAt`/`@hitCoe`/`@hit_Name_elim` | **DONE** — `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
 | `--to-hvm4` / `--to-hvm4-raw` | erased/normalised by design | no |
 | `--to-hvm` (HVM3) | `freeVars` fixed; the target still erases | no |
 | JavaScript | **now fails loudly** — erasing a path silently produced wrong code, so every cubical constructor raises a clear error pointing at `--to-hvm4-full` | no |

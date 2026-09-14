@@ -15,6 +15,19 @@ Run: `bend f.bend` (checks + runs; `bend check` is NOT a subcommand; count ✓/�
 Targets: `--to-hvm4` (normalised), `--to-hvm4-raw` (no normalisation, strict),
 `--to-hvm4-full` (FULL cubical runtime: nothing erased), `--to-hvm` (HVM3), `--total`.
 
+### Building on a machine WITHOUT GHC 9.12 (verified 2026-09-14, Ubuntu 24.04)
+`apt-get install ghc cabal-install` gives GHC 9.4.7 / cabal 3.8, which is enough:
+the patch's `bend.cabal` (and HVM3's `HVM.cabal`, edit it the same way) use
+`default-language: GHC2021` plus the GHC2024 extensions and `base >= 4.17`,
+so nothing needs `^>= 4.21`. Two traps: (1) cabal 3.8's built-in Hackage
+root keys are stale — put the current key ids from
+`https://hackage.haskell.org/root.json` under `root-keys:` (threshold 3) in
+`~/.cabal/config` and set the repository `url:` to https; (2) `cabal.project`
+must list `/tmp/HVM3` and a clone of `HigherOrderCO/hs-highlight` as local
+packages, with NO blanket `allow-newer` (it drags in libraries needing a newer
+base). `Data.List.unsnoc` is shimmed in `Target/HVM.hs`. HVM4 (May 2026 head,
+`gcc -O2 -o src/hvm src/hvm.c -lm -lpthread`) runs every emitted program.
+
 ## What the user wants (their words, condensed)
 The README's Interactive Symbolic Computer: the trace IS the path
 (data = program = execution = proof = transport); traces compose, invert, have
@@ -122,6 +135,20 @@ beyond the hardcoded SetQuotient. Fixed in this pass: quotient constructors
 were missing from `normal`, `normalCap`, `occursMarker` (hard crashes) and
 `mapSub` (silent wrong substitution). Still crashing: `Collapse.collapse`,
 `Target/HVM.freeVars`, and `--to-hvm4-full` on any quotient.
+
+## THE GENERAL HIT SCHEMA IS DONE (HIT.md) — §D of REMAINING.md closed
+`hit Name<params>: case @tag(fields) | path @tag(fields): lhs ~> rhs`
+generates `Name`, `Name/tag`, `Name/elim`; four generic `Term` forms
+(`HTy`/`HPt`/`HPa`/`HEl`), signatures in the `Book` (second map, `HitSig`),
+`hitInst`/`hitEnds`/`whnfHEl` in WHNF, `checkTele`/`hitBranchType` in Check,
+`hitDefs` in Parse/Book, `hitRuntime` in HVM4Full (generated `@hitAt`,
+`@hitCoe`, `@hit_Name_elim`). New files: hit_circle hit_susp hit_pushout
+hit_trunc hit_quot hit_interval hit_tree + hit_mustfail (registered). Suite
+96 files bad=0. Every `main` agrees between normaliser and HVM4; symbolic
+probes (transport of a meridian, IH recursion, stuck hcomp) recorded in
+HIT.md. If you extend it: higher-dimensional path constructors are the next
+real item (torus, set truncation); the checker's `hitBranchType` and the
+emitter's `hitRuntime` are the two places that must agree.
 
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher

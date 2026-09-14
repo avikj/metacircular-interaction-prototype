@@ -107,3 +107,18 @@ run_corpus.hvm4: the same program in HVM4 surface syntax, executed on the
   real HVM4 C runtime: div2(mul2(3)) = 3n in 26 interactions.
   (--to-hvm targets the HVM3 dialect; an HVM4 emitter is a mechanical
   printer variant, not yet written.)
+
+## General higher inductive types (same patch) — HIT.md
+
+`hit Name<params>: case @tag(fields) … path @tag(fields): lhs ~> rhs`
+declares a HIT with point and path constructors over dependent telescopes;
+the compiler generates the constructors and the DEPENDENT eliminator
+`Name/elim` (induction hypotheses for recursive fields, path branches as
+`PathP`s between the images of the endpoints), computes on every
+constructor, transports constructors along HIT lines whose parameters vary,
+and keeps `hcomp` in a HIT stuck. Everything is runtime data on
+`--to-hvm4-full` (generated `@hitAt` / `@hitCoe` / `@hit_Name_elim`).
+Declared and verified, checker and HVM4 agreeing: the circle, the suspension
+(with transport along `Susp(ua(neg))`), the pushout, propositional
+truncation, the quotient's generators, the interval (function extensionality
+from it), a tree with recursive point fields — 110 ✓ and a 7-probe must-fail.

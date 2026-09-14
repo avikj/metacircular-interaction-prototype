@@ -23,6 +23,7 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | **Genuine coinduction** (the corpus's `--guardedness` records, copattern bisimulations) | `Answers`/`IExec` as corecursive records, `replay`/`forgetStates` corecursive, both `run-is-answers` round trips as corecursive paths, all `[productive]`; unguarded and destructor-recursive "proofs" refused under `--total`; false bisimulation fails finitely | `coinduction.bend` 13✓, `streams.bend` 10✓, `coinduction_mustfail.bend` (wrong ✗) (COINDUCTION.md); `--total` passes on coinduction/interaction/braid |
 | **Cost of keeping the calculus at runtime** (does "everything runtime" cost a rerun per use?) | no: transport paid once under sharing (marginal 14 itrs vs 150). Superposed transport has two regimes: a SHARED line over N values wins and improves with N (marginal 38 vs 139), DIFFERENT lines lose by a constant ~1.4x — superposition pays exactly when branches share work | `bench_*.bend`, `./suite.sh` (SYNTHESIS.md §3-4) |
 | **General silence-is-determinism** (Prasna §3, contractible `Q`, varying `δ`) | corecursive dependent path `answersUnique : PathP(λi. Answers(p @ i))` over a path of states; `isContr(IExec x)` for any such interaction; Niyati's one-execution as the `Q = Unit` instance; run on HVM | `silence.bend` 25✓ `--total` passes, main = 4 on both runtimes; `silence_mustfail.bend` (wrongTail, wrongCentre ✗) |
+| **A general HIT schema** (the last item of the completeness audit) | `hit` declarations: point/path constructors over dependent telescopes, signatures in the `Book`, dependent eliminator generated with induction hypotheses, path constructors computing at intervals, `coe` along HIT lines, `hcomp` stuck; all on `--to-hvm4-full` via generated `@hitAt`/`@hitCoe`/`@hit_Name_elim` | `hit_circle` 19✓, `hit_susp` 23✓ (transport along `Susp(ua)`), `hit_pushout` 15✓, `hit_trunc` 14✓, `hit_quot` 12✓, `hit_interval` 12✓, `hit_tree` 15✓; `hit_mustfail` 7✗; every `main` agrees on HVM4 (HIT.md) |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
 
@@ -37,10 +38,11 @@ comparison points; the full runtime is `--to-hvm4-full`. In the checker/normalis
 in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
 `hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
-Suite: `./suite.sh` — 85 `.bend` files, bad=0. Every file must check clean
+Suite: `./suite.sh` — 96 `.bend` files, bad=0. Every file must check clean
 except the registered soundness probes (the registry is in the script):
-`coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
-silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
+`coinduction_mustfail erasure glue_mustfail hfill kan_mustfail quotient_mustfail
+sub_mustfail transp_mustfail partial_mustfail circle_mustfail truncation_mustfail
+hit_mustfail silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
 contains a deliberate rejection; an unregistered one reads as a regression.
 
 Cubical completeness, audited and itemised in **REMAINING.md** — sections A,
@@ -49,8 +51,9 @@ B, C and E are now CLOSED:
   discrete types, Set, Glue) in BOTH the checker and the full runtime.
 - `comp`, `hfill`, `transp` with a cofibration, `Partial`/systems/`pout` and
   `Sub`/`inS`/`outS` all exist, parse, check and run.
-- Two HITs: the SetQuotient and the circle `S1`; both reach the runtime.
-- Every traversal is exhaustive; the JS backend fails loudly instead of
-  silently erasing a path.
-Remaining: a GENERAL HIT schema (§D), and the one Glue composition law that
-cannot be stated without face-restricted contexts (§B).
+- Three hardcoded HITs (SetQuotient, `S1`, `Trunc`) AND the general `hit`
+  schema (HIT.md); everything reaches the runtime.
+- Every traversal is exhaustive (`dup` included now); the JS backend fails
+  loudly instead of silently erasing a path.
+Remaining: the one Glue composition law that cannot be stated without
+face-restricted contexts (§B), and higher-dimensional path constructors.
