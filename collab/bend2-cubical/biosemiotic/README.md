@@ -276,6 +276,27 @@ Same-whale steps with the shape kept: relative |Δtempo| median 0.021, p90
 0.065, p99 0.130 (absolute: median 17 ms, p90 50 ms, p99 123 ms, max 546 ms).
 Rubato is a small, bounded motion of the fibre per crossing.
 
+### 8.7 Two blind readings, jointly faithful (abstract 18, `ApurvaIndriyam`)
+
+Against the annotation (24 EC1 types, 7,266 codas), on 10,000 sampled pairs:
+
+| reading | classes | purity | blind pairs (same class, different type) | pairs it separates that the annotation joins |
+|---|---|---|---|---|
+| metre alone | 174 | 0.868 | 464 | 516 |
+| tempo alone (Sharma's 5 bins) | 5 | 0.738 | 1,054 | 1,519 |
+| click count alone | 8 | 0.641 | 2,902 | 0 |
+| **joint metre × tempo** | 281 | **0.992** | **2** | 1,862 |
+| joint click count × tempo | 36 | 0.957 | 57 | 1,519 |
+
+Each reading alone is blind on named pairs (metre LLLL carries `1+1+3`, `5R1`,
+`5R2`, `5R3`; LLL carries `1+31`, `4D`, `4R1`, `4R2`; every tempo bin carries
+9–13 types). The joint reading is faithful to two pairs in ten thousand.
+That is abstract 18's shape on data: the human annotation is, to 99 %, the
+joint of a metre reading and a tempo reading, neither of which descends
+along the other (`अपूर्वम्` both ways), and the joint's 281 classes over-split
+the 24 labels (1,862 separated pairs the annotation joins) — the residue the
+annotator quotiented away, which a receiver may or may not.
+
 ## Files
 
     coda_elucidator.py   reads the CSV; exact & per-mille factoring; lens table; emits out/coda_*.hvm4

@@ -437,6 +437,11 @@ agrees with the Python table).
   lens 1000 on the same codas.
 - **Rubato's modulus.** Relative |Δtempo| per same-whale step with the
   shape kept: median 2.1 %, p99 13 %.
+- **Two blind readings, jointly faithful (abstract 18).** Against the
+  24 annotated types, metre alone is blind on 464 of 10,000 pairs and tempo
+  alone on 1,054; the joint reading is blind on 2, with purity 0.992. The
+  annotation is the joint of two readings neither of which descends along
+  the other.
 
 ### 3.8 Discrete systems
 
