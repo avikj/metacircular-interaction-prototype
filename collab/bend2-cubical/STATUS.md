@@ -37,14 +37,20 @@ comparison points; the full runtime is `--to-hvm4-full`. In the checker/normalis
 in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
 `hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
-Suite: `./suite.sh` — 73 `.bend` files, bad=0. Every file must check clean
+Suite: `./suite.sh` — 85 `.bend` files, bad=0. Every file must check clean
 except the registered soundness probes (the registry is in the script):
 `coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
 silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
 contains a deliberate rejection; an unregistered one reads as a regression.
 
-Known-incomplete, audited and itemised in **REMAINING.md**: `hcomp` has no
-type-directed rules except `Set` (Pi/Sigma/Nat/Path stuck); no `comp`, no
-`transp` with a cofibration, no `Partial`/`Sub` types, no HIT beyond the
-hardcoded SetQuotient; `Collapse`, the HVM3 backend and `--to-hvm4-full` on
-quotients still crash.
+Cubical completeness, audited and itemised in **REMAINING.md** — sections A,
+B, C and E are now CLOSED:
+- `hcomp` has its full type-directed rule set (Pi, Sigma, PathP, Nat, List,
+  discrete types, Set, Glue) in BOTH the checker and the full runtime.
+- `comp`, `hfill`, `transp` with a cofibration, `Partial`/systems/`pout` and
+  `Sub`/`inS`/`outS` all exist, parse, check and run.
+- Two HITs: the SetQuotient and the circle `S1`; both reach the runtime.
+- Every traversal is exhaustive; the JS backend fails loudly instead of
+  silently erasing a path.
+Remaining: a GENERAL HIT schema (§D), and the one Glue composition law that
+cannot be stated without face-restricted contexts (§B).
