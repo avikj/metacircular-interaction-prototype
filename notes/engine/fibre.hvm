@@ -1,0 +1,32 @@
+// Layer 1 — the inner storey: superposed fibre inversion.
+// For a decided map f and a stage value b, hold every candidate input as ONE
+// superposed value, evaluate f once with shared work, erase the non-points.
+// Collapse lists the fibre; its line count is c(n) = |fiber f b|.
+
+@if = λ{
+  0: λt. λf. f
+  _: λc. λt. λf. t
+}
+
+// trial division, machine ints
+@ip = λ&n. λ&d. @if(((d * d) > n), 1, @if(((n % d) == 0), 0, @ip(n, (d + 1))))
+@prime = λ&n. @if((n < 2), 0, @ip(n, 2))
+
+// every integer lo .. lo+k-1, superposed under dynamic label L
+@range = λ&L. λ&lo. λ{
+  0: &{}
+  λ&k. &(L){lo, @range(L, (lo + 1), (k - 1))}
+}
+
+// Goldbach fibre at m: prime pairs p <= q with p + q = m
+@gb_pt = λ&m. λ&p. @if((@prime(p) .&. @prime((m - p))), #G{m, p, (m - p)}, &{})
+@gb = λ&m. @gb_pt(m, @range(2, 2, ((m / 2) - 1)))
+
+// the ROW family: every even m in [lo, lo+2k), whole kernel rows at once
+@rows = λ&lo. λk. @gb(@evens(1, lo, k))
+@evens = λ&L. λ&lo. λ{
+  0: &{}
+  λ&k. &(L){lo, @evens(L, (lo + 2), (k - 1))}
+}
+
+@main = @rows(4, 6)
