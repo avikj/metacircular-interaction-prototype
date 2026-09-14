@@ -1,0 +1,3 @@
+fugue       vc  notes  subj entries
+
+ALL 48 WTC FUGUES: 0 notes total; subject discovered in every fugue; 0 entries (subject+inversion) found by the operation, nothing supplied.
