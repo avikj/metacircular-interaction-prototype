@@ -157,10 +157,26 @@ mathematics.
    the narrow one (`CONVERGENCE.md`, Part VI, "honest boundary"). Superposed
    execution has two regimes (`STATUS.md`, `bench_*.bend`): a shared line
    over N values wins and improves with N; different lines lose by a constant
-   ~1.4×. Biology's pattern — one history, many readouts — is the shared-line
-   regime, which is why the receiver family is the right workload and why the
-   claim must be measured as wall-clock, memory, interactions and sharing
-   separately, never as one number.
+   ~1.4×. The brief reads biology's pattern — one history, many readouts —
+   as that shared-line regime. **Measured, it is not, as stated**
+   (`port/PerturbationBench.bend`, `--to-hvm4-full`, HVM4 @ 6defdfc): three
+   receivers over one history of N passages, the history bound once
+   (`shared`) or rebuilt per receiver (`separate`):
+
+       N     shared   separate
+       8       2436       2432
+       32     16956      17000
+       128   190236     190472
+
+   The counts coincide because on the net a `dup` of a cheap structure costs
+   about what constructing it costs; the transport benchmark's advantage came
+   from sharing a *computation* (the `ua` dispatch), not a value. So the
+   receiver family is the favourable regime only when the generator action
+   is expensive relative to a dup — real perturbational generators, not the
+   stand-in's constructor rewrites. That is the condition to test on the
+   emitted real-panel file, and until it is, the claim is [open]. Measure
+   wall-clock, memory, interactions and sharing separately, never as one
+   number.
 
 ---
 
