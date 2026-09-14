@@ -1,9 +1,13 @@
 # What remains for complete cubical support — exact, audited, with locations
 
-**State: sections A, B, C and E are closed. Section D has three working HITs
-(set-quotient, circle, propositional truncation); a general HIT *schema* is
-the only substantive item left, plus the one Glue law that needs
-face-restricted contexts to state. Suite: 88 files, bad = 0.**
+**State: sections A, B, C, D and E are closed. Section D — the general HIT
+schema — landed: `type` declarations with `path` clauses of any dimension,
+recursive and function-typed fields, a dependent eliminator, transport
+through parametric HITs, and the full runtime (HITS.md). The circle,
+suspensions/spheres, pushouts, torus, Klein bottle, set quotient with
+effectivity, propositional/set truncation and hub-and-spoke truncation are
+all declarations now. What remains is the one Glue law that needs
+face-restricted contexts to state (§B). Suite: 103 files, bad = 0.**
 
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed
@@ -104,7 +108,23 @@ four backends, and each runs on HVM4 in agreement with the normaliser.
 
 ---
 
-## D. Higher inductive types — three, not a schema
+## D. Higher inductive types — CLOSED: the general schema (HITS.md)
+
+**The schema landed.** `type T(params): case @c: fields  path @p(fields):
+Path(...)` declares any HIT: path constructors of any dimension, fields that
+mention the HIT (also under function types), endpoints that mention the
+parameters. `hrec`/`helim` are the recursor and dependent eliminator; their
+path-branch types are PathPs over the motive, so boundary agreement is the
+existing typed endpoint law. Reduction: literal endpoints, elimination on
+every constructor, elimination commutes with `hcomp` (comp over the filler),
+`coe` pushes into constructors of parametric HITs. Everything is mirrored on
+`--to-hvm4-full` with a generated path function and eliminator per HIT.
+Files: `hit_*.bend` (16 files); the suite's own quotient/circle/truncation/
+effectivity files re-expressed on the schema check definitional-for-
+definitional (`hit_*_suite.bend`). The three hardcoded HITs below are now
+redundant and kept only so the older files check unchanged.
+
+### The three that were hardcoded (superseded)
 
 **Implemented and tested:**
 

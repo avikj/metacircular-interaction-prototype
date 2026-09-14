@@ -23,6 +23,7 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | **Genuine coinduction** (the corpus's `--guardedness` records, copattern bisimulations) | `Answers`/`IExec` as corecursive records, `replay`/`forgetStates` corecursive, both `run-is-answers` round trips as corecursive paths, all `[productive]`; unguarded and destructor-recursive "proofs" refused under `--total`; false bisimulation fails finitely | `coinduction.bend` 13✓, `streams.bend` 10✓, `coinduction_mustfail.bend` (wrong ✗) (COINDUCTION.md); `--total` passes on coinduction/interaction/braid |
 | **Cost of keeping the calculus at runtime** (does "everything runtime" cost a rerun per use?) | no: transport paid once under sharing (marginal 14 itrs vs 150). Superposed transport has two regimes: a SHARED line over N values wins and improves with N (marginal 38 vs 139), DIFFERENT lines lose by a constant ~1.4x — superposition pays exactly when branches share work | `bench_*.bend`, `./suite.sh` (SYNTHESIS.md §3-4) |
 | **General silence-is-determinism** (Prasna §3, contractible `Q`, varying `δ`) | corecursive dependent path `answersUnique : PathP(λi. Answers(p @ i))` over a path of states; `isContr(IExec x)` for any such interaction; Niyati's one-execution as the `Q = Unit` instance; run on HVM | `silence.bend` 25✓ `--total` passes, main = 4 on both runtimes; `silence_mustfail.bend` (wrongTail, wrongCentre ✗) |
+| **General HIT schema** (the last language gap: every HIT the corpus uses as ONE declaration form) | `type … path @c(fields): Path(…)` of any dimension; `@c{args}`; `hrec`/`helim`; endpoints, elimination, hcomp-commutation, coe-through-parametric-HITs in checker and full runtime | circle, Susp/Sⁿ, pushout, torus, Klein, set quotient + effectivity (23✓), prop/set truncation, hub-and-spoke: `hit_*.bend` 16 files, `hit_circle_mustfail` ✗ (HITS.md) |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
 
@@ -37,7 +38,7 @@ comparison points; the full runtime is `--to-hvm4-full`. In the checker/normalis
 in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
 `hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
-Suite: `./suite.sh` — 85 `.bend` files, bad=0. Every file must check clean
+Suite: `./suite.sh` — 103 `.bend` files, bad=0. Every file must check clean
 except the registered soundness probes (the registry is in the script):
 `coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
 silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that

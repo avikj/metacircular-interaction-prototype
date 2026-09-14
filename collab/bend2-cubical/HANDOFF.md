@@ -11,6 +11,15 @@ container (`/tmp/Bend2`); to rebuild from the repo:
     cabal build exe:bend                                     # GHC 9.12.2, cabal 3.18
     # HVM4: clone HigherOrderCO/HVM4 to /tmp/HVM4; gcc -O2 -o src/hvm src/hvm.c ; `hvm f.hvm4 -s -C10`
 
+TOOLCHAIN WITHOUT A HASKELL MIRROR (this container's proxy denies downloads.haskell.org):
+    GHC 9.12.2 and cabal-install 3.16 come from the Nix binary cache without nix —
+    hydra gives the store path, cache.nixos.org the NAR closure (a 60-line Python
+    unpacker is enough); bash/ld work as-is from /nix/store. Build with
+    `packages: . ../HVM3 ../hs-highlight`, `package zlib: flags: +bundled-c-zlib`
+    (the nix cc does not see /usr/lib), and apply `hvm3-gcc15.patch` to HVM3
+    (GCC 15 rejects the K&R prototype of `hvm_define`). Verified: the suite is
+    bad=0 on that build, byte-identical behaviour to the previous binary.
+
 Run: `bend f.bend` (checks + runs; `bend check` is NOT a subcommand; count ✓/✗ lines).
 Targets: `--to-hvm4` (normalised), `--to-hvm4-raw` (no normalisation, strict),
 `--to-hvm4-full` (FULL cubical runtime: nothing erased), `--to-hvm` (HVM3), `--total`.
