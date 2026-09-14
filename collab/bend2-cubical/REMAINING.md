@@ -7,7 +7,7 @@ through parametric HITs, and the full runtime (HITS.md). The circle,
 suspensions/spheres, pushouts, torus, Klein bottle, set quotient with
 effectivity, propositional/set truncation and hub-and-spoke truncation are
 all declarations now. What remains is the one Glue law that needs
-face-restricted contexts to state (§B). Suite: 103 files, bad = 0.**
+face-restricted contexts to state (§B). Suite: 108 files, bad = 0.**
 
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed

@@ -107,3 +107,21 @@ run_corpus.hvm4: the same program in HVM4 surface syntax, executed on the
   real HVM4 C runtime: div2(mul2(3)) = 3n in 26 interactions.
   (--to-hvm targets the HVM3 dialect; an HVM4 emitter is a mechanical
   printer variant, not yet written.)
+
+## General higher inductive types (same patch) — HIT.md
+
+`hit Name<params>(indices): case @tag(fields) -> Name(…) | path @tag(fields): T`
+declares a HIT at the generality of a Cubical Agda `data`: uniform
+parameters, indices, fields of any type (intervals and paths included),
+path constructors of any dimension with any well-typed faces. The compiler
+generates the constructors; `Name/elim` is the dependent eliminator (motive
+over the indices), computing on every constructor, on cells of any dimension
+and on `hcomp` cells; transport along HIT lines computes on constructors and
+commutes with hcomp; `hcomp` in a HIT stays stuck. Everything is runtime data
+on `--to-hvm4-full`. Declared and verified, checker and HVM4 agreeing: the
+circle, the suspension (transport along `Susp(ua(neg))`), the pushout,
+propositional and SET truncation, the quotient's generators, the interval
+(funext from it), trees with swap and associativity paths, the torus, an
+indexed reachability family and an indexed family with an interval-argument
+constructor — 189 ✓ and a 7-probe must-fail. PUSC.md: the architecture
+statement (Parallel Univalent Superposition Computer).

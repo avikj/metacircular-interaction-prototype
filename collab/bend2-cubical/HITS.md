@@ -82,12 +82,28 @@ type Quotient(A: Set, R: A -> A -> Set):
 - `coe` along a line `i. T(ps(i))` of a parametric HIT pushes into the
   constructors, each field carried along its own dependent type line; a HIT
   without parameters is rigid (identity), by the existing regularity check.
+  The line may be written through a definition (`def L(i) -> Set: T(ps(i))`,
+  the type former being an opaque definition, that one head is unfolded).
+  Transport COMMUTES with an hcomp cell of the HIT: `coe(L, r, s, hcomp [φ ↦
+  u] x) = hcomp(L(s), [φ ↦ coe(L, r, s, u)], coe(L, r, s, x))` (`hit_hcomp.bend`,
+  definitional).
+- `helim` on an hcomp cell fires whether the cell's type is written as the
+  HIT node or as the definition naming it (`toBool(hcomp(Circle, …))`
+  computes to `hcomp(Bool, …)`, and on `Bool` to the cap).
 - Runtime (`--to-hvm4-full`): `#HT_T{ps}` is the type, `#C_T_c{ps, as}` a
   point, a path constructor is `#PLm{λi. @P_T_c(ps, as, i)}` with a generated
   `@P_T_c` that reduces at literal endpoints and is the canonical
   `#P_T_c{ps, as, i}` otherwise; a generated `@E_T` is the eliminator, with
   the `#HCm` case as `@compAt` over `@hfillAt`. Parameters a term does not
-  carry are erased (`&{}`) at runtime.
+  carry are erased (`&{}`) at runtime. Transport along a HIT line is the
+  generated `@X_T`, reached from `@coeT`'s default arm through `@hitCoe`: a
+  constructor is rebuilt at the parameters of `L(s)` (read off the type value
+  by `@HTp_T_k`) with each field `@coe`d along its own dependent type line, a
+  canonical cell likewise and re-applied through `@P_T_c`, an hcomp cell
+  commuted (`@hcTubesCoeLine`). Verified: `merid(True)` transported along
+  `Susp(ua(neg) @ i)` at a symbolic `i` is `#P_Susp_merid{Bool, 0, #IVar{0}}`
+  (1235 interactions); `helim` through an hcomp cell with an undecided face,
+  into `Bool`, is `1`.
 
 ## Files
 
@@ -102,8 +118,36 @@ type Quotient(A: Set, R: A -> A -> Set):
 | set truncation | `hit_settrunc.bend` | 2-path constructor over recursive fields |
 | hub-and-spoke truncation | `hit_ntrunc.bend` | function field into the HIT |
 | must-fail | `hit_circle_mustfail.bend` | wrong boundary and missing branch rejected |
+| interval | `hit_interval.bend` | contractible by `helim`; function extensionality derived from it (9 ✓) |
+| trees | `hit_tree.bend` | swap path (a commutative `anyTrue`); assoc over NESTED constructor terms, branch = the associativity of `add` by induction — a constant branch is rejected, the two faces having different images (16 ✓) |
+| indexed families | `hit_indexed.bend` | `Reach(S, step, s, t)` by index-equation fields, path-typed step fields; `Gen(A)` with an INTERVAL-argument constructor whose target index moves along a universe path (`e: Path(Set, notPath() @ i, A)`) (15 ✓) |
+| eliminator on hcomp, transport commuting with hcomp | `hit_hcomp.bend` | `helim(hcomp …) = hcomp(helim …)` definitional; `coe(L, hcomp …) = hcomp(coe …)` definitional (14 ✓) |
+| soundness probes | `hit_mustfail.bend` | loop ≠ refl, wrong faces, poles to True/False, missing branch, wrong field type, wrong endpoint, constant branch on assoc — 7 rejected |
 
 Still hardcoded and now redundant: `Quot/qcl/qeq/qsquash/qrec`, `S1/s1base/
 s1loop/srec`, `Trunc/tin/tsquash/trec` — kept so the older suite files check
 unchanged; their keywords are reserved, so a declared HIT cannot be named
 `Trunc` or use `trec` as a definition name.
+
+## Three checker fixes exposed by recursive definitions on the schema
+
+Each was invisible while HITs were hardcoded primitives:
+
+1. Face-cell restriction (`restrictLits`) is a syntactic substitution of the
+   interval variable (`substVar`); the semantic `rewrite` re-normalised under
+   binders and unfolded a recursive definition stuck on a variable forever —
+   an `hcomp` whose tube mentioned a recursive function never checked.
+2. The type-directed `hcomp` rules dispatch on the type's NORMAL FORM
+   (`whnfHCm`): the eliminator on an hcomp cell produces a composite whose
+   type is the motive applied to a filler, whose head is not syntactically
+   visible.
+3. The conversion checker's same-head shortcut sees through PATH applications
+   and neutral heads (`Equal.sameHead`): `addAssoc(p, size(y), size(z)) @ i`
+   against the same spine with `size(y)` unfolded used to unfold `addAssoc`
+   instead and regenerate the same shape one level deeper, forever.
+
+A fourth, general fact about the runtime, not about HITs: HVM4's normal-form
+printer expands the arms of a match stuck on a free variable, so ANY
+recursive function printed as a value diverges (`@main = @add` never
+prints). A stuck eliminator of an undecided hcomp cell inside a lambda is
+such a value; consumed, it computes.

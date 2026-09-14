@@ -109,7 +109,7 @@ index 0000000..e5f5248
 +def main() -> Nat:
 +  0n
 diff --git a/bend.cabal b/bend.cabal
-index e934487..1e3720f 100644
+index e934487..aa26d7a 100644
 --- a/bend.cabal
 +++ b/bend.cabal
 @@ -1,4 +1,4 @@
@@ -118,7 +118,7 @@ index e934487..1e3720f 100644
  name:               bend
  version:            0.1.0.0
  homepage:           https://higherorderco.com/
-@@ -35,8 +35,12 @@ library
+@@ -35,59 +35,66 @@ library
                        Core.Parse.Term,
                        Core.Parse.WithSpan,
                        Core.Rewrite,
@@ -129,8 +129,80 @@ index e934487..1e3720f 100644
 +                      Target.HVM4,
 +                      Target.HVM4Full,
                        Target.JavaScript
-     build-depends:    base ^>= 4.21.0.0,
+-    build-depends:    base ^>= 4.21.0.0,
++    build-depends:    base >= 4.17,
                        hs-highlight == 1.0.5,
+-                      containers == 0.7,
++                      containers >= 0.6,
+                       http-conduit,
+                       aeson,
+                       bytestring,
+                       text,
+                       time,
+                       case-insensitive,
+-                      filepath==1.5.4.0,
+-                      directory==1.3.9.0,
++                      filepath >= 1.4,
++                      directory >= 1.3,
+                       megaparsec == 9.7.0,
+-                      mtl == 2.3.1,
++                      mtl >= 2.2,
+                       file-embed,
+                       HVM,
+                       process
+     hs-source-dirs:   src
+-    default-language: GHC2024
++    default-language: GHC2021
++    default-extensions: DataKinds, DerivingStrategies, DisambiguateRecordFields, ExplicitNamespaces, GADTs, MonoLocalBinds, LambdaCase, RoleAnnotations
+ 
+ executable bend
+     import:           warnings
+                       -- do not change this on main branch
+     main-is:          Main.hs
+-    build-depends:    base ^>=4.21.0.0,
++    build-depends:    base >= 4.17,
+                       bend,
+-                      containers==0.7,
++                      containers >= 0.6,
+                       http-conduit,
+                       aeson,
+                       bytestring,
+                       case-insensitive,
+-                      filepath==1.5.4.0,
+-                      directory==1.3.9.0,
+-                      time == 1.14,
++                      filepath >= 1.4,
++                      directory >= 1.3,
++                      time >= 1.12,
+                       megaparsec ==9.7.0,
+                       file-embed,
+                       HVM
+     hs-source-dirs:   app
+-    default-language: GHC2024
++    default-language: GHC2021
++    default-extensions: DataKinds, DerivingStrategies, DisambiguateRecordFields, ExplicitNamespaces, GADTs, MonoLocalBinds, LambdaCase, RoleAnnotations
+ 
+ -- executable bend-test
+ --     import:           warnings
+                       -- do not change this on main branch
+ --     main-is:          OldMain.hs
+---     build-depends:    base ^>=4.21.0.0,
++--     build-depends:    base >= 4.17,
+ --                       bend,
+---                       containers==0.7,
+---                       filepath==1.5.4.0,
+---                       directory==1.3.9.0,
+---                       time == 1.14,
++--                       containers >= 0.6,
++--                       filepath >= 1.4,
++--                       directory >= 1.3,
++--                       time >= 1.12,
+ --                       megaparsec ==9.7.0,
+ --                       HVM
+ --     hs-source-dirs:   app
+---     default-language: GHC2024
++--     default-language: GHC2021
++--     default-extensions: DataKinds, DerivingStrategies, DisambiguateRecordFields, ExplicitNamespaces, GADTs, MonoLocalBinds, LambdaCase, RoleAnnotations
 diff --git a/braid.bend b/braid.bend
 new file mode 100644
 index 0000000..de7aee3
@@ -2233,7 +2305,7 @@ index f94d1ce..b1a3b67 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..df3e448 100644
+index cdd6756..40fc69f 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -11,6 +11,7 @@ import Debug.Trace
@@ -2830,7 +2902,7 @@ index cdd6756..df3e448 100644
    where
      checkDef (name, (_, term, typ)) = do
        check 0 noSpan book (Ctx []) term typ
-@@ -468,3 +974,110 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +974,122 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -2868,7 +2940,19 @@ index cdd6756..df3e448 100644
 +
 +-- substitute a cell's literals into a term
 +restrictLits :: Int -> Book -> [(Term, Term)] -> Term -> Term
-+restrictLits d book lits x = foldr (\(v, e) acc -> rewrite 3 d book v e acc) x lits
++restrictLits d book lits x = foldr (\(v, e) acc -> substVar v e acc) x lits
++
++-- | Substitute a literal for an interval VARIABLE, syntactically.  The
++-- variable is a binder of the current context, so it can only occur
++-- syntactically; the semantic `rewrite` (whnf then recurse) would unfold a
++-- recursive definition stuck on another variable at every level, forever
++-- (an hcomp whose tube mentions a recursive definition never checked).
++substVar :: Term -> Term -> Term -> Term
++substVar (Var k i) e = go where
++  go t = case t of
++    Var k' i' | k' == k && i' == i -> e
++    _ -> mapSub go t
++substVar _ _ = id
 +
 +facePairs :: [a] -> [(a, a)]
 +facePairs []       = []
@@ -3069,10 +3153,10 @@ index 99c0709..0c92a04 100644
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..310be3b 100644
+index 9d1ab06..fe1e127 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
-@@ -19,9 +19,17 @@ equal :: Int -> Book -> Term -> Term -> Bool
+@@ -19,9 +19,32 @@ equal :: Int -> Book -> Term -> Term -> Bool
  equal d book a b = eql 3 d book a b
  
  eql :: Int -> Int -> Book -> Term -> Term -> Bool
@@ -3085,14 +3169,29 @@ index 9d1ab06..310be3b 100644
 +  -- equal WITHOUT unfolding: unfolding a recursive type family (e.g. a
 +  -- depth-indexed Σ) on a variable depth regresses forever, one fresh
 +  -- variable per level, so it must be tried only after this
-+  sameHead  = case (collectApps (cut a) [], collectApps (cut b) []) of
++  -- The spine may mix ordinary and PATH applications (a recursive path
++  -- lemma applied at an interval): without seeing through `@`, two spines
++  -- differing only in a convertible argument get unfolded instead, and a
++  -- recursive definition stuck on a variable regenerates the same shape one
++  -- level deeper, forever.  A neutral (variable) head is treated alike.
++  sameHead  = case (spineOf a, spineOf b) of
 +    ((Ref ka, xs), (Ref kb, ys)) ->
-+      ka == kb && length xs == length ys && not (null xs) && and (zipWith (eql lv d book) xs ys)
++      ka == kb && not (null xs) && sameArgs xs ys
++    ((Var ka ia, xs), (Var kb ib, ys)) ->
++      ia == ib && not (null xs) && sameArgs xs ys
 +    _ -> False
++  sameArgs xs ys = length xs == length ys && and (zipWith sameArg xs ys)
++  sameArg (Left x) (Left y)   = eql lv d book x y
++  sameArg (Right x) (Right y) = eql lv d book x y
++  sameArg _ _                 = False
++  spineOf t = go (cut t) [] where
++    go (App f x) acc = go (cut f) (Left x : acc)
++    go (PAp f x) acc = go (cut f) (Right x : acc)
++    go h acc         = (h, acc)
    similar   = cmp lv d book (force book a) (force book b)
  
  cmp :: Int -> Int -> Book -> Term -> Term -> Bool
-@@ -60,9 +68,14 @@ cmp lv d book a b =
+@@ -60,9 +83,14 @@ cmp lv d book a b =
      (EnuM xa ca da, EnuM xb cb db) -> eql lv d book xa xb && length ca == length cb && all (\ ((s1,t1), (s2,t2)) -> s1 == s2 && eql lv d book t1 t2) (zip ca cb) && eql lv d book da db
      (Sig aa ba    , Sig ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
      (Tup aa ba    , Tup ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
@@ -3107,7 +3206,7 @@ index 9d1ab06..310be3b 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +90,60 @@ cmp lv d book a b =
+@@ -77,6 +105,60 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -3168,7 +3267,7 @@ index 9d1ab06..310be3b 100644
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
-@@ -89,3 +156,19 @@ cmp lv d book a b =
+@@ -89,3 +171,19 @@ cmp lv d book a b =
      (Met _  _  _  , Met _  _  _  ) -> error "not-supported"
      (Pat _  _  _  , Pat _  _  _  ) -> error "not-supported"
      (_            , _            ) -> False
@@ -4506,7 +4605,7 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..6a25790 100644
+index 953410d..a43b7a1 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
 @@ -6,7 +6,9 @@ module Core.WHNF where
@@ -4535,7 +4634,7 @@ index 953410d..6a25790 100644
      App f x    -> whnfApp lv book f x
      Loc _ t    -> whnf lv book t
      Op2 o a b  -> whnfOp2 lv book o a b
-@@ -53,9 +62,600 @@ whnfGo lv book term =
+@@ -53,9 +62,614 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -4792,7 +4891,11 @@ index 953410d..6a25790 100644
 +       (u : _) -> whnf lv book (PAp u I1)   -- a face holds: the composite is that tube's cap
 +       []      -> case [ f | f@(p, _) <- fs', notI0 p ] of
 +         []   -> whnf lv book x                      -- no live face: the cap
-+         live -> case cut a of
++         -- the type-directed rules dispatch on the type's NORMAL FORM: the
++         -- type may be a definition, a family, or a motive applied to a
++         -- filler (the eliminator on an hcomp cell) whose head is not
++         -- syntactically visible
++         live -> case force book a of
 +           -- hcomp in the UNIVERSE is a Glue type (CCHM): on each live face
 +           -- the tube's top, glued to the base along the equivalence
 +           -- "transport backwards along the tube" (pathToEquiv of the
@@ -4916,7 +5019,14 @@ index 953410d..6a25790 100644
 +  in if sameEnd r' s'
 +    then whnf lv book t
 +    else
-+      let body = normal 0 book (App pP coeMarker) in
++      -- the HIT type former is an opaque definition, so a line written
++      -- through a definition (`def L(i) -> Set: T(ps(i))`) normalises to a
++      -- reference application; unfold that one head to reach the HTy node
++      let body0 = normal 0 book (App pP coeMarker)
++          body  = case collectApps (cut body0) [] of
++                    (Ref k, _) | Just _ <- derefHit book k -> normal 0 book (force book body0)
++                    _ -> body0
++      in
 +      if not (occursMarker body)
 +        -- regularity: constant line, coe is the identity
 +        then whnf lv book t
@@ -5048,6 +5158,9 @@ index 953410d..6a25790 100644
 +                    fieldLn j     = Lam "i" (\i -> fieldTyAt i j)
 +                    coeArg m i    = Coe (fieldLn m) r' i (as !! m)
 +                in HCon tn c (psAt s') [ coeArg j s' | j <- [0 .. n-1] ] ivs
++              -- an hcomp cell of the HIT: transport commutes with it
++              HCm _ fs0 x0 ->
++                HCm (App pP s') [ (q, PLm "j" (\j -> Coe pP r' s' (PAp u j))) | (q, u) <- fs0 ] (Coe pP r' s' x0)
 +              t' -> Coe pP r' s' t'
 +          _ -> Coe pP r' s' t
 +  where
@@ -5136,7 +5249,7 @@ index 953410d..6a25790 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +746,21 @@ whnfSigM lv book x f =
+@@ -146,6 +760,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5158,7 +5271,7 @@ index 953410d..6a25790 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +1016,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +1030,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5206,7 +5319,7 @@ index 953410d..6a25790 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -429,6 +1085,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
+@@ -429,6 +1099,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
  dup book l (Log s x)    = (Log s0 x0, Log s1 x1)
    where (s0,s1)         = dup book l s
          (x0,x1)         = dup book l x
@@ -5226,7 +5339,7 @@ index 953410d..6a25790 100644
  dup book l (Frk _ _ _)  = error "unreachable"
  dup book l (Pat _ _ _)  = error "unreachable"
  
-@@ -485,11 +1154,50 @@ normal d book term =
+@@ -485,11 +1168,50 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5277,7 +5390,7 @@ index 953410d..6a25790 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1209,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1223,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5384,7 +5497,7 @@ index 953410d..6a25790 100644
  -- Utils
  -- =====
  
-@@ -514,6 +1322,13 @@ ugly (cut -> LstM _ _ _) = True
+@@ -514,6 +1336,13 @@ ugly (cut -> LstM _ _ _) = True
  ugly (cut -> EnuM _ _ _) = True
  ugly (cut -> SigM _ _  ) = True
  ugly (cut -> EqlM _ _  ) = True
@@ -5398,7 +5511,7 @@ index 953410d..6a25790 100644
  ugly _                   = False
  
  -- Evaluates terms that whnf won't, including:
-@@ -547,3 +1362,327 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1376,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -5697,7 +5810,7 @@ index 953410d..6a25790 100644
 +                         [ (q, PLm "j" (\j -> HEl p bs (PAp u j))) | (q, u) <- fs ]
 +                         (HEl p bs base))
 +  x' -> HEl p bs x'
-+  where isHTy a = case cut a of { HTy _ _ -> True ; _ -> False }
++  where isHTy a = case force book a of { HTy _ _ -> True ; _ -> False }   -- the HIT may be named by a definition
 +
 +-- The recursor has no motive at hand, so it computes on constructors and
 +-- superpositions only; on a composite it stays stuck (use helim there).
@@ -5727,17 +5840,20 @@ index 953410d..6a25790 100644
 +      Just e  -> whnf lv book (foldl PAp e rest)
 +      Nothing -> HCon t c ps as (done ++ [r] ++ rest)
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..9161031 100644
+index 996bb26..8db6fc6 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
-@@ -6,6 +6,7 @@ module Target.HVM where
+@@ -6,8 +6,9 @@ module Target.HVM where
  
  import Control.Monad (forM)
  import Core.Type
 +import Core.WHNF (force, coeRep, pathRep, coeMarker, occursMarker)
  import Data.Either (partitionEithers)
- import Data.List (isInfixOf, unsnoc)
+-import Data.List (isInfixOf, unsnoc)
++import Data.List (isInfixOf)
  import Debug.Trace
+ import qualified Data.Map as M
+ import qualified Data.Map.Strict as MS
 @@ -15,8 +16,8 @@ import qualified Data.Set as S
  import qualified HVM.Type as HVM
  
@@ -6012,7 +6128,7 @@ index 996bb26..9161031 100644
  hvmNam :: Name -> HVM.Name
  hvmNam n = (replace '/' "__" n) ++ "$"
  
-@@ -286,5 +346,44 @@ freeVars ctx tm = case tm of
+@@ -286,5 +346,49 @@ freeVars ctx tm = case tm of
    Log s x    -> S.union (freeVars ctx s) (freeVars ctx x)
    Loc _ t    -> freeVars ctx t
    Rwt a b x  -> S.unions [freeVars ctx a, freeVars ctx b, freeVars ctx x]
@@ -6057,6 +6173,11 @@ index 996bb26..9161031 100644
 +  HRec bs x -> S.unions (map (freeVars ctx) (x : map snd bs))
    Pri _      -> S.empty
    Pat s m c  -> error "TODO: Pat"
++
++-- (Data.List.unsnoc only exists from base 4.19; defined here for portability)
++unsnoc :: [a] -> Maybe ([a], a)
++unsnoc [] = Nothing
++unsnoc xs = Just (init xs, last xs)
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
 index 0000000..c1d7d4f
@@ -6293,10 +6414,10 @@ index 0000000..c1d7d4f
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..0c893db
+index 0000000..2c38326
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,450 @@
+@@ -0,0 +1,498 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6321,7 +6442,7 @@ index 0000000..0c893db
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt)
++import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
 +import Data.IORef
 +import System.IO.Unsafe (unsafePerformIO)
 +
@@ -6506,7 +6627,9 @@ index 0000000..0c893db
 +  , "  #Path: λA0. λu0. λv0. #PLm{λj. @hcomp(@ptA(L(s)), #Cons{#Face{@inot(s), #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptU(L(k)))}}, #Cons{#Face{s, #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptV(L(k)))}}, #Nil}}, @coe(λi. @ptA(L(i)), r, s, @pathAt(x, j)))};"
 +  , "  #At: λp. λi. @coeAt(p, i, r, s, x);"
 +  , "  #Glue: λA0. λfs0. @coeGlue(L, r, s, x, fs0);"
-+  , "  λt. #StuckCoe{t, x}}"
++  , "  λt. @hitCoe(L, r, s, x, t)}"
++  , "// tubes of an hcomp cell transported along a line (transport commutes with hcomp in a HIT)"
++  , "@hcTubesCoeLine = λ&L. λ&r. λ&s. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @coe(L, r, s, @pathAt(tube, j))}}, @hcTubesCoeLine(L, r, s, rest)}}}"
 +  , "// coe along a universe path applied at the symbolic marker (or its negation)"
 +  , "// direction of literal endpoints: 1 fwd, 0 bwd, 2 symbolic (stuck)"
 +  , "@dir = λ{#I0: λ{#I1: 1; λs. 2}; #I1: λ{#I0: 0; λs. 2}; λr. λs. 2}"
@@ -6696,9 +6819,55 @@ index 0000000..0c893db
 +--   @E_T    = λP. λb_c1 .. λb_cn. λx. the eliminator: branches on the
 +--             constructors, commutes with composition, stuck otherwise.
 +hitPrelude :: Book -> String
-+hitPrelude book = unlines (concatMap one (M.toList (bookHits book)))
++hitPrelude book = unlines (hitCoeDispatch : concatMap one (M.toList (bookHits book)))
 +  where
-+    one (t, h) = [ pathFn t c k | (c, k) <- hitCtors h, ctorDim k > 0 ] ++ [ elimFn t h ]
++    one (t, h) = [ pathFn t c k | (c, k) <- hitCtors h, ctorDim k > 0 ] ++ [ elimFn t h ] ++ coeFns t h
++
++    -- @hitCoe: transport along a HIT line, dispatching on the HIT (reached
++    -- from @coeT's default arm when the line yields a #HT_T at the marker)
++    hitCoeDispatch = "@hitCoe = λ&L. λ&r. λ&s. λ&x. λ{"
++      ++ concat [ "#HT_" ++ hvmName t ++ ": " ++ concatMap (\i -> "λhcq_" ++ hvmName t ++ "_" ++ show i ++ ". ") [1 .. hitArity h]
++                  ++ "@X_" ++ hvmName t ++ "(L, r, s, x); "
++                | (t, h) <- M.toList (bookHits book) ]
++      ++ "λt. #StuckCoe{t, x}}"
++
++    -- @X_T: a constructor rebuilt at the parameters of L(s) (read off the
++    -- type value by @HTp_T_k) with every field transported along its own
++    -- dependent type line (earlier fields transported to the running
++    -- interval first); a canonical cell likewise, re-applied to its
++    -- intervals through @P_T_c; an hcomp cell commutes with the transport;
++    -- anything else is stuck.  Mirrors Core.WHNF.whnfCoe's HTy case.
++    coeFns t h =
++      let tn   = hvmName t
++          np   = hitArity h
++          param k = "@HTp_" ++ tn ++ "_" ++ show k
++          paramFns = [ param k ++ " = λ{#HT_" ++ tn ++ ": " ++ concatMap (\i -> "λhtp_" ++ tn ++ "_" ++ show k ++ "_" ++ show i ++ ". ") [1 .. np]
++                       ++ "htp_" ++ tn ++ "_" ++ show k ++ "_" ++ show k ++ "; λv. #StuckParam{v}}"
++                     | k <- [1 .. np] ]
++          newPs = [ param k ++ "(L(s))" | k <- [1 .. np] ]
++          arm (c, k) =
++            let os = [ "hco_" ++ tn ++ "_" ++ c ++ "_" ++ show i | i <- [1 .. np] ]
++                as = [ "hca_" ++ tn ++ "_" ++ c ++ "_" ++ show i | i <- [1 .. ctorNArgs k] ]
++                is = [ "hci_" ++ tn ++ "_" ++ c ++ "_" ++ show i | i <- [1 .. ctorDim k] ]
++                coerced = [ coeField k c as j "s" (show j) | j <- [0 .. ctorNArgs k - 1] ]
++                binds = concatMap (\n -> "λ" ++ n ++ ". ") os ++ concatMap (\n -> "λ&" ++ n ++ ". ") as ++ concatMap (\n -> "λ" ++ n ++ ". ") is
++            in if ctorDim k == 0
++                 then "#" ++ hitCtorTag t c ++ ": " ++ binds ++ "#" ++ hitCtorTag t c ++ "{" ++ intercalate ", " (newPs ++ coerced) ++ "}; "
++                 else "#" ++ hitPathFn t c ++ ": " ++ binds ++ "@" ++ hitPathFn t c ++ "(" ++ intercalate ", " (newPs ++ coerced ++ is) ++ "); "
++          -- field j of constructor c transported from r to `to` along its type
++          -- line; earlier fields are transported to the running i first (the
++          -- interval binder's name records the nesting path, so it is unique)
++          coeField k c as j to path =
++            let iv = "hcv_" ++ tn ++ "_" ++ c ++ "_" ++ path
++            in "@coe(λ&" ++ iv ++ ". " ++ fieldTypeAt k c as j iv path ++ ", r, " ++ to ++ ", " ++ as !! j ++ ")"
++          fieldTypeAt k c as j iv path =
++            let psAt    = [ Var (param m ++ "(L(" ++ iv ++ "))") 0 | m <- [1 .. np] ]
++                earlier = [ Var (coeField k c as m iv (path ++ "_" ++ show m)) 0 | m <- [0 .. j - 1] ]
++            in emitFull book (ctorFieldType book k (psAt ++ earlier))
++      in paramFns ++
++         [ "@X_" ++ tn ++ " = λ&L. λ&r. λ&s. λ{" ++ concatMap arm (hitCtors h)
++           ++ "#HCm: λA. λfs. λbase. @hcomp(L(s), @hcTubesCoeLine(L, r, s, fs), @coe(L, r, s, base)); "
++           ++ "λv. #StuckCoe{L(s), v}}" ]
 +
 +    pathFn t c k =
 +      let np  = hitArity (maybe h0 id (derefHit book t))

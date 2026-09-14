@@ -40,7 +40,7 @@ comparison points; the full runtime is `--to-hvm4-full`. In the checker/normalis
 in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
 `hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
-Suite: `./suite.sh` — 103 `.bend` files, bad=0. Every file must check clean
+Suite: `./suite.sh` — 108 `.bend` files, bad=0. Every file must check clean
 except the registered soundness probes (the registry is in the script):
 `coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
 silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that

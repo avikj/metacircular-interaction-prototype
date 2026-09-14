@@ -9,7 +9,7 @@
 set -u
 export LC_ALL=C.utf8 LANG=C.utf8   # without this bend aborts silently (0/0)
 BEND="${1:-$(cat /tmp/BENDBIN 2>/dev/null || echo bend)}"
-MUSTFAIL="coinduction_mustfail erasure glue_mustfail hfill kan_mustfail quotient_mustfail sub_mustfail transp_mustfail partial_mustfail circle_mustfail truncation_mustfail hit_circle_mustfail
+MUSTFAIL="coinduction_mustfail erasure glue_mustfail hfill kan_mustfail quotient_mustfail sub_mustfail transp_mustfail partial_mustfail circle_mustfail truncation_mustfail hit_circle_mustfail hit_mustfail
           silence_mustfail uaequiv_mustfail uaroundtrip"
 cd "$(dirname "$0")" || exit 1
 bad=0; n=0

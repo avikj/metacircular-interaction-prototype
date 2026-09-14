@@ -29,6 +29,19 @@ Run: `bend f.bend` (checks + runs; `bend check` is NOT a subcommand; count ✓/�
 Targets: `--to-hvm4` (normalised), `--to-hvm4-raw` (no normalisation, strict),
 `--to-hvm4-full` (FULL cubical runtime: nothing erased), `--to-hvm` (HVM3), `--total`.
 
+### Building on a machine WITHOUT GHC 9.12 (verified 2026-09-14, Ubuntu 24.04)
+`apt-get install ghc cabal-install` gives GHC 9.4.7 / cabal 3.8, which is enough:
+the patch's `bend.cabal` (and HVM3's `HVM.cabal`, edit it the same way) use
+`default-language: GHC2021` plus the GHC2024 extensions and `base >= 4.17`,
+so nothing needs `^>= 4.21`. Two traps: (1) cabal 3.8's built-in Hackage
+root keys are stale — put the current key ids from
+`https://hackage.haskell.org/root.json` under `root-keys:` (threshold 3) in
+`~/.cabal/config` and set the repository `url:` to https; (2) `cabal.project`
+must list `/tmp/HVM3` and a clone of `HigherOrderCO/hs-highlight` as local
+packages, with NO blanket `allow-newer` (it drags in libraries needing a newer
+base). `Data.List.unsnoc` is shimmed in `Target/HVM.hs`. HVM4 (May 2026 head,
+`gcc -O2 -o src/hvm src/hvm.c -lm -lpthread`) runs every emitted program.
+
 ## What the user wants (their words, condensed)
 The README's Interactive Symbolic Computer: the trace IS the path
 (data = program = execution = proof = transport); traces compose, invert, have
@@ -137,8 +150,53 @@ were missing from `normal`, `normalCap`, `occursMarker` (hard crashes) and
 `mapSub` (silent wrong substitution). Still crashing: `Collapse.collapse`,
 `Target/HVM.freeVars`, and `--to-hvm4-full` on any quotient.
 
+## THE GENERAL HIT SCHEMA IS DONE (HIT.md) — §D of REMAINING.md closed
+At Cubical Agda `data` generality: `hit Name<params>(indices): case
+@tag(fields) -> Name(…) | path @tag(fields): T | path @tag(fields): lhs ~> rhs`
+generates `Name`, `Name/tag`; `Name/elim(params, P, indices, x, branches)` is
+SYNTAX resolved into the primitive `HEl` (Core/Adjust.elimSugar) — not a def,
+its type cannot be a Π-telescope. Four generic `Term` forms
+(`HTy`/`HPt`/`HPa`/`HEl`), signatures in the `Book` (second map, `HitSig`);
+`hitInst`/`hitSpine`/`hitEndAt`/`whnfHEl` in WHNF (cells of any dimension,
+hcomp cells via `compAt` over `hfillAt`); `checkTele`/`hitMotiveType`/
+`hitPathTypeOver`/`hitBranchType` in Check; `hitDefs` in Parse/Book;
+`hitRuntime` in HVM4Full (generated `@hitAt`, `@hitCoe`, `@hit_Name_elim`,
+spine walks unrolled to the program's max dimension). Three general fixes rode
+along: `whnfHCm` dispatches on the type's normal form; face-cell restriction
+is a syntactic substitution (`substVar`) — the semantic `rewrite` diverged on
+recursive defs stuck on a variable; `Equal.sameHead` sees through `@` spines
+and neutral heads (else a recursive path lemma applied at an interval is
+unfolded forever when an argument is convertible but not syntactically equal). `p @ i @ j` is left associative. Files:
+hit_circle hit_susp hit_pushout hit_trunc hit_quot hit_interval hit_tree
+hit_torus hit_settrunc hit_indexed hit_hcomp + hit_mustfail (registered).
+Suite 100 files bad=0; every `main` agrees between normaliser and HVM4.
+Recursion in branches is by named defs (Agda's pattern matching): the
+expected face `Name/elim(…, x, bs)` IS `rec(x)` after unfolding. Known
+HVM4 property, not ours: printing a recursive function as a VALUE never
+terminates (`@main = @add` included). PUSC.md is the author's architecture
+statement — the level at which the whole is to be read.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
 2. hcomp in Set beyond the composite shape (would need Glue-style rules).
 3. Keep every claim tied to a run; keep pushing main.
+
+## Merge note (2026-09-14): two general HIT schemas met on main
+Two sessions built the general HIT schema in parallel. The one on main
+(`type … path …`, `@c{args}`, `hrec`/`helim`, HITS.md) is the one kept — the
+module system, the Prelude and the fourteen `port/` files are written on it.
+The other (`hit Name<params>(indices): case @tag(fields) -> Name(…) | path
+@tag(fields): T`, `Name/elim` as syntax, native indices) lives in git history
+at commit a236711 with its own tests and HIT.md; it is superseded, not
+merged. Carried over from it onto main's implementation, each verified on
+main's tests too: the three checker fixes (HITS.md, last section), transport
+commuting with hcomp (checker and runtime), a line named by a definition
+reaching the HIT transport branch, the eliminator on an hcomp cell whose type
+is named by a definition, the RUNTIME transport arm for HIT lines (`@hitCoe`,
+`@X_T`, `@HTp_T_k` — main's runtime had none), and five files re-expressed
+on main's syntax: hit_interval, hit_tree, hit_indexed (indices as
+index-equation fields), hit_hcomp, hit_mustfail (registered). PUSC.md is the
+author's architecture statement. Suite 108 files bad=0; every `main` agrees
+between normaliser and HVM4; the pre-existing runtime programs keep their
+recorded interaction counts. Built here with the apt GHC 9.4.7 recipe above.
