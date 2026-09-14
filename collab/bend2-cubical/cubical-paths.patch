@@ -449,6 +449,41 @@ index 0000000..13a0a6c
 +      viaTail()
 +def main() -> Nat:
 +  0n
+diff --git a/comp_former.bend b/comp_former.bend
+new file mode 100644
+index 0000000..6024711
+--- /dev/null
++++ b/comp_former.bend
+@@ -0,0 +1,16 @@
++# hcomp in a Pi pushes into the codomain: (hcomp{A->B}[i↦u]g) y == hcomp{B}[i↦ u y](g y)
++def pushPi(y: Bool, i: Interval, g: Bool -> Bool) -> Bool:
++  (hcompN(Bool -> Bool, [(i, <k> g)], g))(y)
++def pushPi_eq(y: Bool, i: Interval, g: Bool -> Bool)
++  -> Bool{ pushPi(y, i, g) == hcompN(Bool, [(i, <k> g(y))], g(y)) }:
++  finally
++# hcomp in a PathP pushes into the path, pinning endpoints as faces
++def hc(a: Bool, b: Bool, i: Interval, u0: Path(Bool, a, b)) -> Path(Bool, a, b):
++  hcompN(Path(Bool, a, b), [(i, <k> u0)], u0)
++def pushPath(a: Bool, b: Bool, i: Interval, j: Interval, u0: Path(Bool, a, b)) -> Bool:
++  hc(a, b, i, u0) @ j
++def pushPath_eq(a: Bool, b: Bool, i: Interval, j: Interval, u0: Path(Bool, a, b))
++  -> Bool{ pushPath(a,b,i,j,u0) == hcompN(Bool, [(i, <k> u0 @ j), (j, <k> b), (inot(j), <k> a)], u0 @ j) }:
++  finally
++def main() -> Nat:
++  0n
+diff --git a/comp_pi_path.bend b/comp_pi_path.bend
+new file mode 100644
+index 0000000..eeda5d1
+--- /dev/null
++++ b/comp_pi_path.bend
+@@ -0,0 +1,7 @@
++def not(x: Bool) -> Bool:
++  if x: False else: True
++# hcomp in a Pi: all-i0 faces => reduces to the base function, applied
++def hcompPi(g: Bool -> Bool) -> (Bool -> Bool):
++  hcompN(lambda _. (Bool -> Bool) ... )
++def main() -> Nat:
++  0n
 diff --git a/corpus_calculus.bend b/corpus_calculus.bend
 new file mode 100644
 index 0000000..2888f4e
@@ -5322,10 +5357,10 @@ index a5d92e8..3e7157a 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..104b64c 100644
+index 953410d..dedd65f 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,364 @@ whnfGo lv book term =
+@@ -53,9 +53,382 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -5459,6 +5494,24 @@ index 953410d..104b64c 100644
 +           -- "transport backwards along the tube" (pathToEquiv of the
 +           -- reversed tube, computed by coe through the Equiv family).
 +           Set -> Glu x [ (p, PAp u I1, transpEquiv u) | (p, u) <- live ]
++           -- hcomp in a Π: push into the codomain (CCHM, Cubical.hs:293-301)
++           --   hcomp [φ↦u] u0 = λy. hcomp {B y} [φ↦ (u@j) y] (u0 y)
++           All _ codf ->
++             Lam "y" (\y ->
++               let bAt = case codf of { Lam _ bf -> bf y ; _ -> App codf y }
++               in whnf lv book (HCm bAt
++                    [ (p, PLm "j" (\j -> App (PAp u j) y)) | (p, u) <- live ]
++                    (App x y)))
++           -- hcomp in a PathP: push into the path, pinning the endpoints as
++           -- faces (CCHM, Cubical.hs:353-359)
++           --   hcomp [φ↦u] u0 = λj. hcomp {P j} [φ↦ (u@k)@j, j↦e1, ~j↦e0] (u0@j)
++           Pth pLine e0 e1 ->
++             PLm "j" (\j ->
++               let bAt = whnf lv book (App pLine j)
++               in whnf lv book (HCm bAt
++                    ( [ (p, PLm "k" (\k -> PAp (PAp u k) j)) | (p, u) <- live ]
++                      ++ [ (j, PLm "k" (\_ -> e1)), (INot j, PLm "k" (\_ -> e0)) ] )
++                    (PAp x j)))
 +           _   -> HCm a live x
 +  where notI0 I0 = False
 +        notI0 _  = True
@@ -5690,7 +5743,7 @@ index 953410d..104b64c 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +501,21 @@ whnfSigM lv book x f =
+@@ -146,6 +519,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5712,7 +5765,7 @@ index 953410d..104b64c 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +771,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +789,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5760,7 +5813,7 @@ index 953410d..104b64c 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +896,26 @@ normal d book term =
+@@ -485,6 +914,26 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5787,7 +5840,7 @@ index 953410d..104b64c 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
-@@ -501,6 +932,82 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +950,82 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5870,7 +5923,7 @@ index 953410d..104b64c 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1054,214 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1072,214 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
