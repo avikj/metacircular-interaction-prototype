@@ -1,15 +1,42 @@
-# The reasoner — running the slot's search on the interaction net
+# The reasoner — engineering economics of an already-complete object
 
-The frontier document (`notes/frontier/seeing-the-slot.md`) shows every open
-problem is one object: for a map `f` and a stage value `b_n`, a demand on the
-fibre size `c(n) = |fiber f b_n|`, and the outer claim `isEquiv (fst : Σ ℕ Q → ℕ)`.
-`no-depth-decides` says no amount of stage evaluation fills that slot; what
-fills it is **one finite object applied at every n** — an invariant preserved
-by the step, or a measure the step decreases.
+**Framing (owner's correction, authoritative).** The mathematics is already
+complete and already executable, in Cubical Agda: the universe is mapped,
+univalence computes, the ISC has its semantics, and the physics/computation
+identification, exact completion, higher descent, coinduction, self-extension,
+braid dynamics and behavioral state are real constructions that reduce. None of
+that became true because Bend arrived. Attributing the mathematics' reality or
+capability to Bend is a category error.
 
-Finding that finite object is a search over programs. The one machine that does
-that search as evaluation, with all candidates sharing work, is the interaction
-net. This directory drives it.
+What Bend/HVM changes is the **engineering economics** of that object. Cubical
+Agda's objectives are not interaction-net optimal sharing, massive parallel
+reduction, minimal duplicated work, or a tiny production runtime; Bend's are.
+The cubical surgery on Bend did not make the mathematics executable — it removed
+the **impedance mismatch** between the most expressive part of the stack (the
+univalent mathematics) and the most performant part (interaction-net reduction),
+by restoring to the fast engine the foundation it had been too weak to express.
+
+So everything below is a **force multiplier on already-built mathematics**, never
+an enabler of it. The value is roughly *value(the whole system) × increase in
+physically realizable scale*. Concretely the surgery collapses a Pareto tradeoff
+(higher dependent structure + computational univalence + optimal sharing +
+parallel reduction + tiny substrate at once), and Avik's object is unusually
+suited to it: many canonical folds of one derivation are shared substructure;
+coinductive demand meets optimal sharing; dependent products and local rewrites
+are naturally parallel; and mathematical facts (univalence, behavioral
+equivalence, exact residue, initiality, coherence) become optimization
+certificates — pointing at a near-zero-abstraction-penalty substrate that can
+live at the edge and scale with hardware while the semantics stay fixed.
+
+**The engineering gold — verified.** The result is not that transport exists
+(the mathematics had it) or that superposition exists (Bend had it), but that
+the sharing primitive *survives contact* with cubical transport. In the built
+cubical Bend, `coe` over a superposed line `&0{notPath()@i, Bool}` reduces
+compositionally, sending `&0{True,True}` to `&0{False,True}`; `sup_transport`
+checks `theorem(path) definitional` (`sup_path.bend`). The fast machinery runs
+underneath the higher mathematics without erasing it first.
+
+---
 
 ## The engine
 
