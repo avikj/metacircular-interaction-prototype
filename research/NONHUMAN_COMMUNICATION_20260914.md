@@ -52,6 +52,24 @@ extractor runs; the collision is given. Plant and fungal signal datasets are
 registered but not executed (their hosts — figshare, Zenodo — are blocked from
 this container; the animal data came from GitHub).
 
+### 0.1 The registry in numbers (`communication/REGISTRY.json`)
+
+208 dataset/resource entries (100 animal; 108 plant, fungal, microbial,
+cross-kingdom and theory) and 183 mathematics references. Access: 107 open,
+24 derived-only, 9 by request, 10 private, 6 catalogue-only, 45 with no
+dataset at all (figures only), 7 unverified. Sequence structure annotated:
+33 yes, 29 partial, 146 no. Signal paired with context / addressee /
+referent: 70 of 208. **Open, sequence-annotated, and context-paired — the
+intersection abstract 18's joint-reading construction needs — is 13
+entries**: the Dominica coda dataset (executed on here), the two babbler
+datasets, three chimpanzee / bonobo combination corpora, the honeybee
+waggle-dance sets, BEBE, Khait's plant sounds, two small plant
+electrophysiology sets, and two slime-mould behaviour sets. 23 of the 108
+plant/fungal entries carry a published critique disputing the communication
+claim. Of the mathematics references, 72 were verified by search this
+session and 110 are recalled bibliographic details to be re-checked before
+citation.
+
 ## 1. What the corpus has that the field is reaching for
 
 The field's stated program (Andreas et al. 2022 iScience, the CETI roadmap;
