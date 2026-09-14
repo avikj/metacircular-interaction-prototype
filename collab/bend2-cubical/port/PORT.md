@@ -19,7 +19,7 @@ resolved next to the importing file, then in the working directory).
 | `Cubical.HITs.SetQuotients` (`_/_`, `rec`, `elimProp`, `elimProp2`, `squash/`), `isSetΠ`, `isPropΠ` | `SetQuotient.bend` (on the declared HIT; `isPropPathP` is the dependent isProp→isSet square) | 57 | — |
 | `hset.bend`: `hProp`, `isPropIso`, `uaEta`, `isSet hProp` | `HProp.bend` | 66 | — |
 | `SQ.effective` (encode–decode over `Code : Q → hProp`) | `Effective.bend` | 84 | — |
-| `theorems/automata/MyhillNerodeMinimalMachine.agda` — Nerode congruence and its laws, behavioural congruences (Nerode the greatest), `MinimalMachine` (`Meaning = X / ≈`, `quotStep`/`quotObserve`/`quotRun`, quotient preserves behaviour, effectivity, `quotBehavior` injective, `behaviorSeparatesStates`, `factor` + uniqueness), `Terminal` (`mediate` and its uniqueness), `Machine`/`crystal` | `MyhillNerodeMinimalMachine.bend` | (checking) | — |
+| `theorems/automata/MyhillNerodeMinimalMachine.agda` — Nerode congruence and its laws, behavioural congruences (Nerode the greatest), `MinimalMachine` (`Meaning = X / ≈`, `quotStep`/`quotObserve`/`quotRun`, quotient preserves behaviour, effectivity, `quotBehavior` injective, `behaviorSeparatesStates`, `factor` + uniqueness), `Terminal` (`mediate` and its uniqueness), `Machine`/`crystal` | `MyhillNerodeMinimalMachine.bend` | (checking — SLOW: 89 ✓ after 30 min on the GHC 9.4.7 build, 2026-09-14; the `bio/` files repeat its five basic definitions verbatim instead of importing it) | — |
 | `fibre/src/Fibre/Carrier.agda` (THE LAW: singleton fibre, `Carrier≃`, `Carrier≡` by ua, `carry-transport-descend` = uaβ, the Φ-square by refl) | `Carrier.bend` | 52 | 2 |
 
 The port's own count of the corpus's module identities so far: 13 Agda-side objects → 13 Bend files. Counts include the imported definitions (each file re-checks what it
@@ -40,3 +40,12 @@ imports). Zero rejections in every file.
 - `isSetℕ` is proved from scratch by encode–decode (`NatCode`, `J`); no
   Hedberg, no decidable-equality library.
 - Nothing was postulated, no solver, no reflection.
+
+## Beyond the port: the biological presentations (`../bio/`, 2026-09-14)
+
+`bio/Descent.bend` (erasure = descent as a type, the fibre law generic),
+`bio/Perturbation.bend`, `bio/Segmentation.bend`, `bio/Pangenome.bend` instantiate
+the ported constructions on three finite biological presentations; 75/194/114/112
+✓, zero rejections, every main on `--to-hvm4-full` (`bio/suite.sh`).  They import
+`SetQuotient` through `Descent` and are checked from this directory.  See
+`bio/README.md` and `research/BIOLOGY_FRONTIER_20260914.md`.

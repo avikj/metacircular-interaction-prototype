@@ -42,6 +42,17 @@ packages, with NO blanket `allow-newer` (it drags in libraries needing a newer
 base). `Data.List.unsnoc` is shimmed in `Target/HVM.hs`. HVM4 (May 2026 head,
 `gcc -O2 -o src/hvm src/hvm.c -lm -lpthread`) runs every emitted program.
 
+### Built again 2026-09-14 (Ubuntu 24.04, apt GHC 9.4.7 / cabal 3.8): the recipe above works as written.
+`apt-get install ghc cabal-install`; `cabal user-config init`; https + `secure: False`
+in `~/.cabal/config` (no root-key edit needed); clone Bend2 @ f026483, HVM3, hs-highlight
+into /tmp; `git apply` the two patches; add `#include "runtime/reduce/ref.c"` and
+`ref_sup.c` after `dup_una.c` in HVM3's Runtime.c; relax HVM.cabal exactly as bend.cabal
+(GHC2021 + the extension list, `base >= 4.17`); `cabal.project` = `packages: . /tmp/HVM3
+/tmp/hs-highlight`. ~12 min. `hvm` from HVM4 head with `gcc -O2 … -lm -lpthread`.
+Verified: port/SetQuotient 61 ✓, port/Carrier 65 ✓ + main on HVM4 (218 itrs).
+NOTE `port/MyhillNerodeMinimalMachine.bend` takes >30 min to check on this build.
+NEW: `bio/` — biology as finite presentations of the machine (see bio/README.md).
+
 ## What the user wants (their words, condensed)
 The README's Interactive Symbolic Computer: the trace IS the path
 (data = program = execution = proof = transport); traces compose, invert, have
