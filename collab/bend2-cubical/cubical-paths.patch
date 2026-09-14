@@ -3277,10 +3277,10 @@ index a5d92e8..3e7157a 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..8bceec3 100644
+index 953410d..7d0afdc 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,355 @@ whnfGo lv book term =
+@@ -53,9 +53,457 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -3399,6 +3399,50 @@ index 953410d..8bceec3 100644
 +    UnG gg -> go gg
 +    Ua a b c d2 e2 f2 -> go a || go b || go c || go d2 || go e2 || go f2
 +
++-- | The marker dimension used to decide whether a TUBE (a line) is headed by
++-- a constructor, mirroring `coeMarker`'s use in the regularity check.
++hcmMarker :: Term
++hcmMarker = Var "__hcm_j__" (-1)
++
++-- | hcomp in a type whose constructors are all nullary: the composite is the
++-- common constructor when the cap and every tube agree on it, else stuck.
++hcmNullary :: EvalLevel -> Book -> Term -> [(Term, Term)] -> Term -> Term
++hcmNullary lv book a live x =
++  let x' = whnf lv book x
++      agrees u = sameNullary x' (whnf Full book (PAp u hcmMarker))
++  in if all (agrees . snd) live then x' else HCm a live x
++  where
++    sameNullary Bt0 Bt0 = True
++    sameNullary Bt1 Bt1 = True
++    sameNullary One One = True
++    sameNullary (Sym p) (Sym q) = p == q
++    sameNullary _ _ = False
++
++-- | Apply a Pi/Sigma codomain, which may be a Lam or a neutral function.
++appCod :: Term -> Term -> Term
++appCod (Lam _ f) v = f v
++appCod bfn      v = App bfn v
++
++-- | Projections as a Sigma match: reduce on a Tup, stay stuck otherwise.
++fstT, sndT :: Term -> Term
++fstT t = SigM t (Lam "a" (\a -> Lam "b" (\_ -> a)))
++sndT t = SigM t (Lam "a" (\_ -> Lam "b" (\b -> b)))
++
++-- | hfill as a CORE operation (the parser also has it as sugar):
++--   hfill [f > u] u0 j = hcomp [f > \k. u (j and k), (j=0) > \_. u0] u0
++hfillAt :: Term -> [(Term,Term)] -> Term -> Term -> Term
++hfillAt a fs u0 j =
++  HCm a ([ (p, PLm "k" (\k -> PAp u (IAnd j k))) | (p,u) <- fs ]
++         ++ [ (INot j, PLm "k" (\_ -> u0)) ]) u0
++
++-- | comp: composition along a type LINE (coe + hcomp), CCHM.
++--   comp^P [f > u] u0 = hcomp^{P 1} [f > \j. coe^P_{j->1} (u j)] (coe^P_{0->1} u0)
++compAt :: Term -> [(Term,Term)] -> Term -> Term
++compAt pLn fs u0 =
++  HCm (App pLn I1)
++      [ (p, PLm "j" (\j -> Coe pLn j I1 (PAp u j))) | (p,u) <- fs ]
++      (Coe pLn I0 I1 u0)
++
 +-- hcomp (binary system): if the face direction is an endpoint, the
 +-- composite is the corresponding side's cap; otherwise neutral.
 +whnfHCm :: EvalLevel -> Book -> Term -> [(Term, Term)] -> Term -> Term
@@ -3414,6 +3458,64 @@ index 953410d..8bceec3 100644
 +           -- "transport backwards along the tube" (pathToEquiv of the
 +           -- reversed tube, computed by coe through the Equiv family).
 +           Set -> Glu x [ (p, PAp u I1, transpEquiv u) | (p, u) <- live ]
++           -- Pi (CCHM): hcomp is pointwise in the codomain.
++           All _ bT -> Lam "hcx" (\v ->
++             HCm (appCod bT v)
++                 [ (p, PLm "j" (\j -> App (PAp u j) v)) | (p,u) <- live ]
++                 (App x v))
++           -- PathP (CCHM): push into the path's own dimension; the family's
++           -- two endpoints become extra faces, so the boundary is preserved.
++           Pth aLn e0 e1 -> PLm "hcj" (\j ->
++             HCm (App aLn j)
++                 ([ (p, PLm "k" (\k -> PAp (PAp u k) j)) | (p,u) <- live ]
++                  ++ [ (INot j, PLm "k" (\_ -> e0))
++                     , (j,      PLm "k" (\_ -> e1)) ])
++                 (PAp x j))
++           -- Sigma (CCHM): first component by hcomp; second by comp along the
++           -- FILLED first component (which is why hfill and comp are needed).
++           Sig aT bT ->
++             let fsA = [ (p, PLm "j" (\j -> fstT (PAp u j))) | (p,u) <- live ]
++                 fsB = [ (p, PLm "j" (\j -> sndT (PAp u j))) | (p,u) <- live ]
++                 x0  = fstT x
++                 bLn = Lam "hcj" (\j -> appCod bT (hfillAt aT fsA x0 j))
++             in Tup (HCm aT fsA x0) (compAt bLn fsB (sndT x))
++           -- Inductive types (CCHM): when the cap and every live tube are
++           -- headed by the SAME constructor, the composite is that
++           -- constructor applied to the composites of its arguments.
++           -- Constructor-headedness of a LINE is decided by applying it at a
++           -- marker dimension, the same idiom `coe` uses for regularity.
++           Nat ->
++             let sucOf u = case whnf Full book (PAp u hcmMarker) of
++                             Suc _ -> True ; _ -> False
++                 zerOf u = case whnf Full book (PAp u hcmMarker) of
++                             Zer -> True ; _ -> False
++                 predL u = PLm "hcj" (\j -> case whnf Full book (PAp u j) of
++                             Suc n -> n ; t -> t)
++             in case whnf lv book x of
++                  Suc n0 | all (sucOf . snd) live ->
++                    Suc (HCm Nat [ (p, predL u) | (p,u) <- live ] n0)
++                  Zer   | all (zerOf . snd) live -> Zer
++                  _ -> HCm a live x
++           Lst eT ->
++             let conOf u = case whnf Full book (PAp u hcmMarker) of
++                             Con _ _ -> True ; _ -> False
++                 nilOf u = case whnf Full book (PAp u hcmMarker) of
++                             Nil -> True ; _ -> False
++                 hdL u = PLm "hcj" (\j -> case whnf Full book (PAp u j) of
++                           Con h _ -> h ; t -> t)
++                 tlL u = PLm "hcj" (\j -> case whnf Full book (PAp u j) of
++                           Con _ t -> t ; t -> t)
++             in case whnf lv book x of
++                  Con h0 t0 | all (conOf . snd) live ->
++                    Con (HCm eT [ (p, hdL u) | (p,u) <- live ] h0)
++                        (HCm a  [ (p, tlL u) | (p,u) <- live ] t0)
++                  Nil       | all (nilOf . snd) live -> Nil
++                  _ -> HCm a live x
++           -- Types whose constructors are all nullary are discrete: if the cap
++           -- and every tube are the same constructor, that is the composite.
++           Bit -> hcmNullary lv book a live x
++           Enu _ -> hcmNullary lv book a live x
++           Uni -> hcmNullary lv book a live x
 +           _   -> HCm a live x
 +  where notI0 I0 = False
 +        notI0 _  = True
@@ -3636,7 +3738,7 @@ index 953410d..8bceec3 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +492,21 @@ whnfSigM lv book x f =
+@@ -146,6 +594,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -3658,7 +3760,7 @@ index 953410d..8bceec3 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +762,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +864,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -3706,7 +3808,7 @@ index 953410d..8bceec3 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,11 +887,31 @@ normal d book term =
+@@ -485,11 +989,31 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -3738,7 +3840,7 @@ index 953410d..8bceec3 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +923,87 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1025,87 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -3826,7 +3928,7 @@ index 953410d..8bceec3 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1050,218 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1152,218 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
