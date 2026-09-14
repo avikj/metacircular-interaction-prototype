@@ -157,3 +157,28 @@ cases belong in the certified lane, where cubical ℕ is GMP-backed and exact
 This is the shape of every step of the algorithm: replace a computation that
 does not scale with the transport that makes the answer structural, run it to
 normal form, and check it by reduction.
+
+### Certified lane live — `frontier_transport.bend` checks green
+
+The patched cubical Bend2 built (GHC 9.12.2) and its univalence suite checks
+(`uaBeta`, `uaIdEquiv`, `uaEta` all `theorem(path)`). The staged frontier term
+then runs the algorithm's atom end to end:
+
+    ✓ negPath     theorem(path)   rewrites: 0, cells: 1
+    ✓ flip        program
+    ✓ flip_is_neg theorem(path)   definitional
+    ✓ main        program                 →  main = False
+
+`flip` is transport of a Bool across the negation univalence path; it
+*normalizes* to the answer (`flip(True) = False`). `flip_is_neg` is the proof
+that this transport equals negation — and the analysis layer reports it
+`definitional`, i.e. the correctness costs nothing to check; conversion is net
+reduction. No candidates, no superposition of rivals: the answer is forced by
+the derivation and the certificate is the derivation typechecking.
+
+Both engines are now up: **HVM4** (execution, ~125M interactions/s) and
+**cubical Bend2** (certification, univalence + Sup×Path + per-definition cost).
+The pipeline the frontier needs — express a face's uniform step as a transport
+term, normalize to the answer, check the path, use GMP-backed ℕ for the large
+arithmetic and Sup×Path to share one derivation across `Sima`'s routes — is
+unblocked and demonstrated at the atom.
