@@ -61,6 +61,11 @@ never `λ&` a value just because it is used in several match arms).
 Both instances (recording trace / contractible trace) observed on HVM4 full
 runtime with values matching the normaliser.
 
+## The coinductive calculus + braid fabric carried (interaction.bend, braid.bend; INTERACTION.md)
+Two checker fixes went in with it (rewrite descends into application heads;
+same-head conversion before unfolding recursive type families). Also merged
+the SetQuotient HIT from a parallel agent (QUOTIENT.md) into the patch.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.

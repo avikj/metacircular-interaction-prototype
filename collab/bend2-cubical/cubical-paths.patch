@@ -131,6 +131,138 @@ index e934487..1e3720f 100644
                        Target.JavaScript
      build-depends:    base ^>= 4.21.0.0,
                        hs-highlight == 1.0.5,
+diff --git a/braid.bend b/braid.bend
+new file mode 100644
+index 0000000..de7aee3
+--- /dev/null
++++ b/braid.bend
+@@ -0,0 +1,126 @@
++# THE BRAID FABRIC (VeniBandha / AnantaVeni), carried to Bend and run.
++#
++# Strands are interdependent pairs Sūtra = Bool × Bool; the crossing σᵢ is the
++# twisted swap: the strand that passes over is turned by the quarter turn
++# caturaṃśa (a, b) = (not b, a).  The rope is the coinductive stream Dhārā of
++# strands; Bend2 has no coinduction, so the rope is carried as its observation
++# function Nat -> Sūtra (bisimilar = equal at every depth: the
++# ProductiveObservabilityBridge), on which every σᵢ is total and every braid
++# relation holds at every position — pointwise, by the same induction as the
++# Agda (peel to the base at i = 0, then the head is preserved and the tail
++# recurses).
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def Sutra() -> Set:
++  any a: Bool. Bool
++def quarter(s: Sutra) -> Sutra:
++  match s:
++    case (a, b):
++      (neg(b), a)
++def Rajju() -> Set:
++  Nat -> Sutra
++
++# σᵢ on the rope: cross strands i and i+1, turning the one that passes over
++def veni(i: Nat, s: Rajju, n: Nat) -> Sutra:
++  match i:
++    case 0n:
++      match n:
++        case 0n:
++          quarter(s(1n))
++        case 1n + m:
++          match m:
++            case 0n:
++              s(0n)
++            case 1n + k:
++              s(2n + k)
++    case 1n + j:
++      match n:
++        case 0n:
++          s(0n)
++        case 1n + m:
++          veni(j, lambda k. s(1n + k), m)
++
++# ---------------------------------------------------------------------------
++# The braid relation σᵢ σᵢ₊₁ σᵢ = σᵢ₊₁ σᵢ σᵢ₊₁ at every position, pointwise.
++# The base i = 0 is definitional at every depth after splitting n into
++# 0 / 1 / 2+ (both sides compute to the same strand); the step preserves the
++# head and recurses on the tail.
++# ---------------------------------------------------------------------------
++def veniBase(s: Rajju, n: Nat) -> Path(Sutra, veni(0n, lambda k. veni(1n, lambda k. veni(0n, s, k), k), n), veni(1n, lambda k. veni(0n, lambda k. veni(1n, s, k), k), n)):
++  match n:
++    case 0n:
++      <_> quarter(quarter(s(2n)))
++    case 1n + m:
++      match m:
++        case 0n:
++          <_> quarter(s(1n))
++        case 1n + k:
++          match k:
++            case 0n:
++              <_> s(0n)
++            case 1n + q:
++              <_> s(3n + q)
++def veniRel(i: Nat, s: Rajju, n: Nat) -> Path(Sutra, veni(i, lambda k. veni(1n + i, lambda k. veni(i, s, k), k), n), veni(1n + i, lambda k. veni(i, lambda k. veni(1n + i, s, k), k), n)):
++  match i:
++    case 0n:
++      veniBase(s, n)
++    case 1n + j:
++      match n:
++        case 0n:
++          <_> s(0n)
++        case 1n + m:
++          veniRel(j, lambda k. s(1n + k), m)
++
++# The distant commutation σᵢ σⱼ = σⱼ σᵢ for j ≥ i + 2, at every gap, pointwise.
++def duraBase(k: Nat, s: Rajju, n: Nat) -> Path(Sutra, veni(0n, lambda m. veni(2n + k, s, m), n), veni(2n + k, lambda m. veni(0n, s, m), n)):
++  match n:
++    case 0n:
++      <_> quarter(s(1n))
++    case 1n + m:
++      match m:
++        case 0n:
++          <_> s(0n)
++        case 1n + q:
++          <_> veni(k, lambda r. s(2n + r), q)
++def add(a: Nat, b: Nat) -> Nat:
++  match a:
++    case 0n:
++      b
++    case 1n + p:
++      1n + add(p, b)
++def duraRel(i: Nat, k: Nat, s: Rajju, n: Nat) -> Path(Sutra, veni(i, lambda m. veni(2n + add(i, k), s, m), n), veni(2n + add(i, k), lambda m. veni(i, s, m), n)):
++  match i:
++    case 0n:
++      duraBase(k, s, n)
++    case 1n + j:
++      match n:
++        case 0n:
++          <_> s(0n)
++        case 1n + m:
++          duraRel(j, k, lambda r. s(1n + r), m)
++
++# ---------------------------------------------------------------------------
++# A concrete rope, run: strand n = (n even?, True); observe the rope after
++# σ₀σ₁σ₀ and after σ₁σ₀σ₁ at depth 0..3 — equal, as the relation says.
++# ---------------------------------------------------------------------------
++def even(n: Nat) -> Bool:
++  match n:
++    case 0n:
++      True
++    case 1n + m:
++      neg(even(m))
++def rope(n: Nat) -> Sutra:
++  (even(n), True)
++def lhs(n: Nat) -> Sutra:
++  veni(0n, lambda k. veni(1n, lambda k. veni(0n, rope, k), k), n)
++def rhs(n: Nat) -> Sutra:
++  veni(1n, lambda k. veni(0n, lambda k. veni(1n, rope, k), k), n)
++def fstS(s: Sutra) -> Bool:
++  match s:
++    case (a, b):
++      a
++def main() -> Bool:
++  fstS(lhs(0n))
 diff --git a/chain.bend b/chain.bend
 new file mode 100644
 index 0000000..d021e3f
@@ -668,7 +800,7 @@ index 0000000..3473798
 +  0n
 diff --git a/interaction.bend b/interaction.bend
 new file mode 100644
-index 0000000..c3419bd
+index 0000000..b0e9147
 --- /dev/null
 +++ b/interaction.bend
 @@ -0,0 +1,188 @@
@@ -819,7 +951,7 @@ index 0000000..c3419bd
 +
 +# ---------------------------------------------------------------------------
 +# §3  Two machines, run.  The closed counter (Turing-like: nothing to ask) and
-+#     the open machine (the environment chooses: Q x = Bool, add or double).
++#     the open machine (the environment chooses: Q x = Bool, increment or reset).
 +# ---------------------------------------------------------------------------
 +def incr(n: Nat) -> Nat:
 +  1n + n
@@ -829,7 +961,7 @@ index 0000000..c3419bd
 +  if b:
 +    1n + x
 +  else:
-+    x + x
++    0n
 +# the closed machine from 0, its (unique) history replayed to depth 3: now-states
 +def closedRun(n: Nat) -> IExec(Nat, lambda x. UnitQ(Nat, x), lambda x. lambda u. closedStep(Nat, incr, x, u), n, 0n):
 +  replay(Nat, lambda x. UnitQ(Nat, x), lambda x. lambda u. closedStep(Nat, incr, x, u), n, 0n, mute(Nat, incr, n, 0n))
@@ -1921,10 +2053,28 @@ index 99c0709..cc671a6 100644
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..ead2671 100644
+index 9d1ab06..4e64f7d 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
-@@ -60,9 +60,14 @@ cmp lv d book a b =
+@@ -20,8 +20,16 @@ equal d book a b = eql 3 d book a b
+ 
+ eql :: Int -> Int -> Book -> Term -> Term -> Bool
+ eql 0  d book a b = cmp 0 d book (cut a) (cut b)
+-eql lv d book a b = identical || similar where
++eql lv d book a b = identical || sameHead || similar where
+   identical = eql 0 d book a b
++  -- two applications of the same global with convertible arguments are
++  -- equal WITHOUT unfolding: unfolding a recursive type family (e.g. a
++  -- depth-indexed Σ) on a variable depth regresses forever, one fresh
++  -- variable per level, so it must be tried only after this
++  sameHead  = case (collectApps (cut a) [], collectApps (cut b) []) of
++    ((Ref ka, xs), (Ref kb, ys)) ->
++      ka == kb && length xs == length ys && not (null xs) && and (zipWith (eql lv d book) xs ys)
++    _ -> False
+   similar   = cmp lv d book (force book a) (force book b)
+ 
+ cmp :: Int -> Int -> Book -> Term -> Term -> Bool
+@@ -60,9 +68,14 @@ cmp lv d book a b =
      (EnuM xa ca da, EnuM xb cb db) -> eql lv d book xa xb && length ca == length cb && all (\ ((s1,t1), (s2,t2)) -> s1 == s2 && eql lv d book t1 t2) (zip ca cb) && eql lv d book da db
      (Sig aa ba    , Sig ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
      (Tup aa ba    , Tup ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
@@ -1939,7 +2089,7 @@ index 9d1ab06..ead2671 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +82,32 @@ cmp lv d book a b =
+@@ -77,6 +90,32 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -1972,7 +2122,7 @@ index 9d1ab06..ead2671 100644
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
-@@ -89,3 +120,19 @@ cmp lv d book a b =
+@@ -89,3 +128,19 @@ cmp lv d book a b =
      (Met _  _  _  , Met _  _  _  ) -> error "not-supported"
      (Pat _  _  _  , Pat _  _  _  ) -> error "not-supported"
      (_            , _            ) -> False
@@ -2431,10 +2581,26 @@ index 146a4d2..f55e262 100644
 +  r <- parseTerm
 +  return (PAp t r)
 diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
-index ae061af..4d8817f 100644
+index ae061af..93631be 100644
 --- a/src/Core/Rewrite.hs
 +++ b/src/Core/Rewrite.hs
-@@ -71,6 +71,26 @@ rewriteGo lv d book old neo val = case val of
+@@ -63,14 +63,41 @@ rewriteGo lv d book old neo val = case val of
+   SigM x f   -> SigM (rewrite lv d book old neo x) (rewrite lv d book old neo f)
+   All a b    -> All (rewrite lv d book old neo a) (rewrite lv d book old neo b)
+   Lam k f    -> Lam k (\v -> rewrite lv d book old neo (f v))
+-  App f x    -> foldl (\ f x -> App f (rewrite lv d book old neo x)) fn xs
++  -- the head is rewritten too: after a Nat refinement a goal can sit as
++  -- `(λp. body)(p)` (Soft whnf keeps the application when the body is a
++  -- stuck match), and the matched variable lives inside that body
++  App f x    -> foldl (\ f x -> App f (rewrite lv d book old neo x)) (rewriteHead fn) xs
+           where (fn,xs) = collectApps (App f x) []
++                rewriteHead h = case h of
++                  Lam k g -> Lam k (\v -> rewrite lv d book old neo (g v))
++                  Loc l t -> rewriteHead t
++                  _       -> h
+   Eql t a b  -> Eql (rewrite lv d book old neo t) (rewrite lv d book old neo a) (rewrite lv d book old neo b)
+   Rfl        -> Rfl
+   EqlM x f   -> EqlM (rewrite lv d book old neo x) (rewrite lv d book old neo f)
    Met i t a  -> Met i (rewrite lv d book old neo t) (map (rewrite lv d book old neo) a)
    Ind t      -> Ind (rewrite lv d book old neo t)
    Frz t      -> Frz (rewrite lv d book old neo t)
