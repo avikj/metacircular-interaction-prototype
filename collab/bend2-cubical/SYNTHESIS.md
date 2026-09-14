@@ -11,6 +11,11 @@ cubicaltt, redtt, cooltt). In all of them the cubical apparatus is a
 *checker* apparatus: `coe`, `hcomp`, `Glue` and the interval are consumed
 during type-checking and are gone, or inert, by the time anything runs.
 
+The closest prior art is **agda2hvm** (Matteo Meluzzi, TU Delft, June 2022,
+supervised by Jesper Cockx and Lucas Escot), which compiles Agda to HVM and
+is the obvious thing to compare against. It takes the erasing route by
+construction, and necessarily so; see §7.
+
 Here they are not. `--to-hvm4-full` emits the interval as data (`#I0`,
 `#I1`, `#INot`, `#IAnd`, `#IOr`), paths as data (`#PLm`, `#UaU`, `#CompU`),
 types as data (`#Pi`, `#Sig`, `#Path`, `#Glue`), and `@coe` dispatches on
@@ -48,7 +53,7 @@ what is not known is a face. I am not aware of another runtime where
 | Genuine coinduction | corecursive records and corecursive bisimulation paths, `[productive]` under `--total` (`coinduction.bend` 13 ✓, `streams.bend` 10 ✓) |
 | Prasna, in general | `isContr(IExec x)` for any interaction with contractible questions, contraction a corecursive `PathP` over a path of states (`silence.bend` 25 ✓, runs to 4 on HVM) |
 | The braid fabric | braid and distant-commutation relations pointwise (`braid.bend` 16 ✓) |
-| Soundness probes | every theorem file has a must-fail sibling; the suite is 49 files, bad = 0 |
+| Soundness probes | every theorem file has a must-fail sibling; the suite is 53 files, bad = 0 |
 
 ## 3. Measured: transport is paid once under sharing
 
@@ -137,3 +142,42 @@ codebase.
   that is the right depth at scale is unknown.
 - **No performance comparison against a real system.** The interaction
   counts above are internally comparable and nothing more.
+
+## 7. Prior art: agda2hvm, and why it does not overlap
+
+`github.com/matteo-meluzzi/agda2hvm` — Meluzzi, TU Delft BSc thesis, 17 June
+2022, supervised by Jesper Cockx (Agda core developer) and Lucas Escot. It
+compiles Agda to HVM. Read in full before writing this section.
+
+**What it does.** It is a backend on Agda's own compiler API. It consumes
+Agda Treeless Syntax via `Agda.Compiler.toTreeless`, which the thesis
+describes plainly as available "at the cost of losing the information about
+types and names". Postulates compile to nothing. It targets HVM1: integers
+are 32-bit, floats are a parse error, there is no FFI. Benchmarked against
+the state-of-the-art Agda backends it ranges, in the author's own summary,
+from exponentially faster to exponentially slower.
+
+**What it does not do.** The thesis contains no occurrence of *cubical*,
+*transp*, *hcomp*, *Glue*, *univalence*, or *interval*. That is not an
+oversight. `toTreeless` hands a backend a term whose types are already gone,
+so a backend built on it cannot keep the cubical apparatus alive even in
+principle — there is nothing left to keep.
+
+**Why this matters here, in both directions.**
+
+- It is genuine prior art for *a dependently typed language running on an
+  interaction net*, and §1's claim is scoped accordingly: the novel part is
+  not Agda-or-Bend on HVM, it is declining to erase.
+- It retroactively justifies the route this project took. The natural first
+  idea — put the Agda corpus on HVM directly through Agda's backend API —
+  cannot work for Cubical Agda, because that API's entry point is an
+  already-erased term. Keeping `coe`, `hcomp`, `Glue` and the interval as
+  runtime values requires a compiler whose source representation still
+  contains them. Going through Bend2 was necessary, not a detour.
+- The two answer different questions and are complementary. agda2hvm asks
+  how fast erased dependently typed code runs on interaction nets. This asks
+  what you get if you keep the proof apparatus at runtime, and §3 answers
+  the first objection: you do not pay a rerun per use.
+- Its headline benchmark result is a caution for §3 and §4. HVM's asymptotic
+  advantage is strongly workload-dependent, which is consistent with the
+  negative result measured here on superposed transport.
