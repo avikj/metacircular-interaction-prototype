@@ -84,3 +84,32 @@ the certificate being the erasure of the alternatives.
    Search, check, install — one pipeline.
 
 Reproduce: `hvm fibre.hvm -C200 -s` and `hvm invariant_search.hvm -C40 -s`.
+
+## Update — `mine_lte.hvm`: law mining as superposed collapse
+
+Reproduces `CyclotomicMined` on the net. The miner gets only the evaluators
+`v_p` and `ord_p`, never the lifting-the-exponent lemma. It superposes the
+affine hypothesis `v_p(aⁿ − 1) ?= c0 + c1·e + c2·v_p(n)` over the 27-point
+coefficient grid `c0,c1,c2 ∈ {0,1,2}`, tests each against a probe set of
+`(p,a,n)` in one shared evaluation, erases the rivals, and collapses.
+
+With probes exercising `v_p(n) = 0,1,2` (4709 interactions) the 27 candidates
+collapse to exactly two:
+
+    #LAW{0,1,1}   v_p(aⁿ−1) = e + v_p(n)       -- LTE, CyclotomicMined Thm 1
+    #LAW{1,0,1}   v_p(aⁿ−1) = 1 + v_p(n)       -- its shadow
+
+The naive rival `#LAW{0,0,1}` (`v_p(n)` alone) is erased — exactly the
+refutation `CyclotomicMined` certifies at (3,2,2). The remaining ambiguity is
+not slack: LTE and its shadow agree on every probe **because e = 1 for all
+small (p,a)**, and the only witness that separates them is a prime with e ≥ 2,
+i.e. a **Wieferich prime**. The residual freedom of the machine-mined law *is*
+the Wieferich obstruction — and the corpus already holds the discriminating
+probes: `HeadDepthMerge` certifies 1093 and 3511 as the e ≥ 2 events. Feed
+either as a probe and the collapse lands on LTE alone.
+
+So the net does not merely re-find Avik's law; it exhibits, as the shape of its
+own residual superposition, why that law is subtle exactly where number theory
+says it is.
+
+Reproduce: `hvm mine_lte.hvm -C40 -s`.
