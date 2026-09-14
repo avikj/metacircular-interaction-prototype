@@ -1,0 +1,8 @@
+// The same prastāra, with a spec: keep the metres that REAL 4-interval codas use most
+// (the three commonest laghu/guru patterns of 4-interval codas: [('GGLL', 3726), ('LLLL', 1865), ('GLLL', 350)]).
+// Every other metre of the 16 erases: the repertoire as survivors of Piṅgala's enumeration.
+@eqL   = λ{[]: λ{[]: 1; <>: λh. λt. 0}; <>: λh. λt. λ{[]: 0; <>: λh2. λt2. λ{0: 0; _: λp. @eqL(t, t2)}((h == h2))}}
+@any   = λ&m. @eqL(m, [2, 2, 1, 1]) .|. @eqL(m, [1, 1, 1, 1]) .|. @eqL(m, [2, 1, 1, 1])
+@keep  = λ&m. λ{0: &{}; _: λp. #Used{m}}(@any(m))
+@prastara = &L{&L{&L{&L{[2, 2, 2, 2], [2, 2, 2, 1]}, &L{[2, 2, 1, 2], [2, 2, 1, 1]}}, &L{&L{[2, 1, 2, 2], [2, 1, 2, 1]}, &L{[2, 1, 1, 2], [2, 1, 1, 1]}}}, &L{&L{&L{[1, 2, 2, 2], [1, 2, 2, 1]}, &L{[1, 2, 1, 2], [1, 2, 1, 1]}}, &L{&L{[1, 1, 2, 2], [1, 1, 2, 1]}, &L{[1, 1, 1, 2], [1, 1, 1, 1]}}}}
+@main = @keep(@prastara)

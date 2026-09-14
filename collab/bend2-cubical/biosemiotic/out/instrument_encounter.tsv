@@ -1,0 +1,4 @@
+kind	steps	shape_kept	median_abs_drift_ms
+same	1211	618	17.0
+cross	2116	453	69.0
+null	4000	761	394.0

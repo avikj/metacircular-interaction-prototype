@@ -410,7 +410,35 @@ pairs as one superposition through `@step`, returning each step's transport
 witness `#Step{shapeKept, drift}` as data (9,178 interactions; every branch
 agrees with the Python table).
 
-### 3.7 Discrete systems
+### 3.7 The whole instrument (details and tables in the biosemiotic README §8)
+
+- **The rhythm types are Piṅgala metres.** Reading each coda's intervals in
+  units of its shortest interval gives a laghu/guru word; `1+1+3` is GGLL
+  (95 %), the 5R types are LLLL, 4D is GLL, 7D1 is GGGLLL. The repertoire
+  occupies 14 of the 16 four-syllable metres and, by mātrā weight, 8/8,
+  9/13, 16/21, 19/34 of Virahāṅka's counts at weights 5–8, thinning above.
+  On the net the prastāra of 16 metres is sorted into its Meru cells in one
+  pass and a spec keeps the three metres the whales use most.
+- **The readout does not factor along time.** H(next | current) is 2.48
+  bits against a 3.46-bit null with 257 classes; the next class is the
+  likeliest one in 54 % of steps where `NerodeYantra`'s factoring would give
+  100 %. A k = 1 acceptor learned from half the dialogues and run on the net
+  accepts 4 of 10 held-out sequences.
+- **What crosses between whales is the metre, at the receiver's tempo.**
+  Cross-whale steps keep the fine shape at the null rate (19–23 % vs 19 %)
+  but keep the metre in 51 % of steps (null 36 %), re-expressed 8 % apart
+  in tempo (2 % within a whale, 21 % at random); overlap makes no
+  difference. The encounter transports a coarser invariant than the one a
+  single whale conserves.
+- **Sign birth.** A two-part description length of the corpus is minimal
+  near lens 8 with about 140 signs (25.5 bits per coda); adding signs pays
+  until then and costs after.
+- **The Zipf slope is the lens's.** It runs from −2.0 at lens 2 to −0.1 at
+  lens 1000 on the same codas.
+- **Rubato's modulus.** Relative |Δtempo| per same-whale step with the
+  shape kept: median 2.1 %, p99 13 %.
+
+### 3.8 Discrete systems
 
 Japanese tit ABC-D ordering rule as a Nerode acceptor over six candidate
 utterances: `[D,ABC]` and `[D]` erase, four survive (514 interactions).

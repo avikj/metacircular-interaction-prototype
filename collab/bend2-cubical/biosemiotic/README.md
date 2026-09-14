@@ -168,11 +168,121 @@ table in `out/exchange_pairs.tsv`. (Structural `===` on two lazily built
 lists stays stuck under a superposition in collapse mode; list equality is
 therefore written as a strict recursion, `@eqL`.)
 
+## 8. The whole instrument, run (`full_instrument.py`, `nerode_net.py`; log in `out/instrument_run.log`)
+
+Each reading below is named by the checked term that licenses it. All
+numbers are from one run on the two public files.
+
+### 8.1 The rhythm types are Piṅgala metres (`theorems/metre`: `MatraVarnaGuru`, `PrastaraPankti`, `Matramerus`, `Meru`)
+
+Read each coda's intervals in units of its shortest interval: an interval of
+one unit is laghu, of two or more is guru. A coda is then a laghu/guru
+word, a mātrā-vṛtta, and its mātrā is `matraOf` (laghu 1, guru 2). The
+annotated rhythm types come out as single metres with no clustering:
+
+| annotated type | dominant metre | share | distinct metres |
+|---|---|---|---|
+| 1+1+3 | GGLL | 0.95 | 5 |
+| 5R1 / 5R2 / 5R3 | LLLL | 0.56 / 0.99 / 0.99 | 10 / 3 / 3 |
+| 4R2 | LLL | 0.98 | 4 |
+| 4D | GLL | 0.65 | 3 |
+| 7D1 | GGGLLL | 0.44 | 10 |
+
+The repertoire against Piṅgala's counts: for 4-interval codas (6,383 of
+them) the whales use 14 of the 16 metres of saṅkhyā 2⁴; the Meru row is
+occupied 1/1, 4/4, 5/6, 4/4, 0/1 for k = 0…4 guru (the all-guru row is
+unreachable by construction, since the shortest interval is always laghu).
+By mātrā weight, against Virahāṅka's count `length (सर्व n)`: weight 5 uses
+8 / 8, weight 6 uses 9 / 13 (and carries 3,921 codas, the GGLL type),
+weight 7 uses 16 / 21, weight 8 uses 19 / 34, and above weight 10 the
+repertoire thins to a few percent of the prastāra. The Nārāyaṇa samāsa over
+{1,2,3,…} (the full mora vector) has 405 distinct vectors; the top four are
+(2,2,1,1), (1,1,1,1), (1,1,1), (2,1,1,1).
+
+On the net, `out/prastara_meru.hvm4` hands all 16 four-syllable metres to
+`@meru` as one superposition and sorts each into its Meru cell
+`#Cell{varṇa, guru, mātrā}` in one pass (3,056 interactions; the cells
+enumerate C(4,k) with mātrā = varṇa + guru on every branch, the theorem
+`मात्रा-वर्ण-गुरु` observed branch by branch). `out/prastara_spec.hvm4` keeps
+only the metres that real 4-interval codas use most: survivors `[2,2,1,1]`,
+`[2,1,1,1]`, `[1,1,1,1]`; the other 13 erase (3,387 interactions).
+
+### 8.2 The readout does not factor along time (`NerodeYantra`)
+
+`nerode-saṅkoca` says: if `out ∘ δ ≡ g ∘ out`, the Nerode relation is the
+kernel of one observation. On each whale's ordered codas (lens-10 class,
+257 classes):
+
+| k | H(next \| last k) bits | shuffled null |
+|---|---|---|
+| 0 | 4.324 | 4.324 |
+| 1 | 2.479 | 3.463 |
+| 2 | 1.615 | 2.188 |
+| 3 | 1.003 | 1.107 |
+
+The next class is the most likely one given the current in 54 % of steps;
+a factoring would give 100 %. The state of a whale in an exchange exceeds
+its readout at every window measured. `nerode_net.py` learns the k = 1
+transition support from half the dialogues (156 classes, 522 transitions)
+and runs it on the net as an acceptor over a superposition of held-out
+sequences: 4 of 10 survive, the rest erase (16,314 interactions), agreeing
+with the Python check.
+
+### 8.3 What crosses between whales is the metre, at the receiver's own tempo (`TheEncounterOfTwoPeers`, README §6)
+
+A coda by whale B within 6 s of a coda by whale A, against same-whale steps
+and random pairs:
+
+| step | n | lens-10 shape kept | metre kept | same click count | median rel. \|Δtempo\| when metre kept |
+|---|---|---|---|---|---|
+| same whale | 1,211 | 51.0 % | 71.9 % | 81.8 % | 0.021 |
+| cross whale, overlapping (chorus) | 906 | 19.3 % | 51.0 % | 63.9 % | 0.077 |
+| cross whale, non-overlapping | 1,210 | 23.0 % | 50.4 % | 65.0 % | 0.082 |
+| random pairs | 6,000 | 18.8 % | 35.7 % | 60.9 % | 0.214 |
+
+At the fine lens nothing crosses between whales (19–23 % against a 19 %
+null). At the metre lens half of all cross-whale steps carry the metre
+over (51 % against 36 %), and the receiver re-expresses it at its own tempo
+(8 % apart, against 2 % within a whale and 21 % at random). Whether the
+codas overlap or not makes no difference. So the encounter's transport is
+the metre and its fibre is the tempo, and which lens shows the transport is
+itself a finding: the transported invariant is coarser than the invariant a
+single whale keeps. Revelation (README §6, "B now has A's shape") is
+measurable here; generation (a new shape appearing at B) is the other half
+of every cross-whale step.
+
+### 8.4 Sign birth: the lens where compression stops paying (hieroglyphics II, `Laghava`)
+
+`चिह्नजन्म ⟺ संरचनासंपीडनलाभ > 0`: a sign is born only when it compresses more
+than it costs. A two-part code of the 7,268 EC1 codas (10 bits per class
+centroid coordinate; per coda `log₂ K` for the sign plus a residual per
+interval in per-mille): total bits by lens R — 194.3k at R = 1 (12 signs),
+192.6k at R = 3 (97), **185.3k at R = 8 (144 signs, 25.5 bits per coda)**,
+199.6k at R = 10 (216), 205.9k at R = 20 (632), 267.0k at R = 100 (3,086).
+The code is a reading; the shape of its minimum is the point: adding signs
+pays until roughly 140 of them and costs thereafter. Sharma et al.'s 18
+rhythms × 5 tempos is 90 composite signs, in the same range.
+
+### 8.5 The Zipf slope is a function of the lens (abstracts 21, 28)
+
+Rank–frequency slope of class frequencies: −2.04 at R = 2, −1.96 at R = 3,
+−1.60 at R = 10, −1.23 at R = 20, −0.96 at R = 50, −0.71 at R = 100, −0.10
+at R = 1000. The one number the field reports as a property of a species is
+a decategorified count whose value is set by the analyst's lens.
+
+### 8.6 The tempo trajectory's modulus (`SthairyaSutra`)
+
+Same-whale steps with the shape kept: relative |Δtempo| median 0.021, p90
+0.065, p99 0.130 (absolute: median 17 ms, p90 50 ms, p99 123 ms, max 546 ms).
+Rubato is a small, bounded motion of the fibre per crossing.
+
 ## Files
 
     coda_elucidator.py   reads the CSV; exact & per-mille factoring; lens table; emits out/coda_*.hvm4
     coda_regimes.py      lens-10, spec, transport programs; cost regimes; writes out/RESULTS_regimes.txt
     coda_exchange.py     rubato as fibre motion along real exchanges; emits out/coda_exchange.hvm4
+    full_instrument.py   metre/prastāra, Nerode deficit, encounter, sign-birth MDL, Zipf-vs-lens, Lipschitz; emits out/prastara_*.hvm4
+    nerode_net.py        a Nerode acceptor learned from half the dialogues, run on the net over held-out sequences
     tit_syntax.hvm4      Japanese tit ordering rule over a superposition
     campbell_affix.hvm4  Campbell's monkey root × affix factoring
     out/                 generated programs, sample_codas.tsv, lens_resolution.tsv, python_run.log
