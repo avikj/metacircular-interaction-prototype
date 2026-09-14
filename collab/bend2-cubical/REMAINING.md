@@ -1,8 +1,9 @@
 # What remains for complete cubical support — exact, audited, with locations
 
-**State: sections A, B, C and E are closed. Section D (a general HIT schema)
-is the only substantive item left, plus the one Glue law that needs
-face-restricted contexts to state. Suite: 85 files, bad = 0.**
+**State: sections A, B, C and E are closed. Section D has three working HITs
+(set-quotient, circle, propositional truncation); a general HIT *schema* is
+the only substantive item left, plus the one Glue law that needs
+face-restricted contexts to state. Suite: 88 files, bad = 0.**
 
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed
@@ -103,7 +104,7 @@ four backends, and each runs on HVM4 in agreement with the normaliser.
 
 ---
 
-## D. Higher inductive types — two, not a schema
+## D. Higher inductive types — three, not a schema
 
 **Implemented and tested:**
 
@@ -111,6 +112,7 @@ four backends, and each runs on HVM4 in agreement with the normaliser.
 |---|---|---|---|
 | SetQuotient | `Quot(A,R)`, `qcl`, `qeq`, `qsquash` | `qrec` | `quotient.bend`, `effective.bend`, `erasure.bend` |
 | The circle `S1` | `s1base` (point), `s1loop` (path) | `srec` | `circle.bend` 9 ✓, `circle_mustfail.bend` 2 ✗ |
+| Propositional truncation | `tin` (point), `tsquash x y` (path, joining ANY two elements) | `trec` into a proposition | `truncation.bend` 9 ✓, `truncation_mustfail.bend` 2 ✗ |
 
 The circle is the first HIT here with a non-trivial loop, and it behaves:
 `s1loop` has both endpoints at `s1base`, the recursor computes on the point
@@ -120,7 +122,12 @@ set. Both are emitted to the full runtime (`#S1`/`#Base`/`#Loop`/`@srec`, with
 `s1loop` known to `@pathAt` as a path constructor) and agree with the
 normaliser.
 
-**What is left: the general schema.** Both HITs are hardcoded as `Term`
+Truncation is the one real mathematics needs next (existentials, surjections,
+images): its path constructor joins *any* two elements, so `Trunc(A)` is a
+proposition by construction (`truncIsProp`), and `trec` is allowed only into a
+proposition — the guard file confirms that a bogus `isProp(Bool)` is rejected.
+
+**What is left: the general schema.** All three HITs are hardcoded as `Term`
 constructors, so each new one costs another pass through every traversal in
 §A. A declaration form would take point and path constructors and generate the
 eliminator and its computation rules. Design sketch for whoever does it:
