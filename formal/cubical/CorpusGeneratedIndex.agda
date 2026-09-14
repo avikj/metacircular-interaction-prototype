@@ -86,7 +86,7 @@ import EndObstruction as C78
 import ExcludingPerfectScorersRemovesOnlyGainlessCandidates as C79
 import ExcursionReturn as C80
 import ExtremalDescription as C81
-import FutureBehavior as C82
+import MyhillNerodeMinimalMachine as C82
 import FutureSeparation as C83
 import GeneratedCapability as C84
 import InvarianceConstant as C85
@@ -2259,8 +2259,8 @@ corpusNames = quote C0.Prog
   ∷ quote C75.flipStep
   ∷ quote C75.constantObserve
   ∷ quote C75.identity-words-do-nothing
-  ∷ quote C75.constant-futureEq
-  ∷ quote C75.collapsed-futureEqIso
+  ∷ quote C75.constant-nerodeCongruence
+  ∷ quote C75.collapsed-nerodeCongruenceIso
   ∷ quote C75.collapsed-to-from
   ∷ quote C75.collapsed-from-to
   ∷ quote C76.run
@@ -2312,22 +2312,22 @@ corpusNames = quote C0.Prog
   ∷ quote C82.ℓO
   ∷ quote C82.run
   ∷ quote C82.behavior
-  ∷ quote C82.FutureEq
-  ∷ quote C82.futureEq-refl
-  ∷ quote C82.futureEq-sym
-  ∷ quote C82.futureEq-trans
-  ∷ quote C82.futureEq-step
-  ∷ quote C82.futureEq-of-finer
-  ∷ quote C82.futureEq-pair←
+  ∷ quote C82.NerodeCongruence
+  ∷ quote C82.nerodeCongruence-refl
+  ∷ quote C82.nerodeCongruence-sym
+  ∷ quote C82.nerodeCongruence-trans
+  ∷ quote C82.nerodeCongruence-step
+  ∷ quote C82.nerodeCongruence-of-finer
+  ∷ quote C82.nerodeCongruence-pair←
   ∷ quote C82.isBehavioralCongruence
   ∷ quote C82.ℓA
   ∷ quote C82.ℓO
   ∷ quote C82.ℓR
-  ∷ quote C82.futureEq-isCongruence
-  ∷ quote C82.FutureQuotient
+  ∷ quote C82.nerodeCongruence-isCongruence
+  ∷ quote C82.MinimalMachine
   ∷ quote C82.ℓA
   ∷ quote C82.ℓO
-  ∷ quote C82.MachineFutureBehavior
+  ∷ quote C82.MooreMachineBehavior
   ∷ quote C82.ℓA
   ∷ quote C82.ℓO
   ∷ quote C83.FutureSep
@@ -2514,7 +2514,7 @@ corpusNames = quote C0.Prog
   ∷ quote C95.see
   ∷ quote C95.a≈b-now
   ∷ quote C95.a≉b-later
-  ∷ quote C96.BoundedFutureEq
+  ∷ quote C96.BoundedNerodeCongruence
   ∷ quote C96.WindowAt
   ∷ quote C96.ResponseWindow
   ∷ quote C96.ObservableClosesAt
@@ -12039,7 +12039,7 @@ corpusNames = quote C0.Prog
   ∷ quote C909.zzRepresentative
   ∷ quote C909.zz-representative-is-odd
   ∷ quote C910.physicalStep
-  ∷ quote C910.PhysicalFutureEq
+  ∷ quote C910.PhysicalNerodeCongruence
   ∷ quote C910.response-isSet
   ∷ quote C910.compiled-isSet
   ∷ quote C910.compiled-kernel-isProp

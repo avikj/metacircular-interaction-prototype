@@ -41,6 +41,47 @@ execution; push/pull main every few minutes; never idle; no questions.
 isprop_run.bend (5✓; 4-face composite decided at every corner) recorded in
 RUNTIME_FULL.md; STATUS.md updated.
 
+## Reconciled with parallel agents (latest)
+Folded into the patch from other agents: epNormCtx recursing into coe
+(fromPathP), interval idempotence (iSyntEq), and Glue (their parser was missing
+on main — now in the patch; see GLUE.md). `forced.bend` 44✓, `fpp_fromPathP`
+2✓, `glue.bend` 2✓ on the patch binary. The whole-file .hs copies in this
+directory were deleted: cubical-paths.patch is the ONLY source of truth. If
+you see loose .hs files here again, diff them against the patch-applied tree
+and fold real deltas into the patch.
+
+## Kan rules DONE in the checker (uaglue.bend, hcompset.bend; GLUE.md)
+Transport through Glue and hcomp-in-Set-as-Glue are implemented and green.
+Full runtime (--to-hvm4-full) now has the same Kan rules (@coeGlue, hcomp at
+#Set -> #Glue, @transpEquiv); verified uaglue/hcompset on HVM4. Resolved: the
+isprop_run residual-DUP issue (static dup labels; prelude linearized —
+never `λ&` a value just because it is used in several match arms).
+
+## The forcing theorem RUNS (forcing_run.bend, 82✓; FORCING.md RUN section)
+Both instances (recording trace / contractible trace) observed on HVM4 full
+runtime with values matching the normaliser.
+
+## The coinductive calculus + braid fabric carried (interaction.bend, braid.bend; INTERACTION.md)
+Two checker fixes went in with it (rewrite descends into application heads;
+same-head conversion before unfolding recursive type families). Also merged
+the SetQuotient HIT from a parallel agent (QUOTIENT.md) into the patch.
+
+## Genuine coinduction (coinduction.bend 13✓, streams.bend 10✓, coinduction_mustfail.bend; COINDUCTION.md)
+Bend2 is coinductive by default (Fix-typed recursion, lazy HVM). `Answers`/
+`IExec` are now the coinductive records themselves; `replay`/`forgetStates`
+and both `run-is-answers` round trips are corecursive `[productive]` paths.
+Three fixes in the patch: epNormCtx unfolds one level (`goNoUnfold`), printing
+uses a capped normaliser (`normalCap`), record matches give no descent in
+Totality (`branch2 Nothing`), Σ fields / Π codomains are guarded positions so
+self-referential `type` families are `[productive]`. `bend f.bend --total`
+(flag AFTER the file) passes on coinduction/interaction/braid.
+
+## General silence-is-determinism (silence.bend 25✓, silence_mustfail.bend)
+Parametric `(X, Q, δ)`, corecursive PathP contraction over a path of states,
+`isContr(IExec x)` for contractible `Q`; closed machine as instance; runs on
+HVM4 full (252 itrs → 4). Must-fail set for the suite loop now also includes
+`silence_mustfail`.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.

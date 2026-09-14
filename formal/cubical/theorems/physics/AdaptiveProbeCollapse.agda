@@ -10,7 +10,7 @@
 -- annihilate the charged sector".  That claim is FALSE as stated, and
 -- `AdaptiveResidualAdapter` (this same directory) already
 -- proves the collapse in the Moore-machine register
--- (`futureEq-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
+-- (`nerodeCongruence-adaptiveIso`), and ~22 `formal/lean/Pairfield/Adaptive*`
 -- modules already carry the cost side, including two checked strict gaps
 -- (`AdaptiveObservableHorizon.uniform_one_adaptive_two`,
 --  `LinearAdaptiveGap.exact_linear_gap`).

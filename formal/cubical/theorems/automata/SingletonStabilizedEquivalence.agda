@@ -20,7 +20,7 @@ open import Cubical.Data.Unit using (Unit)
 open import Cubical.Relation.Nullary using (¬_)
 
 import FiniteIndraWeave as FIW
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import ObservabilityQuotient as OQ
 import ObservableHorizon as OH
 import ProductiveIndraNet as PIN
@@ -39,7 +39,7 @@ isPropProductiveBounded :
     (setView : isSet (FIW.TotalView Root Jewel))
     (fuel : ℕ) {left right : PIN.Net Root Jewel}
   → isProp
-      (OH.BoundedFutureEq
+      (OH.BoundedNerodeCongruence
         (SAO.unitStep PIN.Net.next) PIN.Net.view fuel left right)
 isPropProductiveBounded setView fuel =
   isPropΠ λ word → isPropΠ λ bound → setView _ _
@@ -69,7 +69,7 @@ productiveBounded≃bisim :
   → OH.ObservableClosesAt
       (SAO.unitStep (PIN.Net.next {Root} {Jewel})) PIN.Net.view fuel
   → {left right : PIN.Net Root Jewel}
-  → OH.BoundedFutureEq
+  → OH.BoundedNerodeCongruence
       (SAO.unitStep PIN.Net.next) PIN.Net.view fuel left right
     ≃ PIN.Bisim left right
 productiveBounded≃bisim setView fuel closes =
@@ -92,7 +92,7 @@ productiveBounded≃bisim-setJewel :
   → OH.ObservableClosesAt
       (SAO.unitStep (PIN.Net.next {Root} {Jewel})) PIN.Net.view fuel
   → {left right : PIN.Net Root Jewel}
-  → OH.BoundedFutureEq
+  → OH.BoundedNerodeCongruence
       (SAO.unitStep PIN.Net.next) PIN.Net.view fuel left right
     ≃ PIN.Bisim left right
 productiveBounded≃bisim-setJewel setJewel =
@@ -107,7 +107,7 @@ productiveBounded≃bisim-setJewel setJewel =
 productiveBoundedBisim→closure :
     (fuel : ℕ)
   → ((left right : PIN.Net Root Jewel)
-    → OH.BoundedFutureEq
+    → OH.BoundedNerodeCongruence
         (SAO.unitStep PIN.Net.next) PIN.Net.view fuel left right
     → PIN.Bisim left right)
   → OH.ObservableClosesAt
@@ -124,13 +124,13 @@ productiveBoundedBisim→closure fuel upgrade =
 -- silently dropping ObservableClosesAt.
 bounded-collision-obstructs-bisim-upgrade :
     (fuel : ℕ) {left right : PIN.Net Root Jewel}
-  → OH.BoundedFutureEq
+  → OH.BoundedNerodeCongruence
       (SAO.unitStep PIN.Net.next) PIN.Net.view fuel left right
   → (word : List Unit)
   → ¬ (FB.behavior (SAO.unitStep PIN.Net.next) PIN.Net.view left word
       ≡ FB.behavior (SAO.unitStep PIN.Net.next) PIN.Net.view right word)
   → ¬ ((x y : PIN.Net Root Jewel)
-      → OH.BoundedFutureEq
+      → OH.BoundedNerodeCongruence
           (SAO.unitStep PIN.Net.next) PIN.Net.view fuel x y
       → PIN.Bisim x y)
 bounded-collision-obstructs-bisim-upgrade fuel bounded word separates upgrade =

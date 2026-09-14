@@ -10,7 +10,7 @@
 --
 -- are actions.  Their finite words are precisely the generated unary
 -- contexts.  Equality under every such context is therefore an instance of
--- FutureBehavior.FutureEq.  The nontrivial direction checked here is that
+-- MyhillNerodeMinimalMachine.NerodeCongruence.  The nontrivial direction checked here is that
 -- this unary-action relation is a congruence for the original *binary*
 -- operation, and is greatest among all observation-compatible magma
 -- congruences.  Consequently the operation descends to the behavioral
@@ -35,7 +35,7 @@ open import Cubical.HITs.SetQuotients as SQ
   using (_/_ ; [_] ; eq/ ; squash/)
 open import Cubical.Relation.Nullary using (¬_)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 
 private
   variable
@@ -106,7 +106,7 @@ compile-decode ((true , fixed) ∷ word) =
 -- alias makes the adapter computational: no conversion theorem or choice of
 -- representatives is hidden between contexts and future behavior.
 ContextEq : (X → X → X) → (X → O) → X → X → Type _
-ContextEq operation observe = FB.FutureEq (contextStep operation) observe
+ContextEq operation observe = FB.NerodeCongruence (contextStep operation) observe
 
 SyntacticContextEq : (X → X → X) → (X → O) → X → X → Type _
 SyntacticContextEq {X = X} operation observe left right =
@@ -178,7 +178,7 @@ open isObservedMagmaCongruence
 
 -- A magma congruence is stable under each elementary one-hole translation,
 -- hence supplies the exact behavioral-congruence interface already checked
--- by FutureBehavior.
+-- by MyhillNerodeMinimalMachine.
 magma-step-preserves :
     {S : X → X → Type ℓR}
     {operation : X → X → X} {observe : X → O}
@@ -210,9 +210,9 @@ contextEq-respects-operation :
   → ContextEq operation observe y y′
   → ContextEq operation observe (operation x y) (operation x′ y′)
 contextEq-respects-operation operation observe {x′ = x′} {y = y} left right =
-  FB.futureEq-trans (contextStep operation) observe
-    (FB.futureEq-step (contextStep operation) observe left (false , y))
-    (FB.futureEq-step (contextStep operation) observe right (true , x′))
+  FB.nerodeCongruence-trans (contextStep operation) observe
+    (FB.nerodeCongruence-step (contextStep operation) observe left (false , y))
+    (FB.nerodeCongruence-step (contextStep operation) observe right (true , x′))
 
 -- The contextual relation is itself a congruence for the original binary
 -- operation.
@@ -221,23 +221,23 @@ contextEq-isMagmaCongruence :
   → isObservedMagmaCongruence operation observe
       (ContextEq operation observe)
 contextEq-isMagmaCongruence operation observe = record
-  { reflexive = FB.futureEq-refl (contextStep operation) observe
-  ; symmetric = FB.futureEq-sym (contextStep operation) observe
-  ; transitive = FB.futureEq-trans (contextStep operation) observe
+  { reflexive = FB.nerodeCongruence-refl (contextStep operation) observe
+  ; symmetric = FB.nerodeCongruence-sym (contextStep operation) observe
+  ; transitive = FB.nerodeCongruence-trans (contextStep operation) observe
   ; respects-observe = λ related → related []
   ; respects-operation = contextEq-respects-operation operation observe
   }
 
 -- Greatestness: every observation-compatible magma congruence is contained
 -- in contextual equality.  This is the exact universal-algebraic / Nerode
--- joint, obtained by adapting to FutureBehavior's greatest-congruence theorem.
+-- joint, obtained by adapting to MyhillNerodeMinimalMachine's greatest-congruence theorem.
 magmaCongruence→contextEq :
     {S : X → X → Type ℓR}
     {operation : X → X → X} {observe : X → O}
   → isObservedMagmaCongruence operation observe S
   → {x y : X} → S x y → ContextEq operation observe x y
 magmaCongruence→contextEq congruence =
-  FB.congruence→futureEq (magma→behavioral congruence)
+  FB.congruence→nerodeCongruence (magma→behavioral congruence)
 
 ------------------------------------------------------------------------
 -- 3.  The operation descends to the contextual quotient
@@ -249,7 +249,7 @@ module ContextQuotient
   step : X → ContextAction X → X
   step = contextStep operation
 
-  module Q = FB.FutureQuotient step setO observe
+  module Q = FB.MinimalMachine step setO observe
 
   Meaning : Type _
   Meaning = Q.Meaning
@@ -257,9 +257,9 @@ module ContextQuotient
   _opQ_ : Meaning → Meaning → Meaning
   _opQ_ = SQ.rec2 squash/ (λ x y → [ operation x y ])
     (λ x x′ y related →
-      eq/ _ _ (FB.futureEq-step step observe related (false , y)))
+      eq/ _ _ (FB.nerodeCongruence-step step observe related (false , y)))
     (λ x y y′ related →
-      eq/ _ _ (FB.futureEq-step step observe related (true , x)))
+      eq/ _ _ (FB.nerodeCongruence-step step observe related (true , x)))
 
   operation-β : (x y : X) → [ x ] opQ [ y ] ≡ [ operation x y ]
   operation-β x y = refl
@@ -333,18 +333,18 @@ run-reindex smallStep largeStep embed realizes state (action ∷ word) =
       (smallStep state action) word
 
 -- More available actions can only split future-equivalence classes.  This is
--- alphabet monotonicity, distinct from `futureEq-of-finer`, which refines the
+-- alphabet monotonicity, distinct from `nerodeCongruence-of-finer`, which refines the
 -- observation rather than the interventions.
-futureEq-restrict-actions :
+nerodeCongruence-restrict-actions :
     {A : Type ℓA} {B : Type ℓB} {S : Type ℓS} {Y : Type ℓY}
     (smallStep : S → A → S) (largeStep : S → B → S) (embed : A → B)
     (observe : S → Y)
   → ((state : S) (action : A)
       → largeStep state (embed action) ≡ smallStep state action)
   → {left right : S}
-  → FB.FutureEq largeStep observe left right
-  → FB.FutureEq smallStep observe left right
-futureEq-restrict-actions smallStep largeStep embed observe realizes
+  → FB.NerodeCongruence largeStep observe left right
+  → FB.NerodeCongruence smallStep observe left right
+nerodeCongruence-restrict-actions smallStep largeStep embed observe realizes
     {left} {right} related word =
   cong observe (sym (run-reindex smallStep largeStep embed realizes left word))
   ∙ related (reindexWord embed word)
@@ -360,14 +360,14 @@ extendedStep old new state (inr action) = contextStep new state action
 
 ExtendedContextEq : (X → X → X) → (X → X → X)
   → (X → O) → X → X → Type _
-ExtendedContextEq old new observe = FB.FutureEq (extendedStep old new) observe
+ExtendedContextEq old new observe = FB.NerodeCongruence (extendedStep old new) observe
 
 adding-operation-refines :
     (old new : X → X → X) (observe : X → O) {left right : X}
   → ExtendedContextEq old new observe left right
   → ContextEq old observe left right
 adding-operation-refines old new observe =
-  futureEq-restrict-actions
+  nerodeCongruence-restrict-actions
     (contextStep old) (extendedStep old new) inl observe (λ _ _ → refl)
 
 -- Strictness control.  The old left-projection operation never exposes the
