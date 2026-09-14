@@ -96,11 +96,23 @@ Rule: superposition pays exactly when the branches share work.
 Reproduce: `bend bench_X.bend --to-hvm4-full > x.hvm4 && hvm x.hvm4 -s`.
 
 ## The suite is a script now: ./suite.sh
-73 files, bad=0. The must-fail registry lives IN the script — if you add a file
+85 files, bad=0. The must-fail registry lives IN the script — if you add a file
 with a deliberate rejection, register it there. `erasure.bend` (another agent's)
 is one of them: its `tbadResp` fake descent witness MUST be rejected.
 
-## WHAT REMAINS FOR COMPLETE CUBICAL SUPPORT: read REMAINING.md
+## CUBICAL COMPLETENESS: read REMAINING.md (sections A, B, C, E are CLOSED)
+Done since the audit: every type-directed hcomp rule (Pi/Sigma/PathP/Nat/List/
+discrete/Set/Glue) in checker AND runtime; comp + hfill as core ops with comp
+surface syntax; transp with a cofibration; Partial types with systems and pout;
+Sub types with inS/outS; quotients emitted to the runtime with @qrec; the
+circle S1 as a second HIT (s1base/s1loop/srec — NOT named base/loop, those are
+ordinary identifiers in the corpus); every traversal exhaustive; JS backend
+fails loudly on cubical terms. Left: a general HIT schema, and the Glue
+composition law (needs face-restricted contexts).
+New files: kan.bend comp.bend transp.bend sub.bend partial.bend circle.bend
+glue_kan.bend + five _mustfail siblings. Suite 85 files bad=0 via ./suite.sh.
+
+## SUPERSEDED — the original audit text follows
 Audited against CCHM by reading every traversal and running probes. Headline:
 `coe` is nearly complete; **`hcomp` has no type-directed rules except the
 universe** (Pi/Sigma/Nat/Path all confirmed stuck by probe) — that is the bulk

@@ -1,5 +1,9 @@
 # What remains for complete cubical support — exact, audited, with locations
 
+**State: sections A, B, C and E are closed. Section D (a general HIT schema)
+is the only substantive item left, plus the one Glue law that needs
+face-restricted contexts to state. Suite: 85 files, bad = 0.**
+
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed
 by execution, not by reading. Paths are in the patched tree (`/tmp/Bend2`,
@@ -68,9 +72,14 @@ base), no change to any existing Glue program in the checker or on the
 runtime. **Not** verified: the characteristic law, that ungluing the composite
 gives exactly that `A`-composite. It cannot be stated in surface syntax,
 because the φ-face mentions the `T`-filler of a `Glue`-typed base, which is
-only well-typed under the restriction φ=1 — i.e. it needs `A[φ ↦ u]` (§C).
-Implementing restricted types would make this testable, and that is the single
-highest-value item left.
+well-typed only under the restriction φ=1. Restricted types (`Sub`) and
+partial elements are now implemented (§C) and are still *not* enough: the
+obstacle is that a **variable's type in the context** is not restricted by the
+face, so `u0 : Glue(A,[(p,T,e)])` cannot be used at `T` on the cell `p=1`.
+Stating this law needs face-restricted CONTEXTS — what Cubical Agda provides
+through partial-element lambdas whose bodies elaborate under the constraint.
+That is the remaining work for this one law; the rule itself follows CCHM and
+nothing in the suite contradicts it.
 
 **Nothing is open in this section any more.** The runtime carries Nat, Bit,
 List and Unit as well; `transp` with a cofibration is its own constructor
@@ -94,17 +103,39 @@ four backends, and each runs on HVM4 in agreement with the normaliser.
 
 ---
 
-## D. Higher inductive types
+## D. Higher inductive types — two, not a schema
 
-Only **SetQuotient**, and it is hardcoded as five constructors rather than
-produced by a schema. `QSq` (squash) is an opaque set-truncation witness with
-no computation rule.
+**Implemented and tested:**
 
-Absent: any general HIT declaration form, the circle, suspensions, pushouts,
-propositional/set truncation as types, and `coe`/`hcomp` rules for any HIT
-other than the quotient's `qrec`. Adding a HIT today means adding
-constructors to `Term` and threading them through every traversal in §A —
-which is precisely why §A keeps recurring.
+| HIT | constructors | eliminator | tests |
+|---|---|---|---|
+| SetQuotient | `Quot(A,R)`, `qcl`, `qeq`, `qsquash` | `qrec` | `quotient.bend`, `effective.bend`, `erasure.bend` |
+| The circle `S1` | `s1base` (point), `s1loop` (path) | `srec` | `circle.bend` 9 ✓, `circle_mustfail.bend` 2 ✗ |
+
+The circle is the first HIT here with a non-trivial loop, and it behaves:
+`s1loop` has both endpoints at `s1base`, the recursor computes on the point
+*and* on the path constructor at every interval, and — the property that makes
+it a real HIT — `s1loop` is **not** definitionally `refl`, so `S1` is not a
+set. Both are emitted to the full runtime (`#S1`/`#Base`/`#Loop`/`@srec`, with
+`s1loop` known to `@pathAt` as a path constructor) and agree with the
+normaliser.
+
+**What is left: the general schema.** Both HITs are hardcoded as `Term`
+constructors, so each new one costs another pass through every traversal in
+§A. A declaration form would take point and path constructors and generate the
+eliminator and its computation rules. Design sketch for whoever does it:
+
+1. Extend the `type` declaration with path constructors whose codomain is a
+   path between already-declared point constructors.
+2. Store the constructor signatures in the `Book` instead of in `Term`.
+3. Generate the eliminator's type from the signatures; its computation rules
+   are one per constructor, path constructors reducing at an interval.
+4. `hcomp` in a HIT needs the constructor-push rule (§B item 7), which the
+   hardcoded HITs currently do not get either.
+
+This is the one genuinely research-scale item remaining; everything else in
+this document is closed. Absent for the same reason: suspensions, pushouts,
+and propositional/set truncation as first-class types.
 
 ---
 
@@ -113,9 +144,9 @@ which is precisely why §A keeps recurring.
 | target | cubical | quotients |
 |---|---|---|
 | `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **DONE** — `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
-| `--to-hvm4` / `--to-hvm4-raw` | erased/normalised | no |
-| `--to-hvm` (HVM3) | `freeVars` crashes on cubical terms | no |
-| JavaScript | silently drops cubical | no |
+| `--to-hvm4` / `--to-hvm4-raw` | erased/normalised by design | no |
+| `--to-hvm` (HVM3) | `freeVars` fixed; the target still erases | no |
+| JavaScript | **now fails loudly** — erasing a path silently produced wrong code, so every cubical constructor raises a clear error pointing at `--to-hvm4-full` | no |
 
 The full runtime now carries the Π, PathP and Σ rules too (§B). Its `@hcomp`
 still gets stuck for Nat, List and Glue. Every rule must be written **twice**,
