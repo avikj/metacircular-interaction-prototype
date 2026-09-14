@@ -91,6 +91,21 @@ was an accident of the earlier encoding, not a limitation of the language.
   constructor, which is equivalent for these records.
 - Conversion between corecursive values is one-step unfolding + structural
   comparison (as in Agda without η); bisimilarity is proved, not decided.
-- The general `silence-is-determinism` (contractible `Q` with varying `δ`)
-  still needs transport to a symbolic endpoint in the coinductive
-  contraction; the closed-machine case is proved.
+
+## The general silence-is-determinism (`silence.bend`, 25 ✓, `--total` passes)
+
+For ANY interaction `(X, Q, δ)` with every `Q x` contractible: `Answers`
+and `IExec` are the parametric coinductive records; `mute` is corecursive;
+`answersUnique` is the corecursive **dependent** path
+`PathP(λi. Answers(X,Q,δ, p @ i), a0, a1)` over a path of states, its answer
+field collapsed by `isPropToPathP`, its tail following the line
+`<j> δ(p @ j, ansLine @ j)` the answers draw — exactly Prasna's copattern
+proof. `oneAnswerStream` is the contraction at the constant path;
+`silenceIsDeterminism : isContr(IExec x)` transports it across
+`run-is-answers` (centre `replay(mute)`, contraction `replay` of the
+answers' contraction composed with `replayForget`). `oneExecutionAgain`
+(Niyati) is the instance `Q = Unit`. Run: the centre of the counter's
+contractible history, observed at step 4, is `4` on the normaliser and on
+the full HVM4 runtime (252 interactions). Guards
+(`silence_mustfail.bend`): a tail that ignores the line (`wrongTail`) and a
+"contraction" of the open machine `Q = Bool` (`wrongCentre`) both fail.

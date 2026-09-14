@@ -76,6 +76,12 @@ Totality (`branch2 Nothing`), Σ fields / Π codomains are guarded positions so
 self-referential `type` families are `[productive]`. `bend f.bend --total`
 (flag AFTER the file) passes on coinduction/interaction/braid.
 
+## General silence-is-determinism (silence.bend 25✓, silence_mustfail.bend)
+Parametric `(X, Q, δ)`, corecursive PathP contraction over a path of states,
+`isContr(IExec x)` for contractible `Q`; closed machine as instance; runs on
+HVM4 full (252 itrs → 4). Must-fail set for the suite loop now also includes
+`silence_mustfail`.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
