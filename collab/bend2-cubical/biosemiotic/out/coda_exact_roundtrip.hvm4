@@ -1,0 +1,8 @@
+// EXACT factoring: coda = gcd * primitive shape. The net reconstructs each coda
+// from its (fibre, shape) pair and compares structurally with the original (===).
+// Result 1 on every branch = the factoring is an identity, checked by execution.
+@mul  = λ&k. λ{[]: []; <>: λh. λt. (h * k) <> @mul(k, t)}
+@from = λ{#Coda: λg. λs. @mul(g, s)}
+@check = λ{#Pair: λ&orig. λfac. (@from(fac) === orig)}
+@pairs = &L{&L{&L{&L{#Pair{[357, 350, 347, 363], #Coda{1, [357, 350, 347, 363]}}, #Pair{[284, 296, 302, 304], #Coda{2, [142, 148, 151, 152]}}}, &L{#Pair{[271, 276, 278, 294], #Coda{1, [271, 276, 278, 294]}}, #Pair{[242, 231, 171, 145], #Coda{1, [242, 231, 171, 145]}}}}, &L{&L{#Pair{[378, 364, 159, 156], #Coda{1, [378, 364, 159, 156]}}, #Pair{[435, 410, 184, 184], #Coda{1, [435, 410, 184, 184]}}}, &L{#Pair{[358, 323, 336], #Coda{1, [358, 323, 336]}}, &L{#Pair{[365, 314, 307], #Coda{1, [365, 314, 307]}}, #Pair{[269, 259, 287], #Coda{1, [269, 259, 287]}}}}}}, &L{&L{&L{#Pair{[89, 92, 77, 71], #Coda{1, [89, 92, 77, 71]}}, #Pair{[81, 77, 74, 80], #Coda{1, [81, 77, 74, 80]}}}, &L{#Pair{[102, 95, 75, 66], #Coda{1, [102, 95, 75, 66]}}, #Pair{[102, 68], #Coda{34, [3, 2]}}}}, &L{&L{#Pair{[87, 103], #Coda{1, [87, 103]}}, #Pair{[46, 72], #Coda{2, [23, 36]}}}, &L{#Pair{[263, 154, 106], #Coda{1, [263, 154, 106]}}, &L{#Pair{[247, 163, 100], #Coda{1, [247, 163, 100]}}, #Pair{[251, 151, 109], #Coda{1, [251, 151, 109]}}}}}}}
+@main = @check(@pairs)

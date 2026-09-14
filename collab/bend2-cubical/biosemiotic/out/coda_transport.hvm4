@@ -1,0 +1,10 @@
+// transport along the tempo fibre: the rhythm of coda A [357, 350, 347, 363] (5R3, tempo 1417 ms)
+// re-expressed at the tempo of coda B [89, 92, 77, 71] (5R1, tempo 329 ms).
+// shape is what crosses; tempo is the fibre. Result: A's rhythm at B's tempo, in ms.
+@sum   = λ{[]: 0; <>: λh. λt. (h + @sum(t))}
+@scale = λ&T. λ&R. λ{[]: []; <>: λh. λt. (((h * R) + (T / 2)) / T) <> @scale(T, R, t)}
+// lens: the rhythm read at R bins per unit of normalised duration
+@lens  = λR. λ&c. @scale(@sum(c), R, c)
+@mulT  = λ&T. λ{[]: []; <>: λh. λt. (((h * T) + 500) / 1000) <> @mulT(T, t)}
+@fromShape = λT. λs. @mulT(T, s)
+@main = @fromShape(@sum([89, 92, 77, 71]), @lens(1000, [357, 350, 347, 363]))

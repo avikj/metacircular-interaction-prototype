@@ -1,0 +1,163 @@
+### coda_lens10.hvm4
+[3,2,2,3] #557
+[2,2,3,3] #628
+[2,2,2,3] #808
+[3,3,2,2] #879
+[4,3,2,1] #1167
+[4,3,2,2] #1238
+[4,3,3] #1381
+[3,3,2,2] #1779
+[3,2,2,3] #1850
+[3,3,2,2] #2030
+[6,4] #2075
+[5,5] #2225
+[4,6] #2262
+[5,3,2] #2429
+[4,3,3] #2568
+[3,3,4] #2622
+[5,3,2] #2759
+[5,3,2] #2813
+- Itrs: 2813 interactions
+- Heap: 5732 nodes
+- Time: 0.000 seconds
+- Perf: 27.07 M interactions/s
+
+### coda_spec.hvm4
+#OK{[242,231,171,145]} #947
+#OK{[89,92,77,71]} #1728
+#OK{[102,95,75,66]} #2025
+- Itrs: 2745 interactions
+- Heap: 6120 nodes
+- Time: 0.000 seconds
+- Perf: 27.86 M interactions/s
+
+### coda_transport.hvm4
+[83,81,81,84] #148
+- Itrs: 148 interactions
+- Heap: 663 nodes
+- Time: 0.000 seconds
+- Perf: 3.90 M interactions/s
+
+### coda_shape_only.hvm4
+[252,247,245,256] #547
+[239,250,255,256] #618
+[242,247,248,263] #798
+[307,293,217,184] #869
+[358,344,150,148] #1157
+[359,338,152,152] #1228
+[352,318,330] #1371
+[271,280,234,216] #1769
+[260,247,237,256] #1840
+[302,281,222,195] #2020
+[600,400] #2065
+[458,542] #2215
+[390,610] #2252
+[503,294,203] #2419
+[370,318,311] #2558
+[330,318,352] #2612
+[484,320,196] #2749
+[491,295,213] #2803
+- Itrs: 2803 interactions
+- Heap: 5678 nodes
+- Time: 0.000 seconds
+- Perf: 25.74 M interactions/s
+
+### cost: superposed pass vs separate passes (lens 1000, 18 real codas)
+sep_00: 87
+sep_01: 87
+sep_02: 87
+sep_03: 87
+sep_04: 87
+sep_05: 87
+sep_06: 67
+sep_07: 67
+sep_08: 67
+sep_09: 87
+sep_10: 87
+sep_11: 87
+sep_12: 47
+sep_13: 47
+sep_14: 47
+sep_15: 67
+sep_16: 67
+sep_17: 67
+SUM of separate passes: 1326 interactions
+ONE superposed pass  : 2803 interactions
+ratio superposed/separate: 2.114
+(18 different codas down 18 different lines: the regime SYNTHESIS.md §4 predicts costs ~1.4x;
+ the sharing that pays is a shared LINE over many values, not many lines.)
+### the shared-prefix regime: plain coda vs ornamented coda (shared line, superposed tail)
+5R3 [357, 350, 347, 363] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+5R3 [284, 296, 302, 304] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+5R3 [271, 276, 278, 294] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [242, 231, 171, 145] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [378, 364, 159, 156] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [435, 410, 184, 184] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+TOTAL superposed 1230 vs separate 1164; ratio 1.057codas read: 8696   (from /tmp/claude-0/-home-user-metacircular-interaction-prototype/50a1bb82-ff97-5506-8714-a887d5daf397/scratchpad/sw-combinatoriality/data/DominicaCodas.csv)
+lossless check  coda == gcd * shape : 8696/8696 exact, 0 failures
+
+CodaType  n_codas  distinct_exact_shapes  distinct_permille_rhythms  largest_shared_node
+1+1+3        3589                   3446                       3412        2
+5R1          1510                   1440                       1437        2
+5R3           642                    642                        630        1
+4R2           340                    340                        326        1
+5R2           287                    275                        274        2
+5-NOISE       278                    276                        276        2
+4D            219                    217                        215        2
+6i            188                    188                        188        1
+8i            178                    176                        176        2
+7D1           177                    177                        177        1
+6-NOISE       166                    165                        164        2
+7i            150                    146                        146        2
+9i            137                    132                        132        2
+4R1            84                     84                         84        1
+2+3            77                     73                         73        2
+1+32           72                     72                         71        1
+6R             67                     67                         67        1
+3D             61                     61                         53        1
+8R             60                     60                         60        1
+10i            54                     52                         52        2
+4-NOISE        51                     51                         51        1
+1+31           51                     51                         51        1
+9R             43                     43                         43        1
+7D2            35                     32                         31        2
+10R            31                     31                         31        1
+7R             23                     23                         23        1
+3-NOISE        21                     21                         20        1
+3R             21                     20                         18        2
+8D             20                     20                         20        1
+7-NOISE        18                     18                         18        1
+9-NOISE        16                     16                         16        1
+8-NOISE        15                     15                         15        1
+10-NOISE        9                      9                          9        1
+2-NOISE         6                      1                          1        6
+
+TOTAL codas 8696; exact shape nodes 8440; per-mille rhythm nodes 8360; annotated rhythm types 34
+
+EC1 non-noise codas: 7266; annotated types: 24
+lens_res  shape_nodes  max_node  purity(nodes of one annotated type)
+    1000         6950         3   0.999
+     200         5066        17   0.979
+     100         3086        86   0.935
+      50         1632       333   0.886
+      20          632      1428   0.869
+      10          216      3230   0.727
+       5          160      3002   0.800
+       3           97      2702   0.701
+       2           45      4741   0.422
+largest nodes at lens 10 (shape -> annotated types): the annotated type mixes rhythm with TEMPO
+    (4, (3, 3, 2, 2)) {'1+1+3': 2068, '5R1': 1136, '5R2': 23, '5R3': 3}
+    (4, (4, 3, 2, 2)) {'1+1+3': 359, '5R1': 10}
+    (4, (4, 3, 1, 2)) {'1+1+3': 282}
+    (4, (4, 3, 2, 1)) {'1+1+3': 254, '5R1': 1}
+    (3, (5, 3, 2)) {'1+31': 17, '4R1': 1, '4D': 195, '1+32': 2}
+    (3, (3, 3, 3)) {'4R2': 205, '4R1': 6}
+exact shapes carrying >1 coda: 252; example fibres (type, shape) -> tempos(ms):
+    2-NOISE (1,) -> [69, 107, 212, 249, 776, 799] 
+    4D (245, 170, 112) -> [527, 527] 
+    4D (276, 171, 116) -> [563, 563] 
+    1+1+3 (225, 199, 152, 146) -> [722, 722] 
+    5R1 (101, 94, 76, 67) -> [338, 338] 
+    5R1 (43, 47, 38, 36) -> [328, 328] 
+
+wrote /home/user/metacircular-interaction-prototype/collab/bend2-cubical/biosemiotic/out/coda_superposition.hvm4, coda_shape_only.hvm4, coda_exact_roundtrip.hvm4, sample_codas.tsv (18 real codas)

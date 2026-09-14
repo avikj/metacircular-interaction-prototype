@@ -1,0 +1,96 @@
+### coda_lens10.hvm4
+[3,2,2,3] #557
+[2,2,3,3] #628
+[2,2,2,3] #808
+[3,3,2,2] #879
+[4,3,2,1] #1167
+[4,3,2,2] #1238
+[4,3,3] #1381
+[3,3,2,2] #1779
+[3,2,2,3] #1850
+[3,3,2,2] #2030
+[6,4] #2075
+[5,5] #2225
+[4,6] #2262
+[5,3,2] #2429
+[4,3,3] #2568
+[3,3,4] #2622
+[5,3,2] #2759
+[5,3,2] #2813
+- Itrs: 2813 interactions
+- Heap: 5732 nodes
+- Time: 0.000 seconds
+- Perf: 27.07 M interactions/s
+
+### coda_spec.hvm4
+#OK{[242,231,171,145]} #947
+#OK{[89,92,77,71]} #1728
+#OK{[102,95,75,66]} #2025
+- Itrs: 2745 interactions
+- Heap: 6120 nodes
+- Time: 0.000 seconds
+- Perf: 27.86 M interactions/s
+
+### coda_transport.hvm4
+[83,81,81,84] #148
+- Itrs: 148 interactions
+- Heap: 663 nodes
+- Time: 0.000 seconds
+- Perf: 3.90 M interactions/s
+
+### coda_shape_only.hvm4
+[252,247,245,256] #547
+[239,250,255,256] #618
+[242,247,248,263] #798
+[307,293,217,184] #869
+[358,344,150,148] #1157
+[359,338,152,152] #1228
+[352,318,330] #1371
+[271,280,234,216] #1769
+[260,247,237,256] #1840
+[302,281,222,195] #2020
+[600,400] #2065
+[458,542] #2215
+[390,610] #2252
+[503,294,203] #2419
+[370,318,311] #2558
+[330,318,352] #2612
+[484,320,196] #2749
+[491,295,213] #2803
+- Itrs: 2803 interactions
+- Heap: 5678 nodes
+- Time: 0.000 seconds
+- Perf: 25.74 M interactions/s
+
+### cost: superposed pass vs separate passes (lens 1000, 18 real codas)
+sep_00: 87
+sep_01: 87
+sep_02: 87
+sep_03: 87
+sep_04: 87
+sep_05: 87
+sep_06: 67
+sep_07: 67
+sep_08: 67
+sep_09: 87
+sep_10: 87
+sep_11: 87
+sep_12: 47
+sep_13: 47
+sep_14: 47
+sep_15: 67
+sep_16: 67
+sep_17: 67
+SUM of separate passes: 1326 interactions
+ONE superposed pass  : 2803 interactions
+ratio superposed/separate: 2.114
+(18 different codas down 18 different lines: the regime SYNTHESIS.md §4 predicts costs ~1.4x;
+ the sharing that pays is a shared LINE over many values, not many lines.)
+### the shared-prefix regime: plain coda vs ornamented coda (shared line, superposed tail)
+5R3 [357, 350, 347, 363] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+5R3 [284, 296, 302, 304] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+5R3 [271, 276, 278, 294] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [242, 231, 171, 145] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [378, 364, 159, 156] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+1+1+3 [435, 410, 184, 184] + ornament: superposed-tail pass 205 itrs vs separate 87+107=194
+TOTAL superposed 1230 vs separate 1164; ratio 1.057
