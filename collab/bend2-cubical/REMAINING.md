@@ -95,7 +95,7 @@ List and Unit as well; `transp` with a cofibration is its own constructor
 | `Sub` / `A[φ ↦ u]`, `inS`, `outS` | **DONE** — `Sub(A, φ, u)`, `inS(x)`, `outS(s)`; `inS` demands definitional equality with `u` on every cell of φ, `outS(inS x) = x`. `sub.bend` 8 ✓, `sub_mustfail.bend` 2 ✗ |
 | `comp` | **DONE** — `comp(P, [(face, tube)…], base)`; `comp.bend` |
 | `transp` with φ | **DONE** — `transp(L, φ, x)`, its own constructor; constancy of `L` on φ enforced cell by cell with the marker test. `transp.bend` 8 ✓, `transp_mustfail.bend` 1 ✗ |
-| interval de Morgan laws | `I0 I1 INot IAnd IOr` with `∧` idempotence. `∨` idempotence and distributivity are still not normalised |
+| interval de Morgan laws | **DONE** — meets and joins normalise to a canonical flattened, deduplicated, sorted form, so commutativity, associativity, idempotence and absorption all hold DEFINITIONALLY (`interval.bend` 7 ✓). No complement law, correctly: the interval is de Morgan, not Boolean, so `i ∧ ¬i` is not `i0`. The runtime's `@iand`/`@ior` do not canonicalise, which is harmless because faces are evaluated there, never compared |
 | face lattice | DNF (`faceDNF`, `restrictLits`, `facePairs`) |
 
 All four new primitives are threaded through every traversal in §A and all
@@ -130,8 +130,9 @@ eliminator and its computation rules. Design sketch for whoever does it:
 2. Store the constructor signatures in the `Book` instead of in `Term`.
 3. Generate the eliminator's type from the signatures; its computation rules
    are one per constructor, path constructors reducing at an interval.
-4. `hcomp` in a HIT needs the constructor-push rule (§B item 7), which the
-   hardcoded HITs currently do not get either.
+4. `hcomp` in a HIT correctly stays STUCK — for a higher inductive type a
+   composite is a canonical form, which is exactly how the higher structure
+   arises. (An earlier draft of this document wrongly listed that as missing.)
 
 This is the one genuinely research-scale item remaining; everything else in
 this document is closed. Absent for the same reason: suspensions, pushouts,

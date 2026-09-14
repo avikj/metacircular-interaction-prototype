@@ -3722,10 +3722,18 @@ index a5d92e8..dd5631f 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..bb0804a 100644
+index 953410d..502562b 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,522 @@ whnfGo lv book term =
+@@ -6,6 +6,7 @@ module Core.WHNF where
+ 
+ import Debug.Trace
+ 
++import Data.List (sortBy)
+ import Core.Type
+ 
+ import System.IO.Unsafe
+@@ -53,9 +54,556 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -4210,6 +4218,42 @@ index 953410d..bb0804a 100644
 +    INot a' -> a'
 +    a'      -> INot a'
 +
++-- | The interval is a DE MORGAN algebra: ∧ and ∨ are commutative, associative,
++-- idempotent and absorptive, but there is NO complement law (x ∧ ¬x is not 0).
++-- Meets and joins are normalised to a canonical flattened, deduplicated,
++-- sorted form so that definitional equality sees through reassociation and
++-- reordering — `i ∧ j` and `j ∧ i` are the same face.
++iAtoms :: Bool -> Term -> [Term]
++iAtoms isAnd t = case t of
++  IAnd x y | isAnd     -> iAtoms isAnd x ++ iAtoms isAnd y
++  IOr  x y | not isAnd -> iAtoms isAnd x ++ iAtoms isAnd y
++  Loc _ x              -> iAtoms isAnd x
++  _                    -> [t]
++
++iNub :: [Term] -> [Term]
++iNub = foldl (\acc x -> if any (iSyntEq x) acc then acc else acc ++ [x]) []
++
++-- absorption: in a meet, drop any join that contains another atom (and dually)
++iAbsorb :: Bool -> [Term] -> [Term]
++iAbsorb isAnd xs = [ x | x <- xs, not (absorbedBy x) ]
++  where
++    absorbedBy x = case x of
++      IOr  _ _ | isAnd     -> any (\y -> not (iSyntEq x y) && elemS y (iAtoms False x)) xs
++      IAnd _ _ | not isAnd -> any (\y -> not (iSyntEq x y) && elemS y (iAtoms True x)) xs
++      _                    -> False
++    elemS y = any (iSyntEq y)
++
++iBuild :: Bool -> [Term] -> Term
++iBuild isAnd []     = if isAnd then I1 else I0
++iBuild _      [x]   = x
++iBuild isAnd (x:xs) = (if isAnd then IAnd else IOr) x (iBuild isAnd xs)
++
++iCanon :: Bool -> Term -> Term -> Term
++iCanon isAnd a b =
++  let atoms  = iAtoms isAnd (if isAnd then IAnd a b else IOr a b)
++      sorted = sortBy (\x y -> compare (show x) (show y)) (iNub atoms)
++  in iBuild isAnd (iAbsorb isAnd sorted)
++
 +whnfIAnd :: EvalLevel -> Book -> Term -> Term -> Term
 +whnfIAnd lv book a b =
 +  case whnf lv book a of
@@ -4218,8 +4262,7 @@ index 953410d..bb0804a 100644
 +    a' -> case whnf lv book b of
 +      I0 -> I0
 +      I1 -> a'
-+      b' | iSyntEq a' b' -> a'          -- idempotence: x ∧ x = x
-+         | otherwise     -> IAnd a' b'
++      b' -> iCanon True a' b'
 +
 +whnfIOr :: EvalLevel -> Book -> Term -> Term -> Term
 +whnfIOr lv book a b =
@@ -4229,8 +4272,7 @@ index 953410d..bb0804a 100644
 +    a' -> case whnf lv book b of
 +      I1 -> I1
 +      I0 -> a'
-+      b' | iSyntEq a' b' -> a'          -- idempotence: x ∨ x = x
-+         | otherwise     -> IOr a' b'
++      b' -> iCanon False a' b'
 +
 +-- lightweight structural equality on interval expressions
 +iSyntEq :: Term -> Term -> Bool
@@ -4248,7 +4290,7 @@ index 953410d..bb0804a 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +659,21 @@ whnfSigM lv book x f =
+@@ -146,6 +694,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -4270,7 +4312,7 @@ index 953410d..bb0804a 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +929,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +964,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -4318,7 +4360,7 @@ index 953410d..bb0804a 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,11 +1054,42 @@ normal d book term =
+@@ -485,11 +1089,42 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -4361,7 +4403,7 @@ index 953410d..bb0804a 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1101,98 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1136,98 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -4460,7 +4502,7 @@ index 953410d..bb0804a 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1239,226 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1274,226 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
