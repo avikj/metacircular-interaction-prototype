@@ -1925,10 +1925,10 @@ index 0000000..fbf31d3
 +      isSet Set       = True
 +      isSet _         = False
 diff --git a/src/Core/Bind.hs b/src/Core/Bind.hs
-index 939a19f..db370f5 100644
+index 939a19f..b07cf58 100644
 --- a/src/Core/Bind.hs
 +++ b/src/Core/Bind.hs
-@@ -55,6 +55,29 @@ binder lv term ctx vars = case term of
+@@ -55,6 +55,30 @@ binder lv term ctx vars = case term of
    Frz t      -> Frz (binder lv t ctx vars)
    Loc s t    -> Loc s (binder lv t ctx vars)
    Rwt a b x  -> Rwt (binder lv a ctx vars) (binder lv b ctx vars) (binder lv x ctx vars)
@@ -1947,6 +1947,7 @@ index 939a19f..db370f5 100644
 +  Glu a fs -> Glu (binder lv a ctx vars) [ (binder lv p ctx vars, binder lv t ctx vars, binder lv e ctx vars) | (p,t,e) <- fs ]
 +  GlB a fs x -> GlB (binder lv a ctx vars) [ (binder lv p ctx vars, binder lv t ctx vars) | (p,t) <- fs ] (binder lv x ctx vars)
 +  UnG g -> UnG (binder lv g ctx vars)
++  Trp l p x -> Trp (binder lv l ctx vars) (binder lv p ctx vars) (binder lv x ctx vars)
 +  Rst a p u -> Rst (binder lv a ctx vars) (binder lv p ctx vars) (binder lv u ctx vars)
 +  InS x -> InS (binder lv x ctx vars)
 +  OutS x -> OutS (binder lv x ctx vars)
@@ -2053,7 +2054,7 @@ index f94d1ce..76263cc 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..5cd32c5 100644
+index cdd6756..7e5e989 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -21,7 +21,7 @@ extend :: Ctx -> Name -> Term -> Term -> Ctx
@@ -2065,7 +2066,7 @@ index cdd6756..5cd32c5 100644
  -- format d book x = x
  
  formatCtx :: Int -> Book -> Ctx -> Ctx
-@@ -127,6 +127,131 @@ infer d span book@(Book defs) ctx term =
+@@ -127,6 +127,146 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -2138,6 +2139,21 @@ index cdd6756..5cd32c5 100644
 +                                             (restrictLits d book lits a))
 +            (faceDNF p)
 +      Done Set
++    -- transp(L, φ, x) : L(i1).  L must be CONSTANT on φ — checked cell by
++    -- cell with the same marker-occurrence test `coe` uses for regularity.
++    Trp l p x -> do
++      check d span book ctx l (All Itv (Lam "_" (\_ -> Set)))
++      check d span book ctx p Itv
++      check d span book ctx x (App l I0)
++      mapM_ (\lits ->
++        let l' = restrictLits d book lits l
++            body = normal 0 book (App l' coeMarker)
++        in if occursMarker body
++             then Fail $ TypeMismatch span (formatCtx d book ctx)
++                    (format d book (App l' I0)) (format d book body)
++             else Done ())
++        (faceDNF p)
++      Done (App l I1)
 +    -- inS(x) in an INFERRED position: the tightest type we can give it is the
 +    -- vacuously-restricted A[i0 ↦ x]. Against a known Sub type the `check`
 +    -- clause applies instead, and there the φ obligation is enforced.
@@ -2197,7 +2213,7 @@ index cdd6756..5cd32c5 100644
      App f x ->
        case f of
          Lam k body -> do
-@@ -189,6 +314,12 @@ infer d span book@(Book defs) ctx term =
+@@ -189,6 +329,12 @@ infer d span book@(Book defs) ctx term =
      Log s x -> do
        check d span book ctx s (Lst (Num CHR_T))
        infer d span book ctx x
@@ -2210,7 +2226,7 @@ index cdd6756..5cd32c5 100644
      Pat _ _ _ -> do
        error "Pat not supported in infer"
  
-@@ -294,6 +425,15 @@ check d span book ctx term goal =
+@@ -294,6 +440,15 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
@@ -2226,7 +2242,7 @@ index cdd6756..5cd32c5 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -402,6 +542,9 @@ check d span book ctx term goal =
+@@ -402,6 +557,9 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
@@ -2236,7 +2252,7 @@ index cdd6756..5cd32c5 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -429,17 +572,196 @@ check d span book ctx term goal =
+@@ -429,17 +587,196 @@ check d span book ctx term goal =
                check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
          else do
            verify d span book ctx term goal
@@ -2434,7 +2450,7 @@ index cdd6756..5cd32c5 100644
      then Done ()
      else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book t)
  
-@@ -468,3 +790,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +805,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -2478,10 +2494,10 @@ index cdd6756..5cd32c5 100644
 +facePairs []       = []
 +facePairs (x : xs) = [ (x, y) | y <- xs ] ++ facePairs xs
 diff --git a/src/Core/Collapse.hs b/src/Core/Collapse.hs
-index 55a8af6..8ff09bf 100644
+index 55a8af6..cad3859 100644
 --- a/src/Core/Collapse.hs
 +++ b/src/Core/Collapse.hs
-@@ -267,6 +267,46 @@ collapse dep book term = case term of
+@@ -267,6 +267,47 @@ collapse dep book term = case term of
    -- Primitive
    Pri p       -> return $ Pri p
  
@@ -2514,6 +2530,7 @@ index 55a8af6..8ff09bf 100644
 +    return (GlB a' fs' x')
 +  UnG g       -> UnG <$> collapse dep book g
 +  -- Restricted (Sub) types
++  Trp l p x   -> Trp <$> collapse dep book l <*> collapse dep book p <*> collapse dep book x
 +  Rst a p u   -> Rst <$> collapse dep book a <*> collapse dep book p <*> collapse dep book u
 +  InS x       -> InS <$> collapse dep book x
 +  OutS x      -> OutS <$> collapse dep book x
@@ -2529,10 +2546,10 @@ index 55a8af6..8ff09bf 100644
    Pat ts ms cs -> error "unreachable"
    Frk l a b    -> error "unreachable"
 diff --git a/src/Core/Deps.hs b/src/Core/Deps.hs
-index 99c0709..92494c3 100644
+index 99c0709..fbcbbdf 100644
 --- a/src/Core/Deps.hs
 +++ b/src/Core/Deps.hs
-@@ -63,6 +63,29 @@ collectDeps bound term = case term of
+@@ -63,6 +63,30 @@ collectDeps bound term = case term of
    Met _ t ctx -> S.unions (collectDeps bound t : map (collectDeps bound) ctx)
    Ind t       -> collectDeps bound t
    Frz t       -> collectDeps bound t
@@ -2551,6 +2568,7 @@ index 99c0709..92494c3 100644
 +  Glu a fs -> S.unions (collectDeps bound a : concatMap (\(p,t,e) -> [collectDeps bound p, collectDeps bound t, collectDeps bound e]) fs)
 +  GlB a fs x -> S.unions (collectDeps bound a : collectDeps bound x : concatMap (\(p,t) -> [collectDeps bound p, collectDeps bound t]) fs)
 +  UnG g -> collectDeps bound g
++  Trp l p x -> S.unions [collectDeps bound l, collectDeps bound p, collectDeps bound x]
 +  Rst a p u -> S.unions [collectDeps bound a, collectDeps bound p, collectDeps bound u]
 +  InS x -> collectDeps bound x
 +  OutS x -> collectDeps bound x
@@ -2653,10 +2671,10 @@ index 9d1ab06..4e64f7d 100644
 +sigSnd :: Term
 +sigSnd = Lam "x" (\_ -> Lam "y" (\y -> y))
 diff --git a/src/Core/Flatten.hs b/src/Core/Flatten.hs
-index 31f1da3..3316c94 100644
+index 31f1da3..adf038c 100644
 --- a/src/Core/Flatten.hs
 +++ b/src/Core/Flatten.hs
-@@ -91,6 +91,29 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
+@@ -91,6 +91,30 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
  flatten d book (Met i t x)  = Met i (flatten d book t) (map (flatten d book) x)
  flatten d book (Ind t)      = Ind (flatten d book t)
  flatten d book (Frz t)      = Frz (flatten d book t)
@@ -2675,6 +2693,7 @@ index 31f1da3..3316c94 100644
 +flatten d book (Glu a fs) = Glu (flatten d book a) [ (flatten d book p, flatten d book t, flatten d book e) | (p,t,e) <- fs ]
 +flatten d book (GlB a fs x) = GlB (flatten d book a) [ (flatten d book p, flatten d book t) | (p,t) <- fs ] (flatten d book x)
 +flatten d book (UnG g) = UnG (flatten d book g)
++flatten d book (Trp l p x) = Trp (flatten d book l) (flatten d book p) (flatten d book x)
 +flatten d book (Rst a p u) = Rst (flatten d book a) (flatten d book p) (flatten d book u)
 +flatten d book (InS x) = InS (flatten d book x)
 +flatten d book (OutS x) = OutS (flatten d book x)
@@ -2686,7 +2705,7 @@ index 31f1da3..3316c94 100644
  flatten d book Era          = Era
  flatten d book (Sup l a b)  = Sup (flatten d book l) (flatten d book a) (flatten d book b)
  flatten d book (SupM x l f) = SupM (flatten d book x) (flatten d book l) (flatten d book f)
-@@ -288,6 +311,29 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
+@@ -288,6 +312,30 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
  unpat d (Met i t x)     = Met i (unpat d t) (map (unpat d) x)
  unpat d (Ind t)         = Ind (unpat d t)
  unpat d (Frz t)         = Frz (unpat d t)
@@ -2705,6 +2724,7 @@ index 31f1da3..3316c94 100644
 +unpat d (Glu a fs) = Glu (unpat d a) [ (unpat d p, unpat d t, unpat d e) | (p,t,e) <- fs ]
 +unpat d (GlB a fs x) = GlB (unpat d a) [ (unpat d p, unpat d t) | (p,t) <- fs ] (unpat d x)
 +unpat d (UnG g) = UnG (unpat d g)
++unpat d (Trp l p x) = Trp (unpat d l) (unpat d p) (unpat d x)
 +unpat d (Rst a p u) = Rst (unpat d a) (unpat d p) (unpat d u)
 +unpat d (InS x) = InS (unpat d x)
 +unpat d (OutS x) = OutS (unpat d x)
@@ -2716,7 +2736,7 @@ index 31f1da3..3316c94 100644
  unpat d Era             = Era
  unpat d (Sup l a b)     = Sup (unpat d l) (unpat d a) (unpat d b)
  unpat d (SupM x l f)    = SupM (unpat d x) (unpat d l) (unpat d f)
-@@ -535,6 +581,29 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
+@@ -535,6 +583,30 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
  unfrkGo d ctx (Met i t x)  = Met i (unfrkGo d ctx t) (map (unfrkGo d ctx) x)
  unfrkGo d ctx (Ind t)      = Ind (unfrkGo d ctx t)
  unfrkGo d ctx (Frz t)      = Frz (unfrkGo d ctx t)
@@ -2735,6 +2755,7 @@ index 31f1da3..3316c94 100644
 +unfrkGo d ctx (Glu a fs) = Glu (unfrkGo d ctx a) [ (unfrkGo d ctx p, unfrkGo d ctx t, unfrkGo d ctx e) | (p,t,e) <- fs ]
 +unfrkGo d ctx (GlB a fs x) = GlB (unfrkGo d ctx a) [ (unfrkGo d ctx p, unfrkGo d ctx t) | (p,t) <- fs ] (unfrkGo d ctx x)
 +unfrkGo d ctx (UnG g) = UnG (unfrkGo d ctx g)
++unfrkGo d ctx (Trp l p x) = Trp (unfrkGo d ctx l) (unfrkGo d ctx p) (unfrkGo d ctx x)
 +unfrkGo d ctx (Rst a p u) = Rst (unfrkGo d ctx a) (unfrkGo d ctx p) (unfrkGo d ctx u)
 +unfrkGo d ctx (InS x) = InS (unfrkGo d ctx x)
 +unfrkGo d ctx (OutS x) = OutS (unfrkGo d ctx x)
@@ -2746,7 +2767,7 @@ index 31f1da3..3316c94 100644
  unfrkGo d ctx Era          = Era
  unfrkGo d ctx (Sup l a b)  = Sup (unfrkGo d ctx l) (unfrkGo d ctx a) (unfrkGo d ctx b)
  unfrkGo d ctx (SupM x l f) = SupM (unfrkGo d ctx x) (unfrkGo d ctx l) (unfrkGo d ctx f)
-@@ -652,6 +721,29 @@ subst name val term = go name val term where
+@@ -652,6 +724,30 @@ subst name val term = go name val term where
      Met i t x  -> Met i (go name val t) (map (go name val) x)
      Ind t      -> Ind (go name val t)
      Frz t      -> Frz (go name val t)
@@ -2765,6 +2786,7 @@ index 31f1da3..3316c94 100644
 +    Glu a fs -> Glu (go name val a) [ (go name val p, go name val t, go name val e) | (p,t,e) <- fs ]
 +    GlB a fs x -> GlB (go name val a) [ (go name val p, go name val t) | (p,t) <- fs ] (go name val x)
 +    UnG g -> UnG (go name val g)
++    Trp l p x -> Trp (go name val l) (go name val p) (go name val x)
 +    Rst a p u -> Rst (go name val a) (go name val p) (go name val u)
 +    InS x -> InS (go name val x)
 +    OutS x -> OutS (go name val x)
@@ -2777,15 +2799,17 @@ index 31f1da3..3316c94 100644
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..9ed9331 100644
+index 146a4d2..4ed0839 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
-@@ -62,6 +62,33 @@ parseTermIni = choice
+@@ -62,6 +62,35 @@ parseTermIni = choice
    , parseSym
    , parseTupApp
    , parseView
 +  , parsePth
 +  , parseComp
++  , parseTransp
++  , parseTransp
 +  , parseSubT
 +  , parseInS
 +  , parseOutS
@@ -2814,7 +2838,7 @@ index 146a4d2..9ed9331 100644
    , parseVar
    ]
  
-@@ -81,7 +108,8 @@ parseTermArg t = do
+@@ -81,7 +110,8 @@ parseTermArg t = do
  -- | Parse a "loose" postfix: f + x | f <> x | ...
  parseTermOpr :: Term -> Parser Term
  parseTermOpr t = choice
@@ -2824,7 +2848,7 @@ index 146a4d2..9ed9331 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1025,3 +1053,339 @@ doReadTerm input =
+@@ -1025,3 +1055,350 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -2870,6 +2894,17 @@ index 146a4d2..9ed9331 100644
 +
 +-- | Sub(A, phi, u) : the restricted type A[phi |-> u] (CCHM); inS(x) injects
 +-- (x must be DEFINITIONALLY u on phi); outS(s) projects back to A.
++parseTransp :: Parser Term
++parseTransp = label "transp" $ do
++  _ <- try $ keyword "transp" <* symbol "("
++  l <- parseTerm
++  _ <- symbol ","
++  p <- parseTerm
++  _ <- symbol ","
++  x <- parseTerm
++  _ <- symbol ")"
++  return (Trp l p x)
++
 +parseSubT :: Parser Term
 +parseSubT = label "Sub type" $ do
 +  _ <- try $ keyword "Sub" <* symbol "("
@@ -3379,10 +3414,10 @@ index 0000000..868cdc6
 +    spine (Loc _ t) acc = spine t acc
 +    spine f acc         = (f, acc)
 diff --git a/src/Core/Type.hs b/src/Core/Type.hs
-index a5d92e8..8926392 100644
+index a5d92e8..d4a3030 100644
 --- a/src/Core/Type.hs
 +++ b/src/Core/Type.hs
-@@ -125,6 +125,38 @@ data Term
+@@ -125,6 +125,41 @@ data Term
    | Ind Type -- ~~T
    | Frz Type -- ∅T
  
@@ -3403,6 +3438,9 @@ index a5d92e8..8926392 100644
 +  -- Restricted (Sub) types, CCHM: A[φ ↦ u] is the type of elements of A that
 +  -- are DEFINITIONALLY u wherever φ holds.  inS injects (with that obligation
 +  -- checked on the cell φ=1); outS projects back, and outS s ≡ u on φ.
++  -- transp with a cofibration (CCHM): transp(L, φ, x) where L is CONSTANT on
++  -- φ.  It is the identity wherever φ holds, and plain transport where it does not.
++  | Trp Term Term Term                -- transp(L, φ, x) : L(i1)
 +  | Rst Term Term Term                -- Sub(A, φ, u) : Set
 +  | InS Term                          -- inS(x)  : Sub(A, φ, u)
 +  | OutS Term                         -- outS(s) : A
@@ -3421,7 +3459,7 @@ index a5d92e8..8926392 100644
    -- Supperpositions
    | Era                 -- *
    | Sup Term Term Term  -- &L{a,b}
-@@ -253,6 +285,26 @@ instance Show Term where
+@@ -253,6 +288,26 @@ instance Show Term where
    show (Frz t)         = "∅" ++ show t
    show (Loc _ t)       = show t
    show (Rwt a b x)     = show a ++ " ⇒ " ++ show b ++ "; " ++ show x
@@ -3449,15 +3487,16 @@ index a5d92e8..8926392 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..25d1750 100644
+index 953410d..d096cb6 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,479 @@ whnfGo lv book term =
+@@ -53,9 +53,489 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
 +    PAp f x    -> whnfPAp lv book f x
 +    OutS s -> whnfOutS lv book s
++    Trp l p x -> whnfTrp lv book l p x
 +    Coe pp r t x -> whnfCoe lv book pp r t x
 +    HCm a fs x -> whnfHCm lv book a fs x
 +    Glu a fs   -> whnfGlu lv book a fs
@@ -3501,6 +3540,7 @@ index 953410d..25d1750 100644
 +    Var "__coe_i__" (-1) -> True
 +    Var _ _    -> False
 +    Ref _      -> False
++    Trp l p x  -> go l || go p || go x
 +    Rst a p u  -> go a || go p || go u
 +    InS x      -> go x
 +    OutS x     -> go x
@@ -3626,6 +3666,14 @@ index 953410d..25d1750 100644
 +whnfOutS lv book s = case whnf lv book s of
 +  InS x -> whnf lv book x
 +  s'    -> OutS s'
++
++-- | transp(L, φ, x): the identity on φ (L is constant there), ordinary
++-- transport when φ is false, stuck while φ is undecided.
++whnfTrp :: EvalLevel -> Book -> Term -> Term -> Term -> Term
++whnfTrp lv book l p x = case whnf lv book p of
++  I1 -> whnf lv book x
++  I0 -> whnf lv book (Coe l I0 I1 x)
++  p' -> Trp l p' x
 +
 +whnfHCm :: EvalLevel -> Book -> Term -> [(Term, Term)] -> Term -> Term
 +whnfHCm lv book a fs x =
@@ -3932,7 +3980,7 @@ index 953410d..25d1750 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +616,21 @@ whnfSigM lv book x f =
+@@ -146,6 +626,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -3954,7 +4002,7 @@ index 953410d..25d1750 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +886,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +896,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -4002,7 +4050,7 @@ index 953410d..25d1750 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,11 +1011,34 @@ normal d book term =
+@@ -485,11 +1021,35 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -4032,12 +4080,13 @@ index 953410d..25d1750 100644
 +    QSq        -> QSq
 +    QRec x t f r -> QRec (normal d book x) (normal d book t) (normal d book f) (normal d book r)
 +    Rst a p u  -> Rst (normal d book a) (normal d book p) (normal d book u)
++    Trp l p x  -> Trp (normal d book l) (normal d book p) (normal d book x)
 +    InS x      -> InS (normal d book x)
 +    OutS x     -> OutS (normal d book x)
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1050,90 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1061,91 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -4116,6 +4165,7 @@ index 953410d..25d1750 100644
 +    QSq        -> QSq
 +    QRec x t f rs -> QRec (normalCap (cap-1) d book x) (normalCap (cap-1) d book t) (normalCap (cap-1) d book f) (normalCap (cap-1) d book rs)
 +    Rst a p u  -> Rst (normalCap (cap-1) d book a) (normalCap (cap-1) d book p) (normalCap (cap-1) d book u)
++    Trp l p x  -> Trp (normalCap (cap-1) d book l) (normalCap (cap-1) d book p) (normalCap (cap-1) d book x)
 +    InS x      -> InS (normalCap (cap-1) d book x)
 +    OutS x     -> OutS (normalCap (cap-1) d book x)
 +    Val v      -> Val v
@@ -4128,7 +4178,7 @@ index 953410d..25d1750 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1180,221 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1192,222 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -4247,6 +4297,7 @@ index 953410d..25d1750 100644
 +  Con a b    -> Con (g a) (g b)
 +  LstM a b c -> LstM (g a) (g b) (g c)
 +  EnuM a cs e -> EnuM (g a) [ (s, g c) | (s, c) <- cs ] (g e)
++  Trp l p x  -> Trp (g l) (g p) (g x)
 +  Rst a p u  -> Rst (g a) (g p) (g u)
 +  InS x      -> InS (g x)
 +  OutS x     -> OutS (g x)
@@ -4351,7 +4402,7 @@ index 953410d..25d1750 100644
 +      (Lam "w" (\w -> SigM w (Lam "x" (\_ -> Lam "p" (\p ->
 +        PLm "i" (\i -> Tup (PAp p (INot i)) (PLm "j" (\j -> PAp p (IOr (INot i) j)))))))))
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..7daa858 100644
+index 996bb26..61f09b3 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
 @@ -6,6 +6,7 @@ module Target.HVM where
@@ -4636,7 +4687,7 @@ index 996bb26..7daa858 100644
  hvmNam :: Name -> HVM.Name
  hvmNam n = (replace '/' "__" n) ++ "$"
  
-@@ -286,5 +346,28 @@ freeVars ctx tm = case tm of
+@@ -286,5 +346,29 @@ freeVars ctx tm = case tm of
    Log s x    -> S.union (freeVars ctx s) (freeVars ctx x)
    Loc _ t    -> freeVars ctx t
    Rwt a b x  -> S.unions [freeVars ctx a, freeVars ctx b, freeVars ctx x]
@@ -4655,6 +4706,7 @@ index 996bb26..7daa858 100644
 +  Glu a fs   -> S.unions (freeVars ctx a : concat [ [freeVars ctx q, freeVars ctx t, freeVars ctx e] | (q,t,e) <- fs ])
 +  GlB a fs x -> S.unions (freeVars ctx a : freeVars ctx x : concat [ [freeVars ctx q, freeVars ctx t] | (q,t) <- fs ])
 +  UnG g      -> freeVars ctx g
++  Trp l p x  -> S.unions [freeVars ctx l, freeVars ctx p, freeVars ctx x]
 +  Rst a p u  -> S.unions [freeVars ctx a, freeVars ctx p, freeVars ctx u]
 +  InS x      -> freeVars ctx x
 +  OutS x     -> freeVars ctx x
@@ -4667,10 +4719,10 @@ index 996bb26..7daa858 100644
    Pat s m c  -> error "TODO: Pat"
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..33d014e
+index 0000000..404baad
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,213 @@
+@@ -0,0 +1,214 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -4812,6 +4864,7 @@ index 0000000..33d014e
 +    HCm _ _ x      -> go d x            -- residual hcomp cap
 +    Glu _ _        -> "&{}"
 +    GlB _ _ x      -> go d x            -- residual glue: its base (after normalisation)
++    Trp l _ x   -> go d x
 +    Rst a _ _   -> go d a
 +    InS x      -> go d x
 +    OutS x     -> go d x
@@ -4886,10 +4939,10 @@ index 0000000..33d014e
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..58c4d05
+index 0000000..743f2b3
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,323 @@
+@@ -0,0 +1,326 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -5009,6 +5062,8 @@ index 0000000..58c4d05
 +  , "@allEq = λ&x. λ{#Nil: #I1; #Cons: λ{#Face: λp. λ&tube. λ&rest. (λ{#I1: @allEq(x, rest); λo. #I0})(@sameCtr(x, @pathAt(tube, #IMark)))}}"
 +  , "@sameCtr = λ{0: λ{0: #I1; λw. #I0}; 1: λ{1: #I1; λw. #I0}; λv. λw. #I0}"
 +  , "@hcNullary = λ&A. λ&fs. λ&base. ! &{b1, bx} = base; ! &{b2, b3} = bx; (λ{#I1: b2; λo. #HCm{A, fs, b3}})(@allEq(b1, fs))"
++  , "// transp with a cofibration: identity on phi, ordinary transport off it"
++  , "@transp = λ&L. λp. λ&x. (λ{#I1: x; #I0: @coe(L, #I0, #I1, x); λq. #Trp{L, q, x}})(p)"
 +  , "// outS: projecting a restricted element; outS(inS x) = x"
 +  , "@outS = λ{#InS: λx. x; λv. #OutS{v}}"
 +  , "// ---- SetQuotient recursor: on a point it is f; on the path constructor it"
@@ -5148,6 +5203,7 @@ index 0000000..58c4d05
 +    -- PATH constructor (so @pathAt must know it), squash/ is opaque, and the
 +    -- recursor is the runtime function @qrec.
 +    -- Restricted types: the type is data; inS wraps, outS unwraps (@outS).
++    Trp l p x      -> "@transp(" ++ go d l ++ ", " ++ go d p ++ ", " ++ go d x ++ ")"
 +    Rst a p u      -> "#Sub{" ++ go d a ++ ", " ++ go d p ++ ", " ++ go d u ++ "}"
 +    InS x          -> "#InS{" ++ go d x ++ "}"
 +    OutS x         -> "@outS(" ++ go d x ++ ")"
