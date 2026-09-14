@@ -113,3 +113,47 @@ own residual superposition, why that law is subtle exactly where number theory
 says it is.
 
 Reproduce: `hvm mine_lte.hvm -C40 -s`.
+
+---
+
+## Correction (owner's direction): the method is derivation, not search
+
+The owner rejected the search framing above: "mining/search sounds like the
+dumbest way to do math." He is right, and it inverts the corpus's whole point —
+transport computes, so a result carried along a checked equivalence is *forced*,
+not *found*. Enumerate-and-test is the brute-force method the corpus supersedes.
+`mine_lte.hvm` and the "invariant search" are kept only as a record of that wrong
+turn; they are not the reasoner. The correct engine is deterministic:
+
+- **Derivation as normalization** — construct the transport for a problem and
+  run it to normal form; the answer *is* the normal form.
+- **Checking as net reduction** — conversion = cut-elimination = interaction-net
+  reduction; the certificate is the derivation typechecking.
+- **Superposition = Sup×Path, not enumeration** — do a derivation once in the
+  cheapest representation and transport it to every equivalent one along `ua`
+  (`Sima`'s six routes as one point). Blind branching only where the mathematics
+  is genuinely a case split.
+- The "one uniform step" is *read off the structure* (the invariant the step
+  preserves; the positive-definite form that makes the measure fall), never hunted.
+
+### `lte_derive.hvm` — LTE by derivation
+
+`aⁿ − 1 = ∏_{d∣n} Φ_d(a)`, and `v_p` is additive over a product, so
+`v_p(aⁿ − 1) = Σ_{d∣n} v_p(Φ_d(a))`. The program computes three things and reads
+that they coincide — no candidate coefficients, no rivals:
+
+- `lhs_direct`  = `v_p(aⁿ − 1)` computed directly;
+- `rhs_deriv`   = the divisor-sum `Σ_{d∣n} v_p(Φ_d(a))` from the factorisation;
+- `closed`      = the closed form `e + v_p(n)` the derivation yields.
+
+Every in-range case returns `#OK{p,a,n,L}` with `L = R = C` — the derivation
+verified by evaluation. The out-of-range cases (`3²⁴`, `2¹¹⁰`) return `#BAD`
+because `aⁿ − 1` overflows HVM4's machine word — and that is the point, not a
+flaw: the derivation exists precisely to avoid forming `aⁿ − 1`. Its structural
+route uses only small `Φ_d(a)`, and the closed form uses none of it. The big
+cases belong in the certified lane, where cubical ℕ is GMP-backed and exact
+(`VargaPrakrti`'s own note: unary ℤ blows up, builtin ℕ is instant).
+
+This is the shape of every step of the algorithm: replace a computation that
+does not scale with the transport that makes the answer structural, run it to
+normal form, and check it by reduction.
