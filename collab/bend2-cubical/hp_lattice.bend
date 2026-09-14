@@ -226,5 +226,46 @@ def fold6() -> Res:
   moves = prependAll(0n, allSeqs(4n))   # length-5 move lists, first step = E
   return scan(@P{8n, 8n}, seqHP(), moves, @R{0n, 0n})
 
-def main() -> Res:
-  return fold6()
+# ---- sequence census: the fibre across ALL HP sequences of a length -----
+def lenB(xs: Bool[]) -> Nat:
+  match xs:
+    case []:
+      return 0n
+    case x <> r:
+      return 1n + lenB(r)
+
+def prependAllB(b: Bool, seqs: Bool[][]) -> Bool[][]:
+  match seqs:
+    case []:
+      return []
+    case s <> rest:
+      return (b <> s) <> prependAllB(b, rest)
+
+def allHP(L: Nat) -> Bool[][]:
+  match L:
+    case 0n:
+      return [] <> []
+    case 1n + k:
+      s = allHP(k)
+      return appendL<Bool[]>(prependAllB(True, s), prependAllB(False, s))
+
+# fold any sequence: moves of length len-1, first step fixed E (kills rotation)
+def foldN(hs: Bool[]) -> Res:
+  L = lenB(hs)
+  moves = prependAll(0n, allSeqs(pred(pred(L))))
+  return scan(@P{8n, 8n}, hs, moves, @R{0n, 0n})
+
+type Row:
+  case @Row:
+    seq: Bool[]
+    res: Res
+
+def census(seqs: Bool[][]) -> Row[]:
+  match seqs:
+    case []:
+      return []
+    case h <> rest:
+      return @Row{h, foldN(h)} <> census(rest)
+
+def main() -> Row[]:
+  return census(allHP(6n))
