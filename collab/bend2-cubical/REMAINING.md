@@ -19,8 +19,8 @@ that were never threaded through the exhaustive traversals. Each is a hard
 | `normalCap` | `Core/WHNF.hs` | **DONE** — same 5 (it is a copy of `normal`) |
 | `occursMarker` | `Core/WHNF.hs` | **DONE** — crashed on any quotient inside a `coe` line |
 | `mapSub` | `Core/WHNF.hs` | **DONE** — silently *skipped* quotients (no crash, wrong substitution under the Glue/coe marker) |
-| `collapse` | `Core/Collapse.hs` | **TODO** — missing all 5 quotient **and** all 15 cubical constructors |
-| `freeVars` | `Target/HVM.hs` | **TODO** — same; the HVM3 backend crashes on any cubical term |
+| `collapse` | `Core/Collapse.hs` | **DONE** — all 5 quotient + all 15 cubical constructors added |
+| `freeVars` | `Target/HVM.hs` | **DONE** — same; the HVM3 backend no longer crashes on cubical terms |
 | `emitFull` | `Target/HVM4Full.hs` | **TODO** — falls through, so `bend quotient.bend --to-hvm4-full` **crashes**. Quotients cannot reach the full runtime at all |
 | `termToCT` | `Target/JavaScript.hs` | **TODO** — falls through; JS backend silently ignores cubical |
 
@@ -33,45 +33,45 @@ P
 
 ---
 
-## B. The big one: `hcomp` has NO type-directed rules except the universe
+## B. `hcomp`'s type-directed rules — MOSTLY DONE
 
-`whnfHCm` (`Core/WHNF.hs`) has exactly three outcomes: a face is `I1` → that
-tube's cap; no live face → the base; the type is `Set` → a `Glue` type.
-**Everything else returns the stuck term `HCm a live x`.** Confirmed failing
-by probe: Π, Σ, Nat and Path all refuse to reduce.
+`whnfHCm` previously had three outcomes only: a true face, no live face, or
+the universe. Everything else was stuck. Now implemented, in both the checker
+(`Core/WHNF.hs`) and the full runtime (`Target/HVM4Full.hs`):
 
-This is the bulk of the remaining work and it is exactly transcription from
-CCHM §4.3 / the cubicaltt reference implementation. Implement in this order,
-because each uses the previous:
+| rule | checker | runtime | test |
+|---|---|---|---|
+| Π — pointwise in the codomain | DONE | DONE | `kan.bend` `hcPi` |
+| PathP — push into the path dimension, endpoints become extra faces | DONE | DONE | `kan.bend` `hcPath` |
+| Σ — first by `hcomp`, second by `comp` along the *filled* first | DONE | DONE | `kan.bend` `hcSig` |
+| Nat / List — push through a common constructor head | DONE | **TODO** | `kan.bend` `hcNat` |
+| Bit / Enum / Unit — discrete, the common nullary constructor | DONE | **TODO** | — |
+| `Set` — reduces to `Glue` | DONE | DONE | `hcompset.bend` |
+| **Glue** | **TODO** | **TODO** | — |
 
-1. **`transp` with a cofibration.** `Coe` is `Coe line r s x` — four
-   arguments, no face. CCHM needs `transp^A φ u0` where `A` is constant on
-   `φ`. Required to state the Σ and Glue rules correctly. Either add a fifth
-   field to `Coe` (touches every traversal above) or add a separate
-   constructor.
-2. **`comp`** (composition = coe + hcomp), one line once (1) exists:
-   `comp^A [φ ↦ u] u0 = hcomp^{A 1} [φ ↦ coe^A_{i→1}(u i)] (coe^A_{0→1} u0)`.
-   There is no surface syntax for it either — the parser has only
-   `hcomp`, `hcompN`, `hfill`.
-3. **`hfill` as a core operation.** It exists only as parser sugar
-   (desugared to a `PLm` with `IAnd` tubes). The Σ rule needs it internally.
-4. **`hcomp` in Π:**
-   `hcomp^{Π(x:A)B} [φ ↦ u] u0 = λx. hcomp^{B x} [φ ↦ u i x] (u0 x)`
-5. **`hcomp` in Σ:** first component by `hcomp^A`, second by `comp` along the
-   *filled* first component (`hfill`), which is why (2) and (3) come first.
-6. **`hcomp` in `Path`/`PathP`:** push into the path dimension and add the
-   two endpoint faces:
-   `hcomp^{PathP A u v} [φ ↦ p] p0 = <j> hcomp^{A j} [φ ↦ p i j, (j=0) ↦ u, (j=1) ↦ v] (p0 j)`
-7. **`hcomp` in inductive types** (`Nat`, `Bit`, `Lst`, `Enu`, user `type`s):
-   push through a constructor when every live face agrees on the head, e.g.
-   `hcomp^Nat [φ ↦ suc n] (suc m) = suc (hcomp^Nat [φ ↦ n] m)`.
-8. **`hcomp` in `Glue`** — the hardest rule in CCHM, and the only one whose
-   `coe` counterpart is already done (`whnfCoe`'s `Glu` case). Until it
-   exists, Glue types are Kan only for transport, not for composition.
+`comp` and `hfill` now exist as core operations in both (`compAt`/`hfillAt`,
+`@compAt`/`@hfillAt`), together with projections that reduce on a pair.
+Constructor-headedness of a *line* is decided by applying it at a marker
+dimension, the idiom `coe` already used for its regularity check.
 
-Note the asymmetry: **`coe` is nearly complete** (Π, Σ, Path, ua, inverse
-line, composite line, Glue, Sup, Lst, and rigid types all reduce);
-**`hcomp` is nearly empty**. Anyone continuing should work only on `hcomp`.
+Each rule is stated in `kan.bend` as a definitional equation, so the file
+passes only if the rule actually fires; `kan_mustfail.bend` guards against
+proving false ones. All eleven cubical programs produce byte-identical values
+and interaction counts on the full runtime after the change.
+
+**Still open in this section:**
+
+1. **`hcomp` in `Glue`** — the hardest rule in CCHM, and the only Kan rule
+   whose `coe` counterpart is already done (`whnfCoe`'s `Glu` case). Until it
+   exists, Glue types are Kan for transport but not for composition.
+2. **Nat / List / nullary at runtime** — implemented in the checker only.
+   The runtime needs constructor-headedness of a line, which is awkward in
+   HVM4 because there is no marker dimension available to a match.
+3. **`transp` with a cofibration.** `Coe` is `Coe line r s x` — four
+   arguments, no face. CCHM needs `transp^A φ u0` with `A` constant on `φ`.
+   Adding a fifth field touches every traversal in §A.
+4. **Surface syntax for `comp`.** It exists as a core operation but the
+   parser still has only `hcomp`, `hcompN`, `hfill`.
 
 ---
 
@@ -111,9 +111,9 @@ which is precisely why §A keeps recurring.
 | `--to-hvm` (HVM3) | `freeVars` crashes on cubical terms | no |
 | JavaScript | silently drops cubical | no |
 
-The full runtime also mirrors §B: its `@hcomp` gets stuck as `#HCm` for the
-same reason the checker does, so implementing B.4–B.8 means writing each rule
-**twice** — once in `whnfHCm`, once in `Target/HVM4Full.hs`.
+The full runtime now carries the Π, PathP and Σ rules too (§B). Its `@hcomp`
+still gets stuck for Nat, List and Glue. Every rule must be written **twice**,
+once in `whnfHCm` and once in `Target/HVM4Full.hs`.
 
 ---
 

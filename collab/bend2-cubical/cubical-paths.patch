@@ -2439,6 +2439,53 @@ index cdd6756..31092d4 100644
 +facePairs :: [a] -> [(a, a)]
 +facePairs []       = []
 +facePairs (x : xs) = [ (x, y) | y <- xs ] ++ facePairs xs
+diff --git a/src/Core/Collapse.hs b/src/Core/Collapse.hs
+index 55a8af6..e2002b6 100644
+--- a/src/Core/Collapse.hs
++++ b/src/Core/Collapse.hs
+@@ -267,6 +267,42 @@ collapse dep book term = case term of
+   -- Primitive
+   Pri p       -> return $ Pri p
+ 
++  -- Interval and cubical objects
++  Itv         -> return Itv
++  I0          -> return I0
++  I1          -> return I1
++  INot a      -> INot <$> collapse dep book a
++  IAnd a b    -> IAnd <$> collapse dep book a <*> collapse dep book b
++  IOr  a b    -> IOr  <$> collapse dep book a <*> collapse dep book b
++  Pth a x y   -> Pth  <$> collapse dep book a <*> collapse dep book x <*> collapse dep book y
++  PLm k f     -> do { f' <- collapse (dep+1) book (f (Var k dep)) ; return (PLm k (\_ -> f')) }
++  PAp a b     -> PAp  <$> collapse dep book a <*> collapse dep book b
++  Coe a r t x -> Coe  <$> collapse dep book a <*> collapse dep book r <*> collapse dep book t <*> collapse dep book x
++  Ua a b c d e f -> Ua <$> collapse dep book a <*> collapse dep book b <*> collapse dep book c
++                       <*> collapse dep book d <*> collapse dep book e <*> collapse dep book f
++  HCm a fs x  -> do
++    a'  <- collapse dep book a
++    fs' <- mapM (\(q,u) -> (,) <$> collapse dep book q <*> collapse dep book u) fs
++    x'  <- collapse dep book x
++    return (HCm a' fs' x')
++  Glu a fs    -> do
++    a'  <- collapse dep book a
++    fs' <- mapM (\(q,t,e) -> (,,) <$> collapse dep book q <*> collapse dep book t <*> collapse dep book e) fs
++    return (Glu a' fs')
++  GlB a fs x  -> do
++    a'  <- collapse dep book a
++    fs' <- mapM (\(q,t) -> (,) <$> collapse dep book q <*> collapse dep book t) fs
++    x'  <- collapse dep book x
++    return (GlB a' fs' x')
++  UnG g       -> UnG <$> collapse dep book g
++  -- Quotients
++  Quo a r     -> Quo <$> collapse dep book a <*> collapse dep book r
++  QCl a       -> QCl <$> collapse dep book a
++  QEq a b w   -> QEq <$> collapse dep book a <*> collapse dep book b <*> collapse dep book w
++  QSq         -> return QSq
++  QRec x t f r -> QRec <$> collapse dep book x <*> collapse dep book t
++                       <*> collapse dep book f <*> collapse dep book r
++
+   -- Sugars
+   Pat ts ms cs -> error "unreachable"
+   Frk l a b    -> error "unreachable"
 diff --git a/src/Core/Deps.hs b/src/Core/Deps.hs
 index 99c0709..cc671a6 100644
 --- a/src/Core/Deps.hs
@@ -4148,7 +4195,7 @@ index 953410d..7d0afdc 100644
 +      (Lam "w" (\w -> SigM w (Lam "x" (\_ -> Lam "p" (\p ->
 +        PLm "i" (\i -> Tup (PAp p (INot i)) (PLm "j" (\j -> PAp p (IOr (INot i) j)))))))))
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..8172ddd 100644
+index 996bb26..27b3e75 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
 @@ -6,6 +6,7 @@ module Target.HVM where
@@ -4433,6 +4480,32 @@ index 996bb26..8172ddd 100644
  hvmNam :: Name -> HVM.Name
  hvmNam n = (replace '/' "__" n) ++ "$"
  
+@@ -286,5 +346,25 @@ freeVars ctx tm = case tm of
+   Log s x    -> S.union (freeVars ctx s) (freeVars ctx x)
+   Loc _ t    -> freeVars ctx t
+   Rwt a b x  -> S.unions [freeVars ctx a, freeVars ctx b, freeVars ctx x]
++  Itv        -> S.empty
++  I0         -> S.empty
++  I1         -> S.empty
++  INot a     -> freeVars ctx a
++  IAnd a b   -> S.union (freeVars ctx a) (freeVars ctx b)
++  IOr  a b   -> S.union (freeVars ctx a) (freeVars ctx b)
++  Pth a x y  -> S.unions [freeVars ctx a, freeVars ctx x, freeVars ctx y]
++  PLm n f    -> freeVars (S.insert n ctx) (f (Var n 0))
++  PAp a b    -> S.union (freeVars ctx a) (freeVars ctx b)
++  Coe a r t x -> S.unions [freeVars ctx a, freeVars ctx r, freeVars ctx t, freeVars ctx x]
++  Ua a b c d e f -> S.unions (map (freeVars ctx) [a,b,c,d,e,f])
++  HCm a fs x -> S.unions (freeVars ctx a : freeVars ctx x : concat [ [freeVars ctx q, freeVars ctx u] | (q,u) <- fs ])
++  Glu a fs   -> S.unions (freeVars ctx a : concat [ [freeVars ctx q, freeVars ctx t, freeVars ctx e] | (q,t,e) <- fs ])
++  GlB a fs x -> S.unions (freeVars ctx a : freeVars ctx x : concat [ [freeVars ctx q, freeVars ctx t] | (q,t) <- fs ])
++  UnG g      -> freeVars ctx g
++  Quo a r    -> S.union (freeVars ctx a) (freeVars ctx r)
++  QCl a      -> freeVars ctx a
++  QEq a b w  -> S.unions [freeVars ctx a, freeVars ctx b, freeVars ctx w]
++  QSq        -> S.empty
++  QRec x t f r -> S.unions (map (freeVars ctx) [x,t,f,r])
+   Pri _      -> S.empty
+   Pat s m c  -> error "TODO: Pat"
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
 index 0000000..cbf1493
@@ -4651,10 +4724,10 @@ index 0000000..cbf1493
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..abf5975
+index 0000000..987758f
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,257 @@
+@@ -0,0 +1,276 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -4723,11 +4796,30 @@ index 0000000..abf5975
 +  , "// ---- hcomp: faces = #Nil | #Cons{#Face{phi, tube}, rest}; stuck faces are kept"
 +  , "@hcomp = λA. λfs. λbase. @hcompGo(A, fs, base, #Nil)"
 +  , "@hcompGo = λ&A. λ{"
-+  , "  #Nil: λ&base. λ{#Nil: base; λ&stuck. (λ{#Set: #Glue{base, @setFaces(stuck)}; λA2. #HCm{A2, stuck, base}})(A)};"
++  , "  #Nil: λ&base. λ{#Nil: base; λ&stuck. (λ{"
++  , "    #Set: #Glue{base, @setFaces(stuck)};"
++  , "    #Pi: λ&A1. λ&B1. λ&v. @hcomp(B1(v), @hcTubesApp(stuck, v), base(v));"
++  , "    #Path: λ&A1. λ&u1. λ&v1. #PLm{λ&j. @hcomp(A1(j), #Cons{#Face{@inot(j), #PLm{λk. u1}}, #Cons{#Face{j, #PLm{λk. v1}}, @hcTubesAtJ(stuck, j)}}, @pathAt(base, j))};"
++  , "    #Sig: λ&A1. λ&B1. ! &{st1, st2} = stuck; ! &{ba1, ba2} = base; ! &{aa1, aa2} = A1;"
++  , "          #Pair{@hcomp(aa1, @hcTubesFst(st1), @fstP(ba1)),"
++  , "                @compAt(λj. B1(@hfillAt(aa2, @hcTubesFst(st2), @fstP(ba2), j)), @hcTubesSnd(stuck), @sndP(base))};"
++  , "    λA2. #HCm{A2, stuck, base}})(A)};"
 +  , "  #Cons: λ{#Face: λphi. λ&tube. λ&rest. λ&base. λ&stuck. (λ{"
 +  , "    #I1: @pathAt(tube, #I1);"
 +  , "    #I0: @hcompGo(A, rest, base, stuck);"
 +  , "    λp. @hcompGo(A, rest, base, #Cons{#Face{p, tube}, stuck})})(phi)}}"
++  , "// ---- type-directed Kan rules for hcomp (CCHM), mirroring Core.WHNF.whnfHCm"
++  , "@fstP = λ{#Pair: λa. λb. a; λv. v}"
++  , "@sndP = λ{#Pair: λa. λb. b; λv. v}"
++  , "@hcTubesApp = λ{#Nil: λv. #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. λ&v. #Cons{#Face{p, #PLm{λj. @pathAt(tube, j)(v)}}, @hcTubesApp(rest, v)}}}"
++  , "@hcTubesAtJ = λ{#Nil: λj. #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. λ&j. #Cons{#Face{p, #PLm{λk. @pathAt(@pathAt(tube, k), j)}}, @hcTubesAtJ(rest, j)}}}"
++  , "@hcTubesFst = λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @fstP(@pathAt(tube, j))}}, @hcTubesFst(rest)}}}"
++  , "@hcTubesSnd = λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @sndP(@pathAt(tube, j))}}, @hcTubesSnd(rest)}}}"
++  , "@hcTubesAnd = λ{#Nil: λj. #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. λ&j. #Cons{#Face{p, #PLm{λk. @pathAt(tube, @iand(j, k))}}, @hcTubesAnd(rest, j)}}}"
++  , "@hcTubesCoe = λ&P. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λ&j. @coe(P, j, #I1, @pathAt(tube, j))}}, @hcTubesCoe(P, rest)}}}"
++  , "// hfill: the filler; comp: composition along a type line (coe + hcomp)"
++  , "@hfillAt = λ&A. λ&fs. λ&u0. λ&j. @hcomp(A, #Cons{#Face{@inot(j), #PLm{λk. u0}}, @hcTubesAnd(fs, j)}, u0)"
++  , "@compAt = λ&P. λ&fs. λ&u0. @hcomp(P(#I1), @hcTubesCoe(P, fs), @coe(P, #I0, #I1, u0))"
 +  , "// ---- Glue (boundary rules only, as in the checker): a true face selects its partial type / section"
 +  , "@glueT = λA. λfs. @glueTGo(fs, #Nil, A)"
 +  , "@glueTGo = λfs. λlive. λA. (λ{"
