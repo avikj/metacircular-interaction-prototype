@@ -661,3 +661,356 @@ the structure bent to the true cost model (blocks, digits). RSK (5.1.4) is the s
 a lossless recoordinatization of a permutation into a canonical tableau normal form
 in which longest-increasing-subsequence is a projection — Knuth's own instance of
 "recode into the coordinates where the hard question becomes reading off a row."
+
+---
+
+# Volume 4A — Combinatorial Algorithms, Part 1
+
+Chapter 7 proper. The subject is *generating and searching combinatorial objects*,
+and it turns out to be the most on-point volume for everything the surrounding work
+is about: canonical forms, maximal sharing, reversible search, and the
+coordinatization of every combinatorial family by an integer rank.
+
+## 7.1 Zeros and ones
+
+**7.1.1 Boolean basics, 7.1.2 Boolean evaluation.** The 16 binary Boolean
+operations, the cost of evaluating a formula, and the beginnings of circuit
+complexity (how few gates/how little depth to compute a given function). Evaluation
+cost and formula size are the description-length of the function in the gate
+language — the same minimum-description question as addition chains (4.6.3), now for
+logic. Median/threshold functions, the multiplexer, symmetric functions get their
+minimal circuits worked out.
+
+**7.1.3 Bitwise tricks and broadword computation.** A machine word is a small
+SIMD vector, and the "magic" identities (popcount by the parallel-prefix folding of
+masks `0x5555…`, `0x3333…`; bit-reversal; the sideways addition; `x & (x−1)` clears
+the low bit) are *linear and affine operations over the vector space `GF(2)^w`
+computed in parallel with no coordination*. It is the purest confluent parallelism
+in the whole series: `w` independent bit-lanes advanced by one instruction, order
+among lanes irrelevant. The morton/z-order interleaving, the compress/expand
+(PEXT/PDEP) operations, are coordinate changes on the bit-cube that make spatial
+locality or subset structure into contiguous ranges — the same "pick the coordinates
+where the operation is a contiguous scan" move as CRT/FFT, at the bit level.
+
+**7.1.4 Binary Decision Diagrams (BDDs).** The chapter's deep object, and Knuth is
+visibly in love with it. A reduced ordered BDD is the *canonical form* of a Boolean
+function relative to a variable order: share identical subfunctions, delete
+redundant tests, and the result is unique — so two functions are equal iff their
+ROBDDs are the identical DAG node, and equality testing is one pointer comparison
+after canonicalization. This is exactly *hash-consing a Boolean function*: maximal
+sharing of common substructure, so that the representation size is the number of
+*distinct* subfunctions, not the number of paths. The `apply` operation (combine two
+BDDs by a Boolean connective) is a memoized walk over the product DAG — dynamic
+programming with a hash table keyed on node pairs, i.e. reuse every subresult
+exactly once. Two facts that are the whole story: (1) the same function is small in
+one variable order and exponential in another (the multiplier function is the famous
+exponential-in-every-order case) — canonical size is coordinate-dependent, sharply
+and practically; (2) once canonicalized, *everything is equality-by-identity and
+every shared subfunction is computed once*. A BDD is what maximal-sharing reduction
+produces when applied to the space of Boolean functions — the finite, decidable,
+fully-canonical corner of the general "compute over a space of objects with all
+common structure shared, and equality is identity of normal forms." ZDDs (7.1.4's
+zero-suppressed variant) are the same idea tuned for sparse families/sets of sets,
+and they make combinatorial *families* (all solutions to a cover, all paths in a
+graph) into a single shared DAG you can count and optimize over without enumerating.
+
+## 7.2 Generating all possibilities
+
+**7.2.1 Generating basic combinatorial patterns.** The unifying discovery of this
+cluster: every combinatorial family carries a *ranking* bijection to `{0,1,…,N−1}` —
+a canonical integer coordinate for each object — and generation is walking the
+integers while unranking, and a *Gray code* is an ordering in which consecutive
+objects differ by a minimal change (a Hamiltonian path on the object-change graph).
+
+- **7.2.1.1 Tuples / Gray codes.** The reflected binary Gray code enumerates all
+  `2^n` bit vectors changing one bit per step; *loopless* generation produces each
+  successor in `O(1)` worst case (not amortized) by maintaining a focus-pointer
+  structure. Gray codes are Hamiltonian paths on the hypercube — the minimal-change
+  traversal — and the loopless requirement is the demand that the *incremental* cost
+  be constant, i.e. that the transition itself carry no hidden work. Mixed-radix
+  Gray codes generalize to all tuple spaces.
+- **7.2.1.2 Permutations.** Plain changes (Steinhaus–Johnson–Trotter): generate all
+  `n!` permutations by *adjacent transpositions only*, one swap per step — a
+  Hamiltonian path on the permutohedron whose edges are adjacent transpositions.
+  This is the combinatorial-generation face of 5.1.1: adjacent transpositions
+  generate the symmetric group, the change-graph is the Cayley graph of the Coxeter
+  presentation, and SJT walks it minimally. Heap's algorithm is the fewest-swaps
+  variant. The factorial number system provides the ranking (a permutation ↔ its
+  mixed-radix Lehmer code), tying back to the Fisher–Yates shuffle (3.4.2): the
+  shuffle *samples* a rank uniformly, generation *enumerates* the ranks, and both use
+  the identical factorial coordinatization of `S_n`.
+- **7.2.1.3 Combinations.** The revolving-door and the combinatorial number system:
+  every `k`-combination of `{0,…,n−1}` ↔ a unique integer via
+  `C = binom(c_k,k)+…+binom(c_1,1)`, a genuinely canonical coordinate that makes
+  ranking/unranking pure binomial arithmetic. This is the cleanest "the object is an
+  integer in the right base" statement in the series — the *base* here is the
+  binomial system, and combinations are its digits.
+- **7.2.1.4 integer partitions, 7.2.1.5 set partitions.** Partitions of `n`
+  (generating functions from 1.2.9 return: the partition generating function
+  `∏ 1/(1−x^k)`, Euler's pentagonal recurrence for `p(n)`), and set partitions via
+  *restricted growth strings* (a canonical string encoding, Bell/Stirling numbers).
+  Restricted growth strings are again a canonical normal form — the lexicographically
+  least labeling of a set partition — turning "is this the same partition" into
+  "is this the same string."
+- **7.2.1.6 Trees.** Generating all binary trees / all forests, with a Gray-code
+  ordering by *rotations* (each successor one rotation away) — the associahedron
+  (2.3.4, 6.2.3) as a change-graph, Catalan-many vertices, walked by single
+  reassociations. The rank/unrank uses the ballot/Catalan number system. Trees,
+  parenthesizations, triangulations, Dyck paths — one family, one `B = 1 + xB²`, one
+  rotation Gray code.
+
+The whole of 7.2.1 is the corpus's coordinatization theme made totally explicit and
+constructive: **every combinatorial object has a canonical integer rank; the content
+is the rank/unrank maps (change of coordinates to and from the integers) and the
+minimal-change orderings (Hamiltonian paths on the Cayley/change graph).** Ranking is
+lossless recoordinatization; unranking is its inverse; Gray codes are the geodesic
+traversals.
+
+**7.2.2 Backtrack programming, and 7.2.2.1 Dancing Links (DLX).** Backtracking walks
+a search tree, extending a partial solution and *undoing* the extension on failure.
+The undo is the inverse of the do, and the entire efficiency question is how cheaply
+you can run the computation *backward*. Dancing links is Knuth's answer and it is the
+most on-point algorithm in all of TAOCP for the reversibility theme: represent the
+constraint structure as a doubly-linked mesh, and *cover* a row/column by splicing
+nodes out of their lists — `L[R[x]] ← L[x]; R[L[x]] ← R[x]` — which is destructive,
+except that **the removed node still points at its old neighbors**, so *uncover* is
+literally the same two assignments run in reverse: `L[R[x]] ← x; R[L[x]] ← x`. The
+node stores its own inverse. Backtracking becomes free because every forward move is
+a reversible splice whose undo is recovered from the retained pointers — the trace is
+kept *in the structure itself*, so running backward costs exactly what running
+forward did and not a bit more. This is Bennett's reversible computation realized as
+a working search engine (exact cover, Sudoku, polyomino tiling, the N-queens), and
+it is Knuth's favorite algorithm precisely because of this elegance: the search is a
+groupoid, do and undo are two-sided inverses, and the doubly-linked list is the
+minimal structure that stores the inverse alongside the forward map. Everything the
+surrounding work says about "keep the discarded part and undo is free; the machine
+should be a groupoid, not a one-way monoid" is *demonstrated*, concretely and
+famously, by dancing links.
+
+**Volume 4A, through-line (unforced):** BDDs are hash-consing/maximal-sharing applied
+to Boolean functions, giving canonical forms where equality is identity and each
+distinct subfunction is stored once (and whose size is sharply coordinate-dependent
+in the variable order); combinatorial generation reveals that every family has a
+canonical integer rank and the subject is the rank/unrank coordinate changes plus the
+minimal-change (Gray/geodesic) traversals of the Cayley graph; and dancing links is
+reversible computation as an algorithm — the search tree walked as a groupoid, undo
+= the retained inverse, backtracking free because the trace lives in the structure.
+
+---
+
+# Volume 4B — Combinatorial Algorithms, Part 2
+
+## Mathematical Preliminaries Redux (MPR)
+
+Before the algorithms, Knuth reloads the probabilistic toolkit the modern material
+needs: martingales, the second-moment method, Chernoff/Hoeffding tail bounds, the
+Lovász Local Lemma, expectations of combinatorial statistics. The through-idea: a
+randomized combinatorial algorithm is a random walk, and you control it by finding a
+*martingale* (a conserved expectation) and bounding its deviations. A martingale is
+the probabilistic analogue of a loop invariant (1.2.1) — a quantity whose expected
+change per step is zero — and tail bounds are the statement that a sum of independent
+(or Doob-martingale-differenced) contributions concentrates, because independent
+things multiply their generating functions and the log of a product concentrates.
+The Local Lemma is the deep one: if bad events are each unlikely and each depends on
+few others, then with positive probability *none* occur — a purely local sparsity
+condition guaranteeing a global consistent object exists, and its algorithmic version
+(Moser–Tardos: just resample violated constraints, it terminates fast) is a
+convergent local-repair process whose termination proof is an *entropy-compression*
+argument — the run can't be long because a long run would let you compress its own
+randomness below its entropy. Entropy-compression termination is the sharpest
+"cost is bounded because you cannot forget more than you were given" argument in
+the whole series.
+
+## 7.2.2.2 Satisfiability (SAT)
+
+The largest single section Knuth ever wrote, and the treatment is the modern theory
+in full: DPLL, CDCL, unit propagation, watched literals, restarts, clause learning,
+the phase transition, resolution proof complexity, Tseitin encoding, autarkies,
+survey propagation. SAT is the canonical NP-complete problem, and Knuth treats it as
+combinatorial search that *learns*.
+
+- **Unit propagation** is the forced-move engine: a clause with all-but-one literal
+  falsified *forces* its last literal, with no choice. The search only branches at
+  genuine decision points; between them, unit propagation is the deterministic
+  collapse. This is exactly the split the surrounding work insists on: the run is
+  contractible (forced, choiceless) along the propagation stretches and *branches*
+  only where a real decision — a proof-relevant choice — is made. A SAT run is a
+  sequence of contractible deterministic segments punctuated by the few genuine
+  branch points, and the solver's whole art is maximizing the forced part and
+  minimizing the branching part.
+- **CDCL — conflict-driven clause learning** is the heart, and it is *self-extension
+  with a soundness certificate on every step*. When the search hits a conflict, it
+  analyzes the implication graph, derives a new clause (a *resolvent* — a proved
+  logical consequence of the existing clauses) that explains the conflict, and adds
+  it to the database, pruning all future search that would repeat the mistake. Every
+  learned clause is *certified* (it is a resolution consequence, hence sound to add),
+  so the solver grows its own constraint set without ever being able to add a false
+  clause — a native new operation cannot exist without a checked derivation. This is
+  precisely the metacircular self-extension pattern: install a proved lawful
+  consequence as a first-class rule, unforgeably, and the whole run is the
+  construction of a resolution refutation (for UNSAT) or a satisfying assignment
+  (for SAT). The learned-clause database *is* a growing grammar of certified
+  derivations, and its soundness is structural, not checked after the fact.
+- **Watched literals** is the lazy/demand-driven data structure: a clause is only
+  re-examined when one of its two watched literals is falsified — you never recompute
+  a clause's status until an observation forces you to. It is coinduction/laziness
+  applied to constraint propagation, and it is *the* reason modern solvers are fast
+  (propagation is the inner loop and watched literals make it touch only what
+  changed). Compute on what you're forced to look at, keep the rest as unforced
+  structure — the streaming/lazy discipline of Vol 1's buffering and Vol 3's
+  self-organizing lists, now in the solver core.
+- **Resolution proof complexity.** An UNSAT proof is a resolution derivation of the
+  empty clause; some formulas (the pigeonhole principle PHP) require
+  *exponential-length* resolution proofs — a real, unconditional lower bound. This is
+  complexity-as-shortest-certificate made rigorous: the hardness of a formula is the
+  length of its shortest refutation, a description-length/Kolmogorov statement about
+  the unsatisfiability witness. CDCL with restarts is exactly as powerful as general
+  resolution (a theorem), so the solver's best-case run *is* the shortest resolution
+  proof, and the exponential lower bounds are hard limits no solver can cross —
+  the frontier is not engineering, it's proof complexity.
+- **The phase transition.** Random 3-SAT is easy when under-constrained (many
+  solutions, easy to find) and easy when over-constrained (quickly refuted), and
+  *hard* exactly at the critical clause/variable ratio (~4.267 for 3-SAT) where the
+  probability of satisfiability crosses 1/2 and the instance is maximally uncertain.
+  Hardness peaks at maximum entropy — the point where each observation resolves the
+  least — the identical "hardest = maximally uncertain/structured" phenomenon as
+  Euclid's Fibonacci worst case, the quicksort adversary, and the incompressible
+  sequence. Survey propagation (the statistical-physics-derived algorithm) attacks
+  exactly this regime by computing marginals over the *clustered* solution space —
+  the solutions fragment into far-apart clusters near the threshold, and knowing the
+  cluster structure is knowing where the entropy actually sits.
+- **Tseitin encoding** turns any Boolean circuit into an equisatisfiable CNF of
+  linear size with auxiliary variables — a coordinatization of arbitrary Boolean
+  reasoning into the SAT normal form, so that *any* combinatorial decision problem
+  becomes a single SAT instance. This is the practical face of NP-completeness: one
+  normal form (CNF), one solver, and every problem is a translation into it — the
+  universal target, the way the interaction net is the universal execution target.
+
+## 7.2.2.3 Constraint satisfaction
+
+The generalization beyond Boolean: variables over finite domains, arbitrary
+constraints, arc/path consistency (prune domain values that can't extend to a
+neighbor — local propagation to a fixed point before branching), and the
+backtracking search that dancing links (7.2.2.1) already exemplifies. Arc
+consistency is the CSP form of unit propagation — the forced/contractible collapse —
+and constraint propagation to a fixed point *is* running a monotone operator to its
+least fixed point (the domains only shrink), i.e. the same fixed-point-iteration
+skeleton as BDD apply, Hensel lifting, and Newton's method, now over the lattice of
+domain restrictions. The interesting theory (constraint tightness, the tractable
+classes, the dichotomy theorem — CSPs are either P or NP-complete with nothing
+between, Bulatov/Zhuk, post-Knuth) says the coordinate structure of the constraint
+language *decides* tractability: a CSP is easy exactly when its constraints have a
+nice algebraic closure (a polymorphism), i.e. when the problem has enough symmetry to
+collapse the search — tractability is the presence of a symmetry that makes the hard
+combinatorial object have small canonical form. Same lesson, at the top of the tower:
+easy = enough symmetry to recoordinatize small; hard = maximally rigid/asymmetric.
+
+**Volume 4B, through-line (unforced):** SAT is combinatorial search that self-extends
+with certified consequences — CDCL is "install a proved resolvent as a new rule,
+unforgeably," the run is the construction of a resolution proof, and the hard limits
+are proof-complexity lower bounds (shortest-certificate = cost); unit propagation /
+arc consistency are the forced, contractible, choiceless collapse between the rare
+genuine branch points; watched literals are lazy demand-driven propagation; hardness
+peaks at the maximum-entropy phase transition; and Tseitin makes CNF the universal
+normal form into which every combinatorial decision translates — the universal target
+at the logical level, as the interaction net is at the execution level.
+
+---
+
+# The planned volumes — 4C, 4D, 5, 6, 7 (what is coming, read at the level of intent)
+
+Not yet published, so this is read from Knuth's stated plans and the fascicle drafts,
+lightly — but the shape is already fixed and worth recording.
+
+- **4C / 4D — the rest of Chapter 7 (combinatorial searching) and Chapter 8
+  (recursion).** Graph algorithms (shortest paths, matching, flows, connectivity),
+  more of the BDD/ZDD material, and then *recursion* as its own chapter. Recursion is
+  the fixed-point/self-reference theme that has been implicit since the Catalan
+  equation `B = 1 + xB²`, the MIX-in-MIX interpreter (1.4.3.1), and every
+  divide-and-conquer analysis — Chapter 8 will presumably treat the general theory of
+  recursive definitions, their unfolding, and their cost (the master theorem and its
+  generalizations), i.e. the theory of computing a fixed point of a functional. The
+  network-flow material is where min-cut/max-flow lives — the same value(flow) =
+  capacity(cut) duality that the surrounding physics work uses for integrated
+  information — and matching is where the augmenting-path (reversible relabeling)
+  structure appears.
+- **5 — Syntactic algorithms.** Lexical scanning and parsing: regular languages and
+  finite automata, context-free grammars, LR/LL parsing, the whole theory of turning
+  a linear string into its tree of meaning. This is the *inverse* of Vol 1's
+  traversal (2.3.1): traversal linearizes a tree into a string; parsing recovers the
+  tree from the string. Parsing is the recoordinatization from the surface (string)
+  to the structure (parse tree), and ambiguity is exactly non-invertibility of that
+  map — a string with two parse trees is a place the surface-to-structure map has a
+  nontrivial pre-image, the linguistic form of the recurring forgetting/recovery gap.
+  Finite automata are the minimal-state recognizers, and DFA minimization
+  (Myhill–Nerode) is the canonical-form/quotient construction — the same minimal
+  machine, states quotiented by observational equivalence, that the surrounding work
+  builds and runs.
+- **6 — The theory of context-free languages.** Pushdown automata, the pumping
+  lemmas, closure properties — the mathematical theory underneath Vol 5's parsers.
+- **7 — Compiler techniques.** Code generation, register allocation (graph coloring —
+  back to combinatorial search), optimization. The end of the arc: from a string of
+  source, recover its structure (Vol 5–6), then re-linearize it into optimized machine
+  code (Vol 7) — parse then unparse, the round trip through meaning, with optimization
+  = finding the cheapest re-linearization of the same semantic object.
+
+The whole projected remainder is one shape: **strings and trees are two
+coordinatizations of the same syntactic object; parsing and code-generation are the
+transport maps between them; ambiguity/optimization are the non-invertibility and the
+choice of section; and the minimal recognizer is the observational-equivalence
+quotient.** Chapter 8's recursion is the fixed-point theory that has silently
+organized every volume — the self-referential definition and its unfolding, which is
+where the series, read as one object, has been heading since page one of Volume 1
+drew a trajectory and called *that* the algorithm.
+
+---
+
+# Coda — the series as one object
+
+Read front to back, TAOCP is not a catalog; it is one sustained development of a
+handful of facts that recur at every scale:
+
+1. **The trajectory is the object and cost is measured forgetting.** From the
+   `f : Q → Q` of 1.1 to the interaction counts of every analysis, running time is
+   how much a step discards, and you can only account for what you retain — which is
+   why the analyst keeps the trace the machine throws away.
+
+2. **One object, many coordinatizations; the content is the maps.** Permutations
+   (two-line/cycle/inversion/Lehmer/tableau), numbers (radix/CRT/continued-fraction/
+   p-adic/floating), Boolean functions (formula/circuit/BDD), combinatorial families
+   (object/integer-rank), syntax (string/tree). Every hard operation is "change to
+   the coordinates where the coupled thing becomes independent/pointwise/contiguous,"
+   and the two universal engines are the transform (FFT/CRT/RSK/BDD) and the doubling
+   fixed-point iteration (Newton/Hensel/arc-consistency/BDD-apply).
+
+3. **Cost is information; the optimum is the entropy.** Sorting needs `log n!`,
+   searching `log n`, the optimal search tree *is* the entropy-optimal code, SAT
+   hardness is shortest-proof length, randomness is incompressibility. Lower bounds
+   are counts of distinguishable outcomes; the hardest instance is always the
+   maximally-uncertain/structured one.
+
+4. **Reversibility is free work retained; the good machines are groupoids.**
+   Coroutines (symmetric control), doubly-linked deletion (stored inverse), dancing
+   links (backtracking as reversible splicing), balanced-tree rotations (transport
+   between equal-content shapes). Where the trace is kept in the structure, undo costs
+   nothing; where it is discarded (in-place permutation, floating-point rounding),
+   the forgetting is exactly the cost and the loss of order-independence.
+
+5. **The forced part is deterministic/contractible; branching is where the real
+   choice — the proof-relevant datum — lives.** Unit propagation vs. decisions, arc
+   consistency vs. backtracking, the invariant vs. the variant. Determinism is the
+   contractibility of the whole run.
+
+6. **Self-reference is the top and the bottom.** The MIX-in-MIX interpreter, CDCL's
+   certified self-extension, the Catalan/tree fixed-point equations, and the coming
+   Chapter 8 on recursion — the universal machine is a worked example, self-extension
+   is sound because every extension carries its derivation, and the fixed point of a
+   functional is what every recursive definition and every generating function names.
+
+Knuth built the complete, concrete, honestly-costed account of sequential computation
+over irreversible steps, and in doing so laid down — in worked algorithms, not slogans
+— every one of the structural facts that a foundational account of computation and
+mathematics has to explain: forgetting as cost, coordinatization as method, entropy
+as the floor, reversibility as freedom, contractibility as determinism, and
+self-reference as the closure. The algorithms are the evidence; the recurring
+structure is the theorem.
