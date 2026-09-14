@@ -329,20 +329,6 @@ index 0000000..d021e3f
 +
 +def main() -> Bool:
 +  viaNeg3(True)
-diff --git a/coeprobe.bend b/coeprobe.bend
-new file mode 100644
-index 0000000..db444da
---- /dev/null
-+++ b/coeprobe.bend
-@@ -0,0 +1,8 @@
-+# Does coe over a constant line with equal endpoints reduce to identity?
-+def p1() -> Path(Bool, coe(lambda k. Bool, i0, i0, True), True):
-+  <_> True
-+# and with a reducible constant family (B(iand(i0,k)) shape)?
-+def p2(B: Interval -> Set, x: B(i0)) -> Path(B(i0), coe(lambda k. B(iand(i0, k)), i0, i0, x), x):
-+  <_> x
-+def main() -> Nat:
-+  0n
 diff --git a/corpus_calculus.bend b/corpus_calculus.bend
 new file mode 100644
 index 0000000..2888f4e
@@ -687,117 +673,6 @@ index 0000000..c87fae5
 +
 +def main() -> Nat:
 +  0n
-diff --git a/effective.bend b/effective.bend
-new file mode 100644
-index 0000000..4d0b6cc
---- /dev/null
-+++ b/effective.bend
-@@ -0,0 +1,105 @@
-+# Effectivity of the set-quotient: [a] == [b]  =>  R a b.
-+# Encode-decode: a code family Code : Q -> hProp by the recursor, then transport
-+# the reflexivity witness along the path.  The equivalence-relation structure and
-+# isSet hProp are inputs, exactly as the corpus's SQ.effective takes them.
-+def isProp(A: Set) -> Set:
-+  all x: A. all y: A. Path(A, x, y)
-+def isSet(A: Set) -> Set:
-+  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
-+def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
-+  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
-+    [ (inot(i), <k> h(a, a) @ k), (i, <k> h(a, b) @ k)
-+    , (inot(j), <k> h(a, p @ i) @ k), (j, <k> h(a, q @ i) @ k) ], a)
-+def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
-+  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
-+def propExt(A: Set, B: Set, pA: isProp(A), pB: isProp(B), f: A -> B, g: B -> A) -> Path(Set, A, B):
-+  ua(A, B, f, g, lambda x. pA(g(f(x)), x), lambda y. pB(f(g(y)), y))
-+def hProp() -> Set:
-+  any A: Set. isProp(A)
-+def hcar(P: hProp) -> Set:
-+  match P:
-+    case (A, p): A
-+def hpf(P: hProp) -> isProp(hcar(P)):
-+  match P:
-+    case (A, p): p
-+def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
-+  coe(P, i0, i1, t)
-+def subst(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
-+  coe(lambda i. C(p @ i), i0, i1, d)
-+def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
-+  <i> hcompN(B(i),
-+    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
-+    coe(lambda k. B(iand(i, k)), i0, i, x))
-+def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
-+  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
-+def hPropExt(P: hProp, Q: hProp, e: Path(Set, hcar(P), hcar(Q))) -> Path(hProp, P, Q):
-+  <i> ( e @ i
-+      , isPropToPathP(lambda i. isProp(e @ i),
-+                      lambda i. lambda f. lambda g. isPropIsProp(e @ i, f, g),
-+                      hpf(P), hpf(Q)) @ i )
-+
-+# --- the equivalence relation, structure threaded as inputs ---
-+# Code [x] = (R a x, prop), respecting eq/ via propExt + trans/sym.
-+def codePt(A: Set, R: A -> A -> Set, Rprop: all x: A. all y: A. isProp(R(x,y)), a: A, x: A) -> hProp:
-+  (R(a, x), Rprop(a, x))
-+
-+def codeResp(A: Set, R: A -> A -> Set,
-+             Rprop: all x: A. all y: A. isProp(R(x,y)),
-+             Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
-+             Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
-+             a: A, x: A, y: A, w: R(x,y))
-+             -> Path(hProp, codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y)):
-+  hPropExt(codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y),
-+    propExt(R(a,x), R(a,y), Rprop(a,x), Rprop(a,y),
-+      lambda r. Rtrans(a, x, y, r, w),
-+      lambda r. Rtrans(a, y, x, r, Rsym(x, y, w))))
-+
-+def Code(A: Set, R: A -> A -> Set,
-+         Rprop: all x: A. all y: A. isProp(R(x,y)),
-+         Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
-+         Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
-+         sh: isSet(hProp), a: A, m: Quot(A, R)) -> hProp:
-+  qrec(m, sh, lambda x. codePt(A,R,Rprop,a,x),
-+       lambda x. lambda y. lambda w. codeResp(A,R,Rprop,Rsym,Rtrans,a,x,y,w))
-+
-+def codeCar(A: Set, R: A -> A -> Set,
-+            Rprop: all x: A. all y: A. isProp(R(x,y)),
-+            Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
-+            Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
-+            sh: isSet(hProp), a: A, m: Quot(A, R)) -> Set:
-+  hcar(Code(A,R,Rprop,Rsym,Rtrans,sh,a,m))
-+
-+# encode: transport the reflexivity witness (codeCar (qcl a) = R a a) along p.
-+def encode(A: Set, R: A -> A -> Set,
-+           Rprop: all x: A. all y: A. isProp(R(x,y)),
-+           Rrefl: all x: A. R(x,x),
-+           Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
-+           Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
-+           sh: isSet(hProp), a: A, m: Quot(A, R),
-+           p: Path(Quot(A,R), qcl(a), m))
-+           -> codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m):
-+  subst(Quot(A,R), lambda m. codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m),
-+        qcl(a), m, p, Rrefl(a))
-+
-+# THE EFFECTIVITY THEOREM: [a] == [b] gives R a b (codeCar (qcl b) = R a b).
-+def effective(A: Set, R: A -> A -> Set,
-+              Rprop: all x: A. all y: A. isProp(R(x,y)),
-+              Rrefl: all x: A. R(x,x),
-+              Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
-+              Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
-+              sh: isSet(hProp), a: A, b: A,
-+              p: Path(Quot(A,R), qcl(a), qcl(b))) -> R(a, b):
-+  encode(A,R,Rprop,Rrefl,Rsym,Rtrans,sh,a,qcl(b),p)
-+
-+# it computes: on the reflexive path [a]==[a], effective returns Rrefl a.
-+def effComputes(A: Set, R: A -> A -> Set,
-+                Rprop: all x: A. all y: A. isProp(R(x,y)),
-+                Rrefl: all x: A. R(x,x),
-+                Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
-+                Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
-+                sh: isSet(hProp), a: A)
-+                -> Path(R(a,a), effective(A,R,Rprop,Rrefl,Rsym,Rtrans,sh,a,a, <_> qcl(a)), Rrefl(a)):
-+  <_> Rrefl(a)
-+
-+def main() -> Nat:
-+  0n
 diff --git a/equiv.bend b/equiv.bend
 new file mode 100644
 index 0000000..8c01b74
@@ -920,49 +795,6 @@ index 0000000..3473798
 +# MUST FAIL: a filler whose tube does not start at the base
 +def wrong(A: Set, x: A, y: A, p: Path(A, x, y), i: Interval) -> Path(A, y, hcompN(A, [(i, <k> p @ k)], y)):
 +  hfill(A, [(i, <k> p @ k)], y)
-+
-+def main() -> Nat:
-+  0n
-diff --git a/hprop.bend b/hprop.bend
-new file mode 100644
-index 0000000..93562c4
---- /dev/null
-+++ b/hprop.bend
-@@ -0,0 +1,37 @@
-+# hProp / prop-level foundations for set-quotient effectivity.
-+# All definitional; built on the comp/hcomp machinery.  These are the pieces
-+# the encode-decode proof of  [a] == [b] => R a b  is assembled from.
-+def isProp(A: Set) -> Set:
-+  all x: A. all y: A. Path(A, x, y)
-+def isSet(A: Set) -> Set:
-+  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
-+
-+# isProp A -> isSet A: fill the square with the proposition (Cubical's proof).
-+def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
-+  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
-+    [ (inot(i), <k> h(a, a) @ k)
-+    , (i,       <k> h(a, b) @ k)
-+    , (inot(j), <k> h(a, p @ i) @ k)
-+    , (j,       <k> h(a, q @ i) @ k)
-+    ], a)
-+
-+# being a proposition is itself a proposition
-+def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
-+  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
-+
-+# propositional univalence: props with maps both ways are equal as types
-+# (gf, fg forced by isProp; ua turns the biimplication into a path of types).
-+def propExt(A: Set, B: Set, pA: isProp(A), pB: isProp(B), f: A -> B, g: B -> A) -> Path(Set, A, B):
-+  ua(A, B, f, g, lambda x. pA(g(f(x)), x), lambda y. pB(f(g(y)), y))
-+
-+def hProp() -> Set:
-+  any A: Set. isProp(A)
-+def hcar(P: hProp) -> Set:
-+  match P:
-+    case (A, p): A
-+def hpf(P: hProp) -> isProp(hcar(P)):
-+  match P:
-+    case (A, p): p
 +
 +def main() -> Nat:
 +  0n
@@ -1373,73 +1205,6 @@ index 0000000..2ac63ac
 +      loop(n, p)
 +def main() -> Nat:
 +  0n
-diff --git a/minmachine.bend b/minmachine.bend
-new file mode 100644
-index 0000000..7aa3522
---- /dev/null
-+++ b/minmachine.bend
-@@ -0,0 +1,61 @@
-+# The minimal Moore machine as a set-quotient, computing.
-+# State S, one action (unary alphabet), output Bool.  observe : S -> Bool,
-+# step : S -> S.  behavior x w = observe (run step x w).  NerodeCongruence:
-+# x ~ y iff same behavior on every word.  Meaning = S / ~ is the minimal machine.
-+
-+def S() -> Set:
-+  Nat
-+
-+def observe(x: S) -> Bool:
-+  match x:
-+    case 0n: True
-+    case 1n+p: False
-+
-+def step(x: S) -> S:
-+  match x:
-+    case 0n: 0n
-+    case 1n+p: p
-+
-+def run(x: S, w: Nat) -> S:
-+  match w:
-+    case 0n: x
-+    case 1n+k: run(step(x), k)
-+
-+def behavior(x: S, w: Nat) -> Bool:
-+  observe(run(x, w))
-+
-+# NerodeCongruence: observationally-equal states (same behavior on every word).
-+def Nerode(x: S, y: S) -> Set:
-+  all w: Nat. Path(Bool, behavior(x, w), behavior(y, w))
-+
-+def Meaning() -> Set:
-+  Quot(S, Nerode)
-+
-+# isSet of the output type, threaded as a hypothesis exactly as the corpus's
-+# FutureQuotient module takes (setO : isSet O).  The .bend name for it:
-+def isSet(A: Set) -> Set:
-+  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
-+
-+# quotObserve descends: observe respects ~ because the empty word is a word.
-+def observeResp(a: S, b: S, w: Nerode(a,b)) -> Path(Bool, observe(a), observe(b)):
-+  w(0n)
-+
-+def quotObserve(setO: isSet(Bool), m: Meaning) -> Bool:
-+  qrec(m, setO, observe, observeResp)
-+
-+# It computes on a point (for any set-truncation evidence):
-+# quotObserve setO [x] = observe x.
-+def quotObserve_0 (setO: isSet(Bool)) -> Path(Bool, quotObserve(setO, qcl(0n)), True):
-+  <_> True
-+
-+def quotObserve_1 (setO: isSet(Bool)) -> Path(Bool, quotObserve(setO, qcl(1n)), False):
-+  <_> False
-+
-+# The congruence collapses observationally-equal states in Meaning: given a
-+# proof they are Nerode-equal, their meanings are equal (this is eq/).
-+def sameMeaning(x: S, y: S, e: Nerode(x,y)) -> Path(Meaning, qcl(x), qcl(y)):
-+  qeq(x, y, e)
-+
-+# and reduces at runtime (net): observe of the run.
-+def main() -> Bool:
-+  behavior(0n, 2n)
 diff --git a/pth2.bend b/pth2.bend
 new file mode 100644
 index 0000000..c3ea193
@@ -1469,82 +1234,6 @@ index 0000000..d47432e
 +
 +def constFam_ok(a: Nat, b: Nat, p: Path(Nat, a, b)) -> Path(Path(Nat, a, b), constFamPath(a, b, p), p):
 +  <_> p
-+
-+def main() -> Nat:
-+  0n
-diff --git a/quot1.bend b/quot1.bend
-new file mode 100644
-index 0000000..4ba7804
---- /dev/null
-+++ b/quot1.bend
-@@ -0,0 +1,43 @@
-+# SetQuotient: representative usage (scrutinee is a typed variable).
-+def R(a: Bool, b: Bool) -> Set:
-+  Path(Bool, a, b)
-+
-+def Q() -> Set:
-+  Quot(Bool, R)
-+
-+def isSet(A: Set) -> Set:
-+  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y), p, q)
-+
-+# squash/ inhabits isSet of the quotient
-+def isSetQ() -> isSet(Q):
-+  qsquash
-+
-+# point endpoints in a Path type (check-mode against the constant line)
-+def loopT() -> Path(Q, qcl(True), qcl(True)):
-+  <_> qcl(True)
-+
-+# eq/ as a genuine path in the quotient
-+def eqPath(a: Bool, b: Bool, w: R(a,b)) -> Path(Q, qcl(a), qcl(b)):
-+  qeq(a,b,w)
-+
-+def f(b: Bool) -> Nat:
-+  match b:
-+    case True: 1n
-+    case False: 0n
-+
-+def resp(a: Bool, b: Bool, w: R(a,b)) -> Path(Nat, f(a), f(b)):
-+  <i> f(w @ i)
-+
-+# recursor with a variable scrutinee (the real elimination shape)
-+def rec(setB: isSet(Nat), g: all b: Bool. Nat, gr: all a: Bool. all b: Bool. all w: R(a,b). Path(Nat, g(a), g(b)), q: Q) -> Nat:
-+  qrec(q, setB, g, gr)
-+
-+def recRun(setB: Nat, g: all b: Bool. Nat, gr: all a: Bool. all b: Bool. all w: R(a,b). Path(Nat, g(a), g(b)), q: Q) -> Nat:
-+  qrec(q, setB, g, gr)
-+
-+# qrec(qcl(True), ..) reduces to f(True) = 1n  (the point computation rule)
-+def recComputes() -> Path(Nat, recRun(0n, f, resp, qcl(True)), 1n):
-+  <_> 1n
-+
-+def main() -> Nat:
-+  recRun(0n, f, resp, qcl(True))
-diff --git a/quot_mustfail.bend b/quot_mustfail.bend
-new file mode 100644
-index 0000000..d499605
---- /dev/null
-+++ b/quot_mustfail.bend
-@@ -0,0 +1,21 @@
-+# MUST-FAIL: the recursor must reject a resp that does not respect R.
-+# If accepted, eq/ + this resp would prove f(a) == f(b) for unrelated values,
-+# collapsing the target.  The checker must reject `badResp`.
-+def R(a: Bool, b: Bool) -> Set:
-+  Path(Bool, a, b)
-+def Q() -> Set:
-+  Quot(Bool, R)
-+def f(b: Bool) -> Nat:
-+  match b:
-+    case True: 1n
-+    case False: 0n
-+
-+# WRONG: claims a constant path f(a)==f(a); required type is Path(Nat,f(a),f(b)).
-+def badResp(a: Bool, b: Bool, w: R(a,b)) -> Path(Nat, f(a), f(b)):
-+  <_> f(a)
-+
-+def bad(setB: Nat, q: Q) -> Nat:
-+  qrec(q, setB, f, badResp)
 +
 +def main() -> Nat:
 +  0n
@@ -4722,21 +4411,6 @@ index 0000000..4e983fe
 +  coe(lambda i. p @ i, i1, i0, y)
 +def main() -> Bool:
 +  applyPathFwd(Bool, Bool, negPath(), True)
-diff --git a/tp.bend b/tp.bend
-new file mode 100644
-index 0000000..a8edbfd
---- /dev/null
-+++ b/tp.bend
-@@ -0,0 +1,9 @@
-+def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
-+  coe(P, i0, i1, t)
-+def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
-+  <i> hcompN(B(i),
-+    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x))
-+    , (i,       <j> p @ j)
-+    ], coe(lambda k. B(iand(i, k)), i0, i, x))
-+def main() -> Nat:
-+  0n
 diff --git a/uaequiv.bend b/uaequiv.bend
 new file mode 100644
 index 0000000..1f164e6
