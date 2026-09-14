@@ -66,6 +66,22 @@ Two checker fixes went in with it (rewrite descends into application heads;
 same-head conversion before unfolding recursive type families). Also merged
 the SetQuotient HIT from a parallel agent (QUOTIENT.md) into the patch.
 
+## Genuine coinduction (coinduction.bend 13✓, streams.bend 10✓, coinduction_mustfail.bend; COINDUCTION.md)
+Bend2 is coinductive by default (Fix-typed recursion, lazy HVM). `Answers`/
+`IExec` are now the coinductive records themselves; `replay`/`forgetStates`
+and both `run-is-answers` round trips are corecursive `[productive]` paths.
+Three fixes in the patch: epNormCtx unfolds one level (`goNoUnfold`), printing
+uses a capped normaliser (`normalCap`), record matches give no descent in
+Totality (`branch2 Nothing`), Σ fields / Π codomains are guarded positions so
+self-referential `type` families are `[productive]`. `bend f.bend --total`
+(flag AFTER the file) passes on coinduction/interaction/braid.
+
+## General silence-is-determinism (silence.bend 25✓, silence_mustfail.bend)
+Parametric `(X, Q, δ)`, corecursive PathP contraction over a path of states,
+`isContr(IExec x)` for contractible `Q`; closed machine as instance; runs on
+HVM4 full (252 itrs → 4). Must-fail set for the suite loop now also includes
+`silence_mustfail`.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.

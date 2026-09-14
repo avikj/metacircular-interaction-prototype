@@ -45,8 +45,19 @@ bad `resp` to collapse the target. `qsquash` is accepted only against an
 `SQ.rec` / `SQ.elimProp` / `SQ.effective` (the encode–decode `[x]≡[y] ⟹ x≈y`)
 are now expressible in Bend2 source from these primitives plus propositional
 univalence (`ua`). Porting `MyhillNerodeMinimalMachine` then makes behavioral
-equivalence = path equality compute on the net. Emitter support for the erased
-HVM targets is the remaining runtime step.
+equivalence = path equality compute on the net.
+
+## The recursor runs on the FULL runtime (`--to-hvm4-full`)
+
+The quotient constructors are now emitted to the full cubical runtime (not just
+the checker): `Quo`/`QCl`/`QEq`/`QSq`/`QRec` lower to `#Quo`/`#QCl`/`#QEq`/`#QSq`/
+`@qrec`, with `@qrec` mirroring the checker's rules exactly — `qrec([a]) → f a`,
+`qrec(eq/ a b w @ i) → resp a b w @ i` (via `@pathAt` giving `eq/ @ i0 = [a]`,
+`@ i1 = [b]`), and commuting over `Sup` natively (DUP-SUP). Verified on HVM4:
+`qrec(qcl 3n, dbl, …) ⇒ 6`, `qrec(qeq(2n,2n,refl) @ i0, dbl, …) ⇒ 4`;
+`quotient.bend` main `⇒ 1n`, `minmachine.bend` runs, `nerode_effective_closed`
+emits and runs. The whole suite emits to `--to-hvm4-full` with no crashes; the
+checker stays at 856 ✓ (only the deliberate must-fails fail).
 
 ## Phase 2 status: minimal machine computes; effectivity is library-porting
 
@@ -78,3 +89,41 @@ Inputs are exactly the corpus's `SQ.effective` signature (`Rprop`, `Rrefl`,
 `Rsym`, `Rtrans`, and `isSet hProp`). Together with `eq/` (the `⟸` direction),
 this is the full **equality of meaning = observational equivalence**, computing
 on the runtime. Full suite 336 ✓ (only the deliberate must-fails fail).
+
+## Instantiated at the machine (`nerode_effective.bend`, 33 ✓)
+
+The generic `effective` above still carries an abstract relation `R`. Wiring it
+to the concrete Nerode congruence closes the converse for the minimal machine
+itself: `Nerode` is shown a prop-valued equivalence relation on the net
+(`reflN`/`symN`/`transN` by path-refl/reversal/`hcomp`; `isPropNerode` from
+`setO : isSet Bool`), and
+
+- **`nerodeEffective : Path(Meaning, [x], [y]) → Nerode(x, y)`** — the `⟹`
+  direction for the machine, `effective` instantiated at `(S, Nerode, …)`.
+- `nerodeEffComputes` is definitional: on the reflexive path it returns `reflN x`.
+
+With `sameMeaning` (the `⟸`, `eq/`) this is **behavioral equivalence = path
+equality for the Myhill–Nerode minimal machine, both directions, on the
+runtime**.
+
+## `isSet hProp` proved from scratch — the last hypothesis discharged (`hset.bend`, 25 ✓)
+
+The generic `effective` takes `sh : isSet hProp`. This is now **proved**, not
+assumed:
+
+- `isPropIso5` — an iso between two propositions is itself a proposition
+  (`f`/`g` by funext into a prop; the `section`/`retraction` PathPs by
+  `isProp→PathP` over a prop-family, from `isProp→isSet`).
+- `isPropPathSet` — for propositions `A`, `B`, the type `Path(Set, A, B)` is a
+  proposition: it is a retract of `Iso5 A B` via **`uaEta`** (`ua(pathToIso p) ≡
+  p`, the univalence round trip, `cubical_test5.bend`), and a retract of a prop
+  is a prop.
+- `isPropSigPath` — for a proposition-fibred Σ, the path space retracts onto the
+  base path space; **`isSetHProp = isPropSigPath`** at `Σ A:Set. isProp A`, with
+  the base-path prop supplied by `isPropPathSet`.
+
+`nerode_effective_closed.bend` (46 ✓) then feeds `isSetHProp()` into `effective`,
+so **`nerodeEffective` carries no `sh` at all** — only `setO : isSet Bool`
+remains, which is a genuine parameter of the construction (the corpus's
+`FutureQuotient` likewise takes `isSet O` for an arbitrary output alphabet, never
+discharging it). The one earlier-named "open" edge is closed.
