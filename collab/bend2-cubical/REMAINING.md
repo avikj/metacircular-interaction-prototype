@@ -44,8 +44,8 @@ the universe. Everything else was stuck. Now implemented, in both the checker
 | Π — pointwise in the codomain | DONE | DONE | `kan.bend` `hcPi` |
 | PathP — push into the path dimension, endpoints become extra faces | DONE | DONE | `kan.bend` `hcPath` |
 | Σ — first by `hcomp`, second by `comp` along the *filled* first | DONE | DONE | `kan.bend` `hcSig` |
-| Nat / List — push through a common constructor head | DONE | DONE (Nat) | `kan.bend` `hcNat` |
-| Bit / Enum / Unit — discrete, the common nullary constructor | DONE | DONE (Bit) | — |
+| Nat / List — push through a common constructor head | DONE | DONE | `kan.bend` `hcNat` |
+| Bit / Enum / Unit — discrete, the common nullary constructor | DONE | DONE | — |
 | `Set` — reduces to `Glue` | DONE | DONE | `hcompset.bend` |
 | **Glue** | DONE* | DONE* | `glue_kan.bend` (*partial, see below) |
 
@@ -72,26 +72,25 @@ only well-typed under the restriction φ=1 — i.e. it needs `A[φ ↦ u]` (§C)
 Implementing restricted types would make this testable, and that is the single
 highest-value item left.
 
-**Still open in this section:**
-
-1. **List / Enum / Unit at runtime** — the checker has all of them; the
-   runtime has Nat and Bit only.
-2. **`transp` with a cofibration.** `Coe` is `Coe line r s x` — four
-   arguments, no face. CCHM needs `transp^A φ u0` with `A` constant on `φ`.
-   Adding a fifth field touches every traversal in §A.
+**Nothing is open in this section any more.** The runtime carries Nat, Bit,
+List and Unit as well; `transp` with a cofibration is its own constructor
+(§C).
 
 ---
 
-## C. Primitives absent from the term language
+## C. Primitives from the CCHM presentation — ALL DONE
 
 | CCHM object | status |
 |---|---|
-| `Partial φ A` / `PartialP` | **absent** — no constructor. Systems exist only as the `[(face, tube)]` lists inside `HCm`/`Glu`, not as first-class partial elements |
-| `Sub` / `A[φ ↦ u]`, `inS`, `outS` | **absent**. (`Core/Type.hs`'s `Sub` is a HOAS substitution marker, unrelated) |
-| `comp` | **DONE** — `comp(P, [(face, tube)...], base)` parses (`comp.bend`) |
-| `transp` with φ | **absent** (see B.1) |
-| interval de Morgan laws | present: `I0 I1 INot IAnd IOr`, with `∧` idempotence (`iSyntEq`). `∨` idempotence and the distributive laws are **not** normalised |
-| face lattice | present as DNF (`faceDNF`, `restrictLits`, `facePairs`) |
+| `Partial φ A` and systems | **DONE** — `Partial(φ, A)`, `system([(ψ, v), …])`, `pout(u)`. Branches are typed on their own cells, must agree on overlaps and must COVER φ; `pout` requires the face to hold. `partial.bend` 6 ✓, `partial_mustfail.bend` rejects disagreement, a coverage gap, and a premature `pout` |
+| `Sub` / `A[φ ↦ u]`, `inS`, `outS` | **DONE** — `Sub(A, φ, u)`, `inS(x)`, `outS(s)`; `inS` demands definitional equality with `u` on every cell of φ, `outS(inS x) = x`. `sub.bend` 8 ✓, `sub_mustfail.bend` 2 ✗ |
+| `comp` | **DONE** — `comp(P, [(face, tube)…], base)`; `comp.bend` |
+| `transp` with φ | **DONE** — `transp(L, φ, x)`, its own constructor; constancy of `L` on φ enforced cell by cell with the marker test. `transp.bend` 8 ✓, `transp_mustfail.bend` 1 ✗ |
+| interval de Morgan laws | `I0 I1 INot IAnd IOr` with `∧` idempotence. `∨` idempotence and distributivity are still not normalised |
+| face lattice | DNF (`faceDNF`, `restrictLits`, `facePairs`) |
+
+All four new primitives are threaded through every traversal in §A and all
+four backends, and each runs on HVM4 in agreement with the normaliser.
 
 ---
 
