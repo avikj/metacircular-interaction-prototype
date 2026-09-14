@@ -267,5 +267,225 @@ def census(seqs: Bool[][]) -> Row[]:
     case h <> rest:
       return @Row{h, foldN(h)} <> census(rest)
 
-def main() -> Row[]:
-  return census(allHP(6n))
+# ---- full symmetry reduction: true distinct-fold count -------------------
+# moves in {0,1,2,3} = E,N,W,S. Symmetry group = 4 rotations x reflection x
+# chain-reversal (up to 16 images). Canonical form = lex-min move sequence
+# over the orbit; true degeneracy = #distinct canonical ground-state folds.
+def ltNat(a: Nat, b: Nat) -> Bool:
+  match a:
+    case 0n:
+      match b:
+        case 0n:
+          return False
+        case 1n + q:
+          return True
+    case 1n + p:
+      match b:
+        case 0n:
+          return False
+        case 1n + q:
+          return ltNat(p, q)
+
+def subNat(a: Nat, b: Nat) -> Nat:
+  match b:
+    case 0n:
+      return a
+    case 1n + q:
+      return subNat(pred(a), q)
+
+# inputs are always < 8 here (rotD: 1+d, invD: d+2, with d in 0..3), so a
+# single subtraction suffices — kept non-recursive so totality is structural.
+def mod4(n: Nat) -> Nat:
+  if ltNat(n, 4n):
+    return n
+  else:
+    return subNat(n, 4n)
+
+def rotD(d: Nat) -> Nat:
+  return mod4(1n + d)
+def invD(d: Nat) -> Nat:
+  return mod4(addNat(d, 2n))
+def reflD(d: Nat) -> Nat:
+  if eqNat(d, 1n):
+    return 3n
+  else:
+    if eqNat(d, 3n):
+      return 1n
+    else:
+      return d
+
+def mapD(f: Nat -> Nat, ms: Nat[]) -> Nat[]:
+  match ms:
+    case []:
+      return []
+    case m <> rest:
+      return f(m) <> mapD(f, rest)
+
+def revA<A>(xs: A[], acc: A[]) -> A[]:
+  match xs:
+    case []:
+      return acc
+    case x <> r:
+      return revA<A>(r, x <> acc)
+def reverseL<A>(xs: A[]) -> A[]:
+  return revA<A>(xs, [])
+
+def revInv(ms: Nat[]) -> Nat[]:
+  return reverseL<Nat>(mapD(invD, ms))
+
+# the 16-image orbit of a move sequence
+def orbit(ms: Nat[]) -> Nat[][]:
+  r0 = ms
+  r1 = mapD(rotD, r0)
+  r2 = mapD(rotD, r1)
+  r3 = mapD(rotD, r2)
+  base = r0 <> (r1 <> (r2 <> (r3 <> [])))
+  refl = mapD(reflD, r0) <> (mapD(reflD, r1) <> (mapD(reflD, r2) <> (mapD(reflD, r3) <> [])))
+  rots = appendL<Nat[]>(base, refl)
+  return appendL<Nat[]>(rots, mapD2rev(rots))
+def mapD2rev(xs: Nat[][]) -> Nat[][]:
+  match xs:
+    case []:
+      return []
+    case x <> rest:
+      return revInv(x) <> mapD2rev(rest)
+
+def lexLE(a: Nat[], b: Nat[]) -> Bool:
+  match a:
+    case []:
+      return True
+    case x <> xr:
+      match b:
+        case []:
+          return False
+        case y <> yr:
+          if ltNat(x, y):
+            return True
+          else:
+            if eqNat(x, y):
+              return lexLE(xr, yr)
+            else:
+              return False
+
+def lexMin(a: Nat[], b: Nat[]) -> Nat[]:
+  if lexLE(a, b):
+    return a
+  else:
+    return b
+
+def foldMin(xs: Nat[][], acc: Nat[]) -> Nat[]:
+  match xs:
+    case []:
+      return acc
+    case x <> rest:
+      return foldMin(rest, lexMin(x, acc))
+
+def canon(ms: Nat[]) -> Nat[]:
+  match orbit(ms):
+    case []:
+      return ms
+    case h <> rest:
+      return foldMin(rest, h)
+
+def listEqN(a: Nat[], b: Nat[]) -> Bool:
+  match a:
+    case []:
+      match b:
+        case []:
+          return True
+        case y <> yr:
+          return False
+    case x <> xr:
+      match b:
+        case []:
+          return False
+        case y <> yr:
+          if eqNat(x, y):
+            return listEqN(xr, yr)
+          else:
+            return False
+
+def member2(x: Nat[], xs: Nat[][]) -> Bool:
+  match xs:
+    case []:
+      return False
+    case y <> rest:
+      if listEqN(x, y):
+        return True
+      else:
+        return member2(x, rest)
+
+def nub(xs: Nat[][], seen: Nat[][]) -> Nat:
+  match xs:
+    case []:
+      return 0n
+    case x <> rest:
+      if member2(x, seen):
+        return nub(rest, seen)
+      else:
+        return 1n + nub(rest, x <> seen)
+
+# collect canonical forms of ground-state SAWs (full enumeration, no fixing)
+def grounds(start: Pos, hs: Bool[], seqs: Nat[][], best: Nat) -> Nat[][]:
+  match seqs:
+    case []:
+      return []
+    case s <> rest:
+      ps = walk(start, s)
+      if saw(ps):
+        if eqNat(energy(ps, hs), best):
+          return canon(s) <> grounds(start, hs, rest, best)
+        else:
+          return grounds(start, hs, rest, best)
+      else:
+        return grounds(start, hs, rest, best)
+
+def bestE(start: Pos, hs: Bool[], seqs: Nat[][], acc: Nat) -> Nat:
+  match seqs:
+    case []:
+      return acc
+    case s <> rest:
+      ps = walk(start, s)
+      if saw(ps):
+        return bestE(start, hs, rest, maxNat(energy(ps, hs), acc))
+      else:
+        return bestE(start, hs, rest, acc)
+
+type TR:
+  case @TR:
+    seq: Bool[]
+    best: Nat
+    folds: Nat
+
+def trueDeg(hs: Bool[]) -> TR:
+  L = lenB(hs)
+  seqs = allSeqs(pred(L))
+  b = bestE(@P{8n, 8n}, hs, seqs, 0n)
+  g = grounds(@P{8n, 8n}, hs, seqs, b)
+  return @TR{hs, b, nub(g, [])}
+
+# the 7 length-6 candidates with 2 contacts / rotation-deg 2
+def cands() -> Bool[][]:
+  return (True<>True<>True<>False<>False<>True<>[])       # HHHPPH
+    <> ((True<>True<>False<>True<>False<>True<>[])        # HHPHPH
+    <> ((True<>True<>False<>False<>True<>True<>[])        # HHPPHH
+    <> ((True<>False<>True<>False<>True<>True<>[])        # HPHPHH
+    <> ((True<>False<>True<>False<>False<>True<>[])       # HPHPPH
+    <> ((True<>False<>False<>True<>True<>True<>[])        # HPPHHH
+    <> ((True<>False<>False<>True<>False<>True<>[])       # HPPHPH
+    <> []))))))
+
+def censusTR(seqs: Bool[][]) -> TR[]:
+  match seqs:
+    case []:
+      return []
+    case h <> rest:
+      return trueDeg(h) <> censusTR(rest)
+
+# main is trivial: the type-checker eagerly normalises main, and the symmetry-
+# reduced census (censusTR / trueDeg / canon over the full SAW enumeration) is
+# far too heavy for its interpreter. All those defs are still type-checked here;
+# the census itself is run through the compiled backend (JS/HVM), where its
+# evaluation is controlled. See the driver for the actual results.
+def main() -> Nat:
+  return 0n
