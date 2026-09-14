@@ -93,8 +93,26 @@ itself: `Nerode` is shown a prop-valued equivalence relation on the net
 
 With `sameMeaning` (the `⟸`, `eq/`) this is **behavioral equivalence = path
 equality for the Myhill–Nerode minimal machine, both directions, on the
-runtime**, under exactly the corpus's two hypotheses (`setO : isSet Bool` as in
-`FutureQuotient`, `sh : isSet hProp` as in `SQ.effective`). Discharging `isSet
-hProp` outright reduces to the univalence second round trip
-(`ua(pathToEquiv p) ≡ p`), which the prototype leaves open on purpose
-(`uaroundtrip.bend`, the Iso-side); it is the same named frontier, not a new gap.
+runtime**.
+
+## `isSet hProp` proved from scratch — the last hypothesis discharged (`hset.bend`, 25 ✓)
+
+The generic `effective` takes `sh : isSet hProp`. This is now **proved**, not
+assumed:
+
+- `isPropIso5` — an iso between two propositions is itself a proposition
+  (`f`/`g` by funext into a prop; the `section`/`retraction` PathPs by
+  `isProp→PathP` over a prop-family, from `isProp→isSet`).
+- `isPropPathSet` — for propositions `A`, `B`, the type `Path(Set, A, B)` is a
+  proposition: it is a retract of `Iso5 A B` via **`uaEta`** (`ua(pathToIso p) ≡
+  p`, the univalence round trip, `cubical_test5.bend`), and a retract of a prop
+  is a prop.
+- `isPropSigPath` — for a proposition-fibred Σ, the path space retracts onto the
+  base path space; **`isSetHProp = isPropSigPath`** at `Σ A:Set. isProp A`, with
+  the base-path prop supplied by `isPropPathSet`.
+
+`nerode_effective_closed.bend` (46 ✓) then feeds `isSetHProp()` into `effective`,
+so **`nerodeEffective` carries no `sh` at all** — only `setO : isSet Bool`
+remains, which is a genuine parameter of the construction (the corpus's
+`FutureQuotient` likewise takes `isSet O` for an arbitrary output alphabet, never
+discharging it). The one earlier-named "open" edge is closed.

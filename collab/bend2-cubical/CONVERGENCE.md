@@ -534,10 +534,18 @@ core and the HVM target:
   `minmachine.bend`): `Quot`/`qcl`/`qeq`/`qsquash`/`qrec` with the recursor
   computing (`qrec(qcl a,…) ≡ f a` definitional) and commuting through `Sup`;
   `MyhillNerodeMinimalMachine`'s `Meaning = S / Nerode` runs — `quotObserve(qcl 0)
-  ⇒ True`, `(qcl 1) ⇒ False`, Nerode-equivalent states collapsed via `eq/`. So
-  **behavioral equivalence = path equality computes on the runtime.** (Effectivity,
-  the hard direction `[x]≡[y] ⟹ x≈y`, is library-porting from the in-place
-  `hProp`/`propExt` foundations.)
+  ⇒ True`, `(qcl 1) ⇒ False`, Nerode-equivalent states collapsed via `eq/`.
+- **Behavioral equivalence = path equality, both directions, no residual
+  hypothesis [T]** (`effective.bend`, `hset.bend` 25✓, `nerode_effective_closed.bend`
+  46✓): the generic set-quotient effectivity `effective : Path(Quot(A,R),[a],[b])
+  → R(a,b)` (encode–decode over a `Code : Quot → hProp` family), instantiated at
+  the Nerode congruence (`nerodeEffective`); its one hypothesis `isSet hProp` is
+  **proved from scratch** — `isPropIso5` → `isPropPathSet` (via the univalence
+  round trip `uaEta`) → `isSetHProp = isPropSigPath`. So the `⟹` direction is
+  discharged and computes (`nerodeEffComputes` definitional), and with `eq/` (the
+  `⟸`) the equality of meaning = observational equivalence holds on the net, the
+  only remaining input being `setO : isSet Bool` — a genuine parameter the corpus
+  itself carries (`FutureQuotient`'s `isSet O`), not a gap.
 - **Genuine coinduction, and determinism as one fact [T]** (`coinduction.bend`
   13✓, `streams.bend` 10✓, `silence.bend` 25✓, `interaction.bend` 36✓,
   `braid.bend` 16✓): `Answers`/`IExec` as corecursive records, `run-is-answers` as
@@ -715,9 +723,9 @@ computer-over-equivalences is lifted from terms to types: transport through
 all compute, in the checker and the full runtime. The single remaining runtime
 primitive is `comp`/`coe` to a **symbolic** interval endpoint (edge 2), and that
 is the intended partial-knowledge behavior — the residue held as `#HCm` until the
-interval is decided — not a soundness gap. The one library-level task left on the
-object is quotient **effectivity** (`[x]≡[y] ⟹ x≈y`), expressible now from the
-in-place `hProp`/`propExt` foundations.
+interval is decided — not a soundness gap. Quotient **effectivity**
+(`[x]≡[y] ⟹ x≈y`) is now **closed**, `isSet hProp` proved from scratch
+(`hset.bend`); it is no longer an open task.
 
 ---
 
@@ -782,13 +790,13 @@ and what is genuinely still open.**
    still wanted on the label discipline, since the entire cost identity rides on
    same-vs-different label being annihilate-vs-commute.
 
-**What is genuinely still open** (small, and named exactly): (a) `comp`/`coe` to a
+**What is genuinely still open** (small, and named exactly): `comp`/`coe` to a
 **symbolic** interval endpoint — deliberately left stuck as `#HCm`, since that
 *is* the partial-knowledge semantics (the residue as a runtime value); closing it
-where a symbolic endpoint should compute is edge 2. (b) quotient **effectivity**
-(`[x]≡[y] ⟹ x≈y`) — library-porting from the in-place `hProp`/`propExt`
-foundations, after which behavioral-equivalence-as-path-equality is complete on
-the net in both directions.
+where a symbolic endpoint should compute is edge 2. Quotient effectivity, listed
+here in an earlier draft, is now closed: `isSet hProp` is proved from scratch
+(`hset.bend`) and fed into the instantiated `nerodeEffective`, so
+behavioral-equivalence-as-path-equality is complete on the net in both directions.
 
 **The one thing to see, in your terms:** the mathematics was already complete and
 already executing; it was paying an execution tax on a substrate not built for
