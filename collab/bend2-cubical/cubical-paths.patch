@@ -329,6 +329,20 @@ index 0000000..d021e3f
 +
 +def main() -> Bool:
 +  viaNeg3(True)
+diff --git a/coeprobe.bend b/coeprobe.bend
+new file mode 100644
+index 0000000..db444da
+--- /dev/null
++++ b/coeprobe.bend
+@@ -0,0 +1,8 @@
++# Does coe over a constant line with equal endpoints reduce to identity?
++def p1() -> Path(Bool, coe(lambda k. Bool, i0, i0, True), True):
++  <_> True
++# and with a reducible constant family (B(iand(i0,k)) shape)?
++def p2(B: Interval -> Set, x: B(i0)) -> Path(B(i0), coe(lambda k. B(iand(i0, k)), i0, i0, x), x):
++  <_> x
++def main() -> Nat:
++  0n
 diff --git a/coinduction.bend b/coinduction.bend
 new file mode 100644
 index 0000000..bb09c15
@@ -485,15 +499,16 @@ index 0000000..2888f4e
 +  0n
 diff --git a/corpus_lossless.bend b/corpus_lossless.bend
 new file mode 100644
-index 0000000..8a8d71c
+index 0000000..b3f2505
 --- /dev/null
 +++ b/corpus_lossless.bend
-@@ -0,0 +1,44 @@
+@@ -0,0 +1,45 @@
 +# The repo's lossless presentation lemma, in Bend2's fragment.
 +#
 +# Agda (cubical):  lossless : A ≃ Σ B (fiber f),  a ↦ (f a , a , refl)
-+# Bend2 has no paths/univalence, but the section-retraction half and the
-+# visible-projection law are expressible with Eql + Sigma.
++# This file is the Eql + Sigma (pre-cubical) version: the section-retraction
++# half and the visible-projection law.  The full coherent statement — the
++# equivalence itself, its ua path, and transport along it — is fibrelaw.bend.
 +
 +# Presentation of A through f: an observation b, a source a, a witness f a == b.
 +def Pres(A: Set, B: Set, f: A -> B) -> Set:
@@ -779,14 +794,132 @@ index 0000000..c87fae5
 +
 +def main() -> Nat:
 +  0n
+diff --git a/effective.bend b/effective.bend
+new file mode 100644
+index 0000000..4d0b6cc
+--- /dev/null
++++ b/effective.bend
+@@ -0,0 +1,105 @@
++# Effectivity of the set-quotient: [a] == [b]  =>  R a b.
++# Encode-decode: a code family Code : Q -> hProp by the recursor, then transport
++# the reflexivity witness along the path.  The equivalence-relation structure and
++# isSet hProp are inputs, exactly as the corpus's SQ.effective takes them.
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
++def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
++  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
++    [ (inot(i), <k> h(a, a) @ k), (i, <k> h(a, b) @ k)
++    , (inot(j), <k> h(a, p @ i) @ k), (j, <k> h(a, q @ i) @ k) ], a)
++def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
++  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
++def propExt(A: Set, B: Set, pA: isProp(A), pB: isProp(B), f: A -> B, g: B -> A) -> Path(Set, A, B):
++  ua(A, B, f, g, lambda x. pA(g(f(x)), x), lambda y. pB(f(g(y)), y))
++def hProp() -> Set:
++  any A: Set. isProp(A)
++def hcar(P: hProp) -> Set:
++  match P:
++    case (A, p): A
++def hpf(P: hProp) -> isProp(hcar(P)):
++  match P:
++    case (A, p): p
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++def subst(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
++  <i> hcompN(B(i),
++    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
++    coe(lambda k. B(iand(i, k)), i0, i, x))
++def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
++  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
++def hPropExt(P: hProp, Q: hProp, e: Path(Set, hcar(P), hcar(Q))) -> Path(hProp, P, Q):
++  <i> ( e @ i
++      , isPropToPathP(lambda i. isProp(e @ i),
++                      lambda i. lambda f. lambda g. isPropIsProp(e @ i, f, g),
++                      hpf(P), hpf(Q)) @ i )
++
++# --- the equivalence relation, structure threaded as inputs ---
++# Code [x] = (R a x, prop), respecting eq/ via propExt + trans/sym.
++def codePt(A: Set, R: A -> A -> Set, Rprop: all x: A. all y: A. isProp(R(x,y)), a: A, x: A) -> hProp:
++  (R(a, x), Rprop(a, x))
++
++def codeResp(A: Set, R: A -> A -> Set,
++             Rprop: all x: A. all y: A. isProp(R(x,y)),
++             Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++             Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++             a: A, x: A, y: A, w: R(x,y))
++             -> Path(hProp, codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y)):
++  hPropExt(codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y),
++    propExt(R(a,x), R(a,y), Rprop(a,x), Rprop(a,y),
++      lambda r. Rtrans(a, x, y, r, w),
++      lambda r. Rtrans(a, y, x, r, Rsym(x, y, w))))
++
++def Code(A: Set, R: A -> A -> Set,
++         Rprop: all x: A. all y: A. isProp(R(x,y)),
++         Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++         Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++         sh: isSet(hProp), a: A, m: Quot(A, R)) -> hProp:
++  qrec(m, sh, lambda x. codePt(A,R,Rprop,a,x),
++       lambda x. lambda y. lambda w. codeResp(A,R,Rprop,Rsym,Rtrans,a,x,y,w))
++
++def codeCar(A: Set, R: A -> A -> Set,
++            Rprop: all x: A. all y: A. isProp(R(x,y)),
++            Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++            Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++            sh: isSet(hProp), a: A, m: Quot(A, R)) -> Set:
++  hcar(Code(A,R,Rprop,Rsym,Rtrans,sh,a,m))
++
++# encode: transport the reflexivity witness (codeCar (qcl a) = R a a) along p.
++def encode(A: Set, R: A -> A -> Set,
++           Rprop: all x: A. all y: A. isProp(R(x,y)),
++           Rrefl: all x: A. R(x,x),
++           Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++           Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++           sh: isSet(hProp), a: A, m: Quot(A, R),
++           p: Path(Quot(A,R), qcl(a), m))
++           -> codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m):
++  subst(Quot(A,R), lambda m. codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m),
++        qcl(a), m, p, Rrefl(a))
++
++# THE EFFECTIVITY THEOREM: [a] == [b] gives R a b (codeCar (qcl b) = R a b).
++def effective(A: Set, R: A -> A -> Set,
++              Rprop: all x: A. all y: A. isProp(R(x,y)),
++              Rrefl: all x: A. R(x,x),
++              Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++              Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++              sh: isSet(hProp), a: A, b: A,
++              p: Path(Quot(A,R), qcl(a), qcl(b))) -> R(a, b):
++  encode(A,R,Rprop,Rrefl,Rsym,Rtrans,sh,a,qcl(b),p)
++
++# it computes: on the reflexive path [a]==[a], effective returns Rrefl a.
++def effComputes(A: Set, R: A -> A -> Set,
++                Rprop: all x: A. all y: A. isProp(R(x,y)),
++                Rrefl: all x: A. R(x,x),
++                Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++                Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++                sh: isSet(hProp), a: A)
++                -> Path(R(a,a), effective(A,R,Rprop,Rrefl,Rsym,Rtrans,sh,a,a, <_> qcl(a)), Rrefl(a)):
++  <_> Rrefl(a)
++
++def main() -> Nat:
++  0n
 diff --git a/equiv.bend b/equiv.bend
 new file mode 100644
-index 0000000..8c01b74
+index 0000000..25697f1
 --- /dev/null
 +++ b/equiv.bend
-@@ -0,0 +1,31 @@
+@@ -0,0 +1,65 @@
 +# Coherent equivalence (contractible-fibre isEquiv) — the formulation the
 +# review named as required for BOTH univalence round trips.
++#
++# Status: isContr / fiber / isEquiv / Equiv, isContrSingl, idEquiv,
++#   isPropIsContr (general 4-face hcompN), isPropIsEquiv (definitional),
++#   and pathToEquiv all check green.  isPropIsEquiv is what the reverse
++#   round trip needs: because isEquiv is a proposition, pathToEquiv(ua e)=e
++#   reduces to (i) the underlying functions agree — uaβ, which is
++#   definitional here — and (ii) a prop-filler on the isEquiv component.
 +
 +def isContr(A: Set) -> Set:
 +  any c: A. (all x: A. Path(A, c, x))
@@ -800,20 +933,1099 @@ index 0000000..8c01b74
 +def Equiv(A: Set, B: Set) -> Set:
 +  any f: A -> B. isEquiv(A, B, f)
 +
-+# Contractibility of the singleton  Σ x. Path(A, x, a)  — the key lemma:
-+# centre (a, refl); every (x,p) connects to it by the connection square.
++# Contractibility is a proposition.  Needs a general (4-face) cofibration
++# system — binary hcomp cannot express faces on two independent interval
++# variables.  This is the load-bearing lemma; it is green via hcompN.
++def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
++  match c0:
++    case (a0, p0):
++      match c1:
++        case (a1, p1):
++          <i> ( p0(a1) @ i
++              , lambda x. <j> hcompN(A,
++                  [ (inot(i), <k> p0(p0(x) @ j) @ k)
++                  , (i,       <k> p0(p1(x) @ j) @ k)
++                  , (inot(j), <k> p0(p0(a1) @ i) @ k)
++                  , (j,       <k> p0(x) @ k)
++                  ], a0) )
++
++# isEquiv is a proposition: it is a Π of isContr, and isContr is a prop.
++# Pointwise in y, connect the two fibre-contraction proofs by isPropIsContr.
++# (Green because a Ref of Path type has its @-endpoints read from its
++#  declared type: isPropIsContr(_, u0 y, u1 y) @ i0  ≡  u0 y.)
++def isPropIsEquiv(A: Set, B: Set, f: A -> B, u0: isEquiv(A,B,f), u1: isEquiv(A,B,f))
++  -> Path(isEquiv(A,B,f), u0, u1):
++  <i> lambda y. isPropIsContr(fiber(A,B,f,y), u0(y), u1(y)) @ i
++
++# Contractibility of the singleton  Σ x. Path(A, x, a).
 +def isContrSingl(A: Set, a: A) -> isContr(fiber(A, A, lambda x. x, a)):
 +  ( (a, <_> a)
 +  , lambda w.
 +      match w:
 +        case (x, p):
-+          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) )
-+  )
++          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) ) )
 +
 +# hence the identity map is an equivalence
 +def idEquiv(A: Set) -> Equiv(A, A):
 +  ( lambda x. x , lambda y. isContrSingl(A, y) )
 +
++# Path -> Equiv: transport idEquiv along the type path.  (coe through the
++# Σ/Π structure of Equiv computes; this typechecks as-is.)
++def pathToEquiv(A: Set, B: Set, p: Path(Set, A, B)) -> Equiv(A, B):
++  coe(lambda i. Equiv(A, p @ i), i0, i1, idEquiv(A))
++
++def main() -> Nat:
++  0n
+diff --git a/fibrelaw.bend b/fibrelaw.bend
+new file mode 100644
+index 0000000..eab7259
+--- /dev/null
++++ b/fibrelaw.bend
+@@ -0,0 +1,137 @@
++# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
++# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
++# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
++# A ≃ Σ B (fiber f) at the coherent level, for every f.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
++def Total(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. fiber(A, B, f, b)
++def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  (f(a), a, <_> f(a))
++def untot(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  match w:
++    case (b, a, q):
++      a
++def tot_sec(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> Path(Total(A, B, f), tot(A, B, f, untot(A, B, f, w)), w):
++  match w:
++    case (b, a, q):
++      <i> (q @ i, a, <j> q @ iand(i, j))
++def tot_ret(A: Set, B: Set, f: A -> B, a: A) -> Path(A, untot(A, B, f, tot(A, B, f, a)), a):
++  <_> a
++def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
++  isoToEquiv(A, Total(A, B, f), tot(A, B, f), untot(A, B, f), tot_sec(A, B, f), tot_ret(A, B, f))
++
++
++# ---- ua of the fibre law: the lossless presentation as a PATH in Set,
++# transported natively (coe) — the corpus's factoring a ↦ (f a, a, refl).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def losslessPath(A: Set, B: Set, f: A -> B) -> Path(Set, A, Total(A, B, f)):
++  uaE(A, Total(A, B, f), totalEquiv(A, B, f))
++def present(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  coe(lambda i. losslessPath(A, B, f) @ i, i0, i1, a)
++def retrieve(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  coe(lambda i. losslessPath(A, B, f) @ i, i1, i0, w)
++# transport along the fibre-law path IS the factoring (uaβ), and back
++def present_is_tot(A: Set, B: Set, f: A -> B, a: A) -> Path(Total(A, B, f), present(A, B, f, a), tot(A, B, f, a)):
++  <_> tot(A, B, f, a)
++def retrieve_present(A: Set, B: Set, f: A -> B, a: A) -> Path(A, retrieve(A, B, f, present(A, B, f, a)), a):
++  <_> a
++
++# runtime instance: f = neg on Bool
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def presentNeg(x: Bool) -> Bool:
++  match present(Bool, Bool, neg, x):
++    case (b, a, q):
++      b
++def retrieveNeg(x: Bool) -> Bool:
++  retrieve(Bool, Bool, neg, present(Bool, Bool, neg, x))
++
++# the fibre-contractibility witness (the discriminator's content) executed:
++# contrFib's path from the centre (neg y, refl) to w, observed at both ends.
++# The fibre of neg over y=True is {False}: both ends must be False.
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def contrNeg0() -> Bool:
++  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i0:
++    case (x, _):
++      x
++def contrNeg1() -> Bool:
++  match contrFib(Bool, Bool, neg, neg, negLnv, negLnv, True, (False, <_> True)) @ i1:
++    case (x, _):
++      x
++def main() -> Bool:
++  presentNeg(True)
+diff --git a/forced.bend b/forced.bend
+new file mode 100644
+index 0000000..13fc145
+--- /dev/null
++++ b/forced.bend
+@@ -0,0 +1,206 @@
++# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
++# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
++# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
++# A ≃ Σ B (fiber f) at the coherent level, for every f.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
++def Total(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. fiber(A, B, f, b)
++def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  (f(a), a, <_> f(a))
++def untot(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  match w:
++    case (b, a, q):
++      a
++def tot_sec(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> Path(Total(A, B, f), tot(A, B, f, untot(A, B, f, w)), w):
++  match w:
++    case (b, a, q):
++      <i> (q @ i, a, <j> q @ iand(i, j))
++def tot_ret(A: Set, B: Set, f: A -> B, a: A) -> Path(A, untot(A, B, f, tot(A, B, f, a)), a):
++  <_> a
++def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
++  isoToEquiv(A, Total(A, B, f), tot(A, B, f), untot(A, B, f), tot_sec(A, B, f), tot_ret(A, B, f))
++
++
++# ---- ua of the fibre law: the lossless presentation as a PATH in Set,
++# transported natively (coe) — the corpus's factoring a ↦ (f a, a, refl).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def losslessPath(A: Set, B: Set, f: A -> B) -> Path(Set, A, Total(A, B, f)):
++  uaE(A, Total(A, B, f), totalEquiv(A, B, f))
++def present(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  coe(lambda i. losslessPath(A, B, f) @ i, i0, i1, a)
++def retrieve(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  coe(lambda i. losslessPath(A, B, f) @ i, i1, i0, w)
++# transport along the fibre-law path IS the factoring (uaβ), and back
++def present_is_tot(A: Set, B: Set, f: A -> B, a: A) -> Path(Total(A, B, f), present(A, B, f, a), tot(A, B, f, a)):
++  <_> tot(A, B, f, a)
++def retrieve_present(A: Set, B: Set, f: A -> B, a: A) -> Path(A, retrieve(A, B, f, present(A, B, f, a)), a):
++  <_> a
++
++
++# ============ the forcing theorem: the fibre is the ONLY residue ============
++def ap(A: Set, B: Set, f: A -> B, x: A, y: A, p: Path(A, x, y)) -> Path(B, f(x), f(y)):
++  <i> f(p @ i)
++def pcomp(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z)) -> Path(A, x, z):
++  <i> hcompN(A, [ (inot(i), <_> x), (i, <j> q @ j) ], p @ i)
++
++# iso accessors of an equivalence, taking (f, h) UNPACKED (so types reduce)
++def eqG(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), y: B) -> A:
++  invC(A, B, f, y, h(y))
++def eqS(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), y: B) -> Path(B, f(eqG(A,B,f,h,y)), y):
++  secC(A, B, f, y, h(y))
++def eqT(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), x: A) -> Path(A, eqG(A,B,f,h,f(x)), x):
++  retC(A, B, f, x, h(f(x)))
++
++# compose equivalences (via the composed iso, no Iso-tuple matching)
++def compEquiv(A: Set, B: Set, C: Set, e1: Equiv(A,B), e2: Equiv(B,C)) -> Equiv(A,C):
++  match e1:
++    case (f1, h1):
++      match e2:
++        case (f2, h2):
++          isoToEquiv(A, C,
++            lambda a. f2(f1(a)),
++            lambda c. eqG(A,B,f1,h1, eqG(B,C,f2,h2,c)),
++            lambda c. pcomp(C, f2(f1(eqG(A,B,f1,h1,eqG(B,C,f2,h2,c)))), f2(eqG(B,C,f2,h2,c)), c,
++                        ap(B,C,f2, f1(eqG(A,B,f1,h1,eqG(B,C,f2,h2,c))), eqG(B,C,f2,h2,c), eqS(A,B,f1,h1, eqG(B,C,f2,h2,c))),
++                        eqS(B,C,f2,h2,c)),
++            lambda a. pcomp(A, eqG(A,B,f1,h1,eqG(B,C,f2,h2,f2(f1(a)))), eqG(A,B,f1,h1,f1(a)), a,
++                        ap(B,A, lambda z. eqG(A,B,f1,h1,z), eqG(B,C,f2,h2,f2(f1(a))), f1(a), eqT(B,C,f2,h2,f1(a))),
++                        eqT(A,B,f1,h1,a)))
++
++# invert an equivalence
++def invEquiv(A: Set, B: Set, e: Equiv(A,B)) -> Equiv(B,A):
++  match e:
++    case (f, h):
++      isoToEquiv(B, A,
++        lambda y. eqG(A,B,f,h,y),
++        f,
++        lambda x. eqT(A,B,f,h,x),
++        lambda y. eqS(A,B,f,h,y))
++
++# ---- fiberFst: the fibre of the first projection IS the family (the heart)
++def SigT(B: Set, T: B -> Set) -> Set:
++  any b: B. T(b)
++def fstT(B: Set, T: B -> Set, s: SigT(B,T)) -> B:
++  match s:
++    case (b2, t): b2
++def sndT(B: Set, T: B -> Set, s: SigT(B,T)) -> T(fstT(B,T,s)):
++  match s:
++    case (b2, t): t
++def ffFun(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b)) -> T(b):
++  match w:
++    case (s, p):
++      coe(lambda i. T(p @ i), i0, i1, sndT(B,T,s))
++def ffInv(B: Set, T: B -> Set, b: B, t: T(b)) -> fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b):
++  ( (b, t), <_> b )
++def ffSec(B: Set, T: B -> Set, b: B, t: T(b)) -> Path(T(b), ffFun(B,T,b, ffInv(B,T,b,t)), t):
++  <_> t
++def ffRet(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b))
++  -> Path(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), ffInv(B,T,b, ffFun(B,T,b,w)), w):
++  match w:
++    case (s, p):
++      match s:
++        case (b2, t):
++          <j> ( (p @ inot(j), (<i> coe(lambda k. T(p @ iand(i, k)), i0, i, t)) @ inot(j)), <k> p @ ior(inot(j), k) )
++def fiberFst(B: Set, T: B -> Set, b: B) -> Equiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b)):
++  isoToEquiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
++             lambda w. ffFun(B,T,b,w), lambda t. ffInv(B,T,b,t),
++             lambda t. ffSec(B,T,b,t), lambda w. ffRet(B,T,b,w))
++# ---- s1: reindex the fibre base by an equivalence (fiberPrecomp).
++# fun/inv/section done; the retraction needs the half-adjoint triangle identity
++# ap ef (eqT a) = eqS (ef a) (+ a unit law) — the one coherence square remaining.
++def cpf(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z))
++  -> PathP(lambda j. Path(A, p @ j, z), pcomp(A,x,y,z,p,q), q):
++  <j> <i> hcompN(A, [ (inot(i), <_> p @ j), (i, <k> q @ k), (j, <k> q @ iand(i, k)) ], p @ ior(i, j))
++def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
++  match w:
++    case (a, p): (ef(a), p)
++def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
++  match w:
++    case (a2, p):
++      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
++def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
++  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
++  match w:
++    case (a2, p):
++      <j> ( eqS(A,Ap,ef,h,a2) @ j
++          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
++# the coherent contraction path in fiber(ef, ef a) (Σ-η makes the centre reduce)
++def cw(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(fiber(A, Ap, ef, ef(a)), (eqG(A,Ap,ef,h,ef(a)), eqS(A,Ap,ef,h,ef(a))), (a, <_> ef(a))):
++  match (h(ef(a))):
++    case (cen, contr):
++      contr((a, <_> ef(a)))
++def cwFst(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(A, eqG(A,Ap,ef,h,ef(a)), a):
++  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): z)
++def cwSnd(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A)
++  -> PathP(lambda j. Path(Ap, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a)), eqS(A,Ap,ef,h,ef(a)), <_> ef(a)):
++  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): q)
++def main2() -> Nat:
++  0n
+diff --git a/forcing.bend b/forcing.bend
+new file mode 100644
+index 0000000..65b92f5
+--- /dev/null
++++ b/forcing.bend
+@@ -0,0 +1,275 @@
++# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
++# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
++# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
++# A ≃ Σ B (fiber f) at the coherent level, for every f.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
++def Total(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. fiber(A, B, f, b)
++def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  (f(a), a, <_> f(a))
++def untot(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  match w:
++    case (b, a, q):
++      a
++def tot_sec(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> Path(Total(A, B, f), tot(A, B, f, untot(A, B, f, w)), w):
++  match w:
++    case (b, a, q):
++      <i> (q @ i, a, <j> q @ iand(i, j))
++def tot_ret(A: Set, B: Set, f: A -> B, a: A) -> Path(A, untot(A, B, f, tot(A, B, f, a)), a):
++  <_> a
++def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
++  isoToEquiv(A, Total(A, B, f), tot(A, B, f), untot(A, B, f), tot_sec(A, B, f), tot_ret(A, B, f))
++
++
++# ---- ua of the fibre law: the lossless presentation as a PATH in Set,
++# transported natively (coe) — the corpus's factoring a ↦ (f a, a, refl).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def losslessPath(A: Set, B: Set, f: A -> B) -> Path(Set, A, Total(A, B, f)):
++  uaE(A, Total(A, B, f), totalEquiv(A, B, f))
++def present(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  coe(lambda i. losslessPath(A, B, f) @ i, i0, i1, a)
++def retrieve(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  coe(lambda i. losslessPath(A, B, f) @ i, i1, i0, w)
++# transport along the fibre-law path IS the factoring (uaβ), and back
++def present_is_tot(A: Set, B: Set, f: A -> B, a: A) -> Path(Total(A, B, f), present(A, B, f, a), tot(A, B, f, a)):
++  <_> tot(A, B, f, a)
++def retrieve_present(A: Set, B: Set, f: A -> B, a: A) -> Path(A, retrieve(A, B, f, present(A, B, f, a)), a):
++  <_> a
++
++
++# ============ the forcing theorem: the fibre is the ONLY residue ============
++def ap(A: Set, B: Set, f: A -> B, x: A, y: A, p: Path(A, x, y)) -> Path(B, f(x), f(y)):
++  <i> f(p @ i)
++def pcomp(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z)) -> Path(A, x, z):
++  <i> hcompN(A, [ (inot(i), <_> x), (i, <j> q @ j) ], p @ i)
++
++# iso accessors of an equivalence, taking (f, h) UNPACKED (so types reduce)
++def eqG(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), y: B) -> A:
++  invC(A, B, f, y, h(y))
++def eqS(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), y: B) -> Path(B, f(eqG(A,B,f,h,y)), y):
++  secC(A, B, f, y, h(y))
++def eqT(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), x: A) -> Path(A, eqG(A,B,f,h,f(x)), x):
++  retC(A, B, f, x, h(f(x)))
++
++# compose equivalences (via the composed iso, no Iso-tuple matching)
++def compEquiv(A: Set, B: Set, C: Set, e1: Equiv(A,B), e2: Equiv(B,C)) -> Equiv(A,C):
++  match e1:
++    case (f1, h1):
++      match e2:
++        case (f2, h2):
++          isoToEquiv(A, C,
++            lambda a. f2(f1(a)),
++            lambda c. eqG(A,B,f1,h1, eqG(B,C,f2,h2,c)),
++            lambda c. pcomp(C, f2(f1(eqG(A,B,f1,h1,eqG(B,C,f2,h2,c)))), f2(eqG(B,C,f2,h2,c)), c,
++                        ap(B,C,f2, f1(eqG(A,B,f1,h1,eqG(B,C,f2,h2,c))), eqG(B,C,f2,h2,c), eqS(A,B,f1,h1, eqG(B,C,f2,h2,c))),
++                        eqS(B,C,f2,h2,c)),
++            lambda a. pcomp(A, eqG(A,B,f1,h1,eqG(B,C,f2,h2,f2(f1(a)))), eqG(A,B,f1,h1,f1(a)), a,
++                        ap(B,A, lambda z. eqG(A,B,f1,h1,z), eqG(B,C,f2,h2,f2(f1(a))), f1(a), eqT(B,C,f2,h2,f1(a))),
++                        eqT(A,B,f1,h1,a)))
++
++# invert an equivalence
++def invEquiv(A: Set, B: Set, e: Equiv(A,B)) -> Equiv(B,A):
++  match e:
++    case (f, h):
++      isoToEquiv(B, A,
++        lambda y. eqG(A,B,f,h,y),
++        f,
++        lambda x. eqT(A,B,f,h,x),
++        lambda y. eqS(A,B,f,h,y))
++
++# ---- fiberFst: the fibre of the first projection IS the family (the heart)
++def SigT(B: Set, T: B -> Set) -> Set:
++  any b: B. T(b)
++def fstT(B: Set, T: B -> Set, s: SigT(B,T)) -> B:
++  match s:
++    case (b2, t): b2
++def sndT(B: Set, T: B -> Set, s: SigT(B,T)) -> T(fstT(B,T,s)):
++  match s:
++    case (b2, t): t
++def ffFun(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b)) -> T(b):
++  match w:
++    case (s, p):
++      coe(lambda i. T(p @ i), i0, i1, sndT(B,T,s))
++def ffInv(B: Set, T: B -> Set, b: B, t: T(b)) -> fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b):
++  ( (b, t), <_> b )
++def ffSec(B: Set, T: B -> Set, b: B, t: T(b)) -> Path(T(b), ffFun(B,T,b, ffInv(B,T,b,t)), t):
++  <_> t
++def ffRet(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b))
++  -> Path(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), ffInv(B,T,b, ffFun(B,T,b,w)), w):
++  match w:
++    case (s, p):
++      match s:
++        case (b2, t):
++          <j> ( (p @ inot(j), (<i> coe(lambda k. T(p @ iand(i, k)), i0, i, t)) @ inot(j)), <k> p @ ior(inot(j), k) )
++def fiberFst(B: Set, T: B -> Set, b: B) -> Equiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b)):
++  isoToEquiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
++             lambda w. ffFun(B,T,b,w), lambda t. ffInv(B,T,b,t),
++             lambda t. ffSec(B,T,b,t), lambda w. ffRet(B,T,b,w))
++# ---- s1: reindex the fibre base by an equivalence (fiberPrecomp).
++# fun/inv/section done; the retraction needs the half-adjoint triangle identity
++# ap ef (eqT a) = eqS (ef a) (+ a unit law) — the one coherence square remaining.
++def cpf(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z))
++  -> PathP(lambda j. Path(A, p @ j, z), pcomp(A,x,y,z,p,q), q):
++  <j> <i> hcompN(A, [ (inot(i), <_> p @ j), (i, <k> q @ k), (j, <k> q @ iand(i, k)) ], p @ ior(i, j))
++def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
++  match w:
++    case (a, p): (ef(a), p)
++def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
++  match w:
++    case (a2, p):
++      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
++def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
++  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
++  match w:
++    case (a2, p):
++      <j> ( eqS(A,Ap,ef,h,a2) @ j
++          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
++# the coherent contraction path in fiber(ef, ef a) (Σ-η makes the centre reduce)
++def cw(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(fiber(A, Ap, ef, ef(a)), (eqG(A,Ap,ef,h,ef(a)), eqS(A,Ap,ef,h,ef(a))), (a, <_> ef(a))):
++  match (h(ef(a))):
++    case (cen, contr):
++      contr((a, <_> ef(a)))
++def cwFst(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(A, eqG(A,Ap,ef,h,ef(a)), a):
++  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): z)
++def cwSnd(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A)
++  -> PathP(lambda j. Path(Ap, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a)), eqS(A,Ap,ef,h,ef(a)), <_> ef(a)):
++  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): q)
++def lUnit(A: Set, x: A, z: A, p: Path(A, x, z)) -> Path(Path(A, x, z), pcomp(A, x, x, z, <_> x, p), p):
++  <m> <i> hcompN(A, [ (inot(i), <_> x), (i, <j> p @ j), (m, <j> p @ iand(i, j)) ], x)
++def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
++  match w:
++    case (a, p): (ef(a), p)
++def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
++  match w:
++    case (a2, p):
++      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
++# path1: fpInv(fpFun(a,p)) -> (a, pcomp(refl, p)), driven by the coherent contraction
++def fpPath1(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, a: A, p: Path(B, g(ef(a)), b))
++  -> Path(fiber(A, B, lambda a2. g(ef(a2)), b),
++          (eqG(A,Ap,ef,h,ef(a)), pcomp(B, g(ef(eqG(A,Ap,ef,h,ef(a)))), g(ef(a)), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,ef(a))), ef(a), eqS(A,Ap,ef,h,ef(a))), p)),
++          (a, pcomp(B, g(ef(a)), g(ef(a)), b, <_> g(ef(a)), p))):
++  <j> ( cwFst(A,Ap,ef,h,a) @ j
++      , pcomp(B, g(ef(cwFst(A,Ap,ef,h,a) @ j)), g(ef(a)), b, ap(Ap,B,g, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a), cwSnd(A,Ap,ef,h,a) @ j), p) )
++def fpRet(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b))
++  -> Path(fiber(A, B, lambda a. g(ef(a)), b), fpInv(A,Ap,B,ef,h,g,b, fpFun(A,Ap,B,ef,g,b,w)), w):
++  match w:
++    case (a, p):
++      pcomp(fiber(A, B, lambda a2. g(ef(a2)), b),
++            (eqG(A,Ap,ef,h,ef(a)), pcomp(B, g(ef(eqG(A,Ap,ef,h,ef(a)))), g(ef(a)), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,ef(a))), ef(a), eqS(A,Ap,ef,h,ef(a))), p)),
++            (a, pcomp(B, g(ef(a)), g(ef(a)), b, <_> g(ef(a)), p)),
++            (a, p),
++            fpPath1(A,Ap,B,ef,h,g,b,a,p),
++            <k> (a, lUnit(B, g(ef(a)), b, p) @ k))
++def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
++  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
++  match w:
++    case (a2, p):
++      <j> ( eqS(A,Ap,ef,h,a2) @ j
++          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
++def fiberPrecomp(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B)
++  -> Equiv(fiber(A, B, lambda a. g(ef(a)), b), fiber(Ap, B, g, b)):
++  isoToEquiv(fiber(A, B, lambda a. g(ef(a)), b), fiber(Ap, B, g, b),
++    lambda w. fpFun(A,Ap,B,ef,g,b,w), lambda w. fpInv(A,Ap,B,ef,h,g,b,w),
++    lambda w. fpSec(A,Ap,B,ef,h,g,b,w), lambda w. fpRet(A,Ap,B,ef,h,g,b,w))
++
++# THE FORCING THEOREM.  A Conservative factorisation of A over B, and its
++# induced visible map `run`; the trace family is FORCED to be run's fibre.
++def Conservative(A: Set, B: Set) -> Set:
++  any T: (B -> Set). Equiv(A, SigT(B,T))
++def cRun(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), a: A) -> B:
++  fstT(B, T, wf(a))
++def fibreOfRun(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), b: B)
++  -> Equiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b)):
++  compEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
++            fiberPrecomp(A, SigT(B,T), B, wf, wh, lambda s. fstT(B,T,s), b),
++            fiberFst(B, T, b))
++# and the constraint reading: the trace is the fibre, no smaller residue exists
++def traceIsForced(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), b: B)
++  -> Equiv(T(b), fiber(A, B, lambda a. cRun(A,B,T,wf,a), b)):
++  invEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b))
++# transport contractibility along an equivalence
++def isContrRespectEquiv(A: Set, B: Set, e: Equiv(A,B), c: isContr(A)) -> isContr(B):
++  match e:
++    case (f, h):
++      match c:
++        case (cA, hA):
++          ( f(cA)
++          , lambda y. pcomp(B, f(cA), f(eqG(A,B,f,h,y)), y,
++                       ap(A,B,f, cA, eqG(A,B,f,h,y), hA(eqG(A,B,f,h,y))), eqS(A,B,f,h,y)) )
++# nothing forgotten (contractible trace) <=> the visible map is an equivalence
++def exactWhenContractible(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), hc: all b: B. isContr(T(b)))
++  -> isEquiv(A, B, lambda a. cRun(A,B,T,wf,a)):
++  lambda b. isContrRespectEquiv(T(b), fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), traceIsForced(A,B,T,wf,wh,b), hc(b))
++def contractibleWhenExact(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), re: isEquiv(A, B, lambda a. cRun(A,B,T,wf,a)), b: B)
++  -> isContr(T(b)):
++  isContrRespectEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b), re(b))
++def main2() -> Nat:
++  0n
+diff --git a/forcing_run.bend b/forcing_run.bend
+new file mode 100644
+index 0000000..91a108b
+--- /dev/null
++++ b/forcing_run.bend
+@@ -0,0 +1,350 @@
++# isoToIsEquiv (Cubical.Foundations.Isomorphism, lemIso), transcribed:
++# an isomorphism (f, g, s, t) has CONTRACTIBLE FIBRES.  hfill is inlined as
++# hcompN with the extra (inot j) face.  Then totalEquiv: the fibre law
++# A ≃ Σ B (fiber f) at the coherent level, for every f.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++# fill0 i j  (library: hfill (i=i1 -> t x0 k ; i=i0 -> g y) (g (p0 (~i))))
++def fill0(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> t(x0) @ iand(j, k)), (inot(i), <k> g(y)), (inot(j), <k> g(p0 @ inot(i))) ], g(p0 @ inot(i)))
++
++# fill2 i j (library: hfill (i=i1 -> fill1 k i1 ; i=i0 -> fill0 k i1) (g y))
++def fill2(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, iand(j, k), i1))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, iand(j, k), i1))
++            , (inot(j), <k> g(y)) ], g(y))
++
++def pIso(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(A, x0, x1):
++  <i> fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++
++def sq(A: Set, B: Set, f: A -> B, g: B -> A, t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> A:
++  hcompN(A, [ (i, <k> fill0(A, B, f, g, t, y, x1, p1, j, inot(k)))
++            , (inot(i), <k> fill0(A, B, f, g, t, y, x0, p0, j, inot(k)))
++            , (j, <k> t(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)) @ inot(k))
++            , (inot(j), <k> g(y)) ], fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, j))
++
++def sq1(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y), i: Interval, j: Interval) -> B:
++  hcompN(B, [ (i, <k> s(p1 @ inot(j)) @ k)
++            , (inot(i), <k> s(p0 @ inot(j)) @ k)
++            , (j, <k> s(f(fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1))) @ k)
++            , (inot(j), <k> s(y) @ k) ], f(sq(A, B, f, g, t, y, x0, p0, x1, p1, i, j)))
++
++def lemIso(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, x0: A, p0: Path(B, f(x0), y), x1: A, p1: Path(B, f(x1), y)) -> Path(fiber(A, B, f, y), (x0, p0), (x1, p1)):
++  <i> ( fill2(A, B, f, g, t, y, x0, p0, x1, p1, i, i1)
++      , <j> sq1(A, B, f, g, s, t, y, x0, p0, x1, p1, i, inot(j)) )
++
++def isoToIsEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> isEquiv(A, B, f):
++  lambda y. ((g(y), s(y)), lambda w. contrFib(A, B, f, g, s, t, y, w))
++def contrFib(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x), y: B, w: fiber(A, B, f, y)) -> Path(fiber(A, B, f, y), (g(y), s(y)), w):
++  match w:
++    case (x, p):
++      lemIso(A, B, f, g, s, t, y, g(y), s(y), x, p)
++
++def isoToEquiv(A: Set, B: Set, f: A -> B, g: B -> A, s: all y: B. Path(B, f(g(y)), y), t: all x: A. Path(A, g(f(x)), x)) -> Equiv(A, B):
++  (f, isoToIsEquiv(A, B, f, g, s, t))
++
++# ---- the fibre law, coherent: A ≃ Σ B (fiber f)  (HoTT 4.8.2, totalEquiv)
++def Total(A: Set, B: Set, f: A -> B) -> Set:
++  any b: B. fiber(A, B, f, b)
++def tot(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  (f(a), a, <_> f(a))
++def untot(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  match w:
++    case (b, a, q):
++      a
++def tot_sec(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> Path(Total(A, B, f), tot(A, B, f, untot(A, B, f, w)), w):
++  match w:
++    case (b, a, q):
++      <i> (q @ i, a, <j> q @ iand(i, j))
++def tot_ret(A: Set, B: Set, f: A -> B, a: A) -> Path(A, untot(A, B, f, tot(A, B, f, a)), a):
++  <_> a
++def totalEquiv(A: Set, B: Set, f: A -> B) -> Equiv(A, Total(A, B, f)):
++  isoToEquiv(A, Total(A, B, f), tot(A, B, f), untot(A, B, f), tot_sec(A, B, f), tot_ret(A, B, f))
++
++
++# ---- ua of the fibre law: the lossless presentation as a PATH in Set,
++# transported natively (coe) — the corpus's factoring a ↦ (f a, a, refl).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def losslessPath(A: Set, B: Set, f: A -> B) -> Path(Set, A, Total(A, B, f)):
++  uaE(A, Total(A, B, f), totalEquiv(A, B, f))
++def present(A: Set, B: Set, f: A -> B, a: A) -> Total(A, B, f):
++  coe(lambda i. losslessPath(A, B, f) @ i, i0, i1, a)
++def retrieve(A: Set, B: Set, f: A -> B, w: Total(A, B, f)) -> A:
++  coe(lambda i. losslessPath(A, B, f) @ i, i1, i0, w)
++# transport along the fibre-law path IS the factoring (uaβ), and back
++def present_is_tot(A: Set, B: Set, f: A -> B, a: A) -> Path(Total(A, B, f), present(A, B, f, a), tot(A, B, f, a)):
++  <_> tot(A, B, f, a)
++def retrieve_present(A: Set, B: Set, f: A -> B, a: A) -> Path(A, retrieve(A, B, f, present(A, B, f, a)), a):
++  <_> a
++
++
++# ============ the forcing theorem: the fibre is the ONLY residue ============
++def ap(A: Set, B: Set, f: A -> B, x: A, y: A, p: Path(A, x, y)) -> Path(B, f(x), f(y)):
++  <i> f(p @ i)
++def pcomp(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z)) -> Path(A, x, z):
++  <i> hcompN(A, [ (inot(i), <_> x), (i, <j> q @ j) ], p @ i)
++
++# iso accessors of an equivalence, taking (f, h) UNPACKED (so types reduce)
++def eqG(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), y: B) -> A:
++  invC(A, B, f, y, h(y))
++def eqS(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), y: B) -> Path(B, f(eqG(A,B,f,h,y)), y):
++  secC(A, B, f, y, h(y))
++def eqT(A: Set, B: Set, f: A -> B, h: isEquiv(A,B,f), x: A) -> Path(A, eqG(A,B,f,h,f(x)), x):
++  retC(A, B, f, x, h(f(x)))
++
++# compose equivalences (via the composed iso, no Iso-tuple matching)
++def compEquiv(A: Set, B: Set, C: Set, e1: Equiv(A,B), e2: Equiv(B,C)) -> Equiv(A,C):
++  match e1:
++    case (f1, h1):
++      match e2:
++        case (f2, h2):
++          isoToEquiv(A, C,
++            lambda a. f2(f1(a)),
++            lambda c. eqG(A,B,f1,h1, eqG(B,C,f2,h2,c)),
++            lambda c. pcomp(C, f2(f1(eqG(A,B,f1,h1,eqG(B,C,f2,h2,c)))), f2(eqG(B,C,f2,h2,c)), c,
++                        ap(B,C,f2, f1(eqG(A,B,f1,h1,eqG(B,C,f2,h2,c))), eqG(B,C,f2,h2,c), eqS(A,B,f1,h1, eqG(B,C,f2,h2,c))),
++                        eqS(B,C,f2,h2,c)),
++            lambda a. pcomp(A, eqG(A,B,f1,h1,eqG(B,C,f2,h2,f2(f1(a)))), eqG(A,B,f1,h1,f1(a)), a,
++                        ap(B,A, lambda z. eqG(A,B,f1,h1,z), eqG(B,C,f2,h2,f2(f1(a))), f1(a), eqT(B,C,f2,h2,f1(a))),
++                        eqT(A,B,f1,h1,a)))
++
++# invert an equivalence
++def invEquiv(A: Set, B: Set, e: Equiv(A,B)) -> Equiv(B,A):
++  match e:
++    case (f, h):
++      isoToEquiv(B, A,
++        lambda y. eqG(A,B,f,h,y),
++        f,
++        lambda x. eqT(A,B,f,h,x),
++        lambda y. eqS(A,B,f,h,y))
++
++# ---- fiberFst: the fibre of the first projection IS the family (the heart)
++def SigT(B: Set, T: B -> Set) -> Set:
++  any b: B. T(b)
++def fstT(B: Set, T: B -> Set, s: SigT(B,T)) -> B:
++  match s:
++    case (b2, t): b2
++def sndT(B: Set, T: B -> Set, s: SigT(B,T)) -> T(fstT(B,T,s)):
++  match s:
++    case (b2, t): t
++def ffFun(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b)) -> T(b):
++  match w:
++    case (s, p):
++      coe(lambda i. T(p @ i), i0, i1, sndT(B,T,s))
++def ffInv(B: Set, T: B -> Set, b: B, t: T(b)) -> fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b):
++  ( (b, t), <_> b )
++def ffSec(B: Set, T: B -> Set, b: B, t: T(b)) -> Path(T(b), ffFun(B,T,b, ffInv(B,T,b,t)), t):
++  <_> t
++def ffRet(B: Set, T: B -> Set, b: B, w: fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b))
++  -> Path(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), ffInv(B,T,b, ffFun(B,T,b,w)), w):
++  match w:
++    case (s, p):
++      match s:
++        case (b2, t):
++          <j> ( (p @ inot(j), (<i> coe(lambda k. T(p @ iand(i, k)), i0, i, t)) @ inot(j)), <k> p @ ior(inot(j), k) )
++def fiberFst(B: Set, T: B -> Set, b: B) -> Equiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b)):
++  isoToEquiv(fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
++             lambda w. ffFun(B,T,b,w), lambda t. ffInv(B,T,b,t),
++             lambda t. ffSec(B,T,b,t), lambda w. ffRet(B,T,b,w))
++# ---- s1: reindex the fibre base by an equivalence (fiberPrecomp).
++# fun/inv/section done; the retraction needs the half-adjoint triangle identity
++# ap ef (eqT a) = eqS (ef a) (+ a unit law) — the one coherence square remaining.
++def cpf(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z))
++  -> PathP(lambda j. Path(A, p @ j, z), pcomp(A,x,y,z,p,q), q):
++  <j> <i> hcompN(A, [ (inot(i), <_> p @ j), (i, <k> q @ k), (j, <k> q @ iand(i, k)) ], p @ ior(i, j))
++def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
++  match w:
++    case (a, p): (ef(a), p)
++def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
++  match w:
++    case (a2, p):
++      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
++def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
++  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
++  match w:
++    case (a2, p):
++      <j> ( eqS(A,Ap,ef,h,a2) @ j
++          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
++# the coherent contraction path in fiber(ef, ef a) (Σ-η makes the centre reduce)
++def cw(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(fiber(A, Ap, ef, ef(a)), (eqG(A,Ap,ef,h,ef(a)), eqS(A,Ap,ef,h,ef(a))), (a, <_> ef(a))):
++  match (h(ef(a))):
++    case (cen, contr):
++      contr((a, <_> ef(a)))
++def cwFst(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A) -> Path(A, eqG(A,Ap,ef,h,ef(a)), a):
++  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): z)
++def cwSnd(A: Set, Ap: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), a: A)
++  -> PathP(lambda j. Path(Ap, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a)), eqS(A,Ap,ef,h,ef(a)), <_> ef(a)):
++  <j> (match cw(A,Ap,ef,h,a) @ j: case (z, q): q)
++def lUnit(A: Set, x: A, z: A, p: Path(A, x, z)) -> Path(Path(A, x, z), pcomp(A, x, x, z, <_> x, p), p):
++  <m> <i> hcompN(A, [ (inot(i), <_> x), (i, <j> p @ j), (m, <j> p @ iand(i, j)) ], x)
++def fpFun(A: Set, Ap: Set, B: Set, ef: A -> Ap, g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b)) -> fiber(Ap, B, g, b):
++  match w:
++    case (a, p): (ef(a), p)
++def fpInv(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b)) -> fiber(A, B, lambda a. g(ef(a)), b):
++  match w:
++    case (a2, p):
++      (eqG(A,Ap,ef,h,a2), pcomp(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p))
++# path1: fpInv(fpFun(a,p)) -> (a, pcomp(refl, p)), driven by the coherent contraction
++def fpPath1(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, a: A, p: Path(B, g(ef(a)), b))
++  -> Path(fiber(A, B, lambda a2. g(ef(a2)), b),
++          (eqG(A,Ap,ef,h,ef(a)), pcomp(B, g(ef(eqG(A,Ap,ef,h,ef(a)))), g(ef(a)), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,ef(a))), ef(a), eqS(A,Ap,ef,h,ef(a))), p)),
++          (a, pcomp(B, g(ef(a)), g(ef(a)), b, <_> g(ef(a)), p))):
++  <j> ( cwFst(A,Ap,ef,h,a) @ j
++      , pcomp(B, g(ef(cwFst(A,Ap,ef,h,a) @ j)), g(ef(a)), b, ap(Ap,B,g, ef(cwFst(A,Ap,ef,h,a) @ j), ef(a), cwSnd(A,Ap,ef,h,a) @ j), p) )
++def fpRet(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(A, B, lambda a. g(ef(a)), b))
++  -> Path(fiber(A, B, lambda a. g(ef(a)), b), fpInv(A,Ap,B,ef,h,g,b, fpFun(A,Ap,B,ef,g,b,w)), w):
++  match w:
++    case (a, p):
++      pcomp(fiber(A, B, lambda a2. g(ef(a2)), b),
++            (eqG(A,Ap,ef,h,ef(a)), pcomp(B, g(ef(eqG(A,Ap,ef,h,ef(a)))), g(ef(a)), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,ef(a))), ef(a), eqS(A,Ap,ef,h,ef(a))), p)),
++            (a, pcomp(B, g(ef(a)), g(ef(a)), b, <_> g(ef(a)), p)),
++            (a, p),
++            fpPath1(A,Ap,B,ef,h,g,b,a,p),
++            <k> (a, lUnit(B, g(ef(a)), b, p) @ k))
++def fpSec(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B, w: fiber(Ap, B, g, b))
++  -> Path(fiber(Ap, B, g, b), fpFun(A,Ap,B,ef,g,b, fpInv(A,Ap,B,ef,h,g,b,w)), w):
++  match w:
++    case (a2, p):
++      <j> ( eqS(A,Ap,ef,h,a2) @ j
++          , cpf(B, g(ef(eqG(A,Ap,ef,h,a2))), g(a2), b, ap(Ap,B,g, ef(eqG(A,Ap,ef,h,a2)), a2, eqS(A,Ap,ef,h,a2)), p) @ j )
++def fiberPrecomp(A: Set, Ap: Set, B: Set, ef: A -> Ap, h: isEquiv(A,Ap,ef), g: Ap -> B, b: B)
++  -> Equiv(fiber(A, B, lambda a. g(ef(a)), b), fiber(Ap, B, g, b)):
++  isoToEquiv(fiber(A, B, lambda a. g(ef(a)), b), fiber(Ap, B, g, b),
++    lambda w. fpFun(A,Ap,B,ef,g,b,w), lambda w. fpInv(A,Ap,B,ef,h,g,b,w),
++    lambda w. fpSec(A,Ap,B,ef,h,g,b,w), lambda w. fpRet(A,Ap,B,ef,h,g,b,w))
++
++# THE FORCING THEOREM.  A Conservative factorisation of A over B, and its
++# induced visible map `run`; the trace family is FORCED to be run's fibre.
++def Conservative(A: Set, B: Set) -> Set:
++  any T: (B -> Set). Equiv(A, SigT(B,T))
++def cRun(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), a: A) -> B:
++  fstT(B, T, wf(a))
++def fibreOfRun(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), b: B)
++  -> Equiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b)):
++  compEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), fiber(SigT(B,T), B, lambda s. fstT(B,T,s), b), T(b),
++            fiberPrecomp(A, SigT(B,T), B, wf, wh, lambda s. fstT(B,T,s), b),
++            fiberFst(B, T, b))
++# and the constraint reading: the trace is the fibre, no smaller residue exists
++def traceIsForced(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), b: B)
++  -> Equiv(T(b), fiber(A, B, lambda a. cRun(A,B,T,wf,a), b)):
++  invEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b))
++# transport contractibility along an equivalence
++def isContrRespectEquiv(A: Set, B: Set, e: Equiv(A,B), c: isContr(A)) -> isContr(B):
++  match e:
++    case (f, h):
++      match c:
++        case (cA, hA):
++          ( f(cA)
++          , lambda y. pcomp(B, f(cA), f(eqG(A,B,f,h,y)), y,
++                       ap(A,B,f, cA, eqG(A,B,f,h,y), hA(eqG(A,B,f,h,y))), eqS(A,B,f,h,y)) )
++# nothing forgotten (contractible trace) <=> the visible map is an equivalence
++def exactWhenContractible(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), hc: all b: B. isContr(T(b)))
++  -> isEquiv(A, B, lambda a. cRun(A,B,T,wf,a)):
++  lambda b. isContrRespectEquiv(T(b), fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), traceIsForced(A,B,T,wf,wh,b), hc(b))
++def contractibleWhenExact(A: Set, B: Set, T: B -> Set, wf: A -> SigT(B,T), wh: isEquiv(A, SigT(B,T), wf), re: isEquiv(A, B, lambda a. cRun(A,B,T,wf,a)), b: B)
++  -> isContr(T(b)):
++  isContrRespectEquiv(fiber(A, B, lambda a. cRun(A,B,T,wf,a), b), T(b), fibreOfRun(A,B,T,wf,wh,b), re(b))
++
++# ============ THE HIGHEST CONSTRUCTION, INSTANTIATED AND RUN ============
++# Instance 1 — a trace that records something: A = Σ b:Bool. Bool (the whole
++# event), B = Bool (the visible result), T b = Bool (the residue), wf = id.
++# run = fst.  The forcing theorem says fiber(fst, b) ≃ Bool: the residue of
++# the visible result b IS the trace bit, no smaller residue exists.
++def TB(b: Bool) -> Set:
++  Bool
++def idFun(s: SigT(Bool, TB)) -> SigT(Bool, TB):
++  s
++def idRet(s: SigT(Bool, TB)) -> Path(SigT(Bool, TB), idFun(idFun(s)), s):
++  <_> s
++def idIsEquiv() -> isEquiv(SigT(Bool, TB), SigT(Bool, TB), idFun):
++  isoToIsEquiv(SigT(Bool, TB), SigT(Bool, TB), idFun, idFun, idRet, idRet)
++# read the trace off a fibre point of run over b (fibreOfRun, forward)
++def forcedTrace(b: Bool, w: fiber(SigT(Bool, TB), Bool, lambda a. cRun(SigT(Bool, TB), Bool, TB, idFun, a), b)) -> Bool:
++  match fibreOfRun(SigT(Bool, TB), Bool, TB, idFun, idIsEquiv(), b):
++    case (f, _):
++      f(w)
++# rebuild the fibre point from the trace (traceIsForced, forward), observe its event
++def eventFromTrace(b: Bool, t: Bool) -> SigT(Bool, TB):
++  match traceIsForced(SigT(Bool, TB), Bool, TB, idFun, idIsEquiv(), b):
++    case (g, _):
++      match g(t):
++        case (a, _):
++          a
++
++# Instance 2 — a trace that records nothing: A = Bool, B = Bool, T b = Unit,
++# wf a = (neg a, ()).  Contractible trace <=> run is an equivalence, both ways.
++def neg(x: Bool) -> Bool:
++  if x:
++    False
++  else:
++    True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x:
++    <_> True
++  else:
++    <_> False
++def TU(b: Bool) -> Set:
++  Unit
++def wfU(a: Bool) -> SigT(Bool, TU):
++  (neg(a), ())
++def wgU(s: SigT(Bool, TU)) -> Bool:
++  match s:
++    case (b, _):
++      neg(b)
++def wfSec(s: SigT(Bool, TU)) -> Path(SigT(Bool, TU), wfU(wgU(s)), s):
++  match s:
++    case (b, u):
++      match u:
++        case ():
++          <i> (negLnv(b) @ i, ())
++def wfRet(a: Bool) -> Path(Bool, wgU(wfU(a)), a):
++  negLnv(a)
++def whU() -> isEquiv(Bool, SigT(Bool, TU), wfU):
++  isoToIsEquiv(Bool, SigT(Bool, TU), wfU, wgU, wfSec, wfRet)
++def unitContr(b: Bool) -> isContr(TU(b)):
++  ((), lambda x. match x: case (): <_> ())
++# nothing forgotten => run is an equivalence: read its inverse off the theorem
++def runIsEquiv() -> isEquiv(Bool, Bool, lambda a. cRun(Bool, Bool, TU, wfU, a)):
++  exactWhenContractible(Bool, Bool, TU, wfU, whU(), unitContr)
++def runInverse(b: Bool) -> Bool:
++  eqG(Bool, Bool, lambda a. cRun(Bool, Bool, TU, wfU, a), runIsEquiv(), b)
++# and back: run an equivalence => the trace is contractible; its centre
++def traceCentre(b: Bool) -> Unit:
++  match contractibleWhenExact(Bool, Bool, TU, wfU, whU(), runIsEquiv(), b):
++    case (c, _):
++      c
++# laws, definitional in the checker
++def forcedTrace_T() -> Path(Bool, forcedTrace(True, ((True, False), <_> True)), False):
++  <_> False
++def runInverse_T() -> Path(Bool, runInverse(True), False):
++  <_> False
++
++def main() -> Bool:
++  forcedTrace(True, ((True, False), <_> True))
+diff --git a/fpp_fromPathP.bend b/fpp_fromPathP.bend
+new file mode 100644
+index 0000000..342cef1
+--- /dev/null
++++ b/fpp_fromPathP.bend
+@@ -0,0 +1,5 @@
++def fromPathP(F: Interval -> Set, u: F(i0), v: F(i1), p: PathP(F, u, v))
++  -> Path(F(i1), coe(lambda i. F(i), i0, i1, u), v):
++  <j> coe(lambda i. F(i), j, i1, p @ j)
++def main() -> Nat:
++  0n
+diff --git a/glue.bend b/glue.bend
+new file mode 100644
+index 0000000..2506eda
+--- /dev/null
++++ b/glue.bend
+@@ -0,0 +1,18 @@
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++# boundary laws: Glue on a true face IS the partial type; unglue of glue is the base
++def glue_at_i1(A: Set, T: Set, e: Equiv(T, A)) -> Set{Glue(A, [(i1, T, e)]) == T}:
++  finally
++def unglue_glue(A: Set, x: A) -> A{unglue(glue(A, x, [(i0, x)])) == x}:
++  finally
++# glue checked against its Glue type: section coherent with the base on the face
++def glue_sec(A: Set, T: Set, e: Equiv(T, A), t: T, i: Interval) -> Glue(A, [(i, T, e)]):
++  glue(A, (match e: case (f, _): f)(t), [(i, t)])
++def main() -> Nat:
++  0n
+diff --git a/glue_mustfail.bend b/glue_mustfail.bend
+new file mode 100644
+index 0000000..3e59ccc
+--- /dev/null
++++ b/glue_mustfail.bend
+@@ -0,0 +1,19 @@
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++# MUST FAIL: a Glue at a FALSE face does not collapse to its partial type
++def evil(e: Equiv(Bool, Nat)) -> Set{Glue(Nat, [(i0, Bool, e)]) == Bool}:
++  finally
++# MUST FAIL: a mere function is not an equivalence
++def notEquiv(e: Bool -> Nat) -> Set{Glue(Nat, [(i1, Bool, e)]) == Bool}:
++  finally
++# MUST FAIL: glue whose section is not coherent with the base
++def incoherent(A: Set, T: Set, e: Equiv(T, A), t: T, x: A, i: Interval) -> Glue(A, [(i, T, e)]):
++  glue(A, x, [(i, t)])
 +def main() -> Nat:
 +  0n
 diff --git a/hcompfaces.bend b/hcompfaces.bend
@@ -901,6 +2113,186 @@ index 0000000..3473798
 +# MUST FAIL: a filler whose tube does not start at the base
 +def wrong(A: Set, x: A, y: A, p: Path(A, x, y), i: Interval) -> Path(A, y, hcompN(A, [(i, <k> p @ k)], y)):
 +  hfill(A, [(i, <k> p @ k)], y)
++
++def main() -> Nat:
++  0n
+diff --git a/hprop.bend b/hprop.bend
+new file mode 100644
+index 0000000..93562c4
+--- /dev/null
++++ b/hprop.bend
+@@ -0,0 +1,37 @@
++# hProp / prop-level foundations for set-quotient effectivity.
++# All definitional; built on the comp/hcomp machinery.  These are the pieces
++# the encode-decode proof of  [a] == [b] => R a b  is assembled from.
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
++
++# isProp A -> isSet A: fill the square with the proposition (Cubical's proof).
++def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
++  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
++    [ (inot(i), <k> h(a, a) @ k)
++    , (i,       <k> h(a, b) @ k)
++    , (inot(j), <k> h(a, p @ i) @ k)
++    , (j,       <k> h(a, q @ i) @ k)
++    ], a)
++
++# being a proposition is itself a proposition
++def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
++  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
++
++# propositional univalence: props with maps both ways are equal as types
++# (gf, fg forced by isProp; ua turns the biimplication into a path of types).
++def propExt(A: Set, B: Set, pA: isProp(A), pB: isProp(B), f: A -> B, g: B -> A) -> Path(Set, A, B):
++  ua(A, B, f, g, lambda x. pA(g(f(x)), x), lambda y. pB(f(g(y)), y))
++
++def hProp() -> Set:
++  any A: Set. isProp(A)
++def hcar(P: hProp) -> Set:
++  match P:
++    case (A, p): A
++def hpf(P: hProp) -> isProp(hcar(P)):
++  match P:
++    case (A, p): p
++
++def main() -> Nat:
++  0n
+diff --git a/hset.bend b/hset.bend
+new file mode 100644
+index 0000000..2ca58df
+--- /dev/null
++++ b/hset.bend
+@@ -0,0 +1,131 @@
++# isSetHProp, from scratch: discharges the last hypothesis of effectivity.
++# Route: Path(Set,A,B) for props A,B is a retract of Iso5(A,B) via uaEta,
++# and Iso5(A,B) is a prop; then Path(hProp,P,Q) is a retract of Path(Set,-,-).
++
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
++def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
++  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
++    [ (inot(i), <k> h(a, a) @ k), (i, <k> h(a, b) @ k)
++    , (inot(j), <k> h(a, p @ i) @ k), (j, <k> h(a, q @ i) @ k) ], a)
++
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
++  <i> hcompN(B(i),
++    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
++    coe(lambda k. B(iand(i, k)), i0, i, x))
++def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
++  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
++
++# generic: a retract of a prop is a prop.
++def isPropRetract(X: Set, Y: Set, s: X -> Y, r: Y -> X,
++                  ret: all x: X. Path(X, r(s(x)), x), pY: isProp(Y)) -> isProp(X):
++  lambda x0. lambda x1. <i> hcompN(X,
++    [ (inot(i), <k> ret(x0) @ k), (i, <k> ret(x1) @ k) ],
++    r(pY(s(x0), s(x1)) @ i))
++
++# non-dependent funext into a prop codomain
++def isPropPi(A: Set, B: Set, pB: isProp(B)) -> isProp(all x: A. B):
++  lambda f. lambda g. <i> lambda x. pB(f(x), g(x)) @ i
++
++# Iso, univalence, uaEta (cubical_test5.bend)
++def Iso5(A: Set, B: Set) -> Set:
++  any f: A -> B. any g: B -> A. any gf: (all x:A. Path(A, g(f(x)), x)). (all y:B. Path(B, f(g(y)), y))
++def idIso5(A: Set) -> Iso5(A, A):
++  (lambda x. x, lambda x. x, lambda x. <_> x, lambda y. <_> y)
++def ua5(A: Set, B: Set, e: Iso5(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, g, gf, fg): ua(A, B, f, g, gf, fg)
++def pathToIso(A: Set, B: Set, p: Path(Set, A, B)) -> Iso5(A, B):
++  coe(lambda i. Iso5(A, p @ i), i0, i1, idIso5(A))
++def uaEta(A: Set, B: Set, p: Path(Set, A, B)) -> Path(Path(Set, A, B), ua5(A, B, pathToIso(A, B, p)), p):
++  coe(lambda i. Path(Path(Set, A, p @ i), ua5(A, p @ i, pathToIso(A, p @ i, <j> p @ iand(i, j))), <j> p @ iand(i, j)), i0, i1, <i> <_> A)
++
++# Iso5(A,B) is a prop when A,B are props.
++def isPropIso5(A: Set, B: Set, pA: isProp(A), pB: isProp(B)) -> isProp(Iso5(A, B)):
++  lambda I0. lambda I1.
++    match I0:
++      case (f0, g0, gf0, fg0):
++        match I1:
++          case (f1, g1, gf1, fg1):
++            <i> ( isPropPi(A, B, pB)(f0, f1) @ i
++                , isPropPi(B, A, pA)(g0, g1) @ i
++                , isPropToPathP(
++                    lambda i. (all x: A. Path(A, (isPropPi(B,A,pA)(g0,g1) @ i)((isPropPi(A,B,pB)(f0,f1) @ i)(x)), x)),
++                    lambda i. lambda u. lambda v. <j> lambda x. isPropToIsSet(A, pA)((isPropPi(B,A,pA)(g0,g1) @ i)((isPropPi(A,B,pB)(f0,f1) @ i)(x)), x, u(x), v(x)) @ j,
++                    gf0, gf1) @ i
++                , isPropToPathP(
++                    lambda i. (all y: B. Path(B, (isPropPi(A,B,pB)(f0,f1) @ i)((isPropPi(B,A,pA)(g0,g1) @ i)(y)), y)),
++                    lambda i. lambda u. lambda v. <j> lambda y. isPropToIsSet(B, pB)((isPropPi(A,B,pB)(f0,f1) @ i)((isPropPi(B,A,pA)(g0,g1) @ i)(y)), y, u(y), v(y)) @ j,
++                    fg0, fg1) @ i )
++
++# hence Path(Set,A,B) is a prop for props A,B (retract of Iso5 via uaEta).
++def isPropPathSet(A: Set, B: Set, pA: isProp(A), pB: isProp(B)) -> isProp(Path(Set, A, B)):
++  isPropRetract(Path(Set, A, B), Iso5(A, B),
++    lambda p. pathToIso(A, B, p),
++    lambda e. ua5(A, B, e),
++    lambda p. uaEta(A, B, p),
++    isPropIso5(A, B, pA, pB))
++
++def hProp() -> Set:
++  any A: Set. isProp(A)
++def hcar(P: hProp) -> Set:
++  match P:
++    case (A, p): A
++def hpf(P: hProp) -> isProp(hcar(P)):
++  match P:
++    case (A, p): p
++def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
++  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
++def hPropExt(P: hProp, Q: hProp, e: Path(Set, hcar(P), hcar(Q))) -> Path(hProp, P, Q):
++  <i> ( e @ i
++      , isPropToPathP(lambda i. isProp(e @ i),
++                      lambda i. lambda f. lambda g. isPropIsProp(e @ i, f, g),
++                      hpf(P), hpf(Q)) @ i )
++def congHcar(P: hProp, Q: hProp, r: Path(hProp, P, Q)) -> Path(Set, hcar(P), hcar(Q)):
++  <i> hcar(r @ i)
++
++# dependent: PathP over a prop-family is itself a prop.
++def isPropDepPath(FAM: Interval -> Set, h: all i: Interval. isProp(FAM(i)), a0: FAM(i0), a1: FAM(i1))
++    -> (all u: PathP(FAM, a0, a1). all v: PathP(FAM, a0, a1). Path(PathP(FAM, a0, a1), u, v)):
++  lambda u. lambda v. <j> <i> hcompN(FAM(i),
++    [ (inot(i), <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), coe(lambda m. FAM(iand(i,m)), i0, i, a0)) @ k)
++    , (i,       <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), a1) @ k)
++    , (inot(j), <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), u @ i) @ k)
++    , (j,       <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), v @ i) @ k)
++    ], coe(lambda m. FAM(iand(i,m)), i0, i, a0))
++
++# generic: for a prop-fibered Sigma, the path space retracts onto the base path
++# space (endpoints abstract, so no reduction gaps).  Base-path prop is a hypothesis.
++def isPropSigPath(A: Set, B: A -> Set, pB: all a: A. isProp(B(a)),
++                  a0: A, b0: B(a0), a1: A, b1: B(a1),
++                  pBase: isProp(Path(A, a0, a1)))
++    -> isProp(Path((any a: A. B(a)), (a0, b0), (a1, b1))):
++  isPropRetract(Path((any a: A. B(a)), (a0, b0), (a1, b1)), Path(A, a0, a1),
++    lambda r. <i> (match (r @ i) { case (a, b): a }),
++    lambda p. <i> ( p @ i
++                  , isPropToPathP(lambda i. B(p @ i), lambda i. pB(p @ i), b0, b1) @ i ),
++    lambda r. <j> <i>
++      ( (match (r @ i) { case (a, b): a })
++      , ( isPropDepPath(lambda i. B(match (r @ i) { case (a, b): a }),
++            lambda i. pB(match (r @ i) { case (a, b): a }),
++            b0, b1)(
++              isPropToPathP(lambda i. B(match (r @ i) { case (a, b): a }),
++                lambda i. pB(match (r @ i) { case (a, b): a }), b0, b1),
++              <i> (match (r @ i) { case (a, b): b })
++            ) @ j ) @ i ),
++    pBase)
++
++# THE LEMMA: hProp is a set.  (hProp = Sigma A:Set. isProp A, a prop-fibered Sigma;
++# the base path space Path(Set, hcar P, hcar Q) is a prop by isPropPathSet.)
++def isSetHProp() -> isSet(hProp):
++  lambda P. lambda Q.
++    isPropSigPath(Set, lambda A. isProp(A), lambda A. lambda f. lambda g. isPropIsProp(A, f, g),
++      hcar(P), hpf(P), hcar(Q), hpf(Q),
++      isPropPathSet(hcar(P), hcar(Q), hpf(P), hpf(Q)))
 +
 +def main() -> Nat:
 +  0n
@@ -1311,6 +2703,469 @@ index 0000000..2ac63ac
 +      loop(n, p)
 +def main() -> Nat:
 +  0n
+diff --git a/minmachine.bend b/minmachine.bend
+new file mode 100644
+index 0000000..7aa3522
+--- /dev/null
++++ b/minmachine.bend
+@@ -0,0 +1,61 @@
++# The minimal Moore machine as a set-quotient, computing.
++# State S, one action (unary alphabet), output Bool.  observe : S -> Bool,
++# step : S -> S.  behavior x w = observe (run step x w).  NerodeCongruence:
++# x ~ y iff same behavior on every word.  Meaning = S / ~ is the minimal machine.
++
++def S() -> Set:
++  Nat
++
++def observe(x: S) -> Bool:
++  match x:
++    case 0n: True
++    case 1n+p: False
++
++def step(x: S) -> S:
++  match x:
++    case 0n: 0n
++    case 1n+p: p
++
++def run(x: S, w: Nat) -> S:
++  match w:
++    case 0n: x
++    case 1n+k: run(step(x), k)
++
++def behavior(x: S, w: Nat) -> Bool:
++  observe(run(x, w))
++
++# NerodeCongruence: observationally-equal states (same behavior on every word).
++def Nerode(x: S, y: S) -> Set:
++  all w: Nat. Path(Bool, behavior(x, w), behavior(y, w))
++
++def Meaning() -> Set:
++  Quot(S, Nerode)
++
++# isSet of the output type, threaded as a hypothesis exactly as the corpus's
++# FutureQuotient module takes (setO : isSet O).  The .bend name for it:
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
++
++# quotObserve descends: observe respects ~ because the empty word is a word.
++def observeResp(a: S, b: S, w: Nerode(a,b)) -> Path(Bool, observe(a), observe(b)):
++  w(0n)
++
++def quotObserve(setO: isSet(Bool), m: Meaning) -> Bool:
++  qrec(m, setO, observe, observeResp)
++
++# It computes on a point (for any set-truncation evidence):
++# quotObserve setO [x] = observe x.
++def quotObserve_0 (setO: isSet(Bool)) -> Path(Bool, quotObserve(setO, qcl(0n)), True):
++  <_> True
++
++def quotObserve_1 (setO: isSet(Bool)) -> Path(Bool, quotObserve(setO, qcl(1n)), False):
++  <_> False
++
++# The congruence collapses observationally-equal states in Meaning: given a
++# proof they are Nerode-equal, their meanings are equal (this is eq/).
++def sameMeaning(x: S, y: S, e: Nerode(x,y)) -> Path(Meaning, qcl(x), qcl(y)):
++  qeq(x, y, e)
++
++# and reduces at runtime (net): observe of the run.
++def main() -> Bool:
++  behavior(0n, 2n)
+diff --git a/nerode_effective.bend b/nerode_effective.bend
+new file mode 100644
+index 0000000..703decd
+--- /dev/null
++++ b/nerode_effective.bend
+@@ -0,0 +1,141 @@
++# Behavioral equivalence = path equality, for the minimal machine (BOTH ways).
++# sameMeaning (minmachine.bend) gave  x ~ y  =>  [x] == [y]  (eq/).
++# This wires the generic set-quotient effectivity (effective.bend) to the
++# Nerode congruence to get the converse  [x] == [y]  =>  x ~ y, instantiated.
++# Two hypotheses, exactly the corpus's: setO : isSet Bool (FutureQuotient),
++# and sh : isSet hProp (SQ.effective).  Self-contained (Bend has no imports).
++
++# ---- machine (minmachine.bend) ----
++def S() -> Set: Nat
++def observe(x: S) -> Bool:
++  match x:
++    case 0n: True
++    case 1n+p: False
++def step(x: S) -> S:
++  match x:
++    case 0n: 0n
++    case 1n+p: p
++def run(x: S, w: Nat) -> S:
++  match w:
++    case 0n: x
++    case 1n+k: run(step(x), k)
++def behavior(x: S, w: Nat) -> Bool:
++  observe(run(x, w))
++def Nerode(x: S, y: S) -> Set:
++  all w: Nat. Path(Bool, behavior(x, w), behavior(y, w))
++def Meaning() -> Set:
++  Quot(S, Nerode)
++
++# ---- hlevel + hProp (effective.bend) ----
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
++def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
++  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
++    [ (inot(i), <k> h(a, a) @ k), (i, <k> h(a, b) @ k)
++    , (inot(j), <k> h(a, p @ i) @ k), (j, <k> h(a, q @ i) @ k) ], a)
++def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
++  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
++def propExt(A: Set, B: Set, pA: isProp(A), pB: isProp(B), f: A -> B, g: B -> A) -> Path(Set, A, B):
++  ua(A, B, f, g, lambda x. pA(g(f(x)), x), lambda y. pB(f(g(y)), y))
++def hProp() -> Set:
++  any A: Set. isProp(A)
++def hcar(P: hProp) -> Set:
++  match P:
++    case (A, p): A
++def hpf(P: hProp) -> isProp(hcar(P)):
++  match P:
++    case (A, p): p
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++def subst(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
++  <i> hcompN(B(i),
++    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
++    coe(lambda k. B(iand(i, k)), i0, i, x))
++def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
++  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
++def hPropExt(P: hProp, Q: hProp, e: Path(Set, hcar(P), hcar(Q))) -> Path(hProp, P, Q):
++  <i> ( e @ i
++      , isPropToPathP(lambda i. isProp(e @ i),
++                      lambda i. lambda f. lambda g. isPropIsProp(e @ i, f, g),
++                      hpf(P), hpf(Q)) @ i )
++
++# ---- generic effectivity (effective.bend) ----
++def codePt(A: Set, R: A -> A -> Set, Rprop: all x: A. all y: A. isProp(R(x,y)), a: A, x: A) -> hProp:
++  (R(a, x), Rprop(a, x))
++def codeResp(A: Set, R: A -> A -> Set,
++             Rprop: all x: A. all y: A. isProp(R(x,y)),
++             Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++             Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++             a: A, x: A, y: A, w: R(x,y))
++             -> Path(hProp, codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y)):
++  hPropExt(codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y),
++    propExt(R(a,x), R(a,y), Rprop(a,x), Rprop(a,y),
++      lambda r. Rtrans(a, x, y, r, w),
++      lambda r. Rtrans(a, y, x, r, Rsym(x, y, w))))
++def Code(A: Set, R: A -> A -> Set,
++         Rprop: all x: A. all y: A. isProp(R(x,y)),
++         Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++         Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++         sh: isSet(hProp), a: A, m: Quot(A, R)) -> hProp:
++  qrec(m, sh, lambda x. codePt(A,R,Rprop,a,x),
++       lambda x. lambda y. lambda w. codeResp(A,R,Rprop,Rsym,Rtrans,a,x,y,w))
++def codeCar(A: Set, R: A -> A -> Set,
++            Rprop: all x: A. all y: A. isProp(R(x,y)),
++            Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++            Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++            sh: isSet(hProp), a: A, m: Quot(A, R)) -> Set:
++  hcar(Code(A,R,Rprop,Rsym,Rtrans,sh,a,m))
++def encode(A: Set, R: A -> A -> Set,
++           Rprop: all x: A. all y: A. isProp(R(x,y)),
++           Rrefl: all x: A. R(x,x),
++           Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++           Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++           sh: isSet(hProp), a: A, m: Quot(A, R),
++           p: Path(Quot(A,R), qcl(a), m))
++           -> codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m):
++  subst(Quot(A,R), lambda m. codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m),
++        qcl(a), m, p, Rrefl(a))
++def effective(A: Set, R: A -> A -> Set,
++              Rprop: all x: A. all y: A. isProp(R(x,y)),
++              Rrefl: all x: A. R(x,x),
++              Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++              Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++              sh: isSet(hProp), a: A, b: A,
++              p: Path(Quot(A,R), qcl(a), qcl(b))) -> R(a, b):
++  encode(A,R,Rprop,Rrefl,Rsym,Rtrans,sh,a,qcl(b),p)
++
++# ---- Nerode is a prop-valued equivalence relation (machine-specific) ----
++def reflN(x: S) -> Nerode(x, x):
++  lambda w. <_> behavior(x, w)
++def symN(x: S, y: S, e: Nerode(x, y)) -> Nerode(y, x):
++  lambda w. <i> e(w) @ (inot(i))
++def transN(x: S, y: S, z: S, e: Nerode(x, y), f: Nerode(y, z)) -> Nerode(x, z):
++  lambda w. <i> hcompN(Bool,
++    [ (inot(i), <_> behavior(x, w)), (i, <k> f(w) @ k) ], e(w) @ i)
++def isPropNerode(setO: isSet(Bool), x: S, y: S) -> isProp(Nerode(x, y)):
++  lambda e. lambda f. <i> lambda w. setO(behavior(x,w), behavior(y,w), e(w), f(w)) @ i
++
++# ---- THE INSTANTIATION: [x] == [y]  =>  x ~ y, for the minimal machine ----
++def nerodeEffective(setO: isSet(Bool), sh: isSet(hProp), x: S, y: S,
++                    p: Path(Meaning, qcl(x), qcl(y))) -> Nerode(x, y):
++  effective(S, Nerode,
++    lambda a. lambda b. isPropNerode(setO, a, b),
++    reflN,
++    symN,
++    transN,
++    sh, x, y, p)
++
++# both directions now compute for the machine:
++#   sameMeaning : Nerode(x,y) -> Path(Meaning,[x],[y])   (minmachine.bend, eq/)
++#   nerodeEffective : Path(Meaning,[x],[y]) -> Nerode(x,y)   (here)
++# and on the reflexive path it returns reflexivity (definitional):
++def nerodeEffComputes(setO: isSet(Bool), sh: isSet(hProp), x: S)
++    -> Path(Nerode(x,x), nerodeEffective(setO, sh, x, x, <_> qcl(x)), reflN(x)):
++  <_> reflN(x)
++
++def main() -> Nat:
++  0n
+diff --git a/nerode_effective_closed.bend b/nerode_effective_closed.bend
+new file mode 100644
+index 0000000..b18a107
+--- /dev/null
++++ b/nerode_effective_closed.bend
+@@ -0,0 +1,243 @@
++# isSetHProp, from scratch: discharges the last hypothesis of effectivity.
++# Route: Path(Set,A,B) for props A,B is a retract of Iso5(A,B) via uaEta,
++# and Iso5(A,B) is a prop; then Path(hProp,P,Q) is a retract of Path(Set,-,-).
++
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y),p,q)
++def isPropToIsSet(A: Set, h: isProp(A)) -> isSet(A):
++  lambda a. lambda b. lambda p. lambda q. <j> <i> hcompN(A,
++    [ (inot(i), <k> h(a, a) @ k), (i, <k> h(a, b) @ k)
++    , (inot(j), <k> h(a, p @ i) @ k), (j, <k> h(a, q @ i) @ k) ], a)
++
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
++  <i> hcompN(B(i),
++    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
++    coe(lambda k. B(iand(i, k)), i0, i, x))
++def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
++  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
++
++# generic: a retract of a prop is a prop.
++def isPropRetract(X: Set, Y: Set, s: X -> Y, r: Y -> X,
++                  ret: all x: X. Path(X, r(s(x)), x), pY: isProp(Y)) -> isProp(X):
++  lambda x0. lambda x1. <i> hcompN(X,
++    [ (inot(i), <k> ret(x0) @ k), (i, <k> ret(x1) @ k) ],
++    r(pY(s(x0), s(x1)) @ i))
++
++# non-dependent funext into a prop codomain
++def isPropPi(A: Set, B: Set, pB: isProp(B)) -> isProp(all x: A. B):
++  lambda f. lambda g. <i> lambda x. pB(f(x), g(x)) @ i
++
++# Iso, univalence, uaEta (cubical_test5.bend)
++def Iso5(A: Set, B: Set) -> Set:
++  any f: A -> B. any g: B -> A. any gf: (all x:A. Path(A, g(f(x)), x)). (all y:B. Path(B, f(g(y)), y))
++def idIso5(A: Set) -> Iso5(A, A):
++  (lambda x. x, lambda x. x, lambda x. <_> x, lambda y. <_> y)
++def ua5(A: Set, B: Set, e: Iso5(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, g, gf, fg): ua(A, B, f, g, gf, fg)
++def pathToIso(A: Set, B: Set, p: Path(Set, A, B)) -> Iso5(A, B):
++  coe(lambda i. Iso5(A, p @ i), i0, i1, idIso5(A))
++def uaEta(A: Set, B: Set, p: Path(Set, A, B)) -> Path(Path(Set, A, B), ua5(A, B, pathToIso(A, B, p)), p):
++  coe(lambda i. Path(Path(Set, A, p @ i), ua5(A, p @ i, pathToIso(A, p @ i, <j> p @ iand(i, j))), <j> p @ iand(i, j)), i0, i1, <i> <_> A)
++
++# Iso5(A,B) is a prop when A,B are props.
++def isPropIso5(A: Set, B: Set, pA: isProp(A), pB: isProp(B)) -> isProp(Iso5(A, B)):
++  lambda I0. lambda I1.
++    match I0:
++      case (f0, g0, gf0, fg0):
++        match I1:
++          case (f1, g1, gf1, fg1):
++            <i> ( isPropPi(A, B, pB)(f0, f1) @ i
++                , isPropPi(B, A, pA)(g0, g1) @ i
++                , isPropToPathP(
++                    lambda i. (all x: A. Path(A, (isPropPi(B,A,pA)(g0,g1) @ i)((isPropPi(A,B,pB)(f0,f1) @ i)(x)), x)),
++                    lambda i. lambda u. lambda v. <j> lambda x. isPropToIsSet(A, pA)((isPropPi(B,A,pA)(g0,g1) @ i)((isPropPi(A,B,pB)(f0,f1) @ i)(x)), x, u(x), v(x)) @ j,
++                    gf0, gf1) @ i
++                , isPropToPathP(
++                    lambda i. (all y: B. Path(B, (isPropPi(A,B,pB)(f0,f1) @ i)((isPropPi(B,A,pA)(g0,g1) @ i)(y)), y)),
++                    lambda i. lambda u. lambda v. <j> lambda y. isPropToIsSet(B, pB)((isPropPi(A,B,pB)(f0,f1) @ i)((isPropPi(B,A,pA)(g0,g1) @ i)(y)), y, u(y), v(y)) @ j,
++                    fg0, fg1) @ i )
++
++# hence Path(Set,A,B) is a prop for props A,B (retract of Iso5 via uaEta).
++def isPropPathSet(A: Set, B: Set, pA: isProp(A), pB: isProp(B)) -> isProp(Path(Set, A, B)):
++  isPropRetract(Path(Set, A, B), Iso5(A, B),
++    lambda p. pathToIso(A, B, p),
++    lambda e. ua5(A, B, e),
++    lambda p. uaEta(A, B, p),
++    isPropIso5(A, B, pA, pB))
++
++def hProp() -> Set:
++  any A: Set. isProp(A)
++def hcar(P: hProp) -> Set:
++  match P:
++    case (A, p): A
++def hpf(P: hProp) -> isProp(hcar(P)):
++  match P:
++    case (A, p): p
++def isPropIsProp(A: Set, f: isProp(A), g: isProp(A)) -> Path(isProp(A), f, g):
++  <i> lambda x. lambda y. isPropToIsSet(A, f, x, y, f(x, y), g(x, y)) @ i
++def hPropExt(P: hProp, Q: hProp, e: Path(Set, hcar(P), hcar(Q))) -> Path(hProp, P, Q):
++  <i> ( e @ i
++      , isPropToPathP(lambda i. isProp(e @ i),
++                      lambda i. lambda f. lambda g. isPropIsProp(e @ i, f, g),
++                      hpf(P), hpf(Q)) @ i )
++def congHcar(P: hProp, Q: hProp, r: Path(hProp, P, Q)) -> Path(Set, hcar(P), hcar(Q)):
++  <i> hcar(r @ i)
++
++# dependent: PathP over a prop-family is itself a prop.
++def isPropDepPath(FAM: Interval -> Set, h: all i: Interval. isProp(FAM(i)), a0: FAM(i0), a1: FAM(i1))
++    -> (all u: PathP(FAM, a0, a1). all v: PathP(FAM, a0, a1). Path(PathP(FAM, a0, a1), u, v)):
++  lambda u. lambda v. <j> <i> hcompN(FAM(i),
++    [ (inot(i), <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), coe(lambda m. FAM(iand(i,m)), i0, i, a0)) @ k)
++    , (i,       <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), a1) @ k)
++    , (inot(j), <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), u @ i) @ k)
++    , (j,       <k> h(i, coe(lambda m. FAM(iand(i,m)), i0, i, a0), v @ i) @ k)
++    ], coe(lambda m. FAM(iand(i,m)), i0, i, a0))
++
++# generic: for a prop-fibered Sigma, the path space retracts onto the base path
++# space (endpoints abstract, so no reduction gaps).  Base-path prop is a hypothesis.
++def isPropSigPath(A: Set, B: A -> Set, pB: all a: A. isProp(B(a)),
++                  a0: A, b0: B(a0), a1: A, b1: B(a1),
++                  pBase: isProp(Path(A, a0, a1)))
++    -> isProp(Path((any a: A. B(a)), (a0, b0), (a1, b1))):
++  isPropRetract(Path((any a: A. B(a)), (a0, b0), (a1, b1)), Path(A, a0, a1),
++    lambda r. <i> (match (r @ i) { case (a, b): a }),
++    lambda p. <i> ( p @ i
++                  , isPropToPathP(lambda i. B(p @ i), lambda i. pB(p @ i), b0, b1) @ i ),
++    lambda r. <j> <i>
++      ( (match (r @ i) { case (a, b): a })
++      , ( isPropDepPath(lambda i. B(match (r @ i) { case (a, b): a }),
++            lambda i. pB(match (r @ i) { case (a, b): a }),
++            b0, b1)(
++              isPropToPathP(lambda i. B(match (r @ i) { case (a, b): a }),
++                lambda i. pB(match (r @ i) { case (a, b): a }), b0, b1),
++              <i> (match (r @ i) { case (a, b): b })
++            ) @ j ) @ i ),
++    pBase)
++
++# THE LEMMA: hProp is a set.  (hProp = Sigma A:Set. isProp A, a prop-fibered Sigma;
++# the base path space Path(Set, hcar P, hcar Q) is a prop by isPropPathSet.)
++def isSetHProp() -> isSet(hProp):
++  lambda P. lambda Q.
++    isPropSigPath(Set, lambda A. isProp(A), lambda A. lambda f. lambda g. isPropIsProp(A, f, g),
++      hcar(P), hpf(P), hcar(Q), hpf(Q),
++      isPropPathSet(hcar(P), hcar(Q), hpf(P), hpf(Q)))
++
++
++# ===== machine + generic effectivity + instantiation =====
++# Behavioral equivalence = path equality, for the minimal machine (BOTH ways).
++# sameMeaning (minmachine.bend) gave  x ~ y  =>  [x] == [y]  (eq/).
++# This wires the generic set-quotient effectivity (effective.bend) to the
++# Nerode congruence to get the converse  [x] == [y]  =>  x ~ y, instantiated.
++# Two hypotheses, exactly the corpus's: setO : isSet Bool (FutureQuotient),
++# and sh : isSet hProp (SQ.effective).  Self-contained (Bend has no imports).
++
++# ---- machine (minmachine.bend) ----
++def S() -> Set: Nat
++def observe(x: S) -> Bool:
++  match x:
++    case 0n: True
++    case 1n+p: False
++def step(x: S) -> S:
++  match x:
++    case 0n: 0n
++    case 1n+p: p
++def run(x: S, w: Nat) -> S:
++  match w:
++    case 0n: x
++    case 1n+k: run(step(x), k)
++def behavior(x: S, w: Nat) -> Bool:
++  observe(run(x, w))
++def Nerode(x: S, y: S) -> Set:
++  all w: Nat. Path(Bool, behavior(x, w), behavior(y, w))
++def Meaning() -> Set:
++  Quot(S, Nerode)
++
++# ---- hlevel + hProp (effective.bend) ----
++def propExt(A: Set, B: Set, pA: isProp(A), pB: isProp(B), f: A -> B, g: B -> A) -> Path(Set, A, B):
++  ua(A, B, f, g, lambda x. pA(g(f(x)), x), lambda y. pB(f(g(y)), y))
++def subst(A: Set, C: A -> Set, a: A, b: A, p: Path(A, a, b), d: C(a)) -> C(b):
++  coe(lambda i. C(p @ i), i0, i1, d)
++
++# ---- generic effectivity (effective.bend) ----
++def codePt(A: Set, R: A -> A -> Set, Rprop: all x: A. all y: A. isProp(R(x,y)), a: A, x: A) -> hProp:
++  (R(a, x), Rprop(a, x))
++def codeResp(A: Set, R: A -> A -> Set,
++             Rprop: all x: A. all y: A. isProp(R(x,y)),
++             Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++             Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++             a: A, x: A, y: A, w: R(x,y))
++             -> Path(hProp, codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y)):
++  hPropExt(codePt(A,R,Rprop,a,x), codePt(A,R,Rprop,a,y),
++    propExt(R(a,x), R(a,y), Rprop(a,x), Rprop(a,y),
++      lambda r. Rtrans(a, x, y, r, w),
++      lambda r. Rtrans(a, y, x, r, Rsym(x, y, w))))
++def Code(A: Set, R: A -> A -> Set,
++         Rprop: all x: A. all y: A. isProp(R(x,y)),
++         Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++         Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++         sh: isSet(hProp), a: A, m: Quot(A, R)) -> hProp:
++  qrec(m, sh, lambda x. codePt(A,R,Rprop,a,x),
++       lambda x. lambda y. lambda w. codeResp(A,R,Rprop,Rsym,Rtrans,a,x,y,w))
++def codeCar(A: Set, R: A -> A -> Set,
++            Rprop: all x: A. all y: A. isProp(R(x,y)),
++            Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++            Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++            sh: isSet(hProp), a: A, m: Quot(A, R)) -> Set:
++  hcar(Code(A,R,Rprop,Rsym,Rtrans,sh,a,m))
++def encode(A: Set, R: A -> A -> Set,
++           Rprop: all x: A. all y: A. isProp(R(x,y)),
++           Rrefl: all x: A. R(x,x),
++           Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++           Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++           sh: isSet(hProp), a: A, m: Quot(A, R),
++           p: Path(Quot(A,R), qcl(a), m))
++           -> codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m):
++  subst(Quot(A,R), lambda m. codeCar(A,R,Rprop,Rsym,Rtrans,sh,a,m),
++        qcl(a), m, p, Rrefl(a))
++def effective(A: Set, R: A -> A -> Set,
++              Rprop: all x: A. all y: A. isProp(R(x,y)),
++              Rrefl: all x: A. R(x,x),
++              Rsym: all x: A. all y: A. R(x,y) -> R(y,x),
++              Rtrans: all x: A. all y: A. all z: A. R(x,y) -> R(y,z) -> R(x,z),
++              sh: isSet(hProp), a: A, b: A,
++              p: Path(Quot(A,R), qcl(a), qcl(b))) -> R(a, b):
++  encode(A,R,Rprop,Rrefl,Rsym,Rtrans,sh,a,qcl(b),p)
++
++# ---- Nerode is a prop-valued equivalence relation (machine-specific) ----
++def reflN(x: S) -> Nerode(x, x):
++  lambda w. <_> behavior(x, w)
++def symN(x: S, y: S, e: Nerode(x, y)) -> Nerode(y, x):
++  lambda w. <i> e(w) @ (inot(i))
++def transN(x: S, y: S, z: S, e: Nerode(x, y), f: Nerode(y, z)) -> Nerode(x, z):
++  lambda w. <i> hcompN(Bool,
++    [ (inot(i), <_> behavior(x, w)), (i, <k> f(w) @ k) ], e(w) @ i)
++def isPropNerode(setO: isSet(Bool), x: S, y: S) -> isProp(Nerode(x, y)):
++  lambda e. lambda f. <i> lambda w. setO(behavior(x,w), behavior(y,w), e(w), f(w)) @ i
++
++# ---- THE INSTANTIATION: [x] == [y]  =>  x ~ y, for the minimal machine ----
++def nerodeEffective(setO: isSet(Bool), x: S, y: S,
++                    p: Path(Meaning, qcl(x), qcl(y))) -> Nerode(x, y):
++  effective(S, Nerode,
++    lambda a. lambda b. isPropNerode(setO, a, b),
++    reflN,
++    symN,
++    transN,
++    isSetHProp(), x, y, p)
++
++# both directions now compute for the machine:
++#   sameMeaning : Nerode(x,y) -> Path(Meaning,[x],[y])   (minmachine.bend, eq/)
++#   nerodeEffective : Path(Meaning,[x],[y]) -> Nerode(x,y)   (here)
++# and on the reflexive path it returns reflexivity (definitional):
++def nerodeEffComputes(setO: isSet(Bool), x: S)
++    -> Path(Nerode(x,x), nerodeEffective(setO, x, x, <_> qcl(x)), reflN(x)):
++  <_> reflN(x)
++
++
++
++def main() -> Nat:
++  0n
 diff --git a/pth2.bend b/pth2.bend
 new file mode 100644
 index 0000000..c3ea193
@@ -1340,6 +3195,176 @@ index 0000000..d47432e
 +
 +def constFam_ok(a: Nat, b: Nat, p: Path(Nat, a, b)) -> Path(Path(Nat, a, b), constFamPath(a, b, p), p):
 +  <_> p
++
++def main() -> Nat:
++  0n
+diff --git a/quotient.bend b/quotient.bend
+new file mode 100644
+index 0000000..4ba7804
+--- /dev/null
++++ b/quotient.bend
+@@ -0,0 +1,43 @@
++# SetQuotient: representative usage (scrutinee is a typed variable).
++def R(a: Bool, b: Bool) -> Set:
++  Path(Bool, a, b)
++
++def Q() -> Set:
++  Quot(Bool, R)
++
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y), p, q)
++
++# squash/ inhabits isSet of the quotient
++def isSetQ() -> isSet(Q):
++  qsquash
++
++# point endpoints in a Path type (check-mode against the constant line)
++def loopT() -> Path(Q, qcl(True), qcl(True)):
++  <_> qcl(True)
++
++# eq/ as a genuine path in the quotient
++def eqPath(a: Bool, b: Bool, w: R(a,b)) -> Path(Q, qcl(a), qcl(b)):
++  qeq(a,b,w)
++
++def f(b: Bool) -> Nat:
++  match b:
++    case True: 1n
++    case False: 0n
++
++def resp(a: Bool, b: Bool, w: R(a,b)) -> Path(Nat, f(a), f(b)):
++  <i> f(w @ i)
++
++# recursor with a variable scrutinee (the real elimination shape)
++def rec(setB: isSet(Nat), g: all b: Bool. Nat, gr: all a: Bool. all b: Bool. all w: R(a,b). Path(Nat, g(a), g(b)), q: Q) -> Nat:
++  qrec(q, setB, g, gr)
++
++def recRun(setB: Nat, g: all b: Bool. Nat, gr: all a: Bool. all b: Bool. all w: R(a,b). Path(Nat, g(a), g(b)), q: Q) -> Nat:
++  qrec(q, setB, g, gr)
++
++# qrec(qcl(True), ..) reduces to f(True) = 1n  (the point computation rule)
++def recComputes() -> Path(Nat, recRun(0n, f, resp, qcl(True)), 1n):
++  <_> 1n
++
++def main() -> Nat:
++  recRun(0n, f, resp, qcl(True))
+diff --git a/quotient_mustfail.bend b/quotient_mustfail.bend
+new file mode 100644
+index 0000000..d499605
+--- /dev/null
++++ b/quotient_mustfail.bend
+@@ -0,0 +1,21 @@
++# MUST-FAIL: the recursor must reject a resp that does not respect R.
++# If accepted, eq/ + this resp would prove f(a) == f(b) for unrelated values,
++# collapsing the target.  The checker must reject `badResp`.
++def R(a: Bool, b: Bool) -> Set:
++  Path(Bool, a, b)
++def Q() -> Set:
++  Quot(Bool, R)
++def f(b: Bool) -> Nat:
++  match b:
++    case True: 1n
++    case False: 0n
++
++# WRONG: claims a constant path f(a)==f(a); required type is Path(Nat,f(a),f(b)).
++def badResp(a: Bool, b: Bool, w: R(a,b)) -> Path(Nat, f(a), f(b)):
++  <_> f(a)
++
++def bad(setB: Nat, q: Q) -> Nat:
++  qrec(q, setB, f, badResp)
++
++def main() -> Nat:
++  0n
+diff --git a/roundtrip.bend b/roundtrip.bend
+new file mode 100644
+index 0000000..33ddab7
+--- /dev/null
++++ b/roundtrip.bend
+@@ -0,0 +1,88 @@
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
++  match c0:
++    case (a0, p0):
++      match c1:
++        case (a1, p1):
++          <i> ( p0(a1) @ i
++              , lambda x. <j> hcompN(A,
++                  [ (inot(i), <k> p0(p0(x) @ j) @ k)
++                  , (i,       <k> p0(p1(x) @ j) @ k)
++                  , (inot(j), <k> p0(p0(a1) @ i) @ k)
++                  , (j,       <k> p0(x) @ k)
++                  ], a0) )
++def isPropIsEquiv(A: Set, B: Set, f: A -> B, u0: isEquiv(A,B,f), u1: isEquiv(A,B,f))
++  -> Path(isEquiv(A,B,f), u0, u1):
++  <i> lambda y. isPropIsContr(fiber(A,B,f,y), u0(y), u1(y)) @ i
++def isContrSingl(A: Set, a: A) -> isContr(fiber(A, A, lambda x. x, a)):
++  ( (a, <_> a)
++  , lambda w.
++      match w:
++        case (x, p):
++          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) ) )
++def idEquiv(A: Set) -> Equiv(A, A):
++  ( lambda x. x , lambda y. isContrSingl(A, y) )
++def pathToEquiv(A: Set, B: Set, p: Path(Set, A, B)) -> Equiv(A, B):
++  coe(lambda i. Equiv(A, p @ i), i0, i1, idEquiv(A))
++
++# --- projections that reduce: matched argument is a direct variable, so the
++# --- case-split refines the goal (centre(A,(c,h)) computes to c).
++def centre(A: Set, c: isContr(A)) -> A:
++  match c:
++    case (ce, h): ce
++def contract(A: Set, c: isContr(A)) -> (all x: A. Path(A, centre(A,c), x)):
++  match c:
++    case (ce, h): h
++def fibPt(A: Set, B: Set, f: A->B, y: B, fb: fiber(A,B,f,y)) -> A:
++  match fb:
++    case (x, p): x
++def fibPath(A: Set, B: Set, f: A->B, y: B, fb: fiber(A,B,f,y))
++  -> Path(B, f(fibPt(A,B,f,y,fb)), y):
++  match fb:
++    case (x, p): p
++def eqFun(A: Set, B: Set, e: Equiv(A,B)) -> (A -> B):
++  match e:
++    case (f, pf): f
++def eqPrf(A: Set, B: Set, e: Equiv(A,B)) -> isEquiv(A,B, eqFun(A,B,e)):
++  match e:
++    case (f, pf): pf
++
++# inverse, threaded consistently through centre(fiber, pf y)
++def invOf(A: Set, B: Set, e: Equiv(A,B)) -> (B -> A):
++  lambda y. fibPt(A,B, eqFun(A,B,e), y,
++    centre(fiber(A,B, eqFun(A,B,e), y), eqPrf(A,B,e)(y)))
++# fg : f(g y) = y   is the centre fibre's path
++def fgOf(A: Set, B: Set, e: Equiv(A,B))
++  -> (all y: B. Path(B, eqFun(A,B,e)(invOf(A,B,e)(y)), y)):
++  lambda y. fibPath(A,B, eqFun(A,B,e), y,
++    centre(fiber(A,B, eqFun(A,B,e), y), eqPrf(A,B,e)(y)))
++# gf : g(f x) = x   via ap fibPt over the contraction of the (x, refl) fibre
++def gfOf(A: Set, B: Set, e: Equiv(A,B))
++  -> (all x: A. Path(A, invOf(A,B,e)(eqFun(A,B,e)(x)), x)):
++  lambda x. <i> fibPt(A, B, eqFun(A,B,e), eqFun(A,B,e)(x), contract(fiber(A,B, eqFun(A,B,e), eqFun(A,B,e)(x)), eqPrf(A,B,e)(eqFun(A,B,e)(x)))((x, <_> eqFun(A,B,e)(x))) @ i)
++
++def uaFromEquiv(A: Set, B: Set, e: Equiv(A,B)) -> Path(Set, A, B):
++  ua(A,B, eqFun(A,B,e), invOf(A,B,e), gfOf(A,B,e), fgOf(A,B,e))
++
++# THE REVERSE UNIVALENCE ROUND TRIP:  pathToEquiv (ua e) = e
++#   fst: fst(pathToEquiv(ua e)) = f definitionally (uaβ + coe-through-Σ/Π)
++#   snd: filled by isPropIsEquiv (isEquiv is a proposition)
++def uaRoundTrip(A: Set, B: Set, e: Equiv(A,B))
++  -> Path(Equiv(A,B), pathToEquiv(A,B, uaFromEquiv(A,B,e)), e):
++  match e:
++    case (f, pf):
++      <i> ( f
++          , isPropIsEquiv(A,B, f,
++              eqPrf(A,B, pathToEquiv(A,B, uaFromEquiv(A,B,(f,pf)))),
++              pf) @ i )
 +
 +def main() -> Nat:
 +  0n
@@ -1396,6 +3421,278 @@ index 0000000..1cb8f41
 +
 +def main() -> Nat:
 +  div2(mul2(21n))
+diff --git a/silence.bend b/silence.bend
+new file mode 100644
+index 0000000..ef89e03
+--- /dev/null
++++ b/silence.bend
+@@ -0,0 +1,122 @@
++# SILENCE OF QUESTIONS IS DETERMINISM, coinductively and in general
++# (Prasna §3): for ANY interaction (X, Q, δ) whose every question Q x is
++# contractible, the space of answer streams from x — hence of histories —
++# is a point.  The contraction is built coinductively OVER A PATH of states
++# (a dependent path PathP(λi. Answers(p @ i))): the answer components are
++# collapsed by isProp→PathP, and the tails follow along the line the answers
++# draw.  Exactly the Agda copattern proof, as corecursive PathP.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def centre(A: Set, c: isContr(A)) -> A:
++  match c:
++    case (c0, h):
++      c0
++def pcomp(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z)) -> Path(A, x, z):
++  <i> hcompN(A, [ (inot(i), <_> x), (i, <j> q @ j) ], p @ i)
++def contrIsProp(A: Set, c: isContr(A)) -> isProp(A):
++  match c:
++    case (c0, h):
++      lambda a. lambda b. pcomp(A, a, c0, b, <i> h(a) @ inot(i), h(b))
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
++  <i> hcompN(B(i),
++    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
++    coe(lambda k. B(iand(i, k)), i0, i, x))
++def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
++  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
++
++# ---------------------------------------------------------------------------
++# The interaction, parametric: states X, questions Q, step δ.  Coinductive.
++# ---------------------------------------------------------------------------
++type Answers(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X):
++  case @More:
++    ans: Q(x)
++    more: Answers(X, Q, d, d(x, ans))
++type IExec(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X):
++  case @Run:
++    now: X
++    here: Path(X, now, x)
++    ans: Q(x)
++    next: IExec(X, Q, d, d(x, ans))
++
++def forgetStates(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, e: IExec(X, Q, d, x)) -> Answers(X, Q, d, x):
++  match e:
++    case @Run{now, here, a, rest}:
++      @More{a, forgetStates(X, Q, d, d(x, a), rest)}
++def replay(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, s: Answers(X, Q, d, x)) -> IExec(X, Q, d, x):
++  match s:
++    case @More{a, more}:
++      @Run{x, <_> x, a, replay(X, Q, d, d(x, a), more)}
++def replayForget(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, e: IExec(X, Q, d, x)) -> Path(IExec(X, Q, d, x), replay(X, Q, d, x, forgetStates(X, Q, d, x, e)), e):
++  match e:
++    case @Run{now, here, a, rest}:
++      <i> @Run{here @ inot(i), <j> here @ ior(inot(i), j), a, replayForget(X, Q, d, d(x, a), rest) @ i}
++
++# ---------------------------------------------------------------------------
++# §3  mute: the environment with nothing to choose; answers-unique: any two
++#     answer streams over a path of states are joined by a dependent path.
++# ---------------------------------------------------------------------------
++def mute(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x: X) -> Answers(X, Q, d, x):
++  @More{centre(Q(x), Qc(x)), mute(X, Q, d, Qc, d(x, centre(Q(x), Qc(x))))}
++
++# the answer components, collapsed over the line of states
++def ansLine(X: Set, Q: X -> Set, Qc: all x: X. isContr(Q(x)), x0: X, x1: X, p: Path(X, x0, x1), q0: Q(x0), q1: Q(x1)) -> PathP(lambda i. Q(p @ i), q0, q1):
++  isPropToPathP(lambda i. Q(p @ i), lambda i. contrIsProp(Q(p @ i), Qc(p @ i)), q0, q1)
++
++def answersUnique(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x0: X, x1: X, p: Path(X, x0, x1), a0: Answers(X, Q, d, x0), a1: Answers(X, Q, d, x1)) -> PathP(lambda i. Answers(X, Q, d, p @ i), a0, a1):
++  match a0:
++    case @More{q0, m0}:
++      match a1:
++        case @More{q1, m1}:
++          <i> @More{ ansLine(X, Q, Qc, x0, x1, p, q0, q1) @ i
++                   , answersUnique(X, Q, d, Qc, d(x0, q0), d(x1, q1),
++                                   <j> d(p @ j, ansLine(X, Q, Qc, x0, x1, p, q0, q1) @ j),
++                                   m0, m1) @ i }
++
++# one answer stream: the contraction at the constant path
++def oneAnswerStream(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x: X) -> isContr(Answers(X, Q, d, x)):
++  ( mute(X, Q, d, Qc, x)
++  , lambda s. answersUnique(X, Q, d, Qc, x, x, <_> x, mute(X, Q, d, Qc, x), s) )
++
++# THE THEOREM.  Nothing to ask, nothing to choose: one history.
++# (isContr respects the equivalence run-is-answers: centre = replay(mute),
++#  contraction = replay of the answers' contraction, then replay∘forget = id)
++def silenceIsDeterminism(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x: X) -> isContr(IExec(X, Q, d, x)):
++  ( replay(X, Q, d, x, mute(X, Q, d, Qc, x))
++  , lambda e. pcomp(IExec(X, Q, d, x),
++                    replay(X, Q, d, x, mute(X, Q, d, Qc, x)),
++                    replay(X, Q, d, x, forgetStates(X, Q, d, x, e)),
++                    e,
++                    <i> replay(X, Q, d, x, answersUnique(X, Q, d, Qc, x, x, <_> x, mute(X, Q, d, Qc, x), forgetStates(X, Q, d, x, e)) @ i),
++                    replayForget(X, Q, d, x, e)) )
++
++# ---------------------------------------------------------------------------
++# §4  The closed machine is the interaction with nothing to ask (Niyati again).
++# ---------------------------------------------------------------------------
++def UnitQ(X: Set, x: X) -> Set:
++  Unit
++def closedStep(X: Set, f: X -> X, x: X, u: Unit) -> X:
++  f(x)
++def isContrUnit() -> isContr(Unit):
++  ((), lambda u. match u: case (): <_> ())
++def oneExecutionAgain(X: Set, f: X -> X, x: X) -> isContr(IExec(X, lambda x. UnitQ(X, x), lambda x. lambda u. closedStep(X, f, x, u), x)):
++  silenceIsDeterminism(X, lambda x. UnitQ(X, x), lambda x. lambda u. closedStep(X, f, x, u), lambda x. isContrUnit(), x)
++
++# run it: the unique history of the counter from 0, its state after 4 steps
++def incr(n: Nat) -> Nat:
++  1n + n
++def stateAt(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, e: IExec(X, Q, d, x), n: Nat) -> X:
++  match n:
++    case 0n:
++      x
++    case 1n + p:
++      match e:
++        case @Run{now, here, a, rest}:
++          stateAt(X, Q, d, d(x, a), rest, p)
++def main() -> Nat:
++  stateAt(Nat, lambda x. UnitQ(Nat, x), lambda x. lambda u. closedStep(Nat, incr, x, u), 0n,
++          centre(IExec(Nat, lambda x. UnitQ(Nat, x), lambda x. lambda u. closedStep(Nat, incr, x, u), 0n), oneExecutionAgain(Nat, incr, 0n)),
++          4n)
+diff --git a/silence_mustfail.bend b/silence_mustfail.bend
+new file mode 100644
+index 0000000..1f794bf
+--- /dev/null
++++ b/silence_mustfail.bend
+@@ -0,0 +1,138 @@
++# SILENCE OF QUESTIONS IS DETERMINISM, coinductively and in general
++# (Prasna §3): for ANY interaction (X, Q, δ) whose every question Q x is
++# contractible, the space of answer streams from x — hence of histories —
++# is a point.  The contraction is built coinductively OVER A PATH of states
++# (a dependent path PathP(λi. Answers(p @ i))): the answer components are
++# collapsed by isProp→PathP, and the tails follow along the line the answers
++# draw.  Exactly the Agda copattern proof, as corecursive PathP.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def isProp(A: Set) -> Set:
++  all x: A. all y: A. Path(A, x, y)
++def centre(A: Set, c: isContr(A)) -> A:
++  match c:
++    case (c0, h):
++      c0
++def pcomp(A: Set, x: A, y: A, z: A, p: Path(A, x, y), q: Path(A, y, z)) -> Path(A, x, z):
++  <i> hcompN(A, [ (inot(i), <_> x), (i, <j> q @ j) ], p @ i)
++def contrIsProp(A: Set, c: isContr(A)) -> isProp(A):
++  match c:
++    case (c0, h):
++      lambda a. lambda b. pcomp(A, a, c0, b, <i> h(a) @ inot(i), h(b))
++def transport(P: Interval -> Set, t: P(i0)) -> P(i1):
++  coe(P, i0, i1, t)
++def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
++  <i> hcompN(B(i),
++    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
++    coe(lambda k. B(iand(i, k)), i0, i, x))
++def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
++  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
++
++# ---------------------------------------------------------------------------
++# The interaction, parametric: states X, questions Q, step δ.  Coinductive.
++# ---------------------------------------------------------------------------
++type Answers(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X):
++  case @More:
++    ans: Q(x)
++    more: Answers(X, Q, d, d(x, ans))
++type IExec(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X):
++  case @Run:
++    now: X
++    here: Path(X, now, x)
++    ans: Q(x)
++    next: IExec(X, Q, d, d(x, ans))
++
++def forgetStates(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, e: IExec(X, Q, d, x)) -> Answers(X, Q, d, x):
++  match e:
++    case @Run{now, here, a, rest}:
++      @More{a, forgetStates(X, Q, d, d(x, a), rest)}
++def replay(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, s: Answers(X, Q, d, x)) -> IExec(X, Q, d, x):
++  match s:
++    case @More{a, more}:
++      @Run{x, <_> x, a, replay(X, Q, d, d(x, a), more)}
++def replayForget(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, e: IExec(X, Q, d, x)) -> Path(IExec(X, Q, d, x), replay(X, Q, d, x, forgetStates(X, Q, d, x, e)), e):
++  match e:
++    case @Run{now, here, a, rest}:
++      <i> @Run{here @ inot(i), <j> here @ ior(inot(i), j), a, replayForget(X, Q, d, d(x, a), rest) @ i}
++
++# ---------------------------------------------------------------------------
++# §3  mute: the environment with nothing to choose; answers-unique: any two
++#     answer streams over a path of states are joined by a dependent path.
++# ---------------------------------------------------------------------------
++def mute(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x: X) -> Answers(X, Q, d, x):
++  @More{centre(Q(x), Qc(x)), mute(X, Q, d, Qc, d(x, centre(Q(x), Qc(x))))}
++
++# the answer components, collapsed over the line of states
++def ansLine(X: Set, Q: X -> Set, Qc: all x: X. isContr(Q(x)), x0: X, x1: X, p: Path(X, x0, x1), q0: Q(x0), q1: Q(x1)) -> PathP(lambda i. Q(p @ i), q0, q1):
++  isPropToPathP(lambda i. Q(p @ i), lambda i. contrIsProp(Q(p @ i), Qc(p @ i)), q0, q1)
++
++def answersUnique(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x0: X, x1: X, p: Path(X, x0, x1), a0: Answers(X, Q, d, x0), a1: Answers(X, Q, d, x1)) -> PathP(lambda i. Answers(X, Q, d, p @ i), a0, a1):
++  match a0:
++    case @More{q0, m0}:
++      match a1:
++        case @More{q1, m1}:
++          <i> @More{ ansLine(X, Q, Qc, x0, x1, p, q0, q1) @ i
++                   , answersUnique(X, Q, d, Qc, d(x0, q0), d(x1, q1),
++                                   <j> d(p @ j, ansLine(X, Q, Qc, x0, x1, p, q0, q1) @ j),
++                                   m0, m1) @ i }
++
++# one answer stream: the contraction at the constant path
++def oneAnswerStream(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x: X) -> isContr(Answers(X, Q, d, x)):
++  ( mute(X, Q, d, Qc, x)
++  , lambda s. answersUnique(X, Q, d, Qc, x, x, <_> x, mute(X, Q, d, Qc, x), s) )
++
++# THE THEOREM.  Nothing to ask, nothing to choose: one history.
++# (isContr respects the equivalence run-is-answers: centre = replay(mute),
++#  contraction = replay of the answers' contraction, then replay∘forget = id)
++def silenceIsDeterminism(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x: X) -> isContr(IExec(X, Q, d, x)):
++  ( replay(X, Q, d, x, mute(X, Q, d, Qc, x))
++  , lambda e. pcomp(IExec(X, Q, d, x),
++                    replay(X, Q, d, x, mute(X, Q, d, Qc, x)),
++                    replay(X, Q, d, x, forgetStates(X, Q, d, x, e)),
++                    e,
++                    <i> replay(X, Q, d, x, answersUnique(X, Q, d, Qc, x, x, <_> x, mute(X, Q, d, Qc, x), forgetStates(X, Q, d, x, e)) @ i),
++                    replayForget(X, Q, d, x, e)) )
++
++# ---------------------------------------------------------------------------
++# §4  The closed machine is the interaction with nothing to ask (Niyati again).
++# ---------------------------------------------------------------------------
++def UnitQ(X: Set, x: X) -> Set:
++  Unit
++def closedStep(X: Set, f: X -> X, x: X, u: Unit) -> X:
++  f(x)
++def isContrUnit() -> isContr(Unit):
++  ((), lambda u. match u: case (): <_> ())
++def oneExecutionAgain(X: Set, f: X -> X, x: X) -> isContr(IExec(X, lambda x. UnitQ(X, x), lambda x. lambda u. closedStep(X, f, x, u), x)):
++  silenceIsDeterminism(X, lambda x. UnitQ(X, x), lambda x. lambda u. closedStep(X, f, x, u), lambda x. isContrUnit(), x)
++
++# run it: the unique history of the counter from 0, its state after 4 steps
++def incr(n: Nat) -> Nat:
++  1n + n
++def stateAt(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, x: X, e: IExec(X, Q, d, x), n: Nat) -> X:
++  match n:
++    case 0n:
++      x
++    case 1n + p:
++      match e:
++        case @Run{now, here, a, rest}:
++          stateAt(X, Q, d, d(x, a), rest, p)
++def main() -> Nat:
++  stateAt(Nat, lambda x. UnitQ(Nat, x), lambda x. lambda u. closedStep(Nat, incr, x, u), 0n,
++          centre(IExec(Nat, lambda x. UnitQ(Nat, x), lambda x. lambda u. closedStep(Nat, incr, x, u), 0n), oneExecutionAgain(Nat, incr, 0n)),
++          4n)
++# MUST FAIL: the open machine (Q = Bool, no contractibility) has no contraction
++def BoolQ(x: Nat) -> Set:
++  Bool
++def openStep(x: Nat, b: Bool) -> Nat:
++  if b:
++    1n + x
++  else:
++    0n
++def wrongTail(X: Set, Q: X -> Set, d: all x: X. Q(x) -> X, Qc: all x: X. isContr(Q(x)), x0: X, x1: X, p: Path(X, x0, x1), a0: Answers(X, Q, d, x0), a1: Answers(X, Q, d, x1)) -> PathP(lambda i. Answers(X, Q, d, p @ i), a0, a1):
++  match a0:
++    case @More{q0, m0}:
++      match a1:
++        case @More{q1, m1}:
++          <i> @More{ ansLine(X, Q, Qc, x0, x1, p, q0, q1) @ i, m0 }
++def wrongCentre(x: Nat, s: Answers(Nat, BoolQ, openStep, x)) -> Path(Answers(Nat, BoolQ, openStep, x), mute(Nat, BoolQ, openStep, lambda x. (True, lambda b. <_> True), x), s):
++  <i> s
 diff --git a/src/Core/Analysis.hs b/src/Core/Analysis.hs
 new file mode 100644
 index 0000000..fbf31d3
@@ -4253,10 +6550,10 @@ index 0000000..cbf1493
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..abf5975
+index 0000000..03aace8
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,257 @@
+@@ -0,0 +1,265 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -4319,9 +6616,11 @@ index 0000000..abf5975
 +  , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
 +  , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"
 +  , "@pathAt = λp. λi. (λ{#I0: λp. @pL(p); #I1: λp. @pR(p); λi. λp. @pAtSym(p, i)})(i)(p)"
-+  , "@pAtSym = λ{#PLm: λf. λi. f(i); #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
-+  , "@pL = λ{#PLm: λf. f(#I0); #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
-+  , "@pR = λ{#PLm: λf. f(#I1); #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); λv. #StuckAt{v, #I1}}"
++  , "@pAtSym = λ{#PLm: λf. λi. f(i); #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; #QEq: λa. λb. λw. λi. #QEqAt{a, b, w, i}; λv. λi. #StuckAt{v, i}}"
++  , "@pL = λ{#PLm: λf. f(#I0); #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); #QEq: λa. λb. λw. #QCl{a}; λv. #StuckAt{v, #I0}}"
++  , "@pR = λ{#PLm: λf. f(#I1); #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); #QEq: λa. λb. λw. #QCl{b}; λv. #StuckAt{v, #I1}}"
++  , "// set-quotient recursor: [a] -> f a ; (eq/ a b w @ i) -> resp a b w @ i ; commutes over Sup natively"
++  , "@qrec = λ&x. λ&s. λ&f. λ&r. (λ{#QCl: λa. f(a); #QEqAt: λa. λb. λw. λi. @pathAt(r(a)(b)(w), i); λv. #QRec{v, s, f, r}})(x)"
 +  , "// ---- hcomp: faces = #Nil | #Cons{#Face{phi, tube}, rest}; stuck faces are kept"
 +  , "@hcomp = λA. λfs. λbase. @hcompGo(A, fs, base, #Nil)"
 +  , "@hcompGo = λ&A. λ{"
@@ -4478,6 +6777,12 @@ index 0000000..abf5975
 +    GlB a fs x     -> "@glue(" ++ go d a ++ ", " ++ foldr (\(p,t) acc -> "#Cons{#Face{" ++ go d p ++ ", " ++ go d t ++ "}, " ++ acc ++ "}") "#Nil" fs ++ ", " ++ go d x ++ ")"
 +    UnG g          -> "@unglue(" ++ go d g ++ ")"
 +    Ua a b f g _ _ -> "#UaU{" ++ go d a ++ ", " ++ go d b ++ ", " ++ go d f ++ ", " ++ go d g ++ "}"
++    -- Set-quotient HIT: the recursor computes on the net; eq/ is a runtime path
++    Quo a r        -> "#Quo{" ++ go d a ++ ", " ++ go d r ++ "}"
++    QCl a          -> "#QCl{" ++ go d a ++ "}"
++    QEq a b w      -> "#QEq{" ++ go d a ++ ", " ++ go d b ++ ", " ++ go d w ++ "}"
++    QSq            -> "#QSq"
++    QRec x s f r   -> "@qrec(" ++ go d x ++ ", " ++ go d s ++ ", " ++ go d f ++ ", " ++ go d r ++ ")"
 +    Met _ _ _      -> "&{}"
 +    Pri _          -> "&{}"
 +    Pat _ _ _      -> error "HVM4 full emission: unflattened pattern match"
@@ -4777,6 +7082,99 @@ index 0000000..1f164e6
 +      <i> ( f
 +          , isPropIsEquiv(A, B, f, sndE(A, B, pathToEquiv(A, B, uaE(A, B, (f, h)))), h) @ i )
 +
++def main() -> Nat:
++  0n
+diff --git a/uaequiv_mustfail.bend b/uaequiv_mustfail.bend
+new file mode 100644
+index 0000000..6c6b0bf
+--- /dev/null
++++ b/uaequiv_mustfail.bend
+@@ -0,0 +1,87 @@
++# The REVERSE univalence round trip, at the COHERENT (contractible-fibre)
++# level: pathToEquiv(ua(e)) = e.  Needs isPropIsContr (general hcomp).
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++def fiber(A: Set, B: Set, f: A -> B, y: B) -> Set:
++  any x: A. Path(B, f(x), y)
++def isEquiv(A: Set, B: Set, f: A -> B) -> Set:
++  all y: B. isContr(fiber(A, B, f, y))
++def Equiv(A: Set, B: Set) -> Set:
++  any f: A -> B. isEquiv(A, B, f)
++
++def isContrSingl(A: Set, a: A) -> isContr(fiber(A, A, lambda x. x, a)):
++  ( (a, <_> a)
++  , lambda w.
++      match w:
++        case (x, p):
++          <i> ( p @ inot(i) , <j> p @ ior(inot(i), j) )
++  )
++def idEquiv(A: Set) -> Equiv(A, A):
++  ( lambda x. x , lambda y. isContrSingl(A, y) )
++
++# contractibility is a proposition (4-face hcomp)
++def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
++  match c0:
++    case (a0, p0):
++      match c1:
++        case (a1, p1):
++          <i> ( p0(a1) @ i
++              , lambda x. <j> hcompN(A,
++                  [ (inot(i), <k> p0(p0(x) @ j) @ k)
++                  , (i,       <k> p0(p1(x) @ j) @ k)
++                  , (inot(j), <k> p0(p0(a1) @ i) @ k)
++                  , (j,       <k> p0(x) @ k)
++                  ], a0) )
++
++# hence being an equivalence is a proposition, pointwise
++def isPropIsEquiv(A: Set, B: Set, f: A -> B, h0: isEquiv(A, B, f), h1: isEquiv(A, B, f)) -> Path(isEquiv(A, B, f), h0, h1):
++  <i> lambda y. isPropIsContr(fiber(A, B, f, y), h0(y), h1(y)) @ i
++
++# inverse data from a contractible fibre, matching the isContr VALUE (a
++# variable), so the goal refines — never matching a neutral h(y).
++def invC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> A:
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, _):
++          x
++def secC(A: Set, B: Set, f: A -> B, y: B, c: isContr(fiber(A, B, f, y))) -> Path(B, f(invC(A, B, f, y, c)), y):
++  match c:
++    case (cen, _):
++      match cen:
++        case (x, p):
++          p
++def retC(A: Set, B: Set, f: A -> B, x: A, c: isContr(fiber(A, B, f, f(x)))) -> Path(A, invC(A, B, f, f(x), c), x):
++  match c:
++    case (cen, contr):
++      <i> (match contr((x, <_> f(x))) @ i: case (z, _): z)
++
++def uaE(A: Set, B: Set, e: Equiv(A, B)) -> Path(Set, A, B):
++  match e:
++    case (f, h):
++      ua(A, B, f, lambda y. invC(A, B, f, y, h(y)), lambda x. retC(A, B, f, x, h(f(x))), lambda y. secC(A, B, f, y, h(y)))
++
++def pathToEquiv(A: Set, B: Set, p: Path(Set, A, B)) -> Equiv(A, B):
++  coe(lambda i. Equiv(A, p @ i), i0, i1, idEquiv(A))
++
++def fstE(A: Set, B: Set, e: Equiv(A, B)) -> (A -> B):
++  match e:
++    case (f, _):
++      f
++def sndE(A: Set, B: Set, e: Equiv(A, B)) -> isEquiv(A, B, fstE(A, B, e)):
++  match e:
++    case (_, h):
++      h
++
++# MUST FAIL 1: constant path — endpoint i0 is (f,h), not pathToEquiv(uaE e)
++def wrong1(A: Set, B: Set, e: Equiv(A, B)) -> Path(Equiv(A, B), pathToEquiv(A, B, uaE(A, B, e)), e):
++  match e:
++    case (f, h):
++      <i> (f, h)
++# MUST FAIL 2: endpoints swapped
++def wrong2(A: Set, B: Set, e: Equiv(A, B)) -> Path(Equiv(A, B), pathToEquiv(A, B, uaE(A, B, e)), e):
++  match e:
++    case (f, h):
++      <i> ( f , isPropIsEquiv(A, B, f, h, sndE(A, B, pathToEquiv(A, B, uaE(A, B, (f, h))))) @ i )
 +def main() -> Nat:
 +  0n
 diff --git a/uaglue.bend b/uaglue.bend
