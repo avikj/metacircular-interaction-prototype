@@ -9,15 +9,15 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.HITs.SetQuotients using ([_])
 open import Agda.Builtin.Reflection using (Term)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import ReflectedFormation as RF
 import Fibre.CorpusReflection as CR
 
 -- The checked reflected mathematical expression itself is the state.
 -- An action selects a child address; observation is the syntax constructor.
--- FutureEq therefore identifies exactly those formed expressions with the
+-- NerodeCongruence therefore identifies exactly those formed expressions with the
 -- same complete structural future under every finite navigation word.
-module Q = FB.FutureQuotient RF.child isSetℕ RF.headCode
+module Q = FB.MinimalMachine RF.child isSetℕ RF.headCode
 
 Meaning : Type₀
 Meaning = Q.Meaning

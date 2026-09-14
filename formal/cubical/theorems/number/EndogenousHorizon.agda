@@ -15,7 +15,7 @@
 -- divisibility test below the threshold, yet differ in primality.
 --
 -- That is precisely the shape this repository's checked core already
--- formalises (FutureBehavior, 
+-- formalises (MyhillNerodeMinimalMachine, 
 -- ExcursionReturn §2): two states agreeing on all admitted observations
 -- but separated by the task.  runtime/CRYSTAL.md §3.2 calls such a pair a
 -- COLLISION and says it "is not a failure; it is a specification of the

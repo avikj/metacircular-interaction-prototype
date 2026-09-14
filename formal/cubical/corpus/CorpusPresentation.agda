@@ -8,7 +8,7 @@
 --
 --   checked declaration
 --     ── reflection only (ReflectedFormation) ──▶ formed presentation
---     ── native checked actions/observations   ──▶ FutureBehavior machine
+--     ── native checked actions/observations   ──▶ MyhillNerodeMinimalMachine machine
 --     ── greatest behavioural congruence        ──▶ Meaning
 --
 --   and losslessly     formed presentations ≃ Σ_{m : Meaning} RealizationFiber(m).
@@ -25,10 +25,10 @@
 --
 -- THE OBSERVATION IS SET-VALUED.  `headCode` reads the outermost shape
 -- of a term as a natural number (a set), so `isSetℕ` discharges
--- FutureBehavior's `isSetObs`.
+-- MyhillNerodeMinimalMachine's `isSetObs`.
 --
--- MEANING IS THE EXISTING QUOTIENT.  `Meaning = Term / FutureEq`, from
--- FutureBehavior.FutureQuotient — the greatest behavioural congruence.
+-- MEANING IS THE EXISTING QUOTIENT.  `Meaning = Term / NerodeCongruence`, from
+-- MyhillNerodeMinimalMachine.MinimalMachine — the greatest behavioural congruence.
 -- No new minimiser, no MDL objective.  Two reflected terms are one
 -- meaning exactly when every finite descent word yields the same head
 -- shape: same observable syntactic unfolding.
@@ -62,7 +62,7 @@ open import Agda.Builtin.Reflection hiding (Type)
 open import Agda.Builtin.List renaming (List to BList ; [] to bnil ; _∷_ to _b∷_)
 open import Agda.Builtin.Unit
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import FiniteInformation as FI
 import RewriteCertificate as RC
 open import ReflectedFormation using (Decl ; decl ; declType ; rawView)
@@ -104,7 +104,7 @@ step : Term → ℕ → Term
 step t n = nth (argsOf t) n
 
 ------------------------------------------------------------------------
--- §2  The FutureBehavior machine over reflected syntax, and its Meaning.
+-- §2  The MyhillNerodeMinimalMachine machine over reflected syntax, and its Meaning.
 ------------------------------------------------------------------------
 
 presentationMachine : FB.Machine ℓ-zero ℓ-zero ℓ-zero
@@ -117,9 +117,9 @@ presentationMachine = record
   ; observe  = headCode
   }
 
-open FB.FutureQuotient step isSetℕ headCode public
-  -- brings: Meaning, _≈_, quotStep, quotObserve, []-effective,
-  --         []-effectiveIso, quotBehavior, factor, factor-unique, …
+open FB.MinimalMachine step isSetℕ headCode public
+  -- brings: Meaning, _≈_, quotStep, quotObserve, nerodeCongruence-effective,
+  --         nerodeCongruence-effectiveIso, quotBehavior, factor, factor-unique, …
 
 -- The presentation map: a formed state to its compact meaning.
 pres : Term → Meaning
@@ -149,7 +149,7 @@ lossless = totalEquiv pres
 
 realization-is-future-equality :
   (x y : Term) → (pres x ≡ pres y) → x ≈ y
-realization-is-future-equality = []-effective
+realization-is-future-equality = nerodeCongruence-effective
 
 ------------------------------------------------------------------------
 -- §5  FiniteInformation bridge: the present observation is EXACTLY what
@@ -159,7 +159,7 @@ realization-is-future-equality = []-effective
 -- headCode is constant on future-equivalence fibres: identify two
 -- presentations and their present observations already agreed.
 headCode-fiberConstant : FI.FiberConstant pres headCode
-headCode-fiberConstant x y p = []-effective x y p []
+headCode-fiberConstant x y p = nerodeCongruence-effective x y p []
 
 -- Therefore it factors through the compact presentation: no refinement
 -- of the demanded present view is needed.  (A finer target would need
@@ -182,7 +182,7 @@ presentObserve-[] x = refl
 -- `observeDecl ref` forms the named declaration by reflection, takes its
 -- type as the formed state, and returns that state's present observation
 -- in the machine — checked declaration ▶ formed presentation ▶ Obs of
--- FutureBehavior.  The refl tests fix the outputs, so a green proves the
+-- MyhillNerodeMinimalMachine.  The refl tests fix the outputs, so a green proves the
 -- pipeline executed on the corpus's own checked declarations.
 ------------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ macro
     unify hole r
 
 -- RewriteCertificate.Tm is a datatype ⇒ its TYPE is a sort (headCode 6);
--- FutureBehavior.behavior is a function ⇒ its type is a pi (headCode 5).
+-- MyhillNerodeMinimalMachine.behavior is a function ⇒ its type is a pi (headCode 5).
 -- Distinct outputs, both computed through the reflection→formation→observe
 -- pipeline on the corpus's own checked declarations.
 Tm-type-is-sort : observeDecl RC.Tm ≡ 6

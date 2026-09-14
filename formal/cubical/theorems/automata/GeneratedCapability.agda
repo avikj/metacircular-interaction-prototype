@@ -5,7 +5,7 @@
 --
 -- This is the composite that was previously distributed across
 -- Obstruction, GenerativeLoop, CompileBridge, AcceptanceTest, and
--- FutureBehavior.  For the concrete task already used by CompileBridge:
+-- MyhillNerodeMinimalMachine.  For the concrete task already used by CompileBridge:
 --
 --   * the generative step produces the missing capability;
 --   * installing it changes compilation from restart to resume;
@@ -31,7 +31,7 @@ open import Cubical.Data.Nat.Order using (_<_ ; ¬m<m)
 open import Cubical.Data.Sigma using (_×_ ; Σ-syntax ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import FutureBehavior using (FutureEq)
+open import MyhillNerodeMinimalMachine using (NerodeCongruence)
 open import ObstructionSubstrate
   using (Vocab ; Obstruction ; Tm ; Over ; extend ; unfold ; unfold-elim)
 open Obstruction
@@ -64,7 +64,7 @@ work m n stage = cost (plan m n stage)
 -- Installation preserves the complete answer behavior, including the
 -- empty future.  After one action both sides are definitionally `true`.
 answer-future-preserved : (m n : ℕ)
-  → FutureEq installStep (answer m n) false true
+  → NerodeCongruence installStep (answer m n) false true
 answer-future-preserved m n []       = sym (replay m (suc n))
 answer-future-preserved m n (tt ∷ word) = refl
 
@@ -72,7 +72,7 @@ answer-future-preserved m n (tt ∷ word) = refl
 -- future.  Hence installation is observable as capability even though it
 -- is invisible in the mathematical answer.
 work-future-changed : (m n : ℕ)
-  → ¬ FutureEq installStep (work m n) false true
+  → ¬ NerodeCongruence installStep (work m n) false true
 work-future-changed m n same =
   ¬m<m (subst (λ z → work m n true < z) (same []) (resume-cheaper m n))
 
@@ -82,8 +82,8 @@ work-future-changed m n same =
 generated-capability-changes-future : (m n : ℕ)
   → (Σ[ X ∈ Vocab ] Σ[ o ∈ Obstruction X ]
        TermImprovementAt X o taskTm m n)
-    × (FutureEq installStep (answer m n) false true)
-    × (¬ FutureEq installStep (work m n) false true)
+    × (NerodeCongruence installStep (answer m n) false true)
+    × (¬ NerodeCongruence installStep (work m n) false true)
 generated-capability-changes-future m n =
   task-compiles-better m n
   , answer-future-preserved m n
@@ -126,8 +126,8 @@ module _ {Ans : Type₀} {M : MorphismClass Ans}
            (unfold (residual taskObstruction) (witness taskObstruction) t)
            (unfold-elim baseVocab (residual taskObstruction)
              (witness taskObstruction) (witnessBase taskObstruction) t h))
-    × FutureEq installStep (answer m n) false true
-    × (¬ FutureEq installStep (work m n) false true)
+    × NerodeCongruence installStep (answer m n) false true
+    × (¬ NerodeCongruence installStep (work m n) false true)
   generated-realized-capability (st , x , rx) t h m n =
       task-step-improves m n
     , unfold-preserves st (residual taskObstruction) (witness taskObstruction)

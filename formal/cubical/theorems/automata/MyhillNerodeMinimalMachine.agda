@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- FutureBehavior
+-- MyhillNerodeMinimalMachine
 --
 -- The future-behavior quotient, checked in Cubical Agda.
 --
@@ -22,26 +22,26 @@
 -- `factor`, its runQ ledger is `run quotStep` / `quotRun-[]`, its
 -- stepQ/observeQ/behaviorQ(-inj) are quotStep/quotObserve/
 -- quotBehavior(-injective) — plus its one genuinely new statement, the
--- effectivity ISO `[]-effectiveIso` (the univalent strengthening of
+-- effectivity ISO `nerodeCongruence-effectiveIso` (the univalent strengthening of
 -- Lean's Quotient.exact/Quotient.sound pair).
 --
 -- Contents (all proved, no holes, --safe):
 --
---   run, behavior, FutureEq        the relation (Lean: run/behavior/
---                                  FutureEq), its equivalence proofs,
+--   run, behavior, NerodeCongruence        the relation (Lean: run/behavior/
+--                                  NerodeCongruence), its equivalence proofs,
 --                                  and the step congruence
---   futureEq-of-finer,             refinement and product laws for
---   futureEq-pair→/←               observations (Lean: futureEq_of_finer,
---                                  futureEq_pair_iff)
---   isBehavioralCongruence         behavioral congruences; FutureEq is
+--   nerodeCongruence-of-finer,             refinement and product laws for
+--   nerodeCongruence-pair→/←               observations (Lean: nerodeCongruence_of_finer,
+--                                  nerodeCongruence_pair_iff)
+--   isBehavioralCongruence         behavioral congruences; NerodeCongruence is
 --                                  one, and is the GREATEST one
---                                  (congruence→futureEq)
---   FutureQuotient                 Meaning = X / FutureEq with:
+--                                  (congruence→nerodeCongruence)
+--   MinimalMachine                 Meaning = X / NerodeCongruence with:
 --     quotStep, quotObserve          descent of step and observation
 --     quotRun-[]                     execution commutes with quotienting
 --                                    (Lean: quotientRun_mk)
---     []-effective,                  the quotient is effective: a path
---     []-effectiveIso                of meanings yields future equality,
+--     nerodeCongruence-effective,                  the quotient is effective: a path
+--     nerodeCongruence-effectiveIso                of meanings yields future equality,
 --                                    and in fact the path space at two
 --                                    named states IS future equality
 --                                    (an Iso, available for transport)
@@ -49,14 +49,14 @@
 --     quotBehavior-injective         into complete behaviors (Lean:
 --                                    quotientBehavior_injective)
 --     factor, factor-unique          universal property of the quotient
---     crystal-minimal                the quotient machine separates its
+--     behaviorSeparatesStates                the quotient machine separates its
 --                                    own behaviors
 --     Terminal                       terminality among behavior-
 --                                    preserving quotients: every
 --                                    congruence quotient X / S maps
 --                                    onto Meaning by a unique machine
 --                                    morphism
---   Machine, MachineFutureBehavior packaging: the quotient of a machine
+--   Machine, MooreMachineBehavior packaging: the quotient of a machine
 --                                  is again a machine (`crystal`), with
 --                                  the same behavior on every word
 --
@@ -64,7 +64,7 @@
 -- only through a proof that it respects the relation.
 ------------------------------------------------------------------------
 
-module FutureBehavior where
+module MyhillNerodeMinimalMachine where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Isomorphism using (Iso)
@@ -111,74 +111,74 @@ behavior : (X → A → X) → (X → O) → X → List A → O
 behavior step observe x w = observe (run step x w)
 
 -- Equality under every finite future experiment.
-FutureEq : {ℓX ℓA ℓO : Level} {X : Type ℓX} {A : Type ℓA} {O : Type ℓO}
+NerodeCongruence : {ℓX ℓA ℓO : Level} {X : Type ℓX} {A : Type ℓA} {O : Type ℓO}
   → (X → A → X) → (X → O) → X → X → Type (ℓ-max ℓA ℓO)
-FutureEq {A = A} step observe x y =
+NerodeCongruence {A = A} step observe x y =
   (w : List A) → behavior step observe x w ≡ behavior step observe y w
 
 ------------------------------------------------------------------------
--- 2.  FutureEq is an equivalence relation and a step congruence
+-- 2.  NerodeCongruence is an equivalence relation and a step congruence
 ------------------------------------------------------------------------
 
-futureEq-refl : (step : X → A → X) (observe : X → O) (x : X)
-  → FutureEq step observe x x
-futureEq-refl step observe x w = refl
+nerodeCongruence-refl : (step : X → A → X) (observe : X → O) (x : X)
+  → NerodeCongruence step observe x x
+nerodeCongruence-refl step observe x w = refl
 
-futureEq-sym : (step : X → A → X) (observe : X → O) {x y : X}
-  → FutureEq step observe x y → FutureEq step observe y x
-futureEq-sym step observe h w = sym (h w)
+nerodeCongruence-sym : (step : X → A → X) (observe : X → O) {x y : X}
+  → NerodeCongruence step observe x y → NerodeCongruence step observe y x
+nerodeCongruence-sym step observe h w = sym (h w)
 
-futureEq-trans : (step : X → A → X) (observe : X → O) {x y z : X}
-  → FutureEq step observe x y → FutureEq step observe y z
-  → FutureEq step observe x z
-futureEq-trans step observe hxy hyz w = hxy w ∙ hyz w
+nerodeCongruence-trans : (step : X → A → X) (observe : X → O) {x y z : X}
+  → NerodeCongruence step observe x y → NerodeCongruence step observe y z
+  → NerodeCongruence step observe x z
+nerodeCongruence-trans step observe hxy hyz w = hxy w ∙ hyz w
 
 -- Future equality is preserved when the same action is taken on both
 -- sides: the future (a ∷ w) of the parents is the future w of the
 -- children, definitionally.
-futureEq-step : (step : X → A → X) (observe : X → O) {x y : X}
-  → FutureEq step observe x y → (a : A)
-  → FutureEq step observe (step x a) (step y a)
-futureEq-step step observe h a w = h (a ∷ w)
+nerodeCongruence-step : (step : X → A → X) (observe : X → O) {x y : X}
+  → NerodeCongruence step observe x y → (a : A)
+  → NerodeCongruence step observe (step x a) (step y a)
+nerodeCongruence-step step observe h a w = h (a ∷ w)
 
 -- The relation is literally equality of the two behavior functions.
-futureEq→behavior≡ : (step : X → A → X) (observe : X → O) {x y : X}
-  → FutureEq step observe x y
+nerodeCongruence→behavior≡ : (step : X → A → X) (observe : X → O) {x y : X}
+  → NerodeCongruence step observe x y
   → behavior step observe x ≡ behavior step observe y
-futureEq→behavior≡ step observe h = funExt h
+nerodeCongruence→behavior≡ step observe h = funExt h
 
-behavior≡→futureEq : (step : X → A → X) (observe : X → O) {x y : X}
+behavior≡→nerodeCongruence : (step : X → A → X) (observe : X → O) {x y : X}
   → behavior step observe x ≡ behavior step observe y
-  → FutureEq step observe x y
-behavior≡→futureEq step observe p w = funExt⁻ p w
+  → NerodeCongruence step observe x y
+behavior≡→nerodeCongruence step observe p w = funExt⁻ p w
 
 ------------------------------------------------------------------------
 -- 3.  Comparing observations: refinement and pairing
 ------------------------------------------------------------------------
 
 -- A finer observation can split old meanings but cannot merge them.
-futureEq-of-finer : (step : X → A → X)
+nerodeCongruence-of-finer : (step : X → A → X)
     (coarse : X → O) (fine : X → F) (forget : F → O)
   → ((x : X) → forget (fine x) ≡ coarse x)
-  → {x y : X} → FutureEq step fine x y → FutureEq step coarse x y
-futureEq-of-finer step coarse fine forget hf {x} {y} h w =
+  → {x y : X} → NerodeCongruence step fine x y → NerodeCongruence step coarse x y
+nerodeCongruence-of-finer step coarse fine forget hf {x} {y} h w =
   sym (hf (run step x w)) ∙ cong forget (h w) ∙ hf (run step y w)
 
 -- Joint observation preserves exactly the intersection of two
 -- distinctions.
-futureEq-pair→ : (step : X → A → X) (left : X → O) (right : X → P)
-  → {x y : X} → FutureEq step (λ s → left s , right s) x y
-  → FutureEq step left x y × FutureEq step right x y
-futureEq-pair→ step left right h =
+nerodeCongruence-pair→ : (step : X → A → X) (left : X → O) (right : X → P)
+  → {x y : X} → NerodeCongruence step (λ s → left s , right s) x y
+  → NerodeCongruence step left x y × NerodeCongruence step right x y
+nerodeCongruence-pair→ step left right h =
   (λ w → cong fst (h w)) , (λ w → cong snd (h w))
 
-futureEq-pair← : (step : X → A → X) (left : X → O) (right : X → P)
-  → {x y : X} → FutureEq step left x y × FutureEq step right x y
-  → FutureEq step (λ s → left s , right s) x y
-futureEq-pair← step left right (hl , hr) w i = hl w i , hr w i
+nerodeCongruence-pair← : (step : X → A → X) (left : X → O) (right : X → P)
+  → {x y : X} → NerodeCongruence step left x y × NerodeCongruence step right x y
+  → NerodeCongruence step (λ s → left s , right s) x y
+nerodeCongruence-pair← step left right (hl , hr) w i = hl w i , hr w i
 
 ------------------------------------------------------------------------
--- 4.  Behavioral congruences; FutureEq is the greatest one
+-- 4.  Behavioral congruences; NerodeCongruence is the greatest one
 ------------------------------------------------------------------------
 
 -- A relation whose classes can be observed and stepped: identified
@@ -191,37 +191,37 @@ record isBehavioralCongruence {ℓX ℓA ℓO ℓR : Level}
     respects-observe : {x y : X} → S x y → observe x ≡ observe y
     respects-step    : {x y : X} (a : A) → S x y → S (step x a) (step y a)
 
--- FutureEq itself is a behavioral congruence …
-futureEq-isCongruence : (step : X → A → X) (observe : X → O)
-  → isBehavioralCongruence step observe (FutureEq step observe)
-futureEq-isCongruence step observe = record
+-- NerodeCongruence itself is a behavioral congruence …
+nerodeCongruence-isCongruence : (step : X → A → X) (observe : X → O)
+  → isBehavioralCongruence step observe (NerodeCongruence step observe)
+nerodeCongruence-isCongruence step observe = record
   { respects-observe = λ h → h []
-  ; respects-step    = λ a h → futureEq-step step observe h a
+  ; respects-step    = λ a h → nerodeCongruence-step step observe h a
   }
 
 -- … and it is the GREATEST one: every behavioral congruence is
 -- contained in it.  (Induction on the future word: the empty word is
 -- the observation clause, and a ∷ w steps both sides and recurses.)
-congruence→futureEq :
+congruence→nerodeCongruence :
     {X : Type ℓX} {A : Type ℓA} {O : Type ℓO} {S : X → X → Type ℓR}
     {step : X → A → X} {observe : X → O}
   → isBehavioralCongruence step observe S
-  → {x y : X} → S x y → FutureEq step observe x y
-congruence→futureEq isC s [] =
+  → {x y : X} → S x y → NerodeCongruence step observe x y
+congruence→nerodeCongruence isC s [] =
   isBehavioralCongruence.respects-observe isC s
-congruence→futureEq isC s (a ∷ w) =
-  congruence→futureEq isC (isBehavioralCongruence.respects-step isC a s) w
+congruence→nerodeCongruence isC s (a ∷ w) =
+  congruence→nerodeCongruence isC (isBehavioralCongruence.respects-step isC a s) w
 
 ------------------------------------------------------------------------
 -- 5.  The future-behavior quotient
 ------------------------------------------------------------------------
 
-module FutureQuotient {ℓX ℓA ℓO : Level}
+module MinimalMachine {ℓX ℓA ℓO : Level}
     {X : Type ℓX} {A : Type ℓA} {O : Type ℓO}
     (step : X → A → X) (setO : isSet O) (observe : X → O) where
 
   _≈_ : X → X → Type (ℓ-max ℓA ℓO)
-  _≈_ = FutureEq step observe
+  _≈_ = NerodeCongruence step observe
 
   -- Because O is a set, future equality is a proposition …
   isProp≈ : BinaryRelation.isPropValued _≈_
@@ -230,9 +230,9 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
   -- … and an equivalence relation.
   ≈-isEquivRel : BinaryRelation.isEquivRel _≈_
   ≈-isEquivRel = BinaryRelation.equivRel
-    (futureEq-refl step observe)
-    (λ x y → futureEq-sym step observe)
-    (λ x y z → futureEq-trans step observe)
+    (nerodeCongruence-refl step observe)
+    (λ x y → nerodeCongruence-sym step observe)
+    (λ x y z → nerodeCongruence-trans step observe)
 
   -- The quotient: states up to complete observable future.
   Meaning : Type (ℓ-max ℓX (ℓ-max ℓA ℓO))
@@ -249,7 +249,7 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
   quotStep : Meaning → A → Meaning
   quotStep m a = SQ.rec squash/
     (λ x → [ step x a ])
-    (λ x y h → eq/ _ _ (futureEq-step step observe h a))
+    (λ x y h → eq/ _ _ (nerodeCongruence-step step observe h a))
     m
 
   quotStep-[] : (x : X) (a : A) → quotStep [ x ] a ≡ [ step x a ]
@@ -280,14 +280,14 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
   -- 5b.  Effectivity: paths of meanings are exactly future equality
   ----------------------------------------------------------------------
 
-  []-effective : (x y : X) → Path Meaning [ x ] [ y ] → x ≈ y
-  []-effective = SQ.effective isProp≈ ≈-isEquivRel
+  nerodeCongruence-effective : (x y : X) → Path Meaning [ x ] [ y ] → x ≈ y
+  nerodeCongruence-effective = SQ.effective isProp≈ ≈-isEquivRel
 
   -- Strictly more: the path space of the quotient at two named states
   -- IS future equality — an isomorphism of types, not just a function
   -- (the univalent form of Lean's Quotient.exact / Quotient.sound).
-  []-effectiveIso : (x y : X) → Iso (Path Meaning [ x ] [ y ]) (x ≈ y)
-  []-effectiveIso = SQ.isEquivRel→effectiveIso isProp≈ ≈-isEquivRel
+  nerodeCongruence-effectiveIso : (x y : X) → Iso (Path Meaning [ x ] [ y ]) (x ≈ y)
+  nerodeCongruence-effectiveIso = SQ.isEquivRel→effectiveIso isProp≈ ≈-isEquivRel
 
   ----------------------------------------------------------------------
   -- 5c.  Full abstraction: meanings embed into complete behaviors
@@ -320,10 +320,10 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
 
   -- Minimality in the observability sense: two states of the quotient
   -- machine with the same complete behavior are the same state.
-  crystal-minimal : (m n : Meaning)
+  behaviorSeparatesStates : (m n : Meaning)
     → behavior quotStep quotObserve m ≡ behavior quotStep quotObserve n
     → m ≡ n
-  crystal-minimal m n p = quotBehavior-injective m n
+  behaviorSeparatesStates m n p = quotBehavior-injective m n
     (quotBehavior-is-machine-behavior m
       ∙ p
       ∙ sym (quotBehavior-is-machine-behavior n))
@@ -380,12 +380,12 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
     observeQ : Q → O
     observeQ = SQ.rec setO observe (λ x y s → respects-observe s)
 
-    -- The mediating map: it exists because S is contained in FutureEq
+    -- The mediating map: it exists because S is contained in NerodeCongruence
     -- (S-classes are merged, never split, by the behavior quotient).
     mediate : Q → Meaning
     mediate = SQ.rec squash/
       [_]
-      (λ x y s → eq/ x y (congruence→futureEq isC s))
+      (λ x y s → eq/ x y (congruence→nerodeCongruence isC s))
 
     -- It commutes with the two projections …
     mediate-[] : (x : X) → mediate [ x ] ≡ [ x ]
@@ -411,10 +411,10 @@ module FutureQuotient {ℓX ℓA ℓO : Level}
 -- 6.  Packaging: the quotient of a machine is a machine
 ------------------------------------------------------------------------
 
-module MachineFutureBehavior {ℓX ℓA ℓO : Level} (M : Machine ℓX ℓA ℓO) where
+module MooreMachineBehavior {ℓX ℓA ℓO : Level} (M : Machine ℓX ℓA ℓO) where
 
   open Machine M
-  open FutureQuotient step isSetObs observe public
+  open MinimalMachine step isSetObs observe public
 
   crystal : Machine (ℓ-max ℓX (ℓ-max ℓA ℓO)) ℓA ℓO
   crystal = record
@@ -437,4 +437,4 @@ module MachineFutureBehavior {ℓX ℓA ℓO : Level} (M : Machine ℓX ℓA ℓ
     → behavior (Machine.step crystal) (Machine.observe crystal) m
       ≡ behavior (Machine.step crystal) (Machine.observe crystal) n
     → m ≡ n
-  crystal-fullyAbstract = crystal-minimal
+  crystal-fullyAbstract = behaviorSeparatesStates
