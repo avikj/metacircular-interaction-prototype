@@ -33,10 +33,12 @@ def nextOn_stayer(mc: Nat) -> Path(Nat, nextOn(mc, stayer(mc)), mc):
 def nextOn_stepper(mc: Nat) -> Path(Nat, nextOn(mc, stepper(mc)), 1n + mc):
   <_> 1n + mc
 # interaction is strictly wider than the Turing machine: two lawful processes differ
+def free_processes_differ(P: Path(FreeISC(0n), stayer(0n), stepper(0n))) -> Empty:
+  nNotSuc(0n, <i> nextOn(0n, P @ i))
 def interaction_is_strictly_wider(c: isContr(FreeISC(0n))) -> Empty:
   match c:
     case (centre, h):
-      nNotSuc(0n, <i> nextOn(0n, compPath(FreeISC(0n), stayer(0n), centre, stepper(0n), <i> h(stayer(0n)) @ inot(i), h(stepper(0n))) @ i))
+      free_processes_differ(compPath(FreeISC(0n), stayer(0n), centre, stepper(0n), <i> h(stayer(0n)) @ inot(i), h(stepper(0n))))
 
 def main() -> Nat:
   nextOn(3n, stepper(3n))
