@@ -21,7 +21,7 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | **The highest construction executed** (forcing theorem, both instances) | `forcing_run.bend` 82✓; 8 observations identical on normaliser and HVM4 full runtime | FORCING.md (RUN section) |
 | **The coinductive calculus and the braid fabric** (`Prasna`/`Prashna`/`Niyati`, `AnantaVeni`) | depth-indexed `IExec`/`Answers`, `run-is-answers` as a coherent Equiv, silence-is-determinism, the braid relations pointwise; machines run on HVM with superposed answers measured | `interaction.bend` 36✓, `braid.bend` 16✓ (INTERACTION.md) |
 | **Genuine coinduction** (the corpus's `--guardedness` records, copattern bisimulations) | `Answers`/`IExec` as corecursive records, `replay`/`forgetStates` corecursive, both `run-is-answers` round trips as corecursive paths, all `[productive]`; unguarded and destructor-recursive "proofs" refused under `--total`; false bisimulation fails finitely | `coinduction.bend` 13✓, `streams.bend` 10✓, `coinduction_mustfail.bend` (wrong ✗) (COINDUCTION.md); `--total` passes on coinduction/interaction/braid |
-| **Cost of keeping the calculus at runtime** (does "everything runtime" cost a rerun per use?) | no: transport is paid once under sharing, marginal use 14 itrs vs 150; superposed transport measured ~1.4x *more* than separate (negative result kept) | `bench_shared/separate/supline/sepline.bend` (SYNTHESIS.md §3-4) |
+| **Cost of keeping the calculus at runtime** (does "everything runtime" cost a rerun per use?) | no: transport paid once under sharing (marginal 14 itrs vs 150). Superposed transport has two regimes: a SHARED line over N values wins and improves with N (marginal 38 vs 139), DIFFERENT lines lose by a constant ~1.4x — superposition pays exactly when branches share work | `bench_*.bend`, `./suite.sh` (SYNTHESIS.md §3-4) |
 | **General silence-is-determinism** (Prasna §3, contractible `Q`, varying `δ`) | corecursive dependent path `answersUnique : PathP(λi. Answers(p @ i))` over a path of states; `isContr(IExec x)` for any such interaction; Niyati's one-execution as the `Q = Unit` instance; run on HVM | `silence.bend` 25✓ `--total` passes, main = 4 on both runtimes; `silence_mustfail.bend` (wrongTail, wrongCentre ✗) |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
@@ -37,5 +37,8 @@ comparison points; the full runtime is `--to-hvm4-full`. In the checker/normalis
 in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
 `hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
-Suite on the final binary: 28 `.bend` files, 0 ✗ except the three deliberate
-must-fails; stock `examples/` 2/2.
+Suite: `./suite.sh` — 73 `.bend` files, bad=0. Every file must check clean
+except the registered soundness probes (the registry is in the script):
+`coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
+silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
+contains a deliberate rejection; an unregistered one reads as a regression.

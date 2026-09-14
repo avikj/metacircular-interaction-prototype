@@ -84,12 +84,21 @@ HVM4 full (252 itrs → 4). Must-fail set for the suite loop now also includes
 
 ## Cost measurements (SYNTHESIS.md §3-4; bench_*.bend)
 Transport under sharing is paid ONCE: marginal cost of one more use is 14 itrs
-shared vs 150 separate (k = 1..16). Negative result kept: superposed transport
-(one coe, N lines) costs ~1.4x MORE than N separate coes (215 vs 158 at N=2,
-469 vs 316 at N=4) because each branch re-enters @coe after the match commutes.
-DUP-SUP fibre routing is semantically free, not computationally cheaper —
-sharing the dispatch across branches is the clearest optimisation target.
+shared vs 150 separate (k = 1..16).
+Superposed transport has TWO regimes, both measured on HVM 4.0:
+  * SHARED line, N values -> superposition WINS and improves with N
+    (182/278, 259/556, 413/1112 at N=2/4/8; marginal 38 vs 139 per value).
+    This is the DUP-SUP fibre routing paying off; it is the batch-migration case.
+  * DIFFERENT lines -> superposition LOSES by a constant ~1.4x (215/158, 469/316).
+    Not an emitter artifact: a one-line `neg` on a superposition costs 1.8x
+    (9/5, 37/22, 149/90), i.e. the penalty is independent of dispatch depth.
+Rule: superposition pays exactly when the branches share work.
 Reproduce: `bend bench_X.bend --to-hvm4-full > x.hvm4 && hvm x.hvm4 -s`.
+
+## The suite is a script now: ./suite.sh
+73 files, bad=0. The must-fail registry lives IN the script — if you add a file
+with a deliberate rejection, register it there. `erasure.bend` (another agent's)
+is one of them: its `tbadResp` fake descent witness MUST be rejected.
 
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher

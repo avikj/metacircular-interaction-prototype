@@ -77,30 +77,58 @@ that keeping the cubical apparatus at runtime does *not* cost a rerun per
 use — which is the thing that would have killed the approach — not that the
 interaction net is doing something a lazy language could not.
 
-## 4. Measured, negative: superposed transport is not cheaper
+## 4. Measured: when superposed transport wins, and when it loses
 
 The fibre/DUP-SUP correspondence says a `coe` along a superposed line needs
 **no rule**: the dispatch is a match, HVM commutes a match over `&L{}`, and
-the same-label dup of the value annihilates. That is true, and the values
-are right (`supline.bend` proves it definitionally; the runs below agree).
+the same-label dup of the value annihilates. That is true and the values are
+right (`supline.bend` proves it definitionally; every run below agrees).
 
-It is not, however, cheaper than doing the transports separately:
+Whether it is *cheaper* has two regimes, and the rule is simple:
+**superposition pays exactly when the branches share work.**
 
-| N values along N lines | superposed | separate |
-|---|---|---|
-| 2 | 215 | 158 |
-| 4 | 469 | 316 |
+**It wins when the line is shared** — one transport, N values, which is the
+fibre-routing case and the one that matters for applications:
 
-Both produce `&L0{1,1}` and `&L0{1,&L1{1,&L2{1,1}}}`. Superposed costs about
-**1.4× more**. The reason is visible in the emitter: after the match
-commutes, each branch re-enters `@coe` and re-runs the whole dispatch, so
-nothing is shared except the initial destructuring.
+| N values, one shared line | superposed | separate | ratio |
+|---|---|---|---|
+| 2 | 182 | 278 | 0.65 |
+| 4 | 259 | 556 | 0.47 |
+| 8 | 413 | 1112 | 0.37 |
 
-So the correct statement of the DUP-SUP result is *semantic*, not
-performance: fibre routing needs no cubical rule because the net already
-does it. Anyone who wants it to also be fast must make the dispatch shared
-across branches. That is the single clearest optimisation target in the
-codebase.
+Marginal cost of one more transported value: **38 interactions superposed,
+139 separate**. The ratio improves with N because the transport dispatch is
+done once for the whole batch. One proved equivalence moving a batch of
+values is genuinely sublinear in the batch size.
+
+**It loses when the lines differ** — N values down N *different* lines,
+where there is nothing to share:
+
+| N values, N different lines | superposed | separate | ratio |
+|---|---|---|---|
+| 2 | 215 | 158 | 1.36 |
+| 4 | 469 | 316 | 1.48 |
+
+**A correction to an earlier draft of this section.** I first measured only
+the losing regime and explained it by saying each branch re-enters `@coe`
+and re-runs the dispatch, making it an emitter problem. That explanation is
+false. Applying a one-line `neg` to a superposition — a function with
+essentially no dispatch — shows a *larger* penalty than `coe` does:
+
+| function applied to `&0{True,False}` | superposed | separate | ratio |
+|---|---|---|---|
+| `neg` | 9 | 5 | 1.80 |
+| `neg4` | 37 | 22 | 1.68 |
+| `neg16` | 149 | 90 | 1.66 |
+
+The penalty is a roughly constant factor independent of dispatch depth, so
+it is the cost of commuting the superposition through the function body, not
+anything about how `coe` is emitted. Superposition is not a way to get two
+computations for the price of one. It is a way to carry two computations in
+one term, and it pays only to the extent they share a prefix.
+
+Reproduce: `bench_same{2,4,8}_{sup,sep}.bend`, `bench_iso_*.bend`,
+`bench_supline.bend`, `bench_sepline.bend`.
 
 ## 5. Immediately realizable, ranked by value over effort
 
@@ -121,8 +149,12 @@ codebase.
 4. **Speculation on undecided faces.** Build on the stuck `#HCm`: compute
    under a face nobody has decided, decide it, watch the dead branches drop.
    This is the item with the least precedent and the most risk.
-5. **Shared dispatch across superpositions.** See §4. Concrete, bounded,
-   and it converts the DUP-SUP story from semantic to computational.
+5. **Batch migration on a superposed batch.** The measured win in §4:
+   one `ua(e)` transport applied to a superposition of N values costs 38
+   interactions per value against 139 done separately, improving with N.
+   This is the DUP-SUP story in its computational form, and it composes
+   directly with item 1 — a schema migration over a batch of records is
+   exactly "one shared line, many values".
 
 ## 6. What is not proved
 
@@ -178,6 +210,10 @@ principle — there is nothing left to keep.
   how fast erased dependently typed code runs on interaction nets. This asks
   what you get if you keep the proof apparatus at runtime, and §3 answers
   the first objection: you do not pay a rerun per use.
-- Its headline benchmark result is a caution for §3 and §4. HVM's asymptotic
-  advantage is strongly workload-dependent, which is consistent with the
-  negative result measured here on superposed transport.
+- Its headline benchmark result does **not** transfer, and an earlier draft
+  was wrong to present it as a caution about §3 and §4. That thesis measured
+  HVM1 in 2022; this project runs on HVM 4.0 (`HigherOrderCO/HVM4`, "a
+  sequential Interaction Calculus runtime"), several generations later, so a
+  2022 exponential-slowdown result is evidence about an obsolete runtime and
+  not about these numbers. Every figure in §3 and §4 was measured here, on
+  HVM4, and stands or falls on its own.
