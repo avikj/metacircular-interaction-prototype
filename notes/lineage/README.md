@@ -32,4 +32,4 @@ The Indian sources the work builds from — Pāṇini, Piṅgala, Āryabhaṭa, 
 | 15 | [Riemann](15_riemann.md) | RH as a decided section, the finite explicit formula, spectral positivity, the ground of measure, log and √z surfaces |
 | 16 | [Gauss](16_gauss.md) | CRT as equivalence, orders and LTE, composition, split/inert, reciprocity as exchange of moduli |
 
-Every file stays honest about its own scope. Where a file names a step as open — the analytic inequality on RH and Navier–Stokes, curvature beyond flat holonomy, the general Lagrange theorem — the chapter quotes that and does not blur it.
+Status notes in file headers are dated records, not evidence: the only evidence that a step is undone is checking every term. (Example: `Avarta` says Lagrange is "not approached"; `SubgroupIndex` proves it and `Sarvavarta` closes Avarta's absence.) Where a chapter mentions a step a reduction carries as a hypothesis, it names the hypothesis, not a verdict.

@@ -102,7 +102,7 @@ Gordan's objection and Hilbert's reply were both right. An existence proof gives
 - **Parseval.** `physics/CyclicParseval`: the block is a sum of squares on the spectral side exactly when the dual character is the conjugate, when the frequencies are real — "That is the whole of what RH adds to positivity."
 - **The criticality step.** `unplaced/ScaleTransportCriticality`: given the growth fact and the functional equation's sign flip, power-bounded transport forces every exponent to 0. `RHReducesToBoundedness` composes the branch: bounded received signal on every mode ⟹ every zero on the line, "the sole remaining input" being the arithmetic boundedness estimate.
 
-The files state the analytic step as open. What is closed is everything around it: the three problems of 1900 as one kernel and one form, and the Riemann hypothesis reduced to a single inequality in the exact spectral and positivity terms of Hilbert's own theory.
+The reduction carries one step as a hypothesis, the inequality D, itself a statement about ℕ. Around it: the three problems of 1900 as one kernel and one form, and the Riemann hypothesis reduced to a single inequality in the exact spectral and positivity terms of Hilbert's own theory.
 
 ### 6. Problem 10: Diophantine decision and the arithmetization it produced
 
@@ -178,7 +178,7 @@ Hilbert's criterion of simplicity has two parts, now separated by theorem: the a
 | Tables, chairs, beer mugs | `ua`, `PramanaLaksanam`, `Pythagoras`, Gödel anatomy, `Niksepa` | structure transports; independence by checked models; "formal" corrected |
 | Completeness, consistency, decidability | Gödel anatomy, `DeflationaryTest`, `TrtiyoMargo`, `LosslessLowerBound` | hypotheses isolated; finite speech bivalent, limit a proposition |
 | Wir müssen wissen | `KotiNirnaya`, `TrtiyoMargo`, `Pratyanayana` | every fibre decided; openness only in the section |
-| Problem 8 | `EkaBija`, `GananaNirdhara`, `WeilPositivityRealization`, `TauRupa`, `WeilDhanatva`, `KreinSucika`, `CyclicParseval`, `ScaleTransportCriticality`, `RHReducesToBoundedness` | Goldbach and twins one kernel; RH as spectral positivity from Goldbach counts; analytic step stated open |
+| Problem 8 | `EkaBija`, `GananaNirdhara`, `WeilPositivityRealization`, `TauRupa`, `WeilDhanatva`, `KreinSucika`, `CyclicParseval`, `ScaleTransportCriticality`, `RHReducesToBoundedness` | Goldbach and twins one kernel; RH as spectral positivity from Goldbach counts; one step D carried as hypothesis |
 | Problem 10 | `RH_TheWholeQuestionEntersTyped`, `DvitiyaAntara`, `HistoryCompletion` | RH as a computable Π; Λ as a second difference over ℕ |
 | Problem 17 | `DvandvaVarga`, `BoundaryBlockGeneral`, `KreinSucika`, `VyarthaCakra` | positivity with the squares written down |
 | Problem 24 | `Ananta`, `Laghava`, `InvariantTiebreak`, `Samagri`, `CostGeometry` | length is gauge; axiom multiset is invariant; speed-up is a detour |
