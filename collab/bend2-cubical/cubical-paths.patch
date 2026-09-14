@@ -2720,14 +2720,15 @@ index 31f1da3..36778e1 100644
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..f55e262 100644
+index 146a4d2..987c645 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
-@@ -62,6 +62,25 @@ parseTermIni = choice
+@@ -62,6 +62,27 @@ parseTermIni = choice
    , parseSym
    , parseTupApp
    , parseView
 +  , parsePth
++  , parseComp
 +  , parsePthP
 +  , parseCoe
 +  , parseUa
@@ -2742,6 +2743,7 @@ index 146a4d2..f55e262 100644
 +  , parseQsquash
 +  , parseQrec
 +  , parseHCm
++  , parseComp
 +  , parsePLm
 +  , parseItvKw
 +  , parseIEnd
@@ -2749,7 +2751,7 @@ index 146a4d2..f55e262 100644
    , parseVar
    ]
  
-@@ -81,7 +100,8 @@ parseTermArg t = do
+@@ -81,7 +102,8 @@ parseTermArg t = do
  -- | Parse a "loose" postfix: f + x | f <> x | ...
  parseTermOpr :: Term -> Parser Term
  parseTermOpr t = choice
@@ -2759,7 +2761,7 @@ index 146a4d2..f55e262 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1025,3 +1045,285 @@ doReadTerm input =
+@@ -1025,3 +1047,312 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -2802,6 +2804,33 @@ index 146a4d2..f55e262 100644
 +  t <- parseTerm
 +  _ <- symbol ")"
 +  return (Coe pP r s t)
++
++-- | comp(P, [(face, tube), ...], base) : composition along a type LINE P
++-- (CCHM).  P : Interval -> Set; the result lives in P(i1).
++--   comp^P [f > u] u0 = hcomp^{P i1} [f > <j> coe^P_{j->i1} (u @ j)] (coe^P_{i0->i1} u0)
++parseComp :: Parser Term
++parseComp = label "comp" $ do
++  _ <- try $ keyword "comp" <* symbol "("
++  pl <- parseTerm
++  _ <- symbol ","
++  _ <- symbol "["
++  fs <- many facePair
++  _ <- symbol "]"
++  _ <- symbol ","
++  x <- parseTerm
++  _ <- symbol ")"
++  return $ HCm (App pl I1)
++               [ (f, PLm "comp_j" (\j -> Coe pl j I1 (PAp u j))) | (f, u) <- fs ]
++               (Coe pl I0 I1 x)
++  where
++    facePair = do
++      _ <- symbol "("
++      f <- parseTerm
++      _ <- symbol ","
++      u <- parseTerm
++      _ <- symbol ")"
++      _ <- (symbol "," >> return ()) <|> return ()
++      return (f, u)
 +
 +-- | Alias: hcompN(A, [(face, tube), ...], base)  (same constructor)
 +parseHCmN :: Parser Term
@@ -4724,10 +4753,10 @@ index 0000000..cbf1493
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..987758f
+index 0000000..1c00e89
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,276 @@
+@@ -0,0 +1,290 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -4790,9 +4819,9 @@ index 0000000..987758f
 +  , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
 +  , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"
 +  , "@pathAt = λp. λi. (λ{#I0: λp. @pL(p); #I1: λp. @pR(p); λi. λp. @pAtSym(p, i)})(i)(p)"
-+  , "@pAtSym = λ{#PLm: λf. λi. f(i); #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
-+  , "@pL = λ{#PLm: λf. f(#I0); #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
-+  , "@pR = λ{#PLm: λf. f(#I1); #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); λv. #StuckAt{v, #I1}}"
++  , "@pAtSym = λ{#PLm: λf. λi. f(i); #QEq: λa. λb. λw. λi. #At{#QEq{a, b, w}, i}; #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
++  , "@pL = λ{#PLm: λf. f(#I0); #QEq: λa. λb. λw. #QCl{a}; #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
++  , "@pR = λ{#PLm: λf. f(#I1); #QEq: λa. λb. λw. #QCl{b}; #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); λv. #StuckAt{v, #I1}}"
 +  , "// ---- hcomp: faces = #Nil | #Cons{#Face{phi, tube}, rest}; stuck faces are kept"
 +  , "@hcomp = λA. λfs. λbase. @hcompGo(A, fs, base, #Nil)"
 +  , "@hcompGo = λ&A. λ{"
@@ -4820,6 +4849,12 @@ index 0000000..987758f
 +  , "// hfill: the filler; comp: composition along a type line (coe + hcomp)"
 +  , "@hfillAt = λ&A. λ&fs. λ&u0. λ&j. @hcomp(A, #Cons{#Face{@inot(j), #PLm{λk. u0}}, @hcTubesAnd(fs, j)}, u0)"
 +  , "@compAt = λ&P. λ&fs. λ&u0. @hcomp(P(#I1), @hcTubesCoe(P, fs), @coe(P, #I0, #I1, u0))"
++  , "// ---- SetQuotient recursor: on a point it is f; on the path constructor it"
++  , "// is the resp witness applied at that interval; superpositions commute."
++  , "@qrec = λ&x. λ&t. λ&f. λ&rsp. (λ{"
++  , "  #QCl: λa. f(a);"
++  , "  #At: λp. λi. (λ{#QEq: λa. λb. λw. @pathAt(rsp(a)(b)(w), i); λq. #QRec{q, t, f, rsp}})(p);"
++  , "  λv. #QRec{v, t, f, rsp}})(x)"
 +  , "// ---- Glue (boundary rules only, as in the checker): a true face selects its partial type / section"
 +  , "@glueT = λA. λfs. @glueTGo(fs, #Nil, A)"
 +  , "@glueTGo = λfs. λlive. λA. (λ{"
@@ -4947,6 +4982,14 @@ index 0000000..987758f
 +    Set            -> "#Set"; Bit -> "#Bool"; Nat -> "#Nat"; Uni -> "#Unit"; Emp -> "#Empty"
 +    Lst _          -> "#List"; Enu _ -> "#Enum"; Num _ -> "#Num"; Itv -> "#Itv"
 +    Eql _ _ _      -> "#Eql"
++    -- QUOTIENTS (SetQuotient HIT): the type is data, [a] is a point, eq/ is a
++    -- PATH constructor (so @pathAt must know it), squash/ is opaque, and the
++    -- recursor is the runtime function @qrec.
++    Quo a r        -> "#Quot{" ++ go d a ++ ", " ++ go d r ++ "}"
++    QCl a          -> "#QCl{" ++ go d a ++ "}"
++    QEq a b w      -> "#QEq{" ++ go d a ++ ", " ++ go d b ++ ", " ++ go d w ++ "}"
++    QSq            -> "#QSq"
++    QRec x t f r   -> "@qrec(" ++ go d x ++ ", " ++ go d t ++ ", " ++ go d f ++ ", " ++ go d r ++ ")"
 +    Sig a b        -> "#Sig{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    All a b        -> "#Pi{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    Pth a u v      -> "#Path{" ++ go d a ++ ", " ++ go d u ++ ", " ++ go d v ++ "}"
