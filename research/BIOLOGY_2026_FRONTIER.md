@@ -94,7 +94,30 @@ checked files it imports. Whether it is **[T]** is decided by the patched
 binary (`cubical-paths.patch` on DKormann/Bend2 @ f026483), not by this note;
 the line below is updated by whoever runs it:
 
-    checked: PENDING — see the commit message / PORT.md row for the verdict.
+    checked: YES — `cubical-paths.patch` on DKormann/Bend2 @ f026483, built
+    here on GHC 9.4.7 (HVM3's cabal relabelled GHC2024 → GHC2021 + its
+    extensions; base bound relaxed), `LC_ALL=C.utf8`.
+      Perturbation.bend           175 ✓  0 ✗   main ⇒ 4
+      Perturbation_mustfail.bend  176 ✓  1 ✗   the 1 is `hkResp_WRONG`, as intended
+      PerturbationEmitted.bend    145 ✓  0 ✗   main ⇒ 0
+      Nerode.bend (import)         99 ✓  0 ✗   0.5 s
+    On the full cubical runtime (`--to-hvm4-full`, HVM4 @ 6defdfc, `gcc -O2`),
+    each main reduces to the checker's value; interactions / heap nodes:
+      Perturbation          4   497 itrs   14305 nodes
+      PerturbationEmitted   0   513 itrs   13053 nodes
+      Spatial               1   714 itrs   11625 nodes
+      Lineage               7   347 itrs    7845 nodes
+      Dynamics              6   576 itrs    8684 nodes
+    `--total`: Lineage, Dynamics, Spatial, Nerode pass. Perturbation (and the
+    emitted file) are refused for `foldM`, `endpoint_is_endpoint`,
+    `word_replays` — recursion through a nested `{==}` match, which the
+    classifier does not see as descent; the kernel port's own
+    `derivation_sound`/`eval` (RewriteCertificate.bend) are flagged the same
+    way, so this is the classifier's limitation, not a non-total definition.
+    A Bend ✓ is a check by the patched Bend2 checker, which has `Set : Set`
+    (`AUDIT.md`): strong evidence of well-typedness, not an Agda `--safe`
+    `[T]`. The biological lane lives on the Bend side by decision; the
+    distinction is stated so that neither is quoted as the other.
 
 ---
 

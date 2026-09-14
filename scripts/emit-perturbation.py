@@ -106,7 +106,7 @@ def emit(spec: dict) -> str:
     w(f"# for the panel {panel} with edges {edges}.")
     w("# Contexts are control populations; interventions are knockdowns; the")
     w("# generator family is the one the edge list determines (see the script).")
-    w("import MyhillNerodeMinimalMachine")
+    w("import Nerode")
     w("")
     w("# §1 the finite presentation")
     w("type Gene:")

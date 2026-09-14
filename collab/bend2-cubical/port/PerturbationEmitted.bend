@@ -3,7 +3,7 @@
 # for the panel ['TF1', 'TGT1', 'HK1'] with edges [('TF1', 'TGT1')].
 # Contexts are control populations; interventions are knockdowns; the
 # generator family is the one the edge list determines (see the script).
-import MyhillNerodeMinimalMachine
+import Nerode
 
 # §1 the finite presentation
 type Gene:

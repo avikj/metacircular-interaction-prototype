@@ -42,7 +42,7 @@
 #   §7  the challenge shape: a context is a control population, a
 #       submission is the population under the intervention, a protocol
 #       (pseudobulk here) is a receiver over it.
-import MyhillNerodeMinimalMachine
+import Nerode
 
 # ---------------------------------------------------------------------------
 # §1  The finite presentation.
