@@ -3198,6 +3198,26 @@ index 0000000..d47432e
 +
 +def main() -> Nat:
 +  0n
+diff --git a/quot_coe.bend b/quot_coe.bend
+new file mode 100644
+index 0000000..9504dfb
+--- /dev/null
++++ b/quot_coe.bend
+@@ -0,0 +1,14 @@
++def neg(x: Bool) -> Bool:
++  if x: False else: True
++def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
++  if x: <_> True else: <_> False
++# carrier-agnostic relation, so Quot(ua@i, Rc) is well-typed at every interior i
++# transport a class along a carrier line = ua(neg): coe [true] = [neg true] = [false]
++def coeQuot() -> Quot(Bool, lambda a. lambda b. Unit):
++  coe(lambda i. Quot(ua(Bool, Bool, neg, neg, negLnv, negLnv) @ i, lambda a. lambda b. Unit), i0, i1, qcl(True))
++def boundary() -> Path(Quot(Bool, lambda a. lambda b. Unit), coeQuot(), qcl(False)):
++  <_> qcl(False)
++def coeConst() -> Path(Quot(Bool, lambda a. lambda b. Unit), coe(lambda i. Quot(Bool, lambda a. lambda b. Unit), i0, i1, qcl(True)), qcl(True)):
++  <_> qcl(True)
++def main() -> Nat:
++  0n
 diff --git a/quotient.bend b/quotient.bend
 new file mode 100644
 index 0000000..4ba7804
@@ -5302,10 +5322,10 @@ index a5d92e8..3e7157a 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..d052fe7 100644
+index 953410d..104b64c 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,350 @@ whnfGo lv book term =
+@@ -53,9 +53,364 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -5417,6 +5437,11 @@ index 953410d..d052fe7 100644
 +    Glu a fs -> go a || or [ go p || go t || go e | (p,t,e) <- fs ]
 +    GlB a fs x -> go a || go x || or [ go p || go t | (p,t) <- fs ]
 +    UnG gg -> go gg
++    Quo a r    -> go a || go r
++    QCl a      -> go a
++    QEq a b w  -> go a || go b || go w
++    QSq        -> False
++    QRec a b c d2 -> go a || go b || go c || go d2
 +    Ua a b c d2 e2 f2 -> go a || go b || go c || go d2 || go e2 || go f2
 +
 +-- hcomp (binary system): if the face direction is an endpoint, the
@@ -5586,6 +5611,15 @@ index 953410d..d052fe7 100644
 +                facesS = [ (p', App (equivInv e) a1', e) | (p', _, e) <- live fsS ]
 +                a1 = HCm aS [ (p', PLm "j" (\j -> PAp (App (equivSec e) t1) (INot j))) | (p', t1, e) <- facesS ] a1'
 +            in whnf lv book (GlB aS [ (p', t1) | (p', t1, _) <- facesS ] a1)
++          -- SetQuotient HIT (CCHM transpHIT): transport a point class by
++          -- transporting its representative along the carrier line; a path
++          -- constructor is re-formed at the far fibre with its interval kept.
++          Quo _ _ ->
++            let aAt i = case whnf Full book (App pP i) of { Quo a' _ -> a' ; x -> x }
++                aLn   = Lam "i" (\i -> aAt i)
++            in case whnf lv book t of
++                 QCl a -> QCl (Coe aLn r' s' a)
++                 t'    -> Coe pP r' s' t'
 +          -- rigid inductives and Set: identity
 +          Nat     -> whnf lv book t
 +          Bit     -> whnf lv book t
@@ -5656,7 +5690,7 @@ index 953410d..d052fe7 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +487,21 @@ whnfSigM lv book x f =
+@@ -146,6 +501,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5678,7 +5712,7 @@ index 953410d..d052fe7 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +757,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +771,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5726,7 +5760,7 @@ index 953410d..d052fe7 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +882,21 @@ normal d book term =
+@@ -485,6 +896,26 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5745,10 +5779,15 @@ index 953410d..d052fe7 100644
 +    Glu a fs -> Glu (normal d book a) [ (normal d book p, normal d book t, normal d book e) | (p,t,e) <- fs ]
 +    GlB a fs x -> GlB (normal d book a) [ (normal d book p, normal d book t) | (p,t) <- fs ] (normal d book x)
 +    UnG g -> UnG (normal d book g)
++    Quo a r      -> Quo (normal d book a) (normal d book r)
++    QCl a        -> QCl (normal d book a)
++    QEq a b w    -> QEq (normal d book a) (normal d book b) (normal d book w)
++    QSq          -> QSq
++    QRec x s f r -> QRec (normal d book x) (normal d book s) (normal d book f) (normal d book r)
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
-@@ -501,6 +913,82 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +932,82 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5831,7 +5870,7 @@ index 953410d..d052fe7 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1035,214 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1054,214 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
