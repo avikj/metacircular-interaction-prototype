@@ -321,7 +321,21 @@ available for factoring independent signals; it is available for moving a
 batch of signals along one proved equivalence, which is the translation
 step, not the factoring step.
 
-### 3.6 Discrete systems
+### 3.6 The exchange: rubato is the fibre moving while the shape holds
+
+On the dataset's temporally ordered file (3,840 codas with whale identity
+and onset time), consecutive codas by one whale within 6 s preserve the
+lens-10 shape in 51.0 % of steps (null, random same-whale pairs: 36.9 %),
+and when the shape is preserved the tempo moves by a median of 17 ms (null:
+116 ms). That signed, small motion of the fibre along the interaction
+history is Sharma et al.'s rubato, read off the factoring with no feature
+engineering: the exchange is a braid (README §13) whose steps transport the
+shape and move the fibre. `coda_exchange.hvm4` runs 16 real consecutive
+pairs as one superposition through `@step`, returning each step's transport
+witness `#Step{shapeKept, drift}` as data (9,178 interactions; every branch
+agrees with the Python table).
+
+### 3.7 Discrete systems
 
 Japanese tit ABC-D ordering rule as a Nerode acceptor over six candidate
 utterances: `[D,ABC]` and `[D]` erase, four survive (514 interactions).

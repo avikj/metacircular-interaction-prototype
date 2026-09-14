@@ -161,3 +161,28 @@ exact shapes carrying >1 coda: 252; example fibres (type, shape) -> tempos(ms):
     5R1 (43, 47, 38, 36) -> [328, 328] 
 
 wrote /home/user/metacircular-interaction-prototype/collab/bend2-cubical/biosemiotic/out/coda_superposition.hvm4, coda_shape_only.hvm4, coda_exact_roundtrip.hvm4, sample_codas.tsv (18 real codas)
+
+### coda_exchange.py / out/coda_exchange.hvm4 (rubato as fibre motion along the exchange)
+codas: 3822; consecutive same-whale pairs within 6 s: 2637
+shape (lens 10) preserved across the step: 1344 (51.0%); changed: 1293
+  |tempo drift| when shape kept: median 17 ms, mean 28 ms, n=1344
+  |tempo drift| when shape changed: median 34 ms, mean 85 ms, n=1293
+null (random same-whale pairs): shape equal 36.9%, median |drift| 116 ms
+wrote out/coda_exchange.hvm4 with 16 real consecutive pairs
+#Step{1,#Pos{3}} [2m#1876[0m
+#Step{1,#Neg{4}} [2m#2150[0m
+#Step{1,#Pos{9}} [2m#2800[0m
+#Step{1,#Pos{16}} [2m#3059[0m
+#Step{1,#Pos{31}} [2m#4099[0m
+#Step{1,#Pos{26}} [2m#4358[0m
+#Step{1,#Pos{15}} [2m#5008[0m
+#Step{1,#Neg{56}} [2m#5274[0m
+#Step{0,#Pos{409}} [2m#6076[0m
+#Step{0,#Pos{148}} [2m#6520[0m
+#Step{0,#Pos{36}} [2m#7176[0m
+#Step{0,#Neg{58}} [2m#7410[0m
+#Step{0,#Pos{73}} [2m#8276[0m
+#Step{0,#Pos{2}} [2m#8470[0m
+#Step{0,#Pos{30}} [2m#8846[0m
+#Step{0,#Neg{32}} [2m#9178[0m
+- Itrs: 9178 interactions

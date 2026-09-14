@@ -127,10 +127,41 @@ factored to `#Call{root, affix}` in one pass, 114 interactions.
 Both are the elucidator on symbols instead of intervals; neither adds a claim
 beyond the published finding it encodes.
 
+## 7. The exchange: rubato is the fibre moving while the shape holds (`coda_exchange.py`, `out/coda_exchange.hvm4`)
+
+The dataset's second file, `sperm-whale-dialogues.csv` (3,840 codas, 2014–2018,
+with whale identity, recording and onset time), is the temporally ordered
+subset. Sharma et al. define **rubato** as the smooth drift of tempo across
+consecutive codas of one rhythm by one whale inside an exchange. In the
+corpus's terms an exchange is an interaction history (README §6, §13);
+consecutive codas are its states; the interaction's transport witness at
+each step is *what stayed* (the shape) and *what moved* (the fibre).
+
+Measured on the 2,637 consecutive same-whale coda pairs within 6 s (Sharma
+et al.'s window), against a null of random same-whale pairs:
+
+| | consecutive pairs | random same-whale pairs |
+|---|---|---|
+| lens-10 shape preserved across the step | **51.0 %** (1,344 / 2,637) | 36.9 % |
+| median \|tempo drift\| when the shape is preserved | **17 ms** | 116 ms |
+| median \|tempo drift\| when the shape changes | 34 ms | — |
+
+The shape crosses the step more often than chance and, when it does, the
+fibre moves by a few percent of the tempo: that small, signed motion of the
+fibre along the braid *is* rubato, read off the factoring with no feature
+engineering. On the net, `out/coda_exchange.hvm4` hands 16 real consecutive
+pairs (8 shape-kept, 8 shape-changed) to one function `@step` returning
+`#Step{shapeKept, drift}` per interaction step — the transport witness of
+each step as data — 9,178 interactions; every branch agrees with the Python
+table in `out/exchange_pairs.tsv`. (Structural `===` on two lazily built
+lists stays stuck under a superposition in collapse mode; list equality is
+therefore written as a strict recursion, `@eqL`.)
+
 ## Files
 
     coda_elucidator.py   reads the CSV; exact & per-mille factoring; lens table; emits out/coda_*.hvm4
     coda_regimes.py      lens-10, spec, transport programs; cost regimes; writes out/RESULTS_regimes.txt
+    coda_exchange.py     rubato as fibre motion along real exchanges; emits out/coda_exchange.hvm4
     tit_syntax.hvm4      Japanese tit ordering rule over a superposition
     campbell_affix.hvm4  Campbell's monkey root × affix factoring
     out/                 generated programs, sample_codas.tsv, lens_resolution.tsv, python_run.log
