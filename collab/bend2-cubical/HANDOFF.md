@@ -20,6 +20,11 @@ TOOLCHAIN WITHOUT A HASKELL MIRROR (this container's proxy denies downloads.hask
     (GCC 15 rejects the K&R prototype of `hvm_define`). Verified: the suite is
     bad=0 on that build, byte-identical behaviour to the previous binary.
 
+MODULES: a line `import Name` (no `as`) loads `Name.bend` (next to the importing
+file, else in the cwd) and brings its definitions in unqualified — added for the
+port of the Agda corpus (`port/`, see `port/PORT.md`): one Agda module = one Bend
+file, a shared `Prelude.bend`.
+
 Run: `bend f.bend` (checks + runs; `bend check` is NOT a subcommand; count ✓/✗ lines).
 Targets: `--to-hvm4` (normalised), `--to-hvm4-raw` (no normalisation, strict),
 `--to-hvm4-full` (FULL cubical runtime: nothing erased), `--to-hvm` (HVM3), `--total`.

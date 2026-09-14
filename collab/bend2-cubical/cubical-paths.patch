@@ -2034,7 +2034,7 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..54d3854 100644
+index f94d1ce..3fb1d56 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,10 @@ module Core.CLI
@@ -2048,9 +2048,13 @@ index f94d1ce..54d3854 100644
    , listDependencies
    ) where
  
-@@ -23,11 +27,15 @@ import Core.Collapse
+@@ -21,33 +25,71 @@ import Core.Bind
+ import Core.Check
+ import Core.Collapse
  import Core.Deps
- import Core.Import (autoImport)
+-import Core.Import (autoImport)
++import Core.Import (autoImport, mergeBooks)
++import System.Directory (doesFileExist)
  import Core.Parse.Book (doParseBook)
 +import Core.Analysis
 +import qualified Target.HVM4Full as HVM4Full
@@ -2062,9 +2066,57 @@ index f94d1ce..54d3854 100644
  import qualified Target.HVM as HVM
 +import qualified Target.HVM4 as HVM4
  
- -- | Parse a Bend file into a Book
+--- | Parse a Bend file into a Book
++-- | Parse a Bend file into a Book. A line `import Path/To/File` (no alias)
++-- loads that file's definitions, unqualified, first from the importing
++-- file's directory and then from the working directory — a module, so a
++-- library file can be shared by many files instead of one file per name.
  parseFile :: FilePath -> IO Book
-@@ -46,8 +54,10 @@ parseFile file = do
+ parseFile file = do
++  book <- loadFile S.empty file
++  autoImport (takeDirectory file) book
++  where
++    takeDirectory path = reverse . dropWhile (/= '/') . reverse $ path
++
++loadFile :: S.Set FilePath -> FilePath -> IO Book
++loadFile visited file = do
+   content <- readFile file
+-  case doParseBook file content of
++  let (loads, content') = splitLoads content
++      dir = reverse . dropWhile (/= '/') . reverse $ file
++  case doParseBook file content' of
+     Left err -> do
+       putStrLn $ err
+       exitFailure
+     Right book -> do
+-      -- Auto-import unbound references
+-      autoImportedBook <- autoImport (takeDirectory file) book
+-      return autoImportedBook
++      deps <- mapM (loadDep dir) loads
++      return (foldl mergeBooks book deps)
+   where
+-    takeDirectory path = reverse . dropWhile (/= '/') . reverse $ path
++    visited' = S.insert file visited
++    loadDep dir p = do
++      let local = dir ++ p ++ ".bend"
++          cwd   = p ++ ".bend"
++      lExists <- doesFileExist local
++      let path = if lExists then local else cwd
++      if path `S.member` visited' then return (Book M.empty M.empty) else do
++        exists <- doesFileExist path
++        if not exists
++          then do putStrLn ("import: file not found: " ++ path); exitFailure
++          else loadFile visited' path
++
++-- an `import X` line without `as` is a module load; it is blanked (line
++-- numbers preserved) so the parser only sees aliased imports
++splitLoads :: String -> ([String], String)
++splitLoads src = (concatMap fst ls, unlines (map snd ls))
++  where
++    ls = map one (lines src)
++    one l = case words l of
++      ["import", p] -> ([p], "")
++      _             -> ([], l)
  
  -- | Type-check all definitions in a book
  checkDefinitions :: Book -> IO ()
@@ -2076,7 +2128,7 @@ index f94d1ce..54d3854 100644
    unless success exitFailure
    where
      checkDef book term typ = do
-@@ -59,7 +69,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +101,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2085,7 +2137,7 @@ index f94d1ce..54d3854 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -67,6 +77,25 @@ checkDefinitions book@(Book defs) = do
+@@ -67,6 +109,25 @@ checkDefinitions book@(Book defs) = do
            _ <- checkAll bBook rest
            return False
  
@@ -2111,7 +2163,7 @@ index f94d1ce..54d3854 100644
  -- | Run the main function from a book
  runMain :: Book -> IO ()
  runMain book = do
-@@ -80,7 +109,7 @@ runMain book = do
+@@ -80,7 +141,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2120,7 +2172,7 @@ index f94d1ce..54d3854 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -123,6 +152,18 @@ processFileToHVM file = do
+@@ -123,6 +184,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2139,7 +2191,7 @@ index f94d1ce..54d3854 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +176,29 @@ listDependencies file = do
+@@ -135,7 +208,29 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -3313,9 +3365,17 @@ index 31f1da3..8dda030 100644
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Import.hs b/src/Core/Import.hs
-index c600171..a382c34 100644
+index c600171..f7465bb 100644
 --- a/src/Core/Import.hs
 +++ b/src/Core/Import.hs
+@@ -1,6 +1,6 @@
+ {-./Type.hs-}
+ 
+-module Core.Import (autoImport) where
++module Core.Import (autoImport, mergeBooks) where
+ 
+ import Control.Monad (foldM)
+ import qualified Data.Map.Strict as M
 @@ -45,7 +45,7 @@ autoImportRefs book refs visited = do
  -- FIXME: simplify this ugly code
  autoImportRef :: S.Set FilePath -> Either String (Book, S.Set Name) -> Name -> IO (Either String (Book, S.Set Name))
