@@ -3153,10 +3153,10 @@ index 99c0709..0c92a04 100644
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..768091a 100644
+index 9d1ab06..2ac1ea3 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
-@@ -20,8 +20,31 @@ equal d book a b = eql 3 d book a b
+@@ -20,8 +20,29 @@ equal d book a b = eql 3 d book a b
  
  eql :: Int -> Int -> Book -> Term -> Term -> Bool
  eql 0  d book a b = cmp 0 d book (cut a) (cut b)
@@ -3175,8 +3175,6 @@ index 9d1ab06..768091a 100644
 +  sameHead  = case (spineOf a, spineOf b) of
 +    ((Ref ka, xs), (Ref kb, ys)) ->
 +      ka == kb && not (null xs) && sameArgs xs ys
-+    ((Var ka ia, xs), (Var kb ib, ys)) ->
-+      ia == ib && not (null xs) && sameArgs xs ys
 +    _ -> False
 +  sameArgs xs ys = length xs == length ys && and (zipWith sameArg xs ys)
 +  sameArg (Left x) (Left y)   = eql lv d book x y
@@ -3189,7 +3187,7 @@ index 9d1ab06..768091a 100644
    similar   = cmp lv d book (force book a) (force book b)
  
  cmp :: Int -> Int -> Book -> Term -> Term -> Bool
-@@ -60,9 +83,14 @@ cmp lv d book a b =
+@@ -60,9 +81,14 @@ cmp lv d book a b =
      (EnuM xa ca da, EnuM xb cb db) -> eql lv d book xa xb && length ca == length cb && all (\ ((s1,t1), (s2,t2)) -> s1 == s2 && eql lv d book t1 t2) (zip ca cb) && eql lv d book da db
      (Sig aa ba    , Sig ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
      (Tup aa ba    , Tup ab bb    ) -> eql lv d book aa ab && eql lv d book ba bb
@@ -3204,7 +3202,7 @@ index 9d1ab06..768091a 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +105,60 @@ cmp lv d book a b =
+@@ -77,6 +103,60 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -3265,7 +3263,7 @@ index 9d1ab06..768091a 100644
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
-@@ -89,3 +171,19 @@ cmp lv d book a b =
+@@ -89,3 +169,19 @@ cmp lv d book a b =
      (Met _  _  _  , Met _  _  _  ) -> error "not-supported"
      (Pat _  _  _  , Pat _  _  _  ) -> error "not-supported"
      (_            , _            ) -> False

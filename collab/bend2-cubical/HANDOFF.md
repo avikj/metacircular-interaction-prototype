@@ -165,7 +165,7 @@ spine walks unrolled to the program's max dimension). Three general fixes rode
 along: `whnfHCm` dispatches on the type's normal form; face-cell restriction
 is a syntactic substitution (`substVar`) — the semantic `rewrite` diverged on
 recursive defs stuck on a variable; `Equal.sameHead` sees through `@` spines
-and neutral heads (else a recursive path lemma applied at an interval is
+(else a recursive path lemma applied at an interval is
 unfolded forever when an argument is convertible but not syntactically equal). `p @ i @ j` is left associative. Files:
 hit_circle hit_susp hit_pushout hit_trunc hit_quot hit_interval hit_tree
 hit_torus hit_settrunc hit_indexed hit_hcomp + hit_mustfail (registered).

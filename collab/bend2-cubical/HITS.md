@@ -142,7 +142,7 @@ Each was invisible while HITs were hardcoded primitives:
    type is the motive applied to a filler, whose head is not syntactically
    visible.
 3. The conversion checker's same-head shortcut sees through PATH applications
-   and neutral heads (`Equal.sameHead`): `addAssoc(p, size(y), size(z)) @ i`
+   (`Equal.sameHead`): `addAssoc(p, size(y), size(z)) @ i`
    against the same spine with `size(y)` unfolded used to unfold `addAssoc`
    instead and regenerate the same shape one level deeper, forever.
 
