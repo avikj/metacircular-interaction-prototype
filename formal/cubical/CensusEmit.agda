@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness #-}
 ------------------------------------------------------------------------
 -- CensusEmit — serialize reflected corpus type-Terms to bend `Shape`
--- literals, so the corpus's own FutureEq quotient can be COMPUTED by
+-- literals, so the corpus's own NerodeCongruence quotient can be COMPUTED by
 -- evaluation on the interaction-net runtime (census.bend), rather than
 -- only proved total in Agda (where the SetQuotient OOMs).
 --
 -- headCode / children here are exactly the observation and step of
 -- ReflectedFormation's future-behavior machine.  A `Shape` records, per
 -- node, its headCode and the shapes of its children — everything (and
--- only what) FutureEq observes.
+-- only what) NerodeCongruence observes.
 ------------------------------------------------------------------------
 module CensusEmit where
 

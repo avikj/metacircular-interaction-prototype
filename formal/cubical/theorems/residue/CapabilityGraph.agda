@@ -14,7 +14,7 @@ open import SymmetryCardinality
 open import SymmetryArithmeticAction
 open import SmithCapability
 import AdaptiveResidualAdapter as Adaptive
-import FutureBehavior as Future
+import MyhillNerodeMinimalMachine as Future
 
 -- The checked symmetry graph forks from the carrier.  Cardinality is a lossy
 -- projection of that carrier; there is intentionally no count-to-action edge.
@@ -70,7 +70,7 @@ record AdaptiveResidualCapability {ℓX ℓA : Level}
     step : X → A → X
     observe : X → Bool
     residualBridge : (left right : X)
-      → Iso (Future.FutureEq step observe left right)
+      → Iso (Future.NerodeCongruence step observe left right)
               (Adaptive.AdaptiveEq step observe left right)
 
 adaptiveResidualPipeline :
@@ -81,4 +81,4 @@ AdaptiveResidualCapability.step (adaptiveResidualPipeline step observe) = step
 AdaptiveResidualCapability.observe (adaptiveResidualPipeline step observe) = observe
 AdaptiveResidualCapability.residualBridge
   (adaptiveResidualPipeline step observe) =
-  Adaptive.futureEq-adaptiveIso step observe
+  Adaptive.nerodeCongruence-adaptiveIso step observe

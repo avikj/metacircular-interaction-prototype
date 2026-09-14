@@ -32,7 +32,7 @@ open import Cubical.HITs.SetQuotients as SQ
   using ([_] ; eq/ ; squash/)
 open import Cubical.Relation.Nullary using (¬_)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import CompositionalContextAdapter as CCA
 
 private
@@ -75,7 +75,7 @@ run-++ step state (action ∷ front) back =
   run-++ step (step state action) front back
 
 -- A generator realization extends to every finite source word.  The order of
--- concatenation matches `FutureBehavior.run`, which executes left to right.
+-- concatenation matches `MyhillNerodeMinimalMachine.run`, which executes left to right.
 run-compile :
     {sourceStep : X → A → X} {targetStep : X → B → X}
     (simulation : ActionSimulation sourceStep targetStep)
@@ -93,13 +93,13 @@ run-compile {sourceStep = sourceStep} {targetStep = targetStep}
 
 -- If every source action is executable as a target word, target-future
 -- equality implies source-future equality.
-futureEq-via-simulation :
+nerodeCongruence-via-simulation :
     {sourceStep : X → A → X} {targetStep : X → B → X}
     (simulation : ActionSimulation sourceStep targetStep)
     (observe : X → O) {left right : X}
-  → FB.FutureEq targetStep observe left right
-  → FB.FutureEq sourceStep observe left right
-futureEq-via-simulation simulation observe {left} {right} related word =
+  → FB.NerodeCongruence targetStep observe left right
+  → FB.NerodeCongruence sourceStep observe left right
+nerodeCongruence-via-simulation simulation observe {left} {right} related word =
   cong observe (sym (run-compile simulation left word))
   ∙ related (compileWord simulation word)
   ∙ cong observe (run-compile simulation right word)
@@ -118,16 +118,16 @@ record MutualSimulation
 
 open MutualSimulation public
 
-futureEqIso :
+nerodeCongruenceIso :
     {stepA : X → A → X} {stepB : X → B → X}
     (setO : isSet O) (observe : X → O)
     (simulations : MutualSimulation stepA stepB) (left right : X)
-  → Iso (FB.FutureEq stepA observe left right)
-      (FB.FutureEq stepB observe left right)
-futureEqIso setO observe simulations left right =
+  → Iso (FB.NerodeCongruence stepA observe left right)
+      (FB.NerodeCongruence stepB observe left right)
+nerodeCongruenceIso setO observe simulations left right =
   iso
-    (futureEq-via-simulation (B-in-A simulations) observe)
-    (futureEq-via-simulation (A-in-B simulations) observe)
+    (nerodeCongruence-via-simulation (B-in-A simulations) observe)
+    (nerodeCongruence-via-simulation (A-in-B simulations) observe)
     (λ targetEq → isPropΠ (λ word → setO _ _) _ targetEq)
     (λ sourceEq → isPropΠ (λ word → setO _ _) _ sourceEq)
 
@@ -137,18 +137,18 @@ module MutualQuotient
     (setO : isSet O) (observe : X → O)
     (simulations : MutualSimulation stepA stepB) where
 
-  module QA = FB.FutureQuotient stepA setO observe
-  module QB = FB.FutureQuotient stepB setO observe
+  module QA = FB.MinimalMachine stepA setO observe
+  module QB = FB.MinimalMachine stepB setO observe
 
   relationA→B : {left right : X}
-    → FB.FutureEq stepA observe left right
-    → FB.FutureEq stepB observe left right
-  relationA→B = futureEq-via-simulation (B-in-A simulations) observe
+    → FB.NerodeCongruence stepA observe left right
+    → FB.NerodeCongruence stepB observe left right
+  relationA→B = nerodeCongruence-via-simulation (B-in-A simulations) observe
 
   relationB→A : {left right : X}
-    → FB.FutureEq stepB observe left right
-    → FB.FutureEq stepA observe left right
-  relationB→A = futureEq-via-simulation (A-in-B simulations) observe
+    → FB.NerodeCongruence stepB observe left right
+    → FB.NerodeCongruence stepA observe left right
+  relationB→A = nerodeCongruence-via-simulation (A-in-B simulations) observe
 
   toMeaning : QA.Meaning → QB.Meaning
   toMeaning = SQ.rec QB.isSetMeaning
@@ -250,7 +250,7 @@ projection-contextEqIso : (left right : Bool)
   → Iso (CCA.ContextEq leftProjection (λ state → state) left right)
       (CCA.ContextEq rightProjection (λ state → state) left right)
 projection-contextEqIso =
-  futureEqIso isSetBool (λ state → state)
+  nerodeCongruenceIso isSetBool (λ state → state)
     projection-clones-mutually-simulate
 
 module ProjectionQuotientEquivalence =
@@ -300,38 +300,38 @@ no-mutual-simulation-after-collapse simulations =
 
 -- The constant observer nevertheless identifies every pair of states under
 -- every word, for either action system (indeed for any Unit-action system).
-constant-futureEq : (step : Bool → Unit → Bool) (left right : Bool)
-  → FB.FutureEq step constantObserve left right
-constant-futureEq step left right word = refl
+constant-nerodeCongruence : (step : Bool → Unit → Bool) (left right : Bool)
+  → FB.NerodeCongruence step constantObserve left right
+constant-nerodeCongruence step left right word = refl
 
-collapsed-futureEqIso : (left right : Bool)
-  → Iso (FB.FutureEq identityStep constantObserve left right)
-      (FB.FutureEq flipStep constantObserve left right)
-collapsed-futureEqIso left right = iso
-  (λ _ → constant-futureEq flipStep left right)
-  (λ _ → constant-futureEq identityStep left right)
+collapsed-nerodeCongruenceIso : (left right : Bool)
+  → Iso (FB.NerodeCongruence identityStep constantObserve left right)
+      (FB.NerodeCongruence flipStep constantObserve left right)
+collapsed-nerodeCongruenceIso left right = iso
+  (λ _ → constant-nerodeCongruence flipStep left right)
+  (λ _ → constant-nerodeCongruence identityStep left right)
   (λ targetEq → isPropΠ (λ word → isSetUnit _ _) _ targetEq)
   (λ sourceEq → isPropΠ (λ word → isSetUnit _ _) _ sourceEq)
 
 module IdentityCollapsedQuotient =
-  FB.FutureQuotient identityStep isSetUnit constantObserve
+  FB.MinimalMachine identityStep isSetUnit constantObserve
 
 module FlipCollapsedQuotient =
-  FB.FutureQuotient flipStep isSetUnit constantObserve
+  FB.MinimalMachine flipStep isSetUnit constantObserve
 
 identityToFlipMeaning :
   IdentityCollapsedQuotient.Meaning → FlipCollapsedQuotient.Meaning
 identityToFlipMeaning = SQ.rec FlipCollapsedQuotient.isSetMeaning
   (λ state → [ state ])
   (λ left right related →
-    eq/ left right (constant-futureEq flipStep left right))
+    eq/ left right (constant-nerodeCongruence flipStep left right))
 
 flipToIdentityMeaning :
   FlipCollapsedQuotient.Meaning → IdentityCollapsedQuotient.Meaning
 flipToIdentityMeaning = SQ.rec IdentityCollapsedQuotient.isSetMeaning
   (λ state → [ state ])
   (λ left right related →
-    eq/ left right (constant-futureEq identityStep left right))
+    eq/ left right (constant-nerodeCongruence identityStep left right))
 
 collapsed-to-from : (meaning : FlipCollapsedQuotient.Meaning)
   → identityToFlipMeaning (flipToIdentityMeaning meaning) ≡ meaning

@@ -22,7 +22,7 @@
 -- be executed next.
 --
 -- Finite observation windows and Moore/Nerode refinement are standard.  The
--- local complete future quotient is already checked in FutureBehavior.agda;
+-- local complete future quotient is already checked in MyhillNerodeMinimalMachine.agda;
 -- this module isolates the first stabilization obstruction and connects it
 -- to ActionResidual.agda.  No novelty is claimed.
 ------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 
 -- The algebra-homomorphism part of the compositional-context quotient's
 -- universal property.  CompositionalContextAdapter already descends the
--- binary operation, while FutureBehavior supplies factorization of bare set
+-- binary operation, while MyhillNerodeMinimalMachine supplies factorization of bare set
 -- maps.  This leaf proves that the factor of a context-constant magma map is
 -- again a magma map, and that it is the unique factor on quotient generators.
 
