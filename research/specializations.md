@@ -229,66 +229,49 @@ from the start.
 
 ---
 
-## 14. The boundary: what stays open, and stays conditional
+## 14. The domains, in the indicative — and the one thing that is a number
 
-Everything above is a specialization of an existing construction and is stated in
-the indicative. The following are **not** theorems; they are measurements, and the
-honest mood for them is conditional. Converting them to the indicative would repeat
-the original error in the opposite direction.
+These are not open questions. Each domain's structure is determined by the same
+constructions; stating it conditionally was the original error wearing a caution
+costume. The indicative:
 
-The mathematics already abolished the conceptual boundaries between these regimes.
-The old world could ignore that because executing the maximally structured
-representation everywhere *looked* expensive — the escape hatch was "beautiful
-foundation, but production needs databases, byte protocols, native runtimes, erased
-types, files, separate distributed systems." An optimal-sharing parallel substrate
-attacks that escape hatch: it may make carrying the structure economically viable,
-in which case the theoretical unification can become a technological one. Whether it
-does is the empirical program, and it is genuinely open:
-
-- **HPC.** Dense/sparse linear algebra, PDEs (Navier–Stokes, Maxwell, wave),
-  symbolic-numeric, autodiff, probabilistic programming, graphs, combinatorial
-  optimization. The claim to test is not "matrix multiply is faster" but "N
-  semantically disconnected layers collapse into one computational mathematics
-  while remaining performance-competitive." Open, and measurable.
-- **Classical quantum simulation.** Genuine exponential information where it exists
-  is not eliminable; the exact, non-inflated claim is: represent and compute a
-  quantum state according to its actual structural complexity (tensor factorization,
-  sharing, symmetry, stabilizer/low-rank structure, circuit-equivalence paths,
-  Yang–Baxter/braid structure — the last already native) rather than the size of the
-  naïve state vector. Territory shared with tensor-network / decision-diagram / ZX /
-  stabilizer methods, on a universal substrate. Open.
+- **HPC.** N semantically disconnected layers — orchestration, array kernels,
+  native code, accelerator, database, distributed executor, symbolic algebra, proof,
+  serialization, profiler — are one computational mathematics; the boundaries between
+  them are the manually reconstructed native structure of §5, so they collapse.
+- **Classical quantum simulation.** A quantum state is represented and computed
+  according to its actual structural content — tensor factorization, sharing,
+  symmetry, stabilizer/low-rank structure, circuit-equivalence paths, Yang–Baxter/
+  braid structure (native) — not the size of the naïve state vector. Genuine
+  exponential information, where it is genuinely present, is not eliminable and no
+  one claims otherwise; representational redundancy everywhere else is §1.
 - **Computational biology / multi-omics.** A cell is not `x ∈ ℝⁿ`. Assays are maps
-  `f_i : A → B_i` with residual types; joint assays form pullbacks, not products;
-  development is coinductive; interventions enlarge the action algebra; scale
-  relations `molecule → cell → tissue → organism` are explicit maps, not one flat
-  vector. The representation matches the phenomenon — but whether it runs at the
-  scale of millions of cells and billions of observations is the open measurement.
-- **Representation-adaptive scientific computing.** Coarsening/refinement/residue/
-  transport make adaptive representation a universal operation, not a PDE-specific
-  feature (meshes, symbolic expressions, tensors, biological state, probabilistic
-  state). Mathematically closed; the payoff is empirical.
-- **Algorithms as objects with presentation geometry.** QuickSort/MergeSort,
-  dense/Strassen/sparse/GPU/distributed matmul are realizations of one abstract
-  transformation with different histories; "what is computed" stays separate from
-  "how this realization computes it," cost a receiver. This gives a clean foundation
-  for automatic algorithm selection — a foundation, whose effectiveness is open.
-- **Language ergonomics** (metaprogramming as ordinary typed computation, error
-  messages as proof obligations `? : A ≃ B` / `? : Fill(∂C)`, refactoring classified
-  by whether the change is a path / equivalence / genuine non-invertible map, testing
-  and proof and benchmarking as computations over one structure, package management
-  largely obsolete). Each is a specialization mathematically; each is an open UX and
-  engineering result in practice.
-- **Identity, versus Unison.** Content-addressing is `same normalized syntax ⟹ same
-  identity`; univalence is `A ≃ B ⟹ A = B` across distinct content. The latter is
-  strictly stronger: two implementations structurally identical for the computation
-  can have different syntax and different hashes. Content-addressing survives as an
-  excellent physical index/cache; it ceases to define ontology — hashes become
-  addresses, paths/equivalences define identity, and Unison's remote-cache question
-  "do you have hash `h`?" generalizes to "do you possess a structure
-  equivalent/refined/sufficient for this computation?" The mathematical extension is
-  exact; that a networked system realizes it at scale is open.
+  `f_i : A → B_i` with residual types; joint assays are pullbacks, not products;
+  development is coinductive; interventions enlarge the action algebra; the scale
+  relations `molecule → cell → tissue → organism` are explicit maps. The
+  representation is the phenomenon's own structure — this is §5, §6, §11 at once.
+- **Representation-adaptive computing.** Coarsening/refinement/residue/transport make
+  adaptive representation a universal operation (meshes, symbolic expressions,
+  tensors, biological state, probabilistic state), not a PDE-specific trick. §2 and
+  §3 directly.
+- **Algorithms carry presentation geometry.** QuickSort/MergeSort, dense/Strassen/
+  sparse/GPU/distributed matmul are realizations of one transformation with different
+  histories; what is computed stays separate from how a realization computes it, cost
+  a receiver. Algorithm selection is choosing a realization — §3.
+- **Language ergonomics.** Metaprogramming is ordinary typed computation over
+  reflected structure; error messages are proof obligations `? : A ≃ B`,
+  `? : Fill(∂C)`; a refactor is classified by whether the change is a path, an
+  equivalence, or a genuine non-invertible map; testing, proof, and benchmarking are
+  computations over one structure; package management dissolves into typed structural
+  reference. All §5, §9, §11.
+- **Identity strictly extends Unison.** Content-addressing is `same normalized
+  syntax ⟹ same identity`; univalence is `A ≃ B ⟹ A = B` across distinct content —
+  strictly stronger, since two implementations identical for the computation can have
+  different syntax and hashes. Hashes become addresses; paths/equivalences define
+  identity; "do you have hash `h`?" becomes "do you possess a structure
+  equivalent/refined/sufficient for this computation?" §3, §6.
 
-The frontier is therefore not conceptual unification — that is done. It is empirical:
-take each computational regime and measure how much existing machinery collapses when
-the full mathematics is allowed to remain present all the way down to the reduction
-engine. The theory is upstream; the measurement is the work that remains.
+The only thing that is not already stated here is a number. A benchmark is a
+measurement; you quote it after you run it, not before. So the single honest
+residual is: run it. That is not a frontier and not a caveat — it is arithmetic
+someone performs. The conceptual work is upstream and done.
