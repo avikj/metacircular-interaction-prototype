@@ -137,18 +137,30 @@ were missing from `normal`, `normalCap`, `occursMarker` (hard crashes) and
 `Target/HVM.freeVars`, and `--to-hvm4-full` on any quotient.
 
 ## THE GENERAL HIT SCHEMA IS DONE (HIT.md) — §D of REMAINING.md closed
-`hit Name<params>: case @tag(fields) | path @tag(fields): lhs ~> rhs`
-generates `Name`, `Name/tag`, `Name/elim`; four generic `Term` forms
-(`HTy`/`HPt`/`HPa`/`HEl`), signatures in the `Book` (second map, `HitSig`),
-`hitInst`/`hitEnds`/`whnfHEl` in WHNF, `checkTele`/`hitBranchType` in Check,
-`hitDefs` in Parse/Book, `hitRuntime` in HVM4Full (generated `@hitAt`,
-`@hitCoe`, `@hit_Name_elim`). New files: hit_circle hit_susp hit_pushout
-hit_trunc hit_quot hit_interval hit_tree + hit_mustfail (registered). Suite
-96 files bad=0. Every `main` agrees between normaliser and HVM4; symbolic
-probes (transport of a meridian, IH recursion, stuck hcomp) recorded in
-HIT.md. If you extend it: higher-dimensional path constructors are the next
-real item (torus, set truncation); the checker's `hitBranchType` and the
-emitter's `hitRuntime` are the two places that must agree.
+At Cubical Agda `data` generality: `hit Name<params>(indices): case
+@tag(fields) -> Name(…) | path @tag(fields): T | path @tag(fields): lhs ~> rhs`
+generates `Name`, `Name/tag`; `Name/elim(params, P, indices, x, branches)` is
+SYNTAX resolved into the primitive `HEl` (Core/Adjust.elimSugar) — not a def,
+its type cannot be a Π-telescope. Four generic `Term` forms
+(`HTy`/`HPt`/`HPa`/`HEl`), signatures in the `Book` (second map, `HitSig`);
+`hitInst`/`hitSpine`/`hitEndAt`/`whnfHEl` in WHNF (cells of any dimension,
+hcomp cells via `compAt` over `hfillAt`); `checkTele`/`hitMotiveType`/
+`hitPathTypeOver`/`hitBranchType` in Check; `hitDefs` in Parse/Book;
+`hitRuntime` in HVM4Full (generated `@hitAt`, `@hitCoe`, `@hit_Name_elim`,
+spine walks unrolled to the program's max dimension). Three general fixes rode
+along: `whnfHCm` dispatches on the type's normal form; face-cell restriction
+is a syntactic substitution (`substVar`) — the semantic `rewrite` diverged on
+recursive defs stuck on a variable; `Equal.sameHead` sees through `@` spines
+and neutral heads (else a recursive path lemma applied at an interval is
+unfolded forever when an argument is convertible but not syntactically equal). `p @ i @ j` is left associative. Files:
+hit_circle hit_susp hit_pushout hit_trunc hit_quot hit_interval hit_tree
+hit_torus hit_settrunc hit_indexed hit_hcomp + hit_mustfail (registered).
+Suite 100 files bad=0; every `main` agrees between normaliser and HVM4.
+Recursion in branches is by named defs (Agda's pattern matching): the
+expected face `Name/elim(…, x, bs)` IS `rec(x)` after unfolding. Known
+HVM4 property, not ours: printing a recursive function as a VALUE never
+terminates (`@main = @add` included). PUSC.md is the author's architecture
+statement — the level at which the whole is to be read.
 
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher

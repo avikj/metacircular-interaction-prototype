@@ -1,11 +1,13 @@
 # What remains for complete cubical support — exact, audited, with locations
 
 **State: sections A, B, C, D and E are closed. The general HIT schema (§D)
-is implemented — `hit` declarations with point and path constructors, a
-dependent eliminator generated from the signature, transport along HIT lines,
-all of it on the full runtime too; see HIT.md. What is left is the one Glue
-law that needs face-restricted contexts to state (§B), and the caveats of §F.
-Suite: 96 files, bad = 0.**
+is implemented at Cubical Agda `data` generality — `hit` declarations with
+uniform parameters, indices, constructors of any declared type (interval and
+path fields included), path constructors of any dimension with arbitrary
+faces, a dependent eliminator computing on constructors, cells and hcomp
+cells, transport along HIT lines — all of it on the full runtime too; see
+HIT.md. What is left is the one Glue law that needs face-restricted contexts
+to state (§B), and the caveats of §F. Suite: 100 files, bad = 0.**
 
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed
@@ -129,34 +131,33 @@ images): its path constructor joins *any* two elements, so `Trunc(A)` is a
 proposition by construction (`truncIsProp`), and `trec` is allowed only into a
 proposition — the guard file confirms that a bogus `isProp(Bool)` is rejected.
 
-**The general schema — DONE (HIT.md).** All four steps of the sketch that
-stood here are implemented: `hit` declarations with point and path
-constructors (parameters and fields as dependent telescopes, recursive
-fields recognised), signatures stored in the `Book` (`HitSig`) instead of in
-`Term`, the dependent eliminator's type generated from the signature with
-one computation rule per constructor (path constructors reducing at an
-interval, induction hypotheses for recursive fields), and `hcomp` in a HIT
-correctly STUCK — confirmed by execution on HVM4. `coe` along a HIT line
-whose parameters vary transports constructors field by field. Everything
-reaches `--to-hvm4-full` through generated `@hitAt` / `@hitCoe` /
-`@hit_Name_elim`. Declared: the circle, the suspension, the pushout, the
-propositional truncation, the quotient's generators, the interval, a tree
-with recursive point fields — 110 ✓, and a 7-probe must-fail file.
+**The general schema — DONE (HIT.md), at the generality of a Cubical Agda
+`data` declaration.** `hit Name<params>(indices): case @tag(fields) -> Name(…)
+| path @tag(fields): T` with `T` any iterated `Path`/`PathP` type over the
+HIT and any well-typed faces; signatures in the `Book`; the dependent
+eliminator `Name/elim` as syntax resolved into one primitive, typed with
+every branch in hand, computing on constructors, on cells of any dimension
+and on `hcomp` cells (the dependent composition over the filler); `coe`
+along a HIT line transports constructors field by field and commutes with
+hcomp; `hcomp` in a HIT correctly STUCK; every rule mirrored on
+`--to-hvm4-full` through generated `@hitAt` / `@hitCoe` / `@hit_Name_elim`.
 
-| HIT (declared) | file |
+| declared | file |
 |---|---|
 | `Circle` | `hit_circle.bend` |
-| `Susp<A>` | `hit_susp.bend` (transport along `Susp(ua(neg) @ i)`) |
+| `Susp<A>` (transport along `Susp(ua(neg) @ i)`) | `hit_susp.bend` |
 | `Push<A,B,C,f,g>` | `hit_pushout.bend` |
-| `Tr<A>` | `hit_trunc.bend` |
+| `Tr<A>` (elimination through hcomp, definitional) | `hit_trunc.bend` |
 | `Q<A,R>` | `hit_quot.bend` |
-| `I` | `hit_interval.bend` (funext from the interval) |
-| `Tree` | `hit_tree.bend` |
+| `I` (funext from the interval) | `hit_interval.bend` |
+| `Tree`, `Tree2` (faces are nested constructor terms) | `hit_tree.bend` |
+| `Torus` (a square) | `hit_torus.bend` |
+| `STr<A>` (set truncation: a square between any two parallel paths) | `hit_settrunc.bend` |
+| `Reach<S,step>(s,t)`, `Gen(A: Set)` (indexed; an interval-argument constructor over a moving index) | `hit_indexed.bend` |
+| the eliminator on hcomp cells, transport commuting with hcomp | `hit_hcomp.bend` |
 
-Still absent, and now precisely scoped (HIT.md, Limitations): higher-
-dimensional path constructors (squares: torus, set truncation as a
-declaration), indices, nested recursion, recursive fields at other
-parameters. The three hardcoded HITs stay; the schema re-derives them.
+189 ✓, a 7-probe must-fail file, every `main` agreeing on HVM4. The three
+hardcoded HITs stay; the schema re-derives them, set truncation included.
 
 ## E. Backend coverage
 
