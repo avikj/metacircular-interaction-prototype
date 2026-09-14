@@ -911,6 +911,82 @@ index 0000000..d47432e
 +
 +def main() -> Nat:
 +  0n
+diff --git a/quot1.bend b/quot1.bend
+new file mode 100644
+index 0000000..4ba7804
+--- /dev/null
++++ b/quot1.bend
+@@ -0,0 +1,43 @@
++# SetQuotient: representative usage (scrutinee is a typed variable).
++def R(a: Bool, b: Bool) -> Set:
++  Path(Bool, a, b)
++
++def Q() -> Set:
++  Quot(Bool, R)
++
++def isSet(A: Set) -> Set:
++  all x: A. all y: A. all p: Path(A,x,y). all q: Path(A,x,y). Path(Path(A,x,y), p, q)
++
++# squash/ inhabits isSet of the quotient
++def isSetQ() -> isSet(Q):
++  qsquash
++
++# point endpoints in a Path type (check-mode against the constant line)
++def loopT() -> Path(Q, qcl(True), qcl(True)):
++  <_> qcl(True)
++
++# eq/ as a genuine path in the quotient
++def eqPath(a: Bool, b: Bool, w: R(a,b)) -> Path(Q, qcl(a), qcl(b)):
++  qeq(a,b,w)
++
++def f(b: Bool) -> Nat:
++  match b:
++    case True: 1n
++    case False: 0n
++
++def resp(a: Bool, b: Bool, w: R(a,b)) -> Path(Nat, f(a), f(b)):
++  <i> f(w @ i)
++
++# recursor with a variable scrutinee (the real elimination shape)
++def rec(setB: isSet(Nat), g: all b: Bool. Nat, gr: all a: Bool. all b: Bool. all w: R(a,b). Path(Nat, g(a), g(b)), q: Q) -> Nat:
++  qrec(q, setB, g, gr)
++
++def recRun(setB: Nat, g: all b: Bool. Nat, gr: all a: Bool. all b: Bool. all w: R(a,b). Path(Nat, g(a), g(b)), q: Q) -> Nat:
++  qrec(q, setB, g, gr)
++
++# qrec(qcl(True), ..) reduces to f(True) = 1n  (the point computation rule)
++def recComputes() -> Path(Nat, recRun(0n, f, resp, qcl(True)), 1n):
++  <_> 1n
++
++def main() -> Nat:
++  recRun(0n, f, resp, qcl(True))
+diff --git a/quot_mustfail.bend b/quot_mustfail.bend
+new file mode 100644
+index 0000000..d499605
+--- /dev/null
++++ b/quot_mustfail.bend
+@@ -0,0 +1,21 @@
++# MUST-FAIL: the recursor must reject a resp that does not respect R.
++# If accepted, eq/ + this resp would prove f(a) == f(b) for unrelated values,
++# collapsing the target.  The checker must reject `badResp`.
++def R(a: Bool, b: Bool) -> Set:
++  Path(Bool, a, b)
++def Q() -> Set:
++  Quot(Bool, R)
++def f(b: Bool) -> Nat:
++  match b:
++    case True: 1n
++    case False: 0n
++
++# WRONG: claims a constant path f(a)==f(a); required type is Path(Nat,f(a),f(b)).
++def badResp(a: Bool, b: Bool, w: R(a,b)) -> Path(Nat, f(a), f(b)):
++  <_> f(a)
++
++def bad(setB: Nat, q: Q) -> Nat:
++  qrec(q, setB, f, badResp)
++
++def main() -> Nat:
++  0n
 diff --git a/rt.bend b/rt.bend
 new file mode 100644
 index 0000000..5ebafe3
@@ -966,10 +1042,10 @@ index 0000000..1cb8f41
 +  div2(mul2(21n))
 diff --git a/src/Core/Analysis.hs b/src/Core/Analysis.hs
 new file mode 100644
-index 0000000..8612789
+index 0000000..fbf31d3
 --- /dev/null
 +++ b/src/Core/Analysis.hs
-@@ -0,0 +1,235 @@
+@@ -0,0 +1,250 @@
 +{-./Type.hs-}
 +
 +-- Per-definition mathematical analysis: the checker as an instrument,
@@ -1072,6 +1148,11 @@ index 0000000..8612789
 +        Glu a fs -> plus (0,1) (foldr plus (0,0) (map go (a : concatMap (\(p,t,e) -> [p,t,e]) fs)))
 +        GlB a fs v -> foldr plus (0,0) (map go (a : v : concatMap (\(p,t) -> [p,t]) fs))
 +        UnG gg -> go gg
++        Quo a r -> plus (0,1) (foldr plus (0,0) (map go [a, r]))
++        QCl a -> go a
++        QEq a b r -> foldr plus (0,0) (map go [a, b, r])
++        QSq -> (0,0)
++        QRec x s f r -> foldr plus (0,0) (map go [x, s, f, r])
 +        Ua a b f g gf fg -> plus (0,1) (foldr plus (0,0) (map go [a,b,f,g,gf,fg]))
 +        Lam k f     -> go (f (Var k 0))
 +        PLm k f     -> go (f (Var k 0))
@@ -1133,6 +1214,11 @@ index 0000000..8612789
 +        Glu a fs -> concatMap go (a : concatMap (\(p,t,e) -> [p,t,e]) fs)
 +        GlB a fs v -> concatMap go (a : v : concatMap (\(p,t) -> [p,t]) fs)
 +        UnG gg -> go gg
++        Quo a r -> concatMap go [a, r]
++        QCl a -> go a
++        QEq a b r -> concatMap go [a, b, r]
++        QSq -> []
++        QRec x s f r -> concatMap go [x, s, f, r]
 +        PAp a b    -> go a ++ go b
 +        Sig a b    -> go a ++ go b
 +        All a b    -> go a ++ go b
@@ -1177,6 +1263,11 @@ index 0000000..8612789
 +        Glu a fs -> go a || any (\(p,t,e) -> go p || go t || go e) fs
 +        GlB a fs v -> go a || go v || any (\(p,t) -> go p || go t) fs
 +        UnG gg -> go gg
++        Quo a r -> go a || go r
++        QCl a -> go a
++        QEq a b r -> go a || go b || go r
++        QSq -> False
++        QRec x s f r -> go x || go s || go f || go r
 +        Ua a b f g gf fg -> any go [a,b,f,g,gf,fg]
 +        Sup a b c  -> go a || go b || go c
 +        SupM a b c -> go a || go b || go c
@@ -1206,10 +1297,10 @@ index 0000000..8612789
 +      isSet Set       = True
 +      isSet _         = False
 diff --git a/src/Core/Bind.hs b/src/Core/Bind.hs
-index 939a19f..c133f56 100644
+index 939a19f..34bb14b 100644
 --- a/src/Core/Bind.hs
 +++ b/src/Core/Bind.hs
-@@ -55,6 +55,21 @@ binder lv term ctx vars = case term of
+@@ -55,6 +55,26 @@ binder lv term ctx vars = case term of
    Frz t      -> Frz (binder lv t ctx vars)
    Loc s t    -> Loc s (binder lv t ctx vars)
    Rwt a b x  -> Rwt (binder lv a ctx vars) (binder lv b ctx vars) (binder lv x ctx vars)
@@ -1228,6 +1319,11 @@ index 939a19f..c133f56 100644
 +  Glu a fs -> Glu (binder lv a ctx vars) [ (binder lv p ctx vars, binder lv t ctx vars, binder lv e ctx vars) | (p,t,e) <- fs ]
 +  GlB a fs x -> GlB (binder lv a ctx vars) [ (binder lv p ctx vars, binder lv t ctx vars) | (p,t) <- fs ] (binder lv x ctx vars)
 +  UnG g -> UnG (binder lv g ctx vars)
++  Quo a r -> Quo (binder lv a ctx vars) (binder lv r ctx vars)
++  QCl a -> QCl (binder lv a ctx vars)
++  QEq a b r -> QEq (binder lv a ctx vars) (binder lv b ctx vars) (binder lv r ctx vars)
++  QSq -> QSq
++  QRec x s f r -> QRec (binder lv x ctx vars) (binder lv s ctx vars) (binder lv f ctx vars) (binder lv r ctx vars)
    Era        -> Era
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
@@ -1317,10 +1413,10 @@ index f94d1ce..0a69302 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..6d339ab 100644
+index cdd6756..d7d156e 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
-@@ -127,6 +127,96 @@ infer d span book@(Book defs) ctx term =
+@@ -127,6 +127,103 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -1383,6 +1479,13 @@ index cdd6756..6d339ab 100644
 +      case force book gT of
 +        Glu a _ -> Done a
 +        gT'     -> Done gT'   -- a Glue with no live faces IS its base type; unglue is the identity there
++    Quo a r -> do
++      -- A / R : Set.  A : Set, R : A -> A -> Set (a prop-valued equivalence
++      -- relation; the equiv/prop obligations are discharged by the .bend proofs
++      -- that build eq/ and use effectivity, not required at formation).
++      check d span book ctx a Set
++      check d span book ctx r (All a (Lam "_" (\_ -> All a (Lam "_" (\_ -> Set)))))
++      Done Set
 +    HCm a fs x -> do
 +      check d span book ctx a Set
 +      check d span book ctx x a
@@ -1417,7 +1520,20 @@ index cdd6756..6d339ab 100644
      App f x ->
        case f of
          Lam k body -> do
-@@ -294,6 +384,15 @@ check d span book ctx term goal =
+@@ -189,6 +286,12 @@ infer d span book@(Book defs) ctx term =
+     Log s x -> do
+       check d span book ctx s (Lst (Num CHR_T))
+       infer d span book ctx x
++    -- quotient point/path/truncation are check-mode (they need the quotient's
++    -- R, which is not recoverable from the term alone); recursor too (needs B).
++    QCl _ -> Fail $ CantInfer span (formatCtx d book ctx)
++    QEq _ _ _ -> Fail $ CantInfer span (formatCtx d book ctx)
++    QSq -> Fail $ CantInfer span (formatCtx d book ctx)
++    QRec _ _ _ _ -> Fail $ CantInfer span (formatCtx d book ctx)
+     Pat _ _ _ -> do
+       error "Pat not supported in infer"
+ 
+@@ -294,6 +397,15 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
@@ -1433,7 +1549,7 @@ index cdd6756..6d339ab 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -402,6 +501,9 @@ check d span book ctx term goal =
+@@ -402,6 +514,9 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
@@ -1443,7 +1559,7 @@ index cdd6756..6d339ab 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -429,17 +531,132 @@ check d span book ctx term goal =
+@@ -429,17 +544,167 @@ check d span book ctx term goal =
                check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
          else do
            verify d span book ctx term goal
@@ -1465,6 +1581,41 @@ index cdd6756..6d339ab 100644
 +              in if equal d book l r then Done () else
 +                   Fail $ TypeMismatch span (formatCtx d book ctx) (format d book r) (format d book l))
 +              (faceDNF p)) fs
++    -- [a] : A / R  — the point constructor: a must live in the carrier.
++    (QCl a, force book -> Quo aT _) ->
++      check d span book ctx a aT
++    -- eq/ a b w : Path (A/R) [a] [b] — the generator path.  Its line must be
++    -- the constant quotient type; w witnesses R a b; endpoints are [a],[b].
++    (QEq a b w, force book -> Pth p e0 e1) -> do
++      let qt = epNormCtx d book ctx (App p I0)
++      case force book qt of
++        Quo aT r -> do
++          check d span book ctx a aT
++          check d span book ctx b aT
++          check d span book ctx w (App (App r a) b)
++          if equal d book e0 (QCl a) && equal d book e1 (QCl b)
++            then Done ()
++            else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book (QEq a b w))
++        _ -> verify d span book ctx term goal
++    -- squash/ : isSet (A/R) — the set-truncation.  Accepted only when the goal
++    -- is the isSet Pi shape whose carrier is a quotient (isSet of a quotient is
++    -- genuinely inhabited by this constructor); never against an arbitrary type.
++    (QSq, _) -> case force book (epNormCtx d book ctx goal) of
++      All x _ | (case force book x of { Quo _ _ -> True; _ -> False }) -> Done ()
++      _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book QSq)
++    -- SQ.rec scrutinee setB f resp : B — checked against the result type B.
++    (QRec x s f rsp, _) -> do
++      xt <- infer d span book ctx x
++      case force book xt of
++        Quo aT r -> do
++          _ <- infer d span book ctx s   -- setB : isSet B, the truncation evidence (not used computationally)
++          check d span book ctx f (All aT (Lam "_" (\_ -> goal)))
++          check d span book ctx rsp
++            (All aT (Lam "a" (\a -> All aT (Lam "b" (\b ->
++              All (App (App r a) b) (Lam "_" (\_ ->
++                Pth (Lam "_" (\_ -> goal)) (App f a) (App f b))))))))
++          Done ()
++        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (Quo (Set) (Set))) (format d book xt)
      (Log s x, _) -> do
        check d span book ctx s (Lst (Num CHR_T))
        check d span book ctx x goal
@@ -1577,7 +1728,7 @@ index cdd6756..6d339ab 100644
      then Done ()
      else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book t)
  
-@@ -468,3 +685,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +733,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -1621,10 +1772,10 @@ index cdd6756..6d339ab 100644
 +facePairs []       = []
 +facePairs (x : xs) = [ (x, y) | y <- xs ] ++ facePairs xs
 diff --git a/src/Core/Deps.hs b/src/Core/Deps.hs
-index 99c0709..566989f 100644
+index 99c0709..cc671a6 100644
 --- a/src/Core/Deps.hs
 +++ b/src/Core/Deps.hs
-@@ -63,6 +63,21 @@ collectDeps bound term = case term of
+@@ -63,6 +63,26 @@ collectDeps bound term = case term of
    Met _ t ctx -> S.unions (collectDeps bound t : map (collectDeps bound) ctx)
    Ind t       -> collectDeps bound t
    Frz t       -> collectDeps bound t
@@ -1643,11 +1794,16 @@ index 99c0709..566989f 100644
 +  Glu a fs -> S.unions (collectDeps bound a : concatMap (\(p,t,e) -> [collectDeps bound p, collectDeps bound t, collectDeps bound e]) fs)
 +  GlB a fs x -> S.unions (collectDeps bound a : collectDeps bound x : concatMap (\(p,t) -> [collectDeps bound p, collectDeps bound t]) fs)
 +  UnG g -> collectDeps bound g
++  Quo a r -> S.unions [collectDeps bound a, collectDeps bound r]
++  QCl a -> collectDeps bound a
++  QEq a b r -> S.unions [collectDeps bound a, collectDeps bound b, collectDeps bound r]
++  QSq -> S.empty
++  QRec x s f r -> S.unions [collectDeps bound x, collectDeps bound s, collectDeps bound f, collectDeps bound r]
    Era         -> S.empty
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..834a586 100644
+index 9d1ab06..ead2671 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
 @@ -60,9 +60,14 @@ cmp lv d book a b =
@@ -1665,7 +1821,7 @@ index 9d1ab06..834a586 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +82,27 @@ cmp lv d book a b =
+@@ -77,6 +82,32 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -1690,10 +1846,15 @@ index 9d1ab06..834a586 100644
 +    (Glu aa fa, Glu ab fb) -> eql lv d book aa ab && length fa == length fb && and (zipWith (\(pa,ta,ea) (pb,tb,eb) -> eql lv d book pa pb && eql lv d book ta tb && eql lv d book ea eb) fa fb)
 +    (GlB aa fa xa, GlB ab fb xb) -> eql lv d book aa ab && length fa == length fb && and (zipWith (\(pa,ta) (pb,tb) -> eql lv d book pa pb && eql lv d book ta tb) fa fb) && eql lv d book xa xb
 +    (UnG ga, UnG gb) -> eql lv d book ga gb
++    (Quo aa ra, Quo ab rb) -> eql lv d book aa ab && eql lv d book ra rb
++    (QCl a, QCl b) -> eql lv d book a b
++    (QEq a1 b1 r1, QEq a2 b2 r2) -> eql lv d book a1 a2 && eql lv d book b1 b2 && eql lv d book r1 r2
++    (QSq, QSq) -> True
++    (QRec x1 s1 f1 r1, QRec x2 s2 f2 r2) -> eql lv d book x1 x2 && eql lv d book s1 s2 && eql lv d book f1 f2 && eql lv d book r1 r2
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
-@@ -89,3 +115,19 @@ cmp lv d book a b =
+@@ -89,3 +120,19 @@ cmp lv d book a b =
      (Met _  _  _  , Met _  _  _  ) -> error "not-supported"
      (Pat _  _  _  , Pat _  _  _  ) -> error "not-supported"
      (_            , _            ) -> False
@@ -1714,10 +1875,10 @@ index 9d1ab06..834a586 100644
 +sigSnd :: Term
 +sigSnd = Lam "x" (\_ -> Lam "y" (\y -> y))
 diff --git a/src/Core/Flatten.hs b/src/Core/Flatten.hs
-index 31f1da3..167e593 100644
+index 31f1da3..36778e1 100644
 --- a/src/Core/Flatten.hs
 +++ b/src/Core/Flatten.hs
-@@ -91,6 +91,21 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
+@@ -91,6 +91,26 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
  flatten d book (Met i t x)  = Met i (flatten d book t) (map (flatten d book) x)
  flatten d book (Ind t)      = Ind (flatten d book t)
  flatten d book (Frz t)      = Frz (flatten d book t)
@@ -1736,10 +1897,15 @@ index 31f1da3..167e593 100644
 +flatten d book (Glu a fs) = Glu (flatten d book a) [ (flatten d book p, flatten d book t, flatten d book e) | (p,t,e) <- fs ]
 +flatten d book (GlB a fs x) = GlB (flatten d book a) [ (flatten d book p, flatten d book t) | (p,t) <- fs ] (flatten d book x)
 +flatten d book (UnG g) = UnG (flatten d book g)
++flatten d book (Quo a r) = Quo (flatten d book a) (flatten d book r)
++flatten d book (QCl a) = QCl (flatten d book a)
++flatten d book (QEq a b w) = QEq (flatten d book a) (flatten d book b) (flatten d book w)
++flatten d book QSq = QSq
++flatten d book (QRec x s f r) = QRec (flatten d book x) (flatten d book s) (flatten d book f) (flatten d book r)
  flatten d book Era          = Era
  flatten d book (Sup l a b)  = Sup (flatten d book l) (flatten d book a) (flatten d book b)
  flatten d book (SupM x l f) = SupM (flatten d book x) (flatten d book l) (flatten d book f)
-@@ -288,6 +303,21 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
+@@ -288,6 +308,26 @@ unpat d (EqlM x f)      = EqlM (unpat d x) (unpat d f)
  unpat d (Met i t x)     = Met i (unpat d t) (map (unpat d) x)
  unpat d (Ind t)         = Ind (unpat d t)
  unpat d (Frz t)         = Frz (unpat d t)
@@ -1758,10 +1924,15 @@ index 31f1da3..167e593 100644
 +unpat d (Glu a fs) = Glu (unpat d a) [ (unpat d p, unpat d t, unpat d e) | (p,t,e) <- fs ]
 +unpat d (GlB a fs x) = GlB (unpat d a) [ (unpat d p, unpat d t) | (p,t) <- fs ] (unpat d x)
 +unpat d (UnG g) = UnG (unpat d g)
++unpat d (Quo a r) = Quo (unpat d a) (unpat d r)
++unpat d (QCl a) = QCl (unpat d a)
++unpat d (QEq a b w) = QEq (unpat d a) (unpat d b) (unpat d w)
++unpat d QSq = QSq
++unpat d (QRec x s f r) = QRec (unpat d x) (unpat d s) (unpat d f) (unpat d r)
  unpat d Era             = Era
  unpat d (Sup l a b)     = Sup (unpat d l) (unpat d a) (unpat d b)
  unpat d (SupM x l f)    = SupM (unpat d x) (unpat d l) (unpat d f)
-@@ -535,6 +565,21 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
+@@ -535,6 +575,26 @@ unfrkGo d ctx (EqlM x f)   = EqlM (unfrkGo d ctx x) (unfrkGo d ctx f)
  unfrkGo d ctx (Met i t x)  = Met i (unfrkGo d ctx t) (map (unfrkGo d ctx) x)
  unfrkGo d ctx (Ind t)      = Ind (unfrkGo d ctx t)
  unfrkGo d ctx (Frz t)      = Frz (unfrkGo d ctx t)
@@ -1780,10 +1951,15 @@ index 31f1da3..167e593 100644
 +unfrkGo d ctx (Glu a fs) = Glu (unfrkGo d ctx a) [ (unfrkGo d ctx p, unfrkGo d ctx t, unfrkGo d ctx e) | (p,t,e) <- fs ]
 +unfrkGo d ctx (GlB a fs x) = GlB (unfrkGo d ctx a) [ (unfrkGo d ctx p, unfrkGo d ctx t) | (p,t) <- fs ] (unfrkGo d ctx x)
 +unfrkGo d ctx (UnG g) = UnG (unfrkGo d ctx g)
++unfrkGo d ctx (Quo a r) = Quo (unfrkGo d ctx a) (unfrkGo d ctx r)
++unfrkGo d ctx (QCl a) = QCl (unfrkGo d ctx a)
++unfrkGo d ctx (QEq a b w) = QEq (unfrkGo d ctx a) (unfrkGo d ctx b) (unfrkGo d ctx w)
++unfrkGo d ctx QSq = QSq
++unfrkGo d ctx (QRec x s f r) = QRec (unfrkGo d ctx x) (unfrkGo d ctx s) (unfrkGo d ctx f) (unfrkGo d ctx r)
  unfrkGo d ctx Era          = Era
  unfrkGo d ctx (Sup l a b)  = Sup (unfrkGo d ctx l) (unfrkGo d ctx a) (unfrkGo d ctx b)
  unfrkGo d ctx (SupM x l f) = SupM (unfrkGo d ctx x) (unfrkGo d ctx l) (unfrkGo d ctx f)
-@@ -652,6 +697,21 @@ subst name val term = go name val term where
+@@ -652,6 +712,26 @@ subst name val term = go name val term where
      Met i t x  -> Met i (go name val t) (map (go name val) x)
      Ind t      -> Ind (go name val t)
      Frz t      -> Frz (go name val t)
@@ -1802,14 +1978,19 @@ index 31f1da3..167e593 100644
 +    Glu a fs -> Glu (go name val a) [ (go name val p, go name val t, go name val e) | (p,t,e) <- fs ]
 +    GlB a fs x -> GlB (go name val a) [ (go name val p, go name val t) | (p,t) <- fs ] (go name val x)
 +    UnG g -> UnG (go name val g)
++    Quo a r -> Quo (go name val a) (go name val r)
++    QCl a -> QCl (go name val a)
++    QEq a b w -> QEq (go name val a) (go name val b) (go name val w)
++    QSq -> QSq
++    QRec x s f r -> QRec (go name val x) (go name val s) (go name val f) (go name val r)
      Era        -> Era
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..2478d5b 100644
+index 146a4d2..f55e262 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
-@@ -62,6 +62,20 @@ parseTermIni = choice
+@@ -62,6 +62,25 @@ parseTermIni = choice
    , parseSym
    , parseTupApp
    , parseView
@@ -1822,6 +2003,11 @@ index 146a4d2..2478d5b 100644
 +  , parseGlue
 +  , parseGlueTm
 +  , parseUnglue
++  , parseQuot
++  , parseQcl
++  , parseQeq
++  , parseQsquash
++  , parseQrec
 +  , parseHCm
 +  , parsePLm
 +  , parseItvKw
@@ -1830,7 +2016,7 @@ index 146a4d2..2478d5b 100644
    , parseVar
    ]
  
-@@ -81,7 +95,8 @@ parseTermArg t = do
+@@ -81,7 +100,8 @@ parseTermArg t = do
  -- | Parse a "loose" postfix: f + x | f <> x | ...
  parseTermOpr :: Term -> Parser Term
  parseTermOpr t = choice
@@ -1840,7 +2026,7 @@ index 146a4d2..2478d5b 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1025,3 +1040,235 @@ doReadTerm input =
+@@ -1025,3 +1045,285 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -1990,6 +2176,56 @@ index 146a4d2..2478d5b 100644
 +  _ <- symbol ")"
 +  return (UnG g)
 +
++-- | Quot(A, R) : Set — the set-quotient type former.
++parseQuot :: Parser Term
++parseQuot = label "Quot" $ do
++  _ <- try $ keyword "Quot" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ","
++  r <- parseTerm
++  _ <- symbol ")"
++  return (Quo a r)
++
++-- | qcl(a) : Quot A R — the point constructor [a].
++parseQcl :: Parser Term
++parseQcl = label "qcl" $ do
++  _ <- try $ keyword "qcl" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ")"
++  return (QCl a)
++
++-- | qeq(a, b, w) : Path (Quot A R) [a] [b] — the generator path eq/.
++parseQeq :: Parser Term
++parseQeq = label "qeq" $ do
++  _ <- try $ keyword "qeq" <* symbol "("
++  a <- parseTerm
++  _ <- symbol ","
++  b <- parseTerm
++  _ <- symbol ","
++  w <- parseTerm
++  _ <- symbol ")"
++  return (QEq a b w)
++
++-- | qsquash : isSet (Quot A R) — the set-truncation squash/.
++parseQsquash :: Parser Term
++parseQsquash = label "qsquash" $ do
++  _ <- try $ keyword "qsquash"
++  return QSq
++
++-- | qrec(x, setB, f, resp) : B — the recursor SQ.rec into a set B.
++parseQrec :: Parser Term
++parseQrec = label "qrec" $ do
++  _ <- try $ keyword "qrec" <* symbol "("
++  x <- parseTerm
++  _ <- symbol ","
++  s <- parseTerm
++  _ <- symbol ","
++  f <- parseTerm
++  _ <- symbol ","
++  r <- parseTerm
++  _ <- symbol ")"
++  return (QRec x s f r)
++
 +-- | Syntax:  hcomp(A, r, u0, u1, base)   binary sugar = hcompN(A, [(inot(r), u0), (r, u1)], base)
 +parseHCm :: Parser Term
 +parseHCm = label "hcomp" $ do
@@ -2077,10 +2313,10 @@ index 146a4d2..2478d5b 100644
 +  r <- parseTerm
 +  return (PAp t r)
 diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
-index ae061af..01c6c7f 100644
+index ae061af..4d8817f 100644
 --- a/src/Core/Rewrite.hs
 +++ b/src/Core/Rewrite.hs
-@@ -71,6 +71,21 @@ rewriteGo lv d book old neo val = case val of
+@@ -71,6 +71,26 @@ rewriteGo lv d book old neo val = case val of
    Met i t a  -> Met i (rewrite lv d book old neo t) (map (rewrite lv d book old neo) a)
    Ind t      -> Ind (rewrite lv d book old neo t)
    Frz t      -> Frz (rewrite lv d book old neo t)
@@ -2099,15 +2335,20 @@ index ae061af..01c6c7f 100644
 +  Glu a fs -> Glu (rewrite lv d book old neo a) [ (rewrite lv d book old neo p, rewrite lv d book old neo t, rewrite lv d book old neo e) | (p,t,e) <- fs ]
 +  GlB a fs x -> GlB (rewrite lv d book old neo a) [ (rewrite lv d book old neo p, rewrite lv d book old neo t) | (p,t) <- fs ] (rewrite lv d book old neo x)
 +  UnG g -> UnG (rewrite lv d book old neo g)
++  Quo a r -> Quo (rewrite lv d book old neo a) (rewrite lv d book old neo r)
++  QCl a -> QCl (rewrite lv d book old neo a)
++  QEq a b r -> QEq (rewrite lv d book old neo a) (rewrite lv d book old neo b) (rewrite lv d book old neo r)
++  QSq -> QSq
++  QRec x s f r -> QRec (rewrite lv d book old neo x) (rewrite lv d book old neo s) (rewrite lv d book old neo f) (rewrite lv d book old neo r)
    Era        -> Era
    Sup l a b  -> Sup l (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
 diff --git a/src/Core/Totality.hs b/src/Core/Totality.hs
 new file mode 100644
-index 0000000..2f84a67
+index 0000000..0a383e0
 --- /dev/null
 +++ b/src/Core/Totality.hs
-@@ -0,0 +1,143 @@
+@@ -0,0 +1,148 @@
 +{-./Type.hs-}
 +
 +-- Conservative totality / productivity classifier.
@@ -2232,6 +2473,11 @@ index 0000000..2f84a67
 +      Glu a fs -> concatMap (collect d pars sm g) (a : concatMap (\(p,t,e) -> [p,t,e]) fs)
 +      GlB a fs x -> concatMap (collect d pars sm g) (a : x : concatMap (\(p,t) -> [p,t]) fs)
 +      UnG gg -> collect d pars sm g gg
++      Quo a r -> concatMap (collect d pars sm g) [a, r]
++      QCl a -> collect d pars sm g a
++      QEq a b r -> concatMap (collect d pars sm g) [a, b, r]
++      QSq -> []
++      QRec x s f r -> concatMap (collect d pars sm g) [x, s, f, r]
 +      Ua a b f' g' gf fg -> concatMap (collect d pars sm g) [a, b, f', g', gf, fg]
 +      Op2 _ a b -> collect d pars sm g a ++ collect d pars sm g b
 +      Op1 _ a   -> collect d pars sm g a
@@ -2252,10 +2498,10 @@ index 0000000..2f84a67
 +    spine (Loc _ t) acc = spine t acc
 +    spine f acc         = (f, acc)
 diff --git a/src/Core/Type.hs b/src/Core/Type.hs
-index a5d92e8..eee78b7 100644
+index a5d92e8..3e7157a 100644
 --- a/src/Core/Type.hs
 +++ b/src/Core/Type.hs
-@@ -125,6 +125,24 @@ data Term
+@@ -125,6 +125,32 @@ data Term
    | Ind Type -- ~~T
    | Frz Type -- ∅T
  
@@ -2274,13 +2520,21 @@ index a5d92e8..eee78b7 100644
 +  | GlB Term [(Term,Term)] Term       -- glue A [(φ,t)] a : Glue A [...]
 +  | UnG Term                          -- unglue g : A
 +                                 -- with tubes u on cofibration faces φ
++
++  -- Set-quotient HIT: Quot A R  (R : A -> A -> Set, prop-valued equiv rel)
++  | Quo Type Term                     -- A / R
++  | QCl Term                          -- [a] : Quot A R                     (point ctor)
++  | QEq Term Term Term                -- eq/ a b r : Path (Quot A R) [a] [b] (path ctor)
++  | QSq                               -- squash/ : isSet (Quot A R)         (opaque truncation)
++  | QRec Term Term Term Term          -- SQ.rec scrutinee setB f resp : B   (recursor into a set)
++
 +  | PLm Name Body       -- <i> t
 +  | PAp Term Term       -- p @ r
 +
    -- Supperpositions
    | Era                 -- *
    | Sup Term Term Term  -- &L{a,b}
-@@ -253,6 +271,21 @@ instance Show Term where
+@@ -253,6 +279,26 @@ instance Show Term where
    show (Frz t)         = "∅" ++ show t
    show (Loc _ t)       = show t
    show (Rwt a b x)     = show a ++ " ⇒ " ++ show b ++ "; " ++ show x
@@ -2297,16 +2551,21 @@ index a5d92e8..eee78b7 100644
 +  show (Glu a fs)      = "Glue(" ++ show a ++ ",{" ++ concatMap (\(p,t,e) -> show p ++ "=>(" ++ show t ++ "," ++ show e ++ "); ") fs ++ "})"
 +  show (GlB a fs x)    = "glue(" ++ show a ++ "," ++ show x ++ ",{" ++ concatMap (\(p,t) -> show p ++ "=>" ++ show t ++ "; ") fs ++ "})"
 +  show (UnG g)         = "unglue(" ++ show g ++ ")"
++  show (Quo a r)       = "(" ++ show a ++ " / " ++ show r ++ ")"
++  show (QCl a)         = "[" ++ show a ++ "]"
++  show (QEq a b r)     = "eq/(" ++ show a ++ "," ++ show b ++ "," ++ show r ++ ")"
++  show QSq             = "squash/"
++  show (QRec x s f r)  = "~q " ++ show x ++ " { [_]:" ++ show f ++ " ; eq/:" ++ show r ++ " }"
 +  show (PLm k f)       = "<" ++ k ++ "> " ++ show (f (Var k 0))
 +  show (PAp p r)       = "(" ++ show p ++ " @ " ++ show r ++ ")"
    show (Era)           = "*"
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..6ab2e5b 100644
+index 953410d..988c4f2 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,344 @@ whnfGo lv book term =
+@@ -53,9 +53,350 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -2319,6 +2578,7 @@ index 953410d..6ab2e5b 100644
 +    INot a     -> whnfINot lv book a
 +    IAnd a b   -> whnfIAnd lv book a b
 +    IOr a b    -> whnfIOr lv book a b
++    QRec x s f r -> whnfQRec lv book x s f r
      _          -> term
  
  -- Normalizes a let binding
@@ -2330,6 +2590,11 @@ index 953410d..6ab2e5b 100644
 +      I0 -> whnf lv book a
 +      I1 -> whnf lv book b
 +      r' -> PAp (Ua a b f g gf fg) r'
++    -- eq/ a b w : Path (Quot A R) [a] [b] — the quotient's generator path
++    QEq a b w   -> case whnf lv book r of
++      I0 -> whnf lv book (QCl a)
++      I1 -> whnf lv book (QCl b)
++      r' -> PAp (QEq a b w) r'
 +    p'           -> PAp p' r
 +
 +-- The interval marker used to inspect a type line's dependency on its
@@ -2651,7 +2916,29 @@ index 953410d..6ab2e5b 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -401,6 +736,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -146,6 +487,21 @@ whnfSigM lv book x f =
+       where (f0, f1) = dup book l f
+     x'      -> SigM x' f
+ 
++-- Normalizes a set-quotient recursor: SQ.rec scrutinee setB f resp.
++--   on the point ctor  [a]            -> f a
++--   on the path ctor   (eq/ a b w @ i) -> (resp a b w) @ i   (cong along the generator)
++-- squash/ 2-cells are eliminated by setB in the type theory; at runtime they
++-- reduce through hcomp in B, so nothing to fire here.
++whnfQRec :: EvalLevel -> Book -> Term -> Term -> Term -> Term -> Term
++whnfQRec lv book x s f rsp =
++  case whnf lv book x of
++    QCl a             -> whnf lv book (App f a)
++    PAp (QEq a b w) i -> whnf lv book (PAp (App (App (App rsp a) b) w) i)
++    Sup l p q         -> whnf lv book $ Sup l (QRec p s f0 rsp0) (QRec q s f1 rsp1)
++      where (f0, f1)     = dup book l f
++            (rsp0, rsp1) = dup book l rsp
++    x'                -> QRec x' s f rsp
++
+ -- Normalizes an enum match
+ whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
+ whnfEnuM lv book x c f =
+@@ -401,6 +757,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -2699,7 +2986,7 @@ index 953410d..6ab2e5b 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,6 +861,21 @@ normal d book term =
+@@ -485,6 +882,21 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -2721,7 +3008,7 @@ index 953410d..6ab2e5b 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
-@@ -547,3 +938,214 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +959,214 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
