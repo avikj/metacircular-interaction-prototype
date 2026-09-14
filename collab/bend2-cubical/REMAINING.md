@@ -44,10 +44,10 @@ the universe. Everything else was stuck. Now implemented, in both the checker
 | Π — pointwise in the codomain | DONE | DONE | `kan.bend` `hcPi` |
 | PathP — push into the path dimension, endpoints become extra faces | DONE | DONE | `kan.bend` `hcPath` |
 | Σ — first by `hcomp`, second by `comp` along the *filled* first | DONE | DONE | `kan.bend` `hcSig` |
-| Nat / List — push through a common constructor head | DONE | **TODO** | `kan.bend` `hcNat` |
-| Bit / Enum / Unit — discrete, the common nullary constructor | DONE | **TODO** | — |
+| Nat / List — push through a common constructor head | DONE | DONE (Nat) | `kan.bend` `hcNat` |
+| Bit / Enum / Unit — discrete, the common nullary constructor | DONE | DONE (Bit) | — |
 | `Set` — reduces to `Glue` | DONE | DONE | `hcompset.bend` |
-| **Glue** | **TODO** | **TODO** | — |
+| **Glue** | DONE* | DONE* | `glue_kan.bend` (*partial, see below) |
 
 `comp` and `hfill` now exist as core operations in both (`compAt`/`hfillAt`,
 `@compAt`/`@hfillAt`), together with projections that reduce on a pair.
@@ -59,19 +59,26 @@ passes only if the rule actually fires; `kan_mustfail.bend` guards against
 proving false ones. All eleven cubical programs produce byte-identical values
 and interaction counts on the full runtime after the change.
 
+**\*The Glue rule is implemented but only partly verified.** It follows CCHM:
+compose inside each partial type `T` (where `Glue` *is* `T`), compose the
+UNGLUED tube in `A` with one extra face per φ forcing `f` of the `T`-filler,
+then glue the φ-parts onto the `A`-part. Verified: type preservation, both
+boundary laws (a true tube face gives that tube's cap; no live tube gives the
+base), no change to any existing Glue program in the checker or on the
+runtime. **Not** verified: the characteristic law, that ungluing the composite
+gives exactly that `A`-composite. It cannot be stated in surface syntax,
+because the φ-face mentions the `T`-filler of a `Glue`-typed base, which is
+only well-typed under the restriction φ=1 — i.e. it needs `A[φ ↦ u]` (§C).
+Implementing restricted types would make this testable, and that is the single
+highest-value item left.
+
 **Still open in this section:**
 
-1. **`hcomp` in `Glue`** — the hardest rule in CCHM, and the only Kan rule
-   whose `coe` counterpart is already done (`whnfCoe`'s `Glu` case). Until it
-   exists, Glue types are Kan for transport but not for composition.
-2. **Nat / List / nullary at runtime** — implemented in the checker only.
-   The runtime needs constructor-headedness of a line, which is awkward in
-   HVM4 because there is no marker dimension available to a match.
-3. **`transp` with a cofibration.** `Coe` is `Coe line r s x` — four
+1. **List / Enum / Unit at runtime** — the checker has all of them; the
+   runtime has Nat and Bit only.
+2. **`transp` with a cofibration.** `Coe` is `Coe line r s x` — four
    arguments, no face. CCHM needs `transp^A φ u0` with `A` constant on `φ`.
    Adding a fifth field touches every traversal in §A.
-4. **Surface syntax for `comp`.** It exists as a core operation but the
-   parser still has only `hcomp`, `hcompN`, `hfill`.
 
 ---
 
@@ -81,7 +88,7 @@ and interaction counts on the full runtime after the change.
 |---|---|
 | `Partial φ A` / `PartialP` | **absent** — no constructor. Systems exist only as the `[(face, tube)]` lists inside `HCm`/`Glu`, not as first-class partial elements |
 | `Sub` / `A[φ ↦ u]`, `inS`, `outS` | **absent**. (`Core/Type.hs`'s `Sub` is a HOAS substitution marker, unrelated) |
-| `comp` | **absent** (see B.2) |
+| `comp` | **DONE** — `comp(P, [(face, tube)...], base)` parses (`comp.bend`) |
 | `transp` with φ | **absent** (see B.1) |
 | interval de Morgan laws | present: `I0 I1 INot IAnd IOr`, with `∧` idempotence (`iSyntEq`). `∨` idempotence and the distributive laws are **not** normalised |
 | face lattice | present as DNF (`faceDNF`, `restrictLits`, `facePairs`) |
@@ -106,7 +113,7 @@ which is precisely why §A keeps recurring.
 
 | target | cubical | quotients |
 |---|---|---|
-| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **crashes** |
+| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **DONE** — `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
 | `--to-hvm4` / `--to-hvm4-raw` | erased/normalised | no |
 | `--to-hvm` (HVM3) | `freeVars` crashes on cubical terms | no |
 | JavaScript | silently drops cubical | no |

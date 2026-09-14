@@ -3353,10 +3353,10 @@ index a5d92e8..3e7157a 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..7d0afdc 100644
+index 953410d..840f75d 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -53,9 +53,457 @@ whnfGo lv book term =
+@@ -53,9 +53,469 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -3589,6 +3589,18 @@ index 953410d..7d0afdc 100644
 +                  _ -> HCm a live x
 +           -- Types whose constructors are all nullary are discrete: if the cap
 +           -- and every tube are the same constructor, that is the composite.
++           -- Glue (CCHM): compose inside each partial type T (there Glue IS T),
++           -- and in A compose the UNGLUED tube with one extra face per phi
++           -- forcing f (the T-filler), so the two agree where they must; then
++           -- glue the phi-parts onto the A-part.
++           Glu aT gfs ->
++             let gLive = [ (p, tT, e) | (p, tT, e) <- gfs
++                         , case whnf lv book p of { I0 -> False ; _ -> True } ]
++                 unglueTube u = PLm "ugj" (\j -> UnG (PAp u j))
++                 aFaces = [ (p, PLm "gk" (\k -> App (equivFun e) (hfillAt tT live x k)))
++                          | (p, tT, e) <- gLive ]
++                 a1 = HCm aT ([ (q, unglueTube u) | (q,u) <- live ] ++ aFaces) (UnG x)
++             in GlB aT [ (p, HCm tT live x) | (p, tT, _) <- gLive ] a1
 +           Bit -> hcmNullary lv book a live x
 +           Enu _ -> hcmNullary lv book a live x
 +           Uni -> hcmNullary lv book a live x
@@ -3814,7 +3826,7 @@ index 953410d..7d0afdc 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +594,21 @@ whnfSigM lv book x f =
+@@ -146,6 +606,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -3836,7 +3848,7 @@ index 953410d..7d0afdc 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +864,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +876,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -3884,7 +3896,7 @@ index 953410d..7d0afdc 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -485,11 +989,31 @@ normal d book term =
+@@ -485,11 +1001,31 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -3916,7 +3928,7 @@ index 953410d..7d0afdc 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1025,87 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1037,87 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -4004,7 +4016,7 @@ index 953410d..7d0afdc 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1152,218 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1164,218 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -4753,10 +4765,10 @@ index 0000000..cbf1493
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..1c00e89
+index 0000000..e5b041b
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,290 @@
+@@ -0,0 +1,317 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -4832,6 +4844,9 @@ index 0000000..1c00e89
 +  , "    #Sig: λ&A1. λ&B1. ! &{st1, st2} = stuck; ! &{ba1, ba2} = base; ! &{aa1, aa2} = A1;"
 +  , "          #Pair{@hcomp(aa1, @hcTubesFst(st1), @fstP(ba1)),"
 +  , "                @compAt(λj. B1(@hfillAt(aa2, @hcTubesFst(st2), @fstP(ba2), j)), @hcTubesSnd(stuck), @sndP(base))};"
++  , "    #Glue: λ&aT. λ&gfs. @hcGlue(aT, gfs, stuck, base);"
++  , "    #Nat: @hcNat(stuck, base);"
++  , "    #Bool: @hcNullary(#Bool, stuck, base);"
 +  , "    λA2. #HCm{A2, stuck, base}})(A)};"
 +  , "  #Cons: λ{#Face: λphi. λ&tube. λ&rest. λ&base. λ&stuck. (λ{"
 +  , "    #I1: @pathAt(tube, #I1);"
@@ -4849,6 +4864,30 @@ index 0000000..1c00e89
 +  , "// hfill: the filler; comp: composition along a type line (coe + hcomp)"
 +  , "@hfillAt = λ&A. λ&fs. λ&u0. λ&j. @hcomp(A, #Cons{#Face{@inot(j), #PLm{λk. u0}}, @hcTubesAnd(fs, j)}, u0)"
 +  , "@compAt = λ&P. λ&fs. λ&u0. @hcomp(P(#I1), @hcTubesCoe(P, fs), @coe(P, #I0, #I1, u0))"
++  , "// hcomp in a Glue type (CCHM): compose inside each partial type T (there"
++  , "// Glue IS T), and in A compose the UNGLUED tube with one extra face per phi"
++  , "// forcing f of the T-filler; then glue the phi-parts onto the A-part."
++  , "@hcTubesUnglue = λ&gfs. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @gUnglue(gfs, @pathAt(tube, j))}}, @hcTubesUnglue(gfs, rest)}}}"
++  , "@hcGlueFaces = λ&fs. λ&base. λ{#Nil: #Nil; #Cons: λ{#GFace: λphi. λ&T. λ&e. λ&rest. #Cons{#Face{phi, #PLm{λk. @eFun(e)(@hfillAt(T, fs, base, k))}}, @hcGlueFaces(fs, base, rest)}}}"
++  , "@hcGlueT = λ&fs. λ&base. λ{#Nil: #Nil; #Cons: λ{#GFace: λphi. λ&T. λe. λ&rest. #Cons{#Face{phi, @hcomp(T, fs, base)}, @hcGlueT(fs, base, rest)}}}"
++  , "@appendF = λ{#Nil: λys. ys; #Cons: λ{#Face: λp. λt. λ&rest. λ&ys. #Cons{#Face{p, t}, @appendF(rest, ys)}}}"
++  , "@hcGlue = λ&aT. λ&gfs. λ&fs. λ&base."
++  , "  ! &{g1, gx} = gfs; ! &{g2, g3} = gx;"
++  , "  ! &{f1, fx} = fs; ! &{f2, f3} = fx;"
++  , "  ! &{b1, bx} = base; ! &{b2, b3} = bx;"
++  , "  @glue(aT, @hcomp(aT, @appendF(@hcTubesUnglue(g1, f1), @hcGlueFaces(f2, b1, g2)), @gUnglue(g3, b2)), @hcGlueT(f3, b3, gfs))"
++  , "// hcomp in an inductive type: push through a common constructor head."
++  , "// Headedness of a LINE is decided by applying it at the marker dimension,"
++  , "// the same idiom @coe uses for its regularity check."
++  , "@allSuc = λ{#Nil: #I1; #Cons: λ{#Face: λp. λ&tube. λ&rest. (λ{#Suc: λn. @allSuc(rest); λv. #I0})(@pathAt(tube, #IMark))}}"
++  , "@hcTubesPred = λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. (λ{#Suc: λn. n; λv. v})(@pathAt(tube, j))}}, @hcTubesPred(rest)}}}"
++  , "@hcNat = λ&fs. λ&base. (λ{"
++  , "  #Suc: λ&n. (λ{#I1: #Suc{@hcomp(#Nat, @hcTubesPred(fs), n)}; λo. #HCm{#Nat, fs, #Suc{n}}})(@allSuc(fs));"
++  , "  λv. #HCm{#Nat, fs, v}})(base)"
++  , "// discrete types: the composite is the cap when every tube agrees with it"
++  , "@allEq = λ&x. λ{#Nil: #I1; #Cons: λ{#Face: λp. λ&tube. λ&rest. (λ{#I1: @allEq(x, rest); λo. #I0})(@sameCtr(x, @pathAt(tube, #IMark)))}}"
++  , "@sameCtr = λ{0: λ{0: #I1; λw. #I0}; 1: λ{1: #I1; λw. #I0}; λv. λw. #I0}"
++  , "@hcNullary = λ&A. λ&fs. λ&base. ! &{b1, bx} = base; ! &{b2, b3} = bx; (λ{#I1: b2; λo. #HCm{A, fs, b3}})(@allEq(b1, fs))"
 +  , "// ---- SetQuotient recursor: on a point it is f; on the path constructor it"
 +  , "// is the resp witness applied at that interval; superpositions commute."
 +  , "@qrec = λ&x. λ&t. λ&f. λ&rsp. (λ{"
