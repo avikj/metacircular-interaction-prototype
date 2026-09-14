@@ -66,7 +66,18 @@ Two checker fixes went in with it (rewrite descends into application heads;
 same-head conversion before unfolding recursive type families). Also merged
 the SetQuotient HIT from a parallel agent (QUOTIENT.md) into the patch.
 
+## Genuine coinduction (coinduction.bend 13✓, streams.bend 10✓, coinduction_mustfail.bend; COINDUCTION.md)
+Bend2 is coinductive by default (Fix-typed recursion, lazy HVM). `Answers`/
+`IExec` are now the coinductive records themselves; `replay`/`forgetStates`
+and both `run-is-answers` round trips are corecursive `[productive]` paths.
+Three fixes in the patch: epNormCtx unfolds one level (`goNoUnfold`), printing
+uses a capped normaliser (`normalCap`), record matches give no descent in
+Totality (`branch2 Nothing`). Known gap: `--total coinduction.bend` refuses
+only because the self-referential `type` families are classified `[unchecked]`;
+exempt type declarations in `Core/Totality.hs` to close it.
+
 ## Next steps (if continuing)
+0. Exempt `type` declarations from the totality classifier (see above).
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
 2. hcomp in Set beyond the composite shape (would need Glue-style rules).

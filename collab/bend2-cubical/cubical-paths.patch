@@ -329,6 +329,112 @@ index 0000000..d021e3f
 +
 +def main() -> Bool:
 +  viaNeg3(True)
+diff --git a/coinduction.bend b/coinduction.bend
+new file mode 100644
+index 0000000..bb09c15
+--- /dev/null
++++ b/coinduction.bend
+@@ -0,0 +1,71 @@
++# THE INTERACTIVE MACHINE, COINDUCTIVELY: infinite histories as one object.
++# Bend2 types are records read lazily; a corecursive definition is typed by
++# assuming itself at its declared type (Fix), the runtime unfolds on demand,
++# and the totality classifier tags constructor-guarded corecursion
++# [productive] (--total refuses [unchecked]).  So IExec / Answers are the
++# coinductive records themselves, and bisimulations are corecursive paths.
++def isContr(A: Set) -> Set:
++  any c: A. (all x: A. Path(A, c, x))
++
++# the open machine on Nat: the environment answers a Bool; +1 or reset
++def Q(x: Nat) -> Set:
++  Bool
++def step(x: Nat, b: Bool) -> Nat:
++  if b:
++    1n + x
++  else:
++    0n
++
++# Answers x : an answer now, and answers forever after (coinductive)
++type Answers(x: Nat):
++  case @More:
++    ans: Q(x)
++    more: Answers(step(x, ans))
++# IExec x : a now, a receipt now ≡ x, an answer, and the rest (coinductive)
++type IExec(x: Nat):
++  case @Run:
++    now: Nat
++    here: Path(Nat, now, x)
++    ans: Q(x)
++    next: IExec(step(x, ans))
++
++# the environment that always says True (an infinite answer stream)
++def always(x: Nat) -> Answers(x):
++  @More{True, always(step(x, True))}
++# alternating True/False
++def alt(x: Nat, b: Bool) -> Answers(x):
++  @More{b, alt(step(x, b), match b: case True: False case False: True)}
++
++# forgetting the states of a history leaves its answers (corecursive)
++def forgetStates(x: Nat, e: IExec(x)) -> Answers(x):
++  match e:
++    case @Run{now, here, a, rest}:
++      @More{a, forgetStates(step(x, a), rest)}
++# replaying the answers rebuilds the history, receipts refl (corecursive)
++def replay(x: Nat, s: Answers(x)) -> IExec(x):
++  match s:
++    case @More{a, more}:
++      @Run{x, <_> x, a, replay(step(x, a), more)}
++
++# THE THEOREM run-is-answers, coinductively: both round trips are
++# corecursive paths (bisimulations), the receipt collapsed by the ∨-square.
++def forgetReplay(x: Nat, s: Answers(x)) -> Path(Answers(x), forgetStates(x, replay(x, s)), s):
++  match s:
++    case @More{a, more}:
++      <i> @More{a, forgetReplay(step(x, a), more) @ i}
++def replayForget(x: Nat, e: IExec(x)) -> Path(IExec(x), replay(x, forgetStates(x, e)), e):
++  match e:
++    case @Run{now, here, a, rest}:
++      <i> @Run{here @ inot(i), <j> here @ ior(inot(i), j), a, replayForget(step(x, a), rest) @ i}
++
++# observe a history: the state after n steps
++def stateAt(x: Nat, e: IExec(x), n: Nat) -> Nat:
++  match n:
++    case 0n:
++      x
++    case 1n + p:
++      match e:
++        case @Run{now, here, a, rest}:
++          stateAt(step(x, a), rest, p)
++def main() -> Nat:
++  stateAt(0n, replay(0n, alt(0n, True)), 5n)
+diff --git a/coinduction_mustfail.bend b/coinduction_mustfail.bend
+new file mode 100644
+index 0000000..13a0a6c
+--- /dev/null
++++ b/coinduction_mustfail.bend
+@@ -0,0 +1,23 @@
++type Stream:
++  case @Cons:
++    head: Nat
++    tail: Stream
++def ones() -> Stream:
++  @Cons{1n, ones()}
++def rep(n: Nat) -> Stream:
++  @Cons{n, rep(n)}
++def twos() -> Stream:
++  @Cons{2n, twos()}
++# UNGUARDED corecursive "proof": must be [unchecked] (refused by --total)
++def cheat() -> Path(Stream, ones(), twos()):
++  cheat()
++# FALSE bisimulation: heads differ, must ✗
++def wrong() -> Path(Stream, ones(), twos()):
++  <i> @Cons{1n, wrong() @ i}
++# guarded but through a non-constructor (tail of): must NOT be [productive]
++def viaTail() -> Stream:
++  match ones():
++    case @Cons{h, t}:
++      viaTail()
++def main() -> Nat:
++  0n
 diff --git a/corpus_calculus.bend b/corpus_calculus.bend
 new file mode 100644
 index 0000000..2888f4e
@@ -1578,7 +1684,7 @@ index 939a19f..34bb14b 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..0a69302 100644
+index f94d1ce..76263cc 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,10 @@ module Core.CLI
@@ -1617,6 +1723,15 @@ index f94d1ce..0a69302 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
+@@ -80,7 +88,7 @@ runMain book = do
+           putStrLn $ show e
+           exitFailure
+         Done typ -> do
+-          let results = flatten $ collapse 0 book $ normal 0 book mainCall
++          let results = flatten $ collapse 0 book $ normalCap 400 0 book mainCall
+           putStrLn ""
+           forM_ results $ \ term -> do
+             print term
 @@ -123,6 +131,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
@@ -1663,9 +1778,18 @@ index f94d1ce..0a69302 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..b861fc3 100644
+index cdd6756..31092d4 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
+@@ -21,7 +21,7 @@ extend :: Ctx -> Name -> Term -> Term -> Ctx
+ extend (Ctx ctx) k v t = Ctx (ctx ++ [(k, v, t)])
+ 
+ format :: Int -> Book -> Term -> Term
+-format d book x = normal d book $ x
++format d book x = normalCap 48 d book $ x
+ -- format d book x = x
+ 
+ formatCtx :: Int -> Book -> Ctx -> Ctx
 @@ -127,6 +127,109 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
@@ -1815,7 +1939,7 @@ index cdd6756..b861fc3 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -429,17 +550,167 @@ check d span book ctx term goal =
+@@ -429,17 +550,183 @@ check d span book ctx term goal =
                check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
          else do
            verify d span book ctx term goal
@@ -1905,7 +2029,10 @@ index cdd6756..b861fc3 100644
 +      if unfoldable d book ctx r
 +        then case force book r of
 +               r' | refHeaded r' -> r'
-+                  | otherwise    -> go r'
++                  -- ONE level only: the unfolded body is normalised without
++                  -- further Ref unfolding, or a productive (corecursive)
++                  -- definition such as  ones = Cons 1 ones  unfolds forever
++                  | otherwise    -> goNoUnfold r'
 +        else r
 +    Tup a b    -> Tup (go a) (go b)
 +    SigM x f   -> SigM (go x) (go f)
@@ -1926,6 +2053,19 @@ index cdd6756..b861fc3 100644
 +    Eql a x y  -> Eql (go a) (go x) (go y)
 +    Loc l x    -> Loc l (go x)
 +    Chk x a    -> Chk (go x) (go a)
++    _          -> t
++  goNoUnfold t = case t of
++    App f x    -> App (goNoUnfold f) (goNoUnfold x)
++    Tup a b    -> Tup (goNoUnfold a) (goNoUnfold b)
++    SigM x f   -> SigM (goNoUnfold x) (goNoUnfold f)
++    Lam k f    -> Lam k (\x -> goNoUnfold (f x))
++    PLm k f    -> PLm k (\x -> goNoUnfold (f x))
++    PAp p r    -> let p' = goNoUnfold p; r' = goNoUnfold r in
++                  case (spineEndpoints d book ctx p', force book r') of
++                    (Just (x, _), I0) -> goNoUnfold x
++                    (Just (_, y), I1) -> goNoUnfold y
++                    _                 -> PAp p' r'
++    Loc l x    -> Loc l (goNoUnfold x)
 +    _          -> t
 +
 +refHeaded :: Term -> Bool
@@ -1984,7 +2124,7 @@ index cdd6756..b861fc3 100644
      then Done ()
      else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book t)
  
-@@ -468,3 +739,42 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +755,42 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -2635,10 +2775,10 @@ index ae061af..93631be 100644
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
 diff --git a/src/Core/Totality.hs b/src/Core/Totality.hs
 new file mode 100644
-index 0000000..0a383e0
+index 0000000..0dcdf56
 --- /dev/null
 +++ b/src/Core/Totality.hs
-@@ -0,0 +1,148 @@
+@@ -0,0 +1,155 @@
 +{-./Type.hs-}
 +
 +-- Conservative totality / productivity classifier.
@@ -2727,7 +2867,14 @@ index 0000000..0a383e0
 +                 ++ branch1 (originOf pars sm x) d s
 +      LstM x n c -> collect d pars sm g x ++ collect d pars sm g n
 +                 ++ branch2 (originOf pars sm x) d c
-+      SigM x f   -> collect d pars sm g x ++ branch2 (originOf pars sm x) d f
++      -- A Σ/record match yields NO structural descent: every declared `type`
++      -- admits infinite inhabitants (corecursive definitions are typed by
++      -- Fix and unfolded lazily), so a recursion consuming a record's field
++      -- can diverge (loop(s) = match s { Cons h t -> loop t } on ones).
++      -- Records are coinductive by default in this semantics; termination
++      -- comes from a Nat/List fuel or from productivity, never from the
++      -- record itself.
++      SigM x f   -> collect d pars sm g x ++ branch2 Nothing d f
 +      EnuM x cs e -> collect d pars sm g x
 +                  ++ concatMap (collect d pars sm g . snd) cs ++ collect d pars sm g e
 +      BitM x a b -> concatMap (collect d pars sm g) [x, a, b]
@@ -2852,7 +2999,7 @@ index a5d92e8..3e7157a 100644
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..988c4f2 100644
+index 953410d..d052fe7 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
 @@ -53,9 +53,350 @@ whnfGo lv book term =
@@ -3298,7 +3445,90 @@ index 953410d..988c4f2 100644
      Era        -> Era
      Sup l a b  -> Sup l (normal d book a) (normal d book b)
      SupM x l f -> SupM (normal d book x) (normal d book l) (normal d book f)
-@@ -547,3 +959,214 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -501,6 +913,82 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+ normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
+   where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
+ 
++-- `normal` with a structural depth cap: a productive (corecursive) value has
++-- no finite normal form, so printing one must stop somewhere.
++normalCap :: Int -> Int -> Book -> Term -> Term
++normalCap cap d book term =
++  if cap <= 0 then term else
++  -- trace ("normal: " ++ show ++ " " ++ show term) $
++  case whnf Soft book term of
++    Var k i    -> Var k i
++    Ref k      -> Ref k
++    Sub t      -> t
++    Fix k f    -> Fix k (\x -> normalCap (cap-1) (d+1) book (f (Sub x)))
++    Let v f    -> Let (normalCap (cap-1) d book v) (normalCap (cap-1) d book f)
++    Set        -> Set
++    Chk x t    -> Chk (normalCap (cap-1) d book x) (normalCap (cap-1) d book t)
++    Emp        -> Emp
++    EmpM x     -> EmpM (normalCap (cap-1) d book x)
++    Uni        -> Uni
++    One        -> One
++    UniM x f   -> UniM (normalCap (cap-1) d book x) (normalCap (cap-1) d book f)
++    Bit        -> Bit
++    Bt0        -> Bt0
++    Bt1        -> Bt1
++    BitM x f t -> BitM (normalCap (cap-1) d book x) (normalCap (cap-1) d book f) (normalCap (cap-1) d book t)
++    Nat        -> Nat
++    Zer        -> Zer
++    Suc n      -> Suc (normalCap (cap-1) d book n)
++    NatM x z s -> NatM (normalCap (cap-1) d book x) (normalCap (cap-1) d book z) (normalCap (cap-1) d book s)
++    Lst t      -> Lst (normalCap (cap-1) d book t)
++    Nil        -> Nil
++    Con h t    -> Con (normalCap (cap-1) d book h) (normalCap (cap-1) d book t)
++    LstM x n c -> LstM (normalCap (cap-1) d book x) (normalCap (cap-1) d book n) (normalCap (cap-1) d book c)
++    Enu s      -> Enu s
++    Sym s      -> Sym s
++    EnuM x c e -> EnuM (normalCap (cap-1) d book x) (map (\(s, t) -> (s, normalCap (cap-1) d book t)) c) (normalCap (cap-1) d book e)
++    Sig a b    -> Sig (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    Tup a b    -> Tup (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    SigM x f   -> SigM (normalCap (cap-1) d book x) (normalCap (cap-1) d book f)
++    All a b    -> All (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    Lam k f    -> Lam k (\x -> normalCap (cap-1) d book (f (Sub x)))
++    App f x    -> foldl (\f' x' -> App f' (normalCap (cap-1) d book x')) fn xs
++      where (fn,xs) = collectApps (App f x) []
++    Eql t a b  -> Eql (normalCap (cap-1) d book t) (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    Rfl        -> Rfl
++    EqlM x f   -> EqlM (normalCap (cap-1) d book x) (normalCap (cap-1) d book f)
++    Ind t      -> Ind (normalCap (cap-1) d book t)
++    Frz t      -> Frz (normalCap (cap-1) d book t)
++    Loc l t    -> Loc l (normalCap (cap-1) d book t)
++    Rwt a b x  -> Rwt (normalCap (cap-1) d book a) (normalCap (cap-1) d book b) (normalCap (cap-1) d book x)
++    Log s x    -> Log (normalCap (cap-1) d book s) (normalCap (cap-1) d book x)
++    Itv        -> Itv
++    I0         -> I0
++    I1         -> I1
++    INot a     -> INot (normalCap (cap-1) d book a)
++    IAnd a b   -> IAnd (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    IOr a b    -> IOr (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    Pth t a b  -> Pth (normalCap (cap-1) d book t) (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    PLm k f    -> PLm k (\x -> normalCap (cap-1) d book (f (Sub x)))
++    PAp f x    -> PAp (normalCap (cap-1) d book f) (normalCap (cap-1) d book x)
++    Coe p r s t -> Coe (normalCap (cap-1) d book p) (normalCap (cap-1) d book r) (normalCap (cap-1) d book s) (normalCap (cap-1) d book t)
++    Ua a b f g gf fg -> Ua (normalCap (cap-1) d book a) (normalCap (cap-1) d book b) (normalCap (cap-1) d book f) (normalCap (cap-1) d book g) (normalCap (cap-1) d book gf) (normalCap (cap-1) d book fg)
++    HCm a fs x -> HCm (normalCap (cap-1) d book a) [ (normalCap (cap-1) d book p, normalCap (cap-1) d book u) | (p,u) <- fs ] (normalCap (cap-1) d book x)
++    Glu a fs -> Glu (normalCap (cap-1) d book a) [ (normalCap (cap-1) d book p, normalCap (cap-1) d book t, normalCap (cap-1) d book e) | (p,t,e) <- fs ]
++    GlB a fs x -> GlB (normalCap (cap-1) d book a) [ (normalCap (cap-1) d book p, normalCap (cap-1) d book t) | (p,t) <- fs ] (normalCap (cap-1) d book x)
++    UnG g -> UnG (normalCap (cap-1) d book g)
++    Era        -> Era
++    Sup l a b  -> Sup l (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    SupM x l f -> SupM (normalCap (cap-1) d book x) (normalCap (cap-1) d book l) (normalCap (cap-1) d book f)
++    Frk l a b  -> error "Fork interactions unsupported in Haskell"
++    Num t      -> Num t
++    Val v      -> Val v
++    Op2 o a b  -> Op2 o (normalCap (cap-1) d book a) (normalCap (cap-1) d book b)
++    Op1 o a    -> Op1 o (normalCap (cap-1) d book a)
++    Pri p      -> Pri p
++    Met _ _ _  -> error "not-supported"
++    Pat _ _ _  -> error "not-supported"
++
+ -- Utils
+ -- =====
+ 
+@@ -547,3 +1035,214 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -4278,6 +4508,48 @@ index 0000000..abf5975
 +    EQL -> "=="; NEQ -> "!="; LST -> "<"; GRT -> ">"; LEQ -> "<="; GEQ -> ">="
 +    AND -> "&&"; OR -> "||"; XOR -> "^"; SHL -> "<<"; SHR -> ">>"
 +    _   -> "+"
+diff --git a/streams.bend b/streams.bend
+new file mode 100644
+index 0000000..39dbe00
+--- /dev/null
++++ b/streams.bend
+@@ -0,0 +1,36 @@
++type Stream:
++  case @Cons:
++    head: Nat
++    tail: Stream
++# corecursive, constructor-guarded: an infinite stream
++def ones() -> Stream:
++  @Cons{1n, ones()}
++def from(n: Nat) -> Stream:
++  @Cons{n, from(1n + n)}
++# NOT guarded: a loop
++def bad() -> Stream:
++  bad()
++def hd(s: Stream) -> Nat:
++  match s:
++    case @Cons{h, t}:
++      h
++def tl(s: Stream) -> Stream:
++  match s:
++    case @Cons{h, t}:
++      t
++# a corecursive PATH between two corecursive streams (bisimulation as a path)
++def rep(n: Nat) -> Stream:
++  @Cons{n, rep(n)}
++def repOnes() -> Path(Stream, rep(1n), ones()):
++  <i> @Cons{1n, repOnes() @ i}
++# structural recursion on a possibly-infinite value: accepted?
++def sumTo(k: Nat, s: Stream) -> Nat:
++  match k:
++    case 0n:
++      0n
++    case 1n + p:
++      match s:
++        case @Cons{h, t}:
++          1n + sumTo(p, t)
++def main() -> Nat:
++  hd(tl(tl(from(5n))))
 diff --git a/supline.bend b/supline.bend
 new file mode 100644
 index 0000000..540592d
