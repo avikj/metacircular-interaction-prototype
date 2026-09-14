@@ -18,6 +18,7 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | **Transport across chains of equivalences performed by the net** (composite / inverse / Π / Σ lines as runtime paths; raw mode strict) | closed runtime path algebra `pathRep/lineRep/coeRep`; `whnfCoe` gains the same inverse/composite rules | `chain.bend` 19✓; 12 transports × 3 evaluators agree; itrs 12/19/31 for 1/2/3 equivalences (RUNTIME_ALGEBRA.md) |
 | **Everything cubical at runtime** (README: the trace IS the path; partial knowledge) | `--to-hvm4-full`: intervals, paths, types, `coe`, `hcomp` are runtime objects; stuck `#HCm` on symbolic faces; DUP-SUP routing native | RUNTIME_FULL.md: chain/fibre/t_*/supline/isprop_run all correct on the full runtime |
 | **Kan rules for the universe** (the last open frontier) | transport through Glue; `hcomp` in `Set` = Glue with `transpEquiv`; `ua` derived from Glue, uaβ definitional | `uaglue.bend` 26✓, `hcompset.bend` 10✓, `glue.bend` 8✓, `glue_mustfail` 3✗ (GLUE.md) |
+| **The highest construction executed** (forcing theorem, both instances) | `forcing_run.bend` 82✓; 8 observations identical on normaliser and HVM4 full runtime | FORCING.md (RUN section) |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
 
