@@ -82,6 +82,15 @@ Parametric `(X, Q, δ)`, corecursive PathP contraction over a path of states,
 HVM4 full (252 itrs → 4). Must-fail set for the suite loop now also includes
 `silence_mustfail`.
 
+## Cost measurements (SYNTHESIS.md §3-4; bench_*.bend)
+Transport under sharing is paid ONCE: marginal cost of one more use is 14 itrs
+shared vs 150 separate (k = 1..16). Negative result kept: superposed transport
+(one coe, N lines) costs ~1.4x MORE than N separate coes (215 vs 158 at N=2,
+469 vs 316 at N=4) because each branch re-enters @coe after the match commutes.
+DUP-SUP fibre routing is semantically free, not computationally cheaper —
+sharing the dispatch across branches is the clearest optimisation target.
+Reproduce: `bend bench_X.bend --to-hvm4-full > x.hvm4 && hvm x.hvm4 -s`.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
