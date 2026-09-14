@@ -29,12 +29,12 @@ the construction is a term.
 |---|---|---|---|---|---|
 | Perturb-seq / virtual cells (VCC 2026, scPertEval, Tahoe) | contexts × interventions × measured distributions; many incompatible evaluation protocols | `Receiver = (Motion, ε, ◂)`, `fold`, `fold-unique`; `Vivarana` (one object, a lens family); `Meaning = X / Nerode`; erasure = descent | `formal/cubical/kernel/AdiBija_…agda` [T], `…/Vivarana_…agda` [T], `collab/bend2-cubical/port/MyhillNerodeMinimalMachine.bend`, `…/erasure.bend` (registered must-fail) [T] | every protocol is one fold of one history; the behavioural quotient is the minimal sufficient state; a proposed reduction is admitted iff every requested receiver descends | **built this session** as `port/Perturbation.bend` (§2) |
 | GRN inference (CausalBench, PSGRN) | intervention generators + response relations; incomplete edge ground truth | Nerode congruence: `x ~ y ⟺ ∀ w. O(x·w) = O(y·w)`; the quotient is the *greatest* behavioural congruence; effectivity `[x] = [y] ⟹ x ~ y` | `formal/cubical/theorems/automata/MyhillNerodeMinimalMachine.agda` [T]; `collab/bend2-cubical/nerode_effective.bend`, `hit_effective_suite.bend` (23 ✓, checker and HVM4 agreeing per `STATUS.md`) [T] | a graph is a *reading* of the minimal machine; two graphs that disagree on an edge no experiment can separate are the same object; incomplete edge lists are not the ontology | [open]: the finite presentation from a CausalBench dataset (front-end) |
-| Spatial omics (SpatialData, Xenium) | points, images, labels, shapes, each in a coordinate system with explicit transforms; segmentation `s : P → C` | the fibre law `A ≃ Σ_{b:B} fiber f b` for every `f`; `Carrier` is its contractible case; `ua` makes a faithful change of presentation an equality; transport computes | `fibre/src/Fibre/Trace_…agda` [T], `fibre/src/Fibre/Carrier.agda` [T], `collab/bend2-cubical/fibrelaw.bend` (35 ✓, `present`/`retrieve` run on HVM4/HVM3) [T] | the cell-by-gene matrix is visibly the projection that forgets the fibre of `s`; a downstream statistic is segmentation-invariant iff it descends through both segmentations; raster↔vector is a path where it is an equivalence and has a fibre where it is not | [open]: `P`, `s₁`, `s₂` from one SpatialData object |
-| Pangenomics (HPRC v2.1, GA4GH VRS) | graph + embedded haplotype paths; several graph constructions; two linear references | derivations as paths; projection to a reference coordinate is a map with a fibre; transport between presentations along `ua` of an equivalence, residue where there is none | `port/RewriteCertificate.bend` (Derivation as an indexed family) [T]; `fibrelaw.bend` [T]; `chain.bend` (transport across chains of equivalences on the net, per `STATUS.md`) [T] | `H ≃ Σ_{v:V₃₈} fib(v)`: reference bias is the fibre of the projection, computed, not a heuristic | [open]: GFA/GBZ → path family (front-end) |
-| Reaction / metabolic networks (SBML L3, PEtab 2.0, GEMs) | species + reaction generators + conditions + measurement maps | initiality: one generator family, every readout a unique fold; `Krama`: commutation certificate, its failure retained; erasure = descent for model reduction | `AdiBija_…agda` [T]; `fibre/src/Fibre/Krama_…agda` [T]; `erasure.bend` [T] | stoichiometry, mass, charge, flux, label tracing, observables are folds of one reaction history; independent reactions commute by a certificate, dependent ones keep their order as data; a reduced model is admitted iff the requested semantics descends | [open]: SBML → generator family (front-end) |
-| Lineage / development | branching history + multimodal state; reconstruction after the fact | the interactive coalgebra (question, successor, observation, receipt, continuation); productive runs; `Upayoga`: the store is folded through encounters, order changes the body | `fibre/src/Fibre/Samvada_…agda` [T]; `formal/cubical/NaturalMachine/Samvada_…agda` [T]; `…/Upayoga_…agda` [T]; `collab/bend2-cubical/interaction.bend` (36 ✓), `coinduction.bend` (13 ✓), `silence.bend` (25 ✓) [T]; `research/HLEVEL_OF_INTERACTION_20260913.md` [R] | a measured lineage is a finite observation of a coinductive object; the non-contractible realisation space is the unresolved history, not noise; determinism ⟺ the receipt is a proposition | [open]: lineage tree → depth-indexed `IExec` |
-| Molecular dynamics (OpenMM, MLIP benchmarks) | force law, integrator, trajectory | `LawfulStep`: a visible successor with a typed residue; residue ≃ fibre of the step; contractible residue ⟺ invertible | `fibre/src/Fibre/LawfulStep_…agda` [T] | trajectory plus exact receipts; several observables as folds sharing one trajectory; wall-clock / memory / interactions / sharing measured separately | [open]; and the cost claim is scoped in §3 |
-| Protein / ligand state (FoldBench, multi-state) | sequence or complex → sampled structures; collapse to one PDB-dominant state [ext] | map + fibre, not argmax: keep `fiber f y`, the compatible realisation space | `fibrelaw.bend` [T]; `Trace_…agda` [T] | the point prediction is the projection; the fibre is where MD evolves and experiment constrains | [S] |
+| Spatial omics (SpatialData, Xenium) | points, images, labels, shapes, each in a coordinate system with explicit transforms; segmentation `s : P → C` | the fibre law `A ≃ Σ_{b:B} fiber f b` for every `f`; `Carrier` is its contractible case; `ua` makes a faithful change of presentation an equality; transport computes | `fibre/src/Fibre/Trace_…agda` [T], `fibre/src/Fibre/Carrier.agda` [T], `collab/bend2-cubical/fibrelaw.bend` (35 ✓, `present`/`retrieve` run on HVM4/HVM3) [T] | the cell-by-gene matrix is visibly the projection that forgets the fibre of `s`; a downstream statistic is segmentation-invariant iff it descends through both segmentations; raster↔vector is a path where it is an equivalence and has a fibre where it is not | **built**: `port/Spatial.bend` (147 ✓; probe rejects the cell-by-gene entry as non-descending); [open]: `P`, `s₁`, `s₂` from one SpatialData object |
+| Pangenomics (HPRC v2.1, GA4GH VRS) | graph + embedded haplotype paths; several graph constructions; two linear references | derivations as paths; projection to a reference coordinate is a map with a fibre; transport between presentations along `ua` of an equivalence, residue where there is none | `port/RewriteCertificate.bend` (Derivation as an indexed family) [T]; `fibrelaw.bend` [T]; `chain.bend` (transport across chains of equivalences on the net, per `STATUS.md`) [T] | `H ≃ Σ_{v:V₃₈} fib(v)`: reference bias is the fibre of the projection, computed, not a heuristic | **built**: `port/Pangenome.bend` (114 ✓: the GRCh38 fibre over one call has two points, `ref_not_equiv`; the panel ≃ its variation definition by `ua`); [open]: GFA/GBZ → path family (front-end) |
+| Reaction / metabolic networks (SBML L3, PEtab 2.0, GEMs) | species + reaction generators + conditions + measurement maps | initiality: one generator family, every readout a unique fold; `Krama`: commutation certificate, its failure retained; erasure = descent for model reduction | `AdiBija_…agda` [T]; `fibre/src/Fibre/Krama_…agda` [T]; `erasure.bend` [T] | stoichiometry, mass, charge, flux, label tracing, observables are folds of one reaction history; independent reactions commute by a certificate, dependent ones keep their order as data; a reduced model is admitted iff the requested semantics descends | **built**: `port/Reaction.bend` (111 ✓; probe rejects exactly the enzyme-forgetting reduction); [open]: SBML → generator family (front-end) |
+| Lineage / development | branching history + multimodal state; reconstruction after the fact | the interactive coalgebra (question, successor, observation, receipt, continuation); productive runs; `Upayoga`: the store is folded through encounters, order changes the body | `fibre/src/Fibre/Samvada_…agda` [T]; `formal/cubical/NaturalMachine/Samvada_…agda` [T]; `…/Upayoga_…agda` [T]; `collab/bend2-cubical/interaction.bend` (36 ✓), `coinduction.bend` (13 ✓), `silence.bend` (25 ✓) [T]; `research/HLEVEL_OF_INTERACTION_20260913.md` [R] | a measured lineage is a finite observation of a coinductive object; the non-contractible realisation space is the unresolved history, not noise; determinism ⟺ the receipt is a proposition | **built**: `port/Lineage.bend` (98 ✓; the terminal-readout fibre has two points, `unresolved_not_contractible`); [open]: lineage tree → depth-indexed `IExec` |
+| Molecular dynamics (OpenMM, MLIP benchmarks) | force law, integrator, trajectory | `LawfulStep`: a visible successor with a typed residue; residue ≃ fibre of the step; contractible residue ⟺ invertible | `fibre/src/Fibre/LawfulStep_…agda` [T] | trajectory plus exact receipts; several observables as folds sharing one trajectory; wall-clock / memory / interactions / sharing measured separately | **built**: `port/Dynamics.bend` (107 ✓: contractible residue for the reversible step, crowded and empty residues for the thermostat, `dissipate_not_equiv`); the cost claim is measured in §3 |
+| Protein / ligand state (FoldBench, multi-state) | sequence or complex → sampled structures; collapse to one PDB-dominant state [ext] | map + fibre, not argmax: keep `fiber f y`, the compatible realisation space | `fibrelaw.bend` [T]; `Trace_…agda` [T] | the point prediction is the projection; the fibre is where MD evolves and experiment constrains | **built** (in `Dynamics.bend` §4: `ensemble_is_fibre`, `ensemble_not_a_point`) |
 | Whole cell | interacting subsystems over continuing state | composition of the above: derivations compose, quotients compose, folds compose, coinduction continues | `port/GenerativeKernel.bend`, `port/ControlledGrammar.bend` (parallel advance, no premature collapse) [T] | no separate "multiscale integration" primitive: the composition laws are the integration | [S] |
 
 Two corrections to the brief, against the repository:
@@ -121,6 +121,29 @@ the line below is updated by whoever runs it:
 
 ---
 
+### 2b. The other presentations, same machine, all checked and run
+
+Every file below is in `collab/bend2-cubical/port/`, checked by the same
+binary, and its `main` reduces to the same value on HVM4 (`--to-hvm4-full`).
+Probes contain exactly one definition that must be rejected, and are.
+
+| File | ✓ | main / HVM4 itrs | What it proves |
+|---|---|---|---|
+| `Reaction.bend` (+ probe 114 ✓, 1 ✗) | 111 | 2 / 272 | conservation is the fold of per-reaction certificates and is unique; `r2`,`r3` commute by refl, `r1`,`r2` do not; forgetting the enzyme's level but not its presence is a reduction through which mass and the generator descend; forgetting it entirely is refused |
+| `Spatial.bend` (+ probe 148 ✓, 1 ✗) | 147 | 1 / 714 | the fibre law at a segmentation; the cell-by-gene entry does not descend through the coordinate-forgetting quotient; the gene total does; a coordinate swap is a `ua` path |
+| `Pangenome.bend` | 114 | 7 / 842 | the GRCh38 projection's fibre over one call has two haplotypes, so the projection is not an equivalence (reference bias, computed); the second reference separates them; the panel ≃ its variation definition by `ua`, transport computes both ways |
+| `Lineage.bend` | 98 | 7 / 347 | a lineage record is the answer stream of the interactive machine; order is in the body; the terminal-readout fibre is not contractible; determinism is silence |
+| `Dynamics.bend` | 107 | 6 / 576 | contractible residue for the reversible step; crowded and empty residues for the thermostat; two observables as folds over one trajectory; the ensemble is the fibre of the top-1 projection |
+
+`--total` passes on Lineage, Dynamics, Spatial; Reaction and Pangenome are
+refused only for their fold (the same nested-`{==}` pattern the kernel port's
+`derivation_sound` is refused for).
+
+One checker fact learned on the way, recorded for the next file: inside a
+`match` on a natural number the branch is elaborated in inference mode, so a
+bare HIT path constructor (`@eq{…}`) there is `CantInfer`; wrapping it in a
+typed helper (`eqR`) makes the branch a Ref application and it checks.
+
 ## 3. What the calculus does and does not do for VCC 2026
 
 The brief's central operation is right and is already a term:
@@ -144,13 +167,24 @@ mathematics.
    as such. The calculus makes the assumption explicit instead of hiding it in
    a latent; it does not remove it.
 
-2. **The front-end is the new work.** Bend2 in this fork reads no `.h5ad`.
-   The finite presentation (panel, control cells, intervention identities,
-   the receiver actions for each scPertEval protocol) is emitted by a script,
-   and the emitted file is checked and run. `scripts/emit-perturbation.py`
-   is that script's first form (§4, step 2); until the protocol receivers
-   beyond pseudobulk are in it, the slice is the *shape* (§2) on the real
-   panel.
+2. **The front-end is the new work, and the data did not reach this
+   session.** Bend2 in this fork reads no `.h5ad`. The finite presentation
+   (panel, control cells, intervention identities, the receiver actions for
+   each protocol) is emitted by `scripts/emit-perturbation.py`, and the
+   emitted file is checked and run. The protocol family is now in it,
+   transcribed from cell-eval 0.8.2 (the challenge's own scorer, fetched from
+   PyPI, the one host that answered): `mae` (L1 of pseudobulk profiles),
+   `deOverlap` (top-k DE genes called on both), `rankOf` (the
+   discrimination score's rank of the true perturbation by L1 distance),
+   stated on integer pseudobulk sums; cell-count normalisation and the
+   signed delta are one line each when real profiles are present. The
+   data hosts were tested from here and all refused the connection:
+   virtualcellchallenge.org, arcinstitute.org, huggingface.co (VCC and
+   Tahoe), zenodo.org, figshare, NCBI GEO, api.github.com. So step 1 of
+   the plan (real control populations) and step 9 (a scored submission)
+   cannot be done from this session; they need a session whose egress
+   policy admits one of those hosts, after which the emitter runs
+   unchanged on the real panel.
 
 3. **Cost.** Interaction counts on HVM are not thermodynamic cost, and the
    analysis-layer "cost" is a syntactic count; the established coincidence is
@@ -214,8 +248,8 @@ mathematics.
    family; for every proposed feature reduction run the descent obligation;
    keep the fibre where it fails. Run under `--to-hvm4-full`; measure.
 4. **The submission.** `predict` per context, scored publicly.
-5. **Then the four other presentations, unchanged machine:** spatial
-   (`s₁, s₂ : P → C`, the fibre law), pangenome (paths, the reference
-   projection's fibre), reaction networks (SBML generators, Krama),
-   lineage (depth-indexed `IExec`). Each is a front-end and a receiver
-   family; none is a new construction.
+5. **The other presentations, unchanged machine** — done (§2b): spatial,
+   pangenome, reaction networks, lineage, dynamics/structure. What remains
+   for each is its front-end (SpatialData → `P`,`s`; GFA/GBZ → walks;
+   SBML → generators; lineage tree → `IExec`), on the pattern of
+   `emit-perturbation.py`; none is a new construction.

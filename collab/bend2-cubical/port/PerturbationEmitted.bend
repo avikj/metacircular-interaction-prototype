@@ -155,6 +155,79 @@ def MeaningAssay() -> Set:
 def meaning_is_future(setL: isSet(Nat[]), x: Cell, y: Cell, p: Path(MeaningAssay, @cl{x}, @cl{y})) -> Nerode(Cell, Perturb, Nat[], step, assay, x, y):
   nerodeEffective(Cell, Perturb, Nat[], step, setL, assay, x, y, p)
 
+# §6 the protocols, as receivers over populations: cell-eval's own metrics
+# (arcinstitute cell-eval 0.8.2: mae over pseudobulk, de_overlap of the
+# top-k DE genes, discrimination_score = rank of the true perturbation by
+# L1 distance), stated on integer pseudobulk sums; normalisation by cell
+# count and the signed delta are the front-end's to add when the
+# submission is scored against real data.
+def absDiff(a: Nat, b: Nat) -> Nat:
+  match a:
+    case 0n: b
+    case 1n + p:
+      match b:
+        case 0n: 1n + p
+        case 1n + q: absDiff(p, q)
+def l1(xs: Nat[], ys: Nat[]) -> Nat:
+  match xs:
+    case []: 0n
+    case x <> xr:
+      match ys:
+        case []: 0n
+        case y <> yr: add(absDiff(x, y), l1(xr, yr))
+def ltN(a: Nat, b: Nat) -> Bool:
+  match b:
+    case 0n: False
+    case 1n + q:
+      match a:
+        case 0n: True
+        case 1n + p: ltN(p, q)
+def geN(a: Nat, b: Nat) -> Bool:
+  match ltN(a, b):
+    case True: False
+    case False: True
+def andB(a: Bool, b: Bool) -> Bool:
+  match a:
+    case True: b
+    case False: False
+def countTrue(bs: Bool[]) -> Nat:
+  match bs:
+    case []: 0n
+    case b <> rest:
+      match b:
+        case True: 1n + countTrue(rest)
+        case False: countTrue(rest)
+def zipAnd(xs: Bool[], ys: Bool[]) -> Bool[]:
+  match xs:
+    case []: []
+    case x <> xr:
+      match ys:
+        case []: []
+        case y <> yr: andB(x, y) <> zipAnd(xr, yr)
+# DE call per gene: |perturbed - control| >= threshold on the pseudobulk
+def deCalls(thr: Nat, ctrl: Nat[], pert: Nat[]) -> Bool[]:
+  match ctrl:
+    case []: []
+    case c <> cr:
+      match pert:
+        case []: []
+        case p <> pr: geN(absDiff(c, p), thr) <> deCalls(thr, cr, pr)
+# RECEIVER mae: the L1 distance of two pseudobulk profiles
+def mae(real: Nat[], pred: Nat[]) -> Nat:
+  l1(real, pred)
+# RECEIVER de_overlap: DE genes called on both
+def deOverlap(thr: Nat, ctrl: Nat[], real: Nat[], pred: Nat[]) -> Nat:
+  countTrue(zipAnd(deCalls(thr, ctrl, real), deCalls(thr, ctrl, pred)))
+# RECEIVER discrimination: how many candidate real profiles are strictly
+# closer to the prediction than the true one (rank 0 = best)
+def rankOf(pred: Nat[], truth: Nat[], candidates: Nat[][]) -> Nat:
+  match candidates:
+    case []: 0n
+    case c <> rest:
+      match ltN(l1(pred, c), l1(pred, truth)):
+        case True: 1n + rankOf(pred, truth, rest)
+        case False: rankOf(pred, truth, rest)
+
 # §7 the challenge shape: contexts, submissions, pseudobulk per gene
 def Context() -> Set:
   Cell[]
@@ -184,6 +257,16 @@ def submission_b_kd_tf1() -> Context:
   predict(predict(context_b(), @kd{@tf1}), @passage)
 def submission_b_kd_hk1() -> Context:
   predict(predict(context_b(), @kd{@hk1}), @passage)
+def profile(x: Context) -> Nat[]:
+  [pseudobulk_tf1(x), pseudobulk_tgt1(x), pseudobulk_hk1(x)]
+# the receivers, exercised: the submission against its own control (no real
+# perturbed profile is available here; the front-end substitutes it)
+def demo_mae() -> Nat:
+  mae(profile(context_a()), profile(submission_a_kd_tf1()))
+def demo_de_overlap() -> Nat:
+  deOverlap(1n, profile(context_a()), profile(submission_a_kd_tf1()), profile(submission_a_kd_tf1()))
+def demo_rank() -> Nat:
+  rankOf(profile(submission_a_kd_tf1()), profile(submission_a_kd_tf1()), [profile(submission_a_kd_tf1()), profile(submission_a_kd_hk1())])
 
 def main() -> Nat:
   pseudobulk_tgt1(submission_a_kd_tf1())
