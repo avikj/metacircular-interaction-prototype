@@ -47,3 +47,23 @@ are now expressible in Bend2 source from these primitives plus propositional
 univalence (`ua`). Porting `MyhillNerodeMinimalMachine` then makes behavioral
 equivalence = path equality compute on the net. Emitter support for the erased
 HVM targets is the remaining runtime step.
+
+## Phase 2 status: minimal machine computes; effectivity is library-porting
+
+- `minmachine.bend`: the minimal Moore machine `Meaning = S / Nerode` computes —
+  `quotObserve(qcl 0n) ⇒ True`, `(qcl 1n) ⇒ False` (definitional), `sameMeaning`
+  collapses Nerode-equivalent states via `eq/`, `behavior` runs. Faithful to the
+  corpus's `FutureQuotient` (parameterized by `setO : isSet O`).
+- `hprop.bend`: the prop-level foundations for the hard direction
+  (`[a]≡[b] ⟹ R a b`) — `isProp→isSet`, `isPropIsProp`, propositional univalence
+  `propExt` (from `ua`), and `hProp` with its projections — all definitional.
+
+The encode-decode `effective` proof is now expressible from these plus a code
+family `Code : Meaning → hProp` (via `qrec`) and `subst`. It is **not yet
+closed** because `toPathP` / `isProp→PathP` (needed to build the `hProp` path's
+second component) hit the checker's varying-type `hcomp` endpoint reduction —
+the documented **edge-2** frontier (symbolic-endpoint `transp`/`comp`), the same
+open item as in GLUE.md, not a gap in the quotient primitive. Pinned precisely:
+`coe` over a constant line reduces (`coeprobe.bend` p1/p2 ✓), but the
+`hcomp`-endpoint-under-true-face reduction with a substituted interval does not
+close definitionally. Closing edge-2 in the checker closes effectivity.
