@@ -123,9 +123,11 @@ mathematics.
 
 2. **The front-end is the new work.** Bend2 in this fork reads no `.h5ad`.
    The finite presentation (panel, control cells, intervention identities,
-   the receiver actions for each scPertEval protocol) is emitted by a script
-   in the pattern of `scripts/run-corpus-calculus.py`, and the emitted file is
-   checked and run. Until that script exists the slice is the *shape* (§2).
+   the receiver actions for each scPertEval protocol) is emitted by a script,
+   and the emitted file is checked and run. `scripts/emit-perturbation.py`
+   is that script's first form (§4, step 2); until the protocol receivers
+   beyond pseudobulk are in it, the slice is the *shape* (§2) on the real
+   panel.
 
 3. **Cost.** Interaction counts on HVM are not thermodynamic cost, and the
    analysis-layer "cost" is a syntactic count; the established coincidence is
@@ -144,10 +146,18 @@ mathematics.
 1. **Get the binary at the pin and check §2.** Record the verdict in
    `PORT.md` (row) and in §2 above. Register `Perturbation_mustfail.bend`
    wherever the port's probes are registered.
-2. **The front-end.** `scripts/emit-perturbation.py`: from a control
-   population and an intervention list, emit `Cell`/`Perturb`/`step` and one
-   `Receiver` per protocol (pseudobulk, DEG, distributional distance,
-   retrieval). Same file shape as §2, real panel.
+2. **The front-end.** `scripts/emit-perturbation.py` (written this session):
+   from a JSON spec or per-context CSVs — panel, regulatory edges, control
+   populations, interventions, assay genes — it emits `Cell`/`Perturb`/`step`,
+   the receiver machinery of §2–§3, the assay's Nerode quotient with
+   effectivity, and the challenge shape (`context_A`, `submission_A_kd_TF1`,
+   per-gene pseudobulk) in the file shape of §2, for the real panel.
+   `scripts/examples/vcc_shape.json` → `port/PerturbationEmitted.bend` is
+   the worked example. Panel-specific theorems (which unread state is
+   necessary, which is erasable) are not emitted: they are what the
+   quotient is *for*, and they are proved against the emitted generators.
+   Still to add there: one `Receiver` per scPertEval protocol beyond
+   pseudobulk (DEG, distributional distance, retrieval).
 3. **The quotient on the real object.** Run `Meaning` under the protocol
    family; for every proposed feature reduction run the descent obligation;
    keep the fibre where it fails. Run under `--to-hvm4-full`; measure.
