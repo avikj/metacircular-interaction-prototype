@@ -3153,14 +3153,16 @@ index 99c0709..0c92a04 100644
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..2ac1ea3 100644
+index 9d1ab06..1b4ea57 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
-@@ -20,8 +20,29 @@ equal d book a b = eql 3 d book a b
+@@ -19,9 +19,30 @@ equal :: Int -> Book -> Term -> Term -> Bool
+ equal d book a b = eql 3 d book a b
  
  eql :: Int -> Int -> Book -> Term -> Term -> Bool
- eql 0  d book a b = cmp 0 d book (cut a) (cut b)
+-eql 0  d book a b = cmp 0 d book (cut a) (cut b)
 -eql lv d book a b = identical || similar where
++eql lv d book a b | lv <= 0 = cmp 0 d book (cut a) (cut b)
 +eql lv d book a b = identical || sameHead || similar where
    identical = eql 0 d book a b
 +  -- two applications of the same global with convertible arguments are
@@ -3171,7 +3173,7 @@ index 9d1ab06..2ac1ea3 100644
 +  -- lemma applied at an interval): without seeing through `@`, two spines
 +  -- differing only in a convertible argument get unfolded instead, and a
 +  -- recursive definition stuck on a variable regenerates the same shape one
-+  -- level deeper, forever.  A neutral (variable) head is treated alike.
++  -- level deeper, forever.
 +  sameHead  = case (spineOf a, spineOf b) of
 +    ((Ref ka, xs), (Ref kb, ys)) ->
 +      ka == kb && not (null xs) && sameArgs xs ys
@@ -4174,10 +4176,31 @@ index 146a4d2..8016448 100644
 +      _ <- optional (symbol ";")
 +      return (c, b)
 diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
-index ae061af..45c18ef 100644
+index ae061af..e641ed6 100644
 --- a/src/Core/Rewrite.hs
 +++ b/src/Core/Rewrite.hs
-@@ -63,14 +63,41 @@ rewriteGo lv d book old neo val = case val of
+@@ -19,11 +19,20 @@ import Debug.Trace
+ rewrite :: Int -> Int -> Book -> Term -> Term -> Term -> Term
+ rewrite lv d book old neo val
+   | equal d book old val = neo
++  -- an application of a definition is rewritten in its ARGUMENTS, never by
++  -- unfolding it: the occurrence being rewritten is local, so it can only
++  -- sit in the arguments, and unfolding a productive (corecursive)
++  -- definition here would go on forever
++  | isVar (cut old), (Ref k, xs@(_ : _)) <- collectApps (cut val) [] = foldl App (Ref k) (map (rewrite lv d book old neo) xs)
+   | otherwise            = rewriteGo lv d book old neo $ whnf Soft book val
+   -- | equal d book old val = trace ("eq " ++ show old ++ " → " ++ show neo ++ " |" ++ show val ++ " → " ++ show (whnf 2 d book val)) $ neo
+   -- | otherwise            = trace ("rw " ++ show old ++ " → " ++ show neo ++ " |" ++ show val ++ " → " ++ show (whnf 2 d book val))
+                          -- $ rewriteGo lv d book old neo $ whnf 2 d book val
+ 
++isVar :: Term -> Bool
++isVar (Var _ _) = True
++isVar _         = False
++
+ -- Recursively rewrites occurrences of 'old' with 'neo' in 'val'
+ rewriteGo :: Int -> Int -> Book -> Term -> Term -> Term -> Term
+ rewriteGo lv d book old neo val = case val of
+@@ -63,14 +72,41 @@ rewriteGo lv d book old neo val = case val of
    SigM x f   -> SigM (rewrite lv d book old neo x) (rewrite lv d book old neo f)
    All a b    -> All (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    Lam k f    -> Lam k (\v -> rewrite lv d book old neo (f v))
@@ -4220,7 +4243,7 @@ index ae061af..45c18ef 100644
    Era        -> Era
    Sup l a b  -> Sup l (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
-@@ -80,6 +107,8 @@ rewriteGo lv d book old neo val = case val of
+@@ -80,6 +116,8 @@ rewriteGo lv d book old neo val = case val of
    Log s x    -> Log (rewrite lv d book old neo s) (rewrite lv d book old neo x)
    Pri p      -> Pri p
    Pat t m c  -> Pat (map (rewrite lv d book old neo) t) (map (\(k,v) -> (k, rewrite lv d book old neo v)) m) (map (\(ps,v) -> (map (rewrite lv d book old neo) ps, rewrite lv d book old neo v)) c)
@@ -4580,7 +4603,7 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..3d99737 100644
+index 953410d..a43b7a1 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
 @@ -6,7 +6,9 @@ module Core.WHNF where
@@ -5472,7 +5495,21 @@ index 953410d..3d99737 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1369,327 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -514,6 +1336,13 @@ ugly (cut -> LstM _ _ _) = True
+ ugly (cut -> EnuM _ _ _) = True
+ ugly (cut -> SigM _ _  ) = True
+ ugly (cut -> EqlM _ _  ) = True
++-- stuck eliminators of the HITs (hardcoded and declared) are stuck forms too:
++-- a recursive definition whose branches mention itself must stay folded
++ugly (cut -> HRec _ _  ) = True
++ugly (cut -> HEl _ _ _ ) = True
++ugly (cut -> QRec _ _ _ _) = True
++ugly (cut -> TRec _ _ _ ) = True
++ugly (cut -> CRec _ _ _ ) = True
+ ugly _                   = False
+ 
+ -- Evaluates terms that whnf won't, including:
+@@ -547,3 +1376,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False

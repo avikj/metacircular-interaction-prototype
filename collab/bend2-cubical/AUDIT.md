@@ -33,6 +33,13 @@ over the corpus), what Bend has instead, and the file that proves it.
 - Parameters of a HIT constructor are read from the goal or supplied by an
   annotation; Agda infers them by unification.
 - `Set : Set`.
+- Two checker rules the port needed, both about recursive definitions:
+  a stuck eliminator of a HIT is a stuck form (`ugly`), so a recursive
+  definition whose branches mention itself stays folded under `whnf Soft`;
+  and the goal-rewriting pass rewrites an application of a definition in
+  its arguments without unfolding it (a productive corecursive definition
+  such as a process would otherwise unfold forever). Neither changes what
+  converts; both change what terminates.
 
 Nothing in the corpus requires a feature Bend lacks; the remaining work is
 labour (porting module by module over the growing Prelude), not a gap.
