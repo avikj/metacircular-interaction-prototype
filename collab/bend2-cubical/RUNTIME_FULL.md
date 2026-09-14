@@ -46,9 +46,39 @@ a stuck composition carrying its faces; the same term at `#I0` is `#Zer`, at
 paths as Church pairs) and `--to-hvm` (HVM3) remain, so the cost of erasure vs
 runtime can be read side by side (e.g. `viaNeg3`: 31 itrs erased, 1106 full).
 
+## Kan rules on the runtime (later session)
+
+`@coe` on a `#Glue{A, faces}` line (`@coeGlue`) and `@hcomp` at `#Set`
+(`#Glue` over the base with `@transpEquiv` of each tube — pathToEquiv computed
+by the runtime `@coe` through Σ/Π/Path type data) mirror the checker's rules.
+Faces are read off the line at the marker and instantiated at `r`/`s` by
+interval substitution (`@substI`), since re-evaluating the line at a literal
+endpoint lets a true face collapse the Glue to its partial type. Verified:
+
+| program | result | itrs |
+|---|---|---|
+| `uaglue.bend` `viaGlue True/False` (ua derived from Glue) | 0 / 1 | 797 / 789 |
+| `viaGlueBwd True/False` | 0 / 1 | 811 / 802 |
+| `hcompset.bend` `viaSq(i0)` (2-dim universe composition; equivalence computed on the net) | 0 | 1935 |
+| `viaSq(i1)` | 0 | 147 |
+| `viaTwist True/False` (non-constant base line) | 1 / 0 | 587 / 589 |
+| whole earlier matrix (chain, fibre law, contraction, superposed line) | unchanged | — |
+
+A glue value with no live faces is its base; a Glue type keeps its faces
+(types are consumed only by `@coe`). Binders now get globally unique names.
+
 ## Not runtime yet / caveats
 
-- `hcomp` in `Set` outside the composite shape stays stuck data (no `Glue`).
+- `coe` to a *symbolic* endpoint stays stuck (`@dir` = 2); the runtime
+  `pathToEquiv` therefore carries stuck proof components, but the function
+  and the fibre centre (inverse) compute, which is what transport needs.
+- (resolved) `isprop_run.bend` left residual DUP nodes at three corners. Cause:
+  HVM4 auto-dup labels are static per binder, so `@pathAt`'s `λ&p` (cloned
+  only because `p` was used in three match *arms*) duplicated an argument
+  that already contained another `@pathAt` instance's dup with the same
+  label. Fix: prelude functions never clone a value merely for use in
+  different arms (match first, bind per arm). Now `#One` at all four corners
+  (104–157 itrs).
 - Dependent Π/Σ lines go through the generic `@coe`. Over a varying base the
   family receives a transport **to a symbolic endpoint** (`coe r→i`), which
   this prelude leaves stuck (`#StuckCoe`); a family that does not inspect it
