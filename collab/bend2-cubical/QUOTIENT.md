@@ -45,8 +45,19 @@ bad `resp` to collapse the target. `qsquash` is accepted only against an
 `SQ.rec` / `SQ.elimProp` / `SQ.effective` (the encode–decode `[x]≡[y] ⟹ x≈y`)
 are now expressible in Bend2 source from these primitives plus propositional
 univalence (`ua`). Porting `MyhillNerodeMinimalMachine` then makes behavioral
-equivalence = path equality compute on the net. Emitter support for the erased
-HVM targets is the remaining runtime step.
+equivalence = path equality compute on the net.
+
+## The recursor runs on the FULL runtime (`--to-hvm4-full`)
+
+The quotient constructors are now emitted to the full cubical runtime (not just
+the checker): `Quo`/`QCl`/`QEq`/`QSq`/`QRec` lower to `#Quo`/`#QCl`/`#QEq`/`#QSq`/
+`@qrec`, with `@qrec` mirroring the checker's rules exactly — `qrec([a]) → f a`,
+`qrec(eq/ a b w @ i) → resp a b w @ i` (via `@pathAt` giving `eq/ @ i0 = [a]`,
+`@ i1 = [b]`), and commuting over `Sup` natively (DUP-SUP). Verified on HVM4:
+`qrec(qcl 3n, dbl, …) ⇒ 6`, `qrec(qeq(2n,2n,refl) @ i0, dbl, …) ⇒ 4`;
+`quotient.bend` main `⇒ 1n`, `minmachine.bend` runs, `nerode_effective_closed`
+emits and runs. The whole suite emits to `--to-hvm4-full` with no crashes; the
+checker stays at 856 ✓ (only the deliberate must-fails fail).
 
 ## Phase 2 status: minimal machine computes; effectivity is library-porting
 
