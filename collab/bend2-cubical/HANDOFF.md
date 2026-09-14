@@ -100,6 +100,17 @@ Reproduce: `bend bench_X.bend --to-hvm4-full > x.hvm4 && hvm x.hvm4 -s`.
 with a deliberate rejection, register it there. `erasure.bend` (another agent's)
 is one of them: its `tbadResp` fake descent witness MUST be rejected.
 
+## WHAT REMAINS FOR COMPLETE CUBICAL SUPPORT: read REMAINING.md
+Audited against CCHM by reading every traversal and running probes. Headline:
+`coe` is nearly complete; **`hcomp` has no type-directed rules except the
+universe** (Pi/Sigma/Nat/Path all confirmed stuck by probe) — that is the bulk
+of the work, and it must be written TWICE (whnfHCm and Target/HVM4Full.hs).
+Also missing: transp-with-a-cofibration, comp, Partial and Sub types, any HIT
+beyond the hardcoded SetQuotient. Fixed in this pass: quotient constructors
+were missing from `normal`, `normalCap`, `occursMarker` (hard crashes) and
+`mapSub` (silent wrong substitution). Still crashing: `Collapse.collapse`,
+`Target/HVM.freeVars`, and `--to-hvm4-full` on any quotient.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.

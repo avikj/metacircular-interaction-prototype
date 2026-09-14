@@ -42,3 +42,9 @@ except the registered soundness probes (the registry is in the script):
 `coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
 silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
 contains a deliberate rejection; an unregistered one reads as a regression.
+
+Known-incomplete, audited and itemised in **REMAINING.md**: `hcomp` has no
+type-directed rules except `Set` (Pi/Sigma/Nat/Path stuck); no `comp`, no
+`transp` with a cofibration, no `Partial`/`Sub` types, no HIT beyond the
+hardcoded SetQuotient; `Collapse`, the HVM3 backend and `--to-hvm4-full` on
+quotients still crash.
