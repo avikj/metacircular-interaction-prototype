@@ -95,8 +95,8 @@
 --                                `descend-computes` is `refl` — so §2 is
 --                                not an inert term either.
 --
---   §8  `FutureQuotient.R`       the corollary that made this worth
---       `FutureQuotient.R-unique`
+--   §8  `MinimalMachine.R`       the corollary that made this worth
+--       `MinimalMachine.R-unique`
 --                                landing: `collab/messages/madhavi/
 --                                future_quotient_linear_rank.md`
 --                                Theorem (2) — "there is a unique matrix
@@ -440,7 +440,7 @@ descend-computes-not p = true≢false (sym descend-computes ∙ p)
 -- set, and that is the whole input.
 ------------------------------------------------------------------------
 
-module FutureQuotient
+module MinimalMachine
   {X : Type ℓ} {Q : Type ℓ'} {W K : Type ℓ''}
   (setK : isSet K)
   (q : X → Q) (classesInhabited : isSurjection q)

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- A sharply cancelling translation family plus an observation with one
 -- distinguished singleton fibre makes one-step response profiles faithful.
--- Consequently the complete FutureBehavior relation is just state equality,
+-- Consequently the complete MyhillNerodeMinimalMachine relation is just state equality,
 -- and every carrier through which all one-step responses factor is injective.
 --
 -- This is the abstract checked kernel of the sampled prime-power translation
@@ -25,7 +25,7 @@ open import Cubical.Data.Unit using (Unit ; tt ; isSetUnit)
 open import Cubical.Relation.Nullary using (¬_)
 
 import Descent as Descent
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 
 private
   variable
@@ -100,20 +100,20 @@ module PeakObservable
 
   state-path→future-eq : {left right : X}
     → left ≡ right
-    → FB.FutureEq step observe left right
+    → FB.NerodeCongruence step observe left right
   state-path→future-eq same word =
     cong (λ state → FB.behavior step observe state word) same
 
   future-eq→state-path : {left right : X}
-    → FB.FutureEq step observe left right
+    → FB.NerodeCongruence step observe left right
     → left ≡ right
   future-eq→state-path future =
     one-step-profile-injective
       (funExt λ action → future (action ∷ []))
 
-  isPropFutureEq : (left right : X)
-    → isProp (FB.FutureEq step observe left right)
-  isPropFutureEq left right =
+  isPropNerodeCongruence : (left right : X)
+    → isProp (FB.NerodeCongruence step observe left right)
+  isPropNerodeCongruence left right =
     isPropΠ λ word → isSetObs _ _
 
   state-path-round : {left right : X} (same : left ≡ right)
@@ -122,14 +122,14 @@ module PeakObservable
     isSetState translations left right _ _
 
   future-eq-round : {left right : X}
-    (future : FB.FutureEq step observe left right)
+    (future : FB.NerodeCongruence step observe left right)
     → state-path→future-eq (future-eq→state-path future) ≡ future
   future-eq-round {left} {right} future =
-    isPropFutureEq left right _ _
+    isPropNerodeCongruence left right _ _
 
-  statePath≃futureEq : (left right : X)
-    → (left ≡ right) ≃ FB.FutureEq step observe left right
-  statePath≃futureEq left right =
+  statePath≃nerodeCongruence : (left right : X)
+    → (left ≡ right) ≃ FB.NerodeCongruence step observe left right
+  statePath≃nerodeCongruence left right =
     isoToEquiv
       (iso state-path→future-eq future-eq→state-path
         future-eq-round state-path-round)
@@ -187,12 +187,12 @@ constantObservation : Bool → Unit
 constantObservation _ = tt
 
 constant-future-collision :
-  FB.FutureEq (_⊕_) constantObservation false true
+  FB.NerodeCongruence (_⊕_) constantObservation false true
 constant-future-collision word = refl
 
 constant-observation-does-not-detect-state :
   ¬ ({left right : Bool}
-    → FB.FutureEq (_⊕_) constantObservation left right
+    → FB.NerodeCongruence (_⊕_) constantObservation left right
     → left ≡ right)
 constant-observation-does-not-detect-state detects =
   false≢true (detects constant-future-collision)

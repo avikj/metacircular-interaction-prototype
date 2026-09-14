@@ -59,7 +59,7 @@
 --       noEscape→≈, ≈→noEscape   the degenerate class: states with no
 --                                completion at all are all equivalent
 --
--- The behavioural equality is `FutureBehavior.FutureEq`
+-- The behavioural equality is `MyhillNerodeMinimalMachine.NerodeCongruence`
 -- verbatim, so everything that module proves about the quotient (full
 -- abstraction, terminality, effectivity) applies to these classes
 -- without restatement.
@@ -78,7 +78,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Tactics.NatSolver.Reflection using (solveℕ!)
 
-open import FutureBehavior using (run ; behavior ; FutureEq)
+open import MyhillNerodeMinimalMachine using (run ; behavior ; NerodeCongruence)
 
 private
   variable
@@ -161,9 +161,9 @@ module Radix {D : Type ℓ} (b M : ℕ) (dig : D → ℕ) where
   obs : ℕ → Bool
   obs x = isZero (x mod M)
 
-  -- behavioural equality, taken verbatim from FutureBehavior
+  -- behavioural equality, taken verbatim from MyhillNerodeMinimalMachine
   _≈_ : ℕ → ℕ → Type ℓ
-  r ≈ s = FutureEq step obs r s
+  r ≈ s = NerodeCongruence step obs r s
 
   -- the numeral value of a word, alphabet-relative
   val : List D → ℕ

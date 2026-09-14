@@ -30,19 +30,19 @@ open import Cubical.Data.Unit using (tt)
 open import Cubical.Data.Unit.Properties using (isSetUnit)
 open import Cubical.Relation.Nullary using (¬_)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 open import PhysicalLearningCore
 
 ------------------------------------------------------------------------
 -- 1. Complete finite-word futures for the declared physical actions
 ------------------------------------------------------------------------
 
--- FutureBehavior orders its arguments as state then action.
+-- MyhillNerodeMinimalMachine orders its arguments as state then action.
 physicalStep : Phase → Action → Phase
 physicalStep state action = evolve action state
 
-PhysicalFutureEq : (p : Port) → Phase → Phase → Type₀
-PhysicalFutureEq p = FB.FutureEq physicalStep (observe p)
+PhysicalNerodeCongruence : (p : Port) → Phase → Phase → Type₀
+PhysicalNerodeCongruence p = FB.NerodeCongruence physicalStep (observe p)
 
 response-isSet : (p : Port) → isSet (Response p)
 response-isSet population = isSetUnit
@@ -57,7 +57,7 @@ compiled-kernel-isProp : (p : Port) (left right : Phase)
 compiled-kernel-isProp p left right = compiled-isSet p _ _
 
 future-kernel-isProp : (p : Port) (left right : Phase)
-  → isProp (PhysicalFutureEq p left right)
+  → isProp (PhysicalNerodeCongruence p left right)
 future-kernel-isProp p left right =
   isPropΠ (λ word → response-isSet p _ _)
 
@@ -67,7 +67,7 @@ future-kernel-isProp p left right =
 
 compile-kernel→future-kernel : (p : Port) {left right : Phase}
   → compile p left ≡ compile p right
-  → PhysicalFutureEq p left right
+  → PhysicalNerodeCongruence p left right
 compile-kernel→future-kernel population same word = refl
 compile-kernel→future-kernel coherent same word =
   cong (λ state → FB.behavior physicalStep (observe coherent) state word) same
@@ -75,7 +75,7 @@ compile-kernel→future-kernel coherent same word =
 -- The empty word recovers the coherent state; at the population port every
 -- compiled value is definitionally the unique Unit value.
 future-kernel→compile-kernel : (p : Port) {left right : Phase}
-  → PhysicalFutureEq p left right
+  → PhysicalNerodeCongruence p left right
   → compile p left ≡ compile p right
 future-kernel→compile-kernel population same = refl
 future-kernel→compile-kernel coherent same = same []
@@ -84,7 +84,7 @@ future-kernel→compile-kernel coherent same = same []
 -- families are propositions, as established immediately above.
 compiled-kernel≃future-kernel : (p : Port) (left right : Phase)
   → (compile p left ≡ compile p right)
-    ≃ PhysicalFutureEq p left right
+    ≃ PhysicalNerodeCongruence p left right
 compiled-kernel≃future-kernel p left right =
   isoToEquiv (iso
     (compile-kernel→future-kernel p)
@@ -97,25 +97,25 @@ compiled-kernel≃future-kernel p left right =
 ------------------------------------------------------------------------
 
 coherent-future→population-future : {left right : Phase}
-  → PhysicalFutureEq coherent left right
-  → PhysicalFutureEq population left right
+  → PhysicalNerodeCongruence coherent left right
+  → PhysicalNerodeCongruence population left right
 coherent-future→population-future =
-  FB.futureEq-of-finer physicalStep
+  FB.nerodeCongruence-of-finer physicalStep
     (observe population) (observe coherent) (λ _ → tt) (λ _ → refl)
 
-population-future-collision : PhysicalFutureEq population true false
+population-future-collision : PhysicalNerodeCongruence population true false
 population-future-collision word = refl
 
-coherent-future-separator : ¬ PhysicalFutureEq coherent true false
+coherent-future-separator : ¬ PhysicalNerodeCongruence coherent true false
 coherent-future-separator equal = true≢false (equal [])
 
 record StrictFutureRefinement : Type₀ where
   field
     kernel-inclusion : {left right : Phase}
-      → PhysicalFutureEq coherent left right
-      → PhysicalFutureEq population left right
-    oldCollision : PhysicalFutureEq population true false
-    newSeparator : ¬ PhysicalFutureEq coherent true false
+      → PhysicalNerodeCongruence coherent left right
+      → PhysicalNerodeCongruence population left right
+    oldCollision : PhysicalNerodeCongruence population true false
+    newSeparator : ¬ PhysicalNerodeCongruence coherent true false
 
 interaction-future-refinement-strict : StrictFutureRefinement
 interaction-future-refinement-strict .StrictFutureRefinement.kernel-inclusion =

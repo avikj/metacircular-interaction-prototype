@@ -77,15 +77,15 @@ open import CountedComposition public
 -- once.  This keeps their Pareto order non-scalar and checks the concrete
 -- representation-reopening antichain `(120,0)` / `(104,32)`.
 import ParetoCost
-import FutureBehavior
--- A bounded response kernel compiles into FutureBehavior's native
+import MyhillNerodeMinimalMachine
+-- A bounded response kernel compiles into MyhillNerodeMinimalMachine's native
 -- behavioral-congruence interface exactly when every installed action
 -- preserves it.  The resulting congruence upgrades bounded equality to
 -- complete future equality without importing the Lean visited-pair queue.
 import ObservableHorizon
 -- Adaptive distinguishing trees and ordinary word tests induce exactly the
 -- same residual relation.  Cubical quotient effectivity upgrades that iff to
--- an Iso with the path space between named FutureQuotient meanings; adaptive
+-- an Iso with the path space between named MinimalMachine meanings; adaptive
 -- depth remains a separate cost coordinate.
 import AdaptiveResidualAdapter
 -- The same two statements in the bare-probe-pool register of GTER §1 -- no
@@ -108,7 +108,7 @@ import FormationRelativeMinimality
 -- Stabilization is separately typed as a reverse exposure map from final
 -- critical hits to hits already realized at a declared stage.
 import FormationDirectionIncidence
--- Binary-algebra one-hole contexts are FutureBehavior actions.  Their
+-- Binary-algebra one-hole contexts are MyhillNerodeMinimalMachine actions.  Their
 -- future relation is the greatest observation-compatible magma congruence,
 -- so the original operation descends to the quotient; the raw present-time
 -- observation kernel fails this interface on an explicit four-state model.
@@ -401,13 +401,13 @@ import ObservabilityQuotient
 -- equality of every future rooted view.  Both inverse paths are explicit;
 -- this is not transferred to the indexed/branching Indra net.
 import ProductiveObservabilityBridge
--- The free monoid on one generator reindexes wordwise FutureEq into the
+-- The free monoid on one generator reindexes wordwise NerodeCongruence into the
 -- depthwise trajectory above.  Under ObservableHorizon action closure, a
 -- bounded unary kernel therefore maps to and from productive bisimulation.
 import SingletonActionObservability
 -- A productive complete-code fibre is proof-relevant data over one centre,
 -- not the behavioral quotient carrier.  With set-valued jewels, its canonical
--- map to FutureQuotient is checked constant at the centre's meaning class.
+-- map to MinimalMachine is checked constant at the centre's meaning class.
 import ProductiveFiberQuotientAdapter
 -- T15.40 with the SPLIT hypothesis dropped: descent along one map of
 -- sets is unobstructed, restriction along a surjection is an

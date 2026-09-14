@@ -50,6 +50,17 @@ directory were deleted: cubical-paths.patch is the ONLY source of truth. If
 you see loose .hs files here again, diff them against the patch-applied tree
 and fold real deltas into the patch.
 
+## Kan rules DONE in the checker (uaglue.bend, hcompset.bend; GLUE.md)
+Transport through Glue and hcomp-in-Set-as-Glue are implemented and green.
+Full runtime (--to-hvm4-full) now has the same Kan rules (@coeGlue, hcomp at
+#Set -> #Glue, @transpEquiv); verified uaglue/hcompset on HVM4. Resolved: the
+isprop_run residual-DUP issue (static dup labels; prelude linearized —
+never `λ&` a value just because it is used in several match arms).
+
+## The forcing theorem RUNS (forcing_run.bend, 82✓; FORCING.md RUN section)
+Both instances (recording trace / contractible trace) observed on HVM4 full
+runtime with values matching the normaliser.
+
 ## Next steps (if continuing)
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.

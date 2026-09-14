@@ -5,12 +5,12 @@
 --
 -- The productive future-view fibre retains a candidate Net and a path from
 -- its complete view code to the centre's code.  When Jewel is a set, that
--- path induces complete singleton-action FutureEq and hence a path to the
--- centre in FutureQuotient.Meaning.  Thus the entire homotopy fibre maps
+-- path induces complete singleton-action NerodeCongruence and hence a path to the
+-- centre in MinimalMachine.Meaning.  Thus the entire homotopy fibre maps
 -- constantly to one quotient point; it is not itself the quotient carrier.
 --
 -- The set hypothesis is load-bearing.  Without it, TotalView is not known
--- set-valued and FutureBehavior's effective set-quotient surface cannot be
+-- set-valued and MyhillNerodeMinimalMachine's effective set-quotient surface cannot be
 -- instantiated.  No truncation or proof irrelevance is silently inserted.
 ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ open import Cubical.Data.Sigma using (fst ; snd)
 open import Cubical.HITs.SetQuotients as SQ using ([_] ; eq/)
 
 import FiniteIndraWeave as FIW
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import ProductiveIndraNet as PIN
 import ProductiveObservationFiber as POF
 import SingletonActionObservability as SAO
@@ -38,17 +38,17 @@ private
 isSetTotalView : isSet Jewel → isSet (FIW.TotalView Root Jewel)
 isSetTotalView setJewel = isSetΠ λ _ → isSetΠ λ _ → setJewel
 
-futureViewPath→futureEq :
+futureViewPath→nerodeCongruence :
     {left right : PIN.Net Root Jewel}
   → POF.futureView left ≡ POF.futureView right
-  → FB.FutureEq (SAO.unitStep PIN.Net.next) PIN.Net.view left right
-futureViewPath→futureEq sameCode =
+  → FB.NerodeCongruence (SAO.unitStep PIN.Net.next) PIN.Net.view left right
+futureViewPath→nerodeCongruence sameCode =
   equivFun SAO.productiveBisim≃singletonFuture
     (invEq POF.bisim≃futureViewPath sameCode)
 
 module Adapter {Root Jewel : Type₀} (setJewel : isSet Jewel) where
 
-  module FQ = FB.FutureQuotient
+  module FQ = FB.MinimalMachine
     (SAO.unitStep (PIN.Net.next {Root} {Jewel}))
     (isSetTotalView setJewel)
     PIN.Net.view
@@ -67,7 +67,7 @@ module Adapter {Root Jewel : Type₀} (setJewel : isSet Jewel) where
     → (point : POF.FutureViewFiber center)
     → fiberToMeaning center point ≡ [ center ]
   fiberToCenter center point =
-    eq/ (fst point) center (futureViewPath→futureEq (snd point))
+    eq/ (fst point) center (futureViewPath→nerodeCongruence (snd point))
 
   fiberToMeaning-constant : (center : PIN.Net Root Jewel)
     → fiberToMeaning center ≡ (λ _ → [ center ])

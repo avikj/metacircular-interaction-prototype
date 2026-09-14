@@ -144,7 +144,7 @@ open import Digits k
 open import TransportDiv k
 open import WalkResidueBridge k using (∣→modw-zero ; decDivides)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 import RadixSymptoma as RS
 
 ------------------------------------------------------------------------

@@ -8,7 +8,7 @@
 -- quotient: two states have equal traces for every such tree exactly when
 -- they have equal behavior on every ordinary action word.  Cubical
 -- effectivity then identifies this relation with the path space between the
--- corresponding named points of FutureQuotient.Meaning.
+-- corresponding named points of MinimalMachine.Meaning.
 --
 -- The carrier and the cost are intentionally kept separate.  Nothing below
 -- identifies tree depth with a parallel response-window horizon; the checked
@@ -31,7 +31,7 @@ open import Cubical.Data.Sigma
 open import Cubical.HITs.SetQuotients as SQ using ([_])
 open import Cubical.Relation.Nullary using (¬_)
 
-import FutureBehavior as FB
+import MyhillNerodeMinimalMachine as FB
 
 private
   variable
@@ -124,28 +124,28 @@ CurrentAndPostEq step observe left right =
   (observe left ≡ observe right)
   × PostAdaptiveEq step observe left right
 
-futureEq→adaptiveEq :
+nerodeCongruence→adaptiveEq :
     (step : X → A → X) (observe : X → Bool) {left right : X}
-  → FB.FutureEq step observe left right
+  → FB.NerodeCongruence step observe left right
   → AdaptiveEq step observe left right
-futureEq→adaptiveEq step observe future done =
+nerodeCongruence→adaptiveEq step observe future done =
   cong (λ response → response , []) (future [])
-futureEq→adaptiveEq step observe {left} {right} future
+nerodeCongruence→adaptiveEq step observe {left} {right} future
     (query action continue) =
   cong₂ prepend (future [])
-    ( futureEq→adaptiveEq step observe
-        (FB.futureEq-step step observe future action)
+    ( nerodeCongruence→adaptiveEq step observe
+        (FB.nerodeCongruence-step step observe future action)
         (continue (observe (step left action)))
     ∙ cong
         (λ response →
           trace step observe (continue response) (step right action))
         (future (action ∷ [])) )
 
-adaptiveEq→futureEq :
+adaptiveEq→nerodeCongruence :
     (step : X → A → X) (observe : X → Bool) {left right : X}
   → AdaptiveEq step observe left right
-  → FB.FutureEq step observe left right
-adaptiveEq→futureEq step observe {left} {right} adaptive word =
+  → FB.NerodeCongruence step observe left right
+adaptiveEq→nerodeCongruence step observe {left} {right} adaptive word =
   sym (fixedWord-terminal step observe word left)
   ∙ cong terminal (adaptive (fixedWord word))
   ∙ fixedWord-terminal step observe word right
@@ -166,10 +166,10 @@ currentAndPost→adaptiveEq step observe {left} {right} (current , post) tree =
   ∙ (λ i → current i , post tree i)
   ∙ sym (trace-split step observe tree right)
 
-isPropFutureEq :
+isPropNerodeCongruence :
     (step : X → A → X) (observe : X → Bool) (left right : X)
-  → isProp (FB.FutureEq step observe left right)
-isPropFutureEq step observe left right =
+  → isProp (FB.NerodeCongruence step observe left right)
+isPropNerodeCongruence step observe left right =
   isPropΠ λ word → isSetBool _ _
 
 isPropAdaptiveEq :
@@ -189,16 +189,16 @@ isPropCurrentAndPostEq step observe left right =
 -- Complete uniform behavior and all finite adaptive traces are the same
 -- residual relation.  The proof uses propositionhood only for the inverse
 -- laws; both computational directions are explicit above.
-futureEq-adaptiveIso :
+nerodeCongruence-adaptiveIso :
     (step : X → A → X) (observe : X → Bool) (left right : X)
-  → Iso (FB.FutureEq step observe left right)
+  → Iso (FB.NerodeCongruence step observe left right)
       (AdaptiveEq step observe left right)
-futureEq-adaptiveIso step observe left right =
+nerodeCongruence-adaptiveIso step observe left right =
   iso
-    (futureEq→adaptiveEq step observe)
-    (adaptiveEq→futureEq step observe)
+    (nerodeCongruence→adaptiveEq step observe)
+    (adaptiveEq→nerodeCongruence step observe)
     (λ adaptive → isPropAdaptiveEq step observe left right _ adaptive)
-    (λ future → isPropFutureEq step observe left right _ future)
+    (λ future → isPropNerodeCongruence step observe left right _ future)
 
 -- The free Moore output is a fibre split, not a paid action.  Native trace
 -- equality is exactly equality of that current bit together with equality of
@@ -278,7 +278,7 @@ SafeActionOnInitialFiber {X = X} step observe action =
   {left right : X}
   → observe left ≡ observe right
   → observe (step left action) ≡ observe (step right action)
-  → FB.FutureEq step observe (step left action) (step right action)
+  → FB.NerodeCongruence step observe (step left action) (step right action)
   → left ≡ right
 
 query-identifies→safeAction :
@@ -290,7 +290,7 @@ query-identifies→safeAction step observe action continue identifies
     {left} {right} current response future =
   identifies
     (cong₂ prepend current
-      ( futureEq→adaptiveEq step observe future
+      ( nerodeCongruence→adaptiveEq step observe future
           (continue (observe (step left action)))
       ∙ cong
           (λ bit → trace step observe (continue bit) (step right action))
@@ -302,7 +302,7 @@ unsafeAction-obstructs-query :
   → ¬ (left ≡ right)
   → observe left ≡ observe right
   → observe (step left action) ≡ observe (step right action)
-  → FB.FutureEq step observe (step left action) (step right action)
+  → FB.NerodeCongruence step observe (step left action) (step right action)
   → (continue : Bool → BoolExperimentTree A)
   → ¬ IdentifiesAll step observe (query action continue)
 unsafeAction-obstructs-query step observe action different
@@ -336,9 +336,9 @@ adaptiveEq-step :
   → (action : A)
   → AdaptiveEq step observe (step left action) (step right action)
 adaptiveEq-step step observe adaptive action =
-  futureEq→adaptiveEq step observe
-    (FB.futureEq-step step observe
-      (adaptiveEq→futureEq step observe adaptive) action)
+  nerodeCongruence→adaptiveEq step observe
+    (FB.nerodeCongruence-step step observe
+      (adaptiveEq→nerodeCongruence step observe adaptive) action)
 
 ------------------------------------------------------------------------
 -- Cubical quotient surface
@@ -347,7 +347,7 @@ adaptiveEq-step step observe adaptive action =
 module QuotientAdapter
     (step : X → A → X) (observe : X → Bool) where
 
-  module FQ = FB.FutureQuotient step isSetBool observe
+  module FQ = FB.MinimalMachine step isSetBool observe
 
   -- A path between two named quotient meanings is exactly agreement under
   -- every finite adaptive experiment.  This is the Cubical strengthening of
@@ -357,8 +357,8 @@ module QuotientAdapter
     → Iso (Path FQ.Meaning [ left ] [ right ])
         (AdaptiveEq step observe left right)
   quotientPath-adaptiveIso left right =
-    compIso (FQ.[]-effectiveIso left right)
-      (futureEq-adaptiveIso step observe left right)
+    compIso (FQ.nerodeCongruence-effectiveIso left right)
+      (nerodeCongruence-adaptiveIso step observe left right)
 
   quotientPath-currentAndPostIso : (left right : X)
     → Iso (Path FQ.Meaning [ left ] [ right ])
