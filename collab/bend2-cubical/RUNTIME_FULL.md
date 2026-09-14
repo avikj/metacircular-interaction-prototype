@@ -67,6 +67,16 @@ endpoint lets a true face collapse the Glue to its partial type. Verified:
 A glue value with no live faces is its base; a Glue type keeps its faces
 (types are consumed only by `@coe`). Binders now get globally unique names.
 
+## Set-quotient recursor on the full runtime (added)
+
+`Quo`/`QCl`/`QEq`/`QSq`/`QRec` now emit to `--to-hvm4-full`: `@qrec` computes
+`qrec([a]) → f a` and `qrec(eq/ a b w @ i) → resp a b w @ i` (with `@pathAt`
+giving `eq/ @ i0 = [a]`, `@ i1 = [b]`), commuting over `Sup` natively. Verified:
+`qrec(qcl 3n, dbl) ⇒ 6`, `qrec(qeq(2n,2n,refl)@i0, dbl) ⇒ 4`; `minmachine`,
+`quotient`, `nerode_effective_closed` all emit and run. Previously the full-runtime
+emitter threw on the quotient constructors; the whole suite now emits with no
+crashes.
+
 ## Not runtime yet / caveats
 
 - `coe` to a *symbolic* endpoint stays stuck (`@dir` = 2); the runtime
