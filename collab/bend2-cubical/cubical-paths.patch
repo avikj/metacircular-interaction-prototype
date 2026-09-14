@@ -4077,7 +4077,7 @@ index 146a4d2..8016448 100644
 +      _ <- optional (symbol ";")
 +      return (c, b)
 diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
-index ae061af..93631be 100644
+index ae061af..45c18ef 100644
 --- a/src/Core/Rewrite.hs
 +++ b/src/Core/Rewrite.hs
 @@ -63,14 +63,41 @@ rewriteGo lv d book old neo val = case val of
@@ -4123,6 +4123,15 @@ index ae061af..93631be 100644
    Era        -> Era
    Sup l a b  -> Sup l (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
+@@ -80,6 +107,8 @@ rewriteGo lv d book old neo val = case val of
+   Log s x    -> Log (rewrite lv d book old neo s) (rewrite lv d book old neo x)
+   Pri p      -> Pri p
+   Pat t m c  -> Pat (map (rewrite lv d book old neo) t) (map (\(k,v) -> (k, rewrite lv d book old neo v)) m) (map (\(ps,v) -> (map (rewrite lv d book old neo) ps, rewrite lv d book old neo v)) c)
++  -- every other constructor (the cubical layer, the HITs): one structural level
++  _          -> mapSub (rewrite lv d book old neo) val
+ 
+ rewriteCtx :: Int -> Int -> Book -> Term -> Term -> Ctx -> Ctx
+ rewriteCtx lv d book old neo (Ctx ctx) = Ctx (map rewriteAnn ctx)
 diff --git a/src/Core/Totality.hs b/src/Core/Totality.hs
 new file mode 100644
 index 0000000..868cdc6
