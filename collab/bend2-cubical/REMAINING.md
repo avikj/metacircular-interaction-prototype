@@ -1,13 +1,13 @@
 # What remains for complete cubical support — exact, audited, with locations
 
-**State: sections A, B, C, D and E are closed. The general HIT schema (§D)
-is implemented at Cubical Agda `data` generality — `hit` declarations with
-uniform parameters, indices, constructors of any declared type (interval and
-path fields included), path constructors of any dimension with arbitrary
-faces, a dependent eliminator computing on constructors, cells and hcomp
-cells, transport along HIT lines — all of it on the full runtime too; see
-HIT.md. What is left is the one Glue law that needs face-restricted contexts
-to state (§B), and the caveats of §F. Suite: 100 files, bad = 0.**
+**State: sections A, B, C, D and E are closed. Section D — the general HIT
+schema — landed: `type` declarations with `path` clauses of any dimension,
+recursive and function-typed fields, a dependent eliminator, transport
+through parametric HITs, and the full runtime (HITS.md). The circle,
+suspensions/spheres, pushouts, torus, Klein bottle, set quotient with
+effectivity, propositional/set truncation and hub-and-spoke truncation are
+all declarations now. What remains is the one Glue law that needs
+face-restricted contexts to state (§B). Suite: 108 files, bad = 0.**
 
 Audited by reading `Core/WHNF.hs`, `Core/Check.hs`, `Core/Type.hs`, the parser
 and every backend, and by running probes. Every "missing" below was confirmed
@@ -108,7 +108,23 @@ four backends, and each runs on HVM4 in agreement with the normaliser.
 
 ---
 
-## D. Higher inductive types — three, not a schema
+## D. Higher inductive types — CLOSED: the general schema (HITS.md)
+
+**The schema landed.** `type T(params): case @c: fields  path @p(fields):
+Path(...)` declares any HIT: path constructors of any dimension, fields that
+mention the HIT (also under function types), endpoints that mention the
+parameters. `hrec`/`helim` are the recursor and dependent eliminator; their
+path-branch types are PathPs over the motive, so boundary agreement is the
+existing typed endpoint law. Reduction: literal endpoints, elimination on
+every constructor, elimination commutes with `hcomp` (comp over the filler),
+`coe` pushes into constructors of parametric HITs. Everything is mirrored on
+`--to-hvm4-full` with a generated path function and eliminator per HIT.
+Files: `hit_*.bend` (16 files); the suite's own quotient/circle/truncation/
+effectivity files re-expressed on the schema check definitional-for-
+definitional (`hit_*_suite.bend`). The three hardcoded HITs below are now
+redundant and kept only so the older files check unchanged.
+
+### The three that were hardcoded (superseded)
 
 **Implemented and tested:**
 
@@ -131,39 +147,31 @@ images): its path constructor joins *any* two elements, so `Trunc(A)` is a
 proposition by construction (`truncIsProp`), and `trec` is allowed only into a
 proposition — the guard file confirms that a bogus `isProp(Bool)` is rejected.
 
-**The general schema — DONE (HIT.md), at the generality of a Cubical Agda
-`data` declaration.** `hit Name<params>(indices): case @tag(fields) -> Name(…)
-| path @tag(fields): T` with `T` any iterated `Path`/`PathP` type over the
-HIT and any well-typed faces; signatures in the `Book`; the dependent
-eliminator `Name/elim` as syntax resolved into one primitive, typed with
-every branch in hand, computing on constructors, on cells of any dimension
-and on `hcomp` cells (the dependent composition over the filler); `coe`
-along a HIT line transports constructors field by field and commutes with
-hcomp; `hcomp` in a HIT correctly STUCK; every rule mirrored on
-`--to-hvm4-full` through generated `@hitAt` / `@hitCoe` / `@hit_Name_elim`.
+**What is left: the general schema.** All three HITs are hardcoded as `Term`
+constructors, so each new one costs another pass through every traversal in
+§A. A declaration form would take point and path constructors and generate the
+eliminator and its computation rules. Design sketch for whoever does it:
 
-| declared | file |
-|---|---|
-| `Circle` | `hit_circle.bend` |
-| `Susp<A>` (transport along `Susp(ua(neg) @ i)`) | `hit_susp.bend` |
-| `Push<A,B,C,f,g>` | `hit_pushout.bend` |
-| `Tr<A>` (elimination through hcomp, definitional) | `hit_trunc.bend` |
-| `Q<A,R>` | `hit_quot.bend` |
-| `I` (funext from the interval) | `hit_interval.bend` |
-| `Tree`, `Tree2` (faces are nested constructor terms) | `hit_tree.bend` |
-| `Torus` (a square) | `hit_torus.bend` |
-| `STr<A>` (set truncation: a square between any two parallel paths) | `hit_settrunc.bend` |
-| `Reach<S,step>(s,t)`, `Gen(A: Set)` (indexed; an interval-argument constructor over a moving index) | `hit_indexed.bend` |
-| the eliminator on hcomp cells, transport commuting with hcomp | `hit_hcomp.bend` |
+1. Extend the `type` declaration with path constructors whose codomain is a
+   path between already-declared point constructors.
+2. Store the constructor signatures in the `Book` instead of in `Term`.
+3. Generate the eliminator's type from the signatures; its computation rules
+   are one per constructor, path constructors reducing at an interval.
+4. `hcomp` in a HIT correctly stays STUCK — for a higher inductive type a
+   composite is a canonical form, which is exactly how the higher structure
+   arises. (An earlier draft of this document wrongly listed that as missing.)
 
-189 ✓, a 7-probe must-fail file, every `main` agreeing on HVM4. The three
-hardcoded HITs stay; the schema re-derives them, set truncation included.
+This is the one genuinely research-scale item remaining; everything else in
+this document is closed. Absent for the same reason: suspensions, pushouts,
+and propositional/set truncation as first-class types.
+
+---
 
 ## E. Backend coverage
 
 | target | cubical | quotients |
 |---|---|---|
-| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data); **declared HITs** as data with generated `@hitAt`/`@hitCoe`/`@hit_Name_elim` | **DONE** — `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
+| `--to-hvm4-full` | complete (intervals, paths, types, `coe`, `hcomp` as data) | **DONE** — `#Quot`/`#QCl`/`#QEq`/`#QSq` + `@qrec`; quotient/effective/minmachine/erasure all agree with the normaliser |
 | `--to-hvm4` / `--to-hvm4-raw` | erased/normalised by design | no |
 | `--to-hvm` (HVM3) | `freeVars` fixed; the target still erases | no |
 | JavaScript | **now fails loudly** — erasing a path silently produced wrong code, so every cubical constructor raises a clear error pointing at `--to-hvm4-full` | no |

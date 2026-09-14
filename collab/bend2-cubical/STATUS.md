@@ -23,7 +23,9 @@ nothing). `bend f.bend` checks and runs; `bend check` is not a subcommand.
 | **Genuine coinduction** (the corpus's `--guardedness` records, copattern bisimulations) | `Answers`/`IExec` as corecursive records, `replay`/`forgetStates` corecursive, both `run-is-answers` round trips as corecursive paths, all `[productive]`; unguarded and destructor-recursive "proofs" refused under `--total`; false bisimulation fails finitely | `coinduction.bend` 13✓, `streams.bend` 10✓, `coinduction_mustfail.bend` (wrong ✗) (COINDUCTION.md); `--total` passes on coinduction/interaction/braid |
 | **Cost of keeping the calculus at runtime** (does "everything runtime" cost a rerun per use?) | no: transport paid once under sharing (marginal 14 itrs vs 150). Superposed transport has two regimes: a SHARED line over N values wins and improves with N (marginal 38 vs 139), DIFFERENT lines lose by a constant ~1.4x — superposition pays exactly when branches share work | `bench_*.bend`, `./suite.sh` (SYNTHESIS.md §3-4) |
 | **General silence-is-determinism** (Prasna §3, contractible `Q`, varying `δ`) | corecursive dependent path `answersUnique : PathP(λi. Answers(p @ i))` over a path of states; `isContr(IExec x)` for any such interaction; Niyati's one-execution as the `Q = Unit` instance; run on HVM | `silence.bend` 25✓ `--total` passes, main = 4 on both runtimes; `silence_mustfail.bend` (wrongTail, wrongCentre ✗) |
-| **A general HIT schema** at Cubical Agda `data` generality (the last item of the completeness audit) | `hit` declarations: uniform parameters, indices, constructors of any declared type (interval/path fields), path constructors of any dimension with arbitrary faces, signatures in the `Book`, dependent eliminator (syntax → one primitive) computing on constructors, cells and hcomp cells, `coe` along HIT lines; all on `--to-hvm4-full` via generated `@hitAt`/`@hitCoe`/`@hit_Name_elim` | 12 files, 189 ✓ / 7 deliberate ✗ (circle, suspension, pushout, truncation, quotient, interval, trees, torus, set truncation, indexed families, hcomp); every `main` agrees on HVM4; symbolic probes in HIT.md |
+| **General HIT schema** (the last language gap: every HIT the corpus uses as ONE declaration form) | `type … path @c(fields): Path(…)` of any dimension; `@c{args}`; `hrec`/`helim`; endpoints, elimination, hcomp-commutation, coe-through-parametric-HITs in checker and full runtime | circle, Susp/Sⁿ, pushout, torus, Klein, set quotient + effectivity (23✓), prop/set truncation, hub-and-spoke: `hit_*.bend` 16 files, `hit_circle_mustfail` ✗ (HITS.md) |
+| **Retire Agda: the corpus's constitutive modules IN BEND** (`port/`, PORT.md) | `import Name` modules; `Prelude.bend` (h-levels, path algebra, equivalences, `isSetNat` by encode–decode); the kernel — RewriteCertificate (with induction certificates), ControlledGrammar, GenerativeKernel, PvsNP-gap, EveryDerivationIsInvertible, WindingCost — and the fibre law Carrier, each an Agda module = one Bend file, zero rejections, mains on HVM4 | `port/*.bend`: 38/57/73/90/98/63/64/52 ✓ |
+| **The feature audit** (every Agda feature/library the corpus uses vs Bend, each row a checked file) | AUDIT.md: nothing the corpus does needs a feature Bend lacks; the differences are stated exactly (no implicit args, untyped one-step conversion, `Set : Set`) | AUDIT.md |
 | Tighten writeup (Analysis counts syntax) | stated as syntax counts; overclaims removed | WRITEUP.md, CORRECTIONS.md |
 | Push/pull main every few minutes; merge parallel agents' work | merged `HCmN`→unified constructor, REF_ENDPOINTS (same hunk), `roundtrip.bend` | git log |
 
@@ -38,11 +40,10 @@ comparison points; the full runtime is `--to-hvm4-full`. In the checker/normalis
 in). The full runtime (`--to-hvm4-full`) has the same Kan rules (`@coeGlue`,
 `hcomp` at `#Set` → `#Glue`); RUNTIME_FULL.md lists the two runtime caveats.
 
-Suite: `./suite.sh` — 100 `.bend` files, bad=0. Every file must check clean
+Suite: `./suite.sh` — 108 `.bend` files, bad=0. Every file must check clean
 except the registered soundness probes (the registry is in the script):
-`coinduction_mustfail erasure glue_mustfail hfill kan_mustfail quotient_mustfail
-sub_mustfail transp_mustfail partial_mustfail circle_mustfail truncation_mustfail
-hit_mustfail silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
+`coinduction_mustfail erasure glue_mustfail hfill quotient_mustfail
+silence_mustfail uaequiv_mustfail uaroundtrip`. Register any new file that
 contains a deliberate rejection; an unregistered one reads as a regression.
 
 Cubical completeness, audited and itemised in **REMAINING.md** — sections A,
@@ -51,10 +52,8 @@ B, C and E are now CLOSED:
   discrete types, Set, Glue) in BOTH the checker and the full runtime.
 - `comp`, `hfill`, `transp` with a cofibration, `Partial`/systems/`pout` and
   `Sub`/`inS`/`outS` all exist, parse, check and run.
-- Three hardcoded HITs (SetQuotient, `S1`, `Trunc`) AND the general `hit`
-  schema at Cubical Agda `data` generality (HIT.md); everything reaches the
-  runtime.
-- Every traversal is exhaustive (`dup` included now); the JS backend fails
-  loudly instead of silently erasing a path.
-Remaining: the one Glue composition law that cannot be stated without
-face-restricted contexts (§B).
+- Two HITs: the SetQuotient and the circle `S1`; both reach the runtime.
+- Every traversal is exhaustive; the JS backend fails loudly instead of
+  silently erasing a path.
+Remaining: a GENERAL HIT schema (§D), and the one Glue composition law that
+cannot be stated without face-restricted contexts (§B).

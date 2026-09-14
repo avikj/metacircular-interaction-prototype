@@ -1,25 +1,31 @@
-# The set-quotient's GENERATOR structure declared with the schema: classes and
-# a path for every related pair.  (Without a 2-dimensional constructor this is
-# the quotient's 1-skeleton, which is all the recursor into a set ever uses.)
-hit Q<A: Set, R: A -> A -> Set>:
-  case @cl(a: A)
-  path @eq(a: A, b: A, r: R(a, b)): Q/cl(A, R, a) ~> Q/cl(A, R, b)
+# The set quotient as a declared HIT: point, generator path, and set-truncation (a 2-path constructor).
+type Quotient(A: Set, R: A -> A -> Set):
+  case @cl:
+    a: A
+  path @eq(a: A, b: A, r: R(a, b)): Path(Quotient(A, R), @cl{a}, @cl{b})
+  path @sq(x: Quotient(A, R), y: Quotient(A, R), p: Path(Quotient(A, R), x, y), q: Path(Quotient(A, R), x, y)): Path(Path(Quotient(A, R), x, y), p, q)
 
-def Always(a: Bool, b: Bool) -> Set:
+def isSet(X: Set) -> Set:
+  all x: X. all y: X. all p: Path(X, x, y). all q: Path(X, x, y). Path(Path(X, x, y), p, q)
+
+def quotIsSet(A: Set, R: A -> A -> Set) -> isSet(Quotient(A, R)):
+  lambda x. lambda y. lambda p. lambda q. @sq{x, y, p, q}
+
+def Parity(a: Nat, b: Nat) -> Set:
   Unit
-# Bool / (everything related): all classes are joined
-def joined(a: Bool, b: Bool) -> Path(Q(Bool, Always), Q/cl(Bool, Always, a), Q/cl(Bool, Always, b)):
-  <i> Q/eq(Bool, Always, a, b, ()) @ i
-# a function respecting the relation descends to the quotient
-def descend(B: Set, f: Bool -> B, resp: all a: Bool. all b: Bool. all r: Always(a, b). Path(B, f(a), f(b)), q: Q(Bool, Always)) -> B:
-  Q/elim(Bool, Always, lambda _. B, q, f, resp)
-def descend_cl(B: Set, f: Bool -> B, resp: all a: Bool. all b: Bool. all r: Always(a, b). Path(B, f(a), f(b)), a: Bool) -> Path(B, descend(B, f, resp, Q/cl(Bool, Always, a)), f(a)):
+
+def half(A: Set, R: A -> A -> Set, B: Set, sB: isSet(B), f: A -> B, resp: all a: A. all b: A. all r: R(a, b). Path(B, f(a), f(b)), x: Quotient(A, R)) -> B:
+  hrec(x) {
+    @cl: f ;
+    @eq: resp ;
+    @sq: lambda x. lambda y. lambda p. lambda q. sB(half(A, R, B, sB, f, resp, x), half(A, R, B, sB, f, resp, y), <i> half(A, R, B, sB, f, resp, p @ i), <i> half(A, R, B, sB, f, resp, q @ i))
+  }
+
+def half_beta(A: Set, R: A -> A -> Set, B: Set, sB: isSet(B), f: A -> B, resp: all a: A. all b: A. all r: R(a, b). Path(B, f(a), f(b)), a: A) -> Path(B, half(A, R, B, sB, f, resp, @cl{a}), f(a)):
   <_> f(a)
-def descend_eq(B: Set, f: Bool -> B, resp: all a: Bool. all b: Bool. all r: Always(a, b). Path(B, f(a), f(b)), a: Bool, b: Bool, i: Interval) -> Path(B, descend(B, f, resp, Q/eq(Bool, Always, a, b, ()) @ i), resp(a, b, ()) @ i):
-  <_> resp(a, b, ()) @ i
-def const(b: Bool) -> Unit:
-  ()
-def toUnit(q: Q(Bool, Always)) -> Unit:
-  descend(Unit, const, lambda a. lambda b. lambda r. <_> (), q)
-def main() -> Unit:
-  toUnit(Q/eq(Bool, Always, True, False, ()) @ i1)
+
+def eq_endpoints(A: Set, R: A -> A -> Set, a: A, b: A, r: R(a, b)) -> Path(Quotient(A, R), @eq{a, b, r} @ i0, @cl{a}):
+  <_> @cl{a}
+
+def main() -> Nat:
+  0n

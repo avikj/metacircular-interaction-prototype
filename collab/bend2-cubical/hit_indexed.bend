@@ -1,55 +1,58 @@
-# INDEXED families, the shape of the corpus's Agda (`RankedPath : State ->
-# State -> Type`, `Gen S a`, `Thread i j`): a hit with parameters AND indices,
-# constructors declaring their own targets, path-typed fields, and even a
-# constructor with an INTERVAL field whose target index depends on it (the
-# corpus's `genB : (i : I) → ... → Gen S (bin i a b)`).
+# INDEXED families in the corpus's shape (RankedPath : State -> State -> Type,
+# Gen S a), on the schema through index-equation fields: a constructor whose
+# target index is e carries a field Path(Ix, idx, e).  Here: reachability in a
+# state space with path-typed step fields, and a Gen with an INTERVAL-argument
+# constructor whose target index moves along a universe path (the corpus's
+# genB : (i : I) -> ... -> Gen S (bin i a b)).
 def Not(b: Bool) -> Bool:
-  match b:
-    case False: True
-    case True: False
+  if b:
+    False
+  else:
+    True
+def notInv(b: Bool) -> Path(Bool, Not(Not(b)), b):
+  if b:
+    <_> True
+  else:
+    <_> False
 def notPath() -> Path(Set, Bool, Bool):
-  ua(Bool, Bool, Not, Not, lambda b. match b: case False: <_> False case True: <_> True, lambda b. match b: case False: <_> False case True: <_> True)
-# reachability in a state space: paths of steps between states
-hit Reach<S: Set, step: S -> S -> Set>(s: S, t: S):
-  case @refl(s: S) -> Reach(S, step, s, s)
-  case @cons(s: S, m: S, t: S, e: step(s, m), r: Reach(S, step, m, t)) -> Reach(S, step, s, t)
+  ua(Bool, Bool, lambda x. Not(x), lambda x. Not(x), lambda x. notInv(x), lambda x. notInv(x))
+
+type Reach(S: Set, step: S -> S -> Set, s: S, t: S):
+  case @refl:
+    e: Path(S, s, t)
+  case @cons:
+    m: S
+    st: step(s, m)
+    r: Reach(S, step, m, t)
 
 def Step(a: Bool, b: Bool) -> Set:
   Path(Bool, Not(a), b)
 def flipTwice() -> Reach(Bool, Step, True, True):
-  Reach/cons(Bool, Step, True, False, True, <_> False, Reach/cons(Bool, Step, False, True, True, <_> True, Reach/refl(Bool, Step, True)))
-# length by the eliminator: the motive is indexed
+  @cons{False, <_> False, @cons{True, <_> True, @refl{<_> True}}}
 def len(s: Bool, t: Bool, r: Reach(Bool, Step, s, t)) -> Nat:
-  Reach/elim(Bool, Step, lambda s. lambda t. lambda _. Nat, s, t, r, lambda s. 0n, lambda s. lambda m. lambda t. lambda e. lambda r. 1n+len(m, t, r))
+  match r:
+    case @refl{e}: 0n
+    case @cons{m, st, r2}: 1n+len(m, t, r2)
 def len_flipTwice() -> Path(Nat, len(True, True, flipTwice()), 2n):
   <_> 2n
-# the DEPENDENT eliminator over an indexed family: every reach from s to t
-# yields a path of booleans (Step is a path, so this is the induction that
-# composes them — here into Bool's own equality via the motive)
-def endpoints(s: Bool, t: Bool, r: Reach(Bool, Step, s, t)) -> Reach(Bool, Step, s, t):
-  Reach/elim(Bool, Step, lambda s. lambda t. lambda _. Reach(Bool, Step, s, t), s, t, r, lambda s. Reach/refl(Bool, Step, s), lambda s. lambda m. lambda t. lambda e. lambda r. Reach/cons(Bool, Step, s, m, t, e, endpoints(m, t, r)))
-def endpoints_id() -> Path(Reach(Bool, Step, True, True), endpoints(True, True, flipTwice()), flipTwice()):
-  <_> flipTwice()
 
-# an indexed HIT with an INTERVAL-argument constructor whose target index
-# moves along a path in the universe (the corpus's `genB : (i : I) -> ... ->
-# Gen S (bin i a b)`): Gen(A) is indexed by the Set A, and genB(i, l, r)
-# lives over notPath() @ i, which is Bool at both ends.
-hit Gen(A: Set):
-  case @leaf(A: Set, x: A) -> Gen(A)
-  case @genB(i: Interval, l: Gen(Bool), r: Gen(Bool)) -> Gen(notPath() @ i)
-  path @sym(A: Set, x: A): Path(Gen(A), Gen/leaf(A, x), Gen/leaf(A, x))
-# at i0 the index is Bool, definitionally, so the cell lives in Gen(Bool)
+type Gen(A: Set):
+  case @gleaf:
+    x: A
+  case @genB:
+    i: Interval
+    l: Gen(Bool)
+    r: Gen(Bool)
+    e: Path(Set, notPath() @ i, A)
+  path @gsym(x: A): Path(Gen(A), @gleaf{x}, @gleaf{x})
+# at i0 the moving index is Bool, so the cell lives in Gen(Bool) by refl
 def genB_index(x: Bool, y: Bool) -> Gen(Bool):
-  Gen/genB(i0, Gen/leaf(Bool, x), Gen/leaf(Bool, y))
-# a cell at a symbolic i lives over the moving index
-def genB_moving(x: Bool, y: Bool, i: Interval) -> Gen(notPath() @ i):
-  Gen/genB(i, Gen/leaf(Bool, x), Gen/leaf(Bool, y))
+  @genB{i0, @gleaf{x}, @gleaf{y}, <_> Bool}
 def count(A: Set, g: Gen(A)) -> Nat:
-  Gen/elim(lambda A. lambda _. Nat, A, g, lambda A. lambda x. 1n, lambda i. lambda l. lambda r. 1n+count(Bool, l), lambda A. lambda x. <_> 1n)
-def count_sym(x: Bool, i: Interval) -> Path(Nat, count(Bool, Gen/sym(Bool, x) @ i), 1n):
+  hrec(g) { @gleaf: lambda x. 1n ; @genB: lambda i. lambda l. lambda r. lambda e. 1n+count(Bool, l) ; @gsym: lambda x. <_> 1n }
+def count_sym(x: Bool, i: Interval) -> Path(Nat, count(Bool, @gsym{x} @ i), 1n):
   <_> 1n
-def count_genB(x: Bool, y: Bool, i: Interval) -> Path(Nat, count(notPath() @ i, Gen/genB(i, Gen/leaf(Bool, x), Gen/leaf(Bool, y))), 2n):
+def count_genB(x: Bool, y: Bool) -> Path(Nat, count(Bool, genB_index(x, y)), 2n):
   <_> 2n
 def main() -> Nat:
   len(True, True, flipTwice())

@@ -1741,47 +1741,19 @@ index 0000000..1f794bf
 +def wrongCentre(x: Nat, s: Answers(Nat, BoolQ, openStep, x)) -> Path(Answers(Nat, BoolQ, openStep, x), mute(Nat, BoolQ, openStep, lambda x. (True, lambda b. <_> True), x), s):
 +  <i> s
 diff --git a/src/Core/Adjust.hs b/src/Core/Adjust.hs
-index 7453955..4a59057 100644
+index 7453955..d2feb5d 100644
 --- a/src/Core/Adjust.hs
 +++ b/src/Core/Adjust.hs
-@@ -20,7 +20,35 @@ adjust :: Book -> Term -> Term
+@@ -20,7 +20,7 @@ adjust :: Book -> Term -> Term
  adjust book term =
    -- trace (">> parsed: " ++ show ret) $
    ret
 -  where ret = bind (unfrk 0 (unpat 0 (flatten 0 book term)))
-+  where ret = elimSugar book (bind (unfrk 0 (unpat 0 (flatten 0 book term))))
-+
-+-- | `Name/elim(params, P, indices, x, branches)` is SYNTAX for the
-+-- eliminator of a declared HIT, resolved here into the primitive `HEl` (a
-+-- partial application is η-expanded).  It is not a definition: its type
-+-- would mention the eliminator applied to the very branches being typed,
-+-- which no Π-telescope can express — so the checker types each use
-+-- directly (Check.hitBranchType), with every branch in hand.
-+elimSugar :: Book -> Term -> Term
-+elimSugar book = go where
-+  go t = case collectApps t [] of
-+    (h, args) | Ref k <- cut h, Just (n, sig) <- elimOf k ->
-+      let need  = hsArity sig + 1 + hsNIdx sig + 1 + length (hsCtors sig)
-+          args' = map go args
-+      in if length args' >= need
-+           then foldl App (build n sig (take need args')) (drop need args')
-+           else eta n sig args' (need - length args')
-+    _ -> mapSub go t
-+  elimOf k = case [ (n, sig) | (n, sig) <- M.toList (bookHits book), k == hitElimName n ] of
-+    (r : _) -> Just r
-+    []      -> Nothing
-+  build n sig as =
-+    let (ps, r1)  = splitAt (hsArity sig) as
-+        (p, r2)   = (head r1, tail r1)
-+        (ix, r3)  = splitAt (hsNIdx sig) r2
-+        (x, brs)  = (head r3, tail r3)
-+    in HEl n ps p ix x (zip (map hcTag (hsCtors sig)) brs)
-+  eta n sig as 0 = build n sig as
-+  eta n sig as m = Lam ("elim/arg" ++ show m) (\v -> eta n sig (as ++ [v]) (m - 1))
++  where ret = bind (unfrk 0 (unpat 0 (flatten 0 book (hitify book term))))
  
  -- The state for the adjustment process. It holds:
  -- 1. The book of already-adjusted definitions.
-@@ -33,9 +61,14 @@ type AdjustState = (Book, S.Set Name)
+@@ -33,9 +33,12 @@ type AdjustState = (Book, S.Set Name)
  -- all definitions it depends on have already been adjusted.
  -- This is crucial for functions like `flatten` which may look up references.
  adjustBook :: Book -> Book
@@ -1789,16 +1761,14 @@ index 7453955..4a59057 100644
 +adjustBook book@(Book defs hits) =
    -- The final adjusted book is extracted from the state after processing all definitions.
 -  fst $ execState (mapM_ (adjustDef S.empty) (M.keys defs)) (Book M.empty, S.empty)
-+  -- HIT signatures are adjusted (bound) against the finished book, so the
-+  -- constructor and type references inside their telescopes resolve.
 +  let Book adjDefs _ = fst $ execState (mapM_ (adjustDef S.empty) (M.keys defs)) (Book M.empty hits, S.empty)
-+      adjBook0 = Book adjDefs hits
-+      adjHits  = M.map (adjustHit adjBook0) hits
++      adjBook = Book adjDefs hits
++      adjHits = M.map (adjustHit adjBook) hits
 +  in Book adjDefs adjHits
    where
      -- | The recursive worker function that adjusts a single definition.
      -- It takes a set of names currently in the recursion stack to detect cycles.
-@@ -71,8 +104,16 @@ adjustBook book@(Book defs) =
+@@ -71,8 +74,28 @@ adjustBook book@(Book defs) =
  
              -- 4. Update the state with the newly adjusted definition.
              -- The name is added to the `adjustedSet` to mark it as complete.
@@ -1808,15 +1778,27 @@ index 7453955..4a59057 100644
                    newDoneSet = S.insert name doneSet
 -              in (Book newAdjMap, newDoneSet)
 +              in (Book newAdjMap hs, newDoneSet)
-+
  
-+-- | Adjust a HIT signature: its type and every constructor telescope are
-+-- ordinary terms produced by the parser, and need the same binding pass.
-+adjustHit :: Book -> HitSig -> HitSig
-+adjustHit book sig = sig
-+  { hsType  = adjust book (hsType sig)
-+  , hsCtors = [ c { hcTele = adjust book (hcTele c) } | c <- hsCtors sig ]
-+  }
++
++-- | Adjusts the constructor signatures of a HIT declaration (they are terms
++-- like any other: pattern matches flattened, names bound).
++adjustHit :: Book -> HitDecl -> HitDecl
++adjustHit book h = h
++  { hitType  = adjust book (hitType h)
++  , hitCtors = [ (c, k { ctorType = adjust book (ctorType k) }) | (c, k) <- hitCtors h ] }
++
++-- | `@c{a, b}` parses as the enum-tagged tuple (&c, (a, (b, ()))). When `c`
++-- is a constructor of a declared HIT, it is that constructor instead; the
++-- parameters are left empty and recovered from the goal by the checker.
++hitify :: Book -> Term -> Term
++hitify book = go where
++  go x = case x of
++    Tup (Sym c) rest | Just (t, _, _) <- derefCtor book c, Just args <- ctorArgs rest ->
++      HCon t c [] (map go args) []
++    _ -> mapSub go x
++  ctorArgs One       = Just []
++  ctorArgs (Tup a r) = (a :) <$> ctorArgs r
++  ctorArgs _         = Nothing
 diff --git a/src/Core/Analysis.hs b/src/Core/Analysis.hs
 new file mode 100644
 index 0000000..fbf31d3
@@ -2074,7 +2056,7 @@ index 0000000..fbf31d3
 +      isSet Set       = True
 +      isSet _         = False
 diff --git a/src/Core/Bind.hs b/src/Core/Bind.hs
-index 939a19f..a14f0fc 100644
+index 939a19f..d318a1f 100644
 --- a/src/Core/Bind.hs
 +++ b/src/Core/Bind.hs
 @@ -55,6 +55,45 @@ binder lv term ctx vars = case term of
@@ -2116,15 +2098,15 @@ index 939a19f..a14f0fc 100644
 +  QEq a b r -> QEq (binder lv a ctx vars) (binder lv b ctx vars) (binder lv r ctx vars)
 +  QSq -> QSq
 +  QRec x s f r -> QRec (binder lv x ctx vars) (binder lv s ctx vars) (binder lv f ctx vars) (binder lv r ctx vars)
-+  HTy n ps -> HTy n (map (\t -> binder lv t ctx vars) ps)
-+  HPt n ps c fs -> HPt n (map (\t -> binder lv t ctx vars) ps) c (map (\t -> binder lv t ctx vars) fs)
-+  HPa n ps c fs -> HPa n (map (\t -> binder lv t ctx vars) ps) c (map (\t -> binder lv t ctx vars) fs)
-+  HEl n ps p ix x bs -> HEl n (map (\t -> binder lv t ctx vars) ps) (binder lv p ctx vars) (map (\t -> binder lv t ctx vars) ix) (binder lv x ctx vars) [ (c, binder lv b ctx vars) | (c,b) <- bs ]
++  HTy t ps -> HTy t (map (\p -> binder lv p ctx vars) ps)
++  HCon t c ps as ivs -> HCon t c (map (\p -> binder lv p ctx vars) ps) (map (\a -> binder lv a ctx vars) as) (map (\i -> binder lv i ctx vars) ivs)
++  HEl p bs x -> HEl (binder lv p ctx vars) [ (c, binder lv b ctx vars) | (c,b) <- bs ] (binder lv x ctx vars)
++  HRec bs x -> HRec [ (c, binder lv b ctx vars) | (c,b) <- bs ] (binder lv x ctx vars)
    Era        -> Era
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..4f299c6 100644
+index f94d1ce..b1a3b67 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,10 @@ module Core.CLI
@@ -2138,9 +2120,17 @@ index f94d1ce..4f299c6 100644
    , listDependencies
    ) where
  
-@@ -23,11 +27,15 @@ import Core.Collapse
+@@ -18,36 +22,81 @@ import System.Exit (ExitCode(..))
+ import Control.Exception (catch, IOException)
+ 
+ import Core.Bind
++import Core.Adjust (hitify)
+ import Core.Check
+ import Core.Collapse
  import Core.Deps
- import Core.Import (autoImport)
+-import Core.Import (autoImport)
++import Core.Import (autoImport, mergeBooks)
++import System.Directory (doesFileExist)
  import Core.Parse.Book (doParseBook)
 +import Core.Analysis
 +import qualified Target.HVM4Full as HVM4Full
@@ -2152,18 +2142,75 @@ index f94d1ce..4f299c6 100644
  import qualified Target.HVM as HVM
 +import qualified Target.HVM4 as HVM4
  
- -- | Parse a Bend file into a Book
+--- | Parse a Bend file into a Book
++-- | Parse a Bend file into a Book. A line `import Path/To/File` (no alias)
++-- loads that file's definitions, unqualified, first from the importing
++-- file's directory and then from the working directory — a module, so a
++-- library file can be shared by many files instead of one file per name.
  parseFile :: FilePath -> IO Book
-@@ -46,7 +54,7 @@ parseFile file = do
+ parseFile file = do
++  book <- loadFile S.empty file
++  autoImport (takeDirectory file) book
++  where
++    takeDirectory path = reverse . dropWhile (/= '/') . reverse $ path
++
++loadFile :: S.Set FilePath -> FilePath -> IO Book
++loadFile visited file = do
+   content <- readFile file
+-  case doParseBook file content of
++  let (loads, content') = splitLoads content
++      dir = reverse . dropWhile (/= '/') . reverse $ file
++  case doParseBook file content' of
+     Left err -> do
+       putStrLn $ err
+       exitFailure
+     Right book -> do
+-      -- Auto-import unbound references
+-      autoImportedBook <- autoImport (takeDirectory file) book
+-      return autoImportedBook
++      deps <- mapM (loadDep dir) loads
++      -- constructors of HITs declared in an imported module are only
++      -- recognisable once the modules are merged: convert them now
++      let merged = foldl mergeBooks book deps
++      return (rehitify merged)
+   where
+-    takeDirectory path = reverse . dropWhile (/= '/') . reverse $ path
++    visited' = S.insert file visited
++    loadDep dir p = do
++      let local = dir ++ p ++ ".bend"
++          cwd   = p ++ ".bend"
++      lExists <- doesFileExist local
++      let path = if lExists then local else cwd
++      if path `S.member` visited' then return (Book M.empty M.empty) else do
++        exists <- doesFileExist path
++        if not exists
++          then do putStrLn ("import: file not found: " ++ path); exitFailure
++          else loadFile visited' path
++
++rehitify :: Book -> Book
++rehitify book@(Book defs hits) = Book (M.map (\(i, t, ty) -> (i, hitify book t, hitify book ty)) defs) hits
++
++-- an `import X` line without `as` is a module load; it is blanked (line
++-- numbers preserved) so the parser only sees aliased imports
++splitLoads :: String -> ([String], String)
++splitLoads src = (concatMap fst ls, unlines (map snd ls))
++  where
++    ls = map one (lines src)
++    one l = case words l of
++      ["import", p] -> ([p], "")
++      _             -> ([], l)
  
  -- | Type-check all definitions in a book
  checkDefinitions :: Book -> IO ()
 -checkDefinitions book@(Book defs) = do
-+checkDefinitions book@(Book defs _) = do
++checkDefinitions book@(Book defs hits) = do
++  okHits  <- checkHits book (M.toList hits)
    success <- checkAll book (M.toList defs)
++  unless okHits exitFailure
    unless success exitFailure
    where
-@@ -59,7 +67,7 @@ checkDefinitions book@(Book defs) = do
+     checkDef book term typ = do
+@@ -59,7 +108,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2172,7 +2219,33 @@ index f94d1ce..4f299c6 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -80,7 +88,7 @@ runMain book = do
+@@ -67,6 +116,25 @@ checkDefinitions book@(Book defs) = do
+           _ <- checkAll bBook rest
+           return False
+ 
++-- | Check every HIT declaration: the parameter telescope is a type, and each
++-- constructor's closed Pi-type is a type (which checks its fields and, for a
++-- path constructor, that its endpoints inhabit the HIT).
++checkHits :: Book -> [(Name, HitDecl)] -> IO Bool
++checkHits _ [] = return True
++checkHits book ((name, h) : rest) = do
++  let r = do
++        check 0 noSpan book (Ctx []) (hitType h) Set
++        mapM_ (\(_, k) -> check 0 noSpan book (Ctx []) (ctorType k) Set) (hitCtors h)
++  case r of
++    Done () -> do
++      putStrLn $ "\x1b[32m✓ " ++ name ++ "\x1b[0m [HIT: " ++ unwords [ "@" ++ c ++ (if ctorDim k > 0 then "/" ++ show (ctorDim k) else "") | (c, k) <- hitCtors h ] ++ "]"
++      checkHits book rest
++    Fail e -> do
++      putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
++      putStrLn $ show e
++      _ <- checkHits book rest
++      return False
++
+ -- | Run the main function from a book
+ runMain :: Book -> IO ()
+ runMain book = do
+@@ -80,7 +148,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2181,7 +2254,7 @@ index f94d1ce..4f299c6 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -123,6 +131,18 @@ processFileToHVM file = do
+@@ -123,6 +191,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2200,7 +2273,7 @@ index f94d1ce..4f299c6 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +155,29 @@ listDependencies file = do
+@@ -135,7 +215,29 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name
@@ -2232,7 +2305,7 @@ index f94d1ce..4f299c6 100644
 +  book <- parseFile file
 +  putStrLn (HVM4Full.compileFull book)
 diff --git a/src/Core/Check.hs b/src/Core/Check.hs
-index cdd6756..67c4f91 100644
+index cdd6756..40fc69f 100644
 --- a/src/Core/Check.hs
 +++ b/src/Core/Check.hs
 @@ -11,6 +11,7 @@ import Debug.Trace
@@ -2261,7 +2334,22 @@ index cdd6756..67c4f91 100644
    -- trace ("- infer: " ++ show (format d book term)) $
    case term of
      Var _ i -> do
-@@ -127,6 +128,250 @@ infer d span book@(Book defs) ctx term =
+@@ -52,6 +53,14 @@ infer d span book@(Book defs) ctx term =
+       infer d span book ctx (App f v)
+     Fix k f -> do
+       Fail $ CantInfer span (formatCtx d book ctx)
++    -- `@c{as}::T(ps)` on a constructor of a parametric HIT supplies the
++    -- parameters (the annotation names the HIT, not the constructor's type)
++    Chk v t | HCon tn c [] as ivs <- cut v, Just (tn', h, _) <- derefCtor book c, tn' == tn, hitArity h > 0 ->
++      case force book t of
++        HTy tn'' ps | tn'' == tn -> infer d span book ctx (HCon tn c ps as ivs)
++        _ -> do
++          check d span book ctx v t
++          Done t
+     Chk v t -> do
+       check d span book ctx v t
+       Done t
+@@ -127,6 +136,209 @@ infer d span book@(Book defs) ctx term =
        Done Set
      Lam _ _ -> do
        Fail $ CantInfer span (formatCtx d book ctx)
@@ -2363,47 +2451,6 @@ index cdd6756..67c4f91 100644
 +          Done bT
 +        fT' -> Fail $ TypeMismatch span (formatCtx d book ctx)
 +                        (format d book (All Set (Lam "_" (\_ -> Set)))) (format d book fT')
-+    -- Declared higher inductive types (the `hit` schema).  Every form is
-+    -- inferable, because the parameters are explicit arguments.
-+    -- Name(params, indices): the arguments against the HIT's own telescope
-+    HTy n as -> do
-+      sig <- hitSig d span book ctx n
-+      checkTele d span book ctx (hsType sig) as
-+    -- Name/tag(params, fields): the parameters against the HIT's telescope,
-+    -- the fields against the constructor's; the result is the telescope's END
-+    HPt n ps c fs -> do
-+      (sig, ctor) <- hitSigCtor d span book ctx n c
-+      if hcIsPath ctor then Fail $ CantInfer span (formatCtx d book ctx) else Done ()
-+      _ <- checkTele d span book ctx (hsType sig) ps
-+      checkTele d span book ctx (foldl App (hcTele ctor) ps) fs
-+    -- a path constructor's END must be an iterated path type OVER THE HIT
-+    HPa n ps c fs -> do
-+      (sig, ctor) <- hitSigCtor d span book ctx n c
-+      if hcIsPath ctor then Done () else Fail $ CantInfer span (formatCtx d book ctx)
-+      _ <- checkTele d span book ctx (hsType sig) ps
-+      end <- checkTele d span book ctx (foldl App (hcTele ctor) ps) fs
-+      if hitPathTypeOver d book n end then Done end
-+        else Fail $ TypeMismatch span (formatCtx d book ctx)
-+               (format d book (Pth (Lam "_" (\_ -> HTy n ps)) (Var "_" 0) (Var "_" 0))) (format d book end)
-+    -- Name/elim(params, P, indices, x, branches) : P(indices, x), with
-+    -- P : Π indices. Name(params, indices) -> Set.  One branch per
-+    -- constructor, none missing, none extra; a point branch takes the fields
-+    -- and lands in P(idx, ctor(fields)); a path branch is the dependent
-+    -- path type over P along the constructor's cell whose faces are the
-+    -- images of the declared faces under the eliminator (hitBranchType).
-+    HEl n ps p ix x bs -> do
-+      sig <- hitSig d span book ctx n
-+      ixTele <- checkTele d span book ctx (hsType sig) ps
-+      check d span book ctx p (hitMotiveType book n ps ixTele (hsNIdx sig))
-+      _ <- checkTele d span book ctx ixTele ix
-+      check d span book ctx x (HTy n (ps ++ ix))
-+      mapM_ (\ctor -> case lookup (hcTag ctor) bs of
-+        Nothing -> Fail $ IncompleteMatch span (formatCtx d book ctx)
-+        Just b  -> check d span book ctx b (hitBranchType book n ps p bs ctor)) (hsCtors sig)
-+      mapM_ (\(c, _) -> case hitCtor sig c of
-+        Just _  -> Done ()
-+        Nothing -> Fail $ CantInfer span (formatCtx d book ctx)) bs
-+      Done (App (foldl App p ix) x)
 +    -- The circle S1 and its constructors
 +    Cir   -> Done Set
 +    CBase -> Done Cir
@@ -2512,7 +2559,7 @@ index cdd6756..67c4f91 100644
      App f x ->
        case f of
          Lam k body -> do
-@@ -189,6 +434,12 @@ infer d span book@(Book defs) ctx term =
+@@ -189,6 +401,42 @@ infer d span book@(Book defs) ctx term =
      Log s x -> do
        check d span book ctx s (Lst (Num CHR_T))
        infer d span book ctx x
@@ -2522,17 +2569,48 @@ index cdd6756..67c4f91 100644
 +    QEq _ _ _ -> Fail $ CantInfer span (formatCtx d book ctx)
 +    QSq -> Fail $ CantInfer span (formatCtx d book ctx)
 +    QRec _ _ _ _ -> Fail $ CantInfer span (formatCtx d book ctx)
++    -- General HITs. The type: parameters against the declared telescope.
++    HTy t ps -> case derefHit book t of
++      Nothing -> Fail $ CantInfer span (formatCtx d book ctx)
++      Just h  -> do
++        _ <- applyTele d span book ctx (hitType h) ps
++        Done Set
++    -- A constructor: its closed Pi-type applied to parameters and fields,
++    -- then to the intervals given so far (each peels one Path).
++    HCon t c ps as ivs -> case derefCtor book c of
++      Just (t', h, k) | t' == t && length ps == hitArity h && length as == ctorNArgs k && length ivs <= ctorDim k -> do
++        ty  <- applyTele d span book ctx (ctorType k) (ps ++ as)
++        foldMR (\ty' i -> do
++                  check d span book ctx i Itv
++                  case force book ty' of
++                    Pth l _ _ -> Done (App l i)
++                    _ -> Fail $ CantInfer span (formatCtx d book ctx)) ty ivs
++      _ -> Fail $ CantInfer span (formatCtx d book ctx)
++    -- The dependent eliminator: motive over the HIT, one branch per
++    -- constructor; a path constructor's branch is a PathP over the motive
++    -- whose endpoints are the eliminator on the declared endpoints, so the
++    -- boundary agreement is exactly the typed endpoint law.
++    HEl p bs x -> do
++      xT <- infer d span book ctx x
++      case force book xT of
++        HTy t ps | Just h <- derefHit book t -> do
++          check d span book ctx p (All (HTy t ps) (Lam "_" (\_ -> Set)))
++          checkBranches d span book ctx h t ps p (HEl p bs) bs
++          Done (App p x)
++        xT' -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (HTy "HIT" [])) (format d book xT')
++    HRec _ _ -> Fail $ CantInfer span (formatCtx d book ctx)
      Pat _ _ _ -> do
        error "Pat not supported in infer"
  
-@@ -294,6 +545,15 @@ check d span book ctx term goal =
+@@ -294,6 +542,16 @@ check d span book ctx term goal =
      (Lam k f, All a (Lam _ b)) -> do
        let x = Var k d
        check (d+1) span book (extend ctx k x a) (f x) (b x)
 +    (PLm k f, Pth t a b) -> do
 +      let x = Var k d
 +      check (d+1) span book (extend ctx k x Itv) (f x) (App t x)
-+      let nrm u = epNormCtx d book ctx u
++      -- endpoints headed by a HIT constructor get the parameters from the line
++      let nrm u = epNormCtx d book ctx (fillHit book (App t I0) u)
 +      if equal d book (nrm (f I0)) (nrm a)
 +        then if equal d book (nrm (f I1)) (nrm b)
 +          then Done ()
@@ -2541,7 +2619,7 @@ index cdd6756..67c4f91 100644
      (EmpM x, _) -> do
        xT <- infer d span book ctx x
        case force book xT of
-@@ -402,6 +662,9 @@ check d span book ctx term goal =
+@@ -402,6 +660,9 @@ check d span book ctx term goal =
        if equal d book tr goal
          then Done ()
          else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book tr)
@@ -2551,7 +2629,7 @@ index cdd6756..67c4f91 100644
      (Sup l a b, _) -> do
        check d span book ctx a goal
        check d span book ctx b goal
-@@ -429,17 +692,312 @@ check d span book ctx term goal =
+@@ -429,17 +690,262 @@ check d span book ctx term goal =
                check d span book ctx f $ All xt $ Lam "_" $ \v -> goal
          else do
            verify d span book ctx term goal
@@ -2645,6 +2723,32 @@ index cdd6756..67c4f91 100644
 +    -- squash/ : isSet (A/R) — the set-truncation.  Accepted only when the goal
 +    -- is the isSet Pi shape whose carrier is a quotient (isSet of a quotient is
 +    -- genuinely inhabited by this constructor); never against an arbitrary type.
++    -- a constructor whose parameters were left to the goal: peel the goal's
++    -- Path layers down to the HIT and read them off, then verify
++    (HCon t c [] as ivs, _) | Just (t', h, k) <- derefCtor book c, t' == t, hitArity h > 0 -> do
++      let peel :: Int -> Term -> Maybe Term
++          peel 0 g = Just g
++          peel n g = case force book (epNormCtx d book ctx g) of
++            Pth l _ _ -> peel (n - 1) (App l I0)
++            _         -> Nothing
++      case peel (ctorDim k - length ivs) goal of
++        Just g | HTy t'' ps <- force book g, t'' == t -> verify d span book ctx (HCon t c ps as ivs) goal
++        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (HTy t [])) (format d book goal)
++    (PAp _ _, _) | (HCon t c [] as [], rs) <- collectPAps term [], Just (t', h, k) <- derefCtor book c, t' == t, hitArity h > 0 -> do
++      let peel :: Int -> Term -> Maybe Term
++          peel 0 g = Just g
++          peel n g = case force book (epNormCtx d book ctx g) of
++            Pth l _ _ -> peel (n - 1) (App l I0)
++            _         -> Nothing
++      case peel (ctorDim k - length rs) goal of
++        Just g | HTy t'' ps <- force book g, t'' == t -> verify d span book ctx (foldl PAp (HCon t c ps as []) rs) goal
++        _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (HTy t [])) (format d book goal)
++    -- the recursor: the motive is constant at the goal
++    (HRec bs x, _) -> do
++      xT <- infer d span book ctx x
++      case force book xT of
++        HTy t ps | Just h <- derefHit book t -> checkBranches d span book ctx h t ps (Lam "_" (\_ -> goal)) (HRec bs) bs
++        xT' -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (HTy "HIT" [])) (format d book xT')
 +    (QSq, _) -> case force book (epNormCtx d book ctx goal) of
 +      All x _ | (case force book x of { Quo _ _ -> True; _ -> False }) -> Done ()
 +      _ -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book QSq)
@@ -2667,82 +2771,6 @@ index cdd6756..67c4f91 100644
      (_, _) -> do
        verify d span book ctx term goal
  
-+-- Declared HITs: signature lookup, telescope checking, branch types
-+-- ------------------------------------------------------------------
-+
-+hitSig :: Int -> Span -> Book -> Ctx -> Name -> Result HitSig
-+hitSig d span book ctx n = case derefHit book n of
-+  Just sig -> Done sig
-+  Nothing  -> Fail $ CantInfer span (formatCtx d book ctx)
-+
-+hitSigCtor :: Int -> Span -> Book -> Ctx -> Name -> String -> Result (HitSig, HitCtor)
-+hitSigCtor d span book ctx n c = do
-+  sig <- hitSig d span book ctx n
-+  case hitCtor sig c of
-+    Just ctor -> Done (sig, ctor)
-+    Nothing   -> Fail $ CantInfer span (formatCtx d book ctx)
-+
-+-- | Check a list of arguments against a Π-telescope, returning the telescope
-+-- instantiated at them (its END when the list is exhaustive).
-+checkTele :: Int -> Span -> Book -> Ctx -> Term -> [Term] -> Result Term
-+checkTele d span book ctx tele [] = Done tele
-+checkTele d span book ctx tele (a : as) = case force book tele of
-+  All aT b -> do
-+    check d span book ctx a aT
-+    checkTele d span book ctx (App b a) as
-+  t' -> Fail $ TypeMismatch span (formatCtx d book ctx)
-+          (format d book (All (Var "_" 0) (Lam "_" (\_ -> Var "_" 0)))) (format d book t')
-+
-+-- | The motive of the eliminator: Π indices. Name(params, indices) -> Set,
-+-- the index telescope read off the HIT's own type applied to the parameters.
-+hitMotiveType :: Book -> Name -> [Term] -> Term -> Int -> Term
-+hitMotiveType book n as _ 0 = All (HTy n as) (Lam "_" (\_ -> Set))
-+hitMotiveType book n as tele k = case force book tele of
-+  All a b -> All a (Lam (binderName b) (\v -> hitMotiveType book n (as ++ [v]) (App b v) (k - 1)))
-+  t'      -> t'
-+  where binderName b = case b of { Lam k _ -> k ; _ -> "i" }
-+
-+-- | Is this (the END of a path constructor's telescope) an iterated path
-+-- type over the HIT?  Walked with a fresh variable per dimension.
-+hitPathTypeOver :: Int -> Book -> Name -> Term -> Bool
-+hitPathTypeOver d book n t = case force book t of
-+  Pth l _ _ -> hitPathTypeOver (d + 1) book n (App l (Var "_dim" d))
-+  HTy n' _  -> n' == n
-+  _         -> False
-+
-+-- | The type of the eliminator's branch for one constructor, at these
-+-- parameters, motive and branches — the type of the IMAGE of the
-+-- constructor's cell under the eliminator:
-+--     Π fields. P(idx, ctor(fields))                                   (point)
-+--     Π fields. Br(T, ctor(fields))                                    (path)
-+-- where, for a cell e of an iterated path type T over the HIT,
-+--     Br(Name(ps, idx), e) = P(idx, e)
-+--     Br(PathP(L, a, b), e) = PathP(λi. Br(L i, e @ i), ⟦a⟧, ⟦b⟧)
-+-- and ⟦t⟧, the image of a face t : L(ε), is the eliminator itself on t —
-+-- pointwise (<j> ⟦t @ j⟧) when t is a path.  Faces may be ANY terms of the
-+-- HIT: the eliminator computes on constructors, cells and hcomps, and
-+-- recursion is by named definitions (Agda's pattern matching), so no
-+-- constructor-term restriction is needed.
-+hitBranchType :: Book -> Name -> [Term] -> Term -> [(String, Term)] -> HitCtor -> Term
-+hitBranchType book n ps p bs ctor = fields [] (foldl App (hcTele ctor) ps) (hcArity ctor)
-+  where
-+    arity = length ps
-+    fields fs tele 0 = br (force book tele) (ctorVal fs)
-+    fields fs tele k = case force book tele of
-+      All a b -> All a (Lam (binderName b) (\v -> fields (fs ++ [v]) (App b v) (k - 1)))
-+      t'      -> t'
-+    ctorVal fs = (if hcIsPath ctor then HPa else HPt) n ps (hcTag ctor) fs
-+    br t e = case t of
-+      Pth l a b -> Pth (Lam "i" (\i -> br (force book (App l i)) (PAp e i)))
-+                       (img (force book (App l I0)) a) (img (force book (App l I1)) b)
-+      HTy _ as  -> App (foldl App p (drop arity as)) e
-+      t'        -> t'
-+    img t e = case t of
-+      Pth l _ _ -> PLm "j" (\j -> img (force book (App l j)) (PAp e j))
-+      HTy _ as  -> HEl n ps p (drop arity as) e bs
-+      _         -> e
-+    binderName b = case b of { Lam k _ -> k ; _ -> "f" }
-+
 +-- Reduce endpoint applications (p @ i0, p @ i1) of path-typed context
 +-- variables to their endpoints. This provides the definitional boundary
 +-- equations that untyped conversion cannot see on neutral paths.
@@ -2865,7 +2893,7 @@ index cdd6756..67c4f91 100644
      then Done ()
      else Fail $ TypeMismatch span (formatCtx d book ctx) (format d book goal) (format d book t)
  
-@@ -448,7 +1006,7 @@ verify d span book ctx term goal = do
+@@ -448,7 +954,7 @@ verify d span book ctx term goal = do
  
  -- Check all definitions in a Book
  checkBook :: Book -> Result ()
@@ -2874,7 +2902,7 @@ index cdd6756..67c4f91 100644
    where
      checkDef (name, (_, term, typ)) = do
        check 0 noSpan book (Ctx []) term typ
-@@ -468,3 +1026,53 @@ isLamApp (cut -> EnuM _ _ _) = True
+@@ -468,3 +974,122 @@ isLamApp (cut -> EnuM _ _ _) = True
  isLamApp (cut -> SigM _ _)   = True
  isLamApp (cut -> EqlM _ _)   = True
  isLamApp _                   = False
@@ -2917,7 +2945,8 @@ index cdd6756..67c4f91 100644
 +-- | Substitute a literal for an interval VARIABLE, syntactically.  The
 +-- variable is a binder of the current context, so it can only occur
 +-- syntactically; the semantic `rewrite` (whnf then recurse) would unfold a
-+-- recursive definition stuck on another variable at every level, forever.
++-- recursive definition stuck on another variable at every level, forever
++-- (an hcomp whose tube mentions a recursive definition never checked).
 +substVar :: Term -> Term -> Term -> Term
 +substVar (Var k i) e = go where
 +  go t = case t of
@@ -2928,11 +2957,79 @@ index cdd6756..67c4f91 100644
 +facePairs :: [a] -> [(a, a)]
 +facePairs []       = []
 +facePairs (x : xs) = [ (x, y) | y <- xs ] ++ facePairs xs
++
++
++-- General HITs
++-- ============
++
++foldMR :: (a -> b -> Result a) -> a -> [b] -> Result a
++foldMR _ z []       = Done z
++foldMR f z (x : xs) = f z x >>= \z' -> foldMR f z' xs
++
++-- Apply a closed Pi-telescope to arguments, checking each against its
++-- domain; returns the remaining type.
++applyTele :: Int -> Span -> Book -> Ctx -> Term -> [Term] -> Result Term
++applyTele d span book ctx = foldMR step where
++  step ty x = case force book ty of
++    All a b -> do
++      check d span book ctx x a
++      Done (appCod b x)
++    ty' -> Fail $ TypeMismatch span (formatCtx d book ctx) (format d book (All (Var "_" 0) (Lam "_" (\_ -> Var "_" 0)))) (format d book ty')
++
++-- Every declared constructor needs exactly one branch, of the type obtained
++-- by mapping the motive through the constructor's Pi-type:
++--   point  c : fields -> T          branch : fields -> P (c fields)
++--   path   c : fields -> Path T a b  branch : fields -> PathP (i. P (c fields @ i)) (E a) (E b)
++-- nested for higher dimensions, where E is this very eliminator (so a
++-- branch may call its own definition on the endpoints and still convert).
++checkBranches :: Int -> Span -> Book -> Ctx -> HitDecl -> Name -> [Term] -> Term -> (Term -> Term) -> [(Name, Term)] -> Result ()
++checkBranches d span book ctx h t ps p elimTm bs = do
++  mapM_ one (hitCtors h)
++  mapM_ (\(c, _) -> if c `elem` map fst (hitCtors h) then Done () else Fail $ CantInfer span (formatCtx d book ctx)) bs
++  where
++    one (c, k) = case lookup c bs of
++      Nothing -> Fail $ IncompleteMatch span (formatCtx d book ctx)
++      Just b  -> do
++        sigPs <- applyTele d span book ctx (ctorType k) ps
++        check d span book ctx b (branchTy sigPs (ctorNArgs k) [])
++        where
++          branchTy ty 0 acc = etype ty (HCon t c ps acc [])
++          branchTy ty n acc = case force book ty of
++            All a bf -> All a (Lam "f" (\v -> branchTy (appCod bf v) (n - 1) (acc ++ [v])))
++            ty'      -> ty'
++    -- the type of E applied to u : ty
++    etype ty u = case force book ty of
++      Pth l a b -> Pth (Lam "i" (\i -> etype (App l i) (PAp u i))) (eterm (App l I0) a) (eterm (App l I1) b)
++      _         -> App p u
++    -- E applied to u : ty, as a term
++    eterm ty u = case force book ty of
++      Pth l _ _ -> PLm "j" (\j -> eterm (App l j) (PAp u j))
++      _         -> elimTm u
++
++-- a chain of path applications, head first
++collectPAps :: Term -> [Term] -> (Term, [Term])
++collectPAps (cut -> PAp p r) rs = collectPAps p (r : rs)
++collectPAps p rs = (cut p, rs)
++
++-- Fill the parameters of a constructor-headed term (possibly under path
++-- applications) from a known type of that term.
++fillHit :: Book -> Term -> Term -> Term
++fillHit book ty u = case collectPAps u [] of
++  (HCon t c [] as [], rs) | Just (_, h, k) <- derefCtor book c, hitArity h > 0 ->
++    let peel :: Int -> Term -> Maybe Term
++        peel 0 g = Just g
++        peel n g = case force book g of
++          Pth l _ _ -> peel (n - 1) (App l I0)
++          _         -> Nothing
++    in case peel (ctorDim k - length rs) ty of
++         Just g | HTy t' ps <- force book g, t' == t -> foldl PAp (HCon t c ps as []) rs
++         _ -> u
++  _ -> u
 diff --git a/src/Core/Collapse.hs b/src/Core/Collapse.hs
-index 55a8af6..556cf03 100644
+index 55a8af6..0f278f2 100644
 --- a/src/Core/Collapse.hs
 +++ b/src/Core/Collapse.hs
-@@ -267,6 +267,64 @@ collapse dep book term = case term of
+@@ -267,6 +267,62 @@ collapse dep book term = case term of
    -- Primitive
    Pri p       -> return $ Pri p
  
@@ -2987,30 +3084,29 @@ index 55a8af6..556cf03 100644
 +  QSq         -> return QSq
 +  QRec x t f r -> QRec <$> collapse dep book x <*> collapse dep book t
 +                       <*> collapse dep book f <*> collapse dep book r
-+  -- General HITs
-+  HTy n ps    -> HTy n <$> mapM (collapse dep book) ps
-+  HPt n ps c fs -> HPt n <$> mapM (collapse dep book) ps <*> pure c <*> mapM (collapse dep book) fs
-+  HPa n ps c fs -> HPa n <$> mapM (collapse dep book) ps <*> pure c <*> mapM (collapse dep book) fs
-+  HEl n ps p ix x bs -> HEl n <$> mapM (collapse dep book) ps <*> collapse dep book p <*> mapM (collapse dep book) ix
-+                              <*> collapse dep book x <*> mapM (\(c,b) -> (,) c <$> collapse dep book b) bs
++  HTy t ps -> HTy t <$> mapM (collapse dep book) ps
++  HCon t c ps as ivs -> HCon t c <$> mapM (collapse dep book) ps <*> mapM (collapse dep book) as <*> mapM (collapse dep book) ivs
++  HEl p bs x -> HEl <$> collapse dep book p <*> mapM (\(c,b) -> (,) c <$> collapse dep book b) bs <*> collapse dep book x
++  HRec bs x -> HRec <$> mapM (\(c,b) -> (,) c <$> collapse dep book b) bs <*> collapse dep book x
 +
    -- Sugars
    Pat ts ms cs -> error "unreachable"
    Frk l a b    -> error "unreachable"
 diff --git a/src/Core/Deps.hs b/src/Core/Deps.hs
-index 99c0709..d7279e4 100644
+index 99c0709..0c92a04 100644
 --- a/src/Core/Deps.hs
 +++ b/src/Core/Deps.hs
-@@ -11,7 +11,7 @@ getDeps :: Term -> S.Set Name
+@@ -11,7 +11,8 @@ getDeps :: Term -> S.Set Name
  getDeps = collectDeps S.empty
  
  getBookDeps :: Book -> S.Set Name
 -getBookDeps (Book defs) = S.unions $ map getDefnDeps (M.toList defs) where
-+getBookDeps (Book defs _) = S.unions $ map getDefnDeps (M.toList defs) where
++getBookDeps (Book defs hits) = S.unions (map getDefnDeps (M.toList defs) ++ map hitDeps (M.elems hits)) where
++  hitDeps h = S.unions (getDeps (hitType h) : [ getDeps (ctorType k) | (_, k) <- hitCtors h ])
    getDefnDeps :: (Name, Defn) -> S.Set Name
    getDefnDeps (name, (_, term, typ)) = S.union (getDeps term) (getDeps typ)
  
-@@ -63,6 +63,45 @@ collectDeps bound term = case term of
+@@ -63,6 +64,45 @@ collectDeps bound term = case term of
    Met _ t ctx -> S.unions (collectDeps bound t : map (collectDeps bound) ctx)
    Ind t       -> collectDeps bound t
    Frz t       -> collectDeps bound t
@@ -3049,15 +3145,15 @@ index 99c0709..d7279e4 100644
 +  QEq a b r -> S.unions [collectDeps bound a, collectDeps bound b, collectDeps bound r]
 +  QSq -> S.empty
 +  QRec x s f r -> S.unions [collectDeps bound x, collectDeps bound s, collectDeps bound f, collectDeps bound r]
-+  HTy _ ps -> S.unions (map (collectDeps bound) ps)
-+  HPt _ ps _ fs -> S.unions (map (collectDeps bound) (ps ++ fs))
-+  HPa _ ps _ fs -> S.unions (map (collectDeps bound) (ps ++ fs))
-+  HEl _ ps p ix x bs -> S.unions (map (collectDeps bound) (ps ++ [p] ++ ix ++ [x] ++ map snd bs))
++  HTy t ps -> S.insert t (S.unions (map (collectDeps bound) ps))
++  HCon t _ ps as ivs -> S.insert t (S.unions (map (collectDeps bound) (ps ++ as ++ ivs)))
++  HEl p bs x -> S.unions (collectDeps bound p : collectDeps bound x : [ collectDeps bound b | (_,b) <- bs ])
++  HRec bs x -> S.unions (collectDeps bound x : [ collectDeps bound b | (_,b) <- bs ])
    Era         -> S.empty
    Sup _ a b   -> S.union (collectDeps bound a) (collectDeps bound b)
    SupM x l f  -> S.unions [collectDeps bound x, collectDeps bound l, collectDeps bound f]
 diff --git a/src/Core/Equal.hs b/src/Core/Equal.hs
-index 9d1ab06..83670b5 100644
+index 9d1ab06..768091a 100644
 --- a/src/Core/Equal.hs
 +++ b/src/Core/Equal.hs
 @@ -20,8 +20,31 @@ equal d book a b = eql 3 d book a b
@@ -3108,7 +3204,7 @@ index 9d1ab06..83670b5 100644
      (App fa xa    , App fb xb    ) -> eql lv d book fa fb && eql lv d book xa xb
      (Eql ta aa ba , Eql tb ab bb ) -> eql lv d book ta tb && eql lv d book aa ab && eql lv d book ba bb
      -- (Eql ta _  _  , b            ) -> eql lv d book ta b
-@@ -77,6 +105,65 @@ cmp lv d book a b =
+@@ -77,6 +105,60 @@ cmp lv d book a b =
      (a            , Loc _ tb     ) -> eql lv d book a tb
      (Rwt _ _ xa   , _            ) -> eql lv d book xa b
      (_            , Rwt _ _ xb   ) -> eql lv d book a xb
@@ -3139,15 +3235,6 @@ index 9d1ab06..83670b5 100644
 +    (TSq xa ya, TSq xb yb) -> eql lv d book xa xb && eql lv d book ya yb
 +    (TRec xa pa fa, TRec xb pb fb) ->
 +      eql lv d book xa xb && eql lv d book pa pb && eql lv d book fa fb
-+    -- general HITs: structural, tag by tag
-+    (HTy na psa, HTy nb psb) -> na == nb && length psa == length psb && and (zipWith (eql lv d book) psa psb)
-+    (HPt na psa ca fsa, HPt nb psb cb fsb) -> na == nb && ca == cb && length psa == length psb && length fsa == length fsb
-+      && and (zipWith (eql lv d book) (psa ++ fsa) (psb ++ fsb))
-+    (HPa na psa ca fsa, HPa nb psb cb fsb) -> na == nb && ca == cb && length psa == length psb && length fsa == length fsb
-+      && and (zipWith (eql lv d book) (psa ++ fsa) (psb ++ fsb))
-+    (HEl na psa pa ixa xa bsa, HEl nb psb pb ixb xb bsb) -> na == nb && length psa == length psb && length ixa == length ixb && length bsa == length bsb
-+      && and (zipWith (eql lv d book) psa psb) && eql lv d book pa pb && and (zipWith (eql lv d book) ixa ixb) && eql lv d book xa xb
-+      && and [ ca == cb && eql lv d book ba bb | ((ca,ba),(cb,bb)) <- zip bsa bsb ]
 +    -- the circle
 +    (Cir, Cir) -> True
 +    (CBase, CBase) -> True
@@ -3171,10 +3258,14 @@ index 9d1ab06..83670b5 100644
 +    (QEq a1 b1 r1, QEq a2 b2 r2) -> eql lv d book a1 a2 && eql lv d book b1 b2 && eql lv d book r1 r2
 +    (QSq, QSq) -> True
 +    (QRec x1 s1 f1 r1, QRec x2 s2 f2 r2) -> eql lv d book x1 x2 && eql lv d book s1 s2 && eql lv d book f1 f2 && eql lv d book r1 r2
++    (HTy t1 p1, HTy t2 p2) -> t1 == t2 && length p1 == length p2 && and (zipWith (eql lv d book) p1 p2)
++    (HCon t1 c1 p1 a1 i1, HCon t2 c2 p2 a2 i2) -> t1 == t2 && c1 == c2 && length a1 == length a2 && length i1 == length i2 && and (zipWith (eql lv d book) (a1 ++ i1) (a2 ++ i2))
++    (HEl p1 b1 x1, HEl p2 b2 x2) -> eql lv d book p1 p2 && eql lv d book x1 x2 && length b1 == length b2 && and [ c1 == c2 && eql lv d book t1 t2 | ((c1,t1),(c2,t2)) <- zip b1 b2 ]
++    (HRec b1 x1, HRec b2 x2) -> eql lv d book x1 x2 && length b1 == length b2 && and [ c1 == c2 && eql lv d book t1 t2 | ((c1,t1),(c2,t2)) <- zip b1 b2 ]
      (Era          , Era          ) -> True
      (Sup la aa ba , Sup lb ab bb ) -> eql lv d book la lb && eql lv d book aa ab && eql lv d book ba bb
      (SupM xa la fa, SupM xb lb fb) -> eql lv d book xa xb && eql lv d book la lb && eql lv d book fa fb
-@@ -89,3 +176,19 @@ cmp lv d book a b =
+@@ -89,3 +171,19 @@ cmp lv d book a b =
      (Met _  _  _  , Met _  _  _  ) -> error "not-supported"
      (Pat _  _  _  , Pat _  _  _  ) -> error "not-supported"
      (_            , _            ) -> False
@@ -3195,7 +3286,7 @@ index 9d1ab06..83670b5 100644
 +sigSnd :: Term
 +sigSnd = Lam "x" (\_ -> Lam "y" (\y -> y))
 diff --git a/src/Core/Flatten.hs b/src/Core/Flatten.hs
-index 31f1da3..506b44a 100644
+index 31f1da3..8dda030 100644
 --- a/src/Core/Flatten.hs
 +++ b/src/Core/Flatten.hs
 @@ -91,6 +91,45 @@ flatten d book (EqlM x f)   = EqlM (flatten d book x) (flatten d book f)
@@ -3225,10 +3316,6 @@ index 31f1da3..506b44a 100644
 +flatten d book CBase = CBase
 +flatten d book CLoop = CLoop
 +flatten d book (CRec x b l) = CRec (flatten d book x) (flatten d book b) (flatten d book l)
-+flatten d book (HTy n ps) = HTy n (map (flatten d book) ps)
-+flatten d book (HPt n ps c fs) = HPt n (map (flatten d book) ps) c (map (flatten d book) fs)
-+flatten d book (HPa n ps c fs) = HPa n (map (flatten d book) ps) c (map (flatten d book) fs)
-+flatten d book (HEl n ps p ix x bs) = HEl n (map (flatten d book) ps) (flatten d book p) (map (flatten d book) ix) (flatten d book x) [ (c, flatten d book b) | (c,b) <- bs ]
 +flatten d book (Prt p a) = Prt (flatten d book p) (flatten d book a)
 +flatten d book (Sys fs) = Sys [ (flatten d book q, flatten d book v) | (q,v) <- fs ]
 +flatten d book (POut u) = POut (flatten d book u)
@@ -3241,6 +3328,10 @@ index 31f1da3..506b44a 100644
 +flatten d book (QEq a b w) = QEq (flatten d book a) (flatten d book b) (flatten d book w)
 +flatten d book QSq = QSq
 +flatten d book (QRec x s f r) = QRec (flatten d book x) (flatten d book s) (flatten d book f) (flatten d book r)
++flatten d book (HTy t ps) = HTy t (map (flatten d book) ps)
++flatten d book (HCon t c ps as ivs) = HCon t c (map (flatten d book) ps) (map (flatten d book) as) (map (flatten d book) ivs)
++flatten d book (HEl p bs x) = HEl (flatten d book p) [ (c, flatten d book b) | (c,b) <- bs ] (flatten d book x)
++flatten d book (HRec bs x) = HRec [ (c, flatten d book b) | (c,b) <- bs ] (flatten d book x)
  flatten d book Era          = Era
  flatten d book (Sup l a b)  = Sup (flatten d book l) (flatten d book a) (flatten d book b)
  flatten d book (SupM x l f) = SupM (flatten d book x) (flatten d book l) (flatten d book f)
@@ -3271,10 +3362,6 @@ index 31f1da3..506b44a 100644
 +unpat d CBase = CBase
 +unpat d CLoop = CLoop
 +unpat d (CRec x b l) = CRec (unpat d x) (unpat d b) (unpat d l)
-+unpat d (HTy n ps) = HTy n (map (unpat d) ps)
-+unpat d (HPt n ps c fs) = HPt n (map (unpat d) ps) c (map (unpat d) fs)
-+unpat d (HPa n ps c fs) = HPa n (map (unpat d) ps) c (map (unpat d) fs)
-+unpat d (HEl n ps p ix x bs) = HEl n (map (unpat d) ps) (unpat d p) (map (unpat d) ix) (unpat d x) [ (c, unpat d b) | (c,b) <- bs ]
 +unpat d (Prt p a) = Prt (unpat d p) (unpat d a)
 +unpat d (Sys fs) = Sys [ (unpat d q, unpat d v) | (q,v) <- fs ]
 +unpat d (POut u) = POut (unpat d u)
@@ -3287,6 +3374,10 @@ index 31f1da3..506b44a 100644
 +unpat d (QEq a b w) = QEq (unpat d a) (unpat d b) (unpat d w)
 +unpat d QSq = QSq
 +unpat d (QRec x s f r) = QRec (unpat d x) (unpat d s) (unpat d f) (unpat d r)
++unpat d (HTy t ps) = HTy t (map (unpat d) ps)
++unpat d (HCon t c ps as ivs) = HCon t c (map (unpat d) ps) (map (unpat d) as) (map (unpat d) ivs)
++unpat d (HEl p bs x) = HEl (unpat d p) [ (c, unpat d b) | (c,b) <- bs ] (unpat d x)
++unpat d (HRec bs x) = HRec [ (c, unpat d b) | (c,b) <- bs ] (unpat d x)
  unpat d Era             = Era
  unpat d (Sup l a b)     = Sup (unpat d l) (unpat d a) (unpat d b)
  unpat d (SupM x l f)    = SupM (unpat d x) (unpat d l) (unpat d f)
@@ -3317,10 +3408,6 @@ index 31f1da3..506b44a 100644
 +unfrkGo d ctx CBase = CBase
 +unfrkGo d ctx CLoop = CLoop
 +unfrkGo d ctx (CRec x b l) = CRec (unfrkGo d ctx x) (unfrkGo d ctx b) (unfrkGo d ctx l)
-+unfrkGo d ctx (HTy n ps) = HTy n (map (unfrkGo d ctx) ps)
-+unfrkGo d ctx (HPt n ps c fs) = HPt n (map (unfrkGo d ctx) ps) c (map (unfrkGo d ctx) fs)
-+unfrkGo d ctx (HPa n ps c fs) = HPa n (map (unfrkGo d ctx) ps) c (map (unfrkGo d ctx) fs)
-+unfrkGo d ctx (HEl n ps p ix x bs) = HEl n (map (unfrkGo d ctx) ps) (unfrkGo d ctx p) (map (unfrkGo d ctx) ix) (unfrkGo d ctx x) [ (c, unfrkGo d ctx b) | (c,b) <- bs ]
 +unfrkGo d ctx (Prt p a) = Prt (unfrkGo d ctx p) (unfrkGo d ctx a)
 +unfrkGo d ctx (Sys fs) = Sys [ (unfrkGo d ctx q, unfrkGo d ctx v) | (q,v) <- fs ]
 +unfrkGo d ctx (POut u) = POut (unfrkGo d ctx u)
@@ -3333,6 +3420,10 @@ index 31f1da3..506b44a 100644
 +unfrkGo d ctx (QEq a b w) = QEq (unfrkGo d ctx a) (unfrkGo d ctx b) (unfrkGo d ctx w)
 +unfrkGo d ctx QSq = QSq
 +unfrkGo d ctx (QRec x s f r) = QRec (unfrkGo d ctx x) (unfrkGo d ctx s) (unfrkGo d ctx f) (unfrkGo d ctx r)
++unfrkGo d ctx (HTy t ps) = HTy t (map (unfrkGo d ctx) ps)
++unfrkGo d ctx (HCon t c ps as ivs) = HCon t c (map (unfrkGo d ctx) ps) (map (unfrkGo d ctx) as) (map (unfrkGo d ctx) ivs)
++unfrkGo d ctx (HEl p bs x) = HEl (unfrkGo d ctx p) [ (c, unfrkGo d ctx b) | (c,b) <- bs ] (unfrkGo d ctx x)
++unfrkGo d ctx (HRec bs x) = HRec [ (c, unfrkGo d ctx b) | (c,b) <- bs ] (unfrkGo d ctx x)
  unfrkGo d ctx Era          = Era
  unfrkGo d ctx (Sup l a b)  = Sup (unfrkGo d ctx l) (unfrkGo d ctx a) (unfrkGo d ctx b)
  unfrkGo d ctx (SupM x l f) = SupM (unfrkGo d ctx x) (unfrkGo d ctx l) (unfrkGo d ctx f)
@@ -3363,10 +3454,6 @@ index 31f1da3..506b44a 100644
 +    CBase -> CBase
 +    CLoop -> CLoop
 +    CRec x b l -> CRec (go name val x) (go name val b) (go name val l)
-+    HTy n ps -> HTy n (map (go name val) ps)
-+    HPt n ps c fs -> HPt n (map (go name val) ps) c (map (go name val) fs)
-+    HPa n ps c fs -> HPa n (map (go name val) ps) c (map (go name val) fs)
-+    HEl n ps p ix x bs -> HEl n (map (go name val) ps) (go name val p) (map (go name val) ix) (go name val x) [ (c, go name val b) | (c,b) <- bs ]
 +    Prt p a -> Prt (go name val p) (go name val a)
 +    Sys fs -> Sys [ (go name val q, go name val v) | (q,v) <- fs ]
 +    POut u -> POut (go name val u)
@@ -3379,13 +3466,25 @@ index 31f1da3..506b44a 100644
 +    QEq a b w -> QEq (go name val a) (go name val b) (go name val w)
 +    QSq -> QSq
 +    QRec x s f r -> QRec (go name val x) (go name val s) (go name val f) (go name val r)
++    HTy t ps -> HTy t (map (go name val) ps)
++    HCon t c ps as ivs -> HCon t c (map (go name val) ps) (map (go name val) as) (map (go name val) ivs)
++    HEl p bs x -> HEl (go name val p) [ (c, go name val b) | (c,b) <- bs ] (go name val x)
++    HRec bs x -> HRec [ (c, go name val b) | (c,b) <- bs ] (go name val x)
      Era        -> Era
      Sup l a b  -> Sup (go name val l) (go name val a) (go name val b)
      SupM x l f -> SupM (go name val x) (go name val l) (go name val f)
 diff --git a/src/Core/Import.hs b/src/Core/Import.hs
-index c600171..a382c34 100644
+index c600171..f7465bb 100644
 --- a/src/Core/Import.hs
 +++ b/src/Core/Import.hs
+@@ -1,6 +1,6 @@
+ {-./Type.hs-}
+ 
+-module Core.Import (autoImport) where
++module Core.Import (autoImport, mergeBooks) where
+ 
+ import Control.Monad (foldM)
+ import qualified Data.Map.Strict as M
 @@ -45,7 +45,7 @@ autoImportRefs book refs visited = do
  -- FIXME: simplify this ugly code
  autoImportRef :: S.Set FilePath -> Either String (Book, S.Set Name) -> Name -> IO (Either String (Book, S.Set Name))
@@ -3402,186 +3501,124 @@ index c600171..a382c34 100644
 -mergeBooks (Book defs1) (Book defs2) = Book (M.union defs1 defs2)
 +mergeBooks (Book defs1 hits1) (Book defs2 hits2) = Book (M.union defs1 defs2) (M.union hits1 hits2)
 diff --git a/src/Core/Parse/Book.hs b/src/Core/Parse/Book.hs
-index d189181..24535af 100644
+index d189181..79b8a7f 100644
 --- a/src/Core/Parse/Book.hs
 +++ b/src/Core/Parse/Book.hs
-@@ -10,10 +10,12 @@ import Control.Monad (when)
- import Control.Monad.State.Strict (State, get, put, evalState)
- import Data.Char (isAsciiLower, isAsciiUpper, isDigit)
- import Data.List (intercalate)
-+import Data.Maybe (isJust, isNothing)
- import Data.Void
- import Text.Megaparsec
- import Text.Megaparsec.Char
- import qualified Data.Map.Strict as M
-+import qualified Data.Set as S
- import qualified Text.Megaparsec.Char.Lexer as L
+@@ -26,10 +26,8 @@ import Core.Type
+ -- | Book parsing
  
- import Debug.Trace
-@@ -31,6 +33,13 @@ parseDefinition = do
-   (name, defn) <- choice [ parseType , parseDef ]
-   return $ (name, defn)
+ -- | Syntax: def name : Type = term | type Name<T>(i) -> Type: cases | name : Type = term
+-parseDefinition :: Parser (Name, Defn)
+-parseDefinition = do
+-  (name, defn) <- choice [ parseType , parseDef ]
+-  return $ (name, defn)
++parseDefinition :: Parser (Name, Defn, Maybe (Name, HitDecl))
++parseDefinition = choice [ parseType , (\(n, d) -> (n, d, Nothing)) <$> parseDef ]
  
-+-- | A top-level declaration: a `hit` yields several definitions and a
-+-- signature; anything else is a single definition.
-+parseDeclaration :: Parser ([(Name, Defn)], [HitSig])
-+parseDeclaration = choice
-+  [ (\(ds, sig) -> (ds, [sig])) <$> parseHit
-+  , (\d -> ([d], [])) <$> parseDefinition ]
-+
  -- | Syntax: def name : Type = term | def name(x: T1, y: T2) -> RetType: body
  parseDef :: Parser (Name, Defn)
- parseDef = do
-@@ -103,9 +112,11 @@ parseBook :: Parser Book
- parseBook = do
+@@ -104,11 +102,13 @@ parseBook = do
    -- Parse all import statements first
    _ <- many (try parseImport)
--  -- Then parse definitions
+   -- Then parse definitions
 -  defs <- many parseDefinition
 -  return $ Book (M.fromList defs)
-+  -- Then parse declarations
-+  decls <- many parseDeclaration
-+  let defs = concatMap fst decls
-+      hits = concatMap snd decls
-+  return $ Book (M.fromList defs) (M.fromList [ (hsName h, h) | h <- hits ])
++  entries <- many parseDefinition
++  let defs = [ (n, d) | (n, d, _) <- entries ]
++      hits = [ h | (_, _, Just h) <- entries ]
++  return $ Book (M.fromList defs) (M.fromList hits)
  
  -- | Syntax: type Name<T, U>(i: Nat) -> Type: case @Tag1: field1: T1 case @Tag2: field2: T2
- parseType :: Parser (Name, Defn)
-@@ -186,3 +197,129 @@ doReadBook input =
+-parseType :: Parser (Name, Defn)
++parseType :: Parser (Name, Defn, Maybe (Name, HitDecl))
+ parseType = label "datatype declaration" $ do
+   _       <- symbol "type"
+   tName   <- name
+@@ -117,21 +117,24 @@ parseType = label "datatype declaration" $ do
+   args    <- return $ params ++ indices
+   retTy   <- option Set (symbol "->" *> parseTerm)
+   _       <- symbol ":"
+-  cases   <- many parseTypeCase
+-  when (null cases) $ fail "datatype must have at least one constructor case"
++  clauses <- many (choice [ Left <$> parseTypeCase, Right <$> parsePathCase ])
++  let cases  = [ c | Left c <- clauses ]
++      pathCs = [ p | Right p <- clauses ]
++  when (null clauses) $ fail "datatype must have at least one constructor case"
++  return (if null pathCs then mkData tName args retTy cases else mkHit tName args retTy clauses)
++
++-- | An ordinary (point-only) datatype: the enum-tagged sigma encoding.
++mkData :: Name -> [(Name, Term)] -> Term -> [(String, [(Name, Term)])] -> (Name, Defn, Maybe (Name, HitDecl))
++mkData tName args retTy cases =
+   let tags = map fst cases
+       mkFields :: [(Name, Term)] -> Term
+       mkFields []             = Uni
+       mkFields ((fn,ft):rest) = Sig ft (Lam fn (\_ -> mkFields rest))
+-      --   match ctr: case @Tag: …
+       branches v = Pat [v] [] [([Sym tag], mkFields flds) | (tag, flds) <- cases]
+-      -- The body of the definition (see docstring).
+       body0 = Sig (Enu tags) (Lam "ctr" (\v -> branches v))
+-      -- Wrap the body with lambdas for the parameters.
+       nest (n, ty) (tyAcc, bdAcc) = (All ty  (Lam n (\_ -> tyAcc)) , Lam n (\_ -> bdAcc))
+       (fullTy, fullBody) = foldr nest (retTy, body0) args
+-      term = fullBody
+-  return (tName, (True, term, fullTy))
++  in (tName, (True, fullBody, fullTy), Nothing)
+ 
+ -- | Syntax: case @Tag: field1: Type1 field2: Type2
+ parseTypeCase :: Parser (String, [(Name, Term)])
+@@ -148,6 +151,7 @@ parseTypeCase = label "datatype constructor" $ do
+     parseField = do
+       -- Stop if next token is 'case' (start of next constructor) or 'def'/'data'
+       notFollowedBy (symbol "case")
++      notFollowedBy (symbol "path")
+       n <- try $ do
+         n <- name
+         _ <- symbol ":"
+@@ -186,3 +190,39 @@ doReadBook input =
    case doParseBook "<input>" input of
      Left err  -> error err
      Right res -> res
 +
-+-- | Higher inductive types — the shape of a Cubical Agda `data`.  Syntax:
-+--
-+--     hit Name<p1: T1, p2: T2>(i1: I1, i2: I2):     -- uniform parameters, indices
-+--       case @tag(f1: A1, f2: A2) -> Name(p1, p2, e1, e2)   -- point constructor; the
-+--                                                            -- target is optional without indices
-+--       path @tag(f1: A1): T                        -- path constructor; T any iterated
-+--                                                   -- Path/PathP type over Name(...)
-+--       path @tag(f1: A1): lhs ~> rhs               -- sugar for Path(Name(params), lhs, rhs)
-+--
-+-- Fields are dependent telescopes and may be intervals, paths, other types,
-+-- the HIT itself at any indices (recursion), anything.  Faces of a path
-+-- constructor are arbitrary terms of the HIT.  The declaration generates
-+--
-+--     Name        : Π params. Π indices. Set
-+--     Name/tag    : Π params. Π fields. END
-+--
-+-- as ordinary definitions (checked by the checker, which is where every
-+-- well-formedness obligation — field types, index terms, the path type's
-+-- endpoints and corner compatibility — is discharged), and stores the same
-+-- telescopes in the Book as the signature the checker, the normaliser and
-+-- the runtime emitter consult.  `Name/elim(params, P, indices, x, branches)`
-+-- is not a definition but syntax for the eliminator (Core.Adjust.elimSugar).
-+parseHit :: Parser ([(Name, Defn)], HitSig)
-+parseHit = label "higher inductive type declaration" $ do
-+  _       <- try (keyword "hit")
-+  tName   <- name
-+  params  <- option [] $ angles (sepEndBy (parseArg True) (symbol ","))
-+  indices <- option [] $ parens (sepEndBy (parseArg False) (symbol ","))
-+  _       <- symbol ":"
-+  ctors   <- many parseHitCtor
-+  when (null ctors) $ fail "a hit must have at least one constructor"
-+  let tags = map rcTag ctors
-+  when (length tags /= length (S.toList (S.fromList tags))) $ fail "duplicate constructor tag in hit"
-+  case hitDefs tName params indices ctors of
-+    Left err  -> fail err
-+    Right res -> return res
++-- | Syntax:  path @tag(f1: T1, f2: T2): Path(T(ps), lhs, rhs)
++-- A path constructor of a higher inductive type: named fields in parens and
++-- the constructor's own (nested) Path type into the HIT.
++parsePathCase :: Parser (String, [(Name, Term)], Term)
++parsePathCase = label "path constructor" $ do
++  _    <- symbol "path"
++  _    <- symbol "@"
++  tag  <- some (satisfy isNameChar)
++  flds <- option [] $ parens (sepEndBy (parseArg True) (symbol ","))
++  _    <- symbol ":"
++  ty   <- parseTerm
++  return (tag, flds, ty)
 +
-+data RawKind
-+  = PointCtor (Maybe Term)     -- optional declared target Name(params, indices)
-+  | PathTy Term                -- declared iterated path type over the HIT
-+  | PathSugar Term Term        -- lhs ~> rhs
-+
-+data RawCtor = RawCtor
-+  { rcTag    :: String
-+  , rcFields :: [(Name, Term)]
-+  , rcKind   :: RawKind
-+  }
-+
-+-- | Syntax: case @tag(fields) [-> Target] | path @tag(fields): T | path @tag(fields): lhs ~> rhs
-+parseHitCtor :: Parser RawCtor
-+parseHitCtor = label "hit constructor" $ do
-+  isPath <- (try (keyword "path") >> return True) <|> (try (keyword "case") >> return False)
-+  _   <- symbol "@"
-+  tag <- some (satisfy isNameChar)
-+  skip
-+  flds <- option [] $ parens (sepEndBy (parseArg False) (symbol ","))
-+  if isPath
-+    then do
-+      _   <- symbol ":"
-+      t   <- parseTerm
-+      sug <- optional (symbol "~>" >> parseTerm)
-+      return (RawCtor tag flds (maybe (PathTy t) (PathSugar t) sug))
-+    else do
-+      tgt <- optional (symbol "->" >> parseTerm)
-+      return (RawCtor tag flds (PointCtor tgt))
-+
-+-- | The definitions and the signature generated by a hit declaration.
-+hitDefs :: Name -> [(Name, Term)] -> [(Name, Term)] -> [RawCtor] -> Either String ([(Name, Defn)], HitSig)
-+hitDefs tName params indices ctors = do
-+  ends <- mapM ctorEnd ctors
-+  let cds = zipWith ctorDef ctors ends
-+      sig = HitSig
-+        { hsName  = tName
-+        , hsArity = length params
-+        , hsNIdx  = length indices
-+        , hsType  = piTele (params ++ indices) Set
-+        , hsCtors = zipWith sigCtor ctors ends }
-+  return (typeDef : cds, sig)
-+  where
-+    np = length params
-+    pVars = [ Var pn 0 | (pn, _) <- params ]
-+    iVars = [ Var iname 0 | (iname, _) <- indices ]
-+    fVars rc = [ Var fn 0 | (fn, _) <- rcFields rc ]
-+    piTele  binds body = foldr (\(k, t) acc -> All t (Lam k (\_ -> acc))) body binds
-+    lamTele binds body = foldr (\(k, _) acc -> Lam k (\_ -> acc)) body binds
-+    spine t = let (h, as) = collectApps (cut t) [] in (cut h, as)
-+    -- the type (NOT flagged injective: it must unfold to its HTy form, which
-+    -- is what coe, hcomp and the eliminator dispatch on)
-+    typeDef = (tName, (False, lamTele (params ++ indices) (HTy tName (pVars ++ iVars)), piTele (params ++ indices) Set))
-+    -- the END of each constructor's telescope
-+    ctorEnd rc = case rcKind rc of
-+      PointCtor Nothing
-+        | null indices -> Right (HTy tName pVars)
-+        | otherwise    -> Left ("hit " ++ tName ++ ", constructor @" ++ rcTag rc
-+                              ++ ": an indexed hit's point constructor needs a target `-> "
-+                              ++ tName ++ "(params, indices)`")
-+      PointCtor (Just tgt) -> case spine tgt of
-+        (Var h _, args)
-+          | h == tName, length args == np + length indices, and (zipWith sameParam pVars args) ->
-+              Right (HTy tName (pVars ++ drop np args))
-+          | h == tName, length args == np + length indices ->
-+              Left ("hit " ++ tName ++ ", constructor @" ++ rcTag rc
-+                    ++ ": parameters are uniform (Agda's rule) — the target's first "
-+                    ++ show np ++ " arguments must be the parameters themselves; a varying one is an index")
-+        _ -> Left ("hit " ++ tName ++ ", constructor @" ++ rcTag rc
-+                   ++ ": the target must be " ++ tName ++ "(" ++ show (np + length indices) ++ " arguments), got " ++ show tgt)
-+      PathTy t -> Right t
-+      PathSugar l r
-+        | null indices -> Right (Pth (Lam "_" (\_ -> HTy tName pVars)) l r)
-+        | otherwise    -> Left ("hit " ++ tName ++ ", path constructor @" ++ rcTag rc
-+                              ++ ": with indices, give the full path type (Path(" ++ tName
-+                              ++ "(params, indices), lhs, rhs)) instead of `lhs ~> rhs`")
-+    sameParam (Var a _) t = case cut t of { Var b _ -> a == b ; _ -> False }
-+    sameParam _ _ = False
-+    isPathK rc = case rcKind rc of { PointCtor _ -> False ; _ -> True }
-+    ctorTerm rc = (if isPathK rc then HPa else HPt) tName pVars (rcTag rc) (fVars rc)
-+    ctorDef rc end = ( hitCtorName tName (rcTag rc)
-+                     , ( False
-+                       , lamTele params (lamTele (rcFields rc) (ctorTerm rc))
-+                       , piTele params (piTele (rcFields rc) end) ) )
-+    sigCtor rc end = HitCtor
-+      { hcTag    = rcTag rc
-+      , hcIsPath = isPathK rc
-+      , hcArity  = length (rcFields rc)
-+      , hcTele   = lamTele params (piTele (rcFields rc) end) }
++-- | A `type` declaration with at least one `path` clause is a HIT: the type
++-- former is opaque (its body is the HTy node), and every constructor gets a
++-- closed Pi-type over the parameters and its fields.
++mkHit :: Name -> [(Name, Term)] -> Term -> [Either (String, [(Name, Term)]) (String, [(Name, Term)], Term)] -> (Name, Defn, Maybe (Name, HitDecl))
++mkHit tName args _ clauses =
++  let nest (n, ty) acc = All ty (Lam n (\_ -> acc))
++      hitTy   = foldr nest Set args
++      self    = HTy tName [ Var n 0 | (n, _) <- args ]
++      body    = foldr (\(n, _) acc -> Lam n (\_ -> acc)) self args
++      ctor cl = case cl of
++        Left  (tag, flds)     -> (tag, HitCtor (length flds) 0 (foldr nest self (args ++ flds)))
++        Right (tag, flds, ty) -> (tag, HitCtor (length flds) (pathDim ty) (foldr nest ty (args ++ flds)))
++      pathDim t = case t of
++        Loc _ u   -> pathDim u
++        Pth l _ _ -> 1 + pathDim (lineBody l)
++        _         -> 0
++      lineBody l = case l of
++        Loc _ u  -> lineBody u
++        Lam _ f  -> f (Var "_" 0)
++        u        -> App u (Var "_" 0)
++      decl = HitDecl (length args) hitTy (map ctor clauses)
++  in (tName, (True, body, hitTy), Just (tName, decl))
 diff --git a/src/Core/Parse/Term.hs b/src/Core/Parse/Term.hs
-index 146a4d2..2cfcffe 100644
+index 146a4d2..8016448 100644
 --- a/src/Core/Parse/Term.hs
 +++ b/src/Core/Parse/Term.hs
-@@ -62,6 +62,54 @@ parseTermIni = choice
+@@ -62,6 +62,56 @@ parseTermIni = choice
    , parseSym
    , parseTupApp
    , parseView
@@ -3619,6 +3656,8 @@ index 146a4d2..2cfcffe 100644
 +  , parseGlue
 +  , parseGlueTm
 +  , parseUnglue
++  , parseHElim
++  , parseHRec
 +  , parseQuot
 +  , parseQcl
 +  , parseQeq
@@ -3636,7 +3675,7 @@ index 146a4d2..2cfcffe 100644
    , parseVar
    ]
  
-@@ -81,7 +129,8 @@ parseTermArg t = do
+@@ -81,7 +131,8 @@ parseTermArg t = do
  -- | Parse a "loose" postfix: f + x | f <> x | ...
  parseTermOpr :: Term -> Parser Term
  parseTermOpr t = choice
@@ -3646,7 +3685,7 @@ index 146a4d2..2cfcffe 100644
    , parseFun t   -- ->
    , parseAnd t   -- &
    , parseChk t   -- ::
-@@ -1009,7 +1058,7 @@ doParseTerm :: FilePath -> String -> Either String Term
+@@ -1009,7 +1060,7 @@ doParseTerm :: FilePath -> String -> Either String Term
  doParseTerm file input =
    case evalState (runParserT p file input) (ParserState True input [] M.empty) of
      Left err  -> Left (formatError input err)
@@ -3655,7 +3694,7 @@ index 146a4d2..2cfcffe 100644
    where
      p = do
        skip
-@@ -1025,3 +1074,447 @@ doReadTerm input =
+@@ -1025,3 +1076,480 @@ doReadTerm input =
      Left err  -> error err
      Right res -> res
      
@@ -4098,16 +4137,49 @@ index 146a4d2..2cfcffe 100644
 +parsePAp :: Term -> Parser Term
 +parsePAp t = do
 +  _ <- try $ symbol "@" <* notFollowedBy (satisfy (\c -> c == '{'))
-+  -- the interval argument is an atom with its call arguments, never an infix
-+  -- expression, so  p @ i @ j  is  (p @ i) @ j  (an n-dimensional cell)
-+  r0 <- parseTermIni
-+  r  <- option r0 (parseTermArg r0)
-+  parseTermOpr (PAp t r)
++  r <- parseTerm
++  return (PAp t r)
++
++
++-- | helim(x, P) { @c: branch; ... } — the dependent eliminator of a declared
++-- HIT; hrec(x) { ... } — the recursor, whose motive is the goal.
++parseHElim :: Parser Term
++parseHElim = label "helim" $ do
++  _  <- try $ keyword "helim" <* symbol "("
++  x  <- parseTerm
++  _  <- symbol ","
++  p  <- parseTerm
++  _  <- symbol ")"
++  bs <- parseHBranches
++  return (HEl p bs x)
++
++parseHRec :: Parser Term
++parseHRec = label "hrec" $ do
++  _  <- try $ keyword "hrec" <* symbol "("
++  x  <- parseTerm
++  _  <- symbol ")"
++  bs <- parseHBranches
++  return (HRec bs x)
++
++parseHBranches :: Parser [(Name, Term)]
++parseHBranches = do
++  _  <- symbol "{"
++  bs <- many branch
++  _  <- symbol "}"
++  return bs
++  where
++    branch = do
++      _ <- symbol "@"
++      c <- lexeme (some (satisfy isNameChar))
++      _ <- symbol ":"
++      b <- parseTerm
++      _ <- optional (symbol ";")
++      return (c, b)
 diff --git a/src/Core/Rewrite.hs b/src/Core/Rewrite.hs
-index ae061af..1a1d8c3 100644
+index ae061af..45c18ef 100644
 --- a/src/Core/Rewrite.hs
 +++ b/src/Core/Rewrite.hs
-@@ -63,14 +63,45 @@ rewriteGo lv d book old neo val = case val of
+@@ -63,14 +63,41 @@ rewriteGo lv d book old neo val = case val of
    SigM x f   -> SigM (rewrite lv d book old neo x) (rewrite lv d book old neo f)
    All a b    -> All (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    Lam k f    -> Lam k (\v -> rewrite lv d book old neo (f v))
@@ -4147,13 +4219,18 @@ index ae061af..1a1d8c3 100644
 +  QEq a b r -> QEq (rewrite lv d book old neo a) (rewrite lv d book old neo b) (rewrite lv d book old neo r)
 +  QSq -> QSq
 +  QRec x s f r -> QRec (rewrite lv d book old neo x) (rewrite lv d book old neo s) (rewrite lv d book old neo f) (rewrite lv d book old neo r)
-+  HTy n ps -> HTy n (map (rewrite lv d book old neo) ps)
-+  HPt n ps c fs -> HPt n (map (rewrite lv d book old neo) ps) c (map (rewrite lv d book old neo) fs)
-+  HPa n ps c fs -> HPa n (map (rewrite lv d book old neo) ps) c (map (rewrite lv d book old neo) fs)
-+  HEl n ps p ix x bs -> HEl n (map (rewrite lv d book old neo) ps) (rewrite lv d book old neo p) (map (rewrite lv d book old neo) ix) (rewrite lv d book old neo x) [ (c, rewrite lv d book old neo b) | (c,b) <- bs ]
    Era        -> Era
    Sup l a b  -> Sup l (rewrite lv d book old neo a) (rewrite lv d book old neo b)
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
+@@ -80,6 +107,8 @@ rewriteGo lv d book old neo val = case val of
+   Log s x    -> Log (rewrite lv d book old neo s) (rewrite lv d book old neo x)
+   Pri p      -> Pri p
+   Pat t m c  -> Pat (map (rewrite lv d book old neo) t) (map (\(k,v) -> (k, rewrite lv d book old neo v)) m) (map (\(ps,v) -> (map (rewrite lv d book old neo) ps, rewrite lv d book old neo v)) c)
++  -- every other constructor (the cubical layer, the HITs): one structural level
++  _          -> mapSub (rewrite lv d book old neo) val
+ 
+ rewriteCtx :: Int -> Int -> Book -> Term -> Term -> Ctx -> Ctx
+ rewriteCtx lv d book old neo (Ctx ctx) = Ctx (map rewriteAnn ctx)
 diff --git a/src/Core/Totality.hs b/src/Core/Totality.hs
 new file mode 100644
 index 0000000..868cdc6
@@ -4322,7 +4399,7 @@ index 0000000..868cdc6
 +    spine (Loc _ t) acc = spine t acc
 +    spine f acc         = (f, acc)
 diff --git a/src/Core/Type.hs b/src/Core/Type.hs
-index a5d92e8..ff701cc 100644
+index a5d92e8..8017fc8 100644
 --- a/src/Core/Type.hs
 +++ b/src/Core/Type.hs
 @@ -125,6 +125,67 @@ data Term
@@ -4377,15 +4454,15 @@ index a5d92e8..ff701cc 100644
 +  | QEq Term Term Term                -- eq/ a b r : Path (Quot A R) [a] [b] (path ctor)
 +  | QSq                               -- squash/ : isSet (Quot A R)         (opaque truncation)
 +  | QRec Term Term Term Term          -- SQ.rec scrutinee setB f resp : B   (recursor into a set)
-+
-+  -- General higher inductive types, declared with `hit`.  The type, its
-+  -- point constructors, its path constructors and its dependent eliminator
-+  -- are four GENERIC forms; the constructor signatures live in the Book
-+  -- (HitSig), so adding a HIT costs a declaration, not a compiler pass.
-+  | HTy Name [Term]                   -- Name(params) : Set
-+  | HPt Name [Term] String [Term]     -- Name/tag(params, fields) : Name(params)          (point ctor)
-+  | HPa Name [Term] String [Term]     -- Name/tag(params, fields) : Path(Name(params), l, r) (path ctor)
-+  | HEl Name [Term] Term [Term] Term [(String, Term)] -- Name/elim(params, P, indices, x, branches) : P(indices, x)
++  -- General higher inductive types, declared as
++  --   type T(params): case @c: fields... path @p(fields): Path(...)
++  -- HTy T ps is the type; HCon T c ps args ivs a constructor applied to its
++  -- fields and (for a path constructor) to the intervals given so far; HEl
++  -- is the dependent eliminator, HRec the recursor whose motive is the goal.
++  | HTy Name [Term]                     -- T(ps)
++  | HCon Name Name [Term] [Term] [Term] -- @c{args} (of T ps), applied at ivs
++  | HEl Term [(Name, Term)] Term        -- helim(x, P) { @c: b; ... } : P(x)
++  | HRec [(Name, Term)] Term            -- hrec(x) { @c: b; ... }
 +
 +  | PLm Name Body       -- <i> t
 +  | PAp Term Term       -- p @ r
@@ -4393,61 +4470,47 @@ index a5d92e8..ff701cc 100644
    -- Supperpositions
    | Era                 -- *
    | Sup Term Term Term  -- &L{a,b}
-@@ -155,7 +216,52 @@ data Term
+@@ -155,7 +216,38 @@ data Term
  -- Book of Definitions
  type Inj  = Bool -- "is injective" flag. improves pretty printing
  type Defn = (Inj, Term, Type)
 -data Book = Book (M.Map Name Defn)
-+data Book = Book (M.Map Name Defn) (M.Map Name HitSig)
 +
-+-- | A declared higher inductive type (Cubical Agda `data` shape: uniform
-+-- parameters, indices, constructors with arbitrary declared types).
-+-- `hsType` is the type of the HIT itself, `Π params. Π indices. Set`.  Each
-+-- constructor carries its full telescope as ONE closed term,
-+-- `hcTele = λ params. Π fields. END`, where END is `Name(params, indices)`
-+-- for a point constructor and the declared (iterated) path type over the HIT
-+-- for a path constructor.  Instantiating a constructor is applying `hcTele`
-+-- to the parameters and peeling one Π per field, so the same object serves
-+-- the checker (typing), the normaliser (endpoints of a path constructor) and
-+-- the emitter.
++-- A declared higher inductive type. Every constructor carries its CLOSED
++-- Pi-type over the type's parameters and its own fields, ending in the HIT
++-- itself (a point constructor, dim 0) or in a Path/PathP type into it whose
++-- nesting depth is the constructor's dimension.
 +data HitCtor = HitCtor
-+  { hcTag    :: String
-+  , hcIsPath :: Bool
-+  , hcArity  :: Int
-+  , hcTele   :: Term
++  { ctorNArgs :: Int   -- number of fields (after the parameters)
++  , ctorDim   :: Int   -- 0 for a point constructor, n for an n-path
++  , ctorType  :: Term  -- All params. All fields. T(ps) | Path(.., ..) ...
 +  }
-+data HitSig = HitSig
-+  { hsName   :: Name
-+  , hsArity  :: Int          -- number of parameters
-+  , hsNIdx   :: Int          -- number of indices
-+  , hsType   :: Term         -- Π params. Π indices. Set
-+  , hsCtors  :: [HitCtor]
++data HitDecl = HitDecl
++  { hitArity :: Int               -- number of parameters
++  , hitType  :: Term              -- All params. Set
++  , hitCtors :: [(Name, HitCtor)] -- in declaration order
 +  }
++data Book = Book (M.Map Name Defn) (M.Map Name HitDecl)
 +
 +bookDefs :: Book -> M.Map Name Defn
 +bookDefs (Book defs _) = defs
 +
-+bookHits :: Book -> M.Map Name HitSig
++bookHits :: Book -> M.Map Name HitDecl
 +bookHits (Book _ hits) = hits
 +
-+derefHit :: Book -> Name -> Maybe HitSig
++derefHit :: Book -> Name -> Maybe HitDecl
 +derefHit (Book _ hits) name = M.lookup name hits
 +
-+hitCtor :: HitSig -> String -> Maybe HitCtor
-+hitCtor sig tag = case [ c | c <- hsCtors sig, hcTag c == tag ] of
-+  (c : _) -> Just c
-+  []      -> Nothing
-+
-+-- | The generated definition names of a HIT's constructors and eliminator.
-+hitCtorName :: Name -> String -> Name
-+hitCtorName n tag = n ++ "/" ++ tag
-+
-+hitElimName :: Name -> Name
-+hitElimName n = n ++ "/elim"
++-- the HIT a constructor name belongs to, with its signature
++derefCtor :: Book -> Name -> Maybe (Name, HitDecl, HitCtor)
++derefCtor (Book _ hits) c =
++  case [ (t, h, k) | (t, h) <- M.toList hits, (c', k) <- hitCtors h, c' == c ] of
++    (r : _) -> Just r
++    []      -> Nothing
  
  -- Substitution Map
  type Subs = [(Term,Term)]
-@@ -198,6 +304,21 @@ instance Show Term where
+@@ -198,6 +290,21 @@ instance Show Term where
    show (Var k i)      = k -- ++ "^" ++ show i
    show (Ref k)        = k
    show (Sub t)        = show t
@@ -4469,7 +4532,7 @@ index a5d92e8..ff701cc 100644
    show (Fix k f)      = "μ" ++ k ++ ". " ++ show (f (Var k 0))
    show (Let v f)      = "!" ++ show v ++ ";" ++ show f
    show (Set)          = "Set"
-@@ -253,6 +374,30 @@ instance Show Term where
+@@ -253,6 +360,30 @@ instance Show Term where
    show (Frz t)         = "∅" ++ show t
    show (Loc _ t)       = show t
    show (Rwt a b x)     = show a ++ " ⇒ " ++ show b ++ "; " ++ show x
@@ -4486,21 +4549,21 @@ index a5d92e8..ff701cc 100644
 +  show (Glu a fs)      = "Glue(" ++ show a ++ ",{" ++ concatMap (\(p,t,e) -> show p ++ "=>(" ++ show t ++ "," ++ show e ++ "); ") fs ++ "})"
 +  show (GlB a fs x)    = "glue(" ++ show a ++ "," ++ show x ++ ",{" ++ concatMap (\(p,t) -> show p ++ "=>" ++ show t ++ "; ") fs ++ "})"
 +  show (UnG g)         = "unglue(" ++ show g ++ ")"
-+  show (HTy n ps)      = n ++ (if null ps then "" else "(" ++ intercalate "," (map show ps) ++ ")")
-+  show (HPt n ps c fs) = hitCtorName n c ++ (if null (ps ++ fs) then "" else "(" ++ intercalate "," (map show (ps ++ fs)) ++ ")")
-+  show (HPa n ps c fs) = hitCtorName n c ++ (if null (ps ++ fs) then "" else "(" ++ intercalate "," (map show (ps ++ fs)) ++ ")")
-+  show (HEl n ps p ix x bs) = hitElimName n ++ "(" ++ intercalate "," (map show ps ++ [show p] ++ map show ix ++ [show x] ++ map (show . snd) bs) ++ ")"
 +  show (Quo a r)       = "(" ++ show a ++ " / " ++ show r ++ ")"
 +  show (QCl a)         = "[" ++ show a ++ "]"
 +  show (QEq a b r)     = "eq/(" ++ show a ++ "," ++ show b ++ "," ++ show r ++ ")"
 +  show QSq             = "squash/"
 +  show (QRec x s f r)  = "~q " ++ show x ++ " { [_]:" ++ show f ++ " ; eq/:" ++ show r ++ " }"
++  show (HTy t ps)      = t ++ (if null ps then "" else "(" ++ intercalate "," (map show ps) ++ ")")
++  show (HCon _ c _ as ivs) = "@" ++ c ++ "{" ++ intercalate "," (map show as) ++ "}" ++ concatMap (\i -> " @ " ++ show i) ivs
++  show (HEl p bs x)    = "helim(" ++ show x ++ "," ++ show p ++ "){" ++ intercalate "; " [ "@" ++ c ++ ": " ++ show b | (c,b) <- bs ] ++ "}"
++  show (HRec bs x)     = "hrec(" ++ show x ++ "){" ++ intercalate "; " [ "@" ++ c ++ ": " ++ show b | (c,b) <- bs ] ++ "}"
 +  show (PLm k f)       = "<" ++ k ++ "> " ++ show (f (Var k 0))
 +  show (PAp p r)       = "(" ++ show p ++ " @ " ++ show r ++ ")"
    show (Era)           = "*"
    show (Sup l a b)     = "&" ++ show l ++ "{" ++ show a ++ "," ++ show b ++ "}"
    show (SupM x l f)    = "~ " ++ show x ++ " { &" ++ show l ++ "{,}:" ++ show f ++ " }"
-@@ -303,7 +448,7 @@ instance Show Term where
+@@ -303,7 +434,7 @@ instance Show Term where
               showPat p = "(" ++ show p ++ ")"
  
  instance Show Book where
@@ -4509,7 +4572,7 @@ index a5d92e8..ff701cc 100644
      where defn (k,(_,x,t)) = k ++ " : " ++ show t ++ " = " ++ show x
  
  instance Show Span where
-@@ -353,7 +498,7 @@ instance Show Ctx where
+@@ -353,7 +484,7 @@ instance Show Ctx where
  -- -----
  
  deref :: Book -> Name -> Maybe Defn
@@ -4519,18 +4582,36 @@ index a5d92e8..ff701cc 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..4b48800 100644
+index 953410d..3d99737 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
-@@ -6,6 +6,7 @@ module Core.WHNF where
+@@ -6,7 +6,9 @@ module Core.WHNF where
  
  import Debug.Trace
  
 +import Data.List (sortBy)
  import Core.Type
++import Control.Monad (foldM)
  
  import System.IO.Unsafe
-@@ -53,9 +54,681 @@ whnfGo lv book term =
+ import Data.IORef
+@@ -38,7 +40,14 @@ whnfGo lv book term =
+     Let v f    -> whnfLet lv book v f
+     Ref k      -> whnfRef lv book k
+     Fix k f    -> whnfFix lv book k f
+-    Chk x _    -> whnf lv book x
++    -- an annotated constructor of a parametric HIT takes its parameters from
++    -- the annotation (the general escape hatch when the goal is not at hand)
++    Chk x ty   -> case cut x of
++      HCon t c [] as ivs | Just (_, h, _) <- derefCtor book c, hitArity h > 0 ->
++        case force book ty of
++          HTy t' ps | t' == t -> whnf lv book (HCon t c ps as ivs)
++          _ -> whnf lv book x
++      _ -> whnf lv book x
+     App f x    -> whnfApp lv book f x
+     Loc _ t    -> whnf lv book t
+     Op2 o a b  -> whnfOp2 lv book o a b
+@@ -53,9 +62,614 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -4539,7 +4620,6 @@ index 953410d..4b48800 100644
 +    Trp l p x -> whnfTrp lv book l p x
 +    POut u -> whnfPOut lv book u
 +    CRec x b l -> whnfCRec lv book x b l
-+    HEl n ps p ix x bs -> whnfHEl lv book n ps p ix x bs
 +    TRec x pb f -> whnfTRec lv book x pb f
 +    Coe pp r t x -> whnfCoe lv book pp r t x
 +    HCm a fs x -> whnfHCm lv book a fs x
@@ -4550,6 +4630,9 @@ index 953410d..4b48800 100644
 +    IAnd a b   -> whnfIAnd lv book a b
 +    IOr a b    -> whnfIOr lv book a b
 +    QRec x s f r -> whnfQRec lv book x s f r
++    HEl p bs x -> whnfHEl lv book p bs x
++    HCon t c ps as ivs | not (null ivs) -> whnfHCon lv book t c ps as ivs
++    HRec bs x -> whnfHRec lv book bs x
      _          -> term
  
  -- Normalizes a let binding
@@ -4574,13 +4657,13 @@ index 953410d..4b48800 100644
 +      I0 -> whnf lv book (QCl a)
 +      I1 -> whnf lv book (QCl b)
 +      r' -> PAp (QEq a b w) r'
-+    -- a declared HIT's path constructor, applied to k-1 intervals already
-+    -- (an n-dimensional cell): at a literal endpoint it is the face read off
-+    -- the constructor's declared path type, walked down the applied intervals
-+    p' | Just (n, ps, c, fs, is) <- hitSpine p' -> case whnf lv book r of
-+      I0 | Just (l, _) <- hitEndAt book n c ps fs is -> whnf lv book l
-+      I1 | Just (_, r1) <- hitEndAt book n c ps fs is -> whnf lv book r1
-+      r' -> PAp p' r'
++    -- a path constructor of a declared HIT: literal endpoints reduce to the
++    -- declared boundary; a symbolic interval is applied and the constructor
++    -- stays canonical
++    HCon t c ps as ivs -> case whnf lv book r of
++      I0 -> maybe (PAp (HCon t c ps as ivs) I0) (whnf lv book) (hitEndpoint book t c ps as ivs I0)
++      I1 -> maybe (PAp (HCon t c ps as ivs) I1) (whnf lv book) (hitEndpoint book t c ps as ivs I1)
++      r' -> HCon t c ps as (ivs ++ [r'])
 +    p'           -> PAp p' r
 +
 +-- The interval marker used to inspect a type line's dependency on its
@@ -4607,10 +4690,6 @@ index 953410d..4b48800 100644
 +    CBase      -> False
 +    CLoop      -> False
 +    CRec x b l -> go x || go b || go l
-+    HTy _ ps   -> any go ps
-+    HPt _ ps _ fs -> any go (ps ++ fs)
-+    HPa _ ps _ fs -> any go (ps ++ fs)
-+    HEl _ ps p ix x bs -> any go (ps ++ [p] ++ ix ++ [x] ++ map snd bs)
 +    Prt p a    -> go p || go a
 +    Sys fs     -> any (\(q,v) -> go q || go v) fs
 +    POut u     -> go u
@@ -4623,6 +4702,10 @@ index 953410d..4b48800 100644
 +    QEq a b w  -> go a || go b || go w
 +    QSq        -> False
 +    QRec x t f rs -> go x || go t || go f || go rs
++    HTy _ ps -> any go ps
++    HCon _ _ ps as ivs -> any go (ps ++ as ++ ivs)
++    HEl p bs x -> go p || go x || any (go . snd) bs
++    HRec bs x -> go x || any (go . snd) bs
 +    Sub a      -> go a
 +    Fix k f    -> go (f (Var k 0))
 +    Let v f    -> go v || go f
@@ -4769,71 +4852,6 @@ index 953410d..4b48800 100644
 +          (l0, l1) = dup book lb l
 +  x'             -> CRec x' b l
 +
-+-- | Instantiate a declared HIT constructor: apply its telescope to the
-+-- parameters, then peel one Π per supplied field value.  Returns the types of
-+-- the supplied fields (each instantiated at the earlier values) and the
-+-- remaining telescope, weak-head normalised: `All a _` when fields are still
-+-- missing, and the END (`HTy n ps`, or `Pth _ l r` for a path constructor)
-+-- once every field is supplied.
-+hitInst :: Book -> HitCtor -> [Term] -> [Term] -> ([Term], Term)
-+hitInst book c ps fs = go (foldl App (hcTele c) ps) fs where
-+  go t []       = ([], whnf Full book t)
-+  go t (f : rest) = case whnf Full book t of
-+    All a b -> let (as, end) = go (App b f) rest in (a : as, end)
-+    t'      -> ([], t')
-+
-+-- | A path-constructor spine  (Name/tag(ps, fs)) @ i1 @ … @ ik  — an
-+-- n-dimensional cell of a declared HIT applied to k of its dimensions.
-+hitSpine :: Term -> Maybe (Name, [Term], String, [Term], [Term])
-+hitSpine t = go (cut t) [] where
-+  go (HPa n ps c fs) is = Just (n, ps, c, fs, is)
-+  go (PAp q i) is       = go (cut q) (i : is)
-+  go _ _                = Nothing
-+
-+-- | The two faces of a path constructor's cell after applying it to the
-+-- intervals `is`: walk the declared iterated path type down those
-+-- dimensions and read the endpoints of the remaining one.
-+hitEndAt :: Book -> Name -> String -> [Term] -> [Term] -> [Term] -> Maybe (Term, Term)
-+hitEndAt book n c ps fs is = do
-+  sig  <- derefHit book n
-+  ctor <- hitCtor sig c
-+  walk (snd (hitInst book ctor ps fs)) is
-+  where
-+    walk t (i : rest) = case whnf Full book t of
-+      Pth l _ _ -> walk (App l i) rest
-+      _         -> Nothing
-+    walk t [] = case whnf Full book t of
-+      Pth _ l r -> Just (l, r)
-+      _         -> Nothing
-+
-+-- | The dependent eliminator of a declared HIT (Cubical Agda's pattern
-+-- matching, as one primitive): on a point constructor it is that
-+-- constructor's branch applied to the fields; on a path constructor's cell
-+-- applied to intervals it is the path branch applied to the fields, applied
-+-- to the same intervals; on an hcomp cell of the HIT it is the dependent
-+-- composition of the eliminator over the filler (the rule that makes
-+-- functions out of HITs compute on hcomp); superpositions commute.  Recursion
-+-- is by named definitions, exactly as in Agda, so nothing is assumed about
-+-- where the HIT occurs in its own constructors.  Anything else is stuck.
-+whnfHEl :: EvalLevel -> Book -> Name -> [Term] -> Term -> [Term] -> Term -> [(String, Term)] -> Term
-+whnfHEl lv book n ps p ix x bs = case whnf lv book x of
-+  HPt n' _ c fs | n' == n, Just b <- lookup c bs ->
-+    whnf lv book (foldl App b fs)
-+  x' | Just (n', _, c, fs, is) <- hitSpine x', n' == n, Just b <- lookup c bs ->
-+    whnf lv book (foldl PAp (foldl App b fs) is)
-+  HCm a fs0 x0 | isThis (whnf Full book a) ->
-+    whnf lv book (compAt (Lam "i" (\i -> App (foldl App p ix) (hfillAt a fs0 x0 i)))
-+                         [ (q, PLm "j" (\j -> HEl n ps p ix (PAp u j) bs)) | (q, u) <- fs0 ]
-+                         (HEl n ps p ix x0 bs))
-+  Sup lb a b ->
-+    let (p0, p1) = dup book lb p
-+        (bs0, bs1) = unzip [ ((c, b0), (c, b1)) | (c, br) <- bs, let (b0, b1) = dup book lb br ]
-+    in whnf lv book (Sup lb (HEl n ps p0 ix a bs0) (HEl n ps p1 ix b bs1))
-+  x' -> HEl n ps p ix x' bs
-+  where
-+    isThis (HTy n' _) = n' == n
-+    isThis _          = False
-+
 +-- | Truncation recursor into a PROPOSITION: |a| goes to f a, and the squash
 +-- path goes to the target's own proof that its two images are equal.
 +whnfTRec :: EvalLevel -> Book -> Term -> Term -> Term -> Term
@@ -4851,8 +4869,9 @@ index 953410d..4b48800 100644
 +       []      -> case [ f | f@(p, _) <- fs', notI0 p ] of
 +         []   -> whnf lv book x                      -- no live face: the cap
 +         -- the type-directed rules dispatch on the type's NORMAL FORM: the
-+         -- type may be a definition (a declared HIT, a family, a motive
-+         -- applied to a filler) whose head is not syntactically visible
++         -- type may be a definition, a family, or a motive applied to a
++         -- filler (the eliminator on an hcomp cell) whose head is not
++         -- syntactically visible
 +         live -> case force book a of
 +           -- hcomp in the UNIVERSE is a Glue type (CCHM): on each live face
 +           -- the tube's top, glued to the base along the equivalence
@@ -4977,7 +4996,14 @@ index 953410d..4b48800 100644
 +  in if sameEnd r' s'
 +    then whnf lv book t
 +    else
-+      let body = normal 0 book (App pP coeMarker) in
++      -- the HIT type former is an opaque definition, so a line written
++      -- through a definition (`def L(i) -> Set: T(ps(i))`) normalises to a
++      -- reference application; unfold that one head to reach the HTy node
++      let body0 = normal 0 book (App pP coeMarker)
++          body  = case collectApps (cut body0) [] of
++                    (Ref k, _) | Just _ <- derefHit book k -> normal 0 book (force book body0)
++                    _ -> body0
++      in
 +      if not (occursMarker body)
 +        -- regularity: constant line, coe is the identity
 +        then whnf lv book t
@@ -5081,33 +5107,6 @@ index 953410d..4b48800 100644
 +                facesS = [ (p', App (equivInv e) a1', e) | (p', _, e) <- live fsS ]
 +                a1 = HCm aS [ (p', PLm "j" (\j -> PAp (App (equivSec e) t1) (INot j))) | (p', t1, e) <- facesS ] a1'
 +            in whnf lv book (GlB aS [ (p', t1) | (p', t1, _) <- facesS ] a1)
-+          -- a declared HIT whose PARAMETERS vary along the line: a point
-+          -- constructor is rebuilt at the parameters of P(s) with every field
-+          -- transported along its own type line (dependent fields see the
-+          -- earlier fields transported to the same i); a path constructor
-+          -- applied at j is treated the same and re-applied at j.  Anything
-+          -- else (a neutral element, a composite) stays stuck.
-+          -- Along a line of an INDEXED family whose indices vary there is no
-+          -- constructor form for the result (it lives in another fibre), so
-+          -- the transport is a stuck neutral of the right type.
-+          HTy n _ | Just sig <- derefHit book n ->
-+            let argsAt i = case whnf Full book (App pP i) of { HTy _ as -> as ; _ -> [] }
-+                paramsAt i = take (hsArity sig) (argsAt i)
-+                fieldLine ctor fs j = Lam "i" (\i ->
-+                  let earlier = [ Coe (fieldLine ctor fs k) r' i (fs !! k) | k <- [0 .. j-1] ]
-+                  in case snd (hitInst book ctor (paramsAt i) earlier) of
-+                       All a _ -> a
-+                       _       -> App pP i)
-+                coeFields ctor fs = [ Coe (fieldLine ctor fs j) r' s' f | (j, f) <- zip [0..] fs ]
-+            in if hsNIdx sig > 0 then Coe pP r' s' t else case whnf lv book t of
-+              HPt n' _ c fs | n' == n, Just ctor <- hitCtor sig c ->
-+                HPt n (paramsAt s') c (coeFields ctor fs)
-+              t' | Just (n', _, c, fs, is) <- hitSpine t', n' == n, Just ctor <- hitCtor sig c ->
-+                whnf lv book (foldl PAp (HPa n (paramsAt s') c (coeFields ctor fs)) is)
-+              -- an hcomp cell of the HIT: transport commutes with it
-+              HCm _ fs0 x0 ->
-+                HCm (App pP s') [ (q, PLm "j" (\j -> Coe pP r' s' (PAp u j))) | (q, u) <- fs0 ] (Coe pP r' s' x0)
-+              t' -> Coe pP r' s' t'
 +          -- rigid inductives and Set: identity
 +          Nat     -> whnf lv book t
 +          Bit     -> whnf lv book t
@@ -5125,6 +5124,21 @@ index 953410d..4b48800 100644
 +              Nil      -> Nil
 +              Con h tl -> Con (Coe elLn r' s' h) (Coe pP r' s' tl)
 +              t'       -> Coe pP r' s' t'
++          -- a declared HIT whose parameters move: transport pushes into the
++          -- constructors, each field along its own (dependent) type line
++          HTy tn _ ->
++            let psAt i = case force book (App pP i) of { HTy _ ps -> ps ; _ -> [] }
++            in case whnf lv book t of
++              HCon _ c _ as ivs | Just (_, _, k) <- derefCtor book c ->
++                let n = length as
++                    fieldTyAt i j = ctorFieldType book k (psAt i ++ [ coeArg m i | m <- [0 .. j-1] ])
++                    fieldLn j     = Lam "i" (\i -> fieldTyAt i j)
++                    coeArg m i    = Coe (fieldLn m) r' i (as !! m)
++                in HCon tn c (psAt s') [ coeArg j s' | j <- [0 .. n-1] ] ivs
++              -- an hcomp cell of the HIT: transport commutes with it
++              HCm _ fs0 x0 ->
++                HCm (App pP s') [ (q, PLm "j" (\j -> Coe pP r' s' (PAp u j))) | (q, u) <- fs0 ] (Coe pP r' s' x0)
++              t' -> Coe pP r' s' t'
 +          _ -> Coe pP r' s' t
 +  where
 +    sameEnd I0 I0 = True
@@ -5212,7 +5226,7 @@ index 953410d..4b48800 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +819,21 @@ whnfSigM lv book x f =
+@@ -146,6 +760,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5234,7 +5248,7 @@ index 953410d..4b48800 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +1089,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +1030,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5282,74 +5296,27 @@ index 953410d..4b48800 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -429,6 +1158,66 @@ dup book l (Pri p)      = (Pri p, Pri p)
+@@ -429,6 +1099,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
  dup book l (Log s x)    = (Log s0 x0, Log s1 x1)
    where (s0,s1)         = dup book l s
          (x0,x1)         = dup book l x
-+dup book l (Tru a)      = (Tru a0, Tru a1) where (a0,a1) = dup book l a
-+dup book l (TIn a)      = (TIn a0, TIn a1) where (a0,a1) = dup book l a
-+dup book l (TSq x y)    = (TSq x0 y0, TSq x1 y1)
-+  where (x0,x1) = dup book l x
-+        (y0,y1) = dup book l y
-+dup book l (TRec x p f) = (TRec x0 p0 f0, TRec x1 p1 f1)
-+  where (x0,x1) = dup book l x
-+        (p0,p1) = dup book l p
-+        (f0,f1) = dup book l f
-+dup book l Cir          = (Cir, Cir)
-+dup book l CBase        = (CBase, CBase)
-+dup book l CLoop        = (CLoop, CLoop)
-+dup book l (CRec x b c) = (CRec x0 b0 c0, CRec x1 b1 c1)
-+  where (x0,x1) = dup book l x
-+        (b0,b1) = dup book l b
-+        (c0,c1) = dup book l c
-+dup book l (Prt p a)    = (Prt p0 a0, Prt p1 a1)
-+  where (p0,p1) = dup book l p
-+        (a0,a1) = dup book l a
-+dup book l (Sys fs)     = (Sys [ (q0,v0) | ((q0,_),(v0,_)) <- ds ], Sys [ (q1,v1) | ((_,q1),(_,v1)) <- ds ])
-+  where ds = [ (dup book l q, dup book l v) | (q,v) <- fs ]
-+dup book l (POut u)     = (POut u0, POut u1) where (u0,u1) = dup book l u
-+dup book l (Trp a p x)  = (Trp a0 p0 x0, Trp a1 p1 x1)
-+  where (a0,a1) = dup book l a
-+        (p0,p1) = dup book l p
-+        (x0,x1) = dup book l x
-+dup book l (Rst a p u)  = (Rst a0 p0 u0, Rst a1 p1 u1)
-+  where (a0,a1) = dup book l a
-+        (p0,p1) = dup book l p
-+        (u0,u1) = dup book l u
-+dup book l (InS x)      = (InS x0, InS x1) where (x0,x1) = dup book l x
-+dup book l (OutS x)     = (OutS x0, OutS x1) where (x0,x1) = dup book l x
-+dup book l (Quo a r)    = (Quo a0 r0, Quo a1 r1)
-+  where (a0,a1) = dup book l a
-+        (r0,r1) = dup book l r
-+dup book l (QCl a)      = (QCl a0, QCl a1) where (a0,a1) = dup book l a
-+dup book l (QEq a b w)  = (QEq a0 b0 w0, QEq a1 b1 w1)
-+  where (a0,a1) = dup book l a
-+        (b0,b1) = dup book l b
-+        (w0,w1) = dup book l w
-+dup book l QSq          = (QSq, QSq)
-+dup book l (QRec x t f r) = (QRec x0 t0 f0 r0, QRec x1 t1 f1 r1)
-+  where (x0,x1) = dup book l x
-+        (t0,t1) = dup book l t
-+        (f0,f1) = dup book l f
-+        (r0,r1) = dup book l r
-+dup book l (HTy n ps)   = (HTy n ps0, HTy n ps1)
-+  where (ps0, ps1) = unzip (map (dup book l) ps)
-+dup book l (HPt n ps c fs) = (HPt n ps0 c fs0, HPt n ps1 c fs1)
-+  where (ps0, ps1) = unzip (map (dup book l) ps)
-+        (fs0, fs1) = unzip (map (dup book l) fs)
-+dup book l (HPa n ps c fs) = (HPa n ps0 c fs0, HPa n ps1 c fs1)
-+  where (ps0, ps1) = unzip (map (dup book l) ps)
-+        (fs0, fs1) = unzip (map (dup book l) fs)
-+dup book l (HEl n ps p ix x bs) = (HEl n ps0 p0 ix0 x0 bs0, HEl n ps1 p1 ix1 x1 bs1)
-+  where (ps0, ps1) = unzip (map (dup book l) ps)
-+        (p0, p1)   = dup book l p
-+        (ix0, ix1) = unzip (map (dup book l) ix)
-+        (x0, x1)   = dup book l x
-+        (bs0, bs1) = unzip [ ((c, b0), (c, b1)) | (c, b) <- bs, let (b0, b1) = dup book l b ]
++dup book l (HTy t ps)   = (HTy t ps0, HTy t ps1)
++  where (ps0,ps1)       = unzip (map (dup book l) ps)
++dup book l (HCon t c ps as ivs) = (HCon t c ps0 as0 ivs0, HCon t c ps1 as1 ivs1)
++  where (ps0,ps1)       = unzip (map (dup book l) ps)
++        (as0,as1)       = unzip (map (dup book l) as)
++        (ivs0,ivs1)     = unzip (map (dup book l) ivs)
++dup book l (HEl p bs x) = (HEl p0 [ (c,b0) | (c,(b0,_)) <- bd ] x0, HEl p1 [ (c,b1) | (c,(_,b1)) <- bd ] x1)
++  where (p0,p1)         = dup book l p
++        (x0,x1)         = dup book l x
++        bd              = [ (c, dup book l b) | (c,b) <- bs ]
++dup book l (HRec bs x)  = (HRec [ (c,b0) | (c,(b0,_)) <- bd ] x0, HRec [ (c,b1) | (c,(_,b1)) <- bd ] x1)
++  where (x0,x1)         = dup book l x
++        bd              = [ (c, dup book l b) | (c,b) <- bs ]
  dup book l (Frk _ _ _)  = error "unreachable"
  dup book l (Pat _ _ _)  = error "unreachable"
  
-@@ -485,11 +1274,50 @@ normal d book term =
+@@ -485,11 +1168,50 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5378,6 +5345,10 @@ index 953410d..4b48800 100644
 +    QEq a b w  -> QEq (normal d book a) (normal d book b) (normal d book w)
 +    QSq        -> QSq
 +    QRec x t f r -> QRec (normal d book x) (normal d book t) (normal d book f) (normal d book r)
++    HTy t ps -> HTy t (map (normal d book) ps)
++    HCon t c ps as ivs -> HCon t c (map (normal d book) ps) (map (normal d book) as) (map (normal d book) ivs)
++    HEl p bs x -> HEl (normal d book p) [ (c, normal d book b) | (c,b) <- bs ] (normal d book x)
++    HRec bs x -> HRec [ (c, normal d book b) | (c,b) <- bs ] (normal d book x)
 +    Rst a p u  -> Rst (normal d book a) (normal d book p) (normal d book u)
 +    Tru a      -> Tru (normal d book a)
 +    TIn a      -> TIn (normal d book a)
@@ -5387,10 +5358,6 @@ index 953410d..4b48800 100644
 +    CBase      -> CBase
 +    CLoop      -> CLoop
 +    CRec x b l -> CRec (normal d book x) (normal d book b) (normal d book l)
-+    HTy n ps   -> HTy n (map (normal d book) ps)
-+    HPt n ps c fs -> HPt n (map (normal d book) ps) c (map (normal d book) fs)
-+    HPa n ps c fs -> HPa n (map (normal d book) ps) c (map (normal d book) fs)
-+    HEl n ps p ix x bs -> HEl n (map (normal d book) ps) (normal d book p) (map (normal d book) ix) (normal d book x) [ (c, normal d book b) | (c,b) <- bs ]
 +    Prt p a    -> Prt (normal d book p) (normal d book a)
 +    Sys fs     -> Sys [ (normal d book q, normal d book v) | (q,v) <- fs ]
 +    POut u     -> POut (normal d book u)
@@ -5400,7 +5367,7 @@ index 953410d..4b48800 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1329,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1223,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5478,6 +5445,10 @@ index 953410d..4b48800 100644
 +    QEq a b w  -> QEq (normalCap (cap-1) d book a) (normalCap (cap-1) d book b) (normalCap (cap-1) d book w)
 +    QSq        -> QSq
 +    QRec x t f rs -> QRec (normalCap (cap-1) d book x) (normalCap (cap-1) d book t) (normalCap (cap-1) d book f) (normalCap (cap-1) d book rs)
++    HTy t ps -> HTy t (map (normalCap (cap-1) d book) ps)
++    HCon t c ps as ivs -> HCon t c (map (normalCap (cap-1) d book) ps) (map (normalCap (cap-1) d book) as) (map (normalCap (cap-1) d book) ivs)
++    HEl p bs x -> HEl (normalCap (cap-1) d book p) [ (c, normalCap (cap-1) d book b) | (c,b) <- bs ] (normalCap (cap-1) d book x)
++    HRec bs x -> HRec [ (c, normalCap (cap-1) d book b) | (c,b) <- bs ] (normalCap (cap-1) d book x)
 +    Rst a p u  -> Rst (normalCap (cap-1) d book a) (normalCap (cap-1) d book p) (normalCap (cap-1) d book u)
 +    Tru a      -> Tru (normalCap (cap-1) d book a)
 +    TIn a      -> TIn (normalCap (cap-1) d book a)
@@ -5487,10 +5458,6 @@ index 953410d..4b48800 100644
 +    CBase      -> CBase
 +    CLoop      -> CLoop
 +    CRec x b l -> CRec (normalCap (cap-1) d book x) (normalCap (cap-1) d book b) (normalCap (cap-1) d book l)
-+    HTy n ps   -> HTy n (map (normalCap (cap-1) d book) ps)
-+    HPt n ps c fs -> HPt n (map (normalCap (cap-1) d book) ps) c (map (normalCap (cap-1) d book) fs)
-+    HPa n ps c fs -> HPa n (map (normalCap (cap-1) d book) ps) c (map (normalCap (cap-1) d book) fs)
-+    HEl n ps p ix x bs -> HEl n (map (normalCap (cap-1) d book) ps) (normalCap (cap-1) d book p) (map (normalCap (cap-1) d book) ix) (normalCap (cap-1) d book x) [ (c, normalCap (cap-1) d book b) | (c,b) <- bs ]
 +    Prt p a    -> Prt (normalCap (cap-1) d book p) (normalCap (cap-1) d book a)
 +    Sys fs     -> Sys [ (normalCap (cap-1) d book q, normalCap (cap-1) d book v) | (q,v) <- fs ]
 +    POut u     -> POut (normalCap (cap-1) d book u)
@@ -5507,7 +5474,7 @@ index 953410d..4b48800 100644
  -- Utils
  -- =====
  
-@@ -547,3 +1475,234 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1369,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -5631,10 +5598,6 @@ index 953410d..4b48800 100644
 +  TSq x y    -> TSq (g x) (g y)
 +  TRec x p f -> TRec (g x) (g p) (g f)
 +  CRec x b l -> CRec (g x) (g b) (g l)
-+  HTy n ps   -> HTy n (map g ps)
-+  HPt n ps c fs -> HPt n (map g ps) c (map g fs)
-+  HPa n ps c fs -> HPa n (map g ps) c (map g fs)
-+  HEl n ps p ix x bs -> HEl n (map g ps) (g p) (map g ix) (g x) [ (c, g b) | (c,b) <- bs ]
 +  Prt p a    -> Prt (g p) (g a)
 +  Sys fs     -> Sys [ (g q, g v) | (q,v) <- fs ]
 +  POut u     -> POut (g u)
@@ -5646,6 +5609,10 @@ index 953410d..4b48800 100644
 +  QCl a      -> QCl (g a)
 +  QEq a b w  -> QEq (g a) (g b) (g w)
 +  QRec x t f rs -> QRec (g x) (g t) (g f) (g rs)
++  HTy t ps -> HTy t (map g ps)
++  HCon t c ps as ivs -> HCon t c (map g ps) (map g as) (map g ivs)
++  HEl p bs x -> HEl (g p) [ (c, g b) | (c,b) <- bs ] (g x)
++  HRec bs x -> HRec [ (c, g b) | (c,b) <- bs ] (g x)
 +  Sig a b    -> Sig (g a) (g b)
 +  Tup a b    -> Tup (g a) (g b)
 +  SigM a b   -> SigM (g a) (g b)
@@ -5742,8 +5709,101 @@ index 953410d..4b48800 100644
 +  Tup (Tup y (PLm "_" (\_ -> y)))
 +      (Lam "w" (\w -> SigM w (Lam "x" (\_ -> Lam "p" (\p ->
 +        PLm "i" (\i -> Tup (PAp p (INot i)) (PLm "j" (\j -> PAp p (IOr (INot i) j)))))))))
++
++
++-- General higher inductive types
++-- ==============================
++
++-- The type of a constructor applied to the HIT's parameters, then to fields,
++-- then (a path constructor) to intervals: peel one Pi per argument and one
++-- Path per interval. Nothing if the arity is wrong.
++hitCtorTypeAt :: Book -> Name -> Name -> [Term] -> [Term] -> [Term] -> Maybe Term
++hitCtorTypeAt book t c ps as ivs = do
++  h <- derefHit book t
++  k <- lookup c (hitCtors h)
++  -- parameters the term does not carry (a constructor is typed against its
++  -- goal, like every Bend constructor) are instantiated by opaque placeholders:
++  -- endpoints that do not mention them are exact, endpoints that do stay stuck
++  let ps' = if null ps && hitArity h > 0 then [ Var ("_p" ++ show i) (-100 - i) | i <- [1 .. hitArity h] ] else ps
++  ty <- foldM stepArg (ctorType k) (ps' ++ as)
++  foldM stepItv ty ivs
++  where
++    stepArg ty x = case whnf Full book ty of
++      All _ b -> Just (appCod b x)
++      _       -> Nothing
++    stepItv ty i = case whnf Full book ty of
++      Pth l _ _ -> Just (App l i)
++      _         -> Nothing
++
++-- The type of the NEXT field of a constructor, given the parameters and the
++-- fields before it.
++ctorFieldType :: Book -> HitCtor -> [Term] -> Term
++ctorFieldType book k given =
++  case foldM step (ctorType k) given of
++    Just ty -> case whnf Full book ty of { All a _ -> a ; ty' -> ty' }
++    Nothing -> ctorType k
++  where
++    step ty x = case whnf Full book ty of
++      All _ b -> Just (appCod b x)
++      _       -> Nothing
++
++-- The declared endpoint (at i0 or i1) of a path constructor applied to its
++-- fields and to the intervals so far.
++hitEndpoint :: Book -> Name -> Name -> [Term] -> [Term] -> [Term] -> Term -> Maybe Term
++hitEndpoint book t c ps as ivs r = do
++  ty <- hitCtorTypeAt book t c ps as ivs
++  case whnf Full book ty of
++    Pth _ a b -> Just (case r of { I0 -> a ; _ -> b })
++    _         -> Nothing
++
++-- The eliminator computes on every constructor (point or path, at any
++-- interval), commutes over superpositions, and commutes with composition:
++-- helim of an hcomp in the HIT is comp along the motive over the filler.
++whnfHEl :: EvalLevel -> Book -> Term -> [(Name, Term)] -> Term -> Term
++whnfHEl lv book p bs x = case whnf lv book x of
++  HCon _ c _ as ivs | Just b <- lookup c bs ->
++    whnf lv book (foldl PAp (foldl App b as) ivs)
++  Sup l a b ->
++    let (p0, p1) = dup book l p
++        bd       = [ (c, dup book l t) | (c, t) <- bs ]
++    in whnf lv book (Sup l (HEl p0 [ (c, t0) | (c, (t0, _)) <- bd ] a)
++                           (HEl p1 [ (c, t1) | (c, (_, t1)) <- bd ] b))
++  HCm a fs base | isHTy a ->
++    whnf lv book (compAt (Lam "j" (\j -> App p (hfillAt a fs base j)))
++                         [ (q, PLm "j" (\j -> HEl p bs (PAp u j))) | (q, u) <- fs ]
++                         (HEl p bs base))
++  x' -> HEl p bs x'
++  where isHTy a = case force book a of { HTy _ _ -> True ; _ -> False }   -- the HIT may be named by a definition
++
++-- The recursor has no motive at hand, so it computes on constructors and
++-- superpositions only; on a composite it stays stuck (use helim there).
++whnfHRec :: EvalLevel -> Book -> [(Name, Term)] -> Term -> Term
++whnfHRec lv book bs x = case whnf lv book x of
++  HCon _ c _ as ivs | Just b <- lookup c bs ->
++    whnf lv book (foldl PAp (foldl App b as) ivs)
++  Sup l a b ->
++    let bd = [ (c, dup book l t) | (c, t) <- bs ]
++    in whnf lv book (Sup l (HRec [ (c, t0) | (c, (t0, _)) <- bd ] a)
++                           (HRec [ (c, t1) | (c, (_, t1)) <- bd ] b))
++  x' -> HRec bs x'
++
++-- A path constructor applied to intervals of which one became literal (a face
++-- restriction substituted into an already-applied constructor): the first
++-- literal interval selects the declared endpoint, the later intervals are
++-- applied to it.
++whnfHCon :: EvalLevel -> Book -> Name -> Name -> [Term] -> [Term] -> [Term] -> Term
++whnfHCon lv book t c ps as ivs = go [] ivs
++  where
++    go done [] = HCon t c ps as done
++    go done (i : rest) = case whnf lv book i of
++      I0 -> lit done I0 rest
++      I1 -> lit done I1 rest
++      i' -> go (done ++ [i']) rest
++    lit done r rest = case hitEndpoint book t c ps as done r of
++      Just e  -> whnf lv book (foldl PAp e rest)
++      Nothing -> HCon t c ps as (done ++ [r] ++ rest)
 diff --git a/src/Target/HVM.hs b/src/Target/HVM.hs
-index 996bb26..052cd60 100644
+index 996bb26..8db6fc6 100644
 --- a/src/Target/HVM.hs
 +++ b/src/Target/HVM.hs
 @@ -6,8 +6,9 @@ module Target.HVM where
@@ -6070,10 +6130,10 @@ index 996bb26..052cd60 100644
 +  QEq a b w  -> S.unions [freeVars ctx a, freeVars ctx b, freeVars ctx w]
 +  QSq        -> S.empty
 +  QRec x t f r -> S.unions (map (freeVars ctx) [x,t,f,r])
-+  HTy _ ps   -> S.unions (map (freeVars ctx) ps)
-+  HPt _ ps _ fs -> S.unions (map (freeVars ctx) (ps ++ fs))
-+  HPa _ ps _ fs -> S.unions (map (freeVars ctx) (ps ++ fs))
-+  HEl _ ps p ix x bs -> S.unions (map (freeVars ctx) (ps ++ [p] ++ ix ++ [x] ++ map snd bs))
++  HTy _ ps -> S.unions (map (freeVars ctx) ps)
++  HCon _ _ ps as ivs -> S.unions (map (freeVars ctx) (ps ++ as ++ ivs))
++  HEl p bs x -> S.unions (map (freeVars ctx) (p : x : map snd bs))
++  HRec bs x -> S.unions (map (freeVars ctx) (x : map snd bs))
    Pri _      -> S.empty
    Pat s m c  -> error "TODO: Pat"
 +
@@ -6083,7 +6143,7 @@ index 996bb26..052cd60 100644
 +unsnoc xs = Just (init xs, last xs)
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..a5fde1b
+index 0000000..c1d7d4f
 --- /dev/null
 +++ b/src/Target/HVM4.hs
 @@ -0,0 +1,228 @@
@@ -6237,9 +6297,9 @@ index 0000000..a5fde1b
 +    CLoop       -> "&{}"
 +    CRec x _ _  -> go d x
 +    HTy _ _     -> "&{}"
-+    HPt _ _ _ _ -> "&{}"
-+    HPa _ _ _ _ -> "&{}"
-+    HEl _ _ _ _ x _ -> go d x
++    HCon t c _ as _ -> "#" ++ hvmName t ++ "_" ++ c ++ "{" ++ intercalate ", " (map (go d) as) ++ "}"
++    HEl _ _ x   -> go d x
++    HRec _ x    -> go d x
 +    Prt _ a     -> go d a
 +    POut u      -> go d u
 +    Trp l _ x   -> go d x
@@ -6317,10 +6377,10 @@ index 0000000..a5fde1b
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..bad0b7f
+index 0000000..2c38326
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,535 @@
+@@ -0,0 +1,498 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6345,7 +6405,7 @@ index 0000000..bad0b7f
 +import qualified Data.Map as M
 +
 +import Core.Type
-+import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, hitInst, whnf, EvalLevel(..))
++import Core.WHNF (coeMarker, occursMarker, substMarker, depMarker, occursDep, force, hitCtorTypeAt, ctorFieldType)
 +import Data.IORef
 +import System.IO.Unsafe (unsafePerformIO)
 +
@@ -6364,7 +6424,7 @@ index 0000000..bad0b7f
 +  return ("b" ++ show d ++ "u" ++ show n)
 +
 +compileFull :: Book -> String
-+compileFull book@(Book defs hits) = prelude ++ hitRuntime book ++ unlines (map def (M.toList defs))
++compileFull book@(Book defs hits) = prelude ++ hitPrelude book ++ unlines (map def (M.toList defs))
 +  where
 +    def (nam, (_, tm, _)) = "@" ++ hvmName nam ++ " = " ++ emitFull book tm
 +
@@ -6383,10 +6443,9 @@ index 0000000..bad0b7f
 +  , "@fwd = λ{#I0: λs. 1; #I1: λs. 0; λr. λs. 0}"
 +  , "// ---- paths applied to intervals (universe paths are data; value paths are functions)"
 +  , "@pathAt = λp. λi. (λ{#I0: λp. @pL(p); #I1: λp. @pR(p); λi. λp. @pAtSym(p, i)})(i)(p)"
-+  , "// (any other path value is a declared HIT's path constructor, or stuck: @hitAt, generated per program)"
-+  , "@pAtSym = λ{#PLm: λf. λi. f(i); #TSq: λu. λv. λi. #At{#TSq{u, v}, i}; #Loop: λi. #At{#Loop, i}; #QEq: λa. λb. λw. λi. #At{#QEq{a, b, w}, i}; #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. @hitAt(v, i)}"
-+  , "@pL = λ{#PLm: λf. f(#I0); #TSq: λu. λv. u; #Loop: #Base; #QEq: λa. λb. λw. #QCl{a}; #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); λv. @hitAt(v, #I0)}"
-+  , "@pR = λ{#PLm: λf. f(#I1); #TSq: λu. λv. v; #Loop: #Base; #QEq: λa. λb. λw. #QCl{b}; #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); λv. @hitAt(v, #I1)}"
++  , "@pAtSym = λ{#PLm: λf. λi. f(i); #TSq: λu. λv. λi. #At{#TSq{u, v}, i}; #Loop: λi. #At{#Loop, i}; #QEq: λa. λb. λw. λi. #At{#QEq{a, b, w}, i}; #UaU: λA. λB. λf. λg. λi. #At{#UaU{A, B, f, g}, i}; #CompU: λP. λQ. λi. #At{#CompU{P, Q}, i}; λv. λi. #StuckAt{v, i}}"
++  , "@pL = λ{#PLm: λf. f(#I0); #TSq: λu. λv. u; #Loop: #Base; #QEq: λa. λb. λw. #QCl{a}; #UaU: λA. λB. λf. λg. A; #CompU: λP. λQ. P(#I0); λv. #StuckAt{v, #I0}}"
++  , "@pR = λ{#PLm: λf. f(#I1); #TSq: λu. λv. v; #Loop: #Base; #QEq: λa. λb. λw. #QCl{b}; #UaU: λA. λB. λf. λg. B; #CompU: λP. λQ. Q(#I1); λv. #StuckAt{v, #I1}}"
 +  , "// ---- hcomp: faces = #Nil | #Cons{#Face{phi, tube}, rest}; stuck faces are kept"
 +  , "@hcomp = λA. λfs. λbase. @hcompGo(A, fs, base, #Nil)"
 +  , "@hcompGo = λ&A. λ{"
@@ -6416,8 +6475,7 @@ index 0000000..bad0b7f
 +  , "@hcTubesSnd = λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @sndP(@pathAt(tube, j))}}, @hcTubesSnd(rest)}}}"
 +  , "@hcTubesAnd = λ{#Nil: λj. #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. λ&j. #Cons{#Face{p, #PLm{λk. @pathAt(tube, @iand(j, k))}}, @hcTubesAnd(rest, j)}}}"
 +  , "@hcTubesCoe = λ&P. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λ&j. @coe(P, j, #I1, @pathAt(tube, j))}}, @hcTubesCoe(P, rest)}}}"
-+  , "// tubes of an hcomp cell transported along a line (transport commutes with hcomp in a HIT)"
-+  , "@hcTubesCoeLine = λ&L. λ&r. λ&s. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @coe(L, r, s, @pathAt(tube, j))}}, @hcTubesCoeLine(L, r, s, rest)}}}"
++  , "@hcTubesMap = λ&f. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. f(@pathAt(tube, j))}}, @hcTubesMap(f, rest)}}}"
 +  , "// hfill: the filler; comp: composition along a type line (coe + hcomp)"
 +  , "@hfillAt = λ&A. λ&fs. λ&u0. λ&j. @hcomp(A, #Cons{#Face{@inot(j), #PLm{λk. u0}}, @hcTubesAnd(fs, j)}, u0)"
 +  , "@compAt = λ&P. λ&fs. λ&u0. @hcomp(P(#I1), @hcTubesCoe(P, fs), @coe(P, #I0, #I1, u0))"
@@ -6533,6 +6591,8 @@ index 0000000..bad0b7f
 +  , "  #At: λp. λi. @coeAt(p, i, r, s, x);"
 +  , "  #Glue: λA0. λfs0. @coeGlue(L, r, s, x, fs0);"
 +  , "  λt. @hitCoe(L, r, s, x, t)}"
++  , "// tubes of an hcomp cell transported along a line (transport commutes with hcomp in a HIT)"
++  , "@hcTubesCoeLine = λ&L. λ&r. λ&s. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @coe(L, r, s, @pathAt(tube, j))}}, @hcTubesCoeLine(L, r, s, rest)}}}"
 +  , "// coe along a universe path applied at the symbolic marker (or its negation)"
 +  , "// direction of literal endpoints: 1 fwd, 0 bwd, 2 symbolic (stuck)"
 +  , "@dir = λ{#I0: λ{#I1: 1; λs. 2}; #I1: λ{#I0: 0; λs. 2}; λr. λs. 2}"
@@ -6616,19 +6676,32 @@ index 0000000..bad0b7f
 +    Rst a p u      -> "#Sub{" ++ go d a ++ ", " ++ go d p ++ ", " ++ go d u ++ "}"
 +    InS x          -> "#InS{" ++ go d x ++ "}"
 +    OutS x         -> "@outS(" ++ go d x ++ ")"
-+    -- DECLARED HITs: the type and both kinds of constructor are data
-+    -- (#Hit_Name{params}, #Hit_Name_tag{params, fields}); a path constructor
-+    -- is a path value @pathAt knows through @hitAt; the eliminator is the
-+    -- generated runtime function @hit_Name_elim.
-+    HTy n ps       -> hitCtorData (hitTyTag n) (map (go d) ps)
-+    HPt n ps c fs  -> hitCtorData (hitCtorTag n c) (map (go d) (ps ++ fs))
-+    HPa n ps c fs  -> hitCtorData (hitCtorTag n c) (map (go d) (ps ++ fs))
-+    HEl n ps p ix x bs -> "@" ++ hitElimFn n ++ "(" ++ intercalate ", " (map (go d) ps ++ [go d p] ++ map (go d) ix ++ [go d x] ++ [ go d b | c <- ctorOrder n, Just b <- [lookup c bs] ]) ++ ")"
 +    Quo a r        -> "#Quot{" ++ go d a ++ ", " ++ go d r ++ "}"
 +    QCl a          -> "#QCl{" ++ go d a ++ "}"
 +    QEq a b w      -> "#QEq{" ++ go d a ++ ", " ++ go d b ++ ", " ++ go d w ++ "}"
 +    QSq            -> "#QSq"
 +    QRec x t f r   -> "@qrec(" ++ go d x ++ ", " ++ go d t ++ ", " ++ go d f ++ ", " ++ go d r ++ ")"
++    -- GENERAL HITs: the type and every constructor are data carrying the
++    -- parameters; a path constructor is a runtime path (#PLm over the
++    -- generated @P_T_c, which reduces at literal endpoints and stays
++    -- canonical otherwise); the eliminator is the generated @E_T.
++    HTy t ps       -> "#HT_" ++ hvmName t ++ "{" ++ intercalate ", " (map (go d) ps) ++ "}"
++    HCon t c ps as ivs -> case derefCtor book c of
++      -- parameters the term does not carry are erased at runtime (they are
++      -- only consulted by path constructors whose endpoints mention them)
++      Just (_, h, k) | ctorDim k == 0 -> "#" ++ hitCtorTag t c ++ "{" ++ intercalate ", " (psOr h ps ++ map (go d) as) ++ "}"
++      Just (_, h, k) ->
++        let rest = ctorDim k - length ivs
++            ns   = [ freshName (d + i) | i <- [0 .. rest - 1] ]
++            call = "@" ++ hitPathFn t c ++ "(" ++ intercalate ", " (psOr h ps ++ map (go d) (as ++ ivs) ++ ns) ++ ")"
++        in foldr (\n acc -> "#PLm{λ&" ++ n ++ ". " ++ acc ++ "}") call ns
++      Nothing -> "&{}"
++    HEl p bs x     -> case elimOf bs of
++      Just (t, h) -> "@" ++ hitElimFn t ++ "(" ++ intercalate ", " (go d p : [ maybe "&{}" (go d) (lookup c bs) | (c, _) <- hitCtors h ] ++ [go d x]) ++ ")"
++      Nothing     -> "#HEl{" ++ go d x ++ "}"
++    HRec bs x      -> case elimOf bs of
++      Just (t, h) -> "@" ++ hitElimFn t ++ "(" ++ intercalate ", " ("λ&hm. #NoMotive" : [ maybe "&{}" (go d) (lookup c bs) | (c, _) <- hitCtors h ] ++ [go d x]) ++ ")"
++      Nothing     -> "#HRec{" ++ go d x ++ "}"
 +    Sig a b        -> "#Sig{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    All a b        -> "#Pi{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    Pth a u v      -> "#Path{" ++ go d a ++ ", " ++ go d u ++ ", " ++ go d v ++ "}"
@@ -6655,10 +6728,12 @@ index 0000000..bad0b7f
 +    Pat _ _ _      -> error "HVM4 full emission: unflattened pattern match"
 +
 +  faces d fs = foldr (\(p, u) acc -> "#Cons{#Face{" ++ go d p ++ ", " ++ go d u ++ "}, " ++ acc ++ "}") "#Nil" fs
-+
-+  ctorOrder n = case derefHit book n of
-+    Just sig -> map hcTag (hsCtors sig)
-+    Nothing  -> []
++  psOr h ps = if null ps then replicate (hitArity h) "&{}" else map (go 0) ps
++  -- which HIT an eliminator is for: read off its branch names (constructor
++  -- names are unique across the book's HITs)
++  elimOf bs = case [ (t, h) | (c, _) <- bs, Just (t, h, _) <- [derefCtor book c] ] of
++    (r : _) -> Just r
++    []      -> Nothing
 +
 +  appFun d f = case cut f of
 +    Var _ _ -> go d f
@@ -6691,173 +6766,121 @@ index 0000000..bad0b7f
 +    AND -> "&&"; OR -> "||"; XOR -> "^"; SHL -> "<<"; SHR -> ">>"
 +    _   -> "+"
 +
-+-- Declared HITs at runtime
-+-- ------------------------
-+-- Everything a HIT needs on the net is generated from its signature:
-+--   @hitAt          a path-constructor CELL (the constructor applied to any
-+--                   number of intervals, #At{…{ctor, i1}…, ik}) at an interval:
-+--                   walks the constructor's declared path type (@hit_N_c_ty)
-+--                   down the applied dimensions and reads the face; stuck
-+--                   #At{cell, j} at a symbolic j — extends @pathAt
-+--   @hitCoe         transport along a HIT line whose parameters vary (a
-+--                   non-indexed HIT): constructors rebuilt at the parameters
-+--                   of L(s) with each field transported along its own type
-+--                   line, cells likewise under their intervals, hcomp cells
-+--                   commuted; an indexed HIT's transport is stuck, as in the
-+--                   checker
-+--   @hit_N_elim     the dependent eliminator: branch on a constructor
-+--                   (fields applied), @pathAt(elim(p), i) on a cell #At{p, i},
-+--                   dependent composition over the filler on an hcomp cell,
-+--                   stuck data otherwise; recursion is the user's named def
-+--   @hit_N_p<k>     the k-th parameter of a HIT type value
-+-- hcomp in a HIT stays #HCm: for a higher inductive type a composite IS a
-+-- canonical form (that is where the higher structure comes from).
 +
-+hitTyTag :: Name -> String
-+hitTyTag n = "Hit_" ++ hvmName n
-+
-+hitCtorTag :: Name -> String -> String
-+hitCtorTag n c = "Hit_" ++ hvmName n ++ "_" ++ hvmName c
++-- Names of the generated runtime functions of a HIT
++hitCtorTag, hitPathFn :: Name -> Name -> String
++hitCtorTag t c = "C_" ++ hvmName t ++ "_" ++ c
++hitPathFn  t c = "P_" ++ hvmName t ++ "_" ++ c
 +
 +hitElimFn :: Name -> String
-+hitElimFn n = "hit_" ++ hvmName n ++ "_elim"
++hitElimFn t = "E_" ++ hvmName t
 +
-+hitParamFn :: Name -> Int -> String
-+hitParamFn n k = "hit_" ++ hvmName n ++ "_p" ++ show k
-+
-+hitCtorData :: String -> [String] -> String
-+hitCtorData tag [] = "#" ++ tag
-+hitCtorData tag xs = "#" ++ tag ++ "{" ++ intercalate ", " xs ++ "}"
-+
-+-- The maximal dimension of any path constructor in the program: spine
-+-- recursions (a cell applied to k intervals, k ≤ D) are UNROLLED to that
-+-- depth instead of written recursively.  HVM4's normal-form printer expands
-+-- the arms of a match stuck on a free variable, so a function recursing
-+-- through a pattern variable diverges when printed inside a lambda (this is
-+-- true of any recursive function on HVM4, e.g. a user's `add`); a cell's
-+-- dimension is bounded, so its walker need not recurse at all.
-+hitMaxDim :: Book -> Int
-+hitMaxDim book = maximum (1 : [ dims (snd (hitInst book c (vars (hsArity sig)) (vars (hcArity c))))
-+                              | sig <- M.elems (bookHits book), c <- hsCtors sig, hcIsPath c ])
++-- Per declared HIT, the runtime functions:
++--   @P_T_c  = λps. λas. λi1..in. dispatch on the intervals: a literal endpoint
++--             reduces to the declared boundary, a symbolic one is applied
++--             and the constructor stays canonical (#P_T_c{ps, as, is});
++--   @E_T    = λP. λb_c1 .. λb_cn. λx. the eliminator: branches on the
++--             constructors, commutes with composition, stuck otherwise.
++hitPrelude :: Book -> String
++hitPrelude book = unlines (hitCoeDispatch : concatMap one (M.toList (bookHits book)))
 +  where
-+    vars k = [ Var ("d" ++ show i) 0 | i <- [1 .. k] ]
-+    dims t = case whnf Full book t of
-+      Pth l _ _ -> 1 + dims (App l (Var "_dim" 0))
-+      _         -> 0
++    one (t, h) = [ pathFn t c k | (c, k) <- hitCtors h, ctorDim k > 0 ] ++ [ elimFn t h ] ++ coeFns t h
 +
-+hitRuntime :: Book -> String
-+hitRuntime book = unlines $
-+  [ "// ---- declared HITs (generated from their signatures)"
-+  , "@hitAt = λ&v. λj. @hitAtGo0(v, v, #Nil, j)" ]
-+  ++ map hitAtTyDef [0 .. maxD]
-+  ++ map hitAtGoDef [0 .. maxD]
-+  ++ [ hitCoeDef ]
-+  ++ concatMap ctorTyFns sigs
-+  ++ concatMap paramFns sigs
-+  ++ concatMap coeFns sigs
-+  ++ concatMap elimFns sigs
-+  where
-+    sigs = M.elems (bookHits book)
-+    maxD = hitMaxDim book
-+    n_ sig = hsName sig
-+    nm sig = hvmName (hsName sig)
-+    lams  = concatMap (\v -> "λ" ++ v ++ ". ")
-+    lamsD = concatMap (\v -> "λ&" ++ v ++ ". ")
-+    -- Binder names are deterministic and globally unique (role, HIT,
-+    -- constructor, index, level): HVM4 derives a λ&-binder's clone label
-+    -- from its name, and counts uses of a name across a whole definition.
-+    names pre k = [ pre ++ "_" ++ show i | i <- [0 .. k - 1] ]
-+    inst ctor ps fs = hitInst book ctor (map (\v -> Var v 0) ps) (map (\v -> Var v 0) fs)
-+    ctorTyFn sig c = "hit_" ++ nm sig ++ "_" ++ hvmName (hcTag c) ++ "_ty"
-+    -- @hit_N_c_ty: the declared path type of a path constructor, as runtime data
-+    ctorTyFns sig =
-+      [ "@" ++ ctorTyFn sig c ++ " = " ++ lamsD (ps ++ fs) ++ emitFull book (snd (inst c ps fs))
-+      | c <- hsCtors sig, hcIsPath c
-+      , let ps = names ("ht_q_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hsArity sig)
-+      , let fs = names ("ht_f_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hcArity c) ]
-+    -- @hitAtTy<d>: walk the declared path type down the applied intervals
-+    -- (at most maxD of them), then read a face; unrolled like the spine walk
-+    hitAtTyDef d = "@hitAtTy" ++ show d ++ " = λ&T. λ{#Nil: λj0. λw0. (λ{#I0: λwa. @ptU(T); #I1: λwb. @ptV(T); λj2. λwc. #At{wc, j2}})(j0)(w0)"
-+      ++ (if d < maxD then "; #Cons: λi1. λrest. λj1. λw1. @hitAtTy" ++ show (d + 1) ++ "(@ptA(T)(i1), rest, j1, w1)" else "; λbad. λj3. λw3. #StuckAt{w3, j3}")
-+      ++ "}"
-+    -- @hitAtGo<d>: collect the cell's intervals (innermost first), then walk
-+    -- the type; level d handles a spine of depth ≥ d, the last level none
-+    hitAtGoDef d = "@hitAtGo" ++ show d ++ " = λ&v0. λ{"
-+      ++ (if d < maxD then "#At: λp. λi. λis. λj. @hitAtGo" ++ show (d + 1) ++ "(v0, p, #Cons{i, is}, j); " else "")
-+      ++ concat [ "#" ++ hitCtorTag (n_ sig) (hcTag c) ++ ": " ++ lams (ps ++ fs) ++ "λis. λj. @hitAtTy0(@"
-+                  ++ ctorTyFn sig c ++ "(" ++ intercalate ", " (ps ++ fs) ++ "), is, j, v0); "
-+                | sig <- sigs, c <- hsCtors sig, hcIsPath c
-+                , let ps = names ("ha_q" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hsArity sig)
-+                , let fs = names ("ha_f" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hcArity c) ]
-+      ++ "λv. λis. λj. #StuckAt{v0, j}}"
-+    -- @hit_N_p<k>: read the k-th parameter off a HIT type value
-+    paramFns sig =
-+      [ "@" ++ hitParamFn (n_ sig) k ++ " = λ{#" ++ hitTyTag (n_ sig) ++ ": " ++ lams os ++ os !! k ++ "; λv. #StuckParam{v}}"
-+      | k <- [0 .. hsArity sig + hsNIdx sig - 1], let os = names ("hp_o_" ++ nm sig ++ "_" ++ show k) (hsArity sig + hsNIdx sig) ]
-+    -- @hitCoe: dispatch on the HIT; an indexed family's transport is stuck
-+    hitCoeDef = "@hitCoe = λ&L. λ&r. λ&s. λ&x. λ{"
-+      ++ concat [ "#" ++ hitTyTag (n_ sig) ++ ": " ++ lamsD qs
-+                  ++ (if hsNIdx sig > 0 then "#StuckCoe{" ++ hitCtorData (hitTyTag (n_ sig)) qs ++ ", x}; "
-+                      else "@" ++ coeFn sig 0 ++ "(L, r, s, x); ")
-+                | sig <- sigs, let qs = names ("hc_q_" ++ nm sig) (hsArity sig + hsNIdx sig) ]
++    -- @hitCoe: transport along a HIT line, dispatching on the HIT (reached
++    -- from @coeT's default arm when the line yields a #HT_T at the marker)
++    hitCoeDispatch = "@hitCoe = λ&L. λ&r. λ&s. λ&x. λ{"
++      ++ concat [ "#HT_" ++ hvmName t ++ ": " ++ concatMap (\i -> "λhcq_" ++ hvmName t ++ "_" ++ show i ++ ". ") [1 .. hitArity h]
++                  ++ "@X_" ++ hvmName t ++ "(L, r, s, x); "
++                | (t, h) <- M.toList (bookHits book) ]
 +      ++ "λt. #StuckCoe{t, x}}"
-+    coeFn sig d = "hit_" ++ nm sig ++ "_coe" ++ show d
-+    coeFns sig | hsNIdx sig > 0 = []
-+    coeFns sig = map coeLevel [0 .. maxD]
-+      where
-+        newPs = [ "@" ++ hitParamFn (n_ sig) k ++ "(L(s))" | k <- [0 .. hsArity sig - 1] ]
-+        coeLevel d =
-+          let arm c =
-+                let os = names ("hc_o" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hsArity sig)
-+                    fs = names ("hc_f" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hcArity c)
-+                    rebuilt = hitCtorData (hitCtorTag (n_ sig) (hcTag c)) (newPs ++ [ coeField d c fs j "s" (show j) | j <- [0 .. hcArity c - 1] ])
-+                in "#" ++ hitCtorTag (n_ sig) (hcTag c) ++ ": " ++ lams os ++ lamsD fs ++ rebuilt ++ "; "
-+          in "@" ++ coeFn sig d ++ " = λ&L. λ&r. λ&s. λ{"
-+             ++ concatMap arm (hsCtors sig)
-+             ++ (if d < maxD then "#At: λp. λj. #At{@" ++ coeFn sig (d + 1) ++ "(L, r, s, p), j}; " else "")
-+             ++ "#HCm: λA. λfs. λbase. @hcomp(L(s), @hcTubesCoeLine(L, r, s, fs), @coe(L, r, s, base)); "
-+             ++ "λv. #StuckCoe{L(s), v}}"
-+        -- field j of constructor c transported from r to `to` along its type
-+        -- line; earlier fields are transported to the running i first.  The
-+        -- interval binder's name records the nesting path, so it is unique.
-+        coeField d c fs j to path =
-+          let iv = "hc_i" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c) ++ "_" ++ path
-+          in "@coe(λ&" ++ iv ++ ". " ++ fieldTypeAt d c fs j iv path ++ ", r, " ++ to ++ ", " ++ fs !! j ++ ")"
-+        fieldTypeAt d c fs j iv path =
-+          let psAt = [ Var ("@" ++ hitParamFn (n_ sig) k ++ "(L(" ++ iv ++ "))") 0 | k <- [0 .. hsArity sig - 1] ]
-+              earlier = [ Var (coeField d c fs k iv (path ++ "_" ++ show k)) 0 | k <- [0 .. j - 1] ]
-+          in case snd (hitInst book c psAt earlier) of
-+               All a _ -> emitFull book a
-+               t       -> emitFull book t
-+    -- @hit_N_elim (level 0 is the eliminator; levels 1..D walk a cell's spine)
-+    elimFn sig d = hitElimFn (n_ sig) ++ (if d == 0 then "" else show d)
-+    elimFns sig = map elimLevel [0 .. maxD] ++ [tubesDef]
-+      where
-+        qs  = names ("he_q_" ++ nm sig) (hsArity sig)
-+        ixs = names ("he_i_" ++ nm sig) (hsNIdx sig)
-+        bs  = [ (hcTag c, "he_b_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) | c <- hsCtors sig ]
-+        bOf c = case lookup (hcTag c) bs of { Just b -> b ; Nothing -> "&{}" }
-+        args v = intercalate ", " (qs ++ ["P"] ++ ixs ++ [v] ++ map snd bs)
-+        callE d v = "@" ++ elimFn sig d ++ "(" ++ args v ++ ")"
-+        stuck v = hitCtorData (hitElimFn (n_ sig)) (qs ++ ["P"] ++ ixs ++ [v] ++ map snd bs)
-+        motiveAt cell = "P" ++ concatMap (\i -> "(" ++ i ++ ")") ixs ++ "(" ++ cell ++ ")"
-+        tubesFn = "@hit_" ++ nm sig ++ "_elimTubes"
-+        elimLevel d =
-+          let arm c =
-+                let os = names ("he_o" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hsArity sig)
-+                    fs = names ("he_f" ++ show d ++ "_" ++ nm sig ++ "_" ++ hvmName (hcTag c)) (hcArity c)
-+                in "#" ++ hitCtorTag (n_ sig) (hcTag c) ++ ": " ++ lams os ++ lams fs ++ bOf c ++ concatMap (\f -> "(" ++ f ++ ")") fs ++ "; "
-+          in "@" ++ elimFn sig d ++ " = " ++ lamsD qs ++ "λ&P. " ++ lamsD ixs ++ "λ&x. " ++ lamsD (map snd bs) ++ "(λ{"
-+             ++ concatMap arm (hsCtors sig)
-+             ++ (if d < maxD then "#At: λp. λi. @pathAt(" ++ callE (d + 1) "p" ++ ", i); " else "")
-+             ++ "#HCm: λ&A. λ&fs. λ&base. @compAt(λ&hk. " ++ motiveAt ("@hfillAt(A, fs, base, hk)") ++ ", "
-+                ++ tubesFn ++ "(" ++ intercalate ", " (qs ++ ["P"] ++ ixs ++ map snd bs ++ ["fs"]) ++ "), " ++ callE 0 "base" ++ "); "
-+             ++ "λv. " ++ stuck "v" ++ "})(x)"
-+        tubesDef = tubesFn ++ " = " ++ lamsD qs ++ "λ&P. " ++ lamsD ixs ++ lamsD (map snd bs)
-+           ++ "λ{#Nil: #Nil; #Cons: λ{#Face: λphi. λ&u. λ&rest. #Cons{#Face{phi, #PLm{λ&hj. " ++ callE 0 "@pathAt(u, hj)" ++ "}}, "
-+           ++ tubesFn ++ "(" ++ intercalate ", " (qs ++ ["P"] ++ ixs ++ map snd bs ++ ["rest"]) ++ ")}}}"
++
++    -- @X_T: a constructor rebuilt at the parameters of L(s) (read off the
++    -- type value by @HTp_T_k) with every field transported along its own
++    -- dependent type line (earlier fields transported to the running
++    -- interval first); a canonical cell likewise, re-applied to its
++    -- intervals through @P_T_c; an hcomp cell commutes with the transport;
++    -- anything else is stuck.  Mirrors Core.WHNF.whnfCoe's HTy case.
++    coeFns t h =
++      let tn   = hvmName t
++          np   = hitArity h
++          param k = "@HTp_" ++ tn ++ "_" ++ show k
++          paramFns = [ param k ++ " = λ{#HT_" ++ tn ++ ": " ++ concatMap (\i -> "λhtp_" ++ tn ++ "_" ++ show k ++ "_" ++ show i ++ ". ") [1 .. np]
++                       ++ "htp_" ++ tn ++ "_" ++ show k ++ "_" ++ show k ++ "; λv. #StuckParam{v}}"
++                     | k <- [1 .. np] ]
++          newPs = [ param k ++ "(L(s))" | k <- [1 .. np] ]
++          arm (c, k) =
++            let os = [ "hco_" ++ tn ++ "_" ++ c ++ "_" ++ show i | i <- [1 .. np] ]
++                as = [ "hca_" ++ tn ++ "_" ++ c ++ "_" ++ show i | i <- [1 .. ctorNArgs k] ]
++                is = [ "hci_" ++ tn ++ "_" ++ c ++ "_" ++ show i | i <- [1 .. ctorDim k] ]
++                coerced = [ coeField k c as j "s" (show j) | j <- [0 .. ctorNArgs k - 1] ]
++                binds = concatMap (\n -> "λ" ++ n ++ ". ") os ++ concatMap (\n -> "λ&" ++ n ++ ". ") as ++ concatMap (\n -> "λ" ++ n ++ ". ") is
++            in if ctorDim k == 0
++                 then "#" ++ hitCtorTag t c ++ ": " ++ binds ++ "#" ++ hitCtorTag t c ++ "{" ++ intercalate ", " (newPs ++ coerced) ++ "}; "
++                 else "#" ++ hitPathFn t c ++ ": " ++ binds ++ "@" ++ hitPathFn t c ++ "(" ++ intercalate ", " (newPs ++ coerced ++ is) ++ "); "
++          -- field j of constructor c transported from r to `to` along its type
++          -- line; earlier fields are transported to the running i first (the
++          -- interval binder's name records the nesting path, so it is unique)
++          coeField k c as j to path =
++            let iv = "hcv_" ++ tn ++ "_" ++ c ++ "_" ++ path
++            in "@coe(λ&" ++ iv ++ ". " ++ fieldTypeAt k c as j iv path ++ ", r, " ++ to ++ ", " ++ as !! j ++ ")"
++          fieldTypeAt k c as j iv path =
++            let psAt    = [ Var (param m ++ "(L(" ++ iv ++ "))") 0 | m <- [1 .. np] ]
++                earlier = [ Var (coeField k c as m iv (path ++ "_" ++ show m)) 0 | m <- [0 .. j - 1] ]
++            in emitFull book (ctorFieldType book k (psAt ++ earlier))
++      in paramFns ++
++         [ "@X_" ++ tn ++ " = λ&L. λ&r. λ&s. λ{" ++ concatMap arm (hitCtors h)
++           ++ "#HCm: λA. λfs. λbase. @hcomp(L(s), @hcTubesCoeLine(L, r, s, fs), @coe(L, r, s, base)); "
++           ++ "λv. #StuckCoe{L(s), v}}" ]
++
++    pathFn t c k =
++      let np  = hitArity (maybe h0 id (derefHit book t))
++          h0  = HitDecl 0 Set []
++          pns = [ freshName (1000 + i) | i <- [1 .. np] ]
++          ans = [ freshName (2000 + i) | i <- [1 .. ctorNArgs k] ]
++          ins = [ freshName (3000 + i) | i <- [1 .. ctorDim k] ]
++          pvs = [ Var n 0 | n <- pns ]
++          avs = [ Var n 0 | n <- ans ]
++          ivs = [ Var n 0 | n <- ins ]
++          ty0 = maybe (ctorType k) id (hitCtorTypeAt book t c pvs avs [])
++          stuckWith cur = "#" ++ hitPathFn t c ++ "{" ++ intercalate ", " (pns ++ ans ++ cur) ++ "}"
++          -- dispatch on the j-th interval; `ty` is the constructor's type at the
++          -- intervals already decided; `cur` the current binder names (an
++          -- interval decided symbolic is rebound in the default arm)
++          disp ty j cur
++            | j >= ctorDim k = stuckWith cur
++            | otherwise = case force book ty of
++                Pth l a b ->
++                  let rest    = [ Var n 0 | n <- drop (j + 1) cur ]
++                      endAt e = emitFull book (foldl PAp e rest)
++                      iv      = cur !! j
++                      iv'     = freshName (3100 + j)
++                      cur'    = take j cur ++ [iv'] ++ drop (j + 1) cur
++                  in "(λ{#I0: " ++ endAt a ++ "; #I1: " ++ endAt b ++ "; λ&" ++ iv' ++ ". "
++                       ++ disp (App l (Var iv' 0)) (j + 1) cur' ++ "})(" ++ iv ++ ")"
++                _ -> stuckWith cur
++      in "@" ++ hitPathFn t c ++ " = " ++ concatMap (\n -> "λ&" ++ n ++ ". ") (pns ++ ans ++ ins) ++ disp ty0 0 ins
++
++    elimFn t h =
++      let ctors = hitCtors h
++          bns   = [ (c, freshName (4000 + i)) | ((c, _), i) <- zip ctors [1 ..] ]
++          pn    = freshName 5001
++          xn    = freshName 5002
++          recur v = "@" ++ hitElimFn t ++ "(" ++ intercalate ", " (pn : map snd bns ++ [v]) ++ ")"
++          arm (c, k) =
++            let b   = maybe "&{}" id (lookup c bns)
++                ps  = [ freshName (6000 + i) | i <- [1 .. hitArity h] ]
++                as  = [ freshName (7000 + i) | i <- [1 .. ctorNArgs k] ]
++                is  = [ freshName (8000 + i) | i <- [1 .. ctorDim k] ]
++                tag = if ctorDim k == 0 then hitCtorTag t c else hitPathFn t c
++                app = foldl (\acc i -> "@pathAt(" ++ acc ++ ", " ++ i ++ ")") (b ++ concatMap (\a -> "(" ++ a ++ ")") as) is
++            in "#" ++ tag ++ ": " ++ concatMap (\n -> "λ" ++ n ++ ". ") (ps ++ as ++ is) ++ app
++          an = freshName 9001; fn = freshName 9002; bn = freshName 9003
++          hcm = "#HCm: λ&" ++ an ++ ". λ&" ++ fn ++ ". λ&" ++ bn ++ ". @compAt(λ&j. " ++ pn ++ "(@hfillAt(" ++ an ++ ", " ++ fn ++ ", " ++ bn ++ ", j)), @hcTubesMap(λu. " ++ recur "u" ++ ", " ++ fn ++ "), " ++ recur bn ++ ")"
++          dflt = "λv. #HEl{v}"
++      in "@" ++ hitElimFn t ++ " = λ&" ++ pn ++ ". " ++ concatMap (\(_, b) -> "λ&" ++ b ++ ". ") bns ++ "λ" ++ xn ++ ". (λ{"
++           ++ intercalate "; " (map arm ctors ++ [hcm, dflt]) ++ "})(" ++ xn ++ ")"
 diff --git a/src/Target/JavaScript.hs b/src/Target/JavaScript.hs
-index 690a38e..756d035 100644
+index 690a38e..d5782fa 100644
 --- a/src/Target/JavaScript.hs
 +++ b/src/Target/JavaScript.hs
 @@ -116,8 +116,56 @@ termToCT book term dep = case term of
@@ -6888,6 +6911,10 @@ index 690a38e..756d035 100644
 +  QEq _ _ _  -> cubicalUnsupported "the quotient path constructor"
 +  QSq        -> cubicalUnsupported "squash"
 +  QRec _ _ _ _ -> cubicalUnsupported "the quotient recursor"
++  HTy _ _ -> cubicalUnsupported "a higher inductive type"
++  HCon _ _ _ _ _ -> cubicalUnsupported "a HIT constructor"
++  HEl _ _ _ -> cubicalUnsupported "a HIT eliminator"
++  HRec _ _ -> cubicalUnsupported "a HIT recursor"
 +  Rst _ _ _  -> cubicalUnsupported "a Sub type"
 +  InS _      -> cubicalUnsupported "inS"
 +  OutS _     -> cubicalUnsupported "outS"
@@ -6899,10 +6926,6 @@ index 690a38e..756d035 100644
 +  CBase      -> cubicalUnsupported "base"
 +  CLoop      -> cubicalUnsupported "loop"
 +  CRec _ _ _ -> cubicalUnsupported "the S1 recursor"
-+  HTy _ _    -> cubicalUnsupported "a higher inductive type"
-+  HPt _ _ _ _ -> cubicalUnsupported "a HIT point constructor"
-+  HPa _ _ _ _ -> cubicalUnsupported "a HIT path constructor"
-+  HEl _ _ _ _ _ _ -> cubicalUnsupported "a HIT eliminator"
 +  Prt _ _    -> cubicalUnsupported "a Partial type"
 +  Sys _      -> cubicalUnsupported "a system"
 +  POut _     -> cubicalUnsupported "pout"

@@ -11,6 +11,20 @@ container (`/tmp/Bend2`); to rebuild from the repo:
     cabal build exe:bend                                     # GHC 9.12.2, cabal 3.18
     # HVM4: clone HigherOrderCO/HVM4 to /tmp/HVM4; gcc -O2 -o src/hvm src/hvm.c ; `hvm f.hvm4 -s -C10`
 
+TOOLCHAIN WITHOUT A HASKELL MIRROR (this container's proxy denies downloads.haskell.org):
+    GHC 9.12.2 and cabal-install 3.16 come from the Nix binary cache without nix —
+    hydra gives the store path, cache.nixos.org the NAR closure (a 60-line Python
+    unpacker is enough); bash/ld work as-is from /nix/store. Build with
+    `packages: . ../HVM3 ../hs-highlight`, `package zlib: flags: +bundled-c-zlib`
+    (the nix cc does not see /usr/lib), and apply `hvm3-gcc15.patch` to HVM3
+    (GCC 15 rejects the K&R prototype of `hvm_define`). Verified: the suite is
+    bad=0 on that build, byte-identical behaviour to the previous binary.
+
+MODULES: a line `import Name` (no `as`) loads `Name.bend` (next to the importing
+file, else in the cwd) and brings its definitions in unqualified — added for the
+port of the Agda corpus (`port/`, see `port/PORT.md`): one Agda module = one Bend
+file, a shared `Prelude.bend`.
+
 Run: `bend f.bend` (checks + runs; `bend check` is NOT a subcommand; count ✓/✗ lines).
 Targets: `--to-hvm4` (normalised), `--to-hvm4-raw` (no normalisation, strict),
 `--to-hvm4-full` (FULL cubical runtime: nothing erased), `--to-hvm` (HVM3), `--total`.
@@ -167,3 +181,22 @@ statement — the level at which the whole is to be read.
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
 2. hcomp in Set beyond the composite shape (would need Glue-style rules).
 3. Keep every claim tied to a run; keep pushing main.
+
+## Merge note (2026-09-14): two general HIT schemas met on main
+Two sessions built the general HIT schema in parallel. The one on main
+(`type … path …`, `@c{args}`, `hrec`/`helim`, HITS.md) is the one kept — the
+module system, the Prelude and the fourteen `port/` files are written on it.
+The other (`hit Name<params>(indices): case @tag(fields) -> Name(…) | path
+@tag(fields): T`, `Name/elim` as syntax, native indices) lives in git history
+at commit a236711 with its own tests and HIT.md; it is superseded, not
+merged. Carried over from it onto main's implementation, each verified on
+main's tests too: the three checker fixes (HITS.md, last section), transport
+commuting with hcomp (checker and runtime), a line named by a definition
+reaching the HIT transport branch, the eliminator on an hcomp cell whose type
+is named by a definition, the RUNTIME transport arm for HIT lines (`@hitCoe`,
+`@X_T`, `@HTp_T_k` — main's runtime had none), and five files re-expressed
+on main's syntax: hit_interval, hit_tree, hit_indexed (indices as
+index-equation fields), hit_hcomp, hit_mustfail (registered). PUSC.md is the
+author's architecture statement. Suite 108 files bad=0; every `main` agrees
+between normaliser and HVM4; the pre-existing runtime programs keep their
+recorded interaction counts. Built here with the apt GHC 9.4.7 recipe above.
