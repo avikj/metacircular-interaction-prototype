@@ -72,12 +72,11 @@ Bend2 is coinductive by default (Fix-typed recursion, lazy HVM). `Answers`/
 and both `run-is-answers` round trips are corecursive `[productive]` paths.
 Three fixes in the patch: epNormCtx unfolds one level (`goNoUnfold`), printing
 uses a capped normaliser (`normalCap`), record matches give no descent in
-Totality (`branch2 Nothing`). Known gap: `--total coinduction.bend` refuses
-only because the self-referential `type` families are classified `[unchecked]`;
-exempt type declarations in `Core/Totality.hs` to close it.
+Totality (`branch2 Nothing`), Σ fields / Π codomains are guarded positions so
+self-referential `type` families are `[productive]`. `bend f.bend --total`
+(flag AFTER the file) passes on coinduction/interaction/braid.
 
 ## Next steps (if continuing)
-0. Exempt `type` declarations from the totality classifier (see above).
 1. Exercise dependent Π/Σ lines and a path BETWEEN universe paths (a higher
    coherence of traces) on --to-hvm4-full; add to RUNTIME_FULL.md.
 2. hcomp in Set beyond the composite shape (would need Glue-style rules).

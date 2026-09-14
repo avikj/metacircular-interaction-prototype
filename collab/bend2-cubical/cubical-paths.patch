@@ -2775,10 +2775,10 @@ index ae061af..93631be 100644
    SupM x l f -> SupM (rewrite lv d book old neo x) (rewrite lv d book old neo l) (rewrite lv d book old neo f)
 diff --git a/src/Core/Totality.hs b/src/Core/Totality.hs
 new file mode 100644
-index 0000000..0dcdf56
+index 0000000..868cdc6
 --- /dev/null
 +++ b/src/Core/Totality.hs
-@@ -0,0 +1,155 @@
+@@ -0,0 +1,161 @@
 +{-./Type.hs-}
 +
 +-- Conservative totality / productivity classifier.
@@ -2896,8 +2896,14 @@ index 0000000..0dcdf56
 +      Rwt a b c -> concatMap (collect d pars sm g) [a, b, c]
 +      Ind a     -> collect d pars sm g a
 +      Frz a     -> collect d pars sm g a
-+      Sig a b   -> collect d pars sm g a ++ collect d pars sm g b
-+      All a b   -> collect d pars sm g a ++ collect d pars sm g b
++      -- Type formers guard exactly as value constructors do: a declared
++      -- `type` whose field mentions itself (tail: Stream) is the productive
++      -- fixed point of its type operator — the record shape, read by
++      -- observation, like the corecursive values that inhabit it. Σ guards
++      -- both components (positive), Π guards only its codomain (the domain
++      -- is a negative position and stays as it was).
++      Sig a b   -> collect d pars sm True a ++ collect d pars sm True b
++      All a b   -> collect d pars sm g a ++ collect d pars sm True b
 +      Lst a     -> collect d pars sm g a
 +      Eql a b c -> concatMap (collect d pars sm g) [a, b, c]
 +      Pth a b c -> concatMap (collect d pars sm g) [a, b, c]

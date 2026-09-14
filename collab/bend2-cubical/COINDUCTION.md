@@ -72,14 +72,16 @@ forever) is `[productive]`; `stateAt(replay(alt))` at step 5 is `1` on the
 normaliser and on HVM (221 interactions). The depth index of INTERACTION.md
 was an accident of the earlier encoding, not a limitation of the language.
 
-Known gap, stated: `bend --total coinduction.bend` currently *refuses* the
-file, and the only `[unchecked]` names it reports are the type families
-`Answers` and `IExec` themselves — self-referential `type` declarations
-(`more: Answers(step(x, ans))`) are classified by the same rule as
-definitions and are neither `Nat`-descending nor constructor-guarded in the
-classifier's sense. Every *definition* in the file is `[productive]` or
-`[total]`. The fix is to exempt type declarations from the classifier (a
-declared type is a record shape, not a recursion); not yet done.
+4. **Self-referential `type` declarations were `[unchecked]`.** `Answers`
+   and `IExec` (`more: Answers(step(x, ans))`) were classified like
+   definitions, so `--total coinduction.bend` refused the file. Fixed: Σ
+   fields and Π codomains are guarded positions — a declared type is the
+   productive fixed point of its type operator, as a corecursive value is of
+   its constructor (Π domains stay unguarded: negative position).
+   `bend coinduction.bend --total`, `interaction.bend --total`,
+   `braid.bend --total` all report *every definition is [total] or
+   [productive]*; `streams.bend --total` refuses only the deliberate
+   `bad() = bad()`. Note the flag goes **after** the file.
 
 ## What remains genuinely different from Agda's coinduction
 
