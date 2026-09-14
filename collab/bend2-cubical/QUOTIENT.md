@@ -78,3 +78,23 @@ Inputs are exactly the corpus's `SQ.effective` signature (`Rprop`, `Rrefl`,
 `Rsym`, `Rtrans`, and `isSet hProp`). Together with `eq/` (the `⟸` direction),
 this is the full **equality of meaning = observational equivalence**, computing
 on the runtime. Full suite 336 ✓ (only the deliberate must-fails fail).
+
+## Instantiated at the machine (`nerode_effective.bend`, 33 ✓)
+
+The generic `effective` above still carries an abstract relation `R`. Wiring it
+to the concrete Nerode congruence closes the converse for the minimal machine
+itself: `Nerode` is shown a prop-valued equivalence relation on the net
+(`reflN`/`symN`/`transN` by path-refl/reversal/`hcomp`; `isPropNerode` from
+`setO : isSet Bool`), and
+
+- **`nerodeEffective : Path(Meaning, [x], [y]) → Nerode(x, y)`** — the `⟹`
+  direction for the machine, `effective` instantiated at `(S, Nerode, …)`.
+- `nerodeEffComputes` is definitional: on the reflexive path it returns `reflN x`.
+
+With `sameMeaning` (the `⟸`, `eq/`) this is **behavioral equivalence = path
+equality for the Myhill–Nerode minimal machine, both directions, on the
+runtime**, under exactly the corpus's two hypotheses (`setO : isSet Bool` as in
+`FutureQuotient`, `sh : isSet hProp` as in `SQ.effective`). Discharging `isSet
+hProp` outright reduces to the univalence second round trip
+(`ua(pathToEquiv p) ≡ p`), which the prototype leaves open on purpose
+(`uaroundtrip.bend`, the Iso-side); it is the same named frontier, not a new gap.
