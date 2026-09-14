@@ -2034,7 +2034,7 @@ index 939a19f..d318a1f 100644
    Sup l a b  -> Sup (binder lv l ctx vars) (binder lv a ctx vars) (binder lv b ctx vars)
    SupM x l f -> SupM (binder lv x ctx vars) (binder lv l ctx vars) (binder lv f ctx vars)
 diff --git a/src/Core/CLI.hs b/src/Core/CLI.hs
-index f94d1ce..3fb1d56 100644
+index f94d1ce..b1a3b67 100644
 --- a/src/Core/CLI.hs
 +++ b/src/Core/CLI.hs
 @@ -5,6 +5,10 @@ module Core.CLI
@@ -2048,7 +2048,11 @@ index f94d1ce..3fb1d56 100644
    , listDependencies
    ) where
  
-@@ -21,33 +25,71 @@ import Core.Bind
+@@ -18,36 +22,81 @@ import System.Exit (ExitCode(..))
+ import Control.Exception (catch, IOException)
+ 
+ import Core.Bind
++import Core.Adjust (hitify)
  import Core.Check
  import Core.Collapse
  import Core.Deps
@@ -2093,7 +2097,10 @@ index f94d1ce..3fb1d56 100644
 -      autoImportedBook <- autoImport (takeDirectory file) book
 -      return autoImportedBook
 +      deps <- mapM (loadDep dir) loads
-+      return (foldl mergeBooks book deps)
++      -- constructors of HITs declared in an imported module are only
++      -- recognisable once the modules are merged: convert them now
++      let merged = foldl mergeBooks book deps
++      return (rehitify merged)
    where
 -    takeDirectory path = reverse . dropWhile (/= '/') . reverse $ path
 +    visited' = S.insert file visited
@@ -2107,6 +2114,9 @@ index f94d1ce..3fb1d56 100644
 +        if not exists
 +          then do putStrLn ("import: file not found: " ++ path); exitFailure
 +          else loadFile visited' path
++
++rehitify :: Book -> Book
++rehitify book@(Book defs hits) = Book (M.map (\(i, t, ty) -> (i, hitify book t, hitify book ty)) defs) hits
 +
 +-- an `import X` line without `as` is a module load; it is blanked (line
 +-- numbers preserved) so the parser only sees aliased imports
@@ -2128,7 +2138,7 @@ index f94d1ce..3fb1d56 100644
    unless success exitFailure
    where
      checkDef book term typ = do
-@@ -59,7 +101,7 @@ checkDefinitions book@(Book defs) = do
+@@ -59,7 +108,7 @@ checkDefinitions book@(Book defs) = do
      checkAll bBook ((name, (_, term, typ)):rest) = do
        case checkDef bBook term typ of
          Done () -> do
@@ -2137,7 +2147,7 @@ index f94d1ce..3fb1d56 100644
            checkAll bBook rest
          Fail e -> do
            putStrLn $ "\x1b[31m✗ " ++ name ++ "\x1b[0m"
-@@ -67,6 +109,25 @@ checkDefinitions book@(Book defs) = do
+@@ -67,6 +116,25 @@ checkDefinitions book@(Book defs) = do
            _ <- checkAll bBook rest
            return False
  
@@ -2163,7 +2173,7 @@ index f94d1ce..3fb1d56 100644
  -- | Run the main function from a book
  runMain :: Book -> IO ()
  runMain book = do
-@@ -80,7 +141,7 @@ runMain book = do
+@@ -80,7 +148,7 @@ runMain book = do
            putStrLn $ show e
            exitFailure
          Done typ -> do
@@ -2172,7 +2182,7 @@ index f94d1ce..3fb1d56 100644
            putStrLn ""
            forM_ results $ \ term -> do
              print term
-@@ -123,6 +184,18 @@ processFileToHVM file = do
+@@ -123,6 +191,18 @@ processFileToHVM file = do
    let hvmCode = HVM.compile book
    putStrLn hvmCode
  
@@ -2191,7 +2201,7 @@ index f94d1ce..3fb1d56 100644
  -- | List all dependencies of a Bend file (including transitive dependencies)
  listDependencies :: FilePath -> IO ()
  listDependencies file = do
-@@ -135,7 +208,29 @@ listDependencies file = do
+@@ -135,7 +215,29 @@ listDependencies file = do
  
  -- | Collect all refs from a Book
  collectAllRefs :: Book -> S.Set Name

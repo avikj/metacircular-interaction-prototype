@@ -143,3 +143,34 @@ def map(A: Set, B: Set, f: A -> B, xs: A[]) -> B[]:
     case h <> t: f(h) <> map(A, B, f, t)
 def main() -> Nat:
   0n
+
+# ---- more h-level tools
+def neg(A: Set) -> Set:
+  A -> Empty
+def toPathP(B: Interval -> Set, x: B(i0), y: B(i1), p: Path(B(i1), transport(B, x), y)) -> PathP(B, x, y):
+  <i> hcompN(B(i),
+    [ (inot(i), <j> coe(lambda k. B(iand(i, k)), i0, i, x)), (i, <j> p @ j) ],
+    coe(lambda k. B(iand(i, k)), i0, i, x))
+def isPropToPathP(B: Interval -> Set, h: all i: Interval. isProp(B(i)), b0: B(i0), b1: B(i1)) -> PathP(B, b0, b1):
+  toPathP(B, b0, b1, h(i1, transport(B, b0), b1))
+def fst(A: Set, B: A -> Set, w: any a: A. B(a)) -> A:
+  match w:
+    case (a, b): a
+def snd(A: Set, B: A -> Set, w: any a: A. B(a)) -> B(fst(A, B, w)):
+  match w:
+    case (a, b): b
+# a product of propositions is a proposition
+def isPropProd(A: Set, B: Set, pA: isProp(A), pB: isProp(B), x: any a: A. B, y: any a: A. B) -> Path(any a: A. B, x, y):
+  <i> (pA(fst(A, lambda a. B, x), fst(A, lambda a. B, y)) @ i, pB(snd(A, lambda a. B, x), snd(A, lambda a. B, y)) @ i)
+# double composite p ∙∙ q ∙∙ r
+def compPath3(A: Set, w: A, x: A, y: A, z: A, p: Path(A, w, x), q: Path(A, x, y), r: Path(A, y, z)) -> Path(A, w, z):
+  <i> hcompN(A, [ (inot(i), <j> p @ inot(j)), (i, <j> r @ j) ], q @ i)
+def pred(n: Nat) -> Nat:
+  match n:
+    case 0n: 0n
+    case 1n + p: p
+# no natural is its own double successor
+def nNotSucSuc(n: Nat, e: Path(Nat, n, 2n + n)) -> Empty:
+  match n:
+    case 0n: natEncode(0n, 2n, e)
+    case 1n + m: nNotSucSuc(m, <i> pred(e @ i))

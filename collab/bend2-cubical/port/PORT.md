@@ -15,9 +15,14 @@ resolved next to the importing file, then in the working directory).
 | `kernel/PvsNPGapLivesInTheForgetfulProjection.agda` (answer is projection; `forgetful-is-blind-to-route` via `isSetℕ`) | `PvsNPGapLivesInTheForgetfulProjection.bend` | 98 | 4 (the detour's length) |
 | `kernel/EveryDerivationIsInvertible.agda` (`revD`, `len-revD`, `revD-sound`) | `EveryDerivationIsInvertible.bend` | 63 | — |
 | `kernel/WindingCostIsUnarySize.agda` (`addTower`, cost = unary size) | `WindingCostIsUnarySize.bend` | 64 | `len (addTower 5)` ⇒ 6 |
+| `SamvadaPrasna_….agda` — the two-sided h-level theorem: `Netra` over `ISC`, the corecursive contraction `sāmyaP`, एक-नेत्रम् (`oneEye`: over sets the process space is a point); `Vardhana` over the kernel, the length shadow `dlen`, वर्धन-बहुत्वम् (`vardhanaNotContr`), `¬isProp Derivation` | `HLevelOfInteraction.bend` | 104 | `emitLen p2` ⇒ 4 |
+| `Cubical.HITs.SetQuotients` (`_/_`, `rec`, `elimProp`, `elimProp2`, `squash/`), `isSetΠ`, `isPropΠ` | `SetQuotient.bend` (on the declared HIT; `isPropPathP` is the dependent isProp→isSet square) | 57 | — |
+| `hset.bend`: `hProp`, `isPropIso`, `uaEta`, `isSet hProp` | `HProp.bend` | 66 | — |
+| `SQ.effective` (encode–decode over `Code : Q → hProp`) | `Effective.bend` | 84 | — |
+| `theorems/automata/MyhillNerodeMinimalMachine.agda` — Nerode congruence and its laws, behavioural congruences (Nerode the greatest), `MinimalMachine` (`Meaning = X / ≈`, `quotStep`/`quotObserve`/`quotRun`, quotient preserves behaviour, effectivity, `quotBehavior` injective, `behaviorSeparatesStates`, `factor` + uniqueness), `Terminal` (`mediate` and its uniqueness), `Machine`/`crystal` | `MyhillNerodeMinimalMachine.bend` | (checking) | — |
 | `fibre/src/Fibre/Carrier.agda` (THE LAW: singleton fibre, `Carrier≃`, `Carrier≡` by ua, `carry-transport-descend` = uaβ, the Φ-square by refl) | `Carrier.bend` | 52 | 2 |
 
-Counts include the imported definitions (each file re-checks what it
+The port's own count of the corpus's module identities so far: 13 Agda-side objects → 13 Bend files. Counts include the imported definitions (each file re-checks what it
 imports). Zero rejections in every file.
 
 ## What the port needed from the language, and what it did not
