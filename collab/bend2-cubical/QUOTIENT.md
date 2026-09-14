@@ -58,12 +58,23 @@ HVM targets is the remaining runtime step.
   (`[a]≡[b] ⟹ R a b`) — `isProp→isSet`, `isPropIsProp`, propositional univalence
   `propExt` (from `ua`), and `hProp` with its projections — all definitional.
 
-The encode-decode `effective` proof is now expressible from these plus a code
-family `Code : Meaning → hProp` (via `qrec`) and `subst`. It is **not yet
-closed** because `toPathP` / `isProp→PathP` (needed to build the `hProp` path's
-second component) hit the checker's varying-type `hcomp` endpoint reduction —
-the documented **edge-2** frontier (symbolic-endpoint `transp`/`comp`), the same
-open item as in GLUE.md, not a gap in the quotient primitive. Pinned precisely:
-`coe` over a constant line reduces (`coeprobe.bend` p1/p2 ✓), but the
-`hcomp`-endpoint-under-true-face reduction with a substituted interval does not
-close definitionally. Closing edge-2 in the checker closes effectivity.
+**RESOLVED.** Edge-2 is closed and effectivity is proved and computes.
+
+The blocker was the `hcomp` tube-boundary check restricting the base but not the
+tube/type to the face cell (so a face like `inot(i)` compared the tube at a
+symbolic `i` instead of `i:=i0`). Fixed in `Check.hs` (`HCm` case): the tube,
+base, and type are all restricted to the cell before the boundary check. With
+that, `toPathP` type-checks, and `effective.bend` closes the full encode-decode:
+
+- `isProp→isSet`, `isPropIsProp`, `propExt`, `toPathP`, `isProp→PathP`,
+  `hPropExt` — all definitional (`effective.bend`, 20 defs ✓).
+- `Code : Quot(A,R) → hProp` via `qrec`, `encode` by `subst`, and
+  **`effective : [a]≡[b] → R a b`** — the hard direction of the effectiveIso.
+- **It computes:** `effComputes` is definitional —
+  `effective(…, a, a, <_> qcl a) ≡ Rrefl a` (encode-decode transports the
+  reflexivity witness along the reflexive path and recovers the relation).
+
+Inputs are exactly the corpus's `SQ.effective` signature (`Rprop`, `Rrefl`,
+`Rsym`, `Rtrans`, and `isSet hProp`). Together with `eq/` (the `⟸` direction),
+this is the full **equality of meaning = observational equivalence**, computing
+on the runtime. Full suite 336 ✓ (only the deliberate must-fails fail).
