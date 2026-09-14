@@ -1,4 +1,15 @@
-# biosemiotic — the elucidator run on real non-human communication data, on the net
+# biosemiotic — the fibre-law factoring run on real non-human communication data, on the net
+
+*Naming, corrected after reading the Agda: what runs here is the fibre law
+(`fibre/src/Fibre/Carrier.agda`, `SarvavibhagaH`, `Vishvayantra.lossless`)
+applied to the map ICIs ↦ rhythm, in the form `../elucidator.bend` gives it.
+It is not `formal/cubical/kernel/Vivarana`, the corpus's elucidator proper,
+which is the unique fold of the initial derivation type (`AdiBija`) across a
+lens family. The lens table in §3 is `ApurvaIndriyam` measured (a coarser
+lens descends along a finer one and is blind on its fibres; `1+1+3` vs `5R1`
+is an `अपूर्वम्` pair certifying tempo as a sense distinct from rhythm), and
+§7 is a `NerodeYantra` failure measured through a set-valued shadow. See
+`research/NONHUMAN_COMMUNICATION_20260914.md` §0.2.*
 
 The corpus's factoring `m ≃ (start, shape)` (`../elucidator.bend`, the fibre law
 `A ≃ Σ B (fiber f)` of `../fibrelaw.bend`) applied to published animal

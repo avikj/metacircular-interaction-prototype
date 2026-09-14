@@ -70,6 +70,63 @@ claim. Of the mathematics references, 72 were verified by search this
 session and 110 are recalled bibliographic details to be re-checked before
 citation.
 
+### 0.2 Corrections after reading the checked terms (added the same day)
+
+The first draft of this document and of the biosemiotic README was written
+from the abstracts and the Bend layer, not from the Agda. Reading the terms
+changes three things, stated here so the rest is read correctly.
+
+1. **Which "elucidator".** The coda factoring instantiates the fibre law —
+   `Fibre.Carrier` (bind the output: `singl (f a)`, contractible),
+   `SarvavibhagaH` (`A ≃ Σ[b] fiber f b` for every map; the image is the
+   standpoint's quotient, the fibre is what it cannot see), and
+   `Vishvayantra.lossless` — applied to the map `ICIs ↦ rhythm`. It mirrors
+   `collab/bend2-cubical/elucidator.bend`, whose header says
+   "compression-is-transport". It is **not** `Vivarana`, the corpus's
+   elucidator proper: there, `AdiBija` proves the derivation type is
+   *initial* (every receiver has exactly one fold) and `elucidate` returns a
+   derivation's complete reading across a lens family (length, depth
+   integral, meaning), each component certified unique by `fold-unique`.
+   That is a statement about traces of the kernel, and nothing in the coda
+   work touches it. Where the text below says "the elucidator" it means the
+   fibre-law factoring.
+
+2. **The lens table is `ApurvaIndriyam` measured.** `प्रवहति S q` (q descends
+   along S, with the factoring map `h` as data) gives `तन्तौ-अन्धः`: a derived
+   reading is blind inside its source's fibres, by two rewrites, with no
+   hypothesis on any type. A coarser lens is post-processing of a finer one,
+   so every row of the lens table is a dashboard of the row above and blind
+   on its fibres; the "purity" column measures that blindness against the
+   human annotation. And `अपूर्वम्` is the certificate for a new sense: a
+   pair the present sensorium cannot split, which the proposal splits,
+   refutes every possible derivation at once. The codas `1+1+3` and `5R1`
+   are exactly such a pair for rhythm-as-sensorium and tempo-as-proposal
+   (same rhythm at lens 10, tempos ≈1 s vs ≈0.33 s): tempo is not a reading
+   of rhythm, and symmetrically rhythm is not a reading of tempo. Sharma et
+   al.'s "two independent features" is an `अपूर्वम्` term on real data, and
+   the annotated `CodaType` is a dashboard of the joint reading.
+
+3. **The exchange result is a shadow argument, and its object is the
+   h-level of the event datum.** `NerodeYantra` proves: when the next
+   observation factors through the current one (`out ∘ δ ≡ g ∘ out`, the
+   observation a coalgebra homomorphism), the whole Nerode relation is the
+   kernel of one observation, as an equivalence of types. On the whale
+   exchange the shape channel nearly satisfies this (preserved 51 % of
+   steps against 37 % null) and the tempo channel does not (median drift
+   17 ms is small but not zero, and not a function of the previous coda):
+   the exchange's state exceeds its readout, so no finite window of codas
+   is Nerode-complete for it. The measurement itself uses the method of
+   `HLEVEL_OF_INTERACTION` §4: a set-valued invariant (shape kept, signed
+   drift) separates steps without computing the h-level of the interaction's
+   event datum. What the corpus makes precise, and the field has no word
+   for, is that question: modelled as `Fibre.Samvada`'s `ISC`, an exchange
+   is contractible (a service, `एक-नेत्रम्`) iff its event datum is a
+   proposition, and branches iff the datum is proof-relevant
+   (`वर्धन-बहुत्वम्`). "Is the other whale a generator or a service to this
+   one" is an h-level, and the drift table is its decategorified shadow.
+
+Everything below stands with those readings substituted.
+
 ## 1. What the corpus has that the field is reaching for
 
 The field's stated program (Andreas et al. 2022 iScience, the CETI roadmap;
