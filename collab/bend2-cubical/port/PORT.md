@@ -39,6 +39,13 @@ resolved next to the importing file, then in the working directory).
 The port's own count of the corpus's module identities so far: 13 Agda-side objects → 13 Bend files. Counts include the imported definitions (each file re-checks what it
 imports). Zero rejections in every file.
 
+## The port's suite
+
+`port/suite.sh` regenerates every emitted file from `scripts/examples` and
+checks the biological lane: 15 files must check clean and 3 probes must each
+reject exactly the definition they name (`files=18 bad=0` at the last run).
+A drift between an emitter and its checked output reads as a failure here.
+
 ## What the port needed from the language, and what it did not
 
 - Indexed families (`Step x y`, `Derivation x z`) are declared the Bend2 way:
