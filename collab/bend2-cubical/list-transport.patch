@@ -1,0 +1,17 @@
+diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
+--- a/src/Target/HVM4Full.hs
++++ b/src/Target/HVM4Full.hs
+@@ -202,4 +202,12 @@ prelude = unlines
+   , "@ptV = λ{#Path: λA. λu. λv. v; λt. #StuckPathTy{t}}"
++  , "// List is parameterized: transport each head along the element line."
++  , "// Match before binding L/r/s, so exclusive arms do not introduce dups."
++  , "@listA = λ{#List: λlcaElem. lcaElem; λlcaOther. #StuckListElement{lcaOther}}"
++  , "@coeList = λlcL. λlcR. λlcS. λlcXs. (λ{"
++  , "  #Nil: λlcnL. λlcnR. λlcnS. #Nil;"
++  , "  #Con: λlccH. λlccT. λ&lccL. λ&lccR. λ&lccS. #Con{@coe(λlci. @listA(lccL(lci)), lccR, lccS, lccH), @coe(lccL, lccR, lccS, lccT)};"
++  , "  λlcuXs. λlcuL. λlcuR. λlcuS. #StuckListCoe{lcuL, lcuR, lcuS, lcuXs}})(lcXs)(lcL)(lcR)(lcS)"
+   , "@coeT = λ&L. λ&r. λ&s. λ&x. λ{"
+-  , "  #Bool: x; #Nat: x; #Set: x; #Unit: x; #Empty: x; #List: λe. x; #Enum: x; #Num: x; #Itv: x; #Eql: x;"
++  , "  #Bool: x; #Nat: x; #Set: x; #Unit: x; #Empty: x; #Enum: x; #Num: x; #Itv: x; #Eql: x;"
++  , "  #List: λe. @coeList(L, r, s, x);"
+   , "  #Pi: λA0. λB0. λ&y. @coe(λ&i. @piB(L(i), @coe(λj. @piA(L(j)), s, i, y)), r, s, x(@coe(λj. @piA(L(j)), s, r, y)));"
