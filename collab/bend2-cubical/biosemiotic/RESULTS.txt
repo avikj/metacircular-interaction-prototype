@@ -350,3 +350,32 @@ wrote out/coda_exchange.hvm4 with 16 real consecutive pairs
     #Trip{1,[273,267,266,295]} [2m#1858[0m
     #Trip{1,[278,270,269,271]} [2m#2229[0m
     …
+
+### round_four.py (instrument_round_four.log)
+§N  NIYATI — how far the whale machine's space of runs is from a point
+  runs (rec × whale) 82; steps 3740; H(next | current) over all runs 1.766 bits (shuffled null 3.414)
+  runs with ≥ 8 codas: 57; per-run H(next | current): min 0.000 (len 8), median 0.700, max 1.846 (len 201)
+  runs whose stream is a point (H = 0, every step forced): 3 of 57
+  log2 |histories of length 1| under the observed support, mean over states weighted by visits: 4.60 bits  (4.60 per step)
+  log2 |histories of length 2| under the observed support, mean over states weighted by visits: 7.86 bits  (3.93 per step)
+  log2 |histories of length 3| under the observed support, mean over states weighted by visits: 11.49 bits  (3.83 per step)
+  log2 |histories of length 5| under the observed support, mean over states weighted by visits: 18.55 bits  (3.71 per step)
+
+§O  HIDING AND HARDNESS — what a reading hides is what makes its next step hard
+  next METRE | current metre, tempo hidden: 1.482 bits;  tempo shown: 1.292;  hardness the hiding costs: 0.190
+  next TEMPO | current tempo, metre hidden: 1.061 bits;  metre shown: 0.854;  hardness the hiding costs: 0.207
+  H(next metre) 2.935; H(next tempo) 2.047
+
+§P  ORNAMENTATION — is the (n+1)-click coda a born n-click coda plus one click?
+  born inventory used: 77 metres
+  5-click codas (6383): first 3 intervals form a born metre  94.7%; last 3 do  99.5%; ornament/mean-interval median 0.64 (p10 0.52, p90 1.04)
+  6-click codas ( 420): first 4 intervals form a born metre  98.1%; last 4 do  91.0%; ornament/mean-interval median 1.00 (p10 0.63, p90 1.59)
+  7-click codas ( 403): first 5 intervals form a born metre  95.5%; last 5 do  94.5%; ornament/mean-interval median 0.88 (p10 0.49, p90 1.68)
+  8-click codas ( 273): first 6 intervals form a born metre  87.2%; last 6 do  83.9%; ornament/mean-interval median 1.18 (p10 0.79, p90 1.80)
+  9-click codas ( 196): first 7 intervals form a born metre  82.1%; last 7 do  85.2%; ornament/mean-interval median 1.27 (p10 0.97, p90 1.97)
+  5-click codas: (human type, metre of first three intervals), top: 1+1+3/GGL 2971, 5R1/LLL 1254, 5R3/LLL 641, 1+1+3/LLL 304, 5R2/LLL 285, 1+1+3/LGL 171
+
+§P' ORNAMENT AS THE NEIGHBOUR'S LINE PLUS ONE CLICK (within a whale's run)
+  lens  4: neighbour pairs (n, n+1 clicks) 409; ornamented coda's prefix = neighbour's shape 195 (47.7%); null (random coda of the same length) 59.2%
+  lens 10: neighbour pairs (n, n+1 clicks) 409; ornamented coda's prefix = neighbour's shape 114 (27.9%); null (random coda of the same length) 19.4%
+  ornament interval / neighbour's mean interval: median 0.80, p10 0.44, p90 1.85

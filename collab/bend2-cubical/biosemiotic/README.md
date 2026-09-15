@@ -457,6 +457,65 @@ a lens, and the residue is its rounding. On the net
 tempo and back in one superposed pass at R = 1000 and collapsed with
 their residues (0–2 ms) beside them, 6,945 interactions.
 
+### 8.15 How far the whale machine is from one execution (`Niyati`)
+
+For the universal machine the space of productive runs from a
+configuration is contractible: one machine, one history. The empirical
+whale machine (states = metre × tempo-bin, 82 runs, 3,740 steps) has
+H(next | current) = 1.766 bits against a 3.414-bit null. Per run (57 runs
+of eight or more codas): minimum 0.000, median 0.700, maximum 1.846 bits.
+Three runs are a point, every step forced; the rest are a genuine space.
+Its size under the observed transition support, in bits of history:
+
+| horizon k | log₂ |histories| (visit-weighted) | per step |
+|---|---|---|---|
+| 1 | 4.60 | 4.60 |
+| 2 | 7.86 | 3.93 |
+| 3 | 11.49 | 3.83 |
+| 5 | 18.55 | 3.71 |
+
+The support allows about 3.7 bits of branching per step; the whales
+realise 1.77. The gap, 1.9 bits per step, is what the run's own past
+forbids beyond what the support does: the stream is far from a point but
+much nearer to one than its support.
+
+### 8.16 What a reading hides is what makes its next step hard (`HidingAndHardness`)
+
+| prediction | conditioning | bits | the hidden part shown | hardness the hiding costs |
+|---|---|---|---|---|
+| next metre | current metre (tempo hidden) | 1.482 | 1.292 | 0.190 |
+| next tempo | current tempo (metre hidden) | 1.061 | 0.854 | 0.207 |
+
+Both readings pay about a fifth of a bit per step for what they hide,
+and the two costs are nearly equal: the fibre and the base each carry
+roughly the same amount of the other's future. Read with §8.8 (the tempo
+is state) and §8.9 (scalars are achromatic), the whale machine is
+a joint of two readings each of which is, to a fifth of a bit, a
+sufficient statistic for its own next value.
+
+### 8.17 Ornamentation tested as a shared line, and not confirmed
+
+Sharma et al.'s fourth feature is an extra click. If the ornamented coda
+were the neighbouring coda's line plus one click, the shared-prefix
+regime of §5 would be its natural program. Within a whale's run, on the
+409 consecutive pairs whose click counts differ by one:
+
+| lens | ornamented coda's prefix equals the neighbour's shape | null (random coda of that length) |
+|---|---|---|
+| R = 4 | 47.7 % | 59.2 % |
+| R = 10 | 27.9 % | 19.4 % |
+
+The ornament interval is 0.80 of the neighbour's mean interval (p10 0.44,
+p90 1.85). The signal is not there at this resolution: at the coarse
+lens the neighbour's shape is found in the prefix *less* often than a
+random coda's, at the finer lens slightly more. Sharma et al. define the
+ornament against the annotated rhythm type of the surrounding codas,
+which the dialogue file does not carry, so this is a failure to confirm
+with the readings available here, not a refutation. A per-length test
+(is the first n−1 intervals' metre a born metre?) is uninformative because
+the born inventory covers nearly every short metre (94–99 %), and is
+reported in the log only.
+
 ## Files
 
     coda_elucidator.py   reads the CSV; exact & per-mille factoring; lens table; emits out/coda_*.hvm4
@@ -465,6 +524,7 @@ their residues (0–2 ms) beside them, 6,945 interactions.
     full_instrument.py   metre/prastāra, Nerode deficit, encounter, sign-birth MDL, Zipf-vs-lens, Lipschitz; emits out/prastara_*.hvm4
     nerode_net.py        a Nerode acceptor learned from half the dialogues, run on the net over held-out sequences
     round_two.py         observability quotient (bisimulation), reversal blindness / arrow of time, Prasna entropies; log in out/instrument_round_two.log
+    round_four.py        distance from one execution (Niyati), hiding-and-hardness, ornamentation as a shared line; log in out/instrument_round_four.log
     round_three.py       order inside the Meru cell, born-sign inventory, the two clans as readings, round-trip residue (emits out/coda_roundtrip.hvm4); log in out/instrument_round_three.log
     tit_syntax.hvm4      Japanese tit ordering rule over a superposition
     campbell_affix.hvm4  Campbell's monkey root × affix factoring

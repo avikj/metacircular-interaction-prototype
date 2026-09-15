@@ -472,6 +472,17 @@ agrees with the Python table).
 - **The round trip (`Ekatva`).** Through another whale's tempo and back,
   the exact shape returns the coda on 68 % of codas and misses by 0.8 ms
   on the rest: the millisecond grid is a lens too.
+- **Distance from one execution (`Niyati`).** H(next | current) 1.77
+  bits over 82 runs (null 3.41); three of 57 runs are a point; the
+  support allows 3.7 bits of branching per step, the whales realise 1.8.
+- **Hiding and hardness.** Hiding the tempo from the metre reading costs
+  0.19 bits per step of next-metre prediction; hiding the metre from the
+  tempo reading costs 0.21 bits of next-tempo prediction.
+- **Ornamentation as a shared line: not confirmed.** On 409 neighbouring
+  pairs differing by one click, the ornamented coda's prefix carries the
+  neighbour's shape at 48 % (null 59 %) at lens 4 and 28 % (null 19 %) at
+  lens 10; the dialogue file lacks the annotation Sharma's ornament is
+  defined against.
 
 ### 3.8 Discrete systems
 
