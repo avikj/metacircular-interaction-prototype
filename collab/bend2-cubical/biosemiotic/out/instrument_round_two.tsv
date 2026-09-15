@@ -1,0 +1,7 @@
+instrument	value
+bisim_states	285
+bisim_classes	280
+H_Bnext	3.8061
+H_Bnext_given_A	2.2746
+H_Bnext_given_B	1.2431
+H_Bnext_given_AB	0.7683

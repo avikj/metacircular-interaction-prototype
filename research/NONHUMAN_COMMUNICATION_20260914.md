@@ -442,6 +442,19 @@ agrees with the Python table).
   alone on 1,054; the joint reading is blind on 2, with purity 0.992. The
   annotation is the joint of two readings neither of which descends along
   the other.
+- **The tempo is state (`ObservabilityQuotient`).** Bisimulation refinement
+  of the empirical machine (285 metre × tempo-bin states, readout = metre)
+  keeps 280 classes: every frequent metre's tempo variants are separated
+  by their futures (GGLL's four bins into four blocks). The fibre carries
+  state along the run; metre alone is not a safe quotient.
+- **The arrow of time (`EGBReversalInvariant`).** Every scalar reading is
+  reversal-blind; the metre is blind only on its 1,794 palindromes
+  (24.7 %), the exact shape on 7 codas. GGLL occurs 3,661 times, LLGG 0:
+  the whales' metres front-load the long intervals.
+- **The run is partly its answer stream (`Prasna`).** H(B_next) 3.81 bits
+  falls to 2.28 given A's last coda, to 1.24 given B's own last, to 0.77
+  given both. The answer adds 0.48 bits beyond own state; own state adds
+  1.51 beyond the answer.
 
 ### 3.8 Discrete systems
 

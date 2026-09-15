@@ -297,6 +297,70 @@ along the other (`अपूर्वम्` both ways), and the joint's 281 clas
 the 24 labels (1,862 separated pairs the annotation joins) — the residue the
 annotator quotiented away, which a receiver may or may not.
 
+### 8.8 The tempo is state, not noise: the observability quotient (`ObservabilityQuotient`, `MyhillNerodeMinimalMachine`)
+
+The safe quotient of a machine's states is not the kernel of one
+observation but ForeverEq = ⋂ₙ ker(P Tⁿ): two states are identified only
+if every future observation agrees. On the empirical whale machine (states
+= metre × Sharma's tempo bin, transitions = observed successors within a
+whale's run, readout = the metre), bisimulation refinement gives:
+
+| | count |
+|---|---|
+| states (metre × tempo-bin) | 285 |
+| readout classes (metres alone) | 201 |
+| bisimulation classes (ForeverEq) | 280 |
+
+148 metres have all their tempo variants identified by their futures, but
+those are the rare metres with one or two occurrences. Every frequent
+metre is split by tempo: GGLL's four tempo bins fall into four distinct
+quotient blocks (counts 60 / 501 / 318 / 1,315), LLLL's five bins into five,
+LLL's five into five. The futures of a GGLL at tempo bin 0 and a GGLL at
+tempo bin 4 differ, so the quotient refuses to identify them. Where §8.3
+found the tempo is what a receiver re-expresses, this says the tempo is
+what the sender's own next coda depends on: the fibre carries state along
+the run, and `ker P` (metre only) is not a safe reading of the machine.
+
+### 8.9 The arrow of time in the repertoire (`EGBReversalInvariant`)
+
+List reversal is the ℤ/2 involution on codas. A reading is blind to it or
+sighted; its fixed locus is the palindromic metres.
+
+| reading | reversal-blind codas (of 7,266) |
+|---|---|
+| click count, tempo, mātrā, guru count | 100 % (all four are scalar; scalars are achromatic) |
+| metre | 24.7 % (the 1,794 palindromes) |
+| exact shape | 0.1 % (7 codas) |
+
+The repertoire is not reversal-symmetric: GGLL occurs 3,661 times, its
+reversal LLGG 0 times; GLLL 301 against LLLG 16; LGLL 196 against LLGL 1;
+GGGLLL 79 against LLLGGG 13. The whales' metres begin with the long
+intervals and accelerate. Every scalar reading in the literature (click
+count, duration, "tempo") is blind to this by construction; the chromatic
+readings (metre, shape) see it in three codas of four.
+
+### 8.10 The run is the answer stream, partially (`Prasna`, `SamvadaPrasna`)
+
+`Prasna` reads an interaction's run as its stream of answers: the next
+state is a reaction to the environment's answer. On 1,810 triples
+(A's last coda, B's last coda, B's next coda) within dialogues:
+
+| conditioning | H(B_next) bits | shuffled null |
+|---|---|---|
+| nothing | 3.806 | |
+| A's last (the answer) | 2.275 | 3.151 |
+| B's own last (own state) | 1.243 | 3.157 |
+| both | 0.768 | 2.414 |
+
+B's next metre equals B's own last metre in 75.2 % of steps and A's last
+metre in 50.9 %. The answer carries 0.475 bits beyond B's own state; B's
+own state carries 1.506 bits beyond the answer. So B's run is not its
+answer stream alone (`Prasna`'s determinism-is-silence limit would give
+0 bits of own-state), nor a generator ignoring the answer; it is a
+service with memory whose reaction to the answer is conditioned by where
+it already is. The exchange of §7 (metre kept, tempo drifting) is the
+visible face of these numbers.
+
 ## Files
 
     coda_elucidator.py   reads the CSV; exact & per-mille factoring; lens table; emits out/coda_*.hvm4
@@ -304,6 +368,7 @@ annotator quotiented away, which a receiver may or may not.
     coda_exchange.py     rubato as fibre motion along real exchanges; emits out/coda_exchange.hvm4
     full_instrument.py   metre/prastāra, Nerode deficit, encounter, sign-birth MDL, Zipf-vs-lens, Lipschitz; emits out/prastara_*.hvm4
     nerode_net.py        a Nerode acceptor learned from half the dialogues, run on the net over held-out sequences
+    round_two.py         observability quotient (bisimulation), reversal blindness / arrow of time, Prasna entropies; log in out/instrument_round_two.log
     tit_syntax.hvm4      Japanese tit ordering rule over a superposition
     campbell_affix.hvm4  Campbell's monkey root × affix factoring
     out/                 generated programs, sample_codas.tsv, lens_resolution.tsv, python_run.log

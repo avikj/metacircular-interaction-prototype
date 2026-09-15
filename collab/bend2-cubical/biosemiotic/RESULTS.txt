@@ -186,3 +186,39 @@ wrote out/coda_exchange.hvm4 with 16 real consecutive pairs
 #Step{0,#Pos{30}} [2m#8846[0m
 #Step{0,#Neg{32}} [2m#9178[0m
 - Itrs: 9178 interactions
+
+### round_two.py (instrument_round_two.log)
+§G  OBSERVABILITY QUOTIENT — bisimulation refinement of the empirical whale machine, readout = metre
+  states (metre × tempo-bin) 285; readout classes (metres) 201; bisimulation classes 280
+  metres whose tempo variants are all identified by their futures: 148; metres split by tempo (future-distinguished): 53
+  examples of tempo variants identified by the quotient: []
+  GGLL: tempo bins present [0, 2, 3, 4] -> quotient blocks [34, 35, 36, 37]  (counts [60, 501, 318, 1315])
+  LLLL: tempo bins present [0, 1, 2, 3, 4] -> quotient blocks [196, 197, 198, 199, 200]  (counts [337, 156, 20, 2, 4])
+  LLL: tempo bins present [0, 1, 2, 3, 4] -> quotient blocks [171, 172, 173, 174, 175]  (counts [17, 2, 92, 76, 77])
+  GLL: tempo bins present [1, 2, 3] -> quotient blocks [75, 76, 76]  (counts [2, 1, 1])
+
+§H  REVERSAL — the ℤ/2 involution on codas; which readings are blind, and the repertoire's arrow of time
+  click count  reversal-blind on 7266/7266 codas (100.0%)
+  tempo (ms)   reversal-blind on 7266/7266 codas (100.0%)
+  mātrā        reversal-blind on 7266/7266 codas (100.0%)
+  guru count   reversal-blind on 7266/7266 codas (100.0%)
+  metre        reversal-blind on 1794/7266 codas (24.7%)
+  exact shape  reversal-blind on 7/7266 codas (0.1%)
+  fixed locus (palindromic metres): 1794/7266
+  metre vs its reversal (counts): the arrow of time in the repertoire
+    GGLL        3661   reversed LLGG           0
+    GLLL         301   reversed LLLG          16
+    GLL          257   reversed LLG           29
+    LGLL         196   reversed LLGL           1
+    GGL           81   reversed LGG            2
+    GGGLLL        79   reversed LLLGGG        13
+    LGGG          77   reversed GGGL          40
+    GGGGLL        55   reversed LLGGGG         6
+
+§I  PRASNA — is B's run its answer stream?  B's next coda vs A's last (the answer) vs B's own last
+  triples 1810;  H(B_next) 3.806 bits
+  H(B_next | A_last)  2.275   (shuffled null 3.151)   — the answer alone
+  H(B_next | B_last)  1.243   (shuffled null 3.157)   — B's own state alone
+  H(B_next | A_last, B_last) 0.768   (shuffled null 2.414)
+  information from the answer beyond B's own state: 0.475 bits; from B's state beyond the answer: 1.506 bits
+  B's next metre equals A's last metre: 921/1810 (50.9%);  equals B's own last metre: 1362/1810 (75.2%)
