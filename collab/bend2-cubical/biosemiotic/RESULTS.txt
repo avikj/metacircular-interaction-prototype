@@ -222,3 +222,131 @@ wrote out/coda_exchange.hvm4 with 16 real consecutive pairs
   H(B_next | A_last, B_last) 0.768   (shuffled null 2.414)
   information from the answer beyond B's own state: 0.475 bits; from B's state beyond the answer: 1.506 bits
   B's next metre equals A's last metre: 921/1810 (50.9%);  equals B's own last metre: 1362/1810 (75.2%)
+
+### round_three.py (instrument_round_three.log)
+§J  KRAMA — order inside the Meru cell: what every total is blind to
+  H(metre) = H(cell) + H(arrangement | cell) = 3.064 + 0.375 = 3.439 bits; krama-indifferent bound on the second term (uniform over C(n,k)): 1.809 bits
+  cell (n,k) C(n,k)  codas  used  H(arr)  log2C  top arrangements
+      (4, 2)      6   3754     5   0.073  2.585  GGLL 3726, LLGG 20, GLGL 3, GLLG 3
+      (4, 0)      1   1865     1  -0.000  0.000  LLLL 1865
+      (4, 1)      4    612     4   1.323  2.000  GLLL 350, LGLL 211, LLLG 47, LLGL 4
+      (3, 0)      1    405     1  -0.000  0.000  LLL 405
+      (3, 1)      3    315     3   0.609  1.585  GLL 275, LLG 36, LGL 4
+      (4, 3)      4    152     4   1.189  2.000  LGGG 97, GGGL 47, GGLG 7, GLGG 1
+      (5, 0)      1    123     1  -0.000  0.000  LLLLL 123
+      (6, 3)     20    123     8   1.614  4.322  GGGLLL 79, GGLLLG 22, LLLGGG 14, GGLLGL 2
+      (5, 2)     10    119     6   1.294  3.322  GGLLL 86, LLLGG 21, GLLLG 5, LGLLG 4
+      (3, 2)      3     98     3   0.474  1.585  GGL 90, LGG 6, GLG 2
+      (7, 0)      1     88     1  -0.000  0.000  LLLLLLL 88
+      (6, 0)      1     86     1  -0.000  0.000  LLLLLL 86
+
+§K  SIGN BIRTH PER SIGN — which metres earn an entry in the sign table
+  metres 204; corpus 8696 codas; no signs: 78232 bits; born signs 77: 31781 bits (3.65 per coda)
+  last born sign: GGLGGG (3 codas, gain 1.1 bits); first refused: LGG (6 codas, gain -3.1)
+  human types with a majority metre: 17; their distinct metres: 12; of these born: 12
+  born signs with no human type name: 65  e.g. GLLL (350), LGLL (211), GGL (90), LLLLLLL (88), GGLLL (86), GGGLLL (79), GGGGLL (55), LLLG (47), LLLLLLG (47), GGGL (47), LLLLLLLG (39), LLG (36), GGLLLL (35), LLLLG (34), GLLLL (29), GGGLL (28), GGLL
+  born inventory (metre, codas, gain in bits, human names):
+    GGLL        3726  23631.2  1+1+3
+    LLLL        1865  11367.7  5R3 5R1 5R2
+    GLLL         350   1439.1  
+    LLL          405   1168.7  4R1 4R2
+    LGLL         211    791.2  
+    GLL          275    734.1  1+31 4D 1+32
+    LLLLLLL       88    619.5  
+    LLLLL        123    595.8  6R
+    LLLLLL        86    499.7  7R
+    GGGLLL        79    454.4  
+    LLLLLLLL      53    415.6  9R
+    GGLLL         86    395.0  
+    LGGG          97    326.6  2+3
+    LLLLLLG       47    308.9  
+    GGGGLL        55    304.7  
+    LLLLLLLG      39    299.2  
+    LLLLLLLLL     24    192.8  10R
+    GGL           90    175.2  
+    GGLLLL        35    176.2  
+    LLLG          47    126.8  
+    GGGL          47    130.3  
+    LLLLG         34    128.6  
+    LLLLLG        26    123.4  
+    GLLLLLL       20    111.8  
+    LLLLGG        23    105.6  
+    GLLLL         29    106.8  
+    GGGLL         28    102.9  
+    GGLLLG        22    102.5  
+    GGLLLLG       18    100.8  8D
+    GGLLG         27    101.3  
+    GLLLLLLL      14     89.2  
+    LLLLLLLLG     12     86.4  
+    LLLLLGG       15     80.3  
+    LLLGG         21     72.1  
+    LLLLLLGG      11     64.8  
+    LGLLL         18     57.7  
+    LLLGGG        14     56.9  
+    LLG           36     54.6  
+    GLLLLL        13     52.4  
+    GGLLLLLG       9     50.0  
+    GGLLLLL       10     46.9  
+    LLGG          20     45.0  
+    LGGGG         14     42.3  
+    LL            55     41.2  3R
+    LLLLGGG        8     35.1  
+    LLLGGGGG       6     27.4  
+    LGLLLLLG       6     27.6  
+    GL            42     25.1  3D
+    GLLLLLLLL      5     25.5  
+    LGLLLLLLG      5     25.6  
+    LLGGG          9     22.7  
+    LLLGGGG        6     22.6  
+    GGGGLLL        6     22.8  
+    LGGGGG         7     22.2  
+    LLGGGG         7     22.5  
+    LGGGGGGG       5     21.4  
+    LLLLLGGG       5     21.5  
+    LLGLLLLL       5     21.7  
+    GLLLLLLLG      4     17.2  
+    GLLLLLG        5     16.6  
+    LLGLLLLG       4     13.5  
+    LLGLLLL        4      9.6  
+    LLLLLLLGG      3      8.0  
+    LLLLLLGGG      3      8.1  
+    LGGGGGGGG      3      8.1  
+    GGLG           7      6.6  
+    GLLLG          5      6.1  
+    GGLGG          5      6.3  
+    GGGLLG         4      6.2  
+    GGLLLGGG       3      6.0  
+    LGGGGGG        3      3.4  
+    GGLGGGG        3      3.4  
+    LLLLGLG        3      3.5  
+    LGLLLGG        3      3.6  
+    LGLLG          4      2.4  
+    GGGGL          4      2.5  
+    GGLGGG         3      1.1  
+
+§L  TWO CLANS AS TWO READINGS — EC1 vs EC2
+  I(clan; metre         ) = 0.186 bits of H(clan) = 0.497
+  I(clan; tempo bin     ) = 0.080 bits of H(clan) = 0.497
+  I(clan; metre × tempo ) = 0.420 bits of H(clan) = 0.497
+  I(clan; click count   ) = 0.005 bits of H(clan) = 0.497
+  I(clan; human type    ) = 0.373 bits of H(clan) = 0.497
+  inside metre LLLL (1865 codas): EC1 1206, EC2 659; I(clan; tempo | LLLL) = 0.840 of H(clan | LLLL) = 0.937
+    EC1 LLLL tempo bins: 0:865 1:280 2:43 3:4 4:14   types: 5R1 842, 5R2 283, 5-NOISE 34
+    EC2 LLLL tempo bins: 0:0 1:1 2:17 3:177 4:464   types: 5R3 619, 5-NOISE 40
+  metres (≥10 codas) heard only in EC1: 20; only in EC2: 0 []
+  median LLLL tempo: EC1 334 ms, EC2 1144 ms (ratio 3.43)
+  EC2 5R3 [318, 307, 303, 322] → shape [254, 246, 242, 258] → at EC1 tempo [85, 82, 81, 86]; nearest real EC1 coda [87, 86, 79, 86] is a 5R1
+
+§M  ROUND TRIP ŚEṢA — c → lens → other tempo → lens → own tempo, versus c
+  lens    10: round trip exact on 9/8696 (0.1%); mean |śeṣa| 94.29 ms per coda
+  lens   100: round trip exact on 216/8696 (2.5%); mean |śeṣa| 7.63 ms per coda
+  lens  1000: round trip exact on 4976/8696 (57.2%); mean |śeṣa| 1.08 ms per coda
+  lens exact: round trip exact on 5901/8696 (67.9%); mean |śeṣa| 0.83 ms per coda
+  on the net (out/coda_roundtrip.hvm4): 18 trips collapsed; - Itrs: 6945 interactions
+    #Trip{0,[293,282,298,315]} [2m#371[0m
+    #Trip{2,[287,265,299,274]} [2m#742[0m
+    #Trip{1,[264,253,297,276]} [2m#1114[0m
+    #Trip{1,[269,265,271,285]} [2m#1486[0m
+    #Trip{1,[273,267,266,295]} [2m#1858[0m
+    #Trip{1,[278,270,269,271]} [2m#2229[0m
+    …

@@ -455,6 +455,23 @@ agrees with the Python table).
   falls to 2.28 given A's last coda, to 1.24 given B's own last, to 0.77
   given both. The answer adds 0.48 bits beyond own state; own state adds
   1.51 beyond the answer.
+- **Order inside the Meru cell (`KramaNairapeksya`).** Every scalar
+  reading is a total and blind to all permutations; the cell (n, k) is
+  the orbit. H(metre) = H(cell) 3.06 + H(arrangement | cell) 0.38 bits,
+  against 1.81 available: the whales use one arrangement per cell (GGLL
+  3,726 of 3,754 in (4,2)) and spend the order channel only in (4,1),
+  (4,3), (6,3).
+- **Born signs, per sign (hieroglyphics II).** 77 of 204 metres earn a
+  sign-table entry; every human-named metre is among them, and 65 born
+  signs have no human name (GLLL 350, LGLL 211 the largest).
+- **The two clans differ in the fibre.** I(clan; metre × tempo) is 0.42
+  of 0.50 bits; inside the shared metre LLLL, tempo alone carries 0.84 of
+  0.94 bits (EC1 at 334 ms, EC2 at 1,144 ms). An EC2 `5R3` transported to
+  EC1's tempo lands on a real `5R1`: one dialect translation, executed,
+  as transport along the fibre.
+- **The round trip (`Ekatva`).** Through another whale's tempo and back,
+  the exact shape returns the coda on 68 % of codas and misses by 0.8 ms
+  on the rest: the millisecond grid is a lens too.
 
 ### 3.8 Discrete systems
 

@@ -361,6 +361,102 @@ service with memory whose reaction to the answer is conditioned by where
 it already is. The exchange of §7 (metre kept, tempo drifting) is the
 visible face of these numbers.
 
+### 8.11 Order inside the Meru cell: what every total is blind to (`KramaNairapeksya`)
+
+A total spends only associativity and commutativity, so it is indifferent
+to the enumeration: every scalar reading of a coda (click count, tempo,
+mātrā, guru count) is blind to every permutation of the intervals, not
+only to reversal. The Meru cell (n syllables, k gurus) is the permutation
+orbit, of size C(n,k); the order is what lives inside it.
+
+| cell (n,k) | C(n,k) | codas | arrangements used | H(arrangement) | log₂ C(n,k) | top |
+|---|---|---|---|---|---|---|
+| (4,2) | 6 | 3,754 | 5 | 0.073 | 2.585 | GGLL 3,726, LLGG 20, GLGL 3 |
+| (4,1) | 4 | 612 | 4 | 1.323 | 2.000 | GLLL 350, LGLL 211, LLLG 47 |
+| (3,1) | 3 | 315 | 3 | 0.609 | 1.585 | GLL 275, LLG 36 |
+| (4,3) | 4 | 152 | 4 | 1.189 | 2.000 | LGGG 97, GGGL 47 |
+| (6,3) | 20 | 123 | 8 | 1.614 | 4.322 | GGGLLL 79, GGLLLG 22, LLLGGG 14 |
+| (5,2) | 10 | 119 | 6 | 1.294 | 3.322 | GGLLL 86, LLLGG 21 |
+
+H(metre) = H(cell) + H(arrangement | cell) = 3.064 + 0.375 bits, against
+1.809 bits the arrangements could carry if the whales used their cells
+uniformly. So the totals (n, k) recover the metre to within 0.375 bits per
+coda on average: the repertoire is concentrated in one arrangement per
+cell, most extremely at (4,2). The order carries information a total
+cannot see, and the whales spend that channel sparingly; where they spend
+it, (4,1), (4,3), (6,3), it is a full bit or more. §8.9's arrow of time is
+the direction of that concentration.
+
+### 8.12 The born-sign inventory (hieroglyphics II, per sign)
+
+§8.4 varied the lens. Here the lens is fixed at the metre and each metre is
+tested on its own: it earns an entry in the sign table iff the entry
+shortens a two-part description of the corpus (table of spellings +
+per-coda escape flag + index-or-spelling), `चिह्नजन्म ⟺ लाभ > 0`, greedily.
+
+| | |
+|---|---|
+| metres in the corpus | 204 |
+| description with no signs | 78,232 bits |
+| born signs | 77 (31,781 bits; 3.65 per coda) |
+| last born / first refused | GGLGGG (3 codas, +1.1 bits) / LGG (6 codas, −3.1) |
+| human types with a majority metre | 17 types on 12 metres, all 12 born |
+| born signs with no human name | 65 |
+
+The first six born, with their human names where they have one: GGLL
+(3,726; `1+1+3`), LLLL (1,865; `5R1 5R2 5R3`), GLLL (350; unnamed), LLL
+(405; `4R1 4R2`), LGLL (211; unnamed), GLL (275; `1+31 4D 1+32`). The two
+unnamed signs in the top six are the (4,1) cell's two dominant
+arrangements, which the human scheme folds into other types or noise.
+Every human-named metre is born; the born inventory is three times
+larger than the named one. Full inventory in `out/instrument_round_three.tsv`.
+
+### 8.13 The two clans differ in the fibre (`ApurvaIndriyam` at the clan level; `PariksaDvaya`)
+
+The Dominica file carries two vocal clans, EC1 (7,770 codas) and EC2 (949).
+Which reading separates them?
+
+| reading | I(clan; reading), of H(clan) = 0.497 bits |
+|---|---|
+| click count | 0.005 |
+| tempo bin | 0.080 |
+| metre | 0.186 |
+| human type | 0.373 |
+| metre × tempo | 0.420 |
+
+Inside the one metre both clans use most, LLLL (the 5R family: EC1 1,206
+codas, EC2 659), the tempo alone separates them almost entirely,
+I(clan; tempo | LLLL) = 0.840 of 0.937 bits: EC1's LLLL sits in tempo bins
+0–1 (median 334 ms, the types `5R1`/`5R2`), EC2's in bins 3–4 (median
+1,144 ms, the type `5R3`), a ratio of 3.4. No metre with ten or more codas
+is heard only in EC2; twenty are heard only in EC1. So the dialect
+difference on the shared family is a difference in the fibre only: the
+same metre, at a tempo three times slower. Transported along the fibre,
+an EC2 `5R3` coda [318, 307, 303, 322] at EC1's LLLL tempo becomes
+[85, 82, 81, 86], whose nearest real EC1 coda [87, 86, 79, 86] is a `5R1`.
+That is one translation between dialects, executed, and it is the fibre
+law's transport and nothing else.
+
+### 8.14 The round trip and its residue (`Ekatva`, `CompressionIsTransport`)
+
+The lossless recoding a ↦ (f a, fibre point) round-trips exactly; a lens
+that drops the fibre does not, and the residue is what it dropped. Every
+coda was sent c → lens → another whale's tempo → lens → its own tempo:
+
+| lens | round trip exact | mean residue per coda |
+|---|---|---|
+| R = 10 | 9 / 8,696 (0.1 %) | 94.3 ms |
+| R = 100 | 216 (2.5 %) | 7.6 ms |
+| R = 1000 | 4,976 (57.2 %) | 1.08 ms |
+| exact (gcd) shape | 5,901 (67.9 %) | 0.83 ms |
+
+Even the exact shape does not round-trip through another tempo on 32 % of
+codas, by under a millisecond: the receiver's millisecond grid is itself
+a lens, and the residue is its rounding. On the net
+(`out/coda_roundtrip.hvm4`) 18 real codas were sent to the next coda's
+tempo and back in one superposed pass at R = 1000 and collapsed with
+their residues (0–2 ms) beside them, 6,945 interactions.
+
 ## Files
 
     coda_elucidator.py   reads the CSV; exact & per-mille factoring; lens table; emits out/coda_*.hvm4
@@ -369,6 +465,7 @@ visible face of these numbers.
     full_instrument.py   metre/prastāra, Nerode deficit, encounter, sign-birth MDL, Zipf-vs-lens, Lipschitz; emits out/prastara_*.hvm4
     nerode_net.py        a Nerode acceptor learned from half the dialogues, run on the net over held-out sequences
     round_two.py         observability quotient (bisimulation), reversal blindness / arrow of time, Prasna entropies; log in out/instrument_round_two.log
+    round_three.py       order inside the Meru cell, born-sign inventory, the two clans as readings, round-trip residue (emits out/coda_roundtrip.hvm4); log in out/instrument_round_three.log
     tit_syntax.hvm4      Japanese tit ordering rule over a superposition
     campbell_affix.hvm4  Campbell's monkey root × affix factoring
     out/                 generated programs, sample_codas.tsv, lens_resolution.tsv, python_run.log
