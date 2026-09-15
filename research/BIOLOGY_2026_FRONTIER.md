@@ -227,6 +227,26 @@ mathematics.
 
 ---
 
+4. **Scale, and the representation bound.** A 12-gene × 40-cell panel with
+   3 edges and 4 interventions (`scripts/examples/scale_12x40.json`) emits
+   560 lines, checks in 0.8 s (185 ✓) and runs its pseudobulk protocol on
+   HVM4 in 14528 interactions. The port's numbers are unary `Nat`
+   (`1n + p`), so a count of k costs k nodes and every profile comparison
+   is linear in the counts themselves: adequate for the shape and for
+   panels of tens of genes, not for 18 000 genes × 18 400 cells. The step
+   from here to a real VCC context is a binary numeral type on the Bend
+   side (or the runtime's native words) under the same receivers; the
+   receivers do not change. [open], with the bound measured rather than
+   guessed.
+
+5. **Protocol disagreement.** The emitter searches the candidates it emits
+   for two protocols that order two submissions oppositely (mae vs DE
+   overlap) and states both orderings as `refl` theorems when found — the
+   scPertEval observation that there is no single notion of a correct
+   prediction, as an executable fact about one object under two receivers.
+   On the toy spec no such pair exists; the search is in place for real
+   candidates.
+
 ## 4. Order of execution
 
 1. **Get the binary at the pin and check §2.** Record the verdict in

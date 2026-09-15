@@ -316,7 +316,58 @@ def rankOf(pred: Nat[], truth: Nat[], candidates: Nat[][]) -> Nat:
     case c <> rest:
       match ltN(l1(pred, c), l1(pred, truth)):
         case True: 1n + rankOf(pred, truth, rest)
-        case False: rankOf(pred, truth, rest)""")
+        case False: rankOf(pred, truth, rest)
+# SIGNED DELTAS without signed numbers: |(p1 - c1) - (p2 - c2)| = |(p1 + c2) - (p2 + c1)|,
+# so the delta-protocols (mae_delta, direction match) are stated on Nat profiles.
+def deltaDist(c1: Nat, p1: Nat, c2: Nat, p2: Nat) -> Nat:
+  absDiff(add(p1, c2), add(p2, c1))
+def l1Delta(ctrl1: Nat[], pert1: Nat[], ctrl2: Nat[], pert2: Nat[]) -> Nat:
+  match ctrl1:
+    case []: 0n
+    case c1 <> cr1:
+      match pert1:
+        case []: 0n
+        case p1 <> pr1:
+          match ctrl2:
+            case []: 0n
+            case c2 <> cr2:
+              match pert2:
+                case []: 0n
+                case p2 <> pr2: add(deltaDist(c1, p1, c2, p2), l1Delta(cr1, pr1, cr2, pr2))
+# RECEIVER mae_delta: L1 between the real effect and the predicted effect
+def maeDelta(ctrl: Nat[], real: Nat[], pred: Nat[]) -> Nat:
+  l1Delta(ctrl, real, ctrl, pred)
+# RECEIVER direction match: genes whose effect has the same direction (down/flat/up)
+def dir3(c: Nat, p: Nat) -> Nat:
+  match ltN(c, p):
+    case True: 2n
+    case False:
+      match ltN(p, c):
+        case True: 0n
+        case False: 1n
+def sameNat(a: Nat, b: Nat) -> Bool:
+  match a:
+    case 0n:
+      match b:
+        case 0n: True
+        case 1n + q: False
+    case 1n + p:
+      match b:
+        case 0n: False
+        case 1n + q: sameNat(p, q)
+def directionMatch(ctrl: Nat[], real: Nat[], pred: Nat[]) -> Nat:
+  match ctrl:
+    case []: 0n
+    case c <> cr:
+      match real:
+        case []: 0n
+        case r <> rr:
+          match pred:
+            case []: 0n
+            case p <> pr:
+              match sameNat(dir3(c, r), dir3(c, p)):
+                case True: 1n + directionMatch(cr, rr, pr)
+                case False: directionMatch(cr, rr, pr)""")
     w("")
     w("# §7 the challenge shape: contexts, submissions, pseudobulk per gene")
     w("def Context() -> Set:")
@@ -346,6 +397,54 @@ def rankOf(pred: Nat[], truth: Nat[], candidates: Nat[][]) -> Nat:
         w(f"  mae(profile(context_{c0}()), profile(submission_{c0}_kd_{g0}()))")
         w(f"def demo_de_overlap() -> Nat:")
         w(f"  deOverlap(1n, profile(context_{c0}()), profile(submission_{c0}_kd_{g0}()), profile(submission_{c0}_kd_{g0}()))")
+        w(f"def demo_mae_delta() -> Nat:")
+        w(f"  maeDelta(profile(context_{c0}()), profile(submission_{c0}_kd_{g0}()), profile(predict(context_{c0}(), @passage)))")
+        w(f"def demo_direction() -> Nat:")
+        w(f"  directionMatch(profile(context_{c0}()), profile(submission_{c0}_kd_{g0}()), profile(predict(context_{c0}(), @passage)))")
+        # PROTOCOL DISAGREEMENT (scPertEval's point): with the first submission as
+        # 'truth', do two protocols order two other candidates differently?
+        import itertools
+        def step_py(cell, p):
+            cell = list(cell)
+            if p[0] == "kd":
+                cell[panel.index(p[1])] = 0
+            else:
+                cell = [cell[panel.index(activator[h])] if h in activator else cell[i] for i, h in enumerate(panel)]
+            return cell
+        def prof(cells):
+            return [sum(c[i] for c in cells) for i in range(n)]
+        cells0 = contexts[next(iter(contexts))]
+        ctrl = prof(cells0)
+        subs = {}
+        for g in interventions:
+            cs = [step_py(step_py(c, ("kd", g)), ("passage",)) for c in cells0]
+            subs[g] = prof(cs)
+        subs["passage"] = prof([step_py(c, ("passage",)) for c in cells0])
+        truth_g = interventions[0]
+        truth = subs[truth_g]
+        cands = [g for g in subs if g != truth_g]
+        def l1(a, b): return sum(abs(x - y) for x, y in zip(a, b))
+        def de(thr, c, p): return [abs(x - y) >= thr for x, y in zip(c, p)]
+        def ov(a, b): return sum(1 for x, y in zip(a, b) if x and y)
+        found = None
+        for a, b in itertools.combinations(cands, 2):
+            m_a, m_b = l1(truth, subs[a]), l1(truth, subs[b])
+            o_a = ov(de(1, ctrl, truth), de(1, ctrl, subs[a])); o_b = ov(de(1, ctrl, truth), de(1, ctrl, subs[b]))
+            if (m_a < m_b and o_a < o_b) or (m_b < m_a and o_b < o_a):
+                found = (a, b, m_a, m_b, o_a, o_b); break
+        def subname(g):
+            return f"predict(context_{c0}(), @passage)" if g == "passage" else f"submission_{c0}_kd_{ident(g)}()"
+        if found:
+            a, b, m_a, m_b, o_a, o_b = found
+            better_mae = a if m_a < m_b else b; worse_mae = b if better_mae == a else a
+            w(f"# PROTOCOLS DISAGREE: taking kd {truth_g} as truth, mae prefers {better_mae} over {worse_mae}")
+            w(f"# while DE-overlap prefers {worse_mae} — one object, two receivers, opposite verdicts")
+            w(f"def mae_prefers() -> Path(Bool, ltN(mae(profile({subname(truth_g)}), profile({subname(better_mae)})), mae(profile({subname(truth_g)}), profile({subname(worse_mae)}))), True):")
+            w("  <_> True")
+            w(f"def overlap_prefers_other() -> Path(Bool, ltN(deOverlap(1n, profile(context_{c0}()), profile({subname(truth_g)}), profile({subname(better_mae)})), deOverlap(1n, profile(context_{c0}()), profile({subname(truth_g)}), profile({subname(worse_mae)}))), True):")
+            w("  <_> True")
+        else:
+            w("# (no protocol disagreement among these candidates: mae and DE-overlap order them alike)")
         w(f"def demo_rank() -> Nat:")
         w("  rankOf(profile(submission_%s_kd_%s()), profile(submission_%s_kd_%s()), [" % (c0, g0, c0, g0) + ", ".join(f"profile(submission_{c0}_kd_{ident(g)}())" for g in interventions) + "])")
     w("")

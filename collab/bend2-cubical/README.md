@@ -125,3 +125,16 @@ propositional and SET truncation, the quotient's generators, the interval
 indexed reachability family and an indexed family with an interval-argument
 constructor — 189 ✓ and a 7-probe must-fail. PUSC.md: the architecture
 statement (Parallel Univalent Superposition Computer).
+
+
+## The biological lane (port/)
+
+The 2026 biology frontier fed to this machine unchanged — perturbation
+systems (the Virtual Cell Challenge shape), spatial omics, pangenomes,
+reaction networks, lineage, molecular dynamics — each as a finite
+presentation in `port/*.bend`, checked here and run on HVM4, with a
+front-end per field format in `../../scripts/emit-*.py` (JSON/CSV, SBML,
+GFA1, Newick, points tables) whose emitted files are checked by
+`port/suite.sh`. The map from field object to construction, the verdicts
+and the measured scope are in `research/BIOLOGY_2026_FRONTIER.md`; the
+per-file rows are in `port/PORT.md`.

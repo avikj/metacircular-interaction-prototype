@@ -227,6 +227,57 @@ def rankOf(pred: Nat[], truth: Nat[], candidates: Nat[][]) -> Nat:
       match ltN(l1(pred, c), l1(pred, truth)):
         case True: 1n + rankOf(pred, truth, rest)
         case False: rankOf(pred, truth, rest)
+# SIGNED DELTAS without signed numbers: |(p1 - c1) - (p2 - c2)| = |(p1 + c2) - (p2 + c1)|,
+# so the delta-protocols (mae_delta, direction match) are stated on Nat profiles.
+def deltaDist(c1: Nat, p1: Nat, c2: Nat, p2: Nat) -> Nat:
+  absDiff(add(p1, c2), add(p2, c1))
+def l1Delta(ctrl1: Nat[], pert1: Nat[], ctrl2: Nat[], pert2: Nat[]) -> Nat:
+  match ctrl1:
+    case []: 0n
+    case c1 <> cr1:
+      match pert1:
+        case []: 0n
+        case p1 <> pr1:
+          match ctrl2:
+            case []: 0n
+            case c2 <> cr2:
+              match pert2:
+                case []: 0n
+                case p2 <> pr2: add(deltaDist(c1, p1, c2, p2), l1Delta(cr1, pr1, cr2, pr2))
+# RECEIVER mae_delta: L1 between the real effect and the predicted effect
+def maeDelta(ctrl: Nat[], real: Nat[], pred: Nat[]) -> Nat:
+  l1Delta(ctrl, real, ctrl, pred)
+# RECEIVER direction match: genes whose effect has the same direction (down/flat/up)
+def dir3(c: Nat, p: Nat) -> Nat:
+  match ltN(c, p):
+    case True: 2n
+    case False:
+      match ltN(p, c):
+        case True: 0n
+        case False: 1n
+def sameNat(a: Nat, b: Nat) -> Bool:
+  match a:
+    case 0n:
+      match b:
+        case 0n: True
+        case 1n + q: False
+    case 1n + p:
+      match b:
+        case 0n: False
+        case 1n + q: sameNat(p, q)
+def directionMatch(ctrl: Nat[], real: Nat[], pred: Nat[]) -> Nat:
+  match ctrl:
+    case []: 0n
+    case c <> cr:
+      match real:
+        case []: 0n
+        case r <> rr:
+          match pred:
+            case []: 0n
+            case p <> pr:
+              match sameNat(dir3(c, r), dir3(c, p)):
+                case True: 1n + directionMatch(cr, rr, pr)
+                case False: directionMatch(cr, rr, pr)
 
 # §7 the challenge shape: contexts, submissions, pseudobulk per gene
 def Context() -> Set:
@@ -265,6 +316,11 @@ def demo_mae() -> Nat:
   mae(profile(context_a()), profile(submission_a_kd_tf1()))
 def demo_de_overlap() -> Nat:
   deOverlap(1n, profile(context_a()), profile(submission_a_kd_tf1()), profile(submission_a_kd_tf1()))
+def demo_mae_delta() -> Nat:
+  maeDelta(profile(context_a()), profile(submission_a_kd_tf1()), profile(predict(context_a(), @passage)))
+def demo_direction() -> Nat:
+  directionMatch(profile(context_a()), profile(submission_a_kd_tf1()), profile(predict(context_a(), @passage)))
+# (no protocol disagreement among these candidates: mae and DE-overlap order them alike)
 def demo_rank() -> Nat:
   rankOf(profile(submission_a_kd_tf1()), profile(submission_a_kd_tf1()), [profile(submission_a_kd_tf1()), profile(submission_a_kd_hk1())])
 
