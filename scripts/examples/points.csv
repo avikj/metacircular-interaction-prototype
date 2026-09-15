@@ -1,0 +1,9 @@
+x,y,gene
+1,1,GENE_A
+2,1,GENE_A
+3,2,GENE_B
+5,2,GENE_A
+6,1,GENE_B
+7,3,GENE_B
+9,1,GENE_A
+10,2,GENE_A

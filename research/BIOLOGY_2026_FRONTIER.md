@@ -248,8 +248,17 @@ mathematics.
    family; for every proposed feature reduction run the descent obligation;
    keep the fibre where it fails. Run under `--to-hvm4-full`; measure.
 4. **The submission.** `predict` per context, scored publicly.
-5. **The other presentations, unchanged machine** — done (§2b): spatial,
-   pangenome, reaction networks, lineage, dynamics/structure. What remains
-   for each is its front-end (SpatialData → `P`,`s`; GFA/GBZ → walks;
-   SBML → generators; lineage tree → `IExec`), on the pattern of
-   `emit-perturbation.py`; none is a new construction.
+5. **The other presentations, unchanged machine** — done (§2b), and their
+   front-ends too: `scripts/emit-reaction.py` (SBML + PEtab-shaped JSON),
+   `scripts/emit-pangenome.py` (GFA1, run on the GFA specification's own
+   example as well as a two-bubble graph), `scripts/emit-lineage.py`
+   (Newick), `scripts/emit-spatial.py` (a points table + segmentation
+   rules). Every emitted file checks and runs on HVM4 (`PORT.md`), and
+   every one states the emitter's own evaluations as `refl` theorems, so
+   the checker certifies that the front-end and the emitted generator agree
+   — the front-end cannot silently disagree with the calculus about the
+   data. What each emits that the field's file did not say is explicit in
+   its docstring (discrete amounts and no rate laws for SBML; overlaps
+   trimmed M-only for GFA; branch lengths ignored for Newick; threshold
+   segmentations for points). Real inputs from the blocked hosts (§3.2)
+   run through these unchanged.
