@@ -10,7 +10,7 @@ export LC_ALL=C.utf8 LANG=C.utf8
 BEND="${1:-$(cat /tmp/BENDBIN 2>/dev/null || echo bend)}"
 cd "$(dirname "$0")" || exit 1
 ROOT="$(cd ../../.. && pwd)"
-FILES="Nerode Perturbation PerturbationEmitted PerturbationBench PerturbationBenchSlow Spatial SpatialEmitted Lineage LineageEmitted Dynamics Reaction ReactionEmitted Pangenome PangenomeEmitted PangenomeSpecEmitted"
+FILES="Nerode Perturbation GRN PerturbationEmitted PerturbationBench PerturbationBenchSlow Spatial SpatialEmitted Lineage LineageEmitted Dynamics Reaction ReactionEmitted Pangenome PangenomeEmitted PangenomeSpecEmitted"
 PROBES="Perturbation_mustfail:hkResp_WRONG Spatial_mustfail:cellResp_WRONG Reaction_mustfail:fireResp_WRONG"
 python3 "$ROOT/scripts/emit-perturbation.py" "$ROOT/scripts/examples/vcc_shape.json" -o PerturbationEmitted.bend 2>/dev/null
 python3 "$ROOT/scripts/emit-reaction.py" "$ROOT/scripts/examples/toy_pathway.xml" --petab "$ROOT/scripts/examples/toy_petab.json" -o ReactionEmitted.bend 2>/dev/null
