@@ -93,6 +93,13 @@ EXTRA = r"""
 @head = λ{#Con: λh. λt. h; #Nil: 0}
 @loop = @loop
 @twice = λ&tltShared. #Pair{tltShared, tltShared}
+@functionLine = λi. #List{#Pi{@pathAt(@negPath, i), λv. #Bool}}
+@pairLine = λi. #List{#Sig{@pathAt(@negPath, i), λv. #Nat}}
+@applyTrue = λ{#Nil: #Nil; #Con: λf. λtail. #Con{f(1), @applyTrue(tail)}}
+@cycle3 = λ{#Red: #Green; #Green: #Blue; #Blue: #Red}
+@uncycle3 = λ{#Red: #Blue; #Green: #Red; #Blue: #Green}
+@cyclePath = #UaU{#Enum, #Enum, @cycle3, @uncycle3}
+@cycleLine = λi. #List{@pathAt(@cyclePath, i)}
 """
 
 
@@ -128,6 +135,29 @@ def cases() -> list[tuple[str, str, list[str]]]:
          coe("λi. &A{#List{@pathAt(@negPath, i)}, #List{#Bool}}", f"&B{{{a}, {b}}}"),
          [na, nb, a, b]),
         ("shared-result", f"@twice({coe('@negLine', xs)})", [f"#Pair{{{ys}, {ys}}}"]),
+        ("correlated-nested",
+         coe("λi. &A{#List{#List{@pathAt(@negPath, i)}}, #List{#List{#Bool}}}",
+             f"&A{{{nested}, {nested_expected}}}"), [nested_expected, nested_expected]),
+        ("correlated-different-element-types",
+         coe("λi. &A{#List{@pathAt(@negPath, i)}, #List{#Nat}}",
+             f"&A{{{a}, {list_term('#Suc{#Zer}')}}}"), [na, list_term("#Suc{#Zer}")]),
+        ("triply-nested",
+         coe("λi. #List{#List{#List{@pathAt(@negPath, i)}}}", list_term(nested)),
+         [list_term(nested_expected)]),
+        ("function-elements",
+         f"@applyTrue({coe('@functionLine', list_term('λx. x', '@neg'))})",
+         [list_term("0", "1")]),
+        ("dependent-pair-elements",
+         coe("@pairLine", list_term("#Pair{1,#Suc{#Zer}}", "#Pair{0,#Zer}")),
+         [list_term("#Pair{0,#Suc{#Zer}}", "#Pair{1,#Zer}")]),
+        ("correlated-empty",
+         coe("λi. &A{#List{@pathAt(@negPath, i)}, #List{#Bool}}", f"&A{{#Nil, {xs}}}"),
+         ["#Nil", xs]),
+        ("non-involutive-forward", coe("@cycleLine", list_term("#Red", "#Green", "#Blue")),
+         [list_term("#Green", "#Blue", "#Red")]),
+        ("non-involutive-backward",
+         coe("@cycleLine", list_term("#Red", "#Green", "#Blue"), "#I1", "#I0"),
+         [list_term("#Blue", "#Red", "#Green")]),
     ]
 
 
@@ -147,8 +177,11 @@ def evaluate(hvm: str, prelude: str, expression: str, path: Path) -> list[str]:
     if missing:
         raise ValueError(f"undefined runtime references: {sorted(missing)}")
     path.write_text(program, encoding="utf-8")
-    run = subprocess.run([hvm, str(path), "-C32"], capture_output=True,
-                         text=True, timeout=30, check=True)
+    try:
+        run = subprocess.run([hvm, str(path), "-C32"], capture_output=True,
+                             text=True, timeout=30, check=True)
+    except subprocess.CalledProcessError as error:
+        raise RuntimeError(f"HVM failed for {path.name}:\n{error.stdout}\n{error.stderr}") from error
     return [canonical_output(line) for line in run.stdout.splitlines() if line.strip()]
 
 
@@ -165,7 +198,7 @@ def main() -> None:
         before, after = runtime_prelude(original), runtime_prelude(fixed)
         assert "#List: λe. x;" in before
         assert "#List: λe. x;" not in after
-        assert "#List: λe. @coeList(L, r, s, x);" in after
+        assert "#List: λe. @coeList(L, r, s, e, x);" in after
         print("PASS: original prelude extracted; corrective patch applies")
         if args.check_only:
             print("Native execution not run (--check-only)")
