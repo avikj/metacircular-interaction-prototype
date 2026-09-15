@@ -1,0 +1,43 @@
+name: Cubical list transport
+
+on:
+  pull_request:
+    paths:
+      - 'collab/bend2-cubical/cubical-paths.patch'
+      - 'collab/bend2-cubical/list-transport.patch'
+      - 'collab/bend2-cubical/test_list_transport.py'
+      - '.github/workflows/cubical-list-transport.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-list-transport:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Build pinned HVM4 runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            https://raw.githubusercontent.com/HigherOrderCO/HVM4/6defdfc7dae2a3cca5dd6e74ed0612385b5646a8/src/hvm.c \
+            -o "$RUNNER_TEMP/hvm.c"
+          test "$(git hash-object "$RUNNER_TEMP/hvm.c")" = 83a85befcc52d4bda1a92cc6afd07ad4b3005b29
+          cc -O2 -o "$RUNNER_TEMP/hvm" "$RUNNER_TEMP/hvm.c" -lm
+          mkdir "$RUNNER_TEMP/list-transport-source"
+          cp "$RUNNER_TEMP/hvm.c" collab/bend2-cubical/{cubical-paths.patch,list-transport.patch,test_list_transport.py} "$RUNNER_TEMP/list-transport-source/"
+      - name: Reproduce the old bug and test the fixed runtime
+        run: python3 collab/bend2-cubical/test_list_transport.py --hvm "$RUNNER_TEMP/hvm"
+      - name: Retain the exact sources used by the regression
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: list-transport-source
+          path: ${{ runner.temp }}/list-transport-source/
+          retention-days: 7
+          if-no-files-found: warn
