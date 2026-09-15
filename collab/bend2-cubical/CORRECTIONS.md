@@ -139,3 +139,16 @@ coalgebra) are transported into this language and check.
 ## Addendum (independent rerun + emitter fixes)
 
 See `VERIFICATION.md`: fresh-environment reproduction of every item above, plus fixes to the emitters (`@pathBwd` was undefined and `ua` dropped `g`, so backward transport was unrepresentable; HVM3 target crashed on cubical terms; prelude names clashed with user defs). Transport now verified executing in both directions on HVM4 and HVM3 with the path supplied at runtime.
+
+## 2026-09-15 — the superposed-population premium was the emitter, not the calculus
+
+`bio/bench/README.md` (first pass, 2026-09-14) reported that superposing N cell
+states over one shared program costs ≈1.45× per cell and read this as the net's
+own commutation cost, concluding "the performance lever is transport, not
+stepping". Wrong attribution. The same program hand-written in HVM4 with flat
+constructors and native numbers runs superposed at 0.91× the list; the premium
+is the `--to-hvm4-full` emitter's encoding of records as tagged pair chains
+(~7 commuting matches per step instead of 1) plus Peano arithmetic running in
+superposition. Corrected in `bio/bench/README.md` §3 and
+`research/BIOLOGY_FRONTIER_20260914.md` §3. Found on the way: I64/F64 literals
+compiled to `0` by both HVM4 emitters; fixed in the patch.

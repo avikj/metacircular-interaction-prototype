@@ -6143,10 +6143,10 @@ index 996bb26..8db6fc6 100644
 +unsnoc xs = Just (init xs, last xs)
 diff --git a/src/Target/HVM4.hs b/src/Target/HVM4.hs
 new file mode 100644
-index 0000000..c1d7d4f
+index 0000000..895554d
 --- /dev/null
 +++ b/src/Target/HVM4.hs
-@@ -0,0 +1,228 @@
+@@ -0,0 +1,232 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6243,7 +6243,11 @@ index 0000000..c1d7d4f
 +    Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
 +    Val (U64_V v)  -> show v
 +    Val (CHR_V c)  -> "'" ++ [c] ++ "'"
-+    Val _          -> "0"
++    -- I64 literals were emitted as 0 (a silent catch-all): print them; a negative
++    -- one as a subtraction, since HVM4 has no negative literal syntax.  F64 has no
++    -- runtime representation here and must fail loudly, not erase to 0.
++    Val (I64_V v)  -> if v >= 0 then show v else "(0 - " ++ show (negate v) ++ ")"
++    Val (F64_V v)  -> error ("HVM4 emitter: F64 literal " ++ show v ++ " has no runtime representation")
 +    Sym s          -> "#" ++ s
 +
 +    -- tuples: #Pair (Sig-encoded ctors would need the type; use #Pair)
@@ -6377,10 +6381,10 @@ index 0000000..c1d7d4f
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..2c38326
+index 0000000..384e892
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,498 @@
+@@ -0,0 +1,502 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6631,7 +6635,11 @@ index 0000000..2c38326
 +    Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
 +    Val (U64_V v)  -> show v
 +    Val (CHR_V c)  -> "'" ++ [c] ++ "'"
-+    Val _          -> "0"
++    -- I64 literals were emitted as 0 (a silent catch-all): print them; a negative
++    -- one as a subtraction, since HVM4 has no negative literal syntax.  F64 has no
++    -- runtime representation here and must fail loudly, not erase to 0.
++    Val (I64_V v)  -> if v >= 0 then show v else "(0 - " ++ show (negate v) ++ ")"
++    Val (F64_V v)  -> error ("HVM4 emitter: F64 literal " ++ show v ++ " has no runtime representation")
 +    Sym s          -> "#" ++ s
 +    Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    Rfl            -> "#Refl"

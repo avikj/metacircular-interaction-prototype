@@ -100,3 +100,17 @@ crashes.
   `#CompU{λi. …#At{#UaU{#Bool,#Bool,neg,neg}, i}…, λi. …}` — the composite
   path itself, faces and all. Paths between universe paths are `#PLm` over
   these; representable, not yet exercised beyond `refl`.
+
+## Two findings from the biology benchmark (2026-09-15; `bio/bench/README.md`)
+
+- **I64/F64 literals were emitted as `0`** by both HVM4 emitters (`Val _ -> "0"`,
+  a silent catch-all). Fixed: I64 literals print, negatives as `(0 - n)`; F64
+  fails loudly. HVM4 numbers are unsigned 32-bit, so signed results outside
+  `[0, 2³²)` wrap (`+3 - +10` prints 4294967289). `elucidator.bend`'s main now
+  runs correctly (161 itrs).
+- **Records are emitted as tagged pair chains** (`#Pair{#cell, #Pair{tf, …}}`)
+  and matched through one case per level. Under a superposition every level
+  commutes and duplicates its continuation separately, which turns the
+  calculus's expected ≈1× per-branch cost into ≈1.5–1.6×, and triples the
+  absolute cost of matching on a record. Native n-ary constructors would remove
+  it; `bio/bench/flat/` is the target output.

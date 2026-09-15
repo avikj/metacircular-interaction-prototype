@@ -1,0 +1,9 @@
+@add = λa. λb. λ{#Zer: λy. y; #Suc: λp. λy. #Suc{@add(p)(y)}}(a)(b)
+@zero = #Zer
+@step = λc. λa. λ{#TF: λ{#C: λtf. λtg. λrp. λhd. #C{@zero, @add(tf)(tg), rp, hd}}; #TG: λ{#C: λtf. λtg. λrp. λhd. #C{tf, @zero, @add(tg)(rp), hd}}; #HD: λ{#C: λtf. λtg. λrp. λhd. #C{tf, tg, rp, @zero}}}(a)(c)
+@observe = λ{#C: λtf. λtg. λrp. λhd. rp}
+@perturb = λc. λw. λ{#Nil: λc2. c2; #Con: λa. λrest. λc2. @perturb(@step(c2)(a))(rest)}(w)(c)
+@word = #Con{#TF, #Con{#TG, #Con{#HD, #Con{#TF, #Con{#TG, #Con{#TF, #Con{#TG, #Con{#HD, #Nil}}}}}}}}
+@prog = λc. @observe(@perturb(c)(@word))
+@mapProg = λ{#Nil: #Nil; #Con: λc. λrest. #Con{@prog(c), @mapProg(rest)}}
+@main = @prog(#C{#Suc{#Zer}, #Zer, #Zer, #Zer})

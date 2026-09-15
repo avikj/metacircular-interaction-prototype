@@ -112,26 +112,48 @@ accepted by a T2T-like one — reference bias as a missing descent witness.
    experimental capability" is exactly this dependence of the accepted
    quotient on the receiver family, and it is checkable per receiver.
 
-## 3. The runtime measurement, and a correction to §14–16 of the follow-up [T][R]
+## 3. The runtime measurement: a premium that was the implementation, not the calculus [T][R]
 
 `bio/bench/` measures one program (eight knockdowns) over N cell states in
-four representations on the full runtime. Result (tables in
-`bio/bench/README.md`): superposing the N cells and applying the program once
-shares the program **exactly as call-by-need hoisting does** (heavy regime: both
-pay the 825k-itr program once; a naive per-cell map pays it N times), and
-costs **≈1.45× per cell** on the state-dependent stepping, a constant that
-does not amortise (the net commutes every `match` over the superposition).
+four representations on the full runtime. The first pass (2026-09-14) found
+superposed inputs sharing the program exactly as call-by-need hoisting does
+(heavy regime: both pay the 825k-itr program once, a naive per-cell map pays
+it N times) but costing **≈1.45× per cell** on the stepping, and read that
+premium as the calculus's own commutation cost. The second pass (2026-09-15)
+asked whether that matched theoretical expectation — it did not: the shared
+part paid once plus per-branch work equal to standalone plus one commutation
+per match predicts `supin` at or below the list. Three hypotheses were tested
+(tables in `bio/bench/README.md`):
 
-So "shared generator ⊗ superposed residual states" is not, on this workload,
-a raw-performance lever over a lazy language's ordinary sharing. It is the
-same law SYNTHESIS.md §4 found: superposition wins when the shared *dispatch*
-dominates (one proved equivalence moving a batch: 0.37 at N=8) and loses by a
-constant when per-branch work dominates. A virtual-tissue representation
-should therefore superpose over the *transport* (one equivalence, one
-receiver dispatch, many residues) and not over the stepping of state. The
-essay's §16 graph exists (flat on the shared part, constant premium on the
-local part); its hoped-for downward trend does not, here. Wall clock, memory
-and any GPU baseline were not measured.
+- *collapse cost* — none: `-C` adds no interactions;
+- *label collision with HVM4's auto-dup labels* — none: `list` and collapsed
+  `supin` results agree for every N;
+- *the emitter's data encoding* — **this is it.** The `--to-hvm4-full` emitter
+  encodes a four-field record as a six-deep chain of `#Pair` constructors with
+  a tag, and a nullary constructor as a pair, so one step on a superposed cell
+  performs ~7 matches that each commute over the superposition and duplicate
+  a continuation containing all the deeper ones. The same program hand-written
+  in HVM4 with flat constructors and native numbers gives **0.91** at every
+  N ≥ 2 — superposed inputs beat the list, as theory predicts — and the
+  absolute per-cell cost falls from ≈550 to ≈160 interactions. With flat
+  constructors but Peano naturals the premium is 1.36 (unary arithmetic then
+  runs in superposition, commuting at every `#Suc`); with the emitter's pair
+  chains but native `I64` numbers it rises to 1.63 (cheap arithmetic leaves the
+  record matching as almost all of the per-cell work).
+
+On the way a second bug: both HVM4 emitters compiled every `I64`/`F64` literal
+to `0` through a silent catch-all (`Val _ -> "0"`). Fixed in
+`cubical-paths.patch`; `elucidator.bend`'s I64 main now runs correctly on the
+runtime. HVM4 numbers are unsigned 32-bit, so signed values outside that
+range wrap — a visible limitation now, not a zero.
+
+So the corrected statement of §14–16 of the follow-up: `shared generator ⊗
+superposed residual states` does win on the net — modestly on a program whose
+shared part is small (9%), and by the whole shared cost when that part is
+large — provided the residual states are encoded flat and their arithmetic is
+cheap. The fix is in `Target/HVM4Full.hs` (native n-ary constructors instead
+of tagged pair chains), not in the calculus. Wall clock, memory and any GPU
+baseline were not measured.
 
 ## 4. The frontier table, row by row, with tags
 
@@ -175,12 +197,16 @@ and any GPU baseline were not measured.
   task, not a mathematics task.
 - **Runtime claims are itrs only.** No wall-clock, memory or energy numbers;
   no comparison to a tensor system; the sequential HVM4 C runtime.
+- **The emitter's constructor encoding** is the identified bottleneck for
+  superposed populations (§3); changing `Target/HVM4Full.hs` to emit native
+  n-ary constructors is the next runtime task, with `bio/bench/flat/` as the
+  target output.
 
 ## 6. The one-line result
 
 The essays' program is executable now, at toy scale, with nothing added to
 the machine: three biological presentations, one `Descent`, every reading
-classified, every residue exhibited, every main on the net — and one honest
-negative: superposing states over a shared program buys the sharing of
-call-by-need at a constant premium, so the performance lever is transport,
-not stepping.
+classified, every residue exhibited, every main on the net — and one runtime
+finding: the measured premium of superposing states over a shared program
+was the emitter's nested-pair encoding of records, not the calculus; with flat
+constructors the superposed population beats the list, as the theory says.

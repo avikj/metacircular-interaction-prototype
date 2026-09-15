@@ -82,3 +82,25 @@ scholarship — each one a term of art paid for by reading the sources; mine wer
 costume. Corrected on the owner's order: everything I author is named in plain
 English; the corpus's own module names appear only as citations. Standing rule:
 I do not write Sanskrit terms.
+
+
+## Session 2026-09-14/15 (biology frontier)
+
+### Mathematical / empirical errors
+
+**M1. Attributed an implementation artefact to the calculus.**
+The first N-cell superposition benchmark showed a ≈1.45× per-cell premium for
+superposed inputs and I wrote it up as the interaction net's inherent
+commutation cost ("superposition pays only when dispatch dominates"). The
+owner asked whether the empirical result matched theoretical optimality; it did
+not, and the discrepancy was the emitter's nested-pair encoding of records (and
+Peano arithmetic under superposition), not the net: hand-written flat HVM4 runs
+the superposed population at 0.91× the list, as the theory predicts. Lesson,
+stated by the owner's question: when a measurement contradicts what the
+calculus predicts, suspect the runtime implementation before revising the
+theory's claim.
+
+**M2. Ran a benchmark whose numbers were garbage without checking its output.**
+The I64 variant of the benchmark printed all zeros on the runtime (every I64
+literal was emitted as `0`). I noticed only because I compared results against
+the checker afterwards. Verify outputs, not just interaction counts.

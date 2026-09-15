@@ -1,0 +1,9 @@
+@add = λa. λb. (a + b)
+@zero = 0
+@step = λc. λa. λ{#TF: λ{#C: λtf. λtg. λrp. λhd. #C{@zero, @add(tf)(tg), rp, hd}}; #TG: λ{#C: λtf. λtg. λrp. λhd. #C{tf, @zero, @add(tg)(rp), hd}}; #HD: λ{#C: λtf. λtg. λrp. λhd. #C{tf, tg, rp, @zero}}}(a)(c)
+@observe = λ{#C: λtf. λtg. λrp. λhd. rp}
+@perturb = λc. λw. λ{#Nil: λc2. c2; #Con: λa. λrest. λc2. @perturb(@step(c2)(a))(rest)}(w)(c)
+@word = #Con{#TF, #Con{#TG, #Con{#HD, #Con{#TF, #Con{#TG, #Con{#TF, #Con{#TG, #Con{#HD, #Nil}}}}}}}}
+@prog = λc. @observe(@perturb(c)(@word))
+@mapProg = λ{#Nil: #Nil; #Con: λc. λrest. #Con{@prog(c), @mapProg(rest)}}
+@main = @prog(&L0{&L1{&L2{&L3{&L4{#C{1, 0, 0, 0}, #C{2, 2, 1, 1}}, &L4{#C{3, 0, 0, 2}, #C{1, 2, 1, 3}}}, &L3{&L4{#C{2, 0, 0, 4}, #C{3, 2, 1, 0}}, &L4{#C{1, 0, 0, 1}, #C{2, 2, 1, 2}}}}, &L2{&L3{&L4{#C{3, 0, 0, 3}, #C{1, 2, 1, 4}}, &L4{#C{2, 0, 0, 0}, #C{3, 2, 1, 1}}}, &L3{&L4{#C{1, 0, 0, 2}, #C{2, 2, 1, 3}}, &L4{#C{3, 0, 0, 4}, #C{1, 2, 1, 0}}}}}, &L1{&L2{&L3{&L4{#C{2, 0, 0, 1}, #C{3, 2, 1, 2}}, &L4{#C{1, 0, 0, 3}, #C{2, 2, 1, 4}}}, &L3{&L4{#C{3, 0, 0, 0}, #C{1, 2, 1, 1}}, &L4{#C{2, 0, 0, 2}, #C{3, 2, 1, 3}}}}, &L2{&L3{&L4{#C{1, 0, 0, 4}, #C{2, 2, 1, 0}}, &L4{#C{3, 0, 0, 1}, #C{1, 2, 1, 2}}}, &L3{&L4{#C{2, 0, 0, 3}, #C{3, 2, 1, 4}}, &L4{#C{1, 0, 0, 0}, #C{2, 2, 1, 1}}}}}})
