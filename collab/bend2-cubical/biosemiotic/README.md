@@ -429,13 +429,32 @@ codas, EC2 659), the tempo alone separates them almost entirely,
 I(clan; tempo | LLLL) = 0.840 of 0.937 bits: EC1's LLLL sits in tempo bins
 0–1 (median 334 ms, the types `5R1`/`5R2`), EC2's in bins 3–4 (median
 1,144 ms, the type `5R3`), a ratio of 3.4. No metre with ten or more codas
-is heard only in EC2; twenty are heard only in EC1. So the dialect
-difference on the shared family is a difference in the fibre only: the
-same metre, at a tempo three times slower. Transported along the fibre,
-an EC2 `5R3` coda [318, 307, 303, 322] at EC1's LLLL tempo becomes
-[85, 82, 81, 86], whose nearest real EC1 coda [87, 86, 79, 86] is a `5R1`.
-That is one translation between dialects, executed, and it is the fibre
-law's transport and nothing else.
+is heard only in EC2; twenty are heard only in EC1.
+
+So at the metre lens the dialect difference on the shared family is a
+difference in the fibre only: the same metre, at a tempo three times
+slower. At a finer lens it is not. The per-mille shapes:
+
+| type | codas | median tempo | median per-mille shape | lens-10 shape (mode) | last/first interval |
+|---|---|---|---|---|---|
+| `5R1` (EC1) | 1,510 | 329 ms | [285, 280, 226, 208] | [3,3,2,2] (75 %) | 0.73 |
+| `5R2` (EC1) | 287 | 508 ms | [240, 258, 240, 258] | [2,3,2,3] | 1.08 |
+| `5R3` (EC2) | 642 | 1,133 ms | [247, 246, 251, 256] | [2,2,3,3] | 1.04 |
+
+EC1's "regular" five-click coda accelerates by a quarter over its length;
+EC2's is even. Their lens-10 shape distributions overlap by 0.157. So the
+dialect translation exists at the metre lens and does not exist at lens
+10 or below, and the net says so: `clan_transport.py` superposes 24 real
+EC2 `5R3` codas, transports each along the fibre to EC1's median `5R1`
+tempo, and keeps only those within 6 ms per interval of EC1's median
+`5R1` (search inside evaluation, `out/coda_clan_transport.hvm4`). Every
+branch erases: 0 survivors in 8,178 interactions, and 0 of all 623 `5R3`
+codas in Python (EC1's own `5R1` codas pass the same test at 14.9 %). The
+earlier nearest-neighbour reading (an EC2 `5R3` transported to EC1's
+tempo lands nearest a real `5R1`) is true only because `5R1` dominates
+EC1's LLLL codas; it is not a translation. Which lens the receiver reads
+at decides whether the two clans say the same thing slowly and quickly,
+or two different things.
 
 ### 8.14 The round trip and its residue (`Ekatva`, `CompressionIsTransport`)
 
@@ -524,6 +543,7 @@ reported in the log only.
     full_instrument.py   metre/prastāra, Nerode deficit, encounter, sign-birth MDL, Zipf-vs-lens, Lipschitz; emits out/prastara_*.hvm4
     nerode_net.py        a Nerode acceptor learned from half the dialogues, run on the net over held-out sequences
     round_two.py         observability quotient (bisimulation), reversal blindness / arrow of time, Prasna entropies; log in out/instrument_round_two.log
+    clan_transport.py    EC2 5R3 → EC1 5R1 by transport with a spec inside the evaluation; emits out/coda_clan_transport.hvm4
     round_four.py        distance from one execution (Niyati), hiding-and-hardness, ornamentation as a shared line; log in out/instrument_round_four.log
     round_three.py       order inside the Meru cell, born-sign inventory, the two clans as readings, round-trip residue (emits out/coda_roundtrip.hvm4); log in out/instrument_round_three.log
     tit_syntax.hvm4      Japanese tit ordering rule over a superposition

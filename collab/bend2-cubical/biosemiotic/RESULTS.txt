@@ -379,3 +379,9 @@ wrote out/coda_exchange.hvm4 with 16 real consecutive pairs
   lens  4: neighbour pairs (n, n+1 clicks) 409; ornamented coda's prefix = neighbour's shape 195 (47.7%); null (random coda of the same length) 59.2%
   lens 10: neighbour pairs (n, n+1 clicks) 409; ornamented coda's prefix = neighbour's shape 114 (27.9%); null (random coda of the same length) 19.4%
   ornament interval / neighbour's mean interval: median 0.80, p10 0.44, p90 1.85
+
+### clan_transport.py (instrument_clan_transport.log)
+EC2 5R3 sources superposed: 24; EC1 median 5R1 tempo 329 ms, median intervals [94, 92, 74, 68], ε = 6 ms
+survivors (transported form within ε of EC1's median 5R1, certified inside the evaluation): 0
+  - Itrs: 8178 interactions
+over all 623 EC2 5R3 codas: 0 (0.0%) land within ε of EC1's median 5R1 when transported; EC1's own 5R1 codas within ε of their median: 225 of 1510 (14.9%)

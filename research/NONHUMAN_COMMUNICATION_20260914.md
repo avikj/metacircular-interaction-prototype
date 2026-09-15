@@ -464,11 +464,14 @@ agrees with the Python table).
 - **Born signs, per sign (hieroglyphics II).** 77 of 204 metres earn a
   sign-table entry; every human-named metre is among them, and 65 born
   signs have no human name (GLLL 350, LGLL 211 the largest).
-- **The two clans differ in the fibre.** I(clan; metre × tempo) is 0.42
-  of 0.50 bits; inside the shared metre LLLL, tempo alone carries 0.84 of
-  0.94 bits (EC1 at 334 ms, EC2 at 1,144 ms). An EC2 `5R3` transported to
-  EC1's tempo lands on a real `5R1`: one dialect translation, executed,
-  as transport along the fibre.
+- **The two clans differ in the fibre at the metre lens, and not below
+  it.** I(clan; metre × tempo) is 0.42 of 0.50 bits; inside the shared
+  metre LLLL, tempo alone carries 0.84 of 0.94 bits (EC1 at 329 ms, EC2
+  at 1,133 ms). But at lens 10 EC1's `5R1` is [3,3,2,2] (accelerating,
+  last/first 0.73) and EC2's `5R3` is even ([2,2,3,3], 1.04), overlap
+  0.16. Transport with a 6 ms spec inside the evaluation erases every
+  branch: 0 of 623 `5R3` codas translate to a `5R1`. The translation
+  exists at one lens and not at another.
 - **The round trip (`Ekatva`).** Through another whale's tempo and back,
   the exact shape returns the coda on 68 % of codas and misses by 0.8 ms
   on the rest: the millisecond grid is a lens too.
