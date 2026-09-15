@@ -131,6 +131,12 @@ def cases() -> list[tuple[str, str, list[str]]]:
     ]
 
 
+def canonical_output(value: str) -> str:
+    """HVM prints nullary constructors as #Nil{}; source permits #Nil."""
+    compact = re.sub(r"\s+", "", value)
+    return re.sub(r"(#\w+)\{\}", r"\1", compact)
+
+
 def evaluate(hvm: str, prelude: str, expression: str, path: Path) -> list[str]:
     program = prelude + EXTRA + f"\n@main = {expression}\n"
     definitions = re.findall(r"^@(\w+)\s*=", program, re.MULTILINE)
@@ -143,12 +149,12 @@ def evaluate(hvm: str, prelude: str, expression: str, path: Path) -> list[str]:
     path.write_text(program, encoding="utf-8")
     run = subprocess.run([hvm, str(path), "-C32"], capture_output=True,
                          text=True, timeout=30, check=True)
-    return [re.sub(r"\s+", "", line) for line in run.stdout.splitlines() if line.strip()]
+    return [canonical_output(line) for line in run.stdout.splitlines() if line.strip()]
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--hvm", help="HVM4 executable (or set HVM4 on PATH)")
+    parser.add_argument("--hvm", help="HVM4 executable (defaults to hvm on PATH)")
     parser.add_argument("--check-only", action="store_true")
     args = parser.parse_args()
     here = Path(__file__).resolve().parent
@@ -170,11 +176,11 @@ def main() -> None:
         # The baseline MUST exhibit the concrete wrong result, not merely fail
         # to parse. This prevents unrelated build failures from passing a test.
         baseline = evaluate(hvm, before, coe("@negLine", list_term("1")), directory / "before.hvm")
-        assert baseline == [re.sub(r"\s+", "", list_term("1"))], baseline
+        assert baseline == [canonical_output(list_term("1"))], baseline
         print("PASS: baseline reproduces incorrect unchanged singleton")
         for name, expression, expected in cases():
             actual = evaluate(hvm, after, expression, directory / f"{name}.hvm")
-            expected = [re.sub(r"\s+", "", value) for value in expected]
+            expected = [canonical_output(value) for value in expected]
             assert Counter(actual) == Counter(expected), f"{name}: got {actual}, expected {expected}"
             print(f"PASS: {name}")
         print(f"PASS: {len(cases())} native HVM4 regression cases")
