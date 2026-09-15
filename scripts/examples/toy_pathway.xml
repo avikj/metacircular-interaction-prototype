@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="toy_pathway" name="A -> B -> C with an enzyme-catalysed shortcut">
+    <listOfCompartments>
+      <compartment id="cell" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="A" compartment="cell" initialAmount="3" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="B" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="C" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="E" compartment="cell" initialAmount="1" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="r1" reversible="false">
+        <listOfReactants><speciesReference species="A" stoichiometry="1" constant="true"/></listOfReactants>
+        <listOfProducts><speciesReference species="B" stoichiometry="1" constant="true"/></listOfProducts>
+      </reaction>
+      <reaction id="r2" reversible="false">
+        <listOfReactants><speciesReference species="B" stoichiometry="1" constant="true"/></listOfReactants>
+        <listOfProducts><speciesReference species="C" stoichiometry="1" constant="true"/></listOfProducts>
+      </reaction>
+      <reaction id="r3" reversible="false">
+        <listOfReactants><speciesReference species="A" stoichiometry="1" constant="true"/></listOfReactants>
+        <listOfProducts><speciesReference species="C" stoichiometry="1" constant="true"/></listOfProducts>
+        <listOfModifiers><modifierSpeciesReference species="E"/></listOfModifiers>
+      </reaction>
+      <reaction id="dimer" reversible="false">
+        <listOfReactants><speciesReference species="C" stoichiometry="2" constant="true"/></listOfReactants>
+        <listOfProducts><speciesReference species="B" stoichiometry="1" constant="true"/></listOfProducts>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

@@ -1,0 +1,20 @@
+H	VN:Z:1.0
+S	src	A
+S	refA	C
+S	altA	G
+S	mid	T
+S	refB	CC
+S	insB	CGC
+S	snk	A
+L	src	+	refA	+	0M
+L	src	+	altA	+	0M
+L	refA	+	mid	+	0M
+L	altA	+	mid	+	0M
+L	mid	+	refB	+	0M
+L	mid	+	insB	+	0M
+L	refB	+	snk	+	0M
+L	insB	+	snk	+	0M
+P	H1	src+,refA+,mid+,refB+,snk+	*
+P	H2	src+,altA+,mid+,refB+,snk+	*
+P	H3	src+,altA+,mid+,insB+,snk+	*
+P	H4	src+,refA+,mid+,insB+,snk+	*

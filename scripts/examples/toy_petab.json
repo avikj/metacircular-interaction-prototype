@@ -1,0 +1,5 @@
+{
+  "conditions": {"cond_A3": {"A": 3, "B": 0, "C": 0, "E": 1}, "cond_noE": {"A": 3, "B": 0, "C": 0, "E": 0}},
+  "experiments": {"exp1": ["r1", "r3", "r2", "r1"], "exp2": ["r3", "r3", "dimer"]},
+  "observables": ["C", "B"]
+}
