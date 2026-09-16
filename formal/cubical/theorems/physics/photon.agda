@@ -28,6 +28,11 @@ open import Cubical.Algebra.CommRing.Instances.Int using (ℤCommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 open import Cubical.HITs.SetQuotients as SQ using (_/_ ; [_] ; eq/)
 
+-- Reference: Univalent Foundations Program, Homotopy Type Theory (2013),
+-- Lemmas 3.11.8–3.11.9 and §4.8: contractible singletons and fibre presentation.
+-- https://homotopytypetheory.org/book/
+-- Here the singleton over f a contracts while a is retained; regrouping this
+-- same dependent sum by its reading gives Fibre.lossless below.
 module Carrier {ℓ : Level} {A B : Type ℓ} (f : A → B) where
   Carrier : Type ℓ
   Carrier = Σ A (λ a → Σ B (λ b → f a ≡ b))
@@ -43,6 +48,10 @@ module Carrier {ℓ : Level} {A B : Type ℓ} (f : A → B) where
   Carrier≡ = ua Carrier≃
   carry-transport : A → Carrier
   carry-transport = transport Carrier≡
+  -- Cohen, Coquand, Huber, Mörtberg, Cubical Type Theory (2016),
+  -- Appendix B, Lemma 25(2): transport along the path from an equivalence
+  -- agrees with its forward map. This is the role of uaβ in this square.
+  -- https://arxiv.org/html/1611.02108#A2
   carry-transport-descend : (a : A) → carry-transport a ≡ descend a
   carry-transport-descend = uaβ Carrier≃
   Φ-carrier : (A → A) → Carrier → Carrier
@@ -55,6 +64,11 @@ module Fibre where
     (λ a → f a , a , refl) (λ z → fst (snd z))
     (λ { (b , a , w) i → w i , a , (λ j → w (i ∧ j)) }) (λ a → refl))
 
+-- Kozen and Silva, Practical coinduction, §§2, 4: streams as coalgebras
+-- and proofs by matching observations and continuations.
+-- https://www.cs.cornell.edu/~kozen/Papers/Structural.pdf
+-- path≃bisim makes that correspondence an equivalence of witness types;
+-- Nucleus uses it to carry the entire future through Carrier's equivalence.
 module Orbit where
   record Orbit {ℓ : Level} (A : Type ℓ) : Type ℓ where
     coinductive
@@ -99,6 +113,12 @@ module Nucleus {ℓ : Level} {A B : Type ℓ} (f : A → B) (Φ : A → A) where
     ≡ unfold (Carrier.Φ-carrier f Φ) (Carrier.descend f a)
   transport-orbit a = bisim (square a)
 
+-- Computational comparison: Xia et al., Interaction Trees (POPL 2020),
+-- §2 and Fig. 2, events with typed continuations.
+-- https://arxiv.org/abs/1906.00046
+-- ISC makes each response depend on the current world and retains its
+-- evidence and next-world continuation. Its react interface supplies a
+-- response to a query; the paper's Vis node emits an event awaiting a reply.
 module Dialogue where
   record ISC {ℓ : Level} {W : Type ℓ} (Q : W → Type ℓ)
     (O : (w : W) → Q w → W → Type ℓ)
@@ -196,6 +216,12 @@ module Completion where
     śiras (take-ext h i) = cons-inj₁ (h 1) i
     śeṣam (take-ext h i) = take-ext (λ n → cons-inj₂ (h (suc n))) i
 
+-- Optical reference: Reck, Zeilinger, Bernstein, Bertani, Experimental
+-- realization of any discrete unitary operator, PRL 73, 58–61 (1994).
+-- https://doi.org/10.1103/PhysRevLett.73.58
+-- The two-mode sum/difference mixer is the balanced-interferometer matrix
+-- with its common 1/sqrt(2) factor removed, keeping Gaussian arithmetic exact.
+-- The plus/minus witnesses below expose relative phase through output ports.
 module Had where
   open CommRingStr (snd ℤCommRing) using (_+_ ; _-_)
   add sub : Amplitude.Gaussian → Amplitude.Gaussian → Amplitude.Gaussian
@@ -210,6 +236,12 @@ module Had where
   gaussianPath p q = ΣPathP (p , q)
   statePath : {x y : Amplitude.State₂} → fst x ≡ fst y → snd x ≡ snd y → x ≡ y
   statePath p q = ΣPathP (p , q)
+-- Abramsky and Coecke, A categorical semantics of quantum protocols (2004),
+-- §§6–7: central scalar action, conjugation, and inner products.
+-- https://arxiv.org/html/quant-ph/0402130
+-- H-commutes-global-phase is scalar naturality in coordinates. This quotient
+-- identifies the four common Gaussian-unit phases; portWeights descends
+-- because conjugate-square readings are invariant under that action.
 module Projective where
   open CommRingStr (snd ℤCommRing) using (_+_ ; _-_ ; -_)
   State₂ : Type₀
@@ -455,6 +487,12 @@ positive-interference = Projective.plus-ray-ports
 negative-interference : Projective.projectivePortWeights Projective.minusRay ≡ (0 , 4)
 negative-interference = Projective.minus-ray-ports
 
+-- Physics reference [RS]: I. Bialynicki-Birula and Z. Bialynicka-Birula,
+-- The role of the Riemann–Silberstein vector in classical and quantum theories
+-- of electromagnetism, J. Phys. A 46 (2013) 053001, §§1–2, 11.2.
+-- https://arxiv.org/html/1211.2655
+-- With F=E+i cB, source-free Maxwell becomes i Dt F=c curl F.
+-- Below, units absorb c; the equivalence retains both transverse constraints.
 module FieldEquations {ℓ : Level}
   (V : Type ℓ) (V-set : isSet V)
   (neg : V → V) (neg-involutive : (v : V) → neg (neg v) ≡ v)
@@ -601,6 +639,10 @@ module SourceFreeFields {ℓ : Level}
   source-free-maxwell≡schrodinger : MaxwellObject ≡ SchrodingerObject
   source-free-maxwell≡schrodinger = maxwell-object≡schrodinger-object
 
+-- [RS] §2: electromagnetic duality acts by F -> exp(i phi) F.
+-- turn is its quarter rotation; rotation-norm is the polynomial identity
+-- behind the unit-circle action. For fields this rotates electric/magnetic
+-- components; its observational meaning depends on the chosen reading.
 module ModeAlgebra {ℓ : Level} (R : CommRing ℓ) where
   open CommRingStr (snd R) using (0r ; 1r)
     renaming (_+_ to _+r_ ; _·_ to _*r_ ; -_ to negR ; _-_ to _-r_)
@@ -644,6 +686,10 @@ module ModeAlgebra {ℓ : Level} (R : CommRing ℓ) where
   Modes : Type ℓ
   Modes = Complex × Complex
 
+  -- In the two-mode optical language of Reck et al. (reference at Had),
+  -- this is exchange followed by a quarter-phase shift on the first output:
+  -- matrix [[0,i],[1,0]]. crossing-hermitian verifies its conserved pairing;
+  -- crossing-braid computes the adjacent three-mode coherence explicitly.
   crossing : Modes → Modes
   crossing (x , y) = turn y , x
 
@@ -1022,6 +1068,12 @@ module GeometricTransport {ℓ : Level}
 -- A cochain reads a chain. Its coboundary reads the boundary: Stokes is
 -- evaluation itself. Re-presenting chains induces the operators below;
 -- their naturality is a theorem, not an additional parameter.
+-- Desbrun, Hirani, Leok, Marsden, Discrete Exterior Calculus (2005),
+-- §5, Eq. (5.1), Remark 5.1; §12, Maxwell Equations.
+-- https://arxiv.org/html/math/0508341#S5
+-- The pairing definition d w c = w (boundary c) is exactly the discrete
+-- Stokes mechanism. BoundarySquared transports boundary-of-boundary to d²;
+-- the local construction works with the displayed abstract chain types.
 module BoundaryGeometry {ℓ : Level}
   (C₀ C₁ C₀' C₁' R : Type ℓ) (setR : isSet R) (0R : R)
   (boundary : C₁ → C₀) (e₀ : C₀ ≃ C₀') (e₁ : C₁ ≃ C₁')
@@ -1148,6 +1200,11 @@ module JetDifferential where
 
 -- Transport the field structure, its solution space, and evolution as one
 -- dependent object. No operator or equation is re-selected at the target.
+-- HoTT (2013), §2.3 (transport in dependent families), §2.7 (Sigma paths),
+-- and §2.10 (universes); https://homotopytypetheory.org/book/
+-- FieldDynamics is the dependent package to transport: operators, laws,
+-- solution, and evolution. StructuredTransport's transport-law states
+-- preservation for any property of this whole package.
 record FieldStructure {ℓ : Level} (V : Type ℓ) : Type (ℓ-suc ℓ) where
   field
     setV : isSet V
@@ -1230,6 +1287,9 @@ module FiniteCompletionDynamics (A : Type) (setA : isSet A) where
 
 -- The Fourier symbol of spatial curl: multiplication by i followed by
 -- cross product with the wave vector. All identities are ring identities.
+-- [RS] §3, Solution of Maxwell equations by Fourier transformation:
+-- Dt F(k)=c k×F(k), k·F(k)=0. The convention exp(i k·x) gives
+-- curl=i(k×); cross-square gives the transverse dispersion |k|².
 module FourierSymbol {ℓ : Level} (R : CommRing ℓ) where
   open CommRingStr (snd R) using (0r)
     renaming (_+_ to _+r_ ; _·_ to _*r_ ; -_ to negR ; _-_ to _-r_)
@@ -1296,6 +1356,12 @@ module FourierSymbol {ℓ : Level} (R : CommRing ℓ) where
    The declarations above check the algebraic identities; this comment records
    the Hilbert-completion argument and its analytic hypotheses.
 
+   References: [RS] §3 for mode evolution; Teschl, Mathematical Methods in
+   Quantum Mechanics (2009), §§1.2–1.3 for orthogonal expansions/projections
+   and §5.1 for unitary evolution and generator domains.
+   https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf
+   The torus construction below specifies its own coefficient-tail moduli.
+
    Use normalized measure on T^3 and complex vector coefficients a_k, k in Z^3.
    Let D_s consist of transverse coefficients k.a_k = 0 with finite weighted
    squared norm sum_k (1+|k|^2)^s |a_k|^2. Constructively, retain a modulus for
@@ -1336,6 +1402,13 @@ module FourierSymbol {ℓ : Level} (R : CommRing ℓ) where
 -- The natural number indexes requested accuracy, not exact prefix equality.
 import Cubical.HITs.PropositionalTruncation as PT
 
+-- Constructive-analysis reference: Russell O'Connor, A Monadic, Functional
+-- Implementation of Real Numbers (2006), completion by regular functions
+-- and lifting uniformly continuous maps.
+-- https://arxiv.org/abs/cs/0605058
+-- Here Name stores a sequence, modulus, and tail proof; Related identifies
+-- names of one point. CauchyMap composes the two moduli explicitly.
+-- CauchySquare retains a commuting equation when lifted names differ.
 module CauchyNames (A : Type) (Ball : ℕ → A → A → Type) where
   open import Cubical.Data.Nat.Order using (_≤_)
 
@@ -1447,6 +1520,10 @@ module CauchySquare (A B C D : Type)
 -- limit. Ball n denotes accuracy 2^(-n); two balls of the next accuracy compose.
 import Cubical.Data.Nat.Order as NatOrder
 
+-- The diagonal has the role of flattening a completion of approximations
+-- (compare O'Connor's completion monad, reference at CauchyNames). Its input
+-- here supplies actual names and regularity witnesses; index bounds in the
+-- proof account for both the inner and outer approximation errors.
 module CauchyDiagonal (A : Type) (Ball : ℕ → A → A → Type)
   (weaken : {n m : ℕ} → n NatOrder.≤ m
     → {x y : A} → Ball m x y → Ball n x y)
@@ -1539,6 +1616,10 @@ module NormRingAlgebra {ℓ : Level} (R : CommRing ℓ) where
   self-distance : (a t : fst R) → square (a - a) + t ≡ t
   self-distance a t = solve! R
 
+-- Teschl (2009), §§1.1–1.2: square-summable coordinates and orthonormal
+-- expansions. Here finite rational lists give the dense coordinate data;
+-- zero padding identifies presentations of the same finite vector.
+-- Rational bounds on squared distance supply the completion's accuracy scale.
 module RationalHilbert where
   import Cubical.Data.Rationals as Q
   import Cubical.Data.Rationals.Order as O
@@ -1803,6 +1884,11 @@ module CompletedAmplitude where
 
 -- An operator's graph norm controls both its input and output. This builds
 -- its completed domain and the induced operator from finite data.
+-- Teschl (2009), §2.2, pp. 63–64: closure of the graph and graph norm
+-- ||x||²+||Ax||². https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf
+-- GraphBall controls both coordinates, giving continuous input/output maps
+-- on its completion. Identifying this with a subspace of the ambient field
+-- uses closability: the input coordinate must determine the output.
 module GraphNormOperator (A : Type) (Ball : ℕ → A → A → Type)
   (generator phase : A → A)
   (phase-uniform : (n : ℕ) (x y : A) → Ball n x y → Ball n (phase x) (phase y)) where
@@ -1840,6 +1926,9 @@ module GraphNormOperator (A : Type) (Ball : ℕ → A → A → Type)
 
 -- The dense spatial generator is now the actual Fourier cross product,
 -- indexed by integer wave vectors; curl is its complex quarter turn.
+-- [RS] §§2, 11.1–11.2 distinguish the field-energy pairing from one-photon
+-- normalization (whose momentum measure carries a 1/|k| factor).
+-- The coefficient distance here uses the unweighted field coordinates.
 module CompletedFourierOperator (wave : ℕ → ℤ × ℤ × ℤ) where
   import Cubical.Data.Rationals as Q
   open import Cubical.Data.NatPlusOne using (1+_)
@@ -1904,6 +1993,11 @@ module CompletedFourierOperator (wave : ℕ → ℤ × ℤ × ℤ) where
       (Operator.PhaseMap.map-name (Operator.Generate.map-name s)) (ActualCurl.map-name s)
       (λ n → curl-is-phase-generator zero (Operator.Domain.sequence s n))
 
+-- HoTT (2013), §6.10: set quotients and effectiveness of equivalence
+-- relations. https://homotopytypetheory.org/book/
+-- Once Related has the required laws, quotient equality recovers closeness.
+-- RationalHilbertEquality uses this to separate the embedded zero and unit
+-- by a rational accuracy bound: completion retains a detectable distinction.
 module CauchyEquality (A : Type) (Ball : ℕ → A → A → Type)
   (ball-sym : (n : ℕ) (x y : A) → Ball n x y → Ball n y x)
   (triangle : (n : ℕ) {x y z : A} → Ball (suc n) x y → Ball (suc n) y z → Ball n x z) where

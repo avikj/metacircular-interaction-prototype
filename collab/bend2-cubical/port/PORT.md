@@ -48,3 +48,25 @@ imports). Zero rejections in every file.
 - `isSetℕ` is proved from scratch by encode–decode (`NatCode`, `J`); no
   Hedberg, no decidable-equality library.
 - Nothing was postulated, no solver, no reflection.
+
+## Schematic installation (2026-09-15)
+
+`SchematicOperation.bend` ports section 3 of
+`formal/cubical/Kernel/TheInstalledOperationHasNoPervasionSoTheKernelMemorises.agda`.
+Its control retains a substitution `u` and a path from the actual source to
+`subVar(u, lhs)`; application returns `subVar(u, rhs)`. `schemaApplySound`
+uses the existing `eval_subVar` proof and the equation's meaning in the
+substituted environment. `installSchema` accepts existing derivations;
+`installInductionSchema` accepts existing induction certificates. Substitution
+witnesses are supplied, not discovered by these functions. This adds a callable
+schema interface without changing the existing ground `NativeOperation` API.
+
+Validation with the local path-transport-patched Bend binary and HVM4 at
+`6defdfc7dae2a3cca5dd6e74ed0612385b5646a8`: ordinary checking passed; the
+full emitted target returned `#Suc{#Suc{#Zer{}}}` (2), 955 interactions.
+`schemaZero` and `schemaSuccessor` check the two distinct contexts from the
+Agda separation example. A negative probe pairing the zero context with the
+successor substitution was rejected with a source-endpoint mismatch.
+The separate `--total` gate refused the imported `derivation_sound`, `eval`,
+and `hyp_derivation_sound`, classified as unchecked; this is not a whole-program
+totality pass. No dataset analysis or compression result is asserted by this port.

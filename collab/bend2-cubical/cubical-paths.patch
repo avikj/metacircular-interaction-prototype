@@ -4603,7 +4603,7 @@ index a5d92e8..8017fc8 100644
  cut :: Term -> Term
  cut (Loc _ t) = cut t
 diff --git a/src/Core/WHNF.hs b/src/Core/WHNF.hs
-index 953410d..a43b7a1 100644
+index 953410d..3af8583 100644
 --- a/src/Core/WHNF.hs
 +++ b/src/Core/WHNF.hs
 @@ -6,7 +6,9 @@ module Core.WHNF where
@@ -4632,7 +4632,7 @@ index 953410d..a43b7a1 100644
      App f x    -> whnfApp lv book f x
      Loc _ t    -> whnf lv book t
      Op2 o a b  -> whnfOp2 lv book o a b
-@@ -53,9 +62,614 @@ whnfGo lv book term =
+@@ -53,9 +62,611 @@ whnfGo lv book term =
      EqlM x f   -> whnfEqlM lv book x f
      SupM x l f -> whnfSupM lv book x l f
      Log s x    -> whnfLog lv book s x
@@ -5077,20 +5077,17 @@ index 953410d..a43b7a1 100644
 +          -- read from the line; the base is the pointwise-coerced path, and the
 +          -- side lines carry the endpoints back to the s-fibre.
 +          Pth _ _ _ ->
-+            let aAt  i = case whnf Full book (App pP i) of { Pth a _ _ -> a ; x -> x }
-+                uAt  i = case whnf Full book (App pP i) of { Pth _ u _ -> u ; x -> x }
-+                vAt  i = case whnf Full book (App pP i) of { Pth _ _ v -> v ; x -> x }
-+                aLn    = Lam "i" (\i -> aAt i)
-+                -- the carried path, coerced pointwise into the s-fibre type
-+                base j = Coe aLn r' s' (PAp t j)
-+                -- endpoint correction sides: coe of the family's declared
-+                -- endpoints from an interior point to s
-+                sideL k = Coe (Lam "i" (\i -> aAt i)) k s' (uAt k)
-+                sideR k = Coe (Lam "i" (\i -> aAt i)) k s' (vAt k)
++            let aAt i j = case whnf Full book (App pP i) of { Pth a _ _ -> App a j ; x -> x }
++                uAt i   = case whnf Full book (App pP i) of { Pth _ u _ -> u ; x -> x }
++                vAt i   = case whnf Full book (App pP i) of { Pth _ _ v -> v ; x -> x }
++                at k    = IOr (IAnd (INot k) r') (IAnd k s')
++                base j  = Coe (Lam "i" (\i -> aAt i j)) r' s' (PAp t j)
++                sideL k = Coe (Lam "i" (\i -> aAt i I0)) (at k) s' (uAt (at k))
++                sideR k = Coe (Lam "i" (\i -> aAt i I1)) (at k) s' (vAt (at k))
 +            in PLm "j" (\j ->
-+                 HCm (aAt s')
-+                   [ (INot s', PLm "k" (\k -> sideL k))
-+                   , (s',      PLm "k" (\k -> sideR k)) ]
++                 HCm (aAt s' j)
++                   [ (INot j, PLm "k" (\k -> sideL k))
++                   , (j,      PLm "k" (\k -> sideR k)) ]
 +                   (base j))
 +          -- superposed line: dup the value at the label, transport each
 +          -- universe along its own line, resuperpose (fibre-exact routing)
@@ -5247,7 +5244,7 @@ index 953410d..a43b7a1 100644
  whnfLet :: EvalLevel -> Book -> Term -> Term -> Term
  whnfLet lv book v f = whnf lv book (App f v)
  
-@@ -146,6 +760,21 @@ whnfSigM lv book x f =
+@@ -146,6 +757,21 @@ whnfSigM lv book x f =
        where (f0, f1) = dup book l f
      x'      -> SigM x' f
  
@@ -5269,7 +5266,7 @@ index 953410d..a43b7a1 100644
  -- Normalizes an enum match
  whnfEnuM :: EvalLevel -> Book -> Term -> [(String,Term)] -> Term -> Term
  whnfEnuM lv book x c f =
-@@ -401,6 +1030,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
+@@ -401,6 +1027,47 @@ dup book l (Ind t)      = (Ind t0, Ind t1)
    where (t0,t1)         = dup book l t
  dup book l (Frz t)      = (Frz t0, Frz t1)
    where (t0,t1)         = dup book l t
@@ -5317,7 +5314,7 @@ index 953410d..a43b7a1 100644
  dup book l Era          = (Era, Era)
  dup book l (Sup r a b)
    | ieql book l r       = (a, b)
-@@ -429,6 +1099,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
+@@ -429,6 +1096,19 @@ dup book l (Pri p)      = (Pri p, Pri p)
  dup book l (Log s x)    = (Log s0 x0, Log s1 x1)
    where (s0,s1)         = dup book l s
          (x0,x1)         = dup book l x
@@ -5337,7 +5334,7 @@ index 953410d..a43b7a1 100644
  dup book l (Frk _ _ _)  = error "unreachable"
  dup book l (Pat _ _ _)  = error "unreachable"
  
-@@ -485,11 +1168,50 @@ normal d book term =
+@@ -485,11 +1165,50 @@ normal d book term =
      Loc l t    -> Loc l (normal d book t)
      Rwt a b x  -> Rwt (normal d book a) (normal d book b) (normal d book x)
      Log s x    -> Log (normal d book s) (normal d book x)
@@ -5388,7 +5385,7 @@ index 953410d..a43b7a1 100644
      Val v      -> Val v
      Op2 o a b  -> Op2 o (normal d book a) (normal d book b)
      Op1 o a    -> Op1 o (normal d book a)
-@@ -501,6 +1223,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
+@@ -501,6 +1220,106 @@ normalCtx :: Int -> Book -> Ctx -> Ctx
  normalCtx d book (Ctx ctx) = Ctx (map normalAnn ctx)
    where normalAnn (k,v,t) = (k, normal d book v, normal d book t)
  
@@ -5495,7 +5492,7 @@ index 953410d..a43b7a1 100644
  -- Utils
  -- =====
  
-@@ -514,6 +1336,13 @@ ugly (cut -> LstM _ _ _) = True
+@@ -514,6 +1333,13 @@ ugly (cut -> LstM _ _ _) = True
  ugly (cut -> EnuM _ _ _) = True
  ugly (cut -> SigM _ _  ) = True
  ugly (cut -> EqlM _ _  ) = True
@@ -5509,7 +5506,7 @@ index 953410d..a43b7a1 100644
  ugly _                   = False
  
  -- Evaluates terms that whnf won't, including:
-@@ -547,3 +1376,327 @@ ieql :: Book -> Term -> Term -> Bool
+@@ -547,3 +1373,327 @@ ieql :: Book -> Term -> Term -> Bool
  ieql book a b = case (termToInt book a, termToInt book b) of
    (Just x, Just y) -> x == y
    _                -> False
@@ -6262,7 +6259,7 @@ index 0000000..c1d7d4f
 +    -- recursion: HVM4 has @fix(&f) = (f @fix(f)); emit a self-application form
 +    Fix k f        -> "!b" ++ show d ++ "&F = " ++ go (d+1) (f (Var k d)) ++ "; b" ++ show d
 +
-+    Let v f        -> "(" ++ go d f ++ " " ++ go d v ++ ")"
++    Let v f        -> appFun d f ++ "(" ++ go d v ++ ")"
 +
 +    -- functions (binders cloned for affine runtime)
 +    Lam k f        -> "λ&b" ++ show d ++ ". " ++ go (d+1) (f (Var k d))
@@ -6412,10 +6409,9 @@ index 0000000..c1d7d4f
 +  op2 XOR = "^"; op2 SHL = "<<"; op2 SHR = ">>"; op2 POW = "*"
 diff --git a/src/Target/HVM4Full.hs b/src/Target/HVM4Full.hs
 new file mode 100644
-index 0000000..2c38326
 --- /dev/null
 +++ b/src/Target/HVM4Full.hs
-@@ -0,0 +1,498 @@
+@@ -0,0 +1,541 @@
 +{-./../Core/Type.hs-}
 +
 +{-# LANGUAGE ViewPatterns #-}
@@ -6437,6 +6433,9 @@ index 0000000..2c38326
 +module Target.HVM4Full where
 +
 +import Data.List (intercalate)
++import Data.Char (isAlphaNum)
++import qualified Data.Set as S
++import Target.HVM (freeVars)
 +import qualified Data.Map as M
 +
 +import Core.Type
@@ -6622,10 +6621,12 @@ index 0000000..2c38326
 +  , "  #Bool: x; #Nat: x; #Set: x; #Unit: x; #Empty: x; #List: λe. x; #Enum: x; #Num: x; #Itv: x; #Eql: x;"
 +  , "  #Pi: λA0. λB0. λ&y. @coe(λ&i. @piB(L(i), @coe(λj. @piA(L(j)), s, i, y)), r, s, x(@coe(λj. @piA(L(j)), s, r, y)));"
 +  , "  #Sig: λA0. λB0. (λ{#Pair: λ&a. λb. #Pair{@coe(λj. @sgA(L(j)), r, s, a), @coe(λ&i. @sgB(L(i), @coe(λj. @sgA(L(j)), r, i, a)), r, s, b)}})(x);"
-+  , "  #Path: λA0. λu0. λv0. #PLm{λj. @hcomp(@ptA(L(s)), #Cons{#Face{@inot(s), #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptU(L(k)))}}, #Cons{#Face{s, #PLm{λ&k. @coe(λi. @ptA(L(i)), k, s, @ptV(L(k)))}}, #Nil}}, @coe(λi. @ptA(L(i)), r, s, @pathAt(x, j)))};"
++  , "  #Path: λA0. λu0. λv0. @coePath(L, r, s, x);"
 +  , "  #At: λp. λi. @coeAt(p, i, r, s, x);"
 +  , "  #Glue: λA0. λfs0. @coeGlue(L, r, s, x, fs0);"
 +  , "  λt. @hitCoe(L, r, s, x, t)}"
++  , "// Path transport fills the j-boundaries; k runs from r to s, including reverse transport."
++  , "@coePath = λ&L. λ&r. λ&s. λx. #PLm{λ&j. @hcomp(@ptA(L(s))(j), #Cons{#Face{@inot(j), #PLm{λ&k. @coe(λi. @ptA(L(i))(#I0), @ior(@iand(@inot(k), r), @iand(k, s)), s, @ptU(L(@ior(@iand(@inot(k), r), @iand(k, s)))))}}, #Cons{#Face{j, #PLm{λ&k. @coe(λi. @ptA(L(i))(#I1), @ior(@iand(@inot(k), r), @iand(k, s)), s, @ptV(L(@ior(@iand(@inot(k), r), @iand(k, s)))))}}, #Nil}}, @coe(λi. @ptA(L(i))(j), r, s, @pathAt(x, j)))}"
 +  , "// tubes of an hcomp cell transported along a line (transport commutes with hcomp in a HIT)"
 +  , "@hcTubesCoeLine = λ&L. λ&r. λ&s. λ{#Nil: #Nil; #Cons: λ{#Face: λp. λ&tube. λ&rest. #Cons{#Face{p, #PLm{λj. @coe(L, r, s, @pathAt(tube, j))}}, @hcTubesCoeLine(L, r, s, rest)}}}"
 +  , "// coe along a universe path applied at the symbolic marker (or its negation)"
@@ -6653,7 +6654,7 @@ index 0000000..2c38326
 +    Ind x          -> go d x
 +    Frz x          -> go d x
 +    Fix k f        -> let n = freshName d in "!" ++ n ++ "&F = " ++ go (d+1) (f (Var n d)) ++ "; " ++ n
-+    Let v f        -> "(" ++ go d f ++ " " ++ go d v ++ ")"
++    Let v f        -> appFun d f ++ "(" ++ go d v ++ ")"
 +    Lam k f        -> let n = freshName d in "λ&" ++ n ++ ". " ++ go (d+1) (f (Var n d))
 +    App f x        -> appFun d f ++ "(" ++ go d x ++ ")"
 +    -- data
@@ -6664,21 +6665,21 @@ index 0000000..2c38326
 +    One            -> "#One"
 +    Nil            -> "#Nil"
 +    Con h tl       -> "#Con{" ++ go d h ++ ", " ++ go d tl ++ "}"
-+    Val (U64_V v)  -> show v
++    Val (U64_V v)  -> if v <= 4294967295 then show v else error "HVM4 full: integer literal exceeds the 32-bit runtime word; use explicit limbs"
 +    Val (CHR_V c)  -> "'" ++ [c] ++ "'"
-+    Val _          -> "0"
++    Val (F64_V _)  -> error "HVM4 full: F64 requires an explicit IEEE representation; refusing to replace a floating-point value with zero"
++    Val (I64_V _)  -> error "HVM4 full: signed integers require an explicit signed representation"
 +    Sym s          -> "#" ++ s
 +    Tup a b        -> "#Pair{" ++ go d a ++ ", " ++ go d b ++ "}"
 +    Rfl            -> "#Refl"
-+    BitM x f tr    -> "λ{0: " ++ go d f ++ "; _: λ&" ++ freshName d ++ ". " ++ go (d+1) tr ++ "}(" ++ go d x ++ ")"
-+    NatM x z s     -> "λ{#Zer: " ++ go d z ++ "; #Suc: " ++ go d s ++ "}(" ++ go d x ++ ")"
-+    LstM x n c     -> "λ{#Nil: " ++ go d n ++ "; #Con: " ++ go d c ++ "}(" ++ go d x ++ ")"
++    BitM x f tr    -> branchMatch d x [("0", 0, f), ("_", -1, tr)]
++    NatM x z s     -> branchMatch d x [("#Zer", 0, z), ("#Suc", 1, s)]
++    LstM x n c     -> branchMatch d x [("#Nil", 0, n), ("#Con", 2, c)]
 +    UniM x f       -> "λ{#One: " ++ go d f ++ "}(" ++ go d x ++ ")"
 +    SigM x f       -> "λ{#Pair: " ++ go d f ++ "}(" ++ go d x ++ ")"
 +    EqlM x f       -> "λ{#Refl: " ++ go d f ++ "}(" ++ go d x ++ ")"
 +    EmpM x         -> "λ{}(" ++ go d x ++ ")"
-+    EnuM x cs df   -> "λ{" ++ intercalate "; " (map (\(sy,b) -> "#" ++ sy ++ ": " ++ go d b) cs)
-+                       ++ "; _: λ&" ++ freshName d ++ ". " ++ go (d+1) df ++ "}(" ++ go d x ++ ")"
++    EnuM x cs df   -> branchMatch d x ([("#" ++ sy, 0, b) | (sy,b) <- cs] ++ [("_", -1, df)])
 +    Op2 o a b      -> "(" ++ go d a ++ " " ++ op2 o ++ " " ++ go d b ++ ")"
 +    Op1 _ a        -> go d a
 +    Log _ x        -> go d x
@@ -6761,6 +6762,44 @@ index 0000000..2c38326
 +    Met _ _ _      -> "&{}"
 +    Pri _          -> "&{}"
 +    Pat _ _ _      -> error "HVM4 full emission: unflattened pattern match"
++
++  -- Pass branch environments after selection, avoiding duplication of a
++  -- recursive accumulator across mutually exclusive branches.
++  branchMatch :: Int -> Term -> [(String, Int, Term)] -> String
++  branchMatch d x arms =
++    let env = S.toList (S.unions [freeVars S.empty b | (_,_,b) <- arms])
++        arm (tag, arity, body) = tag ++ ": " ++ armBody d arity env body
++    in "(λ{" ++ intercalate "; " (map arm arms) ++ "})(" ++ go d x ++ ")"
++       ++ concatMap (\n -> "(" ++ n ++ ")") env
++
++  armBody :: Int -> Int -> [Name] -> Term -> String
++  armBody d arity env body
++    | arity < 0 = "λ&" ++ freshName d ++ ". " ++ armBody (d+1) 0 env body
++    | arity > 0 =
++        let n = freshName d
++            rest = case cut body of
++              Lam _ f -> f (Var n d)
++              _       -> App body (Var n d)
++        in "λ&" ++ n ++ ". " ++ armBody (d+1) (arity-1) env rest
++    | otherwise =
++        let names = [freshName (d+i) | i <- [0 .. length env - 1]]
++            renames = M.fromList (zip env names)
++        in concatMap (\n -> "λ&" ++ n ++ ". ") names
++           ++ renameEmitted renames (go (d + length env) body)
++
++  -- All emitted binders are globally fresh. Alpha-rename whole identifier
++  -- tokens, excluding definition references, constructor tags and characters.
++  renameEmitted names [] = []
++  renameEmitted names (c:cs)
++    | c == '@' || c == '#' = let (n, rest) = span ident cs in c : n ++ renameEmitted names rest
++    | c == '\'' = case cs of
++        a:'\'':rest -> c:a:'\'':renameEmitted names rest
++        _ -> c : renameEmitted names cs
++    | ident c = let (ns, rest) = span ident cs
++                    n = c:ns
++                in M.findWithDefault n n names ++ renameEmitted names rest
++    | otherwise = c : renameEmitted names cs
++  ident c = isAlphaNum c || c == '_'
 +
 +  faces d fs = foldr (\(p, u) acc -> "#Cons{#Face{" ++ go d p ++ ", " ++ go d u ++ "}, " ++ acc ++ "}") "#Nil" fs
 +  psOr h ps = if null ps then replicate (hitArity h) "&{}" else map (go 0) ps
