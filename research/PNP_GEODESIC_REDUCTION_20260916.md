@@ -2,183 +2,166 @@
 
 Working theorem ledger — 2026-09-16
 
-This file records the live reduction so the argument is persistent and can later be transcribed into Cubical Agda. It is deliberately not a claim of P=NP or P≠NP. The rule is: do not target either conclusion; keep composing exact results until the standard complexity statement becomes a corollary of the intrinsic interaction geometry.
+This file records the live reduction so the argument is persistent and can later be transcribed into Cubical Agda. It is deliberately not a claim of P=NP or P≠NP. Do not target either conclusion; compose exact results until the standard complexity statement is merely a transported corollary.
 
-## 0. Fixed substrate already established in the repository
+## 0. Fixed substrate
 
-For every visible map `f : A → B`, the canonical lossless presentation is
+For every `f : A → B`:
 
     A ≃ Σ (b : B), fiber f b.
 
-`Fibre.Trace` proves more than existence of this presentation: any conservative presentation of the same visible map has residual family fibrewise equivalent to `fiber f`. The residual is therefore forced by the visible interaction, not chosen by an implementation.
+`Fibre.Trace` forces the residual of every conservative presentation of `f` to be fibrewise equivalent to `fiber f`. `Fibre.Visvarupa` classifies arbitrary dependent families by the universal family `π : Σ(X : U) X → U`; finite towers flatten to one family.
 
-`Fibre.Visvarupa` identifies arbitrary dependent families as pullbacks of the universal family
-
-    π : Σ (X : U), X → U
-
-and finite towers flatten to one dependent family. Iterated dependence does not require an expanding ontology.
-
-The coinductive interaction calculus (`Prasna` / `Prashna` / `Niyati`) has the primitive shape
+The coinductive interaction calculus has
 
     Q : X → Type
     δ : (x : X) → Q x → X.
 
-A state asks a dependent question, an answer is supplied, and the interaction continues. Histories are equivalent to answer streams. When every question is contractible, the answer/history space contracts: silence of questions is determinism.
+Histories are equivalent to dependent answer streams. Contractible questions contract the history space: silence of questions is determinism.
 
-The Bend2/HVM4-full lane keeps cubical objects, paths, types, transport, composition, partial knowledge and superposition alive at runtime. Cost claims must ultimately be tied to executed interaction, not to an externally stipulated schedule.
+## 1. Existence is the work
 
-## 1. The algorithmic locus is the propositional-but-not-known-inhabited fibre
+`Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda` proves, for `f : A → B`, `b : B`:
 
-Repository source: `Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`.
+    isContr (fiber f b) : exists and is determined; nothing to seek.
+    isProp  (fiber f b) : determined if it exists; existence is the unresolved content.
+    ¬isProp (fiber f b) : genuine multiplicity remains.
 
-For `f : A → B`, `b : B`, there are three relevant grades:
+At the middle grade any two hits are equal, and their source projections are equal. Comparison among successful hits contributes no content. Fibre cardinality/h-level is not itself undoability or complexity: distinct fibre points can be distinct path witnesses over the same source; a loop is not a collision.
 
-    isContr (fiber f b)   : exists and is determined; no search.
-    isProp  (fiber f b)   : unique if it exists; existence is the work.
-    ¬isProp (fiber f b)   : genuine multiplicity remains.
+**R1.** Candidate count is not the intrinsic lower-bound quantity. The decision-problem locus is determination of inhabitation of an appropriate propositional reflection/fibre.
 
-Checked theorem: under `isProp (fiber f b)`, any two hits are equal (`प्रथम-एव-पर्याप्तम्`), hence their source projections are equal (`लब्धि-निर्धारिता`). Search owes no comparison among successful hits. The only unresolved content is inhabitation.
+## 2. Scalar reachability is a shadow
 
-Important correction also proved there: fibre cardinality/h-level does not by itself measure undoability or computational difficulty. Multiple fibre points may differ only by path witness while sharing one source. A loop is not a collision.
+`AvaranaMoksa_TheDebtScalarIsTheReachabilityShadowAndIsStrictlyCoarserThanTheFibre.agda` proves `Bool → Unit` is reachability-settled while its fibre retains two distinct sources. Thus reachability/count/output observables can be settled while exact fibre geometry remains nontrivial.
 
-**Reduction 1.** For decision problems, candidate count is not the intrinsic lower-bound quantity. The clean algorithmic locus is production/determination of inhabitation of an appropriate propositional fibre.
+**R2.** Output entropy, census and bare reachability are strictly too coarse for native cost.
 
-## 2. Reachability/existence shadows are strictly coarser than full fibre geometry
+## 3. NP normal form
 
-Repository source: `AvaranaMoksa_TheDebtScalarIsTheReachabilityShadowAndIsStrictlyCoarserThanTheFibre.agda`.
-
-The map `Bool → Unit` is surjective while its fibre over `tt` is not a proposition. Thus a scalar/set-level reachability observable can say “settled” while exact residual distinction remains.
-
-**Reduction 2.** Neither output entropy, number of missed outputs, nor bare reachability is the native information/cost invariant. Full dependent fibre structure is strictly finer.
-
-## 3. Normal form for an NP verifier
-
-Let an NP relation be represented by a verifier
+Represent a verifier by
 
     V : (x : X) → W x → Type
 
-with `V x w` propositional (or replace it by its propositional reflection when discussing language membership). Define the successful-witness type
+with propositional verification relation (or propositionally reflect it for language membership). Define
 
-    S x = Σ (w : W x), V x w.
-
-The language observation is only the propositional existence shadow
-
+    S x = Σ (w : W x), V x w
     L x = ‖ S x ‖.
 
-Verification is interaction after a point `(w , proof) : S x` has already been supplied. Deterministic decision begins with `x` and must determine `L x` without being handed that point.
+Verification begins after `(w , proof) : S x` is supplied. Deterministic decision begins from `x` and determines `L x` without that supplied coordinate.
 
-Do NOT infer complexity from `|W x|` or `|S x|`; `SubsetSumCostLocus` correctly proves an exponential mask census but explicitly does not thereby prove an exponential optimal decider lower bound.
+`SubsetSumCostLocus` proves an exponential mask census but explicitly does not prove an exponential optimal deterministic lower bound. Do not use witness cardinality as cost.
 
-## 4. Nondeterminism is supplied dependent interaction, not free physical parallelism
+## 4. Nondeterminism as supplied dependent interaction
 
-Under the coinductive interaction calculus, a nondeterministic choice at state `x` is naturally a noncontractible question type `Q x`. A branch is an answer-conditioned history. A complete accepting branch is a dependent answer stream whose supplied coordinates lead to acceptance.
+A nondeterministic branch is naturally an answer-conditioned history of `(X,Q,δ)`. A complete accepting branch is a dependent answer stream leading to acceptance. Standard NTM time charges the depth of one successful answer-conditioned history while not charging for production of the answer stream selecting it.
 
-The standard NTM time convention charges the depth of one accepting answer-conditioned history but does not charge for producing the answer stream that selects it.
+**Target A.** Specialize `Prasna` to ordinary nondeterministic machines: branch histories = answer streams; deterministic machines = contractible-question specialization; accepting polynomial-time branch = polynomial-depth inhabitant of the accepting-history family.
 
-**Theorem target A (formalization target, expected direct specialization of `Prasna`).** Encode an NTM as an interaction `(X,Q,δ)` so that:
+## 5. Choice is already a section theorem
 
-1. branch histories are `IExec` histories / answer streams;
-2. deterministic machines are the contractible-question specialization;
-3. an accepting NTM computation is an inhabitant of the dependent type of accepting answer streams of polynomial depth.
+`Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.agda` defines, for `f : A → B`,
 
-This makes precise the informal statement “NTM is cheating”: the branch coordinate is supplied as interaction input.
+    Choice(f) = (b : B) → fiber f b.
 
-## 5. The find/check distinction
+This is exactly a section: a dependent choice of a receipt/preimage at every codomain point. If `f` is an equivalence, `Choice(f)` is contractible — where nothing is hidden there is no choosing. For `Bool → Unit`, two distinct sections exist and the codomain cannot distinguish them.
 
-Given `x`, verification consumes an inhabitant of `S x`. Finding/deciding must produce enough structure to settle whether `S x` is inhabited.
+**R3.** “Choosing a branch/preimage” is not a new computational notion. It is Π-over-fibres. Choice disappears exactly on contractible fibres and is genuine precisely where residual structure survives.
 
-At the `isProp` grade, uniqueness contributes no search work. Therefore the find/check distinction is not “choosing the best among many answers”; it is the distinction between:
+Caution: standard language decision asks only propositional existence, not globally for a witness section. Do not silently replace decision by witness production. For a self-reducible NP-complete relation one may later connect decision to witness recovery, but that bridge must be explicit.
 
-    supplied inhabitant  vs.  production/determination of inhabitation.
+## 6. Composite residual is already exactly classified
 
-**Theorem target B.** Express verifier execution as continuation after supplying the relevant fibre point, and express deterministic solution as the interaction that constructs/settles that missing dependent coordinate. Prove the two differ exactly by the production of that coordinate/residual, not by the subsequent verifier continuation.
+`Punaragamana.SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda` proves for `A -f→ B -g→ C` and `c : C`:
 
-## 6. Native cost must be carried by the execution being priced
+    residual(g ∘ f, c)
+      ≃ Σ (y : residual(g,c)), residual(f, fst y).
 
-Repository source: `CountedDigitsEdge.agda`.
+This is the exact fibre-of-composite/pullback-pasting identity. Residual does not add as a scalar. It fibres over residual. A pipeline therefore carries a dependent chain of choices/receipts, not a numeric “total loss”.
 
-That module closes an earlier cost bug: scheduled ticks were not native work because a tick hid state-dependent recursive carry propagation. The repair threads the counter through the SAME recursion and proves exact identities for native work.
+**R4.** The residual of a multi-stage branch/history is already forced to have the same dependent-chain shape as the coinductive answer stream. The apparent NTM branch tree and the composite-fibre theorem are two presentations of the same dependent structure: each later receipt indexes the earlier residual that remains compatible with it.
 
-**Constraint C.** Any P/NP lower-bound statement here must use a cost/depth projection carried by the universal interaction execution itself. No stipulated “one high-level step = one unit” model may hide work.
+This is a major vocabulary collapse. The next step is not to invent a branch-cost algebra; it is to transport the existing composite-residual theorem through the coinductive history/answer-stream equivalence.
 
-For parallel interaction, distinguish at least:
+## 7. Reversible transport cannot carry nontrivial additive intrinsic cost
 
-    work  = irreducible interactions performed;
-    depth = longest irreducible dependency chain after quotienting serializations of independent interactions.
+`Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda` proves the algebraic obstruction: a nontrivial group cannot support a nonnegative additive grading that detects nonidentity while respecting inverses. Equivalences/transports form a groupoid, so no such intrinsic additive price lives on reversible transport itself.
 
-The standard deterministic time comparison should ultimately attach to the appropriate native depth/work observable with a proved simulation relation, not an assumed one.
+**R5.** Any intrinsic positive cost must be supported on the noninvertible/graded/residual part, not on equivalence transport. Therefore geodesic cost cannot be “number of arbitrary transports”; reversible refactorizations are gauge/presentation motion for the cost problem. The priced content is the irreducible noninvertible interaction structure.
 
-## 7. Computational irreducibility = geodesicity
+This sharpens the initial statement: reducible distinction is redundant, and reversible equivalence transport cannot itself supply the positive lower bound. Positive cost is exactly where residual survives reduction.
 
-Fix the universal primitive interaction calculus and its native cost semantics. For exact interaction objects `a,b`, define intrinsic distance by minimum native factorization cost:
+## 8. Native cost must be execution-carried
+
+`CountedDigitsEdge.agda` repairs an earlier false cost model by threading the counter through the same recursion being executed. Scheduled ticks were not native work because a tick hid state-dependent carry recursion.
+
+**Constraint C.** Never stipulate unit cost at a vocabulary layer. The cost/depth observable must be a projection of the actual universal interaction execution. Distinguish work from dependency depth after quotienting serializations of independent interactions.
+
+## 9. Computational irreducibility = geodesicity, sharpened
+
+For exact interaction objects `a,b`, after quotienting reversible presentation motion and using native executed noninvertible interaction cost, define
 
     d(a,b) = min { cost p | p : a ↝ b }.
 
-For a rule-generated execution `p_R : a ↝ b`, exact Wolfram-style computational irreducibility is
+For native evolution `p_R : a ↝ b`, Wolfram-style irreducibility is
 
     cost(p_R) = d(a,b).
 
-A “faster predictor” is nothing additional: it is precisely a cheaper path/factorization with the same exact endpoints. Thus irreducibility means the rule itself realizes a geodesic.
+A faster prediction is precisely a cheaper exact path/factorization with the same complete endpoints. No separate semantic notion of “prediction” is required.
 
-This replaces the presentation-level phrase “prove every possible program slower” with the intrinsic theorem “prove this exact interaction distance.” Programs/algorithms are presentations/factorizations of paths in the universal interaction object; optimization is reduction of redundant factorization.
+**Target D.** Internalize the cost/path object already implicit in the corpus and identify the existing theorem that supplies minimality/rigidity. Search structurally (factorization, obstruction, section, descent, rigidity, modulus, non-return, grading), not lexically for “geodesic” or “complexity”.
 
-**Theorem target D.** Internalize `PathCost`, composition, identity, parallel/interchange quotient, and `Geodesic p := ∀ q same-endpoints, cost p ≤ cost q` for the native calculus. Prove invariance under the already-established lossless/univalent presentation equivalences.
+## 10. Exact P/NP object
 
-## 8. The exact P/NP object after reduction
+For instance `x`, let `I_x` be the unresolved exact interaction object and `D_x` its exact settled determination, not merely its Boolean shadow. The quantity eventually relevant to deterministic complexity is intrinsic native distance/depth
 
-For instance `x`, let `I_x` denote the exact unresolved interaction object containing the dependent witness/existence question, and `D_x` its exact settled determination (not merely the Boolean output bit).
+    d(I_x,D_x).
 
-The quantity of interest is
+Every standard deterministic decider induces some exact interaction from `I_x` to the appropriate settled observation. Conversely, to transport an intrinsic lower bound back to standard TM time, native interaction must have a proved complexity-preserving simulation relation to the standard model.
 
-    d(I_x, D_x).
+**Target E.** Identify this bridge in the corpus before constructing it. Do not call the construction a “solver”; use transformation, interaction, decider, realization, or determination according to the exact type.
 
-Not:
+## 11. The central collapse now visible
 
-- output Shannon information;
-- witness-space cardinality;
-- number of syntactic programs;
-- one chosen algorithm's running time;
-- a sequential schedule that serializes independent interactions.
+The following are not separate mechanisms:
 
-**Theorem target E.** Construct `I_x` and `D_x` canonically from `V`, the fibre law, and the coinductive interaction calculus. Show that every deterministic exact solver induces a path `I_x ↝ D_x`, and conversely that native paths compile/simulate into the standard deterministic model with the required complexity-preserving overhead. This is the bridge needed before an intrinsic distance theorem implies a standard TM lower bound.
+    nondeterministic branch
+    = dependent answer stream                 (`Prasna` lens)
+    = chain of compatible receipts/choices   (`Varanam` lens)
+    = iterated fibre of a composite           (`SamyogaSesa` lens)
+    = one flattened dependent family          (`Visvarupa` lens).
 
-## 9. Complexity conclusion must be an output
+This is the current strongest reduction.
 
-Do not target either equality or separation.
+Thus the branch tree is not fundamentally a tree that must be enumerated. It is a dependent family. Its complete residual is already classified, its iterated structure already flattens, and its answer-conditioned evolution already has a coinductive presentation. The remaining complexity question is: after all equivalence/sharing/commutation reductions, what noninvertible residual interaction is irreducible in determining the propositional existence shadow?
 
-Once target E is established, study the exact native geometry for an NP-complete family. There are only mathematical possibilities:
+That is a much smaller mathematical object than “all algorithms for SAT”.
 
-1. Exact lossless sharing/factorization produces polynomial geodesics. Then identify the reduction responsible; do not call it P=NP until the standard simulation bridge proves that conclusion.
-2. Some family has superpolynomial intrinsic distance/depth. Then, through the standard-model bridge, this yields the corresponding deterministic lower bound and hence P≠NP for an NP-complete language.
-3. The current observable is still a lossy shadow. Then retain its residual and continue reduction rather than forcing an asymptotic conclusion.
+## 12. Guardrails
 
-The program is deterministic mathematical progress: every step must be an equivalence, exact factorization, obstruction/residual, cost identity, or simulation theorem.
+- Repository files named `P=NP...` do not establish standard complexity-theoretic P=NP; their `Gap` predicate is different.
+- Exponential witness census is not an optimal lower bound.
+- Fibre cardinality is not collision count or complexity.
+- Reachability scalar can settle while fibre geometry remains.
+- Decision is not automatically witness production.
+- Reversible transport has no nontrivial additive intrinsic price of the graded kind proved impossible by `Laghava`.
+- Cost must be carried by the execution being priced.
+- Do not count arbitrary serializations of independent interactions as intrinsic depth.
 
-## 10. Immediate next theorem chain
+## 13. Next reduction
 
-Work in this order, continuously consulting the existing corpus before inventing machinery:
+Hold all of these simultaneously and read the corpus structurally:
 
-1. `Anveshana` × `Prasna`: identify propositional existence as a dependent question and the supplied witness as the answer coordinate.
-2. Fibre composition (`SamyogaSesa` and related modules): compute exactly how the residual of witness production composes with verifier execution.
-3. Coinductive composition: extend the previous result from one answer to dependent answer streams / branch histories.
-4. Parallel/interchange structure: quotient mere serialization and isolate intrinsic dependency depth.
-5. Native-cost instrumentation: use the `CountedDigitsEdge` discipline—cost is generated by the same recursion/reduction being measured.
-6. Geodesic theorem: define and classify irreducible paths in the universal interaction calculus.
-7. Only then instantiate an NP-complete relation and read off asymptotics.
+1. Transport `SamyogaSesa` through `Prasna`'s history ≃ answer-stream equivalence. Expect a theorem saying the exact residual of an n-stage interaction is the dependent answer/history family itself, not a new construction.
+2. Use `Visvarupa` tower-flattening to collapse that iterated residual to one family.
+3. Locate the corpus theorem identifying the noninvertible residual with price/distance/obstruction and the theorem giving exact minimality/rigidity. Do not invent a new PathCost unless the structural search actually leaves a residual.
+4. Locate the parallel/interchange theorem that removes serialization and leaves causal/dependency depth.
+5. Only after these transports are exhausted, instantiate the standard NP verifier lens and inspect what remains.
 
-## 11. Guardrails / corrections already learned
+## 14. Central thesis
 
-- The repository files named `P=NP...` do NOT establish standard complexity-theoretic P=NP. Their `Gap` predicate is a different information-loss/noninjectivity statement. Do not use them as the desired conclusion.
-- `SubsetSumCostLocus` proves a 2^n witness census, not an optimal deterministic lower bound.
-- A fibre with many path witnesses need not have many distinct sources; never equate fibre cardinality with collision count or search complexity.
-- A scalar reachability/debt observable can be settled while nontrivial fibre geometry remains.
-- Do not erase cubical/residual structure before pricing computation; that can manufacture artificial shortcuts or hide native work.
-- Do not count arbitrary sequential orderings of independent interactions as intrinsic depth.
+P/NP is a lens on the more primitive identity
 
-## 12. Central thesis of this lane
+    computational cost = irreducible noninvertible interaction geometry.
 
-The P/NP question is a special case of the more primitive identity:
-
-    computation cost = irreducible interaction geometry.
-
-The verifier is cheap because the decisive dependent coordinate is supplied. The deterministic solver must produce the missing determination. The mathematical task is to compute the exact geodesic cost of that production in the already-constructed universal lossless interaction calculus. P=NP or P≠NP is whatever theorem that geometry transports back to the standard deterministic/nondeterministic models.
+Verification is the continuation after the relevant dependent coordinate has been supplied. Deterministic decision must determine the propositional existence shadow without that supplied coordinate. Nondeterministic execution is the same interaction with the answer coordinate supplied. The branch/history/residual structures have already collapsed to one dependent-family object; the remaining task is to identify its exact irreducible noninvertible geometry and then transport that result back through the standard complexity-model interface.
