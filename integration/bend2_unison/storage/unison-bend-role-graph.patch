@@ -1,0 +1,170 @@
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Bend/Format.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Bend/Format.hs
+@@ -2,6 +2,7 @@
+ 
+ import Control.Monad (replicateM, unless, when)
+ import Data.ByteString (ByteString)
++import qualified Data.ByteString as Bytes
+ import Data.Bytes.Get (MonadGet, getByteString, getWord8, runGetS)
+ import Data.Vector (Vector)
+ import qualified Data.Vector as Vector
+@@ -26,6 +27,72 @@
+   }
+   deriving stock (Eq, Show)
+ 
++data DependencyRef = LocalDependency !Int | ExternalDependency !ByteString !Int
++  deriving stock (Eq, Ord, Show)
++
++-- (dependent is a type, dependency reference, dependency is a type).
++type RoleDependency = (Bool, DependencyRef, Bool)
++
++-- Read dependency roles from the canonical payload itself. This reader works
++-- for objects admitted before role-aware graph queries existed and for sync
++-- imports, so no database backfill or wire change is needed.
++memberRoleDependencies :: ByteString -> Either String (Vector [RoleDependency])
++memberRoleDependencies = runGetS do
++  magic <- getByteString 4
++  unless (magic == "B2CF") (fail "invalid Bend component magic")
++  version <- getWord8
++  unless (version == 2) (fail "unsupported Bend component version")
++  root <- getFlat
++  case root of
++    FNode "CanonicalBendComponentV2" members ->
++      Vector.fromList <$> traverse memberDependencies members
++    _ -> fail "invalid canonical Bend component root"
++  where
++    memberDependencies (FNode "Member" [term, typ]) =
++      pure (walk False term ++ walk True typ)
++    memberDependencies _ = fail "invalid canonical Bend member"
++
++    walk dependentIsType = \case
++      FNode "Absent" [] -> []
++      FNode "HTy" [hit, args] -> typeRef hit ++ walk dependentIsType args
++      FNode "HCon" [hit, _, params, args, intervals] ->
++        typeRef hit ++ concatMap (walk dependentIsType) [params, args, intervals]
++      FNode "CtorRef" [hit, _] -> typeRef hit
++      node@(FNode tag _)
++        | tag == "LocalRef" || tag == "ExternalRef" ->
++            maybe [] (\ref -> [(dependentIsType, ref, False)]) (reference node)
++      FNode _ children -> concatMap (walk dependentIsType) children
++      _ -> []
++      where
++        typeRef node = maybe [] (\ref -> [(dependentIsType, ref, True)]) (reference node)
++
++    reference (FNode "LocalRef" [FNumber n]) =
++      Just (LocalDependency (fromIntegral n))
++    reference (FNode "ExternalRef" [FNode "Digest" octets, FNumber n]) = do
++      bytes <- traverse octet octets
++      if length bytes == 64
++        then Just (ExternalDependency (Bytes.pack bytes) (fromIntegral n))
++        else Nothing
++    reference _ = Nothing
++    octet (FNumber n) | n <= 255 = Just (fromIntegral n)
++    octet _ = Nothing
++
++data FlatView = FNode !ByteString ![FlatView] | FNumber !Word64 | FOther
++
++getFlat :: (MonadGet m) => m FlatView
++getFlat = do
++  tag <- getWord8
++  case tag of
++    3 -> FNode <$> getString <*> (getCount >>= \count -> replicateM count getFlat)
++    5 -> FNumber <$> getWord64
++    6 -> FNumber <$> getWord64
++    _ -> skipTagged tag >> pure FOther
++
++getWord64 :: (MonadGet m) => m Word64
++getWord64 = do
++  octets <- replicateM 8 getWord8
++  pure (foldl' (\n octet -> n * 256 + fromIntegral octet) 0 octets)
++
+ memberRoles :: ByteString -> Either String (Vector MemberRoles)
+ memberRoles = runGetS getRoles
+ 
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Operations.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Operations.hs
+@@ -197,7 +197,7 @@
+ import Unison.Prelude
+ import Unison.ShortHash (ShortCausalHash (..), ShortNamespaceHash (..))
+ import Unison.Sqlite
+-import Unison.Util.Defns (DefnsF, defnsAreEmpty)
++import Unison.Util.Defns (Defns(..), DefnsF, defnsAreEmpty)
+ import Unison.Util.Map qualified as Map
+ import Unison.Util.Monoid (foldMapM)
+ import Unison.Util.Set qualified as Set
+@@ -1165,7 +1165,7 @@
+       adjacency <- Q.getTransitiveDependentsGraphWithinScope scope1 query1
+ 
+       -- Convert S -> C and classify dependency edge (term depends on term, etc)
+-      fmap concat $ for adjacency \(dependent0 :. Only dependentType :. dependency0 :. Only dependencyType) -> do
++      classified <- fmap concat $ for adjacency \(dependent0 :. Only dependentType :. dependency0 :. Only dependencyType) -> do
+         dependent <- s2cReferenceId dependent0
+         dependency <- s2cReference dependency0
+         dependentRoles <- rolesForId dependent0 dependentType
+@@ -1175,12 +1175,29 @@
+             | isBuiltinType dependency -> pure [TypeRole]
+             | otherwise -> pure [TermRole]
+           _ -> error ("invalid dependency object type for " ++ show dependency)
+-        pure [case (dependentRole, dependencyRole) of
+-                (TermRole, TermRole) -> TermDependsOnTerm dependent dependency
+-                (TermRole, TypeRole) -> TermDependsOnType dependent dependency
+-                (TypeRole, TermRole) -> TypeDependsOnTerm dependent dependency
+-                (TypeRole, TypeRole) -> TypeDependsOnType dependent dependency
+-             | dependentRole <- dependentRoles, dependencyRole <- dependencyRoles]
++        exact <- case dependentType of
++          ObjectType.BendComponent -> bendEdgeRoles dependent0 dependency0
++          _ -> pure Nothing
++        let pairs = fromMaybe [(a,b) | a <- dependentRoles, b <- dependencyRoles] exact
++        pure [ (case (dependentRole, dependencyRole) of
++                  (TermRole, TermRole) -> TermDependsOnTerm dependent dependency
++                  (TermRole, TypeRole) -> TermDependsOnType dependent dependency
++                  (TypeRole, TermRole) -> TypeDependsOnTerm dependent dependency
++                  (TypeRole, TypeRole) -> TypeDependsOnType dependent dependency,
++                (C.Reference.ReferenceDerived dependent0, isType dependentRole),
++                (dependency0, isType dependencyRole))
++             | (dependentRole, dependencyRole) <- pairs]
++      let seeds = Set.fromList
++            ([(ref,False) | ref <- Set.toList query1.terms] ++
++             [(ref,True) | ref <- Set.toList query1.types])
++          reachable found =
++            let next = Set.fromList
++                  [ dependentKey | (_,dependentKey,dependencyKey) <- classified,
++                                   Set.member dependencyKey found ]
++                expanded = found `Set.union` next
++             in if expanded == found then found else reachable expanded
++          found = reachable seeds
++      pure [edge | (edge,_,dependencyKey) <- classified, Set.member dependencyKey found]
+   where
+     rolesForId :: S.Reference.Id -> ObjectType.ObjectType -> Transaction [MemberRole]
+     rolesForId (C.Reference.Id oid index) = \case
+@@ -1194,6 +1211,30 @@
+             pure ([TermRole | hasTerm] ++ [TypeRole | hasType])
+       other -> error ("dependent is " ++ show other)
+ 
++    isType TypeRole = True
++    isType TermRole = False
++
++    bendEdgeRoles (C.Reference.Id dependentOid dependentIndex) dependency =
++      case dependency of
++        C.Reference.ReferenceBuiltin _ -> pure Nothing
++        C.Reference.ReferenceDerived (C.Reference.Id dependencyOid dependencyIndex) -> do
++          slots <- Q.expectBendObject dependentOid
++            (either (Left . DecodeError "Bend role dependencies") Right . BendFormat.memberRoleDependencies)
++          let possible = fromMaybe [] (slots Vector.!? fromIntegral dependentIndex)
++          dependencyHash <- if dependencyOid == dependentOid
++            then pure Nothing
++            else Just . H.toByteString <$> Q.expectPrimaryHashByObjectId dependencyOid
++          let matches (_, ref, _) = case ref of
++                BendFormat.LocalDependency slot ->
++                  dependencyOid == dependentOid && fromIntegral dependencyIndex == slot
++                BendFormat.ExternalDependency digest slot ->
++                  dependencyHash == Just digest && fromIntegral dependencyIndex == slot
++              roles (dependentIsType, _, dependencyIsType) =
++                (if dependentIsType then TypeRole else TermRole,
++                 if dependencyIsType then TypeRole else TermRole)
++              matched = map roles (filter matches possible)
++          pure (if null matched then Nothing else Just matched)
++
+ data MemberRole = TermRole | TypeRole
+ 
+ -- | returns a list of known definitions referencing `h`
