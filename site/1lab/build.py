@@ -45,15 +45,26 @@ SANSKRIT_LABEL = re.compile(r"\bSanskrit\b", re.I)
 # Non Jain Sanskrit glosses and invented prefixes that must not appear in the
 # public presentation. Jain vocabulary such as naya, pramana, karma, moksa,
 # and saptabhangi is intentionally retained.
-NON_JAIN_SANSKRIT = re.compile(
-    r"\b(?:avatara(?:na|nika)?|sesa|samvada|krama(?:niyama)?|yantra|bhavana|"
-    r"visvarupa|punaragamana(?:m)?|kosa|ksitija|pratibimba|parivarta|vakra|"
-    r"valaya|sima|prastha|khanda|adhah|shunya|garbha|upadhi|kuttaka|sthana|"
-    r"sankhya|sakala|vikala|desa|samagra|samata|dvidha|jiva|jivita|tantu|"
-    r"srotas|sanghata|sankramana|samuha|pratyahara|pratyaya|nirjara|kaivalya|"
-    r"dharma|sutra|pada|sakti|purna|purnata|pariksa|pramanya|viveka|nucleus)\b",
-    re.I,
-)
+NON_JAIN_SANSKRIT = {
+    "avataranika": "descent-note", "avatarana": "descent", "sesa": "residue",
+    "samvada": "interaction", "krama": "order", "niyama": "rule",
+    "yantra": "machine", "bhavana": "composition", "visvarupa": "universal",
+    "punaragamana": "return", "punaragam": "return", "kosa": "shell",
+    "ksitija": "horizon", "pratibimba": "reflection", "parivarta": "exchange",
+    "vakra": "curved", "valaya": "loop", "sima": "boundary",
+    "prastha": "block", "khanda": "segment", "adhah": "lower",
+    "shunya": "zero", "garbha": "kernel", "upadhi": "qualifier",
+    "kuttaka": "euclidean", "sthana": "position", "sankhya": "count",
+    "sakala": "whole", "vikala": "partial", "desa": "region",
+    "samagra": "total", "samata": "equality", "dvidha": "split",
+    "tantu": "fiber", "srotas": "stream", "sanghata": "aggregate",
+    "sankramana": "transport", "samuha": "set", "pratyahara": "contraction",
+    "pratyaya": "evidence", "nirjara": "reduction", "kaivalya": "decoupling",
+    "sutra": "rule-text", "pada": "term", "sakti": "capacity",
+    "purna": "complete", "purnata": "completeness", "pariksa": "check",
+    "pramanya": "warrant", "viveka": "distinction", "nucleus": "kernel",
+}
+NON_JAIN_SANSKRIT_RE = re.compile(r"\b(" + "|".join(map(re.escape, NON_JAIN_SANSKRIT)) + r")\b", re.I)
 
 
 class PlainText(HTMLParser):
@@ -306,7 +317,7 @@ def scrub_public_output() -> None:
         cleaned = SANSKRIT_SCRIPT.sub("", content)
         cleaned = SANSKRIT_MARKS.sub("", cleaned)
         cleaned = SANSKRIT_LABEL.sub("", cleaned)
-        cleaned = NON_JAIN_SANSKRIT.sub("", cleaned)
+        cleaned = NON_JAIN_SANSKRIT_RE.sub(lambda m: NON_JAIN_SANSKRIT[m.group(1).lower()], cleaned)
         if cleaned != content:
             path.write_text(cleaned, encoding="utf-8")
 
