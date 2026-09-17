@@ -1,267 +1,412 @@
-# Finite-field logarithmic cube identities
+# Finite-field logarithmic cube identities — theorem-grade ledger
 
-**Date:** 2026-09-17
+**Date:** 2026-09-17  
+**Purpose:** persistent source of truth for the finite-field/logarithmic branch of the cubical SAT/geodesic work. Everything below is either an elementary theorem proved inline or explicitly marked as an interpretation. No mathematical obligation is left merely as a suggestion.
 
-This note continues the SAT/cubical-geodesic line in exact finite-field coordinates. No complexity folklore is used. The objects are finite fields, cyclic multiplicative coordinates, affine/additive coordinates, fibres, and exact transformations.
+## 0. Notation and the exact object
 
-## 1. Two exact coordinate systems on the same finite field
+Let `p` be prime, `n >= 1`, and
 
-Let q=p^n and let F=GF(q). The additive carrier is an n-dimensional vector space over GF(p). For p=2 it is literally an n-bit affine cube GF(2)^n.
+\[
+q=p^n.
+\]
 
-The nonzero carrier F^× is cyclic of order m=q-1. Choose a primitive element g. Then
+There exists, up to field isomorphism, a unique finite field with `q` elements. Denote it
 
-    exp_g : Z/m -> F^×,  a |-> g^a
+\[
+F=\mathbb F_q=\mathbb F_{p^n}.
+\]
 
-is a group isomorphism, with inverse log_g. Multiplication becomes addition:
+Its characteristic is `p`, so adding `1` to itself `p` times gives zero. It contains a canonical copy of the prime field `F_p`.
 
-    log_g(g^a g^b) = a+b mod m.
+As a vector space over `F_p`, `F_q` has dimension `n`. Choosing an `F_p`-basis `e_1,...,e_n` gives a coordinate isomorphism of additive groups
 
-Thus multiplication is flat translation in logarithmic coordinates.
+\[
+(\mathbb F_q,+)\cong(\mathbb F_p^n,+),
+\qquad
+x=\sum_i a_i e_i\longleftrightarrow(a_1,...,a_n).
+\]
 
-## 2. Transport field addition into logarithmic coordinates
+This is basis-dependent as a coordinate map but basis-independent as the statement that the additive group is an `n`-dimensional `F_p` vector space. For `p=2`, each `a_i` is a bit, so the underlying additive carrier is literally the Boolean vertex cube `\{0,1\}^n` with XOR as addition.
 
-For a,b in Z/m with g^a+g^b != 0, define
+Remove zero. The multiplicative group
 
-    a boxplus b = log_g(g^a+g^b).
+\[
+\mathbb F_q^\times=\mathbb F_q\setminus\{0\}
+\]
 
-Factor g^a:
+has `q-1` elements and is cyclic. Put
 
-    g^a+g^b = g^a(1+g^(b-a)).
+\[
+m=q-1.
+\]
+
+Choose a primitive element `g`, meaning an element of multiplicative order exactly `m`. Then every nonzero field element occurs uniquely as `g^a` for `a` modulo `m`. Hence
+
+\[
+\exp_g:\mathbb Z/m\mathbb Z\overset\cong\longrightarrow\mathbb F_q^\times,
+\qquad a\mapsto g^a,
+\]
+
+is a group isomorphism, with inverse `log_g`.
+
+Thus the same field has two exact presentations relevant here:
+
+\[
+(\mathbb F_q,+)\cong(\mathbb F_p)^n
+\]
+
+and
+
+\[
+(\mathbb F_q^\times,\cdot)\cong\mathbb Z/(q-1)\mathbb Z.
+\]
+
+They preserve different operations. The first linearizes **field addition**; the second linearizes **field multiplication**. They are not an isomorphism between the two displayed groups, which even have different cardinalities (`q` versus `q-1`). They are two coordinate views of overlapping structure on the same field carrier.
+
+Under the logarithmic chart,
+
+\[
+\log_g(g^ag^b)=a+b\pmod m.
+\]
+
+Changing primitive generator from `g` to `g^u`, with `gcd(u,m)=1`, rescales logarithmic coordinates by the unit `u^{-1}` modulo `m`. Therefore the particular exponent labels are chart data, while the cyclic multiplicative geometry is intrinsic.
+
+---
+
+## 1. Transport field addition into logarithmic coordinates
+
+For `a,b in Z/m` with `g^a+g^b != 0`, define
+
+\[
+a\boxplus b=\log_g(g^a+g^b).
+\]
+
+Factor:
+
+\[
+g^a+g^b=g^a(1+g^{b-a}).
+\]
 
 Define the one-variable logarithmic addition residual
 
-    lambda(d) = log_g(1+g^d)
+\[
+\lambda(d)=\log_g(1+g^d)
+\]
 
-on the domain D = {d : 1+g^d != 0}. Then exactly
+on
 
-    a boxplus b = a + lambda(b-a).
+\[
+D=\{d\in\mathbb Z/m:1+g^d\ne0\}.
+\]
 
-So the two-input field addition law factors through one absolute translation coordinate a and one relative coordinate d=b-a. All nonlinear incidence is concentrated in lambda.
+### Theorem 1.1 — relative-coordinate factorization
 
-The exceptional locus is 1+g^d=0, equivalently g^d=-1. In odd characteristic, m is even and the unique exceptional exponent is d=m/2. In characteristic two, -1=1 and the unique exceptional exponent is d=0.
+\[
+\boxed{a\boxplus b=a+\lambda(b-a)\pmod m.}
+\]
 
-## 3. Inversion identity
+**Proof.** Apply `log_g` to `g^a(1+g^{b-a})`; logarithm converts multiplication into addition. ∎
 
-For every d for which both sides are defined,
+Hence the two-input addition law in multiplicative coordinates consists of one absolute translation coordinate `a` plus one relative coordinate `d=b-a`. All nontrivial interaction between the additive and multiplicative presentations is concentrated in `lambda` and the point where it is undefined.
 
-    1+g^(-d) = g^(-d)(1+g^d).
+### Theorem 1.2 — exact seam
 
-Taking logarithms gives
+`lambda(d)` is undefined exactly when `g^d=-1`.
 
-    lambda(-d) = lambda(d)-d mod m.
+- If `p` is odd, `m` is even and the unique seam is `d=m/2`.
+- If `p=2`, `-1=1` and the unique seam is `d=0`.
 
-Equivalently
+**Proof.** `1+g^d=0 iff g^d=-1`. In a cyclic group there is a unique order-two element when `m` is even, namely `g^{m/2}`. In characteristic two, `-1=1=g^0`. ∎
 
-    lambda(d) = d + lambda(-d).
+---
 
-This is exactly commutativity of transported addition:
+## 2. Exact identities of lambda
 
-    a + lambda(b-a) = b + lambda(a-b).
+### Theorem 2.1 — inversion identity
 
-## 4. Frobenius equivariance
+Whenever defined,
 
-In characteristic p,
+\[
+\boxed{\lambda(-d)=\lambda(d)-d\pmod m.}
+\]
 
-    (1+x)^p = 1+x^p.
+**Proof.**
 
-Therefore
+\[
+1+g^{-d}=g^{-d}(1+g^d).
+\]
 
-    1+g^(pd) = (1+g^d)^p,
+Take logarithms. ∎
 
-and hence
+Equivalently `lambda(d)=d+lambda(-d)`. Substituting `d=b-a` recovers commutativity of field addition in log coordinates.
 
-    lambda(pd) = p lambda(d) mod m.
+### Theorem 2.2 — Frobenius equivariance
 
-Iterating,
+For every `d` in the domain,
 
-    lambda(p^k d) = p^k lambda(d) mod m.
+\[
+\boxed{\lambda(pd)=p\lambda(d)\pmod m.}
+\]
 
-Since p^n=q == 1 mod (q-1), the nth iterate returns. Thus lambda commutes with the Frobenius permutation d |-> pd of exponent coordinates and descends orbitwise to p-cyclotomic cosets modulo q-1.
+More generally,
 
-## 5. Characteristic two: lambda is an involution
+\[
+\lambda(p^kd)=p^k\lambda(d)\pmod m.
+\]
 
-Now q=2^n, m=q-1, D=Z/m \ {0}. For d != 0,
+**Proof.** In characteristic `p`, `(1+x)^p=1+x^p`. Therefore
 
-    g^(lambda(d)) = 1+g^d.
+\[
+1+g^{pd}=(1+g^d)^p.
+\]
 
-Apply 1+(-) again. Since 1+1=0,
+Take logarithms. Iterate. ∎
 
-    1+g^(lambda(d)) = 1+(1+g^d)=g^d.
+Since `p^n=q == 1 mod (q-1)`, exponent multiplication by `p` has order dividing `n`. Thus `lambda` respects the `p`-cyclotomic/Frobenius orbit decomposition modulo `m`.
 
-Therefore
+### Theorem 2.3 — characteristic-two involution
 
-    lambda(lambda(d)) = d.
+Let `q=2^n`, `m=q-1`, `D=Z/m \ {0}`. Then
 
-There are no fixed points: lambda(d)=d would imply 1+g^d=g^d and hence 1=0. Thus lambda is a fixed-point-free involution of the q-2 nonzero exponent differences.
+\[
+\boxed{\lambda^2=\mathrm{id}_D.}
+\]
 
-Combined with Frobenius,
+Moreover `lambda` has no fixed points on `D`.
 
-    lambda(2d)=2lambda(d),
+**Proof.** If `g^{lambda(d)}=1+g^d`, then
 
-so this involution commutes with the doubling/Frobenius action.
+\[
+1+g^{\lambda(d)}=1+(1+g^d)=g^d
+\]
 
-## 6. The anharmonic S3 action appears exactly
+because `1+1=0`. Taking logs gives `lambda(lambda(d))=d`. If `lambda(d)=d`, then `1+g^d=g^d`, hence `1=0`, contradiction. ∎
 
-Still in characteristic two, work on
+Thus the `q-2` admissible nonzero relative exponents pair exactly under `lambda`.
 
-    U = F \ {0,1}.
+---
+
+## 3. Projective S3 geometry in characteristic two
+
+Let
+
+\[
+U=\mathbb F_{2^n}\setminus\{0,1\}.
+\]
 
 Define
 
-    A(x)=1+x,
-    B(x)=x^(-1).
+\[
+A(x)=1+x,\qquad B(x)=x^{-1}.
+\]
 
-Both preserve U and satisfy
+### Theorem 3.1 — anharmonic relations
 
-    A^2 = id,
-    B^2 = id.
+\[
+\boxed{A^2=B^2=(AB)^3=\mathrm{id}.}
+\]
 
-Moreover
+**Proof.** `A^2(x)=1+(1+x)=x`; `B^2(x)=x`. Also
 
-    AB(x) = 1+x^(-1) = (x+1)/x.
+\[
+AB(x)=1+x^{-1}=\frac{x+1}{x},
+\]
 
-A direct calculation gives
+\[
+(AB)^2(x)=\frac1{x+1},
+\]
 
-    (AB)^2(x)=1/(x+1),
-    (AB)^3(x)=x.
+and applying once more gives `x`. ∎
 
-Hence
+Hence `A,B` generate the standard anharmonic `S_3` action permuting the marked projective points `{0,1,infinity}`.
 
-    A^2=B^2=(AB)^3=id.
+Under `x=g^d`, define `L(d)=lambda(d)` and `N(d)=-d`. Then
 
-These generate the anharmonic S3 action permuting the three marked points {0,1,infinity} of the projective line P^1(F).
+\[
+\boxed{L^2=N^2=(LN)^3=\mathrm{id}.}
+\]
 
-In logarithmic exponent coordinates x=g^d:
+The six generic transforms correspond to
 
-    B corresponds to N(d)=-d,
-    A corresponds to L(d)=lambda(d).
+\[
+x,\quad1+x,\quad1/x,\quad1/(1+x),\quad x/(1+x),\quad(1+x)/x.
+\]
 
-Therefore on D=Z/m\{0},
+Thus `lambda` is not arbitrary finite data; it is one generator of an exact projective symmetry action.
 
-    L^2=N^2=(LN)^3=id.
+### Theorem 3.2 — orbit sizes
 
-The six transforms of a generic exponent d are the logarithmic presentations of
+Generic `S_3` orbits in `U` have size six. In characteristic two, transpositions have no fixed points in `U`. A 3-cycle fixes precisely the roots of
 
-    x,
-    1+x,
-    1/x,
-    1/(1+x),
-    x/(1+x),
-    (1+x)/x.
+\[
+x^2+x+1=0.
+\]
 
-Thus the elementary field-addition residual is not an arbitrary lookup table: it carries an exact projective S3 symmetry.
+These are the nontrivial cube roots of unity. They exist in `F_{2^n}` iff `3 | (2^n-1)`, equivalently iff `n` is even.
 
-## 7. Orbit sizes and exceptional stabilizers
+Therefore:
 
-Generic S3 orbits have six points. Smaller orbits occur exactly at nontrivial stabilizers.
+- `n` odd: every point of `U` lies in a six-element `S_3` orbit;
+- `n` even: the two nontrivial cube roots form one two-element orbit, and every remaining point lies in a six-element orbit.
 
-A fixes x iff 1+x=x, impossible in any field.
+**Proof.** Orbit-stabilizer plus the displayed fixed-point equations. `2^n mod 3` alternates `2,1`, so divisibility occurs exactly for even `n`. ∎
 
-B fixes x iff x^2=1. In characteristic two this gives x=1, excluded from U, so B has no fixed point on U.
+---
 
-The third transposition x |-> x/(1+x) similarly has no fixed point on U in characteristic two.
+## 4. Galois/Frobenius geometry and compatibility
 
-A 3-cycle fixes x when
+The Frobenius automorphism is
 
-    (x+1)/x = x,
+\[
+\sigma(x)=x^p.
+\]
 
-so
+For `F_{p^n}/F_p`, the Galois group is cyclic of order `n`, generated by `sigma`.
 
-    x^2+x+1=0.
+### Theorem 4.1 — Frobenius in exponent coordinates
 
-Equivalently x is a nontrivial cube root of unity. Such points exist in GF(2^n) exactly when 3 divides 2^n-1, i.e. n is even. Then the two roots form one S3 orbit of size two; otherwise every orbit in U has size six.
+\[
+\boxed{\log_g(\sigma(g^d))=pd\pmod m.}
+\]
 
-Since |U|=2^n-2, this gives the exact divisibility check:
+So Galois evolution is multiplication of exponent coordinates by `p` modulo `m`.
 
-- n odd: 2^n-2 is divisible by 6 and all U decomposes into 6-orbits;
-- n even: two exceptional cube roots form a 2-orbit and the remaining 2^n-4 points decompose into 6-orbits.
+### Theorem 4.2 — in characteristic two, Frobenius commutes with the projective S3 action
 
-## 8. Frobenius and S3 commute
+For `A(x)=1+x`, `B(x)=x^{-1}`, `sigma(x)=x^2`,
 
-Every S3 transformation above is defined over the prime field GF(2), so Frobenius sigma(x)=x^2 commutes with it:
+\[
+\sigma A=A\sigma,\qquad \sigma B=B\sigma.
+\]
 
-    sigma(Ax)=A(sigma x),
-    sigma(Bx)=B(sigma x).
+**Proof.** `(1+x)^2=1+x^2` and `(x^{-1})^2=(x^2)^{-1}`. ∎
 
-In exponent coordinates this is exactly
+In exponent coordinates this is
 
-    2 lambda(d)=lambda(2d),
-    -2d=2(-d).
+\[
+\lambda(2d)=2\lambda(d),\qquad -2d=2(-d).
+\]
 
-Hence U carries a commuting action of S3 and the cyclic Galois group Gal(GF(2^n)/GF(2))=<sigma>. The logarithmic residual geometry is organized by joint S3 x C_n orbits, with stabilizer intersections determining orbit contraction.
+Hence the logarithmic residual geometry carries commuting `S_3` and cyclic Galois actions. Its exact quotient can therefore be organized by joint orbits and stabilizers; equivalent orbit points must not be charged as independent structure in any presentation-invariant cost.
 
-## 9. Discrete logarithm as an exact chart and its seam
+---
 
-The logarithm is not a map F -> Z/m: zero is missing. The exact chart is
+## 5. Prime geometry as exact fibre geometry
 
-    F^× ~= Z/m.
+Consider the ring `Z/nZ` and multiplication map
 
-Field multiplication is closed in this chart. Field addition is not: the diagonal a=b in characteristic two maps to zero,
+\[
+\mu_a(x)=ax.
+\]
 
-    g^a+g^a=0.
+### Theorem 5.1 — primality equivalences
 
-Thus the additive law transported through the multiplicative chart has an exact seam at relative coordinate d=0. Away from that seam, all addition is encoded by lambda.
+For `n>1`, the following are equivalent:
 
-This is the finite-field instance of the repository's general presentation/fibre distinction: a chart can flatten one operation completely while moving the residual structure of another operation into a transition/fibre at the chart boundary.
+1. `n` is prime;
+2. every nonzero residue is a unit;
+3. every `mu_a` with `a != 0` is a permutation;
+4. every such `mu_a` has zero fibre/kernel exactly `{0}`;
+5. there are no nonzero zero divisors.
 
-## 10. Prime fields as the no-zero-divisor locus
+**Proof.** If `n=p` is prime, `Z/pZ` is a field. Conversely if `n=rs` with `1<r,s<n`, then the nonzero classes of `r,s` satisfy `rs=0 mod n`, producing a nontrivial zero fibre. ∎
 
-For Z/nZ, multiplication by a nonzero a has kernel
+Thus the prime/composite boundary is literally a change in multiplicative fibre geometry: at a prime modulus every nonzero multiplicative direction is invertible; at a composite modulus some nonzero direction collapses distinct points into the zero fibre.
 
-    ker(mu_a) = {x : ax=0 mod n}.
+---
 
-If n=p is prime, every nonzero a is invertible, so every such kernel is {0}. Conversely, if n is composite, choose a proper divisor d with 1<d<n. Then d*(n/d)=0 mod n with both factors nonzero. Therefore
+## 6. Boolean cube / affine geometry / SAT
 
-    n prime
-    iff
-    for every a != 0, ker(mu_a)={0}
-    iff
-    every nonzero multiplication map mu_a is a permutation
-    iff
-    (Z/nZ)^× = (Z/nZ)\{0}.
+For `p=2`,
 
-So primality is exactly the statement that the multiplicative geometry has no nontrivial zero fibre away from the origin.
+\[
+(\mathbb F_2)^N=\{0,1\}^N
+\]
 
-## 11. Affine Boolean geometry and 3SAT
+as sets, with vector addition equal to bitwise XOR.
 
-For q=2^N, the additive carrier GF(2)^N is exactly the Boolean N-cube. A partial Boolean assignment fixing k coordinates is an affine coordinate flat of codimension k. A violated 3SAT clause is a codimension-three coordinate flat. Compatible clause intersections are intersections of such affine flats; incompatible intersections are empty.
+A partial assignment fixing `k` coordinates is a coordinate affine flat of codimension `k`, hence has `2^{N-k}` vertices. A violated exactly-three-literal clause fixes three coordinates and is a codimension-three coordinate flat.
 
-Thus the previously derived SAT inclusion-exclusion identity is literally finite affine incidence geometry:
+For a 3CNF with violated flats `V_alpha`,
 
-    #SAT(F) = sum_{T compatible} (-1)^|T| 2^(N-r(T)).
+\[
+F\text{ UNSAT}\iff\bigcup_\alpha V_\alpha=\mathbb F_2^N.
+\]
 
-The exponent N-r(T) is the affine dimension of the intersection flat. The overlap tower is therefore a dimension-weighted incidence transform of the clause-flat arrangement.
+If `T` is a compatible clause subset and `r(T)` is the number of distinct coordinates fixed by its union, then
 
-## 12. Exact relation to the geodesic line
+\[
+\bigcap_{\alpha\in T}V_\alpha\cong\mathbb F_2^{N-r(T)}
+\]
 
-The field calculation gives a concrete warning and a concrete opportunity.
+and therefore
 
-Warning: an operation that appears globally nonlinear in one coordinate system may become translation in an equivalent chart. Multiplication on F^× is the canonical example. Therefore a lower-bound certificate cannot charge coordinate syntax; it must survive exact chart transport.
+\[
+\boxed{
+\#SAT(F)=\sum_{T\text{ compatible}}(-1)^{|T|}2^{N-r(T)}.
+}
+\]
 
-Opportunity: after transporting multiplication to addition, the entire interaction between the additive and multiplicative structures is concentrated in lambda and its seam. lambda is constrained by:
+This is inclusion-exclusion written entirely as finite affine incidence geometry. The exponent is the dimension of the actual intersection flat.
 
-    lambda(-d)=lambda(d)-d,
-    lambda(pd)=p lambda(d),
+A crucial control already derived in the SAT notebook: exponentially many distinct intersections do not imply exponential intrinsic reduction cost. Pairwise-disjoint 3-clauses have `2^m` distinct compatible intersections but the entire satisfying object factors as a product of `m` seven-point local pieces. Thus cardinality of vertices/intersections is not geodesic length.
 
-and in characteristic two additionally
+---
 
-    lambda^2=id,
-    N^2=id,
-    (lambda N)^3=id.
+## 7. Exact presentation lesson
 
-Thus the residual is already highly quotiented by exact symmetry. Any geodesic potential on this field geometry should be constant/equivariant on these exact orbit identifications rather than charging six equivalent projective presentations separately.
+The two finite-field charts provide the cleanest elementary example of the repository's general presentation principle.
 
-## 13. Immediate compression of the whole picture
+In additive coordinates `F_p^n`, addition is componentwise linear while multiplication is the structured operation determined by the chosen field extension.
 
-For GF(2^n):
+In multiplicative log coordinates `Z/(q-1)`, multiplication becomes ordinary cyclic addition, while field addition becomes
 
-    additive geometry      = n-bit affine cube,
-    multiplicative geometry = cyclic (2^n-1)-gon in exponent coordinates,
-    multiplication         = exponent translation,
-    addition               = a + lambda(b-a),
-    additive-zero seam     = b-a=0,
-    projective symmetry    = S3 generated by lambda and exponent negation,
-    Galois symmetry        = d |-> 2d,
-    joint exact symmetry   = commuting S3 and C_n actions.
+\[
+a\boxplus b=a+\lambda(b-a)
+\]
 
-So the same finite object simultaneously presents a cube, a cyclic logarithmic chart, a projective line with three marked points, and a Galois orbit geometry. These are not analogies: the maps above are explicit identities between the presentations.
+with a one-point seam where the sum is zero.
+
+Therefore operation cost visible in one syntax cannot by itself be intrinsic. Exact equivalences can move structure between the carrier, the operation, and a residual/seam. A presentation-invariant geodesic certificate must survive these transports.
+
+This is directly consonant with the existing repository results that equivalent output coordinates preserve fibres proof-relevantly and that mutually simulating action presentations induce isomorphic complete-future quotients.
+
+---
+
+## 8. Theorem-grade bridge to the geodesic work
+
+Let a primitive reduction graph have weighted edges `u -> v` of cost `w(u,v)`. A potential `Phi` with
+
+\[
+\Phi(t)=0
+\]
+
+on terminal states and
+
+\[
+\Phi(u)\le w(u,v)+\Phi(v)
+\]
+
+on every primitive edge gives, by summing along any terminal path,
+
+\[
+\operatorname{cost}(\gamma)\ge\Phi(u_0).
+\]
+
+If a native path has equality at every edge, its cost equals `Phi(u_0)` and it is geodesic. This is the exact local-to-global lower-bound mechanism already isolated in the SAT derivation.
+
+For finite-field/logarithmic geometry, any such `Phi` intended to be intrinsic must respect the exact equivalences above. In particular, in characteristic two it cannot distinguish points solely because they lie in different representatives of the same projective/Galois orbit unless the primitive cost semantics itself distinguishes them. The identities `lambda^2=id`, `(lambda N)^3=id`, and Frobenius equivariance are therefore exact reductions of the coordinate space on which a legitimate potential is constructed.
+
+This paragraph is an interpretation/application of the proved identities, not an additional finite-field theorem.
+
+---
+
+## 9. Compact resume table
+
+For `F=F_{2^n}` and primitive `g`:
+
+| Object | Exact presentation |
+|---|---|
+| additive carrier | `F_2^n`, an `n`-bit affine cube |
+| nonzero multiplic
