@@ -211,3 +211,8 @@ Bend language or adding a second source syntax.
   in one transaction and committed successfully. These are local source and
   database checks; authenticated remote Share push/pull is still an explicit
   production gate.
+
+* Reverse application was also verified against
+  `/private/tmp/share-bend-forward-green.9IaP9w` with
+  `patch -R -p1 --dry-run`; all 11 files reversed and the command exited
+  zero. The recovered artifact is therefore bidirectionally portable.
