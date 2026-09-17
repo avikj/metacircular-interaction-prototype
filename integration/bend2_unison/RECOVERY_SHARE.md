@@ -201,3 +201,13 @@ Bend language or adding a second source syntax.
   verified with `patch -p1 --dry-run` against the baseline; all 11 expected
   files patched and the command exited zero. Commits: `6ed19b36e` ledger,
   `6e5ce3edd` recovered patch, `ec5ec87e9` portable paths.
+
+* Build evidence recovered from `/private/tmp/share-bend-server-build9.log`:
+  Stack compiled all 192 Share modules, linked the `share-api` executable,
+  and registered the library successfully. PostgreSQL 15.4 evidence is in
+  `/private/tmp/share-pg15-migrations.log`: the native migration applied with
+  `ALTER TYPE`, native table/index/function creation, and zero errors. The
+  fixture `/private/tmp/share-pg15-bend-fixture.log` inserted 22 native rows
+  in one transaction and committed successfully. These are local source and
+  database checks; authenticated remote Share push/pull is still an explicit
+  production gate.
