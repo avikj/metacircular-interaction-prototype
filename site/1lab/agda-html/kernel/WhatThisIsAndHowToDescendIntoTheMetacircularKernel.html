@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>WhatThisIsAndHowToDescendIntoTheMetacircularKernel</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Symbol">{-#</a> <a id="5" class="Keyword">OPTIONS</a> <a id="13" class="Pragma">--cubical</a> <a id="23" class="Pragma">--guardedness</a> <a id="37" class="Pragma">--safe</a> <a id="44" class="Pragma">--no-import-sorts</a> <a id="62" class="Symbol">#-}</a>
+
+<a id="67" class="Comment">------------------------------------------------------------------------</a>
+<a id="140" class="Comment">-- WhatThisIsAndHowToDescendIntoTheMetacircularKernel</a>
+<a id="194" class="Comment">--</a>
+<a id="197" class="Comment">-- ENTRY POINT.  Read this before deciding what this repository is.</a>
+<a id="265" class="Comment">--</a>
+<a id="268" class="Comment">-- TERM.  अवतरणिका · avataraṇikā -- the short passage a commentator supplies</a>
+<a id="345" class="Comment">-- to bring a reader DOWN into the section that follows; from अवतरण, descent.</a>
+<a id="423" class="Comment">-- It is standard across the bhāṣya/ṭīkā tradition and I attribute it to no</a>
+<a id="499" class="Comment">-- single author or text, because I have not established a first use and a</a>
+<a id="574" class="Comment">-- date I did not check would be a fabricated provenance.  The term is used</a>
+<a id="650" class="Comment">-- here in its ordinary technical sense and nothing below is claimed to be</a>
+<a id="725" class="Comment">-- any commentator&#39;s mathematics.</a>
+<a id="759" class="Comment">--</a>
+<a id="762" class="Comment">-- WHY THIS FILE IS AGDA AND NOT PROSE.  Markdown is banned in this</a>
+<a id="830" class="Comment">-- repository (owner, 2026-08-24).  More to the point: every structural claim</a>
+<a id="908" class="Comment">-- this file makes about the kernel is a LIVE DEPENDENCY below the fold --</a>
+<a id="983" class="Comment">-- the imports and the terms in §B.  If a claim here stops being true, this</a>
+<a id="1059" class="Comment">-- file goes red.  A document that cannot go red is a document nobody has to</a>
+<a id="1136" class="Comment">-- keep true.</a>
+<a id="1150" class="Comment">--</a>
+<a id="1153" class="Comment">------------------------------------------------------------------------</a>
+<a id="1226" class="Comment">-- §0.  THE MISCALIBRATION.  Stated first because it is the single most</a>
+<a id="1298" class="Comment">--      expensive failure this project has, it is measured, and it is</a>
+<a id="1368" class="Comment">--      recognisable from the inside only if you are warned.</a>
+<a id="1429" class="Comment">------------------------------------------------------------------------</a>
+<a id="1502" class="Comment">--</a>
+<a id="1505" class="Comment">-- An arriving mind reliably lands on one of four wrong frames, in this</a>
+<a id="1577" class="Comment">-- order, each an improvement on the last and each still wrong:</a>
+<a id="1641" class="Comment">--</a>
+<a id="1644" class="Comment">--   (1) &quot;agentic orchestration with a formal appendix&quot; -- from the Haskell</a>
+<a id="1720" class="Comment">--       under machine/ and the shell scripts.  False: the Haskell is a</a>
+<a id="1792" class="Comment">--       harness, the mathematics is the Agda.</a>
+<a id="1839" class="Comment">--   (2) &quot;a book about India with an Agda appendix&quot; -- from the Sanskrit file</a>
+<a id="1917" class="Comment">--       names and the citation apparatus.  Inverted: the naming discipline</a>
+<a id="1993" class="Comment">--       is a research directive with a measured payoff (older statements are</a>
+<a id="2071" class="Comment">--       frequently sharper and more algorithmic than the versions that</a>
+<a id="2143" class="Comment">--       displaced them), and the checked substrate is the technology.</a>
+<a id="2214" class="Comment">--   (3) &quot;advanced research, and I can summarise it.&quot;  The sensation of</a>
+<a id="2286" class="Comment">--       having the picture is the reliable signal of not having gone deep</a>
+<a id="2361" class="Comment">--       enough.  The design is self-similar and rewards descent well past</a>
+<a id="2436" class="Comment">--       where software intuition quits.</a>
+<a id="2477" class="Comment">--   (4) &quot;so I should find something to audit.&quot;  Measured across cold</a>
+<a id="2547" class="Comment">--       entries: correctly recognising the work as advanced, then proposing</a>
+<a id="2624" class="Comment">--       to verify, consolidate or tidy something.  That is the same flinch</a>
+<a id="2700" class="Comment">--       as hollow formalisation wearing the opposite costume.  Verification</a>
+<a id="2777" class="Comment">--       is a gate on your creation, never the work itself.</a>
+<a id="2837" class="Comment">--</a>
+<a id="2840" class="Comment">-- ONE TEST, applied before writing anything: if you could have produced your</a>
+<a id="2918" class="Comment">-- sentence without having read the specific checked term it is about, you</a>
+<a id="2993" class="Comment">-- are narrating from your prior.  Go read the term.</a>
+<a id="3046" class="Comment">--</a>
+<a id="3049" class="Comment">-- CALIBRATION.  This is not a codebase with some proofs in it.  It is</a>
+<a id="3120" class="Comment">-- cubical type theory in which univalence COMPUTES, carrying a checked</a>
+<a id="3192" class="Comment">-- calculus of loss, a self-revising proof kernel, exact learning theory</a>
+<a id="3265" class="Comment">-- about what a verifier can teach a generator, and a formal metaphysics in</a>
+<a id="3341" class="Comment">-- which isEquiv = perfect self-knowledge is a type rather than a slogan.</a>
+<a id="3415" class="Comment">-- Assume the work is above your default register and you will be right.</a>
+<a id="3488" class="Comment">--</a>
+<a id="3491" class="Comment">------------------------------------------------------------------------</a>
+<a id="3564" class="Comment">-- §1.  THE SUBSTRATE.  (atemporal)</a>
+<a id="3600" class="Comment">------------------------------------------------------------------------</a>
+<a id="3673" class="Comment">--</a>
+<a id="3676" class="Comment">-- Cubical Agda: `ua`&#39;s β-rule REDUCES.  An equivalence is therefore not a</a>
+<a id="3751" class="Comment">-- fact you cite, it is a channel that acts -- `transp (ua e)` carries any</a>
+<a id="3826" class="Comment">-- theorem across, both directions, on the nose, for free.  §B&#39;s</a>
+<a id="3891" class="Comment">-- `univalence-acts` is that fact as a one-line term, and it is the whole</a>
+<a id="3965" class="Comment">-- reason the rest is possible.  Everything else in this repository is either</a>
+<a id="4043" class="Comment">-- downstream of that or is apparatus around it.</a>
+<a id="4092" class="Comment">--</a>
+<a id="4095" class="Comment">------------------------------------------------------------------------</a>
+<a id="4168" class="Comment">-- §2.  THE ONE PRIMITIVE: THE FIBRE LAW.  (atemporal)</a>
+<a id="4223" class="Comment">------------------------------------------------------------------------</a>
+<a id="4296" class="Comment">--</a>
+<a id="4299" class="Comment">--   fibre/src/Loss/Carrier.agda   (153 lines)</a>
+<a id="4346" class="Comment">--</a>
+<a id="4349" class="Comment">-- For f : A → B, the question is WHICH SIDE OF `f a ≡ b` IS BOUND.</a>
+<a id="4417" class="Comment">--</a>
+<a id="4420" class="Comment">--   bind the OUTPUT:  the fibre is `singl (f a)`, ALWAYS contractible.</a>
+<a id="4492" class="Comment">--                     Hence A ≃ Carrier f: the carried datum rides free.</a>
+<a id="4566" class="Comment">--   bind the INPUT:   the fibre is `fiber f b`, contractible exactly when f</a>
+<a id="4643" class="Comment">--                     is an equivalence.  That is the exact loss.</a>
+<a id="4710" class="Comment">--</a>
+<a id="4713" class="Comment">-- Two theorems, one Σ.  Follow that same object through its six readings --</a>
+<a id="4790" class="Comment">-- memory, charge, symmetry, price, distance, verdict -- and out to</a>
+<a id="4858" class="Comment">-- SankramanaSesa (every transport owes its residual), Saptabhangi (a boolean</a>
+<a id="4936" class="Comment">-- verdict is a theorem-grade error, not a simplification), and the kernel</a>
+<a id="5011" class="Comment">-- node that revised its own validity rule using only itself.</a>
+<a id="5073" class="Comment">--</a>
+<a id="5076" class="Comment">------------------------------------------------------------------------</a>
+<a id="5149" class="Comment">-- §3.  THE METACIRCULAR KERNEL.  296 LINES, THREE FILES.  (atemporal)</a>
+<a id="5220" class="Comment">------------------------------------------------------------------------</a>
+<a id="5293" class="Comment">--</a>
+<a id="5296" class="Comment">--   NaturalMachine/RewriteCertificate.agda   156   the calculus + semantics</a>
+<a id="5373" class="Comment">--   NaturalMachine/ControlledGrammar.agda     63   operations + the forward pass</a>
+<a id="5455" class="Comment">--   NaturalMachine/GenerativeKernel.agda      77   branches, and one example</a>
+<a id="5533" class="Comment">--</a>
+<a id="5536" class="Comment">-- Everything else under NaturalMachine/ is beside this, not inside it.</a>
+<a id="5608" class="Comment">--</a>
+<a id="5611" class="Comment">-- THE CALCULUS.  `Tm` is terms over six variable coordinates, zero, suc,</a>
+<a id="5685" class="Comment">-- add.  `Step a b` is one rewrite, INCLUDING `reverse`, which is what makes</a>
+<a id="5762" class="Comment">-- the derivation space a groupoid rather than a rewriting order.</a>
+<a id="5828" class="Comment">-- `Derivation a b` is a walk: `done` and `then-step`, no relations imposed,</a>
+<a id="5905" class="Comment">-- so two walks between the same endpoints are two distinct data.</a>
+<a id="5971" class="Comment">--</a>
+<a id="5974" class="Comment">-- THE SEMANTICS.  `eval : Tm → Env → ℕ`, and `derivation-sound` proves every</a>
+<a id="6052" class="Comment">-- derivation preserves it at every environment.  `induction-sound` is the</a>
+<a id="6127" class="Comment">-- real inference rule: a base trace plus a step trace with the hypothesis</a>
+<a id="6202" class="Comment">-- available ONLY at the predecessor entails the equation for every</a>
+<a id="6270" class="Comment">-- environment.  That is how a certificate becomes a universally quantified</a>
+<a id="6346" class="Comment">-- theorem.</a>
+<a id="6358" class="Comment">--</a>
+<a id="6361" class="Comment">-- THE METACIRCULAR STEP, and it is one line:</a>
+<a id="6407" class="Comment">--</a>
+<a id="6410" class="Comment">--     install : Derivation lhs rhs → NativeOperation</a>
+<a id="6464" class="Comment">--</a>
+<a id="6467" class="Comment">-- A theorem the machine proved becomes a move the machine can make.  So the</a>
+<a id="6544" class="Comment">-- library of operations is a learned policy; `EnabledFuture seed` -- the</a>
+<a id="6618" class="Comment">-- operations whose control fires at this context -- is its forward pass; and</a>
+<a id="6696" class="Comment">-- `advance` returns that as a LIST, with</a>
+<a id="6738" class="Comment">--</a>
+<a id="6741" class="Comment">--     advance-preserves-branch-count : length (advance fs) ≡ length fs</a>
+<a id="6813" class="Comment">--</a>
+<a id="6816" class="Comment">-- no dedupe, no sort, no quotient.  `GenerativeKernel.run-targets` exhibits</a>
+<a id="6893" class="Comment">-- the point in three lines: two different derivations, one output.</a>
+<a id="6961" class="Comment">--</a>
+<a id="6964" class="Comment">------------------------------------------------------------------------</a>
+<a id="7037" class="Comment">-- §4.  THE FOUR READINGS OF THE KERNEL&#39;S SOUNDNESS FIELDS.  (atemporal)</a>
+<a id="7110" class="Comment">--</a>
+<a id="7113" class="Comment">-- One fact generates all four: EVERY SOUNDNESS FIELD OF THIS KERNEL IS A MAP</a>
+<a id="7191" class="Comment">-- INTO A PROPOSITION.  `control-sound` lands in `t ≡ source` and `Tm` is a</a>
+<a id="7267" class="Comment">-- set; `derivation-sound` lands in `eval a ρ ≡ eval b ρ` and ℕ is a set.  A</a>
+<a id="7344" class="Comment">-- map into a proposition carries zero bits.</a>
+<a id="7389" class="Comment">------------------------------------------------------------------------</a>
+<a id="7462" class="Comment">--</a>
+<a id="7465" class="Comment">--   TheInstalledOperationHasNoPervasion…    THE INSTALLED OPERATION HAS NO</a>
+<a id="7541" class="Comment">--               PERVASION.  What it establishes: EVERY OPERATION FIRES AT</a>
+<a id="7616" class="Comment">--               EXACTLY ONE CONTEXT, WHATEVER EVIDENCE TYPE ITS AUTHOR</a>
+<a id="7688" class="Comment">--               SUPPLIED, which is the safety property of an open interface.</a>
+<a id="7766" class="Comment">--               `control-sound : Control t → t ≡ source` means the enabling</a>
+<a id="7843" class="Comment">--               evidence at t IS an identification of t with the one term the</a>
+<a id="7922" class="Comment">--               operation was installed at.  So every installed operation</a>
+<a id="7997" class="Comment">--               fires at exactly one context and emits a constant, and a</a>
+<a id="8071" class="Comment">--               library&#39;s reach is the finitely many heights of its sources</a>
+<a id="8148" class="Comment">--               while `Tm` is infinite.  Exhibited on the kernel&#39;s own</a>
+<a id="8220" class="Comment">--               library: `suc (suc (suc zero))` has no enabled future.</a>
+<a id="8292" class="Comment">--               REPAIR, checked: control carrying a substitution witness,</a>
+<a id="8367" class="Comment">--               Σ[u] (t ≡ subVar u lhs).  Soundness needs no new proof --</a>
+<a id="8442" class="Comment">--               `eval-subVar` was already in RewriteCertificate, unused.</a>
+<a id="8516" class="Comment">--               Generalisation is free in this calculus; memorisation is</a>
+<a id="8590" class="Comment">--               what costs.</a>
+<a id="8619" class="Comment">--</a>
+<a id="8622" class="Comment">--   TheDerivationCarriesNoMeaning…      THE DERIVATION CARRIES NO MEANING, so all of it is remainder.</a>
+<a id="8725" class="Comment">--               Soundness factors through ∥ Derivation a b ∥₁ -- the</a>
+<a id="8795" class="Comment">--               semantics used only THAT one exists, never WHICH.  The</a>
+<a id="8867" class="Comment">--               truncation is strict: the kernel&#39;s own direct and detour</a>
+<a id="8941" class="Comment">--               histories are 2 steps and 4 steps, distinct, with EQUAL</a>
+<a id="9014" class="Comment">--               soundness proofs.  Hence cost does not factor, and then the</a>
+<a id="9091" class="Comment">--               general no-go: for ANY C at any level and ANY φ of the</a>
+<a id="9163" class="Comment">--               meaning, φ agrees on the cheap and the expensive derivation.</a>
+<a id="9241" class="Comment">--               No semantic criterion selects the short proof.  Selection is</a>
+<a id="9319" class="Comment">--               extra-semantic or it does not exist.</a>
+<a id="9373" class="Comment">--</a>
+<a id="9376" class="Comment">--   TheCountingSemanticsIsADecategorification…  SO THE SEMANTICS IS A DECATEGORIFICATION: eval keeps a</a>
+<a id="9480" class="Comment">--               cardinality and drops the bijection.  The categorified</a>
+<a id="9552" class="Comment">--               semantics is built there -- zero ↦ ⊥, suc ↦ Unit ⊎ −,</a>
+<a id="9623" class="Comment">--               add ↦ ⊎, every Step an equivalence, `reverse` ↦ `invEquiv`.</a>
+<a id="9700" class="Comment">--               The calculus always admitted it; nobody had written it.  Add</a>
+<a id="9778" class="Comment">--               commutativity (sound, by +-comm) and at `add var var` it is a</a>
+<a id="9857" class="Comment">--               LOOP: ℕ is forced to call it refl, the universe calls it the</a>
+<a id="9935" class="Comment">--               swap, and `ua` of it is not refl -- proved by transporting</a>
+<a id="10011" class="Comment">--               along it and getting `inr tt` back.  The bit a counting</a>
+<a id="10084" class="Comment">--               readout provably cannot hold is a transposition.</a>
+<a id="10150" class="Comment">--</a>
+<a id="10153" class="Comment">--   TheKernelIsAnInteractiveSystem…   AND THEN WHAT IT IS FOR, which the four above missed by</a>
+<a id="10248" class="Comment">--               reading a live interface as a finished artifact.  THE KERNEL</a>
+<a id="10326" class="Comment">--               IS AN INTERACTIVE SYSTEM.  State is a term; `advance` offers</a>
+<a id="10404" class="Comment">--               every enabled future with multiplicity conserved and nothing</a>
+<a id="10482" class="Comment">--               filtered; the CALLER chooses and supplies the control;</a>
+<a id="10554" class="Comment">--               `execute` descends Type₁ → Type₀, dropping the operation and</a>
+<a id="10632" class="Comment">--               the caller&#39;s evidence and keeping only the new term and the</a>
+<a id="10709" class="Comment">--               derivation that reached it -- small, replayable, free of who</a>
+<a id="10787" class="Comment">--               asked.  And `install` accepts exactly what `CheckedFuture`</a>
+<a id="10863" class="Comment">--               carries, so</a>
+<a id="10892" class="Comment">--                   learn = install ∘ CheckedFuture.derivation</a>
+<a id="10956" class="Comment">--               closes the circle: THE TRANSCRIPT OF A SESSION IS THE</a>
+<a id="11027" class="Comment">--               MACHINE&#39;S STOCK OF MOVES.  `CheckedFuture` had appeared in no</a>
+<a id="11106" class="Comment">--               file but ControlledGrammar.agda; the loop was never written.</a>
+<a id="11184" class="Comment">--               A whole dialogue is one `Derivation`, hence one theorem</a>
+<a id="11257" class="Comment">--               (`session-sound`), hence ONE installable operation</a>
+<a id="11325" class="Comment">--               (`retire`) -- and no session can teach the machine anything</a>
+<a id="11402" class="Comment">--               false, because a `NativeOperation` cannot be constructed at</a>
+<a id="11479" class="Comment">--               all without a checked derivation.</a>
+<a id="11530" class="Comment">--</a>
+<a id="11533" class="Comment">--   TheWholeDerivationTypeIsOneFibre…     THE SYNTHESIS, one lemma.  If M is a proposition then</a>
+<a id="11630" class="Comment">--               fiber f m ≃ A for every m: the fibre is not part of the</a>
+<a id="11703" class="Comment">--               domain, it IS the domain.  So `Derivation a b` is one fibre</a>
+<a id="11780" class="Comment">--               of its own soundness, both bindings of §2&#39;s law coincide,</a>
+<a id="11855" class="Comment">--               and the kernel sits at the MAXIMALLY LOSSY end -- nothing is</a>
+<a id="11933" class="Comment">--               charged on the output side because the output side holds</a>
+<a id="12007" class="Comment">--               nothing.  And isEquiv (the measure that reads as perfect</a>
+<a id="12081" class="Comment">--               self-knowledge) is refuted at the kernel&#39;s own seed.</a>
+<a id="12151" class="Comment">--</a>
+<a id="12154" class="Comment">-- IN ONE SENTENCE.  The kernel&#39;s readout is its SUPPORT, not its mass: it</a>
+<a id="12229" class="Comment">-- can say THAT a continuation is correct and nothing about WHICH, HOW MANY,</a>
+<a id="12306" class="Comment">-- or HOW LONG, and every quantity a policy would need lives in a fibre its</a>
+<a id="12382" class="Comment">-- type collapses.  Which is why `advance-preserves-branch-count` is not</a>
+<a id="12455" class="Comment">-- housekeeping -- it is the only place in the kernel where the collapsed</a>
+<a id="12529" class="Comment">-- information is still held.</a>
+<a id="12559" class="Comment">--</a>
+<a id="12562" class="Comment">------------------------------------------------------------------------</a>
+<a id="12635" class="Comment">-- §5.  THE DESCENT.  A route, because &quot;go deeper&quot; without one leaves you at</a>
+<a id="12712" class="Comment">--      the surface.  In this order, reading terms and not headers.</a>
+<a id="12780" class="Comment">------------------------------------------------------------------------</a>
+<a id="12853" class="Comment">--</a>
+<a id="12856" class="Comment">--   1. fibre/src/Loss/Carrier.agda        -- to the bottom</a>
+<a id="12916" class="Comment">--   2. NaturalMachine/RewriteCertificate.agda            -- to the bottom</a>
+<a id="12991" class="Comment">--   3. NaturalMachine/ControlledGrammar.agda             -- 63 lines</a>
+<a id="13061" class="Comment">--   4. NaturalMachine/GenerativeKernel.agda              -- 77 lines</a>
+<a id="13131" class="Comment">--   5. the four modules of §4, in that order</a>
+<a id="13177" class="Comment">--   6. then put your own claim on the wire and let the checker answer it.</a>
+<a id="13252" class="Comment">--      The obligation that comes back teaches more in one line than a</a>
+<a id="13323" class="Comment">--      page of your prose.</a>
+<a id="13351" class="Comment">--</a>
+<a id="13354" class="Comment">------------------------------------------------------------------------</a>
+<a id="13427" class="Comment">-- §6.  WHAT IS BUILT AND CAPABLE.  DATED 2026-08-24.  Every line measured</a>
+<a id="13502" class="Comment">--      by the command beside it; re-run rather than trust, this section</a>
+<a id="13575" class="Comment">--      rots and the rest of the file does not.</a>
+<a id="13623" class="Comment">------------------------------------------------------------------------</a>
+<a id="13696" class="Comment">--</a>
+<a id="13699" class="Comment">-- THE PIN.  Agda 2.8.0 + agda/cubical v0.9 (b150186).  Bootstrapped from</a>
+<a id="13773" class="Comment">-- nothing in a container with neither present; the lanes carry their own</a>
+<a id="13847" class="Comment">-- bootstrap and a missing toolchain here is a command not yet run.</a>
+<a id="13915" class="Comment">--</a>
+<a id="13918" class="Comment">-- SIZE.        git ls-files &#39;&lt;glob&gt;&#39; | wc -l</a>
+<a id="13964" class="Comment">--   formal/cubical           1196 .agda   (601 of them under NaturalMachine/)</a>
+<a id="14043" class="Comment">--   formal/lean          203 .lean</a>
+<a id="14079" class="Comment">--   machine                   160 .hs</a>
+<a id="14118" class="Comment">--   loss               14 .agda</a>
+<a id="14151" class="Comment">--   surviving .md                9</a>
+<a id="14187" class="Comment">--</a>
+<a id="14190" class="Comment">-- ROOTS.       grep -c &#39;^import&#39; &lt;root&gt;</a>
+<a id="14231" class="Comment">--   Everything.agda 574 · agda 475 · IndianLane.agda 39</a>
+<a id="14288" class="Comment">--   (grep -c &#39;^import &#39; &lt;root&gt;; agda also has 13 open-imports)</a>
+<a id="14352" class="Comment">--</a>
+<a id="14355" class="Comment">-- WHAT IS GREEN.  Run, not remembered; both at the pin, this date:</a>
+<a id="14423" class="Comment">--   LC_ALL=C.UTF-8 agda -i . agda   -&gt; EXIT 0  (475 imports)</a>
+<a id="14485" class="Comment">--   LC_ALL=C.UTF-8 agda -i . Everything.agda       -&gt; EXIT 0  (574 imports)</a>
+<a id="14562" class="Comment">-- Zero occurrences of `error:` in either log.  The four modules of §4 and</a>
+<a id="14637" class="Comment">-- this file are inside both closures.  A module outside a root&#39;s import</a>
+<a id="14710" class="Comment">-- closure is built by NO command, so &quot;it is green&quot; about such a module is a</a>
+<a id="14787" class="Comment">-- claim about one person&#39;s shell; the four were reachable from nothing until</a>
+<a id="14865" class="Comment">-- they were added to those roots in this same commit.</a>
+<a id="14920" class="Comment">--</a>
+<a id="14923" class="Comment">-- WHAT THE KERNEL CAN DO TODAY, each backed by a term in the three files:</a>
+<a id="14998" class="Comment">--   * represent terms, single rewrites, and their compositions PROOF-</a>
+<a id="15069" class="Comment">--     RELEVANTLY, reversals included;</a>
+<a id="15108" class="Comment">--   * certify that a derivation preserves ℕ-meaning at every environment</a>
+<a id="15182" class="Comment">--     (`derivation-sound`);</a>
+<a id="15211" class="Comment">--   * turn an induction certificate -- base trace, plus step trace with the</a>
+<a id="15288" class="Comment">--     hypothesis only at the predecessor -- into a universally quantified</a>
+<a id="15363" class="Comment">--     equation (`induction-sound`).  This is the kernel&#39;s actual inference</a>
+<a id="15439" class="Comment">--     rule and it is the strongest thing in the three files;</a>
+<a id="15501" class="Comment">--   * install any checked derivation as an executable operation (`install`);</a>
+<a id="15579" class="Comment">--   * enumerate every enabled operation at a context with multiplicity</a>
+<a id="15651" class="Comment">--     exactly conserved (`advance`, `advance-preserves-branch-count`);</a>
+<a id="15723" class="Comment">--   * as of the TheInstalledOperationHasNoPervasion module, fire ONE operation over an infinite family</a>
+<a id="15827" class="Comment">--     of contexts, soundly, at no proof cost.</a>
+<a id="15874" class="Comment">--</a>
+<a id="15877" class="Comment">------------------------------------------------------------------------</a>
+<a id="15950" class="Comment">-- §7.  THE SCOPE, EXACTLY.  DATED 2026-08-24.  An absence without a command</a>
+<a id="16027" class="Comment">--      is a rumour, so each carries the command that establishes it.</a>
+<a id="16097" class="Comment">------------------------------------------------------------------------</a>
+<a id="16170" class="Comment">--</a>
+<a id="16173" class="Comment">--   GENERALISATION AND CONTROL in NativeOperation, read forward.</a>
+<a id="16239" class="Comment">--       * `Control : Tm → Type₀` is a FIELD.  The CALLER supplies it and may</a>
+<a id="16317" class="Comment">--         supply any type family at all.  `install` is its trivial instance.</a>
+<a id="16395" class="Comment">--         So TheInstalledOperationHasNoPervasion.enabled-set-is-subsingleton</a>
+<a id="16473" class="Comment">--         is not a diagnosis of a lookup table.  IT IS THE SAFETY THEOREM OF</a>
+<a id="16551" class="Comment">--         AN OPEN EXTENSION POINT: whatever evidence type a caller invents,</a>
+<a id="16628" class="Comment">--         it cannot enable an operation anywhere the operation does not hold.</a>
+<a id="16707" class="Comment">--       * There is no decision procedure for `Control` BECAUSE THE INTERFACE</a>
+<a id="16785" class="Comment">--         IS OPEN -- an arbitrary caller-supplied family is not decidable by</a>
+<a id="16863" class="Comment">--         the machine, so the caller hands over the control WITH the choice.</a>
+<a id="16941" class="Comment">--       * There is no ranking because RANKING IS THE CALLER&#39;S ACT.  The</a>
+<a id="17014" class="Comment">--         machine presents; the caller disposes.  Same refusal as</a>
+<a id="17081" class="Comment">--         Saptabhangi&#39;s and Uttara&#39;s.  And TheDerivationCarriesNoMeaning&#39;s</a>
+<a id="17157" class="Comment">--         no-go -- no semantic criterion selects the short proof -- is a</a>
+<a id="17231" class="Comment">--         GUARANTEE OF NON-DISPLACEMENT: a theorem forbids the machine from</a>
+<a id="17308" class="Comment">--         taking the choice from you.  The system is interactive by theorem.</a>
+<a id="17386" class="Comment">--     `TheKernelIsAnInteractiveSystem…` supplies the corpus&#39;s first</a>
+<a id="17455" class="Comment">--     non-trivial `Control` and closes the loop.</a>
+<a id="17505" class="Comment">--</a>
+<a id="17508" class="Comment">--   * NO MULTIPLICATION in the kernel&#39;s `Tm`.</a>
+<a id="17555" class="Comment">--       grep -n &#39;mul&#39; NaturalMachine/RewriteCertificate.agda -&gt; nothing</a>
+<a id="17628" class="Comment">--</a>
+<a id="17631" class="Comment">--   * THE GENERATIVE LOOP DOES NOT DRIVE THE KERNEL, and this is the largest</a>
+<a id="17709" class="Comment">--     structural gap in the corpus.  `GenerativeLoop` proves a real thing --</a>
+<a id="17787" class="Comment">--     an obstruction-indexed proposer that reads the residual of a FAILED</a>
+<a id="17862" class="Comment">--     match, names the missing head, strictly decreases a deficit, and</a>
+<a id="17934" class="Comment">--     terminates unconditionally.  It runs on `Obstruction`&#39;s</a>
+<a id="17997" class="Comment">--     `Tm`, which is a DIFFERENT datatype from the kernel&#39;s.</a>
+<a id="18059" class="Comment">--       grep -rln &#39;^data Tm *:&#39; formal/cubical  -&gt; 3 files:</a>
+<a id="18120" class="Comment">--            Obstruction.agda, RewriteCertificate.agda, RewriteCertificateMul.agda</a>
+<a id="18204" class="Comment">--       files importing BOTH Obstruction and RewriteCertificate -&gt; ZERO</a>
+<a id="18277" class="Comment">--     So the corpus contains a proved-terminating learner and a metacircular</a>
+<a id="18355" class="Comment">--     kernel, and no morphism between their term languages.</a>
+<a id="18416" class="Comment">--</a>
+<a id="18419" class="Comment">--     PARTIALLY CLOSED, 2026-09-01 -- and &quot;largest structural gap&quot; is now</a>
+<a id="18494" class="Comment">--     stale framing rather than the standing description.  `Kernel.Siddha-</a>
+<a id="18570" class="Comment">--     sadhana_InstallingWhatYouCanAlreadyReachIsAPlateau…` transfers the</a>
+<a id="18644" class="Comment">--     FIRST HALF of Obstruction&#39;s separation to the kernel itself, as</a>
+<a id="18715" class="Comment">--     checked terms and not a port: `install-chain-plateau` and</a>
+<a id="18780" class="Comment">--     `kernel-install-chains-cannot-reach-a-tower`, run through the kernel&#39;s</a>
+<a id="18858" class="Comment">--     `control-sound` (the control of `install d` at t′ IS an identification</a>
+<a id="18936" class="Comment">--     t′ ≡ t) rather than through Obstruction&#39;s Bool membership test.  A</a>
+<a id="19010" class="Comment">--     bridge between the two substrates therefore exists.  Its own header</a>
+<a id="19085" class="Comment">--     marks the live remainder precisely: the ANTI-PLATEAU half -- what</a>
+<a id="19158" class="Comment">--     escapes reach is `Vyapti_`&#39;s `SchematicOperation`</a>
+<a id="19215" class="Comment">--     (`no-native-operation-does-this`), but a schema is not yet installable</a>
+<a id="19293" class="Comment">--     as a `NativeOperation`, so the escape is not yet a step of any chain.</a>
+<a id="19370" class="Comment">--     The standing item is that anti-plateau step, not the absence of a</a>
+<a id="19443" class="Comment">--     bridge.</a>
+<a id="19458" class="Comment">--</a>
+<a id="19461" class="Comment">------------------------------------------------------------------------</a>
+<a id="19534" class="Comment">-- §8.  THE FRONTIER, DERIVED FROM §7 RATHER THAN LISTED.</a>
+<a id="19592" class="Comment">------------------------------------------------------------------------</a>
+<a id="19665" class="Comment">--</a>
+<a id="19668" class="Comment">--   (a) A `Tm`-morphism from Obstruction&#39;s language to the kernel&#39;s, under</a>
+<a id="19744" class="Comment">--       which `propose` becomes `install`.  That is what closes the loop:</a>
+<a id="19819" class="Comment">--       failed match → named missing structure → new operation → larger</a>
+<a id="19892" class="Comment">--       enabled set, with the deficit measure already proved to descend.</a>
+<a id="19966" class="Comment">--       ADVANCED, 2026-09-01: `Kernel.Siddhasadhana_` establishes the plateau</a>
+<a id="20045" class="Comment">--       direction on the kernel (see §7); the loop-driving / anti-plateau</a>
+<a id="20120" class="Comment">--       direction is the remaining half.</a>
+<a id="20162" class="Comment">--   (b) The schema of TheInstalledOperationHasNoPervasion raised from `subVar`&#39;s one variable to all six</a>
+<a id="20268" class="Comment">--       coordinates, and `install` replaced by `install-schema` in</a>
+<a id="20336" class="Comment">--       ControlledGrammar so that generalisation is the kernel&#39;s default</a>
+<a id="20410" class="Comment">--       rather than a companion module&#39;s.</a>
+<a id="20453" class="Comment">--       ADVANCED, 2026-09-01: `Kernel.Adesa_SubstitutionIsAdmissibleOn-</a>
+<a id="20526" class="Comment">--       Derivations…` proves substitution admissible on `Step`/`Derivation`,</a>
+<a id="20604" class="Comment">--       supplying the certificate a schema needs -- `apply-checked` as a</a>
+<a id="20678" class="Comment">--       Derivation, not only Vyapti_&#39;s `apply-sound` eval-equality.  Its</a>
+<a id="20752" class="Comment">--       header marks what remains: `install-schema` as a record change (the</a>
+<a id="20829" class="Comment">--       `apply`/`apply-checked` fields, since `control-sound` forces the</a>
+<a id="20903" class="Comment">--       subsingleton), and substitution for the other five coordinates.</a>
+<a id="20976" class="Comment">--   (c) A policy over the enabled list that is honestly extra-semantic --</a>
+<a id="21051" class="Comment">--       TheDerivationCarriesNoMeaning proves no semantic one exists, and lāghava is the obvious</a>
+<a id="21148" class="Comment">--       candidate order.  It must not collapse to a boolean verdict</a>
+<a id="21217" class="Comment">--       (Saptabhangi) and it must not dedupe (§3).</a>
+<a id="21269" class="Comment">--   (d) The categorified semantics of TheCountingSemanticsIsADecategorification carried from an example to a</a>
+<a id="21379" class="Comment">--       theorem: relate ⟦t⟧ to `eval t` by cardinality, which needs</a>
+<a id="21448" class="Comment">--       finiteness and is not proved anywhere here.</a>
+<a id="21501" class="Comment">--</a>
+<a id="21504" class="Comment">------------------------------------------------------------------------</a>
+
+<a id="21578" class="Keyword">module</a> <a id="21585" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html" class="Module">WhatThisIsAndHowToDescendIntoTheMetacircularKernel</a> <a id="21636" class="Keyword">where</a>
+
+<a id="21643" class="Comment">------------------------------------------------------------------------</a>
+<a id="21716" class="Comment">-- §A.  THE LIVE DEPENDENCIES.  This file is red if any of §3-§4 rots.</a>
+<a id="21787" class="Comment">------------------------------------------------------------------------</a>
+
+<a id="21861" class="Keyword">open</a> <a id="21866" class="Keyword">import</a> <a id="21873" href="Cubical.Foundations.Prelude.html" class="Module">Cubical.Foundations.Prelude</a>
+<a id="21901" class="Keyword">open</a> <a id="21906" class="Keyword">import</a> <a id="21913" href="Cubical.Foundations.Univalence.html" class="Module">Cubical.Foundations.Univalence</a> <a id="21944" class="Keyword">using</a> <a id="21950" class="Symbol">(</a><a id="21951" href="Cubical.Foundations.Univalence.html#905" class="Function">ua</a> <a id="21954" class="Symbol">;</a> <a id="21956" href="Cubical.Foundations.Univalence.html#8487" class="Function">uaβ</a><a id="21959" class="Symbol">)</a>
+<a id="21961" class="Keyword">open</a> <a id="21966" class="Keyword">import</a> <a id="21973" href="Cubical.Data.Bool.html" class="Module">Cubical.Data.Bool</a> <a id="21991" class="Keyword">using</a> <a id="21997" class="Symbol">(</a><a id="21998" href="Agda.Builtin.Bool.html#173" class="Datatype">Bool</a> <a id="22003" class="Symbol">;</a> <a id="22005" href="Agda.Builtin.Bool.html#198" class="InductiveConstructor">true</a> <a id="22010" class="Symbol">;</a> <a id="22012" href="Agda.Builtin.Bool.html#192" class="InductiveConstructor">false</a> <a id="22018" class="Symbol">;</a> <a id="22020" href="Cubical.Data.Bool.Properties.html#1214" class="Function">notEquiv</a><a id="22028" class="Symbol">)</a>
+<a id="22030" class="Keyword">open</a> <a id="22035" class="Keyword">import</a> <a id="22042" href="Cubical.Data.Nat.html" class="Module">Cubical.Data.Nat</a> <a id="22059" class="Keyword">using</a> <a id="22065" class="Symbol">(</a><a id="22066" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a><a id="22067" class="Symbol">)</a>
+<a id="22069" class="Keyword">open</a> <a id="22074" class="Keyword">import</a> <a id="22081" href="Cubical.Data.List.html" class="Module">Cubical.Data.List</a> <a id="22099" class="Keyword">using</a> <a id="22105" class="Symbol">(</a><a id="22106" href="Agda.Builtin.List.html#147" class="Datatype">List</a> <a id="22111" class="Symbol">;</a> <a id="22113" href="Cubical.Data.List.Base.html#546" class="Function">length</a><a id="22119" class="Symbol">)</a>
+
+<a id="22122" class="Keyword">open</a> <a id="22127" class="Keyword">import</a> <a id="22134" href="RewriteCertificate.html" class="Module">RewriteCertificate</a>
+<a id="22153" class="Keyword">open</a> <a id="22158" class="Keyword">import</a> <a id="22165" href="ControlledGrammar.html" class="Module">ControlledGrammar</a>
+
+<a id="22184" class="Keyword">open</a> <a id="22189" class="Keyword">import</a> <a id="22196" href="TheInstalledOperationHasNoPervasionSoTheKernelMemorises.html" class="Module">TheInstalledOperationHasNoPervasionSoTheKernelMemorises</a>
+  <a id="22254" class="Keyword">using</a> <a id="22260" class="Symbol">(</a><a id="22261" href="TheInstalledOperationHasNoPervasionSoTheKernelMemorises.html#5836" class="Function">enabled-set-is-subsingleton</a> <a id="22289" class="Symbol">;</a> <a id="22291" href="TheInstalledOperationHasNoPervasionSoTheKernelMemorises.html#10948" class="Function">no-native-operation-does-this</a>
+        <a id="22329" class="Symbol">;</a> <a id="22331" href="TheInstalledOperationHasNoPervasionSoTheKernelMemorises.html#8920" class="Record">SchematicOperation</a> <a id="22350" class="Symbol">;</a> <a id="22352" href="TheInstalledOperationHasNoPervasionSoTheKernelMemorises.html#8333" class="Function">kernel-cannot-reach-a-tower</a><a id="22379" class="Symbol">)</a>
+<a id="22381" class="Keyword">open</a> <a id="22386" class="Keyword">import</a> <a id="22393" href="TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.html" class="Module">TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder</a>
+  <a id="22450" class="Keyword">using</a> <a id="22456" class="Symbol">(</a><a id="22457" href="TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.html#8324" class="Function">every-semantic-criterion-is-blind</a> <a id="22491" class="Symbol">;</a> <a id="22493" href="TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.html#7399" class="Function">cost-does-not-factor</a>
+        <a id="22522" class="Symbol">;</a> <a id="22524" href="TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder.html#6842" class="Function">derivations-are-not-a-proposition</a><a id="22557" class="Symbol">)</a>
+<a id="22559" class="Keyword">open</a> <a id="22564" class="Keyword">import</a> <a id="22571" href="TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry.html" class="Module">TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry</a>
+  <a id="22642" class="Keyword">using</a> <a id="22648" class="Symbol">(</a><a id="22649" href="TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry.html#11245" class="Function">comm-loop-is-a-nontrivial-loop-in-the-universe</a>
+        <a id="22704" class="Symbol">;</a> <a id="22706" href="TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry.html#9922" class="Function">no-counting-criterion-separates</a> <a id="22738" class="Symbol">;</a> <a id="22740" href="TheCountingSemanticsIsADecategorificationAndTheBitItDropsIsASymmetry.html#6799" class="Function">derivation-equiv</a><a id="22756" class="Symbol">)</a>
+<a id="22758" class="Keyword">open</a> <a id="22763" class="Keyword">import</a> <a id="22770" href="TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.html" class="Module">TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence</a>
+  <a id="22836" class="Keyword">using</a> <a id="22842" class="Symbol">(</a><a id="22843" href="TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.html#6020" class="Function">the-whole-derivation-type-is-one-fibre</a>
+        <a id="22890" class="Symbol">;</a> <a id="22892" href="TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence.html#8125" class="Function">soundness-is-not-an-equivalence-at-the-kernels-own-seed</a><a id="22947" class="Symbol">)</a>
+<a id="22949" class="Keyword">open</a> <a id="22954" class="Keyword">import</a> <a id="22961" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html" class="Module">TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation</a>
+  <a id="23030" class="Keyword">using</a> <a id="23036" class="Symbol">(</a><a id="23037" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#6382" class="Function">demand</a> <a id="23044" class="Symbol">;</a> <a id="23046" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#7120" class="Function">any-demand-is-safe</a> <a id="23065" class="Symbol">;</a> <a id="23067" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#7981" class="Function">learn</a> <a id="23073" class="Symbol">;</a> <a id="23075" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#9591" class="Record">Session</a> <a id="23083" class="Symbol">;</a> <a id="23085" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#10193" class="Function">step</a> <a id="23090" class="Symbol">;</a> <a id="23092" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#11355" class="Function">retire</a>
+        <a id="23107" class="Symbol">;</a> <a id="23109" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#10999" class="Function">session-sound</a> <a id="23123" class="Symbol">;</a> <a id="23125" href="TheKernelIsAnInteractiveSystemAndTheSessionRetiresIntoOneOperation.html#12755" class="Function">every-operation-that-exists-is-sound</a><a id="23161" class="Symbol">)</a>
+
+<a id="23164" class="Comment">------------------------------------------------------------------------</a>
+<a id="23237" class="Comment">-- §B.  THE CLAIMS OF §1-§3, AS TERMS.</a>
+<a id="23276" class="Comment">------------------------------------------------------------------------</a>
+
+<a id="23350" class="Comment">-- §1.  Univalence is not cited here, it RUNS: transport along the path</a>
+<a id="23422" class="Comment">-- manufactured from an equivalence computes to that equivalence&#39;s function.</a>
+<a id="univalence-acts"></a><a id="23499" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23499" class="Function">univalence-acts</a> <a id="23515" class="Symbol">:</a> <a id="23517" href="Cubical.Foundations.Prelude.html#9674" class="Function">transport</a> <a id="23527" class="Symbol">(</a><a id="23528" href="Cubical.Foundations.Univalence.html#905" class="Function">ua</a> <a id="23531" href="Cubical.Data.Bool.Properties.html#1214" class="Function">notEquiv</a><a id="23539" class="Symbol">)</a> <a id="23541" href="Agda.Builtin.Bool.html#198" class="InductiveConstructor">true</a> <a id="23546" href="Agda.Builtin.Cubical.Path.html#272" class="Function Operator">≡</a> <a id="23548" href="Agda.Builtin.Bool.html#192" class="InductiveConstructor">false</a>
+<a id="23554" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23499" class="Function">univalence-acts</a> <a id="23570" class="Symbol">=</a> <a id="23572" href="Cubical.Foundations.Univalence.html#8487" class="Function">uaβ</a> <a id="23576" href="Cubical.Data.Bool.Properties.html#1214" class="Function">notEquiv</a> <a id="23585" href="Agda.Builtin.Bool.html#198" class="InductiveConstructor">true</a>
+
+<a id="23591" class="Comment">-- §2.  Bind the output and the fibre is contractible, always.  This is the</a>
+<a id="23667" class="Comment">-- free half of the fibre law; the costly half is `fiber f b`, which is</a>
+<a id="23739" class="Comment">-- contractible exactly when f is an equivalence.</a>
+<a id="binding-the-output-is-free"></a><a id="23789" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23789" class="Function">binding-the-output-is-free</a> <a id="23816" class="Symbol">:</a>
+  <a id="23820" class="Symbol">{</a><a id="23821" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23821" class="Bound">A</a> <a id="23823" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23823" class="Bound">B</a> <a id="23825" class="Symbol">:</a> <a id="23827" href="Agda.Primitive.html#388" class="Primitive">Type₀</a><a id="23832" class="Symbol">}</a> <a id="23834" class="Symbol">(</a><a id="23835" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23835" class="Bound">f</a> <a id="23837" class="Symbol">:</a> <a id="23839" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23821" class="Bound">A</a> <a id="23841" class="Symbol">→</a> <a id="23843" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23823" class="Bound">B</a><a id="23844" class="Symbol">)</a> <a id="23846" class="Symbol">(</a><a id="23847" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23847" class="Bound">a</a> <a id="23849" class="Symbol">:</a> <a id="23851" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23821" class="Bound">A</a><a id="23852" class="Symbol">)</a> <a id="23854" class="Symbol">→</a> <a id="23856" href="Cubical.Foundations.Prelude.html#15460" class="Function">isContr</a> <a id="23864" class="Symbol">(</a><a id="23865" href="Cubical.Foundations.Prelude.html#15912" class="Function">singl</a> <a id="23871" class="Symbol">(</a><a id="23872" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23835" class="Bound">f</a> <a id="23874" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23847" class="Bound">a</a><a id="23875" class="Symbol">))</a>
+<a id="23878" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23789" class="Function">binding-the-output-is-free</a> <a id="23905" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23905" class="Bound">f</a> <a id="23907" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23907" class="Bound">a</a> <a id="23909" class="Symbol">=</a> <a id="23911" href="Cubical.Foundations.Prelude.html#15975" class="Function">isContrSingl</a> <a id="23924" class="Symbol">(</a><a id="23925" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23905" class="Bound">f</a> <a id="23927" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23907" class="Bound">a</a><a id="23928" class="Symbol">)</a>
+
+<a id="23931" class="Comment">-- §3.  The metacircular step: a proof becomes a move.</a>
+<a id="the-metacircular-step"></a><a id="23986" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23986" class="Function">the-metacircular-step</a> <a id="24008" class="Symbol">:</a> <a id="24010" href="RewriteCertificate.html#723" class="Datatype">Derivation</a> <a id="24021" class="Symbol">(</a><a id="24022" href="RewriteCertificate.html#305" class="InductiveConstructor">add</a> <a id="24026" href="RewriteCertificate.html#240" class="InductiveConstructor">var</a> <a id="24030" class="Symbol">(</a><a id="24031" href="RewriteCertificate.html#288" class="InductiveConstructor">suc</a> <a id="24035" href="RewriteCertificate.html#276" class="InductiveConstructor">zero</a><a id="24039" class="Symbol">))</a> <a id="24042" class="Symbol">(</a><a id="24043" href="RewriteCertificate.html#288" class="InductiveConstructor">suc</a> <a id="24047" href="RewriteCertificate.html#240" class="InductiveConstructor">var</a><a id="24050" class="Symbol">)</a> <a id="24052" class="Symbol">→</a> <a id="24054" href="ControlledGrammar.html#313" class="Record">NativeOperation</a>
+<a id="24070" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#23986" class="Function">the-metacircular-step</a> <a id="24092" class="Symbol">=</a> <a id="24094" href="ControlledGrammar.html#865" class="Function">install</a>
+
+<a id="24103" class="Comment">-- §3.  The forward pass, and the kernel&#39;s one conservation law.</a>
+<a id="the-forward-pass"></a><a id="24168" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24168" class="Function">the-forward-pass</a> <a id="24185" class="Symbol">:</a> <a id="24187" class="Symbol">{</a><a id="24188" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24188" class="Bound">s</a> <a id="24190" class="Symbol">:</a> <a id="24192" href="RewriteCertificate.html#221" class="Datatype">Tm</a><a id="24194" class="Symbol">}</a> <a id="24196" class="Symbol">→</a> <a id="24198" href="Agda.Builtin.List.html#147" class="Datatype">List</a> <a id="24203" class="Symbol">(</a><a id="24204" href="ControlledGrammar.html#1179" class="Record">EnabledFuture</a> <a id="24218" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24188" class="Bound">s</a><a id="24219" class="Symbol">)</a> <a id="24221" class="Symbol">→</a> <a id="24223" href="Agda.Builtin.List.html#147" class="Datatype">List</a> <a id="24228" class="Symbol">(</a><a id="24229" href="ControlledGrammar.html#1498" class="Record">CheckedFuture</a> <a id="24243" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24188" class="Bound">s</a><a id="24244" class="Symbol">)</a>
+<a id="24246" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24168" class="Function">the-forward-pass</a> <a id="24263" class="Symbol">=</a> <a id="24265" href="ControlledGrammar.html#1869" class="Function">advance</a>
+
+<a id="the-conservation-law"></a><a id="24274" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24274" class="Function">the-conservation-law</a> <a id="24295" class="Symbol">:</a>
+  <a id="24299" class="Symbol">{</a><a id="24300" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24300" class="Bound">s</a> <a id="24302" class="Symbol">:</a> <a id="24304" href="RewriteCertificate.html#221" class="Datatype">Tm</a><a id="24306" class="Symbol">}</a> <a id="24308" class="Symbol">(</a><a id="24309" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24309" class="Bound">fs</a> <a id="24312" class="Symbol">:</a> <a id="24314" href="Agda.Builtin.List.html#147" class="Datatype">List</a> <a id="24319" class="Symbol">(</a><a id="24320" href="ControlledGrammar.html#1179" class="Record">EnabledFuture</a> <a id="24334" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24300" class="Bound">s</a><a id="24335" class="Symbol">))</a> <a id="24338" class="Symbol">→</a> <a id="24340" href="Cubical.Data.List.Base.html#546" class="Function">length</a> <a id="24347" class="Symbol">(</a><a id="24348" href="ControlledGrammar.html#1869" class="Function">advance</a> <a id="24356" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24309" class="Bound">fs</a><a id="24358" class="Symbol">)</a> <a id="24360" href="Agda.Builtin.Cubical.Path.html#272" class="Function Operator">≡</a> <a id="24362" href="Cubical.Data.List.Base.html#546" class="Function">length</a> <a id="24369" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24309" class="Bound">fs</a>
+<a id="24372" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24274" class="Function">the-conservation-law</a> <a id="24393" class="Symbol">=</a> <a id="24395" href="ControlledGrammar.html#2040" class="Function">advance-preserves-branch-count</a>
+
+<a id="24427" class="Comment">-- §3.  The kernel&#39;s actual inference rule, and the strongest term in the</a>
+<a id="24501" class="Comment">-- three files: a certificate with the hypothesis available only at the</a>
+<a id="24573" class="Comment">-- predecessor yields the equation at EVERY environment.</a>
+<a id="the-induction-rule"></a><a id="24630" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24630" class="Function">the-induction-rule</a> <a id="24649" class="Symbol">:</a>
+  <a id="24653" class="Symbol">{</a><a id="24654" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24654" class="Bound">lhs</a> <a id="24658" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24658" class="Bound">rhs</a> <a id="24662" class="Symbol">:</a> <a id="24664" href="RewriteCertificate.html#221" class="Datatype">Tm</a><a id="24666" class="Symbol">}</a> <a id="24668" class="Symbol">→</a> <a id="24670" href="RewriteCertificate.html#2009" class="Record">InductionCertificate</a> <a id="24691" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24654" class="Bound">lhs</a> <a id="24695" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24658" class="Bound">rhs</a> <a id="24699" class="Symbol">→</a> <a id="24701" class="Symbol">(</a><a id="24702" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24702" class="Bound">ρ</a> <a id="24704" class="Symbol">:</a> <a id="24706" href="RewriteCertificate.html#2498" class="Record">Env</a><a id="24709" class="Symbol">)</a> <a id="24711" class="Symbol">→</a> <a id="24713" href="RewriteCertificate.html#2569" class="Function">eval</a> <a id="24718" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24654" class="Bound">lhs</a> <a id="24722" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24702" class="Bound">ρ</a> <a id="24724" href="Agda.Builtin.Cubical.Path.html#272" class="Function Operator">≡</a> <a id="24726" href="RewriteCertificate.html#2569" class="Function">eval</a> <a id="24731" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24658" class="Bound">rhs</a> <a id="24735" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24702" class="Bound">ρ</a>
+<a id="24737" href="WhatThisIsAndHowToDescendIntoTheMetacircularKernel.html#24630" class="Function">the-induction-rule</a> <a id="24756" class="Symbol">=</a> <a id="24758" href="RewriteCertificate.html#5291" class="Function">induction-sound</a>
+</pre></body></html>

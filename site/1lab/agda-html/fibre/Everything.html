@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Everything</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Symbol">{-#</a> <a id="5" class="Keyword">OPTIONS</a> <a id="13" class="Pragma">--cubical</a> <a id="23" class="Pragma">--safe</a> <a id="30" class="Pragma">--guardedness</a> <a id="44" class="Symbol">#-}</a>
+
+<a id="49" class="Comment">-- Punarāgamana · Everything</a>
+<a id="78" class="Comment">--</a>
+<a id="81" class="Comment">-- The single entry point: typechecking this module typechecks the library.</a>
+<a id="157" class="Comment">-- check.sh drives exactly this file, so a module that is not reachable from</a>
+<a id="234" class="Comment">-- here is verified by nothing.</a>
+
+<a id="267" class="Keyword">module</a> <a id="274" href="Everything.html" class="Module">Everything</a> <a id="285" class="Keyword">where</a>
+
+<a id="292" class="Comment">-- The law, and the machinery it generates.</a>
+<a id="336" class="Keyword">open</a> <a id="341" class="Keyword">import</a> <a id="348" href="Fibre.Carrier.html" class="Module">Fibre.Carrier</a>
+<a id="362" class="Keyword">open</a> <a id="367" class="Keyword">import</a> <a id="374" href="Fibre.Orbit.html" class="Module">Fibre.Orbit</a>
+<a id="386" class="Keyword">open</a> <a id="391" class="Keyword">import</a> <a id="398" href="Fibre.Nucleus.html" class="Module">Fibre.Nucleus</a>
+
+<a id="413" class="Comment">-- The law&#39;s other projection: the residual, and the price of a collapse.</a>
+<a id="487" class="Comment">-- Its two-valued test is a दुर्नय; see the struck paragraph in its header.</a>
+<a id="563" class="Keyword">open</a> <a id="568" class="Keyword">import</a> <a id="575" href="Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph.html" class="Module Operator">Fibre.Sesa_TheResidualIsTheOtherProjectionOfTheSameGraph</a>
+
+<a id="633" class="Comment">-- The repair: the diagnosis is a CENSUS, not a verdict.  A fibre fails to</a>
+<a id="708" class="Comment">-- be contractible in two opposite ways — empty (नास्ति: no source over b,</a>
+<a id="783" class="Comment">-- धनात्मकम्) and crowded (नष्टि, अप्रतिकार्या) — and `isContr` merges</a>
+<a id="854" class="Comment">-- them.  Contains the computed refutation of the sequential diagnostic.</a>
+<a id="927" class="Keyword">open</a> <a id="932" class="Keyword">import</a> <a id="939" href="Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic.html" class="Module Operator">Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic</a>
+
+<a id="1020" class="Comment">-- The census&#39;s seam, closed: the fibre of the truncation map is the whole</a>
+<a id="1095" class="Comment">-- source, so the level-४ criterion is a theorem and not a conjecture.</a>
+<a id="1166" class="Keyword">open</a> <a id="1171" class="Keyword">import</a> <a id="1178" href="Fibre.Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.html" class="Module Operator">Fibre.Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem</a>
+
+<a id="1260" class="Comment">-- …and the census&#39;s own collapse, one level up.  A fourth outcome exists</a>
+<a id="1334" class="Comment">-- that `देश` structurally cannot express — the question with no subject —</a>
+<a id="1409" class="Comment">-- and `interactive/Obstruction.hs` has carried it in a type all along while</a>
+<a id="1486" class="Comment">-- the Agda lane has never had it.  Silence is not denial.</a>
+<a id="1545" class="Keyword">open</a> <a id="1550" class="Keyword">import</a> <a id="1557" href="Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt.html" class="Module Operator">Fibre.Adharmin_TheUnposedQuestionIsNotAnEmptyFibreAndTheCensusCannotSayIt</a>
+
+<a id="1632" class="Comment">-- The arithmetic instance, and the proof that it computes.</a>
+<a id="1692" class="Keyword">open</a> <a id="1697" class="Keyword">import</a> <a id="1704" href="Fibre.Viveka.html" class="Module">Fibre.Viveka</a>
+<a id="1717" class="Keyword">open</a> <a id="1722" class="Keyword">import</a> <a id="1729" href="Fibre.Compute.html" class="Module">Fibre.Compute</a>
+
+<a id="1744" class="Comment">-- The two number-theoretic instances.</a>
+<a id="1783" class="Comment">--</a>
+<a id="1786" class="Comment">-- कुट्टक (Āryabhaṭa, Āryabhaṭīya, गणितपाद 32–33, 499 CE): base = the three</a>
+<a id="1862" class="Comment">-- slots पक्षः / परिमाणम् / शेषः, none of which is a function of the other</a>
+<a id="1937" class="Comment">-- two — three theorems say so — and carried = the pair of magnitudes.</a>
+<a id="2008" class="Keyword">open</a> <a id="2013" class="Keyword">import</a> <a id="2020" href="Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree.html" class="Module Operator">Fibre.KuttakaValli_TheSideIsAFreeSlotAndThatIsWhatMakesTheStepDecisionFree</a>
+
+<a id="2096" class="Comment">-- वर्गप्रकृति (Brahmagupta, Brāhmasphuṭasiddhānta 18, 628 CE; the चक्रवाल</a>
+<a id="2171" class="Comment">-- of Jayadeva c. 950 and Bhāskara II, Bījagaṇita, 1150): base = the two</a>
+<a id="2244" class="Comment">-- roots ज्येष्ठ / कनिष्ठ over ℤ, carried = the क्षेप a² − D b², which the</a>
+<a id="2319" class="Comment">-- roots determine exactly.</a>
+<a id="2347" class="Keyword">open</a> <a id="2352" class="Keyword">import</a> <a id="2359" href="Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt.html" class="Module Operator">Fibre.Bhavana_TheKsepaIsDeterminedByTheRootsAndCompositionMultipliesIt</a>
+
+<a id="2431" class="Comment">-- स्थानिवद्भाव (Pāṇini, Aṣṭādhyāyī 1.1.56 स्थानिवदादेशोऽनल्विधौ, ~500 BCE;</a>
+<a id="2507" class="Comment">-- with 1.1.60, 1.1.62, 1.3.9, 1.1.5): a वर्ण&#39;s three fields are mutually</a>
+<a id="2581" class="Comment">-- independent — three theorems say so — so the base is (वर्ण , the form</a>
+<a id="2654" class="Comment">-- substituted) and the carried datum is (स्थानी , सञ्ज्ञा) of the output,</a>
+<a id="2729" class="Comment">-- both functions of the base.  The अल्/अनल् exception of 1.1.56 is the</a>
+<a id="2801" class="Comment">-- base/carried split, and the orbit carries the designation through the</a>
+<a id="2874" class="Comment">-- whole derivation rather than one step.</a>
+<a id="2916" class="Keyword">open</a> <a id="2921" class="Keyword">import</a> <a id="2928" href="Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried.html" class="Module Operator">Fibre.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried</a>
+
+<a id="3005" class="Comment">-- भित्ति: the carrier is not two-valued, and the wall crosses its own ford.</a>
+<a id="3082" class="Keyword">open</a> <a id="3087" class="Keyword">import</a> <a id="3094" href="Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord.html" class="Module Operator">Fibre.BhittiSthanivat_PaninisCarrierIsNotTwoValuedAndTheWallCrossesItsOwnFord</a>
+
+<a id="3173" class="Comment">-- स्थानिवत्सङ्ख्या — the machine&#39;s own frontier ask (jīva join score 2970):</a>
+<a id="3250" class="Comment">-- the ādeśa state space enumerated, स्थानिवत् ≃ Fin 81, the carried datum</a>
+<a id="3325" class="Comment">-- adding nothing to the count — ahiṃsā read as a number.</a>
+<a id="3383" class="Keyword">open</a> <a id="3388" class="Keyword">import</a> <a id="3395" href="Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked.html" class="Module Operator">Fibre.SthanivatSankhya_TheAdesaStateSpaceIsExactlyEightyOneAndTheJoinToTheNumberComponentIsChecked</a>
+
+<a id="3495" class="Comment">-- जीविता-स्मृति — the carried memory is alive at every depth of the infinite</a>
+<a id="3573" class="Comment">-- orbit: at rung n it is योग of the n-th state, never a stale payload.</a>
+<a id="3645" class="Comment">-- पुनरागमन read forward into infinity — losslessness as उपयोग at every rung.</a>
+<a id="3723" class="Keyword">open</a> <a id="3728" class="Keyword">import</a> <a id="3735" href="Fibre.JivitaSmrti.html" class="Module">Fibre.JivitaSmrti</a>
+
+<a id="3754" class="Comment">-- The naming of the law: Carrier IS the motive (the universal lossless</a>
+<a id="3826" class="Comment">-- middle), each projection of §Sesa&#39;s graph is a realization, and every</a>
+<a id="3899" class="Comment">-- map factors as realize ∘ to-motive (middle-out).  Adds the mediation:</a>
+<a id="3972" class="Comment">-- two realizations of one motive-source translate through the shared</a>
+<a id="4042" class="Comment">-- middle rather than by a direct compiler.</a>
+<a id="4086" class="Keyword">open</a> <a id="4091" class="Keyword">import</a> <a id="4098" href="Fibre.TheCarrierIsTheMotiveAndEachReadingIsARealization.html" class="Module">Fibre.TheCarrierIsTheMotiveAndEachReadingIsARealization</a>
+
+<a id="4155" class="Comment">-- A reading, as a reusable shape: a collapse into a set, with its kept</a>
+<a id="4227" class="Comment">-- middle (Carrier) and owed residual (शेष) derived at the record level,</a>
+<a id="4300" class="Comment">-- and the two halves of the law as its derived theorems.  The verdict</a>
+<a id="4371" class="Comment">-- reading (Bool → Unit) is a checked instance; the six domain readings</a>
+<a id="4443" class="Comment">-- named in the kernel overview instantiate this shape in their own files.</a>
+<a id="4518" class="Keyword">open</a> <a id="4523" class="Keyword">import</a> <a id="4530" href="Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual.html" class="Module">Fibre.AReadingIsACollapseWithItsKeptMiddleAndOwedResidual</a>
+<a id="4588" class="Comment">------------------------------------------------------------------------</a>
+<a id="4661" class="Comment">-- The generalisation: from lossless RE-PRESENTATION to lossless</a>
+<a id="4726" class="Comment">-- COMPUTATION, and from an unfolding stream to an interaction.</a>
+<a id="4790" class="Comment">--</a>
+<a id="4793" class="Comment">-- `Fibre.Carrier` proves that a computation may carry its own image and</a>
+<a id="4866" class="Comment">-- the witness that it IS that image at no informational cost, because the</a>
+<a id="4941" class="Comment">-- fibre singl (f a) is contractible.  That is a change of PRESENTATION.</a>
+<a id="5014" class="Comment">-- The four modules below are the change of COMPUTATION and of STATE, and</a>
+<a id="5088" class="Comment">-- the boundary between the two is the whole point:</a>
+<a id="5140" class="Comment">--</a>
+<a id="5143" class="Comment">--   univalence transports a PROVED EQUIVALENCE.  It does not turn a</a>
+<a id="5212" class="Comment">--   many-to-one map into one, and nothing here pretends otherwise.</a>
+<a id="5280" class="Comment">--</a>
+<a id="5283" class="Comment">-- WHAT IS NOT ESTABLISHED BY ANY OF IT, stated here because a library</a>
+<a id="5354" class="Comment">-- that only lists its theorems has dropped half its witness:</a>
+<a id="5416" class="Comment">--</a>
+<a id="5419" class="Comment">--   * effects, capability, disclosure, authority.  `Conservative` has two</a>
+<a id="5494" class="Comment">--     fields and both are mathematics.  Naming a field `Admissible` does</a>
+<a id="5568" class="Comment">--     not make a system admissible; no obligation of that kind is</a>
+<a id="5635" class="Comment">--     expressed by the shape of these records or smuggled in by their</a>
+<a id="5706" class="Comment">--     vocabulary.</a>
+<a id="5725" class="Comment">--   * higher coherence.  `Commutes` is ONE path between two composites.</a>
+<a id="5798" class="Comment">--     That several such squares assemble into a filled cube is a further</a>
+<a id="5872" class="Comment">--     obligation, and proving the faces does not prove the cube.</a>
+<a id="5938" class="Comment">--   * strategies with memory.  A strategy in `Fibre.Samvada_…` is a</a>
+<a id="6007" class="Comment">--     function of the state alone; histories, protocols and adversaries</a>
+<a id="6080" class="Comment">--     are not modelled.</a>
+<a id="6105" class="Comment">--   * cost.  Nothing here says a trace is small, cheap to store, or safe</a>
+<a id="6179" class="Comment">--     to transmit.  It says what it is.</a>
+<a id="6220" class="Comment">--   * verifier correctness, protocol security, availability, revocation,</a>
+<a id="6294" class="Comment">--     key recovery, privacy accounting, measurement integrity, upgrade</a>
+<a id="6366" class="Comment">--     governance, specification adequacy.  None of these is a corollary</a>
+<a id="6439" class="Comment">--     of a transport law, and none of them appears below.</a>
+<a id="6498" class="Comment">------------------------------------------------------------------------</a>
+
+<a id="6572" class="Comment">-- The trace family of a factorisation is FORCED to be the fibre family of</a>
+<a id="6647" class="Comment">-- the map it induces — so the residue of a computation is not a design</a>
+<a id="6719" class="Comment">-- choice.  Carrier is the contractible end of that same scale.</a>
+<a id="6783" class="Keyword">open</a> <a id="6788" class="Keyword">import</a> <a id="6795" href="Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.html" class="Module Operator">Fibre.Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase</a>
+
+<a id="6877" class="Comment">-- A state transition need not be invertible for its residue to be typed.</a>
+<a id="6951" class="Comment">-- `collapse` (n ↦ 0) is the witness: provably not an equivalence, residue</a>
+<a id="7026" class="Comment">-- provably ℕ, and lossless all the same.  `suc` is the opposite failure —</a>
+<a id="7101" class="Comment">-- an EMPTY fibre — which isContr alone cannot distinguish from the first.</a>
+<a id="7176" class="Keyword">open</a> <a id="7181" class="Keyword">import</a> <a id="7188" href="Fibre.LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre.html" class="Module Operator">Fibre.LawfulStep_TheVisibleStepNeedNotBeInvertibleAndItsResidueIsStillExactlyOneFibre</a>
+
+<a id="7275" class="Comment">-- Commutation is the certificate that a serialisation was removable: any</a>
+<a id="7349" class="Comment">-- interleaving of two commuting steps reduces to the two counts.  When it</a>
+<a id="7424" class="Comment">-- fails, it fails computably, and the order stays in the answer.</a>
+<a id="7490" class="Keyword">open</a> <a id="7495" class="Keyword">import</a> <a id="7502" href="Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained.html" class="Module Operator">Fibre.Krama_CommutationIsTheProofThatTheOrderWasNeverThereAndItsFailureIsRetained</a>
+
+<a id="7585" class="Comment">-- The orbit is the one-query case of the interactive coalgebra: under the</a>
+<a id="7660" class="Comment">-- deterministic embedding every strategy observes the same prefix, and</a>
+<a id="7732" class="Comment">-- `counter` shows that in general two strategies disagree at step one.</a>
+<a id="7804" class="Keyword">open</a> <a id="7809" class="Keyword">import</a> <a id="7816" href="Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.html" class="Module Operator">Fibre.Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers</a>
+
+<a id="7907" class="Comment">-- The formal corpus itself is the same coalgebra: a state is Σ A . A and a</a>
+<a id="7983" class="Comment">-- question is exactly a typed map out of the current A.  No finite-depth</a>
+<a id="8057" class="Comment">-- approximation or external scheduler is introduced.</a>
+<a id="8111" class="Keyword">open</a> <a id="8116" class="Keyword">import</a> <a id="8123" href="Fibre.CorpusSamvada.html" class="Module">Fibre.CorpusSamvada</a>
+
+<a id="8144" class="Comment">-- Mechanical bridge from the active Agda namespace to one raw checked value.</a>
+<a id="8222" class="Keyword">open</a> <a id="8227" class="Keyword">import</a> <a id="8234" href="Fibre.CorpusReflection.html" class="Module">Fibre.CorpusReflection</a>
+</pre></body></html>
