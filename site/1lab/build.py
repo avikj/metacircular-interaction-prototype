@@ -42,6 +42,18 @@ SKIP_DIRS = {".git", ".agents", ".codex", "_build", "build", "dist", "node_modul
 SANSKRIT_SCRIPT = re.compile(r"[\u0900-\u097F]")
 SANSKRIT_MARKS = re.compile(r"[ĀāĪīŪūṚṛṜṝḶḷḹṄṅÑñṆṇṬṭḌḍḎḏŚśṢṣḤḥṂṃṆṇ]")
 SANSKRIT_LABEL = re.compile(r"\bSanskrit\b", re.I)
+# Non Jain Sanskrit glosses and invented prefixes that must not appear in the
+# public presentation. Jain vocabulary such as naya, pramana, karma, moksa,
+# and saptabhangi is intentionally retained.
+NON_JAIN_SANSKRIT = re.compile(
+    r"\b(?:avatara(?:na|nika)?|sesa|samvada|krama(?:niyama)?|yantra|bhavana|"
+    r"visvarupa|punaragamana(?:m)?|kosa|ksitija|pratibimba|parivarta|vakra|"
+    r"valaya|sima|prastha|khanda|adhah|shunya|garbha|upadhi|kuttaka|sthana|"
+    r"sankhya|sakala|vikala|desa|samagra|samata|dvidha|jiva|jivita|tantu|"
+    r"srotas|sanghata|sankramana|samuha|pratyahara|pratyaya|nirjara|kaivalya|"
+    r"dharma|sutra|pada|sakti|purna|purnata|pariksa|pramanya|viveka|nucleus)\b",
+    re.I,
+)
 
 
 class PlainText(HTMLParser):
@@ -294,6 +306,7 @@ def scrub_public_output() -> None:
         cleaned = SANSKRIT_SCRIPT.sub("", content)
         cleaned = SANSKRIT_MARKS.sub("", cleaned)
         cleaned = SANSKRIT_LABEL.sub("", cleaned)
+        cleaned = NON_JAIN_SANSKRIT.sub("", cleaned)
         if cleaned != content:
             path.write_text(cleaned, encoding="utf-8")
 
