@@ -35,7 +35,7 @@
 --   * no physical process implements this equivalence;
 --   * no equality yet between the nested weight fold and the direct fold on
 --     `Flat`‚îthat is the Born coherence square now made well-typed by this
---     reversible carrier and by `KramaNairapeksya`.
+--     reversible carrier and by `OrderNairapeksya`.
 --
 -- TERM. ‡‡‡‡‡æ‡ñ‡æ is carried from the checked branch-family module; ‡‡‡‡ is the
 -- repository's ordinary word for a checked bridge.  The compound is built

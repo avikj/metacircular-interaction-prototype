@@ -919,7 +919,7 @@ import PolynomialAttachmentGrowth
 import QuadraticRefinement
 import QuotientUnitSourceCutBoundary
 import RootedGrothendieck
-import SankramanaSesa_EveryTransportOwesItsResidual
+import TransportResidue_EveryTransportOwesItsResidual
 import SpernerFromSl2
 import StructuredSymmetryTransport
 -- NB: TransportCost is NOT here.  It `open import`s this
@@ -933,8 +933,8 @@ import Vacuity
 -- minutes later, commit 3b4846c6 "Delete the bisection stubs now that
 -- the real module checks".  Not imported: there is nothing to import.)
 --
--- The moka-yantra jewels (NisvabhavaNet, CatuskotiPerspective,
--- PratityasamutpadaArising, MokshaYantra) are NOT imported here: this root
+-- The moka-machine jewels (NisvabhavaNet, CatuskotiPerspective,
+-- PratityasamutpadaArising, MokshaMachine) are NOT imported here: this root
 -- does not check under the current fallback pin (PathIsSymmetry needs a
 -- `SymGroup` the pinned library does not export), so membership here would
 -- build nothing.  Their own closing aggregate is `NaturalMachine/Moksha.agda`,
@@ -1030,9 +1030,9 @@ import HypothesesAssumedWhereTheyAreDerivable
 import IdempotenceForbidsDescent
 import IndependenceNeedsAnInternalImplication
 import JoinSavesTheMeet
-import KramaAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner
-import KramaAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
-import KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
+import OrderAstiNasti_AnEnumerableRemedySetKillsTheFourthCorner
+import OrderAstiNasti_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
+import OrderSaha_TheFourthCornerIWasNamingIsTheSequentialPosition
 import Laghava
 import LaghavaUnderdeterminesSoTheMetarulesAreNotOptional
 import ListKit_OneImportPointAndNoNewDefinitions
@@ -1042,7 +1042,7 @@ import MergingASeparatedPairBreaksAtTheSeparatingContinuation
 import MeruDiagonalIsVirahanka
 import MigrationNeedsALawAndTheLawIsNotFree
 import Moksha
-import MokshaYantra
+import MokshaMachine
 import NamingIsNotAFunctionOfResemblance
 import NegationCompletenessForbidsIndependence
 import NisvabhavaNet
@@ -1106,7 +1106,7 @@ import TheReachableLawDoesNotComposeWithoutPreservation
 import TheRefutingModelAlreadyGivesTheFirstConjunct
 import TheScoreOrderAndTheWeightOrderDisagree
 import TheSecondNaIsTheCollision
-import TheSecondUpadhiConditionDoesAllTheWork
+import TheSecondQualifierConditionDoesAllTheWork
 import TheSeparationQuestionIsVacuousUntilGeneralisationIsRequired
 import TheSharedPreambleIsACommonPrefixNotACommonSet
 import TheSixthComponentIsFreeToCarryAndIsWhatMakesTheFifthCompose
@@ -1147,7 +1147,7 @@ import Yugapat_TheDenialOfJointAssertionDoesNotDecompose
 -- individually at EXIT 0 on the pin; wired here rather than in Everything
 -- because this file is the root of the NaturalMachine/ subtree.
 import Alopa_TheEngineNeverTouchesTheMeaning
-import YantraTantu_TheEngineLivesInTheFibreOfItsDenotation
+import MachineFiber_TheEngineLivesInTheFibreOfItsDenotation
 
 -- ‚î‚î ‡‡Æ‡‡‡‡‡Ø‡, 2026-08-22 (second pass) ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- Fourteen NaturalMachine/ modules that arrived by merge from origin already

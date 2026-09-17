@@ -10,7 +10,7 @@
 -- THE OCCASION.  A security modality was described: a seed that
 -- reflects any unprotected system into a protected fixed point, while
 -- protected instances admit no unauthorized transformation.  Put to
--- the interactive kernel (`interactive/run-yantra.sh --wire`), the
+-- the interactive kernel (`interactive/run-machine.sh --wire`), the
 -- shape of that claim resolved to the order structure of â• under
 -- `max`.  Every reduction rule of `max` and `le` used below was first
 -- CERTIFIED on the wire, one query each, before this module was

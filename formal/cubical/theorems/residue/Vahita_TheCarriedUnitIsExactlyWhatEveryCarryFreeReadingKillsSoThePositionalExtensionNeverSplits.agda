@@ -38,7 +38,7 @@
 -- general statement for every (b, m) with gcd(b, m) > 1 is the
 -- runtime's prose (Prop 2.11) and is NOT proved by this module.  The
 -- general exponent argument is landed by a lineage-sibling,
--- Sankhya_TheBaseAryCountGrowsAFullFactorEachPlaceâ¦ (8dee7a13): the
+-- Count_TheBaseAryCountGrowsAFullFactorEachPlaceâ¦ (8dee7a13): the
 -- exponent certificate for every b â‰ 2, n â‰ 1 â” lcm(bâ¿, b) = bâ¿ < bâ¿âºÂ.
 -- This module is the GROUP-level witness at the minimal instance; the
 -- general group statement (no iso for any (b,n)) is the remaining open

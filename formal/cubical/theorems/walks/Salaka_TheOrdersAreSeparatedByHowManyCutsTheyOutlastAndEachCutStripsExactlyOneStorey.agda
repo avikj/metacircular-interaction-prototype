@@ -7,7 +7,7 @@
 --  each cut strips exactly one storey.)
 --
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
--- WHY THIS EXISTS.  `JainSankhya.agda` carries the Jaina stratification
+-- WHY THIS EXISTS.  `JainCount.agda` carries the Jaina stratification
 -- of magnitude ‚î ‡‡‡ñ‡‡Ø‡æ‡ / ‡‡‡‡ñ‡‡Ø‡æ‡ / ‡‡®‡®‡‡, each graded ‡‡ò‡®‡‡Ø / ‡Æ‡ß‡‡Ø‡Æ /
 -- ‡â‡‡‡ï‡‡‡‡ü ‚î as a nine-element ordered set, and its own header names what
 -- it does not do: "it does NOT encode the exact salk operations ‚¶
@@ -52,7 +52,7 @@
 -- operations and the doctrine that magnitude is stratified into orders
 -- that the operations move between; the arithmetic here is ordinary and is
 -- mine.  In particular ¬ß‡ is NOT a claim that the Jaina ‡‡®‡®‡‡-grades are
--- towers of twos, and no grade of `JainSankhya.Magnitude` is identified
+-- towers of twos, and no grade of `JainCount.Magnitude` is identified
 -- with any natural number here ‚î that file forbids the identification and
 -- this file does not import it.
 --

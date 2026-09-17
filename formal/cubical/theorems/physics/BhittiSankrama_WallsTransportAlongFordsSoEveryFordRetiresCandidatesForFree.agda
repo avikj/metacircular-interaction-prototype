@@ -23,7 +23,7 @@
 -- linearly in what is proved.  ‡‡ø‡‡‡‡ø-‡‡‡ï‡‡∞‡Æ is built here, 2026-08-23.
 ------------------------------------------------------------------------
 
-module BhittiSankrama_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where
+module BhittiSanorder_WallsTransportAlongFordsSoEveryFordRetiresCandidatesForFree where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_‚âÉ_ ; compEquiv ; invEquiv)

@@ -63,7 +63,7 @@
 --       instantiated at (àµà°àà, à—àà°à), joined to
 --       `Chandomudra_â¦.à¯àà—àà®-àà¨àààà` which prices the joint fibre.
 --
---   Â§à  àà™àà•ààà¿-à¯à‹à—à  à¯à‹à—àà² (àà™àà•ààà¿ n) â‰¡ sankhya n.  The same statement
+--   Â§à  àà™àà•ààà¿-à¯à‹à—à  à¯à‹à—àà² (àà™àà•ààà¿ n) â‰¡ count n.  The same statement
 --       at the level of NUMBERS: the n-th row of the à®àà°àààà°àààà¾à° sums to
 --       the àà™àà–àà¯à¾ 2â¿, proved from àà²à¾à¯àà§'s adjacent-sums rule as it is
 --       written in `NastaUddista_â¦.àà™àà•ààà¿` â” one row held in memory, no
@@ -74,7 +74,7 @@
 --       (`PingalaPrastara.uddistaIso`).  Summing the à²à—à•àà°à¿à¯à¾ over every
 --       guru-count returns the àà™àà–àà¯à¾, and no summand is ever examined.
 --
--- RELATION TO WHAT IS ALREADY HERE.  `Sesa_â¦.ààà` gives the COMPOSITION
+-- RELATION TO WHAT IS ALREADY HERE.  `Residue_â¦.ààà` gives the COMPOSITION
 -- half â” fiber (g âˆ˜ f) z â‰ Î[ p âˆˆ fiber g z ] fiber f (fst p) â” for two
 -- maps run in series.  Â§à§ is the PAIRING half, for two maps run on the
 -- same source.  They are different fibrations of a fibration and neither
@@ -102,7 +102,7 @@ open import Cubical.Data.List using (List ; [] ; _âˆ·_)
 open import Cubical.Tactics.NatSolver.Reflection using (solveâ„•!)
 
 open import PingalaPrastara
-  using (Pattern ; varna ; guruOf ; Vak ; Chosen ; sankhya ; uddistaIso)
+  using (Pattern ; varna ; guruOf ; Vak ; Chosen ; count ; uddistaIso)
 open import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
   using (à¤¨à¤¯à¤¨ ; à¤¯à¥à¤—à¥à¤® ; à¤…à¤—à¥à¤°à¤¿à¤® ; à¤ªà¤™à¥à¤•à¥à¤¤à¤¿)
 import Chandomudra_ThePratyayasFibresWereWrittenInProseAndTheCensusCalledThemUndecided as CM
@@ -230,7 +230,7 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (f : A â†’ B) (g : A â†
 -- àà™àà–àà¯à¾.  Read backwards: summing the à²à—à•àà°à¿à¯à¾ over every possible
 -- guru-count returns the whole ààà°àààà¾à°, so the conditional receipts
 -- account for the total exactly.
-à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤¯à¥‹à¤—à¤ƒ : (n : â„•) â†’ à¤¯à¥‹à¤—à¤«à¤² (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n) â‰¡ sankhya n
+à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤¯à¥‹à¤—à¤ƒ : (n : â„•) â†’ à¤¯à¥‹à¤—à¤«à¤² (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n) â‰¡ count n
 à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤¯à¥‹à¤—à¤ƒ zero    = refl
 à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤¯à¥‹à¤—à¤ƒ (suc n) =
     cong (_+ à¤¯à¥‹à¤—à¤«à¤² (à¤¯à¥à¤—à¥à¤® (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ n))) (sym (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿-à¤®à¥à¤–à¤®à¥ n))
@@ -245,7 +245,7 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (f : A â†’ B) (g : A â†
 -- k > n.  It does not.  The route runs the other way round: Â§à says the
 -- sum of the conditional fibres IS the àµà°àààµàààà, and Pigala's own
 -- à¨àààŸ/à‰à¦àà¦à¿àààŸ pair already counts THAT (`PingalaPrastara.uddistaIso`,
--- Vak n â‰ Fin (sankhya n)).  Â§à then rewrites the count as the row sum.
+-- Vak n â‰ Fin (count n)).  Â§à then rewrites the count as the row sum.
 --
 -- So: the àà™àà–àà¯à¾ is recovered by summing the à²à—à•àà°à¿à¯à¾ over every guru
 -- count, as an equivalence, with no summand ever examined.
@@ -265,7 +265,7 @@ module _ {A : Type â„“} {B : Type â„“'} {C : Type â„“''} (f : A â†’ B) (g : A â†
 _ : à¤¯à¥‹à¤—à¤«à¤² (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ 4) â‰¡ 16
 _ = refl
 
-_ : à¤¯à¥‹à¤—à¤«à¤² (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ 4) â‰¡ sankhya 4
+_ : à¤¯à¥‹à¤—à¤«à¤² (à¤ªà¤™à¥à¤•à¥à¤¤à¤¿ 4) â‰¡ count 4
 _ = refl
 
 -- à¦àà®à àà™àà•ààà¿à : à§à¦à¨à à

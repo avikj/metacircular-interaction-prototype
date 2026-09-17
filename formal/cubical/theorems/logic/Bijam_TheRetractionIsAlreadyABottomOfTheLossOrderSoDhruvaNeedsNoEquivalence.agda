@@ -229,7 +229,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 --
 --   Dhruva.‡®‡‡‡ü-‡‡‡æ‡µ‡-‡ó‡‡ø-‡‡‡æ‡µ‡          isEquiv, via a contractible FIBRE
 --   Vyapti.‡®‡‡‡ü-‡‡‡æ‡µ‡-‡ó‡‡ø-‡‡‡æ‡µ‡-‡µ‡‡Ø‡æ‡‡‡‡‡Ø‡æ  isEquiv, via the ORDER
---   SvaTantuVasa.‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡             isEquiv, via contractibility of
+--   SvaFiberVasa.‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡             isEquiv, via contractibility of
 --                                      the whole FLOW SPACE
 --   ¬ß‡ here                            f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø (idfun A) ‚î the bottom
 --
@@ -238,7 +238,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 -- the isEquiv form from ¬ß‡ so the containment is a term and not a remark.
 --
 -- AND ONE OF THAT FILE'S TWO IS SHARP, which is the distinction worth
--- keeping.  `SvaTantuVasa.‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ : isEquiv f ‚í isContr (Œ[Œ¶] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)`
+-- keeping.  `SvaFiberVasa.‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ : isEquiv f ‚í isContr (Œ[Œ¶] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)`
 -- CANNOT weaken: the flow space is `Œ†[a] fiber f (f a)` (its own ‡µ‡æ‡‡),
 -- contractible exactly when every fibre is ‚î which IS `isEquiv f`.  So in
 -- one module one theorem needs the equivalence essentially and the other
@@ -300,7 +300,7 @@ open import Cubical.Data.Nat using (‚Ñï ; zero ; suc)
 --   bottom-ness would do" returns sites that are SHARP, and a blanket
 --   sweep would have been wrong about them:
 --
---     SvaTantuVasa.‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ ‚î the flow space is `Œ†[a] fiber f (f a)`,
+--     SvaFiberVasa.‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ ‚î the flow space is `Œ†[a] fiber f (f a)`,
 --       contractible exactly when every fibre is, which IS `isEquiv f`.
 --     NastoddistaPariksa.‡‡Æ‡‡æ-‡‡ï‡‡∞‡Æ‡ / ‡‡Æ‡‡æ‚í‡‡∞‡‡ï‡‡‡æ ‚î stated as an
 --       equivalence in both directions; `isEquiv` is the content.
@@ -311,5 +311,5 @@ open import Cubical.Data.Nat using (‚Ñï ; zero ; suc)
 --
 --   So the finding is not "isEquiv is usually too strong".  It is that
 --   two theorems in ONE module can differ on this, and only opening each
---   says which ‚î SvaTantuVasa's pair is exactly that case.
+--   says which ‚î SvaFiberVasa's pair is exactly that case.
 ------------------------------------------------------------------------

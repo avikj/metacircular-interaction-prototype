@@ -6,7 +6,7 @@
 -- displacement descends, boundary interaction history does not.  This is
 -- the RH-side residual of the renormalized-boundary-transport picture,
 -- as a finite checked term, and a literal descent/non-descent instance
--- in the sense of SankramanaShreni / VyayaSesa.
+-- in the sense of TransportShreni / VyayaResidue.
 --
 -- THE OBJECT.  On the full line the shift is unitary: U‚ê‚ª¬ = U‚ã‚ê.  On a
 -- finite window the truncated shift S (drop what falls off the top) has

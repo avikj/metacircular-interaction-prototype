@@ -12,7 +12,7 @@
 --
 -- UNITARITY, uniformly: for any table M, the visible step
 -- stepOf M = Ïâ âˆ˜ uStep (M , _) admits a lossless completion that is
--- an equivalence â” and by Ekatva it admits exactly one, so "certified
+-- an equivalence â” and by Uniqueness it admits exactly one, so "certified
 -- unitary" is not even a certificate here, it is a property every
 -- step already has (`every-step-is-unitary`).
 --
@@ -26,7 +26,7 @@
 --
 -- An architecture whose steps are certified reversible-at-the-
 -- completed-level has certified nothing about the order of its
--- operations.  Reversibility is free (Ekatva); coherence of exchange
+-- operations.  Reversibility is free (Uniqueness); coherence of exchange
 -- is data; the machine exhibits the gap in four rules.
 ------------------------------------------------------------------------
 
@@ -39,7 +39,7 @@ open import Cubical.Data.Nat using (â„• ; znots)
 open import Cubical.Data.List using (List ; [] ; _âˆ·_)
 open import Cubical.Relation.Nullary using (Â¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
   using (incr)
 open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction

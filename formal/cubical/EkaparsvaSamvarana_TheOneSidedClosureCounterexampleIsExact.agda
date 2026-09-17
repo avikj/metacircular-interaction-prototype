@@ -36,7 +36,7 @@
 --      assumptions."
 --
 -- Clause one is discharged in
--- `SamataPramanena_TheTrefoilLawIsExactlyPAssociativity.agda`.  This
+-- `EqualityPramanena_TheTrefoilLawIsExactlyPAssociativity.agda`.  This
 -- module discharges the clause named "the exact counterexample", and
 -- with it the Isbell conjugates and one-sided closure it is stated in
 -- terms of.  Middle associativity, the residual laws and the derived

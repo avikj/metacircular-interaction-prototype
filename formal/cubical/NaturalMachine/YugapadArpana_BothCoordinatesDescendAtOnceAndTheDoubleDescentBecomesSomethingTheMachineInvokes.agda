@@ -11,7 +11,7 @@
 -- WHAT SPEECH CANNOT DO SIMULTANEOUSLY, THE DESCENT CAN.  The
 -- machine's own operators � its maximum, its comparison, its monus �
 -- recurse on BOTH arguments at once (sx∨sy = s(x∨y)), so their truths
--- do not decompose into single-variable descents: SyatSakaladesha
+-- do not decompose into single-variable descents: SyatWholedesha
 -- closed mx-commutativity by hand for exactly this reason.  Here the
 -- simultaneous descent becomes something the machine INVOKES:
 --
@@ -46,7 +46,7 @@ open import Cubical.Data.Sigma using (_,_)
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-rec)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
-open import NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
+open import NaturalMachine.AdeshaPositional_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
   using (आदेशनम् ; स्थानिवत् ; _≫=_)
 open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate
   using (समानः ; उपस्थापनम् ; स्वम् ; द्विः ; आत्म-मूल्यम् ; _⟨_≔_⟩ ; उपस्थापन-स्थानिवत्)

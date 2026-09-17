@@ -21,7 +21,7 @@
 --
 -- THE FIBRE LAW.  SarvavibhagaH: for every f : A ‚í B,
 --   ‡‡∞‡‡µ‡µ‡ø‡‡æ‡ó‡ : A ‚â Œ[ b ‚àà B ] fiber f b     (the universal decomposition,
--- the totalEquiv; Punaragamana.Carrier f is its total space).  The SOURCE
+-- the totalEquiv; Return.Carrier f is its total space).  The SOURCE
 -- projection is an equivalence for EVERY f.  The TARGET side ‚î whether each
 -- fiber f b is contractible ‚î is `isEquiv f`, and a non-equivalence loses
 -- there.

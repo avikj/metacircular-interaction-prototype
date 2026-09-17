@@ -23,7 +23,7 @@
 -- transmitted sentence "the count projection matching does not
 -- establish identity" � not about graphs in general, but in the
 -- sharpest available form, using the same succession pair that
--- KramaNiyama landed.  Two BODIES are exhibited: the same carrier,
+-- OrderNiyama landed.  Two BODIES are exhibited: the same carrier,
 -- the same counts at every P�-grade a count-stratum heartbeat can
 -- read (both are � � � with one binary operation � every cardinality
 -- and arity datum agrees), differing only in the law of succession.
@@ -52,7 +52,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 open import QuotientFiberLaw using (module Law)
-open import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
+open import OrderNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
   using (नियमः ; μT ; μK ; क्रमप्रश्नः ; क्रमप्रश्न-भेदः)
 
 ------------------------------------------------------------------------

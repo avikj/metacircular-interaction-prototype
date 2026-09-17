@@ -25,7 +25,7 @@
 -- The corpus now has unique factorisation, in
 --   `Drdha_‚¶`  ‚î ‡¶‡‡‡Æ‡ (prime), ‡µ‡ß‡ (product of a list), ‡µ‡ø‡‡æ‡‡®‡Æ‡
 --                (existence of a prime list for every n ‚â 1), and
---   `Ekatva_‚¶` ‚î ‡‡ï‡‡‡µ‡Æ‡ (two prime lists with one product are a `Perm`),
+--   `Uniqueness_‚¶` ‚î ‡‡ï‡‡‡µ‡Æ‡ (two prime lists with one product are a `Perm`),
 --                ‡‡ï‡‡‡µ-‡ó‡‡®‡æ (hence equal counts of every p), ‡Æ‡æ‡®‡Æ‡ p n
 --                (the valuation), ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡ (every prime list with
 --                product n has count ‡Æ‡æ‡®‡Æ‡ p n of p).
@@ -97,7 +97,7 @@ open import ChargePolynomialFinite
         ; f12 ; f30 ; f360 ; value-12 ; value-30 ; value-360 ; wf-12 ; wf-30 ; wf-360 )
 open import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision
   using (‡§¶‡•É‡§¢‡§Æ‡•ç ; ‡§µ‡§ß‡§É ; ‡§∏‡§∞‡•ç‡§µ‡•á ; ‡§µ‡§ß-++ ; ‡§∏‡§∞‡•ç‡§µ‡•á-++ ; ‡§¶‡•É‡§¢‡§§‡•ç‡§µ‡§Æ‡•ç ; ‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç)
-open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
+open import Uniqueness_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
   using (module Bahulya ; ‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç ; ‡§è‡§ï‡§§‡•ç‡§µ-‡§ó‡§£‡§®‡§æ ; ‡§Æ‡§æ‡§®‡§Æ‡•ç ; ‡§Æ‡§æ‡§®-‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø‡§É)
 open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
   using (Perm)
@@ -361,7 +361,7 @@ tables-exponent n f g cf cg p =
   ‚àô count-expOf p g (correct-distinct g cg)
 
 -- A correct table IS the factorization: its exponent at every p is the
--- valuation ‡Æ‡æ‡®‡Æ‡ p n of Ekatva.
+-- valuation ‡Æ‡æ‡®‡Æ‡ p n of Uniqueness.
 table-valuation : (n : ‚Ñï) (f : Fact) ‚Üí Correct n f ‚Üí (pos : 0 < n)
                 ‚Üí (p : ‚Ñï) ‚Üí expOf p f ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p n pos
 table-valuation n f cf pos p =

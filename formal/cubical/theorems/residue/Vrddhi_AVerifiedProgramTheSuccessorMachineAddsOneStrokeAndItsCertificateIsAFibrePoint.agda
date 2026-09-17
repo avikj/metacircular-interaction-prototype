@@ -4,7 +4,7 @@
 -- àµàà¦àà§à¿ â” increment.  A VERIFIED PROGRAM, AND ITS CERTIFICATE IS A
 -- FIBRE POINT.
 --
--- A two-rule table for the universal machine of Vishvayantra:
+-- A two-rule table for the universal machine of Vishvamachine:
 --
 --   state 0, reading 1 : write 1, move right, stay in state 0
 --   state 0, reading 0 : write 1, stay put,  go to state 1
@@ -36,7 +36,7 @@ open import Cubical.Data.List using (List ; [] ; _âˆ·_)
 open import Cubical.Data.Sigma
 open import Cubical.Foundations.Equiv using (invEq ; fiber)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 ------------------------------------------------------------------------
 -- Â§1  The program and the tape shapes.

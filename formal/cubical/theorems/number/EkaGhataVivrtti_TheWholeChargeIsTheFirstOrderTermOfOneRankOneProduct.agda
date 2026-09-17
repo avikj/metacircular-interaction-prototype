@@ -95,7 +95,7 @@ open import OjaYugma_TheSquarefreeChargeIsTheActivePlaceCountTimesTheParityChara
 -- forbid it.
 
 -- ------------------------------------------------------------- the tower
--- The machine's own reading of this residue, asked of `garbha.dhara` with
+-- The machine's own reading of this residue, asked of `kernel.dhara` with
 -- the two standpoints â” "n constant-coefficient products are needed" and
 -- "one product carries it at first order" â” was a stream in which every born
 -- position keeps the second standpoint as its base and adds ONE MORE Arpita,

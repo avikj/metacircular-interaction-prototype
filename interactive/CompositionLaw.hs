@@ -7,7 +7,7 @@
 -- is one row of his table.
 --
 -- WHAT THIS FILE IS, AND WHAT `Nalanda.hs` IS NOT.  `Nalanda.hs` is a
--- reactor whose law is welded in: `bhavana` hard-codes N(x,y) = x² − D y²,
+-- reactor whose law is welded in: `composition` hard-codes N(x,y) = x² − D y²,
 -- `chooseM` hard-codes the interpolator (m, 1, m² − D), and every path
 -- through it assumes the norm is even in each variable separately, which is
 -- true only when the middle coefficient is zero.  That weld is not
@@ -121,7 +121,7 @@ data Law v = Law
   }
 
 -- LEG 2, CHECKED AT EVERY USE.  The general theorem is in
--- formal/cubical/VargaPrakrti_TraceBhavanaOverN.agda; this is the run
+-- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda; this is the run
 -- refusing to trust it silently.  If multiplicativity ever failed the
 -- composition would be a different operation than the one proved, and the
 -- whole certificate would be about something else.
@@ -675,7 +675,7 @@ vargaPrakrtiWide t c w
 -- of concrete points.  This is NOT the proof � CLAUDE.md is explicit that a
 -- finite box proves only what it exhausts � it is the generator refusing to
 -- emit a shape it has not itself checked.  The proof is `solve` in
--- formal/cubical/VargaPrakrti_TraceBhavanaOverN.agda, over all naturals.
+-- formal/cubical/VargaPrakrti_TraceCompositionOverN.agda, over all naturals.
 natIdentities :: (Bool, Bool)
 natIdentities = (all bhav pts4, all cakr pts3)
   where

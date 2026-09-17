@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡Æ‡‡Ø‡ï‡-‡‡ã‡‡æ‡® ‚î the ladder that sees everything.
 --
--- SopanaSankramana's tower pushes readings UP with the transport.  An
+-- SopanaTransport's tower pushes readings UP with the transport.  An
 -- observer ladder runs the other way: the finer reading determines the
 -- coarser one, never the reverse.  So the ladder is the dual object ‚î
 -- coarsening maps c_n : Y_{n+1} ‚í Y_n with c_n (O_{n+1} (R_n x)) ‚â° O_n x

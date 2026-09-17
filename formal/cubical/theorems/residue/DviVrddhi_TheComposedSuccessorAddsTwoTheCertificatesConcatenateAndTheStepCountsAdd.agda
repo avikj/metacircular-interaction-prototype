@@ -32,7 +32,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_)
 open import Cubical.Data.Sigma
 open import Cubical.Data.Unit using (tt)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
 open import Samasa_ProgramsComposeTheSequencedTableRunsItsFirstPhaseThenHandsTheTapeToTheSecondAtTheRetireState
   using (SourcesBelow ; compound ; compose-runs ; addConf)

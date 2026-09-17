@@ -36,7 +36,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Cubical.HITs.Truncation using (hLevelTrunc)
 open import Cubical.HITs.Truncation.Properties using (truncOfTruncEq)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

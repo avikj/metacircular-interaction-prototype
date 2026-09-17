@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡Æ‡æ‡®-‡µ‡∞‡‡ó ‚î the same class.
 --
--- ValayaSamyoga solved the gauge square on a loop: the transformed
+-- LoopSamyoga solved the gauge square on a loop: the transformed
 -- holonomy is the conjugate g ¬ W ¬ g‚ª¬.  FiniteGraphHolonomyGroupoid
 -- called this "conjugacy before any trace-like quotient is taken."  This
 -- file takes the quotient ‚î the conjugacy class ‚î and shows it is the
@@ -26,7 +26,7 @@
 --       them is gauge invariant at once.  This is the trace-like quotient
 --       made an object, without a trace.
 --
--- The lattice (AvinimayaSetu) and the graph (ValayaSamyoga) both land
+-- The lattice (AvinimayaSetu) and the graph (LoopSamyoga) both land
 -- here: on a closed loop the connection is coordinates, the class is the
 -- observable.  ‡‡Æ‡æ‡® (samna, same) and ‡µ‡∞‡‡ó (varga, class) are ordinary
 -- .
@@ -46,8 +46,8 @@ open import FiniteGraphHolonomyGroupoid
 open Connection
 open GaugeNatural
 import RelationalHolonomyRefinement as RHR
-open import ValayaSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant
-  using (valaya-sa·πÉyoga)
+open import LoopSamyoga_OnAGraphLoopGaugeNaturalityIsConjugationSoEveryClassFunctionOfTheLoopHolonomyIsGaugeInvariant
+  using (loop-sa·πÉyoga)
 import AvinimayaSetu_TheNonabelianChainTelescopesToTheEndpointLawSoTheLoopIsCovariantByConjugationAndTheAbelianInvarianceWasAnArtifactOfCommutativity
   as Setu
 
@@ -79,11 +79,11 @@ module _ (G : Group ‚Ñìg) where
   -- ‡® ¬ The class of a graph loop's holonomy is gauge invariant.
   ----------------------------------------------------------------------
 
-  valaya-varga : {V : Type ‚Ñìv} {A B : Connection G V} (Œ∑ : GaugeNatural A B)
+  loop-varga : {V : Type ‚Ñìv} {A B : Connection G V} (Œ∑ : GaugeNatural A B)
                  {x : V} (p : x ‚â° x)
                ‚Üí varga (hol A p) ‚â° varga (hol B p)
-  valaya-varga {A = A} {B} Œ∑ {x} p =
-    eq/ (hol A p) (hol B p) (gauge Œ∑ x , sym (valaya-sa·πÉyoga Œ∑ p))
+  loop-varga {A = A} {B} Œ∑ {x} p =
+    eq/ (hol A p) (hol B p) (gauge Œ∑ x , sym (loop-sa·πÉyoga Œ∑ p))
 
   ----------------------------------------------------------------------
   -- ‡© ¬ Every class function factors through the class, computably.
@@ -105,7 +105,7 @@ module _ (G : Group ‚Ñìg) where
     varga-avikƒÅra : {V : Type ‚Ñìv} {A B : Connection G V} (Œ∑ : GaugeNatural A B)
                     {x : V} (p : x ‚â° x)
                   ‚Üí f (hol A p) ‚â° f (hol B p)
-    varga-avikƒÅra Œ∑ p = cong varga-f (valaya-varga Œ∑ p)
+    varga-avikƒÅra Œ∑ p = cong varga-f (loop-varga Œ∑ p)
 
 ------------------------------------------------------------------------
 -- ‡ ¬ The fork-and-loop graph, at its root loop.
@@ -113,7 +113,7 @@ module _ (G : Group ‚Ñìg) where
 
 m≈´la-varga : (G : Group ‚Ñìg) (A B : Connection G BranchLoop) (Œ∑ : GaugeNatural A B)
            ‚Üí varga G (hol A loop) ‚â° varga G (hol B loop)
-m≈´la-varga G A B Œ∑ = valaya-varga G Œ∑ loop
+m≈´la-varga G A B Œ∑ = loop-varga G Œ∑ loop
 
 ------------------------------------------------------------------------
 -- ‡ ¬ The lattice lands in the same class.  A closed chain's Wilson loop,

@@ -26,7 +26,7 @@
 -- THE THIRD READING OF THE SAME LINE, AND THE ONE THAT BUILDS.
 --
 -- `Vyapti_â¦` read `NativeOperation.control-sound`: the kernel memorises.
--- `Sesa_â¦`   read `RewriteCertificate.derivation-sound`: the derivation
+-- `Residue_â¦`   read `RewriteCertificate.derivation-sound`: the derivation
 --            carries no meaning, so all of it is remainder.
 --
 -- Both are one fact.  Each soundness field lands in an identity type of a
@@ -53,7 +53,7 @@
 --       commutation.  Then:
 --
 --         counting-semantics-cannot-see-it
---           its â•-meaning is equal to `refl`, forced, and by `Sesa_â¦` Â§4 NO
+--           its â•-meaning is equal to `refl`, forced, and by `Residue_â¦` Â§4 NO
 --           function of that meaning distinguishes it from `doneâº`;
 --         univalent-semantics-does-see-it
 --           its interpretation sends `inl tt` to `inr tt`, so it is not the
@@ -212,7 +212,7 @@ counting-semantics-cannot-see-it :
 counting-semantics-cannot-see-it Ï =
   isSetâ„• (eval (add var var) Ï) (eval (add var var) Ï) _ _
 
--- and therefore, by the general no-go of `Sesa_â¦` Â§4 restated here at Stepâº,
+-- and therefore, by the general no-go of `Residue_â¦` Â§4 restated here at Stepâº,
 -- no function whatsoever of the counting meaning separates them.
 no-counting-criterion-separates :
   {C : Type â„“} (Ï† : ((Ï : Env) â†’ eval (add var var) Ï â‰¡ eval (add var var) Ï) â†’ C)

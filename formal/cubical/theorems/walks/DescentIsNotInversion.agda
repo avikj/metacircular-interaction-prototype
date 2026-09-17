@@ -39,7 +39,7 @@
 --     N-⊙ :  N (c ⊙ u)      ≡ (c � c) � N u          homogeneity
 --     ⊙-⊗ :  (c ⊙ u) ⊗ v    ≡ c ⊙ (u ⊗ v)            equivariance
 --
--- The first is `Bhavana.normScale` at D = −1 and says the norm changes by
+-- The first is `Composition.normScale` at D = −1 and says the norm changes by
 -- a SQUARE under scaling.  The second says bhvan commutes with scaling,
 -- so it descends to the orbits.
 --
@@ -52,7 +52,7 @@
 -- "solve x² − D y² = 1" is the statement that the class is trivial.
 -- Dividing by k is not a step of the group law � it is the choice of a
 -- canonical representative in the orbit, which is why it needs a
--- divisibility condition (`Bhavana.choiceToNumerator`) rather than an
+-- divisibility condition (`Composition.choiceToNumerator`) rather than an
 -- inverse.  On the orbits � pairs up to scaling, i.e. the RATIONAL POINTS
 -- of the conic � there is no dividing left to do.
 --
@@ -135,7 +135,7 @@ module Descent (R : CommRing ℓ) where
   _⊙_ : A → Pair → Pair
   c ⊙ u = (c · fst u) , (c · snd u)
 
-  -- homogeneity: the norm moves by a SQUARE.  (Bhavana.normScale, D = −1)
+  -- homogeneity: the norm moves by a SQUARE.  (Composition.normScale, D = −1)
   N-⊙ : (c : A) (u : Pair) → N (c ⊙ u) ≡ (c · c) · N u
   N-⊙ c u = scale-raw c (fst u) (snd u)
 

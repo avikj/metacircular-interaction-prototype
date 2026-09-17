@@ -47,7 +47,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 
 ------------------------------------------------------------------------

@@ -18,9 +18,9 @@
 --
 -- THE QUESTION THIS ANSWERS, AND WHY IT IS THE NEXT ONE.
 --
--- `Sesa_â¦` proves the kernel's soundness map is not injective: many
+-- `Residue_â¦` proves the kernel's soundness map is not injective: many
 -- derivations, one meaning, and no semantic criterion recovers which.
--- `Asesa_â¦` proves it is therefore not an equivalence â” by exhibiting the
+-- `Aresidue_â¦` proves it is therefore not an equivalence â” by exhibiting the
 -- failure of INJECTIVITY at the kernel's own seed.  The other half was
 -- never asked.  Is it SURJECTIVE?  That is: does the calculus derive
 -- everything its semantics identifies?

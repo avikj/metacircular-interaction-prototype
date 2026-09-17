@@ -83,7 +83,7 @@
 --   NaturalMachine/TwoLoopNonabelianNetwork.agda,
 --   NaturalMachine/PMIncidenceLocalSystem.agda â” nontrivial holonomy on a
 --     bouquet and on a six-edge cycle.
---   SamataPramanena_â¦, EkaparsvaSamvarana_â¦, MadhyaSamvarana_â¦ â” D0026
+--   EqualityPramanena_â¦, EkaparsvaSamvarana_â¦, MadhyaSamvarana_â¦ â” D0026
 --     Â§2.2/Â§2.4/Â§2.5, the trefoil law and the closure counterexamples.
 -- None of them states the converse, the uniqueness of the closing
 -- transport, or the gauge collapse of the triangle counterexample.  Those

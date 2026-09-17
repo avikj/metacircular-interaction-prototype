@@ -44,7 +44,7 @@ open import RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheV
   using (Q ; Rep ; exc)
 open import RamanujanTernary_BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList
   using (noHit ; noHit-sound ; listed-not-represented)
-open import RamanujanTernaryUpadhi_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards
+open import RamanujanTernaryQualifier_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards
   using (exc18 ; exc18-prefix ; RamanujanAssertion)
 open import Ramanujan2719Gate_TheKernelEmptiesTheLargeBoxOnceAndCachesIt
   using (scan2719-ok)

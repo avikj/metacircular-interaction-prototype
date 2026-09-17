@@ -62,7 +62,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_)
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty as ⊥ using (⊥)
 
-open import KramaAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
+open import OrderAstiNasti_TheFourthCornerCannotLiveOverAnEnumerableDecidableInstanceSet
   using (Any)
 open import OneStepCoverageAndDisjointnessOfTheLayer using (Mem)
 open import TheStratificationCoversAndItsStrataArePairwiseDisjoint

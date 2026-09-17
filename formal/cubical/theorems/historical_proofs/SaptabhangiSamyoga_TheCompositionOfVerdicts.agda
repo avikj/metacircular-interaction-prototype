@@ -26,7 +26,7 @@
 --
 -- SOURCES, EARLIEST FIRST, for the doctrine that is being formalised (the
 -- theorems below are not claimed to be in any of them; the classification
--- and the krama/saha rule are).
+-- and the order/saha rule are).
 --
 --   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
 --     oldest strata pre-Common-Era, redacted at Valabh c. 5th c. CE ‚î
@@ -43,7 +43,7 @@
 --     forgotten it is one.
 --   Samantabhadra, ptamms, c. 6th c. CE ‚î the saptabhag as a fixed
 --     seven-membered scheme, each member prefixed `syt`.
---   Akalaka, Laghyastraya / Aaat, c. 720‚ì780 CE ‚î the krama (‡ï‡‡∞‡Æ,
+--   Akalaka, Laghyastraya / Aaat, c. 720‚ì780 CE ‚î the order (‡ï‡‡∞‡Æ,
 --     sequential) versus saha / yugapat (‡‡, simultaneous) distinction,
 --     which is the whole content of the two operations here, and the
 --     argument that the number is exactly seven.
@@ -187,7 +187,7 @@ open import Saptabhangi
 -- ‡‡‡ ‡ï‡‡∞‡Æ-‡Ø‡ã‡ó‡ ‡‡Æ‡æ‡µ‡‡-‡‡‡Ø‡ã‡ó‡ ‡‡µ ‚î ‡‡‡ï‡‡∞‡Æ‡‡Æ‡, ‡® ‡‡ô‡‡ï‡‡‡‡‡ ‡
 --
 -- (Succession loses nothing: what either said, the pair still says.  So
--- krama-composition IS the profile join ‚î transport, not collapse.
+-- order-composition IS the profile join ‚î transport, not collapse.
 -- AHIMSA_SUTRA_VISTARA ¬ß6: this is the ua path, and it is why this
 -- operation gets to be a semilattice at all.)
 ------------------------------------------------------------------------
@@ -267,7 +267,7 @@ open import Saptabhangi
 -- ‡‡‡‡‡ø ‚î ‡® ‡®‡‡Ø‡‡®‡‡Ø‡æ, ‡® ‡‡‡‡û‡æ‡®‡‡® : ‡ï‡‡∞‡Æ-‡Ø‡ã‡ó‡ ‡‡‡ ‡‡®‡Ø‡ø‡‡‡Æ‡ ‡‡µ ‡® ‡‡ï‡‡®‡ã‡‡ø ‡
 -- ‡‡‡ ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡¶‡æ‡‡µ‡‡Ø‡Æ‡, ‡® ‡‡æ‡ß‡‡Ø‡Æ‡ ‚î ‡‡‡‡Æ‡æ‡‡ ‡ß‡®‡æ‡‡‡Æ‡ï‡ ‡‡‡‡∞‡‡‡ ‡‡‡‡æ‡®‡Æ‡ ‡
 --
--- (The krama-closure of asti and nsti touches exactly three positions.
+-- (The order-closure of asti and nsti touches exactly three positions.
 -- avaktavya is not among them ‚î not by ignorance and not by undefinedness:
 -- the operation cannot produce it.  So the fourth position must be
 -- SUPPLIED.  That is the precise sense in which it is positive and not an
@@ -356,7 +356,7 @@ private
 --
 -- ‡® ‡µ‡∞‡‡‡ø‡‡Æ‡ ‡ ‡® ‡‡®‡‡‡ø‡‡Æ‡ ‡ ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‡  (AHIMSA_SUTRA_VISTARA ¬ß‡)
 --
--- (krama gives joins ‚î a semilattice with top B7 ‚î and NO meets.  A lower
+-- (order gives joins ‚î a semilattice with top B7 ‚î and NO meets.  A lower
 -- bound of asti and nsti would have the empty profile, and the empty
 -- profile is not a verdict but the absence of predication.  So the sevenfold
 -- is a join-subsemilattice of 2¬≥ that is not closed under meet, and what it
@@ -415,7 +415,7 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- ‡Ø ¬ ‡Ø‡‡ ‡‡‡‡ ‡µ‡¶‡‡ø, ‡Ø‡®‡‡‡‡∞‡ ‡
 --
 -- machine/Saptabhangi_TheSevenfoldVerdict.hs ‡‡‡æ‡®‡ ‡‡µ ‡®‡ø‡Ø‡Æ‡æ‡®‡ ‡µ‡‡‡ø, ‡‡‡‡∞‡à‡µ
--- ‡‡‡∞‡ã‡‡æ‡‡‡ø ‡≤‡ø‡ñ‡ø‡‡‡µ‡æ ‡  ‡‡‡‡∞ `krama`, `saha`, `Sthana` ‚î ‡‡‡‡∞‡‡‡Ø‡æ‡®‡ø ‡®‡æ‡Æ‡æ‡®‡ø ‡
+-- ‡‡‡∞‡ã‡‡æ‡‡‡ø ‡≤‡ø‡ñ‡ø‡‡‡µ‡æ ‡  ‡‡‡‡∞ `order`, `saha`, `Sthana` ‚î ‡‡‡‡∞‡‡‡Ø‡æ‡®‡ø ‡®‡æ‡Æ‡æ‡®‡ø ‡
 -- ‡Ø‡‡ ‡‡‡‡∞ ‡® ‡‡‡‡‡ø : ‡Æ‡‡≤‡®‡Æ‡ ‡  ‡Ø‡‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î ‡‡‡ ‡‡µ ‡‡‡‡∞ ‡‡‡∞‡Æ‡æ‡‡ø‡‡Æ‡ ‡
 --
 -- (machine/Saptabhangi_TheSevenfoldVerdict.hs carries these same laws.
@@ -427,7 +427,7 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 ------------------------------------------------------------------------
 -- ‡ß‡¶ ¬ ‡®‡Ø‡‡‡¶‡ ‚î ‡‡‡∞‡æ‡‡-‡‡‡∞‡ï‡æ‡∞‡‡ ‡‡ ‡µ‡ø‡µ‡æ‡¶‡, ‡≤‡ø‡ñ‡ø‡‡, ‡® ‡‡∞‡ø‡‡‡‡ ‡
 --
--- formal/cubical/NaturalMachine/SaptabhangiGarbha_‚¶ (‡‡®‡‡Ø‡ ‡‡®‡‡‡æ‡, ‡‡‡‡Æ‡ø‡®‡‡®‡‡µ
+-- formal/cubical/NaturalMachine/SaptabhangiKernel_‚¶ (‡‡®‡‡Ø‡ ‡‡®‡‡‡æ‡, ‡‡‡‡Æ‡ø‡®‡‡®‡‡µ
 -- ‡¶‡ø‡®‡) ‡‡ô‡‡ó‡æ‡®‡ ‡‡®‡Ø‡æ‡®‡ ‡ï‡∞‡ã‡‡ø ‚î ‡‡‡‡∞‡‡‡ ‡‡¶‡ ‡‡‡µ‡ ‡Æ‡‡≤‡ ‡ß‡æ‡∞‡Ø‡‡ø, ‡‡‡ ‡‡‡‡∞
 -- ‡‡ø‡‡‡µ‡æ‡‡‡¶‡ã ‡® ‡®‡æ‡‡Ø‡‡ø, ‡ï‡‡∞‡Æ‡‡‡ ‡® ‡µ‡ø‡®‡ø‡Æ‡Ø‡ ‡  ‡‡‡‡∞ ‡‡ô‡‡ó‡ã ‡®‡æ‡Æ‡Æ‡æ‡‡‡∞‡Æ‡, ‡‡‡
 -- ‡ï‡‡∞‡Æ‡ã ‡µ‡ø‡®‡ø‡Æ‡Ø‡, ‡‡‡‡‡ ‡®‡æ‡‡Ø‡‡ø ‡
@@ -440,12 +440,12 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- ‡‡‡ ‡® ‡¶‡æ‡µ‡ ‡
 --
 -- (A sibling type carries the nayas inside each position, so its fourth
--- position destroys nothing and its krama is not commutative.  Here a
--- position is a label, so krama commutes and saha destroys.  Both are
+-- position destroys nothing and its order is not commutative.  Here a
+-- position is a label, so order commutes and saha destroys.  Both are
 -- checked; they are not the same object; the reading of Mallisena that
 -- separates them is unsettled.  Where nayas genuinely differ there is no
 -- collapse to make -- what is owed is whether the forgetful map from records
--- to labels is a homomorphism for krama, for saha, or for neither, and that
+-- to labels is a homomorphism for order, for saha, or for neither, and that
 -- is not checked here and therefore not claimed.)
 ------------------------------------------------------------------------
 
@@ -453,7 +453,7 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- ‡ß‡ß ¬ ‡®‡Ø‡‡‡¶‡ ‡®‡ø‡∞‡‡‡‡‡ ‚î the comparison ¬ß‡ß‡¶ said was owed, 2026-08-20.
 --
 -- ¬ß‡ß‡¶ ended: "what is owed is whether the forgetful map from records to
--- labels is a homomorphism for krama, for saha, or for neither, and that
+-- labels is a homomorphism for order, for saha, or for neither, and that
 -- is not checked here and therefore not claimed."  It is now checked, in
 --
 --   Arpitanarpita_TheForgetfulMapIsAHomomorphismForBothArpanasAndThe
@@ -491,6 +491,6 @@ x ‡§®‡•ç‡§Ø‡•Ç‡§®‡§É y = ‡§ï‡•ç‡§∞‡§Æ-‡§Ø‡•ã‡§ó x y ‚â° y
 -- ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ is failure of expression only or consumption of what was to be
 -- expressed (Malliea, Sydvdamajar, 1292).  That question is now
 -- known to be undecidable BY THE COMPOSITION LAWS ‚î the two lanes agree
--- across it ‚î so any argument for a reading that runs through krama or
+-- across it ‚î so any argument for a reading that runs through order or
 -- saha proves nothing.  It is a question about what a position is.
 ------------------------------------------------------------------------

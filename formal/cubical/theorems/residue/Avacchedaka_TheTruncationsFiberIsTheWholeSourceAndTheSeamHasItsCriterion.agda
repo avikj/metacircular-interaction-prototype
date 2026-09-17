@@ -9,7 +9,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT THIS CLOSES, AND WHY IT WAS LEFT OPEN ON PURPOSE.
 --
--- `fiber/src/Fiber/SakalaVikalaDesa_‚¶` makes the fiber
+-- `fiber/src/Fiber/WholePartialDesa_‚¶` makes the fiber
 -- diagnosis a TERM ‚î `‡¶‡‡ f b` with three constructors, ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (empty
 -- fiber: nothing lost, the medium has no name for b, ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡),
 -- ‡‡ï‡≤‡æ‡¶‡‡ (contractible: one utterance carries all), ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ (two points
@@ -104,7 +104,7 @@ private
 -- (isProp‚íisContrPath), so the second component of the Œ contributes
 -- nothing and contracts away (Œ-contractSnd), leaving A itself.
 --
--- Read against `Sesa_‚¶`: the residual over a target point is what the
+-- Read against `Residue_‚¶`: the residual over a target point is what the
 -- target forgot there.  Here it forgot everything ‚î the residual is not a
 -- part of the source, it is the source.  So no map out of the target can
 -- ever distinguish two points of A, because the target's every point
@@ -135,7 +135,7 @@ private
 -- this repository loses its own history (CLAUDE.md).**
 --
 -- ‡‡∞‡‡µ‡‡æ‡®‡ø‡ does NOT say which.  It holds of `‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit`, the
--- map that drops exactly one bit ‚î `Sesa_‚¶` ¬ß5, which its own struck
+-- map that drops exactly one bit ‚î `Residue_‚¶` ¬ß5, which its own struck
 -- header calls "level ‡® of a five-level scale".  `Unit` is a proposition,
 -- so the path component of the fiber contracts and the fiber is `Bool`,
 -- the whole source.  The proof is ¬ß‡®'s proof with `isPropUnit` for

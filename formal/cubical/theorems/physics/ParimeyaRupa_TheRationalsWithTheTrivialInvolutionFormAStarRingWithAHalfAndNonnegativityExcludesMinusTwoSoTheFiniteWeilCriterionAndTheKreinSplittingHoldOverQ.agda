@@ -175,9 +175,9 @@ pāra-reflect zero          = eq/ _ _ refl
 pāra-reflect (suc zero)    = eq/ _ _ refl
 pāra-reflect (suc (suc k)) = eq/ _ _ refl
 
-pāra : T.Saṅkramaṇa ℚ✶ 2 viparyaya
-T.Saṅkramaṇa.E       pāra = pāra-E
-T.Saṅkramaṇa.reflect pāra = pāra-reflect
+pāra : T.Saṅorderṇa ℚ✶ 2 viparyaya
+T.Saṅorderṇa.E       pāra = pāra-E
+T.Saṅorderṇa.reflect pāra = pāra-reflect
 
 -- the �-form is preserved, for every pair of vectors
 pāra-τ-avikāra : (c d : ℕ → ℚ)

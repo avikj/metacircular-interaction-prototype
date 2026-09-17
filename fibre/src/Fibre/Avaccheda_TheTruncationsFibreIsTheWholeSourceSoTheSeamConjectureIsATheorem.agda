@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- Punargamana ¬ ‡‡µ‡‡‡‡‡¶‡ ‚î the seam, closed.
 --
--- `SakalaVikalaDesa_‚¶` wrote, of the distinction between levels ‡© and ‡
+-- `WholePartialDesa_‚¶` wrote, of the distinction between levels ‡© and ‡
 -- of its five-level scale: its candidate criterion "rests on an
 -- unchecked conjecture, `(x : ‚à A ‚à‚) ‚í fibre ‚à_‚à‚ x ‚â A`."  It is not a
 -- conjecture.  The fibre of the truncation map over any point is the

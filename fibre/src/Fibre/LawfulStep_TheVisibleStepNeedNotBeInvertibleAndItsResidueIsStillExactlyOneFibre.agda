@@ -46,7 +46,7 @@
 -- is the crowded fibre; `suc` is the EMPTY one â” nothing steps to 0 â” and
 -- `isContr` alone cannot tell those apart.  That is exactly the census
 -- point already made in
--- Fibre.SakalaVikalaDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic,
+-- Fibre.WholePartialDesa_TheFibreCensusIsATermAndItRefutesTheSequentialDiagnostic,
 -- and it is cited here rather than re-proved.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9 (the repository pin),
@@ -170,7 +170,7 @@ collapse-recovers n = refl
 ------------------------------------------------------------------------
 
 -- Nothing steps to 0 under suc.  `isContr` merges this with (3); the
--- census in Fibre.SakalaVikalaDesa is what separates them.
+-- census in Fibre.WholePartialDesa is what separates them.
 suc-residue-empty : Â¬ fiber suc 0
 suc-residue-empty (n , p) = snotz p
 

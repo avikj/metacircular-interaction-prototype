@@ -17,7 +17,7 @@ open import Cubical.Data.Sigma using (Σ-syntax ; _,_)
 open import Cubical.Data.Unit using (tt ; isSetUnit)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 private

@@ -14,7 +14,7 @@
 --   SamacaranaNityam  ‡‡ô‡‡ï‡‡∞‡Æ‡-‡®‡ø‡‡‡Ø‡Æ‡   ‚î S = the orbit projection
 --   ApurvaIndriyam    ‡‡‡‡∞‡‡µ‡Æ‡          ‚î S = the present sensorium
 --   ParimanaAndha     ‡‡∞‡ø‡Æ‡æ‡‡æ‡‡-‡®-‡Ø‡ã‡ó‡  ‚î S = |¬|
---   TiryakTantu       ‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡      ‚î S = the residue class
+--   TiryakFiber       ‡Æ‡‡Ø‡-‡®-‡‡‡‡æ‡‡      ‚î S = the residue class
 --                     ‡‡‡‡-‡®-‡Æ‡‡Ø‡‡‡      ‚î S = the Mbius sign
 --
 -- Five statements, one rewrite, and ¬ß‡® below is the rewrite.

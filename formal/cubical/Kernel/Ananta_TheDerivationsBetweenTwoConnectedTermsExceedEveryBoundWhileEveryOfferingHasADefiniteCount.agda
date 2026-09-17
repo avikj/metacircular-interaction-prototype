@@ -21,7 +21,7 @@
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
 --
--- `Sesa_â¦` exhibits TWO histories between the kernel's own pair, separated
+-- `Residue_â¦` exhibits TWO histories between the kernel's own pair, separated
 -- by step count, 2 against 4, and concludes the truncation is strict.
 -- `Avirodha_â¦` locates the same fact structurally: `âŠ•` is associative and
 -- unital on the nose, `rev` is an inverse only up to meaning, and THE GAP
@@ -45,7 +45,7 @@
 --   Â§3  ananta -- the statement in the form the criterion above wants:
 --       no bound on the standpoints between two connected terms.
 --   Â§4  the-whole-family-means-one-thing -- and all of it is one bit
---       downstairs, through `Sesa_â¦`, forced by â• being a set.
+--       downstairs, through `Residue_â¦`, forced by â• being a set.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
 -- exit 0 at the previous module path.  Module name and imports were renamed
@@ -114,7 +114,7 @@ ananta d k = inflate k d , inflate-len k d
 
 ------------------------------------------------------------------------
 -- Â§4.  AND ALL OF IT IS ONE BIT DOWNSTAIRS.  Not by choice of `eval`:
---      `Sesa_â¦` forces it from â• being a set.  The order of the object and
+--      `Residue_â¦` forces it from â• being a set.  The order of the object and
 --      the order of its meaning are not the same order, and the kernel
 --      keeps `eval` off the operational path entirely.
 ------------------------------------------------------------------------

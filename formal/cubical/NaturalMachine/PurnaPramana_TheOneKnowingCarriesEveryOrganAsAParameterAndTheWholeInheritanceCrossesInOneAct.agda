@@ -35,7 +35,7 @@ open import Cubical.Data.List using (List ; [] ; _∷_ ; _++_ ; length)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 open import NaturalMachine.EkaBhasha_TheStoreCarriesItsProofsTheGateIsTheTypeAndTheProverLivesInside
-open import NaturalMachine.AdeshaSthanivat_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
+open import NaturalMachine.AdeshaPositional_TheSubstituteBehavesLikeTheOriginalSoEveryProvenRuleSpeaksAtEveryInstance
   using (_≫=_)
 open import NaturalMachine.Aroha_TheInternalProverClimbsWhereItsFlatVoiceIsSilentAndTheStoreAdmitsInductionThroughTheSameGate
   using (समानः ; आरोहः ; _⟨_≔_⟩)
@@ -59,7 +59,7 @@ open import NaturalMachine.AptaMimamsa_TheEldersLiveStoreCrossesAsReceivedTextAn
 ------------------------------------------------------------------------
 
 record यन्त्रम् : Type where
-  constructor yantra
+  constructor machine
   field
     क्रिया : Tm → Tm → Tm → Tm
     क्रिया-साक्षी : (p s : Tm) (ρ : ℕ → ℕ) → eval p ρ ≡ eval s ρ
@@ -68,15 +68,15 @@ record यन्त्रम् : Type where
 -- its two known instances: the syntactic subterm exchange, the heap
 -- surgery.  any future exchange enters the same way.
 सूक्ष्म-यन्त्रम् : यन्त्रम्
-सूक्ष्म-यन्त्रम् = yantra विनिमयः विनिमय-साक्षी
+सूक्ष्म-यन्त्रम् = machine विनिमयः विनिमय-साक्षी
 
 राशि-यन्त्रम् : यन्त्रम्
-राशि-यन्त्रम् = yantra राशि-विनिमयः राशि-साक्षी
+राशि-यन्त्रम् = machine राशि-विनिमयः राशि-साक्षी
 
 -- and instruments COMPOSE: heap surgery first, syntactic exchange on
 -- what it leaves, the witnesses composing � so the two organs are one.
 संयुक्त-यन्त्रम् : यन्त्रम्
-संयुक्त-यन्त्रम् = yantra
+संयुक्त-यन्त्रम् = machine
   (λ p s t → विनिमयः p s (राशि-विनिमयः p s t))
   (λ p s ρ h t → राशि-साक्षी p s ρ h t
                ∙ विनिमय-साक्षी p s ρ h (राशि-विनिमयः p s t))

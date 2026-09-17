@@ -9,7 +9,7 @@
 -- taxonomy is set out in the **Anuyogadvra-stra** (‡‡‡µ‡‡‡æ‡Æ‡‡‡∞ canon,
 -- redaction c. 1st‚ì5th c. CE) and the **Sthnga-stra**; the three-fold
 -- kind-division underlies Umsvti's **Tattvrtha-stra** (c. 2nd‚ì5th c. CE).
--- In this repository the grading is carried in `JainSankhya.agda`
+-- In this repository the grading is carried in `JainCount.agda`
 -- (Kind = sakhyta / asakhyta / ananta).
 --
 -- CHECKED: Agda 2.8.0 + cubical, --safe, no postulate/axiom/hole, exit 0.

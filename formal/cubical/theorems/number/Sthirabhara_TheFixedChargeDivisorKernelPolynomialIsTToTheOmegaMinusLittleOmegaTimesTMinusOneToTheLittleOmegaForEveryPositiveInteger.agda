@@ -45,7 +45,7 @@
 --     ω-is-smallOmega  : (n : �) � 1 � n � ω n ≡ smallOmega n
 --
 -- so Ω(n) is the length of Drdha's list � of EVERY list of firm numbers
--- with product n, by Ekatva's uniqueness (a Perm preserves length) �
+-- with product n, by Uniqueness's uniqueness (a Perm preserves length) �
 -- and ω(n) is TransmissionRefutations' exhaustive count of primes
 -- dividing n, whose `isPrimeb` is shown to be Drdha's ����� in both
 -- directions (`isPrimeb-firm`, `firm-isPrimeb`).
@@ -147,7 +147,7 @@ open import MobiusPhi_TheDivisorSumOfMobiusTimesCofactorIsEulersTotientForEveryP
         ; if-and ; addN≡+ ; pos-if)
 open import Drdha_TheFirmNumbersProductIsEveryPositiveIntegerAndTheirMembershipIsDecidedByDivision
   using (दृढम् ; वधः ; सर्वे ; विभाजनम् ; युक्लिड-वाक्यम् ; वध-++ ; सर्वे-++)
-open import Ekatva_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
+open import Uniqueness_TheFirmFactorisationIsUniqueTwoPrimeListsWithOneProductAreAPermutationSoTheValuationIsWellDefinedAndPermIsExactlySameCount
   using (एकत्वम् ; वध-धनः)
 open import TheUsualReasonsMadeExplicitTheInductivePermutationRelationEmbedsInAdjacentTranspositions
   using (Insert ; here ; there ; Perm ; pnil ; pcons)
@@ -891,7 +891,7 @@ closed-360 = refl
 ------------------------------------------------------------------------
 -- 8.  Ω IS THE LENGTH OF EVERY FIRM FACTORISATION.  The spf-recursion
 --     produces a list of firm numbers with product n whose length is
---     Ω(n) by construction; Ekatva's uniqueness makes it a permutation
+--     Ω(n) by construction; Uniqueness's uniqueness makes it a permutation
 --     of any other firm factorisation, and permutations preserve length.
 ------------------------------------------------------------------------
 

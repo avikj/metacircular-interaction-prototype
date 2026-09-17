@@ -51,7 +51,7 @@
 -- against road one's 10 [figures as committed; both graphs move with the
 -- corpus] â” is NOT routed here; routing it needs FactorsThrough toll gates
 -- and fibre receipts (NaturalMachine/FiniteInformation.agda, Avaccheda_â¦,
--- Sesa_â¦), and is the named next piece.
+-- Residue_â¦), and is the named next piece.
 --
 module Marga1_TheDoubleCountermodelCrossesTwoCausewaysAndTheFarCensusHasTwoDistinctInhabitants where
 

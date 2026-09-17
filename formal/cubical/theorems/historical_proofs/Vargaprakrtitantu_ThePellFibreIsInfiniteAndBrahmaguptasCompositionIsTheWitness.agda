@@ -9,7 +9,7 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- WHAT THIS IS, AND WHY IT IS THE CRITERION AND NOT AN EXAMPLE.
 --
--- `fibre/src/Loss/Bhavana_‚¶` builds ‡µ‡∞‡‡ó‡‡‡∞‡ï‡‡‡ø as
+-- `fibre/src/Loss/Composition_‚¶` builds ‡µ‡∞‡‡ó‡‡‡∞‡ï‡‡‡ø as
 -- `Carrier (‡ï‡‡‡‡‡ D)`: base = the two roots, carried = the ‡ï‡‡‡‡, because
 -- the roots DETERMINE it.  Its fibre `Œ[ k ] (‡ï‡‡‡‡‡ D x ‚â° k)` is
 -- `singl`, contractible, and (‚ ó ‚) ‚â ‡µ‡∞‡‡ó‡‡‡∞‡ï‡‡‡ø D.  The carried datum
@@ -27,7 +27,7 @@
 --
 -- SO THIS FILE IS THE TWO HALVES JOINED, and neither half says it alone:
 --
---   ¬ `Bhavana_‚¶.‡‡æ‡µ‡®‡æ-‡ï‡‡‡‡‡` proves the carried datum MULTIPLIES:
+--   ¬ `Composition_‚¶.‡‡æ‡µ‡®‡æ-‡ï‡‡‡‡‡` proves the carried datum MULTIPLIES:
 --     ‡ï‡‡‡‡(compose) = ‡ï‡‡‡‡ ¬ ‡ï‡‡‡‡.  Hence composing a k=1 row with the
 --     fundamental k=1 row stays at k=1 ‚î the orbit never leaves the
 --     fibre.  ¬ß‡ß below is that invariance, over ‚ï and independently.
@@ -83,7 +83,7 @@
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
-module Vargaprakrtitantu_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness where
+module Vargaprakrtifiber_ThePellFibreIsInfiniteAndBrahmaguptasCompositionIsTheWitness where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_ ; _¬∑_)
@@ -92,7 +92,7 @@ open import Cubical.Data.Sigma using (Œ£-syntax ; _√ó_ ; _,_ ; fst ; snd)
 open import Cubical.Relation.Nullary using (¬¨_)
 open import Cubical.Tactics.NatSolver.Reflection using (solve‚Ñï!)
 
-open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
+open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
   using (‡§®‡§µ-‡§Ö‡§Ç‡§∂‡§É ; ‡§®‡§µ-‡§π‡§∞‡§É ; ‡§µ‡•É‡§¶‡•ç‡§ß‡§ø‡§É)
 
 ------------------------------------------------------------------------

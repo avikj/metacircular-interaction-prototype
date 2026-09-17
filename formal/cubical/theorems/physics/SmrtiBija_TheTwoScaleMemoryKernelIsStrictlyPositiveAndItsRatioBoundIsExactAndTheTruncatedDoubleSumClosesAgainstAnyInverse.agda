@@ -30,7 +30,7 @@
 --       tower is summed against, and it is an equality up to exactly the
 --       `2ÂsÂ³` that was moved to the other side â” nothing is discarded.
 --
---   Â§3  THE TRUNCATED DOUBLE SUM CLOSES.  `SesaDvaya` proves
+--   Â§3  THE TRUNCATED DOUBLE SUM CLOSES.  `ResidueDvaya` proves
 --
 --         (1-x)Â² Â Î_{jâ‰N}(j+1)xÊ²  â‰¡  1 - (N+2)x^{N+1} + (N+1)x^{N+2}
 --
@@ -78,7 +78,7 @@ open import Cubical.Data.Empty using (âŠ¥) renaming (rec to âŠ¥-rec)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.NatSolver using (solveâ„•!)
 
-import SesaDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth as SD
+import ResidueDvaya_TheTruncatedInverseOfTheSquaredShiftDefectHasAResidualOfExactlyTwoTermsAtEveryDepth as SD
 
 private
   variable

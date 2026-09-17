@@ -28,7 +28,7 @@
 --
 -- Read against the corpus: abstract 13's order-two loop is this defect
 -- seen in the universe; README §23's commuting square is this defect
--- seen as concurrency; and the garbha verdict that occasioned this file
+-- seen as concurrency; and the kernel verdict that occasioned this file
 -- � the product exists unlinearized � linearization kills the grade,
 -- syd-asti-nsti in succession � is its exact position: the cup
 -- product lives at the graded level, and the bilinear completion that
@@ -75,11 +75,11 @@ _⊗'_ : Derivation x y → Derivation u v → Derivation (add x u) (add y v)
 _⊗'_ {x} {y} {u} {v} d e = dakṣiṇāṅga x e ⊕ vāmāṅga d v
 
 -- Units.  The left unit is definitional; the right unit is ⊕-unitr.
-ekatva-vāma : (e : Derivation u v) → (done x ⊗ e) ≡ dakṣiṇāṅga x e
-ekatva-vāma e = refl
+uniqueness-vāma : (e : Derivation u v) → (done x ⊗ e) ≡ dakṣiṇāṅga x e
+uniqueness-vāma e = refl
 
-ekatva-dakṣiṇa : (d : Derivation x y) → (d ⊗ done u) ≡ vāmāṅga d u
-ekatva-dakṣiṇa {u = u} d = ⊕-unitr (vāmāṅga d u)
+uniqueness-dakṣiṇa : (d : Derivation x y) → (d ⊗ done u) ≡ vāmāṅga d u
+uniqueness-dakṣiṇa {u = u} d = ⊕-unitr (vāmāṅga d u)
 
 ------------------------------------------------------------------------
 -- � � The product grades additively.
@@ -173,9 +173,9 @@ gaṇanā-dakṣiṇāṅga z (done _)        = refl
 gaṇanā-dakṣiṇāṅga z (then-step s e) = gaṇanā-dakṣiṇāṅga z e
 
 -- Both schedules carry exactly |d| left-whiskered steps�
-krama-eva-bhedaḥ : (d : Derivation x y) (e : Derivation u v)
+order-eva-bhedaḥ : (d : Derivation x y) (e : Derivation u v)
                  → vāmagaṇanā (d ⊗ e) ≡ vāmagaṇanā (d ⊗' e)
-krama-eva-bhedaḥ {x} {y} {u} {v} d e =
+order-eva-bhedaḥ {x} {y} {u} {v} d e =
   gaṇanā-⊕ (vāmāṅga d u) (dakṣiṇāṅga y e)
   ∙ cong₂ N._+_ (gaṇanā-vāmāṅga d u) (gaṇanā-dakṣiṇāṅga y e)
   ∙ N.+-zero (dairghya d)

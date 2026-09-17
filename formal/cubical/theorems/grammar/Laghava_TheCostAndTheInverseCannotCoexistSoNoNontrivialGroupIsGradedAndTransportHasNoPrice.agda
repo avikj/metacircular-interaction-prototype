@@ -70,8 +70,8 @@
 -- WHERE THE PIECES WERE.  Each of the following is now an instance and
 -- none of them cited another:
 --
---   AvrttiSesa_‚¶  `the-kernel-carries-no-inverse` ‚î ¬ß2 at `len`.
---   Yantra_‚¶      `‡Ø‡®‡‡‡‡∞‡Æ‡ : GroupoidMachine (X ‚â X)` ‚î ¬ß3's hypothesis.
+--   AvrttiResidue_‚¶  `the-kernel-carries-no-inverse` ‚î ¬ß2 at `len`.
+--   Machine_‚¶      `‡Ø‡®‡‡‡‡∞‡Æ‡ : GroupoidMachine (X ‚â X)` ‚î ¬ß3's hypothesis.
 --   Avirodha_‚¶    "strictly a category, weakly a groupoid; the gap is
 --                 the ea" ‚î ¬ß2 and ¬ß3 are what the gap IS.
 --   Laghava
@@ -102,9 +102,9 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import RewriteCertificate using (Tm ; Derivation ; done ; then-step)
 open import TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainder
   using (len)
-open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
+open import Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (MonoidMachine)
-open import AvrttiSesa_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue
+open import AvrttiResidue_TheKernelFillsTheMonoidStrictlyAndCarriesNoGroupoidSoTheRoundTripIsTheResidue
   using (A ; ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§ø‡§É ; ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§Æ‡•ç ; ‡§Ü‡§µ‡•É‡§§‡•ç‡§§‡§∏‡•ç‡§Ø-‡§Æ‡§æ‡§§‡•ç‡§∞‡§æ ; len-‚äï ; ‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç)
 
 private
@@ -254,9 +254,9 @@ record Laghava {Op : Type ‚Ñì} (M : MonoidMachine Op) : Type ‚Ñì where
 ------------------------------------------------------------------------
 -- ¬ß5  THE KERNEL HAS ONE.
 --
---     `len` adds under `‚äï` (that is `len-‚äï`, from AvrttiSesa_) and
+--     `len` adds under `‚äï` (that is `len-‚äï`, from AvrttiResidue_) and
 --     detects `done` (below).  So it is a cost in the sense of ¬ß1, and
---     ¬ß2 then refuses every inverse ‚î which is `AvrttiSesa_`'s
+--     ¬ß2 then refuses every inverse ‚î which is `AvrttiResidue_`'s
 --     `the-kernel-carries-no-inverse`, now as an INSTANCE rather than
 --     as its own argument.
 ------------------------------------------------------------------------
@@ -318,7 +318,7 @@ record Laghava {Op : Type ‚Ñì} (M : MonoidMachine Op) : Type ‚Ñì where
 -- column to the first read backwards: an equivalence, which has no cost
 -- and no memory, becomes a PATH ‚î and every route that produced it is
 -- gone, not by omission but because the destination type has no room for
--- it.  `Asesa_‚¶` measures the loss exactly: soundness lands in a
+-- it.  `Aresidue_‚¶` measures the loss exactly: soundness lands in a
 -- proposition, so the fibre over any meaning is the WHOLE derivation
 -- type, and by ¬ß5 that fibre is graded while the meaning is not.
 --
@@ -391,7 +391,7 @@ record Laghava {Op : Type ‚Ñì} (M : MonoidMachine Op) : Type ‚Ñì where
 -- ¬ß8  THE INSTANCE THE KERNEL IS.
 --
 --     `sound : Derivation a b ‚í Meaning a b` lands in a PROPOSITION
---     (`Asesa_‚¶`, `isPropMeaning`), and an inhabited proposition is the
+--     (`Aresidue_‚¶`, `isPropMeaning`), and an inhabited proposition is the
 --     trivial group: one element, its own inverse, seq and noop forced.
 --     So ¬ß7 applies with `G = Unit`, and says exactly this ‚î NOTHING
 --     COMPUTED FROM THE MEANING SEES THE ROUTE.  Not "no obvious

@@ -107,8 +107,8 @@ module _ (X : Type) where
 -- * This is one edge.  `ApurvaIndriyam` remains a costume of the Law and
 --   should be read as one; the honest effect of this module is to make that
 --   readable by the kernel instead of asserted in a header.
--- * `SamacaranaNityam`, `ParimanaAndha`, `TiryakTantu`, `EkaVidhih` and
---   `SamuhaDrstih` are the same session's other five costumes and are NOT
+-- * `SamacaranaNityam`, `ParimanaAndha`, `TiryakFiber`, `EkaVidhih` and
+--   `SetDrstih` are the same session's other five costumes and are NOT
 --   adapted here.  Naming them is cheaper than leaving the reader to count.
 -- * The reverse derivation is not attempted and §head says why it would not
 --   go through unchanged.

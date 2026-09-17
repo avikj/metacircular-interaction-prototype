@@ -12,7 +12,7 @@
 -- General law: landscape = |kernel| ¬ coset weight enumerator;
 -- contextuality degree = coset leader weight.  The refl-pins below are
 -- what a verification is: downstream of the proof, never in its place.
--- (Journal: cf-sesa checkpoint 33.)
+-- (Journal: cf-residue checkpoint 33.)
 ------------------------------------------------------------------------
 -- ‡‡®‡‡¶‡∞‡‡-‡ó‡‡®‡æ ‚î counting by context.  A real question asked of the
 -- machine (the asker did not know the answer): over all 512 classical

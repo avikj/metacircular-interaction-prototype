@@ -5,7 +5,7 @@
 -- set-level census cannot see it.
 --
 -- THE LIMIT OF EVERYTHING LANDED TODAY, exhibited from inside cubespace.
--- `SakalaVikalaDesa`'s trichotomy ‚î and my own `‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡` ‚î grade a
+-- `WholePartialDesa`'s trichotomy ‚î and my own `‡ó‡‡®‡æ-‡‡‡‡‡‡ô‡‡ó‡` ‚î grade a
 -- fibre by its POINTS: empty (‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡), one up to path (‡‡ï‡≤‡æ‡¶‡‡), or two
 -- exhibitably distinct (‡µ‡ø‡ï‡≤‡æ‡¶‡‡).  In cubespace there is a fourth
 -- condition of a fibre, and it defeats all three detectors at once:

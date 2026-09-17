@@ -33,7 +33,7 @@ open ℤ using (pos ; neg)
 open import Cubical.Data.Rationals
 open import Cubical.Data.Rationals.Order using (isRefl≤) renaming (_≤_ to _≤ℚ_)
 
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
   using (𝕊 ; ⁺_ ; ⁻_ ; toℤ ; _⊗_ ; _⊕_ ; ⊗-sama ; ⊕-sama)
 open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponentialsSoTheTypeIEnergyBoundIsScaleInvariantAsATerm
   using (Σ⟨_⟩)

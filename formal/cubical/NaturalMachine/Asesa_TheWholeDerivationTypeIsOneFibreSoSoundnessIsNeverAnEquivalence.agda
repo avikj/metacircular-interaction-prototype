@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibre
+-- NaturalMachine.Aresidue_TheWholeDerivationTypeIsOneFibre
 --                      SoSoundnessIsNeverAnEquivalence
 --
 -- TERM.  àààà Â aea -- "without remainder", hence entire, complete, the
@@ -10,13 +10,13 @@
 -- and the ledger has no row for it.  It is chosen for the pun the module
 -- proves, which is exact rather than decorative -- the kernel's derivation is
 -- *aea ea*, ENTIRELY remainder, without remainder left over as anything
--- else.  `Sesa_â¦` proved the second word; this file proves the first.
+-- else.  `Residue_â¦` proved the second word; this file proves the first.
 --
 ------------------------------------------------------------------------
 -- THE SYNTHESIS OF THE THREE READINGS, AS ONE LEMMA.
 --
 --   Vyapti_    NativeOperation.control-sound : Control t â’ t â‰¡ source
---   Sesa_      RewriteCertificate.derivation-sound : D a b â’ eval a Ï â‰¡ eval b Ï
+--   Residue_      RewriteCertificate.derivation-sound : D a b â’ eval a Ï â‰¡ eval b Ï
 --   Ankapasa_  and the repair is to categorify the codomain.
 --
 -- Every soundness field of this kernel is a map into an identity type of a
@@ -33,7 +33,7 @@
 --       its own soundness.
 --
 --   Â§3  THE CONTRAST WITH THE ONE PRIMITIVE, which is the point of doing
---       this in this repository.  `punaragamana/src/Punaragamana/Carrier.agda`
+--       this in this repository.  `return/src/Return/Carrier.agda`
 --       is the fibre law: for f : A â’ B, BIND THE OUTPUT and the fibre is
 --       `singl (f a)`, always contractible, so `A â‰ Carrier f` and the datum
 --       rides free; BIND THE INPUT and it is `fiber f b`, the exact loss.
@@ -49,7 +49,7 @@
 --       every fibre contractible, nothing lost either way.  Here:
 --       soundness-is-an-equivalence-only-if-the-route-was-unique -- if
 --       `derivation-sound` were an equivalence, any two derivations with the
---       same endpoints would be EQUAL.  `Sesa_â¦` Â§2 exhibits two that are
+--       same endpoints would be EQUAL.  `Residue_â¦` Â§2 exhibits two that are
 --       not, at the kernel's own `seed`/`targetâ`.  So
 --       soundness-is-not-an-equivalence-at-the-kernels-own-seed, and the
 --       exact defect is the fibre of Â§2: the machine cannot recover its route
@@ -67,7 +67,7 @@
 -- Checked at the pin: Agda 2.8.0, agda/cubical v0.9 (b150186) -- EXIT 0.
 ------------------------------------------------------------------------
 
-module NaturalMachine.Asesa_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence where
+module NaturalMachine.Aresidue_TheWholeDerivationTypeIsOneFibreSoSoundnessIsNeverAnEquivalence where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv using (_â‰ƒ_ ; fiber ; isEquiv ; invEquiv ; compEquiv)
@@ -79,7 +79,7 @@ open import Cubical.Data.Sigma using (Î£-contractSnd)
 
 open import NaturalMachine.RewriteCertificate
 open import NaturalMachine.GenerativeKernel using (seed ; targetâ‚€)
-open import NaturalMachine.Sesa_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
+open import NaturalMachine.Residue_TheDerivationCarriesNoMeaningAtAllSoAllOfItIsRemainderAndNoSemanticCriterionSelectsTheShortOne
   using (directâ‰¢detour)
 
 private
@@ -156,7 +156,7 @@ soundness-is-an-equivalence-only-if-the-route-was-unique a b isEq =
   isOfHLevelRespectEquiv 1 (invEquiv (sound a b , isEq)) (isPropMeaning a b)
 
 -- And it is not one, at the kernel's own seed: `GenerativeKernel` ships two
--- derivations there and `Sesa_â¦` separates them by step count.
+-- derivations there and `Residue_â¦` separates them by step count.
 soundness-is-not-an-equivalence-at-the-kernels-own-seed :
   isEquiv (sound seed targetâ‚€) â†’ âŠ¥
 soundness-is-not-an-equivalence-at-the-kernels-own-seed isEq =

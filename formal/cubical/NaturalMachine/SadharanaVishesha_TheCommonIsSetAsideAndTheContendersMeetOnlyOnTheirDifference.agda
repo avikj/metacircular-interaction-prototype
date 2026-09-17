@@ -36,7 +36,7 @@ open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCogn
   using (श्रुत-विनिमयः ; श्रुत-साक्षी)
 open import NaturalMachine.ArpitaAnarpita_EveryOrderedPresentationOfOneAggregateMeetsInTheSequenceFreeFormAndTheACFrontierFallsToAJoinerSwap
   using (सुम् ; सुम्-++ ; क्रमणम् ; क्रमण-सत्यम् ; पुनःरचना ; पुनःरचना-सत्यम्)
-open import NaturalMachine.SyatSakaladesha_TheHypothesisCompletedWithItsStandpointIsAbsoluteAndTheDoubleDescentCloses
+open import NaturalMachine.SyatWholedesha_TheHypothesisCompletedWithItsStandpointIsAbsoluteAndTheDoubleDescentCloses
   using (शून्य-ज्येष्ठम्)
 open import NaturalMachine.AptaMimamsa_TheEldersLiveStoreCrossesAsReceivedTextAndNothingEntersOnAuthority
   using (आगमः ; अपचितम्)

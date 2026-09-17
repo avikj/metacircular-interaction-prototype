@@ -7,7 +7,7 @@
 -- The displacement law this corpus keeps meeting says truncation never
 -- destroys a charge; it withholds it.  The checked instances so far:
 --
---   KramaSaha    SÂ: the set-level kills the winding (Path âˆSÂâˆâ
+--   OrderSaha    SÂ: the set-level kills the winding (Path âˆSÂâˆâ
 --                contractible) while âˆÎ©SÂâˆâ â‰ â â” order IS the charge.
 --   StaraArpana  SÂ: one stratum up the charge is uttered whole,
 --                Î©(âˆSÂâˆâ) â‰ â.

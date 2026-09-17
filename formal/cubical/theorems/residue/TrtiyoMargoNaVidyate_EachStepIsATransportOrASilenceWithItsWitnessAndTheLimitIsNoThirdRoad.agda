@@ -3,13 +3,13 @@
 ------------------------------------------------------------------------
 -- ààààà¯à‹ à®à¾à°àà—à‹ à¨ àµà¿à¦àà¯àà â” there is no third road.
 --
--- The corpus's Â§6 doctrine â” every answer is a sakramaa or a
+-- The corpus's Â§6 doctrine â” every answer is a saordera or a
 -- doa-lekha, and there is no third road â” holds of the universal
 -- machine at the step level AS A CONSTRUCTION, witness in hand:
 --
 --   `no-third-road` â” for every machine, either the addressed
 --   transition exists (the successor, WITH the receipt that the table
---   prescribes it: the sakramaa) or the table is silent (the
+--   prescribes it: the saordera) or the table is silent (the
 --   equation in Maybe: the written absence).  The disjunction is
 --   produced by computing the lookup, not by excluded middle; the
 --   witness rides in the sum, and no boolean stands in for it.
@@ -45,7 +45,7 @@ open import Cubical.Data.Maybe using (Maybe ; nothing ; just ; Â¬justâ‰¡nothing)
 open import Cubical.Relation.Nullary using (Â¬_)
 open import Cubical.Data.Empty as Empty using (âŠ¥)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import AnulomaViloma_TheTraceComposesTheCompletedRunRunsBackwardsByReflAndWhenTheMachineHaltsIsAProposition
   using (HaltsAt ; isPropHalted)
 

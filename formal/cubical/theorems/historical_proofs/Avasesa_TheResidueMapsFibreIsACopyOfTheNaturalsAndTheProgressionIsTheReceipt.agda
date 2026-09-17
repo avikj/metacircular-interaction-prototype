@@ -51,7 +51,7 @@
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
-module Avasesa_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt where
+module Avaresidue_TheResidueMapsFibreIsACopyOfTheNaturalsAndTheProgressionIsTheReceipt where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv

@@ -47,7 +47,7 @@
 -- it.
 --
 -- It has never priced a CHAIN, and the composition law
--- `Sesa_‚¶‡‡‡` ‚î fiber (g ‚àò f) z ‚â Œ[ p ‚àà fiber g z ] fiber f (fst p) ‚î
+-- `Residue_‚¶‡‡‡` ‚î fiber (g ‚àò f) z ‚â Œ[ p ‚àà fiber g z ] fiber f (fst p) ‚î
 -- has never been instantiated at a chain whose every fiber is written
 -- out by hand.  Until it is, nothing downstream is entitled to add
 -- losses along a route, and there is a standing reason to think adding
@@ -84,7 +84,7 @@
 --      And ¬ ((Bool ‚ä Unit) ‚â (Bool ó Bool)), proved by `Fin-inj`.
 --      **THE LEDGER IS NOT ADDITIVE.**
 --  ¬ß‡  and the defect is not a number.  There is no uniform Œ¶ for ‡‡‡∞‡µ‡‡
---      (proved), so ¬ß‡® of `Sesa_‚¶` ‚î the one clause under which logs add
+--      (proved), so ¬ß‡® of `Residue_‚¶` ‚î the one clause under which logs add
 --      ‚î has a FALSE HYPOTHESIS here, and the witness of its falsity is
 --      the absence of ¬ß‡ß: pratiyogin `(false , true)`, anuyogin
 --      `image ‡‡‡∞‡µ‡‡`.  The missing 1 = 4 ‚àí 3 is that absence, and it is
@@ -132,7 +132,7 @@ open import Cubical.Data.SumFin.Properties using (SumFin‚â°Fin)
 open import Cubical.Data.Fin using () renaming (Fin to FFin)
 open import Cubical.Data.Fin.Properties using (Fin-inj)
 
-open import Sesa_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
+open import Residue_TheCompositesRemainderIsTheSecondRemainderSummedOverTheFirstAndTheAreasAdd
   using (‡§∂‡•á‡§∑)
 
 private
@@ -221,7 +221,7 @@ snd ‡§™‡•ç‡§∞‡§µ‡•á‡§∂-‡§∏‡§§‡•ç‡§Ø‡•á-‡§∏‡§§‡•ç‡§Ø‡§Æ‡•ç (inr tt , r) =
 --
 -- fiber fst c = Œ[ y ‚àà Bool ó Bool ] (fst y ‚â° c), and the second
 -- coordinate of y is free.  One bit lost, at every c alike.  This is the
--- hypothesis of `Sesa_‚¶‡‡‡‡‡Æ‡‡æ` holding, for this map; ¬ß‡ shows it
+-- hypothesis of `Residue_‚¶‡‡‡‡‡Æ‡‡æ` holding, for this map; ¬ß‡ shows it
 -- FAILING for ‡‡‡∞‡µ‡‡, which is why the chain does not simply multiply.
 ------------------------------------------------------------------------
 
@@ -438,7 +438,7 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
 -- THE ADDITIVE PREDICTION.  ‡‡‡∞‡µ‡‡ is injective, so the naive ledger
 -- charges it nothing (Unit); ‡‡‡∞‡‡Æ‡æ‡‡ costs one bit (¬ß‡®, uniformly);
 -- ‡µ‡ø‡‡‡Æ‡∞‡ costs one bit (¬ß‡©).  Multiply the fibers ‚î which is exactly
--- what `Sesa_‚¶‡‡‡‡‡Æ‡‡æ` licenses WHEN ITS HYPOTHESIS HOLDS ‚î and the
+-- what `Residue_‚¶‡‡‡‡‡Æ‡‡æ` licenses WHEN ITS HYPOTHESIS HOLDS ‚î and the
 -- prediction for the total fiber is:
 --
 --     Unit ó Bool ó Bool  ‚â  Bool ó Bool          (four)
@@ -516,7 +516,7 @@ snd ‡§Æ‡§ß‡•ç‡§Ø‡§Æ-‡§Ö‡§∏‡§§‡•ç‡§Ø‡•á (inr tt , p) = ‚ä•-rec (true‚â¢false p)
 ------------------------------------------------------------------------
 -- ‡ ¬ WHERE THE MISSING ONE WENT, AND WHY IT IS NOT A NUMBER.
 --
--- `Sesa_‚¶‡‡‡‡‡Æ‡‡æ` ‚î the clause under which the fibers multiply and the
+-- `Residue_‚¶‡‡‡‡‡Æ‡‡æ` ‚î the clause under which the fibers multiply and the
 -- logs add ‚î has as its hypothesis that the first map has a UNIFORM
 -- fiber: some Œ¶ with fiber f y ‚â Œ¶ for every y.  ‡‡‡∞‡µ‡‡ does not.  The
 -- refutation needs both of ¬ß‡ß's ends at once and nothing else:

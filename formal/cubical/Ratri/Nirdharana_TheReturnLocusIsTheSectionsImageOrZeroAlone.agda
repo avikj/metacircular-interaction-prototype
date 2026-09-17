@@ -18,7 +18,7 @@
 --   II. If instead the loop is positively priced â” the composite
 --       multiplies by suc m â‰ 2, as hull's census does â” there is no
 --       section, and the return locus collapses to zero alone
---       (proved in Nirdharana_Hull_PunaragamanaSunyeEva.noReturn).
+--       (proved in Nirdharana_Hull_ReturnSunyeEva.noReturn).
 --
 -- Instances checked below: aksara/parity (alphabet {laghu, guru} â”
 -- the retraction is definitional) and ones/sum (alphabet = the

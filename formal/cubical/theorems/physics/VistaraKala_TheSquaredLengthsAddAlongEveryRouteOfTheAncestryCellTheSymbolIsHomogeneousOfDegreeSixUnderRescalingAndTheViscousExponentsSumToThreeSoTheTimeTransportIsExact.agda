@@ -20,7 +20,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver
-open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (⁺_)
+open import Count_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed using (⁺_)
 open import PurnaDhruvana_TheCompleteThreeAncestorNavierStokesSymbolContractsInEveryMixedHelicityChannelAndIsACoisometryOntoTheDescendantPlaneByGaussianIntegerComputation
 
 ------------------------------------------------------------------------

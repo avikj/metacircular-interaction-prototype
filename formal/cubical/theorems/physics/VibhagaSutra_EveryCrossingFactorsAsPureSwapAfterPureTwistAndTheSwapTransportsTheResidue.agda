@@ -4,7 +4,7 @@
 -- ‡µ‡ø‡‡æ‡ó-‡‡‡‡‡∞ ‚î the factorization of the crossing.
 --
 -- THE FUSION the machine held as ea: the trilaw meets the braid.
--- SesaSamavaya proved the over-symmetries are exactly assembled
+-- ResidueSamavaya proved the over-symmetries are exactly assembled
 -- residue families, and that whatever moves the base is coherence
 -- beyond the residue level.  Here the decomposition is exhibited on
 -- the endless braid, position by position:

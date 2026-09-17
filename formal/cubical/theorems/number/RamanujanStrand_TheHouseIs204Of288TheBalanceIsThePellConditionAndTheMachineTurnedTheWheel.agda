@@ -15,7 +15,7 @@
 --
 --   `the-wheel's-solution` â” 577Â² â‰¡ 2Â408Â² + 1 by refl, with
 --     2Â288+1 â‰¡ 577 and 2Â204 â‰¡ 408 by refl: the balanced house IS
---     the Pell point.  The wheel itself was turned by the yantra:
+--     the Pell point.  The wheel itself was turned by the machine:
 --     asked vargaprakrti D = 2 over the wire, it answered the
 --     fundamental (3, 2) with its composition law CHECKED
 --     multiplicative at every turn, and named in its vyaya exactly

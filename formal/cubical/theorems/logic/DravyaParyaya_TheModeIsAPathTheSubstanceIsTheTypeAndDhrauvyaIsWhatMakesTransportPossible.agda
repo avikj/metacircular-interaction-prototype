@@ -24,7 +24,7 @@
 --   � VYAYA is the source endpoint (the mode that ceases), UTPDA the
 --       target (the mode that arises), and DHRAUVYA is D itself � the
 --       substance, the SAME type at both ends of every path.
---   � transport `subst P p` � the free road (`PramanaSankramana`) � carries
+--   � transport `subst P p` � the free road (`PramanaTransport`) � carries
 --       any property across the change; and it EXISTS precisely because
 --       both modes lie in one D.  Persistence of the substance is the exact
 --       condition for lossless transport across its modes.
@@ -44,7 +44,7 @@
 --       identity parima (no change) transports as the identity (nothing
 --       moves when nothing changes � `Dhruva`'s ����� read here), and every
 --       transport is reversible (the parima has an inverse: vyaya and
---       utpda exchange).  Persistence � a groupoid of changes (`Yantra`).
+--       utpda exchange).  Persistence � a groupoid of changes (`Machine`).
 --   §5  �����������-�-���������� � across DISTINCT substances there is no free
 --       road: transport is exactly what a single dravya's persistence
 --       affords, and nothing affords it between two.  (Stated: a carry
@@ -114,7 +114,7 @@ module _ (D : Type ℓ) where
   प्रतिपरिणामः : {m₀ m₁ : पर्यायः} → परिणामः m₀ m₁ → परिणामः m₁ m₀
   प्रतिपरिणामः p = sym p
 
-  -- and there and back is the identity � reversible, no residual (Yantra)
+  -- and there and back is the identity � reversible, no residual (Machine)
   प्रतिपरिणामे-अचलम् : {m₀ m₁ : पर्यायः} (p : परिणामः m₀ m₁)
                     (P : पर्यायः → Type ℓ') (x : P m₀)
                   → संक्रमणम् (प्रतिपरिणामः p) P (संक्रमणम् p P x) ≡ x

@@ -28,9 +28,9 @@
 -- the hypotheses are exactly the received conditional theorems; what
 -- the checker certifies is the SHAPE of the frontier.  The finite
 -- algebra under each hypothesis is in: Grahaka (two-packet matrix,
--- PSD â” |Z| â‰ Mâ), AbelaRupa / SesaDvaya (Abel inverse, dyadic
+-- PSD â” |Z| â‰ Mâ), AbelaRupa / ResidueDvaya (Abel inverse, dyadic
 -- residual), ArdhaTala / DviSthana / DviMana (Weil geometry, reflection
--- block, holonomy), PratibimbaTantu / RiktaTantu (reflection fibre),
+-- block, holonomy), ReflectionFiber / RiktaFiber (reflection fibre),
 -- Pratirodha (Goldbach normalization), Sikhara (peak ledger).
 ------------------------------------------------------------------------
 module Sima_TheOpenFrontierIsOnePropositionUpToTheReceivedConditionalTheoremsSoEveryRouteReadsTheSameUnknownResolvingAnyResolvesAllAndEveryReadingTransportsAlongUnivalence where

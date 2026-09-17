@@ -30,7 +30,7 @@
 --     is there both a ‡®‡‡‡ü and an ‡â‡¶‡‡¶‡ø‡‡‡ü for this map?
 --
 -- ¬ß‡® makes that a checkable predicate (`‡®‡‡‡ü‡ã‡¶‡‡¶‡ø‡‡‡ü‡Ø‡ã‡ó‡`), ¬ß‡© connects
--- it to `Tantujala`'s three verdicts ‚î an inhabitant is exactly ‡‡ï‡Æ‡
+-- it to `Fiberjala`'s three verdicts ‚î an inhabitant is exactly ‡‡ï‡Æ‡
 -- at every point ‚î and ¬ß‡ to `isEquiv`, which is that Œ† by definition.
 --
 -- ¬ß‡ is the honest limit, and it is why this is stated as two maps and
@@ -43,7 +43,7 @@
 -- ¬ß‡ is the discriminant exhibited on both roads at once: the ‡‡‡∞‡‡‡‡æ‡∞
 -- of any ‡‡‡¶-‡‡‡‡ carries the witness (road one, defect zero at every
 -- index), and `Bool ‚í Unit` provably carries none (road two) ‚î the
--- refutation running through `Tantujala.‡‡ï-‡‡‡-‡µ‡ø‡∞‡ã‡ß‡`, so the two
+-- refutation running through `Fiberjala.‡‡ï-‡‡‡-‡µ‡ø‡∞‡ã‡ß‡`, so the two
 -- modules are joined by a term and not by a remark.
 --
 -- ¬ß‡ separates the two halves of the pair.  Having only the FORWARD
@@ -70,7 +70,7 @@ open import Cubical.Data.Fin using (Fin)
 open import Cubical.Data.Empty using (‚ä•)
 open import Cubical.Relation.Nullary using (¬¨_)
 
-import Tantujala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem as T
+import Fiberjala_TheFiberHasThreeVerdictsAndIsContrMergesTwoOfThem as T
 
 open import NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn
   using (‡§Ö‡§ô‡•ç‡§ï‡§∏‡•ç‡§•‡§æ‡§® ; ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ ; ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É ; ‡§è‡§ï‡§∞‡•Ç‡§™)
@@ -117,7 +117,7 @@ Iso.leftInv  (‡§Ø‡•ã‡§ó‡§É‚Üí‡§á‡§∑‡•ã y) = ‡§®‡§∑‡•ç‡§ü‡•ã‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü
 ------------------------------------------------------------------------
 -- ‡© ¬ THE TEST, against the three verdicts.
 --
--- `Tantujala` gives ‡∞‡ø‡ï‡‡‡Æ‡ / ‡‡ï‡Æ‡ / ‡‡‡ at a point.  The pair of
+-- `Fiberjala` gives ‡∞‡ø‡ï‡‡‡Æ‡ / ‡‡ï‡Æ‡ / ‡‡‡ at a point.  The pair of
 -- procedures is precisely ‡‡ï‡Æ‡ EVERYWHERE, and the proof is by way of
 -- `isEquiv`, whose definition is that Œ†.
 ------------------------------------------------------------------------
@@ -135,7 +135,7 @@ Iso.leftInv  (‡§Ø‡•ã‡§ó‡§É‚Üí‡§á‡§∑‡•ã y) = ‡§®‡§∑‡•ç‡§ü‡•ã‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü
 
 -- and the same statement in the ‡‡®‡‡‡ vocabulary, which is the form a
 -- census wants: the verdict at every point is ‡‡ï‡Æ‡, simultaneously.
--- (‡‡ï‡≤‡æ‡¶‡‡, not a search with a first step ‚î `Tantujala` ¬ß‡.)
+-- (‡‡ï‡≤‡æ‡¶‡‡, not a search with a first step ‚î `Fiberjala` ¬ß‡.)
 ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ‚Üí‡§è‡§ï‡§Æ‡•ç : {A : Type ‚Ñì} {B : Type ‚Ñì'} {f : A ‚Üí B}
              ‚Üí ‡§®‡§∑‡•ç‡§ü‡•ã‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü‡§Ø‡•ã‡§ó‡§É f ‚Üí (b : B) ‚Üí T.‡§è‡§ï‡§Æ‡•ç f b
 ‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ‚Üí‡§è‡§ï‡§Æ‡•ç {f = f} y = T.‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡§É f (‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ‚Üí‡§∏‡§Æ‡§§‡§æ y)
@@ -198,7 +198,7 @@ _ : ‡§®‡§∑‡•ç‡§ü‡•ã‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü‡§Ø‡•ã‡§ó‡§É (Iso.fun (‡§™‡•ç‡§∞‡§∏‡•ç‡§
 _ = ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞-‡§Ø‡•ã‡§ó‡§É (‡§è‡§ï‡§∞‡•Ç‡§™ 5 1)
 
 ------------------------------------------------------------------------
--- ROAD TWO.  `Bool ‚í Unit` ‚î `Tantujala.‡‡Æ‡æ‡‡æ‡∞-‡Æ‡æ‡∞‡‡ó‡`, the collapse
+-- ROAD TWO.  `Bool ‚í Unit` ‚î `Fiberjala.‡‡Æ‡æ‡‡æ‡∞-‡Æ‡æ‡∞‡‡ó‡`, the collapse
 -- whose fiber over `tt` is ‡‡‡.  There is NO witness, and the proof is
 -- the three-verdict exclusion, not a separate argument: a witness would
 -- make the fiber ‡‡ï‡Æ‡, and ‡‡ï‡Æ‡ and ‡‡‡ exclude one another.
@@ -210,7 +210,7 @@ _ = ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞-‡§Ø‡•ã‡§ó‡§É (‡§è‡§ï‡§∞‡•Ç‡§™ 5 1)
 
 -- and the OTHER way a witness can fail, which "no witness" does not
 -- distinguish: `‚ä ‚í Unit` misses `tt` altogether (‡∞‡ø‡ï‡‡‡Æ‡).  Both roads
--- two, opposite reasons, same absence ‚î `Tantujala` ¬ß‡ is why a boolean
+-- two, opposite reasons, same absence ‚î `Fiberjala` ¬ß‡ is why a boolean
 -- census cannot report the difference.
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®-‡§Ø‡•ã‡§ó‡§É : ¬¨ (‡§®‡§∑‡•ç‡§ü‡•ã‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü‡§Ø‡•ã‡§ó‡§É T.‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É)
 ‡§∂‡•Ç‡§®‡•ç‡§Ø‡•á-‡§®-‡§Ø‡•ã‡§ó‡§É y = T.‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§Ö‡§§‡•ç‡§∞ (‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ‚Üí‡§è‡§ï‡§Æ‡•ç y tt .fst)
@@ -260,6 +260,6 @@ open ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü‡§Æ‡§æ‡§§‡•ç‡§∞‡§Æ‡•ç public
 -- grader's flag.
 --
 -- Also not here: the case with no dharmin at all ‚î an edge for which
--- there is no map to take a fiber of.  `Tantujala` ¬ß‡ says why that is
+-- there is no map to take a fiber of.  `Fiberjala` ¬ß‡ says why that is
 -- a different axis, and it stays a different axis.
 ------------------------------------------------------------------------

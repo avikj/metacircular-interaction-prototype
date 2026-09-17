@@ -39,7 +39,7 @@ open import Cubical.Data.Nat using (ℕ)
 open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless)
 open import PNeqNPIsNotUniversalItFailsOnTheLosslessMachine
   using (Gap ; the-distinction-lives-only-on-the-lossy-projection)

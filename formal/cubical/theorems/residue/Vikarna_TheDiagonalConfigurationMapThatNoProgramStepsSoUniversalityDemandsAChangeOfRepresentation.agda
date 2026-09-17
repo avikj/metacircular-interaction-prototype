@@ -4,7 +4,7 @@
 -- àµà¿à•à°àà â” the diagonal.  A CONFIGURATION MAP THAT NO PROGRAM STEPS,
 -- SO UNIVERSALITY DEMANDS A CHANGE OF REPRESENTATION.
 --
--- Vishvayantra's uStep is a universal evaluator AS A FUNCTION.  The
+-- Vishvamachine's uStep is a universal evaluator AS A FUNCTION.  The
 -- classical self-hosting question asks for it AS A TABLE: one U in
 -- Code whose runs simulate every machine.  This file proves the two
 -- theorems that pin down what such a U can and cannot be.
@@ -46,7 +46,7 @@ open import Cubical.Data.List using (List ; [] ; _âˆ·_)
 open import Cubical.Relation.Nullary using (Â¬_)
 open import Cubical.Data.Empty as Empty using (âŠ¥)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open import Vrddhi_AVerifiedProgramTheSuccessorMachineAddsOneStrokeAndItsCertificateIsAFibrePoint
   using (incr ; unary)
 

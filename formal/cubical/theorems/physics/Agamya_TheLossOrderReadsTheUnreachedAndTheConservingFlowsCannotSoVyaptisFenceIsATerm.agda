@@ -30,7 +30,7 @@
 --
 -- WHY, in the census's own vocabulary, which is the point of writing it:
 -- a conserving flow is a section of the fibre family AT REACHED POINTS
--- (`SvaTantuVasa`: flows ‚â (a : A) ‚í fiber f (f a) ‚î every index is an
+-- (`SvaFiberVasa`: flows ‚â (a : A) ‚í fiber f (f a) ‚î every index is an
 -- f a).  The mediator h of `f ‡µ‡‡Ø‡æ‡‡‡®‡ã‡‡ø g` is typed on the WHOLE
 -- codomain.  A point of B outside f's image ‚î a ‡∞‡ø‡ï‡‡‡Æ‡ fibre, the
 -- census's ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ ‚î is invisible to every flow and every conservation

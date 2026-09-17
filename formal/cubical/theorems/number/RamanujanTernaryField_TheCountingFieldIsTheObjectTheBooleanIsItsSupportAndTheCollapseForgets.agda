@@ -44,7 +44,7 @@ open import Cubical.Data.Maybe
 open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (eq?)
 open import Ramanujan1729_TheTaxicabNumberBothRepresentationsByReflAndMinimalityByBoundedReflection
   using (eq?-complete)
@@ -52,7 +52,7 @@ open import RamanujanTernaryGate_TheKernelScansBelowSevenTwentyOnceAndCachesTheV
   using (Q ; Rep)
 open import RamanujanTernary_BelowSevenTwentyTheOddExceptionsAreExactlyHisSeventeenTowardTheOpenList
   using (xy-bound ; z-bound)
-open import RamanujanTernaryUpadhi_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards
+open import RamanujanTernaryQualifier_TheUniversalClaimIsATypeTheGateRestrictsItAndNoTermRunsBackwards
   using (rep-decidable-below-720)
 
 ------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 -- ‡‡‡ï‡‡∞‡Æ‡-‡µ‡‡®‡Æ‡ ‚î the concurrence carries the WHOLE structure, and the
 -- carried structure COMPUTES.
 --
--- `Samkramana` identified the pair ‚ï ó ‚ï with the triple
+-- `Samorderna` identified the pair ‚ï ó ‚ï with the triple
 -- ri-traya by univalence ‚î `yugma‚â°ri-traya = ua (anuloma , viloma)` ‚î
 -- and carried the successor `Œ¶` across it.  A point rode the return.
 --
@@ -15,7 +15,7 @@
 --     ri-traya, `_‚äûµ_`;
 --   * whose value is the anuloma/viloma-conjugated operation `_‚ä_`
 --     (`carried-is-conjugate`), so it acts on the triples exactly as
---     Brahmagupta's sakramaa would demand ‚î and on concrete numerals it
+--     Brahmagupta's saordera would demand ‚î and on concrete numerals it
 --     REDUCES (`_ = refl`), which is cubical transport = uaŒ≤ made to run;
 --   * and its associativity, commutativity and unit laws, transported
 --     along the SAME path, so the laws on ri-traya are NOT reproved by
@@ -32,14 +32,14 @@
 -- no holes.
 ------------------------------------------------------------------------
 
-module SamkramanaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
+module SamordernaVahanam_TransportCarriesTheOperationAndItsLawsAndTheyCompute where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Transport using (transport‚ÅªTransport)
 open import Cubical.Data.Nat using (‚Ñï ; zero ; _+_ ; +-assoc ; +-comm ; +-zero)
 open import Cubical.Data.Sigma using (Œ£PathP)
 
-open import Samkramana
+open import Samorderna
   using ( rƒÅ≈õi-traya ; anuloma ; viloma ; yugma‚â°rƒÅ≈õi-traya ; _√ó_ )
 
 private

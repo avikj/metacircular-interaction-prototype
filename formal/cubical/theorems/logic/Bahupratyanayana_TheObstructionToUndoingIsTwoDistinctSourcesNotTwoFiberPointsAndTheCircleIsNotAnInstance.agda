@@ -27,7 +27,7 @@
 --                   the corpus's second irreversibility theorem and its
 --                   first outside homotopy.
 --   ¬ß‡  instance  : `‡‡∞‡‡µ‡à‡ï‡Æ‡ : Bool ‚í Unit`, the standing archetype.
---   ¬ß‡  THE BOUNDARY, and it is the point of the file: `Tantujala`'s
+--   ¬ß‡  THE BOUNDARY, and it is the point of the file: `Fiberjala`'s
 --       ‡‡‡ ‚î two distinct points of a fiber ‚î IS NOT ENOUGH.  Exhibited:
 --       `‡‡ï‡µ‡‡‡‡‡Æ‡ : Unit ‚í S¬`, `tt ‚¶ base`, HAS a retraction, and its
 --       fiber over `base` is `Œ©S¬ ‚â ‚`, so ‡‡‡ holds of it.  Its two
@@ -44,16 +44,16 @@
 -- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
 -- RELATION TO WHAT IS ALREADY HERE, so nothing is silently re-proved.
 --
---   `Tantujala_‚¶`            ‡‡‡ as one of three fiber verdicts.  ¬ß‡
+--   `Fiberjala_‚¶`            ‡‡‡ as one of three fiber verdicts.  ¬ß‡
 --                            sharpens it: ‡‡‡ is not the obstruction to
 --                            undoing.  The three-verdict codomain is
 --                            untouched and remains correct for what it
 --                            classifies.
---   `Sesa_‚¶` ¬ß5              prices `‡‡∞‡‡µ‡à‡ï‡Æ‡`'s loss at one bit and proves
+--   `Residue_‚¶` ¬ß5              prices `‡‡∞‡‡µ‡à‡ï‡Æ‡`'s loss at one bit and proves
 --                            `¬ isEquiv`.  ¬ß‡ here is the RETRACTION
 --                            statement, which is different and weaker
 --                            than `¬ isEquiv` in general.
---   `GhataTantu_‚¶`           exhibits the two exponents.  ¬ß‡© consumes
+--   `GhataFiber_‚¶`           exhibits the two exponents.  ¬ß‡© consumes
 --                            them; the fiber analysis is not re-done.
 --   `Nirdharana_TheReturnLocus‚¶`  the SECTION side: with `q ‚àò s ‚â° id` the
 --                            return locus is `im s`.  This file is the
@@ -67,7 +67,7 @@
 --                            rewritten (ROUTES KEPT).
 --
 -- ¬ß‡© is a checked no-return theorem the corpus did not have, and that ¬ß‡
--- is a counterexample separating it from `Tantujala`'s ‡‡‡.  No physics.
+-- is a counterexample separating it from `Fiberjala`'s ‡‡‡.  No physics.
 -- No computational hardness: ¬ß‡© is about a three-element group and says
 -- nothing about difficulty.  ‡‡‡∞‡‡‡Ø‡æ‡®‡Ø‡® is the corpus's existing word
 -- (AHIMSA_SUTRA ¬ß‡); no text is claimed for the compound or for any
@@ -91,7 +91,7 @@ open import Cubical.Data.Int using (‚Ñ§ ; pos)
 open import Cubical.Relation.Nullary using (¬¨_)
 open import Cubical.HITs.S1 using (S¬π ; base ; loop ; winding)
 
-open import GhataTantu_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataFiber_TheDiscreteLogIsTheFiberOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; ŒµC ; ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É ; ‡§§‡•ç‡§∞‡§Ø‡§É)
 open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
   using (C‚ÇÉ)
@@ -132,7 +132,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
 ------------------------------------------------------------------------
 -- ‡© ¬ THE DISCRETE LOG HAS NO LEFT INVERSE.
 --
--- `GhataTantu` exhibits 0 and 3 over Œµ.  Their sources are 0 and 3, and
+-- `GhataFiber` exhibits 0 and 3 over Œµ.  Their sources are 0 and 3, and
 -- `znots` separates them.  So no `r : C‚ ‚í ‚ï` undoes `powg` ‚î checked,
 -- and it is not a hardness statement: it is that the undo DOES NOT
 -- EXIST, for the same reason `Bool ‚í Unit`'s does not.
@@ -159,7 +159,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
 -- `‡‡ï‡µ‡‡‡‡‡Æ‡ : Unit ‚í S¬` sending tt to base HAS an undo (`r _ = tt`,
 -- and `r (f tt) ‚â° tt` is refl).  Its fiber over `base` is `Œ[Unit] Œ©S¬`,
 -- which has two distinct points ‚î `(tt , refl)` and `(tt , loop)`,
--- distinct because `winding` separates them in ‚.  So `Tantujala`'s ‡‡‡
+-- distinct because `winding` separates them in ‚.  So `Fiberjala`'s ‡‡‡
 -- holds of a map that is perfectly undoable.
 --
 -- The two fiber points differ only in their WITNESS; their sources are

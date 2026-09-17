@@ -13,12 +13,12 @@
 -- the composition; if it is worth anything it is because the two ends
 -- had not been put together.
 --
---   `Yantra_‚¶`          Program A B = A ‚â B ‚î every instruction of this
+--   `Machine_‚¶`          Program A B = A ‚â B ‚î every instruction of this
 --                       computer is an equivalence.
---   `SvaTantuVasa_‚¶`    ‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ : isEquiv f ‚í isContr (Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)
+--   `SvaFiberVasa_‚¶`    ‡ß‡‡∞‡‡µ-‡‡ø‡®‡‡¶‡‡ : isEquiv f ‚í isContr (Œ[ Œ¶ ] ‡‡‡∞‡ï‡‡‡‡Æ‡ f Œ¶)
 --                       ‚î a lossless observable's conserving-flow space
 --                       is a POINT (itself `invIso Œ-Œ†-Iso` evaluated).
---   `GhataTantu_‚¶`      powg = ‡ò‡æ‡ g in C‚, whose fibre over Œµ is not
+--   `GhataFiber_‚¶`      powg = ‡ò‡æ‡ g in C‚, whose fibre over Œµ is not
 --                       contractible: 0, 3 and 6 all land there.
 --
 -- ¬ß‡ß composes the first two: **every instruction of the machine has a
@@ -66,11 +66,11 @@ open import Cubical.Relation.Nullary using (¬¨_)
 
 open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
   using (‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç)
-open import SvaTantuVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
+open import SvaFiberVasa_TheConservingFlowsOfAnyObservableAreTheSectionsOfItsOwnFibres
   using (‡§ß‡•ç‡§∞‡•Å‡§µ-‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É ; ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç ; ‡§µ‡§æ‡§∏‡§É)
-open import Yantra_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
+open import Machine_TheComputerIsTheGroupoidOfProofsOfTransportNotTheMonoidOfIrreversibleSteps
   using (Program ; ‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç)
-open import GhataTantu_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
+open import GhataFiber_TheDiscreteLogIsTheFibreOfPingalasPowerAndShorsPeriodQueryIsWhatReadsIt
   using (powg ; ŒµC)
 open import BijamulaKrida_AConcreteKeypairRunsInACyclicGroupWhereTheModThatExhaustsTheHeapIsNotNeeded
   using (C‚ÇÉ ; e‚ÇÄ ; g ; g¬≤ ; _‚àò_)
@@ -82,7 +82,7 @@ private variable ‚Ñì : Level
 --     conserving flows: one flow, the identity, no charge.
 --
 -- One line, and that is the point ‚î `Program` is `_‚â_`, and a lossless
--- observable's flow space is `isContr` by `SvaTantuVasa`.  The two
+-- observable's flow space is `isContr` by `SvaFiberVasa`.  The two
 -- modules had never been in the same room.
 ------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ private variable ‚Ñì : Level
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞-‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§≠‡§æ‡§∞‡§É p = ‡§ß‡•ç‡§∞‡•Å‡§µ-‡§¨‡§ø‡§®‡•ç‡§¶‡•Å‡§É (‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç p) (snd p)
 
 -- and therefore the only conserving flow of an instruction is the
--- identity, pointwise ‚î `SvaTantuVasa`'s containment check, read here.
+-- identity, pointwise ‚î `SvaFiberVasa`'s containment check, read here.
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡•á-‡§®-‡§ó‡§§‡§ø‡§É : {A B : Type ‚Ñì} (p : Program A B)
               ‚Üí (Œ¶ : A ‚Üí A) ‚Üí ‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£‡§Æ‡•ç (‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç p) Œ¶ ‚Üí (a : A) ‚Üí Œ¶ a ‚â° a
 ‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡•á-‡§®-‡§ó‡§§‡§ø‡§É p = ‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç (‡§ö‡§æ‡§≤‡§®‡§Æ‡•ç p) (snd p)
@@ -161,7 +161,7 @@ private variable ‚Ñì : Level
 -- `‡µ‡æ‡‡ powg` carries ‡‡µ‡‡‡‡‡ø-‡‡‡∞‡µ‡æ‡-‡Ø‡‡ó‡‡Æ‡Æ‡ to the section
 -- `a ‚¶ (3 + a , ‡‡µ‡‡‡‡‡ø‡ a)`: at every exponent, the next exponent with
 -- the same public value.  That section is a point of the same fibre
--- family whose non-contractibility at Œµ is `GhataTantu.‡‡®‡‡‡‡-‡¶‡‡µ‡ø‡‡¶‡`.
+-- family whose non-contractibility at Œµ is `GhataFiber.‡‡®‡‡‡‡-‡¶‡‡µ‡ø‡‡¶‡`.
 -- The two are the same family; the sentence "the ambiguity and the
 -- symmetry are one object" says that and no more.
 --
@@ -170,7 +170,7 @@ private variable ‚Ñì : Level
 -- does not compute the space, and the sections of a fibre family over ‚ï
 -- are far larger than the translations (any pointwise choice will do).
 -- Computing it needs the fibres identified uniformly in `a`, which is
--- `GhataTantu`'s owed general coset statement.  ¬ß‡© is a witness, not a
+-- `GhataFiber`'s owed general coset statement.  ¬ß‡© is a witness, not a
 -- census.
 --
 -- NOT settled here: anything about C‚'s successors.  ¬ß‡®'s `refl` is a

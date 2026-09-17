@@ -92,7 +92,7 @@ module _ {X : Type â„“} (w : X â†’ â„•) where
 --
 -- The usual weighted recurrence is written with `n âˆ w x`, which over â•
 -- is truncated and needs a guard that `w x â‰ n`.  Clearing it the way
--- `BhavanaSemiring.agda` clears bhvan -- move the subtraction across
+-- `CompositionSemiring.agda` clears bhvan -- move the subtraction across
 -- rather than truncate -- gives a statement with no monus, no guard, and
 -- no side condition: the fibre is a coproduct of SHIFTED fibres.
 --

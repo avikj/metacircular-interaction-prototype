@@ -14,7 +14,7 @@
 --   loop   : Â (fiber f tt â‰ Unit)        -- but the fibre is SÂ, not a point
 --
 -- So even âˆâˆ’âˆâ merges the circle-fibre with the point-fibre.
--- SakalaVikalaDesa's census and GuhyaNasti's "the loss hides in the loops
+-- WholePartialDesa's census and GuhyaNasti's "the loss hides in the loops
 -- and the set-level census cannot see it", made exact and graded: the loss
 -- lives at level â‰ 1, above where the census truncates.
 ------------------------------------------------------------------------

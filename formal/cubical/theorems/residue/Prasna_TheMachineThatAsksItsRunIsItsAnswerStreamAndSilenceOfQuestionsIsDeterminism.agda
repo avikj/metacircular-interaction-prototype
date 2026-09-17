@@ -4,7 +4,7 @@
 -- ‡‡‡∞‡‡‡® ‚î the question.  THE MACHINE THAT ASKS: ITS RUN IS ITS ANSWER
 -- STREAM, AND SILENCE OF QUESTIONS IS DETERMINISM.
 --
--- Vishvayantra's ea ‚î the interactive generalisation ‚î was
+-- Vishvamachine's ea ‚î the interactive generalisation ‚î was
 -- concluded once in Prashna, where the freedom lives in the EVENT
 -- type: the ISC's respond chooses the successor, receipts collapse
 -- the space, and the collapse's squares are filled by Machine being a
@@ -52,7 +52,7 @@ open import Cubical.Foundations.HLevels using (isOfHLevelRespectEquiv)
 open import Cubical.Data.Nat using (‚Ñï)
 open import Cubical.Data.Unit using (Unit ; isContrUnit)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep)
 
 private
@@ -64,7 +64,7 @@ private
 ------------------------------------------------------------------------
 
 -- An interaction: each state poses a question, and the step consumes
--- an answer.  The closed machine of Vishvayantra is the special case
+-- an answer.  The closed machine of Vishvamachine is the special case
 -- where every question is trivial (¬ß4).
 record Interaction (X : Type ‚Ñì) : Type (‚Ñì-suc ‚Ñì) where
   field

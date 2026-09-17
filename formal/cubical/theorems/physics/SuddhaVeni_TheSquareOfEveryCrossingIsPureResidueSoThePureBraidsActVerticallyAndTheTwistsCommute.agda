@@ -12,7 +12,7 @@
 --       ÏµÂ² = twistµ âˆ˜ twistµâŠâ, at every position â” the double
 --       crossing swaps twice (no base motion) and deposits one
 --       quarter turn on EACH of the two strands it crossed.  By
---       SesaSamavaya, this is an assembled residue family: the pure
+--       ResidueSamavaya, this is an assembled residue family: the pure
 --       braid generators act vertically, inside the fibre level.
 --
 --   Â§3  THE TWISTS COMMUTE ACROSS STRANDS, at every pair of distinct

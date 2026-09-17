@@ -22,7 +22,7 @@
 --
 -- A proposer that installs what it can already match leaves the matcher
 -- EQUAL AS A FUNCTION, after any number of steps; and `obs-step-strict`
--- says one obstruction-indexed step cannot.  `Avataranika_` §7 records that
+-- says one obstruction-indexed step cannot.  `DescentNote_` §7 records that
 -- no file imports both `Obstruction` and `RewriteCertificate`, so it was
 -- open whether that separation says anything about the kernel at all.
 --

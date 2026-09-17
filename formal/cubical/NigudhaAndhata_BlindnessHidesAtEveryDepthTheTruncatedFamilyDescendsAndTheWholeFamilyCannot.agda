@@ -7,7 +7,7 @@
 -- WHAT THIS ANSWERS.  Two of the transmission's "almost forced" next
 -- constructions, taken in order:
 --
---   DEPENDENT NOVELTY.  gpt-sankramana's probe
+--   DEPENDENT NOVELTY.  gpt-sanorderna's probe
 --   (DependentFillerFactorizationProbe, outside the aggregate) states
 --   dependent descent â” Desc_S(F) = Î[D] Î  (F x â‰¡ D (S x)) â” and
 --   obstructs it in the inhabited/empty case by one transport.  The

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ‡‡®‡‡≤‡ã‡Æ-‡µ‡ø‡≤‡ã‡Æ ‚î with the grain and against it.
 --
--- Three theorems about the lossless universal machine of Vishvayantra,
+-- Three theorems about the lossless universal machine of Vishvamachine,
 -- each an answer the completed step gives that the visible step cannot.
 --
 --  1. THE TRACE COMPOSES.  For any maps g, f and any target c,
@@ -46,7 +46,7 @@ open import Cubical.Data.List using (List ; [])
 open import Cubical.Data.List.Properties using (isOfHLevelList)
 open import Cubical.Data.Maybe using (Maybe ; nothing ; rec ; isOfHLevelMaybe)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 
 private
   variable

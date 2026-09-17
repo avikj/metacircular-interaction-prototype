@@ -24,7 +24,7 @@ open import Cubical.Relation.Nullary using (¬_)
 
 open import HolonomyDescentObstructionCorrectedProbe
   using (kernel-holonomy-obstructs-descent)
-open import AvataranaBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
+open import DescentBhanga_TheQuotientCannotHostTheTypeOfWitnessesAndTheProofIsOneTransport
   using (DependentFactorsThrough)
 
 notIso : Iso Bool Bool

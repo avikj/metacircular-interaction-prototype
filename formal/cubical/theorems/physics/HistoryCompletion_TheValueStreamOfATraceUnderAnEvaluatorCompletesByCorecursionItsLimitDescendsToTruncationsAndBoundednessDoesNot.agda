@@ -279,7 +279,7 @@ module JetStream where
 ------------------------------------------------------------------------
 -- §5  the one engine, in stream form: no measure falls forever
 --
--- SamanaAvatarana's DescentObstruction iterates a measure-decreasing step;
+-- SamanaDescent's DescentObstruction iterates a measure-decreasing step;
 -- its measure sequence is a stream of naturals, and □(next < now) on it
 -- is uninhabited.  Unlike □Bounded (§3), which no depth decides, this □
 -- is refuted at NO finite depth and yet uninhabited: well-foundedness is
@@ -313,7 +313,7 @@ module Descent where
   no-falling-stream : (s : Dhārā ℕ) → ¬ □↓ s
   no-falling-stream s d = no-infinite-descent (seq s , seq-drop s d)
 
-  -- a measure-decreasing step (SamanaAvatarana's DStep) iterated from a
+  -- a measure-decreasing step (SamanaDescent's DStep) iterated from a
   -- configuration is a falling stream, so the configuration is empty
   module _ (Config : Type₀) (measure : Config → ℕ)
            (step : (c : Config) → Σ[ c' ∈ Config ] (measure c' < measure c)) where

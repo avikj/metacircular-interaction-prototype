@@ -25,8 +25,8 @@
 --
 -- THE NORM IS ALREADY THE SECOND FACTOR, AND ALREADY CHECKED.  The
 -- second factor x²−x�y+y² is the Eisenstein norm N(x − y�ω) with
--- ω² = −ω − 1; `VargaPrakrti_TraceBhavanaOverN` already proves this
--- norm multiplicative (Brahmagupta�Bhvan, at T=−1,C=−1).  So `Avatarana`'s
+-- ω² = −ω − 1; `VargaPrakrti_TraceCompositionOverN` already proves this
+-- norm multiplicative (Brahmagupta�Bhvan, at T=−1,C=−1).  So `Descent`'s
 -- one debt `Descent` factors, precisely, as:
 --
 --   the tautological cube-sum split      (here, composition)

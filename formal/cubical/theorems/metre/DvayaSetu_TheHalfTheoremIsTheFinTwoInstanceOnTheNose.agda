@@ -10,7 +10,7 @@
 --
 -- SEED.  `SamaVibhaga_‚¶`'s header states: "at X = Fin 2 the iterate
 -- ‡ó‡‡‡ 1 y is y +µ y, so this module's divideUniquely hypothesis is
--- EXACTLY EkatvaMatraDvaya's halvesUniquely ‚¶ (the Bool ‚â Fin 2 shim
+-- EXACTLY UniquenessMatraDvaya's halvesUniquely ‚¶ (the Bool ‚â Fin 2 shim
 -- is not built here; the correspondence is stated, not wired)."  A
 -- stated correspondence is a debt.  This module pays it: the wire is
 -- a term, and the instantiation is definitional ‚î ‡ó‡‡‡ 1 y and y +µ y
@@ -47,7 +47,7 @@ open import Cubical.Data.SumFin using (Fin ; fzero ; fsuc)
 
 open import SamaVibhaga_TransitiveSymmetryNormalizationAndUniqueDivisionForceTheUniformMeasure
   using (total ; ‡§ó‡•Å‡§£‡§É ; ‡§∏‡§Æ‡§≠‡§æ‡§∞‡§ø‡§®‡•ç ; ‡§∏‡§Æ‡§µ‡§ø‡§≠‡§æ‡§ó‡§É)
-open import EkatvaMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
+open import UniquenessMatraDvaya_TheSymmetricTwoOutcomeBornWeightIsForcedToHalfExactlyOverAUniquelyHalvingCarrier
   using (‡§¶‡•ç‡§µ‡§ø‡§Æ‡§æ‡§§‡•ç‡§∞‡§ø‡§®‡•ç)
 
 private

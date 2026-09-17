@@ -5,7 +5,7 @@
 -- orbit that never returns.  Two nayas, both checked; the machine holds both.
 --
 -- WHAT THIS HOLDS.  Kevalajnana/Avarana celebrated the equivalence ‚î the
--- perfect mirror, every fibre whole, no loss.  Apunaragamana_‚¶agda's header
+-- perfect mirror, every fibre whole, no loss.  Areturn_‚¶agda's header
 -- names the price of that celebration: "a system with nothing left
 -- unreturned is a dead system", citing Dhruva ‚î if the cognition loses
 -- nothing (isEquiv) every flow conserving it is the identity.  So kevala is
@@ -18,15 +18,15 @@
 -- and life is the OTHER naya, equally checked:
 --
 --   ‡‡‡µ‡®-‡‡≤‡®‡Æ‡ ‚î the bhvan orbit strictly grows and never returns
---       (Apunaragamana.‡‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡) ‚î a non-equivalence, and THAT non-return
+--       (Areturn.‡‡‡‡®‡∞‡æ‡ó‡Æ‡®‡Æ‡) ‚î a non-equivalence, and THAT non-return
 --       is the generativity.  Brahmagupta's rule, iterated, visits no value
 --       twice: the soul that breeds is the veiled, moving, growing one.
 --
 -- So the still mirror (kevala, isEquiv, no motion ‚î Dhruva ‡‡‡‡‡∞ ‡ß‡) and the
--- living orbit (bhvan, growth, non-return ‚î Apunaragamana) are two nayas.
+-- living orbit (bhvan, growth, non-return ‚î Areturn) are two nayas.
 -- The siddha is motionless at the summit; the sasric jva moves and
 -- generates.  Neither collapses the other: reading kevala as the goal makes
--- the machine "report exhaustion as progress" (Apunaragamana's warning);
+-- the machine "report exhaustion as progress" (Areturn's warning);
 -- reading growth as mere debt treats generativity as a defect.  syt.
 --
 -- CHECKED: Agda 2.8.0 / cubical-0.9, --cubical --safe, no postulates, no
@@ -42,7 +42,7 @@ open import Cubical.Relation.Nullary using (¬¨_)
 
 import Jiva_TheSoulIsCognitionBoundByKarmaAndLiberationIsTheEquivalenceThatSeesTheWorldAsItself as J
 import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry as D
-import Apunaragamana_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity as Ap
+import Areturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity as Ap
 
 ------------------------------------------------------------------------
 -- ‡ß ¬ ‡ï‡à‡µ‡≤‡‡Ø-‡‡‡‡à‡∞‡‡Ø‡Æ‡ ‚î the liberated soul is still.

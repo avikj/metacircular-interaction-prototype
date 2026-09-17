@@ -63,7 +63,7 @@
 -- in this lane; nothing here bears on Ïˆ, and irreversibility alone does
 -- not imply any particular rate.  Nor is the cakravlaâ™s descent shown to
 -- BE this inversion: the cyclic method divides by k, which is inversion in
--- the scaling action (`Bhavana.normScale`), a different structure from the
+-- the scaling action (`Composition.normScale`), a different structure from the
 -- one inverted here.  That the two are the same move is a conjecture this
 -- module does not prove.  What is proved is the reversibility dichotomy.
 --
@@ -195,8 +195,8 @@ module Rot = Mon {M = Pair} _âŠ—_ one
 
 -- so this monoid is NOT idempotent, and a step in it can be undone by
 -- another step of the same law â” provably unlike the walkâ™s.
-bhavana-is-not-a-join : Â¬ (Rot.Idempotent i)
-bhavana-is-not-a-join =
+composition-is-not-a-join : Â¬ (Rot.Idempotent i)
+composition-is-not-a-join =
   Rot.invertible-non-unit-breaks-idempotence i (conj i , i-inverts) i-is-not-one
 
 ------------------------------------------------------------------------

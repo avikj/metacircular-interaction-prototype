@@ -6,7 +6,7 @@
 -- CLOSING THE BRAIDING EA.  Abstract 01 proved that invertibility
 -- supplies no braiding â” two involutions with unit laws fail
 -- Yangâ“Baxter at a named state â” and concluded the missing coherence
--- is data that must be SUPPLIED.  The garbha held order-two as every
+-- is data that must be SUPPLIED.  The kernel held order-two as every
 -- single observable's ceiling, and CaturamsaBhramana proved why: the
 -- quarter turn lives only on the interdependent pair.  This file
 -- supplies the coherence, and it is exactly the quarter turn:

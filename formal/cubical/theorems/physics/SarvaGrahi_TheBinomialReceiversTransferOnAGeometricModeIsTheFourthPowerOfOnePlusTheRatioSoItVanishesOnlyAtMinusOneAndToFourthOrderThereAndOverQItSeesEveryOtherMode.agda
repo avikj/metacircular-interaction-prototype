@@ -60,26 +60,26 @@ module _ (R : CommRing ℓ) where
   m ^ suc k = m · (m ^ k)
 
   -- the transfer: �_{k � 4} g_k � m^k
-  saṅkramaṇa : ⟨ R ⟩ → ⟨ R ⟩
-  saṅkramaṇa m = grāhī 0 · (m ^ 0) + grāhī 1 · (m ^ 1) + grāhī 2 · (m ^ 2)
+  saṅorderṇa : ⟨ R ⟩ → ⟨ R ⟩
+  saṅorderṇa m = grāhī 0 · (m ^ 0) + grāhī 1 · (m ^ 1) + grāhī 2 · (m ^ 2)
                + grāhī 3 · (m ^ 3) + grāhī 4 · (m ^ 4)
 
   caturtha : ⟨ R ⟩ → ⟨ R ⟩
   caturtha x = (x · x) · (x · x)
 
   -- � g_k m^k = (1 + m)^4
-  sarva-grāhī : (m : ⟨ R ⟩) → saṅkramaṇa m ≡ caturtha (1r + m)
+  sarva-grāhī : (m : ⟨ R ⟩) → saṅorderṇa m ≡ caturtha (1r + m)
   sarva-grāhī m = solve! R
 
   ----------------------------------------------------------------------
   -- � � Fourth-order attenuation at m = −1.
   ----------------------------------------------------------------------
 
-  caturtha-kṣaya : (ε : ⟨ R ⟩) → saṅkramaṇa ((- 1r) + ε) ≡ caturtha ε
+  caturtha-kṣaya : (ε : ⟨ R ⟩) → saṅorderṇa ((- 1r) + ε) ≡ caturtha ε
   caturtha-kṣaya ε = solve! R
 
   -- and the transfer vanishes at −1
-  ṛṇa-eka-śūnya : saṅkramaṇa (- 1r) ≡ 0r
+  ṛṇa-eka-śūnya : saṅorderṇa (- 1r) ≡ 0r
   ṛṇa-eka-śūnya = solve! R
 
   ----------------------------------------------------------------------
@@ -208,5 +208,5 @@ na-ṛṇa-eka m ne p = ne (sym (+IdL m) ∙ cong (_+ m) (sym (+InvL 1)) ∙ sym
 
 -- THE THEOREM: on every geometric mode other than −1 the receiver's
 -- transfer is nonzero � the discrete H(� − ½) ≠ 0.
-sarva-grāhī-ℚ : (m : ℚ) → ¬ (m ≡ - 1) → ¬ (saṅkramaṇa ℚRing m ≡ 0)
+sarva-grāhī-ℚ : (m : ℚ) → ¬ (m ≡ - 1) → ¬ (saṅorderṇa ℚRing m ≡ 0)
 sarva-grāhī-ℚ m ne p = anasta-caturtha (1 + m) (na-ṛṇa-eka m ne) (sym (sarva-grāhī ℚRing m) ∙ p)

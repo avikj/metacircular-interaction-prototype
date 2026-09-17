@@ -25,7 +25,7 @@
 -- No premise, no assumed implication. The gap is present exactly where
 -- information is dropped (the visible projection, `uStep`) and impossible
 -- where it is kept (the lossless completion). That the completion is the
--- unique lossless form (Ekatva) is why the lossless side is not a lucky
+-- unique lossless form (Uniqueness) is why the lossless side is not a lucky
 -- encoding: there is nowhere else for a gap to hide.
 ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ open import Cubical.Foundations.Equiv using (equivFun)
 open import Cubical.Data.Sigma using (Σ ; _×_ ; _,_ ; Σ-syntax)
 open import Cubical.Relation.Nullary using (¬_)
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless)
 open import Nasha_TheVisibleStepDestroysInformationAndTheCompletedStepCannotByConstruction
   using (the-step-forgets ; completed-injective)

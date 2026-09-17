@@ -38,7 +38,7 @@ open import NirupaSutra_EveryBraidWordIsItsBarePermutationFollowedByAComputedTwi
   using (vēṇī-gaṇa ; svap-gaṇa ; T ; nirūpa)
 open import GhurnaPatha_EachStrandReadsExactlyItsOwnTwistCountSoTheTwistWordActsByItsCountVector
   using (cakrāvartana ; gaṇanā ; pāṭha-gaṇanā)
-open import CatuhSesaSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
+open import CatuhResidueSiddhanta_ATwistWordActsTriviallyExactlyWhenEveryCountVanishesModFour
   using (catuḥśeṣa ; śeṣa-cakra ; pāṭha-sāmya)
 open import AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid
   using (gāḍha)

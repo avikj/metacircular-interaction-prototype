@@ -10,7 +10,7 @@
 -- one exception CLAUDE.md grants ("all respects paid to Indians only, plus
 -- Voevodsky").  Nothing below is a theorem of any  text.
 --
--- ‡‡‡ï‡‡∞‡Æ‡ ¬ sakrama IS a technical term, and it does not mean this.  In
+-- ‡‡‡ï‡‡∞‡Æ‡ ¬ saorder IS a technical term, and it does not mean this.  In
 -- Jaina karma theory it is the transition of one karma-prakti into another
 -- ‚î *akhagama* with Vrasena's *Dhaval* (~816 CE); ivaarmasri,
 -- *Karmaprakti*.  In jyotia, sakrnti is the sun's passage into a sign.
@@ -118,11 +118,11 @@
 --     SetTruncationDescentBoundary.agda ‚î the retraction-form and the
 --     ‚à_‚à‚/isSet members of the family ¬ß3 belongs to.  Concurrent lanes,
 --     read before ¬ß3 was cut down; see ¬ß3.
---   machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs ‚î the
+--   machine/Uttara_SamordernaOrDosalekhaNeverABareBoolean.hs ‚î the
 --     operational lane, another agent's, which ¬ß5 is the Agda side of.
 ------------------------------------------------------------------------
 
-module Samkramana_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose where
+module Samorderna_TransportCarriesStructureAndTruncationIsTransportExactlyWhenNothingWasThereToLose where
 
 open import Cubical.Foundations.Prelude
 open import Cubical.Foundations.Equiv
@@ -351,7 +351,7 @@ private variable
 -- ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø ‡ ‡‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡ø‡‡‡æ ‡
 --
 -- THIS IS THE CHECKED COUNTERPART OF A HASKELL TYPE ANOTHER LANE IS
--- BUILDING RIGHT NOW: `machine/Uttara_SamkramanaOrDosalekhaNeverABareBoolean.hs`,
+-- BUILDING RIGHT NOW: `machine/Uttara_SamordernaOrDosalekhaNeverABareBoolean.hs`,
 -- whose `Uttara` has these same two constructors, whose `Tulyata` is the
 -- exhibited identification, and whose `uVahita` is the carried structure.
 -- ¬ß2 above is the theorem that record is entitled to cite: given the

@@ -13,7 +13,7 @@
 -- "Pell's equation" is Euler's misattribution to a man who never worked
 -- on it, and the name has outlived every correction since.
 --
--- WHY THIS FILE EXISTS, which is the part worth reading.  `Bhavana.agda`
+-- WHY THIS FILE EXISTS, which is the part worth reading.  `Composition.agda`
 -- line 287 says, of the step where coprimality enters: "that step is in
 -- CakravalaDescent".  There was no `CakravalaDescent`.  Line 14 says
 -- pointing at work that was never done, in a form a reader takes as
@@ -46,7 +46,7 @@
 --                        N D a' b' ≡ k'
 --   oneCongruence     Bhskara needs only k | (a + bm): the other two
 --                     divisibilities follow, up to the factor b.  This is
---                     `Bhavana.choiceToNumerator` and
+--                     `Composition.choiceToNumerator` and
 --                     `choiceToDiscriminant` read as divisibility.
 --   coprimeCancel     k | b�x and gcd(k,b) = 1 give k | x, constructively:
 --                     the cofactor is written out of the hypothesis's
@@ -78,7 +78,7 @@ open import Cubical.Algebra.CommRing
 open import Cubical.Algebra.Ring.Properties using (module RingTheory)
 open import Cubical.Data.Sigma using (Σ-syntax ; _×_ ; _,_ ; fst ; snd)
 
-open import Bhavana using (module Form)
+open import Composition using (module Form)
 
 private
   variable
@@ -106,7 +106,7 @@ module Descent (CR : CommRing ℓ) where
   -- commutative ring.
   --
   -- Brahmagupta's composition with the trivial triple (m, 1, m² − D) is
-  -- `Bhavana.cakravalaCleared`; the whole of the cakravla step is that
+  -- `Composition.cakravalaCleared`; the whole of the cakravla step is that
   -- composition read with the three exact divisions substituted in, plus
   -- `normScale` to pull k out of both new coordinates at once.
   ----------------------------------------------------------------------
@@ -119,7 +119,7 @@ module Descent (CR : CommRing ℓ) where
                   → k · (k · k') ≡ (k · k) · N D a' b'
   cakravalaScaled D a b m k a' b' k' nab ea eb ek =
       cong₂ _·_ (sym nab) (sym ek)
-    ∙ Bhavana.Form.cakravalaCleared CR D a b m
+    ∙ Composition.Form.cakravalaCleared CR D a b m
     ∙ cong₂ (N D) ea eb
     ∙ sym (normScale k D a' b')
 
@@ -152,7 +152,7 @@ module Descent (CR : CommRing ℓ) where
   --
   -- The algorithm asks the solver to find m with k | (a + bm) and nothing
   -- else.  The other two exactness conditions are consequences, up to the
-  -- factor b: `Bhavana`'s two polynomial identities say precisely that
+  -- factor b: `Composition`'s two polynomial identities say precisely that
   -- b�(am + Db) and b²�(m² − D) are combinations of (a + bm) and k.
   --
   -- This is what makes the cakravla an algorithm rather than a search.
@@ -168,7 +168,7 @@ module Descent (CR : CommRing ℓ) where
     where
     numer : k ∣ (b · (a · m + D · b))
     numer = a · c - 1r
-          , ( Bhavana.Form.choiceToNumerator CR D a b m
+          , ( Composition.Form.choiceToNumerator CR D a b m
             ∙ cong₂ _-_ (cong (λ w → a · w) hc) nab
             ∙ cong₂ _-_ (·Assoc a k c ∙ cong (λ w → w · c) (·Comm a k)
                           ∙ sym (·Assoc k a c))
@@ -177,7 +177,7 @@ module Descent (CR : CommRing ℓ) where
 
     discr : k ∣ ((b · b) · (m · m - D))
     discr = c · (b · m - a) + 1r
-          , ( Bhavana.Form.choiceToDiscriminant CR D a b m
+          , ( Composition.Form.choiceToDiscriminant CR D a b m
             ∙ cong₂ _+_ (cong (λ w → w · (b · m - a)) hc
                           ∙ sym (·Assoc k c (b · m - a)))
                         (nab ∙ sym (·IdR k))
@@ -310,7 +310,7 @@ module StepAtThirteen where
 
   open Descent ℤCommRing
   open CommRingStr (snd ℤCommRing) using (_·_ ; _-_ ; _+_)
-  open Bhavana.Form ℤCommRing using (N)
+  open Composition.Form ℤCommRing using (N)
 
   -- 3² − 13�1² = −4
   premiseNorm : N (pos 13) (pos 3) (pos 1) ≡ negsuc 3

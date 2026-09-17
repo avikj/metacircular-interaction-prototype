@@ -118,7 +118,7 @@ private variable
 --     between a general law and its instance means here.
 ------------------------------------------------------------------------
 
-open import NoReturn_TheBhavanaOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
+open import NoReturn_TheCompositionOrbitStrictlyGrowsSoItNeverReturnsAndThatIsTheGenerativity
   using (नव-हरः ; वृद्धिः)
 
 भावना-ऊर्ध्वगामिनी : (x' : ℕ) → ऊर्ध्वगामी (नव-हरः (suc x'))

@@ -145,24 +145,24 @@ module _ (S : StarRing ℓ) where
     -- � � The transport preserves the �-form for every configuration.
     --------------------------------------------------------------------
 
-    record Saṅkramaṇa : Type ℓ where
+    record Saṅorderṇa : Type ℓ where
       field
         E       : ℕ → ⟨ R ⟩
         reflect : (i : ℕ) → E i · (E (τ i)) ✶ ≡ 1r
-    open Saṅkramaṇa
+    open Saṅorderṇa
 
-    apply : Saṅkramaṇa → Vec → Vec
+    apply : Saṅorderṇa → Vec → Vec
     apply T c i = E T i · c i
 
     -- the reflection law, starred: (E i)* � E (� i) = 1
-    reflect✶ : (T : Saṅkramaṇa) (i : ℕ) → (E T i) ✶ · E T (τ i) ≡ 1r
+    reflect✶ : (T : Saṅorderṇa) (i : ℕ) → (E T i) ✶ · E T (τ i) ≡ 1r
     reflect✶ T i =
         cong (λ z → (E T i) ✶ · z) (sym (✶-inv (E T (τ i))))
       ∙ sym (✶-mul (E T i) ((E T (τ i)) ✶))
       ∙ cong _✶ (reflect T i)
       ∙ ✶-one
 
-    τ-avikāra : (T : Saṅkramaṇa) (c d : Vec)
+    τ-avikāra : (T : Saṅorderṇa) (c d : Vec)
               → τ-rūpa (apply T c) (apply T d) ≡ τ-rūpa c d
     τ-avikāra T c d = Σᵣ-ext zero n _ _ pada
       where
@@ -180,14 +180,14 @@ module _ (S : StarRing ℓ) where
     -- � � Where RH sits: the plain form is preserved exactly at unit modulus.
     --------------------------------------------------------------------
 
-    UnitModulus : Saṅkramaṇa → Type ℓ
+    UnitModulus : Saṅorderṇa → Type ℓ
     UnitModulus T = (i : ℕ) → i < n → (E T i) ✶ · E T i ≡ 1r
 
-    PlainUnitary : Saṅkramaṇa → Type ℓ
+    PlainUnitary : Saṅorderṇa → Type ℓ
     PlainUnitary T = (c d : Vec) → plain (apply T c) (apply T d) ≡ plain c d
 
     -- unit modulus gives plain unitarity, pointwise
-    modulus→unitary : (T : Saṅkramaṇa) → UnitModulus T → PlainUnitary T
+    modulus→unitary : (T : Saṅorderṇa) → UnitModulus T → PlainUnitary T
     modulus→unitary T um c d = go zero n ≤-refl
       where
       -- summands agree for every i < n; the sum runs over [0, n)
@@ -225,7 +225,7 @@ module _ (S : StarRing ℓ) where
     ... | no  _ = refl
 
     -- plain unitarity, tested on the delta vectors, gives unit modulus
-    unitary→modulus : (T : Saṅkramaṇa) → PlainUnitary T → UnitModulus T
+    unitary→modulus : (T : Saṅorderṇa) → PlainUnitary T → UnitModulus T
     unitary→modulus T pu i lt =
         cong (λ z → z ✶ · z) (sym (·IdR (E T i)))
       ∙ cong (λ z → (E T i · z) ✶ · (E T i · z)) (sym (δ-sama i))

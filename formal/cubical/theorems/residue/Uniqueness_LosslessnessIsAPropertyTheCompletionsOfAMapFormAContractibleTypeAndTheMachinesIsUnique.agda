@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- àà•àààµ â” oneness.  LOSSLESSNESS IS A PROPERTY, NOT A STRUCTURE.
 --
--- Vishvayantra's trace-is-fiber says any lawful trace family is
+-- Vishvamachine's trace-is-fiber says any lawful trace family is
 -- fiberwise equivalent to the fibre family.  This file proves the
 -- sharpest possible strengthening: the TYPE of lossless completions of
 -- a fixed map,
@@ -32,7 +32,7 @@
 --
 -- Instantiated at the machine: `machine-lossless-unique` â” the
 -- universal step has exactly one lossless completion, the one
--- Vishvayantra built.
+-- Vishvamachine built.
 ------------------------------------------------------------------------
 
 module Uniqueness_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique where
@@ -47,7 +47,7 @@ open import Cubical.Foundations.HLevels
 open import Cubical.Foundations.Function using (_âˆ˜_)
 open import Cubical.Data.Sigma
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
   using (Machine ; uStep ; lossless ; losslessIso ; LawfulStep)
 
 private
@@ -64,7 +64,7 @@ Lossless {â„“} {A} {B} f =
   Î£[ e âˆˆ (A â‰ƒ Î£ B T) ]
   ((a : A) â†’ fst (equivFun e a) â‰¡ f a)
 
--- The inhabitant Vishvayantra built, for any map: the fibre family.
+-- The inhabitant Vishvamachine built, for any map: the fibre family.
 canonical-lossless : {A B : Type â„“} (f : A â†’ B) â†’ Lossless f
 canonical-lossless f = fiber f , lossless f , Î» a â†’ refl
 
@@ -226,7 +226,7 @@ module _ {A B : Type â„“} (f : A â†’ B) where
 ------------------------------------------------------------------------
 
 -- The universal step has exactly one lossless completion â” the one
--- Vishvayantra built is not an example, it is the inhabitant.
+-- Vishvamachine built is not an example, it is the inhabitant.
 machine-lossless-unique : isContr (Lossless uStep)
 machine-lossless-unique = losslessness-is-a-property uStep
 

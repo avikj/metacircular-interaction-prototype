@@ -24,7 +24,7 @@ module VivekaSetu_TheTwoRemainderRecordsAreOnePairAndThereforeEachOther where
 open import Cubical.Foundations.Prelude using (_‚â°_ ; sym ; _‚àô_)
 
 import VivekaPramana_TheRemainderIsLawfulAndTheNetBeats as R
-import VivekaPramana_TheUpadhiIsCarriedAsAFieldSoTheEquivalenceIsReal as U
+import VivekaPramana_TheQualifierIsCarriedAsAFieldSoTheEquivalenceIsReal as U
 
 -- R.‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡ ‚â° ‚ïó‚ï ‚â° U.‡µ‡ø‡µ‡‡ï-‡‡‡∞‡Æ‡æ‡, composed.
 ‡§µ‡§ø‡§µ‡•á‡§ï-‡§∏‡•á‡§§‡•Å‡§É : R.‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£ ‚â° U.‡§µ‡§ø‡§µ‡•á‡§ï-‡§™‡•ç‡§∞‡§Æ‡§æ‡§£

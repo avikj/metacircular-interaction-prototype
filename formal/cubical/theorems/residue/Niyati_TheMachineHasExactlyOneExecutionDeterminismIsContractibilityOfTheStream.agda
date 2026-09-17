@@ -4,7 +4,7 @@
 -- ‡®‡ø‡Ø‡‡ø ‚î fate.  THE MACHINE HAS EXACTLY ONE EXECUTION: DETERMINISM
 -- IS CONTRACTIBILITY OF THE STREAM.
 --
--- Vishvayantra's `Exec mc` is the type of productive infinite runs
+-- Vishvamachine's `Exec mc` is the type of productive infinite runs
 -- from mc: a now, a receipt that now is mc, and a rest from the
 -- stepped configuration.  This file proves the type is CONTRACTIBLE:
 -- `exec mc` inhabits it, and every inhabitant is a path away ‚î the
@@ -29,7 +29,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (‚Ñï ; zero)
 open import Cubical.Data.Sigma
 
-open import Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
+open import Vishvamachine_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource
 open Exec
 
 ------------------------------------------------------------------------

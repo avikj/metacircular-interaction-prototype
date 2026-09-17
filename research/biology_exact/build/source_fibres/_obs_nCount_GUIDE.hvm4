@@ -1,0 +1,3 @@
+#include "whole_source.hvm4"
+@reply = @factorSourceColumnProcess(@input)(#Pair{#sourceUtf8,#Pair{#Con{47,#Con{111,#Con{98,#Con{115,#Con{47,#Con{110,#Con{67,#Con{111,#Con{117,#Con{110,#Con{116,#Con{95,#Con{71,#Con{85,#Con{73,#Con{68,#Con{69,#Nil}}}}}}}}}}}}}}}}},#One}})
+@main = @displaySourceColumn(@input)(#Pair{#sourceUtf8,#Pair{#Con{47,#Con{111,#Con{98,#Con{115,#Con{47,#Con{110,#Con{67,#Con{111,#Con{117,#Con{110,#Con{116,#Con{95,#Con{71,#Con{85,#Con{73,#Con{68,#Con{69,#Nil}}}}}}}}}}}}}}}}},#One}})

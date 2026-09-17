@@ -27,7 +27,7 @@ open import Cubical.Foundations.Prelude
 open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
-open import Satyayantra using (सूचना ; उक्त ; अनुक्त)
+open import Satyamachine using (सूचना ; उक्त ; अनुक्त)
 open import Saptabhangi using (सप्तभङ्गी ; स्यात्-अस्ति ; स्यात्-अवक्तव्यम्)
 
 ------------------------------------------------------------------------

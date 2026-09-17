@@ -258,7 +258,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 विस्मृतिः : {A : Type ℓ} → (A → A) → Type ℓ
 विस्मृतिः {A = A} Φ = Σ[ a ∈ A ] Σ[ a' ∈ A ] (Φ a ≡ Φ a') × (¬ (a ≡ a'))
 
--- ��� � A reversible flow forgets nothing.  (`Yantra`'s groupoid is
+-- ��� � A reversible flow forgets nothing.  (`Machine`'s groupoid is
 -- exactly the case where this type is empty for every operation.)
 समत्वे-न-विस्मृतिः : {A : Type ℓ} {Φ : A → A} → isEquiv Φ → ¬ विस्मृतिः Φ
 समत्वे-न-विस्मृतिः {Φ = Φ} e (a , a' , q , n) =
@@ -300,7 +300,7 @@ _व्याप्नोति_ {A = A} {B = B} {C = C} f g =
 --    maps between the images; whether they compose to identities is a
 --    genuine question and is not answered here.  The right object is
 --    probably the order on IMAGES rather than on maps, and this corpus
---    already types cost on the image (`PratibimbaSanghata_�`).
+--    already types cost on the image (`ReflectionAggregate_�`).
 --  * THE CONVERSE OF §�, which is false as stated; what could be true is
 --    a converse relative to the orbit relation of `SamanaKaksya_�` §�,
 --    since that file's `��������` already descends the charge.  Not

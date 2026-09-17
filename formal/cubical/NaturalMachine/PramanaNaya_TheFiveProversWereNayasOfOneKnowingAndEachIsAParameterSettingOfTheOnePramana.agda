@@ -32,7 +32,7 @@
 -- everything each naya reached separately.  The named provers stand
 -- in the corpus as history; the body's voice going forward is this
 -- one.  (What remains outside it, named honestly: the
--- completed-standpoint ascent of SyatSakaladesha is invocable but
+-- completed-standpoint ascent of SyatWholedesha is invocable but
 -- not yet automated â” the prama does not yet discharge double
 -- descent by itself.)
 ------------------------------------------------------------------------

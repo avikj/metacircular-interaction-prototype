@@ -28,7 +28,7 @@
 -- NOT CHECKED HERE, and named so it is not mistaken for checked: the
 -- equivalence `Aut_B(A) ‚â Œ†_b Aut(‡‡‡ f b)` and its corollary that the group
 -- is trivial exactly on embeddings.  That is the term this module is
--- waiting for.  `AtmasamataUpari_‚¶` already carries the two poles (trivial
+-- waiting for.  `AtmaequalityUpari_‚¶` already carries the two poles (trivial
 -- at `isEquiv`, all of `Aut(A)` at total collapse) and the interior is what
 -- is missing.  Until it lands, ¬ß1 is a MODEL of the readout ‚î a map
 -- ‡‡‡‡‡‡ô‡‡ó‡ ‚í ‡¶‡‡µ‡ø‡‡¶ defined by the ‡®‡æ‡‡‡‡ø slot ‚î and every theorem here is a
@@ -53,7 +53,7 @@
 -- denotation computes the size), so compression measures crowding.  A
 -- scalar gain is two-valued at any threshold.  A test list samples the
 -- SOURCE, so it can witness confusion and never absence.
--- `YantraTantu_‚¶¬ß5` proves the engine has a meaning no term of its
+-- `MachineFiber_‚¶¬ß5` proves the engine has a meaning no term of its
 -- vocabulary reaches (`‡‡‡‡∞‡æ‡‡‡Ø‡Æ‡`), and ¬ß6 records that the invention
 -- trigger fires on a crowding quantity.  This module says why that is not
 -- a tuning error: the coordinate such a trigger would need is the one every

@@ -1,4 +1,4 @@
-# formal/cubical/SamvadaPrasna_‚¶agda, the two-sided theorem, in Bend:
+# formal/cubical/InteractionPrasna_‚¶agda, the two-sided theorem, in Bend:
 #   the process space of a probing coalgebra is a POINT when the event datum
 #   is a proposition (‡‡ï-‡®‡‡‡‡∞‡Æ‡), and is NOT a point for the kernel's
 #   self-extension, whose event datum is a proof-relevant Derivation

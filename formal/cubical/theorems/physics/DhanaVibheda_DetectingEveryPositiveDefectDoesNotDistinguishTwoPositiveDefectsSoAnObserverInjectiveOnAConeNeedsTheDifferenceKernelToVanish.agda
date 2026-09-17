@@ -28,7 +28,7 @@
 --       their difference (0 , 2) is in the kernel and outside the cone.
 --       The continuation receiver reads the cross coefficient and
 --       separates them.
---   §3  NON-DESCENT.  By SankramanaShreni's localization the receiver
+--   §3  NON-DESCENT.  By TransportShreni's localization the receiver
 --       does not factor through the observation: the fibre over the
 --       common reading has explicit distinct witnesses.  This is the
 --       error a singularity-exclusion argument must avoid � a
@@ -52,7 +52,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import Cubical.Algebra.Group.Base using (Group ; GroupStr)
 open import Cubical.Algebra.Group.Properties using (module GroupTheory)
 
-open import SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
+open import TransportShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot
   using (module Localization)
 
 private
