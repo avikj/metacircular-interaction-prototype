@@ -1,118 +1,93 @@
 # Bend × HVM × Computational Univalence
 
-> **From optimal sharing to interaction-optimal execution: the machine obtained when HVM-style local reduction is closed under computational identity.**
+> **From optimal sharing to interaction-optimal execution: computational identity as the reduction system.**
 
-This note stays in the concept space of Bend/HVM: programs, interaction, sharing, DUP/SUP, reduction, proofs, compilers, GPUs. Mathematics enters only where it names or completes something already present there. The endpoint is not “PL meets topology.” It is that the same small structure generates both.
+Bend and HVM reduce programs by local interaction, with duplication and superposition making sharing and independent computation explicit. Computational cubical type theory supplies the closure: equivalence is executable identity, higher identities compose, and inferred structure remains available during reduction. The combined machine computes over equivalent presentations of a program, factors shared structure, preserves correlation, and crosses only irreducible distinctions.
+
+$$
+\boxed{\text{program}\;=\;\text{mathematical object}\;=\;\text{executable relation}}
+$$
 
 ---
 
-## 0. One problem
+## 1. HVM turns dependence into local reduction
 
-Bend/HVM asks how a high-level program becomes a small, massively parallel reduction system and then real hardware. Interaction nets make locality and parallelism structural. DUP/SUP makes sharing structural. Bend2 adds practical closures/allocation, dependent proofs, a trusted kernel, and lower-order CPU/GPU execution.
+An interaction net represents computation as a graph of agents whose active pairs rewrite locally. Independent active pairs reduce independently; a sequential schedule is a traversal of the dependency structure, not the computation itself.
 
-The reason to leave higher-order interaction nets was concrete: **realized work**. So ask the exact question:
-
-$$
-\boxed{\text{Which interactions are actually required by the computation?}}
-$$
-
-Parallelism answers *when* independent interactions may run. Optimal sharing answers *which duplicated redex families share*. The construction here asks the more general question:
+For labelled duplication and superposition,
 
 $$
-\boxed{\text{Which apparent distinctions are genuinely independent at all?}}
-$$
-
-```mermaid
-flowchart LR
-  P["program"] --> D["dependency / identity"]
-  D --> F["factored representation"]
-  F --> R["local reduction"]
-  R --> H["hardware"]
-```
-
-The claim developed below is that this question is exactly the question of mathematical identity. Once identity itself computes, theorem proving, representation change, sharing and reduction inhabit one machine.
-
----
-
-## 1. HVM already contains the seed: identify or cross
-
-For labelled duplication and superposition:
-
-$$
-\mathrm{DUP}_L\bowtie\mathrm{SUP}_L\to\text{route/annihilate}
+\mathrm{DUP}_L\bowtie\mathrm{SUP}_L\to\text{route/annihilate},
 $$
 
 while
 
 $$
-\mathrm{DUP}_L\bowtie\mathrm{SUP}_M,\quad L\neq M
+\mathrm{DUP}_L\bowtie\mathrm{SUP}_M,\;L\neq M
 \to\text{commute/cross}.
 $$
 
-Same label means one correlated distinction seen twice. Different labels mean independent distinctions, hence a product.
+Same label means one correlated distinction used twice; different labels mean independent distinctions whose product must be represented.
 
-That is information theory:
+Information theory states the same distinction:
 
 $$
-Y=X\Rightarrow H(X,Y)=H(X),\qquad
+Y=X\Rightarrow H(X,Y)=H(X),
+\qquad
 X\perp Y\Rightarrow H(X,Y)=H(X)+H(Y).
 $$
 
-It is geometry: one independent binary distinction is one dimension; two form a square; three a cube.
+Geometry states it as dimension: one independent binary distinction is an interval, two form a square, three a cube.
 
-It is factoring:
+Factoring states it as reuse:
 
 $$
 \boxed{\text{sharing}=\text{factoring dependence}.}
 $$
 
-Prime factorization is the elementary arithmetic instance:
+Prime factorization is the elementary arithmetic instance,
 
 $$
-60=2^2\cdot3\cdot5.
+60=2^2\cdot3\cdot5,
 $$
 
-A program factors similarly:
+while a program may factor as
 
 $$
 P=S\circ(P_1\otimes P_2),
 $$
 
-where $S$ is shared and $P_1,P_2$ are genuinely independent. Composition builds; factorization exposes irreducibles. An optimizer is a factorization engine.
+with $S$ represented once and $P_1,P_2$ genuinely independent. Composition builds a whole from factors; factorization recovers the independent generators. Irreducibility is the dual statement: after every lawful common factor has been extracted, the remaining distinction cannot be identified without changing the demanded result.
 
-The dual is computational irreducibility: after every common factor has been extracted, what remains cannot be identified without changing the demanded result. **Paid work is irreducible distinction.**
+$$
+\boxed{\text{paid work}=\text{irreducible distinction}.}
+$$
 
 ---
 
-## 2. Compiler equivalence becomes executable identity
+## 2. Voevodsky univalence turns compiler equivalence into executable identity
 
-Every optimizer depends on equations $P\simeq Q$. CSE, specialization, partial evaluation, memoization, supercompilation, equality saturation and algebraic simplification each exploit a restricted family of equivalences.
-
-Conventionally:
+Every optimizer uses semantic equations $P\simeq Q$. CSE, specialization, partial evaluation, memoization, supercompilation, equality saturation and algebraic simplification each exploit a restricted family of such equations.
 
 ```mermaid
 flowchart LR
-  A["prove P ≃ Q"] --> B["encode optimizer"]
+  A["P ≃ Q"] --> B["special compiler theorem/pass"]
   B --> C["rewrite P → Q"]
 ```
 
-Why require a separately programmed optimizer for every class of equivalence?
-
-Vladimir Voevodsky's **Univalence Axiom** answers at the general level:
+Vladimir Voevodsky's Univalence Axiom internalizes the general relation. For types $A,B:\mathcal U$,
 
 $$
 \boxed{(A=_{\mathcal U}B)\simeq(A\simeq B).}
 $$
 
-An equivalence of representations can be internalized as identity in the universe.
-
-Cubical type theory makes this identity computational. For $e:A\simeq B$,
+An equivalence of representations becomes an identity of representations. Computational cubical type theory gives that identity reduction behavior. For $e:A\simeq B$,
 
 $$
 \mathrm{ua}(e):A=_{\mathcal U}B,
 $$
 
-and transport along it computes:
+and
 
 $$
 \boxed{\operatorname{transport}(\mathrm{ua}(e),x)\leadsto e(x).}
@@ -125,43 +100,43 @@ flowchart LR
   T --> X["execute e"]
 ```
 
-So the compiler identity is exact:
+Thus
 
 $$
 \boxed{\text{semantics-preserving representation change}=\text{executable identity}.}
 $$
 
-Linear algebra already uses the same structure. Change of basis is conjugation:
+Linear algebra already uses this operation. A change of basis conjugates an operator,
 
 $$
-[T]_{B'}=P^{-1}[T]_B P,
+[T]_{B'}=P^{-1}[T]_BP,
 $$
 
-while transporting an endomorphism across $e:A\simeq B$ gives
+and transport of an endomorphism across $e:A\simeq B$ is
 
 $$
 f\mapsto e\circ f\circ e^{-1}.
 $$
 
-Same operation; different native vocabulary.
+Change of basis, compiler representation change and univalent transport are the same compositional law at different specializations.
 
 ---
 
-## 3. Why homotopy appears
+## 3. Higher identity is the geometry of independent execution
 
-Once equality is structure, equalities can themselves be equal:
-
-$$
-p,q:a=_A b,\qquad \alpha:p=q.
-$$
-
-A path is a 1-cell; equality between paths is a 2-cell; higher identities continue. Cubical type theory represents a path by a formal dimension $i:I$:
+Cubical type theory represents equality by paths. A path $p:a=_A b$ is a term varying over a formal interval $I$,
 
 $$
 p(i):A,\qquad p(0)=a,\quad p(1)=b.
 $$
 
-Two independent reductions give a square:
+Equalities themselves have identities:
+
+$$
+p,q:a=_A b,\qquad \alpha:p=q.
+$$
+
+A path is a 1-cell; an identity between paths is a 2-cell; higher identities continue. Two independent reductions generate the first nontrivial cube:
 
 ```text
         r
@@ -173,139 +148,155 @@ Two independent reductions give a square:
         r
 ```
 
-Thus:
+The square records that the two serializations are boundaries of one independent computation.
 
 $$
-\boxed{\text{higher identity}=\text{structured equality of execution paths}.}
+\boxed{\text{higher identity}=\text{coherence of execution paths}.}
 $$
 
-Topology and concurrency are studying the same compositional object at different resolutions.
-
-Loops and symmetry coincide under univalence:
+Topology calls the resulting identity structure homotopy. Algebra calls invertible self-structure symmetry. Univalence identifies the two:
 
 $$
-\Omega(\mathcal U,A)\simeq\operatorname{Aut}(A).
+\boxed{\Omega(\mathcal U,A)\simeq\operatorname{Aut}(A).}
 $$
 
-Algebraic symmetry, topological loops and executable self-equivalence are one structure.
+A loop in the universe at $A$, a symmetry of $A$, and an executable self-equivalence of $A$ are one object.
 
 ---
 
-## 4. Cubical composition is deterministic reduction from partial structure
+## 4. Cubical composition computes from partial lawful structure
 
-Cubical composition fills a compatible partial boundary. `coe` transports through a changing type; `hcomp` composes inside a fixed type; general `comp` combines them:
+`coe` transports through a varying type; `hcomp` fills compatible faces inside one type; general `comp` combines transport and filling.
 
 $$
 \operatorname{coe}:(P:I\to\mathcal U)\to P(r)\to P(s).
 $$
 
-This is reduction, not search. A dependent function transports its argument backward and result forward. A dependent pair transports its first component and then its second in the transported family. Paths transport through squares. The universe transports through `Glue`/univalence.
+A $\Pi$-type transports its argument contravariantly and result covariantly. A $\Sigma$-type transports the first component and then the dependent second component. A path transports through the corresponding square. `Glue` makes the universe itself computationally fibrant, so transport along `ua(e)` executes $e$.
 
 $$
-\boxed{\text{partial lawful structure}+\text{composition}=\text{further computation}.}
+\boxed{\text{compatible partial structure}+\text{composition}=\text{determined structure}.}
 $$
 
-Analysis says the same thing continuously: a local evolution law $\dot x=F(x)$ generates compatible evolution. Differential geometry moves data through varying fibres by parallel transport
+Analysis expresses the continuous specialization by local evolution,
 
 $$
-v\in T_xM\mapsto\operatorname{PT}_\gamma(v)\in T_yM.
+\dot x=F(x),
 $$
 
-These are distinct constructions with the same semantic operation: coherent transport through a varying family. Curvature/holonomy is precisely the structure left when different transport routes cannot be globally flattened into one.
+while differential geometry transports $v\in T_xM$ through a varying tangent family,
+
+$$
+v\mapsto\operatorname{PT}_\gamma(v)\in T_yM.
+$$
+
+Curvature/holonomy records the residual path dependence when transport around distinct routes does not globally trivialize. Cubical composition is the discrete constructive identity principle underlying the same notions of local compatibility, transport and path coherence.
 
 ---
 
-## 5. Every map is visible result plus exact preimage
+## 5. Every map is its visible result plus its exact fibre
 
-For any program/function $f:A\to B$ define its homotopy fibre
+For every $f:A\to B$ and $b:B$,
 
 $$
 \operatorname{fib}_f(b)=\sum_{a:A}(f(a)=b).
 $$
 
-Then
+The total fibre family reconstructs the source:
 
 $$
 \boxed{A\simeq\sum_{b:B}\operatorname{fib}_f(b).}
 $$
 
-The source is exactly its visible output plus what that output failed to determine.
+The first projection is exactly $f$. The source is therefore its visible result plus exactly the structure that result does not determine.
 
 ```mermaid
 flowchart LR
-  A["input"] --> B["visible result"]
-  A --> R["exact residual"]
-  B --> T["total presentation"]
-  R --> T
+  A["a : A"] --> B["f(a) : B"]
+  A --> F["fibre / exact residual"]
+  B --> T["Σ b. fib_f(b)"]
+  F --> T
+  T --> A
 ```
 
-This one identity is simultaneously topological fibre, dependent sum, runtime residual, provenance, conditional information, ancillary state in reversible computing, and hidden state relative to an observation.
+The same object is called a homotopy fibre in topology, a dependent preimage in type theory, residual state in execution, provenance in tracing, conditional distinction in information theory and ancillary state in reversible computing.
 
-An equivalence has contractible fibres. A non-invertible map has nontrivial fibres somewhere:
+An equivalence has contractible fibres; a non-invertible map has nontrivial fibres somewhere. Hence
 
 $$
-\boxed{\text{information loss lives exactly in nontrivial fibres}.}
+\boxed{\text{information loss}=\text{nontrivial preimage structure hidden by a projection}.}
 $$
 
-Logical erasure is many-to-one identification. Retain the fibre and the total presentation remains reconstructible. Drop it and Landauer/Bennett become relevant.
+Logical erasure is many-to-one identification. Retaining the fibre keeps the total presentation reconstructible; discarding it makes the visible transformation logically irreversible, exactly the distinction used by Landauer and Bennett.
 
-The same distinction appears in physics: total reversible/unitary evolution preserves distinction while a chosen observable may expose only a projection. The visible observation need not be the whole physical/computational state.
+Quantum theory uses the same conservation structure: unitary evolution preserves total state distinction,
+
+$$
+U^\dagger U=I,
+$$
+
+while an observable is a projection of that state into a chosen measurement structure. Losslessness belongs to the total evolution, not necessarily to every visible coordinate.
 
 ---
 
-## 6. The universe closes the construction
+## 6. The universal family places all mathematical structure in one classifier
 
-The universal family is
+The universe carries its universal family
 
 $$
 \boxed{\pi:\sum_{X:\mathcal U}X\to\mathcal U.}
 $$
 
-Every dependent family is classified by it. Every map $f:A\to B$ yields the family $b\mapsto\operatorname{fib}_f(b)$ with
+Every dependent family $P:B\to\mathcal U$ is a pullback of this family. Every map $f:A\to B$ determines the family $b\mapsto\operatorname{fib}_f(b)$ and therefore the presentation
 
 $$
 A\simeq\sum_{b:B}\operatorname{fib}_f(b).
 $$
 
-Maps, families, fibres, total spaces, equivalences, paths and higher paths inhabit one language.
-
 ```mermaid
 flowchart TD
-  U["universe 𝒰"] --> T["types"]
-  T --> F["dependent families"]
-  F --> M["maps via fibres"]
+  U["universe 𝒰"] --> F["dependent families"]
+  F --> M["maps as fibre families"]
   M --> E["equivalences"]
-  E --> P["paths by univalence"]
-  P --> H["higher paths"]
+  E --> P["identities by univalence"]
+  P --> H["higher identities"]
   H --> C["cubical composition"]
   C --> U
 ```
 
-Logic is already inside:
+Logic is the same language:
 
 $$
-P\to Q,\qquad
-P\land Q\simeq P\times Q,\qquad
+P\to Q,
+\qquad
+P\land Q\simeq P\times Q,
+\qquad
 \exists x:A.P(x)\simeq\sum_{x:A}P(x).
 $$
 
-Algebra is a type carrying operations and laws. Homomorphisms preserve them; automorphisms are structure-preserving equivalences. Category theory is objects, identity, composition, functors and coherent transformations; higher categories continue the same ladder. Sets are the 0-truncated region where equality has no higher distinction. Quotients are explicit identifications.
+Algebra is a carrier type with operations and laws; homomorphisms preserve the operations; automorphisms are structure-preserving equivalences. Rings, fields, modules and vector spaces are successive structured types. Number theory specializes these structures to $\mathbb N,\mathbb Z$, quotient rings, fields and their arithmetic; primes are irreducibles under multiplication, exactly the factorization/irreducibility dual already present in reduction.
 
-The fields are not being compared. Their objects have entered the same classifier.
+Category theory extracts identity and composition as primitives; functors preserve them and natural transformations relate such preservations. Higher categories retain transformations between transformations. Homotopy type theory internalizes the invertible higher part as the identity structure of types themselves.
 
-This is the foundational singularity: there is no need to invent a new primitive when the next mathematical object appears. It is another type/family/map/equivalence/path/composition in the same universe.
+Sets are the 0-truncated types whose identity carries no higher distinction. Quotients are generated identifications. Topology is identity/deformation structure. Geometry adds local/metric structure. Analysis adds limiting and continuous structure. None requires a new foundational kind of object: each is additional structure on types, maps, families, identities and their compositions.
+
+$$
+\boxed{\text{mathematical field}=\text{a chosen structure/observation on the same universe}.}
+$$
+
+The closure is not a survey of fields; it is the reason another field does not require another foundational primitive.
 
 ---
 
-## 7. Coinduction removes the final static boundary
+## 7. Coinduction closes mathematics under continuing interaction
 
-A runtime is generally
+A terminating function has type $A\to B$. A continuing system exposes an observation and another system:
 
 $$
-\text{state}\to(\text{observation},\text{next state}),
+X\to O\times X.
 $$
 
-not merely input-to-final-output. The dependent version can return successor, observation, evidence, residual and continuation together.
+The dependent interactive form lets the request determine the observation, event/residual and successor; the successor carries its continuation.
 
 ```mermaid
 flowchart LR
@@ -317,101 +308,113 @@ flowchart LR
   I1 --> S2["…"]
 ```
 
-Coinduction treats the continuing process as one object.
-
-The decisive closure is re-entry:
+The output of interaction can itself be an equivalence, proof, program or transformation. Because it remains in the same term language, it can participate in the next interaction.
 
 $$
-\boxed{\text{interaction}\to\text{derived transformation}\to\text{later executable operation}.}
+\boxed{\text{interaction}\to\text{mathematical consequence}\to\text{new executable interaction}.}
 $$
 
-A theorem prover is no longer outside the runtime. A proved equivalence becomes transport. A derived specialization becomes an operation. A discovered identity collapses later work.
+This is the metacircular closure: inference is not an external analysis of execution; inference changes the executable object on which subsequent inference operates.
 
-That is universal inference as execution: whatever follows from the represented structure is itself represented structure and can participate in what follows next.
+$$
+\boxed{\text{proof}=\text{transformation}=\text{available computation}.}
+$$
 
 ---
 
-## 8. Back to HVM: optimal sharing becomes optimal representation
+## 8. Computational univalence extends optimal sharing from syntax to mathematics
 
-A conventional interaction net reduces the graph it is given. Optimal sharing prevents duplicated redex families from being evaluated repeatedly. But mathematical equivalence is broader than syntactic redex-family identity.
+A conventional interaction net reduces the graph it is given. Lévy/Lamping optimality prevents duplicated members of one redex family from being independently recomputed. Mathematical identity enlarges the relation under which two pieces of work are the same.
 
-If two subcomputations are equivalent, transport can replace recomputation. If 1,000 apparent branches contain only 10 independent distinctions, the representation should expose 10 dimensions, not 1,000 branches. If a new proof identifies a dimension, the runtime should stop paying for it.
+If two subcomputations are equivalent, transport can replace recomputation. If many apparent branches share one dependency, superposition can retain that correlation. If two dimensions are independent, their product must be crossed. If a newly derived identity collapses a dimension, later execution need not pay for it.
 
 $$
-\boxed{\text{Lévy/Lamping sharing}\subset
-\text{sharing modulo executable mathematical identity}.}
+\boxed{
+\text{optimal sharing of reduction families}
+\subset
+\text{optimal sharing modulo executable equivalence}
+}
 $$
 
-The optimal representation has:
+The resulting representation satisfies the universal compiler desiderata simultaneously:
 
-1. determined structure represented once;
-2. equivalent structure transported rather than recomputed;
-3. correlated alternatives remaining correlated;
-4. independent dimensions composing by product;
-5. only distinctions relevant to the demanded observation crossed.
-
-DUP/SUP then becomes the physical reduction mechanism for the already-factored mathematical object.
+- shared/determined structure appears once;
+- equivalent representations are connected by executable transport;
+- correlated alternatives remain correlated;
+- independent dimensions compose rather than masquerading as correlation;
+- residual distinctions remain available instead of being destroyed and recomputed;
+- newly proved transformations re-enter the running program.
 
 ```mermaid
 flowchart TD
-  P["running program"] --> I["infer identity/dependence"]
-  I --> F["factor representation"]
-  F --> N["HVM realization"]
-  N --> R["DUP/SUP reduction"]
-  R --> O["observation + residual"]
-  O --> C["continuation with new structure"]
-  C --> I
+  P["running program"] --> I["identity / dependence"]
+  I --> F["maximally factored presentation"]
+  F --> N["interaction-net realization"]
+  N --> R["DUP/SUP local reduction"]
+  R --> O["observation + exact residual"]
+  O --> K["continuation"]
+  K --> I
 ```
 
-This changes the performance variable that motivated leaving interaction nets:
+Victor's practical objection to interaction nets was realized performance relative to lower-order variants. This construction changes the first factor in
 
 $$
-\boxed{\text{not merely better scheduling; fewer required interactions}.}
+T(P)\approx N(P)\,C_{\mathrm{interaction}}+\text{machine overhead}:
 $$
+
+$N(P)$ is reduced to the interactions required after complete mathematical factoring. The per-interaction cost remains a concrete compiler/runtime/hardware problem.
 
 ---
 
-## 9. Geodesic reduction
+## 9. Geodesic execution is minimum-cost reduction
 
-Give primitive interactions costs. For execution path $\gamma$,
+Let a primitive interaction $e$ have cost $c(e)$. An execution path $\gamma$ has
 
 $$
-C(\gamma)=\sum_{e\in\gamma}c(e),
+C(\gamma)=\sum_{e\in\gamma}c(e).
 $$
 
-and
+The intrinsic execution distance is
 
 $$
 \boxed{d(P,Q)=\min_{\gamma:P\leadsto Q}C(\gamma).}
 $$
 
-With unit interaction cost,
+For unit interaction cost,
 
 $$
 d(P,Q)=\min_{\gamma:P\leadsto Q}\#\operatorname{interactions}(\gamma).
 $$
 
-That is literally a geodesic.
+A minimum-cost reduction is therefore literally a geodesic in the execution geometry.
 
-The lower bound is observational separation: if every state reachable within cost $r$ identifies two completions on which the demanded observation differs, no cost-$\le r$ execution can compute it. Locality makes this a causal cone: information cannot influence a result without crossing intervening local interactions.
+A lower bound is an observation obstruction: if a proposed cheaper projection identifies $x,y$ while the demanded result distinguishes them,
 
 $$
-\boxed{\text{complexity lower bound}=\text{causal/geometric separation}.}
+q(x)=q(y),\qquad f(x)\neq f(y),
 $$
 
-Classical mechanics uses extremal paths; relativity uses geodesics; local field theories use causal propagation. The compiler uses the same mathematics because all are compositions of local transformations under a cost/metric.
+then $f$ cannot factor through $q$. Some additional distinction must be crossed.
+
+Local interaction turns this into a causal/light-cone bound. If information outside the radius reachable in $r$ interactions changes the result, no length-$r$ execution can determine it.
+
+$$
+\boxed{\text{complexity lower bound}=\text{required causal separation}.}
+$$
+
+Classical action principles, relativistic geodesics and computational minimum-cost paths are specializations of one variational question: which lawful composite realizes the boundary condition at least cost under the relevant metric/action?
 
 ---
 
-## 10. Boolean computation is cubical structure, not enumeration
+## 10. Boolean programs expose the cubical geometry directly
 
-For $N$ bits,
+For $N$ Boolean variables,
 
 $$
 Q_N=\mathbf2^N.
 $$
 
-Assignments are vertices; partial assignments are faces. A 3-clause depends on three coordinates; its violating assignment lifts to a codimension-three cell of the global cube. Shared variables are literally shared coordinates.
+An assignment is a vertex. Fixing coordinates gives a face. A 3-clause depends on three global coordinates; its violating assignment lifts to a codimension-three cell. Clauses sharing a variable literally share a cube coordinate; equality is structural rather than rediscovered after separate evaluation.
 
 For $c:\mathbf2^3\to\mathbf2$,
 
@@ -419,26 +422,4 @@ $$
 \mathbf2^3\simeq\sum_{b:\mathbf2}\operatorname{fib}_c(b).
 $$
 
-The one-bit result does not destroy the dimensions it failed to determine; they remain dependent residual structure.
-
-Crucially,
-
-$$
-|Q_N|=2^N\not\Rightarrow\text{cost}=2^N.
-$$
-
-A cube is compactly factored. Exponential work is intrinsic only when incidence forces independent crossings after every lawful equivalence, transport and sharing opportunity has been used.
-
-$$
-\boxed{\text{irreducibility}=\text{distinctions that still must cross after complete factoring}.}
-$$
-
-This is primality at the correct computational level: not “many possibilities,” but structure that admits no cheaper lawful factorization for the demanded observation.
-
----
-
-## 11. The runtime exists
-
-This is implemented against the pre-release Bend2 lineage `DKormann/Bend2 @ f026483` and HVM4. See [`RUNTIME_FULL.md`](./RUNTIME_FULL.md), [`PUSC.md`](./PUSC.md), and [`LIST_TRANSPORT_FIX.md`](./LIST_TRANSPORT_FIX.md).
-
-The full target keeps cubical structure alive rather than normalizing and erasing it before emission. Runtime objects include interval expressions, path lambdas, universe paths, dependent type constructors, `coe`, `hcomp`, `Glue`, quotient structure and stuck partial
+The one-bit clause result
