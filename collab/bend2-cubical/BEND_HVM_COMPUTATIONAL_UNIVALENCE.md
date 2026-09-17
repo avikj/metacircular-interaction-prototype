@@ -34,34 +34,30 @@ for every terminal reduction $\gamma:s\leadsto t$. Equality on every edge telesc
 
 ---
 
-## 1. One distinction: diagonal or product
+## 1. Sharing and independence are different Boolean spaces
+
+Start with one Boolean value $b\in\mathbf2=\{0,1\}$. If a program uses that same value in two places, the pair of observed values can only be
 
 ```math
-\mathbf2=\{0,1\}.
+(b,b)\in\{(0,0),(1,1)\}.
 ```
 
-Using one Boolean distinction twice gives the diagonal
+The set of possible pairs is the diagonal
 
 ```math
-\Delta_{\mathbf2}
-=\{(0,0),(1,1)\}
-\subset\mathbf2^2,
+\Delta_{\mathbf2}=\{(0,0),(1,1)\}\subset\mathbf2\times\mathbf2.
 ```
 
-with
+It still contains one Boolean degree of freedom:
 
 ```math
-\pi_1|_\Delta=\pi_2|_\Delta,
-\qquad
-\Delta_{\mathbf2}\simeq\mathbf2.
+\Delta_{\mathbf2}\simeq\mathbf2,\qquad \pi_1|_\Delta=\pi_2|_\Delta.
 ```
 
-Two separately varying Boolean coordinates give the product
+If the two values vary independently, all four pairs are possible:
 
 ```math
-\mathbf2^2
-=\mathbf2\times\mathbf2
-=\{(0,0),(0,1),(1,0),(1,1)\}.
+\mathbf2\times\mathbf2=\{(0,0),(0,1),(1,0),(1,1)\}.
 ```
 
 ```text
@@ -71,38 +67,27 @@ Two separately varying Boolean coordinates give the product
  (0,0) -------- (1,0)
 ```
 
-For the finite Boolean cube,
+This is the distinction HVM's labelled DUP/SUP reduction preserves: two uses of one choice are correlated; two independent choices form a product.
+
+With finite counting information,
 
 ```math
-H(\mathbf2^n)=\log_2|\mathbf2^n|=n,
+H(\mathbf2^n)=\log_2|\mathbf2^n|=n,\qquad H(\Delta_{\mathbf2})=1.
 ```
 
-while
+For equal labels, DUP meets the same superposition coordinate and routes it:
 
 ```math
-H(\Delta_{\mathbf2})=1.
+\mathrm{DUP}_L\bowtie\mathrm{SUP}_L\longrightarrow\text{route}.
 ```
 
-HVM's labelled DUP/SUP interaction realizes the same distinction. Equal labels preserve one branching coordinate:
+For different labels, the coordinates are distinct and both survive:
 
 ```math
-\mathrm{DUP}_L\bowtie\mathrm{SUP}_L
-\longrightarrow
-\text{route}.
+\mathrm{DUP}_L\bowtie\mathrm{SUP}_M\longrightarrow\text{cross},\qquad L\ne M.
 ```
 
-Different labels preserve both coordinates:
-
-```math
-\mathrm{DUP}_L\bowtie\mathrm{SUP}_M
-\longrightarrow
-\text{cross},
-\qquad L\ne M.
-```
-
-Diagonal is correlation; product is separate variation; DUP/SUP reduces the corresponding interaction structure.
-
-Two commuting transformations $r,s$ give the square
+The same distinction extends geometrically. Two transformations $r$ and $s$ that vary independently and commute form the two coordinate directions of a square:
 
 ```text
         r
@@ -114,7 +99,7 @@ Two commuting transformations $r,s$ give the square
         r
 ```
 
-whose two boundary paths are the two serializations of the same 2-cell. Three commuting coordinates give a cube; $n$ commuting coordinates give an $n$-cell.
+The two paths around the boundary are equal composites. Three independently varying commuting transformations give the coordinate directions of a cube; higher products give higher-dimensional cells.
 
 ---
 
