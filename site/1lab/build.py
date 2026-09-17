@@ -322,11 +322,11 @@ def enrich_pratt(markup, rows, names, types):
             href, typed = links[symbol]
             attr = ' data-type="true"' if typed else ''
             return f'<a href="{html.escape(href, quote=True)}"{attr} role="link" tabindex="0">{token.group(0)}</a>'
-        math = re.sub(r'(<mi\b[^>]*>)(Lossless|π|LawfulStep)(</mi>)', token_link, math)
+        math = re.sub(r'(<(?:mi|mo)\b[^>]*>)(Lossless|π|LawfulStep)(</(?:mi|mo)>)', token_link, math)
         if "ISC" in links:
             href, typed = links["ISC"]
             attr = ' data-type="true"' if typed else ''
-            math = re.sub(r'(<mrow><mi mathvariant="sans-serif">𝖨</mi><mi mathvariant="sans-serif">𝖲</mi><mi mathvariant="sans-serif">𝖢</mi></mrow>)',
+            math = re.sub(r'(<mrow><mi[^>]*>𝖨</mi><mi[^>]*>𝖲</mi><mi[^>]*>𝖢</mi></mrow>)',
                           lambda m: f'<a href="{html.escape(href, quote=True)}"{attr} role="link" tabindex="0">{m.group(1)}</a>', math)
         return math.replace('__PRATT_FIRST_PROJECTION__', pi_one)
     markup = re.sub(r'<math\b.*?</math>', math_links, markup, flags=re.S)
