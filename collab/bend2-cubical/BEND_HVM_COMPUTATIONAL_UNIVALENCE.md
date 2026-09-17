@@ -67,7 +67,9 @@ If the two values vary independently, all four pairs are possible:
  (0,0) -------- (1,0)
 ```
 
-This is the distinction HVM's labelled DUP/SUP reduction preserves: two uses of one choice are correlated; two independent choices form a product.
+HVM represents a binary alternative as a labelled SUP node. The label names the choice: $\mathrm{SUP}_L(x_0,x_1)$ carries the two alternatives of one Boolean coordinate $L$. DUP is explicit sharing: it gives two uses of one value.
+
+When a DUP labelled $L$ meets a SUP carrying the same label, both uses must see the same branch. The possible paired observations are therefore only $(x_0,x_0)$ and $(x_1,x_1)$: the diagonal above. When the labels differ, they name different choices, so both coordinates remain and their four combinations form the product square.
 
 With finite counting information,
 
@@ -75,13 +77,13 @@ With finite counting information,
 H(\mathbf2^n)=\log_2|\mathbf2^n|=n,\qquad H(\Delta_{\mathbf2})=1.
 ```
 
-For equal labels, DUP meets the same superposition coordinate and routes it:
+The corresponding equal-label interaction routes one shared choice:
 
 ```math
 \mathrm{DUP}_L\bowtie\mathrm{SUP}_L\longrightarrow\text{route}.
 ```
 
-For different labels, the coordinates are distinct and both survive:
+The different-label interaction preserves both choice coordinates and crosses them:
 
 ```math
 \mathrm{DUP}_L\bowtie\mathrm{SUP}_M\longrightarrow\text{cross},\qquad L\ne M.
@@ -115,7 +117,7 @@ composes as
 g\circ f:A\to C.
 ```
 
-Factorization reverses the question: find factors whose composite is the given map.
+Factorization is the inverse structural question: for a given map $h:A\to C$, find $f:A\to B$ and $g:B\to C$ with $h=g\circ f$.
 
 If
 
@@ -125,15 +127,15 @@ F(x,y)=G(C(x),C(x),y),
 
 then $C(x)$ is one value with two uses. A representation evaluating $C(x)$ twice contains duplicated work absent from the factored expression.
 
-Multiplication is another composition law:
+The same composition/factorization distinction is elementary in arithmetic:
 
 ```math
 60=2^2\cdot3\cdot5.
 ```
 
-A prime has no non-unit factorization under multiplication. A reduction is irreducible under a declared primitive interaction/cost structure exactly when no cheaper lawful factorization preserves the required observation.
+A prime is irreducible for multiplication because every factorization has a unit factor. Computational irreducibility is the same statement after the composition law and primitive cost have been specified: no lower-cost factorization has the same required observation.
 
-Lamping/Lévy optimal sharing identifies reduction-family duplication in a presented net. The cubical construction adds executable identity between presentations themselves.
+Lamping/Lévy optimal sharing removes duplicated work belonging to the same reduction family inside a presented net. Here equivalent presentations are themselves connected by executable cubical paths, so factorization is not restricted to the net initially presented.
 
 ---
 
@@ -167,7 +169,7 @@ The equivalence sends
 a\longmapsto\big(f(a),(a,\mathrm{refl})\big)
 ```
 
-and projects the stored $a$ in the reverse direction. The source is exactly the visible result plus the preimage distinction not determined by that result.
+and projects the stored $a$ in the reverse direction. The source is therefore exactly the visible result together with the fibre over that result—the complete distinction the observation leaves unresolved.
 
 The formal development proves that lawful lossless completions of a fixed map form a contractible type. Losslessness is therefore a property of the map. At process level,
 
@@ -213,7 +215,7 @@ with
 A\simeq\sum_{b:B}P_f(b).
 ```
 
-Map, fibre family, total space and projection are the same construction in these presentations.
+For $f:A\to B$, the map determines the family $b\mapsto\mathrm{fib}_f(b)$, and the total space of that family reconstructs $A$. These are equivalent presentations of the same dependent object.
 
 Curry-Howard gives
 
@@ -229,7 +231,7 @@ P\land Q\equiv P\times Q,
 \exists x:A.P(x)\equiv\sum_{x:A}P(x).
 ```
 
-Algebra adds operations and identities to carriers. Number theory specializes arithmetic carriers and factorization. Category theory retains objects, maps, identities and composition. Topology retains path structure. Geometry retains coordinates, incidence and transport. Analysis retains limits and continuous structure. Each is structure in the same universe.
+Algebra is types equipped with operations and equations; number theory specializes arithmetic types and their factorization; category theory organizes objects, maps, identities and composition; topology retains paths and higher paths; geometry organizes coordinates, incidence and transport; analysis adds limits and continuous structure. Each is expressible as dependent structure in the same universe, so its maps and equivalences enter the same identity calculus.
 
 ---
 
@@ -281,7 +283,7 @@ For a linear basis change $P$,
 [T]_{B'}=P^{-1}[T]_BP.
 ```
 
-Both are transport of structure through an equivalence.
+The conjugation formula and change-of-basis formula are the same operation: transport a transformation through an equivalence.
 
 The transported-cost formalization exhibits families whose canonical presentation has exponential cost while an equivalent transported chart has linear cost. Hence cost attached to one presentation is not intrinsic cost. Since the equivalence computes, transport to the cheaper chart is itself an execution path.
 
@@ -319,19 +321,19 @@ with coercion
 
 `hcomp` fills a compatible partial boundary in a fixed type. `comp` combines filling with transport through a varying family. The implemented type-directed CCHM rules cover Pi, Sigma, PathP and inductive structure; `Glue` supplies computational universe transport. A partial composition remains a term until its boundary data determine reduction.
 
-The same square structure appears in parallel reduction: two commuting local interactions are two paths around one boundary. Cubical higher identity retains that coherence as data available to subsequent computation.
+When two local reductions commute, their two execution orders are the two boundary paths of this square and the commuting proof is the 2-cell between them. Higher commuting diagrams are higher cubical cells. Thus parallel reduction coherence is represented by the same path/composition structure that CCHM computes.
 
 ---
 
 ## 7. CCHM semantics in Bend/HVM4
 
-The compiler patch extends Bend's core terms and reduction/lowering path with cubical constructors rather than erasing cubical structure before HVM4 emission. The full HVM4 target keeps intervals, paths, types, `coe` and `hcomp` as runtime terms. The patch explicitly describes this target as: `intervals, paths, types, coe and hcomp are all runtime objects; nothing erased or pre-normalised`.
+The Bend patch adds cubical constructors to the core term language and carries them through definitional reduction, evaluation and HVM4 lowering. The full HVM4 target retains intervals, paths, types, `coe` and `hcomp` as reducible terms instead of erasing or pre-normalizing them.
 
-The CCHM Kan rules are definitional reductions. `kan.bend` checks Pi, Sigma, PathP and Nat rules by equations that succeed only when `whnfHCm` fires.
+The CCHM Kan laws are implemented as definitional reductions. `kan.bend` checks the Pi, Sigma, PathP and Nat equations at definitional equality; those checks succeed only when `whnfHCm` performs the corresponding composition rule.
 
 Runtime coercion is type-directed. Pi transport is contravariant in the domain and covariant in the codomain. Sigma transport first transports the first projection and then transports the second in the resulting dependent family. PathP transport constructs the corresponding higher composition. Universe transport executes the represented equivalence.
 
-A suspended partial composition is represented explicitly:
+An unresolved composition remains explicitly represented:
 
 ```text
 #HCm{type, faces, base}
@@ -339,7 +341,7 @@ A suspended partial composition is represented explicitly:
 
 and remains reducible when later interval information arrives.
 
-HVM4's SUP/DUP acts on these runtime terms. Type-directed reduction distributes over superposed structure while labels retain the correlation that determines whether branches route or cross. Cubical paths, dependent types, partial compositions and equivalences therefore participate in the same sharing calculus as ordinary terms.
+HVM4 SUP/DUP therefore acts on cubical terms themselves. Type-directed reduction distributes through superposition, while labels retain which alternatives are one correlated choice and which are independent coordinates. Paths, dependent types, partial compositions and equivalences participate directly in sharing and reduction.
 
 A basic univalent transport reduces natively:
 
@@ -349,7 +351,7 @@ A basic univalent transport reduces natively:
 \mathrm{False}.
 ```
 
-The List transport correction makes the same point at compiler level:
+Dependent List transport exposes the same semantics in emitted code:
 
 ```text
 old: List(ua(not) @ i) : [True] → [True]
@@ -362,7 +364,7 @@ The emitted HVM4 reduction now transports each list element through the element-
 
 ## 8. Coinduction and intrinsic rewrite
 
-A continuing process has coalgebraic form
+A process that returns an observation and continues has coalgebraic form
 
 ```math
 X\to O\times X.
@@ -380,7 +382,7 @@ The dependent interaction formalization returns successor, dependent observation
 \text{continuation}.
 ```
 
-`IntrinsicRewrite`, self/contextual presentation and productive installation formalize this re-entry. Consequently the identities available to reduction evolve with the computation itself.
+`IntrinsicRewrite` installs a derived rewrite at its proved locus; self/contextual presentation retains the residual needed to reconstruct the source; productive installation propagates the installed transformation into future observations. The set of executable identities therefore grows by computation itself.
 
 For the proved optimal presentation invariant, write $R_t^*$ for the cost-optimal faithful presentation at state $t$:
 
@@ -446,15 +448,15 @@ implies
 
 Equality componentwise gives exact Pareto attainment. No scalar exchange rate between resource coordinates is part of the theorem.
 
-This separates carrier size from cost exactly. Cardinality, cube dimension, clause count, intersection count and residual width become cost bounds only after a primitive-edge law proves that paid interaction cannot discharge them faster than the potential decreases.
+Carrier size and path cost are different invariants. Cardinality, cube dimension, clause count, intersection count and residual width become lower bounds on cost only when the corresponding quantity is proved to satisfy the primitive-edge potential inequality.
 
 ---
 
 ## 10. Consequence for Bend/HVM
 
-HOC's lower-order Bend2 runtime answered the performance of the interaction representation then available. The construction above changes the interaction representation and its reduction law: equivalent presentations are connected by executable cubical identity; exact residuals preserve information across projection; SUP/DUP retains correlation; derived identities return through coinduction; and geodesic cost is defined over the resulting presentation space.
+HOC compared lower-order execution with the interaction representation then available. CCHM changes the object being compared: equivalent interaction presentations are connected by executable identity; fibre completion preserves the exact residual of every projection; SUP/DUP preserves correlation; and transformations proved during reduction are installed into subsequent reduction.
 
-Thus arbitrary programs are not reduced as frozen interaction nets. Their interaction presentation remains subject to the same executable equality and factorization as the terms being reduced.
+An interaction presentation is therefore not frozen at compilation. It is itself transformed by the executable equalities and factorizations discovered during reduction.
 
 With unit interaction cost,
 
@@ -466,13 +468,13 @@ With unit interaction cost,
 }.
 ```
 
-The performance quantity for which Bend2 abandoned interaction nets is therefore the quantity optimized by the completed Interaction Calculus.
+Under the unit-cost interaction metric, the resulting geodesic theorem minimizes the exact quantity that motivated Bend2's move away from interaction nets: interaction count.
 
 ---
 
 # Appendix A — SAT / 3SAT: the finite Boolean presentation
 
-SAT is the decision/witness geometry of a Boolean map.
+For a Boolean predicate $F:\mathbf2^N\to\mathbf2$, SAT asks whether the fibre over $1$ is inhabited; witness SAT asks for a point in that fibre.
 
 ```math
 Q_N=\mathbf2^N,
@@ -672,7 +674,7 @@ Inclusion-exclusion is therefore
 }
 ```
 
-SAT is the alternating projection of the exact cubical intersection tower to the uncovered section.
+The alternating sum is exactly the number of vertices left uncovered by the violating subcubes: the cardinality of the satisfying fibre.
 
 ## A.5 Complete future equality is the exact residual quotient
 
@@ -784,7 +786,7 @@ gives
 
 Componentwise equality along a reduction proves exact Pareto attainment. The checked Pareto development separately proves that scalarization is extra policy: two componentwise-monotone scalar objectives can select opposite points of one incomparable frontier.
 
-SAT therefore exhibits the whole construction in finite form: Boolean distinction, local 3-cells, composition over shared coordinates, exact fibres, decision versus witness, complete-future quotient, factorization across equivalent presentations, and the local theorem that turns retained distinction into geodesic cost.
+SAT therefore gives a finite instance of the complete chain: Boolean coordinates; local three-coordinate constraints; composition through shared coordinates; exact fibres; decision versus witness; quotient by complete future equality; equivalent factorizations; and a primitive-edge potential turning a retained distinction into a geodesic cost theorem.
 
 ---
 
