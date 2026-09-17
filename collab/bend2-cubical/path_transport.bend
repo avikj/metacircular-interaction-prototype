@@ -13,8 +13,8 @@ def negLnv(x: Bool) -> Path(Bool, neg(neg(x)), x):
 def negPath() -> Path(Set, Bool, Bool):
   ua(Bool, Bool, neg, neg, negLnv, negLnv)
 type Segment:
-  case @left
-  case @right
+  case @left:
+  case @right:
   path @edge: Path(Segment, @left, @right)
 def carryLoop(r: Interval, s: Interval) -> Path(Set, Bool, Bool):
   coe(lambda k. Path(Set, Bool, Bool), r, s, negPath())
