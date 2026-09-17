@@ -216,3 +216,9 @@ Bend language or adding a second source syntax.
   `/private/tmp/share-bend-forward-green.9IaP9w` with
   `patch -R -p1 --dry-run`; all 11 files reversed and the command exited
   zero. The recovered artifact is therefore bidirectionally portable.
+
+* Added `storage/regenerate_share_patch.sh` so the patch can be rebuilt from
+  any clean and forward source pair. A generated patch was independently
+  forward dry-run against the baseline and patched the same 11 files with
+  exit status zero. Diff timestamps make raw patch checksums differ between
+  runs; file contents and hunks are the intended reproducible payload.
