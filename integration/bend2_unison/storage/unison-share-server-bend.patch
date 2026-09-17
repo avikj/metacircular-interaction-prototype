@@ -1,6 +1,6 @@
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Backend.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Backend.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Backend.hs	2026-09-17 01:36:02
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Backend.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Backend.hs b/share-api/src/Share/Backend.hs
+--- a/share-api/src/Share/Backend.hs	2026-09-17 01:36:02
++++ b/share-api/src/Share/Backend.hs	2026-09-17 01:38:04
 @@ -185,6 +185,7 @@
        { termEntryReferent = ref,
          termEntryName = Name.fromSegment nameSegment,
@@ -9,9 +9,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
          termEntryTag = tag,
          -- We no longer track conflicts on branches
          termEntryConflicted = False,
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Causal/Queries.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Causal/Queries.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Causal/Queries.hs	2026-09-17 00:49:57
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Causal/Queries.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Postgres/Causal/Queries.hs b/share-api/src/Share/Postgres/Causal/Queries.hs
+--- a/share-api/src/Share/Postgres/Causal/Queries.hs	2026-09-17 00:49:57
++++ b/share-api/src/Share/Postgres/Causal/Queries.hs	2026-09-17 01:38:04
 @@ -60,7 +60,7 @@
  import Share.Utils.API (Cursor (..), CursorDirection (..), Limit (..), Paged, guardPaged, pagedOn)
  import Share.Utils.Postgres (OrdBy, ordered)
@@ -234,9 +234,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
  
  -- | Find the best common ancestor between two causals for diffs or merges.
  bestCommonAncestor :: (QueryA m) => CausalId -> CausalId -> m (Maybe CausalId)
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Orphans.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Orphans.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Orphans.hs	2026-09-17 00:33:05
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Orphans.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Postgres/Orphans.hs b/share-api/src/Share/Postgres/Orphans.hs
+--- a/share-api/src/Share/Postgres/Orphans.hs	2026-09-17 00:33:05
++++ b/share-api/src/Share/Postgres/Orphans.hs	2026-09-17 01:38:04
 @@ -213,6 +213,7 @@
        NamespaceType -> "namespace"
        PatchType -> "patch"
@@ -253,9 +253,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
          _ -> Nothing
  
  instance Hasql.EncodeValue TermEdit.Typing where
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Serialization.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Serialization.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Serialization.hs	2026-09-17 00:33:05
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Serialization.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Postgres/Serialization.hs b/share-api/src/Share/Postgres/Serialization.hs
+--- a/share-api/src/Share/Postgres/Serialization.hs	2026-09-17 00:33:05
++++ b/share-api/src/Share/Postgres/Serialization.hs	2026-09-17 01:38:04
 @@ -111,6 +111,7 @@
      TempEntityType.NamespaceType -> Entity.N <$> SqliteDecoders.decodeTempNamespaceFormat blob
      TempEntityType.PatchType -> Entity.P <$> SqliteDecoders.decodeTempPatchFormat blob
@@ -264,9 +264,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
    where
      convertDecodeError :: SqliteDecoders.DecodeError -> DecodeError
      convertDecodeError (SqliteDecoders.DecodeError {decoder, err}) =
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Sync/Queries.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Sync/Queries.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Postgres/Sync/Queries.hs	2026-09-17 00:33:05
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Postgres/Sync/Queries.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Postgres/Sync/Queries.hs b/share-api/src/Share/Postgres/Sync/Queries.hs
+--- a/share-api/src/Share/Postgres/Sync/Queries.hs	2026-09-17 00:33:05
++++ b/share-api/src/Share/Postgres/Sync/Queries.hs	2026-09-17 01:38:04
 @@ -15,6 +15,7 @@
  where
  
@@ -518,9 +518,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
      doTermComponent ::
        TempEntity ->
        TermFormat.SyncLocallyIndexedComponent' Text Hash32 ->
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Web/Errors.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/Errors.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Web/Errors.hs	2026-09-17 01:32:39
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/Errors.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Web/Errors.hs b/share-api/src/Share/Web/Errors.hs
+--- a/share-api/src/Share/Web/Errors.hs	2026-09-17 01:32:39
++++ b/share-api/src/Share/Web/Errors.hs	2026-09-17 01:38:04
 @@ -310,6 +310,7 @@
            Backend.DisjointProjectAndPerspective {} -> "backend:disjoint-project-and-perspective"
            Backend.ExpectedNameLookup {} -> "backend:missing-name-lookup"
@@ -529,9 +529,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
       in (ErrorID errID, Backend.backendError err)
  
  data Unimplemented = Unimplemented
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Web/UCM/Sync/Impl.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/UCM/Sync/Impl.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Web/UCM/Sync/Impl.hs	2026-09-17 00:33:05
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/UCM/Sync/Impl.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Web/UCM/Sync/Impl.hs b/share-api/src/Share/Web/UCM/Sync/Impl.hs
+--- a/share-api/src/Share/Web/UCM/Sync/Impl.hs	2026-09-17 00:33:05
++++ b/share-api/src/Share/Web/UCM/Sync/Impl.hs	2026-09-17 01:38:04
 @@ -50,7 +50,7 @@
  import Share.Web.Authorization qualified as AuthZ
  import Share.Web.Errors
@@ -580,9 +580,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
  
  -- | Find all entities which are in temp storage and are either not missing any
  -- dependencies or whose missing deps are also in temp storage, then move them to main
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Web/UCM/Sync/Types.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/UCM/Sync/Types.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Web/UCM/Sync/Types.hs	2026-09-17 00:33:05
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/UCM/Sync/Types.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Web/UCM/Sync/Types.hs b/share-api/src/Share/Web/UCM/Sync/Types.hs
+--- a/share-api/src/Share/Web/UCM/Sync/Types.hs	2026-09-17 00:33:05
++++ b/share-api/src/Share/Web/UCM/Sync/Types.hs	2026-09-17 01:38:04
 @@ -1,5 +1,6 @@
  module Share.Web.UCM.Sync.Types
    ( EntityBunch (..),
@@ -642,9 +642,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
    Share.PD _ -> error "entityKind: Unsupported Entity Kind: PatchDiff"
  
  data RepoInfoKind
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/share-api/src/Share/Web/UCM/SyncV2/Queries.hs /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/UCM/SyncV2/Queries.hs
---- /private/tmp/share-bend-baseline/share-api/src/Share/Web/UCM/SyncV2/Queries.hs	2026-09-17 00:49:57
-+++ /private/tmp/share-bend-forward-green.9IaP9w/share-api/src/Share/Web/UCM/SyncV2/Queries.hs	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/share-api/src/Share/Web/UCM/SyncV2/Queries.hs b/share-api/src/Share/Web/UCM/SyncV2/Queries.hs
+--- a/share-api/src/Share/Web/UCM/SyncV2/Queries.hs	2026-09-17 00:49:57
++++ b/share-api/src/Share/Web/UCM/SyncV2/Queries.hs	2026-09-17 01:38:04
 @@ -32,6 +32,10 @@
      ), dependency_hashes(hash, kind) AS (
        SELECT DISTINCT deps.hash, deps.kind
@@ -699,9 +699,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
              )
          )
             (SELECT bytes.bytes, ch.base32, cd.depth
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/sql/2026-09-17_bend_components.sql /private/tmp/share-bend-forward-green.9IaP9w/sql/2026-09-17_bend_components.sql
---- /private/tmp/share-bend-baseline/sql/2026-09-17_bend_components.sql	1969-12-31 16:00:00
-+++ /private/tmp/share-bend-forward-green.9IaP9w/sql/2026-09-17_bend_components.sql	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/sql/2026-09-17_bend_components.sql b/sql/2026-09-17_bend_components.sql
+--- a/sql/2026-09-17_bend_components.sql	1969-12-31 16:00:00
++++ b/sql/2026-09-17_bend_components.sql	2026-09-17 01:38:04
 @@ -0,0 +1,185 @@
 +-- Native Bend components have distinct bytes and member roles from Unison terms/types.
 +-- Presentations are per codebase owner: the canonical component hash is shared,
@@ -888,9 +888,9 @@ diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/sha
 +    ON CONFLICT DO NOTHING;
 +END;
 +$$ LANGUAGE plpgsql;
-diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig /private/tmp/share-bend-baseline/stack.yaml /private/tmp/share-bend-forward-green.9IaP9w/stack.yaml
---- /private/tmp/share-bend-baseline/stack.yaml	2026-09-17 00:35:47
-+++ /private/tmp/share-bend-forward-green.9IaP9w/stack.yaml	2026-09-17 01:38:04
+diff -ruN --exclude=.stack-work --exclude=.git --exclude=*.orig a/stack.yaml b/stack.yaml
+--- a/stack.yaml	2026-09-17 00:35:47
++++ b/stack.yaml	2026-09-17 01:38:04
 @@ -7,6 +7,10 @@
  - share-auth/example
  - share-utils
