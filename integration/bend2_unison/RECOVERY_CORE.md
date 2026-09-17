@@ -191,4 +191,5 @@ Bend language or adding a second source syntax.
 
 * 2026-09-17: created this handoff after confirming only admission source, later
   overlays, tests' compiler products, and build evidence survived in the workspace.
-
+* 2026-09-17: restored this ledger as `RECOVERY_CORE.md` after the concurrent rebase
+  removed the first pathname; checkpoint commit `5a9a98a79`.
