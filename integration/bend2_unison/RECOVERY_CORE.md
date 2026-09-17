@@ -193,3 +193,6 @@ Bend language or adding a second source syntax.
   overlays, tests' compiler products, and build evidence survived in the workspace.
 * 2026-09-17: restored this ledger as `RECOVERY_CORE.md` after the concurrent rebase
   removed the first pathname; checkpoint commit `5a9a98a79`.
+* 2026-09-17: Git history at `202e57395` retained the complete original integration
+  tree. Missing source, fixtures, tests, preparation scripts, and interface patches
+  were restored without overwriting newer surviving artifacts. Checkpoint `72cd2c29c`.
