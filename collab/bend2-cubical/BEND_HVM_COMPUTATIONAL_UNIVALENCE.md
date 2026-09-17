@@ -2,15 +2,7 @@
 
 ## Thesis
 
-**We provide CCHM computational cubical type theory semantics to Bend/HVM4 by extending Bend's terms, conversion/type-directed reduction, evaluator and HVM4 lowering with interval expressions and De Morgan operations; `Path`/`PathP` abstraction and application; `coe`; type-directed Kan `hcomp`/`comp`; universe paths and `Glue` for computational univalence; dependent Pi/Sigma transport; higher-inductive quotient/path structure; and suspended partial compositions that remain HVM4 terms until their boundaries are determined. HVM4's labelled SUP/DUP therefore reduces directly over cubical structure: identities and equivalences constructed during execution are executable transports; dependent types, paths, partial compositions and transformations remain reducible and shareable; branch labels preserve correlation through superposition; exact fibres retain precisely the distinction hidden by each projection; and intrinsic rewrite plus coinductive continuation returns derived transformations to subsequent interaction. We prove the exact fibre decomposition of every map, uniqueness/contractibility of lawful lossless completion, classification of dependent families by the universal family, computational univalence, fibrewise characterization of evolution preserving an observation, closure of derived transformations under continued interaction, presentation-invariance of intrinsic cost under executable transport, and geodesic optimality under the declared primitive cost semantics; with unit interaction cost the geodesic has minimum interaction count, and with vector-valued costs the corresponding result is Pareto-geodesic.**
-
-Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The result above resolves the mathematical source of that comparison: optimal sharing minimizes repeated work inside a presented interaction net; computational cubical identity also computes which presentation of the computation is being reduced.
-
-```math
-\text{presented-net optimality}
-\subset
-\text{presentation + reduction optimality}.
-```
+Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The construction developed and implemented here proves minimum-cost execution for arbitrary computation in the Interaction Calculus by making mathematical identity itself computational throughout reduction.
 
 For primitive interaction cost $c(e)$ and a lawful path $\gamma$,
 
@@ -499,15 +491,7 @@ Let
 Q_N=\mathbf2^N.
 ```
 
-A vertex is a complete Boolean assignment. A partial assignment fixing $k$ coordinates is a codimension-$k$ coordinate flat with
-
-```math
-2^{N-k}
-```
-
-vertices.
-
-A Boolean decision function is
+A vertex is a complete Boolean assignment. A partial assignment fixing $k$ coordinates is a codimension-$k$ coordinate flat with $2^{N-k}$ vertices. A Boolean decision function is
 
 ```math
 F:Q_N\to\mathbf2.
@@ -519,9 +503,4 @@ Its satisfying fibre is
 S_F=F^{-1}(1).
 ```
 
-The decision target and witness target are distinct projections:
-
-```math
-\mathrm{Dec}_F=\|S_F\|,
-\qquad
-\
+SAT asks whether $S_F$ is inhabited; witness SAT asks for an element of $S_F$. A three-literal clause depends on exactly three Boolean coordinates and excludes one vertex of its local cube $\mathbf2^3$. Pulled back to $Q_N$, its violation set is a codimension-three coordinate flat with $2^{N-3}$ vertices. Thus a 3CN
