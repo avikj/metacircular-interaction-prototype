@@ -192,3 +192,12 @@ Bend language or adding a second source syntax.
 * 2026-09-17: created this handoff after confirming only admission source, later
   overlays, tests' compiler products, and build evidence survived in the workspace.
 
+* 2026-09-17: regenerated `storage/unison-share-server-bend.patch` from the
+  intact `/private/tmp/share-bend-baseline` and
+  `/private/tmp/share-bend-forward-green.9IaP9w` trees. It covers backend,
+  PostgreSQL causal/entity/serialization/sync modules, web sync modules,
+  SyncV2 queries, the Bend migration, and `stack.yaml`. The patch has 905
+  unified-diff lines and portable `a/` and `b/` paths. Forward application was
+  verified with `patch -p1 --dry-run` against the baseline; all 11 expected
+  files patched and the command exited zero. Commits: `6ed19b36e` ledger,
+  `6e5ce3edd` recovered patch, `ec5ec87e9` portable paths.
