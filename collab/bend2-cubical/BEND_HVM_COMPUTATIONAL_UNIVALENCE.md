@@ -2,7 +2,7 @@
 
 ## The result
 
-Bend2 left interaction nets because the available interaction-net runtime could expose excellent parallelism while performing more physical work than lower-order execution. The construction implemented in this repository changes that decision at its premise: **arbitrary computation is maintained as a lossless, maximally factored interaction object, and reduction follows the minimum-cost path admitted by its executable identities.**
+Bend2 left interaction nets because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The construction implemented in this repository changes that decision at its premise: **arbitrary computation is maintained as a lossless, maximally factored interaction object, and reduction follows the minimum-cost path admitted by its executable identities.**
 
 This is not a proposed optimizer around HVM. Cubical identity, Voevodsky univalence, exact fibre completion, higher composition, SUP/DUP correlation, cost semantics, geodesic reduction, intrinsic rewrite and coinductive re-entry are already joined in the pre-release Bend2/HVM4 integration.
 
@@ -481,27 +481,4 @@ on every primitive edge gives, by telescoping,
 \Phi(s)\le C(\gamma)
 ```
 
-for every terminal path $\gamma$ from $s$. Equality on every edge of one path proves that path geodesic.
-
-For vector resource costs in $\mathbb N^d$, the same theorem holds componentwise:
-
-```math
-\Phi(s)\preceq C(\gamma).
-```
-
-No arbitrary scalar exchange rate between time, allocation, communication or energy is required. Pareto-incomparable realizations remain incomparable until policy supplies an objective.
-
-Thus information becomes complexity only after the local interaction law is supplied. The first describes distinction; the second describes how fast paid interaction can remove that distinction; the third is the same object read metrically.
-
----
-
-## From a runtime to a global interaction complex
-
-Local-first execution removes the need for one privileged global machine state. A peer holds a partial region of the same typed relational object; compatible regions compose; equivalent local presentations transport; exact fibres preserve what a local observation hides; coinduction keeps the object open.
-
-```mermaid
-flowchart LR
-  A["local complex A"] <-->|"typed relation"| B["local complex B"]
-  B <-->|"typed relation"| C["local complex C"]
-  C <-->|"typed relation"| D["local complex D"]
-  D <--
+for every terminal path $\gamma
