@@ -4,14 +4,14 @@
 -- WindingCostIsUnarySize
 --
 -- Ledger entry K, made a term. The canonical transport that reaches
--- "standpoint n" over the successor structure ‚Äî reducing (var + n) to
--- suc‚Åø var, with n written in the kernel's own UNARY representation ‚Äî
+-- "standpoint n" over the successor structure ‚î reducing (var + n) to
+-- suc‚ø var, with n written in the kernel's own UNARY representation ‚î
 -- costs exactly n+1 steps. Cost = unary symbolic size, linear. No search:
 -- the length is the winding number.
 --
 -- This is H (transport along the successor loop is the integer winding)
 -- read in the unary `Tm`: the exponential the classical (binary) measure
--- reports lives only in the unary‚Üísuccinct compression (`eval`, the
+-- reports lives only in the unary‚ísuccinct compression (`eval`, the
 -- forgetful projection), not in this reduction.
 ------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@ len-underSuc : {a b : Tm} (d : Derivation a b) ‚Üí len (underSuc d) ‚â° len d
 len-underSuc (done _)        = refl
 len-underSuc (then-step _ d) = cong suc (len-underSuc d)
 
--- THE WINDING to standpoint n : reduce (var + n) to suc‚Åø var, n in unary.
+-- THE WINDING to standpoint n : reduce (var + n) to suc‚ø var, n in unary.
 addTower : (n : ‚Ñï) ‚Üí Derivation (add var (unary n)) (iterSuc n var)
 addTower zero    = then-step (add-zero var) (done var)
 addTower (suc m) = then-step (add-suc var (unary m)) (underSuc (addTower m))

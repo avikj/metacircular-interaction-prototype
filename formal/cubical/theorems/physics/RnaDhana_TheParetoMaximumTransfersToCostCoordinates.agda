@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- RnaDhana_TheParetoMaximumTransfersToCostCoordinates
 --
--- à¤‹à¤£à¤§à¤¨ Â· á¹›á¹‡a-dhana â€” Brahmagupta, *BrÄhmasphuá¹­asiddhÄnta* (628): the
--- same magnitude read as *dhana* (asset) or *á¹›á¹‡a* (debt).  The sign
+-- à‹àà§à¨ Â a-dhana â” Brahmagupta, *Brhmasphuasiddhnta* (628): the
+-- same magnitude read as *dhana* (asset) or *a* (debt).  The sign
 -- rules are his; the caps, the adjunction and everything below are not.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- Every module on the Pareto line has carried the same undischarged
 -- obligation: its theorems are stated for a vector all of whose
 -- coordinates point the same way, while DARWIN Â§5.2's objectives
@@ -20,12 +20,12 @@
 -- flip, to prove a statement about genuinely mixed benefit/cost
 -- vectors.  Nothing about maximality is re-proved.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   MixedStrict ds u z   z beats u in the MIXED order: `Dom ds u z`
---                        and not `Dom ds z u` â€” `â‰¤` at benefit
---                        coordinates, `â‰¥` at cost coordinates
+--                        and not `Dom ds z u` â” `â‰` at benefit
+--                        coordinates, `â‰` at cost coordinates
 --   MixedMaximal         nothing in the archive beats u
 --   AllBounded           every member's cost entries are below their
 --                        own caps
@@ -34,18 +34,18 @@
 --                        membership and `Any` across the flip
 --   mixedMaximalExists   **every non-empty archive of mixed vectors
 --                        has a mixed-maximal member, provided the caps
---                        bound its members** â€” proved by calling
+--                        bound its members** â” proved by calling
 --                        `maximalExists` on the flipped archive and
 --                        pulling the result back
 --
 -- **WHAT THE PULL-BACK COSTS, AND WHERE.**  Soundness moves forward for
--- nothing; the bound is needed only in the NEGATIVE half â€” to turn
+-- nothing; the bound is needed only in the NEGATIVE half â” to turn
 -- "the flipped z does not beat the flipped u" back into "z does not
 -- beat u" one needs `flipCapsReflect`, whose hypothesis is a bound on
 -- u.  Since u is a member of the archive, `AllBounded` supplies it.
 -- So the honest reading of the obligation the Pareto line has been
 -- carrying is: **cap each cost coordinate, in its own units, above the
--- costs of the archive's members â€” and then every benefit-reading
+-- costs of the archive's members â” and then every benefit-reading
 -- theorem is available.**
 --
 -- The flip is NOT injective (that is exactly
@@ -54,13 +54,13 @@
 -- ORIGINAL archive whose flip is the maximal element found.  That is
 -- the step where a naive transfer would break.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- NO NOVELTY.  Transporting an order-theoretic existence result along
 -- an order-preserving map with an order-reflecting partial inverse is
 -- routine; `maximalExists` is this corpus's own, and the mixed
 -- statement is the one DARWIN Â§5.2 needed all along.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -158,21 +158,21 @@ mixedMaximalExists ds cs v vs ab
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The item named above â€” "the stratification is NOT
--- transferred here" â€” has its FIRST LAYER done in
+-- line above.  The item named above â” "the stratification is NOT
+-- transferred here" â” has its FIRST LAYER done in
 -- `RnaDhana_TheMixedStratumIsExactlyTheFlippedStratum`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
 -- The result is stronger than the membership correspondence this
 -- module's block predicted would be needed: under the caps,
--- `map flip (mixedStratum ds vs) â‰¡ stratum (map flip vs)` â€” the two
+-- `map flip (mixedStratum ds vs) â‰¡ stratum (map flip vs)` â” the two
 -- layers are the SAME LIST, order and multiplicity included.  What
 -- makes that possible despite the flip not being injective is that
 -- both sides are filters of the same list in the same order, so
 -- `filterMapCommutes` moves the map across the filter and
 -- `filterRespectsOn` needs the two predicates to agree only AT
--- MEMBERS â€” which is exactly where `AllBounded` gives a cap.
+-- MEMBERS â” which is exactly where `AllBounded` gives a cap.
 --
 -- Still open, and now precisely: the REMAINDER half (same argument,
 -- negated predicate), and then the iteration, in which the caps must

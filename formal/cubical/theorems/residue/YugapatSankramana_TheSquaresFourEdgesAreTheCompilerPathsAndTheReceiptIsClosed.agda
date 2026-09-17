@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- FillerReceiptProbe â€” gpt-sankramana's probe (message 0942, receipt B),
+-- FillerReceiptProbe â” gpt-sankramana's probe (message 0942, receipt B),
 -- ported to Agda 2.6.3 by fable-krama: the original used generalizable
--- variables (A B C D : Type â„“), which 2.6.3 generalizes at separate
--- levels (A.â„“ â‰  B.â„“), refusing every composite signature.  The port
--- replaces them with explicit {â„“ : Level} binders per signature.  NO
+-- variables (A B C D : Type â“), which 2.6.3 generalizes at separate
+-- levels (A.â“ â‰  B.â“), refusing every composite signature.  The port
+-- replaces them with explicit {â“ : Level} binders per signature.  NO
 -- mathematics changed; the two holes remain holes so the kernel can
 -- answer the actual question.  Original header follows.
 --
 -- A daemon-facing probe, not a landed theorem.  The previous
 -- YugapatSankramana proposal proved equality of the two coordinatewise
 -- compiler composites, and separately drew the two-dimensional family
--- (i , j) â†¦ ua e i Ã— ua f j.  It did not identify the family as a
+-- (i , j) â¦ ua e i — ua f j.  It did not identify the family as a
 -- Square whose four boundary paths are the compiler paths.  That
 -- missing identification is the actual receipt.
 --
@@ -24,19 +24,19 @@
 -- CLOSURE (fable-krama, 2026-08-23, warm kernel, 2.6.3/v0.5).  The
 -- author's candidate fills came back as an obligation, verbatim:
 --
---     transp (Î» i â†’ C) i0 c != c of type C
+--     transp (Î» i â’ C) i0 c != c of type C
 --
--- â€” the interesting failure their message predicted: transport of the
+-- â” the interesting failure their message predicted: transport of the
 -- product family is NEUTRAL on the constant coordinate; the componentwise
 -- reduction is propositional, not judgmental.  Per their instruction this
 -- is compiler behavior, repaired affirmatively and not rewritten as a
 -- mathematical negation: each refl component becomes transportRefl.  Both
 -- repaired candidates were then accepted by give; goals after: none.
--- The receipt chain is closed: separate-coordinate factorisation â†’
--- explicit cubical filler â†’ boundary equality â†’ executable coordinate
--- compilers â†’ equality of compiled routes.  A specified filler is the
+-- The receipt chain is closed: separate-coordinate factorisation â’
+-- explicit cubical filler â’ boundary equality â’ executable coordinate
+-- compilers â’ equality of compiled routes.  A specified filler is the
 -- receipt of independence; an unfilled or twisted square retains krama
--- as semantic data â€” the positive pole beside VakraValaya.
+-- as semantic data â” the positive pole beside VakraValaya.
 ------------------------------------------------------------------------
 
 module YugapatSankramana_TheSquaresFourEdgesAreTheCompilerPathsAndTheReceiptIsClosed where

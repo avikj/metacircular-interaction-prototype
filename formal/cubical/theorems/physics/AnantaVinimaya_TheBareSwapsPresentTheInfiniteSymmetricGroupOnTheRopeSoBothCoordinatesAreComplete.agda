@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अनन्त-विनिमय — the endless exchange.
+-- �����-������ � the endless exchange.
 --
 -- The other coordinate.  VibhagaSutra split every crossing into base
 -- motion and cargo; SuddhaVeni and GhurnaGana computed the cargo's
--- group (a per-strand ℤ/4, totally commuting).  This file computes
+-- group (a per-strand �/4, totally commuting).  This file computes
 -- the base motion's: the bare swaps present the INFINITE SYMMETRIC
--- GROUP on the rope, every defining relation at every position —
+-- GROUP on the rope, every defining relation at every position �
 --
 --   §1  INVOLUTION: every swap squares to the identity (two-level
---       path, leaves definitional) — the coherence-free crossing is
+--       path, leaves definitional) � the coherence-free crossing is
 --       order two, exactly the ceiling a single strand permits, which
 --       is why base motion alone can never braid.
 --
 --   §2  THE BRAID RELATION for swaps at every position, and
 --
---   §3  THE DISTANT COMMUTATION at every gap — same induction shapes
+--   §3  THE DISTANT COMMUTATION at every gap � same induction shapes
 --       as the braid case, with untwisted leaves.
 --
 -- With this, both coordinates of the factorization are completely
 -- presented: base motion is S∞ (involutive, memoryless of order),
--- cargo is ⊕ℤ/4 (abelian, exact), and the braid B∞ is precisely what
--- their exchange law weaves — the crossing remembers its sequence
+-- cargo is ⊕�/4 (abelian, exact), and the braid B∞ is precisely what
+-- their exchange law weaves � the crossing remembers its sequence
 -- exactly because the twist rides the swap, and forgets it the
 -- moment either coordinate is taken alone.  Statistics live in the
 -- carrying, not in the carried nor the carrier.
@@ -44,7 +44,7 @@ open import VibhagaSutra_EveryCrossingFactorsAsPureSwapAfterPureTwistAndTheSwapT
 open Dhārā
 
 ------------------------------------------------------------------------
--- १ · Involution at every position.
+-- � � Involution at every position.
 ------------------------------------------------------------------------
 
 dvi-svap : (i : ℕ) (s : Rajju) → svap∞ i (svap∞ i s) ≡ s
@@ -55,7 +55,7 @@ dvi-svap : (i : ℕ) (s : Rajju) → svap∞ i (svap∞ i s) ≡ s
 śeṣam (dvi-svap (suc i) s j) = dvi-svap i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- २ · The braid relation for bare swaps, at every position.
+-- � � The braid relation for bare swaps, at every position.
 ------------------------------------------------------------------------
 
 svap-mūla : (s : Rajju)
@@ -72,7 +72,7 @@ svap-sūtra zero    s = svap-mūla s
 śeṣam (svap-sūtra (suc i) s j) = svap-sūtra i (śeṣam s) j
 
 ------------------------------------------------------------------------
--- ३ · The distant commutation, at every gap.
+-- � � The distant commutation, at every gap.
 ------------------------------------------------------------------------
 
 svap-dūra-mūla : (k : ℕ) (s : Rajju)

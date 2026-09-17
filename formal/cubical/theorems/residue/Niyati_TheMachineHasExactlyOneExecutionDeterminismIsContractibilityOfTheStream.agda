@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¨à¤¿à¤¯à¤¤à¤¿ â€” fate.  THE MACHINE HAS EXACTLY ONE EXECUTION: DETERMINISM
+-- à¨à¿à¯àà¿ â” fate.  THE MACHINE HAS EXACTLY ONE EXECUTION: DETERMINISM
 -- IS CONTRACTIBILITY OF THE STREAM.
 --
 -- Vishvayantra's `Exec mc` is the type of productive infinite runs
 -- from mc: a now, a receipt that now is mc, and a rest from the
 -- stepped configuration.  This file proves the type is CONTRACTIBLE:
--- `exec mc` inhabits it, and every inhabitant is a path away â€” the
+-- `exec mc` inhabits it, and every inhabitant is a path away â” the
 -- path built coinductively, component by component, with the same
 -- âˆ¨-square that collapses a receipt onto refl.
 --
 -- Read it as a definition receiving its theorem: "deterministic"
 -- usually means a functional transition relation, a condition on
--- steps.  Here it is a statement about the whole unfolding at once â€”
+-- steps.  Here it is a statement about the whole unfolding at once â”
 -- the space of infinite histories from any configuration is a point.
 -- Nondeterminism would make Exec a genuine space; the universal
 -- machine's is contractible, and the kernel checks the contraction.
 --
--- With it, the run really is a monoid action of (â„•, +, 0), on the
+-- With it, the run really is a monoid action of (â•, +, 0), on the
 -- nose at zero and by AnulomaViloma's run-additive in general: one
 -- machine, one clock, one history.
 ------------------------------------------------------------------------
@@ -55,5 +55,5 @@ run-zero : (mc : Machine) â†’ run zero mc â‰¡ mc
 run-zero mc = refl
 
 -- Together with AnulomaViloma's run-additive, run is a monoid action
--- of (â„•, +, 0) on Machine; this file records the unit law at its
+-- of (â•, +, 0) on Machine; this file records the unit law at its
 -- home.

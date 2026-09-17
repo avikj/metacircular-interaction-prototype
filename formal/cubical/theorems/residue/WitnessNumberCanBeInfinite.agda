@@ -12,37 +12,37 @@
 -- unbounded: there is an exact absence here that NO FINITE LIST
 -- REFUTES.  Its witness number is infinite, not merely large.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE FAMILY, AND ITS REFUTING LISTS EXACTLY
 --
 -- Over any discrete A, one standpoint per point, each wrong exactly at
 -- its own:
 --
---     diagLaw dA d x  =  âŠ¥     when d â‰¡ x
+--     diagLaw dA d x  =  âŠ     when d â‰¡ x
 --     diagLaw dA d x  =  Unit  otherwise
 --
--- The refuting lists are characterised â€” not bounded, characterised:
+-- The refuting lists are characterised â” not bounded, characterised:
 --
---     refutingâ†’contains-all : Refutes (diagLaw dA) ys â†’ (d : A) â†’ Mem d ys
---     contains-allâ†’refutes  : ((d : A) â†’ Mem d ys) â†’ Refutes (diagLaw dA) ys
+--     refutingâ’contains-all : Refutes (diagLaw dA) ys â’ (d : A) â’ Mem d ys
+--     contains-allâ’refutes  : ((d : A) â’ Mem d ys) â’ Refutes (diagLaw dA) ys
 --
 -- A list refutes exactly when it contains every point.  That is sharper
 -- than any length bound and is why no counting is needed: at A = Three
--- it gives `WitnessNumberIsUnbounded`'s answer 3, and at A = â„• it gives
+-- it gives `WitnessNumberIsUnbounded`'s answer 3, and at A = â• it gives
 --
 --     no-finite-list-refutes :
---       (ys : List â„•) â†’ Â¬ Refutes (diagLaw discreteâ„•) ys
+--       (ys : List â•) â’ Â Refutes (diagLaw discreteâ•) ys
 --
 -- because a finite list of naturals misses `suc (sumOf ys)`.  The
 -- absence itself is real and one line: no standpoint is right at its own
 -- point.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE PICTURE IS NOW COMPLETE
 --
---   unconstrained decoders + locatable witnesses  âŸ¹ witness number 2
+--   unconstrained decoders + locatable witnesses  âŸ witness number 2
 --                              (`WhyTheSitesAreTwo`, `LocatingIsEnough`)
---   constrained decoders                          âŸ¹ anything, up to âˆ
+--   constrained decoders                          âŸ anything, up to âˆ
 --                              (`WitnessNumberIsUnbounded`, here)
 --
 -- So the deflation is exactly as strong as its hypothesis and no
@@ -51,20 +51,20 @@
 -- anything at all, and this module is the witness that "anything"
 -- includes "no finite amount".
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- READ AS NAYAVÄ€DA
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- READ AS NAYAVDA
 --
 -- Infinitely many standpoints, pairwise disagreeing, no finite set of
--- observations telling them apart.  The anekÄnta result says plurality
+-- observations telling them apart.  The aneknta result says plurality
 -- blocks collapse; `WitnessNumberIsUnbounded` priced finite plurality at
 -- one witness per standpoint; this says unbounded plurality cannot be
 -- demonstrated by any finite observation at all.  That is not a barrier
--- in the sense this corpus has been deflating â€” the absence is still
--- exact, still one line â€” it is the honest statement that EXACTNESS AND
+-- in the sense this corpus has been deflating â” the absence is still
+-- exact, still one line â” it is the honest statement that EXACTNESS AND
 -- CHEAPNESS ARE DIFFERENT PROPERTIES, and only the first is universal
 -- here.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -170,7 +170,7 @@ module _ {A : Type â„“} (dA : Discrete A) where
   no-universal-standpoint (d , full) = self-fails d (full d)
 
 ------------------------------------------------------------------------
--- 6.  AT A = â„•, NO FINITE LIST REFUTES
+-- 6.  AT A = â•, NO FINITE LIST REFUTES
 --
 -- A finite list of naturals misses `suc (sumOf ys)`, because every
 -- member is at most the sum.
@@ -199,10 +199,10 @@ no-universal-â„• = no-universal-standpoint discreteâ„•
 -- SETTLED, and stronger than the open item asked.  Witness number is
 -- not merely unbounded; it can fail to be a number at all.  The refuting
 -- lists of the diagonal family are exactly those containing every point,
--- so at a finite A the number is |A| and at A = â„• there is none.
+-- so at a finite A the number is |A| and at A = â• there is none.
 --
 -- No pigeonhole was needed, because characterising the refuting lists is
--- easier than counting them â€” which is the same lesson as the rest of
+-- easier than counting them â” which is the same lesson as the rest of
 -- this thread: fix what is being measured before reaching for a bound.
 --
 -- OPEN, named and not estimated.  Whether an absence with infinite
@@ -228,28 +228,28 @@ no-universal-â„• = no-universal-standpoint discreteâ„•
 -- that sentence where it appears in `WhyTheSitesAreTwo` Â§6 and in
 -- mention this module, and the sentence is still standing here.
 --
--- WHAT THE AUDIT ESTABLISHED.  Every site is still exactly 2 â€” the
--- conclusion survives â€” but the GROUND differs, and conflating the two is
+-- WHAT THE AUDIT ESTABLISHED.  Every site is still exactly 2 â” the
+-- conclusion survives â” but the GROUND differs, and conflating the two is
 -- what produced the overstatement:
 --
---   achievability (â‰¤ 2)  from an exhibited collision; holds everywhere,
+--   achievability (â‰ 2)  from an exhibited collision; holds everywhere,
 --                        needs no hypothesis.
---   the floor (â‰¥ 2)      from the constant decoder; needs only that the
+--   the floor (â‰ 2)      from the constant decoder; needs only that the
 --                        decoder space contain constants.  Holds at every
 --                        site, `Laghava` included.
---   the ceiling (â‰¤ 2 for ANY absence of that shape)
+--   the ceiling (â‰ 2 for ANY absence of that shape)
 --                        needs discreteness or locatability, and DOES NOT
 --                        HOLD at `Laghava`, whose observation space is
---                        `Denotation = â„• â†’ â„•` â€” not discrete, and equality
---                        of functions â„• â†’ â„• is not decidable.
+--                        `Denotation = â• â’ â•` â” not discrete, and equality
+--                        of functions â• â’ â• is not decidable.
 --
 -- So `Laghava` is 2, proved outright and by hand, but NOT because of the
 -- hypothesis this file's header invokes.  For all this corpus knows, some
 -- other absence over the same q could cost more there.  One site is also
--- constrained rather than unconstrained â€” `AvaktavyaDoesNotFactor`, six
--- atoms â€” and was likewise proved by hand.
+-- constrained rather than unconstrained â” `AvaktavyaDoesNotFactor`, six
+-- atoms â” and was likewise proved by hand.
 --
--- Nothing in Â§Â§1â€“4 above changes: `no-finite-list-refutes` and the
+-- Nothing in Â§Â§1â“4 above changes: `no-finite-list-refutes` and the
 -- characterisation of refuting lists are untouched, and the two-line
 -- summary of the picture is right about the DICHOTOMY.  What is wrong is
 -- only the universal "every site meets that hypothesis".

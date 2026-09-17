@@ -1,16 +1,16 @@
-# State / Event ‚Äî Time / Information
+# State / Event ‚î Time / Information
 
 Pratt's Chu program makes state and event mutually dual coordinates of one heterogeneous interaction. His quantum work reads the same duality as information/time complementarity rather than treating time as an external parameter added after state semantics.
 
-The project's causal carrier makes this dual reading exact. Let `x ‚â°‚Çô y` mean agreement through observational depth `n`. A single crossing satisfies `x ‚â°‚Çô‚Çä‚ÇÅ y ‚áí œÉx ‚â°‚Çô œÉy`; a word `w` satisfies `x ‚â°‚Çô‚Çä|w| y ‚áí w(x) ‚â°‚Çô w(y)`. Read dynamically, `|w|` is elapsed interaction depth / causal radius. Read observationally, it is the amount of source information required to determine the requested output depth. The same modulus is time in one orientation and information demand in the dual orientation.
+The project's causal carrier makes this dual reading exact. Let `x ‚â°‚ô y` mean agreement through observational depth `n`. A single crossing satisfies `x ‚â°‚ô‚ä‚ y ‚í œx ‚â°‚ô œy`; a word `w` satisfies `x ‚â°‚ô‚ä|w| y ‚í w(x) ‚â°‚ô w(y)`. Read dynamically, `|w|` is elapsed interaction depth / causal radius. Read observationally, it is the amount of source information required to determine the requested output depth. The same modulus is time in one orientation and information demand in the dual orientation.
 
-The carrier also has a globally readable conserved charge `Q : R ‚Üí Z/4` while no bounded local observer can determine it: for every finite depth there are locally indistinguishable states with different global charge. This is a concrete state/event and local/global information separation rather than an analogy about complementarity.
+The carrier also has a globally readable conserved charge `Q : R ‚í Z/4` while no bounded local observer can determine it: for every finite depth there are locally indistinguishable states with different global charge. This is a concrete state/event and local/global information separation rather than an analogy about complementarity.
 
-Action residual phase gives a second exact observation theorem. For observation `q`, action `step`, predictor `P`, and additive residual `Œ¥(x)=q(step x)-P(qx)`, a character `œá` sends residual to relative phase. Equality under the phase observation is exactly membership of the difference in the character kernel. The checked hostile example has injective classical residual `Œ¥(x)=2x` while every sign character sends the entire residual to the identity phase. Thus a faithful distinction at one level can be completely invisible under another observation.
+Action residual phase gives a second exact observation theorem. For observation `q`, action `step`, predictor `P`, and additive residual `Œ¥(x)=q(step x)-P(qx)`, a character `œ` sends residual to relative phase. Equality under the phase observation is exactly membership of the difference in the character kernel. The checked hostile example has injective classical residual `Œ¥(x)=2x` while every sign character sends the entire residual to the identity phase. Thus a faithful distinction at one level can be completely invisible under another observation.
 
 This is precisely why [the Fibre Law](02-fibre-law.md) matters for measurement: a visible result never licenses discarding the distinctions in its fibre unless the desired downstream result descends through that observation.
 
-The four-phase algebra, quarter-turn, global charge, and exhausted cellwise centralizer connect this page to Pratt's `Chu‚ÇÑ` program, but the exact algebraic identification must be proved at the level of his evaluation algebra, not inferred from cardinality. The physical carrier is developed in [Interaction Geometry Becomes Physics](09-interaction-geometry-physics.md).
+The four-phase algebra, quarter-turn, global charge, and exhausted cellwise centralizer connect this page to Pratt's `Chu‚` program, but the exact algebraic identification must be proved at the level of his evaluation algebra, not inferred from cardinality. The physical carrier is developed in [Interaction Geometry Becomes Physics](09-interaction-geometry-physics.md).
 
 ## Canonical checked construction
 

@@ -1,57 +1,57 @@
--- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
--- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
+-- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
+-- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
+-- cannot cross is written as a defect ‚î there is no third path (ahis).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
--- fibre; the verdict type is the saptabha·πÖgƒ´, and the sources are the origin
--- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
+-- fibre; the verdict type is the saptabhag, and the sources are the origin
+-- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate.  This file is one naya, true
 -- and not whole.
 
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§Æ‡§ø‡§§‡•ç‡§∞-‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç ‚Äî the friend's fact and Wigner's account are two nayas
+-- ‡Æ‡ø‡‡‡∞-‡‡æ‡ï‡‡‡ø‡®‡ ‚î the friend's fact and Wigner's account are two nayas
 -- whose joint is avaktavya; the "paradox" is a forced single utterance.
 --
--- ON THE NAME.  mitra (‡§Æ‡§ø‡§§‡•ç‡§∞), friend; sƒÅk·π£in (‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç), witness.  The
+-- ON THE NAME.  mitra (‡Æ‡ø‡‡‡∞), friend; skin (‡‡æ‡ï‡‡‡ø‡®‡), witness.  The
 -- compound is built here for Wigner's friend; no source text is claimed
 -- for it.  The physics is cited to its own origins: E. Wigner, "Remarks
 -- on the Mind-Body Question" (1961); C. Rovelli, "Relational Quantum
--- Mechanics", Int. J. Theor. Phys. 35 (1996) ‚Äî facts are relative to the
+-- Mechanics", Int. J. Theor. Phys. 35 (1996) ‚î facts are relative to the
 -- observer, and comparison is itself a physical interaction; D.
--- Frauchiger & R. Renner, Nat. Commun. 9, 3711 (2018) ‚Äî the no-go for
+-- Frauchiger & R. Renner, Nat. Commun. 9, 3711 (2018) ‚î the no-go for
 -- combining agents' facts into one absolute valuation.  The logic is the
--- Jaina sevenfold, whose sources the ‡§¨‡•Ä‡§ú names; the restatement direction
--- is: the ƒÅcƒÅryas first, the physicists' structure named as convergent.
+-- Jaina sevenfold, whose sources the ‡‡‡ names; the restatement direction
+-- is: the cryas first, the physicists' structure named as convergent.
 --
 -- THE OBSERVATION THIS MODULE MAKES, and it is a reading of terms that
--- ALREADY CHECK, not new physics: `SaptabhangiNaya` holds two observers ‚Äî
--- the machine's rewriter and the kernel's definitional equality ‚Äî with a
--- genuine realised disagreement (its ¬ß: `x ¬∑ 0 ‚â° 0` is asti for the
--- rewriter and nƒÅsti for kernel-refl).  That is the exact fact-structure
+-- ALREADY CHECK, not new physics: `SaptabhangiNaya` holds two observers ‚î
+-- the machine's rewriter and the kernel's definitional equality ‚î with a
+-- genuine realised disagreement (its ¬ß: `x ¬ 0 ‚â° 0` is asti for the
+-- rewriter and nsti for kernel-refl).  That is the exact fact-structure
 -- of Wigner's friend: the friend (inside, having interacted) holds a
 -- definite outcome; Wigner (outside, describing unitarily) holds its
 -- denial; both are correct relative to their standpoint.  And the three
 -- theorems the paradox needs are ALREADY PROVED there:
 --
 --   * the joint content of the two relative facts is well-defined,
---     decidable, and realised (`joint`, `joint-realised`) ‚Äî RQM's
+--     decidable, and realised (`joint`, `joint-realised`) ‚î RQM's
 --     "both accounts are correct" is not a truth-value gap;
 --   * NO single standpointed utterance denotes that joint on all
---     profiles (`no-single-vacana`) ‚Äî the Frauchiger‚ÄìRenner step of
+--     profiles (`no-single-vacana`) ‚î the Frauchiger‚ìRenner step of
 --     promoting a relative fact to an absolute one usable by every agent
 --     is, structurally, the demand for exactly such an utterance, and it
 --     is refuted, not merely unavailable;
 --   * the joint IS recovered by two utterances in succession
---     (`krama-expresses`) ‚Äî Rovelli's resolution, that comparison is a
+--     (`krama-expresses`) ‚î Rovelli's resolution, that comparison is a
 --     further physical interaction performed in sequence, at theorem
 --     grade: krama succeeds precisely where yugapat is inexpressible.
 --
 -- So a machine-checked model of RQM's fact-architecture has been running
 -- in this repository since the two provers first disagreed and their
--- joint was landed as avaktavya ‚Äî a Wigner's-friend pair made of a
+-- joint was landed as avaktavya ‚î a Wigner's-friend pair made of a
 -- rewriter and a kernel, with the paradox's resolution checked before
 -- the connection was noticed.  This module makes the identification a
 -- named object so it can be used, cited, and refuted.
@@ -61,7 +61,7 @@
 -- The claim is STRUCTURAL and exact: the verdict-architecture of
 -- observer-relative facts (relativity of the verdict, impossibility of
 -- one absolute utterance, recovery by successive comparison) is the
--- checked architecture of `SaptabhangiNaya`, instantiated ‚Äî every theorem
+-- checked architecture of `SaptabhangiNaya`, instantiated ‚î every theorem
 -- below is that module's, specialised and re-read; the two thin wrappers
 -- are labelled as wrappers.  Whether physical agents ARE nayas in this
 -- sense is an interpretation, made in this header and in no term.
@@ -103,8 +103,8 @@ open import SaptabhangiNaya
 ------------------------------------------------------------------------
 -- ¬ß3  THE NO-GO, as the sevenfold already holds it: no single
 -- standpointed utterance denotes the joint on all profiles.  Promoting
--- either agent's relative fact to an absolute one ‚Äî the step every
--- Wigner's-friend contradiction runs through ‚Äî demands such an
+-- either agent's relative fact to an absolute one ‚î the step every
+-- Wigner's-friend contradiction runs through ‚î demands such an
 -- utterance.  There is none; the demand, not the relativity, is the
 -- defect.
 ------------------------------------------------------------------------
@@ -116,7 +116,7 @@ open import SaptabhangiNaya
 ------------------------------------------------------------------------
 -- ¬ß4  THE RESOLUTION, as the sevenfold already holds it: two utterances
 -- in succession denote the joint exactly.  Comparison is a further
--- interaction, performed in krama ‚Äî and it loses nothing.
+-- interaction, performed in krama ‚î and it loses nothing.
 ------------------------------------------------------------------------
 
 ‡§∏‡§Æ‡•ç‡§™‡•ç‡§∞‡•á‡§∑‡§£-‡§ï‡•ç‡§∞‡§Æ‡§É : (œÜ : Profile)

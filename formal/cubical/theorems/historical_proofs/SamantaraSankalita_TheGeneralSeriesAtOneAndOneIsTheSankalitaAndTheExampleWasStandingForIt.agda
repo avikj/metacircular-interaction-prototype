@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¸à¤®à¤¾à¤¨à¥à¤¤à¤°-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ â€” à¤¸à¤®à¤¾à¤¨à¥à¤¤à¤°-à¤¶à¥à¤°à¥‡à¤¢à¥€ a=1, d=1 à¤‡à¤¤à¤¿ à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ à¤à¤µ à¥¤
+-- àà®à¾à¨ààà°-àà™àà•à²à¿àà®à â” àà®à¾à¨ààà°-ààà°ààà a=1, d=1 ààà¿ àà™àà•à²à¿àà®à ààµ à
 --
 -- (the arithmetic progression at first term one and common difference one
---  IS the saá¹…kalita â€” proved, where the corpus had an example at n = 4.)
+--  IS the sakalita â” proved, where the corpus had an example at n = 4.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE COLLISION.  Two modules of this corpus carry the same series under
--- two definitions, each cites Ä€ryabhaá¹­a, and NEITHER imports the other.
+-- two definitions, each cites ryabhaa, and NEITHER imports the other.
 --
---   `Shredhi.agda`  (à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥ à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ à¥§à¥¯) defines
---       à¤¶à¥à¤°à¥‡à¤¢à¥€ a d zero    = zero
---       à¤¶à¥à¤°à¥‡à¤¢à¥€ a d (suc n) = a + à¤¶à¥à¤°à¥‡à¤¢à¥€ (a + d) d n
---     â€” the progression walked FORWARD, advancing the first term.
+--   `Shredhi.agda`  (àà°àà¯ààŸàà¯à®à à—àà¿ààà¾à¦à à§à¯) defines
+--       ààà°ààà a d zero    = zero
+--       ààà°ààà a d (suc n) = a + ààà°ààà (a + d) d n
+--     â” the progression walked FORWARD, advancing the first term.
 --
---   `Sankalita.agda` (à¤†à¤°à¥à¤¯à¤­à¤Ÿà¥€à¤¯à¤®à¥ à¤—à¤£à¤¿à¤¤à¤ªà¤¾à¤¦à¤ƒ à¥¨à¥§â€“à¥¨à¥¨) defines
---       âˆ‘ zero    = zero
---       âˆ‘ (suc n) = suc n + âˆ‘ n
---     â€” the same numbers walked BACKWARD, descending from n.
+--   `Sankalita.agda` (àà°àà¯ààŸàà¯à®à à—àà¿ààà¾à¦à à¨à§â“à¨à¨) defines
+--       âˆ zero    = zero
+--       âˆ (suc n) = suc n + âˆ n
+--     â” the same numbers walked BACKWARD, descending from n.
 --
--- `Shredhi`'s own header says it: *"âˆ‘k (Sankalita) à¤…à¤¸à¥à¤¯à¤¾à¤ƒ a=1,d=1
--- à¤µà¤¿à¤¶à¥‡à¤·à¤ƒ"* â€” âˆ‘k is the a=1, d=1 case of this.  That sentence is true and
--- it was never a theorem.  What stood in for it is `Shredhi.à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥-âˆ‘ :
--- à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 4 â‰¡ 10`, a `refl` at ONE value of n, with the comment
--- *"âˆ‘1..4, the a=1 d=1 special case"*.  `Shredhi` has no
+-- `Shredhi`'s own header says it: *"âˆk (Sankalita) àààà¯à¾à a=1,d=1
+-- àµà¿àààà"* â” âˆk is the a=1, d=1 case of this.  That sentence is true and
+-- it was never a theorem.  What stood in for it is `Shredhi.à‰à¦à¾àà°àà®à-âˆ :
+-- ààà°ààà 1 1 4 â‰¡ 10`, a `refl` at ONE value of n, with the comment
+-- *"âˆ1..4, the a=1 d=1 special case"*.  `Shredhi` has no
 -- `open import Sankalita`; the two lanes never meet in a type.
 --
 -- CLAUDE.md, Â§"On green as an organizing activity": *"instances rather
@@ -32,32 +32,32 @@
 -- the floor of the claim, not the claim."*  An example at n = 4 is the
 -- instance; Â§1 below is the reason.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS CHECKED
 --
---   Â§1  `à¤¸à¤®à¤¾à¤¨à¥à¤¤à¤°à¤‚-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ : (n : â„•) â†’ à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 n â‰¡ âˆ‘ n`
---       for every n, by doubling both sides onto `n Â· suc n` â€” the one
---       closed form both lanes already reached from their own ends â€”
---       and cancelling the 2 with `inj-smÂ·`.  Nothing new is proved
+--   Â§1  `àà®à¾à¨ààà°à-àà™àà•à²à¿àà®à : (n : â•) â’ ààà°ààà 1 1 n â‰¡ âˆ n`
+--       for every n, by doubling both sides onto `n Â suc n` â” the one
+--       closed form both lanes already reached from their own ends â”
+--       and cancelling the 2 with `inj-smÂ`.  Nothing new is proved
 --       about either series: the whole content is that the two closed
 --       forms already in the corpus MEET, and nobody had joined them.
 --
---   Â§2  `à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥-à¤ªà¥à¤¨à¤ƒ` â€” `Shredhi.à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥-âˆ‘` demoted from a claim to
+--   Â§2  `à‰à¦à¾àà°àà®à-ààà¨à` â” `Shredhi.à‰à¦à¾àà°àà®à-âˆ` demoted from a claim to
 --       an instantiation of Â§1 at n = 4.  Left standing, not deleted:
 --       the example is still true and still worth reading; it is just
 --       no longer carrying the statement.
 --
---   Â§3  `à¤¶à¥€à¤°à¥à¤·-à¤µà¤¿à¤¨à¤¿à¤®à¤¯à¤ƒ : à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 (suc n) â‰¡ suc n + à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 n` â€”
---       the head/tail swap.  By definition `à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 (suc n)` peels
---       the SMALLEST term (`1 + à¤¶à¥à¤°à¥‡à¤¢à¥€ 2 1 n`); this says it may be
---       peeled from the LARGEST instead, which is `âˆ‘`'s clause.  Not
---       definitional in either module â€” it is the exact statement of
+--   Â§3  `ààà°àà-àµà¿à¨à¿à®à¯à : ààà°ààà 1 1 (suc n) â‰¡ suc n + ààà°ààà 1 1 n` â”
+--       the head/tail swap.  By definition `ààà°ààà 1 1 (suc n)` peels
+--       the SMALLEST term (`1 + ààà°ààà 2 1 n`); this says it may be
+--       peeled from the LARGEST instead, which is `âˆ`'s clause.  Not
+--       definitional in either module â” it is the exact statement of
 --       what the two recursions disagree about, and it falls out of Â§1
 --       in one line.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- CHECKED: Agda 2.8.0, agda/cubical (/opt/homebrew/â€¦/share/agda/cubical),
+-- CHECKED: Agda 2.8.0, agda/cubical (/opt/homebrew/â¦/share/agda/cubical),
 -- --cubical --safe, 2026-08-22.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -71,12 +71,12 @@ open import Sankalita_AryabhatasSeriesSumsAndTheCubeSumIsTheSquareOfTheSum using
 open import Shredhi   using (à¤¶à¥à¤°à¥‡à¤¢à¥€ ; à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤«à¤²à¤®à¥ ; à¤¦à¥à¤µà¤¿-à¤¯à¥‹à¤—à¤ƒ ; à¤¦à¥à¤µà¤¿Â·)
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤¦à¥à¤µà¤¿à¤—à¥à¤£à¥‡ à¤®à¥‡à¤²à¤¨à¤®à¥ â€” the two lanes meet after doubling.
+-- à§ Â à¦ààµà¿à—ààà à®àà²à¨à®à â” the two lanes meet after doubling.
 --
--- LEFT   `à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤«à¤²à¤®à¥ 1 1 n` : 2Â·S â‰¡ nÂ·(2Â·1) + (nÂ·(nâˆ¸1))Â·1, then
---        `Â·-identityÊ³` and `Â·-comm` put it in `à¤¦à¥à¤µà¤¿-à¤¯à¥‹à¤—à¤ƒ`'s shape, and
---        `à¤¦à¥à¤µà¤¿-à¤¯à¥‹à¤—à¤ƒ` (Shredhi's own lemma) closes it on nÂ·(n+1).
--- RIGHT  `à¤¦à¥à¤µà¤¿à¤—à¥à¤£-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥` (Sankalita's own lemma) is nÂ·(n+1) again.
+-- LEFT   `ààà°ààà-àà²à®à 1 1 n` : 2ÂS â‰¡ nÂ(2Â1) + (nÂ(nâˆ1))Â1, then
+--        `Â-identityÊ³` and `Â-comm` put it in `à¦ààµà¿-à¯à‹à—à`'s shape, and
+--        `à¦ààµà¿-à¯à‹à—à` (Shredhi's own lemma) closes it on nÂ(n+1).
+-- RIGHT  `à¦ààµà¿à—àà-àà™àà•à²à¿àà®à` (Sankalita's own lemma) is nÂ(n+1) again.
 -- Neither lemma is new here.  Only the composite is.
 ------------------------------------------------------------------------
 
@@ -90,23 +90,23 @@ open import Shredhi   using (à¤¶à¥à¤°à¥‡à¤¢à¥€ ; à¤¶à¥à¤°à¥‡à¤¢à¥€-à¤«à¤²à¤®à¥
   âˆ™ sym (à¤¦à¥à¤µà¤¿Â· (âˆ‘ n))
 
 ------------------------------------------------------------------------
--- à¤®à¥à¤–à¥à¤¯-à¤¸à¤¿à¤¦à¥à¤§à¤¿à¤ƒ â€” the specialisation, for every n.
+-- à®àà–àà¯-àà¿à¦àà§à¿à â” the specialisation, for every n.
 ------------------------------------------------------------------------
 
 à¤¸à¤®à¤¾à¤¨à¥à¤¤à¤°à¤‚-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ : (n : â„•) â†’ à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 n â‰¡ âˆ‘ n
 à¤¸à¤®à¤¾à¤¨à¥à¤¤à¤°à¤‚-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ n = inj-smÂ· {m = 1} (à¤¦à¥à¤µà¤¿à¤—à¥à¤£à¥‡-à¤®à¥‡à¤²à¤¨à¤®à¥ n)
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥ à¤ªà¥à¤¨à¤ƒ â€” Shredhi.à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥-âˆ‘ as a corollary, not a claim.
+-- à¨ Â à‰à¦à¾àà°àà®à ààà¨à â” Shredhi.à‰à¦à¾àà°àà®à-âˆ as a corollary, not a claim.
 ------------------------------------------------------------------------
 
 à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥-à¤ªà¥à¤¨à¤ƒ : à¤¶à¥à¤°à¥‡à¤¢à¥€ 1 1 4 â‰¡ âˆ‘ 4
 à¤‰à¤¦à¤¾à¤¹à¤°à¤£à¤®à¥-à¤ªà¥à¤¨à¤ƒ = à¤¸à¤®à¤¾à¤¨à¥à¤¤à¤°à¤‚-à¤¸à¤™à¥à¤•à¤²à¤¿à¤¤à¤®à¥ 4
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤¶à¥€à¤°à¥à¤·-à¤µà¤¿à¤¨à¤¿à¤®à¤¯à¤ƒ â€” either end may be peeled.
+-- à© Â ààà°àà-àµà¿à¨à¿à®à¯à â” either end may be peeled.
 --
--- `à¤¶à¥à¤°à¥‡à¤¢à¥€` peels the smallest term and advances a; `âˆ‘` peels the largest
+-- `ààà°ààà` peels the smallest term and advances a; `âˆ` peels the largest
 -- and descends n.  This is the statement that the two are interchangeable,
 -- which neither definition gives and Â§1 does.
 ------------------------------------------------------------------------

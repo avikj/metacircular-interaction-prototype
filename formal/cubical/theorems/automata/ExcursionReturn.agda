@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- ExcursionReturn
 --
--- Delta 18 T18.4–T18.6, checked.
+-- Delta 18 T18.4�T18.6, checked.
 --
 -- Delta 15 gave the machine's residual a TYPE (
 -- StructuredDefect: a reopening is an uninhabited identity type).  That
@@ -13,7 +13,7 @@
 --
 --   T18.4  K_t K_s − K_{t+s} = − P T_t Q T_s i
 --
--- with i : S → U, P : U → S, P i = id, Q = 1 − iP, and K_t = P T_t i the
+-- with i : S � U, P : U � S, P i = id, Q = 1 − iP, and K_t = P T_t i the
 -- compressed evolution.  The defect term is not "mysterious lost
 -- information": it is *leave the selected sector, evolve outside, return
 -- to the observable sector*.  Compression generates memory exactly when
@@ -38,10 +38,10 @@
 --   Compression                the data: ring, evolution, i, P, P i = 1
 --   Q, Q-idem, iP-idem         the complementary projector
 --   excursion-return           T18.4, the defect identity
---   defect-zero→semigroup      T18.5 forward: no return ⇒ K is a
---                              semigroup ⇒ discarding Q is dynamically
+--   defect-zero�semigroup      T18.5 forward: no return � K is a
+--                              semigroup � discarding Q is dynamically
 --                              sufficient
---   semigroup→defect-zero      T18.5 converse: if K composes, the
+--   semigroup�defect-zero      T18.5 converse: if K composes, the
 --                              excursion-return term vanishes
 --   Observability, obsKernel   T18.6's equivalence
 --   obsKernel≡NerodeCongruence         the identification with MyhillNerodeMinimalMachine
@@ -120,7 +120,7 @@ module _ {R' : Ring ℓ} {Time : Type ℓ'} (C : Compression R' Time) where
 
   -- T18.4, the excursion-return identity.
   --
-  --   K t · K s  ≡  K (t ⊕ s)  −  P T_t Q T_s i
+  --   K t � K s  ≡  K (t ⊕ s)  −  P T_t Q T_s i
   --
   -- Stated in the additive form so that "the defect" is a named element
   -- rather than a rearrangement.

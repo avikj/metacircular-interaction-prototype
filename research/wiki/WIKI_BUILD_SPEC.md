@@ -2,6 +2,8 @@
 
 **Canonical handoff. Assume all chat history is deleted.**
 
+**Architecture update, 2026-09-16:** Read [Bend2 — Unison reading and synthesis](BEND2_UNISON_READING_AND_SYNTHESIS.md) before implementing the site. The author has moved the computational center from Agda to cubical Bend2 and its full HVM4 runtime. The Agda-per-page statements below record the earlier plan; the current target is to ground pages in addressable, checked, executable Bend2 constructions and their witnessed mathematical relations, retaining Agda source as relevant provenance during the port. The wiki is a view into that codebase.
+
 The complete canonical build specification is maintained as the working artifact `WIKI_BUILD_SPEC.md`; this repository locus owns the wiki program and must remain synchronized with the full specification during the first web-agent build pass.
 
 ## Invariants
@@ -42,7 +44,7 @@ The complete canonical build specification is maintained as the working artifact
 - Interface Interaction: interface=observation map, UI state=dependent world, UI=continuation, lossless interface are initially one theorem complex.
 - Foundational slogans such as Geometry=Computation, Proof=Execution, Static/Dynamic Collapse, Syntax/Semantics Collapse are aliases/consequence anchors into precise theorem pages, not essays.
 
-Expected working compression: hundreds of useful names â†’ roughly 70â€“100 concepts â†’ roughly 50 substantial pages â†’ roughly 15â€“20 nuclei. This is descriptive, not a quota.
+Expected working compression: hundreds of useful names â’ roughly 70â“100 concepts â’ roughly 50 substantial pages â’ roughly 15â“20 nuclei. This is descriptive, not a quota.
 
 ## Canonical page record
 

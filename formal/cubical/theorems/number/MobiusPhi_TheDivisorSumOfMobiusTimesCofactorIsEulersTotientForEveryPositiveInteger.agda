@@ -4,46 +4,46 @@
 -- MobiusPhi_TheDivisorSumOfMobiusTimesCofactorIsEulersTotientForEveryPositiveInteger
 --
 -- CLOSES an absence stated in `TransmissionRefutations.agda`, Section
--- B.2, which checks the identification of the Möbius divisor sum with
+-- B.2, which checks the identification of the Mbius divisor sum with
 -- Euler's totient at twelve points and says of the rest:
 --
 --     "SCOPE: this is the ledger's identification of the sum, checked at
---      twelve points.  The general identity Σ_{d|n} μ(d)(n/d) = φ(n) is
---      classical (Möbius inversion of n = Σ_{d|n} φ(d)) and is NOT
+--      twelve points.  The general identity �_{d|n} μ(d)(n/d) = �(n) is
+--      classical (Mbius inversion of n = �_{d|n} �(d)) and is NOT
 --      proved here; the refutation of the display does not need it."
 --
--- WHAT IS PROVED.  For every n ≥ 1, in that module's OWN definitions
+-- WHAT IS PROVED.  For every n � 1, in that module's OWN definitions
 -- (`mobiusDivSum`, `mu`, `phi`, `spf`, `gcdN`, `_div_`, `dividesb`, all
--- fuel-bounded trial-division programs on ℕ, none of them re-defined
+-- fuel-bounded trial-division programs on �, none of them re-defined
 -- here):
 --
 --     mobius-divisor-sum-is-phi :
---       (n : ℕ) → 1 ≤ n → mobiusDivSum n ≡ pos (phi n)
+--       (n : �) � 1 � n � mobiusDivSum n ≡ pos (phi n)
 --
--- i.e.  Σ_{d ≤ n, d ∣ n} μ(d) · ⌊n/d⌋  =  #{ k ≤ n : gcd(k, n) = 1 }.
+-- i.e.  �_{d � n, d � n} μ(d) � �n/d�  =  #{ k � n : gcd(k, n) = 1 }.
 --
 -- Also proved, for every n (the companion display of the same archive
 -- line, which the same module checks only to 12 as
 -- `companion-display-holds-to-12`):
 --
 --     companion-display-holds :
---       (n : ℕ) → divSumMu n n ≡ (if eqb n 1 then pos 1 else pos 0)
+--       (n : �) � divSumMu n n ≡ (if eqb n 1 then pos 1 else pos 0)
 --
--- i.e.  Σ_{d ∣ n} μ(d) = [n = 1], including at n = 0 where both sides
+-- i.e.  �_{d � n} μ(d) = [n = 1], including at n = 0 where both sides
 -- are 0 (`muSum-is-indicator`).
 --
 -- The route is not the one the scope note names (Gauss's identity plus
--- Möbius inversion) but the direct one, which needs less:
+-- Mbius inversion) but the direct one, which needs less:
 --
---   (i)   Σ_{d ∣ m} μ(d) = [m = 1]           (`muSum-is-indicator`)
---   (ii)  [gcd(k,n) = 1] = Σ_{d ≤ n} [d ∣ k][d ∣ n] μ(d)
+--   (i)   �_{d � m} μ(d) = [m = 1]           (`muSum-is-indicator`)
+--   (ii)  [gcd(k,n) = 1] = �_{d � n} [d � k][d � n] μ(d)
 --   (iii) exchange the two finite sums and count the multiples of d
---         in 1..n, which are ⌊n/d⌋ when d ∣ n     (`Σ≤-multiples`).
+--         in 1..n, which are �n/d� when d � n     (`��-multiples`).
 --
 -- Step (i) is where the arithmetic lives.  With p the least prime
--- factor of m ≥ 2 and m = p·c, the divisors of m split into those p
--- does not divide — which are exactly the p-free divisors of c, by
--- Gauss's lemma — and those of the form p·e with e ∣ c, on which μ is
+-- factor of m � 2 and m = p�c, the divisors of m split into those p
+-- does not divide � which are exactly the p-free divisors of c, by
+-- Gauss's lemma � and those of the form p�e with e � c, on which μ is
 -- 0 or −μ(e) by the module's own recursion for μ.  The two halves
 -- cancel.  No induction on m and no factorisation into primes is used;
 -- Gauss's lemma is derived from the library's `gcd-factorʳ`.
@@ -52,12 +52,12 @@
 -- of the module is SPECIFICATION: each program is shown to compute what
 -- its name says on the range on which it is called (`divmod-spec`,
 -- `spf-spec`, `mu-step`, `gcdN-isGCD`), and the module's sums are shown
--- to be instances of one summation operator `Σ≤`.
+-- to be instances of one summation operator `��`.
 --
 -- WHAT IS NOT PROVED.  Nothing about the other displays of
 -- `TransmissionRefutations` (its B.3 sums, its Section A, its Section
--- C) is touched; Gauss's identity Σ_{d∣n} φ(d) = n and the general
--- Möbius inversion formula are not proved, because this route does not
+-- C) is touched; Gauss's identity �_{d�n} �(d) = n and the general
+-- Mbius inversion formula are not proved, because this route does not
 -- pass through them.  No postulates, no holes, no termination pragmas;
 -- the fuel of every imported program is discharged by a proof, never by
 -- a range assumption.
@@ -126,7 +126,7 @@ eqb-≢ m n ne with eqb-dec m n
 ... | inl (p , _) = ⊥rec (ne p)
 ... | inr (_ , q) = q
 
--- leb decides ≤
+-- leb decides �
 leb-dec : (m n : ℕ) → ((m ≤ n) × (leb m n ≡ true)) ⊎ ((n < m) × (leb m n ≡ false))
 leb-dec zero n = inl (zero-≤ , refl)
 leb-dec (suc m) zero = inr (suc-≤-suc zero-≤ , refl)
@@ -212,7 +212,7 @@ modN≡% n k =
   snd (modN-unique n (suc k) (fst (n%k≡n[modk] n (suc k))) (n % suc k)
                    (suc-≤-suc zero-≤) (n%sk<sk n k) (snd (n%k≡n[modk] n (suc k))))
 
--- divisibility: the Boolean test reflects the library's `∣`
+-- divisibility: the Boolean test reflects the library's `�`
 dividesb-dec : (d n : ℕ) → 0 < d
              → ((d ∣ n) × (dividesb d n ≡ true)) ⊎ ((¬ d ∣ n) × (dividesb d n ≡ false))
 dividesb-dec d n 0<d with eqb-dec (n modN d) 0
@@ -244,7 +244,7 @@ divN-exact d n 0<d h =
   ∥rec (isSetℕ _ _)
        (λ { (c , e) → cong (_· d) (fst (modN-unique n d c 0 0<d 0<d (+-zero _ ∙ e))) ∙ e }) h
 
--- the quotient by d ≥ 2 of n ≥ 1 is smaller than n
+-- the quotient by d � 2 of n � 1 is smaller than n
 twice-≤-mult : (q d : ℕ) → 2 ≤ d → q + q ≤ q · d
 twice-≤-mult q d 2≤d =
   subst (q + q ≤_) (·-comm d q)
@@ -264,7 +264,7 @@ divN-< d n 2≤d 1≤n with splitℕ-< (n divN d) n
                      (subst ((n divN d) · d ≤_) (fst (divN-modN n d 0<d)) ≤SumLeft)))
 
 ------------------------------------------------------------------------
--- 2.  Finite sums of integers, Σ_{i=1}^{k} f i, in the shape the
+-- 2.  Finite sums of integers, �_{i=1}^{k} f i, in the shape the
 --     module's own sums (`divSumTo`, `phiCount`) recurse in.
 ------------------------------------------------------------------------
 
@@ -335,7 +335,7 @@ divN-< d n 2≤d 1≤n with splitℕ-< (n divN d) n
 Σ≤-if false f k = Σ≤-const0 k
 
 -- THE COUNTING LEMMA: summing a function over the multiples of p in
--- 1..p·k is summing it along p, 2p, …, kp.
+-- 1..p�k is summing it along p, 2p, �, kp.
 Σ≤-multiples : (p : ℕ) → 0 < p → (h : ℕ → ℤ) (k : ℕ)
              → Σ≤ (λ i → if dividesb p i then h i else pos 0) (p · k)
              ≡ Σ≤ (λ e → h (p · e)) k
@@ -349,7 +349,7 @@ divN-< d n 2≤d 1≤n with splitℕ-< (n divN d) n
   p = suc p'
   F : ℕ → ℤ
   F i = if dividesb p i then h i else pos 0
-  -- in the block p·k+1 .. p·k+p only the last entry is a multiple of p
+  -- in the block p�k+1 .. p�k+p only the last entry is a multiple of p
   rest : (i : ℕ) → 1 ≤ i → i ≤ p' → F (p · k + i) ≡ pos 0
   rest i 1≤i i≤p' =
     if-false (_≡ pos 0) (h (p · k + i)) (pos 0)
@@ -367,7 +367,7 @@ divN-< d n 2≤d 1≤n with splitℕ-< (n divN d) n
   block = cong₂ _+ℤ_ first (Σ≤-zero (λ i → F (p · k + i)) p' rest)
 
 ------------------------------------------------------------------------
--- 3.  The least divisor ≥ k, and the least prime factor `spf`.
+-- 3.  The least divisor � k, and the least prime factor `spf`.
 ------------------------------------------------------------------------
 
 LeastDiv : ℕ → ℕ → ℕ → Type₀
@@ -414,7 +414,7 @@ spf∣ n h = fst (snd (spf-spec n h))
 spf-least : (n : ℕ) → 2 ≤ n → (d : ℕ) → 2 ≤ d → d ∣ n → spf n ≤ d
 spf-least n h = snd (snd (spf-spec n h))
 
--- the least divisor ≥ 2 is prime: its only divisors are 1 and itself
+-- the least divisor � 2 is prime: its only divisors are 1 and itself
 spf-prime : (n : ℕ) → 2 ≤ n → (d : ℕ) → d ∣ spf n → (d ≡ 1) ⊎ (d ≡ spf n)
 spf-prime n h zero d∣p = ⊥rec (¬-<-zero (subst (2 ≤_) (sym (∣-zeroˡ d∣p)) (2≤spf n h)))
 spf-prime n h (suc zero) _ = inl refl
@@ -424,8 +424,8 @@ spf-prime n h (suc (suc d')) d∣p =
                             (∣-trans d∣p (spf∣ n h))))
 
 ------------------------------------------------------------------------
--- 4.  The Möbius program: fuel-stable, and it obeys the recursion
---     μ(n) = [p ∤ n/p] · (−μ(n/p)) for n ≥ 2, p = spf n.
+-- 4.  The Mbius program: fuel-stable, and it obeys the recursion
+--     μ(n) = [p � n/p] � (−μ(n/p)) for n � 2, p = spf n.
 ------------------------------------------------------------------------
 
 muF-zero : (g : ℕ) → muF g 0 ≡ pos 0
@@ -471,7 +471,7 @@ mu-step (suc n') h =
   where
   q = (suc n') divN spf (suc n')
 
--- μ on a product p·e whose every divisor ≥ 2 is ≥ p
+-- μ on a product p�e whose every divisor � 2 is � p
 mu-mult : (p e : ℕ) → 2 ≤ p → 1 ≤ e
         → ((d : ℕ) → 2 ≤ d → d ∣ (p · e) → p ≤ d)
         → mu (p · e) ≡ (if dividesb p e then pos 0 else negZ (mu e))
@@ -494,12 +494,12 @@ mu-mult p e 2≤p 1≤e least =
   q≡e = fst (modN-unique m p e 0 0<p 0<p (+-zero (e · p) ∙ ·-comm e p))
 
 ------------------------------------------------------------------------
--- 5.  Σ_{d ∣ m} μ(d) = [m = 1].
+-- 5.  �_{d � m} μ(d) = [m = 1].
 --
--- For m ≥ 2 with p = spf m and m = p·c the divisors of m split into the
--- p-free ones — which are exactly the p-free divisors of c (Gauss's
--- lemma) — and the multiples p·e with e ∣ c, on which μ(p·e) is 0 when
--- p ∣ e and −μ(e) otherwise (`mu-mult`).  Summand by summand the second
+-- For m � 2 with p = spf m and m = p�c the divisors of m split into the
+-- p-free ones � which are exactly the p-free divisors of c (Gauss's
+-- lemma) � and the multiples p�e with e � c, on which μ(p�e) is 0 when
+-- p � e and −μ(e) otherwise (`mu-mult`).  Summand by summand the second
 -- half cancels the first.
 ------------------------------------------------------------------------
 
@@ -548,7 +548,7 @@ cancel-∣ zero e c 0<p _ = ⊥rec (¬-<-zero 0<p)
 cancel-∣ (suc p') e c _ h =
   ∣-cancelʳ p' (subst2 _∣_ (·-comm (suc p') e) (·-comm (suc p') c) h)
 
--- Gauss's lemma, from the library's gcd (m·k) (n·k) ≡ gcd m n · k
+-- Gauss's lemma, from the library's gcd (m�k) (n�k) ≡ gcd m n � k
 coprime-of-prime : (p d : ℕ) → ((k : ℕ) → k ∣ p → (k ≡ 1) ⊎ (k ≡ p)) → ¬ p ∣ d → isGCD d p 1
 coprime-of-prime p d prime ¬p∣d = (∣-oneˡ d , ∣-oneˡ p) , λ k (k∣d , k∣p) → only k k∣d k∣p
   where
@@ -650,14 +650,14 @@ muSum-big m 2≤m =
     0<pe : 0 < p · e
     0<pe = 0<· p e 0<p 1≤e
 
--- THE INDICATOR: Σ_{d ∣ g} μ(d) is 1 at g = 1 and 0 elsewhere (0 included)
+-- THE INDICATOR: �_{d � g} μ(d) is 1 at g = 1 and 0 elsewhere (0 included)
 muSum-is-indicator : (g : ℕ) → (if eqb g 1 then pos 1 else pos 0) ≡ muSum g
 muSum-is-indicator zero = refl
 muSum-is-indicator (suc zero) = refl
 muSum-is-indicator (suc (suc g')) = sym (muSum-big (suc (suc g')) (suc-≤-suc (suc-≤-suc zero-≤)))
 
 ------------------------------------------------------------------------
--- 6.  The gcd program is a gcd, and φ is a sum of indicators.
+-- 6.  The gcd program is a gcd, and � is a sum of indicators.
 ------------------------------------------------------------------------
 
 gcdF-isGCD : (f a b : ℕ) → b < f → isGCD a b (gcdF f a b)
@@ -736,7 +736,7 @@ mobius-divisor-sum-is-phi n 1≤n =
   T2 : ℕ → ℕ → ℤ
   T2 d j = if dividesb d n then (if dividesb d j then mu d else pos 0) else pos 0
 
-  -- (ii): the indicator of gcd(j, n) = 1 as a sum over d ≤ n
+  -- (ii): the indicator of gcd(j, n) = 1 as a sum over d � n
   perj : (j : ℕ) → 1 ≤ j → j ≤ n
        → (if eqb (gcdN j n) 1 then pos 1 else pos 0) ≡ Σ≤ (λ d → T2 d j) n
   perj j _ _ =
@@ -783,7 +783,7 @@ mobius-divisor-sum-is-phi n 1≤n =
              ∙ ·Comm (pos (n divN d)) (mu d))
       (λ _ → refl)
 
--- the companion display of the same archive line, Σ_{δ ∣ ν} μ(δ) = [ν = 1],
+-- the companion display of the same archive line, �_{δ � ν} μ(δ) = [ν = 1],
 -- which `TransmissionRefutations` checks to 12: now for every ν.
 companion-display-holds : (n : ℕ) → divSumMu n n ≡ (if eqb n 1 then pos 1 else pos 0)
 companion-display-holds n = divSumMu-Σ n n ∙ sym (muSum-is-indicator n)

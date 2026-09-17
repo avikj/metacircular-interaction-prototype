@@ -4,7 +4,7 @@ The source IDs below are stable within this archive. A numbered `proof_note(n)` 
 
 No item below is labelled newly Agda-checked. The distinctions between analytical proofs, historical reports and current standalone replay are in the main correction ledger.
 
-## S00 â€” Six-September comprehensive theorem-organism handoff
+## S00 â” Six-September comprehensive theorem-organism handoff
 **Source:** [originals/library/comprehensive_handoff_2026-09-06.extracted.txt](originals/library/comprehensive_handoff_2026-09-06.extracted.txt)
 
 Historical context; original DOCX also preserved.
@@ -14,21 +14,21 @@ Historical context; original DOCX also preserved.
 Companion files:
 - [originals/library/Metacircular Interaction Prototype - Comprehensive Conversation Handoff.docx](originals/library/Metacircular Interaction Prototype - Comprehensive Conversation Handoff.docx)
 
-## S01 â€” Faithful quartic receiver and NS actual-source continuation separation
+## S01 â” Faithful quartic receiver and NS actual-source continuation separation
 **Source:** [sources/S01_receiver.md](sources/S01_receiver.md)
 
 Analytical source note; distinct earlier receiver.
 
 `SHA256 3581964801bb6c6460a4ddea8ed797b8465a26ba84eb1d9666d4374fa22229f5`
 
-## S02 â€” Autocorrelation two-packet Weil criterion and exact triangular NS memory
+## S02 â” Autocorrelation two-packet Weil criterion and exact triangular NS memory
 **Source:** [sources/S02_two_packet.md](sources/S02_two_packet.md)
 
 Analytical source note; principal later Z/G/M0 definitions.
 
 `SHA256 9f945e269f69961766fa3b7291f4ea365878b4739c263a1596b10b5cb42d69c8`
 
-## S03 â€” Common-source quadratic polarization, Beltrami control and coherent CRT histories
+## S03 â” Common-source quadratic polarization, Beltrami control and coherent CRT histories
 **Source:** [sources/S03_common_source_quadratic_crt_RECONSTRUCTED.md](sources/S03_common_source_quadratic_crt_RECONSTRUCTED.md)
 
 Reconstructed from visible user note, not original attachment bytes.
@@ -39,7 +39,7 @@ Companion files:
 - [originals/conversation/ns_rh_source_audit/exact_checks.py](originals/conversation/ns_rh_source_audit/exact_checks.py)
 - [originals/conversation/ns_rh_source_audit/exact_checks_output.txt](originals/conversation/ns_rh_source_audit/exact_checks_output.txt)
 
-## S04 â€” Poisson source spectrum, essential norm and auxiliary amplification controls
+## S04 â” Poisson source spectrum, essential norm and auxiliary amplification controls
 **Source:** [originals/conversation/poisson_source_spectrum/poisson_source_spectrum.md](originals/conversation/poisson_source_spectrum/poisson_source_spectrum.md)
 
 Original mounted analytical note.
@@ -50,7 +50,7 @@ Companion files:
 - [originals/conversation/poisson_source_spectrum/check_identities.py](originals/conversation/poisson_source_spectrum/check_identities.py)
 - [originals/conversation/poisson_source_spectrum/check_results.txt](originals/conversation/poisson_source_spectrum/check_results.txt)
 
-## S05 â€” Actual source-preserving coadjoint/stochastic transport and compact tangent residual
+## S05 â” Actual source-preserving coadjoint/stochastic transport and compact tangent residual
 **Source:** [originals/conversation/source_image_transport/source_image_transport.md](originals/conversation/source_image_transport/source_image_transport.md)
 
 Original mounted analytical note.
@@ -61,7 +61,7 @@ Companion files:
 - [originals/conversation/source_image_transport/check_results.txt](originals/conversation/source_image_transport/check_results.txt)
 - [originals/conversation/source_image_transport/check_source_transport.py](originals/conversation/source_image_transport/check_source_transport.py)
 
-## S06 â€” Receiver Sobolev inverse and full affine harmonic continuation fibre
+## S06 â” Receiver Sobolev inverse and full affine harmonic continuation fibre
 **Source:** [originals/conversation/receiver_inverse_harmonic_fibre/proof_note.md](originals/conversation/receiver_inverse_harmonic_fibre/proof_note.md)
 
 Original mounted note; legacy alias proof_note(2).
@@ -72,7 +72,7 @@ Companion files:
 - [originals/conversation/receiver_inverse_harmonic_fibre/check_results.txt](originals/conversation/receiver_inverse_harmonic_fibre/check_results.txt)
 - [originals/conversation/receiver_inverse_harmonic_fibre/checks.py](originals/conversation/receiver_inverse_harmonic_fibre/checks.py)
 
-## S07 â€” Instantiated continuation fibres
+## S07 â” Instantiated continuation fibres
 **Source:** [originals/conversation/instantiated_continuation_fibres/proof_note.md](originals/conversation/instantiated_continuation_fibres/proof_note.md)
 
 Original mounted note; legacy alias proof_note(1).
@@ -83,7 +83,7 @@ Companion files:
 - [originals/conversation/instantiated_continuation_fibres/check_results.txt](originals/conversation/instantiated_continuation_fibres/check_results.txt)
 - [originals/conversation/instantiated_continuation_fibres/checks.py](originals/conversation/instantiated_continuation_fibres/checks.py)
 
-## S08 â€” Finite strain coordinates and actual Weil source signature
+## S08 â” Finite strain coordinates and actual Weil source signature
 **Source:** [originals/conversation/finite_strain_weil_signature/proof_note.md](originals/conversation/finite_strain_weil_signature/proof_note.md)
 
 Original mounted note; legacy alias proof_note(3).
@@ -94,7 +94,7 @@ Companion files:
 - [originals/conversation/finite_strain_weil_signature/check_results.txt](originals/conversation/finite_strain_weil_signature/check_results.txt)
 - [originals/conversation/finite_strain_weil_signature/checks.py](originals/conversation/finite_strain_weil_signature/checks.py)
 
-## S09 â€” Essential cross-helicity strain tomography and Hardy innovation
+## S09 â” Essential cross-helicity strain tomography and Hardy innovation
 **Source:** [originals/conversation/ns_rh_strain_symbol_hardy_innovation/proof_note.md](originals/conversation/ns_rh_strain_symbol_hardy_innovation/proof_note.md)
 
 Original mounted note; legacy alias proof_note(4).
@@ -105,7 +105,7 @@ Companion files:
 - [originals/conversation/ns_rh_strain_symbol_hardy_innovation/check_results.txt](originals/conversation/ns_rh_strain_symbol_hardy_innovation/check_results.txt)
 - [originals/conversation/ns_rh_strain_symbol_hardy_innovation/checks.py](originals/conversation/ns_rh_strain_symbol_hardy_innovation/checks.py)
 
-## S10 â€” Passive-work distinction and toroidal multipole blindness
+## S10 â” Passive-work distinction and toroidal multipole blindness
 **Source:** [originals/conversation/passivity_toroidal_quadrupole/proof_note.md](originals/conversation/passivity_toroidal_quadrupole/proof_note.md)
 
 Original mounted note; legacy alias proof_note(5).
@@ -116,21 +116,21 @@ Companion files:
 - [originals/conversation/passivity_toroidal_quadrupole/check_results.txt](originals/conversation/passivity_toroidal_quadrupole/check_results.txt)
 - [originals/conversation/passivity_toroidal_quadrupole/checks.py](originals/conversation/passivity_toroidal_quadrupole/checks.py)
 
-## S11 â€” Actual Xi-cardinal sources and renormalized toroidal strain current
+## S11 â” Actual Xi-cardinal sources and renormalized toroidal strain current
 **Source:** [sources/S11_cardinal_and_current.md](sources/S11_cardinal_and_current.md)
 
 Recovered proof_note(6).md.
 
 `SHA256 8b2f79a0737c1d4a3641a909d72b94289eefacd4988971ec50d4a00180076848`
 
-## S12 â€” Compact source-image rigidity and full nonlinear toroidal leakage
+## S12 â” Compact source-image rigidity and full nonlinear toroidal leakage
 **Source:** [sources/S12_source_image_and_quadrupole.md](sources/S12_source_image_and_quadrupole.md)
 
 Recovered proof_note(7).md; strong complete radial-matrix theorem.
 
 `SHA256 051e440ce0083ae7087b9cfbf9b7a421b97af3ac6ac285b834ceb3f14f9e5a8f`
 
-## S13 â€” Endpoint Xi support escape and exact H5 viscous strain memory
+## S13 â” Endpoint Xi support escape and exact H5 viscous strain memory
 **Source:** [originals/conversation/source_resolved_closure/proof_note.md](originals/conversation/source_resolved_closure/proof_note.md)
 
 Original mounted note; several numbered aliases materialize to these same bytes.
@@ -141,14 +141,14 @@ Companion files:
 - [originals/conversation/source_resolved_closure/check_results.txt](originals/conversation/source_resolved_closure/check_results.txt)
 - [originals/conversation/source_resolved_closure/checks.py](originals/conversation/source_resolved_closure/checks.py)
 
-## S14 â€” User synthesis: reflection-scale holonomy, strain coboundary and nonlinear memory
+## S14 â” User synthesis: reflection-scale holonomy, strain coboundary and nonlinear memory
 **Source:** [sources/S14_user_holonomy_and_nonlinear_memory_RECONSTRUCTED.md](sources/S14_user_holonomy_and_nonlinear_memory_RECONSTRUCTED.md)
 
 Reconstructed visible user synthesis; no claim of original attachment recovery.
 
 `SHA256 774dd7f1293bfe92efe8abe77d62fa309fb4d2715812589b2539bd86a4f2dbb8`
 
-## S15 â€” Actual toroidal 2->4->2 return, sign examples and geometric-stack bound
+## S15 â” Actual toroidal 2->4->2 return, sign examples and geometric-stack bound
 **Source:** [originals/conversation/toroidal_first_return/proof_note.md](originals/conversation/toroidal_first_return/proof_note.md)
 
 Original mounted note; timestamp aliases also existed.
@@ -159,14 +159,14 @@ Companion files:
 - [originals/conversation/toroidal_first_return/check_results.txt](originals/conversation/toroidal_first_return/check_results.txt)
 - [originals/conversation/toroidal_first_return/checks.py](originals/conversation/toroidal_first_return/checks.py)
 
-## S16 â€” Moving-peak heat control, signed radial spectrum and one-sided arithmetic escape
+## S16 â” Moving-peak heat control, signed radial spectrum and one-sided arithmetic escape
 **Source:** [sources/S16_moving_peak_and_signed_spectrum.md](sources/S16_moving_peak_and_signed_spectrum.md)
 
 Recovered stronger parallel note dated research state Sept 7.
 
 `SHA256 41f980eae2bf56a826fbbdefdec8d8f00ede67537f3cc92f051a8d702a5cd0ca`
 
-## S17 â€” Full source-coherent nonlinear evaluator and certified local tree summation
+## S17 â” Full source-coherent nonlinear evaluator and certified local tree summation
 **Source:** [originals/conversation/metacircular_full_history/proof_note.md](originals/conversation/metacircular_full_history/proof_note.md)
 
 Original mounted note; 141 historical exact checks.
@@ -177,7 +177,7 @@ Companion files:
 - [originals/conversation/metacircular_full_history/check_results.txt](originals/conversation/metacircular_full_history/check_results.txt)
 - [originals/conversation/metacircular_full_history/checks.py](originals/conversation/metacircular_full_history/checks.py)
 
-## S18 â€” Causal normal form, analytic reconstruction and source-aware matrix certificate kernel
+## S18 â” Causal normal form, analytic reconstruction and source-aware matrix certificate kernel
 **Source:** [originals/conversation/metacircular_causal_normal_form/proof_note.md](originals/conversation/metacircular_causal_normal_form/proof_note.md)
 
 Original mounted note; 86 exact checks replayed during handoff.
@@ -188,7 +188,7 @@ Companion files:
 - [originals/conversation/metacircular_causal_normal_form/check_results.txt](originals/conversation/metacircular_causal_normal_form/check_results.txt)
 - [originals/conversation/metacircular_causal_normal_form/kernel.py](originals/conversation/metacircular_causal_normal_form/kernel.py)
 
-## S19 â€” Source-dependent midpoint return, nonlinear kinetic storage and rigorous Abel inverse
+## S19 â” Source-dependent midpoint return, nonlinear kinetic storage and rigorous Abel inverse
 **Source:** [sources/S19_midpoint_storage_and_abel.md](sources/S19_midpoint_storage_and_abel.md)
 
 Recovered stronger parallel note; 43 exact controls replayed.
@@ -199,28 +199,28 @@ Companion files:
 - [originals/library/checks(4).py](originals/library/checks(4).py)
 - [originals/library/check_results(4).txt](originals/library/check_results(4).txt)
 
-## S20 â€” Dyadic pole residual and general toroidal radial marginality
+## S20 â” Dyadic pole residual and general toroidal radial marginality
 **Source:** [sources/S20_dyadic_and_radial_marginality.md](sources/S20_dyadic_and_radial_marginality.md)
 
 Recovered run26; use with later scope corrections.
 
 `SHA256 8ce3142d1c22c3e70e191b4581792ac4357711105fcb137ae31c6fc979eb59c0`
 
-## S21 â€” Higher residuals and dynamic matching proposal
+## S21 â” Higher residuals and dynamic matching proposal
 **Source:** [sources/S21_higher_residuals_dynamic_matching.md](sources/S21_higher_residuals_dynamic_matching.md)
 
 AUDIT: higher difference convergence repaired by S19; NS matching claims not promoted.
 
 `SHA256 88a5dd6291784bcdf790b43caee928ed2dbe8447ce5ca6f2031f077badff0edb`
 
-## S22 â€” Direct quadratic Goldbach residual and all-depth source-dependent memory
+## S22 â” Direct quadratic Goldbach residual and all-depth source-dependent memory
 **Source:** [sources/S22_quadratic_goldbach_and_memory.md](sources/S22_quadratic_goldbach_and_memory.md)
 
 Arithmetic derivation retained; Gaussian-in-octave NS suppression remains AUDIT.
 
 `SHA256 1e518af138397a669e67a4b899d53a5f9411e54272add829829f2c7148d59cd6`
 
-## S23 â€” Actual-endpoint backward assembly
+## S23 â” Actual-endpoint backward assembly
 **Source:** [originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md](originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md)
 
 Conditional actual endpoints; not an exhaustive repo closure.
@@ -230,7 +230,7 @@ Conditional actual endpoints; not an exhaustive repo closure.
 Companion files:
 - [originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json](originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.json)
 
-## S24 â€” Native-runtime availability probes
+## S24 â” Native-runtime availability probes
 **Source:** [originals/conversation/yantra_runtime_probe/environment.log](originals/conversation/yantra_runtime_probe/environment.log)
 
 Execution environment evidence, not a mathematical failure.
@@ -240,7 +240,7 @@ Execution environment evidence, not a mathematical failure.
 Companion files:
 - [originals/conversation/yantra_runtime_probe/setup-report.log](originals/conversation/yantra_runtime_probe/setup-report.log)
 
-## S25 â€” Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra
+## S25 â” Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra
 **Source:** [sources/S25_delta19.md](sources/S25_delta19.md)
 
 Historical source theorem/program note; formal module coverage differs by statement.

@@ -73,7 +73,7 @@ def uaFromEquiv(A: Set, B: Set, e: Equiv(A,B)) -> Path(Set, A, B):
   ua(A,B, eqFun(A,B,e), invOf(A,B,e), gfOf(A,B,e), fgOf(A,B,e))
 
 # THE REVERSE UNIVALENCE ROUND TRIP:  pathToEquiv (ua e) = e
-#   fst: fst(pathToEquiv(ua e)) = f definitionally (uaβ + coe-through-Σ/Π)
+#   fst: fst(pathToEquiv(ua e)) = f definitionally (uaβ + coe-through-�/Π)
 #   snd: filled by isPropIsEquiv (isEquiv is a proposition)
 def uaRoundTrip(A: Set, B: Set, e: Equiv(A,B))
   -> Path(Equiv(A,B), pathToEquiv(A,B, uaFromEquiv(A,B,e)), e):

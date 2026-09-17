@@ -6,10 +6,10 @@
 -- `BoundedStateNeedsAGroup` recorded a rhyme and refused to call it a
 -- result: a join-multiplicative map is an indicator, never a weight, and
 -- the parity barrier is usually described as an inability to carry a
--- Â±1-valued multiplicative function.  The rhyme has an exact theorem
+-- Â1-valued multiplicative function.  The rhyme has an exact theorem
 -- under it, and it is stronger than the {0,1} statement it came from.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY IDEMPOTENCE IS NOT A SPECIAL FEATURE OF lcm
 --
 -- Everything in this thread has turned on idempotence, and it has been
@@ -18,45 +18,45 @@
 --
 --     **knowing something twice is knowing it once.**
 --
--- Any state law that ACCUMULATES â€” observations, constraints, standpoints,
--- congruences, installed primes â€” is idempotent, because combining a
+-- Any state law that ACCUMULATES â” observations, constraints, standpoints,
+-- congruences, installed primes â” is idempotent, because combining a
 -- datum with itself adds nothing.  lcm is idempotent for this reason and
 -- not for a reason about divisibility.  So the theorems below apply to
 -- every accumulating machine, the walk being one instance.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE THEOREM
 --
--- Let â‹† be accumulative (idempotent) and f multiplicative for it into a
+-- Let â‹ be accumulative (idempotent) and f multiplicative for it into a
 -- commutative ring.  Then f m is an idempotent of the ring, so by
 -- `IdempotenceForbidsDescent.idem-invertible-is-unit` applied to the
 -- ring's MULTIPLICATIVE monoid:
 --
 --     accumulative-unit-values-are-one :
---       f m invertible  â†’  f m â‰¡ 1r
+--       f m invertible  â’  f m â‰¡ 1r
 --
 -- No domain hypothesis.  An accumulative law admits no multiplicative
 -- function taking ANY unit value other than 1.
 --
--- Over â„¤ the units are Â±1, so:
+-- Over â the units are Â1, so:
 --
---     sign-is-not-accumulable :  Â¬ (f m â‰¡ âˆ’1)
+--     sign-is-not-accumulable :  Â (f m â‰¡ âˆ’1)
 --
 -- **Sign is not accumulable.**  Not "hard to accumulate": there is no
 -- accumulating law and no multiplicative f taking the value âˆ’1, ever.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS AND IS NOT, ABOUT THE PARITY BARRIER
 --
 -- IS: an exact statement that no weight taking a unit value other than 1
--- can be multiplicative for an accumulating state law.  Over â„¤ that rules
--- out every function attaining âˆ’1 â€” Î» everywhere, Î¼ off the squares â€”
+-- can be multiplicative for an accumulating state law.  Over â that rules
+-- out every function attaining âˆ’1 â” Î» everywhere, Î¼ off the squares â”
 -- for every accumulative law at once.  Whatever carries sign, it is not
 -- accumulation.
 --
--- IS NOT: a theorem about sieves.  The bridge â€” "a sieve's state law is
+-- IS NOT: a theorem about sieves.  The bridge â” "a sieve's state law is
 -- accumulation of congruence knowledge, and its weights would have to be
--- multiplicative for it" â€” is a MODELLING CLAIM.  It is stated here and
+-- multiplicative for it" â” is a MODELLING CLAIM.  It is stated here and
 -- proved nowhere, in this repository or (as far as this file's author
 -- established) elsewhere.  Treating the bridge as established would be
 -- exactly the error CLAUDE.md's opening paragraph is about, one level up
@@ -68,7 +68,7 @@
 -- weight is 1 wherever it is a unit, hence cannot be Î».  Both antecedents
 -- are open.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -95,12 +95,12 @@ private
 
 -- a law under which combining a datum with itself adds nothing.  This is
 -- the abstract content of "knowing twice is knowing once", and it is why
--- lcm, âˆª, âˆ§, and every observation-merge in this corpus is idempotent.
+-- lcm, âˆ, âˆ§, and every observation-merge in this corpus is idempotent.
 Accumulative : {M : Type â„“} â†’ (M â†’ M â†’ M) â†’ Type â„“
 Accumulative {M = M} _â‹†_ = (m : M) â†’ m â‹† m â‰¡ m
 
 ------------------------------------------------------------------------
--- 2.  The theorem, over any commutative ring â€” no domain hypothesis
+-- 2.  The theorem, over any commutative ring â” no domain hypothesis
 ------------------------------------------------------------------------
 
 module Weight (R : CommRing â„“) where
@@ -137,13 +137,13 @@ module Weight (R : CommRing â„“) where
       Mul.idem-invertible-is-unit (f m) (value-is-idempotent m) inv
 
 ------------------------------------------------------------------------
--- 3.  Over â„¤: sign is not accumulable
+-- 3.  Over â: sign is not accumulable
 ------------------------------------------------------------------------
 
 open Weight â„¤CommRing renaming (module Mul to â„¤Mul)
 open CommRingStr (snd â„¤CommRing) using () renaming (1r to 1â„¤)
 
--- âˆ’1 is a unit: (âˆ’1)Â·(âˆ’1) = 1, by computation
+-- âˆ’1 is a unit: (âˆ’1)Â(âˆ’1) = 1, by computation
 minusOne : â„¤
 minusOne = negsuc 0
 
@@ -172,7 +172,7 @@ sign-is-not-accumulable _â‹†_ acc f mult m h =
 -- Accumulation is idempotent because knowing twice is knowing once.  A
 -- weight multiplicative for an accumulative law is 1 wherever it is a
 -- unit.  Sign is a unit and is not 1.  Therefore no accumulating machine
--- multiplies sign â€” not the walk, not a sieve, not an observer.
+-- multiplies sign â” not the walk, not a sieve, not an observer.
 --
 -- Whether a sieve IS such a machine is the open half, and it is open.
 ------------------------------------------------------------------------

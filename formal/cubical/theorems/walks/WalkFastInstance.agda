@@ -21,7 +21,7 @@
 --
 -- Not the `with`.  `WalkFast` guessed that `with q â‰Ÿ next m` demanded the
 -- scrutinee in weak head normal form; replacing it by antisymmetry (the
--- `Â¬<â†’â‰¤` below, whose own case split is on VARIABLES) leaves the blow-up
+-- `Â<â’â‰` below, whose own case split is on VARIABLES) leaves the blow-up
 -- exactly where it was.  The culprit is in the CONVERSION CHECKER:
 --
 --   Agda 2.6.3 weak-head-normalises both sides of a conversion problem
@@ -35,15 +35,15 @@
 -- `next 8` twice".  Bisection isolated it in statements with no walk
 -- content at all: with
 --
---     Box : â„• â†’ Typeâ‚€ ;  mk : (n : â„•) â†’ Box n ;  use : Box (cap 8) â†’ â„•
+--     Box : â• â’ Typeâ ;  mk : (n : â•) â’ Box n ;  use : Box (cap 8) â’ â•
 --
 --   use x            for a bound variable x : Box (cap 8)     2.1 s
 --   use (mk (cap 8))                                          8.9 s  <- reduces
 --
--- â€” same type on both sides, same number of occurrences of `cap 8`; the
+-- â” same type on both sides, same number of occurrences of `cap 8`; the
 -- only difference is whether the second occurrence reaches the
 -- comparison as a VARIABLE or as an APPLICATION.  Leaving the numeral
--- unknown is no escape either: `use {n = _} â€¦` makes Agda report
+-- unknown is no escape either: `use {n = _} â¦` makes Agda report
 -- `lcmList-exists (range1 _n) .fst = 840`, i.e. it normalised the rigid
 -- side to the numeral before giving up on the meta.
 --
@@ -54,7 +54,7 @@
 --
 --   * `facts` packages EVERYTHING the walk knows about its answer into
 --     one value, so an instance needs exactly ONE application of a walk
---     lemma (`facts 8 1â‰¤8`) rather than three;
+--     lemma (`facts 8 1â‰8`) rather than three;
 --   * that application is bound by `let`, which makes it a variable;
 --   * `conclude` takes the walk's answer as a plain variable `n`, so the
 --     goal's `next 8` arrives as a metavariable and is solved, once, by
@@ -69,18 +69,18 @@
 --   generic machinery only, no instance                     3.0 s  ok
 --   `next 8` merely MENTIONED in a type                     3.1 s  ok
 --   `refl : next 8 â‰¡ next 8`                                3.1 s  ok
---   next-least 3 1â‰¤3   (partial application)                2.4 s  ok
---   next-least 6 1â‰¤6                                        3.9 s  ok  <- cap m
---   next-least 8 1â‰¤8                                       48 s    EXIT=251
---   next-> 8 1â‰¤8                                           19 s    EXIT=251
+--   next-least 3 1â‰3   (partial application)                2.4 s  ok
+--   next-least 6 1â‰6                                        3.9 s  ok  <- cap m
+--   next-least 8 1â‰8                                       48 s    EXIT=251
+--   next-> 8 1â‰8                                           19 s    EXIT=251
 --   next-isPP 8                                            18 s    EXIT=251
---   next-pinned 8 9 1â‰¤8 pp-9 8<9 none8  (args ALL named)   17 s    EXIT=251
---   next-characterised 8 9 1â‰¤8 pp-9 8<9 none8  (the `with`) 17 s   EXIT=251
---   conclude 8 _ 9 (facts 8 1â‰¤8) â€¦                         17 s    EXIT=251
---   with-abstraction on (facts 8 1â‰¤8)                      16 s    EXIT=251
---   F8 : Facts 8 (next 8) ; F8 = facts 8 1â‰¤8   (top level) 17 s    EXIT=251
---   let F : Facts 8 (next 8) ; F = facts 8 1â‰¤8 in â€¦        17 s    EXIT=251
---   let F = facts 8 1â‰¤8 in conclude 8 _ 9 F â€¦               2.2 s  ok
+--   next-pinned 8 9 1â‰8 pp-9 8<9 none8  (args ALL named)   17 s    EXIT=251
+--   next-characterised 8 9 1â‰8 pp-9 8<9 none8  (the `with`) 17 s   EXIT=251
+--   conclude 8 _ 9 (facts 8 1â‰8) â¦                         17 s    EXIT=251
+--   with-abstraction on (facts 8 1â‰8)                      16 s    EXIT=251
+--   F8 : Facts 8 (next 8) ; F8 = facts 8 1â‰8   (top level) 17 s    EXIT=251
+--   let F : Facts 8 (next 8) ; F = facts 8 1â‰8 in â¦        17 s    EXIT=251
+--   let F = facts 8 1â‰8 in conclude 8 _ 9 F â¦               2.2 s  ok
 --
 -- The m = 3 / 6 / 8 rows are the proof that what is being run is the walk
 -- itself: the cost tracks cap m = lcm(1..m), not the size of the answer.
@@ -99,12 +99,12 @@
 --
 -- (ii) "Inlined proof arguments get normalised in the elaboration
 --      context; name them at top level."  Not here: rows 9-11 name every
---      argument (`1â‰¤8`, `pp-9`, `8<9`, `none8` are all top-level
+--      argument (`1â‰8`, `pp-9`, `8<9`, `none8` are all top-level
 --      definitions with signatures) and still blow the heap.  Naming
 --      helps only when the named term's own SIGNATURE is cheap; `F8 :
 --      Facts 8 (next 8)` names the fact and loses, because its signature
 --      is where the second `next 8` gets built.  The rule is not "name
---      it" but "do not elaborate `next 8` twice" â€” which is why the one
+--      it" but "do not elaborate `next 8` twice" â” which is why the one
 --      binder that works is the one with no type signature to write.
 --
 -- CONTROLS.  `next 8 â‰¡ 10` by the same recipe is rejected (`10 != 9`),
@@ -124,10 +124,10 @@
 -- to read that as a typecheck verdict.  It was not one.  388 MB is not a
 -- module that OOMs a 16 GB container; it is a module that was standing next
 -- to several other agents' Agda processes when the kernel picked a victim.
--- The reported 137 is reproduced here as what it was â€” a fact about the
--- machine, at load ~4.5 â€” and is now superseded by a measured exit code.
+-- The reported 137 is reproduced here as what it was â” a fact about the
+-- machine, at load ~4.5 â” and is now superseded by a measured exit code.
 --
--- Note for anyone re-measuring: background the *binary*, not a `cd â€¦ && â€¦`
+-- Note for anyone re-measuring: background the *binary*, not a `cd â¦ && â¦`
 -- compound, or `$!` is the subshell's PID and you will meter bash at 5 MB
 -- and conclude the run was free.  I did exactly that on my first two
 -- attempts; the 388 MB above is from an `exec`ed wrapper.
@@ -141,10 +141,10 @@
 -- > confirm it exhausted a 3 GB heap after ten minutes and was killed;
 -- > the file was then committed by an over-broad `git add` glob, and a
 -- > lane index read this header and recorded WalkFast's confessed gap as
--- > CLOSED.  It is not closed. [â€¦]  Measured facts, and the only facts
+-- > CLOSED.  It is not closed. [â¦]  Measured facts, and the only facts
 -- > here: `pp-9` with the generic machinery checks in 3 s; adding
 -- > `next-8` blows the heap.  So the cost is in the APPLICATION at
--- > m = 8, not in the decision procedure â€” which refutes nothing above
+-- > m = 8, not in the decision procedure â” which refutes nothing above
 -- > and confirms nothing either.
 --
 -- That last sentence was the right measurement and it is what this
@@ -204,7 +204,7 @@ facts m 1â‰¤m = next-> m 1â‰¤m , next-isPP m , next-least m 1â‰¤m
 --
 -- `conclude` says: two "least prime power above m" descriptions of a
 -- number agree.  The walk's answer enters as the plain variable n, so a
--- client supplies the n of its own goal as a metavariable â€” solved by
+-- client supplies the n of its own goal as a metavariable â” solved by
 -- assignment, not by reduction.  Antisymmetry throughout; nothing here
 -- inspects a numeral.
 ------------------------------------------------------------------------
@@ -217,8 +217,8 @@ conclude m n q (m<n , ippn , leastn) ippq m<q none =
             (Â¬<â†’â‰¤ q n (Î» n<q â†’ none n m<n n<q ippn))
 
 -- The exchange rate in the shape `WalkFast` states it: cheap to prove,
--- because m is a variable, and USELESS TO APPLY at a numeral â€”
--- `next-pinned 8 9 â€¦` puts a freshly built `next 8` opposite the goal's
+-- because m is a variable, and USELESS TO APPLY at a numeral â”
+-- `next-pinned 8 9 â¦` puts a freshly built `next 8` opposite the goal's
 -- and runs the walk (17 s to heap exhaustion, row 9 of the log above).
 -- The instances in Â§5 go through `conclude` and a `let` instead.  Kept
 -- because it is the statement the surrounding notes quote.
@@ -279,10 +279,10 @@ none10 = noneIn 10 0 (Î» i i<0 â†’ Empty.rec (Â¬-<-zero i<0))
 ------------------------------------------------------------------------
 -- 5.  THE INSTANCES.  cap m = e^{Ïˆ(m)} is never touched.
 --
--- Read the `let` as the point of the file.  `facts m 1â‰¤m` is the single
+-- Read the `let` as the point of the file.  `facts m 1â‰m` is the single
 -- application that mentions the walk; binding it makes it a variable,
 -- and the `_` is the goal's own `next m` arriving by assignment.  Write
--- `conclude m (next m) q (facts m 1â‰¤m) â€¦` instead, inlining the `let`,
+-- `conclude m (next m) q (facts m 1â‰m) â¦` instead, inlining the `let`,
 -- and the same proof exhausts the heap.
 ------------------------------------------------------------------------
 

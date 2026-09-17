@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- धन-विभेद — the positive cone does not separate.
+-- ��-����� � the positive cone does not separate.
 --
 -- A theorem that an observation kernel contains no nonzero POSITIVE
 -- element says every positive defect is detected relative to zero.  It
 -- does not say two positive defects are told apart: for that the
 -- kernel must miss every DIFFERENCE of cone elements, and differences
 -- of positive semidefinite stresses fill the whole symmetric space.
--- The distinction is exact and elementary, and Navier–Stokes realises
--- it: two globally smooth solutions u^σ, σ = ±1, with identical coarse
+-- The distinction is exact and elementary, and Navier�Stokes realises
+-- it: two globally smooth solutions u^�, � = �1, with identical coarse
 -- velocity, pressure, positive energy reading and resolved flux at an
--- instant, whose resolved stresses R^σ are both positive semidefinite,
--- differ by an indefinite secant R⁺ − R⁻ that the coarse momentum
--- equation feels — ∂_t U^σ(0) = (σA²/2) e₃ sin x₂ — and one resolved
--- continuation test w = e₃ sin x₂ reads the sign.
+-- instant, whose resolved stresses R^� are both positive semidefinite,
+-- differ by an indefinite secant R� − R� that the coarse momentum
+-- equation feels � �_t U^�(0) = (�A²/2) e� sin x� � and one resolved
+-- continuation test w = e� sin x� reads the sign.
 --
 --   §1  THE CRITERION.  For an observer O on a group that respects
 --       differences, injectivity on a subset C is exactly the vanishing
@@ -22,8 +22,8 @@
 --       weaker statement with C in place of C − C.
 --   §2  THE WITNESS, at the level of coefficients.  A stress is a pair
 --       (trace coefficient , cross coefficient); the energy observer
---       reads the trace; the cone is trace ≥ |cross|.  The kernel meets
---       the cone only at zero — every positive defect is detected — yet
+--       reads the trace; the cone is trace � |cross|.  The kernel meets
+--       the cone only at zero � every positive defect is detected � yet
 --       (1 , 1) and (1 , −1) are both in the cone, observed alike, and
 --       their difference (0 , 2) is in the kernel and outside the cone.
 --       The continuation receiver reads the cross coefficient and
@@ -31,12 +31,12 @@
 --   §3  NON-DESCENT.  By SankramanaShreni's localization the receiver
 --       does not factor through the observation: the fibre over the
 --       common reading has explicit distinct witnesses.  This is the
---       error a singularity-exclusion argument must avoid — a
+--       error a singularity-exclusion argument must avoid � a
 --       positive-kernel theorem cannot be promoted to continuation
 --       faithfulness.
 --
--- धन (dhana, positive) and विभेद (vibheda, distinction) are ordinary
--- Sanskrit.
+-- �� (dhana, positive) and ����� (vibheda, distinction) are ordinary
+-- .
 ------------------------------------------------------------------------
 
 module DhanaVibheda_DetectingEveryPositiveDefectDoesNotDistinguishTwoPositiveDefectsSoAnObserverInjectiveOnAConeNeedsTheDifferenceKernelToVanish where
@@ -60,7 +60,7 @@ private
     ℓ ℓ′ ℓc : Level
 
 ------------------------------------------------------------------------
--- १ · Injective on C  ⇔  the kernel misses C − C.
+-- � � Injective on C  �  the kernel misses C − C.
 ------------------------------------------------------------------------
 
 module _ (V : Group ℓ) (W : Group ℓ′) where
@@ -91,7 +91,7 @@ module _ (V : Group ℓ) (W : Group ℓ′) where
     Dhana-śūnya : Type (ℓ-max (ℓ-max ℓ ℓ′) ℓc)
     Dhana-śūnya = (x : ⟨ V ⟩) → C x → O x ≡ W.1g → x ≡ V.1g
 
-    -- x − y ≡ 1 ⇒ x ≡ y, and back
+    -- x − y ≡ 1 � x ≡ y, and back
     diff-unit→eq : (x y : ⟨ V ⟩) → x − y ≡ V.1g → x ≡ y
     diff-unit→eq x y p =
         sym (V.·IdR x)
@@ -103,7 +103,7 @@ module _ (V : Group ℓ) (W : Group ℓ′) where
     eq→diff-unit : (x y : ⟨ V ⟩) → x ≡ y → x − y ≡ V.1g
     eq→diff-unit x y p = cong (V._· V.inv y) p ∙ V.·InvR y
 
-    -- O x ≡ O y ⇒ O (x − y) ≡ 1, and back
+    -- O x ≡ O y � O (x − y) ≡ 1, and back
     obs-eq→diff-ker : (x y : ⟨ V ⟩) → O x ≡ O y → O (x − y) ≡ W.1g
     obs-eq→diff-ker x y p = O-diff x y ∙ cong (W._· W.inv (O y)) p ∙ W.·InvR (O y)
 
@@ -125,7 +125,7 @@ module _ (V : Group ℓ) (W : Group ℓ′) where
       diff-unit→eq x y (sep x y cx cy (obs-eq→diff-ker x y e))
 
 ------------------------------------------------------------------------
--- २ · The witness: two positive stresses the energy reading cannot tell apart.
+-- � � The witness: two positive stresses the energy reading cannot tell apart.
 ------------------------------------------------------------------------
 
 -- a stress, at the level of coefficients: (trace , cross)
@@ -140,7 +140,7 @@ Stress = ℤ × ℤ
 pratigrāha : Stress → ℤ
 pratigrāha (_ , c) = c
 
--- the two resolved stresses R^σ, σ = ±1, in units of A²/2 … with A² = 2
+-- the two resolved stresses R^�, � = �1, in units of A²/2 � with A² = 2
 R⁺ R⁻ : Stress
 R⁺ = pos 1 , pos 1
 R⁻ = pos 1 , negsuc 0
@@ -165,10 +165,10 @@ R⁺≢R⁻ : ¬ (R⁺ ≡ R⁻)
 R⁺≢R⁻ p = bhinna-grāha (cong pratigrāha p)
 
 ------------------------------------------------------------------------
--- ३ · Non-descent: the receiver does not factor through the energy reading.
+-- � � Non-descent: the receiver does not factor through the energy reading.
 ------------------------------------------------------------------------
 
--- cost the receiver as a natural number: 1 on the σ = + stress, 0 on σ = −
+-- cost the receiver as a natural number: 1 on the � = + stress, 0 on � = −
 mūlya : Stress → ℕ
 mūlya (_ , pos _)    = suc zero
 mūlya (_ , negsuc _) = zero

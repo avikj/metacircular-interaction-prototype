@@ -1,6 +1,6 @@
 # Lossless interaction, observation, and exact geodesics
 
-Persistent theorem ledger / transcription handoff â€” 2026-09-16, revision 3.
+Persistent theorem ledger / transcription handoff â” 2026-09-16, revision 3.
 
 ## Working edge and evidence convention
 
@@ -16,33 +16,33 @@ The principal completed result of this revision is G3: the rope transformation b
 
 All paths below are relative to the repository root at the snapshot above. These are source anchors, not assertions that every sentence in a module's explanatory header is a checked theorem.
 
-**S1 â€” forced completion.** `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
+**S1 â” forced completion.** `fibre/src/Fibre/Trace_TheTraceFamilyIsForcedToBeTheFibreAndTheCarrierIsItsContractibleCase.agda`: `Conservative`, `fiberize`, `canonical`, `fibre-of-run`, `trace-is-forced`, `canonical-run`, `canonical-recovers`.
 
-**S2 â€” classifier.** `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisibleâ‰ƒcontractible`, finite tower flattening. The classifier is universal at the stated universe levels; it is not an assertion that inequivalent types become equal or that encodings preserve operational cost without structure.
+**S2 â” classifier.** `fibre/src/Fibre/Visvarupa_EveryFamilyIsAPullbackOfTheUniverseAndTheTowerFlattensToOne.agda`: universal family, canonical pullback, classifier, `invisibleâ‰contractible`, finite tower flattening. The classifier is universal at the stated universe levels; it is not an assertion that inequivalent types become equal or that encodings preserve operational cost without structure.
 
-**S3 â€” truncation fibre.** `fibre/src/Fibre/Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.agda`: `à¤…à¤µà¤šà¥à¤›à¥‡à¤¦à¤ƒ` (avaccheda), explicitly `fiber |_| p â‰ƒ A`.
+**S3 â” truncation fibre.** `fibre/src/Fibre/Avaccheda_TheTruncationsFibreIsTheWholeSourceSoTheSeamConjectureIsATheorem.agda`: `ààµààààà¦à` (avaccheda), explicitly `fiber |_| p â‰ A`.
 
-**S4 â€” composite fibre.** `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`: `à¤¸à¤‚à¤¯à¥‹à¤—à¤¶à¥‡à¤·` (samyoga-sesa), the fibre-of-composite equivalence.
+**S4 â” composite fibre.** `punaragamana/src/Punaragamana/SamyogaSesa_TheResidualOfACompositeIsTheResidualOfTheResidual.agda`: `ààà¯à‹à—ààà` (samyoga-sesa), the fibre-of-composite equivalence.
 
-**S5 â€” coinductive histories.** `formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`. The last theorem is a sufficient condition, not an unrestricted iff about every state in every interaction.
+**S5 â” coinductive histories.** `formal/cubical/theorems/residue/Prasna_TheMachineThatAsksItsRunIsItsAnswerStreamAndSilenceOfQuestionsIsDeterminism.agda`: `Interaction`, `IExec`, `Answers`, `forgetStates`, `replay`, `run-is-answers`, `silence-is-determinism`. The last theorem is a sufficient condition, not an unrestricted iff about every state in every interaction.
 
-**S6 â€” interactive coalgebra.** `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`: `ISC.react`, `det-observe`, `det-strategy-independent`, `counter-demand-matters`.
+**S6 â” interactive coalgebra.** `fibre/src/Fibre/Samvada_TheOrbitIsTheOneQueryCaseOfTheInteractiveCoalgebraAndTheDemandIsWhatDiffers.agda`: `ISC.react`, `det-observe`, `det-strategy-independent`, `counter-demand-matters`.
 
-**S7 â€” the crossing equations.** `formal/cubical/theorems/physics/AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`: `Rajju`, `saá¹ƒyoga`, `veá¹‡Ä«âˆž`, `veá¹‡Ä«-sÅ«tra`, `dÅ«ra-sÅ«tra`.
+**S7 â” the crossing equations.** `formal/cubical/theorems/physics/AnantaVeni_TheInfiniteBraidActsOnTheInterdependentStreamAndEveryRelationOfEveryBraidGroupHoldsAtOnce.agda`: `Rajju`, `sayoga`, `veâˆž`, `ve-stra`, `dra-stra`.
 
-**S8 â€” prefix locality.** `formal/cubical/theorems/physics/SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`: `kartana`, `kartana-hrÄsa`, `veá¹‡Ä«-sthairya`, `Å›abda-sthairya`, `catur-sthairya`.
+**S8 â” prefix locality.** `formal/cubical/theorems/physics/SthairyaSutra_EveryCrossingIsOneLipschitzWithUnitLookaheadSoEveryWordIsUniformlyContinuousWithModulusItsLength.agda`: `kartana`, `kartana-hrsa`, `ve-sthairya`, `abda-sthairya`, `catur-sthairya`.
 
-**S9 â€” finite order.** `formal/cubical/theorems/physics/AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.agda`: `gÄá¸ha`, off-pair locality, `aá¹£á¹­a-cakraâˆž`, `na-catuá¹£kaâˆž`. Quarter-turn identities are imported there from `CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare`.
+**S9 â” finite order.** `formal/cubical/theorems/physics/AnantaVeniMatra_EveryCrossingIsLocalAndHasOrderExactlyEightAtEveryPositionOfTheEndlessBraid.agda`: `gha`, off-pair locality, `aa-cakraâˆž`, `na-catukaâˆž`. Quarter-turn identities are imported there from `CaturamsaBhramana_TheQuarterWaveLivesOnlyOnTheInterdependentPairAndEachSenseCarriesExactlyItsSquare`.
 
-**S10 â€” grading versus inverse.** `formal/cubical/theorems/grammar/Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda`: `Matra` is an exactly additive natural-valued grading; `Laghava` additionally detects the unit. Read those fields, not an unrestricted interpretation of the title.
+**S10 â” grading versus inverse.** `formal/cubical/theorems/grammar/Laghava_TheCostAndTheInverseCannotCoexistSoNoNontrivialGroupIsGradedAndTransportHasNoPrice.agda`: `Matra` is an exactly additive natural-valued grading; `Laghava` additionally detects the unit. Read those fields, not an unrestricted interpretation of the title.
 
-**S11 â€” reconstruction direction.** `formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda`: `à¤¨à¤¿à¤°à¥à¤¦à¥‡à¤¶à¤¾à¤¨à¥à¤¤à¤°` is a path of structured systems; `à¤ªà¥à¤¨à¤°à¥à¤¦à¥à¤§à¤¾à¤°-à¤¨à¤¾à¤¸à¥à¤¤à¤¿` refutes `sel(|r|)=r`, a LEFT inverse of truncation. Its type does not refute selecting any one representative of an inhabited fibre.
+**S11 â” reconstruction direction.** `formal/cubical/theorems/logic/NKSUnivalence_CoordinatizationIsAPathTheMergeIsATruncationWithNoSectionAndTheBoundedObserverSeparatesNoCoTerminalRuns.agda`: `à¨à¿à°àà¦ààà¾à¨ààà°` is a path of structured systems; `ààà¨à°àà¦àà§à¾à°-à¨à¾àààà¿` refutes `sel(|r|)=r`, a LEFT inverse of truncation. Its type does not refute selecting any one representative of an inhabited fibre.
 
-**S12 â€” sections.** `formal/cubical/theorems/physics/Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.agda`: the type `(b:B) -> fiber f b`, contractible for an equivalence, with two distinct sections of Bool -> Unit.
+**S12 â” sections.** `formal/cubical/theorems/physics/Varanam_ASectionIsAChoiceOfReceiptEverywhereAndForALossyMapTheChoiceIsReal.agda`: the type `(b:B) -> fiber f b`, contractible for an equivalence, with two distinct sections of Bool -> Unit.
 
-**S13 â€” uniqueness, not a time bound.** `formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`: propositional fibres identify any two hits. Its closing scope note explicitly says that no notion of algorithm, cost, or decidability is proved there.
+**S13 â” uniqueness, not a time bound.** `formal/cubical/theorems/residue/Anveshana_TheMiddleGradeIsWhereAnAlgorithmHasContentBecauseUniquenessIsFreeAndExistenceIsTheWork.agda`: propositional fibres identify any two hits. Its closing scope note explicitly says that no notion of algorithm, cost, or decidability is proved there.
 
-**S14 â€” native work discipline.** `formal/cubical/theorems/cost/CountedDigitsEdge.agda`: cost is threaded through the execution being priced; an exact carry identity relates the count to the same recursion. This is a concrete implementation result, not a universal optimality theorem.
+**S14 â” native work discipline.** `formal/cubical/theorems/cost/CountedDigitsEdge.agda`: cost is threaded through the execution being priced; an exact carry identity relates the count to the same recursion. This is a concrete implementation result, not a universal optimality theorem.
 
 ## A. The dependent object, without complexity being smuggled into its formation
 

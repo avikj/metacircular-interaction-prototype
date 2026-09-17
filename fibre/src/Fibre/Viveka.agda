@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- विवेक -- the arithmetic instance.
+-- ������ -- the arithmetic instance.
 --
--- विवेक = Carrier योग  where  योग (s , l) = s + l.
+-- ������ = Carrier �����  where  ����� (s , l) = s + l.
 --
--- The fibre Σ[ r ∈ ℕ ] (s + l ≡ r) is singl (s + l), contractible.
--- That is why (ℕ × ℕ) ≃ विवेक.  It is also the constraint: a record
--- carrying anything NOT determined by (सम , वाम) would not be
--- equivalent to ℕ × ℕ at all.
+-- The fibre �[ r ∈ � ] (s + l ≡ r) is singl (s + l), contractible.
+-- That is why (� � �) � ������.  It is also the constraint: a record
+-- carrying anything NOT determined by (�� , ���) would not be
+-- equivalent to � � � at all.
 ------------------------------------------------------------------------
 
 module Fibre.Viveka where
@@ -50,7 +50,7 @@ open import Fibre.Nucleus
 दक्षिण-क्षेत्र-सम्पूर्ण : (s l : ℕ) → isContr (दक्षिण-क्षेत्र s l)
 दक्षिण-क्षेत्र-सम्पूर्ण s l = isContrSingl (s + l)
 
--- pair ↔ विवेक
+-- pair � ������
 अवतरण : ℕ × ℕ → विवेक
 अवतरण = descend योग
 
@@ -108,7 +108,7 @@ open import Fibre.Nucleus
 Φ-परिवहन : (x : ℕ × ℕ) → परिवहन (Φ x) ≡ Φ-विवेक (अवतरण x)
 Φ-परिवहन = Φ-transport योग Φ
 
--- जाल, the orbit
+-- ���, the orbit
 जाल : Type
 जाल = Orbit विवेक
 

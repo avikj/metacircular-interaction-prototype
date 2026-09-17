@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç ‚Äî the witness.  RECEIPTED ANSWERS COLLAPSE EVERY QUESTION
+-- ‡‡æ‡ï‡‡‡ø‡®‡ ‚î the witness.  RECEIPTED ANSWERS COLLAPSE EVERY QUESTION
 -- ALPHABET: FREEDOM LIVES ONLY IN THE UNWITNESSED EVENT.
 --
 -- Prashna proved the deterministic collapse for the trivial question
 -- and showed a free event opens the space.  This file proves the
 -- sharp general form of the collapse: for ANY question alphabet Q and
--- ANY answer function act : Machine ‚Üí Q ‚Üí Machine, the interactive
+-- ANY answer function act : Machine ‚í Q ‚í Machine, the interactive
 -- machine whose events are receipts,
 --
 --     E s q s'  =  (act s q ‚â° s'),
 --
 -- has a contractible behavior space at every state
--- (`receipts-collapse`).  The environment may ask anything ‚Äî steer
--- the head, choose among finitely or infinitely many probes ‚Äî and
+-- (`receipts-collapse`).  The environment may ask anything ‚î steer
+-- the head, choose among finitely or infinitely many probes ‚î and
 -- the space of everything the machine could be remains a single
 -- point, because every answer carries the witness that it is THE
 -- answer.  Interactivity of questions creates no indeterminacy;

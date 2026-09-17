@@ -40,7 +40,7 @@ revD (done x)        = done x
 revD (then-step s d) = revD d ++ then-step (reverse s) (done _)
 
 -- GRADE-PRESERVING : the inverse has exactly the same length. Reversing a
--- route costs what the route cost — no information created or destroyed.
+-- route costs what the route cost � no information created or destroyed.
 len-revD : {a b : Tm} (d : Derivation a b) → len (revD d) ≡ len d
 len-revD (done _) = refl
 len-revD (then-step s d) =
@@ -50,8 +50,8 @@ len-revD (then-step s d) =
   ∙ cong suc (+-zero (len d))
 
 -- SEMANTICALLY THE INVERSE : the reversed derivation's meaning is the
--- inverse path. Robust because meaning lands in ℕ (a set): the two paths
--- eval b ρ ≡ eval a ρ are forced equal.
+-- inverse path. Robust because meaning lands in � (a set): the two paths
+-- eval b � ≡ eval a � are forced equal.
 revD-sound : {a b : Tm} (d : Derivation a b) (ρ : Env)
            → derivation-sound (revD d) ρ ≡ sym (derivation-sound d ρ)
 revD-sound {a} {b} d ρ =

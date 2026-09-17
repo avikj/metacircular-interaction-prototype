@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- CompressionDefect
 --
--- DELTA 18 T18.4–T18.6: THE EXCURSION–RETURN DEFECT.
+-- DELTA 18 T18.4�T18.6: THE EXCURSION�RETURN DEFECT.
 --
 -- Delta 18's own verdict on the preceding deltas is that the common
 -- object "is no longer parity", it is
@@ -17,12 +17,12 @@
 -- term.
 --
 --     K_t = P T_t i,   Q = I − iP,   P i = id_S
---     ⟹   K_t K_s − K_{t+s}  =  − P T_t Q T_s i.
+--     �   K_t K_s − K_{t+s}  =  − P T_t Q T_s i.
 --
 -- It subsumes the sector material of the earlier deltas: Delta 15's
 -- structured defect says *whether* a selected sector is preserved,
 -- Delta 14's `SectorBreak` exhibits a witness when it is not, and this
--- says *what the failure costs dynamically* — the defect is not lost
+-- says *what the failure costs dynamically* � the defect is not lost
 -- information, it is *leave the sector, evolve outside, return*.
 --
 --
@@ -31,7 +31,7 @@
 -- The natural home is `End(U)`, which is not commutative, so
 -- `Cubical.Tactics.CommRingSolver` is unavailable and every step below
 -- is by hand from the ring axioms.  Using a `CommRing` to get the solver
--- would have been faster and would have proved a different theorem —
+-- would have been faster and would have proved a different theorem �
 -- operators do not commute, and the whole content of T18.4 is an
 -- ordering of `T_t`, `Q`, `T_s`.
 --
@@ -44,13 +44,13 @@
 -- WHAT IS CHECKED
 --
 --   §1  the setting: a ring, an idempotent `e = iP`, its complement `q`,
---       and a semigroup `T : ℕ → A` with `T t · T s ≡ T (t +ℕ s)`.
+--       and a semigroup `T : � � A` with `T t � T s ≡ T (t +� s)`.
 --
 --   §2  `compression-defect`   **T18.4**, exactly as stated.
 --       `defect`               the defect term named, so it can be
 --                              quoted and so §3 can say what vanishes.
 --
---   §3  `defect0→semigroup`    the corollary Delta 18 draws: `K` is a
+--   §3  `defect0�semigroup`    the corollary Delta 18 draws: `K` is a
 --                              semigroup as soon as the defect vanishes.
 --                              (Only this direction; see below.)
 --
@@ -62,7 +62,7 @@
 --                              arbitrary observation family, since that
 --                              is the generality it holds in.
 --
---   §5  `sufficient→indist`    **T18.5**, the usable half: if the
+--   §5  `sufficient�indist`    **T18.5**, the usable half: if the
 --                              discarded component never returns to
 --                              observation, states differing only in it
 --                              are indistinguishable forever.
@@ -72,27 +72,27 @@
 --    when": `K` is a semigroup iff every excursion has zero return
 --    amplitude.  The converse requires cancelling `K_{t+s}` from both
 --    sides, which is available in a ring, but the resulting statement is
---    "the defect is 0" — the same thing — rather than anything about
+--    "the defect is 0" � the same thing � rather than anything about
 --    excursions.  The excursion reading is prose; only the algebra is
 --    checked.
 --
---  * **No arithmetic instance.**  Delta 18's three targets — the
+--  * **No arithmetic instance.**  Delta 18's three targets � the
 --    charge-one block operator (T18.7), the half-line Toeplitz/Hankel
---    compression, and Buchstab-in-the-Bruhat–Tits-tree — are exactly the
+--    compression, and Buchstab-in-the-Bruhat�Tits-tree � are exactly the
 --    point of the theorem and **not one of them is here**.  T18.7 in
 --    particular is stated by Delta 18 as an iff about vanishing of
 --    off-sector excursion-return contributions, which is §2 instantiated;
 --    instantiating it needs the library's `M^{(h)}` matrices, which this
 --    file does not have.
 --
---  * **Nothing from Delta 18's SU(1,1) sections.**  T18.1 (x = tanh η)
---    and T18.2 (the sum-gap reflection acts by x ↦ 1/x, NOT the Weyl
---    x ↦ −x) are corrections to earlier language and are *analytic*
+--  * **Nothing from Delta 18's SU(1,1) sections.**  T18.1 (x = tanh �)
+--    and T18.2 (the sum-gap reflection acts by x � 1/x, NOT the Weyl
+--    x � −x) are corrections to earlier language and are *analytic*
 --    statements about positive reals; they belong with the Hahn/Meixner
 --    material, not here.  T18.2 is consistent with what
---    `CenterRelativeIntegral.J₂-negates-Q` already checks — with
---    W = p+q, R = q−p, the map (p,q) ↦ (p,−q) sends (W,R) ↦ (−R,−W),
---    hence x = R/W ↦ 1/x — but the ratio-level statement needs division
+--    `CenterRelativeIntegral.J�-negates-Q` already checks � with
+--    W = p+q, R = q−p, the map (p,q) � (p,−q) sends (W,R) � (−R,−W),
+--    hence x = R/W � 1/x � but the ratio-level statement needs division
 --    and is not proved here.
 --
 --  * **Not novel, and Delta 18 says so first**: "This is standard
@@ -117,7 +117,7 @@ private
 -- 1.  The setting.
 --
 --   `e`  is `i ∘ P` : the idempotent that projects onto the retained
---        sector and includes it back.  `P i = id_S` is exactly `e·e ≡ e`.
+--        sector and includes it back.  `P i = id_S` is exactly `e�e ≡ e`.
 --   `q`  is the complement, `Q = I − iP`, given by `e + q ≡ 1r`.
 --   `T`  is the ambient dynamics, a semigroup.
 ------------------------------------------------------------------------
@@ -151,7 +151,7 @@ module _ (A : Ring ℓ) where
      ∙ +Assoc x y (- y)
      ∙ cong (_- y) p
 
-   -- `e · b ≡ b − q · b`, the one place `e + q ≡ 1r` is used.
+   -- `e � b ≡ b − q � b`, the one place `e + q ≡ 1r` is used.
    split : (b : ⟨ A ⟩) → e · b ≡ b - (q · b)
    split b =
      sub-lemma (e · b) (q · b) b
@@ -164,13 +164,13 @@ module _ (A : Ring ℓ) where
   compression-defect :
     (t s : ℕ) → K t · K s ≡ K (t +ℕ s) - defect t s
   compression-defect t s =
-      -- re-bracket the right factor first: K s is `(e · T s) · e`, and
-      -- what the chain needs is `e · (T s · e)`.
+      -- re-bracket the right factor first: K s is `(e � T s) � e`, and
+      -- what the chain needs is `e � (T s � e)`.
       cong (K t ·_) (sym (·Assoc e (T s) e))
-      -- (e T_t e)(e (T_s e)) = (e T_t) (e (e (T_s e)))  … re-bracket
+      -- (e T_t e)(e (T_s e)) = (e T_t) (e (e (T_s e)))  � re-bracket
     ∙ sym (·Assoc (e · T t) e (e · (T s · e)))
     ∙ cong ((e · T t) ·_) (·Assoc e e (T s · e))
-      -- … and `e·e ≡ e` collapses the middle
+      -- � and `e�e ≡ e` collapses the middle
     ∙ cong (λ z → (e · T t) · (z · (T s · e))) eIdem
       -- now split `e` against the complement
     ∙ cong ((e · T t) ·_) (split (T s · e))
@@ -200,14 +200,14 @@ module _ (A : Ring ℓ) where
     ∙ cong (λ z → K (t +ℕ s) - z) (h t s)
     -- `0Selfinverse` is the LIBRARY's (`Cubical.Algebra.Ring.Properties`
     -- `RingTheory`).  A first draft defined it locally and Agda rejected
-    -- the duplicate — the second time in two files today, after
+    -- the duplicate � the second time in two files today, after
     -- `DefectCalculus` did the same with `invEquiv-is-rinv`.  Two for two
     -- is not bad luck; it is the standing rule earning itself.
     ∙ cong (K (t +ℕ s) +_) 0Selfinverse
     ∙ +IdR (K (t +ℕ s))
 
 ------------------------------------------------------------------------
--- 4.  T18.6 — the observability kernel.
+-- 4.  T18.6 � the observability kernel.
 --
 -- Delta 18: "the right observer equivalence is not instantaneous
 -- equality P x = P y but  x ~ y iff P T_t x = P T_t y for all future t",
@@ -252,12 +252,12 @@ module Observability {X : Type ℓ} {Y : Type ℓ'} (obs : ℕ → X → Y) wher
 -- 5.  T18.5, the usable half.
 --
 -- If two states are already indistinguishable at every future time then
--- discarding what separates them is dynamically sufficient — nothing
+-- discarding what separates them is dynamically sufficient � nothing
 -- eliminated can ever affect a future observation.  This is the
 -- direction that licenses forgetting.
 --
--- The CONVERSE — that a nonzero `P T_t Q` produces a witness that WILL
--- change a future observation — is not proved; see the header.  It is
+-- The CONVERSE � that a nonzero `P T_t Q` produces a witness that WILL
+-- change a future observation � is not proved; see the header.  It is
 -- the direction a lane claiming an obstruction would actually need.
 ------------------------------------------------------------------------
 

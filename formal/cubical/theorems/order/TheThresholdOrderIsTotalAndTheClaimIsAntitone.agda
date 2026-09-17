@@ -15,18 +15,18 @@
 -- populations and state the threshold family.  A rate claim at p/(suc q)
 -- is
 --
---   AtLeast p q bs  =  p Â· length bs â‰¤ suc q Â· count bs
+--   AtLeast p q bs  =  p Â length bs â‰ suc q Â count bs
 --
--- -- no division, so nothing leaves â„•, and the denominator is `suc q`
+-- -- no division, so nothing leaves â•, and the denominator is `suc q`
 -- because a threshold with denominator zero is not a threshold.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   Â·sk-cancel-â‰¤     a positive factor cancels on the right of â‰¤
---                    (cubical v0.5 ships â‰¤-Â·k and <-Â·sk but no
---                     cancellation; this derives it from splitâ„•-â‰¤)
---   âŠ‘-total          ANY two thresholds are comparable, by cross
+--   Âsk-cancel-â‰     a positive factor cancels on the right of â‰
+--                    (cubical v0.5 ships â‰-Âk and <-Âsk but no
+--                     cancellation; this derives it from splitâ•-â‰)
+--   âŠ-total          ANY two thresholds are comparable, by cross
 --                    multiplication -- the thresholds are a CHAIN
 --   atLeastAntitone  and the claim is antitone along it: a lower
 --                    threshold is implied by a higher one, for EVERY
@@ -77,11 +77,11 @@ swapEnds : (a b c : â„•) â†’ (a Â· b) Â· c â‰¡ (c Â· b) Â· a
 swapEnds a b c =
   Â·-comm (a Â· b) c âˆ™ cong (c Â·_) (Â·-comm a b) âˆ™ Â·-assoc c b a
 
--- cubical v0.5's `Cubical.Data.Nat.Order` has â‰¤-Â·k (multiply) and <-Â·sk
+-- cubical v0.5's `Cubical.Data.Nat.Order` has â‰-Âk (multiply) and <-Âsk
 -- (multiply, strictly, by a positive) but nothing that divides one out.
--- `splitâ„•-â‰¤` supplies the missing case split; `<-asym` kills the wrong
+-- `splitâ•-â‰` supplies the missing case split; `<-asym` kills the wrong
 -- branch.  This is the only place below where a decision is used, and
--- it is a decision about â„•, not about the population.
+-- it is a decision about â•, not about the population.
 Â·sk-cancel-â‰¤ : {m n : â„•} (k : â„•) â†’ m Â· suc k â‰¤ n Â· suc k â†’ m â‰¤ n
 Â·sk-cancel-â‰¤ {m} {n} k h with splitâ„•-â‰¤ m n
 ... | inl p = p
@@ -98,7 +98,7 @@ swapEnds a b c =
 AtLeast : â„• â†’ â„• â†’ List Bool â†’ Type
 AtLeast p q bs = p Â· length bs â‰¤ suc q Â· count bs
 
--- (p , q) âŠ‘ (p' , q') reads "p/(suc q) is no larger than p'/(suc q')",
+-- (p , q) âŠ (p' , q') reads "p/(suc q) is no larger than p'/(suc q')",
 -- again by cross multiplication.
 _âŠ‘_ : â„• Ã— â„• â†’ â„• Ã— â„• â†’ Type
 (p , q) âŠ‘ (p' , q') = p Â· suc q' â‰¤ p' Â· suc q
@@ -116,7 +116,7 @@ _âŠ‘_ : â„• Ã— â„• â†’ â„• Ã— â„• â†’ Type
 ------------------------------------------------------------------------
 -- 3.  The claim is antitone along the chain
 --
--- Higher threshold â‡’ lower threshold, for EVERY population at once.
+-- Higher threshold â’ lower threshold, for EVERY population at once.
 -- The proof multiplies the goal by the positive denominator `suc q'`,
 -- rearranges twice, and cancels it again.
 ------------------------------------------------------------------------
@@ -182,16 +182,16 @@ thresholdOneFromAll bs a =
 ------------------------------------------------------------------------
 -- 5.  What Â§3 and Â§4 give together
 --
--- Every threshold p/(suc q) with (p , q) âŠ‘ (1 , 0) is implied by the
+-- Every threshold p/(suc q) with (p , q) âŠ (1 , 0) is implied by the
 -- universal claim, uniformly in the population: `atLeastAntitone`
 -- applied to `thresholdOneFromAll`.  So the label is not a different
 -- KIND of criterion from a rate criterion -- it is the maximum of a
--- chain that âŠ‘-total shows is a chain, and every weaker rate claim is
+-- chain that âŠ-total shows is a chain, and every weaker rate claim is
 -- one instance of one theorem below it.
 --
 -- The converse direction is exactly what fails, and the previous
 -- module's `majorityWithoutAll` is a witness that it fails: a
--- population at 2/3 satisfies every threshold âŠ‘ (2 , 2) and refutes the
+-- population at 2/3 satisfies every threshold âŠ (2 , 2) and refutes the
 -- top.  Nothing here weakens that; Â§3 is one-directional by
 -- construction.
 ------------------------------------------------------------------------
@@ -208,27 +208,27 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- line above.  The NOT-CLAIMED section says:
 --
 --   "STRICT thresholds (the `Majority` of the previous module is
---    strict: length < 2 Â· count) are NOT in this family; `AtLeast 1 1`
+--    strict: length < 2 Â count) are NOT in this family; `AtLeast 1 1`
 --    is the non-strict 'at least half', which is weaker, and the
 --    strict/non-strict gap is not analysed."
 --
 -- Analysed now, in
 -- `TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
---   Above p q bs = p Â· length bs < suc q Â· count bs
+--   Above p q bs = p Â length bs < suc q Â count bs
 --
---   Â·sk-cancel-<     the strict counterpart of Â§1's cancellation
---   aboveAntitone    the strict family is antitone along THE SAME âŠ‘
---   aboveGivesAtLeast     strict â‡’ non-strict at each threshold
+--   Âsk-cancel-<     the strict counterpart of Â§1's cancellation
+--   aboveAntitone    the strict family is antitone along THE SAME âŠ
+--   aboveGivesAtLeast     strict â’ non-strict at each threshold
 --   majorityIsAboveHalf   the earlier `Majority` IS `Above 1 1`
 --   atLeastWithoutAbove   and the converse fails, at one population
 --
 -- What that says about Â§2 is worth recording here, because it is a
--- property of the DEFINITION above rather than of the new module: `âŠ‘`
+-- property of the DEFINITION above rather than of the new module: `âŠ`
 -- was stated on thresholds alone, with no population in it, so a second
--- claim-family over the same thresholds inherits `âŠ‘-total` for free.
+-- claim-family over the same thresholds inherits `âŠ-total` for free.
 -- There is no second order and no second totality theorem.  What
 -- separates the two families is not their ordering but their verdict at
 -- a population sitting exactly ON a threshold.
@@ -240,36 +240,36 @@ universalImpliesEveryLowerThreshold p q bs cross a =
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  THIS ONE IS A CORRECTION, not an extension.
 --
--- Â§2 proves `âŠ‘-refl` and `âŠ‘-total` and stops.  Every note and commit
--- message downstream of it â€” including this module's own commit â€” has
--- called âŠ‘ a "total preorder".  TRANSITIVITY WAS NEVER PROVED HERE.
+-- Â§2 proves `âŠ-refl` and `âŠ-total` and stops.  Every note and commit
+-- message downstream of it â” including this module's own commit â” has
+-- called âŠ a "total preorder".  TRANSITIVITY WAS NEVER PROVED HERE.
 -- Reflexive + total is not a preorder, and the word was doing work it
 -- had not earned.
 --
 -- The law is now proved, in
 -- `WhichThresholdStatementsDescendToTheRate`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so):
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so):
 --
---   âŠ‘-trans : (a b c) â†’ a âŠ‘ b â†’ b âŠ‘ c â†’ a âŠ‘ c
+--   âŠ-trans : (a b c) â’ a âŠ b â’ b âŠ c â’ a âŠ c
 --
--- by the same multiplyâ€“rearrangeâ€“cancel as Â§3's `atLeastAntitone`,
--- using `Â·sk-cancel-â‰¤` and `swapOuter` from this module.  Nothing above
+-- by the same multiplyâ“rearrangeâ“cancel as Â§3's `atLeastAntitone`,
+-- using `Âsk-cancel-â‰` and `swapOuter` from this module.  Nothing above
 -- was wrong; something above was MISSING, and was being cited as
 -- present.
 --
--- With it, the same-rate relation `_â‰ˆ_ = mutual âŠ‘` is an equivalence
+-- With it, the same-rate relation `_â‰ˆ_ = mutual âŠ` is an equivalence
 -- relation, and that module answers the standing question about the
 -- missing quotient in both directions:
 --
 --   atLeastDescends / aboveDescends
---       `AtLeast` and `Above` are properties of the RATE â€” antitone in
+--       `AtLeast` and `Above` are properties of the RATE â” antitone in
 --       both directions IS descent, so nothing new was needed
 --   minimalDoesNotDescend
---       `den a â‰¤ length bs` is not, at (1,1) â‰ˆ (2,3)
+--       `den a â‰ length bs` is not, at (1,1) â‰ˆ (2,3)
 --
 -- The boundary sits where the DENOMINATOR appears alone: Â§2's claims
--- mention p and suc q only inside a product of exactly the shape âŠ‘
+-- mention p and suc q only inside a product of exactly the shape âŠ
 -- compares, and minimality mentions suc q on its own.
 --
 ------------------------------------------------------------------------

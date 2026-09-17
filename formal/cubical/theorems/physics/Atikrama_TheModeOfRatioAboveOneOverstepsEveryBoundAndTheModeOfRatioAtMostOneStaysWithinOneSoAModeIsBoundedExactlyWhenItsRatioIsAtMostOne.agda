@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अतिक्रम — overstepping.
+-- �������� � overstepping.
 --
 -- The proof note's growth theorem, limsup log(1+|B|)/t = Θ − ½ and hence
--- RH ⇔ B = O(1), reads at the level of one mode: e^{(ρ−½)t} is bounded
--- exactly when Re ρ ≤ ½.  Over ℚ, with the mode t ↦ m^t, m ≥ 0:
+-- RH � B = O(1), reads at the level of one mode: e^{(�−½)t} is bounded
+-- exactly when Re � � ½.  Over �, with the mode t � m^t, m � 0:
 --
 --   §1  RATIO ABOVE ONE OVERSTEPS EVERY BOUND: for m > 1 and any K there
---       merely exists t with K < m^t — Bernoulli (Vrddhi) on top of
+--       merely exists t with K < m^t � Bernoulli (Vrddhi) on top of
 --       Archimedes (Parimana).
 --   §2  RATIO AT MOST ONE STAYS WITHIN [0, 1].
---   §3  THE CRITERION: a mode is bounded ⇔ its ratio is at most one.
---       The ⇒ direction is by trichotomy and §1; the truncation is
---       eliminated into ⊥.
+--   §3  THE CRITERION: a mode is bounded � its ratio is at most one.
+--       The � direction is by trichotomy and §1; the truncation is
+--       eliminated into �.
 --
--- अतिक्रम (atikrama, overstepping/transgression) is ordinary Sanskrit.
+-- �������� (atikrama, overstepping/transgression) is ordinary .
 ------------------------------------------------------------------------
 
 module Atikrama_TheModeOfRatioAboveOneOverstepsEveryBoundAndTheModeOfRatioAtMostOneStaysWithinOneSoAModeIsBoundedExactlyWhenItsRatioIsAtMostOne where
@@ -49,7 +49,7 @@ open import Parimana_EveryRationalLiesBelowANaturalAndEveryPositiveRationalHasAN
   using (archimedes)
 
 ------------------------------------------------------------------------
--- १ · Ratio above one oversteps every bound.
+-- � � Ratio above one oversteps every bound.
 ------------------------------------------------------------------------
 
 atikrama : (m : ℚ) → 1 < m → (K : ℚ) → ∥ Σ[ t ∈ ℕ ] K < m ^ t ∥₁
@@ -69,7 +69,7 @@ atikrama m 1<m K = PT.map go (archimedes x 0<x (K - 1))
     K<1+tx = subst2 _<_ (Sama.śeṣa-eka ℚRing K) (+Comm (ι t · x) 1) (<-+o (K - 1) (ι t · x) 1 lt′)
 
 ------------------------------------------------------------------------
--- २ · Ratio at most one stays within [0, 1].
+-- � � Ratio at most one stays within [0, 1].
 ------------------------------------------------------------------------
 
 0≤1 : 0 ≤ 1
@@ -85,7 +85,7 @@ antar m 0≤m m≤1 (suc t) =
   where ih = antar m 0≤m m≤1 t
 
 ------------------------------------------------------------------------
--- ३ · The criterion: bounded ⇔ ratio at most one.
+-- � � The criterion: bounded � ratio at most one.
 ------------------------------------------------------------------------
 
 Sīmita : ℚ → Type₀
@@ -100,6 +100,6 @@ sīmita→eka m (K , bd) with m ≟ 1
 eka→sīmita : (m : ℚ) → 0 ≤ m → m ≤ 1 → Sīmita m
 eka→sīmita m 0≤m m≤1 = 1 , λ t → snd (antar m 0≤m m≤1 t)
 
--- the growth theorem at one mode: bounded exactly when the ratio is ≤ 1
+-- the growth theorem at one mode: bounded exactly when the ratio is � 1
 vṛddhi : (m : ℚ) → 0 ≤ m → (Sīmita m → m ≤ 1) × (m ≤ 1 → Sīmita m)
 vṛddhi m 0≤m = sīmita→eka m , eka→sīmita m 0≤m

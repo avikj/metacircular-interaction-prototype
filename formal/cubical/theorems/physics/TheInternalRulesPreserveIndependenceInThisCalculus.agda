@@ -20,15 +20,15 @@ open import ADiagonalSentenceIndependentInAConcreteTheory
 -- The measurement the previous module asked for, and it came out the
 -- other way from what I expected.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE QUESTION, AND THE PREDICTION THAT WAS WRONG
 --
 -- `ADiagonalSentenceIndependentInAConcreteTheory` gets `gs` independent
 -- in a calculus with `taut`, `mp`, `hbl` and the two diagonal halves,
 -- and states as its own limit that "a stronger rule set may well derive
 -- `ng gs`".  The natural test is to add the three internal rules
--- `TheDiagonalLemmaDischargesGoedelFix` needs â€” contraposition,
--- double-negation elimination, transitivity â€” and see which one kills
+-- `TheDiagonalLemmaDischargesGoedelFix` needs â” contraposition,
+-- double-negation elimination, transitivity â” and see which one kills
 -- independence.
 --
 -- I predicted contraposition would, via `dbwd`.  It does not.  ALL
@@ -43,47 +43,47 @@ open import ADiagonalSentenceIndependentInAConcreteTheory
 -- tautology cannot distinguish two models that agree on the
 -- propositional connectives.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   Â§1  three Boolean lemmas: contraposition, double-negation
 --       elimination, transitivity, all for `impB`.
---   Â§2  `Derâº` â€” the previous calculus plus those three as rules â€” and
+--   Â§2  `Derâº` â” the previous calculus plus those three as rules â” and
 --       soundness for both models, by induction.
 --   Â§3  so `gs` is still independent, and the calculus is still
 --       consistent.
 --   Â§4  and the abstract derivation finally has a concrete instance:
 --       the internal fixed point `im (ng gs) (pv gs)` is DERIVABLE in
---       `Derâº` (contraposition on `dbwd`, then transitivity with double
+--       `Derâº` (contraposition on `dbwd`, then transitivity with double
 --       negation elimination), and Ï‰-consistency holds here because
---       `pv gs` is underivable â€” `semâ‚‚` refutes it, since `P gs` is
+--       `pv gs` is underivable â” `semâ` refutes it, since `P gs` is
 --       `false`.  So the hypotheses of
 --       `TheDiagonalLemmaDischargesGoedelFix`'s second conjunct are all
 --       met, and its conclusion agrees with Â§3's, which was obtained by
 --       a completely different route.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THE MEASUREMENT SAYS
 --
 -- Ï‰-consistency is doing real work in the abstract derivation, and here
--- it HOLDS â€” because this calculus is too weak to derive `pv gs`.  So
--- this instance does not exhibit the tension GÃ¶del's argument manages;
+-- it HOLDS â” because this calculus is too weak to derive `pv gs`.  So
+-- this instance does not exhibit the tension Gdel's argument manages;
 -- it exhibits the case where there is none.  A calculus that derives
 -- `pv gs` without deriving `gs` would be Ï‰-inconsistent, and that is
 -- what a real arithmetic must avoid.  Nothing here builds one.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE HONEST LIMIT, INHERITED AND UNCHANGED
 --
 -- Everything the previous module says about its own limits applies
--- verbatim: this is not GÃ¶del's theorem; `hbl` is a rule, not a proved
+-- verbatim: this is not Gdel's theorem; `hbl` is a rule, not a proved
 -- derivability condition; `pv` is uninterpreted and `P` is chosen by
 -- hand; `gs` is independent partly because the rules are few.  Adding
 -- three rules that are propositionally valid does not change any of
--- that â€” which is precisely Â§2's content and also its smallness.
+-- that â” which is precisely Â§2's content and also its smallness.
 --
 -- PRIOR ART, grep run and quoted: searching `formal/cubical` for
--- `Derâº`, `contraB`, `transB` returns nothing; for `dneB`, nothing.
+-- `Derâº`, `contraB`, `transB` returns nothing; for `dneB`, nothing.
 -- A version adding the rules to the syntax as axiom schemes rather than
 -- as inference rules would evade that grep.
 ------------------------------------------------------------------------

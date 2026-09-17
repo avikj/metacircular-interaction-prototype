@@ -14,47 +14,47 @@ edited.  Nothing was assumed.
 
 | Absence (module, its own words) | Closing module | Content |
 |---|---|---|
-| Drdha: "UNIQUENESS IS NOT PROVED ‚Ä¶ v_p IS NOT DEFINED HERE" | historical_proofs/Ekatva_‚Ä¶ | two firm lists with one product are a Perm; ‡§Æ‡§æ‡§®‡§Æ‡•ç p n well defined |
-| TheUsualReasons / PairwiseCommutation: Perm not shown to be same-multiset; converse containment not proved | Ekatva_‚Ä¶, automata/SamaSankhya_‚Ä¶ | on a discrete type Perm = ‚âà = same count of every element; the corpus's `_~_` is exactly same-count |
-| TheConverseContainment: "Transitivity of Perm is NOT proved" | walks/PermSankramana_‚Ä¶ | two insertions commute; exchange lemma; Perm and ‚âà are equivalence relations |
-| TheOpenPigeonhole / TheTwoPigeonholes: "FinPigeonhole is still NOT proved" | historical_proofs/Kapota_‚Ä¶ | injection SFin n ‚Üí SFin n is an equivalence; TheOpenPigeonhole inhabited |
-| Bahupratyanayana: "S¬π has no two distinct points ‚Ä¶ not invoked" | logic/VrttaBindu_‚Ä¶ | ¬¨ Œ£ x y. ¬¨ x ‚â° y on S¬π |
-| EffectiveDescent: non-set C at which ¬ß4 fails "would need œÄ‚ÇÅ(S¬π) and is not done" | walks/AsetChidra_‚Ä¶ | at C = S¬π the datum (const base, loop) is not in the image; set hypothesis necessary |
-| Lagakriya ¬ß‡•Æ: Chosen n k empty for k > n not proved | historical_proofs/GuruSima_‚Ä¶ | guru ‚â§ syllables; row is a finite sum over Fin (suc n) |
-| EveryCommonDivisorOfAConvergent: units of ‚Ñ§ "NOT proved and NOT imported" | number/LowestTerms_‚Ä¶ | a¬∑b = 1 ‚áí a = ¬±1; convergents in lowest terms |
-| MinimalityOfABoundaryPopulation: general case "needs exactly one missing lemma, Euclid's" | historical_proofs/Laghutama_‚Ä¶ | in lowest terms every boundary population has length ‚â• suc q |
-| GaugeOrbitClasses: invariance of val under permutation "NOT proved here" | physics/SquareClass_‚Ä¶ | val invariant under ‚âà, Perm, equal counts; full square-class theorem |
-| BhavanaGenerative ¬ß5: "associativity is unproved" (stale: ¬ß7 has PathP forms) | historical_proofs/BhavanaAssoc_‚Ä¶ | Sol‚â°, non-dependent subst forms, solver rederivation |
-| ThreadYoneda: "needs isSet (Weave i j) ‚Ä¶ not proved here" | primes/pair_field/YonedaEquiv_‚Ä¶ | Weave is a set; Yoneda bijection is an equivalence |
-| TheTextPredicateIsUnique: round trip "not shown to be the identity" | cost/TheRoundTripsClose‚Ä¶ | both round trips; Decision ‚âÉ Predicate under the module's hypothesis |
-| KsetraSamasa: CRT identification "NOT proved here" | number/RekhaSamasa_‚Ä¶ | crtEquiv restricts to survivors; residue-line census (p‚àí2)(q‚àí2) |
-| SieveRoughBridge / WalkInduction / CoprimeSplitting: valuation machinery absent | historical_proofs/Prthakkarana_‚Ä¶ | n = p^v ¬∑ m with p ‚à§ m, exponent unique, valuation additive |
-| SthiraBinduGanana: six-element enumeration "NOT proved" complete | physics/SthiraBinduPurnata_‚Ä¶ | every element of S‚ÇÉ is one of six; census reads off the class |
-| Avarta: "LAGRANGE, or Euler's theorem for a general finite group. Not proved" | historical_proofs/Sarvavarta_‚Ä¶ | a^|G| = 1 for every finite group, via SubgroupIndex's Lagrange |
-| TransmissionRefutations: Œ£_{d|n} Œº(d)(n/d) = œÜ(n) "NOT proved" in general | number/MobiusPhi_‚Ä¶ | the identity for every n ‚â• 1 in that module's own definitions |
-| TheStrictRateOrder: "ASYMMETRY and TRICHOTOMY are not proved" | order/Trairashika_‚Ä¶ | untruncated trichotomy on Rate; total non-strict order; antitonicity |
-| Kuttaka: "the i·π£·π≠a section ‚Ä¶ is not supplied here" | historical_proofs/KuttakaIsta_‚Ä¶ | Euclidean division on ‚Ñ§; least non-negative member; uniqueness at g = 1 |
-| PairComposition: "SEED (stated, not proved here)" | primes/pair_field/PairCompositionSeed_‚Ä¶ | isPrime (a¬∑b) ‚â° false for a, b ‚â• 2; no composed pair is a prime pair |
-| HomometricPair: minimality "still rests on the legacy Python search" | order/HomometricMinimality_‚Ä¶ | 1024-form kernel sweep with completeness and soundness proofs |
-| Hieroglyphics II ¬ß5 / notes/FOUR_REPAIR_MODES: "cannot see" whether the four repairs Œì‚àÖ Œì‚áë Œì‚Ü∫ Œì^ are four objects; Œì‚áë has no corpus defect | residue/CatuhSamskara_‚Ä¶ | at S¬π: ‚à•S¬π‚à•‚ÇÇ contractible (Œì‚àÖ); winding loop = 1 (Œì‚Ü∫); loopDatum ‚â¢ any restricted constant (Œì‚áë, the descent defect); helix with fixed-point-free suc‚Ñ§ and Œ©S¬π ‚â° ‚Ñ§ (Œì^); four-are-four |
-| Cantor/Lawvere and the M√∂bius monodromy treated as two theorems (LawvereFixedPoint, Diagonal modules) | automata/Ekasutra_‚Ä¶ | Section (Torus e) ‚âÉ FixedPoint (equivFun e) via ua-glue/unglue; point-surjection gives sections; a free monodromy (notEquiv) has no section |
-| Hieroglyphics III ¬ßZ: Goldbach and twins are read from two kernels; KuttakaSamapti "the logarithmic bound ‚Ä¶ (Lam√©); provable, not yet composed" | primes/EkaBija_‚Ä¶, historical_proofs/Svarnasima_‚Ä¶ | one kernel ùí¶ w r = a(w‚à∏r)¬∑a(w+r); Goldbach is the centre marginal, twins the radius marginal, ordered Goldbach count is the Cauchy square; the vallƒ´ of consecutive VirahƒÅ·πÖka numbers is the longest, every vallƒ´ is shorter than the VirahƒÅ·πÖka inverse |
-| fibre census: the seam conjecture (fibre of ‚à£_‚à£‚ÇÅ over a truncated point) | fibre/Fibre/Avaccheda_‚Ä¶ | fiber ‚à£_‚à£‚ÇÅ x ‚âÉ A for every x : ‚à• A ‚à•‚ÇÅ |
-| ChargePolynomialFinite: "the table is *the* factorization ‚Ä¶ unique factorization ‚Ä¶ not proved" | number/Sarani_‚Ä¶ | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
+| Drdha: "UNIQUENESS IS NOT PROVED ‚¶ v_p IS NOT DEFINED HERE" | historical_proofs/Ekatva_‚¶ | two firm lists with one product are a Perm; ‡Æ‡æ‡®‡Æ‡ p n well defined |
+| TheUsualReasons / PairwiseCommutation: Perm not shown to be same-multiset; converse containment not proved | Ekatva_‚¶, automata/SamaSankhya_‚¶ | on a discrete type Perm = ‚âà = same count of every element; the corpus's `_~_` is exactly same-count |
+| TheConverseContainment: "Transitivity of Perm is NOT proved" | walks/PermSankramana_‚¶ | two insertions commute; exchange lemma; Perm and ‚âà are equivalence relations |
+| TheOpenPigeonhole / TheTwoPigeonholes: "FinPigeonhole is still NOT proved" | historical_proofs/Kapota_‚¶ | injection SFin n ‚í SFin n is an equivalence; TheOpenPigeonhole inhabited |
+| Bahupratyanayana: "S¬ has no two distinct points ‚¶ not invoked" | logic/VrttaBindu_‚¶ | ¬ Œ x y. ¬ x ‚â° y on S¬ |
+| EffectiveDescent: non-set C at which ¬ß4 fails "would need œ‚(S¬) and is not done" | walks/AsetChidra_‚¶ | at C = S¬ the datum (const base, loop) is not in the image; set hypothesis necessary |
+| Lagakriya ¬ß‡Æ: Chosen n k empty for k > n not proved | historical_proofs/GuruSima_‚¶ | guru ‚â syllables; row is a finite sum over Fin (suc n) |
+| EveryCommonDivisorOfAConvergent: units of ‚ "NOT proved and NOT imported" | number/LowestTerms_‚¶ | a¬b = 1 ‚í a = ¬1; convergents in lowest terms |
+| MinimalityOfABoundaryPopulation: general case "needs exactly one missing lemma, Euclid's" | historical_proofs/Laghutama_‚¶ | in lowest terms every boundary population has length ‚â suc q |
+| GaugeOrbitClasses: invariance of val under permutation "NOT proved here" | physics/SquareClass_‚¶ | val invariant under ‚âà, Perm, equal counts; full square-class theorem |
+| BhavanaGenerative ¬ß5: "associativity is unproved" (stale: ¬ß7 has PathP forms) | historical_proofs/BhavanaAssoc_‚¶ | Sol‚â°, non-dependent subst forms, solver rederivation |
+| ThreadYoneda: "needs isSet (Weave i j) ‚¶ not proved here" | primes/pair_field/YonedaEquiv_‚¶ | Weave is a set; Yoneda bijection is an equivalence |
+| TheTextPredicateIsUnique: round trip "not shown to be the identity" | cost/TheRoundTripsClose‚¶ | both round trips; Decision ‚â Predicate under the module's hypothesis |
+| KsetraSamasa: CRT identification "NOT proved here" | number/RekhaSamasa_‚¶ | crtEquiv restricts to survivors; residue-line census (p‚àí2)(q‚àí2) |
+| SieveRoughBridge / WalkInduction / CoprimeSplitting: valuation machinery absent | historical_proofs/Prthakkarana_‚¶ | n = p^v ¬ m with p ‚à m, exponent unique, valuation additive |
+| SthiraBinduGanana: six-element enumeration "NOT proved" complete | physics/SthiraBinduPurnata_‚¶ | every element of S‚ is one of six; census reads off the class |
+| Avarta: "LAGRANGE, or Euler's theorem for a general finite group. Not proved" | historical_proofs/Sarvavarta_‚¶ | a^|G| = 1 for every finite group, via SubgroupIndex's Lagrange |
+| TransmissionRefutations: Œ_{d|n} Œº(d)(n/d) = œ(n) "NOT proved" in general | number/MobiusPhi_‚¶ | the identity for every n ‚â 1 in that module's own definitions |
+| TheStrictRateOrder: "ASYMMETRY and TRICHOTOMY are not proved" | order/Trairashika_‚¶ | untruncated trichotomy on Rate; total non-strict order; antitonicity |
+| Kuttaka: "the ia section ‚¶ is not supplied here" | historical_proofs/KuttakaIsta_‚¶ | Euclidean division on ‚; least non-negative member; uniqueness at g = 1 |
+| PairComposition: "SEED (stated, not proved here)" | primes/pair_field/PairCompositionSeed_‚¶ | isPrime (a¬b) ‚â° false for a, b ‚â 2; no composed pair is a prime pair |
+| HomometricPair: minimality "still rests on the legacy Python search" | order/HomometricMinimality_‚¶ | 1024-form kernel sweep with completeness and soundness proofs |
+| Hieroglyphics II ¬ß5 / notes/FOUR_REPAIR_MODES: "cannot see" whether the four repairs Œì‚à Œì‚ Œì‚∫ Œì^ are four objects; Œì‚ has no corpus defect | residue/CatuhSamskara_‚¶ | at S¬: ‚àS¬‚à‚ contractible (Œì‚à); winding loop = 1 (Œì‚∫); loopDatum ‚â any restricted constant (Œì‚, the descent defect); helix with fixed-point-free suc‚ and Œ©S¬ ‚â° ‚ (Œì^); four-are-four |
+| Cantor/Lawvere and the Mbius monodromy treated as two theorems (LawvereFixedPoint, Diagonal modules) | automata/Ekasutra_‚¶ | Section (Torus e) ‚â FixedPoint (equivFun e) via ua-glue/unglue; point-surjection gives sections; a free monodromy (notEquiv) has no section |
+| Hieroglyphics III ¬ßZ: Goldbach and twins are read from two kernels; KuttakaSamapti "the logarithmic bound ‚¶ (Lam©); provable, not yet composed" | primes/EkaBija_‚¶, historical_proofs/Svarnasima_‚¶ | one kernel í¶ w r = a(w‚àr)¬a(w+r); Goldbach is the centre marginal, twins the radius marginal, ordered Goldbach count is the Cauchy square; the vall of consecutive Virahka numbers is the longest, every vall is shorter than the Virahka inverse |
+| fibre census: the seam conjecture (fibre of ‚à_‚à‚ over a truncated point) | fibre/Fibre/Avaccheda_‚¶ | fiber ‚à_‚à‚ x ‚â A for every x : ‚à A ‚à‚ |
+| ChargePolynomialFinite: "the table is *the* factorization ‚¶ unique factorization ‚¶ not proved" | number/Sarani_‚¶ | tables expand to firm lists; exponents are the valuation; 12, 30, 360 are the factorizations |
 
 ## Not closed, with the exact obstruction
 
-- CakravƒÅla termination and BhƒÅskara's minimality (CakravalaBound, CakravalaDescent, CakravalaStep): Lagrange 1768; needs periodicity of the continued fraction of ‚àöD.  No corpus term approaches it.
-- Petersen's optimality of the ≈öivas≈´tras (Sivasutra, PratyaharaLaghava, Dvihpatha): a graded minimisation over all enumerations; unread source, no formal statement in the corpus.
-- ‚Ñö(‚àö2) has exactly two orderings (SamacaranaNityam): needs ordered-field theory absent from the pin.
+- Cakravla termination and Bhskara's minimality (CakravalaBound, CakravalaDescent, CakravalaStep): Lagrange 1768; needs periodicity of the continued fraction of ‚àD.  No corpus term approaches it.
+- Petersen's optimality of the ivastras (Sivasutra, PratyaharaLaghava, Dvihpatha): a graded minimisation over all enumerations; unread source, no formal statement in the corpus.
+- ‚(‚à2) has exactly two orderings (SamacaranaNityam): needs ordered-field theory absent from the pin.
 - Nontrivial factorisation of the norm form forces ‚àí1 a square (WhereTheCircleSplits): polynomial factorisation over a field, absent.
-- Aut ‚âÉ Œ† over the codomain of Aut(fibre) (AtmasamataUpari, SamraksakaSamuha): the currying coherence of Avaccheda; open in the corpus's own terms.
+- Aut ‚â Œ† over the codomain of Aut(fibre) (AtmasamataUpari, SamraksakaSamuha): the currying coherence of Avaccheda; open in the corpus's own terms.
 - Sha256Varga: two distinct colliding inputs.  A SHA-256 collision.
 - GunakaKsepa ¬ß5: sign normalisation preserving the congruence; a statement about the wheel's own reactor, not a composition.
-- KuttakaSamapti: the logarithmic bound on the vallƒ´ length (Lam√©) is now the VirahƒÅ·πÖka bound of Svarnasima; the base-œÜ logarithm as a function is still not composed.
+- KuttakaSamapti: the logarithmic bound on the vall length (Lam©) is now the Virahka bound of Svarnasima; the base-œ logarithm as a function is still not composed.
 - Gleason's theorem (EkatvaMatra); Born interior.
 - The seven UNSUPPLIED nodes of research/handoff_20260908 (O-RBOUND, O-RONESIDE, O-RLOWER, O-RLIFT, O-RDYADIC, O-RGOLDBACH, O-NPEAK): analytic estimates; no real-analysis library at the pin; nothing here changes their status.
-- The section `(n : ‚Ñï) ‚Üí frontierb n ‚â° true` of SamastaSima (RH √ó Goldbach): every stage is decided; the section is not inhabited by anything in this corpus.
+- The section `(n : ‚ï) ‚í frontierb n ‚â° true` of SamastaSima (RH ó Goldbach): every stage is decided; the section is not inhabited by anything in this corpus.
 
 ## What the exercise shows
 

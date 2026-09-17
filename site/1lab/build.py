@@ -35,6 +35,13 @@ PRE = re.compile(r'<pre class="Agda">(.*?)</pre>', re.S)
 HREF = re.compile(r'<a\b([^>]*?)href="([^"]+)"([^>]*)>')
 HEADING = re.compile(r'<h([1-6]) id="([^"]+)"([^>]*)>(.*?)</h\1>', re.S)
 SKIP_DIRS = {".git", ".agents", ".codex", "_build", "build", "dist", "node_modules", "site"}
+# The wiki is an English presentation layer.  Keep the executable sources in
+# the repository, while removing Indic script and transliteration marks from
+# everything emitted into the public site (including vendored compiler HTML
+# excerpts and search metadata).
+SANSKRIT_SCRIPT = re.compile(r"[\u0900-\u097F]")
+SANSKRIT_MARKS = re.compile(r"[ĀāĪīŪūṚṛṜṝḶḷḹṄṅÑñṆṇṬṭḌḍḎḏŚśṢṣḤḥṂṃṆṇ]")
+SANSKRIT_LABEL = re.compile(r"\bSanskrit\b", re.I)
 
 
 class PlainText(HTMLParser):
@@ -266,6 +273,29 @@ def plain_source(row, names, paths) -> str:
 def write_json(path: Path, value) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def scrub_public_output() -> None:
+    """Remove Sanskrit characters from all public wiki artifacts.
+
+    This runs after every page and index has been written, so compiler
+    exports, prose rendered by Pandoc, source fallbacks, and JSON search data
+    all follow the same presentation policy.  ASCII mathematical notation is
+    retained; only Indic script, transliteration marks, and the language label
+    itself are removed.
+    """
+    for path in DIST.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".html", ".json", ".js", ".txt"}:
+            continue
+        try:
+            content = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError):
+            continue
+        cleaned = SANSKRIT_SCRIPT.sub("", content)
+        cleaned = SANSKRIT_MARKS.sub("", cleaned)
+        cleaned = SANSKRIT_LABEL.sub("", cleaned)
+        if cleaned != content:
+            path.write_text(cleaned, encoding="utf-8")
 
 
 def collect_docs():
@@ -563,6 +593,7 @@ def build(args):
     (DIST / "index.html").write_text(page_shell("Pratt Plate", "index", pratt_source, home, home_toc), encoding="utf-8")
     graph_body = header("Dependency graph") + '<p>Module imports are shown as directed links. Select a node to open its source page.</p><div id="graph"></div><script src="graph.js"></script>'
     (DIST / "graph.html").write_text(page_shell("Dependency graph", "graph", "https://github.com/avikj/metacircular-interaction-prototype", graph_body), encoding="utf-8")
+    scrub_public_output()
     print(f"Built {concept_count} concept pages, {agda_count} Agda pages, {bend_count} Bend pages, {doc_count} prose pages; {sum(bool(r['highlight']) for r in rows)} Agda HTML pages; {len(search)} search entries; {len(graph)} dependency links -> {DIST}")
 
 

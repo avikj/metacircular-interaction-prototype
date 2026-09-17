@@ -1,4 +1,4 @@
-# The Bend2 ‚Üí HVM4 emitter
+# The Bend2 ‚í HVM4 emitter
 
 `Target/HVM4.hs` (in the patch) compiles cubical Bend2 to HVM4 surface syntax,
 invoked with `bend file.bend --to-hvm4`. This is the chokepoint that turns
@@ -15,13 +15,13 @@ printed directly:
   `Path`, `Eql`, `Rfl`, `coe`/`hcomp`/`ua` residue, interval);
 - **path lambdas/applications pass through** their content (interval arg
   erased);
-- **superpositions become real HVM4 SUP nodes** `&L{a,b}` ‚Äî the point of
+- **superpositions become real HVM4 SUP nodes** `&L{a,b}` ‚î the point of
   targeting HVM4: `Sup`/`Frk`/`SupM` compile to native superposition /
-  duplication, so `Sup √ó Path` transport is a *runtime* capability;
+  duplication, so `Sup ó Path` transport is a *runtime* capability;
 - every lambda binder is emitted cloned (`Œª&x`) so the affine runtime accepts
-  repeated use ‚Äî the Carrier law as a syntactic obligation;
-- Bend nat/list/bool/tuple ‚áí HVM4 `#Suc`/`#Zer`, `#Con`/`#Nil`, `#Pair`,
-  matches ‚áí `Œª{‚Ä¶}` switch lambdas.
+  repeated use ‚î the Carrier law as a syntactic obligation;
+- Bend nat/list/bool/tuple ‚í HVM4 `#Suc`/`#Zer`, `#Con`/`#Nil`, `#Pair`,
+  matches ‚í `Œª{‚¶}` switch lambdas.
 
 ## Verified end to end
 
@@ -30,19 +30,19 @@ printed directly:
 
     @div2_mul2 = Œª&n. Œª{#Zer: &{}; #Suc: Œª&p. &{}}(n)   -- proof erased
     @mul2 = Œª&n. Œª{#Zer: #Zer; #Suc: Œª&p. #Suc{#Suc{@mul2(p)}}}(n)
-    @div2 = Œª&n. ‚Ä¶
+    @div2 = Œª&n. ‚¶
 
 and the emitted `@add`/`@div2`/`@mul2` genuinely REDUCE on the HVM4 C runtime
-(e.g. `@add(2)(3) = #Suc‚Åµ#Zer` in 25 interactions ‚Äî not precomputed). A cubical
+(e.g. `@add(2)(3) = #Suc‚µ#Zer` in 25 interactions ‚î not precomputed). A cubical
 file (`cubical_test4.bend`) emits with everything erased except the live data,
-and `sup_transport` survives as `&L0{0, 1}` ‚Äî real superposition nodes.
+and `sup_transport` survives as `&L0{0, 1}` ‚î real superposition nodes.
 
 ## What this unlocks (now mechanical, not blocked)
 
 - **Type-driven superposed synthesis**: drive `SUPGEN_DEMO`-style search from a
   Bend2 *spec-as-type*; the survivor arrives with an erasing type-theoretic
   certificate instead of a boolean test.
-- **Certified data migration**: `ua(S1,S2,‚Ä¶)` + `coe` extracted and run as a
+- **Certified data migration**: `ua(S1,S2,‚¶)` + `coe` extracted and run as a
   lossless, self-inverting transform whose proof costs nothing at runtime.
 - **Cubical corpus modules at the optimal bound**: the transport-heavy proofs
   that blew Agda's heap extract with proofs erased and run on the net.

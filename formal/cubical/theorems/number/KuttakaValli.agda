@@ -3,23 +3,23 @@
 ------------------------------------------------------------------------
 -- KuttakaValli
 --
--- The vallī of Āryabhaṭa's pulverizer as SYNTAX, its replay as
+-- The vall of ryabhaa's pulverizer as SYNTAX, its replay as
 -- evaluation, and the two structural laws of the trace, typed:
 --
---   replayHom   replay (xs ++ ys) ≡ replay xs · replay ys
---               — concatenating traces IS multiplying their payloads;
---                 the vallī is a monoid morphism from lists of
---                 quotients to 2×2 matrices.  (R0035's "the trace
+--   replayHom   replay (xs ++ ys) ≡ replay xs � replay ys
+--               � concatenating traces IS multiplying their payloads;
+--                 the vall is a monoid morphism from lists of
+--                 quotients to 2�2 matrices.  (R0035's "the trace
 --                 composes", as a theorem about syntax.)
 --
 --   detReplay   det (replay v) ≡ sgn v      (sgn = (-1)^length)
---               — the sign of a replay is the parity of the vallī;
+--               � the sign of a replay is the parity of the vall;
 --                 each division step L q = (q 1 / 1 0) reverses
 --                 orientation exactly once.
 --
--- The vallī is a term, replay is an evaluator, and the laws are
+-- The vall is a term, replay is an evaluator, and the laws are
 -- structural inductions whose entry obligations the ring solver
--- discharges — the trace calculus of the corpus, native in the
+-- discharges � the trace calculus of the corpus, native in the
 -- constructive lane.
 ------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ open CommRingStr (ℤCommRing .snd)
 L : R → M
 L q = (q , 1r , 1r , 0r)
 
--- the vallī is a list of quotients; replay evaluates it ---------------
+-- the vall is a list of quotients; replay evaluates it ---------------
 
 Valli : Type
 Valli = List R
@@ -70,7 +70,7 @@ replayHom (q ∷ xs) ys =
   cong (mul (L q)) (replayHom xs ys)
   ∙ sym (mulAssoc (L q) (replay xs) (replay ys))
 
--- law 2: the sign of a replay is the parity of the vallī --------------
+-- law 2: the sign of a replay is the parity of the vall --------------
 
 sgn : Valli → R
 sgn [] = 1r
@@ -89,12 +89,12 @@ detReplay (q ∷ v) =
   detMul (L q) (replay v)
   ∙ cong₂ _·_ (detL q) (detReplay v)
 
--- law 3: appending a quotient IS the kuṭṭaka recurrence ---------------
+-- law 3: appending a quotient IS the kuaka recurrence ---------------
 --
---   p_n = p_{n-1} · q_n + p_{n-2}
+--   p_n = p_{n-1} � q_n + p_{n-2}
 --
 -- the classical convergent computation is the right-append case of
--- the trace law: new first column = old first column · q + old
+-- the trace law: new first column = old first column � q + old
 -- second column; new second column = old first column.
 
 step : R → M → M
@@ -128,7 +128,7 @@ convergent xs q =
 --
 -- A repeated block replays to the power of its compiled matrix, so
 -- "compile b once, invoke r times" is CERTIFIED equal to the full
--- expansion — the typed foundation under KUTTAKA_TRACE_MACRO.md,
+-- expansion � the typed foundation under KUTTAKA_TRACE_MACRO.md,
 -- whose exact gain law (m-1)(r-1) > 1 prices when to install it.
 
 rep : ℕ → Valli → Valli

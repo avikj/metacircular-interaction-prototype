@@ -1,4 +1,4 @@
-# Prelude â€” the Cubical.Foundations fragment the corpus leans on, in Bend.
+# Prelude â” the Cubical.Foundations fragment the corpus leans on, in Bend.
 # Loaded by `import Prelude`. Every definition computes; nothing is postulated.
 
 # ---- h-levels

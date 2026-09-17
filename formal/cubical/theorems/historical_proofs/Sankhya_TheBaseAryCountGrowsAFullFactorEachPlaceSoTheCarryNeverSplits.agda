@@ -1,45 +1,45 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ â€” saá¹…khyÄ, the COUNT of the prastÄra.  Piá¹…gala's sixth
+-- àà™àà–àà¯à¾ â” sakhy, the COUNT of the prastra.  Pigala's sixth
 -- pratyaya: the number of distinct n-place patterns, 2^n at base two,
 -- stated together with the process that computes it by repeated
--- squaring-and-doubling on the binary expansion of n.  Piá¹…gala,
--- *Chandaá¸¥Å›Ästra* 8.23-35 (~300 BCE); the process worked out in
--- HalÄyudha, *Má¹›tasaÃ±jÄ«vanÄ«* (10th c.).
+-- squaring-and-doubling on the binary expansion of n.  Pigala,
+-- *Chandastra* 8.23-35 (~300 BCE); the process worked out in
+-- Halyudha, *Mtasajvan* (10th c.).
 --
--- à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ names the OBJECT b ^ n â€” the count of n-place base-b words.
--- The base-b generalisation (Piá¹…gala counts base two) and the
--- group-theoretic reading below are the atlas's, not Piá¹…gala's; no
+-- àà™àà–àà¯à¾ names the OBJECT b ^ n â” the count of n-place base-b words.
+-- The base-b generalisation (Pigala counts base two) and the
+-- group-theoretic reading below are the atlas's, not Pigala's; no
 -- claim is made that he proved a group extension non-split.
 --
--- WHAT IT PROVES, and why it is here.  Vahita_â€¦ checked the carry
--- extension  0 â†’ â„¤/b â†’ â„¤/b^{n+1} â†’ â„¤/b^n â†’ 0  does not split at its
+-- WHAT IT PROVES, and why it is here.  Vahita_â¦ checked the carry
+-- extension  0 â’ â/b â’ â/b^{n+1} â’ â/b^n â’ 0  does not split at its
 -- MINIMAL instance (b = 2, one digit) by the kernel-of-forgetting.
 -- runtime/atlas/residual.py's splitting_exponent_argument computes the
--- GENERAL certificate â€” ATLAS_OF_N Â§8 Prop. 2.11: the class vanishes
--- iff the extension splits iff the two exponents agree â€” but only per
+-- GENERAL certificate â” ATLAS_OF_N Â§8 Prop. 2.11: the class vanishes
+-- iff the extension splits iff the two exponents agree â” but only per
 -- (b, n) it is handed.  This module proves that certificate for EVERY
--- (b â‰¥ 2, n â‰¥ 1):
+-- (b â‰ 2, n â‰ 1):
 --
---   Â§1  à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿ â€” b âˆ£ b^{n+1}: the carry digit's order b divides the
+--   Â§1  à‰àà²ààà§à¿ â” b âˆ b^{n+1}: the carry digit's order b divides the
 --       n+1-place register's order, so lcm(b^{n+1}, b) = b^{n+1}; and
 --       the same divisibility at exponent n gives exponent_lhs =
---       lcm(b^n, b) = b^n (the split group â„¤/b^n âŠ• â„¤/b has exponent b^n).
---   Â§2  à¤µà¥ƒà¤¦à¥à¤§à¤¿ â€” b^n < b^{n+1} for b â‰¥ 2: the count grows a FULL factor
+--       lcm(b^n, b) = b^n (the split group â/b^n âŠ• â/b has exponent b^n).
+--   Â§2  àµàà¦àà§à¿ â” b^n < b^{n+1} for b â‰ 2: the count grows a FULL factor
 --       of the base at each place.  So exponent_lhs = b^n < b^{n+1} =
 --       exponent_rhs: the two exponents disagree at every (b, n).
---   Â§3  the certificate assembled: by_exponent holds for all (b â‰¥ 2, n),
---       so by Prop. 2.11 the carry extension never splits â€” the top
---       digit is BOUND to the register, not free (à¤•à¤ƒ à¤ªà¤•à¥à¤·à¥‹ à¤¬à¤¦à¥à¤§).
+--   Â§3  the certificate assembled: by_exponent holds for all (b â‰ 2, n),
+--       so by Prop. 2.11 the carry extension never splits â” the top
+--       digit is BOUND to the register, not free (à•à àà•ààà‹ àà¦àà§).
 --
 -- The fibre reading (README Â§THE LAW): the carry is the fibre a
--- carry-free reading â„¤/b^n âŠ• â„¤/b would make free; the strict growth of
--- the count is exactly why it cannot be â€” visibility of the top place
+-- carry-free reading â/b^n âŠ• â/b would make free; the strict growth of
+-- the count is exactly why it cannot be â” visibility of the top place
 -- is not manufacturable by keeping the digits apart.
 --
 -- Sources for the mathematics: runtime/atlas/residual.py
--- Prop. 2.11.  Complements Vahita_â€¦  (the b=2,n=1 group instance).
+-- Prop. 2.11.  Complements Vahita_â¦  (the b=2,n=1 group instance).
 --
 -- CHECKED under the pin (Agda 2.8.0 + cubical library).
 ------------------------------------------------------------------------
@@ -53,16 +53,16 @@ open import Cubical.Data.Nat.Order
 open import Cubical.Data.Nat.Divisibility
 
 ------------------------------------------------------------------------
--- Â§1  à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿ â€” the carry digit's order divides the register's order.
---     b âˆ£ b^{n+1}, hence lcm collapses (lcm(b^{k+1}, b) = b^{k+1}, and
---     at exponent n â‰¥ 1 : lcm(b^n, b) = b^n).  b ^ suc n â‰¡ b Â· b ^ n.
+-- Â§1  à‰àà²ààà§à¿ â” the carry digit's order divides the register's order.
+--     b âˆ b^{n+1}, hence lcm collapses (lcm(b^{k+1}, b) = b^{k+1}, and
+--     at exponent n â‰ 1 : lcm(b^n, b) = b^n).  b ^ suc n â‰¡ b Â b ^ n.
 ------------------------------------------------------------------------
 
 à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿à¤ƒ : (b n : â„•) â†’ b âˆ£ (b ^ (suc n))
 à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿à¤ƒ b n = âˆ£-left (b ^ n)
 
 ------------------------------------------------------------------------
--- Â§2  à¤µà¥ƒà¤¦à¥à¤§à¤¿ â€” the count grows a full factor of the base each place.
+-- Â§2  àµàà¦àà§à¿ â” the count grows a full factor of the base each place.
 ------------------------------------------------------------------------
 
 -- b^n is positive when the base is.
@@ -87,7 +87,7 @@ open import Cubical.Data.Nat.Divisibility
   sp = suc-predâ„• (b ^ n) â‰¢0
 
 ------------------------------------------------------------------------
--- Â§3  the certificate assembled.  For every b â‰¥ 2 and n â‰¥ 1 the two
+-- Â§3  the certificate assembled.  For every b â‰ 2 and n â‰ 1 the two
 --     exponents of Prop. 2.11 disagree: exponent_lhs = lcm(b^n, b) = b^n
 --     (from Â§1's divisibility) and exponent_rhs = b^{n+1}, and b^n <
 --     b^{n+1} (Â§2).  by_exponent = exponent_lhs < exponent_rhs holds

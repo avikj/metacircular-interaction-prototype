@@ -1,18 +1,18 @@
 {-# OPTIONS --safe --cubical-compatible #-}
 
 ------------------------------------------------------------------------
--- à¤ªà¥à¤°à¤¸à¥à¤¤à¤¾à¤µ-à¤¹à¥ƒà¤¦à¤¯ â€” the classifier has ONE spelling, shared by the
+-- ààà°àààà¾àµ-ààà¦à¯ â” the classifier has ONE spelling, shared by the
 -- proposer and the theorem.
 --
--- TERM.  há¹›daya, the heart, the essential core â€” ordinary Sanskrit;
+-- TERM.  hdaya, the heart, the essential core â” ordinary ;
 -- the compound is built here (2026-08-24) and claimed of no source.
 --
 -- WHY THIS FILE EXISTS.  Until now the AC classifier lived twice: as
 -- with-blocks in the executable proposer (formal/executable/
 -- Prastava.agda, extracted by MAlonzo and run) and as constructor-
 -- dispatched helpers in the soundness theorem (PrastavaSatya_*.agda,
--- judged by the cubical kernel).  The two spellings were asserted â€”
--- never checked â€” to be one function; that assertion was the last
+-- judged by the cubical kernel).  The two spellings were asserted â”
+-- never checked â” to be one function; that assertion was the last
 -- named debt of the PrastavaSatya landing.  This module erases the
 -- debt structurally: it is checked with --cubical-compatible, so the
 -- SAME clauses are imported by the plain --safe proposer (and
@@ -25,7 +25,7 @@
 -- case on the same scrutinee and compute; the with-block spelling is
 -- deleted at its source, not preserved beside this one.
 --
--- Only Agda.Builtin modules are imported, so both worlds agree on â„•,
+-- Only Agda.Builtin modules are imported, so both worlds agree on â•,
 -- List and Bool on the nose.
 ------------------------------------------------------------------------
 
@@ -153,7 +153,7 @@ acShuffle l r = eqTm (acCanon l) (acCanon r)
 
 ------------------------------------------------------------------------
 -- the normalizer: one bottom-up pass of the definitional zero/one laws
--- (x+0, 0+x, xÂ·0, 0Â·x, xÂ·1, 1Â·x, xâˆ¸0, 0âˆ¸x, le 0 x, max/gcd with 0),
+-- (x+0, 0+x, xÂ0, 0Âx, xÂ1, 1Âx, xâˆ0, 0âˆx, le 0 x, max/gcd with 0),
 -- then AC canonicalisation.  Erasure rules only, children first, so a
 -- single pass reaches the fixpoint of the erasure fragment.  The tests
 -- are eqTm, whose truth IS a syntactic path (cmpTm-eq, PrastavaSatya),
@@ -190,11 +190,11 @@ simp (Bin s a b) = simpB s (simp a) (simp b)
 
 ------------------------------------------------------------------------
 -- the unfolding pass: successor-headed sums and products unfold by the
--- defining equations of + and Â· (suc a + b = suc (a + b) definitional;
--- suc a Â· b = b + a Â· b definitional; a Â· suc b = a + a Â· b by mulSuc,
+-- defining equations of + and Â (suc a + b = suc (a + b) definitional;
+-- suc a Â b = b + a Â b definitional; a Â suc b = a + a Â b by mulSuc,
 -- proved in PrastavaSatya).  This is what makes numeral coefficients
--- compute â€” *(s(s(s(0))),x) unfolds to x + (x + (x + 0)) and the
--- erasure pass plus AC canonicalisation finish the job â€” so the
+-- compute â” *(s(s(s(0))),x) unfolds to x + (x + (x + 0)) and the
+-- erasure pass plus AC canonicalisation finish the job â” so the
 -- numeral-arithmetic residue class falls to the SAME reflection rung,
 -- no new candidate shape.
 ------------------------------------------------------------------------
@@ -214,7 +214,7 @@ mutual
 
 -- max, le and monus on two successor-headed arguments unfold by their
 -- defining equations (max' (suc a) (suc b) = suc (max' a b) and so on,
--- all definitional) â€” which is what lets a case-split branch, where
+-- all definitional) â” which is what lets a case-split branch, where
 -- the split variable became suc-headed, close by normalisation.
 unfMax : Tm â†’ Tm â†’ Tm
 unfMax (S a) (S b) = S (unfMax a b)
@@ -257,6 +257,6 @@ nf t = acCanon (simp (unf (acCanon (simp (unf t)))))
 
 -- the reflection classifier: a pair whose sides share a normal form is
 -- provable by two applications of nf-sound (PrastavaSatya) around a
--- definitional middle â€” the proposer emits exactly that term.
+-- definitional middle â” the proposer emits exactly that term.
 nfEqual : Tm â†’ Tm â†’ Bool
 nfEqual l r = eqTm (nf l) (nf r)

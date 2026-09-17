@@ -1,47 +1,47 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- नयवाद — the seven standpoints each read ONE facet; the whole is their
--- join (pramāṇa); and claiming one facet is the whole is the durnaya.
--- Nayavāda IS the fibre law, as epistemology.
+-- ����� � the seven standpoints each read ONE facet; the whole is their
+-- join (prama); and claiming one facet is the whole is the durnaya.
+-- Nayavda IS the fibre law, as epistemology.
 --
--- SOURCE.  Umāsvāti, *Tattvārthasūtra* 1.34 (~2nd–5th c.):
---   naigama-saṅgraha-vyavahāra-ṛjusūtra-śabda-samabhirūḍhaivambhūtā nayāḥ
---   — the SEVEN nayas, from the most general (naigama) to the most
---   specific (evambhūta: the thing only as it actually functions now).
+-- SOURCE.  Umsvti, *Tattvrthastra* 1.34 (~2nd�5th c.):
+--   naigama-sagraha-vyavahra-justra-abda-samabhirhaivambht nay
+--   � the SEVEN nayas, from the most general (naigama) to the most
+--   specific (evambhta: the thing only as it actually functions now).
 --   1.35 (Digambara ordering) groups them; Siddhasena, *Sanmatitarka*
---   1.3-6, gives the two ROOTS — dravyārthika (substance-regarding:
---   naigama, saṅgraha, vyavahāra) and paryāyārthika (mode-regarding:
---   ṛjusūtra, śabda, samabhirūḍha, evambhūta) — and the decisive rule:
---   a naya is a VALID partial standpoint (सुनय); a naya that asserts
---   ITSELF as the whole, DENYING the others, is a DURNAYA — worse than a
+--   1.3-6, gives the two ROOTS � dravyrthika (substance-regarding:
+--   naigama, sagraha, vyavahra) and paryyrthika (mode-regarding:
+--   justra, abda, samabhirha, evambhta) � and the decisive rule:
+--   a naya is a VALID partial standpoint (����); a naya that asserts
+--   ITSELF as the whole, DENYING the others, is a DURNAYA � worse than a
 --   falsehood, because its standpoint is concealed (`Anekanta`, `Durnaya`,
 --   AHIMSA_SUTRA §2).
 --
--- THE IDENTIFICATION.  An object is known through facets — one per naya.
--- Model an object as an assignment `नय → तत्त्व` of a facet-value to each
+-- THE IDENTIFICATION.  An object is known through facets � one per naya.
+-- Model an object as an assignment `�� � ������` of a facet-value to each
 -- standpoint.  Then:
---   • a NAYA reads ONE coordinate — a projection, a quotient of the object;
---   • PRAMĀṆA reads ALL coordinates — the whole object (funext);
---   • a DURNAYA is the claim that one naya's reading DETERMINES the object
---     — i.e. that one projection is faithful.  It is refuted exactly by
+--   � a NAYA reads ONE coordinate � a projection, a quotient of the object;
+--   � PRAMA reads ALL coordinates � the whole object (funext);
+--   � a DURNAYA is the claim that one naya's reading DETERMINES the object
+--     � i.e. that one projection is faithful.  It is refuted exactly by
 --     the fibre: two objects agreeing on that naya, differing elsewhere.
--- So nayavāda is `QuotientFiberLaw`/`Abhijnana` read as knowing: the naya
+-- So nayavda is `QuotientFiberLaw`/`Abhijnana` read as knowing: the naya
 -- sees a quotient, the fibre is what it cannot see, and the durnaya denies
--- the fibre.  हिंसा सङ्क्षेपः — the violence is the collapse.
+-- the fibre.  ����� ����������� � the violence is the collapse.
 --
 -- WHAT IS PROVED (facets a type with two distinct values, so a fibre
 -- exists to be denied):
---   §2  सप्त — there are exactly seven nayas.
---   §3  मूलद्वयम् — the two roots partition the seven (3 dravyārthika +
---       4 paryāyārthika): every naya is exactly one, and none is both.
---   §4  प्रमाणम् — pramāṇa is faithful: two objects are equal iff they
+--   §2  ���� � there are exactly seven nayas.
+--   §3  ��������� � the two roots partition the seven (3 dravyrthika +
+--       4 paryyrthika): every naya is exactly one, and none is both.
+--   §4  �������� � prama is faithful: two objects are equal iff they
 --       agree on ALL seven nayas (funext).  The whole determines.
---   §5  दुर्नयः — any single naya is NOT faithful: two objects agree on it
+--   §5  ������� � any single naya is NOT faithful: two objects agree on it
 --       yet differ (the fibre).  Claiming one facet is the whole is false.
---   §6  सुनयः — but the naya is VALID as a partial view: its reading is
---       genuinely a facet of the object (a projection that commutes) —
---       a naya is true, just not whole (सत्यः न कृत्स्नः).
+--   §6  ����� � but the naya is VALID as a partial view: its reading is
+--       genuinely a facet of the object (a projection that commutes) �
+--       a naya is true, just not whole (����� � ���������).
 --
 -- No postulates, no holes, --safe.
 ------------------------------------------------------------------------
@@ -72,19 +72,19 @@ data नय : Type where
 वस्तु = नय → Bool     -- Bool only as the abstract two-valued facet (≥2 so a
                        -- fibre exists); it is the OBJECT'S facet, not a verdict
 
--- a naya reads one coordinate; pramāṇa is the whole assignment
+-- a naya reads one coordinate; prama is the whole assignment
 नयः : नय → वस्तु → Bool
 नयः n o = o n
 
 ------------------------------------------------------------------------
--- §2  सप्त — exactly seven.
+-- §2  ���� � exactly seven.
 ------------------------------------------------------------------------
 
 सप्त : length सर्वे-नयाः ≡ 7
 सप्त = refl
 
 ------------------------------------------------------------------------
--- §3  मूलद्वयम् — the two roots partition the seven.
+-- §3  ��������� � the two roots partition the seven.
 ------------------------------------------------------------------------
 
 द्रव्यार्थिकः : नय → Type
@@ -120,14 +120,14 @@ data नय : Type where
 न-उभयम् व्यवहार _ ()
 
 ------------------------------------------------------------------------
--- §4  प्रमाणम् — pramāṇa is faithful: agreement on all nayas is identity.
+-- §4  �������� � prama is faithful: agreement on all nayas is identity.
 ------------------------------------------------------------------------
 
 प्रमाणम् : (o o′ : वस्तु) → ((n : नय) → नयः n o ≡ नयः n o′) → o ≡ o′
 प्रमाणम् o o′ agree = funExt agree
 
 ------------------------------------------------------------------------
--- §5  दुर्नयः — a single naya is NOT faithful: the fibre defeats it.
+-- §5  ������� � a single naya is NOT faithful: the fibre defeats it.
 --     For each naya, two objects agree on it yet differ elsewhere.
 ------------------------------------------------------------------------
 
@@ -167,8 +167,8 @@ private
 दुर्नयः एवम्भूत = साक्षी एवम्भूत नैगम   refl refl
 
 ------------------------------------------------------------------------
--- §6  सुनयः — yet the naya is VALID as a partial view: it genuinely reads
---     its own facet of the object (सत्यः न कृत्स्नः — true, not whole).
+-- §6  ����� � yet the naya is VALID as a partial view: it genuinely reads
+--     its own facet of the object (����� � ��������� � true, not whole).
 ------------------------------------------------------------------------
 
 सुनयः : (n : नय) (o : वस्तु) → नयः n o ≡ o n

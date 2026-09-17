@@ -1,17 +1,17 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- नष्ट · वितण्डा — naṣṭa / vitaṇḍā
+-- ����� � ������� � naa / vita
 --
 -- TERMS, TEXTS, DATES.
 --
---   नष्ट · naṣṭa, "the lost".  Piṅgala, *Chandaḥśāstra* 8.24-25
---   (~300 BCE), worked out in Halāyudha, *Mṛtasañjīvanī* (10th c.):
+--   ����� � naa, "the lost".  Pigala, *Chandastra* 8.24-25
+--   (~300 BCE), worked out in Halyudha, *Mtasajvan* (10th c.):
 --   the procedure that recovers an unknown pattern ONE PLACE AT A TIME
 --   by a rule applied to the index, consulting no table.
 --
---   वितण्डा · vitaṇḍā.  Gautama, *Nyāyasūtra* 1.2.3 (~2nd c. CE): the
---   third kind of debate — bare refutation, the debater holding no
+--   ������� � vita.  Gautama, *Nyyastra* 1.2.3 (~2nd c. CE): the
+--   third kind of debate � bare refutation, the debater holding no
 --   position of his own.
 --
 -- WHAT IS FORMALIZED.  The prose theorem, canonically stated in
@@ -25,7 +25,7 @@
 -- That reduction is the content of the prose and is taken as the
 -- definition here: `Word n` is a length-n string over `Fin (suc q)`,
 -- and `resp` is the first-mismatch index.  Writing p = q+1 keeps every
--- count in N with no truncated subtraction, so `k(p-1)` is `k · q`.
+-- count in N with no truncated subtraction, so `k(p-1)` is `k � q`.
 --
 -- BOTH HALVES ARE HERE, and that is the point of the file.  Four prose
 -- checked; the upper bound alone is a short induction and shipping it
@@ -33,8 +33,8 @@
 -- refusal wearing a green checkmark.  The theorem is carried by the
 -- adversary.
 --
---   upperBound : a tree that identifies every word, costing <= n · q
---   lowerBound : EVERY identifying tree has an input costing >= n · q
+--   upperBound : a tree that identifies every word, costing <= n � q
+--   lowerBound : EVERY identifying tree has an input costing >= n � q
 --
 -- The lowerThm bound is stated as cost ON AN INPUT rather than as tree
 -- depth: it is the stronger reading, and it avoids a maximum over the
@@ -92,7 +92,7 @@ lengthMap f (x ∷ L) = cong suc (lengthMap f L)
 
 module Core (q : ℕ) where
 
-  -- p = q + 1 digits.  The theorem's k(p-1) is n · q.
+  -- p = q + 1 digits.  The theorem's k(p-1) is n � q.
   Digit : Type₀
   Digit = Fin (suc q)
 
@@ -235,7 +235,7 @@ module Core (q : ℕ) where
   ... | no  _ = dcons (del-fresh h L nf) (del-distinct h L d)
 
 ----------------------------------------------------------------------
--- 4. The lower bound — vitaṇḍā
+-- 4. The lower bound � vita
 --
 -- The refuter holds no residue.  It holds a list `Live` of first
 -- digits still consistent with everything it has said, answers 0 to
@@ -370,7 +370,7 @@ module Core (q : ℕ) where
   enum-distinct (suc m) = dcons (freshMapFs (enum m)) (distinctMapFs (enum m) (enum-distinct m))
 
 ----------------------------------------------------------------------
--- 6. The upper bound — naṣṭa
+-- 6. The upper bound � naa
 ----------------------------------------------------------------------
 
   branch : {n : ℕ} → Tree n → Tree n → ℕ → Tree n
@@ -468,18 +468,18 @@ module Core (q : ℕ) where
              (lengthMap fs (enum q) ∙ enum-len q)
              (snd (snd r))
 
-  -- upperBound : there is an identifying tree costing at most n · q on
+  -- upperBound : there is an identifying tree costing at most n � q on
   --              every input.
   upperBound : (n : ℕ) → Σ[ T ∈ Tree n ] (Identifies T × ((x : Word n) → cost T x ≤ n · q))
   upperBound = upper
 
   -- lowerBound : every identifying tree has an input costing at least
-  --              n · q.
+  --              n � q.
   lowerBound : (n : ℕ) (T : Tree n) → Identifies T → Σ[ x ∈ Word n ] (n · q ≤ cost T x)
   lowerBound = lowerThm
 
 -- The exact law, both halves, for every alphabet size p = q+1 and
--- every length k = n.  Read k(p-1) = n · q.
+-- every length k = n.  Read k(p-1) = n � q.
 exactLaw : (q n : ℕ)
          → (Σ[ T ∈ Core.Tree q n ] (Core.Identifies q T
               × ((x : Core.Word q n) → Core.cost q T x ≤ n · q)))

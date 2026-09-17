@@ -11,7 +11,7 @@ open import Cubical.Foundations.Prelude
 open import HeadDepthMerge using (blindCount)
 
 -- Corollary W4 instances: the a-blind bases in [1, q^a] form the
--- subgroup of order q − 1 of (ℤ/q^a)^×.  Each count below is a fresh
+-- subgroup of order q − 1 of (�/q^a)^�.  Each count below is a fresh
 -- exhaustive kernel computation; each equals q − 1, as W4 proves.
 
 w4-3-2 : blindCount 3 2 ≡ 2

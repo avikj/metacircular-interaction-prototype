@@ -4,7 +4,7 @@
 -- The gate layer of RamanujanTernary: the form, the witness finders,
 -- the seventeen, and the three kernel scans, in their own module so
 -- the twenty-minute normalization is paid once and cached.  The
--- theorems live in RamanujanTernary_â€¦TowardTheOpenList, which imports
+-- theorems live in RamanujanTernary_â¦TowardTheOpenList, which imports
 -- this and pays seconds.
 ------------------------------------------------------------------------
 

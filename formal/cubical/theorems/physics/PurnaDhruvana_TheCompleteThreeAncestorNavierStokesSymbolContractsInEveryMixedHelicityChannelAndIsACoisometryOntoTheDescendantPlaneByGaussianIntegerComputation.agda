@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- पूर्ण-ध्रुवण — full polarization.
+-- �����-������ � full polarization.
 --
 -- The proof note's Theorems 1 and 2: on the torus, for the three
 -- ancestors p, q, r = the unit axes and their descendant K = p+q+r, the
@@ -9,17 +9,17 @@
 --
 --   T(u,v,w) = B_{p+q,r}(B_{p,q}(u,v),w) + B_{q+r,p}(B_{q,r}(v,w),u)
 --            + B_{r+p,q}(B_{r,p}(w,u),v),
---   B_{a,b}(u,v) = −i P_{a+b}[(b·u)v + (a·v)u],
+--   B_{a,b}(u,v) = −i P_{a+b}[(b�u)v + (a�v)u],
 --
--- satisfies, on unit helical inputs h^s, |L_j|² = (1 − s s′)/3 for each
--- branch and |L₁+L₂+L₃|² = (3 − s_p s_q − s_q s_r − s_r s_p)/6, and as a
--- map p^⊥⊗q^⊥⊗r^⊥ → K^⊥ it is a coisometry: T T* = 2 P_K.
+-- satisfies, on unit helical inputs h^s, |L_j|² = (1 − s s�)/3 for each
+-- branch and |L�+L�+L�|² = (3 − s_p s_q − s_q s_r − s_r s_p)/6, and as a
+-- map p^�⊗q^�⊗r^� � K^� it is a coisometry: T T* = 2 P_K.
 --
--- Everything is Gaussian-integer arithmetic once scaled: P̃_k = |k|² P_k,
--- B̃ = |a+b|² B, h̃ = √2 h.  With |p+q|² = 2 and |K|² = 3 the scaled symbol
--- is T̃ = 6·2√2·T on the scaled inputs, so |L̃_j|² = 96(1 − s s′),
--- |ΣL̃_j|² = 48(3 − Σ s s′), and Σ_x L̃(x)L̃(x)* = 192·(3I − KKᵀ).  All
--- eight helicity assignments and the 3×3 Gram matrix are checked by
+-- Everything is Gaussian-integer arithmetic once scaled: P�_k = |k|² P_k,
+-- B� = |a+b|² B, h� = �2 h.  With |p+q|² = 2 and |K|² = 3 the scaled symbol
+-- is T� = 6�2�2�T on the scaled inputs, so |L�_j|² = 96(1 − s s�),
+-- |�L�_j|² = 48(3 − � s s�), and �_x L�(x)L�(x)* = 192�(3I − KK�).  All
+-- eight helicity assignments and the 3�3 Gram matrix are checked by
 -- refl below.
 ------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 open import Sankhya_SignedIntegersOverTheBuiltinNaturalsWithSoundArithmeticIntoTheLibrarysIntegersSoCertificatesComputeAtMachineSpeed
   using (𝕊 ; ⁺_ ; ⁻_) renaming (_⊕_ to _⊕𝕊_ ; _⊗_ to _⊗𝕊_)
 
--- canonical zero: ⁻ 0 is read as ⁺ 0
+-- canonical zero: � 0 is read as � 0
 canon : 𝕊 → 𝕊
 canon (⁻ zero) = ⁺ zero
 canon x        = x
@@ -46,7 +46,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false)
 open import Cubical.Data.List using (List ; [] ; _∷_)
 
 ------------------------------------------------------------------------
--- १ · Gaussian integers and 3-vectors.
+-- � � Gaussian integers and 3-vectors.
 ------------------------------------------------------------------------
 
 infixl 6 _⊕_ _⊞_ _⊞₃_
@@ -91,12 +91,12 @@ z ⋆ (a , b , c) = (z ⊗ a , z ⊗ b , z ⊗ c)
 _∙ᵥ_ : V → V → 𝔾
 (a , b , c) ∙ᵥ (d , e , f) = (a ⊗ d) ⊕ (b ⊗ e) ⊕ (c ⊗ f)
 
--- Hermitian inner product ⟨x, y⟩ = Σ x̄_i y_i
+-- Hermitian inner product ⟨x, y⟩ = � x�_i y_i
 ⟨_,_⟩ : V → V → 𝔾
 ⟨ (a , b , c) , (d , e , f) ⟩ = (conj a ⊗ d) ⊕ (conj b ⊗ e) ⊕ (conj c ⊗ f)
 
 ------------------------------------------------------------------------
--- २ · Wavevectors, scaled projectors, scaled interactions.
+-- � � Wavevectors, scaled projectors, scaled interactions.
 ------------------------------------------------------------------------
 
 p q r K pq qr rp : V
@@ -108,11 +108,11 @@ qr = q ⊞ r
 rp = r ⊞ p
 K  = pq ⊞ r
 
--- P̃_k v = |k|² v − k (k·v), the projector scaled by |k|²
+-- P�_k v = |k|² v − k (k�v), the projector scaled by |k|²
 P̃ : V → V → V
 P̃ k v = ((k ∙ᵥ k) ⋆ v) ⊞ ((⊖ (k ∙ᵥ v)) ⋆ k)
 
--- B̃_{a,b}(u,v) = −i P̃_{a+b}[(b·u)v + (a·v)u]
+-- B�_{a,b}(u,v) = −i P�_{a+b}[(b�u)v + (a�v)u]
 B̃ : V → V → V → V → V
 B̃ a b u v = (⊖ 𝕚) ⋆ P̃ (a ⊞ b) (((b ∙ᵥ u) ⋆ v) ⊞ ((a ∙ᵥ v) ⋆ u))
 
@@ -126,7 +126,7 @@ T̃ : V → V → V → V
 T̃ u v w = (L₁ u v w ⊞ L₂ u v w) ⊞ L₃ u v w
 
 ------------------------------------------------------------------------
--- ३ · Scaled helical bases, √2·h.
+-- � � Scaled helical bases, �2�h.
 ------------------------------------------------------------------------
 
 sg : Bool → 𝔾           -- the sign s as a Gaussian integer
@@ -141,14 +141,14 @@ h̃p s = (ι (⁺ 0) , ι (⁺ 1) , is s)
 h̃q s = (ι (⁻ 1) , ι (⁺ 0) , is s)
 h̃r s = (ι (⁺ 1) , is s , ι (⁺ 0))
 
--- i k × h = s h, checked (scaled): here as divergence-freeness k·h̃ = 0
+-- i k � h = s h, checked (scaled): here as divergence-freeness k�h� = 0
 p-h̃ : (s : Bool) → p ∙ᵥ h̃p s ≡ ι (⁺ 0)
 p-h̃ true  = refl
 p-h̃ false = refl
 
 ------------------------------------------------------------------------
--- ४ · Theorem 1, all eight channels: |L̃_j|² = 96(1 − s s′), and
---     |L̃₁+L̃₂+L̃₃|² = 48(3 − s_p s_q − s_q s_r − s_r s_p).
+-- � � Theorem 1, all eight channels: |L�_j|² = 96(1 − s s�), and
+--     |L��+L��+L��|² = 48(3 − s_p s_q − s_q s_r − s_r s_p).
 ------------------------------------------------------------------------
 
 norm² : V → 𝔾
@@ -179,12 +179,12 @@ theorem-1 false true  false = refl , refl , refl , refl
 theorem-1 false false true  = refl , refl , refl , refl
 theorem-1 false false false = refl , refl , refl , refl
 
--- the (+,−,+) vectors of the note, times 6/√2 · √2 = 6: L̃ = 6·(√2/6)·z·… read directly
+-- the (+,−,+) vectors of the note, times 6/�2 � �2 = 6: L� = 6�(�2/6)�z�� read directly
 L₁-witness : L₁ (h̃p true) (h̃q false) (h̃r true) ≡ ((⁺ 8 , ⁺ 4) , (⁻ 4 , ⁻ 8) , (⁻ 4 , ⁺ 4))
 L₁-witness = refl
 
 ------------------------------------------------------------------------
--- ५ · Theorem 2: Σ over the eight helical inputs of L̃ L̃* = 192·(3I − KKᵀ).
+-- � � Theorem 2: � over the eight helical inputs of L� L�* = 192�(3I − KK�).
 ------------------------------------------------------------------------
 
 outer : V → V → V × V × V      -- x yᵀ conjugated in the second slot: rows of x ȳᵀ
@@ -207,7 +207,7 @@ gram = go (true ∷ false ∷ [])
   go : List Bool → V × V × V
   go _ = plane true ⊞₃ plane false
 
--- 192·(3I − KKᵀ): diagonal 384, off-diagonal −192
+-- 192�(3I − KK�): diagonal 384, off-diagonal −192
 target : V × V × V
 target = ( (ι (⁺ 384) , ι (⁻ 192) , ι (⁻ 192))
          , (ι (⁻ 192) , ι (⁺ 384) , ι (⁻ 192))
@@ -217,26 +217,26 @@ theorem-2 : gram ≡ target
 theorem-2 = refl
 
 ------------------------------------------------------------------------
--- ६ · The rest of Theorem 1: in a mixed assignment exactly one branch
+-- � � The rest of Theorem 1: in a mixed assignment exactly one branch
 --     vanishes, the other two have norm² 192 and Hermitian inner product
 --     with real part −96 (that is −1/3 after scaling), so
---     |ΣL| = ½ Σ|L_j| — equation (1.4).  And equal helicities kill all.
+--     |�L| = ½ �|L_j| � equation (1.4).  And equal helicities kill all.
 ------------------------------------------------------------------------
 
 re : 𝔾 → 𝕊
 re (a , _) = a
 
--- (+,−,+): L₁, L₂ survive, L₃ = 0
+-- (+,−,+): L�, L� survive, L� = 0
 mixed-+-+ : (norm² (L₃ (h̃p true) (h̃q false) (h̃r true)) ≡ ι (⁺ 0))
           × (re ⟨ L₁ (h̃p true) (h̃q false) (h̃r true) , L₂ (h̃p true) (h̃q false) (h̃r true) ⟩ ≡ ⁻ 96)
 mixed-+-+ = refl , refl
 
--- (+,+,−): L₂, L₃ survive
+-- (+,+,−): L�, L� survive
 mixed-++- : (norm² (L₁ (h̃p true) (h̃q true) (h̃r false)) ≡ ι (⁺ 0))
           × (re ⟨ L₂ (h̃p true) (h̃q true) (h̃r false) , L₃ (h̃p true) (h̃q true) (h̃r false) ⟩ ≡ ⁻ 96)
 mixed-++- = refl , refl
 
--- (−,+,+): L₃, L₁ survive
+-- (−,+,+): L�, L� survive
 mixed--++ : (norm² (L₂ (h̃p false) (h̃q true) (h̃r true)) ≡ ι (⁺ 0))
           × (re ⟨ L₃ (h̃p false) (h̃q true) (h̃r true) , L₁ (h̃p false) (h̃q true) (h̃r true) ⟩ ≡ ⁻ 96)
 mixed--++ = refl , refl
@@ -246,13 +246,13 @@ sama-śūnya : (T̃ (h̃p true) (h̃q true) (h̃r true) ≡ (ι (⁺ 0) , ι (�
            × (T̃ (h̃p false) (h̃q false) (h̃r false) ≡ (ι (⁺ 0) , ι (⁺ 0) , ι (⁺ 0)))
 sama-śūnya = refl , refl
 
--- the second witness vector of the note, L₂ at (+,−,+), times 4
+-- the second witness vector of the note, L� at (+,−,+), times 4
 L₂-witness : L₂ (h̃p true) (h̃q false) (h̃r true) ≡ ((⁻ 4 , ⁺ 4) , (⁺ 8 , ⁺ 4) , (⁻ 4 , ⁻ 8))
 L₂-witness = refl
 
 ------------------------------------------------------------------------
--- ७ · Theorem 2 continued: the eight outputs, the 8×8 Gram matrix
---     Π̃ = T̃*T̃, its Hermitian symmetry and idempotence Π̃² = 576 Π̃ (the
+-- � � Theorem 2 continued: the eight outputs, the 8�8 Gram matrix
+--     Π� = T�*T�, its Hermitian symmetry and idempotence Π�² = 576 Π� (the
 --     visible projector T*T/2), the rank of the descendant plane, and
 --     six explicit kernel vectors with distinct pivots.
 ------------------------------------------------------------------------
@@ -278,7 +278,7 @@ out x = let (a , b , c) = ch x in T̃ (h̃p a) (h̃q b) (h̃r c)
 Σ₈ : (ℕ → 𝔾) → 𝔾
 Σ₈ f = f 0 ⊕ f 1 ⊕ f 2 ⊕ f 3 ⊕ f 4 ⊕ f 5 ⊕ f 6 ⊕ f 7
 
--- (Π̃²)_{xy} = Σ_z Π̃_{xz} Π̃_{zy}
+-- (Π�²)_{xy} = �_z Π�_{xz} Π�_{zy}
 Π̃² : ℕ → ℕ → 𝔾
 Π̃² x y = Σ₈ (λ z → Π̃ x z ⊗ Π̃ z y)
 
@@ -309,7 +309,7 @@ eqℤ _ _ = false
 eq𝔾 : 𝔾 → 𝔾 → Bool
 eq𝔾 (a , b) (c , d) = eqℤ a c ∧′ eqℤ b d
 
--- Π̃ is Hermitian and Π̃² = 576·Π̃: the visible projector T*T/2 is a
+-- Π� is Hermitian and Π�² = 576�Π�: the visible projector T*T/2 is a
 -- Hermitian idempotent (scaled), checked on all 64 entries.
 hermit : sarva₈ (λ x y → eq𝔾 (Π̃ x y) (conj (Π̃ y x))) ≡ true
 hermit = refl
@@ -318,9 +318,9 @@ idem : sarva₈ (λ x y → eq𝔾 (Π̃² x y) (ι (⁺ 576) ⊗ Π̃ x y)) ≡
 idem = refl
 
 ------------------------------------------------------------------------
--- ८ · Rank two and a six-dimensional kernel.  Outputs 1 and 2 have a
---     nonzero 2×2 minor, so the image is the descendant plane; six
---     integer relations Σ_x c_x·out x = 0 with distinct unit pivots at
+-- � � Rank two and a six-dimensional kernel.  Outputs 1 and 2 have a
+--     nonzero 2�2 minor, so the image is the descendant plane; six
+--     integer relations �_x c_x�out x = 0 with distinct unit pivots at
 --     channels 0, 3, 4, 5, 6, 7 span a six-dimensional kernel.
 ------------------------------------------------------------------------
 
@@ -364,6 +364,6 @@ kernel-6 : (Σ₈V κ₀ ≡ 0V) × (Σ₈V κ₃ ≡ 0V) × (Σ₈V κ₄ ≡ 0
 kernel-6 = refl , refl , refl , refl , refl , refl
 
 -- distinct pivots: κ_j is 1 at channel j and 0 at the other pivot channels,
--- so no nontrivial combination vanishes — the six are independent.
+-- so no nontrivial combination vanishes � the six are independent.
 pivots : (κ₀ 0 ≡ ι (⁺ 1)) × (κ₃ 3 ≡ ι (⁺ 1)) × (κ₄ 4 ≡ ι (⁺ 1)) × (κ₅ 5 ≡ ι (⁺ 1)) × (κ₆ 6 ≡ ι (⁺ 1)) × (κ₇ 7 ≡ ι (⁺ 1))
 pivots = refl , refl , refl , refl , refl , refl

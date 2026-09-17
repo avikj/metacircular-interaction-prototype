@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- BoundedStateNeedsAGroup
 --
--- What "descent" is, operationally, for a machine â€” and why the previous
+-- What "descent" is, operationally, for a machine â” and why the previous
 -- five modules are about the walk's SIZE and not only about its algebra.
 --
 -- Descent, in the abstract, is the ability to come back down.  For a
@@ -16,24 +16,24 @@
 --
 -- This module makes forgetting a property and locates it exactly.
 --
---   âŠž over â„¤-exponents:  `window-slide` â€” installing g and then removing
+--   âŠž over â-exponents:  `window-slide` â” installing g and then removing
 --     it returns the state unchanged.  A sliding window is available, so
 --     the state need never grow past the window's content.
 --
---   âŠ• over â„•-exponents:  `cone-cannot-forget` â€” if installing g can be
+--   âŠ• over â•-exponents:  `cone-cannot-forget` â” if installing g can be
 --     undone by ANY subsequent step, then g was the empty install.  There
 --     is nothing to forget with.  Positivity, again.
 --
---   âŠ” over â„•-exponents:  `join-cannot-forget` â€” same conclusion by the
+--   âŠ” over â•-exponents:  `join-cannot-forget` â” same conclusion by the
 --     other route, idempotence.  A join can only ever add.
 --
 -- So all three walk-available laws fail to forget, for the two distinct
 -- reasons this thread has been separating, and only the group succeeds.
 --
---     among the three laws the walkâ€™s own state space carries, exactly
+--     among the three laws the walkâ™s own state space carries, exactly
 --     one can forget, and it is the group.
 --
--- Stated as a general principle â€” "bounded state requires a group law" â€”
+-- Stated as a general principle â” "bounded state requires a group law" â”
 -- that is a SLOGAN, not a theorem, and this module does not prove it.
 -- What is proved is the three instances, with their two distinct reasons.
 -- The slogan is what they are evidence for.
@@ -42,7 +42,7 @@
 -- the walk specifically: its unbounded state is forced, the force is
 -- algebraic, and the only exit among its own operations is ratios.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ window-slide (b âˆ· bs) (x , xs) (y , ys) i =
   cancelâ„¤ x y i , window-slide bs xs ys i
 
 ------------------------------------------------------------------------
--- 2.  The â„•-cone cannot forget: positivity
+-- 2.  The â•-cone cannot forget: positivity
 --
 -- If some later step undoes an install, the install was empty.
 ------------------------------------------------------------------------
@@ -131,7 +131,7 @@ join-cannot-forget (b âˆ· bs) (x , xs) (y , ys) (z , zs) p i =
 -- 4.  The sentence.
 --
 --   forgetting is the operational form of descent, and among the three
---   laws the walkâ€™s own state space carries, exactly one has it â€” the
+--   laws the walkâ™s own state space carries, exactly one has it â” the
 --   one whose states are ratios.
 --
 -- The general principle this suggests, that bounded state requires a

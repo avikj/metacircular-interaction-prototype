@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç, ‡§â‡§™‡§æ‡§ß‡§ø ‚Äî THE UNIVERSAL CLAIM IS A TYPE, THE GATE RESTRICTS
+-- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡, ‡â‡‡æ‡ß‡ø ‚î THE UNIVERSAL CLAIM IS A TYPE, THE GATE RESTRICTS
 -- IT, AND NO TERM RUNS BACKWARDS.
 --
 -- The discipline is Upadhi_TheMertensGate's: separate the universal
@@ -9,21 +9,21 @@
 -- and let the absence of a converse term make the inflation a type
 -- error rather than a wording problem.
 --
---   `RamanujanAssertion` ‚Äî his 1916 claim entire, over ALL odd
+--   `RamanujanAssertion` ‚î his 1916 claim entire, over ALL odd
 --     numbers, the eighteen with 2719 included: everything odd and
 --     unrepresented is listed, and everything listed is
 --     unrepresented.
 --
---   `Gate720` ‚Äî what the kernel has signed (the two theorems of the
+--   `Gate720` ‚î what the kernel has signed (the two theorems of the
 --     companion file), as a type; `the-gate-holds` inhabits it.
 --
---   `restrict : RamanujanAssertion ‚Üí Gate720` ‚Äî the universal claim
+--   `restrict : RamanujanAssertion ‚í Gate720` ‚î the universal claim
 --     yields the gate.  There is deliberately no term the other way,
 --     because the other way is the error.  The restriction is not
 --     trivial: it runs through `rep-decidable-below-720`, a theorem
---     of independent worth ‚Äî below 720 representation is DECIDED,
+--     of independent worth ‚î below 720 representation is DECIDED,
 --     with the witness or with a proof of absence, by completeness
---     of the finders ‚Äî and through the arithmetic that keeps 2719
+--     of the finders ‚î and through the arithmetic that keeps 2719
 --     out of the bounded window.
 --
 -- THE ASYMMETRY AGAINST MERTENS, stated where it belongs: for the
@@ -31,8 +31,8 @@
 -- every reachable check, so the finite gate carries no evidence.
 -- Here no defeating condition is known, and under GRH none exists;
 -- the machine's verdict organs accordingly hold the totality as
--- syƒÅd-avaktavyam ‚Äî one content at two scopes, not formable as a
--- single predication ‚Äî with the gate itself affirmed.  The extent of
+-- syd-avaktavyam ‚î one content at two scopes, not formable as a
+-- single predication ‚î with the gate itself affirmed.  The extent of
 -- the search IS the content of Gate720's type: 720, and not a step
 -- further.
 ------------------------------------------------------------------------

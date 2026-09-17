@@ -1,84 +1,84 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ ‚Äî ‡§Ö‡§Ç‡§∂-‡§®‡§ø‡§Ø‡§Æ‡•á ‡§§‡§®‡•ç‡§§‡•Å‡§É, ‡§Ö‡§∞‡•ç‡§•‡§æ‡§§‡•ç ‡§™‡•ç‡§∞‡§•‡§Æ‡•á ‡§ú‡•ç‡§û‡§æ‡§§‡•á ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§∏‡•ç‡§Ø ‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç ‡•§
+-- ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ ‚î ‡‡‡-‡®‡ø‡Ø‡Æ‡ ‡‡®‡‡‡‡, ‡‡∞‡‡‡æ‡‡ ‡‡‡∞‡‡Æ‡ ‡‡‡û‡æ‡‡ ‡¶‡‡µ‡ø‡‡‡Ø‡‡‡Ø ‡Æ‡‡≤‡‡Ø‡Æ‡ ‡
 --
 -- (the fiber over a PARTIAL specification: what the second count still
 -- costs once the first is known.)
 --
--- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
--- ‡§Æ‡•Ç‡§≤‡§µ‡§æ‡§ï‡•ç‡§Ø‡§Æ‡•ç ¬∑ SOURCE OF THE TERM, with text and date, and with the one
+-- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- ‡Æ‡‡≤‡µ‡æ‡ï‡‡Ø‡Æ‡ ¬ SOURCE OF THE TERM, with text and date, and with the one
 -- thing I could not establish said as such.
 --
---   The ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§Ø of Pi·πÖgala, *Chanda·∏•≈õƒÅstra*, ch. 8 (~300 BCE) are listed
---   in the commentarial tradition as six: ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ (lay the forms out),
---   ‡§®‡§∑‡•ç‡§ü (index ‚Üí form), ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü (form ‚Üí index), ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ (how many),
---   ‡§Ö‡§ß‡•ç‡§µ‡§Ø‡•ã‡§ó (the space the table occupies), and ‚Äî the one this module is
---   about ‚Äî **‡§è‡§ï‡§¶‡•ç‡§µ‡•ç‡§Ø‡§æ‡§¶‡§ø-‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ**, "the operation for [the forms
---   having] one, two, and so on ‡§≤‡§ó", ‡§≤‡§ó being the ‡§§radition's word for
---   the heavy syllable (‡§ó‡•Å‡§∞‡•Å).  It is the count of the forms carrying a
---   GIVEN NUMBER of gurus, and it is answered by the ‡§Æ‡•á‡§∞‡•Å‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ of
---   ‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡•Æ.‡•©‡•™‚Äì‡•©‡•´, whose construction rule ‚Äî ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ-‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É
---   ‡§™‡•Ç‡§∞‡•ç‡§µ-‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡•á‡§É ‡§™‡§æ‡§∞‡•ç‡§∂‡•ç‡§µ-‡§Ø‡•ã‡§ó‡•à‡§É, the next row from the adjacent sums of the
---   previous ‚Äî is stated by ‡§π‡§≤‡§æ‡§Ø‡•Å‡§ß, *‡§Æ‡•É‡§§‡§∏‡§û‡•ç‡§ú‡•Ä‡§µ‡§®‡•Ä*, 10th c. CE.
+--   The ‡‡‡∞‡‡‡Ø‡Ø of Pigala, *Chandastra*, ch. 8 (~300 BCE) are listed
+--   in the commentarial tradition as six: ‡‡‡∞‡‡‡‡æ‡∞ (lay the forms out),
+--   ‡®‡‡‡ü (index ‚í form), ‡â‡¶‡‡¶‡ø‡‡‡ü (form ‚í index), ‡‡ô‡‡ñ‡‡Ø‡æ (how many),
+--   ‡‡ß‡‡µ‡Ø‡ã‡ó (the space the table occupies), and ‚î the one this module is
+--   about ‚î **‡‡ï‡¶‡‡µ‡‡Ø‡æ‡¶‡ø-‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ**, "the operation for [the forms
+--   having] one, two, and so on ‡≤‡ó", ‡≤‡ó being the ‡radition's word for
+--   the heavy syllable (‡ó‡‡∞‡).  It is the count of the forms carrying a
+--   GIVEN NUMBER of gurus, and it is answered by the ‡Æ‡‡∞‡‡‡‡∞‡‡‡‡æ‡∞ of
+--   ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ.‡©‡‚ì‡©‡, whose construction rule ‚î ‡‡ó‡‡∞‡ø‡Æ-‡‡ô‡‡ï‡‡‡ø‡
+--   ‡‡‡∞‡‡µ-‡‡ô‡‡ï‡‡‡‡ ‡‡æ‡∞‡‡‡‡µ-‡Ø‡ã‡ó‡à‡, the next row from the adjacent sums of the
+--   previous ‚î is stated by ‡‡≤‡æ‡Ø‡‡ß, *‡Æ‡‡‡‡û‡‡‡‡µ‡®‡*, 10th c. CE.
 --
 --   WHAT I DID NOT ESTABLISH, said plainly rather than guessed: I have
---   not verified a s≈´tra number at which the word ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ itself
---   appears.  ‡•Æ.‡•©‡•™‚Äì‡•©‡•´ is cited for the ARRAY, which is what is used
+--   not verified a stra number at which the word ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ itself
+--   appears.  ‡Æ.‡©‡‚ì‡©‡ is cited for the ARRAY, which is what is used
 --   below; the name is the commentarial tradition's name for the fourth
 --   pratyaya and is used here in that sense.  A later agent who can open
---   the text should pin the s≈´tra or strike this sentence.
+--   the text should pin the stra or strike this sentence.
 --
---   The later European statement of the array is Pascal, *Trait√© du
---   triangle arithm√©tique*, 1654 ‚Äî a restatement, named after the source
+--   The later European statement of the array is Pascal, *Trait© du
+--   triangle arithm©tique*, 1654 ‚î a restatement, named after the source
 --   and as one, and never transliterated into Devanagari, which would
 --   be worse than the Latin.
 --
--- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
--- WHAT IS PROVED, for `f : A ‚Üí B` and `g : A ‚Üí C`.
+-- ‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î‚î
+-- WHAT IS PROVED, for `f : A ‚í B` and `g : A ‚í C`.
 --
---   ¬ß‡•ß  ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ  fiber ‚ü®f,g‚ü© (b , c) ‚âÉ fiber (g ‚àò fst) c, where the
+--   ¬ß‡ß  ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ  fiber ‚ü®f,g‚ü© (b , c) ‚â fiber (g ‚àò fst) c, where the
 --       `fst` is off `fiber f b`.  THE JOINT FIBER IS THE FIBER OF g
---       RESTRICTED TO THE FIBER OF f ‚Äî the conditional receipt: once f
+--       RESTRICTED TO THE FIBER OF f ‚î the conditional receipt: once f
 --       is known to be b, what g still costs is one fiber, taken inside
 --       the answer f already gave.
 --
 --       The passage is not definitional and the gap is the content: a
 --       PAIR OF EQUATIONS is not an EQUATION OF PAIRS.  They meet only
---       through `Œ£Path‚âÉPathŒ£`, and measuring two observables jointly is
+--       through `ŒPath‚âPathŒ`, and measuring two observables jointly is
 --       not the act of measuring each.
 --
---   ¬ß‡•®  ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ-‡§µ‡§ø‡§≠‡§æ‡§ó‡§É  fiber f b ‚âÉ Œ£[ c ‚àà C ] fiber ‚ü®f,g‚ü© (b , c).
+--   ¬ß‡®  ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ-‡µ‡ø‡‡æ‡ó‡  fiber f b ‚â Œ[ c ‚àà C ] fiber ‚ü®f,g‚ü© (b , c).
 --       The fiber of f partitions over the values of g.  This is the
---       sum rule ‚Äî the total is the sum of the conditionals ‚Äî and it is
+--       sum rule ‚î the total is the sum of the conditionals ‚î and it is
 --       an equivalence of types, with no finiteness anywhere.
 --
---   ¬ß‡•©  ‡§Æ‡•Å‡§ï‡•ç‡§§-‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ  if f's fiber at b is contractible, the joint
---       fiber collapses to a single path `g a‚ÇÄ ‚â° c`.  When f is already
---       an answer (‡§®‡§∑‡•ç‡§ü‡•ã‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü-‡§™‡§∞‡•Ä‡§ï‡•ç‡§∑‡§æ ¬ß‡•™: ‡§è‡§ï‡§Æ‡•ç at b), g costs nothing
+--   ¬ß‡©  ‡Æ‡‡ï‡‡-‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ  if f's fiber at b is contractible, the joint
+--       fiber collapses to a single path `g a‚ ‚â° c`.  When f is already
+--       an answer (‡®‡‡‡ü‡ã‡¶‡‡¶‡ø‡‡‡ü-‡‡∞‡‡ï‡‡‡æ ¬ß‡: ‡‡ï‡Æ‡ at b), g costs nothing
 --       beyond identifying its value.
 --
---   ¬ß‡•™  ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤‡•á  Vak n ‚âÉ Œ£[ k ‚àà ‚Ñï ] Chosen n k.  Pi·πÖgala's own case:
---       the syllable-metre decomposes over the guru-count.  ¬ß‡•®
---       instantiated at (‡§µ‡§∞‡•ç‡§£, ‡§ó‡•Å‡§∞‡•Å), joined to
---       `Chandomudra_‚Ä¶.‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§§‡§®‡•ç‡§§‡•Å‡§É` which prices the joint fiber.
+--   ¬ß‡  ‡‡ø‡ô‡‡ó‡≤‡  Vak n ‚â Œ[ k ‚àà ‚ï ] Chosen n k.  Pigala's own case:
+--       the syllable-metre decomposes over the guru-count.  ¬ß‡®
+--       instantiated at (‡µ‡∞‡‡, ‡ó‡‡∞‡), joined to
+--       `Chandomudra_‚¶.‡Ø‡‡ó‡‡Æ-‡‡®‡‡‡‡` which prices the joint fiber.
 --
---   ¬ß‡•´  ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É  ‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø n) ‚â° sankhya n.  The same statement
---       at the level of NUMBERS: the n-th row of the ‡§Æ‡•á‡§∞‡•Å‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ sums to
---       the ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ 2‚Åø, proved from ‡§π‡§≤‡§æ‡§Ø‡•Å‡§ß's adjacent-sums rule as it is
---       written in `NastaUddista_‚Ä¶.‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø` ‚Äî one row held in memory, no
+--   ¬ß‡  ‡‡ô‡‡ï‡‡‡ø-‡Ø‡ã‡ó‡  ‡Ø‡ã‡ó‡‡≤ (‡‡ô‡‡ï‡‡‡ø n) ‚â° sankhya n.  The same statement
+--       at the level of NUMBERS: the n-th row of the ‡Æ‡‡∞‡‡‡‡∞‡‡‡‡æ‡∞ sums to
+--       the ‡‡ô‡‡ñ‡‡Ø‡æ 2‚ø, proved from ‡‡≤‡æ‡Ø‡‡ß's adjacent-sums rule as it is
+--       written in `NastaUddista_‚¶.‡‡ô‡‡ï‡‡‡ø` ‚î one row held in memory, no
 --       triangle stored.
 --
---   ¬ß‡•¨  ‡§≤‡§ó-‡§ó‡§£‡§®‡§æ  Œ£[ k ‚àà ‚Ñï ] Chosen n k ‚âÉ Fin (‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø n)).  ¬ß‡•™ and
---       ¬ß‡•´ joined, by way of Pi·πÖgala's OWN ‡§®‡§∑‡•ç‡§ü/‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü count
---       (`PingalaPrastara.uddistaIso`).  Summing the ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ over every
---       guru-count returns the ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ, and no summand is ever examined.
+--   ¬ß‡  ‡≤‡ó-‡ó‡‡®‡æ  Œ[ k ‚àà ‚ï ] Chosen n k ‚â Fin (‡Ø‡ã‡ó‡‡≤ (‡‡ô‡‡ï‡‡‡ø n)).  ¬ß‡ and
+--       ¬ß‡ joined, by way of Pigala's OWN ‡®‡‡‡ü/‡â‡¶‡‡¶‡ø‡‡‡ü count
+--       (`PingalaPrastara.uddistaIso`).  Summing the ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ over every
+--       guru-count returns the ‡‡ô‡‡ñ‡‡Ø‡æ, and no summand is ever examined.
 --
--- RELATION TO WHAT IS ALREADY HERE.  `Sesa_‚Ä¶.‡§∂‡•á‡§∑` gives the COMPOSITION
--- half ‚Äî fiber (g ‚àò f) z ‚âÉ Œ£[ p ‚àà fiber g z ] fiber f (fst p) ‚Äî for two
--- maps run in series.  ¬ß‡•ß is the PAIRING half, for two maps run on the
+-- RELATION TO WHAT IS ALREADY HERE.  `Sesa_‚¶.‡‡‡` gives the COMPOSITION
+-- half ‚î fiber (g ‚àò f) z ‚â Œ[ p ‚àà fiber g z ] fiber f (fst p) ‚î for two
+-- maps run in series.  ¬ß‡ß is the PAIRING half, for two maps run on the
 -- same source.  They are different fibrations of a fibration and neither
--- follows from the other; ¬ß‡•ß's hypothesis is a common domain, ¬ß‡§∂‡•á‡§∑'s is
+-- follows from the other; ¬ß‡ß's hypothesis is a common domain, ¬ß‡‡‡'s is
 -- a shared middle.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical (the installed version), --cubical
@@ -111,8 +111,8 @@ private
   variable
     ‚Ñì ‚Ñì' ‚Ñì'' ‚Ñì''' : Level
 
--- A swap of two independent Œ£-bases, needed below and not in the library
--- in this generality (`Cubical.Data.Sigma.Œ£-swap-‚âÉ` is the plain product
+-- A swap of two independent Œ-bases, needed below and not in the library
+-- in this generality (`Cubical.Data.Sigma.Œ-swap-‚â` is the plain product
 -- only, and here the last family depends on BOTH bases).  Both round
 -- trips are `refl`.
 ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-Iso : {D : Type ‚Ñì} {E : Type ‚Ñì'} {F : D ‚Üí E ‚Üí Type ‚Ñì''}
@@ -124,7 +124,7 @@ Iso.rightInv ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-Iso _ = refl
 Iso.leftInv  ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-Iso _ = refl
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ THE CONDITIONAL RECEIPT.
+-- ‡ß ¬ THE CONDITIONAL RECEIPT.
 --
 -- Two observables on one source.  The JOINT specification names both;
 -- the PARTIAL specification names only the first, and what remains to be
@@ -133,7 +133,7 @@ Iso.leftInv  ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-Iso _ = refl
 
 module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Üí C) where
 
-  -- ‚ü®f,g‚ü© ‚Äî the joint measurement, made in one act.
+  -- ‚ü®f,g‚ü© ‚î the joint measurement, made in one act.
   ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Æ‡§æ‡§™‡§É : A ‚Üí B √ó C
   ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Æ‡§æ‡§™‡§É a = f a , g a
 
@@ -141,11 +141,11 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
   ‡§∏‡§æ‡§™‡•á‡§ï‡•ç‡§∑-‡§§‡§®‡•ç‡§§‡•Å‡§É : B ‚Üí C ‚Üí Type (‚Ñì-max (‚Ñì-max ‚Ñì ‚Ñì') ‚Ñì'')
   ‡§∏‡§æ‡§™‡•á‡§ï‡•ç‡§∑-‡§§‡§®‡•ç‡§§‡•Å‡§É b c = fiber (Œª (x : fiber f b) ‚Üí g (fst x)) c
 
-  -- ¬ß‡•ß  the joint fiber IS the conditional fiber.
+  -- ¬ß‡ß  the joint fiber IS the conditional fiber.
   --
   -- Left to right the two coordinates of the pair-equation are split
-  -- (`Œ£Path‚âÉPathŒ£`, and this is the step that is not definitional);
-  -- then the Œ£ is reassociated so that "the part f already answered"
+  -- (`ŒPath‚âPathŒ`, and this is the step that is not definitional);
+  -- then the Œ is reassociated so that "the part f already answered"
   -- becomes the base and "what g still costs" becomes the fiber.
   ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ : (b : B) (c : C)
            ‚Üí fiber ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Æ‡§æ‡§™‡§É (b , c) ‚âÉ ‡§∏‡§æ‡§™‡•á‡§ï‡•ç‡§∑-‡§§‡§®‡•ç‡§§‡•Å‡§É b c
@@ -153,7 +153,7 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
     compEquiv (Œ£-cong-equiv-snd (Œª _ ‚Üí invEquiv Œ£Path‚âÉPathŒ£))
               (invEquiv Œ£-assoc-‚âÉ)
 
-  -- ¬ß‡•®  the sum rule.  The fiber of f is the sum, over the values of g,
+  -- ¬ß‡®  the sum rule.  The fiber of f is the sum, over the values of g,
   -- of the joint fibers.  Nothing is lost by refining a specification:
   -- the refinements reassemble to exactly what was there.
   ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ-‡§µ‡§ø‡§≠‡§æ‡§ó‡§É : (b : B)
@@ -164,22 +164,22 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
       (compEquiv (isoToEquiv ‡§µ‡§ø‡§™‡§∞‡•ç‡§Ø‡§Ø-Iso)
                  (Œ£-contractSnd (Œª x ‚Üí isContrSingl (g (fst x))))))
 
-  -- ¬ß‡•©  when the first answer is already ‡§è‡§ï‡§Æ‡•ç, the conditional receipt
+  -- ¬ß‡©  when the first answer is already ‡‡ï‡Æ‡, the conditional receipt
   -- is a single path and nothing more.
   ‡§Æ‡•Å‡§ï‡•ç‡§§-‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ : (b : B) (h : isContr (fiber f b)) (c : C)
                 ‚Üí fiber ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Æ‡§æ‡§™‡§É (b , c) ‚âÉ (g (fst (h .fst)) ‚â° c)
   ‡§Æ‡•Å‡§ï‡•ç‡§§-‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ b h c = compEquiv (‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ b c) (Œ£-contractFst h)
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤‡•á ‚Äî the instance the pratyaya was stated for.
+-- ‡ ¬ ‡‡ø‡ô‡‡ó‡≤‡ ‚î the instance the pratyaya was stated for.
 --
--- f = ‡§µ‡§∞‡•ç‡§£ (syllable count), g = ‡§ó‡•Å‡§∞‡•Å (heavy-syllable count).  ¬ß‡•® says
--- the ‡§µ‡§∞‡•ç‡§£‡§µ‡•É‡§§‡•ç‡§§ of n syllables decomposes over the guru-count, and
--- `Chandomudra_‚Ä¶.‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§§‡§®‡•ç‡§§‡•Å‡§É` says each joint fiber is `Chosen n k`,
--- which is what the ‡§Æ‡•á‡§∞‡•Å‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ tabulates.
+-- f = ‡µ‡∞‡‡ (syllable count), g = ‡ó‡‡∞‡ (heavy-syllable count).  ¬ß‡® says
+-- the ‡µ‡∞‡‡‡µ‡‡‡‡ of n syllables decomposes over the guru-count, and
+-- `Chandomudra_‚¶.‡Ø‡‡ó‡‡Æ-‡‡®‡‡‡‡` says each joint fiber is `Chosen n k`,
+-- which is what the ‡Æ‡‡∞‡‡‡‡∞‡‡‡‡æ‡∞ tabulates.
 --
 -- `fiber varna n` and `Vak n` are the same type on the nose, so no step
--- is spent on that (‡§õ‡§®‡•ç‡§¶‡•ã‡§Æ‡•Å‡§¶‡•ç‡§∞‡§æ ¬ß‡•®).
+-- is spent on that (‡‡®‡‡¶‡ã‡Æ‡‡¶‡‡∞‡æ ¬ß‡®).
 ------------------------------------------------------------------------
 
 ‡§≤‡§ó-‡§µ‡§ø‡§≠‡§æ‡§ó‡§É : (n : ‚Ñï) ‚Üí Vak n ‚âÉ (Œ£[ k ‚àà ‚Ñï ] Chosen n k)
@@ -188,13 +188,13 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
             (Œ£-cong-equiv-snd (Œª k ‚Üí CM.‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§§‡§®‡•ç‡§§‡•Å‡§É n k))
 
 ------------------------------------------------------------------------
--- ‡•´ ¬∑ THE SAME STATEMENT AT THE LEVEL OF NUMBERS.
+-- ‡ ¬ THE SAME STATEMENT AT THE LEVEL OF NUMBERS.
 --
--- ¬ß‡•™ is an equivalence of types and stops there: passing to a count
--- needs a finiteness ¬ß‡•™ does not assume, and `Œ£[ k ‚àà ‚Ñï ]` ranges over
--- all of ‚Ñï with all but finitely many summands empty.  The numerical
--- form is proved separately, from ‡§π‡§≤‡§æ‡§Ø‡•Å‡§ß's rule as it is actually
--- written in `NastaUddista_‚Ä¶.‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø` ‚Äî one row generated from the
+-- ¬ß‡ is an equivalence of types and stops there: passing to a count
+-- needs a finiteness ¬ß‡ does not assume, and `Œ[ k ‚àà ‚ï ]` ranges over
+-- all of ‚ï with all but finitely many summands empty.  The numerical
+-- form is proved separately, from ‡‡≤‡æ‡Ø‡‡ß's rule as it is actually
+-- written in `NastaUddista_‚¶.‡‡ô‡‡ï‡‡‡ø` ‚î one row generated from the
 -- previous by adjacent sums, one row held, no triangle stored.
 ------------------------------------------------------------------------
 
@@ -210,8 +210,8 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
 ‡§µ‡§ø‡§®‡•ç‡§Ø‡§æ‡§∏‚ÇÇ : (x s : ‚Ñï) ‚Üí (x + x) + (s + s) ‚â° (x + s) + (x + s)
 ‡§µ‡§ø‡§®‡•ç‡§Ø‡§æ‡§∏‚ÇÇ x s = solve‚Ñï!
 
--- the adjacent-sum row doubles the total, less its own head ‚Äî stated
--- without subtraction, which ‚Ñï does not have.
+-- the adjacent-sum row doubles the total, less its own head ‚î stated
+-- without subtraction, which ‚ï does not have.
 ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Ø‡•ã‡§ó‡§É : (xs : List ‚Ñï)
            ‚Üí ‡§®‡§Ø‡§® xs 0 + ‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§Ø‡•Å‡§ó‡•ç‡§Æ xs) ‚â° ‡§Ø‡•ã‡§ó‡§´‡§≤ xs + ‡§Ø‡•ã‡§ó‡§´‡§≤ xs
 ‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Ø‡•ã‡§ó‡§É []       = refl
@@ -220,15 +220,15 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
   ‚àô cong ((x + x) +_) (‡§Ø‡•Å‡§ó‡•ç‡§Æ-‡§Ø‡•ã‡§ó‡§É xs)
   ‚àô ‡§µ‡§ø‡§®‡•ç‡§Ø‡§æ‡§∏‚ÇÇ x (‡§Ø‡•ã‡§ó‡§´‡§≤ xs)
 
--- every row of the ‡§Æ‡•á‡§∞‡•Å begins with 1 ‚Äî by the construction, not by a
+-- every row of the ‡Æ‡‡∞‡ begins with 1 ‚î by the construction, not by a
 -- separate argument.
 ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Æ‡•Å‡§ñ‡§Æ‡•ç : (n : ‚Ñï) ‚Üí ‡§®‡§Ø‡§® (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø n) 0 ‚â° 1
 ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Æ‡•Å‡§ñ‡§Æ‡•ç zero    = refl
 ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Æ‡•Å‡§ñ‡§Æ‡•ç (suc n) = refl
 
--- THE THEOREM.  The n-th row of the ‡§Æ‡•á‡§∞‡•Å‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ sums to Pi·πÖgala's
--- ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ.  Read backwards: summing the ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ over every possible
--- guru-count returns the whole ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞, so the conditional receipts
+-- THE THEOREM.  The n-th row of the ‡Æ‡‡∞‡‡‡‡∞‡‡‡‡æ‡∞ sums to Pigala's
+-- ‡‡ô‡‡ñ‡‡Ø‡æ.  Read backwards: summing the ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ over every possible
+-- guru-count returns the whole ‡‡‡∞‡‡‡‡æ‡∞, so the conditional receipts
 -- account for the total exactly.
 ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É : (n : ‚Ñï) ‚Üí ‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø n) ‚â° sankhya n
 ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É zero    = refl
@@ -238,16 +238,16 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
   ‚àô cong‚ÇÇ _+_ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É n) (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É n)
 
 ------------------------------------------------------------------------
--- ‡•¨ ¬∑ ¬ß‡•™ AND ¬ß‡•´ JOINED BY A TERM, not by a paragraph.
+-- ‡ ¬ ¬ß‡ AND ¬ß‡ JOINED BY A TERM, not by a paragraph.
 --
 -- The first draft of this module left them apart and said in prose that
--- joining them needed a finiteness ‚Äî that `Chosen n k` is empty for
--- k > n.  It does not.  The route runs the other way round: ¬ß‡•™ says the
--- sum of the conditional fibers IS the ‡§µ‡§∞‡•ç‡§£‡§µ‡•É‡§§‡•ç‡§§, and Pi·πÖgala's own
--- ‡§®‡§∑‡•ç‡§ü/‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü pair already counts THAT (`PingalaPrastara.uddistaIso`,
--- Vak n ‚âÉ Fin (sankhya n)).  ¬ß‡•´ then rewrites the count as the row sum.
+-- joining them needed a finiteness ‚î that `Chosen n k` is empty for
+-- k > n.  It does not.  The route runs the other way round: ¬ß‡ says the
+-- sum of the conditional fibers IS the ‡µ‡∞‡‡‡µ‡‡‡‡, and Pigala's own
+-- ‡®‡‡‡ü/‡â‡¶‡‡¶‡ø‡‡‡ü pair already counts THAT (`PingalaPrastara.uddistaIso`,
+-- Vak n ‚â Fin (sankhya n)).  ¬ß‡ then rewrites the count as the row sum.
 --
--- So: the ‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ is recovered by summing the ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ over every guru
+-- So: the ‡‡ô‡‡ñ‡‡Ø‡æ is recovered by summing the ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ over every guru
 -- count, as an equivalence, with no summand ever examined.
 ------------------------------------------------------------------------
 
@@ -258,36 +258,36 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} {C : Type ‚Ñì''} (f : A ‚Üí B) (g : A ‚Ü
              (pathToEquiv (cong Fin (sym (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø-‡§Ø‡•ã‡§ó‡§É n)))))
 
 ------------------------------------------------------------------------
--- ‡•≠ ¬∑ ‡§â‡§¶‡§æ‡§π‡§∞‡§£‡§æ‡§®‡§ø ‚Äî ‡§ï‡§∞‡•ç‡§£‡•á‡§® ‡§ó‡§£‡§ø‡§§‡§æ‡§®‡§ø (refl), ‡§® ‡§Æ‡§æ‡§™‡§ø‡§§‡§æ‡§®‡§ø ‡•§
+-- ‡ ¬ ‡â‡¶‡æ‡‡∞‡‡æ‡®‡ø ‚î ‡ï‡∞‡‡‡‡® ‡ó‡‡ø‡‡æ‡®‡ø (refl), ‡® ‡Æ‡æ‡‡ø‡‡æ‡®‡ø ‡
 ------------------------------------------------------------------------
 
--- ‡§π‡§≤‡§æ‡§Ø‡•Å‡§ß‡§∏‡•ç‡§Ø ‡§ö‡§§‡•Å‡§∞‡•ç‡§•‡•Ä ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É : 1 4 6 4 1, ‡§Ø‡•ã‡§ó‡§É ‡•ß‡•¨ = ‡•®‚Å¥ ‡•§
+-- ‡‡≤‡æ‡Ø‡‡ß‡‡‡Ø ‡‡‡‡∞‡‡‡ ‡‡ô‡‡ï‡‡‡ø‡ : 1 4 6 4 1, ‡Ø‡ã‡ó‡ ‡ß‡ = ‡®‚¥ ‡
 _ : ‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø 4) ‚â° 16
 _ = refl
 
 _ : ‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø 4) ‚â° sankhya 4
 _ = refl
 
--- ‡§¶‡§∂‡§Æ‡•Ä ‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É : ‡•ß‡•¶‡•®‡•™ ‡•§
+-- ‡¶‡‡Æ‡ ‡‡ô‡‡ï‡‡‡ø‡ : ‡ß‡¶‡®‡ ‡
 _ : ‡§Ø‡•ã‡§ó‡§´‡§≤ (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø 10) ‚â° 1024
 _ = refl
 
--- ‡§è‡§ï‡§æ ‡§≤‡§ó‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ : ‡§ö‡§§‡•Å‡§∞‡§ï‡•ç‡§∑‡§∞‡•á ‡§¶‡•ç‡§µ‡§ø-‡§ó‡•Å‡§∞‡•Ç‡§£‡§ø ‡§∑‡§ü‡•ç ‡§∞‡•Ç‡§™‡§æ‡§£‡§ø ‡•§
+-- ‡‡ï‡æ ‡≤‡ó‡ï‡‡∞‡ø‡Ø‡æ : ‡‡‡‡∞‡ï‡‡‡∞‡ ‡¶‡‡µ‡ø-‡ó‡‡∞‡‡‡ø ‡‡ü‡ ‡∞‡‡‡æ‡‡ø ‡
 _ : ‡§®‡§Ø‡§® (‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø 4) 2 ‚â° 6
 _ = refl
 
 ------------------------------------------------------------------------
--- ‡•Æ ¬∑ ‡§∂‡•á‡§∑‡§É ‚Äî what is not settled here.
+-- ‡Æ ¬ ‡‡‡‡ ‚î what is not settled here.
 --
--- ¬ß‡•¨ counts the sum WITHOUT ever showing a summand empty.  What is
--- therefore still not proved is the summand-wise statement ‚Äî that
--- `Chosen n k` is empty for k > n ‚Äî which is true, is what would let
--- the infinite `Œ£[ k ‚àà ‚Ñï ]` be replaced by a finite one over `Fin
+-- ¬ß‡ counts the sum WITHOUT ever showing a summand empty.  What is
+-- therefore still not proved is the summand-wise statement ‚î that
+-- `Chosen n k` is empty for k > n ‚î which is true, is what would let
+-- the infinite `Œ[ k ‚àà ‚ï ]` be replaced by a finite one over `Fin
 -- (suc n)`, and is not needed for anything above.  Someone who wants
 -- the row read term by term rather than in total has to prove it.
 --
--- Also not here: the ‡§Ö‡§ß‡•ç‡§µ‡§Ø‡•ã‡§ó, the sixth pratyaya, which measures the
--- SPACE the ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ would occupy if written out.  That is the one the
+-- Also not here: the ‡‡ß‡‡µ‡Ø‡ã‡ó, the sixth pratyaya, which measures the
+-- SPACE the ‡‡‡∞‡‡‡‡æ‡∞ would occupy if written out.  That is the one the
 -- machine's `--no-table` design answers by refusing to write it, and it
 -- has no module.
 ------------------------------------------------------------------------

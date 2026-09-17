@@ -21,33 +21,33 @@ open import TheDiagonalLemmaDischargesGoedelFix
 --
 -- The previous module wrote representability down and asked, in its own
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   Â§1  `Wit` â€” `GodelSeparation`'s countermodel, four sentences, with
---       `prov` constantly âŠ¤ â€” carries a `HasDiagonal`.  The internal
+--   Â§1  `Wit` â” `GodelSeparation`'s countermodel, four sentences, with
+--       `prov` constantly âŠ â” carries a `HasDiagonal`.  The internal
 --       implication is the truth-functional one over the four
 --       sentences, modus ponens holds by exhaustion, and the diagonal
---       fixed point at `Â¬ prov(âˆ’)` is `wg`.
+--       fixed point at `Â prov(âˆ’)` is `wg`.
 --
 --   Â§2  so `HasDiagonal` is INHABITED: it is not a vacuous record, and
 --       the previous module's theorems are not empty.
 --
 --   Â§3  and the stronger consequence.  `Wit` is consistent
 --       (`witCon`), satisfies HBL1 (`witHBL1`), now satisfies full
---       representability (Â§1), and PROVES Â¬G (`witProvesNegG`).  So
+--       representability (Â§1), and PROVES ÂG (`witProvesNegG`).  So
 --
---         consistency + HBL1 + representability  âŠ¬  independence
+--         consistency + HBL1 + representability  âŠ  independence
 --
 --       and any derivation of independence from those three, applied
---       to `Wit`, yields âŠ¥.
+--       to `Wit`, yields âŠ.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS UPGRADES
 --
 -- `GodelSeparation.noHalfTwo` refutes the second conjunct from
 -- consistency, HBL1 and `GoedelFix`.  Someone could have answered that
--- `GoedelFix` is a weak stand-in for the real hypothesis â€” that a
+-- `GoedelFix` is a weak stand-in for the real hypothesis â” that a
 -- theory which genuinely represents its own provability predicate would
 -- not behave like `Wit`.  Â§3 closes that: `Wit` represents it, in the
 -- full sense of Â§1, and behaves like `Wit` anyway.
@@ -56,7 +56,7 @@ open import TheDiagonalLemmaDischargesGoedelFix
 -- to be representability: it is Ï‰-consistency, and `witOmegaBad` is
 -- already in the corpus, exhibiting `Wit`'s failure of it.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE HONEST LIMIT OF Â§1, STATED BECAUSE IT IS EASY TO OVERSELL
 --
 -- `Form` here is `Unit`: one formula, the only one the argument needs.
@@ -64,17 +64,17 @@ open import TheDiagonalLemmaDischargesGoedelFix
 -- evidence that `HasDiagonal` captures arithmetisation.  A structure
 -- with one formula has no substitution, no coding, and no way to
 -- express a diagonal for anything else.  What Â§1 shows is that the
--- record as written is satisfiable â€” which is exactly what was needed
+-- record as written is satisfiable â” which is exactly what was needed
 -- to know that Â§3 is not vacuous, and no more.
 --
 -- A reader wanting `HasDiagonal` to mean arithmetisation should
--- strengthen it â€” a `Form` closed under the connectives, substitution,
--- a coding â€” and none of that is here or, on a grep of
+-- strengthen it â” a `Form` closed under the connectives, substitution,
+-- a coding â” and none of that is here or, on a grep of
 -- `formal/cubical` for `Representab` and `Form`, anywhere in this
--- corpus.  A version phrased over a GÃ¶del numbering function rather
+-- corpus.  A version phrased over a Gdel numbering function rather
 -- than a formula type would evade that grep.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
@@ -111,7 +111,7 @@ wmp wng  wg   i _  = Empty.rec i
 ------------------------------------------------------------------------
 -- 2.  `Wit` carries a diagonal
 --
--- One formula, `Â¬ prov(âˆ’)`, which in `Wit` is constantly `wbot` since
+-- One formula, `Â prov(âˆ’)`, which in `Wit` is constantly `wbot` since
 -- `prov` is constantly `wtop`.  Its fixed point is `wg`: `wimp wg wbot`
 -- is `wtop` because `wg` is unprovable, and `wimp wbot wg` is `wtop`
 -- because `wbot` is.

@@ -7,19 +7,19 @@
 -- claimed green; a green is an exit code or it is a rumour.
 --
 -- WHY THIS IS A SEPARATE MODULE.  `RewriteCertificate` is
--- the live soundness perimeter of the Haskell gate: `MathMachine.hs` ‚Üí
--- `Certificate.hs` ‚Üí (S1) `InductionSearch.hs` emit modules that import it,
+-- the live soundness perimeter of the Haskell gate: `MathMachine.hs` ‚í
+-- `Certificate.hs` ‚í (S1) `InductionSearch.hs` emit modules that import it,
 -- and `induction-sound` there is the semantic warrant for installing a
 -- rewrite rule.  The gate lane owns that file.  `Tm` is a closed datatype,
 -- so a constructor cannot be added from outside; the only conservative move
 -- is to MIRROR the module with the constructor added, and then to PROVE the
 -- mirroring is conservative rather than to assert it.  That is what ¬ß6 does:
--- an embedding `embed : A.Tm ‚Üí Tm` which
+-- an embedding `embed : A.Tm ‚í Tm` which
 --
 --   * commutes with evaluation           (`embed-eval`),
 --   * carries every additive Step, Derivation, HypStep, HypDerivation and
 --     InductionCertificate to one of the same shape here
---     (`embed-step` ‚Ä¶ `embed-certificate`).
+--     (`embed-step` ‚¶ `embed-certificate`).
 --
 -- Consequence, and the reason it is worth the lines: every certificate the
 -- additive kernel ever accepted is accepted here with the same meaning, so
@@ -35,16 +35,16 @@
 -- gate lane's work is purely additive.
 --
 -- WHY MULTIPLICATION FIRST.  Its two defining equations are already in
--- `MathMachine.vocabulary`'s `symDefs` ‚Äî
+-- `MathMachine.vocabulary`'s `symDefs` ‚î
 --
 --     x * 0     = 0                x * s(y)  = (x * y) + x
 --
--- ‚Äî and both are already checked against ‚Ñï in
+-- ‚î and both are already checked against ‚ï in
 -- `HaskellDefinitionBoundary` (`haskell-mul-zero`,
 -- `haskell-mul-suc`).  So `mul-zero`/`mul-suc` below introduce NO new
 -- trusted input: they are the machine's own axioms, re-indexed by their
--- endpoints.  `mod`, `div`, `Omega`, `omega`, `musq` ‚Äî the demands standing
--- in `machine/thoughts.math` ‚Äî have no `symSem` and no `symDefs` at all;
+-- endpoints.  `mod`, `div`, `Omega`, `omega`, `musq` ‚î the demands standing
+-- in `machine/thoughts.math` ‚î have no `symSem` and no `symDefs` at all;
 -- each would be a new trusted input, and each is strictly downstream of a
 -- comparison/remainder primitive.  See `machine/patches/S4-certificate-
 -- vocabulary.md` ¬ß3 for the dependency chain.
@@ -165,14 +165,14 @@ eval (mul l r) œÅ = eval l œÅ ¬∑ eval r œÅ
 --
 -- Every certificate step preserves that meaning.  Therefore the Haskell
 -- gate cannot install a rule merely because it inhabits an uninterpreted
--- rewrite calculus: its exact checked endpoints are pointwise equal on ‚Ñï.
+-- rewrite calculus: its exact checked endpoints are pointwise equal on ‚ï.
 --
 -- The two multiplicative base cases are the only place the argument-order
 -- mismatch of `machine/CERTIFICATE_REACH.md` ¬ß1 is paid for.  Cubical's
--- `_¬∑_` recurses on its FIRST argument and states its laws as `0 ‚â° m ¬∑ 0`
--- and `m ¬∑ suc n ‚â° m + m ¬∑ n`; MathMachine's `*` recurses on its SECOND and
+-- `_¬_` recurses on its FIRST argument and states its laws as `0 ‚â° m ¬ 0`
+-- and `m ¬ suc n ‚â° m + m ¬ n`; MathMachine's `*` recurses on its SECOND and
 -- writes `x * 0 = 0`, `x * s y = x * y + x`.  The whole cost of that is one
--- `sym` and one `‚àô +-comm`, and it is paid here, once, in the perimeter ‚Äî
+-- `sym` and one `‚àô +-comm`, and it is paid here, once, in the perimeter ‚î
 -- never inside a certificate.  (These are `haskell-mul-zero` and
 -- `haskell-mul-suc` of `HaskellDefinitionBoundary`, reused
 -- pointwise rather than re-derived.)
@@ -276,7 +276,7 @@ accepted-sound = derivation-sound accepted
 --      and the add-rules interlock rather than merely coexist.
 ------------------------------------------------------------------------
 
--- 1 * 1 ‚Üí 1 * 0 + 1 ‚Üí 0 + 1 ‚Üí s (0 + 0) ‚Üí s 0.
+-- 1 * 1 ‚í 1 * 0 + 1 ‚í 0 + 1 ‚í s (0 + 0) ‚í s 0.
 -- Note the second move: the redex `mul (s 0) 0` sits in the LEFT argument
 -- of an `add`, so the congruence that carries it is `add-left`.  Getting
 -- this wrong is the standing hazard of a two-operator congruence calculus,
@@ -299,10 +299,10 @@ one-times-one-sound = derivation-sound one-times-one
 -- THIS IS THE LOAD-BEARING EXAMPLE, and it is worth saying why it is not
 -- trivial.  In MathMachine's orientation `*` recurses on the right, so
 --
---     x * 1  =  x * s 0  ‚Üí  x * 0 + x  ‚Üí  0 + x
+--     x * 1  =  x * s 0  ‚í  x * 0 + x  ‚í  0 + x
 --
 -- and `0 + x` is IRREDUCIBLE in this calculus: `add-zero` strips a zero on
--- the RIGHT (`x + 0 ‚Üí x`), and `add-suc` needs a successor on the right.
+-- the RIGHT (`x + 0 ‚í x`), and `add-suc` needs a successor on the right.
 -- Left-identity of `+` is itself an induction here.  So `x * 1 = x` cannot
 -- be closed by any single-step skeleton; the successor branch has to run a
 -- SIX-step trace which (i) uses `mul-zero` forwards, (ii) uses `mul-zero`
@@ -310,7 +310,7 @@ one-times-one-sound = derivation-sound one-times-one
 -- the induction hypothesis under a `suc` context.
 --
 -- That is precisely the class `Certificate.hs`'s eleven-shape skeleton
--- (`refl`, `ih`, `cong suc`, `cong (_+ k)`, ‚Ä¶) cannot express, and it is
+-- (`refl`, `ih`, `cong suc`, `cong (_+ k)`, ‚¶) cannot express, and it is
 -- the class the S1 rescue lane exists to reach.  The additive calculus
 -- could not state this theorem at all.
 ------------------------------------------------------------------------
@@ -318,14 +318,14 @@ one-times-one-sound = derivation-sound one-times-one
 x-times-one : InductionCertificate (mul var (suc zero)) var
 x-times-one = record
   { base =
-      -- 0 * 1 ‚Üí 0 * 0 + 0 ‚Üí 0 + 0 ‚Üí 0
+      -- 0 * 1 ‚í 0 * 0 + 0 ‚í 0 + 0 ‚í 0
       then-step (mul-suc zero zero)
       (then-step (add-left (mul-zero zero) zero)
       (then-step (add-zero zero)
         (done zero)))
   ; step =
-      -- s x * 1 ‚Üí s x * 0 + s x ‚Üí 0 + s x ‚Üí s (0 + x)
-      --         ‚Üí s (x * 0 + x) ‚Üí s (x * 1) ‚Üí s x
+      -- s x * 1 ‚í s x * 0 + s x ‚í 0 + s x ‚í s (0 + x)
+      --         ‚í s (x * 0 + x) ‚í s (x * 1) ‚í s x
       hyp-then (lift-step (mul-suc (suc var) zero))
       (hyp-then (lift-step (add-left (mul-zero (suc var)) (suc var)))
       (hyp-then (lift-step (add-suc zero var))
@@ -335,9 +335,9 @@ x-times-one = record
         (hyp-done (suc var)))))))
   }
 
--- The advertised equation, for every environment.  `x ¬∑ 1 ‚â° x` is now a
+-- The advertised equation, for every environment.  `x ¬ 1 ‚â° x` is now a
 -- theorem OF THE MACHINE'S CALCULUS, obtained from the machine's own two
--- defining equations for `*` by a checked trace ‚Äî not cited from
+-- defining equations for `*` by a checked trace ‚î not cited from
 -- `Cubical.Data.Nat.Properties`.
 x-times-one-sound :
   (œÅ : Env) ‚Üí eval (mul var (suc zero)) œÅ ‚â° eval var œÅ
@@ -432,7 +432,7 @@ embed-certificate {lhs} {rhs} cert = record
         (embed-hyp-derivation (A.InductionCertificate.step cert))
   }
 
--- ‚Ä¶and it means there what it meant here.
+-- ‚¶and it means there what it meant here.
 embed-certificate-sound : {lhs rhs : A.Tm} ‚Üí A.InductionCertificate lhs rhs
   ‚Üí (œÅ : Env) ‚Üí A.eval lhs (toBase œÅ) ‚â° A.eval rhs (toBase œÅ)
 embed-certificate-sound {lhs} {rhs} cert œÅ =

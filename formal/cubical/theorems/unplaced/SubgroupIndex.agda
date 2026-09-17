@@ -92,11 +92,11 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 
 open import Cubical.Data.Sigma
 open import Cubical.Data.Bool
--- v0.9 name-clash note.  Inside `module Index` below, `_·_` would denote BOTH
--- ℕ multiplication and the group operation (GroupStr).  Agda disambiguates
+-- v0.9 name-clash note.  Inside `module Index` below, `_�_` would denote BOTH
+-- � multiplication and the group operation (GroupStr).  Agda disambiguates
 -- ambiguous CONSTRUCTOR and field names but not ambiguous DEFINED names, so
--- ℕ multiplication is taken under the unambiguous name `_·ℕ_` throughout this
--- file and `_·_` is left to the group.  Same operation, same statements.
+-- � multiplication is taken under the unambiguous name `_��_` throughout this
+-- file and `_�_` is left to the group.  Same operation, same statements.
 open import Cubical.Data.Nat hiding (_·_)
 open import Cubical.Data.Nat using () renaming (_·_ to _·ℕ_)
 open import Cubical.Data.Nat.Divisibility using (_∣_)
@@ -105,7 +105,7 @@ open import Cubical.Data.Empty as Empty
 
 open import Cubical.Relation.Nullary hiding (⟪_⟫)   -- v0.9 exports ⟪_⟫ = Populated;
                                                     -- this module means the subgroup carrier
-                                                    -- Cubical.Algebra.Group.Subgroup.⟪_⟫
+                                                    -- Cubical.Algebra.Group.Subgroup.�_�
 open import Cubical.Relation.Nullary.DecidablePropositions
 open import Cubical.Relation.Binary.Base
 
@@ -133,7 +133,7 @@ open isSubgroup
 ------------------------------------------------------------------------
 
 -- `isDecProp` is the Bool-valued formulation `isFinSetQuot` demands;
--- `isDecProp→Dec` exists, the converse for a *proposition* does not.
+-- `isDecProp�Dec` exists, the converse for a *proposition* does not.
 Dec→isDecProp : {P : Type ℓ} → isProp P → Dec P → isDecProp P
 Dec→isDecProp hp (yes p) =
   true , propBiimpl→Equiv hp isPropUnit (λ _ → tt) (λ _ → p)
@@ -219,7 +219,7 @@ module Index (G : Group ℓ)
   q x = SetQuot.[ x ]
 
   -- The carrier of H.  Definitionally the carrier of the library's
-  -- `Subgroup→Group H`, so `order` below is the order of that group.
+  -- `Subgroup�Group H`, so `order` below is the order of that group.
   HCarrier : Type ℓ
   HCarrier = Σ[ x ∈ X ] x ∈ ⟪ H ⟫
 
@@ -247,7 +247,7 @@ module Index (G : Group ℓ)
     cancelL' : (g x : X) → (inv g · (g · x)) ≡ x
     cancelL' g x = ·Assoc (inv g) g x ∙ cong (_· x) (·InvL g) ∙ ·IdL x
 
-  -- h ↦ g · h, at a chosen representative g.
+  -- h � g � h, at a chosen representative g.
   fibreIso : (g : X) → Iso HCarrier (fiber q (q g))
   Iso.fun (fibreIso g) (h , hh) =
     (g · h) , eq/ (g · h) g (subst (_∈ ⟪ H ⟫) toInv (Hsub .inv-closed hh))
@@ -268,7 +268,7 @@ module Index (G : Group ℓ)
   FFibre : (c : Coset) → FinSet ℓ
   FFibre c = fiber q c , isFinSetFiber FG FCoset q c
 
-  -- No representative is chosen: the goal is a path in ℕ, hence a
+  -- No representative is chosen: the goal is a path in �, hence a
   -- proposition, so `elimProp` discharges it.  This is the step that
   -- would need choice of coset representatives in a set-level proof.
   cardFibre : (c : Coset) → card (FFibre c) ≡ order
@@ -289,10 +289,10 @@ module Index (G : Group ℓ)
 
   order∣card : order ∣ card FG
   order∣card = ∣ index , sym lagrange ∣₁
-    -- Was a placeholder carrying `·Comm (card FG) 0`, a term of no type here
-    -- (`·Comm` is the CommRing/Monoid name; ℕ's commutativity in cubical v0.9
-    -- is `·-comm`, and the second factor was wrong besides).  The STATEMENT
-    -- is unchanged; the proof is now the one `order∣card'` below already
+    -- Was a placeholder carrying `�Comm (card FG) 0`, a term of no type here
+    -- (`�Comm` is the CommRing/Monoid name; �'s commutativity in cubical v0.9
+    -- is `�-comm`, and the second factor was wrong besides).  The STATEMENT
+    -- is unchanged; the proof is now the one `order�card'` below already
     -- gives, so the two are the same theorem twice, which is what the
     -- original comment said was intended.
 
@@ -346,7 +346,7 @@ module Extremes (G : Group ℓ) (finG : isFinSet ⟨ G ⟩) where
 --
 -- The strongest control available is not an instance where the theorem
 -- holds but a statement it makes FALSE.  For every group of order 3 and
--- every decidable subgroup of it, having order 2 is IMPOSSIBLE — not
+-- every decidable subgroup of it, having order 2 is IMPOSSIBLE � not
 -- merely unproved.  This is Lagrange's content, and it is stated for all
 -- G at once, so it is not a finite check in disguise.
 ------------------------------------------------------------------------
@@ -369,7 +369,7 @@ no-order-2-in-order-3 G finG H decH c3 o2 =
   ¬n·2≡3 (Index.index G finG H decH)
     (sym (cong (Index.index G finG H decH ·ℕ_) o2)
        ∙ sym (Index.lagrange G finG H decH) ∙ c3)
-    -- The where-bound alias `_⁻¹ = sym` that stood here cannot be used in
-    -- `_ ⁻¹ ∙ _`: an undeclared postfix operator gets the default `infixl 20`,
+    -- The where-bound alias `_�� = sym` that stood here cannot be used in
+    -- `_ �� ∙ _`: an undeclared postfix operator gets the default `infixl 20`,
     -- which is LOOSER than `_∙_`'s 30, so the application does not parse.
     -- `sym` written out is the same term.

@@ -1,9 +1,9 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Ubhayata·∏• ‚Äî from both sides.
+-- Ubhayata ‚î from both sides.
 --
--- TERM.  ‡§â‡§≠‡§Ø‡§§‡§É, on both sides / in both directions.  An ordinary adverb,
+-- TERM.  ‡â‡‡Ø‡‡, on both sides / in both directions.  An ordinary adverb,
 -- chosen here; no source is claimed and nothing below is anyone's theorem.
 --
 -- THE OMISSION.  `RewriteCertificate.Step` lifts a successor out of the
@@ -11,20 +11,20 @@
 --
 --     add-suc : Step (add x (suc y)) (suc (add x y))
 --
--- and has no rule doing the same on the left.  `Baddha_‚Ä¶` proved what that
+-- and has no rule doing the same on the left.  `Baddha_‚¶` proved what that
 -- costs: a successor in a left operand whose sibling carries a variable can
 -- never reach the front, and the count of such successors is conserved by
--- every rule.  `Visranti_‚Ä¶` then showed the same fact operationally ‚Äî `nf`
+-- every rule.  `Visranti_‚¶` then showed the same fact operationally ‚î `nf`
 -- inspects its RIGHT argument and never its left, so a left-trapped
 -- successor is never examined.
 --
 -- THE FIRST THING TO NOTICE IS ABOUT THE KERNEL'S OWN DESIGN, and it is
 -- visible only once both rules are written down.  The omitted rule is FREE:
 --
---     add-suc-left-sound : eval (add (suc x) y) œÅ ‚â° eval (suc (add x y)) œÅ
+--     add-suc-left-sound : eval (add (suc x) y) œ ‚â° eval (suc (add x y)) œ
 --     add-suc-left-sound = refl
 --
--- because ‚Ñï's addition recurses on its LEFT argument, so `suc a + b`
+-- because ‚ï's addition recurses on its LEFT argument, so `suc a + b`
 -- reduces to `suc (a + b)` definitionally.  The rule the kernel DID include
 -- is the expensive one: `add-suc`'s soundness is discharged by `+-suc`, a
 -- library lemma, and appears in `step-sound` as the only clause that needs
@@ -35,38 +35,38 @@
 -- WHAT IS PROVED HERE.
 --
 --   ¬ß2  the omitted rule is sound, by `refl`;
---   ¬ß3  in the extended calculus the pair `Baddha_‚Ä¶` separated is joined,
---       in ONE step: `add (suc var) yvar ‚Üí suc (add var yvar)`;
---   ¬ß4  so `Baddha_‚Ä¶`'s trapped count is NOT conserved by the extension ‚Äî
---       exhibited, 1 against 0 ‚Äî which is the precise sense in which the
+--   ¬ß3  in the extended calculus the pair `Baddha_‚¶` separated is joined,
+--       in ONE step: `add (suc var) yvar ‚í suc (add var yvar)`;
+--   ¬ß4  so `Baddha_‚¶`'s trapped count is NOT conserved by the extension ‚î
+--       exhibited, 1 against 0 ‚î which is the precise sense in which the
 --       extension buys something.  What it buys is exactly what that count
 --       measured, and nothing else was measuring it.
 --
 -- THE READING THIS EXISTS FOR.  A rule set that inspects one operand and
 -- never the other is a SEQUENTIAL one, in the sense the semantics-of-
--- programs literature made exact: Kahn‚ÄìPlotkin's sequentiality index and
--- Berry‚ÄìCurien's sequential algorithms turn on which argument a computation
+-- programs literature made exact: Kahn‚ìPlotkin's sequentiality index and
+-- Berry‚ìCurien's sequential algorithms turn on which argument a computation
 -- must demand first, and Colson's theorems on primitive recursive
 -- algorithms turn on their being unable to release the argument they
--- fixated on.  `Step` is right-obstinate in that sense, and `Baddha_‚Ä¶`'s
+-- fixated on.  `Step` is right-obstinate in that sense, and `Baddha_‚¶`'s
 -- number is the cost of the obstinacy, counted.  Adding the left rule makes
--- the operator examinable from either side ‚Äî the miniature of what
--- Brookes‚ÄìGeva's parallel `query` does to `valof` ‚Äî and the gain over the
+-- the operator examinable from either side ‚î the miniature of what
+-- Brookes‚ìGeva's parallel `query` does to `valof` ‚î and the gain over the
 -- sequential rule set is measured by a quantity that was already a theorem
 -- before anyone asked the question.
 --
 -- Named as the frame this speaks to.  Nothing below is a theorem of any of
 -- those authors, no concrete data structure appears, and no claim is made
--- that this kernel is an instance of their definitions ‚Äî only that the
+-- that this kernel is an instance of their definitions ‚î only that the
 -- distinction they drew is the one the omitted rule turns on.
 --
 -- WHAT IS **NOT** CLAIMED.  Not that the extended calculus is confluent,
--- terminating, or has normal forms ‚Äî `add (suc x) (suc y)` now has two
--- redexes at one position, so `Visranti_‚Ä¶`'s orthogonality argument does
+-- terminating, or has normal forms ‚î `add (suc x) (suc y)` now has two
+-- redexes at one position, so `Visranti_‚¶`'s orthogonality argument does
 -- NOT survive and would have to be redone by joining the critical pair.
 -- Not that (word, constant) becomes a complete invariant for the extended
 -- system; that is now the open question and it is not answered here.  Not
--- that the extension is an improvement ‚Äî `Visranti_‚Ä¶` gets a decision
+-- that the extension is an improvement ‚î `Visranti_‚¶` gets a decision
 -- procedure out of the omission, which is a real thing to lose.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
@@ -101,7 +101,7 @@ data Derivation¬≤ : Tm ‚Üí Tm ‚Üí Type‚ÇÄ where
 ------------------------------------------------------------------------
 -- ¬ß2.  THE OMITTED RULE IS SOUND, AND IT IS FREE.
 --
--- `refl`.  ‚Ñï's addition recurses on the left, so `suc a + b` IS
+-- `refl`.  ‚ï's addition recurses on the left, so `suc a + b` IS
 -- `suc (a + b)`.  Compare `RewriteCertificate.step-sound`, where the
 -- `add-suc` clause is the one that must call `+-suc`.
 ------------------------------------------------------------------------
@@ -133,8 +133,8 @@ the-untrapping = then-step¬≤ (add-suc-left var yvar) (done¬≤ B)
 ------------------------------------------------------------------------
 -- ¬ß4.  SO THE TRAPPED COUNT IS NOT CONSERVED, AND THAT IS THE GAIN.
 --
--- `Baddha_‚Ä¶` proves `trapped` invariant under every `Step`.  Here is a
--- `Step¬≤` that moves it, so no analogous theorem holds for the extension ‚Äî
+-- `Baddha_‚¶` proves `trapped` invariant under every `Step`.  Here is a
+-- `Step¬≤` that moves it, so no analogous theorem holds for the extension ‚î
 -- and the quantity that fails to be conserved is precisely the one that
 -- measured what the sequential rule set could not reach.
 ------------------------------------------------------------------------
@@ -151,7 +151,7 @@ no-step¬≤-conservation conserved =
   snotz (sym trapped-A ‚àô conserved A B (add-suc-left var yvar))
 
 -- Stated the other way, as the thing gained: in the sequential calculus
--- this pair is unjoinable (`Baddha_‚Ä¶.not-derivable`); with the free rule it
+-- this pair is unjoinable (`Baddha_‚¶.not-derivable`); with the free rule it
 -- is one step apart.
 what-the-omission-cost : Derivation¬≤ A B
 what-the-omission-cost = the-untrapping

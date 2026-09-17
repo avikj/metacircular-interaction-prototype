@@ -6,21 +6,21 @@
 -- A natural number is a connected component; the space over it has
 -- geometry that the numeral forgets.
 --
--- FinSet is a groupoid.  `card` collapses it to ℕ.  What this module
--- checks is that the collapse is exactly a π₀ statement:
+-- FinSet is a groupoid.  `card` collapses it to �.  What this module
+-- checks is that the collapse is exactly a �� statement:
 --
 --   * card is invariant along paths                (card-invariant)
 --   * its fibres are connected, in the mere sense  (fibre-connected)
 --   * every n is hit                               (card-Fin)
---   * and the π₀ statement itself, assembled:      (ℕ≃π₀FinSet)
---       ℕ ≃ ∥ FinSet ℓ-zero ∥₂
+--   * and the �� statement itself, assembled:      (����FinSet)
+--       � � � FinSet �-zero ��
 --
 -- and that what the collapse throws away is exactly the loop space:
 --
---   * FinSetLoop≃Sym : the identity type of the finite set n, computed
---     in FinSet, is the symmetric group Sₙ.
+--   * FinSetLoop�Sym : the identity type of the finite set n, computed
+--     in FinSet, is the symmetric group S�.
 --
--- Two identifications ℕ ≃ FinSet-component and Fin n ≃ Fin n are the
+-- Two identifications � � FinSet-component and Fin n � Fin n are the
 -- *same kind of thing* in a univalent foundation: a path.  The first
 -- carries no information, the second carries n! of it.
 ------------------------------------------------------------------------
@@ -54,7 +54,7 @@ open import PathIsSymmetry using (ΩGroup ; ΩGroup≃Symmetric ; SymGroup)
 ------------------------------------------------------------------------
 
 -- `isFinSet` is stated with `Cubical.Data.SumFin.Fin`, so the witness
--- for the Σ-based `Cubical.Data.Fin.Fin` goes through the standard
+-- for the �-based `Cubical.Data.Fin.Fin` goes through the standard
 -- comparison equivalence.
 isFinSetFinℕ : {n : ℕ} → isFinSet (Fin n)
 isFinSetFinℕ {n} = n , ∣ invEquiv (SumFin≃Fin n) ∣₁
@@ -66,7 +66,7 @@ card-Fin : (n : ℕ) → card (𝔽 n) ≡ n
 card-Fin n = refl
 
 ------------------------------------------------------------------------
--- 2.  ℕ is π₀ of FinSet.
+-- 2.  � is �� of FinSet.
 ------------------------------------------------------------------------
 
 card-invariant : (X Y : FinSet ℓ-zero) → X ≡ Y → card X ≡ card Y
@@ -86,10 +86,10 @@ card≡MereEq X Y =
     (fibre-connected X Y)
     (Prop.rec (isSetℕ _ _) (card-invariant X Y))
 
--- The π₀ statement itself, assembled from the fiberwise ingredients
--- above: ℕ IS the set truncation of FinSet.  Forward: n names the
+-- The �� statement itself, assembled from the fiberwise ingredients
+-- above: � IS the set truncation of FinSet.  Forward: n names the
 -- component of the standard n-element set.  Backward: card descends to
--- components because ℕ is a set.  The round trips are card-Fin and
+-- components because � is a set.  The round trips are card-Fin and
 -- fibre-connected.
 π₀FinSet : Type₁
 π₀FinSet = ∥ FinSet ℓ-zero ∥₂
@@ -120,8 +120,8 @@ FinSetPath≃TypePath X Y = invEquiv (FinSet≡ X Y)
 FinSetLoop≃Sym : (n : ℕ) → (𝔽 n ≡ 𝔽 n) ≃ (Fin n ≃ Fin n)
 FinSetLoop≃Sym n = compEquiv (FinSetPath≃TypePath (𝔽 n) (𝔽 n)) univalence
 
--- Stated as a group: Ω(Type, Fin n) is Sₙ.  (The FinSet loop group is
--- isomorphic to this one by FinSetLoop≃Sym; only the Type-level version
+-- Stated as a group: Ω(Type, Fin n) is S�.  (The FinSet loop group is
+-- isomorphic to this one by FinSetLoop�Sym; only the Type-level version
 -- is packaged as a group here.)
 ΩFin≃Symₙ : (n : ℕ) → GroupEquiv (ΩGroup (Fin n) isSetFin) (SymGroup (Fin n) isSetFin)
 ΩFin≃Symₙ n = ΩGroup≃Symmetric (Fin n) isSetFin

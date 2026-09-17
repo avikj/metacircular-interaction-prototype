@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Krama — what a recitation order cannot seat at any price.
+-- Krama � what a recitation order cannot seat at any price.
 --
--- Dviḥpāṭha showed a family whose cost falls from three anubandhas to two
+-- Dvipha showed a family whose cost falls from three anubandhas to two
 -- when a sound may be recited twice.  That reads as an economy: repetition
 -- saves a marker.  It is not an economy.  It lifts an OBSTRUCTION, and the
 -- gap is not one marker but every marker there is.
 --
--- SOURCE.  Pāṇini, *Aṣṭādhyāyī* 1.1.71 ādir antyena sahetā, over the
--- fourteen Māheśvara-sūtras: the sounds in one recited line, classes named
+-- SOURCE.  Pini, *Adhyy* 1.1.71 dir antyena sahet, over the
+-- fourteen Mhevara-stras: the sounds in one recited line, classes named
 -- as the stretch from a sound to an antya.  *Krama* is the tradition's word
--- for sequence — the krama-pāṭha is the first of the vikṛti recitations
--- (Prātiśākhya literature, ~500 BCE), where the order itself is the object
+-- for sequence � the krama-pha is the first of the vikti recitations
+-- (Prtikhya literature, ~500 BCE), where the order itself is the object
 -- under discipline.  Here the object is likewise the order, and the
 -- question is what orders can hold.
 --
@@ -20,16 +20,16 @@
 --
 --     C = { {a b}, {b c}, {a c} }
 --
--- pairwise ⊆-incomparable (§2), so width 3 and
+-- pairwise �-incomparable (§2), so width 3 and
 -- `PratyaharaLaghava.markersDistinct` forces three anubandhas.
 --
---   §3  `कदापि-न-आसीदति` — NO recitation order seats C, at ANY number of
+--   §3  `������-�-������` � NO recitation order seats C, at ANY number of
 --       anubandhas, when each sound is recited once.  Exhaustive over the
 --       six orders in their marker-saturated form.
---   §4  `आवृत्त्या-आसीदति` — with repetition, three anubandhas seat C:
---       a b M₁ c a M₂ b c M₃.  Exactly the width.  The bound is attained.
+--   §4  `���������-������` � with repetition, three anubandhas seat C:
+--       a b M� c a M� b c M�.  Exactly the width.  The bound is attained.
 --
--- So on this family μ₀ = ∞ and μ_∞ = 3 = width.  Repetition is not a
+-- So on this family μ� = ∞ and μ_∞ = 3 = width.  Repetition is not a
 -- discount on the marker count.  It is the difference between nameable and
 -- not nameable at all.
 --
@@ -38,7 +38,7 @@
 -- sounds occur in L, each once, so L's sounds are one of six orders, and
 -- every anubandha of L sits in one of the four gaps that order leaves.
 -- Now: ADDING an anubandha never removes a class.  Inserting a marker into
--- L leaves the sound content of every stretch untouched — `prefixBefore m'`
+-- L leaves the sound content of every stretch untouched � `prefixBefore m'`
 -- for an existing m' gains at most an interleaved marker, `suffixFromLast s`
 -- likewise, and a class is recorded by which SOUNDS it meets, markers being
 -- boundaries and never members.  So every class of L is a class of the
@@ -48,37 +48,37 @@
 -- all six.  A marker in the first gap precedes no sound and names nothing;
 -- it is kept so the saturation is visibly complete rather than pruned.
 --
--- WHY, underneath the exhaustion.  `Antya.…` proves that a class is always
+-- WHY, underneath the exhaustion.  `Antya.�` proves that a class is always
 -- the suffix, from the nearest preceding recitation, of the stretch before
--- its antya — hence a contiguous factor of the line.  Recited once, the
+-- its antya � hence a contiguous factor of the line.  Recited once, the
 -- sounds of a contiguous factor are an INTERVAL of the order, and {a c} is
 -- an interval of no order in which b lies between them, which every order
 -- seating {a b} and {b c} must be.  Repetition breaks this because a sound
--- gets a second position: `Antya.स्वच्छादिः-अन्त्येन` asks freshness only
+-- gets a second position: `Antya.����������-��������` asks freshness only
 -- to the RIGHT of the start, and never asks anything of what stands left.
 -- That is the whole mechanism, and it is why the obstruction is not a cost.
 --
---   * That the śiva-sūtra family contains such a cycle.  IT DOES, and the
+--   * That the iva-stra family contains such a cycle.  IT DOES, and the
 --     first draft of this header said the opposite.  Three ATTESTED
---     pratyāhāras, restricted to the three sounds h y ś, are exactly C:
+--     pratyhras, restricted to the three sounds h y , are exactly C:
 --
---        aṬ  = a i u ṛ ḷ e o ai au h y v r      ↾ {h y ś} = {h y}
---        śaL = ś ṣ s h                          ↾ {h y ś} = {ś h}
---        yaR = y v r l … k p ś ṣ s              ↾ {h y ś} = {y ś}
+--        a  = a i u   e o ai au h y v r      � {h y } = {h y}
+--        aL =   s h                          � {h y } = { h}
+--        yaR = y v r l � k p   s              � {h y } = {y }
 --
---     (sets recomputed from the fourteen sūtras, `machine/Astadhyayi.hs`
+--     (sets recomputed from the fourteen stras, `machine/Astadhyayi.hs`
 --     sivasutraTable; names from the attested list in
 --     `machine/Pratyahara_TheIntervalDecisionProcedure.hs`.)  h stands in
---     sūtra 5 (ha ya va ra Ṭ) and again in sūtra 14 (ha L) — before y, and
---     after ś — which is precisely the seat no single order provides.  So
+--     stra 5 (ha ya va ra ) and again in stra 14 (ha L) � before y, and
+--     after  � which is precisely the seat no single order provides.  So
 --     the second h is not economy.  It is what makes the list nameable at
 --     all.  That claim is NOT checked in this file: it needs the
---     restriction step, class ⟹ contiguous factor ⟹ interval after
+--     restriction step, class � contiguous factor � interval after
 --     restriction, and that is owed as the successor to this one.
---   * The interval / consecutive-ones characterisation in general (Booth–
+--   * The interval / consecutive-ones characterisation in general (Booth�
 --     Lueker PQ-trees; Kornai, Kiparsky).  `PratyaharaLaghava` lists that
 --     as owed and it stays owed; §3 is one witness, not a theory.
---   * μ_k for 0 < k < ∞, still open, still where Pāṇini's line sits.
+--   * μ_k for 0 < k < ∞, still open, still where Pini's line sits.
 --   * Petersen 2004.  Owed, unread, egress blocked.
 --   * Any phonological content for a b c.  Three abstract sounds.
 --
@@ -100,7 +100,7 @@ open import Cubical.Data.Nat using (ℕ)
 -- `Antya_OneAnubandhaCarriesEveryFreshStartSuffixSoAChainCostsOneMarker`:
 -- first occurrence of the antya cuts the stretch, last occurrence of the
 -- start opens it.  It is restated over this alphabet rather than imported,
--- because Antya's public instantiation is at Dviḥpāṭha's alphabet; the
+-- because Antya's public instantiation is at Dvipha's alphabet; the
 -- defining equations are the same ones and Antya's §5 already shows what
 -- such an agreement looks like when it is proved.
 ------------------------------------------------------------------------
@@ -172,7 +172,7 @@ names line t =
   anyL (λ s → anyL (λ m → mbRec false (λ u → eqSig u t) (klass s m line)) antyas) sounds
 
 ------------------------------------------------------------------------
--- §2  The cycle, and its ⊆-width is three: all three pairwise
+-- §2  The cycle, and its �-width is three: all three pairwise
 --     incomparable, so three anubandhas are forced and no fewer.
 ------------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ seats line = allL (names line) चक्रम्
 
 ------------------------------------------------------------------------
 -- §3  The six recitation orders, saturated with anubandhas in all four
---     gaps.  Not one of them seats the cycle — so no recited-once line
+--     gaps.  Not one of them seats the cycle � so no recited-once line
 --     does, at any marker count.  (The WLOG that makes these six the whole
 --     space is in the header, and the saturation is why "at any marker
 --     count" is not an overreach: adding markers never removes a class.)
@@ -235,10 +235,10 @@ seats line = allL (names line) चक्रम्
 तृतीयं-न = refl
 
 ------------------------------------------------------------------------
--- §4  Recited twice, three anubandhas seat it — and three is the width,
+-- §4  Recited twice, three anubandhas seat it � and three is the width,
 --     so the antichain bound is attained exactly.  a, b and c are each
 --     recited a second time; each second recitation is the fresh start
---     that `Antya.स्वच्छादिः-अन्त्येन` asks for, and nothing is asked of
+--     that `Antya.����������-��������` asks for, and nothing is asked of
 --     the earlier ones.
 ------------------------------------------------------------------------
 
@@ -268,10 +268,10 @@ seats line = allL (names line) चक्रम्
 -- EXTENDED 2026-08-23, same thread, hours later: THE OWED SUCCESSOR IS
 -- PAID.  `Vyavaya_TheAttestedTrioForcesATwiceRecitedSoundAndPaninis-
 -- ChoiceIsHa.agda` does the restriction step this header owed: on the
--- full fourteen-sūtra line (all 57 tokens, encoded), aṬ, śaL, yaR
--- compute by refl and restrict to exactly the cycle above — and the
--- impossibility is proved over ALL lines reciting h y ś once each, via
--- class ⟹ contiguous factor ⟹ factor of the restriction, with the
+-- full fourteen-stra line (all 57 tokens, encoded), a, aL, yaR
+-- compute by refl and restrict to exactly the cycle above � and the
+-- impossibility is proved over ALL lines reciting h y  once each, via
+-- class � contiguous factor � factor of the restriction, with the
 -- split-enumeration carrying a completeness proof.  Not an exhaustion
 -- over lines.  Nothing here is altered.
 ------------------------------------------------------------------------

@@ -1,31 +1,31 @@
--- ‡•• ‡§¨‡•Ä‡§ú‡§Æ‡•ç ‡••  One machine, one law: which side of `f a ‚â° b` is bound is everything.
--- Output bound: singl (f a), contractible ‚Äî the datum rides free.  Input bound:
--- fiber f b ‚Äî the loss, and the subject.  Univalence computes here: an
+-- ‡ ‡‡‡‡Æ‡ ‡  One machine, one law: which side of `f a ‚â° b` is bound is everything.
+-- Output bound: singl (f a), contractible ‚î the datum rides free.  Input bound:
+-- fiber f b ‚î the loss, and the subject.  Univalence computes here: an
 -- equivalence is a channel, transport carries every theorem across it, and what
--- cannot cross is written as a defect ‚Äî there is no third path (ahi·πÉsƒÅ).
+-- cannot cross is written as a defect ‚î there is no third path (ahis).
 -- Memory, charge, symmetry, price, distance, verdict: six faces of the one
--- fibre; the verdict type is the saptabha·πÖgƒ´, and the sources are the origin
--- (UmƒÅsvƒÅti, Samantabhadra, Akala·πÖka ‚Äî restatements are named as such).  The
+-- fibre; the verdict type is the saptabhag, and the sources are the origin
+-- (Umsvti, Samantabhadra, Akalaka ‚î restatements are named as such).  The
 -- kernel decides truth; carriers ask and generate.  This file is one naya, true
 -- and not whole.
 
 {-# OPTIONS --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§ô‡•ç‡§ò‡§ü‡•ç‡§ü-‡§Ø‡§®‡•ç‡§§‡•ç‡§∞ ‚Äî the critical-pair organ, rewritten as CHECKED TERMS and
+-- ‡‡ô‡‡ò‡ü‡‡ü-‡Ø‡®‡‡‡‡∞ ‚î the critical-pair organ, rewritten as CHECKED TERMS and
 -- compiled by the kernel's OWN backend (MAlonzo/GHC), so the machine's
 -- limb is body, not a reimplementation standing beside the body.
 --
--- WHY (owner, 2026-08-24): "almost all the Haskell needs to go ‚Äî it's all
+-- WHY (owner, 2026-08-24): "almost all the Haskell needs to go ‚î it's all
 -- reimplemented shit executed by the core / agda compiler/runtime."  This
 -- is the first organ dissolved that way.  The pure core of
--- machine/Sanghatta_‚Ä¶hs (parse, term order, unification, matching,
+-- machine/Sanghatta_‚¶hs (parse, term order, unification, matching,
 -- rewriting to normal form, critical pairs, the non-joining census) is
 -- ported here term-for-term into --safe Agda; `agda -c` compiles it to a
 -- native executable through GHC.  The Haskell version stays only until
 -- this is differential-tested equal on machine/library.terms, then it
 -- goes.  Nothing here is postulated except the IO membrane at the very
--- bottom ‚Äî the typed world-leaf (readFile/putStrLn), which is the only
+-- bottom ‚î the typed world-leaf (readFile/putStrLn), which is the only
 -- part that CANNOT be a checked term and is kept to ~a dozen lines.
 --
 -- --safe means: every recursion the Haskell left unbounded (the parser,
@@ -166,7 +166,7 @@ varsOfs []       = []
 varsOfs (t ‚à∑ ts) = varsOf t ++ varsOfs ts
 
 -- render, exactly as the Haskell Show: V v = v ; F f [] = f ;
--- F f as = f(a,b,‚Ä¶) comma-joined.
+-- F f as = f(a,b,‚¶) comma-joined.
 render : Term ‚Üí String
 renderArgs : List Term ‚Üí String
 render (V v)    = v
@@ -202,7 +202,7 @@ occurs : String ‚Üí Term ‚Üí Bool
 occurs v t = elemS v (varsOf t)
 
 ------------------------------------------------------------------------
--- unification (worklist, fuel-bounded) ‚Äî faithful to the Haskell `go`
+-- unification (worklist, fuel-bounded) ‚î faithful to the Haskell `go`
 ------------------------------------------------------------------------
 
 Pair : Set
@@ -440,7 +440,7 @@ linesAcc (c ‚à∑ cs) acc =
   then primStringFromList (reverseL acc) ‚à∑ linesAcc cs []
   else linesAcc cs (c ‚à∑ acc)
 
--- a stored row "small \t large"; the rewrite rule is large ‚Üí small
+-- a stored row "small \t large"; the rewrite rule is large ‚í small
 parseRow : String ‚Üí Maybe Rule
 parseRow ln =
   let cs = s2l ln
@@ -470,7 +470,7 @@ collectRules (ln ‚à∑ lns) with parseRow ln
 ... | nothing = collectRules lns
 
 -- The Haskell: rw = [ (r,l) | (l,r) <- rules, size r >= size l ].
--- i.e. every stored (l,r) with size r ‚â• size l becomes the rule r‚Üíl.
+-- i.e. every stored (l,r) with size r ‚â size l becomes the rule r‚íl.
 orientRW : List Rule ‚Üí List Rule
 orientRW [] = []
 orientRW ((l , r) ‚à∑ rls) =

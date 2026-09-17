@@ -12,8 +12,8 @@
 --    a head and generates NO DEFINITION AT ALL."
 --
 -- What is needed to close it is not another theorem about definitions
--- standing beside the progress theorems ‚Äî `Obstruction` T1/T2 and
--- `WitnessPolicy` P1/P2 are already that ‚Äî but a PROGRESS statement in
+-- standing beside the progress theorems ‚î `Obstruction` T1/T2 and
+-- `WitnessPolicy` P1/P2 are already that ‚î but a PROGRESS statement in
 -- which the generated body is load-bearing, i.e. one that is FALSE for a
 -- proposer generating nothing.  This file lands both halves: the measure
 -- identity that lets a body enter a progress statement at all (¬ß1-¬ß2),
@@ -42,12 +42,12 @@
 --                           expanding the generated definition in the
 --                           target removes exactly the d-labelled gaps
 --                           and nothing else.  `Over V b` is load-bearing
---                           (through `Over‚Üídeficit0`); this is the first
+--                           (through `Over‚ídeficit0`); this is the first
 --                           statement in the development in which a
 --                           progress quantity is computed FROM a body.
---   `install-unfold-agree`  deficit (d ‚à∑ V) t ‚â° deficit V (unfold d b t).
+--   `install-unfold-agree`  deficit (d ‚à V) t ‚â° deficit V (unfold d b t).
 --                           Installing the head and expanding its
---                           definition make exactly the same progress ‚Äî
+--                           definition make exactly the same progress ‚î
 --                           the two halves the audit says never meet,
 --                           met, as an equation.  (`inj-m+` on D0.)
 --
@@ -59,9 +59,9 @@
 --   `generative-step-unfolds`
 --                           the audit's statement, character for
 --                           character:
---                             Over V t ‚äé Œ£[ o ] ( deficit (extend V o) t
+--                             Over V t ‚ä Œ[ o ] ( deficit (extend V o) t
 --                                                   < deficit V t
---                                               √ó deficit V (unfold ‚Ä¶) t
+--                                               ó deficit V (unfold ‚¶) t
 --                                                   < deficit V t ).
 --                           It checks.
 --
@@ -70,7 +70,7 @@
 --
 --   `generative-step-unfolds-null`
 --                           the same statement, with the obstruction's
---                           body pinned to `var` ‚Äî the null policy of
+--                           body pinned to `var` ‚î the null policy of
 --                           `WitnessPolicy.degenerate`, the proposer that
 --                           generates no definition.  It satisfies D1
 --                           too.  Reason, once seen, is forced:
@@ -83,20 +83,20 @@
 --      is whether expanding the generated definition in the target
 --      RETAINS the target's structure.
 --
---   `unfold-mono`           0 < size b ‚Üí size t ‚â§ size (unfold d b t).
---   `unfold-grows`          1 < size b ‚Üí the residual occurs uncovered in
---                           t ‚Üí size t < size (unfold d b t).
---   `null-unfold-shrinks`   the residual occurs uncovered in t ‚Üí
+--   `unfold-mono`           0 < size b ‚í size t ‚â size (unfold d b t).
+--   `unfold-grows`          1 < size b ‚í the residual occurs uncovered in
+--                           t ‚í size t < size (unfold d b t).
+--   `null-unfold-shrinks`   the residual occurs uncovered in t ‚í
 --                             size (unfold d var t) < size t.
 --                           STRICT LOSS, not merely "no gain": the
 --                           sharpening of `WitnessPolicy.degenerate-
 --                           never-grows` that the separation needs.
 --   `Expands V o t`         size t < size (unfold (residual o) (witness o) t)
---                           ‚Äî "the generated definition expands the
+--                           ‚î "the generated definition expands the
 --                           target".
 --   `inform-expands`        the informative policy satisfies it (payload
 --                           of size > 1).
---   `null-never-expands`    the null policy provably CANNOT: ¬¨ Expands.
+--   `null-never-expands`    the null policy provably CANNOT: ¬ Expands.
 --
 -- D4.  THE CLOSING THEOREM (¬ß4).
 --
@@ -104,13 +104,13 @@
 --                           progress attached: for every V and t, either
 --                           V covers t, or the loop reads an obstruction
 --                           that is (i) informative, (ii) drops the
---                           deficit ‚Äî `GenerativeLoop.B2` ‚Äî (iii) drops
---                           it again under unfolding ‚Äî D1 ‚Äî and (iv)
+--                           deficit ‚î `GenerativeLoop.B2` ‚î (iii) drops
+--                           it again under unfolding ‚î D1 ‚î and (iv)
 --                           EXPANDS the target.  (iv) is the component
 --                           that mentions the body irremovably.
 --   `null-step`             the same probe, the same residual, the null
 --                           policy: (i) (ii) (iii) hold verbatim, and
---                           `¬¨ Expands` ‚Äî the fourth component FAILS, as
+--                           `¬ Expands` ‚î the fourth component FAILS, as
 --                           a checked negation.
 --   `definitional-separation`
 --                           both in one term: two obstructions with the
@@ -122,15 +122,15 @@
 --                           generates nothing, and everything the two
 --                           modules already proved is true of both.
 --
--- D5.  The null proposer is a real proposer (¬ß5) ‚Äî the negative control
+-- D5.  The null proposer is a real proposer (¬ß5) ‚î the negative control
 --      at loop scale, so that "the null proposer satisfies the existing
 --      progress theorems" is checked and not asserted.
 --
--- `null-step‚ÇÄ`, `AllNull`, `null-loop`, `null-generative-loop`
+-- `null-step‚`, `AllNull`, `null-loop`, `null-generative-loop`
 -- `GenerativeLoop.B2`-`B4` re-run with every body pinned to `var`: same
--- measure, same bound `chainLen ch ‚â§ deficit V t`, no step lost. `null-loop-
+-- measure, same bound `chainLen ch ‚â deficit V t`, no step lost. `null-loop-
 -- drops-in`    forgetting nullity returns `generative-loop`'s conclusion
--- verbatim ‚Äî so the null proposer does discharge B3-B4, checked, not
+-- verbatim ‚î so the null proposer does discharge B3-B4, checked, not
 -- asserted. Uniform, over every chain, of every length: the null proposer's
 -- definitional output is zero. `totalBody-step-null`   and it never moves:
 -- totalBody (step ch o) ‚â° totalBody ch on a null step. `informative-step-
@@ -145,7 +145,7 @@
 --                           payload IS the bare parameter the two
 --                           policies have the same body, so NO property
 --                           whatsoever separates them there.
---   `SeparationExample.o‚ÇÅ`, `.ex-informative`, `.ex-null`,
+--   `SeparationExample.o‚`, `.ex-informative`, `.ex-null`,
 --   `.ex-size-informative`, `.ex-size-null`, `.ex-same-decrease`
 --                           an explicit vocabulary, target and
 --                           obstruction with the hypothesis satisfied,
@@ -184,7 +184,7 @@ open import WitnessPolicy
 --
 -- `GenerativeLoop.deficit-split` is the naming-side accounting:
 --
---     deficit V t  ‚â°  gaps s V t  +  deficit (s ‚à∑ V) t
+--     deficit V t  ‚â°  gaps s V t  +  deficit (s ‚à V) t
 --
 -- installing s removes exactly the s-labelled gaps.  Here is the
 -- definitional-side accounting, which nothing in the development had:
@@ -192,7 +192,7 @@ open import WitnessPolicy
 --     deficit V t  ‚â°  gaps d V t  +  deficit V (unfold d b t)
 --
 -- EXPANDING the generated definition removes exactly the same gaps.  The
--- body's legality (`Over V b`, gate D4 ‚Äî for a proposal, the
+-- body's legality (`Over V b`, gate D4 ‚î for a proposal, the
 -- obstruction's own `witnessBase`) is what makes the accounting exact:
 -- an illegal body would contribute deficit of its own.
 ------------------------------------------------------------------------
@@ -244,7 +244,7 @@ install-unfold-agree V d b bB t =
   inj-m+ (sym (deficit-split d V t) ‚àô unfold-deficit-split V d b bB t)
 
 ------------------------------------------------------------------------
--- 2.  D1 and D2.  The audit's proposed closing theorem ‚Äî landed, then
+-- 2.  D1 and D2.  The audit's proposed closing theorem ‚î landed, then
 --     refuted as a SEPARATOR.
 --
 -- `generative-step-unfolds`.  It checks.  D2 is the reason it does not
@@ -314,7 +314,7 @@ generative-step-unfolds-null V t = read (probe V t)
 --
 -- The second is the sharpening `WitnessPolicy.degenerate-never-grows`
 -- stops short of: not merely "never grows" but "always loses", as soon
--- as the residual really occurs uncovered in the target ‚Äî which is
+-- as the residual really occurs uncovered in the target ‚î which is
 -- precisely the situation the loop's probe reports.
 ------------------------------------------------------------------------
 
@@ -370,7 +370,7 @@ null-unfold-shrinks V d (node c u) (j , p) = go (dichotomyBool (eq‚Ñï c d))
         ( j , sym (cong (_+ gaps d V u) (if‚â°false {x = delta V c} {y = 0} e)) ‚àô p )))
 
 -- DEFINITIONAL PROGRESS: expanding the generated definition in the
--- target retains ‚Äî indeed enlarges ‚Äî the target's structure.
+-- target retains ‚î indeed enlarges ‚î the target's structure.
 Expands : (V : Vocab) ‚Üí Obstruction V ‚Üí Tm ‚Üí Type‚ÇÄ
 Expands V o t = size t < size (unfold (residual o) (witness o) t)
 
@@ -387,15 +387,15 @@ null-never-expands V o t occ ex =
 -- 4.  D4.  THE CLOSING THEOREM.
 --
 -- One probe of the target; two proposals off it.  Everything
--- `GenerativeLoop` ¬ß¬ßA-B proves is true of both ‚Äî same residual, hence
--- the same extension, the same matcher, the same deficit drop ‚Äî and
+-- `GenerativeLoop` ¬ß¬ßA-B proves is true of both ‚î same residual, hence
+-- the same extension, the same matcher, the same deficit drop ‚î and
 -- everything ¬ß2 above proves is true of both.  They differ on `Expands`,
 -- and they differ there DECIDEDLY: one satisfies it, the other's
 -- negation is checked.
 --
 -- The shared components are shared DEFINITIONALLY, not up to a path:
 -- `inform` and `degenerate` change only the `witness` field, and
--- `extend V o = residual o ‚à∑ V` reads only the residual, so the first
+-- `extend V o = residual o ‚à V` reads only the residual, so the first
 -- component of `definitional-separation` is `refl` and no transport
 -- occurs anywhere below.
 ------------------------------------------------------------------------
@@ -462,7 +462,7 @@ null-step V t = read (probe V t)
 -- BOTH IN ONE TERM.  Gap D, closed: `Expands` is a progress property of
 -- the loop's step that is true of the informative proposer and FALSE of
 -- the proposer that generates nothing, while every other component is
--- shared between them ‚Äî including the residual, so the two are
+-- shared between them ‚î including the residual, so the two are
 -- indistinguishable by every theorem of `Obstruction` ¬ß¬ß6-9 and
 -- `GenerativeLoop` ¬ß¬ßA-B.
 definitional-separation : (V : Vocab) (t : Tm)
@@ -509,7 +509,7 @@ definitional-separation V t = read (probe V t)
 -- 5.  D5.  THE NULL PROPOSER IS A REAL PROPOSER.
 --
 -- The separation above is only worth something if the null proposer
--- really does satisfy the existing progress theorems ‚Äî otherwise
+-- really does satisfy the existing progress theorems ‚î otherwise
 -- `Expands` would be separating a proposer from a non-proposer.  So:
 -- `GenerativeLoop.B2`-`B4`, re-run with every body pinned to `var`.
 -- Same measure, same bound, no step lost; and `null-loop-drops-in`
@@ -633,7 +633,7 @@ informative-step-grows ch o io h =
 --
 -- The payload hypothesis is not a convenience.  When the payload IS the
 -- bare parameter the two policies generate literally the same body, so
--- nothing whatsoever separates them there ‚Äî that is a checked equality,
+-- nothing whatsoever separates them there ‚î that is a checked equality,
 -- not an unexamined case.  And the hypothesis is inhabited at a genuine
 -- loop configuration: a vocabulary, a target the vocabulary does not
 -- cover, and the obstruction read off it.
@@ -659,7 +659,7 @@ module SeparationExample where
     ; argBase  = refl , refl , tt
     ; failed   = refl ; witness = var ; witnessBase = tt }
 
-  -- The head really is missing and really does occur uncovered in t‚ÇÅ.
+  -- The head really is missing and really does occur uncovered in t‚.
   occ‚ÇÅ : Occurs (residual o‚ÇÅ) V‚ÇÅ t‚ÇÅ
   occ‚ÇÅ = 0 , refl
 

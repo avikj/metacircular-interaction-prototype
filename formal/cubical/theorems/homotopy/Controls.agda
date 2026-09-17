@@ -19,7 +19,7 @@
 --
 --   C3 (separate, and deliberately NOT part of the checked build)
 --              `NaturalMachine/Control/WrongEquivalence.agda` asserts
---              the equivalence â„• â‰ƒ Word without canonicity.  It must
+--              the equivalence â• â‰ Word without canonicity.  It must
 --              verbatim error the checker produces.
 --
 -- A fourth control is the type-checker itself: every module carries
@@ -47,10 +47,10 @@ open import Endian k using (w01 ; w01-canonical ; v1 ; value-v1)
 --
 -- Drop it and `value` stops being injective: the empty word and the
 -- one-digit word 0 are different words with the same value.  So the
--- specific pair (digits, value) is not an equivalence â„• â‰ƒ Word â€” the
--- bare type â„• â‰ƒ Word is inhabited (Word is countably infinite), but
--- not by these maps â€” and the CanWord equivalence is not a formality.
--- wording asserted `â„• â‰ƒ Word` itself is false, which C1 does not prove.)
+-- specific pair (digits, value) is not an equivalence â• â‰ Word â” the
+-- bare type â• â‰ Word is inhabited (Word is countably infinite), but
+-- not by these maps â” and the CanWord equivalence is not a formality.
+-- wording asserted `â• â‰ Word` itself is false, which C1 does not prove.)
 ------------------------------------------------------------------------
 
 value-not-injective-on-Word :
@@ -71,14 +71,14 @@ no-raw-round-trip h = znots (cong length (sym step âˆ™ h (fzero âˆ· [])))
 --
 -- Reading a little-endian word as if it were big-endian is exactly
 -- `value âˆ˜ rev`.  If that were the right chart map, `digits` would
--- invert it.  It does not, and 0 âˆ· 1 witnesses the failure.
+-- invert it.  It does not, and 0 âˆ 1 witnesses the failure.
 ------------------------------------------------------------------------
 
 wrong-endian-round-trip-fails :
   Â¬ ((w : Word) â†’ Canonical w â†’ digits (value (rev w)) â‰¡ w)
 wrong-endian-round-trip-fails h = znots (injSuc (cong length chain))
   where
-    -- `rev w01 = 1 âˆ· 0`, whose value is 1, whose digits are the
+    -- `rev w01 = 1 âˆ 0`, whose value is 1, whose digits are the
     -- one-digit word `1`, while w01 has length 2.
     chain : (fone âˆ· []) â‰¡ w01
     chain = sym (cong digits value-v1) âˆ™ h w01 w01-canonical

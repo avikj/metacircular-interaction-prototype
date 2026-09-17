@@ -3,20 +3,20 @@
 ------------------------------------------------------------------------
 -- Sl2TensorProduct
 --
--- The general (multi-index) 𝔰𝔩₂ action on the divisor lattice:
---   B_n = k[ξ₁,…,ξ_m]/(ξ₁^{α₁+1},…,ξ_m^{α_m+1}) = ⨂_i V_{α_i},
--- V_α is the content of Sl2DivisorLattice.agda (imported, not redone).
+-- The general (multi-index) ��� action on the divisor lattice:
+--   B_n = k[ξ�,�,ξ_m]/(ξ�^{��+1},�,ξ_m^{�_m+1}) = �_i V_{�_i},
+-- V_� is the content of Sl2DivisorLattice.agda (imported, not redone).
 --
 -- WHAT IS PROVED HERE (all --safe, no postulates, no holes):
 --
---  1. tensorRep : Sl2Rep → Sl2Rep → Sl2Rep     (§3)
---     The tensor product of two 𝔰𝔩₂-triples, with the STANDARD
---     comultiplication ε ↦ ε⊗1 + 1⊗ε (likewise φ, η), is again an
---     𝔰𝔩₂-triple.  All three bracket relations are re-proved for the
+--  1. tensorRep : Sl2Rep � Sl2Rep � Sl2Rep     (§3)
+--     The tensor product of two ���-triples, with the STANDARD
+--     comultiplication ε � ε⊗1 + 1⊗ε (likewise �, �), is again an
+--     ���-triple.  All three bracket relations are re-proved for the
 --     tensor from the two factors.  This is the load-bearing lemma.
 --
---  2. Bn : ℕ → Sl2Rep                          (§5)
---     Bn m = V ⊗ (V ⊗ (… ⊗ V)) with m factors.  By induction on m,
+--  2. Bn : � � Sl2Rep                          (§5)
+--     Bn m = V ⊗ (V ⊗ (� ⊗ V)) with m factors.  By induction on m,
 --     every multi-index divisor lattice carries the action.  Bn 0 is
 --     the trivial (zero) triple on k, Bn 1 = chainRep, and
 --     Bn (suc (suc m)) = chainRep ⊗ Bn (suc m).  In particular
@@ -26,20 +26,20 @@
 --
 --  3. tensor-E , tensor-F , tensor-H           (§4)
 --     The comultiplication read on decomposable tensors:
---       Ê (v⊗w) = (E v)⊗w + v⊗(E w),  and likewise F̂ , Ĥ.
+--       � (v⊗w) = (E v)⊗w + v⊗(E w),  and likewise F� , .
 --     This is what makes the operators of Bn m literally the note's
 --     multi-index displays; §6 reads them off at rank 2.
 --
---  4. §6: rank-2 displays, general in (κ₁,d₁,κ₂,d₂) — ε as Σ_i
---     ξ^{κ+e_i} with truncation in each coordinate, φ with coefficient
---     κ_i(α_i−κ_i+1) in each summand, η with eigenvalue
---     (κ₁−d₁)+(κ₂−d₂) = 2|κ| − (α₁+α₂).
+--  4. §6: rank-2 displays, general in (κ�,d�,κ�,d�) � ε as �_i
+--     ξ^{κ+e_i} with truncation in each coordinate, � with coefficient
+--     κ_i(�_i−κ_i+1) in each summand, � with eigenvalue
+--     (κ�−d�)+(κ�−d�) = 2|κ| − (��+��).
 --
---  5. §7: CONTROLS at rank 2 with DISTINCT α₁ = 1 ≠ 3 = α₂, in the
+--  5. §7: CONTROLS at rank 2 with DISTINCT �� = 1 ≠ 3 = ��, in the
 --     spirit of the rank-one module's six `refl` controls.  These
 --     include a NON-VACUITY control for the off-diagonal cancellation:
---     E₁F₂ applied to a basis vector is shown to be NONZERO (= 4), so
---     the identity ⟦E₁,F₂⟧ = 0 proved in §2 is a cancellation of two
+--     E�F� applied to a basis vector is shown to be NONZERO (= 4), so
+--     the identity ⟦E�,F�⟧ = 0 proved in §2 is a cancellation of two
 --     equal nonzero terms and not of two zeros.  Rank one cannot see
 --     this at all.
 --
@@ -56,21 +56,21 @@
 -- "both sides vanish under the same predicate", made structural.
 --
 -- ENCODING.  A representation is an index type Ix together with three
--- KERNELS Ix → List (Ix × ℤ): for each target index, the finite list of
+-- KERNELS Ix � List (Ix � �): for each target index, the finite list of
 -- (source , structure constant) pairs.  An operator acts by
---   (T v) t = Σ_{(s,c) ∈ T t} c · v s .
--- Kernels are used rather than bare functions M → M for one reason: the
+--   (T v) t = �_{(s,c) ∈ T t} c � v s .
+-- Kernels are used rather than bare functions M � M for one reason: the
 -- commutation of a left-slot operator with a right-slot operator is a
 -- Fubini statement about finite sums, and it is FALSE for arbitrary
--- functions M → M (it needs linearity).  Lists give the linearity as a
+-- functions M � M (it needs linearity).  Lists give the linearity as a
 -- theorem, with no finiteness side conditions and no postulates.  The
 -- class of kernel operators is closed under the two constructions used:
 -- pointwise sum (list append) and slot-lifting (§3).
 --
 -- The rank-one factor is imported: `chainRep` (§4) is the triple
--- (ε,φ,η) of Sl2DivisorLattice on Ix = ℕ × ℕ, and its three brackets
--- are TRANSPORTED from that module's `bracket-ηε`, `bracket-ηφ`,
--- `bracket-εφ` along the currying (ℕ × ℕ → ℤ) ≃ (ℕ → ℕ → ℤ).  Nothing
+-- (ε,�,�) of Sl2DivisorLattice on Ix = � � �, and its three brackets
+-- are TRANSPORTED from that module's `bracket-�ε`, `bracket-��`,
+-- `bracket-ε�` along the currying (� � � � �) � (� � � � �).  Nothing
 -- in Sl2DivisorLattice is modified.
 --
 ------------------------------------------------------------------------
@@ -91,7 +91,7 @@ open import Sl2DivisorLattice
         ; ε-δ ; ε-δ-top ; φ-δ ; φ-δ-bot ; η-δ)
 
 ------------------------------------------------------------------------
--- §0  ℤ bookkeeping.  Nothing here is about 𝔰𝔩₂.
+-- §0  � bookkeeping.  Nothing here is about ���.
 ------------------------------------------------------------------------
 
 private
@@ -214,7 +214,7 @@ module _ {I J : Type₀} where
 
   -- Fubini for two finite weighted sums along DIFFERENT index sets.
   -- The base cases are the empty list: when a kernel has no source at a
-  -- given target (which is exactly how truncation is recorded — ε's
+  -- given target (which is exactly how truncation is recorded � ε's
   -- list is empty at the top of a chain) BOTH orders give pos 0, by the
   -- same clause.  That is the note's "both sides vanish under the same
   -- predicate", here structural rather than a side condition.
@@ -278,7 +278,7 @@ open Sl2Rep public
 -- ---------------------------------------------------------------------
 -- the two kernel constructions the tensor needs
 
--- move a source list from I into I × J, at fixed second coordinate
+-- move a source list from I into I � J, at fixed second coordinate
 shiftL : {I J : Type₀} → J → List (I × ℤ) → List ((I × J) × ℤ)
 shiftL j [] = []
 shiftL j ((s , c) ∷ L) = ((s , j) , c) ∷ shiftL j L
@@ -320,10 +320,10 @@ ap-⊞ T U v = funExt λ t → sumL-++ (T t) (U t) v
 
 ------------------------------------------------------------------------
 -- The construction.  For reps R (index I) and S (index J):
---   ê = e_R ⊗ 1 + 1 ⊗ e_S ,   f̂ = … ,   ĥ = …
+--    = e_R ⊗ 1 + 1 ⊗ e_S ,   f� = � ,    = �
 -- and the three brackets are re-proved.  The four cross terms of each
 -- bracket are: two "diagonal" ones, discharged by R's and S's own
--- relation, and two "off-diagonal" ones, which VANISH by §2 — that is
+-- relation, and two "off-diagonal" ones, which VANISH by §2 � that is
 -- the cancellation of note §2(c), and it is the whole content of the
 -- multi-index case.
 ------------------------------------------------------------------------
@@ -373,7 +373,7 @@ module Tensor (R S : Sl2Rep) where
           ∙ fourSub (A (C v) x) (A (D v) x) (B (C v) x) (B (D v) x)
                     (C (A v) x) (D (A v) x) (C (B v) x) (D (B v) x))
 
-    -- ...and the scalar side: 2·(a+b) = 2a + 2b, pointwise.
+    -- ...and the scalar side: 2�(a+b) = 2a + 2b, pointwise.
     scaSplit : (c : ℤ) (v w : Mod IJ)
       → sca c (v ⊕ᴹ w) ≡ (sca c v ⊕ᴹ sca c w)
     scaSplit c v w = funExt λ x → ·DistR+ c (v x) (w x)
@@ -386,7 +386,7 @@ module Tensor (R S : Sl2Rep) where
       → ((p ⊕ᴹ zeroᴹ) ⊕ᴹ (zeroᴹ ⊕ᴹ q)) ≡ (p ⊕ᴹ q)
     dropZeros p q = funExt λ x → cong₂ _+_ (+0ᵣ (p x)) (sym (pos0+ (q x)))
 
-  -- ⟦ĥ,ê⟧ = 2ê
+  -- ⟦,⟧ = 2
   tensor-he : (v : Mod IJ) → ⟪ ap hT , ap eT ⟫ v ≡ sca (pos 2) (ap eT v)
   tensor-he v =
       cong₂ _⊖ᴹ_ (cong (ap hT) (actE v)) (cong (ap eT) (actH v))
@@ -406,7 +406,7 @@ module Tensor (R S : Sl2Rep) where
     diagR : ⟪ rop (hK S) , rop (eK S) ⟫ v ≡ sca (pos 2) (rop (eK S) v)
     diagR = funExt λ { (i , j) → funExt⁻ (he S (λ j′ → v (i , j′))) j }
 
-  -- ⟦ĥ,f̂⟧ = (−2)f̂
+  -- ⟦,f�⟧ = (−2)f�
   tensor-hf : (v : Mod IJ) → ⟪ ap hT , ap fT ⟫ v ≡ sca (- pos 2) (ap fT v)
   tensor-hf v =
       cong₂ _⊖ᴹ_ (cong (ap hT) (actF v)) (cong (ap fT) (actH v))
@@ -426,8 +426,8 @@ module Tensor (R S : Sl2Rep) where
     diagR : ⟪ rop (hK S) , rop (fK S) ⟫ v ≡ sca (- pos 2) (rop (fK S) v)
     diagR = funExt λ { (i , j) → funExt⁻ (hf S (λ j′ → v (i , j′))) j }
 
-  -- ⟦ê,f̂⟧ = ĥ.  THIS is the one where the off-diagonal terms matter:
-  -- ⟪lop e, rop f⟫ and ⟪rop e, lop f⟫ are E_i F_j and F_j E_i for i ≠ j.
+  -- ⟦,f�⟧ = .  THIS is the one where the off-diagonal terms matter:
+  -- �lop e, rop f� and �rop e, lop f� are E_i F_j and F_j E_i for i ≠ j.
   tensor-ef : (v : Mod IJ) → ⟪ ap eT , ap fT ⟫ v ≡ ap hT v
   tensor-ef v =
       cong₂ _⊖ᴹ_ (cong (ap eT) (actF v)) (cong (ap fT) (actE v))
@@ -446,7 +446,7 @@ module Tensor (R S : Sl2Rep) where
     diagR : ⟪ rop (eK S) , rop (fK S) ⟫ v ≡ rop (hK S) v
     diagR = funExt λ { (i , j) → funExt⁻ (ef S (λ j′ → v (i , j′))) j }
 
--- THE LOAD-BEARING LEMMA: a tensor of two 𝔰𝔩₂-triples is an 𝔰𝔩₂-triple.
+-- THE LOAD-BEARING LEMMA: a tensor of two ���-triples is an ���-triple.
 tensorRep : Sl2Rep → Sl2Rep → Sl2Rep
 tensorRep R S = record
   { Ix = Ix R × Ix S
@@ -461,9 +461,9 @@ tensorRep R S = record
 ------------------------------------------------------------------------
 -- §4  The rank-one factor, imported.
 --
--- Ix = ℕ × ℕ with the (κ , d) encoding of Sl2DivisorLattice (d = α − κ,
--- so α = κ + d is carried by the index).  The three kernels below have
--- exactly the structure constants of that module's ε, φ, η, and the
+-- Ix = � � � with the (κ , d) encoding of Sl2DivisorLattice (d = � − κ,
+-- so � = κ + d is carried by the index).  The three kernels below have
+-- exactly the structure constants of that module's ε, �, �, and the
 -- brackets are TRANSPORTED, not re-proved.
 --
 -- Note where truncation lives: εK (zero , d) = [], the EMPTY list.  The
@@ -481,7 +481,7 @@ Ch = ℕ × ℕ
 φK (κ , suc d) = ((suc κ , d) , pos (suc κ ·ℕ suc d)) ∷ []
 ηK (κ , d)     = ((κ , d) , pos κ - pos d) ∷ []
 
--- currying: Mod (ℕ × ℕ) → (ℕ → ℕ → ℤ), the module of Sl2DivisorLattice
+-- currying: Mod (� � �) � (� � � � �), the module of Sl2DivisorLattice
 cur : Mod Ch → ℕ → ℕ → ℤ
 cur v κ d = v (κ , d)
 
@@ -533,7 +533,7 @@ chain-ef v = funExt λ { (κ , d) →
   ∙ funExt⁻ (funExt⁻ (bracket-εφ (cur v)) κ) d
   ∙ sym (funExt⁻ (funExt⁻ (apη v) κ) d) }
 
--- V_α, all α at once: the rank-one triple as a representation.
+-- V_�, all � at once: the rank-one triple as a representation.
 chainRep : Sl2Rep
 chainRep = record
   { Ix = Ch ; eK = εK ; fK = φK ; hK = ηK
@@ -551,20 +551,20 @@ trivRep = record
 ------------------------------------------------------------------------
 -- §5  The induction: the multi-index divisor lattice carries the action.
 --
--- Bn m has index type (ℕ×ℕ)^m — one (κ_i , d_i = α_i − κ_i) pair per
--- prime — and its three operators are the m-fold comultiplication,
--- i.e. ε = Σ_i E_i, φ = Σ_j F_j, η = Σ_i H_i, unrolled by the recursion
+-- Bn m has index type (╗�)^m � one (κ_i , d_i = �_i − κ_i) pair per
+-- prime � and its three operators are the m-fold comultiplication,
+-- i.e. ε = �_i E_i, � = �_j F_j, � = �_i H_i, unrolled by the recursion
 -- eK (Bn (suc m)) = lK εK ⊞ rK (eK (Bn m)).  That every Bn m satisfies
 -- the three relations is the content of the induction; it is one line
 -- because §3 did the work.
 --
 -- The recursion is anchored at m = 1 rather than only at m = 0, so that
--- Bn m has index type (ℕ×ℕ)^m ON THE NOSE for m ≥ 1 — with no trailing
+-- Bn m has index type (╗�)^m ON THE NOSE for m � 1 � with no trailing
 -- Unit factor.  This is not cosmetic: it is what makes §6's rank-2
 -- displays displays OF THE INDUCTION'S OUTPUT rather than of a
 -- separately-built rank-2 object.  `Rk2≡Bn2` below records that, by
 -- `refl`.  With the older `Bn (suc m) = tensorRep chainRep (Bn m)`
--- anchored only at zero, Bn 2 had index type Ch × (Ch × Unit) and no
+-- anchored only at zero, Bn 2 had index type Ch � (Ch � Unit) and no
 -- such identification was available.
 ------------------------------------------------------------------------
 
@@ -579,7 +579,7 @@ divisorLatticeSl2 = Bn
 
 ------------------------------------------------------------------------
 -- §6  The comultiplication on decomposable tensors, and the rank-2
---     displays of the note (general in κ₁,d₁,κ₂,d₂).
+--     displays of the note (general in κ�,d�,κ�,d�).
 ------------------------------------------------------------------------
 
 -- v ⊗ w
@@ -622,14 +622,14 @@ module _ (R S : Sl2Rep) where
                  (ap-rK (hK S) (v ⊗ᴹ w) ∙ rop-⊗ (hK S) v w)
 
 -- ---------------------------------------------------------------------
--- Rank 2 : R = S = chainRep.  The basis vector ξ^{(κ₁,κ₂)} of
--- V_{α₁} ⊗ V_{α₂} is dl κ₁ d₁ ⊗ dl κ₂ d₂ with α_i = κ_i + d_i.
+-- Rank 2 : R = S = chainRep.  The basis vector ξ^{(κ�,κ�)} of
+-- V_{��} ⊗ V_{��} is dl κ� d� ⊗ dl κ� d� with �_i = κ_i + d_i.
 
 Rk2 : Sl2Rep
 Rk2 = tensorRep chainRep chainRep
 
 -- The rank-2 object the displays below are about IS the m = 2 stage of
--- §5's induction — definitionally, not up to an equivalence that would
+-- §5's induction � definitionally, not up to an equivalence that would
 -- have to be constructed.  Every display and every §7 control is
 -- therefore a statement about `Bn 2`.
 Rk2≡Bn2 : Rk2 ≡ Bn 2
@@ -680,7 +680,7 @@ private
   ⊕-sca c c′ u = funExt λ x → sym (·DistL+ c c′ (u x))
 
 -- ε on a rank-2 basis vector, INTERIOR of both chains:
---   ε ξ^{(κ₁,κ₂)} = ξ^{(κ₁+1,κ₂)} + ξ^{(κ₁,κ₂+1)}   — the note's Σ_i.
+--   ε ξ^{(κ�,κ�)} = ξ^{(κ�+1,κ�)} + ξ^{(κ�,κ�+1)}   � the note's �_i.
 rk2-ε : (κ₁ d₁ κ₂ d₂ : ℕ)
   → ap (eK Rk2) (dl κ₁ (suc d₁) ⊗ᴹ dl κ₂ (suc d₂))
   ≡ ((dl (suc κ₁) d₁ ⊗ᴹ dl κ₂ (suc d₂)) ⊕ᴹ (dl κ₁ (suc d₁) ⊗ᴹ dl (suc κ₂) d₂))
@@ -689,8 +689,8 @@ rk2-ε κ₁ d₁ κ₂ d₂ =
   ∙ cong₂ _⊕ᴹ_ (cong (_⊗ᴹ dl κ₂ (suc d₂)) (ap-ε-dl κ₁ d₁))
                (cong (dl κ₁ (suc d₁) ⊗ᴹ_) (ap-ε-dl κ₂ d₂))
 
--- ε at the TOP of the first chain (κ₁ = α₁): that summand is dropped —
--- the truncation ξ₁^{α₁+1} = 0, in the multi-index setting, with the
+-- ε at the TOP of the first chain (κ� = ��): that summand is dropped �
+-- the truncation ξ�^{��+1} = 0, in the multi-index setting, with the
 -- second summand surviving untouched.  Rank one cannot state this.
 rk2-ε-top₁ : (κ₁ κ₂ d₂ : ℕ)
   → ap (eK Rk2) (dl κ₁ zero ⊗ᴹ dl κ₂ (suc d₂))
@@ -700,8 +700,8 @@ rk2-ε-top₁ κ₁ κ₂ d₂ =
   ∙ cong₂ _⊕ᴹ_ (cong (_⊗ᴹ dl κ₂ (suc d₂)) (ap-ε-dl-top κ₁))
                (cong (dl κ₁ zero ⊗ᴹ_) (ap-ε-dl κ₂ d₂))
 
--- φ on a rank-2 basis vector: coefficient κ_i(α_i − κ_i + 1) in the
--- i-th summand, with α_i = κ_i + d_i, i.e. (κ+1)(d+1) at index (κ+1,d).
+-- � on a rank-2 basis vector: coefficient κ_i(�_i − κ_i + 1) in the
+-- i-th summand, with �_i = κ_i + d_i, i.e. (κ+1)(d+1) at index (κ+1,d).
 rk2-φ : (κ₁ d₁ κ₂ d₂ : ℕ)
   → ap (fK Rk2) (dl (suc κ₁) d₁ ⊗ᴹ dl (suc κ₂) d₂)
   ≡ ( sca (pos (suc κ₁ ·ℕ suc d₁)) (dl κ₁ (suc d₁) ⊗ᴹ dl (suc κ₂) d₂)
@@ -714,8 +714,8 @@ rk2-φ κ₁ d₁ κ₂ d₂ =
       (cong (dl (suc κ₁) d₁ ⊗ᴹ_) (ap-φ-dl κ₂ d₂)
         ∙ scaTensorR (pos (suc κ₂ ·ℕ suc d₂)) (dl (suc κ₁) d₁) (dl κ₂ (suc d₂)))
 
--- η on a rank-2 basis vector: eigenvalue (κ₁ − d₁) + (κ₂ − d₂), which
--- is 2|κ| − (α₁ + α₂) — the note's η display at m = 2.
+-- � on a rank-2 basis vector: eigenvalue (κ� − d�) + (κ� − d�), which
+-- is 2|κ| − (�� + ��) � the note's � display at m = 2.
 rk2-η : (κ₁ d₁ κ₂ d₂ : ℕ)
   → ap (hK Rk2) (dl κ₁ d₁ ⊗ᴹ dl κ₂ d₂)
   ≡ sca ((pos κ₁ - pos d₁) + (pos κ₂ - pos d₂)) (dl κ₁ d₁ ⊗ᴹ dl κ₂ d₂)
@@ -729,82 +729,82 @@ rk2-η κ₁ d₁ κ₂ d₂ =
   ∙ ⊕-sca (pos κ₁ - pos d₁) (pos κ₂ - pos d₂) (dl κ₁ d₁ ⊗ᴹ dl κ₂ d₂)
 
 ------------------------------------------------------------------------
--- §7  CONTROLS at rank 2, with DISTINCT α₁ = 1 ≠ 3 = α₂.
+-- §7  CONTROLS at rank 2, with DISTINCT �� = 1 ≠ 3 = ��.
 --
 -- The brackets of §3 would also hold for the vacuous triple (all three
--- operators zero) — trivRep is exactly that.  So, as in the rank-one
--- module's §5′, here are the operators evaluated on actual basis
--- vectors of V₁ ⊗ V₃ = B_{p q³}, each `refl`, i.e. definitional.
+-- operators zero) � trivRep is exactly that.  So, as in the rank-one
+-- module's §5�, here are the operators evaluated on actual basis
+-- vectors of V� ⊗ V� = B_{p q³}, each `refl`, i.e. definitional.
 --
--- Index convention: a basis vector of V₁ ⊗ V₃ is
---   ξ₁^{κ₁} ξ₂^{κ₂}  ↔  dl κ₁ (1 − κ₁) ⊗ᴹ dl κ₂ (3 − κ₂)
--- and we read a coefficient at the index ((a₁,b₁) , (a₂,b₂)).
+-- Index convention: a basis vector of V� ⊗ V� is
+--   ξ�^{κ�} ξ�^{κ�}  �  dl κ� (1 − κ�) ⊗� dl κ� (3 − κ�)
+-- and we read a coefficient at the index ((a�,b�) , (a�,b�)).
 ------------------------------------------------------------------------
 
 private
-  -- the basis vector ξ₁¹ ξ₂² of V₁ ⊗ V₃  (κ = (1,2), α = (1,3))
+  -- the basis vector ξ�� ξ�² of V� ⊗ V�  (κ = (1,2), � = (1,3))
   u12 : Mod (Ch × Ch)
   u12 = dl 1 0 ⊗ᴹ dl 2 1
 
-  -- the basis vector ξ₁⁰ ξ₂² of V₁ ⊗ V₃
+  -- the basis vector ξ�� ξ�² of V� ⊗ V�
   u02 : Mod (Ch × Ch)
   u02 = dl 0 1 ⊗ᴹ dl 2 1
 
   ---------------------------------------------------------------------
-  -- η : eigenvalue 2|κ| − (α₁+α₂).
+  -- � : eigenvalue 2|κ| − (��+��).
 
-  -- on ξ₁¹ξ₂² : 2·3 − 4 = 2
+  -- on ξ��ξ�² : 2�3 − 4 = 2
   control-η-12 : ap (hK Rk2) u12 ((1 , 0) , (2 , 1)) ≡ pos 2
   control-η-12 = refl
 
-  -- on ξ₁⁰ξ₂² : 2·2 − 4 = 0.  A DIFFERENT eigenvalue for a DIFFERENT
-  -- basis vector, so η is not a scalar operator.
+  -- on ξ��ξ�² : 2�2 − 4 = 0.  A DIFFERENT eigenvalue for a DIFFERENT
+  -- basis vector, so � is not a scalar operator.
   control-η-02 : ap (hK Rk2) u02 ((0 , 1) , (2 , 1)) ≡ pos 0
   control-η-02 = refl
 
   ---------------------------------------------------------------------
-  -- ε = E₁ + E₂ : BOTH summands are present and they land on DIFFERENT
+  -- ε = E� + E� : BOTH summands are present and they land on DIFFERENT
   -- basis vectors, which is what "sum over i" means.
 
-  -- E₂ ξ₁⁰ξ₂² = ξ₁⁰ξ₂³ : coefficient 1
+  -- E� ξ��ξ�² = ξ��ξ�³ : coefficient 1
   control-ε-02-second : ap (eK Rk2) u02 ((0 , 1) , (3 , 0)) ≡ pos 1
   control-ε-02-second = refl
 
-  -- E₁ ξ₁⁰ξ₂² = ξ₁¹ξ₂² : coefficient 1
+  -- E� ξ��ξ�² = ξ��ξ�² : coefficient 1
   control-ε-02-first : ap (eK Rk2) u02 ((1 , 0) , (2 , 1)) ≡ pos 1
   control-ε-02-first = refl
 
-  -- E₁ ξ₁¹ξ₂² = 0 : κ₁ = α₁ = 1, the truncation ξ₁² = 0, IN THE FIRST
-  -- COORDINATE ONLY — while E₂ on the same vector is nonzero, below.
+  -- E� ξ��ξ�² = 0 : κ� = �� = 1, the truncation ξ�² = 0, IN THE FIRST
+  -- COORDINATE ONLY � while E� on the same vector is nonzero, below.
   control-ε-12-first-truncates : ap (eK Rk2) u12 ((2 , 0) , (2 , 1)) ≡ pos 0
   control-ε-12-first-truncates = refl
 
-  -- E₂ ξ₁¹ξ₂² = ξ₁¹ξ₂³ ≠ 0 : the second coordinate is not at its top.
+  -- E� ξ��ξ�² = ξ��ξ�³ ≠ 0 : the second coordinate is not at its top.
   control-ε-12-second : ap (eK Rk2) u12 ((1 , 0) , (3 , 0)) ≡ pos 1
   control-ε-12-second = refl
 
   ---------------------------------------------------------------------
-  -- φ = F₁ + F₂ : coefficient κ_i(α_i − κ_i + 1), distinct per factor.
+  -- � = F� + F� : coefficient κ_i(�_i − κ_i + 1), distinct per factor.
 
-  -- F₁ ξ₁¹ξ₂² = 1·(1−1+1) ξ₁⁰ξ₂² = 1 · ξ₁⁰ξ₂²
+  -- F� ξ��ξ�² = 1�(1−1+1) ξ��ξ�² = 1 � ξ��ξ�²
   control-φ-12-first : ap (fK Rk2) u12 ((0 , 1) , (2 , 1)) ≡ pos 1
   control-φ-12-first = refl
 
-  -- F₂ ξ₁¹ξ₂² = 2·(3−2+1) ξ₁¹ξ₂¹ = 4 · ξ₁¹ξ₂¹.  DIFFERENT coefficient
-  -- from F₁'s, because α₁ ≠ α₂ — this is why the controls use 1 and 3.
+  -- F� ξ��ξ�² = 2�(3−2+1) ξ��ξ�� = 4 � ξ��ξ��.  DIFFERENT coefficient
+  -- from F�'s, because �� ≠ �� � this is why the controls use 1 and 3.
   control-φ-12-second : ap (fK Rk2) u12 ((1 , 0) , (1 , 2)) ≡ pos 4
   control-φ-12-second = refl
 
-  -- F₁ ξ₁⁰ξ₂² = 0 with no clause for it: the coefficient κ₁ vanishes.
+  -- F� ξ��ξ�² = 0 with no clause for it: the coefficient κ� vanishes.
   control-φ-02-first : ap (fK Rk2) u02 ((0 , 2) , (2 , 1)) ≡ pos 0
   control-φ-02-first = refl
 
   ---------------------------------------------------------------------
   -- NON-VACUITY OF THE OFF-DIAGONAL CANCELLATION.
   --
-  -- §3 proves ⟪ lop εK , rop φK ⟫ = 0, i.e. E₁F₂ = F₂E₁.  That would be
+  -- §3 proves � lop εK , rop �K � = 0, i.e. E�F� = F�E�.  That would be
   -- worthless if both sides were identically zero.  They are not:
-  -- E₁F₂ ξ₁⁰ξ₂² = F₂ then E₁ = 4 · ξ₁¹ξ₂¹, coefficient 4 ≠ 0.
+  -- E�F� ξ��ξ�² = F� then E� = 4 � ξ��ξ��, coefficient 4 ≠ 0.
 
   control-E₁F₂-nonzero :
     lop εK (rop φK u02) ((1 , 0) , (1 , 2)) ≡ pos 4
@@ -814,7 +814,7 @@ private
     rop φK (lop εK u02) ((1 , 0) , (1 , 2)) ≡ pos 4
   control-F₂E₁-nonzero = refl
 
-  -- ...and the commutator of those two nonzero operators is 0 — the
+  -- ...and the commutator of those two nonzero operators is 0 � the
   -- theorem of §2, instantiated, at a point where both terms are 4.
   control-off-diagonal-cancels :
     ⟪ lop εK , rop φK ⟫ u02 ((1 , 0) , (1 , 2)) ≡ pos 0
@@ -822,7 +822,7 @@ private
     funExt⁻ (swap-lop-rop εK φK u02) ((1 , 0) , (1 , 2))
 
   -- The other off-diagonal pair, likewise nonzero termwise:
-  -- E₂F₁ ξ₁¹ξ₂² = 1 · ξ₁⁰ξ₂³.
+  -- E�F� ξ��ξ�² = 1 � ξ��ξ�³.
   control-E₂F₁-nonzero :
     rop εK (lop φK u12) ((0 , 1) , (3 , 0)) ≡ pos 1
   control-E₂F₁-nonzero = refl
@@ -835,16 +835,16 @@ private
 ------------------------------------------------------------------------
 -- §8  What is NOT here.
 --
---  * A multi-index δ and the display ε ξ^κ = Σ_{i=1}^m ξ^{κ+e_i} for
+--  * A multi-index δ and the display ε ξ^κ = �_{i=1}^m ξ^{κ+e_i} for
 --    GENERAL m.  What is proved for general m is the action (§5) and
 --    the recursive comultiplication (§6, tensor-E/F/H); §6's rank-2
---    displays are general in (κ₁,d₁,κ₂,d₂) but are stated at m = 2.
+--    displays are general in (κ�,d�,κ�,d�) but are stated at m = 2.
 --  * The multigrading (the analogue of Sl2DivisorLattice §4): that each
---    B_n = ⨂ V_{α_i} with FIXED α is invariant.  It follows factorwise
---    from that module's ε-grade/φ-grade/η-grade, but is not written.
---  * Everything in note §5 — complete reducibility, rank-unimodality,
---    Sperner — which needs characteristic 0 and finite-dimensional
---    𝔰𝔩₂ theory.  Nothing here bears on it.
+--    B_n = � V_{�_i} with FIXED � is invariant.  It follows factorwise
+--    from that module's ε-grade/�-grade/�-grade, but is not written.
+--  * Everything in note §5 � complete reducibility, rank-unimodality,
+--    Sperner � which needs characteristic 0 and finite-dimensional
+--    ��� theory.  Nothing here bears on it.
 --  * Any claim of novelty.  The coproduct is Humphreys §7; the poset
 --    application is Stanley 1980 / Proctor 1982 (note §4).
 ------------------------------------------------------------------------

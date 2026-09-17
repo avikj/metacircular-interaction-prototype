@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Γ₀(D): the congruence subgroup attached to a Smith diagonal, as a
+-- Γ�(D): the congruence subgroup attached to a Smith diagonal, as a
 -- decidable predicate, and the torsor it acts on.
 --
--- For D = diag(d₀,…,d_{n-1}) the residual freedom in a Smith
+-- For D = diag(d�,�,d_{n-1}) the residual freedom in a Smith
 -- presentation U A V = D is the stabiliser of D.  A matrix P belongs to
 -- it (on the left) exactly when its D-conjugate is again integral,
 -- which is the entrywise congruence
 --
---     Γ₀(D)  =  { P :  dᵢ ∣ dⱼ · Pᵢⱼ  for all i , j }.
+--     Γ�(D)  =  { P :  d� � d� � P��  for all i , j }.
 --
 -- Two things to note about that condition.
 --
 --  * It is uniform in n and needs no division and no divisibility
---    chain hypothesis: for i ≤ j (where dᵢ ∣ dⱼ) it is automatic, and
---    for i > j it is the familiar (dᵢ/dⱼ) ∣ Pᵢⱼ.  This is the whole
---    "Γ₀(D) payload at all n", with no case split.
---  * At n = 2 and d = (1 , N) it collapses to N ∣ c, the classical
---    Γ₀(N) — proved below, so the name is earned rather than asserted.
+--    chain hypothesis: for i � j (where d� � d�) it is automatic, and
+--    for i > j it is the familiar (d�/d�) � P��.  This is the whole
+--    "Γ�(D) payload at all n", with no case split.
+--  * At n = 2 and d = (1 , N) it collapses to N � c, the classical
+--    Γ�(N) � proved below, so the name is earned rather than asserted.
 --
 -- Being a conjunction of decidable divisibilities it is decidable, and
 -- the decision procedure returns *either* membership *or* the offending
@@ -84,7 +84,7 @@ Diag⋆ d M i j =
   ∙ ∑Mulr1 _ (λ k → M i k · d j) j
 
 ------------------------------------------------------------------------
--- 2.  Γ₀(D) as a decidable predicate.
+-- 2.  Γ�(D) as a decidable predicate.
 ------------------------------------------------------------------------
 
 inΓ₀ : FinVec ℤ n → Mat n n → Type
@@ -109,7 +109,7 @@ decInΓ₀ d P with Γ₀? d P
 ------------------------------------------------------------------------
 
 private
-  -- An untruncated quotient.  The a = 0 branch of `∣'` carries no
+  -- An untruncated quotient.  The a = 0 branch of `�'` carries no
   -- quotient because it does not need one: there 0 ≡ b already.
   divWit : (a b : ℤ) → a ∣ b → Σ[ k ∈ ℤ ] a · k ≡ b
   divWit (pos ℕzero)    b h = 0r , ∣→∣' _ _ h
@@ -118,7 +118,7 @@ private
   divWit (negsuc k)     b h =
     let (c , p) = ∣→∣' (negsuc k) b h in c , ·Comm (negsuc k) c ∙ p
 
--- The D-conjugate D⁻¹ P D, built entrywise out of the divisibility
+-- The D-conjugate D�� P D, built entrywise out of the divisibility
 -- witnesses.  No inverse is ever formed: the witnesses *are* the
 -- conjugate.
 conj : (d : FinVec ℤ n) (P : Mat n n) → inΓ₀ d P → Mat n n
@@ -132,7 +132,7 @@ conj-eq d P h = funExt₂ λ i j →
   ∙ ·Comm (d j) (P i j)
   ∙ sym (⋆Diag d P i j)
 
--- …and conversely, so the congruence is not merely sufficient for the
+-- �and conversely, so the congruence is not merely sufficient for the
 -- conjugate to be integral, it is that statement.
 integral→inΓ₀ : (d : FinVec ℤ n) (P Q : Mat n n)
               → Diag d ⋆ Q ≡ P ⋆ Diag d
@@ -144,7 +144,7 @@ integral→inΓ₀ d P Q e i j =
           ∙ ⋆Diag d P i j
           ∙ ·Comm (P i j) (d j) ∣₁
 
--- Γ₀(D) is *characterised* by integrality of the conjugate.
+-- Γ�(D) is *characterised* by integrality of the conjugate.
 Γ₀-characterisation : (d : FinVec ℤ n) (P : Mat n n)
   → inΓ₀ d P ≃ ∥ Σ[ Q ∈ Mat n n ] (Diag d ⋆ Q ≡ P ⋆ Diag d) ∥₁
 Γ₀-characterisation d P =
@@ -153,7 +153,7 @@ integral→inΓ₀ d P Q e i j =
     (PT.rec (isPropInΓ₀ d P) λ (Q , e) → integral→inΓ₀ d P Q e)
 
 ------------------------------------------------------------------------
--- 4.  At n = 2 this is the classical Γ₀(N).
+-- 4.  At n = 2 this is the classical Γ�(N).
 ------------------------------------------------------------------------
 
 private
@@ -170,8 +170,8 @@ module _ (N : ℤ) where
     d₁ zero       = 1r
     d₁ (suc zero) = N
 
-  -- With invariants (1 , N), membership in Γ₀(D) is exactly the single
-  -- classical condition N ∣ c on the lower-left entry.
+  -- With invariants (1 , N), membership in Γ�(D) is exactly the single
+  -- classical condition N � c on the lower-left entry.
   Γ₀-2 : (P : Mat 2 2) → inΓ₀ d₁ P ≃ (N ∣ P (suc zero) zero)
   Γ₀-2 P = propBiimpl→Equiv (isPropInΓ₀ d₁ P) isProp∣ fwd bwd
     where
@@ -288,7 +288,7 @@ act-free ((U , V) , (U' , uu' , u'u) , (V' , vv' , v'v) , _)
       ∙ cong (V' ⋆_) qv ∙ v'v
 
 ------------------------------------------------------------------------
--- 6.  The bridge: a Γ₀ member with invertible conjugate is a
+-- 6.  The bridge: a Γ� member with invertible conjugate is a
 --     stabiliser element of the diagonal, and hence acts.
 ------------------------------------------------------------------------
 

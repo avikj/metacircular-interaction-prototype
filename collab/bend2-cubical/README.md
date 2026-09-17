@@ -19,7 +19,7 @@ Checked green by the patched binary (build: GHC 9.12.2, cabal 3.18, LC_ALL=C.utf
   - cubical_test.bend: prefl, psym (via inot), pcong, funext (unprovable with
     Bend2's native Eql), connection square, and the corpus lossless-presentation
     rightInv transliterated term-for-term from cubical Agda:
-      Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , Î» j â†’ p (i âˆ§ j)
+      Agda:  Iso.rightInv losslessIso (b , a , p) i = p i , a , Î» j â’ p (i âˆ§ j)
       Bend2: <i> (e @ i, a, <j> e @ iand(i, j))
   - corpus_lossless.bend: the Eql-based version (encode/decode/section/retract)
   - no regressions: examples/main.bend 39/39
@@ -68,14 +68,14 @@ Layer 5 (same patch): UNIVALENCE COMPLETE at the iso level. The three laws:
 See cubical_test5.bend. At the raw Iso level only the path-side round trip
 (uaEta) holds; the Iso-side one fails (uaroundtrip.bend), as it must.
 
-Coherent level (uaequiv.bend, 17 checks green): Equiv(A,B) = Î£ f. âˆ€y.
+Coherent level (uaequiv.bend, 17 checks green): Equiv(A,B) = Î f. âˆy.
 isContr(fiber f y); uaE builds the path from the contractible-fibre data;
 pathToEquiv transports idEquiv; uaEquivRoundTrip : pathToEquiv(uaE e) = e
 CHECKS for arbitrary e, via isPropIsEquiv (pointwise isPropIsContr, a 4-face
-hcompN â€” see GENERAL_HCOMP.md). hcomp with general cofibration systems is
+hcompN â” see GENERAL_HCOMP.md). hcomp with general cofibration systems is
 present (hcompN). fibrelaw.bend (32 green): isoToIsEquiv (lemIso), the fibre
-law A â‰ƒ Î£ B (fiber f) as a coherent Equiv for every f, its uaE path, and
-transport along it run natively on HVM4/HVM3 â€” FIBRE_LAW.md. --to-hvm4-full
+law A â‰ Î B (fiber f) as a coherent Equiv for every f, its uaE path, and
+transport along it run natively on HVM4/HVM3 â” FIBRE_LAW.md. --to-hvm4-full
 keeps every cubical object at runtime (RUNTIME_FULL.md). hfill is
 parser sugar over hcompN (hfill.bend); `bend f.bend --total` refuses a file
 with any [unchecked] definition. Not done, not asked: Glue as a first-class
@@ -108,9 +108,9 @@ run_corpus.hvm4: the same program in HVM4 surface syntax, executed on the
   (--to-hvm targets the HVM3 dialect; an HVM4 emitter is a mechanical
   printer variant, not yet written.)
 
-## General higher inductive types (same patch) â€” HIT.md
+## General higher inductive types (same patch) â” HIT.md
 
-`hit Name<params>(indices): case @tag(fields) -> Name(â€¦) | path @tag(fields): T`
+`hit Name<params>(indices): case @tag(fields) -> Name(â¦) | path @tag(fields): T`
 declares a HIT at the generality of a Cubical Agda `data`: uniform
 parameters, indices, fields of any type (intervals and paths included),
 path constructors of any dimension with any well-typed faces. The compiler
@@ -123,5 +123,5 @@ circle, the suspension (transport along `Susp(ua(neg))`), the pushout,
 propositional and SET truncation, the quotient's generators, the interval
 (funext from it), trees with swap and associativity paths, the torus, an
 indexed reachability family and an indexed family with an interval-argument
-constructor â€” 189 âœ“ and a 7-probe must-fail. PUSC.md: the architecture
+constructor â” 189 â“ and a 7-probe must-fail. PUSC.md: the architecture
 statement (Parallel Univalent Superposition Computer).

@@ -47,7 +47,7 @@ module SameResponseImage
 
   module Observation = AS.SameResponses Y r râ€² stateMap
 
-  -- Pointwise form of qâ€²(Xâ€²) âŠ† q(X).  Mapping a truncated fiber witness is
+  -- Pointwise form of qâ²(Xâ²) âŠ q(X).  Mapping a truncated fiber witness is
   -- enough; no state representative escapes the truncation.
   preserves-image-membership :
     Observation.ResponseSquare â†’ (q : Q) (y : Y q)

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- `Declared : Root â†’ Type` is proof-relevant unless its fibres are known to
+-- `Declared : Root â’ Type` is proof-relevant unless its fibres are known to
 -- be propositions.  Consequently a `SeparatorFamily` can select different
 -- separator data from two declarations of the same root.
 --

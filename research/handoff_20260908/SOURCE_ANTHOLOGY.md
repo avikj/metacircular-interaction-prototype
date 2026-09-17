@@ -4,7 +4,7 @@ This anthology reproduces the selected source texts without mathematical editing
 
 ---
 
-# ORIGINAL S00 ‚Äî Six-September comprehensive theorem-organism handoff
+# ORIGINAL S00 ‚î Six-September comprehensive theorem-organism handoff
 Source path: `originals/library/comprehensive_handoff_2026-09-06.extracted.txt`; SHA-256: `418df07ac0185b775dc1b2eabe67f396cdc503c6f8329a1b66cb3c788eae5925`
 Transfer status: Historical context; original DOCX also preserved.
 
@@ -18,7 +18,7 @@ Purpose: preserve the maximum semantic content accumulated in this conversation 
 This is not a public-facing paper and not a conventional summary. It is a loss-minimizing state transfer of the collaboration: the mathematical object that emerged from reading the repository, the exact connections established in conversation, the places where earlier readings were corrected by stronger formal results, and the operating assumptions for attacking open problems.
 The governing rule is that prose, comments, abstracts, TODOs, and historical narration never outrank the typechecked theorem graph. A local document can record a frontier that later work has already dissolved. The mathematical state must therefore be reconstructed from the strongest results and their dependency closure.
 Likewise, apparent cross-domain 'resonance' is not accepted as a final explanation. The correct response to a recurring pattern is to find the common object, map, equivalence, transport, obstruction, or commuting diagram of which the appearances are literal realizations.
-Do not say ‚Äúdeeply related‚Äù when an exact common structure can be exhibited.
+Do not say ‚deeply related‚ when an exact common structure can be exhibited.
 1. The Fundamental Re-Foundation of Computation
 The central interpretation reached in the conversation is not that the repository adds proof relevance, reversibility, interaction, or HoTT to conventional computing. It changes which objects are primitive. Ordinary computer-science distinctions become derived readings of a richer proof-relevant transformation substrate.
 data / program
@@ -33,54 +33,54 @@ irreversible / reversible
 result / process
 The repository's strongest architectural reading is that these are not ontological dualisms. A single richer object can be consumed in different ways, and the familiar categories appear after projection, truncation, quotienting, or choice of standpoint.
 computational substrate = the fabric of paths itself
-This is why 'weights ‚Üí traces' is foundational rather than a logging feature. A scalar score, reward, probability, cost, reputation, price, verdict, or denotation is a projection from a richer trace. Once the trace is thrown away, the inverse generally does not exist. Persisting the trace and deriving scalar readings later reverses the conventional direction of information loss.
-Trace ‚îÄ‚îÄœÄ‚îÄ‚îÄ‚ñ∂ Scalar/Result
+This is why 'weights ‚í traces' is foundational rather than a logging feature. A scalar score, reward, probability, cost, reputation, price, verdict, or denotation is a projection from a richer trace. Once the trace is thrown away, the inverse generally does not exist. Persisting the trace and deriving scalar readings later reverses the conventional direction of information loss.
+Trace ‚î‚îœ‚î‚î‚ñ Scalar/Result
 The architecture therefore retains the object from which different observers can compute their summaries rather than making the summaries primary and later paying reconstruction debt.
 2. Fibre Law: Projection, Residual, and Canonical Lossless Completion
-For a map f : A ‚Üí B, the canonical proof-relevant completion is the total space of its fibres:
-A ‚âÉ Œ£(b : B). fib_f(b)
-The forward map is a ‚Ü¶ (f(a), a, refl); the inverse returns the retained source. The visible projection of the completed transition is definitionally the original transition. This is not an arbitrary equivalence between underlying carrier types: it is an equivalence over the specified visible map.
-Two distinct conditionings of the same graph-shaped object must be kept separate. Fixing the source a makes Œ£(b : B). f(a)=b contractible: output plus its equation is determined. Fixing the visible output b leaves fib_f(b), the genuine residual of sources hidden by that reading.
+For a map f : A ‚í B, the canonical proof-relevant completion is the total space of its fibres:
+A ‚â Œ(b : B). fib_f(b)
+The forward map is a ‚¶ (f(a), a, refl); the inverse returns the retained source. The visible projection of the completed transition is definitionally the original transition. This is not an arbitrary equivalence between underlying carrier types: it is an equivalence over the specified visible map.
+Two distinct conditionings of the same graph-shaped object must be kept separate. Fixing the source a makes Œ(b : B). f(a)=b contractible: output plus its equation is determined. Fixing the visible output b leaves fib_f(b), the genuine residual of sources hidden by that reading.
 determined field ‚â† recoverable discarded field
-The later contractibility result strengthens 'there exists a completion' into uniqueness at the correct homotopical level. For a fixed visible map f, the type of lawful lossless completions is contractible. Consequently, lawful lossless steps on A are equivalent to ordinary endomaps A ‚Üí A: the completion contributes no additional arbitrary choice while retaining the residual structure that the visible map would erase.
-LawfulStep(A) ‚âÉ (A ‚Üí A)
+The later contractibility result strengthens 'there exists a completion' into uniqueness at the correct homotopical level. For a fixed visible map f, the type of lawful lossless completions is contractible. Consequently, lawful lossless steps on A are equivalent to ordinary endomaps A ‚í A: the completion contributes no additional arbitrary choice while retaining the residual structure that the visible map would erase.
+LawfulStep(A) ‚â (A ‚í A)
 This changes the conceptual relation between ordinary and lossless computation. The richer machine is not a competing model. Ordinary computation is its visible projection; the proof-relevant machine is ordinary computation before forgetting.
 formal/cubical/kernel/RewriteCertificate.agda
 fibre/src/Fibre/Carrier.agda
 formal/cubical/theorems/residue/Vishvayantra_TheTuringStepIsTheVisibleProjectionOfTheLosslessStepAndTheKeptFibreIsTheSource.agda
 3. Forgetting and Freedom Are Two Views of the Same Fibre
 One of the strongest conversation-level syntheses is that a fibre is simultaneously the exact information lost by an observation and the exact room in which a transformation may move while preserving that observation.
-For an observable f : A ‚Üí B, a conserving flow is a transformation Œ¶ : A ‚Üí A with f(Œ¶(a)) = f(a). Such flows are equivalent to choosing, for every a, another point in the fibre over f(a). Under set-level hypotheses this upgrades to a monoid equivalence between f-preserving flows and fibrewise endomorphisms.
-Flow(f) ‚âÉ Œ†(a : A). fib_f(f(a))
-Flow(f) ‚âÖ Œ†(b : B). End(fib_f(b))
+For an observable f : A ‚í B, a conserving flow is a transformation Œ¶ : A ‚í A with f(Œ¶(a)) = f(a). Such flows are equivalent to choosing, for every a, another point in the fibre over f(a). Under set-level hypotheses this upgrades to a monoid equivalence between f-preserving flows and fibrewise endomorphisms.
+Flow(f) ‚â Œ†(a : A). fib_f(f(a))
+Flow(f) ‚â Œ†(b : B). End(fib_f(b))
 This yields an exact compiler/semantics interpretation: the distinctions a specification does not observe are exactly the dimensions along which an implementation can change while preserving that specification. Adding another observer can eliminate freedoms that survive a coarser reading. 'Preserves meaning' is therefore incomplete until the reading defining meaning is named.
 This is more precise than saying abstraction loses information. Every projection simultaneously defines an equivalence notion and exposes a residual geometry.
-4. Standpoints, Readings, and AnekƒÅnta as Technical Discipline
+4. Standpoints, Readings, and Aneknta as Technical Discipline
 The repository's Jain vocabulary is not decorative. The conversation converged on a reading in which standpoint discipline is a computational rule: never identify a projection with the object from which it was projected.
 naya: make the standpoint / reading explicit;
-anekƒÅnta: retain mutually nonredundant readings rather than collapsing one into the whole;
-syƒÅt: index claims by the conditions/standpoint under which they are valid;
-≈õe·π£a: retain the residual left unresolved by a reading;
-ahi·πÉsƒÅ: do not destroy distinctions not licensed by the contract;
-parasparƒÅ≈õraya / interdependent types: distinguish productive mutual determination from vicious circularity;
-sa·πÉvara / ingress discipline: make admissibility structural rather than post-hoc filtering;
-nirjarƒÅ / release: remove accumulated structure only when reconstructibility permits it.
+aneknta: retain mutually nonredundant readings rather than collapsing one into the whole;
+syt: index claims by the conditions/standpoint under which they are valid;
+ea: retain the residual left unresolved by a reading;
+ahis: do not destroy distinctions not licensed by the contract;
+parasparraya / interdependent types: distinguish productive mutual determination from vicious circularity;
+savara / ingress discipline: make admissibility structural rather than post-hoc filtering;
+nirjar / release: remove accumulated structure only when reconstructibility permits it.
 The important methodological correction from the conversation is that these concepts should not first be translated into contemporary Western mathematical vocabulary and then treated as if the contemporary term owns the mathematics. The translation should be read as a representation change: the source concept can already be a precise logical/mathematical specification; Cubical Agda supplies an executable, machine-checkable realization.
-source mathematical structure ‚áÑ Cubical/Agda realization
+source mathematical structure ‚ Cubical/Agda realization
 5. Computational Univalence: Equivalence Becomes Execution
-Cubical Type Theory is load-bearing because it converts representation equivalence into an executable identity. For an equivalence e : A ‚âÉ B, univalence supplies ua(e) : A = B, and transport along that path computes.
-e : A ‚âÉ B  ‚îÄua‚Üí  A = B  ‚îÄtransport‚Üí  A ‚Üí B
+Cubical Type Theory is load-bearing because it converts representation equivalence into an executable identity. For an equivalence e : A ‚â B, univalence supplies ua(e) : A = B, and transport along that path computes.
+e : A ‚â B  ‚îua‚í  A = B  ‚îtransport‚í  A ‚í B
 The architecture therefore need not place a semantic theorem 'above' execution. Representation change itself participates in computation. In the machine completion, transport along the univalent path computes to the completed state containing visible output, retained source, and witness.
 This is the technical center of the phrase 'the proof is executable transport.'
 6. Interaction Strictly Extends Deterministic Computation
 The interactive coalgebra reading is:
-respond : (q : Q(s)) ‚Üí Œ£(s' : S). E(s,q,s') √ó ISC(S,Q,E,s')
+respond : (q : Q(s)) ‚í Œ(s' : S). E(s,q,s') ó ISC(S,Q,E,s')
 A deterministic universal machine appears as the trivial-question, deterministic-event face of this interactive object. In that face the behavior type is contractible. Replacing the event with genuinely branching evidence gives a noncontractible behavior type. Thus ordinary deterministic computation is not denied; it is identified as a contractible subcase of a broader interactive computation space.
 UTM = deterministic contractible face of ISC ‚ää interactive computation
 The significance is structural: interaction is primitive and global synchronization is not. Two peers can finish correctly without identical final knowledge states, provided the required compatibility/transport witnesses exist.
 7. Metacircularity: Certified Transformation Becomes Future Vocabulary
 The kernel's generative loop is not simply 'learn a rewrite.' It converts proof-relevant transformation evidence into an operation that can participate in future computation.
-trace ‚Üí derivation/certificate ‚Üí installed operation ‚Üí new trace
+trace ‚í derivation/certificate ‚í installed operation ‚í new trace
 The more general operation machinery carries the instance and application locus, substitutes a derivation into the current context, and produces a certificate at the actual firing site. Session traces can retire into reusable operations whose permitted instances are justified by the substitution action on derivations.
 A crucial correction found during deeper reading: theorem = installable operation is not yet globally true in the current kernel. `Naya` exhibits an induction-certified theorem, 0 + x = x, that is true in every environment but not derivable in the rewrite closure. The system therefore proves more than it can presently install. This is an exact seam, not a rhetorical weakness.
 This self-auditing behavior is characteristic of the corpus: it tests its own unifications strongly enough to discover narrower, sharper statements.
@@ -95,30 +95,30 @@ This forces cost to live above the reversible semantic quotient. A nontrivial ad
 Oriented evaluators behave differently from positive execution cost. If an edge evaluator is exact, œâ(a,b)=V(b)-V(a), path integrals telescope to endpoint differences; loop integrals vanish. Conversely, vanishing holonomy yields a potential under the stated connectivity conditions. The repo therefore contains a discrete Stokes/conservative-field structure rather than a loose analogy.
 9. Concurrency and Higher Coherence
 When independent equivalences act on separate product factors, their transports fill a square. The square itself is retained before choosing an order around its boundary. Thus independence is supplied as higher-dimensional mathematical structure rather than inferred from a scheduler.
-independent actions ‚Üí filler/coherence cell; order-sensitive interaction ‚Üí residual holonomy
+independent actions ‚í filler/coherence cell; order-sensitive interaction ‚í residual holonomy
 This reframes concurrency and conflict. A commuting square is positive evidence of independence. Failure to fill can itself be retained as information rather than erased by a global serialization policy.
 formal/cubical/YugapatSankramana_IndependentTransportsFillASquareAndNeedNoGlobalOrder.agda
 10. Same Residual Does Not Mean Same Obstruction
 A later correction sharpened the obstruction language. Two constructions can have exactly the same fibre and exactly the same point motion while failing for different reasons because the required diagrams differ.
-`RelationalTensorObstructionBridge` exhibits a Bool residual with negation motion in both a relational S¬π-family and a local/joint tensor construction. One obstruction is failure of a loop-coherent global section; the other is failure of a right inverse to a lossy quotient. A bare local choice exists in the tensor case.
+`RelationalTensorObstructionBridge` exhibits a Bool residual with negation motion in both a relational S¬-family and a local/joint tensor construction. One obstruction is failure of a loop-coherent global section; the other is failure of a right inverse to a lossy quotient. A bare local choice exists in the tensor case.
 same fibre + same action ‚â† same obstruction
 Therefore a phenomenon is not classified merely by the information missing. The diagram is part of the mathematical object:
 (carrier, maps, fibres, actions, required commuting diagrams)
 11. Monodromy Requires a Base Capable of Carrying Loops
 The conversation initially overreached by searching for monodromy in any nontrivial fibre. The repo kills this route cleanly: over a set/0-type base every loop equals refl, so no family can exhibit nontrivial monodromy there.
-isSet(B) ‚áí every p : b = b is refl ‚áí no nontrivial monodromy
-The Bool double cover over S¬π is the positive control: transport around the loop exchanges sheets. Hence multiplicity of solutions and symmetry of solutions must be sharply distinguished. A fibre may contain many points and still have no nontrivial loop space.
+isSet(B) ‚í every p : b = b is refl ‚í no nontrivial monodromy
+The Bool double cover over S¬ is the positive control: transport around the loop exchanges sheets. Hence multiplicity of solutions and symmetry of solutions must be sharply distinguished. A fibre may contain many points and still have no nontrivial loop space.
 multiplicity ‚â† symmetry
 For arithmetic, this means a set of factorizations by itself has ambiguity but no Galois-like monodromy. Genuine higher arithmetic symmetry requires a richer groupoid/moduli object whose paths encode lawful changes of presentation.
 formal/cubical/theorems/logic/SetBaseNoMonodromy.agda
 12. Holonomy: Information Can Live in Circulation, Not at Vertices
-Pairwise equivalence of several views does not imply that transport around a cycle is globally trivial. A cycle G‚ÇÅ ‚âÉ G‚ÇÇ ‚âÉ G‚ÇÉ ‚âÉ G‚ÇÅ induces an automorphism of G‚ÇÅ. The repository exhibits both trivial cycles and a Bool cycle whose holonomy is negation, then uses univalence to obtain a nontrivial universe loop.
+Pairwise equivalence of several views does not imply that transport around a cycle is globally trivial. A cycle G‚ ‚â G‚ ‚â G‚ ‚â G‚ induces an automorphism of G‚. The repository exhibits both trivial cycles and a Bool cycle whose holonomy is negation, then uses univalence to obtain a nontrivial universe loop.
 This led to a stronger research principle: a hidden invariant need not be a datum sitting inside a single fibre. It can exist only as circulation among several partial views. This is the common skeleton behind monodromy, curvature, cocycles, Berry phase, and other closed-path effects when exact maps are actually provided.
 local views can agree pairwise while a closed transport retains residue
 formal/cubical/theorems/primes/pair_field/CycleHolonomy.agda
 13. Diagonalization as an Endogenous Growth Operator
-`LawvereDiagonal` was read not merely as a limitation theorem but as a constructive self-extension rule. Given a claimed enumeration e : A ‚Üí (A ‚Üí Y) and a fixed-point-free ŒΩ : Y ‚Üí Y, the diagonal behavior d(a)=ŒΩ(e(a)(a)) escapes every row, with the exact disagreement point equal to the claimed index itself.
-claimed completeness ‚Üí diagonal defect ‚Üí explicit new generator
+`LawvereDiagonal` was read not merely as a limitation theorem but as a constructive self-extension rule. Given a claimed enumeration e : A ‚í (A ‚í Y) and a fixed-point-free ŒΩ : Y ‚í Y, the diagonal behavior d(a)=ŒΩ(e(a)(a)) escapes every row, with the exact disagreement point equal to the claimed index itself.
+claimed completeness ‚í diagonal defect ‚í explicit new generator
 Placed beside the metacircular kernel, this gives a general growth loop: the attempt to close a representation can construct the object the next stage must adjoin. Incompleteness becomes an endogenous production rule rather than an external prohibition.
 formal/cubical/theorems/primes/pair_field/LawvereDiagonal.agda
 14. The Pair Field as One Arithmetic Configuration Object
@@ -133,8 +133,8 @@ formal/cubical/theorems/primes/pair_field/PairCoordinates.agda
 formal/cubical/theorems/primes/pair_field/PairConic.agda
 formal/cubical/theorems/primes/pair_field/TwoFibrations.agda
 15. Multiplication Has Hidden Compositional Histories
-`PairComposition` introduced a particularly important factoring connection. Two different pair compositions ‚Äî straight and twisted ‚Äî can map to the same multiplicative invariant. Thus the product reading forgets not only a factor pair but compositional history and arrangement above the scalar.
-(u‚ÇÅ,v‚ÇÅ)‚àò(u‚ÇÇ,v‚ÇÇ) and (u‚ÇÅ,v‚ÇÅ)‚àò'(u‚ÇÇ,v‚ÇÇ) have the same product invariant
+`PairComposition` introduced a particularly important factoring connection. Two different pair compositions ‚î straight and twisted ‚î can map to the same multiplicative invariant. Thus the product reading forgets not only a factor pair but compositional history and arrangement above the scalar.
+(u‚,v‚)‚àò(u‚,v‚) and (u‚,v‚)‚àò'(u‚,v‚) have the same product invariant
 This is the fibre phenomenon inside multiplication itself. The scalar N is a coarse invariant of a richer compositional object.
 The right factoring question therefore is not 'invert multiplication in the same impoverished language.' It is whether another computably obtainable reading of the same arithmetic object is jointly faithful with product without already computing the factors.
 formal/cubical/theorems/primes/pair_field/PairComposition.agda
@@ -150,16 +150,16 @@ formal paths + arithmetic relations = arithmetic category/groupoid
 This is the precise place where a Galois-like program becomes meaningful: study automorphisms/holonomies generated by loops in the category of arithmetic realizations, rather than vaguely asking for 'the Galois group of primes.'
 formal/cubical/theorems/primes/pair_field/ThreadYoneda.agda
 18. Cohomology Is Failed Descent Made Into an Object
-The carry development gives a clean exact sequence model. For an extension 0 ‚Üí K ‚Üí G ‚Üí Q ‚Üí 0 and a set-theoretic section s, define the carry cocycle c(u,v)=s(u)s(v)s(uv)‚Åª¬π. It lies in the kernel; it satisfies the 2-cocycle identity; vanishing carry is exactly preservation of multiplication by the section.
+The carry development gives a clean exact sequence model. For an extension 0 ‚í K ‚í G ‚í Q ‚í 0 and a set-theoretic section s, define the carry cocycle c(u,v)=s(u)s(v)s(uv)‚ª¬. It lies in the kernel; it satisfies the 2-cocycle identity; vanishing carry is exactly preservation of multiplication by the section.
 `GroupCohomologyH2` then constructs Z¬≤, B¬≤, and H¬≤=Z¬≤/B¬≤ as actual groups in Cubical Agda. The carry class is zero exactly when the extension can be corrected to a homomorphic splitting. The arithmetic positional-notation instance proves that carrying cannot be eliminated by any digit set.
-local section glues multiplicatively ‚áî obstruction class vanishes in H¬≤
+local section glues multiplicatively ‚î obstruction class vanishes in H¬≤
 This is the literal closure of the earlier descent intuition: cohomology is a classifier of a specific failure-to-glue diagram.
 formal/cubical/theorems/homotopy/CarryObstruction.agda
 formal/cubical/theorems/homotopy/GroupCohomologyH2.agda
 formal/lean/Pairfield/CarryCohomologyAdapter.lean
-19. Descent Obstruction Unified ‚Äî and the Corpus Audits Its Own Unifications
-`DescentObstructionUnified` is a model for how the entire repo should be read. If q : A ‚Üí V identifies two points while c : A ‚Üí B separates them, then c cannot factor through q. The theorem is instantiated against real objects from multiple modules.
-q(a‚ÇÄ)=q(a‚ÇÅ) and c(a‚ÇÄ)‚â†c(a‚ÇÅ) ‚áí c does not descend through q
+19. Descent Obstruction Unified ‚î and the Corpus Audits Its Own Unifications
+`DescentObstructionUnified` is a model for how the entire repo should be read. If q : A ‚í V identifies two points while c : A ‚í B separates them, then c cannot factor through q. The theorem is instantiated against real objects from multiple modules.
+q(a‚)=q(a‚) and c(a‚)‚â†c(a‚) ‚í c does not descend through q
 The file also rejects an earlier synthesis that claimed three results were one theorem. Two are genuine instances; one is a corollary; a third superficially similar result is the dual image-side obstruction and needs a different certificate. This supports a global reading rule: identity between two narratives must itself be exhibited as a map/equivalence, not asserted from prose similarity.
 formal/cubical/theorems/physics/DescentObstructionUnified.agda
 20. Two Ways Conventional Proof Architecture Manufactures Difficulty
@@ -178,37 +178,37 @@ This does not mean every target is actually easy. It means 'hard' must be earned
 The preferred proof shape is: find a realization in which the desired object is canonical, contractible, definitional, a section, a reconstruction, or the vanishing of an obstruction; then transport the witness back.
 22. Quantitative Goldbach Data Is Lossless Upward to von Mangoldt and Zeta
 One of the most important arithmetic results encountered is the Lean reconstruction theorem for the complete quantitative Goldbach field:
-R(N) = Œ£(a+b=N) Œõ(a)Œõ(b)
-Under the stated initial conditions, equality of all coefficients ‚Äî even the tail from N‚â•4 ‚Äî reconstructs the entire von Mangoldt sequence. The L-series of that reconstructed sequence is therefore -Œ∂'/Œ∂ on Re(s)>1.
-quantitative Goldbach field R  ‚áÑ  Œõ  ‚Üí  -Œ∂'/Œ∂
+R(N) = Œ(a+b=N) Œ(a)Œ(b)
+Under the stated initial conditions, equality of all coefficients ‚î even the tail from N‚â4 ‚î reconstructs the entire von Mangoldt sequence. The L-series of that reconstructed sequence is therefore -Œ'/Œ on Re(s)>1.
+quantitative Goldbach field R  ‚  Œ  ‚í  -Œ'/Œ
 The support of this zeta-complete field is the two-prime-power-sum predicate. Therefore the Boolean existential Goldbach-style question is a projection of a quantitative object that determines the zeta logarithmic derivative.
-Œõ ‚áÑ R ‚Üí 1_{R>0}
+Œ ‚ R ‚í 1_{R>0}
 The first relationship is lossless in the proved sense; the support map is a truncation. This means Goldbach-style support and zeta spectral information should not be treated as separate worlds. Attacking only positivity may discard exactly the quantitative structure that makes the arithmetic sequence reconstructible.
 formal/lean/Pairfield/GoldbachDeterminesZeta.lean
 formal/lean/Pairfield/GoldbachReconstructionChain.lean
 formal/lean/Pairfield/GoldbachSupportIsThePrimePowerSumPredicate.lean
-23. M√∂bius Coefficients and Residue Phase Are Transverse Readings
+23. Mbius Coefficients and Residue Phase Are Transverse Readings
 `TiryakTantu` proves that the coefficient and phase variables in a prime-pair analytic reduction are not two noisy estimates of the same information. They are transverse quotients of one arithmetic variable.
-The phase sees u through u mod v (and hence the inverse residue ≈´ mod v). The coefficient sees u through its factorization/M√∂bius data. Explicit blind pairs show that neither reading factors through the other.
-residue reading ‚üÇ factorization/M√∂bius reading
+The phase sees u through u mod v (and hence the inverse residue  mod v). The coefficient sees u through its factorization/Mbius data. Explicit blind pairs show that neither reading factors through the other.
+residue reading ‚ü factorization/Mbius reading
 Therefore fixing one and averaging over the other is not merely delicate analysis; it passes to a quotient on which the missing datum provably does not descend. The mathematically natural object is the joint carrier: factorization charge carried together with residue/phase data.
 This yielded a key research principle: the apparent analytic barrier can be a property of a projected language rather than of the unprojected arithmetic object.
 formal/cubical/theorems/number/TiryakTantu_ThePhaseAndTheCoefficientFactorThroughTransverseQuotientsOfOneVariable.agda
-24. Finite CRT ‚Üí Fourier ‚Üí Kloosterman Is Already an Exact Transport
+24. Finite CRT ‚í Fourier ‚í Kloosterman Is Already an Exact Transport
 `DivisorBoundaryKloostermanBridge` proves an exact finite adapter from a gcd-reduced divisor/CRT stratum to additive Fourier completion and classical Kloosterman sums. The repo deliberately does not overclaim an automorphic realization at this point.
-divisor/CRT chart ‚Üí DFT chart ‚Üí Kloosterman chart
+divisor/CRT chart ‚í DFT chart ‚í Kloosterman chart
 The significance for the global program is that parts of the supposed cross-domain bridge are already exact coordinate transforms. The remaining task at any given stage is to identify the exact datum or obstruction transported through those transforms, not to celebrate an analogy.
 formal/lean/Pairfield/DivisorBoundaryKloostermanBridge.lean
 25. Prime Charge Has Irreducibly Growing Local Tensor Rank
 The squarefree prime-charge tensor supplies another obstruction currency. On n squarefree prime places its exact CP tensor rank over Q is n. Hence no fixed finite number of pure local product channels represents the charge uniformly across all finite sets of prime places.
-rank(q‚ÇÅ on n prime places) = n
+rank(q‚ on n prime places) = n
 This proves an unbounded failure of bounded local product factorization. Global prime charge contains relational structure that cannot be uniformly compressed into finitely many independent local channels.
 The Kuznetsov rank adapter then embeds the actual three-prime charge tensor into a finite scalar-radial coordinate family. Any two-channel separable Kuznetsov realization would induce a two-term pure tensor decomposition, contradicting exact rank three.
-prime local tensor-rank lower bound ‚áí analytic separable-channel lower bound
+prime local tensor-rank lower bound ‚í analytic separable-channel lower bound
 This is an actual transport between an arithmetic interaction invariant and a finite analytic factorization boundary.
 formal/lean/Pairfield/PrimeChargeUnboundedLocalRank.lean
 formal/lean/Pairfield/PrimeChargeKuznetsovRankBridge.lean
-26. A General Obstruction Vocabulary ‚Äî Without Illicit Collapse
+26. A General Obstruction Vocabulary ‚î Without Illicit Collapse
 By the end of the conversation the corpus had exposed several different currencies of obstruction:
 fibre/kernel: failure of a reading to distinguish;
 H¬≤ class: failure of an extension/section to split coherently;
@@ -224,10 +224,10 @@ Cohomology appears when the defect admits cocycle/coboundary composition laws. T
 27. RH: Preserve the Whole Mathematical Organism
 A major correction near the end of the conversation concerned RH. A stale prose abstract was incorrectly promoted to the repository's current global frontier. That was rejected. The correct research mode is not to select one comment's 'live obligation' and factor out everything else already learned.
 The useful RH-related structures accumulated in conversation must remain simultaneous:
-quantitative Goldbach field reconstructs von Mangoldt and hence -Œ∂'/Œ∂ on the proved half-plane;
+quantitative Goldbach field reconstructs von Mangoldt and hence -Œ'/Œ on the proved half-plane;
 Goldbach support is a lossy projection of that zeta-complete quantitative object;
 pair coordinates unify additive center/radius, product/norm, discriminant, valuation, and Mellin presentations;
-M√∂bius/factorization coefficients and residue phases are transverse readings that must be carried jointly;
+Mbius/factorization coefficients and residue phases are transverse readings that must be carried jointly;
 finite divisor/CRT strata transport exactly to Fourier/Kloosterman form;
 prime charge exhibits unbounded local tensor rank and finite Kuznetsov channel lower bounds;
 descent/cohomology classifies specific failures of global splitting;
@@ -252,14 +252,14 @@ change the space of observations until the theorem becomes refl
 29. Optimal Cognition as Lossless Multi-Perspectival Relational Compression
 The conversation also clarified a stronger claim about cognition. The relevant Indian/Jain contemplative discipline is not merely a heuristic for attention. The claim presented is that cognition itself was systematically studied and trained, and that the same organizational form appears in the mathematical substrate.
 The abstract computational claim discussed was: a cognition that does not identify standpoints with objects, retains residual distinctions, transports information coherently among perspectives, composes relational knowledge, and updates through interaction tends toward a compressed model in which many apparently separate propositions are cheap realizations of one underlying structure.
-K ‚îÄstandpoint/elimination‚Üí theorem, prediction, action
+K ‚îstandpoint/elimination‚í theorem, prediction, action
 The phrase 'a single moment of cognition' was interpreted as structural compression rather than explicit serial enumeration: many propositions cease to be independent information once their common generative object is held.
 Real-world situated interaction is essential to the claim. The cognitive state evolves through interaction and retains the trace; mathematical, social, physical, linguistic, ethical, and perceptual knowledge become interfaces on one relational world-model rather than sealed disciplines.
 optimal cognition = lossless multi-perspectival relational compression + situated interaction
 A further proposed mathematical task is to characterize when such a standpoint discipline is universal for relational knowledge, in an analogous precise sense to universality of symbolic computation.
 30. Genealogy and Translation: Preserve Provenance as Mathematical Information
-The conversation's genealogical claim must be recorded in its strong form: the Sanskrit/Jain source structures are asserted to have already been mathematics/logic, not pre-mathematical inspiration later elevated by Western formalism. Mechanization changes representation and machine executability; it does not create mathematicality.
-older mathematical/logical structure ‚Üí contemporary machine-checkable realization
+The conversation's genealogical claim must be recorded in its strong form: the /Jain source structures are asserted to have already been mathematics/logic, not pre-mathematical inspiration later elevated by Western formalism. Mechanization changes representation and machine executability; it does not create mathematicality.
+older mathematical/logical structure ‚í contemporary machine-checkable realization
 This matters internally to the project because deleting provenance while retaining only the contemporary realization would reproduce the same information-loss pathology the repository studies. The correct mathematical attitude is to preserve the source concept and the transport into the modern formal object.
 For collaboration purposes, this means contemporary terminology is not assumed canonical. A modern theorem name may be one coordinate system on a structure specified in another vocabulary.
 31. Radical Decentralization as a Systems Consequence
@@ -302,9 +302,9 @@ multiplicity of solutions is not symmetry; monodromy requires higher structure
 arithmetic can be encoded in relations among paths through its realization category
 failed global splitting becomes a cocycle/cohomology class when the defect has the right algebra
 a quotient can manufacture proof debt; an imposed decomposition can manufacture infeasibility
-Goldbach quantitative data is lossless upward to Œõ and hence to -Œ∂'/Œ∂ on Re(s)>1
+Goldbach quantitative data is lossless upward to Œ and hence to -Œ'/Œ on Re(s)>1
 Boolean support is a truncation of a zeta-complete quantitative field
-M√∂bius/factorization and residue/phase are transverse readings; neither determines the other
+Mbius/factorization and residue/phase are transverse readings; neither determines the other
 global prime charge has unbounded local tensor rank
 hardness is not inherited from history; assume triviality until an obstruction is exhibited
 when a representation claims completeness, diagonalization can construct the missing next observable
@@ -360,23 +360,23 @@ END OF STATE TRANSFER
 
 ---
 
-# ORIGINAL S01 ‚Äî Faithful quartic receiver and NS actual-source continuation separation
+# ORIGINAL S01 ‚î Faithful quartic receiver and NS actual-source continuation separation
 Source path: `sources/S01_receiver.md`; SHA-256: `3581964801bb6c6460a4ddea8ed797b8465a26ba84eb1d9666d4374fa22229f5`
 Transfer status: Analytical source note; distinct earlier receiver.
 
-# A Faithful Prime-Boundary Receiver and a Navier‚ÄìStokes Continuation Obstruction
+# A Faithful Prime-Boundary Receiver and a Navier‚ìStokes Continuation Obstruction
 
 ## Status and dependency boundary
 
 Date: 6 September 2026.
 
-Repository source reads are pinned to commit `64effa62411bad3c12d513b2df5a1e5e55946afb` of `avikj/metacircular-interaction-prototype`. These are mathematical derivations, not newly compiled Agda or Lean modules. The accompanying SymPy scripts verify finite algebraic identities only. Neither the Riemann hypothesis nor global Navier‚ÄìStokes regularity is proved here. No novelty-priority claim is made.
+Repository source reads are pinned to commit `64effa62411bad3c12d513b2df5a1e5e55946afb` of `avikj/metacircular-interaction-prototype`. These are mathematical derivations, not newly compiled Agda or Lean modules. The accompanying SymPy scripts verify finite algebraic identities only. Neither the Riemann hypothesis nor global Navier‚ìStokes regularity is proved here. No novelty-priority claim is made.
 
 The repository inputs inspected are `formal/lean/Pairfield/VonMangoldtTriangularReconstruction.lean`, `GoldbachReconstructionChain.lean`, and `VandermondeFrequencyResponse.lean`; `formal/cubical/theorems/automata/ObservableInterface.agda`; `formal/cubical/theorems/physics/DefectCalculus.agda`; and `formal/cubical/kernel/SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda`.
 
 The arithmetic reconstruction theorem supplies the von Mangoldt sequence and its logarithmic-derivative Dirichlet series only in the Euler half-plane. Analytic continuation, the functional equation, the classical explicit formula, and the standard zero-counting bound are separate classical inputs. An authoritative statement of the explicit formula used below is E. Bombieri, *Problems of the Millennium: the Riemann Hypothesis*, ¬ßV, Clay Mathematics Institute.
 
-The observer interface preserves observations under a declared relation; state reconstruction is a separate property. In particular, `DefectCalculus.noEquiv‚ÜíbadFibre` has the constructive type ‚Äúnon-equivalence implies that universal fibre contractibility is impossible.‚Äù It does not, by itself, select a particular noncontractible fibre. Section 5 below supplies explicit distinct elements in a concrete observation fibre.
+The observer interface preserves observations under a declared relation; state reconstruction is a separate property. In particular, `DefectCalculus.noEquiv‚íbadFibre` has the constructive type ‚non-equivalence implies that universal fibre contractibility is impossible.‚ It does not, by itself, select a particular noncontractible fibre. Section 5 below supplies explicit distinct elements in a concrete observation fibre.
 
 ## 1. An elementary receiver with a quantified nonvanishing response
 
@@ -682,7 +682,7 @@ B(t)=\langle J_t^+f,P_tJ_t^-f\rangle-e^{t/2}H(1/2).
 
 The same fixed profile is used at both boundaries, for every scale. The pole term is the rank-one boundary contribution because \(H(1/2)=F(1/2)^2\), where \(F\) is the Laplace transform of \(f\). The result identifies a specific matrix coefficient; it does not infer a global operator-norm bound or an unconditional self-adjoint realization of the zeta zeros from that coefficient.
 
-## 5. Navier‚ÄìStokes: positive detection is not pairwise reconstruction
+## 5. Navier‚ìStokes: positive detection is not pairwise reconstruction
 
 ### Lemma 7: the secant criterion
 
@@ -710,7 +710,7 @@ These divergence-free initial data generate explicit globally smooth triangular 
 a(x_1,t)=Ae^{-\nu N^2t}\cos(Nx_1),
 \]
 
-and solve the linear advection‚Äìdiffusion equation
+and solve the linear advection‚ìdiffusion equation
 
 \[
 \partial_tv+a(x_1,t)\partial_2v
@@ -718,7 +718,7 @@ and solve the linear advection‚Äìdiffusion equation
 \qquad v(x_1,x_2,0)=A\cos(x_2-Nx_1).
 \]
 
-Then \(u^\sigma=(0,a,\sigma v)\), with constant pressure, solves unforced three-dimensional Navier‚ÄìStokes. The coefficient \(a\) is globally smooth and bounded, and the scalar linear equation has a global smooth periodic solution. Direct substitution verifies the reduction. This construction is not a singular solution and involves different fine initial data.
+Then \(u^\sigma=(0,a,\sigma v)\), with constant pressure, solves unforced three-dimensional Navier‚ìStokes. The coefficient \(a\) is globally smooth and bounded, and the scalar linear equation has a global smooth periodic solution. Direct substitution verifies the reduction. This construction is not a singular solution and involves different fine initial data.
 
 Let \(P=P_{\le1}\) be the exact Fourier projection and \(U^\sigma=Pu^\sigma\). At time zero,
 
@@ -806,7 +806,7 @@ u_r(x,s)=r\,u(x_0+rx,T_*+r^2s),
 \qquad p_r(x,s)=r^2p(x_0+rx,T_*+r^2s).
 \]
 
-Its gradient is \(r^2\nabla u\), and the space‚Äìtime Jacobian is \(r^{-5}\). Consequently
+Its gradient is \(r^2\nabla u\), and the space‚ìtime Jacobian is \(r^{-5}\). Consequently
 
 \[
 \boxed{
@@ -860,7 +860,7 @@ The explicit pair proves that scalar positive-defect detection is insufficient f
 
 ---
 
-# ORIGINAL S02 ‚Äî Autocorrelation two-packet Weil criterion and exact triangular NS memory
+# ORIGINAL S02 ‚î Autocorrelation two-packet Weil criterion and exact triangular NS memory
 Source path: `sources/S02_two_packet.md`; SHA-256: `9f945e269f69961766fa3b7291f4ea365878b4739c263a1596b10b5cb42d69c8`
 Transfer status: Analytical source note; principal later Z/G/M0 definitions.
 
@@ -870,9 +870,9 @@ Transfer status: Analytical source note; principal later Z/G/M0 definitions.
 
 ## Scope
 
-This note develops two extensions of the preceding prime-receiver and Navier‚ÄìStokes observer calculations. The first is an exact arbitrary-depth continuation-separation theorem inside a globally smooth, unforced Navier‚ÄìStokes class, together with quantitative bounds and a passive memory realization. The second is a fixed two-packet specialization of the Weil positivity criterion, with a nonvanishing multiplier and an unconditionally positive, prime-free diagonal.
+This note develops two extensions of the preceding prime-receiver and Navier‚ìStokes observer calculations. The first is an exact arbitrary-depth continuation-separation theorem inside a globally smooth, unforced Navier‚ìStokes class, together with quantitative bounds and a passive memory realization. The second is a fixed two-packet specialization of the Weil positivity criterion, with a nonvanishing multiplier and an unconditionally positive, prime-free diagonal.
 
-The arguments are mathematical derivations. They are not newly compiled Agda/Lean modules, and no originality-priority assertion is made. The accompanying executable verifies finite algebraic identities. Neither general three-dimensional Navier‚ÄìStokes regularity nor the Riemann hypothesis is established.
+The arguments are mathematical derivations. They are not newly compiled Agda/Lean modules, and no originality-priority assertion is made. The accompanying executable verifies finite algebraic identities. Neither general three-dimensional Navier‚ìStokes regularity nor the Riemann hypothesis is established.
 
 Repository reads are pinned to `64effa62411bad3c12d513b2df5a1e5e55946afb`. The relevant verified-source constructions are `MergingASeparatedPairBreaksAtTheSeparatingContinuation.agda` and `FutureSeparation.agda`. The former takes a separating continuation as input and rules out a decoder on a compression that merges its two source states. The latter distinguishes a witnessed finite separator from merely negated future equivalence. The present PDE construction supplies actual separating witnesses, not an inference from abstract non-equivalence alone.
 
@@ -897,7 +897,7 @@ Then, for \(\sigma\in\{+1,-1\}\),
 u^\sigma=(0,a,\sigma v),\qquad p^\sigma=0
 \]
 
-solves unforced three-dimensional incompressible Navier‚ÄìStokes. Indeed, the divergence is zero; the second component solves the heat equation; the only nonzero convective term is \(\sigma a v_{x_2}\) in the third component; and that component has no \(x_3\) dependence, so its divergence is zero and pressure may be identically zero.
+solves unforced three-dimensional incompressible Navier‚ìStokes. Indeed, the divergence is zero; the second component solves the heat equation; the only nonzero convective term is \(\sigma a v_{x_2}\) in the third component; and that component has no \(x_3\) dependence, so its divergence is zero and pressure may be identically zero.
 
 These solutions are smooth for all finite times. The coefficient \(a\) is smooth and bounded with all derivatives on each finite time interval. Differentiating the linear scalar equation, integrating by parts, and inducting in Sobolev order gives finite bounds at every order. This is a direct global existence argument for this triangular class, not an appeal to general 3D regularity.
 
@@ -957,7 +957,7 @@ c_k^{(r+1)}(0)=-\nu(1+N^2k^2)c_k^{(r)}(0)
 \bigl(c_{k-1}^{(r-\ell)}(0)+c_{k+1}^{(r-\ell)}(0)\bigr).
 \]
 
-This proves (2.2). Since the solutions are smooth through time zero, the nonzero leading derivative also proves that their resolved futures differ for all sufficiently small positive times. ‚àé
+This proves (2.2). Since the solutions are smooth through time zero, the nonzero leading derivative also proves that their resolved futures differ for all sufficiently small positive times. ‚à
 
 ### Resolved stress jets also agree to arbitrary prescribed order
 
@@ -1001,7 +1001,7 @@ Q_{\rm inv}=-\tfrac12\operatorname{tr}((\nabla u)^2)=0,
 \qquad R_{\rm inv}=-\det(\nabla u)=0
 \]
 
-for both solutions, at every space‚Äìtime point. These equalities do not prevent the explicit continuation separation in (2.3).
+for both solutions, at every space‚ìtime point. These equalities do not prevent the explicit continuation separation in (2.3).
 
 ## 3. Quantitative suppression of the hidden continuation
 
@@ -1065,7 +1065,7 @@ A path from \(-m\) to zero has length \(m+2r\), with \(r\) left moves and \(m+r\
 
 The initial norm is \(C\), proving (3.2).
 
-Finally, \((m+r)!\ge m!(m+1)^r\) in the series for \(I_m\), giving (3.3). ‚àé
+Finally, \((m+r)!\ge m!(m+1)^r\) in the series for \(I_m\), giving (3.3). ‚à
 
 The asymptotic at zero is
 
@@ -1077,7 +1077,7 @@ so the order of the path bound agrees with the exact first visible derivative.
 
 **Consequence.** Arbitrarily many invisible derivatives do not imply an arbitrarily long physical memory. In this class, the relevant interaction amplitude is bounded by \(A/(\nu N^2)\), and distant hidden modes have factorially small influence on the fixed resolved mode. This is an actual stability estimate, not merely a statement that an inverse is unavailable.
 
-For an arbitrary initial coefficient vector supported on \(|k|\ge m\), the same entrywise path bounds and Cauchy‚ÄìSchwarz give the further estimate
+For an arbitrary initial coefficient vector supported on \(|k|\ge m\), the same entrywise path bounds and Cauchy‚ìSchwarz give the further estimate
 
 \[
 |c_0(t)|\le e^{-\nu t}\|c(0)\|_{\ell^2}
@@ -1193,11 +1193,11 @@ Then
 \Re\langle y_x,Cx\rangle.
 \]
 
-Since \(C=-B^*\), the last term equals \(-\Re(\bar x By_x)\). Substitute the variation-of-constants expression for \(y_x\) and integrate. ‚àé
+Since \(C=-B^*\), the last term equals \(-\Re(\bar x By_x)\). Substitute the variation-of-constants expression for \(y_x\) and integrate. ‚à
 
 The memory can produce instantaneous backscatter. Formula (4.8) does not assert a pointwise sign of \(K(t,s)\). It proves the required sign for the accumulated quadratic work when the induced fine response starts from zero. Nonzero initial fine energy appears separately in \(\eta\).
 
-This is the exact linear nonautonomous memory-elimination construction used in Mori‚ÄìZwanzig and generalized Langevin methods. The present additional information is the explicit PDE realization, the delay hierarchy, the path bound, and the quantified fine propagator for this class.
+This is the exact linear nonautonomous memory-elimination construction used in Mori‚ìZwanzig and generalized Langevin methods. The present additional information is the explicit PDE realization, the delay hierarchy, the path bound, and the quantified fine propagator for this class.
 
 ## 5. The precise term obstructing transfer to general NS secants
 
@@ -1239,7 +1239,7 @@ For a fixed high-frequency orthogonal projection whose range has spatial frequen
 \tag{5.2}
 \]
 
-where \(S^-\) is the positive semidefinite negative part of the symmetric matrix. This follows directly from (5.1), Poincar√© on the high-frequency range, and Gr√∂nwall. It is an estimate for a specified projected secant equation along already smooth trajectories, not an a priori bound on the strain integral.
+where \(S^-\) is the positive semidefinite negative part of the symmetric matrix. This follows directly from (5.1), Poincar© on the high-frequency range, and Grnwall. It is an estimate for a specified projected secant equation along already smooth trajectories, not an a priori bound on the strain integral.
 
 Thus lifting the passive-memory proof to arbitrary NS requires controlling the signed strain interaction, or a stronger structure that implies such control. Neither equality of \(Q_{\rm inv},R_{\rm inv}\) nor positive energy readings supplies that estimate.
 
@@ -1347,7 +1347,7 @@ Therefore
 |\arg G(z)|<2(6/25+13/100)=37/50<\pi/2.
 \]
 
-The series bounds used above are elementary: \(\sum_{j=0}^4 1/j!>100/37\); the tail-ratio bounds for the hyperbolic series give \(\cosh(1/8)-1<(1/128)/(1-1/768)<1/125\) and \(\sinh(1/8)<(1/8)/(1-1/384)<63/500\). ‚àé
+The series bounds used above are elementary: \(\sum_{j=0}^4 1/j!>100/37\); the tail-ratio bounds for the hyperbolic series give \(\cosh(1/8)-1<(1/128)/(1-1/768)<1/125\) and \(\sinh(1/8)<(1/8)/(1-1/384)<63/500\). ‚à
 
 ## 7. The complete two-packet criterion
 
@@ -1454,7 +1454,7 @@ For \(\Re w>1/2\),
 \tag{7.6}
 \]
 
-All translates \(g(t-\log n)\) are supported in positive \(t\), so no endpoint truncation appears. If \(\mathcal Z\) is bounded, (7.4)‚Äì(7.5) make the left integrand in (7.6) bounded on the positive half-line. Its Laplace transform is therefore holomorphic for \(\Re w>0\). A zero with \(\Re\rho>1/2\) would give a pole at \(w=z_\rho\) with nonzero residue \(-m_\rho G(z_\rho)\), contradicting (6.3). Functional-equation symmetry excludes left-of-line zeros as well.
+All translates \(g(t-\log n)\) are supported in positive \(t\), so no endpoint truncation appears. If \(\mathcal Z\) is bounded, (7.4)‚ì(7.5) make the left integrand in (7.6) bounded on the positive half-line. Its Laplace transform is therefore holomorphic for \(\Re w>0\). A zero with \(\Re\rho>1/2\) would give a pole at \(w=z_\rho\) with nonzero residue \(-m_\rho G(z_\rho)\), contradicting (6.3). Functional-equation symmetry excludes left-of-line zeros as well.
 
 The matrix equivalence is elementary. Expanding (7.3d) gives
 
@@ -1462,7 +1462,7 @@ The matrix equivalence is elementary. Expanding (7.3d) gives
 M(1+|c|^2)+2\Re(c)\mathcal Z(t),
 \]
 
-which is nonnegative for every \(c\) exactly when \(|\mathcal Z(t)|\le M\). ‚àé
+which is nonnegative for every \(c\) exactly when \(|\mathcal Z(t)|\le M\). ‚à
 
 In particular, if RH fails, some test of the form \(f+T_tf\) or \(f-T_tf\) has negative Weil value. This is a completeness statement for one packet shape and its translates, not a proof that those values are nonnegative.
 
@@ -1556,16 +1556,16 @@ M. Suzuki, *Aspects of the screw function corresponding to the Riemann zeta-func
 
 M. Suzuki, *Weil's quadratic form via the screw function*, arXiv:2606.09096v2, Theorems 1.3 and 1.4.
 
-A. Gouasmi, E. J. Parish, and K. Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Mori‚ÄìZwanzig formalism*, Proceedings of the Royal Society A (2017), DOI 10.1098/rspa.2017.0385; arXiv:1611.06277.
+A. Gouasmi, E. J. Parish, and K. Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Mori‚ìZwanzig formalism*, Proceedings of the Royal Society A (2017), DOI 10.1098/rspa.2017.0385; arXiv:1611.06277.
 
-E. J. Parish and K. Duraisamy, *Non-Markovian Closure Models for Large Eddy Simulations using the Mori‚ÄìZwanzig Formalism*, arXiv:1611.03311.
+E. J. Parish and K. Duraisamy, *Non-Markovian Closure Models for Large Eddy Simulations using the Mori‚ìZwanzig Formalism*, arXiv:1611.03311.
 
 The script `check_algebra.py` verifies exact leading jets and matching stress jets for m=1,...,8, the path-count/Bessel coefficient identity, the nilpotent gradient invariants, finite Fourier cross-block adjoint and dissipativity identities, the response factorization, and the rational sector bounds. These finite checks support but do not replace the all-order analytic proofs above.
 
 
 ---
 
-# ORIGINAL S03 ‚Äî Common-source quadratic polarization, Beltrami control and coherent CRT histories
+# ORIGINAL S03 ‚î Common-source quadratic polarization, Beltrami control and coherent CRT histories
 Source path: `sources/S03_common_source_quadratic_crt_RECONSTRUCTED.md`; SHA-256: `8f9da4e9603c02ee8abf65e394ed34f06d6e2fb6e659e1f6a3b749f42f1f143e`
 Transfer status: Reconstructed from visible user note, not original attachment bytes.
 
@@ -1691,7 +1691,7 @@ Repository source loci cited in the original user note: `ActionResidual.agda`, `
 
 ---
 
-# ORIGINAL S04 ‚Äî Poisson source spectrum, essential norm and auxiliary amplification controls
+# ORIGINAL S04 ‚î Poisson source spectrum, essential norm and auxiliary amplification controls
 Source path: `originals/conversation/poisson_source_spectrum/poisson_source_spectrum.md`; SHA-256: `31399963344537e690f6e345163c1f897b9119a23f299856abd75a73de9e5af5`
 Transfer status: Original mounted analytical note.
 
@@ -1701,7 +1701,7 @@ Transfer status: Original mounted analytical note.
 
 ## Scope
 
-This note proves an operator-norm and essential-spectrum statement for the canonical incompressible-fluid Poisson tensor, computes the identity defect of the common-noise tangent lift, and constructs its exact unital normalization. The stochastic statements hold on a closed interval on which the underlying periodic Navier‚ÄìStokes solution is smooth. They do not establish general global regularity or the Riemann hypothesis. No originality-priority claim or proof-assistant compilation is made.
+This note proves an operator-norm and essential-spectrum statement for the canonical incompressible-fluid Poisson tensor, computes the identity defect of the common-noise tangent lift, and constructs its exact unital normalization. The stochastic statements hold on a closed interval on which the underlying periodic Navier‚ìStokes solution is smooth. They do not establish general global regularity or the Riemann hypothesis. No originality-priority claim or proof-assistant compilation is made.
 
 ## 1. The canonical source representation is isometric in maximum vorticity
 
@@ -1900,25 +1900,25 @@ Accordingly, the Poisson-source covariance equation alone is insensitive to addi
 
 `check_identities.py` executes nine exact symbolic controls and computes exact rational finite-Fourier norm witnesses for the shear source. The displayed decimal norm ratios are square roots of rational values. These checks are not substitutes for the localization argument, stochastic domain argument, or a global continuation proof.
 
-Classical ancestry: Peter Constantin and Gautam Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navier‚ÄìStokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330‚Äì345, DOI 10.1002/cpa.20192. The common-noise lift here uses the full Euler derivative; it is not identified with the stochastic Weber propagator without an additional argument.
+Classical ancestry: Peter Constantin and Gautam Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navier‚ìStokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330‚ì345, DOI 10.1002/cpa.20192. The common-noise lift here uses the full Euler derivative; it is not identified with the stochastic Weber propagator without an additional argument.
 
-The standard maximum-vorticity continuation framework originates with Beale, Kato and Majda, *Remarks on the breakdown of smooth solutions for the 3-D Euler equations*, Communications in Mathematical Physics 94 (1984), 61‚Äì66, DOI 10.1007/BF01212349; viscous Sobolev well-posedness and continuation use the corresponding energy and commutator estimates. The spectral norm theorem preserves the exact vorticity quantity appearing in that framework; it does not establish its integrability.
+The standard maximum-vorticity continuation framework originates with Beale, Kato and Majda, *Remarks on the breakdown of smooth solutions for the 3-D Euler equations*, Communications in Mathematical Physics 94 (1984), 61‚ì66, DOI 10.1007/BF01212349; viscous Sobolev well-posedness and continuation use the corresponding energy and commutator estimates. The spectral norm theorem preserves the exact vorticity quantity appearing in that framework; it does not establish its integrability.
 
 
 ---
 
-# ORIGINAL S05 ‚Äî Actual source-preserving coadjoint/stochastic transport and compact tangent residual
+# ORIGINAL S05 ‚î Actual source-preserving coadjoint/stochastic transport and compact tangent residual
 Source path: `originals/conversation/source_image_transport/source_image_transport.md`; SHA-256: `ac0c3650ac8817f062a928de37f46adb67b4dcd02fbe8d7422a4b90ca8b02a34`
 Transfer status: Original mounted analytical note.
 
-# Source-preserving transport beneath the Navier‚ÄìStokes tangent lift
+# Source-preserving transport beneath the Navier‚ìStokes tangent lift
 
 Date: 2026-09-06 (America/Los_Angeles).
 Repository snapshot read: `avikj/metacircular-interaction-prototype`, commit `168ea8e240524f898af4b0e9cf70297c38422f08`.
 
 ## Scope
 
-The results concern smooth mean-zero divergence-free fields on a flat three-torus. Stochastic constructions are restricted to a closed interval inside the classical lifetime of a prescribed deterministic Navier‚ÄìStokes solution. The linear Lie‚ÄìPoisson/coadjoint structure and the stochastic Weber representation are classical. This note composes those structures with the previously established exact Poisson-source essential norm to obtain an operator-source/compact-residual decomposition. No originality-priority claim, proof-assistant compilation, global regularity theorem, or RH proof is asserted.
+The results concern smooth mean-zero divergence-free fields on a flat three-torus. Stochastic constructions are restricted to a closed interval inside the classical lifetime of a prescribed deterministic Navier‚ìStokes solution. The linear Lie‚ìPoisson/coadjoint structure and the stochastic Weber representation are classical. This note composes those structures with the previously established exact Poisson-source essential norm to obtain an operator-source/compact-residual decomposition. No originality-priority claim, proof-assistant compilation, global regularity theorem, or RH proof is asserted.
 
 ## 1. Definitions and the essential-norm input
 
@@ -1988,7 +1988,7 @@ More generally, any nonzero compact K lies at positive operator-norm distance fr
 
     inf_w ||K-Pi_w|| >= ||K||/2.
 
-Indeed, ||Pi_w||=||q(Pi_w-K)||<=||Pi_w-K||, and the triangle inequality gives the conclusion. For the displayed commutator the lower bound is at least 1/(2 sqrt(6)). This is an operator-source exclusion, not an exclusion of a Navier‚ÄìStokes singularity.
+Indeed, ||Pi_w||=||q(Pi_w-K)||<=||Pi_w-K||, and the triangle inequality gives the conclusion. For the displayed commutator the lower bound is at least 1/(2 sqrt(6)). This is an operator-source exclusion, not an exclusion of a Navier‚ìStokes singularity.
 
 ## 4. The actual derivative and the coadjoint generator
 
@@ -2161,15 +2161,15 @@ Repository source read at the stated snapshot:
 
 Classical ancestry:
 
-- J. E. Marsden and A. Weinstein, *Coadjoint orbits, vortices, and Clebsch variables for incompressible fluids*, Physica D 7 (1983), 305‚Äì323.
-- P. Constantin and G. Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navier‚ÄìStokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330‚Äì345; arXiv:math/0511067, especially Theorem 2.2 and Propositions 2.7 and 2.9.
+- J. E. Marsden and A. Weinstein, *Coadjoint orbits, vortices, and Clebsch variables for incompressible fluids*, Physica D 7 (1983), 305‚ì323.
+- P. Constantin and G. Iyer, *A stochastic Lagrangian representation of the three-dimensional incompressible Navier‚ìStokes equations*, Communications on Pure and Applied Mathematics 61 (2008), 330‚ì345; arXiv:math/0511067, especially Theorem 2.2 and Propositions 2.7 and 2.9.
 
 The RH theorem graph is unchanged by these NS constructions: positivity of the actual continuous arithmetic moment kernel supplies its unique real spectral source and the receiver bound. A positive covariance map for NS is not a proof of that arithmetic positivity.
 
 
 ---
 
-# ORIGINAL S06 ‚Äî Receiver Sobolev inverse and full affine harmonic continuation fibre
+# ORIGINAL S06 ‚î Receiver Sobolev inverse and full affine harmonic continuation fibre
 Source path: `originals/conversation/receiver_inverse_harmonic_fibre/proof_note.md`; SHA-256: `6c1c73295e924f497d70d6ed3104fe78b166326ae39d39f984eefa60d574b409`
 Transfer status: Original mounted note; legacy alias proof_note(2).
 
@@ -2611,7 +2611,7 @@ The arithmetic adapter has a controlled vanishing residual on the full unconditi
 
 ---
 
-# ORIGINAL S07 ‚Äî Instantiated continuation fibres
+# ORIGINAL S07 ‚î Instantiated continuation fibres
 Source path: `originals/conversation/instantiated_continuation_fibres/proof_note.md`; SHA-256: `246475b47b0de16b94b93f8a3555a8c0e6ddf28d3aeb09586964d26d15810755`
 Transfer status: Original mounted note; legacy alias proof_note(1).
 
@@ -2840,7 +2840,7 @@ M. Suzuki, *Weil's quadratic form via the screw function*, arXiv:2606.09096v2, d
 
 ---
 
-# ORIGINAL S08 ‚Äî Finite strain coordinates and actual Weil source signature
+# ORIGINAL S08 ‚î Finite strain coordinates and actual Weil source signature
 Source path: `originals/conversation/finite_strain_weil_signature/proof_note.md`; SHA-256: `19ace49ddcf9c84d1bdcab674cc5ab8e05b4d7ec31e7833dec194f72aabae896`
 Transfer status: Original mounted note; legacy alias proof_note(3).
 
@@ -2852,7 +2852,7 @@ Repository snapshot inspected: `avikj/metacircular-interaction-prototype`, commi
 
 This note proves two application-specific completion results. For whole-space incompressible velocity fields with bounded vorticity and globally bounded mean oscillation of the velocity gradient, the kernel of the vorticity reading consists exactly of affine harmonic velocities. After fixing translations, the unresolved source fibre has dimension five and has a canonical linear section given by mean strain. The bounded-mean-oscillation condition is inherited, with a scale-independent seminorm bound, from the smooth finite-energy sources used in vorticity normalization. The note also proves that all spectral coordinates of the Weil form are generated densely by translations of the previously fixed packet, identifies the full completed form as a reflection form on a weighted sequence Hilbert space, and computes its negative index exactly.
 
-The endpoint singular-integral estimate, the John‚ÄìNirenberg theorem, classical zeta continuation and zero counting, and the Weil explicit formula are classical inputs. The proofs below spell out their application. No originality-priority claim, proof of global Navier‚ÄìStokes regularity, proof of RH, numerical zeta certificate, or Agda/Lean compilation is asserted. The attached script verifies algebraic identities and finite signature controls; it does not verify the analytical density and compactness arguments.
+The endpoint singular-integral estimate, the John‚ìNirenberg theorem, classical zeta continuation and zero counting, and the Weil explicit formula are classical inputs. The proofs below spell out their application. No originality-priority claim, proof of global Navier‚ìStokes regularity, proof of RH, numerical zeta certificate, or Agda/Lean compilation is asserted. The attached script verifies algebraic identities and finite signature controls; it does not verify the analytical density and compactness arguments.
 
 The inspected repository modules `Pairfield/LinearObservabilityKernel.lean` and `Pairfield/InvariantCorrectiveClosure.lean` provide the abstract observability-kernel transport and least corrective-channel closure. The results below supply concrete analytical kernels, sections, and dense realizations. The generic module statements do not themselves prove these application hypotheses.
 
@@ -2876,7 +2876,7 @@ For a smooth divergence-free finite-energy velocity u on R3 with bounded vortici
 \tag{1}
 \]
 
-The gradient is an order-zero Calder√≥n‚ÄìZygmund transform of the vorticity:
+The gradient is an order-zero Calder≥n‚ìZygmund transform of the vorticity:
 
 \[
 \partial_j u_i=\epsilon_{i\ell k}\partial_j\partial_\ell(-\Delta)^{-1}\omega_k.
@@ -2899,7 +2899,7 @@ The estimate is scale independent. For \(u_r(x)=r u(x_0+rx)\),
 \qquad \|\operatorname{curl}u_r\|_\infty=r^2\|\omega\|_\infty.
 \]
 
-Thus a global vorticity normalization to at most one also gives a uniform BMO seminorm bound on the velocity gradient. For periodic sources on expanding tori, the periodic Calder√≥n‚ÄìZygmund estimate has the same dilation-independent constant. On balls larger than a period, the zero-mean gradient and its cell L2 bound control the mean oscillation; on smaller balls the periodic singular-integral argument applies. Every local whole-space limit therefore inherits the global BMO bound, provided the local gradient limit exists. This is not a bound on the mean strain.
+Thus a global vorticity normalization to at most one also gives a uniform BMO seminorm bound on the velocity gradient. For periodic sources on expanding tori, the periodic Calder≥n‚ìZygmund estimate has the same dilation-independent constant. On balls larger than a period, the zero-mean gradient and its cell L2 bound control the mean oscillation; on smaller balls the periodic singular-integral argument applies. Every local whole-space limit therefore inherits the global BMO bound, provided the local gradient limit exists. This is not a bound on the mean strain.
 
 ## 2. Harmonic BMO functions are constant
 
@@ -2922,7 +2922,7 @@ Let
 \ [\nabla u]_{\mathrm{BMO}}<\infty\}.
 \]
 
-All gradients in this class belong locally to every finite Lp space by John‚ÄìNirenberg. Let \(S_u=(\nabla u+\nabla u^T)/2\).
+All gradients in this class belong locally to every finite Lp space by John‚ìNirenberg. Let \(S_u=(\nabla u+\nabla u^T)/2\).
 
 ### Theorem 1
 
@@ -2980,9 +2980,9 @@ Five additional real linear strain readings are minimal after translation is fix
 
 ## 5. Stability of the completed inverse
 
-The estimate (1) also holds for every u in \(\mathcal X\). To see this, form the Calder√≥n‚ÄìZygmund gradient transform of its bounded vorticity modulo constants. The difference from \(\nabla u\) is a harmonic BMO matrix, hence constant. Thus their BMO seminorms coincide up to the universal transform estimate.
+The estimate (1) also holds for every u in \(\mathcal X\). To see this, form the Calder≥n‚ìZygmund gradient transform of its bounded vorticity modulo constants. The difference from \(\nabla u\) is a harmonic BMO matrix, hence constant. Thus their BMO seminorms coincide up to the universal transform estimate.
 
-John‚ÄìNirenberg controls every finite Lp mean oscillation. The mean of the skew part of \(\nabla u\) is fixed by the mean vorticity, while the symmetric part is A(u). Comparing means over nested balls gives at most logarithmic growth in the radius ratio. Poincar√©, with the mean velocity fixed on B, then yields, for every finite R and \(1<p<\infty\),
+John‚ìNirenberg controls every finite Lp mean oscillation. The mean of the skew part of \(\nabla u\) is fixed by the mean vorticity, while the symmetric part is A(u). Comparing means over nested balls gives at most logarithmic growth in the radius ratio. Poincar©, with the mean velocity fixed on B, then yields, for every finite R and \(1<p<\infty\),
 
 \[
 \boxed{
@@ -3251,11 +3251,11 @@ No conclusion that either global target is nearly solved follows just from these
 
 ## References and exact repository loci
 
-F. John and L. Nirenberg, On functions of bounded mean oscillation, Communications on Pure and Applied Mathematics 14 (1961), 415‚Äì426, DOI 10.1002/cpa.3160140317.
+F. John and L. Nirenberg, On functions of bounded mean oscillation, Communications on Pure and Applied Mathematics 14 (1961), 415‚ì426, DOI 10.1002/cpa.3160140317.
 
-C. Fefferman and E. M. Stein, H^p spaces of several variables, Acta Mathematica 129 (1972), 137‚Äì193, DOI 10.1007/BF02392215. Classical singular-integral endpoint theory; the relevant near/far argument is included above.
+C. Fefferman and E. M. Stein, H^p spaces of several variables, Acta Mathematica 129 (1972), 137‚ì193, DOI 10.1007/BF02392215. Classical singular-integral endpoint theory; the relevant near/far argument is included above.
 
-J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, Journal f√ºr die reine und angewandte Mathematik 399 (1989), 1‚Äì26, DOI 10.1515/crll.1989.399.1. Used only for an unconditional positive proportion of distinct simple critical-line zeros.
+J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, Journal fºr die reine und angewandte Mathematik 399 (1989), 1‚ì26, DOI 10.1515/crll.1989.399.1. Used only for an unconditional positive proportion of distinct simple critical-line zeros.
 
 M. Suzuki, Weil's quadratic form via the screw function, arXiv:2606.09096v2 (2026). Used for the localized closed Weil form, its core and self-adjoint discrete-spectrum realization. No conjectural large-support operator convergence is used.
 
@@ -3270,7 +3270,7 @@ The executable `checks.py` runs 32 exact algebraic checks. Its formal quartet la
 
 ---
 
-# ORIGINAL S09 ‚Äî Essential cross-helicity strain tomography and Hardy innovation
+# ORIGINAL S09 ‚î Essential cross-helicity strain tomography and Hardy innovation
 Source path: `originals/conversation/ns_rh_strain_symbol_hardy_innovation/proof_note.md`; SHA-256: `b23175d1efc70954277f562d4140835a8ab383d1d4f4dd5878022804a88a7656`
 Transfer status: Original mounted note; legacy alias proof_note(4).
 
@@ -3281,11 +3281,11 @@ Repository snapshot read: `avikj/metacircular-interaction-prototype`, `168ea8e24
 
 ## Scope
 
-The results below are smooth periodic operator identities, principal-symbol and essential-norm theorems, and exact recovery/conditioning results for the specified arithmetic receiver. Classical pseudodifferential symbol theory, Hardy-space factorization, and an unconditional positive proportion of simple critical-line zeros are declared analytic inputs. The finite check script verifies algebraic identities, not these analytic inputs or global PDE continuation. No proof of RH or general Navier‚ÄìStokes regularity, originality-priority claim, or proof-assistant build is made.
+The results below are smooth periodic operator identities, principal-symbol and essential-norm theorems, and exact recovery/conditioning results for the specified arithmetic receiver. Classical pseudodifferential symbol theory, Hardy-space factorization, and an unconditional positive proportion of simple critical-line zeros are declared analytic inputs. The finite check script verifies algebraic identities, not these analytic inputs or global PDE continuation. No proof of RH or general Navier‚ìStokes regularity, originality-priority claim, or proof-assistant build is made.
 
 The main NS result identifies the essential norm of the previously defined coadjoint cross-helicity block with one half of the pointwise strain spectral spread. Its full principal symbol reconstructs the strain, including the signed source-dependent stretching pairing. The RH result recovers the original received arithmetic signal directly from its positive two-time Hardy Gram kernel by a first-order differential operator; it does not first recover individual zeros. The finite-mode extraction problem has an exact Cauchy/Schur residual product, and its infinite system is individually minimal but not uniformly conditioned.
 
-# I. Navier‚ÄìStokes: the essential cross-helicity operator is strain tomography
+# I. Navier‚ìStokes: the essential cross-helicity operator is strain tomography
 
 ## 1. Declared generator and actual physical trajectory
 
@@ -3521,7 +3521,7 @@ Fix any \(s>1/2\), for example \(s=1\); this choice is unconditional. For real \
 \[
 \mathsf K_s(T,U)=\int_0^\infty t e^{-2st}Z(T+t)Z(U+t)\,dt.
 \]
-These are positive Gram kernels. The second is the polarized Hilbert‚ÄìSchmidt Hankel pairing. The actual receiver is real, so the formulas coincide with the usual sesquilinear Gram convention on real observation times.
+These are positive Gram kernels. The second is the polarized Hilbert‚ìSchmidt Hankel pairing. The actual receiver is real, so the formulas coincide with the usual sesquilinear Gram convention on real observation times.
 
 ## 7. Exact source inverse by simultaneous time differentiation
 
@@ -3662,7 +3662,7 @@ The all-ones Rayleigh quotient yields
 \]
 So the unweighted normalized family has no uniform upper Bessel bound either.
 
-The faithful receiver weights make the corresponding synthesis operator Hilbert‚ÄìSchmidt, but an injective infinite-rank compact operator has no bounded inverse onto its range equipped with the ambient norm. Exact source recovery in (11) and exact mode-by-mode recovery in (14) must therefore be kept separate from uniform stable spectral reconstruction.
+The faithful receiver weights make the corresponding synthesis operator Hilbert‚ìSchmidt, but an injective infinite-rank compact operator has no bounded inverse onto its range equipped with the ambient norm. Exact source recovery in (11) and exact mode-by-mode recovery in (14) must therefore be kept separate from uniform stable spectral reconstruction.
 
 # IV. Consequences for the theorem graph
 
@@ -3674,11 +3674,11 @@ The remaining global implications are not asserted here. In NS one must control 
 
 ## Primary analytic references
 
-S. T. Melo, *Norm closure of classical pseudodifferential operators does not contain H√∂rmander's class*, arXiv:math/0312261, especially Theorem 2 and Corollary 2. Matrix amplification and orthogonal pseudodifferential corners give the symbol-norm statement used here.
+S. T. Melo, *Norm closure of classical pseudodifferential operators does not contain Hrmander's class*, arXiv:math/0312261, especially Theorem 2 and Corollary 2. Matrix amplification and orthogonal pseudodifferential corners give the symbol-norm statement used here.
 
-N. Nikolski, *Distance formulae and invariant subspaces, with an application to localization of zeros of the Riemann zeta-function*, Annales de l'Institut Fourier 45 (1995), 143‚Äì159, DOI 10.5802/aif.1451. The Hardy distance and invariant-subspace framework is classical.
+N. Nikolski, *Distance formulae and invariant subspaces, with an application to localization of zeros of the Riemann zeta-function*, Annales de l'Institut Fourier 45 (1995), 143‚ì159, DOI 10.5802/aif.1451. The Hardy distance and invariant-subspace framework is classical.
 
-J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function are on the critical line*, Journal f√ºr die reine und angewandte Mathematik 399 (1989), 1‚Äì26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is used, not any assertion about the remaining zeros.
+J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function are on the critical line*, Journal fºr die reine und angewandte Mathematik 399 (1989), 1‚ì26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is used, not any assertion about the remaining zeros.
 
 ## Verification
 
@@ -3687,7 +3687,7 @@ J. B. Conrey, *More than two fifths of the zeros of the Riemann zeta function ar
 
 ---
 
-# ORIGINAL S10 ‚Äî Passive-work distinction and toroidal multipole blindness
+# ORIGINAL S10 ‚î Passive-work distinction and toroidal multipole blindness
 Source path: `originals/conversation/passivity_toroidal_quadrupole/proof_note.md`; SHA-256: `d6764d2d263c402f31555e6368eee481259d38be61a1046e6afcb5696dbbccd1`
 Transfer status: Original mounted note; legacy alias proof_note(5).
 
@@ -3698,7 +3698,7 @@ Repository source read at 168ea8e240524f898af4b0e9cf70297c38422f08.
 
 ## Scope
 
-This note changes the mathematical description to passive input-output systems and spherical multipole analysis. It proves a finite-energy vorticity-shell separation result and the exact angular selection rule for central strain. It also translates the established fixed-receiver RH criterion into causal passivity. It does not prove RH or global Navier‚ÄìStokes regularity. No Agda/Lean build or numerical PDE evolution is claimed. The separate script checks finite polynomial identities; the infinite and PDE arguments below are analytic proofs.
+This note changes the mathematical description to passive input-output systems and spherical multipole analysis. It proves a finite-energy vorticity-shell separation result and the exact angular selection rule for central strain. It also translates the established fixed-receiver RH criterion into causal passivity. It does not prove RH or global Navier‚ìStokes regularity. No Agda/Lean build or numerical PDE evolution is claimed. The separate script checks finite polynomial identities; the infinite and PDE arguments below are analytic proofs.
 
 ## 1. Exactly which spherical polarization generates central strain
 
@@ -3706,7 +3706,7 @@ On R^3 use
 u(x)=(4 pi)^(-1) integral omega(y) cross (x-y) / |x-y|^3 dy.
 Assume initially smooth sufficiently decaying divergence-free vorticity and the corresponding finite-energy velocity. The derivative and angular identities may also be used with radial cutoffs on individual shells.
 
-Writing y=r n, n in S^2, differentiation of Biot‚ÄìSavart and symmetrization give
+Writing y=r n, n in S^2, differentiation of Biot‚ìSavart and symmetrization give
 S(0) = (3/(8 pi)) p.v. integral_0^infinity dr/r integral_S2
 [n tensor (n cross omega(r n)) + (n cross omega(r n)) tensor n] dOmega(n).
 
@@ -3852,13 +3852,13 @@ The RH translation identifies the signed quantity whose positivity is required: 
 
 Primary background:
 J. C. Willems, "Dissipative dynamical systems, Part I", 1972.
-P. Constantin and C. Fefferman, "Direction of Vorticity and the Problem of Global Regularity for the Navier‚ÄìStokes Equations", 1993.
+P. Constantin and C. Fefferman, "Direction of Vorticity and the Problem of Global Regularity for the Navier‚ìStokes Equations", 1993.
 J. Novak, J.-L. Cornou, N. Vasset, "A spectral method for the wave equation of divergence-free vectors and symmetric tensors inside a sphere", arXiv:0905.2048.
 
 
 ---
 
-# ORIGINAL S11 ‚Äî Actual Xi-cardinal sources and renormalized toroidal strain current
+# ORIGINAL S11 ‚î Actual Xi-cardinal sources and renormalized toroidal strain current
 Source path: `sources/S11_cardinal_and_current.md`; SHA-256: `8b2f79a0737c1d4a3641a909d72b94289eefacd4988971ec50d4a00180076848`
 Transfer status: Recovered proof_note(6).md.
 
@@ -3871,7 +3871,7 @@ Repository snapshot inspected: `avikj/metacircular-interaction-prototype`, `168e
 
 This note derives two additions to the existing theorem graph. The arithmetic addition is an explicit source realizing any finitely supported zero-coordinate vector, together with a global alternative for the localized Weil spectral bottom. The fluid addition is the exact evolution/current law of the already-identified toroidal quadrupole observer under time-dependent parabolic renormalization.
 
-The arguments below use classical facts about the completed zeta function, the explicit formula, Fourier inversion, and smooth incompressible Navier‚ÄìStokes. They are mathematical proofs in the stated classes, not a proof-assistant build. No originality-priority claim, actual off-critical zeta zero, proof of RH, or exclusion of general NS blow-up is asserted. The executable companion checks finite algebra and differential identities only.
+The arguments below use classical facts about the completed zeta function, the explicit formula, Fourier inversion, and smooth incompressible Navier‚ìStokes. They are mathematical proofs in the stated classes, not a proof-assistant build. No originality-priority claim, actual off-critical zeta zero, proof of RH, or exclusion of general NS blow-up is asserted. The executable companion checks finite algebra and differential identities only.
 
 # I. Arithmetic: interpolate the actual source, not an independent spectrum
 
@@ -4119,7 +4119,7 @@ The unconditional critical strip gives
 \tag{19}
 \]
 
-Choose any \(L\) with \(L\varepsilon>1/2-\alpha\). Then \(Ev_T\to a\), so \(Q_W(v_T,v_T)\to-1\). Equations (18)‚Äì(19) prove, for all sufficiently large support parameters,
+Choose any \(L\) with \(L\varepsilon>1/2-\alpha\). Then \(Ev_T\to a\), so \(Q_W(v_T,v_T)\to-1\). Equations (18)‚ì(19) prove, for all sufficiently large support parameters,
 
 \[
 \boxed{
@@ -4204,7 +4204,7 @@ For completeness, the full explicit formula yields a uniform finite-window lower
 \tag{26}
 \]
 
-Here is a direct proof. For \(h=f*\widetilde f\), \(h(0)=\|f\|_2^2\), \(|h(t)|\le h(0)\), and \(h\) is supported in \([-2a,2a]\). The two pole terms are bounded in absolute value by \(4\sinh(a)\|f\|_2^2\), by Cauchy‚ÄìSchwarz for \(V_f(\pm1/2)\). The prime terms are bounded below by
+Here is a direct proof. For \(h=f*\widetilde f\), \(h(0)=\|f\|_2^2\), \(|h(t)|\le h(0)\), and \(h\) is supported in \([-2a,2a]\). The two pole terms are bounded in absolute value by \(4\sinh(a)\|f\|_2^2\), by Cauchy‚ìSchwarz for \(V_f(\pm1/2)\). The prime terms are bounded below by
 
 \[
 -2\|f\|_2^2\sum_{n\le e^{2a}}\frac{\Lambda(n)}{\sqrt n}
@@ -4236,7 +4236,7 @@ Together, under failure of RH,
 
 No assertion that the lower and upper exponents coincide is made.
 
-# II. Navier‚ÄìStokes: evolve the strain-bearing observer through renormalization
+# II. Navier‚ìStokes: evolve the strain-bearing observer through renormalization
 
 ## 7. The retained five-component source observer
 
@@ -4262,7 +4262,7 @@ For a vorticity field \(\Omega\), let \(C_r\in\operatorname{Sym}_0(3)\) be deter
 \tag{29}
 \]
 
-For the decaying whole-space Biot‚ÄìSavart source, the central strain is
+For the decaying whole-space Biot‚ìSavart source, the central strain is
 
 \[
 S(0)=-\frac35\operatorname{p.v.}\int_0^\infty C_r\frac{dr}{r}.
@@ -4406,7 +4406,7 @@ one has
 \tag{37}
 \]
 
-Time subdivision also telescopes. Equations (36)‚Äì(37) are the explicit additive residual maps for this observer. They instantiate the repository's retained-residual/commutation pattern with a concrete smooth PDE calculation; the generic residual theorem alone is not being presented as that calculation.
+Time subdivision also telescopes. Equations (36)‚ì(37) are the explicit additive residual maps for this observer. They instantiate the repository's retained-residual/commutation pattern with a concrete smooth PDE calculation; the generic residual theorem alone is not being presented as that calculation.
 
 ## 11. The small-radius endpoint is local viscous strain, not zero
 
@@ -4451,7 +4451,7 @@ where \(d\mu\) is normalized spherical measure. Together with (30), at a decayin
 
 Thus the essential operator reading, the local strain, and the logarithmic vorticity-shell primitive are readings of one source. Equation (35) evolves the last of these without replacing the actual nonlinear generator by an arbitrary five-component action.
 
-At every finite smooth renormalization, the candidate ancestry must include (31), (33), and (35)‚Äì(37) simultaneously, along with the already retained pressure/boundary data, source-dependent Poisson tensor, true derivative, and stochastic-source residual where that representation is used. A proposed limiting continuation is not authorized to erase the endpoint current or to replace \(\mathcal N\) by an independent field.
+At every finite smooth renormalization, the candidate ancestry must include (31), (33), and (35)‚ì(37) simultaneously, along with the already retained pressure/boundary data, source-dependent Poisson tensor, true derivative, and stochastic-source residual where that representation is used. A proposed limiting continuation is not authorized to erase the endpoint current or to replace \(\mathcal N\) by an independent field.
 
 These identities do not establish tightness of the logarithmic-scale history, convergence of all nonlinear products through a singular limit, or an incompatibility that excludes every actual blow-up ancestry. Those conclusions are not assumed.
 
@@ -4459,25 +4459,25 @@ These identities do not establish tightness of the logarithmic-scale history, co
 
 The repository source read in this run includes `formal/lean/Pairfield/LinearObservabilityKernel.lean` and `formal/cubical/theorems/automata/ActionResidual.agda`, at the pinned commit. The comprehensive conversation handoff and the subsequent notes on the fixed receiver, the Weil reflection signature, explicit receiver inversion, Poisson source transport, essential strain reconstruction, and toroidal quadrupole selection were also read. Their proved input maps are retained rather than replaced by the weaker abstract realization records.
 
-The new compositions developed here are (5)‚Äì(25) and (31)‚Äì(40). Cardinal interpolation, Fourier contour shifting, residual telescoping, and spherical harmonic calculus are classical techniques; no claim of historical priority is made for their application here.
+The new compositions developed here are (5)‚ì(25) and (31)‚ì(40). Cardinal interpolation, Fourier contour shifting, residual telescoping, and spherical harmonic calculus are classical techniques; no claim of historical priority is made for their application here.
 
 Classical references:
 
 * NIST Digital Library of Mathematical Functions, Sections 25.4 and 5.11: completed-zeta reflection formulas and gamma asymptotics.
 * Masatoshi Suzuki, *Weil's quadratic form via the screw function*, arXiv:2606.09096v2, manuscript version August 24, 2026: actual explicit formula, localized closed forms, self-adjoint realization, compact smooth form core, and localized spectral bottom.
 * The prior collaboration's note *Five-dimensional strain completion and the exact signature of the Weil form*: the source evaluation/reflection representation retained in (1).
-* The prior collaboration's note *Work balance and toroidal quadrupole selection*: the exact angular normalization and central-strain reconstruction retained in (28)‚Äì(30).
+* The prior collaboration's note *Work balance and toroidal quadrupole selection*: the exact angular normalization and central-strain reconstruction retained in (28)‚ì(30).
 
 `checks.py` executes 115 exact finite/symbolic controls. Its zero divisor is an explicitly labeled synthetic polynomial, not zeta. It checks multiplicity normalization, all cardinal evaluations on that divisor, reflection and negative-coordinate identities, translation amplitudes, toroidal angular normalization, the radial/logarithmic current identities, and the complete cubic-jet control for the inner diffusive flux. It does not execute the analytic limit arguments, evaluate a purported off-critical zeta zero, integrate NS, or compile Agda/Lean.
 
 
 ---
 
-# ORIGINAL S12 ‚Äî Compact source-image rigidity and full nonlinear toroidal leakage
+# ORIGINAL S12 ‚î Compact source-image rigidity and full nonlinear toroidal leakage
 Source path: `sources/S12_source_image_and_quadrupole.md`; SHA-256: `051e440ce0083ae7087b9cfbf9b7a421b97af3ac6ac285b834ceb3f14f9e5a8f`
 Transfer status: Recovered proof_note(7).md; strong complete radial-matrix theorem.
 
-# Source-image rigidity for one Weil packet, and exact nonlinear leakage of the Navier‚ÄìStokes strain source
+# Source-image rigidity for one Weil packet, and exact nonlinear leakage of the Navier‚ìStokes strain source
 
 Date: 7 September 2026.
 Repository inspected: `avikj/metacircular-interaction-prototype`, commit `168ea8e240524f898af4b0e9cf70297c38422f08`.
@@ -4879,7 +4879,7 @@ Saved source inputs retained:
 
 Primary background:
 
-- J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, J. reine angew. Math. 399 (1989), 1‚Äì26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is needed.
+- J. B. Conrey, More than two fifths of the zeros of the Riemann zeta function are on the critical line, J. reine angew. Math. 399 (1989), 1‚ì26, DOI 10.1515/crll.1989.399.1. Only the unconditional positive proportion of distinct simple critical-line zeros is needed.
 - M. Suzuki, Weil's quadratic form via the screw function, arXiv:2606.09096. The actual Weil reflection/explicit-formula background is retained; no conjectural limit is used.
 - M. Wilczek and C. Meneveau, Pressure Hessian and viscous contributions to velocity gradient statistics based on Gaussian random fields, arXiv:1401.3351. Relevant background for the familiar statistical -2/7 coefficient; not used as a proof of the deterministic source-projection identity derived here.
 
@@ -4890,7 +4890,7 @@ The unresolved conclusions are stated precisely: no compact source for the refle
 
 ---
 
-# ORIGINAL S13 ‚Äî Endpoint Xi support escape and exact H5 viscous strain memory
+# ORIGINAL S13 ‚î Endpoint Xi support escape and exact H5 viscous strain memory
 Source path: `originals/conversation/source_resolved_closure/proof_note.md`; SHA-256: `2d820c78027b28600bb92399cb681c2991d179ccb31c87cce23d74eced1daf56`
 Transfer status: Original mounted note; several numbered aliases materialize to these same bytes.
 
@@ -4902,7 +4902,7 @@ Read snapshot: `168ea8e240524f898af4b0e9cf70297c38422f08`.
 
 ## Scope and provenance
 
-This is a completed set of analytic statements in declared source classes. It is not a proof of the Riemann hypothesis or global three-dimensional Navier‚ÄìStokes regularity. No proof-assistant build, numerical off-critical-zero certificate, or nonlinear PDE evolution is claimed.
+This is a completed set of analytic statements in declared source classes. It is not a proof of the Riemann hypothesis or global three-dimensional Navier‚ìStokes regularity. No proof-assistant build, numerical off-critical-zero certificate, or nonlinear PDE evolution is claimed.
 
 The saved note **Explicit spectral-source interpolation and the renormalized strain current**, dated 2026-09-07 (library file `proof_note(6).md`), already supplies: entire cardinal interpolation using the actual completed zeta function; compactification with a retained error; a negative localized-Weil spectral-bottom alternative; and the exact same-source evolution of the toroidal quadrupole under moving rescaling. Those results are inputs, not inventions of this pass.
 
@@ -5241,7 +5241,7 @@ For `f` supported in `(-a,a)`, `h=f*tilde f` is supported in `(-2a,2a)`, so only
 
 ## 5. The strain-bearing observer already supplied by the handoff
 
-Use a smooth whole-space, divergence-free vorticity `omega`, with its finite-energy Biot‚ÄìSavart velocity and sufficient decay for the formulas below. For `B` trace-free symmetric, define
+Use a smooth whole-space, divergence-free vorticity `omega`, with its finite-energy Biot‚ìSavart velocity and sufficient decay for the formulas below. For `B` trace-free symmetric, define
 
 \[
 T_B(n)=n\times Bn,\qquad n\in S^2.
@@ -5306,7 +5306,7 @@ The heat-regularized Newton potential is
 \Phi_t(r)=\frac{\operatorname{erf}(r/(2\sqrt{\nu t}))}{4\pi r}.
 \]
 
-In its Hessian the isotropic term disappears on symmetrizing the Biot‚ÄìSavart strain kernel. The coefficient of `n tensor n` is
+In its Hessian the isotropic term disappears on symmetrizing the Biot‚ìSavart strain kernel. The coefficient of `n tensor n` is
 
 \[
 \Phi_t''(r)-\Phi_t'(r)/r
@@ -5459,7 +5459,7 @@ c_0=\frac35\int_1^2\frac{\phi(q)}q\,dq>0.
 \tag{37}
 \]
 
-Let `u_j` be its actual Biot‚ÄìSavart velocity. Its `L2` norm is proportional to `R_j^(5/2)`, so
+Let `u_j` be its actual Biot‚ìSavart velocity. Its `L2` norm is proportional to `R_j^(5/2)`, so
 
 \[
 \left\|\sum_{j=1}^N u_j\right\|_2
@@ -5573,7 +5573,7 @@ Other retrieved source:
 - Saved **Work balance and toroidal quadrupole selection**, 2026-09-07, mounted under `passivity_toroidal_quadrupole`.
 - M. Suzuki, **Weil's quadratic form via the screw function**, arXiv:2606.09096v2, manuscript dated 24 August 2026. Used only for the actual classical Weil form, its compact smooth core, and the localized operator interpretation.
 - NIST DLMF ¬ß¬ß25.4 and 8.2, for completed-zeta reflection conventions and incomplete-gamma definitions.
-- The theta functional equation, heat kernel, Biot‚ÄìSavart formula, and elementary spherical-harmonic calculus are classical analytic inputs; their needed calculations are given above.
+- The theta functional equation, heat kernel, Biot‚ìSavart formula, and elementary spherical-harmonic calculus are classical analytic inputs; their needed calculations are given above.
 
 ## Executed verification
 
@@ -5586,7 +5586,7 @@ No repository mutation, no Agda/Lean build, and no background task were performe
 
 ---
 
-# ORIGINAL S14 ‚Äî User synthesis: reflection-scale holonomy, strain coboundary and nonlinear memory
+# ORIGINAL S14 ‚î User synthesis: reflection-scale holonomy, strain coboundary and nonlinear memory
 Source path: `sources/S14_user_holonomy_and_nonlinear_memory_RECONSTRUCTED.md`; SHA-256: `774dd7f1293bfe92efe8abe77d62fa309fb4d2715812589b2539bd86a4f2dbb8`
 Transfer status: Reconstructed visible user synthesis; no claim of original attachment recovery.
 
@@ -5706,12 +5706,12 @@ Yet K(s,t)<=3min(s,t)/(10max(s,t)), so all self and cross-shell pairs satisfy
 
 Thus instantaneous strain grows like N, instantaneous quadratic feedback like N^2, but the complete future freely propagated memory of that snapshot nonlinear injection stays bounded independently of N. This is a genuine static-source calculation, not a conclusion about full future nonlinear regeneration.
 
-The next actual first-return source is `P2 DN(a)[P4 N(a)]`. Its computed formula and all-time free response are in [S15]; the full source-coherent evaluator and midpoint storage identities are in [S17‚ÄìS19].
+The next actual first-return source is `P2 DN(a)[P4 N(a)]`. Its computed formula and all-time free response are in [S15]; the full source-coherent evaluator and midpoint storage identities are in [S17‚ìS19].
 
 
 ---
 
-# ORIGINAL S15 ‚Äî Actual toroidal 2->4->2 return, sign examples and geometric-stack bound
+# ORIGINAL S15 ‚î Actual toroidal 2->4->2 return, sign examples and geometric-stack bound
 Source path: `originals/conversation/toroidal_first_return/proof_note.md`; SHA-256: `ee526e2031e15c7b482fa4832b169c045f8559b6016fbc62262c18fe1b4bf867`
 Transfer status: Original mounted note; timestamp aliases also existed.
 
@@ -6154,7 +6154,7 @@ This supplies an application-specific term for the requested excursion-return pr
 
 ---
 
-# ORIGINAL S16 ‚Äî Moving-peak heat control, signed radial spectrum and one-sided arithmetic escape
+# ORIGINAL S16 ‚î Moving-peak heat control, signed radial spectrum and one-sided arithmetic escape
 Source path: `sources/S16_moving_peak_and_signed_spectrum.md`; SHA-256: `41f980eae2bf56a826fbbdefdec8d8f00ede67537f3cc92f051a8d702a5cd0ca`
 Transfer status: Recovered stronger parallel note dated research state Sept 7.
 
@@ -6177,7 +6177,7 @@ The additions are:
 1. A bound with **the spatial supremum inside the time integral** for every freely diffusing
    velocity source, and for the entire freely propagated response to its nonlinear velocity source.
    This repairs the fixed-centre quantifier problem without exchanging supremum and integration.
-2. Direct control of the actual full NS evolution for small scale-critical energy‚Äìenstrophy
+2. Direct control of the actual full NS evolution for small scale-critical energy‚ìenstrophy
    product. Applying that classical bootstrap to the retained shell construction yields a family
    of globally smooth solutions with uniformly bounded total moving-peak stretching but arbitrarily
    large initial peak stretching. The small-data mechanism is classical; the uniform conclusion for
@@ -6334,7 +6334,7 @@ freezing N_u at time zero. Higher nonlinear corrections are not controlled by (7
 
 # II. The actual Zeno-source family can be globally regular with uniformly bounded B_NS
 
-## Theorem 4. Classical small energy‚Äìenstrophy bootstrap in endpoint form
+## Theorem 4. Classical small energy‚ìenstrophy bootstrap in endpoint form
 
 There is a universal c_*>0 such that, for smooth rapidly decaying divergence-free initial data,
 
@@ -6355,7 +6355,7 @@ Energy gives
 
     E(t)^2 + 2nu integral_0^t W(s)^2 ds = E0^2.
 
-The H1 energy identity and Holder‚ÄìSobolev yield
+The H1 energy identity and Holder‚ìSobolev yield
 
     (1/2)(W^2)' + nu P2^2
        <= ||u||_3 ||grad u||_6 P2
@@ -6745,8 +6745,8 @@ still requires arithmetic input not supplied here.
   distribution/form context; no conjectural large-window convergence is imported.
 - Greg Martin and Chi Hoi Yip, *Oscillation results for the summatory functions of fake mu's*,
   arXiv:2411.06610v1, Section 3: background for classical Landau-method nonreal-pole oscillations.
-- Kato and Ponce, *Commutator estimates and the Euler and Navier‚ÄìStokes equations*, CPAM 41 (1988),
-  891‚Äì907, DOI 10.1002/cpa.3160410704: classical smooth-solution energy/continuation background.
+- Kato and Ponce, *Commutator estimates and the Euler and Navier‚ìStokes equations*, CPAM 41 (1988),
+  891‚ì907, DOI 10.1002/cpa.3160410704: classical smooth-solution energy/continuation background.
 
 The proofs in this note are analytic derivations. `checks.py` executes 28 exact symbolic controls
 and 5 independent numerical thin-shell checks. The numerical examples are radial source quadratures,
@@ -6755,7 +6755,7 @@ not PDE evolutions or purported off-line zeta zeros. No formal proof-assistant b
 
 ---
 
-# ORIGINAL S17 ‚Äî Full source-coherent nonlinear evaluator and certified local tree summation
+# ORIGINAL S17 ‚î Full source-coherent nonlinear evaluator and certified local tree summation
 Source path: `originals/conversation/metacircular_full_history/proof_note.md`; SHA-256: `ae0a849a0d0f46320f73597088ece6f549699582c67b9bd17e53a57c6950a1fd`
 Transfer status: Original mounted note; 141 historical exact checks.
 
@@ -6766,7 +6766,7 @@ Repository read pin: `avikj/metacircular-interaction-prototype`, `168ea8e240524f
 
 ## Scope
 
-This note gives the full recursive mechanism rather than another separately computed angular interaction. It distinguishes: (i) formal identities of generators; (ii) convergent local mild-solution identities; (iii) the repository's actual proof-installation language. No global Navier‚ÄìStokes regularity or RH proof is asserted, no repository files were changed, and no Agda/Lean build was run. The executed Python controls use exact symbolic arithmetic, not time-stepping simulations.
+This note gives the full recursive mechanism rather than another separately computed angular interaction. It distinguishes: (i) formal identities of generators; (ii) convergent local mild-solution identities; (iii) the repository's actual proof-installation language. No global Navier‚ìStokes regularity or RH proof is asserted, no repository files were changed, and no Agda/Lean build was run. The executed Python controls use exact symbolic arithmetic, not time-stepping simulations.
 
 Repository sources read:
 
@@ -6776,7 +6776,7 @@ Repository sources read:
 - Previously read `ExcursionReturn.agda`, `ObservabilityQuotient.agda`, and saved Prime-Pair Delta 19: the compression/memory algebra and its precise scope.
 - Saved `/mnt/data/toroidal_first_return/proof_note.md`: the actual toroidal 2->4->2 coefficient, retained without rederivation.
 
-Classical analytic context: Gouasmi‚ÄìParish‚ÄìDuraisamy, arXiv:1611.06277, makes the distinction between true orthogonal dynamics and a substituted composition operator explicit. Infinite Carleman realizations have their own functional-analytic hypotheses; see Heinzelreiter‚ÄìPearson, arXiv:2510.00722. The proofs below do not rely on an unproved global Carleman convergence assertion.
+Classical analytic context: Gouasmi‚ìParish‚ìDuraisamy, arXiv:1611.06277, makes the distinction between true orthogonal dynamics and a substituted composition operator explicit. Infinite Carleman realizations have their own functional-analytic hypotheses; see Heinzelreiter‚ìPearson, arXiv:2510.00722. The proofs below do not rely on an unproved global Carleman convergence assertion.
 
 ## 1. Fix the common source and the exact quadratic interaction
 
@@ -6843,7 +6843,7 @@ Consequently the formal exponential preserves products. Where the classical flow
  =\operatorname{ev}_{\omega_0}(h)\operatorname{ev}_{\omega_0}(k).
 \]
 
-The formal exponential identity does not assert that the Taylor series of an arbitrary smooth PDE solution converges in t. Actual local analytic summation is supplied separately in Sections 5‚Äì6.
+The formal exponential identity does not assert that the Taylor series of an arbitrary smooth PDE solution converges in t. Actual local analytic summation is supplied separately in Sections 5‚ì6.
 
 A coordinate/tensor version has X_n=omega^{odot n}. The linear lift obeys
 
@@ -7178,12 +7178,12 @@ It checks the ordered renewal rule through K_7 for two observables, source-produ
 
 An initial slower execution timed out; after replacing expensive unsimplified rational expressions by exact expanded Gaussian-rational forms, the revised script completed. Final result: see `check_results.txt` and `.json`.
 
-The exact recursive mechanism is now explicit at both formal and locally analytic levels. The remaining global analytic and arithmetic conclusions cannot be asserted without the needed uniform continuation or positivity statement on the actual source. No such statement is inferred merely from the word ‚Äúmetacircular.‚Äù
+The exact recursive mechanism is now explicit at both formal and locally analytic levels. The remaining global analytic and arithmetic conclusions cannot be asserted without the needed uniform continuation or positivity statement on the actual source. No such statement is inferred merely from the word ‚metacircular.‚
 
 
 ---
 
-# ORIGINAL S18 ‚Äî Causal normal form, analytic reconstruction and source-aware matrix certificate kernel
+# ORIGINAL S18 ‚î Causal normal form, analytic reconstruction and source-aware matrix certificate kernel
 Source path: `originals/conversation/metacircular_causal_normal_form/proof_note.md`; SHA-256: `a05733d318a9590fb8656e4ff748293dd7a659774c92bb745aeccc467361e0de`
 Transfer status: Original mounted note; 86 exact checks replayed during handoff.
 
@@ -7572,7 +7572,7 @@ history. It does not require separately calculating each angular return.
 
 ---
 
-# ORIGINAL S19 ‚Äî Source-dependent midpoint return, nonlinear kinetic storage and rigorous Abel inverse
+# ORIGINAL S19 ‚î Source-dependent midpoint return, nonlinear kinetic storage and rigorous Abel inverse
 Source path: `sources/S19_midpoint_storage_and_abel.md`; SHA-256: `d8b5999051e78e2df763499b5caa9e111e5ab771fbfeb0e323a383f9511c3f3f`
 Transfer status: Recovered stronger parallel note; 43 exact controls replayed.
 
@@ -7583,7 +7583,7 @@ Repository read: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b
 
 ## Status and precise additions
 
-The source dependency is not discarded in a reduction. It determines the operator that transports the residual. For a quadratic vector field, this operator is its derivative at the source midpoint. This gives an exact nonlinear Volterra representation along every already-smooth Navier‚ÄìStokes history, without constructing an infinite Taylor or angular-return expansion. Its full returning force has an exact signed kinetic-work identity, including arbitrary nonzero initial residual energy. The identity does not require contractivity of the residual tangent propagator.
+The source dependency is not discarded in a reduction. It determines the operator that transports the residual. For a quadratic vector field, this operator is its derivative at the source midpoint. This gives an exact nonlinear Volterra representation along every already-smooth Navier‚ìStokes history, without constructing an infinite Taylor or angular-return expansion. Its full returning force has an exact signed kinetic-work identity, including arbitrary nonzero initial residual energy. The identity does not require contractivity of the residual tangent propagator.
 
 The complete toroidal degree-two source projection supplies an actual orthogonal, heat-commuting velocity projection to which these statements apply. An energy/vorticity preserving, continuously changing normalization adds an explicitly skew-adjoint dilation generator. Therefore the signed storage identity survives that normalization, with its changing viscosity retained. Moving observers have an explicit exchange term as well.
 
@@ -7935,7 +7935,7 @@ d=\mu^{-3/5}c'(t).
 \tag{26}
 \]
 
-The normalization leaves the nonlinear coefficient exactly one. Both the translation generator and `y¬∑grad+3/2` are skew in `L2`, by integration by parts. The exact coefficient `3/2` is forced by the energy-preserving amplitude/length relation `A=r^(3/2)`.
+The normalization leaves the nonlinear coefficient exactly one. Both the translation generator and `y¬grad+3/2` are skew in `L2`, by integration by parts. The exact coefficient `3/2` is forced by the energy-preserving amplitude/length relation `A=r^(3/2)`.
 
 Therefore (4), (6), and the residual Volterra representation apply with the time-dependent field
 
@@ -8131,18 +8131,18 @@ Fresh reads at the pinned head:
 * The saved run 23 source note: the full toroidal pressure theorem and actual angular nonlinear source.
 * Saved run 29: higher arithmetic residuals and its limiting-convergence step, repaired by (35).
 
-Primary background: Chorin, Hald and Kupferman, *Optimal prediction and the Mori‚ÄìZwanzig representation of irreversible processes*, PNAS 97 (2000), 2968‚Äì2973; Gouasmi, Parish and Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Mori‚ÄìZwanzig formalism*, Proc. R. Soc. A 473 (2017), 20170385. Projection memory and exact nonlinear reformulation are classical; the calculations here instantiate the retained NS source projection and the actual arithmetic residual tower.
+Primary background: Chorin, Hald and Kupferman, *Optimal prediction and the Mori‚ìZwanzig representation of irreversible processes*, PNAS 97 (2000), 2968‚ì2973; Gouasmi, Parish and Duraisamy, *A priori estimation of memory effects in reduced-order models of nonlinear systems using the Mori‚ìZwanzig formalism*, Proc. R. Soc. A 473 (2017), 20170385. Projection memory and exact nonlinear reformulation are classical; the calculations here instantiate the retained NS source projection and the actual arithmetic residual tower.
 
 Verification: `checks.py` is rerunnable. It checks the general quadratic midpoint identity, energy-preserving quadratic source work, projection-motion exchange, dynamic-normalization coefficients, Abel normal forms and inverse sums, and a genuinely three-dimensional finite-Fourier NS source without truncating any generated product modes. No new Lean/Agda theorem is claimed.
 
 
 ---
 
-# ORIGINAL S20 ‚Äî Dyadic pole residual and general toroidal radial marginality
+# ORIGINAL S20 ‚î Dyadic pole residual and general toroidal radial marginality
 Source path: `sources/S20_dyadic_and_radial_marginality.md`; SHA-256: `8ce3142d1c22c3e70e191b4581792ac4357711105fcb137ae31c6fc979eb59c0`
 Transfer status: Recovered run26; use with later scope corrections.
 
-# Dyadic pole-annihilating arithmetic residual and the unique marginal toroidal Navier‚ÄìStokes channel
+# Dyadic pole-annihilating arithmetic residual and the unique marginal toroidal Navier‚ìStokes channel
 
 Repository snapshot: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b0e9cf70297c38422f08`.
 
@@ -8157,7 +8157,7 @@ another reconstruction layer.
   observable.  RH is equivalent to boundedness of this observable, and even one eventual
   one-sided subexponential bound suffices.
 
-* On Navier‚ÄìStokes, the complete toroidal spherical-harmonic Biot‚ÄìSavart inverse is written in
+* On Navier‚ìStokes, the complete toroidal spherical-harmonic Biot‚ìSavart inverse is written in
   log radius.  Its operator factors as
       (D-(l-2))(D+(l+3)).
   After the translation/gauge `l=1` mode is removed, `l=2` is the unique zero exponent:
@@ -8166,13 +8166,13 @@ another reconstruction layer.
   specifically to the strain-bearing degree-two mode; emitted higher modes can matter only by
   returning nonlinearly to degree two.
 
-Neither statement proves RH or unrestricted 3D Navier‚ÄìStokes regularity.  The new results reduce
+Neither statement proves RH or unrestricted 3D Navier‚ìStokes regularity.  The new results reduce
 the endpoint obligations and locate the exact scale channel in which a bad NS ancestry must keep
 regenerating information.
 
 ---
 
-# I. RH ‚Äî subtract the exact scale character of the pole
+# I. RH ‚î subtract the exact scale character of the pole
 
 ## 1. Retained receiver
 
@@ -8358,7 +8358,7 @@ spectrum.
 
 ---
 
-# II. Navier‚ÄìStokes ‚Äî the radial transport spectrum of every toroidal angular degree
+# II. Navier‚ìStokes ‚î the radial transport spectrum of every toroidal angular degree
 
 ## 6. General toroidal source
 
@@ -8367,7 +8367,7 @@ harmonic.  Take
 
     omega_l(r,n)=f_l(r) T_l(n).
 
-Write its finite-energy Coulomb/Biot‚ÄìSavart vector potential in the form
+Write its finite-energy Coulomb/Biot‚ìSavart vector potential in the form
 
     psi_l(r,n)=r^2 q_l(r) T_l(n).
 
@@ -8443,7 +8443,7 @@ A source shell lying outside the observation scale is therefore transmitted inwa
 
 Three cases have different physical meanings.
 
-### l=1 ‚Äî translation/gauge channel
+### l=1 ‚î translation/gauge channel
 
 Inside a remote `l=1` source shell, `q_1 ~ r^(-1)`.  Then the full vector potential is
 `r^2 q_1 T_1 ~ r T_1 = x cross const`, whose curl is a constant velocity.
@@ -8451,7 +8451,7 @@ Its gradient and strain vanish.
 
 This is exactly the translation degree removed by Lagrangian centering.
 
-### l=2 ‚Äî marginal strain channel
+### l=2 ‚î marginal strain channel
 
 Here
 
@@ -8471,7 +8471,7 @@ In log radius this is the zero-frequency source moment.  It is the boundary resi
 This is why every geometrically separated shell can contribute the same strain increment:
 `dr/r` is the Haar measure of multiplicative scale.
 
-### l>=3 ‚Äî irrelevant inward channels
+### l>=3 ‚î irrelevant inward channels
 
 The inward exponent `l-2` is strictly positive.  A remote shell at radius `R` contributes at
 radius `r<R`
@@ -8629,11 +8629,11 @@ That is the current endpoint cut.
 
 ---
 
-# ORIGINAL S21 ‚Äî Higher residuals and dynamic matching proposal
+# ORIGINAL S21 ‚î Higher residuals and dynamic matching proposal
 Source path: `sources/S21_higher_residuals_dynamic_matching.md`; SHA-256: `88a5dd6291784bcdf790b43caee928ed2dbe8447ce5ca6f2031f077badff0edb`
 Transfer status: AUDIT: higher difference convergence repaired by S19; NS matching claims not promoted.
 
-# Higher metacircular prime residuals and a dynamic matching barrier for record-normalized Navier‚ÄìStokes
+# Higher metacircular prime residuals and a dynamic matching barrier for record-normalized Navier‚ìStokes
 
 Repository snapshot: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b0e9cf70297c38422f08`.
 
@@ -8647,11 +8647,11 @@ New results:
 
 2. In the record-normalized NS ancestry, the inherited bounds `||Omega||_infinity <= 1`, `||V||_2 <= E` imply a paradifferential equation for each high vorticity annulus. Once `epsilon 4^k >> E+k`, diffusion acts faster than the local log-Lipschitz deformation. The dyadic vorticity block is then forced down to size `O((E+k)/(epsilon 4^k))`. The threshold `epsilon 4^k ~ k` is exactly the previously derived physical matching scale `r^2 log(1/r) ~ epsilon`. Frequencies a fixed number of octaves finer than this matching band have a geometrically summable strain tail, uniformly on bounded normalized-time intervals. Hence a bad ancestry cannot hide in arbitrarily fine static frequency texture: it must remain in the matching/coarse band or continuously re-inject high frequency on its own parabolic lifetime.
 
-No proof of RH or unrestricted three-dimensional Navier‚ÄìStokes regularity is claimed.
+No proof of RH or unrestricted three-dimensional Navier‚ìStokes regularity is claimed.
 
 ---
 
-# I. RH ‚Äî an arbitrary-order residual hierarchy over the same actual prime source
+# I. RH ‚î an arbitrary-order residual hierarchy over the same actual prime source
 
 ## 1. The first residual and normalized orbit
 
@@ -8810,7 +8810,7 @@ The arithmetic proof target is therefore flexible rather than unique: one may ch
 
 ---
 
-# II. NS ‚Äî the dynamic high-frequency barrier occurs at the same matching scale
+# II. NS ‚î the dynamic high-frequency barrier occurs at the same matching scale
 
 ## 5. Record-normalized equation and inherited dyadic bounds
 
@@ -9018,7 +9018,7 @@ Thus arbitrarily fine frequencies cannot carry an independent nonintegrable stre
 
 ## 10. Corrected continuation fibre
 
-The previous run reduced a bad ancestry to a generic ‚Äúfine-frequency residual.‚Äù Equations (20)‚Äì(28) sharpen that considerably.
+The previous run reduced a bad ancestry to a generic ‚fine-frequency residual.‚ Equations (20)‚ì(28) sharpen that considerably.
 
 The fine sector splits into:
 
@@ -9079,7 +9079,7 @@ r^2\log(1/r)\asymp\epsilon.
 
 Below that scale the continuation fibre is contractive. Above it the earlier universal `Sym_0(3)` marginal strain channel and finite-return calculations remain the correct source description.
 
-The current NS endpoint is therefore no longer ‚Äúcontrol all fine frequencies.‚Äù It is
+The current NS endpoint is therefore no longer ‚control all fine frequencies.‚ It is
 \[
 \boxed{
 \text{control repeated nonlinear repopulation of the finite matching band.}
@@ -9091,7 +9091,7 @@ That is the smallest source-coherent continuation fibre reached so far in this b
 
 ---
 
-# ORIGINAL S22 ‚Äî Direct quadratic Goldbach residual and all-depth source-dependent memory
+# ORIGINAL S22 ‚î Direct quadratic Goldbach residual and all-depth source-dependent memory
 Source path: `sources/S22_quadratic_goldbach_and_memory.md`; SHA-256: `1e518af138397a669e67a4b899d53a5f9411e54272add829829f2c7148d59cd6`
 Transfer status: Arithmetic derivation retained; Gaussian-in-octave NS suppression remains AUDIT.
 
@@ -9111,7 +9111,7 @@ The object generates the linear operator that transports the object.
 
 This observation has two concrete consequences here.
 
-* RH. The quantitative Goldbach field is already the square of the positive prime Laplace field. After its natural scaling normalization, RH is exactly a H√∂lder-scale statement for one dyadic ActionResidual of the Goldbach field itself. No reconstruction of Lambda, compact receiver, square root, or zero interpolation is needed in the final criterion.
+* RH. The quantitative Goldbach field is already the square of the positive prime Laplace field. After its natural scaling normalization, RH is exactly a Hlder-scale statement for one dyadic ActionResidual of the Goldbach field itself. No reconstruction of Lambda, compact receiver, square root, or zero interpolation is needed in the final criterion.
 
 * Navier-Stokes. Along one actual solution, the quadratic vorticity nonlinearity is exactly a self-generated linear nonautonomous operator. Therefore every excursion out of an observed sector and every return from it resums into one exact Feshbach/Mori-Zwanzig Volterra memory kernel. The previously computed 2->4->2 return is precisely the diagonal first term of this kernel. The all-depth Borel tree is an expansion of the same kernel, not an independent obligation.
 
@@ -9121,7 +9121,7 @@ No proof of RH or unrestricted 3D Navier-Stokes regularity is claimed.
 
 ---
 
-# I. RH ‚Äî work directly on the quantitative Goldbach square
+# I. RH ‚î work directly on the quantitative Goldbach square
 
 ## 1. The actual Goldbach Laplace field
 
@@ -9286,7 +9286,7 @@ No triangular reconstruction of Lambda is needed on this route.
 
 ---
 
-# II. Navier-Stokes ‚Äî the quadratic PDE is already a self-generated linear dynamics
+# II. Navier-Stokes ‚î the quadratic PDE is already a self-generated linear dynamics
 
 ## 6. Quadratic metacircular identity
 
@@ -9466,7 +9466,7 @@ So ultra-fine content has only two components:
 1. a transient inherited tail, rapidly diffused;
 2. a freshly cascade-generated tail, Gaussian-small in octave distance from the matching band.
 
-The previous phrase ‚Äúfresh regeneration at arbitrarily fine frequency‚Äù was too loose. Quadratic Fourier support does not permit a jump: regeneration must traverse the intervening frequency graph, and every step past matching pays an increasingly strong diffusive ratio.
+The previous phrase ‚fresh regeneration at arbitrarily fine frequency‚ was too loose. Quadratic Fourier support does not permit a jump: regeneration must traverse the intervening frequency graph, and every step past matching pays an increasingly strong diffusive ratio.
 
 ## 12. Consequence for the exact memory kernel
 
@@ -9491,7 +9491,7 @@ No contradiction has yet been proved for that matching-band memory.
 RH:
     R -> G_R=A^2 -> Gcal=t^2G_R -> (D_2-I)Gcal.
 
-The pole-normalized Goldbach object has fixed point 1; its scale residual is the exact obstruction. RH is exactly the near-1/2 H√∂lder bound on that residual.
+The pole-normalized Goldbach object has fixed point 1; its scale residual is the exact obstruction. RH is exactly the near-1/2 Hlder bound on that residual.
 
 Navier-Stokes:
     N(Omega)=(1/2)DN(Omega)[Omega].
@@ -9507,11 +9507,11 @@ In both lanes the metacircular move is:
 
 ---
 
-# ORIGINAL S23 ‚Äî Actual-endpoint backward assembly
+# ORIGINAL S23 ‚î Actual-endpoint backward assembly
 Source path: `originals/conversation/ns_rh_endpoint_assembly/endpoint_graph.md`; SHA-256: `8ed1c8f6bb6f37bc131be534aa303d1985e18f674f3e61c0d470e62640c1061b`
 Transfer status: Conditional actual endpoints; not an exhaustive repo closure.
 
-# Actual-endpoint backward slice: RH and three-dimensional Navier‚ÄìStokes
+# Actual-endpoint backward slice: RH and three-dimensional Navier‚ìStokes
 
 Snapshot read: `avikj/metacircular-interaction-prototype@168ea8e240524f898af4b0e9cf70297c38422f08`.
 
@@ -9519,7 +9519,7 @@ This is an assembled dependency slice for two concrete closing routes. It is not
 
 ## Shared representation layer
 
-Let X_i be representations of a declared source X with equivalences e_i:X ‚âÉ X_i. The source-induced carry is c_ij=e_j e_i^{-1}. Then c_jk c_ij=c_ik. For an actual source evolution Phi_st, the representation-level evolution is e_t Phi_st e_s^{-1}. Its composition law follows by cancellation of e_t^{-1}e_t. For a predicate Bad on X, put Bad_i=Bad ‚àò e_i^{-1}; then Œ£_x Bad(x) ‚âÉ Œ£_y Bad_i(y). Existence, uniqueness, and emptiness are transported, not supplied, by these equivalences.
+Let X_i be representations of a declared source X with equivalences e_i:X ‚â X_i. The source-induced carry is c_ij=e_j e_i^{-1}. Then c_jk c_ij=c_ik. For an actual source evolution Phi_st, the representation-level evolution is e_t Phi_st e_s^{-1}. Its composition law follows by cancellation of e_t^{-1}e_t. For a predicate Bad on X, put Bad_i=Bad ‚àò e_i^{-1}; then Œ_x Bad(x) ‚â Œ_y Bad_i(y). Existence, uniqueness, and emptiness are transported, not supplied, by these equivalences.
 
 Repository implementation read: `formal/cubical/theorems/residue/Ekatva_LosslessnessIsAPropertyTheCompletionsOfAMapFormAContractibleTypeAndTheMachinesIsUnique.agda`, especially `losslessness-is-a-property` and `lawful-steps-are-the-maps`.
 
@@ -9527,101 +9527,101 @@ Consequence: canonical source recovery and pure re-encoding coherence are not in
 
 ## RH endpoint
 
-Target: for the actual meromorphic Riemann zeta function, Œ∂(œÅ)=0 and 0<Re œÅ<1 imply Re œÅ=1/2.
+Target: for the actual meromorphic Riemann zeta function, Œ(œ)=0 and 0<Re œ<1 imply Re œ=1/2.
 
-### R0. Arithmetic source ‚Äî supplied
+### R0. Arithmetic source ‚î supplied
 
-R(N)=Œ£_{a+b=N} Œõ(a)Œõ(b), with the actual von Mangoldt sequence and its normalization. The Lean theorem `Pairfield.GoldbachReconstructionChain.goldbachTail_reconstruction_chain` identifies a normalized real sequence from its convolution tail, reconstructs Œõ, and proves the logarithmic-derivative L-series identity on Re s>1. It does not itself construct analytic continuation.
+R(N)=Œ_{a+b=N} Œ(a)Œ(b), with the actual von Mangoldt sequence and its normalization. The Lean theorem `Pairfield.GoldbachReconstructionChain.goldbachTail_reconstruction_chain` identifies a normalized real sequence from its convolution tail, reconstructs Œ, and proves the logarithmic-derivative L-series identity on Re s>1. It does not itself construct analytic continuation.
 
-### R1. Actual receiver and analytic identity ‚Äî supplied analytic inputs
+### R1. Actual receiver and analytic identity ‚î supplied analytic inputs
 
-Use the saved compact autocorrelation g supported in [-1/2,1/2], its bilateral transform G nonzero on |Re z|‚â§1/2 and positive at z=iŒ≥, and
+Use the saved compact autocorrelation g supported in [-1/2,1/2], its bilateral transform G nonzero on |Re z|‚â1/2 and positive at z=iŒ≥, and
 
-Z(t)=Œ£_{distinct œÅ} m_œÅ G(œÅ-1/2) exp((œÅ-1/2)t), M0=Z(0)>0.
+Z(t)=Œ_{distinct œ} m_œ G(œ-1/2) exp((œ-1/2)t), M0=Z(0)>0.
 
-Let S(t)=Œ£_{n‚â•2} Œõ(n)n^{-1/2}g(t-log n). For t>1/2 the actual explicit formula is
+Let S(t)=Œ_{n‚â2} Œ(n)n^{-1/2}g(t-log n). For t>1/2 the actual explicit formula is
 
 Z(t)=exp(t/2)G(1/2)-S(t)-J_arch(t),
-J_arch(t)=Œ£_{k‚â•1}G(2k+1/2)exp(-(2k+1/2)t).
+J_arch(t)=Œ_{k‚â1}G(2k+1/2)exp(-(2k+1/2)t).
 
 The last series is used only on its valid tail domain. Compact initial intervals are retained separately in any Laplace formula.
 
-### R2. Closing arithmetic assertion ‚Äî NOT DISCHARGED
+### R2. Closing arithmetic assertion ‚î NOT DISCHARGED
 
 B_RH: for every real t>1/2,
 
-|S(t)-exp(t/2)G(1/2)+J_arch(t)|‚â§M0.
+|S(t)-exp(t/2)G(1/2)+J_arch(t)|‚âM0.
 
 Every prime sum here is finite, but the assertion is universal in t.
 
-### R3. B_RH implies actual RH ‚Äî closing composition supplied
+### R3. B_RH implies actual RH ‚î closing composition supplied
 
-B_RH makes Z bounded on the tail; its continuity supplies boundedness on compact intervals. Thus L_Z(w)=‚à´_0^‚àûexp(-wt)Z(t)dt is holomorphic for Re w>0. Initially for Re w>1/2,
+B_RH makes Z bounded on the tail; its continuity supplies boundedness on compact intervals. Thus L_Z(w)=‚à_0^‚àûexp(-wt)Z(t)dt is holomorphic for Re w>0. Initially for Re w>1/2,
 
-L_Z(w)=Œ£_œÅ m_œÅG(z_œÅ)/(w-z_œÅ), z_œÅ=œÅ-1/2.
+L_Z(w)=Œ_œ m_œG(z_œ)/(w-z_œ), z_œ=œ-1/2.
 
-The absolutely received divisor defines a meromorphic function, and each distinct z_œÅ has nonzero residue m_œÅG(z_œÅ). Holomorphy excludes Re z_œÅ>0; functional-equation symmetry excludes Re z_œÅ<0. Therefore RH follows.
+The absolutely received divisor defines a meromorphic function, and each distinct z_œ has nonzero residue m_œG(z_œ). Holomorphy excludes Re z_œ>0; functional-equation symmetry excludes Re z_œ<0. Therefore RH follows.
 
 The finite/integer Agda wrapper `RHReducesToBoundedness.RH-from-received-bounded` has a boundedness argument; it is not a formalization of this entire complex-analytic proof. No direct substitution of arbitrary real exponents into its integer type is made.
 
 ### Other retained RH routes
 
-Actual Weil positivity is an alternative closing assertion. The saved theta/cardinal-source construction proves that an off-line zero z=œÉ+iŒ≥ with œÉ>0 forces Œª_a‚â§-c_z a^{-œÉ}exp(2œÉa), for all sufficiently large support radii a. Hence a separately proved lower bound Œª_a‚â•-exp(o(a)) would also close RH: taking logarithms contradicts the positive rate 2œÉ. This lower bound is NOT supplied here.
+Actual Weil positivity is an alternative closing assertion. The saved theta/cardinal-source construction proves that an off-line zero z=œ+iŒ≥ with œ>0 forces Œª_a‚â-c_z a^{-œ}exp(2œa), for all sufficiently large support radii a. Hence a separately proved lower bound Œª_a‚â-exp(o(a)) would also close RH: taking logarithms contradicts the positive rate 2œ. This lower bound is NOT supplied here.
 
 Hardy, Bergman, damped positive Gram, Hankel, passivity, reflection, and source-interpolation constructions remain attached to their declared domains. Positivity of a sufficiently damped output Gram kernel is not positivity of the undamped translation kernel or input-output work.
 
 ## NS endpoint
 
-Target domain fixed here: R^3, unforced incompressible NS, ŒΩ>0, smooth rapidly decaying divergence-free initial data. Let u be the maximal classical H^k solution, k‚â•3, with lifespan [0,T*). The target is T*=‚àû and smoothness at all finite times. Periodic variants need their own domain-specific identifications; they are not silently substituted.
+Target domain fixed here: R^3, unforced incompressible NS, ŒΩ>0, smooth rapidly decaying divergence-free initial data. Let u be the maximal classical H^k solution, k‚â3, with lifespan [0,T*). The target is T*=‚àû and smoothness at all finite times. Periodic variants need their own domain-specific identifications; they are not silently substituted.
 
-### N0. Exact finite-time solution and ancestry ‚Äî supplied classical construction
+### N0. Exact finite-time solution and ancestry ‚î supplied classical construction
 
 Carry u0, u|[0,t], pressure, viscosity, time, centres, scale factors, and all compatibility equations. Each exact re-encoding is covered by the shared source-equivalence construction. No assumption of a recurrent renormalized orbit or a nonzero weak limit is made.
 
-### N1. Actual production reading ‚Äî supplied identity
+### N1. Actual production reading ‚î supplied identity
 
-œâ=curl u, m=|œâ|, Œæ=œâ/m where m>0, S=sym ‚àáu, M(t)=||œâ(t)||‚àû. For M>0 let
+œâ=curl u, m=|œâ|, Œæ=œâ/m where m>0, S=sym ‚àu, M(t)=||œâ(t)||‚àû. For M>0 let
 
 b_u(t)=sup_{x:m(x,t)=M(t)} [Œæ(x,t)^T S(x,t) Œæ(x,t)]_+.
 
 For smooth decaying fields the maximum is attained. The magnitude equation is
 
-(‚àÇt+u¬∑‚àá)m=(Œæ^T S Œæ)m+ŒΩŒîm-ŒΩm|‚àáŒæ|¬≤.
+(‚àt+u¬‚à)m=(Œæ^T S Œæ)m+ŒΩŒîm-ŒΩm|‚àŒæ|¬≤.
 
-At a spatial maximum, the transport derivative vanishes and Œîm‚â§0. The maximum-envelope inequality therefore gives D^+M‚â§b_u M, and
+At a spatial maximum, the transport derivative vanishes and Œîm‚â0. The maximum-envelope inequality therefore gives D^+M‚âb_u M, and
 
-M(t)‚â§M(0)exp(‚à´_0^t b_u(s)ds).
+M(t)‚âM(0)exp(‚à_0^t b_u(s)ds).
 
 The zero-vorticity case is the trivial decaying divergence-free flow.
 
-### N2. Closing same-history assertion ‚Äî NOT DISCHARGED
+### N2. Closing same-history assertion ‚î NOT DISCHARGED
 
-B_NS: for every such maximal solution, if T*<‚àû then ‚à´_0^{T*}b_u(t)dt<‚àû.
+B_NS: for every such maximal solution, if T*<‚àû then ‚à_0^{T*}b_u(t)dt<‚àû.
 
 The integral concerns the actual solution on its maximal half-open interval, not an assumed smooth extension through T*.
 
-### N3. B_NS implies actual NS regularity ‚Äî closing composition supplied
+### N3. B_NS implies actual NS regularity ‚î closing composition supplied
 
-B_NS bounds M on [0,T*). Hence ‚à´_0^{T*}||œâ(t)||‚àûdt<‚àû. The classical vorticity continuation criterion extends u past T*, contradicting maximality. Thus T*=‚àû. The preceding maximum-envelope calculation supplies the reduction; the continuation criterion is an external established analytic theorem, not attributed to a generic Agda wrapper.
+B_NS bounds M on [0,T*). Hence ‚à_0^{T*}||œâ(t)||‚àûdt<‚àû. The classical vorticity continuation criterion extends u past T*, contradicting maximality. Thus T*=‚àû. The preceding maximum-envelope calculation supplies the reduction; the continuation criterion is an external established analytic theorem, not attributed to a generic Agda wrapper.
 
 ### N4. Same-source toroidal/viscous realization retained
 
 At each centre x define A_f^x(r) by
 
-‚à´_{S¬≤}f(x+rn)¬∑(n√óBn)dŒ©=(4œÄ/5)tr(A_f^x(r)B), B‚ààSym_0(3).
+‚à_{S¬≤}f(x+rn)¬(nóBn)dŒ©=(4œ/5)tr(A_f^x(r)B), B‚ààSym_0(3).
 
 Let
 
-H5(q)=erf(q)-(2/sqrtœÄ)exp(-q¬≤)(q+2q¬≥/3),
-(TŒΩ(t)f)(x)=-(3/5)‚à´_0^‚àûH5(r/(2sqrt(ŒΩt)))A_f^x(r)dr/r.
+H5(q)=erf(q)-(2/sqrtœ)exp(-q¬≤)(q+2q¬≥/3),
+(TŒΩ(t)f)(x)=-(3/5)‚à_0^‚àûH5(r/(2sqrt(ŒΩt)))A_f^x(r)dr/r.
 
 The saved analytic note gives the actual identity
 
-S(t)=TŒΩ(t)œâ0+‚à´_0^tTŒΩ(t-s)curl(u(s)√óœâ(s))ds.
+S(t)=TŒΩ(t)œâ0+‚à_0^tTŒΩ(t-s)curl(u(s)óœâ(s))ds.
 
-This expresses b_u in terms of the same source history. It does not bound its accumulated value. In particular a fixed-centre integrated estimate cannot be silently upgraded to an estimate of ‚à´sup_x(‚Ä¶)dt or of the moving peak. The source centre at past time s is the evaluation centre required by the full Duhamel expression.
+This expresses b_u in terms of the same source history. It does not bound its accumulated value. In particular a fixed-centre integrated estimate cannot be silently upgraded to an estimate of ‚àsup_x(‚¶)dt or of the moving peak. The source centre at past time s is the evaluation centre required by the full Duhamel expression.
 
-The actual source-free viscous memory ‚à´_0^‚àûH5(r/(2sqrt(ŒΩt)))dt=r¬≤/(6ŒΩ) is supplied. A bound on the nonlinear replenishment needed to imply B_NS is NOT supplied.
+The actual source-free viscous memory ‚à_0^‚àûH5(r/(2sqrt(ŒΩt)))dt=r¬≤/(6ŒΩ) is supplied. A bound on the nonlinear replenishment needed to imply B_NS is NOT supplied.
 
 ## Closing cut and verification status
 
@@ -9634,11 +9634,11 @@ Completed in this response: backward slice, source pin, exact hypotheses, and sh
 
 ---
 
-# ORIGINAL S25 ‚Äî Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra
+# ORIGINAL S25 ‚î Prime-Pair Delta 19: complete first-return, Schur and future-observation algebra
 Source path: `sources/S25_delta19.md`; SHA-256: `538b8ae6e282685e120592c680a533ccf5e087790f3a0539499eecb7adb4c94e`
 Transfer status: Historical source theorem/program note; formal module coverage differs by statement.
 
-# Prime-Pair Atlas ‚Äî Delta 19
+# Prime-Pair Atlas ‚î Delta 19
 ## Exact memory kernels from projection: discrete Dyson expansion and charge-sector excursions
 
 Date: 2026-08-13
@@ -9675,7 +9675,7 @@ Every other term is an excursion outside the observed sector followed by return.
 
 ## 19.2 First-return kernels
 
-Define for m‚â•2
+Define for m‚â2
     F_m := P T Q (Q T Q)^{m-2} Q T P,
 and F_1:=PTP.
 
@@ -9684,11 +9684,11 @@ F_m leaves P immediately, remains in Q for m-1 intermediate steps, and first ret
 
 ### T19.3 (renewal equation)
 Let K_n:=PT^nP, K_0=P on S. Then
-    K_n = Œ£_{m=1}^n F_m K_{n-m}
+    K_n = Œ_{m=1}^n F_m K_{n-m}
 with consistent operator ordering convention (first-return block followed by earlier/later block depending time convention).
 
 Proof.
-Partition every P‚ÜíP sector path by the length m of its first return to P. QED.
+Partition every P‚íP sector path by the length m of its first return to P. QED.
 
 ### C19.4
 Projected dynamics is exactly a noncommutative renewal process whose memory kernel is the family {F_m}.
@@ -9698,8 +9698,8 @@ No metaphor is needed.
 ## 19.3 Generating resolvent
 
 Define formal series
-    K(z)=Œ£_{n‚â•0}K_n z^n,
-    F(z)=Œ£_{m‚â•1}F_m z^m.
+    K(z)=Œ_{n‚â0}K_n z^n,
+    F(z)=Œ_{m‚â1}F_m z^m.
 
 From the renewal equation:
 
@@ -9724,13 +9724,13 @@ P R(Œª) P
 when inverses exist.
 
 Define self-energy
-    Œ£(Œª)=B(ŒªI-D)^{-1}C.
+    Œ(Œª)=B(ŒªI-D)^{-1}C.
 
 ### C19.7
-All influence of eliminated Q states on observed resolvent is compressed exactly into Œ£(Œª).
+All influence of eliminated Q states on observed resolvent is compressed exactly into Œ(Œª).
 
 ### Expansion 19.8
-Œ£(Œª)=Œ£_{m‚â•0} Œª^{-m-1} B D^m C
+Œ(Œª)=Œ_{m‚â0} Œª^{-m-1} B D^m C
 for |Œª| sufficiently large/formally.
 
 The coefficient B D^m C is exactly an excursion spending m steps in Q.
@@ -9742,11 +9742,11 @@ The following imply exact closure on S:
     B=PTQ=0
 or
     C=QTP=0.
-Then Œ£=0 and K_n=A^n.
+Then Œ=0 and K_n=A^n.
 
 More generally exact closure holds iff all return kernels
     B D^m C=0
-for m‚â•0.
+for m‚â0.
 
 ### C19.10
 An eliminated distinction matters only if there is BOTH:
@@ -9758,7 +9758,7 @@ Pure leakage with no return changes normalization/resource but not future intern
 ## 19.6 Observability/controllability duality
 
 For linear discrete dynamics T and observation P, unobservable subspace is
-    N_obs = ‚ãÇ_{n‚â•0} ker(P T^n).
+    N_obs = ‚ã_{n‚â0} ker(P T^n).
 
 ### T19.11
 x,y are future-observationally equivalent iff x-y‚ààN_obs.
@@ -9789,7 +9789,7 @@ The higher/nonlinear/type-theoretic question is how this generalizes to proof-re
 
 ## 19.8 Charge-space application
 
-Let charge decomposition H=‚äï_{r‚â•0}H_r and P=P_1 project to charge one. Let U_h be additive translation.
+Let charge decomposition H=‚äï_{r‚â0}H_r and P=P_1 project to charge one. Let U_h be additive translation.
 
 Blocks:
     U_h^{r,s}=P_r U_h P_s.
@@ -9799,7 +9799,7 @@ Then
 ### T19.15
 P_1 U_{h_n}...U_{h_1} P_1
 =
-Œ£_{r_1,...,r_{n-1}}
+Œ_{r_1,...,r_{n-1}}
 U_{h_n}^{1,r_{n-1}}
 U_{h_{n-1}}^{r_{n-1},r_{n-2}}
 ...
@@ -9832,7 +9832,7 @@ No equality claimed yet.
 Let P_even,P_odd be Liouville parity projectors. Charge-one lies in odd parity but odd parity contains charges 1,3,5,...
 
 ### T19.18
-Projection charge‚Üíparity merges infinitely many charge sectors.
+Projection charge‚íparity merges infinitely many charge sectors.
 
 ### C19.19
 A parity-only observer can be dynamically sufficient for prime-sector questions only if all distinctions among odd charge sectors are future-unobservable relative to the target.
@@ -9841,7 +9841,7 @@ This is almost certainly false for exact primality, but should be proved in fini
 
 ## 19.11 Finite toy theorem
 
-Take finite charge states {1,2,3}. Suppose T has nonzero blocks 1‚Üí2 and 2‚Üí1. Then instantaneous charge-one projection loses state 2, but
+Take finite charge states {1,2,3}. Suppose T has nonzero blocks 1‚í2 and 2‚í1. Then instantaneous charge-one projection loses state 2, but
     P_1 T¬≤ P_1
 contains T_{1,2}T_{2,1}.
 
@@ -9852,7 +9852,7 @@ This is the minimal excursion-return obstruction.
 
 ## 19.12 Positive half-line application
 
-Let H=‚Ñì¬≤(Z), P=P_+ onto n>0, Q onto n‚â§0. Let T be a bilateral translation/convolution/operator.
+Let H=‚ì¬≤(Z), P=P_+ onto n>0, Q onto n‚â0. Let T be a bilateral translation/convolution/operator.
 
 Then
     B=P T Q,
@@ -9861,7 +9861,7 @@ are boundary-crossing blocks.
 
 ### T19.21
 The half-line self-energy is
-    Œ£_+(Œª)=P T Q (Œª-QTQ)^{-1} Q T P.
+    Œ_+(Œª)=P T Q (Œª-QTQ)^{-1} Q T P.
 
 ### C19.22
 Every half-line boundary correction is generated by paths that cross into the forbidden half-line and return, after choosing the relevant ambient operator.
@@ -9869,16 +9869,16 @@ Every half-line boundary correction is generated by paths that cross into the fo
 This is the standard Wiener-Hopf/Toeplitz compression picture in resolvent language.
 
 ### Program 19.23
-Identify the exact Hankel term in the library with coefficients of Œ£_+(Œª) for the specific pair operator.
+Identify the exact Hankel term in the library with coefficients of Œ_+(Œª) for the specific pair operator.
 
 ## 19.13 Sum-gap inversion
 
-Since the one-leg reflection maps angular x‚Ü¶1/x, the forbidden complement |x|>1 is precisely where the bilateral conjugate lives after leaving the positive cone.
+Since the one-leg reflection maps angular x‚¶1/x, the forbidden complement |x|>1 is precisely where the bilateral conjugate lives after leaving the positive cone.
 
 ### S19.24
 The Q-sector in the half-line/cone compression has a concrete geometric chart: the reciprocal angular region.
 
-Potentially the boundary self-energy can be written as an integral transform through x‚Ü¶1/x.
+Potentially the boundary self-energy can be written as an integral transform through x‚¶1/x.
 
 This needs derivation.
 
@@ -9890,7 +9890,7 @@ Then Q contains parent/backtracking/forbidden-order states.
 
 ### Program 19.25
 Compute
-    Œ£_B(Œª)=P U Q(Œª-QUQ)^{-1}Q U P.
+    Œ_B(Œª)=P U Q(Œª-QUQ)^{-1}Q U P.
 
 Question: is the directed Buchstab transfer operator equal to, or approximated by, a Schur complement/effective operator after eliminating Q?
 
@@ -9920,7 +9920,7 @@ This is a precise alternative to saying several obstructions mysteriously intera
 
 ## 19.16 Inclusion-exclusion of eliminated sectors
 
-For commuting orthogonal projections P_i, combined complement Q=I-‚àèP_i decomposes into sectors indexed by which constraints fail.
+For commuting orthogonal projections P_i, combined complement Q=I-‚àP_i decomposes into sectors indexed by which constraints fail.
 
 ### T19.28
 For two commuting projections P_A,P_B,
@@ -9986,7 +9986,7 @@ The higher analogue should retain:
 
 ### Program 19.34
 For a process object X and observer family O, define total observation
-    Obs:X‚ÜíŒ†_{c:Contexts}O_c
+    Obs:X‚íŒ†_{c:Contexts}O_c
 and study fib_Obs.
 
 Then:
@@ -9999,7 +9999,7 @@ This is the HoTT lift of classical observability.
 ## 19.21 Parametricity translation
 
 A relation R on states is dynamically respected if
-    R(x,y)‚áíR(Tx,Ty).
+    R(x,y)‚íR(Tx,Ty).
 
 ### T19.35
 The future-observational equivalence ~_P is T-invariant.
@@ -10042,7 +10042,7 @@ This is a much cleaner hierarchy.
 For prime-pair research, we should stop asking globally:
 "where is the missing parity information?"
 
-Instead define a concrete resolved observable‚Äîe.g. charge-one pair correlation under additive shifts‚Äîand compute its exact memory kernel after eliminating:
+Instead define a concrete resolved observable‚îe.g. charge-one pair correlation under additive shifts‚îand compute its exact memory kernel after eliminating:
 - other charge sectors;
 - negative/boundary states;
 - forbidden Buchstab branches.
@@ -10056,31 +10056,31 @@ A. Charge:
 derive finite-truncated charge matrix U_h^{r,s} numerically/symbolically for small ranges and compute first-return kernels.
 
 B. Half-line:
-derive Œ£_+(Œª) for the exact bilateral pair operator already in library.
+derive Œ_+(Œª) for the exact bilateral pair operator already in library.
 
 C. Hecke tree:
 write full adjacency and child-only transition at one prime; test Schur complement relation.
 
 D. Joint:
-on a finite toy model with charge√ósign√ótree-direction states, compute mixed self-energy and see whether it factorizes.
+on a finite toy model with chargeósignótree-direction states, compute mixed self-energy and see whether it factorizes.
 
 E. HoTT:
 formalize the finite total-observation map and its fibers, not a new ontology.
 
-## 19.26 Sanskrit compression
+## 19.26  compression
 
-‡§ï‡•ç‡§∑‡§£‡•á ‡§Ø‡§®‡•ç‡§® ‡§¶‡•É‡§∂‡•ç‡§Ø‡§§‡•á ‡§§‡§§‡•ç ‡§® ‡§Ö‡§µ‡§∂‡•ç‡§Ø‡§Ç ‡§®‡§∑‡•ç‡§ü‡§Æ‡•ç‡•§
+‡ï‡‡‡‡ ‡Ø‡®‡‡® ‡¶‡‡‡‡Ø‡‡ ‡‡‡ ‡® ‡‡µ‡‡‡Ø‡ ‡®‡‡‡ü‡Æ‡‡
 What is invisible now is not necessarily lost.
 
-‡§≠‡§µ‡§ø‡§∑‡•ç‡§Ø‡§¶‡§µ‡§≤‡•ã‡§ï‡§®‡§∏‡§Æ‡§∑‡•ç‡§ü‡§ø‡§É ‡§è‡§µ ‡§Ø‡§•‡§æ‡§∞‡•ç‡§•‡§™‡§∞‡•ç‡§Ø‡§µ‡•á‡§ï‡•ç‡§∑‡§ï‡§É‡•§
+‡‡µ‡ø‡‡‡Ø‡¶‡µ‡≤‡ã‡ï‡®‡‡Æ‡‡‡ü‡ø‡ ‡‡µ ‡Ø‡‡æ‡∞‡‡‡‡∞‡‡Ø‡µ‡‡ï‡‡‡ï‡‡
 The totality of future observations is the true observer.
 
-N_obs=‚ãÇ_{n‚â•0}ker(PT^n).
+N_obs=‚ã_{n‚â0}ker(PT^n).
 
-‡§Ø‡§¶‡•ç ‡§Ö‡§∏‡•ç‡§Æ‡§ø‡§®‡•ç ‡§Ö‡§®‡•ç‡§§‡§∞‡•ç‡§≠‡§µ‡§§‡§ø ‡§§‡§§‡•ç ‡§∏‡§∞‡•ç‡§µ‡§¶‡§æ ‡§Ö‡§¶‡•É‡§∂‡•ç‡§Ø‡§Ç;
-‡§§‡§¶‡•á‡§µ ‡§®‡§ø‡§É‡§∂‡§ô‡•ç‡§ï‡§Ç ‡§§‡•ç‡§Ø‡§ï‡•ç‡§§‡•Å‡§Ç ‡§∂‡§ï‡•ç‡§Ø‡§§‡•á‡•§
+‡Ø‡¶‡ ‡‡‡‡Æ‡ø‡®‡ ‡‡®‡‡‡∞‡‡‡µ‡‡ø ‡‡‡ ‡‡∞‡‡µ‡¶‡æ ‡‡¶‡‡‡‡Ø‡;
+‡‡¶‡‡µ ‡®‡ø‡‡‡ô‡‡ï‡ ‡‡‡Ø‡ï‡‡‡‡ ‡‡ï‡‡Ø‡‡‡
 What lies there is invisible forever; only that may be discarded without regret.
 
-‡§Ö‡§®‡•ç‡§Ø‡§§‡•ç ‡§∏‡•ç‡§Æ‡•É‡§§‡§ø‡§∞‡•Ç‡§™‡•á‡§£ ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§ö‡•ç‡§õ‡§§‡§ø‡•§
+‡‡®‡‡Ø‡‡ ‡‡‡Æ‡‡‡ø‡∞‡‡‡‡ ‡‡‡®‡∞‡æ‡ó‡‡‡‡‡ø‡
 Everything else may return as memory.
 

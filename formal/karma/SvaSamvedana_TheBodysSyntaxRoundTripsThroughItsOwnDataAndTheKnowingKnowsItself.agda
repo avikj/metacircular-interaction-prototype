@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡•ç‡§µ‡§∏‡§Ç‡§µ‡•á‡§¶‡§®‡§Æ‡•ç ‚Äî self-cognition.  Akala·πÖka (c. 720‚Äì780 CE,
--- *Laghƒ´yastraya* / *NyƒÅyavini≈õcaya*): j√±ƒÅna is svasa·πÉvidita ‚Äî a
+-- ‡‡‡µ‡‡‡µ‡‡¶‡®‡Æ‡ ‚î self-cognition.  Akalaka (c. 720‚ì780 CE,
+-- *Laghyastraya* / *Nyyavinicaya*): jna is svasavidita ‚î a
 -- cognition cognizes itself in cognizing its object; no second lamp
 -- is needed to see the lamp.  School: Jaina.  Claimed of the source:
 -- the name and the thesis-shape, nothing else.
 --
 -- WHAT THIS IS.  The first checked step of the machine modeling
 -- itself: its SYNTAX becomes a value of its own data world and comes
--- back whole.  ‡§∏‡•Ç‡§§‡•ç‡§∞‡§Æ‡•ç lays a term out as a thread of numbers (the
--- s≈´tra ‚Äî literally the thread); ‡§™‡§æ‡§†‡§É reads the thread back (the
--- pƒÅ·π≠ha ‚Äî the recitation); and the round-trip theorem ‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§É
+-- back whole.  ‡‡‡‡‡∞‡Æ‡ lays a term out as a thread of numbers (the
+-- stra ‚î literally the thread); ‡‡æ‡†‡ reads the thread back (the
+-- pha ‚î the recitation); and the round-trip theorem ‡‡‡∞‡‡‡Ø‡æ‡ó‡Æ‡
 -- says the recitation returns exactly the term, for EVERY term, with
--- whatever follows on the thread untouched ‚Äî fuel one node-count
+-- whatever follows on the thread untouched ‚î fuel one node-count
 -- deep, monotone in slack.
 --
 -- The boundary, restated from Svarupa so this module cannot be read
 -- as more than it is: this is representation, not yet
--- self-INTERPRETATION ‚Äî an evaluator over threads needs the recursor,
+-- self-INTERPRETATION ‚î an evaluator over threads needs the recursor,
 -- and the vocabulary remains first-order.  The lamp sees the lamp;
 -- it does not yet light itself.
 ------------------------------------------------------------------------

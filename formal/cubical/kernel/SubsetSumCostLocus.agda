@@ -10,18 +10,18 @@
 --
 -- What compiles, checked --safe:
 --
---  Â· VERIFY is a projection over the input. `selSum` is a linear fold and
---    `verify?` decides `selSum xs sel â‰¡ t` in one pass â€” O(input). Given a
+--  Â VERIFY is a projection over the input. `selSum` is a linear fold and
+--    `verify?` decides `selSum xs sel â‰¡ t` in one pass â” O(input). Given a
 --    witness, checking is cheap and total.
 --
---  Â· The WITNESS SPACE deciding must range over has size 2^n. `masks n`
+--  Â The WITNESS SPACE deciding must range over has size 2^n. `masks n`
 --    enumerates every selection of length n, and `count-masks` proves
---    `length (masks n) â‰¡ 2 ^ n` â€” checked. The witness is NOT a projection
+--    `length (masks n) â‰¡ 2 ^ n` â” checked. The witness is NOT a projection
 --    of `(xs , t)`; it is a point of this exponential fibre.
 --
 -- So on a concrete NP instance the two halves separate exactly: verifying
 -- a handed witness is linear; obtaining one ranges over 2^n. This module
--- does NOT exhibit an O(input+output) decider â€” none is written, because
+-- does NOT exhibit an O(input+output) decider â” none is written, because
 -- the witness is not recoverable from the instance by projection. It marks,
 -- in checked code, the precise locus of the cost.
 ------------------------------------------------------------------------

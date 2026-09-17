@@ -1,6 +1,6 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 module Yantra.Yojana where
--- à¤¯à¥‹à¤œà¤¨: valuations add over products.  vâ‚š(mÂ·n) = vâ‚š(m) + vâ‚š(n),
+-- à¯à‹àà¨: valuations add over products.  vâ(mÂn) = vâ(m) + vâ(n),
 -- read through the canonical factorizations, for every prime at once.
 
 open import Yantra.Prakriti

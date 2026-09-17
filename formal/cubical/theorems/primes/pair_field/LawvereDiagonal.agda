@@ -6,15 +6,15 @@
 -- The diagonal engine of the Eternal Golden Braid
 --
 -- Lawvere's fixed-point theorem, constructively and in full: if
--- e : A → (A → Y) weakly enumerates the Y-valued behaviours on A, then
--- every ν : Y → Y has a fixed point.  Contrapositively, a fixed-point-
--- free ν refutes every claimed enumeration — and does so PRODUCTIVELY:
+-- e : A � (A � Y) weakly enumerates the Y-valued behaviours on A, then
+-- every ν : Y � Y has a fixed point.  Contrapositively, a fixed-point-
+-- free ν refutes every claimed enumeration � and does so PRODUCTIVELY:
 -- the diagonal behaviour d(a) = ν(e a a) is exhibited together with,
 -- for each claimed index a, the exact point at which e a disagrees
 -- with d.  The boundary is not mere impossibility; it constructs the
 -- object the next stage must adjoin.
 --
--- Weak point-surjectivity is taken untruncated (a Σ, not a ∥ Σ ∥):
+-- Weak point-surjectivity is taken untruncated (a �, not a � � �):
 -- the refutations below are then the strongest form, refuting even the
 -- claim of a CHOSEN enumeration index, and no truncation machinery is
 -- needed.  Since the conclusion of the fixed-point theorem is itself
@@ -22,7 +22,7 @@
 -- one-line recursion and is not duplicated here.
 --
 -- Instantiation: Y = Bool, ν = not is fixed-point-free, giving Cantor's
--- theorem — no type weakly enumerates its own Bool-observations.  This
+-- theorem � no type weakly enumerates its own Bool-observations.  This
 -- is the term AchromaticToy imports to drive its reflection step.
 ------------------------------------------------------------------------
 
@@ -51,8 +51,8 @@ module _ {A : Type ℓa} {Y : Type ℓy} where
   diag : (A → A → Y) → (Y → Y) → A → Y
   diag e ν a = ν (e a a)
 
-  -- Lawvere's fixed-point theorem: the index a₀ claimed for the
-  -- diagonal behaviour forces e a₀ a₀ to be a fixed point of ν.
+  -- Lawvere's fixed-point theorem: the index a� claimed for the
+  -- diagonal behaviour forces e a� a� to be a fixed point of ν.
   lawvere : (e : A → A → Y) → WkPtSurj e → (ν : Y → Y) → FixedPoint ν
   lawvere e surj ν = e a₀ a₀ , sym (h a₀)
     where
@@ -71,7 +71,7 @@ module _ {A : Type ℓa} {Y : Type ℓy} where
   -- Productive form (§9: boundary as production rule): for ANY claimed
   -- index a of the diagonal behaviour, the exact disagreement point is
   -- a itself.  diag e ν is thereby a behaviour the stage provably does
-  -- not represent — the new generator for the next stage.
+  -- not represent � the new generator for the next stage.
   diagEscapes : (e : A → A → Y) (ν : Y → Y)
     → ((y : Y) → ¬ ν y ≡ y)
     → (a : A) → ¬ ((x : A) → e a x ≡ diag e ν x)

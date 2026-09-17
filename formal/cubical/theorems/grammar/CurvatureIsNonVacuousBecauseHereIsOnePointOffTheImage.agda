@@ -5,26 +5,26 @@
 --
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
--- invented.**  The content is Î” 28 Â§36â€“38's, i.e. this corpus's own,
+-- invented.**  The content is Î” 28 Â§36â“38's, i.e. this corpus's own,
 -- plus the pasting of two squares, which is standard in any category; I
 -- have established no Indian source for either and will not attach a
 -- label I cannot defend.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- A NUMBER OF MINE IS WRONG IN THE REPOSITORY AND IS CORRECTED HERE,
 -- because pushed history is not rewritten and a re-arm is not a record.
 -- Commit **9db6df19**'s subject and body say "in 26 lines" and "26
 -- insertions".  `git diff --stat` reported **28 insertions**.  I counted
--- the heredoc by eye instead of copying the tool's number â€” in the very
+-- the heredoc by eye instead of copying the tool's number â” in the very
 -- commit whose standing rule is "verify every filename and number".
 -- Nothing else in 9db6df19 is affected; the append it describes is
 -- unchanged and correct.  The rule that closes it: **never write a count
 -- into a commit message that was not copied from `git diff --stat` in
 -- the same cycle.**
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `CurvatureCannotLiveOnTheImageOfAnExactCompression`,
--- a `Cannot` â€” an impossibility claim.
+-- a `Cannot` â” an impossibility claim.
 --
 -- **THE TITLE IS EARNED.**  `curvatureVanishesOnTheImage` really does
 -- prove that the compressed steps commute at every `C s`, and
@@ -35,7 +35,7 @@
 --
 -- **ONE READING NOTE, NOT A FAULT.**  The title attributes the
 -- conclusion to a property of `C` alone.  The theorem also needs
--- `comm` â€” that the UNCOMPRESSED steps commute â€” which is a hypothesis
+-- `comm` â” that the UNCOMPRESSED steps commute â” which is a hypothesis
 -- about `f` and `g`, not about the compression.  In Î” 28 that is given
 -- ("exact elimination commutes"), so the title is right in its setting
 -- and would be an overclaim outside it.
@@ -44,15 +44,15 @@
 -- below constructs `f' g' C` with genuine curvature, so this is a
 -- constraint on where curvature can be and not evidence that it
 -- occurs."**  An impossibility theorem with no instance of the thing it
--- constrains is consistent with the constrained thing never existing â€”
+-- constrains is consistent with the constrained thing never existing â”
 -- in which case the theorem is true and empty.  **That gap is closed
 -- here.**
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   Pt / f' / g'     three points and two compressed steps
---   curvatureAtBad   `Â¬ (f' (g' bad) â‰¡ g' (f' bad))` â€” the compressed
+--   curvatureAtBad   `Â (f' (g' bad) â‰¡ g' (f' bad))` â” the compressed
 --                    steps genuinely fail to commute, at `bad`
 --   hypothesesHold   and every hypothesis of the audited theorem is
 --                    satisfied by this data: `S = Unit`, `f = g = id`,
@@ -72,9 +72,9 @@
 -- choices of `f' false`/`g' false` commute at `false`, since `f'` and
 -- `g'` must both fix the image point.  Three points is the minimum for
 -- this shape, and the witness needs the two steps to disagree about
--- where `bad` goes â€” `f' bad = off`, `g' bad = bad`, and `g' off = im`.
+-- where `bad` goes â” `f' bad = off`, `g' bad = bad`, and `g' off = im`.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

@@ -1,32 +1,32 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§è‡§ï-‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£ ‚Äî eka-sa·πÖkrama·πáa, "the unique transport."  ‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£ is this
+-- ‡‡ï-‡‡‡ï‡‡∞‡Æ‡ ‚î eka-sakramaa, "the unique transport."  ‡‡‡ï‡‡∞‡Æ‡ is this
 -- corpus's word for transport (subst / translation of a datum along a
--- path ‚Äî DravyaParyaya_‚Ä¶, ¬´‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£‡§Æ‡•ç p P = subst P p¬ª); ‡§è‡§ï = one.  The
+-- path ‚î DravyaParyaya_‚¶, ¬‡‡‡ï‡‡∞‡Æ‡‡Æ‡ p P = subst P p¬ª); ‡‡ï = one.  The
 -- COMPOUND is this corpus's, declared here (naming rule note 2): there is
--- no classical Sanskrit term for a torsor, and none is invented for the
--- structure ‚Äî only for its defining property, that the element carrying
+-- no classical  term for a torsor, and none is invented for the
+-- structure ‚î only for its defining property, that the element carrying
 -- one point to another is exactly one.
 --
 -- WHAT IT PROVES, and why it is here.  runtime/atlas/residual.py's
 -- Torsor checks a group action FREE and TRANSITIVE by exhaustion, and
--- Torsor.translate(p, q) returns ¬´the unique g with g¬∑p = q¬ª ‚Äî RAISING
+-- Torsor.translate(p, q) returns ¬the unique g with g¬p = q¬ª ‚î RAISING
 -- if the number of such g is not exactly one.  That raise is a
 -- per-instance regularity guard.  This module proves it can never fire:
 --
---   ¬ß1  ‡§è‡§ï-‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£ (regular): in a FREE + TRANSITIVE action, for all
+--   ¬ß1  ‡‡ï-‡‡‡ï‡‡∞‡Æ‡ (regular): in a FREE + TRANSITIVE action, for all
 --       p, q the g with act g p ‚â° q is UNIQUE.  Transitivity gives
 --       existence, freeness gives uniqueness; general in P, no h-level.
 --   ¬ß2  the fibre reading (the seam's point): the orbit map
---       g ‚Ü¶ act g p has a CONTRACTIBLE fibre over every q ‚Äî so a torsor
---       IS an equivalence Carrier ‚âÉ P (with P a set).  translate is the
+--       g ‚¶ act g p has a CONTRACTIBLE fibre over every q ‚î so a torsor
+--       IS an equivalence Carrier ‚â P (with P a set).  translate is the
 --       inverse; its "exactly one" is contractibility of the fibre
---       (‡§Ö‡§¶‡•É‡§∑‡•ç‡§ü‡§Ç ‡§§‡§®‡•ç‡§§‡•Å‡§É ‡§è‡§ï‡§Æ‡•ç ‚Äî the fibre is a singleton), not a runtime
+--       (‡‡¶‡‡‡‡ü‡ ‡‡®‡‡‡‡ ‡‡ï‡Æ‡ ‚î the fibre is a singleton), not a runtime
 --       check.  free + transitive ‚ü∫ the orbit map's fibres are singletons.
 --
 -- So residual.py's exhaustive regularity check is provably redundant
--- given the free + transitive it already checks ‚Äî the general form of
+-- given the free + transitive it already checks ‚î the general form of
 -- Torsor.translate's uniqueness, for EVERY (group, action).
 --
 -- Sources for the mathematics: runtime/atlas/residual.py (Torsor,
@@ -82,7 +82,7 @@ module _ (Grp : Group ‚Ñì) (P : Type ‚Ñì') where
   Transitive A = (p q : P) ‚Üí Œ£[ g ‚àà Carrier ] Action.act A g p ‚â° q
 
   ----------------------------------------------------------------------
-  -- ¬ß1  ‡§è‡§ï-‡§∏‡§Ç‡§ï‡•ç‡§∞‡§Æ‡§£ ‚Äî the translating element is unique.
+  -- ¬ß1  ‡‡ï-‡‡‡ï‡‡∞‡Æ‡ ‚î the translating element is unique.
   ----------------------------------------------------------------------
 
   regular : (A : Action) ‚Üí Free A
@@ -91,7 +91,7 @@ module _ (Grp : Group ‚Ñì) (P : Type ‚Ñì') where
   regular A fr p q g h gp hq = uniq
     where
     open Action A
-    -- inv h ¬∑ g fixes p, so it is the identity.
+    -- inv h ¬ g fixes p, so it is the identity.
     fixes : act (inv h ¬∑ g) p ‚â° p
     fixes =
       act (inv h ¬∑ g) p        ‚â°‚ü® act-¬∑ (inv h) g p ‚ü©

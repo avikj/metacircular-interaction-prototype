@@ -10,7 +10,7 @@
 
 ## 0. Transfer contract
 
-This is a research-state transfer, not a proof of the Riemann hypothesis (RH), a proof of unrestricted three-dimensional Navier‚ÄìStokes (NS) regularity, a novelty-priority declaration, or a claim that this conversation has exhausted the repository. The archive contains substantial concrete analytical constructions, exact source-dependent identities, counterexamples to several proposed shortcuts, complete finite calculations, and two standalone proof-carrying Python evaluators. Its chief purpose is to let infrastructure-capable agents **continue from those objects rather than reconstruct them**.
+This is a research-state transfer, not a proof of the Riemann hypothesis (RH), a proof of unrestricted three-dimensional Navier‚ìStokes (NS) regularity, a novelty-priority declaration, or a claim that this conversation has exhausted the repository. The archive contains substantial concrete analytical constructions, exact source-dependent identities, counterexamples to several proposed shortcuts, complete finite calculations, and two standalone proof-carrying Python evaluators. Its chief purpose is to let infrastructure-capable agents **continue from those objects rather than reconstruct them**.
 
 The user explicitly asked for an extremely comprehensive handoff of everything developed in this conversation. They repeatedly corrected the assistant for treating alternate representations as independent research problems, manually expanding one return at a time, ignoring machinery already in the repository, and equating a sharper reformulation with distance to a global proof. The correct continuation is to load the actual source and theorem graph into the actual metacircular proof workflow, find and discharge concrete dependencies, and preserve every source condition across each transformation.
 
@@ -18,7 +18,7 @@ The user explicitly asked for an extremely comprehensive handoff of everything d
 
 The research session could read GitHub and execute standalone Python/SymPy controls. It did **not** run the repository's Yantra process or the pinned Agda/Cubical toolchain. The execution probe found no `agda`, `ghc`, or `cabal`, and its sandbox could not resolve GitHub, Hackage, or Debian package hosts. The logs are preserved as [S24]. No mathematical conclusion should be inferred from those infrastructure failures.
 
-The earlier phrases ‚Äúkernel executed,‚Äù ‚Äúproof-carrying kernel,‚Äù and counts such as 43, 67, 141, or 86 checks refer, unless explicitly identified otherwise, to local Python programs. They do not mean that the mathematical claims were encoded in Agda, accepted through `sadhana.patra`, analyzed through `sadhana.vislesana`, or installed into the repository's `NativeOperation` language. This distinction is central to the handoff.
+The earlier phrases ‚kernel executed,‚ ‚proof-carrying kernel,‚ and counts such as 43, 67, 141, or 86 checks refer, unless explicitly identified otherwise, to local Python programs. They do not mean that the mathematical claims were encoded in Agda, accepted through `sadhana.patra`, analyzed through `sadhana.vislesana`, or installed into the repository's `NativeOperation` language. This distinction is central to the handoff.
 
 Repository source files advertise prior successful builds at their pin. In this transfer those are **source-reported historical checks**, not newly reproduced compiler verdicts. A `--safe` header is not a transcript of a new build. A Python assertion about a finite matrix is not a proof of an infinite analytic statement. Original scripts and reports are retained byte-for-byte so agents can independently replay what was actually checked.
 
@@ -40,7 +40,7 @@ Use the following statuses when importing claims:
 
 These are multiple readings of the evidence, not claims that the repository's own sevenfold logic has been replaced by a Boolean verdict. They make the transfer auditable.
 
-### 0.3 What ‚Äúdone‚Äù means
+### 0.3 What ‚done‚ means
 
 For RH the endpoint is the actual zeta statement
 
@@ -55,17 +55,17 @@ Completion requires a closed dependency graph from accepted foundations and clas
 ### 0.4 Immediate reading order
 
 1. Read the remainder of this chapter, the infrastructure chapter, and the correction ledger before executing or formalizing anything.
-2. Read the latest source-preserving kernel pair [S17‚ÄìS18], then the independently recovered midpoint/storage/Abel note [S19]. These are complementary, not competing, representations.
+2. Read the latest source-preserving kernel pair [S17‚ìS18], then the independently recovered midpoint/storage/Abel note [S19]. These are complementary, not competing, representations.
 3. For NS, read [S12], [S13], and [S15] for actual angular source geometry and [S16] for the moving-observer quantifier and small-data control.
-4. For RH, read [S02], [S08], [S11‚ÄìS13], then [S19], [S20], and the arithmetic part of [S22].
+4. For RH, read [S02], [S08], [S11‚ìS13], then [S19], [S20], and the arithmetic part of [S22].
 5. Use `SOURCE_INDEX.md` to locate complete original arguments and `CLAIM_GRAPH.json` to inspect dependencies and correction edges.
 6. Use the repository, not this prose, to settle any question about a formal theorem's current type or import closure.
 
 The old six-September comprehensive handoff [S00] is bundled. It carries broader pair-field, HoTT, cost, grammar, holonomy, and reconstruction context beyond the narrower NS/RH developments here.
 
-## 1. The user‚Äôs mathematical intent and the workflow failure to avoid
+## 1. The user‚ôs mathematical intent and the workflow failure to avoid
 
-The user's repeated instruction ‚Äúmetacircular kernel‚Äù is not a request to append another analogy to a long list. It means: use the common proof-relevant source/history, represent its operations explicitly, expose the exact residual of a failed requested observation, prove the residual relation, install the derivation, and reuse it schematically at the same source and appropriate locus.
+The user's repeated instruction ‚metacircular kernel‚ is not a request to append another analogy to a long list. It means: use the common proof-relevant source/history, represent its operations explicitly, expose the exact residual of a failed requested observation, prove the residual relation, install the derivation, and reuse it schematically at the same source and appropriate locus.
 
 The intended progress is **actual source-specific theorem composition**. A new family of equivalent RH criteria, another renamed NS depletion quantity, or another isolated angular coefficient is not automatically progress toward the endpoint. It can be valuable as an adapter or a control, but its role must be stated.
 
@@ -74,7 +74,7 @@ Avoid both previous extremes:
 * Do not say that broad reconstruction/continuation machinery is unavailable until reading the actual graph. Much was already present.
 * Do not claim that a generic lossless completion proves a new positivity or regularity property of every source. The property must come from somewhere, then be transported with its hypotheses.
 
-The assistant's repeated ‚Äúendgame,‚Äù ‚Äúone mountain left,‚Äù and ‚Äúalmost done‚Äù phrasing was not backed by a demonstrated closing composition. It is not part of the mathematical evidence. The useful content is in the constructions, derivations, exact tests, and corrections preserved here.
+The assistant's repeated ‚endgame,‚ ‚one mountain left,‚ and ‚almost done‚ phrasing was not backed by a demonstrated closing composition. It is not part of the mathematical evidence. The useful content is in the constructions, derivations, exact tests, and corrections preserved here.
 
 The repository itself provides the right response to representation debt: a fully retained source is not lost and does not need to be reinvented after every new observation. If \(e_i:X\simeq X_i\), then
 
@@ -100,7 +100,7 @@ The archive combines four kinds of material:
 3. A reconstructed synthesis of visible conversation-only results whose original artifact was not available under its earlier sandbox path.
 4. Repository paths, types, interface details, and execution prerequisites actually read in the conversation and rechecked where specified.
 
-This is not a literal export of hidden reasoning or a promise that every message hidden behind a ‚ÄúSkipped messages‚Äù marker was recoverable. Where an earlier artifact could not be recovered, `RETRIEVAL_GAPS.md` says so. The substantial visible result families are integrated below; the original documents are also provided without editing away their historical corrections.
+This is not a literal export of hidden reasoning or a promise that every message hidden behind a ‚Skipped messages‚ marker was recoverable. Where an earlier artifact could not be recovered, `RETRIEVAL_GAPS.md` says so. The substantial visible result families are integrated below; the original documents are also provided without editing away their historical corrections.
 
 Library aliases such as `proof_note(3).md`, `proof_note(9).md`, and date-stamped copies sometimes materialize to the same bytes, and a few aliases resolve to a later version. **Never use a numeric filename alone as theorem identity.** Use semantic title, source ID, relative path, and SHA-256 in `MANIFEST.json`. The source anthology deduplicates exact bytes but preserves the alias mapping.
 

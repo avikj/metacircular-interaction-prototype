@@ -1,58 +1,58 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï‡§É ‚Äî the negative concomitance, and the inference that is not
+-- ‡µ‡‡Ø‡‡ø‡∞‡‡ï‡ ‚î the negative concomitance, and the inference that is not
 -- licensed by it.
 --
--- THE TERM, ITS TEXT AND ITS DATE.  ‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï is the negative half of the
--- NyƒÅya pervasion (‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø): ‡§Ö‡§®‡•ç‡§µ‡§Ø is "wherever the ‡§π‡•á‡§§‡•Å, there the
--- ‡§∏‡§æ‡§ß‡•ç‡§Ø", ‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï is its contrapositive, "wherever the ‡§∏‡§æ‡§ß‡•ç‡§Ø is absent,
--- the ‡§π‡•á‡§§‡•Å is absent".  The ‡§π‡•á‡§§‡•Å and the members of the inference are set
--- out in Gautama, *NyƒÅyas≈´tra* 1.1.5 and 1.1.32‚Äì39 (the five-membered
--- ‡§®‡•ç‡§Ø‡§æ‡§Ø‡§µ‡§æ‡§ï‡•ç‡§Ø), c. 2nd c. CE; the ‡§Ö‡§®‡•ç‡§µ‡§Ø/‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï pair as the two supports
--- of ‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø is worked in VƒÅtsyƒÅyana's *NyƒÅyabhƒÅ·π£ya*, c. 450 CE, and the
--- ‡§ï‡•á‡§µ‡§≤‡§æ‡§®‡•ç‡§µ‡§Ø‡§ø‡§®‡•ç / ‡§ï‡•á‡§µ‡§≤‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï‡§ø‡§®‡•ç / ‡§Ö‡§®‡•ç‡§µ‡§Ø‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï‡§ø‡§®‡•ç classification of
--- ‡§π‡•á‡§§‡•Ås is standard by Anna·πÉbha·π≠·π≠a, *Tarkasa·πÉgraha*, c. 1600 CE.
+-- THE TERM, ITS TEXT AND ITS DATE.  ‡µ‡‡Ø‡‡ø‡∞‡‡ï is the negative half of the
+-- Nyya pervasion (‡µ‡‡Ø‡æ‡‡‡‡ø): ‡‡®‡‡µ‡Ø is "wherever the ‡‡‡‡, there the
+-- ‡‡æ‡ß‡‡Ø", ‡µ‡‡Ø‡‡ø‡∞‡‡ï is its contrapositive, "wherever the ‡‡æ‡ß‡‡Ø is absent,
+-- the ‡‡‡‡ is absent".  The ‡‡‡‡ and the members of the inference are set
+-- out in Gautama, *Nyyastra* 1.1.5 and 1.1.32‚ì39 (the five-membered
+-- ‡®‡‡Ø‡æ‡Ø‡µ‡æ‡ï‡‡Ø), c. 2nd c. CE; the ‡‡®‡‡µ‡Ø/‡µ‡‡Ø‡‡ø‡∞‡‡ï pair as the two supports
+-- of ‡µ‡‡Ø‡æ‡‡‡‡ø is worked in Vtsyyana's *Nyyabhya*, c. 450 CE, and the
+-- ‡ï‡‡µ‡≤‡æ‡®‡‡µ‡Ø‡ø‡®‡ / ‡ï‡‡µ‡≤‡µ‡‡Ø‡‡ø‡∞‡‡ï‡ø‡®‡ / ‡‡®‡‡µ‡Ø‡µ‡‡Ø‡‡ø‡∞‡‡ï‡ø‡®‡ classification of
+-- ‡‡‡‡s is standard by Annabhaa, *Tarkasagraha*, c. 1600 CE.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS MODULE IS.
 --
--- `interactive/AnulomaPratiloma_‚Ä¶hs` proposed 39 candidate inverse pairs and
+-- `interactive/AnulomaPratiloma_‚¶hs` proposed 39 candidate inverse pairs and
 -- reported 0 accepted at every rung of its ladder, concluding that "every
 -- causeway costs a real proof".  Two things are wrong with the conclusion
 -- and this module fixes the second; the first is recorded here because
 -- it is the larger error and belongs next to it.
 --
 --   THE FIRST.  Sixteen of the 39 pairs name types the HOST MODULE HAS
---   ALREADY IDENTIFIED, by hand, in the same file the proposer read ‚Äî
---   `SaptabhangiNaya.saptabhangi-equiv`, `Digits.‚Ñï‚âÉCanWord`,
---   `FreeMonoid.‚Ñï‚âÉTally`, `TermFreeMonoid.Tm‚âÉList`, all four of
+--   ALREADY IDENTIFIED, by hand, in the same file the proposer read ‚î
+--   `SaptabhangiNaya.saptabhangi-equiv`, `Digits.‚ï‚âCanWord`,
+--   `FreeMonoid.‚ï‚âTally`, `TermFreeMonoid.Tm‚âList`, all four of
 --   `PMTorus`, both of `S3IntegerRelativeCoordinates`,
---   `CenterRelative.Pair‚âÉCR`, `AchromaticToy.L‚ÇÅ‚ÇÇ`,
+--   `CenterRelative.Pair‚âCR`, `AchromaticToy.L‚‚`,
 --   `ProjectionChargeAudit.localChargeEquiv`,
---   `WallCertificate.quotient‚âÉBool`.  The proposer read every top-level
---   arrow in the corpus and never read a top-level `_‚âÉ_`.  "No cheap
+--   `WallCertificate.quotient‚âBool`.  The proposer read every top-level
+--   arrow in the corpus and never read a top-level `_‚â_`.  "No cheap
 --   harvest" was a measurement of the instrument.
 --
 --   THE SECOND, and it is what is proved below.  A refuted round trip
 --   refutes THE PAIR.  It says nothing about the types.  Three verdicts
 --   live under the machine's single "not accepted", and
---   `Tantujala_‚Ä¶agda` already gives this repository the shape of that
+--   `Tantujala_‚¶agda` already gives this repository the shape of that
 --   complaint: a two-valued verdict on three positions identifies two of
 --   them.  Here the three are
 --
---     (‡§Ö)  the pair fails and the types ARE equivalent, by another map.
---          `Anyathasiddhi_‚Ä¶agda` is the worked case: `res` does not invert
---          `infl`, and `infl` is nevertheless an equivalence.  ¬ß‡•© below
+--     (‡)  the pair fails and the types ARE equivalent, by another map.
+--          `Anyathasiddhi_‚¶agda` is the worked case: `res` does not invert
+--          `infl`, and `infl` is nevertheless an equivalence.  ¬ß‡© below
 --          adds a second: `Digits.value` is not injective on `Word`, and
---          the same file proves `‚Ñï ‚âÉ CanWord`.
---     (‡§Ü)  the pair fails and the types are SEPARATED.  ¬ß‡•ß‚Äì‡•®: `Syllable`
---          and `‚Ñï`; `Z2` and `Z4`.  Both are proved, from one lemma.
---     (‡§á)  the pair fails and nothing is known either way.  ¬ß‡•™: two pairs
+--          the same file proves `‚ï ‚â CanWord`.
+--     (‡)  the pair fails and the types are SEPARATED.  ¬ß‡ß‚ì‡®: `Syllable`
+--          and `‚ï`; `Z2` and `Z4`.  Both are proved, from one lemma.
+--     (‡)  the pair fails and nothing is known either way.  ¬ß‡: two pairs
 --          left in exactly that state, said so rather than resolved.
 --
--- ¬ß‡•´ then transports a separation along the causeway of
--- `Anyathasiddhi_‚Ä¶agda` ‚Äî a non-equivalence crosses an equivalence with
+-- ¬ß‡ then transports a separation along the causeway of
+-- `Anyathasiddhi_‚¶agda` ‚î a non-equivalence crosses an equivalence with
 -- one `subst` and no new case analysis, which is the point of having the
 -- edge at all.
 ------------------------------------------------------------------------
@@ -78,7 +78,7 @@ open import InflationVersusSubgroup
   using (Z2 ; e0 ; e1 ; Z4 ; z0 ; z1 ; z2 ; z3 ; incl ; proj)
 open import SieveScaleTower using (O‚ÇÅ ; O‚ÇÇ ; s‚ÇÇ‚ÇÅ ; œÄ‚ÇÇ‚ÇÅ)
 
--- Base two, so the arithmetic in ¬ß‡•© reduces.  `Digits` is parameterized by
+-- Base two, so the arithmetic in ¬ß‡© reduces.  `Digits` is parameterized by
 -- k with b = 2 + k; nothing below depends on the choice.
 open import Digits 0
   using (Word ; Digit ; value ; digits ; CanWord ; ‚Ñï‚âÉCanWord)
@@ -89,8 +89,8 @@ open import Anyathasiddhi_TheProposedInverseIsSpuriousAndInflationCarriesTheGrou
 open import InflationVersusSubgroup using (H2 ; k0 ; kŒπ ; H4)
 
 ------------------------------------------------------------------------
--- ‡•¶ ¬∑ THE ONE LEMMA.  Three pairwise-distinct points cannot be injected
---     into `Bool`.  Everything in ¬ß‡•ß‚Äì‡•® is this, twice.
+-- ‡¶ ¬ THE ONE LEMMA.  Three pairwise-distinct points cannot be injected
+--     into `Bool`.  Everything in ¬ß‡ß‚ì‡® is this, twice.
 --
 --     The Boolean pigeonhole is stated separately so that no `with` is
 --     needed against the injectivity hypothesis: `pairOf` is six lines of
@@ -118,18 +118,18 @@ invEq-inj : {A B : Type} (e : A ‚âÉ B) (p q : B) ‚Üí invEq e p ‚â° invEq e q ‚Üí
 invEq-inj e p q r = sym (secEq e p) ‚àô cong (equivFun e) r ‚àô secEq e q
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ `PingalaPrastara.aksara ‚áÑ parity` ‚Äî the pair fails AND the types
+-- ‡ß ¬ `PingalaPrastara.aksara ‚ parity` ‚î the pair fails AND the types
 --     are separated.
 --
---     `aksara : Syllable ‚Üí ‚Ñï` sends ‡§≤‡§ò‡•Å to 0 and ‡§ó‡•Å‡§∞‡•Å to 1; `parity : ‚Ñï ‚Üí
---     Syllable` reads the last bit.  `parity ‚àò aksara` is the identity ‚Äî
---     the proposer was right that there is a retraction ‚Äî and
+--     `aksara : Syllable ‚í ‚ï` sends ‡≤‡ò‡ to 0 and ‡ó‡‡∞‡ to 1; `parity : ‚ï ‚í
+--     Syllable` reads the last bit.  `parity ‚àò aksara` is the identity ‚î
+--     the proposer was right that there is a retraction ‚î and
 --     `aksara ‚àò parity` is not, because `aksara (parity 2) = 0`.  Here the
---     ‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï does hold: no equivalence exists at all.
+--     ‡µ‡‡Ø‡‡ø‡∞‡‡ï does hold: no equivalence exists at all.
 --
---     This is the ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞'s own arithmetic and it is the reason ‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü
+--     This is the ‡‡‡∞‡‡‡‡æ‡∞'s own arithmetic and it is the reason ‡â‡¶‡‡¶‡ø‡‡‡ü
 --     is a positional sum rather than a lookup: one syllable carries one
---     bit, and ‚Ñï is not one bit.
+--     bit, and ‚ï is not one bit.
 ------------------------------------------------------------------------
 
 sylBool : Syllable ‚Üí Bool
@@ -158,10 +158,10 @@ aksara-parity-fails h = znots (h 2)
     pred1 (suc n) = n
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ `InflationVersusSubgroup.incl ‚áÑ proj` ‚Äî the pair fails AND the
+-- ‡® ¬ `InflationVersusSubgroup.incl ‚ proj` ‚î the pair fails AND the
 --     types are separated.
 --
---     N = {z0,z2} ‚Ü™ ‚Ñ§/4 is the subgroup and ‚Ñ§/4 ‚Ü† ‚Ñ§/2 the quotient; the
+--     N = {z0,z2} ‚ ‚/4 is the subgroup and ‚/4 ‚† ‚/2 the quotient; the
 --     proposer matched their arrows because the quotient and the subgroup
 --     are abstractly the same group, and that coincidence is the whole
 --     subject of the host module.  `proj ‚àò incl` is the identity;
@@ -197,15 +197,15 @@ incl-proj-fails h = true‚â¢false (cong z4b (sym (h z1)))
          (Œª r ‚Üí true‚â¢false (cong z4b r))
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ `Digits.digits ‚áÑ value` ‚Äî the pair fails and the
+-- ‡© ¬ `Digits.digits ‚ value` ‚î the pair fails and the
 --     types are NOT separated, and the SAME FILE carries the repair.
 --
---     `value` is not injective on raw words: `fzero ‚à∑ []` and `[]` both
+--     `value` is not injective on raw words: `fzero ‚à []` and `[]` both
 --     evaluate to 0, which is the leading-zero ambiguity of positional
 --     notation and is why `Digits` defines `Canonical` at all.  The
 --     proposer denied the pair and its line in the log reads exactly
---     like those of ¬ß‡•ß‚Äì‡•®.  It is a different verdict: `Digits`
---     proves `‚Ñï ‚âÉ CanWord` sixty lines further down, and that equivalence
+--     like those of ¬ß‡ß‚ì‡®.  It is a different verdict: `Digits`
+--     proves `‚ï ‚â CanWord` sixty lines further down, and that equivalence
 --     is imported here so the two claims stand on the same page.
 ------------------------------------------------------------------------
 
@@ -217,30 +217,30 @@ digits-value-fails h = znots (cong length (h (fzero ‚à∑ [])))
 ‚Ñï‚â°CanWord = ua ‚Ñï‚âÉCanWord
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ `SieveScaleTower.s‚ÇÇ‚ÇÅ ‚áÑ œÄ‚ÇÇ‚ÇÅ` ‚Äî the pair fails and
+-- ‡ ¬ `SieveScaleTower.s‚‚ ‚ œ‚‚` ‚î the pair fails and
 --     THE TYPES ARE NOT SEPARATED HERE, and I do not know whether they
 --     are.  Stated, not resolved.
 --
---     O‚ÇÅ = ‚Ñï and O‚ÇÇ = ‚Ñï √ó ‚Ñï.  `s‚ÇÇ‚ÇÅ x = (x , 0)` is a section of the
---     projection, so `œÄ‚ÇÇ‚ÇÅ ‚àò s‚ÇÇ‚ÇÅ` is the identity and `s‚ÇÇ‚ÇÅ ‚àò œÄ‚ÇÇ‚ÇÅ` forgets
---     the second coordinate ‚Äî refuted below.  Whether ‚Ñï ‚âÉ ‚Ñï √ó ‚Ñï holds is
+--     O‚ = ‚ï and O‚ = ‚ï ó ‚ï.  `s‚‚ x = (x , 0)` is a section of the
+--     projection, so `œ‚‚ ‚àò s‚‚` is the identity and `s‚‚ ‚àò œ‚‚` forgets
+--     the second coordinate ‚î refuted below.  Whether ‚ï ‚â ‚ï ó ‚ï holds is
 --     a separate question with a well-known affirmative answer by a
 --     pairing function; the cubical library shipped with this repository
 --     (agda/cubical v0.9) has no such equivalence under `Cubical.Data.Nat`,
 --     nothing in this corpus proves one, and I am not asserting one.  The
---     honest verdict on this candidate is (‡§á).
+--     honest verdict on this candidate is (‡).
 ------------------------------------------------------------------------
 
 s‚ÇÇ‚ÇÅ-œÄ‚ÇÇ‚ÇÅ-fails : ¬¨ ((o : O‚ÇÇ) ‚Üí s‚ÇÇ‚ÇÅ (œÄ‚ÇÇ‚ÇÅ o) ‚â° o)
 s‚ÇÇ‚ÇÅ-œÄ‚ÇÇ‚ÇÅ-fails h = znots (cong snd (h (0 , 1)))
 
 ------------------------------------------------------------------------
--- ‡•´ ¬∑ A SEPARATION CROSSES A CAUSEWAY.
+-- ‡ ¬ A SEPARATION CROSSES A CAUSEWAY.
 --
---     `Anyathasiddhi_‚Ä¶agda` built H2 ‚â° H4 out of the pair the machine
---     denied.  H2 = H¬π(‚Ñ§/2, ‚Ñ§/2) is a two-element enumeration and so is
---     Z2; ¬ß‡•® separated Z2 from Z4.  Composing, H4 = H¬π(‚Ñ§/4, ‚Ñ§/2) is not
---     ‚Ñ§/4 ‚Äî a non-equivalence obtained by ONE `subst` along a path, with
+--     `Anyathasiddhi_‚¶agda` built H2 ‚â° H4 out of the pair the machine
+--     denied.  H2 = H¬(‚/2, ‚/2) is a two-element enumeration and so is
+--     Z2; ¬ß‡® separated Z2 from Z4.  Composing, H4 = H¬(‚/4, ‚/2) is not
+--     ‚/4 ‚î a non-equivalence obtained by ONE `subst` along a path, with
 --     no case analysis on H4 anywhere.  That is what the edge was for.
 ------------------------------------------------------------------------
 
@@ -267,7 +267,7 @@ Z2‚â°H4 = ua Z2‚âÉH2 ‚àô H2‚â°H4
 ¬¨H4‚âÉZ4 = subst (Œª A ‚Üí ¬¨ (A ‚âÉ Z4)) Z2‚â°H4 ¬¨Z2‚âÉZ4
 
 ------------------------------------------------------------------------
--- ‡•¨ ¬∑ THE SCOPE, EXACTLY.
+-- ‡ ¬ THE SCOPE, EXACTLY.
 --
 --   * That the remaining candidates of the 39 are any particular verdict.
 --     Twenty-three pairs are untouched by this file; the sixteen listed in
@@ -278,8 +278,8 @@ Z2‚â°H4 = ua Z2‚âÉH2 ‚àô H2‚â°H4
 --     four-versus-eight separation the queue also contains
 --     (`AdaptiveProbeCollapse`) needs a different argument and is not
 --     attempted.
---   * That ‡§µ‡•ç‡§Ø‡§§‡§ø‡§∞‡•á‡§ï as NyƒÅya uses it is the contrapositive of a material
+--   * That ‡µ‡‡Ø‡‡ø‡∞‡‡ï as Nyya uses it is the contrapositive of a material
 --     implication.  It is a relation between properties in a substrate,
---     argued with ‡§â‡§™‡§æ‡§ß‡§ø and ‡§§‡§∞‡•ç‡§ï, and the reduction of it to a truth-table
+--     argued with ‡â‡‡æ‡ß‡ø and ‡‡∞‡‡ï, and the reduction of it to a truth-table
 --     is not being asserted.
 ------------------------------------------------------------------------

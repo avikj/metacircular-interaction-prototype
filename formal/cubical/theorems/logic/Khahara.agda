@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§ñ‡§π‡§∞‡§É ‚Äî ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞‡§∏‡•ç‡§Ø ‡§¶‡•ç‡§µ‡§ø‡§§‡•Ä‡§Ø‡§∏‡•ç‡§Ø ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞-‡§∞‡§æ‡§∂‡§ø‡§É (‡§≤‡•Ä‡§≤‡§æ‡§µ‡§§‡•Ä, ‡§¨‡•Ä‡§ú‡§ó‡§£‡§ø‡§§‡§Æ‡•ç, ‡•ß‡•ß‡•´‡•¶ ‡§à.) ‡•§
--- ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§‡§∏‡•ç‡§Ø ‡§∂‡•ã‡§ß‡§®‡§Æ‡•ç : n√∑0 (n‚â†0) ‡§® ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§Æ‡•ç, ‡§ï‡§ø‡§®‡•ç‡§§‡•Å "‡§ñ‡§π‡§∞‡§É" ‚Äî ‡§Ö‡§®‡§®‡•ç‡§§-‡§∞‡§æ‡§∂‡§ø‡§É,
--- ‡§Ø‡§É ‡§∏‡§∏‡•Ä‡§Æ-‡§Ø‡•ã‡§ó‡•á‡§® ‡§µ‡§ø‡§Ø‡•ã‡§ó‡•á‡§® ‡§ö ‡§Ö‡§µ‡§ø‡§ï‡•É‡§§‡§É (‡§ñ‡§π‡§∞‡•á ‡§Ö‡§∏‡•ç‡§Æ‡§ø‡§®‡•ç ‡§® ‡§µ‡§ø‡§ï‡§æ‡§∞‡§É) ‡•§
+-- ‡ñ‡‡∞‡ ‚î ‡‡æ‡‡‡ï‡∞‡‡‡Ø ‡¶‡‡µ‡ø‡‡‡Ø‡‡‡Ø ‡‡‡®‡‡Ø-‡‡∞-‡∞‡æ‡‡ø‡ (‡≤‡‡≤‡æ‡µ‡‡, ‡‡‡‡ó‡‡ø‡‡Æ‡, ‡ß‡ß‡‡¶ ‡à.) ‡
+-- ‡‡‡∞‡‡‡Æ‡ó‡‡‡‡‡‡‡Ø ‡‡ã‡ß‡®‡Æ‡ : n0 (n‚â†0) ‡® ‡‡‡®‡‡Ø‡Æ‡, ‡ï‡ø‡®‡‡‡ "‡ñ‡‡∞‡" ‚î ‡‡®‡®‡‡-‡∞‡æ‡‡ø‡,
+-- ‡Ø‡ ‡‡‡‡Æ-‡Ø‡ã‡ó‡‡® ‡µ‡ø‡Ø‡ã‡ó‡‡® ‡ ‡‡µ‡ø‡ï‡‡‡ (‡ñ‡‡∞‡ ‡‡‡‡Æ‡ø‡®‡ ‡® ‡µ‡ø‡ï‡æ‡∞‡) ‡
 --
--- ‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ-‡§≠‡•á‡§¶‡§É (Shunya-‡§∏‡§Æ‡•ç‡§¨‡§®‡•ç‡§ß‡§É) : n√∑0 (n‚â†0) = ‡§ñ‡§π‡§∞‡§É (‡§Ö‡§®‡§®‡•ç‡§§‡§É, ‡§®‡§ø‡§∂‡•ç‡§ö‡§ø‡§§‡§É) ;
--- ‡§ï‡§ø‡§®‡•ç‡§§‡•Å 0√∑0 = ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç (‡§Ö‡§®‡§ø‡§∂‡•ç‡§ö‡§ø‡§§‡§Æ‡•ç, ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•ç‡§Ø‡§æ‡§É ‡•™‡§∞‡•ç‡§•‡§Ç ‡§™‡§¶‡§Æ‡•ç), ‡§® ‡§ñ‡§π‡§∞‡§É ‡•§
--- ‡§¶‡•ç‡§µ‡•å ‡§≠‡§ø‡§®‡•ç‡§®‡•å "‡§Ö‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡•å" : ‡§è‡§ï‡§É ‡§Ö‡§®‡§®‡•ç‡§§‡§É, ‡§Ö‡§™‡§∞‡§É ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§É ‡•§  ‡§è‡§∑ ‡§è‡§µ ‡§∏‡•Ç‡§ï‡•ç‡§∑‡•ç‡§Æ‡§É
--- ‡§µ‡§ø‡§µ‡•á‡§ï‡§É ‡§Ø‡§Æ‡•ç ‡§¨‡•Ç‡§≤‡§ø‡§Ø‡§®‡•ç-‡§ó‡§£‡§ø‡§§‡§Ç (‡§è‡§ï‡§Ç "undefined") ‡§≤‡•Å‡§Æ‡•ç‡§™‡§§‡§ø ‡•§
+-- ‡‡‡ï‡‡‡‡Æ-‡‡‡¶‡ (Shunya-‡‡Æ‡‡‡®‡‡ß‡) : n0 (n‚â†0) = ‡ñ‡‡∞‡ (‡‡®‡®‡‡‡, ‡®‡ø‡‡‡‡ø‡‡) ;
+-- ‡ï‡ø‡®‡‡‡ 00 = ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ (‡‡®‡ø‡‡‡‡ø‡‡Æ‡, ‡‡‡‡‡‡ô‡‡ó‡‡Ø‡æ‡ ‡‡∞‡‡‡ ‡‡¶‡Æ‡), ‡® ‡ñ‡‡∞‡ ‡
+-- ‡¶‡‡µ‡ ‡‡ø‡®‡‡®‡ "‡‡‡‡®‡‡Ø-‡‡∞‡" : ‡‡ï‡ ‡‡®‡®‡‡‡, ‡‡‡∞‡ ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡  ‡‡ ‡‡µ ‡‡‡ï‡‡‡‡Æ‡
+-- ‡µ‡ø‡µ‡‡ï‡ ‡Ø‡Æ‡ ‡‡‡≤‡ø‡Ø‡®‡-‡ó‡‡ø‡‡ (‡‡ï‡ "undefined") ‡≤‡‡Æ‡‡‡‡ø ‡
 --
--- (BhƒÅskara II's khahara ‚Äî the zero-divided quantity (Lƒ´lƒÅvatƒ´, 1150),
--- correcting Brahmagupta: n√∑0 (n‚â†0) is not zero but khahara, an infinite
+-- (Bhskara II's khahara ‚î the zero-divided quantity (Llvat, 1150),
+-- correcting Brahmagupta: n0 (n‚â†0) is not zero but khahara, an infinite
 -- quantity UNCHANGED by adding or subtracting a finite amount.  And the
--- fine distinction with Shunya: n√∑0 (n‚â†0) = khahara (determinate infinite),
--- whereas 0√∑0 = avaktavya (indeterminate, the un-said) ‚Äî two DIFFERENT
+-- fine distinction with Shunya: n0 (n‚â†0) = khahara (determinate infinite),
+-- whereas 00 = avaktavya (indeterminate, the un-said) ‚î two DIFFERENT
 -- non-finite results that a boolean "undefined" collapses into one.)
 ------------------------------------------------------------------------
 
--- [CORRECTED 2026-08-19.  The identification of 0√∑0 with ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç,
---  the saptabha·πÖgƒ´'s fourth position, does not hold ‚Äî and it fails by
+-- [CORRECTED 2026-08-19.  The identification of 00 with ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡,
+--  the saptabhag's fourth position, does not hold ‚î and it fails by
 --  SaptabhangiNaya.agda's own criterion, in this same directory, not
 --  by an outside standard.  ¬ß5 there defines avaktavyam as the case
 --  where NO SINGLE UTTERANCE denotes the content, proved exhaustively
---  over the six atoms of its language.  0√∑0's situation IS denotable
---  in one utterance: every x whatsoever satisfies 0¬∑x = 0, which is
+--  over the six atoms of its language.  00's situation IS denotable
+--  in one utterance: every x whatsoever satisfies 0¬x = 0, which is
 --  one complete statement saying exactly what is wrong.
 --
 --  The two defects are opposite.  avaktavyam: the content is
---  determinate and the medium cannot say it in one go ‚Äî an
---  EXPRESSIBILITY failure.  0√∑0: the content is perfectly expressible
---  and the solution set is not a singleton ‚Äî a UNIQUENESS failure.
+--  determinate and the medium cannot say it in one go ‚î an
+--  EXPRESSIBILITY failure.  00: the content is perfectly expressible
+--  and the solution set is not a singleton ‚î a UNIQUENESS failure.
 --
---  Everything else in this module stands.  Brahmagupta's 0√∑0 = 0
---  (BrƒÅhmasphu·π≠asiddhƒÅnta, 628) is a durnaya; BhƒÅskara II's khahara
---  (Lƒ´lƒÅvatƒ´, 1150) is a genuinely different non-finite result from
+--  Everything else in this module stands.  Brahmagupta's 00 = 0
+--  (Brhmasphuasiddhnta, 628) is a durnaya; Bhskara II's khahara
+--  (Llvat, 1150) is a genuinely different non-finite result from
 --  it; and a boolean "undefined" collapsing them is the disease.
 --  Only the name of the second thing is wrong.  See
---  AnuktaAvaktavya.agda ¬ß6, where 0√∑0's defect is checked.
+--  AnuktaAvaktavya.agda ¬ß6, where 00's defect is checked.
 --
 --  Three modules here now call three different structures
---  avaktavyam ‚Äî Satyayantra, Khahara, Shunya.  Using one third
+--  avaktavyam ‚î Satyayantra, Khahara, Shunya.  Using one third
 --  position as a catch-all for "not a clean single answer" is the
 --  boolean collapse this corpus exists to fight, one level up.]
 module Khahara where
@@ -52,7 +52,7 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Relation.Nullary using (¬¨_)
 
 ------------------------------------------------------------------------
--- ‡§ñ‡§π‡§∞ ‚Äî ‡§∏‡§∏‡•Ä‡§Æ‡§É (finite ‚Ñ§) ‡§µ‡§æ ‡§Ö‡§®‡§®‡•ç‡§§‡§É (khahara) ‡•§
+-- ‡ñ‡‡∞ ‚î ‡‡‡‡Æ‡ (finite ‚) ‡µ‡æ ‡‡®‡®‡‡‡ (khahara) ‡
 ------------------------------------------------------------------------
 
 data ‡§ñ‡§π‡§∞ : Type where
@@ -60,7 +60,7 @@ data ‡§ñ‡§π‡§∞ : Type where
   ‡§Ö‡§®‡§®‡•ç‡§§ : ‡§ñ‡§π‡§∞          -- ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞‡§∏‡•ç‡§Ø ‡§ñ‡§π‡§∞‡§É
 
 ------------------------------------------------------------------------
--- ‚äï , ‚äñ ‚Äî ‡§Ø‡•ã‡§ó‡§É ‡§µ‡§ø‡§Ø‡•ã‡§ó‡§∂‡•ç‡§ö ‡•§  ‡§Ö‡§®‡§®‡•ç‡§§‡§É ‡§∏‡§∏‡•Ä‡§Æ‡•á‡§® ‡§Ö‡§µ‡§ø‡§ï‡•É‡§§‡§É (BhƒÅskara's law) ‡•§
+-- ‚äï , ‚äñ ‚î ‡Ø‡ã‡ó‡ ‡µ‡ø‡Ø‡ã‡ó‡‡‡ ‡  ‡‡®‡®‡‡‡ ‡‡‡‡Æ‡‡® ‡‡µ‡ø‡ï‡‡‡ (Bhskara's law) ‡
 ------------------------------------------------------------------------
 
 _‚äï_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
@@ -74,8 +74,8 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 ‡§∏‡§∏‡•Ä‡§Æ _ ‚äñ ‡§Ö‡§®‡§®‡•ç‡§§   = ‡§Ö‡§®‡§®‡•ç‡§§
 
 ------------------------------------------------------------------------
--- ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞-‡§®‡§ø‡§Ø‡§Æ‡§É ‚Äî ‡§ñ‡§π‡§∞‡•á ‡§® ‡§µ‡§ø‡§ï‡§æ‡§∞‡§É : ‡§Ö‡§®‡§®‡•ç‡§§‡§É ‡§∏‡§∏‡•Ä‡§Æ-‡§Ø‡•ã‡§ó‡•á‡§® ‡§µ‡§ø‡§Ø‡•ã‡§ó‡•á‡§® ‡§ö ‡§Ö‡§µ‡§ø‡§ï‡•É‡§§‡§É ‡•§
--- (BhƒÅskara's law: khahara is unchanged by adding or subtracting a finite.)
+-- ‡‡æ‡‡‡ï‡∞-‡®‡ø‡Ø‡Æ‡ ‚î ‡ñ‡‡∞‡ ‡® ‡µ‡ø‡ï‡æ‡∞‡ : ‡‡®‡®‡‡‡ ‡‡‡‡Æ-‡Ø‡ã‡ó‡‡® ‡µ‡ø‡Ø‡ã‡ó‡‡® ‡ ‡‡µ‡ø‡ï‡‡‡ ‡
+-- (Bhskara's law: khahara is unchanged by adding or subtracting a finite.)
 ------------------------------------------------------------------------
 
 ‡§ñ‡§π‡§∞‡•á-‡§®-‡§µ‡§ø‡§ï‡§æ‡§∞‡§É-‡§Ø‡•ã‡§ó‡•á : (a : ‚Ñ§) ‚Üí (‡§Ö‡§®‡§®‡•ç‡§§ ‚äï ‡§∏‡§∏‡•Ä‡§Æ a) ‚â° ‡§Ö‡§®‡§®‡•ç‡§§
@@ -84,32 +84,32 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 ‡§ñ‡§π‡§∞‡•á-‡§®-‡§µ‡§ø‡§ï‡§æ‡§∞‡§É-‡§µ‡§ø‡§Ø‡•ã‡§ó‡•á : (a : ‚Ñ§) ‚Üí (‡§Ö‡§®‡§®‡•ç‡§§ ‚äñ ‡§∏‡§∏‡•Ä‡§Æ a) ‚â° ‡§Ö‡§®‡§®‡•ç‡§§
 ‡§ñ‡§π‡§∞‡•á-‡§®-‡§µ‡§ø‡§ï‡§æ‡§∞‡§É-‡§µ‡§ø‡§Ø‡•ã‡§ó‡•á a = refl
 
--- ‡§ñ‡§π‡§∞‡§É ‡§ñ‡§π‡§∞‡•á‡§£ ‡§∏‡§π ‡§Ö‡§™‡§ø ‡§ñ‡§π‡§∞‡§É (khahara + khahara = khahara)
+-- ‡ñ‡‡∞‡ ‡ñ‡‡∞‡‡ ‡‡ ‡‡‡ø ‡ñ‡‡∞‡ (khahara + khahara = khahara)
 ‡§ñ‡§π‡§∞-‡§ñ‡§π‡§∞ : (‡§Ö‡§®‡§®‡•ç‡§§ ‚äï ‡§Ö‡§®‡§®‡•ç‡§§) ‚â° ‡§Ö‡§®‡§®‡•ç‡§§
 ‡§ñ‡§π‡§∞-‡§ñ‡§π‡§∞ = refl
 
 ------------------------------------------------------------------------
--- ‡§≠‡§ú‡§®‡§Æ‡•ç ‚Äî n√∑0 (n‚â†0) = ‡§ñ‡§π‡§∞‡§É (‡§Ö‡§®‡§®‡•ç‡§§‡§É) ; ‡§§‡§§‡•ç Shunya-‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§æ‡§§‡•ç (0√∑0) ‡§≠‡§ø‡§®‡•ç‡§®‡§Æ‡•ç ‡•§
--- ‡§Ö‡§§‡•ç‡§∞ ‡§π‡§∞‡§É ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É ‡§á‡§§‡§ø ‡§®‡§ø‡§∞‡•ç‡§¶‡§ø‡§∂‡•ç‡§Ø ‡§´‡§≤‡§Ç ‡§ñ‡§π‡§∞‡§Æ‡•ç ‡§Ü‡§¶‡§ø‡§∂‡§æ‡§Æ‡§É ‚Äî ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞‡§∏‡•ç‡§Ø ‡§¶‡•É‡§∑‡•ç‡§ü‡§ø‡§É ‡•§
--- (dividing a nonzero by zero yields khahara ‚Äî distinct from Shunya's 0√∑0,
+-- ‡‡‡®‡Æ‡ ‚î n0 (n‚â†0) = ‡ñ‡‡∞‡ (‡‡®‡®‡‡‡) ; ‡‡‡ Shunya-‡‡µ‡ï‡‡‡µ‡‡Ø‡æ‡‡ (00) ‡‡ø‡®‡‡®‡Æ‡ ‡
+-- ‡‡‡‡∞ ‡‡∞‡ ‡‡‡®‡‡Ø‡ ‡‡‡ø ‡®‡ø‡∞‡‡¶‡ø‡‡‡Ø ‡‡≤‡ ‡ñ‡‡∞‡Æ‡ ‡‡¶‡ø‡‡æ‡Æ‡ ‚î ‡‡æ‡‡‡ï‡∞‡‡‡Ø ‡¶‡‡‡‡ü‡ø‡ ‡
+-- (dividing a nonzero by zero yields khahara ‚î distinct from Shunya's 00,
 -- which is avaktavya.  Two non-finite outcomes, kept apart, not collapsed.)
 ------------------------------------------------------------------------
 
--- ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡•á (‡§Ö‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Ö‡§Ç‡§∂‡•á) ‡§´‡§≤‡§Æ‡•ç ‡§ñ‡§π‡§∞‡§É, ‡§® ‡§∏‡§∏‡•Ä‡§Æ‡§É, ‡§® ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§É ‡•§
+-- ‡‡‡®‡‡Ø-‡‡∞‡ (‡‡‡‡®‡‡Ø-‡‡‡‡) ‡‡≤‡Æ‡ ‡ñ‡‡∞‡, ‡® ‡‡‡‡Æ‡, ‡® ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡§É : ‚Ñ§ ‚Üí ‡§ñ‡§π‡§∞          -- ‡§Ö‡§Ç‡§∂‡§É n (‚â†0 ‡§Ö‡§≠‡§ø‡§™‡•ç‡§∞‡•á‡§§‡§É) ; ‡§π‡§∞‡§É 0 ‚üπ ‡§ñ‡§π‡§∞‡§É
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡§É _ = ‡§Ö‡§®‡§®‡•ç‡§§
 
--- ‡§Ö‡§§‡§É ‡§Ø‡§§‡•ç ‡§ï‡§ø‡§û‡•ç‡§ö‡§ø‡§§‡•ç ‡§∏‡§∏‡•Ä‡§Æ‡§Ç ‡§§‡•á‡§® ‡§Ø‡•ã‡§ú‡§ø‡§§‡§Ç ‡§ñ‡§π‡§∞‡§Ç ‡§® ‡§∏‡§∏‡•Ä‡§Æ‡§Ç ‡§ï‡§∞‡•ã‡§§‡§ø (‡§Ö‡§®‡§®‡•ç‡§§‡§§‡•ç‡§µ‡§Ç ‡§∏‡•ç‡§•‡§ø‡§∞‡§Æ‡•ç) ‡•§
+-- ‡‡‡ ‡Ø‡‡ ‡ï‡ø‡û‡‡‡ø‡‡ ‡‡‡‡Æ‡ ‡‡‡® ‡Ø‡ã‡‡ø‡‡ ‡ñ‡‡∞‡ ‡® ‡‡‡‡Æ‡ ‡ï‡∞‡ã‡‡ø (‡‡®‡®‡‡‡‡‡µ‡ ‡‡‡‡ø‡∞‡Æ‡) ‡
 ‡§Ö‡§®‡§®‡•ç‡§§‡§§‡•ç‡§µ-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç : (n a : ‚Ñ§) ‚Üí (‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡§É n ‚äï ‡§∏‡§∏‡•Ä‡§Æ a) ‚â° ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡§É n
 ‡§Ö‡§®‡§®‡•ç‡§§‡§§‡•ç‡§µ-‡§∏‡•ç‡§•‡•à‡§∞‡•ç‡§Ø‡§Æ‡•ç n a = refl
 
 ------------------------------------------------------------------------
--- ‡§ñ‡§π‡§∞‡§É ‡§® ‡§∏‡§∏‡•Ä‡§Æ‡§É ‚Äî ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞‡§∏‡•ç‡§Ø ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§-‡§∂‡•ã‡§ß‡§®‡§Æ‡•ç, ‡§™‡§¶‡•Ä-‡§ï‡•É‡§§‡§Æ‡•ç : n√∑0 (‡§Ö‡§®‡§®‡•ç‡§§‡§É) ‡§ï‡§∏‡•ç‡§Æ‡§æ‡§¶‡§™‡§ø
--- ‡§∏‡§∏‡•Ä‡§Æ‡§æ‡§§‡•ç ‡§≠‡§ø‡§®‡•ç‡§®‡§É ‚Äî ‡§µ‡§ø‡§∂‡•á‡§∑‡§§‡§É ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§æ‡§§‡•ç ‡§® ‡•§  ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§‡§É 0√∑0=0 (‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É) ‡§Ü‡§π ;
--- ‡§≠‡§æ‡§∏‡•ç‡§ï‡§∞‡§É ‡§ñ‡§π‡§∞‡§Æ‡•ç ‡§Ö‡§®‡§®‡•ç‡§§‡§Ç ‡§™‡•É‡§•‡§ï‡•ç ‡§Ö‡§∏‡•ç‡§•‡§æ‡§™‡§Ø‡§§‡•ç ‡•§  ‡§µ‡§ø‡§µ‡•á‡§ö‡§ï‡•á‡§® (‡§Ö‡§®‡§®‡•ç‡§§?) ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç ‡•§
--- (BhƒÅskara's correction of Brahmagupta, made a term: n√∑0 (khahara) differs
---  from EVERY finite ‚Äî in particular it is not zero.  Brahmagupta's 0√∑0=0 is
---  a durnaya; BhƒÅskara set the infinite khahara apart.  Via a discriminator.)
+-- ‡ñ‡‡∞‡ ‡® ‡‡‡‡Æ‡ ‚î ‡‡æ‡‡‡ï‡∞‡‡‡Ø ‡‡‡∞‡‡‡Æ‡ó‡‡‡‡-‡‡ã‡ß‡®‡Æ‡, ‡‡¶‡-‡ï‡‡‡Æ‡ : n0 (‡‡®‡®‡‡‡) ‡ï‡‡‡Æ‡æ‡¶‡‡ø
+-- ‡‡‡‡Æ‡æ‡‡ ‡‡ø‡®‡‡®‡ ‚î ‡µ‡ø‡‡‡‡‡ ‡‡‡®‡‡Ø‡æ‡‡ ‡® ‡  ‡‡‡∞‡‡‡Æ‡ó‡‡‡‡‡ 00=0 (‡¶‡‡∞‡‡®‡Ø‡) ‡‡ ;
+-- ‡‡æ‡‡‡ï‡∞‡ ‡ñ‡‡∞‡Æ‡ ‡‡®‡®‡‡‡ ‡‡‡‡ï‡ ‡‡‡‡‡æ‡‡Ø‡‡ ‡  ‡µ‡ø‡µ‡‡‡ï‡‡® (‡‡®‡®‡‡?) ‡‡ø‡¶‡‡ß‡Æ‡ ‡
+-- (Bhskara's correction of Brahmagupta, made a term: n0 (khahara) differs
+--  from EVERY finite ‚î in particular it is not zero.  Brahmagupta's 00=0 is
+--  a durnaya; Bhskara set the infinite khahara apart.  Via a discriminator.)
 ------------------------------------------------------------------------
 
 ‡§Ö‡§®‡§®‡•ç‡§§? : ‡§ñ‡§π‡§∞ ‚Üí Type
@@ -119,7 +119,7 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 ‡§Ö‡§®‡§®‡•ç‡§§-‡§®-‡§∏‡§∏‡•Ä‡§Æ‡§É : (a : ‚Ñ§) ‚Üí ¬¨ (‡§Ö‡§®‡§®‡•ç‡§§ ‚â° ‡§∏‡§∏‡•Ä‡§Æ a)
 ‡§Ö‡§®‡§®‡•ç‡§§-‡§®-‡§∏‡§∏‡•Ä‡§Æ‡§É a eq = subst ‡§Ö‡§®‡§®‡•ç‡§§? eq tt
 
--- ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§-‡§¶‡•ã‡§∑‡§É ‚Äî n√∑0 ‚â† 0 : ‡§ñ‡§π‡§∞‡§É ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§É ‡§® (‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§‡§∏‡•ç‡§Ø ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§∏‡•ç‡§Ø ‡§®‡§ø‡§∞‡§æ‡§∏‡§É) ‡•§
+-- ‡‡‡∞‡‡‡Æ‡ó‡‡‡‡-‡¶‡ã‡‡ ‚î n0 ‚â† 0 : ‡ñ‡‡∞‡ ‡‡‡®‡‡Ø‡ ‡® (‡‡‡∞‡‡‡Æ‡ó‡‡‡‡‡‡‡Ø ‡¶‡‡∞‡‡®‡Ø‡‡‡Ø ‡®‡ø‡∞‡æ‡‡) ‡
 ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§-‡§¶‡•ã‡§∑‡§É : (n : ‚Ñ§) ‚Üí ¬¨ (‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§π‡§∞‡§É n ‚â° ‡§∏‡§∏‡•Ä‡§Æ (pos 0))
 ‡§¨‡•ç‡§∞‡§π‡•ç‡§Æ‡§ó‡•Å‡§™‡•ç‡§§-‡§¶‡•ã‡§∑‡§É n = ‡§Ö‡§®‡§®‡•ç‡§§-‡§®-‡§∏‡§∏‡•Ä‡§Æ‡§É (pos 0)
 
@@ -148,12 +148,12 @@ _‚äñ_ : ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞ ‚Üí ‡§ñ‡§π‡§∞
 --
 -- so neither defect implies the other and neither implies the other's
 -- negation.  The types say why: non-uniqueness is a property of the
--- CONTENT alone, inexpressibility of the content AND the MEDIUM ‚Äî which
+-- CONTENT alone, inexpressibility of the content AND the MEDIUM ‚î which
 -- is the asymmetry that makes one word for both lossy.
 --
--- That module deliberately does NOT bring Satyayantra's ‡§Ö‡§®‡•Å‡§ï‡•ç‡§§‡§Æ‡•ç onto
+-- That module deliberately does NOT bring Satyayantra's ‡‡®‡‡ï‡‡‡Æ‡ onto
 -- the same carrier: it is temporal, and d909db0d already says the two
 -- third-positions' remedies live in different types.  And it offers no
--- verdict on which module should keep the word ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç ‚Äî that is this
+-- verdict on which module should keep the word ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ ‚î that is this
 -- lane's dispute, untouched.
 ------------------------------------------------------------------------

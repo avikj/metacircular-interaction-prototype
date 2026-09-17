@@ -10,14 +10,14 @@
 -- defined NATIVELY (ripple carry, digit by digit) --- it is emphatically
 -- not defined as digits(value _ + value _).  Then:
 --
---   * transport-+-is-⊕ : transporting ℕ's addition along `ua` of the
+--   * transport-+-is-⊕ : transporting �'s addition along `ua` of the
 --     equivalence yields *literally* the schoolbook algorithm;
---   * ℕ-Monoid≡CanWord-Monoid : the two monoids are EQUAL, via the
+--   * �-Monoid≡CanWord-Monoid : the two monoids are EQUAL, via the
 --     structure identity principle (Cubical.Algebra.Monoid's MonoidPath),
 --     not merely isomorphic.
 --
 -- The monoid laws for ⊕ are *not* re-proved by hand: they are inherited
--- from ℕ through injectivity of `value` on canonical words.  That is
+-- from � through injectivity of `value` on canonical words.  That is
 -- itself the point --- transport does work here, it does not decorate.
 ------------------------------------------------------------------------
 
@@ -118,7 +118,7 @@ mutual
   addwAux (s , c') u v = s ∷ addw c' u v
 
 ------------------------------------------------------------------------
--- 4.  The algorithm is correct: pure ℕ identities via the semiring
+-- 4.  The algorithm is correct: pure � identities via the semiring
 --     solver, glued to the digit-column certificate.
 ------------------------------------------------------------------------
 
@@ -225,7 +225,7 @@ valueC-inj : (x y : CanWord) → valueC x ≡ valueC y → x ≡ y
 valueC-inj (u , cu) (v , cv) p = Σ≡Prop isPropCanonical (value-inj u v cu cv p)
 
 ------------------------------------------------------------------------
--- 7.  The monoid laws for ⊕, inherited from ℕ by transport of proof.
+-- 7.  The monoid laws for ⊕, inherited from � by transport of proof.
 ------------------------------------------------------------------------
 
 ⊕-assoc : (x y z : CanWord) → x ⊕ (y ⊕ z) ≡ (x ⊕ y) ⊕ z

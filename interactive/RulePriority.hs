@@ -1,33 +1,33 @@
--- Viprati·π£edha -- the A·π£·π≠ƒÅdhyƒÅyƒ´'s conflict-resolution and stratification
--- layer, lifted off Sanskrit sandhi and made general.
+-- Vipratiedha -- the Adhyy's conflict-resolution and stratification
+-- layer, lifted off  sandhi and made general.
 --
--- WHAT THIS IS FOR.  `interactive/RewriteEngine.hs` already runs s≈´tras, and its
--- `resolve` already carries two metarules (utsarga/apavƒÅda, then 1.4.2
+-- WHAT THIS IS FOR.  `interactive/RewriteEngine.hs` already runs stras, and its
+-- `resolve` already carries two metarules (utsarga/apavda, then 1.4.2
 -- paratva).  But that `resolve` is welded to `[Item]`, to `Ref`, and to the
--- fourteen ≈õivas≈´tras.  Meanwhile `interactive/MathMachine.hs` -- 5599 lines, the
+-- fourteen ivastras.  Meanwhile `interactive/MathMachine.hs` -- 5599 lines, the
 -- engine this repository actually computes with -- resolves every rewrite
 -- conflict by `(x:_)`: the FIRST rule in the list that matches and decreases.
 -- The list order is `definitionsOf ... ++ mRules m ++ lemmaRules ...`, i.e.
--- an accident of how three unrelated collections were concatenated.  PƒÅ·πáini
+-- an accident of how three unrelated collections were concatenated.  Pini
 -- has the machinery for this and MathMachine does not.  This module is that
--- machinery, with no Sanskrit in its types.
+-- machinery, with no  in its types.
 --
--- THE FOUR THINGS A SCHEDULER HAS TO DO, and the s≈´tra for each:
+-- THE FOUR THINGS A SCHEDULER HAS TO DO, and the stra for each:
 --
---   1. POSITION IS PART OF MEANING.  1.4.2 ‡§µ‡§ø‡§™‡•ç‡§∞‡§§‡§ø‡§∑‡•á‡§ß‡•á ‡§™‡§∞‡§Ç ‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç
---      `viprati·π£edhe para·πÉ kƒÅryam` -- "in conflict, the later operation."  A
+--   1. POSITION IS PART OF MEANING.  1.4.2 ‡µ‡ø‡‡‡∞‡‡ø‡‡‡ß‡ ‡‡∞‡ ‡ï‡æ‡∞‡‡Ø‡Æ‡
+--      `vipratiedhe para kryam` -- "in conflict, the later operation."  A
 --      rule's number is not a label; it is what decides the tie.  So `Sthana`
 --      is carried on every rule and compared.
 --
 --   2. THE SPECIFIC BLOCKS THE GENERAL, REGARDLESS OF POSITION.  utsarga /
---      apavƒÅda.  An apavƒÅda earlier in the text still beats the utsarga it
---      excepts, which is precisely why apavƒÅda outranks para below and not
+--      apavda.  An apavda earlier in the text still beats the utsarga it
+--      excepts, which is precisely why apavda outranks para below and not
 --      the other way round.  (Restated in the phonology literature as the
 --      "elsewhere condition", Kiparsky 1973 -- a restatement, named here
 --      after the thing it restates.)
 --
 --   3. A DESIGNATED BLOCK RUNS ONCE, IN ORDER, BACKWARDS-BLIND.  8.2.1
---      ‡§™‡•Ç‡§∞‡•ç‡§µ‡§§‡•ç‡§∞‡§æ‡§∏‡§ø‡§¶‡•ç‡§ß‡§Æ‡•ç `p≈´rvatrƒÅsiddham`: from 8.2.1 on, each rule is
+--      ‡‡‡∞‡‡µ‡‡‡∞‡æ‡‡ø‡¶‡‡ß‡Æ‡ `prvatrsiddham`: from 8.2.1 on, each rule is
 --      *asiddha*, as-if-not-having-taken-effect, for everything preceding it.
 --      Generalised here to `stStratum`: stratum 0 runs to a fixpoint with all
 --      its rules mutually visible; strata 1..n run ONCE each, in order, and
@@ -45,8 +45,8 @@
 --
 --      AMENDED.  "The derivation STOPS there" was the whole of the fourth
 --      position in this file, and it is half of what the doctrine says.
---      ¬ß‡•© of the same note continues: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§®
---      ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‡•§ ‡§ó‡§∞‡•ç‡§≠‡§æ‡§¶‡•ç ‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡•ã ‡§®‡§Ø‡•ã ‡§ú‡§æ‡§Ø‡§§‡•á -- in the avaktavya the residue
+--      ¬ß‡© of the same note continues: ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡®
+--      ‡µ‡ø‡‡≤‡‡æ ‡ ‡ó‡∞‡‡‡æ‡¶‡ ‡‡ó‡‡∞‡ø‡Æ‡ã ‡®‡Ø‡ã ‡‡æ‡Ø‡‡ -- in the avaktavya the residue
 --      dwells; the residue is a WOMB, not a failure; from the womb the next
 --      naya is born.  A `Dosa` is a rendering, for a reader; a caller handed
 --      one can print the fourth position and do nothing else with it.  So
@@ -57,36 +57,36 @@
 --      still stops -- it is the scheduler and it decides nothing it has no
 --      fact for; `prakriyaPrasava` there does not.
 --
--- THE STRENGTH ORDER, and it is not invented here.  NƒÅge≈õa Bha·π≠·π≠a,
--- *ParibhƒÅ·π£endu≈õekhara* (c. 1730), paribhƒÅ·π£ƒÅ 38:
+-- THE STRENGTH ORDER, and it is not invented here.  Ngea Bhaa,
+-- *Paribhenduekhara* (c. 1730), paribh 38:
 --
---     ‡§™‡•Ç‡§∞‡•ç‡§µ‡§™‡§∞‡§®‡§ø‡§§‡•ç‡§Ø‡§æ‡§®‡•ç‡§§‡§∞‡§ô‡•ç‡§ó‡§æ‡§™‡§µ‡§æ‡§¶‡§æ‡§®‡§æ‡§Æ‡•Å‡§§‡•ç‡§§‡§∞‡•ã‡§§‡•ç‡§§‡§∞‡§Ç ‡§¨‡§≤‡•Ä‡§Ø‡§É
---     p≈´rvaparanityƒÅntara·πÖgƒÅpavƒÅdƒÅnƒÅm uttarottara·πÉ balƒ´ya·∏•
---     "of p≈´rva, para, nitya, antara·πÖga, apavƒÅda -- each later is stronger."
+--     ‡‡‡∞‡‡µ‡‡∞‡®‡ø‡‡‡Ø‡æ‡®‡‡‡∞‡ô‡‡ó‡æ‡‡µ‡æ‡¶‡æ‡®‡æ‡Æ‡‡‡‡‡∞‡ã‡‡‡‡∞‡ ‡‡≤‡‡Ø‡
+--     prvaparanityntaragpavdnm uttarottara balya
+--     "of prva, para, nitya, antaraga, apavda -- each later is stronger."
 --
 -- Five contenders, ranked.  So the scheduler tries them strongest-first:
--- apavƒÅda, then antara·πÖga, then nitya, then para (1.4.2), and p≈´rva -- the
+-- apavda, then antaraga, then nitya, then para (1.4.2), and prva -- the
 -- earlier rule -- is the weakest and is never used to decide anything here,
 -- because para is its negation and outranks it.  RewriteEngine.hs implements
 -- two of these five.  This implements four, and says which two of them can
 -- abstain and why.
 --
 -- NITYA IS COMPUTABLE, and that is the interesting one.  The tradition
--- defines it ‡§ï‡•É‡§§‡§æ‡§ï‡•É‡§§‡§™‡•ç‡§∞‡§∏‡§ô‡•ç‡§ó‡§ø ‡§®‡§ø‡§§‡•ç‡§Ø‡§Æ‡•ç `k·πõtƒÅk·πõtaprasa·πÖgi nityam` -- nitya is
+-- defines it ‡ï‡‡‡æ‡ï‡‡‡‡‡∞‡‡ô‡‡ó‡ø ‡®‡ø‡‡‡Ø‡Æ‡ `ktktaprasagi nityam` -- nitya is
 -- what has its occasion whether or not the other has been performed.  That is
 -- not a philosophical gloss; it is an executable test.  Both candidates apply
 -- to the input by construction, so the whole test is: apply the other one,
 -- and ask whether this one STILL applies.  `nitya` below is those four lines.
 --
--- ANTARA·πÑGA IS NOT COMPUTABLE WITHOUT THE DOMAIN, so the domain supplies it
--- and is allowed to say it does not know.  ‡§Ö‡§®‡•ç‡§§‡§∞‡§ô‡•ç‡§ó‡§Ç ‡§¨‡§π‡§ø‡§∞‡§ô‡•ç‡§ó‡§æ‡§§‡•ç -- the rule
+-- ANTARAGA IS NOT COMPUTABLE WITHOUT THE DOMAIN, so the domain supplies it
+-- and is allowed to say it does not know.  ‡‡®‡‡‡∞‡ô‡‡ó‡ ‡‡‡ø‡∞‡ô‡‡ó‡æ‡‡ -- the rule
 -- whose conditioning causes (nimitta) lie further inside wins.  "Inside"
 -- depends on what the objects are; `tAntaranga` returns `Maybe Bool` and
 -- `Nothing` means ABSTAIN, not `False`.  A metarule that guesses is a durnaya.
 --
--- SOURCES.  PƒÅ·πáini, *A·π£·π≠ƒÅdhyƒÅyƒ´*, ~500 BCE (1.4.2, 8.2.1, 6.4.22).  NƒÅge≈õa
--- Bha·π≠·π≠a, *ParibhƒÅ·π£endu≈õekhara*, c. 1730, paribhƒÅ·π£ƒÅ 38 for the strength
--- order and the k·πõtƒÅk·πõtaprasa·πÖgi definition of nitya; the paribhƒÅ·π£ƒÅs
+-- SOURCES.  Pini, *Adhyy*, ~500 BCE (1.4.2, 8.2.1, 6.4.22).  Ngea
+-- Bhaa, *Paribhenduekhara*, c. 1730, paribh 38 for the strength
+-- order and the ktktaprasagi definition of nitya; the paribhs
 -- themselves are older and are collected there, not invented there.
 --
 module RulePriority
@@ -119,7 +119,7 @@ import Data.List (sortOn, nub, intercalate)
 ------------------------------------------------------------------------
 -- 1.  POSITION
 --
--- A rule's address.  Compared lexicographically, exactly as a s≈´tra number
+-- A rule's address.  Compared lexicographically, exactly as a stra number
 -- is.  Two rules with the SAME Sthana have no position relative to each
 -- other -- and that is the load-bearing case: it is how a domain declares
 -- "these arrived together and their list order is an artefact."  For such a
@@ -136,11 +136,11 @@ showSthana (a, b, c) = show a ++ "." ++ show b ++ "." ++ show c
 ------------------------------------------------------------------------
 -- 2.  OFFERS AND RULES
 --
--- `o` is whatever the system rewrites: a phoneme string for the A·π£·π≠ƒÅdhyƒÅyƒ´,
+-- `o` is whatever the system rewrites: a phoneme string for the Adhyy,
 -- a term for MathMachine.  The scheduler never looks inside it.
 ------------------------------------------------------------------------
 
--- A nyƒÅsa is one rule's offer to act: where it would act, how much it
+-- A nysa is one rule's offer to act: where it would act, how much it
 -- covers, and what the object becomes if it alone acts.
 data Nyasa o = Nyasa
   { nyRule   :: Sthana     -- who is offering
@@ -150,7 +150,7 @@ data Nyasa o = Nyasa
   , nyNote   :: String     -- what it did, in words
   }
 
--- A ≈õƒÅsana is a rule: an address, a name, the utsargas it is an apavƒÅda to,
+-- A sana is a rule: an address, a name, the utsargas it is an apavda to,
 -- and what it offers on a given object.
 data Sasana o = Sasana
   { saRef       :: Sthana
@@ -163,11 +163,11 @@ data Sasana o = Sasana
 -- scheduler cannot know by itself.
 data Tantra o = Tantra
   { tSasanani  :: [Sasana o]
-    -- "a is an apavƒÅda to b", COMPUTED.  Declared exceptions in `saApavadaTo`
+    -- "a is an apavda to b", COMPUTED.  Declared exceptions in `saApavadaTo`
     -- are or-ed with this, so a domain may use either or both.  A domain with
     -- no computable notion supplies `\_ _ -> False`.
   , tApavada   :: Sthana -> Sthana -> Bool
-    -- antara·πÖga: `Just True` = a is antara·πÖga to b (a wins), `Just False` =
+    -- antaraga: `Just True` = a is antaraga to b (a wins), `Just False` =
     -- b is, `Nothing` = the domain ABSTAINS.  Nothing is not False.
   , tAntaranga :: Nyasa o -> Nyasa o -> Maybe Bool
     -- do two offers contend for the same site?
@@ -176,7 +176,7 @@ data Tantra o = Tantra
     -- siddha block, run to a fixpoint.  1..n = run once, in order,
     -- backwards-blind.
   , tStratum   :: Sthana -> Int
-    -- IS THE POSITION AUTHORED?  1.4.2 works for PƒÅ·πáini because a s≈´tra's
+    -- IS THE POSITION AUTHORED?  1.4.2 works for Pini because a stra's
     -- number encodes its relation to its neighbours: someone placed it there,
     -- and the placement is part of the statement.  A domain whose rule order
     -- is a concatenation of collections that were never placed with respect to
@@ -197,10 +197,10 @@ data Tantra o = Tantra
 -- by list position wearing a better coat.
 data Balya
   = Eka         -- sole candidate; no conflict arose
-  | Apavada     -- utsarga/apavƒÅda: the specific blocks the general
-  | Antaranga   -- antara·πÖga·πÉ bahira·πÖgƒÅt
-  | Nitya       -- k·πõtƒÅk·πõtaprasa·πÖgi nityam
-  | Para        -- 1.4.2 viprati·π£edhe para·πÉ kƒÅryam
+  | Apavada     -- utsarga/apavda: the specific blocks the general
+  | Antaranga   -- antaraga bahiragt
+  | Nitya       -- ktktaprasagi nityam
+  | Para        -- 1.4.2 vipratiedhe para kryam
   | Purva       -- the EARLIER rule.  Weakest of the five, and `nirnaya` never
                 -- returns it: it is what a domain may fall back on ONLY after
                 -- the defect has been written, so that an existing engine's
@@ -212,13 +212,13 @@ data Balya
 showBalya :: Balya -> String
 showBalya b = case b of
   Eka       -> "sole candidate (no conflict)"
-  Apavada   -> "apavƒÅda: the specific rule blocks the general one it excepts, "
-               ++ "regardless of position (ParibhƒÅ·π£endu≈õekhara 38, strongest)"
-  Antaranga -> "antara·πÖga·πÉ bahira·πÖgƒÅt: the rule whose conditions lie further in"
-  Nitya     -> "k·πõtƒÅk·πõtaprasa·πÖgi nityam: the rule that applies whether or not "
+  Apavada   -> "apavda: the specific rule blocks the general one it excepts, "
+               ++ "regardless of position (Paribhenduekhara 38, strongest)"
+  Antaranga -> "antaraga bahiragt: the rule whose conditions lie further in"
+  Nitya     -> "ktktaprasagi nityam: the rule that applies whether or not "
                ++ "the other has applied"
-  Para      -> "1.4.2 viprati·π£edhe para·πÉ kƒÅryam: the later rule"
-  Purva     -> "p≈´rva: the earlier rule -- WEAKEST of the five, not a decision, "
+  Para      -> "1.4.2 vipratiedhe para kryam: the later rule"
+  Purva     -> "prva: the earlier rule -- WEAKEST of the five, not a decision, "
                ++ "used only after a defect has been written"
 
 -- A written defect.  Not a failure code: a record, carrying everything
@@ -231,23 +231,23 @@ data Dosa = Dosa
 
 showDosa :: Dosa -> [String]
 showDosa d =
-  [ "DEFECT -- viprati·π£edha undecided at site " ++ show (doSite d) ++ "."
+  [ "DEFECT -- vipratiedha undecided at site " ++ show (doSite d) ++ "."
   , "  Two or more rules contend and no metarule decides.  The scheduler does"
   , "  NOT choose: breaking this tie by list position would be a silent"
-  , "  collapse (AHIMSA_SUTRA_VISTARA ¬ß‡•¨: transport or a written defect, no"
-  , "  third path).  A caller may fall back to p≈´rva -- the weakest of the"
-  , "  five paribhƒÅ·π£ƒÅs -- to preserve an existing engine's behaviour, but only"
-  , "  after this record exists, and it is then p≈´rva that is reported, not a"
+  , "  collapse (AHIMSA_SUTRA_VISTARA ¬ß‡: transport or a written defect, no"
+  , "  third path).  A caller may fall back to prva -- the weakest of the"
+  , "  five paribhs -- to preserve an existing engine's behaviour, but only"
+  , "  after this record exists, and it is then prva that is reported, not a"
   , "  decision."
   , "  candidates:"
   ] ++
   [ "    " ++ showSthana r ++ "  " ++ nm ++ "  -- " ++ note
   | (r, nm, note) <- doCandidates d ] ++
-  [ "  metarules tried, in ParibhƒÅ·π£endu≈õekhara 38 order:" ] ++
+  [ "  metarules tried, in Paribhenduekhara 38 order:" ] ++
   [ "    " ++ pad (show b) ++ "  " ++ why | (b, why) <- doTried d ]
   where pad s = s ++ replicate (max 0 (9 - length s)) ' '
 
--- THE RESIDUE.  ‡§∂‡•á‡§∑ -- what the fourth position holds.  `Dosa` above is the
+-- THE RESIDUE.  ‡‡‡ -- what the fourth position holds.  `Dosa` above is the
 -- WRITING of the undecided site: rendered strings, for a reader.  It is not
 -- the site.  A caller handed only a `Dosa` can print the fourth position and
 -- can do nothing else with it, which is exactly the collapse
@@ -257,7 +257,7 @@ showDosa d =
 --
 -- So the fourth position carries the OFFERS, not their names: the object the
 -- standpoints contended over, and each standpoint's own result under it.
--- AHIMSA_SUTRA_VISTARA ¬ß‡•©: ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡•á ‡§∂‡•á‡§∑‡•ã ‡§µ‡§∏‡§§‡§ø ‡•§ ‡§∂‡•á‡§∑‡•ã ‡§ó‡§∞‡•ç‡§≠‡§É, ‡§® ‡§µ‡§ø‡§´‡§≤‡§§‡§æ ‡•§
+-- AHIMSA_SUTRA_VISTARA ¬ß‡©: ‡‡µ‡ï‡‡‡µ‡‡Ø‡ ‡‡‡‡ã ‡µ‡‡‡ø ‡ ‡‡‡‡ã ‡ó‡∞‡‡‡, ‡® ‡µ‡ø‡‡≤‡‡æ ‡
 -- Everything born from an avaktavya in
 -- `interactive/AvaktavyaPrasava_TheFourthPositionBearsTheRuleThatDecidesIt.hs`
 -- is computed from this record, and none of it is computable from `Dosa`.
@@ -275,7 +275,7 @@ data Nirnaya o
 -- 4.  THE METARULES
 ------------------------------------------------------------------------
 
--- k·πõtƒÅk·πõtaprasa·πÖgi nityam, executed.  Both x and y apply to `o` already
+-- ktktaprasagi nityam, executed.  Both x and y apply to `o` already
 -- (they are both offers on it), so nitya-ness of x with respect to y is
 -- exactly: does x's rule still offer something at the same site once y has
 -- acted?
@@ -285,7 +285,7 @@ nitya t _ x y =
     []      -> False
     (s : _) -> not (null [ () | z <- saFires s (nyResult y), tOverlap t z x ])
 
--- Is `a` an apavƒÅda to `b`?  Declared or computed; either suffices.
+-- Is `a` an apavda to `b`?  Declared or computed; either suffices.
 isApavada :: Tantra o -> Sthana -> Sthana -> Bool
 isApavada t a b =
   tApavada t a b
@@ -300,7 +300,7 @@ nirnaya t o xs = tryApavada
   where
     beaten w = [ nyRule y | y <- xs, nyRule y /= nyRule w ]
 
-    -- 1. apavƒÅda.  An offer wins if its rule is an apavƒÅda to every other
+    -- 1. apavda.  An offer wins if its rule is an apavda to every other
     --    rule contending.  Strongest, and independent of position.
     apavadas = [ x | x <- xs
                , all (\y -> nyRule y == nyRule x
@@ -309,11 +309,11 @@ nirnaya t o xs = tryApavada
       [w] -> Nirnita w (beaten w) Apavada
       _   -> tryAntaranga (( Apavada
                            , if null apavadas
-                               then "no candidate is an apavƒÅda to all the others"
-                               else "several candidates are apavƒÅdas; not unique")
+                               then "no candidate is an apavda to all the others"
+                               else "several candidates are apavdas; not unique")
                           : [])
 
-    -- 2. antara·πÖga.  The domain may abstain, and abstention is not a verdict.
+    -- 2. antaraga.  The domain may abstain, and abstention is not a verdict.
     tryAntaranga acc =
       let inner = [ x | x <- xs
                   , all (\y -> nyRule y == nyRule x
@@ -324,9 +324,9 @@ nirnaya t o xs = tryApavada
                                     , if any (\x -> any (\y -> nyRule y /= nyRule x
                                                         && tAntaranga t x y == Nothing) xs) xs
                                         then "the domain abstains: no nimitta depth is defined for these offers"
-                                        else "no candidate is antara·πÖga to all the others")])
+                                        else "no candidate is antaraga to all the others")])
 
-    -- 3. nitya.  Computed by k·πõtƒÅk·πõtaprasa·πÖga.
+    -- 3. nitya.  Computed by ktktaprasaga.
     tryNitya acc =
       let nityas = [ x | x <- xs
                    , all (\y -> nyRule y == nyRule x || nitya t o x y) xs
@@ -340,7 +340,7 @@ nirnaya t o xs = tryApavada
            [w] -> Nirnita w (beaten w) Nitya
            _   -> tryPara (acc ++ [( Nitya
                                    , "no candidate applies-after-the-other while the "
-                                     ++ "others do not (k·πõtƒÅk·πõtaprasa·πÖga is mutual or empty)")])
+                                     ++ "others do not (ktktaprasaga is mutual or empty)")])
 
     -- 4. para, 1.4.2.  Decides iff the maximum Sthana is UNIQUE.  Two rules
     --    sharing a Sthana have no relative position and this abstains --
@@ -370,7 +370,7 @@ nirnaya t o xs = tryApavada
 -- 5.  THE ENGINE
 --
 -- Stratum 0 to a fixpoint, then each later stratum ONCE, in Sthana order,
--- backwards-blind.  That is 8.2.1 with the tripƒÅdƒ´'s boundary made a
+-- backwards-blind.  That is 8.2.1 with the tripd's boundary made a
 -- parameter instead of the number 8.2.
 ------------------------------------------------------------------------
 
@@ -446,5 +446,5 @@ prakriya t fuel start = phase0 fuel start []
 dosaLekha :: Tantra o -> Int -> [o] -> [String]
 dosaLekha t fuel inputs =
   case [ d | o <- inputs, (_, Just d, _) <- [prakriya t fuel o] ] of
-    []  -> ["no viprati·π£edha went undecided on this corpus."]
+    []  -> ["no vipratiedha went undecided on this corpus."]
     ds  -> intercalate [""] (map showDosa ds)

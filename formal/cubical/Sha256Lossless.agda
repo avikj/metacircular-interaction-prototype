@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Lossless ‚Äî P=NP on the lossless machine, instantiated at the real
+-- Sha256Lossless ‚î P=NP on the lossless machine, instantiated at the real
 -- full 64-round SHA-256.  This is the result I earlier dismissed as a
 -- "side channel": free inversion on the trace-carrying completion is not
--- a cheat, it is `¬¨ Gap (completed sha256)` ‚Äî the find/check gap is
+-- a cheat, it is `¬ Gap (completed sha256)` ‚î the find/check gap is
 -- IMPOSSIBLE on the completion, universally, at every message, all 64
 -- rounds.  (PeqNPHoldsOnTheLosslessUniversalMachine, at sha256nat.)
 --
--- The lossy side of the pair ‚Äî Gap sha256nat, a collision ‚Äî is exhibited
+-- The lossy side of the pair ‚î Gap sha256nat, a collision ‚î is exhibited
 -- at REDUCED rounds (Sha256N.collision-4) and is the open problem at full
 -- 64.  The lossless side is what is proved here, and it needs no witness:
 -- it is a negation, universal by construction.
@@ -36,7 +36,7 @@ completion = lossless sha256nat
 
 ------------------------------------------------------------------------
 -- ¬ß2  Free inversion, UNIVERSAL, all 64 rounds.  For every message the
---     completion inverts by retEq ‚Äî no search, no reduced-round limit.
+--     completion inverts by retEq ‚î no search, no reduced-round limit.
 ------------------------------------------------------------------------
 
 free-inversion : (m : ‚Ñï) ‚Üí invEq completion (equivFun completion m) ‚â° m
@@ -47,15 +47,15 @@ visible : (m : ‚Ñï) ‚Üí fst (equivFun completion m) ‚â° sha256nat m
 visible m = refl
 
 -- the witness the completion carries certifies itself by refl:
--- deciding produces the proof for free (‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä-‡§∏‡•ç‡§µ‡§Ø‡§Ç‡§∏‡§ø‡§¶‡•ç‡§ß‡§É)
+-- deciding produces the proof for free (‡‡æ‡ï‡‡‡-‡‡‡µ‡Ø‡‡‡ø‡¶‡‡ß‡)
 witness-refl : (m : ‚Ñï) ‚Üí snd (snd (equivFun completion m)) ‚â° refl
 witness-refl m = refl
 
 ------------------------------------------------------------------------
--- ¬ß3  NO GAP on the completion ‚Äî P=NP at the real SHA-256.  The
+-- ¬ß3  NO GAP on the completion ‚î P=NP at the real SHA-256.  The
 --     find/check gap = a collision on the step.  On the completion it is
 --     impossible: the completion is an equivalence, hence injective, so
---     no two distinct messages share a completed image ‚Äî universally,
+--     no two distinct messages share a completed image ‚î universally,
 --     all 64 rounds, no witness required.
 ------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ no-gap-on-completion (x , y , x‚â¢y , p) =
 
 ------------------------------------------------------------------------
 -- ¬ß4  The statement, at SHA-256: the lossy hash forgets (collisions
---     exist ‚Äî exhibited at reduced rounds in Sha256N.collision-4, open at
+--     exist ‚î exhibited at reduced rounds in Sha256N.collision-4, open at
 --     full 64), and the completion cannot forget (no-gap-on-completion,
 --     universal).  P‚â†NP is the property of the forgetting; the lossless
 --     universal machine, run at full SHA-256, has no such gap.

@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- Yugapat_TheDenialOfJointAssertionDoesNotDecompose
 --
--- à¤¯à¥à¤—à¤ªà¤¤à¥ Â· yugapat â€” "at once", the Jaina term for the simultaneous
--- mode of predication, paired with à¤•à¥à¤°à¤® Â· krama, "in sequence"
--- (saptabhaá¹…gÄ«: UmÄsvÄti, *TattvÄrthasÅ«tra*; Samantabhadra; Akalaá¹…ka;
--- Siddhasena DivÄkara).  The distinction is theirs and so is its
+-- à¯àà—ààà Â yugapat â” "at once", the Jaina term for the simultaneous
+-- mode of predication, paired with à•àà°à® Â krama, "in sequence"
+-- (saptabhag: Umsvti, *Tattvrthastra*; Samantabhadra; Akalaka;
+-- Siddhasena Divkara).  The distinction is theirs and so is its
 -- formalisation in this repository: `Saptabhangi` and
 -- `SaptabhangiNaya`, ANOTHER IDENTITY'S modules, define the mode as a
--- DATATYPE `à¤†à¤°à¥à¤ªà¤£` â€” a parameter of the predication â€” and prove
--- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â‰¢ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥.  **Their `à¤†à¤°à¥à¤ªà¤£` is IMPORTED
+-- DATATYPE `àà°ààà` â” a parameter of the predication â” and prove
+-- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿ â‰ ààà¯à¾àà-ààµà•àààµàà¯à®à.  **Their `àà°ààà` is IMPORTED
 -- below, not rebuilt**, and nothing here is a claim about their
 -- theorem.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- A CORRECTION OF MY OWN CLAIM, ONE CYCLE OLD.
 --
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
@@ -25,32 +25,32 @@
 --
 -- **That was too strong, and the reason is a De Morgan asymmetry I did
 -- not check.**  What that cycle proved is that DENYING BOTH collapses:
--- `Â¬ (A âŠ B)` and `(Â¬ A) Ã— (Â¬ B)` are interderivable.  It does not
+-- `Â (A âŠ B)` and `(Â A) — (Â B)` are interderivable.  It does not
 -- follow that every position collapses, because the OTHER De Morgan
--- law runs only one way constructively: `((Â¬ A) âŠ (Â¬ B)) â†’ Â¬ (A Ã— B)`
+-- law runs only one way constructively: `((Â A) âŠ (Â B)) â’ Â (A — B)`
 -- always, and the converse does not.
 --
 -- So there IS a position in my formalism that is not a sequential pair:
--- **the denial of the JOINT assertion**, `Â¬ (à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— à¤¨à¤¿à¤¤à¥à¤¯)`, which
+-- **the denial of the JOINT assertion**, `Â (àà¾à®à¯à¿à• — à¨à¿ààà¯)`, which
 -- says the two cannot hold together without saying which fails.  That
--- is the shape yugapat has in the tradition â€” a single act about the
--- pair, not two acts â€” and it is exactly what a product of denials
+-- is the shape yugapat has in the tradition â” a single act about the
+-- pair, not two acts â” and it is exactly what a product of denials
 -- cannot express.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   Assert m Q          the mode-parameterised predication over MY
---                       instance family, indexed by their `à¤†à¤°à¥à¤ªà¤£`:
---                       à¤•à¥à¤°à¤®à¤ƒ gives the sequential pair of denials,
---                       à¤¸à¤¹à¤ƒ the denial of the joint assertion
+--                       instance family, indexed by their `àà°ààà`:
+--                       à•àà°à®à gives the sequential pair of denials,
+--                       ààà the denial of the joint assertion
 --   kramaGivesYugapat   the sequential position implies the
---                       simultaneous one â€” one line, and unconditional
+--                       simultaneous one â” one line, and unconditional
 --   yugapatDecompositionGivesWeakExcludedMiddle
 --                       the CONVERSE, as a general principle, implies
 --                       weak excluded middle: from
---                       `(A B : Type) â†’ Â¬ (A Ã— B) â†’ ((Â¬ A) âŠ (Â¬ B))`,
---                       taking `B := Â¬ A`, one gets `Â¬ A âŠ Â¬ Â¬ A` for
+--                       `(A B : Type) â’ Â (A — B) â’ ((Â A) âŠ (Â B))`,
+--                       taking `B := Â A`, one gets `Â A âŠ Â Â A` for
 --                       every `A`
 --
 -- **So the two modes are not interderivable here for a reason with a
@@ -61,9 +61,9 @@
 -- work reduced a position to failure of the double-negation shift,
 -- another principle that is classically trivial and constructively not.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ kramaGivesYugapat : (Q : R â†’ Type) â†’ Assert à¤•à¥à¤°à¤®à¤ƒ Q â†’ Assert à¤¸
 kramaGivesYugapat Q (ns , nn) both = ns (fst both)
 
 ------------------------------------------------------------------------
--- 3.  â€¦and the converse is a constructive taboo
+-- 3.  â¦and the converse is a constructive taboo
 ------------------------------------------------------------------------
 
 yugapatDecompositionGivesWeakExcludedMiddle :
@@ -110,21 +110,21 @@ yugapatDecompositionGivesWeakExcludedMiddle dec A =
 
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
--- line above.  The question this module left â€” whether there is a
+-- line above.  The question this module left â” whether there is a
 -- THIRD position between the sequential pair and the denial of the
--- joint assertion â€” is answered in
+-- joint assertion â” is answered in
 -- `Bhanga_ThePositionsOverTwoAtomsAreAThreeStepChain`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
 -- cubical v0.5, NOT the declared pin).  There is:
 --
---   Krama = (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•) Ã— (Â¬ à¤¨à¤¿à¤¤à¥à¤¯)
---     â‡’ Vikalpa = (Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•) âŠ (Â¬ à¤¨à¤¿à¤¤à¥à¤¯)
---       â‡’ Yugapat = Â¬ (à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— à¤¨à¤¿à¤¤à¥à¤¯)
+--   Krama = (Â àà¾à®à¯à¿à•) — (Â à¨à¿ààà¯)
+--     â’ Vikalpa = (Â àà¾à®à¯à¿à•) âŠ (Â à¨à¿ààà¯)
+--       â’ Yugapat = Â (àà¾à®à¯à¿à• — à¨à¿ààà¯)
 --
 -- **and the two gaps are of different KINDS.**  Krama âŠŠ Vikalpa is
--- settled outright by an example â€” at the trivially-true family
--- `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•` holds while `Â¬ à¤¨à¤¿à¤¤à¥à¤¯` fails â€” so it is a fact about my
--- instance family.  Vikalpa â‡ Yugapat is not about the family at all:
+-- settled outright by an example â” at the trivially-true family
+-- `Â àà¾à®à¯à¿à•` holds while `Â à¨à¿ààà¯` fails â” so it is a fact about my
+-- instance family.  Vikalpa â Yugapat is not about the family at all:
 -- it is the constructive taboo proved here, and no example can settle
 -- it inside `--safe`.
 --

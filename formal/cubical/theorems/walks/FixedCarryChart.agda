@@ -6,15 +6,15 @@
 -- `CarryChartBridge` proved the one-step residue square for canonical
 -- numeral words and then killed its iteration: canonicalization forgets the
 -- ambient width.  The missing coordinate already exists in the repository.
--- `DigitTowerFinLimit.W A n = Fin n → A` retains exactly n places, and its
--- `dropMSD` restricts along the top-preserving inclusion Fin n ↪ Fin (suc n).
+-- `DigitTowerFinLimit.W A n = Fin n � A` retains exactly n places, and its
+-- `dropMSD` restricts along the top-preserving inclusion Fin n � Fin (suc n).
 --
 -- This module is the exact adapter between that fixed-width tower and the
 -- existing digit/carry chart.  It proves:
 --
 --   * fixed-width MSD deletion composes strictly;
 --   * enumerating a level word as a little-endian raw word intertwines the
---     tower deletion with `Endian.π`;
+--     tower deletion with `Endian.�`;
 --   * reducing its b^(n+1) residue coordinate is exactly the b^n coordinate
 --     after fixed-width deletion; and
 --   * normalization into `CanWord` preserves each stage's residue chart.
@@ -47,7 +47,7 @@ import DigitTowerFinLimit
 import FinTopSplit
 
 ------------------------------------------------------------------------
--- One adjacent pair b^(n+1) → b^n, where n = 1 + n'.
+-- One adjacent pair b^(n+1) � b^n, where n = 1 + n'.
 ------------------------------------------------------------------------
 
 module FixedBridge (k n' : ℕ) where
@@ -126,7 +126,7 @@ module FixedBridge (k n' : ℕ) where
           (cong (_∷ []) (cong w (fsuc-last m))) )
 
   -- Consequently the function-indexed tower deletion is exactly the raw
-  -- `Endian.π`, without normalization and without a canonicity premise.
+  -- `Endian.�`, without normalization and without a canonicity premise.
   toWord-dropMSD : {m : ℕ} (w : LevelWord (suc m))
                  → E.π (toWord w) ≡ toWord (dropMSD m w)
   toWord-dropMSD {m} w =
@@ -328,7 +328,7 @@ module FixedBridge (k n' : ℕ) where
     (C.mod-mod (levelValue w) ∙ levelValue-mod w)
 
 ------------------------------------------------------------------------
--- Definitional guards at the binary 3 → 2 digit transition.
+-- Definitional guards at the binary 3 � 2 digit transition.
 ------------------------------------------------------------------------
 
 private
@@ -351,7 +351,7 @@ private
 ------------------------------------------------------------------------
 -- The nonzero-top premise is real: a zero top place is erased before the
 -- canonical-word transition sees it.  Binary [1,0,0] is the least displayed
--- witness at the same 3 → 2 level used above.
+-- witness at the same 3 � 2 level used above.
 ------------------------------------------------------------------------
 
 module BinaryNaturalityCounterexample where

@@ -11,7 +11,7 @@ RH\iff\int_1^\infty e^{-2\sqrt t}|Z(t)|^2dt<\infty,
 \delta=\inf\left\{s>0:\int_1^\infty e^{-2st}|Z(t)|^2dt<\infty\right\}.
 \]
 
-If the subexponentially damped square is integrable, Cauchyâ€“Schwarz makes the received Laplace transform holomorphic on every right half-plane \(\Re w>0\). Its actual nonzero spectral residues exclude off-line zeros. Conversely under RH the receiver is bounded. The analogous argument at damping \(s\) yields the abscissa. These arguments avoid trying to identify a dominating mode in a possibly cancelling exponential sum.
+If the subexponentially damped square is integrable, Cauchyâ“Schwarz makes the received Laplace transform holomorphic on every right half-plane \(\Re w>0\). Its actual nonzero spectral residues exclude off-line zeros. Conversely under RH the receiver is bounded. The analogous argument at damping \(s\) yields the abscissa. These arguments avoid trying to identify a dominating mode in a possibly cancelling exponential sum.
 
 ## 55. Causal half-line Hankel operator: boundedness jumps to nuclearity
 
@@ -96,7 +96,7 @@ The coordinates \(\Sigma=z+w\), \(\Delta=w-z\) are jointly invertible: \(z=(\Sig
 
 The original prose jumped from this coordinate inversion to generic uniqueness of a Laplace transform of a complex planar measure. That implication is not automatic. The safe source-reconstruction theorem is section 57: differentiate the actual Gram kernel to recover \(Z\), then use its actual meromorphic Laplace transform to recover the divisor. Do not use an unproved general moment determinacy theorem to justify a broader claim.
 
-On the arithmetic side, insertion of the actual explicit formula gives a primeâ€“prime term
+On the arithmetic side, insertion of the actual explicit formula gives a primeâ“prime term
 
 \[
 \sum_{m,n}\frac{\Lambda(m)\Lambda(n)}{\sqrt{mn}}W_{s;T,U}(m,n),
@@ -246,7 +246,7 @@ With any declared faithful weights \(w_z=m_z|G(z)|^2\), set \(\mathcal P_G(t)=\s
 =\frac{s^2}{2}\sum w_z\|F_{s,z}-F_{s,\theta z}\|^2.
 \]
 
-If the synthesis map from a **distinct-zero unweighted** \(\ell^2\) basis is \(\mathcal Be_z=\sqrt{w_z}F_{s,z}\), then \(\mathcal D=\mathcal B(I-J)\) is Hilbertâ€“Schmidt and \(\|\mathcal D\|_{HS}^2=2s^{-2}\sum w_z(\Re z)^2\). Its squared operator is positive trace class, zero exactly on RH. Using \(\ell^2(\Sigma,m)\) instead requires the normalized basis and corresponding weights. Never count multiplicity both in the index and in \(w_z\).
+If the synthesis map from a **distinct-zero unweighted** \(\ell^2\) basis is \(\mathcal Be_z=\sqrt{w_z}F_{s,z}\), then \(\mathcal D=\mathcal B(I-J)\) is Hilbertâ“Schmidt and \(\|\mathcal D\|_{HS}^2=2s^{-2}\sum w_z(\Re z)^2\). Its squared operator is positive trace class, zero exactly on RH. Using \(\ell^2(\Sigma,m)\) instead requires the normalized basis and corresponding weights. Never count multiplicity both in the index and in \(w_z\).
 
 A discrete logarithmic positive-holonomy homomorphism can be viewed as an \(H^1\) cocycle for a specified trivial action, in which all coboundaries vanish. That construction is different from the feature-difference coboundary above and from an \(H^2\) extension obstruction. Its definition by the unknown horizontal operator does not prove its class vanishes.
 
@@ -292,7 +292,7 @@ Uniform stability fails anyway. Known distinct critical-line zeros have arbitrar
 \lambda_{min}=1-\frac{2s}{\sqrt{4s^2+d^2}}\le\frac{d^2}{8s^2}\to0.
 \]
 
-For \(N\) in one unit interval, the all-ones Rayleigh quotient gives \(\lambda_{max}\ge [4s^2/(4s^2+1)]N\). Thus the unweighted normalized family has neither a uniform lower Riesz bound nor a uniform upper Bessel bound. This pathology already occurs among zeros known to satisfy RH, so it cannot characterize off-criticality. Weighted synthesis remains Hilbertâ€“Schmidt; an infinite-rank compact operator cannot have a bounded inverse on its range with the ambient norm. [S09]
+For \(N\) in one unit interval, the all-ones Rayleigh quotient gives \(\lambda_{max}\ge [4s^2/(4s^2+1)]N\). Thus the unweighted normalized family has neither a uniform lower Riesz bound nor a uniform upper Bessel bound. This pathology already occurs among zeros known to satisfy RH, so it cannot characterize off-criticality. Weighted synthesis remains Hilbertâ“Schmidt; an infinite-rank compact operator cannot have a bounded inverse on its range with the ambient norm. [S09]
 
 ## 61. Passivity is supplied work, not squared output
 
@@ -311,7 +311,7 @@ Then
 
 RH is equivalent to \(W(f)\ge0\) for every compact smooth input. Under RH the receiver is the Fourier transform of the positive weights \(m_zG(i\gamma)\); conversely two short pulses with optimally chosen relative sign give limiting work \(M_0-|Z(\tau)|\). The fixed two-packet theorem closes the implication.
 
-Under RH an explicit lossless oscillator realization has \(a_\gamma'=i\gamma a_\gamma+f\), output \(y=\sum c_\gamma a_\gamma\), energy \(\frac12\sum c_\gamma|a_\gamma|^2\), and derivative \(\Re(\bar f y)\). This is a conditional spectral realization, not an unconditional Hilbertâ€“PÃ³lya proof.
+Under RH an explicit lossless oscillator realization has \(a_\gamma'=i\gamma a_\gamma+f\), output \(y=\sum c_\gamma a_\gamma\), energy \(\frac12\sum c_\gamma|a_\gamma|^2\), and derivative \(\Re(\bar f y)\). This is a conditional spectral realization, not an unconditional Hilbertâ“P³lya proof.
 
 The active control \(Z_a(t)=\cosh(at)\), \(a>0\), has finite positive damped Gram kernels of every moment order for \(s>a\), but two opposite impulses yield work \(1-\cosh(a\tau)<0\). Thus positivity of the already-positive completions cannot prove passivity of their boundary descendant. [S10]
 
@@ -397,7 +397,7 @@ For each \(\rho<1\), this is absolutely convergent in the declared sequence repr
 
 Thus boundedness of **any one fixed-order actual dyadic residual** implies bounded \(Z\) and RH. The inverse is source-boundary unique: a homogeneous normalized solution is a polynomial sequence of degree at most \(m-1\), and the zero boundary limit removes it.
 
-Retain the exact counterexample to the earlier shortcut: \(x_k=(-1)^k/(k+1)\to0\), but the ordinary \(m=2\) negative-binomial weighted difference sum does not converge. The Abel argument, not â€œthe boundary tends to zero,â€ is the valid general theorem.
+Retain the exact counterexample to the earlier shortcut: \(x_k=(-1)^k/(k+1)\to0\), but the ordinary \(m=2\) negative-binomial weighted difference sum does not converge. The Abel argument, not âthe boundary tends to zero,â is the valid general theorem.
 
 ## 63. A direct quantitative Goldbach-scale criterion, without introducing a new receiver
 
@@ -475,4 +475,4 @@ The exact resolved resolvent and time evolution are
 
 Let \(d=\lambda+i\gamma\). The intermediate \(\sigma^2/d\) has a pivot pole at \(d=0\), but for \(\sigma\ne0\) the full inverse there is \(\left(\begin{smallmatrix}0&1/\sigma\\1/\sigma&0\end{smallmatrix}\right)\). That singularity is removable from the full source problem. The poles \(d=\pm\sigma\) are genuine and have resolved residue \(1/2\). For \(\sigma=0\), the actual fixed orbit has a neutral \(1/d\) pole and no independent antisymmetric coordinate.
 
-Across all actual orbits, \(\Sigma(1)=0\iff RH\). Its real part is nonnegative on the right half-plane even when \(\sigma\ne0\), but it is **subtracted** as a positive-feedback term in the resolved denominator. Positive self-energy is not a dissipation proof. These facts are the exact finite reflection instance of the same source-retaining block normal form used on NS. [S17â€“S18]
+Across all actual orbits, \(\Sigma(1)=0\iff RH\). Its real part is nonnegative on the right half-plane even when \(\sigma\ne0\), but it is **subtracted** as a positive-feedback term in the resolved denominator. Positive self-energy is not a dissipation proof. These facts are the exact finite reflection instance of the same source-retaining block normal form used on NS. [S17â“S18]

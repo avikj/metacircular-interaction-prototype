@@ -1,16 +1,16 @@
-# A Faithful Prime-Boundary Receiver and a Navier‚ÄìStokes Continuation Obstruction
+# A Faithful Prime-Boundary Receiver and a Navier‚ìStokes Continuation Obstruction
 
 ## Status and dependency boundary
 
 Date: 6 September 2026.
 
-Repository source reads are pinned to commit `64effa62411bad3c12d513b2df5a1e5e55946afb` of `avikj/metacircular-interaction-prototype`. These are mathematical derivations, not newly compiled Agda or Lean modules. The accompanying SymPy scripts verify finite algebraic identities only. Neither the Riemann hypothesis nor global Navier‚ÄìStokes regularity is proved here. No novelty-priority claim is made.
+Repository source reads are pinned to commit `64effa62411bad3c12d513b2df5a1e5e55946afb` of `avikj/metacircular-interaction-prototype`. These are mathematical derivations, not newly compiled Agda or Lean modules. The accompanying SymPy scripts verify finite algebraic identities only. Neither the Riemann hypothesis nor global Navier‚ìStokes regularity is proved here. No novelty-priority claim is made.
 
 The repository inputs inspected are `formal/lean/Pairfield/VonMangoldtTriangularReconstruction.lean`, `GoldbachReconstructionChain.lean`, and `VandermondeFrequencyResponse.lean`; `formal/cubical/theorems/automata/ObservableInterface.agda`; `formal/cubical/theorems/physics/DefectCalculus.agda`; and `formal/cubical/kernel/SankramanaShreni_TheLocalizationSequenceAsOneObjectMeaningDescendsAndCostDoesNot.agda`.
 
 The arithmetic reconstruction theorem supplies the von Mangoldt sequence and its logarithmic-derivative Dirichlet series only in the Euler half-plane. Analytic continuation, the functional equation, the classical explicit formula, and the standard zero-counting bound are separate classical inputs. An authoritative statement of the explicit formula used below is E. Bombieri, *Problems of the Millennium: the Riemann Hypothesis*, ¬ßV, Clay Mathematics Institute.
 
-The observer interface preserves observations under a declared relation; state reconstruction is a separate property. In particular, `DefectCalculus.noEquiv‚ÜíbadFibre` has the constructive type ‚Äúnon-equivalence implies that universal fibre contractibility is impossible.‚Äù It does not, by itself, select a particular noncontractible fibre. Section 5 below supplies explicit distinct elements in a concrete observation fibre.
+The observer interface preserves observations under a declared relation; state reconstruction is a separate property. In particular, `DefectCalculus.noEquiv‚íbadFibre` has the constructive type ‚non-equivalence implies that universal fibre contractibility is impossible.‚ It does not, by itself, select a particular noncontractible fibre. Section 5 below supplies explicit distinct elements in a concrete observation fibre.
 
 ## 1. An elementary receiver with a quantified nonvanishing response
 
@@ -316,7 +316,7 @@ B(t)=\langle J_t^+f,P_tJ_t^-f\rangle-e^{t/2}H(1/2).
 
 The same fixed profile is used at both boundaries, for every scale. The pole term is the rank-one boundary contribution because \(H(1/2)=F(1/2)^2\), where \(F\) is the Laplace transform of \(f\). The result identifies a specific matrix coefficient; it does not infer a global operator-norm bound or an unconditional self-adjoint realization of the zeta zeros from that coefficient.
 
-## 5. Navier‚ÄìStokes: positive detection is not pairwise reconstruction
+## 5. Navier‚ìStokes: positive detection is not pairwise reconstruction
 
 ### Lemma 7: the secant criterion
 
@@ -344,7 +344,7 @@ These divergence-free initial data generate explicit globally smooth triangular 
 a(x_1,t)=Ae^{-\nu N^2t}\cos(Nx_1),
 \]
 
-and solve the linear advection‚Äìdiffusion equation
+and solve the linear advection‚ìdiffusion equation
 
 \[
 \partial_tv+a(x_1,t)\partial_2v
@@ -352,7 +352,7 @@ and solve the linear advection‚Äìdiffusion equation
 \qquad v(x_1,x_2,0)=A\cos(x_2-Nx_1).
 \]
 
-Then \(u^\sigma=(0,a,\sigma v)\), with constant pressure, solves unforced three-dimensional Navier‚ÄìStokes. The coefficient \(a\) is globally smooth and bounded, and the scalar linear equation has a global smooth periodic solution. Direct substitution verifies the reduction. This construction is not a singular solution and involves different fine initial data.
+Then \(u^\sigma=(0,a,\sigma v)\), with constant pressure, solves unforced three-dimensional Navier‚ìStokes. The coefficient \(a\) is globally smooth and bounded, and the scalar linear equation has a global smooth periodic solution. Direct substitution verifies the reduction. This construction is not a singular solution and involves different fine initial data.
 
 Let \(P=P_{\le1}\) be the exact Fourier projection and \(U^\sigma=Pu^\sigma\). At time zero,
 
@@ -440,7 +440,7 @@ u_r(x,s)=r\,u(x_0+rx,T_*+r^2s),
 \qquad p_r(x,s)=r^2p(x_0+rx,T_*+r^2s).
 \]
 
-Its gradient is \(r^2\nabla u\), and the space‚Äìtime Jacobian is \(r^{-5}\). Consequently
+Its gradient is \(r^2\nabla u\), and the space‚ìtime Jacobian is \(r^{-5}\). Consequently
 
 \[
 \boxed{

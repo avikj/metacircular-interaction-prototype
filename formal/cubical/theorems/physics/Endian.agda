@@ -5,17 +5,17 @@
 --
 -- Place value is a CHART, not the object.
 --
--- The digit presentation carries structure that â„• does not: word
+-- The digit presentation carries structure that â• does not: word
 -- reversal D and digit complement E.  Both are involutions of the raw
 -- word chart, they commute (Klein four), and NEITHER descends along the
--- value map to a function on â„• --- each fact proved here by exhibiting
+-- value map to a function on â• --- each fact proved here by exhibiting
 -- explicit witnesses, in the descent-obstruction idiom of the repo's
 -- existing `ProjectionChargeAudit.agda`.
 --
 -- The sharp difference between D and E, which is the residual isolated
 --
---   * E commutes with Ï€ = "delete the most significant digit";
---   * D does not; instead D exchanges Ï€ with Ï‚ = "delete the least
+--   * E commutes with Ï = "delete the most significant digit";
+--   * D does not; instead D exchanges Ï with Ï = "delete the least
 --     significant digit"  (DIGIT_CRYSTAL Thm 4.2's boxed intertwiner,
 --     proved here at word level).
 --
@@ -41,9 +41,9 @@ open import Cubical.Relation.Nullary using (Â¬_)
 open import Digits k
 
 ------------------------------------------------------------------------
--- 1.  E = digit complement, d â†¦ b - 1 - d.
+-- 1.  E = digit complement, d â¦ b - 1 - d.
 --
--- Constructed from the â‰¤-witness of `toâ„• d < b`, so the defining
+-- Constructed from the â‰-witness of `toâ• d < b`, so the defining
 -- identity comes for free rather than through truncated subtraction.
 ------------------------------------------------------------------------
 
@@ -107,11 +107,11 @@ rev-compw-comm (d âˆ· w) =
 ------------------------------------------------------------------------
 -- 3.  The four chart symmetries id, D, E, DE are pairwise distinct.
 --
--- All six inequalities are landed: D, E, DE differ from id (Dâ‰¢id,
--- Eâ‰¢id, DEâ‰¢id) and from each other (Dâ‰¢E, DEâ‰¢D, DEâ‰¢E), each refuted
+-- All six inequalities are landed: D, E, DE differ from id (Dâ‰id,
+-- Eâ‰id, DEâ‰id) and from each other (Dâ‰E, DEâ‰D, DEâ‰E), each refuted
 -- pointwise on an explicit witness word.  This is the on-elements
--- content of "the Klein-four action is faithful"; the Kâ‚„ group object
--- itself and a homomorphism into Word â†’ Word are NOT constructed here,
+-- content of "the Klein-four action is faithful"; the Kâ group object
+-- itself and a homomorphism into Word â’ Word are NOT constructed here,
 -- so "faithful" has no formal referent beyond this distinctness.
 ------------------------------------------------------------------------
 
@@ -248,8 +248,8 @@ noCompDescent (f , agrees) = znots contradiction
 ------------------------------------------------------------------------
 -- 6.  The residual: endianness.
 --
--- The two truncations of a digit word.  Ï€ deletes the most significant
--- digit (the one the profinite limit â„¤_b is built from); Ï‚ deletes the
+-- The two truncations of a digit word.  Ï deletes the most significant
+-- digit (the one the profinite limit â_b is built from); Ï deletes the
 -- least significant one.
 ------------------------------------------------------------------------
 
@@ -278,7 +278,7 @@ noCompDescent (f , agrees) = znots contradiction
     sym (rev-rev (Ï‚ (rev w)))
   âˆ™ cong rev (sym (Ï€-rev (rev w)) âˆ™ cong Ï€ (rev-rev w))
 
--- E IS compatible with Ï€: the complement descends to every â„¤/bâ¿ chart
+-- E IS compatible with Ï: the complement descends to every â/bâ¿ chart
 -- compatibly with truncation.
 Ï€-compw : (w : Word) â†’ Ï€ (compw w) â‰¡ compw (Ï€ w)
 Ï€-compw []          = refl

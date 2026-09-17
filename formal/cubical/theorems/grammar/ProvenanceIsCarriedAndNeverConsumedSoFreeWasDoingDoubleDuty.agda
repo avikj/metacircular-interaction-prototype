@@ -6,18 +6,18 @@
 -- ON THE NAME.  Checked before naming: `.claude/hooks/priority-ledger.txt`
 -- (CURRENT header) and `.claude/hooks/european-frame.txt`; `formal/` and
 -- invented.**  This is an audit of a record of mine about a note of this
--- corpus's own (Î” 28 Â§39â€“47); there is no source to cite and inventing a
--- Sanskrit label would assert a provenance nobody checked â€” which would
+-- corpus's own (Î” 28 Â§39â“47); there is no source to cite and inventing a
+--  label would assert a provenance nobody checked â” which would
 -- be a small joke at this module's expense and still wrong.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE AUDIT.  Target: `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem`,
 -- a COUNTING `Only`.  Its header states the count:
 --
 --   "THREE OF THE FOUR COMPOSE FOR FREE.  Boundary preservation is a
 --    path and paths compose; migration is a function and functions
 --    compose; provenance is a list and lists append.  Only COMPLEXITY
---    IMPROVEMENT needs a theorem â€¦ the content is only the count â€”
+--    IMPROVEMENT needs a theorem â¦ the content is only the count â”
 --    three free, one earned."
 --
 -- **THE COUNT IS RIGHT AND THE WORD IS NOT.  `free` is doing double
@@ -29,7 +29,7 @@
 --   symbol.
 --
 --   VACUOUSLY FREE.  Provenance is `List Prov` with NO condition
---   anywhere.  It composes by `++` because nothing constrains it â€”
+--   anywhere.  It composes by `++` because nothing constrains it â”
 --   including `++` itself.  Â§2 below proves the sharp form: **any
 --   certificate's provenance may be REPLACED BY THE EMPTY LIST and the
 --   result is still a certificate.**  So no theorem downstream can ever
@@ -38,19 +38,19 @@
 -- Those are opposite situations wearing one word.  A reader counting
 -- "three free, one earned" concludes the record is three-quarters
 -- discharged; it is one-half discharged, one-quarter under-specified
--- (migration, whose law is independent â€” 43380f01's neighbours record
+-- (migration, whose law is independent â” 43380f01's neighbours record
 -- that), and one-quarter inert.
 --
 -- **AND THE COUNT DRIFTED IN THE APPENDS, WHICH IS HOW I NOTICED.**  The
 -- first append there revises it to "THREE FREE, ONE EARNED, AND ONE
--- UNDER-SPECIFIED" â€” five slots for four components, because migration
+-- UNDER-SPECIFIED" â” five slots for four components, because migration
 -- is counted in both lists.  A four-item count that reads as five is
 -- the symptom; the conflated word is the cause.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   len / lenAppend    length is additive over `++`, by induction â€”
+--   len / lenAppend    length is additive over `++`, by induction â”
 --                      v0.5's `Cubical.Data.List.Properties` has
 --                      `length-map` but no `length-++`, so it is proved
 --                      here rather than assumed
@@ -59,7 +59,7 @@
 --                      This is the ONLY thing provenance satisfies.
 --   provenanceMayBeDiscarded
 --                      and it satisfies nothing else: `(s , i , m , _)`
---                      â†¦ `(s , i , m , [])` is a certificate for the
+--                      â¦ `(s , i , m , [])` is a certificate for the
 --                      same pair.  **This is the proof that `free` meant
 --                      `vacuous` here**, and it is the whole finding
 --   provenanceIsNotDeterminedByTheOtherThree
@@ -67,7 +67,7 @@
 --                      agreeing on the first three components and
 --                      differing on the fourth
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ open import ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem
   using (Certified ; composeCertified)
 
 ------------------------------------------------------------------------
--- 1.  Length, and its additivity â€” v0.5 ships neither
+-- 1.  Length, and its additivity â” v0.5 ships neither
 ------------------------------------------------------------------------
 
 len : {â„“ : Level} {A : Type â„“} â†’ List A â†’ â„•
@@ -108,7 +108,7 @@ module _ {Sys B Prov : Type}
 
   -- `Prov` is implicit in `Certified` and appears only in its fourth
   -- component, so no application determines it.  Fixing it once here is
-  -- what makes every statement below have a type at all â€” and it is a
+  -- what makes every statement below have a type at all â” and it is a
   -- small instance of the same point: the provenance type is so
   -- unconstrained that the elaborator cannot find it either.
   Cert : Sys â†’ Sys â†’ Type

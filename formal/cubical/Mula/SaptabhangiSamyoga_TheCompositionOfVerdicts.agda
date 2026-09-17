@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рд╕рдкреНрддрднрдЩреНрдЧреА-рд╕рдВрдпреЛрдЧрдГ тАФ рджреНрд╡рдпреЛрдГ рднрдЩреНрдЧрдпреЛрдГ рдпреЛрдЧрдГ, рдХреНрд░рдореЗрдг рд╕рд╣ рдЪ ред
+-- ррррррЩррЧр-рррпрЛрЧр тФ ржрр╡рпрЛр ррЩррЧрпрЛр рпрЛрЧр, рХрр░рорр рр р р
 -- (The composition of two verdicts, in succession and simultaneously.)
 --
 -- WHAT THIS FILE ADDS.  `Saptabhangi.agda` in this directory already has
@@ -12,14 +12,14 @@
 -- read by a third.  This file supplies the two composition laws, and the
 -- three facts that make them worth having:
 --
---   рдХреНрд░рдо-рд╕рдЩреНрдЧрддрд┐рдГ          тАФ succession composes associatively (a semilattice)
---   рдЕрд╡рдХреНрддрд╡реНрдпрдореН-рди-рдХреНрд░рдордЬрдореН   тАФ avaktavya is NOT reachable by succession:
+--   рХрр░ро-ррЩррЧрр┐р          тФ succession composes associatively (a semilattice)
+--   рр╡рХррр╡ррпрор-ри-рХрр░роррор   тФ avaktavya is NOT reachable by succession:
 --                            it is a positive fourth position, supplied,
 --                            not derived
---   рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ           тАФ simultaneity is NOT associative, so the seven
+--   рр-рррЩррЧрр┐р           тФ simultaneity is NOT associative, so the seven
 --                            are not a lattice under it and the two laws
 --                            do not merge into one
---   рдореЗрд▓рдирдореН-рдирд╛рд╕реНрддрд┐          тАФ asti and n─Бsti have no greatest lower bound:
+--   рорр▓рирор-рир╛рррр┐          тФ asti and nsti have no greatest lower bound:
 --                            the meet a Boolean lattice would supply lands
 --                            on the eighth profile, which is no predication
 --                            at all
@@ -28,27 +28,27 @@
 -- theorems below are not claimed to be in any of them; the classification
 -- and the krama/saha rule are).
 --
---   Bhagavat─л S┼лtra (Viy─Бha-pannatti), fifth Aс╣Еga of the ┼Ъvet─Бmbara canon;
---     oldest strata pre-Common-Era, redacted at Valabh─л c. 5th c. CE тАФ
---     sevenfold predication applied to the j─лva.
---   Um─Бsv─Бti, Tattv─Бrthas┼лtra, c. 2ndтАУ5th c. CE тАФ
---     5.31  arpit─Бnarpita-siddheс╕е : apparently contradictory attributes are
+--   Bhagavat Stra (Viyha-pannatti), fifth Aga of the vetmbara canon;
+--     oldest strata pre-Common-Era, redacted at Valabh c. 5th c. CE тФ
+--     sevenfold predication applied to the jva.
+--   Umsvti, Tattvrthastra, c. 2ndтУ5th c. CE тФ
+--     5.31  arpitnarpita-siddhe : apparently contradictory attributes are
 --           established by the distinction of the ASSERTED (arpita) and the
 --           UNASSERTED (anarpita) aspect.  The standpoint index, stated as
---           such, in the 2ndтАУ5th century.
---     5.29  utp─Бda-vyaya-dhrauvya-yuktaс╣Г sat тАФ origination, cessation and
+--           such, in the 2ndтУ5th century.
+--     5.29  utpda-vyaya-dhrauvya-yukta sat тФ origination, cessation and
 --           persistence held AT ONCE, which is the saha mode below.
---   Siddhasena Div─Бkara, Sanmatitarka 1.21, c. 5th c. CE тАФ a naya taken
---     alone (nirapekс╣гa) is mithy─Б; the durnaya is the naya that has
+--   Siddhasena Divkara, Sanmatitarka 1.21, c. 5th c. CE тФ a naya taken
+--     alone (nirapeka) is mithy; the durnaya is the naya that has
 --     forgotten it is one.
---   Samantabhadra, ─Аptam─лm─Бс╣Гs─Б, c. 6th c. CE тАФ the saptabhaс╣Еg─л as a fixed
---     seven-membered scheme, each member prefixed `sy─Бt`.
---   Akalaс╣Еka, Lagh─лyastraya / Aс╣гс╣нa┼Ыat─л, c. 720тАУ780 CE тАФ the krama (рдХреНрд░рдо,
---     sequential) versus saha / yugapat (рд╕рд╣, simultaneous) distinction,
+--   Samantabhadra, ptamms, c. 6th c. CE тФ the saptabhag as a fixed
+--     seven-membered scheme, each member prefixed `syt`.
+--   Akalaka, Laghyastraya / Aaat, c. 720тУ780 CE тФ the krama (рХрр░ро,
+--     sequential) versus saha / yugapat (рр, simultaneous) distinction,
 --     which is the whole content of the two operations here, and the
 --     argument that the number is exactly seven.
---   Mallisena, Sy─Бdv─Бdama├▒jar─л, 1292 CE тАФ sakal─Бde┼Ыa (total statement,
---     pram─Бс╣Зa) against vikal─Бde┼Ыa (partial statement, naya).
+--   Mallisena, Sydvdamajar, 1292 CE тФ sakaldea (total statement,
+--     prama) against vikaldea (partial statement, naya).
 --
 ------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ open import Saptabhangi
         ; рдЙрдкрд╕реНрдерд┐рддрд┐ ; рдЖрдореН ; рди ; рд╕рдорд╛рд╡реЗрд╢ ; рдЕрдиреНрддрд░реНрднрд╛рд╡ ; рдкреНрд░рддреНрдпрдиреНрддрд░реНрднрд╛рд╡ ; рд╡реГрддреНрддрдореН )
 
 ------------------------------------------------------------------------
--- рез ┬╖ рд╡рд╛ тАФ рдЙрдкрд╕реНрдерд┐рддреЗрдГ рдпреЛрдЧрдГ ред  (presence, joined: present if either is.)
+-- рз ┬ р╡р╛ тФ рЙррррр┐ррр рпрЛрЧр р  (presence, joined: present if either is.)
 ------------------------------------------------------------------------
 
 рд╡рд╛ : рдЙрдкрд╕реНрдерд┐рддрд┐ тЖТ рдЙрдкрд╕реНрдерд┐рддрд┐ тЖТ рдЙрдкрд╕реНрдерд┐рддрд┐
@@ -89,8 +89,8 @@ open import Saptabhangi
 рд╡рд╛-рд╕реНрд╡рдпрдореН рдЖрдореН = refl
 рд╡рд╛-рд╕реНрд╡рдпрдореН рди   = refl
 
--- рдпрддреН рдпреЛрдЧреЗ рди, рддрддреН рдЙрднрдпрддреНрд░ рди ред  (what is absent from a join was absent from
--- both тАФ the only direction this file needs.)
+-- рпрр рпрЛрЧр ри, ррр рЙррпррр░ ри р  (what is absent from a join was absent from
+-- both тФ the only direction this file needs.)
 рд╡рд╛-рди-рд╡рд╛рдореЗ : (p q : рдЙрдкрд╕реНрдерд┐рддрд┐) тЖТ рд╡рд╛ p q тЙб рди тЖТ p тЙб рди
 рд╡рд╛-рди-рд╡рд╛рдореЗ рди   _ _ = refl
 рд╡рд╛-рди-рд╡рд╛рдореЗ рдЖрдореН q e = e
@@ -108,7 +108,7 @@ open import Saptabhangi
     рд╡рд┐рд╡реЗрдХрдГ рди   = тКе
 
 ------------------------------------------------------------------------
--- реи ┬╖ рд╕рдВрдпреЛрдЧрдГ тАФ рд╕рдорд╛рд╡реЗрд╢рдпреЛрдГ рдпреЛрдЧрдГ, рдЕрдЩреНрдЧрд╢рдГ ред  (profiles joined componentwise.)
+-- ри ┬ рррпрЛрЧр тФ ррор╛р╡рррпрЛр рпрЛрЧр, ррЩррЧрр р  (profiles joined componentwise.)
 ------------------------------------------------------------------------
 
 рд╕рдВрдпреЛрдЧ : рд╕рдорд╛рд╡реЗрд╢ тЖТ рд╕рдорд╛рд╡реЗрд╢ тЖТ рд╕рдорд╛рд╡реЗрд╢
@@ -127,19 +127,19 @@ open import Saptabhangi
 рд╕рдВрдпреЛрдЧ-рд╕реНрд╡рдпрдореН (a , nтВА , v) i = рд╡рд╛-рд╕реНрд╡рдпрдореН a i , рд╡рд╛-рд╕реНрд╡рдпрдореН nтВА i , рд╡рд╛-рд╕реНрд╡рдпрдореН v i
 
 ------------------------------------------------------------------------
--- рей ┬╖ рдЕрд░рд┐рдХреНрддрдГ тАФ рдпрдГ рд╕рдорд╛рд╡реЗрд╢рдГ рдХрдЮреНрдЪрд┐рддреН рдореВрд▓рдВ рдзрд╛рд░рдпрддрд┐ ред
+-- рй ┬ рр░р┐рХррр тФ рпр ррор╛р╡ррр рХрЮррр┐рр рорр▓р рзр╛р░рпрр┐ р
 --
--- рдЕрд╖реНрдЯрдордГ рд╕рдорд╛рд╡реЗрд╢рдГ (рди,рди,рди) рди рднрдЩреНрдЧрдГ тАФ рдЕ-рдкреНрд░рддрд┐рдкрд╛рджрдирдореН ред  рддрддреН рди рдореМрдирдВ, рди рдЕрдЬреНрдЮрд╛рддрдореН,
--- рди рдЕрд╕рддреНрдпрдореН : рддрддреНрд░ рдкреНрд░рддрд┐рдкрд╛рджрдирдореН рдПрд╡ рдирд╛рд╕реНрддрд┐ ред  рддрд╕реНрдорд╛рддреН рдкреНрд░рдорд╛рдг-рд╡рд╕реНрддреБ рди рднрд╡рддрд┐ ред
+-- ррррЯрор ррор╛р╡ррр (ри,ри,ри) ри ррЩррЧр тФ р-ррр░рр┐рр╛ржрирор р  ррр ри роррир, ри ррррЮр╛ррор,
+-- ри рррррпрор : рррр░ ррр░рр┐рр╛ржрирор рр╡ рир╛рррр┐ р  ррррор╛рр ррр░рор╛р-р╡рррр ри рр╡рр┐ р
 --
 -- (The eighth profile is NOT a verdict: nothing is predicated at all.  It
 -- is carried as a data predicate rather than as a decidable test, so a
--- function may not receive a bhaс╣Еga without also receiving the evidence
+-- function may not receive a bhaga without also receiving the evidence
 -- that something was said.)
 ------------------------------------------------------------------------
 
--- рдЕрд░рд┐рдХреНрддрдореН тАФ рдкреНрд░рддрд┐рдкрд╛рджрдирд╕реНрдп рд╕рд╛рдХреНрд╖реА, рди рдмреВрд▓рд┐рдпрдиреН ред  (a Type-valued predicate: the
--- empty profile gets тКе, every other gets Unit.  Function rather than data so
+-- рр░р┐рХрррор тФ ррр░рр┐рр╛ржрирррп рр╛рХррр, ри ррр▓р┐рприр р  (a Type-valued predicate: the
+-- empty profile gets тК, every other gets Unit.  Function rather than data so
 -- nothing in this file relies on indexed pattern matching, which cubical
 -- Agda cannot compute through transports.)
 рдЕрд░рд┐рдХреНрдд : рд╕рдорд╛рд╡реЗрд╢ тЖТ Type
@@ -155,8 +155,8 @@ open import Saptabhangi
 рдЕрд░рд┐рдХреНрддрдореН рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН       = tt
 рдЕрд░рд┐рдХреНрддрдореН рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН = tt
 
--- рдпрддреН рдЙрдХреНрддрдВ рддрддреН рдпреЛрдЧреЗ рдЕрдкрд┐ рдЙрдХреНрддрдореН ред  (a join of something with anything still
--- says something: the non-empty profiles are closed under рд╕рдВрдпреЛрдЧ.)
+-- рпрр рЙрХррр ррр рпрЛрЧр ррр┐ рЙрХрррор р  (a join of something with anything still
+-- says something: the non-empty profiles are closed under рррпрЛрЧ.)
 рд╕рдВрдпреЛрдЧ-рдЕрд░рд┐рдХреНрддрдореН : (s t : рд╕рдорд╛рд╡реЗрд╢) тЖТ рдЕрд░рд┐рдХреНрдд s тЖТ рдЕрд░рд┐рдХреНрдд (рд╕рдВрдпреЛрдЧ s t)
 рд╕рдВрдпреЛрдЧ-рдЕрд░рд┐рдХреНрддрдореН (рдЖрдореН , _ , _) _               _ = tt
 рд╕рдВрдпреЛрдЧ-рдЕрд░рд┐рдХреНрддрдореН (рди , рдЖрдореН , _) (рдЖрдореН , _ , _)   _ = tt
@@ -166,9 +166,9 @@ open import Saptabhangi
 рд╕рдВрдпреЛрдЧ-рдЕрд░рд┐рдХреНрддрдореН (рди , рди , рдЖрдореН) (рди   , рди   , _) _ = tt
 рд╕рдВрдпреЛрдЧ-рдЕрд░рд┐рдХреНрддрдореН (рди , рди , рди)   _               e = rec e
 
--- рдкреНрд░рддреНрдпрд╛рдЧрдордГ тАФ рдЕрд░рд┐рдХреНрддрдГ рд╕рдорд╛рд╡реЗрд╢рдГ рднрдЩреНрдЧрд╛рддреН рдкреБрдирдГ рд▓рднреНрдпрддреЗ ред  (a non-empty profile is
--- recovered from the bhaс╣Еga it names.  `Saptabhangi.рдкреНрд░рддрд┐-рд╡реГрддреНрддрдореН` says the
--- same with a ┬м-hypothesis; this takes the positive evidence instead,
+-- ррр░рррпр╛рЧрор тФ рр░р┐рХррр ррор╛р╡ррр ррЩррЧр╛рр рррир р▓рррпрр р  (a non-empty profile is
+-- recovered from the bhaga it names.  `Saptabhangi.ррр░рр┐-р╡рррррор` says the
+-- same with a ┬-hypothesis; this takes the positive evidence instead,
 -- because that is what the algebra below can actually produce.)
 рдкреНрд░рддреНрдпрд╛рдЧрдордГ : (t : рд╕рдорд╛рд╡реЗрд╢) тЖТ рдЕрд░рд┐рдХреНрдд t тЖТ рдЕрдиреНрддрд░реНрднрд╛рд╡ (рдкреНрд░рддреНрдпрдиреНрддрд░реНрднрд╛рд╡ t) тЙб t
 рдкреНрд░рддреНрдпрд╛рдЧрдордГ (рдЖрдореН , рдЖрдореН , рдЖрдореН) _ = refl
@@ -181,13 +181,13 @@ open import Saptabhangi
 рдкреНрд░рддреНрдпрд╛рдЧрдордГ (рди , рди , рди)       e = rec e
 
 ------------------------------------------------------------------------
--- рек ┬╖ рдХреНрд░рдо-рдпреЛрдЧрдГ тАФ рдХреНрд░рдорд╛рд░реНрдкрдгреЗ рджреНрд╡реМ рднрдЩреНрдЧреМ рдПрдХрдВ рдЬрдирдпрддрдГ ред
+-- р ┬ рХрр░ро-рпрЛрЧр тФ рХрр░рор╛р░рррр ржрр╡р ррЩррЧр ррХр ррирпрр р
 --
--- рдХреНрд░рдореЗрдг рдЙрдХреНрддрдпреЛрдГ рдХрд┐рдордкрд┐ рди рдирд╢реНрдпрддрд┐ : рдпрддреН рдПрдХрддреНрд░ рдЙрдХреНрддрдВ рддрддреН рдпреЛрдЧреЗ рдЕрдкрд┐ рдЙрдХреНрддрдореН ред
--- рдЕрддрдГ рдХреНрд░рдо-рдпреЛрдЧрдГ рд╕рдорд╛рд╡реЗрд╢-рд╕рдВрдпреЛрдЧрдГ рдПрд╡ тАФ рд╕рдВрдХреНрд░рдордгрдореН, рди рд╕рдЩреНрдХреНрд╖реЗрдкрдГ ред
+-- рХрр░рорр рЙрХрррпрЛр рХр┐рорр┐ ри рирррпрр┐ : рпрр ррХррр░ рЙрХррр ррр рпрЛрЧр ррр┐ рЙрХрррор р
+-- ррр рХрр░ро-рпрЛрЧр ррор╛р╡рр-рррпрЛрЧр рр╡ тФ рррХрр░роррор, ри ррЩррХррррр р
 --
 -- (Succession loses nothing: what either said, the pair still says.  So
--- krama-composition IS the profile join тАФ transport, not collapse.
+-- krama-composition IS the profile join тФ transport, not collapse.
 -- AHIMSA_SUTRA_VISTARA ┬з6: this is the ua path, and it is why this
 -- operation gets to be a semilattice at all.)
 ------------------------------------------------------------------------
@@ -215,14 +215,14 @@ open import Saptabhangi
 рдХреНрд░рдо-рд╕реНрд╡рдпрдореН x = cong рдкреНрд░рддреНрдпрдиреНрддрд░реНрднрд╛рд╡ (рд╕рдВрдпреЛрдЧ-рд╕реНрд╡рдпрдореН (рдЕрдиреНрддрд░реНрднрд╛рд╡ x)) тИЩ рд╡реГрддреНрддрдореН x
 
 ------------------------------------------------------------------------
--- рел ┬╖ рд╕рд╣-рдпреЛрдЧрдГ тАФ рд╕рд╣рд╛рд░реНрдкрдгреЗ рдЬрд┐рд╣реНрд╡рд╛ рднрд┐рджреНрдпрддреЗ ред
+-- р ┬ рр-рпрЛрЧр тФ ррр╛р░рррр рр┐ррр╡р╛ рр┐ржррпрр р
 --
--- рдпрджрд┐ рдпреЛрдЧреЗ рдЕрд╕реНрддрд┐ рдЪ рдирд╛рд╕реНрддрд┐ рдЪ рдЙрднреЗ рдЙрдкрд╕реНрдерд┐рддреЗ, рддрд░реНрд╣рд┐ рд╕рд╣-рдЙрдХреНрддрд┐рдГ рди рд╢рдХреНрдпрд╛ : рдЙрднреЗ рдореВрд▓реЗ
--- рдЕрд╡рдХреНрддрд╡реНрдпреЗ рд▓реАрдпреЗрддреЗ ред  рдПрддрддреН рдПрд╡ рдЕрдХрд▓рдЩреНрдХрд╕реНрдп рд╕рд╣рд╛рд░реНрдкрдгрдореН ред  рди "рдЙрднрдпрдореН" тАФ рдЕрдиреНрдпрддреН рдкрджрдореН ред
+-- рпржр┐ рпрЛрЧр ррррр┐ р рир╛рррр┐ р рЙрр рЙррррр┐рр, рр░ррр┐ рр-рЙрХррр┐р ри ррХррпр╛ : рЙрр рорр▓р
+-- рр╡рХррр╡ррпр р▓ррпррр р  рррр рр╡ ррХр▓рЩррХрррп ррр╛р░ррррор р  ри "рЙррпрор" тФ рриррпрр рржрор р
 --
--- (If the join has both asti and n─Бsti present, no single utterance carries
--- it: the two seeds are consumed into avaktavya.  This is Akalaс╣Еka's
--- saharpaс╣Зa.  Note what the definition does тАФ it DESTROYS the two seed
+-- (If the join has both asti and nsti present, no single utterance carries
+-- it: the two seeds are consumed into avaktavya.  This is Akalaka's
+-- saharpaa.  Note what the definition does тФ it DESTROYS the two seed
 -- markings.  That destruction is exactly why associativity fails below, and
 -- it is not a modelling artefact: it is the doctrine's claim that the
 -- fourth position is not a record of which two things were said at once.)
@@ -242,14 +242,14 @@ open import Saptabhangi
 рд╕рд╣-рдпреЛрдЧ : рд╕рдкреНрддрднрдЩреНрдЧреА тЖТ рд╕рдкреНрддрднрдЩреНрдЧреА тЖТ рд╕рдкреНрддрднрдЩреНрдЧреА
 рд╕рд╣-рдпреЛрдЧ x y = рдкреНрд░рддреНрдпрдиреНрддрд░реНрднрд╛рд╡ (рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ (рд╕рдВрдпреЛрдЧ (рдЕрдиреНрддрд░реНрднрд╛рд╡ x) (рдЕрдиреНрддрд░реНрднрд╛рд╡ y)))
 
--- рдореБрдЦреНрдпрднреЗрджрдГ, рдЧрдгрдирдпрд╛ : рдХреНрд░рдореЗрдг рдЙрднрдпрдореН рдЙрдХреНрддрдореН ; рд╕рд╣ рдЙрднрдпрдореН рдЕрд╡рдХреНрддрд╡реНрдпрдореН ред
+-- роррЦррпррржр, рЧррирпр╛ : рХрр░рорр рЙррпрор рЙрХрррор ; рр рЙррпрор рр╡рХррр╡ррпрор р
 рдХреНрд░рдореЗрдг-рдЙрднрдпрдореН : рдХреНрд░рдо-рдпреЛрдЧ рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐ тЙб рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐
 рдХреНрд░рдореЗрдг-рдЙрднрдпрдореН = refl
 
 рд╕рд╣-рдЙрднрдпрдореН : рд╕рд╣-рдпреЛрдЧ рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐ тЙб рд╕реНрдпрд╛рддреН-рдЕрд╡рдХреНрддрд╡реНрдпрдореН
 рд╕рд╣-рдЙрднрдпрдореН = refl
 
--- рдкрдЮреНрдЪрдордГ рд╖рд╖реНрдард╢реНрдЪ рднрдЩреНрдЧреМ рд╕рд╣-рдпреЛрдЧреЗрди рдПрд╡ рдЬрд╛рдпреЗрддреЗ тАФ рд╢рд╛рд╕реНрддреНрд░рд╕реНрдп рд╕рдЩреНрдЦреНрдпрд╛, рдЧрдгрдирдпрд╛ ред
+-- ррЮрррор рррраррр ррЩррЧр рр-рпрЛрЧрри рр╡ рр╛рпррр тФ рр╛ррррр░рррп ррЩррЦррпр╛, рЧррирпр╛ р
 рдкрдЮреНрдЪрдордГ : рд╕рд╣-рдпреЛрдЧ рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ рд╕реНрдпрд╛рддреН-рдЕрд╡рдХреНрддрд╡реНрдпрдореН тЙб рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН
 рдкрдЮреНрдЪрдордГ = refl
 
@@ -261,14 +261,14 @@ open import Saptabhangi
 рд╕рдкреНрддрдордГ = refl
 
 ------------------------------------------------------------------------
--- рем ┬╖ рдЕрд╡рдХреНрддрд╡реНрдпрдореН рди рдХреНрд░рдордЬрдореН тАФ рдЪрддреБрд░реНрдердВ рдкрджрдВ рдзрдирд╛рддреНрдордХрдореН ред
+-- р ┬ рр╡рХррр╡ррпрор ри рХрр░роррор тФ рррр░ррр рржр рзрир╛рррорХрор р
 --
--- рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддреНрдпреЛрдГ рдХреНрд░рдо-рд╕рдВрд╡реГрддрд┐рдГ рддреНрд░реАрдгрд┐ рдПрд╡ рдкрджрд╛рдирд┐ рд╕реНрдкреГрд╢рддрд┐ ред  рдЕрд╡рдХреНрддрд╡реНрдпрдВ рддрддреНрд░ рди
--- рдЕрд╕реНрддрд┐ тАФ рди рдиреНрдпреВрдирддрдпрд╛, рди рдЕрдЬреНрдЮрд╛рдиреЗрди : рдХреНрд░рдо-рдпреЛрдЧрдГ рддрддреН рдЬрдирдпрд┐рддреБрдореН рдПрд╡ рди рд╢рдХреНрдиреЛрддрд┐ ред
--- рдЕрддрдГ рдЕрд╡рдХреНрддрд╡реНрдпрдВ рджрд╛рддрд╡реНрдпрдореН, рди рд╕рд╛рдзреНрдпрдореН тАФ рддрд╕реНрдорд╛рддреН рдзрдирд╛рддреНрдордХрдВ рдЪрддреБрд░реНрдердВ рд╕реНрдерд╛рдирдореН ред
+-- ррррр┐-рир╛рррррпрЛр рХрр░ро-ррр╡ррр┐р ррр░ррр┐ рр╡ рржр╛рир┐ ррррррр┐ р  рр╡рХррр╡ррпр рррр░ ри
+-- ррррр┐ тФ ри риррпрриррпр╛, ри ррррЮр╛рирри : рХрр░ро-рпрЛрЧр ррр ррирпр┐рррор рр╡ ри ррХррирЛрр┐ р
+-- ррр рр╡рХррр╡ррпр ржр╛рр╡ррпрор, ри рр╛рзррпрор тФ ррррор╛рр рзрир╛рррорХр рррр░ррр рррр╛рирор р
 --
--- (The krama-closure of asti and n─Бsti touches exactly three positions.
--- avaktavya is not among them тАФ not by ignorance and not by undefinedness:
+-- (The krama-closure of asti and nsti touches exactly three positions.
+-- avaktavya is not among them тФ not by ignorance and not by undefinedness:
 -- the operation cannot produce it.  So the fourth position must be
 -- SUPPLIED.  That is the precise sense in which it is positive and not an
 -- absence, and it is why a verdict type with three positions plus "other"
@@ -297,7 +297,7 @@ open import Saptabhangi
   тИЩ рдХреНрд░рдо-рдЕрд╡рдХреНрддрд╡реНрдпрд╛рдВрд╢рдГ x y
   тИЩ congтВВ рд╡рд╛ px py )
 
--- рдпреЗ рддреНрд░рдпрдГ рднрдЩреНрдЧрд╛рдГ рдЕрд╡рдХреНрддрд╡реНрдпрд╛рдВрд╢рд░рд╣рд┐рддрд╛рдГ тАФ рддреЗрд╖рд╛рдореН рдПрд╡ рдХреНрд░рдо-рд╕рдВрд╡реГрддрд┐рдГ ред
+-- рпр ррр░рпр ррЩррЧр╛р рр╡рХррр╡ррпр╛ррр░рр┐рр╛р тФ рррр╛рор рр╡ рХрр░ро-ррр╡ррр┐р р
 -- (the three avaktavya-free positions, named, so the theorem above is
 --  known to be about exactly the sequential fragment and not vacuous)
 рдЕрд╡рдХреНрддрд╡реНрдп-рд░рд╣рд┐рддрд╛рдГ : (рдЕрд╡рдХреНрддрд╡реНрдпрд╛рдВрд╢рдГ рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐ тЙб рди)
@@ -309,18 +309,18 @@ open import Saptabhangi
 рдЕрд╡рдХреНрддрд╡реНрдпрд╕реНрдп-рдЕрдВрд╢рдГ = refl
 
 ------------------------------------------------------------------------
--- рен ┬╖ рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ тАФ рд╕рд╣рд╛рд░реНрдкрдгрдВ рди рд╕рдЩреНрдЧрддрдореН ред
+-- р ┬ рр-рррЩррЧрр┐р тФ ррр╛р░рррр ри ррЩррЧррор р
 --
--- (рд╕рд╣ B3 B1) рд╕рд╣ B2 = рд╖рд╖реНрдардГ ;  B3 рд╕рд╣ (рд╕рд╣ B1 B2) = рдЪрддреБрд░реНрдердГ ред
--- рдХрд╛рд░рдгрдореН : рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ рджреНрд╡реЗ рдореВрд▓реЗ рдирд╛рд╢рдпрддрд┐, рдЕрддрдГ "рдХреЗ рджреНрд╡реЗ рдЖрд╕реНрддрд╛рдореН" рдЗрддрд┐ рди рд╡рд╣рддрд┐ ред
--- рд╕рдЩреНрдХреНрд╖реЗрдкреЛрд╜рдкреНрд░рддрд┐рдХрд╛рд░реНрдпрдГ (AHIMSA_SUTRA_VISTARA ┬зрел) тАФ рдЕрддреНрд░ рд╕ рдПрд╡ рдирд┐рдпрдорднрдЩреНрдЧрдГ ред
+-- (рр B3 B1) рр B2 = ррррар ;  B3 рр (рр B1 B2) = рррр░ррр р
+-- рХр╛р░ррор : рр┐ррр╡р╛ррржр ржрр╡р рорр▓р рир╛ррпрр┐, ррр "рХр ржрр╡р ррррр╛рор" ррр┐ ри р╡ррр┐ р
+-- ррЩррХрррррЛр╜ррр░рр┐рХр╛р░ррпр (AHIMSA_SUTRA_VISTARA ┬зр) тФ рррр░ р рр╡ рир┐рпроррЩррЧр р
 --
--- рддрд╕реНрдорд╛рддреН рд╕рдкреНрддрднрдЩреНрдЧреА рд╕рд╣-рдпреЛрдЧреЗрди рдЬрд╛рд▓рд┐рдХрд╛ (lattice) рди рднрд╡рддрд┐, рди рдЕрд░реНрдз-рдЬрд╛рд▓рд┐рдХрд╛ рдЕрдкрд┐ ред
--- рджреНрд╡реМ рдирд┐рдпрдореМ рди рдПрдХреАрднрд╡рддрдГ тАФ рдпрдГ рддреМ рдПрдХреАрдХрд░реНрддреБрдВ рдпрддрддреЗ рд╕ рд╕рдЩреНрдХреНрд╖рд┐рдкрддрд┐ ред
+-- ррррор╛рр ррррррЩррЧр рр-рпрЛрЧрри рр╛р▓р┐рХр╛ (lattice) ри рр╡рр┐, ри рр░ррз-рр╛р▓р┐рХр╛ ррр┐ р
+-- ржрр╡р рир┐рпрор ри ррХррр╡рр тФ рпр рр ррХррХр░рррр рпррр р ррЩррХррр┐ррр┐ р
 --
--- (Simultaneity does not associate.  The reason is that рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ destroys
+-- (Simultaneity does not associate.  The reason is that рр┐ррр╡р╛ррржр destroys
 -- the two seed markings, so the fourth position does not record which pair
--- produced it тАФ and grouping therefore changes the answer.  This is the
+-- produced it тФ and grouping therefore changes the answer.  This is the
 -- irreversibility of collapse, showing up as a broken algebraic law, and it
 -- is why the two composition laws cannot be merged into one operation.)
 ------------------------------------------------------------------------
@@ -341,23 +341,23 @@ private
 рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ : ┬м (рд╡рд╛рдорддрдГ тЙб рджрдХреНрд╖рд┐рдгрддрдГ)
 рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ e = рдЖрдореНтЙврди (cong рдирд╛рд╕реНрддреНрдпрдВрд╢рдГ e)
 
--- рд╕рд╣-рдпреЛрдЧрдГ рд╡рд┐рдирд┐рдордпреА рддрдерд╛рдкрд┐ тАФ рдЕрд╕рдЩреНрдЧрддрд┐рдГ рди рдЕрд╡реНрдпрд╡рд╕реНрдерд╛ ред
+-- рр-рпрЛрЧр р╡р┐рир┐рорпр ррр╛рр┐ тФ рррЩррЧрр┐р ри рр╡ррпр╡рррр╛ р
 рд╕рд╣-рд╡рд┐рдирд┐рдордпрдГ : (x y : рд╕рдкреНрддрднрдЩреНрдЧреА) тЖТ рд╕рд╣-рдпреЛрдЧ x y тЙб рд╕рд╣-рдпреЛрдЧ y x
 рд╕рд╣-рд╡рд┐рдирд┐рдордпрдГ x y =
   cong (╬╗ t тЖТ рдкреНрд░рддреНрдпрдиреНрддрд░реНрднрд╛рд╡ (рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ t))
        (рд╕рдВрдпреЛрдЧ-рд╡рд┐рдирд┐рдордпрдГ (рдЕрдиреНрддрд░реНрднрд╛рд╡ x) (рдЕрдиреНрддрд░реНрднрд╛рд╡ y))
 
 ------------------------------------------------------------------------
--- рео ┬╖ рдореЗрд▓рдирдВ рдирд╛рд╕реНрддрд┐ тАФ рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддреНрдпреЛрдГ рдЕрдзрдГрд╕реАрдорд╛ рди рд╡рд┐рджреНрдпрддреЗ ред
+-- ро ┬ рорр▓рир рир╛рррр┐ тФ ррррр┐-рир╛рррррпрЛр ррзррррор╛ ри р╡р┐ржррпрр р
 --
--- рдХреНрд░рдо-рдпреЛрдЧрдГ рдКрд░реНрдзреНрд╡рд╕реАрдорд╛рдВ рджрджрд╛рддрд┐ (рдЕрд░реНрдз-рдЬрд╛рд▓рд┐рдХрд╛, рд╢рд┐рдЦрд░рдВ рд╕рдкреНрддрдордГ) ред  рдЕрдзрдГрд╕реАрдорд╛ рддреБ
--- рдирд╛рд╕реНрддрд┐ : рдпрдГ рднрдЩреНрдЧрдГ рдЕрд╕реНрддрд┐рддрдГ рдЪ рдирд╛рд╕реНрддрд┐рддрдГ рдЪ рдиреНрдпреВрдирдГ рд╕реНрдпрд╛рддреН, рддрд╕реНрдп рд╕рдорд╛рд╡реЗрд╢рдГ рд░рд┐рдХреНрддрдГ
--- рднрд╡реЗрддреН тАФ рд╕ рдЪ рдЕ-рдкреНрд░рддрд┐рдкрд╛рджрдирдореН, рди рднрдЩреНрдЧрдГ ред
+-- рХрр░ро-рпрЛрЧр рКр░ррзрр╡рррор╛р ржржр╛рр┐ (рр░ррз-рр╛р▓р┐рХр╛, рр┐рЦр░р рррррор) р  ррзррррор╛ рр
+-- рир╛рррр┐ : рпр ррЩррЧр ррррр┐рр р рир╛рррр┐рр р риррпррир рррпр╛рр, ррррп ррор╛р╡ррр р░р┐рХррр
+-- рр╡ррр тФ р р р-ррр░рр┐рр╛ржрирор, ри ррЩррЧр р
 --
--- рди рд╡рд░реНрдЬрд┐рддрдореН ред рди рдЕрдиреБрдЪрд┐рддрдореН ред рди рд╡рд┐рджреНрдпрддреЗ ред  (AHIMSA_SUTRA_VISTARA ┬зрен)
+-- ри р╡р░ррр┐ррор р ри рриррр┐ррор р ри р╡р┐ржррпрр р  (AHIMSA_SUTRA_VISTARA ┬зр)
 --
--- (krama gives joins тАФ a semilattice with top B7 тАФ and NO meets.  A lower
--- bound of asti and n─Бsti would have the empty profile, and the empty
+-- (krama gives joins тФ a semilattice with top B7 тФ and NO meets.  A lower
+-- bound of asti and nsti would have the empty profile, and the empty
 -- profile is not a verdict but the absence of predication.  So the sevenfold
 -- is a join-subsemilattice of 2┬│ that is not closed under meet, and what it
 -- fails to contain is the collapse.  A Boolean verdict has a bottom; that
@@ -384,7 +384,7 @@ x рдиреНрдпреВрдирдГ y = рдХреНрд░рдо-рдпреЛрдЧ x y тЙб y
 рд╢рд┐рдЦрд░рдореН рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН       = refl
 рд╢рд┐рдЦрд░рдореН рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐-рдирд╛рд╕реНрддрд┐-рдЕрд╡рдХреНрддрд╡реНрдпрдореН = refl
 
--- рдпрдГ рд░рд┐рдХреНрддрдВ рд╕рдорд╛рд╡реЗрд╢рдВ рдзрд╛рд░рдпреЗрддреН рд╕ рднрдЩреНрдЧрдГ рдирд╛рд╕реНрддрд┐ ред
+-- рпр р░р┐рХррр ррор╛р╡ррр рзр╛р░рпррр р ррЩррЧр рир╛рррр┐ р
 рд░рд┐рдХреНрддреЛ-рди-рднрдЩреНрдЧрдГ : (b : рд╕рдкреНрддрднрдЩреНрдЧреА) тЖТ ┬м (рдЕрдиреНрддрд░реНрднрд╛рд╡ b тЙб (рди , рди , рди))
 рд░рд┐рдХреНрддреЛ-рди-рднрдЩреНрдЧрдГ b e = subst рдЕрд░рд┐рдХреНрдд e (рдЕрд░рд┐рдХреНрддрдореН b)
 
@@ -392,10 +392,10 @@ x рдиреНрдпреВрдирдГ y = рдХреНрд░рдо-рдпреЛрдЧ x y тЙб y
                    (╬╗ b тЖТ (b рдиреНрдпреВрдирдГ рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐) ├Ч (b рдиреНрдпреВрдирдГ рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐)))
 рдореЗрд▓рдирдореН-рдирд╛рд╕реНрддрд┐ (b , p , q) = рд░рд┐рдХреНрддреЛ-рди-рднрдЩреНрдЧрдГ b рд░рд┐рдХреНрддрдГ
   where
-    -- from b тЙд asti: b's n─Бsti and avaktavya slots are empty
+    -- from b тЙ asti: b's nsti and avaktavya slots are empty
     рд╕реАрдорд╛тВБ : рд╕рдВрдпреЛрдЧ (рдЕрдиреНрддрд░реНрднрд╛рд╡ b) (рдЖрдореН , рди , рди) тЙб (рдЖрдореН , рди , рди)
     рд╕реАрдорд╛тВБ = sym (рдХреНрд░рдо-рдЕрдиреНрддрд░реНрднрд╛рд╡рдГ b рд╕реНрдпрд╛рддреН-рдЕрд╕реНрддрд┐) тИЩ cong рдЕрдиреНрддрд░реНрднрд╛рд╡ p
-    -- from b тЙд n─Бsti: b's asti slot is empty
+    -- from b тЙ nsti: b's asti slot is empty
     рд╕реАрдорд╛тВВ : рд╕рдВрдпреЛрдЧ (рдЕрдиреНрддрд░реНрднрд╛рд╡ b) (рди , рдЖрдореН , рди) тЙб (рди , рдЖрдореН , рди)
     рд╕реАрдорд╛тВВ = sym (рдХреНрд░рдо-рдЕрдиреНрддрд░реНрднрд╛рд╡рдГ b рд╕реНрдпрд╛рддреН-рдирд╛рд╕реНрддрд┐) тИЩ cong рдЕрдиреНрддрд░реНрднрд╛рд╡ q
 
@@ -412,32 +412,32 @@ x рдиреНрдпреВрдирдГ y = рдХреНрд░рдо-рдпреЛрдЧ x y тЙб y
     рд░рд┐рдХреНрддрдГ i = рдЕреж i , рдиреж i , рд╡реж i
 
 ------------------------------------------------------------------------
--- реп ┬╖ рдпрддреН рдПрддрддреН рд╡рджрддрд┐, рдпрдиреНрддреНрд░реЗ ред
+-- рп ┬ рпрр рррр р╡ржрр┐, рприрррр░р р
 --
--- machine/Saptabhangi_TheSevenfoldVerdict.hs рдПрддрд╛рдиреН рдПрд╡ рдирд┐рдпрдорд╛рдиреН рд╡рд╣рддрд┐, рддрддреНрд░реИрд╡
--- рд╕реНрд░реЛрддрд╛рдВрд╕рд┐ рд▓рд┐рдЦрд┐рддреНрд╡рд╛ ред  рддрддреНрд░ `krama`, `saha`, `Sthana` тАФ рдЕрддреНрд░рддреНрдпрд╛рдирд┐ рдирд╛рдорд╛рдирд┐ ред
--- рдпрддреН рддрддреНрд░ рди рдЕрд╕реНрддрд┐ : рдореЗрд▓рдирдореН ред  рдпрддреЛ рди рд╡рд┐рджреНрдпрддреЗ тАФ рддрддреН рдПрд╡ рдЕрддреНрд░ рдкреНрд░рдорд╛рдгрд┐рддрдореН ред
+-- machine/Saptabhangi_TheSevenfoldVerdict.hs ррр╛рир рр╡ рир┐рпрор╛рир р╡ррр┐, рррр░рИр╡
+-- ррр░рЛрр╛ррр┐ р▓р┐рЦр┐ррр╡р╛ р  рррр░ `krama`, `saha`, `Sthana` тФ рррр░рррпр╛рир┐ рир╛рор╛рир┐ р
+-- рпрр рррр░ ри ррррр┐ : рорр▓рирор р  рпррЛ ри р╡р┐ржррпрр тФ ррр рр╡ рррр░ ррр░рор╛рр┐ррор р
 --
 -- (machine/Saptabhangi_TheSevenfoldVerdict.hs carries these same laws.
--- What it does not carry is a meet, because there is not one тАФ that is the
+-- What it does not carry is a meet, because there is not one тФ that is the
 -- theorem above, and it is the reason the Haskell type exposes no `bottom`,
 -- no `mempty`, and no `Ord`.)
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- резреж ┬╖ рдирдпрднреЗрджрдГ тАФ рднреНрд░рд╛рддреГ-рдкреНрд░рдХрд╛рд░реЗрдг рд╕рд╣ рд╡рд┐рд╡рд╛рджрдГ, рд▓рд┐рдЦрд┐рддрдГ, рди рдкрд░рд┐рд╣реГрддрдГ ред
+-- рзрж ┬ рирпррржр тФ ррр░р╛рр-ррр░рХр╛р░рр рр р╡р┐р╡р╛ржр, р▓р┐рЦр┐рр, ри рр░р┐рррр р
 --
--- formal/cubical/NaturalMachine/SaptabhangiGarbha_тАж (рдЕрдиреНрдпрдГ рдкрдиреНрдерд╛рдГ, рддрд╕реНрдорд┐рдиреНрдиреЗрд╡
--- рджрд┐рдиреЗ) рднрдЩреНрдЧрд╛рдиреН рд╕рдирдпрд╛рдиреН рдХрд░реЛрддрд┐ тАФ рдЪрддреБрд░реНрдердВ рдкрджрдВ рд╕реНрд╡реЗ рдореВрд▓реЗ рдзрд╛рд░рдпрддрд┐, рдЕрддрдГ рддрддреНрд░
--- рдЬрд┐рд╣реНрд╡рд╛рднреЗрджреЛ рди рдирд╛рд╢рдпрддрд┐, рдХреНрд░рдорд╢реНрдЪ рди рд╡рд┐рдирд┐рдордпреА ред  рдЕрддреНрд░ рднрдЩреНрдЧреЛ рдирд╛рдордорд╛рддреНрд░рдореН, рдЕрддрдГ
--- рдХреНрд░рдореЛ рд╡рд┐рдирд┐рдордпреА, рд╕рд╣рд╢реНрдЪ рдирд╛рд╢рдпрддрд┐ ред
+-- formal/cubical/NaturalMachine/SaptabhangiGarbha_тж (рриррпр рриррр╛р, ррррор┐риррирр╡
+-- ржр┐рир) ррЩррЧр╛рир ррирпр╛рир рХр░рЛрр┐ тФ рррр░ррр рржр ррр╡р рорр▓р рзр╛р░рпрр┐, ррр рррр░
+-- рр┐ррр╡р╛ррржрЛ ри рир╛ррпрр┐, рХрр░роррр ри р╡р┐рир┐рорпр р  рррр░ ррЩррЧрЛ рир╛ророр╛ррр░рор, ррр
+-- рХрр░рорЛ р╡р┐рир┐рорпр, ррррр рир╛ррпрр┐ р
 --
--- рджреНрд╡реЗ рдЕрдкрд┐ рдкреНрд░рдорд╛рдгрд┐рддреЗ ред  рджреНрд╡реЗ рди рдПрдХрдВ рд╡рд╕реНрддреБ ред  рдорд▓реНрд▓рд┐рд╖реЗрдгрд╕реНрдп рдкрд╛рдареЗ рдкреНрд░рд╢реНрдирдГ тАФ
--- рдЕрд╡рдХреНрддрд╡реНрдпрдВ рд╡рдЪрди-рдЕрд╕рд╛рдорд░реНрдереНрдпрдорд╛рддреНрд░рдВ рд╡рд╛ рд╡рд╛рдЪреНрдпрд╕реНрдп рдЧреНрд░рд╛рд╕рдГ тАФ рд╕ рдЪ рди рдЕрддреНрд░ рдирд┐рд░реНрдгреАрддрдГ ред
+-- ржрр╡р ррр┐ ррр░рор╛рр┐рр р  ржрр╡р ри ррХр р╡рррр р  рор▓рр▓р┐ррррррп рр╛рар ррр░рррир тФ
+-- рр╡рХррр╡ррпр р╡рри-ррр╛рор░ррррпрор╛ррр░р р╡р╛ р╡р╛рррпрррп рЧрр░р╛рр тФ р р ри рррр░ рир┐р░ррррр р
 --
--- рдирдпрднреЗрджреЗ рд╕рдЩреНрдХреНрд╖реЗрдкреЛ рди рд╡рд┐рджреНрдпрддреЗ (AHIMSA_SUTRA_VISTARA ┬зрен) ред  рдпрддреН рд╢рд┐рд╖реНрдпрддреЗ рддрддреН
--- рддреБрд▓рдирдореН : рд╡рд┐рд╕реНрдорд░рдг-рдкреНрд░рддрд┐рдЪрд┐рддреНрд░рдгрдВ рдХреНрд░рдореЗ рд╕рд╛рдзрдХрдВ рд╡рд╛, рд╕рд╣реЗ рд╡рд╛, рди рд╡рд╛ тАФ рддрддреН рди рдкрд░реАрдХреНрд╖рд┐рддрдореН,
--- рдЕрддрдГ рди рджрд╛рд╡рдГ ред
+-- рирпррржр ррЩррХрррррЛ ри р╡р┐ржррпрр (AHIMSA_SUTRA_VISTARA ┬зр) р  рпрр рр┐рррпрр ррр
+-- ррр▓рирор : р╡р┐рррор░р-ррр░рр┐рр┐ррр░рр рХрр░рор рр╛рзрХр р╡р╛, ррр р╡р╛, ри р╡р╛ тФ ррр ри рр░ррХррр┐ррор,
+-- ррр ри ржр╛р╡р р
 --
 -- (A sibling type carries the nayas inside each position, so its fourth
 -- position destroys nothing and its krama is not commutative.  Here a
@@ -450,9 +450,9 @@ x рдиреНрдпреВрдирдГ y = рдХреНрд░рдо-рдпреЛрдЧ x y тЙб y
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- резрез ┬╖ рдирдпрднреЗрджрдГ рдирд┐рд░реНрдгреАрддрдГ тАФ the comparison ┬зрезреж said was owed, 2026-08-20.
+-- рзрз ┬ рирпррржр рир┐р░ррррр тФ the comparison ┬зрзрж said was owed, 2026-08-20.
 --
--- ┬зрезреж ended: "what is owed is whether the forgetful map from records to
+-- ┬зрзрж ended: "what is owed is whether the forgetful map from records to
 -- labels is a homomorphism for krama, for saha, or for neither, and that
 -- is not checked here and therefore not claimed."  It is now checked, in
 --
@@ -461,36 +461,36 @@ x рдиреНрдпреВрдирдГ y = рдХреНрд░рдо-рдпреЛрдЧ x y тЙб y
 --   (--cubical --guardedness --safe, exit 0, no postulates, no holes)
 --
 -- and the answer is BOTH, exhaustively, 49 cases each, for every S and
--- every P.  Further: the map has a SECTION (рдЕрд░реНрдкрдгрдореН, Tattv─Бrthas┼лtra 5.31's
--- рдЕрд░реНрдкрд┐рдд to this file's рдЕрдирд░реНрдкрд┐рдд) which is a homomorphism for both modes,
--- with рдЕрдирд░реНрдкрдгрдореН тИШ рдЕрд░реНрдкрдгрдореН тЙб id тАФ so this lane's seven are a subalgebra AND a
--- quotient of the record lane's, i.e. a RETRACT of it тАФ and it has NO
--- inverse (`рди-рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`), so no equivalence exists and ┬зрем path one is
+-- every P.  Further: the map has a SECTION (рр░ррррор, Tattvrthastra 5.31's
+-- рр░ррр┐р to this file's ррир░ррр┐р) which is a homomorphism for both modes,
+-- with ррир░ррррор тИШ рр░ррррор тЙб id тФ so this lane's seven are a subalgebra AND a
+-- quotient of the record lane's, i.e. a RETRACT of it тФ and it has NO
+-- inverse (`ри-ррр░рррпр╛рирприрор`), so no equivalence exists and ┬зр path one is
 -- unavailable as a theorem rather than as a failure to find one.
 --
--- ONE CLAIM OF THIS FILE IS CORRECTED BY THAT RESULT.  ┬зрен above says the
--- reason рд╕рд╣-рдпреЛрдЧ fails to associate is that ~~рдЬрд┐рд╣реНрд╡рд╛рднреЗрджрдГ destroys the two seed
+-- ONE CLAIM OF THIS FILE IS CORRECTED BY THAT RESULT.  ┬зр above says the
+-- reason рр-рпрЛрЧ fails to associate is that ~~рр┐ррр╡р╛ррржр destroys the two seed
 -- markings, so the fourth position does not record which pair produced
 -- it~~.  The destruction is real and it is NOT the reason: on the record
 -- lane, where the fourth position retains both nayas and both witnesses
--- and `рдЕрд╡рдХреНрддрд╡реНрдпрдореН-рдЕ-рд▓реБрдкреНрддрдореН` proves the third is recoverable from it, рд╕рд╣рд╛рд░реНрдкрдгрдореН
--- still fails to associate (`рд╕рд╣-рдЕрд╕рдЩреНрдЧрддрд┐рдГ-рдКрд░реНрдзреНрд╡рдореН`, with the same three
--- positions).  The reason both lanes fail is that рд╕рд╣ tests the JOINED
--- position for an astiтАУn─Бsti pair, and whether that pair is present
+-- and `рр╡рХррр╡ррпрор-р-р▓рррррор` proves the third is recoverable from it, ррр╛р░ррррор
+-- still fails to associate (`рр-рррЩррЧрр┐р-рКр░ррзрр╡рор`, with the same three
+-- positions).  The reason both lanes fail is that рр tests the JOINED
+-- position for an astiтУnsti pair, and whether that pair is present
 -- depends on the grouping.  Retaining the seeds does not buy the law
--- back.  The law and the counterexample in ┬зрен stand exactly as stated;
+-- back.  The law and the counterexample in ┬зр stand exactly as stated;
 -- what is struck is the explanation attached to them.
 --
 -- The sibling lane's own withdrawal (that consumption is the model's and
--- not the doctrine's) is therefore not contradicted by ┬зрен's failure, and
--- ┬зрен's failure is not evidence for ┬зрен's attribution.  Both were reading
+-- not the doctrine's) is therefore not contradicted by ┬зр's failure, and
+-- ┬зр's failure is not evidence for ┬зр's attribution.  Both were reading
 -- one algebraic fact as evidence about the doctrine, in opposite
 -- directions, and it is evidence for neither.
 --
--- What remains open is what ┬зрезреж said was open in the tradition: whether
--- рдЕрд╡рдХреНрддрд╡реНрдпрдореН is failure of expression only or consumption of what was to be
--- expressed (Malliс╣гeс╣Зa, Sy─Бdv─Бdama├▒jar─л, 1292).  That question is now
--- known to be undecidable BY THE COMPOSITION LAWS тАФ the two lanes agree
--- across it тАФ so any argument for a reading that runs through krama or
+-- What remains open is what ┬зрзрж said was open in the tradition: whether
+-- рр╡рХррр╡ррпрор is failure of expression only or consumption of what was to be
+-- expressed (Malliea, Sydvdamajar, 1292).  That question is now
+-- known to be undecidable BY THE COMPOSITION LAWS тФ the two lanes agree
+-- across it тФ so any argument for a reading that runs through krama or
 -- saha proves nothing.  It is a question about what a position is.
 ------------------------------------------------------------------------

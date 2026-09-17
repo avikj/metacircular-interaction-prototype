@@ -183,9 +183,9 @@ q(x)=q(x')\Rightarrow h(x)=h(x').
 }
 \]
 
-So the question ‚Äúdoes this representation retain enough information?‚Äù is not heuristic. A target computation descends precisely when it is constant on the distinctions collapsed by the observation.
+So the question ‚does this representation retain enough information?‚ is not heuristic. A target computation descends precisely when it is constant on the distinctions collapsed by the observation.
 
-This is the common mechanism beneath quotient semantics, measurement, sufficient observation, abstraction, the Fischer‚ÄìLadner/Hintikka coordinate used in [Pratt's dynamic-logic work](05-action-logic-optimal-inference.md), and the local/global information split in [state/event ‚Äî time/information](06-state-event-time-information.md).
+This is the common mechanism beneath quotient semantics, measurement, sufficient observation, abstraction, the Fischer‚ìLadner/Hintikka coordinate used in [Pratt's dynamic-logic work](05-action-logic-optimal-inference.md), and the local/global information split in [state/event ‚î time/information](06-state-event-time-information.md).
 
 ---
 
@@ -385,7 +385,7 @@ has a unique corecursively constructed limit \(x_\infty\) satisfying
 
 Thus productive continuation carries its own completion principle. Finite observation and infinite behavior are not separate semantic worlds: finite prefixes determine the topology/metric through which the coinductive carrier is completed.
 
-This meets Pratt and Pavloviƒá's [final-coalgebraic continuum](08-coinduction-continuum-causal-completion.md) directly: induction/arithmetic and coinduction/analysis become neighboring restrictions of one constructive interaction universe, while locality supplies explicit continuity moduli for the transformations acting on the carrier.
+This meets Pratt and Pavlovi's [final-coalgebraic continuum](08-coinduction-continuum-causal-completion.md) directly: induction/arithmetic and coinduction/analysis become neighboring restrictions of one constructive interaction universe, while locality supplies explicit continuity moduli for the transformations acting on the carrier.
 
 ---
 

@@ -8,21 +8,21 @@
 -- ====================================================================
 -- THE TWO SOURCES, WHAT IS CLAIMED OF THEM, AND WHAT IS NOT.
 --
---   DIGNĀGA, *Pramāṇasamuccaya* V (c. 480-540).  अन्यापोह / anyāpoha:
+--   DIGNGA, *Pramasamuccaya* V (c. 480-540).  ��������� / anypoha:
 --   a general term carries no positive shared feature.  Its content is
 --   the exclusion of what it is not.  A term is fixed by its contrast.
 --
---   DHARMAKĪRTI, *Pramāṇavārttika* (c. 600-660).  अर्थक्रिया /
---   arthakriyā: effect-performing capacity.  Dharmakīrti keeps apoha
+--   DHARMAKRTI, *Pramavrttika* (c. 600-660).  ����������� /
+--   arthakriy: effect-performing capacity.  Dharmakrti keeps apoha
 --   and puts a causal ground under it -- particulars fall together
 --   because they do the same work, and the exclusion is downstream of
 --   that, not primitive.
 --
 -- THEY DISAGREE, AND THE DISAGREEMENT IS THE OBJECT HERE, NOT A SEAM TO
--- BE SMOOTHED.  Dignāga's exclusion has no positive ground behind it;
--- Dharmakīrti supplies one.  What forced the move is on the record from
--- the other side: Uddyotakara (*Nyāyavārttika*) and Kumārila
--- (*Ślokavārttika*, Apohavāda) press that an exclusion is never bare --
+-- BE SMOOTHED.  Dignga's exclusion has no positive ground behind it;
+-- Dharmakrti supplies one.  What forced the move is on the record from
+-- the other side: Uddyotakara (*Nyyavrttika*) and Kumrila
+-- (*lokavrttika*, Apohavda) press that an exclusion is never bare --
 -- it carries the very thing whose absence it is -- so exclusion cannot
 -- be the ground.  This corpus already carries that exchange, in
 -- `NaturalMachine.ExclusionRecoversGroundAtAPrice` (which names the two
@@ -52,43 +52,43 @@
 --
 --   k = cdim  -- the minimum number of contexts whose joint response
 --                separates every class.  How many exclusions pin a
---                state down.  ANYĀPOHA'S NUMBER.
+--                state down.  ANYPOHA'S NUMBER.
 --   Q         -- the cardinality of the predictive quotient: how many
 --                distinct response laws must coexist.  How much work
---                the states do.  ARTHAKRIYĀ'S NUMBER.
+--                the states do.  ARTHAKRIY'S NUMBER.
 --
--- and proves `Q ≤ m^k` (m the observation-alphabet size), with an
+-- and proves `Q � m^k` (m the observation-alphabet size), with an
 -- equality family attaining it.  The note's own instruction is to
 -- report the pair and never to call cdim a memory dimension.
 --
 -- The lenses split on which number IS the memory, and this module is
 -- that split, checked:
 --
---   §3  ARTHAKRIYĀ.  Once a family separates, the relation it induces
+--   §3  ARTHAKRIY.  Once a family separates, the relation it induces
 --       is equality -- so the effect quotient does not depend on which
 --       separating family was offered.  General, any carrier.
 --
---   §4-§5  ANYĀPOHA.  On ONE carrier, Bool × Bool, with the SAME
+--   §4-§5  ANYPOHA.  On ONE carrier, Bool � Bool, with the SAME
 --       quotient throughout, three separating families whose minimum
 --       sizes are 1, 2 and 3.  The exclusion count is a function of the
 --       contrast class offered, not of the thing individuated.
 --
--- §6: on this object Dharmakīrti's criterion picks out the invariant
--- and Dignāga's does not, for the reason Dharmakīrti gave.
+-- §6: on this object Dharmakrti's criterion picks out the invariant
+-- and Dignga's does not, for the reason Dharmakrti gave.
 --
 -- ====================================================================
--- §2 REFUTES A CLAIM OF MINE.  I read `Q ≤ m^k` together with its
+-- §2 REFUTES A CLAIM OF MINE.  I read `Q � m^k` together with its
 -- equality family and formed
 --
---     CLAIM R:  cdim = ⌈log_m Q⌉, i.e. Q and m determine k.
+--     CLAIM R:  cdim = �log_m Q�, i.e. Q and m determine k.
 --
 -- It is false, and `Ind-needs-three` below kills it: m = 2, Q = 4,
--- ⌈log₂ 4⌉ = 2, cdim = 3.  The equality family in the note is not
+-- �log� 4� = 2, cdim = 3.  The equality family in the note is not
 -- generic; equality there was obtained by CHOOSING the admitted
--- contexts.  `Q ≤ m^k` prices the best alphabet, never the one in hand.
+-- contexts.  `Q � m^k` prices the best alphabet, never the one in hand.
 -- My first witness attempt is also recorded dead, in §5.
 --
--- CLAIM R WAS MINE AND 0313 NEVER MADE IT.  The note states `Q ≤ m^k`
+-- CLAIM R WAS MINE AND 0313 NEVER MADE IT.  The note states `Q � m^k`
 -- and exhibits ONE family attaining equality; it does not say equality
 -- is generic, and its "changed motion" says the opposite.  There is
 -- also a modelling gap I do not close: the note's admitted contexts are
@@ -114,7 +114,7 @@ open import Cubical.Relation.Nullary using (¬_)
 -- object: a probe is a total response map (`machinery/
 -- active_observer_design.py`), a channel's content is its fibre
 -- partition (`runtime/render/channel.py`), and a standpoint is an
--- observable `q : X → Y` (`NaturalMachine.ExclusionRecoversGround-
+-- observable `q : X � Y` (`NaturalMachine.ExclusionRecoversGround-
 -- AtAPrice`).  The one addition is that the INDEX is part of the data,
 -- because the whole question below is whether the size of the index is
 -- determined by anything other than itself.
@@ -173,7 +173,7 @@ Triple {X} {Y} q r s = family Three (λ _ → Y) sel
     sel t₂ = s
 
 ------------------------------------------------------------------------
--- 3.  ARTHAKRIYĀ.  THE EFFECT RELATION IS NOT A FUNCTION OF THE FAMILY.
+-- 3.  ARTHAKRIY.  THE EFFECT RELATION IS NOT A FUNCTION OF THE FAMILY.
 --
 -- If F separates, then everything F identifies, EVERY family identifies
 -- -- because F identifies only identicals, and identicals are
@@ -191,7 +191,7 @@ separating→collapses : {X : Type₀} (F G : Family X)
 separating→collapses F G sepF x y u = ≡→Indist G (sepF x y u)
 
 -- Symmetrically, hence: any two separating families induce the very
--- same effect relation.  This is the arthakriyā invariant.
+-- same effect relation.  This is the arthakriy invariant.
 same-effect-relation : {X : Type₀} (F G : Family X)
   → Separating F → Separating G
   → (x y : X) → (Indist F x y → Indist G x y) × (Indist G x y → Indist F x y)
@@ -308,7 +308,7 @@ Ind-needs-three = Ind-sep , ind₀₁-fails , ind₀₂-fails , ind₁₂-fails
 ------------------------------------------------------------------------
 -- 5'.  MY FIRST WITNESS, RECORDED DEAD.
 --
--- Before the indicators I tried {p₀ , p₁ , parity} as the three-context
+-- Before the indicators I tried {p� , p� , parity} as the three-context
 -- family, on the reasoning that parity is "a context the coordinates do
 -- not name".  It witnesses nothing: any two of its three members
 -- already separate, because parity plus either coordinate recovers the
@@ -334,7 +334,7 @@ reconPar-ok (false , true)  = refl
 reconPar-ok (true  , false) = refl
 reconPar-ok (true  , true)  = refl
 
--- so a two-member subfamily of {p₀ , p₁ , par} already separates:
+-- so a two-member subfamily of {p� , p� , par} already separates:
 p₀-par-sep : Separating (Pair p₀ par)
 p₀-par-sep x y u =
   sym (reconPar-ok x)
@@ -346,18 +346,18 @@ p₀-par-sep x y u =
 --
 -- Same carrier, same effect quotient throughout (§3 applied to the
 -- three separating families of §4).  Minimum admitted-context counts:
--- one for `Whole`, two for `Coord` (§4, `p₀-alone-fails`,
--- `p₁-alone-fails`), three for `Ind` (§5).
+-- one for `Whole`, two for `Coord` (§4, `p�-alone-fails`,
+-- `p�-alone-fails`), three for `Ind` (§5).
 --
 -- So: the effect count is an invariant of the carrier; the exclusion
 -- count is a function of the contrast class handed to you, and not of
 -- the thing individuated.  On the question "how big is the memory",
--- arthakriyā answers and anyāpoha, alone, cannot -- and the mechanism
--- of the failure is the one Dharmakīrti's causal ground was introduced
--- to repair, and the one Uddyotakara and Kumārila pressed from outside.
+-- arthakriy answers and anypoha, alone, cannot -- and the mechanism
+-- of the failure is the one Dharmakrti's causal ground was introduced
+-- to repair, and the one Uddyotakara and Kumrila pressed from outside.
 --
 -- HOW NARROW.  This is a verdict about ONE question about ONE object,
--- and it is not a ranking of two men or two positions.  Dignāga's
+-- and it is not a ranking of two men or two positions.  Dignga's
 -- number is real and it is not memory: `notes/CONTEXTUAL_QUANTUM_-
 -- DIMENSION.md` already priced it as interrogation cost, and the three
 -- families above are three interrogation designs for one memory, which
@@ -370,19 +370,19 @@ p₀-par-sep x y u =
 -- NOT SETTLED HERE: the minimum over ALL families on a carrier (that is
 -- a quantity, and §4 gives one at 1 for `St`); whether `Whole`'s
 -- alphabet-size 4 should be charged against its context count, which is
--- the trade `Q ≤ m^k` prices and which no theorem above bounds from
--- below for a GIVEN family; and Dignāga's own scope analysis of "the
+-- the trade `Q � m^k` prices and which no theorem above bounds from
+-- below for a GIVEN family; and Dignga's own scope analysis of "the
 -- other" (synonyms, sub- and superordinates), which
 -- `notes/EXCLUSION_IS_NOT_AN_OPERATOR.md` §3 also records as OPEN.
 ------------------------------------------------------------------------
 
 -- The two answers, side by side, as one checked object.
 vivādaḥ :
-    -- arthakriyā: for any carrier, any two separating families induce
+    -- arthakriy: for any carrier, any two separating families induce
     -- the same effect relation.
     ( {X : Type₀} (F G : Family X) → Separating F → Separating G
       → (x y : X) → (Indist F x y → Indist G x y) × (Indist G x y → Indist F x y) )
-    -- anyāpoha: on one carrier with one effect quotient, three
+    -- anypoha: on one carrier with one effect quotient, three
     -- separating families needing one, two and three contexts.
   × ( Separating Whole )
   × ( Separating Coord × (¬ Separating (Only p₀)) × (¬ Separating (Only p₁)) )

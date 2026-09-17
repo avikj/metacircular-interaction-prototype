@@ -3,27 +3,27 @@
 ------------------------------------------------------------------------
 -- AsymmetryOnTheRateIsFreeAndTheWeakClaimIsAntitoneToo
 --
--- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt` lifted `âŠ` to
+-- `TheStrictRateOrderIsAnOrderAndTheClaimIsAntitoneOnIt` lifted `âŠ` to
 -- the rates and left two things open in its own words: ASYMMETRY and
 -- TRICHOTOMY were "untransported", and antitonicity was proved for
--- `AboveOnRate` only â€” the WEAK claim `AtLeastOnRate` along the STRICT
+-- `AboveOnRate` only â” the WEAK claim `AtLeastOnRate` along the STRICT
 -- order was unstated.  Two of those three are closed here.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   âŠR-asym                    asymmetry of the strict rate order
+--   âŠR-asym                    asymmetry of the strict rate order
 --   atLeastIsAntitoneOnRates   the weak claim is antitone along the
 --                              strict order
 --
 -- **ASYMMETRY NEEDED NO TRANSPORT AT ALL**, and that is worth saying
--- rather than just doing.  It is `âŠR-irrefl x (âŠR-trans x y x h k)` â€”
+-- rather than just doing.  It is `âŠR-irrefl x (âŠR-trans x y x h k)` â”
 -- a theorem about ANY irreflexive transitive relation, which never
 -- mentions the quotient, never eliminates, never touches a
 -- representative or `â‰ˆ`.  Once the two order laws were lifted,
 -- asymmetry was already present; listing it as "untransported" listed
 -- a consequence as an obligation.  The corpus has now made this
--- mistake in both directions on the same line â€” an item recorded as
+-- mistake in both directions on the same line â” an item recorded as
 -- needing machinery it did not need, next to an item whose difficulty
 -- was underestimated.
 --
@@ -32,12 +32,12 @@
 -- representatives and `<-weaken` to move from the strict order to the
 -- weak one the pair-level lemma wants.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- TRICHOTOMY IS DELIBERATELY NOT HERE, and the reason is a measured
 -- fact about this container rather than a mathematical obstruction.
--- A draft carrying it â€” `Tri x y = âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)`
+-- A draft carrying it â” `Tri x y = âŸ¨ x âŠR y âŸ© âŠ ((x â‰¡ y) âŠ âŸ¨ y âŠR x âŸ©)`
 -- with `isPropTri` by nine cases and `elimProp2` over `_â‰Ÿ_` at the two
--- cross products â€” was typechecking for OVER TWELVE MINUTES of CPU on
+-- cross products â” was typechecking for OVER TWELVE MINUTES of CPU on
 -- Agda 2.6.3 + cubical v0.5 with every imported interface already
 -- built, and was stopped rather than left running.  That is a
 -- statement about a single unfinished run on this container and NOT a
@@ -45,7 +45,7 @@
 -- it would be slow under the declared pin (Agda 2.8.0 + cubical v0.9),
 -- which has different `SetQuotients` internals.  The draft is kept out
 -- of the tree.  What the next cycle should try, in order: state `Tri`
--- with `âŠR` UNFOLDED to the pair level under the eliminator rather
+-- with `âŠR` UNFOLDED to the pair level under the eliminator rather
 -- than substituting along quotient paths; or prove trichotomy at the
 -- pair level and lift only the resulting proposition.
 --
@@ -53,7 +53,7 @@
 -- textbook fact about strict orders; the antitonicity lift is the same
 -- one already performed for the strict claim.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

@@ -1,43 +1,43 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§∂‡•á‡§∑‡§Æ‡•Ç‡§≤‡•ç‡§Ø‡§Æ‡•ç ‚Äî the price of the remainder.  Compound built here,
--- 2026-08-23 (‡§∂‡•á‡§∑, remainder; ‡§Æ‡•Ç‡§≤‡•ç‡§Ø, price); no source is claimed for
+-- ‡‡‡‡Æ‡‡≤‡‡Ø‡Æ‡ ‚î the price of the remainder.  Compound built here,
+-- 2026-08-23 (‡‡‡, remainder; ‡Æ‡‡≤‡‡Ø, price); no source is claimed for
 -- the compound.  The DISCIPLINE in ¬ß1 is claimed for its source and it
--- is the corpus's oldest: ƒÄryabha·π≠a, ƒÄryabha·π≠ƒ´ya, Ga·πáitapƒÅda 32‚Äì33, 499
--- ‚Äî the ku·π≠·π≠aka's rule, ‡§Ø‡§§‡•ç ‡§® ‡§µ‡§ø‡§≠‡§ú‡§§‡•á ‡§§‡§§‡•ç ‡§∞‡§ï‡•ç‡§∑‡•ç‡§Ø‡§§‡•á: what does not divide
+-- is the corpus's oldest: ryabhaa, ryabhaya, Gaitapda 32‚ì33, 499
+-- ‚î the kuaka's rule, ‡Ø‡‡ ‡® ‡µ‡ø‡‡‡‡ ‡‡‡ ‡∞‡ï‡‡‡‡Ø‡‡: what does not divide
 -- is KEPT, first-class, the material of the next step.  Nothing further
 -- is attributed to that text; the fibre is Voevodsky's, the admitted
 -- substrate.
 --
 -- WHY.  Lopa's census, run this session: of the corpus's one-way edges,
--- ‚Ñï is the dominant source ‚Äî 216 edges against Bool's 81.  SarvaMulya
+-- ‚ï is the dominant source ‚î 216 edges against Bool's 81.  SarvaMulya
 -- priced every Bool-sourced edge at once because Bool decomposes
--- finitely.  ‚Ñï does not.  But it PEELS:
+-- finitely.  ‚ï does not.  But it PEELS:
 --
---   ‡§∏‡•ã‡§™‡§æ‡§®‡§É :  fiber f b ‚âÉ (f zero ‚â° b) ‚äé fiber (f ‚àò suc) b
+--   ‡‡ã‡‡æ‡®‡ :  fiber f b ‚â (f zero ‚â° b) ‚ä fiber (f ‚àò suc) b
 --
--- one point off, the remainder handed forward whole ‚Äî the ku·π≠·π≠aka's
+-- one point off, the remainder handed forward whole ‚î the kuaka's
 -- step, at the fibre.  No hypothesis on the target.  Iterating it is
 -- exactly "keep the remainder and recurse on it", and the question
 -- "does the recursion close?" is a property of the MAP, not of the
 -- scheme.
 --
 -- ¬ß2 closes it for the class the census makes most valuable: STRICTLY
--- MONOTONE f : ‚Ñï ‚Üí ‚Ñï.  There the ladder terminates below its target ‚Äî
--- ‡§Ü‡§∞‡•ã‡§π‡§É proves n ‚â§ f n, so past b the tail is empty ‚Äî and the whole
+-- MONOTONE f : ‚ï ‚í ‚ï.  There the ladder terminates below its target ‚î
+-- ‡‡∞‡ã‡‡ proves n ‚â f n, so past b the tail is empty ‚î and the whole
 -- three-verdict question collapses by theorem:
 --
---   ‡§è‡§ï‡§∂‡•á‡§∑‡§É    the fibre is a PROPOSITION: a monotone edge never forgets;
---   ‡§Ö‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç  ‡§¨‡§π‡•Å is impossible ‚Äî not undecided, impossible;
---   ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É    ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç or ‡§è‡§ï‡§Æ‡•ç, DECIDED, by a bounded search the growth
+--   ‡‡ï‡‡‡‡    the fibre is a PROPOSITION: a monotone edge never forgets;
+--   ‡‡‡‡‡‡‡µ‡Æ‡  ‡‡‡ is impossible ‚î not undecided, impossible;
+--   ‡®‡ø‡∞‡‡‡Ø‡    ‡∞‡ø‡ï‡‡‡Æ‡ or ‡‡ï‡Æ‡, DECIDED, by a bounded search the growth
 --             bound itself justifies.
 --
--- So a monotone ‚Ñï-sourced edge is priced by one application, and the
+-- So a monotone ‚ï-sourced edge is priced by one application, and the
 -- verdict computes.  What is NOT claimed: anything about non-monotone
--- ‚Ñï-sourced maps ‚Äî for those ‡§∏‡•ã‡§™‡§æ‡§®‡§É is a step, not a decision, and
+-- ‚ï-sourced maps ‚î for those ‡‡ã‡‡æ‡®‡ is a step, not a decision, and
 -- pretending otherwise would be a guessed verdict, which Saptabhangi's
--- ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É rules out.
+-- ‡¶‡‡∞‡‡®‡Ø‡ rules out.
 ------------------------------------------------------------------------
 
 module SesaMulya_TheNatSourcedFibrePeelsLikeTheKuttakaAndMonotoneEdgesNeverForget where
@@ -57,7 +57,7 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- ¬ß1  The peel ‚Äî any target, any map.  The remainder is first-class.
+-- ¬ß1  The peel ‚î any target, any map.  The remainder is first-class.
 ------------------------------------------------------------------------
 
 module _ {B : Type ‚Ñì} (f : ‚Ñï ‚Üí B) (b : B) where
@@ -115,7 +115,7 @@ module _ (f : ‚Ñï ‚Üí ‚Ñï) (‡§µ‡•É‡§¶‡•ç‡§ß‡§ø‡§É : (n : ‚Ñï) ‚Üí f n < f (suc n
     Œ£PathP ( ‡§è‡§ï‡§æ‡§ó‡•ç‡§∞‡§§‡§æ (p ‚àô sym q)
            , isProp‚ÜíPathP (Œª i ‚Üí isSet‚Ñï _ b) p q )
 
-  -- so ‡§¨‡§π‡•Å is not undecided here; it is impossible.
+  -- so ‡‡‡ is not undecided here; it is impossible.
   ‡§Ö‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç : (b : ‚Ñï)
     ‚Üí ¬¨ (Œ£[ q‚ÇÅ ‚àà fiber f b ] Œ£[ q‚ÇÇ ‚àà fiber f b ] (¬¨ q‚ÇÅ ‚â° q‚ÇÇ))
   ‡§Ö‡§¨‡§π‡•Å‡§§‡•ç‡§µ‡§Æ‡•ç b (q‚ÇÅ , q‚ÇÇ , ne) = ne (‡§è‡§ï‡§∂‡•á‡§∑‡§É b q‚ÇÅ q‚ÇÇ)
@@ -141,7 +141,7 @@ module _ (f : ‚Ñï ‚Üí ‚Ñï) (‡§µ‡•É‡§¶‡•ç‡§ß‡§ø‡§É : (n : ‚Ñï) ‚Üí f n < f (suc n
       ... | inl n<sk = none n (pred-‚â§-pred n<sk) fn‚â°b
       ... | inr n‚â°sk = np (subst (Œª z ‚Üí f z ‚â° b) n‚â°sk fn‚â°b)
 
-  -- the decision: ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç or ‡§è‡§ï‡§Æ‡•ç, never a third thing, never a guess.
+  -- the decision: ‡∞‡ø‡ï‡‡‡Æ‡ or ‡‡ï‡Æ‡, never a third thing, never a guess.
   ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É : (b : ‚Ñï) ‚Üí (¬¨ fiber f b) ‚äé (isContr (fiber f b))
   ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É b with ‡§ñ‡•ã‡§ú‡§É b b
   ... | inl (n , p) = inr ((n , p) , ‡§è‡§ï‡§∂‡•á‡§∑‡§É b (n , p))

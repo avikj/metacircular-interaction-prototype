@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨ ‚Äî the reflection.  The rooted fibre over a jewel IS that
+-- ‡‡‡∞‡‡ø‡‡ø‡Æ‡‡ ‚î the reflection.  The rooted fibre over a jewel IS that
 -- jewel's local datum together with all its reflections.
 --
--- SOURCE / SCOPE.  The metaphor is ‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ú‡§æ‡§≤, Indra's net: at every knot
+-- SOURCE / SCOPE.  The metaphor is ‡‡®‡‡¶‡‡∞‡‡æ‡≤, Indra's net: at every knot
 -- a jewel, and in each jewel the reflection of every other (the net of
--- Indra, Atharvaveda 8.8.6‚Äì8; the interpenetration reading is Huayan,
--- Fazang 643‚Äì712).  The MATHEMATICS is not claimed for any text: it is
+-- Indra, Atharvaveda 8.8.6‚ì8; the interpenetration reading is Huayan,
+-- Fazang 643‚ì712).  The MATHEMATICS is not claimed for any text: it is
 -- Voevodsky-substrate homotopy type theory (the fibration lemma HoTT
 -- 4.8.1, and the final-coalgebra / domain-equation form of Indra's net),
 -- already checked in this repository as `IndraNet.agda`, whose module
@@ -17,11 +17,11 @@
 -- never joins them, though its own `IndraRoot` comment says it is
 -- "closing the loop with T25.B":
 --
---   T25.B  Rooted.rootFiber x : fiber unroot x ‚âÉ Net x
---            ‚Äî the fibre of the rooted totalization Œ£ x . Net x over a
+--   T25.B  Rooted.rootFiber x : fiber unroot x ‚â Net x
+--            ‚î the fibre of the rooted totalization Œ x . Net x over a
 --              jewel x is "the net as seen from this jewel".
---   T25.D  netUnfold       x : Net x ‚âÉ (L x √ó ((y : J) ‚Üí Net y))
---            ‚Äî the guarded Indra equation: a jewel unfolds into its own
+--   T25.D  netUnfold       x : Net x ‚â (L x ó ((y : J) ‚í Net y))
+--            ‚î the guarded Indra equation: a jewel unfolds into its own
 --              local datum and the view of every jewel.
 --
 -- Both are equivalences of corpus-defined objects, and they share the
@@ -29,7 +29,7 @@
 -- along the identification, here `compEquiv`) identifies the two OUTER
 -- objects, which the corpus had left unjoined:
 --
---   fiber unroot x  ‚âÉ  L x √ó ((y : J) ‚Üí Net y).
+--   fiber unroot x  ‚â  L x ó ((y : J) ‚í Net y).
 --
 -- Read in the net's own terms: to stand at a jewel of the rooted net (a
 -- point of its totalization lying over x) is exactly to hold that jewel's
@@ -61,7 +61,7 @@ module _ {J : Type ‚Ñì} (L : J ‚Üí Type ‚Ñì') where
     using (Net ; netUnfold ; IndraRoot)
 
   -- Root the reflection net on its own jewels: instantiate the rooted
-  -- totalization of IndraNet with Œ¶ := Net.  `Root` is then Œ£ x . Net x,
+  -- totalization of IndraNet with Œ¶ := Net.  `Root` is then Œ x . Net x,
   -- which is IndraNet's `IndraRoot` on the nose, and `unroot` forgets the
   -- distinguished jewel.
   open IndraNet.Rooted {U = J} Net

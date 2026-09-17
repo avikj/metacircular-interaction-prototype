@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- कुल-परस्पराश्रय — the interdependent family.
+-- ����-����������� � the interdependent family.
 --
 -- The campaign's founding record, generalized from pairs to families
 -- over any index type:
 --
 --   a family of senses, a named blind pair for EACH member, and joint
---   faithfulness — the n-ary interdependent type.
+--   faithfulness � the n-ary interdependent type.
 --
 -- Generic laws, no instance data:
 --
 --   §2  EVERY SINGLE BLINDNESS IS JOINTLY SEEN: at each member's blind
---       pair, the family as a whole cannot agree — the remaining
+--       pair, the family as a whole cannot agree � the remaining
 --       members carry what that member drops, without any decision
 --       over the index type (the refutation is of joint agreement,
 --       constructively, which is exactly what faithfulness supplies).
@@ -24,7 +24,7 @@
 -- theorem (mod 2, mod 3, jointly faithful with lcm 6) is the
 -- arithmetic instance; the realization families of the motivic
 -- reading are the geometric one.  Interdependence at any arity: the
--- property lives on the whole family and provably on no member — and
+-- property lives on the whole family and provably on no member � and
 -- the family's joint sight is precisely the union of its members'
 -- named darknesses, each covered by the others.
 --
@@ -41,7 +41,7 @@ private
     ℓ ℓ' ℓ'' : Level
 
 ------------------------------------------------------------------------
--- १ · The family record.
+-- � � The family record.
 ------------------------------------------------------------------------
 
 record Kula (I : Type ℓ) (X : Type ℓ') (O : I → Type ℓ'')
@@ -52,7 +52,7 @@ record Kula (I : Type ℓ) (X : Type ℓ') (O : I → Type ℓ'')
               ((x ≡ y → ⊥) × (dṛś i x ≡ dṛś i y))
     yugma : (x y : X) → ((i : I) → dṛś i x ≡ dṛś i y) → x ≡ y
 
-  -- §2 · Every single blindness is jointly seen.
+  -- §2 � Every single blindness is jointly seen.
   kula-paśyati : (i : I)
                → ((j : I) → dṛś j (fst (andha i))
                            ≡ dṛś j (fst (snd (andha i))))
@@ -61,7 +61,7 @@ record Kula (I : Type ℓ) (X : Type ℓ') (O : I → Type ℓ'')
     fst (snd (snd (andha i)))
         (yugma (fst (andha i)) (fst (snd (andha i))) h)
 
-  -- §3 · No member alone is faithful.
+  -- §3 � No member alone is faithful.
   na-ekākin : (i : I)
             → ((x y : X) → dṛś i x ≡ dṛś i y → x ≡ y)
             → ⊥

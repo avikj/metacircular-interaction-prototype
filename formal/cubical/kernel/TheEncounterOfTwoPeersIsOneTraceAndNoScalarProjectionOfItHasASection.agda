@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- TheEncounterOfTwoPeersIsOneTraceAndNoScalarProjectionOfItHasASection
 --
--- TERM.  परस्परोपग्रहो जीवानाम् · parasparopagraho jīvānām -- "mutual
--- assistance is the function of living beings", Umāsvāti, *Tattvārthasūtra*
+-- TERM.  ���������������� �������� � parasparopagraho jvnm -- "mutual
+-- assistance is the function of living beings", Umsvti, *Tattvrthastra*
 -- 5.21 (~2nd-5th c. CE; the date is contested and I pin none).  What is
--- borrowed is the sūtra's SHAPE: that the characteristic act is not a
--- property of either party but of the pair.  Nothing below is Umāsvāti's
+-- borrowed is the stra's SHAPE: that the characteristic act is not a
+-- property of either party but of the pair.  Nothing below is Umsvti's
 -- theorem, and no Jaina doctrine is claimed to be formalised here; the word
 -- names the primitive because the primitive is a two-place one.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS ADDS TO THE KERNEL, IN ONE LINE.
 --
--- `TheKernelIsAnInteractiveSystem…` has ONE party and a machine.  Its
+-- `TheKernelIsAnInteractiveSystem�` has ONE party and a machine.  Its
 -- `Session` is a caller's transcript: the caller offers, the machine
 -- executes, the transcript retires into one operation.  That is a dialogue
 -- with an oracle, and every state in it is somebody's local state --
@@ -22,17 +22,17 @@
 --
 -- Here there are two, and neither is the machine.  The transition is
 --
---     (state_A , state_B)  ⟶  (state′_A , state′_B , τ)
+--     (state_A , state_B)  �  (state�_A , state�_B , �)
 --
 -- and it is `interact` below: a total function, no `Maybe`, no protocol, no
--- third party, no authoritative copy.  τ is one object wearing five hats --
+-- third party, no authoritative copy.  � is one object wearing five hats --
 -- it is the execution (constructing it performs the transport), the
 -- provenance (its type names both endpoints), the proof (`derivation-sound`
 -- reads it), the transport (`⊕` and `rev` move along it), and the program
 -- (`install` makes it a move).  Nothing here is a bridge between five
 -- subsystems.  There is one object and five projections of it.
 --
---   §1  THE PRIMITIVE.  `Encounter`, `τ`, `interact`, and the two
+--   §1  THE PRIMITIVE.  `Encounter`, `�`, `interact`, and the two
 --       dispositions a peer may take toward what it has just certified:
 --       `interact` (transport and retain) and `receive` (retain only).
 --       Both are total; both keep each peer's own origin.
@@ -40,7 +40,7 @@
 --       reconciliation.  Witness: after one certified encounter the peers
 --       stand at provably distinct terms, with no repair pending.
 --   §3  REVELATION AND GENERATION, separated.  A gains a capability that
---       was B's (revelation, with a before/after where "before" is ⊥), and
+--       was B's (revelation, with a before/after where "before" is �), and
 --       the pair gains one whose endpoints are neither peer's (generation).
 --   §4  CONSERVATIVITY.  The prior trace survives as a prefix ON THE NOSE,
 --       the prior position is recoverable through `rev`, and the prior
@@ -54,19 +54,19 @@
 --       and get the same object rather than merely the same fact.
 --   §7  THE CROSSING.  Two encounters at disjoint sites, run in the two
 --       orders: same endpoints, same cost, PROVABLY DIFFERENT TRACES.
---   §8  WEIGHTS ⇒ TRACES, PRICED.  `len` is additive over `⊕` -- the scalar
+--   §8  WEIGHTS � TRACES, PRICED.  `len` is additive over `⊕` -- the scalar
 --       says the value of an encounter is the sum of its parts -- and §7
 --       says the scalar is therefore blind to the crossing.  Hence
 --       `no-section-for-any-order-blind-projection`: no reconstruction of
 --       the trace from any projection that the crossing does not move.
---       trace → score is a function; score → trace is not, and this is the
+--       trace � score is a function; score � trace is not, and this is the
 --       exact price.
---   §9  THE BOUNDARY.  What crosses is `CheckedFuture` -- Type₀, and it
+--   §9  THE BOUNDARY.  What crosses is `CheckedFuture` -- Type�, and it
 --       mentions neither the operation nor the caller's evidence.  The
 --       receipt a peer demanded to permit the step does not travel with the
 --       step's result.
 --
--- WHAT IS NEW HERE AND WHAT IS NOT.  `TheDerivationCarriesNoMeaning…` §3-4
+-- WHAT IS NEW HERE AND WHAT IS NOT.  `TheDerivationCarriesNoMeaning�` §3-4
 -- already proves that no function OF THE MEANING separates two routes, and
 -- that `len` does not factor through the truncation of the derivation type.
 -- Both are about what a semantic reading loses.  §8 is a different
@@ -135,7 +135,7 @@ record Encounter : Type₁ where
 
 open Encounter
 
--- τ.  Constructing it IS the transport; its type IS the provenance; reading
+-- �.  Constructing it IS the transport; its type IS the provenance; reading
 -- it with `derivation-sound` IS the proof; `install`ing it IS the program.
 τ : (E : Encounter) → Derivation (here (A E)) (here (B E))
 τ E = mine E ⊕ theirs E
@@ -162,7 +162,7 @@ B′ E = session (origin (B E)) (here (A E))
                (trace (B E) ⊕ rev (τ E))
                (gain E (library (B E)))
 
--- THE TRANSITION.  (state_A , state_B) ⟶ (state′_A , state′_B , τ).
+-- THE TRANSITION.  (state_A , state_B) � (state�_A , state�_B , �).
 interact : (E : Encounter)
   → Peer × Peer × Derivation (here (A E)) (here (B E))
 interact E = A′ E , B′ E , τ E
@@ -251,7 +251,7 @@ meetingLeft =
 
 -- AND THEY END SOMEWHERE ELSE FROM EACH OTHER.  Both are correct, both
 -- carry a certificate for how they got there, and nothing is pending.
--- `TheKernelIsAReversibleGroupoid…` §4 proves they cannot disagree about
+-- `TheKernelIsAReversibleGroupoid�` §4 proves they cannot disagree about
 -- what is TRUE; this says they need not agree about where they STAND, and
 -- the second is not a weaker form of the first -- it is the part consensus
 -- was invented for and the part this kernel does not need it for.
@@ -273,8 +273,8 @@ both-results-are-sound ρ =
 ------------------------------------------------------------------------
 
 -- REVELATION.  Before the encounter A cannot act at the meeting point --
--- its library is empty and `SomeEnabled [] t` is ⊥, so this is not "could
--- not be shown to", it is ⊥.
+-- its library is empty and `SomeEnabled [] t` is �, so this is not "could
+-- not be shown to", it is �.
 A-could-not-act-at-the-meeting : SomeEnabled (library peerA) mL → ⊥
 A-could-not-act-at-the-meeting e = e
 
@@ -317,7 +317,7 @@ neither-peer-held-it :
 neither-peer-held-it = (λ e → e) , (λ e → e)
 
 -- but the pair holds it after, on both sides.  This is the encounter
--- computing something that was in neither participant: K_A ⊗ K_B ⟶ K_C
+-- computing something that was in neither participant: K_A ⊗ K_B � K_C
 -- with K_C in neither.
 the-pair-holds-it-after :
   SomeEnabled (library (A′ meetingLeft)) a₀
@@ -351,7 +351,7 @@ the-recovery-is-certified E ρ = derivation-sound (undo E) ρ
 
 -- (iii) THE PRIOR LIBRARY IS STILL ENABLED AT EVERYTHING IT WAS ENABLED AT.
 -- Growing by three operations cannot remove a capability, and this is the
--- join theorem of `TheKernelIsAReversibleGroupoid…` §3 applied at the one
+-- join theorem of `TheKernelIsAReversibleGroupoid�` §3 applied at the one
 -- place a peer's library actually changes.
 nothing-a-peer-could-do-is-lost :
   (E : Encounter) (t : Tm)
@@ -416,7 +416,7 @@ the-fabric-composes-strictly :
 the-fabric-composes-strictly = ⊕-assoc
 
 -- and however the three associate, the fact is one fact -- free, because
--- `TheDerivationCarriesNoMeaning…` says the meaning is a proposition.
+-- `TheDerivationCarriesNoMeaning�` says the meaning is a proposition.
 -- The same theorem that makes routes indistinguishable makes long histories
 -- cheap to extend; it is one fact read at two altitudes.
 the-fact-does-not-depend-on-the-association :
@@ -429,7 +429,7 @@ the-fact-does-not-depend-on-the-association τ₁ τ₂ τ₃ =
 ------------------------------------------------------------------------
 -- §7.  THE CROSSING.  Two encounters at disjoint sites, in two orders.
 --
--- `a₀` has two redexes that do not touch: the left summand's `add x zero`
+-- `a�` has two redexes that do not touch: the left summand's `add x zero`
 -- and the right summand's.  Contract them in either order and the endpoints
 -- agree.  The traces do not, and `the-two-orders-differ` is a term.
 ------------------------------------------------------------------------
@@ -457,9 +457,9 @@ both-orders-mean-the-same :
 both-orders-mean-the-same = meanings-are-equal left-then-right right-then-left
 
 ------------------------------------------------------------------------
--- §8.  WEIGHTS ⇒ TRACES, AND THE PRICE OF THE OTHER DIRECTION.
+-- §8.  WEIGHTS � TRACES, AND THE PRICE OF THE OTHER DIRECTION.
 --
--- trace → score is a function and always was: `len`.  The claim is about
+-- trace � score is a function and always was: `len`.  The claim is about
 -- the converse, and it is not "hard", it is not "lossy in practice", and it
 -- is not a statement about how much information a number holds.  It is that
 -- NO section exists, for ANY projection the crossing does not move.
@@ -502,7 +502,7 @@ the-scalar-cannot-be-inverted =
   no-section-for-any-order-blind-projection len both-orders-cost-the-same
 
 -- and so is the meaning, and so is every function of the meaning -- which
--- recovers `TheDerivationCarriesNoMeaning…`'s reading as a special case of
+-- recovers `TheDerivationCarriesNoMeaning�`'s reading as a special case of
 -- this one rather than as a separate argument.
 the-meaning-cannot-be-inverted :
   {C : Type ℓ}
@@ -530,7 +530,7 @@ the-trace-gives-the-meaning = derivation-sound
 -- `demand R d` is the kernel's open control: a peer may require ANY
 -- evidence at all before its operation fires -- a receipt, an authority, a
 -- payment, a session identity.  `execute` then drops the operation and the
--- evidence and keeps the target and the derivation, descending Type₁ → Type₀.
+-- evidence and keeps the target and the derivation, descending Type� � Type�.
 --
 -- So the object that crosses the boundary is replayable by someone who was
 -- not there and mentions nothing about who asked.  Below: two peers holding

@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 ------------------------------------------------------------------------
--- ग्राहक — the receiver.
+-- �������� � the receiver.
 --
--- The fixed two-packet autocorrelation receiver of handoff §46–47
+-- The fixed two-packet autocorrelation receiver of handoff §46�47
 -- ([S02]):  H(z) = 16 (1 − e^{−(z+4)/4})² / (z+4)²  and  G = H(z)H(−z).
 -- Its finite identities:
 --
---   १  the packet product: with  w = e^{z/4},  w̄ = e^{−z/4} (w w̄ = 1)
+--   �  the packet product: with  w = e^{z/4},  w� = e^{−z/4} (w w� = 1)
 --      and  E = e^{−1},
---         (1 − E w̄)(1 − E w) ≡ 1 − E (w + w̄) + E²
+--         (1 − E w�)(1 − E w) ≡ 1 − E (w + w�) + E²
 --                              = 1 − 2 e^{−1} cosh(z/4) + e^{−2},
 --      and  (z + 4)(4 − z) ≡ 16 − z²,  so
 --         G(z) = 256 (1 − 2e^{−1}cosh(z/4) + e^{−2})² / (16 − z²)²;
---   २  the two-packet Weil matrix [[M₀, Z],[Z, M₀]] has
---         det ≡ (M₀ − Z)(M₀ + Z)   and   trace ≡ 2M₀,
---      and its quadratic form on (1, ±1) is 2(M₀ ± Z): positive
---      semidefiniteness is exactly |Z| ≤ M₀ (given M₀ > 0);
---   ३  the tail identity rearranged: Z = e^{t/2}G(½) − S − J_arch is
---      |S − e^{t/2}G(½) + J_arch| ≤ M₀, i.e. the closing inequality is
---      the same statement as |Z| ≤ M₀ (a sign identity).
+--   �  the two-packet Weil matrix [[M�, Z],[Z, M�]] has
+--         det ≡ (M� − Z)(M� + Z)   and   trace ≡ 2M�,
+--      and its quadratic form on (1, �1) is 2(M� � Z): positive
+--      semidefiniteness is exactly |Z| � M� (given M� > 0);
+--   �  the tail identity rearranged: Z = e^{t/2}G(½) − S − J_arch is
+--      |S − e^{t/2}G(½) + J_arch| � M�, i.e. the closing inequality is
+--      the same statement as |Z| � M� (a sign identity).
 ------------------------------------------------------------------------
 module Grahaka_TheFixedPacketIsTheProductOfItsTwoHalfPacketsSoItsSymbolIsARealSquareOverSixteenMinusZSquaredAndTheTwoPacketWeilMatrixIsPositiveExactlyWhenTheResponseIsBoundedByItsDiagonal where
 
@@ -45,7 +45,7 @@ module _ (R : CommRing ℓ) where
   ι (suc n) = 1r + ι n
 
   ----------------------------------------------------------------
-  -- १ · the packet product
+  -- � � the packet product
   ----------------------------------------------------------------
   packet-product : (E w w̄ : A) → w · w̄ ≡ 1r
     → (1r + (- (E · w̄))) · (1r + (- (E · w))) ≡ (1r + (- (E · (w + w̄)))) + E · E
@@ -60,14 +60,14 @@ module _ (R : CommRing ℓ) where
       shape : (z : A) → (z + (1r + (1r + (1r + (1r + 0r))))) · ((1r + (1r + (1r + (1r + 0r)))) + (- z)) ≡ (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + (1r + 0r)))))))))))))))) + (- (z · z))
       shape z = solve! R
 
-  -- the squared symbol assembles:  H(z)H(−z) = 256·(product)²/((z+4)(4−z))²
+  -- the squared symbol assembles:  H(z)H(−z) = 256�(product)²/((z+4)(4−z))²
   symbol-assembles : (E w w̄ z : A) → w · w̄ ≡ 1r
     → let p = (1r + (- (E · w̄))) · (1r + (- (E · w))) ; c = (1r + (- (E · (w + w̄)))) + E · E in
       (ι 16 · (p · p)) · ((z + ι 4) · (ι 4 + (- z))) ≡ (ι 16 · (c · c)) · (ι 16 + (- (z · z)))
   symbol-assembles E w w̄ z h = cong₂ (λ u v → (ι 16 · (u · u)) · v) (packet-product E w w̄ h) (denominator z)
 
   ----------------------------------------------------------------
-  -- २ · the two-packet Weil matrix
+  -- � � the two-packet Weil matrix
   ----------------------------------------------------------------
   weil-determinant : (M₀ Z : A) → M₀ · M₀ + (- (Z · Z)) ≡ (M₀ + (- Z)) · (M₀ + Z)
   weil-determinant M₀ Z = solve! R
@@ -77,7 +77,7 @@ module _ (R : CommRing ℓ) where
     where shape : (M₀ : A) → M₀ + M₀ ≡ (1r + (1r + 0r)) · M₀
           shape M₀ = solve! R
 
-  -- the quadratic form  (x y) [[M₀,Z],[Z,M₀]] (x y)ᵀ  on (1, 1) and (1, −1)
+  -- the quadratic form  (x y) [[M�,Z],[Z,M�]] (x y)�  on (1, 1) and (1, −1)
   weil-form : (M₀ Z x y : A) → A
   weil-form M₀ Z x y = (x · (M₀ · x + Z · y)) + (y · (Z · x + M₀ · y))
 
@@ -91,7 +91,7 @@ module _ (R : CommRing ℓ) where
     where shape : (M₀ Z : A) → (1r · (M₀ · 1r + Z · (- 1r))) + ((- 1r) · (Z · 1r + M₀ · (- 1r))) ≡ (1r + (1r + 0r)) · (M₀ + (- Z))
           shape M₀ Z = solve! R
 
-  -- the form is a sum of the two diagonal readings:  2·form(x,y) = (M₀+Z)(x+y)² + (M₀−Z)(x−y)²
+  -- the form is a sum of the two diagonal readings:  2�form(x,y) = (M�+Z)(x+y)² + (M�−Z)(x−y)²
   weil-form-diagonalizes : (M₀ Z x y : A)
     → ι 2 · weil-form M₀ Z x y ≡ (M₀ + Z) · ((x + y) · (x + y)) + (M₀ + (- Z)) · ((x + (- y)) · (x + (- y)))
   weil-form-diagonalizes M₀ Z x y = shape M₀ Z x y
@@ -100,7 +100,7 @@ module _ (R : CommRing ℓ) where
           shape M₀ Z x y = solve! R
 
   ----------------------------------------------------------------
-  -- ३ · the tail identity is the closing inequality's argument
+  -- � � the tail identity is the closing inequality's argument
   ----------------------------------------------------------------
   closing-argument : (L S J : A) → let Z = (L + (- S)) + (- J) in (S + (- L)) + J ≡ - Z
   closing-argument L S J = solve! R

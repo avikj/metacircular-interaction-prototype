@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --guardedness --safe #-}
 
 ------------------------------------------------------------------------
--- छाया — the shadow, and what is actually impossible about it.
+-- ���� � the shadow, and what is actually impossible about it.
 --
--- TERM.  छाया / *chāyā*, shadow, is `Prakasha`'s own coinage in
+-- TERM.  ���� / *chy*, shadow, is `Prakasha`'s own coinage in
 -- this corpus for the truncated form (`G-chaya`), and is carried here for
 -- continuity.  It is NOT a sourced technical term and nothing in any
 -- tradition is cited for it.  The mathematics is propositional
--- truncation — Voevodsky's h-levels, the substrate this repository names
--- as its one exception — and is claimed for nobody else.
+-- truncation � Voevodsky's h-levels, the substrate this repository names
+-- as its one exception � and is claimed for nobody else.
 --
 ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ noSection a b a≢b (s , sec) =
   a≢b (sym (sec a) ∙ cong s (squash₁ ∣ a ∣₁ ∣ b ∣₁) ∙ sec b)
 
 -- ═══ and the map the overclaim confused it with ═══
--- inhabited A: a map ∥ A ∥₁ → A exists, trivially.  so "no reverse map"
+-- inhabited A: a map � A �� � A exists, trivially.  so "no reverse map"
 -- is false, and "no section" is what is true.
 mapFromInhabited : {A : Type₀} → A → (∥ A ∥₁ → A)
 mapFromInhabited a _ = a

@@ -4,15 +4,15 @@
 -- Kernel.Ananta_TheDerivationsBetweenTwoConnectedTermsExceedEvery
 --                BoundWhileEveryOfferingHasADefiniteCount
 --
--- TERM.  à¤…à¤¨à¤¨à¥à¤¤ Â· ananta -- the third of the three orders of magnitude in the
--- Jaina counting apparatus, à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ / à¤…à¤¸à¤‚à¤–à¥à¤¯à¤¾à¤¤ / à¤…à¤¨à¤¨à¥à¤¤ (saá¹ƒkhyÄta,
--- asaá¹ƒkhyÄta, ananta), each further subdivided.  *AnuyogadvÄrasÅ«tra* (date
--- contested, commonly placed ~2nd-5th c. CE; I pin none); *SthÄnÄá¹…gasÅ«tra*;
--- *BhagavatÄ«sÅ«tra*.  No first use of the term is established here.
+-- TERM.  àà¨à¨àà Â ananta -- the third of the three orders of magnitude in the
+-- Jaina counting apparatus, ààà–àà¯à¾à / àààà–àà¯à¾à / àà¨à¨àà (sakhyta,
+-- asakhyta, ananta), each further subdivided.  *Anuyogadvrastra* (date
+-- contested, commonly placed ~2nd-5th c. CE; I pin none); *Sthngastra*;
+-- *Bhagavatstra*.  No first use of the term is established here.
 --
 -- The criterion applied below is the apparatus's OWN, not a translation of
--- it: an asaá¹ƒkhyÄta magnitude is DEFINITE -- the scheme bounds it above,
--- at utká¹›á¹£á¹­Äsaá¹ƒkhyÄta, and does arithmetic on it -- while ananta is what
+-- it: an asakhyta magnitude is DEFINITE -- the scheme bounds it above,
+-- at utksakhyta, and does arithmetic on it -- while ananta is what
 -- exceeds every such bound.  Â§1-Â§2 exhibit, between any two connected
 -- terms, derivations of length exceeding every k.  By that criterion the
 -- object is not innumerable-in-practice; it is unbounded, and the file is
@@ -21,14 +21,14 @@
 ------------------------------------------------------------------------
 -- WHAT WAS OPEN.
 --
--- `Sesa_â€¦` exhibits TWO histories between the kernel's own pair, separated
+-- `Sesa_â¦` exhibits TWO histories between the kernel's own pair, separated
 -- by step count, 2 against 4, and concludes the truncation is strict.
--- `Avirodha_â€¦` locates the same fact structurally: `âŠ•` is associative and
+-- `Avirodha_â¦` locates the same fact structurally: `âŠ•` is associative and
 -- unital on the nose, `rev` is an inverse only up to meaning, and THE GAP
--- BETWEEN STRICT CATEGORY AND WEAK GROUPOID IS THE ÅšEá¹¢A.
+-- BETWEEN STRICT CATEGORY AND WEAK GROUPOID IS THE EA.
 --
 -- Neither measures the gap, and no file in the corpus builds a family of
--- derivations indexed by â„• between fixed endpoints.  Two instances on one
+-- derivations indexed by â• between fixed endpoints.  Two instances on one
 -- pair leave open whether the phenomenon is a feature of that pair.
 --
 -- IT IS NOT.  `reverse (add-zero a) : Step a (add a zero)` fires at EVERY
@@ -40,12 +40,12 @@
 --
 --   Â§1  inflate, inflate-len -- for every k, a derivation with the same
 --       endpoints and length (k + k) + len d.
---   Â§2  inflate-inj -- k is recoverable from the derivation, so â„• injects
+--   Â§2  inflate-inj -- k is recoverable from the derivation, so â• injects
 --       into `Derivation a b` whenever that type is inhabited at all.
 --   Â§3  ananta -- the statement in the form the criterion above wants:
 --       no bound on the standpoints between two connected terms.
 --   Â§4  the-whole-family-means-one-thing -- and all of it is one bit
---       downstairs, through `Sesa_â€¦`, forced by â„• being a set.
+--       downstairs, through `Sesa_â¦`, forced by â• being a set.
 --
 -- CHECKED.  Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes,
 -- exit 0 at the previous module path.  Module name and imports were renamed
@@ -114,7 +114,7 @@ ananta d k = inflate k d , inflate-len k d
 
 ------------------------------------------------------------------------
 -- Â§4.  AND ALL OF IT IS ONE BIT DOWNSTAIRS.  Not by choice of `eval`:
---      `Sesa_â€¦` forces it from â„• being a set.  The order of the object and
+--      `Sesa_â¦` forces it from â• being a set.  The order of the object and
 --      the order of its meaning are not the same order, and the kernel
 --      keeps `eval` off the operational path entirely.
 ------------------------------------------------------------------------

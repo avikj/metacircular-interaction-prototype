@@ -1,7 +1,7 @@
 def isContr(A: Set) -> Set:
   any c: A. (all x: A. Path(A, c, x))
 
-# contractibility is a proposition â€” needs a general (4-face) hcomp
+# contractibility is a proposition â” needs a general (4-face) hcomp
 def isPropIsContr(A: Set, c0: isContr(A), c1: isContr(A)) -> Path(isContr(A), c0, c1):
   match c0:
     case (a0, p0):

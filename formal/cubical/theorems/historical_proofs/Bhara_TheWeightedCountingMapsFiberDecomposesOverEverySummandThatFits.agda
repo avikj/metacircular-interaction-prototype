@@ -1,63 +1,63 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤­à¤¾à¤° â€” à¤¯à¥‹ à¤­à¤¾à¤°à¤ƒ à¤ªà¥à¤°à¤µà¤¿à¤¶à¤¤à¤¿ à¤¸ à¤à¤µ à¤¤à¤¨à¥à¤¤à¥à¤‚ à¤­à¤¿à¤¨à¤¤à¥à¤¤à¤¿ à¥¤
+-- àà¾à° â” à¯à‹ àà¾à°à ààà°àµà¿ààà¿ à ààµ àà¨àààà àà¿à¨àààà¿ à
 --
 -- (it is the weight that goes in which splits the fiber.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- THE RUNG ABOVE `à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿`, AND WHY IT IS A RUNG AND NOT A COROLLARY.
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- THE RUNG ABOVE `ààµààààà¿`, AND WHY IT IS A RUNG AND NOT A COROLLARY.
 --
--- `Avrtti_â€¦agda` prices the fiber of `length`: one constructor costs
--- exactly one, so `fiber length (suc n) â‰ƒ X Ã— fiber length n` with no
+-- `Avrtti_â¦agda` prices the fiber of `length`: one constructor costs
+-- exactly one, so `fiber length (suc n) â‰ X — fiber length n` with no
 -- guard anywhere.  Every counting map that charges a CONSTANT per
 -- element is that theorem.
 --
 -- A **weighted** map is not.  `PingalaPrastara.matraOf` charges 1 for
--- à¤²à¤˜à¥ and 2 for à¤—à¥à¤°à¥, so its fiber over `n` decomposes over `nâˆ¸1` and
--- `nâˆ¸2` â€” and each summand needs a proof that its weight actually fits
+-- à²à˜à and 2 for à—àà°à, so its fiber over `n` decomposes over `nâˆ1` and
+-- `nâˆ2` â” and each summand needs a proof that its weight actually fits
 -- under `n`, which truncated subtraction silently swallows.  That is why
 -- `matrameruIso` had to be proved by hand.
 --
 -- **The fix is to carry the fitting proof as an EQUATION and never
--- subtract.**  `Î£[ m ] (w x + m â‰¡ n)` says "the rest is `m`, and the
--- weight fits, and here is the witness" in one object.  With `âˆ¸` the
+-- subtract.**  `Î[ m ] (w x + m â‰¡ n)` says "the rest is `m`, and the
+-- weight fits, and here is the witness" in one object.  With `âˆ` the
 -- witness is thrown away and has to be reconstructed by a case split;
 -- with `â‰¡` it is the datum.  **That is this corpus's own rule applied to
--- its own arithmetic: keep the remainder, à¤¶à¥‡à¤·à¤‚ à¤°à¤•à¥à¤·.**
+-- its own arithmetic: keep the remainder, àààà à°à•àà.**
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED, over an ARBITRARY element type and an ARBITRARY
--- weight â€” no finiteness, no decidable equality, no h-level on `X`, and
+-- weight â” no finiteness, no decidable equality, no h-level on `X`, and
 -- no assumption that the weight is nonzero.
 --
--- Â§à¥§  `à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ w`, the weighted count, by structural recursion.
--- Â§à¥¨  **`à¤­à¤¾à¤°-à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ`** : for `n` a successor,
+-- Â§à§  `àà¾à°-à—àà¨à¾ w`, the weighted count, by structural recursion.
+-- Â§à¨  **`àà¾à°-ààµààààà¿à`** : for `n` a successor,
 --
---        fiber (à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ w) n
---          â‰ƒ  Î£[ x âˆˆ X ] Î£[ m âˆˆ â„• ] ((w x + m â‰¡ n) Ã— fiber (à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ w) m)
+--        fiber (àà¾à°-à—àà¨à¾ w) n
+--          â‰  Î[ x âˆˆ X ] Î[ m âˆˆ â• ] ((w x + m â‰¡ n) — fiber (àà¾à°-à—àà¨à¾ w) m)
 --
 --     the fiber over `n` is: which element came first, what the rest
 --     weighed, the proof that they add to `n`, and the rest's own fiber.
 --     Every summand carries its own fitting proof.
--- Â§à¥©  the base at zero is NOT `Unit` in general â€” a weight of 0 lets
---     arbitrarily many elements sit at index 0 â€” so Â§à¥© states the base
+-- Â§à©  the base at zero is NOT `Unit` in general â” a weight of 0 lets
+--     arbitrarily many elements sit at index 0 â” so Â§à© states the base
 --     only under the hypothesis that no weight is zero, and says so.
 --     **This is the place a careless emitter would forge a receipt.**
 --
--- Â§à¥ª  `matraOf` is an instance: `X = Syllable`, `w laghu = 1`,
+-- Â§à  `matraOf` is an instance: `X = Syllable`, `w laghu = 1`,
 --     `w guru = 2`.  Stated, and the identification with the host's own
 --     `matraOf` is left as an obligation rather than asserted, because
 --     `matraOf` is a separate recursion and nothing here proves the two
 --     agree.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- TERM.  à¤­à¤¾à¤° â€” weight, load, that which is carried.  Ordinary Sanskrit;
--- in the prosodic tradition the weight of a syllable is its à¤®à¤¾à¤¤à¥à¤°à¤¾
--- (Piá¹…gala, à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥, ~300 BCE: à¤²à¤˜à¥ one mÄtrÄ, à¤—à¥à¤°à¥ two).  LIMIT:
--- à¤­à¤¾à¤° is used here in its plain sense for the cost a constructor
--- charges; the prosodists' term for the syllable's own weight is à¤®à¤¾à¤¤à¥à¤°à¤¾
--- and no text states a weighted fiber decomposition.  Piá¹…gala proves
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- TERM.  àà¾à° â” weight, load, that which is carried.  Ordinary ;
+-- in the prosodic tradition the weight of a syllable is its à®à¾ààà°à¾
+-- (Pigala, àà¨àà¦ààà¾ààààà°à®à, ~300 BCE: à²à˜à one mtr, à—àà°à two).  LIMIT:
+-- àà¾à° is used here in its plain sense for the cost a constructor
+-- charges; the prosodists' term for the syllable's own weight is à®à¾ààà°à¾
+-- and no text states a weighted fiber decomposition.  Pigala proves
 -- nothing below.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
@@ -82,7 +82,7 @@ private variable â„“ : Level
 module _ {X : Type â„“} (w : X â†’ â„•) where
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ â€” the weighted count.
+-- à§ Â àà¾à°-à—àà¨à¾ â” the weighted count.
 ------------------------------------------------------------------------
 
   à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ : List X â†’ â„•
@@ -90,9 +90,9 @@ module _ {X : Type â„“} (w : X â†’ â„•) where
   à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ (x âˆ· xs) = w x + à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ xs
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤­à¤¾à¤°-à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” the decomposition, with every fitting proof carried.
+-- à¨ Â àà¾à°-ààµààààà¿à â” the decomposition, with every fitting proof carried.
 --
--- No `âˆ¸` appears.  The equation `w x + m â‰¡ n` IS the fitting witness, so
+-- No `âˆ` appears.  The equation `w x + m â‰¡ n` IS the fitting witness, so
 -- nothing is discarded and nothing has to be reconstructed.
 ------------------------------------------------------------------------
 
@@ -100,14 +100,14 @@ module _ {X : Type â„“} (w : X â†’ â„•) where
   à¤­à¤¾à¤°-à¤¤à¤¨à¥à¤¤à¥à¤ƒ n = fiber à¤­à¤¾à¤°-à¤—à¤£à¤¨à¤¾ n
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤­à¤¾à¤°-à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ â€” the decomposition.
+-- à¨ Â àà¾à°-ààµààààà¿à â” the decomposition.
 --
--- No case split on `n`, and no `âˆ¸` anywhere.  A list is `[]` or a cons,
+-- No case split on `n`, and no `âˆ` anywhere.  A list is `[]` or a cons,
 -- so its fiber is that same coproduct: the empty list sits over `n` iff
 -- `0 â‰¡ n`, and a cons sits over `n` iff its head's weight plus the
--- tail's count is `n`.  **The equation IS the fitting witness** â€” with
+-- tail's count is `n`.  **The equation IS the fitting witness** â” with
 -- truncated subtraction the witness is discarded and has to be rebuilt
--- by a case split; here it is the datum.  à¤¶à¥‡à¤·à¤‚ à¤°à¤•à¥à¤·.
+-- by a case split; here it is the datum.  àààà à°à•àà.
 ------------------------------------------------------------------------
 
   à¤­à¤¾à¤°-à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿à¤ƒ : (n : â„•)
@@ -133,13 +133,13 @@ module _ {X : Type â„“} (w : X â†’ â„•) where
     à¤ªà¥à¤° (x âˆ· xs , p) = refl
 
 ------------------------------------------------------------------------
--- à¥© Â· The base is NOT `Unit`, and this is where a careless emitter
+-- à© Â The base is NOT `Unit`, and this is where a careless emitter
 -- forges a receipt.
 --
--- `fiber length 0 â‰ƒ Unit` held because `length` charges one per element.
--- A weight of ZERO breaks it: if `w x â‰¡ 0` then `x âˆ· x âˆ· â€¦ âˆ· []` has
--- count 0 for every length, so the fiber over 0 is infinite.  Â§à¥¨ still
--- holds â€” it is stated with no hypothesis at all â€” but the left summand
+-- `fiber length 0 â‰ Unit` held because `length` charges one per element.
+-- A weight of ZERO breaks it: if `w x â‰¡ 0` then `x âˆ x âˆ â¦ âˆ []` has
+-- count 0 for every length, so the fiber over 0 is infinite.  Â§à¨ still
+-- holds â” it is stated with no hypothesis at all â” but the left summand
 -- is `0 â‰¡ n` and the right one does not vanish at `n â‰¡ 0`.
 --
 -- So the base collapses only under a hypothesis, and it is named:

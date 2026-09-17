@@ -16,7 +16,7 @@ source-linked documentation; no new proof or native run is claimed.
 =================================
 
 `Fibre.Carrier <../fibre/src/Fibre/Carrier.agda>`_
-    ``Carrier``, ``descend``, ``ascend``, ``Carrier‚âÉ``, ``Carrier‚â°``,
+    ``Carrier``, ``descend``, ``ascend``, ``Carrier‚â``, ``Carrier‚â°``,
     ``carry-transport-descend``, ``Œ¶-carrier``, ``Œ¶-square``.
 
     A source carries its image and its determining path. The presentation is
@@ -33,7 +33,7 @@ source-linked documentation; no new proof or native run is claimed.
     composition of the fibre-law presentation with coinductive evolution.
 
 `Fibre.JivitaSmrti <../fibre/src/Fibre/JivitaSmrti.agda>`_
-    ``‡§ú‡•Ä‡§µ‡§ø‡§§‡§æ-‡§∏‡•ç‡§Æ‡•É‡§§‡§ø`` (jivita-smrti, living memory).
+    ``‡‡‡µ‡ø‡‡æ-‡‡‡Æ‡‡‡ø`` (jivita-smrti, living memory).
 
     At depth ``n``, the carried reading of the ``Fibre.Viveka`` orbit is the
     reading of the corresponding iterated state. This is a concrete
@@ -72,9 +72,9 @@ source-linked documentation; no new proof or native run is claimed.
 ======================================
 
 `Parasparasraya <../formal/cubical/theorems/logic/Parasparasraya_TheMutualDependenceObjectionChecksWhenTheLeaningIsProductive.agda>`_
-    ``DhƒÅrƒÅ``, the mutual ``jina``/``ajina`` definitions, ``dvicakram``;
-    ``ParasparƒÅ≈õraya``, ``yugma``, ``dvitƒ´ya-pa≈õyati``,
-    ``na-ekƒÅkin‚ÇÅ``, ``na-ekƒÅkin‚ÇÇ``.
+    ``Dhr``, the mutual ``jina``/``ajina`` definitions, ``dvicakram``;
+    ``Parasparraya``, ``yugma``, ``dvitya-payati``,
+    ``na-ekkin‚``, ``na-ekkin‚``.
 
     The mutual streams exhibit guarded production. Separately, the general
     observation record supplies individual blind pairs and joint faithfulness;
@@ -83,15 +83,15 @@ source-linked documentation; no new proof or native run is claimed.
     both present, but they are not asserted to be definitionally the same type.
 
 `Jiva: joint dependence and the living step <../formal/cubical/theorems/logic/Jiva_EntanglementIsTheFibreOfTheProductComparisonAndTheLivingStepRefusesToDescendToTheMarginals.agda>`_
-    ``‡§§‡•Å‡§≤‡§®‡§æ`` (comparison), ``‡§∏‡§Ç‡§ï‡§≤‡§®‡§Æ‡•ç`` (total-space reconstruction),
-    ``‡§ú‡•Ä‡§µ‡§®-‡§™‡§¶‡§Æ‡•ç`` (living step), ``‡§Ø‡•Å‡§ó‡§≤‡§Æ‡•ç-‡§â‡§≠‡§Ø‡§§‡§É`` (two-sided descent
-    characterization), ``‡§ú‡•Ä‡§µ‡§§‡§ø`` (visible non-descent),
-    ``‡§¶‡§ï‡•ç‡§∑‡§ø‡§£-‡§µ‡§ø‡§≤‡§Ø‡§É`` (environment-side descent), ``‡§ú‡•Ä‡§µ‡§®-‡§¶‡•ç‡§µ‡§ø‡§É``
-    (involution), ``‡§∏‡•Ç‡§ö‡§®‡§æ-‡§∏‡§Æ‡•Ä‡§ï‡§∞‡§£‡§Æ‡•ç`` (equivalence).
+    ``‡‡‡≤‡®‡æ`` (comparison), ``‡‡‡ï‡≤‡®‡Æ‡`` (total-space reconstruction),
+    ``‡‡‡µ‡®-‡‡¶‡Æ‡`` (living step), ``‡Ø‡‡ó‡≤‡Æ‡-‡â‡‡Ø‡‡`` (two-sided descent
+    characterization), ``‡‡‡µ‡‡ø`` (visible non-descent),
+    ``‡¶‡ï‡‡‡ø‡-‡µ‡ø‡≤‡Ø‡`` (environment-side descent), ``‡‡‡µ‡®-‡¶‡‡µ‡ø‡``
+    (involution), ``‡‡‡‡®‡æ-‡‡Æ‡‡ï‡∞‡‡Æ‡`` (equivalence).
 
-    The generic comparison ``J -> A √ó B`` has an exact fibre completion.
+    The generic comparison ``J -> A ó B`` has an exact fibre completion.
     Its examples distinguish missing combinations from hidden distinctions.
-    For the controlled-not update on ``Bool √ó Bool``, the visible update
+    For the controlled-not update on ``Bool ó Bool``, the visible update
     cannot be computed from the visible input alone, while the environment
     projection descends and the complete update is an equivalence.
 
@@ -119,8 +119,8 @@ source-linked documentation; no new proof or native run is claimed.
     every transition span discussed in the header.
 
 `SariraStara <../formal/cubical/theorems/physics/SariraStara_TheCountStratumOfTheHeartbeatIsProvablyBlindToTheBodysLawOfSuccession.agda>`_
-    ``mismatch-NONE``, ``‡§∏‡•ç‡§§‡§∞‡§≠‡•á‡§¶‡§É`` (law-stratum distinction),
-    ``‡§∂‡§∞‡•Ä‡§∞‡§∏‡•ç‡§§‡§∞‡§É`` (nonfactorization), ``‡§ó‡§£‡§®‡§æ‡§∏‡§æ‡§Æ‡•ç‡§Ø‡§Ç-‡§®-‡§§‡§æ‡§¶‡§æ‡§§‡•ç‡§Æ‡•ç‡§Ø‡§Æ‡•ç``
+    ``mismatch-NONE``, ``‡‡‡‡∞‡‡‡¶‡`` (law-stratum distinction),
+    ``‡‡∞‡‡∞‡‡‡‡∞‡`` (nonfactorization), ``‡ó‡‡®‡æ‡‡æ‡Æ‡‡Ø‡-‡®-‡‡æ‡¶‡æ‡‡‡Æ‡‡Ø‡Æ‡``
     (count agreement is not identity).
 
     Two succession laws on the shared carrier have the same count-stratum
@@ -133,10 +133,10 @@ source-linked documentation; no new proof or native run is claimed.
 =======================================================
 
 `SamasaSetu <../formal/cubical/theorems/walks/SamasaSetu_TheChildEdgeIsTheCompositionOfTwoParentFordsSexualNotAsexual.agda>`_
-    ``‡§∏‡§Æ‡§æ‡§∏-‡§∏‡•á‡§§‡•Å‡§É`` (samasa-setu, the recombined connection).
+    ``‡‡Æ‡æ‡-‡‡‡‡‡`` (samasa-setu, the recombined connection).
 
-    The term is ``compEquiv ‡§µ‡§ø‡§µ‡•á‡§ï‚âÉ‡§µ‡§æ‡§π‡§ï‡§É ‡§∏‡•á‡§§‡•Å‡§É``: two existing equivalences
-    share ``Carrier ‡§Ø‡•ã‡§ó`` and compose into a connection between their outer
+    The term is ``compEquiv ‡µ‡ø‡µ‡‡ï‚â‡µ‡æ‡‡ï‡ ‡‡‡‡‡``: two existing equivalences
+    share ``Carrier ‡Ø‡ã‡ó`` and compose into a connection between their outer
     endpoints. The biological vocabulary motivates recombination rather than
     cloning; the executable statement is the exhibited composition. This
     file does not implement genetic mutation or an autonomous mating policy.
@@ -203,7 +203,7 @@ source-linked documentation; no new proof or native run is claimed.
     ``transportEvaluator-unique``, ``EvaluationFrame``,
     ``transportEvaluation-invariant``, ``fixed-evaluator-killer``.
 
-    Along ``e : A ‚âÉ B``, the candidate moves by ``e`` and the evaluator by
+    Along ``e : A ‚â B``, the candidate moves by ``e`` and the evaluator by
     precomposition with ``inverse(e)``. All paired results are conserved, and
     that conservation determines the evaluator transport uniquely. Moving
     only the candidate need not conserve a fixed score. The result is about

@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- PunarƒÅgamana ¬∑ ‡§∂‡•á‡§∑
+-- Punargamana ¬ ‡‡‡
 --
--- ‡§∂‡•á‡§∑ (≈õe·π£a) ‚Äî the remainder that is KEPT and made the material of the
--- next step, rather than discarded.  ƒÄryabha·π≠a, *ƒÄryabha·π≠ƒ´ya*,
--- Ga·πáitapƒÅda 32‚Äì33 (499 CE), where it is the ku·π≠·π≠aka's governing move
--- ("≈õe·π£a·πÉ rak·π£a", keep the remainder).
+-- ‡‡‡ (ea) ‚î the remainder that is KEPT and made the material of the
+-- next step, rather than discarded.  ryabhaa, *ryabhaya*,
+-- Gaitapda 32‚ì33 (499 CE), where it is the kuaka's governing move
+-- ("ea raka", keep the remainder).
 --
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.
@@ -17,28 +17,28 @@
 -- have been two lanes, two libraries, two identities, and two theorems.
 --
 -- THEY ARE ONE OBJECT WITH TWO PROJECTIONS, and that is what is proved
--- here.  Fix f : A ‚Üí B and form its graph
+-- here.  Fix f : A ‚í B and form its graph
 --
---     Œì f  =  Œ£[ a ‚àà A ] Œ£[ b ‚àà B ] (f a ‚â° b)
+--     Œì f  =  Œ[ a ‚àà A ] Œ[ b ‚àà B ] (f a ‚â° b)
 --
--- which is `Carrier f` (¬ß2, `‡§ó‡•ç‡§∞‡§æ‡§π`, by nothing more than reassociating the
--- Œ£).  Œì f has two projections and they behave completely differently:
+-- which is `Carrier f` (¬ß2, `‡ó‡‡∞‡æ‡`, by nothing more than reassociating the
+-- Œ).  Œì f has two projections and they behave completely differently:
 --
---   ‡§Æ‡•Ç‡§≤-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ : Œì f ‚Üí A     fiber over a is  singl (f a)  ‚Äî ALWAYS
+--   ‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡ : Œì f ‚í A     fiber over a is  singl (f a)  ‚î ALWAYS
 --                              contractible, so this is ALWAYS an
 --                              equivalence.  (¬ß3)
 --
---   ‡§≤‡§ï‡•ç‡§∑‡•ç‡§Ø-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ : Œì f ‚Üí B    fiber over b is  ‡§∂‡•á‡§∑ b  ‚Äî contractible
+--   ‡≤‡ï‡‡‡‡Ø-‡‡‡∞‡ï‡‡‡‡ : Œì f ‚í B    fiber over b is  ‡‡‡ b  ‚î contractible
 --                              exactly when f is an equivalence.  (¬ß4)
 --
--- So the two halves of the design law are the two projections of one Œ£:
+-- So the two halves of the design law are the two projections of one Œ:
 --
 --   "determined structure may remain explicitly present with its
 --    determining path"          =  the source projection never loses.
 --
 --   "every genuinely independent distinction must survive"
 --                               =  the target projection loses exactly
---                                  ‡§∂‡•á‡§∑, and ‡§∂‡•á‡§∑ is the surviving
+--                                  ‡‡‡, and ‡‡‡ is the surviving
 --                                  distinction, named and held.
 --
 -- The consequence worth stating plainly: a construction does not choose
@@ -52,43 +52,43 @@
 -- standing struck rather than deleted, because striking silently is how
 -- this repository loses its own history (CLAUDE.md).**
 --
--- The sentence is a ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø and `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` is the proof of why:
+-- The sentence is a ‡¶‡‡∞‡‡®‡Ø and `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is the proof of why:
 -- a two-valued verdict on a threefold situation must identify two of the
--- three.  `isContr (‡§∂‡•á‡§∑ f b)` fails in two OPPOSITE ways ‚Äî
+-- three.  `isContr (‡‡‡ f b)` fails in two OPPOSITE ways ‚î
 --
---   the fiber is EMPTY   ‚Äî over `b` there is no source: syƒÅd ‡§®‡§æ‡§∏‡•ç‡§§‡§ø.
+--   the fiber is EMPTY   ‚î over `b` there is no source: syd ‡®‡æ‡‡‡‡ø.
 --                          Nothing was destroyed (that is the crowded arm),
---                          so this end is ‡§ß‡§®‡§æ‡§§‡•ç‡§Æ‡§ï‡§Æ‡•ç, POSITIVE.  (NOT
---                          ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç: that is the fourth bha·πÖga, yugapat
+--                          so this end is ‡ß‡®‡æ‡‡‡Æ‡ï‡Æ‡, POSITIVE.  (NOT
+--                          ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡: that is the fourth bhaga, yugapat
 --                          inexpressibility, earned only where a krama-pair
---                          recovers it ‚Äî SaptabhangiNaya ‚Äî not asserted of
+--                          recovers it ‚î SaptabhangiNaya ‚î not asserted of
 --                          every empty fiber.)
---   the fiber is CROWDED ‚Äî two points not identified.  ‡§®‡§∑‡•ç‡§ü‡§ø, ‡§π‡§ø‡§Ç‡§∏‡§æ,
---                          ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø‡§æ.
+--   the fiber is CROWDED ‚î two points not identified.  ‡®‡‡‡ü‡ø, ‡‡ø‡‡‡æ,
+--                          ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡æ.
 --
--- ‚Äî and this module calls both of them "not an equivalence".  ¬ß4 and ¬ß5
--- below are therefore about the CROWDED arm only, and ¬ß5's `Bool ‚Üí Unit`
--- is level ‡•® of a five-level scale, not "the obstruction".
+-- ‚î and this module calls both of them "not an equivalence".  ¬ß4 and ¬ß5
+-- below are therefore about the CROWDED arm only, and ¬ß5's `Bool ‚í Unit`
+-- is level ‡® of a five-level scale, not "the obstruction".
 --
--- The repair is `Fiber.SakalaVikalaDesa_‚Ä¶` in this library: the
--- diagnosis is a CENSUS ‚Äî a function `B ‚Üí ‡§¶‡•á‡§∂ f b` whose constructors
--- carry their evidence ‚Äî and not a verdict about the map.  It also
+-- The repair is `Fiber.SakalaVikalaDesa_‚¶` in this library: the
+-- diagnosis is a CENSUS ‚î a function `B ‚í ‡¶‡‡ f b` whose constructors
+-- carry their evidence ‚î and not a verdict about the map.  It also
 -- contains the refutation, as a computed term, of the sequential
 -- diagnostic this module's author proposed in prose ("factor the proof;
 -- the first non-contractible fiber is where the information went"), which
 -- is unsound in both directions.
 --
--- What survives untouched: ¬ß2's `‡§ó‡•ç‡§∞‡§æ‡§π`, and the observation that `Carrier`
+-- What survives untouched: ¬ß2's `‡ó‡‡∞‡æ‡`, and the observation that `Carrier`
 -- and the residual are two projections of one graph.  What does not: the
 -- claim that the two projections exhaust the readings.
 --
 -- ¬ß5 exhibits the residue and PRICES it rather than merely detecting it:
--- for the collapsing map Bool ‚Üí Unit the residual is not just
--- non-contractible, it is equivalent to Bool ‚Äî exactly one bit ‚Äî and the
+-- for the collapsing map Bool ‚í Unit the residual is not just
+-- non-contractible, it is equivalent to Bool ‚î exactly one bit ‚î and the
 -- carrier is provably equivalent to its source and provably not to its
 -- target.
 --
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚Äî the library's declared pin.
+-- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -111,7 +111,7 @@ private
 module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
 
   ------------------------------------------------------------------------
-  -- 1.  ‡§∂‡•á‡§∑ ‚Äî the residual over a target point.
+  -- 1.  ‡‡‡ ‚î the residual over a target point.
   --
   -- What the target forgets at b is the type of source points f sends to
   -- b, together with the witness.  Not a metaphor for the loss: ¬ß4 proves
@@ -122,12 +122,12 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ‡§∂‡•á‡§∑ b = Œ£[ a ‚àà A ] (f a ‚â° b)
 
   ------------------------------------------------------------------------
-  -- 2.  ‡§ó‡•ç‡§∞‡§æ‡§π ‚Äî one graph, two orders of the same Œ£.
+  -- 2.  ‡ó‡‡∞‡æ‡ ‚î one graph, two orders of the same Œ.
   --
-  -- `Carrier-as-Œ£` reads a Carrier as a source point paired with a point
+  -- `Carrier-as-Œ` reads a Carrier as a source point paired with a point
   -- of its fiber.  Swapping the two bound variables reads the SAME type as
   -- a target point paired with a point of its residual.  Both round trips
-  -- are refl: this is Œ£-eta and nothing else, which is precisely why the
+  -- are refl: this is Œ-eta and nothing else, which is precisely why the
   -- two lanes were never two theorems.
   ------------------------------------------------------------------------
 
@@ -141,12 +141,12 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ‡§ó‡•ç‡§∞‡§æ‡§π = compEquiv (isoToEquiv (Carrier-as-Œ£ f)) (isoToEquiv ‡§∏‡•ç‡§µ‡§™‡•ç)
 
   ------------------------------------------------------------------------
-  -- 3.  ‡§Æ‡•Ç‡§≤-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ ‚Äî the source projection.  ALWAYS an equivalence.
+  -- 3.  ‡Æ‡‡≤-‡‡‡∞‡ï‡‡‡‡ ‚î the source projection.  ALWAYS an equivalence.
   --
-  -- No hypothesis on f.  This is `Carrier‚âÉ-via-law` renamed to say what it
+  -- No hypothesis on f.  This is `Carrier‚â-via-law` renamed to say what it
   -- is: reading the graph from the source end loses nothing, ever, for any
   -- map whatsoever.  That is the whole content of "carrying determined
-  -- data is free" ‚Äî and the freeness is unconditional.
+  -- data is free" ‚î and the freeness is unconditional.
   ------------------------------------------------------------------------
 
   ‡§Æ‡•Ç‡§≤-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ : Carrier f ‚Üí A
@@ -160,7 +160,7 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
   ‡§Æ‡•Ç‡§≤-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™-‡§Ö‡§≠‡•á‡§¶‡§É _ = refl
 
   ------------------------------------------------------------------------
-  -- 4.  ‡§≤‡§ï‡•ç‡§∑‡•ç‡§Ø-‡§™‡•ç‡§∞‡§ï‡•ç‡§∑‡•á‡§™ ‚Äî the target projection.  An equivalence exactly when
+  -- 4.  ‡≤‡ï‡‡‡‡Ø-‡‡‡∞‡ï‡‡‡‡ ‚î the target projection.  An equivalence exactly when
   --     every residual is contractible.
   --
   -- This is the half that can fail, and the hypothesis that rescues it is
@@ -191,13 +191,13 @@ module _ {A B : Type ‚Ñì} (f : A ‚Üí B) where
 ------------------------------------------------------------------------
 -- 5.  The residue, priced.
 --
--- Bool ‚Üí Unit is the smallest genuine collapse.  Over its single target
--- point the residual is not merely non-contractible ‚Äî it is EQUIVALENT TO
+-- Bool ‚í Unit is the smallest genuine collapse.  Over its single target
+-- point the residual is not merely non-contractible ‚î it is EQUIVALENT TO
 -- Bool.  The loss is one bit, and "one bit" is a theorem here rather than
 -- a description.
 --
 -- Then both halves of ¬ß3/¬ß4 at that instance: the carrier is equivalent
--- to its source (‡§π‡§∏‡•ç‡§§‡•á) and provably not to its target (‡§®-‡§≤‡§ï‡•ç‡§∑‡•ç‡§Ø‡•á).  The
+-- to its source (‡‡‡‡‡) and provably not to its target (‡®-‡≤‡ï‡‡‡‡Ø‡).  The
 -- graph did not lose the distinction; the target projection did.
 ------------------------------------------------------------------------
 

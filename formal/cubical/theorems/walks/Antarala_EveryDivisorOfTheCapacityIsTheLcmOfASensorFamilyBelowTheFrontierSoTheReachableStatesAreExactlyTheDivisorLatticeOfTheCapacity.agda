@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- अन्तरालम् — every divisor of the capacity is the lcm of a sensor
+-- ��������� � every divisor of the capacity is the lcm of a sensor
 -- family below the frontier, so the reachable states are exactly the
 -- divisor lattice of the capacity.
 --
--- TERM.  अन्तराल — the interior, the space between; here the interior
+-- TERM.  ������� � the interior, the space between; here the interior
 -- of the lattice between its bottom 1 and its top cap(k), which the
 -- source note's table names "interior" and marks as the one row not
 -- yet checked.
@@ -25,7 +25,7 @@
 --
 -- and its status, §4:
 --
---   "Not yet Agda — §2's (⊇) needs a coprime-family lcm computation,
+--   "Not yet Agda � §2's (�) needs a coprime-family lcm computation,
 --   which the lane's `IsLCM` universal-property style should carry
 --   without a construction"
 --
@@ -37,20 +37,20 @@
 --
 -- WHAT IS PROVED.
 --
---   (T1) fam-admissible : (d k : ℕ) → All (λ x → (0 < x) × (x ≤ k)) (fam d k)
+--   (T1) fam-admissible : (d k : �) � All (λ x � (0 < x) � (x � k)) (fam d k)
 --        where fam d k is the list of members of range1 k dividing d.
---   (T2) fam-common     : (d k : ℕ) → CommonMultiple (fam d k) d
---   (T3) interior       : (k d C : ℕ) → 1 ≤ d → IsLCM (range1 k) C → d ∣ C
---                         → IsLCM (fam d k) d
+--   (T2) fam-common     : (d k : �) � CommonMultiple (fam d k) d
+--   (T3) interior       : (k d C : �) � 1 � d � IsLCM (range1 k) C � d � C
+--                         � IsLCM (fam d k) d
 --        THE THEOREM: every divisor d of the capacity C of frontier k is
 --        the lcm of an admissible family of that frontier, namely the
 --        divisors of d that lie in [1,k].
---   (T4) reachable-iff-divisor : (k C : ℕ) → IsLCM (range1 k) C →
---          (d : ℕ) → 1 ≤ d →
---          ((d ∣ C) → Σ[ F ∈ List ℕ ] All (λ x → (0 < x) × (x ≤ k)) F × IsLCM F d)
---          × ((Σ[ F ∈ List ℕ ] All (λ x → (0 < x) × (x ≤ k)) F × IsLCM F d) → d ∣ C)
---        the note's Theorem as a two-way implication; (⇐) is
---        WalkCapacity.capacity, (⇒) is (T3).
+--   (T4) reachable-iff-divisor : (k C : �) � IsLCM (range1 k) C �
+--          (d : �) � 1 � d �
+--          ((d � C) � �[ F ∈ List � ] All (λ x � (0 < x) � (x � k)) F � IsLCM F d)
+--          � ((�[ F ∈ List � ] All (λ x � (0 < x) � (x � k)) F � IsLCM F d) � d � C)
+--        the note's Theorem as a two-way implication; (�) is
+--        WalkCapacity.capacity, (�) is (T3).
 --   (T5) refl instances at k = 6, cap(6) = 60: fam 12 6 and fam 20 6
 --        listed, lcmList (range1 6) ≡ 60, and IsLCM (fam 12 6) 12,
 --        IsLCM (fam 20 6) 20 obtained from (T3).
@@ -62,17 +62,17 @@
 -- dividing cap(k) is at most k, which is WalkJumps.prime-power-not-
 -- covered read through the universal property (if p^a > k then cap(k)
 -- divides cap(p^a − 1), which p^a does not divide).  The step: strip d
--- at a prime divisor p as p^a · u with p ∤ u; then p^a ∈ fam d k by L1,
--- u ∣ any common multiple by the induction hypothesis (fam u k is a
+-- at a prime divisor p as p^a � u with p � u; then p^a ∈ fam d k by L1,
+-- u � any common multiple by the induction hypothesis (fam u k is a
 -- sublist of fam d k, L2), and WalkForcing.coprime-divisors-multiply
 -- closes.  No lcm is constructed anywhere; `lcmList` appears only as a
 -- witness in L1 and in the instances.
 --
--- WHAT IS NOT PROVED HERE.  The note's §1 Nerode corollary — that
--- profile_S(a) = profile_S(b) iff lcm(S) ∣ (a−b), i.e. that S ↦ lcm(S)
--- is the quotient by observational equivalence — is not formalised.
+-- WHAT IS NOT PROVED HERE.  The note's §1 Nerode corollary � that
+-- profile_S(a) = profile_S(b) iff lcm(S) � (a−b), i.e. that S � lcm(S)
+-- is the quotient by observational equivalence � is not formalised.
 -- Nor is the §3 identification of this divisor lattice with the
--- codex-catuskoti divisor-lattice frontier (co-atoms, 1 + π(k) points).
+-- codex-catuskoti divisor-lattice frontier (co-atoms, 1 + �(k) points).
 -- Only the §2 Theorem, the "interior" row, is proved.
 ------------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ open import CoprimeSplitting using (coprime-^ˡ; primeDivisor; dec∣)
 open import LCMExists using (lcmList; lcmList-isLCM)
 
 ------------------------------------------------------------------------
--- १ · the family: divisors of d in the frontier range
+-- � � the family: divisors of d in the frontier range
 ------------------------------------------------------------------------
 
 -- keep x if the decision says it divides d
@@ -109,8 +109,8 @@ keep : (x : ℕ) {d : ℕ} → Dec (x ∣ d) → List ℕ → List ℕ
 keep x (yes _) rest = x ∷ rest
 keep x (no  _) rest = rest
 
--- fam d k = [ x ∈ range1 k | x ∣ d ], built by recursion on k so that
--- every tested x is suc k' and dec∣ has its positivity proof for free
+-- fam d k = [ x ∈ range1 k | x � d ], built by recursion on k so that
+-- every tested x is suc k' and dec� has its positivity proof for free
 fam : ℕ → ℕ → List ℕ
 fam d zero    = []
 fam d (suc k) = keep (suc k) (dec∣ (suc k) d (suc-≤-suc zero-≤)) (fam d k)
@@ -137,7 +137,7 @@ keep-∈-head y (yes _)   rest x≡y x∣d = inl x≡y
 keep-∈-head y (no ¬y∣d) rest x≡y x∣d = Empty.rec (¬y∣d (subst (_∣ _) x≡y x∣d))
 
 ------------------------------------------------------------------------
--- २ · (T1) admissibility and (T2) commonality of the family
+-- � � (T1) admissibility and (T2) commonality of the family
 ------------------------------------------------------------------------
 
 weaken-frontier : (j : ℕ) (ys : List ℕ) →
@@ -173,10 +173,10 @@ fam-common d (suc k) =
                    x≡sk x∣d
 
 ------------------------------------------------------------------------
--- ३ · L2: the family is monotone in d along divisibility
+-- � � L2: the family is monotone in d along divisibility
 ------------------------------------------------------------------------
 
--- for u ∣ d, a common multiple of fam d k is a common multiple of
+-- for u � d, a common multiple of fam d k is a common multiple of
 -- fam u k (every divisor of u in range is a divisor of d in range)
 keep-sub : (x u d m : ℕ) (decu : Dec (x ∣ u)) (decd : Dec (x ∣ d))
            (ru rd : List ℕ) → u ∣ d →
@@ -197,7 +197,7 @@ CM-fam-sub u d (suc k) m u∣d cm =
     (fam u k) (fam d k) u∣d (CM-fam-sub u d k m u∣d) cm
 
 ------------------------------------------------------------------------
--- ४ · L1: a prime power dividing the capacity lies below the frontier
+-- � � L1: a prime power dividing the capacity lies below the frontier
 ------------------------------------------------------------------------
 
 -- a common multiple of the longer range is one of the shorter range
@@ -208,10 +208,10 @@ CM-range1-sub (suc k) n k≤n m cm =
   All→∈ (_∣ m) (range1 n) cm (∈-range1 (suc k) n (suc-≤-suc zero-≤) k≤n)
   , CM-range1-sub k n (≤-trans ≤-sucℕ k≤n) m cm
 
--- L1.  If p^(suc e) divides an lcm C of [1..k] then p^(suc e) ≤ k.
--- Otherwise k ≤ p^(suc e) − 1 =: t, so C divides lcmList (range1 t)
+-- L1.  If p^(suc e) divides an lcm C of [1..k] then p^(suc e) � k.
+-- Otherwise k � p^(suc e) − 1 =: t, so C divides lcmList (range1 t)
 -- (a common multiple of [1..t] is one of [1..k], and C is least), so
--- p^(suc e) divides lcmList (range1 t) — refuted by WalkJumps.
+-- p^(suc e) divides lcmList (range1 t) � refuted by WalkJumps.
 prime-power-below-frontier :
   (p e k C : ℕ) → IsPrime p → IsLCM (range1 k) C →
   (p ^ suc e) ∣ C → (p ^ suc e) ≤ k
@@ -242,7 +242,7 @@ prime-power-below-frontier p e k C pr (_ , C-least) q∣C
   q∣D = ∣-trans q∣C C∣D
 
 ------------------------------------------------------------------------
--- ५ · (T3) THE THEOREM, by strong induction on d through a fuel
+-- � � (T3) THE THEOREM, by strong induction on d through a fuel
 ------------------------------------------------------------------------
 
 interior-fuel :
@@ -274,7 +274,7 @@ interior-fuel (suc f) k d C d≤f 1≤d lcmC d∣C with ≤-split 1≤d
   -- the step, with the exponent exposed for the case split e = 0 / suc
   step : (m : ℕ) → CommonMultiple (fam d k) m →
          (e u : ℕ) → 0 < u → ((p ^ e) · u) ≡ d → ¬ (p ∣ u) → d ∣ m
-  -- e = 0 is impossible: then d = u and p ∣ d = u
+  -- e = 0 is impossible: then d = u and p � d = u
   step m cm zero u 0<u peu ¬p∣u =
     Empty.rec (¬p∣u (subst (p ∣_) (sym peu ∙ ·-identityˡ u) p∣d))
   step m cm (suc e) u 0<u peu ¬p∣u =
@@ -286,7 +286,7 @@ interior-fuel (suc f) k d C d≤f 1≤d lcmC d∣C with ≤-split 1≤d
     0<q : 0 < q
     0<q = ^-pos p (suc e) 0<p
 
-    -- p ∣ q = p · p^e, so 1 < p ≤ q
+    -- p � q = p � p^e, so 1 < p � q
     1<q : 1 < q
     1<q = <≤-trans (pp .fst) (m∣n→m≤n (0<→≢0 q 0<q) (∣-left (p ^ e)))
 
@@ -316,7 +316,7 @@ interior-fuel (suc f) k d C d≤f 1≤d lcmC d∣C with ≤-split 1≤d
     u∣m : u ∣ m
     u∣m = ih .snd m (CM-fam-sub u d k m u∣d cm)
 
-    -- p ∤ u gives gcd(p,u) = 1, hence gcd(p^(suc e), u) = 1
+    -- p � u gives gcd(p,u) = 1, hence gcd(p^(suc e), u) = 1
     gpu : isGCD p u 1
     gpu with prime-alt p pp u
     ... | inl p∣u = Empty.rec (¬p∣u p∣u)
@@ -335,13 +335,13 @@ interior : (k d C : ℕ) → 1 ≤ d → IsLCM (range1 k) C → d ∣ C → IsLC
 interior k d C 1≤d lcmC d∣C = interior-fuel d k d C ≤-refl 1≤d lcmC d∣C
 
 ------------------------------------------------------------------------
--- ६ · (T4) the note's Theorem: reachable states = divisors of cap(k)
+-- � � (T4) the note's Theorem: reachable states = divisors of cap(k)
 ------------------------------------------------------------------------
 
 Reachable : ℕ → ℕ → Type
 Reachable k d = Σ[ F ∈ List ℕ ] (All (λ x → (0 < x) × (x ≤ k)) F) × IsLCM F d
 
--- (⇒) is interior, with witness fam d k; (⇐) is WalkCapacity.capacity
+-- (�) is interior, with witness fam d k; (�) is WalkCapacity.capacity
 reachable-iff-divisor :
   (k C : ℕ) → IsLCM (range1 k) C → (d : ℕ) → 1 ≤ d →
   ((d ∣ C) → Reachable k d) × (Reachable k d → (d ∣ C))
@@ -350,10 +350,10 @@ reachable-iff-divisor k C lcmC d 1≤d =
   , (λ r → capacity (r .fst) k d C (r .snd .snd) lcmC (r .snd .fst))
 
 ------------------------------------------------------------------------
--- ७ · (T5) the theorem fired at frontier 6, capacity 60
+-- � � (T5) the theorem fired at frontier 6, capacity 60
 ------------------------------------------------------------------------
 
--- the capacity of frontier 6 computes to 60 = 2² · 3 · 5
+-- the capacity of frontier 6 computes to 60 = 2² � 3 � 5
 cap6 : lcmList (range1 6) ≡ 60
 cap6 = refl
 
@@ -370,18 +370,18 @@ fam-20-6 = refl
 1≤20 : 1 ≤ 20
 1≤20 = suc-≤-suc zero-≤
 
--- 12 ∣ 60 and 20 ∣ 60, read against the computed capacity
+-- 12 � 60 and 20 � 60, read against the computed capacity
 12∣cap6 : 12 ∣ lcmList (range1 6)
 12∣cap6 = subst (12 ∣_) (sym cap6) (∣-right 5)
 
 20∣cap6 : 20 ∣ lcmList (range1 6)
 20∣cap6 = subst (20 ∣_) (sym cap6) (∣-right 3)
 
--- {6,4,3,2,1} is an lcm-family for 12 at frontier 6 …
+-- {6,4,3,2,1} is an lcm-family for 12 at frontier 6 �
 lcm-fam-12 : IsLCM (fam 12 6) 12
 lcm-fam-12 = interior 6 12 (lcmList (range1 6)) 1≤12 (lcmList-isLCM (range1 6)) 12∣cap6
 
--- … and {5,4,2,1} is one for 20
+-- � and {5,4,2,1} is one for 20
 lcm-fam-20 : IsLCM (fam 20 6) 20
 lcm-fam-20 = interior 6 20 (lcmList (range1 6)) 1≤20 (lcmList-isLCM (range1 6)) 20∣cap6
 

@@ -19,9 +19,9 @@
 -- Two remarks on why this is the right statement.
 --
 -- 1. It needs no halving, no cancellation, and no order.  The naive
---    formulation — "the pair map is an isomorphism onto the even
---    sublocus" — needs doubling to be injective, which is a property of
---    ℤ and not of the algebra; stating surjectivity onto the sublocus
+--    formulation � "the pair map is an isomorphism onto the even
+--    sublocus" � needs doubling to be injective, which is a property of
+--    � and not of the algebra; stating surjectivity onto the sublocus
 --    instead isolates the part that is actually about the coordinates.
 --    Over a ring where 2 is a zero divisor the equivalence below still
 --    holds and the isomorphism does not, which is evidence that this is
@@ -36,15 +36,15 @@
 -- Contents (no holes, no postulates, --safe):
 --
 --   Double, InImage             the two sides
---   image→double                T17.13 ⇒  (= sumIsDouble, restated for
+--   image�double                T17.13 �  (= sumIsDouble, restated for
 --                               this formulation)
---   double→image                T17.13 ⇐  (the new half)
+--   double�image                T17.13 �  (the new half)
 --   cone-image                  the equivalence of the two
 --   decode-roundtrip            the decoder really does invert: the pair
 --                               produced from (s,d) has sum s and gap d
 --
 -- NOT covered, and named so the ledger stays honest: the INEQUALITY half
--- of Delta 17's cone (|d| ≤ s, i.e. both legs nonnegative) is an order
+-- of Delta 17's cone (|d| � s, i.e. both legs nonnegative) is an order
 -- statement, has no meaning over an arbitrary commutative ring, and is
 -- not touched here.
 ------------------------------------------------------------------------
@@ -78,7 +78,7 @@ module Cone (R : CommRing ℓ) where
     Σ[ p ∈ fst R ] Σ[ q ∈ fst R ] ((p + q ≡ s) × (q - p ≡ d))
 
   ----------------------------------------------------------------------
-  -- ⇒  The constraint is necessary.  s + d = (p+q) + (q−p) = 2q.
+  -- �  The constraint is necessary.  s + d = (p+q) + (q−p) = 2q.
   ----------------------------------------------------------------------
 
   sum-gap-doubles : (p q : fst R) → (p + q) + (q - p) ≡ q + q
@@ -89,7 +89,7 @@ module Cone (R : CommRing ℓ) where
     q , (cong₂ (λ a b → a + b) (sym hs) (sym hd) ∙ sum-gap-doubles p q)
 
   ----------------------------------------------------------------------
-  -- ⇐  The constraint is sufficient, and the certificate decodes.
+  -- �  The constraint is sufficient, and the certificate decodes.
   --
   -- Given s + d ≡ k + k, take q = k and p = s − k.  Then
   --   p + q = (s − k) + k = s
@@ -113,9 +113,9 @@ module Cone (R : CommRing ℓ) where
       ∙ cancel-s s d)
 
   ----------------------------------------------------------------------
-  -- T17.13, the equivalence.  Delta 17's congruence s ≡ d (mod 2) — here
+  -- T17.13, the equivalence.  Delta 17's congruence s ≡ d (mod 2) � here
   -- in the equivalent additive form "s + d is a double", which avoids
-  -- needing subtraction to be a parity-preserving operation as a lemma —
+  -- needing subtraction to be a parity-preserving operation as a lemma �
   -- characterises the cone exactly.
   ----------------------------------------------------------------------
 
@@ -125,7 +125,7 @@ module Cone (R : CommRing ℓ) where
 
   ----------------------------------------------------------------------
   -- The decoder is a decoder: the pair it produces really has the
-  -- prescribed sum and gap.  This is the content of `double→image`
+  -- prescribed sum and gap.  This is the content of `double�image`
   -- restated as a round-trip, so that a reader who wants the algorithm
   -- rather than the logical equivalence can take it directly.
   ----------------------------------------------------------------------

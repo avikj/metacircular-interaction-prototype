@@ -8,38 +8,38 @@
 -- that bounded sequence.
 --
 -- Setting (see collab/swarm/2026-08-14/swarm-0814-12-cyclotomic-comb.md).
--- Fix an odd prime p and an integer a with p ∤ a; let d = ord_p(a) and
--- e = v_p(a^d − 1) ≥ 1.  Lifting-the-exponent says
+-- Fix an odd prime p and an integer a with p � a; let d = ord_p(a) and
+-- e = v_p(a^d − 1) � 1.  Lifting-the-exponent says
 --
---     v_p(a^n − 1) = e + v_p(n)   when d ∣ n,   and 0 otherwise.
+--     v_p(a^n − 1) = e + v_p(n)   when d � n,   and 0 otherwise.
 --
--- The divisors of n = d·p^j that carry any p-adic content are exactly
--- d·p^0, …, d·p^j (a CHAIN, not a general divisor lattice), and the
--- factorisation a^n − 1 = ∏_{m ∣ n} Φ_m(a) makes v_p additive along it.
+-- The divisors of n = d�p^j that carry any p-adic content are exactly
+-- d�p^0, �, d�p^j (a CHAIN, not a general divisor lattice), and the
+-- factorisation a^n − 1 = �_{m � n} Φ_m(a) makes v_p additive along it.
 -- So the arithmetic reduces, exactly, to a statement about partial sums
--- of one sequence indexed by the chain position k = 0,1,2,….  That
+-- of one sequence indexed by the chain position k = 0,1,2,�.  That
 -- sequence is
 --
---     cyc e k  =  v_p(Φ_{d·p^k}(a))  =  e (k = 0),  1 (k ≥ 1).
+--     cyc e k  =  v_p(Φ_{d�p^k}(a))  =  e (k = 0),  1 (k � 1).
 --
 -- Four theorems, no postulates:
 --
 --   lteFromCyc   chain (cyc e) j ≡ e + j
---                — the unbounded LTE answer IS the j-th partial sum of
---                  the bounded local sequence.  The indicator [d ∣ n]
+--                � the unbounded LTE answer IS the j-th partial sum of
+--                  the bounded local sequence.  The indicator [d � n]
 --                  has disappeared into the indexing.
 --
---   cycUnique    chain g j ≡ e + j for all j  ⟹  g ≡ cyc e
---                — the bounded decomposition is not one choice among
+--   cycUnique    chain g j ≡ e + j for all j  �  g ≡ cyc e
+--                � the bounded decomposition is not one choice among
 --                  many: the LTE law determines each tooth uniquely.
 --
---   cycBound     cyc e k ≤ suc e
---                — every local contribution is bounded by the
+--   cycBound     cyc e k � suc e
+--                � every local contribution is bounded by the
 --                  observation depth K = e+1 of R0025 Theorem 2.  On the
---                  cyclotomic chart, cost ≥ answer is restored.
+--                  cyclotomic chart, cost � answer is restored.
 --
---   chainGrows   j ≤ chain (cyc e) j
---                — while the SUM is unbounded.  R0025(3)'s "depth ≠
+--   chainGrows   j � chain (cyc e) j
+--                � while the SUM is unbounded.  R0025(3)'s "depth ≠
 --                  answer" is exactly this gap, and it is an artefact of
 --                  reading a^n − 1 whole rather than tooth by tooth.
 --
@@ -61,12 +61,12 @@ open import Cubical.Data.Sigma using (_,_)
 ------------------------------------------------------------------------
 
 -- chain g j = g 0 + g 1 + ⋯ + g j : the divisor sum restricted to the
--- p-chain d, d·p, …, d·p^j, which is where all the p-adic content sits.
+-- p-chain d, d�p, �, d�p^j, which is where all the p-adic content sits.
 chain : (ℕ → ℕ) → ℕ → ℕ
 chain g zero    = g zero
 chain g (suc j) = chain g j + g (suc j)
 
--- The cyclotomic tooth sequence: v_p(Φ_{d·p^k}(a)).
+-- The cyclotomic tooth sequence: v_p(Φ_{d�p^k}(a)).
 cyc : ℕ → ℕ → ℕ
 cyc e zero    = e
 cyc e (suc _) = 1
@@ -108,7 +108,7 @@ cycBound : ∀ e k → cyc e k ≤ suc e
 cycBound e zero    = 1 , refl
 cycBound e (suc _) = e , +-comm e 1
 
--- The partial sums are cofinal in ℕ: the whole-object answer is unbounded.
+-- The partial sums are cofinal in �: the whole-object answer is unbounded.
 chainGrows : ∀ e j → j ≤ chain (cyc e) j
 chainGrows e j = e , sym (lteFromCyc e j)
 
@@ -116,13 +116,13 @@ chainGrows e j = e , sym (lteFromCyc e j)
 -- 4.  The p = 2 branch: the same comb with a two-term head
 ------------------------------------------------------------------------
 --
--- For a odd, d = ord₂(a) = 1, and the chain is 1, 2, 4, 8, ….  Its
--- teeth are v₂(Φ₁(a)) = v₂(a−1) = e₋, v₂(Φ₂(a)) = v₂(a+1) = e₊, and
--- v₂(Φ_{2^k}(a)) = v₂(a^{2^{k−1}} + 1) = 1 for k ≥ 2 (a^{2^{k−1}} is an
+-- For a odd, d = ord�(a) = 1, and the chain is 1, 2, 4, 8, �.  Its
+-- teeth are v�(Φ�(a)) = v�(a−1) = e�, v�(Φ�(a)) = v�(a+1) = e�, and
+-- v�(Φ_{2^k}(a)) = v�(a^{2^{k−1}} + 1) = 1 for k � 2 (a^{2^{k−1}} is an
 -- odd square, ≡ 1 mod 8, so the successor is ≡ 2 mod 4).  Summing the
--- chain up to k = v₂(n) reproduces R0025 Theorem 1's p = 2 clause,
+-- chain up to k = v�(n) reproduces R0025 Theorem 1's p = 2 clause,
 --
---     v₂(a^n − 1) = e₋ + e₊ + v₂(n) − 1   (n even),
+--     v�(a^n − 1) = e� + e� + v�(n) − 1   (n even),
 --
 -- so the branch that R0025's preservation ledger flags as "genuinely
 -- different in shape" is, on the cyclotomic chart, the same shape with
@@ -135,7 +135,7 @@ cyc₂ em ep zero          = em
 cyc₂ em ep (suc zero)    = ep
 cyc₂ em ep (suc (suc _)) = 1
 
--- chain (cyc₂ e₋ e₊) (suc j) ≡ (e₋ + e₊) + j, i.e. at n with v₂(n) = suc j.
+-- chain (cyc� e� e�) (suc j) ≡ (e� + e�) + j, i.e. at n with v�(n) = suc j.
 lteFromCyc₂ : ∀ em ep j → chain (cyc₂ em ep) (suc j) ≡ (em + ep) + j
 lteFromCyc₂ em ep zero    = sym (+-zero (em + ep))
 lteFromCyc₂ em ep (suc j) =

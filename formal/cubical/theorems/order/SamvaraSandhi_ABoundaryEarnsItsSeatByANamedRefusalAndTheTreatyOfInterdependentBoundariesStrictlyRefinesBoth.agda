@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- संवर-सन्धि — the boundary treaty.
+-- ����-����� � the boundary treaty.
 --
 -- WHAT THIS IS.  Boundaries are first-class in this corpus (README §32:
 -- an incoming trace is admitted only if the boundary family is
--- inhabited; §36: saṃvara is closure of inadmissible ingress).  When
+-- inhabited; §36: savara is closure of inadmissible ingress).  When
 -- two parties interact, their boundaries meet: the negotiated interface
 -- is the pointwise conjunction, and NEGOTIATION is the question of what
 -- each party's boundary contributes to that meet.  This file answers it
--- with two theorems, and the answer is the saṃvara-dual of the
+-- with two theorems, and the answer is the savara-dual of the
 -- interdependent pair:
 --
 --   §2  A DOMINATED BOUNDARY IS FREE TO DROP, AS A PATH IN THE
---       UNIVERSE.  If every check of B₂ is implied by B₁ (and
+--       UNIVERSE.  If every check of B� is implied by B� (and
 --       admissibility is a proposition, as verdicts are in this
---       corpus), then the negotiated boundary B₁ ∧ B₂ is EQUAL — by
+--       corpus), then the negotiated boundary B� ∧ B� is EQUAL � by
 --       univalence, pointwise and then by function extensionality as
---       families — to B₁ alone.  A party whose every refusal is already
+--       families � to B� alone.  A party whose every refusal is already
 --       the counterparty's refusal contributes nothing: it is not a
 --       negotiator, it is a spectator, and the treaty says so as a
 --       type equality.
@@ -25,13 +25,13 @@
 --   §3  A BOUNDARY EARNS ITS SEAT EXACTLY BY A NAMED REFUSAL.  The
 --       treaty record (Sandhi): each party exhibits a state it refuses
 --       that the other admits.  From that data alone: neither boundary
---       is derivable from the other (na-adhīna, both directions), and
---       the meet STRICTLY refines both (tīkṣṇa, both directions) — the
+--       is derivable from the other (na-adhna, both directions), and
+--       the meet STRICTLY refines both (tka, both directions) � the
 --       negotiated interface is genuinely new, below each party's own
 --       boundary.  Negotiation is real precisely when the boundaries
 --       are interdependent.
 --
--- THE DUALITY, stated exactly.  This is the Parasparāśraya record with
+-- THE DUALITY, stated exactly.  This is the Parasparraya record with
 -- vision dualized to protection: the blind pair (two states a sense
 -- cannot separate) becomes the named refusal (a state one boundary
 -- excludes and the other admits); joint faithfulness (the pair
@@ -39,15 +39,15 @@
 -- either party); and UpakaranaVrddhi's "a derived sense adds no
 -- separation" becomes §2's "a derived boundary adds no protection."
 -- One shape, read outward twice: what you can SEE together, and what
--- you can REFUSE together, obey the same law — novelty must be named,
+-- you can REFUSE together, obey the same law � novelty must be named,
 -- or the joint object collapses onto one side.
 --
 -- The interaction reading (§17): autonomy is control of the local
 -- boundary, and this file is the algebra of what happens when two
--- autonomies meet — the treaty is exactly as strong as the refusals
+-- autonomies meet � the treaty is exactly as strong as the refusals
 -- the parties genuinely do not share.  The term sandhi is the
 -- statecraft word for treaty (the first of the six measures of policy
--- in the Arthaśāstra tradition — locus unverified; no theorem is
+-- in the Arthastra tradition � locus unverified; no theorem is
 -- attributed to any historical author).
 --
 ------------------------------------------------------------------------
@@ -67,15 +67,15 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- १ · Boundaries, their order, and the negotiated meet.
+-- � � Boundaries, their order, and the negotiated meet.
 ------------------------------------------------------------------------
 
 -- The meet: admitted by the treaty iff admitted by both parties.
 _∧ᵇ_ : {X : Type ℓ} → (X → Type ℓ') → (X → Type ℓ') → (X → Type ℓ')
 (B₁ ∧ᵇ B₂) x = B₁ x × B₂ x
 
--- Domination: every admission of B₁ is already an admission of B₂ —
--- equivalently, every refusal of B₂ is already B₁'s refusal.
+-- Domination: every admission of B� is already an admission of B� �
+-- equivalently, every refusal of B� is already B�'s refusal.
 _≤ᵇ_ : {X : Type ℓ} → (X → Type ℓ') → (X → Type ℓ') → Type (ℓ-max ℓ ℓ')
 B₁ ≤ᵇ B₂ = ∀ x → B₁ x → B₂ x
 
@@ -92,7 +92,7 @@ meet-mahattama : {X : Type ℓ} (B₁ B₂ C : X → Type ℓ')
 meet-mahattama B₁ B₂ C h₁ h₂ x c = h₁ x c , h₂ x c
 
 ------------------------------------------------------------------------
--- २ · The dominated party is a spectator: its seat is free to drop,
+-- � � The dominated party is a spectator: its seat is free to drop,
 -- and the treaty is EQUAL to the other party's boundary alone.
 ------------------------------------------------------------------------
 
@@ -106,13 +106,13 @@ module _ {X : Type ℓ} (B₁ B₂ : X → Type ℓ')
                             (λ b → refl)
                             (λ pq i → fst pq , prop₂ x (adhīna x (fst pq)) (snd pq) i))
 
-  -- The treaty collapses onto the undominated party — as an equality
+  -- The treaty collapses onto the undominated party � as an equality
   -- of boundary FAMILIES, one path in the universe per state.
   sandhi-mukta : (B₁ ∧ᵇ B₂) ≡ B₁
   sandhi-mukta = funExt (λ x → ua (mukta x))
 
 ------------------------------------------------------------------------
--- ३ · The treaty of interdependent boundaries.  Each party names a
+-- � � The treaty of interdependent boundaries.  Each party names a
 -- refusal the other does not make; from that alone, neither dominates
 -- and the meet strictly refines both.
 ------------------------------------------------------------------------
@@ -140,7 +140,7 @@ record Sandhi {X : Type ℓ} (B₁ B₂ : X → Type ℓ') : Type (ℓ-max ℓ �
   tīkṣṇa₂ h = na-adhīna₂₁ (λ x b → fst (h x b))
 
 ------------------------------------------------------------------------
--- ४ · The smallest treaty, inhabited.  Two parties over the plane:
+-- � � The smallest treaty, inhabited.  Two parties over the plane:
 -- one guards the first coordinate, the other the second.  Each names
 -- its refusal; the treaty admits only the corner both accept, and the
 -- strictness theorems land by instantiation.

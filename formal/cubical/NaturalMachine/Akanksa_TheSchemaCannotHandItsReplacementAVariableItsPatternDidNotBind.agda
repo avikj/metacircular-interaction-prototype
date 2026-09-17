@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Ākāṅkṣā — the pattern's demand, and what soundness does to it.
+-- kk � the pattern's demand, and what soundness does to it.
 --
--- TERM.  आकाङ्क्षा, expectancy: in the Indian accounts of how uttered words
--- yield one cognition (śābdabodha) it is the first of the conditions — a
+-- TERM.  ������������, expectancy: in the Indian accounts of how uttered words
+-- yield one cognition (bdabodha) it is the first of the conditions � a
 -- word EXPECTS its complements, and an utterance leaving an expectancy
--- unsatisfied does not compose.  The triad ākāṅkṣā / yogyatā / āsatti is
--- common to Mīmāṃsā and Nyāya and is developed at length in the later
--- Nyāya (Gaṅgeśa, *Tattvacintāmaṇi*, 14th c.).  GRADE OF THE CITATION,
+-- unsatisfied does not compose.  The triad kk / yogyat / satti is
+-- common to Mms and Nyya and is developed at length in the later
+-- Nyya (Gagea, *Tattvacintmai*, 14th c.).  GRADE OF THE CITATION,
 -- stated because an unchecked provenance is the same class of error as a
 -- fitted constant: the doctrine and the school are what I can establish; I
--- have NOT verified any chapter or sūtra against an edition, so none is
+-- have NOT verified any chapter or stra against an edition, so none is
 -- given.  Nothing below is anyone's theorem and no author is claimed to
 -- have written about substitution in a rewrite calculus.  The word names
--- the phenomenon: a rule whose sthānin does not bind the variable has no
--- expectancy to satisfy, and the question is what its ādeśa may then say.
+-- the phenomenon: a rule whose sthnin does not bind the variable has no
+-- expectancy to satisfy, and the question is what its dea may then say.
 --
--- WHY THIS MODULE EXISTS.  `Vyapti_…` repairs the kernel's memorisation by
+-- WHY THIS MODULE EXISTS.  `Vyapti_�` repairs the kernel's memorisation by
 -- giving an operation a schematic control,
 --
---     Control t = Σ[ u ∈ Tm ] (t ≡ subVar u lhs)      and
+--     Control t = �[ u ∈ Tm ] (t ≡ subVar u lhs)      and
 --     apply t (u , _) = subVar u rhs .
 --
 -- That is the first operation in the corpus whose EMISSION READS ITS
--- EVIDENCE — every `install`ed operation has `apply _ _ = target`, a
+-- EVIDENCE � every `install`ed operation has `apply _ _ = target`, a
 -- constant.  As soon as an emission reads its evidence, a question arises
 -- that a constant emission cannot pose:
 --
@@ -33,28 +33,28 @@
 --
 -- Nothing in the corpus ruled that out, and `apply-sound` is proved for
 -- EVERY control, so both emissions would carry proofs: a generator with two
--- distinct certified outputs at one context.  That is `Sesa_…`'s semantic
+-- distinct certified outputs at one context.  That is `Sesa_�`'s semantic
 -- statement (correctness does not select) arriving operationally.
 --
 -- The failure shape is not hypothetical outside the kernel.  Ask the
--- corpus's Pāṇinian interface for the class `yaṆ` and it does not answer
--- with a class: the anubandha ṇ occurs twice in the fourteen śivasūtras
--- (sūtras 1 and 6), so the two-letter name denotes only once an OCCURRENCE
--- INDEX is supplied, and the running sabhā takes that index (`avrtti`) as a
+-- corpus's Pinian interface for the class `ya` and it does not answer
+-- with a class: the anubandha  occurs twice in the fourteen ivastras
+-- (stras 1 and 6), so the two-letter name denotes only once an OCCURRENCE
+-- INDEX is supplied, and the running sabh takes that index (`avrtti`) as a
 -- parameter rather than guessing.  A name needing a disambiguating index is
 -- exactly a control that fails to determine its emission.
 --
 -- WHAT IS PROVED.  The kernel cannot host one.  Two reasons, exhaustive:
 --
 --   §3  MOVING PATTERNS PIN THEIR WITNESS.  If `var` occurs in `lhs` at all
---       (`deg lhs ≡ nsuc j`) then `subVar a lhs ≡ subVar b lhs → a ≡ b`, so
+--       (`deg lhs ≡ nsuc j`) then `subVar a lhs ≡ subVar b lhs � a ≡ b`, so
 --       the witness is unique and the emission is determined.  Purely
---       syntactic — no semantics is used.
+--       syntactic � no semantics is used.
 --
 --   §5  RIGID PATTERNS CANNOT PASS THE VARIABLE ON, AND THIS IS WHERE
 --       SOUNDNESS IS NEEDED.  If `var` does not occur in `lhs`, every `a`
 --       is admissible and §3 is unavailable.  But a schema also carries
---       `meaning : (ρ : Env) → eval lhs ρ ≡ eval rhs ρ`, and in this
+--       `meaning : (� : Env) � eval lhs � ≡ eval rhs �`, and in this
 --       calculus raising x by one raises a term's value by EXACTLY its
 --       degree (§4, `eval-step`).  A rigid `lhs` is therefore constant
 --       along x; a sound `rhs` must be too; hence `deg rhs ≡ nzero`, and
@@ -62,14 +62,14 @@
 --
 --   §6  EVERY SOUND SCHEMA IS DETERMINISTIC.  At any term, any two
 --       admissible controls emit the same term.  Not by a well-formedness
---       side condition anyone imposed — by meaning-preservation alone.
+--       side condition anyone imposed � by meaning-preservation alone.
 --
--- READ AS GRAMMAR: an ādeśa may not introduce material its sthānin did not
--- bind, and that is not a stipulation of the metalanguage — it follows from
+-- READ AS GRAMMAR: an dea may not introduce material its sthnin did not
+-- bind, and that is not a stipulation of the metalanguage � it follows from
 -- the rule being meaning-preserving at every environment.
 --
 -- READ AS SEMANTICS OF PROGRAMS: a sequential algorithm in the sense of
--- Kahn–Plotkin and Berry–Curien is a function together with a computation
+-- Kahn�Plotkin and Berry�Curien is a function together with a computation
 -- strategy, and its output must be determined by the cells it queried.  §6
 -- says every sound schema here satisfies that without being asked to: the
 -- pattern is the query, and soundness makes the query sufficient.  Named as
@@ -80,11 +80,11 @@
 -- caller-supplied `Control` may still be inhabited many ways, and
 -- `Vyapti_.enabled-set-is-subsingleton` bounds WHERE an operation fires,
 -- not how many ways it may be witnessed.  This is about the schematic
--- control only.  §3 says a witness is unique, not that one can be found —
+-- control only.  §3 says a witness is unique, not that one can be found �
 -- nothing here decides matching.  `deg` counts `var` alone, because
 -- `subVar` replaces `var` alone; the six-coordinate schema (the corpus's
--- open frontier item) is NOT covered — §4 would need redoing for it.
--- `Vyapti_…` is not imported: the statement is given on raw `lhs`, `rhs`
+-- open frontier item) is NOT covered � §4 would need redoing for it.
+-- `Vyapti_�` is not imported: the statement is given on raw `lhs`, `rhs`
 -- and `meaning`, which is what its record holds.
 --
 -- No postulates, no holes, --safe.  CHECKED this session, EXIT 0, at
@@ -107,7 +107,7 @@ open import Cubical.Relation.Nullary using (¬_)
 open import NaturalMachine.RewriteCertificate
 
 ------------------------------------------------------------------------
--- §1.  DEGREE — how many times the substitutable coordinate occurs.
+-- §1.  DEGREE � how many times the substitutable coordinate occurs.
 -- `subVar` replaces `var` and leaves the other five alone, so this counts
 -- `var` and nothing else.
 ------------------------------------------------------------------------

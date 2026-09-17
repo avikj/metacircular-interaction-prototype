@@ -1,6 +1,6 @@
 # ============================================================================
 # The corpus's own future-behavior quotient  Meaning = X / FutureEq,
-# MADE EFFECTIVE â€” run by evaluation on the interaction-net runtime, over the
+# MADE EFFECTIVE â” run by evaluation on the interaction-net runtime, over the
 # corpus's own reflected type-shapes.  This is the construction agda/cubical
 # proves total but OOMs trying to compute; here it is a value.
 #
@@ -102,7 +102,7 @@ def futureEqD(a: Shape, b: Shape, d: Nat) -> Bool:
 
 # structural equality of the headCode observation tree (the finite in-range
 # observation quotient; efficient, exact, and equal to FutureEq except under
-# the rare out-of-range self-loop coarsening â€” measured separately).
+# the rare out-of-range self-loop coarsening â” measured separately).
 def shapeEq(a: Shape, b: Shape) -> Bool:
   match a:
     case @N{ca, ka}:

@@ -17,7 +17,7 @@ The additions are:
 1. A bound with **the spatial supremum inside the time integral** for every freely diffusing
    velocity source, and for the entire freely propagated response to its nonlinear velocity source.
    This repairs the fixed-centre quantifier problem without exchanging supremum and integration.
-2. Direct control of the actual full NS evolution for small scale-critical energyâ€“enstrophy
+2. Direct control of the actual full NS evolution for small scale-critical energyâ“enstrophy
    product. Applying that classical bootstrap to the retained shell construction yields a family
    of globally smooth solutions with uniformly bounded total moving-peak stretching but arbitrarily
    large initial peak stretching. The small-data mechanism is classical; the uniform conclusion for
@@ -174,7 +174,7 @@ freezing N_u at time zero. Higher nonlinear corrections are not controlled by (7
 
 # II. The actual Zeno-source family can be globally regular with uniformly bounded B_NS
 
-## Theorem 4. Classical small energyâ€“enstrophy bootstrap in endpoint form
+## Theorem 4. Classical small energyâ“enstrophy bootstrap in endpoint form
 
 There is a universal c_*>0 such that, for smooth rapidly decaying divergence-free initial data,
 
@@ -195,7 +195,7 @@ Energy gives
 
     E(t)^2 + 2nu integral_0^t W(s)^2 ds = E0^2.
 
-The H1 energy identity and Holderâ€“Sobolev yield
+The H1 energy identity and Holderâ“Sobolev yield
 
     (1/2)(W^2)' + nu P2^2
        <= ||u||_3 ||grad u||_6 P2
@@ -585,8 +585,8 @@ still requires arithmetic input not supplied here.
   distribution/form context; no conjectural large-window convergence is imported.
 - Greg Martin and Chi Hoi Yip, *Oscillation results for the summatory functions of fake mu's*,
   arXiv:2411.06610v1, Section 3: background for classical Landau-method nonreal-pole oscillations.
-- Kato and Ponce, *Commutator estimates and the Euler and Navierâ€“Stokes equations*, CPAM 41 (1988),
-  891â€“907, DOI 10.1002/cpa.3160410704: classical smooth-solution energy/continuation background.
+- Kato and Ponce, *Commutator estimates and the Euler and Navierâ“Stokes equations*, CPAM 41 (1988),
+  891â“907, DOI 10.1002/cpa.3160410704: classical smooth-solution energy/continuation background.
 
 The proofs in this note are analytic derivations. `checks.py` executes 28 exact symbolic controls
 and 5 independent numerical thin-shell checks. The numerical examples are radial source quadratures,

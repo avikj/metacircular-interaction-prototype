@@ -66,7 +66,7 @@ The dispatch table contains these relevant operations:
 * `sadhana`: emits an arithmetic equation certificate using the declared fragment.
 * `sadhana.patra`: accepts a complete `--safe` Agda module as a list of source lines. The top-level module, if named, must be `Candidate`.
 * `sadhana.vislesana`: accepts that module plus named expressions, returning their inferred types and computed normal forms.
-* `dosa.lekha`, `dosa.suchi`, `dosa.pramanya`: retain and verify failure information rather than collapsing distinct causes into ‚Äúfalse.‚Äù
+* `dosa.lekha`, `dosa.suchi`, `dosa.pramanya`: retain and verify failure information rather than collapsing distinct causes into ‚false.‚
 
 The whole-module interface is the relevant entry for this research. **Do not assume that `sadhana`'s small arithmetic emitter can express a PDE theorem, and do not substitute an unrelated Python evaluator for the whole-module gate.**
 
@@ -112,10 +112,10 @@ The structural core includes `RewriteCertificate`, `ControlledGrammar`, `Generat
 The exact interface recovered from the interactive module is:
 
 ```agda
-learn : {s : Tm} ‚Üí CheckedFuture s ‚Üí NativeOperation
+learn : {s : Tm} ‚í CheckedFuture s ‚í NativeOperation
 learn f = install (CheckedFuture.derivation f)
 
-retire : Session ‚Üí NativeOperation
+retire : Session ‚í NativeOperation
 retire S = install (trace S)
 ```
 
@@ -124,17 +124,17 @@ A session carries `origin`, `here`, `trace : Derivation origin here`, and a libr
 The kernel-side certified normalizer has:
 
 ```agda
-norm : (t : Tm) ‚Üí Œ£ Tm (Œª s ‚Üí Derivation t s)
-normalize : (t : Tm) ‚Üí Derivation t (normalForm t)
+norm : (t : Tm) ‚í Œ Tm (Œª s ‚í Derivation t s)
+normalize : (t : Tm) ‚í Derivation t (normalForm t)
 learn t = install (normalize t)
 ```
 
-This closes discovery ‚Üí certificate ‚Üí installation on its own declared terms. It does not prove mathematical deductive completeness or global termination of arbitrary theorem discovery.
+This closes discovery ‚í certificate ‚í installation on its own declared terms. It does not prove mathematical deductive completeness or global termination of arbitrary theorem discovery.
 
 The instance/locus extension supplies an `Operation` with a stored derivation and control carrying the actual substitution and location. Its essential theorem is:
 
 ```agda
-apply-checked : (t : Tm) (c : Control t) ‚Üí Derivation t (apply t c)
+apply-checked : (t : Tm) (c : Control t) ‚í Derivation t (apply t c)
 ```
 
 The proof applies structural substitution and context transport to the stored certificate. The initial extension only generalized one variable and initially rewired `advance`; later appended results may extend retirement or other operations. Read the complete current file, including appended sections, rather than freezing an early header into a permanent limitation.

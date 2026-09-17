@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- द्विकं लङ्गरम् · two is the anchor
+-- ������� ��������� � two is the anchor
 --
 -- notes/PARITY_RIGIDITY.md (main), "Prime-prefix consequence: 2 is the
 -- anchor":
@@ -10,10 +10,10 @@
 --    Equivalently, in the original prime set the unique even prime 2 is a
 --    2-adic anchor.  Every odd pairwise difference of primes must involve
 --    2, so the positive odd part of the difference multiset literally
---    lists {p−2 : 3 ≤ p ≤ X} once each."
+--    lists {p−2 : 3 � p � X} once each."
 --
 --   "There is an explicit O(D) reconstruction from a difference-count
---    array (c(h))_{0≤h≤D}: read off every positive odd h for which
+--    array (c(h))_{0�h�D}: read off every positive odd h for which
 --    c(h)=1 ..."
 --
 -- and its formalization status box:
@@ -31,10 +31,10 @@
 --   even-prime-is-two          an even number passing primeb is 2
 --   odd-difference-involves-two two primes at an odd distance: the
 --                              smaller one is 2
---   odd-part                   for odd h and X ≥ 2, the ordered count
---                              c X h = #{p ≤ X : p, p+h prime, p+h ≤ X}
---                              is exactly a (2 + h) · [2 + h ≤ X]
---   read-off                   for odd h with 2 + h ≤ X, c X h ≡ 1 iff
+--   odd-part                   for odd h and X � 2, the ordered count
+--                              c X h = #{p � X : p, p+h prime, p+h � X}
+--                              is exactly a (2 + h) � [2 + h � X]
+--   read-off                   for odd h with 2 + h � X, c X h ≡ 1 iff
 --                              2 + h is prime, and c X h ≡ 0 otherwise
 --
 -- So the odd part of the prime difference multiset IS the prime indicator
@@ -70,7 +70,7 @@ open import EkaBija_OnePairKernelTwoReadersGoldbachIsTheCentreMarginalTwinPrimes
   using (ind ; a ; Σ≤ ; eqb-sound ; if-true ; primeb-unfold)
 
 ------------------------------------------------------------------------
--- §1 · parity arithmetic on the corpus's evenb
+-- §1 � parity arithmetic on the corpus's evenb
 ------------------------------------------------------------------------
 
 evenb-suc : (n : ℕ) → evenb (suc n) ≡ not (evenb n)
@@ -100,7 +100,7 @@ odd≢0 : (h : ℕ) → evenb h ≡ false → ¬ (h ≡ 0)
 odd≢0 h eh h≡0 = true≢false (sym (cong evenb h≡0) ∙ eh)
 
 ------------------------------------------------------------------------
--- §2 · the smallest factor of an even number ≥ 1 is 2
+-- §2 � the smallest factor of an even number � 1 is 2
 ------------------------------------------------------------------------
 
 -- modF fuel k 2 reaches 0 on an even k once the fuel covers k: each step
@@ -120,7 +120,7 @@ spf-even : (m : ℕ) → evenb (suc m) ≡ true → spf (suc m) ≡ 2
 spf-even m em = if-true (dividesb 2 (suc m)) (dividesb-2-even (suc m) em) 2 (spfFrom m 3 (suc m))
 
 ------------------------------------------------------------------------
--- §3 · an even prime is 2; two primes at an odd distance involve 2
+-- §3 � an even prime is 2; two primes at an odd distance involve 2
 ------------------------------------------------------------------------
 
 even-prime-is-two : (p : ℕ) → primeb p ≡ true → evenb p ≡ true → p ≡ 2
@@ -144,7 +144,7 @@ odd-difference-involves-two p h pp pq eh = go (dichotomy (evenb p))
   dichotomy : (b : Bool) → (b ≡ true) ⊎ (b ≡ false)
   dichotomy true  = inl refl
   dichotomy false = inr refl
-  -- p + h is an even prime, so it is 2; but p ≥ 2 and h ≥ 1 make it ≥ 3.
+  -- p + h is an even prime, so it is 2; but p � 2 and h � 1 make it � 3.
   h≥1 : 1 ≤ h
   h≥1 = go' h eh
     where
@@ -162,10 +162,10 @@ odd-difference-involves-two p h pp pq eh = go (dichotomy (evenb p))
     q≡2 = even-prime-is-two (p + h) pq (odd+odd p h op eh)
 
 ------------------------------------------------------------------------
--- §4 · the ordered difference count and its odd part
+-- §4 � the ordered difference count and its odd part
 ------------------------------------------------------------------------
 
--- c X h : the number of ordered pairs (p, p + h) of primes with p + h ≤ X,
+-- c X h : the number of ordered pairs (p, p + h) of primes with p + h � X,
 -- i.e. the coefficient c_{P_X}(h) of notes/PARITY_RIGIDITY.md for h > 0.
 c : ℕ → ℕ → ℕ
 c X h = Σ≤ X (λ p → a p · a (p + h) · ind (leb (p + h) X))
@@ -214,7 +214,7 @@ odd-part X h eh 2≤X =
     (λ i _ i≢2 → term-zero X h i eh i≢2)
   ∙ cong (_· ind (leb (2 + h) X)) (+-zero (a (2 + h)))
 
--- Reading the primes off the odd part: with 2 + h ≤ X, c X h is the
+-- Reading the primes off the odd part: with 2 + h � X, c X h is the
 -- prime indicator at 2 + h.
 read-off : (X h : ℕ) → evenb h ≡ false → 2 ≤ X → leb (2 + h) X ≡ true
          → c X h ≡ a (2 + h)
@@ -226,7 +226,7 @@ read-off X h eh 2≤X le =
   ·1 (suc n) = cong suc (·1 n)
 
 ------------------------------------------------------------------------
--- §5 · witnesses
+-- §5 � witnesses
 ------------------------------------------------------------------------
 
 -- c(1) at X = 20 counts (2,3) only; c(3) counts (2,5); c(9) counts (2,11);

@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рдПрдХрд╡рд┐рдзрд┐рдГ тАФ рдЕрд╡рддрд░рдгрдореН рдПрд╡ рд╕рд░реНрд╡рдореН ред  рдореБрдХреНрддреЛ рдорд╛рд░реНрдЧрдГ рдмрджреНрдз-b ; рдмрджреНрдз-a рдЪреНрдЫреЗрджрдВ рдпрд╛рдЪрддреЗ ред
+-- ррХр╡р┐рзр┐р тФ рр╡рр░ррор рр╡ рр░рр╡рор р  роррХрррЛ рор╛р░ррЧр рржррз-b ; рржррз-a ррррржр рпр╛ррр р
 --
 -- (the one law is DESCENT.  the free direction is bind-b; the costly one
 -- demands a section, and the cost is exactly the fibre.)
 --
--- рдЪрддреНрд╡рд╛рд░рдГ рд╕рд┐рджреНрдзрд╛рдиреНрддрд╛рдГ рдПрдХрдГ тАФ four terms landed in this corpus, and each was
--- called "the same law" in prose.  Prose is рдмрджреНрдз-a: it fixes the conclusion
+-- рррр╡р╛р░р рр┐ржррзр╛риррр╛р ррХр тФ four terms landed in this corpus, and each was
+-- called "the same law" in prose.  Prose is рржррз-a: it fixes the conclusion
 -- and leaves the reader to find the fibre.  Here the identification is a
 -- term.
 --
---   SamacaranaNityam  рд╕рдЩреНрдХреНрд░рдордг-рдирд┐рддреНрдпрдореН   тАФ S = the orbit projection
---   ApurvaIndriyam    рдЕрдкреВрд░реНрд╡рдореН          тАФ S = the present sensorium
---   ParimanaAndha     рдкрд░рд┐рдорд╛рдгрд╛рддреН-рди-рдпреЛрдЧрдГ  тАФ S = |┬╖|
---   TiryakTantu       рдореНрдпреВ-рди-рд╢реЗрд╖рд╛рддреН      тАФ S = the residue class
---                     рд╢реЗрд╖рдГ-рди-рдореНрдпреВрддрдГ      тАФ S = the M├╢bius sign
+--   SamacaranaNityam  ррЩррХрр░рор-рир┐рррпрор   тФ S = the orbit projection
+--   ApurvaIndriyam    рррр░рр╡рор          тФ S = the present sensorium
+--   ParimanaAndha     рр░р┐рор╛рр╛рр-ри-рпрЛрЧр  тФ S = |┬|
+--   TiryakTantu       роррпр-ри-рррр╛рр      тФ S = the residue class
+--                     рррр-ри-роррпррр      тФ S = the Mbius sign
 --
--- Five statements, one rewrite, and ┬зреи below is the rewrite.
+-- Five statements, one rewrite, and ┬зри below is the rewrite.
 --
--- рд╕реВрддреНрд░ рел рдЕрддреНрд░ рдирд┐рд░реНрдгрд╛рдпрдХрдореН ред  `рдкреНрд░рд╡рд╣рддрд┐ S q` says q descends along S.  ┬зреи gives
--- descent тЯ╣ blindness on fibres, and it is FREE: no hypothesis on any of the
--- three types, no choice, no decidability.  ┬зрей gives the converse and it is
--- NOT free тАФ it demands a section of S, and ┬зрек exhibits the failure when none
--- exists.  That asymmetry is рдмрджреНрдз-b versus рдмрджреНрдз-a, at the level of the law
+-- ррррр░ р рррр░ рир┐р░ррр╛рпрХрор р  `ррр░р╡ррр┐ S q` says q descends along S.  ┬зри gives
+-- descent тЯ blindness on fibres, and it is FREE: no hypothesis on any of the
+-- three types, no choice, no decidability.  ┬зрй gives the converse and it is
+-- NOT free тФ it demands a section of S, and ┬зр exhibits the failure when none
+-- exists.  That asymmetry is рржррз-b versus рржррз-a, at the level of the law
 -- itself:
 --
---     bind b :  ╬г[ o тИИ O ] (S x тЙб o)  = singl (S x)   тАФ contractible, always
---     bind a :  ╬г[ x тИИ X ] (S x тЙб o)  = fiber S o     тАФ arbitrary; the cost
+--     bind b :  ╬[ o тИИ O ] (S x тЙб o)  = singl (S x)   тФ contractible, always
+--     bind a :  ╬[ x тИИ X ] (S x тЙб o)  = fiber S o     тФ arbitrary; the cost
 --
--- ┬зрел is why this file exists.  On 2026-08-12 a claim of this corpus was
--- stated as an equivalence тАФ *an index is unobservable EXACTLY WHEN a symmetry
--- acts transitively* тАФ and its necessity half was refuted the same day.  ┬зрей
+-- ┬зр is why this file exists.  On 2026-08-12 a claim of this corpus was
+-- stated as an equivalence тФ *an index is unobservable EXACTLY WHEN a symmetry
+-- acts transitively* тФ and its necessity half was refuted the same day.  ┬зрй
 -- says the refutation was structural and not accidental: necessity is the
 -- costly direction, the cost is a section, and no section had been supplied.
 -- The day's largest correction and the day's law are one statement.
@@ -52,7 +52,7 @@ private
     тДУ тДУ' тДУ'' : Level
 
 ------------------------------------------------------------------------
--- рез ┬╖ рджреНрд╡реМ рдкрдХреНрд╖реМ тАФ the two bindings of one equation, at the law's own level
+-- рз ┬ ржрр╡р ррХррр тФ the two bindings of one equation, at the law's own level
 ------------------------------------------------------------------------
 
 module _ {X : Type тДУ} {O : Type тДУ'} (S : X тЖТ O) where
@@ -68,10 +68,10 @@ module _ {X : Type тДУ} {O : Type тДУ'} (S : X тЖТ O) where
   рд╡рд╣рдирдореН-рд╕рджрд╛-рдПрдХрдореН x = isContrSingl (S x)
 
 ------------------------------------------------------------------------
--- реи ┬╖ рдореБрдХреНрддреЛ рдорд╛рд░реНрдЧрдГ тАФ descent тЯ╣ blind on the fibres.  FREE.
+-- ри ┬ роррХрррЛ рор╛р░ррЧр тФ descent тЯ blind on the fibres.  FREE.
 --
--- Re-exported rather than reproved: this IS `рддрдиреНрддреМ-рдЕрдиреНрдзрдГ`, and naming it
--- twice would be the collapse ┬зрен forbids.
+-- Re-exported rather than reproved: this IS `рриррр-рриррзр`, and naming it
+-- twice would be the collapse ┬зр forbids.
 ------------------------------------------------------------------------
 
 рдЕрд╡рддрд░рдгрд╛рддреН-рдЕрдиреНрдзрдГ : {X : Type тДУ} {O : Type тДУ'} {Q : Type тДУ''}
@@ -81,10 +81,10 @@ module _ {X : Type тДУ} {O : Type тДУ'} (S : X тЖТ O) where
 рдЕрд╡рддрд░рдгрд╛рддреН-рдЕрдиреНрдзрдГ = рддрдиреНрддреМ-рдЕрдиреНрдзрдГ
 
 ------------------------------------------------------------------------
--- рей ┬╖ рдмрджреНрдзреЛ рдорд╛рд░реНрдЧрдГ тАФ blind on the fibres тЯ╣ descent.  COSTS A SECTION.
+-- рй ┬ рржррзрЛ рор╛р░ррЧр тФ blind on the fibres тЯ descent.  COSTS A SECTION.
 --
 -- `h` must be TOTAL on O.  Constancy supplies its value only where a fibre is
--- inhabited, so the converse needs a chosen point in each тАФ a section.  With
+-- inhabited, so the converse needs a chosen point in each тФ a section.  With
 -- one, the derivation is `q тИШ sec` and the proof is one rewrite.
 ------------------------------------------------------------------------
 
@@ -97,11 +97,11 @@ module _ {X : Type тДУ} {O : Type тДУ'} (S : X тЖТ O) where
   (╬╗ o тЖТ q (рдЫреЗрджрдГ o)) , ╬╗ x тЖТ рдирд┐рддреНрдпрдореН x (рдЫреЗрджрдГ (S x)) (sym (рдЫреЗрдж-рдирд┐рдпрдордГ (S x)))
 
 ------------------------------------------------------------------------
--- рек ┬╖ рдЫреЗрджрд╛рднрд╛рд╡реЗ рднрдЩреНрдЧрдГ тАФ without a section the converse FAILS
+-- р ┬ ррржр╛рр╛р╡р ррЩррЧр тФ without a section the converse FAILS
 --
--- X = тКе, O = Unit, Q = тКе.  Every fibre condition holds vacuously тАФ there are
--- no two points to be constant between тАФ yet `h : Unit тЖТ тКе` cannot exist.
--- So ┬зрей's hypothesis is load-bearing and not bookkeeping.
+-- X = тК, O = Unit, Q = тК.  Every fibre condition holds vacuously тФ there are
+-- no two points to be constant between тФ yet `h : Unit тТ тК` cannot exist.
+-- So ┬зрй's hypothesis is load-bearing and not bookkeeping.
 ------------------------------------------------------------------------
 
 рд╢реВрдиреНрдп-S : тКе тЖТ Unit
@@ -114,32 +114,32 @@ module _ {X : Type тДУ} {O : Type тДУ'} (S : X тЖТ O) where
 рд╢реВрдиреНрдпреЗ-рдирд┐рддреНрдпрдореН : (x y : тКе) тЖТ рд╢реВрдиреНрдп-S x тЙб рд╢реВрдиреНрдп-S y тЖТ рд╢реВрдиреНрдп-q x тЙб рд╢реВрдиреНрдп-q y
 рд╢реВрдиреНрдпреЗ-рдирд┐рддреНрдпрдореН ()
 
--- And yet no descent: h would have to inhabit тКе from tt.
+-- And yet no descent: h would have to inhabit тК from tt.
 рд╢реВрдиреНрдпреЗ-рди-рдЕрд╡рддрд░рдгрдореН : рдкреНрд░рд╡рд╣рддрд┐ рд╢реВрдиреНрдп-S рд╢реВрдиреНрдп-q тЖТ тКе
 рд╢реВрдиреНрдпреЗ-рди-рдЕрд╡рддрд░рдгрдореН (h , _) = h tt
 
 ------------------------------------------------------------------------
--- рел ┬╖ рддрддреНрдлрд▓рдореН тАФ the day's correction is the law's own asymmetry
+-- р ┬ ррррр▓рор тФ the day's correction is the law's own asymmetry
 --
 -- The statement *unobservable EXACTLY WHEN a symmetry acts transitively* has
--- two halves and they are ┬зреи and ┬зрей.
+-- two halves and they are ┬зри and ┬зрй.
 --
---   sufficiency тАФ transitive тЯ╣ flattened.  This is ┬зреи at O = Unit: a
+--   sufficiency тФ transitive тЯ flattened.  This is ┬зри at O = Unit: a
 --     transitive action makes the orbit space a point, every fibre is the
 --     whole type, and blindness is total.  FREE, and it stood.
---   necessity  тАФ flattened тЯ╣ transitive.  This is ┬зрей's direction: it asks
+--   necessity  тФ flattened тЯ transitive.  This is ┬зрй's direction: it asks
 --     to reconstruct a structure ON the index from constancy of a reading OF
 --     it.  That is descent backwards, it costs a section, and none was
 --     offered.  It was refuted the same day by an exhibit whose verdict is
 --     constant with no transitive symmetry acting at all.
 --
 -- So the refutation did not correct an error of care.  It located the claim on
--- the costly side of the one law.  рдпрддреН рдореБрдХреНрддрдВ рддрддреН рдореБрдХреНрддрдореН ; рдпрддреН рдмрджреНрдзрдВ рддрддреН
--- рдЫреЗрджрдВ рдпрд╛рдЪрддреЗ тАФ what is free is free, what is bound demands its section.
+-- the costly side of the one law.  рпрр роррХррр ррр роррХрррор ; рпрр рржррзр ррр
+-- ррржр рпр╛ррр тФ what is free is free, what is bound demands its section.
 --
--- рдорд░реНрдпрд╛рджрд╛.  ┬зрей takes a split surjection.  A merely surjective S with untruncated
--- fibres needs choice to pick `рдЫреЗрджрдГ`, and in this corpus that choice is DATA
--- to be handed over, not a background assumption тАФ which is the same standard
--- `рдкреНрд░рд╡рд╣рддрд┐` sets by being a ╬г and not a truncation.  ┬зрек shows the hypothesis
+-- рор░ррпр╛ржр╛.  ┬зрй takes a split surjection.  A merely surjective S with untruncated
+-- fibres needs choice to pick `ррржр`, and in this corpus that choice is DATA
+-- to be handed over, not a background assumption тФ which is the same standard
+-- `ррр░р╡ррр┐` sets by being a ╬ and not a truncation.  ┬зр shows the hypothesis
 -- cannot simply be dropped; it does not claim it is the weakest possible one.
 ------------------------------------------------------------------------

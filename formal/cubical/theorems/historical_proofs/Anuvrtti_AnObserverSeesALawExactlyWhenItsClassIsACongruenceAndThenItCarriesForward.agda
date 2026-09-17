@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- अनुवृत्तिः — continuation.  In the Aṣṭādhyāyī, anuvṛtti is the carrying
--- forward of an element of one sūtra into the sūtras that follow: the rule
--- keeps applying without being restated.  Pāṇini, *Aṣṭādhyāyī*, throughout,
+-- ���������� � continuation.  In the Adhyy, anuvtti is the carrying
+-- forward of an element of one stra into the stras that follow: the rule
+-- keeps applying without being restated.  Pini, *Adhyy*, throughout,
 -- as the grammarians' metalanguage (~500 BCE).  Nothing below is attributed
--- to him; the word is taken for what it names — a thing that keeps holding
+-- to him; the word is taken for what it names � a thing that keeps holding
 -- once it holds.
 --
 -- WHAT THIS IS.  `NaturalMachine/QuotientFiberLaw.agda` states the one law
@@ -17,16 +17,16 @@
 -- The answer is exact and it is not "sometimes":
 --
 --     an observer sees a closed law exactly when its own class is a
---     CONGRUENCE for the rule — o x ≡ o y ⟹ o (f x) ≡ o (f y).  When it is,
+--     CONGRUENCE for the rule � o x ≡ o y � o (f x) ≡ o (f y).  When it is,
 --     the observer's entire future is determined by its present reading,
---     forever (अनुवृत्तिः).  When it is not, ONE blind pair whose futures
---     differ refutes EVERY predictor on the observed values — not the
+--     forever (����������).  When it is not, ONE blind pair whose futures
+--     differ refutes EVERY predictor on the observed values � not the
 --     predictors anyone has tried, all of them.
 --
 -- So an observed law being simple says nothing about the rule being simple.
 -- It says the observer's equivalence happens to be compatible with it.  The
 -- same rule, watched through a slightly finer class, can go from noise to an
--- exact law — and §3 exhibits precisely that, one query apart.
+-- exact law � and §3 exhibits precisely that, one query apart.
 module Anuvrtti_AnObserverSeesALawExactlyWhenItsClassIsACongruenceAndThenItCarriesForward where
 
 open import Cubical.Foundations.Prelude
@@ -62,8 +62,8 @@ private
 -- ------------------------------------------------------------------ §2
 -- the law, both directions
 
--- COMPATIBLE ⇒ the observer's whole future is fixed by its present reading.
--- This is the anuvṛtti: it holds once and then keeps holding, at every n,
+-- COMPATIBLE � the observer's whole future is fixed by its present reading.
+-- This is the anuvtti: it holds once and then keeps holding, at every n,
 -- without being restated.
 अनुवृत्तिः : {X : Type ℓ} {V : Type ℓ'} (f : X → X) (o : X → V)
   → अनुकूलम् f o
@@ -73,13 +73,13 @@ private
 अनुवृत्तिः f o c x y e (suc n) =
   c (पुनरावृत्तिः f n x) (पुनरावृत्तिः f n y) (अनुवृत्तिः f o c x y e n)
 
--- A PREDICTOR IS ITSELF COMPATIBLE — so the two notions cannot come apart.
+-- A PREDICTOR IS ITSELF COMPATIBLE � so the two notions cannot come apart.
 भाव्य-अनुकूलम् : {X : Type ℓ} {V : Type ℓ'} (f : X → X) (o : X → V)
   → भाव्यम् f o → अनुकूलम् f o
 भाव्य-अनुकूलम् f o (g , p) x y e = p x ∙ cong g e ∙ sym (p y)
 
 -- ONE BLIND PAIR WITH DIFFERENT FUTURES REFUTES EVERY PREDICTOR.  Not the
--- ones that have been tried — every function on the observed values at once.
+-- ones that have been tried � every function on the observed values at once.
 -- This is `collision-obstructs` of the static law, moved onto the rule.
 अभाव्यम् : {X : Type ℓ} {V : Type ℓ'} (f : X → X) (o : X → V)
   → (x y : X) → o x ≡ o y → ¬ (o (f x) ≡ o (f y))
@@ -89,7 +89,7 @@ private
 -- ------------------------------------------------------------------ §3
 -- the same rule, two observers, one query apart
 --
--- The state is a row of cells.  The rule complements every cell — as simple
+-- The state is a row of cells.  The rule complements every cell � as simple
 -- as a rule gets, and reversible.  The first observer counts the live cells.
 -- The second counts them AND reads the width.
 

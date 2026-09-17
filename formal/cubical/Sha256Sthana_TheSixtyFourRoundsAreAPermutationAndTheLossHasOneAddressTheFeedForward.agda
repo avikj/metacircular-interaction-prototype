@@ -1,38 +1,38 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Sthana ‚Äî the sixty-four rounds are a permutation, and the loss
+-- Sha256Sthana ‚î the sixty-four rounds are a permutation, and the loss
 -- has one address: the feed-forward.
 --
--- ‡§µ‡•ç‡§Ø‡§Ø‡•á ‡§∏‡•ç‡§•‡§æ‡§®‡§Æ‡•ç ‚Äî loss has location, not only size.  This module gives
+-- ‡µ‡‡Ø‡Ø‡ ‡‡‡‡æ‡®‡Æ‡ ‚î loss has location, not only size.  This module gives
 -- SHA-256's loss its address, as checked terms about the working
 -- bit-level implementation:
 --
---   ¬ß1  subC ‚Äî ripple-borrow subtraction, and the cancellation
---       ‡§∏‡§Æ-‡§π‡§∞‡§£‡§Æ‡•ç : subW (addW u v) v ‚â° u, by twelve clauses each of
+--   ¬ß1  subC ‚î ripple-borrow subtraction, and the cancellation
+--       ‡‡Æ-‡‡∞‡‡Æ‡ : subW (addW u v) v ‚â° u, by twelve clauses each of
 --       which is a full-adder/full-subtractor case closing by refl.
 --       Addition mod 2¬≥¬≤ is a group action; the kernel now holds the
 --       inverse ride.
---   ¬ß2  roundInv ‚Äî the EXPLICIT inverse of one round: from the eight
+--   ¬ß2  roundInv ‚î the EXPLICIT inverse of one round: from the eight
 --       new registers and (Kt , Wt), recover T2 from the copied
 --       registers, peel T1 off the new a, peel d off the new e, and
 --       peel h out of T1 itself.
---   ¬ß3  ‡§™‡§∞‡§ø‡§µ‡•É‡§§‡•ç‡§§‡§ø-‡§π‡§∞‡§£‡§Æ‡•ç ‚Äî one round undone: roundInv ‚àò roundStep is
+--   ¬ß3  ‡‡∞‡ø‡µ‡‡‡‡‡ø-‡‡∞‡‡Æ‡ ‚î one round undone: roundInv ‚àò roundStep is
 --       the identity on the eight named registers.
---   ¬ß4  ‡§Ü‡§µ‡§≤‡•Ä-‡§π‡§∞‡§£‡§Æ‡•ç ‚Äî ALL SIXTY-FOUR undone: the whole round phase of
+--   ¬ß4  ‡‡µ‡≤‡-‡‡∞‡‡Æ‡ ‚î ALL SIXTY-FOUR undone: the whole round phase of
 --       the compression is invertible, and hence injective
---       (‡§Ü‡§µ‡§≤‡•Ä-‡§è‡§ï‡•à‡§ï‡§Æ‡•ç).
+--       (‡‡µ‡≤‡-‡‡ï‡à‡ï‡Æ‡).
 --
 -- CONSEQUENCE, and it is the point.  The compression function is
 --   compress H b = addW-pointwise H (rounds H (schedule b))
--- and ¬ß4 says the `rounds` factor forgets NOTHING ‚Äî it is a
+-- and ¬ß4 says the `rounds` factor forgets NOTHING ‚î it is a
 -- permutation of the state space for every fixed message block.  So
 -- every bit of the hash's non-injectivity enters at exactly two
--- addresses: the Davies‚ÄìMeyer feed-forward (the one pointwise addW
+-- addresses: the Davies‚ìMeyer feed-forward (the one pointwise addW
 -- with H, which superposes the permutation's input onto its output)
 -- and the padding/blocking quotient upstream.  This is WHY the
--- feed-forward exists ‚Äî an invertible compression would be no hash at
--- all ‚Äî and that design fact is now a theorem about this
+-- feed-forward exists ‚î an invertible compression would be no hash at
+-- all ‚î and that design fact is now a theorem about this
 -- implementation, not a remark about a construction.
 --
 -- CHECKED: Agda 2.8.0, --cubical --safe, through scripts/oracle.

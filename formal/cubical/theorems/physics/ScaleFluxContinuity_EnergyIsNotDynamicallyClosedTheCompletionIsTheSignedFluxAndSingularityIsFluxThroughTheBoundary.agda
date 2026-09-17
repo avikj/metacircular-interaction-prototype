@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ScaleFluxContinuity — the finite, checked shadow of the Navier–Stokes
+-- ScaleFluxContinuity � the finite, checked shadow of the Navier�Stokes
 -- "final shot": energy is NOT dynamically closed, its completion is the
 -- signed scale-flux, and a singularity is flux through the K=∞ boundary.
 --
 -- THE ARGUMENT THIS MAKES A TERM (zero poetry).  The L² energy identity
 -- gives every smooth NS trajectory a FINITE dissipation budget, and that
 -- budget is noncoercive: the ultraviolet boundary K=∞ is Zeno-accessible
--- under the energy metric (∑ 2⁻ⁿ < ∞ at the self-similar scaling).  So
+-- under the energy metric (� 2�� < ∞ at the self-similar scaling).  So
 -- energy is the wrong observable.  The right object is its dynamical
 -- completion: energy-below-a-cut together with the NONLINEAR FLUX through
 -- that cut,
 --        E_{<K}  ⟼  (E_{<K}, Π_K),
--- and the scale-space continuity law ∂ₜE_{<K} = −Π_K (−sink).  This is the
+-- and the scale-space continuity law ��E_{<K} = −Π_K (−sink).  This is the
 -- corpus's own completion rule "observable + its Lie derivative"
--- (Dhruva / the (Q,R)→(Q̇,Ṙ) branching fibre), and the conservation of
+-- (Dhruva / the (Q,R)�(Q�,R�) branching fibre), and the conservation of
 -- the nonlinear term is Dhruva's "the transfer lives in a conserved
 -- fibre": internal transfers telescope, so only the boundary flux and the
 -- dissipative sink can change the total.
 --
--- MODEL (finite, ℤ-valued — the decategorified shadow, per the discipline
--- of ObstructionCalculus).  Shells k = 0,1,2,…; `c k` is the signed flux
+-- MODEL (finite, �-valued � the decategorified shadow, per the discipline
+-- of ObstructionCalculus).  Shells k = 0,1,2,�; `c k` is the signed flux
 -- crossing the cut BELOW shell k (between shell k−1 and k), with the
 -- boundary condition c 0 = 0 (no flux enters from below the bottom).  The
 -- net internal energy rate in shell k is (c k − c(k+1)); Π_K := c K is the
 -- flux through cut K.  Everything below is a checked term.
 --
---   §1  CONTINUITY (telescoping):  ∑_{k<K}(c k − c(k+1)) ≡ −Π_K.
+--   §1  CONTINUITY (telescoping):  �_{k<K}(c k − c(k+1)) ≡ −Π_K.
 --       Internal transfer cancels; only the boundary flux survives.
---   §2  CONSERVATION (Dhruva):  no flux out the top (c N = 0) ⇒ the total
+--   §2  CONSERVATION (Dhruva):  no flux out the top (c N = 0) � the total
 --       internal energy change is exactly 0.  Pure redistribution.
 --   §3  SINGULARITY = BOUNDARY FLUX:  the total change equals −(flux out
 --       the top).  Finite-time singularity is a nonzero flux reaching the
@@ -38,16 +38,16 @@
 --   §4  ENERGY IS NOT DYNAMICALLY SUFFICIENT (VitaranaYugma):  two flux
 --       fields with the SAME total-energy evolution but DIFFERENT Π_K at
 --       an interior cut.  The scalar energy marginal identifies states the
---       flux separates — the reduced observable does not close.
+--       flux separates � the reduced observable does not close.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–4 for this finite signed-flux model.
+-- SYT � THE CLAIM, EXACTLY.  §§1�4 for this finite signed-flux model.
 -- NOT claimed: the continuum NS flux, its cubic (third-order-increment)
--- structure, or any bound on it — that bound IS the Clay problem, and it
+-- structure, or any bound on it � that bound IS the Clay problem, and it
 -- is exactly the one thing this shadow does not touch.  What IS claimed is
 -- the STRUCTURE the problem must be phrased in: energy is a noncoercive
 -- marginal, its completion is the signed flux, the flux conserves the
 -- total from within, and singularity is the boundary term.  The viscous
--- sink is an additive −D ≤ 0 that only strengthens §2–§3; it is not
+-- sink is an additive −D � 0 that only strengthens §2�§3; it is not
 -- carried in the telescoping core (it needs a sum-splitting lemma and adds
 -- nothing to the structure).
 ------------------------------------------------------------------------
@@ -61,7 +61,7 @@ open import Cubical.Data.Sigma using (_×_ ; _,_)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- ० · signed difference and the finite sum below a cut.
+-- � � signed difference and the finite sum below a cut.
 ------------------------------------------------------------------------
 
 _⊝_ : ℤ → ℤ → ℤ
@@ -81,7 +81,7 @@ flowBelow c = sumBelow (λ k → c k ⊝ c (suc k))
 
 ------------------------------------------------------------------------
 -- The one algebraic move: adjacent differences telescope, no
--- commutativity used beyond ℤ's group laws.
+-- commutativity used beyond �'s group laws.
 ------------------------------------------------------------------------
 
 rearr : (a b c : ℤ) → (a ⊝ b) + (b ⊝ c) ≡ a ⊝ c
@@ -92,7 +92,7 @@ rearr a b c =
   ∙ cong (a +_) (sym (pos0+ (- c)))
 
 ------------------------------------------------------------------------
--- १ · CONTINUITY.  The internal rate below cut K telescopes to the
+-- � � CONTINUITY.  The internal rate below cut K telescopes to the
 --      boundary difference; with no flux from below, to −Π_K.
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ continuity c K c0 =
   ∙ sym (pos0+ (- (c K)))
 
 ------------------------------------------------------------------------
--- २ · CONSERVATION (Dhruva).  No flux out the top ⇒ total change is 0.
+-- � � CONSERVATION (Dhruva).  No flux out the top � total change is 0.
 ------------------------------------------------------------------------
 
 conservation : (c : ℕ → ℤ) (N : ℕ) → c 0 ≡ pos 0 → c N ≡ pos 0
@@ -117,7 +117,7 @@ conservation : (c : ℕ → ℤ) (N : ℕ) → c 0 ≡ pos 0 → c N ≡ pos 0
 conservation c N c0 cN = continuity c N c0 ∙ cong -_ cN
 
 ------------------------------------------------------------------------
--- ३ · SINGULARITY = BOUNDARY FLUX.  Total change = −(flux out the top);
+-- � � SINGULARITY = BOUNDARY FLUX.  Total change = −(flux out the top);
 --      a singularity is a nonzero flux reaching the K=∞ boundary.
 ------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ singularityIsBoundaryFlux : (c : ℕ → ℤ) (N : ℕ) → c 0 ≡ pos 0
 singularityIsBoundaryFlux = continuity
 
 ------------------------------------------------------------------------
--- ४ · ENERGY IS NOT DYNAMICALLY SUFFICIENT (VitaranaYugma).  Two flux
+-- � � ENERGY IS NOT DYNAMICALLY SUFFICIENT (VitaranaYugma).  Two flux
 --      fields, identical total-energy evolution, different interior flux.
 ------------------------------------------------------------------------
 
@@ -143,7 +143,7 @@ totalsAgree =
     conservation still   2 refl refl
   ∙ sym (conservation oneEddy 2 refl refl)
 
--- yet the interior flux separates them: Π₁ is 0 for one, 1 for the other.
+-- yet the interior flux separates them: Π� is 0 for one, 1 for the other.
 fluxSeparates : ¬ (Π still 1 ≡ Π oneEddy 1)
 fluxSeparates p = znots (injPos p)
 

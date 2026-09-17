@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- व्यर्थ-चक्र — the vacuous cycle.
+-- ������-����� � the vacuous cycle.
 --
 -- THE DESCENT DEFECT OF AN INVOLUTION SATISFIES ITS COCYCLE IDENTITY
 -- FOR EVERY FEATURE WHATSOEVER.  So that identity separates nothing,
@@ -9,36 +9,36 @@
 -- VANISHING.
 --
 -- This is a fence, and it is worth putting up before an attractive
--- shortcut is taken.  Given an involution θ and any feature F, the
+-- shortcut is taken.  Given an involution � and any feature F, the
 -- difference
 --
---     defect F z  =  F (θ z)  -  F z
+--     defect F z  =  F (� z)  -  F z
 --
 -- is a coboundary by construction.  Its cocycle identity is therefore
--- automatic — it holds for the constant feature, for the identity, for
--- anything at all — so "the class vanishes" is not a hypothesis about F.
+-- automatic � it holds for the constant feature, for the identity, for
+-- anything at all � so "the class vanishes" is not a hypothesis about F.
 -- Descent is `defect ≡ 0`, and nothing weaker.
 --
 --   §1  THE COCYCLE IDENTITY IS AUTOMATIC:
 --
---         defect F z  +  defect F (θ z)  ≡  0 ,
+--         defect F z  +  defect F (� z)  ≡  0 ,
 --
---       for every F and every z, using only θ ∘ θ ≡ id.  Nothing about F
+--       for every F and every z, using only � ∘ � ≡ id.  Nothing about F
 --       is assumed and nothing about F can be concluded.
 --
---   §2  WHEREAS VANISHING IS INVARIANCE:  defect F z ≡ 0 ⟺ F (θ z) ≡ F z.
+--   §2  WHEREAS VANISHING IS INVARIANCE:  defect F z ≡ 0 ⟺ F (� z) ≡ F z.
 --
 --   §3  AND THE TWO ARE GENUINELY DIFFERENT.  For any F not invariant at
---       z, §1 still holds and §2 fails — both at once, exhibited as one
+--       z, §1 still holds and §2 fails � both at once, exhibited as one
 --       pair.  §4 inhabits the hypothesis with a two-point example over
---       ℤ, so the gap is not vacuous for want of a witness.
+--       �, so the gap is not vacuous for want of a witness.
 --
--- THE OTHER HALF — WHY A POSITIVE AGGREGATE IS EQUIVALENT TO POINTWISE
+-- THE OTHER HALF � WHY A POSITIVE AGGREGATE IS EQUIVALENT TO POINTWISE
 -- VANISHING, which is what lets a single number stand in for the whole
 -- family of defects:
 --
---   §5  in ℕ a vanishing sum has vanishing summands — `AvarohaNisedha`'s
---       lemma, imported rather than restated — and a product with a
+--   §5  in � a vanishing sum has vanishing summands � `AvarohaNisedha`'s
+--       lemma, imported rather than restated � and a product with a
 --       positive factor vanishes only if the other factor does.
 --
 --   §6  hence a POSITIVELY WEIGHTED SUM OF SQUARES vanishes exactly when
@@ -50,22 +50,22 @@
 --       one defect functional into another by a positive constant does
 --       not change what its vanishing says.
 --
--- WHAT §§5–7 DO AND DO NOT LICENSE.  They say a positive weighted
+-- WHAT §§5�7 DO AND DO NOT LICENSE.  They say a positive weighted
 -- aggregate is a faithful stand-in for the family of pointwise defects,
 -- and that a positive rescaling between two such aggregates is
 -- information-preserving.  They say nothing about the SIZE of a nonzero
--- aggregate, and nothing about a supremum: the ℓ^∞ reading of a defect
+-- aggregate, and nothing about a supremum: the �^∞ reading of a defect
 -- family is a different functional from the weighted sum and is not
 -- treated here.
 --
--- SYĀT — THE CLAIM, EXACTLY.  §§1–3 in any ring, for any involution on
--- any type and any feature into it.  §4 at ℤ on the booleans.  §§5–7 in
--- ℕ, for every finite depth and every positive weight family.  NOT
--- claimed: anything about cohomology as such — no H¹ is constructed
+-- SYT � THE CLAIM, EXACTLY.  §§1�3 in any ring, for any involution on
+-- any type and any feature into it.  §4 at � on the booleans.  §§5�7 in
+-- �, for every finite depth and every positive weight family.  NOT
+-- claimed: anything about cohomology as such � no H� is constructed
 -- below, and §1 is the reason none is needed; that any particular
 -- feature IS or IS NOT invariant; that a weighted sum over an INFINITE
--- family behaves this way — §6 is at finite depth and no limit is taken;
--- anything about norms, Hilbert–Schmidt or otherwise, or about
+-- family behaves this way � §6 is at finite depth and no limit is taken;
+-- anything about norms, Hilbert�Schmidt or otherwise, or about
 -- suprema; and no arithmetic input of any kind.
 ------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ private
     ℓ ℓ' : Level
 
 ------------------------------------------------------------------------
--- PART ONE · The cocycle identity carries no information.
+-- PART ONE � The cocycle identity carries no information.
 ------------------------------------------------------------------------
 
 module _ (M : Ring ℓ) where
@@ -118,7 +118,7 @@ module _ (M : Ring ℓ) where
     defect F z = F (θ z) + (- F z)
 
     ------------------------------------------------------------------
-    -- १ · AUTOMATIC, FOR EVERY FEATURE.
+    -- � � AUTOMATIC, FOR EVERY FEATURE.
     ------------------------------------------------------------------
 
     cocycle-is-automatic : (F : Z → A) (z : Z)
@@ -139,7 +139,7 @@ module _ (M : Ring ℓ) where
           ∙ +InvR p
 
     ------------------------------------------------------------------
-    -- २ · WHEREAS VANISHING IS INVARIANCE.
+    -- � � WHEREAS VANISHING IS INVARIANCE.
     ------------------------------------------------------------------
 
     defect-zero→invariant : (F : Z → A) (z : Z)
@@ -151,7 +151,7 @@ module _ (M : Ring ℓ) where
     invariant→defect-zero F z h = cong (_+ (- F z)) h ∙ +InvR (F z)
 
     ------------------------------------------------------------------
-    -- ३ · AND THE GAP, EXHIBITED AS ONE PAIR.
+    -- � � AND THE GAP, EXHIBITED AS ONE PAIR.
     ------------------------------------------------------------------
 
     cocycle-does-not-separate : (F : Z → A) (z : Z)
@@ -161,7 +161,7 @@ module _ (M : Ring ℓ) where
       cocycle-is-automatic F z , (λ h → nz (defect-zero→invariant F z h))
 
 ------------------------------------------------------------------------
--- ४ · THE HYPOTHESIS IS INHABITED: two points and ℤ.
+-- � � THE HYPOTHESIS IS INHABITED: two points and �.
 ------------------------------------------------------------------------
 
 private
@@ -183,7 +183,7 @@ a-nonvanishing-defect =
   cocycle-does-not-separate ℤR Bool not notnot mark false not-invariant
 
 ------------------------------------------------------------------------
--- PART TWO · A positive aggregate is a faithful stand-in.
+-- PART TWO � A positive aggregate is a faithful stand-in.
 ------------------------------------------------------------------------
 
 private
@@ -191,7 +191,7 @@ private
   sum≡0→right≡0 m n p = sum≡0→left≡0 n m (+-comm n m ∙ p)
 
 ------------------------------------------------------------------------
--- ५ · A PRODUCT WITH A POSITIVE FACTOR VANISHES ONLY IF THE OTHER DOES.
+-- � � A PRODUCT WITH A POSITIVE FACTOR VANISHES ONLY IF THE OTHER DOES.
 ------------------------------------------------------------------------
 
 positive-factor-cancels : (m n : ℕ) → 0 < m → m ·ℕ n ≡ 0 → n ≡ 0
@@ -203,7 +203,7 @@ square-vanishes zero    _ = refl
 square-vanishes (suc a) q = ⊥-rec (snotz (sum≡0→left≡0 (suc a) (a ·ℕ suc a) q))
 
 ------------------------------------------------------------------------
--- ६ · SO A POSITIVELY WEIGHTED SUM OF SQUARES IS POINTWISE VANISHING.
+-- � � SO A POSITIVELY WEIGHTED SUM OF SQUARES IS POINTWISE VANISHING.
 ------------------------------------------------------------------------
 
 sumℕ : ℕ → (ℕ → ℕ) → ℕ
@@ -232,7 +232,7 @@ aggregate-vanishes→pointwise (suc k) w a pw p j lt with ≤-split (pred-≤-pr
         (sum-head k (λ i → w i ·ℕ (a i ·ℕ a i)) p)))
 
 ------------------------------------------------------------------------
--- ७ · AND A POSITIVE RESCALING BETWEEN TWO AGGREGATES CHANGES NOTHING.
+-- � � AND A POSITIVE RESCALING BETWEEN TWO AGGREGATES CHANGES NOTHING.
 ------------------------------------------------------------------------
 
 rescaling-preserves-vanishing :

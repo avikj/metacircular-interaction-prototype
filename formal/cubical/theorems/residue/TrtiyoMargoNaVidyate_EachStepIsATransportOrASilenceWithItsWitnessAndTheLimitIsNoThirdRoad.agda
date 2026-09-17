@@ -1,35 +1,35 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§§‡•É‡§§‡•Ä‡§Ø‡•ã ‡§Æ‡§æ‡§∞‡•ç‡§ó‡•ã ‡§® ‡§µ‡§ø‡§¶‡•ç‡§Ø‡§§‡•á ‚Äî there is no third road.
+-- ‡‡‡‡‡Ø‡ã ‡Æ‡æ‡∞‡‡ó‡ã ‡® ‡µ‡ø‡¶‡‡Ø‡‡ ‚î there is no third road.
 --
--- The corpus's ¬ß6 doctrine ‚Äî every answer is a sa·πÉkrama·πáa or a
--- do·π£a-lekha, and there is no third road ‚Äî holds of the universal
+-- The corpus's ¬ß6 doctrine ‚î every answer is a sakramaa or a
+-- doa-lekha, and there is no third road ‚î holds of the universal
 -- machine at the step level AS A CONSTRUCTION, witness in hand:
 --
---   `no-third-road` ‚Äî for every machine, either the addressed
+--   `no-third-road` ‚î for every machine, either the addressed
 --   transition exists (the successor, WITH the receipt that the table
---   prescribes it: the sa·πÉkrama·πáa) or the table is silent (the
+--   prescribes it: the sakramaa) or the table is silent (the
 --   equation in Maybe: the written absence).  The disjunction is
 --   produced by computing the lookup, not by excluded middle; the
 --   witness rides in the sum, and no boolean stands in for it.
 --
---   `each-depth-is-decided` ‚Äî hence at every finite depth n the
+--   `each-depth-is-decided` ‚î hence at every finite depth n the
 --   halting observation is decided, again with witnesses: asti with
---   its silence-equation, or nƒÅsti with the transition that refutes
+--   its silence-equation, or nsti with the transition that refutes
 --   it.  Every finite question to the machine has a bivalent,
 --   evidence-carrying answer.
 --
 --   The LIMIT is different in kind.  Divergence is the refutation of
---   halting at every depth ‚Äî a Œ† over the profile, a proposition
+--   halting at every depth ‚î a Œ† over the profile, a proposition
 --   (`divergence-is-a-proposition`), exclusive with halting
---   (`asti-nasti-exclusive`) ‚Äî but it is not one more depth: no
+--   (`asti-nasti-exclusive`) ‚î but it is not one more depth: no
 --   finite observation asserts it, and this development does not
 --   pretend to decide it.  The machine's finite speech is bivalent;
 --   its infinite silence is a different grammatical category, held as
 --   a proposition and never collapsed into a bit.  That the fourth
 --   position is not manufactured from the finite three is the
---   machine's own syƒÅdvƒÅda: each naya (each depth) speaks with
+--   machine's own sydvda: each naya (each depth) speaks with
 --   evidence, and the totality is not a naya.
 ------------------------------------------------------------------------
 
@@ -85,12 +85,12 @@ each-depth-is-decided n mc = go (no-third-road (run n mc))
 ------------------------------------------------------------------------
 
 -- Divergence: the refutation of halting at every depth.  A
--- proposition ‚Äî one content, however arrived at.
+-- proposition ‚î one content, however arrived at.
 divergence-is-a-proposition : (mc : Machine) ‚Üí isProp (Diverges mc)
 divergence-is-a-proposition mc =
   isPropŒ† (Œª n ‚Üí isProp¬¨ (HaltsAt n mc))
 
--- Asti and the total nƒÅsti exclude one another: a machine does not
+-- Asti and the total nsti exclude one another: a machine does not
 -- halt and diverge.
 asti-nasti-exclusive : (mc : Machine) ‚Üí
   Œ£[ n ‚àà ‚Ñï ] HaltsAt n mc ‚Üí Diverges mc ‚Üí ‚ä•

@@ -26,7 +26,7 @@
 --                               pair `demands-true` / `demands-occurs`
 --                               makes it faithful (both directions, so
 --                               the Bool is not decoration).
---   D2 `Over‚Üímemb`              if a vocabulary covers a task, every
+--   D2 `Over‚ímemb`              if a vocabulary covers a task, every
 --                               capability the task demands is installed.
 --   D3 `Names`, `chain-names`   THE KEY LEMMA, and it is about chains,
 --                               not about the probe's internals: if a
@@ -64,17 +64,17 @@
 -- F. A compiler that is a function of the term too (¬ßF).
 --
 --   `GenerativeLoop`'s disclaimer says ¬ßC "does not exhibit `Tm` terms
---   compiling to `Plan`s" ‚Äî the compiler there reads only the vocabulary.
+--   compiling to `Plan`s" ‚î the compiler there reads only the vocabulary.
 --   Here the compiler is a total function of the TERM as well.  READ ¬ßH
 --   BEFORE READING THIS AS AN INTEGRATION: the term contributes exactly
 --   one bit (which capability the task demands); the task's arithmetic
---   arguments are carried NATIVELY as `‚Ñï`, and ¬ßH proves they have to be.
+--   arguments are carried NATIVELY as `‚ï`, and ¬ßH proves they have to be.
 --
---   F1 `compileTm : Vocab ‚Üí Tm ‚Üí ‚Ñï ‚Üí ‚Ñï ‚Üí Plan`
+--   F1 `compileTm : Vocab ‚í Tm ‚í ‚ï ‚í ‚ï ‚í Plan`
 --                               the task term is scanned for the
 --                               capability it demands; the vocabulary is
 --                               consulted for whether that capability is
---                               installed; `m n : ‚Ñï` are the task's own
+--                               installed; `m n : ‚ï` are the task's own
 --                               arguments and are NOT encoded in the term.
 --   F2 `compileTm-agrees`       on tasks that demand `checkpoint` it
 --                               agrees with the stipulated `compile`
@@ -96,7 +96,7 @@
 --                               `refl`.  On the concrete task
 --                               `taskTm = node resumeCap (node tickCap
 --                               (node readCap var))` over the concrete
---                               base vocabulary `tickCap ‚à∑ readCap ‚à∑ []`,
+--                               base vocabulary `tickCap ‚à readCap ‚à []`,
 --                               the loop's OWN step function
 --                               `generative-step` reduces to an
 --                               obstruction whose residual is literally
@@ -116,7 +116,7 @@
 --                               naming proof.
 --   G3 `ConcreteTask.task-step-improves`
 --                               `generated-step-improves` applied at
---                               `baseVocab` and `taskObstruction` ‚Äî
+--                               `baseVocab` and `taskObstruction` ‚î
 --                               the original conditional theorem with its
 --                               condition supplied by G2.
 --   G4 `ConcreteTask.task-compiles-better`
@@ -131,10 +131,10 @@
 --
 --   2026-08-13) proves that the natural arithmetic plug into this
 --   substrate FAILS, by an exact collision: on Z/30 the signals
---   F = (1,‚Ä¶,1) and G = (2,‚Ä¶,2) generate the same order-1 cyclotomic
+--   F = (1,‚¶,1) and G = (2,‚¶,2) generate the same order-1 cyclotomic
 --   sector, hence translate to the identical formal term with identical
---   `deficit`, while their autocorrelations are (30,‚Ä¶,30) and
---   (120,‚Ä¶,120).  Support survives translation; coefficients do not.  So
+--   `deficit`, while their autocorrelations are (30,‚¶,30) and
+--   (120,‚¶,120).  Support survives translation; coefficients do not.  So
 --   no decoder from the present `Tm`/`Vocab` state recovers the
 --   arithmetic answer, and encoding a sector number into a `Shape` would
 --   be a bridge that passes the kernel while missing the mathematics.
@@ -151,27 +151,27 @@
 --   H2 `state-underdetermines-answer`
 --                               THE NO-GO, in vajra's shape:
 --                               for EVERY vocabulary V and EVERY term t,
---                               there is no `decode : Vocab ‚Üí Tm ‚Üí CanWord`
+--                               there is no `decode : Vocab ‚í Tm ‚í CanWord`
 --                               with `decode V t ‚â° exec (resume m (suc n))`
 --                               for all m, n.  One term, one vocabulary,
 --                               many answers.  The loop's state names the
 --                               capability; it does not carry the object.
 --   H3 `decoder-exists-pointwise`
 --                               POSITIVE CONTROL FOR H2, proved here.
---                               At FIXED `m n` the Œ£-type H2 negates is
+--                               At FIXED `m n` the Œ-type H2 negates is
 --                               inhabited (by a constant function).  So
 --                               H2 is not true for want of an inhabitant
---                               of `CanWord` or by a degeneracy of `Œ£`:
+--                               of `CanWord` or by a degeneracy of `Œ`:
 --                               it is exactly a statement about
---                               UNIFORMITY in the arguments ‚Äî the
---                               quantifier `(m n : ‚Ñï)` cannot be pushed
+--                               UNIFORMITY in the arguments ‚î the
+--                               quantifier `(m n : ‚ï)` cannot be pushed
 --                               inside.  The witness is constant, so this
 --                               certifies non-vacuity and nothing more.
 --
---   H2 is why `compileTm` takes `m n : ‚Ñï` natively: that signature is
+--   H2 is why `compileTm` takes `m n : ‚ï` natively: that signature is
 --   FORCED, not chosen.  ¬ßE-¬ßG are exactly the part of the story that
---   survives H2 ‚Äî which capability the task needs, whether generation
---   supplies it, and which of two plans is emitted ‚Äî and nothing in
+--   survives H2 ‚î which capability the task needs, whether generation
+--   supplies it, and which of two plans is emitted ‚î and nothing in
 --   ¬ßE-¬ßG decodes an arithmetic answer from a term.
 --
 -- I. The interface that would close what H2 leaves open (¬ßI).
@@ -180,7 +180,7 @@
 --   shape-indexed native data, a composition law, semantics from
 --   installed payloads to answers, semantic preservation under
 --   `unfold`, and a cost that is a separate field from the structural
---   measure ‚Äî plus `payload-separates`, the field that demands the F/G
+--   measure ‚î plus `payload-separates`, the field that demands the F/G
 --   collision be resolvable.  IT IS DEFINED AND NOT INHABITED.  Nothing
 --   in this file constructs one and no claim is made that one exists;
 --   it is a named open joint in the style of
@@ -188,9 +188,9 @@
 --
 --   I2 `ArithmeticPayloadOver`  THE CORRECTED JOINT, and why it exists.
 --   showed that `ArithmeticPayload` fixes DATA and never fixes the
---   TRANSFORMATIONS under which that data may be re-presented ‚Äî so any
+--   TRANSFORMATIONS under which that data may be re-presented ‚î so any
 --   carrier or minimality notion it implies is underdetermined.  Its
---   instance: the k = 3 M√∂bius residual has unrestricted carrier rank 1
+--   instance: the k = 3 Mbius residual has unrestricted carrier rank 1
 --   and graded carrier rank 3, the same payload under two morphism
 --   classes.  That separation is now PROVED inside the substrate in
 --   `PayloadMorphism` (¬ßF there), together with the
@@ -213,10 +213,10 @@
 --    answer rather than being satisfied by any `refl` is the negative
 --    control `NaturalMachine/Control/WrongFirstStep.agda` (excluded from
 --    `agda`; it must fail, and does).
---  * H2 negates a Œ£-type and is therefore worth nothing until that
---    Œ£-type is known to be inhabitable.  It is, at fixed arguments:
+--  * H2 negates a Œ-type and is therefore worth nothing until that
+--    Œ-type is known to be inhabitable.  It is, at fixed arguments:
 --    H3 `decoder-exists-pointwise` in this file.  Both controls for this
---    module are landed and are cited by path, not described ‚Äî the
+--    module are landed and are cited by path, not described ‚î the
 --    positive one here as H3, the negative one at
 --    `NaturalMachine/Control/WrongFirstStep.agda`.  Neither control
 --    builds a decoder that reads anything off `(V , t)`: H3's witness is
@@ -226,7 +226,7 @@
 --    it.  It says nothing about which head the probe picks, in what
 --    order, or whether that order is good.
 --  * No optimality, no minimality: inherited from `GenerativeLoop` (the
---    step bound `chainLen ch ‚â§ deficit V t` is a bound).
+--    step bound `chainLen ch ‚â deficit V t` is a bound).
 --  * The cost model is inherited unchanged from `AcceptanceTest`: `cost`
 --    counts `sucC` ticks a plan SCHEDULES, priced at one unit each.
 --    "Strictly cheaper" means strictly fewer scheduled transitions of the
@@ -243,10 +243,10 @@
 --  * H2 is a no-go about DECODERS FROM THE STATE, not an impossibility
 --    theorem about the enterprise: it says a function of `(Vocab , Tm)`
 --    cannot be the answer.  It does not say no extension of the substrate
---    can carry the answer ‚Äî ¬ßI names one that could.  ¬ßI is not proved to
+--    can carry the answer ‚î ¬ßI names one that could.  ¬ßI is not proved to
 --    be sufficient, only to be a type; and no term of it is built.
 --  * NEITHER ¬ßI RECORD IS INHABITED, and `ArithmeticPayloadOver` is not
---    claimed to be sufficient either ‚Äî it is `ArithmeticPayload` with
+--    claimed to be sufficient either ‚î it is `ArithmeticPayload` with
 --    one omission repaired, not a construction.  Its `carrier` field
 --    demands a minimal carrier for a task's ANSWER in the declared
 --    class; nothing here relates that number to `deficit`, and the
@@ -338,8 +338,8 @@ Over‚Üímemb V (node c u) s (_  , hu) (inr h) = Over‚Üímemb V u s hu h
 ------------------------------------------------------------------------
 -- D3.  THE KEY LEMMA: a chain that made a head appear NAMED it.
 --
--- Each `ObsChain` step extends the vocabulary by exactly one shape ‚Äî the
--- residual of that step's obstruction ‚Äî and by nothing else.  So a shape
+-- Each `ObsChain` step extends the vocabulary by exactly one shape ‚î the
+-- residual of that step's obstruction ‚î and by nothing else.  So a shape
 -- absent at the start of a chain and present at its end must be the
 -- residual of one of the steps.  This is what connects the loop's OUTPUT
 -- (a vocabulary covering the target) back to the obstructions it built
@@ -464,7 +464,7 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
   -- THE STIPULATION, in one definition: a compiler that reads the task
   -- term for the capability it demands and the vocabulary for whether
   -- that capability is installed.  It is stipulated in exactly the sense
-  -- `Compile.compile` is ‚Äî nothing derives it ‚Äî but it is now a function
+  -- `Compile.compile` is ‚î nothing derives it ‚î but it is now a function
   -- of the term, so `Tm` targets and `Plan` programs are joined by a map
   -- rather than by a shared parameter.
   ----------------------------------------------------------------------
@@ -476,7 +476,7 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
       else restart m n
 
   -- F2: on tasks that demand the capability, the term-directed compiler
-  -- IS the vocabulary-directed one ‚Äî no new content is smuggled in.
+  -- IS the vocabulary-directed one ‚î no new content is smuggled in.
   compileTm-agrees : (V : Vocab) (t : Tm) (m n : ‚Ñï) ‚Üí HeadOccurs checkpoint t
                    ‚Üí compileTm V t m n ‚â° compile V m n
   compileTm-agrees V t m n occ =
@@ -545,8 +545,8 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
   -- H.  THE NEGATIVE RESULT.
   --
   -- codex-vajra's collision, transported into this substrate.  There the
-  -- signals F = (1,‚Ä¶,1) and G = (2,‚Ä¶,2) on Z/30 have the same cyclotomic
-  -- support ‚Äî hence the same translated term and the same `deficit` ‚Äî
+  -- signals F = (1,‚¶,1) and G = (2,‚¶,2) on Z/30 have the same cyclotomic
+  -- support ‚î hence the same translated term and the same `deficit` ‚î
   -- and different autocorrelations.  Here the corresponding fact is that
   -- the pair (V , t) is constant in the task's arithmetic arguments while
   -- the answer is not: the loop's state records WHICH CAPABILITY is
@@ -563,7 +563,7 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
                   ‚àô cong valueC q
                   ‚àô replay-observed 1 (suc 0) ))
 
-  -- H2.  No function of the loop's state is the task's answer ‚Äî for any
+  -- H2.  No function of the loop's state is the task's answer ‚î for any
   -- vocabulary and any target term whatsoever.  This is why `compileTm`
   -- takes the arithmetic arguments natively: the signature is forced.
   state-underdetermines-answer :
@@ -578,14 +578,14 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
   -- collab/PROTOCOL.md ¬ß7; the matching negative control is
   -- `NaturalMachine/Control/WrongFirstStep.agda`, which must fail).
   --
-  -- WHAT IT RULES OUT.  H2 negates a Œ£-type, so it would be true for a
-  -- boring reason if that Œ£-type were empty for want of an inhabitant of
-  -- `CanWord`, or by some degeneracy of `Œ£`, or because no `decode` of
-  -- the stated type exists at all.  Drop the uniformity ‚Äî fix `m` and `n`
-  -- before choosing `decode` instead of after ‚Äî and the Œ£-type IS
+  -- WHAT IT RULES OUT.  H2 negates a Œ-type, so it would be true for a
+  -- boring reason if that Œ-type were empty for want of an inhabitant of
+  -- `CanWord`, or by some degeneracy of `Œ`, or because no `decode` of
+  -- the stated type exists at all.  Drop the uniformity ‚î fix `m` and `n`
+  -- before choosing `decode` instead of after ‚î and the Œ-type IS
   -- inhabited, by a constant function.  So H2 is a statement about
   -- UNIFORMITY IN THE ARGUMENTS and nothing else: it says the quantifier
-  -- `(m n : ‚Ñï)` cannot be pushed inside the Œ£.  The answer type is not
+  -- `(m n : ‚ï)` cannot be pushed inside the Œ.  The answer type is not
   -- empty; the state simply cannot track it as `m` and `n` vary.
   --
   -- The witness is a constant function, so this certifies non-vacuity and
@@ -603,7 +603,7 @@ module Bridge (k : ‚Ñï) (checkpoint : Shape) where
 --
 -- missing object must carry.  They are the five fields below, plus
 -- `payload-separates`, which is the demand that the F/G collision be
--- resolvable ‚Äî exactly what ¬ßH proves the present state cannot do.
+-- resolvable ‚î exactly what ¬ßH proves the present state cannot do.
 --
 -- THIS RECORD IS DEFINED AND NOT INHABITED.  Nothing in this file, and
 -- nothing in this corpus that I am aware of, constructs a term of it.
@@ -618,7 +618,7 @@ record ArithmeticPayload : Type‚ÇÅ where
     -- (1) native coefficient/certificate data, indexed by the shape that
     --     names its sector.  This is what a `Shape` alone does not carry.
     Datum   : Shape ‚Üí Type‚ÇÄ
-    -- the task answers (correlation vectors, certificates, ‚Ä¶)
+    -- the task answers (correlation vectors, certificates, ‚¶)
     Ans     : Type‚ÇÄ
     -- installed payloads: a store attached to a vocabulary
     Store   : Vocab ‚Üí Type‚ÇÄ
@@ -663,8 +663,8 @@ record ArithmeticPayload : Type‚ÇÅ where
 --
 -- record above fixes the payload's DATA and never fixes the class of
 -- transformations under which the data may be re-presented, so its
--- implied "minimal carrier" is underdetermined ‚Äî the note's instance,
--- the k = 3 M√∂bius residual with unrestricted carrier rank 1 and graded
+-- implied "minimal carrier" is underdetermined ‚î the note's instance,
+-- the k = 3 Mbius residual with unrestricted carrier rank 1 and graded
 -- carrier rank 3, is proved as `PayloadMorphism.minimal-carrier-depends-
 -- on-class`, with the promotion table (1,3), (1,2), (1,1), (0,0) checked
 -- same day) adds a third class in which a differential forces a larger
@@ -673,7 +673,7 @@ record ArithmeticPayload : Type‚ÇÅ where
 --
 -- The repair is one parameter and one field: the class `M` is now part
 -- of the interface, and the payload must have a MINIMAL CARRIER IN `M`.
--- By `PayloadMorphism.min-unique` that number is then unique ‚Äî see
+-- By `PayloadMorphism.min-unique` that number is then unique ‚î see
 -- `payload-carrier-determined` below, which is the precise sense in
 -- which naming the class buys something.
 --
@@ -754,7 +754,7 @@ module _ {Ans : Type‚ÇÄ} {M : MorphismClass Ans} (P : ArithmeticPayloadOver Ans 
 -- The identifiers are suggestive; the objects are the numerals 0, 1, 2.
 -- What is checked is that the loop's own step function, run on this
 -- target from this vocabulary, reduces to an obstruction whose residual
--- is `resumeCap` ‚Äî G1 below is `refl`.
+-- is `resumeCap` ‚î G1 below is `refl`.
 ------------------------------------------------------------------------
 
 resumeCap tickCap readCap : Shape
@@ -841,7 +841,7 @@ module ConcreteTask (k : ‚Ñï) where
 
   -- G5: and the boundary, at the same concrete task.  After all of the
   -- above, the state `(baseVocab , taskTm)` STILL does not determine the
-  -- answer ‚Äî ¬ßH at this instance.  What generation supplied is the
+  -- answer ‚î ¬ßH at this instance.  What generation supplied is the
   -- capability, not the object.
   task-underdetermined :
     ¬¨ ( Œ£[ decode ‚àà (Vocab ‚Üí Tm ‚Üí CanWord) ]

@@ -1,74 +1,74 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Sha256Samvada — the hash is an interactive coalgebra: its process
+-- Sha256Samvada � the hash is an interactive coalgebra: its process
 -- space is contractible, the demand matters, and the first shown
 -- digest computes every later answer.
 --
--- संवाद — dialogue.  Sha256Srotas put SHA-256 into the coinductive
+-- ����� � dialogue.  Sha256Srotas put SHA-256 into the coinductive
 -- calculus's DEGENERATE fragment: the stream, the interaction where
 -- the environment has exactly one thing it can say (Fibre.Samvada's
 -- own words).  This module puts it where it belongs: into the
--- interactive coalgebra ISC itself —
+-- interactive coalgebra ISC itself �
 --
---   ISC Q O E w  ≃  (q : Q w) → Σ w' Σ o (E w q w' o × ISC Q O E w')
+--   ISC Q O E w  �  (q : Q w) � � w' � o (E w q w' o � ISC Q O E w')
 --
 -- with a REAL query family.  The environment of a hasher can do two
--- things: offer a block, or demand the digest —
+-- things: offer a block, or demand the digest �
 --
---   Q w      = अर्पय b | दर्शय            (absorb | emit)
+--   Q w      = ����� b | �����            (absorb | emit)
 --   gamanam  : absorb steps by compress; EMIT DOES NOT RESET STATE
 --   uttaram  : absorb shows nothing; emit shows the chaining value
 --   E        = the RECEIPT that the reaction is the lawful one:
---              (o ≡ uttaram w q) × (w' ≡ gamanam w q)
+--              (o ≡ uttaram w q) � (w' ≡ gamanam w q)
 --
 -- E is doing kernel work here: lawfulness is part of the TYPE, so a
 -- process of this interface cannot exist without carrying, at every
 -- reaction, the checked witness that it answered and stepped as
--- SHA-256 — unforgeable by type, the ControlledGrammar discipline
+-- SHA-256 � unforgeable by type, the ControlledGrammar discipline
 -- transposed to the coalgebra.
 --
 -- WHAT IS PROVED, all checked terms, no postulates, no holes:
 --
---   §2  saṃvādin — the canonical process, by guarded corecursion; and
---       परीक्षा-संवादः, the NIST empty-message vector obtained BY
+--   §2  savdin � the canonical process, by guarded corecursion; and
+--       ��������-������, the NIST empty-message vector obtained BY
 --       ASKING: offer the padded empty block, demand the digest, and
---       the answer is e3b0c442…7852b855, by the kernel computing.
---   §3  एक-संवादः — THE PROCESS SPACE IS CONTRACTIBLE.  Niyati proved
+--       the answer is e3b0c442�7852b855, by the kernel computing.
+--   §3  ���-������ � THE PROCESS SPACE IS CONTRACTIBLE.  Niyati proved
 --       determinism-as-contractibility for the closed machine; here it
---       holds for the OPEN one: sāmyaP builds, corecursively over a
+--       holds for the OPEN one: smyaP builds, corecursively over a
 --       path of states, a path between ANY two processes of the
 --       interface, using the E-receipts to align states and answers
---       and isProp→PathP to collapse the receipts themselves (the
---       receipt space is a proposition — support, not mass).  One
+--       and isProp�PathP to collapse the receipts themselves (the
+--       receipt space is a proposition � support, not mass).  One
 --       interface, one behaviour: every implementation of lawful
 --       SHA-256 interaction IS the canonical one, as a path.
---   §4  पृच्छा-भेदः — THE DEMAND MATTERS: two strategies at H0
+--   §4  ������-���� � THE DEMAND MATTERS: two strategies at H0
 --       computably disagree at the very first answer (ask and you see
 --       eight words; offer and you see none).  This is Samvada's
 --       `counter-demand-matters` separation instantiated at the hash:
 --       the interactive presentation is PROPERLY more than the stream,
 --       so Srotas was the trivial-query shadow of this module.
---   §5  दीर्घीकरण-भेदः — THE BREACH.  For EVERY process of the
---       interface: demand, offer b, demand again — and the third
+--   §5  �����������-���� � THE BREACH.  For EVERY process of the
+--       interface: demand, offer b, demand again � and the third
 --       answer is compress (first answer) b.  The environment computes
 --       the hasher's future from one emission and its own block: the
 --       length-extension attack as three receipts composed, holding
 --       not of one implementation but of the contractible space of
 --       all of them.  (Real-world SHA-256 length extension must also
---       thread the padding of the first message through अर्पय — the
+--       thread the padding of the first message through ����� � the
 --       padding quotient lives upstream in `pad`, at the loss's other
 --       address; Parimana and Sesa hold that boundary.)
---   §6  एकाग्र-पातः — THE COLLAPSE: under an offer-only strategy the
---       interaction IS the Srotas chain — observe returns exactly the
---       take-truncation of Khaṇḍa.gati on the constant block stream.
+--   §6  ��������-���� � THE COLLAPSE: under an offer-only strategy the
+--       interaction IS the Srotas chain � observe returns exactly the
+--       take-truncation of Khaa.gati on the constant block stream.
 --       det-observe's collapse, at SHA-256: kill the demand and the
 --       dialogue degenerates to the stream module, theorem by theorem.
 --
 -- Read §3 and §5 together and the design of every MAC built on this
 -- hash falls out as mathematics: the digest is TOTAL STATE DISCLOSURE
--- (fst of the दर्शय receipt), the process space is a point, so an
--- environment holding one answer holds the whole future — secrecy can
+-- (fst of the ����� receipt), the process space is a point, so an
+-- environment holding one answer holds the whole future � secrecy can
 -- only live in what was never shown (the past fibre, infinite by
 -- Parimana), never in the process.  HMAC exists because §5 is a
 -- theorem.
@@ -118,7 +118,7 @@ data Praśna : Type₀ where
 Q : W → Type₀
 Q _ = Praśna
 
--- how the state moves: absorb compresses; EMIT DOES NOT RESET STATE —
+-- how the state moves: absorb compresses; EMIT DOES NOT RESET STATE �
 -- this one clause is the whole cryptographic drama below
 gamanam : W → Praśna → W
 gamanam w (अर्पय b) = compress w b
@@ -168,7 +168,7 @@ dṛṣṭam q p = fst (snd (react p q))
 śiro'ṃśaḥ (b ∷ _) = b
 
 -- THE RECEIPT BY DIALOGUE: offer the padded empty block to the hasher
--- at H0, then demand — and the answer is the NIST digest, by the
+-- at H0, then demand � and the answer is the NIST digest, by the
 -- kernel running the whole pipeline inside the coalgebra.
 परीक्षा-संवादः :
   dṛṣṭam दर्शय (śeṣaḥ (अर्पय (śiro'ṃśaḥ (bls []))) (saṃvādin H0)) ≡ map word
@@ -180,7 +180,7 @@ dṛṣṭam q p = fst (snd (react p q))
 -- §3  THE PROCESS SPACE IS A POINT.  Niyati's theorem for the open
 --     machine: a path between ANY two processes, corecursively over a
 --     path of states.  The receipts align the visible components; the
---     receipt space, being a proposition, collapses by isProp→PathP;
+--     receipt space, being a proposition, collapses by isProp�PathP;
 --     the tails recurse, guarded, over the aligned state path.
 ------------------------------------------------------------------------
 
@@ -213,7 +213,7 @@ react (sāmyaP {w₀} {w₁} π p q i) pr = wP i , oP i , eP i , sāmyaP wP tp t
 
 ------------------------------------------------------------------------
 -- §4  THE DEMAND MATTERS: two strategies, one state, two different
---     first answers — the coalgebra is properly more than a stream.
+--     first answers � the coalgebra is properly more than a stream.
 ------------------------------------------------------------------------
 
 -- the answers a strategy extracts, to finite depth
@@ -231,7 +231,7 @@ arpaṇā _ = अर्पय []
 पृच्छा-भेदः π = ¬cons≡nil (cons-inj₁ π)
 
 ------------------------------------------------------------------------
--- §5  THE BREACH: demand, offer, demand — and the third answer is a
+-- §5  THE BREACH: demand, offer, demand � and the third answer is a
 --     function of the first, for EVERY process of the interface.  The
 --     digest is total state disclosure, so one emission hands the
 --     environment the hasher's entire future.
@@ -255,7 +255,7 @@ arpaṇā _ = अर्पय []
 ------------------------------------------------------------------------
 -- §6  THE COLLAPSE: kill the demand and the dialogue is the stream.
 --     Under an offer-only strategy, observation of the interaction is
---     exactly the take-truncation of Sha256Srotas' block chain — the
+--     exactly the take-truncation of Sha256Srotas' block chain � the
 --     previous module recovered as the trivial-query case of this one.
 ------------------------------------------------------------------------
 

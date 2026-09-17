@@ -1,20 +1,20 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- साधक — the prover.
+-- ����� � the prover.
 --
--- Pramanika proved: A = L D Lᵀ with D ≥ 0 makes vᵀAv ≥ 0.  Its checker
--- computes in ℚ and is unary-slow.  This file runs the same check over
--- Saṅkhyā — signed integers on the builtin naturals — and carries the
--- result across toℚ into Pramanika's hypotheses.  A certificate is
--- integer-scaled (A′ = c·A, integer L′, natural D′), and the theorem
--- returned is positivity of the rational form of A′.
+-- Pramanika proved: A = L D L� with D � 0 makes v�Av � 0.  Its checker
+-- computes in � and is unary-slow.  This file runs the same check over
+-- Sakhy � signed integers on the builtin naturals � and carries the
+-- result across to� into Pramanika's hypotheses.  A certificate is
+-- integer-scaled (A� = c�A, integer L�, natural D�), and the theorem
+-- returned is positivity of the rational form of A�.
 --
---   §1  EQUALITY on Saṅkhyā by builtin monus, sound into ℤ.
---   §2  toℚ and its homomorphisms; sums in Saṅkhyā versus sums in ℚ.
+--   §1  EQUALITY on Sakhy by builtin monus, sound into �.
+--   §2  to� and its homomorphisms; sums in Sakhy versus sums in �.
 --   §3  THE CHECK and the theorem it returns.
 --
--- साधक (sādhaka, the one who accomplishes/proves) is ordinary Sanskrit.
+-- ����� (sdhaka, the one who accomplishes/proves) is ordinary .
 ------------------------------------------------------------------------
 
 module Sadhaka_AnIntegerLDLTCertificateCheckedAtMachineSpeedYieldsThePositivityOfTheRationalFormThroughPramanika where
@@ -41,7 +41,7 @@ import Pramanika_AnExactRationalLDLTFactorisationCertifiesThatAQuadraticFormIsNo
   as P
 
 ------------------------------------------------------------------------
--- १ · Equality by monus.
+-- � � Equality by monus.
 ------------------------------------------------------------------------
 
 śūnya? : ℕ → Bool
@@ -79,7 +79,7 @@ eq𝕊-sama (⁺ a) (⁻ b) e = cong pos (eqℕ-sama a zero (fst (and-satya (eq�
 eq𝕊-sama (⁻ a) (⁺ b) e = cong neg (eqℕ-sama a zero (fst (and-satya (eqℕ a zero) (eqℕ b zero) e))) ∙ cong pos (sym (eqℕ-sama b zero (snd (and-satya (eqℕ a zero) (eqℕ b zero) e))))
 
 ------------------------------------------------------------------------
--- २ · toℚ and sums.
+-- � � to� and sums.
 ------------------------------------------------------------------------
 
 toℚ : 𝕊 → ℚ
@@ -102,12 +102,12 @@ toℚ-⊕ x y = eq/ _ _ sākṣī
 Σ-toℚ zero    f = refl
 Σ-toℚ (suc n) f = toℚ-⊕ (Σ𝕊 n f) (f n) ∙ cong (_+ toℚ (f n)) (Σ-toℚ n f)
 
--- a natural, read in ℚ, is nonnegative
+-- a natural, read in �, is nonnegative
 toℚ-anṛṇa : (d : ℕ) → 0 ≤ℚ toℚ (⁺ d)
 toℚ-anṛṇa d = subst (pos 0 ℤO.≤_) (sym (ℤ.·IdR (pos d))) ℤO.zero-≤pos
 
 ------------------------------------------------------------------------
--- ३ · The check and the theorem.
+-- � � The check and the theorem.
 ------------------------------------------------------------------------
 
 sarva : (k : ℕ) → (ℕ → Bool) → Bool

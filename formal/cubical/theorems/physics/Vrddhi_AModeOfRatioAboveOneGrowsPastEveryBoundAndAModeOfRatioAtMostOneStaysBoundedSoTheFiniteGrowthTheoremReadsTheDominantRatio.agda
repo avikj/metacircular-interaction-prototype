@@ -1,21 +1,21 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- वृद्धि — growth.
+-- ������ � growth.
 --
 -- The proof note's growth theorem: limsup log(1+|B(t)|)/t = Θ − ½, where
--- Θ is the supremum of Re ρ; hence RH ⇔ B = O(1).  A mode e^{(ρ−½)t} is
--- bounded exactly when Re ρ ≤ ½.  Its finite shadow over ℚ: the mode
--- t ↦ m^t with m > 0 is bounded exactly when m ≤ 1.
+-- Θ is the supremum of Re �; hence RH � B = O(1).  A mode e^{(�−½)t} is
+-- bounded exactly when Re � � ½.  Its finite shadow over �: the mode
+-- t � m^t with m > 0 is bounded exactly when m � 1.
 --
---   §1  ι : ℕ → ℚ, and Bernoulli's inequality: (1 + x)^t ≥ 1 + t·x for
---       x ≥ 0, by induction with one product of nonnegatives.
---   §2  THE ARCHIMEDEAN PROPERTY of ℚ: for x > 0 and any K there merely
---       exists t : ℕ with K < ι t · x — read off on representatives.
+--   §1  � : � � �, and Bernoulli's inequality: (1 + x)^t � 1 + t�x for
+--       x � 0, by induction with one product of nonnegatives.
+--   §2  THE ARCHIMEDEAN PROPERTY of �: for x > 0 and any K there merely
+--       exists t : � with K < � t � x � read off on representatives.
 --   §3  A MODE OF RATIO > 1 GROWS PAST EVERY BOUND; a mode of ratio in
 --       [0,1] stays in [0,1].
 --
--- वृद्धि (vṛddhi, growth) is ordinary Sanskrit and Pāṇini's own term.
+-- ������ (vddhi, growth) is ordinary  and Pini's own term.
 ------------------------------------------------------------------------
 
 module Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostOneStaysBoundedSoTheFiniteGrowthTheoremReadsTheDominantRatio where
@@ -27,7 +27,7 @@ open import Cubical.Foundations.Structure using (⟨_⟩)
 open import Cubical.Algebra.CommRing
 open import Cubical.Tactics.CommRingSolver
 
--- ring identities, proved once over any commutative ring and read at ℚ
+-- ring identities, proved once over any commutative ring and read at �
 module Sama (R : CommRing ℓ-zero) where
   open CommRingStr (snd R)
   vistāra : (x u : ⟨ R ⟩) → (1r + x) · (1r + u · x) ≡ (1r + (u + 1r) · x) + (u · x) · x
@@ -44,7 +44,7 @@ open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAH
   using (ℚRing ; anṛṇa-varga ; anṛṇa-yoga)
 
 ------------------------------------------------------------------------
--- १ · ι and Bernoulli.
+-- � � � and Bernoulli.
 ------------------------------------------------------------------------
 
 ι : ℕ → ℚ
@@ -55,7 +55,7 @@ _^_ : ℚ → ℕ → ℚ
 m ^ zero  = 1
 m ^ suc t = m · (m ^ t)
 
--- 0 ≤ ι n
+-- 0 � � n
 ι-anṛṇa : (n : ℕ) → 0 ≤ ι n
 ι-anṛṇa zero    = isRefl≤ 0
 ι-anṛṇa (suc n) = anṛṇa-yoga {ι n} {1} (ι-anṛṇa n) (<Weaken≤ 0 1 0<1)
@@ -66,7 +66,7 @@ m ^ suc t = m · (m ^ t)
 anṛṇa-guṇa : (x y : ℚ) → 0 ≤ x → 0 ≤ y → 0 ≤ x · y
 anṛṇa-guṇa x y 0≤x 0≤y = subst (_≤ x · y) (·AnnihilL y) (≤-·o 0 x y 0≤y 0≤x)
 
--- Bernoulli: (1 + x)^t ≥ 1 + ι t · x for 0 ≤ x
+-- Bernoulli: (1 + x)^t � 1 + � t � x for 0 � x
 bernoulli : (x : ℚ) → 0 ≤ x → (t : ℕ) → 1 + ι t · x ≤ (1 + x) ^ t
 bernoulli x 0≤x zero = subst (_≤ 1) (sym (Sama.eka-guṇa ℚRing x)) (isRefl≤ 1)
 bernoulli x 0≤x (suc t) =

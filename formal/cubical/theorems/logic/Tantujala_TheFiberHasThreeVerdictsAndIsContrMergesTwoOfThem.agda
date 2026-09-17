@@ -1,72 +1,72 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§§‡§®‡•ç‡§§‡•Å‡§ú‡§æ‡§≤‡§Æ‡•ç ‚Äî ‡§§‡§®‡•ç‡§§‡•ã‡§É ‡§§‡•ç‡§∞‡§Ø‡•ã ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§æ‡§É ; isContr ‡§¶‡•ç‡§µ‡•å ‡§Æ‡•á‡§≤‡§Ø‡§§‡§ø ‡•§
+-- ‡‡®‡‡‡‡‡æ‡≤‡Æ‡ ‚î ‡‡®‡‡‡ã‡ ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡ ; isContr ‡¶‡‡µ‡ ‡Æ‡‡≤‡Ø‡‡ø ‡
 --
 -- (the fiber has three verdicts, and `isContr` merges two of them.)
 --
 -- WHAT THIS IS FOR.  It is the CODOMAIN of a census.  A tool that walks this
 -- corpus asking "is this datum determined?" needs somewhere to put its
 -- answer, and if that somewhere is `Bool` the tool commits the very collapse
--- the corpus exists to refuse.  `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` proves it: ANY
--- two-valued verdict on three seeds identifies two of them.  ¬ß‡•™ instantiates
+-- the corpus exists to refuse.  `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` proves it: ANY
+-- two-valued verdict on three seeds identifies two of them.  ¬ß‡ instantiates
 -- that at the fiber, so the claim is not an analogy.
 --
 -- THE THREE VERDICTS, and the whole content is that they are THREE.
 --
---   ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç  the fiber is EMPTY.  ‡§®‡§∑‡•ç‡§ü‡§ø / ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç: there is no return, and
+--   ‡∞‡ø‡ï‡‡‡Æ‡  the fiber is EMPTY.  ‡®‡‡‡ü‡ø / ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡: there is no return, and
 --          there is nothing to carry.  No `Carrier`, no `ua`, nothing to
---          transport.  ¬ß‡•´ of ‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ-‡§∏‡•Ç‡§§‡•ç‡§∞-‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞‡§É: ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø‡§Æ‡•ç.
---   ‡§è‡§ï‡§Æ‡•ç    the fiber is CONTRACTIBLE.  ‡§™‡•Å‡§®‡§∞‡§æ‡§ó‡§Æ‡§®: the datum is determined,
+--          transport.  ¬ß‡ of ‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡: ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø‡Æ‡.
+--   ‡‡ï‡Æ‡    the fiber is CONTRACTIBLE.  ‡‡‡®‡∞‡æ‡ó‡Æ‡®: the datum is determined,
 --          rides free, and `singl` gives it with no hypothesis whatever.
---   ‡§¨‡§π‡•Å     the fiber has TWO DISTINCT POINTS.  Not a failure ‚Äî the fiber is
+--   ‡‡‡     the fiber has TWO DISTINCT POINTS.  Not a failure ‚î the fiber is
 --          the SUBJECT.  `TheFiberIsTheSubject`: the
---          obstruction reading calls it a barrier and stops; the ‡§≠‡§æ‡§µ‡§®‡§æ
+--          obstruction reading calls it a barrier and stops; the ‡‡æ‡µ‡®‡æ
 --          reading calls it a set with a group acting on it and computes.
 --
 -- WHICH VERDICT YOU GET IS DECIDED BY WHICH SIDE OF `f a ‚â° b` IS BOUND, and
 -- that is the one-line criterion five independent lines of work in this
 -- corpus arrived at separately:
 --
---   bind b :  Œ£[ b ‚àà B ] (f a ‚â° b)  =  singl (f a)   ‚Äî ‡§è‡§ï‡§Æ‡•ç, always, free.
---   bind a :  Œ£[ a ‚àà A ] (f a ‚â° b)  =  fiber f b     ‚Äî any of the three.
+--   bind b :  Œ[ b ‚àà B ] (f a ‚â° b)  =  singl (f a)   ‚î ‡‡ï‡Æ‡, always, free.
+--   bind a :  Œ[ a ‚àà A ] (f a ‚â° b)  =  fiber f b     ‚î any of the three.
 --
--- ¬ß‡•® is that sentence as two terms.  A determined datum carried as a FIELD
+-- ¬ß‡® is that sentence as two terms.  A determined datum carried as a FIELD
 -- binds b; the same datum fixed as an INDEX binds a.  That is why
 -- `Reduction A` is a Carrier and `SmithPresentation A B` is not, why the
--- ku·π≠·π≠aka's three slots refused, and why `Sol D k` is a level set rather
+-- kuaka's three slots refused, and why `Sol D k` is a level set rather
 -- than a graph.
 --
 -- AND THE AGGREGATE IS ALREADY IN THE LIBRARY.  `isEquiv f` IS
--- `(b : B) ‚Üí isContr (fiber f b)` ‚Äî ‡§è‡§ï‡§Æ‡•ç at every point at once, which is
--- ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ and not a search with a first step.  ¬ß‡•¨ records that, and records
--- what it buys: when every fiber is ‡§è‡§ï‡§Æ‡•ç, base and carried may be EXCHANGED,
--- so storing and generating are the same type ‚Äî ¬ß‡•™‡•ß ‡§∏‡§æ‡§∞‡§£‡•Ä ‡§µ‡§æ ‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ as an
+-- `(b : B) ‚í isContr (fiber f b)` ‚î ‡‡ï‡Æ‡ at every point at once, which is
+-- ‡‡ï‡≤‡æ‡¶‡‡ and not a search with a first step.  ¬ß‡ records that, and records
+-- what it buys: when every fiber is ‡‡ï‡Æ‡, base and carried may be EXCHANGED,
+-- so storing and generating are the same type ‚î ¬ß‡‡ß ‡‡æ‡∞‡‡ ‡µ‡æ ‡ï‡‡∞‡ø‡Ø‡æ as an
 -- identity rather than a trade.
 --
 -- [CORRECTED 2026-08-22, and the wrong version is quoted rather than erased,
 -- because a citation is a claim about the repository and silently mending one
 -- loses the fact that it was made.  This header said, twice:
 --
---     `Loss.Prastara_‚Ä¶` proves ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ ‚â° ‚Ñï
+--     `Loss.Prastara_‚¶` proves ‡‡‡∞‡‡‡‡æ‡∞ ‚â° ‚ï
 --
 -- There is no module of that name in the tree or anywhere in git history, and
--- nothing in the corpus proves ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ ‚â° ‚Ñï.  What exists is
--- `NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É`, and it gives
+-- nothing in the corpus proves ‡‡‡∞‡‡‡‡æ‡∞ ‚â° ‚ï.  What exists is
+-- `NastaUddista_TheRankUnrankAlgebraTheMachineRunsOn.‡‡‡∞‡‡‡‡æ‡∞‡`, and it gives
 --
---     ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É : (rs : List ‚Ñï) ‚Üí Iso (‡§Ö‡§ô‡•ç‡§ï‡§∏‡•ç‡§•‡§æ‡§® rs) (Fin (‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ rs))
+--     ‡‡‡∞‡‡‡‡æ‡∞‡ : (rs : List ‚ï) ‚í Iso (‡‡ô‡‡ï‡‡‡‡æ‡® rs) (Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs))
 --
--- ‚Äî a FINITE type, at each fixed ‡§õ‡•á‡§¶-‡§∏‡•Ç‡§ö‡•Ä rs, from two separately proved
--- procedures (‡§â‡§¶‡•ç‡§¶‡§ø‡§∑‡•ç‡§ü by addition and multiplication, ‡§®‡§∑‡•ç‡§ü by division) with
--- no table stored.  By univalence that is `‡§Ö‡§ô‡•ç‡§ï‡§∏‡•ç‡§•‡§æ‡§® rs ‚â° Fin (‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ rs)`,
+-- ‚î a FINITE type, at each fixed ‡‡‡¶-‡‡‡‡ rs, from two separately proved
+-- procedures (‡â‡¶‡‡¶‡ø‡‡‡ü by addition and multiplication, ‡®‡‡‡ü by division) with
+-- no table stored.  By univalence that is `‡‡ô‡‡ï‡‡‡‡æ‡® rs ‚â° Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs)`,
 -- checked at this commit, and at rs = [] it reads `Unit ‚â° Fin 1`, which is
--- where `‚â° ‚Ñï` dies on sight.
+-- where `‚â° ‚ï` dies on sight.
 --
 -- The exchange claim SURVIVES and is the honest form: at each rs the space of
 -- stored patterns and the range of indices are equal AS TYPES, so keeping the
--- ‡§∏‡§æ‡§∞‡§£‡•Ä and running the ‡§ï‡•ç‡§∞‡§ø‡§Ø‡§æ are one object.  ¬ß‡•™‡•ß is an identity.  What does
+-- ‡‡æ‡∞‡‡ and running the ‡ï‡‡∞‡ø‡Ø‡æ are one object.  ¬ß‡‡ß is an identity.  What does
 -- not survive is the codomain and the citation.  Grounds:
--- ‡§â‡§ï‡•ç‡§§‡§Ç ‡§™‡§†‡§ø‡§§‡§Ç ‡§ö ‡§® ‡§≠‡§ø‡§®‡§§‡•ç‡§§‡§ø, the instrument does not distinguish having read a
+-- ‡â‡ï‡‡‡ ‡‡†‡ø‡‡ ‡ ‡® ‡‡ø‡®‡‡‡‡ø, the instrument does not distinguish having read a
 -- thing from having seen it cited, which is what produced this line.]
 --
 -- CHECKED: Agda 2.8.0, agda/cubical v0.9, --cubical --safe, no postulates,
@@ -91,7 +91,7 @@ private
     ‚Ñì ‚Ñì' : Level
 
 ------------------------------------------------------------------------
--- ‡•ß ¬∑ ‡§§‡•ç‡§∞‡§Ø‡•ã ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§æ‡§É ‚Äî the three, as types.
+-- ‡ß ¬ ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡ ‚î the three, as types.
 ------------------------------------------------------------------------
 
 module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
@@ -106,11 +106,11 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
   ‡§¨‡§π‡•Å b = Œ£[ x ‚àà fiber f b ] Œ£[ y ‚àà fiber f b ] (¬¨ (x ‚â° y))
 
   ----------------------------------------------------------------------
-  -- ‡•® ¬∑ ‡§ï‡§∏‡•ç‡§Æ‡§ø‡§®‡•ç ‡§™‡§ï‡•ç‡§∑‡•á ‡§¨‡§¶‡•ç‡§ß‡§Æ‡•ç ‚Äî which side is bound.
+  -- ‡® ¬ ‡ï‡‡‡Æ‡ø‡®‡ ‡‡ï‡‡‡ ‡‡¶‡‡ß‡Æ‡ ‚î which side is bound.
   --
   -- Binding the SECOND coordinate is `singl`, contractible with no
   -- hypothesis at all.  Binding the FIRST is `fiber`, which is any of the
-  -- three.  One equation, two readings, opposite verdicts ‚Äî and that is
+  -- three.  One equation, two readings, opposite verdicts ‚î and that is
   -- the whole criterion.
   ----------------------------------------------------------------------
 
@@ -124,12 +124,12 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
   ‡§µ‡§π‡§®‡§Æ‡•ç-‡§∏‡§¶‡§æ-‡§è‡§ï‡§Æ‡•ç a = isContrSingl (f a)
 
   -- and the preimage IS the fiber, definitionally: the two readings differ
-  -- only in which variable the Œ£ binds.
+  -- only in which variable the Œ binds.
   ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡§Æ‡•ç-‡§§‡§®‡•ç‡§§‡•Å‡§É : (b : B) ‚Üí ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡§Æ‡•ç b ‚â° fiber f b
   ‡§™‡•ç‡§∞‡§§‡§ø‡§¨‡§ø‡§Æ‡•ç‡§¨‡§Æ‡•ç-‡§§‡§®‡•ç‡§§‡•Å‡§É _ = refl
 
   ----------------------------------------------------------------------
-  -- ‡•© ¬∑ ‡§™‡§∞‡§∏‡•ç‡§™‡§∞-‡§µ‡§ø‡§∞‡•ã‡§ß‡§É ‚Äî the three exclude one another.
+  -- ‡© ¬ ‡‡∞‡‡‡‡∞-‡µ‡ø‡∞‡ã‡ß‡ ‚î the three exclude one another.
   ----------------------------------------------------------------------
 
   ‡§∞‡§ø‡§ï‡•ç‡§§-‡§è‡§ï-‡§µ‡§ø‡§∞‡•ã‡§ß‡§É : (b : B) ‚Üí ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç b ‚Üí ‡§è‡§ï‡§Æ‡•ç b ‚Üí ‚ä•
@@ -143,11 +143,11 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
     x‚â¢y (sym (e .snd x) ‚àô e .snd y)
 
 ------------------------------------------------------------------------
--- ‡•™ ¬∑ ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É ‡§§‡§®‡•ç‡§§‡•å ‚Äî THE POINT.  A two-valued verdict must merge two.
+-- ‡ ¬ ‡¶‡‡∞‡‡®‡Ø‡ ‡‡®‡‡‡ ‚î THE POINT.  A two-valued verdict must merge two.
 --
--- `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` says: any `f : ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä ‚Üí ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶` identifies two of
--- ‡§Ö‡§∏‡•ç‡§§‡§ø / ‡§®‡§æ‡§∏‡•ç‡§§‡§ø / ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø.  Read the three fiber verdicts as those three
--- seeds ‚Äî ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç is ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø (nothing sayable), ‡§è‡§ï‡§Æ‡•ç is ‡§Ö‡§∏‡•ç‡§§‡§ø, ‡§¨‡§π‡•Å is ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚Äî
+-- `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` says: any `f : ‡‡‡‡‡‡ô‡‡ó‡ ‚í ‡¶‡‡µ‡ø‡‡¶` identifies two of
+-- ‡‡‡‡‡ø / ‡®‡æ‡‡‡‡ø / ‡‡µ‡ï‡‡‡µ‡‡Ø.  Read the three fiber verdicts as those three
+-- seeds ‚î ‡∞‡ø‡ï‡‡‡Æ‡ is ‡‡µ‡ï‡‡‡µ‡‡Ø (nothing sayable), ‡‡ï‡Æ‡ is ‡‡‡‡‡ø, ‡‡‡ is ‡®‡æ‡‡‡‡ø ‚î
 -- and the conclusion transfers verbatim: a census whose answer type has two
 -- values CANNOT distinguish the three, whatever it computes.
 --
@@ -162,39 +162,39 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
 ‡§¶‡•ç‡§µ‡§ø‡§™‡§¶-‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡•ã-‡§Æ‡•á‡§≤‡§Ø‡§§‡§ø = S.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É
 
 ------------------------------------------------------------------------
--- ‡•´ ¬∑ ‡§®-‡§è‡§ï‡§Æ‡•ç ‡§ï‡§ø‡§Æ‡•ç ‡§á‡§§‡§ø ‡§® ‡§µ‡§¶‡§§‡§ø ‚Äî "not contractible" does not say which.
+-- ‡ ¬ ‡®-‡‡ï‡Æ‡ ‡ï‡ø‡Æ‡ ‡‡‡ø ‡® ‡µ‡¶‡‡ø ‚î "not contractible" does not say which.
 --
--- The load-bearing half.  Two maps, both failing ‡§è‡§ï‡§Æ‡•ç at a point, for
--- OPPOSITE reasons.  A verdict that reports only `¬¨ ‡§è‡§ï‡§Æ‡•ç` has destroyed the
+-- The load-bearing half.  Two maps, both failing ‡‡ï‡Æ‡ at a point, for
+-- OPPOSITE reasons.  A verdict that reports only `¬ ‡‡ï‡Æ‡` has destroyed the
 -- distinction between "nothing is there" and "the subject is there".
 ------------------------------------------------------------------------
 
--- ‡§∞‡§ø‡§ï‡•ç‡§§ side: the map ‚ä• ‚Üí Unit misses tt.
+-- ‡∞‡ø‡ï‡‡ side: the map ‚ä ‚í Unit misses tt.
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : ‚ä• ‚Üí Unit
 ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É ()
 
 ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§Ö‡§§‡•ç‡§∞ : ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É tt
 ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§Ö‡§§‡•ç‡§∞ ()
 
--- ‡§¨‡§π‡•Å side: the map Bool ‚Üí Unit collapses two points onto tt.
+-- ‡‡‡ side: the map Bool ‚í Unit collapses two points onto tt.
 ‡§∏‡§Æ‡§æ‡§π‡§æ‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : Bool ‚Üí Unit
 ‡§∏‡§Æ‡§æ‡§π‡§æ‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É _ = tt
 
 ‡§¨‡§π‡•Å-‡§Ö‡§§‡•ç‡§∞ : ‡§¨‡§π‡•Å ‡§∏‡§Æ‡§æ‡§π‡§æ‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É tt
 ‡§¨‡§π‡•Å-‡§Ö‡§§‡•ç‡§∞ = (true , refl) , (false , refl) , Œª p ‚Üí true‚â¢false (cong fst p)
 
--- Both fail ‡§è‡§ï‡§Æ‡•ç, and nothing in that failure separates them.
+-- Both fail ‡‡ï‡Æ‡, and nothing in that failure separates them.
 ‡§â‡§≠‡§Ø‡§§‡•ç‡§∞-‡§®-‡§è‡§ï‡§Æ‡•ç : (¬¨ ‡§è‡§ï‡§Æ‡•ç ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É tt) √ó (¬¨ ‡§è‡§ï‡§Æ‡•ç ‡§∏‡§Æ‡§æ‡§π‡§æ‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É tt)
 ‡§â‡§≠‡§Ø‡§§‡•ç‡§∞-‡§®-‡§è‡§ï‡§Æ‡•ç =
     (Œª e ‚Üí ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç-‡§Ö‡§§‡•ç‡§∞ (e .fst))
   , (Œª e ‚Üí ‡§è‡§ï-‡§¨‡§π‡•Å-‡§µ‡§ø‡§∞‡•ã‡§ß‡§É ‡§∏‡§Æ‡§æ‡§π‡§æ‡§∞-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É tt e ‡§¨‡§π‡•Å-‡§Ö‡§§‡•ç‡§∞)
 
 ------------------------------------------------------------------------
--- ‡•¨ ¬∑ ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡§É ‚Äî the aggregate, and it is already the library's.
+-- ‡ ¬ ‡‡ï‡≤‡æ‡¶‡‡‡ ‚î the aggregate, and it is already the library's.
 --
--- `isEquiv f` is DEFINITIONALLY "‡§è‡§ï‡§Æ‡•ç at every b".  So the total verdict is
--- not a search with a first step ‚Äî it is a census over the whole codomain
--- at once, which is exactly ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ against ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂.  It is a RECORD wrapping
+-- `isEquiv f` is DEFINITIONALLY "‡‡ï‡Æ‡ at every b".  So the total verdict is
+-- not a search with a first step ‚î it is a census over the whole codomain
+-- at once, which is exactly ‡‡ï‡≤‡æ‡¶‡‡ against ‡µ‡ø‡ï‡≤‡æ‡¶‡‡.  It is a RECORD wrapping
 -- that Œ† rather than the Œ† itself, so the two directions are one projection
 -- and one copattern -- not refl, and saying so is the honest form.  Recorded here because
 -- a seat of this corpus spent hours proposing a sequential diagnostic
@@ -209,25 +209,25 @@ module _ {A : Type ‚Ñì} {B : Type ‚Ñì'} (f : A ‚Üí B) where
                   ‚Üí ((b : B) ‚Üí ‡§è‡§ï‡§Æ‡•ç f b) ‚Üí isEquiv f
 isEquiv.equiv-proof (‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂-‡§™‡•ç‡§∞‡§§‡•ç‡§Ø‡§æ‡§ó‡§Æ‡§É f g) = g
 
--- and when the census comes back ‡§è‡§ï‡§Æ‡•ç everywhere, base and carried may be
--- exchanged: `NastaUddista_‚Ä¶.‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§É` gives `‡§Ö‡§ô‡•ç‡§ï‡§∏‡•ç‡§•‡§æ‡§® rs ‚â° Fin (‡§∏‡§ô‡•ç‡§ñ‡•ç‡§Ø‡§æ rs)`
--- from exactly this, so at each ‡§õ‡•á‡§¶-‡§∏‡•Ç‡§ö‡•Ä storing and generating are one type.
--- (Corrected 2026-08-22 ‚Äî this line read `Loss.Prastara_‚Ä¶ proves
--- ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞ ‚â° ‚Ñï`, a module that does not exist and a codomain that is wrong;
--- see the inset in ¬ß‡•¨ above.)  The identity is the smallest instance.
+-- and when the census comes back ‡‡ï‡Æ‡ everywhere, base and carried may be
+-- exchanged: `NastaUddista_‚¶.‡‡‡∞‡‡‡‡æ‡∞‡` gives `‡‡ô‡‡ï‡‡‡‡æ‡® rs ‚â° Fin (‡‡ô‡‡ñ‡‡Ø‡æ rs)`
+-- from exactly this, so at each ‡‡‡¶-‡‡‡‡ storing and generating are one type.
+-- (Corrected 2026-08-22 ‚î this line read `Loss.Prastara_‚¶ proves
+-- ‡‡‡∞‡‡‡‡æ‡∞ ‚â° ‚ï`, a module that does not exist and a codomain that is wrong;
+-- see the inset in ¬ß‡ above.)  The identity is the smallest instance.
 ‡§∏‡§Æ‡§§‡§æ-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É : {A : Type ‚Ñì} ‚Üí (b : A) ‚Üí ‡§è‡§ï‡§Æ‡•ç (Œª (a : A) ‚Üí a) b
 ‡§∏‡§Æ‡§§‡§æ-‡§Æ‡§æ‡§∞‡•ç‡§ó‡§É {A = A} b = isEquiv.equiv-proof (equivIsEquiv (idEquiv A)) b
 
 ------------------------------------------------------------------------
--- ‡•≠ ¬∑ ‡§∂‡•á‡§∑‡§É ‚Äî what a census still cannot say, and it is not on this axis.
+-- ‡ ¬ ‡‡‡‡ ‚î what a census still cannot say, and it is not on this axis.
 --
--- ‡§∞‡§ø‡§ï‡•ç‡§§‡§Æ‡•ç is "the question was posed and the answer is nowhere".  It is NOT
--- "no question was posed" ‚Äî `interactive/Obstruction.hs` carries that as a
+-- ‡∞‡ø‡ï‡‡‡Æ‡ is "the question was posed and the answer is nowhere".  It is NOT
+-- "no question was posed" ‚î `interactive/Obstruction.hs` carries that as a
 -- separate constructor (`Sthana = Position Bhanga | ADharmin`, "x != y has
--- no subject, so no bhanga"), and `Saptabhangi.‡§∏‡§Æ‡§æ‡§µ‡•á‡§∂-‡§≠‡•á‡§¶‡§É` puts it in the
--- types as the `‚äé Unit`: ‡§∏‡§™‡•ç‡§§‡§≠‡§ô‡•ç‡§ó‡•Ä plus one void profile, ‡§Ö-‡§™‡•ç‡§∞‡§§‡§ø‡§™‡§æ‡§¶‡§®‡§Æ‡•ç.
+-- no subject, so no bhanga"), and `Saptabhangi.‡‡Æ‡æ‡µ‡‡-‡‡‡¶‡` puts it in the
+-- types as the `‚ä Unit`: ‡‡‡‡‡‡ô‡‡ó‡ plus one void profile, ‡-‡‡‡∞‡‡ø‡‡æ‡¶‡®‡Æ‡.
 -- A fiber census reads a GIVEN map at a GIVEN point; where there is no
 -- dharmin there is no map to take a fiber of, and this module is silent.
--- `Loss.Adharmin_‚Ä¶` treats that case; the two are complements and
+-- `Loss.Adharmin_‚¶` treats that case; the two are complements and
 -- neither subsumes the other.
 ------------------------------------------------------------------------

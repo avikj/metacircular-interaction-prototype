@@ -7,42 +7,42 @@
 -- theory and Lawvere 1973; no Indian source term applies and none is
 -- invented (CLAUDE.md's naming guard).  Ledger and frame file checked
 -- before naming.  Relevant because it was nearly the wrong module:
--- `Khahara.agda` â€” another identity's â€” already carries an unbounded
--- quantity (à¤–à¤¹à¤°, BhÄskara II: `à¤¸à¤¸à¥€à¤® : â„¤ â†’ à¤–à¤¹à¤°` and `à¤…à¤¨à¤¨à¥à¤¤`, with `âŠ•`
+-- `Khahara.agda` â” another identity's â” already carries an unbounded
+-- quantity (à–àà°, Bhskara II: `àààà® : â â’ à–àà°` and `àà¨à¨àà`, with `âŠ•`
 -- and `âŠ–` absorbing).  I was about to ask its author to extend it.
 -- **The request was unnecessary, and the reason is a mistake of mine.**
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE CORRECTION, WHICH IS THIS MODULE'S REASON FOR EXISTING.
 --
 -- `TheTwoSidedProfileCutNeedsTheBurdensAsAProfile` recorded, and the
 -- next module repeated in its signature:
 --
 --   "with NO rows the constraint is vacuous and that maximum is
---    unbounded â€” the empty meet is `âˆ`, which â„• does not have â€¦ a
+--    unbounded â” the empty meet is `âˆ`, which â• does not have â¦ a
 --    two-sided cut exists over a non-empty residual index set, or over
---    `â„• âŠ âˆ`, and not over â„• with an arbitrary index set."
+--    `â• âŠ âˆ`, and not over â• with an arbitrary index set."
 --
 -- **That is wrong, and it is the exact sign error I had warned about
--- one cycle earlier.**  The burden side is ordered by `_âŠ‘p_`, REVERSE
--- pointwise `â‰¤` â€” more burden absorbed is lower.  The right adjoint
--- must produce the `âŠ‘p`-GREATEST profile satisfying a vacuous
--- constraint; `âŠ‘p`-greatest is `â‰¤`-LEAST, and â„•'s least element is
--- `0`.  The empty meet is not `âˆ`.  It is zero, and â„• has it.
+-- one cycle earlier.**  The burden side is ordered by `_âŠp_`, REVERSE
+-- pointwise `â‰` â” more burden absorbed is lower.  The right adjoint
+-- must produce the `âŠp`-GREATEST profile satisfying a vacuous
+-- constraint; `âŠp`-greatest is `â‰`-LEAST, and â•'s least element is
+-- `0`.  The empty meet is not `âˆ`.  It is zero, and â• has it.
 --
 -- I wrote "give both sides different symbols" into the standing rules
 -- last cycle and then read the wrong one anyway, in prose rather than
 -- in code, where the typechecker could not catch it.  It was caught
--- here by trying to build the thing the wrong claim implied â€” an
--- abstract carrier with a top â€” and watching the goal come out as
--- `top â‰¤v a`, which is backwards.
+-- here by trying to build the thing the wrong claim implied â” an
+-- abstract carrier with a top â” and watching the goal come out as
+-- `top â‰v a`, which is backwards.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   zeroProfile        the all-zero burden profile
---   belowEverything    `Ï† âŠ‘p zeroProfile ks` for every Ï† â€” the empty
---                      meet, in one induction on `zero-â‰¤`
+--   belowEverything    `Ï âŠp zeroProfile ks` for every Ï â” the empty
+--                      meet, in one induction on `zero-â‰`
 --   dnAll              the right adjoint over an ARBITRARY residual
 --                      index list, empty included: `zeroProfile` at
 --                      `[]`, `maxP` of the row's `dnV` with the rest at
@@ -50,13 +50,13 @@
 --   goFwdAll / goBwdAll
 --                      the adjunction, unrestricted
 --
--- So the two-sided profile cut exists over â„• with no restriction on
+-- So the two-sided profile cut exists over â• with no restriction on
 -- the residual index and no `âˆ` anywhere.  `dnNE`'s non-emptiness, put
 -- in its signature last cycle as a deliberate record of a real
 -- restriction, was recording a restriction that was not there;
 -- `dnAll [] ks _ _` is `zeroProfile ks` and everything goes through.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

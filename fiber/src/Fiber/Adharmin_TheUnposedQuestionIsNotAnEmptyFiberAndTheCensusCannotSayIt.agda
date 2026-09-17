@@ -1,78 +1,78 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- PunarƒÅgamana ¬∑ ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç
+-- Punargamana ¬ ‡‡ß‡∞‡‡Æ‡ø‡®‡
 --
--- ‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç ‚Äî the property-bearer, the SUBJECT of which something is
--- predicated.  NyƒÅya's term, and the thing an inference must have before
--- it can have a ‡§™‡§ï‡•ç‡§∑ at all.  ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç / ‡§®‡§ø‡§∞‡•ç‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç, as used here, is not a
+-- ‡ß‡∞‡‡Æ‡ø‡®‡ ‚î the property-bearer, the SUBJECT of which something is
+-- predicated.  Nyya's term, and the thing an inference must have before
+-- it can have a ‡‡ï‡‡ at all.  ‡‡ß‡∞‡‡Æ‡ø‡®‡ / ‡®‡ø‡∞‡‡ß‡∞‡‡Æ‡ø‡®‡, as used here, is not a
 -- term I can source to a text: it is this repository's own compound,
 -- introduced in `interactive/Obstruction.hs` (`data Sthana = Position Bhanga
 -- | ADharmin`, and `Nirdharmin` in its `Verdict`) for the case where the
--- question has no subject, so no bha·πÖga is available and none is forced.
+-- question has no subject, so no bhaga is available and none is forced.
 -- Per CLAUDE.md's naming rule note 2, that is stated rather than
--- back-attributed: the NyƒÅya debt is ‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç; the negated compound and
+-- back-attributed: the Nyya debt is ‡ß‡∞‡‡Æ‡ø‡®‡; the negated compound and
 -- everything below are the repository's and this file's.
 --
 ------------------------------------------------------------------------
 -- WHY THIS MODULE EXISTS.  Its neighbour repaired a collapse and
 -- committed the same collapse one level up, hours later.
 --
--- `SakalaVikalaDesa_‚Ä¶` (this library, today) replaced a two-valued test
--- with a three-valued census ‚Äî empty / contractible / crowded ‚Äî because
--- `isContr` was merging ‡§®‡§æ‡§∏‡•ç‡§§‡§ø with ‡§®‡§∑‡•ç‡§ü‡§ø.  That was right.
+-- `SakalaVikalaDesa_‚¶` (this library, today) replaced a two-valued test
+-- with a three-valued census ‚î empty / contractible / crowded ‚î because
+-- `isContr` was merging ‡®‡æ‡‡‡‡ø with ‡®‡‡‡ü‡ø.  That was right.
 --
 -- It is also incomplete in exactly the way it accused `isContr` of being,
 -- and the corpus has had the missing case in a type since before either
 -- module was written.  `interactive/Obstruction.hs` carries FOUR outcomes:
 --
---     asti ¬∑ nƒÅsti ¬∑ avaktavya ¬∑ ADharmin
+--     asti ¬ nsti ¬ avaktavya ¬ ADharmin
 --
 -- and its comment states the doctrine the fourth one exists for:
 --
---     "Absence of an ACCEPT line is NOT recorded as nƒÅsti.  The log
+--     "Absence of an ACCEPT line is NOT recorded as nsti.  The log
 --      records denials and successes; it does not record a naya
 --      declining to try."
 --
--- Reading silence as denial is the error.  `‡§¶‡•á‡§∂ f b` cannot make it,
--- because it cannot make the distinction at all: `‡§¶‡•á‡§∂` is INDEXED BY `f`
+-- Reading silence as denial is the error.  `‡¶‡‡ f b` cannot make it,
+-- because it cannot make the distinction at all: `‡¶‡‡` is INDEXED BY `f`
 -- and by `b`.  Writing the type down already presupposes a map to take a
 -- fiber of and a point to take it over.  "There is no subject here" is
--- not a value of `‡§¶‡•á‡§∂`; it is a statement about whether `‡§¶‡•á‡§∂` applies.
+-- not a value of `‡¶‡‡`; it is a statement about whether `‡¶‡‡` applies.
 --
 -- So the fourth outcome is not a missing constructor.  It lives one level
 -- up, on the QUESTION rather than on the answer, which is precisely the
 -- shape `Sthana = Position Bhanga | ADharmin` has in the Haskell lane.
 -- ¬ß1 gives it that shape in Agda types, where the corpus has never had
--- it: grepping `formal/cubical/` for ADharmin / ‡§®‡§ø‡§∞‡•ç‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç returns three
+-- it: grepping `formal/cubical/` for ADharmin / ‡®‡ø‡∞‡‡ß‡∞‡‡Æ‡ø‡®‡ returns three
 -- hits, all of them prose in headers.  `Nirnaya_TheVerdictCannotDropIts
--- Witness` names ‡§®‡§ø‡§∞‡•ç‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç in its own vocabulary list and then defines
--- `‡§™‡•ç‡§∞‡§§‡§ø‡§µ‡§ö‡§®‡§Æ‡•ç c = ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§É c ‚äé ‡§®‡§æ‡§∏‡•ç‡§§‡§ø c` ‚Äî two outcomes.  The verdict that
+-- Witness` names ‡®‡ø‡∞‡‡ß‡∞‡‡Æ‡ø‡®‡ in its own vocabulary list and then defines
+-- `‡‡‡∞‡‡ø‡µ‡‡®‡Æ‡ c = ‡®‡ø‡∞‡‡‡Ø‡ c ‚ä ‡®‡æ‡‡‡‡ø c` ‚î two outcomes.  The verdict that
 -- cannot drop its witness drops this one.
 --
 -- ¬ß2 is the theorem that makes the fourth outcome load-bearing rather
--- than decorative, and it is `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` one notch wider:
+-- than decorative, and it is `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` one notch wider:
 -- three seeds into two values must identify two, and so must four names.
 -- The citation is not the point; the instantiation is.  A boolean verdict
 -- over these four merges either "no subject" with "no witness", or
--- "nothing lost" with "the loss" ‚Äî and every one of those merges is the
+-- "nothing lost" with "the loss" ‚î and every one of those merges is the
 -- durnaya the census exists to refuse.
 --
--- WHAT IS NOT DONE.  `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` is NOT imported and NOT
+-- WHAT IS NOT DONE.  `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` is NOT imported and NOT
 -- reproved.  It lives in `formal/cubical/`, pinned to Agda 2.8.0 with
 -- cubical v0.9; this library is pinned to 2.6.3 with v0.5, and the two
 -- trees have no shared library path.  So ¬ß2 is proved here from scratch
--- over four names, and the relation to ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É is a claim about two
+-- over four names, and the relation to ‡¶‡‡∞‡‡®‡Ø‡ is a claim about two
 -- statements that no term in either tree connects.  Writing that bridge
 -- needs one toolchain that can see both, which this container does not
 -- have.  Said plainly so it is not mistaken for done.
 --
--- Nirnaya's header carries a FIFTH name, ‡§§‡•Ç‡§∑‡•ç‡§£‡•Ä‡§Æ‡•ç ‚Äî "the symbol outside
--- the vocabulary that silenced this naya" ‚Äî which is neither an unposed
+-- Nirnaya's header carries a FIFTH name, ‡‡‡‡‡‡‡Æ‡ ‚î "the symbol outside
+-- the vocabulary that silenced this naya" ‚î which is neither an unposed
 -- question nor an empty fiber.  It is not modelled here.  Four is what
 -- this file can exhibit; the fifth is written down and left open.
 --
--- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚Äî the library's declared pin.
+-- CHECKED: Agda 2.6.3, agda/cubical v0.5 ‚î the library's declared pin.
 -- --cubical --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -93,12 +93,12 @@ private
     ‚Ñì : Level
 
 ------------------------------------------------------------------------
--- 1.  ‡§™‡•ç‡§∞‡§∂‡•ç‡§® and ‡§∏‡•ç‡§•‡§æ‡§® ‚Äî the fourth outcome, one level up.
+-- 1.  ‡‡‡∞‡‡‡® and ‡‡‡‡æ‡® ‚î the fourth outcome, one level up.
 --
--- A ‡§™‡•ç‡§∞‡§∂‡•ç‡§® is a question that may not have been posed.  `‡§∏‡•ç‡§•‡§æ‡§®` is what
+-- A ‡‡‡∞‡‡‡® is a question that may not have been posed.  `‡‡‡‡æ‡®` is what
 -- can be said about it, and it is a FUNCTION on the question rather than
--- a datatype over a map ‚Äî which is the whole content: when there is no
--- map, there is nothing to index a `‡§¶‡•á‡§∂` by, and the honest residue is
+-- a datatype over a map ‚î which is the whole content: when there is no
+-- map, there is nothing to index a `‡¶‡‡` by, and the honest residue is
 -- not a fiber verdict but the absence of a subject to take one of.
 ------------------------------------------------------------------------
 
@@ -115,9 +115,9 @@ private
 ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç = tt*
 
 ------------------------------------------------------------------------
--- 2.  ‡§ö‡§§‡•Å‡§∞‡•ç-‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É ‚Äî four names into two values must merge two.
+-- 2.  ‡‡‡‡∞‡-‡¶‡‡∞‡‡®‡Ø‡ ‚î four names into two values must merge two.
 --
--- `Saptabhangi.‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É` proves this for the three seeds asti / nƒÅsti /
+-- `Saptabhangi.‡¶‡‡∞‡‡®‡Ø‡` proves this for the three seeds asti / nsti /
 -- avaktavya.  With the unposed question the outcomes are four, and the
 -- same pigeonhole applies a notch wider.  The merge a boolean forces is
 -- always one of the ones the whole apparatus exists to refuse.
@@ -159,7 +159,7 @@ data ‡§ö‡§§‡•Å‡§∑‡•ç‡§ï‡§Æ‡•ç : Type‚ÇÄ where
 ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‚â¢‡§®‡§æ‡§∏‡•ç‡§§‡§ø p = false‚â¢true (cong fst p)
 
 -- THE THEOREM.  Any two-valued verdict on the four identifies two of them
--- that are distinct.  Proved by exhaustion on the verdict's four values ‚Äî
+-- that are distinct.  Proved by exhaustion on the verdict's four values ‚î
 -- sixteen cases, and in every one a merged pair is produced, not merely
 -- asserted to exist.
 ‡§ö‡§§‡•Å‡§∞‡•ç-‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡§É : (v : ‡§ö‡§§‡•Å‡§∑‡•ç‡§ï‡§Æ‡•ç ‚Üí Bool)
@@ -194,11 +194,11 @@ data ‡§ö‡§§‡•Å‡§∑‡•ç‡§ï‡§Æ‡•ç : Type‚ÇÄ where
       ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂-‡§™‡§¶‡§Æ‡•ç , ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂-‡§™‡§¶‡§Æ‡•ç , ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‚â¢‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂  , (ps ‚àô sym pw)
 
 ------------------------------------------------------------------------
--- 3.  ‡§Æ‡•å‡§®‡§Ç ‡§® ‡§®‡§ø‡§∑‡•á‡§ß‡§É ‚Äî silence is not denial.
+-- 3.  ‡Æ‡‡®‡ ‡® ‡®‡ø‡‡‡ß‡ ‚î silence is not denial.
 --
 -- The operative corollary, and the one `Obstruction.hs` states in prose:
 -- a naya declining to try is not a naya denying.  In the census's terms,
--- ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç is not ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚Äî the unposed question is not the empty fiber,
+-- ‡‡ß‡∞‡‡Æ‡ø‡®‡ is not ‡®‡æ‡‡‡‡ø ‚î the unposed question is not the empty fiber,
 -- and it is not the crowded one either.  Any verdict that cannot tell
 -- them apart has already committed the error, whatever it reports.
 ------------------------------------------------------------------------

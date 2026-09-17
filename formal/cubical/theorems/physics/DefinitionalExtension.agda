@@ -7,7 +7,7 @@ open import Cubical.Data.Nat
 
 -- definitional extension is judgmental.  Introducing a named definition
 -- and unfolding it is δ-reduction, so the "unfold and recheck" theorem
--- is refl and conservativity is the theory's construction — there is no
+-- is refl and conservativity is the theory's construction � there is no
 -- separate re-verifier to trust.  This module is the entire content of
 -- runtime/vocabulary's seven-gate apparatus on the checked side.
 

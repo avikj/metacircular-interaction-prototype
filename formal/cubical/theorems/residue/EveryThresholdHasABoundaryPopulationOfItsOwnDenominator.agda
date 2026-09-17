@@ -10,42 +10,42 @@
 --
 --   "that EVERY threshold has such a population is NOT proved, and
 --    would need a construction of a population realising an arbitrary
---    p/(suc q), which is a divisibility statement about â„• and not a
+--    p/(suc q), which is a divisibility statement about â• and not a
 --    statement about lists."
 --
--- It is a statement about â„•, and there is no divisibility in it: the
--- denominator itself is the length.  For p â‰¤ suc q, the population of
--- p trues followed by (suc q âˆ¸ p) falses has length exactly suc q and
--- count exactly p, so `p Â· length â‰¡ suc q Â· count` holds on the nose.
+-- It is a statement about â•, and there is no divisibility in it: the
+-- denominator itself is the length.  For p â‰ suc q, the population of
+-- p trues followed by (suc q âˆ p) falses has length exactly suc q and
+-- count exactly p, so `p Â length â‰¡ suc q Â count` holds on the nose.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THE STATEMENT CARRIES ITS LENGTH, and this is the whole care in
 -- the module.  The EMPTY population satisfies `AtLeast p q` and refutes
--- `Above p q` for EVERY p and q, since `p Â· 0 â‰¡ 0 â‰¡ suc q Â· 0`.  So
+-- `Above p q` for EVERY p and q, since `p Â 0 â‰¡ 0 â‰¡ suc q Â 0`.  So
 -- "every threshold has a boundary population" is TRUE VACUOUSLY and
 -- proving it that way would establish nothing about the gap between the
 -- families.  The theorem below therefore returns the length as part of
--- the claim â€” `length bs â‰¡ suc q`, hence at least one â€” and the
--- vacuous witness does not satisfy it.  A Î£ whose interesting content
+-- the claim â” `length bs â‰¡ suc q`, hence at least one â” and the
+-- vacuous witness does not satisfy it.  A Î whose interesting content
 -- is omitted is the same defect as a figure quoted without its input.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
---   falses / pop           the population, by recursion on â„•, never
+--   falses / pop           the population, by recursion on â•, never
 --                          touching `Fin` or an index
 --   countPop / lengthPop   count (pop p k) â‰¡ p, length (pop p k) â‰¡ p + k
---   boundaryEquation       p Â· length â‰¡ suc q Â· count, exactly
+--   boundaryEquation       p Â length â‰¡ suc q Â count, exactly
 --   everyThresholdHasABoundaryPopulation
---                          for p â‰¤ suc q: a population of length suc q
+--                          for p â‰ suc q: a population of length suc q
 --                          meeting the threshold and refuting the
 --                          strict one
 --
--- The hypothesis `p â‰¤ suc q` is what "a threshold" means here â€” p/(suc
+-- The hypothesis `p â‰ suc q` is what "a threshold" means here â” p/(suc
 -- q) above 1 is not a rate any population can meet non-vacuously, since
--- `count â‰¤ length` is proved in `RateOneIsExactlyTheUniversalClaim`.
+-- `count â‰ length` is proved in `RateOneIsExactlyTheUniversalClaim`.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ open import TheStrictThresholdsAreTheSameChainAndDifferOnlyAtTheBoundary
   using (Above)
 
 ------------------------------------------------------------------------
--- 1.  The population, by recursion on â„•
+-- 1.  The population, by recursion on â•
 ------------------------------------------------------------------------
 
 falses : â„• â†’ List Bool
@@ -112,8 +112,8 @@ boundaryEquation p q k eq =
 ------------------------------------------------------------------------
 -- 3.  Hence every threshold has one, of length its own denominator
 --
--- cubical's `m â‰¤ n` IS `Î£[ k ] k + m â‰¡ n`, so the hypothesis supplies
--- the number of falses directly â€” no subtraction and no divisibility.
+-- cubical's `m â‰ n` IS `Î[ k ] k + m â‰¡ n`, so the hypothesis supplies
+-- the number of falses directly â” no subtraction and no divisibility.
 ------------------------------------------------------------------------
 
 everyThresholdHasABoundaryPopulation :
@@ -156,28 +156,28 @@ emptyIsAboveNoThreshold p q h =
 --
 --   "MINIMALITY.  The length produced is suc q, and whether a SHORTER
 --    boundary population exists is the divisibility question after all
---    â€” for p/(suc q) in lowest terms it does not â€” and that is
+--    â” for p/(suc q) in lowest terms it does not â” and that is
 --    unproved, because lowest terms are not defined anywhere here."
 --
 -- The parenthesis in that sentence was an assertion.  Its
 -- CONTRAPOSITIVE is now checked, in
 -- `MinimalityOfABoundaryPopulationNeedsLowestTerms`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so),
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so),
 -- and it is the half that decides whether the parenthesis was doing any
 -- work.  It was:
 --
 --   twoOverFourHasAShortBoundaryPopulation / soMinimalityFailsWithoutLowestTerms
---       at 2/4 the population `true âˆ· false âˆ· []` is a boundary
---       population â€” 2 Â· 2 â‰¡ 4 â‰¡ 4 Â· 1 â€” of length 2 < 4.
+--       at 2/4 the population `true âˆ false âˆ []` is a boundary
+--       population â” 2 Â 2 â‰¡ 4 â‰¡ 4 Â 1 â” of length 2 < 4.
 --
 -- So "in lowest terms" is not a convenience.  Dropping it makes the
 -- minimality statement FALSE, and `pop p k` above is then not minimal.
 --
 -- The positive half is proved only at numerator one:
 --
---   boundaryDividesAtNumeratorOne   suc q âˆ£ length bs
---   minimalityAtNumeratorOne        hence suc q â‰¤ length bs, for a
+--   boundaryDividesAtNumeratorOne   suc q âˆ length bs
+--   minimalityAtNumeratorOne        hence suc q â‰ length bs, for a
 --                                   non-empty boundary population
 --
 -- because at p = 1 there is nothing to cancel.
@@ -185,7 +185,7 @@ emptyIsAboveNoThreshold p q h =
 -- 2/4 and 1/2 are the same RATE and different PAIRS, and this is the
 -- first place the missing quotient has a visible consequence:
 -- MINIMALITY IS NOT A PROPERTY OF THE RATE, only of the pair.  That
--- sharpens the standing open item about `âŠ‘` being a preorder â€” it is
+-- sharpens the standing open item about `âŠ` being a preorder â” it is
 -- not merely untidy, it separates statements that are true of one
 -- representative and false of another.
 --

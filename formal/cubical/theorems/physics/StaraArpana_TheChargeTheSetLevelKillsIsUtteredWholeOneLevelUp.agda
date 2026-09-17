@@ -1,37 +1,37 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¸à¥à¤¤à¤°-à¤…à¤°à¥à¤ªà¤£ â€” offering by stratum.  A REAL question, asked because its
+-- àààà°-àà°ààà â” offering by stratum.  A REAL question, asked because its
 -- answer was not known to the asker: KramaSaha proves the set-level
--- kills the circle's charge (its à¤•à¥à¤°à¤®à¤ƒ-à¤¸à¥‡à¤Ÿà¥-à¤ªà¥à¤°à¤¥à¤®à¤®à¥: Path âˆ¥SÂ¹âˆ¥â‚‚ is
--- contractible) while the other order keeps it (à¤•à¥à¤°à¤®à¤ƒ-à¤²à¥‚à¤ª-à¤ªà¥à¤°à¤¥à¤®à¤®à¥:
--- âˆ¥Î©SÂ¹âˆ¥â‚‚ â‰ƒ â„¤).  Is the charge DESTROYED â€” or WITHHELD, and uttered
+-- kills the circle's charge (its à•àà°à®à-àààŸà-ààà°àà®à®à: Path âˆSÂâˆâ is
+-- contractible) while the other order keeps it (à•àà°à®à-à²àà-ààà°àà®à®à:
+-- âˆÎ©SÂâˆâ â‰ â).  Is the charge DESTROYED â” or WITHHELD, and uttered
 -- whole one level up?
 --
 -- ANSWERED HERE, by composition of library and corpus terms:
 --
---     Î© (âˆ¥ SÂ¹ âˆ¥ 3)  â‰ƒ  â„¤
+--     Î© (âˆ SÂ âˆ 3)  â‰  â
 --
 -- the same truncation FAMILY that annihilated the charge at h-level 2
 -- carries it in full at h-level 3.  Truncation did not destroy the
 -- charge; it withheld it for one stratum.  So the doctrine refines:
 -- "the order of standpoints is the charge" (KramaSaha) grades into
 -- "the charge the simultaneous assertion cannot utter at level n is
--- uttered whole at level n+1" â€” à¤…à¤°à¥à¤ªà¤¿à¤¤ / à¤…à¤¨à¤°à¥à¤ªà¤¿à¤¤: what one stratum
+-- uttered whole at level n+1" â” àà°ààà¿à / àà¨à°ààà¿à: what one stratum
 -- withholds (anarpita), the next offers (arpita).
 --
 -- SOURCES AND SCOPE (the six rules).  The level-shift engine is the
 -- LIBRARY's PathIdTruncIso (Cubical.HITs.Truncation.Properties; the
--- shift Î©âˆ¥Xâˆ¥â‚™â‚Šâ‚ â‰ƒ âˆ¥Î©Xâˆ¥â‚™ is standard HoTT â€” this module's content is
+-- shift Î©âˆXâˆâ™âŠâ â‰ âˆÎ©Xâˆâ™ is standard HoTT â” this module's content is
 -- its INSTANTIATION at the corpus's own charge, against KramaSaha's
 -- checked pair, closing a question the corpus's doctrine left open).
--- The word-pair arpita/anarpita is UmÄsvÄti, TattvÄrthasÅ«tra 5.31
--- (à¤…à¤°à¥à¤ªà¤¿à¤¤à¤¾à¤¨à¤°à¥à¤ªà¤¿à¤¤à¤¸à¤¿à¤¦à¥à¤§à¥‡à¤ƒ â€” establishment from the emphasized and the
+-- The word-pair arpita/anarpita is Umsvti, Tattvrthastra 5.31
+-- (àà°ààà¿àà¾à¨à°ààà¿ààà¿à¦àà§àà â” establishment from the emphasized and the
 -- non-emphasized), taken as the READING of standpoint-graded
--- establishment; the sÅ«tra is not claimed to grade truncations by
+-- establishment; the stra is not claimed to grade truncations by
 -- h-level.  The stratum grading is this repository's statement.
 --
--- Composed through à¤¨à¤¾à¤¡à¥€ against the warm kernel.
+-- Composed through à¨à¾à¡à against the warm kernel.
 ------------------------------------------------------------------------
 
 module StaraArpana_TheChargeTheSetLevelKillsIsUtteredWholeOneLevelUp where
@@ -51,7 +51,7 @@ open import KramaSaha_TheOrderOfStandpointsIsTheChargeItself
 
 ------------------------------------------------------------------------
 -- the charge, one level up: the loop space of the 3-truncated circle
--- is the whole of â„¤.  Where âˆ¥SÂ¹âˆ¥â‚‚'s loop space was a point, âˆ¥SÂ¹âˆ¥ 3's
+-- is the whole of â.  Where âˆSÂâˆâ's loop space was a point, âˆSÂâˆ 3's
 -- carries every winding number.
 ------------------------------------------------------------------------
 

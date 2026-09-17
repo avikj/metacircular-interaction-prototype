@@ -1,14 +1,14 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§ ‚Äî apavƒÅda does not shed sth≈´la's provenance, and that is
+-- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î apavda does not shed sthla's provenance, and that is
 -- the host's thesis, not its failure.  The probe's open row
--- (notes/SADHYA_OPEN_OBLIGATIONS.md, "host enumeration", rung ‡•®/‡•©)
+-- (notes/SADHYA_OPEN_OBLIGATIONS.md, "host enumeration", rung ‡®/‡©)
 -- asked apavada (sthula t) ‚â° t.  But sthula t = yoga (nyasa t) (mita 0)
--- ‚Äî the coarse embedding that stamps a "+0" of provenance ‚Äî and apavada
+-- ‚î the coarse embedding that stamps a "+0" of provenance ‚î and apavada
 -- is structural: it carries the stamp through, landing at
 -- yoga' t (mita' 0), never back at t.  The host proves the two
--- embeddings ‡§®‡•ç‡§Ø‡§æ‡§∏ and ‡§∏‡•ç‡§•‡•Ç‡§≤ are observationally inseparable in value
+-- embeddings ‡®‡‡Ø‡æ‡ and ‡‡‡‡‡≤ are observationally inseparable in value
 -- (nyasa-sthula-avishesha) yet distinct in cost (mulya-bheda); a probe
 -- that closed this row green would have collapsed exactly the
 -- distinction the module exists to hold apart.  Road two, witness cara'.
@@ -36,7 +36,7 @@ stamped‚â¢bare : yoga' cara' (mita' 0) ‚â° cara' ‚Üí ‚ä•
 stamped‚â¢bare p = true‚â¢false (cong isCara' (sym p))
 
 -- THE VERDICT.  Green here means the field is NOT determined:
--- apavada ‚àò sthula is not the identity ‚Äî shedding does not remove
+-- apavada ‚àò sthula is not the identity ‚î shedding does not remove
 -- provenance, it preserves it, which is the module's own theorem
 -- held from the other side.
 NOT-DETERMINED : apavada (sthula cara') ‚â° cara' ‚Üí ‚ä•

@@ -7,7 +7,7 @@
 -- The set truncation of the universe remembers type components and erases
 -- automorphism loops.  Bool negation gives one such loop by univalence, and
 -- transport around it moves true to false.  Hence the universal family
--- `T â†¦ T` cannot descend to the set of components.
+-- `T â¦ T` cannot descend to the set of components.
 ------------------------------------------------------------------------
 
 module UniversalFamilyComponentNoDescentCorrectedProbe where

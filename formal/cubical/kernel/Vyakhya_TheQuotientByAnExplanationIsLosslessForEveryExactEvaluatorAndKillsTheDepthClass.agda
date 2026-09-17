@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- व्याख्या — the explanation, as a quotient.
+-- ��������� � the explanation, as a quotient.
 --
 -- MulyaVinimaya ends on a prophecy: Derivation has no 2-cells, so
 -- when an explanation later fills the diamond's loop, the depth class
@@ -9,31 +9,31 @@
 -- and watches what dies.
 --
 -- The explanation is a 2-cell identifying the two coterminal
--- schedules of the diamond — imposed here as a set-quotient of the
+-- schedules of the diamond � imposed here as a set-quotient of the
 -- trace space, which is precisely the synthesis's definition of
 -- semantic compression: quotient by the distinctions the admissible
 -- observers cannot detect.  Declare the admissible observers to be
 -- the EXACT evaluators (the endpoint utilities), and:
 --
 --   §1  THE QUOTIENT IS LOSSLESS FOR EVERY PROTECTED OBSERVER: for
---       any potential φ, the pairing ∫ (d′ φ) factors through the
---       quotient, with the factorization computing on constructors —
+--       any potential �, the pairing � (d� �) factors through the
+--       quotient, with the factorization computing on constructors �
 --       Stokes is exactly the descent condition, twice.
 --
 --   §2  AND IT KILLS THE DEPTH CLASS: no function on the quotient
---       restricts to ∫ गभीरता on traces.  The two identified
+--       restricts to � ������� on traces.  The two identified
 --       schedules carry depths 2 and 1, the quotient makes them one
---       point, and 2 ≡ 1 is refuted in ℕ.
+--       point, and 2 ≡ 1 is refuted in �.
 --
 -- So admitting the explanation and protecting the depth observer are
 -- incompatible, as a theorem: the nonzero cycle integral of
--- MulyaVinimaya is not merely a curiosity about one loop — it is the
+-- MulyaVinimaya is not merely a curiosity about one loop � it is the
 -- exact obstruction to this compression.  Filling the loop is the
 -- decision to demote depth from the protected class; keeping depth
 -- protected is the decision that these two schedules shall remain
 -- two.  The machine holds both consequences; the choice of observer
 -- class is the caller's, which is where the synthesis says it must
--- live (the dangerous act is not quotienting — it is quotienting
+-- live (the dangerous act is not quotienting � it is quotienting
 -- before declaring the observers).
 --
 ------------------------------------------------------------------------
@@ -54,7 +54,7 @@ open import MulyaVinimaya_TheValueOfATraceIsItsPairingWithAnEvaluatorPotentialsT
         ; गभीरता ; t₀ ; nf ; scheduleA ; scheduleB ; depthA ; depthB )
 
 ------------------------------------------------------------------------
--- ० · The explanation: the relation that fills the diamond.
+-- � � The explanation: the relation that fills the diamond.
 ------------------------------------------------------------------------
 
 Traces : Type₀
@@ -70,10 +70,10 @@ Explained : Type₀
 Explained = Traces / R
 
 ------------------------------------------------------------------------
--- १ · Every exact evaluator factors through the compression.
+-- � � Every exact evaluator factors through the compression.
 ------------------------------------------------------------------------
 
--- Stokes makes both schedules — and hence any two coterminal traces —
+-- Stokes makes both schedules � and hence any two coterminal traces �
 -- carry the same exact value; that IS the descent condition.
 exactAgrees : (φ : Tm → ℤ) (p q : Traces) → R p q
   → ∫ (d′ φ) p ≡ ∫ (d′ φ) q
@@ -93,15 +93,15 @@ exactFactors : (φ : Tm → ℤ) (p : Traces)
 exactFactors φ p = refl
 
 ------------------------------------------------------------------------
--- २ · The depth observer does not survive the compression.
+-- � � The depth observer does not survive the compression.
 ------------------------------------------------------------------------
 
--- in the compressed space the two schedules are one point…
+-- in the compressed space the two schedules are one point�
 identified : Path Explained [ scheduleA ] [ scheduleB ]
 identified = eq/ scheduleA scheduleB (refl , refl)
 
--- …so any function of the compressed trace that restricts to the
--- depth pairing forces 2 ≡ 1 in ℕ.
+-- �so any function of the compressed trace that restricts to the
+-- depth pairing forces 2 ≡ 1 in �.
 depthKilled :
   Σ[ g ∈ (Explained → ℤ) ] ((p : Traces) → g [ p ] ≡ ∫ गभीरता p) → ⊥
 depthKilled (g , restricts) =

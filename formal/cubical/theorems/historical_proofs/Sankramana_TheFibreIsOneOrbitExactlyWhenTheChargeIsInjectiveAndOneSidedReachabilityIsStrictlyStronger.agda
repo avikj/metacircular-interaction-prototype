@@ -1,50 +1,50 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ â€” à¤•à¤¦à¤¾ à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤à¤•à¤¾ à¤à¤µ à¤•à¤•à¥à¤·à¥à¤¯à¤¾ à¥¤
+-- àà™àà•àà°à®àà®à â” à•à¦à¾ àà¨àààà àà•à¾ ààµ à•à•àààà¯à¾ à
 --
--- (when is the fibre exhausted by one orbit â€” the converse of descent.)
+-- (when is the fibre exhausted by one orbit â” the converse of descent.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS IS, and it is a CORRECTION before it is an addition.
 --
--- `SamanaKaksya_â€¦agda` Â§à¥¬ ("à¤¶à¥‡à¤·à¤ƒ") says, of its descended charge
--- `à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ : A / à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ â†’ B`:
+-- `SamanaKaksya_â¦agda` Â§à ("àààà") says, of its descended charge
+-- `ààµààà°ààà : A / àà®à¾à¨à•à•àààà¯à¾ Î¦ â’ B`:
 --
---     "The converse of Â§à¥ª â€” that `à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ` is injective, i.e. equal
---      charge implies one orbit â€” is `Kaksya` Â§à¥­'s `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥` and is a
+--     "The converse of Â§à â” that `ààµààà°ààà` is injective, i.e. equal
+--      charge implies one orbit â” is `Kaksya` Â§à's `àà™àà•àà°à®àà®à` and is a
 --      genuine hypothesis about the flow, not a missing definition."
 --
 -- and its WHAT-IS-NOT-CLAIMED fence says the same: "that it is
--- INJECTIVE â€¦ is exactly the transitivity hypothesis `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥` of
--- `Kaksya` Â§à¥­".
+-- INJECTIVE â¦ is exactly the transitivity hypothesis `àà™àà•àà°à®àà®à` of
+-- `Kaksya` Â§à".
 --
 -- **That sentence is FALSE, in the direction it is used.**  `Kaksya`
--- Â§à¥­'s `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b` is ONE-SIDED reachability â€” `Î£[ n ] Î¦â¿ x â‰¡ y` for
--- every ordered pair in the fibre â€” and `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾` is the TWO-SIDED
--- meeting relation.  One-sided is SUFFICIENT for injectivity (Â§à¥©, via
--- Â§à¥§) and is NOT necessary: Â§à¥¬ exhibits `f = Î» _ â†’ tt : Bool â†’ Unit`
--- with `Î¦ = Î» _ â†’ true`, where `à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ` is injective (indeed an
+-- Â§à's `àà™àà•àà°à®àà®à b` is ONE-SIDED reachability â” `Î[ n ] Î¦â¿ x â‰¡ y` for
+-- every ordered pair in the fibre â” and `àà®à¾à¨à•à•àààà¯à¾` is the TWO-SIDED
+-- meeting relation.  One-sided is SUFFICIENT for injectivity (Â§à©, via
+-- Â§à§) and is NOT necessary: Â§à exhibits `f = Î» _ â’ tt : Bool â’ Unit`
+-- with `Î¦ = Î» _ â’ true`, where `ààµààà°ààà` is injective (indeed an
 -- equivalence, the fibre being one orbit in the meeting sense) while
--- `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ tt` is refuted outright â€” nothing reaches `false`.
+-- `àà™àà•àà°à®àà®à tt` is refuted outright â” nothing reaches `false`.
 --
 -- The hypothesis that IS equivalent to injectivity is named here:
 --
---     à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b  :=  (x y : fiber f b) â†’ âˆ¥ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ x.fst y.fst âˆ¥â‚
+--     à‰àà¯-àà™àà•àà°à®àà®à b  :=  (x y : fiber f b) â’ âˆ àà®à¾à¨à•à•àààà¯à¾ Î¦ x.fst y.fst âˆâ
 --
 -- two-sided, and propositionally truncated.  Both amendments are
 -- forced, and by the same fact: `[ a ] â‰¡ [ b ]` in a set quotient
--- recovers the relation only up to `âˆ¥_âˆ¥â‚` (`isEquivRelâ†’TruncIso`), and
--- `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾` is NOT prop-valued â€” the meeting stations are data,
--- which is exactly the openness `SamanaKaksya` Â§à¥¬ flagged in its last
+-- recovers the relation only up to `âˆ_âˆâ` (`isEquivRelâ’TruncIso`), and
+-- `àà®à¾à¨à•à•àààà¯à¾` is NOT prop-valued â” the meeting stations are data,
+-- which is exactly the openness `SamanaKaksya` Â§à flagged in its last
 -- paragraph.  So the truncation is not a technicality bolted on; it is
 -- the same observation, arriving as the reason the naive converse
 -- cannot hold.
 --
--- With the hypothesis corrected, both directions go through (Â§à¥©, Â§à¥ª),
--- and then the theorem worth having (Â§à¥«):
+-- With the hypothesis corrected, both directions go through (Â§à©, Â§à),
+-- and then the theorem worth having (Â§à):
 --
---     **`à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ` is an equivalence  âŸº  `f` is surjective and the flow
+--     **`ààµààà°ààà` is an equivalence  âŸº  `f` is surjective and the flow
 --       is fibrewise transitive.**
 --
 -- Stated as an equivalence of PROPOSITIONS, not a pair of implications.
@@ -52,36 +52,36 @@
 -- the level sets of `f` are exactly the gauge orbits, with nothing left
 -- over (injectivity) and nothing missing (surjectivity).
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- **Nothing here says the two-sided hypothesis is CHEAP.**  It is a real
--- hypothesis about the flow; Â§à¥¬ only shows it is strictly weaker than
+-- hypothesis about the flow; Â§à only shows it is strictly weaker than
 -- the one-sided one, not that it is free.
 --
--- **Â§à¥¬ refutes a hypothesis, not a theorem.**  `Kaksya` Â§à¥­ proves that
--- `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b` implies no invariant separates the fibre; that theorem
--- is untouched and true.  What is refuted is `SamanaKaksya` Â§à¥¬'s claim
--- that `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥` is *the* content of injectivity.
+-- **Â§à refutes a hypothesis, not a theorem.**  `Kaksya` Â§à proves that
+-- `àà™àà•àà°à®àà®à b` implies no invariant separates the fibre; that theorem
+-- is untouched and true.  What is refuted is `SamanaKaksya` Â§à's claim
+-- that `àà™àà•àà°à®àà®à` is *the* content of injectivity.
 --
 -- **No claim about the untruncated relation.**  Whether `[ a ] â‰¡ [ b ]`
--- yields `à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾` itself (rather than its truncation) is not
+-- yields `àà®à¾à¨à•à•àààà¯à¾` itself (rather than its truncation) is not
 -- addressed and is false in general for relations carrying data.
 --
--- TERMS.  à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ â€” "passing over, transition"; in jyotiá¹£a the sun's
--- saá¹ƒkrÄnti, its passage from one rÄÅ›i into the next (standard in the
--- siddhÄntic tradition following the Ä€ryabhaá¹­Ä«ya, 499); in Jaina karma
--- theory, saá¹ƒkrama, the transition of one karma-praká¹›ti into another
--- (á¹¢aá¹­khaá¹‡á¸Ägama with VÄ«rasena's DhavalÄ, ~816).  LIMIT: neither sense
+-- TERMS.  àà™àà•àà°à®àà®à â” "passing over, transition"; in jyotia the sun's
+-- sakrnti, its passage from one ri into the next (standard in the
+-- siddhntic tradition following the ryabhaya, 499); in Jaina karma
+-- theory, sakrama, the transition of one karma-prakti into another
+-- (akhagama with Vrasena's Dhaval, ~816).  LIMIT: neither sense
 -- is a claim about endomorphisms of a type; the use of the word for
--- "the flow carries one point of a fibre to another" is `Kaksya_â€¦agda`'s
--- and is carried in unchanged from there.  à¤‰à¤­à¤¯ â€” "both, two-sided",
--- ordinary Sanskrit; the compound à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ is BUILT HERE and no
--- text is claimed for it.  à¤•à¤•à¥à¤·à¥à¤¯à¤¾ â€” orbit, as in `Kaksya_â€¦agda`, with
+-- "the flow carries one point of a fibre to another" is `Kaksya_â¦agda`'s
+-- and is carried in unchanged from there.  à‰àà¯ â” "both, two-sided",
+-- ordinary ; the compound à‰àà¯-àà™àà•àà°à®àà®à is BUILT HERE and no
+-- text is claimed for it.  à•à•àààà¯à¾ â” orbit, as in `Kaksya_â¦agda`, with
 -- its limit unchanged (attested for a planet's orbit; its use for the
 -- orbit of an endomorphism is this corpus's).  NO SOURCE STATES ANYTHING
 -- BELOW.
 --
--- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â€” the container, NOT the
+-- CHECKED: Agda 2.6.3 + agda/cubical v0.5 â” the container, NOT the
 -- repository pin (2.8.0 + v0.9).  --cubical --safe, no postulates, no
 -- holes, exit 0.
 ------------------------------------------------------------------------
@@ -119,16 +119,16 @@ open import SamanaKaksya_TheOrbitRelationIsAlreadyAnEquivalenceWithoutAnInverseA
 private variable â„“ : Level
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤¸à¤®à¤¤à¤¾-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ â€” the orbit relation packaged as `isEquivRel`, and
+-- à§ Â àà®àà¾-ààà°à®à¾àà®à â” the orbit relation packaged as `isEquivRel`, and
 --     the truncated characterisation of paths in the quotient.
 --
--- `SamanaKaksya` Â§à¥¨ proves the three laws separately.  The library's
--- effectivity result wants them in one record, and `isEquivRelâ†’TruncIso`
+-- `SamanaKaksya` Â§à¨ proves the three laws separately.  The library's
+-- effectivity result wants them in one record, and `isEquivRelâ’TruncIso`
 -- then gives, for a relation that need NOT be prop-valued:
 --
---     [ a ] â‰¡ [ b ]   â‰…   âˆ¥ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a b âˆ¥â‚
+--     [ a ] â‰¡ [ b ]   â‰   âˆ àà®à¾à¨à•à•àààà¯à¾ Î¦ a b âˆâ
 --
--- This is where the truncation in Â§à¥¨'s hypothesis comes from.  It is
+-- This is where the truncation in Â§à¨'s hypothesis comes from.  It is
 -- not a choice.
 ------------------------------------------------------------------------
 
@@ -137,7 +137,7 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
   à¤¸à¤®à¤¾à¤¨-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ : isEquivRel (à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦)
   à¤¸à¤®à¤¾à¤¨-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ = equivRel (à¤¸à¤®à¤¾à¤¨-à¤¸à¥à¤µ Î¦) (à¤¸à¤®à¤¾à¤¨-à¤µà¥à¤¯à¤¤à¥à¤¯à¤¯à¤ƒ Î¦) (à¤¸à¤®à¤¾à¤¨-à¤¸à¤‚à¤•à¥à¤°à¤®à¤ƒ Î¦)
 
-  -- [ a ] â‰¡ [ b ]  âŸ¶  âˆ¥ a â‰ˆ b âˆ¥â‚ .  The library's `isEquivRelâ†’TruncIso`
+  -- [ a ] â‰¡ [ b ]  âŸ  âˆ a â‰ˆ b âˆâ .  The library's `isEquivRelâ’TruncIso`
   -- is stated for `_/_` with the relation implicit; we name only the
   -- direction we use.
   à¤ªà¤¥à¤¾à¤¤à¥-à¤¸à¤®à¤¤à¤¾ : (a b : A) â†’ [ a ] â‰¡ [ b ] â†’ âˆ¥ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ a b âˆ¥â‚
@@ -145,16 +145,16 @@ module _ {A : Type â„“} (Î¦ : A â†’ A) where
     Iso.fun (Cubical.HITs.SetQuotients.isEquivRelâ†’TruncIso à¤¸à¤®à¤¾à¤¨-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ a b)
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ â€” THE CORRECTED HYPOTHESIS: the flow is transitive
+-- à¨ Â à‰àà¯-àà™àà•àà°à®àà®à â” THE CORRECTED HYPOTHESIS: the flow is transitive
 --     on the fibre in the TWO-SIDED, truncated sense.
 --
--- Compare `Kaksya` Â§à¥­:
+-- Compare `Kaksya` Â§à:
 --
---     à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b = (x y : fiber f b) â†’ Î£[ n âˆˆ â„• ] Î¦â¿ (fst x) â‰¡ fst y
+--     àà™àà•àà°à®àà®à b = (x y : fiber f b) â’ Î[ n âˆˆ â• ] Î¦â¿ (fst x) â‰¡ fst y
 --
--- â€” ordered, untruncated, and carrying the number of steps as data.
+-- â” ordered, untruncated, and carrying the number of steps as data.
 -- Below is the same sentence with "reaches" replaced by "meets" and the
--- witness forgotten.  Â§à¥¬ shows the two are NOT equivalent.
+-- witness forgotten.  Â§à shows the two are NOT equivalent.
 ------------------------------------------------------------------------
 
 module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
@@ -162,25 +162,25 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A) where
   à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ : B â†’ Type â„“
   à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b = (x y : fiber f b) â†’ âˆ¥ à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ (fst x) (fst y) âˆ¥â‚
 
-  -- it is a proposition, which is why Â§à¥« can be an equivalence rather
+  -- it is a proposition, which is why Â§à can be an equivalence rather
   -- than a pair of implications
   à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ : (b : B) â†’ isProp (à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b)
   à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ b = isPropÎ 2 Î» _ _ â†’ PT.isPropPropTrunc
 
   -- ONE-SIDED IMPLIES TWO-SIDED.  Stay put on the right, forget the
-  -- step count.  (The converse is refuted in Â§à¥¬.)
+  -- step count.  (The converse is refuted in Â§à.)
   à¤à¤•à¤ªà¤¾à¤°à¥à¤¶à¥à¤µà¤¾à¤¤à¥-à¤‰à¤­à¤¯à¤®à¥ : (b : B) â†’ à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ f Î¦ b â†’ à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ b
   à¤à¤•à¤ªà¤¾à¤°à¥à¤¶à¥à¤µà¤¾à¤¤à¥-à¤‰à¤­à¤¯à¤®à¥ b tr x y = âˆ£ fst (tr x y) , zero , snd (tr x y) âˆ£â‚
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤¤à¤¨à¥à¤¤à¥à¤ƒ à¤à¤•à¤¾ à¤•à¤•à¥à¤·à¥à¤¯à¤¾ à¤‡à¤¤à¤¿ à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤¸à¥à¤¯ à¤à¤•à¤¤à¥à¤µà¤®à¥ â€” TRANSITIVITY IMPLIES
+-- à© Â àà¨àààà àà•à¾ à•à•àààà¯à¾ ààà¿ ààµààà°ààààà¯ àà•àààµà®à â” TRANSITIVITY IMPLIES
 --     THE DESCENDED CHARGE IS INJECTIVE.
 --
--- Equal charge â‡’ one orbit â‡’ one class.  The proof is `elimProp` twice,
+-- Equal charge â’ one orbit â’ one class.  The proof is `elimProp` twice,
 -- legitimate because a path in a set quotient is a proposition, and
 -- then `eq/` under the truncation, legitimate for the same reason.
 --
--- Note `à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ [ a ] â‰¡ f a` holds on the nose (`SamanaKaksya` Â§à¥ª), so
+-- Note `ààµààà°ààà [ a ] â‰¡ f a` holds on the nose (`SamanaKaksya` Â§à), so
 -- the hypothesis `p` below IS `f a â‰¡ f b` with no coercion.
 ------------------------------------------------------------------------
 
@@ -197,7 +197,7 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A)
   à¤à¤•à¤¤à¥à¤µà¤®à¥-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ : isProp à¤à¤•à¤¤à¥à¤µà¤®à¥
   à¤à¤•à¤¤à¥à¤µà¤®à¥-à¤ªà¥à¤°à¤®à¤¾à¤£à¤®à¥ = isPropÎ 3 Î» q q' _ â†’ squash/ q q'
 
-  -- âŸ¸ : the fibre is one orbit, so the charge separates classes
+  -- âŸ : the fibre is one orbit, so the charge separates classes
   à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤¾à¤¤à¥-à¤à¤•à¤¤à¥à¤µà¤®à¥ : ((b : B) â†’ à¤‰à¤­à¤¯-à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ f Î¦ b) â†’ à¤à¤•à¤¤à¥à¤µà¤®à¥
   à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤¾à¤¤à¥-à¤à¤•à¤¤à¥à¤µà¤®à¥ tr =
     elimProp (Î» q â†’ isPropÎ 2 Î» q' _ â†’ squash/ q q')
@@ -206,9 +206,9 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A)
                    (tr (f a) (a , refl) (b , sym p))))
 
 ------------------------------------------------------------------------
--- à¥ª Â· à¤µà¥à¤¯à¤¤à¥à¤¯à¤¯à¤ƒ â€” AND THE CONVERSE.  Injectivity implies the corrected
+-- à Â àµàà¯ààà¯à¯à â” AND THE CONVERSE.  Injectivity implies the corrected
 --     transitivity, and this is the direction that forces the two
---     amendments: `[ a ] â‰¡ [ b ]` gives back only `âˆ¥ a â‰ˆ b âˆ¥â‚`, and `â‰ˆ`
+--     amendments: `[ a ] â‰¡ [ b ]` gives back only `âˆ a â‰ˆ b âˆâ`, and `â‰ˆ`
 --     is the meeting relation, not reachability.
 ------------------------------------------------------------------------
 
@@ -217,13 +217,13 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A)
     à¤ªà¤¥à¤¾à¤¤à¥-à¤¸à¤®à¤¤à¤¾ Î¦ x y (inj [ x ] [ y ] (px âˆ™ sym py))
 
 ------------------------------------------------------------------------
--- à¥« Â· à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ à¤¸à¤®à¤¤à¤¾ â€” THE THEOREM.  The observable IS the quotient
+-- à Â ààµààà°ààà àà®àà¾ â” THE THEOREM.  The observable IS the quotient
 --     exactly when it is onto and its level sets are single orbits.
 --
---     isEquiv à¤…à¤µà¤¤à¥€à¤°à¥à¤£à¤ƒ  â‰ƒ  isSurjection f Ã— (fibrewise transitivity)
+--     isEquiv ààµààà°ààà  â‰  isSurjection f — (fibrewise transitivity)
 --
 -- Both sides are propositions, so this is an equivalence of types and
--- not merely a pair of implications â€” `propBiimplâ†’Equiv`.
+-- not merely a pair of implications â” `propBiimplâ’Equiv`.
 --
 -- Read at the physics: the gauge-invariant observable is a faithful
 -- coordinate on the space of physical states precisely when (a) every
@@ -260,25 +260,25 @@ module _ {A B : Type â„“} (f : A â†’ B) (Î¦ : A â†’ A)
                , à¤¸à¤°à¥à¤µà¤¤à¥à¤° s ) })
 
 ------------------------------------------------------------------------
--- à¥¬ Â· à¤à¤•à¤ªà¤¾à¤°à¥à¤¶à¥à¤µà¤‚ à¤—à¥à¤°à¥à¤¤à¤°à¤®à¥ â€” ONE-SIDED REACHABILITY IS STRICTLY STRONGER,
+-- à Â àà•àà¾à°ààààµà à—àà°ààà°à®à â” ONE-SIDED REACHABILITY IS STRICTLY STRONGER,
 --     AND THIS IS THE CORRECTION.
 --
 -- Two points, one collapsing flow, and the whole gap in four lines.
 --
---     A = Bool,  B = Unit,  f = Î» _ â†’ tt,  Î¦ = Î» _ â†’ true.
+--     A = Bool,  B = Unit,  f = Î» _ â’ tt,  Î¦ = Î» _ â’ true.
 --
 -- Conservation is `refl`.  The single fibre is all of `Bool`.
 --
---   Â· TWO-SIDED holds: both trajectories are at `true` after one step,
---     so any two points meet at stations `(1 , 1)`.  Hence by Â§à¥« the
---     descended charge `Bool / à¤¸à¤®à¤¾à¤¨à¤•à¤•à¥à¤·à¥à¤¯à¤¾ Î¦ â†’ Unit` is an equivalence:
+--   Â TWO-SIDED holds: both trajectories are at `true` after one step,
+--     so any two points meet at stations `(1 , 1)`.  Hence by Â§à the
+--     descended charge `Bool / àà®à¾à¨à•à•àààà¯à¾ Î¦ â’ Unit` is an equivalence:
 --     the fibre IS one orbit in the only sense the quotient can see.
 --
---   Â· ONE-SIDED FAILS: `Î¦â¿ true â‰¡ true` for every `n`, so `false` is
---     reachable from nothing.  `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥ tt` is refuted outright.
+--   Â ONE-SIDED FAILS: `Î¦â¿ true â‰¡ true` for every `n`, so `false` is
+--     reachable from nothing.  `àà™àà•àà°à®àà®à tt` is refuted outright.
 --
--- Therefore `SamanaKaksya` Â§à¥¬'s "is exactly `Kaksya` Â§à¥­'s `à¤¸à¤™à¥à¤•à¥à¤°à¤®à¤£à¤®à¥`"
--- is false as an identification, and Â§à¥¨â€“Â§à¥« above give the hypothesis
+-- Therefore `SamanaKaksya` Â§à's "is exactly `Kaksya` Â§à's `àà™àà•àà°à®àà®à`"
+-- is false as an identification, and Â§à¨â“Â§à above give the hypothesis
 -- that is exact.  The flow here is not invertible, and that is not
 -- incidental: it is what lets a point be departed from and never
 -- returned to.
@@ -316,26 +316,26 @@ private
   ... | suc n , p = trueâ‰¢false (sym (à¤¸à¥à¤¥à¤¿à¤°à¤®à¥ n true) âˆ™ p)
 
 ------------------------------------------------------------------------
--- à¥­ Â· à¤¶à¥‡à¤·à¤ƒ â€” what stays open.
+-- à Â àààà â” what stays open.
 --
--- **The truncation is not shown to be necessary.**  Â§à¥ª produces
--- `âˆ¥ a â‰ˆ b âˆ¥â‚` because that is all `isEquivRelâ†’TruncIso` gives.  Whether
--- some flow makes the untruncated statement fail â€” two points whose
--- classes agree but with no CHOSEN pair of meeting stations â€” is not
--- settled here.  `SamanaKaksya` Â§à¥¬'s last paragraph is the same
+-- **The truncation is not shown to be necessary.**  Â§à produces
+-- `âˆ a â‰ˆ b âˆâ` because that is all `isEquivRelâ’TruncIso` gives.  Whether
+-- some flow makes the untruncated statement fail â” two points whose
+-- classes agree but with no CHOSEN pair of meeting stations â” is not
+-- settled here.  `SamanaKaksya` Â§à's last paragraph is the same
 -- question and it is still open.
 --
--- **Sufficient conditions are not surveyed.**  Â§à¥« reduces "the fibre is
+-- **Sufficient conditions are not surveyed.**  Â§à reduces "the fibre is
 -- one orbit" to a checkable hypothesis but does not exhibit a family of
--- flows satisfying it beyond Â§à¥¬'s collapse and the one-sided case.  The
--- torsor of `YogaDhruva_â€¦agda` is the natural next instance: a free
+-- flows satisfying it beyond Â§à's collapse and the one-sided case.  The
+-- torsor of `YogaDhruva_â¦agda` is the natural next instance: a free
 -- transitive action gives one-sided reachability by construction, hence
--- Â§à¥¨'s implication, hence Â§à¥©.  Whether it gives it with `Î¦` a single
--- endomorphism â€” rather than a whole group â€” is the actual question,
+-- Â§à¨'s implication, hence Â§à©.  Whether it gives it with `Î¦` a single
+-- endomorphism â” rather than a whole group â” is the actual question,
 -- and iterating ONE translation on a torsor is a cyclic-subgroup
 -- condition, not a torsor condition.  Not addressed.
 --
 -- **Nothing here is about the h-level of `A`.**  `A` is never assumed to
--- be a set; `isSet B` is used only where `SamanaKaksya` Â§à¥ª used it, plus
+-- be a set; `isSet B` is used only where `SamanaKaksya` Â§à used it, plus
 -- once in `injEmbedding`.
 ------------------------------------------------------------------------

@@ -6,6 +6,7 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+import re
 
 
 DIST = Path(__file__).resolve().parent / "dist"
@@ -75,6 +76,15 @@ def main():
             issue("missing search anchor", entry["idIdent"], href)
 
     home = (DIST / "index.html").read_text(encoding="utf-8")
+    # The public wiki is an English presentation layer.  Catch any accidental
+    # reintroduction from compiler exports or prose before deployment.
+    indic = re.compile(r"[\u0900-\u097F]")
+    translit = re.compile(r"[ĀāĪīŪūṚṛṜṝḶḷḹṄṅÑñṆṇṬṭḌḍḎḏŚśṢṣḤḥṂṃ]")
+    for path in DIST.rglob("*"):
+        if path.is_file() and path.suffix.lower() in {".html", ".json", ".js", ".txt"}:
+            content = path.read_text(encoding="utf-8")
+            if indic.search(content) or translit.search(content) or re.search(r"\bSanskrit\b", content, re.I):
+                issue("Sanskrit in public output", str(path.relative_to(DIST)), "")
     if home.count('class="agda-example"') < 4:
         issue("missing linked Agda excerpts", "index.html", "Agda excerpts")
     if pages["index.html"].math_links < 3 or pages["index.html"].typed_math_links < 3:

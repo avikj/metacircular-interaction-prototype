@@ -3,83 +3,83 @@
 ------------------------------------------------------------------------
 -- SpernerFromSl2
 --
--- What the 𝔰𝔩₂ action BUYS: the passage from the three brackets
--- (checked in Sl2DivisorLattice) to the combinatorial conclusion —
+-- What the ��� action BUYS: the passage from the three brackets
+-- (checked in Sl2DivisorLattice) to the combinatorial conclusion �
 -- rank-symmetry, rank-unimodality, full-rank raising maps, and the
 -- Sperner property of the divisor lattice.
 --
 -- PRIOR ART.  Everything stated here is CLASSICAL and nothing is
 -- claimed as new mathematics.  The theorem (divisor lattices are
--- Sperner) is de Bruijn – van Ebbenhorst Tengbergen – Kruyswijk, "On
+-- Sperner) is de Bruijn � van Ebbenhorst Tengbergen � Kruyswijk, "On
 -- the set of divisors of a number", Nieuw Arch. Wiskunde (2) 23 (1951),
--- 191–193, by symmetric chain decomposition and with no Lie algebra.
--- The 𝔰𝔩₂ / hard-Lefschetz method is R. P. Stanley, "Weyl groups, the
+-- 191�193, by symmetric chain decomposition and with no Lie algebra.
+-- The ��� / hard-Lefschetz method is R. P. Stanley, "Weyl groups, the
 -- hard Lefschetz theorem, and the Sperner property", SIAM J. Alg. Disc.
--- Meth. 1 (1980), 168–184; the poset-⇄-𝔰𝔩₂ dictionary (a graded poset
+-- Meth. 1 (1980), 168�184; the poset-�-��� dictionary (a graded poset
 -- is Peck iff it carries such an action) is R. A. Proctor,
--- "Representations of 𝔰𝔩(2,ℂ) on posets and the Sperner property",
--- SIAM J. Alg. Disc. Meth. 3 (1982), 275–280; products of chains are
--- Proctor–Saks–Sturtevant, Discrete Math. 30 (1980), 173–180.  The
+-- "Representations of ��(2,�) on posets and the Sperner property",
+-- SIAM J. Alg. Disc. Meth. 3 (1982), 275�280; products of chains are
+-- Proctor�Saks�Sturtevant, Discrete Math. 30 (1980), 173�180.  The
 -- rank-one content is textbook (Humphreys, §7).  Companion prose, with
 -- formalizes; it does not discover.
 --
 -- ---------------------------------------------------------------------
 -- WHAT IS PROVED HERE (all --safe, no postulates, no holes):
 --
---   the RANK-ONE case only, i.e. the divisors of p^α, the chain
---   V_α = k[ξ]/(ξ^{α+1}) whose 𝔰𝔩₂-triple is checked in
+--   the RANK-ONE case only, i.e. the divisors of p^�, the chain
+--   V_� = k[ξ]/(ξ^{�+1}) whose ���-triple is checked in
 --   Sl2DivisorLattice.  For that poset, the whole chain
---   1 → 2 → 3 of the note's §5 is closed:
+--   1 � 2 � 3 of the note's §5 is closed:
 --
---   §2  Div α, the divisor poset of p^α, its rank, and the fact that
+--   §2  Div �, the divisor poset of p^�, its rank, and the fact that
 --       an element is determined by its rank (Div≡).
---   §3  the order: ⊑ is antisymmetric and TOTAL (ℕ-total).
---   §4  the bridge to the operators — this is the step where the 𝔰𝔩₂
+--   §3  the order: � is antisymmetric and TOTAL (�-total).
+--   §4  the bridge to the operators � this is the step where the ���
 --       action does the work.  ε implements the covering relation
 --       (ε-implements-up) and truncates exactly at the top
 --       (ε-at-top ≡ 0M); the raising map is INJECTIVE on every rank
---       (up-inj); φ returns with the coefficient κ(α−κ+1), which is
---       nonzero as a natural number (φ-coefficient-nonzero); η reads
---       the weight 2k − α (η-weight).
+--       (up-inj); � returns with the coefficient κ(�−κ+1), which is
+--       nonzero as a natural number (�-coefficient-nonzero); � reads
+--       the weight 2k − � (�-weight).
 --   §5  rank symmetry, as an explicit involution (mirror) with
---       mirror-rank : rk (mirror x) + rk x ≡ α, together with the
+--       mirror-rank : rk (mirror x) + rk x ≡ �, together with the
 --       maps of rank spaces in both directions (rank-symmetry,
 --       rank-symmetry-iso).  Rank-unimodality is DEGENERATE in rank
---       one and is stated as such: every W_k with k ≤ α is 1
+--       one and is stated as such: every W_k with k � � is 1
 --       (Rank-isContr), so W is constant, hence symmetric and
 --       unimodal, trivially.
 --   §6  the Sperner conclusion for this poset: every antichain is a
 --       subsingleton (antichain-subsingleton), so it injects into the
 --       middle rank (sperner-rank-one), and the middle rank is itself
---       an antichain of size exactly W_{⌊α/2⌋} = 1
+--       an antichain of size exactly W_{��/2�} = 1
 --       (middle-rank-isAntichain, W-middle).  Max antichain =
---       W_{⌊Ω(p^α)/2⌋}, which is the note's §5(3) at m = 1.
+--       W_{�Ω(p^�)/2�}, which is the note's §5(3) at m = 1.
 --
 -- ---------------------------------------------------------------------
 -- THE CHARACTERISTIC HYPOTHESIS, carried explicitly and not silently.
 --
 -- The brackets of Sl2DivisorLattice are polynomial identities in
--- κ, α over ℤ: characteristic-free.  The SPERNER CONCLUSION IS NOT.
+-- κ, � over �: characteristic-free.  The SPERNER CONCLUSION IS NOT.
 -- The general method needs char 0 (complete reducibility; injectivity
 -- of ε^{A−2k} on the weight-w space for w < 0), and in char p the
--- structure constant κ(α−κ+1) can vanish.  §7 defines CharZero as an
--- explicit record — "every positive integer is invertible" — and it is
+-- structure constant κ(�−κ+1) can vanish.  §7 defines CharZero as an
+-- explicit record � "every positive integer is invertible" � and it is
 -- a HYPOTHESIS of the general statement in §8, written into its type.
 --
 -- In rank one it is not needed, and I say so rather than pretending
 -- the proofs below are the general ones cut down: for a single chain,
 -- ε carries the rank-k basis vector to the rank-(k+1) basis vector on
--- the nose (ε-δ), so injectivity is a statement about ℕ-indices and
+-- the nose (ε-δ), so injectivity is a statement about �-indices and
 -- needs no field at all.  The reader should therefore NOT read §6 as
 -- evidence that the char-0 hypothesis is dispensable; it is evidence
 -- that the m = 1 case is too small to see it.
 --
 -- ---------------------------------------------------------------------
 --
--- The construction takes the factorization as INPUT.  Div α below is a
--- type family on a single natural number α; no prime enters anywhere in
+-- The construction takes the factorization as INPUT.  Div � below is a
+-- type family on a single natural number �; no prime enters anywhere in
 -- this file, and the statements are blind to whether the p_i are prime
--- — indeed to whether there are any p_i.  Nothing here says anything
+-- � indeed to whether there are any p_i.  Nothing here says anything
 -- about the distribution of Ω or ω, and it is NOT a bridge to the
 -- Goldbach / critical-line material of the transmission.  See
 ------------------------------------------------------------------------
@@ -106,19 +106,19 @@ private
 
 ------------------------------------------------------------------------
 -- §1  The input.  Nothing below re-proves the brackets; they are
---     imported.  This is the only place the 𝔰𝔩₂ hypothesis is named.
+--     imported.  This is the only place the ��� hypothesis is named.
 ------------------------------------------------------------------------
 
--- The triple (ε , φ , η) of Sl2DivisorLattice, satisfying
--- ⟦η,ε⟧ = 2ε , ⟦η,φ⟧ = −2φ , ⟦ε,φ⟧ = η.
+-- The triple (ε , � , �) of Sl2DivisorLattice, satisfying
+-- ⟦�,ε⟧ = 2ε , ⟦�,�⟧ = −2� , ⟦ε,�⟧ = �.
 sl2 : Sl2Triple ε φ η
 sl2 = divisorChainSl2
 
 ------------------------------------------------------------------------
--- §2  The poset: divisors of p^α.
+-- §2  The poset: divisors of p^�.
 --
---     A divisor is p^κ with 0 ≤ κ ≤ α, encoded — exactly as in
---     Sl2DivisorLattice — by the pair (κ , d) with κ + d ≡ α, so that
+--     A divisor is p^κ with 0 � κ � �, encoded � exactly as in
+--     Sl2DivisorLattice � by the pair (κ , d) with κ + d ≡ �, so that
 --     no truncated subtraction is ever written.  The rank is Ω = κ.
 ------------------------------------------------------------------------
 
@@ -142,12 +142,12 @@ isPropFib α κ (d , p) (e , q) =
   dpath : d ≡ e
   dpath = inj-m+ (p ∙ sym q)
 
--- an element of Div α is determined by its rank
+-- an element of Div � is determined by its rank
 Div≡ : (x y : Div α) → rk x ≡ rk y → x ≡ y
 Div≡ {α = α} x y = Σ≡Prop (isPropFib α)
 
 ------------------------------------------------------------------------
--- §3  The order.  Divisibility p^κ ∣ p^j is κ ≤ j; on a chain it is
+-- §3  The order.  Divisibility p^κ � p^j is κ � j; on a chain it is
 --     TOTAL, which is what makes the rank-one Sperner statement
 --     degenerate (and honest to label as such).
 ------------------------------------------------------------------------
@@ -177,7 +177,7 @@ private
   c≡0 : c ≡ zero
   c≡0 = sum≡0ₗ c e (inj-m+ round)
 
--- totality of ≤ on ℕ, by induction; no library order module is used
+-- totality of � on �, by induction; no library order module is used
 ℕ-total : (a b : ℕ) → (Σ[ c ∈ ℕ ] (a + c ≡ b)) ⊎ (Σ[ c ∈ ℕ ] (b + c ≡ a))
 ℕ-total zero b = inl (b , refl)
 ℕ-total (suc a) zero = inr (suc a , refl)
@@ -189,21 +189,21 @@ private
 ⊑-total x y = ℕ-total (rk x) (rk y)
 
 ------------------------------------------------------------------------
--- §4  THE BRIDGE.  Where the 𝔰𝔩₂ action enters the combinatorics:
---     ε is the covering (raising) map, φ the lowering map with the
---     structure constant κ(α−κ+1), η the weight = 2·rank − α.
+-- §4  THE BRIDGE.  Where the ��� action enters the combinatorics:
+--     ε is the covering (raising) map, � the lowering map with the
+--     structure constant κ(�−κ+1), � the weight = 2�rank − �.
 --
---     This is step 2 of the chain — "the maps are of full rank" —
+--     This is step 2 of the chain � "the maps are of full rank" �
 --     in the rank-one case, where it holds at EVERY rank below the
 --     top and needs no characteristic hypothesis (see the header).
 ------------------------------------------------------------------------
 
--- the basis vector ξ^{rk x} of V_α inside the module M
+-- the basis vector ξ^{rk x} of V_� inside the module M
 vec : Div α → M
 vec (κ , d , _) = δ κ d
 
--- the cover x ⋖ up x : rank k ↦ rank k+1, available exactly when the
--- cofactor is a successor, i.e. when x is not the top divisor p^α
+-- the cover x ⋖ up x : rank k � rank k+1, available exactly when the
+-- cofactor is a successor, i.e. when x is not the top divisor p^�
 up : (x : Div α) (d : ℕ) → co x ≡ suc d → Div α
 up (κ , e , p) d q =
   suc κ , d , (sym (+-suc κ d) ∙ cong (κ +_) (sym q) ∙ p)
@@ -219,31 +219,31 @@ up-covers x d q = suc zero , +-suc (rk x) zero ∙ cong suc (+-zero (rk x))
                 → ε (vec x) ≡ vec (up x d q)
 ε-implements-up (κ , e , p) d q = cong (λ z → ε (δ κ z)) q ∙ ε-δ κ d
 
--- ...and truncates at the top: ε ξ^α = 0, i.e. ξ^{α+1} = 0
+-- ...and truncates at the top: ε ξ^� = 0, i.e. ξ^{�+1} = 0
 ε-at-top : (x : Div α) → co x ≡ zero → ε (vec x) ≡ 0M
 ε-at-top (κ , e , p) q = cong (λ z → ε (δ κ z)) q ∙ ε-δ-top κ
 
 -- FULL RANK.  The raising map is injective on each rank: this is the
--- rank-one form of "ε : W_k → W_{k+1} is injective for 2k < α", holding
--- here for every k < α.
+-- rank-one form of "ε : W_k � W_{k+1} is injective for 2k < �", holding
+-- here for every k < �.
 up-inj : (x y : Div α) (d e : ℕ) (q : co x ≡ suc d) (r : co y ≡ suc e)
        → up x d q ≡ up y e r → x ≡ y
 up-inj x y d e q r p = Div≡ x y (injSuc (cong rk p))
 
--- φ returns along the same edge with the structure constant
--- κ(α−κ+1) = (κ+1)(d+1) at the source (κ+1 , d).
+-- � returns along the same edge with the structure constant
+-- κ(�−κ+1) = (κ+1)(d+1) at the source (κ+1 , d).
 φ-implements-down : (κ d : ℕ)
   → φ (δ (suc κ) d) ≡ scale (pos (suc κ · suc d)) (δ κ (suc d))
 φ-implements-down = φ-δ
 
 -- and that constant is nonzero AS A NATURAL NUMBER.  This is the exact
 -- point at which characteristic matters: in char p its image can vanish,
--- and then the argument of §5–§6 has no analogue.  Here the statement is
--- over ℕ, hence characteristic-free, hence proves nothing about char p.
+-- and then the argument of §5�§6 has no analogue.  Here the statement is
+-- over �, hence characteristic-free, hence proves nothing about char p.
 φ-coefficient-nonzero : (κ d : ℕ) → ¬ (suc κ · suc d ≡ zero)
 φ-coefficient-nonzero κ d = snotz
 
--- η reads the weight 2·rank − α, in the (κ , d) encoding: κ − d.
+-- � reads the weight 2�rank − �, in the (κ , d) encoding: κ − d.
 η-weight : (x : Div α) → η (vec x) ≡ scale (pos (rk x) - pos (co x)) (vec x)
 η-weight (κ , d , _) = η-δ κ d
 
@@ -254,9 +254,9 @@ up-inj x y d e q r p = Div≡ x y (injSuc (cong rk p))
 Rank : (α k : ℕ) → Type₀
 Rank α k = Σ[ x ∈ Div α ] (rk x ≡ k)
 
--- W_k = 1 for every k ≤ α (the hypothesis "k ≤ α" being the cofactor).
+-- W_k = 1 for every k � � (the hypothesis "k � �" being the cofactor).
 -- In rank one this IS the whole Whitney vector: constant 1.  Symmetry
--- and unimodality follow at once and are therefore degenerate here —
+-- and unimodality follow at once and are therefore degenerate here �
 -- said plainly, because the general case is where they have content.
 Rank-isContr : (α k : ℕ) → Σ[ d ∈ ℕ ] (k + d ≡ α) → isContr (Rank α k)
 Rank-isContr α k (d , p) = ((k , d , p) , refl) , contract
@@ -265,7 +265,7 @@ Rank-isContr α k (d , p) = ((k , d , p) , refl) , contract
   contract (x , q) =
     Σ≡Prop (λ z → isSetℕ (rk z) k) (Div≡ (k , d , p) x (sym q))
 
--- the rank-reversing involution p^κ ↦ p^{α−κ}, written without ∸
+-- the rank-reversing involution p^κ � p^{�−κ}, written without �
 mirror : Div α → Div α
 mirror (κ , d , p) = d , κ , (+-comm d κ ∙ p)
 
@@ -275,7 +275,7 @@ mirror-rank (κ , d , p) = +-comm d κ ∙ p
 mirror-mirror : (x : Div α) → mirror (mirror x) ≡ x
 mirror-mirror x = Div≡ (mirror (mirror x)) x refl
 
--- W_k = W_j whenever k + j = α: the two maps, and both round trips.
+-- W_k = W_j whenever k + j = �: the two maps, and both round trips.
 rank-symmetry : (k j : ℕ) → k + j ≡ α → Rank α k → Rank α j
 rank-symmetry {α = α} k j kj (x , q) =
   mirror x , inj-m+ {m = k} (cong (_+ rk (mirror x)) (sym q) ∙ lem ∙ sym kj)
@@ -288,21 +288,21 @@ rank-symmetry-iso : (k j : ℕ) (kj : k + j ≡ α) (jk : j + k ≡ α) (x : Ran
 rank-symmetry-iso k j kj jk (x , q) = mirror-mirror x
 
 ------------------------------------------------------------------------
--- §6  The Sperner conclusion for the divisors of p^α (step 3).
+-- §6  The Sperner conclusion for the divisors of p^� (step 3).
 ------------------------------------------------------------------------
 
--- An antichain: pairwise incomparable, i.e. comparable ⇒ equal.
+-- An antichain: pairwise incomparable, i.e. comparable � equal.
 isAntichain : (A : Div α → Type₀) → Type₀
 isAntichain {α = α} A = (x y : Div α) → A x → A y → x ⊑ y → x ≡ y
 
--- Totality of ⊑ turns that into: an antichain has at most one element.
+-- Totality of � turns that into: an antichain has at most one element.
 antichain-subsingleton : (A : Div α → Type₀) → isAntichain A
   → (x y : Div α) → A x → A y → x ≡ y
 antichain-subsingleton A ac x y ax ay with ⊑-total x y
 ... | inl le = ac x y ax ay le
 ... | inr ge = sym (ac y x ay ax ge)
 
--- ⌊α/2⌋, and its cofactor: the middle rank exists
+-- ��/2�, and its cofactor: the middle rank exists
 half : ℕ → ℕ
 half zero = zero
 half (suc zero) = zero
@@ -317,7 +317,7 @@ half-split (suc (suc n)) with half-split n
 middle : (α : ℕ) → Div α
 middle α = half α , fst (half-split α) , snd (half-split α)
 
--- W_{⌊α/2⌋} = 1
+-- W_{��/2�} = 1
 W-middle : (α : ℕ) → isContr (Rank α (half α))
 W-middle α = Rank-isContr α (half α) (half-split α)
 
@@ -325,7 +325,7 @@ W-middle α = Rank-isContr α (half α) (half-split α)
 middle-rank-isAntichain : (α : ℕ) → isAntichain {α = α} (λ x → rk x ≡ half α)
 middle-rank-isAntichain α x y ax ay _ = Div≡ x y (ax ∙ sym ay)
 
--- MAXIMUM ANTICHAIN = W_{⌊Ω(p^α)/2⌋}.  Upper bound: every antichain
+-- MAXIMUM ANTICHAIN = W_{�Ω(p^�)/2�}.  Upper bound: every antichain
 -- (prop-valued, so that "size" means what it should) maps injectively
 -- into the middle rank space.  Lower bound: W-middle above says that
 -- space is inhabited, and middle-rank-isAntichain says it is achieved
@@ -342,7 +342,7 @@ sperner-rank-one α A propA ac =
 ------------------------------------------------------------------------
 -- §7  The characteristic hypothesis, as an explicit carrier.
 --
---     Not used anywhere above — see the header.  It is defined so that
+--     Not used anywhere above � see the header.  It is defined so that
 --     §8's statement can carry it in its type rather than in a comment.
 --     "Characteristic zero" is taken in the only form the method needs:
 --     every positive integer is invertible in the coefficient ring.
@@ -359,28 +359,28 @@ record CharZero (R : Type₀) (1r : R) (_·R_ : R → R → R)
 --     is on and there are no postulates and no holes anywhere here.
 --     The statement typechecks; that is all it does.
 --
---     Reading guide: an exponent vector κ with κ i ≤ α i for i < m,
---     rank Ω = Σ_{i<m} κ i, and the claim that any antichain injects
---     into the middle rank.  The 𝔰𝔩₂ input would enter as: the tensor
---     product ⨂_{i<m} V_{α i} carries the coproduct triple (that is
+--     Reading guide: an exponent vector κ with κ i � � i for i < m,
+--     rank Ω = �_{i<m} κ i, and the claim that any antichain injects
+--     into the middle rank.  The ��� input would enter as: the tensor
+--     product �_{i<m} V_{� i} carries the coproduct triple (that is
 --     Sl2TensorProduct.agda's business), plus CharZero of §7, plus the
---     injectivity of ε^{A−2k} on the weight-(2k−A) space — the step
+--     injectivity of ε^{A−2k} on the weight-(2k−A) space � the step
 --     that is representation theory and that has no rank-one shadow.
 ------------------------------------------------------------------------
 
--- Σ_{i<m} f i
+-- �_{i<m} f i
 sum : (m : ℕ) → (ℕ → ℕ) → ℕ
 sum zero f = zero
 sum (suc m) f = f zero + sum m (λ i → f (suc i))
 
--- divisors of ∏_{i<m} p_i^{α i}: the exponent vector, with cofactors
+-- divisors of �_{i<m} p_i^{� i}: the exponent vector, with cofactors
 DivM : (m : ℕ) (α : ℕ → ℕ) → Type₀
 DivM m α = Σ[ κ ∈ (ℕ → ℕ) ] ((i : ℕ) → Σ[ d ∈ ℕ ] (κ i + d ≡ α i))
 
 rkM : (m : ℕ) (α : ℕ → ℕ) → DivM m α → ℕ
 rkM m α x = sum m (fst x)
 
--- componentwise divisibility (m and α are explicit: DivM's underlying
+-- componentwise divisibility (m and � are explicit: DivM's underlying
 -- type does not determine them)
 LeqM : (m : ℕ) (α : ℕ → ℕ) → DivM m α → DivM m α → Type₀
 LeqM m α x y = (i : ℕ) → Σ[ c ∈ ℕ ] (fst x i + c ≡ fst y i)

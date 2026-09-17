@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤°à¤¾à¤®à¤¾à¤¨à¥à¤œà¤¨à¥â€“à¤¨à¤¾à¤—à¥‡à¤²à¥ â€” THE FIVE SOLUTIONS, AND NO SIXTH BELOW 2Â¹âµ.
+-- à°à¾à®à¾à¨ààà¨àâ“à¨à¾à—àà²à â” THE FIVE SOLUTIONS, AND NO SIXTH BELOW 2Ââµ.
 --
--- Ramanujan asked (J. Indian Math. Soc., 1913): when is 2â¿ âˆ’ 7 a
--- perfect square?  He listed n = 3, 4, 5, 7, 15 â€” squares 1, 9, 25,
--- 121, 32761 â€” and conjectured there are no others.  Nagell proved
--- the full conjecture in 1948 in â„¤[âˆšâˆ’2]; that argument is beyond
+-- Ramanujan asked (J. Indian Math. Soc., 1913): when is 2â¿ âˆ’ 7 a
+-- perfect square?  He listed n = 3, 4, 5, 7, 15 â” squares 1, 9, 25,
+-- 121, 32761 â” and conjectured there are no others.  Nagell proved
+-- the full conjecture in 1948 in â[âˆâˆ’2]; that argument is beyond
 -- this file's exact-arithmetic discipline and is not claimed.  What
 -- IS proved, completely:
 --
---   `solâ‚ƒ â€¦ solâ‚â‚…` â€” the five solutions, subtraction-free
---     (xÂ² + 7 â‰¡ 2â¿), each by refl; the famous 181Â² + 7 â‰¡ 32768
+--   `solâ â¦ solââ` â” the five solutions, subtraction-free
+--     (xÂ² + 7 â‰¡ 2â¿), each by refl; the famous 181Â² + 7 â‰¡ 32768
 --     among them.
 --
---   `ramanujan-nagell-below-15` â€” THERE IS NO SIXTH SOLUTION with
---     n â‰¤ 15: every pair (n, x) with xÂ² + 7 â‰¡ 2â¿ and n â‰¤ 15 is one
+--   `ramanujan-nagell-below-15` â” THERE IS NO SIXTH SOLUTION with
+--     n â‰ 15: every pair (n, x) with xÂ² + 7 â‰¡ 2â¿ and n â‰ 15 is one
 --     of Ramanujan's five.  The proof is the bounded-reflection
 --     engine of the taxicab file, re-imported: a square-growth bound
---     confines x to 0..181 (182Â² = 33124 already exceeds 2Â¹âµ), the
---     kernel normalizes the 16 Ã— 182 grid in one refl, and soundness
+--     confines x to 0..181 (182Â² = 33124 already exceeds 2Ââµ), the
+--     kernel normalizes the 16 — 182 grid in one refl, and soundness
 --     lemmas convert the scan into the theorem.
 --
 -- So the conjecture's full range up to and including its largest
 -- solution is settled by computation-with-witnesses, and the
--- remainder â€” n beyond 15, where Nagell's descent lives â€” is exactly
+-- remainder â” n beyond 15, where Nagell's descent lives â” is exactly
 -- the part the tradition proved by other instruments.
 ------------------------------------------------------------------------
 
@@ -98,7 +98,7 @@ row n = loop (col (pow2 n) n) 181
 scan : Maybe Unit
 scan = loop row 15
 
--- 16 Ã— 182 cells, one normalization.
+-- 16 — 182 cells, one normalization.
 scan-ok : scan â‰¡ just tt
 scan-ok = refl
 
@@ -149,7 +149,7 @@ leafRN-sound P n x h sq = g (eq? (x Â· x + 7) P) refl
   g nothing  pw = Empty.rec (eq?-complete _ _ pw sq)
 
 ------------------------------------------------------------------------
--- Â§4  The bound: 182Â² already exceeds 2Â¹âµ.
+-- Â§4  The bound: 182Â² already exceeds 2Ââµ.
 ------------------------------------------------------------------------
 
 sq-mono : {m n : â„•} â†’ m â‰¤ n â†’ m Â· m â‰¤ n Â· n
@@ -188,9 +188,9 @@ x-bounded n x hn sq = go (splitâ„•-â‰¤ x 181)
 -- Â§5  THE THEOREM.
 ------------------------------------------------------------------------
 
--- Every solution of xÂ² + 7 = 2â¿ with n â‰¤ 15 is one of Ramanujan's
+-- Every solution of xÂ² + 7 = 2â¿ with n â‰ 15 is one of Ramanujan's
 -- five.  The range includes his largest; what lies beyond is
--- Nagell's, by other instruments, and is not claimed here â€” it is
+-- Nagell's, by other instruments, and is not claimed here â” it is
 -- named.
 ramanujan-nagell-below-15 : (n x : â„•) â†’ n â‰¤ 15 â†’
   x Â· x + 7 â‰¡ pow2 n â†’ Five n x

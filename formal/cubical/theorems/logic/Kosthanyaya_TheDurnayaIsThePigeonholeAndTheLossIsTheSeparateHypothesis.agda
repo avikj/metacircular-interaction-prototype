@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤•à¥‹à¤·à¥à¤ -à¤¨à¥à¤¯à¤¾à¤¯à¤ƒ â€” à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ à¤•à¥‹à¤·à¥à¤ -à¤¨à¥à¤¯à¤¾à¤¯à¤ƒ à¤à¤µ ; à¤¹à¤¾à¤¨à¤¿à¤¸à¥à¤¤à¥ à¤ªà¥ƒà¤¥à¤•à¥ à¤‰à¤ªà¤¾à¤§à¤¿à¤ƒ à¥¤
+-- à•à‹ààà -à¨àà¯à¾à¯à â” à¦àà°àà¨à¯à à•à‹ààà -à¨àà¯à¾à¯à ààµ ; àà¾à¨à¿àààà àààà•à à‰àà¾à§à¿à à
 --
 -- (the pigeonhole: the durnaya IS the pigeonhole, and the LOSS is a
 --  separate hypothesis.)
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS EXISTS.  The same pigeonhole is proved by hand in at least
 -- three places in this corpus, over three different carriers, and none of
 -- them is the theorem:
 --
---   Â· `Saptabhangi.à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` â€” over à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€, three seeds into à¤¦à¥à¤µà¤¿à¤ªà¤¦, by
+--   Â `Saptabhangi.à¦àà°àà¨à¯à` â” over àààààà™àà—à, three seeds into à¦ààµà¿àà¦, by
 --     `with` on six cases.
---   Â· `loss/â€¦/Adharmin_â€¦.à¤šà¤¤à¥à¤°à¥-à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` â€” over a four-name type
+--   Â `loss/â¦/Adharmin_â¦.àààà°à-à¦àà°àà¨à¯à` â” over a four-name type
 --     into Bool, by explicit exhaustion, and its header says the bridge
---     to à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ "needs one toolchain that can see both, which this
+--     to à¦àà°àà¨à¯à "needs one toolchain that can see both, which this
 --     container does not have".
---   Â· `Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakes
---     ThemOne` â€” which already found the repetition and joined four
+--   Â `Durnaya_TheThreeIntoTwoLemmaStandsFourTimesAndOneTransportMakes
+--     ThemOne` â” which already found the repetition and joined four
 --     instances by transport.
 --
--- Â§à¥§ below is the statement none of them makes: it quantifies over the
--- CARRIER and over the two-valued codomain, so à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€, à¤šà¤¤à¥à¤·à¥à¤•à¤®à¥ and
+-- Â§à§ below is the statement none of them makes: it quantifies over the
+-- CARRIER and over the two-valued codomain, so àààààà™àà—à, àààààà•à®à and
 -- anything else are instances rather than subjects.
 --
--- AND THE POINT IS NOT DEDUPLICATION.  Reading `à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` closely, it uses
--- NOTHING about the sevenfold â€” not à¤…à¤°à¥à¤ªà¤£à¤®à¥, not à¤…à¤¨à¥à¤¤à¤°à¥à¤­à¤¾à¤µ, not à¤•à¥à¤°à¤®-à¤¸à¤¹-à¤­à¥‡à¤¦à¤ƒ,
--- not even that the three seeds are distinct.  Stating it over à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€
+-- AND THE POINT IS NOT DEDUPLICATION.  Reading `à¦àà°àà¨à¯à` closely, it uses
+-- NOTHING about the sevenfold â” not àà°àààà®à, not àà¨ààà°ààà¾àµ, not à•àà°à®-àà-ààà¦à,
+-- not even that the three seeds are distinct.  Stating it over àààààà™àà—à
 -- makes it look like a theorem about the sevenfold.  **It is a theorem
--- about counting, and the sevenfold is where it bites.**  Â§à¥§ and Â§à¥©
+-- about counting, and the sevenfold is where it bites.**  Â§à§ and Â§à©
 -- separate those, which is the whole content of this file:
 --
---   Â§à¥§ à¤•à¥‹à¤·à¥à¤ -à¤¨à¥à¤¯à¤¾à¤¯à¤ƒ â€” UNCONDITIONAL.  Three points, a two-valued readout,
+--   Â§à§ à•à‹ààà -à¨àà¯à¾à¯à â” UNCONDITIONAL.  Three points, a two-valued readout,
 --       two of the images agree.  No distinctness, no h-level, nothing.
---   Â§à¥© à¤¹à¤¾à¤¨à¤¿à¤ƒ      â€” the LOSS.  That the agreement is a genuine merge
+--   Â§à© àà¾à¨à¿à      â” the LOSS.  That the agreement is a genuine merge
 --       needs the three points to be pairwise DISTINCT, and that
 --       hypothesis is doing work that the pigeonhole is not.
 --
 -- Keeping them apart matters because the corpus's own use has run them
--- together: "a boolean verdict collapses something" is two claims â€” that
+-- together: "a boolean verdict collapses something" is two claims â” that
 -- two values coincide (always) and that the coincidence destroys a
 -- distinction (only when there was one).  A three-valued readout over
 -- three points that are secretly equal collapses nothing.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
--- NOT DONE: the bridge `Adharmin_â€¦` asks for is only half built here.
--- Â§à¥ª recovers `Saptabhangi.à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` exactly, by instantiation, because
--- that module is in THIS lane.  `à¤šà¤¤à¥à¤°à¥-à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` lives in the loss
--- library, whose agda-lib this tree does not include, so Â§à¥« RESTATES its
+-- NOT DONE: the bridge `Adharmin_â¦` asks for is only half built here.
+-- Â§à recovers `Saptabhangi.à¦àà°àà¨à¯à` exactly, by instantiation, because
+-- that module is in THIS lane.  `àààà°à-à¦àà°àà¨à¯à` lives in the loss
+-- library, whose agda-lib this tree does not include, so Â§à RESTATES its
 -- four-name case as an instance rather than importing it.  Two statements
 -- that agree is the channel; an import would be a different claim and is
 -- not made.
@@ -73,7 +73,7 @@ private
     â„“ â„“' : Level
 
 ------------------------------------------------------------------------
--- à¥§ Â· à¤•à¥‹à¤·à¥à¤ -à¤¨à¥à¤¯à¤¾à¤¯à¤ƒ â€” the pigeonhole, unconditional.
+-- à§ Â à•à‹ààà -à¨àà¯à¾à¯à â” the pigeonhole, unconditional.
 --
 --     A codomain is TWO-VALUED when every element is one of two named
 --     points.  That is the only hypothesis, and it is about the READOUT,
@@ -96,7 +96,7 @@ private
 ... | inr _  | inl py | inl pz = inr (inr (py âˆ™ sym pz))
 
 ------------------------------------------------------------------------
--- à¥¨ Â· à¤¦à¥à¤µà¤¿à¤ªà¤¦ is two-valued, which is all `à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` ever used of it.
+-- à¨ Â à¦ààµà¿àà¦ is two-valued, which is all `à¦àà°àà¨à¯à` ever used of it.
 ------------------------------------------------------------------------
 
 à¤¦à¥à¤µà¤¿à¤ªà¤¦-à¤¦à¥à¤µà¤¿-à¤®à¥‚à¤²à¥à¤¯à¤®à¥ : à¤¦à¥à¤µà¤¿-à¤®à¥‚à¤²à¥à¤¯à¤®à¥ à¤¦à¥à¤µà¤¿à¤ªà¤¦ à¤¸à¤¤à¥ à¤…à¤¸à¤¤à¥
@@ -104,13 +104,13 @@ private
 à¤¦à¥à¤µà¤¿à¤ªà¤¦-à¤¦à¥à¤µà¤¿-à¤®à¥‚à¤²à¥à¤¯à¤®à¥ à¤…à¤¸à¤¤à¥ = inr refl
 
 ------------------------------------------------------------------------
--- à¥© Â· à¤¹à¤¾à¤¨à¤¿à¤ƒ â€” THE LOSS, which is a different statement.
+-- à© Â àà¾à¨à¿à â” THE LOSS, which is a different statement.
 --
 --     The pigeonhole says two images agree.  It does NOT say anything was
 --     destroyed: if the three points were secretly equal, a two-valued
 --     readout loses nothing.  The loss needs the points pairwise
 --     distinct, and then the merged pair is exhibited WITH its
---     distinctness â€” which is what makes it a written defect rather than
+--     distinctness â” which is what makes it a written defect rather than
 --     a complaint.
 ------------------------------------------------------------------------
 
@@ -125,10 +125,10 @@ private
 ... | inr (inr e)  = y , z , yâ‰¢z , e
 
 ------------------------------------------------------------------------
--- à¥ª Â· `Saptabhangi.à¤¦à¥à¤°à¥à¤¨à¤¯à¤ƒ` RECOVERED, by instantiation and nothing else.
+-- à Â `Saptabhangi.à¦àà°àà¨à¯à` RECOVERED, by instantiation and nothing else.
 --
 --     Same type, same three seeds, and the proof is now one application.
---     This is the half of `Adharmin_â€¦`'s missing bridge that this tree
+--     This is the half of `Adharmin_â¦`'s missing bridge that this tree
 --     can build, because Saptabhangi is in this lane.
 ------------------------------------------------------------------------
 

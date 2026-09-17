@@ -1,12 +1,12 @@
 {-# OPTIONS --erased-cubical --erasure --guardedness --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- द्रव्यश्रुतम् — the word as substance.
+-- ������������� � the word as substance.
 --
--- SOURCE.  The Jaina distinction dravya-śruta / bhāva-śruta: the
--- scripture as physical record — leaves, ink, sound — against the
--- knowing it carries.  *Anuyogadvārasūtra* (āgama, c. 1st–5th c. CE)
--- draws the dravya/bhāva division for āvaśyaka and śruta at its
+-- SOURCE.  The Jaina distinction dravya-ruta / bhva-ruta: the
+-- scripture as physical record � leaves, ink, sound � against the
+-- knowing it carries.  *Anuyogadvrastra* (gama, c. 1st�5th c. CE)
+-- draws the dravya/bhva division for vayaka and ruta at its
 -- opening; the school is Jaina.  Claimed of the source: the division
 -- and its names, nothing else.
 --
@@ -14,11 +14,11 @@
 -- answered "how many of the elder's rules does the act close?" with a
 -- number the reader had to trust.  After the reflection weld
 -- (SatyaMahavrata), the number is REPLACED BY A LIST OF RECORDS, each
--- carrying the closed rule AND its kernel warrant — semantic truth
--- over every environment — as an ERASED field: present at
--- type-checking, gone at runtime.  The binary is dravya-śruta: what
+-- carrying the closed rule AND its kernel warrant � semantic truth
+-- over every environment � as an ERASED field: present at
+-- type-checking, gone at runtime.  The binary is dravya-ruta: what
 -- runs is the substance, leaves and ink; what it carried to get built
--- is bhāva, and the kernel saw all of it.  A record of this type
+-- is bhva, and the kernel saw all of it.  A record of this type
 -- CANNOT be constructed for a rule the act did not truly close.
 ------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ record सिद्ध-नियमः : Type where
 ------------------------------------------------------------------------
 -- §2  The census that cannot lie: an entry exists exactly when the
 --     act's own test came back true, and the entry's erased field is
---     the theorem that test earned (मुख-सत्यम् through eqToPath).
+--     the theorem that test earned (����-������ through eqToPath).
 ------------------------------------------------------------------------
 
 श्रुत-गणना : List Eq' → List सिद्ध-नियमः

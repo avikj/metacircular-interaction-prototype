@@ -1,53 +1,53 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- рдмреАрдЬрдореН тАФ рдПрдХрдореН рдПрд╡ рдмреАрдЬрдВ рдЪрддреБрд░реНрд╖реБ рд╕рд┐рджреНрдзрд╛рдиреНрддреЗрд╖реБ ; рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН рдПрд╡ рдЕрдзрдГрд╕реНрдерд╛рдирдВ, рди рд╕рдорддрд╛ ред
+-- ррррор тФ ррХрор рр╡ рррр рррр░ррр рр┐ржррзр╛риррррр ; ррр░рррпр╛рирприрор рр╡ ррзррррр╛рир, ри ррорр╛ р
 --
 -- (one seed in four theorems; and a RETRACTION already puts a map at the
---  bottom of the loss order тАФ an equivalence is more than is needed.)
+--  bottom of the loss order тФ an equivalence is more than is needed.)
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 -- THE SEED.  Four theorems in this corpus are the SAME TERM:
 --
---   Vyapti.рд╕рдВрд░рдХреНрд╖рдХ-рд╡реГрджреНрдзрд┐рдГ   (h , p) cons a  = p _  тИЩ cong h (cons a) тИЩ sym (p a)
---   Vyapti.рддрдиреНрддреБ-рд╡реГрджреНрдзрд┐рдГ      (h , p) a (x,q) = p x  тИЩ cong h q        тИЩ sym (p a)
---   Vyapti.рд╕рдорддрд╛-рд╡реГрджреНрдзрд┐рдГ      (h , p) a a' q  = p a  тИЩ cong h q        тИЩ sym (p a')
---   Bahupratyanayana.рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рддрдиреБрдГ
---        (r , ret) b (aтВБ,pтВБ) (aтВВ,pтВВ)  = sym (ret aтВБ) тИЩ cong r (pтВБ тИЩ sym pтВВ) тИЩ ret aтВВ
+--   Vyapti.ррр░рХрррХ-р╡рржррзр┐р   (h , p) cons a  = p _  тИЩ cong h (cons a) тИЩ sym (p a)
+--   Vyapti.рриррр-р╡рржррзр┐р      (h , p) a (x,q) = p x  тИЩ cong h q        тИЩ sym (p a)
+--   Vyapti.ррорр╛-р╡рржррзр┐р      (h , p) a a' q  = p a  тИЩ cong h q        тИЩ sym (p a')
+--   Bahupratyanayana.ррр░рррпр╛рирприрор-ррирр
+--        (r , ret) b (aт,pт) (aт,pт)  = sym (ret aт) тИЩ cong r (pт тИЩ sym pт) тИЩ ret aт
 --
--- `╬▒ тИЩ cong k ╬▓ тИЩ sym ╬│` тАФ conjugate a path by a coherence.  Each is
+-- `╬ тИЩ cong k ╬▓ тИЩ sym ╬│` тФ conjugate a path by a coherence.  Each is
 -- proved directly in its own module; none is derived from another; and
--- the shape is not remarked anywhere.  ┬зреи names it once.
+-- the shape is not remarked anywhere.  ┬зри names it once.
 --
 -- AND NAMING IT SHOWS A HYPOTHESIS IS TOO STRONG.  Read the fourth in the
 -- vocabulary of the first three: with `g = idfun A` and `k = r`, the
--- coherence `p : (a : A) тЖТ g a тЙб k (f a)` IS `a тЙб r (f a)` тАФ which is
+-- coherence `p : (a : A) тТ g a тЙб k (f a)` IS `a тЙб r (f a)` тФ which is
 -- exactly a retraction, reversed.  So
 --
---     a RETRACTION of f is a рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐-witness that f is at the BOTTOM
---     of the loss order  (┬зрей).
+--     a RETRACTION of f is a р╡ррпр╛рррирЛрр┐-witness that f is at the BOTTOM
+--     of the loss order  (┬зрй).
 --
--- `Vyapti.рд╕рдорддреНрд╡рдореН-рдЕрдзрдГрд╕реНрдердореН` puts an EQUIVALENCE at the bottom, using
--- `invEq`/`retEq`.  Only the retraction half is used.  ┬зрек therefore
--- weakens `Dhruva`'s theorem тАФ and `Vyapti`'s one-line reproof of it тАФ
--- from `isEquiv f` to `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН f`:
+-- `Vyapti.рроррр╡рор-ррзрррррор` puts an EQUIVALENCE at the bottom, using
+-- `invEq`/`retEq`.  Only the retraction half is used.  ┬зр therefore
+-- weakens `Dhruva`'s theorem тФ and `Vyapti`'s one-line reproof of it тФ
+-- from `isEquiv f` to `ррр░рррпр╛рирприрор f`:
 --
---     рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН f тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж тЖТ (a : A) тЖТ ╬ж a тЙб a
+--     ррр░рррпр╛рирприрор f тТ ррр░рХррррор f ╬ж тТ (a : A) тТ ╬ж a тЙб a
 --
--- No loss, no motion тАФ and "no loss" needs only that the map can be
+-- No loss, no motion тФ and "no loss" needs only that the map can be
 -- UNDONE, not that it is an identification.  A retraction is strictly
--- weaker: `Unit тЖТ S┬╣` has one and is not an equivalence, and
--- `Bahupratyanayana` ┬зрел is that example.
+-- weaker: `Unit тТ S┬` has one and is not an equivalence, and
+-- `Bahupratyanayana` ┬зр is that example.
 --
--- тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА
+-- тФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФтФ
 --
 -- No claim that the seed is the ONLY shape in the corpus, nor that every
--- theorem of this form is an instance of ┬зреи тАФ `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН-рддрдиреБрдГ`'s inner
--- path is `pтВБ тИЩ sym pтВВ`, built from the two fibre witnesses, and ┬зреи takes
+-- theorem of this form is an instance of ┬зри тФ `ррр░рррпр╛рирприрор-ррирр`'s inner
+-- path is `pт тИЩ sym pт`, built from the two fibre witnesses, and ┬зри takes
 -- that path as given rather than constructing it.  The seed is the
 -- conjugation, not the whole proof.
 --
--- рдмреАрдЬ (seed) in its plain sense; no text is claimed.  The mathematics is
+-- ррр (seed) in its plain sense; no text is claimed.  The mathematics is
 -- cubical type theory.
 --
 -- CHECKED: Agda 2.8.0 + agda/cubical v0.9, --cubical --safe, no
@@ -68,8 +68,8 @@ open import Dhruva_TheSymmetryLivesInTheFibreAndWithoutALossThereIsNoSymmetry
 private variable тДУ : Level
 
 ------------------------------------------------------------------------
--- реи ┬╖ рдмреАрдЬрдореН тАФ the seed, once.  A coherence carries an identification.
---     This is `рд╕рдорддрд╛-рд╡реГрджреНрдзрд┐рдГ` with the factorisation unpacked, written to
+-- ри ┬ ррррор тФ the seed, once.  A coherence carries an identification.
+--     This is `ррорр╛-р╡рржррзр┐р` with the factorisation unpacked, written to
 --     be the thing the other three instantiate rather than a fifth copy.
 ------------------------------------------------------------------------
 
@@ -79,8 +79,8 @@ private variable тДУ : Level
 рдмреАрдЬрдореН k p {a} {a'} q = p a тИЩ cong k q тИЩ sym (p a')
 
 ------------------------------------------------------------------------
--- рей ┬╖ рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН IS a bottom-witness.  A retraction of f factors the
---     identity through f тАФ which is what `рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐` asks for тАФ so f
+-- рй ┬ ррр░рррпр╛рирприрор IS a bottom-witness.  A retraction of f factors the
+--     identity through f тФ which is what `р╡ррпр╛рррирЛрр┐` asks for тФ so f
 --     lies at the bottom of the loss order with no equivalence anywhere.
 ------------------------------------------------------------------------
 
@@ -92,11 +92,11 @@ private variable тДУ : Level
 рдкреНрд░рддреНрдпрд╛рдирдпрди-рдЕрдзрдГрд╕реНрдердореН f (r , ret) = r , ╬╗ a тЖТ sym (ret a)
 
 ------------------------------------------------------------------------
--- рек ┬╖ рдирд╖реНрдЯ-рдЕрднрд╛рд╡реЗ-рдЧрддрд┐-рдЕрднрд╛рд╡рдГ, from a retraction alone.
+-- р ┬ рирррЯ-ррр╛р╡р-рЧрр┐-ррр╛р╡р, from a retraction alone.
 --
---     Dhruva ┬зреи and Vyapti's reproof both take `isEquiv f`.  Only the
+--     Dhruva ┬зри and Vyapti's reproof both take `isEquiv f`.  Only the
 --     retraction is used.  The conclusion is unchanged; the hypothesis
---     is strictly weaker, and `Unit тЖТ S┬╣` is a map that HAS a retraction
+--     is strictly weaker, and `Unit тТ S┬` is a map that HAS a retraction
 --     and is NOT an equivalence.
 ------------------------------------------------------------------------
 
@@ -107,22 +107,22 @@ private variable тДУ : Level
   рд╕рдВрд░рдХреНрд╖рдХ-рд╡реГрджреНрдзрд┐рдГ (рдкреНрд░рддреНрдпрд╛рдирдпрди-рдЕрдзрдГрд╕реНрдердореН f ret)
 
 ------------------------------------------------------------------------
--- рел ┬╖ THE STRONGEST FORM, and it names no external notion at all.
+-- р ┬ THE STRONGEST FORM, and it names no external notion at all.
 --
---     ┬зрек was written as "Dhruva with a weaker hypothesis", which is the
---     wrong way round: a weaker hypothesis is a STRONGER THEOREM тАФ same
+--     ┬зр was written as "Dhruva with a weaker hypothesis", which is the
+--     wrong way round: a weaker hypothesis is a STRONGER THEOREM тФ same
 --     conclusion, strictly larger domain.  And the hypothesis it actually
---     consumes is neither `isEquiv` nor `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН`.  It is
+--     consumes is neither `isEquiv` nor `ррр░рррпр╛рирприрор`.  It is
 --
---         f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ (idfun A)
+--         f р╡ррпр╛рррирЛрр┐ (idfun A)
 --
---     тАФ f is at the BOTTOM of the loss order тАФ and that is the whole of
---     it.  Both `isEquiv f` (Vyapti.рд╕рдорддреНрд╡рдореН-рдЕрдзрдГрд╕реНрдердореН) and `рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН f`
---     (┬зрей) are ways of EXHIBITING bottom-ness, and neither is the
+--     тФ f is at the BOTTOM of the loss order тФ and that is the whole of
+--     it.  Both `isEquiv f` (Vyapti.рроррр╡рор-ррзрррррор) and `ррр░рррпр╛рирприрор f`
+--     (┬зрй) are ways of EXHIBITING bottom-ness, and neither is the
 --     hypothesis.  Stated this way the law is internal: it mentions only
 --     the order and conservation, and nothing from outside.
 --
---     So the reading of `рдирд╖реНрдЯ-рдЕрднрд╛рд╡реЗ-рдЧрддрд┐-рдЕрднрд╛рд╡рдГ` is not "an equivalence
+--     So the reading of `рирррЯ-ррр╛р╡р-рЧрр┐-ррр╛р╡р` is not "an equivalence
 --     admits only the trivial symmetry".  It is:
 --
 --         AT THE BOTTOM OF THE LOSS ORDER, CONSERVATION IS TRIVIALITY.
@@ -142,11 +142,11 @@ private variable тДУ : Level
 рдкреНрд░рддреНрдпрд╛рдирдпрдирд╛рддреН {f = f} r = рдЕрдзрдГрд╕реНрдереЗ-рд╕рдВрд░рдХреНрд╖рдгрдВ-рдирд┐рд╖реНрдХреНрд░рд┐рдпрдореН (рдкреНрд░рддреНрдпрд╛рдирдпрди-рдЕрдзрдГрд╕реНрдердореН f r)
 
 ------------------------------------------------------------------------
--- рем ┬╖ THE BOTTOM IS CLOSED UNDER COMPOSITION, and this strengthens
---     `Samyoge` ┬зреи the same way ┬зрел strengthens Dhruva.
+-- р ┬ THE BOTTOM IS CLOSED UNDER COMPOSITION, and this strengthens
+--     `Samyoge` ┬зри the same way ┬зр strengthens Dhruva.
 --
---     `Samyoge_тАжagda` ┬зреи says "lossless composes" and proves it with
---     `compEquiv` тАФ two EQUIVALENCES.  What composes is bottom-ness, and
+--     `Samyoge_тжagda` ┬зри says "lossless composes" and proves it with
+--     `compEquiv` тФ two EQUIVALENCES.  What composes is bottom-ness, and
 --     the proof is the seed with its first component `refl`:
 --
 --         p a тИЩ cong h (q (f a))
@@ -156,7 +156,7 @@ private variable тДУ : Level
 --     needs: it demands receipts, and a receipt in the operative sense is
 --     a way back, not an identification.
 --
---     And with ┬зрел this is one statement: certification composes because
+--     And with ┬зр this is one statement: certification composes because
 --     THE BOTTOM OF THE ORDER IS A SUBMONOID, and conservation is trivial
 --     there.  Vyapti proved the conserving flows form a submonoid at a
 --     fixed observation; this is the other axis.
@@ -176,20 +176,20 @@ private variable тДУ : Level
   (╬╗ c тЖТ r (s c)) , ╬╗ a тЖТ cong r (sec (f a)) тИЩ ret a
 
 ------------------------------------------------------------------------
--- рен ┬╖ THE BOTTOM IS A SUBMONOID AND IT IS NOT SATURATED.
+-- р ┬ THE BOTTOM IS A SUBMONOID AND IT IS NOT SATURATED.
 --
---     ┬зрем closes the bottom under composition.  The converse FAILS, and
---     that is `Samyoge` ┬зрей restated where it belongs тАФ in the order's own
+--     ┬зр closes the bottom under composition.  The converse FAILS, and
+--     that is `Samyoge` ┬зрй restated where it belongs тФ in the order's own
 --     vocabulary rather than as a remark about pipelines:
 --
 --         `g тИШ f` at the bottom does NOT imply `f` or `g` is.
 --
 --     Witness, and both halves are already in the corpus:
---       рд╕рддреН : Unit тЖТ Bool, tt тЖж true тАФ HAS a retraction (Unit is the
---         target of one trivially), so рд╕рддреН IS at the bottom.
---       рдПрдХрдореН : Bool тЖТ Unit тАФ has NO retraction (┬зрек of Bahupratyanayana,
---         and ┬зрел below reproves it in one line), so рдПрдХрдореН is NOT.
---       рдПрдХрдореН тИШ рд╕рддреН : Unit тЖТ Unit is the identity, which is the bottom.
+--       ррр : Unit тТ Bool, tt тж true тФ HAS a retraction (Unit is the
+--         target of one trivially), so ррр IS at the bottom.
+--       ррХрор : Bool тТ Unit тФ has NO retraction (┬зр of Bahupratyanayana,
+--         and ┬зр below reproves it in one line), so ррХрор is NOT.
+--       ррХрор тИШ ррр : Unit тТ Unit is the identity, which is the bottom.
 --
 --     So the composite lies at the bottom while its second factor does
 --     not.  A submonoid that is not saturated: membership propagates
@@ -211,11 +211,11 @@ open import Cubical.Relation.Nullary using (┬м_)
 рдПрдХрдореН : Bool тЖТ Unit
 рдПрдХрдореН _ = tt
 
--- рд╕рддреН is at the bottom: anything into Unit retracts it
+-- ррр is at the bottom: anything into Unit retracts it
 рд╕рддреН-рдЕрдзрдГрд╕реНрдердореН : рд╕рддреН рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ (idfun Unit)
 рд╕рддреН-рдЕрдзрдГрд╕реНрдердореН = (╬╗ _ тЖТ tt) , (╬╗ { tt тЖТ refl })
 
--- рдПрдХрдореН is not: two distinct sources over the one target
+-- ррХрор is not: two distinct sources over the one target
 рдПрдХрдореН-рди-рдкреНрд░рддреНрдпрд╛рдирдпрдиреАрдпрдореН : ┬м (рдкреНрд░рддреНрдпрд╛рдирдпрдирдореН рдПрдХрдореН)
 рдПрдХрдореН-рди-рдкреНрд░рддреНрдпрд╛рдирдпрдиреАрдпрдореН (r , ret) =
   falseтЙвtrue (sym (ret false) тИЩ ret true)
@@ -225,36 +225,36 @@ open import Cubical.Relation.Nullary using (┬м_)
 рд╕рдиреНрдзрд┐рдГ-рдЕрдзрдГрд╕реНрдердГ = (╬╗ _ тЖТ tt) , (╬╗ { tt тЖТ refl })
 
 ------------------------------------------------------------------------
--- рео ┬╖ FOUR STATEMENTS OF ONE THEOREM, three of them over `isEquiv`.
+-- ро ┬ FOUR STATEMENTS OF ONE THEOREM, three of them over `isEquiv`.
 --
---   Dhruva.рдирд╖реНрдЯ-рдЕрднрд╛рд╡реЗ-рдЧрддрд┐-рдЕрднрд╛рд╡рдГ          isEquiv, via a contractible FIBRE
---   Vyapti.рдирд╖реНрдЯ-рдЕрднрд╛рд╡реЗ-рдЧрддрд┐-рдЕрднрд╛рд╡рдГ-рд╡реНрдпрд╛рдкреНрддреНрдпрд╛  isEquiv, via the ORDER
---   SvaTantuVasa.рддрд╛рджрд╛рддреНрдореНрдпрдореН             isEquiv, via contractibility of
+--   Dhruva.рирррЯ-ррр╛р╡р-рЧрр┐-ррр╛р╡р          isEquiv, via a contractible FIBRE
+--   Vyapti.рирррЯ-ррр╛р╡р-рЧрр┐-ррр╛р╡р-р╡ррпр╛рррррпр╛  isEquiv, via the ORDER
+--   SvaTantuVasa.рр╛ржр╛ррроррпрор             isEquiv, via contractibility of
 --                                      the whole FLOW SPACE
---   ┬зрел here                            f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ (idfun A) тАФ the bottom
+--   ┬зр here                            f р╡ррпр╛рррирЛрр┐ (idfun A) тФ the bottom
 --
 -- Same conclusion, four routes, and the fourth needs none of the other
--- three's machinery: no fibre, no flow space, no equivalence.  ┬зрео derives
--- the isEquiv form from ┬зрел so the containment is a term and not a remark.
+-- three's machinery: no fibre, no flow space, no equivalence.  ┬зро derives
+-- the isEquiv form from ┬зр so the containment is a term and not a remark.
 --
 -- AND ONE OF THAT FILE'S TWO IS SHARP, which is the distinction worth
--- keeping.  `SvaTantuVasa.рдзреНрд░реБрд╡-рдмрд┐рдиреНрджреБрдГ : isEquiv f тЖТ isContr (╬г[╬ж] рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж)`
--- CANNOT weaken: the flow space is `╬а[a] fiber f (f a)` (its own рд╡рд╛рд╕рдГ),
--- contractible exactly when every fibre is тАФ which IS `isEquiv f`.  So in
+-- keeping.  `SvaTantuVasa.рзрр░рр╡-рр┐рирржрр : isEquiv f тТ isContr (╬[╬ж] ррр░рХррррор f ╬ж)`
+-- CANNOT weaken: the flow space is `╬а[a] fiber f (f a)` (its own р╡р╛рр),
+-- contractible exactly when every fibre is тФ which IS `isEquiv f`.  So in
 -- one module one theorem needs the equivalence essentially and the other
 -- does not, and only the second is over-hypothesised.
 --
 -- This is the corpus's characteristic shape rather than a defect: it
 -- proves things several times, and each proof knows something the others
 -- do not.  `Kosthanyaya` found the pigeonhole at five sites; `Yamaja`
--- found the third `eqтДХ`; this is the fourth Dhruva.  The value is not in
--- deleting copies тАФ it is that the copies disagree about what is needed.
+-- found the third `eqтХ`; this is the fourth Dhruva.  The value is not in
+-- deleting copies тФ it is that the copies disagree about what is needed.
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.Equiv using (isEquiv ; invEq ; retEq)
 
--- an equivalence is at the bottom (Vyapti's рд╕рдорддреНрд╡рдореН-рдЕрдзрдГрд╕реНрдердореН, restated so
--- ┬зрео is self-contained), and then the isEquiv form is one application
+-- an equivalence is at the bottom (Vyapti's рроррр╡рор-ррзрррррор, restated so
+-- ┬зро is self-contained), and then the isEquiv form is one application
 рд╕рдорддрд╛-рдЕрдзрдГрд╕реНрдердореН : {A B : Type тДУ} (f : A тЖТ B) тЖТ isEquiv f тЖТ f рд╡реНрдпрд╛рдкреНрдиреЛрддрд┐ (idfun A)
 рд╕рдорддрд╛-рдЕрдзрдГрд╕реНрдердореН f e = invEq (f , e) , ╬╗ a тЖТ sym (retEq (f , e) a)
 
@@ -263,13 +263,13 @@ open import Cubical.Foundations.Equiv using (isEquiv ; invEq ; retEq)
 рд╕рдорддрд╛рдпрд╛рдГ {f = f} e = рдЕрдзрдГрд╕реНрдереЗ-рд╕рдВрд░рдХреНрд╖рдгрдВ-рдирд┐рд╖реНрдХреНрд░рд┐рдпрдореН (рд╕рдорддрд╛-рдЕрдзрдГрд╕реНрдердореН f e)
 
 ------------------------------------------------------------------------
--- реп ┬╖ THE ORBIT COLLAPSES AT THE BOTTOM TOO тАФ the fifth site.
+-- рп ┬ THE ORBIT COLLAPSES AT THE BOTTOM TOO тФ the fifth site.
 --
---   `Kaksya_тАж.рдирд╖реНрдЯрд╛рднрд╛рд╡реЗ-рдХрдХреНрд╖реНрдпрд╛-рдПрдХрдкрджрд╛ : isEquiv f тЖТ рд╕рдВрд░рдХреНрд╖рдгрдореН f ╬ж тЖТ
---    (n : тДХ) (a : A) тЖТ рдХрдХреНрд╖реНрдпрд╛ f ╬ж n a тЙб a`
+--   `Kaksya_тж.рирррЯр╛рр╛р╡р-рХрХррррпр╛-ррХрржр╛ : isEquiv f тТ ррр░рХррррор f ╬ж тТ
+--    (n : тХ) (a : A) тТ рХрХррррпр╛ f ╬ж n a тЙб a`
 --
---   тАФ the whole orbit collapses to its basepoint тАФ is proved by calling
---   `Dhruva.рдирд╖реНрдЯ-рдЕрднрд╛рд╡реЗ-рдЧрддрд┐-рдЕрднрд╛рд╡рдГ` once per step, so it inherits ┬зрел's
+--   тФ the whole orbit collapses to its basepoint тФ is proved by calling
+--   `Dhruva.рирррЯ-ррр╛р╡р-рЧрр┐-ррр╛р╡р` once per step, so it inherits ┬зр's
 --   hypothesis immediately: bottom-ness suffices, and the induction is the
 --   seed again, `cong ╬ж (IH) тИЩ (one step)`.
 --
@@ -294,22 +294,22 @@ open import Cubical.Data.Nat using (тДХ ; zero ; suc)
   тИЩ рдЕрдзрдГрд╕реНрдереЗ-рд╕рдВрд░рдХреНрд╖рдгрдВ-рдирд┐рд╖реНрдХреНрд░рд┐рдпрдореН b cons a
 
 ------------------------------------------------------------------------
--- резреж ┬╖ WHAT THE LIGHT DID NOT WEAKEN, and this half is the point.
+-- рзрж ┬ WHAT THE LIGHT DID NOT WEAKEN, and this half is the point.
 --
 --   Asking every declaration in the lane "is `isEquiv` a hypothesis where
 --   bottom-ness would do" returns sites that are SHARP, and a blanket
 --   sweep would have been wrong about them:
 --
---     SvaTantuVasa.рдзреНрд░реБрд╡-рдмрд┐рдиреНрджреБрдГ тАФ the flow space is `╬а[a] fiber f (f a)`,
+--     SvaTantuVasa.рзрр░рр╡-рр┐рирржрр тФ the flow space is `╬а[a] fiber f (f a)`,
 --       contractible exactly when every fibre is, which IS `isEquiv f`.
---     NastoddistaPariksa.рд╕рдорддрд╛-рдЪрдХреНрд░рдореН / рд╕рдорддрд╛тЖТрдкрд░реАрдХреНрд╖рд╛ тАФ stated as an
+--     NastoddistaPariksa.ррорр╛-ррХрр░рор / ррорр╛тТрр░ррХррр╛ тФ stated as an
 --       equivalence in both directions; `isEquiv` is the content.
---     Kevalajnana.рд╕рдорд╛рдирддрд╛тЖТрд╕рд░реНрд╡рд╕рдХрд▓рдореН тАФ рдХреЗрд╡рд▓рдЬреНрдЮрд╛рди read as losing nothing AND
+--     Kevalajnana.ррор╛рирр╛тТрр░рр╡ррХр▓рор тФ рХрр╡р▓рррЮр╛ри read as losing nothing AND
 --       missing nothing.  An equivalence is exactly both halves, and the
 --       doctrine is both halves; weakening it would break the reading, not
 --       improve the theorem.
 --
 --   So the finding is not "isEquiv is usually too strong".  It is that
 --   two theorems in ONE module can differ on this, and only opening each
---   says which тАФ SvaTantuVasa's pair is exactly that case.
+--   says which тФ SvaTantuVasa's pair is exactly that case.
 ------------------------------------------------------------------------

@@ -10,9 +10,9 @@ endless braid, and together they make an arithmetic of what an
 observer can know.
 
 THE LADDER, GENERALIZED.  Any observable that aliases through some
-map g â€” the observation of a turned strand equals g of the
+map g â” the observation of a turned strand equals g of the
 observation, the campaign's factoring condition pointed along the
-twist â€” reads the braid's twist count through g's iteration: two
+twist â” reads the braid's twist count through g's iteration: two
 lines over the reading theorem, at every depth, on every rope.  And
 any period of g collapses the reading by that period: iteration is
 additive, the period cancels.  The rungs are instances: the identity
@@ -24,7 +24,7 @@ THE RUNGS, SEPARATED.  Any observable with an involutive alias
 conflates one quarter turn with three, generically; the full reading
 separates them at a named coordinate; therefore no involution serves
 the identity reading.  Climbing from mod-two to mod-four resolution
-is not post-processing of any mod-two sense â€” it is a new organ,
+is not post-processing of any mod-two sense â” it is a new organ,
 certified by the exact blind pair the lower rung cannot split.  The
 admission gate for new senses, standing vertically.
 
@@ -34,18 +34,18 @@ dashboard, adding no separation by the derived-sense theorem.
 Upward, it is impossible: reconstruction of the full reading from
 the xor dies at the constant strand and its half-turn, which xor
 provably cannot tell apart.  So the hierarchy of aliasing observables
-is ordered exactly as their moduli divide â€” mod one below mod two
-below mod four â€” with information flowing down the divisor lattice
+is ordered exactly as their moduli divide â” mod one below mod two
+below mod four â” with information flowing down the divisor lattice
 for free and climbing only by acquisition of senses no alias can
 synthesize.
 
-The spine, once more: the Å›eá¹£a trilaw's generativity clause, now
-climbing divisors â€” each level's inaccessible residue is precisely
+The spine, once more: the ea trilaw's generativity clause, now
+climbing divisors â” each level's inaccessible residue is precisely
 the structure of the level above, and the arithmetic of that ascent
 is division.  What an observer accepts as invariance fixes, to the
 divisor, what the world can ever say to it.
 
-SYÄ€T â€” THE CLAIM, EXACTLY.  The three theorems at the named rungs;
+SYT â” THE CLAIM, EXACTLY.  The three theorems at the named rungs;
 the functor from the full divisor lattice to derivability at every
 modulus is the standing construction.
 

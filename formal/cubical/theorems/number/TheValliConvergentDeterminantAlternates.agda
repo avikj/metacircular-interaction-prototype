@@ -6,13 +6,13 @@
 -- One of the three honesty faces DOES recur for continued-fraction
 -- convergents, and it is the first: LOSSLESSNESS.  The determinant of
 -- two consecutive convergents flips sign at every step and is therefore
--- a unit at every step, so each step of the vallÄ« is invertible over â„¤.
+-- a unit at every step, so each step of the vall is invertible over â.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE OPEN TAG THIS ANSWERS, AND HOW MUCH OF IT
 --
 -- tag: "whether the three honesty faces (lossless / complete / stable)
--- recur for continued-fraction convergents â€” the vallÄ« already IS the
+-- recur for continued-fraction convergents â” the vall already IS the
 -- CF".
 --
 -- Answered here: LOSSLESS, yes, and exactly.  NOT answered: complete,
@@ -21,26 +21,26 @@
 -- is not the tag closed.  It is one third of it, and saying so is the
 -- point of the note's own honesty ledger.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE OBJECT
 --
--- Given partial quotients `a : â„• â†’ â„¤` â€” the vallÄ«, Ä€ryabhaá¹­a's column of
--- quotients (*Ä€ryabhaá¹­Ä«ya*, Gaá¹‡itapÄda 32â€“33, 499) â€” the convergent
+-- Given partial quotients `a : â• â’ â` â” the vall, ryabhaa's column of
+-- quotients (*ryabhaya*, Gaitapda 32â“33, 499) â” the convergent
 -- numerators and denominators satisfy the same two-step recurrence with
 -- different seeds.  Their determinant
 --
---     det k  =  p k Â· q (k+1)  âˆ’  p (k+1) Â· q k
+--     det k  =  p k Â q (k+1)  âˆ’  p (k+1) Â q k
 --
 -- satisfies  det (k+1) â‰¡ âˆ’ det k  (Â§2), hence  det k â‰¡ signed k (det 0)
--- (Â§3): every determinant in the chain is Â± the first one.  With the
--- standard seeds the first one is 1, so all are units â€” which is BÃ©zout,
--- and is what `Bija.à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤à¤®à¥`'s alternating orientation is computing.
+-- (Â§3): every determinant in the chain is Â the first one.  With the
+-- standard seeds the first one is 1, so all are units â” which is B©zout,
+-- and is what `Bija.àààà—àà¿àà®à`'s alternating orientation is computing.
 --
--- SOURCING LIMIT. Nothing here is offered as a reading of Gaá¹‡itapÄda 32â€“33;
--- the recurrence is the standard one and the vallÄ« is named because this
--- corpus's own kuá¹­á¹­aka modules name it.
+-- SOURCING LIMIT. Nothing here is offered as a reading of Gaitapda 32â“33;
+-- the recurrence is the standard one and the vall is named because this
+-- corpus's own kuaka modules name it.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, which is Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no
 ------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ open import Cubical.Algebra.CommRing.Instances.Int using (â„¤CommRing)
 open import Cubical.Tactics.CommRingSolver.Reflection using (solve!)
 
 ------------------------------------------------------------------------
--- 1.  The convergents, from the vallÄ«
+-- 1.  The convergents, from the vall
 ------------------------------------------------------------------------
 
 module _ (a : â„• â†’ â„¤) (pâ‚€ pâ‚ qâ‚€ qâ‚ : â„¤) where
@@ -90,7 +90,7 @@ detAlternates a pâ‚€ pâ‚ qâ‚€ qâ‚ k =
        (den a pâ‚€ pâ‚ qâ‚€ qâ‚ (suc k)) (den a pâ‚€ pâ‚ qâ‚€ qâ‚ k)
 
 ------------------------------------------------------------------------
--- 3.  Hence every determinant is Â± the first, for ARBITRARY seeds
+-- 3.  Hence every determinant is Â the first, for ARBITRARY seeds
 ------------------------------------------------------------------------
 
 signed : â„• â†’ â„¤ â†’ â„¤
@@ -108,7 +108,7 @@ detIsSignedFirst a pâ‚€ pâ‚ qâ‚€ qâ‚ (suc k) =
 ------------------------------------------------------------------------
 -- 4.  The standard seeds, where the first determinant is 1
 --
--- pâ‚€ = 1, pâ‚ = a 0, qâ‚€ = 0, qâ‚ = 1.  Then det 0 = 1Â·1 âˆ’ aâ‚€Â·0.
+-- pâ = 1, pâ = a 0, qâ = 0, qâ = 1.  Then det 0 = 1Â1 âˆ’ aâÂ0.
 ------------------------------------------------------------------------
 
 private
@@ -129,16 +129,16 @@ standardDeterminantIsAUnit a k =
 ------------------------------------------------------------------------
 -- 5.  Why this is the LOSSLESS face and not a new one
 --
--- `LosslessReturn.à¤ªà¥à¤¨à¤°à¤¾à¤—à¤®à¤¨à¤®à¥` proves the kuá¹­á¹­aka's descent reversible;
--- `Gati.à¤…à¤²à¥‹à¤ªà¤ƒ` proves it for the whole algorithm.  Â§4 is the same
+-- `LosslessReturn.ààà¨à°à¾à—à®à¨à®à` proves the kuaka's descent reversible;
+-- `Gati.àà²à‹àà` proves it for the whole algorithm.  Â§4 is the same
 -- property at the convergents: a determinant that is a unit at every
--- step is exactly the statement that the 2Ã—2 step matrix is invertible
--- over â„¤, so no step of the vallÄ« loses information.  `Bija.à¤¬à¥€à¤œà¤—à¤£à¤¿à¤¤à¤®à¥`
--- computes BÃ©zout by climbing that column with alternating orientation
--- â€” the alternation of Â§2 is that orientation, as an identity.
+-- step is exactly the statement that the 2—2 step matrix is invertible
+-- over â, so no step of the vall loses information.  `Bija.àààà—àà¿àà®à`
+-- computes B©zout by climbing that column with alternating orientation
+-- â” the alternation of Â§2 is that orientation, as an identity.
 --
--- The other two faces are NOT here.  `Purnata.à¤ªà¥‚à¤°à¥à¤£à¤¤à¤¯à¤¾-à¤—à¥à¤°à¥à¤¤à¤®à¤ƒ`
--- (complete: enough grant always resolves) and `Sthairya.à¤¸à¥à¤¥à¥ˆà¤°à¥à¤¯-à¤—à¤¤à¤¿`
+-- The other two faces are NOT here.  `Purnata.ààà°àààà¯à¾-à—àà°ààà®à`
+-- (complete: enough grant always resolves) and `Sthairya.ààààˆà°àà¯-à—àà¿`
 -- (stable: a resolved answer survives more grant) are statements about a
 -- grant, and no grant appears above.  One face is not three.
 ------------------------------------------------------------------------

@@ -18,6 +18,6 @@ def trec_beta(A: Set, P: Set, pP: isProp(P), f: A -> P, a: A) -> Path(P, ptrec(A
   <_> f(a)
 
 # a proposition to recurse into: paths in a set are propositions; use the
-# truncation's own propness (any P with pP) â€” here P := PTrunc(Nat) itself
+# truncation's own propness (any P with pP) â” here P := PTrunc(Nat) itself
 def main() -> PTrunc(Nat):
   ptrec(Nat, PTrunc(Nat), truncIsProp(Nat), lambda n. @tin{n}, @tin{3n})

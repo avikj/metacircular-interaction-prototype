@@ -1,4 +1,4 @@
--- Obstruction ‚Äî the kernel's negative answers, read as obligations: material
+-- Obstruction ‚î the kernel's negative answers, read as obligations: material
 -- handed forward, not verdicts.
 --
 -- WHAT THIS IS FOR.
@@ -11,34 +11,34 @@
 --
 -- A round submits on the order of a thousand candidates and the kernel
 -- returns a handful.  Every one of the rest produces a precise, localized
--- statement of WHY it did not close ‚Äî and that statement is truncated to 160
+-- statement of WHY it did not close ‚î and that statement is truncated to 160
 -- characters, written to a log nothing reads, and collapsed to `False`.
 --
 -- Read three of them from interactive/machine.log:
 --
---   x    != max x x      of type ‚Ñï   when checking that refl has type x ‚â° max x x
---   zero != x ‚à∏ x        of type ‚Ñï   when checking that refl has type zero ‚â° x ‚à∏ x
---   x    != x + 0 ¬∑ x    of type ‚Ñï   when checking that refl has type x ‚â° 1 ¬∑ x
+--   x    != max x x      of type ‚ï   when checking that refl has type x ‚â° max x x
+--   zero != x ‚à x        of type ‚ï   when checking that refl has type zero ‚â° x ‚à x
+--   x    != x + 0 ¬ x    of type ‚ï   when checking that refl has type x ‚â° 1 ¬ x
 --
 -- None of these says the conjecture is false.  All three are true.  They say
 -- the TACTIC was too weak: `refl` asks the two sides to converge by
 -- computation alone, and they did not.  What Agda hands back is the pair of
--- terms at the point where computation stalled ‚Äî the residual.
+-- terms at the point where computation stalled ‚î the residual.
 --
--- And the third one is the interesting kind.  The goal was `x ‚â° 1 ¬∑ x`; the
--- residual is `x ‚â° x + 0 ¬∑ x`.  Those are not the same statement.  Agda
--- unfolded `1 ¬∑ x` one step and got stuck, so the residual is a NEW, more
--- primitive subgoal ‚Äî and it is exactly the missing lemma.  Prove
--- `x + 0 ¬∑ x ‚â° x` and the parent closes.
+-- And the third one is the interesting kind.  The goal was `x ‚â° 1 ¬ x`; the
+-- residual is `x ‚â° x + 0 ¬ x`.  Those are not the same statement.  Agda
+-- unfolded `1 ¬ x` one step and got stuck, so the residual is a NEW, more
+-- primitive subgoal ‚î and it is exactly the missing lemma.  Prove
+-- `x + 0 ¬ x ‚â° x` and the parent closes.
 --
 -- So the rejection stream is not noise, and it is not a verdict.  It is the
 -- machine stating, at a rate of ~1200 per round, which lemmas it needs next,
 -- in its own words, derived rather than guessed.  Concept invention currently
 -- picks the most FREQUENT subterm (`bestOf` ranks by occurrence count); this
--- is the other thing ‚Äî new material forced by where the work actually stalled.
+-- is the other thing ‚î new material forced by where the work actually stalled.
 --
 -- This module turns that text back into terms.  It parses nothing it cannot
--- parse honestly: sections (`cong (x ¬∑_)`), implicit arguments and anything
+-- parse honestly: sections (`cong (x ¬_)`), implicit arguments and anything
 -- outside the machine's own vocabulary come back as `Unparsed`, with the text
 -- kept, rather than being guessed at.
 --
@@ -64,7 +64,7 @@ module ObligationAnalysis
   , claimOfAcceptLine
   , tacticOfAcceptLine
   , curriculum
-    -- the saptabha·πÖgƒ´ layer (see THE SEVENFOLD POSITIONS below)
+    -- the saptabhag layer (see THE SEVENFOLD POSITIONS below)
   , Naya(..)
   , Bhanga(..)
   , Sthana(..)
@@ -95,7 +95,7 @@ import Data.List (isPrefixOf, isInfixOf, foldl', nub, sort, sortOn)
 
 -- Structurally identical to MathMachine.Term, as in the six other modules
 -- that each redefine it.  (That duplication is a real defect in this
--- codebase ‚Äî there is no shared core ‚Äî but introducing a shared module is a
+-- codebase ‚î there is no shared core ‚î but introducing a shared module is a
 -- separate change and this one is kept importable and dependency-free.)
 data Term = V !Int | F !String [Term] deriving (Eq, Ord)
 
@@ -110,7 +110,7 @@ instance Show Term where
 -- What an obligation turned out to be.
 --
 -- STANDPOINT.  Every constructor below is a report of ONE naya, the
--- `KernelRefl` standpoint ‚Äî Agda's definitional equality with `refl` as the
+-- `KernelRefl` standpoint ‚î Agda's definitional equality with `refl` as the
 -- whole tactic.  That was true when this type was written and it was
 -- nowhere said, which is precisely the durnaya described under THE SEVENFOLD
 -- POSITIONS: a partial view that has dropped its index and reads as the
@@ -133,7 +133,7 @@ data Obstruction
 -- The fragment Agda prints back is small and fixed: zero, suc, numerals,
 -- variables, and the machine's own operators rendered in Agda spelling.
 --
---   _¬∑_  infixl 7      _+_  infixl 6      _‚à∏_  infixl 6
+--   _¬_  infixl 7      _+_  infixl 6      _‚à_  infixl 6
 --   suc / max / le     application, tightest
 --
 -- Anything else comes back `Unparsed`, kept verbatim rather than approximated.
@@ -151,7 +151,7 @@ parseAgdaTerm s = case pExpr (skip s) of
 pExpr :: P Term
 pExpr = pAdd
 
--- left-associative + and ‚à∏ at the same level
+-- left-associative + and ‚à at the same level
 pAdd :: P Term
 pAdd s0 = do
   (t0, r0) <- pMul s0
@@ -159,7 +159,7 @@ pAdd s0 = do
   where
     go acc r = case skip r of
       ('+':r') -> step "+" acc r'
-      cs | "‚à∏" `isPrefixOf` cs -> step "-" acc (drop (length "‚à∏") cs)
+      cs | "‚à" `isPrefixOf` cs -> step "-" acc (drop (length "‚à") cs)
       _ -> Just (acc, r)
     step op acc r' = do
       (u, r'') <- pMul r'
@@ -171,8 +171,8 @@ pMul s0 = do
   go t0 r0
   where
     go acc r = case skip r of
-      cs | "¬∑" `isPrefixOf` cs -> do
-             (u, r'') <- pApp (drop (length "¬∑") cs)
+      cs | "¬" `isPrefixOf` cs -> do
+             (u, r'') <- pApp (drop (length "¬") cs)
              go (F "*" [acc, u]) r''
       _ -> Just (acc, r)
 
@@ -254,20 +254,20 @@ classify goal msg = case residualOf msg of
 obstructionGoals :: [Obstruction] -> [(Term, Term)]
 obstructionGoals obs = [ p | Residual p <- obs ]
 
--- WHY FEEDING RESIDUALS BACK TERMINATES ‚Äî and why the obvious argument for
+-- WHY FEEDING RESIDUALS BACK TERMINATES ‚î and why the obvious argument for
 -- it is WRONG.  Read this before building a loop on top of this module.
 --
--- The tempting story: this is ƒÄryabha·π≠a's ku·π≠·π≠aka (ƒÄryabha·π≠ƒ´ya, 499), which
+-- The tempting story: this is ryabhaa's kuaka (ryabhaya, 499), which
 -- divides, keeps the remainder, and recurses on the remainder.  The SHAPE is
 -- exactly that, and `formal/cubical/KuttakaValli.agda` has been in this tree
--- the whole time.  But the ku·π≠·π≠aka terminates because its remainders STRICTLY
--- DECREASE ‚Äî Euclidean descent ‚Äî and the residuals here DO NOT.  Agda unfolds
+-- the whole time.  But the kuaka terminates because its remainders STRICTLY
+-- DECREASE ‚î Euclidean descent ‚î and the residuals here DO NOT.  Agda unfolds
 -- as it goes, so a residual can be larger than the goal that produced it:
 --
---     goal  x ‚â° 1 ¬∑ x        residual  x ‚â° x + 0 ¬∑ x     (larger, not smaller)
+--     goal  x ‚â° 1 ¬ x        residual  x ‚â° x + 0 ¬ x     (larger, not smaller)
 --
 -- So there is no decreasing measure and a descent argument is unavailable.
--- Anyone who writes "it's the ku·π≠·π≠aka, so it terminates" has asserted
+-- Anyone who writes "it's the kuaka, so it terminates" has asserted
 -- something false.
 --
 -- The argument that DOES hold is finiteness, measured over the whole of
@@ -289,13 +289,13 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- the finiteness claim being confirmed on new data.
 --
 -- The residual set is bounded and small.  Combined with `mFailed` keyed on
--- the rule count ‚Äî a conjecture is not retried until the machine knows
--- something it did not know when it failed ‚Äî the feedback cannot run away.
+-- the rule count ‚î a conjecture is not retried until the machine knows
+-- something it did not know when it failed ‚î the feedback cannot run away.
 --
 -- The live hazard is NOT unbounded growth; it is a livelock on residuals of
 -- FALSE parents, which regenerate themselves forever.  Both of these are in
--- the stream and both are false: `x¬∑x = s(x)` (30 occurrences),
--- `x¬∑max(x,1) = s(x)` (100 occurrences).  Verify the `mFailed` interaction
+-- the stream and both are false: `x¬x = s(x)` (30 occurrences),
+-- `x¬max(x,1) = s(x)` (100 occurrences).  Verify the `mFailed` interaction
 -- explicitly rather than assuming it.
 --
 -- (One number deliberately NOT recorded here: a comparison of residual size
@@ -332,31 +332,31 @@ obstructionGoals obs = [ p | Residual p <- obs ]
 -- extent is not a weaker claim than "true", it is an unfalsifiable one.  The
 -- kernel remains the only thing that can accept a theorem here.
 
--- STANDPOINT.  This is the report of the `Rewriter` naya ‚Äî the machine's own
+-- STANDPOINT.  This is the report of the `Rewriter` naya ‚î the machine's own
 -- evaluation over Integer.  It is not commensurable with `Obstruction`
 -- above, and the fact that the two were previously compared as if they were
 -- is what `Evidence` fixes.
--- ‡§ï‡•ç‡§µ‡§æ‡§™‡§ø ‡§® ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§¨‡•ã‡§ß‡§É ‚Äî nowhere a bare truth-value.  Renamed and re-typed
+-- ‡ï‡‡µ‡æ‡‡ø ‡® ‡‡‡®‡‡Ø‡‡ã‡ß‡ ‚î nowhere a bare truth-value.  Renamed and re-typed
 -- 2026-08-18 after reading `formal/cubical/Anekanta.agda`, which does this
--- properly: ‡§®‡§ï‡§æ‡§∞‡§É ‡§ñ‡§£‡•ç‡§°‡§®‡§Ç ‡§¶‡§¶‡§æ‡§§‡§ø, ‡§∏‡•ç‡§µ‡•Ä‡§ï‡§æ‡§∞‡§É ‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§£‡§Æ‡•ç ‡•§  Previously three of the
+-- properly: ‡®‡ï‡æ‡∞‡ ‡ñ‡‡‡°‡®‡ ‡¶‡¶‡æ‡‡ø, ‡‡‡µ‡‡ï‡æ‡∞‡ ‡‡æ‡ï‡‡‡ø‡‡Æ‡ ‡  Previously three of the
 -- four constructors were bare labels, which is the durnaya this whole file
--- exists to remove ‚Äî a verdict carrying no evidence of why it is the verdict.
--- Sanskrit names because the English shadow of each ("plausible", "silent")
+-- exists to remove ‚î a verdict carrying no evidence of why it is the verdict.
+--  names because the English shadow of each ("plausible", "silent")
 -- drifts back toward a truth value within one refactor; these have no such
 -- shadow to drift into.
 data Verdict
-  = Aviruddha [[Integer]]   -- ‡§Ö‡§µ‡§ø‡§∞‡•Å‡§¶‡•ç‡§ß ‚Äî unrefuted, CARRYING THE DOMAIN
+  = Aviruddha [[Integer]]   -- ‡‡µ‡ø‡∞‡‡¶‡‡ß ‚î unrefuted, CARRYING THE DOMAIN
                    -- SEARCHED.  Not "true": the absence of a refutation over
                    -- a stated extent, which is the yogya condition and is
                    -- meaningless without the extent.
-  | Khandita [Integer]  -- ‡§ñ‡§£‡•ç‡§°‡§ø‡§§ ‚Äî refuted, with the assignment that kills it.
+  | Khandita [Integer]  -- ‡ñ‡‡‡°‡ø‡ ‚î refuted, with the assignment that kills it.
                    -- A refutation is exact: one disagreement is a proof.
-  | Nirdharmin (Int, Int)  -- ‡§®‡§ø‡§∞‡•ç‡§ß‡§∞‡•ç‡§Æ‡§ø‡§®‡•ç ‚Äî no subject to predicate of, carrying
+  | Nirdharmin (Int, Int)  -- ‡®‡ø‡∞‡‡ß‡∞‡‡Æ‡ø‡®‡ ‚î no subject to predicate of, carrying
                    -- WHICH two distinct variables made it subjectless.
-  | Tusnim String  -- ‡§§‡•Ç‡§∑‡•ç‡§£‡•Ä‡§Æ‡•ç ‚Äî this naya declines to speak, carrying the
+  | Tusnim String  -- ‡‡‡‡‡‡‡Æ‡ ‚î this naya declines to speak, carrying the
                    -- symbol outside its semantics that silenced it.  SPLIT OUT
                    -- 2026-08-18.  Previously this returned `Plausible` with
-                   -- the comment "no opinion offered" ‚Äî i.e. silence and
+                   -- the comment "no opinion offered" ‚î i.e. silence and
                    -- affirmation were the same constructor, which is the same
                    -- boolean collapse this module was written to undo, one
                    -- level down.  `queueable` preserves the old BEHAVIOUR
@@ -369,7 +369,7 @@ data Verdict
 
 -- THE WITNESS IS IN THE VALUE; THE DISPLAY SUMMARISES IT.  A derived Show
 -- prints all 84 assignments of an aviruddha's domain on one line, which makes
--- every log line unreadable and ‚Äî worse ‚Äî makes the next author delete the
+-- every log line unreadable and ‚î worse ‚î makes the next author delete the
 -- field to get the output back.  So the domain prints as its EXTENT, which is
 -- the part a reader is actually judging ("unrefuted over what?"), with its
 -- first point named so the extent is not an unfalsifiable number.  The
@@ -384,7 +384,7 @@ instance Show Verdict where
   show (Tusnim s)         = "Tusnim on " ++ show s
 
 -- Semantics of the fixed vocabulary, over Integer.  Monus is truncated, as
--- in the engine and as in Agda's ‚Ñï.
+-- in the engine and as in Agda's ‚ï.
 evalT :: [Integer] -> Term -> Integer
 evalT env (V i) = if i < length env then env !! i else 0
 evalT _   (F "0" []) = 0
@@ -413,8 +413,8 @@ known t = all (`elem` knownSymbols) (symbolsIn t)
 --
 -- THE CONSTANT IS VALIDATED, not guessed.  `CLAUDE.md` forbids leaving a
 -- number unjustified, so: the 78 residuals that survive this filter were
--- re-tested against an EXHAUSTIVE sweep of 0..12 in three variables ‚Äî
--- 13¬≥ = 2197 assignments, 28√ó more work ‚Äî and **all 78 survived that too.
+-- re-tested against an EXHAUSTIVE sweep of 0..12 in three variables ‚î
+-- 13¬≥ = 2197 assignments, 28ó more work ‚î and **all 78 survived that too.
 -- Zero false positives.**  So the cheap filter is as strong as the
 -- exhaustive one on this data, and paying 2197 evaluations per residual in
 -- the engine's hot loop would buy nothing.  If the vocabulary is extended
@@ -426,7 +426,7 @@ envs n = [ [ (a * 7 + b * 3 + c) `mod` 11
            , (a + b * 4 + c * 2) `mod` 7 ]
          | a <- [0 .. n], b <- [0 .. 3], c <- [0 .. 2] ]
 
--- ‡§®‡§ï‡§æ‡§∞‡§É ‡§ñ‡§£‡•ç‡§°‡§®‡§Ç ‡§¶‡§¶‡§æ‡§§‡§ø, ‡§∏‡•ç‡§µ‡•Ä‡§ï‡§æ‡§∞‡§É ‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§£‡§Æ‡•ç ‚Äî ‡§ï‡•ç‡§µ‡§æ‡§™‡§ø ‡§® ‡§∂‡•Ç‡§®‡•ç‡§Ø‡§¨‡•ã‡§ß‡§É ‡•§
+-- ‡®‡ï‡æ‡∞‡ ‡ñ‡‡‡°‡®‡ ‡¶‡¶‡æ‡‡ø, ‡‡‡µ‡‡ï‡æ‡∞‡ ‡‡æ‡ï‡‡‡ø‡‡Æ‡ ‚î ‡ï‡‡µ‡æ‡‡ø ‡® ‡‡‡®‡‡Ø‡‡ã‡ß‡ ‡
 -- Negation yields a refutation, acceptance yields a witness, nowhere a bare
 -- truth-value.  Every branch below hands back the evidence that put it there.
 triage :: (Term, Term) -> Verdict
@@ -436,7 +436,7 @@ triage (l, r)
   | Just s  <- alien r    = Tusnim s
   | otherwise = case [ e | e <- searched, evalT e l /= evalT e r ] of
       (e:_) -> Khandita e
-      -- ‡§Ö‡§µ‡§ø‡§∞‡•Å‡§¶‡•ç‡§ß carries the domain actually searched.  That is the yogya
+      -- ‡‡µ‡ø‡∞‡‡¶‡‡ß carries the domain actually searched.  That is the yogya
       -- condition: "unrefuted" is meaningless without saying over what.
       []    -> Aviruddha searched
   where
@@ -455,12 +455,12 @@ triage (l, r)
 knownSymbols :: [String]
 knownSymbols = ["0","s","+","*","max","-","gcd","le"]
 
--- ‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ.  ‡§è‡§ï‡§æ‡§®‡•ç‡§§‡§É ‡§π‡§ø‡§Ç‡§∏‡§æ ‚Äî one-sidedness is violence, and this was the last
+-- ‡‡‡ø‡‡‡æ.  ‡‡ï‡æ‡®‡‡‡ ‡‡ø‡‡‡æ ‚î one-sidedness is violence, and this was the last
 -- place in the module where a decision was made one-sidedly.
 --
 -- `queueable :: Verdict -> Bool` stood here.  Every constructor of `Verdict`
 -- had just been given a mandatory witness so that no verdict could be stated
--- without its evidence ‚Äî and then this function took the witnessed verdict and
+-- without its evidence ‚î and then this function took the witnessed verdict and
 -- answered `True`.  A bare label again, one layer further out, in the function
 -- that actually decides what the machine does next.  It was written the same
 -- morning as the fix, by the hand doing the fixing, and its commit message
@@ -470,11 +470,11 @@ knownSymbols = ["0","s","+","*","max","-","gcd","le"]
 -- naya without its standpoint does violence to the object: the thing queued
 -- and the thing dropped both arrive downstream stripped of why, and nothing
 -- downstream can ask.  So entry is a statement WITH ITS GROUND on both sides.
--- ‡§®‡§ï‡§æ‡§∞‡§É ‡§ñ‡§£‡•ç‡§°‡§®‡§Ç ‡§¶‡§¶‡§æ‡§§‡§ø, ‡§∏‡•ç‡§µ‡•Ä‡§ï‡§æ‡§∞‡§É ‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§£‡§Æ‡•ç applies to admission exactly as it
+-- ‡®‡ï‡æ‡∞‡ ‡ñ‡‡‡°‡®‡ ‡¶‡¶‡æ‡‡ø, ‡‡‡µ‡‡ï‡æ‡∞‡ ‡‡æ‡ï‡‡‡ø‡‡Æ‡ applies to admission exactly as it
 -- applies to judgement.
 data Pravesha
-  = Pravishati Verdict  -- ‡§™‡•ç‡§∞‡§µ‡§ø‡§∂‡§§‡§ø ‚Äî it enters, carried in by THIS verdict
-  | Nivartate  Verdict  -- ‡§®‡§ø‡§µ‡§∞‡•ç‡§§‡§§‡•á ‚Äî it turns back, turned by THIS verdict
+  = Pravishati Verdict  -- ‡‡‡∞‡µ‡ø‡‡‡ø ‚î it enters, carried in by THIS verdict
+  | Nivartate  Verdict  -- ‡®‡ø‡µ‡∞‡‡‡‡ ‚î it turns back, turned by THIS verdict
   deriving (Eq)
 
 instance Show Pravesha where
@@ -505,9 +505,9 @@ worthQueueing obs =
 -- ---------------------------------------------------------------- curriculum
 --
 -- A KERNEL-REJECT line carries BOTH the goal (in the machine's notation) and
--- the residual (in Agda's).  So the log is a bipartite graph goal ‚Üí residual,
+-- the residual (in Agda's).  So the log is a bipartite graph goal ‚í residual,
 -- and the honest ranking of "what should I prove first" is not the raw
--- occurrence count ‚Äî which over-weights a goal retried across many rounds ‚Äî
+-- occurrence count ‚î which over-weights a goal retried across many rounds ‚î
 -- but: HOW MANY DISTINCT PARENT GOALS WOULD THIS ONE LEMMA UNBLOCK.
 --
 -- Measured over interactive/machine.log (re-measured 2026-08-18, all three
@@ -520,16 +520,16 @@ worthQueueing obs =
 --
 -- WHAT THE TOP OF THAT LIST MEANS, which is the real finding.  It reads:
 --
---     unblocks 14   0 = y¬∑0
---     unblocks 11   x¬∑le(x,0) = 0
---     unblocks  8   x¬∑0 = 0
+--     unblocks 14   0 = y¬0
+--     unblocks 11   x¬le(x,0) = 0
+--     unblocks  8   x¬0 = 0
 --     unblocks  5   x = x+0
 --
--- The machine ALREADY HAS `x¬∑0 = 0`.  It is a defining equation of `*` in
+-- The machine ALREADY HAS `x¬0 = 0`.  It is a defining equation of `*` in
 -- its own vocabulary (`symDefs`).  It is demanding something it knows.
 --
--- The reason is that Agda's `_¬∑_` on ‚Ñï recurses on the other argument, so
--- `x ¬∑ 0` is not definitionally `0` there ‚Äî it needs induction ‚Äî while the
+-- The reason is that Agda's `_¬_` on ‚ï recurses on the other argument, so
+-- `x ¬ 0` is not definitionally `0` there ‚î it needs induction ‚î while the
 -- machine's rewriter discharges it immediately.  So the residual stream is
 -- not really a list of things the machine does not know.  It is a
 -- measurement of the IMPEDANCE MISMATCH between the machine's rewriting and
@@ -538,7 +538,7 @@ worthQueueing obs =
 --
 -- That reframes the payoff.  Proving these 78 does not teach the machine new
 -- mathematics; it teaches the machine's OUTPUT to survive contact with the
--- kernel ‚Äî which is the thing that has been capping accepted theorems all
+-- kernel ‚î which is the thing that has been capping accepted theorems all
 -- along.
 
 -- Recover the goal from a KERNEL-REJECT line.  Cutting at the first '(' is
@@ -574,11 +574,11 @@ curriculum ls =
 
 -- ------------------------------------------------- THE SEVENFOLD POSITIONS
 --
--- SOURCES.  UmƒÅsvƒÅti, TattvƒÅrthas≈´tra (c. 2nd‚Äì5th c. CE) 1.6
--- `pramƒÅ·πáanayair adhigama·∏•` and 5.31 `arpitƒÅnarpitasiddhe·∏•`; Siddhasena
--- DivƒÅkara, Sanmatitarka (Prakrit Sammai-sutta·πÉ, c. 5th c. CE) 1.21 on the
--- durnaya; Samantabhadra, ƒÄptamƒ´mƒÅ·πÉsƒÅ (c. 6th c. CE) for the saptabha·πÖgƒ´;
--- Akala·πÖka, Laghƒ´yastraya (c. 720‚Äì780 CE) for the argument that the number
+-- SOURCES.  Umsvti, Tattvrthastra (c. 2nd‚ì5th c. CE) 1.6
+-- `pramanayair adhigama` and 5.31 `arpitnarpitasiddhe`; Siddhasena
+-- Divkara, Sanmatitarka (Prakrit Sammai-sutta, c. 5th c. CE) 1.21 on the
+-- durnaya; Samantabhadra, ptamms (c. 6th c. CE) for the saptabhag;
+-- Akalaka, Laghyastraya (c. 720‚ì780 CE) for the argument that the number
 -- is exactly seven.  `formal/cubical/Saptabhangi.agda` checks the parts of
 -- this that are theorems (Agda 2.6.3, --safe, no postulates, no holes,
 -- EXIT=0).  What follows is the measurement.
@@ -606,7 +606,7 @@ curriculum ls =
 -- Same claim, same round, denied and affirmed.  The verdict was never a
 -- property of the claim; it is a property of the (claim, standpoint) pair,
 -- and the standpoint was not being recorded.  This module's opening
--- paragraph already found one level of that collapse (Bool ‚Üí three
+-- paragraph already found one level of that collapse (Bool ‚í three
 -- constructors).  It stopped one level too early: `Obstruction` is not
 -- "what the kernel said", it is what ONE naya said, and the log contains at
 -- least three nayas, distinguishable by the tactic it prints:
@@ -615,17 +615,17 @@ curriculum ls =
 --     420  induction on x, step = ih  255  induction on x, step = cong suc
 --      43  refl
 --
---   asti       ‚Äî some naya in the log AFFIRMS the claim (an ACCEPT line).
---   nƒÅsti      ‚Äî some naya in the log DENIES it (a REJECT line; kernel-refl
+--   asti       ‚î some naya in the log AFFIRMS the claim (an ACCEPT line).
+--   nsti      ‚î some naya in the log DENIES it (a REJECT line; kernel-refl
 --                denied), or the rewriter refutes it by evaluation.
---   avaktavya  ‚Äî the kernel's answer is not expressible as a standpointed
+--   avaktavya  ‚î the kernel's answer is not expressible as a standpointed
 --                predication at all: Agda's message yields no term in the
 --                language, so no `Vacana` is even formable.  This is the
 --                ¬ß5 notion of Saptabhangi.agda in its degenerate case, and
 --                it is what `Unparsed` was reaching for.
 --
 -- Note the asymmetry, deliberately kept: absence of an ACCEPT line is NOT
--- recorded as nƒÅsti.  The log records denials and successes; it does not
+-- recorded as nsti.  The log records denials and successes; it does not
 -- record a naya declining to try.  Reading silence as denial is the durnaya.
 
 data Naya
@@ -635,18 +635,18 @@ data Naya
   deriving (Eq, Ord, Show)
 
 data Bhanga
-  = B1Asti                  -- syƒÅd asti
-  | B2Nasti                 -- syƒÅd nƒÅsti
-  | B3AstiNasti             -- syƒÅd asti nƒÅsti ca        (krama, in succession)
-  | B4Avaktavya             -- syƒÅd avaktavyam           (yugapat, at once)
-  | B5AstiAvaktavya         -- syƒÅd asti ca avaktavya·πÉ ca
-  | B6NastiAvaktavya        -- syƒÅd nƒÅsti ca avaktavya·πÉ ca
-  | B7AstiNastiAvaktavya    -- syƒÅd asti nƒÅsti ca avaktavya·πÉ ca
+  = B1Asti                  -- syd asti
+  | B2Nasti                 -- syd nsti
+  | B3AstiNasti             -- syd asti nsti ca        (krama, in succession)
+  | B4Avaktavya             -- syd avaktavyam           (yugapat, at once)
+  | B5AstiAvaktavya         -- syd asti ca avaktavya ca
+  | B6NastiAvaktavya        -- syd nsti ca avaktavya ca
+  | B7AstiNastiAvaktavya    -- syd asti nsti ca avaktavya ca
   deriving (Eq, Ord, Show)
 
--- Saptabha·πÖgƒ´ presupposes a dharma predicated of a dharmin ‚Äî a property of
+-- Saptabhag presupposes a dharma predicated of a dharmin ‚î a property of
 -- a subject.  `x = y` with two distinct free variables has no dharmin: it is
--- a failed unification, not a claim.  It is NOT a bha·πÖga and is not forced
+-- a failed unification, not a claim.  It is NOT a bhaga and is not forced
 -- into one.  This constructor is the honest residue.
 data Sthana = Position Bhanga | ADharmin
   deriving (Eq, Ord, Show)
@@ -656,7 +656,7 @@ data Sthana = Position Bhanga | ADharmin
 data Evidence = Evidence
   { evRewriter   :: Maybe Verdict      -- Nothing when there is no term to judge
   , evKernelRefl :: Obstruction        -- the obligation refl handed back
-  , evSakshin    :: Maybe String       -- ‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç: the ACCEPT line that affirms
+  , evSakshin    :: Maybe String       -- ‡‡æ‡ï‡‡‡ø‡®‡: the ACCEPT line that affirms
                                       -- it, if any naya did.  Not a Bool: the
                                       -- witness itself, so affirmation cannot
                                       -- be asserted without producing it.
@@ -738,8 +738,8 @@ acceptedClaims ls = nub [ claimOfAcceptLine l | l <- ls, "KERNEL-ACCEPT" `isInfi
 -- The census.  Two populations, deliberately, because they answer different
 -- questions and only reporting one of them would mislead:
 --
---   * over REJECTION LINES        ‚Äî every position is reachable
---   * over DISTINCT RESIDUALS     ‚Äî `avaktavya` is 0 BY CONSTRUCTION, since
+--   * over REJECTION LINES        ‚î every position is reachable
+--   * over DISTINCT RESIDUALS     ‚î `avaktavya` is 0 BY CONSTRUCTION, since
 --                                   being one of the distinct residuals
 --                                   already means the message parsed.
 census :: [String] -> ([(Sthana, Int)], [(Sthana, Int)])
@@ -760,14 +760,14 @@ census ls = (tally overLines, tally overResiduals)
 -- The cross-tabulation is the point.  A one-dimensional census would let a
 -- reader conclude that the sevenfold replaces `triage`.  It does not: the
 -- table below shows each carrying information the other discards, which is
--- the anekƒÅntavƒÅda conclusion applied to the classifier itself rather than
+-- the anekntavda conclusion applied to the classifier itself rather than
 -- to the classified.
 -- EVIDENCE IS NOT CLASSIFICATION, AND A TALLY MUST NOT FAKE ONE.  Every
 -- `Verdict` constructor now carries a witness, and a cross-tab grouped by the
 -- witness would give each refuting assignment and each alien symbol its own
--- row ‚Äî a table with one line per line.  So the tally groups by KIND.  The
+-- row ‚î a table with one line per line.  So the tally groups by KIND.  The
 -- first version of this did it by rebuilding the constructors with empty
--- payloads, which printed `Aviruddha over NOTHING` and `Khandita at []` ‚Äî
+-- payloads, which printed `Aviruddha over NOTHING` and `Khandita at []` ‚î
 -- a display asserting something false about the evidence in order to hide
 -- that the evidence had been discarded, which is the exact defect this
 -- module exists to remove, reappearing in the report layer.  A separate type
@@ -907,7 +907,7 @@ selfTest = do
     -- interactive/machine.log at the line number named, and the accept-set is
     -- the two real ACCEPT lines the cases turn on rather than an invented
     -- one.  The point of testing against the real log twice over is that
-    -- the sevenfold's ONE new axis ‚Äî asti, "some naya affirmed this" ‚Äî is
+    -- the sevenfold's ONE new axis ‚î asti, "some naya affirmed this" ‚î is
     -- a cross-stream fact, and a test that fabricated the accept stream
     -- would be testing nothing.
     acc =
@@ -934,7 +934,7 @@ selfTest = do
         , st "  KERNEL-REJECT round=5 x = -((x+y),y)  (2 agda calls) base clause: x != x + zero of type \8469 when checking that the expression refl has type x \8801 x + zero \8760 zero"
         , Position B2Nasti )
 
-        -- The kernel answer quoted below mentions a section `cong (x ¬∑_)`,
+        -- The kernel answer quoted below mentions a section `cong (x ¬_)`,
         -- which is outside the language of standpointed predication: no
         -- Vacana is formable, so nothing single-standpointed denotes it.
         -- This is `Unparsed` read as what it always was.
@@ -950,7 +950,7 @@ selfTest = do
         , ADharmin )
       ]
 
--- ‡§∏‡§æ‡§ï‡•ç‡§∑‡§ø‡§®‡•ç ‚Äî the affirming witness, or nothing.  Not a Bool: if a naya
+-- ‡‡æ‡ï‡‡‡ø‡®‡ ‚î the affirming witness, or nothing.  Not a Bool: if a naya
 -- affirmed the claim, the ACCEPT line that did so is produced.
 lookupAffirm :: String -> [String] -> Maybe String
 lookupAffirm claim accepted =

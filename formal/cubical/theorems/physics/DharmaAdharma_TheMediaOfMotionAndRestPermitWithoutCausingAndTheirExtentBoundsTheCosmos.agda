@@ -1,62 +1,62 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§ß‡§∞‡•ç‡§Æ‡§æ‡§ß‡§∞‡•ç‡§Æ‡•å ‚Äî the media of motion and rest: they permit without causing,
+-- ‡ß‡∞‡‡Æ‡æ‡ß‡∞‡‡Æ‡ ‚î the media of motion and rest: they permit without causing,
 -- and the extent of the medium is the boundary of the cosmos.
 --
--- SOURCE.  UmƒÅsvƒÅti, *TattvƒÅrthas≈´tra*, adhyƒÅya 5 (the ajƒ´va chapter,
--- ~2nd‚Äì5th c. CE).  Of the six substances (·π£a·∏ç dravya) only jƒ´va is
--- coded in this corpus (`Jiva.agda`).  This file begins the ARENA ‚Äî the
--- ajƒ´va dravyas ‚Äî with the two that are pure Jain physics and have no
+-- SOURCE.  Umsvti, *Tattvrthastra*, adhyya 5 (the ajva chapter,
+-- ~2nd‚ì5th c. CE).  Of the six substances (a dravya) only jva is
+-- coded in this corpus (`Jiva.agda`).  This file begins the ARENA ‚î the
+-- ajva dravyas ‚î with the two that are pure Jain physics and have no
 -- pre-modern European counterpart:
 --
---   5.17  ‡§ó‡§§‡§ø‡§∏‡•ç‡§•‡§ø‡§§‡•ç‡§Ø‡•Å‡§™‡§ó‡•ç‡§∞‡§π‡•å ‡§ß‡§∞‡•ç‡§Æ‡§æ‡§ß‡§∞‡•ç‡§Æ‡§Ø‡•ã‡§∞‡•Å‡§™‡§ï‡§æ‡§∞‡§É
---         gati-sthity-upagrahau dharmƒÅdharmayor upakƒÅra·∏•
---         "the assistance (upakƒÅra) of dharma and adharma is the support
+--   5.17  ‡ó‡‡ø‡‡‡‡ø‡‡‡Ø‡‡‡ó‡‡∞‡‡ ‡ß‡∞‡‡Æ‡æ‡ß‡∞‡‡Æ‡Ø‡ã‡∞‡‡‡ï‡æ‡∞‡
+--         gati-sthity-upagrahau dharmdharmayor upakra
+--         "the assistance (upakra) of dharma and adharma is the support
 --          of motion (gati) and of rest (sthiti)" respectively.
---   5.7   they are each ONE, non-corporeal (ar≈´pƒ´), ni·π£kriya (actionless),
---         and pervade the whole loka (lokƒÅkƒÅ≈õa) ‚Äî 5.5, 5.6, 5.13.
+--   5.7   they are each ONE, non-corporeal (arp), nikriya (actionless),
+--         and pervade the whole loka (lokka) ‚î 5.5, 5.6, 5.13.
 --
 -- The doctrine, exactly, and it is a genuine physical claim:
---   ‚Ä¢ dharma does NOT move things.  It is the CONDITION under which motion
---     is possible ‚Äî the bhƒÅ·π£ya's simile is water to a fish: the water does
+--   ‚ dharma does NOT move things.  It is the CONDITION under which motion
+--     is possible ‚î the bhya's simile is water to a fish: the water does
 --     not push the fish; the fish cannot swim without it.  Permission, not
---     force.  This is why dharma is ni·π£kriya and yet upakƒÅrin.
---   ‚Ä¢ dharma pervades exactly the loka.  Beyond it (aloka) there is no
+--     force.  This is why dharma is nikriya and yet upakrin.
+--   ‚ dharma pervades exactly the loka.  Beyond it (aloka) there is no
 --     dharma, hence NO MOTION IS POSSIBLE.  The universe's boundary is not
---     a wall; it is the edge of the medium of motion.  A liberated jƒ´va
---     rises (≈´rdhvagati) and HALTS at the top of the loka ‚Äî not stopped by
+--     a wall; it is the edge of the medium of motion.  A liberated jva
+--     rises (rdhvagati) and HALTS at the top of the loka ‚î not stopped by
 --     an obstacle, but because the medium that permitted the rising ends
---     there (the mechanism behind TS 10.5‚Äì7).
---   ‚Ä¢ adharma is the dual: it supports sthiti, rest.
+--     there (the mechanism behind TS 10.5‚ì7).
+--   ‚ adharma is the dual: it supports sthiti, rest.
 --
 -- WHAT IS PROVED (over an abstract carrier of places `P` with a dharma
--- region `loka : P ‚Üí Type` required to be a PROPOSITION ‚Äî membership
--- carries no data, which IS ni·π£kriya + ar≈´pƒ´: the medium adds permission,
+-- region `loka : P ‚í Type` required to be a PROPOSITION ‚î membership
+-- carries no data, which IS nikriya + arp: the medium adds permission,
 -- never structure):
 --
---   ¬ß2  ‡§®‡§ø‡§∑‡•ç‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç ‚Äî dharma permits but does not cause.  A permitted step's
+--   ¬ß2  ‡®‡ø‡‡‡ï‡‡∞‡ø‡Ø‡Æ‡ ‚î dharma permits but does not cause.  A permitted step's
 --       underlying MOTION does not depend on the permission-witness:
 --       `fst` of a permitted step is independent of the proof that its
 --       ends lie in the loka.  (The water does not choose where the fish
 --       swims.)  Exact, because loka-membership is a proposition.
---   ¬ß3  ‡§∏‡§Ç‡§∞‡•ã‡§ß‡§É ‚Äî confinement.  Any orbit of permitted steps from a point
+--   ¬ß3  ‡‡‡∞‡ã‡ß‡ ‚î confinement.  Any orbit of permitted steps from a point
 --       in the loka stays in the loka, at every depth.  The region is
 --       closed under motion.
---   ¬ß4  ‡§Ö‡§≤‡•ã‡§ï‡•á-‡§®-‡§ó‡§§‡§ø‡§É ‚Äî no motion into aloka.  From inside, no permitted
+--   ¬ß4  ‡‡≤‡ã‡ï‡-‡®-‡ó‡‡ø‡ ‚î no motion into aloka.  From inside, no permitted
 --       step lands outside the loka; the cosmos's boundary bounds motion.
---   ¬ß5  ‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§ó‡§§‡§ø-‡§µ‡§ø‡§∞‡§æ‡§Æ‡§É ‚Äî the halt.  A maximal chain of permitted steps
+--   ¬ß5  ‡ä‡∞‡‡ß‡‡µ‡ó‡‡ø-‡µ‡ø‡∞‡æ‡Æ‡ ‚î the halt.  A maximal chain of permitted steps
 --       never leaves the loka, so upward motion terminates at the medium's
 --       edge, not at a barrier.  (The siddha comes to rest because dharma
 --       runs out, TS 10.  Stated as the confinement corollary; the
 --       cosmology proper is not formalised.)
---   ¬ß6  ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§É-‡§∏‡•ç‡§•‡§ø‡§§‡§ø‡§É ‚Äî adharma, dually: rest (the identity step) is
+--   ¬ß6  ‡‡ß‡∞‡‡Æ‡-‡‡‡‡ø‡‡ø‡ ‚î adharma, dually: rest (the identity step) is
 --       available at every place of the loka.  Rest needs its medium too.
 --
 -- THE JOIN, stated as resonance and not as reduction.  In this corpus the
 -- free road is TRANSPORT, defined on a domain (`PramanaSankramana`,
 -- `Yantra`).  dharma-dravya IS that domain: motion is exactly where the
--- medium pervades, and there is no transport off it ‚Äî the same shape as
+-- medium pervades, and there is no transport off it ‚î the same shape as
 -- "no motion in aloka".  The identification of the two is offered, not
 -- claimed; each is stated in its own vocabulary.
 --
@@ -98,7 +98,7 @@ module _ {P : Type ‚Ñì} (A : Arena P) where
   motion = fst
 
   ------------------------------------------------------------------------
-  -- ¬ß2  ‡§®‡§ø‡§∑‡•ç‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç ‚Äî the medium permits but does not cause.  The underlying
+  -- ¬ß2  ‡®‡ø‡‡‡ï‡‡∞‡ø‡Ø‡Æ‡ ‚î the medium permits but does not cause.  The underlying
   --     motion is independent of WHICH permission-witnesses are supplied:
   --     replace the loka-proofs, the motion is unchanged.  This is exact
   --     precisely because loka-membership is a proposition.
@@ -109,14 +109,14 @@ module _ {P : Type ‚Ñì} (A : Arena P) where
            ‚Üí motion (s , (px , py)) ‚â° motion (s , (px' , py'))
   ‡§®‡§ø‡§∑‡•ç‡§ï‡•ç‡§∞‡§ø‡§Ø‡§Æ‡•ç s px px' py py' = refl
   -- (refl already: `fst` forgets the witnesses.  The proposition-ness of
-  --  loka is what guarantees there was no hidden datum to forget ‚Äî ¬ß2b.)
+  --  loka is what guarantees there was no hidden datum to forget ‚î ¬ß2b.)
 
   -- and there is genuinely nothing to choose: any two permissions agree.
   ‡§â‡§™‡§ï‡§æ‡§∞‡§É-‡§è‡§ï‡§É : {x y : P} (p q : loka x √ó loka y) ‚Üí p ‚â° q
   ‡§â‡§™‡§ï‡§æ‡§∞‡§É-‡§è‡§ï‡§É {x} {y} (px , py) (qx , qy) i = isPropLoka x px qx i , isPropLoka y py qy i
 
   ------------------------------------------------------------------------
-  -- ¬ß3  ‡§∏‡§Ç‡§∞‡•ã‡§ß‡§É ‚Äî confinement.  An orbit is a chain of permitted steps.
+  -- ¬ß3  ‡‡‡∞‡ã‡ß‡ ‚î confinement.  An orbit is a chain of permitted steps.
   --     Starting inside the medium, every place it reaches is inside it.
   ------------------------------------------------------------------------
 
@@ -130,7 +130,7 @@ module _ {P : Type ‚Ñì} (A : Arena P) where
   ‡§∏‡§Ç‡§∞‡•ã‡§ß‡§É lx (move (s , (px , py)) o) = ‡§∏‡§Ç‡§∞‡•ã‡§ß‡§É py o
 
   ------------------------------------------------------------------------
-  -- ¬ß4  ‡§Ö‡§≤‡•ã‡§ï‡•á ‡§® ‡§ó‡§§‡§ø‡§É ‚Äî no motion into aloka.  From inside the medium there
+  -- ¬ß4  ‡‡≤‡ã‡ï‡ ‡® ‡ó‡‡ø‡ ‚î no motion into aloka.  From inside the medium there
   --     is no permitted step to a place outside it.
   ------------------------------------------------------------------------
 
@@ -142,7 +142,7 @@ module _ {P : Type ‚Ñì} (A : Arena P) where
   ‡§ó‡§§‡§ø‡§É-‡§≤‡•ã‡§ï‡•á (s , (px , py)) = py
 
   ------------------------------------------------------------------------
-  -- ¬ß5  ‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§ó‡§§‡§ø-‡§µ‡§ø‡§∞‡§æ‡§Æ‡§É ‚Äî the halt.  Whatever the orbit, motion never
+  -- ¬ß5  ‡ä‡∞‡‡ß‡‡µ‡ó‡‡ø-‡µ‡ø‡∞‡æ‡Æ‡ ‚î the halt.  Whatever the orbit, motion never
   --     leaves the medium; so an unbounded rising is bounded by the edge
   --     of dharma, not by any barrier.  (Confinement, read cosmologically.)
   ------------------------------------------------------------------------
@@ -159,7 +159,7 @@ module _ {P : Type ‚Ñì} (A : Arena P) where
   open Arena A
 
   ------------------------------------------------------------------------
-  -- ¬ß6  ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§É ‚Äî the dual medium, of rest.  adharma supports sthiti; where
+  -- ¬ß6  ‡‡ß‡∞‡‡Æ‡ ‚î the dual medium, of rest.  adharma supports sthiti; where
   --     it pervades, staying (the identity step) is available.  Modelled by
   --     a rest-region that always offers the null motion.  (Same shape as
   --     dharma, with `halt` in place of a proper step: rest is a permitted
@@ -172,4 +172,4 @@ module _ {P : Type ‚Ñì} (A : Arena P) where
   ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§É-‡§∏‡•ç‡§•‡§ø‡§§‡§ø‡§É : (adharma : P ‚Üí Type ‚Ñì) {x : P} ‚Üí adharma x ‚Üí Sthiti adharma x
   ‡§Ö‡§ß‡§∞‡•ç‡§Æ‡§É-‡§∏‡•ç‡§•‡§ø‡§§‡§ø‡§É adharma r = r
   -- rest is exactly the presence of its medium: no motion, and permitted
-  -- everywhere adharma pervades ‚Äî the dual of ¬ß2's permission.
+  -- everywhere adharma pervades ‚î the dual of ¬ß2's permission.

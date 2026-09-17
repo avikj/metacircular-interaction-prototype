@@ -6,7 +6,7 @@
 -- This module adds no second evaluator and no scheduler.  `digitsC` is the
 -- existing encoder, `sucC` is the existing schoolbook carry transition, and
 -- `valueC` is the existing decoder.  The equations below close their native
--- execution triangle over literal successor on ℕ.
+-- execution triangle over literal successor on �.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Nat using (ℕ ; zero ; suc)

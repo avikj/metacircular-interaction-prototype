@@ -3,29 +3,29 @@
 ------------------------------------------------------------------------
 -- InabilityTower
 --
--- `असमर्थता →^Γ विस्तृतलोकः` -- inability, under Γ, is an extended world.
+-- `�������� �^Γ �������������` -- inability, under Γ, is an extended world.
 --
 -- The received corpus states the number tower as the canonical instance of
 -- the machine's own loop:
 --
---     3-5 ∉ ℵ      ⇝  -2 ∈ ζ
---     1÷2 ∉ ζ      ⇝  ½ ∈ ϑ
---     ξ²=2         ⇝  √2 ∈ ϱ
---     ξ²=-1        ⇝  ι ∈ χ
+--     3-5 ∉ �      �  -2 ∈ �
+--     12 ∉ �      �  ½ ∈ �
+--     ξ²=2         �  �2 ∈ �
+--     ξ²=-1        �  � ∈ �
 --
--- Each rung is `∂ → δ → Γ`: pose an equation, find no solution, adjoin one.
+-- Each rung is `� � δ � Γ`: pose an equation, find no solution, adjoin one.
 -- This module proves the first rung outright and states the pattern it
 -- instantiates, so that the tower is a theorem of the machine rather than an
 -- illustration beside it.
 --
 -- It also encodes two things the corpus asks for by name:
 --
---   * **अपोह** -- `⟦गो⟧ = ¬⟦अगो⟧`, meaning as exclusion, with its closure
---     `α ↦ α^⊥⊥`.  This is the two-sided evaluation `ε : χ⁺ × χ⁻ → ϑ` of
---     `॥७॥` and the Galois connection it generates.  Proved general, for any
+--   * **�����** -- `⟦����⟧ = �⟦�����⟧`, meaning as exclusion, with its closure
+--     `� � �^��`.  This is the two-sided evaluation `ε : �� � �� � �` of
+--     `���` and the Galois connection it generates.  Proved general, for any
 --     evaluation whatsoever.
 --
---   * **अनेकान्तवाद** -- `ν ⊩ φ`, `ν' ⊩ ¬φ`, `⇏ ⊥`.  Standpoint-relative
+--   * **������������** -- `ν ⊩ �`, `ν' ⊩ ��`, `� �`.  Standpoint-relative
 --     assertion without contradiction.  This is *already* the theorem of
 --     `ObstructionCalculus`: the two standpoints are two
 --     observation fields, and the pair they disagree about is `6 , -6`.  The
@@ -53,7 +53,7 @@ private
 ------------------------------------------------------------------------
 -- A.  Inability, and the extension it forces.
 
--- `∂`: a question posed inside a structure.  `δ`: it has no answer there.
+-- `�`: a question posed inside a structure.  `δ`: it has no answer there.
 Unsolvable : (A : Type₀) (P : A → Type₀) → Type₀
 Unsolvable A P = ¬ (Σ A P)
 
@@ -68,21 +68,21 @@ record Adjoins (A B : Type₀) (ι : A → B) (P : A → Type₀) (Q : B → Typ
 
 -- The content of `Γ` is the third field: the witness that answers the question
 -- is *not* in the old world.  Without it, `Adjoins` would be satisfied by any
--- structure that merely restates the question, and `विस्तृतलोकः` would be
+-- structure that merely restates the question, and `�������������` would be
 -- decoration.  With it, the extension is forced to be strict.
 
 ------------------------------------------------------------------------
--- B.  The first rung, proved.  `3-5 ∉ ℵ ⇝ -2 ∈ ζ`.
+-- B.  The first rung, proved.  `3-5 ∉ � � -2 ∈ �`.
 
 -- The question: what must be added to 5 to give 3?
 SubDefect : ℕ → Type₀
 SubDefect n = 5 + n ≡ 3
 
--- `δ ≠ 0`: nothing in ℕ answers it.  Three peels of `suc`, then `znots`.
+-- `δ ≠ 0`: nothing in � answers it.  Three peels of `suc`, then `znots`.
 sub-unsolvable : Unsolvable ℕ SubDefect
 sub-unsolvable (n , p) = snotz (injSuc (injSuc (injSuc p)))
 
--- The same question in ℤ.
+-- The same question in �.
 SubSolved : ℤ → Type₀
 SubSolved z = pos 5 +ℤ z ≡ pos 3
 
@@ -93,16 +93,16 @@ sub-solution = negsuc 1 , refl
 sub-fresh : ¬ (Σ[ n ∈ ℕ ] pos n ≡ negsuc 1)
 sub-fresh (n , p) = posNotnegsuc n 1 p
 
--- The rung, assembled.  This is `∂ → δ → Γ` on the oldest example there is.
+-- The rung, assembled.  This is `� � δ � Γ` on the oldest example there is.
 ℕ⊂ℤ : Adjoins ℕ ℤ pos SubDefect SubSolved
 ℕ⊂ℤ = adjoins sub-unsolvable sub-solution sub-fresh
 
 ------------------------------------------------------------------------
--- C.  अपोह: meaning as exclusion, and its closure.
+-- C.  �����: meaning as exclusion, and its closure.
 --
--- `ε : χ⁺ × χ⁻ → ϑ` is a two-sided evaluation -- witnesses against
+-- `ε : �� � �� � �` is a two-sided evaluation -- witnesses against
 -- counter-witnesses, terms against contexts, states against experiments.  Any
--- such evaluation generates a Galois connection, and the closure `α ↦ α^⊥⊥`
+-- such evaluation generates a Galois connection, and the closure `� � �^��`
 -- is the apoha operator: a term means the set of things that fail to exclude
 -- everything it fails to exclude.
 --
@@ -123,7 +123,7 @@ sub-fresh (n , p) = posNotnegsuc n 1 p
 
 module Apoha {X Y : Type₀} (ε : X → Y → Type₀) where
 
-  -- What every member of `α` passes.
+  -- What every member of `�` passes.
   _⁺ : (X → Type₀) → (Y → Type₀)
   α ⁺ = λ y → (x : X) → α x → ε x y
 
@@ -131,7 +131,7 @@ module Apoha {X Y : Type₀} (ε : X → Y → Type₀) where
   _⁻ : (Y → Type₀) → (X → Type₀)
   β ⁻ = λ x → (y : Y) → β y → ε x y
 
-  -- `α ⊆ α^⊥⊥`: the closure only ever adds.
+  -- `� � �^��`: the closure only ever adds.
   unit : (α : X → Type₀) (x : X) → α x → ((α ⁺) ⁻) x
   unit α x ax y βy = βy x ax
 
@@ -148,7 +148,7 @@ module Apoha {X Y : Type₀} (ε : X → Y → Type₀) where
          → (x : X) → (β′ ⁻) x → (β ⁻) x
   ⁻-anti β β′ sub x h y by = h y (sub y by)
 
-  -- Idempotence: `α^⊥⊥⊥ = α^⊥`, so the closure closes.  This is why apoha is
+  -- Idempotence: `�^��� = �^�`, so the closure closes.  This is why apoha is
   -- a *meaning* and not merely a step -- iterating exclusion stabilizes after
   -- one round.
   ⁺-idem-to : (α : X → Type₀) (y : Y) → (α ⁺) y → ((((α ⁺) ⁻) ⁺)) y
@@ -158,9 +158,9 @@ module Apoha {X Y : Type₀} (ε : X → Y → Type₀) where
   ⁺-idem-from α y h = ⁺-anti α (((α ⁺) ⁻)) (unit α) y h
 
 ------------------------------------------------------------------------
--- D.  अनेकान्तवाद, as a corollary of the observation-field theorem.
+-- D.  ������������, as a corollary of the observation-field theorem.
 --
--- `ν ⊩ φ` and `ν′ ⊩ ¬φ` without `⊥`: two standpoints assign opposite verdicts
+-- `ν ⊩ �` and `ν� ⊩ ��` without `�`: two standpoints assign opposite verdicts
 -- to one pair, and nothing breaks, because a verdict is relative to the field
 -- that issues it.  `ObstructionCalculus` proved the general form; here it is
 -- named.
@@ -170,6 +170,6 @@ standpoint-relative :
   × Sep signField (pos 6) (negsuc 5)
 standpoint-relative = sign-blind , sign-seen
 
--- The corpus's own gloss, `वस्तु ≠ एकनयपूर्णनिर्णयः` -- the object is not the
+-- The corpus's own gloss, `����� ≠ �����������������` -- the object is not the
 -- complete verdict of one standpoint -- is exactly `break-blindness`: no field
 -- is final, so no field's verdict is the object's.

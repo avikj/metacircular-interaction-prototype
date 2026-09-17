@@ -6,11 +6,11 @@
 -- Third instance of the replacement question, and the first that
 -- answers a named open item rather than removing a hypothesis.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE SITE
 --
 -- `AnyonyaAbhava` Â§5 assumes `Dec (Collision q t)` to
--- close the gap between the two VaiÅ›eá¹£ika categories of à¤…à¤­à¤¾à¤µ, and its
+-- close the gap between the two Vaieika categories of ààà¾àµ, and its
 -- Â§6 leaves an open item in these words, read from the file:
 --
 --     "OPEN, named and not estimated.  Whether `Dec (Collision q t)`
@@ -19,13 +19,13 @@
 -- Two things are wrong with the shape of that, and one of them is the
 -- same correction this thread has now made three times.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   Â§1  the hypothesis is stronger than the use.  `dec-collapses` is
---       used only as `Â¬ Â¬ A â†’ A`, which is `Stable`.  So
+--       used only as `Â Â A â’ A`, which is `Stable`.  So
 --       `Stable (Collision q t)` closes the gap, and `Dec` is a
---       corollary by `Decâ†’Stable`.  The delimitor does not need a
+--       corollary by `Decâ’Stable`.  The delimitor does not need a
 --       decision; it needs the double negation to collapse.
 --
 --   Â§2  the open item, answered on a class of sites rather than
@@ -36,15 +36,15 @@
 --       cost is the same finite search that `RefutingLaghavaIsASearch`
 --       found at the presentation-measures site.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- TWO CORRECTIONS TO MY OWN EARLIER TEXT, MADE HERE AND MARKED THERE
 --
 -- `AnyonyaAbhava` Â§6 is mine and contains two sentences the standing
 -- method forbids.  Reading one's own file critically is the point of
 -- the method, so:
 --
---   (a) "This is the second time in this corpus that the NyÄya analysis
---       of à¤…à¤­à¤¾à¤µ has turned out to track constructive structure â€¦ Two is
+--   (a) "This is the second time in this corpus that the Nyya analysis
+--       of ààà¾àµ has turned out to track constructive structure â¦ Two is
 --       not a coincidence worth explaining away."  Two instances are
 --       two instances.  A pattern over n instances is a pattern over n
 --       instances until something downstream of it is computed, and
@@ -55,23 +55,23 @@
 --   (b) "conducted by people who did not have one and were right
 --       anyway."  That scores the past by its proximity to a
 --       constructive setting, which is a criterion imported and not
---       examined â€” a à¤¦à¥à¤°à¥à¤¨à¤¯, a standpoint asserting itself by denying
---       others.  What can be said instead, and is enough: the NyÄya
---       division of à¤…à¤­à¤¾à¤µ into à¤¸à¤‚à¤¸à¤°à¥à¤— and à¤…à¤¨à¥à¤¯à¥‹à¤¨à¥à¤¯ is a distinction, the
+--       examined â” a à¦àà°àà¨à¯, a standpoint asserting itself by denying
+--       others.  What can be said instead, and is enough: the Nyya
+--       division of ààà¾àµ into àààà°àà— and àà¨àà¯à‹à¨àà¯ is a distinction, the
 --       distinction is registered in this formalism, and the two
---       directions cost differently here.  Whether the NaiyÄyikas were
+--       directions cost differently here.  Whether the Naiyyikas were
 --       tracking what this formalism tracks is a question about them
 --       that this corpus has no means to settle.
 --
 -- Neither sentence is deleted at its site: the record of having
 -- written them is part of the record.  A pointer is added there.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE RESPECTS, SINCE Â§1 AND Â§2 PULL DIFFERENT WAYS
 --
---   à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of what the proof needs, `Stable` is the
+--   ààà¯à¾àà â” in the respect of what the proof needs, `Stable` is the
 --            hypothesis and `Dec` was more than was used;
---   à¤¸à¥à¤¯à¤¾à¤¤à¥ â€” in the respect of what can actually be EXHIBITED at a
+--   ààà¯à¾àà â” in the respect of what can actually be EXHIBITED at a
 --            site, `Dec` is what Â§2 constructs, because a finite
 --            search decides rather than merely stabilises.
 --
@@ -170,7 +170,7 @@ decCollisionOnTwoPoints dY dT q t with dY (q true) (q false)
 ...   | no  nt = yes (true , false , py , nt)
 ...   | yes pt = no (equalTargetRefutes q t pt)
 
--- and therefore the two categories of à¤…à¤­à¤¾à¤µ agree there.
+-- and therefore the two categories of ààà¾àµ agree there.
 categories-agree-on-two-points :
   {Y : Type â„“y} {T : Type â„“t}
   (dY : Discrete Y) (dT : Discrete T) (q : Bool â†’ Y) (t : Bool â†’ T)
@@ -183,9 +183,9 @@ categories-agree-on-two-points dY dT q t =
 ------------------------------------------------------------------------
 -- PRIOR-ART OBLIGATION, undischarged, recorded 2026-08-19.
 --
--- Navya-NyÄya* (Panday & Ghosh), whose stated content includes DEPENDENT
--- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhÄva) in cubical type
--- theory â€” the same substrate and the same notions this module touches.
+-- Navya-Nyya* (Panday & Ghosh), whose stated content includes DEPENDENT
+-- DELIMITATION (avacchedaka) and TYPED ABSENCE (abhva) in cubical type
+-- theory â” the same substrate and the same notions this module touches.
 --
 -- This module does not cite it, and could not: the citation sits in a
 -- note whose Â§2 alone had been read.  arxiv.org is EGRESS_BLOCKED from

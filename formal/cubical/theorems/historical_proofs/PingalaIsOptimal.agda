@@ -3,21 +3,21 @@
 ------------------------------------------------------------------------
 -- PingalaIsOptimal
 --
--- The same two theorems that make the walk optimal make Piá¹…gala's
--- naá¹£á¹­a/uddiá¹£á¹­a optimal, and they were separated by about 2300 years.
+-- The same two theorems that make the walk optimal make Pigala's
+-- naa/uddia optimal, and they were separated by about 2300 years.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS ALREADY HERE
 --
--- `formal/cubical/Pingala.agda` carries the Chandaá¸¥Å›Ästra's pratyaya as
+-- `formal/cubical/Pingala.agda` carries the Chandastra's pratyaya as
 -- checked types, including
 --
---     uddistaIso : (n : â„•) â†’ Iso (Vak n) (Fin (sankhya n))
+--     uddistaIso : (n : â•) â’ Iso (Vak n) (Fin (sankhya n))
 --
--- whose forward map is the explicit uddiá¹£á¹­a algorithm (pattern â†¦ row
--- number), whose inverse is the explicit naá¹£á¹­a halving algorithm (row
--- number â†¦ pattern), and whose round trips are both proved.  That is a
--- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE â€” the positive pole of
+-- whose forward map is the explicit uddia algorithm (pattern â¦ row
+-- number), whose inverse is the explicit naa halving algorithm (row
+-- number â¦ pattern), and whose round trips are both proved.  That is a
+-- LOSSLESS OBSERVATION WITH AN EXPLICIT DECODE â” the positive pole of
 -- written down around 300 BCE.
 --
 -- `LosslessLowerBound` carries the other half: any lossless
@@ -25,36 +25,36 @@
 --
 -- Neither module knows about the other.  This one is the sentence.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE STATEMENT
 --
 --     pingala-optimal :
---       (n : â„•) (Y : FinSet â„“-zero) (obs : Vak n â†’ Y .fst)
---       â†’ Injective obs â†’ sankhya n â‰¤ card Y
+--       (n : â•) (Y : FinSet â“-zero) (obs : Vak n â’ Y .fst)
+--       â’ Injective obs â’ sankhya n â‰ card Y
 --
--- No scheme whatever â€” not uddiá¹£á¹­a, not a cleverer one, not one nobody
--- has thought of â€” observes the metres of n syllables losslessly with
--- fewer than saá¹…khyÄ n = 2â¿ outcomes.  And `uddistaIso` has exactly that
--- many.  Piá¹…gala's algorithm is optimal, and the proof of optimality is
+-- No scheme whatever â” not uddia, not a cleverer one, not one nobody
+-- has thought of â” observes the metres of n syllables losslessly with
+-- fewer than sakhy n = 2â¿ outcomes.  And `uddistaIso` has exactly that
+-- many.  Pigala's algorithm is optimal, and the proof of optimality is
 -- one instantiation of a bound proved for every observation scheme.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHY THIS IS NOT A DECORATIVE PAIRING
 --
 -- The walk and the pratyaya are the same problem: enumerate a finite
 -- family losslessly, in an order, with an index you can convert back and
 -- forth.  The walk's state is a residue vector and its count is CRT
--- (`WalkObservationCount`); Piá¹…gala's state is a binary pattern and his
--- count is saá¹…khyÄ.  Both are optimal, both for the same reason, and the
+-- (`WalkObservationCount`); Pigala's state is a binary pattern and his
+-- count is sakhy.  Both are optimal, both for the same reason, and the
 -- reason is pigeonhole plus an explicit decode.
 --
--- The difference is that Piá¹…gala SUPPLIED the decode.  naá¹£á¹­a is not a
+-- The difference is that Pigala SUPPLIED the decode.  naa is not a
 -- proof that the enumeration is invertible; it is the inverse, as an
 -- algorithm, with its own name.  That is the standard this corpus's
--- `FactorsThrough` results have mostly not met â€” they establish that a
+-- `FactorsThrough` results have mostly not met â” they establish that a
 -- decode exists or does not, and `Pingala.agda` exhibits one.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ open import Cubical.Data.Nat using (suc ; _+_)
 open import PingalaPrastara using (Vak ; sankhya ; uddistaIso ; Metre ; matra ; matraCount ; matraRecurrence)
 
 ------------------------------------------------------------------------
--- 1.  The metres of n syllables, as a finite set of size saá¹…khyÄ n
+-- 1.  The metres of n syllables, as a finite set of size sakhy n
 ------------------------------------------------------------------------
 
 Injective : {A B : Type} â†’ (A â†’ B) â†’ Type
@@ -91,7 +91,7 @@ card-Vak : (n : â„•) â†’ card (VakFinSet n) â‰¡ sankhya n
 card-Vak n = refl
 
 ------------------------------------------------------------------------
--- 2.  THE BOUND, at Piá¹…gala's problem
+-- 2.  THE BOUND, at Pigala's problem
 ------------------------------------------------------------------------
 
 pingala-optimal :
@@ -103,33 +103,33 @@ pingala-optimal n Y obs inj =
     (injEmbedding (isFinSetâ†’isSet (Y .snd)) inj)
 
 ------------------------------------------------------------------------
--- 3.  And uddiá¹£á¹­a attains it, because it is an equivalence.
+-- 3.  And uddia attains it, because it is an equivalence.
 --
--- `uddistaIso n : Iso (Vak n) (Fin (sankhya n))` â€” the target has
--- saá¹…khyÄ n elements, which by Â§2 is the minimum.  Bound and attainment,
+-- `uddistaIso n : Iso (Vak n) (Fin (sankhya n))` â” the target has
+-- sakhy n elements, which by Â§2 is the minimum.  Bound and attainment,
 -- both terms.
 --
--- The saá¹…khyÄ recurrence saá¹…khyÄ (n+1) = saá¹…khyÄ n + saá¹…khyÄ n is
--- `Pingala.sankhya` by definition, so the count is the doubling Piá¹…gala
+-- The sakhy recurrence sakhy (n+1) = sakhy n + sakhy n is
+-- `Pingala.sankhya` by definition, so the count is the doubling Pigala
 -- states, not a translation of it.
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
--- 4.  The mÄtrÄ-vá¹›tta case, which Â§3's "not claimed" listed as unrun.
+-- 4.  The mtr-vtta case, which Â§3's "not claimed" listed as unrun.
 --
--- `Pingala.matraCount : (n : â„•) â†’ Iso (Metre n) (Fin (matra n))` is the
+-- `Pingala.matraCount : (n : â•) â’ Iso (Metre n) (Fin (matra n))` is the
 -- same shape for metres of fixed DURATION rather than fixed syllable
 -- count, and `Pingala.matraRecurrence` proves
 --
 --     matra (n+2) â‰¡ matra (n+1) + matra n
 --
--- which is VirahÄá¹…ka's mÄtrÄmeru (c. 600â€“800 CE), four centuries before
+-- which is Virahka's mtrmeru (c. 600â“800 CE), four centuries before
 -- the *Liber Abaci*.  So the bound applies verbatim, and it says:
 --
 --     no lossless observation of the metres of duration n has fewer
---     than mÄtrÄ n outcomes,
+--     than mtr n outcomes,
 --
--- with VirahÄá¹…ka's number appearing as an information-theoretic minimum
+-- with Virahka's number appearing as an information-theoretic minimum
 -- rather than as a count.
 ------------------------------------------------------------------------
 
@@ -146,7 +146,7 @@ virahanka-optimal n Y obs inj =
   cardâ†ªInequality' (MetreFinSet n) Y obs
     (injEmbedding (isFinSetâ†’isSet (Y .snd)) inj)
 
--- the mÄtrÄmeru recurrence, quoted from `Pingala` so the number in the
--- bound is visibly VirahÄá¹…ka's and not a re-derivation
+-- the mtrmeru recurrence, quoted from `Pingala` so the number in the
+-- bound is visibly Virahka's and not a re-derivation
 matrameru-recurrence : (n : â„•) â†’ matra (suc (suc n)) â‰¡ matra (suc n) + matra n
 matrameru-recurrence = matraRecurrence

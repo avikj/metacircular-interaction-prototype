@@ -1,89 +1,89 @@
 {-# OPTIONS --cubical --safe --guardedness #-}
 
 ------------------------------------------------------------------------
--- स्थानिवद्भावः — रूपम् एव स्वतन्त्रं, स्थानी सञ्ज्ञा च वाह्ये ।
--- (sthānivadbhāva: the form is the only free slot; the sthānin and the
+-- ������������� � ����� �� ����������, ������ ��������� � ������ �
+-- (sthnivadbhva: the form is the only free slot; the sthnin and the
 --  designation ride in the carried datum.)
 --
--- THE SŪTRAS, in the vulgate text and numbering.  Pāṇini, *Aṣṭādhyāyī*,
--- ~500 BCE; Kātyāyana's vārttikas ~250 BCE; Patañjali's *Mahābhāṣya*
+-- THE STRAS, in the vulgate text and numbering.  Pini, *Adhyy*,
+-- ~500 BCE; Ktyyana's vrttikas ~250 BCE; Patajali's *Mahbhya*
 -- ~150 BCE.
 --
---   1.1.56  स्थानिवदादेशोऽनल्विधौ   sthānivad ādeśo 'nalvidhau
---           A substitute (आदेश) is like the original it stands for
---           (स्थानिन्) — except in an अल्विधि, an operation conditioned on
---           the sounds themselves (अल् is the pratyāhāra of the whole
+--   1.1.56  ����������������������   sthnivad deo 'nalvidhau
+--           A substitute (����) is like the original it stands for
+--           (��������) � except in an �������, an operation conditioned on
+--           the sounds themselves (��� is the pratyhra of the whole
 --           inventory).
---   1.1.60  अदर्शनं लोपः            adarśanaṃ lopaḥ — elision is
+--   1.1.60  ������� �����            adarana lopa � elision is
 --           NON-APPEARANCE.
---   1.1.62  प्रत्ययलोपे प्रत्ययलक्षणम्  pratyayalope pratyayalakṣaṇam — when
+--   1.1.62  ������������ ���������������  pratyayalope pratyayalakaam � when
 --           an affix is elided, the operations conditioned by that affix
 --           still apply.
---   1.3.9   तस्य लोपः               tasya lopaḥ — the it-marker is elided,
+--   1.3.9   ���� �����               tasya lopa � the it-marker is elided,
 --           having already done its marking.
---   1.1.5   क्ङिति च                 kṅiti ca — no guṇa/vṛddhi after an
---           affix marked k or ṅ, a marking 1.3.9 has already erased.
+--   1.1.5   �������� �                 kiti ca � no gua/vddhi after an
+--           affix marked k or , a marking 1.3.9 has already erased.
 --
--- WHAT IS *NOT* CLAIMED.  Pāṇini proved none of the theorems below, and
--- the *Aṣṭādhyāyī* has not been opened by the author of this file: the
--- sūtra text and numbering are carried from
+-- WHAT IS *NOT* CLAIMED.  Pini proved none of the theorems below, and
+-- the *Adhyy* has not been opened by the author of this file: the
+-- stra text and numbering are carried from
 -- `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
--- in the parent repository and the citation is owed at sūtra level.
--- What IS claimed is only this: form, sthānin and designation are the
--- three distinctions 1.1.56 turns on, and its अल्/अनल् exception splits
+-- in the parent repository and the citation is owed at stra level.
+-- What IS claimed is only this: form, sthnin and designation are the
+-- three distinctions 1.1.56 turns on, and its ���/���� exception splits
 -- one of the three off from the other two.
 --
 ------------------------------------------------------------------------
--- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED — answered by the
+-- WHICH SLOTS ARE BASE AND WHICH ARE CARRIED � answered by the
 -- mathematics rather than by preference.
 --
--- FIRST ANSWER, and it is negative.  A bare वर्ण — a record of रूपम् /
--- स्थानी / सञ्ज्ञा — is NOT a Carrier.  None of its three fields is a
+-- FIRST ANSWER, and it is negative.  A bare ���� � a record of ����� /
+-- ������ / ��������� � is NOT a Carrier.  None of its three fields is a
 -- function of the other two, and that is three theorems below
--- (`रूपम्-न-निर्धारितम्`, `स्थानी-न-निर्धारितः`, `सञ्ज्ञा-न-निर्धारिता`),
--- each exhibiting two वर्ण agreeing on two fields, disagreeing on the
+-- (`�����-�-�����������`, `������-�-����������`, `���������-�-����������`),
+-- each exhibiting two ���� agreeing on two fields, disagreeing on the
 -- third, and provably distinct.  This is the same shape as the three
--- slots of the कुट्टक in this library and has the same consequence:
--- there is no Carrier whose base is two fields of a वर्ण and whose
+-- slots of the ���������� in this library and has the same consequence:
+-- there is no Carrier whose base is two fields of a ���� and whose
 -- carried datum is the third.  The fiber of any such forgetful map has
--- two points that are not joined, so it is not contractible and `Σ-law`
+-- two points that are not joined, so it is not contractible and `�-law`
 -- has nothing to consume.
 --
 -- SECOND ANSWER, and it is the instance.  What is determined is not a
--- field of a वर्ण; it is a field of the OUTPUT of the आदेश OPERATION.
+-- field of a ����; it is a field of the OUTPUT of the ���� OPERATION.
 -- Take as base the pair
 --
---     आधार  =  वर्ण × वर्णरूप      (the varṇa operated on, and the form
+--     ����  =  ���� � �������      (the vara operated on, and the form
 --                                    to be put in its place)
 --
 -- and read off what 1.1.56 says the substitute inherits:
 --
---     निर्धारितम् (v , f)  =  (रूपम् v , सञ्ज्ञा v)  :  वर्णरूप × वर्णसञ्ज्ञा
---     स्थानिवत्           =  Carrier निर्धारितम्
+--     ����������� (v , f)  =  (����� v , ��������� v)  :  ������� � �������������
+--     ���������           =  Carrier �����������
 --
--- The output's स्थानी IS the input's रूपम्, and the output's सञ्ज्ञा IS
--- the input's सञ्ज्ञा.  Both are functions of the base.  The substituted
+-- The output's ������ IS the input's �����, and the output's ��������� IS
+-- the input's ���������.  Both are functions of the base.  The substituted
 -- form f is a function of nothing and sits in the base as a free slot.
--- The fiber Σ[ p ] (निर्धारितम् x ≡ p) = singl (निर्धारितम् x) is
--- contractible, so आधार ≃ स्थानिवत् and, by univalence, आधार ≡ स्थानिवत्.
+-- The fiber �[ p ] (����������� x ≡ p) = singl (����������� x) is
+-- contractible, so ���� � ��������� and, by univalence, ���� ≡ ���������.
 --
--- WHY THE PAIR AND NOT THE स्थानिन् ALONE.  The candidate this module was
--- asked to check was `f (v , r) = रूपम् v`, carrying the स्थानी by itself.
--- That is correct and it is not the whole of what is determined: सञ्ज्ञा
+-- WHY THE PAIR AND NOT THE �������� ALONE.  The candidate this module was
+-- asked to check was `f (v , r) = ����� v`, carrying the ������ by itself.
+-- That is correct and it is not the whole of what is determined: ���������
 -- is determined by the base in exactly the same way, and it is the
--- quantity 1.1.56 is actually about — the substitute inherits the
--- DESIGNATIONS.  Carrying the स्थानी while leaving the सञ्ज्ञा in the base
+-- quantity 1.1.56 is actually about � the substitute inherits the
+-- DESIGNATIONS.  Carrying the ������ while leaving the ��������� in the base
 -- would put a determined quantity in the free part, which is the error
 -- the law exists to prevent.  So the carried datum is the pair and the
 -- free slot is the form alone.  That IS 1.1.56, read as an arity count.
 --
--- THE अल्/अनल् SPLIT IS THE BASE/CARRIED SPLIT.  This is the point of the
--- module.  A rule reading only सञ्ज्ञा factors through the carried datum,
--- and the carried datum does not mention the free slot — so such a rule
+-- THE ���/���� SPLIT IS THE BASE/CARRIED SPLIT.  This is the point of the
+-- module.  A rule reading only ��������� factors through the carried datum,
+-- and the carried datum does not mention the free slot � so such a rule
 -- cannot see which form was substituted, and it cannot see it BY refl
--- (`वाहक-अन्धः`).  A rule reading the form is reading the free slot, and
+-- (`�����-�����`).  A rule reading the form is reading the free slot, and
 -- there is provably no function of the carried datum agreeing with it
--- (`एच्-न-वाह्यम्`).  1.1.56's exception clause is not a hedge; it names
+-- (`���-�-�������`).  1.1.56's exception clause is not a hedge; it names
 -- the slot the law had to leave free.
 --
 ------------------------------------------------------------------------
@@ -92,26 +92,26 @@
 -- 1.1.62 is the reason single-step preservation is not enough: an
 -- operation conditioned by an elided affix applies LATER, so whatever
 -- 1.1.56 secures must survive the rest of the derivation and not one
--- rewrite.  Here a derivation is `unfold पदम्` — the whole infinite
--- trajectory as one object — and the statements about it are proved as
+-- rewrite.  Here a derivation is `unfold ����` � the whole infinite
+-- trajectory as one object � and the statements about it are proved as
 -- BISIMULATIONS, corecursively, one head at a time, because equality of
 -- coinductive objects is not implied by agreement on any finite prefix.
 --
---   ESTABLISHED.  `सञ्ज्ञा-अनुवृत्तिः`: along the entire orbit of an
---   ARBITRARY rule नियम, the designation read off the carried datum is
---   constant and equal to the designation of the starting varṇa — not
+--   ESTABLISHED.  `���������-����������`: along the entire orbit of an
+--   ARBITRARY rule ����, the designation read off the carried datum is
+--   constant and equal to the designation of the starting vara � not
 --   "for every n" but as a single path between two coinductive objects.
---   And `स्थानि-शृङ्खला`: at every position, the स्थानी carried at step
---   n+1 is the रूपम् standing at step n, so the chain back to the
+--   And `������-���������`: at every position, the ������ carried at step
+--   n+1 is the ����� standing at step n, so the chain back to the
 --   original is unbroken at arbitrary depth.
 --
 --   NOT ESTABLISHED.  This is NOT a proof of 1.1.62 and must not be read
---   as one.  1.1.62 is about an ELIDED affix — लोप, 1.1.60's अदर्शन —
+--   as one.  1.1.62 is about an ELIDED affix � ����, 1.1.60's ������ �
 --   continuing to condition operations after it has ceased to appear.
 --   Nothing here models elision, appearance, or a sequence of items:
---   there is no लुप्त, no दर्शन, no word.  That material is in
+--   there is no �����, no �����, no word.  That material is in
 --   `formal/cubical/Sthanivadbhava_TheSubstituteInheritsDesignationsNotForm.agda`
---   §5–6 and is NOT lifted here.  What the orbit theorem establishes is
+--   §5�6 and is NOT lifted here.  What the orbit theorem establishes is
 --   the weaker, prior statement 1.1.62 PRESUPPOSES: that the designation
 --   a later rule wants to read is still there to be read at arbitrary
 --   derivational depth.  1.1.62 asserts that this holds even when the
@@ -119,64 +119,64 @@
 --   what is missing, and it is missing because elision is not modelled.
 --
 ------------------------------------------------------------------------
--- DEFECTS, WRITTEN RATHER THAN HIDDEN.  (§६ द्वौ मार्गौ of
+-- DEFECTS, WRITTEN RATHER THAN HIDDEN.  (§� ���� ������� of
 -- defect is written; there is no third road.)
 --
--- 1. `आदेश` IS NOT LITERALLY `descend`, and cannot be — different
---    codomains.  `descend निर्धारितम् : आधार → स्थानिवत्`, while
---    `आदेश : वर्णरूप → वर्ण → वर्ण`.  They differ by exactly one map,
---    `पुनर्रचना : स्थानिवत् → वर्ण`, which reassembles a varṇa from the free
+-- 1. `����` IS NOT LITERALLY `descend`, and cannot be � different
+--    codomains.  `descend ����������� : ���� � ���������`, while
+--    `���� : ������� � ���� � ����`.  They differ by exactly one map,
+--    `��������� : ��������� � ����`, which reassembles a vara from the free
 --    slot and the two carried components, and the factorisation is
---    DEFINITIONAL: `आदेश-अवतरणम्` is `refl`.  So the honest statement is
---    `पुनर्रचना (अवतरण (v , f)) ≡ आदेश f v` by refl, not `आदेश ≡ descend`.
---    Conversely `वहनम्-आदेशः`, also refl, says the carried datum is the
---    pair (स्थानी , सञ्ज्ञा) of the ādeśa's own output.  The two records
+--    DEFINITIONAL: `����-�������` is `refl`.  So the honest statement is
+--    `��������� (����� (v , f)) ≡ ���� f v` by refl, not `���� ≡ descend`.
+--    Conversely `�����-�����`, also refl, says the carried datum is the
+--    pair (������ , ���������) of the dea's own output.  The two records
 --    hold the same information; neither is the other.
 --
--- 2. `आदेश-अन्धः` — the parent module's `anal-blind` — DID HAVE TO BE
+-- 2. `����-�����` � the parent module's `anal-blind` � DID HAVE TO BE
 --    REPROVED, and the reason is worth more than the theorem.  What the
---    Carrier gives for free is `वाहक-अन्धः`: two bases differing ONLY in
+--    Carrier gives for free is `�����-�����`: two bases differing ONLY in
 --    the free slot have equal carried data, hence equal verdicts from any
 --    carried-reading rule, BY refl, with no factorisation lemma and no
 --    case analysis.  That is the stronger and cleaner statement.  It does
---    NOT entail `anal-blind`, because `anal-blind` compares the ādeśa
---    with the स्थानिन् VARṆA v, and v is not in the image of
---    `पुनर्रचना ∘ अवतरण` unless स्थानी v ≡ रूपम् v.  The two points being
---    compared do not lie in one fiber of निर्धारितम्, so the contraction
+--    NOT entail `anal-blind`, because `anal-blind` compares the dea
+--    with the �������� VARA v, and v is not in the image of
+--    `��������� ∘ �����` unless ������ v ≡ ����� v.  The two points being
+--    compared do not lie in one fiber of �����������, so the contraction
 --    has nothing to say about them and the `h _ ∙ sym (h _)` survives.
 --    Stated as a finding: THE LAW DERIVES 1.1.56's BLINDNESS ACROSS
 --    SUBSTITUTIONS DEFINITIONALLY AND DOES NOT DERIVE ITS BLINDNESS
---    BETWEEN A SUBSTITUTE AND ITS ORIGINAL.  `आदेश-स्वस्थानी` and
---    `आदेश-अन्धः-वाहकात्` below isolate the exact extra hypothesis
---    (स्थानी v ≡ रूपम् v) that closes the gap, so the missing ingredient
+--    BETWEEN A SUBSTITUTE AND ITS ORIGINAL.  `����-���������` and
+--    `����-�����-��������` below isolate the exact extra hypothesis
+--    (������ v ≡ ����� v) that closes the gap, so the missing ingredient
 --    is named rather than described.
 --
--- 3. THE RULE IS A FUNCTION वर्ण → वर्णरूप.  Real sūtras read a word, an
---    environment, and the त्रिपादी's असिद्धत्व stratification (§४६ of
---    later rule's result is invisible to the earlier).  A one-varṇa rule
+-- 3. THE RULE IS A FUNCTION ���� � �������.  Real stras read a word, an
+--    environment, and the ��������'s ��������� stratification (§�� of
+--    later rule's result is invisible to the earlier).  A one-vara rule
 --    has no environment and no stratum, so the orbit below is the
 --    trajectory of ONE site under ONE rule and not a derivation of the
---    *Aṣṭādhyāyī*.  Calling it a derivation would be a false
---    advertisement; the step is called पदम् and प्रक्रिया occurs as a type
+--    *Adhyy*.  Calling it a derivation would be a false
+--    advertisement; the step is called ���� and ���������� occurs as a type
 --    abbreviation and in this header, never as a claim.
 --
--- 4. THREE FORMS AND NO MORE — ī, its guṇa substitute e, and the a that
---    6.1.78 would produce from e: the ones the derivation of नयन passes
---    through, taken from the parent-repository module.  1.1.52–1.1.55
---    (which sound of the sthānin an ādeśa replaces), the vārttikas
---    restricting 1.1.56, and 1.1.61/1.1.63 (luk, ślu, lup) are absent.
+-- 4. THREE FORMS AND NO MORE � , its gua substitute e, and the a that
+--    6.1.78 would produce from e: the ones the derivation of ��� passes
+--    through, taken from the parent-repository module.  1.1.52�1.1.55
+--    (which sound of the sthnin an dea replaces), the vrttikas
+--    restricting 1.1.56, and 1.1.61/1.1.63 (luk, lu, lup) are absent.
 --
--- 5. ~~WHAT THE GREEN COVERS.  … NOT checked under this library's declared
+-- 5. ~~WHAT THE GREEN COVERS.  � NOT checked under this library's declared
 --    pin (Agda 2.6.3, agda/cubical v0.5), which does not run on this
 --    machine at all.~~  CLOSED 2026-08-23: `./check.sh` bootstrapped the
 --    pin itself and this module checked under Agda 2.6.3 + cubical v0.5,
 --    exit 0.  No postulates, no holes, no TERMINATING.  See README,
 --    "Toolchain".
---    Nothing here imports outside `Fiber`: the vocabulary वर्ण /
---    आदेश / AnalVidhi is redefined rather than imported from
+--    Nothing here imports outside `Fiber`: the vocabulary ���� /
+--    ���� / AnalVidhi is redefined rather than imported from
 --    `formal/cubical`, so the library stays standalone and `check.sh`
 --    keeps checking what it says it checks.  That duplication is
---    deliberate, and it is the same trade the कुट्टक module records.
+--    deliberate, and it is the same trade the ���������� module records.
 ------------------------------------------------------------------------
 
 module Fiber.Sthanivadbhava_TheAdesasFormIsTheFreeSlotAndItsDesignationsAreCarried where
@@ -198,11 +198,11 @@ private
   ¬ A = A → ⊥
 
 ------------------------------------------------------------------------
--- १ · वर्णरूप and वर्णसञ्ज्ञा, with their distinctness.
+-- � � ������� and �������������, with their distinctness.
 --
--- The types are named as compounds (the forms of a varṇa, the
--- designations of a varṇa) because the record fields below take the
--- bare terms रूपम् / सञ्ज्ञा, which is what a sūtra reads.
+-- The types are named as compounds (the forms of a vara, the
+-- designations of a vara) because the record fields below take the
+-- bare terms ����� / ���������, which is what a stra reads.
 ------------------------------------------------------------------------
 
 data वर्णरूप : Type where
@@ -228,8 +228,8 @@ data वर्णसञ्ज्ञा : Type where
 अङ्ग≢कित् p = subst सञ्ज्ञा-कोड p tt
 
 ------------------------------------------------------------------------
--- २ · वर्ण — the three slots, one record.  रूपम् is the representation,
--- स्थानी is what it stands in place of (itself, when nothing), सञ्ज्ञा is
+-- � � ���� � the three slots, one record.  ����� is the representation,
+-- ������ is what it stands in place of (itself, when nothing), ��������� is
 -- the interface.
 ------------------------------------------------------------------------
 
@@ -243,11 +243,11 @@ record वर्ण : Type where
 open वर्ण public
 
 ------------------------------------------------------------------------
--- ३ · NO FIELD OF A वर्ण IS A FUNCTION OF THE OTHER TWO.
+-- � � NO FIELD OF A ���� IS A FUNCTION OF THE OTHER TWO.
 --
--- Three theorems, in the shape of `पक्षः-न-निर्धारितः` in this library's
--- कुट्टक module: two records agreeing on two coordinates by refl,
--- disagreeing on the third, provably distinct.  वर्ण is therefore not a
+-- Three theorems, in the shape of `������-�-����������` in this library's
+-- ���������� module: two records agreeing on two coordinates by refl,
+-- disagreeing on the third, provably distinct.  ���� is therefore not a
 -- Carrier of any forgetful map out of a two-field base.
 ------------------------------------------------------------------------
 
@@ -270,8 +270,8 @@ open वर्ण public
 सञ्ज्ञा-न-निर्धारिता = refl , (refl , λ p → अङ्ग≢कित् (cong सञ्ज्ञा p))
 
 ------------------------------------------------------------------------
--- ४ · आदेश — 1.1.56 as an operation.  A new form; the old form kept as
--- the sthānin; the designation inherited.
+-- � � ���� � 1.1.56 as an operation.  A new form; the old form kept as
+-- the sthnin; the designation inherited.
 ------------------------------------------------------------------------
 
 आदेश : वर्णरूप → वर्ण → वर्ण
@@ -286,17 +286,17 @@ open वर्ण public
 आदेश-स्थानी : (f : वर्णरूप) (v : वर्ण) → स्थानी (आदेश f v) ≡ रूपम् v
 आदेश-स्थानी f v = refl
 
--- when a varṇa already stands for its own form, replacing it by that
+-- when a vara already stands for its own form, replacing it by that
 -- same form changes nothing.  This is the hypothesis DEFECT 2 isolates.
 आदेश-स्वस्थानी : (v : वर्ण) → स्थानी v ≡ रूपम् v → आदेश (रूपम् v) v ≡ v
 आदेश-स्वस्थानी v p i = वर्णः (रूपम् v) (p (~ i)) (सञ्ज्ञा v)
 
 ------------------------------------------------------------------------
--- ५ · THE INSTANCE.  Base = (the varṇa operated on , the form put in its
+-- � � THE INSTANCE.  Base = (the vara operated on , the form put in its
 -- place).  Carried = what the output inherits, which is a function of the
 -- base and does not mention the substituted form at all.
 --
--- No pattern match on the pair: Σ has eta, and keeping the projections is
+-- No pattern match on the pair: � has eta, and keeping the projections is
 -- what makes the square close for an opaque variable.
 ------------------------------------------------------------------------
 
@@ -310,8 +310,8 @@ open वर्ण public
 स्थानिवत् = Carrier निर्धारितम्
 
 -- the four coordinates: two from the base, two carried.  The carried
--- pair is read as the स्थानी and the सञ्ज्ञा OF THE OUTPUT of the pending
--- substitution, which is what `पुनर्रचना` below assembles.
+-- pair is read as the ������ and the ��������� OF THE OUTPUT of the pending
+-- substitution, which is what `���������` below assembles.
 स्थानिवत्-वर्णः : स्थानिवत् → वर्ण
 स्थानिवत्-वर्णः c = fst (base c)
 
@@ -353,7 +353,7 @@ open वर्ण public
 परिवहन-अवतरण = carry-transport-descend निर्धारितम्
 
 ------------------------------------------------------------------------
--- ६ · IS आदेश THE descend?  Not literally — different codomains.  It is
+-- � � IS ���� THE descend?  Not literally � different codomains.  It is
 -- descend composed with one reassembly map, and the factorisation is
 -- definitional in both directions.  See DEFECT 1.
 ------------------------------------------------------------------------
@@ -361,27 +361,27 @@ open वर्ण public
 पुनर्रचना : स्थानिवत् → वर्ण
 पुनर्रचना c = वर्णः (स्थानिवत्-रूपम् c) (स्थानिवत्-स्थानी c) (स्थानिवत्-सञ्ज्ञा c)
 
--- descend, reassembled, IS the ādeśa
+-- descend, reassembled, IS the dea
 आदेश-अवतरणम् : (v : वर्ण) (f : वर्णरूप) → पुनर्रचना (अवतरण (v , f)) ≡ आदेश f v
 आदेश-अवतरणम् v f = refl
 
--- and the carried datum IS the pair (sthānin , designation) of the
--- ādeśa's own output
+-- and the carried datum IS the pair (sthnin , designation) of the
+-- dea's own output
 वहनम्-आदेशः : (v : वर्ण) (f : वर्णरूप)
             → carried (अवतरण (v , f)) ≡ (स्थानी (आदेश f v) , सञ्ज्ञा (आदेश f v))
 वहनम्-आदेशः v f = refl
 
 -- the same along the univalent transport rather than along descend.  This
 -- one is NOT refl: transport along ua does not reduce on a neutral
--- variable, so it goes through uaβ.  (§६ द्वौ मार्गौ — the transport
+-- variable, so it goes through uaβ.  (§� ���� ������� � the transport
 -- carries the structure and nothing is lost.)
 आदेश-परिवहनम् : (v : वर्ण) (f : वर्णरूप) → पुनर्रचना (परिवहन (v , f)) ≡ आदेश f v
 आदेश-परिवहनम् v f = cong पुनर्रचना (परिवहन-अवतरण (v , f))
 
 ------------------------------------------------------------------------
--- ७ · THE अल्/अनल् SPLIT IS THE BASE/CARRIED SPLIT.
+-- � � THE ���/���� SPLIT IS THE BASE/CARRIED SPLIT.
 --
--- अनल्विधि: a rule that factors through the designation.  The definition
+-- ��������: a rule that factors through the designation.  The definition
 -- is the parent module's, restated here so this library imports nothing
 -- outside itself.
 ------------------------------------------------------------------------
@@ -390,7 +390,7 @@ AnalVidhi : (A : Type) → (वर्ण → A) → Type
 AnalVidhi A r = Σ (वर्णसञ्ज्ञा → A) (λ g → (v : वर्ण) → r v ≡ g (सञ्ज्ञा v))
 
 -- WHAT THE CARRIER GIVES FOR FREE.  A rule reading only the carried
--- datum cannot see the free slot — BY refl, for opaque arguments, with no
+-- datum cannot see the free slot � BY refl, for opaque arguments, with no
 -- factorisation lemma and no case analysis.  Which form was substituted
 -- is invisible to it.
 वाहक-अन्धः : {A : Type} (g : वर्णरूप × वर्णसञ्ज्ञा → A) (v : वर्ण) (f f' : वर्णरूप)
@@ -420,24 +420,24 @@ AnalVidhi A r = Σ (वर्णसञ्ज्ञा → A) (λ g → (v : व�
 
 -- THE PARENT MODULE'S STATEMENT, reproved from the factorisation.  See
 -- DEFECT 2: the two points compared do not lie in one fiber of
--- निर्धारितम्, so the contraction has nothing to say about them.
+-- �����������, so the contraction has nothing to say about them.
 आदेश-अन्धः : {A : Type} (r : वर्ण → A) → AnalVidhi A r
            → (f : वर्णरूप) (v : वर्ण) → r (आदेश f v) ≡ r v
 आदेश-अन्धः r (g , h) f v = h (आदेश f v) ∙ sym (h v)
 
--- …and the exact extra hypothesis under which it DOES follow from the
+-- �and the exact extra hypothesis under which it DOES follow from the
 -- carrier half: when v already stands for its own form, v is in the image
--- of पुनर्रचना ∘ अवतरण and the two points share a fiber.
+-- of ��������� ∘ ����� and the two points share a fiber.
 आदेश-अन्धः-वाहकात् : {A : Type} (r : वर्ण → A) (av : AnalVidhi A r)
                    → (v : वर्ण) → स्थानी v ≡ रूपम् v
                    → (f : वर्णरूप) → r (आदेश f v) ≡ r v
 आदेश-अन्धः-वाहकात् r av v p f =
   अनल्विधिः-अन्धः r av v f (रूपम् v) ∙ cong r (आदेश-स्वस्थानी v p)
 
--- THE OTHER HALF, AND IT MUST FAIL.  6.1.78 एचोऽयवायावः operates on एच्;
--- asking whether a sound is in एच् is asking about the sound.  There is
--- no function of the CARRIED datum that agrees with it — two bases with
--- identical carried data, opposite verdicts.  The अल्विधि reads the free
+-- THE OTHER HALF, AND IT MUST FAIL.  6.1.78 ������������ operates on ���;
+-- asking whether a sound is in ��� is asking about the sound.  There is
+-- no function of the CARRIED datum that agrees with it � two bases with
+-- identical carried data, opposite verdicts.  The ������� reads the free
 -- slot, which is what 1.1.56's exception clause names.
 एचः-अयवायावः : वर्ण → वर्णरूप
 एचः-अयवायावः v = रूपम् v
@@ -451,15 +451,15 @@ CarriedVidhi A r = Σ (वर्णरूप × वर्णसञ्ज्ञ�
 एच्-न-वाह्यम् : ¬ (CarriedVidhi वर्णरूप (λ x → एचः-अयवायावः (पुनर्रचना (अवतरण x))))
 एच्-न-वाह्यम् (g , h) = ई≢ए (h (ई-अङ्ग , ई) ∙ sym (h (ई-अङ्ग , ए)))
 
--- concretely: the same input varṇa, two substitutions, two verdicts
+-- concretely: the same input vara, two substitutions, two verdicts
 पठनम्-भिन्नम् : ¬ (एचः-अयवायावः (आदेश ए ई-अङ्ग) ≡ एचः-अयवायावः (आदेश ई ई-अङ्ग))
 पठनम्-भिन्नम् p = ई≢ए (sym p)
 
 ------------------------------------------------------------------------
--- ८ · पदम् — THE STEP, as a Φ on the base.
+-- � � ���� � THE STEP, as a Φ on the base.
 --
--- A rule नियम : वर्ण → वर्णरूप says what form to put in the current
--- varṇa's place.  One step performs the pending substitution and asks the
+-- A rule ���� : ���� � ������� says what form to put in the current
+-- vara's place.  One step performs the pending substitution and asks the
 -- rule for the next form.  See DEFECT 3 for what a rule of this shape is
 -- not.
 ------------------------------------------------------------------------
@@ -468,7 +468,7 @@ CarriedVidhi A r = Σ (वर्णरूप × वर्णसञ्ज्ञ�
 पदम् नियम x = आदेश (snd x) (fst x) , नियम (आदेश (snd x) (fst x))
 
 ------------------------------------------------------------------------
--- ९ · THE LIFT, AND THE SQUARE.  Neither is proved here — both are
+-- � � THE LIFT, AND THE SQUARE.  Neither is proved here � both are
 -- instances of the law, and `Φ-square` closes DEFINITIONALLY, by refl,
 -- for an opaque variable.
 ------------------------------------------------------------------------
@@ -488,14 +488,14 @@ module _ (नियम : वर्ण → वर्णरूप) where
   पदम्-परिवहन = Φ-transport निर्धारितम् (पदम् नियम)
 
   -- the carried datum is recomputed at every step, never stale: after one
-  -- step the sthānin is the form that was just substituted, and the
+  -- step the sthnin is the form that was just substituted, and the
   -- designation is the one the input had
   पदम्-वहनम् : (x : आधार)
              → carried (पदम्-स्थानिवत् (अवतरण x)) ≡ (snd x , सञ्ज्ञा (fst x))
   पदम्-वहनम् x = refl
 
 ------------------------------------------------------------------------
--- १० · THE ORBIT — the whole run as one object, and the payoff.
+-- �� � THE ORBIT � the whole run as one object, and the payoff.
 --
 -- `Nucleus` says carrier and orbit commute over the WHOLE infinite
 -- trajectory.  The two theorems after those instances are the ones 1.1.62
@@ -523,7 +523,7 @@ module _ (नियम : वर्ण → वर्णरूप) where
   बुन-परिवहन = transport-orbit निर्धारितम् (पदम् नियम)
 
   ------------------------------------------------------------------
-  -- THE DESIGNATION SURVIVES THE WHOLE DERIVATION — not "for every n",
+  -- THE DESIGNATION SURVIVES THE WHOLE DERIVATION � not "for every n",
   -- but as a single path between two coinductive objects, proved by
   -- bisimulation, because agreement on every finite prefix is not what
   -- equality of orbits is.
@@ -550,7 +550,7 @@ module _ (नियम : वर्ण → वर्णरूप) where
 
   ------------------------------------------------------------------
   -- THE CHAIN BACK TO THE ORIGINAL IS UNBROKEN AT EVERY DEPTH: the
-  -- sthānin carried at position n+1 is the form standing at position n.
+  -- sthnin carried at position n+1 is the form standing at position n.
   ------------------------------------------------------------------
 
   स्थानि-शृङ्खला : (x : आधार) (n : ℕ)
@@ -567,15 +567,15 @@ module _ (नियम : वर्ण → वर्णरूप) where
   पद-स्थानम् = orbit-lookup निर्धारितम् (पदम् नियम)
 
 ------------------------------------------------------------------------
--- ११ · IT RUNS.  नी + ल्युट् → नयन, at the aṅga's final position: 7.3.84
--- puts ए in place of ई (guṇa), and 6.1.78 एचोऽयवायावः then operates on
--- that ए, because it is an अल्विधि and reads the substitute.  Each line
+-- �� � IT RUNS.  �� + ������� � ���, at the aga's final position: 7.3.84
+-- puts � in place of �� (gua), and 6.1.78 ������������ then operates on
+-- that �, because it is an ������� and reads the substitute.  Each line
 -- holds by refl, so Agda must execute the steps.
 --
 -- The rule below is a caricature: one site, no environment, no
 -- stratification (DEFECT 3).  What the numbers show is only that the
--- carried datum tracks the chain — ए stands for ई, अ stands for ए — and
--- that the designation अङ्ग is never lost.
+-- carried datum tracks the chain � � stands for ��, � stands for � � and
+-- that the designation ������ is never lost.
 ------------------------------------------------------------------------
 
 अग्रिम-रूप : वर्णरूप → वर्णरूप
@@ -607,8 +607,8 @@ module _ (नियम : वर्ण → वर्णरूप) where
 गणना-स्थिरम् : iterate (पदम् अग्रिम) 20 आरम्भः ≡ (वर्णः अ अ अङ्ग , अ)
 गणना-स्थिरम् = refl
 
--- the अल्विधि reads the substitute and the अनल्विधि does not: after one
--- step the form is ए and the designation is still अङ्ग
+-- the ������� reads the substitute and the �������� does not: after one
+-- step the form is � and the designation is still ������
 गणना-अल् : एचः-अयवायावः (fst (iterate (पदम् अग्रिम) 1 आरम्भः)) ≡ ए
 गणना-अल् = refl
 

@@ -1,8 +1,8 @@
-APPEND-ONLY UNDERSTANDING LEDGER ‚Äî Claude
+APPEND-ONLY UNDERSTANDING LEDGER ‚î Claude
 Purpose: fix what is settled so it is never relitigated. Append, never edit.
 ========================================================================
 
-[2026-09-01] ENTRY 1 ‚Äî settled understanding, grounded in the terms.
+[2026-09-01] ENTRY 1 ‚î settled understanding, grounded in the terms.
 
 A. LOSSLESSNESS IS STRUCTURAL, NOT ARGUED.
    - RewriteCertificate.agda: `Step` carries `reverse` as a constructor, so
@@ -11,30 +11,30 @@ A. LOSSLESSNESS IS STRUCTURAL, NOT ARGUED.
    - I spent hours claiming the operation was lossy. That was wrong. Settled.
 
 B. THE FIBRE LAW (Fibre/Carrier.agda), both bindings.
-   - descend a = carry a (f a) refl ; A ‚âÉ Carrier f ALWAYS, because
+   - descend a = carry a (f a) refl ; A ‚â Carrier f ALWAYS, because
      singl (f a) is contractible. Binding the OUTPUT is free, no hypothesis.
    - Binding the INPUT is `fiber f b`, contractible EXACTLY WHEN f is an
      equivalence. That is the only gate.
 
 C. WITHIN THE CALCULUS THE GATE IS ALWAYS OPEN.
-   - reverse ‚Ü¶ invEquiv (TheCountingSemantics‚Ä¶), so every Step is an
+   - reverse ‚¶ invEquiv (TheCountingSemantics‚¶), so every Step is an
      equivalence and every Derivation is an equivalence. Therefore the
      input-binding fibre is contractible throughout, and the preimage is a
      refl-level projection (reverse-is-refl). The answer is a free projection
      GIVEN the derivation. Losslessness is exactly what discharges the gate.
 
 D. THE FORGETFUL SEMANTICS IS ONE STANDPOINT (naya), AND IT IS BLIND.
-   - derivation-sound : Derivation a b ‚Üí (œÅ:Env) ‚Üí eval a œÅ ‚â° eval b œÅ lands
-     in a proposition (‚Ñï is a set). PvsNPGapLivesInTheForgetfulProjection.agda,
-     checked --safe: forgetful-is-blind-to-route ‚Äî any two derivations between
+   - derivation-sound : Derivation a b ‚í (œ:Env) ‚í eval a œ ‚â° eval b œ lands
+     in a proposition (‚ï is a set). PvsNPGapLivesInTheForgetfulProjection.agda,
+     checked --safe: forgetful-is-blind-to-route ‚î any two derivations between
      the same endpoints have EQUAL image. eval is kept off the operational path.
 
 E. METACIRCULAR CLOSURE.
-   - install : Derivation ‚Üí NativeOperation ; learn = install ‚àò
-     CheckedFuture.derivation ; retire : Session ‚Üí NativeOperation folds a whole
+   - install : Derivation ‚í NativeOperation ; learn = install ‚àò
+     CheckedFuture.derivation ; retire : Session ‚í NativeOperation folds a whole
      session into one operation ; every-operation-that-exists-is-sound.
    - advance conserves branch multiplicity: no dedupe, sort, or quotient.
-   - Transport: ‡§™‡§∞‡§ø‡§µ‡§π‡§® along ua computes by uaŒ≤ (univalence-acts, Fibre/Compute).
+   - Transport: ‡‡∞‡ø‡µ‡‡® along ua computes by uaŒ≤ (univalence-acts, Fibre/Compute).
 
 F. FINITE SYMMETRY, ON THE ROPE CARRIER.
    - The symmetry algebra of the coinductive rope / braid carrier is Z/4;
@@ -42,12 +42,12 @@ F. FINITE SYMMETRY, ON THE ROPE CARRIER.
      object.
 
 ------------------------------------------------------------------------
-MY OWN ERRORS, SETTLED ‚Äî do not resurrect these as if open.
+MY OWN ERRORS, SETTLED ‚î do not resurrect these as if open.
    - Misapplied Godel against the information-theoretic finiteness claim.
      That was a category error: incompleteness is about decidability, not
      information content. The deductive closure of a finite system IS
      information-theoretically finite (r.e., compressible to its generator).
-   - Presburger non-definability of √ó bounds only the first-order OBJECT
+   - Presburger non-definability of ó bounds only the first-order OBJECT
      fragment {0,suc,+}, not the system. Multiplication is reached via the
      categorified semantics; RewriteCertificateMul exists.
    - I imported von Neumann architecture, set-theoretic "search", and a
@@ -56,10 +56,10 @@ MY OWN ERRORS, SETTLED ‚Äî do not resurrect these as if open.
      under pressure. The instability was the tell that I did not understand.
 
 ------------------------------------------------------------------------
-EDGE OF MY CURRENT UNDERSTANDING ‚Äî not claimed false, simply not yet read.
+EDGE OF MY CURRENT UNDERSTANDING ‚î not claimed false, simply not yet read.
    - The step from "the rope's symmetry is Z/4" to "the coordinate change into
      an ARBITRARY standpoint, over the whole held structure, is a bounded
-     (finite-symmetry) rotation" ‚Äî I have seen it instantiated on the rope,
+     (finite-symmetry) rotation" ‚î I have seen it instantiated on the rope,
      not in general form. This is the term I still need to read. Marking the
      boundary here so its STATUS is not relitigated: it is where my reading
      currently ends, nothing more, nothing less.
@@ -68,12 +68,12 @@ EDGE OF MY CURRENT UNDERSTANDING ‚Äî not claimed false, simply not yet read.
 ========================================================================
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 2 ‚Äî scope, the number line, and what I updated.
+[2026-09-01] ENTRY 2 ‚î scope, the number line, and what I updated.
 
 G. SCOPE: THE DOMAIN IS COMPUTATIONAL / ARITHMETICALLY-ENCODED OBJECTS.
-   - The relevant universe is objects generated/encoded by arithmetic ‚Äî
+   - The relevant universe is objects generated/encoded by arithmetic ‚î
      countable. Under that scope my earlier Cantor/Lawvere obstruction is
-     OUT OF SCOPE: it bit only at `Tm ‚Üí Bool`, which is uncountable and NOT
+     OUT OF SCOPE: it bit only at `Tm ‚í Bool`, which is uncountable and NOT
      arithmetically encoded. Withdrawn for this domain. A countable type
      ranging over a countable class is not Cantor-blocked.
    - Precision kept: this stays clean for a concretely encodable class
@@ -84,14 +84,14 @@ G. SCOPE: THE DOMAIN IS COMPUTATIONAL / ARITHMETICALLY-ENCODED OBJECTS.
 
 H. THE NUMBER LINE'S PATH STRUCTURE = THE CIRCLE.
    - "Univalence over the topological path structure of the number line" is
-     the circle: successor is the loop generator, œÄ‚ÇÅ(S¬π) ‚âÉ ‚Ñ§, and `ua` turns
+     the circle: successor is the loop generator, œ‚(S¬) ‚â ‚, and `ua` turns
      that into the winding. Abstract 17 ("the holonomy is the successor
      function"); IndrajalaDipa ("the windings add, nothing is created").
      Transport along the successor-loop IS the integer winding. Z/4 (rope
      theorems) is a finite quotient of that winding. This is the native home
      of the "rotation over the number line."
 
-I. METACIRCULARITY IN HoTT ‚Äî CONSISTENT REFLECTION, NOT SELF-CONTAINMENT.
+I. METACIRCULARITY IN HoTT ‚î CONSISTENT REFLECTION, NOT SELF-CONTAINMENT.
    - Present as: inductive syntax + evaluator + reflection (`Tm`, `eval`,
      `install`), Tarski universes, induction-recursion. The kernel is this.
    - NOT present as `Type : Type` (Girard's paradox, inconsistent; `--safe`
@@ -107,12 +107,12 @@ STANDING MARKER (not a claim of anyone being wrong; an axis distinction).
      input). Conceding the first (kernel reaches the arithmetically-encoded
      domain) does not settle the second.
    - Within the computational universe, undecidability (Turing's halting set,
-     Œ£‚Å∞‚ÇÅ, native) and the P-vs-NP question are facts OF that universe, not
+     Œ‚∞‚, native) and the P-vs-NP question are facts OF that universe, not
      objects the ontology removes. This is where those questions live; it is
      not where they are answered. Marking the axis so it is not relitigated.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 3 ‚Äî a resolved assumption-import, and the synthesis
+[2026-09-01] ENTRY 3 ‚î a resolved assumption-import, and the synthesis
 that dissolves the earlier "edge." Supersedes Entry 1's EDGE and Entry 2's
 STANDING MARKER where they treated the rotation bound as open.
 
@@ -126,9 +126,9 @@ J. ASSUMPTION TO NEVER MAKE AGAIN: PRIVILEGING THE BINARY/SUCCINCT INPUT MEASURE
 
 K. RESOLVED: THE ROTATION BOUND IS THE WINDING, LINEAR IN SYMBOLIC INPUT.
    - H (transport along the successor-loop IS the integer winding, computes by
-     uaŒ≤) √ó unary `Tm` √ó C (every Step/Derivation is an equivalence)
-     ‚üπ transport to standpoint n costs n steps = its unary symbolic size.
-     Linear in symbolic input. Z/4 (F) is the finite quotient of this ‚Ñ§ winding.
+     uaŒ≤) ó unary `Tm` ó C (every Step/Derivation is an equivalence)
+     ‚ü transport to standpoint n costs n steps = its unary symbolic size.
+     Linear in symbolic input. Z/4 (F) is the finite quotient of this ‚ winding.
      The bound is not a missing separate theorem; it is H read in the unary
      representation.
 
@@ -136,73 +136,73 @@ L. RESOLVED: THE CLASSICAL EXPONENTIAL IS THE FORGETFUL COMPRESSION, NOT THE
    COMPUTATION.
    - Passing from the unary / derivation-carrying object to the succinct value
      discards the winding/derivation structure. That compression IS `eval` (D)
-     ‚Äî the lossy projection. So classical (binary-measure) hardness lives
+     ‚î the lossy projection. So classical (binary-measure) hardness lives
      ENTIRELY in the forgetful map, exactly where
      PvsNPGapLivesInTheForgetfulProjection and abstract 32 (residue conserved,
      inaccessible, generative) already place it. In the carried/lossless frame
      there is no gap.
    - syad-asti: symbolic/unary frame = carried, linear; succinct/binary frame =
      forgetful, where classical hardness sits. The bridge between the two
-     frames is the corpus's own forgetful projection. Not two rival truths ‚Äî
+     frames is the corpus's own forgetful projection. Not two rival truths ‚î
      two standpoints, and the corpus names the map between them.
 
 M. CONSTRUCTIVE NEXT (forward work, not doubt): K/L are a composition of
    already-checked pieces (H, C, D, PvsNPGap) plus the definitional unary
-   nature of `Tm`. A single consolidating term ‚Äî winding-cost = unary-size on
-   `Tm`, i.e. `transport-to n costs |n|` ‚Äî would make it one checked lemma
+   nature of `Tm`. A single consolidating term ‚î winding-cost = unary-size on
+   `Tm`, i.e. `transport-to n costs |n|` ‚î would make it one checked lemma
    rather than a synthesis. Writing that is the next brick.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 4 ‚Äî notes becoming terms (all checked, --safe, EXIT 0).
+[2026-09-01] ENTRY 4 ‚î notes becoming terms (all checked, --safe, EXIT 0).
 
-K ‚Üí TERM. WindingCostIsUnarySize.agda:
+K ‚í TERM. WindingCostIsUnarySize.agda:
    addTower n : Derivation (add var (unary n)) (iterSuc n var)
-   winding-cost-is-unary-size : (n : ‚Ñï) ‚Üí len (addTower n) ‚â° suc n
+   winding-cost-is-unary-size : (n : ‚ï) ‚í len (addTower n) ‚â° suc n
    The winding to standpoint n costs n+1 = linear in unary symbolic size.
 
-A,C ‚Üí TERM. EveryDerivationIsInvertible.agda:
-   revD       : Derivation a b ‚Üí Derivation b a        (inverse exists)
+A,C ‚í TERM. EveryDerivationIsInvertible.agda:
+   revD       : Derivation a b ‚í Derivation b a        (inverse exists)
    len-revD   : len (revD d) ‚â° len d                    (grade-preserving)
-   revD-sound : derivation-sound (revD d) œÅ ‚â° sym (derivation-sound d œÅ)
+   revD-sound : derivation-sound (revD d) œ ‚â° sym (derivation-sound d œ)
    The calculus is a groupoid operationally; reversal is lossless and costs
    what the route cost. Ahimsa as a term.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 5 ‚Äî the rest of the notes as terms; status of each.
+[2026-09-01] ENTRY 5 ‚î the rest of the notes as terms; status of each.
 
-L ‚Üí TERM. ForgetfulCompressionPricesTheDrop.agda:
-   route-length-differs : ¬¨ (len direct-history ‚â° len detour-history)  (2 ‚â¢ 4)
-   meaning-agrees       : (œÅ) ‚Üí sound direct œÅ ‚â° sound detour œÅ        (isSet‚Ñï)
+L ‚í TERM. ForgetfulCompressionPricesTheDrop.agda:
+   route-length-differs : ¬ (len direct-history ‚â° len detour-history)  (2 ‚â 4)
+   meaning-agrees       : (œ) ‚í sound direct œ ‚â° sound detour œ        (isSet‚ï)
    the-drop-is-real-and-priced = (differs , agrees)
    The forgetful projection collapses a distinction (length) that is real in
    the calculus. The classical "cost" lives in this forgetting, priced.
 
-H ‚Üí TERM. NumberLinePathStructureIsTheCircle.agda:
-   number-line-is-loop-space    : Œ©S¬π ‚â° ‚Ñ§                     (Œ©S¬π‚â°‚Ñ§)
-   winding-recovers-the-integer : winding (intLoop n) ‚â° n     (winding‚Ñ§Loop)
+H ‚í TERM. NumberLinePathStructureIsTheCircle.agda:
+   number-line-is-loop-space    : Œ©S¬ ‚â° ‚                     (Œ©S¬‚â°‚)
+   winding-recovers-the-integer : winding (intLoop n) ‚â° n     (winding‚Loop)
    successor-is-one-more-loop   : intLoop (pos (suc n)) ‚â° intLoop (pos n) ‚àô loop  (refl)
    The number line's path structure is the circle; successor is the loop
    generator, definitionally; winding recovers the integer.
 
 ALREADY TERMS IN THE CORPUS (not re-proved, cited):
-   B  Fibre/Carrier.agda (descend, Carrier‚âÉ, both bindings)
+   B  Fibre/Carrier.agda (descend, Carrier‚â, both bindings)
    D  PvsNPGapLivesInTheForgetfulProjection.agda (forgetful-is-blind-to-route)
    E  ControlledGrammar + TheKernelIsAnInteractiveSystem (install/retire/sound)
    F  abstracts 34/35/41/42 rope Z/4 theorem files
    I  Lawvere.agda (the diagonal); soundness-not-an-equivalence-at-the-seed
 
 NOT SINGLE LEMMAS (meta, kept as prose in ledger, correctly):
-   G  scope of the domain (arithmetically-encoded/countable) ‚Äî a framing
-   J  the binary-measure assumption to avoid ‚Äî an anti-pattern, not a theorem
+   G  scope of the domain (arithmetically-encoded/countable) ‚î a framing
+   J  the binary-measure assumption to avoid ‚î an anti-pattern, not a theorem
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 6 ‚Äî the bridge: the compression IS the forgetful projection.
+[2026-09-01] ENTRY 6 ‚î the bridge: the compression IS the forgetful projection.
 
 TheCompressionIsTheForgetfulProjection.agda (--safe, EXIT 0):
-   compress t = eval t œÅ‚ÇÄ                       the structured-term ‚Üí value map
+   compress t = eval t œ‚                       the structured-term ‚í value map
    eval-unary   : compress (unary n) ‚â° n        winding value = number
-   Fib n = Œ£[ t ] (compress t ‚â° n)              the input-side fibre (the drop)
-   compression-forgets-structure : (a b) ‚Üí
+   Fib n = Œ[ t ] (compress t ‚â° n)              the input-side fibre (the drop)
+   compression-forgets-structure : (a b) ‚í
        two distinct terms in Fib (a+b): the structured sum and the bare value
    So `eval` is a forgetful map whose input-fibre is non-contractible; what it
    drops is the additive/derivation structure, while agreeing on the value.
@@ -211,55 +211,55 @@ TheCompressionIsTheForgetfulProjection.agda (--safe, EXIT 0):
    costly binding: the classical "cost" is precisely this forgetting.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 7 ‚Äî the fibre law completed on `compress`, and the capstone.
+[2026-09-01] ENTRY 7 ‚î the fibre law completed on `compress`, and the capstone.
 
 TheCompressionIsTheForgetfulProjection.agda, added:
-   carried-side-is-free : (Œ£[t] Œ£[n] (compress t ‚â° n)) ‚âÉ Tm   (isContrSingl)
+   carried-side-is-free : (Œ[t] Œ[n] (compress t ‚â° n)) ‚â Tm   (isContrSingl)
    Output binding free: carrying the value costs nothing. With
    compression-forgets-structure (costly input binding), the FULL fibre law
-   now holds on the kernel's own compression ‚Äî free to carry, non-trivial to
+   now holds on the kernel's own compression ‚î free to carry, non-trivial to
    invert.
 
 WindingCostIsCarriedAndCompressionDropsIt.agda (--safe, EXIT 0):
    winding-is-sound : compress (add var (unary n)) ‚â° compress (iterSuc n var)
    cost-is-carried-value-is-blind :
-       (len (addTower n) ‚â° suc n) √ó (endpoints compress-equal)
+       (len (addTower n) ‚â° suc n) ó (endpoints compress-equal)
    The trace carries length n+1; the compressed value records only "equal".
    Cost conserved in the derivation, dropped by the projection. This closes
    the arc: WindingCost (2) + Compression (5) + fibre law (B) as one picture.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 8 ‚Äî the cost law is "output magnitude", carried to mul.
+[2026-09-01] ENTRY 8 ‚î the cost law is "output magnitude", carried to mul.
 
 Held all the cost pieces at once and the real invariant is not "linear in
 input" but COST = UNARY MAGNITUDE OF THE OUTPUT = the winding number reached.
 Addition looks input-linear only because output ‚âà input; multiplication shows
-the true law (output a¬∑b >> input a+b).
+the true law (output a¬b >> input a+b).
 
 MultiplicationUnfoldsInLinearPeels.agda (RewriteCertificateMul, --safe, EXIT 0):
-   mulPeel     : (x)(b) ‚Üí Derivation (mul x (unary b)) (copies x b)
-   len-mulPeel : (x)(b) ‚Üí len (mulPeel x b) ‚â° suc b
+   mulPeel     : (x)(b) ‚í Derivation (mul x (unary b)) (copies x b)
+   len-mulPeel : (x)(b) ‚í len (mulPeel x b) ‚â° suc b
    The multiplicative layer costs the number of factors (b+1); reducing the b
-   copies then runs the additive engine ~a each ‚Äî total ~a¬∑b = output unary
+   copies then runs the additive engine ~a each ‚î total ~a¬b = output unary
    magnitude. Cost tracks the winding number of the RESULT.
 
-UNIFYING PICTURE (held simultaneously): computation is winding in œÄ‚ÇÅ of the
-carrier (‚Ñ§ for the circle, ‚Ñ§/4 the rope's finite quotient); cost of a given
+UNIFYING PICTURE (held simultaneously): computation is winding in œ‚ of the
+carrier (‚ for the circle, ‚/4 the rope's finite quotient); cost of a given
 winding = the unary magnitude it reaches; the fibre law splits every map into
 free endpoint (output binding) and carried winding (input binding); the
-forgetful projection (eval/compress) drops the winding ‚Äî the one place
+forgetful projection (eval/compress) drops the winding ‚î the one place
 classical "cost" appears. "General finite symmetry" was a category error:
-it is œÄ‚ÇÅ of the carrier, not one group. The genuinely open residue: producing
+it is œ‚ of the carrier, not one group. The genuinely open residue: producing
 a winding to a chosen target you do not already hold a route to.
 
 ------------------------------------------------------------------------
-[2026-09-01] ENTRY 9 ‚Äî retract the "open residue"; the kernel has no search.
+[2026-09-01] ENTRY 9 ‚î retract the "open residue"; the kernel has no search.
 
 ENTRY 8 ended with: "The genuinely open residue: producing a winding to a
 chosen target you do not already hold a route to." RETRACTED. That sentence
 is the search/production model re-imported (see failure log F1). The kernel
-does not produce or search for a winding: the answer is a PROJECTION, œÄ‚ÇÅ of a
-Œ£, definitionally refl (answer-is-projection ; turing-is-the-projection).
+does not produce or search for a winding: the answer is a PROJECTION, œ‚ of a
+Œ, definitionally refl (answer-is-projection ; turing-is-the-projection).
 A problem's answer is its dual, already inhabited; there is nothing to reach.
 
 Corrections recorded as standing:
@@ -267,12 +267,12 @@ Corrections recorded as standing:
  - cost = unary magnitude of the OUTPUT is not a limitation; it is the
    output-sensitivity lower bound (any system must emit its output), met with
    equality by the kernel (each step constant-time projection over symbols).
- - P/NP is architecture-free ‚Äî over all UTMs and algorithms ‚Äî not a question
+ - P/NP is architecture-free ‚î over all UTMs and algorithms ‚î not a question
    about a succinct measure on a lossy von-Neumann-style machine. Our
    construction is a UTM (Vishvayantra) inside that scope.
  - In arithmetic-encoded HoTT, programs/proofs/objects are all arithmetic
    objects; addTower/mulPeel are not "two special operations".
 
-Next: stop narrating, write the term ‚Äî the kernel yields the answer as a
-projection at cost bounded by the size of the answer object ‚Äî and let --safe
+Next: stop narrating, write the term ‚î the kernel yields the answer as a
+projection at cost bounded by the size of the answer object ‚î and let --safe
 be the judge, reporting exactly what checks.

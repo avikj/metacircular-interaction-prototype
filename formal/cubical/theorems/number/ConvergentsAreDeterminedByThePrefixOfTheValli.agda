@@ -5,10 +5,10 @@
 --
 -- The SECOND of the three honesty faces recurs for continued-fraction
 -- convergents: STABILITY.  A convergent already computed is unchanged by
--- whatever the vallÄ« says later â€” it depends only on the prefix of
+-- whatever the vall says later â” it depends only on the prefix of
 -- partial quotients strictly below its index.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHERE THIS SITS
 --
 -- whether lossless / complete / stable recur for the convergents.
@@ -18,15 +18,15 @@
 --   stable    answered here
 --   complete  NOT answered, and nothing below bears on it
 --
--- `Sthairya.à¤¸à¥à¤¥à¥ˆà¤°à¥à¤¯-à¤—à¤¤à¤¿` is "a resolved answer is unchanged by more
--- grant".  The grant here is how much of the vallÄ« has been read, and
+-- `Sthairya.ààààˆà°àà¯-à—àà¿` is "a resolved answer is unchanged by more
+-- grant".  The grant here is how much of the vall has been read, and
 -- Â§2 is exactly that statement: two quotient sequences agreeing below k
 -- give the same k-th convergent, so reading further never revises what
 -- was already produced.
 --
--- SOURCING LIMIT. Nothing here is a reading of Gaá¹‡itapÄda 32â€“33.
+-- SOURCING LIMIT. Nothing here is a reading of Gaitapda 32â“33.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ open import TheValliConvergentDeterminantAlternates
   using (num ; den ; det)
 
 ------------------------------------------------------------------------
--- 1.  The grant: how much of the vallÄ« has been read
+-- 1.  The grant: how much of the vall has been read
 ------------------------------------------------------------------------
 
 Agree : (a b : â„• â†’ â„¤) â†’ â„• â†’ Type
@@ -79,7 +79,7 @@ denPrefix a b pâ‚€ pâ‚ qâ‚€ qâ‚ (suc (suc k)) h =
     (denPrefix a b pâ‚€ pâ‚ qâ‚€ qâ‚ k (weaken a b k (weaken a b (suc k) h)))
 
 -- the determinant reaches one index further, so it needs one more of the
--- vallÄ« â€” stated rather than glossed over
+-- vall â” stated rather than glossed over
 detPrefix :
   (a b : â„• â†’ â„¤) (pâ‚€ pâ‚ qâ‚€ qâ‚ : â„¤) (k : â„•) â†’ Agree a b (suc k)
   â†’ det a pâ‚€ pâ‚ qâ‚€ qâ‚ k â‰¡ det b pâ‚€ pâ‚ qâ‚€ qâ‚ k
@@ -95,10 +95,10 @@ detPrefix a b pâ‚€ pâ‚ qâ‚€ qâ‚ k h =
 ------------------------------------------------------------------------
 -- 3.  What the seeds cost, stated because it is easy to hide
 --
--- Â§2 holds for ARBITRARY seeds, and index 1 is `pâ‚` â€” independent of the
--- vallÄ«, hence `refl`.  Under the standard seeding pâ‚ = a 0 that is no
--- longer so: instantiating pâ‚ to `a 0` reintroduces a dependence on the
--- vallÄ« at index 1, and Â§2 then applies only to sequences that already
+-- Â§2 holds for ARBITRARY seeds, and index 1 is `pâ` â” independent of the
+-- vall, hence `refl`.  Under the standard seeding pâ = a 0 that is no
+-- longer so: instantiating pâ to `a 0` reintroduces a dependence on the
+-- vall at index 1, and Â§2 then applies only to sequences that already
 -- agree at 0.  Keeping the seeds as parameters is what makes that
 -- visible; it is not generality for its own sake.
 ------------------------------------------------------------------------
@@ -108,8 +108,8 @@ detPrefix a b pâ‚€ pâ‚ qâ‚€ qâ‚ k h =
 --
 -- lossless (38563467) and stable (here) both recur for the convergents.
 -- COMPLETE does not follow from either and is not addressed: it is the
--- claim that enough grant always resolves, which for the vallÄ« is the
+-- claim that enough grant always resolves, which for the vall is the
 -- termination of the expansion of a rational with the last convergent
--- equal to it â€” a fact about the kuá¹­á¹­aka, not about this recurrence.
+-- equal to it â” a fact about the kuaka, not about this recurrence.
 -- Two faces out of three is two thirds of the tag.  The tag stays open.
 ------------------------------------------------------------------------

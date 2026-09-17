@@ -1,24 +1,24 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤®à¥‚à¤²à¤µà¤¾à¤•à¥à¤¯à¤®à¥ Â· PROVENANCE OF THE NAME.
+-- à®àà²àµà¾à•àà¯à®à Â PROVENANCE OF THE NAME.
 --
--- à¤•à¥à¤°à¤® Â· à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â€” two terms, one from each half of the à¤¸à¤ªà¥à¤¤à¤­à¤™à¥à¤—à¥€ apparatus.
+-- à•àà°à® Â à¨à¾àààà¿ â” two terms, one from each half of the àààààà™àà—à apparatus.
 --
---   à¤¸à¥à¤¯à¤¾à¤¨à¥à¤¨à¤¾à¤¸à¥à¤¤à¤¿, the second à¤­à¤™à¥à¤—: in some respect, it is not.  **Samantabhadra,
---   *Ä€ptamÄ«mÄá¹ƒsÄ* 14-24 (~6th c. CE); Akalaá¹…ka, *LaghÄ«yastraya* (~8th c.);
---   rooted in UmÄsvÄti, *TattvÄrthasÅ«tra* 5.31-32 (~2nd-5th c.).**
+--   ààà¯à¾à¨àà¨à¾àààà¿, the second àà™àà—: in some respect, it is not.  **Samantabhadra,
+--   *ptamms* 14-24 (~6th c. CE); Akalaka, *Laghyastraya* (~8th c.);
+--   rooted in Umsvti, *Tattvrthastra* 5.31-32 (~2nd-5th c.).**
 --
---   à¤•à¥à¤°à¤®à¤¾à¤°à¥à¤ªà¤£ versus à¤¸à¤¹à¤¾à¤°à¥à¤ªà¤£ â€” presentation in SUCCESSION versus SIMULTANEOUSLY.
---   **Akalaá¹…ka, *LaghÄ«yastraya* (~8th c.); VidyÄnandin,
---   *TattvÄrthaÅ›lokavÄrttika* (~9th c.).**  This is the load-bearing one:
---   à¤…à¤¸à¥à¤¤à¤¿ and à¤¨à¤¾à¤¸à¥à¤¤à¤¿ asserted in succession give the third à¤­à¤™à¥à¤— and are
---   expressible; asserted together they give à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯, the fourth, which is
+--   à•àà°à®à¾à°ààà versus ààà¾à°ààà â” presentation in SUCCESSION versus SIMULTANEOUSLY.
+--   **Akalaka, *Laghyastraya* (~8th c.); Vidynandin,
+--   *Tattvrthalokavrttika* (~9th c.).**  This is the load-bearing one:
+--   ààààà¿ and à¨à¾àààà¿ asserted in succession give the third àà™àà— and are
+--   expressible; asserted together they give ààµà•àààµàà¯, the fourth, which is
 --   neither unknown nor undefined nor empty but a positive fourth position.
 --   The distinction is what makes seven positions and not four.
 --
--- **No claim is made that Samantabhadra, Akalaá¹…ka or VidyÄnandin proved
--- anything below.**  The sevenfold division and the à¤•à¥à¤°à¤®/à¤¸à¤¹ distinction are
+-- **No claim is made that Samantabhadra, Akalaka or Vidynandin proved
+-- anything below.**  The sevenfold division and the à•àà°à®/àà distinction are
 -- theirs, stated as doctrine; the theorems here are about what the fourth
 -- corner can and cannot be over particular index types in cubical type
 -- theory, and they are this repository's.  The Jaina texts do not contain a
@@ -31,24 +31,24 @@
 -- `TheFourthCornerIsRefutedUnderPointwiseStability` ended with:
 --
 --   "NOT SETTLED: whether it exists.  The hypothesis is not shown
---    necessary, and no model realising `Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤• Ã— Â¬ à¤¨à¤¿à¤¤à¥à¤¯` is
+--    necessary, and no model realising `Â àà¾à®à¯à¿à• — Â à¨à¿ààà¯` is
 --    exhibited.  The unconditional question is where it was, and this
 --    narrows where to look rather than answering it."
 --
 -- This narrows it much further, and by discharging the hypothesis
 -- rather than by assuming a weaker one.  Where the instance family is
 -- ENUMERABLE and badness is DECIDABLE, pointwise stability is not a
--- hypothesis at all â€” it is a theorem â€” so the fourth corner is refuted
+-- hypothesis at all â” it is a theorem â” so the fourth corner is refuted
 -- with nothing assumed.
 --
--- Jaina terms first, and the school named: à¤¸à¤¾à¤®à¤¯à¤¿à¤• (temporary) and à¤¨à¤¿à¤¤à¥à¤¯
+-- Jaina terms first, and the school named: àà¾à®à¯à¿à• (temporary) and à¨à¿ààà¯
 -- (permanent) are `AnuktaAvaktavya`'s, another identity's, and are used
 -- here unchanged; nothing below edits or reinterprets them.  The corner
--- in question is the fourth of the saptabhaá¹…gÄ« reading that module
--- sets up â€” both readings denied at once.  What is added is a condition
+-- in question is the fourth of the saptabhag reading that module
+-- sets up â” both readings denied at once.  What is added is a condition
 -- on the INSTANCE SET, not on the predication.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT IS PROVED
 --
 --   Enumerated I     a list of instances together with a proof that
@@ -56,10 +56,10 @@
 --                    the constructive content of "finite family" without
 --                    a cardinality
 --   decAny           decidability transports along that list
---   decÎ£OverEnumerated
---                    hence `Î£[ i âˆˆ I ] P i` is DECIDABLE
+--   decÎOverEnumerated
+--                    hence `Î[ i âˆˆ I ] P i` is DECIDABLE
 --   enumerableDecidableGivesPointwiseStability
---                    hence stable, by `Decâ†’Stable`
+--                    hence stable, by `Decâ’Stable`
 --   fourthCornerRefutedOverEnumerableDecidable
 --                    hence the fourth corner is refuted, unconditionally
 --
@@ -67,17 +67,17 @@
 -- not a genuine search".  This says: over an enumerable family with
 -- decidable badness it is not a search, it is a scan.  So the fourth
 -- corner, if it exists at all, needs an instance family that is not
--- enumerable OR a badness that is not decidable â€” not merely "some Î£
+-- enumerable OR a badness that is not decidable â” not merely "some Î
 -- happens to be unstable".
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- IDIOM.  `Any` is a recursive type family, `Any P [] = âŠ¥`,
--- `Any P (x âˆ· xs) = P x âŠ Any P xs`, not an inductive family with an
--- index.  That is the repository's standing cubical rule â€” in cubical
--- v0.5 `Fin n = Î£ k (k < n)`, so constructors in index positions do not
--- pattern-match â€” and it is why nothing here mentions `Fin` at all.
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- IDIOM.  `Any` is a recursive type family, `Any P [] = âŠ`,
+-- `Any P (x âˆ xs) = P x âŠ Any P xs`, not an inductive family with an
+-- index.  That is the repository's standing cubical rule â” in cubical
+-- v0.5 `Fin n = Î k (k < n)`, so constructors in index positions do not
+-- pattern-match â” and it is why nothing here mentions `Fin` at all.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -175,38 +175,38 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- APPENDED 2026-08-19, by the same identity, at the end, altering no
 -- line above.  The NOT-CLAIMED section says:
 --
---   "Existence.  â€¦ this is a second SUFFICIENT condition, sharper and
+--   "Existence.  â¦ this is a second SUFFICIENT condition, sharper and
 --    checkable, not a necessary one."
 --
 -- A NECESSARY one now exists, for one family, in
 -- `TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift`
 -- (--safe, no postulates, no holes; container green under Agda 2.6.3 +
--- cubical v0.5, NOT the declared pin â€” check.sh returns 1 and says so).
+-- cubical v0.5, NOT the declared pin â” check.sh returns 1 and says so).
 --
 -- Take the instance set to be ONE instance (`Unit`), remedies
 -- arbitrary, `bad _ r = Q r`.  Then, both directions checked:
 --
---   Â¬ à¤¸à¤¾à¤®à¤¯à¤¿à¤•  â‰ƒ  (r : R) â†’ Â¬ Â¬ Q r
---   Â¬ à¤¨à¤¿à¤¤à¥à¤¯    â‰ƒ  Â¬ ((r : R) â†’ Q r)
+--   Â àà¾à®à¯à¿à•  â‰  (r : R) â’ Â Â Q r
+--   Â à¨à¿ààà¯    â‰  Â ((r : R) â’ Q r)
 --
 -- so the fourth corner IS a counterexample to the DOUBLE-NEGATION SHIFT
 -- (Spector 1962; Kreisel), and
 --
 --   fourthCornerRefutesPointwiseStability
---       the corner implies Â¬ ((r) â†’ Stable (Q r))
+--       the corner implies Â ((r) â’ Stable (Q r))
 --
--- â€” the converse of Â§3 here, so at that family the stability hypothesis
+-- â” the converse of Â§3 here, so at that family the stability hypothesis
 -- is necessary as well as sufficient.
 --
 -- WHAT THAT SAYS ABOUT THIS MODULE, and it is not flattering.  A ONE-
--- ELEMENT instance family is enumerable â€” `Enumerated Unit` is
+-- ELEMENT instance family is enumerable â” `Enumerated Unit` is
 -- immediate.  So the whole `Enumerated` apparatus above cannot be what
 -- separates the corner from its absence: at Unit the enumeration is
 -- free and the entire question is whether the BADNESS is stable.  The
 -- decidability hypothesis was doing all the work and the enumerability
 -- hypothesis none of it, in the only case where the answer is now
--- known.  This module is still correct â€” it covers families where
--- BOTH matter â€” but the sentence "the fourth corner needs an instance
+-- known.  This module is still correct â” it covers families where
+-- BOTH matter â” but the sentence "the fourth corner needs an instance
 -- family that is not enumerable OR a badness that is not decidable"
 -- reads as offering two routes, and the first is not a route at all
 -- when one instance suffices.
@@ -225,20 +225,20 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 --   Avaktavya_TheFourthCornerAtOneInstanceIsExactlyTheDoubleNegationShift
 --   Avaktavya_AnEnumerableRemedySetKillsTheFourthCorner
 --
--- à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ â€” the fourth bhaá¹…ga of the Jaina saptabhaá¹…gÄ« (UmÄsvÄti,
--- *TattvÄrthasÅ«tra*; Samantabhadra; Akalaá¹…ka; Siddhasena DivÄkara),
+-- ààµà•àààµàà¯ â” the fourth bhaga of the Jaina saptabhag (Umsvti,
+-- *Tattvrthastra*; Samantabhadra; Akalaka; Siddhasena Divkara),
 -- which is the position this line's "fourth corner" has meant since it
--- began, via `AnuktaAvaktavya`'s à¤¸à¤¾à¤®à¤¯à¤¿à¤• and à¤¨à¤¿à¤¤à¥à¤¯.  This file keeps its
+-- began, via `AnuktaAvaktavya`'s àà¾à®à¯à¿à• and à¨à¿ààà¯.  This file keeps its
 -- name for now because thirteen modules import it and the rename is a
 -- separate, mechanical cycle; that is a scheduling fact, not a
 -- judgement that the term does not apply.
 --
 -- **THE SCHOOL BOUNDARY, and it matters here more than usual.**
--- `Saptabhangi` and `SaptabhangiNaya` â€” another identity's, written in
--- Devanagari with Sanskrit identifiers, not merely named in Sanskrit â€”
--- prove that à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿ â‰¢ à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯à¤®à¥: krama
+-- `Saptabhangi` and `SaptabhangiNaya` â” another identity's, written in
+-- Devanagari with  identifiers, not merely named in  â”
+-- prove that ààà¯à¾àà-ààààà¿-à¨à¾àààà¿ â‰ ààà¯à¾àà-ààµà•àààµàà¯à®à: krama
 -- (sequential) and saha (simultaneous, yugapad) assertion give
--- different vÄá¹‡Ä«s, so avaktavya is NOT sequential both-ness and the
+-- different vs, so avaktavya is NOT sequential both-ness and the
 -- seven positions do not reduce to two.  **That is their result and
 -- this line does not restate, reprove, or absorb it.**
 --
@@ -249,7 +249,7 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- whether the DNS identification is compatible with their krama/saha
 -- separation, or whether it collapses a distinction they keep.  Until
 -- that is checked, treating the two as one toolkit would be exactly
--- the error CLAUDE.md names â€” and the honest position is that I have
+-- the error CLAUDE.md names â” and the honest position is that I have
 -- an identification at one instance and they have a structure, and the
 -- relation between them is unproved.
 ------------------------------------------------------------------------
@@ -257,22 +257,22 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 ------------------------------------------------------------------------
 -- APPENDED 2026-08-19, by the same identity, at the end.  The file was
 -- renamed under the owner's directive (CLAUDE.md, "File naming",
--- 2026-08-19) to lead with à¤…à¤µà¤•à¥à¤¤à¤µà¥à¤¯ â€” the fourth bhaá¹…ga of the Jaina
--- saptabhaá¹…gÄ«, which is the position this line has meant by "the
--- fourth corner" throughout, via `AnuktaAvaktavya`'s à¤¸à¤¾à¤®à¤¯à¤¿à¤• and à¤¨à¤¿à¤¤à¥à¤¯.
+-- 2026-08-19) to lead with ààµà•àààµàà¯ â” the fourth bhaga of the Jaina
+-- saptabhag, which is the position this line has meant by "the
+-- fourth corner" throughout, via `AnuktaAvaktavya`'s àà¾à®à¯à¿à• and à¨à¿ààà¯.
 -- Eleven importing modules had their `open import` line rewritten
 -- mechanically; nothing else in any of them changed, and all twelve
 -- re-checked EXIT=0 with zero warning lines.
 --
 -- **AND THE RENAME EXPOSED SOMETHING STRUCTURAL WORTH RECORDING.**  Of
 -- the eleven importers, most take only `Any`, `decAny` and
--- `memberToAny` â€” list utilities that have nothing to do with the
+-- `memberToAny` â” list utilities that have nothing to do with the
 -- fourth corner, or with Jaina logic, and that ended up here because
 -- this is where they were first needed.  So a module named for a
--- position in the saptabhaá¹…gÄ« is load-bearing for the Pareto
+-- position in the saptabhag is load-bearing for the Pareto
 -- stratification, which is Goldberg/Deb non-dominated sorting and has
 -- no Indian source at all.  That is not a naming problem the directive
--- creates â€” it is a factoring problem the rename made visible: the
+-- creates â” it is a factoring problem the rename made visible: the
 -- utilities want their own module, and the corpus already has THREE
 -- separate `All` definitions for the same reason.  Consolidating them
 -- touches other identities' files, so it is an OFFER and not an edit,
@@ -285,16 +285,16 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 --
 -- One cycle ago this file, and three others on this line, were renamed
 -- `Avaktavya_*` on the grounds that "the fourth corner" is the fourth
--- bhaá¹…ga of the saptabhaá¹…gÄ«.  The next cycle proved it is not:
+-- bhaga of the saptabhag.  The next cycle proved it is not:
 -- `KramaSaha_TheFourthCornerIWasNamingIsTheSequentialPosition`
 -- shows the corner is a PRODUCT of two independent negations, and that
--- simultaneous refusal collapses into the sequential pair â€” `Â¬ (A âŠ B)`
--- and `(Â¬ A) Ã— (Â¬ B)` are interderivable here with no hypothesis.  By
--- the theorem in another identity's `Saptabhangi`, the fourth bhaá¹…ga is
+-- simultaneous refusal collapses into the sequential pair â” `Â (A âŠ B)`
+-- and `(Â A) — (Â B)` are interderivable here with no hypothesis.  By
+-- the theorem in another identity's `Saptabhangi`, the fourth bhaga is
 -- exactly what a sequential position is NOT.
 --
--- So the position this line occupies is the THIRD bhaá¹…ga â€”
--- à¤¸à¥à¤¯à¤¾à¤¤à¥-à¤…à¤¸à¥à¤¤à¤¿-à¤¨à¤¾à¤¸à¥à¤¤à¤¿, asserted à¤•à¥à¤°à¤®à¥‡à¤£ (kramena, in sequence) â€” and the
+-- So the position this line occupies is the THIRD bhaga â”
+-- ààà¯à¾àà-ààààà¿-à¨à¾àààà¿, asserted à•àà°à®àà (kramena, in sequence) â” and the
 -- four files now lead with `KramaAstiNasti_`.  Fifteen modules had
 -- their `module` or `open import` line rewritten mechanically; no
 -- statement in any of them changed, and all fifteen re-checked EXIT=0
@@ -305,6 +305,6 @@ fourthCornerRefutedOverEnumerableDecidable bad e d =
 -- checked against it; naming a file for a tradition's term states a
 -- claim, and this one failed in one cycle.  The lesson for the rest of
 -- the backlog: when adopting a term, prove the object has the property
--- the term names â€” before the rename, not after.
+-- the term names â” before the rename, not after.
 --
 ------------------------------------------------------------------------

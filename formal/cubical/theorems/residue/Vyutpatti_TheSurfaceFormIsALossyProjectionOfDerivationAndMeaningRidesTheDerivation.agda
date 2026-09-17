@@ -1,46 +1,46 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§µ‡•ç‡§Ø‡•Å‡§§‡•ç‡§™‡§§‡•ç‡§§‡§ø ‚Äî the surface form is a lossy projection of derivation,
+-- ‡µ‡‡Ø‡‡‡‡‡‡‡‡ø ‚î the surface form is a lossy projection of derivation,
 -- and meaning rides the derivation, not the surface.
 --
--- (vyutpatti: the derivational formation of a word ‚Äî dhƒÅtu, root, plus
--- pratyaya, affix.  Classical vyƒÅkara·πáa vocabulary, used for the objects
+-- (vyutpatti: the derivational formation of a word ‚î dhtu, root, plus
+-- pratyaya, affix.  Classical vykaraa vocabulary, used for the objects
 -- it names; the theorems are this corpus's, not attributed to any text.)
 --
 -- THE BRIDGE, stated as this machine's own law applied to language.
--- Human language reaches the machine at the SURFACE ‚Äî strings.  But in
--- the grammatical tradition a word IS its formation: dhƒÅtu + affixes,
--- with the meaning composed along the derivation (the k·πõt and taddhita
+-- Human language reaches the machine at the SURFACE ‚î strings.  But in
+-- the grammatical tradition a word IS its formation: dhtu + affixes,
+-- with the meaning composed along the derivation (the kt and taddhita
 -- pratyayas each carrying their semantic contribution).  That is
--- content-addressing: ‡§µ‡•ç‡§Ø‡•Å‡§§‡•ç‡§™‡§§‡•ç‡§§‡§ø is the claim that the word's identity
--- is the hash of its construction ‚Äî which is this machine's identity
+-- content-addressing: ‡µ‡‡Ø‡‡‡‡‡‡‡‡ø is the claim that the word's identity
+-- is the hash of its construction ‚î which is this machine's identity
 -- law, arrived at from the other end, ~2,500 years earlier.
 --
 -- The obstruction to the bridge is exactly a fibre: the map
 --
---     surface : Derivation ‚Üí String
+--     surface : Derivation ‚í String
 --
--- is NOT injective ‚Äî sandhi and homonymy collapse distinct derivations
--- onto one string.  A pun (≈õle·π£a) is a two-point fibre of `surface`,
+-- is NOT injective ‚î sandhi and homonymy collapse distinct derivations
+-- onto one string.  A pun (lea) is a two-point fibre of `surface`,
 -- played deliberately.  So meaning CANNOT factor through the surface
--- (this module's theorem ‡•®: any factoring through a surface with a
--- collision forces two different meanings equal ‚Äî refuted by
+-- (this module's theorem ‡®: any factoring through a surface with a
+-- collision forces two different meanings equal ‚î refuted by
 -- exhibition), while meaning DOES factor through derivation by
--- construction (theorem ‡•ß: artha is a fold over the derivation).
+-- construction (theorem ‡ß: artha is a fold over the derivation).
 --
--- Consequence for the endeavor: the human‚Üîmachine bridge cannot be
--- string-to-term; it must be derivation-to-term ‚Äî carry the vyutpatti,
--- not the spelling.  The A·π£·π≠ƒÅdhyƒÅyƒ´ engine (interactive/Astadhyayi.hs)
--- already holds the lost material alongside the surface (sthƒÅnivadbhƒÅva,
+-- Consequence for the endeavor: the human‚îmachine bridge cannot be
+-- string-to-term; it must be derivation-to-term ‚î carry the vyutpatti,
+-- not the spelling.  The Adhyy engine (interactive/Astadhyayi.hs)
+-- already holds the lost material alongside the surface (sthnivadbhva,
 -- lopa channels); this module is the abstract statement of WHY that
 -- design is forced: recover-from-surface is exactly a section of a map
 -- with inhabited multi-point fibres, and no such section exists.
 --
 -- The concrete witness is kept small and abstract (two derivations, one
--- surface, two arthas); a real Sanskrit ≈õle·π£a instantiates it ‚Äî the
+-- surface, two arthas); a real  lea instantiates it ‚î the
 -- classical stock example is the dual reading of `go` (cow / speech /
--- earth in compound contexts) ‚Äî but no philological claim is made here:
+-- earth in compound contexts) ‚î but no philological claim is made here:
 -- the mathematics needs only that ONE collision exists, and the engine's
 -- own corpus supplies collisions mechanically (GhanaPatha prints them).
 ------------------------------------------------------------------------
@@ -65,7 +65,7 @@ data Derivation : Type‚ÇÄ where
   root  : Dhatu ‚Üí Derivation
   affix : Pratyaya ‚Üí Derivation ‚Üí Derivation
 
--- Meaning composes along the derivation ‚Äî a fold.  This is theorem ‡•ß
+-- Meaning composes along the derivation ‚î a fold.  This is theorem ‡ß
 -- by construction: artha factors through Derivation.
 data Artha : Type‚ÇÄ where
   cowness speechness : Artha
@@ -77,7 +77,7 @@ artha (root dhB)     = speechness
 artha (affix pK d)   = agentOf (artha d)
 
 -- The surface: sandhi/homonymy collapse.  Both roots surface as the
--- same string ‚Äî the ≈õle·π£a situation, minimally.
+-- same string ‚î the lea situation, minimally.
 data Surface : Type‚ÇÄ where
   go  : Surface            -- the colliding surface form
   gok : Surface            -- the affixed form (collapsed likewise)
@@ -99,7 +99,7 @@ artha-differs : artha (root dhA) ‚â° artha (root dhB) ‚Üí ‚ä•
 artha-differs p = true‚â¢false (cong isCow p)
 
 ------------------------------------------------------------------------
--- ‡•® ¬∑ MEANING CANNOT FACTOR THROUGH THE SURFACE.  Any m with
+-- ‡® ¬ MEANING CANNOT FACTOR THROUGH THE SURFACE.  Any m with
 -- m ‚àò surface ‚â° artha would equate the two arthas across the collision.
 no-surface-semantics :
   Œ£ (Surface ‚Üí Artha) (Œª m ‚Üí (d : Derivation) ‚Üí m (surface d) ‚â° artha d)
@@ -108,9 +108,9 @@ no-surface-semantics (m , h) =
   artha-differs (sym (h (root dhA)) ‚àô cong m collision ‚àô h (root dhB))
 
 ------------------------------------------------------------------------
--- ‡•© ¬∑ NO SECTION RECOVERS THE DERIVATION.  A reader of surfaces cannot
+-- ‡© ¬ NO SECTION RECOVERS THE DERIVATION.  A reader of surfaces cannot
 -- reconstruct the formation: any s with surface ‚àò s ‚â° id picks ONE
--- point of each fibre, and the collision fibre has two ‚Äî so some
+-- point of each fibre, and the collision fibre has two ‚î so some
 -- derivation is not recovered.  Stated as: no section can be right
 -- about both colliding roots.
 no-faithful-reader :

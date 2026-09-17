@@ -6,70 +6,70 @@
 -- `SiteAudit` Â§4 left this open, and it is the last item of the witness
 -- thread that had a name:
 --
---     whether the ceiling holds at `Laghava` â€” i.e. whether every
---     absence over `eval : Expr â†’ (â„• â†’ â„•)` costs 2.  Equality of
---     functions â„• â†’ â„• is not decidable, but locating finitely many
+--     whether the ceiling holds at `Laghava` â” i.e. whether every
+--     absence over `eval : Expr â’ (â• â’ â•)` costs 2.  Equality of
+--     functions â• â’ â• is not decidable, but locating finitely many
 --     SPECIFIC denotations against an arbitrary one is a weaker demand,
 --     and this module does not settle whether it can be met.
 --
 -- It cannot be met by any construction available here, and the reason is
--- not incidental: a decoder `Denotation â†’ â„•` that answers a listed
+-- not incidental: a decoder `Denotation â’ â•` that answers a listed
 -- denotation correctly must first recognise it, and recognising an
--- arbitrary `d : â„• â†’ â„•` as a particular one is exactly a decision of
+-- arbitrary `d : â• â’ â•` as a particular one is exactly a decision of
 -- function equality.  Nothing in this lane builds that, and nothing in
--- this lane refutes its existence either â€” the type `Denotation â†’ â„•`
+-- this lane refutes its existence either â” the type `Denotation â’ â•`
 -- contains whatever it contains.
 --
 -- So the honest result is not a verdict on that decoder space.  It is a
 -- characterisation of exactly which decoder spaces DO get the ceiling,
 -- and `Laghava`'s is the boundary case.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE THEOREM
 --
--- Give the observations a discrete PROBE `p : Y â†’ Z` and restrict
+-- Give the observations a discrete PROBE `p : Y â’ Z` and restrict
 -- decoders to those that read the probe only:
 --
---     ProbeLaw q t p g x  =  g (p (q x)) â‰¡ t x        g : Z â†’ T
+--     ProbeLaw q t p g x  =  g (p (q x)) â‰¡ t x        g : Z â’ T
 --
 -- Then the ceiling comes back with no hypothesis on Y at all:
 --
 --     probe-ceiling : Discrete Z
---                   â†’ CollisionFree (p âˆ˜ q) t (xâ‚€ âˆ· xs)
---                   â†’ Â¬ Refutes (ProbeLaw q t p) (xâ‚€ âˆ· xs)
+--                   â’ CollisionFree (p âˆ˜ q) t (xâ âˆ xs)
+--                   â’ Â Refutes (ProbeLaw q t p) (xâ âˆ xs)
 --
 -- because the table is now built over Z, where comparison is available.
 -- Y never has to be compared with anything.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- AT LAGHAVA
 --
--- One probe suffices: `p d = d 1`, so Z = â„•.  The à¤²à¤¾à¤˜à¤µ pair survives it
--- â€” `short` and `long` have the same denotation, hence the same value at
--- 1, and different sizes â€” so it is still a collision after probing, and
+-- One probe suffices: `p d = d 1`, so Z = â•.  The à²à¾à˜àµ pair survives it
+-- â” `short` and `long` have the same denotation, hence the same value at
+-- 1, and different sizes â” so it is still a collision after probing, and
 --
 --     laghava-probe-is-two : WitnessNumberIs (ProbeLaw eval size probe1) 2
 --
 -- Over the probed decoders, EVERY absence at `Laghava` costs 2, the
--- à¤²à¤¾à¤˜à¤µ one included.  And probing only removes decoders
--- (`probeFactorsâ†’meaningFactors`), so the probed absence is the weaker
+-- à²à¾à˜àµ one included.  And probing only removes decoders
+-- (`probeFactorsâ’meaningFactors`), so the probed absence is the weaker
 -- statement: `Laghava`'s own theorem implies it and not conversely.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 --
 -- SETTLED.  The ceiling is not about discreteness of the OBSERVATIONS.
 -- It is about the decoders having something discrete to read.  Restrict
--- them to any discrete probe, however coarse, and the ceiling returns â€”
+-- them to any discrete probe, however coarse, and the ceiling returns â”
 -- at `Laghava`, at a single evaluation point.
 --
 -- NOT SETTLED, and now sharply: the ceiling over the FULL space
--- `Denotation â†’ â„•`.  That space is not reachable by a probe, and
--- deciding membership in it is deciding equality of functions â„• â†’ â„•.
+-- `Denotation â’ â•`.  That space is not reachable by a probe, and
+-- deciding membership in it is deciding equality of functions â• â’ â•.
 -- This is the one place in the witness thread where an open item is
 -- open for a REASON rather than for want of an argument, and naming the
 -- reason is the result.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -181,7 +181,7 @@ probeFactorsâ†’meaningFactors :
   â†’ FactorsThroughMeaning size
 probeFactorsâ†’meaningFactors (g , law) = (Î» d â†’ g (probe1 d)) , law
 
--- the à¤²à¤¾à¤˜à¤µ pair survives probing: same denotation, hence same value at 1
+-- the à²à¾à˜àµ pair survives probing: same denotation, hence same value at 1
 laghava-probe-collision :
   probe1 (eval (laghava-collision .fst))
   â‰¡ probe1 (eval (laghava-collision .snd .fst))
@@ -210,9 +210,9 @@ laghava-probe-is-two =
 --
 -- SETTLED.  The ceiling was never about discreteness of the
 -- OBSERVATIONS.  It is about the decoders having something discrete to
--- read.  Give them any probe into a discrete type â€” at `Laghava`, a
--- single evaluation point â€” and the ceiling returns in full: over the
--- probed decoders every absence there costs 2, with the à¤²à¤¾à¤˜à¤µ pair still
+-- read.  Give them any probe into a discrete type â” at `Laghava`, a
+-- single evaluation point â” and the ceiling returns in full: over the
+-- probed decoders every absence there costs 2, with the à²à¾à˜àµ pair still
 -- doing the work.
 --
 -- That reframes the whole `WhyTheSitesAreTwo` / `LocatingIsEnough` line.
@@ -221,8 +221,8 @@ laghava-probe-is-two =
 -- it belongs, on what the decoder is allowed to see.
 --
 -- NOT SETTLED, and now for a stated reason rather than for want of an
--- argument: the ceiling over the FULL space `Denotation â†’ â„•`.  A decoder
--- there must recognise an arbitrary `d : â„• â†’ â„•` as a listed denotation,
+-- argument: the ceiling over the FULL space `Denotation â’ â•`.  A decoder
+-- there must recognise an arbitrary `d : â• â’ â•` as a listed denotation,
 -- which is a decision of function equality.  This lane builds no such
 -- decision and refutes no such decision; the type contains what it
 -- contains.  That is the only open item in this thread whose openness is

@@ -1,98 +1,98 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§ß‡•ç‡§µ-‡§∂‡•á‡§∑‡§É ‚Äî ‡§™‡•ç‡§∞‡§∏‡•ç‡§§‡§æ‡§∞‡§∏‡•ç‡§Ø ‡§≤‡§ø‡§ñ‡§ø‡§§-‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø‡§É ‡§§‡§∏‡•ç‡§Ø ‡§µ‡§π‡§ø‡§§-‡§∂‡•á‡§∑‡§æ‡§£‡§æ‡§Ç ‡§ó‡§£‡§®‡§æ ‡§è‡§µ ‡•§
--- (adhva-≈õe·π£a ‚Äî the written extent of the prastƒÅra IS the census of the
+-- ‡‡ß‡‡µ-‡‡‡‡ ‚î ‡‡‡∞‡‡‡‡æ‡∞‡‡‡Ø ‡≤‡ø‡ñ‡ø‡-‡µ‡‡Ø‡æ‡‡‡‡ø‡ ‡‡‡‡Ø ‡µ‡‡ø‡-‡‡‡‡æ‡‡æ‡ ‡ó‡‡®‡æ ‡‡µ ‡
+-- (adhva-ea ‚î the written extent of the prastra IS the census of the
 --  remainders it carries.)
 --
--- ‡§Æ‡•Ç‡§≤‡§Æ‡•ç (the verse this module is about), ‡§ï‡•á‡§¶‡§æ‡§∞‡§≠‡§ü‡•ç‡§ü‡§É, ‡§µ‡•É‡§§‡•ç‡§§‡§∞‡§§‡•ç‡§®‡§æ‡§ï‡§∞‡§É ‡•¨.‡•Ø :
+-- ‡Æ‡‡≤‡Æ‡ (the verse this module is about), ‡ï‡‡¶‡æ‡∞‡‡ü‡‡ü‡, ‡µ‡‡‡‡‡∞‡‡‡®‡æ‡ï‡∞‡ ‡.‡Ø :
 --
---     ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡•à‡§µ ‡§¶‡•ç‡§µ‡§ø‡§ó‡•Å‡§£‡•à‡§ï‡•ã‡§®‡§æ ‡§∏‡§¶‡•ç‡§≠‡§ø‡§∞‡§ß‡•ç‡§µ‡§æ ‡§™‡•ç‡§∞‡§ï‡•Ä‡§∞‡•ç‡§§‡§ø‡§§‡§É ‡•§
---     ‡§µ‡•É‡§§‡•ç‡§§‡§∏‡•ç‡§Ø‡§æ‡§ô‡•ç‡§ó‡•Å‡§≤‡§ø‡§ï‡•Ä‡§Ç ‡§µ‡•ç‡§Ø‡§æ‡§™‡•ç‡§§‡§ø‡§Æ‡§ß‡§É ‡§ï‡•Å‡§∞‡•ç‡§Ø‡§æ‡§§‡•ç‡§§‡§•‡§æ‡§ô‡•ç‡§ó‡•Å‡§≤‡§Æ‡•ç ‡••
+--     ‡‡‡ñ‡‡Ø‡à‡µ ‡¶‡‡µ‡ø‡ó‡‡‡à‡ï‡ã‡®‡æ ‡‡¶‡‡‡ø‡∞‡ß‡‡µ‡æ ‡‡‡∞‡ï‡‡∞‡‡‡ø‡‡ ‡
+--     ‡µ‡‡‡‡‡‡‡Ø‡æ‡ô‡‡ó‡‡≤‡ø‡ï‡‡ ‡µ‡‡Ø‡æ‡‡‡‡ø‡Æ‡ß‡ ‡ï‡‡∞‡‡Ø‡æ‡‡‡‡‡æ‡ô‡‡ó‡‡≤‡Æ‡ ‡
 --
---   "the sa·πÖkhyƒÅ itself, doubled, less one (dvi-gu·πáƒÅ eka-≈´nƒÅ), is by the
+--   "the sakhy itself, doubled, less one (dvi-gu eka-n), is by the
 --    learned declared the adhvan, the road.  One should make the extent
---    of a v·πõtta one a·πÖgula, and below it likewise an a·πÖgula."
+--    of a vtta one agula, and below it likewise an agula."
 --
---   So the adhvan measures WRITTEN VERTICAL EXTENT in a·πÖgulas: each of
---   the sa·πÖkhyƒÅ-many rows takes one a·πÖgula, each gap below a row takes
---   one a·πÖgula, and the total is 2¬∑sa·πÖkhyƒÅ ‚àí 1 because the last row has
---   no gap below it.  That subtraction ‚Äî ‡§è‡§ï‡•ã‡§®‡§æ ‚Äî is what this module
+--   So the adhvan measures WRITTEN VERTICAL EXTENT in agulas: each of
+--   the sakhy-many rows takes one agula, each gap below a row takes
+--   one agula, and the total is 2¬sakhy ‚àí 1 because the last row has
+--   no gap below it.  That subtraction ‚î ‡‡ï‡ã‡®‡æ ‚î is what this module
 --   proves is forced rather than conventional.
 --
 -- SOURCES, with dates, and what is and is NOT claimed of each.
 --
---   ‡§ï‡•á‡§¶‡§æ‡§∞‡§≠‡§ü‡•ç‡§ü‡§É, ‡§µ‡•É‡§§‡•ç‡§§‡§∞‡§§‡•ç‡§®‡§æ‡§ï‡§∞‡§É ‡•¨.‡•ß‚Äì‡•¨.‡•Ø, the ·π£a·π≠-pratyaya chapter.  Text:
+--   ‡ï‡‡¶‡æ‡∞‡‡ü‡‡ü‡, ‡µ‡‡‡‡‡∞‡‡‡®‡æ‡ï‡∞‡ ‡.‡ß‚ì‡.‡Ø, the a-pratyaya chapter.  Text:
 --   GRETIL file 1_sanskr/5_poetry/1_chandas/kedvratu.htm, from the
---   edition of ≈örƒ´ KedƒÅra NƒÅtha ≈öarmƒÅ (Kashi Sanskrit Series 55,
+--   edition of r Kedra Ntha arm (Kashi  Series 55,
 --   Varanasi 1980), input by Masahiro Takano.  The GRETIL header dates
---   KedƒÅrabha·π≠·π≠a to the 12th c.; other datings put him earlier, and
---   this module does not adjudicate.  ‡•¨.‡•ß names the six pratyayas:
---   prastƒÅra, na·π£·π≠a, uddi·π£·π≠a, eka-dvy-ƒÅdi-laga-kriyƒÅ, sa·πÖkhyƒÅna,
+--   Kedrabhaa to the 12th c.; other datings put him earlier, and
+--   this module does not adjudicate.  ‡.‡ß names the six pratyayas:
+--   prastra, naa, uddia, eka-dvy-di-laga-kriy, sakhyna,
 --   adhva-yoga.
 --
---   ‡§∏‡•Å‡§≤‡•ç‡§π‡§£‡§É, ‡§∏‡•Å‡§ï‡§µ‡§ø‡§π‡•É‡§¶‡§Ø‡§®‡§®‡•ç‡§¶‡§ø‡§®‡•Ä, commentary (GRETIL kvrtrsuu.htm, from a
---   Patan manuscript, input by Dhaval Patel).  On ‡•¨.‡•Ø it works the
---   four-syllable class: *caturak·π£arajƒÅtau yƒÅ ·π£o·∏ça≈õasa·πÉkhyƒÅ syƒÅd
---   dvigu·πáƒÅ dvƒÅtri·πÉ≈õati·∏• ekonƒÅ ekarahitƒÅ ekatri·πÉ≈õati·∏•* ‚Äî sa·πÖkhyƒÅ 16,
---   doubled 32, less one 31.  On ‡•¨.‡•Æ it computes the other two numbers
---   used below: the laga-kriyƒÅ row 1+4+6+4+1 = 16, and the uddi·π£·π≠a
---   doubling column 1+2+4+8 = 15, *saika·∏• ·π£o·∏ça≈õa*, plus one 16.
+--   ‡‡‡≤‡‡‡‡, ‡‡‡ï‡µ‡ø‡‡‡¶‡Ø‡®‡®‡‡¶‡ø‡®‡, commentary (GRETIL kvrtrsuu.htm, from a
+--   Patan manuscript, input by Dhaval Patel).  On ‡.‡Ø it works the
+--   four-syllable class: *caturakarajtau y oaasakhy syd
+--   dvigu dvtriati ekon ekarahit ekatriati* ‚î sakhy 16,
+--   doubled 32, less one 31.  On ‡.‡Æ it computes the other two numbers
+--   used below: the laga-kriy row 1+4+6+4+1 = 16, and the uddia
+--   doubling column 1+2+4+8 = 15, *saika oaa*, plus one 16.
 --
---   The next-row rule, ‡•¨.‡•®‚Äì‡•¨.‡•©, supplies the word this module is named
---   for: *yathopari tathƒÅ ≈õe·π£am*, "as above, so the remainder".
---   Sulha·πáa glosses it *yady upari gurus tadƒÅ adhastƒÅd api gurur, yady
---   upari laghus tadƒÅ adhastƒÅd api laghu·∏• ≈õe·π£am / upari tulyo dƒ´yate
---   ity artha·∏•* ‚Äî below the first guru place a laghu, fill what
+--   The next-row rule, ‡.‡®‚ì‡.‡©, supplies the word this module is named
+--   for: *yathopari tath eam*, "as above, so the remainder".
+--   Sulhaa glosses it *yady upari gurus tad adhastd api gurur, yady
+--   upari laghus tad adhastd api laghu eam / upari tulyo dyate
+--   ity artha* ‚î below the first guru place a laghu, fill what
 --   precedes it with guru, and COPY THE REST UNCHANGED.  That copied
---   rest is the ≈õe·π£a, and it is the object counted here.
+--   rest is the ea, and it is the object counted here.
 --
---   ‡§™‡§ø‡§ô‡•ç‡§ó‡§≤‡§É, ‡§õ‡§®‡•ç‡§¶‡§É‡§∂‡§æ‡§∏‡•ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡•Æ (c. 300‚Äì200 BCE) is the origin of the
+--   ‡‡ø‡ô‡‡ó‡≤‡, ‡‡®‡‡¶‡‡‡æ‡‡‡‡‡∞‡Æ‡ ‡Æ (c. 300‚ì200 BCE) is the origin of the
 --   pratyaya system and is NOT the text used here.  No copy of it is in
 --   this container.  Checked against GRETIL's own catalogue page
 --   (gretil.html, 5,443-file INDOLOGY/GRETIL-mirror snapshot) rather
 --   than against filenames, which are abbreviations and would have been
 --   the wrong predicate: the catalogue returns Vrttaratnakara 2 and
---   Kedarabhatta 2 ‚Äî so the check finds what is there ‚Äî and returns 0
+--   Kedarabhatta 2 ‚î so the check finds what is there ‚î and returns 0
 --   for each of Chandahsastra, Pingala, Halayudha, Mrtasanjivani,
 --   Virahanka, Vrttajatisamuccaya.  Nothing below is claimed for
---   Pi·πÖgala's own s≈´tras.  KedƒÅra is a later systematiser and the
+--   Pigala's own stras.  Kedra is a later systematiser and the
 --   closed six-fold list in the form used here is his.
 --
 -- WHAT IS PROVED.  No postulates, no holes, no `--safe` escape.
 --
---   ‡§∂‡•á‡§∑-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ   ‡§µ‡§æ‡§ï‡•ç n ‚âÉ (Unit ‚äé ‡§∂‡•á‡§∑‡§É n)
---                 Every row of the prastƒÅra is either the last one ‚Äî
---                 ‡§∏‡§∞‡•ç‡§µ-‡§≤‡§ò‡•Å, KedƒÅra's stopping condition *yƒÅvat
---                 sarvalaghur bhavet* ‚Äî or is RECOVERED from the ≈õe·π£a
+--   ‡‡‡-‡‡‡≤‡‡Ø‡‡æ   ‡µ‡æ‡ï‡ n ‚â (Unit ‚ä ‡‡‡‡ n)
+--                 Every row of the prastra is either the last one ‚î
+--                 ‡‡∞‡‡µ-‡≤‡ò‡, Kedra's stopping condition *yvat
+--                 sarvalaghur bhavet* ‚î or is RECOVERED from the ea
 --                 it carries into the next row.  A bijection, not a
 --                 count.
 --
---   ‡§Ö‡§ß‡•ç‡§µ-‡§è‡§ï‡•ã‡§®‡§æ   (‡§Ö‡§ß‡•ç‡§µ‡§æ n ‚äé Unit) ‚âÉ (‡§µ‡§æ‡§ï‡•ç n ‚äé ‡§µ‡§æ‡§ï‡•ç n)
---                 Verse ‡•¨.‡•Ø as a type equivalence, with no subtraction
+--   ‡‡ß‡‡µ-‡‡ï‡ã‡®‡æ   (‡‡ß‡‡µ‡æ n ‚ä Unit) ‚â (‡µ‡æ‡ï‡ n ‚ä ‡µ‡æ‡ï‡ n)
+--                 Verse ‡.‡Ø as a type equivalence, with no subtraction
 --                 anywhere: the written extent TOGETHER WITH the one
---                 gap that is not there is exactly twice the sa·πÖkhyƒÅ.
+--                 gap that is not there is exactly twice the sakhy.
 --                 A gap maps to the row it sits below; the adjoined
---                 Unit maps to the ‡§∏‡§∞‡•ç‡§µ-‡§≤‡§ò‡•Å row, which has no gap.
+--                 Unit maps to the ‡‡∞‡‡µ-‡≤‡ò‡ row, which has no gap.
 --
---   ‡§è‡§ï‡•ã‡§®‡§æ-‡§Ü‡§µ‡§∂‡•ç‡§Ø‡§ï‡§æ  ¬¨ (‡§∂‡•á‡§∑‡§É 1 ‚âÉ ‡§µ‡§æ‡§ï‡•ç 1)
---                 The eka-≈´nƒÅ is load-bearing.  Gaps and rows are not
---                 equinumerous ‚Äî refuted at one syllable ‚Äî so no
---                 reading of ‡•¨.‡•Ø without the "less one" can hold.
+--   ‡‡ï‡ã‡®‡æ-‡‡µ‡‡‡Ø‡ï‡æ  ¬ (‡‡‡‡ 1 ‚â ‡µ‡æ‡ï‡ 1)
+--                 The eka-n is load-bearing.  Gaps and rows are not
+--                 equinumerous ‚î refuted at one syllable ‚î so no
+--                 reading of ‡.‡Ø without the "less one" can hold.
 --
---   The three numbers Sulha·πáa computes for the four-syllable class,
---   by `refl`: sa·πÖkhyƒÅ 16 (·π£o·∏ça≈õa), gaps 15 (pa√±cada≈õa), adhvan 31
---   (ekatri·πÉ≈õat).
+--   The three numbers Sulhaa computes for the four-syllable class,
+--   by `refl`: sakhy 16 (oaa), gaps 15 (pacadaa), adhvan 31
+--   (ekatriat).
 --
 -- CHECKED: Agda 2.6.3, `--cubical --safe --no-import-sorts`, against
 -- the cubical library at /root/agda-libs/cubical, `git describe` = v0.5
 -- (the version is not recorded in cubical.agda-lib).  Exit 0 with no
--- warnings.  ‡§µ‡§æ‡§ï‡•ç and ‡§∂‡•á‡§∑‡§É are both defined BY RECURSION ON ‚Ñï rather
+-- warnings.  ‡µ‡æ‡ï‡ and ‡‡‡‡ are both defined BY RECURSION ON ‚ï rather
 -- than as inductive families, because matching an indexed family at a
 -- constructor index needs injectivity of suc, which Cubical Agda
--- rejects ‚Äî such a definition still typechecks but does not compute
+-- rejects ‚î such a definition still typechecks but does not compute
 -- under transport.  Self-contained: imports only Cubical.*, no module
--- of this corpus.  NOTHING IN THIS REPOSITORY BUILDS IT ‚Äî it is not in
+-- of this corpus.  NOTHING IN THIS REPOSITORY BUILDS IT ‚î it is not in
 -- Everything.agda, and check-everything-coverage.sh fails on 60
 -- pre-existing orphans independently of this file.  It was checked by
 -- running agda on it directly, and that is the whole of the evidence.
@@ -111,19 +111,19 @@ open import Cubical.Data.Unit using (Unit ; tt)
 open import Cubical.Data.Empty using (‚ä•)
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç ‚Äî ‡§≤‡§ò‡•Å‡§É ‡§µ‡§æ ‡§ó‡•Å‡§∞‡•Å‡§É ‡•§  The whole alphabet of the prastƒÅra: KedƒÅra
--- ‡•¨.‡•® lays out every row over these two.
+-- ‡‡ï‡‡‡∞‡Æ‡ ‚î ‡≤‡ò‡‡ ‡µ‡æ ‡ó‡‡∞‡‡ ‡  The whole alphabet of the prastra: Kedra
+-- ‡.‡® lays out every row over these two.
 ------------------------------------------------------------------------
 
 data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
   ‡§≤‡§ò‡•Å ‡§ó‡•Å‡§∞‡•Å : ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç
 
 ------------------------------------------------------------------------
--- ‡§µ‡§æ‡§ï‡•ç ‚Äî n-‡§Ö‡§ï‡•ç‡§∑‡§∞‡§É ‡§™‡§æ‡§¶‡§É, a pƒÅda of exactly n syllables.
+-- ‡µ‡æ‡ï‡ ‚î n-‡‡ï‡‡‡∞‡ ‡‡æ‡¶‡, a pda of exactly n syllables.
 --
--- The head is the LEFTMOST syllable, because KedƒÅra's next-row rule
--- reaches for it first: *pƒÅde sarvagurƒÅv ƒÅdyƒÅl laghu·πÉ nyasya guror
--- adha·∏•* ‚Äî below the first guru FROM THE BEGINNING, place a laghu.
+-- The head is the LEFTMOST syllable, because Kedra's next-row rule
+-- reaches for it first: *pde sarvagurv dyl laghu nyasya guror
+-- adha* ‚î below the first guru FROM THE BEGINNING, place a laghu.
 ------------------------------------------------------------------------
 
 ‡§µ‡§æ‡§ï‡•ç : ‚Ñï ‚Üí Type
@@ -131,17 +131,17 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§µ‡§æ‡§ï‡•ç (suc n) = ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç √ó ‡§µ‡§æ‡§ï‡•ç n
 
 ------------------------------------------------------------------------
--- ‡§∂‡•á‡§∑‡§É ‚Äî that which "‡§Ø‡§•‡•ã‡§™‡§∞‡§ø ‡§§‡§•‡§æ ‡§∂‡•á‡§∑‡§Æ‡•ç" carries down unchanged.
+-- ‡‡‡‡ ‚î that which "‡Ø‡‡ã‡‡∞‡ø ‡‡‡æ ‡‡‡‡Æ‡" carries down unchanged.
 --
--- What can a ≈õe·π£a be?  The next-row rule alters an initial segment and
+-- What can a ea be?  The next-row rule alters an initial segment and
 -- copies the rest.  The copied rest is strictly shorter than the row,
--- since the flipped guru itself is not in it.  So the ≈õe·π£as of an
--- n-syllable prastƒÅra are exactly the patterns of length < n ‚Äî and
--- that is this type, graded by length: at n+1 a ≈õe·π£a is either a full
+-- since the flipped guru itself is not in it.  So the eas of an
+-- n-syllable prastra are exactly the patterns of length < n ‚î and
+-- that is this type, graded by length: at n+1 a ea is either a full
 -- n-pattern (the case where the first syllable WAS the guru that
 -- flipped, so all of the rest is carried) or a shorter one.
 --
--- At n = 0 there is no ≈õe·π£a at all: a one-row prastƒÅra never steps.
+-- At n = 0 there is no ea at all: a one-row prastra never steps.
 ------------------------------------------------------------------------
 
 ‡§∂‡•á‡§∑‡§É : ‚Ñï ‚Üí Type
@@ -149,16 +149,16 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§∂‡•á‡§∑‡§É (suc n) = ‡§µ‡§æ‡§ï‡•ç n ‚äé ‡§∂‡•á‡§∑‡§É n
 
 ------------------------------------------------------------------------
--- ‡§∂‡•á‡§∑ ‚Äî the reading-off of ‡•¨.‡•®‚Äì‡•¨.‡•©.
+-- ‡‡‡ ‚î the reading-off of ‡.‡®‚ì‡.‡©.
 --
---   ‡§ó‡•Å‡§∞‡•Å , v  ‚Äî the first syllable IS the first guru.  It flips to
+--   ‡ó‡‡∞‡ , v  ‚î the first syllable IS the first guru.  It flips to
 --               laghu, nothing precedes it to fill with guru, and v is
---               carried whole: the ≈õe·π£a is v.
---   ‡§≤‡§ò‡•Å , v  ‚Äî the first syllable is already laghu, so the first guru
+--               carried whole: the ea is v.
+--   ‡≤‡ò‡ , v  ‚î the first syllable is already laghu, so the first guru
 --               lies further in; recurse.  If v holds no guru then
---               neither does ‡§≤‡§ò‡•Å , v; the row is ‡§∏‡§∞‡•ç‡§µ-‡§≤‡§ò‡•Å and *yƒÅvat
---               sarvalaghur bhavet* ends the prastƒÅra ‚Äî no next row and
---               no ≈õe·π£a.  That is the Unit.
+--               neither does ‡≤‡ò‡ , v; the row is ‡‡∞‡‡µ-‡≤‡ò‡ and *yvat
+--               sarvalaghur bhavet* ends the prastra ‚î no next row and
+--               no ea.  That is the Unit.
 ------------------------------------------------------------------------
 
 ‡§≤‡§ò‡•Å-‡§µ‡§π‡§®‡§Æ‡•ç : {n : ‚Ñï} ‚Üí Unit ‚äé ‡§∂‡•á‡§∑‡§É n ‚Üí Unit ‚äé ‡§∂‡•á‡§∑‡§É (suc n)
@@ -171,7 +171,7 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§∂‡•á‡§∑ (suc n) (‡§≤‡§ò‡•Å , v) = ‡§≤‡§ò‡•Å-‡§µ‡§π‡§®‡§Æ‡•ç (‡§∂‡•á‡§∑ n v)
 
 ------------------------------------------------------------------------
--- ‡§µ‡§æ‡§ï‡•ç-‡§™‡•Å‡§®‡§É ‚Äî the inverse: rebuild the row from what it carries.
+-- ‡µ‡æ‡ï‡-‡‡‡®‡ ‚î the inverse: rebuild the row from what it carries.
 ------------------------------------------------------------------------
 
 ‡§µ‡§æ‡§ï‡•ç-‡§™‡•Å‡§®‡§É : (n : ‚Ñï) ‚Üí Unit ‚äé ‡§∂‡•á‡§∑‡§É n ‚Üí ‡§µ‡§æ‡§ï‡•ç n
@@ -182,7 +182,7 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§µ‡§æ‡§ï‡•ç-‡§™‡•Å‡§®‡§É (suc n) (inr (inr s)) = (‡§≤‡§ò‡•Å , ‡§µ‡§æ‡§ï‡•ç-‡§™‡•Å‡§®‡§É n (inr s))
 
 ------------------------------------------------------------------------
--- ‡§™‡§∞‡§ø‡§µ‡•É‡§§‡•ç‡§§‡•Ä ‚Äî both round trips.
+-- ‡‡∞‡ø‡µ‡‡‡‡‡ ‚î both round trips.
 ------------------------------------------------------------------------
 
 ‡§µ‡§π‡§®‡§Æ‡•ç-‡§™‡•Å‡§®‡§É : (n : ‚Ñï) (x : Unit ‚äé ‡§∂‡•á‡§∑‡§É n)
@@ -204,8 +204,8 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
   ‡§µ‡§π‡§®‡§Æ‡•ç-‡§™‡•Å‡§®‡§É n (‡§∂‡•á‡§∑ n v) ‚àô cong (Œª w ‚Üí (‡§≤‡§ò‡•Å , w)) (‡§µ‡§æ‡§ï‡•ç-‡§∂‡•á‡§∑ n v)
 
 ------------------------------------------------------------------------
--- ‡§∂‡•á‡§∑-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ ‚Äî the first result.
--- Every row is the last one, or is recovered from its ≈õe·π£a.
+-- ‡‡‡-‡‡‡≤‡‡Ø‡‡æ ‚î the first result.
+-- Every row is the last one, or is recovered from its ea.
 ------------------------------------------------------------------------
 
 ‡§∂‡•á‡§∑-Iso : (n : ‚Ñï) ‚Üí Iso (‡§µ‡§æ‡§ï‡•ç n) (Unit ‚äé ‡§∂‡•á‡§∑‡§É n)
@@ -215,24 +215,24 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§∂‡•á‡§∑-‡§§‡•Å‡§≤‡•ç‡§Ø‡§§‡§æ n = isoToEquiv (‡§∂‡•á‡§∑-Iso n)
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§ß‡•ç‡§µ‡§æ ‚Äî the written extent: one a·πÖgula per row, one per gap below a
--- row.  ‡•¨.‡•Ø measures exactly those two things, so the type of
--- a·πÖgula-units is their sum.
+-- ‡‡ß‡‡µ‡æ ‚î the written extent: one agula per row, one per gap below a
+-- row.  ‡.‡Ø measures exactly those two things, so the type of
+-- agula-units is their sum.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§ß‡•ç‡§µ‡§æ : ‚Ñï ‚Üí Type
 ‡§Ö‡§ß‡•ç‡§µ‡§æ n = ‡§µ‡§æ‡§ï‡•ç n ‚äé ‡§∂‡•á‡§∑‡§É n
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§ß‡•ç‡§µ-‡§è‡§ï‡•ã‡§®‡§æ ‚Äî verse ‡•¨.‡•Ø with no subtraction in it:
+-- ‡‡ß‡‡µ-‡‡ï‡ã‡®‡æ ‚î verse ‡.‡Ø with no subtraction in it:
 --
---     (‡§Ö‡§ß‡•ç‡§µ‡§æ n ‚äé Unit) ‚âÉ (‡§µ‡§æ‡§ï‡•ç n ‚äé ‡§µ‡§æ‡§ï‡•ç n)
+--     (‡‡ß‡‡µ‡æ n ‚ä Unit) ‚â (‡µ‡æ‡ï‡ n ‚ä ‡µ‡æ‡ï‡ n)
 --
 -- "the adhvan, together with the one gap that is not there, is twice
---  the sa·πÖkhyƒÅ."  The map is not a relabelling: a gap goes to THE ROW
--- IT SITS BELOW, recovered through ≈õe·π£a, and the adjoined Unit goes to
--- the ‡§∏‡§∞‡•ç‡§µ-‡§≤‡§ò‡•Å row, which is precisely the row with no gap under it.
--- So ‡§è‡§ï‡•ã‡§®‡§æ names a specific missing object, not an off-by-one.
+--  the sakhy."  The map is not a relabelling: a gap goes to THE ROW
+-- IT SITS BELOW, recovered through ea, and the adjoined Unit goes to
+-- the ‡‡∞‡‡µ-‡≤‡ò‡ row, which is precisely the row with no gap under it.
+-- So ‡‡ï‡ã‡®‡æ names a specific missing object, not an off-by-one.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§ß‡•ç‡§µ-‡§™‡•ç‡§∞‡§§‡§ø : (n : ‚Ñï) ‚Üí ‡§Ö‡§ß‡•ç‡§µ‡§æ n ‚äé Unit ‚Üí ‡§µ‡§æ‡§ï‡•ç n ‚äé ‡§µ‡§æ‡§ï‡•ç n
@@ -274,16 +274,16 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§Ö‡§ß‡•ç‡§µ-‡§è‡§ï‡•ã‡§®‡§æ n = isoToEquiv (‡§Ö‡§ß‡•ç‡§µ-‡§è‡§ï‡•ã‡§®‡§æ-Iso n)
 
 ------------------------------------------------------------------------
--- ‡§ó‡§£‡§®‡§æ ‚Äî the same three quantities as numbers, so that Sulha·πáa's
+-- ‡ó‡‡®‡æ ‚î the same three quantities as numbers, so that Sulhaa's
 -- worked instance can be checked against them.
 --
---   ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ n      = 2‚Åø, the count of ‡•¨.‡•Æ.
---   ‡§∂‡•á‡§∑-‡§ó‡§£‡§®‡§æ n   = the uddi·π£·π≠a doubling column 1+2+‚Ä¶+2‚Åø‚Åª¬π summed ‚Äî
---                   ‡•¨.‡•Æ's SECOND derivation ‚Äî which is also the
---                   length-graded census of the ≈õe·π£as, one term 2·µè per
---                   ≈õe·π£a-length k.  ‡•¨.‡•Æ sums this column to reach the
---                   sa·πÖkhyƒÅ and never says it is the number of gaps.
---   ‡§Ö‡§ß‡•ç‡§µ-‡§ó‡§£‡§®‡§æ n  = rows + gaps.
+--   ‡‡‡ñ‡‡Ø‡æ n      = 2‚ø, the count of ‡.‡Æ.
+--   ‡‡‡-‡ó‡‡®‡æ n   = the uddia doubling column 1+2+‚¶+2‚ø‚ª¬ summed ‚î
+--                   ‡.‡Æ's SECOND derivation ‚î which is also the
+--                   length-graded census of the eas, one term 2µ per
+--                   ea-length k.  ‡.‡Æ sums this column to reach the
+--                   sakhy and never says it is the number of gaps.
+--   ‡‡ß‡‡µ-‡ó‡‡®‡æ n  = rows + gaps.
 ------------------------------------------------------------------------
 
 ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ : ‚Ñï ‚Üí ‚Ñï
@@ -298,9 +298,9 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§Ö‡§ß‡•ç‡§µ-‡§ó‡§£‡§®‡§æ n = ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ n + ‡§∂‡•á‡§∑-‡§ó‡§£‡§®‡§æ n
 
 ------------------------------------------------------------------------
--- ‡•¨.‡•Æ and ‡•¨.‡•Ø at the level of numbers, again with no subtraction:
--- "the column, plus one, is the sa·πÖkhyƒÅ", and "the adhvan, plus one,
--- is twice the sa·πÖkhyƒÅ".
+-- ‡.‡Æ and ‡.‡Ø at the level of numbers, again with no subtraction:
+-- "the column, plus one, is the sakhy", and "the adhvan, plus one,
+-- is twice the sakhy".
 ------------------------------------------------------------------------
 
 ‡§∂‡•á‡§∑-‡§è‡§ï‡•ã‡§®‡§æ : (n : ‚Ñï) ‚Üí suc (‡§∂‡•á‡§∑-‡§ó‡§£‡§®‡§æ n) ‚â° ‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ n
@@ -313,8 +313,8 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
   sym (+-suc (‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ n) (‡§∂‡•á‡§∑-‡§ó‡§£‡§®‡§æ n)) ‚àô cong (‡§∏‡§Ç‡§ñ‡•ç‡§Ø‡§æ n +_) (‡§∂‡•á‡§∑-‡§è‡§ï‡•ã‡§®‡§æ n)
 
 ------------------------------------------------------------------------
--- ‡§∏‡•Å‡§≤‡•ç‡§π‡§£‡§∏‡•ç‡§Ø ‡§â‡§¶‡§æ‡§π‡§∞‡§£‡§Æ‡•ç ‚Äî the four-syllable class, the instance the
--- commentary works out: ·π£o·∏ça≈õa, pa√±cada≈õa, ekatri·πÉ≈õat.  Decided by
+-- ‡‡‡≤‡‡‡‡‡‡Ø ‡â‡¶‡æ‡‡∞‡‡Æ‡ ‚î the four-syllable class, the instance the
+-- commentary works out: oaa, pacadaa, ekatriat.  Decided by
 -- evaluation, so the predicate is decidable from the data.
 ------------------------------------------------------------------------
 
@@ -328,19 +328,19 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
 ‡§è‡§ï‡§§‡•ç‡§∞‡§ø‡§Ç‡§∂‡§§‡•ç = refl
 
 ------------------------------------------------------------------------
--- ‡§è‡§ï‡•ã‡§®‡§æ-‡§Ü‡§µ‡§∂‡•ç‡§Ø‡§ï‡§æ ‚Äî the control.  Is the "less one" doing work?
+-- ‡‡ï‡ã‡®‡æ-‡‡µ‡‡‡Ø‡ï‡æ ‚î the control.  Is the "less one" doing work?
 --
--- If gaps and rows were equinumerous, ‡•¨.‡•Ø would read *dvigu·πáƒÅ* with no
--- *ekonƒÅ*.  They are not, and one syllable refutes it: there are two
--- one-syllable rows, ‡§ó‡•Å‡§∞‡•Å and ‡§≤‡§ò‡•Å, and exactly one gap between them.
+-- If gaps and rows were equinumerous, ‡.‡Ø would read *dvigu* with no
+-- *ekon*.  They are not, and one syllable refutes it: there are two
+-- one-syllable rows, ‡ó‡‡∞‡ and ‡≤‡ò‡, and exactly one gap between them.
 --
 -- The witness genuinely violates the hypothesis it is aimed at: assume
 -- an equivalence between the gap type and the row type at n = 1, and
--- what comes out is ‡§≤‡§ò‡•Å ‚â° ‡§ó‡•Å‡§∞‡•Å, refuted by a discriminating family.
+-- what comes out is ‡≤‡ò‡ ‚â° ‡ó‡‡∞‡, refuted by a discriminating family.
 --
--- Discrimination happens on ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç, reached through fst.  Matching on
--- ‡§µ‡§æ‡§ï‡•ç 1 directly would need injectivity of suc, which Cubical Agda
--- rejects; here ‡§µ‡§æ‡§ï‡•ç 1 REDUCES to ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç √ó Unit, so fst is honest.
+-- Discrimination happens on ‡‡ï‡‡‡∞‡Æ‡, reached through fst.  Matching on
+-- ‡µ‡æ‡ï‡ 1 directly would need injectivity of suc, which Cubical Agda
+-- rejects; here ‡µ‡æ‡ï‡ 1 REDUCES to ‡‡ï‡‡‡∞‡Æ‡ ó Unit, so fst is honest.
 ------------------------------------------------------------------------
 
 ‡§µ‡§ø‡§µ‡•á‡§ï‡§É : ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç ‚Üí Type
@@ -362,8 +362,8 @@ data ‡§Ö‡§ï‡•ç‡§∑‡§∞‡§Æ‡•ç : Type where
       ‚àô secEq e (‡§ó‡•Å‡§∞‡•Å , tt)
 
 ------------------------------------------------------------------------
--- ‡§Ö-‡§∞‡§ø‡§ï‡•ç‡§§‡§§‡§æ ‚Äî non-vacuity.  The types above are inhabited and have more
--- than one element; none of this is ‚ä• dressed up.
+-- ‡-‡∞‡ø‡ï‡‡‡‡æ ‚î non-vacuity.  The types above are inhabited and have more
+-- than one element; none of this is ‚ä dressed up.
 ------------------------------------------------------------------------
 
 ‡§Ö‡§ß‡•ç‡§µ‡§æ-‡§™‡§ô‡•ç‡§ï‡•ç‡§§‡§ø‡§É : ‡§Ö‡§ß‡•ç‡§µ‡§æ 1

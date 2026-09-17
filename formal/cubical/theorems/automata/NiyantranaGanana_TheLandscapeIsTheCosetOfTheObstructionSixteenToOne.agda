@@ -1,25 +1,25 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 --
--- ‚ö† DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
--- the protocol is DERIVE FIRST ‚Äî "write the proof. Do not run the
+-- ‚† DEMOTED TO VERIFICATION (2026-08-23, same day, owner correction:
+-- the protocol is DERIVE FIRST ‚î "write the proof. Do not run the
 -- experiment").  Every number below is forced a priori in three lines:
--- each observable lies in exactly two contexts ‚üπ the six parity
--- functionals sum to zero (the only dependency) ‚üπ the violation map
--- is affine with image the even-weight code E‚ÇÜ shifted by the sign
--- vector and kernel 2‚Å¥ ‚üπ stratum(j) = 16¬∑C(6,j) over j of the sign
--- vector¬∑parity, and the 5/6 bound is the odd coset¬∑leader weight 1.
--- General law: landscape = |kernel| ¬∑ coset weight enumerator;
+-- each observable lies in exactly two contexts ‚ü the six parity
+-- functionals sum to zero (the only dependency) ‚ü the violation map
+-- is affine with image the even-weight code E‚ shifted by the sign
+-- vector and kernel 2‚¥ ‚ü stratum(j) = 16¬C(6,j) over j of the sign
+-- vector¬parity, and the 5/6 bound is the odd coset¬leader weight 1.
+-- General law: landscape = |kernel| ¬ coset weight enumerator;
 -- contextuality degree = coset leader weight.  The refl-pins below are
 -- what a verification is: downstream of the proof, never in its place.
 -- (Journal: cf-sesa checkpoint 33.)
 ------------------------------------------------------------------------
--- ‡§®‡§ø‡§Ø‡§®‡•ç‡§§‡•ç‡§∞‡§£-‡§ó‡§£‡§®‡§æ ‚Äî the control censuses, and the complete law they force.
+-- ‡®‡ø‡Ø‡®‡‡‡‡∞‡-‡ó‡‡®‡æ ‚î the control censuses, and the complete law they force.
 --
--- SandarbhaGanana measured the Peres‚ÄìMermin landscape (96/320/96 on odd
+-- SandarbhaGanana measured the Peres‚ìMermin landscape (96/320/96 on odd
 -- satisfied-counts, evens forbidden) and conjectured the parity rule
--- from the cocycle.  THE CONTROL EXPERIMENT, run through ‡§®‡§æ‡§°‡•Ä before
--- landing: flip the sign vector to CONSISTENT (all-even, and two-odd ‚Äî
+-- from the cocycle.  THE CONTROL EXPERIMENT, run through ‡®‡æ‡°‡ before
+-- landing: flip the sign vector to CONSISTENT (all-even, and two-odd ‚î
 -- both with required-sign product +1) and re-census.  The machine's
 -- answers, pinned below by 512-sweeps:
 --
@@ -28,21 +28,21 @@
 --     inconsistent (SandarbhaGanana):              0  96   0 320   0  96   0
 --
 -- THE COMPLETE LAW, visible once the controls exist: every count is
--- 16 ¬∑ C(6,v) over the allowed violation-sizes v.  Consistent:
--- 16¬∑(1,15,15,1) at v = 0,2,4,6.  Inconsistent: 16¬∑(6,20,6) at
+-- 16 ¬ C(6,v) over the allowed violation-sizes v.  Consistent:
+-- 16¬(1,15,15,1) at v = 0,2,4,6.  Inconsistent: 16¬(6,20,6) at
 -- v = 1,3,5.  REASON (stated; the pins are its finite verification):
--- the assignment ‚Ü¶ violation-pattern map is AFFINE over ùîΩ‚ÇÇ ‚Äî nine
+-- the assignment ‚¶ violation-pattern map is AFFINE over îΩ‚ ‚î nine
 -- unknowns, six constraints, one dependency (each observable lies in
 -- exactly two contexts, so the six context-parities always multiply to
--- +1) ‚Äî hence rank 5, every fibre of size 2‚Å¥ = 16, and the image is
+-- +1) ‚î hence rank 5, every fibre of size 2‚¥ = 16, and the image is
 -- EXACTLY the coset of the 5-dimensional image subspace selected by the
 -- obstruction class: the trivial coset for consistent signs, the
--- nontrivial one for the PM square.  The classical landscape IS the H¬π
+-- nontrivial one for the PM square.  The classical landscape IS the H¬
 -- coset, binomially profiled, 16-to-1.
 --
 -- So the obstruction's full classical price: the 16 global sections of
 -- any consistent square redistribute, under the odd class, into 96
--- near-misses at 5/6 ‚Äî nothing is lost, everything is displaced one
+-- near-misses at 5/6 ‚î nothing is lost, everything is displaced one
 -- violation.  (The same shape as StaraArpana one lane over: the
 -- obstruction never destroys; it displaces by one stratum.)
 --
@@ -79,7 +79,7 @@ censusE census2 : ‚Ñï ‚Üí ‚Ñï
 censusE k = countVec 9 (Œª v ‚Üí if eq‚Ñï (nSatE v) k then 1 else 0)
 census2 k = countVec 9 (Œª v ‚Üí if eq‚Ñï (nSat2 v) k then 1 else 0)
 
--- the consistent landscape: 16¬∑(1,15,15,1) on even counts, odds zero.
+-- the consistent landscape: 16¬(1,15,15,1) on even counts, odds zero.
 cE6 : censusE 6 ‚â° 16
 cE6 = refl
 cE5 : censusE 5 ‚â° 0
@@ -95,7 +95,7 @@ cE1 = refl
 cE0 : censusE 0 ‚â° 16
 cE0 = refl
 
--- the two-odd consistent square: the SAME landscape ‚Äî the law depends
+-- the two-odd consistent square: the SAME landscape ‚î the law depends
 -- only on the obstruction class, not on the representative sign vector.
 c26 : census2 6 ‚â° 16
 c26 = refl

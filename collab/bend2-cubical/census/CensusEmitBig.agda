@@ -82,7 +82,7 @@ kidsStr f (t ∷ ts) = primStringAppend (shapeStr f t)
                      (primStringAppend " <> " (kidsStr f ts))
 
 ------------------------------------------------------------------------
--- reflect a list of Names → one bend list literal of their type-shapes
+-- reflect a list of Names � one bend list literal of their type-shapes
 ------------------------------------------------------------------------
 joinShapes : List Name → String → TC String
 joinShapes [] acc = returnTC (primStringAppend acc "[]")

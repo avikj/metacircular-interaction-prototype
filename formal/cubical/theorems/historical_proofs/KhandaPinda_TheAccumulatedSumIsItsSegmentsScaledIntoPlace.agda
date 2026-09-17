@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§ñ‡§£‡•ç‡§°-‡§™‡§ø‡§£‡•ç‡§°‡•å ‚Äî the segment and the accumulated whole.
+-- ‡ñ‡‡‡°-‡‡ø‡‡‡°‡ ‚î the segment and the accumulated whole.
 --
--- ‡§∏‡•ç‡§∞‡•ã‡§§‡§É (source of the TERMS): the Kerala school's sine-table vocabulary ‚Äî
--- ‡§ñ‡§£‡•ç‡§°‡§ú‡•ç‡§Ø‡§æ the segment-sine, ‡§™‡§ø‡§£‡•ç‡§°‡§ú‡•ç‡§Ø‡§æ the accumulated sine (Nƒ´laka·πá·π≠ha,
--- Tantrasa·πÖgraha 1501, ch. 2; Jye·π£·π≠hadeva, YuktibhƒÅ·π£ƒÅ c. 1530, ch. 7 ‚Äî
--- the jyƒÅ-prakara·πáa).  The pair names the relation this module proves for
+-- ‡‡‡∞‡ã‡‡ (source of the TERMS): the Kerala school's sine-table vocabulary ‚î
+-- ‡ñ‡‡‡°‡‡‡Ø‡æ the segment-sine, ‡‡ø‡‡‡°‡‡‡Ø‡æ the accumulated sine (Nlakaha,
+-- Tantrasagraha 1501, ch. 2; Jyehadeva, Yuktibh c. 1530, ch. 7 ‚î
+-- the jy-prakaraa).  The pair names the relation this module proves for
 -- the geometric partial sum: the ACCUMULATED whole at m + n is the whole
--- at m plus the m-th power carrying the whole at n into place ‚Äî
+-- at m plus the m-th power carrying the whole at n into place ‚î
 --
---     ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç r (m + n)  ‚â°  ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç r m  +  ‡§ò‡§æ‡§§ r m ¬∑ ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç r n
+--     ‡‡ô‡‡ï‡≤‡ø‡‡Æ‡ r (m + n)  ‚â°  ‡‡ô‡‡ï‡≤‡ø‡‡Æ‡ r m  +  ‡ò‡æ‡ r m ¬ ‡‡ô‡‡ï‡≤‡ø‡‡Æ‡ r n
 --
--- with the carrier law ‡§ò‡§æ‡§§ r (m + n) ‚â° ‡§ò‡§æ‡§§ r m ¬∑ ‡§ò‡§æ‡§§ r n.  This is the
+-- with the carrier law ‡ò‡æ‡ r (m + n) ‚â° ‡ò‡æ‡ r m ¬ ‡ò‡æ‡ r n.  This is the
 -- block-decomposition under the Kerala telescoping: every accumulated
 -- object is its segments, each scaled into place by the power at its
--- station.  (The same shape as KuttakaValli's replayHom ‚Äî concatenation
--- carried to composition ‚Äî arriving in the series lane.)
+-- station.  (The same shape as KuttakaValli's replayHom ‚î concatenation
+-- carried to composition ‚î arriving in the series lane.)
 --
--- ‡§∏‡§§‡•ç‡§Ø‡§®‡§ø‡§∑‡•ç‡§†‡§æ (scope, per the naming rule): the TERMS kha·πá·∏ça/pi·πá·∏ça are the
+-- ‡‡‡‡Ø‡®‡ø‡‡‡†‡æ (scope, per the naming rule): the TERMS khaa/pia are the
 -- tradition's, cited above, where they name Rsine segments and wholes.
 -- The block law for the geometric sum is elementary and is STATED BY THIS
 -- REPOSITORY for the Kerala chapter; it is not attributed to either text.
--- ‡§ò‡§æ‡§§ and ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç are IMPORTED from Madhava.agda ‚Äî the chapter composes;
--- it does not redefine (pratƒ´tyasamutpƒÅda; no eighth Term).
+-- ‡ò‡æ‡ and ‡‡ô‡‡ï‡≤‡ø‡‡Æ‡ are IMPORTED from Madhava.agda ‚î the chapter composes;
+-- it does not redefine (prattyasamutpda; no eighth Term).
 --
--- Written in conversation with the warm kernel through ‡§®‡§æ‡§°‡•Ä: each ring
+-- Written in conversation with the warm kernel through ‡®‡æ‡°‡: each ring
 -- step below was proposed with `give` and verified live before landing.
 ------------------------------------------------------------------------
 
@@ -43,11 +43,11 @@ open import Madhava using (‡§ò‡§æ‡§§ ; ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§Æ‡•ç ; ‡§µ‡§æ‡§Æ-‡
 
 ------------------------------------------------------------------------
 -- the carrier law: the power at a joint station is the product of the
--- powers ‚Äî ‡§ò‡§æ‡§§‡§Ø‡•ã‡§ó‡§É ‡•§
+-- powers ‚î ‡ò‡æ‡‡Ø‡ã‡ó‡ ‡
 ------------------------------------------------------------------------
 
 private
-  -- (a¬∑b)¬∑c ‚â° (a¬∑c)¬∑b ‚Äî the station shuffle, variables only.
+  -- (a¬b)¬c ‚â° (a¬c)¬b ‚î the station shuffle, variables only.
   ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø : (a b c : ‚Ñ§) ‚Üí (a ¬∑‚Ñ§ b) ¬∑‚Ñ§ c ‚â° (a ¬∑‚Ñ§ c) ¬∑‚Ñ§ b
   ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø a b c = solve! ‚Ñ§CommRing
 
@@ -57,16 +57,16 @@ private
   cong (_¬∑‚Ñ§ r) (‡§ò‡§æ‡§§-‡§Ø‡•ã‡§ó‡§É r m n) ‚àô ‡§µ‡§ø‡§®‡§ø‡§Æ‡§Ø (‡§ò‡§æ‡§§ r m) (‡§ò‡§æ‡§§ r n) r
 
 ------------------------------------------------------------------------
--- ‡§ñ‡§£‡•ç‡§°-‡§™‡§ø‡§£‡•ç‡§°-‡§®‡•ç‡§Ø‡§æ‡§Ø‡§É: the accumulated whole is its segments scaled into
+-- ‡ñ‡‡‡°-‡‡ø‡‡‡°-‡®‡‡Ø‡æ‡Ø‡: the accumulated whole is its segments scaled into
 -- place.  Induction on the second block.
 ------------------------------------------------------------------------
 
 private
-  -- P ¬∑ 0 vanishes ‚Äî the empty block carries nothing.
+  -- P ¬ 0 vanishes ‚î the empty block carries nothing.
   ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§ñ‡§£‡•ç‡§°‡§É : (P : ‚Ñ§) ‚Üí P ¬∑‚Ñ§ pos 0 ‚â° pos 0
   ‡§∂‡•Ç‡§®‡•ç‡§Ø-‡§ñ‡§£‡•ç‡§°‡§É P = solve! ‚Ñ§CommRing
 
-  -- (S + P¬∑T) + P¬∑G ‚â° S + P¬∑(T + G) ‚Äî regrouping, variables only.
+  -- (S + P¬T) + P¬G ‚â° S + P¬(T + G) ‚î regrouping, variables only.
   ‡§™‡•Å‡§®‡§∞‡•ç‡§ó‡§†‡§®‡§Æ‡•ç : (S P T G : ‚Ñ§)
     ‚Üí (S +‚Ñ§ (P ¬∑‚Ñ§ T)) +‚Ñ§ (P ¬∑‚Ñ§ G) ‚â° S +‚Ñ§ (P ¬∑‚Ñ§ (T +‚Ñ§ G))
   ‡§™‡•Å‡§®‡§∞‡•ç‡§ó‡§†‡§®‡§Æ‡•ç S P T G = solve! ‚Ñ§CommRing

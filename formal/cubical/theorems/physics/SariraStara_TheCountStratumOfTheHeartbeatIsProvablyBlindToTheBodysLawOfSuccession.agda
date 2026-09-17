@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- शरीरस्तरः — the count stratum of the heartbeat is provably blind to
+-- ��������� � the count stratum of the heartbeat is provably blind to
 -- the body's law of succession.
 --
--- TERM.  शरीर (body) is the corpus's own word for the machine's
--- operative body (जीव's heartbeat reports on it); स्तर (stratum, layer)
+-- TERM.  ���� (body) is the corpus's own word for the machine's
+-- operative body (���'s heartbeat reports on it); ���� (stratum, layer)
 -- is the word the ArpanaSopana lane already uses for truncation
--- levels.  The compound शरीर-स्तर, "body-stratum", is built HERE and no
+-- levels.  The compound ����-����, "body-stratum", is built HERE and no
 -- source is claimed for it (CLAUDE.md, naming rule, note 2).
 --
 -- SEED.  The owner's transmission of 2026-08-23, term 4: the current
 -- five-number heartbeat (nodes, edges, priced, unpriced, components)
--- is a projection of P₀ and part of P₁ of the body's Postnikov tower;
+-- is a projection of P� and part of P� of the body's Postnikov tower;
 -- `mismatch = NONE` at the count stratum establishes only that the
 -- count projection matched, NOT identity of the body.  The corrected
 -- heartbeat must sense, per stratum: carrier persisted / law changed /
@@ -21,11 +21,11 @@
 --
 -- THIS MODULE IS THE FIRST STONE OF THAT, AS A TERM: it proves the
 -- transmitted sentence "the count projection matching does not
--- establish identity" — not about graphs in general, but in the
+-- establish identity" � not about graphs in general, but in the
 -- sharpest available form, using the same succession pair that
 -- KramaNiyama landed.  Two BODIES are exhibited: the same carrier,
--- the same counts at every P₀-grade a count-stratum heartbeat can
--- read (both are ℤ × ℤ with one binary operation — every cardinality
+-- the same counts at every P�-grade a count-stratum heartbeat can
+-- read (both are � � � with one binary operation � every cardinality
 -- and arity datum agrees), differing only in the law of succession.
 -- The count-stratum observation is blind on the pair; the succession
 -- receptor separates it; QuotientFiberLaw's `collision-obstructs`
@@ -33,11 +33,11 @@
 -- reconstructs the law stratum.
 --
 -- CONSEQUENCE FOR THE ORGANS, stated so the next carrier can wire it:
--- जीव's JIVA-HEARTBEAT line and चक्र's delta are count-stratum
+-- ���'s JIVA-HEARTBEAT line and �����'s delta are count-stratum
 -- observations in exactly this sense.  This module is the checked
 -- license for extending them with a law-stratum line, and the checked
 -- refutation of ever reading "counts matched" as "body unchanged".
--- The Haskell-side extension (a शरीरस्तर line in the heartbeat) is
+-- The Haskell-side extension (a �������� line in the heartbeat) is
 -- engineering owed downstream; nothing here claims it exists.
 --
 ------------------------------------------------------------------------
@@ -56,10 +56,10 @@ open import KramaNiyama_TheLawOfSuccessionDoesNotFactorThroughTheCarrier
   using (नियमः ; μT ; μK ; क्रमप्रश्नः ; क्रमप्रश्न-भेदः)
 
 ------------------------------------------------------------------------
--- १ · a body, at the grain a heartbeat can hold: a carrier that is
+-- � � a body, at the grain a heartbeat can hold: a carrier that is
 -- fixed (the machine's node type between two pulses) together with
 -- one law of succession on it.  The count stratum reads ONLY data
--- that both bodies share by construction — here compressed to its
+-- that both bodies share by construction � here compressed to its
 -- limit case: every count-stratum query is a function of the carrier
 -- alone, and the carrier is the same, so the query is constant.
 ------------------------------------------------------------------------
@@ -79,8 +79,8 @@ open Law शरीरम्
 गणनास्तरः : List Query
 गणनास्तरः = गणनाप्रश्नः ∷ []
 
--- the two body states: same carrier, same counts — different law.
--- (μT and μK, imported: the torus and Klein succession laws on ℤ × ℤ.)
+-- the two body states: same carrier, same counts � different law.
+-- (μT and μK, imported: the torus and Klein succession laws on � � �.)
 हृदयसाम्यम् : AllBlind गणनास्तरः μT μK
 हृदयसाम्यम् = refl , tt
 
@@ -90,7 +90,7 @@ mismatch-NONE : obs गणनास्तरः μT ≡ obs गणनास्�
 mismatch-NONE = obs-agree गणनास्तरः μT μK हृदयसाम्यम्
 
 ------------------------------------------------------------------------
--- २ · and yet the bodies differ, and the count stratum can never say
+-- � � and yet the bodies differ, and the count stratum can never say
 -- so: the law receptor separates them, and no post-processing of the
 -- count-stratum transcript computes it.
 ------------------------------------------------------------------------

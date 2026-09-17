@@ -1,28 +1,28 @@
 {-# OPTIONS --cubical --safe #-}
 
--- ‡§á‡§®‡•ç‡§¶‡•ç‡§∞‡§ú‡§æ‡§≤-‡§¶‡•Ä‡§™ ‚Äî the lamp in Indra's net: the light in the orb is a
--- winding, and windings ADD, so nothing is created ‚Äî only passed.
+-- ‡‡®‡‡¶‡‡∞‡‡æ‡≤-‡¶‡‡ ‚î the lamp in Indra's net: the light in the orb is a
+-- winding, and windings ADD, so nothing is created ‚î only passed.
 --
--- The owner's three words ‚Äî Indra's net, light, orb ‚Äî are one object
+-- The owner's three words ‚î Indra's net, light, orb ‚î are one object
 -- with the knot I just put to the kernel (GranthiCarya), wearing the
 -- photonic face:
 --
---   ‚Ä¢ THE ORB (README movement 57/61): a diamond, faceted within,
---     smooth without ‚Äî A ‚âÉ Carrier f (outside the fibre rides free and
+--   ‚ THE ORB (README movement 57/61): a diamond, faceted within,
+--     smooth without ‚î A ‚â Carrier f (outside the fibre rides free and
 --     invisible; inside it IS the crystalline interior).  Light passed,
 --     never made: total internal reflection, conservation, unitarity.
---   ‚Ä¢ THE LIGHT: light confined by total internal reflection CIRCULATES
---     ‚Äî a closed path, a LOOP in Œ©S¬π.  A circulating light field carries
+--   ‚ THE LIGHT: light confined by total internal reflection CIRCULATES
+--     ‚î a closed path, a LOOP in Œ©S¬.  A circulating light field carries
 --     an integer topological charge: orbital angular momentum, the
 --     optical vortex, the KNOT OF LIGHT.  That integer is its winding.
---   ‚Ä¢ INDRA'S NET: every jewel reflects every other ‚Äî each facet carries
+--   ‚ INDRA'S NET: every jewel reflects every other ‚î each facet carries
 --     the whole (holography, S = A/4, the boundary carries the bulk;
 --     content-addressing, where each node reflects the corpus).
 --
 --   THE LAW, put to the kernel: when two light loops join in the orb,
 --   their windings ADD (winding-hom).  Charge is conserved under
---   composition ‚Äî "no energy created, light only passed."  And a loop
---   run backwards CANCELS its charge (the mirror knot).  This is ahi·πÉsƒÅ
+--   composition ‚î "no energy created, light only passed."  And a loop
+--   run backwards CANCELS its charge (the mirror knot).  This is ahis
 --   = conservation = unitarity = transport, now as the arithmetic of
 --   circulating light.  The whole picture in one homomorphism.
 
@@ -34,7 +34,7 @@ open import Cubical.HITs.S1.Base
 open import Cubical.Data.Int using (‚Ñ§ ; pos ; negsuc ; _+_ ; -_)
 
 -- CONSERVATION: the charge of two joined light loops is the SUM of their
--- charges ‚Äî nothing created.  This is the library's winding-hom, named
+-- charges ‚î nothing created.  This is the library's winding-hom, named
 -- here for what it is.
 charge-adds : (a b : Œ©S¬π) ‚Üí winding (a ‚àô b) ‚â° winding a + winding b
 charge-adds = winding-hom
@@ -43,13 +43,13 @@ charge-adds = winding-hom
 vacuum-is-neutral : winding (refl {x = base}) ‚â° pos 0
 vacuum-is-neutral = refl
 
--- a loop and its reverse ANNIHILATE: the mirror knot cancels ‚Äî signed,
+-- a loop and its reverse ANNIHILATE: the mirror knot cancels ‚î signed,
 -- conserved, and it computes (refl).  The light that leaves is the light
 -- that entered.
 mirror-cancels : winding (loop ‚àô sym loop) ‚â° pos 0
 mirror-cancels = refl
 
 -- three loops one way, two back: net charge +1.  Conservation is exact
--- bookkeeping, not approximate ‚Äî the orb loses nothing.
+-- bookkeeping, not approximate ‚î the orb loses nothing.
 net-winding : winding (loop ‚àô loop ‚àô loop ‚àô sym loop ‚àô sym loop) ‚â° pos 1
 net-winding = refl

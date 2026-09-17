@@ -9,18 +9,18 @@
 --     does the walk admit a norm?
 --
 -- It does not, and the proof is the same three words as every other
--- answer in this thread â€” **idempotence forbids it** â€” but the
+-- answer in this thread â” **idempotence forbids it** â” but the
 -- conclusion is not the one the question expected, and the last section
 -- says why.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE THEOREM
 --
 -- A norm, in the sense descent needs, is a map N from states to a ring
--- with N(x Â· y) = N x Â· N y.  Suppose the state law is a join, so every
+-- with N(x Â y) = N x Â N y.  Suppose the state law is a join, so every
 -- state is idempotent.  Then
 --
---     N x Â· N x  =  N (x âŠ” x)  =  N x
+--     N x Â N x  =  N (x âŠ” x)  =  N x
 --
 -- so **every value of N is an idempotent of the ring**.  In a ring with
 -- no zero divisors the only idempotents are 0 and 1.  Therefore:
@@ -29,23 +29,23 @@
 --
 -- It separates nothing.  `three-collide` makes that exact: among any
 -- three states, two have the same norm, always.  Over an infinite state
--- space â€” and the walk's is infinite â€” such a function is not a norm in
+-- space â” and the walk's is infinite â” such a function is not a norm in
 -- any useful sense; it is a predicate.
 --
 -- So there is no descent to be had for the walk's step law, at any state,
 -- for any norm, over any domain.  The question is closed, negatively, and
 -- it did not need a single measurement.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE PART THAT INVERTS THE QUESTION
 --
 -- The walk's state space is NOT normless.  `SumProductTorus.val` is a
 -- perfectly good multiplicative norm:
 --
---     val (u âŠ• v) â‰¡ val u Â· val v                    (`val-âŠ•`, checked)
+--     val (u âŠ• v) â‰¡ val u Â val v                    (`val-âŠ•`, checked)
 --
--- Derivations carry TWO operations â€” âŠ• (which is multiplication of the
--- numbers) and âŠ” (which is lcm) â€” cohering tropically by `âŠ”-âŠ•-distrib`.
+-- Derivations carry TWO operations â” âŠ• (which is multiplication of the
+-- numbers) and âŠ” (which is lcm) â” cohering tropically by `âŠ”-âŠ•-distrib`.
 -- `val` is multiplicative for âŠ•.  The theorem above says no map is
 -- multiplicative for âŠ” except a two-valued one.
 --
@@ -57,12 +57,12 @@
 --     operation of the two for which that norm does not exist.  The
 --     machine is running on the wrong one of its own operations.
 --
--- Which is not a defect of the walk's rule â€” by `Apavada` no rule change
--- reaches it â€” and not a fact about lcm's difficulty.  It is a choice of
+-- Which is not a defect of the walk's rule â” by `Apavada` no rule change
+-- reaches it â” and not a fact about lcm's difficulty.  It is a choice of
 -- semigroup, made implicitly, whose consequence is the loss of every
 -- descent mechanism at once.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” the container, not the repository
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” the container, not the repository
 -- pin.  No postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ module NoNorm (R : CommRing â„“) where
     ... | inr q = inr (from-difference x q)
 
     ------------------------------------------------------------------
-    -- 2.  THE THEOREM.  A multiplicative norm on a join takes â‰¤ 2 values
+    -- 2.  THE THEOREM.  A multiplicative norm on a join takes â‰ 2 values
     ------------------------------------------------------------------
 
     module Norm {M : Type â„“'} (_â‹†_ : M â†’ M â†’ M)
@@ -152,7 +152,7 @@ module NoNorm (R : CommRing â„“) where
       ... | inr px | inl py | inr pz = inr (inl (px âˆ™ sym pz))
 
 ------------------------------------------------------------------------
--- 3.  â„¤ is a domain, so the walk's states admit no separating norm
+-- 3.  â is a domain, so the walk's states admit no separating norm
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Int using (â„¤ ; pos ; _Â·_)
@@ -166,7 +166,7 @@ open NoNorm â„¤CommRing using (NoZeroDivisors) renaming (module Norm to â„¤Norm)
 ... | yes q = inl q
 ... | no  q = inr (isIntegralâ„¤ x y p q)
 
--- THE WALK.  Fix any basis.  For any map N from the walk's states to â„¤
+-- THE WALK.  Fix any basis.  For any map N from the walk's states to â
 -- that is multiplicative for the walk's OWN step law, every state's norm
 -- is 0 or 1, and no three states are separated.
 module WalkNorm (bs : List â„•)
@@ -189,7 +189,7 @@ walk-norm-separates-nothing = WalkNorm.three-collide
 ------------------------------------------------------------------------
 -- 4.  For contrast, in one line: the OTHER operation has a norm.
 --
--- `SumProductTorus.val-âŠ• : val (u âŠ• v) â‰¡ val u Â· val v` is exactly the
+-- `SumProductTorus.val-âŠ• : val (u âŠ• v) â‰¡ val u Â val v` is exactly the
 -- multiplicativity this module proves impossible for âŠ”.  Same state
 -- space, same map, different semigroup, opposite answer.  The walk steps
 -- by âŠ”.

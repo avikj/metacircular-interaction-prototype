@@ -5,7 +5,7 @@
 --
 -- One conic, two readings.  The identity
 --
---   (w + r) · (w − r) = w² − r²
+--   (w + r) � (w − r) = w² − r²
 --
 -- carries both Goldbach's question and Fermat's factorization method:
 -- fix the sum 2w and ask which r make both legs prime (Goldbach's
@@ -13,10 +13,10 @@
 -- (Fermat's reading).  The two problems are the same curve held by
 -- different projections.
 --
--- This module is the ℕ-with-order chart of that conic.  Over ℕ the
--- subtraction is truncated, so the identity needs the hypothesis r ≤ w
+-- This module is the �-with-order chart of that conic.  Over � the
+-- subtraction is truncated, so the identity needs the hypothesis r � w
 -- that makes it true; the mathematically honest primary statement is
--- the addition form conic⁺, from which the ∸ form is derived.
+-- the addition form conic�, from which the � form is derived.
 --
 -- NaturalMachine.PairCoordinates proves the ring version of the same
 -- algebra (splitNorm, over an arbitrary commutative ring).  This file
@@ -44,8 +44,8 @@ private
   key : (k r : ℕ) → ((k + r) + r) · k + r · r ≡ (k + r) · (k + r)
   key k r = solveℕ!
 
--- Truncated subtraction under the hypothesis: w ∸ r recovers the
--- witness k of r ≤ w.
+-- Truncated subtraction under the hypothesis: w � r recovers the
+-- witness k of r � w.
 private
   ∸-witness : (w r k : ℕ) → k + r ≡ w → w ∸ r ≡ k
   ∸-witness w r k p = cong (_∸ r) (sym p) ∙ +∸ k r
@@ -57,7 +57,7 @@ conic⁺ w r (k , p) =
   ∙ key k r
   ∙ cong (λ a → a · a) p
 
--- The ∸ form, derived: a + c ≡ b forces a ≡ b ∸ c in ℕ.
+-- The � form, derived: a + c ≡ b forces a ≡ b � c in �.
 conic : (w r : ℕ) → r ≤ w → (w + r) · (w ∸ r) ≡ w · w ∸ r · r
 conic w r r≤w =
   sym (+∸ ((w + r) · (w ∸ r)) (r · r))
@@ -67,7 +67,7 @@ conic w r r≤w =
 -- §2  The two readings, as structure
 ------------------------------------------------------------------------
 
--- A point of the conic's ℕ chart: centre w, half-gap r, with the order
+-- A point of the conic's � chart: centre w, half-gap r, with the order
 -- hypothesis that keeps the subtraction honest.
 Pair : Type₀
 Pair = Σ ℕ (λ w → Σ ℕ (λ r → r ≤ w))
@@ -91,7 +91,7 @@ point = 8 , 3 , (5 , refl)
 π₊point : π₊ point ≡ 16
 π₊point = refl
 
--- Held by the product projection: 55, arriving factored as 5 · 11.
+-- Held by the product projection: 55, arriving factored as 5 � 11.
 πₓpoint : πₓ point ≡ 55
 πₓpoint = refl
 

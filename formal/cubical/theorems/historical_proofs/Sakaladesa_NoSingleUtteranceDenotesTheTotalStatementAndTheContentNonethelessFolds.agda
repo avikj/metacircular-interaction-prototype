@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡§É ‚Äî ‡§è‡§ï‡•á‡§® ‡§µ‡§ö‡§®‡•á‡§® ‡§® ‡§â‡§ö‡•ç‡§Ø‡§§‡•á, ‡§Ö‡§∞‡•ç‡§•‡§∏‡•ç‡§§‡•Å ‡§∏‡§ô‡•ç‡§ï‡§≤‡§ø‡§§‡§É ‡•§
+-- ‡‡ï‡≤‡æ‡¶‡‡‡ ‚î ‡‡ï‡‡® ‡µ‡‡®‡‡® ‡® ‡â‡‡‡Ø‡‡, ‡‡∞‡‡‡‡‡‡ ‡‡ô‡‡ï‡≤‡ø‡‡ ‡
 --
--- (the total statement: no single utterance denotes it ‚Äî and yet its
+-- (the total statement: no single utterance denotes it ‚î and yet its
 --  content folds.)
 --
--- TEXT AND DATE.  ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ / ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ ‚Äî the total statement against the
--- partial one ‚Äî is the pair Malli·π£e·πáa uses in the ‡§∏‡•ç‡§Ø‡§æ‡§¶‡•ç‡§µ‡§æ‡§¶‡§Æ‡§û‡•ç‡§ú‡§∞‡•Ä, 1292 CE,
--- glossing Hemacandra; it is older in the Akala·πÖka commentarial line
--- (VidyƒÅnandi, ‡§Ö‡§∑‡•ç‡§ü‡§∏‡§π‡§∏‡•ç‡§∞‡•Ä, c. 9th c.).  ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ is the utterance made
--- from ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£, grasping the whole at once; ‡§µ‡§ø‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ is made from a ‡§®‡§Ø, one
--- aspect at a time.  The mode distinction it rests on ‚Äî ‡§ï‡•ç‡§∞‡§Æ‡§æ‡§∞‡•ç‡§™‡§£ against
--- ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£, in succession against simultaneously ‚Äî is AKALA·πÑKA's,
--- ‡§≤‡§ò‡•Ä‡§Ø‡§∏‡•ç‡§§‡•ç‡§∞‡§Ø‡§Æ‡•ç / ‡§Ö‡§∑‡•ç‡§ü‡§∂‡§§‡•Ä, c. 720‚Äì780 CE.  ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç as the fourth position
--- is canonical: ‡§≠‡§ó‡§µ‡§§‡•Ä-‡§∏‡•Ç‡§§‡•ç‡§∞ (‡§µ‡•ç‡§Ø‡§æ‡§ñ‡•ç‡§Ø‡§æ‡§™‡•ç‡§∞‡§ú‡•ç‡§û‡§™‡•ç‡§§‡§ø), oldest strata pre-Common-Era,
--- redacted at Valabhƒ´ c. 5th c. CE; fixed at seven with ‡§∏‡•ç‡§Ø‡§æ‡§§‡•ç prefixed
--- throughout by Samantabhadra, ‡§Ü‡§™‡•ç‡§§‡§Æ‡•Ä‡§Æ‡§æ‡§Ç‡§∏‡§æ, c. 6th c. CE.
+-- TEXT AND DATE.  ‡‡ï‡≤‡æ‡¶‡‡ / ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ ‚î the total statement against the
+-- partial one ‚î is the pair Malliea uses in the ‡‡‡Ø‡æ‡¶‡‡µ‡æ‡¶‡Æ‡û‡‡‡∞‡, 1292 CE,
+-- glossing Hemacandra; it is older in the Akalaka commentarial line
+-- (Vidynandi, ‡‡‡‡ü‡‡‡‡‡∞‡, c. 9th c.).  ‡‡ï‡≤‡æ‡¶‡‡ is the utterance made
+-- from ‡‡‡∞‡Æ‡æ‡, grasping the whole at once; ‡µ‡ø‡ï‡≤‡æ‡¶‡‡ is made from a ‡®‡Ø, one
+-- aspect at a time.  The mode distinction it rests on ‚î ‡ï‡‡∞‡Æ‡æ‡∞‡‡‡ against
+-- ‡‡‡æ‡∞‡‡‡, in succession against simultaneously ‚î is AKALAKA's,
+-- ‡≤‡ò‡‡Ø‡‡‡‡‡∞‡Ø‡Æ‡ / ‡‡‡‡ü‡‡‡, c. 720‚ì780 CE.  ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ as the fourth position
+-- is canonical: ‡‡ó‡µ‡‡-‡‡‡‡‡∞ (‡µ‡‡Ø‡æ‡ñ‡‡Ø‡æ‡‡‡∞‡‡‡û‡‡‡‡ø), oldest strata pre-Common-Era,
+-- redacted at Valabh c. 5th c. CE; fixed at seven with ‡‡‡Ø‡æ‡‡ prefixed
+-- throughout by Samantabhadra, ‡‡‡‡‡Æ‡‡Æ‡æ‡‡‡æ, c. 6th c. CE.
 --
 -- WHY THIS MODULE EXISTS, AND WHAT IT CORRECTS.
 --
@@ -24,9 +24,9 @@
 -- `no-single-vacana` by listing all six.  `AvaktavyaDoesNotFactor`
 -- turns that list into the shape it really has:
 --
---     ¬¨ Œ£[ v ] (‚àÄ œÜ ‚Üí denotes v œÜ ‚â° joint œÜ)
+--     ¬ Œ[ v ] (‚à œ ‚í denotes v œ ‚â° joint œ)
 --
--- ‚Äî a factorisation obstruction.  Both are at n = 3 standpoints and a joint
+-- ‚î a factorisation obstruction.  Both are at n = 3 standpoints and a joint
 -- content of TWO conjuncts, and both proceed by exhausting the utterances.
 --
 -- ¬ß3 below proves it for an ARBITRARY standpoint type and an ARBITRARY
@@ -35,48 +35,48 @@
 -- whole job.  So the obstruction is not an artefact of three standpoints.
 --
 -- AND IT WITHDRAWS A CLAIM MADE IN CONVERSATION, WHICH IS THE MORE USEFUL
--- HALF.  It was put to the owner that ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£ is "irreducibly n-ary" ‚Äî that
--- the total statement over n standpoints cannot be built from binary steps ‚Äî
--- on the ground that `Arpitanarpita_‚Ä¶.‡§∏‡§π-‡§Ö‡§∏‡§ô‡•ç‡§ó‡§§‡§ø‡§É-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç` proves ‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç
+-- HALF.  It was put to the owner that ‡‡‡æ‡∞‡‡‡ is "irreducibly n-ary" ‚î that
+-- the total statement over n standpoints cannot be built from binary steps ‚î
+-- on the ground that `Arpitanarpita_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` proves ‡‡‡æ‡∞‡‡‡‡Æ‡
 -- non-associative.  That inference conflates two different objects:
 --
---   ¬∑ the CONTENT demanded by the total statement, which is a conjunction
+--   ¬ the CONTENT demanded by the total statement, which is a conjunction
 --     over the demand.  ¬ß2: it FOLDS.  `and` is associative, so the n-ary
---     content is exactly the iterated binary one, and `‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§ô‡•ç‡§ï‡§≤‡§®‡§Æ‡•ç` holds
+--     content is exactly the iterated binary one, and `‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡` holds
 --     by `refl`.  The claim was wrong here.
---   ¬∑ the OPERATION combining seven-fold POSITIONS, `‡§∏‡§π-‡§Ø‡•ã‡§ó` / `‡§∏‡§π‡§æ‡§∞‡•ç‡§™‡§£‡§Æ‡•ç`,
---     which `SaptabhangiSamyoga_‚Ä¶.‡§∏‡§π-‡§Ö‡§∏‡§ô‡•ç‡§ó‡§§‡§ø‡§É` and `Arpitanarpita_‚Ä¶.‡§∏‡§π-
---     ‡§Ö‡§∏‡§ô‡•ç‡§ó‡§§‡§ø‡§É-‡§ä‡§∞‡•ç‡§ß‡•ç‡§µ‡§Æ‡•ç` prove non-associative on labels and on records
+--   ¬ the OPERATION combining seven-fold POSITIONS, `‡‡-‡Ø‡ã‡ó` / `‡‡‡æ‡∞‡‡‡‡Æ‡`,
+--     which `SaptabhangiSamyoga_‚¶.‡‡-‡‡‡ô‡‡ó‡‡ø‡` and `Arpitanarpita_‚¶.‡‡-
+--     ‡‡‡ô‡‡ó‡‡ø‡-‡ä‡∞‡‡ß‡‡µ‡Æ‡` prove non-associative on labels and on records
 --     alike.  There the n-ary operation genuinely is not determined by the
 --     binary one.  The claim was right here, about a different thing.
 --
 -- Content folds; the composition of positions does not.  Reading the second
 -- as licensing the first is exactly the collapse this corpus exists to
--- refuse ‚Äî ‡§¨‡§π‡•Ç‡§®‡•ç ‡§è‡§ï‡§®‡§æ‡§Æ‡•ç‡§®‡§æ ‡§ó‡•É‡§π‡•ç‡§£‡§æ‡§§‡§ø ‚Äî so it is written out rather than
--- quietly dropped (‡§Ö‡§π‡§ø‡§Ç‡§∏‡§æ-‡§∏‡•Ç‡§§‡•ç‡§∞-‡§µ‡§ø‡§∏‡•ç‡§§‡§æ‡§∞‡§É ¬ß‡•¨: ‡§≤‡§ø‡§ñ‡§ø‡§§‡•ã ‡§¶‡•ã‡§∑‡•ã ‡§ú‡•Ä‡§µ‡§§‡§ø).
+-- refuse ‚î ‡‡‡‡®‡ ‡‡ï‡®‡æ‡Æ‡‡®‡æ ‡ó‡‡‡‡‡æ‡‡ø ‚î so it is written out rather than
+-- quietly dropped (‡‡‡ø‡‡‡æ-‡‡‡‡‡∞-‡µ‡ø‡‡‡‡æ‡∞‡ ¬ß‡: ‡≤‡ø‡ñ‡ø‡‡ã ‡¶‡ã‡‡ã ‡‡‡µ‡‡ø).
 --
 -- WHAT IS PROVED.  --cubical --safe, no postulates, no holes.
 --
---   ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§ô‡•ç‡§ï‡§≤‡§®‡§Æ‡•ç      succession expresses the demand, by construction.
---   ‡§∏‡§∞‡•ç‡§µ-‡§∏‡§§‡•ç‡§Ø‡•á-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ   a demand with any negative entry is false at the
+--   ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡      succession expresses the demand, by construction.
+--   ‡‡∞‡‡µ-‡‡‡‡Ø‡-‡Æ‡ø‡‡‡Ø‡æ   a demand with any negative entry is false at the
 --                     all-affirming profile.
---   ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ  a demand with any positive entry is false at the
+--   ‡‡∞‡‡µ-‡Æ‡ø‡‡‡Ø‡æ-‡Æ‡ø‡‡‡Ø‡æ  a demand with any positive entry is false at the
 --                     all-denying profile.
---   ‡§è‡§ï-‡§µ‡§ö‡§®‡•á‡§®-‡§®        NO SINGLE UTTERANCE denotes a mixed demand ‚Äî any
+--   ‡‡ï-‡µ‡‡®‡‡®-‡®        NO SINGLE UTTERANCE denotes a mixed demand ‚î any
 --                     standpoint type, any length.  Two profiles, no
 --                     exhaustion, no decidability.
---   ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡•ã-‡§®-‡§∏‡§ô‡•ç‡§ó‡§ö‡•ç‡§õ‡§§‡•á  the same as a factorisation obstruction.
---   ‡§∞‡§ø‡§ï‡•ç‡§§‡§Ç-‡§§‡§®‡•ç‡§§‡•Å‡§ú‡§æ‡§≤‡§Æ‡•ç    and as the statement that the fibre of `denotes`
+--   ‡‡ï‡≤‡æ‡¶‡‡‡ã-‡®-‡‡ô‡‡ó‡‡‡‡‡  the same as a factorisation obstruction.
+--   ‡∞‡ø‡ï‡‡‡-‡‡®‡‡‡‡‡æ‡≤‡Æ‡    and as the statement that the fibre of `denotes`
 --                     over the demanded content is EMPTY.
 --
--- THE LAST ONE IS THE POINT, and it is what places ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç on the scale
+-- THE LAST ONE IS THE POINT, and it is what places ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ on the scale
 -- this corpus has been assembling.  A map's fibre being CONTRACTIBLE is
 -- `Loss.Carrier`: nothing lost, the datum rides free.  A fibre with
--- MORE than one point is ‡§®‡§∑‡•ç‡§ü‡§ø: the "which" is destroyed (¬ß‡•™), priced when
--- the fibre is finite and decidable, ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø when truncated.  A fibre
+-- MORE than one point is ‡®‡‡‡ü‡ø: the "which" is destroyed (¬ß‡), priced when
+-- the fibre is finite and decidable, ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø when truncated.  A fibre
 -- that is EMPTY is neither: nothing was lost, because nothing was ever
--- there to lose ‚Äî the content simply is not in the image of single
--- utterance.  That is ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç, and it is why the tradition insists it is
+-- there to lose ‚î the content simply is not in the image of single
+-- utterance.  That is ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡, and it is why the tradition insists it is
 -- not "unknown" and not "neither true nor false".  It is a statement about
 -- what one vacana can denote.
 --
@@ -98,10 +98,10 @@ private
 module _ {S : Type ‚Ñì} where
 
   ----------------------------------------------------------------------
-  -- ‡•ß ¬∑ ‡§µ‡§ö‡§®‡§Æ‡•ç ‚Äî the vocabulary, with no finiteness anywhere.
+  -- ‡ß ¬ ‡µ‡‡®‡Æ‡ ‚î the vocabulary, with no finiteness anywhere.
   --
-  -- A ‡§™‡•ç‡§∞‡•ã‡§´‡§æ‡§á‡§≤ records, for each standpoint, whether the property is
-  -- present there.  A ‡§µ‡§ö‡§® ‚Äî a single utterance ‚Äî names ONE standpoint and
+  -- A ‡‡‡∞‡ã‡‡æ‡‡≤ records, for each standpoint, whether the property is
+  -- present there.  A ‡µ‡‡® ‚î a single utterance ‚î names ONE standpoint and
   -- ONE polarity, and denotes what that standpoint says.  This is
   -- `SaptabhangiNaya`'s `asti-from` / `nasti-from`, with the three fixed
   -- standpoints replaced by an arbitrary type.
@@ -117,18 +117,18 @@ module _ {S : Type ‚Ñì} where
   denotes (s , true)  œÜ = œÜ s
   denotes (s , false) œÜ = not (œÜ s)
 
-  -- ‡§∏‡§∞‡•ç‡§µ‡§æ‡§∏‡•ç‡§§‡§ø / ‡§∏‡§∞‡•ç‡§µ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚Äî the two profiles that do all the work in ¬ß3.
+  -- ‡‡∞‡‡µ‡æ‡‡‡‡ø / ‡‡∞‡‡µ‡®‡æ‡‡‡‡ø ‚î the two profiles that do all the work in ¬ß3.
   ‡§∏‡§∞‡•ç‡§µ‡§æ‡§∏‡•ç‡§§‡§ø ‡§∏‡§∞‡•ç‡§µ‡§®‡§æ‡§∏‡•ç‡§§‡§ø : Profile
   ‡§∏‡§∞‡•ç‡§µ‡§æ‡§∏‡•ç‡§§‡§ø  _ = true
   ‡§∏‡§∞‡•ç‡§µ‡§®‡§æ‡§∏‡•ç‡§§‡§ø _ = false
 
   ----------------------------------------------------------------------
-  -- ‡•® ¬∑ ‡§Ü‡§¶‡•á‡§∂‡§É ‚Äî the demand, and its content.
+  -- ‡® ¬ ‡‡¶‡‡‡ ‚î the demand, and its content.
   --
-  -- What a ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂ asks for: a finite list of standpoint-with-polarity,
+  -- What a ‡‡ï‡≤‡æ‡¶‡‡ asks for: a finite list of standpoint-with-polarity,
   -- all of them at once.  Its content is their conjunction.
   --
-  -- ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§ô‡•ç‡§ï‡§≤‡§®‡§Æ‡•ç ‚Äî SUCCESSION EXPRESSES IT, BY CONSTRUCTION, and the whole
+  -- ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡ ‚î SUCCESSION EXPRESSES IT, BY CONSTRUCTION, and the whole
   -- interest of ¬ß3 is that this is the easy direction.  `SaptabhangiNaya.
   -- krama-expresses` is this at one fixed two-element demand.
   --
@@ -149,7 +149,7 @@ module _ {S : Type ‚Ñì} where
   ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§ô‡•ç‡§ï‡§≤‡§®‡§Æ‡•ç _ _ _ = refl
 
   ----------------------------------------------------------------------
-  -- ‡•© ¬∑ ‡§è‡§ï-‡§µ‡§ö‡§®‡•á‡§® ‡§® ‚Äî NO SINGLE UTTERANCE.
+  -- ‡© ¬ ‡‡ï-‡µ‡‡®‡‡® ‡® ‚î NO SINGLE UTTERANCE.
   --
   -- The demand is MIXED when it asks for at least one presence and at
   -- least one absence.  That is the whole hypothesis: no finiteness of S,
@@ -170,7 +170,7 @@ module _ {S : Type ‚Ñì} where
   ‡§∏‡§∞‡•ç‡§µ-‡§∏‡§§‡•ç‡§Ø‡•á-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ ((_ , false) ‚à∑ _) _ = refl
   ‡§∏‡§∞‡•ç‡§µ-‡§∏‡§§‡•ç‡§Ø‡•á-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ ((_ , true)  ‚à∑ d) h = ‡§∏‡§∞‡•ç‡§µ-‡§∏‡§§‡•ç‡§Ø‡•á-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ d h
 
-  -- ‚Ä¶and dually.
+  -- ‚¶and dually.
   ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ : (d : Adesa) ‚Üí ‡§Ö‡§∏‡•ç‡§§‡§ø-‡§ï‡§∂‡•ç‡§ö‡§ø‡§§‡•ç d ‚â° true
                      ‚Üí joint d ‡§∏‡§∞‡•ç‡§µ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‚â° false
   ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ []               h = Empty.rec (false‚â¢true h)
@@ -178,7 +178,7 @@ module _ {S : Type ‚Ñì} where
   ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ ((_ , false) ‚à∑ d) h = ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ d h
 
   -- THE THEOREM.  Whatever the single utterance is, one of the two
-  -- constant profiles separates it from the demanded content ‚Äî because a
+  -- constant profiles separates it from the demanded content ‚î because a
   -- single utterance always reads TRUE at the constant profile matching
   -- its own polarity, while a mixed demand reads FALSE at both.
   ‡§è‡§ï-‡§µ‡§ö‡§®‡•á‡§®-‡§® : (d : Adesa)
@@ -190,7 +190,7 @@ module _ {S : Type ‚Ñì} where
     ‡§∏‡§∞‡•ç‡§µ‡§®‡§æ‡§∏‡•ç‡§§‡§ø , Œª e ‚Üí true‚â¢false (e ‚àô ‡§∏‡§∞‡•ç‡§µ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ-‡§Æ‡§ø‡§•‡•ç‡§Ø‡§æ d ha)
 
   ----------------------------------------------------------------------
-  -- ‡•™ ¬∑ ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡•ã ‡§® ‡§∏‡§ô‡•ç‡§ó‡§ö‡•ç‡§õ‡§§‡•á ‚Äî the same, as a factorisation obstruction.
+  -- ‡ ¬ ‡‡ï‡≤‡æ‡¶‡‡‡ã ‡® ‡‡ô‡‡ó‡‡‡‡‡ ‚î the same, as a factorisation obstruction.
   --
   -- The shape `AvaktavyaDoesNotFactor` names, here at
   -- arbitrary S and arbitrary demand length.
@@ -206,7 +206,7 @@ module _ {S : Type ‚Ñì} where
     ‡§è‡§ï-‡§µ‡§ö‡§®‡•á‡§®-‡§® d ha hn v .snd (agrees (‡§è‡§ï-‡§µ‡§ö‡§®‡•á‡§®-‡§® d ha hn v .fst))
 
   ----------------------------------------------------------------------
-  -- ‡•´ ¬∑ ‡§∞‡§ø‡§ï‡•ç‡§§‡§Ç ‡§§‡§®‡•ç‡§§‡•Å‡§ú‡§æ‡§≤‡§Æ‡•ç ‚Äî AND AS A STATEMENT ABOUT A FIBRE.
+  -- ‡ ¬ ‡∞‡ø‡ï‡‡‡ ‡‡®‡‡‡‡‡æ‡≤‡Æ‡ ‚î AND AS A STATEMENT ABOUT A FIBRE.
   --
   -- `denotes` sends an utterance to the content it denotes.  ¬ß4 says the
   -- demanded content is NOT IN ITS IMAGE, i.e. the fibre over it is empty.
@@ -215,17 +215,17 @@ module _ {S : Type ‚Ñì} where
   --
   --   fibre contractible   nothing lost.  `Loss.Carrier`; the datum
   --                        is determined and rides free.
-  --   fibre with >1 point  ‡§®‡§∑‡•ç‡§ü‡§ø: the "which" is destroyed (¬ß‡•™).  Priced
-  --                        when finite and decidable ‚Äî the ‡§ï‡•Å‡§ü‡•ç‡§ü‡§ï's side is
+  --   fibre with >1 point  ‡®‡‡‡ü‡ø: the "which" is destroyed (¬ß‡).  Priced
+  --                        when finite and decidable ‚î the ‡ï‡‡ü‡‡ü‡ï's side is
   --                        exactly one bit, and a comparison per step is
-  --                        what recovers it.  ‡§Ö‡§™‡•ç‡§∞‡§§‡§ø‡§ï‡§æ‡§∞‡•ç‡§Ø when truncated.
-  --   fibre EMPTY          ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç.  Nothing was lost; nothing was ever
+  --                        what recovers it.  ‡‡‡‡∞‡‡ø‡ï‡æ‡∞‡‡Ø when truncated.
+  --   fibre EMPTY          ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡.  Nothing was lost; nothing was ever
   --                        there.  The content is not sayable by one
   --                        utterance at all.
   --
   -- The three are different failures and the middle one is the only one
-  -- that is a LOSS.  Calling the third a loss ‚Äî "information destroyed by
-  -- the fourth position" ‚Äî is a reading this module removes.
+  -- that is a LOSS.  Calling the third a loss ‚î "information destroyed by
+  -- the fourth position" ‚î is a reading this module removes.
   ----------------------------------------------------------------------
 
   Tantu : Adesa ‚Üí Type ‚Ñì
@@ -237,11 +237,11 @@ module _ {S : Type ‚Ñì} where
   ‡§∞‡§ø‡§ï‡•ç‡§§‡§Ç-‡§§‡§®‡•ç‡§§‡•Å‡§ú‡§æ‡§≤‡§Æ‡•ç = ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡•ã-‡§®-‡§∏‡§ô‡•ç‡§ó‡§ö‡•ç‡§õ‡§§‡•á
 
 ------------------------------------------------------------------------
--- ‡•¨ ¬∑ ‡§¶‡•ç‡§µ‡§ø-‡§®‡§Ø‡§Æ‡•ç ‚Äî the smallest instance, so nothing above is vacuous.
+-- ‡ ¬ ‡¶‡‡µ‡ø-‡®‡Ø‡Æ‡ ‚î the smallest instance, so nothing above is vacuous.
 --
 -- Two standpoints, a demand asking presence at one and absence at the
 -- other: precisely `SaptabhangiNaya.joint`, and precisely the
--- configuration the third bha·πÖga (‡§∏‡•ç‡§Ø‡§æ‡§¶‡§∏‡•ç‡§§‡§ø ‡§ö ‡§®‡§æ‡§∏‡•ç‡§§‡§ø ‡§ö) is about.  It is
+-- configuration the third bhaga (‡‡‡Ø‡æ‡¶‡‡‡‡ø ‡ ‡®‡æ‡‡‡‡ø ‡) is about.  It is
 -- expressible in succession and by ¬ß4 it is not expressible by one vacana.
 ------------------------------------------------------------------------
 
@@ -258,7 +258,7 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§®‡§æ‡§∏‡•ç‡§§‡§ø = refl
 
 -- realised: there is a profile at which the demand is met, so the content
--- is not empty of instances ‚Äî it is a genuine two-valued predicate and not
+-- is not empty of instances ‚î it is a genuine two-valued predicate and not
 -- a truth-value gap.  (`SaptabhangiNaya.joint-realised`, restated here so
 -- ¬ß6 does not depend on that module.)
 ‡§Ü‡§¶‡•á‡§∂‡§É-‡§∏‡§ø‡§¶‡•ç‡§ß‡§É : Œ£[ œÜ ‚àà Profile {S = ‡§¶‡•ç‡§µ‡§ø} ] (joint ‡§Ü‡§¶‡•á‡§∂‡§É-‡§¶‡•ç‡§µ‡§ø œÜ ‚â° true)
@@ -273,17 +273,17 @@ data ‡§¶‡•ç‡§µ‡§ø : Type‚ÇÄ where
 ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç-‡§¶‡•ç‡§µ‡§ø = ‡§∏‡§ï‡§≤‡§æ‡§¶‡•á‡§∂‡•ã-‡§®-‡§∏‡§ô‡•ç‡§ó‡§ö‡•ç‡§õ‡§§‡•á ‡§Ü‡§¶‡•á‡§∂‡§É-‡§¶‡•ç‡§µ‡§ø ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§Ö‡§∏‡•ç‡§§‡§ø ‡§Æ‡§ø‡§∂‡•ç‡§∞‡§É-‡§®‡§æ‡§∏‡•ç‡§§‡§ø
 
 ------------------------------------------------------------------------
--- ‡•≠ ¬∑ What this does NOT license.
+-- ‡ ¬ What this does NOT license.
 --
--- It does not say the total statement is impossible ‚Äî ‡§ï‡•ç‡§∞‡§Æ-‡§∏‡§ô‡•ç‡§ï‡§≤‡§®‡§Æ‡•ç says
+-- It does not say the total statement is impossible ‚î ‡ï‡‡∞‡Æ-‡‡ô‡‡ï‡≤‡®‡Æ‡ says
 -- succession expresses it exactly, and ¬ß6 exhibits a profile meeting the
 -- demand.  It says one vacana does not denote it.  That distinction is the
--- entire content of ‡§Ö‡§µ‡§ï‡•ç‡§§‡§µ‡•ç‡§Ø‡§Æ‡•ç in the sources and it is easy to lose in
+-- entire content of ‡‡µ‡ï‡‡‡µ‡‡Ø‡Æ‡ in the sources and it is easy to lose in
 -- translation: the position is about EXPRESSION, not about truth, not
 -- about knowledge, and not about a third truth value.
 --
 -- Nor does it bear on which of the seven positions a given object
 -- occupies, on the exhaustiveness of the seven, or on whether the record
--- lane and the label lane of `Arpitanarpita_‚Ä¶` can be reconciled.  Those
+-- lane and the label lane of `Arpitanarpita_‚¶` can be reconciled.  Those
 -- are three separate open questions and none of them is touched here.
 ------------------------------------------------------------------------

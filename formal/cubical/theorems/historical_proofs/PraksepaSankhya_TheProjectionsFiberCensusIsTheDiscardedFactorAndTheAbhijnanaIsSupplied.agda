@@ -1,55 +1,55 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤ªà¥à¤°à¤•à¥à¤·à¥‡à¤ª-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ â€” the census of a projection's fiber IS the discarded
--- factor's cardinality, and the untruncated à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ that the census
+-- ààà°à•àààà-àà™àà–àà¯à¾ â” the census of a projection's fiber IS the discarded
+-- factor's cardinality, and the untruncated ààà¿àààà¾à¨ that the census
 -- alone withholds is here supplied.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS JOINS, AND WHY THE JOIN WAS OPEN.
 --
 -- Two fiber enzymes in this corpus speak about the same object and
 -- neither imports the other:
 --
---   `SankhyaTantu_â€¦`  for ANY map between finite sets gives the à¤¸à¤™à¥à¤–à¥à¤¯à¤¾
---       â€” the fiber's cardinality, `card (fiber f b)` â€” but states, in
+--   `SankhyaTantu_â¦`  for ANY map between finite sets gives the àà™àà–àà¯à¾
+--       â” the fiber's cardinality, `card (fiber f b)` â” but states, in
 --       its own header and on purpose, that it does NOT deliver the
---       à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨, the untruncated identification `fiber â‰ƒ Fin k`:
---       `isFinSet X = Î£[n] âˆ¥ X â‰ƒ Fin n âˆ¥â‚`, so the equivalence sits
+--       ààà¿àààà¾à¨, the untruncated identification `fiber â‰ Fin k`:
+--       `isFinSet X = Î[n] âˆ X â‰ Fin n âˆâ`, so the equivalence sits
 --       behind a propositional truncation and is available only for a
 --       CONCRETE map.  That gap is the corpus's standing distinction
 --       between counting a loss and naming it.
 --
---   `PraksepaTantu_â€¦`  for the projection `fst : A Ã— B â†’ A` gives exactly
---       the naming the census withholds: `fiber fst a â‰ƒ B`, untruncated,
---       for arbitrary A and B, no h-level hypothesis â€” the discarded
+--   `PraksepaTantu_â¦`  for the projection `fst : A — B â’ A` gives exactly
+--       the naming the census withholds: `fiber fst a â‰ B`, untruncated,
+--       for arbitrary A and B, no h-level hypothesis â” the discarded
 --       factor itself, in hand.
 --
--- At a projection the two meet.  `SankhyaTantu.à¤¸à¤™à¥à¤–à¥à¤¯à¤¾` reports a NUMBER
--- for `fiber fst a`; `PraksepaTantu.à¤µà¤¾à¤®-à¤¤à¤¨à¥à¤¤à¥à¤ƒ-â‰ƒ` says that fiber IS `B`.
+-- At a projection the two meet.  `SankhyaTantu.àà™àà–àà¯à¾` reports a NUMBER
+-- for `fiber fst a`; `PraksepaTantu.àµà¾à®-àà¨àààà-â‰` says that fiber IS `B`.
 -- So the number is forced: it is `card B`.  And the truncated part of
--- SankhyaTantu's à¤¸à¥‚à¤¤à¥à¤° à¥® caveat is discharged AT THIS MAP, because a
--- projection is concrete â€” the à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ exists and is supplied, not
+-- SankhyaTantu's ààààà° à® caveat is discharged AT THIS MAP, because a
+-- projection is concrete â” the ààà¿àààà¾à¨ exists and is supplied, not
 -- merely the count.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
--- WHAT IS PROVED, for finite sets A, B : FinSet â„“ and P = A Ã— B.
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+-- WHAT IS PROVED, for finite sets A, B : FinSet â“ and P = A — B.
 --
---  Â§à¥§  à¤µà¤¾à¤®-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ : SankhyaTantu.à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ P A fst a â‰¡ card B.
+--  Â§à§  àµà¾à®-àà™àà–àà¯à¾ : SankhyaTantu.àà™àà–àà¯à¾ P A fst a â‰¡ card B.
 --      The census of `fst`'s fiber at any `a` is the cardinality of the
 --      discarded second factor.  Proof: `cardEquiv` fed PraksepaTantu's
---      equivalence â€” a receipt (identification), not a bound.
---  Â§à¥¨  à¤¦à¤•à¥à¤·à¤¿à¤£-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ : SankhyaTantu.à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ P B snd b â‰¡ card A.
+--      equivalence â” a receipt (identification), not a bound.
+--  Â§à¨  à¦à•ààà¿à-àà™àà–àà¯à¾ : SankhyaTantu.àà™àà–àà¯à¾ P B snd b â‰¡ card A.
 --      The mirror, for `snd`.
---  Â§à¥©  à¤µà¤¾à¤®-à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ / à¤¦à¤•à¥à¤·à¤¿à¤£-à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ : the UNTRUNCATED equivalences
---      `fiber fst a â‰ƒ B .fst`, `fiber snd b â‰ƒ A .fst`, named here as the
---      à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ SankhyaTantu says the general count cannot give and this
+--  Â§à©  àµà¾à®-ààà¿àààà¾à¨à®à / à¦à•ààà¿à-ààà¿àààà¾à¨à®à : the UNTRUNCATED equivalences
+--      `fiber fst a â‰ B .fst`, `fiber snd b â‰ A .fst`, named here as the
+--      ààà¿àààà¾à¨ SankhyaTantu says the general count cannot give and this
 --      concrete map can.
 --
--- TERM.  à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ â€” number, count, enumeration; the fourth of Piá¹…gala's
--- pratyayas (à¤›à¤¨à¥à¤¦à¤ƒà¤¶à¤¾à¤¸à¥à¤¤à¥à¤°à¤®à¥ ch. 8, ~300 BCE: how many forms there are).
--- à¤ªà¥à¤°à¤•à¥à¤·à¥‡à¤ª â€” casting/projecting.  à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ â€” recognition, a token by
--- which a thing is identified (ÏƒÏÎ¼Î²Î¿Î»Î¿Î½), the corpus's word for an
+-- TERM.  àà™àà–àà¯à¾ â” number, count, enumeration; the fourth of Pigala's
+-- pratyayas (àà¨àà¦ààà¾ààààà°à®à ch. 8, ~300 BCE: how many forms there are).
+-- ààà°à•àààà â” casting/projecting.  ààà¿àààà¾à¨ â” recognition, a token by
+-- which a thing is identified (ÏÏÎ¼Î²Î¿Î»Î¿Î½), the corpus's word for an
 -- untruncated fiber-with-a-standard-type as opposed to its mere census.
 -- LIMIT: no source states a fiber, a cardinality of a fiber, or an
 -- equivalence; the mathematics is cubical (Voevodsky), the one admitted
@@ -77,12 +77,12 @@ private variable â„“ : Level
 
 module _ (A B : FinSet â„“) where
 
-  -- the finite product P = A Ã— B, whose two projections are the maps in play
+  -- the finite product P = A — B, whose two projections are the maps in play
   P : FinSet â„“
   P = (A .fst Ã— B .fst) , isFinSetÃ— A B
 
   ------------------------------------------------------------------------
-  -- à¥© Â· à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ â€” the untruncated identifications, in hand at a
+  -- à© Â ààà¿àààà¾à¨ â” the untruncated identifications, in hand at a
   -- concrete map, which the general census (SankhyaTantu) withholds.
   ------------------------------------------------------------------------
   à¤µà¤¾à¤®-à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ : (a : A .fst) â†’ fiber (fst {A = A .fst} {B = Î» _ â†’ B .fst}) a â‰ƒ B .fst
@@ -92,17 +92,17 @@ module _ (A B : FinSet â„“) where
   à¤¦à¤•à¥à¤·à¤¿à¤£-à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ b = à¤ªà¥à¤°.à¤¦à¤•à¥à¤·à¤¿à¤£-à¤¤à¤¨à¥à¤¤à¥à¤ƒ-â‰ƒ b
 
   ------------------------------------------------------------------------
-  -- à¥§ Â· à¤µà¤¾à¤®-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ â€” the census of fst's fiber is card B.
+  -- à§ Â àµà¾à®-àà™àà–àà¯à¾ â” the census of fst's fiber is card B.
   --
-  -- `à¤¸.à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ P A fst a` is definitionally `card (fiber fst a , â€¦)`.
-  -- `cardEquiv` turns the à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨ into equality of counts: the receipt
+  -- `à.àà™àà–àà¯à¾ P A fst a` is definitionally `card (fiber fst a , â¦)`.
+  -- `cardEquiv` turns the ààà¿àààà¾à¨ into equality of counts: the receipt
   -- is an identification, never a bound.
   ------------------------------------------------------------------------
   à¤µà¤¾à¤®-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ : (a : A .fst) â†’ à¤¸.à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ P A fst a â‰¡ card B
   à¤µà¤¾à¤®-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ a = cardEquiv (à¤¸.à¤¤à¤¨à¥à¤¤à¥à¤ƒ P A fst a) B âˆ£ à¤µà¤¾à¤®-à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ a âˆ£â‚
 
   ------------------------------------------------------------------------
-  -- à¥¨ Â· à¤¦à¤•à¥à¤·à¤¿à¤£-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ â€” the census of snd's fiber is card A.
+  -- à¨ Â à¦à•ààà¿à-àà™àà–àà¯à¾ â” the census of snd's fiber is card A.
   ------------------------------------------------------------------------
   à¤¦à¤•à¥à¤·à¤¿à¤£-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ : (b : B .fst) â†’ à¤¸.à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ P B snd b â‰¡ card A
   à¤¦à¤•à¥à¤·à¤¿à¤£-à¤¸à¤™à¥à¤–à¥à¤¯à¤¾ b = cardEquiv (à¤¸.à¤¤à¤¨à¥à¤¤à¥à¤ƒ P B snd b) A âˆ£ à¤¦à¤•à¥à¤·à¤¿à¤£-à¤…à¤­à¤¿à¤œà¥à¤à¤¾à¤¨à¤®à¥ b âˆ£â‚

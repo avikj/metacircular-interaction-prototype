@@ -1,36 +1,36 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- VieillefosseFibre — the discriminant D = 27R² + 4Q³ is a first integral
+-- VieillefosseFibre � the discriminant D = 27R² + 4Q³ is a first integral
 -- of restricted Euler, its zero fibre is unbounded and realized by sheet
 -- strain, and the pushforward of the true vector field to the (Q, R)
 -- plane is a BRANCHING fibre.
 --
--- Continuing QRClosure.  With the fractions cleared (Q₂ = tr A² = −2Q,
--- R₃ = tr A³ = −3R), restricted Euler reads Q̇₂ = −2R₃, Ṙ₃ = −½Q₂², and
--- twice the discriminant is Δ = 6R₃² − Q₂³.
+-- Continuing QRClosure.  With the fractions cleared (Q� = tr A² = −2Q,
+-- R� = tr A³ = −3R), restricted Euler reads Q�� = −2R�, �� = −½Q�², and
+-- twice the discriminant is Δ = 6R�² − Q�³.
 --
 --   §1  FIRST INTEGRAL.  Along the (doubled) restricted-Euler field
---       W = (−4R₃, −Q₂²) the directional derivative of Δ vanishes
---       identically: ∂Δ/∂Q₂ · (−4R₃) + ∂Δ/∂R₃ · (−Q₂²) ≡ 0 (solver).
+--       W = (−4R�, −Q�²) the directional derivative of Δ vanishes
+--       identically: �Δ/�Q� � (−4R�) + �Δ/�R� � (−Q�²) ≡ 0 (solver).
 --       No calculus: the derivative of a polynomial along a polynomial
 --       field is a polynomial, and that polynomial is zero.
 --   §2  THE ZERO FIBRE IS REALIZED AND UNBOUNDED.  The sheet strain
---       diag(s, s, −2s) has Q₂ = 6s², R₃ = −6s³, so Δ = 0 for every s
---       (solver), and n ↦ diag(n, n, −2n) is an injection of ℕ into the
+--       diag(s, s, −2s) has Q� = 6s², R� = −6s³, so Δ = 0 for every s
+--       (solver), and n � diag(n, n, −2n) is an injection of � into the
 --       set of trace-free matrices on the zero fibre: it contains a copy
 --       of the naturals.  Conservation traps
 --       the motion in this fibre (Dhruva); the fibre has room to escape.
---   §3  THE PUSHFORWARD BRANCHES.  At the observed point y = (Q₂ A₀ , R₃ A₀)
+--   §3  THE PUSHFORWARD BRANCHES.  At the observed point y = (Q� A� , R� A�)
 --       the pushforward set { Q-rhs x : invariants x ≡ y } has two
 --       distinct points (QRClosure's witnesses), so the induced world on
 --       the (Q, R) plane has a BranchingFiber in LawfulContinuationCore's
 --       sense: the deterministic field upstairs projects to a relation,
 --       and restricted Euler is one section of it (the zero-residual one).
 --
--- SYĀT — THE CLAIM, EXACTLY.  Three ring identities and one two-point
+-- SYT � THE CLAIM, EXACTLY.  Three ring identities and one two-point
 -- witness.  No flow, no time, no blow-up theorem: "first integral" names
--- the vanishing of a polynomial, "unbounded" names an injection of ℕ,
+-- the vanishing of a polynomial, "unbounded" names an injection of �,
 -- "branching" names LawfulContinuationCore.BranchingFiber.
 ------------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ module Discriminant {ℓ : Level} (R' : CommRing ℓ) where
   sheet-on-tail s = solve! R'
 
 ------------------------------------------------------------------------
--- §2'  Over ℤ the tail is unbounded: ℕ injects into the zero fibre.
+-- §2'  Over � the tail is unbounded: � injects into the zero fibre.
 ------------------------------------------------------------------------
 
 open Discriminant ℤCommRing
@@ -119,7 +119,7 @@ tail-injective : (m n : ℕ) → tail m ≡ tail n → m ≡ n
 tail-injective m n p = injPos (cong (λ t → b₁₁ (fst t)) p)
   where open import Cubical.Data.Int using (injPos)
 
--- the invariants along the tail, as computed: Q₂ = 6n², R₃ = −6n³
+-- the invariants along the tail, as computed: Q� = 6n², R� = −6n³
 open import Cubical.Data.Int using () renaming (_·_ to _·ℤ_)
 
 tail-Q₂ : (n : ℕ) → Q₂ (fst (tail n)) ≡ pos 6 ·ℤ (pos n ·ℤ pos n)
@@ -132,7 +132,7 @@ tail-Q₂ n = sheet-Q₂ (pos n)
 Observed : Type
 Observed = (ℤ × ℤ) × M3
 
--- the pushforward set at an observed point: values of the Q̇ right-hand
+-- the pushforward set at an observed point: values of the Q� right-hand
 -- side taken on states that read as y
 Pushforward : Observed → Type
 Pushforward y = Σ[ v ∈ ℤ ] Σ[ x ∈ T3 × M3 ] (invariants x ≡ y) × (Q-rhs x ≡ v)

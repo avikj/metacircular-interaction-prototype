@@ -3,12 +3,12 @@
 ------------------------------------------------------------------------
 -- ElsewhereCondition
 --
--- utsarga / apavāda -- the narrower rule blocks the wider -- as an exact
+-- utsarga / apavda -- the narrower rule blocks the wider -- as an exact
 -- predicate over a guarded rule system, with the theorem
 -- form the priority order reaches*, and not a measured contest.
 --
 -- The Elsewhere Condition (Kiparsky 1973, who coined the term reading
--- Pāṇini; Sanders' Proper Inclusion Precedence) selects, among the rules
+-- Pini; Sanders' Proper Inclusion Precedence) selects, among the rules
 -- applicable at a point, the one whose domain is contained in all the
 -- others.  What is proved about that selector:
 --
@@ -18,7 +18,7 @@
 --
 --   chainRooted     if the guard domains form an ascending chain, a least
 --                   applicable guard exists at every point where anything
---                   applies.  (utsarga/apavāda alone suffices.)
+--                   applies.  (utsarga/apavda alone suffices.)
 --
 --   directedRooted  the general sufficient condition: it is enough that
 --                   any two applicable guards have a common applicable
@@ -44,8 +44,8 @@
 --                   because the carrier has an involution that fixes the
 --                   disputed point and exchanges the two guards.
 --
---                   Hence A 1.4.2 (vipratiṣedhe paraṃ kāryam) is logically
---                   INDEPENDENT of the apavāda principle, on either reading
+--                   Hence A 1.4.2 (vipratiedhe para kryam) is logically
+--                   INDEPENDENT of the apavda principle, on either reading
 --                   of it: whether "the later rule wins" (traditional) or
 --                   "the rule applying to the right-hand operand wins"
 --                   (Rajpopat 2022), the tiebreak must import data --
@@ -54,19 +54,19 @@
 --                   import data" is failure of equivariance, and that is
 --                   what `noEquivariantTiebreak` proves.  This module takes
 --                   no side in the Rajpopat dispute; it shows both sides are
---                   answering a question apavāda provably cannot.
+--                   answering a question apavda provably cannot.
 --
 -- The instance is the ancient one: Ethiopian / Egyptian doubling
 -- multiplication.  Its three rules (`stop at zero`, `halve-and-double`,
--- `peel one`) have domains {0} ⊆ evens ⊆ ℕ -- a chain -- so `chainRooted`
+-- `peel one`) have domains {0} � evens � � -- a chain -- so `chainRooted`
 -- applies and the dispatch is total and deterministic with no tiebreak
 -- whatever (`dispatchZero`, `dispatchEven`, `dispatchOdd`).  The normal
 -- form it reaches is the product: `egyCorrect`.
 --
 -- Note what the chain condition costs.  A rule list sorted narrowest-first
 -- needs no metarule at all: first-match-wins already IS the Elsewhere
--- Condition.  Pāṇini's text is not so sorted -- the utsarga is routinely
--- stated before its own apavāda -- which is precisely why the Aṣṭādhyāyī
+-- Condition.  Pini's text is not so sorted -- the utsarga is routinely
+-- stated before its own apavda -- which is precisely why the Adhyy
 -- needs 1.4.1/1.4.2 as metarules rather than as an editorial convention.
 ------------------------------------------------------------------------
 
@@ -104,7 +104,7 @@ Holds : {A : Type ℓ} → Guard A → A → Type
 Holds g x = g x ≡ true
 
 -- domain containment: g is at least as narrow as h.
--- `g ⋐ h` is exactly "h is the utsarga, g a candidate apavāda to it".
+-- `g ⋐ h` is exactly "h is the utsarga, g a candidate apavda to it".
 _⋐_ : {A : Type ℓ} → Guard A → Guard A → Type ℓ
 _⋐_ {A = A} g h = (x : A) → Holds g x → Holds h x
 
@@ -116,7 +116,7 @@ _⋐_ {A = A} g h = (x : A) → Holds g x → Holds h x
 
 -- Membership in the rule book, as a recursive family rather than an
 -- inductive one: pattern matching on an inductive `_∈_` whose index is
--- `h ∷ gs` would rest on injectivity of `_∷_`, which Cubical Agda does not
+-- `h � gs` would rest on injectivity of `_�_`, which Cubical Agda does not
 -- support.  Recursion on the list avoids the issue entirely.
 _∈_ : {A : Type ℓ} → Guard A → List (Guard A) → Type ℓ
 _∈_ {ℓ} g [] = ⊥* {ℓ}
@@ -125,7 +125,7 @@ g ∈ (h ∷ gs) = (g ≡ h) ⊎ (g ∈ gs)
 pattern here p = inl p
 pattern there m = inr m
 
--- `g ∈ []` reduces to `⊥*`, so this eliminates any empty-book membership
+-- `g ∈ []` reduces to `�*`, so this eliminates any empty-book membership
 -- without needing to recover the carrier from the (carrier-free) type.
 ∉[] : {ℓ' : Level} {B : Type ℓ'} → ⊥* {ℓ} → B
 ∉[] m = ⊥.rec* m
@@ -134,7 +134,7 @@ pattern there m = inr m
 -- §1  What the Elsewhere Condition selects
 ------------------------------------------------------------------------
 
--- g is THE apavāda at x: it is in the book, it fires at x, and its domain
+-- g is THE apavda at x: it is in the book, it fires at x, and its domain
 -- is contained in the domain of every other rule of the book that fires
 -- at x.
 record IsLeast {A : Type ℓ} (gs : List (Guard A)) (x : A) (g : Guard A)
@@ -272,7 +272,7 @@ module _ {A : Type ℓ} (gs : List (Guard A)) (x : A) (dir : Directed gs x) wher
     in k , least mk hk bel
 
 ------------------------------------------------------------------------
--- §5  The no-go: apavāda alone is incomplete, and the gap is not
+-- §5  The no-go: apavda alone is incomplete, and the gap is not
 --     closable from inside the guard family
 --
 -- Three points, two rules whose domains properly cross:
@@ -426,7 +426,7 @@ selConst-equi : (g h : Guard Three) (y : Three) (π : Three → Three)
                 ≡ (λ z → selConst g h y (π z))
 selConst-equi g h y π inv = refl
 
--- (d) the repair, on the very system that fails: state the apavāda for the
+-- (d) the repair, on the very system that fails: state the apavda for the
 -- overlap.  `gM` cuts out {t1} = gA ∩ gB, and the Elsewhere Condition is
 -- restored -- with no tiebreak, and no appeal to rule order.
 gM : Guard Three
@@ -494,10 +494,10 @@ gAgB-cross = (λ c → false≢true (c t0 refl)) , (λ c → false≢true (c t2 
 --   D  a even       -- halve a, double b
 --   S  otherwise    -- peel one b off and continue
 --
--- Their domains are {0} ⊆ evens ⊆ ℕ: a chain.  So `chainRooted` gives a
--- total, deterministic dispatch at every ℕ, with NO tiebreak -- neither
+-- Their domains are {0} � evens � �: a chain.  So `chainRooted` gives a
+-- total, deterministic dispatch at every �, with NO tiebreak -- neither
 -- para nor position.  The doubling algorithm is thus the (rare) case where
--- utsarga/apavāda is by itself a complete strategy.
+-- utsarga/apavda is by itself a complete strategy.
 ------------------------------------------------------------------------
 
 even? : ℕ → Bool
@@ -537,7 +537,7 @@ doublingChain = z , e , a , tt*
     a : (h : Guard ℕ) → h ∈ [] → gAny ⋐ h
     a h m = ∉[] m
 
--- every ℕ has an applicable rule (gAny), so the dispatch is total
+-- every � has an applicable rule (gAny), so the dispatch is total
 doublingRooted : (n : ℕ) → Σ[ g ∈ Guard ℕ ] IsLeast doubling n g
 doublingRooted n =
   chainRooted doubling doublingChain n (gAny , there (there (here refl)) , refl)
@@ -584,7 +584,7 @@ dispatchOdd n od = least (there (there (here refl))) refl nrr
 -- expansion of the multiplier, least significant digit first; the rows
 -- kept are the odd ones.  Taking that trace column as the argument makes
 -- the recursion structural -- no fuel, no well-founded order -- which is
--- Āryabhaṭa's move applied to Aḥmes' algorithm: keep the trace column and
+-- ryabhaa's move applied to Ames' algorithm: keep the trace column and
 -- the equation stops resisting.
 ------------------------------------------------------------------------
 

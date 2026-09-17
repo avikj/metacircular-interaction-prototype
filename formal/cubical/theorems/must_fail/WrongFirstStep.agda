@@ -13,7 +13,7 @@
 -- WHAT IT ASSERTS.  `CompileBridge.first-step-names-resume` is `refl`:
 -- on the concrete task `taskTm` over the concrete `baseVocab`, the
 -- loop's own step function reduces to an obstruction whose residual is
--- `resumeCap`.  This file asserts the same thing at `tickCap` â€” a
+-- `resumeCap`.  This file asserts the same thing at `tickCap` â” a
 -- capability that IS installed in `baseVocab`, so the first step cannot
 -- name it.
 --
@@ -50,7 +50,7 @@
 -- is broken.
 --
 -- ---------------------------------------------------------------- --
--- TOOLCHAIN CAVEAT â€” THIS CONTROL NEEDS THE PIN.  Read before trusting
+-- TOOLCHAIN CAVEAT â” THIS CONTROL NEEDS THE PIN.  Read before trusting
 --
 -- A control's pass condition is not "agda exits nonzero".  It is "agda
 -- rejects THIS file's statement, at THIS file's line, for the stated
@@ -63,7 +63,7 @@
 -- `import AcceptanceTest` for its Â§C `Compile` module,
 -- `AcceptanceTest:99` imports `Transport`, and
 -- `Transport:46` imports `Cubical.Tactics.NatSolver.Reflection` for
--- `solveâ„•!`.  Under Agda 2.6.3 + cubical v0.7,
+-- `solveâ•!`.  Under Agda 2.6.3 + cubical v0.7,
 -- `Cubical/Tactics/Reflection.agda:92` does not scope-check at all
 -- (`withReduceDefs` is an Agda 2.6.4 builtin), so this file exits 42
 -- WITHOUT EVER LOOKING AT Â§Z.  Verbatim, in that container:

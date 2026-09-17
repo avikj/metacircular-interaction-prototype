@@ -3,18 +3,18 @@
 ------------------------------------------------------------------------
 -- RH, passed to the oracle properly: the whole question, as a type.
 --
--- The Riemann hypothesis is equivalent (Davis–Matiyasevich–Robinson) to
+-- The Riemann hypothesis is equivalent (Davis�Matiyasevich�Robinson) to
 --
---     for every n ≥ 1:   ( Σ_{k ≤ δ(n)} 1/k  −  n²/2 )²  <  36 n³
+--     for every n � 1:   ( �_{k � δ(n)} 1/k  −  n²/2 )²  <  36 n³
 --
--- where δ(x) = Π_{m < x} Π_{j ≤ m} η(j), and η(j) = p when j is a prime
--- power p^k (k ≥ 1), else 1.  Every ingredient is a computable function
--- on ℕ.  Writing the harmonic sum as a fraction a/b and clearing
+-- where δ(x) = Π_{m < x} Π_{j � m} �(j), and �(j) = p when j is a prime
+-- power p^k (k � 1), else 1.  Every ingredient is a computable function
+-- on �.  Writing the harmonic sum as a fraction a/b and clearing
 -- denominators, the inequality is
 --
---     (2a − n²·b)²  <  144 · n³ · b²
+--     (2a − n²�b)²  <  144 � n³ � b²
 --
--- and the signed square over ℕ is (x ∸ y + y ∸ x)², which equals the
+-- and the signed square over � is (x � y + y � x)², which equals the
 -- square of the difference whichever side is larger.
 --
 -- WHAT THIS MODULE IS.  The statement, entire, as one type: RH below.
@@ -35,7 +35,7 @@ open import Cubical.Data.Bool using (Bool ; true ; false ; if_then_else_)
 open import Cubical.Data.Sigma using (_×_ ; _,_ ; fst ; snd)
 
 ------------------------------------------------------------------------
--- ℕ toolkit, self-contained: monus, comparison, mod and div by fuel.
+-- � toolkit, self-contained: monus, comparison, mod and div by fuel.
 ------------------------------------------------------------------------
 
 monus : ℕ → ℕ → ℕ
@@ -60,7 +60,7 @@ eqb (suc _) zero    = false
 eqb (suc n) (suc m) = eqb n m
 
 -- n mod d and n div d, structurally recursive on fuel; fuel = n suffices
--- because each step strictly shrinks the dividend (d ≥ 1).
+-- because each step strictly shrinks the dividend (d � 1).
 modF : ℕ → ℕ → ℕ → ℕ
 modF zero n d       = n
 modF (suc fuel) n d = if ltb n d then n else modF fuel (monus n d) d
@@ -79,7 +79,7 @@ dividesb : ℕ → ℕ → Bool     -- d divides n
 dividesb d n = isZero (n mod d)
 
 ------------------------------------------------------------------------
--- η: the prime-power detector.  spf finds the smallest factor ≥ 2 by
+-- �: the prime-power detector.  spf finds the smallest factor � 2 by
 -- bounded search; powOf checks that repeated division by p reaches 1.
 ------------------------------------------------------------------------
 
@@ -103,7 +103,7 @@ powOfF (suc fuel) p j =
 η j@(suc (suc _)) = if powOfF j (spf j) j then spf j else 1
 
 ------------------------------------------------------------------------
--- δ(x) = Π_{m < x} Π_{j ≤ m} η(j)
+-- δ(x) = Π_{m < x} Π_{j � m} �(j)
 ------------------------------------------------------------------------
 
 Πη : ℕ → ℕ                   -- Π_{j ≤ m} η(j)
@@ -115,8 +115,8 @@ powOfF (suc fuel) p j =
 δ (suc x) = δ x · Πη x
 
 ------------------------------------------------------------------------
--- The harmonic sum Σ_{k ≤ m} 1/k as one fraction, by folding
---   a/b + 1/k = (a·k + b) / (b·k),  from (0,1).
+-- The harmonic sum �_{k � m} 1/k as one fraction, by folding
+--   a/b + 1/k = (a�k + b) / (b�k),  from (0,1).
 ------------------------------------------------------------------------
 
 Hfrac : ℕ → ℕ × ℕ
@@ -125,16 +125,16 @@ Hfrac (suc m) = let a = fst (Hfrac m) ; b = snd (Hfrac m)
                 in  (a · suc m + b) , (b · suc m)
 
 ------------------------------------------------------------------------
--- the signed square over ℕ: (x ∸ y + y ∸ x)² = (x − y)² either way round
+-- the signed square over �: (x � y + y � x)² = (x − y)² either way round
 ------------------------------------------------------------------------
 
 diffSq : ℕ → ℕ → ℕ
 diffSq x y = let d = monus x y + monus y x in d · d
 
 ------------------------------------------------------------------------
--- THE STATEMENT.  With  a/b = Σ_{k ≤ δ(n)} 1/k :
+-- THE STATEMENT.  With  a/b = �_{k � δ(n)} 1/k :
 --
---     (2a − n²·b)²  <  144 · n³ · b²        for every n ≥ 1
+--     (2a − n²�b)²  <  144 � n³ � b²        for every n � 1
 --
 -- RH is this type.  Its inhabitation is the open question.
 ------------------------------------------------------------------------
@@ -150,7 +150,7 @@ RH = (n : ℕ) → 1 ≤ n →
 ------------------------------------------------------------------------
 -- The statement is a genuine proposition-shaped object: it computes.
 -- One checked fact about the apparatus, so the module is not inert:
--- η classifies the first prime power correctly, definitionally.
+-- � classifies the first prime power correctly, definitionally.
 ------------------------------------------------------------------------
 
 η-of-4 : η 4 ≡ 2

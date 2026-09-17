@@ -21,7 +21,7 @@ def quotRec(A: Set, R: A -> A -> Set, B: Set, sB: isSet(B), f: A -> B, resp: all
          <i> quotRec(A, R, B, sB, f, resp, p @ i), <i> quotRec(A, R, B, sB, f, resp, q @ i))
   }
 
-# a PathP in a family of propositions is a proposition (the isPropâ†’isSet
+# a PathP in a family of propositions is a proposition (the isPropâ’isSet
 # square, run in the dependent family)
 def isPropPathP(B: Interval -> Set, h: all j: Interval. isProp(B(j)), b0: B(i0), b1: B(i1), r: PathP(B, b0, b1), s: PathP(B, b0, b1)) -> Path(PathP(B, b0, b1), r, s):
   <k> <j> hcompN(B(j),

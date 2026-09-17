@@ -6,12 +6,12 @@
 -- ON THE NAME.  **No tradition term is claimed and none is invented.**
 -- Happens-before, causal delivery and consistency models are
 -- distributed-systems objects with no Indian source I can establish;
--- a fabricated Sanskrit label would assert a provenance nobody checked.
+-- a fabricated  label would assert a provenance nobody checked.
 -- Checked before naming: `.claude/hooks/priority-ledger.txt` (CURRENT
 -- header) and `.claude/hooks/european-frame.txt`; no row applies and
 -- the frame check's scope requires Indian material, of which this
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- THE ITEM, AND WHY IT WAS MIS-POSED
 --
 -- I closed `VacuityIsExactlyEmptinessAndTheEquivalenceCostsAUniverseLift`
@@ -27,32 +27,32 @@
 -- the reason, and it is one `refl`: for the delivery discipline of
 -- `AnEmptyDependencyRelationMakesCausalDeliveryVacuous`,
 --
---     Respects hb ord   is definitionally   hb âŠ‘ ord,
+--     Respects hb ord   is definitionally   hb âŠ ord,
 --
 -- so the admissible orders of `hb` are exactly the PRINCIPAL UP-SET of
 -- `hb` in the inclusion preorder on relations.  Strength is therefore
 -- not a quantity attached to a relation; it IS the relation, read
 -- upwards.  Â§4 makes that refutation concrete rather than rhetorical:
 -- two relations on `Bool` with ONE EDGE EACH whose admissible families
--- are incomparable â€” neither contains the other.  **So no function of
+-- are incomparable â” neither contains the other.  **So no function of
 -- the edge count can determine the discipline's strength**, and the
 -- question I wrote down was asking for a summary statistic that does
 -- not exist.
 --
 -- WHAT IS PROVED
 --
---   respectsIsInclusion    `Respects Write hb ord â‰¡ (hb âŠ‘ ord)`, `refl`
+--   respectsIsInclusion    `Respects Write hb ord â‰¡ (hb âŠ ord)`, `refl`
 --   leastAdmissible        `hb` is itself admissible, so the family is
 --                          the up-set of an actual element, not merely
 --                          upward-closed
---   moreEdgesFewerOrders   antitone: `hb âŠ‘ hbâ€²` shrinks the family
+--   moreEdgesFewerOrders   antitone: `hb âŠ hbâ²` shrinks the family
 --   admissibilityIsFaithful
---                          and the converse â€” if every order admissible
---                          for `hb` is admissible for `hbâ€²` then
---                          `hbâ€² âŠ‘ hb`.  Proved by evaluating the
+--                          and the converse â” if every order admissible
+--                          for `hb` is admissible for `hbâ²` then
+--                          `hbâ² âŠ hb`.  Proved by evaluating the
 --                          hypothesis AT `hb`, which `leastAdmissible`
 --                          makes legal.  So the map
---                          `hb â†¦ {orders admitting it}` is an
+--                          `hb â¦ {orders admitting it}` is an
 --                          order-reversing EMBEDDING: every genuinely
 --                          new edge changes the family, and no two
 --                          distinct relations share one
@@ -60,21 +60,21 @@
 --                          both directions at once
 --   hbA / hbB / incomparableFamiliesAtOneEdgeEach
 --                          the counterexample: `hbA` declares
---                          `false â†’ true`, `hbB` declares `true â†’ false`,
+--                          `false â’ true`, `hbB` declares `true â’ false`,
 --                          and each is admissible for itself and not for
 --                          the other
 --
 -- **WHAT THIS SETTLES ABOUT THE EARLIER MODULE.**
 -- `oneDeclaredEdgeExcludesTheConcurrentOrder` is the instance of
--- `admissibilityIsFaithful` at `hb = âˆ…`, `ord = Î» _ _ â†’ âŠ¥`.  It was
+-- `admissibilityIsFaithful` at `hb = âˆ`, `ord = Î» _ _ â’ âŠ`.  It was
 -- never the first point of a sequence; it was one corner of a lattice
 -- statement.  Reading it as a data point is what produced the
--- mis-posed item, and that is worth recording because the reflex â€”
--- **seeing a `1` in a theorem and reaching for a growth law** â€” is the
+-- mis-posed item, and that is worth recording because the reflex â”
+-- **seeing a `1` in a theorem and reaching for a growth law** â” is the
 -- same reflex `CLAUDE.md` names when it forbids fitting a pattern from
 -- three points.  Here it was fitted from one.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 â” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ module _ (Write : Type) where
   moreEdgesFewerOrders hb hbâ€² ord sub resp a b h = resp a b (sub a b h)
 
   ----------------------------------------------------------------------
-  -- 3.  â€¦and the assignment hb â†¦ its family is an embedding
+  -- 3.  â¦and the assignment hb â¦ its family is an embedding
   ----------------------------------------------------------------------
 
   admissibilityIsFaithful :
@@ -139,7 +139,7 @@ module _ (Write : Type) where
 ------------------------------------------------------------------------
 -- 4.  One edge each, incomparable families
 --
--- `hbA` declares `false â†’ true`; `hbB` declares `true â†’ false`.  Each is
+-- `hbA` declares `false â’ true`; `hbB` declares `true â’ false`.  Each is
 -- admissible for itself (Â§2) and refuses the other, so neither family
 -- contains the other.  Equal edge counts, incomparable strengths.
 ------------------------------------------------------------------------

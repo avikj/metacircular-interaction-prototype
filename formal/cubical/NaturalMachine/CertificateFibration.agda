@@ -6,7 +6,7 @@
 -- THE CERTIFICATE IS THE FIBRE COORDINATE.
 --
 -- `notes/ONLINE_SMITH_CERTIFICATE_REVERSIBILITY.md` proves, of a map
--- `f : X → Y` between finite sets:
+-- `f : X � Y` between finite sets:
 --
 --     "The fiber bound is elementary.  Basis inputs with the same
 --      declared output must be distinguished by orthogonal environment
@@ -20,54 +20,54 @@
 -- re-bracketing that Agda accepts as `refl`, and then reads the
 -- corpus's numbers off it.
 --
--- THE STRUCTURE THAT MAKES IT INEVITABLE.  Fix `f : X → Y` and a
--- certificate `c : X → E`.  The recorded update is
--- `⟨f,c⟩ : X → Y × E`.  Then for every `y : Y` and `e : E`
+-- THE STRUCTURE THAT MAKES IT INEVITABLE.  Fix `f : X � Y` and a
+-- certificate `c : X � E`.  The recorded update is
+-- `⟨f,c⟩ : X � Y � E`.  Then for every `y : Y` and `e : E`
 --
---     fiber ⟨f,c⟩ (y , e)  ≅  fiber (c ↾ fiber f y) e            (§1)
+--     fiber ⟨f,c⟩ (y , e)  �  fiber (c � fiber f y) e            (§1)
 --
--- and BOTH round trips of that Iso are `refl`: it is Σ-eta, nothing
+-- and BOTH round trips of that Iso are `refl`: it is �-eta, nothing
 -- more.  Everything the note proves follows by transporting
 -- `isProp` across it (§2), because `isEmbedding` IS `hasPropFibers`
 -- (`Cubical.Functions.Embedding.isEmbedding≡hasPropFibers`).
 --
 -- Consequences, in the order the note states them:
 --
---   * (note, item 2 — the lower bound)  a certificate that restores
---     injectivity embeds EVERY fiber of `f` into `E`     (`fiber↪cert`).
+--   * (note, item 2 � the lower bound)  a certificate that restores
+--     injectivity embeds EVERY fiber of `f` into `E`     (`fiber�cert`).
 --     No finiteness, no orthogonality, no counting.
---   * (note, items 3 and 5 — attainment)  conversely a fiberwise
---     family of embeddings IS a certificate  (`triv→isEmbedding`), and
+--   * (note, items 3 and 5 � attainment)  conversely a fiberwise
+--     family of embeddings IS a certificate  (`triv�isEmbedding`), and
 --     the two data are the same data: `certIso` (§3) is an Iso
---     `(X → E) ≅ ((y : Y) → fiber f y → E)`, one of whose round trips
+--     `(X � E) � ((y : Y) � fiber f y � E)`, one of whose round trips
 --     is again `refl`.
 --   * the numerical statement, once the fibres happen to be finite
---     (§4, `fiberCard≤`): `card (fiber f y) ≤ card E`.
+--     (§4, `fiberCard�`): `card (fiber f y) � card E`.
 --
 -- WHAT THIS CORRECTS, AND IT IS NOT A QUIBBLE.  The note's sentence is
--- symmetric — "the minimum … IS the maximum fiber cardinality" — and
+-- symmetric � "the minimum � IS the maximum fiber cardinality" � and
 -- §3 shows the two halves are not symmetric.  The lower bound is a
 -- theorem about `f` alone.  The attainment is a DATUM: a family
--- `(y : Y) → fiber f y ↪ E`, uniform in `y`.  A pointwise cardinality
--- bound `∀ y → card (fiber f y) ≤ n` does NOT produce that family;
+-- `(y : Y) � fiber f y � E`, uniform in `y`.  A pointwise cardinality
+-- bound `� y � card (fiber f y) � n` does NOT produce that family;
 -- producing it is choosing an enumeration of each fibre, i.e. choosing
 -- a trivialisation of the fibration `f`.  Nothing in this module
 -- constructs one from a bound, and nothing below claims to.  In the
--- corpus's own instance the trivialisation is canonical — the emitted
--- row coefficient `-q` IS the fibre coordinate — which is exactly why
+-- corpus's own instance the trivialisation is canonical � the emitted
+-- row coefficient `-q` IS the fibre coordinate � which is exactly why
 -- that example works and why it proves nothing about the general case.
 --
 -- §5 lands that instance: for the Smith family
 -- `A_q = ((2,0),(2q+1,7))`, whose post-state `B = ((1,7),(2,0))` is
 -- independent of `q` (`collab/messages/workers/
 -- 20260812T161511.752509Z--codex_quantum_process--0004.md`), the fibre
--- over the single post-state is `ℕ`, so ANY certificate alphabet `E`
--- admits `ℕ ↪ E`.  That is the broadcast's "no finite global
+-- over the single post-state is `�`, so ANY certificate alphabet `E`
+-- admits `� � E`.  That is the broadcast's "no finite global
 -- controller factors through (kind,pivot,remainder)", with the
 -- unbounded family replaced by one embedding and the limit removed
 -- rather than controlled.
 --
--- The same §2 statement, at the map "ternary history `{0,1,2}^k` ↦
+-- The same §2 statement, at the map "ternary history `{0,1,2}^k` �
 -- common nominal endpoint" of `collab/messages/
 -- 0285-codex-quantum-process-fixed-domain-memory-result.md`, is that
 -- message's `3^k` lower bound; §4 is the step that turns the embedding
@@ -75,38 +75,38 @@
 -- enumeration and no mathematics.
 --
 --
--- RELATION TO WHAT IS ALREADY CHECKED — no duplication, by inspection.
+-- RELATION TO WHAT IS ALREADY CHECKED � no duplication, by inspection.
 --
 -- `NaturalMachine.FiniteInformation` (ported from the Lean lane) already
 -- has `Completes q c` = injectivity of `⟨q,c⟩`, and
--- `completes→separates` / `separates→completes` reducing it to fibres.
+-- `completes�separates` / `separates�completes` reducing it to fibres.
 -- That is §2 at h-level 0 for a SET, stated element-wise.  §6 below
 -- bridges to it in both directions rather than restating it, and the
 -- bridge is where the h-level hypotheses become visible: `Completes`
--- needs `isSet Y`, `isSet E` to imply `isEmbedding`, while §1–§3 need
+-- needs `isSet Y`, `isSet E` to imply `isEmbedding`, while §1�§3 need
 -- none.  `FiniteInformation`'s cardinality corollary
--- `targetFiber-card≤` bounds `card C` below by the TARGET values alive
--- in a fibre, relative to a decoder; `fiberCard≤` here bounds it below
+-- `targetFiber-card�` bounds `card C` below by the TARGET values alive
+-- in a fibre, relative to a decoder; `fiberCard�` here bounds it below
 -- by the fibre itself, with no target and no decoder.  Neither implies
 -- the other as stated.
 --
 -- `Cubical.Functions.Fibration.totalEquiv` (HoTT Lemma 4.8.2) is the
 -- universal property doing the work in §3: `certIso` is precisely
--- currying `X → E` along `X ≃ Σ Y (fiber f)`.  It is written out
+-- currying `X � E` along `X � � Y (fiber f)`.  It is written out
 -- directly because in that form one round trip is definitional, which
 -- is the point being made; `certIso≡curry-totalEquiv` is NOT proved
 -- and is not needed.
 --
--- PRIOR ART, searched before proving and found — recorded because the
+-- PRIOR ART, searched before proving and found � recorded because the
 -- first draft of this header wrongly said §1 was absent from the
 -- library.  `Cubical.Foundations.Equiv.Fiberwise.fibers-total` is HoTT
 -- Thm 4.7.6:
 --
---     fiber (λ (a , p) → a , g a p) (a , q)  ≅  fiber (g a) q
+--     fiber (λ (a , p) � a , g a p) (a , q)  �  fiber (g a) q
 --
--- for a fibrewise map `g : ∀ a → P a → Q a`.  §1 IS that theorem, at
--- `P = fiber f`, `Q = λ _ → E`, transported along
--- `X ≃ Σ Y (fiber f)`.  What §1 adds is exactly what the transport
+-- for a fibrewise map `g : � a � P a � Q a`.  §1 IS that theorem, at
+-- `P = fiber f`, `Q = λ _ � E`, transported along
+-- `X � � Y (fiber f)`.  What §1 adds is exactly what the transport
 -- costs: `fibers-total`'s four components are `J`/`JRefl` arguments,
 -- while §1's source is `X` itself and its target family is CONSTANT, so
 -- both round trips are `refl` and `fiberIso` computes.  The derived
@@ -118,14 +118,14 @@
 --
 -- Also searched, under the standard names: `isEmbedding`,
 -- `hasPropFibers`, `fiber`, `totalEquiv`, `fibrationEquiv`,
--- `card↪Inequality'` in `~/agda-libs/cubical` v0.5; `Completes`,
--- `SeparatesFibers` in this corpus.  §2–§4 (the embedding transfer, the
+-- `card�Inequality'` in `~/agda-libs/cubical` v0.5; `Completes`,
+-- `SeparatesFibers` in this corpus.  §2�§4 (the embedding transfer, the
 -- certificate/trivialisation Iso, the cardinality corollary) are not in
 -- the library under any of them.
 --
 -- CHECKED: Agda 2.6.3 + cubical v0.5 (`formal/cubical/BUILD.md`),
 -- `--cubical --safe`, no postulates, no holes.  Not imported by
--- `NaturalMachine.agda` — the landing instruction for this session
+-- `NaturalMachine.agda` � the landing instruction for this session
 -- forbade editing the root aggregate, so this module is a deliberate
 -- orphan in the sense of BUILD.md's mechanical check, and its owner
 -- should fold it in.
@@ -160,8 +160,8 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   -- 1.  THE RE-BRACKETING
   --
   -- `recorded c` is the note's "recorded update"
-  -- `A_q ↦ (B , -q)`; `onFiber c y` is the certificate read on one
-  -- fibre of the state map.  The Iso between their fibres is Σ-eta.
+  -- `A_q � (B , -q)`; `onFiber c y` is the certificate read on one
+  -- fibre of the state map.  The Iso between their fibres is �-eta.
   ------------------------------------------------------------------
 
   recorded : (X → E) → X → Y × E
@@ -209,9 +209,9 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   ------------------------------------------------------------------
   -- 3.  A CERTIFICATE IS A TRIVIALISATION
   --
-  -- Currying along `X ≃ Σ Y (fiber f)` (HoTT 4.8.2).  Written out so
+  -- Currying along `X � � Y (fiber f)` (HoTT 4.8.2).  Written out so
   -- that `leftInv` is `refl`: recovering `c` from its fibrewise
-  -- restrictions is not a theorem, it is η.
+  -- restrictions is not a theorem, it is �.
   ------------------------------------------------------------------
 
   toTriv : (X → E) → ((y : Y) → fiber f y → E)
@@ -246,8 +246,8 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
   --
   -- Everything above is finiteness-free.  This is the only place a
   -- cardinality appears, and it is a corollary of §2, not a separate
-  -- argument.  It is the note's "minimum environment dimension ≥
-  -- maximum fibre cardinality" — the ≥ half, which is the half that is
+  -- argument.  It is the note's "minimum environment dimension �
+  -- maximum fibre cardinality" � the � half, which is the half that is
   -- a theorem.
   ------------------------------------------------------------------
 
@@ -279,16 +279,16 @@ module _ {X : Type ℓx} {Y : Type ℓy} {E : Type ℓe} (f : X → Y) where
 ------------------------------------------------------------------------
 -- 5.  THE CORPUS INSTANCE: THE SMITH QUOTIENT NO-GO
 --
--- `A_q = ((2,0),(2q+1,7))` for `q : ℕ`.  Every source reaches the same
+-- `A_q = ((2,0),(2q+1,7))` for `q : �`.  Every source reaches the same
 -- post-state `B`, so the state map is constant and its single fibre is
--- `ℕ`.  Therefore every certificate alphabet that restores injectivity
--- admits `ℕ ↪ E`.
+-- `�`.  Therefore every certificate alphabet that restores injectivity
+-- admits `� � E`.
 --
 -- What this is NOT: it is not a claim about `A_q`'s Smith arithmetic,
 -- which is not formalised here.  It is the exact statement that the
--- broadcast's `N`-indexed family was standing in for, with `N → ∞`
--- deleted rather than estimated.  The Smith content — that the
--- constant post-state really is `B` for every `q` — is imported from
+-- broadcast's `N`-indexed family was standing in for, with `N � ∞`
+-- deleted rather than estimated.  The Smith content � that the
+-- constant post-state really is `B` for every `q` � is imported from
 -- that message, not reproved.
 ------------------------------------------------------------------------
 

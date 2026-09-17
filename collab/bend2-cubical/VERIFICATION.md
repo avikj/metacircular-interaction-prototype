@@ -16,30 +16,30 @@ HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
    #include "runtime/reduce/ref_sup.c"
    ```
    after `dup_una.c` in `src/HVM/Runtime.c`. HVM3 must be a local package
-   (`packages: . /tmp/HVM3` in cabal.project) â€” editing the cached
+   (`packages: . /tmp/HVM3` in cabal.project) â” editing the cached
    source-repository-package copy does not rebuild the store artifact.
 2. **`LC_ALL=C.utf8` is mandatory for the build**: HVM3 embeds `.c` files via
    Template Haskell (`embedStringFile`); `prim/DUP.c` contains a UTF-8 byte
    and `hGetContents` fails under a non-UTF-8 locale.
-3. `bend` has no `check` subcommand â€” `bend check f.bend` prints usage and
+3. `bend` has no `check` subcommand â” `bend check f.bend` prints usage and
    exits 0 (a silent false-positive if used as a test). Use `bend f.bend`.
 
-## Independently reproduced (correct invocation, exit code + âœ“/âœ— counted)
+## Independently reproduced (correct invocation, exit code + â“/â— counted)
 
-| file | rc | âœ“ | âœ— |
+| file | rc | â“ | â— |
 |---|---|---|---|
 | examples/main.bend (stock) | 0 | 39 | 0 |
 | cubical_test.bend | 0 | 11 | 0 |
 | cubical_test2.bend | 0 | 10 | 0 |
 | cubical_test3.bend | 0 | 12 | 0 |
-| cubical_test4.bend (SupÃ—Path) | 0 | 8 | 0 |
+| cubical_test4.bend (Sup—Path) | 0 | 8 | 0 |
 | cubical_test5.bend | 0 | 7 | 0 |
 | applypath.bend | 0 | 9 | 0 |
 | pth2.bend (nonconstant Path family transport) | 0 | 2 | 0 |
 | pthtransport.bend | 0 | 3 | 0 |
 | loop.bend | 0 | 2 | 0 |
 
-- `uaroundtrip.bend`: `âœ— uaRoundTrip â€” Mismatch`. The other round trip
+- `uaroundtrip.bend`: `â— uaRoundTrip â” Mismatch`. The other round trip
   `pathToIso(ua e) = e` at the raw `Iso5` level FAILS, as CORRECTIONS states.
   The narrowed claim ("iso-univalence with the path-side round trip") is right.
 - `loop.bend`: `loop` tagged `[unchecked]` (was a `[total]` false positive).
@@ -48,17 +48,17 @@ HigherOrderCO/HVM3 HEAD (2026-01-29) as a LOCAL package.
 - `applypath.bend --to-hvm4` emits `@applyPath = Î»b0 Î»b1 Î»b2 Î»b3. b2(b3)`,
   `@transId = Î»b0. b0`, `@transNeg = Î»b0. (neg)(b0)`: transport lowers to
   *applying* the path's forward function, not erased.
-- `applypath.bend --to-hvm` (HVM3 target): **crashes** â€”
+- `applypath.bend --to-hvm` (HVM3 target): **crashes** â”
   `Non-exhaustive patterns in function go` (Target/HVM.hs). The HVM3 backend
   has no cubical lowering; only HVM4 does.
 
 
-## Native execution â€” verified on BOTH runtimes (this session)
+## Native execution â” verified on BOTH runtimes (this session)
 
 Fix applied to both emitters (Target/HVM.hs = HVM3, Target/HVM4.hs = HVM4):
 a universe path is represented at runtime as a **Church pair (fwd, bwd)**;
-`ua(A,B,f,g,â€¦)` âŸ¶ `Î»k. k(f)(g)`; `coe(Î»i. p@i, i0,i1, x)` âŸ¶ `@cub_pathFwd(p)(x)`;
-`coe(â€¦, i1,i0, y)` âŸ¶ `@cub_pathBwd(p)(y)`; a constant type line `<_> A` âŸ¶
+`ua(A,B,f,g,â¦)` âŸ `Î»k. k(f)(g)`; `coe(Î»i. p@i, i0,i1, x)` âŸ `@cub_pathFwd(p)(x)`;
+`coe(â¦, i1,i0, y)` âŸ `@cub_pathBwd(p)(y)`; a constant type line `<_> A` âŸ
 `@cub_idPath`. This closes two real gaps in the prior emitter: `@pathBwd`
 was referenced but never defined, and `ua` lowered to `f` alone (dropping
 `g`), so backward transport was unrepresentable. Helpers are prefixed
@@ -70,21 +70,21 @@ Runtime results, path supplied as **runtime data** (not pre-reduced):
 
 | program | HVM4 (C runtime) | HVM3 (`hvm run`) |
 |---|---|---|
-| `@applyPath(*)(*)(@negPath)(1)` | `0`, **11 interactions** | â€” |
-| `@applyPath(*)(*)(@negPath)(0)` | `1`, **10 interactions** | â€” |
-| `t_fwd_neg` (coe i0â†’i1 along ua(neg), True) | `0` | `0`, 18 interactions |
-| `t_bwd_neg` (coe i1â†’i0 along ua(neg), True) | `0` | `0`, 18 interactions |
-| `t_fwd_id`  (coe i0â†’i1 along `<_>Bool`, True) | `1` | `1`, 17 interactions |
-| `t_bwd_id`  (coe i1â†’i0 along `<_>Bool`, True) | `1` | `1`, 17 interactions |
+| `@applyPath(*)(*)(@negPath)(1)` | `0`, **11 interactions** | â” |
+| `@applyPath(*)(*)(@negPath)(0)` | `1`, **10 interactions** | â” |
+| `t_fwd_neg` (coe i0â’i1 along ua(neg), True) | `0` | `0`, 18 interactions |
+| `t_bwd_neg` (coe i1â’i0 along ua(neg), True) | `0` | `0`, 18 interactions |
+| `t_fwd_id`  (coe i0â’i1 along `<_>Bool`, True) | `1` | `1`, 17 interactions |
+| `t_bwd_id`  (coe i1â’i0 along `<_>Bool`, True) | `1` | `1`, 17 interactions |
 
-A cubical program's transport â€” forward AND backward â€” reaches and reduces
+A cubical program's transport â” forward AND backward â” reaches and reduces
 on the interaction net; it is applied, not erased. Note: the HVM4 default
 emitter pre-normalises in Haskell (`normal 0 book`), so *closed* transports
 arrive as literals (0 interactions); the nonzero counts above come from the
 path being a function argument. HVM3's emitter does not pre-normalise.
 A `--to-hvm4-raw` mode (no pre-normalisation) was added and verified below.
 
-Checker regression after emitter changes: all 11 test files green (0 âœ—);
+Checker regression after emitter changes: all 11 test files green (0 â—);
 `uaRoundTrip` still correctly fails.
 
 ## Final matrix (rebuilt binary; all runs this session)
@@ -101,7 +101,7 @@ patched `hvm` above. `*` is HVM4's erasure literal.
 | `@applyPath(*)(*)(@idPath)(1)`  | 1 | 9  |
 | `@applyPath(*)(*)(@idPath)(0)`  | 0 | 9  |
 
-**`--to-hvm4-raw` (no compile-time normalisation â€” the net performs the
+**`--to-hvm4-raw` (no compile-time normalisation â” the net performs the
 cubical reduction):** emitted `@applyPathFwd = Î»b0 Î»b1 Î»b2 Î»b3. @cub_pathFwd(b2)(b3)`,
 `@negPath = (Î»b0. b0(@neg)(@neg))`, `@main = @applyPathFwd(&{})(&{})(@negPath)(1)`.
 
@@ -116,74 +116,74 @@ cubical reduction):** emitted `@applyPathFwd = Î»b0 Î»b1 Î»b2 Î»b3. @cub_pathFwd
 same values at 0 interactions: closed transports are pre-reduced in Haskell.
 The raw-mode and runtime-argument rows are the genuine on-net transports.)
 
-Checker regression on the final binary: examples/main 39âœ“, cubical_test 11âœ“,
-test2 10âœ“, test3 12âœ“, test4 8âœ“, test5 7âœ“, applypath 9âœ“, applypath_bwd 11âœ“,
-pth2 2âœ“, pthtransport 3âœ“, loop 2âœ“ ([unchecked]), equiv 7âœ“ â€” 0 âœ— anywhere;
+Checker regression on the final binary: examples/main 39â“, cubical_test 11â“,
+test2 10â“, test3 12â“, test4 8â“, test5 7â“, applypath 9â“, applypath_bwd 11â“,
+pth2 2â“, pthtransport 3â“, loop 2â“ ([unchecked]), equiv 7â“ â” 0 â— anywhere;
 uaRoundTrip still correctly fails.
 
 ## Status against the review's list
 - Native execution of cubical transport, both directions, on TWO runtimes: **done, measured.**
 - Pth transport through nonconstant families (`pth2.bend`): **reproduced.**
-- Totality false-positive (`loop.bend` â†’ `[unchecked]`): **reproduced.**
-- "Univalence complete" â†’ narrowed; reverse round trip fails at raw Iso level: **reproduced**; `equiv.bend` (coherent isEquiv, idEquiv) typechecks as the foundation for the coherent statement.
+- Totality false-positive (`loop.bend` â’ `[unchecked]`): **reproduced.**
+- "Univalence complete" â’ narrowed; reverse round trip fails at raw Iso level: **reproduced**; `equiv.bend` (coherent isEquiv, idEquiv) typechecks as the foundation for the coherent statement.
 - Backward transport (`@pathBwd` undefined; `ua` dropped `g`): **found and fixed.**
 - HVM3 target crashing on cubical terms: **found and fixed.**
 - Build blockers (HVM3 Runtime.c includes; UTF-8 locale; `bend check` false-positive): **found, fixed, documented.**
 
-## Addendum â€” coherent reverse univalence round trip (verified by execution)
+## Addendum â” coherent reverse univalence round trip (verified by execution)
 
 `bend uaequiv.bend` (with `LC_ALL=C.utf8`; without it bend aborts with
-`hGetContents: invalid argument` on any UTF-8 source and prints nothing â€”
-count âœ“/âœ— only under that locale):
+`hGetContents: invalid argument` on any UTF-8 source and prints nothing â”
+count â“/â— only under that locale):
 
-    17 âœ“  0 âœ—   incl. isPropIsContr, isPropIsEquiv (definitional), retC, uaE,
+    17 â“  0 â—   incl. isPropIsContr, isPropIsEquiv (definitional), retC, uaE,
                 pathToEquiv, uaEquivRoundTrip
 
 Regression on the same binary: applypath 9, applypath_bwd 11, corpus_calculus 10,
 corpus_lossless 8, cubical_test 11/10/12/8/7, hcompfaces 5, isprop 3, loop 2,
-pth2 2, run_corpus 4, t_* 7Ã—4, all 0 âœ—; uaroundtrip 4âœ“ 1âœ— (raw-Iso reverse
-trip, expected); equiv.bend 7âœ“ 1âœ— (its binary-hcomp probe, expected);
+pth2 2, run_corpus 4, t_* 7—4, all 0 â—; uaroundtrip 4â“ 1â— (raw-Iso reverse
+trip, expected); equiv.bend 7â“ 1â— (its binary-hcomp probe, expected);
 stock examples 2/2.
 
 Must-fail guard (`uaequiv_mustfail.bend`): `wrong1` (constant path `(f,h)`)
-and `wrong2` (endpoints swapped) both âœ— on the same binary; everything else in
-the file âœ“. The round-trip green is not a checker hole.
+and `wrong2` (endpoints swapped) both â— on the same binary; everything else in
+the file â“. The round-trip green is not a checker hole.
 
-## Addendum â€” fibre law as coherent Equiv, transported natively (`fibrelaw.bend`)
+## Addendum â” fibre law as coherent Equiv, transported natively (`fibrelaw.bend`)
 
-`bend fibrelaw.bend`: 32 âœ“ 0 âœ— (isoToIsEquiv via lemIso with 4-face hcompN,
+`bend fibrelaw.bend`: 32 â“ 0 â— (isoToIsEquiv via lemIso with 4-face hcompN,
 totalEquiv, losslessPath = uaE(totalEquiv), present/retrieve with refl laws).
-Runtime, raw net: HVM4 presentNeg Trueâ‡’0 (83), Falseâ‡’1 (76); retrieveNeg
-Trueâ‡’1, Falseâ‡’0 (118 each). HVM3: 102/93/140/140, same values. Full suite on
-this binary: every other file unchanged, `equiv.bend` now 10âœ“ 0âœ—,
-`uaequiv_mustfail.bend` wrong1/wrong2 still âœ—, stock examples 2/2. Details:
+Runtime, raw net: HVM4 presentNeg Trueâ’0 (83), Falseâ’1 (76); retrieveNeg
+Trueâ’1, Falseâ’0 (118 each). HVM3: 102/93/140/140, same values. Full suite on
+this binary: every other file unchanged, `equiv.bend` now 10â“ 0â—,
+`uaequiv_mustfail.bend` wrong1/wrong2 still â—, stock examples 2/2. Details:
 FIBRE_LAW.md.
 
-## Addendum â€” hfill, --total gate, endpoint-resolving emission
+## Addendum â” hfill, --total gate, endpoint-resolving emission
 
-- `hfill.bend`: 4 âœ“ (`hf`, `hf_face`, library `fill0` via hfill, main) and the
-  must-fail `wrong` (tube not starting at base) âœ—.
-- `bend loop.bend --total` â†’ `--total: refused, [unchecked]: loop`, exit 1;
-  `bend fibrelaw.bend --total` â†’ every definition [total]/[productive], exit 0.
-- `fibrelaw.bend` now 35 âœ“ 0 âœ— (adds `contrNeg0/1`: the fibre-contraction
-  path of `neg` over `True`, observed at both ends). HVM4-raw: both â‡’ `0`
+- `hfill.bend`: 4 â“ (`hf`, `hf_face`, library `fill0` via hfill, main) and the
+  must-fail `wrong` (tube not starting at base) â—.
+- `bend loop.bend --total` â’ `--total: refused, [unchecked]: loop`, exit 1;
+  `bend fibrelaw.bend --total` â’ every definition [total]/[productive], exit 0.
+- `fibrelaw.bend` now 35 â“ 0 â— (adds `contrNeg0/1`: the fibre-contraction
+  path of `neg` over `True`, observed at both ends). HVM4-raw: both â’ `0`
   (False; the fibre of neg over True is {False}), 18 itrs; HVM3: `0`, 23 itrs.
   Both emitters now resolve a literal endpoint `p @ i0/i1` by `force` before
-  erasing the interval (previously the erased body â€” for an hcomp, its cap â€”
+  erasing the interval (previously the erased body â” for an hcomp, its cap â”
   was emitted), so these observations are compile-time endpoint resolution
   followed by net reduction; earlier native matrix (t_*, present/retrieve)
   unchanged: 0/0/1/1 and 0/1/1/0.
-- Whole suite on this binary (27 files): 0 âœ— except the three deliberate
+- Whole suite on this binary (27 files): 0 â— except the three deliberate
   must-fails (`uaequiv_mustfail` wrong1/wrong2, `uaroundtrip` raw-Iso,
   `hfill` wrong); stock examples 2/2.
 
-## Addendum â€” runtime path algebra (`chain.bend`, RUNTIME_ALGEBRA.md)
+## Addendum â” runtime path algebra (`chain.bend`, RUNTIME_ALGEBRA.md)
 
-`chain.bend` 19 âœ“. Twelve closed transports along composite (`hcomp` in Set),
-inverse, Î  and Î£ lines: normaliser, `--to-hvm4-raw` and `--to-hvm` agree on
+`chain.bend` 19 â“. Twelve closed transports along composite (`hcomp` in Set),
+inverse, Î  and Î lines: normaliser, `--to-hvm4-raw` and `--to-hvm` agree on
 every value; HVM4-raw interactions 19/19 (two equivalences), 31/30 (three),
-13/12 (inverse), 20/19 (Î ), 20/19 (Î£) vs 10â€“11 for one bare `ua`. Raw mode
+13/12 (inverse), 20/19 (Î ), 20/19 (Î) vs 10â“11 for one bare `ua`. Raw mode
 now refuses (error naming the line) any coe line outside the algebra instead
-of emitting cap/identity. Regression on this binary: 28 files, 0 âœ— except the
+of emitting cap/identity. Regression on this binary: 28 files, 0 â— except the
 three deliberate must-fails; examples 2/2; prior raw matrices unchanged
 (t_* 0/0/1/1; present/retrieve 0/1/1/0; contr 0/0).

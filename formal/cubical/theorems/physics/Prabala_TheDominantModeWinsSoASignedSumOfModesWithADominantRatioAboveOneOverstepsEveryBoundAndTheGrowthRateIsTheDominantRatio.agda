@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- प्रबल — the dominant.
+-- ����� � the dominant.
 --
--- The growth theorem with signed weights: B(t) = Σ c_i m_i^t with a
--- dominant mode m_0 > m_i (i ≥ 1) and c_0 ≠ 0.  If m_0 > 1 then B
+-- The growth theorem with signed weights: B(t) = � c_i m_i^t with a
+-- dominant mode m_0 > m_i (i � 1) and c_0 ≠ 0.  If m_0 > 1 then B
 -- oversteps every bound.  The engine is the two-term binomial bound
 --
---     (m + x)^{t+1} ≥ m^{t+1} + (t+1) · x · m^t      (m, x ≥ 0),
+--     (m + x)^{t+1} � m^{t+1} + (t+1) � x � m^t      (m, x � 0),
 --
 -- which makes the dominant mode beat the tail by an Archimedean margin.
 --
 --   §1  THE TWO-TERM BINOMIAL BOUND, by induction as for Bernoulli.
---   §2  THE TAIL IS AT MOST (Σ|c_i|) · M^t when every tail ratio is ≤ M.
+--   §2  THE TAIL IS AT MOST (�|c_i|) � M^t when every tail ratio is � M.
 --   §3  THE DOMINANT MODE OVERSTEPS: for M < m_0, |c_0| m_0^t exceeds
---       K + (Σ|c_i|) M^t for some t, so |B(t)| > K.
+--       K + (�|c_i|) M^t for some t, so |B(t)| > K.
 --
--- प्रबल (prabala, dominant/strong) is ordinary Sanskrit.
+-- ����� (prabala, dominant/strong) is ordinary .
 ------------------------------------------------------------------------
 
 module Prabala_TheDominantModeWinsSoASignedSumOfModesWithADominantRatioAboveOneOverstepsEveryBoundAndTheGrowthRateIsTheDominantRatio where
@@ -47,7 +47,7 @@ open import Vrddhi_AModeOfRatioAboveOneGrowsPastEveryBoundAndAModeOfRatioAtMostO
   using (ι ; _^_ ; anṛṇa-guṇa ; ι-anṛṇa)
 
 ------------------------------------------------------------------------
--- १ · The two-term binomial bound.
+-- � � The two-term binomial bound.
 ------------------------------------------------------------------------
 
 anṛṇa-ghāta : (m : ℚ) → 0 ≤ m → (t : ℕ) → 0 ≤ m ^ t
@@ -79,7 +79,7 @@ dvipada m x 0≤m 0≤x (suc t) =
                         (anṛṇa-ghāta m 0≤m t))))
 
 ------------------------------------------------------------------------
--- २ · The tail is at most (Σ|c_i|) · M^t.
+-- � � The tail is at most (�|c_i|) � M^t.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Rationals.Order using (_≟_ ; lt ; eq ; gt ; ≤max ; ≤→max)
@@ -93,7 +93,7 @@ open import ParimeyaRupa_TheRationalsWithTheTrivialInvolutionFormAStarRingWithAH
   using (ṛṇa-viparīta)
 open import Cubical.Data.Nat.Order using (≤-refl ; ≤-suc) renaming (_<_ to _<ℕ_)
 
--- (−a)·p = −(a·p)
+-- (−a)�p = −(a�p)
 neg-guṇa : (a p : ℚ) → (- a) · p ≡ - (a · p)
 neg-guṇa a p = sym (·Assoc (-1) a p)
 
@@ -101,7 +101,7 @@ neg-guṇa a p = sym (·Assoc (-1) a p)
 śūnya-sama : (∣ 0 ∣) ≡ 0
 śūnya-sama = cong (max 0) (·AnnihilR (-1)) ∙ maxIdem 0
 
--- |a · p| = |a| · p for p ≥ 0
+-- |a � p| = |a| � p for p � 0
 guṇa-sama : (a p : ℚ) → 0 ≤ p → ∣ a · p ∣ ≡ (∣ a ∣) · p
 guṇa-sama a p 0≤p with a ≟ 0
 ... | lt a<0 = cong (max (a · p)) (sym (neg-guṇa a p))
@@ -121,7 +121,7 @@ guṇa-sama a p 0≤p with a ≟ 0
   neg≤0 : - (a · p) ≤ 0
   neg≤0 = subst2 _≤_ (+IdL (- (a · p))) (+InvR (a · p)) (≤-+o 0 (a · p) (- (a · p)) 0≤ap)
 
--- |Σ f| ≤ Σ |f|
+-- |� f| � � |f|
 Σ-trikoṇa : (f : ℕ → ℚ) (n : ℕ) → ∣ Σ⟨ n ⟩ f ∣ ≤ Σ⟨ n ⟩ (λ i → ∣ f i ∣)
 Σ-trikoṇa f zero    = subst (_≤ 0) (sym śūnya-sama) (isRefl≤ 0)
 Σ-trikoṇa f (suc n) = isTrans≤ (∣ Σ⟨ n ⟩ f + f n ∣) ((∣ Σ⟨ n ⟩ f ∣) + (∣ f n ∣)) (Σ⟨ n ⟩ (λ i → ∣ f i ∣) + (∣ f n ∣))
@@ -165,7 +165,7 @@ module Tail (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (0≤M : 0 ≤ M)
                          (≤-·o (m i ^ t) (M ^ t) (∣ c i ∣) (anṛṇa (c i)) (ghāta-mono (m i) M (0≤m i) (m≤M i i<n) t))))))
 
 ------------------------------------------------------------------------
--- ३ · The dominant mode oversteps every bound.
+-- � � The dominant mode oversteps every bound.
 ------------------------------------------------------------------------
 
 open import Cubical.Data.Empty using (⊥) renaming (rec to ⊥-elim ; isProp⊥ to isProp⊥)
@@ -189,13 +189,13 @@ module Sama′ (R : CommRing ℓ-zero) where
   pūraṇa : (M m : ⟨ R ⟩) → M ⊕ (m ⊝ M) ≡ m
   pūraṇa M m = solve! R
 
--- reverse triangle: |a| − |b| ≤ |a + b|
+-- reverse triangle: |a| − |b| � |a + b|
 viparīta-trikoṇa : (a b : ℚ) → (∣ a ∣) - (∣ b ∣) ≤ ∣ a + b ∣
 viparīta-trikoṇa a b =
   subst ((∣ a ∣) + (- (∣ b ∣)) ≤_) (Sama′.pratyāhāra ℚRing (∣ a + b ∣) (∣ b ∣))
     (≤-+o (∣ a ∣) ((∣ a + b ∣) + (∣ b ∣)) (- (∣ b ∣)) upper)
   where
-  -- |a| ≤ |a+b| + |b|
+  -- |a| � |a+b| + |b|
   upper : (∣ a ∣) ≤ (∣ a + b ∣) + (∣ b ∣)
   upper = subst (λ z → (∣ z ∣) ≤ (∣ a + b ∣) + (∣ b ∣)) (Sama′.pratyāhāra ℚRing a b)
             (isTrans≤ (∣ (a + b) + (- b) ∣) ((∣ a + b ∣) + (∣ - b ∣)) ((∣ a + b ∣) + (∣ b ∣))
@@ -268,7 +268,7 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
       p = M ^ t′
       q = M ^ t
       u = ι t
-      -- K + (C − c₀) q ≤ D p
+      -- K + (C − c�) q � D p
       s₂ : K + (C - c₀) · q ≤ D · p
       s₂ = subst (K + (C - c₀) · q ≤_) (Sama′.saṅgraha ℚRing (∣ K ∣) ((∣ C - c₀ ∣) · M) p)
              (≤Monotone+ K ((∣ K ∣) · p) ((C - c₀) · q) (((∣ C - c₀ ∣) · M) · p)
@@ -278,15 +278,15 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
                (subst (_≤ ((∣ C - c₀ ∣) · M) · p) (sym (·Assoc (C - c₀) M p))
                  (≤-·o ((C - c₀) · M) ((∣ C - c₀ ∣) · M) p (0≤M^ t′)
                    (≤-·o (C - c₀) (∣ C - c₀ ∣) M 0≤M (vāma (C - c₀))))))
-      -- D p < (u (c₀ x)) p
+      -- D p < (u (c� x)) p
       s₃ : D · p < (u · (c₀ · x)) · p
       s₃ = <-·o D (u · (c₀ · x)) p (0<M^ t′) D<ux
-      -- c₀ (q + (u x) p) ≤ c₀ m₀^t
+      -- c� (q + (u x) p) � c� m�^t
       s₅ : c₀ · (q + (u · x) · p) ≤ c₀ · (m 0 ^ t)
       s₅ = subst (λ z → c₀ · (q + (u · x) · p) ≤ c₀ · (z ^ t)) (Sama′.pūraṇa ℚRing M (m 0))
              (subst2 _≤_ (·Comm (q + (u · x) · p) c₀) (·Comm ((M + x) ^ t) c₀)
                (≤-·o (q + (u · x) · p) ((M + x) ^ t) c₀ (<Weaken≤ 0 c₀ 0<c₀) (dvipada M x 0≤M 0≤x t′)))
-      -- K + C q < |c₀ m₀^t|
+      -- K + C q < |c� m�^t|
       mukhya : K + C · q < ∣ c 0 · (m 0 ^ t) ∣
       mukhya = subst (K + C · q <_) (sym (guṇa-sama (c 0) (m 0 ^ t) (anṛṇa-ghāta (m 0) (0≤m 0) t)))
         (subst (_< c₀ · (m 0 ^ t)) (sym (Sama′.vibhāga ℚRing K C c₀ q))
@@ -295,11 +295,11 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
             (isTrans<≤ (D · p + c₀ · q) ((u · (c₀ · x)) · p + c₀ · q) (c₀ · (m 0 ^ t))
               (<-+o (D · p) ((u · (c₀ · x)) · p) (c₀ · q) s₃)
               (subst (_≤ c₀ · (m 0 ^ t)) (sym (Sama′.ghāta-vibhāga ℚRing c₀ u x p q)) s₅))))
-      -- K < |c₀ m₀^t| − C q
+      -- K < |c� m�^t| − C q
       s₇ : K < (∣ c 0 · (m 0 ^ t) ∣) - (C · q)
       s₇ = subst (_< (∣ c 0 · (m 0 ^ t) ∣) - (C · q)) (Sama′.pratyāhāra ℚRing K (C · q))
              (<-+o (K + C · q) (∣ c 0 · (m 0 ^ t) ∣) (- (C · q)) mukhya)
-      -- |c₀ m₀^t| − C q ≤ |c₀ m₀^t| − |T t| ≤ |B t|
+      -- |c� m�^t| − C q � |c� m�^t| − |T t| � |B t|
       s₈ : (∣ c 0 · (m 0 ^ t) ∣) - (C · q) ≤ (∣ c 0 · (m 0 ^ t) ∣) - (∣ T t ∣)
       s₈ = ≤-o+ (- (C · q)) (- (∣ T t ∣)) (∣ c 0 · (m 0 ^ t) ∣) (neg-≤ (∣ T t ∣) (C · q) (pucchā t))
       cakra : K < ∣ B t ∣
@@ -307,8 +307,8 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
                 (isTrans≤ ((∣ c 0 · (m 0 ^ t) ∣) - (C · q)) ((∣ c 0 · (m 0 ^ t) ∣) - (∣ T t ∣)) (∣ B t ∣) s₈ (viparīta-trikoṇa (c 0 · (m 0 ^ t)) (T t)))
 
   ----------------------------------------------------------------------
-  -- ४ · And from above: |B t| ≤ (|c₀| + C) · m₀^t.  So the growth rate
-  --     of B is exactly the dominant ratio m₀ — Θ − ½ read as a term.
+  -- � � And from above: |B t| � (|c�| + C) � m�^t.  So the growth rate
+  --     of B is exactly the dominant ratio m� � Θ − ½ read as a term.
   ----------------------------------------------------------------------
 
   M≤m₀ : M ≤ m 0
@@ -330,8 +330,8 @@ module Prabala (n : ℕ) (c m : ℕ → ℚ) (M : ℚ) (1≤M : 1 ≤ M) (M<m₀
     Σ-anṛṇa′ (suc k) = anṛṇa-yoga {Σ⟨ k ⟩ (λ i → ∣ c (suc i) ∣)} {∣ c (suc k) ∣} (Σ-anṛṇa′ k) (anṛṇa (c (suc k)))
 
 ------------------------------------------------------------------------
--- ५ · The converse, with signed weights: when every ratio is at most one
---     the signal is bounded by Σ|c_i| — the tail bound at M = 1.
+-- � � The converse, with signed weights: when every ratio is at most one
+--     the signal is bounded by �|c_i| � the tail bound at M = 1.
 ------------------------------------------------------------------------
 
 module Sīmita (n : ℕ) (c m : ℕ → ℚ) (0≤m : (i : ℕ) → 0 ≤ m i) (m≤1 : (i : ℕ) → i <ℕ n → m i ≤ 1) where

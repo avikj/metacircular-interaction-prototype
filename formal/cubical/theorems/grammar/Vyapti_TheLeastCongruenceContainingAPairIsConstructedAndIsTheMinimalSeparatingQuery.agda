@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --safe #-}
 --
--- व्याप्तिः — pervasion.  In Nyāya, vyāpti is the invariable concomitance that
--- licenses an inference: wherever the hetu is, the sādhya is, without
--- exception.  Gaṅgeśa, *Tattvacintāmaṇi*, c. 1325, is where its definition is
--- fought over at length; the notion is older, in the *Nyāyasūtra* tradition.
--- The word is taken for what it names — what must hold everywhere once it
+-- ��������� � pervasion.  In Nyya, vypti is the invariable concomitance that
+-- licenses an inference: wherever the hetu is, the sdhya is, without
+-- exception.  Gagea, *Tattvacintmai*, c. 1325, is where its definition is
+-- fought over at length; the notion is older, in the *Nyyastra* tradition.
+-- The word is taken for what it names � what must hold everywhere once it
 -- holds somewhere.  Nothing below is attributed to those texts.
 --
 -- WHAT THIS ANSWERS.  `Anuvrtti_...` proved that an observer sees a law
@@ -18,13 +18,13 @@
 -- This module makes both constructive, in the direction that matters:
 --
 --     given a rule f and a pair the observer wants to identify, there is a
---     LEAST congruence identifying it, and it is BUILT — the closure of the
+--     LEAST congruence identifying it, and it is BUILT � the closure of the
 --     pair under the rule, nothing more.
 --
 -- So the cost of an observer's chosen blindness is not a mood.  It is a
 -- computed set: identify (a,b) and you are forced to identify (f a, f b),
--- and (f² a, f² b), and nothing else.  Dually — and this is the direction
--- the instrument uses — the minimal information an observer must ADD to see
+-- and (f² a, f² b), and nothing else.  Dually � and this is the direction
+-- the instrument uses � the minimal information an observer must ADD to see
 -- a law is the failure of its own kernel to be closed under that same step,
 -- which is a finite computation and not a search.
 --
@@ -59,8 +59,8 @@ module _ (X : Type ℓ) (f : X → X) where
   open Anukula public
 
   -- ---------------------------------------------------------- the closure
-  -- व्याप्तिः: the least congruence containing a seed relation.  Four
-  -- constructors, one for each obligation, and NOTHING ELSE — which is
+  -- ���������: the least congruence containing a seed relation.  Four
+  -- constructors, one for each obligation, and NOTHING ELSE � which is
   -- exactly why it is least.
   data Vyapti (S : Rel) : X → X → Type ℓ where
     bija  : {x y : X} → S x y → Vyapti S x y          -- बीजम्, the seed

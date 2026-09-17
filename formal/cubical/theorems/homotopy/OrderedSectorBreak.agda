@@ -13,8 +13,8 @@
 --    because the sector predicate is not invariant."
 --
 -- `CenterRelative` supplies the ambient equivalence
--- Φ : Pair ≃ Centre over any CommRing in which 2 is invertible, and says
--- in its own "SYĀT — THE CLAIM, EXACTLY" that the positive cone cannot even be
+-- Φ : Pair � Centre over any CommRing in which 2 is invertible, and says
+-- in its own "SYT � THE CLAIM, EXACTLY" that the positive cone cannot even be
 -- posed there because `R` carries no order.  This file poses it.  Neither
 -- `CenterRelative.agda` nor `PerspectiveCore.agda` is edited; both are
 -- imported.
@@ -28,11 +28,11 @@
 --
 --   cubical v0.5 contains no ordered commutative ring in which 2 is
 --   invertible.  `Cubical.Data.Int` has no order module; `Cubical.HITs.
---   Rationals.QuoQ` builds ℚ as a set quotient but gives it **no
+--   Rationals.QuoQ` builds � as a set quotient but gives it **no
 --   `CommRing` instance and no order**; `Cubical.Algebra` has
 --   `OrderedCommMonoid` and nothing ordered above it.  Instantiating
---   would therefore mean first constructing ℤ[1/2] or ℚ as a `CommRing`
---   **and** its order — a module's worth of work orthogonal to C14.7,
+--   would therefore mean first constructing �[1/2] or � as a `CommRing`
+--   **and** its order � a module's worth of work orthogonal to C14.7,
 --   which is a statement about a *predicate*, not about any particular
 --   ring.
 --
@@ -44,13 +44,13 @@
 --      predicate `P` with `P 1r` inhabited and `P 0r` uninhabited.  Any
 --      ordered field supplies them.  §4's break needs four more, and they
 --      are the axioms of a strictly ordered abelian group with `0 < 1`
---      — no multiplicative compatibility, no trichotomy, no decidability.
+--      � no multiplicative compatibility, no trichotomy, no decidability.
 --      In particular **`0 < half` is never assumed**, which is why the
 --      witnesses below are chosen as they are.
 --
--- (2) That ℚ with its usual order inhabits it is standard and is CITED, not
+-- (2) That � with its usual order inhabits it is standard and is CITED, not
 -- formalized. What *is* checked is that the bundle has bite:
--- `StrictOrder.nontrivial` derives `¬ (1r ≡ 0r)` from it, so it is not
+-- `StrictOrder.nontrivial` derives `� (1r ≡ 0r)` from it, so it is not
 -- satisfied by the trivial ring and is not vacuous dressing on the break.
 --
 --
@@ -69,12 +69,12 @@
 --                            DIAGONAL pair `(1,1)`, strictly inside the
 --                            positive cone, whose centre image sits on
 --                            the wall `r = 0`.
---       `no-fibrewise-…`     hence, by `sector-not-inv`, no fibrewise
+--       `no-fibrewise-�`     hence, by `sector-not-inv`, no fibrewise
 --                            correspondence of the two predicates exists.
 --
 --   §3  `cone-restricts`     T14.6 sufficient direction, POSITIVELY: Φ
 --                            *does* restrict, to `Transported`.  This is
---                            the Feynman half — the transported sector is
+--                            the Feynman half � the transported sector is
 --                            derived (it is `PairCone ∘ Ψ`, on the nose),
 --                            not guessed, and it is `|r| < w`.
 --
@@ -85,14 +85,14 @@
 --                            pair `(−1,3)` not.
 --
 --   §5  `ambient`            the ambient equivalence, unrestricted, still
---                            there — so the failure is produced by sector
+--                            there � so the failure is produced by sector
 --                            selection and by nothing else.  That
 --                            juxtaposition IS C14.7.
 --
 --
 --  * **No converse.**  `SectorBreak` refutes fibrewise correspondence
 --    (that is `sector-not-inv`).  It does not refute the existence of
---    SOME equivalence `Σ Pair PairCone ≃ Σ Centre Sector` — such a thing
+--    SOME equivalence `� Pair PairCone � � Centre Sector` � such a thing
 --    may exist and permute the base.  `PerspectiveCore` says exactly this
 --    about T14.6's "iff", and nothing here strengthens it.
 --
@@ -219,7 +219,7 @@ module _ (R : CommRing ℓ) where
     PairCone : Prs → Type ℓ'
     PairCone (p , q) = P p × P q
 
-    -- … and as a subtype (Program 14.72's first ask, literally)
+    -- � and as a subtype (Program 14.72's first ask, literally)
     PositiveCone : Type (ℓ-max ℓ ℓ')
     PositiveCone = Σ Prs PairCone
 
@@ -247,9 +247,9 @@ module _ (R : CommRing ℓ) where
     --     same-named Centre predicate.
     --
     -- Witness: the DIAGONAL pair `(1,1)`.  It is strictly inside the
-    -- positive cone, and its centre image is `(half·2 , half·(1−1))`,
-    -- whose relative coordinate is `0` — on the wall, not in the open
-    -- sector.  Only `P 1r` and `¬ P 0r` are used; in particular the
+    -- positive cone, and its centre image is `(half�2 , half�(1−1))`,
+    -- whose relative coordinate is `0` � on the wall, not in the open
+    -- sector.  Only `P 1r` and `� P 0r` are used; in particular the
     -- sign of `half` is never needed, which is what makes this break
     -- available over ANY ring with 2 invertible.
     -----------------------------------------------------------------
@@ -259,7 +259,7 @@ module _ (R : CommRing ℓ) where
     break-diagonal p1 p0 =
       (1r , 1r) , ((p1 , p1) , λ z → p0 (subst P (diag0 half 1r) (z .snd)))
 
-    -- … and therefore no fibrewise correspondence of the two predicates
+    -- � and therefore no fibrewise correspondence of the two predicates
     -- exists.  This is `sector-not-inv`, i.e. C14.7's "precisely
     -- because the sector predicate is not invariant".
     no-fibrewise-diagonal :
@@ -271,7 +271,7 @@ module _ (R : CommRing ℓ) where
     -----------------------------------------------------------------
     -- 3.  T14.6, SUFFICIENT DIRECTION, POSITIVELY.
     --
-    -- The ambient equivalence DOES restrict — to `Transported`.  No
+    -- The ambient equivalence DOES restrict � to `Transported`.  No
     -- order axiom is used: the fibrewise correspondence is the
     -- transport of `PairCone` along `ΨΦ`, so it holds for an arbitrary
     -- predicate `P`.  The content is that `Transported` is forced: it
@@ -303,7 +303,7 @@ module _ (R : CommRing ℓ) where
     cone-not-invariant = no-fibrewise-diagonal pos1 ¬pos0
 
     -----------------------------------------------------------------
-    -- C14.7, SECOND BREAK — the one against the *natural* sector.
+    -- C14.7, SECOND BREAK � the one against the *natural* sector.
     --
     -- Along Ψ, the sector `w > 0` does not land in the positive cone.
     -- Witness `(w , r) = (1 , 1+1)`: `w > 0` holds, and

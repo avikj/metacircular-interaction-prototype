@@ -1,44 +1,44 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- StrainInvariants — at a trace-free symmetric 3×3 matrix, the even
+-- StrainInvariants � at a trace-free symmetric 3�3 matrix, the even
 -- magnitude tr S² is blind to the odd shape charge det S, the charge is
 -- blind to the magnitude, and neither factors through the other.
 --
 -- WHAT THIS IS.  The infinitesimal strain of an incompressible flow is a
 -- trace-free symmetric matrix.  Its two SO(3)-invariant readings of
--- lowest degree are the quadratic magnitude I₂ = tr S² (the dissipation
--- reading) and the cubic charge I₃ = det S (the reading whose sign says
+-- lowest degree are the quadratic magnitude I� = tr S² (the dissipation
+-- reading) and the cubic charge I� = det S (the reading whose sign says
 -- whether the strain has two expanding directions or one).  Over any
 -- commutative ring:
 --
---   §1  the involution S ↦ −S fixes I₂ and negates I₃ (solver);
---   §2  tr S³ ≡ 3·det S, and 2·e₂ ≡ −tr S² where e₂ is the second
---       elementary symmetric function — so the characteristic polynomial
---       of S is determined by (I₂ , I₃), the even sense fixing e₂ up to
---       the factor 2 and the odd sense being e₃ itself (solver);
---   §3  over ℤ, the two blind pairs: I₂ identifies S₀ = diag(2,−1,−1)
---       with −S₀ and I₃ separates them; I₃ identifies diag(1,0,−1) with
---       diag(2,0,−2) and I₂ separates them.  Hence, by the corpus's one
+--   §1  the involution S � −S fixes I� and negates I� (solver);
+--   §2  tr S³ ≡ 3�det S, and 2�e� ≡ −tr S² where e� is the second
+--       elementary symmetric function � so the characteristic polynomial
+--       of S is determined by (I� , I�), the even sense fixing e� up to
+--       the factor 2 and the odd sense being e� itself (solver);
+--   §3  over �, the two blind pairs: I� identifies S� = diag(2,−1,−1)
+--       with −S� and I� separates them; I� identifies diag(1,0,−1) with
+--       diag(2,0,−2) and I� separates them.  Hence, by the corpus's one
 --       descent lemma (DescentObstructionUnified.factorObstruction),
 --       det does not factor through tr S² and tr S² does not factor
 --       through det: an interdependent pair in the sense of Jyotiryugma,
 --       one even sense and one odd, neither post-processing of the other;
---   §4  the pointwise interaction ωᵀSω does not factor through the pair
---       (S , |ω|²): at S₀ the unit vectors e₁ and e₂ give 2 and −1.  And
+--   §4  the pointwise interaction ω�Sω does not factor through the pair
+--       (S , |ω|²): at S� the unit vectors e� and e� give 2 and −1.  And
 --       the coupling witness: two couplings of the same strain marginal
---       {S₀ , S₀'} with the same vorticity marginal {e₁ , e₂} have total
---       production 4 and −2 — the VitaranaYugma shape (marginals agree,
+--       {S� , S�'} with the same vorticity marginal {e� , e�} have total
+--       production 4 and −2 � the VitaranaYugma shape (marginals agree,
 --       the joint escapes), with the production as the named point.
 --
 -- READING, offered as a reading.  Every energy-type estimate for
--- Navier–Stokes is invariant under u ↦ −u, which is S ↦ −S on strain;
+-- Navier�Stokes is invariant under u � −u, which is S � −S on strain;
 -- §1 and §3 say such an estimate is provably blind to the sign of the
--- enstrophy production, whose integral on the torus is −4∫det S
--- (Betchov's identity — an integration by parts, NOT proved here).
+-- enstrophy production, whose integral on the torus is −4�det S
+-- (Betchov's identity � an integration by parts, NOT proved here).
 --
--- SYĀT — THE CLAIM, EXACTLY.  Ring identities and two-point witnesses over
--- ℤ.  No matrices as a type, no eigenvalues, no SO(3), no integral, no
+-- SYT � THE CLAIM, EXACTLY.  Ring identities and two-point witnesses over
+-- �.  No matrices as a type, no eigenvalues, no SO(3), no integral, no
 -- fluid.  "Strain" and "production" name the readings; the theorems are
 -- about six ring elements.  Trace-freeness is by construction: the third
 -- diagonal entry is −(a + b).
@@ -61,7 +61,7 @@ open import DescentObstructionUnified using (FactorsThrough ; factorObstruction)
 ------------------------------------------------------------------------
 -- §0  Trace-free symmetric matrices over a commutative ring, as their
 --     five free entries: diagonal a, b (the third is −(a+b)), off-diagonal
---     d = S₁₂, e = S₁₃, f = S₂₃.
+--     d = S��, e = S��, f = S��.
 ------------------------------------------------------------------------
 
 module Strain {ℓ : Level} (R' : CommRing ℓ) where
@@ -85,18 +85,18 @@ module Strain {ℓ : Level} (R' : CommRing ℓ) where
   neg : Sym → Sym
   neg (sym3 a b d e f) = sym3 (- a) (- b) (- d) (- e) (- f)
 
-  -- I₂ = tr S²
+  -- I� = tr S²
   trSq : Sym → R
   trSq S = a S · a S + b S · b S + c S · c S
          + (1r + 1r) · (d S · d S + e S · e S + f S · f S)
 
-  -- I₃ = det S, expanded along the first row of [[a,d,e],[d,b,f],[e,f,c]]
+  -- I� = det S, expanded along the first row of [[a,d,e],[d,b,f],[e,f,c]]
   det : Sym → R
   det S = a S · (b S · c S - f S · f S)
         - d S · (d S · c S - f S · e S)
         + e S · (d S · f S - b S · e S)
 
-  -- tr S³, from the diagonal of S·S·S
+  -- tr S³, from the diagonal of S�S�S
   trCube : Sym → R
   trCube S =
       (a S · a S + d S · d S + e S · e S) · a S
@@ -109,11 +109,11 @@ module Strain {ℓ : Level} (R' : CommRing ℓ) where
     + (e S · d S + f S · b S + c S · f S) · f S
     + (e S · e S + f S · f S + c S · c S) · c S
 
-  -- e₂ : the second elementary symmetric function of S (sum of principal 2-minors)
+  -- e� : the second elementary symmetric function of S (sum of principal 2-minors)
   e₂ : Sym → R
   e₂ S = (a S · b S - d S · d S) + (a S · c S - e S · e S) + (b S · c S - f S · f S)
 
-  -- the interaction ωᵀSω
+  -- the interaction ω�Sω
   prod : Sym → R × (R × R) → R
   prod S (x , y , z) =
       x · (a S · x + d S · y + e S · z)
@@ -141,7 +141,7 @@ module Strain {ℓ : Level} (R' : CommRing ℓ) where
   2e₂≡-trSq (sym3 a b d e f) = solve! R'
 
 ------------------------------------------------------------------------
--- §3  Over ℤ: the two blind pairs, and neither reading factors through
+-- §3  Over �: the two blind pairs, and neither reading factors through
 --     the other.
 ------------------------------------------------------------------------
 
@@ -187,11 +187,11 @@ private
     open import Cubical.Data.Int using (injPos)
     open import Cubical.Data.Nat using (znots ; injSuc)
 
--- the magnitude identifies S₀ with −S₀; the charge separates them
+-- the magnitude identifies S� with −S�; the charge separates them
 magnitude-blind-pair : (trSq S₀ ≡ trSq (neg S₀)) × (¬ (det S₀ ≡ det (neg S₀)))
 magnitude-blind-pair = refl , pos≢negsuc
 
--- the charge identifies S₁ with S₃; the magnitude separates them
+-- the charge identifies S� with S�; the magnitude separates them
 charge-blind-pair : (det S₁ ≡ det S₃) × (¬ (trSq S₁ ≡ trSq S₃))
 charge-blind-pair = refl , 2≢8
 
@@ -233,13 +233,13 @@ prod-not-through-magnitudes =
   factorObstruction magnitudes (λ p → prod (fst p) (snd p))
     (S₀ , e₁) (S₀ , e₂') refl pos≢negsuc
 
--- the coupling witness: S₀' = diag(−1, 2, −1)
+-- the coupling witness: S�' = diag(−1, 2, −1)
 S₀' : Sym
 S₀' = sym3 (negsuc 0) (pos 2) (pos 0) (pos 0) (pos 0)
 
 open CommRingStr (ℤCommRing .snd) using (_+_)
 
--- coupling A pairs (S₀,e₁),(S₀',e₂'); coupling B pairs (S₀,e₂'),(S₀',e₁).
+-- coupling A pairs (S�,e�),(S�',e�'); coupling B pairs (S�,e�'),(S�',e�).
 -- Same two strains, same two vorticities; total production 4 against −2.
 couplingA : prod S₀ e₁ + prod S₀' e₂' ≡ pos 4
 couplingA = refl

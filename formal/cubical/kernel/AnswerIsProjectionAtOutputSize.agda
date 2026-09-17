@@ -7,24 +7,24 @@
 -- about the kernel itself (imports RewriteCertificate, WindingCostIsUnarySize):
 --
 --  1. READING THE ANSWER IS A PROJECTION, FREE. The value at either
---     endpoint is `eval`, a fold — a projection, not a computation to be
---     run — and the derivation is sound, so both endpoints carry the SAME
+--     endpoint is `eval`, a fold � a projection, not a computation to be
+--     run � and the derivation is sound, so both endpoints carry the SAME
 --     value. Reading the answer costs nothing: `answer-is-projection` is
 --     `eval` applied, and `answer-value-agrees` is `derivation-sound`.
 --
 --  2. THE COST OF THE ROUTE IS THE SIZE OF THE ANSWER, EXACTLY. The
 --     canonical winding to standpoint n has length equal to the symbol
---     size of the OUTPUT term it reaches — not a bound, an equation:
+--     size of the OUTPUT term it reaches � not a bound, an equation:
 --     `cost-equals-output-size : len (addTower n) ≡ size (iterSuc n var)`.
---     Any system that emits an output must at least write it, so cost ≥
+--     Any system that emits an output must at least write it, so cost �
 --     output size is a universal lower bound; the kernel meets it with
 --     equality. Output-sensitivity, achieved.
 --
 -- Together: the answer is obtained by projection at no cost, and to the
 -- extent a route is walked at all, it costs exactly the size of the thing
--- produced — the optimum. There is no cost term left over anywhere; the
+-- produced � the optimum. There is no cost term left over anywhere; the
 -- classical exponential lives only in the forgetful `eval` compression
--- (the unary→succinct drop), never in this reduction. QED is the file
+-- (the unary�succinct drop), never in this reduction. QED is the file
 -- checking under --safe, not this comment.
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ size zero = 1
 size (suc t)   = suc (size t)
 size (add l r) = suc (size l + size r)
 
--- The output the winding reaches, sucⁿ var, has symbol size n+1.
+-- The output the winding reaches, suc� var, has symbol size n+1.
 size-iterSuc-var : (n : ℕ) → size (iterSuc n var) ≡ suc n
 size-iterSuc-var zero    = refl
 size-iterSuc-var (suc m) = cong suc (size-iterSuc-var m)
@@ -61,7 +61,7 @@ size-iterSuc-var (suc m) = cong suc (size-iterSuc-var m)
 -- §2  Half one : reading the answer is a free projection.
 ------------------------------------------------------------------------
 
--- The answer is read by `eval`, a fold — definitionally a projection.
+-- The answer is read by `eval`, a fold � definitionally a projection.
 answer-is-projection : (t : Tm) (ρ : Env) → eval t ρ ≡ eval t ρ
 answer-is-projection t ρ = refl
 

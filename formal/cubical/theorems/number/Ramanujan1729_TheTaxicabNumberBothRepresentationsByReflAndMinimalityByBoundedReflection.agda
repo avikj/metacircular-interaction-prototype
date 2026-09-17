@@ -1,10 +1,10 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∞‡§æ‡§Æ‡§æ‡§®‡•Å‡§ú‡§®‡•ç ‡•ß‡•≠‡•®‡•Ø ‚Äî THE TAXICAB NUMBER: BOTH REPRESENTATIONS BY REFL,
+-- ‡∞‡æ‡Æ‡æ‡®‡‡‡®‡ ‡ß‡‡®‡Ø ‚î THE TAXICAB NUMBER: BOTH REPRESENTATIONS BY REFL,
 -- AND MINIMALITY BY BOUNDED REFLECTION.
 --
--- Hardy: "a rather dull number."  Ramanujan: "no ‚Äî the smallest number
+-- Hardy: "a rather dull number."  Ramanujan: "no ‚î the smallest number
 -- expressible as the sum of two cubes in two different ways."  This
 -- file checks Ramanujan, completely:
 --
@@ -13,15 +13,15 @@
 --
 -- MINIMALITY is the real content, and it is proved, not sampled.  The
 -- engine is boolean-free bounded reflection: a scanner visits every
--- quadruple 1 ‚â§ a,b,c,d ‚â§ 12, and answers each with a Maybe-witness ‚Äî
+-- quadruple 1 ‚â a,b,c,d ‚â 12, and answers each with a Maybe-witness ‚î
 -- the comparison returns Maybe (m ‚â° n), the floor check returns
--- Maybe (1729 ‚â§ s) ‚Äî and the whole scan evaluates to just tt by ONE
+-- Maybe (1729 ‚â s) ‚î and the whole scan evaluates to just tt by ONE
 -- refl (`scan-ok`: 20736 quadruples, normalized by the kernel).
 -- Soundness lemmas convert the computation into the theorem
--- (`collision-bound`): colliding representations with parts ‚â§ 12
+-- (`collision-bound`): colliding representations with parts ‚â 12
 -- agree, agree swapped, or sit at 1729 or beyond.  A cube-growth
 -- argument (`parts-are-small`: 13¬≥ = 2197 already overshoots) shows
--- parts of any representation below 1729 are ‚â§ 12, and the halves
+-- parts of any representation below 1729 are ‚â 12, and the halves
 -- assemble into
 --
 --   `ramanujan-was-right` : any number below 1729 has, up to order,

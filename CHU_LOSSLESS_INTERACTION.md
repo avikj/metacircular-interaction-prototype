@@ -203,7 +203,7 @@ The two-pole Chu geometry survives, but each matrix entry is now a complete inte
 
 ## 7. One object, several projections
 
-The claim is stronger than ‚Äúa higher generalization of Chu spaces.‚Äù Chu duality, higher-dimensional interaction, cubical/Kan coherence, univalent transport, coalgebraic process, and metacircular execution arise by retaining successively more of one universal dependent interaction object.
+The claim is stronger than ‚a higher generalization of Chu spaces.‚ Chu duality, higher-dimensional interaction, cubical/Kan coherence, univalent transport, coalgebraic process, and metacircular execution arise by retaining successively more of one universal dependent interaction object.
 
 The lossless law supplies the rigidity:
 \[

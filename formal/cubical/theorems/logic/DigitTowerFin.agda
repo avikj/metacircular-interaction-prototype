@@ -11,7 +11,7 @@
 --
 -- This module tests whether that boundary belongs to the *mathematics* or
 -- to the *vocabulary*.  It restates the same carry obstruction with digit
--- words presented as functions `Fin n â†’ Digit` instead of as an indexed
+-- words presented as functions `Fin n â’ Digit` instead of as an indexed
 -- inductive `Vec`.  A function type has no index to match on, so if the
 -- warning is a Vec artefact it must disappear here while the statements
 -- proved stay the same.
@@ -23,9 +23,9 @@
 --
 -- Scope, stated so this is not over-read: this is a diagnosis of one
 -- warning, not a port of `DigitTowerLimit`.  The inverse limit, the
--- reversal equivalence `MSDLimit â‰ƒ LSDLimit`, and the transported law are
--- NOT reproduced here, and the interesting question â€” whether the full
--- equivalence also becomes transport-computable in this presentation â€” is
+-- reversal equivalence `MSDLimit â‰ LSDLimit`, and the transported law are
+-- NOT reproduced here, and the interesting question â” whether the full
+-- equivalence also becomes transport-computable in this presentation â” is
 -- open.  See Â§"What this does not show" in the accompanying message.
 
 module DigitTowerFin where

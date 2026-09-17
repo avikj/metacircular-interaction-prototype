@@ -7,7 +7,7 @@ Proof theory / categorical proof theory
 The question of when two derivations of the same sequent are the same
 proof has two standard answers.  The normalisation criterion identifies
 derivations with a common normal form.  The generality criterion
-identifies derivations that behave uniformly in their atoms â€” the same
+identifies derivations that behave uniformly in their atoms â” the same
 natural transformation, the same free construction.  We prove that in a
 calculus where reversal is a rule *constructor* rather than an admissible
 transformation, the first criterion has no referent, and that the second
@@ -15,7 +15,7 @@ is exactly propositional truncation of the derivation type.  Identity of
 proofs is then not a criterion to be chosen but a fibre, and we compute it.
 
 The calculus.  Formulas are terms of a closed inductive type with six
-independent atoms and no binder â€” no quantifier, no eigenvariable
+independent atoms and no binder â” no quantifier, no eigenvariable
 condition, no capture discipline, and the atoms are held distinct
 precisely so that a derivable equality is not silently an instance of
 reflexivity on the diagonal.  Rules are two computational rules, three
@@ -31,7 +31,7 @@ Composition of derivations is associative and unital *on the nose*, as
 data, so formulas and derivations form a strict category.  Inversion must
 be assembled from composition and double inversion is a syntactically
 distinct derivation, so the groupoid is weak.  Strictly a category, weakly
-a groupoid â€” and the entire content that survives the semantics lives in
+a groupoid â” and the entire content that survives the semantics lives in
 that gap.  Specifically: in the interpreting theory, inversion of an
 equality is involutive definitionally, while the syntactic symmetry
 constructor is not, so the whole semantically inaccessible part of a
@@ -42,8 +42,8 @@ Soundness sends a derivation to an equality in a discrete domain, hence
 into a subsingleton, and therefore factors through the propositional
 truncation of the derivation type.  The preimage of a proved proposition
 is not a subclass of the derivations, it is the whole derivation type.  We
-draw two consequences.  First, no function of the proposition â€” no
-extraction, no shortest-proof heuristic, no proof-mining functional â€” is
+draw two consequences.  First, no function of the proposition â” no
+extraction, no shortest-proof heuristic, no proof-mining functional â” is
 definable that selects a derivation, and this is a typing fact rather than
 a complexity claim.  Second, we exhibit two derivations of one equation
 whose endpoints agree by reduction rather than by proof: a direct
@@ -55,10 +55,10 @@ acquired inference and they are exact duals.  The first inhabits the higher
 universe, carries its full derivation as a field, has an *open*
 applicability family constrained only to project onto an identification
 with its single conclusion, and applies constantly in both the conclusion
-and the witness â€” so it licenses exactly one instance and no more.  The
+and the witness â” so it licenses exactly one instance and no more.  The
 second inhabits the lower universe, its applicability is a substitution
 witness rather than a declaration, it applies at every instance of its
-schema, and it carries no derivation whatsoever â€” only a family of
+schema, and it carries no derivation whatsoever â” only a family of
 equalities indexed by valuation.  That family is precisely the image of
 the soundness map.  Hence: **a rule is general exactly to the extent that
 its derivation has been truncated away.**  Instantiation is sound with no
@@ -73,7 +73,7 @@ instantiates the hypothesis constructor with the recursive call: a free
 proof variable discharged at the semantic boundary, converting two finite
 derivations into a statement over an infinite domain by one substitution.
 Accepted derivations are promoted to rules with no serialisation and no
-independent certificate checker â€” rule, applicability, conclusion and
+independent certificate checker â” rule, applicability, conclusion and
 derivation remain a single typed object, so the trusted boundary is a
 constructor.
 

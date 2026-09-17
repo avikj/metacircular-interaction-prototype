@@ -5,29 +5,29 @@
 --
 -- ATLAS_OF_N.md Proposition 2.11, the cohomological half:
 --
---     for every base b â‰¥ 2, every n â‰¥ 1, and EVERY digit section
---     s : â„¤/bâ¿ â†’ â„¤/bâ¿âºÂ¹ whatever, the carry class
+--     for every base b â‰ 2, every n â‰ 1, and EVERY digit section
+--     s : â/bâ¿ â’ â/bâ¿âºÂ whatever, the carry class
 --
---         [câ‚™]  â‰   0     in   HÂ²(â„¤/bâ¿ ; ker Ï€â‚™),
+--         [câ™]  â‰   0     in   HÂ²(â/bâ¿ ; ker Ïâ™),
 --
 -- where HÂ² is the group constructed in `GroupCohomologyH2`
--- as ZÂ²/BÂ² (the library quotient group), câ‚™ is `CarryObstruction`'s
--- `Carry.carry` â€” i.e. the note's s(u)+s(v)âˆ’s(u+v) â€” and Ï€â‚™ is the
--- truncation â„¤/bâ¿âºÂ¹ â†  â„¤/bâ¿.
+-- as ZÂ²/BÂ² (the library quotient group), câ™ is `CarryObstruction`'s
+-- `Carry.carry` â” i.e. the note's s(u)+s(v)âˆ’s(u+v) â” and Ïâ™ is the
+-- truncation â/bâ¿âºÂ â  â/bâ¿.
 --
 -- The two inputs are combined here and nothing else happens:
 --
---   * `GroupCohomologyH2.CarryClass.class-zeroâ†’hom-section` â€” if the class
+--   * `GroupCohomologyH2.CarryClass.class-zeroâ’hom-section` â” if the class
 --     of the carry vanishes then the extension has a *homomorphic*
 --     section;
---   * `CarryObstruction.BasePower.extension-does-not-split` â€” it has none.
+--   * `CarryObstruction.BasePower.extension-does-not-split` â” it has none.
 --
 -- Split out of `GroupCohomologyH2` so that the general construction and
 -- its arithmetic instance can be checked independently.
 --
--- Coefficients are `ker Ï€â‚™` as a group in its own right, NOT â„¤/b: the
--- isomorphism bâ¿â„¤/bâ¿âºÂ¹ â‰… â„¤/b is not constructed here and nonvanishing
--- does not use it.  Neither is HÂ²(â„¤/m;A) â‰… A/mA.  See the status
+-- Coefficients are `ker Ïâ™` as a group in its own right, NOT â/b: the
+-- isomorphism bâ¿â/bâ¿âºÂ â‰ â/b is not constructed here and nonvanishing
+-- does not use it.  Neither is HÂ²(â/m;A) â‰ A/mA.  See the status
 --
 -- Toolchain: Agda 2.6.3 + cubical v0.5, `--safe`, no postulates, no holes.
 ------------------------------------------------------------------------
@@ -50,12 +50,12 @@ open import GroupCohomologyH2 using (module CarryClass)
 
 ------------------------------------------------------------------------
 
--- b = 2 + k â‰¥ 2 and n = 1 + nâ€² â‰¥ 1, exactly as in `CarryObstruction`.
+-- b = 2 + k â‰ 2 and n = 1 + nâ² â‰ 1, exactly as in `CarryObstruction`.
 module CyclicCarryClass (k n' : â„•) where
 
   open CO.BasePower k n'
 
-  -- For an arbitrary digit set.  (`open â€¦ public` is deliberately not
+  -- For an arbitrary digit set.  (`open â¦ public` is deliberately not
   -- used: only the theorem is re-abstracted over s and sect.)
   module At (s : Fin N â†’ Fin M)
             (sect : (q : Fin N) â†’ red (s q) â‰¡ q) where
@@ -67,6 +67,6 @@ module CyclicCarryClass (k n' : â„•) where
     carryClassâ‰ 0 =
       class-zeroâ†’hom-section (Î» Ïƒ h â†’ extension-does-not-split Ïƒ h)
 
-  -- â€¦ and in particular for the schoolbook alphabet {0,â€¦,bâ¿âˆ’1}, whose
-  -- carry is the note's câ‚™ literally.
+  -- â¦ and in particular for the schoolbook alphabet {0,â¦,bâ¿âˆ’1}, whose
+  -- carry is the note's câ™ literally.
   module Std = At stdSection stdSection-sect

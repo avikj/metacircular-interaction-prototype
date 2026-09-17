@@ -1,11 +1,11 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§§‡•ç‡§∞‡§Ø‡•ã ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§æ‡§É ‚Äî trayo nir·πáayƒÅ·∏•, "three verdicts."  ‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£-‡§∏‡•Ç‡§§‡•ç‡§∞‡§Æ‡•ç ‡•¨:
--- ¬´‡§§‡•ç‡§∞‡§Ø‡•ã ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§æ‡§É, ‡§® ‡§¶‡•ç‡§µ‡•å ‡•§¬ª ‚Äî three verdicts, never two.  (Owner's root
--- text, README ¬ß‡§∏‡§Ç‡§∞‡§ï‡•ç‡§∑‡§£-‡§∏‡•Ç‡§§‡•ç‡§∞‡§æ‡§£‡§ø, 2026-08-22; the grammar of the s≈´tra is
--- the author's own.  The epistemic frame is the Jaina saptabha·πÖgƒ´ ‚Äî
--- asti / nƒÅsti / avaktavya ‚Äî UmƒÅsvƒÅti, *TattvƒÅrthas≈´tra* 5.32; the third
+-- ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡ ‚î trayo niray, "three verdicts."  ‡‡‡∞‡ï‡‡‡-‡‡‡‡‡∞‡Æ‡ ‡:
+-- ¬‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡, ‡® ‡¶‡‡µ‡ ‡¬ª ‚î three verdicts, never two.  (Owner's root
+-- text, README ¬ß‡‡‡∞‡ï‡‡‡-‡‡‡‡‡∞‡æ‡‡ø, 2026-08-22; the grammar of the stra is
+-- the author's own.  The epistemic frame is the Jaina saptabhag ‚î
+-- asti / nsti / avaktavya ‚î Umsvti, *Tattvrthastra* 5.32; the third
 -- position is what a standpoint yields when it cannot yet decide.)
 --
 -- WHAT IT PROVES, and why it is here.  runtime/propagate/invalidate.py's
@@ -13,29 +13,29 @@
 -- of a fact x iff EVERY homotopy class of its justification passes
 -- through x; a surviving class is one whose leaf-multiset avoids x.  The
 -- decision is computed from a class enumeration that MAY BE INCOMPLETE,
--- and its result type is deliberately three-valued ‚Äî SURVIVES / DEAD /
--- UNDECIDED ‚Äî with recompute.apply refusing to act on UNDECIDED
+-- and its result type is deliberately three-valued ‚î SURVIVES / DEAD /
+-- UNDECIDED ‚î with recompute.apply refusing to act on UNDECIDED
 -- (SCALE.md ¬ß5.1; STATUS.md failure mode #1 is exactly a boolean guess
 -- here).  This module proves that the third verdict is IRREDUCIBLE:
 --
---   ¬ß0  a class is characterised, for the retraction of x, by one bit ‚Äî
+--   ¬ß0  a class is characterised, for the retraction of x, by one bit ‚î
 --       true = passes through x (dies with x), false = avoids x (an
 --       independent proof).  `avoids` is the GROUND TRUTH and it is
---       two-valued: the consequence's actual survival is asti or nƒÅsti.
+--       two-valued: the consequence's actual survival is asti or nsti.
 --   ¬ß1  the epistemic verdict `decide seen complete` from a PARTIAL
 --       enumeration `seen`.
 --   ¬ß2  soundness of `survives`: a found survivor is real and stays real
 --       under any completion (`avoids` is monotone under ++).
---   ¬ß3  soundness of `dead`, and ¬ß4 completeness ‚üπ never UNDECIDED.
---   ¬ß5  THE DURNAYA ‚Äî the load-bearing theorem.  No two-valued verdict
+--   ¬ß3  soundness of `dead`, and ¬ß4 completeness ‚ü never UNDECIDED.
+--   ¬ß5  THE DURNAYA ‚î the load-bearing theorem.  No two-valued verdict
 --       computed from `seen` alone can be correct: two completions of the
 --       same seen prefix have DIFFERENT ground truth, so any boolean
---       decision destroys a real asti/nƒÅsti distinction.  ‡§§‡•ç‡§∞‡§Ø‡•ã ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§æ‡§É,
---       ‡§® ‡§¶‡•ç‡§µ‡•å, mechanised for L4 survival.
+--       decision destroys a real asti/nsti distinction.  ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡,
+--       ‡® ‡¶‡‡µ‡, mechanised for L4 survival.
 --
 -- The fibre reading: the survivors are the fibre over the seen prefix
 -- that the retraction cannot see into; forcing a two-valued answer is the
--- unreceipted compression (‡§π‡§ø‡§Ç‡§∏‡§æ ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∑‡•á‡§™‡§É) that loses it.  UNDECIDED is
+-- unreceipted compression (‡‡ø‡‡‡æ ‡‡ô‡‡ï‡‡‡‡‡) that loses it.  UNDECIDED is
 -- the honest receipt that the fibre was not enumerated.
 --
 -- Sources for the mathematics: runtime/propagate/README.md ¬ß0-¬ß1,
@@ -55,7 +55,7 @@ open import Cubical.Data.List
 ------------------------------------------------------------------------
 -- ¬ß0  classes, and the ground truth of survival (two-valued).
 --   true  = this homotopy class passes through the retracted fact x
---   false = this class avoids x ‚Äî an independent proof, a survivor
+--   false = this class avoids x ‚î an independent proof, a survivor
 ------------------------------------------------------------------------
 
 Classes : Type
@@ -139,7 +139,7 @@ dead-sound cs h with avoids cs
 ... | true  = ‚ä•.rec (survives‚â¢dead h)
 
 ------------------------------------------------------------------------
--- ¬ß4  completeness ‚üπ the verdict is never UNDECIDED.
+-- ¬ß4  completeness ‚ü the verdict is never UNDECIDED.
 ------------------------------------------------------------------------
 
 complete-decides : (cs : Classes) ‚Üí ¬¨ (decide cs true ‚â° undecided)
@@ -148,7 +148,7 @@ complete-decides cs h with avoids cs
 ... | false = dead‚â¢undec h
 
 ------------------------------------------------------------------------
--- ¬ß5  THE DURNAYA ‚Äî ‡§§‡•ç‡§∞‡§Ø‡•ã ‡§®‡§ø‡§∞‡•ç‡§£‡§Ø‡§æ‡§É, ‡§® ‡§¶‡•ç‡§µ‡•å.
+-- ¬ß5  THE DURNAYA ‚î ‡‡‡∞‡Ø‡ã ‡®‡ø‡∞‡‡‡Ø‡æ‡, ‡® ‡¶‡‡µ‡.
 --
 -- The incomplete standpoint: one class seen, and it passes through x, so
 -- no survivor is found yet and the enumeration is not exhausted.
@@ -174,7 +174,7 @@ _ = refl
 -- No verdict computed from `seen` ALONE (a function of the seen prefix)
 -- can be correct on both completions: it would have to equal both `true`
 -- and `false`.  Any two-valued decision on the incomplete standpoint
--- destroys the asti/nƒÅsti distinction the unenumerated classes carry ‚Äî
+-- destroys the asti/nsti distinction the unenumerated classes carry ‚î
 -- which is exactly why the third verdict is required, not optional.
 durnaya : (v : Classes ‚Üí Bool)
         ‚Üí v seen‚ÇÄ ‚â° avoids cs-survivor

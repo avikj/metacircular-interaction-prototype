@@ -1,12 +1,12 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§Ö‡§®‡§ø‡§∞‡•ç‡§ß‡§æ‡§∞‡§ø‡§§ ‚Äî incl does not section proj, and the host's own subject is
+-- ‡‡®‡ø‡∞‡‡ß‡æ‡∞‡ø‡ ‚î incl does not section proj, and the host's own subject is
 -- why.  The probe's open row (notes/SADHYA_OPEN_OBLIGATIONS.md, "host
--- enumeration", rung ‡•®/‡•©) asked incl (proj z) ‚â° z.  But incl includes
+-- enumeration", rung ‡®/‡©) asked incl (proj z) ‚â° z.  But incl includes
 -- the KERNEL N = {z0, z2} of proj, not a complement of it: proj z1 = e1
--- and incl e1 = z2, so the composite carries z1 to z2 ‚Äî one step around
--- the extension.  ‚Ñ§/4 is a non-split extension of ‚Ñ§/2 by ‚Ñ§/2; a section
+-- and incl e1 = z2, so the composite carries z1 to z2 ‚î one step around
+-- the extension.  ‚/4 is a non-split extension of ‚/2 by ‚/2; a section
 -- of proj through incl would split it.  The probe was asking the module
 -- to refute its own reason for existing.  Road two, witness z1.
 ------------------------------------------------------------------------
@@ -30,7 +30,7 @@ z1‚â¢z2 : z1 ‚â° z2 ‚Üí ‚ä•
 z1‚â¢z2 p = true‚â¢false (cong isZ1 p)
 
 -- THE VERDICT.  Green here means the field is NOT determined:
--- incl ‚àò proj is not the identity ‚Äî the extension does not split
+-- incl ‚àò proj is not the identity ‚î the extension does not split
 -- through the kernel.
 NOT-DETERMINED : incl (proj z1) ‚â° z1 ‚Üí ‚ä•
 NOT-DETERMINED p = z1‚â¢z2 (sym p)

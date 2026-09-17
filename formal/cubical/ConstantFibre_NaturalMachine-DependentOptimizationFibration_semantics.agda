@@ -1,23 +1,23 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤¤à¤ªà¤¸à¥ â€” a MINTED fibre receipt.  Emitted by
+-- àààà â” a MINTED fibre receipt.  Emitted by
 -- machine/Tapas_TheTemplateIsTheProofShapeAndEveryNonMatchIsAWrittenRefusal.hs
 -- from template T-CONST-BOOL, then CHECKED BY THE KERNEL before landing;
 -- the only later edit is the module line, qualified to its path.
 --
 -- THE EDGE (Lopa's queue, verdict UNDECIDED before this module):
---   NaturalMachine.DependentOptimizationFibration.Configuration  âŸ¶  âŸ¨libâŸ©.Bool
---   Â« NaturalMachine.DependentOptimizationFibration.semantics
+--   NaturalMachine.DependentOptimizationFibration.Configuration  âŸ  âŸ¨libâŸ©.Bool
+--   Â NaturalMachine.DependentOptimizationFibration.semantics
 --
 -- WHAT IS PROVED, following the structure of
 -- Lopa_TheSumsFibreIsExactlyNPlusOneAndNoLeftInverseExists:
 --   Â§1  over the constant's value false, the fibre IS the domain:
---       fiber semantics false â‰ƒ Configuration.  A constant map loses
+--       fiber semantics false â‰ Configuration.  A constant map loses
 --       EVERYTHING, and the fibre says so exactly: the elided datum is
 --       the whole input.
---   Â§2  off the value the fibre is EMPTY: Â¬ fiber semantics true.
---       à¤°à¤¿à¤•à¥à¤¤à¤®à¥ â€” the third verdict, which a two-valued isContr check
+--   Â§2  off the value the fibre is EMPTY: Â fiber semantics true.
+--       à°à¿à•ààà®à â” the third verdict, which a two-valued isContr check
 --       conflates with Â§1's opposite.
 --   Â§3  hence no section, and so certainly no left inverse in the other
 --       role: nothing the map does can be undone, because half the
@@ -37,7 +37,7 @@ open import Cubical.Relation.Nullary using (Â¬_)
 
 open import NaturalMachine.DependentOptimizationFibration using (Configuration ; semantics)
 
--- Â§1 Â· over the value: the fibre is the whole domain.
+-- Â§1 Â over the value: the fibre is the whole domain.
 over-value : fiber semantics false â‰ƒ Configuration
 over-value = isoToEquiv i where
   i : Iso (fiber semantics false) Configuration
@@ -46,11 +46,11 @@ over-value = isoToEquiv i where
   Iso.rightInv i x = refl
   Iso.leftInv i (x , p) j = x , isSetBool false false refl p j
 
--- Â§2 Â· off the value: the fibre is empty (à¤°à¤¿à¤•à¥à¤¤à¤®à¥, the third verdict).
+-- Â§2 Â off the value: the fibre is empty (à°à¿à•ààà®à, the third verdict).
 off-value : Â¬ fiber semantics true
 off-value (x , p) = falseâ‰¢true p
 
--- Â§3 Â· no section: the map reaches half the codomain and no map back
+-- Â§3 Â no section: the map reaches half the codomain and no map back
 -- can pretend otherwise.
 no-section : (g : Bool â†’ Configuration) â†’ ((b : Bool) â†’ semantics (g b) â‰¡ b) â†’ âŠ¥
 no-section g s = falseâ‰¢true (s true)

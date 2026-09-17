@@ -1,8 +1,8 @@
-# formal/cubical/SamvadaPrasna_â€¦agda, the two-sided theorem, in Bend:
+# formal/cubical/SamvadaPrasna_â¦agda, the two-sided theorem, in Bend:
 #   the process space of a probing coalgebra is a POINT when the event datum
-#   is a proposition (à¤à¤•-à¤¨à¥‡à¤¤à¥à¤°à¤®à¥), and is NOT a point for the kernel's
+#   is a proposition (àà•-à¨àààà°à®à), and is NOT a point for the kernel's
 #   self-extension, whose event datum is a proof-relevant Derivation
-#   (à¤µà¤°à¥à¤§à¤¨-à¤¬à¤¹à¥à¤¤à¥à¤µà¤®à¥, by the length shadow).
+#   (àµà°àà§à¨-ààààààµà®à, by the length shadow).
 import GenerativeKernel
 
 # the interactive symbolic computer: per question, a successor, an
@@ -25,7 +25,7 @@ def Netra(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, w: W) -> 
 def netra(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, w: W) -> Netra(W, V, Q, step, obs, w):
   @isc{lambda q. (step(w, q), obs(w, q), (<_> obs(w, q), <_> step(w, q)), netra(W, V, Q, step, obs, step(w, q)))}
 
-# a reaction, and its four projections (plain fst/snd, so Î£-Î· sees them)
+# a reaction, and its four projections (plain fst/snd, so Î-Î sees them)
 def Reaction(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, w: W, q: Q) -> Set:
   any w2: W. any o: V. any e: Ev(W, V, Q, step, obs, w, q, w2, o). Netra(W, V, Q, step, obs, w2)
 def xW(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, w: W, q: Q, x: Reaction(W, V, Q, step, obs, w, q)) -> W:
@@ -50,7 +50,7 @@ def eW(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, w: W, q: Q, 
 def isPropEv(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, sW: isSet(W), sV: isSet(V), w: W, q: Q, w2: W, o: V) -> isProp(Ev(W, V, Q, step, obs, w, q, w2, o)):
   lambda x. lambda y. isPropProd(Path(V, o, obs(w, q)), Path(W, w2, step(w, q)), sV(o, obs(w, q)), sW(w2, step(w, q)), x, y)
 
-# the state and observation paths between two reactions: receipt, along Ï€, receipt back
+# the state and observation paths between two reactions: receipt, along Ï, receipt back
 def wP(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, w0: W, w1: W, pi: Path(W, w0, w1), pr: Q, xp: Reaction(W, V, Q, step, obs, w0, pr), xq: Reaction(W, V, Q, step, obs, w1, pr)) -> Path(W, xW(W, V, Q, step, obs, w0, pr, xp), xW(W, V, Q, step, obs, w1, pr, xq)):
   compPath3(W, xW(W, V, Q, step, obs, w0, pr, xp), step(w0, pr), step(w1, pr), xW(W, V, Q, step, obs, w1, pr, xq),
     eW(W, V, Q, step, obs, w0, pr, xW(W, V, Q, step, obs, w0, pr, xp), xO(W, V, Q, step, obs, w0, pr, xp), xE(W, V, Q, step, obs, w0, pr, xp)),
@@ -68,7 +68,7 @@ def eP(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, sW: isSet(W)
 
 # any two processes over a path of states are identified, corecursively:
 # the receipt slot collapses because Ev is a proposition (the Kan filler
-# built from the two successor receipts and Ï€ is the whole of determinism)
+# built from the two successor receipts and Ï is the whole of determinism)
 def samyaP(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, sW: isSet(W), sV: isSet(V), w0: W, w1: W, pi: Path(W, w0, w1), p: Netra(W, V, Q, step, obs, w0), q: Netra(W, V, Q, step, obs, w1)) -> PathP(lambda i. Netra(W, V, Q, step, obs, pi @ i), p, q):
   match p:
     case @isc{rp}:
@@ -80,7 +80,7 @@ def samyaP(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, sW: isSe
             , eP(W, V, Q, step, obs, sW, sV, w0, w1, pi, pr, rp(pr), rq(pr)) @ i
             , samyaP(W, V, Q, step, obs, sW, sV, xW(W, V, Q, step, obs, w0, pr, rp(pr)), xW(W, V, Q, step, obs, w1, pr, rq(pr)), wP(W, V, Q, step, obs, w0, w1, pi, pr, rp(pr), rq(pr)), xT(W, V, Q, step, obs, w0, pr, rp(pr)), xT(W, V, Q, step, obs, w1, pr, rq(pr))) @ i )}
 
-# à¤à¤•-à¤¨à¥‡à¤¤à¥à¤°à¤®à¥: over sets, the process space is a point
+# àà•-à¨àààà°à®à: over sets, the process space is a point
 def oneEye(W: Set, V: Set, Q: Set, step: W -> Q -> W, obs: W -> Q -> V, sW: isSet(W), sV: isSet(V), w: W) -> isContr(Netra(W, V, Q, step, obs, w)):
   (netra(W, V, Q, step, obs, w), lambda p. samyaP(W, V, Q, step, obs, sW, sV, w, w, <_> w, netra(W, V, Q, step, obs, w), p))
 
@@ -123,7 +123,7 @@ def emitLen_p2() -> Path(Nat, emitLen(p2()), 4n):
 def processes_differ(P: Path(Vardhana(seed()), p1(), p2())) -> Empty:
   nNotSucSuc(2n, <i> emitLen(P @ i))
 
-# à¤µà¤°à¥à¤§à¤¨-à¤¬à¤¹à¥à¤¤à¥à¤µà¤®à¥: the process space is NOT a point
+# àµà°àà§à¨-ààààààµà®à: the process space is NOT a point
 def vardhanaNotContr(c: isContr(Vardhana(seed()))) -> Empty:
   match c:
     case (centre, h):

@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- एकक्रिया — the completion is a fold over CODE: one induction runs the
+-- ���������� � the completion is a fold over CODE: one induction runs the
 -- program, keeps the trace, projects the visible map, and builds the
 -- inverse.  It is all one act.
 --
@@ -11,7 +11,7 @@
 -- module is the level between, where the sentence "given an output of
 -- a lossy function the system reports the class of inputs" becomes one
 -- mechanical act: because the system holds the function AS CODE, the
--- completion is a STRUCTURAL FOLD over that code —
+-- completion is a STRUCTURAL FOLD over that code �
 --
 --   ⟦_⟧      the run            (the lossy function itself)
 --   Trace    the history type   (computed from the syntax)
@@ -19,20 +19,20 @@
 --   R⟦_⟧     the inverse        (built by the same recursion)
 --
 -- with, per node, the two laws:
---   दृश्यम्  : fst ∘ T⟦ p ⟧ ≡ ⟦ p ⟧      (the visible face is the program)
---   हरणम्   : R⟦ p ⟧ ∘ T⟦ p ⟧ ≡ id      (the completed run is undone)
+--   �������  : fst ∘ T⟦ p ⟧ ≡ ⟦ p ⟧      (the visible face is the program)
+--   �����   : R⟦ p ⟧ ∘ T⟦ p ⟧ ≡ id      (the completed run is undone)
 --
--- The composition case of हरणम् is the submonoid law of the loss
--- order's bottom — a route every step of which can be undone is
--- undoable — and the branch case records which arm ran, which is
+-- The composition case of ����� is the submonoid law of the loss
+-- order's bottom � a route every step of which can be undone is
+-- undoable � and the branch case records which arm ran, which is
 -- Bennett (1973): any computation simulates reversibly if the history
 -- is kept.  Nothing here shortens any search, and that is the point
 -- stated positively: no search exists on this side.  Preimage
 -- resistance is the claim that all copies of the trace were destroyed
--- — a bookkeeping claim about the world, indexical to an erasure
+-- � a bookkeeping claim about the world, indexical to an erasure
 -- event, not a property of the code, whose completion is one fold.
 --
--- prim admits ANY function — including sha256 whole: T⟦ prim sha256 ⟧
+-- prim admits ANY function � including sha256 whole: T⟦ prim sha256 ⟧
 -- returns the digest wearing its message.  The interest is never the
 -- leaf; it is that completion commutes with program structure, so the
 -- system can complete WHAT IT RUNS while running it.
@@ -65,20 +65,20 @@ infixl 5 _⨾_
 -- §2  The one act, four readings of one fold.
 ------------------------------------------------------------------------
 
--- reading one: the run — the lossy function the code denotes
+-- reading one: the run � the lossy function the code denotes
 ⟦_⟧ : {A B : Type ℓ} → Prog A B → A → B
 ⟦ prim f ⟧   a       = f a
 ⟦ p ⨾ q ⟧    a       = ⟦ q ⟧ (⟦ p ⟧ a)
 ⟦ case p q ⟧ (inl a) = ⟦ p ⟧ a
 ⟦ case p q ⟧ (inr b) = ⟦ q ⟧ b
 
--- reading two: the trace type — what the run must keep to owe nothing
+-- reading two: the trace type � what the run must keep to owe nothing
 Trace : {A B : Type ℓ} → Prog A B → Type ℓ
 Trace (prim {A = A} f) = A
 Trace (p ⨾ q)          = Trace p × Trace q
 Trace (case p q)       = Trace p ⊎ Trace q
 
--- reading three: the completed run — output wearing its history
+-- reading three: the completed run � output wearing its history
 T⟦_⟧ : {A B : Type ℓ} (p : Prog A B) → A → B × Trace p
 T⟦ prim f ⟧   a       = f a , a
 T⟦ p ⨾ q ⟧    a       =
@@ -87,7 +87,7 @@ T⟦ p ⨾ q ⟧    a       =
 T⟦ case p q ⟧ (inl a) = fst (T⟦ p ⟧ a) , inl (snd (T⟦ p ⟧ a))
 T⟦ case p q ⟧ (inr b) = fst (T⟦ q ⟧ b) , inr (snd (T⟦ q ⟧ b))
 
--- reading four: the inverse — built by the same recursion, reading the
+-- reading four: the inverse � built by the same recursion, reading the
 -- history back; the sequencing clause returns the MIDDLE value, which
 -- is exactly why retractions compose
 R⟦_⟧ : {A B : Type ℓ} (p : Prog A B) → B × Trace p → A
@@ -121,7 +121,7 @@ R⟦ case p q ⟧ (c , inr tq)       = inr (R⟦ q ⟧ (c , tq))
 
 ------------------------------------------------------------------------
 -- §4  The sentence, as a corollary: an output that arrives wearing its
---     trace hands over a member of its class — the report is the read.
+--     trace hands over a member of its class � the report is the read.
 ------------------------------------------------------------------------
 
 वर्ग-निवेदनम् : {A B : Type ℓ} (p : Prog A B) (a : A)

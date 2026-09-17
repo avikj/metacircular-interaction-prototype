@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§è‡§ï‡§æ‡§ß‡§ø‡§ï‡§∞‡§£ ‚Äî one locus.
+-- ‡‡ï‡æ‡ß‡ø‡ï‡∞‡ ‚î one locus.
 --
--- TERM.  ‡§Ö‡§ß‡§ø‡§ï‡§∞‡§£ ¬∑ adhikara·πáa, "locus, substratum" ‚Äî the place a property
--- resides.  It is a technical term in NyƒÅya (the locus of an absence, with
--- its counterpositive) and in P≈´rva-Mƒ´mƒÅ·πÉsƒÅ (the topic-section).  IT IS
--- USED HERE IN ITS ORDINARY SENSE ONLY ‚Äî the term at which an operation
--- resides ‚Äî and NO TEXT IS CLAIMED for the application, no author credited
+-- TERM.  ‡‡ß‡ø‡ï‡∞‡ ¬ adhikaraa, "locus, substratum" ‚î the place a property
+-- resides.  It is a technical term in Nyya (the locus of an absence, with
+-- its counterpositive) and in Prva-Mms (the topic-section).  IT IS
+-- USED HERE IN ITS ORDINARY SENSE ONLY ‚î the term at which an operation
+-- resides ‚î and NO TEXT IS CLAIMED for the application, no author credited
 -- with anything proved below, and no ledger row exists for the compound,
 -- which is built here.
 --
@@ -16,8 +16,8 @@
 --
 -- `ControlledGrammar.NativeOperation` carries an OPEN field:
 --
---     Control       : Tm ‚Üí Type‚ÇÄ            -- the caller supplies this
---     control-sound : {t : Tm} ‚Üí Control t ‚Üí t ‚â° source
+--     Control       : Tm ‚í Type‚            -- the caller supplies this
+--     control-sound : {t : Tm} ‚í Control t ‚í t ‚â° source
 --
 -- `Control` is arbitrary.  A caller may hand the kernel any predicate on
 -- terms whatsoever, including a wildly permissive one, and the kernel
@@ -43,13 +43,13 @@
 -- generalise" and "cannot be wrong at a site" are one sentence read twice.
 --
 -- AND THIS IS THE FIBRE LAW CHOOSING ITS BINDING.  `fibre/src/Fibre/
--- Carrier.agda`: for f : A ‚Üí B, bind the OUTPUT and the fibre is
--- `singl (f a)`, contractible, so the datum rides free ‚Äî that is the
+-- Carrier.agda`: for f : A ‚í B, bind the OUTPUT and the fibre is
+-- `singl (f a)`, contractible, so the datum rides free ‚î that is the
 -- schema, one proof and infinitely many free applications.  Bind the INPUT
--- and the fibre is `fiber f b`, the exact loss ‚Äî one proof, one site, and
+-- and the fibre is `fiber f b`, the exact loss ‚î one proof, one site, and
 -- you pay again to move.  ¬ß2 computes the locus type of an installed
 -- operation and it is literally a `singl`: contractible, one point, the
--- source.  The kernel is at the lossy binding on purpose.  `TheWholeDerivationTypeIsOneFibre‚Ä¶`
+-- source.  The kernel is at the lossy binding on purpose.  `TheWholeDerivationTypeIsOneFibre‚¶`
 -- reports the same position from the soundness side.
 --
 -- WHAT IS PROVED
@@ -102,17 +102,17 @@ adhikarana-upasamhara :
 adhikarana-upasamhara op (s , cs) (t , ct) = eka-adhikarana op s t cs ct
 
 ------------------------------------------------------------------------
--- ¬ß2.  FOR AN INSTALLED THEOREM, EXACTLY ONE ‚Äî AND IT IS A `singl`.
+-- ¬ß2.  FOR AN INSTALLED THEOREM, EXACTLY ONE ‚î AND IT IS A `singl`.
 --
 -- `Control (install d) t` is `t ‚â° lhs` definitionally, so the locus type
--- is Œ£[ t ] (t ‚â° lhs).  Reversing each path identifies it with singl lhs,
+-- is Œ[ t ] (t ‚â° lhs).  Reversing each path identifies it with singl lhs,
 -- which Prelude proves contractible.  The centre is the source.
 ------------------------------------------------------------------------
 
 Locus : NativeOperation ‚Üí Type‚ÇÄ
 Locus op = Œ£[ t ‚àà Tm ] Control op t
 
--- The locus type of an installed theorem is Œ£[ t ] (t ‚â° lhs): the
+-- The locus type of an installed theorem is Œ[ t ] (t ‚â° lhs): the
 -- singleton with its FREE endpoint on the left.  Contractible, centre the
 -- source.  The filler is the same square Prelude uses for isContrSingl,
 -- reflected: H i j = p (~ i ‚à® j).
@@ -137,9 +137,9 @@ adhikarana-mulam d = refl
 ------------------------------------------------------------------------
 
 -- RECURSIVE FAMILIES, NOT INDEXED DATA, and this is not a style choice.
--- The indexed version typechecks and then warns: it matches on `_‚à∑_` in an
+-- The indexed version typechecks and then warns: it matches on `_‚à_` in an
 -- INDEX position, so it relies on injectivity of that constructor, which
--- cubical Agda does not support ‚Äî the function would not compute when
+-- cubical Agda does not support ‚î the function would not compute when
 -- applied to transports.  Written as a family over the list, every clause
 -- is a definitional unfolding and nothing is matched in an index.
 

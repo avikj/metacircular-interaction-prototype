@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- DivisibilityGuardsAreMeetClosed
 --
--- corpus-native intersection-closed guard family â€” the divisibility
--- guards, with `D_d âˆ© D_e = D_lcm(d,e)` â€” and says of it:
+-- corpus-native intersection-closed guard family â” the divisibility
+-- guards, with `D_d âˆ© D_e = D_lcm(d,e)` â” and says of it:
 --
 --   "PROVED on paper in one line from unique factorisation; **not**
---    mechanised here â€” the Agda module carries no divisibility
+--    mechanised here â” the Agda module carries no divisibility
 --    instance."
 --
 -- Mechanised here, and WITHOUT unique factorisation: the meet law is
@@ -19,16 +19,16 @@
 -- corpus, the lcm is therefore taken by its universal property rather
 -- than constructed: `IsLcm d e l` says l is a common multiple that
 -- divides every common multiple.  Nothing below asserts that such an l
--- exists â€” existence is a separate obligation and is NOT discharged.
+-- exists â” existence is a separate obligation and is NOT discharged.
 --
--- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+-- â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 -- WHAT THIS DOES NOT DO, and it is the interesting half
 --
 -- This does NOT become an instance of `ElsewhereCondition.directedRooted`.
--- I read that module: its `Guard A = A â†’ Bool`, so a guard there is a
--- DECISION, while `D d` below is a Î£ â€” a search for the cofactor.
+-- I read that module: its `Guard A = A â’ Bool`, so a guard there is a
+-- DECISION, while `D d` below is a Î â” a search for the cofactor.
 -- Turning `D d` into a `Guard` is exactly the step of deciding
--- divisibility, which is available for â„• but is not free and is not
+-- divisibility, which is available for â• but is not free and is not
 -- done here.  So Â§6.1's family is meet-closed as stated, and is still
 -- not plugged in, and the thing standing between them is a decision.
 --
@@ -37,7 +37,7 @@
 -- `PermanentUnsaidIsStableAndTemporaryIsASearch`, met
 -- here from a third direction and not by design.
 --
--- CHECKED: Agda 2.6.3, cubical v0.5 â€” container pin.  --safe, no
+-- CHECKED: Agda 2.6.3, cubical v0.5 â” container pin.  --safe, no
 -- postulates, no holes.
 ------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ divides-trans {a} {b} {c} (k , bâ‰¡ka) (j , câ‰¡jb) =
   j Â· k , câ‰¡jb âˆ™ cong (j Â·_) bâ‰¡ka âˆ™ Â·-assoc j k a
 
 ------------------------------------------------------------------------
--- 2.  The lcm by its universal property â€” no construction, no
+-- 2.  The lcm by its universal property â” no construction, no
 --     factorisation
 ------------------------------------------------------------------------
 
@@ -102,10 +102,10 @@ divisibilityIsDirected isl x dx ex =
 -- 4.  A narrowing offered to Â§6.1, NOT applied
 --
 -- Â§6.1 says the meet law is "PROVED on paper in one line from unique
--- factorisation".  Â§3 uses no factorisation: `bothâ†’lcmGuard` IS the
--- universal property applied, and `lcmGuardâ†’both` is two transitivities.
+-- factorisation".  Â§3 uses no factorisation: `bothâ’lcmGuard` IS the
+-- universal property applied, and `lcmGuardâ’both` is two transitivities.
 -- Unique factorisation is needed for a different sentence in the same
--- paragraph â€” that `D_d â‹ D_e` iff `v_p(e) â‰¤ v_p(d)` for every p, which
+-- paragraph â” that `D_d â‹ D_e` iff `v_p(e) â‰ v_p(d)` for every p, which
 -- is genuinely about valuations and is NOT proved here.
 --
 -- Suggested replacement, for that note's author to take or leave:

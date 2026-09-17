@@ -33,7 +33,7 @@ def viaInv(x: Bool) -> Bool:
 # Pi line: a function Bool -> Bool transported along (negPath -> Bool)
 def viaPi(x: Bool) -> Bool:
   (coe(lambda i. (negPath() @ i) -> Bool, i0, i1, lambda y. y))(x)
-# Sigma line: a pair transported componentwise along Î£ (negPath) Bool
+# Sigma line: a pair transported componentwise along Î (negPath) Bool
 def viaSig(x: Bool) -> Bool:
   match coe(lambda i. any a: (negPath() @ i). Bool, i0, i1, (x, x)):
     case (a, b):

@@ -1,30 +1,30 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- SetuHolonomya ‚Äî the bridge folding the orb/QC reading into the
+-- SetuHolonomya ‚î the bridge folding the orb/QC reading into the
 --                 physics lane's existing holonomy machinery.
 --
--- TERM.  ‡§∏‡•á‡§§‡•Å ¬∑ setu ‚Äî a bridge, a causeway.  This file builds none of its
+-- TERM.  ‡‡‡‡ ¬ setu ‚î a bridge, a causeway.  This file builds none of its
 -- own objects; it CONNECTS two things already in the tree, so the orb device
 -- inherits the holonomy lane's theorems instead of shadowing them.  Written
 -- 2026-08-25, after reading the lane it should have read first: `VeniYang-
--- Baxtara_‚Ä¶` rebuilt on a private `Three` an S‚ÇÉ that `FiniteNonabelian-
--- Holonomy` already had, and `Sphatika_‚Ä¶`'s orb winding restates the ‚Ñ§
--- holonomy `Pradakshina_‚Ä¶` already proved.  Overlap is not the sin; leaving
+-- Baxtara_‚¶` rebuilt on a private `Three` an S‚ that `FiniteNonabelian-
+-- Holonomy` already had, and `Sphatika_‚¶`'s orb winding restates the ‚
+-- holonomy `Pradakshina_‚¶` already proved.  Overlap is not the sin; leaving
 -- the two unconnected is.  This bridges them.
 --
 -- ¬ß1.  THE NONABELIAN HOLONOMY IS A BRAID REPRESENTATION.  `FiniteNonabelian-
--- Holonomy` proved its two adjacent transpositions s‚ÇÄ‚ÇÅ, s‚ÇÅ‚ÇÇ of S‚ÇÉ do not
--- commute.  `yang-baxter-S‚ÇÉ` adds the missing relation ‚Äî œÉœÑœÉ = œÑœÉœÑ ‚Äî on THOSE
+-- Holonomy` proved its two adjacent transpositions s‚‚, s‚‚ of S‚ do not
+-- commute.  `yang-baxter-S‚` adds the missing relation ‚î œœœ = œœœ ‚î on THOSE
 -- SAME generators, so the lane's nonabelian holonomy is not merely
--- noncommuting: it is a braid-group B‚ÇÉ representation.  That is the exact
--- content `VeniYangBaxtara_‚Ä¶` proved on a private model, now landed where the
+-- noncommuting: it is a braid-group B‚ representation.  That is the exact
+-- content `VeniYangBaxtara_‚¶` proved on a private model, now landed where the
 -- holonomy actually lives.  Reading: the anyonic braiding of a universal
 -- topological quantum computer is this lane's holonomy, not a separate object.
 --
--- ¬ß2.  THE ORB WINDING IS THE CIRCUIT HOLONOMY.  `Pradakshina_‚Ä¶` proved the
--- circuit holonomy is the successor on ‚Ñ§ (‡§™‡•ç‡§∞‡§¶‡§ï‡•ç‡§∑‡§ø‡§£‡§æ = suc‚Ñ§).  The ideal orb's
--- single unit bounce (`Sphatika_‚Ä¶`) has winding one.  `orb-holonomy-is-the-
+-- ¬ß2.  THE ORB WINDING IS THE CIRCUIT HOLONOMY.  `Pradakshina_‚¶` proved the
+-- circuit holonomy is the successor on ‚ (‡‡‡∞‡¶‡ï‡‡‡ø‡‡æ = suc‚).  The ideal orb's
+-- single unit bounce (`Sphatika_‚¶`) has winding one.  `orb-holonomy-is-the-
 -- circuit` identifies them: the orb's phase quantum IS Pradakshina's circuit,
 -- read optically.  So the whispering-gallery winding and the LQG-lane circuit
 -- holonomy are one term.

@@ -1,17 +1,17 @@
-# Runtime vs compile time — what the net does, and the closed path algebra
+# Runtime vs compile time � what the net does, and the closed path algebra
 
 ## The distinction, precisely
 
 Intervals are erased at runtime. So a *value*-level path (a proof) has no
 runtime content, and its endpoints `p @ i0 / p @ i1` are resolved by the
-compiler (`force`) — for closed terms this is the same answer canonicity
+compiler (`force`) � for closed terms this is the same answer canonicity
 gives, and it costs nothing you care about (proofs ride at zero cost).
 
-A *universe* path (`Path(Set, A, B)`) is different: it is runtime data — a
-Church pair `(fwd, bwd)` — and `coe` along it is an application performed by
+A *universe* path (`Path(Set, A, B)`) is different: it is runtime data � a
+Church pair `(fwd, bwd)` � and `coe` along it is an application performed by
 the net. Before this change the net knew exactly ONE such path: a bare `ua`.
 Every composite (`hcomp` in `Set`), inverse (`P @ inot(i)`), and transport
-through `Π`/`Σ` of a `ua`-line was pre-computed by the Haskell normaliser, and
+through `Π`/`�` of a `ua`-line was pre-computed by the Haskell normaliser, and
 `--to-hvm4-raw` silently emitted the cap / identity for them. For a model of
 computing whose only action is transport across equivalences, that is the
 whole power missing: the net crossed one equivalence, never a chain.
@@ -23,27 +23,27 @@ checker admits on lines in `Set`:
 
 | line in `Set` | runtime path |
 |---|---|
-| `ua(A,B,f,g,…)` | `λk. k(f)(g)` |
+| `ua(A,B,f,g,�)` | `λk. k(f)(g)` |
 | `<i> P @ i` | `P` |
 | `<i> P @ inot(i)` | `inv P` = `λk. k(bwd P)(fwd P)` |
 | `<i> hcomp(Set, i, <_> A, <k> Q @ k, P @ i)` | `comp P Q` = `λk. k(fwd Q ∘ fwd P)(bwd P ∘ bwd Q)` |
 | `<i> (P@i) -> (Q@i)` (non-dependent) | `pi P Q` = `λk. k(λh. fwd Q ∘ h ∘ bwd P)(λh. bwd Q ∘ h ∘ fwd P)` |
-| `<i> Σ (P@i) (Q@i)` (non-dependent) | `sig P Q` = componentwise |
+| `<i> � (P@i) (Q@i)` (non-dependent) | `sig P Q` = componentwise |
 | constant line | `idPath` |
 
-`coe(λi. L, i0, i1, x)` emits `fwd(rep L)(x)`; `i1→i0` emits `bwd`. The same
+`coe(λi. L, i0, i1, x)` emits `fwd(rep L)(x)`; `i1�i0` emits `bwd`. The same
 rules were added to the checker's `whnfCoe` (inverse and composite lines), so
 the definitional laws and the runtime agree by construction.
 
 **Raw mode is strict**: a line outside this algebra (a `Pth` family, a
-dependent `Π`/`Σ`, a superposed line) is refused with an error naming the
-line — it is never erased to a cap or identity again. Normalised mode
+dependent `Π`/`�`, a superposed line) is refused with an error naming the
+line � it is never erased to a cap or identity again. Normalised mode
 (`--to-hvm4`) still pre-computes those, as before.
 
-## Evidence (`chain.bend`, 19 ✓)
+## Evidence (`chain.bend`, 19 �)
 
 `negNeg = <i> hcomp(Set, i, <_> Bool, <k> negPath @ k, negPath @ i)`,
-`neg3 = comp negNeg negPath`, plus inverse, `Π` and `Σ` lines. Twelve closed
+`neg3 = comp negNeg negPath`, plus inverse, `Π` and `�` lines. Twelve closed
 transports, three evaluators, identical values; interactions on the raw net
 grow with the number of equivalences crossed:
 
@@ -56,7 +56,7 @@ grow with the number of equivalences crossed:
 | `viaPi True/False` | False/True | 0/1 (20/19) | 0/1 |
 | `viaSig True/False` | False/True | 0/1 (20/19) | 0/1 |
 
-(single `ua`: 10–11 itrs; two: 19; three: 30–31.)
+(single `ua`: 10�11 itrs; two: 19; three: 30�31.)
 
 Emitted, e.g.:
 
@@ -66,7 +66,7 @@ Emitted, e.g.:
 ## What is still compile-time (stated, not hidden)
 
 - Face selection of a value-level `hcomp` (proof content; zero cost by design).
-- Transport along a `Path` family, a dependent `Π`/`Σ` line, or a superposed
-  (`&L{…}`) line: normaliser only; raw mode refuses. The superposed case is
-  the DUP-SUP routing rule — making it a runtime path (`λx. dup x; &L{fwd A
+- Transport along a `Path` family, a dependent `Π`/`�` line, or a superposed
+  (`&L{�}`) line: normaliser only; raw mode refuses. The superposed case is
+  the DUP-SUP routing rule � making it a runtime path (`λx. dup x; &L{fwd A
   x0, fwd B x1}`) is the natural next entry in the table.

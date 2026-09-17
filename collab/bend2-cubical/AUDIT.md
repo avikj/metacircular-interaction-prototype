@@ -6,28 +6,28 @@ over the corpus), what Bend has instead, and the file that proves it.
 
 | the corpus uses | count | in Bend | evidence |
 |---|---|---|---|
-| Path/PathP, refl/sym/cong/âˆ™, funExt, J, subst, transport | ubiquitous | native (`Path`, `<i>`, `@`, `hcomp`/`coe`) | `port/Prelude.bend` 47âœ“; every suite file |
+| Path/PathP, refl/sym/cong/âˆ™, funExt, J, subst, transport | ubiquitous | native (`Path`, `<i>`, `@`, `hcomp`/`coe`) | `port/Prelude.bend` 47â“; every suite file |
 | univalence (`ua`, `uaÎ²`, `isoToEquiv`, `equivFun`, `compEquiv`) | 758 / 577 / 552 / 431 | `ua` with uaÎ² definitional, Glue, `lemIso` transcribed | `uaequiv.bend`, `uaglue.bend`, `roundtrip.bend`, `port/Carrier.bend` |
-| h-levels (`isContr`/`isProp`/`isSet`, `isContrSingl`, `isPropâ†’isSet`, `isPropIsContr`, `isSetâ„•`) | ~2800 | defined; `isSetNat` by encodeâ€“decode, `isPropToIsSet` by a square | `port/Prelude.bend`, `hset.bend`, `effective.bend` |
-| `Cubical.HITs.PropositionalTruncation` (117 files), `SetQuotients` (66), `S1` (44), `Truncation`/`SetTruncation` (32), `Sn`, `KleinBottle`, `Torus`, `Susp`, `Pushout`, `Bouquet`, `FreeGroup`, `MappingCones` | | ONE declaration schema (`type â€¦ path @c(â€¦): Path(â€¦)`), dependent eliminator, transport and hcomp through HITs, full runtime | `HITS.md`, `hit_*.bend` (16 files), effectivity 23âœ“ |
-| inductive families with indices (`Step x y`, `Vec A n`, â€¦) | everywhere | constructors carry index equations `T{x == â€¦}`, matched by `{==}` | `port/RewriteCertificate.bend` 57âœ“ |
-| records with dependent and type-valued fields (`NativeOperation`, `Machine`) | everywhere | `type` with dependent fields, one-case matches as projections | `port/ControlledGrammar.bend` 73âœ“ |
+| h-levels (`isContr`/`isProp`/`isSet`, `isContrSingl`, `isPropâ’isSet`, `isPropIsContr`, `isSetâ•`) | ~2800 | defined; `isSetNat` by encodeâ“decode, `isPropToIsSet` by a square | `port/Prelude.bend`, `hset.bend`, `effective.bend` |
+| `Cubical.HITs.PropositionalTruncation` (117 files), `SetQuotients` (66), `S1` (44), `Truncation`/`SetTruncation` (32), `Sn`, `KleinBottle`, `Torus`, `Susp`, `Pushout`, `Bouquet`, `FreeGroup`, `MappingCones` | | ONE declaration schema (`type â¦ path @c(â¦): Path(â¦)`), dependent eliminator, transport and hcomp through HITs, full runtime | `HITS.md`, `hit_*.bend` (16 files), effectivity 23â“ |
+| inductive families with indices (`Step x y`, `Vec A n`, â¦) | everywhere | constructors carry index equations `T{x == â¦}`, matched by `{==}` | `port/RewriteCertificate.bend` 57â“ |
+| records with dependent and type-valued fields (`NativeOperation`, `Machine`) | everywhere | `type` with dependent fields, one-case matches as projections | `port/ControlledGrammar.bend` 73â“ |
 | coinductive records, `--guardedness` (1106 files), copattern bisimulations | | corecursive `type`s (Fix-typed), corecursive paths, `--total` productivity gate | `coinduction.bend`, `silence.bend`, `port/HLevelOfInteraction.bend` |
 | implicit arguments `{A : Type}`, instance arguments (626 files) | | none: every parameter is passed; the only systematic verbosity | all `port/*.bend` |
 | `with`-abstraction (2070 files), `mutual` (138) | | `match` on the abstracted value; top-level recursion is mutual by name | `port/*.bend` |
-| `Cubical.Data.Nat` (+ Order, Divisibility, Mod, GCD), `Int`, `List`, `Sigma`, `Sum`, `Maybe`, `Fin`, `Bool`, `Unit`, `Empty` | 1613 / 280 / 553 / â€¦ | Nat/List/Bool/Unit/Empty/Î£ native; Int, Sum, Maybe, Fin as declared `type`s; laws proved as needed | `port/Prelude.bend` (Nat laws), library to grow with the port |
+| `Cubical.Data.Nat` (+ Order, Divisibility, Mod, GCD), `Int`, `List`, `Sigma`, `Sum`, `Maybe`, `Fin`, `Bool`, `Unit`, `Empty` | 1613 / 280 / 553 / â¦ | Nat/List/Bool/Unit/Empty/Î native; Int, Sum, Maybe, Fin as declared `type`s; laws proved as needed | `port/Prelude.bend` (Nat laws), library to grow with the port |
 | `Cubical.Tactics.CommRingSolver` (163 files), `NatSolver` (59) | | NOT needed and NOT wanted: an equation in the ring is a normal form that computes; the port proves each by the two sides reducing or by induction | `port/EveryDerivationIsInvertible.bend` (`len-revD` by `plusSuc`/`plusZero`) |
 | reflection (`Agda.Builtin.Reflection`, 23 files) | | tooling only (the census reflects corpus types); the Bend emitters are the reflection: a term is data | `census/`, `EMITTER.md` |
 | `FOREIGN GHC` / IO (10 files) | | `main` runs on HVM4 (`--to-hvm4-full`), values printed by the runtime | every `port/*.bend` main |
-| universe levels (`Type â„“`) | | `Set : Set` (no levels) â€” a consistency caveat of Bend2, not of the port | â€” |
-| `abstract` (226), `postulate` (only in the erased/mukha lane) | | not needed; nothing is postulated in the port | â€” |
+| universe levels (`Type â“`) | | `Set : Set` (no levels) â” a consistency caveat of Bend2, not of the port | â” |
+| `abstract` (226), `postulate` (only in the erased/mukha lane) | | not needed; nothing is postulated in the port | â” |
 
 ## What is genuinely different, stated exactly
 
 - No implicit arguments and no instance resolution: ports are longer, never
   weaker.
 - Conversion is untyped one-step unfolding: some definitional equalities
-  Agda sees need an explicit path here (e.g. Î· for a user record is Î£-Î·
+  Agda sees need an explicit path here (e.g. Î for a user record is Î-Î
   componentwise, so projections must be plain `fst`/`snd`, see the note in
   `port/HLevelOfInteraction.bend`).
 - Parameters of a HIT constructor are read from the goal or supplied by an

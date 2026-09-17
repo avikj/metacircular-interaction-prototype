@@ -1,31 +1,21 @@
 # Pratt / Chu Exposition
 
-Top-level working locus for the Vaughan Pratt / Chu-spaces exposition and the mathematical website growing from it.
+This is the top-level working locus for the Vaughan Pratt / Chu-spaces exposition and the mathematical website that grows from it.
 
-## Front-page sources
+## Current working documents
 
-- [`CHU_LOSSLESS_INTERACTION.md`](CHU_LOSSLESS_INTERACTION.md) â€” long mathematical exposition.
-- [`PRATT_PLATE_V2.md`](PRATT_PLATE_V2.md) â€” compressed equation-dense front-page spine.
+1. **`CHU_LOSSLESS_INTERACTION.md`** â” the long-form mathematical exposition beginning from Chu evaluation and deriving forced lossless completion, higher/cubical interaction, univalent transport, productive continuation, metacircular closure, and the universal family. This is currently the strongest prose+mathematics exposition.
+2. **`PRATT_PLATE_V2.md`** â” equation-dense Pratt-facing mathematical plate; current front-page seed.
+3. **`PRATT_PLATE.md`** â” earlier full plate; preserve because it contains formulations/details that may be recovered during synthesis.
+4. **`WIKI_BUILD_SPEC.md`** â” first complete website/wiki graph and page-inventory handoff.
+5. **`MATHEMATICAL_WIKI_BUILD_SPEC.md`** â” expanded canonical build specification, including page ontology, identity/near-identity clustering, typed relations, canonical-Agda-per-page requirement, and build sequence.
 
-## First ten canonical pages
-
-1. [Lossless Interdependent Interaction](pages/01-lossless-interdependent-interaction.md)
-2. [The Fibre Law â€” Losslessness Is Forced](pages/02-fibre-law.md)
-3. [Chu Spaces Completed](pages/03-chu-spaces-completed.md)
-4. [Concurrency Is Geometry](pages/04-concurrency-is-geometry.md)
-5. [Action, Logic, and Optimal Inference](pages/05-action-logic-optimal-inference.md)
-6. [State / Event â€” Time / Information](pages/06-state-event-time-information.md)
-7. [Types Are Processes â€” Transformations Are Executable](pages/07-types-processes-transformations.md)
-8. [Coinduction, Continuum, and Causal Completion](pages/08-coinduction-continuum-causal-completion.md)
-9. [Interaction Geometry Becomes Physics](pages/09-interaction-geometry-physics.md)
-10. [The Interactive Symbolic Computer](pages/10-interactive-symbolic-computer.md)
-
-These are deliberately the same pages we would keep if the exposition were permanently limited to ten. Each is a major mathematical object/theorem-complex rather than a documentation category. Internal links already form the first graph; external links route standard background outward rather than duplicating it.
-
-## Canonical construction rule
-
-Every mathematical page ultimately gets one canonical Agda construction covering the entirety of that page's mathematical claims. This first pass links each page to the strongest existing checked source(s). Where the mathematics currently spans several modules, a later consolidation pass will add a single canonical re-export/construction rather than inventing unchecked glue.
+The newer [Bend2 — Unison reading and synthesis](../research/wiki/BEND2_UNISON_READING_AND_SYNTHESIS.md) updates the technology direction: the mathematical codebase and full cubical Bend2/HVM4 runtime are the computational center, and the wiki is a view into them. The Agda-per-page language in the earlier specs is historical while the corpus is ported.
 
 ## Working rule
 
-Preserve content losslessly, merge only exact identities, keep alternate mature vocabularies as aliases, and let the exposition branch outward from these ten pages. New pages should exist because there is project-specific mathematics to stateâ€”not because a standard concept deserves another encyclopedia entry.
+Do not treat these as five independent deliverables. They are concurrent views of one exposition. Preserve content losslessly, merge exact identities, and let the front page branch into canonical mathematical pages. Ground those pages in checked, executable cubical Bend2 constructions as the corpus is ported; retain the Agda constructions and proofs as provenance.
+
+## Next constructive step
+
+Synthesize `CHU_LOSSLESS_INTERACTION.md` + `PRATT_PLATE_V2.md` into the live front page while normalizing the wiki graph from the two build specs. Work outward concurrently from the mathematical nuclei rather than doing bookkeeping first.

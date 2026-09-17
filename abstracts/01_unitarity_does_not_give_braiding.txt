@@ -55,7 +55,7 @@ invariance imposed for physical reasons is precisely a blindness
 accepted.
 
 RESOLVED IN PART.  The missing coherence now has a name, a home, and
-a checked order: theorems/physics/VeniBandha supplies it â€” on strands
+a checked order: theorems/physics/VeniBandha supplies it â” on strands
 that are interdependent pairs, the swap twisted by the quarter turn
 satisfies Yang-Baxter on the nose (the proof is refl), its square is
 provably not the identity and its fourth power is not either, while
@@ -63,7 +63,7 @@ its eighth power is: a genuine braiding of exact order eight, the
 non-involutive exchange phase an anyonic crossing has and a bosonic or
 fermionic one does not.  With CaturamsaBhramana proving the quarter
 turn lives only on the pair, the arc closes: braiding is a property of
-interdependent strands, unavailable in principle to single states â€”
+interdependent strands, unavailable in principle to single states â”
 which is why unitarity alone could never supply it.  Hilbert spaces,
 density operators and anyon models proper remain constructions.
 

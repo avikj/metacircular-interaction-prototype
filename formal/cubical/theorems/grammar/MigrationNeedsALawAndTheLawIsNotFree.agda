@@ -4,9 +4,9 @@
 -- MigrationNeedsALawAndTheLawIsNotFree
 --
 -- `ACertifiedRewriteComposesAndOnlyOneComponentNeedsATheorem` closed
--- with the sharpest thing it could see about ฮ” 28 ยง39โ€“47:
+-- with the sharpest thing it could see about ฮ” 28 ยง39โ“47:
 --
---   "MIGRATION is a bare function with no law โ€” nothing says it
+--   "MIGRATION is a bare function with no law โ” nothing says it
 --    preserves the boundary semantics, and a compiler would need
 --    exactly that, so the composite's migration is only as meaningful
 --    as its components'."
@@ -16,17 +16,17 @@
 -- it is NOT FREE, so requiring it is a real constraint on a rewrite
 -- rather than a formality.
 --
--- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
+-- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
 -- WHAT IS PROVED
 --
 --   Lawful obs mig    the migration is observation-preserving:
 --                     `obs e (mig m) โก obs d m`
---   composeLawful     lawful migrations compose โ€” paths compose, so
+--   composeLawful     lawful migrations compose โ” paths compose, so
 --                     this half is as free as the three components that
 --                     were already free
 --   lawTransportsEveryInvariant
 --                     ANY function of the observation is preserved
---                     too, by one `cong` โ€” so a lawful migration moves
+--                     too, by one `cong` โ” so a lawful migration moves
 --                     no derived quantity, which is what "state
 --                     migration" has to mean for provenance and caches
 --                     to survive it
@@ -38,17 +38,17 @@
 -- composed for free, and it would be easy to read the migration
 -- component the same way.  It is not: a bare function is exactly a
 -- migration with no guarantee, and `unlawfulMigrationExists` is a
--- one-line witness that the guarantee has content.  So ยง39โ€“47's four
+-- one-line witness that the guarantee has content.  So ยง39โ“47's four
 -- components are better counted as THREE FREE, ONE EARNED (complexity,
--- by `โ-trans`), AND ONE UNDER-SPECIFIED (migration, which needs this
+-- by `โ-trans`), AND ONE UNDER-SPECIFIED (migration, which needs this
 -- law added before it means anything).
 --
--- โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
+-- โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”โ”
 -- NO NOVELTY.  "A map between state spaces commutes with the
 -- observation" is the definition of a simulation/refinement and is as
 -- old as the notion; `not` failing it is immediate.
 --
--- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ€” NOT the declared
+-- CHECKED on the CONTAINER (Agda 2.6.3, cubical v0.5 โ” NOT the declared
 -- pin, Agda 2.8.0 + cubical v0.9).  --safe, no postulates, no holes.
 ------------------------------------------------------------------------
 

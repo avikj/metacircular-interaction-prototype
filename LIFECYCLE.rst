@@ -56,7 +56,7 @@ The fibre law is the conservation account of presentation
 For a map ``f : A -> B``::
 
     fib_f(b) = Sigma(a : A). Path B (f(a)) b
-    A â‰ƒ Sigma(b : B). fib_f(b)
+    A â‰ Sigma(b : B). fib_f(b)
 
 The visible coordinate and its realization fibre constitute another exact
 presentation of the source. The fibre is not an optional comment attached to a
@@ -184,9 +184,9 @@ Reproduction and inheritance: transformations produce transformations
 
 ``SamasaSetu`` composes two equivalences with a shared intermediate carrier::
 
-    parent A : X â‰ƒ C
-    parent B : C â‰ƒ Y
-    child    : X â‰ƒ Y
+    parent A : X â‰ C
+    parent B : C â‰ Y
+    child    : X â‰ Y
     child = compEquiv parentA parentB
 
 The concrete child joins endpoints neither parent alone joined. This is the

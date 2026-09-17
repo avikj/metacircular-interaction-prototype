@@ -81,5 +81,5 @@ module _
     route = fabric d membership
 
 -- The only checked content is the consequence compiler.  In particular,
--- `InheritedΔ⋆`, basin coverage, and the transfer fabric remain explicit
+-- `InheritedΔ�`, basin coverage, and the transfer fabric remain explicit
 -- obligations for analytic number theory.

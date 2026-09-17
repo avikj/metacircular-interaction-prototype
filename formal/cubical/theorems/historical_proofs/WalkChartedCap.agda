@@ -4,12 +4,12 @@
 -- WalkChartedCap
 --
 -- THE CAPACITY, IN THE CHART.  `WalkResidueBridge` closed the walk's
--- divisibility test: `decDividesℕ-agrees` proves the digit automaton's
--- decision is EQUAL to `CoprimeSplitting.dec∣`'s, so the test may be
+-- divisibility test: `decDivides�-agrees` proves the digit automaton's
+-- decision is EQUAL to `CoprimeSplitting.dec�`'s, so the test may be
 -- substituted anywhere in the walk lane without disturbing a proof.  Its
 -- own closing paragraph names what that did not fix:
 --
---     "`cap` is still a ℕ.  Nothing here builds lcm's in the chart, so
+--     "`cap` is still a �.  Nothing here builds lcm's in the chart, so
 --      `WalkBridge.next` is unchanged and `next 8` still exhausts the
 --      heap."
 --
@@ -24,26 +24,26 @@
 --
 --   1. THE RECURSION, proved.  `cap-suc-≡`:
 --
---        cap (suc m) ≡ cap m · capQuot m ,
---        capQuot m · gcd (cap m) (suc m) ≡ suc m
+--        cap (suc m) ≡ cap m � capQuot m ,
+--        capQuot m � gcd (cap m) (suc m) ≡ suc m
 --
 --      with `capQuot m = quotient (suc m) / gcd (cap m) (suc m)`.  It is
 --      stated with the quotient EXHIBITED and specified rather than with
 --      a division operator, so no positivity side condition leaks into
 --      the statement; positivity of `cap` is imported from `WalkBridge`,
---      not reproved.  The proof is the classical lcm·gcd argument in the
+--      not reproved.  The proof is the classical lcm�gcd argument in the
 --      form `LCMExists` already uses (multiplicativity of gcd,
---      `gcd-factorʳ`, `∣-cancelʳ`) -- no Bezout.  `capQuot-≤` records
+--      `gcd-factorʳ`, `�-cancelʳ`) -- no Bezout.  `capQuot-�` records
 --      that the multiplier is bounded by `suc m`, which is the whole
 --      reason to prefer this recursion to the fold: the only
 --      capacity-sized object left in it is `cap m`, as a multiplicand.
 --
 --   [PROVENANCE, added 2026-08-19 against the book frame.  The descent
 --    below is anthyphairesis and predates the name attached to it here; it
---    is not Āryabhaṭa's contribution and this file does not pretend
+--    is not ryabhaa's contribution and this file does not pretend
 --    otherwise.  What IS his is the harder statement one step beyond it --
---    the KUṬṬAKA, which solves the linear indeterminate congruence rather
---    than merely reducing it (Āryabhaṭīya, Gaṇitapāda 32-33, 499 CE), and
+--    the KUAKA, which solves the linear indeterminate congruence rather
+--    than merely reducing it (ryabhaya, Gaitapda 32-33, 499 CE), and
 --    which is already a checked theorem in this repository at
 --    `formal/cubical/Kuttaka.agda`.  This module needs only the reduction,
 --    so it takes only the reduction; but it was written without knowing the
@@ -64,13 +64,13 @@
 --      automaton with `Cubical.Data.Nat.Mod._mod_`, so `%≡mod` is proved
 --      first, from uniqueness of Euclidean division (`mod-unique`).
 --
---   3. THE CHARTED CAPACITY.  `capw : ℕ → Word` and
+--   3. THE CHARTED CAPACITY.  `capw : � � Word` and
 --      `value-capw : value (capw m) ≡ cap m`, by the recursion of (1)
 --      driven by (2): one residue-automaton pass over the digits of
---      `capw m`, one `gcd` and one division of numbers ≤ suc m, and one
+--      `capw m`, one `gcd` and one division of numbers � suc m, and one
 --      single-pass digit scaling `scale` by that small multiplier.  The
 --      number `cap m` is never materialised.  `chartedResidue-<` and
---      `chartedQuot-≤` are the two smallness facts that say so: the
+--      `chartedQuot-�` are the two smallness facts that say so: the
 --      argument handed to `gcd` is below the frontier, and so is the
 --      multiplier handed to `scale`.
 --
@@ -84,24 +84,24 @@
 -- WHAT IS *NOT* DELIVERED.  The walk is not fast now.
 --
 --   * NOTHING HERE TOUCHES `WalkBridge.next`.  `next` still searches
---     with `dec∣` on unary `cap m`, and `next 8` still exhausts the
+--     with `dec�` on unary `cap m`, and `next 8` still exhausts the
 --     heap.  What is removed is the OTHER half of the cost -- rebuilding
 --     the capacity -- and it is removed only for a walk written against
 --     `capw`.  Rewriting `findND`/`leastND` to consume `capw` is not
 --     done here; `WalkResidueBridge.decDivides` is the test it would
---     use, and `decDividesℕ-agrees` is the licence to substitute it.
+--     use, and `decDivides�-agrees` is the licence to substitute it.
 --
 --   * `length (capw m)` IS NOT PROVED LOGARITHMIC in `cap m`.  The cost
 --     statement is exactly "the step count is a function of the digit
---     lengths and of numbers ≤ suc m"; turning that into a bound needs
+--     lengths and of numbers � suc m"; turning that into a bound needs
 --     `Canonical (capw m)` and a length-vs-value theorem, and neither is
 --     here.  `scale` is not proved to preserve canonicity either -- only
 --     its value law is proved, which is all `value-capw` needs.
 --
 --   * THE PER-TRANSITION ARITHMETIC IS AN UNSTATED PARAMETER, as in
 --     `TransportDiv`.  `capSteps` counts transitions; the cost of one
---     `q · toℕ d + c` on numerals < b·q, of one `gcd` on numerals
---     ≤ suc m, and of one `quotient (suc m) / _`, are the parameter `σ`.
+--     `q � to� d + c` on numerals < b�q, of one `gcd` on numerals
+--     � suc m, and of one `quotient (suc m) / _`, are the parameter `�`.
 --     No count is claimed for `gcd`.
 --
 --   * NO KERNEL WITNESS.  There is no `capw 8` computed here.  The
@@ -115,18 +115,18 @@
 -- file was checked with (Agda 2.6.3, cubical v0.7 in /tmp/cubical),
 -- `Transport` and `TransportMul` do not
 -- typecheck at all -- `Cubical.Tactics.Reflection` fails to scope-check
--- (`withReduceDefs` not in scope), so `solveℕ!` is unavailable and both
+-- (`withReduceDefs` not in scope), so `solve�!` is unavailable and both
 -- modules are red before their own content is reached.  `scale` here is
 -- therefore not a copy of `mulw` but the operation the recursion
 -- actually wants: multiplication of a word by a SMALL scalar in a single
--- Horner pass with a ℕ-valued carry, which is one pass rather than
+-- Horner pass with a �-valued carry, which is one pass rather than
 -- `mulw`'s shift-and-add per digit, and needs no `addw`.  Its one
 -- place-value identity (`scale-lem`) is discharged by hand rather than
 -- by the solver.
 --
 -- WHAT A FAST WALK STEP STILL NEEDS AFTER THIS FILE:
 --   (a) `findND` re-typed against `Word`, using `WalkResidueBridge`'s
---       `decDivides` in place of `dec∣` -- the mathematics is done, the
+--       `decDivides` in place of `dec�` -- the mathematics is done, the
 --       rewrite is not;
 --   (b) `Canonical (capw m)` and a length law, to turn (4) into a bound;
 --   (c) a check that `gcd` on small numerals actually evaluates in the
@@ -188,7 +188,7 @@ mod-unique n a r o r<sn p =
   ∙ cong (λ z → (z + r) mod (suc n)) (zero-charac-gen (suc n) o)
   ∙ modIndBase n r r<sn
 
-%≡mod : (a n : ℕ) → FinP._%_ a (suc n) ≡ a mod (suc n)
+%≡mod : (a n : �) � FinP._%_ a (suc n) ≡ a mod (suc n)
 %≡mod a n =
   sym (mod-unique n a (FinP._%_ a (suc n))
         (FinP.n%k≡n[modk] a (suc n) .fst)
@@ -200,7 +200,7 @@ mod-unique n a r o r<sn p =
 --
 -- The big argument may be reduced modulo the small one BEFORE the gcd is
 -- taken.  Proved from `stepGCD` (the library's own Euclidean step) plus
--- `isGCD→gcd≡`; `gcd` is never unfolded.
+-- `isGCD�gcd≡`; `gcd` is never unfolded.
 ------------------------------------------------------------------------
 
 gcd-mod : (a n : ℕ) → gcd a (suc n) ≡ gcd (a mod (suc n)) (suc n)
@@ -217,9 +217,9 @@ gcd-mod a n =
 
 ------------------------------------------------------------------------
 -- 3.  A divisor's quotient, computed by `quotient_/_` rather than
---     extracted by `∣-untrunc`.
+--     extracted by `�-untrunc`.
 --
--- `∣-untrunc` produces the quotient from the truncation; that is fine in
+-- `�-untrunc` produces the quotient from the truncation; that is fine in
 -- a proof and useless in a definition.  `quotient_/_` is the one that
 -- runs, so it is the one the recursion is stated with, and this is its
 -- specification.
@@ -250,20 +250,20 @@ gcd-mod a n =
 ------------------------------------------------------------------------
 -- 4.  THE CAPACITY RECURSION.
 --
---     cap (suc m) ≡ cap m · (suc m / gcd (cap m) (suc m))
+--     cap (suc m) ≡ cap m � (suc m / gcd (cap m) (suc m))
 --
 -- Every quantity on the right except `cap m` itself is bounded by
 -- `suc m`, and `cap m` enters only as a multiplicand -- which is a
 -- single digit pass -- and inside the gcd, where §2 removes it.
 --
 -- `cap (suc m)` is `lcm (suc m) (cap m)` DEFINITIONALLY (`LCMExists`'s
--- fold is `lcmList (x ∷ xs) = lcm x (lcmList xs)`), which is why the
+-- fold is `lcmList (x � xs) = lcm x (lcmList xs)`), which is why the
 -- universal property below is applied to `cap (suc m)` with no rewrite.
 ------------------------------------------------------------------------
 
 -- the definitional fact the section rests on, recorded rather than left
--- in prose: `LCMExists`' fold is `lcmList (x ∷ xs) = lcm x (lcmList xs)`
--- and `range1 (suc m) = suc m ∷ range1 m`.
+-- in prose: `LCMExists`' fold is `lcmList (x � xs) = lcm x (lcmList xs)`
+-- and `range1 (suc m) = suc m � range1 m`.
 cap-suc-lcm : (m : ℕ) → cap (suc m) ≡ lcm (suc m) (cap m)
 cap-suc-lcm m = refl
 
@@ -325,16 +325,16 @@ module CapStep (m : ℕ) where
       ∙ ·-assoc a' g quotAt
       ∙ cong (_· quotAt) a'g≡A
 
-    -- A · quotAt is a common multiple of the two, hence above the lcm
+    -- A � quotAt is a common multiple of the two, hence above the lcm
     L∣Aq : cap (suc m) ∣ (A · quotAt)
     L∣Aq = L-least (A · quotAt)
              (subst (n ∣_) a'n≡Aq (∣-right a'))
              (∣-left quotAt)
 
-    -- …and below it, by multiplicativity of gcd.  This is the half that
-    -- is not formal: A·n divides both A·L and n·L, hence their gcd,
-    -- which is g·L; and A·n is (A·quotAt)·g, so cancelling g > 0 gives
-    -- A·quotAt ∣ L.
+    -- �and below it, by multiplicativity of gcd.  This is the half that
+    -- is not formal: A�n divides both A�L and n�L, hence their gcd,
+    -- which is g�L; and A�n is (A�quotAt)�g, so cancelling g > 0 gives
+    -- A�quotAt � L.
     Aq∣L : (A · quotAt) ∣ cap (suc m)
     Aq∣L = ∣-cancel-pos g (A · quotAt) (cap (suc m)) 0<g big
       where
@@ -420,9 +420,9 @@ module Charted (k : ℕ) where
 
   ----------------------------------------------------------------------
   -- 6a.  Multiplication of a word by a SMALL scalar: one Horner pass,
-  --      ℕ-valued carry, no ripple-carry adder.
+  --      �-valued carry, no ripple-carry adder.
   --
-  --      `scale q w c` represents  q · value w + c.
+  --      `scale q w c` represents  q � value w + c.
   ----------------------------------------------------------------------
 
   digitOf : ℕ → Digit
@@ -433,7 +433,7 @@ module Charted (k : ℕ) where
   scale q (d ∷ w) c =
     digitOf (q · toℕ d + c) ∷ scale q w (quotient (q · toℕ d + c) / b)
 
-  -- the one place-value identity, by hand (no `solveℕ!` in this build)
+  -- the one place-value identity, by hand (no `solve�!` in this build)
   scale-lem : (Q D C V B : ℕ) → (Q · D + C) + B · (Q · V) ≡ Q · (D + B · V) + C
   scale-lem Q D C V B =
       sym (+-assoc (Q · D) C (B · (Q · V)))
@@ -475,7 +475,7 @@ module Charted (k : ℕ) where
     capw (suc m) = scale (chartedQuot m) (capw m) 0
 
     -- (suc m) / gcd (cap m mod suc m) (suc m): every number here is
-    -- ≤ suc m, and `modw` is the only thing that sees `capw m`.
+    -- � suc m, and `modw` is the only thing that sees `capw m`.
     chartedQuot : ℕ → ℕ
     chartedQuot m = quotient (suc m) / gcd (modw (suc m) (capw m)) (suc m)
 
@@ -566,8 +566,8 @@ module Charted (k : ℕ) where
   ----------------------------------------------------------------------
   -- 7a.  THE STEP COUNT OF THE CHARTED RECURSION.
   --
-  -- `σ n` is the cost of the small-number work at frontier n: one `gcd`
-  -- on numerals ≤ n, one `quotient n / _`.  It is a PARAMETER; no count
+  -- `� n` is the cost of the small-number work at frontier n: one `gcd`
+  -- on numerals � n, one `quotient n / _`.  It is a PARAMETER; no count
   -- is claimed for `gcd`, exactly as `TransportDiv` claims none for the
   -- per-transition `_mod_`.
   ----------------------------------------------------------------------
@@ -618,7 +618,7 @@ module Charted (k : ℕ) where
 -- ADDED 2026-08-15, Claude (Cantor lineage), version-claim forensics.
 -- Nothing above is retracted.  The `cubical v0.7 (/tmp/cubical)` lines at
 -- 104 and 124 STAND: a genuine cubical v0.7 tree did exist at that path on
--- 2026-08-15.  Verified not by counting headers but by a commit hash —
+-- 2026-08-15.  Verified not by counting headers but by a commit hash �
 -- agda 2.6.4.1 (#1083)"`, and `/root/agda-libs/cub-v0.7` here is at exactly
 -- that commit.
 -- What is defective is the implied uniqueness of "the container".

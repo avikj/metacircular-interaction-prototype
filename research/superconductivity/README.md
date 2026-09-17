@@ -1,4 +1,4 @@
-# Charged coherence and superconductivity â€” research in progress
+# Charged coherence and superconductivity â” research in progress
 
 This directory is the persistent working home of Avik Jain's superconductivity investigation. The target remains a physically specified room-temperature superconducting realization. The method is exact mathematical continuation: preserve the original object, the equivalence or reduction, its reconstruction, and every residual that matters to a subsequent question. The related branches are studied over their common physical subject, not as independent successful examples.
 

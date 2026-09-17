@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- Punarukti_TheTwoScaledCakravalaStepsAreOneTheorem
 --
--- ON THE NAME.  à¤ªà¥à¤¨à¤°à¥à¤•à¥à¤¤ Â· punarukta â€” "said again".  Gautama,
--- *NyÄyasÅ«tra* 5.2 (~2nd c. CE), the nigrahasthÄna list, at 5.2.14 in
--- the standard numbering: Å›abdÄrthayoá¸¥ punarvacanaá¹ƒ punaruktam
--- **anyatra anuvÄdÄt** â€” restating word or sense is a ground of defeat,
--- EXCEPT where it is anuvÄda, deliberate restatement.  The exception is
+-- ON THE NAME.  ààà¨à°àà•àà Â punarukta â” "said again".  Gautama,
+-- *Nyyastra* 5.2 (~2nd c. CE), the nigrahasthna list, at 5.2.14 in
+-- the standard numbering: abdrthayo punarvacana punaruktam
+-- **anyatra anuvdt** â” restating word or sense is a ground of defeat,
+-- EXCEPT where it is anuvda, deliberate restatement.  The exception is
 -- the whole point of the name here: a second proof of a theorem is not
 -- a defect if it says it is a second proof.  Neither of the two modules
 -- below says so, and neither imports the other.
@@ -21,16 +21,16 @@
 --       (added 2026-08-18 10:00 UTC, 230030a1)
 --
 -- are ONE THEOREM over an arbitrary commutative ring: same hypotheses
--- (the state condition plus the cakravÄla's three cleared divisions),
+-- (the state condition plus the cakravla's three cleared divisions),
 -- same conclusion up to `sym` on the hypotheses and one associativity.
--- `scaledâ†’step` and `stepâ†’scaled` below derive each from the other,
+-- `scaledâ’step` and `stepâ’scaled` below derive each from the other,
 -- so neither is a weakening of the other in any direction.
 --
 -- The duplication is not visible from either header.  NaturalMachine's
--- (10:00) says "This thread has quoted the cakravÄla in eight modules
+-- (10:00) says "This thread has quoted the cakravla in eight modules
 -- and built it in none", which was true when written.
 -- CakravalaDescent's (19:27) says "There was no `CakravalaDescent`
--- ... two references pointing at work that was never done" â€” and by
+-- ... two references pointing at work that was never done" â” and by
 -- then the kÂ²-scaled step HAD been done, nine hours earlier, in the
 -- same generality, in this same directory tree.  Neither file names the
 -- other.  Exactly one module imports both: the GENERATED aggregate root
@@ -40,15 +40,15 @@
 --
 -- The private lemma `Cakravala.Cycle.bhavana-trivial`
 -- (`solve! R`) is likewise `Bhavana.Form.cakravalaCleared` again, and
--- `Cakravala.à¤šà¤•à¥à¤°à¥€à¤¯-à¤ªà¤¦-à¤°à¥‚à¤ªà¤®à¥` is that same identity a third time over â„¤
--- from `Brahmagupta.à¤­à¤¾à¤µà¤¨à¤¾-à¤®à¤¾à¤¨`.  Those are named here and NOT bridged:
+-- `Cakravala.àà•àà°àà¯-àà¦-à°ààà®à` is that same identity a third time over â
+-- from `Brahmagupta.àà¾àµà¨à¾-à®à¾à¨`.  Those are named here and NOT bridged:
 -- one bridge is enough to place the finding, and `bhavana-trivial` is
 -- private, so a bridge to it would have to edit another author's file.
 --
 -- SOURCE OF THE MATHEMATICS RESTATED, not of this file: Jayadeva
--- (~950 CE, through UdayadivÄkara's *SundarÄ«*, 1073) and BhÄskara II,
--- *BÄ«jagaá¹‡ita* (1150), the cakravÄla; the identity it turns on is
--- Brahmagupta's bhÄvanÄ, *BrÄhmasphuá¹­asiddhÄnta* 18 (628), at the
+-- (~950 CE, through Udayadivkara's *Sundar*, 1073) and Bhskara II,
+-- *Bjagaita* (1150), the cakravla; the identity it turns on is
+-- Brahmagupta's bhvan, *Brhmasphuasiddhnta* 18 (628), at the
 -- trivial triple (m, 1, mÂ² âˆ’ D).
 --
 -- CHECKED: Agda 2.8.0, `--cubical --safe`.  No postulates, no holes.

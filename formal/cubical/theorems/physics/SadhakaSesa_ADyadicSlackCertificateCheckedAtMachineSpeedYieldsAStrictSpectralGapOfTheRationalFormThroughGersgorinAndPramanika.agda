@@ -1,18 +1,18 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- साधक-शेष — the prover with a remainder.
+-- �����-��� � the prover with a remainder.
 --
--- The certificate format that scales: integers A′, L′, D′, E′, c′ with
+-- The certificate format that scales: integers A�, L�, D�, E�, c� with
 --
---     A′ − c′·I  =  L′ D′ L′ᵀ + E′      exactly over ℤ,
---     D′ ≥ 0,   4 E′_ii ≥ Σ_j |E′_ij| + Σ_j |E′_ji|.
+--     A� − c��I  =  L� D� Lⲵ + E�      exactly over �,
+--     D� � 0,   4 E�_ii � �_j |E�_ij| + �_j |E�_ji|.
 --
--- Then for every rational v:  vᵀA′v ≥ c′ · Σ v_i².  Checked over Saṅkhyā
--- at machine speed; the soundness runs through Sadhaka (the LDLᵀ part),
+-- Then for every rational v:  v�A�v � c� � � v_i².  Checked over Sakhy
+-- at machine speed; the soundness runs through Sadhaka (the LDL� part),
 -- Gersgorin (the slack) and the additivity of the quadratic form.
 --
---   §1  ABSOLUTE VALUE AND ORDER on Saṅkhyā, sound into ℚ.
+--   §1  ABSOLUTE VALUE AND ORDER on Sakhy, sound into �.
 --   §2  ADDITIVITY of the quadratic form in the matrix; the identity.
 --   §3  THE CHECK and the theorem.
 ------------------------------------------------------------------------
@@ -43,7 +43,7 @@ open import VrddhiSima_ADiscreteGronwallWithASummableWeightClosesWithoutExponent
   using (Σ⟨_⟩)
 
 ------------------------------------------------------------------------
--- १ · Absolute value and order on Saṅkhyā.
+-- � � Absolute value and order on Sakhy.
 ------------------------------------------------------------------------
 
 abs𝕊 : 𝕊 → 𝕊
@@ -54,12 +54,12 @@ neg𝕊 : 𝕊 → 𝕊
 neg𝕊 (⁺ a) = ⁻ a
 neg𝕊 (⁻ a) = ⁺ a
 
--- [neg a / 1] ≤ 0 and 0 ≤ [pos a / 1]
+-- [neg a / 1] � 0 and 0 � [pos a / 1]
 neg-≤0 : (a : ℕ) → toℚ (⁻ a) ≤ℚ 0
 neg-≤0 zero    = isRefl≤ 0
 neg-≤0 (suc a) = subst (ℤO._≤ pos 0 ℤ.· pos 1) (sym (ℤ.·IdR (ℤ.negsuc a))) (ℤO.<-weaken ℤO.negsuc<-zero)
 
--- (−1)·neg a ≡ pos a in ℤ
+-- (−1)�neg a ≡ pos a in �
 eka-neg : (a : ℕ) → ℤ.negsuc 0 ℤ.· neg a ≡ pos a
 eka-neg zero    = ℤ.·AnnihilR (ℤ.negsuc 0)
 eka-neg (suc a) = ℤ.negsuc·negsuc 0 a ∙ ℤ.·IdL (pos (suc a))
@@ -72,7 +72,7 @@ abs-sama : (x : 𝕊) → ∣ toℚ x ∣ ≡ toℚ (abs𝕊 x)
 abs-sama (⁺ a) = dhana-sama (toℚ (⁺ a)) (toℚ-anṛṇa a)
 abs-sama (⁻ a) = ṛṇa-sama (toℚ (⁻ a)) (neg-≤0 a) ∙ neg-toℚ a
 
--- toℚ (neg𝕊 x) ≡ − toℚ x
+-- to� (neg� x) ≡ − to� x
 neg𝕊-sama : (x : 𝕊) → toℚ (neg𝕊 x) ≡ - toℚ x
 neg𝕊-sama (⁺ a) = cong (λ z → [ z / 1 ]) (sym (ℤ.-pos a) ∙ cong ℤ.-_ (sym (ℤ.·IdL (pos a))) ∙ sym (ℤ.negsuc·pos 0 a))
 neg𝕊-sama (⁻ a) = sym (neg-toℚ a)
@@ -90,7 +90,7 @@ anṛṇa?-sama (⁺ a)       _ = toℚ-anṛṇa a
 anṛṇa?-sama (⁻ zero)    _ = isRefl≤ 0
 anṛṇa?-sama (⁻ (suc a)) e = ⊥-elim (false≢true e)
 
--- x ≤ y decided as: y − x nonnegative
+-- x � y decided as: y − x nonnegative
 le𝕊 : 𝕊 → 𝕊 → Bool
 le𝕊 x y = anṛṇa? (y ⊕ neg𝕊 x)
 
@@ -103,7 +103,7 @@ le𝕊-sama x y e = subst2 _≤ℚ_ (+IdR (toℚ x)) lemma (≤-o+ 0 (toℚ y - 
   lemma = +Comm (toℚ x) (toℚ y - toℚ x) ∙ sym (+Assoc (toℚ y) (- toℚ x) (toℚ x)) ∙ cong (toℚ y +_) (+InvL (toℚ x)) ∙ +IdR (toℚ y)
 
 ------------------------------------------------------------------------
--- २ · Additivity of the form in the matrix, and the diagonal term.
+-- � � Additivity of the form in the matrix, and the diagonal term.
 ------------------------------------------------------------------------
 
 open import Cubical.Foundations.Structure using (⟨_⟩)
@@ -134,7 +134,7 @@ Q-yoga n B C v =
     P.Σ-ext< n _ _ (λ i _ → P.Σ-ext< n _ _ (λ j _ → Sama.yoga ℚRing (v i) (B i j) (C i j) (v j)) ∙ Σ-add _ _ n)
   ∙ Σ-add _ _ n
 
--- the diagonal matrix c·I
+-- the diagonal matrix c�I
 δ : ℚ → ℕ → ℕ → ℚ
 δ c i j with discreteℕ i j
 ... | yes _ = c
@@ -166,7 +166,7 @@ Q-yoga n B C v =
 ... | yes p = ⊥-elim (ne (sym p))
 ... | no  _ = refl
 
--- Q_{cI}(v) = c · Σ v_i²
+-- Q_{cI}(v) = c � � v_i²
 Q-δ : (n : ℕ) (c : ℚ) (v : ℕ → ℚ) → G.Q n (δ c) v ≡ c · Σ⟨ n ⟩ (λ i → v i · v i)
 Q-δ n c v =
     P.Σ-ext< n _ _ (λ i i<n →
@@ -179,7 +179,7 @@ Q-δ n c v =
   lemma a b = cong (_· b) (·AnnihilR a) ∙ ·AnnihilL b
 
 ------------------------------------------------------------------------
--- ३ · The check and the theorem.
+-- � � The check and the theorem.
 ------------------------------------------------------------------------
 
 catur-sama : toℚ (⁺ 4) ≡ 1 + 1 + 1 + 1
@@ -201,7 +201,7 @@ module _ (n : ℕ) (A L E : ℕ → ℕ → 𝕊) (D : ℕ → ℕ) (c : ℕ) wh
   ... | yes _ = c𝕊
   ... | no  _ = ⁺ 0
 
-  -- the right-hand side L D Lᵀ + E + c·I, in Saṅkhyā
+  -- the right-hand side L D L� + E + c�I, in Sakhy
   dakṣiṇa : ℕ → ℕ → 𝕊
   dakṣiṇa i j = (Σ𝕊 n (λ k → (L i k ⊗ D𝕊 k) ⊗ L j k) ⊕ E i j) ⊕ δ𝕊 i j
 
@@ -228,7 +228,7 @@ module _ (n : ℕ) (A L E : ℕ → ℕ → 𝕊) (D : ℕ → ℕ) (c : ℕ) wh
   ... | yes _ = refl
   ... | no  _ = refl
 
-  -- the identity, read in ℚ
+  -- the identity, read in �
   A-sama : sādhya ≡ true → (i j : ℕ) → i <ℕ n → j <ℕ n → Aℚ i j ≡ (Mℚ i j + Eℚ i j) + δ (toℚ c𝕊) i j
   A-sama e i j i<n j<n =
       cong (λ z → [ z / 1 ]) (eq𝕊-sama (A i j) (dakṣiṇa i j) (sarva-satya n (λ j′ → eq𝕊 (A i j′) (dakṣiṇa i j′)) (sarva-satya n (λ i′ → sarva n (λ j′ → eq𝕊 (A i′ j′) (dakṣiṇa i′ j′))) (fst (and-satya ldl? dom? e)) i i<n) j j<n))
@@ -239,7 +239,7 @@ module _ (n : ℕ) (A L E : ℕ → ℕ → 𝕊) (D : ℕ → ℕ) (c : ℕ) wh
                                          (λ k _ → toℚ-⊗ (L i k ⊗ D𝕊 k) (L j k) ∙ cong (_· Lℚ j k) (toℚ-⊗ (L i k) (D𝕊 k)))))
                 (δ-toℚ i j)
 
-  -- diagonal dominance, read in ℚ
+  -- diagonal dominance, read in �
   prabhutva : sādhya ≡ true → G.Prabhutva n Eℚ
   prabhutva e i i<n =
     subst2 _≤ℚ_ (toℚ-⊕ (paṅkti i) (stambha i)

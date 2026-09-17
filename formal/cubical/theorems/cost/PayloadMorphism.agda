@@ -10,15 +10,15 @@
 -- WHY THIS MODULE EXISTS (the correction chain, in order):
 --
 --   1. `CompileBridge` §I `ArithmeticPayload` (this author) fixed the
---      DATA a native payload must carry — shape-indexed datum,
---      composition, semantics, `unfold`-preservation, separate cost —
+--      DATA a native payload must carry � shape-indexed datum,
+--      composition, semantics, `unfold`-preservation, separate cost �
 --      and never fixed the transformations under which that data may be
 --      re-presented.  So every carrier/rank notion it implies is
 --      underdetermined.
---      is the no-go that names the omission: the k = 3 Möbius residual
---      r = -6 Z₂ + 12 Z₁ - 8 Z₀ has unrestricted carrier rank 1 (as the
---      single map 1 ↦ r) and graded carrier rank 3 (one channel per
---      residue depth) — the SAME payload, two carriers, purely from the
+--      is the no-go that names the omission: the k = 3 Mbius residual
+--      r = -6 Z� + 12 Z� - 8 Z� has unrestricted carrier rank 1 (as the
+--      single map 1 � r) and graded carrier rank 3 (one channel per
+--      residue depth) � the SAME payload, two carriers, purely from the
 --      morphism class.
 --      that once a DIFFERENTIAL is present the class is not free: a
 --      subcomplex containing U in degree one must contain d(U) in degree
@@ -33,7 +33,7 @@
 --
 -- WHAT IS CHECKED
 --
--- B. `MorphismClass Tgt` (§B) — the parameter that was missing.  A class
+-- B. `MorphismClass Tgt` (§B) � the parameter that was missing.  A class
 --    declares its carriers `Obj`, their `rank`, their elements, the
 --    admissible maps `Hom c` into the target, and TWO LAWS: an
 --    admissible map sends the zero element to the target's zero, and a
@@ -45,23 +45,23 @@
 --                             for ANY class and ANY payload, a minimal
 --                             carrier rank is unique when it exists.
 --                             (`MinCarrier` is a partial function of the
---                             pair (class , payload) — before the class
+--                             pair (class , payload) � before the class
 --                             is fixed it is not even that.)
---    B2 `factorsAt0→null`     the laws' one use: in any class, only the
+--    B2 `factorsAt0�null`     the laws' one use: in any class, only the
 --                             target's zero factors through rank 0.
 --
--- C-E. Two classes over the same graded target `Layer n = Fin n → ℤ`
+-- C-E. Two classes over the same graded target `Layer n = Fin n � �`
 --    (coordinate j is the coefficient of the depth-j layer, so the
 --    object is literally a finite direct sum over residue depth).
 --
---    D  `Uncls n`             UNRESTRICTED: a carrier is a bare ℤ^m, an
+--    D  `Uncls n`             UNRESTRICTED: a carrier is a bare �^m, an
 --                             admissible map is an arbitrary matrix
---                             ℤ^m → Layer n.  One channel may feed every
+--                             �^m � Layer n.  One channel may feed every
 --                             degree.
 --       `U-min-one`,          minimal carrier is 1 for every nonzero
 --       `U-min-zero`          payload and 0 for the zero payload.
 --    E  `Gcls n`              GRADING-PRESERVING: a graded carrier IS its
---                             dimension vector `Fin n → ℕ` (that is the
+--                             dimension vector `Fin n � �` (that is the
 --                             classification of f.g. free graded
 --                             modules), rank is the total dimension, and
 --                             degree j of the output reads only degree j
@@ -69,7 +69,7 @@
 --       `G-degreewise`        that condition, stated and checked.
 --       `G-needs-channel`     a nonzero layer forces a channel at its
 --                             own degree,
---       `G-rank-bound`        hence graded rank ≥ support size,
+--       `G-rank-bound`        hence graded rank � support size,
 --       `G-factors-supp`      and the bound is attained,
 --       `G-min`               so the minimal graded carrier IS the
 --                             support size, for every payload.
@@ -82,10 +82,10 @@
 --
 -- F. THE SEPARATION, at the note's own residual.
 --
---    `r₃ = -6 Z₂ + 12 Z₁ - 8 Z₀`, `supp-r₃ : supp r₃ ≡ 3` (`refl`).
+--    `r� = -6 Z� + 12 Z� - 8 Z�`, `supp-r� : supp r� ≡ 3` (`refl`).
 --    F1 `minimal-carrier-depends-on-class`
 --                             one payload, two classes, minimal carriers
---                             1 and 3, with `¬ (1 ≡ 3)`.  Both numbers
+--                             1 and 3, with `� (1 ≡ 3)`.  Both numbers
 --                             are minima, and by B1 neither is a choice.
 --       `unrestricted-does-rank-1` / `graded-cannot-do-rank-1`
 --                             the same fact in its sharpest form: a
@@ -94,28 +94,28 @@
 --    F2 NEGATIVE CONTROL      the note's promotion table (1,3), (1,2),
 --                             (1,1), (0,0) is checked in all four rows:
 --                             `table-row-3/2/1/0`.  The last two rows
---                             are where the two classes AGREE — so the
---                             separation is a fact about r₃ and the
+--                             are where the two classes AGREE � so the
+--                             separation is a fact about r� and the
 --                             classes, not an artefact of the framework,
 --                             which does not report a difference where
 --                             none is claimed.
 --
 -- G. A THIRD CLASS: grading AND differential (`Chaincls δ`), the content
---    carrier is a two-term complex (dimensions plus its own ∂), an
+--    carrier is a two-term complex (dimensions plus its own �), an
 --    admissible map is a pair of maps satisfying the chain-map law
---    δ · (φ₁ x) ≡ φ₀ (∂ x).  THE EXTRA CHANNEL IS DERIVED, NOT IMPOSED:
+--    δ � (�� x) ≡ �� (� x).  THE EXTRA CHANNEL IS DERIVED, NOT IMPOSED:
 --
 --    G3 `chain-needs-boundary` if the payload is nonzero in degree one
 --                             and the target differential is nonzero,
 --                             then the chain law forces a degree-zero
---                             channel — the carrier cannot stop at the
+--                             channel � the carrier cannot stop at the
 --                             payload's own degree.
 --    G4/G5 `chain-rank-bound`,
---       `chain-min-interval`  hence minimal carrier 2 = dim U + dim ∂U
+--       `chain-min-interval`  hence minimal carrier 2 = dim U + dim �U
 --                             for the oriented-interval edge, attained
---                             by (D₁ = ⟨e⟩ , D₀ = ⟨∂e⟩).
+--                             by (D� = ⟨e⟩ , D� = ⟨�e⟩).
 --    G6 `chain-min-loop`      THE NOTE'S OWN FALSE CONTROL, checked: for
---                             a loop edge (∂ = 0) the chain carrier
+--                             a loop edge (� = 0) the chain carrier
 --                             stays at rank 1.
 --    G7 `carrier-depends-on-differential`
 --                             the three-way comparison at ONE payload:
@@ -151,7 +151,7 @@ open import Cubical.Data.Empty as Empty using (⊥)
 open import Cubical.Relation.Nullary using (¬_)
 
 ------------------------------------------------------------------------
--- A.  Finite sums, and the two arithmetic facts about ℕ used below.
+-- A.  Finite sums, and the two arithmetic facts about � used below.
 ------------------------------------------------------------------------
 
 sumℤ : {m : ℕ} → (Fin m → ℤ) → ℤ
@@ -212,7 +212,7 @@ nz→1≤ (suc k) h = suc-≤-suc zero-≤
 --
 -- A class of admissible transformations into a fixed target: which
 -- carriers are allowed (`Obj`), how big each one is (`rank`), what its
--- elements are, which maps carrier → target are admissible (`Hom`), and
+-- elements are, which maps carrier � target are admissible (`Hom`), and
 -- two LAWS without which "minimal carrier" is not a rank statement at
 -- all: an admissible map kills the zero element, and a rank-zero carrier
 -- has only that element.
@@ -273,7 +273,7 @@ module _ {Tgt : Type₀} (M : MorphismClass Tgt) where
 ------------------------------------------------------------------------
 -- C.  THE GRADED TARGET: a finite direct sum over residue depth.
 --
--- `Layer n` is the space of formal sums  Σ_{j<n} c_j Z_j  with integer
+-- `Layer n` is the space of formal sums  �_{j<n} c_j Z_j  with integer
 -- coefficients: coordinate j IS the coefficient of the depth-j layer.
 -- `supp` counts the nonzero layers.
 ------------------------------------------------------------------------
@@ -309,8 +309,8 @@ supp r = sumℕ (chan r)
 ------------------------------------------------------------------------
 -- D.  CLASS U: unrestricted (ungraded) transformations.
 --
--- A carrier is a bare ℤ-module ℤ^m — no degrees — and an admissible
--- transformation is an arbitrary matrix ℤ^m → Layer n.  Nothing forbids
+-- A carrier is a bare �-module �^m � no degrees � and an admissible
+-- transformation is an arbitrary matrix �^m � Layer n.  Nothing forbids
 -- one channel from feeding every degree at once.
 ------------------------------------------------------------------------
 
@@ -346,10 +346,10 @@ U-min-zero n =
 -- E.  CLASS G: grading-preserving transformations.
 --
 -- A graded carrier is exactly its dimension in each degree (a f.g. free
--- graded module is classified by that vector), so `Obj = Fin n → ℕ`; its
+-- graded module is classified by that vector), so `Obj = Fin n � �`; its
 -- rank is the total dimension.  A graded transformation is a family of
 -- maps, one per degree, and DEGREE j OF THE OUTPUT READS ONLY DEGREE j
--- OF THE INPUT — that is the checkable condition, and `G-degreewise`
+-- OF THE INPUT � that is the checkable condition, and `G-degreewise`
 -- below is its statement.
 ------------------------------------------------------------------------
 
@@ -446,9 +446,9 @@ U-carrier-determined n r nz m mc =
   min-unique (Uncls n) r m 1 mc (U-min-one n r nz)
 
 ------------------------------------------------------------------------
--- F.  THE SEPARATION, at the k = 3 Möbius residual of
+-- F.  THE SEPARATION, at the k = 3 Mbius residual of
 --
---     r₃ = -6 Z₂ + 12 Z₁ - 8 Z₀ .
+--     r� = -6 Z� + 12 Z� - 8 Z� .
 --
 -- Coordinate j is the coefficient of the depth-j layer.
 ------------------------------------------------------------------------
@@ -459,7 +459,7 @@ r₃ (fs fz)        = pos 12      -- 12 Z₁
 r₃ (fs (fs fz))   = negsuc 5    -- -6 Z₂
 
 -- the successive residuals of the note's promotion table, modelled by
--- deleting one layer at a time (SUPPORT PATTERN ONLY — see the header)
+-- deleting one layer at a time (SUPPORT PATTERN ONLY � see the header)
 r₂ : Layer 3
 r₂ fz             = pos 0
 r₂ (fs fz)        = pos 12
@@ -523,8 +523,8 @@ graded-cannot-do-rank-1 = snd (G-min 3 r₃) 1 (1 , refl)
 
 ------------------------------------------------------------------------
 -- F2.  NEGATIVE CONTROL.  The same two classes on the same machinery
--- must AGREE where the note says they agree — otherwise F1 would be an
--- artefact of the definitions rather than a fact about r₃.  The note's
+-- must AGREE where the note says they agree � otherwise F1 would be an
+-- artefact of the definitions rather than a fact about r�.  The note's
 -- promotion table is (1,3), (1,2), (1,1), (0,0); the last two rows are
 -- the control, and they check.
 ------------------------------------------------------------------------
@@ -553,11 +553,11 @@ table-row-0 = U-min-zero 3 , G-min 3 r₀
 -- channel is DERIVED FROM THE CHAIN-MAP LAW, not imposed on carriers.
 --
 -- Target: `Layer 2`, coordinate `deg0` = degree zero, `deg1` = degree
--- one, with target differential multiplication by δ : ℤ.
+-- one, with target differential multiplication by δ : �.
 -- Carrier: dimensions (dim1 , dim0) together with its own differential
--- ∂ given as a matrix.  A transformation is a pair of maps satisfying
+-- � given as a matrix.  A transformation is a pair of maps satisfying
 --
---     δ · (φ₁ x)  ≡  φ₀ (∂ x)      for every x.
+--     δ � (�� x)  ≡  �� (� x)      for every x.
 ------------------------------------------------------------------------
 
 deg0 deg1 : Fin 2
@@ -619,7 +619,7 @@ Chaincls δ = record
 
 ------------------------------------------------------------------------
 -- G1.  A payload concentrated in degree one: the oriented-interval edge
--- of the note.  `edge` is Z₁ with zero degree-zero part.
+-- of the note.  `edge` is Z� with zero degree-zero part.
 ------------------------------------------------------------------------
 
 edge : Layer 2
@@ -633,7 +633,7 @@ supp-edge = refl
 
 ------------------------------------------------------------------------
 -- G2.  DEGREE ONE NEEDS A CHANNEL (the graded half), and
--- G3.  DEGREE ZERO NEEDS ONE TOO WHEN THE BOUNDARY IS NONZERO — derived
+-- G3.  DEGREE ZERO NEEDS ONE TOO WHEN THE BOUNDARY IS NONZERO � derived
 --      from `chain-law`, exactly the note's argument.
 ------------------------------------------------------------------------
 
@@ -655,7 +655,7 @@ chain-needs-boundary r C (ψ , (x1 , x0) , p) nz = nz→1≤ (dim0 C) contra
                 ∙ chain-law ψ x1
                 ∙ sumℤ-dim0 (dim0 C) e _ )
 
--- G4.  Hence rank ≥ 2 for the interval differential.
+-- G4.  Hence rank � 2 for the interval differential.
 chain-rank-bound :
   (r : Layer 2) (C : ChainCarrier) → Factors (Chaincls (pos 1)) r C
   → ¬ (r deg1 ≡ pos 0) → 2 ≤ dim1 C + dim0 C
@@ -664,7 +664,7 @@ chain-rank-bound r C fac nz =
 
 ------------------------------------------------------------------------
 -- G5.  The bound is attained: the smallest subcomplex of the interval
--- containing the edge is (D₁ = ⟨e⟩ , D₀ = ⟨∂e⟩), total rank 1 + 1 = 2.
+-- containing the edge is (D� = ⟨e⟩ , D� = ⟨�e⟩), total rank 1 + 1 = 2.
 ------------------------------------------------------------------------
 
 intervalCarrier : ChainCarrier
@@ -717,7 +717,7 @@ chain-min-loop =
 --
 --   unrestricted        1
 --   graded              1     (= supp edge; the grading adds nothing)
---   graded + ∂ ≠ 0      2     (= dim U + dim ∂U, forced by the chain law)
+--   graded + � ≠ 0      2     (= dim U + dim �U, forced by the chain law)
 --
 -- The middle entry is what makes this a fact about the DIFFERENTIAL
 -- rather than about grading: the graded class agrees with the

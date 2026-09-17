@@ -1,72 +1,72 @@
 {-# OPTIONS --cubical --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§æ‡§∞‡§£‡•Ä ‚Äî the factorization TABLE is the factorization.
+-- ‡‡æ‡∞‡‡ ‚î the factorization TABLE is the factorization.
 --
 -- `ChargePolynomialFinite` presents 12, 30 and 360 by factorization
--- tables `Fact = List (‚Ñï √ó ‚Ñï)`, an entry `(p , e)` standing for p^(1+e),
+-- tables `Fact = List (‚ï ó ‚ï)`, an entry `(p , e)` standing for p^(1+e),
 -- and discharges each table four ways ((i) `value f ‚â° n`, (ii) every base
--- prime by `isPrime·µá`, (iii) bases distinct by `distinct·µá`, (iv) Œ©
+-- prime by `isPrimeµ`, (iii) bases distinct by `distinctµ`, (iv) Œ©
 -- against SieveFiber's trial division).  Its header then says, exactly:
 --
---     What (i)‚Äì(iv) do NOT give is that the table is *the* factorization:
+--     What (i)‚ì(iv) do NOT give is that the table is *the* factorization:
 --     that step is unique factorization, which is not proved here and
 --     not available in the imported library at the shape needed.  So the
 --     precise reading of everything below is: **these are theorems about
 --     factorization tables, together with a four-way check that the
 --     three tables used are correct tables for 12, 30 and 360.**  Under
---     unique factorization ‚Äî and only under it ‚Äî they are the note's
+--     unique factorization ‚î and only under it ‚î they are the note's
 --     theorems at those n.
 --
--- and its rigor boundary repeats: "unique factorization ‚Ä¶ the bridge from
+-- and its rigor boundary repeats: "unique factorization ‚¶ the bridge from
 -- a table to the integer it names is checked four ways and is still a
 -- bridge."
 --
 -- The corpus now has unique factorisation, in
---   `Drdha_‚Ä¶`  ‚Äî ‡§¶‡•É‡§¢‡§Æ‡•ç (prime), ‡§µ‡§ß‡§É (product of a list), ‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç
---                (existence of a prime list for every n ‚â• 1), and
---   `Ekatva_‚Ä¶` ‚Äî ‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç (two prime lists with one product are a `Perm`),
---                ‡§è‡§ï‡§§‡•ç‡§µ-‡§ó‡§£‡§®‡§æ (hence equal counts of every p), ‡§Æ‡§æ‡§®‡§Æ‡•ç p n
---                (the valuation), ‡§Æ‡§æ‡§®-‡§®‡§ø‡§∂‡•ç‡§ö‡§Ø‡§É (every prime list with
---                product n has count ‡§Æ‡§æ‡§®‡§Æ‡•ç p n of p).
+--   `Drdha_‚¶`  ‚î ‡¶‡‡‡Æ‡ (prime), ‡µ‡ß‡ (product of a list), ‡µ‡ø‡‡æ‡‡®‡Æ‡
+--                (existence of a prime list for every n ‚â 1), and
+--   `Ekatva_‚¶` ‚î ‡‡ï‡‡‡µ‡Æ‡ (two prime lists with one product are a `Perm`),
+--                ‡‡ï‡‡‡µ-‡ó‡‡®‡æ (hence equal counts of every p), ‡Æ‡æ‡®‡Æ‡ p n
+--                (the valuation), ‡Æ‡æ‡®-‡®‡ø‡‡‡‡Ø‡ (every prime list with
+--                product n has count ‡Æ‡æ‡®‡Æ‡ p n of p).
 --
 -- This module builds the bridge.
 --
 -- WHAT IS PROVED.
 --
---   ¬ß1  Boolean projections and the reflection of SieveFiber's `lt·µá`
---       into `_<_` / `_‚â§_`, and `eq·µá m m ‚â° true`.
---   ¬ß2  `rem-divides`: for d > 0, d ‚à£ n gives `n rem d ‚â° 0` ‚Äî SieveFiber's
+--   ¬ß1  Boolean projections and the reflection of SieveFiber's `ltµ`
+--       into `_<_` / `_‚â_`, and `eqµ m m ‚â° true`.
+--   ¬ß2  `rem-divides`: for d > 0, d ‚à n gives `n rem d ‚â° 0` ‚î SieveFiber's
 --       fuel-bounded remainder is sound against library divisibility.
---   ¬ß3  `isPrime·µá-sound`: the table's OWN primality check is sound:
---       `isPrime·µá n ‚â° true ‚Üí ‡§¶‡•É‡§¢‡§Æ‡•ç n`.  Nothing else is used for
+--   ¬ß3  `isPrimeµ-sound`: the table's OWN primality check is sound:
+--       `isPrimeµ n ‚â° true ‚í ‡¶‡‡‡Æ‡ n`.  Nothing else is used for
 --       primality; the flags `wf-12`, `wf-30`, `wf-360` already in
 --       ChargePolynomialFinite become firmness proofs.
 --   ¬ß4  `expand`: a table expanded to its list of primes WITH
 --       multiplicity, `(p , e)` contributing 1+e copies of p.
---         expand-value : ‡§µ‡§ß‡§É (expand f) ‚â° value f
---         expand-firm  : all bases pass isPrime·µá ‚Üí ‡§∏‡§∞‡•ç‡§µ‡•á ‡§¶‡•É‡§¢‡§Æ‡•ç (expand f)
+--         expand-value : ‡µ‡ß‡ (expand f) ‚â° value f
+--         expand-firm  : all bases pass isPrimeµ ‚í ‡‡∞‡‡µ‡ ‡¶‡‡‡Æ‡ (expand f)
 --   ¬ß5  `expOf p f`: the exponent of p in a table (0 if p is not a base).
---         count-expOf  : bases distinct ‚Üí ‡§ó‡§£‡§®‡§æ p (expand f) ‚â° expOf p f
---   ¬ß6  `Correct n f` := wellFormed·µá f ‚â° true √ó value f ‚â° n ‚Äî exactly the
---       checks (i)‚Äì(iii) that ChargePolynomialFinite performs.  Then, for
+--         count-expOf  : bases distinct ‚í ‡ó‡‡®‡æ p (expand f) ‚â° expOf p f
+--   ¬ß6  `Correct n f` := wellFormedµ f ‚â° true ó value f ‚â° n ‚î exactly the
+--       checks (i)‚ì(iii) that ChargePolynomialFinite performs.  Then, for
 --       ANY two correct tables f, g of the same n:
 --         tables-perm     : Perm (expand f) (expand g)
---         tables-count    : ‚àÄ p ‚Üí ‡§ó‡§£‡§®‡§æ p (expand f) ‚â° ‡§ó‡§£‡§®‡§æ p (expand g)
---         tables-exponent : ‚àÄ p ‚Üí expOf p f ‚â° expOf p g
+--         tables-count    : ‚à p ‚í ‡ó‡‡®‡æ p (expand f) ‚â° ‡ó‡‡®‡æ p (expand g)
+--         tables-exponent : ‚à p ‚í expOf p f ‚â° expOf p g
 --       and for any correct table of n:
---         table-valuation : ‚àÄ p ‚Üí expOf p f ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p n pos
---         table-perm-drdha: Perm (expand f) (fst (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç n pos))
+--         table-valuation : ‚à p ‚í expOf p f ‚â° ‡Æ‡æ‡®‡Æ‡ p n pos
+--         table-perm-drdha: Perm (expand f) (fst (‡µ‡ø‡‡æ‡‡®‡Æ‡ n pos))
 --       i.e. a correct table is *the* factorization: its exponent at
 --       every p (every p, not only the bases) is the valuation.
 --   ¬ß7  The three tables: `Correct 12 f12`, `Correct 30 f30`,
 --       `Correct 360 f360` are the existing flags; hence
---         exponent-12  : ‚àÄ p ‚Üí expOf p f12  ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p 12  _
---         exponent-30  : ‚àÄ p ‚Üí expOf p f30  ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p 30  _
---         exponent-360 : ‚àÄ p ‚Üí expOf p f360 ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p 360 _
+--         exponent-12  : ‚à p ‚í expOf p f12  ‚â° ‡Æ‡æ‡®‡Æ‡ p 12  _
+--         exponent-30  : ‚à p ‚í expOf p f30  ‚â° ‡Æ‡æ‡®‡Æ‡ p 30  _
+--         exponent-360 : ‚à p ‚í expOf p f360 ‚â° ‡Æ‡æ‡®‡Æ‡ p 360 _
 --       for EVERY p, by the general theorem, not by enumeration; and the
 --       kernel additionally confirms by refl that each expansion is
---       literally Drdha's list (2‚à∑2‚à∑3, 2‚à∑3‚à∑5, 2‚à∑2‚à∑2‚à∑3‚à∑3‚à∑5) and that the
+--       literally Drdha's list (2‚à2‚à3, 2‚à3‚à5, 2‚à2‚à2‚à3‚à3‚à5) and that the
 --       valuations at the bases of 12 and 30 are the table's exponents.
 --       At 360 the Drdha list is NOT normalised by refl (unary `_mod_`
 --       via `+induction` does not finish in budget); there the link to
@@ -150,7 +150,7 @@ lt·µá-false‚Üí‚â§ (suc m) zero    _ = zero-‚â§
 lt·µá-false‚Üí‚â§ (suc m) (suc n) p = suc-‚â§-suc (lt·µá-false‚Üí‚â§ m n p)
 
 ------------------------------------------------------------------------
--- ¬ß2  SieveFiber's fuel-bounded remainder is sound: d ‚à£ n ‚áí n rem d ‚â° 0
+-- ¬ß2  SieveFiber's fuel-bounded remainder is sound: d ‚à n ‚í n rem d ‚â° 0
 ------------------------------------------------------------------------
 
 -- With enough fuel, the remainder of a multiple of d is 0.
@@ -285,7 +285,7 @@ count-rep : (p q k : ‚Ñï) ‚Üí ‡§ó‡§£‡§®‡§æ p (rep k q) ‚â° (if eq·µá p q then k 
 count-rep p q zero    = if-zero (eq·µá p q)
 count-rep p q (suc k) = cong‚ÇÇ _+_ (‡§è‡§ï‡§É-eq·µá p q) (count-rep p q k) ‚àô if-sum (eq·µá p q) k
 
--- p absent from the bases ‚áí p absent from the expansion
+-- p absent from the bases ‚í p absent from the expansion
 count-absent : (p : ‚Ñï) (f : Fact) ‚Üí member·µá p (bases f) ‚â° false ‚Üí ‡§ó‡§£‡§®‡§æ p (expand f) ‚â° 0
 count-absent p []            _ = refl
 count-absent p ((q , e) ‚à∑ f) m =
@@ -321,8 +321,8 @@ count-expOf p ((q , e) ‚à∑ f) dis =
 -- ¬ß6  Correct tables, and the theorem: any two are the same factorization
 ------------------------------------------------------------------------
 
--- Exactly ChargePolynomialFinite's checks (i)‚Äì(iii): the table multiplies
--- out to n, its bases are distinct, and each base passes `isPrime·µá`.
+-- Exactly ChargePolynomialFinite's checks (i)‚ì(iii): the table multiplies
+-- out to n, its bases are distinct, and each base passes `isPrimeµ`.
 Correct : ‚Ñï ‚Üí Fact ‚Üí Type‚ÇÄ
 Correct n f = (wellFormed·µá f ‚â° true) √ó (value f ‚â° n)
 
@@ -338,21 +338,21 @@ correct-firm f c = expand-firm f (correct-primes f c)
 correct-product : {n : ‚Ñï} (f : Fact) ‚Üí Correct n f ‚Üí ‡§µ‡§ß‡§É (expand f) ‚â° n
 correct-product f (_ , v) = expand-value f ‚àô v
 
--- Two correct tables for one n expand to permutations of each other ‚Ä¶
+-- Two correct tables for one n expand to permutations of each other ‚¶
 tables-perm : (n : ‚Ñï) (f g : Fact) ‚Üí Correct n f ‚Üí Correct n g
             ‚Üí Perm (expand f) (expand g)
 tables-perm n f g cf cg =
   ‡§è‡§ï‡§§‡•ç‡§µ‡§Æ‡•ç (expand f) (expand g) (correct-firm f cf) (correct-firm g cg)
          (correct-product f cf ‚àô sym (correct-product g cg))
 
--- ‚Ä¶ so carry the same count of every p ‚Ä¶
+-- ‚¶ so carry the same count of every p ‚¶
 tables-count : (n : ‚Ñï) (f g : Fact) ‚Üí Correct n f ‚Üí Correct n g
              ‚Üí (p : ‚Ñï) ‚Üí ‡§ó‡§£‡§®‡§æ p (expand f) ‚â° ‡§ó‡§£‡§®‡§æ p (expand g)
 tables-count n f g cf cg =
   ‡§è‡§ï‡§§‡•ç‡§µ-‡§ó‡§£‡§®‡§æ (expand f) (expand g) (correct-firm f cf) (correct-firm g cg)
              (correct-product f cf ‚àô sym (correct-product g cg))
 
--- ‚Ä¶ hence the same exponent at every p.
+-- ‚¶ hence the same exponent at every p.
 tables-exponent : (n : ‚Ñï) (f g : Fact) ‚Üí Correct n f ‚Üí Correct n g
                 ‚Üí (p : ‚Ñï) ‚Üí expOf p f ‚â° expOf p g
 tables-exponent n f g cf cg p =
@@ -361,7 +361,7 @@ tables-exponent n f g cf cg p =
   ‚àô count-expOf p g (correct-distinct g cg)
 
 -- A correct table IS the factorization: its exponent at every p is the
--- valuation ‡§Æ‡§æ‡§®‡§Æ‡•ç p n of Ekatva.
+-- valuation ‡Æ‡æ‡®‡Æ‡ p n of Ekatva.
 table-valuation : (n : ‚Ñï) (f : Fact) ‚Üí Correct n f ‚Üí (pos : 0 < n)
                 ‚Üí (p : ‚Ñï) ‚Üí expOf p f ‚â° ‡§Æ‡§æ‡§®‡§Æ‡•ç p n pos
 table-valuation n f cf pos p =
@@ -436,11 +436,11 @@ expand-12-drdha = refl
 expand-30-drdha : expand f30 ‚â° fst (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç 30 ‡•¶<‡•©‡•¶)
 expand-30-drdha = refl
 
--- NOT by refl: `fst (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç 360 _)` is not normalised here.  Drdha's
+-- NOT by refl: `fst (‡µ‡ø‡‡æ‡‡®‡Æ‡ 360 _)` is not normalised here.  Drdha's
 -- search runs the library `_mod_` (via `+induction`) and `<-wellfounded`
 -- in unary, and at 360 the kernel does not finish in the budget.  The
--- statement is not lost: `table-perm-drdha 360 f360 correct-360 ‡•¶<‡•©‡•¨‡•¶`
--- proves `Perm (expand f360) (fst (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç 360 ‡•¶<‡•©‡•¨‡•¶))`, and
+-- statement is not lost: `table-perm-drdha 360 f360 correct-360 ‡¶<‡©‡‡¶`
+-- proves `Perm (expand f360) (fst (‡µ‡ø‡‡æ‡‡®‡Æ‡ 360 ‡¶<‡©‡‡¶))`, and
 -- `exponent-360` gives every valuation at 360, both by proof.
 perm-360-drdha : Perm (expand f360) (fst (‡§µ‡§ø‡§≠‡§æ‡§ú‡§®‡§Æ‡•ç 360 ‡•¶<‡•©‡•¨‡•¶))
 perm-360-drdha = table-perm-drdha 360 f360 correct-360 ‡•¶<‡•©‡•¨‡•¶

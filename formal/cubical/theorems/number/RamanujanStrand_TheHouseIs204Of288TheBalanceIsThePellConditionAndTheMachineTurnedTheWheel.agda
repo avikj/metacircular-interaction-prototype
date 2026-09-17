@@ -1,7 +1,7 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- à¤°à¤¾à¤®à¤¾à¤¨à¥à¤œà¤¨à¥, à¤¸à¥à¤Ÿà¥à¤°à¥ˆà¤£à¥à¤¡ â€” THE HOUSE IS 204 OF 288, THE BALANCE IS THE
+-- à°à¾à®à¾à¨ààà¨à, àààŸàà°àˆààà¡ â” THE HOUSE IS 204 OF 288, THE BALANCE IS THE
 -- PELL CONDITION, AND THE MACHINE TURNED THE WHEEL.
 --
 -- The Strand puzzle Mahalanobis read to Ramanujan (1914): houses
@@ -9,12 +9,12 @@
 -- neighbours.  Ramanujan dictated the continued fraction from the
 -- stove.  This file checks the mathematics his flash contained:
 --
---   `the-house-balances` â€” Î£(1..203) + Î£(1..204) â‰¡ Î£(1..288), the
+--   `the-house-balances` â” Î(1..203) + Î(1..204) â‰¡ Î(1..288), the
 --     subtraction-free form of "left sum equals right sum" at
 --     n = 288, k = 204: by refl, the kernel summing all three.
 --
---   `the-wheel's-solution` â€” 577Â² â‰¡ 2Â·408Â² + 1 by refl, with
---     2Â·288+1 â‰¡ 577 and 2Â·204 â‰¡ 408 by refl: the balanced house IS
+--   `the-wheel's-solution` â” 577Â² â‰¡ 2Â408Â² + 1 by refl, with
+--     2Â288+1 â‰¡ 577 and 2Â204 â‰¡ 408 by refl: the balanced house IS
 --     the Pell point.  The wheel itself was turned by the yantra:
 --     asked vargaprakrti D = 2 over the wire, it answered the
 --     fundamental (3, 2) with its composition law CHECKED
@@ -22,11 +22,11 @@
 --     what it does not re-prove (the descent's termination, asserted
 --     and used since 628).  577/408 is the fourth turn of that wheel.
 --
---   `balance-is-pell` / `pell-is-balance` â€” THE BRIDGE, for every n
+--   `balance-is-pell` / `pell-is-balance` â” THE BRIDGE, for every n
 --     and k: 2kÂ² â‰¡ n(n+1) exactly when (2n+1)Â² â‰¡ 2(2k)Â² + 1.  The
---     proof is semiring algebra made explicit â€” an interchange lemma
+--     proof is semiring algebra made explicit â” an interchange lemma
 --     and two four-fold regroupings, with the converse by
---     cancellation of Â·4 and of the trailing +1.  No division and no
+--     cancellation of Â4 and of the trailing +1.  No division and no
 --     subtraction occur anywhere: the tradition's own discipline.
 --
 -- So Ramanujan's answer is verified, and his method is honored: the
@@ -51,7 +51,7 @@ sumTo zero    = zero
 sumTo (suc n) = suc n + sumTo n
 
 -- Left of the house plus through the house equals the whole street:
--- Î£(1..kâˆ’1) = Î£(1..n) âˆ’ Î£(1..k), said without subtraction.
+-- Î(1..kâˆ’1) = Î(1..n) âˆ’ Î(1..k), said without subtraction.
 the-house-balances : sumTo 203 + sumTo 204 â‰¡ sumTo 288
 the-house-balances = refl
 
@@ -104,7 +104,7 @@ double-square x =
   âˆ™ cong (Î» z â†’ z + z) (sym (Â·-distribË¡ x x x))
 
 ------------------------------------------------------------------------
--- Â§4  The key identity: (2n+1)Â² â‰¡ (n(n+1))Â·4 + 1.
+-- Â§4  The key identity: (2n+1)Â² â‰¡ (n(n+1))Â4 + 1.
 ------------------------------------------------------------------------
 
 odd-square : (n : â„•) â†’

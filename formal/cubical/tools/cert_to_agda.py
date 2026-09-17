@@ -31,7 +31,7 @@ Lp=[[x*s for x in r] for r in L]; Dp=[d*t for d in D]; Ap=[[x*t*s*s for x in r] 
 assert all(x.denominator==1 for r in Lp for x in r) and all(d.denominator==1 for d in Dp) and all(x.denominator==1 for r in Ap for x in r)
 print(f"""{{-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}}
 module {mod} where
--- integer-scaled certificate: A' = {t}Â·{s}Â²Â·A, L' = {s}Â·L, D' = {t}Â·D
+-- integer-scaled certificate: A' = {t}Â{s}Â²ÂA, L' = {s}ÂL, D' = {t}ÂD
 open import Cubical.Foundations.Prelude
 open import Cubical.Data.Nat using (â„• ; zero ; suc)
 open import Cubical.Data.Bool using (true)

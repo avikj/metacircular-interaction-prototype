@@ -1,7 +1,7 @@
--- ProofGate.hs ‚Äî the Agda emitter for the kernel gate.
+-- ProofGate.hs ‚î the Agda emitter for the kernel gate.
 --
--- LEGACY POINTER (2026-08-23).  MathMachine.hs ‚Äî "the CLOSE-lane
--- ‚Ñï-equation spinner", 239 rounds / ZERO theorems installed ‚Äî was RETIRED
+-- LEGACY POINTER (2026-08-23).  MathMachine.hs ‚î "the CLOSE-lane
+-- ‚ï-equation spinner", 239 rounds / ZERO theorems installed ‚î was RETIRED
 -- at commit 832a549 as a toy that "looks alive but isn't".  ProofGate.hs
 -- is one of the four organs the commit records as SURVIVING it (with
 -- Certify.hs, ArithVocab.hs, library.terms); the live substrate is the
@@ -17,7 +17,7 @@
 -- `kernelAccept`, which emits a candidate Agda module and typechecks it.
 -- The emitter it used (`agdaCertificate`, MathMachine.hs ~1193) was
 --
---     candidate : (x y z u v w : ‚Ñï) ‚Üí LHS ‚â° RHS
+--     candidate : (x y z u v w : ‚ï) ‚í LHS ‚â° RHS
 --     candidate x y z u v w = refl
 --
 -- Three separate faults make that gate reject everything.  All three were
@@ -29,7 +29,7 @@
 --           agda -i formal/cubical -i <tmpdir> <tmpdir>/Candidate.agda
 --
 --       from the repository root.  `formal/cubical` is NOT the cubical
---       library ‚Äî it is the NaturalMachine lane, and it carries
+--       library ‚î it is the NaturalMachine lane, and it carries
 --       `natural-machine.agda-lib` (`depend: cubical`).  The cubical
 --       library itself lives at /tmp/cubical and is reachable only through
 --       ~/.agda/libraries.  Agda finds a library only by walking up from
@@ -60,8 +60,8 @@
 --       forcing LC_ALL in the agda child's environment.
 --
 --   (3) EXPRESSIVENESS, the fault the seam was actually designed around.
---       `agdaTerm` knew only 0, s, + and ¬∑ ‚Äî four of the eight symbols in
---       `vocabulary` ‚Äî and the only proof shape was `refl`, so nothing
+--       `agdaTerm` knew only 0, s, + and ¬ ‚î four of the eight symbols in
+--       `vocabulary` ‚î and the only proof shape was `refl`, so nothing
 --       needing induction could be certified.  Both are addressed below.
 --
 -- FAITHFULNESS (the load-bearing point)
@@ -74,35 +74,35 @@
 --   0, s     zero, suc                                     (identical)
 --   +        Agda.Builtin.Nat._+_  via Cubical.Data.Nat     (see note A)
 --   *        Agda.Builtin.Nat._*_  via Cubical.Data.Nat     (see note A)
---   -        Agda.Builtin.Nat._-_ = _‚à∏_ via Cubical.Data.Nat
+--   -        Agda.Builtin.Nat._-_ = _‚à_ via Cubical.Data.Nat
 --            machine: -x0=x, -0x=0, -(sx)(sy)=-xy
 --            builtin:  n-zero=n, zero-suc m=zero, suc n-suc m=n-m
---            ‚Äî same clauses, same order.  Exact match.
+--            ‚î same clauses, same order.  Exact match.
 --   max      LOCAL.  Cubical's `max` (Cubical.Data.Nat.Properties) is the
 --            same function but splits on the FIRST argument, whereas
 --            MathMachine's symDefs are (max x 0 = x), (max 0 x = x),
---            (max (s x) (s y) = s (max x y)) ‚Äî first clause on the second
+--            (max (s x) (s y) = s (max x y)) ‚î first clause on the second
 --            argument.  Emitted locally in the machine's clause order so
 --            the machine's own reductions are available (see note B).
---   le       LOCAL.  Cubical has no ‚Ñï-valued ‚â§ test.  Transcribed from
+--   le       LOCAL.  Cubical has no ‚ï-valued ‚â test.  Transcribed from
 --            symDefs: le 0 x = s 0, le (s x) 0 = 0, le (s x) (s y) = le x y.
 --            Agrees with `symSem` (\vs -> if a <= b then 1 else 0).
 --   gcd      Cubical.Data.Nat.GCD.gcd.  Same function as Haskell `gcd` on
---            ‚Ñï (both are the ‚â°-unique greatest common divisor, gcd 0 0 = 0),
+--            ‚ï (both are the ‚â°-unique greatest common divisor, gcd 0 0 = 0),
 --            but it is defined through `euclid` and reduces on no open
 --            term, so gcd equations will essentially never certify.  It is
 --            translated anyway: a KERNEL-REJECT carrying agda's message is
 --            more informative than a KERNEL-SKIP.
 --
--- Note A.  Agda's `+` and `¬∑` recurse on the FIRST argument; MathMachine's
+-- Note A.  Agda's `+` and `¬` recurse on the FIRST argument; MathMachine's
 -- symDefs recurse on the second (x+0=x, x+s y = s(x+y)).  These are the
--- same function on ‚Ñï ‚Äî the machine's `symSem` is Haskell's (+) and (*),
--- and the cubical/builtin operations are ordinary ‚Ñï addition and
--- multiplication ‚Äî so the certificate is about the right object.  The
+-- same function on ‚ï ‚î the machine's `symSem` is Haskell's (+) and (*),
+-- and the cubical/builtin operations are ordinary ‚ï addition and
+-- multiplication ‚î so the certificate is about the right object.  The
 -- clause order differs only in which equations hold *definitionally*, and
 -- the first-argument order was measured to certify strictly more of the
 -- machine's library than a transcription of the symDefs would (it makes
--- (s x + y) = s (x + y) and (s x ¬∑ y) = y + x ¬∑ y refl, which the
+-- (s x + y) = s (x + y) and (s x ¬ y) = y + x ¬ y refl, which the
 -- second-argument order does not).
 --
 -- Note B.  No Agda case tree reproduces MathMachine's `max` reductions
@@ -118,20 +118,20 @@
 --
 -- Trying several proof shapes means calling agda more than once per
 -- candidate.  That is bounded and explicit: `kMaxAgdaCalls`.  The order is
--- always cheapest-first ‚Äî a plain `refl` module (one call), then the
+-- always cheapest-first ‚î a plain `refl` module (one call), then the
 -- induction skeleton with step shapes from `stepShapes`.  If the *base*
 -- clause is what agda rejects, the remaining step shapes cannot help, so
 -- the search stops there (`baseClauseFailed`); a false equation therefore
 -- costs 2 calls, not `kMaxAgdaCalls`.
 --
 -- A candidate whose proof note names NO induction variable used to cost 1
--- call and be rejected, always ‚Äî the emitter emitted no induction module for
+-- call and be rejected, always ‚î the emitter emitted no induction module for
 -- it at all.  That is the traffic the engine's residual seam carries, since a
 -- subgoal harvested from the kernel's own stall arrives unannotated.  Such a
 -- candidate now gets the same shape menu once per variable, bounded by
 -- `kMaxAgdaCallsUnannotated`, and the annotated case is unchanged in reach,
 -- in shape and in budget.  Measured on `interactive/library.snapshot.txt` with
--- every note stripped ‚Äî which is exactly the shape a residual arrives in ‚Äî
+-- every note stripped ‚î which is exactly the shape a residual arrives in ‚î
 -- by `interactive/SesaPariksa_WhichOfTheSixOutstandingDemandsInductionReaches.hs`
 -- on 2026-08-20:
 --
@@ -154,9 +154,9 @@
 -- cache below removes exactly that repetition and nothing else.
 --
 -- WHAT IS KEYED.  The unit is ONE EMITTED MODULE, not one conclusion.  The
--- module source is the complete input to agda ‚Äî it already encodes the
+-- module source is the complete input to agda ‚î it already encodes the
 -- conclusion, the concept definitions, the vocabulary transcriptions
--- (`localMax`, `localLe`), the imports, and the proof skeleton ‚Äî so hashing
+-- (`localMax`, `localLe`), the imports, and the proof skeleton ‚î so hashing
 -- it is hashing everything the verdict depends on inside this process.
 -- Keying per module rather than per conclusion also means the search in
 -- `certifyWith` reuses its own intermediate failures: a rejected shape that
@@ -198,7 +198,7 @@
 --     nothing on its own, because a missing library, a locale fault, an
 --     absent `formal/cubical`, or a killed process all produce one.
 --     Caching those would turn a transient environment fault into a
---     permanent verdict ‚Äî the failure mode this whole file was written to
+--     permanent verdict ‚î the failure mode this whole file was written to
 --     fix (see fault (1) above: a path error was recorded as a
 --     KERNEL-REJECT indistinguishable from a false statement).  So a
 --     failure is cached only if agda located the error inside
@@ -210,7 +210,7 @@
 -- a cached rejection's message `cached: `) so no log line and no
 -- measurement can read a cache hit as fresh kernel work.  If a search mixes
 -- hits and fresh calls the count is the number of FRESH calls, and the
--- label is not marked cached ‚Äî the run did do kernel work.
+-- label is not marked cached ‚î the run did do kernel work.
 --
 -- IDENTIFIER VALIDATION (added 2026-08-16)
 --
@@ -235,9 +235,9 @@
 -- certify, 13 are rejected with agda's reason, none are untranslatable,
 -- and four deliberate falsehoods are all rejected.  Every one of the 13
 -- rejections is a commutativity- or associativity-shaped statement whose
--- BASE case is itself a lemma (y ‚â¢ y + zero definitionally); closing them
--- needs a lemma environment ‚Äî certificates emitted in dependency order,
--- with earlier theorems in scope for later ones ‚Äî not more step shapes.
+-- BASE case is itself a lemma (y ‚â y + zero definitionally); closing them
+-- needs a lemma environment ‚î certificates emitted in dependency order,
+-- with earlier theorems in scope for later ones ‚î not more step shapes.
 
 module ProofGate
   ( -- * terms
@@ -380,8 +380,8 @@ agdaVar i
 
 -- A concept the machine named for itself.  `inventConcept`
 -- (MathMachine.hs ~1478) builds `Sym nm ar (\args -> eval sem args p)`
--- with the single defining equation (p, cN x0 ‚Ä¶ x_{ar-1}); so the Agda
--- transcription is `cN a0 ‚Ä¶ a_{ar-1} = p[V i := a_i]`, which is what
+-- with the single defining equation (p, cN x0 ‚¶ x_{ar-1}); so the Agda
+-- transcription is `cN a0 ‚¶ a_{ar-1} = p[V i := a_i]`, which is what
 -- `preambleWith` emits.  Without this an invented symbol is a
 -- KERNEL-SKIP, and concept invention is the machine's main growth axis.
 data Definition = Definition
@@ -400,29 +400,29 @@ data Definition = Definition
 -- `preambleWith`), and every occurrence of the concept inside the equation's
 -- own type (`prefixAgda`, via the `lookupDef` fallback in `render`).  A name
 -- is not a token to the emitter, it is a string, so a name may contain
--- anything ‚Äî including newlines.  Two consequences were reproduced against
+-- anything ‚î including newlines.  Two consequences were reproduced against
 -- this very file:
 --
---   * a name containing "\n{-# OPTIONS --no-safe #-}\npostulate evil : ‚Ä¶"
+--   * a name containing "\n{-# OPTIONS --no-safe #-}\npostulate evil : ‚¶"
 --     put that pragma and that postulate into `Candidate.agda` verbatim
 --     (harmless in the end: the injection lands after the module header, so
 --     the pragma is ignored, `--safe` stays locked at line 1, and the
---     postulate is refused ‚Äî verdict `Rejected`); and
+--     postulate is refused ‚î verdict `Rejected`); and
 --
 --   * `injName = "suc x) ‚â° (suc x) -- "` is worse and is NOT harmless: it
 --     closes the emitter's own parenthesis and comments out the rest of the
---     line, so the module agda checks is `candidate : (x : ‚Ñï) ‚Üí (suc x) ‚â°
+--     line, so the module agda checks is `candidate : (x : ‚ï) ‚í (suc x) ‚â°
 --     (suc x)`, whatever right-hand side was submitted.  GateAudit obtained
 --     `Certified "refl" 1` for three DIFFERENT right-hand sides over one
---     left-hand side (GateAudit.hs:100‚Äì109).  That is a soundness break, not
+--     left-hand side (GateAudit.hs:100‚ì109).  That is a soundness break, not
 --     a defense-in-depth gap.
 --
 -- Neither was reachable from the engine, because `inventConcept`
 -- (MathMachine.hs:1547) names concepts `"c" ++ show n`.  That is safety by
 -- CALLER CONVENTION: the gate did no validation and the convention is not
 -- stated in any type.  It is now enforced here, at the emission site, and
--- the enforcement FAILS CLOSED ‚Äî an offending name yields no module at all
--- (`Nothing` ‚Üí `Untranslatable`), never an emitted module that agda is asked
+-- the enforcement FAILS CLOSED ‚î an offending name yields no module at all
+-- (`Nothing` ‚í `Untranslatable`), never an emitted module that agda is asked
 -- to have an opinion about.  A candidate the emitter cannot render honestly
 -- is a rejected candidate.
 --
@@ -431,7 +431,7 @@ data Definition = Definition
 -- characters Agda's lexer treats specially.  Every character of a legal name
 -- is one Agda lexes as part of a single identifier token, so a legal name
 -- cannot close a parenthesis, open a comment, start a pragma, or reach the
--- next line ‚Äî the three positions become splice-proof rather than
+-- next line ‚î the three positions become splice-proof rather than
 -- splice-audited.
 validAgdaIdent :: String -> Bool
 validAgdaIdent s = case s of
@@ -442,10 +442,10 @@ validAgdaIdent s = case s of
     identRest c = identStart c || (c >= '0' && c <= '9')
 
 -- Strengthening beyond the audit's regex, at no cost to any real name: the
--- regex alone admits `where`, `module`, `postulate`, `data` ‚Ä¶, which lex as
+-- regex alone admits `where`, `module`, `postulate`, `data` ‚¶, which lex as
 -- KEYWORDS rather than identifiers and so would still restructure the module
--- (they cannot make a false equation check ‚Äî `--safe` is untouched at line 1
--- and postulates are refused ‚Äî but a name that changes the module's grammar
+-- (they cannot make a false equation check ‚î `--safe` is untouched at line 1
+-- and postulates are refused ‚î but a name that changes the module's grammar
 -- has no business reaching agda).  `candidate` is in the list because it is
 -- the name the emitter gives the theorem itself.
 agdaReserved :: [String]
@@ -470,8 +470,8 @@ definitionsSafe :: [Definition] -> Bool
 definitionsSafe = all (validAgdaIdent . defName)
 
 -- Every symbol of MathMachine's `vocabulary` (0 s + * max - gcd le), plus
--- whatever invented concepts the caller supplies.  Anything else ‚Äî the
--- eigenconstant #, an unsupplied concept ‚Äî returns Nothing, which the
+-- whatever invented concepts the caller supplies.  Anything else ‚î the
+-- eigenconstant #, an unsupplied concept ‚î returns Nothing, which the
 -- caller reports as untranslatable.
 agdaTerm :: Term -> Maybe String
 agdaTerm = agdaTermWith []
@@ -480,7 +480,7 @@ agdaTermWith :: [Definition] -> Term -> Maybe String
 agdaTermWith defs = render defs agdaVar
 
 -- `nameOf` is how variables are spelled: the candidate's own variables are
--- x y z u v w, a local definition's parameters are a0 a1 ‚Ä¶.
+-- x y z u v w, a local definition's parameters are a0 a1 ‚¶.
 render :: [Definition] -> (Int -> Maybe String) -> Term -> Maybe String
 render defs nameOf = go
   where
@@ -488,8 +488,8 @@ render defs nameOf = go
     go (F "0" []) = Just "zero"
     go (F "s" [t]) = (\u -> "(suc " ++ u ++ ")") <$> go t
     go (F "+" [a, b]) = infixAgda go "+" a b
-    go (F "*" [a, b]) = infixAgda go "¬∑" a b
-    go (F "-" [a, b]) = infixAgda go "‚à∏" a b
+    go (F "*" [a, b]) = infixAgda go "¬" a b
+    go (F "-" [a, b]) = infixAgda go "‚à" a b
     go (F "max" [a, b]) = prefixAgda go "max" [a, b]
     go (F "le" [a, b]) = prefixAgda go "le" [a, b]
     go (F "gcd" [a, b]) = prefixAgda go "gcd" [a, b]
@@ -499,7 +499,7 @@ render defs nameOf = go
     go _ = Nothing
 
 -- EMISSION SITE 1 (terms).  Every path by which a concept name reaches the
--- rendered module goes through here ‚Äî `render`'s fallback clause, which then
+-- rendered module goes through here ‚î `render`'s fallback clause, which then
 -- calls `prefixAgda` and splices the name into the candidate's type; and
 -- `preambleWith`'s `closure`, which decides which definitions get emitted at
 -- all.  Refusing to resolve an ill-formed name therefore removes it from
@@ -552,8 +552,8 @@ preambleWith defs syms =
     -- EMISSION SITE 2 (the preamble): the signature line and the clause
     -- line, the two places a name is written as Agda source rather than
     -- used as a term.  The `validAgdaIdent` guard is redundant given
-    -- `lookupDef` above ‚Äî an ill-formed name cannot enter `closure`, hence
-    -- cannot enter `used` ‚Äî and it is kept anyway, because this is where the
+    -- `lookupDef` above ‚î an ill-formed name cannot enter `closure`, hence
+    -- cannot enter `used` ‚î and it is kept anyway, because this is where the
     -- string actually becomes source and a future refactor of `closure`
     -- must not be able to reopen the channel silently.
     emit d
@@ -564,7 +564,7 @@ preambleWith defs syms =
                         -- the candidate fails to scope-check rather than
                         -- silently meaning something else
         Just body ->
-          [ defName d ++ " : " ++ concat (replicate (defArity d) "‚Ñï ‚Üí ") ++ "‚Ñï"
+          [ defName d ++ " : " ++ concat (replicate (defArity d) "‚ï ‚í ") ++ "‚ï"
           , unwords (defName d : params) ++ " = " ++ body
           ]
       where
@@ -572,7 +572,7 @@ preambleWith defs syms =
 
 -- THE OPTIONS LINE, WRITTEN ONCE.
 --
--- It was written twice ‚Äî here and in `canaryModule` ‚Äî and the two copies
+-- It was written twice ‚î here and in `canaryModule` ‚î and the two copies
 -- drifted: the candidate modules carried `--guardedness`, the controls did
 -- not.  That is not a cosmetic difference.  Agda's `[InfectiveImport]` rule
 -- makes `--guardedness` propagate through imports, so under a cubical library
@@ -603,14 +603,14 @@ preambleCore syms =
   [ kOptionsPragma
   , "module Candidate where"
   , "open import Cubical.Foundations.Prelude"
-  -- _+_, _¬∑_ and _‚à∏_ come in unconditionally even when the equation does
+  -- _+_, _¬_ and _‚à_ come in unconditionally even when the equation does
   -- not mention them: the step shapes in `stepShapes` build sections like
-  -- (y +_) and (_¬∑ k), and an operator that is not in scope makes the
-  -- module fail to PARSE rather than to typecheck ‚Äî which burns an
+  -- (y +_) and (_¬ k), and an operator that is not in scope makes the
+  -- module fail to PARSE rather than to typecheck ‚î which burns an
   -- invocation and reports a syntax error where the real answer is "that
   -- shape does not apply".  They all live in the module being opened
   -- anyway, so naming them costs nothing.
-  , "open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_ ; _¬∑_ ; _‚à∏_)"
+  , "open import Cubical.Data.Nat using (‚ï ; zero ; suc ; _+_ ; _¬_ ; _‚à_)"
   ]
   ++ [ "open import Cubical.Data.Nat.GCD using (gcd)" | need "gcd" ]
   ++ localMax
@@ -622,7 +622,7 @@ preambleCore syms =
     -- transcribed from vocabulary's symDefs for "max", in that order
     localMax
       | need "max" =
-          [ "max : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï"
+          [ "max : ‚ï ‚í ‚ï ‚í ‚ï"
           , "max a zero = a"
           , "max zero b = b"
           , "max (suc a) (suc b) = suc (max a b)"
@@ -631,32 +631,32 @@ preambleCore syms =
     -- transcribed from vocabulary's symDefs for "le", in that order
     localLe
       | need "le" =
-          [ "le : ‚Ñï ‚Üí ‚Ñï ‚Üí ‚Ñï"
+          [ "le : ‚ï ‚í ‚ï ‚í ‚ï"
           , "le zero b = suc zero"
           , "le (suc a) zero = zero"
           , "le (suc a) (suc b) = le a b"
           ]
       | otherwise = []
-    -- CLAUSE-COMPLETION LEMMAS (anuv·πõtti, A·π£·π≠ƒÅdhyƒÅyƒ´ 4.45): a theorem proved
+    -- CLAUSE-COMPLETION LEMMAS (anuvtti, Adhyy 4.45): a theorem proved
     -- once, carried into scope for the candidate that needs it.  `max zero n`
-    -- and `zero ‚à∏ n` are STUCK terms ‚Äî the first clause of `max` (max a zero)
-    -- and of `_‚à∏_` (n ‚à∏ zero) blocks on a variable in the second argument, so
+    -- and `zero ‚à n` are STUCK terms ‚î the first clause of `max` (max a zero)
+    -- and of `_‚à_` (n ‚à zero) blocks on a variable in the second argument, so
     -- neither reduces and no step shape over `refl`/`cong`/`ih` can close a
     -- goal that mentions them.  These two lemmas ARE those clauses completed,
     -- each proved by induction with both cases `refl`; the citing step shapes
-    -- in `citingStepShapes` discharge the goal with `sym (‚Ä¶)`.  This is the
+    -- in `citingStepShapes` discharge the goal with `sym (‚¶)`.  This is the
     -- lemma environment ProofGate.hs:238-240 named, realised as a fixed,
     -- bounded, in-scope set rather than an unbounded dependency-ordered search.
     localMaxZeroL
       | need "max" =
-          [ "maxZeroL : (n : ‚Ñï) ‚Üí max zero n ‚â° n"
+          [ "maxZeroL : (n : ‚ï) ‚í max zero n ‚â° n"
           , "maxZeroL zero = refl"
           , "maxZeroL (suc n) = refl"
           ]
       | otherwise = []
     localMinusZeroL
       | need "-" =
-          [ "minusZeroL : (n : ‚Ñï) ‚Üí zero ‚à∏ n ‚â° zero"
+          [ "minusZeroL : (n : ‚ï) ‚í zero ‚à n ‚â° zero"
           , "minusZeroL zero = refl"
           , "minusZeroL (suc n) = refl"
           ]
@@ -692,7 +692,7 @@ agdaCertificateWith defs eq@(l, r) = do
 
 telescope :: [String] -> String
 telescope [] = ""
-telescope ns = "(" ++ unwords ns ++ " : ‚Ñï) ‚Üí "
+telescope ns = "(" ++ unwords ns ++ " : ‚ï) ‚í "
 
 -- The induction skeleton.  Returns the module source and the 1-based line
 -- number of the base clause, so a base-clause failure can be told apart
@@ -723,11 +723,11 @@ agdaInductionCertificate defs eq@(l, r) v step = do
 -- as `candidate = <macro>`.  This closes the commutativity/associativity/
 -- distributivity class that ProofGate.hs:238-240 named as needing "a lemma
 -- environment ... not more step shapes": those thirteen rejections are all
--- ‚Ñï-semiring identities whose base case is itself a lemma (y ‚â¢ y + zero
+-- ‚ï-semiring identities whose base case is itself a lemma (y ‚â y + zero
 -- definitionally), and a semiring solver is the decision procedure for
 -- exactly that class.  It is SOUND because the macro emits a proof term the
--- kernel checks under the candidate's own pragmas ‚Äî probed 2026-08-24: it
--- discharges (x + y) ‚â° (y + x) (rc 0) and DENIES (x + y) ‚â° (x ¬∑ y) (rc 1) ‚Äî
+-- kernel checks under the candidate's own pragmas ‚î probed 2026-08-24: it
+-- discharges (x + y) ‚â° (y + x) (rc 0) and DENIES (x + y) ‚â° (x ¬ y) (rc 1) ‚î
 -- so it is not a trusted oracle, and the two watched controls in the caller
 -- are unaffected.  `imp` and `body` are supplied by `solverShapes` because
 -- the macro's import path and name differ by cubical version.
@@ -750,7 +750,7 @@ agdaSolverCertificate defs eq@(l, r) imp body = do
     ++ (if null names
           then [ "candidate : " ++ lhs ++ " ‚â° " ++ rhs
                , "candidate = " ++ body ]
-          else [ "module _ " ++ concatMap (\v -> "(" ++ v ++ " : ‚Ñï) ") names ++ "where"
+          else [ "module _ " ++ concatMap (\v -> "(" ++ v ++ " : ‚ï) ") names ++ "where"
                , "  candidate : " ++ lhs ++ " ‚â° " ++ rhs
                , "  candidate = " ++ body ])
 
@@ -758,24 +758,24 @@ agdaSolverCertificate defs eq@(l, r) imp body = do
 -- Both cubical versions the corpus meets are covered so the shape survives
 -- the toolchain skew that fibered VargaPrakrtiWitness109: v0.5 exposes the
 -- hole macro as `Cubical.Tactics.NatSolver.Reflection.solve`; v0.9 renamed
--- it `solve‚Ñï!` and re-exported it from the aggregator `Cubical.Tactics
+-- it `solve‚ï!` and re-exported it from the aggregator `Cubical.Tactics
 -- .NatSolver`.  Only one import resolves per toolchain; the other fails with
--- "Failed to find source of module" ‚Äî an ordinary rejection, not an
--- environment fault ‚Äî so the search simply moves to the next shape.
+-- "Failed to find source of module" ‚î an ordinary rejection, not an
+-- environment fault ‚î so the search simply moves to the next shape.
 solverShapes :: [(String, String, String)]
 solverShapes =
   [ ( "solve"
     , "open import Cubical.Tactics.NatSolver.Reflection using (solve)"
     , "solve" )
-  , ( "solve‚Ñï!"
-    , "open import Cubical.Tactics.NatSolver using (solve‚Ñï!)"
-    , "solve‚Ñï!" )
+  , ( "solve‚ï!"
+    , "open import Cubical.Tactics.NatSolver using (solve‚ï!)"
+    , "solve‚ï!" )
   ]
 
 -- Peel matching leading `suc` constructors off both sides.  `suc E` is
 -- `F "s" [E]`; the count returned is how many peeled, and the equation is the
--- common core.  A goal `suc·µè E‚ÇÅ ‚â° suc·µè E‚ÇÇ` is closed by `(cong suc)·µè` applied
--- to a proof of `E‚ÇÅ ‚â° E‚ÇÇ`, so peeling lets the semiring solver reach a core
+-- common core.  A goal `sucµ E‚ ‚â° sucµ E‚` is closed by `(cong suc)µ` applied
+-- to a proof of `E‚ ‚â° E‚`, so peeling lets the semiring solver reach a core
 -- it could not see under the constructors.
 peelSuc :: Equation -> (Int, Equation)
 peelSuc (F "s" [a], F "s" [b]) = let (k, e) = peelSuc (a, b) in (k + 1, e)
@@ -815,7 +815,7 @@ agdaSolverPeelCertificate defs eq@(l, r) imp body =
 -- clause-completion lemma `preambleCore` puts in scope, and only for the
 -- induction variable `nv` (the position the stuck term appears in after one
 -- step).  Kept out of `stepShapes` proper so the other callers of that
--- function ‚Äî ClauseOrder, certifyCert ‚Äî are untouched.
+-- function ‚î ClauseOrder, certifyCert ‚î are untouched.
 citingStepShapes :: [String] -> String -> [(String, String)]
 citingStepShapes syms nv =
   [ s | "max" `elem` syms
@@ -837,7 +837,7 @@ inductionHypothesis eq _ = do
 
 -- The ordered shape list for the step case.  Cheapest and most likely
 -- first.  `ih` alone is not decoration: it is what closes every monus and
--- le theorem in the library (suc x ‚à∏ suc x reduces to x ‚à∏ x, so the goal
+-- le theorem in the library (suc x ‚à suc x reduces to x ‚à x, so the goal
 -- IS the hypothesis).
 stepShapes :: String -> [String] -> [(String, String)]
 stepShapes ih ks =
@@ -848,8 +848,8 @@ stepShapes ih ks =
   ++ concat
      [ [ ("cong (_+ " ++ k ++ ")", "cong (_+ " ++ k ++ ") (" ++ ih ++ ")")
        , ("cong (" ++ k ++ " +_)", "cong (" ++ k ++ " +_) (" ++ ih ++ ")")
-       , ("cong (_¬∑ " ++ k ++ ")", "cong (_¬∑ " ++ k ++ ") (" ++ ih ++ ")")
-       , ("cong (" ++ k ++ " ¬∑_)", "cong (" ++ k ++ " ¬∑_) (" ++ ih ++ ")")
+       , ("cong (_¬ " ++ k ++ ")", "cong (_¬ " ++ k ++ ") (" ++ ih ++ ")")
+       , ("cong (" ++ k ++ " ¬_)", "cong (" ++ k ++ " ¬_) (" ++ ih ++ ")")
        ]
      | k <- ks ]
 
@@ -879,8 +879,8 @@ kMaxCongArguments = 2
 
 -- The invocation budget per candidate, stated once and derived, not
 -- guessed: one refl module plus one module per step shape.  This is the
--- budget for an ANNOTATED candidate ‚Äî one whose proof note names the
--- induction variable ‚Äî and it is unchanged by the fallback below.
+-- budget for an ANNOTATED candidate ‚î one whose proof note names the
+-- induction variable ‚î and it is unchanged by the fallback below.
 kMaxAgdaCalls :: Int
 kMaxAgdaCalls = 1
              + 2 * length solverShapes  -- direct + peel module per macro
@@ -897,9 +897,9 @@ kMaxInductionVariables = 3
 
 -- The budget for a candidate whose note names no variable, derived rather
 -- than guessed: the shared refl module, then the step menu once per
--- variable tried.  A false equation costs far less than this in practice ‚Äî
+-- variable tried.  A false equation costs far less than this in practice ‚î
 -- the base clause fails and `blamedLine` stops each variable's search at 2
--- calls ‚Äî but the bound is what is guaranteed and it is what is stated.
+-- calls ‚î but the bound is what is guaranteed and it is what is stated.
 kMaxAgdaCallsUnannotated :: Int
 kMaxAgdaCallsUnannotated = 1 + 2 * length solverShapes
   + kMaxInductionVariables * (kMaxAgdaCalls - 1 - 2 * length solverShapes)
@@ -921,8 +921,8 @@ agdaArgs dir file = agdaArgsWith [] dir file
 -- modules the emitter writes import only Cubical.* and NaturalMachine.*, so
 -- the base args never needed more than the one root; a WHOLE module handed
 -- over the wire (sadhana.patra) may import any module of the corpus, whose
--- own .agda-lib names further roots (kernel, theorems/‚Ä¶).  Those roots are
--- read from that file at the moment of the run ‚Äî see `corpusIncludeRoots` ‚Äî
+-- own .agda-lib names further roots (kernel, theorems/‚¶).  Those roots are
+-- read from that file at the moment of the run ‚î see `corpusIncludeRoots` ‚î
 -- never restated here, so the two cannot drift.
 agdaArgsWith :: [FilePath] -> FilePath -> FilePath -> [String]
 agdaArgsWith extra dir file =
@@ -932,7 +932,7 @@ agdaArgsWith extra dir file =
 -- The corpus's own include roots, read from its .agda-lib and made relative
 -- to the repository root the agda child runs in.  `.` is kIncludeRoot itself
 -- and is dropped rather than doubled.  An unreadable or absent file yields
--- [], which is exactly today's behaviour ‚Äî the base root alone ‚Äî so nothing
+-- [], which is exactly today's behaviour ‚î the base root alone ‚î so nothing
 -- new can break the emitter's gate or the two controls.
 corpusIncludeRoots :: FilePath -> IO [FilePath]
 corpusIncludeRoots root = do
@@ -965,7 +965,7 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 -- root, as the engine uses).  LC_ALL is forced because agda prints Œª and
 -- dies under the C locale.
 --
--- The reader's own locale is forced too.  Agda's diagnostics contain ‚Ñï and
+-- The reader's own locale is forced too.  Agda's diagnostics contain ‚ï and
 -- ‚â°, and `readCreateProcessWithExitCode` decodes the child's pipes with
 -- the process locale encoding; under LANG=C that throws
 --   hGetContents: invalid argument (cannot decode byte sequence ...)
@@ -973,8 +973,8 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 -- state and is set on every call so the seam cannot forget it.
 --
 -- THE SEAM, CLOSED 2026-08-20.  Until today this function returned the
--- child's exit status untouched, and `vetSuccess` ‚Äî the falsifier watch of
--- 2026-08-16 ‚Äî was reached from exactly ONE caller, `runAgdaCached`.  So the
+-- child's exit status untouched, and `vetSuccess` ‚î the falsifier watch of
+-- 2026-08-16 ‚î was reached from exactly ONE caller, `runAgdaCached`.  So the
 -- repair lived in a wrapper and the seam itself was open: `ClauseOrder`
 -- calls `runAgda` directly, and under `agda "$@" 2>&1 | cat`
 -- `ClauseOrder.certifyUnder` returned `Accepted "refl"` for `s(x) ‚â° x`, in
@@ -985,8 +985,8 @@ writeUtf8 path s = withFile path WriteMode $ \h -> do
 -- is a note.  So the WATCH IS NOW THE DEFAULT and the unwatched launch has
 -- to be asked for by name (`runAgdaUnwatched`), which is the only ordering
 -- under which forgetting is safe.  The two callers that must stay unwatched
--- are the controls themselves ‚Äî `kernelStatus`, which would otherwise
--- recurse ‚Äî and `GateAudit`'s PROBE-RAW, whose whole purpose is to print
+-- are the controls themselves ‚î `kernelStatus`, which would otherwise
+-- recurse ‚î and `GateAudit`'s PROBE-RAW, whose whole purpose is to print
 -- what the child returned before anyone judged it.
 --
 -- The cost is one memoised `kernelStatus` per process (two agda runs), paid
@@ -1001,7 +1001,7 @@ runAgda root source = do
 
 -- The raw launch: the child's own exit status, unexamined.  Everything the
 -- old `runAgda` was, under the name that says so.  A zero from here is a
--- number a process returned and is not evidence about mathematics ‚Äî see
+-- number a process returned and is not evidence about mathematics ‚î see
 runAgdaUnwatched :: FilePath -> String -> IO (ExitCode, String)
 runAgdaUnwatched root source = do
   micros <- agdaTimeoutMicros
@@ -1106,7 +1106,7 @@ runAgdaModule root source = do
 -- about any expression in a loaded module: `Cmd_compute_toplevel` gives its
 -- NORMAL FORM, `Cmd_infer_toplevel` gives its TYPE.  So for a submitted
 -- module and a list of expressions, the kernel hands back, per expression,
--- what it computes it to and what it is ‚Äî every bit it derives, not a green.
+-- what it computes it to and what it is ‚î every bit it derives, not a green.
 --
 -- Include roots are made ABSOLUTE here: in --interaction mode agda resolves
 -- `-i` relative to the loaded file, not the working directory (measured), so
@@ -1169,7 +1169,7 @@ runAgdaAnalyze root0 modSource exprs = do
     pairUp (e : es) []               = [ Analysis e' "(no answer returned)" "" | e' <- e : es ]
 
 -- Scan agda2 s-expression output for `agda2-info-action "TITLE" "BODY"`,
--- returning each BODY (unescaped) whose TITLE is a real answer ‚Äî dropping the
+-- returning each BODY (unescaped) whose TITLE is a real answer ‚î dropping the
 -- "*Type-checking*" progress lines and empty bodies.  An "*Error*" body is
 -- kept: an expression that failed to elaborate is a real, reported answer.
 infoResults :: String -> [String]
@@ -1247,8 +1247,8 @@ canaryModule claim = unlines
   [ kOptionsPragma
   , "module Candidate where"
   , "open import Cubical.Foundations.Prelude"
-  , "open import Cubical.Data.Nat using (‚Ñï ; zero ; suc ; _+_)"
-  , "canary : (x : ‚Ñï) ‚Üí " ++ claim
+  , "open import Cubical.Data.Nat using (‚ï ; zero ; suc ; _+_)"
+  , "canary : (x : ‚ï) ‚í " ++ claim
   , "canary x = refl"
   ]
 
@@ -1271,7 +1271,7 @@ canaryFalse = canaryModule "(suc x) ‚â° x"
 --
 -- On 2026-08-20 that sentence was printed 33 times by a container in which
 -- the kernel had rejected `suc x ‚â° x` exactly as it should, and in which the
--- POSITIVE control was the thing that failed ‚Äî for an `[InfectiveImport]`
+-- POSITIVE control was the thing that failed ‚î for an `[InfectiveImport]`
 -- scope error (see `kOptionsPragma`).  The verdict was right and the reason
 -- was invented, and a reader who believed the reason would have gone looking
 -- for a broken agda instead of a drifted pragma.  Two distinct observations
@@ -1292,17 +1292,17 @@ data KernelStatus
     --   error.  The falsifier was watched firing.
   | KernelPositiveControlFailed String
     -- ^ `(zero + x) ‚â° x` did NOT check.  agda's output.  Says nothing about
-    --   whether the kernel is honest ‚Äî it says this container cannot compile
+    --   whether the kernel is honest ‚î it says this container cannot compile
     --   the modules this emitter produces, so no verdict from it means anything.
   | KernelAcceptedAFalsehood
     -- ^ `(suc x) ‚â° x` checked.  The kernel is not checking proofs, and
     --   nothing it accepts is one.
   | KernelNegativeControlInconclusive String
     -- ^ the negative control failed, but not with a type error located in the
-    --   module ‚Äî a missing include root, a timeout, a killed process.  The
+    --   module ‚î a missing include root, a timeout, a killed process.  The
     --   kernel was not observed rejecting a falsehood, and it was not observed
     --   accepting one either.  Both are asserted at once and the pair has no
-    --   single verdict: *avaktavyam*, the fourth position of the saptabha·πÖgƒ´
+    --   single verdict: *avaktavyam*, the fourth position of the saptabhag
     --   and not an absence.  No acceptance is licensed, as with the others.
   deriving (Eq, Show)
 
@@ -1343,7 +1343,7 @@ kernelStatus root = do
             -- is named `Candidate` for the same reason the candidates are, so
             -- it applies verbatim.  Demanding it means `KernelChecking` is
             -- only ever returned by a process that WATCHED the kernel produce
-            -- `1 != 0` ‚Äî the falsifier, not merely the absence of a success.
+            -- `1 != 0` ‚î the falsifier, not merely the absence of a success.
             pure $ case negCode of
               ExitSuccess -> KernelAcceptedAFalsehood
               ExitFailure _
@@ -1363,7 +1363,7 @@ kernelIsChecking root = (== KernelChecking) <$> kernelStatus root
 -- `| cat` shim on the very first candidate rather than on the first
 -- success: agda's output is CAPTURED, so under that wrapper the type error
 -- is sitting in the text next to the zero exit status.  A successful agda
--- run says "Checking Candidate (‚Ä¶)" and nothing else.
+-- run says "Checking Candidate (‚¶)" and nothing else.
 successHidesAnError :: String -> Bool
 successHidesAnError out = any (`isInfixOf` out) markers
   where
@@ -1570,7 +1570,7 @@ storeCache root tc key entry = do
 
 -- Requirement (e), decided: cache a failure only when agda plainly reports a
 -- TYPE error located in the module we emitted.  A non-zero exit otherwise
--- carries no mathematical content ‚Äî a missing library, a locale fault, a
+-- carries no mathematical content ‚î a missing library, a locale fault, a
 -- vanished include root or a killed process all produce one, and freezing
 -- any of those into a persistent "rejected" would recreate exactly the bug
 -- described as fault (1) in the header, where a path error was recorded as a
@@ -1650,11 +1650,11 @@ confirmHere key = modifyIORef' confirmedRef (key :)
 -- THE ACCOUNTABILITY OF A NEGATIVE VERDICT.  This function's negative verdicts
 -- now carry the observation that produced them, which is the whole of the repair
 -- of 2026-08-20.  A negative verdict that does not say what was looked at, and found
--- unfit, is a verdict asserting itself while concealing its standpoint ‚Äî
--- ‡§¶‡•Å‡§∞‡•ç‡§®‡§Ø‡•ã ‡§≠‡§µ‡§§‡§ø").  The older Mƒ´mƒÅ·πÉsƒÅ name for the requirement is
--- *yogyƒÅnupalabdhi*: a non-apprehension is evidence only when the looking was
--- FIT to have apprehended (KumƒÅrila, *≈ölokavƒÅrttika*, AbhƒÅvapariccheda,
--- c. 7th c.; s≈´tra ¬ß19, "‡§Ø‡§§‡•ç‡§∞ ‡§¶‡•É‡§∂‡•ç‡§Ø‡•á‡§§ ‡§§‡§§‡•ç‡§∞ ‡§® ‡§¶‡•É‡§∑‡•ç‡§ü‡§Æ‡•ç ‡§á‡§§‡§ø ‡§™‡•ç‡§∞‡§Æ‡§æ‡§£‡§Æ‡•ç").  A
+-- unfit, is a verdict asserting itself while concealing its standpoint ‚î
+-- ‡¶‡‡∞‡‡®‡Ø‡ã ‡‡µ‡‡ø").  The older Mms name for the requirement is
+-- *yogynupalabdhi*: a non-apprehension is evidence only when the looking was
+-- FIT to have apprehended (Kumrila, *lokavrttika*, Abhvapariccheda,
+-- c. 7th c.; stra ¬ß19, "‡Ø‡‡‡∞ ‡¶‡‡‡‡Ø‡‡ ‡‡‡‡∞ ‡® ‡¶‡‡‡‡ü‡Æ‡ ‡‡‡ø ‡‡‡∞‡Æ‡æ‡‡Æ‡").  A
 -- container that cannot compile the emitter's own preamble is not fit
 -- looking, and reporting its silence as "the kernel accepted a falsehood" is
 -- the precise failure that doctrine names.
@@ -1699,7 +1699,7 @@ vetSuccess root out
 -- LOCALE discipline out of `runAgdaRaw` and left the fitness behind.  Closing
 -- the seam at `runAgda` does nothing for them, because they never cross it.
 -- This is the one line each of them needs, and it takes what they already
--- have in hand ‚Äî the code and the captured output ‚Äî rather than asking them
+-- have in hand ‚î the code and the captured output ‚î rather than asking them
 -- to re-plumb their invocation through this module's temp-directory and
 -- argument conventions, which are not theirs.
 --
@@ -1820,7 +1820,7 @@ firstErrorLine out =
 --   2. `cacheableFailure` requires `isJust (blamedLine out)`, so NO rejection
 --      was cacheable and every run re-paid for every rejection.
 --   3. `kernelStatus`'s negative control, which reuses `cacheableFailure`,
---      could not recognise `suc x != x` as a located type error ‚Äî so the
+--      could not recognise `suc x != x` as a located type error ‚î so the
 --      falsifier fired, correctly, and was not credited with firing.
 --
 -- The separator is required to be one of `,.` AND to be followed by a digit,
@@ -1848,7 +1848,7 @@ certify = certifyWith []
 
 certifyWith :: [Definition] -> FilePath -> (Equation, String) -> IO Verdict
 -- The `Int` in the Verdict is the number of agda processes this call
--- actually launched ‚Äî 0 when every module in the search came from the
+-- actually launched ‚î 0 when every module in the search came from the
 -- cache, in which case the shape/error string is marked `cached`.  It is
 -- deliberately not the number of modules examined: that number would make
 -- a cache hit look like kernel work in every log and every measurement.
@@ -1872,7 +1872,7 @@ certifyWith defs root (eq, proofNote) =
   where
     -- The reflection-solver modules are tried after the definitional `refl`
     -- module and before the induction search: one call closes the whole
-    -- ‚Ñï-semiring class (directly, or under k leading `suc`s via the peel
+    -- ‚ï-semiring class (directly, or under k leading `suc`s via the peel
     -- certificate), and for an equation the solver does not handle (monus, le,
     -- gcd) it fails fast and the induction search runs exactly as before.
     -- Exhausting the solver modules falls through to `tryVariables`, so no
@@ -1902,8 +1902,8 @@ certifyWith defs root (eq, proofNote) =
     -- `inductionVariable` reads the induction variable off the caller's proof
     -- note.  The engine annotates its OWN proofs, so a theorem it derived
     -- arrives with "[induction on x]" and gets the eleven step shapes.  A
-    -- RESIDUAL ‚Äî a subgoal harvested from the kernel's own stall and asked
-    -- back ‚Äî has no such note, and the `Nothing` branch that used to stand
+    -- RESIDUAL ‚î a subgoal harvested from the kernel's own stall and asked
+    -- back ‚î has no such note, and the `Nothing` branch that used to stand
     -- here turned it back after ONE agda call, having emitted no induction module
     -- at all.  `MathMachine.koNaya` already records the consequence: the naya
     -- attempted is `NRefl` exactly when the note named no variable, and over
@@ -1913,7 +1913,7 @@ certifyWith defs root (eq, proofNote) =
     -- Measured on the six lemmas the kernel demanded and no composition law
     -- reaches (interactive/SesaPariksa_...hs, and ¬ß9 of
     -- variable in turn moves THREE of the six from open to certified with the
-    -- shape menu completely unchanged ‚Äî
+    -- shape menu completely unchanged ‚î
     --
     --     x = x + (0 * x)                  induction on x, step = cong suc
     --     max(0,x) + 0 = max(0 + 0, x + 0) induction on x, step = refl
@@ -1925,7 +1925,7 @@ certifyWith defs root (eq, proofNote) =
     -- THIS IS NOT THE PROOF SEARCH ¬ß3a OF CERTIFICATE_REACH.md RULES OUT.  That
     -- prohibition is about searching over COMPOSITIONS of proof shapes, where the
     -- space is unbounded and the search is a prover in another process.  This
-    -- searches over the ‚â§ 6 VARIABLES OF THE EQUATION with the shape menu
+    -- searches over the ‚â 6 VARIABLES OF THE EQUATION with the shape menu
     -- fixed, and the bound is stated below and derived rather than guessed.
     --
     -- An ANNOTATED candidate is unaffected in every respect, including its
@@ -2019,17 +2019,17 @@ untranslatableReason defs eq@(l, r) =
 -- this process, and then the proof term is gone: the file records only the
 -- equation and a prose note ("[induction on x]").  Re-reading the file
 -- therefore re-runs the *search* (agdaCertificate + stepShapes), which is
--- not the same as re-checking a fixed proof ‚Äî a change to `stepShapes` could
+-- not the same as re-checking a fixed proof ‚î a change to `stepShapes` could
 -- silently change which library entries are provable.
 --
 -- A `SerialCert` closes that gap.  It records the exact proof WITNESS that
 -- agda accepted (refl, or induction on a named variable with the exact step
 -- term), so:
 --
---   (a) it RECONSTRUCTS THE PROOF TERM deterministically ‚Äî `reconstructModule`
+--   (a) it RECONSTRUCTS THE PROOF TERM deterministically ‚î `reconstructModule`
 --       emits the one Agda module that carries the accepted proof, with no
 --       search; and
---   (b) it ROUND-TRIPS ‚Äî `serializeCert` / `parseSerialCert` are inverses on
+--   (b) it ROUND-TRIPS ‚î `serializeCert` / `parseSerialCert` are inverses on
 --       the fragment, so a serialised ledger entry parses back to the same
 --       witness, whose reconstructed module agda re-checks to the same
 --       theorem (`replayCert`).
@@ -2037,7 +2037,7 @@ untranslatableReason defs eq@(l, r) =
 -- The Agda side these land in is NaturalMachine.RewriteCertificate: a checked
 -- `candidate : lhs ‚â° rhs` is exactly the hypothesis of `derivation-sound` /
 -- `induction-sound` there, i.e. the semantic warrant that the endpoints
--- denote pointwise-equal functions ‚Ñï ‚Üí ‚Ñï.
+-- denote pointwise-equal functions ‚ï ‚í ‚ï.
 
 -- The proof that a `SerialCert` carries, in a form that reconstructs a
 -- specific Agda module rather than a search.
@@ -2206,7 +2206,7 @@ certifyCert defs root (eq, proofNote) =
 
 -- Replay a serialised certificate: reconstruct the module named by the
 -- witness and re-check it with agda.  This is the operation that makes the
--- ledger re-checkable ‚Äî it trusts the witness, never re-searches.
+-- ledger re-checkable ‚î it trusts the witness, never re-searches.
 replayCert :: FilePath -> SerialCert -> IO (Either String ())
 replayCert root sc = case reconstructModule sc of
   Nothing     -> pure (Left "witness does not reconstruct to a module")
@@ -2219,10 +2219,10 @@ replayCert root sc = case reconstructModule sc of
 -- ------------------------------------------------ reading library.txt
 --
 -- library.txt is written with the machine's infix `show`
--- (MathMachine.hs ~465): variables are x y z u v w / n‚Å±, `0` and other
+-- (MathMachine.hs ~465): variables are x y z u v w / n‚, `0` and other
 -- nullary symbols are bare, `+ * ^ gcd max` are infix `(a op b)`, and every
--- other symbol (`s`, `-`, `le`, invented concepts `c0`‚Ä¶) is prefix
--- `f(a,b,‚Ä¶)`.  This parser is the exact inverse of that `show`, so a line the
+-- other symbol (`s`, `-`, `le`, invented concepts `c0`‚¶) is prefix
+-- `f(a,b,‚¶)`.  This parser is the exact inverse of that `show`, so a line the
 -- machine wrote parses back to the term it denotes.
 
 -- Operators the machine renders infix (Show instance's list).  Order does
@@ -2265,8 +2265,8 @@ pShowOp s = case [ (op, drop (length op) s) | op <- showInfixOps, op `isPrefixOf
 -- A scan that takes the longest run of identifier characters swallows the
 -- operator: it read `xmaxx` as one nullary symbol, then looked for an infix
 -- operator, found `)`, and returned `Nothing`.  `parseLibraryLine` therefore
--- failed on EVERY `max` line the machine has ever written ‚Äî four of the 28
--- lines of `interactive/library.snapshot.txt` ‚Äî and failed by returning "this
+-- failed on EVERY `max` line the machine has ever written ‚î four of the 28
+-- lines of `interactive/library.snapshot.txt` ‚î and failed by returning "this
 -- line did not parse", which reads as a malformed file rather than as a
 -- defect in the reader.  `ProofGate.main` never saw it because its
 -- `snapshot` is transcribed by hand in Haskell; anything that reads the FILE
@@ -2306,7 +2306,7 @@ pShowArgs s = case dropWhile isSpace s of
       _        -> Nothing
 
 -- A bare name is a variable if it is one of the six universe letters or the
--- machine's out-of-range spelling n‚Å±; otherwise a nullary symbol like `0`.
+-- machine's out-of-range spelling n‚; otherwise a nullary symbol like `0`.
 atom :: String -> Term
 atom nm
   | [c] <- nm, Just i <- lookup c (zip "xyzuvw" [0 ..]) = V i

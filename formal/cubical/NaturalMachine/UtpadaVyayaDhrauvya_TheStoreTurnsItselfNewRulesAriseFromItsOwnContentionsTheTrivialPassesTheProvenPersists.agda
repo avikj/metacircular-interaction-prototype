@@ -1,31 +1,31 @@
 {-# OPTIONS --cubical --safe #-}
 
 ------------------------------------------------------------------------
--- ‡§â‡§§‡•ç‡§™‡§æ‡§¶-‡§µ‡•ç‡§Ø‡§Ø-‡§ß‡•ç‡§∞‡•å‡§µ‡•ç‡§Ø‡§Ø‡•Å‡§ï‡•ç‡§§‡§Ç ‡§∏‡§§‡•ç ‚Äî UmƒÅsvƒÅti, TattvƒÅrthas≈´tra 5.30
--- (c. 2nd‚Äì5th c. CE): the existent is that which arises, passes, and
+-- ‡â‡‡‡‡æ‡¶-‡µ‡‡Ø‡Ø-‡ß‡‡∞‡‡µ‡‡Ø‡Ø‡‡ï‡‡‡ ‡‡‡ ‚î Umsvti, Tattvrthastra 5.30
+-- (c. 2nd‚ì5th c. CE): the existent is that which arises, passes, and
 -- persists, together.  The classification is his; the mathematics is
 -- not claimed for the source.  School named: Jaina.
 --
 -- THE QUESTIONS NOW ARISE FROM THE STORE ITSELF.  Until this module,
 -- an agent chose which equations to put to the prover.  Here the
--- store turns on its own: two rules whose scopes meet at one site ‚Äî
--- KƒÅtyƒÅyana's configuration, ‡§¶‡•ç‡§µ‡•å ‡§™‡•ç‡§∞‡§∏‡§ô‡•ç‡§ó‡•å ‡§Ö‡§®‡•ç‡§Ø‡§æ‡§∞‡•ç‡§•‡•å ‡§è‡§ï‡§∏‡•ç‡§Æ‡§ø‡§®‡•ç,
--- already checked as EkaTantra's contention ‚Äî GENERATE the site by
+-- store turns on its own: two rules whose scopes meet at one site ‚î
+-- Ktyyana's configuration, ‡¶‡‡µ‡ ‡‡‡∞‡‡ô‡‡ó‡ ‡‡®‡‡Ø‡æ‡∞‡‡‡ ‡‡ï‡‡‡Æ‡ø‡®‡,
+-- already checked as EkaTantra's contention ‚î GENERATE the site by
 -- unification, and the born rule needs no prover at all: the two
 -- parents' witnesses compose through the unified site, so every
--- critical pair is born already proven (‡§â‡§§‡•ç‡§™‡§æ‡§¶).  Births the
--- normalizer already closes are discarded (‡§µ‡•ç‡§Ø‡§Ø).  What is kept
--- carries its ‡§∏‡§æ‡§ï‡•ç‡§∑‡•Ä by type and enters the store through the same
--- gate as everything else (‡§ß‡•ç‡§∞‡•å‡§µ‡•ç‡§Ø).
+-- critical pair is born already proven (‡â‡‡‡‡æ‡¶).  Births the
+-- normalizer already closes are discarded (‡µ‡‡Ø‡Ø).  What is kept
+-- carries its ‡‡æ‡ï‡‡‡ by type and enters the store through the same
+-- gate as everything else (‡ß‡‡∞‡‡µ‡‡Ø).
 --
 -- Unification is verify-after-compute, like the matcher: the fueled
 -- solver PROPOSES a substitution and the path-returning test either
--- certifies the meeting or the candidate is silently dropped ‚Äî no
+-- certifies the meeting or the candidate is silently dropped ‚î no
 -- occurs-check is trusted, because nothing unverified is ever used.
 --
 -- Demonstrated: one turn of the store on the two rules the previous
--- module minted (‡§Ö‡§ó‡•ç‡§∞‡§ø‡§Æ‡§É, ‡§ï‡•ç‡§∞‡§Æ-‡§®‡§ø‡§Ø‡§Æ‡§É ‚Äî themselves machine-proven).
--- The turn births exactly two nontrivial proven rules ‚Äî both faces of
+-- module minted (‡‡ó‡‡∞‡ø‡Æ‡, ‡ï‡‡∞‡Æ-‡®‡ø‡Ø‡Æ‡ ‚î themselves machine-proven).
+-- The turn births exactly two nontrivial proven rules ‚î both faces of
 -- y + su x = su (x + y), a theorem NOBODY posed: it arose from the
 -- meeting of su-left with commutativity.  Exhibited by refl.
 ------------------------------------------------------------------------
@@ -50,7 +50,7 @@ open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCogn
 
 ------------------------------------------------------------------------
 -- ¬ß1  The meeting: a fueled unifier that only PROPOSES.  Certification
---     is the path-returning test on the applied result ‚Äî the test is
+--     is the path-returning test on the applied result ‚î the test is
 --     the certificate, so the solver itself owes no proof.
 ------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCogn
 ‡§â‡§§‡•ç‡§ï‡•ç‡§∑‡•á‡§™-œÉ d i = var (d + i)
 
 ------------------------------------------------------------------------
--- ¬ß2  ‡§â‡§§‡•ç‡§™‡§æ‡§¶‡§É ‚Äî the birth at the meeting.  The site arises from the
+-- ¬ß2  ‡â‡‡‡‡æ‡¶‡ ‚î the birth at the meeting.  The site arises from the
 --     two scopes; the born rule's witness is the composition of the
 --     parents' witnesses through the certified meeting.  No prover.
 ------------------------------------------------------------------------
@@ -105,9 +105,9 @@ open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCogn
   r‚ÇÇ = ‡§Ü‡§¶‡•á‡§∂‡§®‡§Æ‡•ç (‡§â‡§§‡•ç‡§ï‡•ç‡§∑‡•á‡§™-œÉ d) (‡§®‡§ø‡§Ø‡§Æ‡§É.rhs s‚ÇÇ)
 
 ------------------------------------------------------------------------
--- ¬ß3  ‡§µ‡•ç‡§Ø‡§Ø‡§É ‚Äî the passing.  A birth the normalizer already closes is
---     no new knowledge; it is let go.  ‡§ß‡•ç‡§∞‡•å‡§µ‡•ç‡§Ø‡§Æ‡•ç is the type itself:
---     what remains is a ‡§®‡§ø‡§Ø‡§Æ‡§É, its proof a field, forever.
+-- ¬ß3  ‡µ‡‡Ø‡Ø‡ ‚î the passing.  A birth the normalizer already closes is
+--     no new knowledge; it is let go.  ‡ß‡‡∞‡‡µ‡‡Ø‡Æ‡ is the type itself:
+--     what remains is a ‡®‡ø‡Ø‡Æ‡, its proof a field, forever.
 ------------------------------------------------------------------------
 
 ‡§∏‡§æ‡§∞‡§É : Maybe ‡§®‡§ø‡§Ø‡§Æ‡§É ‚Üí Maybe ‡§®‡§ø‡§Ø‡§Æ‡§É
@@ -138,7 +138,7 @@ open import NaturalMachine.ShrutaMatipurva_TheRecordIsPrecededByCognitionAndCogn
 -- ¬ß4  The turn runs, on machine-proven parents, and a theorem nobody
 --     posed arises: y + su x = su (x + y), both faces, from the
 --     meeting of su-left with commutativity.  Exhibited by refl; the
---     proofs ride inside the ‡§®‡§ø‡§Ø‡§Æ‡§É values by type.
+--     proofs ride inside the ‡®‡ø‡Ø‡Æ‡ values by type.
 ------------------------------------------------------------------------
 
 ‡§Æ‡•Å‡§ñ‡§Æ‡•ç : ‡§®‡§ø‡§Ø‡§Æ‡§É ‚Üí Tm √ó Tm

@@ -1,22 +1,22 @@
 {-# OPTIONS --cubical-compatible --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- कालद्रव्यम् — time as substance.  Umāsvāti, *Tattvārthasūtra* 5.38–39
--- (c. 2nd–5th c. CE): कालश्च — time too is a dravya, a substance among
+-- ������������ � time as substance.  Umsvti, *Tattvrthastra* 5.38�39
+-- (c. 2nd�5th c. CE): ������� � time too is a dravya, a substance among
 -- the six, not a shadow cast by change.  School: Jaina.  Claimed of
--- the source: the name and the ontological move — time admitted as a
--- first-class object — nothing else.
+-- the source: the name and the ontological move � time admitted as a
+-- first-class object � nothing else.
 --
 -- WHAT THIS IS.  The machine as a model of computation closes over its
 -- own cost.  The running time of every operator in the vocabulary is
 -- expressible IN the vocabulary (unary arithmetic's recursion depths
--- are +, ∸, max, min = (a+b)∸max(a,b), all present), so TIME IS A
--- TERM: a translation कालः : Tm → Tm sends every program to a term
+-- are +, �, max, min = (a+b)�max(a,b), all present), so TIME IS A
+-- TERM: a translation ����� : Tm � Tm sends every program to a term
 -- whose VALUE is its running time.  No second semantics, no new
 -- prover: cost equations are equations, proved by the same one knowing
 -- with the same certificates, refuted by the same exhibited
--- environments.  Correctness and efficiency — computer science's
--- founding distinction — become two questions in one tongue, and the
+-- environments.  Correctness and efficiency � computer science's
+-- founding distinction � become two questions in one tongue, and the
 -- machine can hold them apart: x+y = y+x is a theorem of value and a
 -- REFUTED claim of time (unary + recurses on its left argument), both
 -- kernel-checked below.
@@ -26,13 +26,13 @@
 --   var, 0        cost 1 (a lookup, a constant)
 --   su t          1 + cost t
 --   a ⊕ b         cost a + cost b + a + 1          (+ recurses on left)
---   a ⊗ b         cost a + cost b + a·b + a + 1    (a additions of b)
+--   a ⊗ b         cost a + cost b + a�b + a + 1    (a additions of b)
 --   a ⊖ b         cost a + cost b + min(a,b) + 1   (lockstep descent)
 --   mx a b        cost a + cost b + min(a,b) + 1   (lockstep descent)
 --   lq a b        cost a + cost b + min(a,b) + 1   (lockstep descent)
---   gc a b        cost a + cost b + (a+b) + 1      (the fuel BUDGET —
+--   gc a b        cost a + cost b + (a+b) + 1      (the fuel BUDGET �
 --                 an upper bound, stated as such, not the exact trace)
--- min(a,b) is written (a+b) ∸ max(a,b).
+-- min(a,b) is written (a+b) � max(a,b).
 ------------------------------------------------------------------------
 
 module KalaDravya_TimeIsASubstanceInTheSameTongueAndTheMachineProvesCostAsItProvesTruth where
@@ -93,11 +93,11 @@ y = var 1
 ρ₀ zero = 0
 ρ₀ _    = 3
 
--- same value at ρ₀ …
+-- same value at �� �
 मूल्य-समम् : eval (x ⊕ y) ρ₀ ≡ eval (y ⊕ x) ρ₀
 मूल्य-समम् = refl
 
--- … different time at ρ₀: computing 0+3 costs 3, computing 3+0 costs 6
+-- � different time at ��: computing 0+3 costs 3, computing 3+0 costs 6
 काल-वामम् : कालम् (x ⊕ y) ρ₀ ≡ 3
 काल-वामम् = refl
 
@@ -106,7 +106,7 @@ y = var 1
 
 ------------------------------------------------------------------------
 -- §4  The eye is an optimizer, and the machine PROVES the saving.
---     (x + 0) + 0 evaluates as x — and norm says so — while the raw
+--     (x + 0) + 0 evaluates as x � and norm says so � while the raw
 --     term pays for both additions.  The clock certifies the speedup.
 ------------------------------------------------------------------------
 
@@ -122,11 +122,11 @@ y = var 1
 ρ₁ : Nat → Nat
 ρ₁ _ = 5
 
--- the optimization is semantically free … (same value)
+-- the optimization is semantically free � (same value)
 मूल्य-रक्षा : eval स्थूलम् ρ₁ ≡ eval सूक्ष्मम् ρ₁
 मूल्य-रक्षा = refl
 
--- … and temporally real: 15 ticks against 1, certified
+-- � and temporally real: 15 ticks against 1, certified
 स्थूल-कालः : कालम् स्थूलम् ρ₁ ≡ 15
 स्थूल-कालः = refl
 
@@ -135,12 +135,12 @@ y = var 1
 
 ------------------------------------------------------------------------
 -- §5  Cost claims are ordinary claims: the one prover proves a LAW OF
---     TIME over every environment — the clock of x+y never exceeds
---     the clock of y+x by more than… no: here, the exact law relating
+--     TIME over every environment � the clock of x+y never exceeds
+--     the clock of y+x by more than� no: here, the exact law relating
 --     the two clocks, minted through the same gate as every value law:
---     कालः(x⊕y) and कालः(y⊕x) differ by exactly (x, y) exchanged, and
---     le(काल(x⊕y), काल(y⊕x)) is NOT constant — but the SYMMETRIC claim
---     काल(x⊕y) ⊕ y  =  काल(y⊕x) ⊕ x  holds over EVERY environment,
+--     �����(x⊕y) and �����(y⊕x) differ by exactly (x, y) exchanged, and
+--     le(����(x⊕y), ����(y⊕x)) is NOT constant � but the SYMMETRIC claim
+--     ����(x⊕y) ⊕ y  =  ����(y⊕x) ⊕ x  holds over EVERY environment,
 --     and the machine proves it for itself, certificate minted:
 ------------------------------------------------------------------------
 
@@ -150,12 +150,12 @@ y = var 1
     ( कालः (x ⊕ y) ⊕ y , कालः (y ⊕ x) ⊕ x )) tt
 
 ------------------------------------------------------------------------
--- §6  लाघवम् — economy (the Pāṇinian criterion; the grammarians'
+-- §6  ������� � economy (the Pinian criterion; the grammarians'
 --     maxim that brevity is worth half a grandson is tradition's own
 --     joke about how much it matters).  The ledger over the whole
 --     inheritance measured the eyes optimizing for SIGHT, not time
 --     (the heap eye's canonical forms cost MORE: 860 raw against 1231
---     canonicalized, at ρ(i)=i+2).  Canonical is not cheap — two
+--     canonicalized, at �(i)=i+2).  Canonical is not cheap � two
 --     objectives, now held apart.  So the time-organ: among
 --     certified-equal forms, take the one the clock prefers.  Sound
 --     whichever way the comparison falls, because both candidates

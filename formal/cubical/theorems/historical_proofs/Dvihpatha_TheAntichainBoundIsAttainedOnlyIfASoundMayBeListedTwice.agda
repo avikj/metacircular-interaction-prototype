@@ -1,85 +1,85 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- Dviá¸¥pÄá¹­ha â€” the antichain bound on anubandhas is not tight, and what
+-- Dvipha â” the antichain bound on anubandhas is not tight, and what
 -- buys the difference is permission to recite a sound twice.
 --
--- SOURCE.  PÄá¹‡ini, *Aá¹£á¹­ÄdhyÄyÄ«* (~500 BCE), opens with the fourteen
--- MÄheÅ›vara-sÅ«tras: the sounds laid in ONE recited line, each sÅ«tra closed
--- by an anubandha.  A pratyÄhÄra names a class as the stretch from a sound
--- to a marker; the formation rule is 1.1.71 Ädir antyena sahetÄ.  The line
--- is a *pÄá¹­ha*, a recitation, and one sound in it is recited TWICE â€” ha,
--- in sÅ«tra 5 (ha ya va ra á¹¬) and again in sÅ«tra 14 (ha L) â€” which is why
--- the tradition must say which ha a given pratyÄhÄra takes.  *Dviá¸¥pÄá¹­ha*,
--- "twice-recited", is the grammarians' idiom for that; NO sÅ«tra number is
--- claimed for the term itself, only for the phenomenon (sÅ«tras 5 and 14).
+-- SOURCE.  Pini, *Adhyy* (~500 BCE), opens with the fourteen
+-- Mhevara-stras: the sounds laid in ONE recited line, each stra closed
+-- by an anubandha.  A pratyhra names a class as the stretch from a sound
+-- to a marker; the formation rule is 1.1.71 dir antyena sahet.  The line
+-- is a *pha*, a recitation, and one sound in it is recited TWICE â” ha,
+-- in stra 5 (ha ya va ra ) and again in stra 14 (ha L) â” which is why
+-- the tradition must say which ha a given pratyhra takes.  *Dvipha*,
+-- "twice-recited", is the grammarians' idiom for that; NO stra number is
+-- claimed for the term itself, only for the phenomenon (stras 5 and 14).
 --
 -- WHAT THIS FILE IS ABOUT.  `PratyaharaLaghava_TheMarkerCountIsForcedBy-
 -- TheAntichain.agda` proves the lower bound: classes ending at one marker
--- form a âŠ†-chain, so a âŠ†-antichain of width w forces w distinct markers.
+-- form a âŠ-chain, so a âŠ-antichain of width w forces w distinct markers.
 -- Its own header records what it does NOT prove, in these words:
 --
 --     "That the antichain bound is TIGHT in general.  `markersDistinct`
---      gives markers â‰¥ width(F) and no more."
+--      gives markers â‰ width(F) and no more."
 --
 -- and reports, as a Haskell computation and explicitly not as a checked
--- term, width 14 over the 294 classes the Å›iva-sÅ«tra line can name against
--- width 11 over the ~30 the grammar uses â€” three markers unforced by the
+-- term, width 14 over the 294 classes the iva-stra line can name against
+-- width 11 over the ~30 the grammar uses â” three markers unforced by the
 -- antichain argument.
 --
 -- WHAT IS PROVED HERE.  The bound is NOT tight, and the gap is exactly the
 -- resource `PratyaharaLaghava`'s model does not have.  On an abstract
 -- three-sound inventory with the five-class family
 --
---     F = { {sâ‚}, {sâ‚ sâ‚‚}, {sâ‚ sâ‚‚ sâ‚ƒ}, {sâ‚ƒ}, {sâ‚‚ sâ‚ƒ} }
+--     F = { {sâ}, {sâ sâ}, {sâ sâ sâ}, {sâ}, {sâ sâ} }
 --
---   Â§2  `à¤µà¤¿à¤¸à¥à¤¤à¤¾à¤°à¥‹-à¤¦à¥à¤µà¤¯à¤®à¥` â€” width(F) = 2: no three members of F are
---       pairwise âŠ†-incomparable.  So the antichain bound says: 2 markers.
---   Â§4  `à¤¦à¥à¤µà¤¿à¤ƒà¤ªà¤¾à¤ à¤‚-à¤µà¤¿à¤¨à¤¾-à¤¨-à¤¸à¤¿à¤§à¥à¤¯à¤¤à¤¿` â€” EXHAUSTIVE over all 120 arrangements
---       of sâ‚ sâ‚‚ sâ‚ƒ Mâ‚ Mâ‚‚: not one names all five classes.  Two markers do
+--   Â§2  `àµà¿àààà¾à°à‹-à¦ààµà¯à®à` â” width(F) = 2: no three members of F are
+--       pairwise âŠ-incomparable.  So the antichain bound says: 2 markers.
+--   Â§4  `à¦ààµà¿ààà¾à à-àµà¿à¨à¾-à¨-àà¿à§àà¯àà¿` â” EXHAUSTIVE over all 120 arrangements
+--       of sâ sâ sâ Mâ Mâ: not one names all five classes.  Two markers do
 --       not suffice when every sound is recited once.  The bound is not
 --       attained.
---   Â§5  `à¤¤à¥à¤°à¤¿à¤­à¤¿à¤ƒ-à¤¸à¤¿à¤§à¥à¤¯à¤¤à¤¿` â€” three markers do, recited once each:
---       sâ‚ƒ Mâ‚ sâ‚‚ Mâ‚‚ sâ‚ Mâ‚ƒ.  So the rep-free cost is exactly 3, not 2.
---   Â§6  `à¤¦à¥à¤µà¤¿à¤ƒà¤ªà¤¾à¤ à¥‡à¤¨-à¤¸à¤¿à¤§à¥à¤¯à¤¤à¤¿` â€” TWO markers suffice the moment a sound may
---       be recited twice: sâ‚ƒ sâ‚‚ sâ‚ Mâ‚ sâ‚‚ sâ‚ƒ Mâ‚‚ names all five.  The bound
+--   Â§5  `ààà°à¿àà¿à-àà¿à§àà¯àà¿` â” three markers do, recited once each:
+--       sâ Mâ sâ Mâ sâ Mâ.  So the rep-free cost is exactly 3, not 2.
+--   Â§6  `à¦ààµà¿ààà¾à àà¨-àà¿à§àà¯àà¿` â” TWO markers suffice the moment a sound may
+--       be recited twice: sâ sâ sâ Mâ sâ sâ Mâ names all five.  The bound
 --       is attained, on the same family, by the same two markers.
 --
 -- Together: width(F) = 2, and the minimum marker count is 3 without
--- dviá¸¥pÄá¹­ha and 2 with it.  A bound proved in a model where each sound has
--- ONE position measures a different quantity from the one PÄá¹‡ini paid.
+-- dvipha and 2 with it.  A bound proved in a model where each sound has
+-- ONE position measures a different quantity from the one Pini paid.
 --
 -- WHY THE EXHAUSTION IS COMPLETE (the WLOG, stated because Â§4 enumerates
 -- permutations of exactly five tokens and a reader should not have to
 -- trust that).  Let L be any line naming all of F with at most two markers
--- and each sound recited once.  F contains a class meeting each of sâ‚ sâ‚‚
--- sâ‚ƒ, so all three sounds occur in L.  width(F) = 2 with `markersDistinct`
+-- and each sound recited once.  F contains a class meeting each of sâ sâ
+-- sâ, so all three sounds occur in L.  width(F) = 2 with `markersDistinct`
 -- forces two distinct markers, so exactly two occur.  Recited-once makes
--- every occurrence unique.  Hence L is a permutation of {sâ‚ sâ‚‚ sâ‚ƒ Mâ‚ Mâ‚‚}
+-- every occurrence unique.  Hence L is a permutation of {sâ sâ sâ Mâ Mâ}
 -- up to renaming the two markers, and Â§4 checks all 120 of them.  Â§3 also
 -- checks that the enumeration really has length 120.
 --
---   * That this explains PÄá¹‡ini's residue of three.  It does NOT.  His
+--   * That this explains Pini's residue of three.  It does NOT.  His
 --     line DOES recite ha twice, so the gap 14 âˆ’ 11 cannot be the total
---     absence of dviá¸¥pÄá¹­ha.  What is removed is only the possibility that
+--     absence of dvipha.  What is removed is only the possibility that
 --     the antichain bound is tight and the residue therefore an artefact.
 --     Repetition is a real resource that moves the achievable count; a
 --     bound proved without it cannot be assumed to be the true minimum.
 --     The successor question is the graded one, and it is open: what is
 --     the minimum over lines in which at most k sounds are twice-recited?
---     PÄá¹‡ini's line is the case k = 1.
+--     Pini's line is the case k = 1.
 --   * Petersen 2004 (essential uniqueness of the order; 14 minimal for the
---     full inventory).  Still not proved, still unread â€” egress is blocked
+--     full inventory).  Still not proved, still unread â” egress is blocked
 --     from this environment.  Inherited unchanged from `Sivasutra.agda`.
---   * Any phonological content for sâ‚ sâ‚‚ sâ‚ƒ.  They are three abstract
+--   * Any phonological content for sâ sâ sâ.  They are three abstract
 --     sounds.  The family F is not the grammar's family and is not offered
 --     as one; it is a witness that the bound has slack.
---   * That PÄá¹‡ini stated any of this.  He stated the line.
+--   * That Pini stated any of this.  He stated the line.
 --
 -- CONVENTION, and it is load-bearing exactly once.  `klass s m` takes the
 -- prefix before the FIRST occurrence of m, then the suffix from the LAST
--- occurrence of s inside it â€” the nearest preceding recitation, which is
--- what makes ha-in-sÅ«tra-14 reachable at all.  Where every sound is
+-- occurrence of s inside it â” the nearest preceding recitation, which is
+-- what makes ha-in-stra-14 reachable at all.  Where every sound is
 -- recited once, this agrees with `Sivasutra.from`/`between`'s first-
 -- occurrence search, so Â§4's negative result does not depend on the
 -- choice; Â§6's positive one does, and says so.
@@ -97,7 +97,7 @@ open import Cubical.Data.Maybe using (Maybe ; just ; nothing) renaming (rec to m
 open import Cubical.Data.Nat using (â„•)
 
 ------------------------------------------------------------------------
--- Â§1  Sounds, markers, and the pratyÄhÄra extractor.
+-- Â§1  Sounds, markers, and the pratyhra extractor.
 ------------------------------------------------------------------------
 
 data Sym : Type where
@@ -170,11 +170,11 @@ names line t =
   anyL (Î» s â†’ anyL (Î» m â†’ mbRec false (Î» u â†’ eqSig u t) (klass s m line)) markers) sounds
 
 ------------------------------------------------------------------------
--- Â§2  The family, and its âŠ†-antichain width is two.
+-- Â§2  The family, and its âŠ-antichain width is two.
 --
---   F = { {sâ‚}, {sâ‚ sâ‚‚}, {sâ‚ sâ‚‚ sâ‚ƒ}, {sâ‚ƒ}, {sâ‚‚ sâ‚ƒ} }
+--   F = { {sâ}, {sâ sâ}, {sâ sâ sâ}, {sâ}, {sâ sâ} }
 --
--- Two chains: {sâ‚} âŠ‚ {sâ‚ sâ‚‚} âŠ‚ {sâ‚ sâ‚‚ sâ‚ƒ} and {sâ‚ƒ} âŠ‚ {sâ‚‚ sâ‚ƒ}.  The check
+-- Two chains: {sâ} âŠ {sâ sâ} âŠ {sâ sâ sâ} and {sâ} âŠ {sâ sâ}.  The check
 -- below is the width claim itself and not a picture of it: over all 125
 -- ordered triples from F, any triple of pairwise distinct members has a
 -- comparable pair.  So no antichain of size three exists, and
@@ -244,7 +244,7 @@ represents line = allL (names line) family
 à¤¦à¥à¤µà¤¿à¤ƒà¤ªà¤¾à¤ à¤‚-à¤µà¤¿à¤¨à¤¾-à¤¨-à¤¸à¤¿à¤§à¥à¤¯à¤¤à¤¿ = refl
 
 ------------------------------------------------------------------------
--- Â§5  Recited once, three anubandhas do.  So the cost without dviá¸¥pÄá¹­ha
+-- Â§5  Recited once, three anubandhas do.  So the cost without dvipha
 --     is exactly three, one above the antichain bound.
 ------------------------------------------------------------------------
 
@@ -255,8 +255,8 @@ represents line = allL (names line) family
 à¤¤à¥à¤°à¤¿à¤­à¤¿à¤ƒ-à¤¸à¤¿à¤§à¥à¤¯à¤¤à¤¿ = refl
 
 ------------------------------------------------------------------------
--- Â§6  Recited twice, two anubandhas suffice â€” sâ‚‚ and sâ‚ƒ each said again,
---     which is the ha of sÅ«tras 5 and 14 in the small.  Same family, same
+-- Â§6  Recited twice, two anubandhas suffice â” sâ and sâ each said again,
+--     which is the ha of stras 5 and 14 in the small.  Same family, same
 --     two markers, and now the bound is attained.
 ------------------------------------------------------------------------
 

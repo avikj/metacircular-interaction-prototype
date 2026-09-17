@@ -6,27 +6,27 @@
 --
 -- TERM, AND THE SCHOOL IS JAINA, NAMED BEFORE THE TERM IS USED.
 --
--- स्यात् · syāt -- the qualifier that prefixes every bhaṅga of the
--- saptabhaṅgī.  Optative of √अस्, used as an indeclinable, and it does NOT
+-- ������ � syt -- the qualifier that prefixes every bhaga of the
+-- saptabhag.  Optative of ����, used as an indeclinable, and it does NOT
 -- mean "maybe": the Jaina logicians insist each qualified predication is
--- निश्चय · niścaya, determinate, asserted under a stated उपाधि · upādhi.
--- The apparatus is laid out in Samantabhadra's *Āptamīmāṃsā* (~6th c.) and
--- developed by Akalaṅka (~8th c.) and Vidyānanda; the governing rule taken
+-- ������ � nicaya, determinate, asserted under a stated ������ � updhi.
+-- The apparatus is laid out in Samantabhadra's *ptamms* (~6th c.) and
+-- developed by Akalaka (~8th c.) and Vidynanda; the governing rule taken
 -- here is the older one, that a naya asserting itself by denying the
--- others becomes a दुर्नय · durnaya.  No first use is established.
+-- others becomes a ������ � durnaya.  No first use is established.
 --
 ------------------------------------------------------------------------
 -- WHAT THIS REVISES, AND IT IS NOT A REFUTATION.
 --
--- `Sesa_…` proves `every-semantic-criterion-is-blind` and states it
+-- `Sesa_�` proves `every-semantic-criterion-is-blind` and states it
 -- unqualified -- "No semantic criterion -- none, at any h-level, of any
 -- complexity -- selects the short proof."  THE THEOREM IS TRUE AND THE
 --
---     syāt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
+--     syt: FROM A 0-TRUNCATED STANDPOINT, no criterion selects.
 --
 -- and "at any h-level" is the clause that does not survive -- the h-level
 -- of the CRITERION is unrestricted in `Sesa_`'s statement, but the h-level
--- of the CODOMAIN is what does the work, and it is fixed at 0 by ℕ.
+-- of the CODOMAIN is what does the work, and it is fixed at 0 by �.
 -- `Sesa_` is not edited here; the general form is supplied beside it.
 --
 ------------------------------------------------------------------------
@@ -36,13 +36,13 @@
 -- and let parallel derivations have distinct meanings.  §2 says that fails
 -- for a second and independent reason.  Any measure that respects the
 -- groupoid structure must send `rev d` to the inverse of `d`, hence a
--- round trip to the identity.  Lāghava sends a round trip to TWICE the
+-- round trip to the identity.  Lghava sends a round trip to TWICE the
 -- cost.  So cost is a functor on the CATEGORY and not on the GROUPOID:
 -- the obstruction to seeing it is INVERSION, not truncation, and raising
 -- h-level does not reach it.
 --
--- `Avirodha_…` states the structure -- strictly a category, weakly a
--- groupoid, and the gap between them is the śeṣa.  §2 measures that gap:
+-- `Avirodha_�` states the structure -- strictly a category, weakly a
+-- groupoid, and the gap between them is the ea.  §2 measures that gap:
 -- it is exactly `len d + len d`.
 --
 ------------------------------------------------------------------------
@@ -57,7 +57,7 @@
 -- and `lUnit` and mentions no h-level anywhere.
 --
 -- SO THE READING IN §1 IS RIGHT ABOUT THE GENERAL CASE AND WRONG ABOUT
--- SEṢA_'S OWN WITNESSES.  Truncation is what identifies parallel
+-- SEA_'S OWN WITNESSES.  Truncation is what identifies parallel
 -- derivations in general; it is NOT what identifies THOSE TWO.  Those two
 -- are identified by inversion, which §2 already names as the deeper
 -- obstruction -- and `Sesa_`'s exhibited proof-relevance, `len` 2 against
@@ -97,7 +97,7 @@ private
 -- §1.  WHAT THE BLINDNESS PROOF ACTUALLY EATS.
 --
 -- The codomain, the interpretation and its soundness are all parameters.
--- Nothing about ℕ survives, nothing about `eval`, nothing about the six
+-- Nothing about � survives, nothing about `eval`, nothing about the six
 -- constructors.  One hypothesis is consumed and it is `isSet X`.
 ------------------------------------------------------------------------
 
@@ -114,7 +114,7 @@ blindness-is-a-property-of-the-codomain setX ⟦_⟧ sound φ d e =
 ------------------------------------------------------------------------
 -- §2.  AND RAISING THE H-LEVEL DOES NOT REACH IT.  A round trip is the
 --      identity to anything that respects inversion, and twice the cost
---      to lāghava.
+--      to lghava.
 ------------------------------------------------------------------------
 
 len : {a b : Tm} → Derivation a b → ℕ
@@ -144,7 +144,7 @@ rev-len (then-step p d) =
   ∙ cong suc (rev-len d)
 
 -- and costs double to the walker.  Any groupoid-functorial measure sends
--- this to the identity; lāghava sends it to `len d + len d`.
+-- this to the identity; lghava sends it to `len d + len d`.
 round-trip : {a b : Tm} (d : Derivation a b) → len (d ⊕ rev d) ≡ len d + len d
 round-trip d = ⊕-len d (rev d) ∙ cong (len d +_) (rev-len d)
 

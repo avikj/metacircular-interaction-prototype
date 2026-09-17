@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- PMRelationalNoFit
 --
--- The Peres--Mermin no-section theorem does NOT instantiate the S¹
+-- The Peres--Mermin no-section theorem does NOT instantiate the S�
 -- RelativeProcess obstruction by simply taking measurement contexts as the
 -- base and contextwise satisfying assignments as fibres.
 --
@@ -11,7 +11,7 @@
 -- an assignment independently in every context.  PMCokernel's actual global
 -- section demands one shared observable assignment satisfying every context,
 -- and that type is empty.  The missing datum is overlap compatibility.
--- A genuine dependent-cover realization therefore needs an incidence/Čech
+-- A genuine dependent-cover realization therefore needs an incidence/ech
 -- base (or equivalent gluing structure), not the discrete context type alone.
 ------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ pm-relational-no-fit .RelationalNoFit.pointwiseCannotAssemble =
 -- the true PM Section is empty, a true section restricts pointwise, and no
 -- reverse assembler/equivalence exists.
 --
--- Not constructed: the Čech nerve, incidence HIT, or sheaf whose dependent
+-- Not constructed: the ech nerve, incidence HIT, or sheaf whose dependent
 -- sections are definitionally PMCokernel.Section.  This theorem identifies
 -- why that additional base/coherence is necessary; it does not pretend the
 -- missing higher cover has already been formalized.

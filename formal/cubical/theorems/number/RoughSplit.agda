@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------
 -- RoughSplit
 --
--- THE √X HORIZON FACT, X-UNIFORMLY.
+-- THE �X HORIZON FACT, X-UNIFORMLY.
 --
---   If n ≤ X and every prime factor of n exceeds √X, then n = 1 or n
+--   If n � X and every prime factor of n exceeds �X, then n = 1 or n
 --   is prime.
 --
 -- `NaturalMachine/SieveFiber.agda` §4 proves this ONLY at X = 30, by
@@ -16,14 +16,14 @@
 -- imports nothing from `SieveFiber` and `SieveFiber` is untouched.
 --
 --
--- WHAT √X MEANS HERE.  Nothing in the corpus fixes it, and the note's
+-- WHAT �X MEANS HERE.  Nothing in the corpus fixes it, and the note's
 -- own phrasing is looser than what is provable, so it is fixed here in
--- the only way that keeps every statement inside ℕ:
+-- the only way that keeps every statement inside �:
 --
---     isqrt X  =  the largest s with s · s ≤ X.
+--     isqrt X  =  the largest s with s � s � X.
 --
--- `isqrtΣ` below CONSTRUCTS that s together with its two-sided
--- specification `s · s ≤ X  ×  X < suc s · suc s`, by induction on X;
+-- `isqrt�` below CONSTRUCTS that s together with its two-sided
+-- specification `s � s � X  �  X < suc s � suc s`, by induction on X;
 -- `isqrt-greatest` then proves it really is the largest, so the name is
 -- earned and not asserted.  (This is the Turing lens taken literally:
 -- the machine that computes the horizon carries its own defining
@@ -32,19 +32,19 @@
 --
 --
 -- THE SHAPE OF THE PROOF, and why no factorization theory appears.
--- The English argument is "if n had two prime factors p₁, p₂ > √X then
--- n ≥ p₁p₂ > X".  Rendered as an Agda proof that would need a prime
+-- The English argument is "if n had two prime factors p�, p� > �X then
+-- n � p�p� > X".  Rendered as an Agda proof that would need a prime
 -- factorization of n, which cubical v0.5 does not have.  It is not
 -- needed.  The proof below never factors anything:
 --
---   given ANY divisor d of n, write n = c · d and compare c with d.
---   One of the two is ≤ the other, and the smaller one w squares into
---   n:  w · w ≤ c · d = n ≤ X < (s+1)²,  so w ≤ s.
---   If d ≤ c the small factor is d itself, which the hypothesis forbids
+--   given ANY divisor d of n, write n = c � d and compare c with d.
+--   One of the two is � the other, and the smaller one w squares into
+--   n:  w � w � c � d = n � X < (s+1)²,  so w � s.
+--   If d � c the small factor is d itself, which the hypothesis forbids
 --   unless d = 1; if c < d the small factor is c, which the hypothesis
 --   forbids unless c = 1, i.e. unless d = n.
 --
--- So `d ≡ 1 ⊎ d ≡ n` for every divisor d, which IS `IsPrime n`.  The
+-- So `d ≡ 1 � d ≡ n` for every divisor d, which IS `IsPrime n`.  The
 -- only inputs are order, multiplication monotonicity, and the totality
 -- (three times in this lane the "missing machinery" was not the
 -- obstacle) in its cheapest instance: the universal property of being
@@ -54,31 +54,31 @@
 --
 -- WHAT IS PROVED (all `--safe`, no postulates, no holes, no TERMINATING)
 --
---   isqrtΣ, isqrt, isqrt-lower, isqrt-upper, isqrt-greatest
+--   isqrt�, isqrt, isqrt-lower, isqrt-upper, isqrt-greatest
 --                        the horizon, with its specification and its
 --                        maximality.
 --
---   roughSplit           (s X n : ℕ) → 0 < n → n ≤ X → X < suc s · suc s
---                        → NoSmallDivisor s n → (n ≡ 1) ⊎ IsPrime n
+--   roughSplit           (s X n : �) � 0 < n � n � X � X < suc s � suc s
+--                        � NoSmallDivisor s n � (n ≡ 1) � IsPrime n
 --                        The divisor form: `s` is any number whose
 --                        successor squares past X.  This is the working
 --                        lemma and the strongest form here.
 --
 --   roughSplitPrimes     the same with the hypothesis in the note's own
---                        words — every PRIME factor of n exceeds s.
+--                        words � every PRIME factor of n exceeds s.
 --                        Bridged to the divisor form by `primeDivisor`
 --                        from `CoprimeSplitting`.
 --
 --   roughSplitSqrt       the corollary at s = isqrt X, i.e. the theorem
 --
 --   roughSplitSelf       the X = n specialisation: n > 0 with no
---                        nontrivial divisor ≤ isqrt n is 1 or prime.
+--                        nontrivial divisor � isqrt n is 1 or prime.
 --                        (This is the classical trial-division
 --                        criterion; see PRIOR ART below.)
 --
---   n≤X-necessary        SHARPNESS.  49 has all prime factors > isqrt 30
+--   n�X-necessary        SHARPNESS.  49 has all prime factors > isqrt 30
 --                        = 5, is neither 1 nor prime, and the only
---                        hypothesis it violates is 49 ≤ 30.  This is
+--                        hypothesis it violates is 49 � 30.  This is
 --                        control C, promoted from a rejected typecheck
 --                        to a positive theorem.
 --
@@ -87,26 +87,26 @@
 --
 --
 -- PRIOR ART, credited.
---   * `NaturalMachine/CoprimeSplitting.agda` (this corpus) —
---     `primeDivisor : (n : ℕ) → 1 < n → Σ[ p ] (IsPrime p × p ∣ n)`,
---     built there over `dec∣` and a bounded divisor search.  Used, not
---     rebuilt.  `pos-≢1→1<` likewise.
---   * `NaturalMachine/WalkJumps.agda` (this corpus) — `IsPrime`, in the
+--   * `NaturalMachine/CoprimeSplitting.agda` (this corpus) �
+--     `primeDivisor : (n : �) � 1 < n � �[ p ] (IsPrime p � p � n)`,
+--     built there over `dec�` and a bounded divisor search.  Used, not
+--     rebuilt.  `pos-�1�1<` likewise.
+--   * `NaturalMachine/WalkJumps.agda` (this corpus) � `IsPrime`, in the
 --     all-divisors form, which is exactly the form this proof produces.
 --   * mathlib4 (Lean), read at
 --     `Mathlib/Data/Nat/Prime/Defs.lean:124` and `:368`:
---     `Nat.prime_def_le_sqrt : Prime p ↔ 2 ≤ p ∧ ∀ m, 2 ≤ m → m ≤ sqrt p
---     → ¬ m ∣ p`, and `Nat.minFac_sq_le_self`.  PROVED-grade prior art,
+--     `Nat.prime_def_le_sqrt : Prime p � 2 � p ∧ � m, 2 � m � m � sqrt p
+--     � � m � p`, and `Nat.minFac_sq_le_self`.  PROVED-grade prior art,
 --     source read locally: the X = n case (`roughSplitSelf` below) is
 --     mathlib's theorem, by the same square-comparison argument, and no
 --     novelty is claimed for it.  What is not in mathlib in this form is
---     the X-uniform statement (horizon isqrt X, integers n ≤ X), which
+--     the X-uniform statement (horizon isqrt X, integers n � X), which
 --     is the one `SIEVE_FIBER` needs, and mathlib is a different
 --     substrate anyway.
 --   * cubical v0.5 has NO integer square root and NO primality (checked:
 --     `Cubical/Data/Nat/` contains neither), and agda-unimath has
---     `is-prime-ℕ` and `is-square-ℕ` but no integer square root and no
---     √-criterion (checked: `elementary-number-theory/`).  A WebSearch
+--     `is-prime-�` and `is-square-�` but no integer square root and no
+--     �-criterion (checked: `elementary-number-theory/`).  A WebSearch
 --     for an Agda formalization of the trial-division bound returned
 --     nothing on point; `WebFetch` is EGRESS_BLOCKED so no page was
 --     opened, and absence of a hit is not absence of prior art.
@@ -132,9 +132,9 @@ open import CoprimeSplitting
 ------------------------------------------------------------------------
 -- §1  Multiplication against the order, both sides at once
 --
--- `Cubical.Data.Nat.Order` gives `≤-·k` (right multiplication only) and
--- `<-·sk`.  Everything below needs the two-sided form, so it is derived
--- once here through `·-comm` and never again.
+-- `Cubical.Data.Nat.Order` gives `�-�k` (right multiplication only) and
+-- `<-�sk`.  Everything below needs the two-sided form, so it is derived
+-- once here through `�-comm` and never again.
 ------------------------------------------------------------------------
 
 ≤-·-both : {m n k l : ℕ} → m ≤ n → k ≤ l → m · k ≤ n · l
@@ -147,7 +147,7 @@ sq-mono< a zero    a<b = Empty.rec (¬-<-zero a<b)
 sq-mono< a (suc k) a<b =
   ≤<-trans (≤-·-both (≤-refl {a}) (<-weaken a<b)) (<-·sk a<b)
 
--- …hence its contrapositive, which is the only way §3 ever uses it:
+-- �hence its contrapositive, which is the only way §3 ever uses it:
 -- a number whose square fits under X sits at or below the horizon.
 sq≤→≤ : (d s X : ℕ) → d · d ≤ X → X < suc s · suc s → d ≤ s
 sq≤→≤ d s X dd≤X X<ss with splitℕ-≤ d s
@@ -160,12 +160,12 @@ sq≤→≤ d s X dd≤X X<ss with splitℕ-≤ d s
 ≢0→0< (suc d) h = suc-≤-suc zero-≤
 
 ------------------------------------------------------------------------
--- §2  The horizon:  isqrt X = the largest s with s · s ≤ X
+-- §2  The horizon:  isqrt X = the largest s with s � s � X
 --
--- Built as a Σ-type so that the value and its specification are one
+-- Built as a �-type so that the value and its specification are one
 -- object.  Induction on X: the horizon rises by one exactly when the
 -- next square is reached, and the equality case is forced (X < (s+1)²
--- and (s+1)² ≤ suc X pin suc X to (s+1)²).
+-- and (s+1)² � suc X pin suc X to (s+1)²).
 ------------------------------------------------------------------------
 
 IsSqrt : ℕ → ℕ → Type
@@ -187,7 +187,7 @@ isqrt-lower X = isqrtΣ X .snd .fst
 isqrt-upper : (X : ℕ) → X < suc (isqrt X) · suc (isqrt X)
 isqrt-upper X = isqrtΣ X .snd .snd
 
--- …and it really is the LARGEST such s, so the name is earned.
+-- �and it really is the LARGEST such s, so the name is earned.
 isqrt-greatest : (X t : ℕ) → t · t ≤ X → t ≤ isqrt X
 isqrt-greatest X t tt≤X = sq≤→≤ t (isqrt X) X tt≤X (isqrt-upper X)
 
@@ -213,10 +213,10 @@ isqrt-100 = refl
 NoSmallDivisor : ℕ → ℕ → Type
 NoSmallDivisor s n = (d : ℕ) → 1 < d → d ≤ s → ¬ (d ∣ n)
 
--- n ≤ X, the horizon s satisfies X < (s+1)², and n has no nontrivial
+-- n � X, the horizon s satisfies X < (s+1)², and n has no nontrivial
 -- divisor at or below s.  Then n is 1 or prime.
 --
--- The whole content is the two `splitℕ-≤` splits: one decides which of
+-- The whole content is the two `split�-�` splits: one decides which of
 -- the two cofactors is the small one, the other decides whether the
 -- small one is 1.  No factorization, no valuation, no induction.
 roughSplit : (s X n : ℕ) → 0 < n → n ≤ X → X < suc s · suc s
@@ -251,16 +251,16 @@ roughSplit s X n 0<n n≤X X<ss none with discreteℕ n 1
 
     go : (d ≡ 1) ⊎ (d ≡ n)
     go with splitℕ-≤ d c
-    -- d ≤ c: then d is the small factor, d · d ≤ c · d = n ≤ X,
-    -- so d ≤ s — forbidden.
+    -- d � c: then d is the small factor, d � d � c � d = n � X,
+    -- so d � s � forbidden.
     ... | inl d≤c =
           Empty.rec (none d 1<d
                       (sq≤→≤ d s X
                         (≤-trans (subst (d · d ≤_) cd≡n (≤-·k d≤c)) n≤X)
                         X<ss)
                       d∣n)
-    -- c < d: then c is the small factor, c · c ≤ c · d = n ≤ X, so
-    -- c ≤ s; c > 1 is forbidden, and c ≠ 0, so c = 1 and d = n.
+    -- c < d: then c is the small factor, c � c � c � d = n � X, so
+    -- c � s; c > 1 is forbidden, and c ≠ 0, so c = 1 and d = n.
     ... | inr c<d with splitℕ-≤ 2 c
     ...   | inl 2≤c =
             Empty.rec (none c 2≤c
@@ -280,10 +280,10 @@ roughSplit s X n 0<n n≤X X<ss none with discreteℕ n 1
 ------------------------------------------------------------------------
 -- §4  THE THEOREM, in the note's own words
 --
--- "n ≤ X, every prime factor of n greater than √X ⟹ n = 1 or n is
+-- "n � X, every prime factor of n greater than �X � n = 1 or n is
 -- prime."  The prime hypothesis implies the divisor hypothesis because
 -- every d > 1 has a prime divisor (`primeDivisor`), which then divides
--- n and is ≤ d ≤ s.  This is the ONE place factorization-flavoured
+-- n and is � d � s.  This is the ONE place factorization-flavoured
 -- machinery enters, and it enters only as existence of a single prime
 -- divisor.
 ------------------------------------------------------------------------
@@ -331,26 +331,26 @@ roughSplitSqrtDiv X n 0<n n≤X none =
   roughSplit (isqrt X) X n 0<n n≤X (isqrt-upper X) none
 
 -- The X = n specialisation: the classical trial-division criterion.
--- (mathlib4 `Nat.prime_def_le_sqrt`; no novelty claimed — recorded so
+-- (mathlib4 `Nat.prime_def_le_sqrt`; no novelty claimed � recorded so
 -- that the general statement's specialisation is visible and checked.)
 roughSplitSelf :
   (n : ℕ) → 0 < n → NoSmallDivisor (isqrt n) n → (n ≡ 1) ⊎ IsPrime n
 roughSplitSelf n 0<n none = roughSplitSqrtDiv n n 0<n ≤-refl none
 
 ------------------------------------------------------------------------
--- §6  SHARPNESS:  n ≤ X cannot be dropped
+-- §6  SHARPNESS:  n � X cannot be dropped
 --
 -- and reported that the typechecker rejected it.  A rejected typecheck
 -- is evidence about a file, not a theorem; here the same fact is a
--- theorem.  49 = 7 · 7 has isqrt 30 = 5 < 7, so every prime factor of
+-- theorem.  49 = 7 � 7 has isqrt 30 = 5 < 7, so every prime factor of
 -- 49 clears the X = 30 horizon; 49 is neither 1 nor prime; and the sole
--- hypothesis of `roughSplitSqrt` that it fails is 49 ≤ 30.
+-- hypothesis of `roughSplitSqrt` that it fails is 49 � 30.
 ------------------------------------------------------------------------
 
--- 7 is prime — proved BY the theorem, at X = n = 7 (isqrt 7 = 2, so
+-- 7 is prime � proved BY the theorem, at X = n = 7 (isqrt 7 = 2, so
 -- the only small divisor to rule out is 2).  The witness for the
 -- sharpness of `roughSplitSqrt` is thus produced by `roughSplitSqrt`
--- itself; nothing about 7 is asserted by hand except that 2 ∤ 7.
+-- itself; nothing about 7 is asserted by hand except that 2 � 7.
 private
   ¬2∣7 : ¬ (2 ∣ 7)
   ¬2∣7 h = go (∣-untrunc h)
@@ -386,8 +386,8 @@ isPrime7 with roughSplitSelf 7 (suc-≤-suc zero-≤) noSmall-7
 ... | inr 7≡49 =
   znots (injSuc (injSuc (injSuc (injSuc (injSuc (injSuc (injSuc 7≡49)))))))
 
--- Every prime factor of 49 exceeds the X = 30 horizon.  49 = 7 · 7, so
--- a prime divisor of it divides 7 (Euclid, `prime-∣-·`), hence IS 7.
+-- Every prime factor of 49 exceeds the X = 30 horizon.  49 = 7 � 7, so
+-- a prime divisor of it divides 7 (Euclid, `prime-�-�`), hence IS 7.
 49-rough-at-30 : AllPrimeFactorsAbove (isqrt 30) 49
 49-rough-at-30 p pp p∣49 =
   subst (5 <_) (sym (prime-∣-prime p 7 pp isPrime7 p∣7)) ≤-sucℕ
@@ -406,8 +406,8 @@ n≤X-necessary = 49≢1 , ¬prime49 , 49-rough-at-30
 -- §7  SHARPNESS, second control:  the horizon cannot be lowered
 --
 -- `roughSplit` takes s with X < (s+1)².  That hypothesis is not slack.
--- At X = 30 and s = 4 it fails by exactly one step ((s+1)² = 25 ≤ 30),
--- and so does the conclusion: 25 ≤ 30, every prime factor of 25 exceeds
+-- At X = 30 and s = 4 it fails by exactly one step ((s+1)² = 25 � 30),
+-- and so does the conclusion: 25 � 30, every prime factor of 25 exceeds
 -- 4, and 25 is neither 1 nor prime.  So `isqrt X` in §5 is the smallest
 -- horizon that works, not a convenient choice.
 ------------------------------------------------------------------------
@@ -453,9 +453,9 @@ isPrime5 with roughSplitSelf 5 (suc-≤-suc zero-≤) noSmall-5
   ... | inl h = h
   ... | inr h = h
 
--- 25 ≤ 30, all prime factors of 25 exceed 4, and 25 is neither 1 nor
+-- 25 � 30, all prime factors of 25 exceed 4, and 25 is neither 1 nor
 -- prime.  The sole hypothesis of `roughSplit 4 30 25` that fails is
--- `30 < 5 · 5`.
+-- `30 < 5 � 5`.
 horizon-necessary :
   (25 ≤ 30) × (¬ (25 ≡ 1)) × (¬ (IsPrime 25)) × AllPrimeFactorsAbove 4 25
 horizon-necessary =

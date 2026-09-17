@@ -51,9 +51,9 @@ run-sound (advance motion rest) rho =
 ------------------------------------------------------------------------
 
 -- This value is the running mathematics.  Its first constructor computes
---   var + suc zero  â†¦  suc (var + zero),
+--   var + suc zero  â¦  suc (var + zero),
 -- and its second computes
---   suc (var + zero) â†¦ suc var.
+--   suc (var + zero) â¦ suc var.
 -- The middle term is forced by the index; replacing the second motion with
 -- `add-zero var` is not a `Run (add var (suc zero))` at all.
 add-one : Run (add var (suc zero))

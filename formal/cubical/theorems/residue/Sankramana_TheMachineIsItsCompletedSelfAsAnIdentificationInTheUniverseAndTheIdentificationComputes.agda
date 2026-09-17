@@ -1,16 +1,16 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- ‡§∏‡§ô‡•ç‡§ï‡•ç‡§∞‡§Æ‡§£ ‚Äî the crossing.  THE MACHINE IS ITS COMPLETED SELF, AS AN
--- IDENTIFICATION IN THE UNIVERSE ‚Äî AND THE IDENTIFICATION COMPUTES.
+-- ‡‡ô‡‡ï‡‡∞‡Æ‡ ‚î the crossing.  THE MACHINE IS ITS COMPLETED SELF, AS AN
+-- IDENTIFICATION IN THE UNIVERSE ‚î AND THE IDENTIFICATION COMPUTES.
 --
 -- Univalence turns the lossless completion into a PATH between types:
 --
---     machine‚â°completed : Machine ‚â° Œ£ Machine (fiber uStep)
+--     machine‚â°completed : Machine ‚â° Œ Machine (fiber uStep)
 --
 -- The space of machines and the space of completed one-step histories
 -- are not merely equivalent; in cubical type theory they are EQUAL,
--- and ‚Äî this is the point of doing it cubically ‚Äî the equality is not
+-- and ‚î this is the point of doing it cubically ‚î the equality is not
 -- an axiom to cite but an operation that runs.  Transporting a
 -- machine across the identification COMPUTES its completed step
 -- (`crossing-computes`, by the computation rule for ua, evaluating,
@@ -19,10 +19,10 @@
 -- the n-step run.  On a concrete machine the whole crossing
 -- evaluates to a closed normal form (`spin-crosses`).
 --
--- This is the corpus's sa·πÉkrama·πáa discipline applied to the machine
+-- This is the corpus's sakramaa discipline applied to the machine
 -- itself: every transport carries an object, an exhibited
 -- identification, and the identification is priced by what it
--- forgets ‚Äî here, nothing, which is Ekatva's theorem.  The visible
+-- forgets ‚î here, nothing, which is Ekatva's theorem.  The visible
 -- machine and the proof-carrying machine are one type in two
 -- presentations, and univalence is the vehicle that carries
 -- computation between them without loss.

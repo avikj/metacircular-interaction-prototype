@@ -1,13 +1,13 @@
 {-# OPTIONS --cubical --guardedness --safe --no-import-sorts #-}
 
 ------------------------------------------------------------------------
--- सोपान-संक्रमण — transport up the ladder.
+-- ������-�������� � transport up the ladder.
 --
 -- The common object the two boundary problems converge on: a tower of
 -- states X_n with observers O_n, a renormalised transport R_n from one
 -- stage to the next, and intertwiners g_n making the observation of a
 -- transported state the transport of its observation.  The residual at
--- stage n is what O_n cannot see — the fibre of O_n over O_n x — and the
+-- stage n is what O_n cannot see � the fibre of O_n over O_n x � and the
 -- theorem that carries both lanes is that R restricts to residual fibres.
 -- The spectral question (RH) and the recurrence question (NS) are then
 -- questions about that residual transport, stated here as types.
@@ -20,11 +20,11 @@
 --   §3  ORBITS.  A compatible family s_n with R_n s_n ≡ s_{n+1}, and its
 --       observed orbit, which is a g-orbit.  Two orbits with the same
 --       observed orbit at every stage and different cost at stage zero
---       show cost does not descend through the entire coarse history —
+--       show cost does not descend through the entire coarse history �
 --       SankramanaShreni's localization, applied to orbits.
 --   §4  DASHBOARDS.  A stagewise post-processing intertwining the g's
 --       transports one tower's observers into another's, by
---       SopanaSamyoga's pravāha-vahana at every stage: towers form a
+--       SopanaSamyoga's pravha-vahana at every stage: towers form a
 --       category over the same states.
 --   §5  THE TWO TARGETS, AS TYPES.  A mode is an orbit the transport
 --       rescales by a fixed factor; NeutralSpectrum asks that every
@@ -34,9 +34,9 @@
 --       realisations.
 --
 -- A tower of finite-dimensional linear kernels is automatically
--- Mittag-Leffler, so the content is never a lim¹ class of the inverse
--- system: it is the transport R itself.  सोपान (sopāna, ladder) and
--- संक्रमण (saṅkramaṇa, transport) are ordinary Sanskrit.
+-- Mittag-Leffler, so the content is never a lim� class of the inverse
+-- system: it is the transport R itself.  ������ (sopna, ladder) and
+-- �������� (sakramaa, transport) are ordinary .
 ------------------------------------------------------------------------
 
 module SopanaSankramana_TheRenormalizedObserverTowerTransportsResidualFibresAlongIntertwinersAndCostDoesNotDescendThroughTheObservedOrbit where
@@ -59,7 +59,7 @@ private
     ℓx ℓy ℓz : Level
 
 ------------------------------------------------------------------------
--- १ · The tower.
+-- � � The tower.
 ------------------------------------------------------------------------
 
 record Tower (ℓx ℓy : Level) : Type (ℓ-suc (ℓ-max ℓx ℓy)) where
@@ -72,7 +72,7 @@ record Tower (ℓx ℓy : Level) : Type (ℓ-suc (ℓ-max ℓx ℓy)) where
     intertwine : (n : ℕ) (x : X n) → O (suc n) (R n x) ≡ g n (O n x)
 
   --------------------------------------------------------------------
-  -- २ · The residual fibre, and its transport.
+  -- � � The residual fibre, and its transport.
   --------------------------------------------------------------------
 
   -- what stage-n observation cannot separate from x
@@ -86,7 +86,7 @@ record Tower (ℓx ℓy : Level) : Type (ℓ-suc (ℓ-max ℓx ℓy)) where
     R n x′ , intertwine n x′ ∙ cong (g n) p ∙ sym (intertwine n x)
 
   --------------------------------------------------------------------
-  -- ३ · Orbits, their observed orbits, and non-descent of cost.
+  -- � � Orbits, their observed orbits, and non-descent of cost.
   --------------------------------------------------------------------
 
   Orbit : Type ℓx
@@ -120,7 +120,7 @@ module _ (T : Tower ℓx ℓy) (isSetY : (n : ℕ) → isSet (Y T n)) (cost : X 
 
 
 ------------------------------------------------------------------------
--- ४ · Dashboards transport towers.
+-- � � Dashboards transport towers.
 ------------------------------------------------------------------------
 
 -- a stagewise post-processing intertwining the reading transports
@@ -132,7 +132,7 @@ record Dashboard {ℓz : Level} (T : Tower ℓx ℓy) (Z : ℕ → Type ℓz)
     g′ : (n : ℕ) → Z n → Z (suc n)
     inter : (n : ℕ) (y : Y T n) → h (suc n) (g T n y) ≡ g′ n (h n y)
 
-  -- the composite observer h ∘ O intertwines with g′
+  -- the composite observer h ∘ O intertwines with g�
   vahita : Tower ℓx ℓz
   X vahita = X T
   Y vahita = Z
@@ -144,7 +144,7 @@ record Dashboard {ℓz : Level} (T : Tower ℓx ℓy) (Z : ℕ → Type ℓz)
 open Dashboard
 
 ------------------------------------------------------------------------
--- ५ · The two targets, as types.
+-- � � The two targets, as types.
 ------------------------------------------------------------------------
 
 module _ (T : Tower ℓx ℓy) where

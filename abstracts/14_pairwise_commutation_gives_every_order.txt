@@ -53,9 +53,9 @@ rule; the store is monotone in the strongest sense.
 
 RESOLVED IN PART.  The working tree now exists:
 theorems/unplaced/PatraLekha gives files as line-indexed content,
-patches as single-line writes, proves distinct-line patches commute â€”
+patches as single-line writes, proves distinct-line patches commute â”
 the hypothesis the reordering theorem consumes, discharged on the model
-â€” and proves blame beyond the last writer is not a function of the
+â” and proves blame beyond the last writer is not a function of the
 working tree: two distinct histories produce identical files, so every
 tree-reading blame computation agrees on them.  Diff algorithms remain
 constructions.
