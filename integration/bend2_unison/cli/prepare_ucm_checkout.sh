@@ -72,6 +72,10 @@ if [ ! -f "$checkout/.bend-ucm-overlays-applied" ]; then
   apply_overlay interface/unison-cli-bend-desktop-link.patch
   apply_overlay cli/ucm-bend-authored-types.patch
   apply_overlay cli/ucm-bend-names.patch
+  apply_overlay cli/ucm-bend-divergent-merge.patch
+  apply_overlay cli/ucm-bend-artifact-cache.patch
+  apply_overlay cli/ucm-bend-view-display.patch
+  apply_overlay storage/unison-bend-role-graph.patch
   touch "$checkout/.bend-ucm-overlays-applied"
 else
   echo "Bend2/Unison overlays already applied"
