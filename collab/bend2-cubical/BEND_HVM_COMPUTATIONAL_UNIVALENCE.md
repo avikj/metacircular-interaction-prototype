@@ -2,31 +2,29 @@
 
 ## Thesis
 
-Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The construction developed and implemented here proves minimum-cost execution for arbitrary computation in the Interaction Calculus by making mathematical identity itself computational throughout reduction.
+**We provide CCHM computational cubical type theory semantics to Bend/HVM4 through first-class interval expressions and De Morgan interval operations; `Path`/`PathP` abstraction, application and endpoint computation; type-directed `coe`; CCHM Kan `hcomp`/`comp`; universe paths and `Glue`; dependent Pi/Sigma/PathP transport; higher-inductive path/quotient structure; suspended partial compositions retained as HVM4 terms; and corresponding extensions to Bend's core terms, definitional equality/type-directed reduction, evaluator and HVM4 lowering. This yields computational univalence and higher identity inside interaction reduction: constructed equivalences execute as transport; paths, dependent types, partial compositions and transformations remain reducible; HVM4 SUP/DUP reduces over that cubical structure while preserving branch correlation; exact fibres retain every distinction hidden by a projection; and intrinsic rewrite with coinductive continuation returns derived transformations to subsequent interaction. We prove exact fibre decomposition for every map, contractibility of lawful lossless completion, the equivalence \(\mathrm{LawfulStep}(A)\simeq(A\to A)\), universal classification of dependent families, computational univalence, fibrewise characterization of observation-preserving evolution, complete-future minimal quotients, closure of derived transformations under continued interaction, exact transport between equivalent cost presentations, local scalar and vector geodesic certificates, and minimum-cost reduction whenever the proved primitive-edge potential is attained; for unit interaction cost this is minimum interaction count, and for vector costs it is exact Pareto attainment.**
 
-For primitive interaction cost $c(e)$ and a lawful path $\gamma$,
+Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The result above changes that decision calculus at its exact variable: interaction count is now costed after all executable identifications and factorizations represented by the cubical calculus, not only inside one fixed net.
+
+For primitive interaction cost \(c(e)\) and a reduction path \(\gamma\),
 
 ```math
 C(\gamma)=\sum_{e\in\gamma}c(e).
 ```
 
-Executable equivalence identifies presentations of the same computation. Intrinsic cost is therefore
+A potential \(\Phi\) with \(\Phi(t)=0\) at terminals and
 
 ```math
-C^*(X)
-=
-\min_{P\simeq X}
-\min_{\gamma:P\leadsto\operatorname{obs}(X)}
-C(\gamma).
+\Phi(u)\le c(u,v)+\Phi(v)
 ```
 
-For unit interaction cost,
+on every primitive edge satisfies
 
 ```math
-C(\gamma)=|\gamma|.
+\Phi(s)\le C(\gamma)
 ```
 
-Thus the optimization target is interaction count itself, over executable equivalent presentations rather than one frozen net.
+for every terminal reduction \(\gamma:s\leadsto t\). Equality on each edge of a reduction telescopes to equality globally, proving that reduction geodesic. Under unit interaction cost, its length is the minimum interaction count.
 
 ---
 
@@ -481,26 +479,324 @@ The performance quantity for which Bend2 abandoned interaction nets is therefore
 
 ---
 
-# Appendix A — SAT / 3SAT as the finite Boolean presentation
+# Appendix A — SAT / 3SAT: the finite Boolean presentation
 
-SAT makes the preceding construction finite and explicit.
-
-Let
+SAT is the decision/witness geometry of a Boolean map.
 
 ```math
-Q_N=\mathbf2^N.
-```
-
-A vertex is a complete Boolean assignment. A partial assignment fixing $k$ coordinates is a codimension-$k$ coordinate flat with $2^{N-k}$ vertices. A Boolean decision function is
-
-```math
+Q_N=\mathbf2^N,
+\qquad
 F:Q_N\to\mathbf2.
 ```
 
-Its satisfying fibre is
+A vertex of \(Q_N\) is a complete assignment. A partial assignment fixing \(k\) coordinates is a Boolean subcube of codimension \(k\) with \(2^{N-k}\) vertices. The satisfying fibre is
 
 ```math
 S_F=F^{-1}(1).
 ```
 
-SAT asks whether $S_F$ is inhabited; witness SAT asks for an element of $S_F$. A three-literal clause depends on exactly three Boolean coordinates and excludes one vertex of its local cube $\mathbf2^3$. Pulled back to $Q_N$, its violation set is a codimension-three coordinate flat with $2^{N-3}$ vertices. Thus a 3CN
+SAT asks whether \(S_F\) is inhabited; witness SAT asks for an element of \(S_F\). In type-theoretic form,
+
+```math
+\mathrm{Dec}_F=\|S_F\|,
+\qquad
+\mathrm{Wit}_F=S_F.
+```
+
+The canonical truncation
+
+```math
+\tau:S_F\to\|S_F\|
+```
+
+forgets exactly which satisfying vertex was supplied. For inhabited decision \(p:\|S_F\|\), the checked truncation-fibre theorem specializes to
+
+```math
+\mathrm{fib}_\tau(p)\simeq S_F.
+```
+
+Decision and witness are therefore two projections of the same Boolean fibre, not two unrelated problems.
+
+## A.1 One 3-clause is one local 3-cube map
+
+A clause on three distinct variables is a map
+
+```math
+c:\mathbf2^3\to\mathbf2.
+```
+
+Exactly one of the eight local vertices falsifies it. In \(Q_N\), its violation set \(V_C\) fixes those three coordinates:
+
+```math
+V_C\cong Q_{N-3},
+\qquad
+|V_C|=2^{N-3}.
+```
+
+The clause is therefore a local three-coordinate relation with a one-bit visible result. Its exact lossless presentation is the general fibre identity specialized to \(c\):
+
+```math
+\mathbf2^3
+\simeq
+\sum_{b:\mathbf2}\mathrm{fib}_c(b).
+```
+
+This is the elementary reason 3CNF is cubical: every clause is a three-coordinate Boolean cell, and a formula composes these local cells over shared coordinates.
+
+## A.2 A 3CNF is exactly a union-of-subcubes problem
+
+For
+
+```math
+F=\bigwedge_{\alpha=1}^m C_\alpha,
+```
+
+let \(V_\alpha\subseteq Q_N\) be the violating subcube of clause \(C_\alpha\). Then
+
+```math
+F(x)=0
+\iff
+x\in\bigcup_{\alpha=1}^mV_\alpha,
+```
+
+hence
+
+```math
+F\text{ UNSAT}
+\iff
+\bigcup_{\alpha=1}^mV_\alpha=Q_N.
+```
+
+For a set \(T\) of clauses, their violation intersection is either empty, when their fixed coordinates conflict, or one partial-assignment cube:
+
+```math
+\bigcap_{\alpha\in T}V_\alpha
+=
+\begin{cases}
+B_{p_T},&T\text{ compatible},\\
+\varnothing,&T\text{ incompatible}.
+\end{cases}
+```
+
+If \(r(T)\) distinct coordinates are fixed by a compatible \(T\),
+
+```math
+\left|\bigcap_{\alpha\in T}V_\alpha\right|
+=2^{N-r(T)}.
+```
+
+Thus every overlap is exactly shared Boolean coordinate information.
+
+## A.3 Violation multiplicity gives exact global identities
+
+Define
+
+```math
+\nu(x)=\#\{\alpha:x\in V_\alpha\}.
+```
+
+Double-counting assignment/clause incidences gives
+
+```math
+\boxed{
+\sum_{x\in Q_N}\nu(x)=m2^{N-3}.
+}
+```
+
+If \(F\) is UNSAT then \(\nu(x)\ge1\) for every vertex, so
+
+```math
+\boxed{m\ge8.}
+```
+
+At equality,
+
+```math
+m=8
+\quad\Longrightarrow\quad
+\nu(x)=1
+\text{ for every }x,
+```
+
+so the eight violating cubes partition \(Q_N\).
+
+For arbitrary UNSAT 3CNF,
+
+```math
+\boxed{
+\sum_x(\nu(x)-1)
+=(m-8)2^{N-3}.
+}
+```
+
+For arbitrary \(F\), let \(U=\#S_F\) and
+
+```math
+E=\sum_{x:\nu(x)>0}(\nu(x)-1).
+```
+
+Then
+
+```math
+\boxed{
+U=2^N+E-m2^{N-3}.
+}
+```
+
+The satisfying count is exactly uncovered Boolean volume after overlap multiplicity is restored.
+
+## A.4 The entire intersection geometry is the factorial-moment tower
+
+Define
+
+```math
+M_r=\sum_{x\in Q_N}\binom{\nu(x)}r.
+```
+
+Then
+
+```math
+\boxed{
+M_r=
+\sum_{\substack{T\subseteq[m]\\|T|=r}}
+\left|\bigcap_{\alpha\in T}V_\alpha\right|.
+}
+```
+
+Equivalently,
+
+```math
+M_r=
+\sum_{\substack{|T|=r\\T\text{ compatible}}}
+2^{N-r(T)}.
+```
+
+Inclusion-exclusion is therefore
+
+```math
+\boxed{
+\#\mathrm{SAT}(F)
+=
+\sum_{r=0}^{m}(-1)^rM_r.
+}
+```
+
+SAT is the alternating projection of the exact cubical intersection tower to the uncovered section.
+
+## A.5 Complete future equality is the exact residual quotient
+
+For an observed transition system \((X,A,\mathrm{step},\mathrm{observe})\), define
+
+```math
+x\sim y
+\iff
+\forall w\in A^*,
+\quad
+\mathrm{observe}(\mathrm{run}(x,w))
+=
+\mathrm{observe}(\mathrm{run}(y,w)).
+```
+
+The checked Myhill-Nerode development proves that this is the greatest observation-compatible step congruence and that \(X/{\sim}\) is the minimal fully abstract quotient. A single continuation with different observations proves nonidentification; child separation lifts to parent separation.
+
+For a fixed coordinate order and Boolean map \(f:Q_n\to\mathbf2\), a prefix \(a\in Q_k\) has residual
+
+```math
+f_a:Q_{n-k}\to\mathbf2,
+\qquad
+f_a(z)=f(a,z).
+```
+
+Two prefixes have the same complete future exactly when
+
+```math
+f_a=f_b.
+```
+
+Thus the exact residual population at depth \(k\) is the number of distinct residual functions, not the number of prefixes.
+
+## A.6 Cardinality is not interaction cost
+
+The SAT derivations prove this separation by explicit counterexamples.
+
+For
+
+```math
+\mathrm{IP}_n(x,y)
+=
+\bigoplus_{i=1}^{n}x_i y_i,
+```
+
+one coordinate order has \(2^n\) distinct midpoint residuals, while an equivalent interleaved presentation has constant local control. Exponential residual population in one chart is therefore not an intrinsic lower bound.
+
+Likewise,
+
+```math
+F_n=
+\bigwedge_{i=1}^{n-2}
+(x_i\vee x_{i+1}\vee x_{i+2})
+```
+
+has exponentially many satisfying vertices, but its satisfying count obeys the constant-order recurrence
+
+```math
+A_n=A_{n-1}+A_{n-2}+A_{n-3},
+```
+
+and its complete-future continuation state needs only the trailing zero-run \(0,1,2\) (plus an optional dead state).
+
+Hence
+
+```math
+\boxed{
+\text{semantic carrier cardinality}
+\ne
+\text{metric path length}
+}
+```
+
+in general.
+
+## A.7 The exact complexity interface is local geodesic potential
+
+A semantic quantity becomes a cost lower bound only after proving its primitive-edge law. If
+
+```math
+\Phi(t)=0
+```
+
+and every primitive edge obeys
+
+```math
+\Phi(u)\le w(u,v)+\Phi(v),
+```
+
+then every terminal path obeys
+
+```math
+\Phi(s)\le C(\gamma).
+```
+
+If equality holds on the native reduction, that reduction is geodesic. For unit interactions, an integer potential changing downward by at most one per primitive edge gives a literal interaction-count lower bound.
+
+For vector costs in \(\mathbb N^d\),
+
+```math
+\Phi(u)\preceq w(u,v)+\Phi(v)
+```
+
+gives
+
+```math
+\Phi(s)\preceq C(\gamma).
+```
+
+Componentwise equality along a reduction proves exact Pareto attainment. The checked Pareto development separately proves that scalarization is extra policy: two componentwise-monotone scalar objectives can select opposite points of one incomparable frontier.
+
+SAT therefore exhibits the whole construction in finite form: Boolean distinction, local 3-cells, composition over shared coordinates, exact fibres, decision versus witness, complete-future quotient, factorization across equivalent presentations, and the local theorem that turns retained distinction into geodesic cost.
+
+---
+
+# TL;DR
+
+We provide **CCHM computational cubical type theory semantics** to Bend/HVM4 via **first-class interval expressions and De Morgan interval operations; `Path`/`PathP` abstraction, application and endpoint computation; type-directed `coe`; CCHM Kan `hcomp`/`comp`; universe paths and `Glue`; dependent Pi/Sigma/PathP transport; higher-inductive path/quotient structure; suspended partial compositions retained as HVM4 terms; and corresponding extensions to Bend's core terms, definitional equality/type-directed reduction, evaluator and HVM4 lowering**, yielding **computational univalence and higher identity inside interaction reduction: constructed equivalences execute as transport; paths, dependent types, partial compositions and transformations remain reducible; HVM4 SUP/DUP reduces over that cubical structure while preserving branch correlation; exact fibres retain every distinction hidden by a projection; and intrinsic rewrite with coinductive continuation returns derived transformations to subsequent interaction**, and prove **exact fibre decomposition for every map; contractibility of lawful lossless completion; \(\mathrm{LawfulStep}(A)\simeq(A\to A)\); universal classification of dependent families; computational univalence; fibrewise characterization of observation-preserving evolution; complete-future minimal quotients; closure of derived transformations under continued interaction; exact transport between equivalent cost presentations; local scalar and vector geodesic certificates; and minimum-cost reduction whenever the proved primitive-edge potential is attained—minimum interaction count for unit costs and exact Pareto attainment for vector-valued costs.**
