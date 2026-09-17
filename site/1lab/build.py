@@ -337,6 +337,8 @@ def enrich_pratt(markup, rows, names, types):
         ("classifier", anchors["π"][0], 121, 125, "Universal family"),
         ("classifier", anchors["π"][0], 194, 195, "Classifier"),
         ("productive-interaction", anchors["ISC"][0], 79, 85, "Interactive coalgebra"),
+        ("time-information", "formal/cubical/theorems/physics/Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.agda", 90, 92, "Causal future"),
+        ("time-information", "formal/cubical/theorems/physics/Ksitija_TheCausalConeDescendsToTheHorizonAndFailsAtTheVeryNextStep.agda", 119, 130, "Horizon obstruction"),
         ("observation-residual-phase", "formal/cubical/theorems/residue/ActionResidualPhase.agda", 88, 104, "Residual phase"),
     ]
     grouped = {}
