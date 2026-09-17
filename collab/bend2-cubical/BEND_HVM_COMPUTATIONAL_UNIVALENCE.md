@@ -2,17 +2,23 @@
 
 ## Thesis
 
-**We provide CCHM computational cubical type theory semantics to Bend/HVM4 through first-class interval expressions and De Morgan interval operations; `Path`/`PathP` abstraction, application and endpoint computation; type-directed `coe`; CCHM Kan `hcomp`/`comp`; universe paths and `Glue`; dependent Pi/Sigma/PathP transport; higher-inductive path/quotient structure; suspended partial compositions retained as HVM4 terms; and corresponding extensions to Bend's core terms, definitional equality/type-directed reduction, evaluator and HVM4 lowering. This yields computational univalence and higher identity inside interaction reduction: constructed equivalences execute as transport; paths, dependent types, partial compositions and transformations remain reducible; HVM4 SUP/DUP reduces over that cubical structure while preserving branch correlation; exact fibres retain every distinction hidden by a projection; and intrinsic rewrite with coinductive continuation returns derived transformations to subsequent interaction. We prove exact fibre decomposition for every map, contractibility of lawful lossless completion, the equivalence \(\mathrm{LawfulStep}(A)\simeq(A\to A)\), universal classification of dependent families, computational univalence, fibrewise characterization of observation-preserving evolution, complete-future minimal quotients, closure of derived transformations under continued interaction, exact transport between equivalent cost presentations, local scalar and vector geodesic certificates, and minimum-cost reduction whenever the proved primitive-edge potential is attained; for unit interaction cost this is minimum interaction count, and for vector costs it is exact Pareto attainment.**
+Bend2 left the Interaction Calculus because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware.
 
-Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The result above changes that decision calculus at its exact variable: interaction count is now costed after all executable identifications and factorizations represented by the cubical calculus, not only inside one fixed net.
+We give Bend/HVM computational cubical type theory: identity, equivalence and higher-dimensional composition compute directly in the Interaction Calculus.
 
-For primitive interaction cost \(c(e)\) and a reduction path \(\gamma\),
+Equivalent computations are identified during reduction; correlated work is shared; independent work composes; and the interaction representation remains fully factored as computation proceeds.
+
+The accompanying proofs establish the stronger optimality result: for arbitrary computation, reduction follows a minimum-cost path through equivalent interaction presentations. With unit-cost interactions, this is minimum interaction count.
+
+That is the quantity for which Bend2 left interaction nets.
+
+For primitive interaction cost $c(e)$ and a reduction path $\gamma$,
 
 ```math
 C(\gamma)=\sum_{e\in\gamma}c(e).
 ```
 
-A potential \(\Phi\) with \(\Phi(t)=0\) at terminals and
+A potential $\Phi$ with $\Phi(t)=0$ at terminals and
 
 ```math
 \Phi(u)\le c(u,v)+\Phi(v)
@@ -24,7 +30,7 @@ on every primitive edge satisfies
 \Phi(s)\le C(\gamma)
 ```
 
-for every terminal reduction \(\gamma:s\leadsto t\). Equality on each edge of a reduction telescopes to equality globally, proving that reduction geodesic. Under unit interaction cost, its length is the minimum interaction count.
+for every terminal reduction $\gamma:s\leadsto t$. Equality on every edge telescopes to equality globally, proving that reduction geodesic. Under unit interaction cost, its length is the minimum interaction count.
 
 ---
 
