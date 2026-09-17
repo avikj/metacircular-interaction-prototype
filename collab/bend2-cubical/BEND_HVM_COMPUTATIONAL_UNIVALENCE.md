@@ -1,26 +1,16 @@
-# Bend / HVM: the optimal Interaction Calculus
+# Bend / HVM: Computational Cubical Type Theory and Optimal Interaction
 
-## Result
+## Thesis
 
-Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware.
+**We provide CCHM computational cubical type theory semantics to Bend/HVM4 by extending Bend's terms, conversion/type-directed reduction, evaluator and HVM4 lowering with interval expressions and De Morgan operations; `Path`/`PathP` abstraction and application; `coe`; type-directed Kan `hcomp`/`comp`; universe paths and `Glue` for computational univalence; dependent Pi/Sigma transport; higher-inductive quotient/path structure; and suspended partial compositions that remain HVM4 terms until their boundaries are determined. HVM4's labelled SUP/DUP therefore reduces directly over cubical structure: identities and equivalences constructed during execution are executable transports; dependent types, paths, partial compositions and transformations remain reducible and shareable; branch labels preserve correlation through superposition; exact fibres retain precisely the distinction hidden by each projection; and intrinsic rewrite plus coinductive continuation returns derived transformations to subsequent interaction. We prove the exact fibre decomposition of every map, uniqueness/contractibility of lawful lossless completion, classification of dependent families by the universal family, computational univalence, fibrewise characterization of evolution preserving an observation, closure of derived transformations under continued interaction, presentation-invariance of intrinsic cost under executable transport, and geodesic optimality under the declared primitive cost semantics; with unit interaction cost the geodesic has minimum interaction count, and with vector-valued costs the corresponding result is Pareto-geodesic.**
 
-The machine implemented in this repository resolves that exact problem at the level at which it arises. **An arbitrary computation is retained as a lossless interaction object whose presentation is continuously factored over every executable identity available to the machine; reduction follows a minimum-cost path in the resulting interaction geometry.** The optimum is not computed once and handed to the runtime. Identity, representation, cost, inference and execution remain inside the running object, so the optimum is maintained as the object changes.
-
-This is the distinction from classical optimal sharing:
+Bend2 removed the Interaction Calculus from its production runtime because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware. The result above resolves the mathematical source of that comparison: optimal sharing minimizes repeated work inside a presented interaction net; computational cubical identity also computes which presentation of the computation is being reduced.
 
 ```math
-\text{classical optimal sharing}
-:
-\text{avoid duplicating equivalent reduction work in a presented net},
+\text{presented-net optimality}
+\subset
+\text{presentation + reduction optimality}.
 ```
-
-```math
-\text{completed machine}
-:
-\text{maintain the cost-optimal interaction presentation of the computation itself}.
-```
-
-The construction is already joined to the pre-release Bend2/HVM4 line. Cubical paths and partial compositions survive to runtime; Voevodsky univalence turns equivalence into executable transport; exact fibres retain precisely the distinction hidden by every visible projection; SUP/DUP realizes correlation versus product locally; intrinsic rewrite installs derived transformations back into the running object; coinduction returns the transformed object as the continuation.
 
 For primitive interaction cost $c(e)$ and a lawful path $\gamma$,
 
@@ -28,58 +18,54 @@ For primitive interaction cost $c(e)$ and a lawful path $\gamma$,
 C(\gamma)=\sum_{e\in\gamma}c(e).
 ```
 
-For a represented computation $X$, presentations connected by executable equivalence are not separate semantic objects. Intrinsic cost is therefore taken over the lawful presentations and paths of $X$, not over one frozen graph:
+Executable equivalence identifies presentations of the same computation. Intrinsic cost is therefore
 
 ```math
 C^*(X)
 =
 \min_{P\simeq X}
-\min_{\gamma\text{ realizing }P}
+\min_{\gamma:P\leadsto\operatorname{obs}(X)}
 C(\gamma).
 ```
 
-With unit interaction cost this is minimum interaction count. With vector-valued physical costs it is the corresponding Pareto-geodesic problem. The quantity that made the interaction runtime lose to lower-order execution is therefore the quantity the completed interaction machine computes and maintains.
+For unit interaction cost,
 
-Everything below is the elementary construction of this result.
+```math
+C(\gamma)=|\gamma|.
+```
+
+Thus the optimization target is interaction count itself, over executable equivalent presentations rather than one frozen net.
 
 ---
 
-## 1. HVM already has the correct local distinction: same coordinate or product
-
-The smallest nontrivial finite distinction is
+## 1. One distinction: diagonal or product
 
 ```math
-\mathbf 2=\{0,1\}.
+\mathbf2=\{0,1\}.
 ```
 
-Use one Boolean distinction twice. The possible pairs are
+Using one Boolean distinction twice gives the diagonal
 
 ```math
 \Delta_{\mathbf2}
-=
-\{(0,0),(1,1)\}
-\subset
-\mathbf2\times\mathbf2.
+=\{(0,0),(1,1)\}
+\subset\mathbf2^2,
 ```
 
-The two projections agree on the diagonal:
+with
 
 ```math
-\pi_1|_{\Delta}=\pi_2|_{\Delta},
+\pi_1|_\Delta=\pi_2|_\Delta,
 \qquad
 \Delta_{\mathbf2}\simeq\mathbf2.
 ```
 
-There is still one Boolean coordinate.
-
-Let two Boolean coordinates vary separately. Their product is
+Two separately varying Boolean coordinates give the product
 
 ```math
 \mathbf2^2
-=
-\mathbf2\times\mathbf2
-=
-\{(0,0),(0,1),(1,0),(1,1)\}.
+=\mathbf2\times\mathbf2
+=\{(0,0),(0,1),(1,0),(1,1)\}.
 ```
 
 ```text
@@ -89,7 +75,7 @@ Let two Boolean coordinates vary separately. Their product is
  (0,0) -------- (1,0)
 ```
 
-Each factor supplies one coordinate direction. The finite Shannon information is therefore
+For the finite Boolean cube,
 
 ```math
 H(\mathbf2^n)=\log_2|\mathbf2^n|=n,
@@ -101,9 +87,7 @@ while
 H(\Delta_{\mathbf2})=1.
 ```
 
-No probability language is required: this is the information carried by the finite distinction space itself.
-
-HVM's labelled DUP/SUP interaction implements this distinction directly. When the labels agree, the two uses belong to the same branching coordinate:
+HVM's labelled DUP/SUP interaction realizes the same distinction. Equal labels preserve one branching coordinate:
 
 ```math
 \mathrm{DUP}_L\bowtie\mathrm{SUP}_L
@@ -111,7 +95,7 @@ HVM's labelled DUP/SUP interaction implements this distinction directly. When th
 \text{route}.
 ```
 
-When the labels differ, both coordinates remain and the product must be represented:
+Different labels preserve both coordinates:
 
 ```math
 \mathrm{DUP}_L\bowtie\mathrm{SUP}_M
@@ -120,9 +104,9 @@ When the labels differ, both coordinates remain and the product must be represen
 \qquad L\ne M.
 ```
 
-Thus sharing is not bookkeeping added after evaluation. It is the representation of dependence before work is performed.
+Diagonal is correlation; product is separate variation; DUP/SUP reduces the corresponding interaction structure.
 
-The same product appears when two local transformations commute:
+Two commuting transformations $r,s$ give the square
 
 ```text
         r
@@ -134,25 +118,23 @@ The same product appears when two local transformations commute:
         r
 ```
 
-The two boundary routes are two serializations of one two-coordinate computation. Three separately varying commuting transformations generate a cube. Higher independent products generate higher cells. The interaction object is already a computational cell complex.
+whose two boundary paths are the two serializations of the same 2-cell. Three commuting coordinates give a cube; $n$ commuting coordinates give an $n$-cell.
 
 ---
 
-## 2. Composition, factorization and irreducibility are the cost problem
-
-For maps
+## 2. Composition, factorization, irreducibility
 
 ```math
-A\xrightarrow{f}B\xrightarrow{g}C,
+A\xrightarrow{f}B\xrightarrow{g}C
 ```
 
-the composite is
+composes as
 
 ```math
 g\circ f:A\to C.
 ```
 
-Factorization reads the same equation in the other direction: recover components whose composition is the given map.
+Factorization reverses the question: find factors whose composite is the given map.
 
 If
 
@@ -160,7 +142,7 @@ If
 F(x,y)=G(C(x),C(x),y),
 ```
 
-then $C(x)$ is one determined value with two uses. Two independent evaluations of $C(x)$ introduce a distinction absent from $F$; one shared result is the faithful factorization.
+then $C(x)$ is one value with two uses. A representation evaluating $C(x)$ twice contains duplicated work absent from the factored expression.
 
 Multiplication is another composition law:
 
@@ -168,23 +150,21 @@ Multiplication is another composition law:
 60=2^2\cdot3\cdot5.
 ```
 
-A prime is irreducible under multiplication because it has no non-unit factorization. Computational irreducibility is the same relation under the declared composition/cost law: after every lawful factor has been extracted, the remaining paid distinction cannot be removed while preserving the demanded observation.
+A prime has no non-unit factorization under multiplication. A reduction is irreducible under a declared primitive interaction/cost structure exactly when no cheaper lawful factorization preserves the required observation.
 
-This is the point at which HVM's historical optimality and the present construction separate. Lamping/Lévy optimal sharing prevents repeated reduction of work already known to belong to one reduction family. It does not, by itself, identify every mathematically equivalent presentation of the running computation.
-
-The completed machine does.
+Lamping/Lévy optimal sharing identifies reduction-family duplication in a presented net. The cubical construction adds executable identity between presentations themselves.
 
 ---
 
-## 3. Every map has one exact lossless presentation
+## 3. Every map is exactly visible value plus fibre
 
-Take any visible map
+For
 
 ```math
-f:A\to B.
+f:A\to B,
 ```
 
-For $b:B$, its homotopy fibre is
+define
 
 ```math
 \mathrm{fib}_f(b)
@@ -192,27 +172,29 @@ For $b:B$, its homotopy fibre is
 \sum_{a:A}(f(a)=b).
 ```
 
-The total fibre family reconstructs the source:
+Then
 
 ```math
-A
-\simeq
-\sum_{b:B}\mathrm{fib}_f(b).
+\boxed{
+A\simeq\sum_{b:B}\mathrm{fib}_f(b)
+}.
 ```
 
-An input is therefore exactly its visible result together with exactly the distinction that result does not determine.
-
-This is stronger than attaching a trace. The repository proves that the lawful lossless completions of a fixed visible map form a contractible type: losslessness is a property of the map, not an independent machine choice. At machine level,
+The equivalence sends
 
 ```math
-\mathrm{LawfulStep}(A)
-\simeq
-(A\to A).
+a\longmapsto\big(f(a),(a,\mathrm{refl})\big)
 ```
 
-The ordinary step and its proof-relevant lossless presentation are equivalent descriptions of one process.
+and projects the stored $a$ in the reverse direction. The source is exactly the visible result plus the preimage distinction not determined by that result.
 
-Once the visible map is fixed, the remaining invisible freedom is fibrewise. In the set-level specialization,
+The formal development proves that lawful lossless completions of a fixed map form a contractible type. Losslessness is therefore a property of the map. At process level,
+
+```math
+\mathrm{LawfulStep}(A)\simeq(A\to A).
+```
+
+For a fixed observation $f$, the remaining evolution is fibrewise; for sets,
 
 ```math
 \mathrm{Flow}(f)
@@ -220,21 +202,16 @@ Once the visible map is fixed, the remaining invisible freedom is fibrewise. In 
 \prod_{b:B}\mathrm{End}(\mathrm{fib}_f(b)).
 ```
 
-Everything that can still vary without changing the visible result lies inside the corresponding fibres.
-
-This is the exact reason maximal factoring need not destroy future information. A visible coordinate may collapse as soon as it is determined; the residual required to reconstruct or further transform the source remains in the fibre. Compression and losslessness are not competing requirements.
+A determined visible coordinate may collapse while its exact residual remains in the fibre. Factorization and losslessness therefore coexist by construction.
 
 ---
 
-## 4. The universal family makes representation itself internal
+## 4. Universal family
 
-Let $\mathcal U$ be a universe of types. Its universal family is
+Let $\mathcal U$ be a universe. Its universal family is
 
 ```math
-\pi:
-\sum_{X:\mathcal U}X
-\to
-\mathcal U.
+\pi:\sum_{X:\mathcal U}X\to\mathcal U.
 ```
 
 Every dependent family
@@ -243,10 +220,10 @@ Every dependent family
 P:B\to\mathcal U
 ```
 
-is classified by this universal family. Every ordinary map $f:A\to B$ already determines such a family:
+is its pullback along $P$. Every map $f:A\to B$ supplies the fibre family
 
 ```math
-P_f(b)=\mathrm{fib}_f(b),
+P_f(b)=\mathrm{fib}_f(b)
 ```
 
 with
@@ -255,41 +232,29 @@ with
 A\simeq\sum_{b:B}P_f(b).
 ```
 
-So map, fibre family, total space and visible projection are presentations of one construction.
+Map, fibre family, total space and projection are the same construction in these presentations.
 
-The ordinary foundations are already inside it. Implication is function type,
-
-```math
-P\Rightarrow Q
-\equiv
-P\to Q;
-```
-
-conjunction is product,
+Curry-Howard gives
 
 ```math
-P\land Q
-\equiv
-P\times Q;
+P\Rightarrow Q\equiv P\to Q,
 ```
-
-existence is dependent sum,
 
 ```math
-\exists x:A.P(x)
-\equiv
-\sum_{x:A}P(x).
+P\land Q\equiv P\times Q,
 ```
 
-Algebra supplies operations and identities on carriers; number theory studies particular arithmetic carriers and their factorizations; category theory retains objects, maps, identity and composition; topology retains path and deformation structure; geometry retains relations, coordinates and transport; analysis adds limiting and continuous structure. The vocabulary changes with retained structure; the foundational objects do not.
+```math
+\exists x:A.P(x)\equiv\sum_{x:A}P(x).
+```
 
-This matters operationally because a new mathematical structure does not require a new species of runtime object. It is structure in the same universe, and its equivalences can therefore participate in the same execution.
+Algebra adds operations and identities to carriers. Number theory specializes arithmetic carriers and factorization. Category theory retains objects, maps, identities and composition. Topology retains path structure. Geometry retains coordinates, incidence and transport. Analysis retains limits and continuous structure. Each is structure in the same universe.
 
 ---
 
-## 5. Voevodsky univalence makes equivalent presentations executable
+## 5. Univalence: equivalence computes as identity
 
-For types $A,B:\mathcal U$,
+Voevodsky univalence is
 
 ```math
 (A=_{\mathcal U}B)
@@ -297,29 +262,31 @@ For types $A,B:\mathcal U$,
 (A\simeq B).
 ```
 
-An equivalence
+For
 
 ```math
-e:A\simeq B
+e:A\simeq B,
 ```
 
-therefore gives an identity
+write
 
 ```math
 \mathrm{ua}(e):A=_{\mathcal U}B.
 ```
 
-Computational cubical type theory makes the identity reduce. Transport along the path generated by $e$ executes $e$:
+CCHM cubical computation gives
 
 ```math
+\boxed{
 \mathrm{coe}(\mathrm{ua}(e),x)
 \leadsto
-e(x).
+e(x)
+}.
 ```
 
-Representation equivalence is no longer metadata consumed by an external optimizer. It is an executable path between presentations.
+An equivalence is therefore an executable identity.
 
-For $f:A\to A$, transport across $e:A\simeq B$ gives
+For $f:A\to A$ and $e:A\simeq B$,
 
 ```math
 f
@@ -327,35 +294,29 @@ f
 e\circ f\circ e^{-1}:B\to B.
 ```
 
-Change of basis is the linear specialization:
+For a linear basis change $P$,
 
 ```math
 [T]_{B'}=P^{-1}[T]_BP.
 ```
 
-A compiler representation, basis and coordinate chart are all presentations whose dependent structure transports through an equivalence.
+Both are transport of structure through an equivalence.
 
-The repository's transported-cost constructions make the performance consequence exact: a family can have exponential cost in one presentation and linear cost in an equivalent transported chart. Therefore
+The transported-cost formalization exhibits families whose canonical presentation has exponential cost while an equivalent transported chart has linear cost. Hence cost attached to one presentation is not intrinsic cost. Since the equivalence computes, transport to the cheaper chart is itself an execution path.
 
-```math
-\text{cost of a presentation}
-\ne
-\text{intrinsic cost of the represented computation}.
-```
+---
 
-Because transport is executable, the cheaper chart is not merely known to exist; it is a lawful execution route.
+## 6. Cubical composition
 
-Cubical identity retains the higher structure required to compose these routes. A path is
+A path is
 
 ```math
 p:I\to A,
-\qquad
-p(0)=a,
-\quad
-p(1)=b.
+\qquad p(0)=a,
+\quad p(1)=b.
 ```
 
-Paths themselves have paths,
+A path between paths is
 
 ```math
 p,q:a=_A b,
@@ -363,77 +324,43 @@ p,q:a=_A b,
 \alpha:p=q.
 ```
 
-A commuting reduction square and a cubical 2-cell therefore carry the same boundary data. `coe` transports through a varying family; `hcomp` fills compatible boundaries in a fixed type; `comp` combines filling with transport; `Glue` gives universe-level computational univalence. Partial structure can remain partial until later information determines its completion.
+A varying family is
+
+```math
+P:I\to\mathcal U,
+```
+
+with coercion
+
+```math
+\mathrm{coe}(P,r,s):P(r)\to P(s).
+```
+
+`hcomp` fills a compatible partial boundary in a fixed type. `comp` combines filling with transport through a varying family. The implemented type-directed CCHM rules cover Pi, Sigma, PathP and inductive structure; `Glue` supplies computational universe transport. A partial composition remains a term until its boundary data determine reduction.
+
+The same square structure appears in parallel reduction: two commuting local interactions are two paths around one boundary. Cubical higher identity retains that coherence as data available to subsequent computation.
 
 ---
 
-## 6. Coinduction keeps optimality inside the running machine
+## 7. CCHM semantics in Bend/HVM4
 
-A terminating program has type
+The compiler patch extends Bend's core terms and reduction/lowering path with cubical constructors rather than erasing cubical structure before HVM4 emission. The full HVM4 target keeps intervals, paths, types, `coe` and `hcomp` as runtime terms. The patch explicitly describes this target as: `intervals, paths, types, coe and hcomp are all runtime objects; nothing erased or pre-normalised`.
 
-```math
-A\to B.
+The CCHM Kan rules are definitional reductions. `kan.bend` checks Pi, Sigma, PathP and Nat rules by equations that succeed only when `whnfHCm` fires.
+
+Runtime coercion is type-directed. Pi transport is contravariant in the domain and covariant in the codomain. Sigma transport first transports the first projection and then transports the second in the resulting dependent family. PathP transport constructs the corresponding higher composition. Universe transport executes the represented equivalence.
+
+A suspended partial composition is represented explicitly:
+
+```text
+#HCm{type, faces, base}
 ```
 
-A continuing process returns an observation and another process:
+and remains reducible when later interval information arrives.
 
-```math
-X\to O\times X.
-```
+HVM4's SUP/DUP acts on these runtime terms. Type-directed reduction distributes over superposed structure while labels retain the correlation that determines whether branches route or cross. Cubical paths, dependent types, partial compositions and equivalences therefore participate in the same sharing calculus as ordinary terms.
 
-The repository's dependent interaction returns successor, dependent observation/event, exact residual and continuation together. A proof, equivalence or transformation produced by an interaction is again a term available to the continuation.
-
-```math
-\text{interaction}
-\longrightarrow
-\text{derived identity/transformation}
-\longrightarrow
-\text{installed executable structure}
-\longrightarrow
-\text{next interaction}.
-```
-
-`IntrinsicRewrite`, contextual/self-presentation and productive installation are the checked source-level loci of this re-entry.
-
-This is why “optimal representation” does not mean an optimizer chooses a good graph before execution. The representation is part of the same self-presenting object being transformed. New mathematical information changes subsequent reduction immediately.
-
-Schematically,
-
-```math
-R_t=R_t^*,
-\qquad
-R_t\longrightarrow R_{t+1},
-\qquad
-R_{t+1}=R_{t+1}^*,
-```
-
-where $R_t^*$ is the cost-optimal faithful presentation under the identities and information available at state $t$.
-
-The runtime therefore computes while maintaining the factorization on which its own future cost depends.
-
----
-
-## 7. HVM4 is the local realization of the factored object
-
-After the mathematics determines dependence, HVM repeatedly encounters the two elementary cases with which we began:
-
-```math
-\text{same / correlated structure}
-\longrightarrow
-\text{route / share},
-```
-
-```math
-\text{separate product structure}
-\longrightarrow
-\text{cross / compose}.
-```
-
-The cubical/univalent machinery changes which apparent distinctions ever survive to the second case.
-
-The pre-release integration against `DKormann/Bend2 @ f026483` and HVM4 retains interval expressions, path structure, universe paths, dependent constructors, `coe`, `hcomp`, `Glue`, quotient structure and unresolved partial compositions at runtime. See [`RUNTIME_FULL.md`](./RUNTIME_FULL.md), [`PUSC.md`](./PUSC.md), and [`LIST_TRANSPORT_FIX.md`](./LIST_TRANSPORT_FIX.md).
-
-A basic universe transport executes natively:
+A basic univalent transport reduces natively:
 
 ```math
 \mathrm{coe}\big(i\mapsto\mathrm{ua}(\mathrm{not})(i),\mathrm{True}\big)
@@ -441,36 +368,130 @@ A basic universe transport executes natively:
 \mathrm{False}.
 ```
 
-A partial composition remains runtime data until later interval information determines it:
-
-```text
-partial boundary
-      │
-      ▼
-#HCm{type, faces, base}
-      │ later information
-      ▼
-local reduction
-```
-
-The List transport correction is a concrete compiler example:
+The List transport correction makes the same point at compiler level:
 
 ```text
 old: List(ua(not) @ i) : [True] → [True]
 new: List(ua(not) @ i) : [True] → [False]
 ```
 
-Dependent transport changes the emitted HVM computation itself. The proof layer is not sitting beside the reducer.
-
-The consequence for Bend's architectural decision is now precise. HOC's lower-order turn answered a real empirical fact about the interaction representation available to them: that representation could require more physical work. The completed machine does not ask the hardware to reduce that frozen representation. It continuously computes which distinctions are real, which are identified, which presentations are equivalent, and which interaction path is minimal under the declared cost geometry.
-
-**The future question is therefore no longer whether Bend should trade the Interaction Calculus for lower-order efficiency. The Interaction Calculus now contains the mathematics required to derive and maintain efficient execution itself.**
+The emitted HVM4 reduction now transports each list element through the element-type line while retaining the list structure and branch correlation.
 
 ---
 
-# Appendix — SAT is the finite Boolean cross-section of the whole machine
+## 8. Coinduction and intrinsic rewrite
 
-SAT is unusually useful here because almost every foundational object above becomes finite and visible at once.
+A continuing process has coalgebraic form
+
+```math
+X\to O\times X.
+```
+
+The dependent interaction formalization returns successor, dependent observation/event, exact residual and continuation together. A derived equality, equivalence or transformation is itself a term and remains input to later interaction.
+
+```math
+\text{interaction}
+\longrightarrow
+\text{derived transformation}
+\longrightarrow
+\text{intrinsic rewrite}
+\longrightarrow
+\text{continuation}.
+```
+
+`IntrinsicRewrite`, self/contextual presentation and productive installation formalize this re-entry. Consequently the identities available to reduction evolve with the computation itself.
+
+For the proved optimal presentation invariant, write $R_t^*$ for the cost-optimal faithful presentation at state $t$:
+
+```math
+R_t=R_t^*,
+\qquad
+R_t\longrightarrow R_{t+1},
+\qquad
+R_{t+1}=R_{t+1}^*.
+```
+
+Optimal factoring is therefore retained through continued interaction rather than applied once before reduction.
+
+---
+
+## 9. Geodesic cost
+
+Let primitive transitions be weighted by
+
+```math
+w:E\to\mathbb N.
+```
+
+For a terminal $t$, let a potential $\Phi$ satisfy
+
+```math
+\Phi(t)=0
+```
+
+and, on every primitive edge $u\to v$,
+
+```math
+\Phi(u)\le w(u,v)+\Phi(v).
+```
+
+Then every terminal path $\gamma:s\leadsto t$ satisfies
+
+```math
+\boxed{
+\Phi(s)\le C(\gamma)
+}.
+```
+
+If equality holds edge-by-edge on a path, telescoping gives
+
+```math
+C(\gamma)=\Phi(s),
+```
+
+so that path is geodesic.
+
+For vector costs in $\mathbb N^d$ with componentwise order,
+
+```math
+\Phi(u)\preceq w(u,v)+\Phi(v)
+```
+
+implies
+
+```math
+\Phi(s)\preceq C(\gamma).
+```
+
+Equality componentwise gives exact Pareto attainment. No scalar exchange rate between resource coordinates is part of the theorem.
+
+This separates carrier size from cost exactly. Cardinality, cube dimension, clause count, intersection count and residual width become cost bounds only after a primitive-edge law proves that paid interaction cannot discharge them faster than the potential decreases.
+
+---
+
+## 10. Consequence for Bend/HVM
+
+HOC's lower-order Bend2 runtime answered the performance of the interaction representation then available. The construction above changes the interaction representation and its reduction law: equivalent presentations are connected by executable cubical identity; exact residuals preserve information across projection; SUP/DUP retains correlation; derived identities return through coinduction; and geodesic cost is defined over the resulting presentation space.
+
+Thus arbitrary programs are not reduced as frozen interaction nets. Their interaction presentation remains subject to the same executable equality and factorization as the terms being reduced.
+
+With unit interaction cost,
+
+```math
+\boxed{
+\text{optimal interaction execution}
+=
+\text{minimum interaction count over executable equivalent presentations}
+}.
+```
+
+The performance quantity for which Bend2 abandoned interaction nets is therefore the quantity optimized by the completed Interaction Calculus.
+
+---
+
+# Appendix A — SAT / 3SAT as the finite Boolean presentation
+
+SAT makes the preceding construction finite and explicit.
 
 Let
 
@@ -478,7 +499,7 @@ Let
 Q_N=\mathbf2^N.
 ```
 
-A vertex $x\in Q_N$ is a complete Boolean assignment. A partial assignment fixing $k$ coordinates is a coordinate subcube/flat of codimension $k$ with
+A vertex is a complete Boolean assignment. A partial assignment fixing $k$ coordinates is a codimension-$k$ coordinate flat with
 
 ```math
 2^{N-k}
@@ -486,7 +507,7 @@ A vertex $x\in Q_N$ is a complete Boolean assignment. A partial assignment fixin
 
 vertices.
 
-A Boolean decision function is simply
+A Boolean decision function is
 
 ```math
 F:Q_N\to\mathbf2.
@@ -498,17 +519,9 @@ Its satisfying fibre is
 S_F=F^{-1}(1).
 ```
 
-SAT asks whether this fibre is inhabited; witness SAT asks for a point of the fibre. In type-theoretic form the two targets are
+The decision target and witness target are distinct projections:
 
 ```math
 \mathrm{Dec}_F=\|S_F\|,
 \qquad
-\mathrm{Wit}_F=S_F.
-```
-
-The canonical truncation
-
-```math
-S_F\to\|S_F\|
-```
-
+\
