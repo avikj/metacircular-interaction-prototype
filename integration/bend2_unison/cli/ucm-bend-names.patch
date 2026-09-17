@@ -1,0 +1,60 @@
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
+@@ -6,6 +6,7 @@
+ where
+ 
+ import Bend.UCM.Execution qualified as BendExecution
++import Bend.UCM.Name qualified as BendName
+ import Bend.UCM.Storage qualified as BendStorage
+ import Control.Exception (evaluate)
+ import Control.Exception qualified as Exception
+@@ -33,7 +34,6 @@
+ import Unison.Prelude
+ import Unison.Names qualified as Names
+ import Unison.Referent qualified as Referent
+-import Unison.Syntax.Name qualified as Name
+ import U.Codebase.Sqlite.Reference qualified as S
+ import U.Codebase.Reference qualified as Ref
+ import U.Codebase.Sqlite.Queries qualified as Q
+@@ -106,7 +106,7 @@
+ runStoredName name = do
+   names <- Cli.currentNames
+   let found = do
+-        parsed <- maybe (Left ("invalid UCM name: " ++ name)) Right (Name.parseText (Text.pack name))
++        parsed <- BendName.fromBendName (Text.pack name)
+         case Set.toList (Names.termsNamed names parsed) of
+           [referent] -> maybe
+             (Left ("name is not an executable term: " ++ name))
+@@ -148,10 +148,7 @@
+         (Left err, _) -> pure (Left err)
+         (_, Left err) -> pure (Left err)
+   where
+-    parsed name = maybe
+-      (Left ("Bend2 name cannot enter UCM branch: " ++ name))
+-      Right
+-      (Name.parseText (Text.pack name))
++    parsed name = BendName.fromBendName (Text.pack name)
+     termActions current (name, referent) = do
+       unisonName <- parsed name
+       let split = Path.splitFromName unisonName
+--- a/unison-cli/src/Unison/LSP/Bend.hs
++++ b/unison-cli/src/Unison/LSP/Bend.hs
+@@ -31,7 +31,7 @@
+ import Control.Monad.Reader (asks)
+ import qualified Unison.Names as Names
+ import qualified Unison.Referent as Referent
+-import qualified Unison.Syntax.Name as Name
++import qualified Bend.UCM.Name as BendName
+ import Unison.Prelude hiding (hoistMaybe)
+ 
+ isBendUri :: Uri -> Bool
+@@ -132,8 +132,7 @@
+ branchRef :: Names.Names -> String -> Either String Ref.Id
+ branchRef names imported = do
+   let unisonName = Text.replace "/" "." (Text.pack imported)
+-  parsed <- maybe (Left ("invalid Bend import name: " ++ imported)) Right
+-    (Name.parseText unisonName)
++  parsed <- BendName.fromBendName unisonName
+   case Set.toList (Names.termsNamed names parsed) of
+     [referent] -> maybe (Left ("Bend import is not a term: " ++ imported))
+       Right (Referent.toTermReferenceId referent)

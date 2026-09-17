@@ -1,0 +1,29 @@
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Queries.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Queries.hs
+@@ -74,6 +74,7 @@
+     expectBendObject,
+     saveBendComponent,
+     saveBendSemanticIdentity,
++    loadBendSemanticIdentity,
+     findBendMembersBySemanticIdentity,
+     saveBendPresentation,
+     loadBendPresentations,
+@@ -934,6 +935,18 @@
+       ON CONFLICT DO NOTHING
+     |]
+ 
++loadBendSemanticIdentity :: ObjectId -> C.Reference.Pos -> Text -> Transaction (Maybe Hash)
++loadBendSemanticIdentity componentObjectId componentIndex semanticsVersion = do
++  hashId <- queryMaybeCol
++    [sql|
++      SELECT normal_form_hash_id
++      FROM bend_semantic_identity
++      WHERE component_object_id = :componentObjectId
++        AND component_index = :componentIndex
++        AND semantics_version = :semanticsVersion
++    |]
++  traverse expectHash hashId
++
+ findBendMembersBySemanticIdentity :: Text -> Hash -> Transaction [S.Reference.Id]
+ findBendMembersBySemanticIdentity semanticsVersion normalFormHash = do
+   let normalFormHash32 = Hash32.fromHash normalFormHash

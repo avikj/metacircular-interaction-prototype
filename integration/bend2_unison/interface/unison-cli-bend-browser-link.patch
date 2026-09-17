@@ -1,0 +1,61 @@
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/BendLoad.hs
+@@ -14,6 +14,7 @@
+ import Core.Provenance qualified as BendProvenance
+ import Core.CLI qualified as Bend
+ import Core.Type (Book)
++import Data.ByteString qualified as Bytes
+ import Data.Map.Strict qualified as Map
+ import Data.Set qualified as Set
+ import Data.Text qualified as Text
+@@ -34,6 +35,10 @@
+ import Unison.Referent qualified as Referent
+ import Unison.Syntax.Name qualified as Name
+ import U.Codebase.Sqlite.Reference qualified as S
++import U.Codebase.Reference qualified as Ref
++import U.Codebase.Sqlite.Queries qualified as Q
++import Unison.Hash qualified as Hash
++import Unison.Server.CodebaseServer qualified as Server
+ 
+ -- | A watched .bend file goes through Bend2 import resolution and checking,
+ -- then its checked components enter UCM's native object store.
+@@ -44,6 +49,9 @@
+     Left err -> Cli.respond (Output.Literal (fromString ("Bend2: " ++ err)))
+     Right checked -> do
+       saved <- saveAndLink path checked
++      browser <- case saved of
++        Right refs -> maybe (pure Nothing) bendBrowserUrl (Map.lookup "main" refs)
++        Left _ -> pure Nothing
+       Cli.respond . Output.Literal . fromString $ case saved of
+         Left err -> "Bend2 codebase: " ++ err
+         Right refs ->
+@@ -53,6 +61,7 @@
+             ++ show (length refs)
+             ++ " addressed names) from "
+             ++ Text.unpack path
++            ++ maybe "" ("\nOpen main: " ++) (Text.unpack <$> browser)
+ 
+ handleBendLoad :: FilePath -> Cli ()
+ handleBendLoad path = do
+@@ -183,3 +192,21 @@
+   BendAdmission.HitTypeFailure name err -> "HIT " ++ name ++ ": " ++ show err
+   BendAdmission.HitConstructorFailure hit ctor err -> "HIT " ++ hit ++ "." ++ ctor ++ ": " ++ show err
+   BendAdmission.OriginFailure err -> "source: " ++ err
++
++-- The local codebase server supplies the authentication token in its base
++-- URL. A stored Bend member has one stable URL across presentation renames.
++bendBrowserUrl :: S.Id -> Cli (Maybe Text)
++bendBrowserUrl (Ref.Id objectId memberIndex) = do
++  env <- ask
++  case env.serverBaseUrl of
++    Nothing -> pure Nothing
++    Just baseUrl -> do
++      digest <- liftIO $ Codebase.runTransaction env.codebase $
++        Hash.toByteString <$> Q.expectPrimaryHashByObjectId objectId
++      let base = Text.dropEnd 4 (Server.urlFor Server.Api baseUrl)
++          suffix = Text.pack (hexBytes digest ++ "/" ++ show memberIndex)
++      pure (Just (base <> "/ui/bend/component/" <> suffix))
++  where
++    hexBytes = concatMap byteHex . Bytes.unpack
++    byteHex byte = [alphabet !! fromIntegral (byte `div` 16),alphabet !! fromIntegral (byte `mod` 16)]
++    alphabet = "0123456789abcdef"

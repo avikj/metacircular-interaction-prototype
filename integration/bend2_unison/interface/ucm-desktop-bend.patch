@@ -1,0 +1,170 @@
+--- a/src/Ucm/Api.elm
++++ b/src/Ucm/Api.elm
+@@ -1,4 +1,4 @@
+-module Ucm.Api exposing (codebaseApiEndpointToEndpoint, pingUcm, projectBranches, projects)
++module Ucm.Api exposing (bendMemberLink, codebaseApiEndpointToEndpoint, pingUcm, projectBranches, projects)
+ 
+ import Code.BranchRef as BranchRef
+ import Code.CodebaseApi as CodebaseApi
+@@ -62,6 +62,31 @@
+         }
+ 
+ 
++bendMemberLink : WorkspaceContext -> Reference.Reference -> Endpoint
++bendMemberLink context ref =
++    let
++        kind =
++            case ref of
++                Reference.TermReference _ ->
++                    "term"
++
++                Reference.TypeReference _ ->
++                    "type"
++
++                _ ->
++                    "constructor"
++
++        name =
++            Reference.fqn ref
++                |> Maybe.map FQN.toString
++                |> Maybe.withDefault ""
++    in
++    GET
++        { path = baseCodePathFromContext context ++ [ "bend", "member-link" ]
++        , queryParams = [ string "name" name, string "kind" kind ]
++        }
++
++
+ codebaseApiEndpointToEndpoint : WorkspaceContext -> CodebaseApi.CodebaseEndpoint -> Endpoint
+ codebaseApiEndpointToEndpoint context cbEndpoint =
+     let
+--- a/src/Ucm/WorkspaceScreen.elm
++++ b/src/Ucm/WorkspaceScreen.elm
+@@ -4,11 +4,14 @@
+ import Code.BranchRef as BranchRef
+ import Code.CodebaseTree as CodebaseTree
+ import Code.Config
++import Code.Definition.Reference exposing (Reference)
+ import Code.FullyQualifiedNameSet as FQNSet
+ import Code2.Workspace.WorkspaceContext as WorkspaceContext exposing (WorkspaceContext)
+ import Code2.Workspace.WorkspacePanes as WorkspacePanes
+ import Html exposing (Html, div, text)
+ import Html.Attributes exposing (class)
++import Json.Decode as Decode
++import Lib.HttpApi as HttpApi exposing (HttpResult)
+ import Lib.Search as Search
+ import UI.AnchoredOverlay as AnchoredOverlay
+ import UI.Button as Button
+@@ -19,6 +22,8 @@
+ import UI.Modal as Modal
+ import UI.Tooltip as Tooltip
+ import Ucm.AppContext as AppContext exposing (AppContext)
++import Ucm.Api as Api
++import Ucm.BendExternal as BendExternal
+ import Ucm.CommandPalette as CommandPalette
+ import Ucm.SwitchBranch as SwitchBranch
+ import Ucm.SwitchProject as SwitchProject
+@@ -96,6 +101,7 @@
+     | SwitchBranchMsg SwitchBranch.Msg
+     | CommandPaletteMsg CommandPalette.Msg
+     | KeyboardShortcutMsg KeyboardShortcut.Msg
++    | BendMemberLinkFinished Reference (HttpResult (Maybe String))
+ 
+ 
+ type OutMsg
+@@ -118,13 +124,7 @@
+                 ( m, c ) =
+                     case outMsg of
+                         CodebaseTree.OpenDefinition ref ->
+-                            let
+-                                ( panes, panesCmd ) =
+-                                    WorkspacePanes.openDefinition model.config model.panes ref
+-                            in
+-                            ( { model_ | panes = panes }
+-                            , Cmd.batch [ cmd_, Cmd.map WorkspacePanesMsg panesCmd ]
+-                            )
++                            ( model_, Cmd.batch [ cmd_, checkBendMember appContext model.workspaceContext ref ] )
+ 
+                         _ ->
+                             ( model_, cmd_ )
+@@ -145,29 +145,37 @@
+                         ( palette, cpCmd, out ) =
+                             CommandPalette.update appContext model.config cpMsg m
+ 
+-                        ( panes, panesCmd, modal ) =
++                        ( panes, paneCmd, modal ) =
+                             case out of
+                                 CommandPalette.CloseRequest ->
+                                     ( model.panes, Cmd.none, NoModal )
+ 
+                                 CommandPalette.SelectDefinition ref ->
+-                                    let
+-                                        ( panes_, panesCmd_ ) =
+-                                            WorkspacePanes.openDefinition model.config model.panes ref
+-                                    in
+-                                    ( panes_, panesCmd_, NoModal )
++                                    ( model.panes, checkBendMember appContext model.workspaceContext ref, NoModal )
+ 
+                                 _ ->
+                                     ( model.panes, Cmd.none, CommandPaletteModal palette )
+                     in
+                     ( { model | panes = panes, modal = modal }
+-                    , Cmd.batch [ Cmd.map CommandPaletteMsg cpCmd, Cmd.map WorkspacePanesMsg panesCmd ]
++                    , Cmd.batch [ Cmd.map CommandPaletteMsg cpCmd, paneCmd ]
+                     , None
+                     )
+ 
+                 _ ->
+                     ( model, Cmd.none, None )
+ 
++        BendMemberLinkFinished ref result ->
++            case result of
++                Ok (Just path) ->
++                    ( model, BendExternal.openBendMember path, None )
++
++                _ ->
++                    let
++                        ( panes, panesCmd ) =
++                            WorkspacePanes.openDefinition model.config model.panes ref
++                    in
++                    ( { model | panes = panes }, Cmd.map WorkspacePanesMsg panesCmd, None )
++
+         ToggleSidebar ->
+             ( { model | sidebarVisible = not model.sidebarVisible }, Cmd.none, None )
+ 
+@@ -407,7 +415,14 @@
+ 
+         NoOp ->
+             ( model, Cmd.none, None )
++
++
+ 
++checkBendMember : AppContext -> WorkspaceContext -> Reference -> Cmd Msg
++checkBendMember appContext workspaceContext ref =
++    Api.bendMemberLink workspaceContext ref
++        |> HttpApi.toRequest (Decode.nullable Decode.string) (BendMemberLinkFinished ref)
++        |> HttpApi.perform appContext.api
+ 
+ 
+ -- SUBSCRIPTIONS
+--- a/src/Ucm/BendExternal.elm
++++ b/src/Ucm/BendExternal.elm
+@@ -0,0 +1,4 @@
++port module Ucm.BendExternal exposing (openBendMember)
++
++
++port openBendMember : String -> Cmd msg
+--- a/src/renderer.js
++++ b/src/renderer.js
+@@ -53,6 +53,11 @@
+   const app = Elm.Main.init({ flags });
+ 
+   if (app.ports) {
++    app.ports.openBendMember?.subscribe((path) => {
++      if (path.startsWith("/codebase/ui/bend/component/")) {
++        window.open(new URL(path, UCM_API_URL).href, "_blank");
++      }
++    });
+     app.ports.saveWorkspaceContext?.subscribe(async (workspaceContext) => {
+       appSettings.workspaceContexts = [workspaceContext];
+       AppSettings.save(appSettings);

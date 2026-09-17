@@ -1,0 +1,227 @@
+--- a/unison-share-api/src/Unison/Server/Backend.hs
++++ b/unison-share-api/src/Unison/Server/Backend.hs
+@@ -83,6 +83,7 @@
+   )
+ where
+ 
++import Bend.UCM.Storage qualified as BendStorage
+ import Control.Error.Util (hush)
+ import Control.Lens hiding ((??))
+ import Control.Lens.Cons qualified as Cons
+@@ -106,6 +107,7 @@
+ import U.Codebase.Causal qualified as V2Causal
+ import U.Codebase.HashTags (BranchHash, CausalHash (..))
+ import U.Codebase.Referent qualified as V2Referent
++import U.Codebase.Reference qualified as V2Reference
+ import Unison.ABT qualified as ABT
+ import Unison.Builtin qualified as B
+ import Unison.Builtin.Decls qualified as Decls
+@@ -284,6 +286,7 @@
+     termEntryName :: Name,
+     termEntryConflicted :: Bool,
+     termEntryType :: Maybe (Type v a),
++    termEntryBendType :: Maybe Text,
+     termEntryTag :: TermTag
+   }
+   deriving (Eq, Ord, Show, Generic)
+@@ -438,16 +441,24 @@
+   ExactName Name V2Referent.Referent ->
+   m (TermEntry Symbol Ann)
+ termListEntry codebase (ExactName name ref) = do
+-  ot <- Codebase.runTransaction codebase $ do
++  (ot, bendType) <- Codebase.runTransaction codebase $ do
+     v1Referent <- Cv.referent2to1 (Codebase.getDeclType codebase) ref
+     ot <- loadReferentType codebase v1Referent
+-    pure (ot)
++    bendType <- case ref of
++      V2Referent.Ref bendRef -> case V2Reference.toId bendRef of
++        Nothing -> pure Nothing
++        Just refId -> BendStorage.loadBendDefinitionTypeTextByHashRef refId >>= \case
++          Left err -> Sqlite.unsafeIO (ioError (userError err))
++          Right typeText -> pure typeText
++      V2Referent.Con {} -> pure Nothing
++    pure (ot, bendType)
+   tag <- getTermTag codebase ref ot
+   pure $
+     TermEntry
+       { termEntryReferent = ref,
+         termEntryName = name,
+         termEntryType = ot,
++        termEntryBendType = bendType,
+         termEntryTag = tag,
+         -- See typeEntryConflicted
+         termEntryConflicted = False,
+@@ -541,11 +552,11 @@
+ 
+ termEntryToNamedTerm ::
+   (Var v) => PPE.PrettyPrintEnv -> Maybe Width -> TermEntry v a -> NamedTerm
+-termEntryToNamedTerm ppe typeWidth te@TermEntry {termEntryType = mayType, termEntryTag = tag, termEntryHash} =
++termEntryToNamedTerm ppe typeWidth te@TermEntry {termEntryType = mayType, termEntryBendType, termEntryTag = tag, termEntryHash} =
+   NamedTerm
+     { termName = termEntryHQName te,
+       termHash = termEntryHash,
+-      termType = formatType ppe (mayDefaultWidth typeWidth) <$> mayType,
++      termType = (fromString . Text.unpack <$> termEntryBendType) <|> (formatType ppe (mayDefaultWidth typeWidth) <$> mayType),
+       termTag = tag
+     }
+ 
+@@ -1228,7 +1239,16 @@
+     loadSearchResult = \case
+       SR.Tm (SR.TermResult name r aliases) -> do
+         typ <- loadReferentType c r
+-        pure $ SR'.Tm name typ r aliases
++        bendType <- case r of
++          Referent.Ref (Reference.DerivedId rid) -> do
++            let v2ref = Cv.reference1to2 (Reference.DerivedId rid)
++            case V2Reference.toId v2ref of
++              Nothing -> pure Nothing
++              Just refId -> BendStorage.loadBendDefinitionTypeTextByHashRef refId >>= \case
++                Left err -> Sqlite.unsafeIO (ioError (userError err))
++                Right typeText -> pure typeText
++          _ -> pure Nothing
++        pure $ SR'.Tm' (SR'.TermResult' name typ bendType r aliases)
+       SR.Tp (SR.TypeResult name r aliases) -> do
+         dt <- loadTypeDisplayObject c r
+         pure $ SR'.Tp name dt r aliases
+@@ -1266,13 +1286,25 @@
+   let termReference = Referent.toReference referent
+   let v2Referent = Cv.referent1to2 referent
+ 
+-  sig <- hoistBackend (Codebase.runTransaction codebase) do
++  (sig, bendSig) <- hoistBackend (Codebase.runTransaction codebase) do
+     sig <- lift (loadReferentType codebase referent)
+-    pure sig
+-  case sig of
+-    Nothing ->
++    bendSig <- case v2Referent of
++      V2Referent.Ref bendRef -> case V2Reference.toId bendRef of
++        Nothing -> pure Nothing
++        Just refId -> lift (BendStorage.loadBendDefinitionTypeTextByHashRef refId) >>= \case
++          Left err -> lift (Sqlite.unsafeIO (ioError (userError err)))
++          Right typeText -> pure typeText
++      V2Referent.Con {} -> pure Nothing
++    pure (sig, bendSig)
++  case (sig, bendSig) of
++    (_, Just bendType) -> do
++      pped <- lift . Codebase.runTransaction codebase $ mkPPE mempty
++      tag <- lift $ getTermTag codebase v2Referent Nothing
++      let displayName = PPE.termName (PPED.unsuffixifiedPPE pped) referent
++      pure $ TermSummary (maybe displayName HQ.NameOnly mayName) shortHash (mkSummary termReference (fromString (Text.unpack bendType))) tag
++    (Nothing, Nothing) ->
+       throwError (MissingSignatureForTerm termReference)
+-    Just typeSig -> do
++    (Just typeSig, Nothing) -> do
+       let deps = Type.labeledDependencies typeSig
+       pped <- lift . Codebase.runTransaction codebase $ mkPPE deps
+       let formattedTermSig = formatSuffixedType pped width typeSig
+--- a/unison-share-api/src/Unison/Server/SearchResultPrime.hs
++++ b/unison-share-api/src/Unison/Server/SearchResultPrime.hs
+@@ -27,6 +27,7 @@
+   = TermResult'
+       (HQ.HashQualified Name)
+       (Maybe (Type v a))
++      (Maybe Text)
+       Referent
+       (Set (HQ'.HashQualified Name))
+   deriving (Eq, Show)
+@@ -45,7 +46,9 @@
+   Referent ->
+   Set (HQ'.HashQualified Name) ->
+   SearchResult' v a
+-pattern Tm n t r as = Tm' (TermResult' n t r as)
++pattern Tm n t r as <- Tm' (TermResult' n t _ r as)
++  where
++    Tm n t r as = Tm' (TermResult' n t Nothing r as)
+ 
+ pattern Tp ::
+   HQ.HashQualified Name ->
+@@ -71,7 +74,7 @@
+ -- result Term/Type names.
+ labeledDependencies :: (Ord v) => SearchResult' v a -> Set LabeledDependency
+ labeledDependencies = \case
+-  Tm' (TermResult' _ t r _) ->
++  Tm' (TermResult' _ t _ r _) ->
+     Set.insert (LD.referent r) $ maybe mempty (Set.map LD.typeRef . Type.dependencies) t
+   Tp' (TypeResult' _ d r _) ->
+     maybe mempty (DD.labeledDeclDependenciesIncludingSelf r) (DT.toMaybe d)
+--- a/unison-cli/src/Unison/CommandLine/OutputMessages.hs
++++ b/unison-cli/src/Unison/CommandLine/OutputMessages.hs
+@@ -3446,7 +3446,9 @@
+   SR'.TermResult' v a ->
+   Pretty
+ unsafePrettyTermResultSig' ppe = \case
+-  SR'.TermResult' name (Just typ) r _aliases ->
++  SR'.TermResult' name _ (Just bendType) _ _ ->
++    P.syntaxToColor (prettyHashQualified name) <> " : " <> P.text bendType
++  SR'.TermResult' name (Just typ) Nothing r _aliases ->
+     head (TypePrinter.prettySignaturesCT ppe [(r, name, typ)])
+   _ -> error "Don't pass Nothing"
+ 
+@@ -4214,24 +4216,24 @@
+           if detailed
+             then (unsafePrettyTermResultSigFull' ppe, prettyTypeResultHeaderFull')
+             else (unsafePrettyTermResultSig' ppe, prettyTypeResultHeader')
+-    missingType (SR'.Tm _ Nothing _ _) = True
++    missingType (SR'.Tm' (SR'.TermResult' _ Nothing Nothing _ _)) = True
+     missingType (SR'.Tp _ (MissingObject _) _ _) = True
+     missingType _ = False
+     -- termsWithTypes = [(name,t) | (name, Just t) <- sigs0 ]
+     --   where sigs0 = (\(name, _, typ) -> (name, typ)) <$> terms
+     termsWithMissingTypes =
+       [ (name, Reference.idToShortHash r)
+-      | SR'.Tm name Nothing (Referent.Ref (Reference.DerivedId r)) _ <- results
++      | SR'.Tm' (SR'.TermResult' name Nothing Nothing (Referent.Ref (Reference.DerivedId r)) _) <- results
+       ]
+     missingTypes =
+       nubOrdOn snd $
+         [(name, r) | SR'.Tp name (MissingObject r) _ _ <- results]
+           <> [ (name, Reference.toShortHash r)
+-             | SR'.Tm name Nothing (Referent.toTypeReference -> Just r) _ <- results
++             | SR'.Tm' (SR'.TermResult' name Nothing Nothing (Referent.toTypeReference -> Just r) _) <- results
+              ]
+     missingBuiltins =
+       results >>= \case
+-        SR'.Tm name Nothing r@(Referent.Ref (Reference.Builtin _)) _ ->
++        SR'.Tm' (SR'.TermResult' name Nothing Nothing r@(Referent.Ref (Reference.Builtin _)) _) ->
+           [(name, r)]
+         _ -> []
+ 
+--- a/unison-cli/src/Unison/Cli/Pretty.hs
++++ b/unison-cli/src/Unison/Cli/Pretty.hs
+@@ -269,7 +269,16 @@
+   SR'.TermResult' v a ->
+   Pretty
+ unsafePrettyTermResultSigFull' ppe = \case
+-  SR'.TermResult' hq (Just typ) r aliases ->
++  SR'.TermResult' hq _ (Just bendType) r aliases ->
++    P.lines
++      [ P.hiBlack "-- " <> greyHash (HQ.fromReferent r),
++        P.group $
++          P.commas (fmap greyHash $ hq : map HQ'.toHQ (toList aliases))
++            <> " : "
++            <> P.text bendType,
++        mempty
++      ]
++  SR'.TermResult' hq (Just typ) Nothing r aliases ->
+     P.lines
+       [ P.hiBlack "-- " <> greyHash (HQ.fromReferent r),
+         P.group $
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/Signature.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/Signature.hs
+@@ -40,6 +40,9 @@
+     results <- Backend.loadSearchResults codebase hits
+     pure (misses, results)
+   let renderEntry = \case
++        SR'.Tm' (SR'.TermResult' name _ (Just bendType) _ _) ->
++          let namePretty = P.syntaxToColor (NP.prettyHashQualified name)
++           in namePretty <> P.newline <> P.indentN 2 (P.text ": " <> P.text bendType)
+         SR'.Tm name (Just typ) _ _ ->
+           let namePretty = P.syntaxToColor (NP.prettyHashQualified name)
+               typePretty = TypePrinter.pretty suffixifiedPPE typ
+@@ -56,5 +59,5 @@
+   Cli.respond . DisplayDefinitions $ P.sep P.newline sigs
+   where
+     isMissing = \case
+-      SR'.Tm _ Nothing _ _ -> True
++      SR'.Tm' (SR'.TermResult' _ Nothing Nothing _ _) -> True
+       _ -> False

@@ -1,0 +1,23 @@
+--- a/src/Highlight.hs
++++ b/src/Highlight.hs
+@@ -15,7 +15,6 @@
+     ) where
+ 
+ import Data.Char (isSpace)
+-import Data.List (foldl')
+ import qualified Data.Text as T
+ import qualified Data.Vector.Unboxed as VU
+ 
+@@ -146,12 +145,6 @@
+ 
+     in unlines $ map processLine [sLine..eLine]
+ 
+--- | Trim region - public API maintained for compatibility
+-trimRegion :: (Int, Int) -> (Int, Int) -> T.Text -> ((Int, Int), (Int, Int))
+-trimRegion sPos ePos src =
+-    let !cache = buildLineCache src
+-    in trimRegionFast cache sPos ePos src
+-
+ -- | Convert position to index - public API maintained for compatibility
+ posToIndex :: T.Text -> (Int, Int) -> Int
+ posToIndex src pos =

@@ -1,0 +1,17 @@
+cabal-version: 3.0
+name: bend-ucm-execution
+version: 0.1.0.0
+build-type: Simple
+
+library
+  exposed-modules: Bend.UCM.Execution
+  other-modules: Core.Reify
+  hs-source-dirs: ., ../reify
+  build-depends:
+      base >= 4.17
+    , bend
+    , containers
+    , directory
+    , process
+  default-language: GHC2021
+  ghc-options: -Wall

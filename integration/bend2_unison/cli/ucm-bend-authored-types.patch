@@ -1,0 +1,99 @@
+--- a/unison-share-api/src/Unison/Server/Backend.hs
++++ b/unison-share-api/src/Unison/Server/Backend.hs
+@@ -83,6 +83,7 @@
+   )
+ where
+ 
++import Bend.UCM.Display qualified as BendDisplay
+ import Bend.UCM.Storage qualified as BendStorage
+ import Control.Error.Util (hush)
+ import Control.Lens hiding ((??))
+@@ -1232,11 +1233,14 @@
+ 
+ loadSearchResults ::
+   Codebase m Symbol Ann ->
++  Names ->
+   [SR.SearchResult] ->
+   Sqlite.Transaction [SR'.SearchResult' Symbol Ann]
+-loadSearchResults c = traverse loadSearchResult
++loadSearchResults c names results = do
++  displayNames <- BendDisplay.loadDisplayNames names
++  traverse (loadSearchResult displayNames) results
+   where
+-    loadSearchResult = \case
++    loadSearchResult displayNames = \case
+       SR.Tm (SR.TermResult name r aliases) -> do
+         typ <- loadReferentType c r
+         bendType <- case r of
+@@ -1246,7 +1250,7 @@
+               Nothing -> pure Nothing
+               Just refId -> BendStorage.loadBendDefinitionTypeTextByHashRef refId >>= \case
+                 Left err -> Sqlite.unsafeIO (ioError (userError err))
+-                Right typeText -> pure typeText
++                Right typeText -> pure (BendDisplay.displayTypeText displayNames <$> typeText)
+           _ -> pure Nothing
+         pure $ SR'.Tm' (SR'.TermResult' name typ bendType r aliases)
+       SR.Tp (SR.TypeResult name r aliases) -> do
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput.hs
+@@ -959,7 +959,7 @@
+         results <- searchBranch0 codebase branch0 projectRootNames
+         when (not $ null results) do
+           Cli.setNumberedArgs $ fmap (SA.SearchResult Nothing) results
+-          results' <- Cli.runTransaction (Backend.loadSearchResults codebase results)
++          results' <- Cli.runTransaction (Backend.loadSearchResults codebase projectRootNames results)
+           Cli.respond $ GlobalFindBranchResults projAndBranchNames (PPED.suffixifiedPPE pped) isVerbose results'
+   where
+     searchBranch0 :: Codebase.Codebase m Symbol Ann -> Branch0 IO -> Names -> Cli [SearchResult]
+@@ -997,7 +997,8 @@
+     respondResults :: Codebase.Codebase m Symbol Ann -> PPE.PrettyPrintEnv -> Maybe Path' -> [SearchResult] -> Cli ()
+     respondResults codebase ppe searchRoot results = do
+       Cli.setNumberedArgs $ fmap (SA.SearchResult searchRoot) results
+-      results' <- Cli.runTransaction (Backend.loadSearchResults codebase results)
++      names <- Cli.currentNames
++      results' <- Cli.runTransaction (Backend.loadSearchResults codebase names results)
+       Cli.respond $ ListOfDefinitions fscope ppe isVerbose results'
+ 
+ doDisplay :: OutputLocation -> Names -> Term Symbol () -> Cli ()
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/Ls.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/Ls.hs
+@@ -4,6 +4,7 @@
+ where
+ 
+ import Control.Monad.Reader (ask)
++import Bend.UCM.Display qualified as BendDisplay
+ import Unison.Cli.Monad (Cli)
+ import Unison.Cli.Monad qualified as Cli
+ import Unison.Cli.MonadUtils qualified as Cli
+@@ -23,9 +24,18 @@
+   Cli.Env {codebase} <- ask
+   pp <- Cli.resolvePath' pathArg
+   projectRootBranch <- Cli.runTransaction $ Codebase.expectShallowProjectBranchRoot pp.branch
+-  entries <- liftIO (Backend.lsAtPath codebase projectRootBranch (pp.absPath))
+-  Cli.setNumberedArgs $ fmap (SA.ShallowListEntry pathArg) entries
++  rawEntries <- liftIO (Backend.lsAtPath codebase projectRootBranch (pp.absPath))
+   names <- Cli.currentNames
++  displayNames <- Cli.runTransaction (BendDisplay.loadDisplayNames names)
++  let displayEntry = \case
++        Backend.ShallowTermEntry entry ->
++          Backend.ShallowTermEntry
++            entry
++              { Backend.termEntryBendType = BendDisplay.displayTypeText displayNames <$> Backend.termEntryBendType entry
++              }
++        entry -> entry
++  let entries = map displayEntry rawEntries
++  Cli.setNumberedArgs $ fmap (SA.ShallowListEntry pathArg) entries
+   let pped = PPED.makePPED (PPE.hqNamer 10 names) (PPE.suffixifyByHash names)
+   let suffixifiedPPE = PPED.suffixifiedPPE pped
+   -- This used to be a delayed action which only forced the loading of the root
+--- a/unison-cli/src/Unison/Codebase/Editor/HandleInput/Signature.hs
++++ b/unison-cli/src/Unison/Codebase/Editor/HandleInput/Signature.hs
+@@ -37,7 +37,7 @@
+   let query = Set.fromList (toList hqNames)
+   (misses, results) <- Cli.runTransaction do
+     QueryResult {misses, hits} <- Backend.hqNameQuery codebase nameSearch Names.IncludeSuffixes query
+-    results <- Backend.loadSearchResults codebase hits
++    results <- Backend.loadSearchResults codebase names hits
+     pure (misses, results)
+   let renderEntry = \case
+         SR'.Tm' (SR'.TermResult' name _ (Just bendType) _ _) ->

@@ -1,0 +1,257 @@
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/ObjectType.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/ObjectType.hs
+@@ -10,6 +10,7 @@
+   | DeclComponent -- 1
+   | Namespace -- 2
+   | Patch -- 3
++  | BendComponent -- 4
+   deriving (Eq, Ord, Show, Enum)
+ 
+ instance ToField ObjectType where
+--- a/codebase2/codebase-sqlite/U/Codebase/Sqlite/Queries.hs
++++ b/codebase2/codebase-sqlite/U/Codebase/Sqlite/Queries.hs
+@@ -68,6 +68,16 @@
+     loadPatchObject,
+     loadTermObject,
+     expectTermObject,
++    loadBendObject,
++    loadBendBytes,
++    loadObjectType,
++    expectBendObject,
++    saveBendComponent,
++    saveBendSemanticIdentity,
++    findBendMembersBySemanticIdentity,
++    saveBendPresentation,
++    loadBendPresentations,
++    findBendMembersByAuthoredName,
+ 
+     -- * namespace_statistics table
+     saveNamespaceStats,
+@@ -277,6 +287,7 @@
+     addHistoryComments,
+     addHistoryCommentHashing,
+     historyCommentHashingCleanup,
++    addBendComponentTables,
+ 
+     -- ** schema version
+     currentSchemaVersion,
+@@ -465,7 +476,7 @@
+ -- * main squeeze
+ 
+ currentSchemaVersion :: SchemaVersion
+-currentSchemaVersion = 26
++currentSchemaVersion = 27
+ 
+ runCreateSql :: Transaction ()
+ runCreateSql =
+@@ -562,6 +573,10 @@
+ historyCommentHashingCleanup :: Transaction ()
+ historyCommentHashingCleanup =
+   executeStatements $(embedProjectStringFile "sql/022-hash-history-comments-cleanup.sql")
++
++addBendComponentTables :: Transaction ()
++addBendComponentTables =
++  executeStatements $(embedProjectStringFile "sql/023-bend-components.sql")
+ 
+ schemaVersion :: Transaction SchemaVersion
+ schemaVersion =
+@@ -855,6 +870,111 @@
+ expectTermObject oid =
+   expectObjectOfType oid TermComponent
+ 
++-- | Decode a checked Bend2 component only when the object has the Bend tag.
++loadBendObject :: (SqliteExceptionReason e) => ObjectId -> (ByteString -> Either e a) -> Transaction (Maybe a)
++loadBendObject oid =
++  loadObjectOfType oid ObjectType.BendComponent
++
++loadBendBytes :: ObjectId -> Transaction (Maybe ByteString)
++loadBendBytes oid = do
++  let bendType = ObjectType.BendComponent
++  queryMaybeCol
++    [sql|
++      SELECT bytes
++      FROM object
++      WHERE id = :oid AND type_id = :bendType
++    |]
++
++loadObjectType :: ObjectId -> Transaction (Maybe ObjectType)
++loadObjectType oid =
++  queryMaybeCol
++    [sql|
++      SELECT type_id
++      FROM object
++      WHERE id = :oid
++    |]
++
++expectBendObject :: (SqliteExceptionReason e) => ObjectId -> (ByteString -> Either e a) -> Transaction a
++expectBendObject oid =
++  expectObjectOfType oid ObjectType.BendComponent
++
++-- | Persist a checked Bend2 component and index dependencies for every member.
++-- The caller supplies the component hash, versioned codec bytes, and resolved
++-- codebase references produced from the same checked component. This function
++-- does not interpret Bend2 syntax or emit HVM code.
++saveBendComponent ::
++  HashHandle ->
++  Hash ->
++  ByteString ->
++  [(C.Reference.Pos, [S.Reference])] ->
++  Transaction ObjectId
++saveBendComponent hh h bytes memberDependencies = do
++  hashId <- saveHashHash h
++  objectId <- saveObject hh hashId ObjectType.BendComponent bytes
++  for_ memberDependencies \(memberIndex, dependencies) ->
++    addToDependentsIndex dependencies (S.Reference.Id objectId memberIndex)
++  pure objectId
++
++-- | Record an identity only when established by a named version of the
++-- Bend2 checker. This is an index, not the executable component address.
++saveBendSemanticIdentity :: ObjectId -> C.Reference.Pos -> Text -> Hash -> Transaction ()
++saveBendSemanticIdentity componentObjectId componentIndex semanticsVersion normalFormHash = do
++  normalFormHashId <- saveHashHash normalFormHash
++  execute
++    [sql|
++      INSERT INTO bend_semantic_identity
++        (component_object_id, component_index, semantics_version, normal_form_hash_id)
++      VALUES (:componentObjectId, :componentIndex, :semanticsVersion, :normalFormHashId)
++      ON CONFLICT DO NOTHING
++    |]
++
++findBendMembersBySemanticIdentity :: Text -> Hash -> Transaction [S.Reference.Id]
++findBendMembersBySemanticIdentity semanticsVersion normalFormHash = do
++  let normalFormHash32 = Hash32.fromHash normalFormHash
++  queryListRow
++    [sql|
++      SELECT b.component_object_id, b.component_index
++      FROM bend_semantic_identity b
++      JOIN hash h ON h.id = b.normal_form_hash_id
++      WHERE b.semantics_version = :semanticsVersion
++        AND h.base32 = :normalFormHash32 COLLATE NOCASE
++    |]
++
++-- | Keep exact authored bytes apart from the checked component object.
++saveBendPresentation :: ObjectId -> C.Reference.Pos -> ByteString -> ByteString -> C.Reference.Pos -> C.Reference.Pos -> Text -> Transaction ()
++saveBendPresentation componentObjectId componentIndex sourceDigest sourceUtf8 sourceStartByte sourceEndByte authoredName =
++  execute
++    [sql|
++      INSERT INTO bend_presentation
++        (component_object_id, component_index, source_digest, source_utf8,
++         source_start_byte, source_end_byte, authored_name)
++      VALUES
++        (:componentObjectId, :componentIndex, :sourceDigest, :sourceUtf8,
++         :sourceStartByte, :sourceEndByte, :authoredName)
++      ON CONFLICT DO NOTHING
++    |]
++
++loadBendPresentations :: ObjectId -> C.Reference.Pos -> Transaction [(ByteString, ByteString, C.Reference.Pos, C.Reference.Pos, Text)]
++loadBendPresentations componentObjectId componentIndex =
++  queryListRow
++    [sql|
++      SELECT source_digest, source_utf8, source_start_byte, source_end_byte, authored_name
++      FROM bend_presentation
++      WHERE component_object_id = :componentObjectId
++        AND component_index = :componentIndex
++      ORDER BY id
++    |]
++
++findBendMembersByAuthoredName :: Text -> Transaction [S.Reference.Id]
++findBendMembersByAuthoredName authoredName =
++  queryListRow
++    [sql|
++      SELECT DISTINCT component_object_id, component_index
++      FROM bend_presentation
++      WHERE authored_name = :authoredName
++      ORDER BY component_object_id, component_index
++    |]
++
+ expectPrimaryHashIdForObject :: ObjectId -> Transaction HashId
+ expectPrimaryHashIdForObject oId = do
+   queryOneCol
+@@ -1141,6 +1261,7 @@
+           DeclComponent -> Entity.DC <$> decodeSyncDeclFormat bytes
+           Namespace -> Entity.N <$> decodeSyncNamespaceFormat bytes
+           Patch -> Entity.P <$> decodeSyncPatchFormat bytes
++          ObjectType.BendComponent -> Left (DecodeError "expectEntity" "Bend2 sync entity is not supported")
+ 
+ -- | Read an entity out of temp storage.
+ expectTempEntity :: Hash32 -> Transaction TempEntity
+--- a/codebase2/codebase-sqlite/unison-codebase-sqlite.cabal
++++ b/codebase2/codebase-sqlite/unison-codebase-sqlite.cabal
+@@ -32,6 +32,7 @@
+     sql/020-add-history-comments.sql
+     sql/021-hash-history-comments.sql
+     sql/022-hash-history-comments-cleanup.sql
++    sql/023-bend-components.sql
+     sql/create.sql
+ 
+ source-repository head
+--- a/parser-typechecker/src/Unison/Codebase/SqliteCodebase/Migrations.hs
++++ b/parser-typechecker/src/Unison/Codebase/SqliteCodebase/Migrations.hs
+@@ -97,7 +97,8 @@
+       sqlMigration 23 Q.addHistoryComments,
+       sqlMigration 24 Q.addHistoryCommentHashing,
+       (25, runT $ hashHistoryCommentsMigration personalKey),
+-      sqlMigration 26 Q.historyCommentHashingCleanup
++      sqlMigration 26 Q.historyCommentHashingCleanup,
++      sqlMigration 27 Q.addBendComponentTables
+     ]
+   where
+     runT :: Sqlite.Transaction () -> Sqlite.Connection -> IO ()
+--- a/parser-typechecker/src/Unison/Codebase/SqliteCodebase/Operations.hs
++++ b/parser-typechecker/src/Unison/Codebase/SqliteCodebase/Operations.hs
+@@ -89,6 +89,7 @@
+   Q.addHistoryComments
+   Q.addHistoryCommentHashing
+   Q.historyCommentHashingCleanup
++  Q.addBendComponentTables
+   (_, emptyCausalHashId) <- emptyCausalHash
+   (_, ProjectBranchRow {projectId, branchId}) <-
+     insertProjectAndBranch scratchProjectName scratchBranchName emptyCausalHashId
+--- a/codebase2/codebase-sqlite/sql/023-bend-components.sql
++++ b/codebase2/codebase-sqlite/sql/023-bend-components.sql
+@@ -0,0 +1,45 @@
++-- Native checked Bend2 objects. Object type 4 extends the stable enum.
++-- Sync/temp-entity support is deliberately separate from this local schema.
++
++INSERT INTO object_type_description (id, description)
++VALUES (4, 'Bend2 Checked Component');
++
++-- The object primary hash addresses the *checked structural component*.
++-- The complete versioned AST, types, HIT declarations, and local reference
++-- table live in object.bytes using the native Bend component codec.
++-- It is never a hash of emitted HVM text.
++
++-- Checker-established normal-form identity is an additional searchable fact.
++-- It cannot be the sole address: different executable checked presentations
++-- can have equal normal forms, while the object table permits one byte blob
++-- for each primary hash. Absence of a row means no identity was established.
++CREATE TABLE bend_semantic_identity (
++  component_object_id INTEGER NOT NULL REFERENCES object(id),
++  component_index INTEGER NOT NULL CHECK (component_index >= 0),
++  semantics_version TEXT NOT NULL,
++  normal_form_hash_id INTEGER NOT NULL REFERENCES hash(id),
++  PRIMARY KEY (component_object_id, component_index, semantics_version)
++);
++
++CREATE INDEX bend_semantic_identity_by_normal_form
++ON bend_semantic_identity (semantics_version, normal_form_hash_id);
++
++-- Exact authored forms are retained independently of structural and semantic
++-- identity. Several presentations may point at one checked member. The source
++-- digest is of the complete UTF-8 bytes, with no formatting normalization.
++-- Names and positions here are display/edit provenance, never component refs.
++CREATE TABLE bend_presentation (
++  id INTEGER PRIMARY KEY NOT NULL,
++  component_object_id INTEGER NOT NULL REFERENCES object(id),
++  component_index INTEGER NOT NULL CHECK (component_index >= 0),
++  source_digest BLOB NOT NULL,
++  source_utf8 BLOB NOT NULL,
++  source_start_byte INTEGER NOT NULL CHECK (source_start_byte >= 0),
++  source_end_byte INTEGER NOT NULL CHECK (source_end_byte >= source_start_byte),
++  authored_name TEXT NOT NULL,
++  UNIQUE (component_object_id, component_index, source_digest,
++          source_start_byte, source_end_byte, authored_name)
++);
++
++CREATE INDEX bend_presentation_by_member
++ON bend_presentation (component_object_id, component_index);
