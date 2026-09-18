@@ -18,7 +18,7 @@ For primitive interaction cost $c(e)$ and a reduction path $\gamma$,
 C(\gamma)=\sum_{e\in\gamma}c(e).
 ```
 
-A remaining-work measure $\Phi$ with $\Phi(t)=0$ on normal forms and
+A potential $\Phi$—a remaining-work measure—with $\Phi(t)=0$ on normal forms and
 
 ```math
 \Phi(u)\le c(u,v)+\Phi(v)
@@ -30,7 +30,7 @@ for every primitive reduction step satisfies
 \Phi(s)\le C(\gamma)
 ```
 
-for every reduction $\gamma:s\leadsto t$ to normal form. This is the standard amortized/resource-analysis argument: one primitive reduction cannot decrease certified remaining work by more than its charged cost. If equality holds at every step of one reduction, its accumulated cost meets the lower bound exactly, so no equivalent reduction is cheaper. Under unit interaction cost, it has minimum interaction count.
+for every reduction $\gamma:s\leadsto t$ to normal form. This is the potential method from amortized analysis: one primitive reduction cannot decrease the remaining-work measure by more than the cost charged to that reduction. If equality holds at every step of one reduction, its accumulated cost meets the lower bound exactly, so no equivalent reduction is cheaper. Under unit interaction cost, it has minimum interaction count.
 
 ---
 
@@ -42,19 +42,19 @@ Start with one Boolean value $b\in\mathbf2=\{0,1\}$. If a program uses that same
 (b,b)\in\{(0,0),(1,1)\}.
 ```
 
-The set of possible pairs is the diagonal
+In mathematics this correlated pair-space is the diagonal
 
 ```math
 \Delta_{\mathbf2}=\{(0,0),(1,1)\}\subset\mathbf2\times\mathbf2.
 ```
 
-It still contains one Boolean degree of freedom:
+It still carries only the original one-bit choice:
 
 ```math
 \Delta_{\mathbf2}\simeq\mathbf2,\qquad \pi_1|_\Delta=\pi_2|_\Delta.
 ```
 
-If the two values vary independently, all four pairs are possible:
+If the values come from two independent choices, all four pairs are possible—the Cartesian product:
 
 ```math
 \mathbf2\times\mathbf2=\{(0,0),(0,1),(1,0),(1,1)\}.
@@ -71,7 +71,7 @@ HVM represents a binary alternative as a labelled SUP node. The label names the 
 
 When a DUP labelled $L$ meets a SUP carrying the same label, both uses must see the same branch. The possible paired observations are therefore only $(x_0,x_0)$ and $(x_1,x_1)$: the diagonal above. When the labels differ, they name different choices, so both coordinates remain and their four combinations form the product square.
 
-With finite counting information,
+Shannon information counts exactly this distinction space:
 
 ```math
 H(\mathbf2^n)=\log_2|\mathbf2^n|=n,\qquad H(\Delta_{\mathbf2})=1.
@@ -89,7 +89,7 @@ The different-label interaction preserves both choice coordinates and crosses th
 \mathrm{DUP}_L\bowtie\mathrm{SUP}_M\longrightarrow\text{cross},\qquad L\ne M.
 ```
 
-The same distinction extends geometrically. Two transformations $r$ and $s$ that vary independently and commute form the two coordinate directions of a square:
+A product of independently varying coordinates is already a cube. Two transformations $r$ and $s$ that vary independently and commute form the two coordinate directions of a square:
 
 ```text
         r
@@ -117,7 +117,7 @@ composes as
 g\circ f:A\to C.
 ```
 
-Factorization is the inverse structural question: for a given map $h:A\to C$, find $f:A\to B$ and $g:B\to C$ with $h=g\circ f$.
+Composition builds a transformation from parts; factorization recovers such parts. For a given map $h:A\to C$, for a given map $h:A\to C$, find $f:A\to B$ and $g:B\to C$ with $h=g\circ f$.
 
 If
 
@@ -141,13 +141,13 @@ Lamping/Lévy optimal sharing removes duplicated work belonging to the same redu
 
 ## 3. Every map is exactly visible value plus fibre
 
-For
+Now apply factorization to an arbitrary computation or observation
 
 ```math
-f:A\to B,
+f:A\to B.
 ```
 
-define
+For an output $b:B$, define its fibre—the inputs together with proofs that they map to $b$—by
 
 ```math
 \mathrm{fib}_f(b)
@@ -171,7 +171,7 @@ a\longmapsto\big(f(a),(a,\mathrm{refl})\big)
 
 and projects the stored $a$ in the reverse direction. The source is therefore exactly the visible result together with the fibre over that result—the complete distinction the observation leaves unresolved.
 
-The formal development proves that lossless completions satisfying the reconstruction law for a fixed map form a contractible type. Losslessness is therefore a property of the map. At process level,
+A lossless completion means precisely such a reconstruction of the source from visible output plus residual fibre. The formal development proves that the type of lawful completions of a fixed map is contractible: there is, up to identity, exactly one such completion. Losslessness is therefore a property forced by the map, not an optimizer choice. At process level,
 
 ```math
 \mathrm{LawfulStep}(A)\simeq(A\to A).
@@ -191,13 +191,13 @@ A determined visible coordinate may collapse while its exact residual remains in
 
 ## 4. Universal family
 
-Let $\mathcal U$ be a universe. Its universal family is
+A universe $\mathcal U$ is a type whose elements are themselves types. Its universal family is
 
 ```math
 \pi:\sum_{X:\mathcal U}X\to\mathcal U.
 ```
 
-Every dependent family
+A dependent family—one type $P(b)$ for each $b:B$—
 
 ```math
 P:B\to\mathcal U
@@ -237,7 +237,7 @@ Algebra is types equipped with operations and equations; number theory specializ
 
 ## 5. Univalence: equivalence computes as identity
 
-Voevodsky univalence is
+The previous section internalized families of types. Voevodsky's univalence internalizes equivalence between types as identity in that universe:
 
 ```math
 (A=_{\mathcal U}B)
@@ -267,7 +267,7 @@ e(x)
 }.
 ```
 
-An equivalence is therefore an executable identity.
+In CCHM this is not merely propositional: transport along the identity computes the equivalence. Equivalence is executable identity.
 
 For $f:A\to A$ and $e:A\simeq B$,
 
@@ -291,7 +291,7 @@ The transported-cost formalization exhibits families whose canonical presentatio
 
 ## 6. Cubical composition
 
-A path is
+Cubical type theory represents an identity as a path over an interval $I$:
 
 ```math
 p:I\to A,
@@ -299,7 +299,7 @@ p:I\to A,
 \quad p(1)=b.
 ```
 
-A path between paths is
+Identities themselves have identities, represented as higher-dimensional paths:
 
 ```math
 p,q:a=_A b,
@@ -307,7 +307,7 @@ p,q:a=_A b,
 \alpha:p=q.
 ```
 
-A varying family is
+A type may vary along the same interval:
 
 ```math
 P:I\to\mathcal U,
@@ -319,19 +319,19 @@ with coercion
 \mathrm{coe}(P,r,s):P(r)\to P(s).
 ```
 
-`hcomp` fills a compatible partial boundary in a fixed type. `comp` combines filling with transport through a varying family. The implemented type-directed CCHM rules cover Pi, Sigma, PathP and inductive structure; `Glue` supplies computational universe transport. A partial composition remains a term until its boundary data determine reduction.
+Kan composition is the operation that completes coherent partial cubes. `hcomp` fills a compatible partial boundary in a fixed type; `comp` performs the same completion while the type itself varies, combining filling with transport. The implemented type-directed CCHM rules cover Pi, Sigma, PathP and inductive structure; `Glue` supplies computational universe transport. A partial composition remains a term until its boundary data determine reduction.
 
 When two local reductions commute, their two execution orders are the two boundary paths of this square and the commuting proof is the 2-cell between them. Higher commuting diagrams are higher cubical cells. Thus parallel reduction coherence is represented by the same path/composition structure that CCHM computes.
 
 ---
 
-## 7. CCHM semantics in Bend/HVM4
+## 7. The mathematics executes in Bend/HVM4
 
-The Bend patch adds cubical constructors to the core term language and carries them through definitional reduction, evaluation and HVM4 lowering. The full HVM4 target retains intervals, paths, types, `coe` and `hcomp` as reducible terms instead of erasing or pre-normalizing them.
+The preceding operations are the semantics added to Bend/HVM4, not a proof layer beside execution. The Bend patch adds the cubical constructors to the core term language and carries them through definitional reduction, evaluation and HVM4 lowering. The full HVM4 target retains intervals, paths, types, `coe` and `hcomp` as reducible terms instead of erasing or pre-normalizing them.
 
 The CCHM Kan laws are implemented as definitional reductions. `kan.bend` checks the Pi, Sigma, PathP and Nat equations at definitional equality; those checks succeed only when `whnfHCm` performs the corresponding composition rule.
 
-Runtime coercion is type-directed. Pi transport is contravariant in the domain and covariant in the codomain. Sigma transport first transports the first projection and then transports the second in the resulting dependent family. PathP transport constructs the corresponding higher composition. Universe transport executes the represented equivalence.
+Transport depends on the type being transported, so runtime coercion is type-directed. Pi transport is contravariant in the domain and covariant in the codomain. Sigma transport first transports the first projection and then transports the second in the resulting dependent family. PathP transport constructs the corresponding higher composition. Universe transport executes the represented equivalence.
 
 An unresolved composition remains explicitly represented:
 
@@ -364,13 +364,13 @@ The emitted HVM4 reduction now transports each list element through the element-
 
 ## 8. Coinduction and intrinsic rewrite
 
-A process that returns an observation and continues has coalgebraic form
+Reduction need not terminate after producing one result. A process that returns an observation and continues has the coalgebraic form
 
 ```math
 X\to O\times X.
 ```
 
-The dependent interaction formalization returns successor, dependent observation/event, exact residual and continuation together. A derived equality, equivalence or transformation is itself a term and remains input to later interaction.
+The dependent interaction formalization refines this form: one interaction returns the successor state, its dependent observation/event, the exact residual of that observation, and the continuation together. A derived equality, equivalence or transformation is itself a term and remains input to later interaction.
 
 ```math
 \text{interaction}
@@ -400,13 +400,13 @@ Optimal factoring is therefore retained through continued interaction rather tha
 
 ## 9. Exact reduction-cost certificates
 
-Assign a cost to each primitive reduction:
+Now put a cost model on the reducer. Assign each primitive reduction a cost:
 
 ```math
 w:E\to\mathbb N.
 ```
 
-For a normal form $t$, let a remaining-work measure $\Phi$ satisfy
+A potential $\Phi$ is a remaining-work measure. For a normal form $t$, require
 
 ```math
 \Phi(t)=0
@@ -448,7 +448,7 @@ implies
 
 Componentwise equality gives exact Pareto attainment: no competing reduction improves any resource coordinate below the certified vector. No scalar exchange rate between resource coordinates is part of the theorem.
 
-State-space size and reduction cost are different invariants. Cardinality, cube dimension, clause count, intersection count and residual width become cost lower bounds only after proving that one primitive reduction can discharge at most its charged amount of that quantity.
+This is the compiler-theoretic distinction between representation size and execution cost: state-space size and reduction cost are different invariants. Cardinality, cube dimension, clause count, intersection count and residual width become cost lower bounds only after proving that one primitive reduction can discharge at most its charged amount of that quantity.
 
 ---
 
@@ -474,7 +474,7 @@ Under unit-cost interaction reduction, the resulting minimum-cost theorem minimi
 
 # Appendix A — SAT / 3SAT: the finite Boolean presentation
 
-For a Boolean predicate $F:\mathbf2^N\to\mathbf2$, SAT asks whether the fibre over $1$ is inhabited; witness SAT asks for a point in that fibre.
+SAT is the finite Boolean specialization of the preceding map/fibre construction. For $F:\mathbf2^N\to\mathbf2$, SAT asks whether the fibre over $1$ is inhabited; witness SAT asks for a point in that fibre.
 
 ```math
 Q_N=\mathbf2^N,
@@ -752,7 +752,7 @@ in general.
 
 ## A.7 The exact complexity interface is a reduction-cost certificate
 
-A semantic quantity becomes a reduction-cost lower bound only after proving how much one primitive reduction can decrease it. If
+The same potential method now applies to SAT. A semantic quantity becomes a reduction-cost lower bound only after proving how much one primitive reduction can decrease it. If
 
 ```math
 \Phi(t)=0
