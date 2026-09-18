@@ -30,7 +30,7 @@ for every primitive reduction step satisfies
 \Phi(s)\le C(\gamma)
 ```
 
-for every reduction $\gamma:s\leadsto t$ to normal form. This is the standard potential-method shape from amortized/resource analysis: one primitive reduction cannot decrease certified remaining work by more than its charged cost. If equality holds at every step of one reduction, its accumulated cost meets the lower bound exactly, so no equivalent reduction is cheaper. Under unit interaction cost, it has minimum interaction count.
+for every reduction $\gamma:s\leadsto t$ to normal form. This is the standard amortized/resource-analysis argument: one primitive reduction cannot decrease certified remaining work by more than its charged cost. If equality holds at every step of one reduction, its accumulated cost meets the lower bound exactly, so no equivalent reduction is cheaper. Under unit interaction cost, it has minimum interaction count.
 
 ---
 
@@ -758,13 +758,13 @@ A semantic quantity becomes a reduction-cost lower bound only after proving how 
 \Phi(t)=0
 ```
 
-and every primitive edge obeys
+and every primitive reduction $u\to v$ obeys
 
 ```math
 \Phi(u)\le w(u,v)+\Phi(v),
 ```
 
-then every terminal path obeys
+then every reduction to normal form obeys
 
 ```math
 \Phi(s)\le C(\gamma).
