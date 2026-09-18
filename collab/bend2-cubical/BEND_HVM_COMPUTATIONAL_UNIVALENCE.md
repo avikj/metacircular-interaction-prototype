@@ -2,7 +2,7 @@
 
 ## Thesis
 
-Bend2 left the Interaction Calculus because HOC could not make interaction-net execution as fast as lower-order execution on everyday hardware.
+Bend2 moved from the Interaction Calculus to lower-order execution after HOC's work exposed the practical cost of preserving higher-order sharing on ordinary hardware.
 
 We give Bend/HVM computational cubical type theory: identity, equivalence and higher-dimensional composition compute directly in the Interaction Calculus.
 
