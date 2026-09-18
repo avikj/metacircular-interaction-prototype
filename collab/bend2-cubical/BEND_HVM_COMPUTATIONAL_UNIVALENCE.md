@@ -18,19 +18,19 @@ For primitive interaction cost $c(e)$ and a reduction path $\gamma$,
 C(\gamma)=\sum_{e\in\gamma}c(e).
 ```
 
-A potential $\Phi$ with $\Phi(t)=0$ at terminals and
+A remaining-work measure $\Phi$ with $\Phi(t)=0$ on normal forms and
 
 ```math
 \Phi(u)\le c(u,v)+\Phi(v)
 ```
 
-on every primitive edge satisfies
+for every primitive reduction step satisfies
 
 ```math
 \Phi(s)\le C(\gamma)
 ```
 
-for every terminal reduction $\gamma:s\leadsto t$. Equality on every edge telescopes to equality globally, proving that reduction geodesic. Under unit interaction cost, its length is the minimum interaction count.
+for every reduction $\gamma:s\leadsto t$ to normal form. This is the standard potential-method shape from amortized/resource analysis: one primitive reduction cannot decrease certified remaining work by more than its charged cost. If equality holds at every step of one reduction, its accumulated cost meets the lower bound exactly, so no equivalent reduction is cheaper. Under unit interaction cost, it has minimum interaction count.
 
 ---
 
@@ -133,7 +133,7 @@ The same composition/factorization distinction is elementary in arithmetic:
 60=2^2\cdot3\cdot5.
 ```
 
-A prime is irreducible for multiplication because every factorization has a unit factor. Computational irreducibility is the same statement after the composition law and primitive cost have been specified: no lower-cost factorization has the same required observation.
+A prime is irreducible for multiplication because every factorization has a unit factor. Computational irreducibility is the same statement after the rewrite relation and cost model have been specified: no lower-cost factorization computes the same demanded result.
 
 Lamping/Lévy optimal sharing removes duplicated work belonging to the same reduction family inside a presented net. Here equivalent presentations are themselves connected by executable cubical paths, so factorization is not restricted to the net initially presented.
 
@@ -171,13 +171,13 @@ a\longmapsto\big(f(a),(a,\mathrm{refl})\big)
 
 and projects the stored $a$ in the reverse direction. The source is therefore exactly the visible result together with the fibre over that result—the complete distinction the observation leaves unresolved.
 
-The formal development proves that lawful lossless completions of a fixed map form a contractible type. Losslessness is therefore a property of the map. At process level,
+The formal development proves that lossless completions satisfying the reconstruction law for a fixed map form a contractible type. Losslessness is therefore a property of the map. At process level,
 
 ```math
 \mathrm{LawfulStep}(A)\simeq(A\to A).
 ```
 
-For a fixed observation $f$, the remaining evolution is fibrewise; for sets,
+For a fixed visible map $f$, every transformation that leaves $f$ unchanged acts fibrewise; for sets,
 
 ```math
 \mathrm{Flow}(f)
@@ -398,27 +398,27 @@ Optimal factoring is therefore retained through continued interaction rather tha
 
 ---
 
-## 9. Geodesic cost
+## 9. Exact reduction-cost certificates
 
-Let primitive transitions be weighted by
+Assign a cost to each primitive reduction:
 
 ```math
 w:E\to\mathbb N.
 ```
 
-For a terminal $t$, let a potential $\Phi$ satisfy
+For a normal form $t$, let a remaining-work measure $\Phi$ satisfy
 
 ```math
 \Phi(t)=0
 ```
 
-and, on every primitive edge $u\to v$,
+and, for every primitive reduction $u\to v$,
 
 ```math
 \Phi(u)\le w(u,v)+\Phi(v).
 ```
 
-Then every terminal path $\gamma:s\leadsto t$ satisfies
+Then every reduction $\gamma:s\leadsto t$ satisfies
 
 ```math
 \boxed{
@@ -432,7 +432,7 @@ If equality holds edge-by-edge on a path, telescoping gives
 C(\gamma)=\Phi(s),
 ```
 
-so that path is geodesic.
+so that reduction attains the lower bound exactly and is minimum-cost.
 
 For vector costs in $\mathbb N^d$ with componentwise order,
 
@@ -446,9 +446,9 @@ implies
 \Phi(s)\preceq C(\gamma).
 ```
 
-Equality componentwise gives exact Pareto attainment. No scalar exchange rate between resource coordinates is part of the theorem.
+Componentwise equality gives exact Pareto attainment: no competing reduction improves any resource coordinate below the certified vector. No scalar exchange rate between resource coordinates is part of the theorem.
 
-Carrier size and path cost are different invariants. Cardinality, cube dimension, clause count, intersection count and residual width become lower bounds on cost only when the corresponding quantity is proved to satisfy the primitive-edge potential inequality.
+State-space size and reduction cost are different invariants. Cardinality, cube dimension, clause count, intersection count and residual width become cost lower bounds only after proving that one primitive reduction can discharge at most its charged amount of that quantity.
 
 ---
 
@@ -468,7 +468,7 @@ With unit interaction cost,
 }.
 ```
 
-Under the unit-cost interaction metric, the resulting geodesic theorem minimizes the exact quantity that motivated Bend2's move away from interaction nets: interaction count.
+Under unit-cost interaction reduction, the resulting minimum-cost theorem minimizes the exact quantity that motivated Bend2's move away from interaction nets: interaction count.
 
 ---
 
@@ -750,9 +750,9 @@ Hence
 
 in general.
 
-## A.7 The exact complexity interface is local geodesic potential
+## A.7 The exact complexity interface is a reduction-cost certificate
 
-A semantic quantity becomes a cost lower bound only after proving its primitive-edge law. If
+A semantic quantity becomes a reduction-cost lower bound only after proving how much one primitive reduction can decrease it. If
 
 ```math
 \Phi(t)=0
@@ -770,7 +770,7 @@ then every terminal path obeys
 \Phi(s)\le C(\gamma).
 ```
 
-If equality holds on the native reduction, that reduction is geodesic. For unit interactions, an integer potential changing downward by at most one per primitive edge gives a literal interaction-count lower bound.
+If equality holds step-by-step on a reduction, that reduction attains the lower bound and is minimum-cost. For unit interactions, an integer remaining-work measure that decreases by at most one per primitive reduction is a literal interaction-count lower bound.
 
 For vector costs in $\mathbb N^d$,
 
@@ -786,10 +786,10 @@ gives
 
 Componentwise equality along a reduction proves exact Pareto attainment. The checked Pareto development separately proves that scalarization is extra policy: two componentwise-monotone scalar objectives can select opposite points of one incomparable frontier.
 
-SAT therefore gives a finite instance of the complete chain: Boolean coordinates; local three-coordinate constraints; composition through shared coordinates; exact fibres; decision versus witness; quotient by complete future equality; equivalent factorizations; and a primitive-edge potential turning a retained distinction into a geodesic cost theorem.
+SAT therefore gives a finite instance of the complete chain: Boolean coordinates; local three-coordinate constraints; composition through shared coordinates; exact fibres; decision versus witness; quotient by complete future equality; equivalent factorizations; and a per-reduction remaining-work certificate proving an exact interaction-count lower bound.
 
 ---
 
 # TL;DR
 
-We provide CCHM computational cubical type theory semantics to Bend/HVM4 via first-class interval expressions and De Morgan interval operations; Path/PathP abstraction, application and endpoint computation; type-directed coe; CCHM Kan hcomp/comp; universe paths and Glue; dependent Pi/Sigma/PathP transport; higher-inductive path/quotient structure; suspended partial compositions retained as HVM4 terms; and corresponding extensions to Bend's core terms, definitional equality/type-directed reduction, evaluator and HVM4 lowering, yielding computational univalence and higher identity inside interaction reduction: constructed equivalences execute as transport; paths, dependent types, partial compositions and transformations remain reducible; HVM4 SUP/DUP reduces over that cubical structure while preserving branch correlation; exact fibres retain every distinction hidden by a projection; and intrinsic rewrite with coinductive continuation returns derived transformations to subsequent interaction, and prove exact fibre decomposition for every map; contractibility of lawful lossless completion; $\mathrm{LawfulStep}(A)\simeq(A\to A)$; universal classification of dependent families; computational univalence; fibrewise characterization of observation-preserving evolution; complete-future minimal quotients; closure of derived transformations under continued interaction; exact transport between equivalent cost presentations; local scalar and vector geodesic certificates; and minimum-cost reduction whenever the proved primitive-edge potential is attained—minimum interaction count for unit costs and exact Pareto attainment for vector-valued costs.
+We provide CCHM computational cubical type theory semantics to Bend/HVM4 via first-class interval expressions and De Morgan interval operations; Path/PathP abstraction, application and endpoint computation; type-directed coe; CCHM Kan hcomp/comp; universe paths and Glue; dependent Pi/Sigma/PathP transport; higher-inductive path/quotient structure; suspended partial compositions retained as HVM4 terms; and corresponding extensions to Bend's core terms, definitional equality/type-directed reduction, evaluator and HVM4 lowering, yielding computational univalence and higher identity inside interaction reduction: constructed equivalences execute as transport; paths, dependent types, partial compositions and transformations remain reducible; HVM4 SUP/DUP reduces over that cubical structure while preserving branch correlation; exact fibres retain every distinction hidden by a projection; and intrinsic rewrite with coinductive continuation returns derived transformations to subsequent interaction, and prove exact fibre decomposition for every map; contractibility of lawful lossless completion; $\mathrm{LawfulStep}(A)\simeq(A\to A)$; universal classification of dependent families; computational univalence; fibrewise characterization of observation-preserving evolution; complete-future minimal quotients; closure of derived transformations under continued interaction; exact transport between equivalent cost presentations; scalar and vector reduction-cost certificates; and minimum-cost reduction whenever the proved per-reduction cost bound is attained—minimum interaction count for unit costs and exact Pareto attainment for vector-valued costs.
