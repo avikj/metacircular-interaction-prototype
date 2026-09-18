@@ -117,7 +117,7 @@ composes as
 g\circ f:A\to C.
 ```
 
-Composition builds a transformation from parts; factorization recovers such parts. For a given map $h:A\to C$, for a given map $h:A\to C$, find $f:A\to B$ and $g:B\to C$ with $h=g\circ f$.
+Composition builds a transformation from parts; factorization recovers such parts. For a given map $h:A\to C$, find $f:A\to B$ and $g:B\to C$ with $h=g\circ f$.
 
 If
 
@@ -327,7 +327,7 @@ When two local reductions commute, their two execution orders are the two bounda
 
 ## 7. The mathematics executes in Bend/HVM4
 
-The preceding operations are the semantics added to Bend/HVM4, not a proof layer beside execution. The Bend patch adds the cubical constructors to the core term language and carries them through definitional reduction, evaluation and HVM4 lowering. The full HVM4 target retains intervals, paths, types, `coe` and `hcomp` as reducible terms instead of erasing or pre-normalizing them.
+The preceding operations are the semantics added to Bend/HVM4. The Bend patch adds the cubical constructors to the core term language and carries them through definitional reduction, evaluation and HVM4 lowering. The full HVM4 target retains intervals, paths, types, `coe` and `hcomp` as reducible terms instead of erasing or pre-normalizing them.
 
 The CCHM Kan laws are implemented as definitional reductions. `kan.bend` checks the Pi, Sigma, PathP and Nat equations at definitional equality; those checks succeed only when `whnfHCm` performs the corresponding composition rule.
 
