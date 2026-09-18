@@ -2,7 +2,7 @@
 
 ## Thesis
 
-Bend2 moved from the Interaction Calculus to lower-order execution after HOC's work exposed the practical cost of preserving higher-order sharing on ordinary hardware.
+Bend2 moved from the Interaction Calculus to lower-order execution after HOC's work exposed the practical cost of preserving higher-order sharing on ordinary hardware when the interaction representation itself is fixed and each DUP/SUP interaction must be realized as explicit runtime work.
 
 We give Bend/HVM computational cubical type theory: identity, equivalence and higher-dimensional composition compute directly in the Interaction Calculus.
 
