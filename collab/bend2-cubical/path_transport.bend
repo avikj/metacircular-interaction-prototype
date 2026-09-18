@@ -55,4 +55,4 @@ def growingLoopAction() -> Bool:
 def growingLoopComputes() -> Path(Bool, growingLoopAction(), False):
   <_> False
 def main() -> Bool:
-  True
+  loopAction(i0, i1, True)
